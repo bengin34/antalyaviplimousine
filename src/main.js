@@ -1,3 +1,5 @@
+import { createBooking } from './lib/api.js'
+
 const translations = {
   de: {
     navFleet: "Fahrzeuge",
@@ -119,6 +121,8 @@ const translations = {
     callUs: "24/7 anrufen",
     emailUs: "Concierge E-Mail",
     replyHour: "Antwort innerhalb einer Stunde",
+    fromAirport: "Ab Flughafen Antalya",
+    perVehicle: "pro Fahrzeug · Festpreis",
     footerTagline: "Private Chauffeurservices an der gesamten Türkischen Riviera.",
     explore: "Entdecken",
     information: "Information",
@@ -129,7 +133,21 @@ const translations = {
     totalFixed: "Gesamtpreis",
     quoteIncludes: "Inklusive Meet & Greet, Flugverfolgung, Parken, Wartezeit und Mineralwasser.",
     confirmWhatsapp: "Über WhatsApp bestätigen",
-    chatWithUs: "Mit uns chatten"
+    chatWithUs: "Mit uns chatten",
+    bookNowCta: "Jetzt buchen",
+    backToQuote: "Zurück",
+    yourDetails: "Ihre Daten",
+    fullName: "Vollständiger Name",
+    emailLabel: "E-Mail",
+    phoneLabel: "Telefon / WhatsApp",
+    flightNumber: "Flugnummer",
+    flightArrivalTime: "Ankunftszeit",
+    notesLabel: "Besondere Wünsche",
+    confirmBooking: "Buchung bestätigen",
+    payLaterNote: "Sichere Online-Zahlung nach Bestätigung.",
+    bookingConfirmed: "Buchung bestätigt",
+    referenceLabel: "Referenz",
+    weWillContact: "Bestätigung an Ihre E-Mail gesendet. Wir melden uns innerhalb von 30 Minuten.",
   },
   tr: {
     navFleet: "Araçlar",
@@ -251,6 +269,8 @@ const translations = {
     callUs: "7/24 arayın",
     emailUs: "Concierge e-postası",
     replyHour: "Bir saat içinde yanıt",
+    fromAirport: "Antalya Havalimanı'ndan",
+    perVehicle: "araç başı · sabit fiyat",
     footerTagline: "Türk Rivierası genelinde özel şoför hizmetleri.",
     explore: "Keşfedin",
     information: "Bilgi",
@@ -261,7 +281,21 @@ const translations = {
     totalFixed: "Toplam sabit fiyat",
     quoteIncludes: "Karşılama, uçuş takibi, otopark, bekleme süresi ve şişe su dahildir.",
     confirmWhatsapp: "WhatsApp ile onaylayın",
-    chatWithUs: "Bize yazın"
+    chatWithUs: "Bize yazın",
+    bookNowCta: "Rezervasyon yap",
+    backToQuote: "Geri",
+    yourDetails: "Bilgileriniz",
+    fullName: "Ad Soyad",
+    emailLabel: "E-posta",
+    phoneLabel: "Telefon / WhatsApp",
+    flightNumber: "Uçuş numarası",
+    flightArrivalTime: "Varış saati",
+    notesLabel: "Özel istekler",
+    confirmBooking: "Rezervasyonu onayla",
+    payLaterNote: "Onay sonrası güvenli online ödeme.",
+    bookingConfirmed: "Rezervasyon Onaylandı",
+    referenceLabel: "Referans",
+    weWillContact: "Onay e-postanıza gönderildi. 30 dakika içinde sizinle iletişime geçeceğiz.",
   },
   ru: {
     navFleet: "Автопарк",
@@ -383,6 +417,8 @@ const translations = {
     callUs: "Позвонить 24/7",
     emailUs: "Написать консьержу",
     replyHour: "Ответ в течение часа",
+    fromAirport: "Из аэропорта Антальи",
+    perVehicle: "за автомобиль · фиксированная цена",
     footerTagline: "Частные услуги шофёра по всей Турецкой Ривьере.",
     explore: "Разделы",
     information: "Информация",
@@ -393,7 +429,21 @@ const translations = {
     totalFixed: "Итоговая цена",
     quoteIncludes: "Включены встреча, отслеживание рейса, парковка, ожидание и питьевая вода.",
     confirmWhatsapp: "Подтвердить в WhatsApp",
-    chatWithUs: "Написать нам"
+    chatWithUs: "Написать нам",
+    bookNowCta: "Забронировать",
+    backToQuote: "Назад",
+    yourDetails: "Ваши данные",
+    fullName: "Имя и фамилия",
+    emailLabel: "Эл. почта",
+    phoneLabel: "Телефон / WhatsApp",
+    flightNumber: "Номер рейса",
+    flightArrivalTime: "Время прилёта",
+    notesLabel: "Особые пожелания",
+    confirmBooking: "Подтвердить бронирование",
+    payLaterNote: "Оплата онлайн после подтверждения.",
+    bookingConfirmed: "Бронирование подтверждено",
+    referenceLabel: "Референс",
+    weWillContact: "Подтверждение отправлено на вашу почту. Мы свяжемся с вами в течение 30 минут.",
   }
 };
 
@@ -510,6 +560,12 @@ const openQuote = (routeKey) => {
   document.querySelector("#quote-duration").textContent = route.duration;
   document.querySelector("#quote-guests").textContent = guests;
   document.querySelector("#quote-total").textContent = `€${route.price}`;
+  currentQuoteData = {
+    pickup: document.querySelector("#pickup").value === "Antalya Airport (AYT)" ? "airport" : "hotel",
+    destination: routeKey,
+    price: route.price,
+  };
+  showModalStep(1);
   quoteModal.classList.add("open");
   quoteModal.setAttribute("aria-hidden", "false");
   document.body.classList.add("modal-open");
@@ -520,7 +576,78 @@ const closeQuote = () => {
   quoteModal.classList.remove("open");
   quoteModal.setAttribute("aria-hidden", "true");
   document.body.classList.remove("modal-open");
+  showModalStep(1);
 };
+
+// Modal step navigation
+let currentQuoteData = {};
+
+const showModalStep = (step) => {
+  [1, 2, 3].forEach((n) => {
+    const el = document.querySelector(`#modal-step-${n}`);
+    if (el) el.hidden = n !== step;
+  });
+};
+
+document.querySelector("#modal-book-now").addEventListener("click", () => {
+  showModalStep(2);
+  document.querySelector("#customer-name").focus();
+});
+
+document.querySelector("#modal-back").addEventListener("click", () => {
+  showModalStep(1);
+});
+
+document.querySelector("#booking-details-form").addEventListener("submit", async (event) => {
+  event.preventDefault();
+  const form = event.target;
+  const submitBtn = form.querySelector("#booking-submit");
+
+  // Basic validation
+  const name = document.querySelector("#customer-name").value.trim();
+  const email = document.querySelector("#customer-email").value.trim();
+  const phone = document.querySelector("#customer-phone").value.trim();
+  if (!name || !email || !phone) {
+    if (!name) document.querySelector("#customer-name").focus();
+    else if (!email) document.querySelector("#customer-email").focus();
+    else document.querySelector("#customer-phone").focus();
+    return;
+  }
+
+  submitBtn.disabled = true;
+  const originalText = submitBtn.querySelector("span").textContent;
+  submitBtn.querySelector("span").textContent = "…";
+
+  try {
+    const booking = await createBooking({
+      customer_name: name,
+      customer_email: email,
+      customer_phone: phone,
+      flight_number: document.querySelector("#flight-number").value.trim() || null,
+      flight_arrival_time: document.querySelector("#flight-arrival-time").value || null,
+      notes: document.querySelector("#booking-notes").value.trim() || null,
+      pickup_location: currentQuoteData.pickup || "airport",
+      dropoff_location: currentQuoteData.destination || "",
+      pickup_date: document.querySelector("#travel-date").value,
+      guests: parseInt(document.querySelector("#guests").value, 10),
+      vehicle_type: "vclass",
+      price_eur: currentQuoteData.price || 0,
+      language: document.documentElement.lang || "en",
+    });
+
+    document.querySelector("#confirmed-ref").textContent = booking.booking_ref;
+    showModalStep(3);
+    form.reset();
+  } catch (err) {
+    console.error("Booking error:", err);
+    submitBtn.querySelector("span").textContent = "Error — try WhatsApp";
+  } finally {
+    submitBtn.disabled = false;
+    if (submitBtn.querySelector("span").textContent === "…") {
+      submitBtn.querySelector("span").textContent = originalText;
+    }
+  }
+});
 
 document.querySelector("#quote-form").addEventListener("submit", (event) => {
   event.preventDefault();
@@ -535,6 +662,13 @@ document.querySelectorAll(".route-card").forEach((card) => {
   card.querySelector("button").addEventListener("click", () => {
     destinationSelect.value = card.dataset.route;
     openQuote(card.dataset.route);
+  });
+});
+
+document.querySelectorAll(".price-pill").forEach((pill) => {
+  pill.addEventListener("click", () => {
+    destinationSelect.value = pill.dataset.route;
+    openQuote(pill.dataset.route);
   });
 });
 

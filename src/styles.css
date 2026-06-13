@@ -714,6 +714,71 @@ html[lang="ru"] .faq-item button span {
   color: var(--gold-dark);
 }
 
+.price-strip {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 14px var(--section-x);
+  border-bottom: 1px solid var(--line);
+  flex-wrap: wrap;
+}
+
+.price-strip-label {
+  color: var(--muted);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.price-strip-note {
+  color: #b5b0a8;
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  margin-left: auto;
+}
+
+.price-strip-pills {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.price-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 7px 14px;
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--ink);
+  cursor: pointer;
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  transition: 0.2s ease;
+}
+
+.price-pill strong {
+  color: var(--gold-dark);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.price-pill:hover {
+  border-color: var(--gold);
+  background: #faf7f1;
+  color: var(--ink);
+}
+
+.price-pill:hover strong {
+  color: var(--gold-dark);
+}
+
 .section {
   max-width: 1440px;
   margin: 0 auto;
@@ -2008,6 +2073,151 @@ footer {
   width: 100%;
 }
 
+/* ---- Modal multi-step ---- */
+
+.modal-book-now {
+  width: 100%;
+}
+
+.modal-whatsapp-alt {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 16px;
+  color: var(--muted);
+  font-size: 11px;
+  text-decoration: none;
+  letter-spacing: 0.04em;
+  transition: color 0.2s;
+}
+
+.modal-whatsapp-alt:hover { color: var(--ink); }
+.modal-whatsapp-alt .icon { width: 13px; height: 13px; }
+
+/* Step 2 */
+
+.modal-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  margin-bottom: 20px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.modal-back:hover { color: var(--ink); }
+.modal-back .icon { width: 14px; height: 14px; }
+
+.modal-form-fields {
+  display: grid;
+  gap: 0;
+  margin-bottom: 24px;
+  border: 1px solid var(--line);
+}
+
+.modal-form-fields .booking-field {
+  padding: 10px 18px;
+  border-left: 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.modal-form-fields .booking-field:last-child {
+  border-bottom: 0;
+}
+
+.modal-form-fields .booking-field > span {
+  margin-left: 0;
+}
+
+.modal-form-fields .field-control input,
+.modal-form-fields .field-control textarea {
+  font-size: 13px;
+}
+
+.modal-form-fields textarea {
+  width: 100%;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 13px;
+  resize: none;
+}
+
+.booking-field-full {
+  grid-column: 1 / -1;
+}
+
+.modal-form-note {
+  margin-top: 12px;
+  color: var(--muted);
+  font-size: 10px;
+  text-align: center;
+  letter-spacing: 0.04em;
+}
+
+/* Step 3: Confirmed */
+
+.booking-confirmed {
+  padding: 20px 0;
+  text-align: center;
+}
+
+.confirmed-check {
+  display: grid;
+  width: 64px;
+  height: 64px;
+  place-items: center;
+  margin: 0 auto 24px;
+  border-radius: 50%;
+  background: #0b6e4f;
+  color: #fff;
+}
+
+.confirmed-check svg {
+  width: 28px;
+  height: 28px;
+}
+
+.booking-confirmed h2 {
+  margin: 0 0 16px;
+}
+
+.confirmed-ref {
+  margin-bottom: 8px;
+  color: var(--muted);
+  font-size: 13px;
+  letter-spacing: 0.04em;
+}
+
+.confirmed-ref strong {
+  color: var(--ink);
+  font-size: 15px;
+  letter-spacing: 0.06em;
+}
+
+.confirmed-msg {
+  margin-bottom: 32px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.booking-confirmed .button {
+  width: 100%;
+}
+
 .reveal {
   animation: reveal-up 0.9s both;
 }
@@ -2217,6 +2427,34 @@ footer {
 
   .footer-links {
     grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 900px) {
+  .price-strip {
+    gap: 12px;
+  }
+  .price-strip-note {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .price-strip {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding-bottom: 10px;
+  }
+  .price-strip::-webkit-scrollbar {
+    display: none;
+  }
+  .price-strip-pills {
+    flex-wrap: nowrap;
+  }
+  .price-pill {
+    white-space: nowrap;
   }
 }
 
