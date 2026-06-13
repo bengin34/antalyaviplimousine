@@ -576,20 +576,136 @@ html[lang="ru"] .faq-item button span {
 .booking-shell {
   position: relative;
   z-index: 5;
+  background: var(--black);
+  color: var(--white);
+}
+
+.booking-shell-inner {
   max-width: 1440px;
-  margin: -62px auto 0;
-  padding: 0 var(--section-x);
+  margin: 0 auto;
+  padding: 60px var(--section-x);
+}
+
+.booking-shell-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 30px;
+  margin-bottom: 32px;
+}
+
+.booking-shell-header .mini-label {
+  color: var(--gold-light);
+}
+
+.booking-shell-header h2 {
+  margin: 8px 0 0;
+  font-family: var(--serif);
+  font-size: clamp(30px, 3.5vw, 50px);
+  font-weight: 400;
+  line-height: 1;
+}
+
+.booking-price-display {
+  display: none;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 22px;
+  border: 1px solid rgba(200, 169, 106, 0.4);
+  background: rgba(200, 169, 106, 0.07);
+}
+
+.booking-price-display.visible {
+  display: flex;
+}
+
+.price-display-route {
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.price-display-amount {
+  font-family: var(--serif);
+  font-size: 32px;
+  font-weight: 400;
+  color: var(--gold-light);
+}
+
+.price-display-note {
+  color: rgba(255, 255, 255, 0.35);
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.booking-row {
+  display: grid;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.booking-row-journey {
+  grid-template-columns: 1.2fr 1.2fr 1fr 0.8fr;
+  border-bottom: 0;
+}
+
+.booking-row-personal {
+  grid-template-columns: 1.2fr 1.2fr 1fr 0.8fr;
 }
 
 .booking-card {
-  display: grid;
-  grid-template-columns: 1.35fr 1.25fr 1.25fr 0.9fr 0.75fr 0.75fr;
-  align-items: stretch;
-  padding: 14px;
-  background: rgba(255, 255, 255, 0.94);
-  box-shadow: 0 25px 70px rgba(18, 15, 9, 0.18);
-  -webkit-backdrop-filter: blur(18px);
-  backdrop-filter: blur(18px);
+  display: flex;
+  flex-direction: column;
+}
+
+.booking-card .booking-field {
+  border-left: 0;
+  border-top: 0;
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 0;
+  background: rgba(255, 255, 255, 0.03);
+  min-height: 80px;
+}
+
+.booking-card .booking-field:last-child {
+  border-right: 0;
+}
+
+.booking-card .booking-field > span {
+  color: rgba(255, 255, 255, 0.45);
+  margin-left: 0;
+}
+
+.booking-card .field-control select,
+.booking-card .field-control input {
+  color: var(--white);
+}
+
+.booking-card .field-control select option {
+  background: var(--black);
+  color: var(--white);
+}
+
+.booking-card .field-control .icon {
+  color: var(--gold);
+}
+
+.booking-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  margin-top: 22px;
+}
+
+.booking-includes {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.35);
+  font-size: 10px;
+  letter-spacing: 0.03em;
+  line-height: 1.6;
+  max-width: 480px;
 }
 
 .booking-intro {
@@ -662,23 +778,29 @@ html[lang="ru"] .faq-item button span {
 }
 
 .quote-submit {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 18px;
+  height: 58px;
+  padding: 0 36px;
   border: 0;
-  background: var(--black);
-  color: var(--white);
+  background: linear-gradient(115deg, var(--gold-light), var(--gold));
+  color: #16120b;
   cursor: pointer;
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 600;
   letter-spacing: 0.13em;
   text-transform: uppercase;
   transition: 0.25s;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .quote-submit:hover {
-  background: var(--gold-dark);
+  background: var(--white);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.3);
+  transform: translateY(-2px);
 }
 
 .quote-submit .icon {
@@ -2245,23 +2367,6 @@ footer {
     display: none;
   }
 
-  .booking-card {
-    grid-template-columns: 1.2fr 1fr 1fr;
-  }
-
-  .booking-intro,
-  .quote-submit {
-    min-height: 82px;
-  }
-
-  .quote-submit {
-    grid-column: 3;
-  }
-
-  .booking-field:nth-of-type(4) {
-    border-left: 0;
-  }
-
   .fleet-showcase {
     grid-template-columns: 1.2fr 0.8fr;
   }
@@ -2288,6 +2393,40 @@ footer {
     --section-x: 28px;
   }
 
+  .booking-shell-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 18px;
+  }
+
+  .booking-price-display {
+    width: 100%;
+  }
+
+  .booking-row-journey,
+  .booking-row-personal {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .booking-card .booking-field:nth-child(odd) {
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .booking-card .booking-field:nth-child(even) {
+    border-right: 0;
+  }
+
+  .booking-footer {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 16px;
+  }
+
+  .quote-submit {
+    width: 100%;
+    justify-content: center;
+  }
+
   .site-header {
     height: 78px;
   }
@@ -2311,30 +2450,6 @@ footer {
 
   .hero-content {
     padding-bottom: 120px;
-  }
-
-  .booking-card {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .booking-intro {
-    grid-column: 1 / -1;
-    min-height: 90px;
-  }
-
-  .booking-field {
-    min-height: 85px;
-    border-top: 1px solid var(--line);
-  }
-
-  .booking-field:nth-of-type(2),
-  .booking-field:nth-of-type(4) {
-    border-left: 0;
-  }
-
-  .quote-submit {
-    grid-column: 1 / -1;
-    min-height: 62px;
   }
 
   .trust-strip {
@@ -2522,34 +2637,23 @@ footer {
     min-height: 56px;
   }
 
-  .booking-shell {
-    margin-top: -24px;
-    padding: 0 12px;
+  .booking-shell-inner {
+    padding-top: 44px;
+    padding-bottom: 44px;
   }
 
-  .booking-card {
+  .booking-row-journey,
+  .booking-row-personal {
     grid-template-columns: 1fr;
-    padding: 8px;
   }
 
-  .booking-intro {
-    grid-column: auto;
-    min-height: 86px;
-    padding-left: 14px;
+  .booking-card .booking-field {
+    border-right: 0 !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   }
 
-  .booking-field {
-    min-height: 75px;
-    padding: 8px 15px;
-    border-left: 0;
-  }
-
-  .booking-field > span {
-    margin-left: 27px;
-  }
-
-  .quote-submit {
-    grid-column: auto;
+  .booking-card .booking-field:last-child {
+    border-bottom: 0;
   }
 
   .trust-strip {

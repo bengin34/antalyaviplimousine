@@ -1,4 +1,4 @@
-import { createBooking, createPaymentIntent } from './lib/api.js'
+import { createBooking } from './lib/api.js'
 
 const translations = {
   de: {
@@ -558,90 +558,76 @@ document.querySelectorAll(".faq-item button").forEach((button) => {
   });
 });
 
-const openQuote = (routeKey) => {
+let currentQuoteData = {};
+
+const priceDisplay = document.querySelector("#booking-price-display");
+
+const updateInlinePrice = (routeKey) => {
   const route = routeData[routeKey];
-  const guests = document.querySelector("#guests").value;
-  document.querySelector("#quote-code").textContent = route.code;
-  document.querySelector("#quote-destination").textContent = route.name;
-  document.querySelector("#quote-duration").textContent = route.duration;
-  document.querySelector("#quote-guests").textContent = guests;
-  document.querySelector("#quote-total").textContent = `€${route.price}`;
+  if (!route || !priceDisplay) return;
+  priceDisplay.innerHTML = `
+    <span class="price-display-route">AYT → ${route.name}</span>
+    <strong class="price-display-amount">€${route.price}</strong>
+    <span class="price-display-note">fixed · per vehicle</span>
+  `;
+  priceDisplay.classList.add("visible");
   currentQuoteData = {
     pickup: document.querySelector("#pickup").value === "Antalya Airport (AYT)" ? "airport" : "hotel",
     destination: routeKey,
     price: route.price,
   };
-  showModalStep(1);
+};
+
+destinationSelect.addEventListener("change", () => {
+  if (destinationSelect.value) updateInlinePrice(destinationSelect.value);
+});
+
+const openConfirmation = () => {
   quoteModal.classList.add("open");
   quoteModal.setAttribute("aria-hidden", "false");
   document.body.classList.add("modal-open");
   quoteModal.querySelector(".modal-close").focus();
 };
 
-const closeQuote = () => {
+const closeConfirmation = () => {
   quoteModal.classList.remove("open");
   quoteModal.setAttribute("aria-hidden", "true");
   document.body.classList.remove("modal-open");
-  showModalStep(1);
 };
 
-// Modal step navigation
-let currentQuoteData = {};
-let stripeInstance = null;
-let stripeElements = null;
-let pendingBookingRef = null;
-
-const initStripe = () => {
-  const key = import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY;
-  if (!key || !window.Stripe) return null;
-  if (!stripeInstance) stripeInstance = window.Stripe(key);
-  return stripeInstance;
-};
-
-const showModalStep = (step) => {
-  [1, 2, 3, 4].forEach((n) => {
-    const el = document.querySelector(`#modal-step-${n}`);
-    if (el) el.hidden = n !== step;
-  });
-};
-
-document.querySelector("#modal-book-now").addEventListener("click", () => {
-  showModalStep(2);
-  document.querySelector("#customer-name").focus();
-});
-
-document.querySelector("#modal-back").addEventListener("click", () => {
-  showModalStep(1);
-});
-
-document.querySelector("#booking-details-form").addEventListener("submit", async (event) => {
+document.querySelector("#quote-form").addEventListener("submit", async (event) => {
   event.preventDefault();
-  const form = event.target;
-  const submitBtn = form.querySelector("#booking-submit");
-
-  // Basic validation
-  const name = document.querySelector("#customer-name").value.trim();
-  const email = document.querySelector("#customer-email").value.trim();
-  const phone = document.querySelector("#customer-phone").value.trim();
-  if (!name || !email || !phone) {
-    if (!name) document.querySelector("#customer-name").focus();
-    else if (!email) document.querySelector("#customer-email").focus();
-    else document.querySelector("#customer-phone").focus();
+  if (!destinationSelect.value) {
+    destinationSelect.focus();
     return;
   }
 
+  const name = document.querySelector("#customer-name").value.trim();
+  const phone = document.querySelector("#customer-phone").value.trim();
+  if (!name) { document.querySelector("#customer-name").focus(); return; }
+  if (!phone) { document.querySelector("#customer-phone").focus(); return; }
+
+  const submitBtn = document.querySelector("#main-book-submit");
   submitBtn.disabled = true;
   const originalText = submitBtn.querySelector("span").textContent;
   submitBtn.querySelector("span").textContent = "…";
 
+  if (!currentQuoteData.destination) {
+    currentQuoteData = {
+      pickup: document.querySelector("#pickup").value === "Antalya Airport (AYT)" ? "airport" : "hotel",
+      destination: destinationSelect.value,
+      price: routeData[destinationSelect.value]?.price || 0,
+    };
+  }
+
   try {
     const booking = await createBooking({
       customer_name: name,
-      customer_email: email,
+      customer_email: "",
       customer_phone: phone,
       flight_number: document.querySelector("#flight-number").value.trim() || null,
       flight_arrival_time: document.querySelector("#flight-arrival-time").value || null,
-      notes: document.querySelector("#booking-notes").value.trim() || null,
+      notes: null,
       pickup_location: currentQuoteData.pickup || "airport",
       dropoff_location: currentQuoteData.destination || "",
       pickup_date: document.querySelector("#travel-date").value,
@@ -651,52 +637,10 @@ document.querySelector("#booking-details-form").addEventListener("submit", async
       language: document.documentElement.lang || "en",
     });
 
-    pendingBookingRef = booking.booking_ref;
     document.querySelector("#confirmed-ref").textContent = booking.booking_ref;
-
-    const stripe = initStripe();
-    if (stripe) {
-      const { client_secret } = await createPaymentIntent(booking.id, currentQuoteData.price);
-
-      if (stripeElements) {
-        stripeElements.destroy();
-        stripeElements = null;
-      }
-
-      stripeElements = stripe.elements({
-        clientSecret: client_secret,
-        appearance: {
-          theme: "night",
-          variables: {
-            colorPrimary: "#c8a96e",
-            colorBackground: "#1a1816",
-            colorText: "#f5f0e8",
-            colorTextSecondary: "rgba(245,240,232,0.6)",
-            colorTextPlaceholder: "rgba(245,240,232,0.35)",
-            colorDanger: "#e05252",
-            fontFamily: '"DM Sans", sans-serif',
-            fontSizeBase: "13px",
-            borderRadius: "4px",
-            gridRowSpacing: "14px",
-          },
-        },
-      });
-
-      const paymentEl = stripeElements.create("payment");
-      paymentEl.mount("#stripe-payment-element");
-
-      const destination = document.querySelector("#quote-destination").textContent;
-      document.querySelector("#payment-route-summary").textContent = `AYT → ${destination}`;
-      document.querySelector("#payment-amount-summary").textContent = `€${currentQuoteData.price}`;
-      document.querySelector("#payment-submit-text").textContent = `Pay €${currentQuoteData.price}`;
-
-      showModalStep(3);
-    } else {
-      // Stripe not configured (dev) — skip to confirmation
-      showModalStep(4);
-    }
-
-    form.reset();
+    openConfirmation();
+    event.target.reset();
+    if (priceDisplay) priceDisplay.classList.remove("visible");
   } catch (err) {
     console.error("Booking error:", err);
     submitBtn.querySelector("span").textContent = "Error — try WhatsApp";
@@ -708,67 +652,29 @@ document.querySelector("#booking-details-form").addEventListener("submit", async
   }
 });
 
-document.querySelector("#stripe-payment-form").addEventListener("submit", async (event) => {
-  event.preventDefault();
-  const stripe = initStripe();
-  if (!stripe || !stripeElements) return;
-
-  const submitBtn = document.querySelector("#payment-submit");
-  const submitText = document.querySelector("#payment-submit-text");
-  const msgEl = document.querySelector("#payment-message");
-  const lang = document.documentElement.lang;
-  const t = translations[lang] || {};
-
-  submitBtn.disabled = true;
-  submitText.textContent = "…";
-  msgEl.hidden = true;
-
-  const returnUrl = `${window.location.origin}${window.location.pathname}?booking_ref=${encodeURIComponent(pendingBookingRef || "")}&paid=1`;
-
-  const { error } = await stripe.confirmPayment({
-    elements: stripeElements,
-    confirmParams: { return_url: returnUrl },
-    redirect: "if_required",
-  });
-
-  if (error) {
-    msgEl.textContent = error.message || t.paymentError || "Payment failed. Please try again.";
-    msgEl.hidden = false;
-    submitBtn.disabled = false;
-    submitText.textContent = `Pay €${currentQuoteData.price}`;
-  } else {
-    showModalStep(4);
-  }
-});
-
-document.querySelector("#quote-form").addEventListener("submit", (event) => {
-  event.preventDefault();
-  if (!destinationSelect.value) {
-    destinationSelect.focus();
-    return;
-  }
-  openQuote(destinationSelect.value);
-});
-
 document.querySelectorAll(".route-card").forEach((card) => {
   card.querySelector("button").addEventListener("click", () => {
     destinationSelect.value = card.dataset.route;
-    openQuote(card.dataset.route);
+    updateInlinePrice(card.dataset.route);
+    document.querySelector("#booking").scrollIntoView({ behavior: "smooth" });
+    setTimeout(() => document.querySelector("#customer-name").focus(), 600);
   });
 });
 
 document.querySelectorAll(".price-pill").forEach((pill) => {
   pill.addEventListener("click", () => {
     destinationSelect.value = pill.dataset.route;
-    openQuote(pill.dataset.route);
+    updateInlinePrice(pill.dataset.route);
+    document.querySelector("#booking").scrollIntoView({ behavior: "smooth" });
+    setTimeout(() => document.querySelector("#customer-name").focus(), 600);
   });
 });
 
-quoteModal.querySelector(".modal-close").addEventListener("click", closeQuote);
-quoteModal.querySelector(".modal-backdrop").addEventListener("click", closeQuote);
+quoteModal.querySelector(".modal-close").addEventListener("click", closeConfirmation);
+quoteModal.querySelector(".modal-backdrop").addEventListener("click", closeConfirmation);
 document.addEventListener("keydown", (event) => {
   if (event.key === "Escape") {
-    closeQuote();
+    closeConfirmation();
     closeMenu();
   }
 });
@@ -805,22 +711,30 @@ document.querySelectorAll(".language-button").forEach((button) => {
   });
 });
 
+const SUPPORTED_LANGS = ["en", "de", "tr", "ru"];
+
+function detectBrowserLanguage() {
+  const langs = navigator.languages?.length ? navigator.languages : [navigator.language || "en"];
+  for (const l of langs) {
+    const code = l.split("-")[0].toLowerCase();
+    if (SUPPORTED_LANGS.includes(code)) return code;
+  }
+  return "en";
+}
+
 let savedLanguage = "en";
 try {
-  savedLanguage = localStorage.getItem("avl-language") || "en";
+  savedLanguage = localStorage.getItem("avl-language") || detectBrowserLanguage();
 } catch {
-  savedLanguage = "en";
+  savedLanguage = detectBrowserLanguage();
 }
 applyLanguage(savedLanguage);
 
-// Handle 3DS redirect return
+// Handle redirect return (e.g. post-payment)
 const urlParams = new URLSearchParams(window.location.search);
-if (urlParams.get("paid") === "1" && urlParams.get("booking_ref")) {
+if (urlParams.get("booking_ref")) {
   document.querySelector("#confirmed-ref").textContent = urlParams.get("booking_ref");
-  quoteModal.classList.add("open");
-  quoteModal.setAttribute("aria-hidden", "false");
-  document.body.classList.add("modal-open");
-  showModalStep(4);
+  openConfirmation();
   window.history.replaceState({}, "", window.location.pathname);
 }
 
