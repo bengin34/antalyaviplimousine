@@ -2924,3 +2924,39 @@ body.modal-open .mobile-book-bar {
     bottom: 86px;
   }
 }
+
+/* Stripe payment step */
+.payment-summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  margin-bottom: 20px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(200, 169, 106, 0.2);
+  border-radius: 4px;
+  font-size: 13px;
+  color: rgba(245, 240, 232, 0.7);
+}
+
+.payment-summary strong {
+  font-family: var(--serif);
+  font-size: 20px;
+  font-weight: 400;
+  color: var(--gold-light);
+}
+
+#stripe-payment-element {
+  margin-bottom: 18px;
+}
+
+.payment-error {
+  margin: 0 0 14px;
+  padding: 10px 14px;
+  background: rgba(224, 82, 82, 0.12);
+  border: 1px solid rgba(224, 82, 82, 0.35);
+  border-radius: 4px;
+  color: #e88;
+  font-size: 12px;
+  line-height: 1.5;
+}

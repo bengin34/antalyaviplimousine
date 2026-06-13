@@ -28,3 +28,20 @@ export async function createBooking(data) {
   if (error) throw error
   return booking
 }
+
+export async function createPaymentIntent(bookingId, amountEur) {
+  const url = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/create-payment-intent`
+  const res = await fetch(url, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'apikey': import.meta.env.VITE_SUPABASE_ANON_KEY,
+    },
+    body: JSON.stringify({ booking_id: bookingId, amount_eur: amountEur }),
+  })
+  if (!res.ok) {
+    const err = await res.json().catch(() => ({}))
+    throw new Error(err.error || 'Payment setup failed')
+  }
+  return res.json()
+}

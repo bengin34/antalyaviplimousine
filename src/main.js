@@ -1,4 +1,4 @@
-import { createBooking } from './lib/api.js'
+import { createBooking, createPaymentIntent } from './lib/api.js'
 
 const translations = {
   de: {
@@ -148,6 +148,8 @@ const translations = {
     bookingConfirmed: "Buchung bestätigt",
     referenceLabel: "Referenz",
     weWillContact: "Bestätigung an Ihre E-Mail gesendet. Wir melden uns innerhalb von 30 Minuten.",
+    paymentTitle: "Sichere Zahlung",
+    paymentError: "Zahlung fehlgeschlagen. Bitte erneut versuchen.",
   },
   tr: {
     navFleet: "Araçlar",
@@ -296,6 +298,8 @@ const translations = {
     bookingConfirmed: "Rezervasyon Onaylandı",
     referenceLabel: "Referans",
     weWillContact: "Onay e-postanıza gönderildi. 30 dakika içinde sizinle iletişime geçeceğiz.",
+    paymentTitle: "Güvenli Ödeme",
+    paymentError: "Ödeme başarısız. Lütfen tekrar deneyin.",
   },
   ru: {
     navFleet: "Автопарк",
@@ -444,6 +448,8 @@ const translations = {
     bookingConfirmed: "Бронирование подтверждено",
     referenceLabel: "Референс",
     weWillContact: "Подтверждение отправлено на вашу почту. Мы свяжемся с вами в течение 30 минут.",
+    paymentTitle: "Безопасная оплата",
+    paymentError: "Оплата не прошла. Попробуйте ещё раз.",
   }
 };
 
@@ -581,9 +587,19 @@ const closeQuote = () => {
 
 // Modal step navigation
 let currentQuoteData = {};
+let stripeInstance = null;
+let stripeElements = null;
+let pendingBookingRef = null;
+
+const initStripe = () => {
+  const key = import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY;
+  if (!key || !window.Stripe) return null;
+  if (!stripeInstance) stripeInstance = window.Stripe(key);
+  return stripeInstance;
+};
 
 const showModalStep = (step) => {
-  [1, 2, 3].forEach((n) => {
+  [1, 2, 3, 4].forEach((n) => {
     const el = document.querySelector(`#modal-step-${n}`);
     if (el) el.hidden = n !== step;
   });
@@ -635,8 +651,51 @@ document.querySelector("#booking-details-form").addEventListener("submit", async
       language: document.documentElement.lang || "en",
     });
 
+    pendingBookingRef = booking.booking_ref;
     document.querySelector("#confirmed-ref").textContent = booking.booking_ref;
-    showModalStep(3);
+
+    const stripe = initStripe();
+    if (stripe) {
+      const { client_secret } = await createPaymentIntent(booking.id, currentQuoteData.price);
+
+      if (stripeElements) {
+        stripeElements.destroy();
+        stripeElements = null;
+      }
+
+      stripeElements = stripe.elements({
+        clientSecret: client_secret,
+        appearance: {
+          theme: "night",
+          variables: {
+            colorPrimary: "#c8a96e",
+            colorBackground: "#1a1816",
+            colorText: "#f5f0e8",
+            colorTextSecondary: "rgba(245,240,232,0.6)",
+            colorTextPlaceholder: "rgba(245,240,232,0.35)",
+            colorDanger: "#e05252",
+            fontFamily: '"DM Sans", sans-serif',
+            fontSizeBase: "13px",
+            borderRadius: "4px",
+            gridRowSpacing: "14px",
+          },
+        },
+      });
+
+      const paymentEl = stripeElements.create("payment");
+      paymentEl.mount("#stripe-payment-element");
+
+      const destination = document.querySelector("#quote-destination").textContent;
+      document.querySelector("#payment-route-summary").textContent = `AYT → ${destination}`;
+      document.querySelector("#payment-amount-summary").textContent = `€${currentQuoteData.price}`;
+      document.querySelector("#payment-submit-text").textContent = `Pay €${currentQuoteData.price}`;
+
+      showModalStep(3);
+    } else {
+      // Stripe not configured (dev) — skip to confirmation
+      showModalStep(4);
+    }
+
     form.reset();
   } catch (err) {
     console.error("Booking error:", err);
@@ -646,6 +705,39 @@ document.querySelector("#booking-details-form").addEventListener("submit", async
     if (submitBtn.querySelector("span").textContent === "…") {
       submitBtn.querySelector("span").textContent = originalText;
     }
+  }
+});
+
+document.querySelector("#stripe-payment-form").addEventListener("submit", async (event) => {
+  event.preventDefault();
+  const stripe = initStripe();
+  if (!stripe || !stripeElements) return;
+
+  const submitBtn = document.querySelector("#payment-submit");
+  const submitText = document.querySelector("#payment-submit-text");
+  const msgEl = document.querySelector("#payment-message");
+  const lang = document.documentElement.lang;
+  const t = translations[lang] || {};
+
+  submitBtn.disabled = true;
+  submitText.textContent = "…";
+  msgEl.hidden = true;
+
+  const returnUrl = `${window.location.origin}${window.location.pathname}?booking_ref=${encodeURIComponent(pendingBookingRef || "")}&paid=1`;
+
+  const { error } = await stripe.confirmPayment({
+    elements: stripeElements,
+    confirmParams: { return_url: returnUrl },
+    redirect: "if_required",
+  });
+
+  if (error) {
+    msgEl.textContent = error.message || t.paymentError || "Payment failed. Please try again.";
+    msgEl.hidden = false;
+    submitBtn.disabled = false;
+    submitText.textContent = `Pay €${currentQuoteData.price}`;
+  } else {
+    showModalStep(4);
   }
 });
 
@@ -720,6 +812,17 @@ try {
   savedLanguage = "en";
 }
 applyLanguage(savedLanguage);
+
+// Handle 3DS redirect return
+const urlParams = new URLSearchParams(window.location.search);
+if (urlParams.get("paid") === "1" && urlParams.get("booking_ref")) {
+  document.querySelector("#confirmed-ref").textContent = urlParams.get("booking_ref");
+  quoteModal.classList.add("open");
+  quoteModal.setAttribute("aria-hidden", "false");
+  document.body.classList.add("modal-open");
+  showModalStep(4);
+  window.history.replaceState({}, "", window.location.pathname);
+}
 
 const observer = new IntersectionObserver(
   (entries) => {
