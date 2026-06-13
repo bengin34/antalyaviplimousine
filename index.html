@@ -37,14 +37,24 @@
       </nav>
 
       <div class="header-actions">
-        <div class="language-switcher" aria-label="Language selection">
-          <button class="language-button active" type="button" data-language="en" aria-pressed="true">EN</button>
-          <span></span>
-          <button class="language-button" type="button" data-language="de" aria-pressed="false">DE</button>
-          <span></span>
-          <button class="language-button" type="button" data-language="tr" aria-pressed="false">TR</button>
-          <span></span>
-          <button class="language-button" type="button" data-language="ru" aria-pressed="false">RU</button>
+        <div class="lang-dropdown" id="lang-dropdown">
+          <button class="lang-trigger" type="button" aria-haspopup="listbox" aria-expanded="false" aria-label="Change language">
+            <span class="lang-flag-current">🇬🇧</span>
+            <svg width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <ul class="lang-menu" role="listbox" aria-label="Language">
+            <li><button class="language-button active" type="button" data-language="en" role="option">🇬🇧 English</button></li>
+            <li><button class="language-button" type="button" data-language="de" role="option">🇩🇪 Deutsch</button></li>
+            <li><button class="language-button" type="button" data-language="tr" role="option">🇹🇷 Türkçe</button></li>
+            <li><button class="language-button" type="button" data-language="ru" role="option">🇷🇺 Русский</button></li>
+            <li><button class="language-button" type="button" data-language="pl" role="option">🇵🇱 Polski</button></li>
+            <li><button class="language-button" type="button" data-language="nl" role="option">🇳🇱 Nederlands</button></li>
+            <li><button class="language-button" type="button" data-language="uk" role="option">🇺🇦 Українська</button></li>
+            <li><button class="language-button" type="button" data-language="fr" role="option">🇫🇷 Français</button></li>
+            <li><button class="language-button" type="button" data-language="sv" role="option">🇸🇪 Svenska</button></li>
+            <li><button class="language-button" type="button" data-language="ja" role="option">🇯🇵 日本語</button></li>
+            <li><button class="language-button" type="button" data-language="ko" role="option">🇰🇷 한국어</button></li>
+          </ul>
         </div>
         <a class="header-cta" href="#booking">
           <span data-i18n="bookNow">Book now</span>
@@ -65,10 +75,17 @@
         <a href="#contact" data-i18n="navContact">Contact</a>
       </nav>
       <div class="mobile-language-switcher" aria-label="Language selection">
-        <button class="language-button active" type="button" data-language="en" aria-pressed="true">English</button>
-        <button class="language-button" type="button" data-language="de" aria-pressed="false">Deutsch</button>
-        <button class="language-button" type="button" data-language="tr" aria-pressed="false">Türkçe</button>
-        <button class="language-button" type="button" data-language="ru" aria-pressed="false">Русский</button>
+        <button class="language-button active" type="button" data-language="en">🇬🇧 EN</button>
+        <button class="language-button" type="button" data-language="de">🇩🇪 DE</button>
+        <button class="language-button" type="button" data-language="tr">🇹🇷 TR</button>
+        <button class="language-button" type="button" data-language="ru">🇷🇺 RU</button>
+        <button class="language-button" type="button" data-language="pl">🇵🇱 PL</button>
+        <button class="language-button" type="button" data-language="nl">🇳🇱 NL</button>
+        <button class="language-button" type="button" data-language="uk">🇺🇦 UK</button>
+        <button class="language-button" type="button" data-language="fr">🇫🇷 FR</button>
+        <button class="language-button" type="button" data-language="sv">🇸🇪 SV</button>
+        <button class="language-button" type="button" data-language="ja">🇯🇵 JA</button>
+        <button class="language-button" type="button" data-language="ko">🇰🇷 KO</button>
       </div>
       <div class="mobile-menu-footer">
         <a href="tel:+902420000000">+90 242 000 00 00</a>
