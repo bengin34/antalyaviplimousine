@@ -49,9 +49,9 @@ const translations = {
     fleetTitle: "Ihr privater Raum,<br />vollendet bis ins Detail.",
     fleetIntro: "Reisen Sie komfortabel mit großzügigem Platz für Familie, Golfgepäck und Koffer.",
     fleetVclassClass: "Business · First Class",
-    fleetVclassDescription: "Der Maßstab für anspruchsvolle Gruppenreisen: großzügig, außergewöhnlich leise und für eine mühelose Ankunft ausgestattet.",
+    fleetVclassDescription: "Großzügiger VIP-Transport für größere Gruppen mit viel Platz für Passagiere und Gepäck.",
     fleetVitoClass: "VIP · Grand Touring",
-    fleetVitoDescription: "Eine großzügige Privatkabine für größere Familien, Golfgruppen und Gäste mit umfangreichem Gepäck.",
+    fleetVitoDescription: "Eine komfortable Privatkabine für Familien und kleine Gruppen.",
     signatureFleet: "Signature Flotte",
     passengers: "Passagiere",
     suitcases: "Koffer",
@@ -59,8 +59,12 @@ const translations = {
     wifi: "Kostenloses WLAN",
     water: "Gekühltes Mineralwasser",
     childSeats: "Kindersitze auf Wunsch",
+    television: "Fernseher im Fahrzeug",
+    coldDrinks: "Kalte Getränke",
+    snacks: "Snacks",
+    nameSignGreeting: "Empfang mit persönlichem Namensschild",
     reserveVehicle: "Fahrzeug reservieren",
-    insideVclass: "Im V-Class Interieur",
+    insideVclass: "Im Sprinter Interieur",
     interiorTitle: "Eine private Lounge zwischen<br />Flughafen und Hotel.",
     serviceEyebrow: "Der Antalya VIP Standard",
     serviceTitle: "Mehr als ein Transfer.<br />Ein besonderer Empfang.",
@@ -85,7 +89,7 @@ const translations = {
     reviewsEyebrow: "Gästebewertungen",
     reviewsTitle: "Service, der lange<br />in Erinnerung bleibt.",
     googleReviews: "Basierend auf 387 verifizierten Google-Bewertungen",
-    reviewOne: "„Unser Fahrer wartete trotz 90 Minuten Flugverspätung. Die V-Class war makellos, angenehm kühl und bereits mit beiden Kindersitzen ausgestattet. Genau der Empfang, den unsere Familie brauchte.“",
+    reviewOne: "„Unser Fahrer wartete trotz 90 Minuten Flugverspätung. Das Fahrzeug war makellos, angenehm kühl und bereits mit beiden Kindersitzen ausgestattet. Genau der Empfang, den unsere Familie brauchte.“",
     reviewTwo: "„Vom ersten WhatsApp-Kontakt bis zur Ankunft in Belek absolut erstklassig. Pünktlich, diskret und sehr professionell. Auch unsere Golftaschen hatten bequem Platz.“",
     reviewThree: "„Das fühlte sich wie der Chauffeurservice eines Hotels an, nicht wie ein Flughafentaxi. Klare Kommunikation, ein makelloses Fahrzeug und ein aufrichtig höflicher Fahrer.“",
     trustedBy: "Gebucht von Gästen führender Resorts in Antalya",
@@ -110,7 +114,7 @@ const translations = {
     faqThreeQ: "Sind Kindersitze verfügbar?",
     faqThreeA: "Ja. Babyschalen, Kindersitze und Sitzerhöhungen sind bei Vorbestellung kostenlos verfügbar.",
     faqFourQ: "Können Golfbags und großes Gepäck transportiert werden?",
-    faqFourA: "Ja. V-Class und Vito VIP sind ideal für Golfgruppen. Teilen Sie uns Ihr Gepäck mit und wir planen das passende Fahrzeug.",
+    faqFourA: "Ja. Sprinter und Vito sind ideal für Golfgruppen. Teilen Sie uns Ihr Gepäck mit und wir planen das passende Fahrzeug.",
     faqFiveQ: "Ist der angezeigte Preis endgültig?",
     faqFiveA: "Ja. Flughafengebühren, Parken, Wartezeit und Steuern sind inklusive. Es gibt keine versteckten Kosten.",
     contactEyebrow: "Ihre Reise beginnt hier",
@@ -199,9 +203,9 @@ const translations = {
     fleetTitle: "Size özel alan,<br />her ayrıntıda kusursuz.",
     fleetIntro: "Aileniz, golf ekipmanınız ve bagajınız için geniş alan sunan sessiz bir konforla seyahat edin.",
     fleetVclassClass: "Business · First Class",
-    fleetVclassDescription: "Seçkin grup seyahatlerinin ölçütü. Geniş, son derece sessiz ve kusursuz bir varış için özenle donatılmış.",
+    fleetVclassDescription: "Kalabalık gruplar için geniş yolcu ve bagaj alanı sunan VIP ulaşım.",
     fleetVitoClass: "VIP · Grand Touring",
-    fleetVitoDescription: "Kalabalık aileler, golf grupları ve fazla bagajla seyahat eden misafirler için geniş bir özel kabin.",
+    fleetVitoDescription: "Aileler ve küçük gruplar için konforlu ve özel bir kabin.",
     signatureFleet: "Seçkin filo",
     passengers: "yolcu",
     suitcases: "bavul",
@@ -209,8 +213,12 @@ const translations = {
     wifi: "Ücretsiz WiFi",
     water: "Soğuk şişe su",
     childSeats: "Talep üzerine çocuk koltuğu",
+    television: "Araç içi televizyon",
+    coldDrinks: "Soğuk içecekler",
+    snacks: "Atıştırmalıklar",
+    nameSignGreeting: "İsminize özel tabela ile karşılama",
     reserveVehicle: "Bu aracı ayırtın",
-    insideVclass: "V-Class'ın içinde",
+    insideVclass: "Sprinter'ın içinde",
     interiorTitle: "Havalimanı ile oteliniz arasında<br />size özel bir lounge.",
     serviceEyebrow: "Antalya VIP standardı",
     serviceTitle: "Transferden fazlası.<br />Özenli bir karşılama.",
@@ -235,7 +243,7 @@ const translations = {
     reviewsEyebrow: "Misafir yorumları",
     reviewsTitle: "Varıştan sonra da<br />hatırlanan hizmet.",
     googleReviews: "Doğrulanmış 387 Google yorumuna göre",
-    reviewOne: "“Uçağımız 90 dakika gecikmesine rağmen şoförümüz bizi bekliyordu. V-Class kusursuz, serin ve iki çocuk koltuğu da hazırdı. Ailemizin tam olarak ihtiyaç duyduğu karşılamaydı.”",
+    reviewOne: "“Uçağımız 90 dakika gecikmesine rağmen şoförümüz bizi bekliyordu. Aracımız kusursuz, serin ve iki çocuk koltuğu da hazırdı. Ailemizin tam olarak ihtiyaç duyduğu karşılamaydı.”",
     reviewTwo: "“İlk WhatsApp görüşmesinden Belek'e varışımıza kadar her şey birinci sınıftı. Dakik, gizliliğe önem veren ve son derece profesyonel. Golf çantalarımız da rahatça sığdı.”",
     reviewThree: "“Bu bir havalimanı taksisinden çok beş yıldızlı otel şoför hizmeti gibiydi. Net iletişim, tertemiz araç ve gerçekten nazik bir şoför.”",
     trustedBy: "Antalya'nın önde gelen resort misafirlerinin tercihi",
@@ -260,7 +268,7 @@ const translations = {
     faqThreeQ: "Çocuk koltuğu var mı?",
     faqThreeA: "Evet. Bebek koltuğu, çocuk koltuğu ve yükseltici koltuk rezervasyon sırasında ücretsiz olarak talep edilebilir.",
     faqFourQ: "Golf çantası ve büyük bagaj taşıyor musunuz?",
-    faqFourA: "Evet. V-Class ve Vito VIP araçlarımız golf grupları için idealdir. Bagaj bilgilerinizi paylaşın, uygun aracı planlayalım.",
+    faqFourA: "Evet. Sprinter ve Vito araçlarımız golf grupları için idealdir. Bagaj bilgilerinizi paylaşın, uygun aracı planlayalım.",
     faqFiveQ: "Verilen fiyat kesin mi?",
     faqFiveA: "Evet. Havalimanı ücretleri, otopark, bekleme süresi ve vergiler dahildir. Gizli ücret yoktur.",
     contactEyebrow: "Yolculuğunuz burada başlar",
@@ -359,8 +367,12 @@ const translations = {
     wifi: "Бесплатный WiFi",
     water: "Охлаждённая вода",
     childSeats: "Детские кресла по запросу",
+    television: "Телевизор в автомобиле",
+    coldDrinks: "Холодные напитки",
+    snacks: "Закуски",
+    nameSignGreeting: "Встреча с именной табличкой",
     reserveVehicle: "Забронировать автомобиль",
-    insideVclass: "Салон V-Class",
+    insideVclass: "Салон Sprinter",
     interiorTitle: "Персональный лаунж<br />между аэропортом и отелем.",
     serviceEyebrow: "Стандарт Antalya VIP",
     serviceTitle: "Больше, чем трансфер.<br />Продуманная встреча.",
@@ -385,7 +397,7 @@ const translations = {
     reviewsEyebrow: "Отзывы гостей",
     reviewsTitle: "Сервис, который помнят<br />после прибытия.",
     googleReviews: "На основе 387 подтверждённых отзывов Google",
-    reviewOne: "«Несмотря на задержку рейса на 90 минут, водитель ждал нас. V-Class был безупречно чистым и прохладным, а оба детских кресла уже были установлены. Именно такая встреча была нужна нашей семье».",
+    reviewOne: "«Несмотря на задержку рейса на 90 минут, водитель ждал нас. Автомобиль был безупречно чистым и прохладным, а оба детских кресла уже были установлены. Именно такая встреча была нужна нашей семье».",
     reviewTwo: "«От первого сообщения в WhatsApp до прибытия в Белек всё было на высшем уровне. Пунктуально, деликатно и очень профессионально. Наши сумки для гольфа легко поместились».",
     reviewThree: "«Это было похоже на трансфер от пятизвёздочного отеля, а не на такси из аэропорта. Чёткая связь, безупречный автомобиль и по-настоящему вежливый водитель».",
     trustedBy: "Нам доверяют гости ведущих курортов Антальи",
@@ -410,7 +422,7 @@ const translations = {
     faqThreeQ: "Есть ли детские кресла?",
     faqThreeA: "Да. Автолюльки, детские кресла и бустеры предоставляются бесплатно по запросу при бронировании.",
     faqFourQ: "Можно ли взять сумки для гольфа и крупный багаж?",
-    faqFourA: "Да. V-Class и Vito VIP идеально подходят для групп игроков в гольф. Сообщите объём багажа, и мы подберём автомобиль.",
+    faqFourA: "Да. Sprinter и Vito идеально подходят для групп игроков в гольф. Сообщите объём багажа, и мы подберём автомобиль.",
     faqFiveQ: "Указанная цена окончательная?",
     faqFiveA: "Да. Аэропортовые сборы, парковка, ожидание и налоги включены. Скрытых платежей нет.",
     contactEyebrow: "Ваше путешествие начинается здесь",
@@ -478,8 +490,10 @@ const translations = {
     fleetVitoDescription: "Obszerna prywatna kabina dla większych rodzin, grup golfowych i gości z obfitym bagażem.",
     signatureFleet: "Flota Signature", passengers: "pasażerów", suitcases: "walizek",
     leatherSeats: "Skórzane fotele premium", wifi: "Bezpłatne WiFi", water: "Schłodzona woda mineralna",
-    childSeats: "Foteliki dziecięce na życzenie", reserveVehicle: "Zarezerwuj pojazd",
-    insideVclass: "Wnętrze V-Class",
+    childSeats: "Foteliki dziecięce na życzenie", television: "Telewizor w pojeździe",
+    coldDrinks: "Zimne napoje", snacks: "Przekąski", nameSignGreeting: "Powitanie z tabliczką z imieniem",
+    reserveVehicle: "Zarezerwuj pojazd",
+    insideVclass: "Wnętrze Sprinter",
     interiorTitle: "Prywatny salon<br />między lotniskiem a hotelem.",
     serviceEyebrow: "Standard Antalya VIP",
     serviceTitle: "Więcej niż transfer.<br />Wyjątkowe powitanie.",
@@ -502,7 +516,7 @@ const translations = {
     golfFavourite: "Ulubieniec golfistów", from: "Od",
     reviewsEyebrow: "Opinie gości", reviewsTitle: "Usługa, która<br />zostaje w pamięci.",
     googleReviews: "Na podstawie 387 zweryfikowanych opinii Google",
-    reviewOne: "„Nasz kierowca czekał mimo 90-minutowego opóźnienia. V-Class był nieskazitelny, przyjemnie chłodny i wyposażony już w oba foteliki. Dokładnie takie powitanie potrzebowała nasza rodzina.”",
+    reviewOne: "„Nasz kierowca czekał mimo 90-minutowego opóźnienia. Pojazd był nieskazitelny, przyjemnie chłodny i wyposażony już w oba foteliki. Dokładnie takie powitanie potrzebowała nasza rodzina.”",
     reviewTwo: "„Od pierwszego kontaktu WhatsApp po przyjazd do Belek wszystko było absolutnie pierwszorzędne. Punktualnie, dyskretnie i bardzo profesjonalnie. Torby golfowe bez problemu się zmieściły.”",
     reviewThree: "„To było jak serwis szoferski hotelu, a nie taksówka na lotnisku. Jasna komunikacja, nieskazitelny pojazd i naprawdę uprzejmy kierowca.”",
     trustedBy: "Wybór gości czołowych resortów w Antalyi", processEyebrow: "Celowo proste",
@@ -521,7 +535,7 @@ const translations = {
     faqThreeQ: "Czy dostępne są foteliki dziecięce?",
     faqThreeA: "Tak. Nosidełka, foteliki i podkładki są dostępne bezpłatnie przy wcześniejszej rezerwacji.",
     faqFourQ: "Czy można przewieźć torby golfowe i duży bagaż?",
-    faqFourA: "Tak. V-Class i Vito VIP są idealne dla grup golfowych. Podaj informacje o bagażu, a zaplanujemy odpowiedni pojazd.",
+    faqFourA: "Tak. Sprinter i Vito są idealne dla grup golfowych. Podaj informacje o bagażu, a zaplanujemy odpowiedni pojazd.",
     faqFiveQ: "Czy podana cena jest ostateczna?",
     faqFiveA: "Tak. Opłaty lotniskowe, parking, czas oczekiwania i podatki są wliczone. Brak ukrytych kosztów.",
     contactEyebrow: "Twoja podróż zaczyna się tutaj",
@@ -571,8 +585,10 @@ const translations = {
     fleetVitoDescription: "Een ruime privécabine voor grotere families, golfgroepen en gasten met veel bagage.",
     signatureFleet: "Signature vloot", passengers: "passagiers", suitcases: "koffers",
     leatherSeats: "Premium leren stoelen", wifi: "Gratis WiFi", water: "Gekoeld mineraalwater",
-    childSeats: "Kinderzitjes op verzoek", reserveVehicle: "Voertuig reserveren",
-    insideVclass: "In het V-Class interieur",
+    childSeats: "Kinderzitjes op verzoek", television: "Televisie in het voertuig",
+    coldDrinks: "Koude dranken", snacks: "Snacks", nameSignGreeting: "Ontvangst met persoonlijk naambordje",
+    reserveVehicle: "Voertuig reserveren",
+    insideVclass: "In het Sprinter interieur",
     interiorTitle: "Een privélounge<br />tussen luchthaven en hotel.",
     serviceEyebrow: "De Antalya VIP-standaard",
     serviceTitle: "Meer dan een transfer.<br />Een bijzonder welkom.",
@@ -595,7 +611,7 @@ const translations = {
     golfFavourite: "Golfliefhebbersfavoriet", from: "Vanaf",
     reviewsEyebrow: "Gastbeoordelingen", reviewsTitle: "Service die lang<br />bijblijft.",
     googleReviews: "Gebaseerd op 387 geverifieerde Google-beoordelingen",
-    reviewOne: "„Onze chauffeur wachtte ondanks 90 minuten vertraging. De V-Class was onberispelijk, aangenaam koel en al uitgerust met beide kinderzitjes. Precies de ontvangst die onze familie nodig had.”",
+    reviewOne: "„Onze chauffeur wachtte ondanks 90 minuten vertraging. Het voertuig was onberispelijk, aangenaam koel en al uitgerust met beide kinderzitjes. Precies de ontvangst die onze familie nodig had.”",
     reviewTwo: "„Van het eerste WhatsApp-contact tot aankomst in Belek absoluut eersteklas. Punctueel, discreet en zeer professioneel. Ook onze golftassen pasten er gemakkelijk in.”",
     reviewThree: "„Dit voelde als een chauffeurservice van een hotel, niet als een luchthaventaxi. Duidelijke communicatie, een onberispelijk voertuig en een oprecht beleefde chauffeur.”",
     trustedBy: "Vertrouwd door gasten van toonaangevende resorts in Antalya",
@@ -615,7 +631,7 @@ const translations = {
     faqThreeQ: "Zijn kinderzitjes beschikbaar?",
     faqThreeA: "Ja. Babyschalen, kinderzitjes en zitverhogers zijn bij vooraf boeken gratis beschikbaar.",
     faqFourQ: "Kunnen golfbags en groot bagage worden vervoerd?",
-    faqFourA: "Ja. V-Class en Vito VIP zijn ideaal voor golfgroepen. Geef uw bagage op en wij plannen het juiste voertuig.",
+    faqFourA: "Ja. Sprinter en Vito zijn ideaal voor golfgroepen. Geef uw bagage op en wij plannen het juiste voertuig.",
     faqFiveQ: "Is de getoonde prijs definitief?",
     faqFiveA: "Ja. Luchthavengelden, parkeren, wachttijd en belastingen zijn inbegrepen. Geen verborgen kosten.",
     contactEyebrow: "Uw reis begint hier",
@@ -665,8 +681,10 @@ const translations = {
     fleetVitoDescription: "Просторий приватний салон для великих сімей, груп гравців у гольф та гостей з об'ємним багажем.",
     signatureFleet: "Фірмовий автопарк", passengers: "пасажирів", suitcases: "валіз",
     leatherSeats: "Преміальні шкіряні сидіння", wifi: "Безкоштовний WiFi", water: "Охолоджена вода",
-    childSeats: "Дитячі крісла на запит", reserveVehicle: "Забронювати автомобіль",
-    insideVclass: "Салон V-Class",
+    childSeats: "Дитячі крісла на запит", television: "Телевізор в автомобілі",
+    coldDrinks: "Холодні напої", snacks: "Закуски", nameSignGreeting: "Зустріч з іменною табличкою",
+    reserveVehicle: "Забронювати автомобіль",
+    insideVclass: "Салон Sprinter",
     interiorTitle: "Приватний лаунж<br />між аеропортом і готелем.",
     serviceEyebrow: "Стандарт Antalya VIP",
     serviceTitle: "Більше ніж трансфер.<br />Продумана зустріч.",
@@ -689,7 +707,7 @@ const translations = {
     golfFavourite: "Вибір гравців у гольф", from: "Від",
     reviewsEyebrow: "Відгуки гостей", reviewsTitle: "Сервіс, який пам'ятають<br />після прибуття.",
     googleReviews: "На основі 387 підтверджених відгуків Google",
-    reviewOne: "«Незважаючи на затримку рейсу на 90 хвилин, водій чекав на нас. V-Class був бездоганно чистим та прохолодним, а обидва дитячі крісла вже були встановлені. Саме така зустріч потрібна нашій родині».",
+    reviewOne: "«Незважаючи на затримку рейсу на 90 хвилин, водій чекав на нас. Автомобіль був бездоганно чистим та прохолодним, а обидва дитячі крісла вже були встановлені. Саме така зустріч потрібна нашій родині».",
     reviewTwo: "«Від першого повідомлення в WhatsApp до прибуття в Белек все було на найвищому рівні. Пунктуально, делікатно і дуже професійно. Наші сумки для гольфу легко помістилися».",
     reviewThree: "«Це нагадувало трансфер від п'ятизіркового готелю, а не таксі з аеропорту. Чіткий зв'язок, бездоганний автомобіль та по-справжньому ввічливий водій».",
     trustedBy: "Нам довіряють гості провідних курортів Анталії", processEyebrow: "Навмисно просто",
@@ -708,7 +726,7 @@ const translations = {
     faqThreeQ: "Чи є дитячі крісла?",
     faqThreeA: "Так. Автолюльки, дитячі крісла та бустери надаються безкоштовно на запит при бронюванні.",
     faqFourQ: "Чи можна перевезти сумки для гольфу та великий багаж?",
-    faqFourA: "Так. V-Class і Vito VIP ідеально підходять для груп гравців у гольф. Повідомте об'єм багажу і ми підберемо автомобіль.",
+    faqFourA: "Так. Sprinter і Vito ідеально підходять для груп гравців у гольф. Повідомте об'єм багажу і ми підберемо автомобіль.",
     faqFiveQ: "Вказана ціна є остаточною?",
     faqFiveA: "Так. Аеропортові збори, паркування, очікування та податки включені. Прихованих платежів немає.",
     contactEyebrow: "Ваша подорож починається тут",
@@ -758,8 +776,10 @@ const translations = {
     fleetVitoDescription: "Un vaste habitacle privé pour les grandes familles, les groupes de golf et les voyageurs avec beaucoup de bagages.",
     signatureFleet: "Flotte Signature", passengers: "passagers", suitcases: "valises",
     leatherSeats: "Sièges en cuir premium", wifi: "WiFi gratuit", water: "Eau minérale fraîche",
-    childSeats: "Sièges enfants sur demande", reserveVehicle: "Réserver ce véhicule",
-    insideVclass: "Intérieur V-Class",
+    childSeats: "Sièges enfants sur demande", television: "Télévision à bord",
+    coldDrinks: "Boissons fraîches", snacks: "En-cas", nameSignGreeting: "Accueil avec pancarte nominative",
+    reserveVehicle: "Réserver ce véhicule",
+    insideVclass: "Intérieur Sprinter",
     interiorTitle: "Un salon privé<br />entre l'aéroport et l'hôtel.",
     serviceEyebrow: "La norme Antalya VIP",
     serviceTitle: "Plus qu'un transfert.<br />Un accueil d'exception.",
@@ -782,7 +802,7 @@ const translations = {
     golfFavourite: "Favori des golfeurs", from: "À partir de",
     reviewsEyebrow: "Avis clients", reviewsTitle: "Un service dont on<br />se souvient longtemps.",
     googleReviews: "Basé sur 387 avis Google vérifiés",
-    reviewOne: "« Notre chauffeur a attendu malgré 90 minutes de retard. La V-Class était impeccable, agréablement fraîche et déjà équipée des deux sièges enfants. Exactement l'accueil dont notre famille avait besoin. »",
+    reviewOne: "« Notre chauffeur a attendu malgré 90 minutes de retard. Le véhicule était impeccable, agréablement frais et déjà équipé des deux sièges enfants. Exactement l'accueil dont notre famille avait besoin. »",
     reviewTwo: "« Du premier contact WhatsApp à notre arrivée à Belek, absolument irréprochable. Ponctuel, discret et très professionnel. Nos sacs de golf ont aussi tenu sans problème. »",
     reviewThree: "« C'était comme un service de chauffeur d'hôtel, pas un taxi d'aéroport. Communication claire, véhicule impeccable et chauffeur sincèrement courtois. »",
     trustedBy: "Recommandé par les clients des meilleurs resorts d'Antalya",
@@ -802,7 +822,7 @@ const translations = {
     faqThreeQ: "Des sièges enfants sont-ils disponibles ?",
     faqThreeA: "Oui. Coques bébé, sièges enfants et rehausseurs sont disponibles gratuitement sur réservation.",
     faqFourQ: "Pouvez-vous transporter des sacs de golf et des bagages volumineux ?",
-    faqFourA: "Oui. Le V-Class et le Vito VIP sont idéaux pour les groupes de golfeurs. Précisez vos bagages et nous planifions le véhicule adapté.",
+    faqFourA: "Oui. Le Sprinter et le Vito sont idéaux pour les groupes de golfeurs. Précisez vos bagages et nous planifions le véhicule adapté.",
     faqFiveQ: "Le prix affiché est-il définitif ?",
     faqFiveA: "Oui. Les taxes aéroportuaires, le parking, l'attente et les impôts sont inclus. Aucun frais caché.",
     contactEyebrow: "Votre voyage commence ici",
@@ -852,8 +872,10 @@ const translations = {
     fleetVitoDescription: "En rymlig privat kabin för större familjer, golfsällskap och gäster med mycket bagage.",
     signatureFleet: "Signature-flotta", passengers: "passagerare", suitcases: "resväskor",
     leatherSeats: "Premium läderstolar", wifi: "Gratis WiFi", water: "Kylt mineralvatten",
-    childSeats: "Bilbarnstolar på begäran", reserveVehicle: "Boka fordon",
-    insideVclass: "V-Class interiör",
+    childSeats: "Bilbarnstolar på begäran", television: "TV i fordonet",
+    coldDrinks: "Kalla drycker", snacks: "Snacks", nameSignGreeting: "Välkomnande med personlig namnskylt",
+    reserveVehicle: "Boka fordon",
+    insideVclass: "Sprinter interiör",
     interiorTitle: "En privat lounge<br />mellan flygplatsen och hotellet.",
     serviceEyebrow: "Antalya VIP-standarden",
     serviceTitle: "Mer än en transfer.<br />Ett exceptionellt välkomnande.",
@@ -876,7 +898,7 @@ const translations = {
     golfFavourite: "Golfarnas favorit", from: "Från",
     reviewsEyebrow: "Gästrecensioner", reviewsTitle: "Service som minns<br />länge efter ankomsten.",
     googleReviews: "Baserat på 387 verifierade Google-recensioner",
-    reviewOne: "„Vår chaufför väntade trots 90 minuters försening. V-Classen var makulös, behagligt sval och redan utrustad med båda barnstolarna. Precis det välkomnande vår familj behövde.”",
+    reviewOne: "„Vår chaufför väntade trots 90 minuters försening. Fordonet var makulöst, behagligt svalt och redan utrustat med båda barnstolarna. Precis det välkomnande vår familj behövde.”",
     reviewTwo: "„Från första WhatsApp-kontakten till ankomst i Belek absolut förstklassigt. Punktlig, diskret och mycket professionell. Våra golfbagar fick också plats utan problem.”",
     reviewThree: "„Det kändes som en chaufförstjänst från ett hotell, inte en flygplatstaxibil. Tydlig kommunikation, ett makulöst fordon och en genuint artig chaufför.”",
     trustedBy: "Anlitad av gäster på ledande resorts i Antalya", processEyebrow: "Medvetet enkelt",
@@ -895,7 +917,7 @@ const translations = {
     faqThreeQ: "Finns det bilbarnstolar?",
     faqThreeA: "Ja. Babyskydd, barnstolar och bälteskuddar finns tillgängliga utan extra kostnad vid förbeställning.",
     faqFourQ: "Kan golfbagar och stort bagage transporteras?",
-    faqFourA: "Ja. V-Class och Vito VIP är idealiska för golfsällskap. Meddela oss om ditt bagage så planerar vi rätt fordon.",
+    faqFourA: "Ja. Sprinter och Vito är idealiska för golfsällskap. Meddela oss om ditt bagage så planerar vi rätt fordon.",
     faqFiveQ: "Är det visade priset slutgiltigt?",
     faqFiveA: "Ja. Flygplatsavgifter, parkering, väntetid och skatter ingår. Inga dolda kostnader.",
     contactEyebrow: "Din resa börjar här",
@@ -946,8 +968,10 @@ const translations = {
     fleetVitoDescription: "大家族、ゴルフグループ、大量の荷物をお持ちのゲストのための広々としたプライベートキャビン。",
     signatureFleet: "シグネチャーフリート", passengers: "名", suitcases: "個のスーツケース",
     leatherSeats: "プレミアムレザーシート", wifi: "無料WiFi", water: "冷えたミネラルウォーター",
-    childSeats: "チャイルドシート（ご要望に応じて）", reserveVehicle: "この車両を予約する",
-    insideVclass: "V-Classインテリア",
+    childSeats: "チャイルドシート（ご要望に応じて）", television: "車内テレビ",
+    coldDrinks: "冷たいお飲み物", snacks: "スナック", nameSignGreeting: "お名前ボードでのお出迎え",
+    reserveVehicle: "この車両を予約する",
+    insideVclass: "Sprinterインテリア",
     interiorTitle: "空港とホテルの間の<br />プライベートラウンジ。",
     serviceEyebrow: "Antalya VIPスタンダード",
     serviceTitle: "送迎以上のもの。<br />特別なお出迎え。",
@@ -970,7 +994,7 @@ const translations = {
     golfFavourite: "ゴルファーに人気", from: "から",
     reviewsEyebrow: "お客様の声", reviewsTitle: "到着後も語り継がれる<br />サービス。",
     googleReviews: "387件のGoogle認証レビューに基づく",
-    reviewOne: "「90分のフライト遅延にもかかわらず、ドライバーは待ってくれました。V-Classは完璧に清潔で心地よく冷えており、チャイルドシートも両方設置済みでした。家族が必要としていたまさにそのお出迎えでした。」",
+    reviewOne: "「90分のフライト遅延にもかかわらず、ドライバーは待ってくれました。車両は完璧に清潔で心地よく冷えており、チャイルドシートも両方設置済みでした。家族が必要としていたまさにそのお出迎えでした。」",
     reviewTwo: "「最初のWhatsAppのやり取りからベレックへの到着まで、すべてが最高でした。時間通り、控えめで、とてもプロフェッショナル。ゴルフバッグも余裕で収まりました。」",
     reviewThree: "「空港タクシーではなく、ホテルのショーファーサービスのようでした。明確なコミュニケーション、完璧な車両、そして心から礼儀正しいドライバー。」",
     trustedBy: "アンタルヤの一流リゾートのゲストにご利用いただいています", processEyebrow: "シンプルに設計",
@@ -989,7 +1013,7 @@ const translations = {
     faqThreeQ: "チャイルドシートはありますか？",
     faqThreeA: "はい。乳幼児用、チャイルドシート、ジュニアシートは予約時にご要望いただければ無料でご用意します。",
     faqFourQ: "ゴルフバッグや大きな荷物は運べますか？",
-    faqFourA: "はい。V-ClassとVito VIPはゴルフグループに最適です。荷物の詳細をお知らせいただければ、適切な車両をご手配します。",
+    faqFourA: "はい。SprinterとVitoはゴルフグループに最適です。荷物の詳細をお知らせいただければ、適切な車両をご手配します。",
     faqFiveQ: "表示された料金は確定ですか？",
     faqFiveA: "はい。空港税、駐車料金、待機時間、税金はすべて含まれています。隠れた費用はありません。",
     contactEyebrow: "旅はここから始まります",
@@ -1040,8 +1064,10 @@ const translations = {
     fleetVitoDescription: "대가족, 골프 그룹, 짐이 많은 고객을 위한 넓은 프라이빗 캐빈.",
     signatureFleet: "시그니처 플릿", passengers: "명", suitcases: "개의 캐리어",
     leatherSeats: "프리미엄 가죽 시트", wifi: "무료 WiFi", water: "시원한 생수",
-    childSeats: "요청 시 카시트 제공", reserveVehicle: "이 차량 예약하기",
-    insideVclass: "V-Class 인테리어",
+    childSeats: "요청 시 카시트 제공", television: "차량 내 TV",
+    coldDrinks: "차가운 음료", snacks: "스낵", nameSignGreeting: "이름 팻말을 든 맞춤 영접",
+    reserveVehicle: "이 차량 예약하기",
+    insideVclass: "Sprinter 인테리어",
     interiorTitle: "공항과 호텔 사이의<br />프라이빗 라운지.",
     serviceEyebrow: "Antalya VIP 기준",
     serviceTitle: "단순한 이동 그 이상.<br />특별한 환영.",
@@ -1064,7 +1090,7 @@ const translations = {
     golfFavourite: "골퍼들의 인기 선택", from: "부터",
     reviewsEyebrow: "고객 후기", reviewsTitle: "도착 후에도 오래 기억되는<br />서비스.",
     googleReviews: "387건의 Google 인증 리뷰 기준",
-    reviewOne: "\"90분 지연에도 불구하고 기사님이 기다려 주셨습니다. V-Class는 완벽하게 청결하고 시원했으며 카시트 두 개도 이미 설치되어 있었습니다. 저희 가족에게 꼭 필요한 환영이었습니다.\"",
+    reviewOne: "\"90분 지연에도 불구하고 기사님이 기다려 주셨습니다. 차량은 완벽하게 청결하고 시원했으며 카시트 두 개도 이미 설치되어 있었습니다. 저희 가족에게 꼭 필요한 환영이었습니다.\"",
     reviewTwo: "\"첫 WhatsApp 연락부터 벨렉 도착까지 모든 것이 최고였습니다. 시간 엄수, 세심함, 매우 전문적. 골프백도 여유롭게 들어갔습니다.\"",
     reviewThree: "\"공항 택시가 아닌 호텔 쇼퍼 서비스 같았습니다. 명확한 소통, 완벽한 차량, 진심으로 예의 바른 기사님.\"",
     trustedBy: "안탈리아 주요 리조트 고객들이 선택했습니다", processEyebrow: "의도적으로 간단하게",
@@ -1083,7 +1109,7 @@ const translations = {
     faqThreeQ: "카시트를 이용할 수 있나요?",
     faqThreeA: "네. 신생아용 카시트, 아동용 카시트, 부스터 시트는 예약 시 요청하시면 무료로 제공됩니다.",
     faqFourQ: "골프백과 대형 수하물도 운반할 수 있나요?",
-    faqFourA: "네. V-Class와 Vito VIP는 골프 그룹에 이상적입니다. 수하물 정보를 알려주시면 적합한 차량을 준비합니다.",
+    faqFourA: "네. Sprinter와 Vito는 골프 그룹에 이상적입니다. 수하물 정보를 알려주시면 적합한 차량을 준비합니다.",
     faqFiveQ: "표시된 요금이 최종 요금인가요?",
     faqFiveA: "네. 공항 세금, 주차비, 대기 시간, 세금이 모두 포함됩니다. 숨겨진 비용이 없습니다.",
     contactEyebrow: "여행은 여기서 시작됩니다",
@@ -1109,32 +1135,42 @@ const translations = {
 };
 
 const fleetData = {
-  vclass: {
+  sprinter: {
     classKey: "fleetVclassClass",
     className: "Business · First Class",
-    name: "Mercedes V-Class",
+    name: "Mercedes Sprinter",
+    shortName: "Sprinter",
     descriptionKey: "fleetVclassDescription",
-    description: "The benchmark for sophisticated group travel. Spacious, exceptionally quiet and appointed for a seamless arrival.",
-    guests: "6",
-    bags: "6"
+    description: "Spacious VIP transport for larger groups, with generous room for passengers and luggage.",
+    guests: "13",
+    bags: "12"
   },
   vito: {
     classKey: "fleetVitoClass",
     className: "VIP · Grand Touring",
-    name: "Mercedes Vito VIP",
+    name: "Mercedes Vito",
+    shortName: "Vito",
     descriptionKey: "fleetVitoDescription",
-    description: "An expansive private cabin for larger families, golf parties and guests travelling with generous luggage.",
-    guests: "7",
-    bags: "8"
+    description: "A refined private cabin for families and small groups travelling in comfort.",
+    guests: "8",
+    bags: "6"
   }
 };
 
 const routeData = {
-  belek: { code: "BELEK", name: "Belek", duration: "35 min", price: 45 },
-  side: { code: "SIDE", name: "Side", duration: "55 min", price: 65 },
-  kemer: { code: "KEMER", name: "Kemer", duration: "60 min", price: 70 },
-  alanya: { code: "ALANYA", name: "Alanya", duration: "2 hr", price: 110 },
-  antalya: { code: "ANTALYA", name: "Antalya City", duration: "25 min", price: 40 }
+  belek: { name: "Belek", prices: { vito: 40, sprinter: 60 } },
+  side: { name: "Side", prices: { vito: 50, sprinter: 75 } },
+  kemer: { name: "Kemer", prices: { vito: 55, sprinter: 80 } },
+  alanya: { name: "Alanya", prices: { vito: 100, sprinter: 130 } },
+  tekirova: { name: "Tekirova", prices: { vito: 100, sprinter: 130 } },
+  manavgat: { name: "Manavgat", prices: { vito: 50, sprinter: 75 } },
+  bogazkent: { name: "Boğazkent", prices: { vito: 45, sprinter: 65 } },
+  antalya: { name: "Antalya City", prices: { vito: 30, sprinter: 45 } },
+  bodrum: { name: "Bodrum", prices: { vito: 200, sprinter: 250 } },
+  dalaman: { name: "Dalaman", prices: { vito: 200, sprinter: 250 } },
+  fethiye: { name: "Fethiye", prices: { vito: 200, sprinter: 250 } },
+  pamukkale: { name: "Pamukkale", prices: { vito: 200, sprinter: 250 } },
+  kapadokya: { name: "Kapadokya", prices: { vito: 300, sprinter: 400 } }
 };
 
 const header = document.querySelector(".site-header");
@@ -1142,6 +1178,8 @@ const menuButton = document.querySelector(".menu-button");
 const mobileMenu = document.querySelector(".mobile-menu");
 const quoteModal = document.querySelector("#quote-modal");
 const destinationSelect = document.querySelector("#destination");
+const vehicleSelect = document.querySelector("#vehicle-type");
+const guestsSelect = document.querySelector("#guests");
 const travelDate = document.querySelector("#travel-date");
 
 const setHeaderState = () => {
@@ -1186,6 +1224,7 @@ const updateFleet = (fleetKey) => {
   fleetClass.innerHTML = translations[language]?.[selected.classKey] || selected.className;
   fleetDescription.innerHTML = translations[language]?.[selected.descriptionKey] || selected.description;
   document.querySelector("#fleet-name").textContent = selected.name;
+  document.querySelector("#fleet-badge-name").textContent = selected.shortName;
   document.querySelector("#fleet-guests").textContent = selected.guests;
   document.querySelector("#fleet-bags").textContent = selected.bags;
 };
@@ -1195,6 +1234,9 @@ document.querySelectorAll(".fleet-tab").forEach((tab) => {
     document.querySelectorAll(".fleet-tab").forEach((item) => item.classList.remove("active"));
     tab.classList.add("active");
     updateFleet(tab.dataset.fleet);
+    vehicleSelect.value = tab.dataset.fleet;
+    updateGuestCapacity();
+    if (destinationSelect.value) updateInlinePrice(destinationSelect.value);
   });
 });
 
@@ -1217,25 +1259,45 @@ let currentQuoteData = {};
 
 const priceDisplay = document.querySelector("#booking-price-display");
 
-const updateInlinePrice = (routeKey) => {
+const updateGuestCapacity = () => {
+  const capacity = Number(fleetData[vehicleSelect.value]?.guests || 1);
+  Array.from(guestsSelect.options).forEach((option) => {
+    option.disabled = Number(option.value) > capacity;
+  });
+  if (Number(guestsSelect.value) > capacity) guestsSelect.value = String(capacity);
+};
+
+const updateInlinePrice = (routeKey, vehicleKey = vehicleSelect.value) => {
   const route = routeData[routeKey];
-  if (!route || !priceDisplay) return;
+  const price = route?.prices[vehicleKey];
+  if (!route || !price || !priceDisplay) return;
+  const language = document.documentElement.lang;
+  const vehicleName = fleetData[vehicleKey]?.name || vehicleKey;
+  const priceNote = translations[language]?.perVehicle || "fixed · per vehicle";
   priceDisplay.innerHTML = `
     <span class="price-display-route">AYT → ${route.name}</span>
-    <strong class="price-display-amount">€${route.price}</strong>
-    <span class="price-display-note">fixed · per vehicle</span>
+    <strong class="price-display-amount">€${price}</strong>
+    <span class="price-display-note">${vehicleName} · ${priceNote}</span>
   `;
   priceDisplay.classList.add("visible");
   currentQuoteData = {
     pickup: document.querySelector("#pickup").value === "Antalya Airport (AYT)" ? "airport" : "hotel",
     destination: routeKey,
-    price: route.price,
+    vehicle: vehicleKey,
+    price,
   };
 };
 
 destinationSelect.addEventListener("change", () => {
   if (destinationSelect.value) updateInlinePrice(destinationSelect.value);
 });
+
+vehicleSelect.addEventListener("change", () => {
+  updateGuestCapacity();
+  if (destinationSelect.value) updateInlinePrice(destinationSelect.value);
+});
+
+updateGuestCapacity();
 
 const openConfirmation = () => {
   quoteModal.classList.add("open");
@@ -1271,7 +1333,8 @@ document.querySelector("#quote-form").addEventListener("submit", async (event) =
     currentQuoteData = {
       pickup: document.querySelector("#pickup").value === "Antalya Airport (AYT)" ? "airport" : "hotel",
       destination: destinationSelect.value,
-      price: routeData[destinationSelect.value]?.price || 0,
+      vehicle: vehicleSelect.value,
+      price: routeData[destinationSelect.value]?.prices[vehicleSelect.value] || 0,
     };
   }
 
@@ -1287,7 +1350,7 @@ document.querySelector("#quote-form").addEventListener("submit", async (event) =
       dropoff_location: currentQuoteData.destination || "",
       pickup_date: document.querySelector("#travel-date").value,
       guests: parseInt(document.querySelector("#guests").value, 10),
-      vehicle_type: "vclass",
+      vehicle_type: currentQuoteData.vehicle === "sprinter" ? "vclass" : "vito",
       price_eur: currentQuoteData.price || 0,
       language: document.documentElement.lang || "en",
     });
@@ -1295,6 +1358,8 @@ document.querySelector("#quote-form").addEventListener("submit", async (event) =
     document.querySelector("#confirmed-ref").textContent = booking.booking_ref;
     openConfirmation();
     event.target.reset();
+    currentQuoteData = {};
+    updateGuestCapacity();
     if (priceDisplay) priceDisplay.classList.remove("visible");
   } catch (err) {
     console.error("Booking error:", err);
@@ -1307,14 +1372,53 @@ document.querySelector("#quote-form").addEventListener("submit", async (event) =
   }
 });
 
-document.querySelectorAll(".route-card").forEach((card) => {
-  card.querySelector("button").addEventListener("click", () => {
-    destinationSelect.value = card.dataset.route;
-    updateInlinePrice(card.dataset.route);
+document.querySelectorAll(".route-price-button").forEach((button) => {
+  button.addEventListener("click", () => {
+    destinationSelect.value = button.dataset.route;
+    vehicleSelect.value = button.dataset.vehicle;
+    updateGuestCapacity();
+    updateInlinePrice(button.dataset.route, button.dataset.vehicle);
     document.querySelector("#booking").scrollIntoView({ behavior: "smooth" });
     setTimeout(() => document.querySelector("#customer-name").focus(), 600);
   });
 });
+
+const routeSlider = document.querySelector("#route-slider");
+const routeSliderPrev = document.querySelector(".route-slider-prev");
+const routeSliderNext = document.querySelector(".route-slider-next");
+
+const updateRouteSliderControls = () => {
+  if (!routeSlider) return;
+  const maxScroll = routeSlider.scrollWidth - routeSlider.clientWidth;
+  routeSliderPrev.disabled = routeSlider.scrollLeft <= 4;
+  routeSliderNext.disabled = routeSlider.scrollLeft >= maxScroll - 4;
+};
+
+const scrollRouteSlider = (direction) => {
+  const card = routeSlider?.querySelector(".route-card");
+  if (!routeSlider || !card) return;
+  const gap = parseFloat(getComputedStyle(routeSlider).gap) || 0;
+  routeSlider.scrollBy({
+    left: direction * (card.getBoundingClientRect().width + gap),
+    behavior: "smooth",
+  });
+};
+
+routeSliderPrev?.addEventListener("click", () => scrollRouteSlider(-1));
+routeSliderNext?.addEventListener("click", () => scrollRouteSlider(1));
+routeSlider?.addEventListener("scroll", updateRouteSliderControls, { passive: true });
+routeSlider?.addEventListener("keydown", (event) => {
+  if (event.key === "ArrowLeft") {
+    event.preventDefault();
+    scrollRouteSlider(-1);
+  }
+  if (event.key === "ArrowRight") {
+    event.preventDefault();
+    scrollRouteSlider(1);
+  }
+});
+window.addEventListener("resize", updateRouteSliderControls);
+updateRouteSliderControls();
 
 document.querySelectorAll(".price-pill").forEach((pill) => {
   pill.addEventListener("click", () => {
@@ -1378,6 +1482,9 @@ const applyLanguage = (language) => {
 
   const activeFleet = document.querySelector(".fleet-tab.active");
   if (activeFleet) updateFleet(activeFleet.dataset.fleet);
+  if (destinationSelect.value && priceDisplay.classList.contains("visible")) {
+    updateInlinePrice(destinationSelect.value);
+  }
 
   try {
     localStorage.setItem("avl-language", supportedLanguage);
@@ -1433,7 +1540,7 @@ const observer = new IntersectionObserver(
 
 document.querySelectorAll(".service-card, .route-card, .review-card, .process-line article").forEach((element) => {
   const siblings = Array.from(element.parentElement.children);
-  const delay = siblings.indexOf(element) * 0.09;
+  const delay = (siblings.indexOf(element) % 4) * 0.09;
   element.style.opacity = "0";
   element.style.transform = "translateY(22px)";
   element.style.transition = `opacity .65s ease ${delay}s, transform .65s ease ${delay}s, box-shadow .35s ease`;

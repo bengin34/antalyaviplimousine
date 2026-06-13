@@ -172,7 +172,26 @@
                     <option value="side">Side</option>
                     <option value="kemer">Kemer</option>
                     <option value="alanya">Alanya</option>
+                    <option value="tekirova">Tekirova</option>
+                    <option value="manavgat">Manavgat</option>
+                    <option value="bogazkent">Boğazkent</option>
                     <option value="antalya">Antalya City</option>
+                    <option value="bodrum">Bodrum</option>
+                    <option value="dalaman">Dalaman</option>
+                    <option value="fethiye">Fethiye</option>
+                    <option value="pamukkale">Pamukkale</option>
+                    <option value="kapadokya">Kapadokya</option>
+                  </select>
+                </div>
+              </label>
+
+              <label class="booking-field">
+                <span data-i18n="vehicle">Vehicle</span>
+                <div class="field-control">
+                  <svg class="icon" aria-hidden="true"><use href="#icon-car"></use></svg>
+                  <select id="vehicle-type" name="vehicle" aria-label="Vehicle">
+                    <option value="vito">Mercedes Vito</option>
+                    <option value="sprinter">Mercedes Sprinter</option>
                   </select>
                 </div>
               </label>
@@ -190,13 +209,19 @@
                 <div class="field-control">
                   <svg class="icon" aria-hidden="true"><use href="#icon-users"></use></svg>
                   <select id="guests" name="guests" aria-label="Number of guests">
-                    <option value="1" data-i18n="oneGuest">1 guest</option>
-                    <option value="2" selected data-i18n="twoGuests">2 guests</option>
-                    <option value="3" data-i18n="threeGuests">3 guests</option>
-                    <option value="4" data-i18n="fourGuests">4 guests</option>
-                    <option value="5" data-i18n="fiveGuests">5 guests</option>
-                    <option value="6" data-i18n="sixGuests">6 guests</option>
-                    <option value="7" data-i18n="sevenGuests">7 guests</option>
+                    <option value="1">1</option>
+                    <option value="2" selected>2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                    <option value="13">13</option>
                   </select>
                 </div>
               </label>
@@ -267,13 +292,13 @@
       <div class="price-strip" aria-label="Route prices from Antalya Airport">
         <span class="price-strip-label" data-i18n="fromAirport">From Antalya Airport</span>
         <div class="price-strip-pills">
-          <button class="price-pill" type="button" data-route="belek">Belek <strong>€45</strong></button>
-          <button class="price-pill" type="button" data-route="side">Side <strong>€65</strong></button>
-          <button class="price-pill" type="button" data-route="kemer">Kemer <strong>€70</strong></button>
-          <button class="price-pill" type="button" data-route="alanya">Alanya <strong>€110</strong></button>
-          <button class="price-pill" type="button" data-route="antalya">Antalya City <strong>€40</strong></button>
+          <button class="price-pill" type="button" data-route="belek">Belek <strong>€40 / €60</strong></button>
+          <button class="price-pill" type="button" data-route="side">Side <strong>€50 / €75</strong></button>
+          <button class="price-pill" type="button" data-route="kemer">Kemer <strong>€55 / €80</strong></button>
+          <button class="price-pill" type="button" data-route="alanya">Alanya <strong>€100 / €130</strong></button>
+          <button class="price-pill" type="button" data-route="antalya">Antalya City <strong>€30 / €45</strong></button>
         </div>
-        <span class="price-strip-note" data-i18n="perVehicle">per vehicle · fixed price</span>
+        <span class="price-strip-note">Vito / Sprinter</span>
       </div>
 
       <section class="editorial-intro section">
@@ -320,38 +345,42 @@
               <img src="/assets/chauffeur-arrival.jpg" alt="Professional chauffeur opening a luxury black executive van" />
               <div class="image-badge">
                 <span data-i18n="signatureFleet">Signature fleet</span>
-                <strong>V-Class</strong>
+                <strong id="fleet-badge-name">Sprinter</strong>
               </div>
             </div>
             <div class="fleet-panel">
               <div class="fleet-tabs" role="tablist" aria-label="Fleet vehicles">
-                <button class="fleet-tab active" type="button" role="tab" data-fleet="vclass">Mercedes V-Class</button>
-                <button class="fleet-tab" type="button" role="tab" data-fleet="vito">Mercedes Vito VIP</button>
+                <button class="fleet-tab active" type="button" role="tab" data-fleet="sprinter">Mercedes Sprinter</button>
+                <button class="fleet-tab" type="button" role="tab" data-fleet="vito">Mercedes Vito</button>
               </div>
               <div class="fleet-panel-copy">
                 <span class="mini-label" id="fleet-class" data-i18n="fleetVclassClass">Business · First Class</span>
-                <h3 id="fleet-name">Mercedes V-Class</h3>
+                <h3 id="fleet-name">Mercedes Sprinter</h3>
                 <p id="fleet-description" data-i18n="fleetVclassDescription">
-                  The benchmark for sophisticated group travel. Spacious, exceptionally quiet and appointed for a
-                  seamless arrival.
+                  Spacious VIP transport for larger groups, with generous room for passengers and luggage.
                 </p>
               </div>
               <div class="fleet-capacity">
                 <div>
                   <svg class="icon" aria-hidden="true"><use href="#icon-users"></use></svg>
-                  <span><strong id="fleet-guests">6</strong> <span data-i18n="passengers">passengers</span></span>
+                  <span><strong id="fleet-guests">13</strong> <span data-i18n="passengers">passengers</span></span>
                 </div>
                 <div>
                   <svg class="icon" aria-hidden="true"><use href="#icon-luggage"></use></svg>
-                  <span><strong id="fleet-bags">6</strong> <span data-i18n="suitcases">suitcases</span></span>
+                  <span><strong id="fleet-bags">12</strong> <span data-i18n="suitcases">suitcases</span></span>
                 </div>
               </div>
               <ul class="amenity-list">
-                <li><svg class="icon"><use href="#icon-check"></use></svg><span data-i18n="leatherSeats">Premium leather seating</span></li>
+                <li><svg class="icon"><use href="#icon-check"></use></svg><span data-i18n="television">In-vehicle television</span></li>
+                <li><svg class="icon"><use href="#icon-check"></use></svg><span data-i18n="coldDrinks">Cold drinks</span></li>
+                <li><svg class="icon"><use href="#icon-check"></use></svg><span data-i18n="snacks">Snacks</span></li>
+                <li><svg class="icon"><use href="#icon-check"></use></svg><span data-i18n="childSeats">Child seat available</span></li>
                 <li><svg class="icon"><use href="#icon-check"></use></svg><span data-i18n="wifi">Complimentary WiFi</span></li>
-                <li><svg class="icon"><use href="#icon-check"></use></svg><span data-i18n="water">Chilled bottled water</span></li>
-                <li><svg class="icon"><use href="#icon-check"></use></svg><span data-i18n="childSeats">Child seats on request</span></li>
               </ul>
+              <div class="fleet-welcome-note">
+                <svg class="icon"><use href="#icon-user-check"></use></svg>
+                <span data-i18n="nameSignGreeting">Meet & greet with a personalised name sign</span>
+              </div>
               <a class="button button-outline-gold" href="#booking">
                 <span data-i18n="reserveVehicle">Reserve this vehicle</span>
                 <svg class="icon"><use href="#icon-arrow-right"></use></svg>
@@ -362,7 +391,7 @@
           <div class="interior-banner">
             <img src="/assets/executive-interior.jpg" alt="Cream leather executive seating inside a luxury passenger van" />
             <div class="interior-copy">
-              <span class="mini-label" data-i18n="insideVclass">Inside the V-Class</span>
+              <span class="mini-label" data-i18n="insideVclass">Inside the Sprinter</span>
               <h3 data-i18n="interiorTitle">A private lounge between<br />the airport and your hotel.</h3>
             </div>
           </div>
@@ -429,59 +458,172 @@
           <p data-i18n="routesIntro">All prices are per vehicle, never per passenger, with complimentary waiting time included.</p>
         </div>
 
-        <div class="route-grid">
-          <article class="route-card route-belek" data-route="belek">
-            <div class="route-card-top">
-              <span class="route-number">01</span>
-              <span class="route-chip" data-i18n="golfFavourite">Golf favourite</span>
-            </div>
+        <div class="route-slider-toolbar">
+          <span class="route-slider-hint">Vito / Sprinter</span>
+          <div class="route-slider-controls">
+            <button class="route-slider-button route-slider-prev" type="button" aria-label="Previous routes">
+              <svg><use href="#icon-arrow-right"></use></svg>
+            </button>
+            <button class="route-slider-button route-slider-next" type="button" aria-label="Next routes">
+              <svg><use href="#icon-arrow-right"></use></svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="route-slider" id="route-slider" aria-label="Antalya Airport transfer routes" tabindex="0">
+          <article class="route-card route-image-1" data-route="belek">
+            <div class="route-card-top"><span class="route-number">01</span><span class="route-chip" data-i18n="golfFavourite">Golf favourite</span></div>
             <div class="route-card-copy">
               <div class="route-line"><span>AYT</span><i></i><svg><use href="#icon-arrow-right"></use></svg><i></i><span>BELEK</span></div>
               <h3>Antalya Airport <span>→</span> Belek</h3>
-              <div class="route-meta">
-                <span><svg><use href="#icon-clock"></use></svg>35 min</span>
-                <span><svg><use href="#icon-road"></use></svg>33 km</span>
+              <div class="route-vehicle-prices">
+                <button class="route-price-button" type="button" data-route="belek" data-vehicle="vito"><span>Mercedes Vito</span><strong>€40</strong><svg><use href="#icon-arrow-up-right"></use></svg></button>
+                <button class="route-price-button" type="button" data-route="belek" data-vehicle="sprinter"><span>Mercedes Sprinter</span><strong>€60</strong><svg><use href="#icon-arrow-up-right"></use></svg></button>
               </div>
-              <div class="route-price"><span data-i18n="from">From</span><strong>€45</strong><button type="button" aria-label="Quote Antalya Airport to Belek"><svg><use href="#icon-arrow-up-right"></use></svg></button></div>
             </div>
           </article>
 
-          <article class="route-card route-side" data-route="side">
+          <article class="route-card route-image-2" data-route="side">
             <div class="route-card-top"><span class="route-number">02</span></div>
             <div class="route-card-copy">
               <div class="route-line"><span>AYT</span><i></i><svg><use href="#icon-arrow-right"></use></svg><i></i><span>SIDE</span></div>
               <h3>Antalya Airport <span>→</span> Side</h3>
-              <div class="route-meta">
-                <span><svg><use href="#icon-clock"></use></svg>55 min</span>
-                <span><svg><use href="#icon-road"></use></svg>64 km</span>
+              <div class="route-vehicle-prices">
+                <button class="route-price-button" type="button" data-route="side" data-vehicle="vito"><span>Mercedes Vito</span><strong>€50</strong><svg><use href="#icon-arrow-up-right"></use></svg></button>
+                <button class="route-price-button" type="button" data-route="side" data-vehicle="sprinter"><span>Mercedes Sprinter</span><strong>€75</strong><svg><use href="#icon-arrow-up-right"></use></svg></button>
               </div>
-              <div class="route-price"><span data-i18n="from">From</span><strong>€65</strong><button type="button" aria-label="Quote Antalya Airport to Side"><svg><use href="#icon-arrow-up-right"></use></svg></button></div>
             </div>
           </article>
 
-          <article class="route-card route-kemer" data-route="kemer">
+          <article class="route-card route-image-3" data-route="kemer">
             <div class="route-card-top"><span class="route-number">03</span></div>
             <div class="route-card-copy">
               <div class="route-line"><span>AYT</span><i></i><svg><use href="#icon-arrow-right"></use></svg><i></i><span>KEMER</span></div>
               <h3>Antalya Airport <span>→</span> Kemer</h3>
-              <div class="route-meta">
-                <span><svg><use href="#icon-clock"></use></svg>60 min</span>
-                <span><svg><use href="#icon-road"></use></svg>58 km</span>
+              <div class="route-vehicle-prices">
+                <button class="route-price-button" type="button" data-route="kemer" data-vehicle="vito"><span>Mercedes Vito</span><strong>€55</strong><svg><use href="#icon-arrow-up-right"></use></svg></button>
+                <button class="route-price-button" type="button" data-route="kemer" data-vehicle="sprinter"><span>Mercedes Sprinter</span><strong>€80</strong><svg><use href="#icon-arrow-up-right"></use></svg></button>
               </div>
-              <div class="route-price"><span data-i18n="from">From</span><strong>€70</strong><button type="button" aria-label="Quote Antalya Airport to Kemer"><svg><use href="#icon-arrow-up-right"></use></svg></button></div>
             </div>
           </article>
 
-          <article class="route-card route-alanya" data-route="alanya">
+          <article class="route-card route-image-4" data-route="alanya">
             <div class="route-card-top"><span class="route-number">04</span></div>
             <div class="route-card-copy">
               <div class="route-line"><span>AYT</span><i></i><svg><use href="#icon-arrow-right"></use></svg><i></i><span>ALANYA</span></div>
               <h3>Antalya Airport <span>→</span> Alanya</h3>
-              <div class="route-meta">
-                <span><svg><use href="#icon-clock"></use></svg>2 hr</span>
-                <span><svg><use href="#icon-road"></use></svg>125 km</span>
+              <div class="route-vehicle-prices">
+                <button class="route-price-button" type="button" data-route="alanya" data-vehicle="vito"><span>Mercedes Vito</span><strong>€100</strong><svg><use href="#icon-arrow-up-right"></use></svg></button>
+                <button class="route-price-button" type="button" data-route="alanya" data-vehicle="sprinter"><span>Mercedes Sprinter</span><strong>€130</strong><svg><use href="#icon-arrow-up-right"></use></svg></button>
               </div>
-              <div class="route-price"><span data-i18n="from">From</span><strong>€110</strong><button type="button" aria-label="Quote Antalya Airport to Alanya"><svg><use href="#icon-arrow-up-right"></use></svg></button></div>
+            </div>
+          </article>
+
+          <article class="route-card route-image-5" data-route="tekirova">
+            <div class="route-card-top"><span class="route-number">05</span></div>
+            <div class="route-card-copy">
+              <div class="route-line"><span>AYT</span><i></i><svg><use href="#icon-arrow-right"></use></svg><i></i><span>TEKIROVA</span></div>
+              <h3>Antalya Airport <span>→</span> Tekirova</h3>
+              <div class="route-vehicle-prices">
+                <button class="route-price-button" type="button" data-route="tekirova" data-vehicle="vito"><span>Mercedes Vito</span><strong>€100</strong><svg><use href="#icon-arrow-up-right"></use></svg></button>
+                <button class="route-price-button" type="button" data-route="tekirova" data-vehicle="sprinter"><span>Mercedes Sprinter</span><strong>€130</strong><svg><use href="#icon-arrow-up-right"></use></svg></button>
+              </div>
+            </div>
+          </article>
+
+          <article class="route-card route-image-6" data-route="manavgat">
+            <div class="route-card-top"><span class="route-number">06</span></div>
+            <div class="route-card-copy">
+              <div class="route-line"><span>AYT</span><i></i><svg><use href="#icon-arrow-right"></use></svg><i></i><span>MANAVGAT</span></div>
+              <h3>Antalya Airport <span>→</span> Manavgat</h3>
+              <div class="route-vehicle-prices">
+                <button class="route-price-button" type="button" data-route="manavgat" data-vehicle="vito"><span>Mercedes Vito</span><strong>€50</strong><svg><use href="#icon-arrow-up-right"></use></svg></button>
+                <button class="route-price-button" type="button" data-route="manavgat" data-vehicle="sprinter"><span>Mercedes Sprinter</span><strong>€75</strong><svg><use href="#icon-arrow-up-right"></use></svg></button>
+              </div>
+            </div>
+          </article>
+
+          <article class="route-card route-image-1 route-image-alt-1" data-route="bogazkent">
+            <div class="route-card-top"><span class="route-number">07</span></div>
+            <div class="route-card-copy">
+              <div class="route-line"><span>AYT</span><i></i><svg><use href="#icon-arrow-right"></use></svg><i></i><span>BOGAZKENT</span></div>
+              <h3>Antalya Airport <span>→</span> Boğazkent</h3>
+              <div class="route-vehicle-prices">
+                <button class="route-price-button" type="button" data-route="bogazkent" data-vehicle="vito"><span>Mercedes Vito</span><strong>€45</strong><svg><use href="#icon-arrow-up-right"></use></svg></button>
+                <button class="route-price-button" type="button" data-route="bogazkent" data-vehicle="sprinter"><span>Mercedes Sprinter</span><strong>€65</strong><svg><use href="#icon-arrow-up-right"></use></svg></button>
+              </div>
+            </div>
+          </article>
+
+          <article class="route-card route-image-2 route-image-alt-2" data-route="antalya">
+            <div class="route-card-top"><span class="route-number">08</span></div>
+            <div class="route-card-copy">
+              <div class="route-line"><span>AYT</span><i></i><svg><use href="#icon-arrow-right"></use></svg><i></i><span>ANTALYA</span></div>
+              <h3>Antalya Airport <span>→</span> Antalya City</h3>
+              <div class="route-vehicle-prices">
+                <button class="route-price-button" type="button" data-route="antalya" data-vehicle="vito"><span>Mercedes Vito</span><strong>€30</strong><svg><use href="#icon-arrow-up-right"></use></svg></button>
+                <button class="route-price-button" type="button" data-route="antalya" data-vehicle="sprinter"><span>Mercedes Sprinter</span><strong>€45</strong><svg><use href="#icon-arrow-up-right"></use></svg></button>
+              </div>
+            </div>
+          </article>
+
+          <article class="route-card route-image-3 route-image-alt-3" data-route="bodrum">
+            <div class="route-card-top"><span class="route-number">09</span></div>
+            <div class="route-card-copy">
+              <div class="route-line"><span>AYT</span><i></i><svg><use href="#icon-arrow-right"></use></svg><i></i><span>BODRUM</span></div>
+              <h3>Antalya Airport <span>→</span> Bodrum</h3>
+              <div class="route-vehicle-prices">
+                <button class="route-price-button" type="button" data-route="bodrum" data-vehicle="vito"><span>Mercedes Vito</span><strong>€200</strong><svg><use href="#icon-arrow-up-right"></use></svg></button>
+                <button class="route-price-button" type="button" data-route="bodrum" data-vehicle="sprinter"><span>Mercedes Sprinter</span><strong>€250</strong><svg><use href="#icon-arrow-up-right"></use></svg></button>
+              </div>
+            </div>
+          </article>
+
+          <article class="route-card route-image-4 route-image-alt-4" data-route="dalaman">
+            <div class="route-card-top"><span class="route-number">10</span></div>
+            <div class="route-card-copy">
+              <div class="route-line"><span>AYT</span><i></i><svg><use href="#icon-arrow-right"></use></svg><i></i><span>DALAMAN</span></div>
+              <h3>Antalya Airport <span>→</span> Dalaman</h3>
+              <div class="route-vehicle-prices">
+                <button class="route-price-button" type="button" data-route="dalaman" data-vehicle="vito"><span>Mercedes Vito</span><strong>€200</strong><svg><use href="#icon-arrow-up-right"></use></svg></button>
+                <button class="route-price-button" type="button" data-route="dalaman" data-vehicle="sprinter"><span>Mercedes Sprinter</span><strong>€250</strong><svg><use href="#icon-arrow-up-right"></use></svg></button>
+              </div>
+            </div>
+          </article>
+
+          <article class="route-card route-image-5 route-image-alt-5" data-route="fethiye">
+            <div class="route-card-top"><span class="route-number">11</span></div>
+            <div class="route-card-copy">
+              <div class="route-line"><span>AYT</span><i></i><svg><use href="#icon-arrow-right"></use></svg><i></i><span>FETHIYE</span></div>
+              <h3>Antalya Airport <span>→</span> Fethiye</h3>
+              <div class="route-vehicle-prices">
+                <button class="route-price-button" type="button" data-route="fethiye" data-vehicle="vito"><span>Mercedes Vito</span><strong>€200</strong><svg><use href="#icon-arrow-up-right"></use></svg></button>
+                <button class="route-price-button" type="button" data-route="fethiye" data-vehicle="sprinter"><span>Mercedes Sprinter</span><strong>€250</strong><svg><use href="#icon-arrow-up-right"></use></svg></button>
+              </div>
+            </div>
+          </article>
+
+          <article class="route-card route-image-6 route-image-alt-6" data-route="pamukkale">
+            <div class="route-card-top"><span class="route-number">12</span></div>
+            <div class="route-card-copy">
+              <div class="route-line"><span>AYT</span><i></i><svg><use href="#icon-arrow-right"></use></svg><i></i><span>PAMUKKALE</span></div>
+              <h3>Antalya Airport <span>→</span> Pamukkale</h3>
+              <div class="route-vehicle-prices">
+                <button class="route-price-button" type="button" data-route="pamukkale" data-vehicle="vito"><span>Mercedes Vito</span><strong>€200</strong><svg><use href="#icon-arrow-up-right"></use></svg></button>
+                <button class="route-price-button" type="button" data-route="pamukkale" data-vehicle="sprinter"><span>Mercedes Sprinter</span><strong>€250</strong><svg><use href="#icon-arrow-up-right"></use></svg></button>
+              </div>
+            </div>
+          </article>
+
+          <article class="route-card route-image-3 route-image-alt-7" data-route="kapadokya">
+            <div class="route-card-top"><span class="route-number">13</span></div>
+            <div class="route-card-copy">
+              <div class="route-line"><span>AYT</span><i></i><svg><use href="#icon-arrow-right"></use></svg><i></i><span>KAPADOKYA</span></div>
+              <h3>Antalya Airport <span>→</span> Kapadokya</h3>
+              <div class="route-vehicle-prices">
+                <button class="route-price-button" type="button" data-route="kapadokya" data-vehicle="vito"><span>Mercedes Vito</span><strong>€300</strong><svg><use href="#icon-arrow-up-right"></use></svg></button>
+                <button class="route-price-button" type="button" data-route="kapadokya" data-vehicle="sprinter"><span>Mercedes Sprinter</span><strong>€400</strong><svg><use href="#icon-arrow-up-right"></use></svg></button>
+              </div>
             </div>
           </article>
         </div>
@@ -507,7 +649,7 @@
             <article class="review-card">
               <div class="review-card-top"><span class="stars">★★★★★</span><span>Google</span></div>
               <blockquote data-i18n="reviewOne">
-                “Our driver was waiting despite a 90-minute flight delay. The V-Class was immaculate, cool and
+                “Our driver was waiting despite a 90-minute flight delay. The vehicle was immaculate, cool and
                 already fitted with both child seats. Exactly the welcome our family needed.”
               </blockquote>
               <footer><div class="avatar">JS</div><div><strong>James S.</strong><span>London, United Kingdom</span></div><time>May 2026</time></footer>
@@ -580,7 +722,7 @@
           </article>
           <article class="faq-item">
             <button type="button" aria-expanded="false"><span data-i18n="faqFourQ">Can you carry golf bags and large luggage?</span><i></i></button>
-            <div class="faq-answer"><p data-i18n="faqFourA">Yes. Our V-Class and Vito VIP vehicles are ideal for golf groups. Tell us your luggage details and we will allocate the correct vehicle.</p></div>
+            <div class="faq-answer"><p data-i18n="faqFourA">Yes. Our Sprinter and Vito vehicles are ideal for golf groups. Tell us your luggage details and we will allocate the correct vehicle.</p></div>
           </article>
           <article class="faq-item">
             <button type="button" aria-expanded="false"><span data-i18n="faqFiveQ">Is the quoted price final?</span><i></i></button>

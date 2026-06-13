@@ -711,7 +711,7 @@ html[lang="ru"] .faq-item button span {
 }
 
 .booking-row-journey {
-  grid-template-columns: 1.2fr 1.2fr 1fr 0.8fr;
+  grid-template-columns: 1.15fr 1.15fr 1fr 0.85fr 0.65fr;
   border-bottom: 0;
 }
 
@@ -1120,11 +1120,6 @@ html[lang="ru"] .faq-item button span {
 .fleet-image img {
   height: 100%;
   object-fit: cover;
-  transition: transform 0.8s ease;
-}
-
-.fleet-showcase:hover .fleet-image img {
-  transform: scale(1.025);
 }
 
 .image-badge {
@@ -1253,7 +1248,7 @@ html[lang="ru"] .faq-item button span {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 16px;
-  margin: 0 0 40px;
+  margin: 0 0 24px;
   padding: 0;
   list-style: none;
 }
@@ -1270,6 +1265,25 @@ html[lang="ru"] .faq-item button span {
   width: 15px;
   height: 15px;
   color: var(--gold);
+}
+
+.fleet-welcome-note {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  margin-bottom: 32px;
+  padding: 14px 16px;
+  border: 1px solid rgba(200, 169, 106, 0.28);
+  background: rgba(200, 169, 106, 0.07);
+  color: var(--gold-light);
+  font-size: 10px;
+  letter-spacing: 0.03em;
+}
+
+.fleet-welcome-note .icon {
+  width: 18px;
+  height: 18px;
+  flex: 0 0 auto;
 }
 
 .button-outline-gold {
@@ -1411,15 +1425,77 @@ html[lang="ru"] .faq-item button span {
   padding-top: 75px;
 }
 
-.route-grid {
+.route-slider-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 22px;
+  margin-bottom: 18px;
+}
+
+.route-slider-hint {
+  color: var(--muted);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.route-slider-controls {
+  display: flex;
+  gap: 8px;
+}
+
+.route-slider-button {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  width: 46px;
+  height: 46px;
+  place-items: center;
+  border: 1px solid var(--line);
+  background: var(--white);
+  color: var(--ink);
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.route-slider-button:hover:not(:disabled) {
+  border-color: var(--gold);
+  background: var(--gold);
+}
+
+.route-slider-button:disabled {
+  cursor: default;
+  opacity: 0.3;
+}
+
+.route-slider-button svg {
+  width: 16px;
+  height: 16px;
+}
+
+.route-slider-prev svg {
+  transform: rotate(180deg);
+}
+
+.route-slider {
+  display: flex;
   gap: 15px;
+  overflow-x: auto;
+  padding-bottom: 12px;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  overscroll-behavior-inline: contain;
+}
+
+.route-slider::-webkit-scrollbar {
+  display: none;
 }
 
 .route-card {
   position: relative;
   display: flex;
+  flex: 0 0 clamp(290px, 27vw, 355px);
   min-height: 510px;
   justify-content: space-between;
   flex-direction: column;
@@ -1428,6 +1504,8 @@ html[lang="ru"] .faq-item button span {
   background: #222;
   color: var(--white);
   isolation: isolate;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
 }
 
 .route-card::before,
@@ -1444,21 +1522,37 @@ html[lang="ru"] .faq-item button span {
   background: linear-gradient(0deg, rgba(7, 7, 7, 0.95), rgba(7, 7, 7, 0.07) 70%);
 }
 
-.route-belek::before {
-  background: linear-gradient(135deg, rgba(9, 9, 9, 0.08), rgba(9, 9, 9, 0.12)), url("/assets/chauffeur-arrival.jpg") 35% center / auto 100%;
+.route-image-1::before {
+  background: linear-gradient(135deg, rgba(9, 9, 9, 0.08), rgba(9, 9, 9, 0.12)), url("/assets/chauffeur-arrival.jpg") 35% center / cover;
 }
 
-.route-side::before {
-  background: linear-gradient(135deg, rgba(20, 13, 4, 0.1), rgba(5, 5, 5, 0.1)), url("/assets/antalya-coastline-hero.jpg") 13% center / auto 100%;
+.route-image-2::before {
+  background: linear-gradient(135deg, rgba(20, 13, 4, 0.1), rgba(5, 5, 5, 0.1)), url("/assets/antalya-coastline-hero.jpg") 13% center / cover;
 }
 
-.route-kemer::before {
-  background: linear-gradient(135deg, rgba(5, 15, 18, 0.1), rgba(5, 5, 5, 0.1)), url("/assets/antalya-coastline-hero.jpg") 70% center / auto 100%;
+.route-image-3::before {
+  background: linear-gradient(135deg, rgba(5, 15, 18, 0.1), rgba(5, 5, 5, 0.1)), url("/assets/antalya-coastline-hero.jpg") 70% center / cover;
 }
 
-.route-alanya::before {
+.route-image-4::before {
   background: linear-gradient(135deg, rgba(8, 8, 8, 0.1), rgba(5, 5, 5, 0.1)), url("/assets/executive-interior.jpg") center / cover;
 }
+
+.route-image-5::before {
+  background: linear-gradient(135deg, rgba(4, 18, 15, 0.08), rgba(5, 5, 5, 0.12)), url("/assets/antalya-coastline-hero.jpg") 42% center / cover;
+}
+
+.route-image-6::before {
+  background: linear-gradient(135deg, rgba(10, 8, 5, 0.08), rgba(5, 5, 5, 0.12)), url("/assets/chauffeur-arrival.jpg") 70% center / cover;
+}
+
+.route-image-alt-1::before { background-position: 52% center; }
+.route-image-alt-2::before { background-position: 32% center; }
+.route-image-alt-3::before { background-position: 82% center; }
+.route-image-alt-4::before { background-position: 64% center; }
+.route-image-alt-5::before { background-position: 58% center; }
+.route-image-alt-6::before { background-position: 25% center; }
+.route-image-alt-7::before { background-position: 48% center; }
 
 .route-card:hover::before {
   transform: scale(1.055);
@@ -1512,6 +1606,7 @@ html[lang="ru"] .faq-item button span {
 }
 
 .route-card h3 {
+  min-height: 2.3em;
   margin: 0;
   font-family: var(--serif);
   font-size: 28px;
@@ -1523,73 +1618,55 @@ html[lang="ru"] .faq-item button span {
   color: var(--gold-light);
 }
 
-.route-meta {
-  display: flex;
-  gap: 18px;
-  margin-top: 17px;
-  color: rgba(255, 255, 255, 0.55);
-  font-size: 9px;
-  letter-spacing: 0.07em;
-  text-transform: uppercase;
-}
-
-.route-meta span {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
-
-.route-meta svg {
-  width: 13px;
-  height: 13px;
-  color: var(--gold-light);
-}
-
-.route-price {
+.route-vehicle-prices {
   display: grid;
-  grid-template-columns: auto 1fr auto;
-  align-items: center;
-  gap: 9px;
-  margin-top: 24px;
-  padding-top: 20px;
+  gap: 8px;
+  margin-top: 25px;
+  padding-top: 16px;
   border-top: 1px solid rgba(255, 255, 255, 0.18);
 }
 
-.route-price > span {
-  color: rgba(255, 255, 255, 0.48);
-  font-size: 9px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-}
-
-.route-price strong {
-  font-family: var(--serif);
-  font-size: 27px;
-  font-weight: 400;
-}
-
-.route-price button {
+.route-price-button {
   display: grid;
-  width: 42px;
-  height: 42px;
-  place-items: center;
-  border: 1px solid rgba(255, 255, 255, 0.32);
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.05);
+  grid-template-columns: 1fr auto auto;
+  align-items: center;
+  gap: 10px;
+  min-height: 48px;
+  padding: 0 13px;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  background: rgba(5, 5, 5, 0.28);
   color: var(--white);
   cursor: pointer;
+  text-align: left;
   transition: 0.25s;
 }
 
-.route-price button:hover {
+.route-price-button span {
+  color: rgba(255, 255, 255, 0.58);
+  font-size: 8px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.route-price-button strong {
+  font-family: var(--serif);
+  font-size: 22px;
+  font-weight: 400;
+}
+
+.route-price-button:hover {
   border-color: var(--gold);
   background: var(--gold);
   color: var(--black);
 }
 
-.route-price svg {
-  width: 16px;
-  height: 16px;
+.route-price-button:hover span {
+  color: rgba(0, 0, 0, 0.62);
+}
+
+.route-price-button svg {
+  width: 14px;
+  height: 14px;
 }
 
 .review-summary {
@@ -2436,11 +2513,8 @@ footer {
     grid-template-columns: 1.2fr 0.8fr;
   }
 
-  .route-grid {
-    grid-template-columns: 1fr 1fr;
-  }
-
   .route-card {
+    flex-basis: clamp(300px, 42vw, 390px);
     min-height: 480px;
   }
 
@@ -2471,6 +2545,10 @@ footer {
   .booking-row-journey,
   .booking-row-personal {
     grid-template-columns: 1fr 1fr;
+  }
+
+  .booking-row-journey .booking-field:last-child {
+    grid-column: 1 / -1;
   }
 
   .booking-card .booking-field:nth-child(odd) {
@@ -2831,11 +2909,8 @@ footer {
     padding: 40px 32px;
   }
 
-  .route-grid {
-    grid-template-columns: 1fr;
-  }
-
   .route-card {
+    flex-basis: min(84vw, 340px);
     min-height: 465px;
   }
 
