@@ -1,4 +1,4 @@
-import { createBooking } from './lib/api.js'
+import { createBooking, createIyzicoCheckout } from './lib/api.js'
 
 const translations = {
   de: {
@@ -24,6 +24,8 @@ const translations = {
     date: "Datum",
     guests: "Gäste",
     hotelAddress: "Hotel / Privatadresse",
+    pickupAddress: "Vollständige Abholadresse",
+    pickupAddressPlaceholder: "Hotelname, Straße, Hausnummer und Stadtteil",
     selectDestination: "Ziel auswählen",
     oneGuest: "1 Gast",
     twoGuests: "2 Gäste",
@@ -148,10 +150,11 @@ const translations = {
     flightArrivalTime: "Ankunftszeit",
     notesLabel: "Besondere Wünsche",
     confirmBooking: "Buchung bestätigen",
+    paySecurely: "Weiter zur sicheren Zahlung",
     payLaterNote: "Sichere Online-Zahlung nach Bestätigung.",
     bookingConfirmed: "Buchung bestätigt",
     referenceLabel: "Referenz",
-    weWillContact: "Bestätigung an Ihre E-Mail gesendet. Wir melden uns innerhalb von 30 Minuten.",
+    weWillContact: "Ihre Buchungsanfrage wurde gesendet. Wir melden uns innerhalb von 30 Minuten.",
     paymentTitle: "Sichere Zahlung",
     paymentError: "Zahlung fehlgeschlagen. Bitte erneut versuchen.",
   },
@@ -178,6 +181,8 @@ const translations = {
     date: "Tarih",
     guests: "Misafir",
     hotelAddress: "Otel / Özel adres",
+    pickupAddress: "Tam alış adresi",
+    pickupAddressPlaceholder: "Otel adı, cadde, bina numarası ve ilçe",
     selectDestination: "Varış noktası seçin",
     oneGuest: "1 misafir",
     twoGuests: "2 misafir",
@@ -302,10 +307,11 @@ const translations = {
     flightArrivalTime: "Varış saati",
     notesLabel: "Özel istekler",
     confirmBooking: "Rezervasyonu onayla",
+    paySecurely: "Güvenli ödemeye geç",
     payLaterNote: "Onay sonrası güvenli online ödeme.",
     bookingConfirmed: "Rezervasyon Onaylandı",
     referenceLabel: "Referans",
-    weWillContact: "Onay e-postanıza gönderildi. 30 dakika içinde sizinle iletişime geçeceğiz.",
+    weWillContact: "Rezervasyon talebiniz gönderildi. 30 dakika içinde sizinle iletişime geçeceğiz.",
     paymentTitle: "Güvenli Ödeme",
     paymentError: "Ödeme başarısız. Lütfen tekrar deneyin.",
   },
@@ -332,6 +338,8 @@ const translations = {
     date: "Дата",
     guests: "Гости",
     hotelAddress: "Отель / Частный адрес",
+    pickupAddress: "Полный адрес подачи",
+    pickupAddressPlaceholder: "Название отеля, улица, номер дома и район",
     selectDestination: "Выберите направление",
     oneGuest: "1 гость",
     twoGuests: "2 гостя",
@@ -456,10 +464,11 @@ const translations = {
     flightArrivalTime: "Время прилёта",
     notesLabel: "Особые пожелания",
     confirmBooking: "Подтвердить бронирование",
+    paySecurely: "Перейти к безопасной оплате",
     payLaterNote: "Оплата онлайн после подтверждения.",
     bookingConfirmed: "Бронирование подтверждено",
     referenceLabel: "Референс",
-    weWillContact: "Подтверждение отправлено на вашу почту. Мы свяжемся с вами в течение 30 минут.",
+    weWillContact: "Ваш запрос на бронирование отправлен. Мы свяжемся с вами в течение 30 минут.",
     paymentTitle: "Безопасная оплата",
     paymentError: "Оплата не прошла. Попробуйте ещё раз.",
   },
@@ -472,7 +481,9 @@ const translations = {
     bookTransfer: "Zarezerwuj transfer", instantQuote: "Sprawdź cenę", googleRated: "Ocena Google",
     trustedGuests: "Zaufało nam ponad 2 500 gości", discover: "Odkryj", privateJourney: "Twoja prywatna podróż",
     quoteTitle: "Dokąd Cię zawieziemy?", pickup: "Miejsce odbioru", destination: "Cel podróży",
-    date: "Data", guests: "Goście", hotelAddress: "Hotel / Adres prywatny", selectDestination: "Wybierz cel",
+    date: "Data", guests: "Goście", hotelAddress: "Hotel / Adres prywatny",
+    pickupAddress: "Pełny adres odbioru", pickupAddressPlaceholder: "Nazwa hotelu, ulica, numer budynku i dzielnica",
+    selectDestination: "Wybierz cel",
     oneGuest: "1 gość", twoGuests: "2 gości", threeGuests: "3 gości", fourGuests: "4 gości",
     fiveGuests: "5 gości", sixGuests: "6 gości", sevenGuests: "7 gości", viewQuote: "Pokaż cenę",
     flightTracking: "Śledzenie lotu w czasie rzeczywistym", fixedPrice: "Gwarantowana stała cena",
@@ -553,9 +564,9 @@ const translations = {
     backToQuote: "Wstecz", yourDetails: "Twoje dane", fullName: "Imię i nazwisko",
     emailLabel: "E-mail", phoneLabel: "Telefon / WhatsApp", flightNumber: "Numer lotu",
     flightArrivalTime: "Godzina przylotu", notesLabel: "Specjalne życzenia",
-    confirmBooking: "Potwierdź rezerwację", payLaterNote: "Bezpieczna płatność online po potwierdzeniu.",
+    confirmBooking: "Potwierdź rezerwację", paySecurely: "Przejdź do bezpiecznej płatności", payLaterNote: "Bezpieczna płatność online po potwierdzeniu.",
     bookingConfirmed: "Rezerwacja potwierdzona", referenceLabel: "Numer referencyjny",
-    weWillContact: "Potwierdzenie wysłane na Twój e-mail. Skontaktujemy się w ciągu 30 minut.",
+    weWillContact: "Twoje zgłoszenie rezerwacji zostało wysłane. Skontaktujemy się w ciągu 30 minut.",
     paymentTitle: "Bezpieczna płatność", paymentError: "Płatność nie powiodła się. Spróbuj ponownie.",
   },
   nl: {
@@ -567,7 +578,9 @@ const translations = {
     bookTransfer: "Transfer boeken", instantQuote: "Direct prijs ontvangen", googleRated: "Google-beoordeling",
     trustedGuests: "Vertrouwd door meer dan 2.500 gasten", discover: "Ontdekken", privateJourney: "Uw privéreis",
     quoteTitle: "Waar mogen wij u naartoe brengen?", pickup: "Ophaallocatie", destination: "Bestemming",
-    date: "Datum", guests: "Gasten", hotelAddress: "Hotel / Privéadres", selectDestination: "Kies bestemming",
+    date: "Datum", guests: "Gasten", hotelAddress: "Hotel / Privéadres",
+    pickupAddress: "Volledig ophaaladres", pickupAddressPlaceholder: "Hotelnaam, straat, huisnummer en wijk",
+    selectDestination: "Kies bestemming",
     oneGuest: "1 gast", twoGuests: "2 gasten", threeGuests: "3 gasten", fourGuests: "4 gasten",
     fiveGuests: "5 gasten", sixGuests: "6 gasten", sevenGuests: "7 gasten", viewQuote: "Prijs bekijken",
     flightTracking: "Realtime vluchtvolgend", fixedPrice: "Gegarandeerde vaste prijs",
@@ -649,9 +662,9 @@ const translations = {
     backToQuote: "Terug", yourDetails: "Uw gegevens", fullName: "Volledige naam",
     emailLabel: "E-mail", phoneLabel: "Telefoon / WhatsApp", flightNumber: "Vluchtnummer",
     flightArrivalTime: "Aankomsttijd", notesLabel: "Speciale wensen",
-    confirmBooking: "Boeking bevestigen", payLaterNote: "Veilige online betaling na bevestiging.",
+    confirmBooking: "Boeking bevestigen", paySecurely: "Ga door naar veilig betalen", payLaterNote: "Veilige online betaling na bevestiging.",
     bookingConfirmed: "Boeking bevestigd", referenceLabel: "Referentie",
-    weWillContact: "Bevestiging verzonden naar uw e-mail. We nemen binnen 30 minuten contact op.",
+    weWillContact: "Uw boekingsaanvraag is verzonden. We nemen binnen 30 minuten contact op.",
     paymentTitle: "Veilige betaling", paymentError: "Betaling mislukt. Probeer het opnieuw.",
   },
   uk: {
@@ -663,7 +676,9 @@ const translations = {
     bookTransfer: "Замовити трансфер", instantQuote: "Дізнатися ціну", googleRated: "Рейтинг Google",
     trustedGuests: "Нам довіряють понад 2 500 гостей", discover: "Детальніше", privateJourney: "Ваша приватна поїздка",
     quoteTitle: "Куди вас відвезти?", pickup: "Місце зустрічі", destination: "Напрямок",
-    date: "Дата", guests: "Гості", hotelAddress: "Готель / Приватна адреса", selectDestination: "Оберіть напрямок",
+    date: "Дата", guests: "Гості", hotelAddress: "Готель / Приватна адреса",
+    pickupAddress: "Повна адреса подачі", pickupAddressPlaceholder: "Назва готелю, вулиця, номер будинку та район",
+    selectDestination: "Оберіть напрямок",
     oneGuest: "1 гість", twoGuests: "2 гості", threeGuests: "3 гості", fourGuests: "4 гості",
     fiveGuests: "5 гостей", sixGuests: "6 гостей", sevenGuests: "7 гостей", viewQuote: "Показати ціну",
     flightTracking: "Відстеження рейсу в реальному часі", fixedPrice: "Гарантія фіксованої ціни",
@@ -744,9 +759,9 @@ const translations = {
     backToQuote: "Назад", yourDetails: "Ваші дані", fullName: "Ім'я та прізвище",
     emailLabel: "Ел. пошта", phoneLabel: "Телефон / WhatsApp", flightNumber: "Номер рейсу",
     flightArrivalTime: "Час прильоту", notesLabel: "Особливі побажання",
-    confirmBooking: "Підтвердити бронювання", payLaterNote: "Оплата онлайн після підтвердження.",
+    confirmBooking: "Підтвердити бронювання", paySecurely: "Перейти до безпечної оплати", payLaterNote: "Оплата онлайн після підтвердження.",
     bookingConfirmed: "Бронювання підтверджено", referenceLabel: "Референс",
-    weWillContact: "Підтвердження надіслано на вашу пошту. Ми зв'яжемося з вами протягом 30 хвилин.",
+    weWillContact: "Ваш запит на бронювання надіслано. Ми зв'яжемося з вами протягом 30 хвилин.",
     paymentTitle: "Безпечна оплата", paymentError: "Оплата не пройшла. Спробуйте ще раз.",
   },
   fr: {
@@ -758,7 +773,9 @@ const translations = {
     bookTransfer: "Réserver un transfert", instantQuote: "Obtenir un devis", googleRated: "Note Google",
     trustedGuests: "Approuvé par plus de 2 500 clients", discover: "Découvrir", privateJourney: "Votre voyage privé",
     quoteTitle: "Où souhaitez-vous aller ?", pickup: "Lieu de prise en charge", destination: "Destination",
-    date: "Date", guests: "Passagers", hotelAddress: "Hôtel / Adresse privée", selectDestination: "Choisir une destination",
+    date: "Date", guests: "Passagers", hotelAddress: "Hôtel / Adresse privée",
+    pickupAddress: "Adresse complète de prise en charge", pickupAddressPlaceholder: "Nom de l'hôtel, rue, numéro et quartier",
+    selectDestination: "Choisir une destination",
     oneGuest: "1 passager", twoGuests: "2 passagers", threeGuests: "3 passagers", fourGuests: "4 passagers",
     fiveGuests: "5 passagers", sixGuests: "6 passagers", sevenGuests: "7 passagers", viewQuote: "Voir le tarif",
     flightTracking: "Suivi de vol en temps réel", fixedPrice: "Prix fixe garanti",
@@ -840,9 +857,9 @@ const translations = {
     backToQuote: "Retour", yourDetails: "Vos coordonnées", fullName: "Nom complet",
     emailLabel: "E-mail", phoneLabel: "Téléphone / WhatsApp", flightNumber: "Numéro de vol",
     flightArrivalTime: "Heure d'arrivée", notesLabel: "Demandes spéciales",
-    confirmBooking: "Confirmer la réservation", payLaterNote: "Paiement en ligne sécurisé après confirmation.",
+    confirmBooking: "Confirmer la réservation", paySecurely: "Continuer vers le paiement sécurisé", payLaterNote: "Paiement en ligne sécurisé après confirmation.",
     bookingConfirmed: "Réservation confirmée", referenceLabel: "Référence",
-    weWillContact: "Confirmation envoyée à votre e-mail. Nous vous contactons dans les 30 minutes.",
+    weWillContact: "Votre demande de réservation a été envoyée. Nous vous contactons dans les 30 minutes.",
     paymentTitle: "Paiement sécurisé", paymentError: "Paiement échoué. Veuillez réessayer.",
   },
   sv: {
@@ -854,7 +871,9 @@ const translations = {
     bookTransfer: "Boka transfer", instantQuote: "Få pris direkt", googleRated: "Google-betyg",
     trustedGuests: "Anlitad av över 2 500 gäster", discover: "Utforska", privateJourney: "Din privata resa",
     quoteTitle: "Vart vill du åka?", pickup: "Hämtplats", destination: "Destination",
-    date: "Datum", guests: "Gäster", hotelAddress: "Hotell / Privat adress", selectDestination: "Välj destination",
+    date: "Datum", guests: "Gäster", hotelAddress: "Hotell / Privat adress",
+    pickupAddress: "Fullständig hämtningsadress", pickupAddressPlaceholder: "Hotellnamn, gata, husnummer och område",
+    selectDestination: "Välj destination",
     oneGuest: "1 gäst", twoGuests: "2 gäster", threeGuests: "3 gäster", fourGuests: "4 gäster",
     fiveGuests: "5 gäster", sixGuests: "6 gäster", sevenGuests: "7 gäster", viewQuote: "Visa pris",
     flightTracking: "Flygspårning i realtid", fixedPrice: "Garanterat fast pris",
@@ -935,9 +954,9 @@ const translations = {
     backToQuote: "Tillbaka", yourDetails: "Dina uppgifter", fullName: "Fullständigt namn",
     emailLabel: "E-post", phoneLabel: "Telefon / WhatsApp", flightNumber: "Flygnummer",
     flightArrivalTime: "Ankomsttid", notesLabel: "Särskilda önskemål",
-    confirmBooking: "Bekräfta bokning", payLaterNote: "Säker onlinebetalning efter bekräftelse.",
+    confirmBooking: "Bekräfta bokning", paySecurely: "Fortsätt till säker betalning", payLaterNote: "Säker onlinebetalning efter bekräftelse.",
     bookingConfirmed: "Bokning bekräftad", referenceLabel: "Referensnummer",
-    weWillContact: "Bekräftelse skickad till din e-post. Vi kontaktar dig inom 30 minuter.",
+    weWillContact: "Din bokningsförfrågan har skickats. Vi kontaktar dig inom 30 minuter.",
     paymentTitle: "Säker betalning", paymentError: "Betalning misslyckades. Försök igen.",
   },
   ja: {
@@ -950,7 +969,9 @@ const translations = {
     trustedGuests: "2,500名以上のお客様にご利用いただいています", discover: "詳しく見る",
     privateJourney: "あなただけのプライベートな旅",
     quoteTitle: "目的地をお知らせください", pickup: "お迎え場所", destination: "目的地",
-    date: "日付", guests: "ご利用人数", hotelAddress: "ホテル / 住所", selectDestination: "目的地を選択",
+    date: "日付", guests: "ご利用人数", hotelAddress: "ホテル / 住所",
+    pickupAddress: "お迎え先の詳しい住所", pickupAddressPlaceholder: "ホテル名、通り、建物番号、地区",
+    selectDestination: "目的地を選択",
     oneGuest: "1名", twoGuests: "2名", threeGuests: "3名", fourGuests: "4名",
     fiveGuests: "5名", sixGuests: "6名", sevenGuests: "7名", viewQuote: "料金を見る",
     flightTracking: "リアルタイムフライト追跡", fixedPrice: "料金固定保証",
@@ -1031,9 +1052,9 @@ const translations = {
     backToQuote: "戻る", yourDetails: "お客様情報", fullName: "氏名",
     emailLabel: "メールアドレス", phoneLabel: "電話 / WhatsApp", flightNumber: "フライト番号",
     flightArrivalTime: "到着時刻", notesLabel: "特別なご要望",
-    confirmBooking: "予約を確定する", payLaterNote: "確認後にオンラインで安全にお支払い。",
+    confirmBooking: "予約を確定する", paySecurely: "安全なお支払いへ進む", payLaterNote: "確認後にオンラインで安全にお支払い。",
     bookingConfirmed: "予約確定", referenceLabel: "予約番号",
-    weWillContact: "確認書をメールに送信しました。30分以内にご連絡いたします。",
+    weWillContact: "予約リクエストを送信しました。30分以内にご連絡いたします。",
     paymentTitle: "安全なお支払い", paymentError: "お支払いに失敗しました。もう一度お試しください。",
   },
   ko: {
@@ -1046,7 +1067,9 @@ const translations = {
     trustedGuests: "2,500명 이상의 고객이 이용했습니다", discover: "자세히 보기",
     privateJourney: "나만의 프라이빗 여행",
     quoteTitle: "어디로 모셔다 드릴까요?", pickup: "픽업 장소", destination: "목적지",
-    date: "날짜", guests: "인원", hotelAddress: "호텔 / 개인 주소", selectDestination: "목적지 선택",
+    date: "날짜", guests: "인원", hotelAddress: "호텔 / 개인 주소",
+    pickupAddress: "전체 픽업 주소", pickupAddressPlaceholder: "호텔명, 도로명, 건물 번호 및 지역",
+    selectDestination: "목적지 선택",
     oneGuest: "1명", twoGuests: "2명", threeGuests: "3명", fourGuests: "4명",
     fiveGuests: "5명", sixGuests: "6명", sevenGuests: "7명", viewQuote: "요금 보기",
     flightTracking: "실시간 항공편 추적", fixedPrice: "고정 요금 보장",
@@ -1127,12 +1150,206 @@ const translations = {
     backToQuote: "뒤로", yourDetails: "고객 정보", fullName: "성명",
     emailLabel: "이메일", phoneLabel: "전화 / WhatsApp", flightNumber: "항공편 번호",
     flightArrivalTime: "도착 시간", notesLabel: "특별 요청",
-    confirmBooking: "예약 확정하기", payLaterNote: "확인 후 안전하게 온라인 결제.",
+    confirmBooking: "예약 확정하기", paySecurely: "안전한 결제로 이동", payLaterNote: "확인 후 안전하게 온라인 결제.",
     bookingConfirmed: "예약 확정", referenceLabel: "예약 번호",
-    weWillContact: "이메일로 확인서를 보냈습니다. 30분 내로 연락드리겠습니다.",
+    weWillContact: "예약 요청이 전송되었습니다. 30분 내로 연락드리겠습니다.",
     paymentTitle: "안전한 결제", paymentError: "결제에 실패했습니다. 다시 시도해 주세요.",
   }
 };
+
+const paymentTranslations = {
+  en: {
+    paymentMethod: "Choose payment method",
+    cashPayment: "Pay in the vehicle",
+    recommended: "Recommended",
+    cashPaymentDescription: "No prepayment. Pay the confirmed total directly to your driver.",
+    cardPayment: "Pay online by card",
+    cardPaymentDescription: "Continue to iyzico's secure payment page.",
+    confirmCashBooking: "Confirm booking — pay in vehicle",
+    cashConfirmation: "Your booking is confirmed. Pay the fixed total directly to your driver in the vehicle.",
+    bookingError: "Your booking could not be completed. Please try again.",
+    chooseTime: "Choose time",
+    formIncomplete: "Please complete the highlighted fields.",
+    requiredField: "This field is required.",
+    destinationRequired: "Please select a destination.",
+    emailInvalid: "Please enter a valid email address.",
+    pickupAddressRequired: "Please enter the full pick-up address.",
+  },
+  de: {
+    paymentMethod: "Zahlungsart wählen",
+    cashPayment: "Im Fahrzeug bezahlen",
+    recommended: "Empfohlen",
+    cashPaymentDescription: "Keine Vorauszahlung. Zahlen Sie den bestätigten Gesamtpreis direkt beim Fahrer.",
+    cardPayment: "Online mit Karte bezahlen",
+    cardPaymentDescription: "Weiter zur sicheren Zahlungsseite von iyzico.",
+    confirmCashBooking: "Buchung bestätigen — im Fahrzeug zahlen",
+    cashConfirmation: "Ihre Buchung ist bestätigt. Zahlen Sie den Festpreis direkt beim Fahrer im Fahrzeug.",
+    bookingError: "Ihre Buchung konnte nicht abgeschlossen werden. Bitte versuchen Sie es erneut.",
+    chooseTime: "Uhrzeit wählen",
+    formIncomplete: "Bitte füllen Sie die markierten Felder aus.",
+    requiredField: "Dieses Feld ist erforderlich.",
+    destinationRequired: "Bitte wählen Sie ein Ziel.",
+    emailInvalid: "Bitte geben Sie eine gültige E-Mail-Adresse ein.",
+    pickupAddressRequired: "Bitte geben Sie die vollständige Abholadresse ein.",
+  },
+  tr: {
+    paymentMethod: "Ödeme yöntemini seçin",
+    cashPayment: "Araçta öde",
+    recommended: "Önerilen",
+    cashPaymentDescription: "Ön ödeme yok. Onaylanan toplam tutarı doğrudan şoförünüze ödeyin.",
+    cardPayment: "Online kartla öde",
+    cardPaymentDescription: "iyzico güvenli ödeme sayfasına devam edin.",
+    confirmCashBooking: "Rezervasyonu onayla — araçta öde",
+    cashConfirmation: "Rezervasyonunuz onaylandı. Sabit toplam tutarı araçta doğrudan şoförünüze ödeyin.",
+    bookingError: "Rezervasyonunuz tamamlanamadı. Lütfen tekrar deneyin.",
+    chooseTime: "Saat seçin",
+    formIncomplete: "Lütfen işaretli alanları doldurun.",
+    requiredField: "Bu alan zorunludur.",
+    destinationRequired: "Lütfen bir varış noktası seçin.",
+    emailInvalid: "Lütfen geçerli bir e-posta adresi girin.",
+    pickupAddressRequired: "Lütfen tam alış adresini girin.",
+  },
+  ru: {
+    paymentMethod: "Выберите способ оплаты",
+    cashPayment: "Оплата в автомобиле",
+    recommended: "Рекомендуем",
+    cashPaymentDescription: "Без предоплаты. Оплатите подтверждённую сумму непосредственно водителю.",
+    cardPayment: "Оплата картой онлайн",
+    cardPaymentDescription: "Перейдите на защищённую страницу оплаты iyzico.",
+    confirmCashBooking: "Подтвердить — оплата в автомобиле",
+    cashConfirmation: "Бронирование подтверждено. Оплатите фиксированную сумму водителю в автомобиле.",
+    bookingError: "Не удалось завершить бронирование. Попробуйте ещё раз.",
+    chooseTime: "Выберите время",
+    formIncomplete: "Заполните выделенные поля.",
+    requiredField: "Это поле обязательно.",
+    destinationRequired: "Выберите направление.",
+    emailInvalid: "Введите действительный адрес электронной почты.",
+    pickupAddressRequired: "Введите полный адрес подачи.",
+  },
+  pl: {
+    paymentMethod: "Wybierz metodę płatności",
+    cashPayment: "Zapłać w pojeździe",
+    recommended: "Polecane",
+    cashPaymentDescription: "Bez przedpłaty. Zapłać kierowcy potwierdzoną kwotę.",
+    cardPayment: "Zapłać kartą online",
+    cardPaymentDescription: "Przejdź do bezpiecznej strony płatności iyzico.",
+    confirmCashBooking: "Potwierdź — zapłać w pojeździe",
+    cashConfirmation: "Rezerwacja jest potwierdzona. Zapłać kierowcy ustaloną kwotę w pojeździe.",
+    bookingError: "Nie udało się dokończyć rezerwacji. Spróbuj ponownie.",
+    chooseTime: "Wybierz godzinę",
+    formIncomplete: "Uzupełnij zaznaczone pola.",
+    requiredField: "To pole jest wymagane.",
+    destinationRequired: "Wybierz cel podróży.",
+    emailInvalid: "Wprowadź prawidłowy adres e-mail.",
+    pickupAddressRequired: "Wprowadź pełny adres odbioru.",
+  },
+  nl: {
+    paymentMethod: "Kies betaalmethode",
+    cashPayment: "Betaal in het voertuig",
+    recommended: "Aanbevolen",
+    cashPaymentDescription: "Geen vooruitbetaling. Betaal het bevestigde bedrag rechtstreeks aan de chauffeur.",
+    cardPayment: "Online met kaart betalen",
+    cardPaymentDescription: "Ga verder naar de beveiligde betaalpagina van iyzico.",
+    confirmCashBooking: "Bevestig — betaal in het voertuig",
+    cashConfirmation: "Uw boeking is bevestigd. Betaal het vaste bedrag rechtstreeks aan de chauffeur.",
+    bookingError: "Uw boeking kon niet worden voltooid. Probeer het opnieuw.",
+    chooseTime: "Kies tijd",
+    formIncomplete: "Vul de gemarkeerde velden in.",
+    requiredField: "Dit veld is verplicht.",
+    destinationRequired: "Kies een bestemming.",
+    emailInvalid: "Voer een geldig e-mailadres in.",
+    pickupAddressRequired: "Voer het volledige ophaaladres in.",
+  },
+  uk: {
+    paymentMethod: "Оберіть спосіб оплати",
+    cashPayment: "Оплата в автомобілі",
+    recommended: "Рекомендуємо",
+    cashPaymentDescription: "Без передоплати. Сплатіть підтверджену суму безпосередньо водієві.",
+    cardPayment: "Оплата карткою онлайн",
+    cardPaymentDescription: "Перейдіть на захищену сторінку оплати iyzico.",
+    confirmCashBooking: "Підтвердити — оплата в автомобілі",
+    cashConfirmation: "Бронювання підтверджено. Сплатіть фіксовану суму водієві в автомобілі.",
+    bookingError: "Не вдалося завершити бронювання. Спробуйте ще раз.",
+    chooseTime: "Оберіть час",
+    formIncomplete: "Заповніть виділені поля.",
+    requiredField: "Це поле обов'язкове.",
+    destinationRequired: "Оберіть напрямок.",
+    emailInvalid: "Введіть дійсну електронну адресу.",
+    pickupAddressRequired: "Введіть повну адресу подачі.",
+  },
+  fr: {
+    paymentMethod: "Choisissez le mode de paiement",
+    cashPayment: "Payer dans le véhicule",
+    recommended: "Recommandé",
+    cashPaymentDescription: "Aucun prépaiement. Réglez le montant confirmé directement au chauffeur.",
+    cardPayment: "Payer en ligne par carte",
+    cardPaymentDescription: "Continuez vers la page de paiement sécurisée iyzico.",
+    confirmCashBooking: "Confirmer — payer dans le véhicule",
+    cashConfirmation: "Votre réservation est confirmée. Réglez le montant fixe directement au chauffeur.",
+    bookingError: "Votre réservation n'a pas pu être finalisée. Veuillez réessayer.",
+    chooseTime: "Choisir l'heure",
+    formIncomplete: "Veuillez compléter les champs indiqués.",
+    requiredField: "Ce champ est obligatoire.",
+    destinationRequired: "Veuillez choisir une destination.",
+    emailInvalid: "Veuillez saisir une adresse e-mail valide.",
+    pickupAddressRequired: "Veuillez saisir l'adresse complète de prise en charge.",
+  },
+  sv: {
+    paymentMethod: "Välj betalningsmetod",
+    cashPayment: "Betala i fordonet",
+    recommended: "Rekommenderas",
+    cashPaymentDescription: "Ingen förskottsbetalning. Betala det bekräftade beloppet direkt till chauffören.",
+    cardPayment: "Betala online med kort",
+    cardPaymentDescription: "Fortsätt till iyzicos säkra betalningssida.",
+    confirmCashBooking: "Bekräfta — betala i fordonet",
+    cashConfirmation: "Din bokning är bekräftad. Betala det fasta beloppet direkt till chauffören.",
+    bookingError: "Bokningen kunde inte slutföras. Försök igen.",
+    chooseTime: "Välj tid",
+    formIncomplete: "Fyll i de markerade fälten.",
+    requiredField: "Detta fält är obligatoriskt.",
+    destinationRequired: "Välj en destination.",
+    emailInvalid: "Ange en giltig e-postadress.",
+    pickupAddressRequired: "Ange den fullständiga hämtningsadressen.",
+  },
+  ja: {
+    paymentMethod: "お支払い方法を選択",
+    cashPayment: "車内で支払う",
+    recommended: "おすすめ",
+    cashPaymentDescription: "事前決済不要。確定料金をドライバーへ直接お支払いください。",
+    cardPayment: "オンラインでカード決済",
+    cardPaymentDescription: "iyzicoの安全な決済ページへ進みます。",
+    confirmCashBooking: "予約確定 — 車内払い",
+    cashConfirmation: "予約が確定しました。固定料金を車内でドライバーへ直接お支払いください。",
+    bookingError: "予約を完了できませんでした。もう一度お試しください。",
+    chooseTime: "時間を選択",
+    formIncomplete: "表示された必須項目を入力してください。",
+    requiredField: "この項目は必須です。",
+    destinationRequired: "目的地を選択してください。",
+    emailInvalid: "有効なメールアドレスを入力してください。",
+    pickupAddressRequired: "お迎え先の詳しい住所を入力してください。",
+  },
+  ko: {
+    paymentMethod: "결제 방법 선택",
+    cashPayment: "차량에서 결제",
+    recommended: "추천",
+    cashPaymentDescription: "선결제 없이 확정된 금액을 기사에게 직접 결제하세요.",
+    cardPayment: "온라인 카드 결제",
+    cardPaymentDescription: "iyzico 보안 결제 페이지로 이동합니다.",
+    confirmCashBooking: "예약 확정 — 차량에서 결제",
+    cashConfirmation: "예약이 확정되었습니다. 차량에서 기사에게 고정 요금을 직접 결제하세요.",
+    bookingError: "예약을 완료하지 못했습니다. 다시 시도해 주세요.",
+    chooseTime: "시간 선택",
+    formIncomplete: "표시된 필수 항목을 입력해 주세요.",
+    requiredField: "필수 입력 항목입니다.",
+    destinationRequired: "목적지를 선택해 주세요.",
+    emailInvalid: "올바른 이메일 주소를 입력해 주세요.",
+    pickupAddressRequired: "전체 픽업 주소를 입력해 주세요.",
+  },
+};
+
+Object.entries(paymentTranslations).forEach(([language, copy]) => {
+  translations[language] = { ...(translations[language] || {}), ...copy };
+});
 
 const fleetData = {
   sprinter: {
@@ -1177,10 +1394,21 @@ const header = document.querySelector(".site-header");
 const menuButton = document.querySelector(".menu-button");
 const mobileMenu = document.querySelector(".mobile-menu");
 const quoteModal = document.querySelector("#quote-modal");
+const pickupSelect = document.querySelector("#pickup");
+const pickupAddressRow = document.querySelector("#pickup-address-row");
+const pickupAddressInput = document.querySelector("#pickup-address");
 const destinationSelect = document.querySelector("#destination");
 const vehicleSelect = document.querySelector("#vehicle-type");
 const guestsSelect = document.querySelector("#guests");
 const travelDate = document.querySelector("#travel-date");
+const quoteForm = document.querySelector("#quote-form");
+const paymentErrorMessage = document.querySelector("#payment-error-message");
+const paymentMethodInputs = document.querySelectorAll('input[name="paymentMethod"]');
+const confirmationMessage = document.querySelector(".confirmed-msg");
+const submitButtonText = document.querySelector("#main-book-submit span");
+const arrivalTimeInput = document.querySelector("#flight-arrival-time");
+const arrivalTimeControl = document.querySelector(".time-field-control");
+const arrivalTimeValue = document.querySelector(".time-picker-value");
 
 const setHeaderState = () => {
   header.classList.toggle("scrolled", window.scrollY > 40);
@@ -1281,12 +1509,32 @@ const updateInlinePrice = (routeKey, vehicleKey = vehicleSelect.value) => {
   `;
   priceDisplay.classList.add("visible");
   currentQuoteData = {
-    pickup: document.querySelector("#pickup").value === "Antalya Airport (AYT)" ? "airport" : "hotel",
+    pickup: pickupSelect.value,
     destination: routeKey,
     vehicle: vehicleKey,
     price,
   };
 };
+
+const updatePickupAddress = () => {
+  const needsAddress = pickupSelect.value === "private_address";
+  pickupAddressRow.hidden = !needsAddress;
+  pickupAddressInput.required = needsAddress;
+  pickupAddressInput.setAttribute("aria-required", String(needsAddress));
+  if (!needsAddress) {
+    pickupAddressInput.value = "";
+    const addressField = pickupAddressInput.closest(".booking-field");
+    addressField?.classList.remove("has-error");
+    pickupAddressInput.removeAttribute("aria-invalid");
+    pickupAddressInput.removeAttribute("aria-describedby");
+    addressField?.querySelector(".field-error-message")?.remove();
+  }
+};
+
+pickupSelect.addEventListener("change", () => {
+  updatePickupAddress();
+  if (destinationSelect.value) updateInlinePrice(destinationSelect.value);
+});
 
 destinationSelect.addEventListener("change", () => {
   if (destinationSelect.value) updateInlinePrice(destinationSelect.value);
@@ -1298,6 +1546,128 @@ vehicleSelect.addEventListener("change", () => {
 });
 
 updateGuestCapacity();
+updatePickupAddress();
+
+const getSelectedPaymentMethod = () =>
+  document.querySelector('input[name="paymentMethod"]:checked')?.value || "cash";
+
+const updatePaymentMethodUI = () => {
+  const isCard = getSelectedPaymentMethod() === "card";
+  const translationKey = isCard ? "paySecurely" : "confirmCashBooking";
+  submitButtonText.dataset.i18n = translationKey;
+  submitButtonText.textContent =
+    translations[document.documentElement.lang]?.[translationKey] ||
+    (isCard ? "Continue to secure payment" : "Confirm booking — pay in vehicle");
+};
+
+paymentMethodInputs.forEach((input) => {
+  input.addEventListener("change", updatePaymentMethodUI);
+});
+updatePaymentMethodUI();
+
+const clearFieldError = (input) => {
+  const field = input.closest(".booking-field");
+  if (!field) return;
+  field.classList.remove("has-error");
+  input.removeAttribute("aria-invalid");
+  input.removeAttribute("aria-describedby");
+  field.querySelector(".field-error-message")?.remove();
+};
+
+const showFieldError = (input, message) => {
+  const field = input.closest(".booking-field");
+  if (!field) return;
+  clearFieldError(input);
+  field.classList.add("has-error");
+  input.setAttribute("aria-invalid", "true");
+  const error = document.createElement("span");
+  error.className = "field-error-message";
+  error.id = `${input.id}-error`;
+  error.textContent = message;
+  input.setAttribute("aria-describedby", error.id);
+  field.append(error);
+};
+
+const validateBookingForm = () => {
+  const language = document.documentElement.lang || "en";
+  const copy = translations[language] || paymentTranslations.en;
+  const nameInput = document.querySelector("#customer-name");
+  const phoneInput = document.querySelector("#customer-phone");
+  const emailInput = document.querySelector("#customer-email");
+  const fields = [destinationSelect, travelDate, pickupAddressInput, nameInput, phoneInput, emailInput];
+  fields.forEach(clearFieldError);
+
+  const errors = [];
+  if (!destinationSelect.value) {
+    errors.push([destinationSelect, copy.destinationRequired]);
+  }
+  if (!travelDate.value) {
+    errors.push([travelDate, copy.requiredField]);
+  }
+  if (pickupSelect.value === "private_address" && !pickupAddressInput.value.trim()) {
+    errors.push([pickupAddressInput, copy.pickupAddressRequired]);
+  }
+  if (!nameInput.value.trim()) {
+    errors.push([nameInput, copy.requiredField]);
+  }
+  if (!phoneInput.value.trim()) {
+    errors.push([phoneInput, copy.requiredField]);
+  }
+  if (!emailInput.value.trim() || !emailInput.checkValidity()) {
+    errors.push([emailInput, copy.emailInvalid]);
+  }
+
+  errors.forEach(([input, message]) => showFieldError(input, message));
+  if (!errors.length) return true;
+
+  paymentErrorMessage.textContent = copy.formIncomplete;
+  paymentErrorMessage.hidden = false;
+  errors[0][0].focus();
+  errors[0][0].closest(".booking-field")?.scrollIntoView({ behavior: "smooth", block: "center" });
+  return false;
+};
+
+quoteForm.querySelectorAll("input, select").forEach((input) => {
+  input.addEventListener(input.tagName === "SELECT" ? "change" : "input", () => {
+    clearFieldError(input);
+    paymentErrorMessage.hidden = true;
+  });
+});
+
+const syncArrivalTimeState = () => {
+  const hasValue = Boolean(arrivalTimeInput.value);
+  arrivalTimeControl.classList.toggle("has-value", hasValue);
+
+  if (hasValue) {
+    arrivalTimeValue.removeAttribute("data-i18n");
+    arrivalTimeValue.textContent = arrivalTimeInput.value;
+  } else {
+    arrivalTimeValue.dataset.i18n = "chooseTime";
+    arrivalTimeValue.textContent =
+      translations[document.documentElement.lang]?.chooseTime ||
+      paymentTranslations.en.chooseTime;
+  }
+};
+
+arrivalTimeControl.addEventListener("click", (event) => {
+  if (event.target === arrivalTimeInput) return;
+  event.preventDefault();
+  arrivalTimeInput.focus();
+
+  try {
+    if (typeof arrivalTimeInput.showPicker === "function") {
+      arrivalTimeInput.showPicker();
+    } else {
+      arrivalTimeInput.click();
+    }
+  } catch {
+    arrivalTimeInput.click();
+  }
+});
+
+arrivalTimeInput.addEventListener("input", syncArrivalTimeState);
+arrivalTimeInput.addEventListener("change", syncArrivalTimeState);
+syncArrivalTimeState();
 
 const openConfirmation = () => {
   quoteModal.classList.add("open");
@@ -1312,17 +1682,19 @@ const closeConfirmation = () => {
   document.body.classList.remove("modal-open");
 };
 
-document.querySelector("#quote-form").addEventListener("submit", async (event) => {
+quoteForm.addEventListener("submit", async (event) => {
   event.preventDefault();
-  if (!destinationSelect.value) {
-    destinationSelect.focus();
-    return;
-  }
+  paymentErrorMessage.hidden = true;
+  paymentErrorMessage.textContent = "";
+
+  if (!validateBookingForm()) return;
 
   const name = document.querySelector("#customer-name").value.trim();
   const phone = document.querySelector("#customer-phone").value.trim();
-  if (!name) { document.querySelector("#customer-name").focus(); return; }
-  if (!phone) { document.querySelector("#customer-phone").focus(); return; }
+  const emailInput = document.querySelector("#customer-email");
+  const email = emailInput.value.trim();
+  const paymentMethod = getSelectedPaymentMethod();
+  const pickupAddress = pickupAddressInput.value.trim();
 
   const submitBtn = document.querySelector("#main-book-submit");
   submitBtn.disabled = true;
@@ -1331,7 +1703,7 @@ document.querySelector("#quote-form").addEventListener("submit", async (event) =
 
   if (!currentQuoteData.destination) {
     currentQuoteData = {
-      pickup: document.querySelector("#pickup").value === "Antalya Airport (AYT)" ? "airport" : "hotel",
+      pickup: pickupSelect.value,
       destination: destinationSelect.value,
       vehicle: vehicleSelect.value,
       price: routeData[destinationSelect.value]?.prices[vehicleSelect.value] || 0,
@@ -1341,34 +1713,52 @@ document.querySelector("#quote-form").addEventListener("submit", async (event) =
   try {
     const booking = await createBooking({
       customer_name: name,
-      customer_email: "",
+      customer_email: email,
       customer_phone: phone,
       flight_number: document.querySelector("#flight-number").value.trim() || null,
       flight_arrival_time: document.querySelector("#flight-arrival-time").value || null,
       notes: null,
       pickup_location: currentQuoteData.pickup || "airport",
+      pickup_address: currentQuoteData.pickup === "private_address" ? pickupAddress : null,
       dropoff_location: currentQuoteData.destination || "",
       pickup_date: document.querySelector("#travel-date").value,
       guests: parseInt(document.querySelector("#guests").value, 10),
       vehicle_type: currentQuoteData.vehicle === "sprinter" ? "vclass" : "vito",
-      price_eur: currentQuoteData.price || 0,
+      payment_method: paymentMethod,
       language: document.documentElement.lang || "en",
     });
 
+    if (paymentMethod === "card") {
+      const checkoutUrl = await createIyzicoCheckout(booking.id);
+      window.location.assign(checkoutUrl);
+      return;
+    }
+
     document.querySelector("#confirmed-ref").textContent = booking.booking_ref;
-    openConfirmation();
+    confirmationMessage.dataset.i18n = "cashConfirmation";
+    confirmationMessage.textContent =
+      translations[document.documentElement.lang]?.cashConfirmation ||
+      paymentTranslations.en.cashConfirmation;
     event.target.reset();
     currentQuoteData = {};
     updateGuestCapacity();
+    updatePickupAddress();
+    updatePaymentMethodUI();
+    syncArrivalTimeState();
     if (priceDisplay) priceDisplay.classList.remove("visible");
+    openConfirmation();
   } catch (err) {
     console.error("Booking error:", err);
-    submitBtn.querySelector("span").textContent = "Error — try WhatsApp";
+    const language = document.documentElement.lang || "en";
+    paymentErrorMessage.textContent =
+      translations[language]?.bookingError || paymentTranslations.en.bookingError;
+    paymentErrorMessage.hidden = false;
   } finally {
     submitBtn.disabled = false;
     if (submitBtn.querySelector("span").textContent === "…") {
       submitBtn.querySelector("span").textContent = originalText;
     }
+    updatePaymentMethodUI();
   }
 });
 
@@ -1480,11 +1870,22 @@ const applyLanguage = (language) => {
     element.innerHTML = translations[supportedLanguage]?.[element.dataset.i18n] || element.dataset.original;
   });
 
+  document.querySelectorAll("[data-i18n-placeholder]").forEach((element) => {
+    if (!element.dataset.originalPlaceholder) {
+      element.dataset.originalPlaceholder = element.getAttribute("placeholder") || "";
+    }
+    element.setAttribute(
+      "placeholder",
+      translations[supportedLanguage]?.[element.dataset.i18nPlaceholder] || element.dataset.originalPlaceholder
+    );
+  });
+
   const activeFleet = document.querySelector(".fleet-tab.active");
   if (activeFleet) updateFleet(activeFleet.dataset.fleet);
   if (destinationSelect.value && priceDisplay.classList.contains("visible")) {
     updateInlinePrice(destinationSelect.value);
   }
+  updatePaymentMethodUI();
 
   try {
     localStorage.setItem("avl-language", supportedLanguage);
@@ -1518,11 +1919,22 @@ try {
 }
 applyLanguage(savedLanguage);
 
-// Handle redirect return (e.g. post-payment)
+// Handle the verified iyzico callback return.
 const urlParams = new URLSearchParams(window.location.search);
-if (urlParams.get("booking_ref")) {
+if (urlParams.get("payment") === "success" && urlParams.get("booking_ref")) {
   document.querySelector("#confirmed-ref").textContent = urlParams.get("booking_ref");
+  confirmationMessage.dataset.i18n = "weWillContact";
+  confirmationMessage.textContent =
+    translations[document.documentElement.lang]?.weWillContact ||
+    "Your payment was successful. We will contact you within 30 minutes.";
   openConfirmation();
+  window.history.replaceState({}, "", window.location.pathname);
+} else if (urlParams.get("payment") === "failed") {
+  const language = document.documentElement.lang || "en";
+  paymentErrorMessage.textContent =
+    translations[language]?.paymentError || "Payment failed. Please try again.";
+  paymentErrorMessage.hidden = false;
+  document.querySelector("#booking").scrollIntoView({ behavior: "smooth" });
   window.history.replaceState({}, "", window.location.pathname);
 }
 

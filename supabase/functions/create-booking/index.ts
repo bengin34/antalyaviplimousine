@@ -1,0 +1,199 @@
+import { createClient } from 'https://esm.sh/@supabase/supabase-js@2'
+
+const corsHeaders = {
+  'Access-Control-Allow-Origin': '*',
+  'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type',
+}
+
+const jsonResponse = (body: Record<string, unknown>, status = 200) =>
+  new Response(JSON.stringify(body), {
+    status,
+    headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+  })
+
+const escapeHtml = (value: unknown) =>
+  String(value ?? '')
+    .replaceAll('&', '&amp;')
+    .replaceAll('<', '&lt;')
+    .replaceAll('>', '&gt;')
+    .replaceAll('"', '&quot;')
+    .replaceAll("'", '&#039;')
+
+const requiredFields = [
+  'customer_name',
+  'customer_email',
+  'customer_phone',
+  'pickup_location',
+  'dropoff_location',
+  'pickup_date',
+  'guests',
+  'vehicle_type',
+  'payment_method',
+]
+
+const generateBookingRef = () => {
+  const year = new Date().getUTCFullYear()
+  const random = crypto.randomUUID().replaceAll('-', '').slice(0, 8).toUpperCase()
+  return `AVL-${year}-${random}`
+}
+
+Deno.serve(async (req) => {
+  if (req.method === 'OPTIONS') {
+    return new Response('ok', { headers: corsHeaders })
+  }
+
+  if (req.method !== 'POST') {
+    return jsonResponse({ error: 'Method not allowed' }, 405)
+  }
+
+  try {
+    const payload = await req.json()
+    const missingField = requiredFields.find((field) => {
+      const value = payload[field]
+      return value === undefined || value === null || value === ''
+    })
+
+    if (missingField) {
+      return jsonResponse({ error: `${missingField} is required` }, 400)
+    }
+
+    if (payload.pickup_location === 'private_address' && !String(payload.pickup_address || '').trim()) {
+      return jsonResponse({ error: 'pickup_address is required for a private address' }, 400)
+    }
+
+    const customerEmail = String(payload.customer_email).trim().toLowerCase()
+    const customerName = String(payload.customer_name).trim()
+    const customerPhone = String(payload.customer_phone).trim()
+    const pickupLocation = String(payload.pickup_location)
+    const pickupDate = String(payload.pickup_date)
+    const vehicleType = String(payload.vehicle_type)
+    const paymentMethod = String(payload.payment_method)
+    const guestCount = Number(payload.guests)
+    const vehicleCapacity = vehicleType === 'vclass' ? 13 : 8
+
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(customerEmail)) {
+      return jsonResponse({ error: 'A valid customer_email is required' }, 400)
+    }
+    if (!customerName || customerName.length > 160 || !customerPhone || customerPhone.length > 40) {
+      return jsonResponse({ error: 'Customer details are invalid' }, 400)
+    }
+    if (!['airport', 'private_address'].includes(pickupLocation)) {
+      return jsonResponse({ error: 'pickup_location is invalid' }, 400)
+    }
+    if (!['vito', 'vclass'].includes(vehicleType)) {
+      return jsonResponse({ error: 'vehicle_type is invalid' }, 400)
+    }
+    if (!['cash', 'card'].includes(paymentMethod)) {
+      return jsonResponse({ error: 'payment_method is invalid' }, 400)
+    }
+    if (!Number.isInteger(guestCount) || guestCount < 1 || guestCount > vehicleCapacity) {
+      return jsonResponse({ error: 'guests exceeds the selected vehicle capacity' }, 400)
+    }
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(pickupDate)) {
+      return jsonResponse({ error: 'pickup_date is invalid' }, 400)
+    }
+
+    const resendApiKey = Deno.env.get('RESEND_API_KEY')
+    const notificationEmail = Deno.env.get('BOOKING_NOTIFICATION_EMAIL')
+    const fromEmail = Deno.env.get('BOOKING_FROM_EMAIL')
+
+    if (!resendApiKey || !notificationEmail || !fromEmail) {
+      return jsonResponse({ error: 'Booking email is not configured' }, 500)
+    }
+
+    const supabase = createClient(
+      Deno.env.get('SUPABASE_URL')!,
+      Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')!
+    )
+
+    const { data: route, error: routeError } = await supabase
+      .from('routes')
+      .select('price_eur')
+      .eq('from_location', 'airport')
+      .eq('to_location', String(payload.dropoff_location))
+      .eq('vehicle_type', vehicleType)
+      .single()
+
+    if (routeError || !route) {
+      return jsonResponse({ error: 'No active price was found for this route' }, 400)
+    }
+
+    const bookingPayload = {
+      booking_ref: generateBookingRef(),
+      customer_name: customerName,
+      customer_email: customerEmail,
+      customer_phone: customerPhone,
+      flight_number: payload.flight_number || null,
+      flight_arrival_time: payload.flight_arrival_time || null,
+      notes: payload.notes || null,
+      pickup_location: pickupLocation,
+      pickup_address: payload.pickup_address ? String(payload.pickup_address).trim() : null,
+      dropoff_location: String(payload.dropoff_location),
+      pickup_date: pickupDate,
+      guests: guestCount,
+      vehicle_type: vehicleType,
+      price_eur: Number(route.price_eur),
+      status: paymentMethod === 'cash' ? 'confirmed' : 'pending',
+      payment_method: paymentMethod,
+      language: String(payload.language || 'en'),
+    }
+
+    const { data: booking, error: insertError } = await supabase
+      .from('bookings')
+      .insert([bookingPayload])
+      .select()
+      .single()
+
+    if (insertError) throw insertError
+
+    const addressRow = booking.pickup_address
+      ? `<tr><td style="padding:6px 12px;color:#777">Pick-up address</td><td style="padding:6px 12px"><strong>${escapeHtml(booking.pickup_address)}</strong></td></tr>`
+      : ''
+
+    const emailResponse = await fetch('https://api.resend.com/emails', {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${resendApiKey}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        from: fromEmail,
+        to: [notificationEmail],
+        subject: `New booking ${booking.booking_ref}: ${booking.pickup_location} to ${booking.dropoff_location}`,
+        html: `
+          <div style="font-family:Arial,sans-serif;color:#161616">
+            <h2>New booking request</h2>
+            <table style="border-collapse:collapse">
+              <tr><td style="padding:6px 12px;color:#777">Reference</td><td style="padding:6px 12px"><strong>${escapeHtml(booking.booking_ref)}</strong></td></tr>
+              <tr><td style="padding:6px 12px;color:#777">Customer</td><td style="padding:6px 12px">${escapeHtml(booking.customer_name)}</td></tr>
+              <tr><td style="padding:6px 12px;color:#777">Email</td><td style="padding:6px 12px">${escapeHtml(booking.customer_email)}</td></tr>
+              <tr><td style="padding:6px 12px;color:#777">Phone / WhatsApp</td><td style="padding:6px 12px">${escapeHtml(booking.customer_phone)}</td></tr>
+              <tr><td style="padding:6px 12px;color:#777">Pick-up</td><td style="padding:6px 12px">${escapeHtml(booking.pickup_location)}</td></tr>
+              ${addressRow}
+              <tr><td style="padding:6px 12px;color:#777">Destination</td><td style="padding:6px 12px">${escapeHtml(booking.dropoff_location)}</td></tr>
+              <tr><td style="padding:6px 12px;color:#777">Date / arrival</td><td style="padding:6px 12px">${escapeHtml(booking.pickup_date)} ${escapeHtml(booking.flight_arrival_time || '')}</td></tr>
+              <tr><td style="padding:6px 12px;color:#777">Flight</td><td style="padding:6px 12px">${escapeHtml(booking.flight_number || 'Not provided')}</td></tr>
+              <tr><td style="padding:6px 12px;color:#777">Guests / vehicle</td><td style="padding:6px 12px">${escapeHtml(booking.guests)} / ${escapeHtml(booking.vehicle_type)}</td></tr>
+              <tr><td style="padding:6px 12px;color:#777">Price</td><td style="padding:6px 12px"><strong>EUR ${escapeHtml(booking.price_eur)}</strong></td></tr>
+              <tr><td style="padding:6px 12px;color:#777">Payment</td><td style="padding:6px 12px"><strong>${escapeHtml(booking.payment_method === 'cash' ? 'Cash in vehicle' : 'Online card')}</strong></td></tr>
+            </table>
+          </div>
+        `,
+      }),
+    })
+
+    if (!emailResponse.ok) {
+      const emailError = await emailResponse.text()
+      await supabase.from('bookings').delete().eq('id', booking.id)
+      throw new Error(`Email delivery failed: ${emailError}`)
+    }
+
+    return jsonResponse({ booking })
+  } catch (error) {
+    console.error('Create booking error:', error)
+    return jsonResponse(
+      { error: error instanceof Error ? error.message : 'Booking could not be created' },
+      500
+    )
+  }
+})

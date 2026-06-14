@@ -5,3 +5,9 @@ dist/
 .env
 .env.local
 
+# TLS certificates and private keys
+*.pem
+*.key
+*.crt
+*.p12
+*.pfx

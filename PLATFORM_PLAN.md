@@ -18,7 +18,7 @@ Statik site → Online rezervasyon + ödeme platformu.
 |--------|------|---------|
 | Frontend | Mevcut HTML+Vite | Ücretsiz |
 | Backend/DB | Supabase | Ücretsiz (500MB) → $25/ay |
-| Ödeme | Stripe | %1.5–3.25/işlem |
+| Ödeme | iyzico Checkout Form | Sözleşmedeki işlem oranı |
 | Email | Resend | Ücretsiz (3k/ay) |
 | Hosting | Vercel / Netlify | Ücretsiz |
 
@@ -46,9 +46,12 @@ bookings (
   guests INT, bags INT,
   vehicle_type TEXT,
   price_eur DECIMAL,
-  currency TEXT,                 -- EUR / USD / GBP / TRY
+  payment_currency TEXT,
+  payment_method TEXT,            -- cash | card
   status TEXT,                   -- pending|paid|confirmed|cancelled
-  stripe_payment_intent TEXT,
+  iyzico_token TEXT,
+  iyzico_payment_id TEXT,
+  paid_at TIMESTAMPTZ,
   notes TEXT,
   created_at TIMESTAMPTZ
 )
@@ -61,24 +64,20 @@ booking_notes (
 
 ---
 
-## Stripe → Türk Banka Hesabı
+## iyzico → Türk Banka Hesabı
 
-**Neden Stripe (iyzico/PayTR değil):**
-- Türkiye'de 2022'den beri aktif
-- Uluslararası kart: Visa, MC, Amex, Google Pay, Apple Pay
-- Payout: TRY olarak Türk banka hesabına (7 iş günü)
-- Yabancı turistler Stripe'a güvenir
+**Neden iyzico:**
+- Türkiye merkezli şirket başvurusu desteklenir
+- Yabancı Visa ve Mastercard ödemeleri alınabilir
+- Checkout Form ile kart verisi site sunucularına girmez
+- Ödeme sonucu API üzerinden doğrulanmadan rezervasyon `paid` yapılmaz
 
 **Kurulum:**
-1. stripe.com → Turkey business account aç
-2. Türk banka IBAN gir (TR...)
-3. Kimlik doğrulama (vergi no veya TC kimlik)
-4. Para birimi: EUR + TRY
-5. Payout: otomatik TRY
-
-**Ücretler:**
-- Avrupa kartları: %1.5 + €0.25 / işlem
-- Uluslararası kart: %3.25 + €0.25
+1. iyzico işyeri hesabını ve yabancı kart/döviz yetkisini etkinleştir
+2. API anahtarlarını Supabase secrets içine ekle
+3. Önce sandbox ortamında başarılı ve başarısız kart senaryolarını test et
+4. Canlıya geçerken API adresini ve anahtarları production değerleriyle değiştir
+5. Callback Edge Function'ını JWT doğrulaması kapalı olarak deploy et
 
 ---
 
@@ -94,9 +93,9 @@ ADIM 2 — Kişisel Bilgiler
   → Booking kaydedilir (status: pending)
 
 ADIM 3 — Ödeme
-  Stripe Embedded ödeme formu
-  Apple Pay / Google Pay butonları
-  → Webhook → status=paid → Resend email
+  Önerilen: araçta nakit ödeme → status=confirmed
+  Alternatif: iyzico güvenli Checkout Form sayfası
+  → Doğrulanmış callback → status=paid
 ```
 
 ---
@@ -130,7 +129,7 @@ ADIM 3 — Ödeme
 | Faz | İş | Süre |
 |-----|----|------|
 | 1 | Supabase kur, tablolar, Edge Functions | 1–2 gün |
-| 2 | Stripe entegrasyon + webhook | 1 gün |
+| 2 | iyzico Checkout + callback entegrasyonu | 1 gün |
 | 3 | Booking formu → 3 adımlı checkout | 2–3 gün |
 | 4 | Email sistemi (Resend) | yarım gün |
 | 5 | Admin paneli | 0 (Studio) / 2 gün (custom) |

@@ -36,17 +36,21 @@ CREATE TABLE IF NOT EXISTS bookings (
   price_eur            DECIMAL(10,2) NOT NULL,
   status               TEXT          NOT NULL DEFAULT 'pending'
                                      CHECK (status IN ('pending', 'paid', 'confirmed', 'cancelled')),
-  stripe_payment_intent TEXT,
+  payment_method       TEXT          NOT NULL DEFAULT 'cash'
+                                     CHECK (payment_method IN ('cash', 'card')),
+  iyzico_token          TEXT,
+  iyzico_conversation_id TEXT,
+  iyzico_payment_id     TEXT,
+  payment_currency      TEXT,
+  payment_error         TEXT,
+  paid_at               TIMESTAMPTZ,
   notes                TEXT,
   language             TEXT          DEFAULT 'en',
   created_at           TIMESTAMPTZ   DEFAULT NOW()
 );
 
 ALTER TABLE bookings ENABLE ROW LEVEL SECURITY;
--- Anonymous visitors can create bookings
-CREATE POLICY "bookings_insert_anon"  ON bookings FOR INSERT WITH CHECK (true);
--- Customers can read their own booking (used for confirmation page later)
-CREATE POLICY "bookings_select_anon"  ON bookings FOR SELECT USING (true);
+-- Booking writes and reads are handled by Edge Functions with the service role.
 
 -- Admin notes (service role only — no public policy)
 CREATE TABLE IF NOT EXISTS booking_notes (

@@ -1,47 +1,31 @@
 import { supabase } from './supabase.js'
 
-function generateRef() {
-  const year = new Date().getFullYear()
-  const rand = String(Math.floor(Math.random() * 90000) + 10000)
-  return `AVL-${year}-${rand}`
-}
-
 export async function createBooking(data) {
-  const bookingRef = generateRef()
-  const payload = { ...data, booking_ref: bookingRef }
-
   if (!supabase) {
-    console.warn('Supabase not configured — booking not persisted to DB')
-    return {
-      ...payload,
-      id: crypto.randomUUID(),
-      created_at: new Date().toISOString(),
-    }
+    throw new Error('Supabase is not configured')
   }
 
-  const { data: booking, error } = await supabase
-    .from('bookings')
-    .insert([payload])
-    .select()
-    .single()
+  const { data: response, error } = await supabase.functions.invoke('create-booking', {
+    body: data,
+  })
 
   if (error) throw error
-  return booking
+  if (response?.error) throw new Error(response.error)
+  if (!response?.booking) throw new Error('Booking could not be created')
+  return response.booking
 }
 
-export async function createPaymentIntent(bookingId, amountEur) {
-  const url = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/create-payment-intent`
-  const res = await fetch(url, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'apikey': import.meta.env.VITE_SUPABASE_ANON_KEY,
-    },
-    body: JSON.stringify({ booking_id: bookingId, amount_eur: amountEur }),
-  })
-  if (!res.ok) {
-    const err = await res.json().catch(() => ({}))
-    throw new Error(err.error || 'Payment setup failed')
+export async function createIyzicoCheckout(bookingId) {
+  if (!supabase) {
+    throw new Error('Supabase is not configured')
   }
-  return res.json()
+
+  const { data: response, error } = await supabase.functions.invoke('create-iyzico-checkout', {
+    body: { booking_id: bookingId },
+  })
+
+  if (error) throw error
+  if (response?.error) throw new Error(response.error)
+  if (!response?.checkout_url) throw new Error('Payment page could not be created')
+  return response.checkout_url
 }

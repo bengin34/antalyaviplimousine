@@ -1,10 +1,36 @@
--- ============================================================
--- Seed route pricing
--- Run AFTER 001_initial_schema.sql
--- Adjust prices to match your actual rates before going live.
--- ============================================================
+-- Remove the retired payment field and add iyzico checkout metadata.
+ALTER TABLE bookings
+DROP COLUMN IF EXISTS stripe_payment_intent;
 
-INSERT INTO routes (from_location, to_location, vehicle_type, price_eur, duration_min, distance_km) VALUES
+ALTER TABLE bookings
+ADD COLUMN IF NOT EXISTS iyzico_token TEXT,
+ADD COLUMN IF NOT EXISTS iyzico_conversation_id TEXT,
+ADD COLUMN IF NOT EXISTS iyzico_payment_id TEXT,
+ADD COLUMN IF NOT EXISTS payment_currency TEXT,
+ADD COLUMN IF NOT EXISTS payment_error TEXT,
+ADD COLUMN IF NOT EXISTS paid_at TIMESTAMPTZ;
+
+CREATE UNIQUE INDEX IF NOT EXISTS bookings_iyzico_token_unique
+ON bookings (iyzico_token)
+WHERE iyzico_token IS NOT NULL;
+
+CREATE UNIQUE INDEX IF NOT EXISTS bookings_iyzico_payment_id_unique
+ON bookings (iyzico_payment_id)
+WHERE iyzico_payment_id IS NOT NULL;
+
+-- Public access is no longer needed because booking operations use Edge Functions.
+DROP POLICY IF EXISTS "bookings_insert_anon" ON bookings;
+DROP POLICY IF EXISTS "bookings_select_anon" ON bookings;
+
+-- Keep the server-side price table aligned with the public quote matrix.
+INSERT INTO routes (
+  from_location,
+  to_location,
+  vehicle_type,
+  price_eur,
+  duration_min,
+  distance_km
+) VALUES
   ('airport', 'belek',      'vito',    40,  35,  45),
   ('airport', 'belek',      'vclass',  60,  35,  45),
   ('airport', 'side',       'vito',    50,  55,  65),
