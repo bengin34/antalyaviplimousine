@@ -8,6 +8,9 @@ export default defineConfig({
       input: {
         main: resolve(__dirname, "index.html"),
         impressum: resolve(__dirname, "impressum.html"),
+        belek: resolve(__dirname, "transfers/belek/index.html"),
+        side: resolve(__dirname, "transfers/side/index.html"),
+        kemer: resolve(__dirname, "transfers/kemer/index.html"),
       },
     },
   },

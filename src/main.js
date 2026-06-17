@@ -1730,6 +1730,7 @@ vehicleSelect.addEventListener("change", () => {
 
 updateGuestCapacity();
 updatePickupAddress();
+if (destinationSelect.value) updateInlinePrice(destinationSelect.value);
 
 const getSelectedPaymentMethod = () =>
   document.querySelector('input[name="paymentMethod"]:checked')?.value || "cash";
@@ -2022,10 +2023,11 @@ quoteForm.addEventListener("submit", async (event) => {
 
 document.querySelectorAll(".route-price-button").forEach((button) => {
   button.addEventListener("click", () => {
+    const selectedVehicle = button.dataset.vehicle || vehicleSelect.value || "vito";
     destinationSelect.value = button.dataset.route;
-    vehicleSelect.value = button.dataset.vehicle;
+    vehicleSelect.value = selectedVehicle;
     updateGuestCapacity();
-    updateInlinePrice(button.dataset.route, button.dataset.vehicle);
+    updateInlinePrice(button.dataset.route, selectedVehicle);
     document.querySelector("#booking").scrollIntoView({ behavior: "smooth" });
     setTimeout(() => document.querySelector("#customer-name").focus(), 600);
   });

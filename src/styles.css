@@ -3694,3 +3694,102 @@ body.modal-open .mobile-book-bar {
 .payment-error[hidden] {
   display: none;
 }
+
+/* ─── Route landing pages ──────────────────────────────────── */
+.route-hero {
+  background: var(--charcoal);
+  padding: 140px var(--section-x) 80px;
+  position: relative;
+  overflow: hidden;
+}
+.route-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(200,169,106,0.07) 0%, transparent 60%);
+  pointer-events: none;
+}
+.route-breadcrumb {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  font-size: 13px;
+  margin-bottom: 28px;
+  color: rgba(255,255,255,0.45);
+  position: relative;
+}
+.route-breadcrumb a { color: var(--gold); text-decoration: none; }
+.route-breadcrumb a:hover { text-decoration: underline; }
+.route-breadcrumb svg { width: 12px; height: 12px; opacity: 0.5; }
+.route-hero h1 {
+  font-family: var(--serif);
+  font-size: clamp(2rem, 4.5vw, 3.6rem);
+  font-weight: 400;
+  color: var(--white);
+  line-height: 1.15;
+  margin: 0 0 36px;
+  max-width: 740px;
+  position: relative;
+}
+.route-hero-stats {
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+  margin-bottom: 44px;
+  position: relative;
+}
+.route-hero-stat { display: flex; flex-direction: column; gap: 4px; }
+.route-hero-stat strong { color: var(--white); font-size: 1.5rem; font-weight: 600; line-height: 1; }
+.route-hero-stat span { font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(255,255,255,0.45); }
+.route-hero-ctas { display: flex; gap: 16px; flex-wrap: wrap; position: relative; }
+.route-content { padding: 80px var(--section-x); background: var(--paper); }
+.route-content-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
+.route-content h2 { font-family: var(--serif); font-size: clamp(1.8rem, 3vw, 2.6rem); font-weight: 400; line-height: 1.2; margin: 0 0 20px; color: var(--ink); }
+.route-content p { color: var(--muted); line-height: 1.7; margin: 0 0 16px; }
+.route-content p:last-child { margin-bottom: 0; }
+.route-info-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 32px; }
+.route-info-card { background: var(--cream); border-radius: 12px; padding: 20px 24px; }
+.route-info-card strong { display: block; font-size: 1.4rem; color: var(--ink); margin-bottom: 4px; }
+.route-info-card span { font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); }
+.route-price-table { width: 100%; border-collapse: collapse; margin-top: 8px; }
+.route-price-table th, .route-price-table td { text-align: left; padding: 12px 0; border-bottom: 1px solid var(--line); font-size: 0.95rem; }
+.route-price-table th { color: var(--muted); font-weight: 500; font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; }
+.route-price-table td:last-child { text-align: right; font-weight: 600; color: var(--ink); }
+.route-price-table tr:last-child td { border-bottom: none; }
+.route-includes { margin-top: 24px; }
+.route-includes h3 { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); margin: 0 0 12px; }
+.route-includes ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px; }
+.route-includes li { display: flex; align-items: center; gap: 10px; color: var(--ink); font-size: 0.95rem; }
+.route-includes li svg { color: var(--gold); flex-shrink: 0; }
+.hotel-list { margin-top: 20px; }
+.hotel-list h3 { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); margin: 0 0 12px; }
+.hotel-list ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 6px; }
+.hotel-list li { color: var(--ink); font-size: 0.95rem; padding-left: 14px; position: relative; }
+.hotel-list li::before { content: '–'; position: absolute; left: 0; color: var(--gold); }
+.route-links { padding: 64px var(--section-x); background: var(--cream); }
+.route-links h2 { font-family: var(--serif); font-size: clamp(1.6rem, 2.5vw, 2.2rem); font-weight: 400; margin: 0 0 32px; }
+.route-links-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 16px; }
+.route-link-card { background: var(--white); border-radius: 12px; padding: 20px 24px; display: flex; justify-content: space-between; align-items: center; text-decoration: none; color: var(--ink); transition: box-shadow 0.2s; border: 1px solid transparent; }
+.route-link-card:hover { box-shadow: 0 8px 32px rgba(0,0,0,0.08); border-color: var(--line); }
+.route-link-card div { display: flex; flex-direction: column; gap: 4px; }
+.route-link-card strong { font-weight: 600; }
+.route-link-card span { font-size: 0.85rem; color: var(--muted); }
+.route-link-card svg { color: var(--gold); }
+.reviews-mini { padding: 80px var(--section-x); background: var(--charcoal); }
+.reviews-mini h2 { font-family: var(--serif); font-size: clamp(1.6rem, 2.5vw, 2.2rem); font-weight: 400; color: var(--white); margin: 0 0 32px; }
+.reviews-mini-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 24px; }
+.review-mini-card { background: rgba(255,255,255,0.06); border-radius: 16px; padding: 28px; }
+.review-mini-card .stars { color: var(--gold); font-size: 0.9rem; margin-bottom: 16px; display: block; }
+.review-mini-card blockquote { color: rgba(255,255,255,0.8); font-size: 0.95rem; line-height: 1.65; margin: 0 0 20px; font-style: italic; }
+.review-mini-card footer { color: rgba(255,255,255,0.5); font-size: 0.85rem; }
+.review-mini-card footer strong { color: rgba(255,255,255,0.85); font-weight: 600; }
+.service-mini { padding: 80px var(--section-x); background: var(--white); }
+.service-mini h2 { font-family: var(--serif); font-size: clamp(1.6rem, 2.5vw, 2.2rem); font-weight: 400; margin: 0 0 32px; }
+.service-mini-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 24px; }
+.service-mini-card { padding: 24px; border: 1px solid var(--line); border-radius: 16px; }
+.service-mini-card .service-icon { width: 40px; height: 40px; color: var(--gold); margin-bottom: 16px; }
+.service-mini-card .service-icon svg { width: 100%; height: 100%; }
+.service-mini-card h3 { font-size: 1rem; font-weight: 600; margin: 0 0 8px; }
+.service-mini-card p { font-size: 0.9rem; color: var(--muted); margin: 0; line-height: 1.6; }
+@media (max-width: 860px) { .route-content-grid { grid-template-columns: 1fr; gap: 40px; } }
+@media (max-width: 600px) { .route-info-cards { grid-template-columns: 1fr; } .route-hero-stats { gap: 24px; } }
