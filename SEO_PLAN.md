@@ -34,16 +34,16 @@ SEO açısından mevcut açıklar:
 
 ## Öncelik Sırası
 
-| Faz | İş | Etki |
-|---|---|---|
-| P0 | Gerçek iletişim ve güven verilerini doğrula | Reklam onayı ve güven |
-| P0 | Analytics, consent ve dönüşüm ölçümü | Reklam optimizasyonu |
-| P1 | EN/DE rota landing page altyapısı | Organik trafik + Quality Score |
-| P1 | Canonical, metadata, schema, sitemap, robots | Teknik indeksleme |
-| P1 | EN ve DE Search kampanyalarını aç | Hızlı talep |
-| P2 | İlk 6 rota içeriğini tamamla | En yüksek arama potansiyeli |
-| P2 | Core Web Vitals ve görsel optimizasyonu | SEO + dönüşüm |
-| P3 | Kalan rotalar, içerik ve backlink çalışması | Uzun vadeli büyüme |
+| Faz | İş                                           | Etki                           |
+| --- | -------------------------------------------- | ------------------------------ |
+| P0  | Gerçek iletişim ve güven verilerini doğrula  | Reklam onayı ve güven          |
+| P0  | Analytics, consent ve dönüşüm ölçümü         | Reklam optimizasyonu           |
+| P1  | EN/DE rota landing page altyapısı            | Organik trafik + Quality Score |
+| P1  | Canonical, metadata, schema, sitemap, robots | Teknik indeksleme              |
+| P1  | EN ve DE Search kampanyalarını aç            | Hızlı talep                    |
+| P2  | İlk 6 rota içeriğini tamamla                 | En yüksek arama potansiyeli    |
+| P2  | Core Web Vitals ve görsel optimizasyonu      | SEO + dönüşüm                  |
+| P3  | Kalan rotalar, içerik ve backlink çalışması  | Uzun vadeli büyüme             |
 
 ---
 
@@ -73,9 +73,21 @@ Her EN/DE sayfasında:
 
 ```html
 <link rel="canonical" href="https://antalyaviptourism.com/transfers/belek/" />
-<link rel="alternate" hreflang="en" href="https://antalyaviptourism.com/transfers/belek/" />
-<link rel="alternate" hreflang="de" href="https://antalyaviptourism.com/de/transfers/belek/" />
-<link rel="alternate" hreflang="x-default" href="https://antalyaviptourism.com/transfers/belek/" />
+<link
+  rel="alternate"
+  hreflang="en"
+  href="https://antalyaviptourism.com/transfers/belek/"
+/>
+<link
+  rel="alternate"
+  hreflang="de"
+  href="https://antalyaviptourism.com/de/transfers/belek/"
+/>
+<link
+  rel="alternate"
+  hreflang="x-default"
+  href="https://antalyaviptourism.com/transfers/belek/"
+/>
 ```
 
 Diğer dokuz arayüz dili kullanıcı deneyimi için kalabilir. Ayrı, kaliteli ve
@@ -295,15 +307,15 @@ rezervasyonların büyük bölümünü görünmez yapar.
 
 Önerilen event'ler:
 
-| Event | Ne zaman | Google Ads kullanımı |
-|---|---|---|
-| `booking_started` | Form etkileşimi başladı | Gözlem |
-| `quote_viewed` | Rota ve araç fiyatı gösterildi | Gözlem |
-| `booking_submitted_cash` | Nakit rezervasyon kaydı oluştu | İlk aşamada primary lead |
-| `checkout_started_card` | iyzico sayfasına yönlendirildi | Secondary |
-| `purchase_card` | Doğrulanmış iyzico callback sonrası | Primary purchase |
-| `qualified_booking` | Operasyon rezervasyonu doğruladı | Offline primary |
-| `completed_transfer` | Yolculuk tamamlandı | Gelir/ROAS |
+| Event                    | Ne zaman                            | Google Ads kullanımı     |
+| ------------------------ | ----------------------------------- | ------------------------ |
+| `booking_started`        | Form etkileşimi başladı             | Gözlem                   |
+| `quote_viewed`           | Rota ve araç fiyatı gösterildi      | Gözlem                   |
+| `booking_submitted_cash` | Nakit rezervasyon kaydı oluştu      | İlk aşamada primary lead |
+| `checkout_started_card`  | iyzico sayfasına yönlendirildi      | Secondary                |
+| `purchase_card`          | Doğrulanmış iyzico callback sonrası | Primary purchase         |
+| `qualified_booking`      | Operasyon rezervasyonu doğruladı    | Offline primary          |
+| `completed_transfer`     | Yolculuk tamamlandı                 | Gelir/ROAS               |
 
 Teknik notlar:
 
@@ -331,7 +343,7 @@ Google Business Profile:
 
 Site yayını ve Ads öncesi doğrulanacaklar:
 
-- `+90 242 000 00 00` yerine gerçek telefon
+- `+90 505 656 57 90` yerine gerçek telefon
 - 4.9 puan ve 387 Google yorumu
 - 2,500+ misafir
 - 24/7 erişilebilirlik

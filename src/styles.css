@@ -151,6 +151,12 @@ svg {
   letter-spacing: 0.42em;
 }
 
+.brand-logo {
+  height: 60px;
+  width: auto;
+  max-width: 200px;
+}
+
 .desktop-nav {
   display: flex;
   gap: clamp(22px, 2.7vw, 45px);
@@ -3793,3 +3799,92 @@ body.modal-open .mobile-book-bar {
 .service-mini-card p { font-size: 0.9rem; color: var(--muted); margin: 0; line-height: 1.6; }
 @media (max-width: 860px) { .route-content-grid { grid-template-columns: 1fr; gap: 40px; } }
 @media (max-width: 600px) { .route-info-cards { grid-template-columns: 1fr; } .route-hero-stats { gap: 24px; } }
+
+.pricing-comparison {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  margin: 64px 0;
+}
+
+.pricing-card {
+  padding: 48px 40px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: var(--white);
+  transition: all 0.3s ease;
+}
+
+.pricing-card:hover {
+  border-color: var(--gold);
+  box-shadow: 0 12px 40px rgba(200, 169, 106, 0.1);
+}
+
+.pricing-card-label {
+  display: inline-block;
+  padding: 6px 12px;
+  background: var(--cream);
+  color: var(--muted);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  border-radius: 6px;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+.pricing-card-highlight .pricing-card-label {
+  background: var(--gold);
+  color: var(--white);
+}
+
+.pricing-card > p:nth-of-type(1) {
+  font-family: var(--serif);
+  font-size: clamp(1.8rem, 3.5vw, 2.4rem);
+  font-weight: 400;
+  margin: 0 0 16px;
+  color: var(--ink);
+}
+
+.pricing-card-highlight > p:nth-of-type(1) {
+  color: var(--gold);
+}
+
+.pricing-card-description {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--muted);
+  margin: 0;
+}
+
+.pricing-card-highlight {
+  border: 2px solid var(--gold);
+  background: linear-gradient(135deg, rgba(200, 169, 106, 0.04), transparent);
+  transform: scale(1.02);
+}
+
+.pricing-note {
+  text-align: center;
+  padding: 32px;
+  background: var(--cream);
+  border-radius: 12px;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--ink);
+}
+
+.pricing-note p {
+  margin: 0;
+  font-weight: 500;
+}
+
+@media (max-width: 900px) {
+  .pricing-comparison {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .pricing-card-highlight {
+    transform: scale(1);
+  }
+}

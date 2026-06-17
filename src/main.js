@@ -1,16 +1,20 @@
-import { createBooking, createIyzicoCheckout } from './lib/api.js'
+import { createBooking, createIyzicoCheckout } from "./lib/api.js";
 import fallbackChauffeurPhoto from "../assets/chauffeur-arrival.jpg?url";
 import fallbackInteriorPhoto from "../assets/executive-interior.jpg?url";
 import fallbackHeroPhoto from "../assets/antalya-coastline-hero.jpg?url";
 
-const vehiclePhotoModules = import.meta.glob("../assets/images/*.{jpg,jpeg,png,webp,avif}", {
-  eager: true,
-  import: "default",
-  query: "?url",
-});
+const vehiclePhotoModules = import.meta.glob(
+  "../assets/images/*.{jpg,jpeg,png,webp,avif}",
+  {
+    eager: true,
+    import: "default",
+    query: "?url",
+  },
+);
 
 const translations = {
   de: {
+    navFairPricing: "Faire Preise",
     navFleet: "Fahrzeuge",
     navService: "Service",
     navRoutes: "Strecken",
@@ -20,7 +24,8 @@ const translations = {
     alwaysAvailable: "24 Stunden, jeden Tag erreichbar",
     heroEyebrow: "Privater Chauffeurservice · Antalya",
     heroTitle: "Premium Flughafentransfers<br />in Antalya",
-    heroSubtitle: "Private Transfers mit Chauffeur vom Flughafen Antalya nach Belek, Side, Kemer und Alanya.",
+    heroSubtitle:
+      "Private Transfers mit Chauffeur vom Flughafen Antalya nach Belek, Side, Kemer und Alanya.",
     bookTransfer: "Transfer buchen",
     instantQuote: "Sofortpreis erhalten",
     googleRated: "Google-Bewertung",
@@ -50,7 +55,8 @@ const translations = {
     speakingDrivers: "Deutsch & Englisch sprechend",
     welcomeEyebrow: "Willkommen auf höchstem Niveau",
     welcomeTitle: "Stilvoll reisen.<br />Entspannt ankommen.",
-    welcomeBody: "Ab Ihrer Landung ist jedes Detail organisiert. Ihr Chauffeur wartet in der Ankunftshalle, kümmert sich um Ihr Gepäck und begleitet Sie zu Ihrem sorgfältig vorbereiteten Privatfahrzeug.",
+    welcomeBody:
+      "Ab Ihrer Landung ist jedes Detail organisiert. Ihr Chauffeur wartet in der Ankunftshalle, kümmert sich um Ihr Gepäck und begleitet Sie zu Ihrem sorgfältig vorbereiteten Privatfahrzeug.",
     ourStandards: "Unsere Servicestandards",
     concierge: "Concierge-Service",
     guestsWelcomed: "Begrüßte Gäste",
@@ -58,11 +64,14 @@ const translations = {
     privateTransfers: "Private Transfers",
     fleetEyebrow: "Unsere Flotte",
     fleetTitle: "Ihr privater Raum,<br />vollendet bis ins Detail.",
-    fleetIntro: "Reisen Sie komfortabel mit großzügigem Platz für Familie, Golfgepäck und Koffer.",
+    fleetIntro:
+      "Reisen Sie komfortabel mit großzügigem Platz für Familie, Golfgepäck und Koffer.",
     fleetVclassClass: "Business · First Class",
-    fleetVclassDescription: "Großzügiger VIP-Transport für größere Gruppen mit viel Platz für Passagiere und Gepäck.",
+    fleetVclassDescription:
+      "Großzügiger VIP-Transport für größere Gruppen mit viel Platz für Passagiere und Gepäck.",
     fleetVitoClass: "VIP · Grand Touring",
-    fleetVitoDescription: "Eine komfortable Privatkabine für Familien und kleine Gruppen.",
+    fleetVitoDescription:
+      "Eine komfortable Privatkabine für Familien und kleine Gruppen.",
     signatureFleet: "Signature Flotte",
     passengers: "Passagiere",
     suitcases: "Koffer",
@@ -79,30 +88,41 @@ const translations = {
     interiorTitle: "Eine private Lounge zwischen<br />Flughafen und Hotel.",
     serviceEyebrow: "Der Antalya VIP Standard",
     serviceTitle: "Mehr als ein Transfer.<br />Ein besonderer Empfang.",
-    serviceIntro: "Aufmerksamkeit auf Hotelniveau, erfahrene lokale Chauffeure und absolute Sicherheit vom Flughafen bis zum Resort.",
+    serviceIntro:
+      "Aufmerksamkeit auf Hotelniveau, erfahrene lokale Chauffeure und absolute Sicherheit vom Flughafen bis zum Resort.",
     trackingTitle: "Flugverfolgung",
-    trackingBody: "Wir verfolgen Ihren Flug in Echtzeit und passen die Abholung automatisch und kostenlos an.",
+    trackingBody:
+      "Wir verfolgen Ihren Flug in Echtzeit und passen die Abholung automatisch und kostenlos an.",
     chauffeurTitle: "Professionelle Chauffeure",
-    chauffeurBody: "Stets gepflegt, diskret und ausgewählt für Ortskenntnis und höchsten Servicestandard.",
+    chauffeurBody:
+      "Stets gepflegt, diskret und ausgewählt für Ortskenntnis und höchsten Servicestandard.",
     greetTitle: "Meet & Greet",
-    greetBody: "Ihr Chauffeur empfängt Sie mit Namensschild in der Ankunftshalle und hilft mit dem Gepäck.",
+    greetBody:
+      "Ihr Chauffeur empfängt Sie mit Namensschild in der Ankunftshalle und hilft mit dem Gepäck.",
     supportTitle: "24/7 Concierge",
-    supportBody: "Vor, während und nach Ihrer Reise ist immer ein persönlicher Ansprechpartner erreichbar.",
+    supportBody:
+      "Vor, während und nach Ihrer Reise ist immer ein persönlicher Ansprechpartner erreichbar.",
     priceTitle: "Festpreise",
-    priceBody: "Der bestätigte Preis ist der Endpreis. Wartezeit, Parken und Flugverspätungen sind inklusive.",
+    priceBody:
+      "Der bestätigte Preis ist der Endpreis. Wartezeit, Parken und Flugverspätungen sind inklusive.",
     familyTitle: "Für Familien",
-    familyBody: "Passende Kindersitze, großzügige Innenräume und geduldige Hilfe für eine entspannte Ankunft.",
+    familyBody:
+      "Passende Kindersitze, großzügige Innenräume und geduldige Hilfe für eine entspannte Ankunft.",
     routesEyebrow: "Unsere beliebtesten Fahrten",
     routesTitle: "Vom Flughafen Antalya<br />an die Türkische Riviera.",
-    routesIntro: "Alle Preise gelten pro Fahrzeug, nie pro Person. Kostenlose Wartezeit ist inklusive.",
+    routesIntro:
+      "Alle Preise gelten pro Fahrzeug, nie pro Person. Kostenlose Wartezeit ist inklusive.",
     golfFavourite: "Golf-Favorit",
     from: "Ab",
     reviewsEyebrow: "Gästebewertungen",
     reviewsTitle: "Service, der lange<br />in Erinnerung bleibt.",
     googleReviews: "Basierend auf 387 verifizierten Google-Bewertungen",
-    reviewOne: "„Unser Fahrer wartete trotz 90 Minuten Flugverspätung. Das Fahrzeug war makellos, angenehm kühl und bereits mit beiden Kindersitzen ausgestattet. Genau der Empfang, den unsere Familie brauchte.“",
-    reviewTwo: "„Vom ersten WhatsApp-Kontakt bis zur Ankunft in Belek absolut erstklassig. Pünktlich, diskret und sehr professionell. Auch unsere Golftaschen hatten bequem Platz.“",
-    reviewThree: "„Das fühlte sich wie der Chauffeurservice eines Hotels an, nicht wie ein Flughafentaxi. Klare Kommunikation, ein makelloses Fahrzeug und ein aufrichtig höflicher Fahrer.“",
+    reviewOne:
+      "„Unser Fahrer wartete trotz 90 Minuten Flugverspätung. Das Fahrzeug war makellos, angenehm kühl und bereits mit beiden Kindersitzen ausgestattet. Genau der Empfang, den unsere Familie brauchte.“",
+    reviewTwo:
+      "„Vom ersten WhatsApp-Kontakt bis zur Ankunft in Belek absolut erstklassig. Pünktlich, diskret und sehr professionell. Auch unsere Golftaschen hatten bequem Platz.“",
+    reviewThree:
+      "„Das fühlte sich wie der Chauffeurservice eines Hotels an, nicht wie ein Flughafentaxi. Klare Kommunikation, ein makelloses Fahrzeug und ein aufrichtig höflicher Fahrer.“",
     trustedBy: "Gebucht von Gästen führender Resorts in Antalya",
     processEyebrow: "Bewusst einfach",
     processTitle: "Vier Schritte zur<br />entspannten Ankunft.",
@@ -116,21 +136,28 @@ const translations = {
     stepFourBody: "Ihr Chauffeur empfängt Sie in der Ankunftshalle.",
     faqEyebrow: "Häufig gefragt",
     faqTitle: "Vor Ihrer Reise.",
-    faqIntro: "Alles, was Sie über Ihren privaten Flughafentransfer in Antalya wissen müssen.",
+    faqIntro:
+      "Alles, was Sie über Ihren privaten Flughafentransfer in Antalya wissen müssen.",
     askQuestion: "Frage stellen",
     faqOneQ: "Was passiert bei einer Flugverspätung?",
-    faqOneA: "Wir verfolgen jede Ankunft in Echtzeit. Ihre Abholzeit wird automatisch angepasst und Ihr Chauffeur wartet ohne Aufpreis.",
+    faqOneA:
+      "Wir verfolgen jede Ankunft in Echtzeit. Ihre Abholzeit wird automatisch angepasst und Ihr Chauffeur wartet ohne Aufpreis.",
     faqTwoQ: "Wo treffe ich meinen Chauffeur?",
-    faqTwoA: "Ihr Chauffeur wartet direkt hinter der Gepäckausgabe in der Ankunftshalle mit einem persönlichen Namensschild.",
+    faqTwoA:
+      "Ihr Chauffeur wartet direkt hinter der Gepäckausgabe in der Ankunftshalle mit einem persönlichen Namensschild.",
     faqThreeQ: "Sind Kindersitze verfügbar?",
-    faqThreeA: "Ja. Babyschalen, Kindersitze und Sitzerhöhungen sind bei Vorbestellung kostenlos verfügbar.",
+    faqThreeA:
+      "Ja. Babyschalen, Kindersitze und Sitzerhöhungen sind bei Vorbestellung kostenlos verfügbar.",
     faqFourQ: "Können Golfbags und großes Gepäck transportiert werden?",
-    faqFourA: "Ja. Sprinter und Vito sind ideal für Golfgruppen. Teilen Sie uns Ihr Gepäck mit und wir planen das passende Fahrzeug.",
+    faqFourA:
+      "Ja. Sprinter und Vito sind ideal für Golfgruppen. Teilen Sie uns Ihr Gepäck mit und wir planen das passende Fahrzeug.",
     faqFiveQ: "Ist der angezeigte Preis endgültig?",
-    faqFiveA: "Ja. Flughafengebühren, Parken, Wartezeit und Steuern sind inklusive. Es gibt keine versteckten Kosten.",
+    faqFiveA:
+      "Ja. Flughafengebühren, Parken, Wartezeit und Steuern sind inklusive. Es gibt keine versteckten Kosten.",
     contactEyebrow: "Ihre Reise beginnt hier",
     contactTitle: "Außergewöhnlich gut<br />in Antalya ankommen.",
-    contactBody: "Buchen Sie in weniger als zwei Minuten online oder sprechen Sie direkt mit unserem 24/7 Concierge-Team.",
+    contactBody:
+      "Buchen Sie in weniger als zwei Minuten online oder sprechen Sie direkt mit unserem 24/7 Concierge-Team.",
     whatsappUs: "WhatsApp",
     replyMinutes: "Antwort meist in wenigen Minuten",
     callUs: "24/7 anrufen",
@@ -138,7 +165,8 @@ const translations = {
     replyHour: "Antwort innerhalb einer Stunde",
     fromAirport: "Ab Flughafen Antalya",
     perVehicle: "pro Fahrzeug · Festpreis",
-    footerTagline: "Private Chauffeurservices an der gesamten Türkischen Riviera.",
+    footerTagline:
+      "Private Chauffeurservices an der gesamten Türkischen Riviera.",
     explore: "Entdecken",
     information: "Information",
     licensed: "Lizenzierter privater Transferanbieter · TÜRSAB-konform",
@@ -146,7 +174,8 @@ const translations = {
     vehicle: "Fahrzeug",
     journeyTime: "Fahrzeit",
     totalFixed: "Gesamtpreis",
-    quoteIncludes: "Inklusive Meet & Greet, Flugverfolgung, Parken, Wartezeit und Mineralwasser.",
+    quoteIncludes:
+      "Inklusive Meet & Greet, Flugverfolgung, Parken, Wartezeit und Mineralwasser.",
     confirmWhatsapp: "Über WhatsApp bestätigen",
     chatWithUs: "Mit uns chatten",
     bookNowCta: "Jetzt buchen",
@@ -163,11 +192,13 @@ const translations = {
     payLaterNote: "Sichere Online-Zahlung nach Bestätigung.",
     bookingConfirmed: "Buchung bestätigt",
     referenceLabel: "Referenz",
-    weWillContact: "Ihre Buchungsanfrage wurde gesendet. Wir melden uns innerhalb von 30 Minuten.",
+    weWillContact:
+      "Ihre Buchungsanfrage wurde gesendet. Wir melden uns innerhalb von 30 Minuten.",
     paymentTitle: "Sichere Zahlung",
     paymentError: "Zahlung fehlgeschlagen. Bitte erneut versuchen.",
   },
   tr: {
+    navFairPricing: "Adil fiyat",
     navFleet: "Araçlar",
     navService: "Hizmetler",
     navRoutes: "Rotalar",
@@ -177,7 +208,8 @@ const translations = {
     alwaysAvailable: "Her gün 24 saat hizmetinizdeyiz",
     heroEyebrow: "Özel şoför hizmeti · Antalya",
     heroTitle: "Antalya'da Premium<br />Havalimanı Transferi",
-    heroSubtitle: "Antalya Havalimanı'ndan Belek, Side, Kemer ve Alanya'ya özel şoförlü transfer.",
+    heroSubtitle:
+      "Antalya Havalimanı'ndan Belek, Side, Kemer ve Alanya'ya özel şoförlü transfer.",
     bookTransfer: "Transferinizi ayırtın",
     instantQuote: "Anında fiyat alın",
     googleRated: "Google puanı",
@@ -207,7 +239,8 @@ const translations = {
     speakingDrivers: "İngilizce ve Almanca konuşan şoförler",
     welcomeEyebrow: "Daha iyi bir karşılamaya hoş geldiniz",
     welcomeTitle: "Zarafetle seyahat edin.<br />Rahatça varın.",
-    welcomeBody: "Uçağınız indiği andan itibaren her ayrıntı düşünülür. Şoförünüz gelen yolcu salonunda bekler, bagajınızla ilgilenir ve sizi özenle hazırlanmış özel aracınıza götürür.",
+    welcomeBody:
+      "Uçağınız indiği andan itibaren her ayrıntı düşünülür. Şoförünüz gelen yolcu salonunda bekler, bagajınızla ilgilenir ve sizi özenle hazırlanmış özel aracınıza götürür.",
     ourStandards: "Hizmet standartlarımız",
     concierge: "Concierge desteği",
     guestsWelcomed: "Karşılanan misafir",
@@ -215,11 +248,14 @@ const translations = {
     privateTransfers: "Özel transfer",
     fleetEyebrow: "Araç filomuz",
     fleetTitle: "Size özel alan,<br />her ayrıntıda kusursuz.",
-    fleetIntro: "Aileniz, golf ekipmanınız ve bagajınız için geniş alan sunan sessiz bir konforla seyahat edin.",
+    fleetIntro:
+      "Aileniz, golf ekipmanınız ve bagajınız için geniş alan sunan sessiz bir konforla seyahat edin.",
     fleetVclassClass: "Business · First Class",
-    fleetVclassDescription: "Kalabalık gruplar için geniş yolcu ve bagaj alanı sunan VIP ulaşım.",
+    fleetVclassDescription:
+      "Kalabalık gruplar için geniş yolcu ve bagaj alanı sunan VIP ulaşım.",
     fleetVitoClass: "VIP · Grand Touring",
-    fleetVitoDescription: "Aileler ve küçük gruplar için konforlu ve özel bir kabin.",
+    fleetVitoDescription:
+      "Aileler ve küçük gruplar için konforlu ve özel bir kabin.",
     signatureFleet: "Seçkin filo",
     passengers: "yolcu",
     suitcases: "bavul",
@@ -233,33 +269,45 @@ const translations = {
     nameSignGreeting: "İsminize özel tabela ile karşılama",
     reserveVehicle: "Bu aracı ayırtın",
     insideVclass: "Sprinter'ın içinde",
-    interiorTitle: "Havalimanı ile oteliniz arasında<br />size özel bir lounge.",
+    interiorTitle:
+      "Havalimanı ile oteliniz arasında<br />size özel bir lounge.",
     serviceEyebrow: "Antalya VIP standardı",
     serviceTitle: "Transferden fazlası.<br />Özenli bir karşılama.",
-    serviceIntro: "Havalimanından otele kadar beş yıldızlı ilgi, deneyimli yerel şoförler ve tam huzur.",
+    serviceIntro:
+      "Havalimanından otele kadar beş yıldızlı ilgi, deneyimli yerel şoförler ve tam huzur.",
     trackingTitle: "Uçuş takibi",
-    trackingBody: "Uçuşunuzu gerçek zamanlı takip eder, alış saatinizi hiçbir ek ücret olmadan otomatik olarak ayarlarız.",
+    trackingBody:
+      "Uçuşunuzu gerçek zamanlı takip eder, alış saatinizi hiçbir ek ücret olmadan otomatik olarak ayarlarız.",
     chauffeurTitle: "Profesyonel şoförler",
-    chauffeurBody: "Bakımlı, gizliliğe önem veren ve yerel bilgisi ile hizmet kalitesi için seçilmiş profesyoneller.",
+    chauffeurBody:
+      "Bakımlı, gizliliğe önem veren ve yerel bilgisi ile hizmet kalitesi için seçilmiş profesyoneller.",
     greetTitle: "Karşılama hizmeti",
-    greetBody: "Şoförünüz sizi gelen yolcu salonunda isminizin yazılı olduğu tabela ile karşılar ve bagajınıza yardımcı olur.",
+    greetBody:
+      "Şoförünüz sizi gelen yolcu salonunda isminizin yazılı olduğu tabela ile karşılar ve bagajınıza yardımcı olur.",
     supportTitle: "7/24 concierge",
-    supportBody: "Yolculuğunuzdan önce, yolculuk sırasında ve sonrasında telefon veya WhatsApp üzerinden gerçek bir kişiye ulaşabilirsiniz.",
+    supportBody:
+      "Yolculuğunuzdan önce, yolculuk sırasında ve sonrasında telefon veya WhatsApp üzerinden gerçek bir kişiye ulaşabilirsiniz.",
     priceTitle: "Sabit fiyatlar",
-    priceBody: "Onaylanan fiyat ödeyeceğiniz nihai fiyattır. Bekleme, otopark ve uçuş gecikmeleri dahildir.",
+    priceBody:
+      "Onaylanan fiyat ödeyeceğiniz nihai fiyattır. Bekleme, otopark ve uçuş gecikmeleri dahildir.",
     familyTitle: "Ailelere hazır",
-    familyBody: "Yaşa uygun çocuk koltukları, geniş kabinler ve rahat bir aile karşılaması için özenli destek.",
+    familyBody:
+      "Yaşa uygun çocuk koltukları, geniş kabinler ve rahat bir aile karşılaması için özenli destek.",
     routesEyebrow: "En çok tercih edilen yolculuklar",
     routesTitle: "Antalya Havalimanı'ndan<br />Türk Rivierası'na.",
-    routesIntro: "Tüm fiyatlar kişi başı değil, araç başıdır ve ücretsiz bekleme süresi dahildir.",
+    routesIntro:
+      "Tüm fiyatlar kişi başı değil, araç başıdır ve ücretsiz bekleme süresi dahildir.",
     golfFavourite: "Golf misafirlerinin favorisi",
     from: "Başlangıç",
     reviewsEyebrow: "Misafir yorumları",
     reviewsTitle: "Varıştan sonra da<br />hatırlanan hizmet.",
     googleReviews: "Doğrulanmış 387 Google yorumuna göre",
-    reviewOne: "“Uçağımız 90 dakika gecikmesine rağmen şoförümüz bizi bekliyordu. Aracımız kusursuz, serin ve iki çocuk koltuğu da hazırdı. Ailemizin tam olarak ihtiyaç duyduğu karşılamaydı.”",
-    reviewTwo: "“İlk WhatsApp görüşmesinden Belek'e varışımıza kadar her şey birinci sınıftı. Dakik, gizliliğe önem veren ve son derece profesyonel. Golf çantalarımız da rahatça sığdı.”",
-    reviewThree: "“Bu bir havalimanı taksisinden çok beş yıldızlı otel şoför hizmeti gibiydi. Net iletişim, tertemiz araç ve gerçekten nazik bir şoför.”",
+    reviewOne:
+      "“Uçağımız 90 dakika gecikmesine rağmen şoförümüz bizi bekliyordu. Aracımız kusursuz, serin ve iki çocuk koltuğu da hazırdı. Ailemizin tam olarak ihtiyaç duyduğu karşılamaydı.”",
+    reviewTwo:
+      "“İlk WhatsApp görüşmesinden Belek'e varışımıza kadar her şey birinci sınıftı. Dakik, gizliliğe önem veren ve son derece profesyonel. Golf çantalarımız da rahatça sığdı.”",
+    reviewThree:
+      "“Bu bir havalimanı taksisinden çok beş yıldızlı otel şoför hizmeti gibiydi. Net iletişim, tertemiz araç ve gerçekten nazik bir şoför.”",
     trustedBy: "Antalya'nın önde gelen resort misafirlerinin tercihi",
     processEyebrow: "Sade ve kolay",
     processTitle: "Kusursuz bir varış için<br />dört adım.",
@@ -273,21 +321,28 @@ const translations = {
     stepFourBody: "Şoförünüz sizi gelen yolcu salonunda karşılar.",
     faqEyebrow: "Sık sorulanlar",
     faqTitle: "Seyahatinizden önce.",
-    faqIntro: "Antalya'daki özel havalimanı transferiniz hakkında bilmeniz gereken her şey.",
+    faqIntro:
+      "Antalya'daki özel havalimanı transferiniz hakkında bilmeniz gereken her şey.",
     askQuestion: "Bize sorun",
     faqOneQ: "Uçağım gecikirse ne olur?",
-    faqOneA: "Tüm uçuşları gerçek zamanlı takip ederiz. Alış saatiniz otomatik olarak güncellenir ve şoförünüz ek ücret olmadan bekler.",
+    faqOneA:
+      "Tüm uçuşları gerçek zamanlı takip ederiz. Alış saatiniz otomatik olarak güncellenir ve şoförünüz ek ücret olmadan bekler.",
     faqTwoQ: "Şoförümle nerede buluşacağım?",
-    faqTwoA: "Şoförünüz bagaj tesliminden hemen sonra gelen yolcu salonunda, isminizin yazılı olduğu tabela ile bekler.",
+    faqTwoA:
+      "Şoförünüz bagaj tesliminden hemen sonra gelen yolcu salonunda, isminizin yazılı olduğu tabela ile bekler.",
     faqThreeQ: "Çocuk koltuğu var mı?",
-    faqThreeA: "Evet. Bebek koltuğu, çocuk koltuğu ve yükseltici koltuk rezervasyon sırasında ücretsiz olarak talep edilebilir.",
+    faqThreeA:
+      "Evet. Bebek koltuğu, çocuk koltuğu ve yükseltici koltuk rezervasyon sırasında ücretsiz olarak talep edilebilir.",
     faqFourQ: "Golf çantası ve büyük bagaj taşıyor musunuz?",
-    faqFourA: "Evet. Sprinter ve Vito araçlarımız golf grupları için idealdir. Bagaj bilgilerinizi paylaşın, uygun aracı planlayalım.",
+    faqFourA:
+      "Evet. Sprinter ve Vito araçlarımız golf grupları için idealdir. Bagaj bilgilerinizi paylaşın, uygun aracı planlayalım.",
     faqFiveQ: "Verilen fiyat kesin mi?",
-    faqFiveA: "Evet. Havalimanı ücretleri, otopark, bekleme süresi ve vergiler dahildir. Gizli ücret yoktur.",
+    faqFiveA:
+      "Evet. Havalimanı ücretleri, otopark, bekleme süresi ve vergiler dahildir. Gizli ücret yoktur.",
     contactEyebrow: "Yolculuğunuz burada başlar",
     contactTitle: "Antalya'ya ayrıcalıklı<br />bir şekilde varın.",
-    contactBody: "İki dakikadan kısa sürede online rezervasyon yapın veya 7/24 concierge ekibimizle doğrudan görüşün.",
+    contactBody:
+      "İki dakikadan kısa sürede online rezervasyon yapın veya 7/24 concierge ekibimizle doğrudan görüşün.",
     whatsappUs: "WhatsApp'tan yazın",
     replyMinutes: "Genellikle birkaç dakika içinde yanıt veririz",
     callUs: "7/24 arayın",
@@ -303,7 +358,8 @@ const translations = {
     vehicle: "Araç",
     journeyTime: "Yolculuk süresi",
     totalFixed: "Toplam sabit fiyat",
-    quoteIncludes: "Karşılama, uçuş takibi, otopark, bekleme süresi ve şişe su dahildir.",
+    quoteIncludes:
+      "Karşılama, uçuş takibi, otopark, bekleme süresi ve şişe su dahildir.",
     confirmWhatsapp: "WhatsApp ile onaylayın",
     chatWithUs: "Bize yazın",
     bookNowCta: "Rezervasyon yap",
@@ -320,11 +376,13 @@ const translations = {
     payLaterNote: "Onay sonrası güvenli online ödeme.",
     bookingConfirmed: "Rezervasyon Onaylandı",
     referenceLabel: "Referans",
-    weWillContact: "Rezervasyon talebiniz gönderildi. 30 dakika içinde sizinle iletişime geçeceğiz.",
+    weWillContact:
+      "Rezervasyon talebiniz gönderildi. 30 dakika içinde sizinle iletişime geçeceğiz.",
     paymentTitle: "Güvenli Ödeme",
     paymentError: "Ödeme başarısız. Lütfen tekrar deneyin.",
   },
   ru: {
+    navFairPricing: "Честная цена",
     navFleet: "Автопарк",
     navService: "Сервис",
     navRoutes: "Маршруты",
@@ -334,7 +392,8 @@ const translations = {
     alwaysAvailable: "Мы на связи круглосуточно, каждый день",
     heroEyebrow: "Персональный шофёр · Анталья",
     heroTitle: "Премиальный трансфер<br />из аэропорта Антальи",
-    heroSubtitle: "Индивидуальные трансферы с водителем из аэропорта Антальи в Белек, Сиде, Кемер и Аланью.",
+    heroSubtitle:
+      "Индивидуальные трансферы с водителем из аэропорта Антальи в Белек, Сиде, Кемер и Аланью.",
     bookTransfer: "Забронировать трансфер",
     instantQuote: "Узнать цену",
     googleRated: "Рейтинг Google",
@@ -364,7 +423,8 @@ const translations = {
     speakingDrivers: "Водители говорят на английском и немецком",
     welcomeEyebrow: "Добро пожаловать на новый уровень сервиса",
     welcomeTitle: "Путешествуйте красиво.<br />Прибывайте без забот.",
-    welcomeBody: "С момента посадки вашего самолёта мы продумываем каждую деталь. Шофёр встретит вас в зале прилёта, поможет с багажом и проводит к подготовленному автомобилю.",
+    welcomeBody:
+      "С момента посадки вашего самолёта мы продумываем каждую деталь. Шофёр встретит вас в зале прилёта, поможет с багажом и проводит к подготовленному автомобилю.",
     ourStandards: "Наши стандарты сервиса",
     concierge: "Поддержка консьержа",
     guestsWelcomed: "Встреченных гостей",
@@ -372,11 +432,14 @@ const translations = {
     privateTransfers: "Частные трансферы",
     fleetEyebrow: "Наш автопарк",
     fleetTitle: "Ваше личное пространство,<br />безупречное в деталях.",
-    fleetIntro: "Путешествуйте в тишине и комфорте: достаточно места для семьи, багажа и оборудования для гольфа.",
+    fleetIntro:
+      "Путешествуйте в тишине и комфорте: достаточно места для семьи, багажа и оборудования для гольфа.",
     fleetVclassClass: "Business · First Class",
-    fleetVclassDescription: "Эталон комфортных групповых поездок: просторный, исключительно тихий салон и всё необходимое для беззаботного прибытия.",
+    fleetVclassDescription:
+      "Эталон комфортных групповых поездок: просторный, исключительно тихий салон и всё необходимое для беззаботного прибытия.",
     fleetVitoClass: "VIP · Grand Touring",
-    fleetVitoDescription: "Просторный частный салон для больших семей, групп игроков в гольф и гостей с объёмным багажом.",
+    fleetVitoDescription:
+      "Просторный частный салон для больших семей, групп игроков в гольф и гостей с объёмным багажом.",
     signatureFleet: "Фирменный автопарк",
     passengers: "пассажиров",
     suitcases: "чемоданов",
@@ -393,30 +456,41 @@ const translations = {
     interiorTitle: "Персональный лаунж<br />между аэропортом и отелем.",
     serviceEyebrow: "Стандарт Antalya VIP",
     serviceTitle: "Больше, чем трансфер.<br />Продуманная встреча.",
-    serviceIntro: "Внимание уровня пятизвёздочного отеля, опытные местные шофёры и спокойствие от аэропорта до курорта.",
+    serviceIntro:
+      "Внимание уровня пятизвёздочного отеля, опытные местные шофёры и спокойствие от аэропорта до курорта.",
     trackingTitle: "Отслеживание рейса",
-    trackingBody: "Мы отслеживаем ваш рейс в реальном времени и автоматически корректируем время встречи без доплаты.",
+    trackingBody:
+      "Мы отслеживаем ваш рейс в реальном времени и автоматически корректируем время встречи без доплаты.",
     chauffeurTitle: "Профессиональные шофёры",
-    chauffeurBody: "Безупречный внешний вид, деликатность, знание региона и высокие стандарты обслуживания.",
+    chauffeurBody:
+      "Безупречный внешний вид, деликатность, знание региона и высокие стандарты обслуживания.",
     greetTitle: "Встреча в аэропорту",
-    greetBody: "Шофёр встретит вас в зале прилёта с именной табличкой и поможет с багажом.",
+    greetBody:
+      "Шофёр встретит вас в зале прилёта с именной табличкой и поможет с багажом.",
     supportTitle: "Консьерж 24/7",
-    supportBody: "До, во время и после поездки вам всегда ответит человек по телефону или в WhatsApp.",
+    supportBody:
+      "До, во время и после поездки вам всегда ответит человек по телефону или в WhatsApp.",
     priceTitle: "Фиксированные цены",
-    priceBody: "Подтверждённая цена является окончательной. Ожидание, парковка и задержка рейса уже включены.",
+    priceBody:
+      "Подтверждённая цена является окончательной. Ожидание, парковка и задержка рейса уже включены.",
     familyTitle: "Для всей семьи",
-    familyBody: "Детские кресла по возрасту, просторный салон и внимательная помощь для спокойного семейного приезда.",
+    familyBody:
+      "Детские кресла по возрасту, просторный салон и внимательная помощь для спокойного семейного приезда.",
     routesEyebrow: "Самые популярные поездки",
     routesTitle: "Из аэропорта Антальи<br />на Турецкую Ривьеру.",
-    routesIntro: "Все цены указаны за автомобиль, а не за пассажира. Бесплатное ожидание включено.",
+    routesIntro:
+      "Все цены указаны за автомобиль, а не за пассажира. Бесплатное ожидание включено.",
     golfFavourite: "Выбор игроков в гольф",
     from: "От",
     reviewsEyebrow: "Отзывы гостей",
     reviewsTitle: "Сервис, который помнят<br />после прибытия.",
     googleReviews: "На основе 387 подтверждённых отзывов Google",
-    reviewOne: "«Несмотря на задержку рейса на 90 минут, водитель ждал нас. Автомобиль был безупречно чистым и прохладным, а оба детских кресла уже были установлены. Именно такая встреча была нужна нашей семье».",
-    reviewTwo: "«От первого сообщения в WhatsApp до прибытия в Белек всё было на высшем уровне. Пунктуально, деликатно и очень профессионально. Наши сумки для гольфа легко поместились».",
-    reviewThree: "«Это было похоже на трансфер от пятизвёздочного отеля, а не на такси из аэропорта. Чёткая связь, безупречный автомобиль и по-настоящему вежливый водитель».",
+    reviewOne:
+      "«Несмотря на задержку рейса на 90 минут, водитель ждал нас. Автомобиль был безупречно чистым и прохладным, а оба детских кресла уже были установлены. Именно такая встреча была нужна нашей семье».",
+    reviewTwo:
+      "«От первого сообщения в WhatsApp до прибытия в Белек всё было на высшем уровне. Пунктуально, деликатно и очень профессионально. Наши сумки для гольфа легко поместились».",
+    reviewThree:
+      "«Это было похоже на трансфер от пятизвёздочного отеля, а не на такси из аэропорта. Чёткая связь, безупречный автомобиль и по-настоящему вежливый водитель».",
     trustedBy: "Нам доверяют гости ведущих курортов Антальи",
     processEyebrow: "Продуманная простота",
     processTitle: "Четыре шага<br />к комфортному прибытию.",
@@ -433,18 +507,24 @@ const translations = {
     faqIntro: "Всё, что нужно знать о частном трансфере из аэропорта Антальи.",
     askQuestion: "Задать вопрос",
     faqOneQ: "Что произойдёт, если мой рейс задержится?",
-    faqOneA: "Мы отслеживаем каждый рейс в реальном времени. Время встречи корректируется автоматически, а водитель ждёт без дополнительной платы.",
+    faqOneA:
+      "Мы отслеживаем каждый рейс в реальном времени. Время встречи корректируется автоматически, а водитель ждёт без дополнительной платы.",
     faqTwoQ: "Где я встречу водителя?",
-    faqTwoA: "Ваш шофёр будет ждать в зале прилёта сразу после выдачи багажа с именной табличкой.",
+    faqTwoA:
+      "Ваш шофёр будет ждать в зале прилёта сразу после выдачи багажа с именной табличкой.",
     faqThreeQ: "Есть ли детские кресла?",
-    faqThreeA: "Да. Автолюльки, детские кресла и бустеры предоставляются бесплатно по запросу при бронировании.",
+    faqThreeA:
+      "Да. Автолюльки, детские кресла и бустеры предоставляются бесплатно по запросу при бронировании.",
     faqFourQ: "Можно ли взять сумки для гольфа и крупный багаж?",
-    faqFourA: "Да. Sprinter и Vito идеально подходят для групп игроков в гольф. Сообщите объём багажа, и мы подберём автомобиль.",
+    faqFourA:
+      "Да. Sprinter и Vito идеально подходят для групп игроков в гольф. Сообщите объём багажа, и мы подберём автомобиль.",
     faqFiveQ: "Указанная цена окончательная?",
-    faqFiveA: "Да. Аэропортовые сборы, парковка, ожидание и налоги включены. Скрытых платежей нет.",
+    faqFiveA:
+      "Да. Аэропортовые сборы, парковка, ожидание и налоги включены. Скрытых платежей нет.",
     contactEyebrow: "Ваше путешествие начинается здесь",
     contactTitle: "Прибудьте в Анталью<br />исключительно комфортно.",
-    contactBody: "Забронируйте онлайн менее чем за две минуты или свяжитесь с нашей службой консьержа 24/7.",
+    contactBody:
+      "Забронируйте онлайн менее чем за две минуты или свяжитесь с нашей службой консьержа 24/7.",
     whatsappUs: "Написать в WhatsApp",
     replyMinutes: "Обычно отвечаем за несколько минут",
     callUs: "Позвонить 24/7",
@@ -455,12 +535,14 @@ const translations = {
     footerTagline: "Частные услуги шофёра по всей Турецкой Ривьере.",
     explore: "Разделы",
     information: "Информация",
-    licensed: "Лицензированный оператор частных трансферов · Соответствует требованиям TÜRSAB",
+    licensed:
+      "Лицензированный оператор частных трансферов · Соответствует требованиям TÜRSAB",
     quoteReady: "Ваш частный трансфер",
     vehicle: "Автомобиль",
     journeyTime: "Время в пути",
     totalFixed: "Итоговая цена",
-    quoteIncludes: "Включены встреча, отслеживание рейса, парковка, ожидание и питьевая вода.",
+    quoteIncludes:
+      "Включены встреча, отслеживание рейса, парковка, ожидание и питьевая вода.",
     confirmWhatsapp: "Подтвердить в WhatsApp",
     chatWithUs: "Написать нам",
     bookNowCta: "Забронировать",
@@ -477,705 +559,1305 @@ const translations = {
     payLaterNote: "Оплата онлайн после подтверждения.",
     bookingConfirmed: "Бронирование подтверждено",
     referenceLabel: "Референс",
-    weWillContact: "Ваш запрос на бронирование отправлен. Мы свяжемся с вами в течение 30 минут.",
+    weWillContact:
+      "Ваш запрос на бронирование отправлен. Мы свяжемся с вами в течение 30 минут.",
     paymentTitle: "Безопасная оплата",
     paymentError: "Оплата не прошла. Попробуйте ещё раз.",
   },
   pl: {
-    navFleet: "Pojazdy", navService: "Usługi", navRoutes: "Trasy", navReviews: "Opinie", navContact: "Kontakt",
-    bookNow: "Zarezerwuj", alwaysAvailable: "Do Twojej dyspozycji 24 godziny na dobę",
+    navFairPricing: "Uczciwa cena",
+    navFleet: "Pojazdy",
+    navService: "Usługi",
+    navRoutes: "Trasy",
+    navReviews: "Opinie",
+    navContact: "Kontakt",
+    bookNow: "Zarezerwuj",
+    alwaysAvailable: "Do Twojej dyspozycji 24 godziny na dobę",
     heroEyebrow: "Prywatny serwis szoferski · Antalya",
     heroTitle: "Transfery lotniskowe premium<br />w Antalyi",
-    heroSubtitle: "Prywatne transfery z szoferem z lotniska Antalya do Belek, Side, Kemer i Alanyi.",
-    bookTransfer: "Zarezerwuj transfer", instantQuote: "Sprawdź cenę", googleRated: "Ocena Google",
-    trustedGuests: "Zaufało nam ponad 2 500 gości", discover: "Odkryj", privateJourney: "Twoja prywatna podróż",
-    quoteTitle: "Dokąd Cię zawieziemy?", pickup: "Miejsce odbioru", destination: "Cel podróży",
-    date: "Data", guests: "Goście", hotelAddress: "Hotel / Adres prywatny",
-    pickupAddress: "Pełny adres odbioru", pickupAddressPlaceholder: "Nazwa hotelu, ulica, numer budynku i dzielnica",
+    heroSubtitle:
+      "Prywatne transfery z szoferem z lotniska Antalya do Belek, Side, Kemer i Alanyi.",
+    bookTransfer: "Zarezerwuj transfer",
+    instantQuote: "Sprawdź cenę",
+    googleRated: "Ocena Google",
+    trustedGuests: "Zaufało nam ponad 2 500 gości",
+    discover: "Odkryj",
+    privateJourney: "Twoja prywatna podróż",
+    quoteTitle: "Dokąd Cię zawieziemy?",
+    pickup: "Miejsce odbioru",
+    destination: "Cel podróży",
+    date: "Data",
+    guests: "Goście",
+    hotelAddress: "Hotel / Adres prywatny",
+    pickupAddress: "Pełny adres odbioru",
+    pickupAddressPlaceholder: "Nazwa hotelu, ulica, numer budynku i dzielnica",
     selectDestination: "Wybierz cel",
-    oneGuest: "1 gość", twoGuests: "2 gości", threeGuests: "3 gości", fourGuests: "4 gości",
-    fiveGuests: "5 gości", sixGuests: "6 gości", sevenGuests: "7 gości", viewQuote: "Pokaż cenę",
-    flightTracking: "Śledzenie lotu w czasie rzeczywistym", fixedPrice: "Gwarantowana stała cena",
-    meetGreet: "Osobiste powitanie", speakingDrivers: "Kierowcy mówiący po angielsku i niemiecku",
+    oneGuest: "1 gość",
+    twoGuests: "2 gości",
+    threeGuests: "3 gości",
+    fourGuests: "4 gości",
+    fiveGuests: "5 gości",
+    sixGuests: "6 gości",
+    sevenGuests: "7 gości",
+    viewQuote: "Pokaż cenę",
+    flightTracking: "Śledzenie lotu w czasie rzeczywistym",
+    fixedPrice: "Gwarantowana stała cena",
+    meetGreet: "Osobiste powitanie",
+    speakingDrivers: "Kierowcy mówiący po angielsku i niemiecku",
     welcomeEyebrow: "Witamy na najwyższym poziomie",
     welcomeTitle: "Podróżuj z klasą.<br />Przyjeżdżaj spokojnie.",
-    welcomeBody: "Od chwili lądowania każdy szczegół jest dopracowany. Szofer czeka w hali przylotów, zajmuje się bagażem i odprowadza Cię do starannie przygotowanego pojazdu.",
-    ourStandards: "Nasze standardy usług", concierge: "Usługi concierge", guestsWelcomed: "Powitanych gości",
-    guestRating: "Średnia ocena gości", privateTransfers: "Prywatne transfery", fleetEyebrow: "Nasza flota",
+    welcomeBody:
+      "Od chwili lądowania każdy szczegół jest dopracowany. Szofer czeka w hali przylotów, zajmuje się bagażem i odprowadza Cię do starannie przygotowanego pojazdu.",
+    ourStandards: "Nasze standardy usług",
+    concierge: "Usługi concierge",
+    guestsWelcomed: "Powitanych gości",
+    guestRating: "Średnia ocena gości",
+    privateTransfers: "Prywatne transfery",
+    fleetEyebrow: "Nasza flota",
     fleetTitle: "Twoja prywatna przestrzeń,<br />doskonała w każdym detalu.",
-    fleetIntro: "Podróżuj komfortowo z obszernym miejscem dla rodziny, sprzętu golfowego i walizek.",
+    fleetIntro:
+      "Podróżuj komfortowo z obszernym miejscem dla rodziny, sprzętu golfowego i walizek.",
     fleetVclassClass: "Business · First Class",
-    fleetVclassDescription: "Wzorzec eleganckiej podróży grupowej: przestronny, wyjątkowo cichy i wyposażony dla bezproblemowego przybycia.",
+    fleetVclassDescription:
+      "Wzorzec eleganckiej podróży grupowej: przestronny, wyjątkowo cichy i wyposażony dla bezproblemowego przybycia.",
     fleetVitoClass: "VIP · Grand Touring",
-    fleetVitoDescription: "Obszerna prywatna kabina dla większych rodzin, grup golfowych i gości z obfitym bagażem.",
-    signatureFleet: "Flota Signature", passengers: "pasażerów", suitcases: "walizek",
-    leatherSeats: "Skórzane fotele premium", wifi: "Bezpłatne WiFi", water: "Schłodzona woda mineralna",
-    childSeats: "Foteliki dziecięce na życzenie", television: "Telewizor w pojeździe",
-    coldDrinks: "Zimne napoje", snacks: "Przekąski", nameSignGreeting: "Powitanie z tabliczką z imieniem",
+    fleetVitoDescription:
+      "Obszerna prywatna kabina dla większych rodzin, grup golfowych i gości z obfitym bagażem.",
+    signatureFleet: "Flota Signature",
+    passengers: "pasażerów",
+    suitcases: "walizek",
+    leatherSeats: "Skórzane fotele premium",
+    wifi: "Bezpłatne WiFi",
+    water: "Schłodzona woda mineralna",
+    childSeats: "Foteliki dziecięce na życzenie",
+    television: "Telewizor w pojeździe",
+    coldDrinks: "Zimne napoje",
+    snacks: "Przekąski",
+    nameSignGreeting: "Powitanie z tabliczką z imieniem",
     reserveVehicle: "Zarezerwuj pojazd",
     insideVclass: "Wnętrze Sprinter",
     interiorTitle: "Prywatny salon<br />między lotniskiem a hotelem.",
     serviceEyebrow: "Standard Antalya VIP",
     serviceTitle: "Więcej niż transfer.<br />Wyjątkowe powitanie.",
-    serviceIntro: "Uwaga na poziomie pięciogwiazdkowego hotelu, doświadczeni lokalni szoferzy i pełen spokój od lotniska po resort.",
+    serviceIntro:
+      "Uwaga na poziomie pięciogwiazdkowego hotelu, doświadczeni lokalni szoferzy i pełen spokój od lotniska po resort.",
     trackingTitle: "Śledzenie lotu",
-    trackingBody: "Śledzimy Twój lot w czasie rzeczywistym i automatycznie dostosowujemy godzinę odbioru bez dodatkowych opłat.",
+    trackingBody:
+      "Śledzimy Twój lot w czasie rzeczywistym i automatycznie dostosowujemy godzinę odbioru bez dodatkowych opłat.",
     chauffeurTitle: "Profesjonalni szoferzy",
-    chauffeurBody: "Zawsze zadbani, dyskretni, wybrani za znajomość terenu i najwyższe standardy obsługi.",
+    chauffeurBody:
+      "Zawsze zadbani, dyskretni, wybrani za znajomość terenu i najwyższe standardy obsługi.",
     greetTitle: "Meet & Greet",
-    greetBody: "Szofer wita Cię w hali przylotów z tabliczką z Twoim imieniem i pomaga z bagażem.",
+    greetBody:
+      "Szofer wita Cię w hali przylotów z tabliczką z Twoim imieniem i pomaga z bagażem.",
     supportTitle: "Concierge 24/7",
-    supportBody: "Przed, w trakcie i po podróży zawsze możesz skontaktować się z nami telefonicznie lub przez WhatsApp.",
+    supportBody:
+      "Przed, w trakcie i po podróży zawsze możesz skontaktować się z nami telefonicznie lub przez WhatsApp.",
     priceTitle: "Stałe ceny",
-    priceBody: "Potwierdzona cena jest ceną ostateczną. Czas oczekiwania, parking i opóźnienia lotów są wliczone.",
+    priceBody:
+      "Potwierdzona cena jest ceną ostateczną. Czas oczekiwania, parking i opóźnienia lotów są wliczone.",
     familyTitle: "Dla rodzin",
-    familyBody: "Odpowiednie foteliki dziecięce, obszerne kabiny i cierpliwa pomoc dla spokojnego przybycia z rodziną.",
+    familyBody:
+      "Odpowiednie foteliki dziecięce, obszerne kabiny i cierpliwa pomoc dla spokojnego przybycia z rodziną.",
     routesEyebrow: "Nasze najpopularniejsze trasy",
     routesTitle: "Z lotniska Antalya<br />na Turecką Riwierę.",
-    routesIntro: "Wszystkie ceny dotyczą pojazdu, nie osoby. Bezpłatny czas oczekiwania jest wliczony.",
-    golfFavourite: "Ulubieniec golfistów", from: "Od",
-    reviewsEyebrow: "Opinie gości", reviewsTitle: "Usługa, która<br />zostaje w pamięci.",
+    routesIntro:
+      "Wszystkie ceny dotyczą pojazdu, nie osoby. Bezpłatny czas oczekiwania jest wliczony.",
+    golfFavourite: "Ulubieniec golfistów",
+    from: "Od",
+    reviewsEyebrow: "Opinie gości",
+    reviewsTitle: "Usługa, która<br />zostaje w pamięci.",
     googleReviews: "Na podstawie 387 zweryfikowanych opinii Google",
-    reviewOne: "„Nasz kierowca czekał mimo 90-minutowego opóźnienia. Pojazd był nieskazitelny, przyjemnie chłodny i wyposażony już w oba foteliki. Dokładnie takie powitanie potrzebowała nasza rodzina.”",
-    reviewTwo: "„Od pierwszego kontaktu WhatsApp po przyjazd do Belek wszystko było absolutnie pierwszorzędne. Punktualnie, dyskretnie i bardzo profesjonalnie. Torby golfowe bez problemu się zmieściły.”",
-    reviewThree: "„To było jak serwis szoferski hotelu, a nie taksówka na lotnisku. Jasna komunikacja, nieskazitelny pojazd i naprawdę uprzejmy kierowca.”",
-    trustedBy: "Wybór gości czołowych resortów w Antalyi", processEyebrow: "Celowo proste",
+    reviewOne:
+      "„Nasz kierowca czekał mimo 90-minutowego opóźnienia. Pojazd był nieskazitelny, przyjemnie chłodny i wyposażony już w oba foteliki. Dokładnie takie powitanie potrzebowała nasza rodzina.”",
+    reviewTwo:
+      "„Od pierwszego kontaktu WhatsApp po przyjazd do Belek wszystko było absolutnie pierwszorzędne. Punktualnie, dyskretnie i bardzo profesjonalnie. Torby golfowe bez problemu się zmieściły.”",
+    reviewThree:
+      "„To było jak serwis szoferski hotelu, a nie taksówka na lotnisku. Jasna komunikacja, nieskazitelny pojazd i naprawdę uprzejmy kierowca.”",
+    trustedBy: "Wybór gości czołowych resortów w Antalyi",
+    processEyebrow: "Celowo proste",
     processTitle: "Cztery kroki do<br />spokojnego przybycia.",
-    stepOne: "Wybierz cel", stepOneBody: "Powiedz nam, dokąd i kiedy chcesz pojechać.",
-    stepTwo: "Wybierz pojazd", stepTwoBody: "Wybierz odpowiednią przestrzeń i komfort.",
-    stepThree: "Potwierdź rezerwację", stepThreeBody: "Otrzymaj natychmiastowe potwierdzenie ze stałą ceną.",
-    stepFour: "Spotkaj szofera", stepFourBody: "Szofer wita Cię w hali przylotów.",
-    faqEyebrow: "Często zadawane pytania", faqTitle: "Przed Twoją podróżą.",
-    faqIntro: "Wszystko, co musisz wiedzieć o prywatnym transferze z lotniska w Antalyi.",
+    stepOne: "Wybierz cel",
+    stepOneBody: "Powiedz nam, dokąd i kiedy chcesz pojechać.",
+    stepTwo: "Wybierz pojazd",
+    stepTwoBody: "Wybierz odpowiednią przestrzeń i komfort.",
+    stepThree: "Potwierdź rezerwację",
+    stepThreeBody: "Otrzymaj natychmiastowe potwierdzenie ze stałą ceną.",
+    stepFour: "Spotkaj szofera",
+    stepFourBody: "Szofer wita Cię w hali przylotów.",
+    faqEyebrow: "Często zadawane pytania",
+    faqTitle: "Przed Twoją podróżą.",
+    faqIntro:
+      "Wszystko, co musisz wiedzieć o prywatnym transferze z lotniska w Antalyi.",
     askQuestion: "Zadaj pytanie",
     faqOneQ: "Co się stanie, jeśli mój lot się opóźni?",
-    faqOneA: "Śledzimy każdy przylot w czasie rzeczywistym. Godzina odbioru jest automatycznie dostosowywana, a szofer czeka bez dodatkowych opłat.",
+    faqOneA:
+      "Śledzimy każdy przylot w czasie rzeczywistym. Godzina odbioru jest automatycznie dostosowywana, a szofer czeka bez dodatkowych opłat.",
     faqTwoQ: "Gdzie spotkam mojego szofera?",
-    faqTwoA: "Szofer czeka w hali przylotów tuż za wydawaniem bagażu z tabliczką z Twoim imieniem.",
+    faqTwoA:
+      "Szofer czeka w hali przylotów tuż za wydawaniem bagażu z tabliczką z Twoim imieniem.",
     faqThreeQ: "Czy dostępne są foteliki dziecięce?",
-    faqThreeA: "Tak. Nosidełka, foteliki i podkładki są dostępne bezpłatnie przy wcześniejszej rezerwacji.",
+    faqThreeA:
+      "Tak. Nosidełka, foteliki i podkładki są dostępne bezpłatnie przy wcześniejszej rezerwacji.",
     faqFourQ: "Czy można przewieźć torby golfowe i duży bagaż?",
-    faqFourA: "Tak. Sprinter i Vito są idealne dla grup golfowych. Podaj informacje o bagażu, a zaplanujemy odpowiedni pojazd.",
+    faqFourA:
+      "Tak. Sprinter i Vito są idealne dla grup golfowych. Podaj informacje o bagażu, a zaplanujemy odpowiedni pojazd.",
     faqFiveQ: "Czy podana cena jest ostateczna?",
-    faqFiveA: "Tak. Opłaty lotniskowe, parking, czas oczekiwania i podatki są wliczone. Brak ukrytych kosztów.",
+    faqFiveA:
+      "Tak. Opłaty lotniskowe, parking, czas oczekiwania i podatki są wliczone. Brak ukrytych kosztów.",
     contactEyebrow: "Twoja podróż zaczyna się tutaj",
     contactTitle: "Przybądź do Antalyi<br />wyjątkowo komfortowo.",
-    contactBody: "Zarezerwuj online w mniej niż dwie minuty lub skontaktuj się bezpośrednio z naszym concierge 24/7.",
-    whatsappUs: "WhatsApp", replyMinutes: "Odpowiedź zwykle w kilka minut", callUs: "Zadzwoń 24/7",
-    emailUs: "E-mail do concierge", replyHour: "Odpowiedź w ciągu godziny",
-    fromAirport: "Z lotniska Antalya", perVehicle: "za pojazd · stała cena",
+    contactBody:
+      "Zarezerwuj online w mniej niż dwie minuty lub skontaktuj się bezpośrednio z naszym concierge 24/7.",
+    whatsappUs: "WhatsApp",
+    replyMinutes: "Odpowiedź zwykle w kilka minut",
+    callUs: "Zadzwoń 24/7",
+    emailUs: "E-mail do concierge",
+    replyHour: "Odpowiedź w ciągu godziny",
+    fromAirport: "Z lotniska Antalya",
+    perVehicle: "za pojazd · stała cena",
     footerTagline: "Prywatne usługi szoferskie na całej Tureckiej Riwierze.",
-    explore: "Odkryj", information: "Informacje",
+    explore: "Odkryj",
+    information: "Informacje",
     licensed: "Licencjonowany prywatny przewoźnik · Zgodny z TÜRSAB",
-    quoteReady: "Twój prywatny transfer", vehicle: "Pojazd", journeyTime: "Czas podróży",
-    totalFixed: "Cena łączna", quoteIncludes: "Wliczono: powitanie, śledzenie lotu, parking, czas oczekiwania i woda.",
-    confirmWhatsapp: "Potwierdź przez WhatsApp", chatWithUs: "Napisz do nas", bookNowCta: "Zarezerwuj",
-    backToQuote: "Wstecz", yourDetails: "Twoje dane", fullName: "Imię i nazwisko",
-    emailLabel: "E-mail", phoneLabel: "Telefon / WhatsApp", flightNumber: "Numer lotu",
-    flightArrivalTime: "Godzina przylotu", notesLabel: "Specjalne życzenia",
-    confirmBooking: "Potwierdź rezerwację", paySecurely: "Przejdź do bezpiecznej płatności", payLaterNote: "Bezpieczna płatność online po potwierdzeniu.",
-    bookingConfirmed: "Rezerwacja potwierdzona", referenceLabel: "Numer referencyjny",
-    weWillContact: "Twoje zgłoszenie rezerwacji zostało wysłane. Skontaktujemy się w ciągu 30 minut.",
-    paymentTitle: "Bezpieczna płatność", paymentError: "Płatność nie powiodła się. Spróbuj ponownie.",
+    quoteReady: "Twój prywatny transfer",
+    vehicle: "Pojazd",
+    journeyTime: "Czas podróży",
+    totalFixed: "Cena łączna",
+    quoteIncludes:
+      "Wliczono: powitanie, śledzenie lotu, parking, czas oczekiwania i woda.",
+    confirmWhatsapp: "Potwierdź przez WhatsApp",
+    chatWithUs: "Napisz do nas",
+    bookNowCta: "Zarezerwuj",
+    backToQuote: "Wstecz",
+    yourDetails: "Twoje dane",
+    fullName: "Imię i nazwisko",
+    emailLabel: "E-mail",
+    phoneLabel: "Telefon / WhatsApp",
+    flightNumber: "Numer lotu",
+    flightArrivalTime: "Godzina przylotu",
+    notesLabel: "Specjalne życzenia",
+    confirmBooking: "Potwierdź rezerwację",
+    paySecurely: "Przejdź do bezpiecznej płatności",
+    payLaterNote: "Bezpieczna płatność online po potwierdzeniu.",
+    bookingConfirmed: "Rezerwacja potwierdzona",
+    referenceLabel: "Numer referencyjny",
+    weWillContact:
+      "Twoje zgłoszenie rezerwacji zostało wysłane. Skontaktujemy się w ciągu 30 minut.",
+    paymentTitle: "Bezpieczna płatność",
+    paymentError: "Płatność nie powiodła się. Spróbuj ponownie.",
   },
   nl: {
-    navFleet: "Voertuigen", navService: "Service", navRoutes: "Routes", navReviews: "Reviews", navContact: "Contact",
-    bookNow: "Nu boeken", alwaysAvailable: "24 uur per dag, elke dag bereikbaar",
+    navFairPricing: "Eerlijke prijs",
+    navFleet: "Voertuigen",
+    navService: "Service",
+    navRoutes: "Routes",
+    navReviews: "Reviews",
+    navContact: "Contact",
+    bookNow: "Nu boeken",
+    alwaysAvailable: "24 uur per dag, elke dag bereikbaar",
     heroEyebrow: "Privé chauffeurservice · Antalya",
     heroTitle: "Premium luchthavenstransfers<br />in Antalya",
-    heroSubtitle: "Privé transfers met chauffeur van Antalya Luchthaven naar Belek, Side, Kemer en Alanya.",
-    bookTransfer: "Transfer boeken", instantQuote: "Direct prijs ontvangen", googleRated: "Google-beoordeling",
-    trustedGuests: "Vertrouwd door meer dan 2.500 gasten", discover: "Ontdekken", privateJourney: "Uw privéreis",
-    quoteTitle: "Waar mogen wij u naartoe brengen?", pickup: "Ophaallocatie", destination: "Bestemming",
-    date: "Datum", guests: "Gasten", hotelAddress: "Hotel / Privéadres",
-    pickupAddress: "Volledig ophaaladres", pickupAddressPlaceholder: "Hotelnaam, straat, huisnummer en wijk",
+    heroSubtitle:
+      "Privé transfers met chauffeur van Antalya Luchthaven naar Belek, Side, Kemer en Alanya.",
+    bookTransfer: "Transfer boeken",
+    instantQuote: "Direct prijs ontvangen",
+    googleRated: "Google-beoordeling",
+    trustedGuests: "Vertrouwd door meer dan 2.500 gasten",
+    discover: "Ontdekken",
+    privateJourney: "Uw privéreis",
+    quoteTitle: "Waar mogen wij u naartoe brengen?",
+    pickup: "Ophaallocatie",
+    destination: "Bestemming",
+    date: "Datum",
+    guests: "Gasten",
+    hotelAddress: "Hotel / Privéadres",
+    pickupAddress: "Volledig ophaaladres",
+    pickupAddressPlaceholder: "Hotelnaam, straat, huisnummer en wijk",
     selectDestination: "Kies bestemming",
-    oneGuest: "1 gast", twoGuests: "2 gasten", threeGuests: "3 gasten", fourGuests: "4 gasten",
-    fiveGuests: "5 gasten", sixGuests: "6 gasten", sevenGuests: "7 gasten", viewQuote: "Prijs bekijken",
-    flightTracking: "Realtime vluchtvolgend", fixedPrice: "Gegarandeerde vaste prijs",
-    meetGreet: "Persoonlijk welkom", speakingDrivers: "Chauffeurs die Engels en Duits spreken",
+    oneGuest: "1 gast",
+    twoGuests: "2 gasten",
+    threeGuests: "3 gasten",
+    fourGuests: "4 gasten",
+    fiveGuests: "5 gasten",
+    sixGuests: "6 gasten",
+    sevenGuests: "7 gasten",
+    viewQuote: "Prijs bekijken",
+    flightTracking: "Realtime vluchtvolgend",
+    fixedPrice: "Gegarandeerde vaste prijs",
+    meetGreet: "Persoonlijk welkom",
+    speakingDrivers: "Chauffeurs die Engels en Duits spreken",
     welcomeEyebrow: "Welkom op het hoogste niveau",
     welcomeTitle: "Stijlvol reizen.<br />Ontspannen aankomen.",
-    welcomeBody: "Vanaf uw landing is elk detail geregeld. Uw chauffeur wacht in de aankomsthal, zorgt voor uw bagage en begeleidt u naar uw zorgvuldig voorbereide privévoertuig.",
-    ourStandards: "Onze servicestandaarden", concierge: "Conciërgeservice", guestsWelcomed: "Verwelkomde gasten",
-    guestRating: "Gemiddelde gastbeoordeling", privateTransfers: "Privétransfers", fleetEyebrow: "Onze vloot",
+    welcomeBody:
+      "Vanaf uw landing is elk detail geregeld. Uw chauffeur wacht in de aankomsthal, zorgt voor uw bagage en begeleidt u naar uw zorgvuldig voorbereide privévoertuig.",
+    ourStandards: "Onze servicestandaarden",
+    concierge: "Conciërgeservice",
+    guestsWelcomed: "Verwelkomde gasten",
+    guestRating: "Gemiddelde gastbeoordeling",
+    privateTransfers: "Privétransfers",
+    fleetEyebrow: "Onze vloot",
     fleetTitle: "Uw privéruimte,<br />perfect tot in elk detail.",
-    fleetIntro: "Reis comfortabel met ruimte voor familie, golfbagage en koffers.",
+    fleetIntro:
+      "Reis comfortabel met ruimte voor familie, golfbagage en koffers.",
     fleetVclassClass: "Business · First Class",
-    fleetVclassDescription: "De maatstaf voor verfijnde groepsreizen: ruim, uitzonderlijk stil en uitgerust voor een probleemloze aankomst.",
+    fleetVclassDescription:
+      "De maatstaf voor verfijnde groepsreizen: ruim, uitzonderlijk stil en uitgerust voor een probleemloze aankomst.",
     fleetVitoClass: "VIP · Grand Touring",
-    fleetVitoDescription: "Een ruime privécabine voor grotere families, golfgroepen en gasten met veel bagage.",
-    signatureFleet: "Signature vloot", passengers: "passagiers", suitcases: "koffers",
-    leatherSeats: "Premium leren stoelen", wifi: "Gratis WiFi", water: "Gekoeld mineraalwater",
-    childSeats: "Kinderzitjes op verzoek", television: "Televisie in het voertuig",
-    coldDrinks: "Koude dranken", snacks: "Snacks", nameSignGreeting: "Ontvangst met persoonlijk naambordje",
+    fleetVitoDescription:
+      "Een ruime privécabine voor grotere families, golfgroepen en gasten met veel bagage.",
+    signatureFleet: "Signature vloot",
+    passengers: "passagiers",
+    suitcases: "koffers",
+    leatherSeats: "Premium leren stoelen",
+    wifi: "Gratis WiFi",
+    water: "Gekoeld mineraalwater",
+    childSeats: "Kinderzitjes op verzoek",
+    television: "Televisie in het voertuig",
+    coldDrinks: "Koude dranken",
+    snacks: "Snacks",
+    nameSignGreeting: "Ontvangst met persoonlijk naambordje",
     reserveVehicle: "Voertuig reserveren",
     insideVclass: "In het Sprinter interieur",
     interiorTitle: "Een privélounge<br />tussen luchthaven en hotel.",
     serviceEyebrow: "De Antalya VIP-standaard",
     serviceTitle: "Meer dan een transfer.<br />Een bijzonder welkom.",
-    serviceIntro: "Aandacht op hotelniveau, ervaren lokale chauffeurs en absolute gemoedsrust van luchthaven tot resort.",
+    serviceIntro:
+      "Aandacht op hotelniveau, ervaren lokale chauffeurs en absolute gemoedsrust van luchthaven tot resort.",
     trackingTitle: "Vluchttracking",
-    trackingBody: "We volgen uw vlucht in realtime en passen de ophaalafspraak automatisch en kosteloos aan.",
+    trackingBody:
+      "We volgen uw vlucht in realtime en passen de ophaalafspraak automatisch en kosteloos aan.",
     chauffeurTitle: "Professionele chauffeurs",
-    chauffeurBody: "Altijd verzorgd, discreet en geselecteerd op lokale kennis en hoogste servicestandaard.",
+    chauffeurBody:
+      "Altijd verzorgd, discreet en geselecteerd op lokale kennis en hoogste servicestandaard.",
     greetTitle: "Meet & Greet",
-    greetBody: "Uw chauffeur verwelkomt u in de aankomsthal met een naambordje en helpt met uw bagage.",
+    greetBody:
+      "Uw chauffeur verwelkomt u in de aankomsthal met een naambordje en helpt met uw bagage.",
     supportTitle: "24/7 Conciërge",
-    supportBody: "Voor, tijdens en na uw reis is er altijd iemand bereikbaar per telefoon of WhatsApp.",
+    supportBody:
+      "Voor, tijdens en na uw reis is er altijd iemand bereikbaar per telefoon of WhatsApp.",
     priceTitle: "Vaste prijzen",
-    priceBody: "De bevestigde prijs is de definitieve prijs. Wachttijd, parkeren en vluchtvertragingen zijn inbegrepen.",
+    priceBody:
+      "De bevestigde prijs is de definitieve prijs. Wachttijd, parkeren en vluchtvertragingen zijn inbegrepen.",
     familyTitle: "Voor gezinnen",
-    familyBody: "Passende kinderzitjes, ruime interieurs en geduldige hulp voor een ontspannen familieaankomst.",
+    familyBody:
+      "Passende kinderzitjes, ruime interieurs en geduldige hulp voor een ontspannen familieaankomst.",
     routesEyebrow: "Onze populairste ritten",
     routesTitle: "Van Antalya Luchthaven<br />naar de Turkse Rivièra.",
-    routesIntro: "Alle prijzen zijn per voertuig, nooit per persoon. Gratis wachttijd is inbegrepen.",
-    golfFavourite: "Golfliefhebbersfavoriet", from: "Vanaf",
-    reviewsEyebrow: "Gastbeoordelingen", reviewsTitle: "Service die lang<br />bijblijft.",
+    routesIntro:
+      "Alle prijzen zijn per voertuig, nooit per persoon. Gratis wachttijd is inbegrepen.",
+    golfFavourite: "Golfliefhebbersfavoriet",
+    from: "Vanaf",
+    reviewsEyebrow: "Gastbeoordelingen",
+    reviewsTitle: "Service die lang<br />bijblijft.",
     googleReviews: "Gebaseerd op 387 geverifieerde Google-beoordelingen",
-    reviewOne: "„Onze chauffeur wachtte ondanks 90 minuten vertraging. Het voertuig was onberispelijk, aangenaam koel en al uitgerust met beide kinderzitjes. Precies de ontvangst die onze familie nodig had.”",
-    reviewTwo: "„Van het eerste WhatsApp-contact tot aankomst in Belek absoluut eersteklas. Punctueel, discreet en zeer professioneel. Ook onze golftassen pasten er gemakkelijk in.”",
-    reviewThree: "„Dit voelde als een chauffeurservice van een hotel, niet als een luchthaventaxi. Duidelijke communicatie, een onberispelijk voertuig en een oprecht beleefde chauffeur.”",
+    reviewOne:
+      "„Onze chauffeur wachtte ondanks 90 minuten vertraging. Het voertuig was onberispelijk, aangenaam koel en al uitgerust met beide kinderzitjes. Precies de ontvangst die onze familie nodig had.”",
+    reviewTwo:
+      "„Van het eerste WhatsApp-contact tot aankomst in Belek absoluut eersteklas. Punctueel, discreet en zeer professioneel. Ook onze golftassen pasten er gemakkelijk in.”",
+    reviewThree:
+      "„Dit voelde als een chauffeurservice van een hotel, niet als een luchthaventaxi. Duidelijke communicatie, een onberispelijk voertuig en een oprecht beleefde chauffeur.”",
     trustedBy: "Vertrouwd door gasten van toonaangevende resorts in Antalya",
     processEyebrow: "Bewust eenvoudig",
     processTitle: "Vier stappen naar<br />een ontspannen aankomst.",
-    stepOne: "Kies bestemming", stepOneBody: "Vertel ons waarheen en wanneer u wilt reizen.",
-    stepTwo: "Kies voertuig", stepTwoBody: "Kies de juiste ruimte en comfort.",
-    stepThree: "Bevestig boeking", stepThreeBody: "Ontvang direct uw bevestiging met vaste prijs.",
-    stepFour: "Ontmoet uw chauffeur", stepFourBody: "Uw chauffeur verwelkomt u in de aankomsthal.",
-    faqEyebrow: "Veelgestelde vragen", faqTitle: "Vóór uw reis.",
-    faqIntro: "Alles wat u moet weten over uw privétransfer van de luchthaven Antalya.",
+    stepOne: "Kies bestemming",
+    stepOneBody: "Vertel ons waarheen en wanneer u wilt reizen.",
+    stepTwo: "Kies voertuig",
+    stepTwoBody: "Kies de juiste ruimte en comfort.",
+    stepThree: "Bevestig boeking",
+    stepThreeBody: "Ontvang direct uw bevestiging met vaste prijs.",
+    stepFour: "Ontmoet uw chauffeur",
+    stepFourBody: "Uw chauffeur verwelkomt u in de aankomsthal.",
+    faqEyebrow: "Veelgestelde vragen",
+    faqTitle: "Vóór uw reis.",
+    faqIntro:
+      "Alles wat u moet weten over uw privétransfer van de luchthaven Antalya.",
     askQuestion: "Stel een vraag",
     faqOneQ: "Wat gebeurt er bij een vluchtvertraging?",
-    faqOneA: "We volgen elke aankomst in realtime. Uw ophaaltijd wordt automatisch aangepast en uw chauffeur wacht zonder meerprijs.",
+    faqOneA:
+      "We volgen elke aankomst in realtime. Uw ophaaltijd wordt automatisch aangepast en uw chauffeur wacht zonder meerprijs.",
     faqTwoQ: "Waar ontmoet ik mijn chauffeur?",
-    faqTwoA: "Uw chauffeur wacht direct na de bagageband in de aankomsthal met een persoonlijk naambordje.",
+    faqTwoA:
+      "Uw chauffeur wacht direct na de bagageband in de aankomsthal met een persoonlijk naambordje.",
     faqThreeQ: "Zijn kinderzitjes beschikbaar?",
-    faqThreeA: "Ja. Babyschalen, kinderzitjes en zitverhogers zijn bij vooraf boeken gratis beschikbaar.",
+    faqThreeA:
+      "Ja. Babyschalen, kinderzitjes en zitverhogers zijn bij vooraf boeken gratis beschikbaar.",
     faqFourQ: "Kunnen golfbags en groot bagage worden vervoerd?",
-    faqFourA: "Ja. Sprinter en Vito zijn ideaal voor golfgroepen. Geef uw bagage op en wij plannen het juiste voertuig.",
+    faqFourA:
+      "Ja. Sprinter en Vito zijn ideaal voor golfgroepen. Geef uw bagage op en wij plannen het juiste voertuig.",
     faqFiveQ: "Is de getoonde prijs definitief?",
-    faqFiveA: "Ja. Luchthavengelden, parkeren, wachttijd en belastingen zijn inbegrepen. Geen verborgen kosten.",
+    faqFiveA:
+      "Ja. Luchthavengelden, parkeren, wachttijd en belastingen zijn inbegrepen. Geen verborgen kosten.",
     contactEyebrow: "Uw reis begint hier",
     contactTitle: "Buitengewoon goed<br />aankomen in Antalya.",
-    contactBody: "Boek online in minder dan twee minuten of spreek direct met ons 24/7 conciërgeteam.",
-    whatsappUs: "WhatsApp", replyMinutes: "Antwoord meestal binnen enkele minuten", callUs: "24/7 bellen",
-    emailUs: "Conciërge e-mail", replyHour: "Antwoord binnen een uur",
-    fromAirport: "Vanaf Antalya Luchthaven", perVehicle: "per voertuig · vaste prijs",
+    contactBody:
+      "Boek online in minder dan twee minuten of spreek direct met ons 24/7 conciërgeteam.",
+    whatsappUs: "WhatsApp",
+    replyMinutes: "Antwoord meestal binnen enkele minuten",
+    callUs: "24/7 bellen",
+    emailUs: "Conciërge e-mail",
+    replyHour: "Antwoord binnen een uur",
+    fromAirport: "Vanaf Antalya Luchthaven",
+    perVehicle: "per voertuig · vaste prijs",
     footerTagline: "Privé chauffeurservices aan de hele Turkse Rivièra.",
-    explore: "Ontdekken", information: "Informatie",
+    explore: "Ontdekken",
+    information: "Informatie",
     licensed: "Erkende privé-transferaanbieder · TÜRSAB-conform",
-    quoteReady: "Uw privétransfer", vehicle: "Voertuig", journeyTime: "Reistijd",
-    totalFixed: "Totaalprijs", quoteIncludes: "Inclusief: welkom, vluchttracking, parkeren, wachttijd en water.",
-    confirmWhatsapp: "Bevestigen via WhatsApp", chatWithUs: "Chat met ons", bookNowCta: "Nu boeken",
-    backToQuote: "Terug", yourDetails: "Uw gegevens", fullName: "Volledige naam",
-    emailLabel: "E-mail", phoneLabel: "Telefoon / WhatsApp", flightNumber: "Vluchtnummer",
-    flightArrivalTime: "Aankomsttijd", notesLabel: "Speciale wensen",
-    confirmBooking: "Boeking bevestigen", paySecurely: "Ga door naar veilig betalen", payLaterNote: "Veilige online betaling na bevestiging.",
-    bookingConfirmed: "Boeking bevestigd", referenceLabel: "Referentie",
-    weWillContact: "Uw boekingsaanvraag is verzonden. We nemen binnen 30 minuten contact op.",
-    paymentTitle: "Veilige betaling", paymentError: "Betaling mislukt. Probeer het opnieuw.",
+    quoteReady: "Uw privétransfer",
+    vehicle: "Voertuig",
+    journeyTime: "Reistijd",
+    totalFixed: "Totaalprijs",
+    quoteIncludes:
+      "Inclusief: welkom, vluchttracking, parkeren, wachttijd en water.",
+    confirmWhatsapp: "Bevestigen via WhatsApp",
+    chatWithUs: "Chat met ons",
+    bookNowCta: "Nu boeken",
+    backToQuote: "Terug",
+    yourDetails: "Uw gegevens",
+    fullName: "Volledige naam",
+    emailLabel: "E-mail",
+    phoneLabel: "Telefoon / WhatsApp",
+    flightNumber: "Vluchtnummer",
+    flightArrivalTime: "Aankomsttijd",
+    notesLabel: "Speciale wensen",
+    confirmBooking: "Boeking bevestigen",
+    paySecurely: "Ga door naar veilig betalen",
+    payLaterNote: "Veilige online betaling na bevestiging.",
+    bookingConfirmed: "Boeking bevestigd",
+    referenceLabel: "Referentie",
+    weWillContact:
+      "Uw boekingsaanvraag is verzonden. We nemen binnen 30 minuten contact op.",
+    paymentTitle: "Veilige betaling",
+    paymentError: "Betaling mislukt. Probeer het opnieuw.",
   },
   uk: {
-    navFleet: "Автопарк", navService: "Сервіс", navRoutes: "Маршрути", navReviews: "Відгуки", navContact: "Контакти",
-    bookNow: "Забронювати", alwaysAvailable: "На зв'язку цілодобово, щодня",
+    navFairPricing: "Чесна ціна",
+    navFleet: "Автопарк",
+    navService: "Сервіс",
+    navRoutes: "Маршрути",
+    navReviews: "Відгуки",
+    navContact: "Контакти",
+    bookNow: "Забронювати",
+    alwaysAvailable: "На зв'язку цілодобово, щодня",
     heroEyebrow: "Приватний шофер · Анталья",
     heroTitle: "Преміальний трансфер<br />з аеропорту Анталії",
-    heroSubtitle: "Приватні трансфери з водієм з аеропорту Анталії до Белека, Сіде, Кемера та Аланії.",
-    bookTransfer: "Замовити трансфер", instantQuote: "Дізнатися ціну", googleRated: "Рейтинг Google",
-    trustedGuests: "Нам довіряють понад 2 500 гостей", discover: "Детальніше", privateJourney: "Ваша приватна поїздка",
-    quoteTitle: "Куди вас відвезти?", pickup: "Місце зустрічі", destination: "Напрямок",
-    date: "Дата", guests: "Гості", hotelAddress: "Готель / Приватна адреса",
-    pickupAddress: "Повна адреса подачі", pickupAddressPlaceholder: "Назва готелю, вулиця, номер будинку та район",
+    heroSubtitle:
+      "Приватні трансфери з водієм з аеропорту Анталії до Белека, Сіде, Кемера та Аланії.",
+    bookTransfer: "Замовити трансфер",
+    instantQuote: "Дізнатися ціну",
+    googleRated: "Рейтинг Google",
+    trustedGuests: "Нам довіряють понад 2 500 гостей",
+    discover: "Детальніше",
+    privateJourney: "Ваша приватна поїздка",
+    quoteTitle: "Куди вас відвезти?",
+    pickup: "Місце зустрічі",
+    destination: "Напрямок",
+    date: "Дата",
+    guests: "Гості",
+    hotelAddress: "Готель / Приватна адреса",
+    pickupAddress: "Повна адреса подачі",
+    pickupAddressPlaceholder: "Назва готелю, вулиця, номер будинку та район",
     selectDestination: "Оберіть напрямок",
-    oneGuest: "1 гість", twoGuests: "2 гості", threeGuests: "3 гості", fourGuests: "4 гості",
-    fiveGuests: "5 гостей", sixGuests: "6 гостей", sevenGuests: "7 гостей", viewQuote: "Показати ціну",
-    flightTracking: "Відстеження рейсу в реальному часі", fixedPrice: "Гарантія фіксованої ціни",
-    meetGreet: "Особиста зустріч", speakingDrivers: "Водії розмовляють англійською та німецькою",
+    oneGuest: "1 гість",
+    twoGuests: "2 гості",
+    threeGuests: "3 гості",
+    fourGuests: "4 гості",
+    fiveGuests: "5 гостей",
+    sixGuests: "6 гостей",
+    sevenGuests: "7 гостей",
+    viewQuote: "Показати ціну",
+    flightTracking: "Відстеження рейсу в реальному часі",
+    fixedPrice: "Гарантія фіксованої ціни",
+    meetGreet: "Особиста зустріч",
+    speakingDrivers: "Водії розмовляють англійською та німецькою",
     welcomeEyebrow: "Ласкаво просимо на найвищий рівень",
     welcomeTitle: "Подорожуйте стильно.<br />Прибувайте спокійно.",
-    welcomeBody: "З моменту посадки вашого літака кожна деталь продумана. Шофер чекає на вас у залі прильоту, піклується про багаж і супроводжує вас до підготовленого автомобіля.",
-    ourStandards: "Наші стандарти сервісу", concierge: "Підтримка консьєржа", guestsWelcomed: "Зустрінутих гостей",
-    guestRating: "Середня оцінка гостей", privateTransfers: "Приватні трансфери", fleetEyebrow: "Наш автопарк",
+    welcomeBody:
+      "З моменту посадки вашого літака кожна деталь продумана. Шофер чекає на вас у залі прильоту, піклується про багаж і супроводжує вас до підготовленого автомобіля.",
+    ourStandards: "Наші стандарти сервісу",
+    concierge: "Підтримка консьєржа",
+    guestsWelcomed: "Зустрінутих гостей",
+    guestRating: "Середня оцінка гостей",
+    privateTransfers: "Приватні трансфери",
+    fleetEyebrow: "Наш автопарк",
     fleetTitle: "Ваш особистий простір,<br />бездоганний у деталях.",
-    fleetIntro: "Подорожуйте в тиші та комфорті з місцем для сім'ї, багажу та обладнання для гольфу.",
+    fleetIntro:
+      "Подорожуйте в тиші та комфорті з місцем для сім'ї, багажу та обладнання для гольфу.",
     fleetVclassClass: "Business · First Class",
-    fleetVclassDescription: "Еталон комфортних групових поїздок: просторий, надзвичайно тихий та оснащений для бездоганного прибуття.",
+    fleetVclassDescription:
+      "Еталон комфортних групових поїздок: просторий, надзвичайно тихий та оснащений для бездоганного прибуття.",
     fleetVitoClass: "VIP · Grand Touring",
-    fleetVitoDescription: "Просторий приватний салон для великих сімей, груп гравців у гольф та гостей з об'ємним багажем.",
-    signatureFleet: "Фірмовий автопарк", passengers: "пасажирів", suitcases: "валіз",
-    leatherSeats: "Преміальні шкіряні сидіння", wifi: "Безкоштовний WiFi", water: "Охолоджена вода",
-    childSeats: "Дитячі крісла на запит", television: "Телевізор в автомобілі",
-    coldDrinks: "Холодні напої", snacks: "Закуски", nameSignGreeting: "Зустріч з іменною табличкою",
+    fleetVitoDescription:
+      "Просторий приватний салон для великих сімей, груп гравців у гольф та гостей з об'ємним багажем.",
+    signatureFleet: "Фірмовий автопарк",
+    passengers: "пасажирів",
+    suitcases: "валіз",
+    leatherSeats: "Преміальні шкіряні сидіння",
+    wifi: "Безкоштовний WiFi",
+    water: "Охолоджена вода",
+    childSeats: "Дитячі крісла на запит",
+    television: "Телевізор в автомобілі",
+    coldDrinks: "Холодні напої",
+    snacks: "Закуски",
+    nameSignGreeting: "Зустріч з іменною табличкою",
     reserveVehicle: "Забронювати автомобіль",
     insideVclass: "Салон Sprinter",
     interiorTitle: "Приватний лаунж<br />між аеропортом і готелем.",
     serviceEyebrow: "Стандарт Antalya VIP",
     serviceTitle: "Більше ніж трансфер.<br />Продумана зустріч.",
-    serviceIntro: "Увага рівня п'ятизіркового готелю, досвідчені місцеві шофери та спокій від аеропорту до курорту.",
+    serviceIntro:
+      "Увага рівня п'ятизіркового готелю, досвідчені місцеві шофери та спокій від аеропорту до курорту.",
     trackingTitle: "Відстеження рейсу",
-    trackingBody: "Ми відстежуємо ваш рейс у реальному часі та автоматично коригуємо час зустрічі без доплати.",
+    trackingBody:
+      "Ми відстежуємо ваш рейс у реальному часі та автоматично коригуємо час зустрічі без доплати.",
     chauffeurTitle: "Професійні шофери",
-    chauffeurBody: "Завжди бездоганний вигляд, делікатність, знання регіону та найвищі стандарти обслуговування.",
+    chauffeurBody:
+      "Завжди бездоганний вигляд, делікатність, знання регіону та найвищі стандарти обслуговування.",
     greetTitle: "Зустріч в аеропорту",
-    greetBody: "Шофер зустріне вас у залі прильоту з табличкою з вашим ім'ям та допоможе з багажем.",
+    greetBody:
+      "Шофер зустріне вас у залі прильоту з табличкою з вашим ім'ям та допоможе з багажем.",
     supportTitle: "Консьєрж 24/7",
-    supportBody: "До, під час і після поїздки вам завжди відповість людина по телефону або в WhatsApp.",
+    supportBody:
+      "До, під час і після поїздки вам завжди відповість людина по телефону або в WhatsApp.",
     priceTitle: "Фіксовані ціни",
-    priceBody: "Підтверджена ціна є остаточною. Очікування, паркування та затримки рейсів вже включені.",
+    priceBody:
+      "Підтверджена ціна є остаточною. Очікування, паркування та затримки рейсів вже включені.",
     familyTitle: "Для всієї родини",
-    familyBody: "Дитячі крісла за віком, просторий салон та уважна допомога для спокійного сімейного прибуття.",
+    familyBody:
+      "Дитячі крісла за віком, просторий салон та уважна допомога для спокійного сімейного прибуття.",
     routesEyebrow: "Найпопулярніші поїздки",
     routesTitle: "З аеропорту Анталії<br />на Турецьку Рив'єру.",
-    routesIntro: "Всі ціни вказані за автомобіль, а не за пасажира. Безкоштовне очікування включено.",
-    golfFavourite: "Вибір гравців у гольф", from: "Від",
-    reviewsEyebrow: "Відгуки гостей", reviewsTitle: "Сервіс, який пам'ятають<br />після прибуття.",
+    routesIntro:
+      "Всі ціни вказані за автомобіль, а не за пасажира. Безкоштовне очікування включено.",
+    golfFavourite: "Вибір гравців у гольф",
+    from: "Від",
+    reviewsEyebrow: "Відгуки гостей",
+    reviewsTitle: "Сервіс, який пам'ятають<br />після прибуття.",
     googleReviews: "На основі 387 підтверджених відгуків Google",
-    reviewOne: "«Незважаючи на затримку рейсу на 90 хвилин, водій чекав на нас. Автомобіль був бездоганно чистим та прохолодним, а обидва дитячі крісла вже були встановлені. Саме така зустріч потрібна нашій родині».",
-    reviewTwo: "«Від першого повідомлення в WhatsApp до прибуття в Белек все було на найвищому рівні. Пунктуально, делікатно і дуже професійно. Наші сумки для гольфу легко помістилися».",
-    reviewThree: "«Це нагадувало трансфер від п'ятизіркового готелю, а не таксі з аеропорту. Чіткий зв'язок, бездоганний автомобіль та по-справжньому ввічливий водій».",
-    trustedBy: "Нам довіряють гості провідних курортів Анталії", processEyebrow: "Навмисно просто",
+    reviewOne:
+      "«Незважаючи на затримку рейсу на 90 хвилин, водій чекав на нас. Автомобіль був бездоганно чистим та прохолодним, а обидва дитячі крісла вже були встановлені. Саме така зустріч потрібна нашій родині».",
+    reviewTwo:
+      "«Від першого повідомлення в WhatsApp до прибуття в Белек все було на найвищому рівні. Пунктуально, делікатно і дуже професійно. Наші сумки для гольфу легко помістилися».",
+    reviewThree:
+      "«Це нагадувало трансфер від п'ятизіркового готелю, а не таксі з аеропорту. Чіткий зв'язок, бездоганний автомобіль та по-справжньому ввічливий водій».",
+    trustedBy: "Нам довіряють гості провідних курортів Анталії",
+    processEyebrow: "Навмисно просто",
     processTitle: "Чотири кроки<br />до комфортного прибуття.",
-    stepOne: "Оберіть напрямок", stepOneBody: "Повідомте нам, куди і коли ви хочете поїхати.",
-    stepTwo: "Оберіть автомобіль", stepTwoBody: "Підберіть простір і комфорт для вашої компанії.",
-    stepThree: "Підтвердіть бронювання", stepThreeBody: "Отримайте миттєве підтвердження з фіксованою ціною.",
-    stepFour: "Зустріньте водія", stepFourBody: "Ваш шофер зустріне вас у залі прильоту.",
-    faqEyebrow: "Часті запитання", faqTitle: "Перед поїздкою.",
-    faqIntro: "Все, що потрібно знати про приватний трансфер з аеропорту Анталії.",
+    stepOne: "Оберіть напрямок",
+    stepOneBody: "Повідомте нам, куди і коли ви хочете поїхати.",
+    stepTwo: "Оберіть автомобіль",
+    stepTwoBody: "Підберіть простір і комфорт для вашої компанії.",
+    stepThree: "Підтвердіть бронювання",
+    stepThreeBody: "Отримайте миттєве підтвердження з фіксованою ціною.",
+    stepFour: "Зустріньте водія",
+    stepFourBody: "Ваш шофер зустріне вас у залі прильоту.",
+    faqEyebrow: "Часті запитання",
+    faqTitle: "Перед поїздкою.",
+    faqIntro:
+      "Все, що потрібно знати про приватний трансфер з аеропорту Анталії.",
     askQuestion: "Поставити запитання",
     faqOneQ: "Що станеться, якщо мій рейс затримається?",
-    faqOneA: "Ми відстежуємо кожен рейс у реальному часі. Час зустрічі коригується автоматично, а водій чекає без доплати.",
+    faqOneA:
+      "Ми відстежуємо кожен рейс у реальному часі. Час зустрічі коригується автоматично, а водій чекає без доплати.",
     faqTwoQ: "Де я зустріну водія?",
-    faqTwoA: "Ваш шофер чекатиме у залі прильоту одразу після видачі багажу з табличкою з вашим ім'ям.",
+    faqTwoA:
+      "Ваш шофер чекатиме у залі прильоту одразу після видачі багажу з табличкою з вашим ім'ям.",
     faqThreeQ: "Чи є дитячі крісла?",
-    faqThreeA: "Так. Автолюльки, дитячі крісла та бустери надаються безкоштовно на запит при бронюванні.",
+    faqThreeA:
+      "Так. Автолюльки, дитячі крісла та бустери надаються безкоштовно на запит при бронюванні.",
     faqFourQ: "Чи можна перевезти сумки для гольфу та великий багаж?",
-    faqFourA: "Так. Sprinter і Vito ідеально підходять для груп гравців у гольф. Повідомте об'єм багажу і ми підберемо автомобіль.",
+    faqFourA:
+      "Так. Sprinter і Vito ідеально підходять для груп гравців у гольф. Повідомте об'єм багажу і ми підберемо автомобіль.",
     faqFiveQ: "Вказана ціна є остаточною?",
-    faqFiveA: "Так. Аеропортові збори, паркування, очікування та податки включені. Прихованих платежів немає.",
+    faqFiveA:
+      "Так. Аеропортові збори, паркування, очікування та податки включені. Прихованих платежів немає.",
     contactEyebrow: "Ваша подорож починається тут",
     contactTitle: "Прибудьте в Анталью<br />надзвичайно комфортно.",
-    contactBody: "Забронюйте онлайн менш ніж за дві хвилини або зв'яжіться з нашою службою консьєржа 24/7.",
-    whatsappUs: "Написати в WhatsApp", replyMinutes: "Зазвичай відповідаємо за кілька хвилин",
-    callUs: "Зателефонувати 24/7", emailUs: "Написати консьєржу", replyHour: "Відповідь протягом години",
-    fromAirport: "З аеропорту Анталії", perVehicle: "за автомобіль · фіксована ціна",
+    contactBody:
+      "Забронюйте онлайн менш ніж за дві хвилини або зв'яжіться з нашою службою консьєржа 24/7.",
+    whatsappUs: "Написати в WhatsApp",
+    replyMinutes: "Зазвичай відповідаємо за кілька хвилин",
+    callUs: "Зателефонувати 24/7",
+    emailUs: "Написати консьєржу",
+    replyHour: "Відповідь протягом години",
+    fromAirport: "З аеропорту Анталії",
+    perVehicle: "за автомобіль · фіксована ціна",
     footerTagline: "Приватні послуги шофера по всій Турецькій Рив'єрі.",
-    explore: "Розділи", information: "Інформація",
-    licensed: "Ліцензований оператор приватних трансферів · Відповідає вимогам TÜRSAB",
-    quoteReady: "Ваш приватний трансфер", vehicle: "Автомобіль", journeyTime: "Час у дорозі",
-    totalFixed: "Підсумкова ціна", quoteIncludes: "Включено: зустріч, відстеження рейсу, паркування, очікування та вода.",
-    confirmWhatsapp: "Підтвердити в WhatsApp", chatWithUs: "Написати нам", bookNowCta: "Забронювати",
-    backToQuote: "Назад", yourDetails: "Ваші дані", fullName: "Ім'я та прізвище",
-    emailLabel: "Ел. пошта", phoneLabel: "Телефон / WhatsApp", flightNumber: "Номер рейсу",
-    flightArrivalTime: "Час прильоту", notesLabel: "Особливі побажання",
-    confirmBooking: "Підтвердити бронювання", paySecurely: "Перейти до безпечної оплати", payLaterNote: "Оплата онлайн після підтвердження.",
-    bookingConfirmed: "Бронювання підтверджено", referenceLabel: "Референс",
-    weWillContact: "Ваш запит на бронювання надіслано. Ми зв'яжемося з вами протягом 30 хвилин.",
-    paymentTitle: "Безпечна оплата", paymentError: "Оплата не пройшла. Спробуйте ще раз.",
+    explore: "Розділи",
+    information: "Інформація",
+    licensed:
+      "Ліцензований оператор приватних трансферів · Відповідає вимогам TÜRSAB",
+    quoteReady: "Ваш приватний трансфер",
+    vehicle: "Автомобіль",
+    journeyTime: "Час у дорозі",
+    totalFixed: "Підсумкова ціна",
+    quoteIncludes:
+      "Включено: зустріч, відстеження рейсу, паркування, очікування та вода.",
+    confirmWhatsapp: "Підтвердити в WhatsApp",
+    chatWithUs: "Написати нам",
+    bookNowCta: "Забронювати",
+    backToQuote: "Назад",
+    yourDetails: "Ваші дані",
+    fullName: "Ім'я та прізвище",
+    emailLabel: "Ел. пошта",
+    phoneLabel: "Телефон / WhatsApp",
+    flightNumber: "Номер рейсу",
+    flightArrivalTime: "Час прильоту",
+    notesLabel: "Особливі побажання",
+    confirmBooking: "Підтвердити бронювання",
+    paySecurely: "Перейти до безпечної оплати",
+    payLaterNote: "Оплата онлайн після підтвердження.",
+    bookingConfirmed: "Бронювання підтверджено",
+    referenceLabel: "Референс",
+    weWillContact:
+      "Ваш запит на бронювання надіслано. Ми зв'яжемося з вами протягом 30 хвилин.",
+    paymentTitle: "Безпечна оплата",
+    paymentError: "Оплата не пройшла. Спробуйте ще раз.",
   },
   fr: {
-    navFleet: "Véhicules", navService: "Service", navRoutes: "Itinéraires", navReviews: "Avis", navContact: "Contact",
-    bookNow: "Réserver", alwaysAvailable: "Disponible 24h/24, 7j/7",
+    navFairPricing: "Prix équitable",
+    navFleet: "Véhicules",
+    navService: "Service",
+    navRoutes: "Itinéraires",
+    navReviews: "Avis",
+    navContact: "Contact",
+    bookNow: "Réserver",
+    alwaysAvailable: "Disponible 24h/24, 7j/7",
     heroEyebrow: "Service chauffeur privé · Antalya",
     heroTitle: "Transferts aéroport premium<br />à Antalya",
-    heroSubtitle: "Transferts privés avec chauffeur depuis l'aéroport d'Antalya vers Belek, Side, Kemer et Alanya.",
-    bookTransfer: "Réserver un transfert", instantQuote: "Obtenir un devis", googleRated: "Note Google",
-    trustedGuests: "Approuvé par plus de 2 500 clients", discover: "Découvrir", privateJourney: "Votre voyage privé",
-    quoteTitle: "Où souhaitez-vous aller ?", pickup: "Lieu de prise en charge", destination: "Destination",
-    date: "Date", guests: "Passagers", hotelAddress: "Hôtel / Adresse privée",
-    pickupAddress: "Adresse complète de prise en charge", pickupAddressPlaceholder: "Nom de l'hôtel, rue, numéro et quartier",
+    heroSubtitle:
+      "Transferts privés avec chauffeur depuis l'aéroport d'Antalya vers Belek, Side, Kemer et Alanya.",
+    bookTransfer: "Réserver un transfert",
+    instantQuote: "Obtenir un devis",
+    googleRated: "Note Google",
+    trustedGuests: "Approuvé par plus de 2 500 clients",
+    discover: "Découvrir",
+    privateJourney: "Votre voyage privé",
+    quoteTitle: "Où souhaitez-vous aller ?",
+    pickup: "Lieu de prise en charge",
+    destination: "Destination",
+    date: "Date",
+    guests: "Passagers",
+    hotelAddress: "Hôtel / Adresse privée",
+    pickupAddress: "Adresse complète de prise en charge",
+    pickupAddressPlaceholder: "Nom de l'hôtel, rue, numéro et quartier",
     selectDestination: "Choisir une destination",
-    oneGuest: "1 passager", twoGuests: "2 passagers", threeGuests: "3 passagers", fourGuests: "4 passagers",
-    fiveGuests: "5 passagers", sixGuests: "6 passagers", sevenGuests: "7 passagers", viewQuote: "Voir le tarif",
-    flightTracking: "Suivi de vol en temps réel", fixedPrice: "Prix fixe garanti",
-    meetGreet: "Accueil personnalisé", speakingDrivers: "Chauffeurs parlant anglais et allemand",
+    oneGuest: "1 passager",
+    twoGuests: "2 passagers",
+    threeGuests: "3 passagers",
+    fourGuests: "4 passagers",
+    fiveGuests: "5 passagers",
+    sixGuests: "6 passagers",
+    sevenGuests: "7 passagers",
+    viewQuote: "Voir le tarif",
+    flightTracking: "Suivi de vol en temps réel",
+    fixedPrice: "Prix fixe garanti",
+    meetGreet: "Accueil personnalisé",
+    speakingDrivers: "Chauffeurs parlant anglais et allemand",
     welcomeEyebrow: "Bienvenue au plus haut niveau",
     welcomeTitle: "Voyager avec élégance.<br />Arriver sereinement.",
-    welcomeBody: "Dès votre atterrissage, chaque détail est organisé. Votre chauffeur vous attend dans le hall des arrivées, s'occupe de vos bagages et vous accompagne jusqu'à votre véhicule privé soigneusement préparé.",
-    ourStandards: "Nos standards de service", concierge: "Service conciergerie", guestsWelcomed: "Clients accueillis",
-    guestRating: "Note moyenne des clients", privateTransfers: "Transferts privés", fleetEyebrow: "Notre flotte",
+    welcomeBody:
+      "Dès votre atterrissage, chaque détail est organisé. Votre chauffeur vous attend dans le hall des arrivées, s'occupe de vos bagages et vous accompagne jusqu'à votre véhicule privé soigneusement préparé.",
+    ourStandards: "Nos standards de service",
+    concierge: "Service conciergerie",
+    guestsWelcomed: "Clients accueillis",
+    guestRating: "Note moyenne des clients",
+    privateTransfers: "Transferts privés",
+    fleetEyebrow: "Notre flotte",
     fleetTitle: "Votre espace privé,<br />parfait dans les moindres détails.",
-    fleetIntro: "Voyagez confortablement avec suffisamment d'espace pour la famille, les équipements de golf et les valises.",
+    fleetIntro:
+      "Voyagez confortablement avec suffisamment d'espace pour la famille, les équipements de golf et les valises.",
     fleetVclassClass: "Business · First Class",
-    fleetVclassDescription: "La référence des voyages de groupe raffinés : spacieux, exceptionnellement silencieux et équipé pour une arrivée sans tracas.",
+    fleetVclassDescription:
+      "La référence des voyages de groupe raffinés : spacieux, exceptionnellement silencieux et équipé pour une arrivée sans tracas.",
     fleetVitoClass: "VIP · Grand Touring",
-    fleetVitoDescription: "Un vaste habitacle privé pour les grandes familles, les groupes de golf et les voyageurs avec beaucoup de bagages.",
-    signatureFleet: "Flotte Signature", passengers: "passagers", suitcases: "valises",
-    leatherSeats: "Sièges en cuir premium", wifi: "WiFi gratuit", water: "Eau minérale fraîche",
-    childSeats: "Sièges enfants sur demande", television: "Télévision à bord",
-    coldDrinks: "Boissons fraîches", snacks: "En-cas", nameSignGreeting: "Accueil avec pancarte nominative",
+    fleetVitoDescription:
+      "Un vaste habitacle privé pour les grandes familles, les groupes de golf et les voyageurs avec beaucoup de bagages.",
+    signatureFleet: "Flotte Signature",
+    passengers: "passagers",
+    suitcases: "valises",
+    leatherSeats: "Sièges en cuir premium",
+    wifi: "WiFi gratuit",
+    water: "Eau minérale fraîche",
+    childSeats: "Sièges enfants sur demande",
+    television: "Télévision à bord",
+    coldDrinks: "Boissons fraîches",
+    snacks: "En-cas",
+    nameSignGreeting: "Accueil avec pancarte nominative",
     reserveVehicle: "Réserver ce véhicule",
     insideVclass: "Intérieur Sprinter",
     interiorTitle: "Un salon privé<br />entre l'aéroport et l'hôtel.",
     serviceEyebrow: "La norme Antalya VIP",
     serviceTitle: "Plus qu'un transfert.<br />Un accueil d'exception.",
-    serviceIntro: "Une attention digne d'un hôtel cinq étoiles, des chauffeurs locaux expérimentés et une tranquillité absolue de l'aéroport jusqu'au resort.",
+    serviceIntro:
+      "Une attention digne d'un hôtel cinq étoiles, des chauffeurs locaux expérimentés et une tranquillité absolue de l'aéroport jusqu'au resort.",
     trackingTitle: "Suivi de vol",
-    trackingBody: "Nous suivons votre vol en temps réel et ajustons automatiquement l'heure de prise en charge, sans frais supplémentaires.",
+    trackingBody:
+      "Nous suivons votre vol en temps réel et ajustons automatiquement l'heure de prise en charge, sans frais supplémentaires.",
     chauffeurTitle: "Chauffeurs professionnels",
-    chauffeurBody: "Toujours soignés, discrets et sélectionnés pour leur connaissance locale et leurs standards de service irréprochables.",
+    chauffeurBody:
+      "Toujours soignés, discrets et sélectionnés pour leur connaissance locale et leurs standards de service irréprochables.",
     greetTitle: "Accueil Meet & Greet",
-    greetBody: "Votre chauffeur vous accueille dans le hall des arrivées avec une pancarte à votre nom et vous aide avec vos bagages.",
+    greetBody:
+      "Votre chauffeur vous accueille dans le hall des arrivées avec une pancarte à votre nom et vous aide avec vos bagages.",
     supportTitle: "Conciergerie 24/7",
-    supportBody: "Avant, pendant et après votre voyage, une personne est toujours disponible par téléphone ou WhatsApp.",
+    supportBody:
+      "Avant, pendant et après votre voyage, une personne est toujours disponible par téléphone ou WhatsApp.",
     priceTitle: "Prix fixes",
-    priceBody: "Le prix confirmé est le prix définitif. L'attente, le parking et les retards de vol sont inclus.",
+    priceBody:
+      "Le prix confirmé est le prix définitif. L'attente, le parking et les retards de vol sont inclus.",
     familyTitle: "Pour les familles",
-    familyBody: "Sièges enfants adaptés, habitacles spacieux et aide patiente pour une arrivée familiale sereine.",
+    familyBody:
+      "Sièges enfants adaptés, habitacles spacieux et aide patiente pour une arrivée familiale sereine.",
     routesEyebrow: "Nos trajets les plus populaires",
     routesTitle: "De l'aéroport d'Antalya<br />vers la Riviera turque.",
-    routesIntro: "Tous les prix sont par véhicule, jamais par personne. L'attente gratuite est incluse.",
-    golfFavourite: "Favori des golfeurs", from: "À partir de",
-    reviewsEyebrow: "Avis clients", reviewsTitle: "Un service dont on<br />se souvient longtemps.",
+    routesIntro:
+      "Tous les prix sont par véhicule, jamais par personne. L'attente gratuite est incluse.",
+    golfFavourite: "Favori des golfeurs",
+    from: "À partir de",
+    reviewsEyebrow: "Avis clients",
+    reviewsTitle: "Un service dont on<br />se souvient longtemps.",
     googleReviews: "Basé sur 387 avis Google vérifiés",
-    reviewOne: "« Notre chauffeur a attendu malgré 90 minutes de retard. Le véhicule était impeccable, agréablement frais et déjà équipé des deux sièges enfants. Exactement l'accueil dont notre famille avait besoin. »",
-    reviewTwo: "« Du premier contact WhatsApp à notre arrivée à Belek, absolument irréprochable. Ponctuel, discret et très professionnel. Nos sacs de golf ont aussi tenu sans problème. »",
-    reviewThree: "« C'était comme un service de chauffeur d'hôtel, pas un taxi d'aéroport. Communication claire, véhicule impeccable et chauffeur sincèrement courtois. »",
+    reviewOne:
+      "« Notre chauffeur a attendu malgré 90 minutes de retard. Le véhicule était impeccable, agréablement frais et déjà équipé des deux sièges enfants. Exactement l'accueil dont notre famille avait besoin. »",
+    reviewTwo:
+      "« Du premier contact WhatsApp à notre arrivée à Belek, absolument irréprochable. Ponctuel, discret et très professionnel. Nos sacs de golf ont aussi tenu sans problème. »",
+    reviewThree:
+      "« C'était comme un service de chauffeur d'hôtel, pas un taxi d'aéroport. Communication claire, véhicule impeccable et chauffeur sincèrement courtois. »",
     trustedBy: "Recommandé par les clients des meilleurs resorts d'Antalya",
     processEyebrow: "Délibérément simple",
     processTitle: "Quatre étapes pour<br />une arrivée sereine.",
-    stepOne: "Choisir la destination", stepOneBody: "Indiquez-nous où et quand vous souhaitez voyager.",
-    stepTwo: "Choisir le véhicule", stepTwoBody: "Sélectionnez l'espace et le confort adaptés.",
-    stepThree: "Confirmer la réservation", stepThreeBody: "Recevez immédiatement votre confirmation au prix fixe.",
-    stepFour: "Rencontrer le chauffeur", stepFourBody: "Votre chauffeur vous accueille dans le hall des arrivées.",
-    faqEyebrow: "Questions fréquentes", faqTitle: "Avant votre voyage.",
-    faqIntro: "Tout ce que vous devez savoir sur votre transfert privé depuis l'aéroport d'Antalya.",
+    stepOne: "Choisir la destination",
+    stepOneBody: "Indiquez-nous où et quand vous souhaitez voyager.",
+    stepTwo: "Choisir le véhicule",
+    stepTwoBody: "Sélectionnez l'espace et le confort adaptés.",
+    stepThree: "Confirmer la réservation",
+    stepThreeBody: "Recevez immédiatement votre confirmation au prix fixe.",
+    stepFour: "Rencontrer le chauffeur",
+    stepFourBody: "Votre chauffeur vous accueille dans le hall des arrivées.",
+    faqEyebrow: "Questions fréquentes",
+    faqTitle: "Avant votre voyage.",
+    faqIntro:
+      "Tout ce que vous devez savoir sur votre transfert privé depuis l'aéroport d'Antalya.",
     askQuestion: "Poser une question",
     faqOneQ: "Que se passe-t-il en cas de retard de vol ?",
-    faqOneA: "Nous suivons chaque arrivée en temps réel. Votre heure de prise en charge est ajustée automatiquement et votre chauffeur attend sans surcoût.",
+    faqOneA:
+      "Nous suivons chaque arrivée en temps réel. Votre heure de prise en charge est ajustée automatiquement et votre chauffeur attend sans surcoût.",
     faqTwoQ: "Où vais-je retrouver mon chauffeur ?",
-    faqTwoA: "Votre chauffeur vous attendra juste après le retrait des bagages dans le hall des arrivées, avec une pancarte à votre nom.",
+    faqTwoA:
+      "Votre chauffeur vous attendra juste après le retrait des bagages dans le hall des arrivées, avec une pancarte à votre nom.",
     faqThreeQ: "Des sièges enfants sont-ils disponibles ?",
-    faqThreeA: "Oui. Coques bébé, sièges enfants et rehausseurs sont disponibles gratuitement sur réservation.",
-    faqFourQ: "Pouvez-vous transporter des sacs de golf et des bagages volumineux ?",
-    faqFourA: "Oui. Le Sprinter et le Vito sont idéaux pour les groupes de golfeurs. Précisez vos bagages et nous planifions le véhicule adapté.",
+    faqThreeA:
+      "Oui. Coques bébé, sièges enfants et rehausseurs sont disponibles gratuitement sur réservation.",
+    faqFourQ:
+      "Pouvez-vous transporter des sacs de golf et des bagages volumineux ?",
+    faqFourA:
+      "Oui. Le Sprinter et le Vito sont idéaux pour les groupes de golfeurs. Précisez vos bagages et nous planifions le véhicule adapté.",
     faqFiveQ: "Le prix affiché est-il définitif ?",
-    faqFiveA: "Oui. Les taxes aéroportuaires, le parking, l'attente et les impôts sont inclus. Aucun frais caché.",
+    faqFiveA:
+      "Oui. Les taxes aéroportuaires, le parking, l'attente et les impôts sont inclus. Aucun frais caché.",
     contactEyebrow: "Votre voyage commence ici",
     contactTitle: "Arriver à Antalya<br />de manière exceptionnelle.",
-    contactBody: "Réservez en ligne en moins de deux minutes ou parlez directement avec notre équipe de conciergerie 24/7.",
-    whatsappUs: "WhatsApp", replyMinutes: "Réponse généralement en quelques minutes",
-    callUs: "Appeler 24/7", emailUs: "E-mail conciergerie", replyHour: "Réponse en moins d'une heure",
-    fromAirport: "Depuis l'aéroport d'Antalya", perVehicle: "par véhicule · prix fixe",
+    contactBody:
+      "Réservez en ligne en moins de deux minutes ou parlez directement avec notre équipe de conciergerie 24/7.",
+    whatsappUs: "WhatsApp",
+    replyMinutes: "Réponse généralement en quelques minutes",
+    callUs: "Appeler 24/7",
+    emailUs: "E-mail conciergerie",
+    replyHour: "Réponse en moins d'une heure",
+    fromAirport: "Depuis l'aéroport d'Antalya",
+    perVehicle: "par véhicule · prix fixe",
     footerTagline: "Services de chauffeur privé sur toute la Riviera turque.",
-    explore: "Découvrir", information: "Informations",
+    explore: "Découvrir",
+    information: "Informations",
     licensed: "Prestataire de transferts privés agréé · Conforme TÜRSAB",
-    quoteReady: "Votre transfert privé", vehicle: "Véhicule", journeyTime: "Durée du trajet",
-    totalFixed: "Prix total", quoteIncludes: "Inclus : accueil, suivi de vol, parking, attente et eau minérale.",
-    confirmWhatsapp: "Confirmer via WhatsApp", chatWithUs: "Nous contacter", bookNowCta: "Réserver maintenant",
-    backToQuote: "Retour", yourDetails: "Vos coordonnées", fullName: "Nom complet",
-    emailLabel: "E-mail", phoneLabel: "Téléphone / WhatsApp", flightNumber: "Numéro de vol",
-    flightArrivalTime: "Heure d'arrivée", notesLabel: "Demandes spéciales",
-    confirmBooking: "Confirmer la réservation", paySecurely: "Continuer vers le paiement sécurisé", payLaterNote: "Paiement en ligne sécurisé après confirmation.",
-    bookingConfirmed: "Réservation confirmée", referenceLabel: "Référence",
-    weWillContact: "Votre demande de réservation a été envoyée. Nous vous contactons dans les 30 minutes.",
-    paymentTitle: "Paiement sécurisé", paymentError: "Paiement échoué. Veuillez réessayer.",
+    quoteReady: "Votre transfert privé",
+    vehicle: "Véhicule",
+    journeyTime: "Durée du trajet",
+    totalFixed: "Prix total",
+    quoteIncludes:
+      "Inclus : accueil, suivi de vol, parking, attente et eau minérale.",
+    confirmWhatsapp: "Confirmer via WhatsApp",
+    chatWithUs: "Nous contacter",
+    bookNowCta: "Réserver maintenant",
+    backToQuote: "Retour",
+    yourDetails: "Vos coordonnées",
+    fullName: "Nom complet",
+    emailLabel: "E-mail",
+    phoneLabel: "Téléphone / WhatsApp",
+    flightNumber: "Numéro de vol",
+    flightArrivalTime: "Heure d'arrivée",
+    notesLabel: "Demandes spéciales",
+    confirmBooking: "Confirmer la réservation",
+    paySecurely: "Continuer vers le paiement sécurisé",
+    payLaterNote: "Paiement en ligne sécurisé après confirmation.",
+    bookingConfirmed: "Réservation confirmée",
+    referenceLabel: "Référence",
+    weWillContact:
+      "Votre demande de réservation a été envoyée. Nous vous contactons dans les 30 minutes.",
+    paymentTitle: "Paiement sécurisé",
+    paymentError: "Paiement échoué. Veuillez réessayer.",
   },
   sv: {
-    navFleet: "Fordon", navService: "Service", navRoutes: "Rutter", navReviews: "Recensioner", navContact: "Kontakt",
-    bookNow: "Boka nu", alwaysAvailable: "Tillgänglig 24 timmar om dygnet",
+    navFairPricing: "Rättvist pris",
+    navFleet: "Fordon",
+    navService: "Service",
+    navRoutes: "Rutter",
+    navReviews: "Recensioner",
+    navContact: "Kontakt",
+    bookNow: "Boka nu",
+    alwaysAvailable: "Tillgänglig 24 timmar om dygnet",
     heroEyebrow: "Privat chaufförstjänst · Antalya",
     heroTitle: "Premium flygplatstransfers<br />i Antalya",
-    heroSubtitle: "Privata transfers med chaufför från Antalya flygplats till Belek, Side, Kemer och Alanya.",
-    bookTransfer: "Boka transfer", instantQuote: "Få pris direkt", googleRated: "Google-betyg",
-    trustedGuests: "Anlitad av över 2 500 gäster", discover: "Utforska", privateJourney: "Din privata resa",
-    quoteTitle: "Vart vill du åka?", pickup: "Hämtplats", destination: "Destination",
-    date: "Datum", guests: "Gäster", hotelAddress: "Hotell / Privat adress",
-    pickupAddress: "Fullständig hämtningsadress", pickupAddressPlaceholder: "Hotellnamn, gata, husnummer och område",
+    heroSubtitle:
+      "Privata transfers med chaufför från Antalya flygplats till Belek, Side, Kemer och Alanya.",
+    bookTransfer: "Boka transfer",
+    instantQuote: "Få pris direkt",
+    googleRated: "Google-betyg",
+    trustedGuests: "Anlitad av över 2 500 gäster",
+    discover: "Utforska",
+    privateJourney: "Din privata resa",
+    quoteTitle: "Vart vill du åka?",
+    pickup: "Hämtplats",
+    destination: "Destination",
+    date: "Datum",
+    guests: "Gäster",
+    hotelAddress: "Hotell / Privat adress",
+    pickupAddress: "Fullständig hämtningsadress",
+    pickupAddressPlaceholder: "Hotellnamn, gata, husnummer och område",
     selectDestination: "Välj destination",
-    oneGuest: "1 gäst", twoGuests: "2 gäster", threeGuests: "3 gäster", fourGuests: "4 gäster",
-    fiveGuests: "5 gäster", sixGuests: "6 gäster", sevenGuests: "7 gäster", viewQuote: "Visa pris",
-    flightTracking: "Flygspårning i realtid", fixedPrice: "Garanterat fast pris",
-    meetGreet: "Personlig välkomst", speakingDrivers: "Chaufförer som talar engelska och tyska",
+    oneGuest: "1 gäst",
+    twoGuests: "2 gäster",
+    threeGuests: "3 gäster",
+    fourGuests: "4 gäster",
+    fiveGuests: "5 gäster",
+    sixGuests: "6 gäster",
+    sevenGuests: "7 gäster",
+    viewQuote: "Visa pris",
+    flightTracking: "Flygspårning i realtid",
+    fixedPrice: "Garanterat fast pris",
+    meetGreet: "Personlig välkomst",
+    speakingDrivers: "Chaufförer som talar engelska och tyska",
     welcomeEyebrow: "Välkommen till högsta nivå",
     welcomeTitle: "Res med stil.<br />Anländ avslappnad.",
-    welcomeBody: "Från det ögonblick ditt plan landar är varje detalj ordnad. Din chaufför väntar i ankomsthallen, tar hand om ditt bagage och eskorterar dig till ditt noggrant förberedda fordon.",
-    ourStandards: "Våra servicestandarder", concierge: "Concierge-service", guestsWelcomed: "Välkomnade gäster",
-    guestRating: "Genomsnittligt gästbetyg", privateTransfers: "Privata transfers", fleetEyebrow: "Vår flotta",
+    welcomeBody:
+      "Från det ögonblick ditt plan landar är varje detalj ordnad. Din chaufför väntar i ankomsthallen, tar hand om ditt bagage och eskorterar dig till ditt noggrant förberedda fordon.",
+    ourStandards: "Våra servicestandarder",
+    concierge: "Concierge-service",
+    guestsWelcomed: "Välkomnade gäster",
+    guestRating: "Genomsnittligt gästbetyg",
+    privateTransfers: "Privata transfers",
+    fleetEyebrow: "Vår flotta",
     fleetTitle: "Ditt privata utrymme,<br />perfekt i varje detalj.",
-    fleetIntro: "Res bekvämt med gott om plats för familjen, golfbagaget och resväskorna.",
+    fleetIntro:
+      "Res bekvämt med gott om plats för familjen, golfbagaget och resväskorna.",
     fleetVclassClass: "Business · First Class",
-    fleetVclassDescription: "Riktmärket för sofistikerade gruppresor: rymlig, exceptionellt tyst och utrustad för en smidig ankomst.",
+    fleetVclassDescription:
+      "Riktmärket för sofistikerade gruppresor: rymlig, exceptionellt tyst och utrustad för en smidig ankomst.",
     fleetVitoClass: "VIP · Grand Touring",
-    fleetVitoDescription: "En rymlig privat kabin för större familjer, golfsällskap och gäster med mycket bagage.",
-    signatureFleet: "Signature-flotta", passengers: "passagerare", suitcases: "resväskor",
-    leatherSeats: "Premium läderstolar", wifi: "Gratis WiFi", water: "Kylt mineralvatten",
-    childSeats: "Bilbarnstolar på begäran", television: "TV i fordonet",
-    coldDrinks: "Kalla drycker", snacks: "Snacks", nameSignGreeting: "Välkomnande med personlig namnskylt",
+    fleetVitoDescription:
+      "En rymlig privat kabin för större familjer, golfsällskap och gäster med mycket bagage.",
+    signatureFleet: "Signature-flotta",
+    passengers: "passagerare",
+    suitcases: "resväskor",
+    leatherSeats: "Premium läderstolar",
+    wifi: "Gratis WiFi",
+    water: "Kylt mineralvatten",
+    childSeats: "Bilbarnstolar på begäran",
+    television: "TV i fordonet",
+    coldDrinks: "Kalla drycker",
+    snacks: "Snacks",
+    nameSignGreeting: "Välkomnande med personlig namnskylt",
     reserveVehicle: "Boka fordon",
     insideVclass: "Sprinter interiör",
     interiorTitle: "En privat lounge<br />mellan flygplatsen och hotellet.",
     serviceEyebrow: "Antalya VIP-standarden",
     serviceTitle: "Mer än en transfer.<br />Ett exceptionellt välkomnande.",
-    serviceIntro: "Uppmärksamhet på hotellnivå, erfarna lokala chaufförer och fullständigt lugn från flygplats till resort.",
+    serviceIntro:
+      "Uppmärksamhet på hotellnivå, erfarna lokala chaufförer och fullständigt lugn från flygplats till resort.",
     trackingTitle: "Flygspårning",
-    trackingBody: "Vi spårar din flyg i realtid och anpassar automatiskt hämtningstiden utan extra kostnad.",
+    trackingBody:
+      "Vi spårar din flyg i realtid och anpassar automatiskt hämtningstiden utan extra kostnad.",
     chauffeurTitle: "Professionella chaufförer",
-    chauffeurBody: "Alltid välvårdade, diskreta och utvalda för lokal kunskap och högsta servicestandard.",
+    chauffeurBody:
+      "Alltid välvårdade, diskreta och utvalda för lokal kunskap och högsta servicestandard.",
     greetTitle: "Meet & Greet",
-    greetBody: "Din chaufför välkomnar dig i ankomsthallen med en skylt med ditt namn och hjälper med bagaget.",
+    greetBody:
+      "Din chaufför välkomnar dig i ankomsthallen med en skylt med ditt namn och hjälper med bagaget.",
     supportTitle: "Concierge 24/7",
-    supportBody: "Före, under och efter din resa finns alltid någon tillgänglig per telefon eller WhatsApp.",
+    supportBody:
+      "Före, under och efter din resa finns alltid någon tillgänglig per telefon eller WhatsApp.",
     priceTitle: "Fasta priser",
-    priceBody: "Det bekräftade priset är slutpriset. Väntetid, parkering och flygförseningar ingår.",
+    priceBody:
+      "Det bekräftade priset är slutpriset. Väntetid, parkering och flygförseningar ingår.",
     familyTitle: "För familjer",
-    familyBody: "Lämpliga bilbarnstolar, rymliga interiörer och tålmodig hjälp för en avslappnad familjeankomst.",
+    familyBody:
+      "Lämpliga bilbarnstolar, rymliga interiörer och tålmodig hjälp för en avslappnad familjeankomst.",
     routesEyebrow: "Våra populäraste rutter",
     routesTitle: "Från Antalya flygplats<br />till Turkiska Rivieran.",
-    routesIntro: "Alla priser gäller per fordon, aldrig per person. Gratis väntetid ingår.",
-    golfFavourite: "Golfarnas favorit", from: "Från",
-    reviewsEyebrow: "Gästrecensioner", reviewsTitle: "Service som minns<br />länge efter ankomsten.",
+    routesIntro:
+      "Alla priser gäller per fordon, aldrig per person. Gratis väntetid ingår.",
+    golfFavourite: "Golfarnas favorit",
+    from: "Från",
+    reviewsEyebrow: "Gästrecensioner",
+    reviewsTitle: "Service som minns<br />länge efter ankomsten.",
     googleReviews: "Baserat på 387 verifierade Google-recensioner",
-    reviewOne: "„Vår chaufför väntade trots 90 minuters försening. Fordonet var makulöst, behagligt svalt och redan utrustat med båda barnstolarna. Precis det välkomnande vår familj behövde.”",
-    reviewTwo: "„Från första WhatsApp-kontakten till ankomst i Belek absolut förstklassigt. Punktlig, diskret och mycket professionell. Våra golfbagar fick också plats utan problem.”",
-    reviewThree: "„Det kändes som en chaufförstjänst från ett hotell, inte en flygplatstaxibil. Tydlig kommunikation, ett makulöst fordon och en genuint artig chaufför.”",
-    trustedBy: "Anlitad av gäster på ledande resorts i Antalya", processEyebrow: "Medvetet enkelt",
+    reviewOne:
+      "„Vår chaufför väntade trots 90 minuters försening. Fordonet var makulöst, behagligt svalt och redan utrustat med båda barnstolarna. Precis det välkomnande vår familj behövde.”",
+    reviewTwo:
+      "„Från första WhatsApp-kontakten till ankomst i Belek absolut förstklassigt. Punktlig, diskret och mycket professionell. Våra golfbagar fick också plats utan problem.”",
+    reviewThree:
+      "„Det kändes som en chaufförstjänst från ett hotell, inte en flygplatstaxibil. Tydlig kommunikation, ett makulöst fordon och en genuint artig chaufför.”",
+    trustedBy: "Anlitad av gäster på ledande resorts i Antalya",
+    processEyebrow: "Medvetet enkelt",
     processTitle: "Fyra steg till<br />en avslappnad ankomst.",
-    stepOne: "Välj destination", stepOneBody: "Berätta för oss vart och när du vill resa.",
-    stepTwo: "Välj fordon", stepTwoBody: "Välj rätt utrymme och komfort.",
-    stepThree: "Bekräfta bokning", stepThreeBody: "Få din bekräftelse direkt till fast pris.",
-    stepFour: "Möt din chaufför", stepFourBody: "Din chaufför välkomnar dig i ankomsthallen.",
-    faqEyebrow: "Vanliga frågor", faqTitle: "Innan din resa.",
-    faqIntro: "Allt du behöver veta om din privata transfer från Antalya flygplats.",
+    stepOne: "Välj destination",
+    stepOneBody: "Berätta för oss vart och när du vill resa.",
+    stepTwo: "Välj fordon",
+    stepTwoBody: "Välj rätt utrymme och komfort.",
+    stepThree: "Bekräfta bokning",
+    stepThreeBody: "Få din bekräftelse direkt till fast pris.",
+    stepFour: "Möt din chaufför",
+    stepFourBody: "Din chaufför välkomnar dig i ankomsthallen.",
+    faqEyebrow: "Vanliga frågor",
+    faqTitle: "Innan din resa.",
+    faqIntro:
+      "Allt du behöver veta om din privata transfer från Antalya flygplats.",
     askQuestion: "Ställ en fråga",
     faqOneQ: "Vad händer vid en flygförsening?",
-    faqOneA: "Vi spårar varje ankomst i realtid. Din hämtningstid justeras automatiskt och din chaufför väntar utan extra kostnad.",
+    faqOneA:
+      "Vi spårar varje ankomst i realtid. Din hämtningstid justeras automatiskt och din chaufför väntar utan extra kostnad.",
     faqTwoQ: "Var möter jag min chaufför?",
-    faqTwoA: "Din chaufför väntar direkt efter bagageutlämningen i ankomsthallen med en personlig skylt med ditt namn.",
+    faqTwoA:
+      "Din chaufför väntar direkt efter bagageutlämningen i ankomsthallen med en personlig skylt med ditt namn.",
     faqThreeQ: "Finns det bilbarnstolar?",
-    faqThreeA: "Ja. Babyskydd, barnstolar och bälteskuddar finns tillgängliga utan extra kostnad vid förbeställning.",
+    faqThreeA:
+      "Ja. Babyskydd, barnstolar och bälteskuddar finns tillgängliga utan extra kostnad vid förbeställning.",
     faqFourQ: "Kan golfbagar och stort bagage transporteras?",
-    faqFourA: "Ja. Sprinter och Vito är idealiska för golfsällskap. Meddela oss om ditt bagage så planerar vi rätt fordon.",
+    faqFourA:
+      "Ja. Sprinter och Vito är idealiska för golfsällskap. Meddela oss om ditt bagage så planerar vi rätt fordon.",
     faqFiveQ: "Är det visade priset slutgiltigt?",
-    faqFiveA: "Ja. Flygplatsavgifter, parkering, väntetid och skatter ingår. Inga dolda kostnader.",
+    faqFiveA:
+      "Ja. Flygplatsavgifter, parkering, väntetid och skatter ingår. Inga dolda kostnader.",
     contactEyebrow: "Din resa börjar här",
     contactTitle: "Anländ till Antalya<br />på ett exceptionellt sätt.",
-    contactBody: "Boka online på under två minuter eller prata direkt med vårt concierge-team dygnet runt.",
-    whatsappUs: "WhatsApp", replyMinutes: "Svar vanligtvis inom några minuter",
-    callUs: "Ring 24/7", emailUs: "Concierge e-post", replyHour: "Svar inom en timme",
-    fromAirport: "Från Antalya flygplats", perVehicle: "per fordon · fast pris",
+    contactBody:
+      "Boka online på under två minuter eller prata direkt med vårt concierge-team dygnet runt.",
+    whatsappUs: "WhatsApp",
+    replyMinutes: "Svar vanligtvis inom några minuter",
+    callUs: "Ring 24/7",
+    emailUs: "Concierge e-post",
+    replyHour: "Svar inom en timme",
+    fromAirport: "Från Antalya flygplats",
+    perVehicle: "per fordon · fast pris",
     footerTagline: "Privata chaufförstjänster längs hela Turkiska Rivieran.",
-    explore: "Utforska", information: "Information",
+    explore: "Utforska",
+    information: "Information",
     licensed: "Licensierad privat transferoperatör · TÜRSAB-kompatibel",
-    quoteReady: "Din privata transfer", vehicle: "Fordon", journeyTime: "Restid",
-    totalFixed: "Totalt pris", quoteIncludes: "Inkluderar: välkomnande, flygspårning, parkering, väntetid och mineralvatten.",
-    confirmWhatsapp: "Bekräfta via WhatsApp", chatWithUs: "Chatta med oss", bookNowCta: "Boka nu",
-    backToQuote: "Tillbaka", yourDetails: "Dina uppgifter", fullName: "Fullständigt namn",
-    emailLabel: "E-post", phoneLabel: "Telefon / WhatsApp", flightNumber: "Flygnummer",
-    flightArrivalTime: "Ankomsttid", notesLabel: "Särskilda önskemål",
-    confirmBooking: "Bekräfta bokning", paySecurely: "Fortsätt till säker betalning", payLaterNote: "Säker onlinebetalning efter bekräftelse.",
-    bookingConfirmed: "Bokning bekräftad", referenceLabel: "Referensnummer",
-    weWillContact: "Din bokningsförfrågan har skickats. Vi kontaktar dig inom 30 minuter.",
-    paymentTitle: "Säker betalning", paymentError: "Betalning misslyckades. Försök igen.",
+    quoteReady: "Din privata transfer",
+    vehicle: "Fordon",
+    journeyTime: "Restid",
+    totalFixed: "Totalt pris",
+    quoteIncludes:
+      "Inkluderar: välkomnande, flygspårning, parkering, väntetid och mineralvatten.",
+    confirmWhatsapp: "Bekräfta via WhatsApp",
+    chatWithUs: "Chatta med oss",
+    bookNowCta: "Boka nu",
+    backToQuote: "Tillbaka",
+    yourDetails: "Dina uppgifter",
+    fullName: "Fullständigt namn",
+    emailLabel: "E-post",
+    phoneLabel: "Telefon / WhatsApp",
+    flightNumber: "Flygnummer",
+    flightArrivalTime: "Ankomsttid",
+    notesLabel: "Särskilda önskemål",
+    confirmBooking: "Bekräfta bokning",
+    paySecurely: "Fortsätt till säker betalning",
+    payLaterNote: "Säker onlinebetalning efter bekräftelse.",
+    bookingConfirmed: "Bokning bekräftad",
+    referenceLabel: "Referensnummer",
+    weWillContact:
+      "Din bokningsförfrågan har skickats. Vi kontaktar dig inom 30 minuter.",
+    paymentTitle: "Säker betalning",
+    paymentError: "Betalning misslyckades. Försök igen.",
   },
   ja: {
-    navFleet: "車両", navService: "サービス", navRoutes: "ルート", navReviews: "口コミ", navContact: "お問い合わせ",
-    bookNow: "今すぐ予約", alwaysAvailable: "年中無休・24時間対応",
+    navFairPricing: "適正価格",
+    navFleet: "車両",
+    navService: "サービス",
+    navRoutes: "ルート",
+    navReviews: "口コミ",
+    navContact: "お問い合わせ",
+    bookNow: "今すぐ予約",
+    alwaysAvailable: "年中無休・24時間対応",
     heroEyebrow: "プライベートショーファーサービス · アンタルヤ",
     heroTitle: "アンタルヤ空港からの<br />プレミアム送迎サービス",
-    heroSubtitle: "アンタルヤ空港からベレック、シデ、ケメル、アランヤへ専属ショーファー付きプライベート送迎。",
-    bookTransfer: "送迎を予約する", instantQuote: "料金を確認する", googleRated: "Google評価",
-    trustedGuests: "2,500名以上のお客様にご利用いただいています", discover: "詳しく見る",
+    heroSubtitle:
+      "アンタルヤ空港からベレック、シデ、ケメル、アランヤへ専属ショーファー付きプライベート送迎。",
+    bookTransfer: "送迎を予約する",
+    instantQuote: "料金を確認する",
+    googleRated: "Google評価",
+    trustedGuests: "2,500名以上のお客様にご利用いただいています",
+    discover: "詳しく見る",
     privateJourney: "あなただけのプライベートな旅",
-    quoteTitle: "目的地をお知らせください", pickup: "お迎え場所", destination: "目的地",
-    date: "日付", guests: "ご利用人数", hotelAddress: "ホテル / 住所",
-    pickupAddress: "お迎え先の詳しい住所", pickupAddressPlaceholder: "ホテル名、通り、建物番号、地区",
+    quoteTitle: "目的地をお知らせください",
+    pickup: "お迎え場所",
+    destination: "目的地",
+    date: "日付",
+    guests: "ご利用人数",
+    hotelAddress: "ホテル / 住所",
+    pickupAddress: "お迎え先の詳しい住所",
+    pickupAddressPlaceholder: "ホテル名、通り、建物番号、地区",
     selectDestination: "目的地を選択",
-    oneGuest: "1名", twoGuests: "2名", threeGuests: "3名", fourGuests: "4名",
-    fiveGuests: "5名", sixGuests: "6名", sevenGuests: "7名", viewQuote: "料金を見る",
-    flightTracking: "リアルタイムフライト追跡", fixedPrice: "料金固定保証",
-    meetGreet: "ミート＆グリートサービス", speakingDrivers: "英語・ドイツ語対応ショーファー",
+    oneGuest: "1名",
+    twoGuests: "2名",
+    threeGuests: "3名",
+    fourGuests: "4名",
+    fiveGuests: "5名",
+    sixGuests: "6名",
+    sevenGuests: "7名",
+    viewQuote: "料金を見る",
+    flightTracking: "リアルタイムフライト追跡",
+    fixedPrice: "料金固定保証",
+    meetGreet: "ミート＆グリートサービス",
+    speakingDrivers: "英語・ドイツ語対応ショーファー",
     welcomeEyebrow: "最高水準のサービスへようこそ",
     welcomeTitle: "上質な旅を。<br />安心してご到着を。",
-    welcomeBody: "着陸の瞬間から、すべての細部が整っています。ショーファーが到着ロビーでお待ちし、お荷物をお預かりして、丁寧に準備された専用車両へとご案内します。",
-    ourStandards: "私たちのサービス基準", concierge: "コンシェルジュサービス", guestsWelcomed: "お迎えしたゲスト数",
-    guestRating: "ゲスト平均評価", privateTransfers: "プライベート送迎", fleetEyebrow: "車両ラインナップ",
+    welcomeBody:
+      "着陸の瞬間から、すべての細部が整っています。ショーファーが到着ロビーでお待ちし、お荷物をお預かりして、丁寧に準備された専用車両へとご案内します。",
+    ourStandards: "私たちのサービス基準",
+    concierge: "コンシェルジュサービス",
+    guestsWelcomed: "お迎えしたゲスト数",
+    guestRating: "ゲスト平均評価",
+    privateTransfers: "プライベート送迎",
+    fleetEyebrow: "車両ラインナップ",
     fleetTitle: "あなただけのプライベート空間。<br />細部まで完璧に。",
-    fleetIntro: "ご家族、ゴルフ用具、荷物のための十分なスペースを備えた快適な移動をお楽しみください。",
+    fleetIntro:
+      "ご家族、ゴルフ用具、荷物のための十分なスペースを備えた快適な移動をお楽しみください。",
     fleetVclassClass: "ビジネス · ファーストクラス",
-    fleetVclassDescription: "洗練されたグループ旅行の基準。広々とした車内、卓越した静粛性、シームレスなご到着のための装備が揃っています。",
+    fleetVclassDescription:
+      "洗練されたグループ旅行の基準。広々とした車内、卓越した静粛性、シームレスなご到着のための装備が揃っています。",
     fleetVitoClass: "VIP · グランドツーリング",
-    fleetVitoDescription: "大家族、ゴルフグループ、大量の荷物をお持ちのゲストのための広々としたプライベートキャビン。",
-    signatureFleet: "シグネチャーフリート", passengers: "名", suitcases: "個のスーツケース",
-    leatherSeats: "プレミアムレザーシート", wifi: "無料WiFi", water: "冷えたミネラルウォーター",
-    childSeats: "チャイルドシート（ご要望に応じて）", television: "車内テレビ",
-    coldDrinks: "冷たいお飲み物", snacks: "スナック", nameSignGreeting: "お名前ボードでのお出迎え",
+    fleetVitoDescription:
+      "大家族、ゴルフグループ、大量の荷物をお持ちのゲストのための広々としたプライベートキャビン。",
+    signatureFleet: "シグネチャーフリート",
+    passengers: "名",
+    suitcases: "個のスーツケース",
+    leatherSeats: "プレミアムレザーシート",
+    wifi: "無料WiFi",
+    water: "冷えたミネラルウォーター",
+    childSeats: "チャイルドシート（ご要望に応じて）",
+    television: "車内テレビ",
+    coldDrinks: "冷たいお飲み物",
+    snacks: "スナック",
+    nameSignGreeting: "お名前ボードでのお出迎え",
     reserveVehicle: "この車両を予約する",
     insideVclass: "Sprinterインテリア",
     interiorTitle: "空港とホテルの間の<br />プライベートラウンジ。",
     serviceEyebrow: "Antalya VIPスタンダード",
     serviceTitle: "送迎以上のもの。<br />特別なお出迎え。",
-    serviceIntro: "5つ星ホテルレベルのアテンション、経験豊富な地元ショーファー、空港からリゾートまでの完全な安心感。",
+    serviceIntro:
+      "5つ星ホテルレベルのアテンション、経験豊富な地元ショーファー、空港からリゾートまでの完全な安心感。",
     trackingTitle: "フライト追跡",
-    trackingBody: "フライトをリアルタイムで追跡し、追加料金なしでお迎え時間を自動的に調整します。",
+    trackingBody:
+      "フライトをリアルタイムで追跡し、追加料金なしでお迎え時間を自動的に調整します。",
     chauffeurTitle: "プロフェッショナルショーファー",
-    chauffeurBody: "常に清潔感があり、思いやりがあり、地元知識と最高のサービス基準のために厳選されています。",
+    chauffeurBody:
+      "常に清潔感があり、思いやりがあり、地元知識と最高のサービス基準のために厳選されています。",
     greetTitle: "ミート＆グリート",
-    greetBody: "ショーファーはお名前のボードを持って到着ロビーでお出迎えし、お荷物をお手伝いします。",
+    greetBody:
+      "ショーファーはお名前のボードを持って到着ロビーでお出迎えし、お荷物をお手伝いします。",
     supportTitle: "24/7コンシェルジュ",
-    supportBody: "旅の前・中・後、いつでも電話またはWhatsAppでご対応いたします。",
+    supportBody:
+      "旅の前・中・後、いつでも電話またはWhatsAppでご対応いたします。",
     priceTitle: "料金固定",
-    priceBody: "確認された料金が最終料金です。待機時間、駐車料金、フライト遅延はすべて含まれています。",
+    priceBody:
+      "確認された料金が最終料金です。待機時間、駐車料金、フライト遅延はすべて含まれています。",
     familyTitle: "ご家族向け",
-    familyBody: "年齢に合ったチャイルドシート、広々とした車内、ご家族の安心到着のための丁寧なサポート。",
+    familyBody:
+      "年齢に合ったチャイルドシート、広々とした車内、ご家族の安心到着のための丁寧なサポート。",
     routesEyebrow: "人気のルート",
     routesTitle: "アンタルヤ空港から<br />トルコリビエラへ。",
-    routesIntro: "すべての料金は車両ごと（お一人様ではありません）。無料待機時間込み。",
-    golfFavourite: "ゴルファーに人気", from: "から",
-    reviewsEyebrow: "お客様の声", reviewsTitle: "到着後も語り継がれる<br />サービス。",
+    routesIntro:
+      "すべての料金は車両ごと（お一人様ではありません）。無料待機時間込み。",
+    golfFavourite: "ゴルファーに人気",
+    from: "から",
+    reviewsEyebrow: "お客様の声",
+    reviewsTitle: "到着後も語り継がれる<br />サービス。",
     googleReviews: "387件のGoogle認証レビューに基づく",
-    reviewOne: "「90分のフライト遅延にもかかわらず、ドライバーは待ってくれました。車両は完璧に清潔で心地よく冷えており、チャイルドシートも両方設置済みでした。家族が必要としていたまさにそのお出迎えでした。」",
-    reviewTwo: "「最初のWhatsAppのやり取りからベレックへの到着まで、すべてが最高でした。時間通り、控えめで、とてもプロフェッショナル。ゴルフバッグも余裕で収まりました。」",
-    reviewThree: "「空港タクシーではなく、ホテルのショーファーサービスのようでした。明確なコミュニケーション、完璧な車両、そして心から礼儀正しいドライバー。」",
-    trustedBy: "アンタルヤの一流リゾートのゲストにご利用いただいています", processEyebrow: "シンプルに設計",
+    reviewOne:
+      "「90分のフライト遅延にもかかわらず、ドライバーは待ってくれました。車両は完璧に清潔で心地よく冷えており、チャイルドシートも両方設置済みでした。家族が必要としていたまさにそのお出迎えでした。」",
+    reviewTwo:
+      "「最初のWhatsAppのやり取りからベレックへの到着まで、すべてが最高でした。時間通り、控えめで、とてもプロフェッショナル。ゴルフバッグも余裕で収まりました。」",
+    reviewThree:
+      "「空港タクシーではなく、ホテルのショーファーサービスのようでした。明確なコミュニケーション、完璧な車両、そして心から礼儀正しいドライバー。」",
+    trustedBy: "アンタルヤの一流リゾートのゲストにご利用いただいています",
+    processEyebrow: "シンプルに設計",
     processTitle: "安心到着のための<br />4ステップ。",
-    stepOne: "目的地を選ぶ", stepOneBody: "どこへ、いつ行きたいかをお知らせください。",
-    stepTwo: "車両を選ぶ", stepTwoBody: "お好みのスペースと快適さをお選びください。",
-    stepThree: "予約を確定する", stepThreeBody: "固定料金で即座に確認書を受け取れます。",
-    stepFour: "ショーファーと合流", stepFourBody: "ショーファーが到着ロビーでお出迎えします。",
-    faqEyebrow: "よくある質問", faqTitle: "ご旅行の前に。",
-    faqIntro: "アンタルヤ空港からのプライベート送迎について知っておくべきこと。",
+    stepOne: "目的地を選ぶ",
+    stepOneBody: "どこへ、いつ行きたいかをお知らせください。",
+    stepTwo: "車両を選ぶ",
+    stepTwoBody: "お好みのスペースと快適さをお選びください。",
+    stepThree: "予約を確定する",
+    stepThreeBody: "固定料金で即座に確認書を受け取れます。",
+    stepFour: "ショーファーと合流",
+    stepFourBody: "ショーファーが到着ロビーでお出迎えします。",
+    faqEyebrow: "よくある質問",
+    faqTitle: "ご旅行の前に。",
+    faqIntro:
+      "アンタルヤ空港からのプライベート送迎について知っておくべきこと。",
     askQuestion: "質問する",
     faqOneQ: "フライトが遅延した場合はどうなりますか？",
-    faqOneA: "すべての到着便をリアルタイムで追跡しています。お迎え時間は自動的に調整され、ショーファーは追加料金なしでお待ちします。",
+    faqOneA:
+      "すべての到着便をリアルタイムで追跡しています。お迎え時間は自動的に調整され、ショーファーは追加料金なしでお待ちします。",
     faqTwoQ: "ショーファーはどこで待っていますか？",
-    faqTwoA: "ショーファーは手荷物受取所の直後の到着ロビーで、お名前のボードを持ってお待ちしています。",
+    faqTwoA:
+      "ショーファーは手荷物受取所の直後の到着ロビーで、お名前のボードを持ってお待ちしています。",
     faqThreeQ: "チャイルドシートはありますか？",
-    faqThreeA: "はい。乳幼児用、チャイルドシート、ジュニアシートは予約時にご要望いただければ無料でご用意します。",
+    faqThreeA:
+      "はい。乳幼児用、チャイルドシート、ジュニアシートは予約時にご要望いただければ無料でご用意します。",
     faqFourQ: "ゴルフバッグや大きな荷物は運べますか？",
-    faqFourA: "はい。SprinterとVitoはゴルフグループに最適です。荷物の詳細をお知らせいただければ、適切な車両をご手配します。",
+    faqFourA:
+      "はい。SprinterとVitoはゴルフグループに最適です。荷物の詳細をお知らせいただければ、適切な車両をご手配します。",
     faqFiveQ: "表示された料金は確定ですか？",
-    faqFiveA: "はい。空港税、駐車料金、待機時間、税金はすべて含まれています。隠れた費用はありません。",
+    faqFiveA:
+      "はい。空港税、駐車料金、待機時間、税金はすべて含まれています。隠れた費用はありません。",
     contactEyebrow: "旅はここから始まります",
     contactTitle: "アンタルヤへ<br />格別の到着を。",
-    contactBody: "2分以内にオンライン予約、または24/7コンシェルジュチームに直接お問い合わせください。",
-    whatsappUs: "WhatsApp", replyMinutes: "通常数分以内に返信",
-    callUs: "24/7電話", emailUs: "コンシェルジュメール", replyHour: "1時間以内に返信",
-    fromAirport: "アンタルヤ空港から", perVehicle: "車両ごと · 固定料金",
+    contactBody:
+      "2分以内にオンライン予約、または24/7コンシェルジュチームに直接お問い合わせください。",
+    whatsappUs: "WhatsApp",
+    replyMinutes: "通常数分以内に返信",
+    callUs: "24/7電話",
+    emailUs: "コンシェルジュメール",
+    replyHour: "1時間以内に返信",
+    fromAirport: "アンタルヤ空港から",
+    perVehicle: "車両ごと · 固定料金",
     footerTagline: "トルコリビエラ全域のプライベートショーファーサービス。",
-    explore: "探索する", information: "情報",
+    explore: "探索する",
+    information: "情報",
     licensed: "認定プライベート送迎事業者 · TÜRSAB準拠",
-    quoteReady: "あなたのプライベート送迎", vehicle: "車両", journeyTime: "所要時間",
-    totalFixed: "合計料金", quoteIncludes: "ミート＆グリート、フライト追跡、駐車料金、待機時間、ミネラルウォーター込み。",
-    confirmWhatsapp: "WhatsAppで確認する", chatWithUs: "チャットする", bookNowCta: "今すぐ予約",
-    backToQuote: "戻る", yourDetails: "お客様情報", fullName: "氏名",
-    emailLabel: "メールアドレス", phoneLabel: "電話 / WhatsApp", flightNumber: "フライト番号",
-    flightArrivalTime: "到着時刻", notesLabel: "特別なご要望",
-    confirmBooking: "予約を確定する", paySecurely: "安全なお支払いへ進む", payLaterNote: "確認後にオンラインで安全にお支払い。",
-    bookingConfirmed: "予約確定", referenceLabel: "予約番号",
+    quoteReady: "あなたのプライベート送迎",
+    vehicle: "車両",
+    journeyTime: "所要時間",
+    totalFixed: "合計料金",
+    quoteIncludes:
+      "ミート＆グリート、フライト追跡、駐車料金、待機時間、ミネラルウォーター込み。",
+    confirmWhatsapp: "WhatsAppで確認する",
+    chatWithUs: "チャットする",
+    bookNowCta: "今すぐ予約",
+    backToQuote: "戻る",
+    yourDetails: "お客様情報",
+    fullName: "氏名",
+    emailLabel: "メールアドレス",
+    phoneLabel: "電話 / WhatsApp",
+    flightNumber: "フライト番号",
+    flightArrivalTime: "到着時刻",
+    notesLabel: "特別なご要望",
+    confirmBooking: "予約を確定する",
+    paySecurely: "安全なお支払いへ進む",
+    payLaterNote: "確認後にオンラインで安全にお支払い。",
+    bookingConfirmed: "予約確定",
+    referenceLabel: "予約番号",
     weWillContact: "予約リクエストを送信しました。30分以内にご連絡いたします。",
-    paymentTitle: "安全なお支払い", paymentError: "お支払いに失敗しました。もう一度お試しください。",
+    paymentTitle: "安全なお支払い",
+    paymentError: "お支払いに失敗しました。もう一度お試しください。",
   },
   ko: {
-    navFleet: "차량", navService: "서비스", navRoutes: "노선", navReviews: "리뷰", navContact: "문의",
-    bookNow: "지금 예약", alwaysAvailable: "연중무휴 24시간 운영",
+    navFairPricing: "공정한 요금",
+    navFleet: "차량",
+    navService: "서비스",
+    navRoutes: "노선",
+    navReviews: "리뷰",
+    navContact: "문의",
+    bookNow: "지금 예약",
+    alwaysAvailable: "연중무휴 24시간 운영",
     heroEyebrow: "프라이빗 쇼퍼 서비스 · 안탈리아",
     heroTitle: "안탈리아 공항에서<br />프리미엄 공항 픽업 서비스",
-    heroSubtitle: "안탈리아 공항에서 벨렉, 시데, 케메르, 알란야까지 전담 쇼퍼와 함께하는 프라이빗 이동.",
-    bookTransfer: "셔틀 예약하기", instantQuote: "요금 확인하기", googleRated: "Google 평점",
-    trustedGuests: "2,500명 이상의 고객이 이용했습니다", discover: "자세히 보기",
+    heroSubtitle:
+      "안탈리아 공항에서 벨렉, 시데, 케메르, 알란야까지 전담 쇼퍼와 함께하는 프라이빗 이동.",
+    bookTransfer: "셔틀 예약하기",
+    instantQuote: "요금 확인하기",
+    googleRated: "Google 평점",
+    trustedGuests: "2,500명 이상의 고객이 이용했습니다",
+    discover: "자세히 보기",
     privateJourney: "나만의 프라이빗 여행",
-    quoteTitle: "어디로 모셔다 드릴까요?", pickup: "픽업 장소", destination: "목적지",
-    date: "날짜", guests: "인원", hotelAddress: "호텔 / 개인 주소",
-    pickupAddress: "전체 픽업 주소", pickupAddressPlaceholder: "호텔명, 도로명, 건물 번호 및 지역",
+    quoteTitle: "어디로 모셔다 드릴까요?",
+    pickup: "픽업 장소",
+    destination: "목적지",
+    date: "날짜",
+    guests: "인원",
+    hotelAddress: "호텔 / 개인 주소",
+    pickupAddress: "전체 픽업 주소",
+    pickupAddressPlaceholder: "호텔명, 도로명, 건물 번호 및 지역",
     selectDestination: "목적지 선택",
-    oneGuest: "1명", twoGuests: "2명", threeGuests: "3명", fourGuests: "4명",
-    fiveGuests: "5명", sixGuests: "6명", sevenGuests: "7명", viewQuote: "요금 보기",
-    flightTracking: "실시간 항공편 추적", fixedPrice: "고정 요금 보장",
-    meetGreet: "미트 앤 그리트 서비스", speakingDrivers: "영어·독일어 가능 쇼퍼",
+    oneGuest: "1명",
+    twoGuests: "2명",
+    threeGuests: "3명",
+    fourGuests: "4명",
+    fiveGuests: "5명",
+    sixGuests: "6명",
+    sevenGuests: "7명",
+    viewQuote: "요금 보기",
+    flightTracking: "실시간 항공편 추적",
+    fixedPrice: "고정 요금 보장",
+    meetGreet: "미트 앤 그리트 서비스",
+    speakingDrivers: "영어·독일어 가능 쇼퍼",
     welcomeEyebrow: "최고 수준의 서비스에 오신 것을 환영합니다",
     welcomeTitle: "품격 있게 이동하세요.<br />편안하게 도착하세요.",
-    welcomeBody: "착륙하는 순간부터 모든 세부 사항이 준비되어 있습니다. 쇼퍼가 도착 로비에서 기다리며 수하물을 챙기고 세심하게 준비된 전용 차량으로 안내해 드립니다.",
-    ourStandards: "저희 서비스 기준", concierge: "컨시어지 서비스", guestsWelcomed: "환영한 고객 수",
-    guestRating: "평균 고객 평점", privateTransfers: "프라이빗 이동", fleetEyebrow: "차량 라인업",
+    welcomeBody:
+      "착륙하는 순간부터 모든 세부 사항이 준비되어 있습니다. 쇼퍼가 도착 로비에서 기다리며 수하물을 챙기고 세심하게 준비된 전용 차량으로 안내해 드립니다.",
+    ourStandards: "저희 서비스 기준",
+    concierge: "컨시어지 서비스",
+    guestsWelcomed: "환영한 고객 수",
+    guestRating: "평균 고객 평점",
+    privateTransfers: "프라이빗 이동",
+    fleetEyebrow: "차량 라인업",
     fleetTitle: "나만의 프라이빗 공간,<br />세부 사항까지 완벽하게.",
-    fleetIntro: "가족, 골프 장비, 여행 가방을 위한 충분한 공간을 갖춘 편안한 이동을 경험하세요.",
+    fleetIntro:
+      "가족, 골프 장비, 여행 가방을 위한 충분한 공간을 갖춘 편안한 이동을 경험하세요.",
     fleetVclassClass: "비즈니스 · 퍼스트클래스",
-    fleetVclassDescription: "정교한 그룹 여행의 기준. 넓고, 탁월하게 조용하며, 원활한 도착을 위한 장비를 갖추고 있습니다.",
+    fleetVclassDescription:
+      "정교한 그룹 여행의 기준. 넓고, 탁월하게 조용하며, 원활한 도착을 위한 장비를 갖추고 있습니다.",
     fleetVitoClass: "VIP · 그랜드 투어링",
-    fleetVitoDescription: "대가족, 골프 그룹, 짐이 많은 고객을 위한 넓은 프라이빗 캐빈.",
-    signatureFleet: "시그니처 플릿", passengers: "명", suitcases: "개의 캐리어",
-    leatherSeats: "프리미엄 가죽 시트", wifi: "무료 WiFi", water: "시원한 생수",
-    childSeats: "요청 시 카시트 제공", television: "차량 내 TV",
-    coldDrinks: "차가운 음료", snacks: "스낵", nameSignGreeting: "이름 팻말을 든 맞춤 영접",
+    fleetVitoDescription:
+      "대가족, 골프 그룹, 짐이 많은 고객을 위한 넓은 프라이빗 캐빈.",
+    signatureFleet: "시그니처 플릿",
+    passengers: "명",
+    suitcases: "개의 캐리어",
+    leatherSeats: "프리미엄 가죽 시트",
+    wifi: "무료 WiFi",
+    water: "시원한 생수",
+    childSeats: "요청 시 카시트 제공",
+    television: "차량 내 TV",
+    coldDrinks: "차가운 음료",
+    snacks: "스낵",
+    nameSignGreeting: "이름 팻말을 든 맞춤 영접",
     reserveVehicle: "이 차량 예약하기",
     insideVclass: "Sprinter 인테리어",
     interiorTitle: "공항과 호텔 사이의<br />프라이빗 라운지.",
     serviceEyebrow: "Antalya VIP 기준",
     serviceTitle: "단순한 이동 그 이상.<br />특별한 환영.",
-    serviceIntro: "5성급 호텔 수준의 세심한 배려, 경험 풍부한 현지 쇼퍼, 공항에서 리조트까지 완전한 안심.",
+    serviceIntro:
+      "5성급 호텔 수준의 세심한 배려, 경험 풍부한 현지 쇼퍼, 공항에서 리조트까지 완전한 안심.",
     trackingTitle: "항공편 추적",
-    trackingBody: "항공편을 실시간으로 추적하여 추가 비용 없이 픽업 시간을 자동으로 조정합니다.",
+    trackingBody:
+      "항공편을 실시간으로 추적하여 추가 비용 없이 픽업 시간을 자동으로 조정합니다.",
     chauffeurTitle: "전문 쇼퍼",
-    chauffeurBody: "항상 단정하고 신중하며, 현지 지식과 최고 서비스 기준으로 선별된 전문가들입니다.",
+    chauffeurBody:
+      "항상 단정하고 신중하며, 현지 지식과 최고 서비스 기준으로 선별된 전문가들입니다.",
     greetTitle: "미트 앤 그리트",
-    greetBody: "쇼퍼가 이름이 적힌 팻말을 들고 도착 로비에서 환영하며 수하물을 도와드립니다.",
+    greetBody:
+      "쇼퍼가 이름이 적힌 팻말을 들고 도착 로비에서 환영하며 수하물을 도와드립니다.",
     supportTitle: "24/7 컨시어지",
-    supportBody: "여행 전, 중, 후 언제든지 전화 또는 WhatsApp으로 담당자와 연결됩니다.",
+    supportBody:
+      "여행 전, 중, 후 언제든지 전화 또는 WhatsApp으로 담당자와 연결됩니다.",
     priceTitle: "고정 요금",
-    priceBody: "확인된 요금이 최종 요금입니다. 대기 시간, 주차비, 항공편 지연이 모두 포함됩니다.",
+    priceBody:
+      "확인된 요금이 최종 요금입니다. 대기 시간, 주차비, 항공편 지연이 모두 포함됩니다.",
     familyTitle: "가족을 위한",
-    familyBody: "연령에 맞는 카시트, 넓은 실내, 편안한 가족 도착을 위한 세심한 도움.",
+    familyBody:
+      "연령에 맞는 카시트, 넓은 실내, 편안한 가족 도착을 위한 세심한 도움.",
     routesEyebrow: "인기 노선",
     routesTitle: "안탈리아 공항에서<br />터키 리비에라까지.",
-    routesIntro: "모든 요금은 차량 기준(1인 기준 아님)입니다. 무료 대기 시간 포함.",
-    golfFavourite: "골퍼들의 인기 선택", from: "부터",
-    reviewsEyebrow: "고객 후기", reviewsTitle: "도착 후에도 오래 기억되는<br />서비스.",
+    routesIntro:
+      "모든 요금은 차량 기준(1인 기준 아님)입니다. 무료 대기 시간 포함.",
+    golfFavourite: "골퍼들의 인기 선택",
+    from: "부터",
+    reviewsEyebrow: "고객 후기",
+    reviewsTitle: "도착 후에도 오래 기억되는<br />서비스.",
     googleReviews: "387건의 Google 인증 리뷰 기준",
-    reviewOne: "\"90분 지연에도 불구하고 기사님이 기다려 주셨습니다. 차량은 완벽하게 청결하고 시원했으며 카시트 두 개도 이미 설치되어 있었습니다. 저희 가족에게 꼭 필요한 환영이었습니다.\"",
-    reviewTwo: "\"첫 WhatsApp 연락부터 벨렉 도착까지 모든 것이 최고였습니다. 시간 엄수, 세심함, 매우 전문적. 골프백도 여유롭게 들어갔습니다.\"",
-    reviewThree: "\"공항 택시가 아닌 호텔 쇼퍼 서비스 같았습니다. 명확한 소통, 완벽한 차량, 진심으로 예의 바른 기사님.\"",
-    trustedBy: "안탈리아 주요 리조트 고객들이 선택했습니다", processEyebrow: "의도적으로 간단하게",
+    reviewOne:
+      '"90분 지연에도 불구하고 기사님이 기다려 주셨습니다. 차량은 완벽하게 청결하고 시원했으며 카시트 두 개도 이미 설치되어 있었습니다. 저희 가족에게 꼭 필요한 환영이었습니다."',
+    reviewTwo:
+      '"첫 WhatsApp 연락부터 벨렉 도착까지 모든 것이 최고였습니다. 시간 엄수, 세심함, 매우 전문적. 골프백도 여유롭게 들어갔습니다."',
+    reviewThree:
+      '"공항 택시가 아닌 호텔 쇼퍼 서비스 같았습니다. 명확한 소통, 완벽한 차량, 진심으로 예의 바른 기사님."',
+    trustedBy: "안탈리아 주요 리조트 고객들이 선택했습니다",
+    processEyebrow: "의도적으로 간단하게",
     processTitle: "편안한 도착을 위한<br />4단계.",
-    stepOne: "목적지 선택", stepOneBody: "어디로, 언제 이동하고 싶은지 알려주세요.",
-    stepTwo: "차량 선택", stepTwoBody: "적합한 공간과 편의를 선택하세요.",
-    stepThree: "예약 확정", stepThreeBody: "고정 요금으로 즉시 확인서를 받으세요.",
-    stepFour: "쇼퍼 만나기", stepFourBody: "쇼퍼가 도착 로비에서 환영합니다.",
-    faqEyebrow: "자주 묻는 질문", faqTitle: "여행 전에.",
+    stepOne: "목적지 선택",
+    stepOneBody: "어디로, 언제 이동하고 싶은지 알려주세요.",
+    stepTwo: "차량 선택",
+    stepTwoBody: "적합한 공간과 편의를 선택하세요.",
+    stepThree: "예약 확정",
+    stepThreeBody: "고정 요금으로 즉시 확인서를 받으세요.",
+    stepFour: "쇼퍼 만나기",
+    stepFourBody: "쇼퍼가 도착 로비에서 환영합니다.",
+    faqEyebrow: "자주 묻는 질문",
+    faqTitle: "여행 전에.",
     faqIntro: "안탈리아 공항 프라이빗 픽업에 대해 알아야 할 모든 것.",
     askQuestion: "질문하기",
     faqOneQ: "항공편이 지연되면 어떻게 되나요?",
-    faqOneA: "모든 도착 항공편을 실시간으로 추적합니다. 픽업 시간은 자동으로 조정되며 쇼퍼는 추가 비용 없이 기다립니다.",
+    faqOneA:
+      "모든 도착 항공편을 실시간으로 추적합니다. 픽업 시간은 자동으로 조정되며 쇼퍼는 추가 비용 없이 기다립니다.",
     faqTwoQ: "기사님은 어디에서 기다리시나요?",
-    faqTwoA: "쇼퍼는 수하물 수취 바로 다음 도착 로비에서 이름이 적힌 팻말을 들고 기다립니다.",
+    faqTwoA:
+      "쇼퍼는 수하물 수취 바로 다음 도착 로비에서 이름이 적힌 팻말을 들고 기다립니다.",
     faqThreeQ: "카시트를 이용할 수 있나요?",
-    faqThreeA: "네. 신생아용 카시트, 아동용 카시트, 부스터 시트는 예약 시 요청하시면 무료로 제공됩니다.",
+    faqThreeA:
+      "네. 신생아용 카시트, 아동용 카시트, 부스터 시트는 예약 시 요청하시면 무료로 제공됩니다.",
     faqFourQ: "골프백과 대형 수하물도 운반할 수 있나요?",
-    faqFourA: "네. Sprinter와 Vito는 골프 그룹에 이상적입니다. 수하물 정보를 알려주시면 적합한 차량을 준비합니다.",
+    faqFourA:
+      "네. Sprinter와 Vito는 골프 그룹에 이상적입니다. 수하물 정보를 알려주시면 적합한 차량을 준비합니다.",
     faqFiveQ: "표시된 요금이 최종 요금인가요?",
-    faqFiveA: "네. 공항 세금, 주차비, 대기 시간, 세금이 모두 포함됩니다. 숨겨진 비용이 없습니다.",
+    faqFiveA:
+      "네. 공항 세금, 주차비, 대기 시간, 세금이 모두 포함됩니다. 숨겨진 비용이 없습니다.",
     contactEyebrow: "여행은 여기서 시작됩니다",
     contactTitle: "안탈리아에<br />특별하게 도착하세요.",
-    contactBody: "2분 이내에 온라인 예약하거나 24/7 컨시어지 팀에 직접 문의하세요.",
-    whatsappUs: "WhatsApp", replyMinutes: "보통 몇 분 내로 답변",
-    callUs: "24/7 전화", emailUs: "컨시어지 이메일", replyHour: "1시간 내 답변",
-    fromAirport: "안탈리아 공항에서", perVehicle: "차량 기준 · 고정 요금",
+    contactBody:
+      "2분 이내에 온라인 예약하거나 24/7 컨시어지 팀에 직접 문의하세요.",
+    whatsappUs: "WhatsApp",
+    replyMinutes: "보통 몇 분 내로 답변",
+    callUs: "24/7 전화",
+    emailUs: "컨시어지 이메일",
+    replyHour: "1시간 내 답변",
+    fromAirport: "안탈리아 공항에서",
+    perVehicle: "차량 기준 · 고정 요금",
     footerTagline: "터키 리비에라 전역의 프라이빗 쇼퍼 서비스.",
-    explore: "탐색", information: "정보",
+    explore: "탐색",
+    information: "정보",
     licensed: "인증된 프라이빗 이동 사업자 · TÜRSAB 준수",
-    quoteReady: "나의 프라이빗 이동", vehicle: "차량", journeyTime: "소요 시간",
-    totalFixed: "총 요금", quoteIncludes: "미트 앤 그리트, 항공편 추적, 주차비, 대기 시간, 생수 포함.",
-    confirmWhatsapp: "WhatsApp으로 확인하기", chatWithUs: "채팅하기", bookNowCta: "지금 예약",
-    backToQuote: "뒤로", yourDetails: "고객 정보", fullName: "성명",
-    emailLabel: "이메일", phoneLabel: "전화 / WhatsApp", flightNumber: "항공편 번호",
-    flightArrivalTime: "도착 시간", notesLabel: "특별 요청",
-    confirmBooking: "예약 확정하기", paySecurely: "안전한 결제로 이동", payLaterNote: "확인 후 안전하게 온라인 결제.",
-    bookingConfirmed: "예약 확정", referenceLabel: "예약 번호",
+    quoteReady: "나의 프라이빗 이동",
+    vehicle: "차량",
+    journeyTime: "소요 시간",
+    totalFixed: "총 요금",
+    quoteIncludes: "미트 앤 그리트, 항공편 추적, 주차비, 대기 시간, 생수 포함.",
+    confirmWhatsapp: "WhatsApp으로 확인하기",
+    chatWithUs: "채팅하기",
+    bookNowCta: "지금 예약",
+    backToQuote: "뒤로",
+    yourDetails: "고객 정보",
+    fullName: "성명",
+    emailLabel: "이메일",
+    phoneLabel: "전화 / WhatsApp",
+    flightNumber: "항공편 번호",
+    flightArrivalTime: "도착 시간",
+    notesLabel: "특별 요청",
+    confirmBooking: "예약 확정하기",
+    paySecurely: "안전한 결제로 이동",
+    payLaterNote: "확인 후 안전하게 온라인 결제.",
+    bookingConfirmed: "예약 확정",
+    referenceLabel: "예약 번호",
     weWillContact: "예약 요청이 전송되었습니다. 30분 내로 연락드리겠습니다.",
-    paymentTitle: "안전한 결제", paymentError: "결제에 실패했습니다. 다시 시도해 주세요.",
-  }
+    paymentTitle: "안전한 결제",
+    paymentError: "결제에 실패했습니다. 다시 시도해 주세요.",
+  },
 };
 
 const paymentTranslations = {
   en: {
+    navFairPricing: "Fair Pricing",
     paymentMethod: "Choose payment method",
     cashPayment: "Pay in the vehicle",
     recommended: "Recommended",
-    cashPaymentDescription: "No prepayment. Pay your driver directly once you are satisfied with the service.",
+    cashPaymentDescription:
+      "No prepayment. Pay your driver directly once you are satisfied with the service.",
     cardPayment: "Pay online by card",
     cardPaymentDescription: "Continue to iyzico's secure payment page.",
     confirmCashBooking: "Confirm booking — pay in vehicle",
-    cashConfirmation: "Your booking is confirmed. Pay the fixed total directly to your driver in the vehicle.",
+    cashConfirmation:
+      "Your booking is confirmed. Pay the fixed total directly to your driver in the vehicle.",
     bookingError: "Your booking could not be completed. Please try again.",
     chooseTime: "Choose time",
     formIncomplete: "Please complete the highlighted fields.",
@@ -1192,12 +1874,15 @@ const paymentTranslations = {
     paymentMethod: "Zahlungsart wählen",
     cashPayment: "Im Fahrzeug bezahlen",
     recommended: "Empfohlen",
-    cashPaymentDescription: "Keine Vorauszahlung. Bezahlen Sie Ihren Fahrer direkt, wenn Sie mit dem Service zufrieden sind.",
+    cashPaymentDescription:
+      "Keine Vorauszahlung. Bezahlen Sie Ihren Fahrer direkt, wenn Sie mit dem Service zufrieden sind.",
     cardPayment: "Online mit Karte bezahlen",
     cardPaymentDescription: "Weiter zur sicheren Zahlungsseite von iyzico.",
     confirmCashBooking: "Buchung bestätigen — im Fahrzeug zahlen",
-    cashConfirmation: "Ihre Buchung ist bestätigt. Zahlen Sie den Festpreis direkt beim Fahrer im Fahrzeug.",
-    bookingError: "Ihre Buchung konnte nicht abgeschlossen werden. Bitte versuchen Sie es erneut.",
+    cashConfirmation:
+      "Ihre Buchung ist bestätigt. Zahlen Sie den Festpreis direkt beim Fahrer im Fahrzeug.",
+    bookingError:
+      "Ihre Buchung konnte nicht abgeschlossen werden. Bitte versuchen Sie es erneut.",
     chooseTime: "Uhrzeit wählen",
     formIncomplete: "Bitte füllen Sie die markierten Felder aus.",
     requiredField: "Dieses Feld ist erforderlich.",
@@ -1205,7 +1890,8 @@ const paymentTranslations = {
     dateInvalid: "Bitte wählen Sie heute oder ein zukünftiges Datum.",
     emailInvalid: "Bitte geben Sie eine gültige E-Mail-Adresse ein.",
     nameInvalid: "Bitte geben Sie einen gültigen vollständigen Namen ein.",
-    phoneInvalid: "Bitte geben Sie eine gültige Telefon- oder WhatsApp-Nummer ein.",
+    phoneInvalid:
+      "Bitte geben Sie eine gültige Telefon- oder WhatsApp-Nummer ein.",
     flightInvalid: "Bitte geben Sie eine gültige Flugnummer ein.",
     pickupAddressRequired: "Bitte geben Sie die vollständige Abholadresse ein.",
   },
@@ -1213,11 +1899,13 @@ const paymentTranslations = {
     paymentMethod: "Ödeme yöntemini seçin",
     cashPayment: "Araçta öde",
     recommended: "Önerilen",
-    cashPaymentDescription: "Ön ödeme yok. Hizmetten memnun kaldığınızda ödemenizi doğrudan şoförünüze yapın.",
+    cashPaymentDescription:
+      "Ön ödeme yok. Hizmetten memnun kaldığınızda ödemenizi doğrudan şoförünüze yapın.",
     cardPayment: "Online kartla öde",
     cardPaymentDescription: "iyzico güvenli ödeme sayfasına devam edin.",
     confirmCashBooking: "Rezervasyonu onayla — araçta öde",
-    cashConfirmation: "Rezervasyonunuz onaylandı. Sabit toplam tutarı araçta doğrudan şoförünüze ödeyin.",
+    cashConfirmation:
+      "Rezervasyonunuz onaylandı. Sabit toplam tutarı araçta doğrudan şoförünüze ödeyin.",
     bookingError: "Rezervasyonunuz tamamlanamadı. Lütfen tekrar deneyin.",
     chooseTime: "Saat seçin",
     formIncomplete: "Lütfen işaretli alanları doldurun.",
@@ -1234,11 +1922,13 @@ const paymentTranslations = {
     paymentMethod: "Выберите способ оплаты",
     cashPayment: "Оплата в автомобиле",
     recommended: "Рекомендуем",
-    cashPaymentDescription: "Без предоплаты. Оплатите услугу непосредственно водителю, когда останетесь довольны обслуживанием.",
+    cashPaymentDescription:
+      "Без предоплаты. Оплатите услугу непосредственно водителю, когда останетесь довольны обслуживанием.",
     cardPayment: "Оплата картой онлайн",
     cardPaymentDescription: "Перейдите на защищённую страницу оплаты iyzico.",
     confirmCashBooking: "Подтвердить — оплата в автомобиле",
-    cashConfirmation: "Бронирование подтверждено. Оплатите фиксированную сумму водителю в автомобиле.",
+    cashConfirmation:
+      "Бронирование подтверждено. Оплатите фиксированную сумму водителю в автомобиле.",
     bookingError: "Не удалось завершить бронирование. Попробуйте ещё раз.",
     chooseTime: "Выберите время",
     formIncomplete: "Заполните выделенные поля.",
@@ -1255,11 +1945,13 @@ const paymentTranslations = {
     paymentMethod: "Wybierz metodę płatności",
     cashPayment: "Zapłać w pojeździe",
     recommended: "Polecane",
-    cashPaymentDescription: "Bez przedpłaty. Zapłać bezpośrednio kierowcy, gdy usługa spełni Twoje oczekiwania.",
+    cashPaymentDescription:
+      "Bez przedpłaty. Zapłać bezpośrednio kierowcy, gdy usługa spełni Twoje oczekiwania.",
     cardPayment: "Zapłać kartą online",
     cardPaymentDescription: "Przejdź do bezpiecznej strony płatności iyzico.",
     confirmCashBooking: "Potwierdź — zapłać w pojeździe",
-    cashConfirmation: "Rezerwacja jest potwierdzona. Zapłać kierowcy ustaloną kwotę w pojeździe.",
+    cashConfirmation:
+      "Rezerwacja jest potwierdzona. Zapłać kierowcy ustaloną kwotę w pojeździe.",
     bookingError: "Nie udało się dokończyć rezerwacji. Spróbuj ponownie.",
     chooseTime: "Wybierz godzinę",
     formIncomplete: "Uzupełnij zaznaczone pola.",
@@ -1276,11 +1968,14 @@ const paymentTranslations = {
     paymentMethod: "Kies betaalmethode",
     cashPayment: "Betaal in het voertuig",
     recommended: "Aanbevolen",
-    cashPaymentDescription: "Geen vooruitbetaling. Betaal uw chauffeur rechtstreeks zodra u tevreden bent over de service.",
+    cashPaymentDescription:
+      "Geen vooruitbetaling. Betaal uw chauffeur rechtstreeks zodra u tevreden bent over de service.",
     cardPayment: "Online met kaart betalen",
-    cardPaymentDescription: "Ga verder naar de beveiligde betaalpagina van iyzico.",
+    cardPaymentDescription:
+      "Ga verder naar de beveiligde betaalpagina van iyzico.",
     confirmCashBooking: "Bevestig — betaal in het voertuig",
-    cashConfirmation: "Uw boeking is bevestigd. Betaal het vaste bedrag rechtstreeks aan de chauffeur.",
+    cashConfirmation:
+      "Uw boeking is bevestigd. Betaal het vaste bedrag rechtstreeks aan de chauffeur.",
     bookingError: "Uw boeking kon niet worden voltooid. Probeer het opnieuw.",
     chooseTime: "Kies tijd",
     formIncomplete: "Vul de gemarkeerde velden in.",
@@ -1297,11 +1992,13 @@ const paymentTranslations = {
     paymentMethod: "Оберіть спосіб оплати",
     cashPayment: "Оплата в автомобілі",
     recommended: "Рекомендуємо",
-    cashPaymentDescription: "Без передоплати. Сплатіть безпосередньо водієві, коли будете задоволені послугою.",
+    cashPaymentDescription:
+      "Без передоплати. Сплатіть безпосередньо водієві, коли будете задоволені послугою.",
     cardPayment: "Оплата карткою онлайн",
     cardPaymentDescription: "Перейдіть на захищену сторінку оплати iyzico.",
     confirmCashBooking: "Підтвердити — оплата в автомобілі",
-    cashConfirmation: "Бронювання підтверджено. Сплатіть фіксовану суму водієві в автомобілі.",
+    cashConfirmation:
+      "Бронювання підтверджено. Сплатіть фіксовану суму водієві в автомобілі.",
     bookingError: "Не вдалося завершити бронювання. Спробуйте ще раз.",
     chooseTime: "Оберіть час",
     formIncomplete: "Заповніть виділені поля.",
@@ -1318,12 +2015,16 @@ const paymentTranslations = {
     paymentMethod: "Choisissez le mode de paiement",
     cashPayment: "Payer dans le véhicule",
     recommended: "Recommandé",
-    cashPaymentDescription: "Aucun prépaiement. Payez directement votre chauffeur une fois satisfait du service.",
+    cashPaymentDescription:
+      "Aucun prépaiement. Payez directement votre chauffeur une fois satisfait du service.",
     cardPayment: "Payer en ligne par carte",
-    cardPaymentDescription: "Continuez vers la page de paiement sécurisée iyzico.",
+    cardPaymentDescription:
+      "Continuez vers la page de paiement sécurisée iyzico.",
     confirmCashBooking: "Confirmer — payer dans le véhicule",
-    cashConfirmation: "Votre réservation est confirmée. Réglez le montant fixe directement au chauffeur.",
-    bookingError: "Votre réservation n'a pas pu être finalisée. Veuillez réessayer.",
+    cashConfirmation:
+      "Votre réservation est confirmée. Réglez le montant fixe directement au chauffeur.",
+    bookingError:
+      "Votre réservation n'a pas pu être finalisée. Veuillez réessayer.",
     chooseTime: "Choisir l'heure",
     formIncomplete: "Veuillez compléter les champs indiqués.",
     requiredField: "Ce champ est obligatoire.",
@@ -1333,17 +2034,20 @@ const paymentTranslations = {
     nameInvalid: "Veuillez saisir un nom complet valide.",
     phoneInvalid: "Veuillez saisir un numéro de téléphone ou WhatsApp valide.",
     flightInvalid: "Veuillez saisir un numéro de vol valide.",
-    pickupAddressRequired: "Veuillez saisir l'adresse complète de prise en charge.",
+    pickupAddressRequired:
+      "Veuillez saisir l'adresse complète de prise en charge.",
   },
   sv: {
     paymentMethod: "Välj betalningsmetod",
     cashPayment: "Betala i fordonet",
     recommended: "Rekommenderas",
-    cashPaymentDescription: "Ingen förskottsbetalning. Betala din chaufför direkt när du är nöjd med tjänsten.",
+    cashPaymentDescription:
+      "Ingen förskottsbetalning. Betala din chaufför direkt när du är nöjd med tjänsten.",
     cardPayment: "Betala online med kort",
     cardPaymentDescription: "Fortsätt till iyzicos säkra betalningssida.",
     confirmCashBooking: "Bekräfta — betala i fordonet",
-    cashConfirmation: "Din bokning är bekräftad. Betala det fasta beloppet direkt till chauffören.",
+    cashConfirmation:
+      "Din bokning är bekräftad. Betala det fasta beloppet direkt till chauffören.",
     bookingError: "Bokningen kunde inte slutföras. Försök igen.",
     chooseTime: "Välj tid",
     formIncomplete: "Fyll i de markerade fälten.",
@@ -1360,11 +2064,13 @@ const paymentTranslations = {
     paymentMethod: "お支払い方法を選択",
     cashPayment: "車内で支払う",
     recommended: "おすすめ",
-    cashPaymentDescription: "事前のお支払いは不要です。サービスにご満足いただいてから、ドライバーへ直接お支払いください。",
+    cashPaymentDescription:
+      "事前のお支払いは不要です。サービスにご満足いただいてから、ドライバーへ直接お支払いください。",
     cardPayment: "オンラインでカード決済",
     cardPaymentDescription: "iyzicoの安全な決済ページへ進みます。",
     confirmCashBooking: "予約確定 — 車内払い",
-    cashConfirmation: "予約が確定しました。固定料金を車内でドライバーへ直接お支払いください。",
+    cashConfirmation:
+      "予約が確定しました。固定料金を車内でドライバーへ直接お支払いください。",
     bookingError: "予約を完了できませんでした。もう一度お試しください。",
     chooseTime: "時間を選択",
     formIncomplete: "表示された必須項目を入力してください。",
@@ -1381,11 +2087,13 @@ const paymentTranslations = {
     paymentMethod: "결제 방법 선택",
     cashPayment: "차량에서 결제",
     recommended: "추천",
-    cashPaymentDescription: "선결제는 필요 없습니다. 서비스에 만족하신 후 기사에게 직접 결제하세요.",
+    cashPaymentDescription:
+      "선결제는 필요 없습니다. 서비스에 만족하신 후 기사에게 직접 결제하세요.",
     cardPayment: "온라인 카드 결제",
     cardPaymentDescription: "iyzico 보안 결제 페이지로 이동합니다.",
     confirmCashBooking: "예약 확정 — 차량에서 결제",
-    cashConfirmation: "예약이 확정되었습니다. 차량에서 기사에게 고정 요금을 직접 결제하세요.",
+    cashConfirmation:
+      "예약이 확정되었습니다. 차량에서 기사에게 고정 요금을 직접 결제하세요.",
     bookingError: "예약을 완료하지 못했습니다. 다시 시도해 주세요.",
     chooseTime: "시간 선택",
     formIncomplete: "표시된 필수 항목을 입력해 주세요.",
@@ -1411,9 +2119,10 @@ const fleetData = {
     name: "Mercedes Sprinter",
     shortName: "Sprinter",
     descriptionKey: "fleetVclassDescription",
-    description: "Spacious VIP transport for larger groups, with generous room for passengers and luggage.",
+    description:
+      "Spacious VIP transport for larger groups, with generous room for passengers and luggage.",
     guests: "13",
-    bags: "12"
+    bags: "12",
   },
   vito: {
     classKey: "fleetVitoClass",
@@ -1421,10 +2130,11 @@ const fleetData = {
     name: "Mercedes Vito",
     shortName: "Vito",
     descriptionKey: "fleetVitoDescription",
-    description: "A refined private cabin for families and small groups travelling in comfort.",
+    description:
+      "A refined private cabin for families and small groups travelling in comfort.",
     guests: "8",
-    bags: "6"
-  }
+    bags: "6",
+  },
 };
 
 const fallbackFleetPhotos = [
@@ -1450,10 +2160,22 @@ const fallbackFleetPhotos = [
 
 const getPhotoCaption = (fileName) => {
   const normalized = fileName.toLowerCase();
-  if (normalized.includes("interior") || normalized.includes("lounge")) return "VIP interior";
-  if (normalized.includes("cabin") || normalized.includes("seat")) return "Passenger cabin";
-  if (normalized.includes("arrival") || normalized.includes("chauffeur") || normalized.includes("driver")) return "Chauffeur arrival";
-  if (normalized.includes("exterior") || normalized.includes("front") || normalized.includes("side")) return "Exterior";
+  if (normalized.includes("interior") || normalized.includes("lounge"))
+    return "VIP interior";
+  if (normalized.includes("cabin") || normalized.includes("seat"))
+    return "Passenger cabin";
+  if (
+    normalized.includes("arrival") ||
+    normalized.includes("chauffeur") ||
+    normalized.includes("driver")
+  )
+    return "Chauffeur arrival";
+  if (
+    normalized.includes("exterior") ||
+    normalized.includes("front") ||
+    normalized.includes("side")
+  )
+    return "Exterior";
   return "Our vehicle";
 };
 
@@ -1489,7 +2211,9 @@ const fleetCarouselNext = document.querySelector("#fleet-carousel-next");
 
 const getPhotosForFleet = (fleetKey) => {
   if (!fleetPhotos.length) return fallbackFleetPhotos;
-  const vehiclePhotos = fleetPhotos.filter((photo) => photo.vehicle === fleetKey || photo.vehicle === "all");
+  const vehiclePhotos = fleetPhotos.filter(
+    (photo) => photo.vehicle === fleetKey || photo.vehicle === "all",
+  );
   return vehiclePhotos.length ? vehiclePhotos : fleetPhotos;
 };
 
@@ -1500,7 +2224,10 @@ const renderFleetCarouselDots = () => {
     const dot = document.createElement("button");
     dot.className = "fleet-carousel-dot";
     dot.type = "button";
-    dot.setAttribute("aria-label", `Show ${photo.caption.toLowerCase()} photo ${index + 1}`);
+    dot.setAttribute(
+      "aria-label",
+      `Show ${photo.caption.toLowerCase()} photo ${index + 1}`,
+    );
     dot.setAttribute("aria-current", String(index === activeFleetPhotoIndex));
     dot.classList.toggle("active", index === activeFleetPhotoIndex);
     dot.addEventListener("click", () => updateFleetCarousel(index));
@@ -1544,7 +2271,7 @@ const routeData = {
   dalaman: { name: "Dalaman", prices: { vito: 200, sprinter: 250 } },
   fethiye: { name: "Fethiye", prices: { vito: 200, sprinter: 250 } },
   pamukkale: { name: "Pamukkale", prices: { vito: 200, sprinter: 250 } },
-  kapadokya: { name: "Kapadokya", prices: { vito: 300, sprinter: 400 } }
+  kapadokya: { name: "Kapadokya", prices: { vito: 300, sprinter: 400 } },
 };
 
 const header = document.querySelector(".site-header");
@@ -1560,7 +2287,9 @@ const guestsSelect = document.querySelector("#guests");
 const travelDate = document.querySelector("#travel-date");
 const quoteForm = document.querySelector("#quote-form");
 const paymentErrorMessage = document.querySelector("#payment-error-message");
-const paymentMethodInputs = document.querySelectorAll('input[name="paymentMethod"]');
+const paymentMethodInputs = document.querySelectorAll(
+  'input[name="paymentMethod"]',
+);
 const confirmationMessage = document.querySelector(".confirmed-msg");
 const submitButtonText = document.querySelector("#main-book-submit span");
 const nameInput = document.querySelector("#customer-name");
@@ -1590,13 +2319,17 @@ menuButton.addEventListener("click", () => {
   document.body.classList.toggle("menu-open", !isOpen);
 });
 
-mobileMenu.querySelectorAll("a").forEach((link) => link.addEventListener("click", closeMenu));
+mobileMenu
+  .querySelectorAll("a")
+  .forEach((link) => link.addEventListener("click", closeMenu));
 
 window.addEventListener("scroll", setHeaderState, { passive: true });
 setHeaderState();
 
 const today = new Date();
-const localToday = new Date(today.getTime() - today.getTimezoneOffset() * 60000).toISOString().split("T")[0];
+const localToday = new Date(today.getTime() - today.getTimezoneOffset() * 60000)
+  .toISOString()
+  .split("T")[0];
 travelDate.min = localToday;
 travelDate.value = localToday;
 
@@ -1627,8 +2360,10 @@ const updateFleet = (fleetKey) => {
   fleetClass.dataset.original = selected.className;
   fleetDescription.dataset.i18n = selected.descriptionKey;
   fleetDescription.dataset.original = selected.description;
-  fleetClass.innerHTML = translations[language]?.[selected.classKey] || selected.className;
-  fleetDescription.innerHTML = translations[language]?.[selected.descriptionKey] || selected.description;
+  fleetClass.innerHTML =
+    translations[language]?.[selected.classKey] || selected.className;
+  fleetDescription.innerHTML =
+    translations[language]?.[selected.descriptionKey] || selected.description;
   document.querySelector("#fleet-name").textContent = selected.name;
   document.querySelector("#fleet-badge-name").textContent = selected.shortName;
   document.querySelector("#fleet-guests").textContent = selected.guests;
@@ -1638,7 +2373,9 @@ const updateFleet = (fleetKey) => {
 
 document.querySelectorAll(".fleet-tab").forEach((tab) => {
   tab.addEventListener("click", () => {
-    document.querySelectorAll(".fleet-tab").forEach((item) => item.classList.remove("active"));
+    document
+      .querySelectorAll(".fleet-tab")
+      .forEach((item) => item.classList.remove("active"));
     tab.classList.add("active");
     updateFleet(tab.dataset.fleet);
     vehicleSelect.value = tab.dataset.fleet;
@@ -1647,9 +2384,15 @@ document.querySelectorAll(".fleet-tab").forEach((tab) => {
   });
 });
 
-fleetCarouselPrev?.addEventListener("click", () => updateFleetCarousel(activeFleetPhotoIndex - 1));
-fleetCarouselNext?.addEventListener("click", () => updateFleetCarousel(activeFleetPhotoIndex + 1));
-syncFleetCarouselForVehicle(document.querySelector(".fleet-tab.active")?.dataset.fleet || "sprinter");
+fleetCarouselPrev?.addEventListener("click", () =>
+  updateFleetCarousel(activeFleetPhotoIndex - 1),
+);
+fleetCarouselNext?.addEventListener("click", () =>
+  updateFleetCarousel(activeFleetPhotoIndex + 1),
+);
+syncFleetCarouselForVehicle(
+  document.querySelector(".fleet-tab.active")?.dataset.fleet || "sprinter",
+);
 
 document.querySelectorAll(".faq-item button").forEach((button) => {
   button.addEventListener("click", () => {
@@ -1675,7 +2418,8 @@ const updateGuestCapacity = () => {
   Array.from(guestsSelect.options).forEach((option) => {
     option.disabled = Number(option.value) > capacity;
   });
-  if (Number(guestsSelect.value) > capacity) guestsSelect.value = String(capacity);
+  if (Number(guestsSelect.value) > capacity)
+    guestsSelect.value = String(capacity);
 };
 
 const updateInlinePrice = (routeKey, vehicleKey = vehicleSelect.value) => {
@@ -1733,7 +2477,8 @@ updatePickupAddress();
 if (destinationSelect.value) updateInlinePrice(destinationSelect.value);
 
 const getSelectedPaymentMethod = () =>
-  document.querySelector('input[name="paymentMethod"]:checked')?.value || "cash";
+  document.querySelector('input[name="paymentMethod"]:checked')?.value ||
+  "cash";
 
 const updatePaymentMethodUI = () => {
   const isCard = getSelectedPaymentMethod() === "card";
@@ -1741,7 +2486,9 @@ const updatePaymentMethodUI = () => {
   submitButtonText.dataset.i18n = translationKey;
   submitButtonText.textContent =
     translations[document.documentElement.lang]?.[translationKey] ||
-    (isCard ? "Continue to secure payment" : "Confirm booking — pay in vehicle");
+    (isCard
+      ? "Continue to secure payment"
+      : "Confirm booking — pay in vehicle");
 };
 
 paymentMethodInputs.forEach((input) => {
@@ -1799,13 +2546,18 @@ const isValidFlightNumber = (value) => {
 };
 
 phoneInput.addEventListener("input", () => {
-  const sanitized = phoneInput.value.replace(allowedPhoneCharacters, "").replace(/(?!^)\+/g, "");
+  const sanitized = phoneInput.value
+    .replace(allowedPhoneCharacters, "")
+    .replace(/(?!^)\+/g, "");
   if (phoneInput.value !== sanitized) phoneInput.value = sanitized;
 });
 
 flightNumberInput.addEventListener("input", () => {
-  const sanitized = flightNumberInput.value.replace(flightNumberCharacters, "").toUpperCase();
-  if (flightNumberInput.value !== sanitized) flightNumberInput.value = sanitized;
+  const sanitized = flightNumberInput.value
+    .replace(flightNumberCharacters, "")
+    .toUpperCase();
+  if (flightNumberInput.value !== sanitized)
+    flightNumberInput.value = sanitized;
 });
 
 const clearFieldError = (input) => {
@@ -1837,9 +2589,19 @@ const validateBookingForm = () => {
   nameInput.value = normalizeWhitespace(nameInput.value);
   phoneInput.value = normalizeWhitespace(phoneInput.value);
   emailInput.value = emailInput.value.trim();
-  flightNumberInput.value = normalizeWhitespace(flightNumberInput.value).toUpperCase();
+  flightNumberInput.value = normalizeWhitespace(
+    flightNumberInput.value,
+  ).toUpperCase();
 
-  const fields = [destinationSelect, travelDate, pickupAddressInput, nameInput, phoneInput, emailInput, flightNumberInput];
+  const fields = [
+    destinationSelect,
+    travelDate,
+    pickupAddressInput,
+    nameInput,
+    phoneInput,
+    emailInput,
+    flightNumberInput,
+  ];
   fields.forEach(clearFieldError);
 
   const errors = [];
@@ -1853,7 +2615,10 @@ const validateBookingForm = () => {
   }
   if (pickupSelect.value === "private_address") {
     pickupAddressInput.value = normalizeWhitespace(pickupAddressInput.value);
-    if (pickupAddressInput.value.length < 6 || pickupAddressInput.value.length > 160) {
+    if (
+      pickupAddressInput.value.length < 6 ||
+      pickupAddressInput.value.length > 160
+    ) {
       errors.push([pickupAddressInput, copy.pickupAddressRequired]);
     }
   }
@@ -1882,15 +2647,20 @@ const validateBookingForm = () => {
   paymentErrorMessage.textContent = copy.formIncomplete;
   paymentErrorMessage.hidden = false;
   errors[0][0].focus();
-  errors[0][0].closest(".booking-field")?.scrollIntoView({ behavior: "smooth", block: "center" });
+  errors[0][0]
+    .closest(".booking-field")
+    ?.scrollIntoView({ behavior: "smooth", block: "center" });
   return false;
 };
 
 quoteForm.querySelectorAll("input, select").forEach((input) => {
-  input.addEventListener(input.tagName === "SELECT" ? "change" : "input", () => {
-    clearFieldError(input);
-    paymentErrorMessage.hidden = true;
-  });
+  input.addEventListener(
+    input.tagName === "SELECT" ? "change" : "input",
+    () => {
+      clearFieldError(input);
+      paymentErrorMessage.hidden = true;
+    },
+  );
 });
 
 const syncArrivalTimeState = () => {
@@ -1964,7 +2734,8 @@ quoteForm.addEventListener("submit", async (event) => {
       pickup: pickupSelect.value,
       destination: destinationSelect.value,
       vehicle: vehicleSelect.value,
-      price: routeData[destinationSelect.value]?.prices[vehicleSelect.value] || 0,
+      price:
+        routeData[destinationSelect.value]?.prices[vehicleSelect.value] || 0,
     };
   }
 
@@ -1974,10 +2745,12 @@ quoteForm.addEventListener("submit", async (event) => {
       customer_email: email,
       customer_phone: phone,
       flight_number: flightNumberInput.value.trim() || null,
-      flight_arrival_time: document.querySelector("#flight-arrival-time").value || null,
+      flight_arrival_time:
+        document.querySelector("#flight-arrival-time").value || null,
       notes: null,
       pickup_location: currentQuoteData.pickup || "airport",
-      pickup_address: currentQuoteData.pickup === "private_address" ? pickupAddress : null,
+      pickup_address:
+        currentQuoteData.pickup === "private_address" ? pickupAddress : null,
       dropoff_location: currentQuoteData.destination || "",
       pickup_date: document.querySelector("#travel-date").value,
       guests: parseInt(document.querySelector("#guests").value, 10),
@@ -2009,21 +2782,23 @@ quoteForm.addEventListener("submit", async (event) => {
     console.error("Booking error:", err);
     const language = document.documentElement.lang || "en";
     paymentErrorMessage.textContent =
-      translations[language]?.bookingError || paymentTranslations.en.bookingError;
+      translations[language]?.bookingError ||
+      paymentTranslations.en.bookingError;
     paymentErrorMessage.hidden = false;
   } finally {
     submitBtn.disabled = false;
     if (submitBtn.querySelector("span").textContent === "…") {
       submitBtn.querySelector("span").textContent = originalText;
     }
-  updatePaymentMethodUI();
-  syncArrivalTimeState();
-}
+    updatePaymentMethodUI();
+    syncArrivalTimeState();
+  }
 });
 
 document.querySelectorAll(".route-price-button").forEach((button) => {
   button.addEventListener("click", () => {
-    const selectedVehicle = button.dataset.vehicle || vehicleSelect.value || "vito";
+    const selectedVehicle =
+      button.dataset.vehicle || vehicleSelect.value || "vito";
     destinationSelect.value = button.dataset.route;
     vehicleSelect.value = selectedVehicle;
     updateGuestCapacity();
@@ -2056,7 +2831,9 @@ const scrollRouteSlider = (direction) => {
 
 routeSliderPrev?.addEventListener("click", () => scrollRouteSlider(-1));
 routeSliderNext?.addEventListener("click", () => scrollRouteSlider(1));
-routeSlider?.addEventListener("scroll", updateRouteSliderControls, { passive: true });
+routeSlider?.addEventListener("scroll", updateRouteSliderControls, {
+  passive: true,
+});
 routeSlider?.addEventListener("keydown", (event) => {
   if (event.key === "ArrowLeft") {
     event.preventDefault();
@@ -2079,8 +2856,12 @@ document.querySelectorAll(".price-pill").forEach((pill) => {
   });
 });
 
-quoteModal.querySelector(".modal-close").addEventListener("click", closeConfirmation);
-quoteModal.querySelector(".modal-backdrop").addEventListener("click", closeConfirmation);
+quoteModal
+  .querySelector(".modal-close")
+  .addEventListener("click", closeConfirmation);
+quoteModal
+  .querySelector(".modal-backdrop")
+  .addEventListener("click", closeConfirmation);
 document.addEventListener("keydown", (event) => {
   if (event.key === "Escape") {
     closeConfirmation();
@@ -2089,9 +2870,17 @@ document.addEventListener("keydown", (event) => {
 });
 
 const LANG_FLAGS = {
-  en: "🇬🇧", de: "🇩🇪", tr: "🇹🇷", ru: "🇷🇺",
-  pl: "🇵🇱", nl: "🇳🇱", uk: "🇺🇦", fr: "🇫🇷",
-  sv: "🇸🇪", ja: "🇯🇵", ko: "🇰🇷",
+  en: "🇬🇧",
+  de: "🇩🇪",
+  tr: "🇹🇷",
+  ru: "🇷🇺",
+  pl: "🇵🇱",
+  nl: "🇳🇱",
+  uk: "🇺🇦",
+  fr: "🇫🇷",
+  sv: "🇸🇪",
+  ja: "🇯🇵",
+  ko: "🇰🇷",
 };
 
 const langDropdown = document.getElementById("lang-dropdown");
@@ -2114,10 +2903,12 @@ document.addEventListener("click", (e) => {
 });
 
 const applyLanguage = (language) => {
-  const supportedLanguage = (translations[language] || language === "en") ? language : "en";
+  const supportedLanguage =
+    translations[language] || language === "en" ? language : "en";
   document.documentElement.lang = supportedLanguage;
 
-  if (langFlagEl) langFlagEl.textContent = LANG_FLAGS[supportedLanguage] || "🌐";
+  if (langFlagEl)
+    langFlagEl.textContent = LANG_FLAGS[supportedLanguage] || "🌐";
 
   document.querySelectorAll(".language-button").forEach((item) => {
     const isActive = item.dataset.language === supportedLanguage;
@@ -2127,16 +2918,20 @@ const applyLanguage = (language) => {
 
   document.querySelectorAll("[data-i18n]").forEach((element) => {
     if (!element.dataset.original) element.dataset.original = element.innerHTML;
-    element.innerHTML = translations[supportedLanguage]?.[element.dataset.i18n] || element.dataset.original;
+    element.innerHTML =
+      translations[supportedLanguage]?.[element.dataset.i18n] ||
+      element.dataset.original;
   });
 
   document.querySelectorAll("[data-i18n-placeholder]").forEach((element) => {
     if (!element.dataset.originalPlaceholder) {
-      element.dataset.originalPlaceholder = element.getAttribute("placeholder") || "";
+      element.dataset.originalPlaceholder =
+        element.getAttribute("placeholder") || "";
     }
     element.setAttribute(
       "placeholder",
-      translations[supportedLanguage]?.[element.dataset.i18nPlaceholder] || element.dataset.originalPlaceholder
+      translations[supportedLanguage]?.[element.dataset.i18nPlaceholder] ||
+        element.dataset.originalPlaceholder,
     );
   });
 
@@ -2160,10 +2955,24 @@ document.querySelectorAll(".language-button").forEach((button) => {
   });
 });
 
-const SUPPORTED_LANGS = ["en", "de", "tr", "ru", "pl", "nl", "uk", "fr", "sv", "ja", "ko"];
+const SUPPORTED_LANGS = [
+  "en",
+  "de",
+  "tr",
+  "ru",
+  "pl",
+  "nl",
+  "uk",
+  "fr",
+  "sv",
+  "ja",
+  "ko",
+];
 
 function detectBrowserLanguage() {
-  const langs = navigator.languages?.length ? navigator.languages : [navigator.language || "en"];
+  const langs = navigator.languages?.length
+    ? navigator.languages
+    : [navigator.language || "en"];
   for (const l of langs) {
     const code = l.split("-")[0].toLowerCase();
     if (SUPPORTED_LANGS.includes(code)) return code;
@@ -2173,7 +2982,8 @@ function detectBrowserLanguage() {
 
 let savedLanguage = "en";
 try {
-  savedLanguage = localStorage.getItem("avl-language") || detectBrowserLanguage();
+  savedLanguage =
+    localStorage.getItem("avl-language") || detectBrowserLanguage();
 } catch {
   savedLanguage = detectBrowserLanguage();
 }
@@ -2182,7 +2992,8 @@ applyLanguage(savedLanguage);
 // Handle the verified iyzico callback return.
 const urlParams = new URLSearchParams(window.location.search);
 if (urlParams.get("payment") === "success" && urlParams.get("booking_ref")) {
-  document.querySelector("#confirmed-ref").textContent = urlParams.get("booking_ref");
+  document.querySelector("#confirmed-ref").textContent =
+    urlParams.get("booking_ref");
   confirmationMessage.dataset.i18n = "weWillContact";
   confirmationMessage.textContent =
     translations[document.documentElement.lang]?.weWillContact ||
@@ -2207,20 +3018,25 @@ const observer = new IntersectionObserver(
       }
     });
   },
-  { threshold: 0.12 }
+  { threshold: 0.12 },
 );
 
-document.querySelectorAll(".service-card, .route-card, .review-card, .process-line article").forEach((element) => {
-  const siblings = Array.from(element.parentElement.children);
-  const delay = (siblings.indexOf(element) % 4) * 0.09;
-  element.style.opacity = "0";
-  element.style.transform = "translateY(22px)";
-  element.style.transition = `opacity .65s ease ${delay}s, transform .65s ease ${delay}s, box-shadow .35s ease`;
-  observer.observe(element);
-});
+document
+  .querySelectorAll(
+    ".service-card, .route-card, .review-card, .process-line article",
+  )
+  .forEach((element) => {
+    const siblings = Array.from(element.parentElement.children);
+    const delay = (siblings.indexOf(element) % 4) * 0.09;
+    element.style.opacity = "0";
+    element.style.transform = "translateY(22px)";
+    element.style.transition = `opacity .65s ease ${delay}s, transform .65s ease ${delay}s, box-shadow .35s ease`;
+    observer.observe(element);
+  });
 
 const revealStyle = document.createElement("style");
-revealStyle.textContent = ".is-visible{opacity:1!important;transform:translateY(0)!important}";
+revealStyle.textContent =
+  ".is-visible{opacity:1!important;transform:translateY(0)!important}";
 document.head.appendChild(revealStyle);
 
 // Count-up animation for luxury stats
@@ -2230,22 +3046,28 @@ document.querySelectorAll(".luxury-stats strong").forEach((el) => {
   if (!match) return;
   const target = parseInt(match[1].replace(/,/g, ""), 10);
   const suffix = match[2] + match[3];
-  const statsObs = new IntersectionObserver((entries) => {
-    if (!entries[0].isIntersecting) return;
-    statsObs.unobserve(el);
-    let startTs = null;
-    const duration = 1800;
-    const step = (ts) => {
-      if (!startTs) startTs = ts;
-      const progress = Math.min((ts - startTs) / duration, 1);
-      const eased = 1 - Math.pow(1 - progress, 3);
-      const current = Math.floor(eased * target);
-      el.textContent = (current >= 1000 ? current.toLocaleString() : current) + suffix;
-      if (progress < 1) requestAnimationFrame(step);
-      else el.textContent = (target >= 1000 ? target.toLocaleString() : target) + suffix;
-    };
-    requestAnimationFrame(step);
-  }, { threshold: 0.5 });
+  const statsObs = new IntersectionObserver(
+    (entries) => {
+      if (!entries[0].isIntersecting) return;
+      statsObs.unobserve(el);
+      let startTs = null;
+      const duration = 1800;
+      const step = (ts) => {
+        if (!startTs) startTs = ts;
+        const progress = Math.min((ts - startTs) / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        const current = Math.floor(eased * target);
+        el.textContent =
+          (current >= 1000 ? current.toLocaleString() : current) + suffix;
+        if (progress < 1) requestAnimationFrame(step);
+        else
+          el.textContent =
+            (target >= 1000 ? target.toLocaleString() : target) + suffix;
+      };
+      requestAnimationFrame(step);
+    },
+    { threshold: 0.5 },
+  );
   statsObs.observe(el);
 });
 
@@ -2264,7 +3086,10 @@ bookBar.innerHTML = `
 document.body.appendChild(bookBar);
 
 const heroSection = document.querySelector(".hero");
-const barObs = new IntersectionObserver((entries) => {
-  bookBar.classList.toggle("visible", !entries[0].isIntersecting);
-}, { threshold: 0.1 });
+const barObs = new IntersectionObserver(
+  (entries) => {
+    bookBar.classList.toggle("visible", !entries[0].isIntersecting);
+  },
+  { threshold: 0.1 },
+);
 barObs.observe(heroSection);
