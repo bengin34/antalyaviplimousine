@@ -1552,6 +1552,23 @@ const localToday = new Date(today.getTime() - today.getTimezoneOffset() * 60000)
 travelDate.min = localToday;
 travelDate.value = localToday;
 
+const openNativeDatePicker = () => {
+  if (typeof travelDate.showPicker !== "function") return;
+
+  try {
+    travelDate.showPicker();
+  } catch {
+    travelDate.focus();
+  }
+};
+
+travelDate.addEventListener("click", openNativeDatePicker);
+travelDate.closest(".field-control")?.addEventListener("click", (event) => {
+  if (event.target === travelDate) return;
+  travelDate.focus();
+  openNativeDatePicker();
+});
+
 const updateFleet = (fleetKey) => {
   const selected = fleetData[fleetKey];
   const language = document.documentElement.lang;
