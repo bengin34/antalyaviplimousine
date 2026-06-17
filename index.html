@@ -121,6 +121,15 @@
     }
     </script>
 
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-0VSR8E00FG"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-0VSR8E00FG');
+    </script>
+
     <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -349,6 +358,8 @@
                     id="pickup-address"
                     name="pickupAddress"
                     autocomplete="street-address"
+                    minlength="6"
+                    maxlength="160"
                     data-i18n-placeholder="pickupAddressPlaceholder"
                     placeholder="Hotel name, street, building number and district"
                   />
@@ -360,21 +371,31 @@
               <label class="booking-field">
                 <span data-i18n="fullName">Full name</span>
                 <div class="field-control">
-                  <input type="text" id="customer-name" name="name" required autocomplete="name" placeholder="John Smith" />
+                  <input type="text" id="customer-name" name="name" required autocomplete="name" minlength="2" maxlength="80" placeholder="John Smith" />
                 </div>
               </label>
 
               <label class="booking-field">
                 <span data-i18n="phoneLabel">Phone / WhatsApp</span>
                 <div class="field-control">
-                  <input type="tel" id="customer-phone" name="phone" required autocomplete="tel" placeholder="+44 7700 000000" />
+                  <input
+                    type="tel"
+                    id="customer-phone"
+                    name="phone"
+                    required
+                    autocomplete="tel"
+                    inputmode="tel"
+                    maxlength="25"
+                    pattern="[\+0-9\s().-]{7,25}"
+                    placeholder="+44 7700 000000"
+                  />
                 </div>
               </label>
 
               <label class="booking-field">
                 <span data-i18n="emailLabel">Email</span>
                 <div class="field-control">
-                  <input type="email" id="customer-email" name="email" required autocomplete="email" placeholder="john@example.com" />
+                  <input type="email" id="customer-email" name="email" required autocomplete="email" inputmode="email" maxlength="120" placeholder="john@example.com" />
                 </div>
               </label>
 
@@ -382,7 +403,7 @@
                 <span data-i18n="flightNumber">Flight number</span>
                 <div class="field-control">
                   <svg class="icon" aria-hidden="true"><use href="#icon-plane"></use></svg>
-                  <input type="text" id="flight-number" name="flight" placeholder="TK1234" />
+                  <input type="text" id="flight-number" name="flight" autocomplete="off" autocapitalize="characters" maxlength="12" pattern="[A-Za-z0-9 -]{2,12}" placeholder="TK1234" />
                 </div>
               </label>
 

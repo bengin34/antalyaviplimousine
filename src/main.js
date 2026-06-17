@@ -1181,7 +1181,11 @@ const paymentTranslations = {
     formIncomplete: "Please complete the highlighted fields.",
     requiredField: "This field is required.",
     destinationRequired: "Please select a destination.",
+    dateInvalid: "Please choose today or a future date.",
     emailInvalid: "Please enter a valid email address.",
+    nameInvalid: "Please enter a valid full name.",
+    phoneInvalid: "Please enter a valid phone or WhatsApp number.",
+    flightInvalid: "Please enter a valid flight number.",
     pickupAddressRequired: "Please enter the full pick-up address.",
   },
   de: {
@@ -1198,7 +1202,11 @@ const paymentTranslations = {
     formIncomplete: "Bitte füllen Sie die markierten Felder aus.",
     requiredField: "Dieses Feld ist erforderlich.",
     destinationRequired: "Bitte wählen Sie ein Ziel.",
+    dateInvalid: "Bitte wählen Sie heute oder ein zukünftiges Datum.",
     emailInvalid: "Bitte geben Sie eine gültige E-Mail-Adresse ein.",
+    nameInvalid: "Bitte geben Sie einen gültigen vollständigen Namen ein.",
+    phoneInvalid: "Bitte geben Sie eine gültige Telefon- oder WhatsApp-Nummer ein.",
+    flightInvalid: "Bitte geben Sie eine gültige Flugnummer ein.",
     pickupAddressRequired: "Bitte geben Sie die vollständige Abholadresse ein.",
   },
   tr: {
@@ -1215,7 +1223,11 @@ const paymentTranslations = {
     formIncomplete: "Lütfen işaretli alanları doldurun.",
     requiredField: "Bu alan zorunludur.",
     destinationRequired: "Lütfen bir varış noktası seçin.",
+    dateInvalid: "Lütfen bugünü veya gelecekteki bir tarihi seçin.",
     emailInvalid: "Lütfen geçerli bir e-posta adresi girin.",
+    nameInvalid: "Lütfen geçerli bir ad soyad girin.",
+    phoneInvalid: "Lütfen geçerli bir telefon veya WhatsApp numarası girin.",
+    flightInvalid: "Lütfen geçerli bir uçuş numarası girin.",
     pickupAddressRequired: "Lütfen tam alış adresini girin.",
   },
   ru: {
@@ -1232,7 +1244,11 @@ const paymentTranslations = {
     formIncomplete: "Заполните выделенные поля.",
     requiredField: "Это поле обязательно.",
     destinationRequired: "Выберите направление.",
+    dateInvalid: "Выберите сегодняшнюю или будущую дату.",
     emailInvalid: "Введите действительный адрес электронной почты.",
+    nameInvalid: "Введите действительное полное имя.",
+    phoneInvalid: "Введите действительный номер телефона или WhatsApp.",
+    flightInvalid: "Введите действительный номер рейса.",
     pickupAddressRequired: "Введите полный адрес подачи.",
   },
   pl: {
@@ -1249,7 +1265,11 @@ const paymentTranslations = {
     formIncomplete: "Uzupełnij zaznaczone pola.",
     requiredField: "To pole jest wymagane.",
     destinationRequired: "Wybierz cel podróży.",
+    dateInvalid: "Wybierz dzisiejszą lub przyszłą datę.",
     emailInvalid: "Wprowadź prawidłowy adres e-mail.",
+    nameInvalid: "Wprowadź prawidłowe imię i nazwisko.",
+    phoneInvalid: "Wprowadź prawidłowy numer telefonu lub WhatsApp.",
+    flightInvalid: "Wprowadź prawidłowy numer lotu.",
     pickupAddressRequired: "Wprowadź pełny adres odbioru.",
   },
   nl: {
@@ -1266,7 +1286,11 @@ const paymentTranslations = {
     formIncomplete: "Vul de gemarkeerde velden in.",
     requiredField: "Dit veld is verplicht.",
     destinationRequired: "Kies een bestemming.",
+    dateInvalid: "Kies vandaag of een toekomstige datum.",
     emailInvalid: "Voer een geldig e-mailadres in.",
+    nameInvalid: "Voer een geldige volledige naam in.",
+    phoneInvalid: "Voer een geldig telefoon- of WhatsApp-nummer in.",
+    flightInvalid: "Voer een geldig vluchtnummer in.",
     pickupAddressRequired: "Voer het volledige ophaaladres in.",
   },
   uk: {
@@ -1283,7 +1307,11 @@ const paymentTranslations = {
     formIncomplete: "Заповніть виділені поля.",
     requiredField: "Це поле обов'язкове.",
     destinationRequired: "Оберіть напрямок.",
+    dateInvalid: "Оберіть сьогоднішню або майбутню дату.",
     emailInvalid: "Введіть дійсну електронну адресу.",
+    nameInvalid: "Введіть дійсне повне ім'я.",
+    phoneInvalid: "Введіть дійсний номер телефону або WhatsApp.",
+    flightInvalid: "Введіть дійсний номер рейсу.",
     pickupAddressRequired: "Введіть повну адресу подачі.",
   },
   fr: {
@@ -1300,7 +1328,11 @@ const paymentTranslations = {
     formIncomplete: "Veuillez compléter les champs indiqués.",
     requiredField: "Ce champ est obligatoire.",
     destinationRequired: "Veuillez choisir une destination.",
+    dateInvalid: "Veuillez choisir aujourd'hui ou une date future.",
     emailInvalid: "Veuillez saisir une adresse e-mail valide.",
+    nameInvalid: "Veuillez saisir un nom complet valide.",
+    phoneInvalid: "Veuillez saisir un numéro de téléphone ou WhatsApp valide.",
+    flightInvalid: "Veuillez saisir un numéro de vol valide.",
     pickupAddressRequired: "Veuillez saisir l'adresse complète de prise en charge.",
   },
   sv: {
@@ -1317,7 +1349,11 @@ const paymentTranslations = {
     formIncomplete: "Fyll i de markerade fälten.",
     requiredField: "Detta fält är obligatoriskt.",
     destinationRequired: "Välj en destination.",
+    dateInvalid: "Välj dagens datum eller ett framtida datum.",
     emailInvalid: "Ange en giltig e-postadress.",
+    nameInvalid: "Ange ett giltigt fullständigt namn.",
+    phoneInvalid: "Ange ett giltigt telefon- eller WhatsApp-nummer.",
+    flightInvalid: "Ange ett giltigt flightnummer.",
     pickupAddressRequired: "Ange den fullständiga hämtningsadressen.",
   },
   ja: {
@@ -1334,7 +1370,11 @@ const paymentTranslations = {
     formIncomplete: "表示された必須項目を入力してください。",
     requiredField: "この項目は必須です。",
     destinationRequired: "目的地を選択してください。",
+    dateInvalid: "今日または今後の日付を選択してください。",
     emailInvalid: "有効なメールアドレスを入力してください。",
+    nameInvalid: "有効な氏名を入力してください。",
+    phoneInvalid: "有効な電話番号またはWhatsApp番号を入力してください。",
+    flightInvalid: "有効なフライト番号を入力してください。",
     pickupAddressRequired: "お迎え先の詳しい住所を入力してください。",
   },
   ko: {
@@ -1351,7 +1391,11 @@ const paymentTranslations = {
     formIncomplete: "표시된 필수 항목을 입력해 주세요.",
     requiredField: "필수 입력 항목입니다.",
     destinationRequired: "목적지를 선택해 주세요.",
+    dateInvalid: "오늘 또는 이후 날짜를 선택해 주세요.",
     emailInvalid: "올바른 이메일 주소를 입력해 주세요.",
+    nameInvalid: "올바른 전체 이름을 입력해 주세요.",
+    phoneInvalid: "올바른 전화번호 또는 WhatsApp 번호를 입력해 주세요.",
+    flightInvalid: "올바른 항공편 번호를 입력해 주세요.",
     pickupAddressRequired: "전체 픽업 주소를 입력해 주세요.",
   },
 };
@@ -1519,6 +1563,10 @@ const paymentErrorMessage = document.querySelector("#payment-error-message");
 const paymentMethodInputs = document.querySelectorAll('input[name="paymentMethod"]');
 const confirmationMessage = document.querySelector(".confirmed-msg");
 const submitButtonText = document.querySelector("#main-book-submit span");
+const nameInput = document.querySelector("#customer-name");
+const phoneInput = document.querySelector("#customer-phone");
+const emailInput = document.querySelector("#customer-email");
+const flightNumberInput = document.querySelector("#flight-number");
 const arrivalTimeInput = document.querySelector("#flight-arrival-time");
 const arrivalTimeControl = document.querySelector(".time-field-control");
 const arrivalTimeValue = document.querySelector(".time-picker-value");
@@ -1700,6 +1748,65 @@ paymentMethodInputs.forEach((input) => {
 });
 updatePaymentMethodUI();
 
+const normalizeWhitespace = (value) => value.trim().replace(/\s+/g, " ");
+const allowedPhoneCharacters = /[^\d+()\s.-]/g;
+const flightNumberCharacters = /[^a-z0-9 -]/gi;
+const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+const flightNumberPattern = /^[a-z0-9][a-z0-9 -]{1,11}$/i;
+
+const isValidName = (value) => {
+  const normalized = normalizeWhitespace(value);
+  const letterCount = normalized.match(/\p{L}/gu)?.length || 0;
+  return (
+    normalized.length >= 2 &&
+    normalized.length <= 80 &&
+    letterCount >= 2 &&
+    !/\d/u.test(normalized)
+  );
+};
+
+const isValidPhone = (value) => {
+  const normalized = normalizeWhitespace(value);
+  const digits = normalized.replace(/\D/g, "");
+  return (
+    digits.length >= 7 &&
+    digits.length <= 15 &&
+    /^[+]?[\d\s().-]+$/.test(normalized) &&
+    !/(?!^)\+/.test(normalized)
+  );
+};
+
+const isValidEmail = (value) => {
+  const normalized = value.trim();
+  return normalized.length <= 120 && emailPattern.test(normalized);
+};
+
+const isValidTravelDate = (value) => {
+  return /^\d{4}-\d{2}-\d{2}$/.test(value) && value >= localToday;
+};
+
+const isValidFlightNumber = (value) => {
+  const normalized = normalizeWhitespace(value);
+  if (!normalized) return true;
+  const alphanumericCount = normalized.replace(/[^a-z0-9]/gi, "").length;
+  return (
+    normalized.length >= 2 &&
+    normalized.length <= 12 &&
+    alphanumericCount >= 2 &&
+    flightNumberPattern.test(normalized)
+  );
+};
+
+phoneInput.addEventListener("input", () => {
+  const sanitized = phoneInput.value.replace(allowedPhoneCharacters, "").replace(/(?!^)\+/g, "");
+  if (phoneInput.value !== sanitized) phoneInput.value = sanitized;
+});
+
+flightNumberInput.addEventListener("input", () => {
+  const sanitized = flightNumberInput.value.replace(flightNumberCharacters, "").toUpperCase();
+  if (flightNumberInput.value !== sanitized) flightNumberInput.value = sanitized;
+});
+
 const clearFieldError = (input) => {
   const field = input.closest(".booking-field");
   if (!field) return;
@@ -1726,10 +1833,12 @@ const showFieldError = (input, message) => {
 const validateBookingForm = () => {
   const language = document.documentElement.lang || "en";
   const copy = translations[language] || paymentTranslations.en;
-  const nameInput = document.querySelector("#customer-name");
-  const phoneInput = document.querySelector("#customer-phone");
-  const emailInput = document.querySelector("#customer-email");
-  const fields = [destinationSelect, travelDate, pickupAddressInput, nameInput, phoneInput, emailInput];
+  nameInput.value = normalizeWhitespace(nameInput.value);
+  phoneInput.value = normalizeWhitespace(phoneInput.value);
+  emailInput.value = emailInput.value.trim();
+  flightNumberInput.value = normalizeWhitespace(flightNumberInput.value).toUpperCase();
+
+  const fields = [destinationSelect, travelDate, pickupAddressInput, nameInput, phoneInput, emailInput, flightNumberInput];
   fields.forEach(clearFieldError);
 
   const errors = [];
@@ -1738,18 +1847,32 @@ const validateBookingForm = () => {
   }
   if (!travelDate.value) {
     errors.push([travelDate, copy.requiredField]);
+  } else if (!isValidTravelDate(travelDate.value)) {
+    errors.push([travelDate, copy.dateInvalid]);
   }
-  if (pickupSelect.value === "private_address" && !pickupAddressInput.value.trim()) {
-    errors.push([pickupAddressInput, copy.pickupAddressRequired]);
+  if (pickupSelect.value === "private_address") {
+    pickupAddressInput.value = normalizeWhitespace(pickupAddressInput.value);
+    if (pickupAddressInput.value.length < 6 || pickupAddressInput.value.length > 160) {
+      errors.push([pickupAddressInput, copy.pickupAddressRequired]);
+    }
   }
   if (!nameInput.value.trim()) {
     errors.push([nameInput, copy.requiredField]);
+  } else if (!isValidName(nameInput.value)) {
+    errors.push([nameInput, copy.nameInvalid]);
   }
   if (!phoneInput.value.trim()) {
     errors.push([phoneInput, copy.requiredField]);
+  } else if (!isValidPhone(phoneInput.value)) {
+    errors.push([phoneInput, copy.phoneInvalid]);
   }
-  if (!emailInput.value.trim() || !emailInput.checkValidity()) {
+  if (!emailInput.value.trim()) {
+    errors.push([emailInput, copy.requiredField]);
+  } else if (!emailInput.checkValidity() || !isValidEmail(emailInput.value)) {
     errors.push([emailInput, copy.emailInvalid]);
+  }
+  if (!isValidFlightNumber(flightNumberInput.value)) {
+    errors.push([flightNumberInput, copy.flightInvalid]);
   }
 
   errors.forEach(([input, message]) => showFieldError(input, message));
@@ -1824,9 +1947,8 @@ quoteForm.addEventListener("submit", async (event) => {
 
   if (!validateBookingForm()) return;
 
-  const name = document.querySelector("#customer-name").value.trim();
-  const phone = document.querySelector("#customer-phone").value.trim();
-  const emailInput = document.querySelector("#customer-email");
+  const name = nameInput.value.trim();
+  const phone = phoneInput.value.trim();
   const email = emailInput.value.trim();
   const paymentMethod = getSelectedPaymentMethod();
   const pickupAddress = pickupAddressInput.value.trim();
@@ -1850,7 +1972,7 @@ quoteForm.addEventListener("submit", async (event) => {
       customer_name: name,
       customer_email: email,
       customer_phone: phone,
-      flight_number: document.querySelector("#flight-number").value.trim() || null,
+      flight_number: flightNumberInput.value.trim() || null,
       flight_arrival_time: document.querySelector("#flight-arrival-time").value || null,
       notes: null,
       pickup_location: currentQuoteData.pickup || "airport",

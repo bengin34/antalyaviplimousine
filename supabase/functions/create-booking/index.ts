@@ -37,6 +37,30 @@ const generateBookingRef = () => {
   return `AVL-${year}-${random}`
 }
 
+const normalizeWhitespace = (value: unknown) => String(value ?? '').trim().replace(/\s+/g, ' ')
+
+const isValidName = (value: string) => {
+  const letterCount = value.match(/\p{L}/gu)?.length || 0
+  return value.length >= 2 && value.length <= 80 && letterCount >= 2 && !/\d/u.test(value)
+}
+
+const isValidPhone = (value: string) => {
+  const digits = value.replace(/\D/g, '')
+  return digits.length >= 7 && digits.length <= 15 && /^[+]?[\d\s().-]+$/.test(value) && !/(?!^)\+/.test(value)
+}
+
+const isValidFlightNumber = (value: unknown) => {
+  const normalized = normalizeWhitespace(value)
+  if (!normalized) return true
+  const alphanumericCount = normalized.replace(/[^a-z0-9]/gi, '').length
+  return (
+    normalized.length >= 2 &&
+    normalized.length <= 12 &&
+    alphanumericCount >= 2 &&
+    /^[a-z0-9][a-z0-9 -]{1,11}$/i.test(normalized)
+  )
+}
+
 Deno.serve(async (req) => {
   if (req.method === 'OPTIONS') {
     return new Response('ok', { headers: corsHeaders })
@@ -57,13 +81,14 @@ Deno.serve(async (req) => {
       return jsonResponse({ error: `${missingField} is required` }, 400)
     }
 
-    if (payload.pickup_location === 'private_address' && !String(payload.pickup_address || '').trim()) {
+    const pickupAddress = normalizeWhitespace(payload.pickup_address)
+    if (payload.pickup_location === 'private_address' && (pickupAddress.length < 6 || pickupAddress.length > 160)) {
       return jsonResponse({ error: 'pickup_address is required for a private address' }, 400)
     }
 
     const customerEmail = String(payload.customer_email).trim().toLowerCase()
-    const customerName = String(payload.customer_name).trim()
-    const customerPhone = String(payload.customer_phone).trim()
+    const customerName = normalizeWhitespace(payload.customer_name)
+    const customerPhone = normalizeWhitespace(payload.customer_phone)
     const pickupLocation = String(payload.pickup_location)
     const pickupDate = String(payload.pickup_date)
     const vehicleType = String(payload.vehicle_type)
@@ -71,11 +96,17 @@ Deno.serve(async (req) => {
     const guestCount = Number(payload.guests)
     const vehicleCapacity = vehicleType === 'vclass' ? 13 : 8
 
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(customerEmail)) {
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(customerEmail) || customerEmail.length > 120) {
       return jsonResponse({ error: 'A valid customer_email is required' }, 400)
     }
-    if (!customerName || customerName.length > 160 || !customerPhone || customerPhone.length > 40) {
-      return jsonResponse({ error: 'Customer details are invalid' }, 400)
+    if (!isValidName(customerName)) {
+      return jsonResponse({ error: 'customer_name is invalid' }, 400)
+    }
+    if (!isValidPhone(customerPhone)) {
+      return jsonResponse({ error: 'customer_phone is invalid' }, 400)
+    }
+    if (!isValidFlightNumber(payload.flight_number)) {
+      return jsonResponse({ error: 'flight_number is invalid' }, 400)
     }
     if (!['airport', 'private_address'].includes(pickupLocation)) {
       return jsonResponse({ error: 'pickup_location is invalid' }, 400)
@@ -91,6 +122,9 @@ Deno.serve(async (req) => {
     }
     if (!/^\d{4}-\d{2}-\d{2}$/.test(pickupDate)) {
       return jsonResponse({ error: 'pickup_date is invalid' }, 400)
+    }
+    if (pickupDate < new Date().toISOString().split('T')[0]) {
+      return jsonResponse({ error: 'pickup_date cannot be in the past' }, 400)
     }
 
     const supabase = createClient(
@@ -115,11 +149,11 @@ Deno.serve(async (req) => {
       customer_name: customerName,
       customer_email: customerEmail,
       customer_phone: customerPhone,
-      flight_number: payload.flight_number || null,
+      flight_number: normalizeWhitespace(payload.flight_number).toUpperCase() || null,
       flight_arrival_time: payload.flight_arrival_time || null,
       notes: payload.notes || null,
       pickup_location: pickupLocation,
-      pickup_address: payload.pickup_address ? String(payload.pickup_address).trim() : null,
+      pickup_address: pickupAddress || null,
       dropoff_location: String(payload.dropoff_location),
       pickup_date: pickupDate,
       guests: guestCount,
