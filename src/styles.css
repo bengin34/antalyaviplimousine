@@ -1312,6 +1312,7 @@ html[lang="ru"] .faq-item button span {
 .fleet-image {
   position: relative;
   overflow: hidden;
+  aspect-ratio: 16 / 10;
 }
 
 .fleet-image::after {
@@ -1319,11 +1320,117 @@ html[lang="ru"] .faq-item button span {
   inset: 0;
   background: linear-gradient(90deg, transparent 70%, rgba(9, 9, 9, 0.75));
   content: "";
+  pointer-events: none;
 }
 
 .fleet-image img {
   height: 100%;
   object-fit: cover;
+}
+
+.fleet-carousel-track {
+  height: 100%;
+}
+
+.fleet-carousel-track img,
+.fleet-carousel img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.fleet-carousel img {
+  transition: opacity 0.24s ease, transform 0.55s ease;
+}
+
+.fleet-carousel.is-changing img {
+  opacity: 0;
+  transform: scale(1.015);
+}
+
+.fleet-carousel-caption {
+  position: absolute;
+  z-index: 2;
+  right: 30px;
+  bottom: 107px;
+  max-width: min(300px, calc(100% - 60px));
+  padding: 11px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(9, 9, 9, 0.58);
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+}
+
+.fleet-carousel-controls {
+  position: absolute;
+  z-index: 3;
+  right: 30px;
+  bottom: 30px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(9, 9, 9, 0.54);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+}
+
+.fleet-carousel-button {
+  display: inline-grid;
+  width: 42px;
+  height: 42px;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--white);
+  cursor: pointer;
+  transition: border-color 0.2s ease, background 0.2s ease, color 0.2s ease;
+}
+
+.fleet-carousel-button:hover,
+.fleet-carousel-button:focus-visible {
+  border-color: var(--gold-light);
+  background: var(--gold);
+  color: var(--black);
+}
+
+.fleet-carousel-button:focus-visible {
+  outline: 2px solid var(--gold-light);
+  outline-offset: 3px;
+}
+
+.fleet-carousel-dots {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.fleet-carousel-dot {
+  width: 7px;
+  height: 7px;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.34);
+  cursor: pointer;
+  transition: width 0.2s ease, background 0.2s ease;
+}
+
+.fleet-carousel-dot.active {
+  width: 24px;
+  background: var(--gold-light);
+}
+
+.fleet-carousel-dot:focus-visible {
+  outline: 2px solid var(--gold-light);
+  outline-offset: 4px;
 }
 
 .image-badge {
@@ -2354,6 +2461,145 @@ footer {
   text-transform: uppercase;
 }
 
+.legal-page {
+  background: var(--paper);
+}
+
+.legal-header {
+  position: sticky;
+}
+
+.legal-header .header-actions {
+  display: flex;
+  align-items: center;
+}
+
+.legal-language-switcher {
+  display: flex;
+  gap: 6px;
+}
+
+.legal-language-button {
+  display: grid;
+  min-width: 38px;
+  height: 34px;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: transparent;
+  color: rgba(255, 255, 255, 0.58);
+  cursor: pointer;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  transition: 0.2s ease;
+}
+
+.legal-language-button:hover,
+.legal-language-button.active {
+  border-color: var(--gold);
+  background: rgba(200, 169, 106, 0.13);
+  color: var(--gold-light);
+}
+
+.legal-hero {
+  padding: 170px var(--section-x) 90px;
+  background:
+    linear-gradient(90deg, rgba(5, 5, 5, 0.94), rgba(5, 5, 5, 0.68)),
+    url("/assets/antalya-coastline-hero.jpg") center / cover;
+  color: var(--white);
+}
+
+.legal-hero h1 {
+  max-width: 900px;
+  margin: 0;
+  font-family: var(--serif);
+  font-size: clamp(58px, 7vw, 108px);
+  font-weight: 400;
+  line-height: 0.95;
+}
+
+.legal-hero > p {
+  max-width: 650px;
+  margin: 28px 0 0;
+  color: rgba(255, 255, 255, 0.62);
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.legal-content {
+  display: grid;
+  max-width: 1180px;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  margin: 0 auto;
+  padding: 90px var(--section-x) 120px;
+}
+
+.legal-card {
+  border: 1px solid var(--line);
+  background: var(--white);
+  padding: clamp(28px, 4vw, 46px);
+}
+
+.legal-card-wide {
+  grid-column: 1 / -1;
+}
+
+.legal-card h2 {
+  margin: 0 0 26px;
+  font-family: var(--serif);
+  font-size: clamp(30px, 3vw, 44px);
+  font-weight: 400;
+  line-height: 1;
+}
+
+.legal-card p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.9;
+}
+
+.legal-details {
+  display: grid;
+  gap: 20px;
+  margin: 0;
+}
+
+.legal-details div {
+  display: grid;
+  gap: 7px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--line);
+}
+
+.legal-details div:last-child {
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+
+.legal-details dt {
+  color: var(--gold-dark);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.legal-details dd {
+  margin: 0;
+  color: var(--ink);
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+.legal-details a {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: rgba(157, 122, 61, 0.45);
+  text-underline-offset: 4px;
+}
+
 .floating-whatsapp {
   position: fixed;
   z-index: 50;
@@ -2838,12 +3084,26 @@ footer {
     grid-template-columns: 1fr;
   }
 
+  .legal-content {
+    grid-template-columns: 1fr;
+  }
+
   .fleet-image {
     min-height: 530px;
   }
 
   .fleet-image::after {
     background: linear-gradient(0deg, rgba(9, 9, 9, 0.6), transparent 45%);
+  }
+
+  .fleet-carousel-caption {
+    right: 24px;
+    bottom: 95px;
+  }
+
+  .fleet-carousel-controls {
+    right: 24px;
+    bottom: 24px;
   }
 
   .fleet-panel {
@@ -3058,9 +3318,32 @@ footer {
     min-height: 360px;
   }
 
-  .image-badge {
+  .fleet-carousel-caption {
+    right: auto;
+    bottom: 124px;
+    left: 18px;
+    max-width: calc(100% - 36px);
+    padding: 9px 11px;
+    font-size: 8px;
+  }
+
+  .fleet-carousel-controls {
     right: 18px;
     bottom: 18px;
+    left: 18px;
+    justify-content: space-between;
+    gap: 8px;
+    padding: 8px;
+  }
+
+  .fleet-carousel-button {
+    width: 38px;
+    height: 38px;
+  }
+
+  .image-badge {
+    right: 18px;
+    bottom: 74px;
     left: auto;
     width: 100px;
     height: 100px;
@@ -3173,6 +3456,20 @@ footer {
 
   .contact-card small {
     display: none;
+  }
+
+  .legal-hero {
+    padding-top: 130px;
+    padding-bottom: 70px;
+  }
+
+  .legal-hero h1 {
+    font-size: 52px;
+  }
+
+  .legal-content {
+    padding-top: 55px;
+    padding-bottom: 75px;
   }
 
   .footer-main {

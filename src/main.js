@@ -1,4 +1,13 @@
 import { createBooking, createIyzicoCheckout } from './lib/api.js'
+import fallbackChauffeurPhoto from "../assets/chauffeur-arrival.jpg?url";
+import fallbackInteriorPhoto from "../assets/executive-interior.jpg?url";
+import fallbackHeroPhoto from "../assets/antalya-coastline-hero.jpg?url";
+
+const vehiclePhotoModules = import.meta.glob("../assets/images/*.{jpg,jpeg,png,webp,avif}", {
+  eager: true,
+  import: "default",
+  query: "?url",
+});
 
 const translations = {
   de: {
@@ -1162,7 +1171,7 @@ const paymentTranslations = {
     paymentMethod: "Choose payment method",
     cashPayment: "Pay in the vehicle",
     recommended: "Recommended",
-    cashPaymentDescription: "No prepayment. Pay the confirmed total directly to your driver.",
+    cashPaymentDescription: "No prepayment. Pay your driver directly once you are satisfied with the service.",
     cardPayment: "Pay online by card",
     cardPaymentDescription: "Continue to iyzico's secure payment page.",
     confirmCashBooking: "Confirm booking — pay in vehicle",
@@ -1179,7 +1188,7 @@ const paymentTranslations = {
     paymentMethod: "Zahlungsart wählen",
     cashPayment: "Im Fahrzeug bezahlen",
     recommended: "Empfohlen",
-    cashPaymentDescription: "Keine Vorauszahlung. Zahlen Sie den bestätigten Gesamtpreis direkt beim Fahrer.",
+    cashPaymentDescription: "Keine Vorauszahlung. Bezahlen Sie Ihren Fahrer direkt, wenn Sie mit dem Service zufrieden sind.",
     cardPayment: "Online mit Karte bezahlen",
     cardPaymentDescription: "Weiter zur sicheren Zahlungsseite von iyzico.",
     confirmCashBooking: "Buchung bestätigen — im Fahrzeug zahlen",
@@ -1196,7 +1205,7 @@ const paymentTranslations = {
     paymentMethod: "Ödeme yöntemini seçin",
     cashPayment: "Araçta öde",
     recommended: "Önerilen",
-    cashPaymentDescription: "Ön ödeme yok. Onaylanan toplam tutarı doğrudan şoförünüze ödeyin.",
+    cashPaymentDescription: "Ön ödeme yok. Hizmetten memnun kaldığınızda ödemenizi doğrudan şoförünüze yapın.",
     cardPayment: "Online kartla öde",
     cardPaymentDescription: "iyzico güvenli ödeme sayfasına devam edin.",
     confirmCashBooking: "Rezervasyonu onayla — araçta öde",
@@ -1213,7 +1222,7 @@ const paymentTranslations = {
     paymentMethod: "Выберите способ оплаты",
     cashPayment: "Оплата в автомобиле",
     recommended: "Рекомендуем",
-    cashPaymentDescription: "Без предоплаты. Оплатите подтверждённую сумму непосредственно водителю.",
+    cashPaymentDescription: "Без предоплаты. Оплатите услугу непосредственно водителю, когда останетесь довольны обслуживанием.",
     cardPayment: "Оплата картой онлайн",
     cardPaymentDescription: "Перейдите на защищённую страницу оплаты iyzico.",
     confirmCashBooking: "Подтвердить — оплата в автомобиле",
@@ -1230,7 +1239,7 @@ const paymentTranslations = {
     paymentMethod: "Wybierz metodę płatności",
     cashPayment: "Zapłać w pojeździe",
     recommended: "Polecane",
-    cashPaymentDescription: "Bez przedpłaty. Zapłać kierowcy potwierdzoną kwotę.",
+    cashPaymentDescription: "Bez przedpłaty. Zapłać bezpośrednio kierowcy, gdy usługa spełni Twoje oczekiwania.",
     cardPayment: "Zapłać kartą online",
     cardPaymentDescription: "Przejdź do bezpiecznej strony płatności iyzico.",
     confirmCashBooking: "Potwierdź — zapłać w pojeździe",
@@ -1247,7 +1256,7 @@ const paymentTranslations = {
     paymentMethod: "Kies betaalmethode",
     cashPayment: "Betaal in het voertuig",
     recommended: "Aanbevolen",
-    cashPaymentDescription: "Geen vooruitbetaling. Betaal het bevestigde bedrag rechtstreeks aan de chauffeur.",
+    cashPaymentDescription: "Geen vooruitbetaling. Betaal uw chauffeur rechtstreeks zodra u tevreden bent over de service.",
     cardPayment: "Online met kaart betalen",
     cardPaymentDescription: "Ga verder naar de beveiligde betaalpagina van iyzico.",
     confirmCashBooking: "Bevestig — betaal in het voertuig",
@@ -1264,7 +1273,7 @@ const paymentTranslations = {
     paymentMethod: "Оберіть спосіб оплати",
     cashPayment: "Оплата в автомобілі",
     recommended: "Рекомендуємо",
-    cashPaymentDescription: "Без передоплати. Сплатіть підтверджену суму безпосередньо водієві.",
+    cashPaymentDescription: "Без передоплати. Сплатіть безпосередньо водієві, коли будете задоволені послугою.",
     cardPayment: "Оплата карткою онлайн",
     cardPaymentDescription: "Перейдіть на захищену сторінку оплати iyzico.",
     confirmCashBooking: "Підтвердити — оплата в автомобілі",
@@ -1281,7 +1290,7 @@ const paymentTranslations = {
     paymentMethod: "Choisissez le mode de paiement",
     cashPayment: "Payer dans le véhicule",
     recommended: "Recommandé",
-    cashPaymentDescription: "Aucun prépaiement. Réglez le montant confirmé directement au chauffeur.",
+    cashPaymentDescription: "Aucun prépaiement. Payez directement votre chauffeur une fois satisfait du service.",
     cardPayment: "Payer en ligne par carte",
     cardPaymentDescription: "Continuez vers la page de paiement sécurisée iyzico.",
     confirmCashBooking: "Confirmer — payer dans le véhicule",
@@ -1298,7 +1307,7 @@ const paymentTranslations = {
     paymentMethod: "Välj betalningsmetod",
     cashPayment: "Betala i fordonet",
     recommended: "Rekommenderas",
-    cashPaymentDescription: "Ingen förskottsbetalning. Betala det bekräftade beloppet direkt till chauffören.",
+    cashPaymentDescription: "Ingen förskottsbetalning. Betala din chaufför direkt när du är nöjd med tjänsten.",
     cardPayment: "Betala online med kort",
     cardPaymentDescription: "Fortsätt till iyzicos säkra betalningssida.",
     confirmCashBooking: "Bekräfta — betala i fordonet",
@@ -1315,7 +1324,7 @@ const paymentTranslations = {
     paymentMethod: "お支払い方法を選択",
     cashPayment: "車内で支払う",
     recommended: "おすすめ",
-    cashPaymentDescription: "事前決済不要。確定料金をドライバーへ直接お支払いください。",
+    cashPaymentDescription: "事前のお支払いは不要です。サービスにご満足いただいてから、ドライバーへ直接お支払いください。",
     cardPayment: "オンラインでカード決済",
     cardPaymentDescription: "iyzicoの安全な決済ページへ進みます。",
     confirmCashBooking: "予約確定 — 車内払い",
@@ -1332,7 +1341,7 @@ const paymentTranslations = {
     paymentMethod: "결제 방법 선택",
     cashPayment: "차량에서 결제",
     recommended: "추천",
-    cashPaymentDescription: "선결제 없이 확정된 금액을 기사에게 직접 결제하세요.",
+    cashPaymentDescription: "선결제는 필요 없습니다. 서비스에 만족하신 후 기사에게 직접 결제하세요.",
     cardPayment: "온라인 카드 결제",
     cardPaymentDescription: "iyzico 보안 결제 페이지로 이동합니다.",
     confirmCashBooking: "예약 확정 — 차량에서 결제",
@@ -1372,6 +1381,110 @@ const fleetData = {
     guests: "8",
     bags: "6"
   }
+};
+
+const fallbackFleetPhotos = [
+  {
+    src: fallbackChauffeurPhoto,
+    alt: "Professional chauffeur opening a luxury black executive van",
+    caption: "Chauffeur arrival",
+    vehicle: "all",
+  },
+  {
+    src: fallbackInteriorPhoto,
+    alt: "Cream leather executive seating inside a luxury passenger van",
+    caption: "VIP interior",
+    vehicle: "all",
+  },
+  {
+    src: fallbackHeroPhoto,
+    alt: "Luxury black executive van driving along Antalya's coastline",
+    caption: "Exterior",
+    vehicle: "all",
+  },
+];
+
+const getPhotoCaption = (fileName) => {
+  const normalized = fileName.toLowerCase();
+  if (normalized.includes("interior") || normalized.includes("lounge")) return "VIP interior";
+  if (normalized.includes("cabin") || normalized.includes("seat")) return "Passenger cabin";
+  if (normalized.includes("arrival") || normalized.includes("chauffeur") || normalized.includes("driver")) return "Chauffeur arrival";
+  if (normalized.includes("exterior") || normalized.includes("front") || normalized.includes("side")) return "Exterior";
+  return "Our vehicle";
+};
+
+const getPhotoVehicle = (fileName) => {
+  const normalized = fileName.toLowerCase();
+  if (normalized.includes("sprinter")) return "sprinter";
+  if (normalized.includes("vito")) return "vito";
+  return "all";
+};
+
+const fleetPhotos = Object.entries(vehiclePhotoModules)
+  .sort(([pathA], [pathB]) => pathA.localeCompare(pathB))
+  .map(([path, src]) => {
+    const fileName = path.split("/").pop() || "vehicle";
+    const caption = getPhotoCaption(fileName);
+    return {
+      src,
+      caption,
+      vehicle: getPhotoVehicle(fileName),
+      alt: `${caption} photo from Antalya VIP Tourism fleet`,
+    };
+  });
+
+let activeFleetPhotoIndex = 0;
+let activeFleetPhotos = fleetPhotos.length ? fleetPhotos : fallbackFleetPhotos;
+
+const fleetCarousel = document.querySelector(".fleet-carousel");
+const fleetCarouselImage = document.querySelector("#fleet-carousel-image");
+const fleetCarouselCaption = document.querySelector("#fleet-carousel-caption");
+const fleetCarouselDots = document.querySelector("#fleet-carousel-dots");
+const fleetCarouselPrev = document.querySelector("#fleet-carousel-prev");
+const fleetCarouselNext = document.querySelector("#fleet-carousel-next");
+
+const getPhotosForFleet = (fleetKey) => {
+  if (!fleetPhotos.length) return fallbackFleetPhotos;
+  const vehiclePhotos = fleetPhotos.filter((photo) => photo.vehicle === fleetKey || photo.vehicle === "all");
+  return vehiclePhotos.length ? vehiclePhotos : fleetPhotos;
+};
+
+const renderFleetCarouselDots = () => {
+  if (!fleetCarouselDots) return;
+  fleetCarouselDots.innerHTML = "";
+  activeFleetPhotos.forEach((photo, index) => {
+    const dot = document.createElement("button");
+    dot.className = "fleet-carousel-dot";
+    dot.type = "button";
+    dot.setAttribute("aria-label", `Show ${photo.caption.toLowerCase()} photo ${index + 1}`);
+    dot.setAttribute("aria-current", String(index === activeFleetPhotoIndex));
+    dot.classList.toggle("active", index === activeFleetPhotoIndex);
+    dot.addEventListener("click", () => updateFleetCarousel(index));
+    fleetCarouselDots.appendChild(dot);
+  });
+};
+
+const updateFleetCarousel = (nextIndex) => {
+  if (!fleetCarouselImage || !fleetCarouselCaption) return;
+  const totalPhotos = activeFleetPhotos.length;
+  if (!totalPhotos) return;
+  activeFleetPhotoIndex = (nextIndex + totalPhotos) % totalPhotos;
+  const photo = activeFleetPhotos[activeFleetPhotoIndex];
+
+  fleetCarousel?.classList.add("is-changing");
+  window.setTimeout(() => {
+    fleetCarouselImage.src = photo.src;
+    fleetCarouselImage.alt = photo.alt;
+    fleetCarouselCaption.textContent = photo.caption;
+    renderFleetCarouselDots();
+    fleetCarousel?.classList.remove("is-changing");
+  }, 120);
+};
+
+const syncFleetCarouselForVehicle = (fleetKey) => {
+  activeFleetPhotos = getPhotosForFleet(fleetKey);
+  activeFleetPhotoIndex = 0;
+  updateFleetCarousel(0);
 };
 
 const routeData = {
@@ -1455,6 +1568,7 @@ const updateFleet = (fleetKey) => {
   document.querySelector("#fleet-badge-name").textContent = selected.shortName;
   document.querySelector("#fleet-guests").textContent = selected.guests;
   document.querySelector("#fleet-bags").textContent = selected.bags;
+  syncFleetCarouselForVehicle(fleetKey);
 };
 
 document.querySelectorAll(".fleet-tab").forEach((tab) => {
@@ -1467,6 +1581,10 @@ document.querySelectorAll(".fleet-tab").forEach((tab) => {
     if (destinationSelect.value) updateInlinePrice(destinationSelect.value);
   });
 });
+
+fleetCarouselPrev?.addEventListener("click", () => updateFleetCarousel(activeFleetPhotoIndex - 1));
+fleetCarouselNext?.addEventListener("click", () => updateFleetCarousel(activeFleetPhotoIndex + 1));
+syncFleetCarouselForVehicle(document.querySelector(".fleet-tab.active")?.dataset.fleet || "sprinter");
 
 document.querySelectorAll(".faq-item button").forEach((button) => {
   button.addEventListener("click", () => {
@@ -1758,8 +1876,9 @@ quoteForm.addEventListener("submit", async (event) => {
     if (submitBtn.querySelector("span").textContent === "…") {
       submitBtn.querySelector("span").textContent = originalText;
     }
-    updatePaymentMethodUI();
-  }
+  updatePaymentMethodUI();
+  syncArrivalTimeState();
+}
 });
 
 document.querySelectorAll(".route-price-button").forEach((button) => {
@@ -1997,7 +2116,7 @@ bookBar.innerHTML = `
     <span data-i18n="bookTransfer">Book your transfer</span>
     <svg class="icon" aria-hidden="true"><use href="#icon-arrow-right"></use></svg>
   </a>
-  <a class="btn-wa" href="https://wa.me/902420000000" target="_blank" rel="noreferrer" aria-label="WhatsApp">
+  <a class="btn-wa" href="https://wa.me/905056565790" target="_blank" rel="noreferrer" aria-label="WhatsApp">
     <svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewBox="0 0 24 24"><path d="M20 11.5a8 8 0 0 1-11.8 7L3 20l1.5-5.1A8 8 0 1 1 20 11.5Z"/><path d="M8 8.5c.8 3 2.5 4.7 5.5 5.5"/></svg>
   </a>
 `;

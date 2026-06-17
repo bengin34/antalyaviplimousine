@@ -93,14 +93,6 @@ Deno.serve(async (req) => {
       return jsonResponse({ error: 'pickup_date is invalid' }, 400)
     }
 
-    const resendApiKey = Deno.env.get('RESEND_API_KEY')
-    const notificationEmail = Deno.env.get('BOOKING_NOTIFICATION_EMAIL')
-    const fromEmail = Deno.env.get('BOOKING_FROM_EMAIL')
-
-    if (!resendApiKey || !notificationEmail || !fromEmail) {
-      return jsonResponse({ error: 'Booking email is not configured' }, 500)
-    }
-
     const supabase = createClient(
       Deno.env.get('SUPABASE_URL')!,
       Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')!
@@ -150,42 +142,53 @@ Deno.serve(async (req) => {
       ? `<tr><td style="padding:6px 12px;color:#777">Pick-up address</td><td style="padding:6px 12px"><strong>${escapeHtml(booking.pickup_address)}</strong></td></tr>`
       : ''
 
-    const emailResponse = await fetch('https://api.resend.com/emails', {
-      method: 'POST',
-      headers: {
-        Authorization: `Bearer ${resendApiKey}`,
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        from: fromEmail,
-        to: [notificationEmail],
-        subject: `New booking ${booking.booking_ref}: ${booking.pickup_location} to ${booking.dropoff_location}`,
-        html: `
-          <div style="font-family:Arial,sans-serif;color:#161616">
-            <h2>New booking request</h2>
-            <table style="border-collapse:collapse">
-              <tr><td style="padding:6px 12px;color:#777">Reference</td><td style="padding:6px 12px"><strong>${escapeHtml(booking.booking_ref)}</strong></td></tr>
-              <tr><td style="padding:6px 12px;color:#777">Customer</td><td style="padding:6px 12px">${escapeHtml(booking.customer_name)}</td></tr>
-              <tr><td style="padding:6px 12px;color:#777">Email</td><td style="padding:6px 12px">${escapeHtml(booking.customer_email)}</td></tr>
-              <tr><td style="padding:6px 12px;color:#777">Phone / WhatsApp</td><td style="padding:6px 12px">${escapeHtml(booking.customer_phone)}</td></tr>
-              <tr><td style="padding:6px 12px;color:#777">Pick-up</td><td style="padding:6px 12px">${escapeHtml(booking.pickup_location)}</td></tr>
-              ${addressRow}
-              <tr><td style="padding:6px 12px;color:#777">Destination</td><td style="padding:6px 12px">${escapeHtml(booking.dropoff_location)}</td></tr>
-              <tr><td style="padding:6px 12px;color:#777">Date / arrival</td><td style="padding:6px 12px">${escapeHtml(booking.pickup_date)} ${escapeHtml(booking.flight_arrival_time || '')}</td></tr>
-              <tr><td style="padding:6px 12px;color:#777">Flight</td><td style="padding:6px 12px">${escapeHtml(booking.flight_number || 'Not provided')}</td></tr>
-              <tr><td style="padding:6px 12px;color:#777">Guests / vehicle</td><td style="padding:6px 12px">${escapeHtml(booking.guests)} / ${escapeHtml(booking.vehicle_type)}</td></tr>
-              <tr><td style="padding:6px 12px;color:#777">Price</td><td style="padding:6px 12px"><strong>EUR ${escapeHtml(booking.price_eur)}</strong></td></tr>
-              <tr><td style="padding:6px 12px;color:#777">Payment</td><td style="padding:6px 12px"><strong>${escapeHtml(booking.payment_method === 'cash' ? 'Cash in vehicle' : 'Online card')}</strong></td></tr>
-            </table>
-          </div>
-        `,
-      }),
-    })
+    const resendApiKey = Deno.env.get('RESEND_API_KEY')
+    const notificationEmail = Deno.env.get('BOOKING_NOTIFICATION_EMAIL')
+    const fromEmail = Deno.env.get('BOOKING_FROM_EMAIL')
 
-    if (!emailResponse.ok) {
-      const emailError = await emailResponse.text()
-      await supabase.from('bookings').delete().eq('id', booking.id)
-      throw new Error(`Email delivery failed: ${emailError}`)
+    if (!resendApiKey || !notificationEmail || !fromEmail) {
+      console.warn('Booking email is not configured; booking was saved without notification', {
+        booking_ref: booking.booking_ref,
+      })
+    } else {
+      const emailResponse = await fetch('https://api.resend.com/emails', {
+        method: 'POST',
+        headers: {
+          Authorization: `Bearer ${resendApiKey}`,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          from: fromEmail,
+          to: [notificationEmail],
+          subject: `New booking ${booking.booking_ref}: ${booking.pickup_location} to ${booking.dropoff_location}`,
+          html: `
+            <div style="font-family:Arial,sans-serif;color:#161616">
+              <h2>New booking request</h2>
+              <table style="border-collapse:collapse">
+                <tr><td style="padding:6px 12px;color:#777">Reference</td><td style="padding:6px 12px"><strong>${escapeHtml(booking.booking_ref)}</strong></td></tr>
+                <tr><td style="padding:6px 12px;color:#777">Customer</td><td style="padding:6px 12px">${escapeHtml(booking.customer_name)}</td></tr>
+                <tr><td style="padding:6px 12px;color:#777">Email</td><td style="padding:6px 12px">${escapeHtml(booking.customer_email)}</td></tr>
+                <tr><td style="padding:6px 12px;color:#777">Phone / WhatsApp</td><td style="padding:6px 12px">${escapeHtml(booking.customer_phone)}</td></tr>
+                <tr><td style="padding:6px 12px;color:#777">Pick-up</td><td style="padding:6px 12px">${escapeHtml(booking.pickup_location)}</td></tr>
+                ${addressRow}
+                <tr><td style="padding:6px 12px;color:#777">Destination</td><td style="padding:6px 12px">${escapeHtml(booking.dropoff_location)}</td></tr>
+                <tr><td style="padding:6px 12px;color:#777">Date / arrival</td><td style="padding:6px 12px">${escapeHtml(booking.pickup_date)} ${escapeHtml(booking.flight_arrival_time || '')}</td></tr>
+                <tr><td style="padding:6px 12px;color:#777">Flight</td><td style="padding:6px 12px">${escapeHtml(booking.flight_number || 'Not provided')}</td></tr>
+                <tr><td style="padding:6px 12px;color:#777">Guests / vehicle</td><td style="padding:6px 12px">${escapeHtml(booking.guests)} / ${escapeHtml(booking.vehicle_type)}</td></tr>
+                <tr><td style="padding:6px 12px;color:#777">Price</td><td style="padding:6px 12px"><strong>EUR ${escapeHtml(booking.price_eur)}</strong></td></tr>
+                <tr><td style="padding:6px 12px;color:#777">Payment</td><td style="padding:6px 12px"><strong>${escapeHtml(booking.payment_method === 'cash' ? 'Cash in vehicle' : 'Online card')}</strong></td></tr>
+              </table>
+            </div>
+          `,
+        }),
+      })
+
+      if (!emailResponse.ok) {
+        console.error('Booking notification email failed', {
+          booking_ref: booking.booking_ref,
+          error: await emailResponse.text(),
+        })
+      }
     }
 
     return jsonResponse({ booking })
