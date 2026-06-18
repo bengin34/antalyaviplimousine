@@ -437,9 +437,15 @@ html[lang="ru"] .faq-item button span {
 }
 
 .hero-media {
-  background: url("/assets/antalya-coastline-hero.jpg") center 48% / cover no-repeat;
   transform: scale(1.04);
   animation: hero-drift 18s ease-in-out infinite alternate;
+}
+
+.hero-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 48%;
 }
 
 @keyframes hero-drift {
@@ -1846,27 +1852,27 @@ html[lang="ru"] .faq-item button span {
 }
 
 .route-image-1::before {
-  background: linear-gradient(135deg, rgba(9, 9, 9, 0.08), rgba(9, 9, 9, 0.12)), url("/assets/chauffeur-arrival.jpg") 35% center / cover;
+  background: linear-gradient(135deg, rgba(9, 9, 9, 0.08), rgba(9, 9, 9, 0.12)), url("/assets/optimized/chauffeur-arrival.jpg") 35% center / cover;
 }
 
 .route-image-2::before {
-  background: linear-gradient(135deg, rgba(20, 13, 4, 0.1), rgba(5, 5, 5, 0.1)), url("/assets/antalya-coastline-hero.jpg") 13% center / cover;
+  background: linear-gradient(135deg, rgba(20, 13, 4, 0.1), rgba(5, 5, 5, 0.1)), url("/assets/optimized/antalya-coastline-hero.jpg") 13% center / cover;
 }
 
 .route-image-3::before {
-  background: linear-gradient(135deg, rgba(5, 15, 18, 0.1), rgba(5, 5, 5, 0.1)), url("/assets/antalya-coastline-hero.jpg") 70% center / cover;
+  background: linear-gradient(135deg, rgba(5, 15, 18, 0.1), rgba(5, 5, 5, 0.1)), url("/assets/optimized/antalya-coastline-hero.jpg") 70% center / cover;
 }
 
 .route-image-4::before {
-  background: linear-gradient(135deg, rgba(8, 8, 8, 0.1), rgba(5, 5, 5, 0.1)), url("/assets/executive-interior.jpg") center / cover;
+  background: linear-gradient(135deg, rgba(8, 8, 8, 0.1), rgba(5, 5, 5, 0.1)), url("/assets/optimized/executive-interior.jpg") center / cover;
 }
 
 .route-image-5::before {
-  background: linear-gradient(135deg, rgba(4, 18, 15, 0.08), rgba(5, 5, 5, 0.12)), url("/assets/antalya-coastline-hero.jpg") 42% center / cover;
+  background: linear-gradient(135deg, rgba(4, 18, 15, 0.08), rgba(5, 5, 5, 0.12)), url("/assets/optimized/antalya-coastline-hero.jpg") 42% center / cover;
 }
 
 .route-image-6::before {
-  background: linear-gradient(135deg, rgba(10, 8, 5, 0.08), rgba(5, 5, 5, 0.12)), url("/assets/chauffeur-arrival.jpg") 70% center / cover;
+  background: linear-gradient(135deg, rgba(10, 8, 5, 0.08), rgba(5, 5, 5, 0.12)), url("/assets/optimized/chauffeur-arrival.jpg") 70% center / cover;
 }
 
 .route-image-alt-1::before { background-position: 52% center; }
@@ -2312,7 +2318,7 @@ html[lang="ru"] .faq-item button span {
   inset: 0;
   background:
     linear-gradient(90deg, rgba(5, 5, 5, 0.96) 0%, rgba(5, 5, 5, 0.78) 47%, rgba(5, 5, 5, 0.34) 100%),
-    url("/assets/antalya-coastline-hero.jpg") center / cover;
+    url("/assets/optimized/antalya-coastline-hero.jpg") center / cover;
   opacity: 0.72;
 }
 
@@ -2517,7 +2523,7 @@ footer {
   padding: 170px var(--section-x) 90px;
   background:
     linear-gradient(90deg, rgba(5, 5, 5, 0.94), rgba(5, 5, 5, 0.68)),
-    url("/assets/antalya-coastline-hero.jpg") center / cover;
+    url("/assets/optimized/antalya-coastline-hero.jpg") center / cover;
   color: var(--white);
 }
 

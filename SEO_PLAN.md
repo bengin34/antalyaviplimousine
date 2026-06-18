@@ -1,6 +1,6 @@
 # SEO & Reklam Planı - Antalya VIP Limousine
 
-Güncelleme: 13 Haziran 2026
+Güncelleme: 18 Haziran 2026
 
 Ana hedef: Antalya Havalimanı çıkışlı özel transfer arayan uluslararası
 ziyaretçilerden nitelikli rezervasyon almak.
@@ -13,19 +13,27 @@ Reklam kapsamı: **yalnızca İngilizce ve Almanca**.
 
 Son site değişiklikleri:
 
-- Rota sayısı 5'ten 13'e çıktı.
+- Rota sayısı 13'e çıktı.
+- EN ve DE için indekslenebilir ana sayfa ve rota landing page yapısı kuruldu.
+- Mevcut 8 öncelikli rota için EN/DE statik landing page'ler yayına hazır:
+  Antalya City, Belek, Side, Kemer, Alanya, Boğazkent, Manavgat, Tekirova.
+- Canonical, Open Graph, Twitter Card, structured data, `robots.txt` ve
+  tam kapsamlı `sitemap.xml` eklendi.
+- Hero, logo ve araç görselleri için `sharp` tabanlı optimize JPEG/WebP
+  üretim pipeline'ı eklendi.
 - Mercedes Vito ve Mercedes Sprinter için ayrı fiyatlar eklendi.
 - Nakit/araçta ödeme varsayılan, iyzico kart ödemesi alternatif oldu.
 - Rezervasyona e-posta, özel adres ve doğrulama adımları eklendi.
-- Arayüzde 11 dil var ancak tüm diller aynı URL üzerinde JavaScript ile değişiyor.
+- Arayüzde 11 dil var; SEO için yalnızca EN ve DE ayrı URL olarak
+  indekslenebilir tutuluyor.
 
-SEO açısından mevcut açıklar:
+SEO açısından kalan açıklar:
 
-- Yalnızca ana sayfa var; rota kartları ayrı ve indekslenebilir sayfa değil.
-- Canonical, Open Graph, Twitter Card ve structured data yok.
-- `robots.txt` ve `sitemap.xml` yok.
-- Dil seçeneklerinin ayrı URL'leri olmadığı için `hreflang` uygulanamaz.
-- JPG görseller büyük; görsel boyutları HTML'de belirtilmemiş.
+- Search Console ve Bing Webmaster Tools doğrulaması henüz yapılmadı.
+- PageSpeed Insights ile canlı Core Web Vitals ölçümü henüz alınmadı.
+- Google Fonts hâlâ harici yükleniyor; ileride self-host edilebilir.
+- Bodrum, Dalaman, Fethiye, Pamukkale ve Kapadokya için ayrı kaliteli
+  landing page'ler henüz hazırlanmadı.
 - Google Ads ve analytics dönüşüm event'leri henüz tanımlı değil.
 - Telefon numarası, Google puanı, yorum sayısı, müşteri sayısı ve 24/7 destek
   ifadeleri yayına/reklama alınmadan önce gerçek verilerle doğrulanmalı.
@@ -38,11 +46,11 @@ SEO açısından mevcut açıklar:
 | --- | -------------------------------------------- | ------------------------------ |
 | P0  | Gerçek iletişim ve güven verilerini doğrula  | Reklam onayı ve güven          |
 | P0  | Analytics, consent ve dönüşüm ölçümü         | Reklam optimizasyonu           |
-| P1  | EN/DE rota landing page altyapısı            | Organik trafik + Quality Score |
-| P1  | Canonical, metadata, schema, sitemap, robots | Teknik indeksleme              |
+| P1  | Search Console ve sitemap gönderimi          | Teknik indeksleme              |
+| P1  | PageSpeed ve canlı Core Web Vitals ölçümü    | SEO + dönüşüm                  |
 | P1  | EN ve DE Search kampanyalarını aç            | Hızlı talep                    |
-| P2  | İlk 6 rota içeriğini tamamla                 | En yüksek arama potansiyeli    |
-| P2  | Core Web Vitals ve görsel optimizasyonu      | SEO + dönüşüm                  |
+| P2  | İlk 8 rota içeriğini kalite bakımından büyüt | En yüksek arama potansiyeli    |
+| P2  | Google Fonts self-host denemesi              | Performans                     |
 | P3  | Kalan rotalar, içerik ve backlink çalışması  | Uzun vadeli büyüme             |
 
 ---
@@ -53,12 +61,24 @@ SEO açısından mevcut açıklar:
 
 ```text
 https://antalyaviptourism.com/
+https://antalyaviptourism.com/transfers/antalya/
 https://antalyaviptourism.com/transfers/belek/
 https://antalyaviptourism.com/transfers/side/
+https://antalyaviptourism.com/transfers/kemer/
+https://antalyaviptourism.com/transfers/alanya/
+https://antalyaviptourism.com/transfers/bogazkent/
+https://antalyaviptourism.com/transfers/manavgat/
+https://antalyaviptourism.com/transfers/tekirova/
 
 https://antalyaviptourism.com/de/
+https://antalyaviptourism.com/de/transfers/antalya/
 https://antalyaviptourism.com/de/transfers/belek/
 https://antalyaviptourism.com/de/transfers/side/
+https://antalyaviptourism.com/de/transfers/kemer/
+https://antalyaviptourism.com/de/transfers/alanya/
+https://antalyaviptourism.com/de/transfers/bogazkent/
+https://antalyaviptourism.com/de/transfers/manavgat/
+https://antalyaviptourism.com/de/transfers/tekirova/
 ```
 
 Her EN/DE sayfasında:
@@ -189,9 +209,10 @@ bilgileri yalnızca gerçek, görünür ve doğrulanmış verilerle işaretlenme
 
 ### Performans
 
-- JPG dosyalarını WebP/AVIF varyantlarıyla sun.
-- Hero görselini preload et; ekran altındaki gerçek `<img>` öğelerini lazy load et.
-- Görsellere `width` ve `height` vererek layout shift'i azalt.
+- `npm run optimize:images` ile hero, logo ve araç görsellerini optimize et.
+- Kritik hero görseli WebP `<picture>` ve preload ile sunulmalı.
+- Ekran altındaki gerçek `<img>` öğeleri lazy load edilmeli.
+- Görsellere `width` ve `height` verilerek layout shift azaltılmalı.
 - Google Fonts'u mümkünse self-host et.
 - Kullanılmayan JavaScript/CSS'i azalt.
 - Mobilde LCP, INP ve CLS ölçümlerini PageSpeed Insights ile takip et.
@@ -376,17 +397,18 @@ tamamlanmalı.
 
 - Güven iddiaları ve iletişim verilerini düzelt
 - GA4, Google Ads, consent ve dönüşüm event planını kur
-- Canonical, OG, schema, robots ve sitemap altyapısını ekle
+- Search Console ve Bing Webmaster Tools doğrulamasını tamamla
+- Sitemap'i Search Console'a gönder
 
 ### Hafta 2
 
-- EN/DE Belek, Side ve Kemer landing page'lerini yayınla
-- Search Console'a sitemap gönder
+- EN/DE Belek, Side ve Kemer landing page'lerini Search Console'da inspect et
+- PageSpeed Insights ölçümlerine göre LCP/INP takibi yap
 - EN ve DE Search kampanyalarını düşük bütçeyle aç
 
 ### Hafta 3
 
-- EN/DE Alanya, Antalya City ve Manavgat sayfalarını yayınla
+- EN/DE Alanya, Antalya City, Manavgat, Boğazkent ve Tekirova sayfalarını inspect et
 - Arama terimleri ve negatif keyword temizliği yap
 - Form, telefon ve WhatsApp dönüşümlerini kontrol et
 

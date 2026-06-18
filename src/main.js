@@ -1,10 +1,10 @@
 import { createBooking, createIyzicoCheckout } from "./lib/api.js";
-import fallbackChauffeurPhoto from "../assets/chauffeur-arrival.jpg?url";
-import fallbackInteriorPhoto from "../assets/executive-interior.jpg?url";
-import fallbackHeroPhoto from "../assets/antalya-coastline-hero.jpg?url";
+import fallbackChauffeurPhoto from "../assets/optimized/chauffeur-arrival.jpg?url";
+import fallbackInteriorPhoto from "../assets/optimized/executive-interior.jpg?url";
+import fallbackHeroPhoto from "../assets/optimized/antalya-coastline-hero.jpg?url";
 
 const vehiclePhotoModules = import.meta.glob(
-  "../assets/images/*.{jpg,jpeg,png,webp,avif}",
+  "../assets/optimized/images/*.webp",
   {
     eager: true,
     import: "default",
@@ -3119,11 +3119,48 @@ const applyLanguage = (language) => {
 
 document.querySelectorAll(".language-button").forEach((button) => {
   button.addEventListener("click", () => {
-    applyLanguage(button.dataset.language);
+    const language = button.dataset.language;
+    const languageUrl = getLanguageUrl(language);
+    if (languageUrl) {
+      try {
+        localStorage.setItem("avl-language", language);
+      } catch {}
+      window.location.assign(languageUrl);
+      return;
+    }
+
+    applyLanguage(language);
     closeLangDropdown();
     if (mobileMenu.classList.contains("open")) closeMenu();
   });
 });
+
+const normalizeDirectoryPath = (pathname) => {
+  if (pathname.endsWith("/")) return pathname;
+  if (pathname.endsWith("/index.html")) {
+    return pathname.replace(/index\.html$/, "");
+  }
+  return `${pathname}/`;
+};
+
+function getLanguageUrl(language) {
+  const pathname = normalizeDirectoryPath(window.location.pathname);
+  const hash = window.location.hash || "";
+
+  if (language === "de") {
+    if (pathname === "/") return `/de/${hash}`;
+    if (pathname.startsWith("/transfers/")) return `/de${pathname}${hash}`;
+  }
+
+  if (language === "en") {
+    if (pathname === "/de/") return `/${hash}`;
+    if (pathname.startsWith("/de/transfers/")) {
+      return `${pathname.replace(/^\/de/, "")}${hash}`;
+    }
+  }
+
+  return null;
+}
 
 const SUPPORTED_LANGS = [
   "en",
@@ -3150,12 +3187,21 @@ function detectBrowserLanguage() {
   return "en";
 }
 
-let savedLanguage = "en";
+const pathLanguage =
+  window.location.pathname === "/de" ||
+  window.location.pathname.startsWith("/de/")
+    ? "de"
+    : document.documentElement.lang || "en";
+let savedLanguage = pathLanguage;
 try {
   savedLanguage =
-    localStorage.getItem("avl-language") || detectBrowserLanguage();
+    pathLanguage === "de"
+      ? "de"
+      : localStorage.getItem("avl-language") ||
+        pathLanguage ||
+        detectBrowserLanguage();
 } catch {
-  savedLanguage = detectBrowserLanguage();
+  savedLanguage = pathLanguage || detectBrowserLanguage();
 }
 applyLanguage(savedLanguage);
 

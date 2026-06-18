@@ -13,8 +13,13 @@
     <!-- Canonical -->
     <link rel="canonical" href="https://antalyaviptourism.com/" />
 
-    <!-- hreflang — DE added when /de/ route pages are live -->
+    <!-- hreflang -->
     <link rel="alternate" hreflang="en" href="https://antalyaviptourism.com/" />
+    <link
+      rel="alternate"
+      hreflang="de"
+      href="https://antalyaviptourism.com/de/"
+    />
     <link
       rel="alternate"
       hreflang="x-default"
@@ -35,7 +40,7 @@
     />
     <meta
       property="og:image"
-      content="https://antalyaviptourism.com/assets/antalya-coastline-hero.jpg"
+      content="https://antalyaviptourism.com/assets/optimized/og-antalya-transfer.jpg"
     />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
@@ -57,7 +62,7 @@
     />
     <meta
       name="twitter:image"
-      content="https://antalyaviptourism.com/assets/antalya-coastline-hero.jpg"
+      content="https://antalyaviptourism.com/assets/optimized/og-antalya-transfer.jpg"
     />
 
     <!-- JSON-LD: Organization -->
@@ -67,7 +72,7 @@
         "@type": "TravelAgency",
         "name": "Antalya VIP Tourism",
         "url": "https://antalyaviptourism.com/",
-        "logo": "https://antalyaviptourism.com/assets/logo.png",
+        "logo": "https://antalyaviptourism.com/assets/optimized/logo.png",
         "description": "Private fixed-price airport transfer service from Antalya Airport to Belek, Side, Kemer, Alanya and surrounding resorts.",
         "areaServed": [
           { "@type": "City", "name": "Belek" },
@@ -251,6 +256,13 @@
     />
     <link rel="apple-touch-icon" href="/assets/favicons/apple-touch-icon.png" />
     <link rel="manifest" href="/assets/favicons/site.webmanifest" />
+    <link
+      rel="preload"
+      as="image"
+      href="/assets/optimized/antalya-coastline-hero.webp"
+      type="image/webp"
+      fetchpriority="high"
+    />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -263,9 +275,12 @@
     <header class="site-header" id="site-header">
       <a class="brand" href="#top" aria-label="Antalya VIP Tourism home">
         <img
-          src="/assets/logo.png"
+          src="/assets/optimized/logo.png"
           alt="Antalya VIP Tourism"
           class="brand-logo"
+          width="160"
+          height="120"
+          decoding="async"
         />
         <span class="brand-copy">
           <strong>Antalya VIP</strong>
@@ -490,11 +505,20 @@
 
     <main>
       <section class="hero" id="top">
-        <div
-          class="hero-media"
-          role="img"
-          aria-label="Luxury black executive van driving along Antalya's coastline"
-        ></div>
+        <picture class="hero-media">
+          <source
+            srcset="/assets/optimized/antalya-coastline-hero.webp"
+            type="image/webp"
+          />
+          <img
+            src="/assets/optimized/antalya-coastline-hero.jpg"
+            alt="Luxury black executive van driving along Antalya's coastline"
+            width="1672"
+            height="941"
+            fetchpriority="high"
+            decoding="async"
+          />
+        </picture>
         <div class="hero-shade"></div>
         <div class="hero-grain"></div>
 
@@ -981,8 +1005,12 @@
               >
                 <img
                   id="fleet-carousel-image"
-                  src="/assets/chauffeur-arrival.jpg"
+                  src="/assets/optimized/chauffeur-arrival.jpg"
                   alt="Professional chauffeur opening a luxury black executive van"
+                  width="1600"
+                  height="765"
+                  loading="lazy"
+                  decoding="async"
                 />
               </div>
               <div class="image-badge">
@@ -1113,8 +1141,12 @@
 
           <div class="interior-banner">
             <img
-              src="/assets/executive-interior.jpg"
+              src="/assets/optimized/executive-interior.jpg"
               alt="Cream leather executive seating inside a luxury passenger van"
+              width="1400"
+              height="933"
+              loading="lazy"
+              decoding="async"
             />
             <div class="interior-copy">
               <span class="mini-label" data-i18n="insideVclass"
@@ -1955,9 +1987,13 @@
       <div class="footer-main">
         <a class="brand footer-brand" href="#top">
           <img
-            src="/assets/logo.png"
+            src="/assets/optimized/logo.png"
             alt="Antalya VIP Tourism"
             class="brand-logo"
+            width="160"
+            height="120"
+            loading="lazy"
+            decoding="async"
           />
           <span class="brand-copy"
             ><strong>Antalya VIP</strong><span>Tourism</span></span

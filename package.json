@@ -8,9 +8,12 @@
   "scripts": {
     "dev": "vite --host 0.0.0.0",
     "build": "vite build",
+    "generate:de-home": "node scripts/build-de-homepage.mjs",
+    "optimize:images": "node scripts/optimize-images.mjs",
     "preview": "vite preview --host 0.0.0.0"
   },
   "devDependencies": {
+    "sharp": "^0.35.1",
     "vite": "^7.0.0"
   },
   "dependencies": {
