@@ -167,6 +167,18 @@ function localizeStructuredData(html, translations) {
 
       if (data["@type"] === "TravelAgency") {
         data.logo = "https://antalyaviptourism.com/assets/optimized/logo.png";
+        data.image =
+          "https://antalyaviptourism.com/assets/optimized/og-antalya-transfer.jpg";
+        data.telephone = "+90 530 265 57 90";
+        data.priceRange = "€30-€200";
+        data.address = {
+          "@type": "PostalAddress",
+          streetAddress:
+            "Belek Mah. Belek 61 Sk. Belek Deniz Apt No: 19 Ic Kapi No: 4",
+          addressLocality: "Serik",
+          addressRegion: "Antalya",
+          addressCountry: "TR",
+        };
         data.description =
           "Privater Festpreis-Flughafentransfer vom Flughafen Antalya nach Belek, Side, Kemer, Alanya und zu umliegenden Resorts.";
       }
