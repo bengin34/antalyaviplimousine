@@ -343,7 +343,7 @@ Google Business Profile:
 
 Site yayını ve Ads öncesi doğrulanacaklar:
 
-- `+90 530 265 57 90` yerine gerçek telefon
+- Gerçek telefon: `+90 530 265 57 90`
 - 4.9 puan ve 387 Google yorumu
 - 2,500+ misafir
 - 24/7 erişilebilirlik

@@ -134,6 +134,23 @@ const translations = {
     stepThreeBody: "Erhalten Sie sofort Ihre Bestätigung zum Festpreis.",
     stepFour: "Chauffeur treffen",
     stepFourBody: "Ihr Chauffeur empfängt Sie in der Ankunftshalle.",
+    pricingEyebrow: "Sicher planen",
+    pricingTitle:
+      "Kundenfreundliche Preise.<br />Sie zahlen, was fair ist.",
+    pricingIntro:
+      "Wir bieten Festpreise für Planungssicherheit, messen aber die tatsächliche Strecke. Sie zahlen immer den niedrigeren Betrag.",
+    pricingFixedPrice: "Festpreis",
+    fixedPriceExample: "Transfer nach Belek: 40 €",
+    fixedPriceDesc:
+      "Garantierter Gesamtpreis. Inklusive Flughafengebühren, Parken, Wartezeit und Steuern.",
+    distancePrice: "Nach Strecke",
+    distancePriceExample: "24 km × 1,50 € = 36 €",
+    distancePriceDesc: "Während Ihrer Fahrt per GPS gemessen.",
+    youPay: "Sie zahlen",
+    youPayPrice: "36 €",
+    youPayDesc: "Der niedrigere Betrag gilt. Der Fahrer bestätigt ihn am Ende.",
+    pricingNote:
+      "Keine Überraschungen. Keine versteckten Gebühren. Was Sie buchen, zahlen Sie - oder weniger.",
     faqEyebrow: "Häufig gefragt",
     faqTitle: "Vor Ihrer Reise.",
     faqIntro:
@@ -319,6 +336,22 @@ const translations = {
     stepThreeBody: "Sabit toplam fiyatla anında onay alın.",
     stepFour: "Şoförünüzle buluşun",
     stepFourBody: "Şoförünüz sizi gelen yolcu salonunda karşılar.",
+    pricingEyebrow: "İçiniz rahat olsun",
+    pricingTitle: "Müşteri dostu fiyatlandırma.<br />Adil olanı ödersiniz.",
+    pricingIntro:
+      "İçiniz rahat etsin diye sabit fiyat sunarız, ancak gerçek mesafeyi de ölçeriz. Her zaman düşük olan tutarı ödersiniz.",
+    pricingFixedPrice: "Sabit fiyat",
+    fixedPriceExample: "Belek transferi: €40",
+    fixedPriceDesc:
+      "Garantili toplam tutar. Havalimanı ücretleri, otopark, bekleme süresi ve vergiler dahildir.",
+    distancePrice: "Mesafeye göre",
+    distancePriceExample: "24 km × €1.50 = €36",
+    distancePriceDesc: "Yolculuğunuz sırasında GPS ile ölçülür.",
+    youPay: "Ödeyeceğiniz tutar",
+    youPayPrice: "€36",
+    youPayDesc: "Hangisi daha düşükse. Şoför yolculuk sonunda teyit eder.",
+    pricingNote:
+      "Sürpriz yok. Gizli ücret yok. Rezervasyonda gördüğünüz tutarı ödersiniz - ya da daha azını.",
     faqEyebrow: "Sık sorulanlar",
     faqTitle: "Seyahatinizden önce.",
     faqIntro:
@@ -502,6 +535,23 @@ const translations = {
     stepThreeBody: "Сразу получите подтверждение с фиксированной ценой.",
     stepFour: "Встретьте водителя",
     stepFourBody: "Ваш шофёр встретит вас в зале прилёта.",
+    pricingEyebrow: "Спокойствие в поездке",
+    pricingTitle:
+      "Цены в интересах клиента.<br />Вы платите справедливую сумму.",
+    pricingIntro:
+      "Мы предлагаем фиксированные цены для спокойствия, но измеряем фактическое расстояние. Вы всегда платите меньшую сумму.",
+    pricingFixedPrice: "Фиксированная цена",
+    fixedPriceExample: "Трансфер в Белек: 40 €",
+    fixedPriceDesc:
+      "Гарантированная итоговая сумма. Включены сборы аэропорта, парковка, ожидание и налоги.",
+    distancePrice: "По расстоянию",
+    distancePriceExample: "24 км × 1,50 € = 36 €",
+    distancePriceDesc: "Измеряется по GPS во время поездки.",
+    youPay: "Вы платите",
+    youPayPrice: "36 €",
+    youPayDesc: "Применяется меньшая сумма. Водитель подтвердит её в конце.",
+    pricingNote:
+      "Без сюрпризов. Без скрытых платежей. Вы платите указанную при бронировании сумму - или меньше.",
     faqEyebrow: "Частые вопросы",
     faqTitle: "Перед поездкой.",
     faqIntro: "Всё, что нужно знать о частном трансфере из аэропорта Антальи.",
@@ -685,6 +735,23 @@ const translations = {
     stepThreeBody: "Otrzymaj natychmiastowe potwierdzenie ze stałą ceną.",
     stepFour: "Spotkaj szofera",
     stepFourBody: "Szofer wita Cię w hali przylotów.",
+    pricingEyebrow: "Spokój od początku",
+    pricingTitle:
+      "Ceny przyjazne klientom.<br />Płacisz tyle, ile jest uczciwe.",
+    pricingIntro:
+      "Dla spokoju podajemy stałe ceny, ale mierzymy rzeczywisty dystans. Zawsze płacisz niższą kwotę.",
+    pricingFixedPrice: "Stała cena",
+    fixedPriceExample: "Transfer do Belek: 40 €",
+    fixedPriceDesc:
+      "Gwarantowana kwota końcowa. Obejmuje opłaty lotniskowe, parking, czas oczekiwania i podatki.",
+    distancePrice: "Według dystansu",
+    distancePriceExample: "24 km × 1,50 € = 36 €",
+    distancePriceDesc: "Mierzone GPS-em podczas przejazdu.",
+    youPay: "Płacisz",
+    youPayPrice: "36 €",
+    youPayDesc: "Obowiązuje niższa kwota. Kierowca potwierdza ją na końcu.",
+    pricingNote:
+      "Bez niespodzianek. Bez ukrytych opłat. Płacisz tyle, ile rezerwujesz - albo mniej.",
     faqEyebrow: "Często zadawane pytania",
     faqTitle: "Przed Twoją podróżą.",
     faqIntro:
@@ -868,6 +935,24 @@ const translations = {
     stepThreeBody: "Ontvang direct uw bevestiging met vaste prijs.",
     stepFour: "Ontmoet uw chauffeur",
     stepFourBody: "Uw chauffeur verwelkomt u in de aankomsthal.",
+    pricingEyebrow: "Zorgeloos reizen",
+    pricingTitle:
+      "Klantvriendelijke prijzen.<br />U betaalt wat eerlijk is.",
+    pricingIntro:
+      "We bieden vaste prijzen voor zekerheid, maar meten ook de werkelijke afstand. U betaalt altijd het laagste bedrag.",
+    pricingFixedPrice: "Vaste prijs",
+    fixedPriceExample: "Transfer naar Belek: €40",
+    fixedPriceDesc:
+      "Gegarandeerd totaalbedrag. Inclusief luchthavengelden, parkeren, wachttijd en belastingen.",
+    distancePrice: "Op afstand",
+    distancePriceExample: "24 km × €1,50 = €36",
+    distancePriceDesc: "Gemeten met GPS tijdens uw rit.",
+    youPay: "U betaalt",
+    youPayPrice: "€36",
+    youPayDesc:
+      "Het laagste bedrag geldt. De chauffeur bevestigt dit aan het einde.",
+    pricingNote:
+      "Geen verrassingen. Geen verborgen kosten. Wat u boekt, betaalt u - of minder.",
     faqEyebrow: "Veelgestelde vragen",
     faqTitle: "Vóór uw reis.",
     faqIntro:
@@ -1051,6 +1136,23 @@ const translations = {
     stepThreeBody: "Отримайте миттєве підтвердження з фіксованою ціною.",
     stepFour: "Зустріньте водія",
     stepFourBody: "Ваш шофер зустріне вас у залі прильоту.",
+    pricingEyebrow: "Спокій у дорозі",
+    pricingTitle:
+      "Ціни в інтересах клієнта.<br />Ви сплачуєте справедливу суму.",
+    pricingIntro:
+      "Ми пропонуємо фіксовані ціни для вашого спокою, але вимірюємо фактичну відстань. Ви завжди сплачуєте меншу суму.",
+    pricingFixedPrice: "Фіксована ціна",
+    fixedPriceExample: "Трансфер до Белека: 40 €",
+    fixedPriceDesc:
+      "Гарантована загальна сума. Включає збори аеропорту, паркування, час очікування та податки.",
+    distancePrice: "За відстанню",
+    distancePriceExample: "24 км × 1,50 € = 36 €",
+    distancePriceDesc: "Вимірюється GPS під час поїздки.",
+    youPay: "Ви сплачуєте",
+    youPayPrice: "36 €",
+    youPayDesc: "Діє менша сума. Водій підтвердить її наприкінці.",
+    pricingNote:
+      "Без сюрпризів. Без прихованих платежів. Ви сплачуєте суму з бронювання - або менше.",
     faqEyebrow: "Часті запитання",
     faqTitle: "Перед поїздкою.",
     faqIntro:
@@ -1235,6 +1337,24 @@ const translations = {
     stepThreeBody: "Recevez immédiatement votre confirmation au prix fixe.",
     stepFour: "Rencontrer le chauffeur",
     stepFourBody: "Votre chauffeur vous accueille dans le hall des arrivées.",
+    pricingEyebrow: "Voyagez l'esprit tranquille",
+    pricingTitle:
+      "Une tarification pensée pour le client.<br />Vous payez le juste prix.",
+    pricingIntro:
+      "Nous proposons des prix fixes pour votre tranquillité, mais nous mesurons aussi la distance réelle. Vous payez toujours le montant le plus bas.",
+    pricingFixedPrice: "Prix fixe",
+    fixedPriceExample: "Transfert vers Belek : 40 €",
+    fixedPriceDesc:
+      "Montant total garanti. Inclut les frais d'aéroport, le parking, l'attente et les taxes.",
+    distancePrice: "Selon la distance",
+    distancePriceExample: "24 km × 1,50 € = 36 €",
+    distancePriceDesc: "Mesuré par GPS pendant votre trajet.",
+    youPay: "Vous payez",
+    youPayPrice: "36 €",
+    youPayDesc:
+      "Le montant le plus bas s'applique. Le chauffeur le confirme à la fin.",
+    pricingNote:
+      "Pas de surprise. Pas de frais cachés. Vous payez ce que vous réservez - ou moins.",
     faqEyebrow: "Questions fréquentes",
     faqTitle: "Avant votre voyage.",
     faqIntro:
@@ -1419,6 +1539,23 @@ const translations = {
     stepThreeBody: "Få din bekräftelse direkt till fast pris.",
     stepFour: "Möt din chaufför",
     stepFourBody: "Din chaufför välkomnar dig i ankomsthallen.",
+    pricingEyebrow: "Res med lugn",
+    pricingTitle:
+      "Kundvänlig prissättning.<br />Du betalar det som är rättvist.",
+    pricingIntro:
+      "Vi erbjuder fasta priser för trygghet, men mäter även den faktiska sträckan. Du betalar alltid det lägre beloppet.",
+    pricingFixedPrice: "Fast pris",
+    fixedPriceExample: "Transfer till Belek: 40 €",
+    fixedPriceDesc:
+      "Garanterat totalbelopp. Inkluderar flygplatsavgifter, parkering, väntetid och skatter.",
+    distancePrice: "Efter sträcka",
+    distancePriceExample: "24 km × 1,50 € = 36 €",
+    distancePriceDesc: "Mäts med GPS under din resa.",
+    youPay: "Du betalar",
+    youPayPrice: "36 €",
+    youPayDesc: "Det lägre beloppet gäller. Chauffören bekräftar i slutet.",
+    pricingNote:
+      "Inga överraskningar. Inga dolda avgifter. Du betalar det du bokar - eller mindre.",
     faqEyebrow: "Vanliga frågor",
     faqTitle: "Innan din resa.",
     faqIntro:
@@ -1602,6 +1739,23 @@ const translations = {
     stepThreeBody: "固定料金で即座に確認書を受け取れます。",
     stepFour: "ショーファーと合流",
     stepFourBody: "ショーファーが到着ロビーでお出迎えします。",
+    pricingEyebrow: "安心してご利用いただけます",
+    pricingTitle:
+      "お客様にやさしい料金設定。<br />公平な金額だけをお支払い。",
+    pricingIntro:
+      "安心のため固定料金をご提示しつつ、実際の走行距離も計測します。お支払いは常に低い方の金額です。",
+    pricingFixedPrice: "固定料金",
+    fixedPriceExample: "ベレキ送迎：40 €",
+    fixedPriceDesc:
+      "保証された総額です。空港料金、駐車料金、待機時間、税金が含まれます。",
+    distancePrice: "距離ベース",
+    distancePriceExample: "24 km × 1.50 € = 36 €",
+    distancePriceDesc: "ご乗車中にGPSで計測します。",
+    youPay: "お支払い額",
+    youPayPrice: "36 €",
+    youPayDesc: "低い方の金額を適用します。終了時にドライバーが確認します。",
+    pricingNote:
+      "追加の驚きはありません。隠れた料金もありません。予約時の金額、またはそれより少ない金額をお支払いいただきます。",
     faqEyebrow: "よくある質問",
     faqTitle: "ご旅行の前に。",
     faqIntro:
@@ -1784,6 +1938,22 @@ const translations = {
     stepThreeBody: "고정 요금으로 즉시 확인서를 받으세요.",
     stepFour: "쇼퍼 만나기",
     stepFourBody: "쇼퍼가 도착 로비에서 환영합니다.",
+    pricingEyebrow: "안심 요금",
+    pricingTitle: "고객 친화적인 요금.<br />공정한 금액만 결제하세요.",
+    pricingIntro:
+      "안심하실 수 있도록 고정 요금을 제시하지만 실제 이동 거리도 측정합니다. 언제나 더 낮은 금액을 결제합니다.",
+    pricingFixedPrice: "고정 요금",
+    fixedPriceExample: "벨렉 이동: 40 €",
+    fixedPriceDesc:
+      "보장된 총액입니다. 공항 수수료, 주차비, 대기 시간, 세금이 포함됩니다.",
+    distancePrice: "거리 기준",
+    distancePriceExample: "24 km × 1.50 € = 36 €",
+    distancePriceDesc: "이동 중 GPS로 측정합니다.",
+    youPay: "결제 금액",
+    youPayPrice: "36 €",
+    youPayDesc: "더 낮은 금액이 적용됩니다. 종료 시 기사가 확인합니다.",
+    pricingNote:
+      "놀랄 일도, 숨겨진 비용도 없습니다. 예약한 금액을 결제하거나 그보다 적게 결제합니다.",
     faqEyebrow: "자주 묻는 질문",
     faqTitle: "여행 전에.",
     faqIntro: "안탈리아 공항 프라이빗 픽업에 대해 알아야 할 모든 것.",
