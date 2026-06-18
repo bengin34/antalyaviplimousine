@@ -191,8 +191,9 @@ svg {
   width: 100%;
 }
 
-.header-actions,
 .header-actions {
+  display: flex;
+  align-items: center;
   gap: 25px;
 }
 
@@ -722,7 +723,7 @@ html[lang="ru"] .faq-item button span {
 }
 
 .booking-row-personal {
-  grid-template-columns: 1.1fr 1.1fr 1.2fr 0.9fr 0.75fr;
+  grid-template-columns: 1.15fr 1.15fr 1fr 0.85fr 0.65fr;
 }
 
 .booking-address-row {
