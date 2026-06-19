@@ -2634,7 +2634,22 @@ pickupSelect.addEventListener("change", () => {
 });
 
 destinationSelect.addEventListener("change", () => {
-  if (destinationSelect.value) updateInlinePrice(destinationSelect.value);
+  if (destinationSelect.value) {
+    const routeName = routeData[destinationSelect.value]?.name || destinationSelect.value;
+    const price = routeData[destinationSelect.value]?.prices[vehicleSelect.value] || 0;
+
+    gtag("event", "view_item", {
+      items: [
+        {
+          item_id: destinationSelect.value,
+          item_name: `Transfer to ${routeName}`,
+          price: price,
+        },
+      ],
+    });
+
+    updateInlinePrice(destinationSelect.value);
+  }
 });
 
 vehicleSelect.addEventListener("change", () => {
@@ -2888,6 +2903,19 @@ quoteForm.addEventListener("submit", async (event) => {
 
   if (!validateBookingForm()) return;
 
+  gtag("event", "begin_checkout", {
+    currency: "EUR",
+    value: currentQuoteData.price || 0,
+    items: [
+      {
+        item_id: currentQuoteData.destination,
+        item_name: `Transfer to ${currentQuoteData.destination}`,
+        price: currentQuoteData.price || 0,
+        quantity: 1,
+      },
+    ],
+  });
+
   const name = nameInput.value.trim();
   const phone = phoneInput.value.trim();
   const email = emailInput.value.trim();
@@ -2930,6 +2958,21 @@ quoteForm.addEventListener("submit", async (event) => {
     });
 
     if (paymentMethod === "card") {
+      gtag("event", "purchase", {
+        transaction_id: booking.booking_ref,
+        currency: "EUR",
+        value: currentQuoteData.price || 0,
+        payment_type: "card",
+        items: [
+          {
+            item_id: currentQuoteData.destination,
+            item_name: `Transfer to ${currentQuoteData.destination}`,
+            price: currentQuoteData.price || 0,
+            quantity: 1,
+          },
+        ],
+      });
+
       const checkoutUrl = await createIyzicoCheckout(booking.id);
       window.location.assign(checkoutUrl);
       return;
@@ -2940,6 +2983,22 @@ quoteForm.addEventListener("submit", async (event) => {
     confirmationMessage.textContent =
       translations[document.documentElement.lang]?.cashConfirmation ||
       paymentTranslations.en.cashConfirmation;
+
+    gtag("event", "purchase", {
+      transaction_id: booking.booking_ref,
+      currency: "EUR",
+      value: currentQuoteData.price || 0,
+      payment_type: "cash",
+      items: [
+        {
+          item_id: currentQuoteData.destination,
+          item_name: `Transfer to ${currentQuoteData.destination}`,
+          price: currentQuoteData.price || 0,
+          quantity: 1,
+        },
+      ],
+    });
+
     event.target.reset();
     currentQuoteData = {};
     updateGuestCapacity();
