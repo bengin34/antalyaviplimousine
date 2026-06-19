@@ -1,3 +1,4 @@
+import "./consent.js";
 import { createBooking, createIyzicoCheckout } from "./lib/api.js";
 import fallbackChauffeurPhoto from "../assets/optimized/chauffeur-arrival.jpg?url";
 import fallbackInteriorPhoto from "../assets/optimized/executive-interior.jpg?url";

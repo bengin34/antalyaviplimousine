@@ -9,6 +9,7 @@ export default defineConfig({
         main: resolve(__dirname, "index.html"),
         "de-home": resolve(__dirname, "de/index.html"),
         impressum: resolve(__dirname, "impressum.html"),
+        privacy: resolve(__dirname, "privacy.html"),
         antalya: resolve(__dirname, "transfers/antalya/index.html"),
         belek: resolve(__dirname, "transfers/belek/index.html"),
         side: resolve(__dirname, "transfers/side/index.html"),

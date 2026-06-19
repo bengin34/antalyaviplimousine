@@ -3174,6 +3174,41 @@ footer {
   }
 }
 
+.consent-dialog {
+  position: fixed;
+  z-index: 10000;
+  right: 24px;
+  bottom: 24px;
+  left: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 24px 28px;
+  color: #fff;
+  background: rgba(11, 11, 11, 0.98);
+  border: 1px solid rgba(200, 169, 106, 0.45);
+  border-radius: 16px;
+  box-shadow: 0 20px 70px rgba(0, 0, 0, 0.38);
+}
+
+.consent-copy { max-width: 680px; }
+.consent-label { color: var(--gold); font-size: 0.72rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; }
+.consent-dialog h2 { margin: 6px 0 8px; color: #fff; font-family: var(--serif); font-size: clamp(1.35rem, 2.5vw, 1.85rem); font-weight: 400; }
+.consent-dialog p { margin: 0; color: rgba(255, 255, 255, 0.72); font-size: 0.9rem; line-height: 1.6; }
+.consent-dialog p a { color: #fff; text-decoration: underline; text-underline-offset: 3px; }
+.consent-actions { display: flex; flex: 0 0 auto; gap: 10px; }
+.consent-actions .button { min-height: 46px; padding: 0 18px; white-space: nowrap; }
+.consent-reject { color: #fff; background: transparent; border: 1px solid rgba(255, 255, 255, 0.3); }
+
+@media (max-width: 760px) {
+  .consent-dialog { right: 12px; bottom: 12px; left: 12px; display: block; padding: 20px; }
+  .consent-actions { display: grid; grid-template-columns: 1fr; margin-top: 18px; }
+  .consent-actions .button { width: 100%; }
+}
+
 @media (max-width: 900px) {
   .price-strip {
     gap: 12px;
@@ -3346,34 +3381,33 @@ footer {
   }
 
   .fleet-carousel-controls {
-    right: 12px;
-    bottom: 12px;
-    left: 12px;
-    justify-content: space-between;
-    align-items: center;
-    gap: 8px;
-    padding: 8px;
+    right: 8px;
+    bottom: 8px;
+    left: 8px;
+    flex-direction: column;
+    gap: 6px;
+    padding: 6px;
   }
 
   .fleet-carousel-button {
-    width: clamp(40px, 10vw, 48px);
-    height: clamp(40px, 10vw, 48px);
+    width: 32px;
+    height: 32px;
     flex-shrink: 0;
   }
 
   .fleet-carousel-dots {
-    flex: 1;
+    width: 100%;
     justify-content: center;
-    gap: 4px;
+    gap: 2px;
   }
 
   .fleet-carousel-dot {
-    width: 6px;
-    height: 6px;
+    width: 4px;
+    height: 4px;
   }
 
   .fleet-carousel-dot.active {
-    width: 20px;
+    width: 12px;
   }
 
   .image-badge {
