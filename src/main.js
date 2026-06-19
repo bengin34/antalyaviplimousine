@@ -2560,6 +2560,28 @@ fleetCarouselPrev?.addEventListener("click", () =>
 fleetCarouselNext?.addEventListener("click", () =>
   updateFleetCarousel(activeFleetPhotoIndex + 1),
 );
+
+let touchStartX = 0;
+let touchEndX = 0;
+const handleSwipe = () => {
+  const diff = touchStartX - touchEndX;
+  const threshold = 50;
+  if (Math.abs(diff) > threshold) {
+    if (diff > 0) {
+      updateFleetCarousel(activeFleetPhotoIndex + 1);
+    } else {
+      updateFleetCarousel(activeFleetPhotoIndex - 1);
+    }
+  }
+};
+fleetCarousel?.addEventListener("touchstart", (e) => {
+  touchStartX = e.changedTouches[0].screenX;
+});
+fleetCarousel?.addEventListener("touchend", (e) => {
+  touchEndX = e.changedTouches[0].screenX;
+  handleSwipe();
+});
+
 syncFleetCarouselForVehicle(
   document.querySelector(".fleet-tab.active")?.dataset.fleet || "sprinter",
 );

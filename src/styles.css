@@ -3346,17 +3346,34 @@ footer {
   }
 
   .fleet-carousel-controls {
-    right: 18px;
-    bottom: 18px;
-    left: 18px;
+    right: 12px;
+    bottom: 12px;
+    left: 12px;
     justify-content: space-between;
+    align-items: center;
     gap: 8px;
     padding: 8px;
   }
 
   .fleet-carousel-button {
-    width: 38px;
-    height: 38px;
+    width: clamp(40px, 10vw, 48px);
+    height: clamp(40px, 10vw, 48px);
+    flex-shrink: 0;
+  }
+
+  .fleet-carousel-dots {
+    flex: 1;
+    justify-content: center;
+    gap: 4px;
+  }
+
+  .fleet-carousel-dot {
+    width: 6px;
+    height: 6px;
+  }
+
+  .fleet-carousel-dot.active {
+    width: 20px;
   }
 
   .image-badge {
