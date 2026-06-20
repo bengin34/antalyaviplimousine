@@ -1,6 +1,12 @@
 const CONSENT_KEY = "avl-analytics-consent";
 const GA_ID = "G-0VSR8E00FG";
 const ADS_ID = "AW-18248114753";
+const PRIVACY_URLS = {
+  de: "/de/datenschutz/",
+  en: "/privacy/",
+  tr: "/tr/gizlilik/",
+  ru: "/ru/privacy/",
+};
 
 window.gtag = window.gtag || function gtag() {};
 
@@ -20,6 +26,22 @@ const copy = {
     privacy: "Privacy policy",
     reject: "Reject optional",
     accept: "Accept analytics",
+  },
+  tr: {
+    label: "Gizlilik ayarları",
+    title: "Analiz verilerini kullanabilir miyiz?",
+    body: "Ziyaretleri ve rezervasyonları ölçmek için isteğe bağlı Google analiz ve reklam teknolojilerini kullanıyoruz. Bunlar yalnızca onayınızdan sonra yüklenir.",
+    privacy: "Gizlilik politikası",
+    reject: "İsteğe bağlıları reddet",
+    accept: "Analizi kabul et",
+  },
+  ru: {
+    label: "Настройки конфиденциальности",
+    title: "Разрешить аналитику?",
+    body: "Мы используем необязательные технологии Google для анализа посещений и бронирований. Они загружаются только после вашего согласия.",
+    privacy: "Политика конфиденциальности",
+    reject: "Отклонить необязательные",
+    accept: "Разрешить аналитику",
   },
 };
 
@@ -66,7 +88,9 @@ function removeDialog() {
 
 function showDialog() {
   removeDialog();
-  const language = document.documentElement.lang === "de" ? "de" : "en";
+  const language = copy[document.documentElement.lang]
+    ? document.documentElement.lang
+    : "en";
   const text = copy[language];
   const dialog = document.createElement("section");
   dialog.id = "analytics-consent";
@@ -78,7 +102,7 @@ function showDialog() {
     <div class="consent-copy">
       <span class="consent-label">${text.label}</span>
       <h2 id="consent-title">${text.title}</h2>
-      <p>${text.body} <a href="/privacy.html">${text.privacy}</a>.</p>
+      <p>${text.body} <a href="${PRIVACY_URLS[language]}">${text.privacy}</a>.</p>
     </div>
     <div class="consent-actions">
       <button class="button consent-reject" type="button" data-consent="rejected">${text.reject}</button>

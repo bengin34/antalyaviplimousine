@@ -1,15 +1,46 @@
 import { resolve } from "node:path";
 import { defineConfig } from "vite";
 
+const localizedRoutes = [
+  "antalya",
+  "belek",
+  "side",
+  "kemer",
+  "alanya",
+  "bogazkent",
+  "manavgat",
+  "tekirova",
+  "bodrum",
+  "dalaman",
+  "fethiye",
+  "pamukkale",
+  "kapadokya",
+];
+
+const localizedInputs = Object.fromEntries(
+  ["tr", "ru"].flatMap((language) => [
+    [`${language}-home`, resolve(__dirname, language, "index.html")],
+    ...localizedRoutes.map((route) => [
+      `${language}-${route}`,
+      resolve(__dirname, language, "transfers", route, "index.html"),
+    ]),
+  ]),
+);
+
 export default defineConfig({
   base: "/",
   build: {
     rollupOptions: {
       input: {
+        ...localizedInputs,
         main: resolve(__dirname, "index.html"),
         "de-home": resolve(__dirname, "de/index.html"),
         impressum: resolve(__dirname, "impressum.html"),
         privacy: resolve(__dirname, "privacy.html"),
+        "privacy-en": resolve(__dirname, "privacy/index.html"),
+        "privacy-de": resolve(__dirname, "de/datenschutz/index.html"),
+        "privacy-tr": resolve(__dirname, "tr/gizlilik/index.html"),
+        "privacy-ru": resolve(__dirname, "ru/privacy/index.html"),
         antalya: resolve(__dirname, "transfers/antalya/index.html"),
         belek: resolve(__dirname, "transfers/belek/index.html"),
         side: resolve(__dirname, "transfers/side/index.html"),
@@ -18,6 +49,11 @@ export default defineConfig({
         bogazkent: resolve(__dirname, "transfers/bogazkent/index.html"),
         manavgat: resolve(__dirname, "transfers/manavgat/index.html"),
         tekirova: resolve(__dirname, "transfers/tekirova/index.html"),
+        bodrum: resolve(__dirname, "transfers/bodrum/index.html"),
+        dalaman: resolve(__dirname, "transfers/dalaman/index.html"),
+        fethiye: resolve(__dirname, "transfers/fethiye/index.html"),
+        pamukkale: resolve(__dirname, "transfers/pamukkale/index.html"),
+        kapadokya: resolve(__dirname, "transfers/kapadokya/index.html"),
         "de-antalya": resolve(__dirname, "de/transfers/antalya/index.html"),
         "de-belek": resolve(__dirname, "de/transfers/belek/index.html"),
         "de-side": resolve(__dirname, "de/transfers/side/index.html"),
@@ -26,6 +62,11 @@ export default defineConfig({
         "de-bogazkent": resolve(__dirname, "de/transfers/bogazkent/index.html"),
         "de-manavgat": resolve(__dirname, "de/transfers/manavgat/index.html"),
         "de-tekirova": resolve(__dirname, "de/transfers/tekirova/index.html"),
+        "de-bodrum": resolve(__dirname, "de/transfers/bodrum/index.html"),
+        "de-dalaman": resolve(__dirname, "de/transfers/dalaman/index.html"),
+        "de-fethiye": resolve(__dirname, "de/transfers/fethiye/index.html"),
+        "de-pamukkale": resolve(__dirname, "de/transfers/pamukkale/index.html"),
+        "de-kapadokya": resolve(__dirname, "de/transfers/kapadokya/index.html"),
       },
     },
   },

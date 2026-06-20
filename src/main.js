@@ -1,5 +1,4 @@
 import "./consent.js";
-import { createBooking, createIyzicoCheckout } from "./lib/api.js";
 import fallbackChauffeurPhoto from "../assets/optimized/chauffeur-arrival.jpg?url";
 import fallbackInteriorPhoto from "../assets/optimized/executive-interior.jpg?url";
 import fallbackHeroPhoto from "../assets/optimized/antalya-coastline-hero.jpg?url";
@@ -2563,12 +2562,15 @@ fleetCarouselNext?.addEventListener("click", () =>
 );
 
 let touchStartX = 0;
+let touchStartY = 0;
 let touchEndX = 0;
+let touchEndY = 0;
 const handleSwipe = () => {
-  const diff = touchStartX - touchEndX;
+  const diffX = touchStartX - touchEndX;
+  const diffY = touchStartY - touchEndY;
   const threshold = 50;
-  if (Math.abs(diff) > threshold) {
-    if (diff > 0) {
+  if (Math.abs(diffX) > threshold && Math.abs(diffX) > Math.abs(diffY)) {
+    if (diffX > 0) {
       updateFleetCarousel(activeFleetPhotoIndex + 1);
     } else {
       updateFleetCarousel(activeFleetPhotoIndex - 1);
@@ -2576,12 +2578,14 @@ const handleSwipe = () => {
   }
 };
 fleetCarousel?.addEventListener("touchstart", (e) => {
-  touchStartX = e.changedTouches[0].screenX;
-});
+  touchStartX = e.changedTouches[0].clientX;
+  touchStartY = e.changedTouches[0].clientY;
+}, { passive: true });
 fleetCarousel?.addEventListener("touchend", (e) => {
-  touchEndX = e.changedTouches[0].screenX;
+  touchEndX = e.changedTouches[0].clientX;
+  touchEndY = e.changedTouches[0].clientY;
   handleSwipe();
-});
+}, { passive: true });
 
 syncFleetCarouselForVehicle(
   document.querySelector(".fleet-tab.active")?.dataset.fleet || "sprinter",
@@ -2961,6 +2965,7 @@ quoteForm.addEventListener("submit", async (event) => {
   }
 
   try {
+    const { createBooking, createIyzicoCheckout } = await import("./lib/api.js");
     const booking = await createBooking({
       customer_name: name,
       customer_email: email,
@@ -3229,16 +3234,14 @@ function getLanguageUrl(language) {
   const pathname = normalizeDirectoryPath(window.location.pathname);
   const hash = window.location.hash || "";
 
-  if (language === "de") {
-    if (pathname === "/") return `/de/${hash}`;
-    if (pathname.startsWith("/transfers/")) return `/de${pathname}${hash}`;
-  }
+  const localizedMatch = pathname.match(/^\/(de|tr|ru)(\/.*)?$/);
+  const basePath = localizedMatch ? localizedMatch[2] || "/" : pathname;
+  const isIndexablePath =
+    basePath === "/" || basePath.startsWith("/transfers/");
 
-  if (language === "en") {
-    if (pathname === "/de/") return `/${hash}`;
-    if (pathname.startsWith("/de/transfers/")) {
-      return `${pathname.replace(/^\/de/, "")}${hash}`;
-    }
+  if (isIndexablePath && ["en", "de", "tr", "ru"].includes(language)) {
+    const prefix = language === "en" ? "" : `/${language}`;
+    return `${prefix}${basePath}${hash}`;
   }
 
   return null;
@@ -3270,15 +3273,14 @@ function detectBrowserLanguage() {
 }
 
 const pathLanguage =
-  window.location.pathname === "/de" ||
-  window.location.pathname.startsWith("/de/")
-    ? "de"
-    : document.documentElement.lang || "en";
+  window.location.pathname.match(/^\/(de|tr|ru)(?:\/|$)/)?.[1] ||
+  document.documentElement.lang ||
+  "en";
 let savedLanguage = pathLanguage;
 try {
   savedLanguage =
-    pathLanguage === "de"
-      ? "de"
+    ["de", "tr", "ru"].includes(pathLanguage)
+      ? pathLanguage
       : localStorage.getItem("avl-language") ||
         pathLanguage ||
         detectBrowserLanguage();

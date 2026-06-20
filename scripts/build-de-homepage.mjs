@@ -65,17 +65,36 @@ function escapeAttr(value) {
 }
 
 function replaceDataI18n(html, translations) {
-  const tagPattern =
-    /<([a-z0-9]+)([^>]*\bdata-i18n="([^"]+)"[^>]*)>([\s\S]*?)<\/\1>/gi;
+  const tokenPattern = /<\/?([a-z0-9]+)\b[^>]*>/gi;
+  const voidElements = new Set(["area", "base", "br", "col", "embed", "hr", "img", "input", "link", "meta", "param", "source", "track", "wbr"]);
+  const stack = [];
+  const replacements = [];
+  let match;
 
-  let previous;
-  do {
-    previous = html;
-    html = html.replace(tagPattern, (match, tag, attrs, key) => {
-      if (!translations[key]) return match;
-      return `<${tag}${attrs}>${translations[key]}</${tag}>`;
-    });
-  } while (html !== previous);
+  while ((match = tokenPattern.exec(html))) {
+    const token = match[0];
+    const tag = match[1].toLowerCase();
+    if (token.startsWith("</")) {
+      for (let index = stack.length - 1; index >= 0; index -= 1) {
+        if (stack[index].tag !== tag) continue;
+        const node = stack.splice(index, 1)[0];
+        if (node.key && translations[node.key]) {
+          replacements.push({ start: node.contentStart, end: match.index, value: translations[node.key] });
+        }
+        break;
+      }
+      continue;
+    }
+
+    if (voidElements.has(tag) || token.endsWith("/>")) continue;
+    const key = token.match(/\bdata-i18n="([^"]+)"/)?.[1];
+    stack.push({ tag, key, contentStart: tokenPattern.lastIndex });
+  }
+
+  replacements.sort((a, b) => b.start - a.start);
+  for (const replacement of replacements) {
+    html = html.slice(0, replacement.start) + replacement.value + html.slice(replacement.end);
+  }
 
   return html.replace(/<input\b[^>]*\bdata-i18n-placeholder="([^"]+)"[^>]*>/gi, (tag, key) => {
     if (!translations[key]) return tag;
@@ -117,7 +136,7 @@ function localizeHead(html) {
     .replace(/<title>[\s\S]*?<\/title>/, `<title>${deTitle}</title>`)
     .replace(
       /<!-- hreflang[\s\S]*?<link\s+rel="alternate"\s+hreflang="x-default"[\s\S]*?\/>/,
-      `<!-- hreflang -->\n    <link rel="alternate" hreflang="de" href="https://antalyaviptourism.com/de/" />\n    <link rel="alternate" hreflang="en" href="https://antalyaviptourism.com/" />\n    <link\n      rel="alternate"\n      hreflang="x-default"\n      href="https://antalyaviptourism.com/"\n    />`,
+      `<!-- hreflang -->\n    <link rel="alternate" hreflang="de" href="https://antalyaviptourism.com/de/" />\n    <link rel="alternate" hreflang="en" href="https://antalyaviptourism.com/" />\n    <link rel="alternate" hreflang="tr" href="https://antalyaviptourism.com/tr/" />\n    <link rel="alternate" hreflang="ru" href="https://antalyaviptourism.com/ru/" />\n    <link\n      rel="alternate"\n      hreflang="x-default"\n      href="https://antalyaviptourism.com/"\n    />`,
     )
     .replace(
       '<link rel="canonical" href="https://antalyaviptourism.com/" />',
@@ -216,7 +235,9 @@ function localizeStaticChrome(html) {
     .replaceAll('Antalya Airport transfer routes', 'Transferrouten ab Flughafen Antalya')
     .replaceAll('From</span><strong>', 'Ab</span><strong>')
     .replaceAll('Antalya Airport <span>→</span>', 'Flughafen Antalya <span>→</span>')
-    .replaceAll('Antalya City', 'Antalya Stadt');
+    .replaceAll('Antalya City', 'Antalya Stadt')
+    .replaceAll('href="/privacy/"', 'href="/de/datenschutz/"')
+    .replaceAll('>Privacy</a>', '>Datenschutz</a>');
 }
 
 function localizeRouteLinks(html) {
@@ -229,6 +250,11 @@ function localizeRouteLinks(html) {
     "bogazkent",
     "manavgat",
     "tekirova",
+    "bodrum",
+    "dalaman",
+    "fethiye",
+    "pamukkale",
+    "kapadokya",
   ];
 
   for (const route of routes) {
