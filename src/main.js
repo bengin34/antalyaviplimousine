@@ -53,6 +53,11 @@ const translations = {
     fixedPrice: "Garantierter Festpreis",
     meetGreet: "Persönlicher Empfang",
     speakingDrivers: "Deutsch & Englisch sprechend",
+    tbLicensed: "TÜRSAB-zertifiziert",
+    tbFlightTracking: "Flugverfolgung",
+    tbFixedPrice: "Festpreisgarantie",
+    tb247Concierge: "24/7 Concierge",
+    tbChildSeats: "Kindersitze inklusive",
     welcomeEyebrow: "Willkommen auf höchstem Niveau",
     welcomeTitle: "Stilvoll reisen.<br />Entspannt ankommen.",
     welcomeBody:
@@ -254,6 +259,11 @@ const translations = {
     fixedPrice: "Sabit fiyat garantisi",
     meetGreet: "Kişisel karşılama",
     speakingDrivers: "İngilizce ve Almanca konuşan şoförler",
+    tbLicensed: "TÜRSAB Lisanslı",
+    tbFlightTracking: "Uçuş Takibi",
+    tbFixedPrice: "Sabit Fiyat",
+    tb247Concierge: "7/24 Concierge",
+    tbChildSeats: "Çocuk Koltuğu Dahil",
     welcomeEyebrow: "Daha iyi bir karşılamaya hoş geldiniz",
     welcomeTitle: "Zarafetle seyahat edin.<br />Rahatça varın.",
     welcomeBody:
@@ -454,6 +464,11 @@ const translations = {
     fixedPrice: "Гарантия фиксированной цены",
     meetGreet: "Персональная встреча",
     speakingDrivers: "Водители говорят на английском и немецком",
+    tbLicensed: "Лицензия TÜRSAB",
+    tbFlightTracking: "Отслеживание рейса",
+    tbFixedPrice: "Фиксированная цена",
+    tb247Concierge: "Консьерж 24/7",
+    tbChildSeats: "Детские кресла в комплекте",
     welcomeEyebrow: "Добро пожаловать на новый уровень сервиса",
     welcomeTitle: "Путешествуйте красиво.<br />Прибывайте без забот.",
     welcomeBody:
@@ -654,6 +669,11 @@ const translations = {
     fixedPrice: "Gwarantowana stała cena",
     meetGreet: "Osobiste powitanie",
     speakingDrivers: "Kierowcy mówiący po angielsku i niemiecku",
+    tbLicensed: "Licencja TÜRSAB",
+    tbFlightTracking: "Śledzenie lotu",
+    tbFixedPrice: "Stała cena",
+    tb247Concierge: "Concierge 24/7",
+    tbChildSeats: "Foteliki w cenie",
     welcomeEyebrow: "Witamy na najwyższym poziomie",
     welcomeTitle: "Podróżuj z klasą.<br />Przyjeżdżaj spokojnie.",
     welcomeBody:
@@ -854,6 +874,11 @@ const translations = {
     fixedPrice: "Gegarandeerde vaste prijs",
     meetGreet: "Persoonlijk welkom",
     speakingDrivers: "Chauffeurs die Engels en Duits spreken",
+    tbLicensed: "TÜRSAB Erkend",
+    tbFlightTracking: "Vluchttracking",
+    tbFixedPrice: "Vaste prijs",
+    tb247Concierge: "Concierge 24/7",
+    tbChildSeats: "Kinderzitjes inbegrepen",
     welcomeEyebrow: "Welkom op het hoogste niveau",
     welcomeTitle: "Stijlvol reizen.<br />Ontspannen aankomen.",
     welcomeBody:
@@ -1055,6 +1080,11 @@ const translations = {
     fixedPrice: "Гарантія фіксованої ціни",
     meetGreet: "Особиста зустріч",
     speakingDrivers: "Водії розмовляють англійською та німецькою",
+    tbLicensed: "Ліцензія TÜRSAB",
+    tbFlightTracking: "Відстеження рейсу",
+    tbFixedPrice: "Фіксована ціна",
+    tb247Concierge: "Консьєрж 24/7",
+    tbChildSeats: "Дитячі крісла в комплекті",
     welcomeEyebrow: "Ласкаво просимо на найвищий рівень",
     welcomeTitle: "Подорожуйте стильно.<br />Прибувайте спокійно.",
     welcomeBody:
@@ -1256,6 +1286,11 @@ const translations = {
     fixedPrice: "Prix fixe garanti",
     meetGreet: "Accueil personnalisé",
     speakingDrivers: "Chauffeurs parlant anglais et allemand",
+    tbLicensed: "Agréé TÜRSAB",
+    tbFlightTracking: "Suivi de vol",
+    tbFixedPrice: "Prix fixe",
+    tb247Concierge: "Conciergerie 24/7",
+    tbChildSeats: "Sièges enfants inclus",
     welcomeEyebrow: "Bienvenue au plus haut niveau",
     welcomeTitle: "Voyager avec élégance.<br />Arriver sereinement.",
     welcomeBody:
@@ -1458,6 +1493,11 @@ const translations = {
     fixedPrice: "Garanterat fast pris",
     meetGreet: "Personlig välkomst",
     speakingDrivers: "Chaufförer som talar engelska och tyska",
+    tbLicensed: "TÜRSAB-licensierad",
+    tbFlightTracking: "Flygspårning",
+    tbFixedPrice: "Fast pris",
+    tb247Concierge: "Concierge dygnet runt",
+    tbChildSeats: "Bilbarnstolar ingår",
     welcomeEyebrow: "Välkommen till högsta nivå",
     welcomeTitle: "Res med stil.<br />Anländ avslappnad.",
     welcomeBody:
@@ -1658,6 +1698,11 @@ const translations = {
     fixedPrice: "料金固定保証",
     meetGreet: "ミート＆グリートサービス",
     speakingDrivers: "英語・ドイツ語対応ショーファー",
+    tbLicensed: "TÜRSAB認可",
+    tbFlightTracking: "フライト追跡",
+    tbFixedPrice: "固定料金",
+    tb247Concierge: "24時間コンシェルジュ",
+    tbChildSeats: "チャイルドシート込み",
     welcomeEyebrow: "最高水準のサービスへようこそ",
     welcomeTitle: "上質な旅を。<br />安心してご到着を。",
     welcomeBody:
@@ -1857,6 +1902,11 @@ const translations = {
     fixedPrice: "고정 요금 보장",
     meetGreet: "미트 앤 그리트 서비스",
     speakingDrivers: "영어·독일어 가능 쇼퍼",
+    tbLicensed: "TÜRSAB 인증",
+    tbFlightTracking: "항공편 추적",
+    tbFixedPrice: "고정 요금",
+    tb247Concierge: "24/7 컨시어지",
+    tbChildSeats: "카시트 포함",
     welcomeEyebrow: "최고 수준의 서비스에 오신 것을 환영합니다",
     welcomeTitle: "품격 있게 이동하세요.<br />편안하게 도착하세요.",
     welcomeBody:
@@ -3384,6 +3434,12 @@ bookBar.innerHTML = `
   </a>
 `;
 document.body.appendChild(bookBar);
+
+const bookBarLabel = bookBar.querySelector("[data-i18n='bookTransfer']");
+bookBarLabel.dataset.original = bookBarLabel.innerHTML;
+bookBarLabel.innerHTML =
+  translations[document.documentElement.lang]?.bookTransfer ||
+  bookBarLabel.dataset.original;
 
 const heroSection = document.querySelector(".hero");
 const barObs = new IntersectionObserver(
