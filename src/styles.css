@@ -1423,6 +1423,11 @@ html[lang="ru"] .faq-item button span {
   object-position: center;
 }
 
+.fleet-carousel img.is-customer {
+  object-fit: contain;
+  background: #0e0e0c;
+}
+
 .fleet-carousel img {
   transition: opacity 0.24s ease, transform 0.55s ease;
 }
@@ -2115,15 +2120,28 @@ html[lang="ru"] .faq-item button span {
 }
 
 .review-card {
-  padding: 38px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  background: linear-gradient(145deg, rgba(255, 255, 255, 0.065), rgba(255, 255, 255, 0.018));
-  transition: 0.3s;
+  padding: 36px;
+  border: 1px solid rgba(200, 169, 106, 0.2);
+  background: #161614;
+  border-radius: 6px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
+  transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
 }
 
 .review-card:hover {
-  border-color: rgba(200, 169, 106, 0.5);
-  transform: translateY(-5px);
+  border-color: rgba(200, 169, 106, 0.6);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+}
+
+.review-card:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
 }
 
 .review-card-top {
@@ -2140,12 +2158,12 @@ html[lang="ru"] .faq-item button span {
 }
 
 .review-card blockquote {
-  min-height: 160px;
-  margin: 40px 0;
-  color: rgba(255, 255, 255, 0.76);
+  flex: 1;
+  margin: 32px 0;
+  color: rgba(255, 255, 255, 0.82);
   font-family: var(--serif);
-  font-size: 22px;
-  line-height: 1.55;
+  font-size: 20px;
+  line-height: 1.6;
 }
 
 .review-card footer {
@@ -2154,6 +2172,7 @@ html[lang="ru"] .faq-item button span {
   align-items: center;
   gap: 12px;
   padding-top: 24px;
+  margin-top: auto;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   background: none;
 }

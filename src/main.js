@@ -12,6 +12,15 @@ const vehiclePhotoModules = import.meta.glob(
   },
 );
 
+const customerPhotoModules = import.meta.glob(
+  "../assets/optimized/customers/*.jpg",
+  {
+    eager: true,
+    import: "default",
+    query: "?url",
+  },
+);
+
 const translations = {
   de: {
     navFairPricing: "Faire Preise",
@@ -2380,6 +2389,7 @@ const fallbackFleetPhotos = [
 
 const getPhotoCaption = (fileName) => {
   const normalized = fileName.toLowerCase();
+  if (normalized.includes("customer")) return "Happy customer";
   if (normalized.includes("interior") || normalized.includes("lounge"))
     return "VIP interior";
   if (normalized.includes("cabin") || normalized.includes("seat"))
@@ -2406,7 +2416,17 @@ const getPhotoVehicle = (fileName) => {
   return "all";
 };
 
-const fleetPhotos = Object.entries(vehiclePhotoModules)
+const customerPhotos = Object.entries(customerPhotoModules)
+  .sort(([pathA], [pathB]) => pathA.localeCompare(pathB))
+  .map(([path, src]) => ({
+    src,
+    caption: "Happy customer",
+    vehicle: "all",
+    alt: "Satisfied customer with Antalya VIP Tourism transfer service",
+    isCustomer: true,
+  }));
+
+const vehiclePhotos = Object.entries(vehiclePhotoModules)
   .sort(([pathA], [pathB]) => pathA.localeCompare(pathB))
   .map(([path, src]) => {
     const fileName = path.split("/").pop() || "vehicle";
@@ -2418,6 +2438,15 @@ const fleetPhotos = Object.entries(vehiclePhotoModules)
       alt: `${caption} photo from Antalya VIP Tourism fleet`,
     };
   });
+
+const fleetPhotos = (() => {
+  const mixed = [...vehiclePhotos];
+  const step = mixed.length / (customerPhotos.length + 1);
+  customerPhotos.forEach((photo, i) => {
+    mixed.splice(Math.round(step * (i + 1)) + i, 0, photo);
+  });
+  return mixed;
+})();
 
 let activeFleetPhotoIndex = 0;
 let activeFleetPhotos = fleetPhotos.length ? fleetPhotos : fallbackFleetPhotos;
@@ -2467,6 +2496,7 @@ const updateFleetCarousel = (nextIndex) => {
     fleetCarouselImage.src = photo.src;
     fleetCarouselImage.alt = photo.alt;
     fleetCarouselCaption.textContent = photo.caption;
+    fleetCarouselImage.classList.toggle("is-customer", !!photo.isCustomer);
     renderFleetCarouselDots();
     fleetCarousel?.classList.remove("is-changing");
   }, 120);
@@ -2960,6 +2990,27 @@ arrivalTimeInput.addEventListener("input", syncArrivalTimeState);
 arrivalTimeInput.addEventListener("change", syncArrivalTimeState);
 syncArrivalTimeState();
 
+const setWhatsAppBookingUrl = (details) => {
+  const waBtn = document.querySelector("#confirmed-whatsapp");
+  if (!waBtn) return;
+  const lines = ["🚗 *Antalya VIP Limousine — New Booking*"];
+  if (details.ref)       lines.push(`📋 Ref: ${details.ref}`);
+  if (details.name)      lines.push(`👤 Name: ${details.name}`);
+  if (details.phone)     lines.push(`📞 Phone: ${details.phone}`);
+  if (details.email)     lines.push(`✉️ Email: ${details.email}`);
+  if (details.date)      lines.push(`📅 Date: ${details.date}`);
+  if (details.pickup)    lines.push(`📍 Pickup: ${details.pickup}`);
+  if (details.dropoff)   lines.push(`🏁 Dropoff: ${details.dropoff}`);
+  if (details.vehicle)   lines.push(`🚘 Vehicle: ${details.vehicle}`);
+  if (details.guests)    lines.push(`👥 Guests: ${details.guests}`);
+  if (details.flight)    lines.push(`✈️ Flight: ${details.flight}`);
+  if (details.arrival)   lines.push(`🕐 Arrival: ${details.arrival}`);
+  if (details.price)     lines.push(`💶 Price: €${details.price}`);
+  if (details.payment)   lines.push(`💳 Payment: ${details.payment}`);
+  const msg = encodeURIComponent(lines.join("\n"));
+  waBtn.href = `https://wa.me/905302655790?text=${msg}`;
+};
+
 const openConfirmation = () => {
   quoteModal.classList.add("open");
   quoteModal.setAttribute("aria-hidden", "false");
@@ -3050,6 +3101,12 @@ quoteForm.addEventListener("submit", async (event) => {
           },
         ],
       });
+      gtag("event", "conversion", {
+        send_to: "AW-18248114753/IW8CCL7H38AcEMHEsP1D",
+        transaction_id: booking.booking_ref,
+        value: currentQuoteData.price || 0,
+        currency: "EUR",
+      });
 
       const checkoutUrl = await createIyzicoCheckout(booking.id);
       window.location.assign(checkoutUrl);
@@ -3076,7 +3133,30 @@ quoteForm.addEventListener("submit", async (event) => {
         },
       ],
     });
+    gtag("event", "conversion", {
+      send_to: "AW-18248114753/IW8CCL7H38AcEMHEsP1D",
+      transaction_id: booking.booking_ref,
+      value: currentQuoteData.price || 0,
+      currency: "EUR",
+    });
 
+    setWhatsAppBookingUrl({
+      ref: booking.booking_ref,
+      name,
+      phone,
+      email,
+      date: document.querySelector("#travel-date").value,
+      pickup: currentQuoteData.pickup === "private_address"
+        ? pickupAddress
+        : (currentQuoteData.pickup === "airport" ? "Antalya Airport" : currentQuoteData.pickup),
+      dropoff: routeData[currentQuoteData.destination]?.name || currentQuoteData.destination,
+      vehicle: currentQuoteData.vehicle === "sprinter" ? "V-Class (Sprinter)" : "Mercedes Vito",
+      guests: document.querySelector("#guests").value,
+      flight: flightNumberInput.value.trim() || null,
+      arrival: document.querySelector("#flight-arrival-time").value || null,
+      price: currentQuoteData.price || null,
+      payment: "Cash in vehicle",
+    });
     event.target.reset();
     currentQuoteData = {};
     updateGuestCapacity();
@@ -3342,12 +3422,13 @@ applyLanguage(savedLanguage);
 // Handle the verified iyzico callback return.
 const urlParams = new URLSearchParams(window.location.search);
 if (urlParams.get("payment") === "success" && urlParams.get("booking_ref")) {
-  document.querySelector("#confirmed-ref").textContent =
-    urlParams.get("booking_ref");
+  const bookingRef = urlParams.get("booking_ref");
+  document.querySelector("#confirmed-ref").textContent = bookingRef;
   confirmationMessage.dataset.i18n = "weWillContact";
   confirmationMessage.textContent =
     translations[document.documentElement.lang]?.weWillContact ||
     "Your payment was successful. We will contact you within 30 minutes.";
+  setWhatsAppBookingUrl({ ref: bookingRef, payment: "Card (paid online)" });
   openConfirmation();
   window.history.replaceState({}, "", window.location.pathname);
 } else if (urlParams.get("payment") === "failed") {
