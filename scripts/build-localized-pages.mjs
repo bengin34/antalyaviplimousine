@@ -17,7 +17,7 @@ const languages = {
     includeItems: ["Personal meet and greet", "Real-time flight tracking", "Airport parking and waiting", "Luggage assistance and bottled water", "Free child seat on request"],
     duration: "Estimated time", distance: "Distance", from: "Price from", book: "Book your transfer", faq: "Frequently asked questions",
     faqItems: (name, price, duration) => [[`How long is the transfer from Antalya Airport to ${name}?`, `The journey takes approximately ${duration} in normal traffic.`], [`What is the fixed transfer price to ${name}?`, `Mercedes Vito prices start from €${price} per vehicle. The confirmed total is shown when booking.`], ["What happens if my flight is delayed?", "We track your flight in real time and adjust the meeting time at no extra charge."]],
-    other: "Other Antalya Airport transfers", contact: "Contact us on WhatsApp for bookings and questions.", privacy: "Privacy", privacyUrl: "/privacy/", imprint: "Imprint",
+    other: "Other Antalya Airport transfers", contact: "Contact us on WhatsApp for bookings and questions.", privacy: "Privacy", privacyUrl: "/privacy/", imprint: "Imprint", imprintUrl: "/impressum.html",
   },
   de: {
     locale: "de_DE",
@@ -32,7 +32,7 @@ const languages = {
     includeItems: ["Persönlicher Empfang mit Namensschild", "Flugverfolgung in Echtzeit", "Flughafenparken und Wartezeit", "Gepäckhilfe und Mineralwasser", "Kostenloser Kindersitz auf Wunsch"],
     duration: "Geschätzte Fahrzeit", distance: "Entfernung", from: "Preis ab", book: "Transfer buchen", faq: "Häufig gestellte Fragen",
     faqItems: (name, price, duration) => [[`Wie lange dauert der Transfer vom Flughafen Antalya nach ${name}?`, `Die Fahrt dauert bei normalem Verkehr ungefähr ${duration}.`], [`Was kostet der Festpreis-Transfer nach ${name}?`, `Die Preise für einen Mercedes Vito beginnen bei €${price} pro Fahrzeug. Der bestätigte Gesamtpreis wird bei der Buchung angezeigt.`], ["Was passiert bei einer Flugverspätung?", "Wir verfolgen Ihren Flug in Echtzeit und passen die Abholzeit ohne Aufpreis an."]],
-    other: "Weitere Transfers vom Flughafen Antalya", contact: "Für Buchungen und Fragen erreichen Sie uns über WhatsApp.", privacy: "Datenschutz", privacyUrl: "/de/datenschutz/", imprint: "Impressum",
+    other: "Weitere Transfers vom Flughafen Antalya", contact: "Für Buchungen und Fragen erreichen Sie uns über WhatsApp.", privacy: "Datenschutz", privacyUrl: "/de/datenschutz/", imprint: "Impressum", imprintUrl: "/de/impressum/",
   },
   tr: {
     locale: "tr_TR",
@@ -64,6 +64,7 @@ const languages = {
     privacy: "Gizlilik",
     imprint: "Künye",
     privacyUrl: "/tr/gizlilik/",
+    imprintUrl: "/tr/kunye/",
   },
   ru: {
     locale: "ru_RU",
@@ -95,6 +96,7 @@ const languages = {
     privacy: "Конфиденциальность",
     imprint: "Правовая информация",
     privacyUrl: "/ru/privacy/",
+    imprintUrl: "/ru/impressum/",
   },
 };
 
@@ -238,6 +240,7 @@ function localizeHomeStaticChrome(html, code) {
         ["Antalya Airport", "Antalya Havalimanı"],
         ["Antalya City", "Antalya şehir merkezi"],
         ["From</span><strong>", "Başlangıç</span><strong>"],
+        ['href="/impressum.html"', 'href="/tr/kunye/"'],
         [">Impressum</a>", ">Künye</a>"],
         ['aria-label="Primary navigation"', 'aria-label="Ana navigasyon"'],
         ['aria-label="Change language"', 'aria-label="Dili değiştir"'],
@@ -262,6 +265,7 @@ function localizeHomeStaticChrome(html, code) {
         ["Antalya Airport", "Аэропорт Антальи"],
         ["Antalya City", "центр Антальи"],
         ["From</span><strong>", "От</span><strong>"],
+        ['href="/impressum.html"', 'href="/ru/impressum/"'],
         [">Impressum</a>", ">Правовая информация</a>"],
         ['aria-label="Primary navigation"', 'aria-label="Основная навигация"'],
         ['aria-label="Change language"', 'aria-label="Изменить язык"'],
@@ -340,7 +344,7 @@ function routePage(code, slug, route, text) {
 <section class="localized-faq"><h2>${text.faq}</h2>${faq.map(([q,a]) => `<article><h3>${q}</h3><p>${a}</p></article>`).join("")}</section>
 <section class="localized-links"><h2>${text.other}</h2><div>${Object.entries(routes).filter(([key]) => key !== slug).map(([key,value]) => `<a href="${localPrefix}/transfers/${key}/">${value[code]}</a>`).join("")}</div></section>
 <section class="localized-contact" id="contact"><h2>${text.book}</h2><p>${text.contact}</p><a class="button button-gold" href="https://wa.me/905302655790">WhatsApp</a></section></main>
-<footer><div class="footer-bottom"><span>© 2026 Antalya VIP Tourism</span><span><a href="/impressum.html">${text.imprint}</a> · <a href="${text.privacyUrl}">${text.privacy}</a></span></div></footer><script type="module" src="/src/consent.js"></script></body></html>`;
+<footer><div class="footer-bottom"><span>© 2026 Antalya VIP Tourism</span><span><a href="${text.imprintUrl}">${text.imprint}</a> · <a href="${text.privacyUrl}">${text.privacy}</a></span></div></footer><script type="module" src="/src/consent.js"></script></body></html>`;
 }
 
 const [source, mainJs] = await Promise.all([readFile(path.join(root, "index.html"), "utf8"), readFile(path.join(root, "src/main.js"), "utf8")]);

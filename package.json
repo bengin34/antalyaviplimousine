@@ -6,12 +6,13 @@
     "node": ">=22.12.0 <23"
   },
   "scripts": {
-    "prebuild": "npm run generate:de-home && npm run generate:localized && npm run generate:privacy && npm run generate:sitemap",
+    "prebuild": "npm run generate:de-home && npm run generate:localized && npm run generate:privacy && npm run generate:impressum && npm run generate:sitemap",
     "dev": "vite --host 0.0.0.0",
     "build": "vite build",
     "generate:de-home": "node scripts/build-de-homepage.mjs",
     "generate:localized": "node scripts/build-localized-pages.mjs",
     "generate:privacy": "node scripts/build-privacy-pages.mjs",
+    "generate:impressum": "node scripts/build-impressum-pages.mjs",
     "generate:sitemap": "node scripts/generate-sitemap.mjs",
     "optimize:images": "node scripts/optimize-images.mjs",
     "preview": "vite preview --host 0.0.0.0"

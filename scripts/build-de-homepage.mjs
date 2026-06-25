@@ -236,6 +236,7 @@ function localizeStaticChrome(html) {
     .replaceAll('From</span><strong>', 'Ab</span><strong>')
     .replaceAll('Antalya Airport <span>→</span>', 'Flughafen Antalya <span>→</span>')
     .replaceAll('Antalya City', 'Antalya Stadt')
+    .replaceAll('href="/impressum.html"', 'href="/de/impressum/"')
     .replaceAll('href="/privacy/"', 'href="/de/datenschutz/"')
     .replaceAll('>Privacy</a>', '>Datenschutz</a>');
 }

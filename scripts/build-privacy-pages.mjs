@@ -17,7 +17,7 @@ const pages = {
       "Where applicable law provides, you may request access, correction, deletion, restriction, portability or object to processing. You may withdraw consent for the future and lodge a complaint with a competent supervisory authority.",
       "This policy is updated when services or legal requirements change. Last updated: 19 June 2026.",
     ],
-    settings: "Open privacy settings", home: "Home", imprint: "Imprint",
+    settings: "Open privacy settings", home: "Home", imprint: "Imprint", imprintUrl: "/impressum.html",
   },
   de: {
     file: "de/datenschutz/index.html", url: "de/datenschutz/", title: "Datenschutzerklärung", eyebrow: "Datenschutz",
@@ -33,7 +33,7 @@ const pages = {
       "Soweit anwendbares Recht dies vorsieht, können Sie Auskunft, Berichtigung, Löschung, Einschränkung, Datenübertragbarkeit oder Widerspruch verlangen. Sie können Einwilligungen für die Zukunft widerrufen und sich bei einer zuständigen Aufsichtsbehörde beschweren.",
       "Diese Erklärung wird bei Änderungen der Dienste oder rechtlichen Anforderungen aktualisiert. Stand: 19. Juni 2026.",
     ],
-    settings: "Datenschutzeinstellungen öffnen", home: "Startseite", imprint: "Impressum",
+    settings: "Datenschutzeinstellungen öffnen", home: "Startseite", imprint: "Impressum", imprintUrl: "/de/impressum/",
   },
   tr: {
     file: "tr/gizlilik/index.html", url: "tr/gizlilik/", title: "Gizlilik Politikası", eyebrow: "Gizlilik",
@@ -49,7 +49,7 @@ const pages = {
       "Uygulanabilir mevzuat kapsamında erişim, düzeltme, silme, kısıtlama, veri taşınabilirliği veya itiraz haklarınızı kullanabilirsiniz. Onayınızı gelecek için geri çekebilir ve yetkili makama şikâyette bulunabilirsiniz.",
       "Hizmetler veya yasal gereklilikler değiştiğinde bu politika güncellenir. Son güncelleme: 19 Haziran 2026.",
     ],
-    settings: "Gizlilik ayarlarını aç", home: "Ana sayfa", imprint: "Künye",
+    settings: "Gizlilik ayarlarını aç", home: "Ana sayfa", imprint: "Künye", imprintUrl: "/tr/kunye/",
   },
   ru: {
     file: "ru/privacy/index.html", url: "ru/privacy/", title: "Политика конфиденциальности", eyebrow: "Конфиденциальность",
@@ -65,7 +65,7 @@ const pages = {
       "В рамках применимого права вы можете запросить доступ, исправление, удаление, ограничение, перенос данных или возразить против обработки. Вы можете отозвать согласие на будущее и обратиться в компетентный надзорный орган.",
       "Политика обновляется при изменении сервисов или требований закона. Обновлено: 19 июня 2026 года.",
     ],
-    settings: "Открыть настройки конфиденциальности", home: "Главная", imprint: "Правовая информация",
+    settings: "Открыть настройки конфиденциальности", home: "Главная", imprint: "Правовая информация", imprintUrl: "/ru/impressum/",
   },
 };
 
@@ -73,7 +73,7 @@ const alternates = `<link rel="alternate" hreflang="en" href="https://antalyavip
 
 function render(code, page) {
   const cards = page.headings.map((heading, index) => `<div class="legal-card legal-card-wide"><h2>${index + 1}. ${heading}</h2><p>${page.bodies[index]}</p>${index === 3 ? `<p><button class="button button-gold" type="button" data-open-consent>${page.settings}</button></p>` : ""}</div>`).join("");
-  return `<!doctype html><html lang="${code}"><head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width,initial-scale=1" /><meta name="description" content="${page.description}" /><title>${page.title} | Antalya VIP Tourism</title><link rel="canonical" href="https://antalyaviptourism.com/${page.url}" />${alternates}<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" /><link rel="stylesheet" href="/src/styles.css" /></head><body class="legal-page"><header class="site-header legal-header scrolled"><a class="brand" href="/${code === "en" ? "" : `${code}/`}"><span class="brand-mark">AVL</span><span class="brand-copy"><strong>Antalya VIP</strong><span>Tourism</span></span></a><nav class="desktop-nav"><a href="/${code === "en" ? "" : `${code}/`}">${page.home}</a><a href="/impressum.html">${page.imprint}</a></nav></header><main><section class="legal-hero"><div class="eyebrow light"><span></span><p>${page.eyebrow}</p></div><h1>${page.title}</h1><p>${page.intro}</p></section><section class="legal-content">${cards}</section></main><footer><div class="footer-bottom"><span>© 2026 Antalya VIP Tourism</span><a href="/impressum.html">${page.imprint}</a></div></footer><script type="module" src="/src/consent.js"></script></body></html>`;
+  return `<!doctype html><html lang="${code}"><head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width,initial-scale=1" /><meta name="description" content="${page.description}" /><title>${page.title} | Antalya VIP Tourism</title><link rel="canonical" href="https://antalyaviptourism.com/${page.url}" />${alternates}<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" /><link rel="stylesheet" href="/src/styles.css" /></head><body class="legal-page"><header class="site-header legal-header scrolled"><a class="brand" href="/${code === "en" ? "" : `${code}/`}"><span class="brand-mark">AVL</span><span class="brand-copy"><strong>Antalya VIP</strong><span>Tourism</span></span></a><nav class="desktop-nav"><a href="/${code === "en" ? "" : `${code}/`}">${page.home}</a><a href="${page.imprintUrl}">${page.imprint}</a></nav></header><main><section class="legal-hero"><div class="eyebrow light"><span></span><p>${page.eyebrow}</p></div><h1>${page.title}</h1><p>${page.intro}</p></section><section class="legal-content">${cards}</section></main><footer><div class="footer-bottom"><span>© 2026 Antalya VIP Tourism</span><a href="${page.imprintUrl}">${page.imprint}</a></div></footer><script type="module" src="/src/consent.js"></script></body></html>`;
 }
 
 for (const [code, page] of Object.entries(pages)) {
