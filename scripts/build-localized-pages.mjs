@@ -15,7 +15,7 @@ const languages = {
     intro: (name, duration, distance) => `The ${distance} journey from Antalya Airport to ${name} takes approximately ${duration} in normal traffic. Your chauffeur meets you in arrivals with a name sign and drives directly to your accommodation.`,
     priceHeading: "Fixed transfer prices", vito: "Mercedes Vito · up to 7 passengers", sprinter: "Mercedes Sprinter · up to 13 passengers", included: "Included in the price",
     includeItems: ["Personal meet and greet", "Real-time flight tracking", "Airport parking and waiting", "Luggage assistance and bottled water", "Free child seat on request"],
-    duration: "Estimated time", distance: "Distance", from: "Price from", book: "Book your transfer", faq: "Frequently asked questions",
+    duration: "Estimated time", distance: "Distance", from: "Price from", book: "Book your transfer", faq: "Frequently asked questions", campaign: "Online special: 25% discount already applied to all transfer prices.",
     faqItems: (name, price, duration) => [[`How long is the transfer from Antalya Airport to ${name}?`, `The journey takes approximately ${duration} in normal traffic.`], [`What is the fixed transfer price to ${name}?`, `Mercedes Vito prices start from €${price} per vehicle. The confirmed total is shown when booking.`], ["What happens if my flight is delayed?", "We track your flight in real time and adjust the meeting time at no extra charge."]],
     other: "Other Antalya Airport transfers", contact: "Contact us on WhatsApp for bookings and questions.", privacy: "Privacy", privacyUrl: "/privacy/", imprint: "Imprint", imprintUrl: "/impressum.html",
   },
@@ -30,7 +30,7 @@ const languages = {
     intro: (name, duration, distance) => `Die ${distance} lange Fahrt vom Flughafen Antalya nach ${name} dauert bei normalem Verkehr ungefähr ${duration}. Ihr Chauffeur empfängt Sie in der Ankunftshalle mit Namensschild und fährt direkt zu Ihrer Unterkunft.`,
     priceHeading: "Feste Transferpreise", vito: "Mercedes Vito · bis 7 Personen", sprinter: "Mercedes Sprinter · bis 13 Personen", included: "Im Preis enthalten",
     includeItems: ["Persönlicher Empfang mit Namensschild", "Flugverfolgung in Echtzeit", "Flughafenparken und Wartezeit", "Gepäckhilfe und Mineralwasser", "Kostenloser Kindersitz auf Wunsch"],
-    duration: "Geschätzte Fahrzeit", distance: "Entfernung", from: "Preis ab", book: "Transfer buchen", faq: "Häufig gestellte Fragen",
+    duration: "Geschätzte Fahrzeit", distance: "Entfernung", from: "Preis ab", book: "Transfer buchen", faq: "Häufig gestellte Fragen", campaign: "Online Spezial: 25% Rabatt ist in allen Transferpreisen bereits abgezogen.",
     faqItems: (name, price, duration) => [[`Wie lange dauert der Transfer vom Flughafen Antalya nach ${name}?`, `Die Fahrt dauert bei normalem Verkehr ungefähr ${duration}.`], [`Was kostet der Festpreis-Transfer nach ${name}?`, `Die Preise für einen Mercedes Vito beginnen bei €${price} pro Fahrzeug. Der bestätigte Gesamtpreis wird bei der Buchung angezeigt.`], ["Was passiert bei einer Flugverspätung?", "Wir verfolgen Ihren Flug in Echtzeit und passen die Abholzeit ohne Aufpreis an."]],
     other: "Weitere Transfers vom Flughafen Antalya", contact: "Für Buchungen und Fragen erreichen Sie uns über WhatsApp.", privacy: "Datenschutz", privacyUrl: "/de/datenschutz/", imprint: "Impressum", imprintUrl: "/de/impressum/",
   },
@@ -54,6 +54,7 @@ const languages = {
     from: "Başlangıç fiyatı",
     book: "Transferinizi ayırtın",
     faq: "Sık sorulan sorular",
+    campaign: "Online'a özel: Tüm transfer fiyatlarına %25 indirim uygulanmıştır.",
     faqItems: (name, price, duration) => [
       [`Antalya Havalimanı ile ${name} arası transfer ne kadar sürer?`, `Normal trafik koşullarında yolculuk yaklaşık ${duration} sürer. Trafik ve otel konumu süreyi etkileyebilir.`],
       [`${name} transferinin sabit fiyatı nedir?`, `Mercedes Vito fiyatları araç başına €${price}'dan başlar. Kesin toplam rezervasyon sırasında gösterilir.`],
@@ -86,6 +87,7 @@ const languages = {
     from: "Цена от",
     book: "Забронировать трансфер",
     faq: "Частые вопросы",
+    campaign: "Онлайн-акция: скидка 25% уже применена ко всем трансферам.",
     faqItems: (name, price, duration) => [
       [`Сколько длится трансфер из аэропорта Антальи в ${name}?`, `При обычном движении поездка занимает около ${duration}. Точное время зависит от дорожной ситуации и расположения отеля.`],
       [`Сколько стоит трансфер в ${name}?`, `Стоимость Mercedes Vito начинается от €${price} за автомобиль. Итоговая фиксированная цена показывается при бронировании.`],
@@ -114,6 +116,16 @@ const routes = {
   fethiye: { en: "Fethiye", de: "Fethiye", tr: "Fethiye", ru: "Фетхие", distance: "200 km", duration: { en: "2.5–3 hours", de: "2,5–3 Stunden", tr: "2,5–3 saat", ru: "2,5–3 часа" }, vito: 200, sprinter: 250 },
   pamukkale: { en: "Pamukkale", de: "Pamukkale", tr: "Pamukkale", ru: "Памуккале", distance: "240 km", duration: { en: "3–3.5 hours", de: "3–3,5 Stunden", tr: "3–3,5 saat", ru: "3–3,5 часа" }, vito: 200, sprinter: 250 },
   kapadokya: { en: "Cappadocia", de: "Kappadokien", tr: "Kapadokya", ru: "Каппадокию", distance: "540 km", duration: { en: "7–8 hours", de: "7–8 Stunden", tr: "7–8 saat", ru: "7–8 часов" }, vito: 300, sprinter: 400 },
+};
+
+const ONLINE_DISCOUNT_RATE = 0.25;
+const PRICE_ROUNDING_STEP = 5;
+const discountPrice = (price) =>
+  Math.floor((price * (1 - ONLINE_DISCOUNT_RATE)) / PRICE_ROUNDING_STEP) *
+  PRICE_ROUNDING_STEP;
+const formatPrice = (price) => {
+  const value = Number(price);
+  return Number.isInteger(value) ? value.toFixed(0) : value.toFixed(2);
 };
 
 const hreflangs = (slug = "") => {
@@ -319,28 +331,30 @@ function localizeHome(source, code, text, translations) {
 
 function routePage(code, slug, route, text) {
   const name = route[code], duration = route.duration[code];
+  const vitoPrice = formatPrice(discountPrice(route.vito));
+  const sprinterPrice = formatPrice(discountPrice(route.sprinter));
   const prefix = code === "en" ? "" : `${code}/`;
   const localPrefix = code === "en" ? "" : `/${code}`;
   const url = `https://antalyaviptourism.com/${prefix}transfers/${slug}/`;
-  const faq = text.faqItems(name, route.vito, duration);
+  const faq = text.faqItems(name, vitoPrice, duration);
   const breadcrumb = { "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: [
     { "@type": "ListItem", position: 1, name: text.home, item: `https://antalyaviptourism.com/${prefix}` },
     { "@type": "ListItem", position: 2, name: text.routes, item: `https://antalyaviptourism.com/${prefix}#routes` },
     { "@type": "ListItem", position: 3, name: text.h1(name), item: url },
   ] };
-  const schema = { "@context": "https://schema.org", "@type": "Service", name: text.h1(name), url, provider: { "@type": "TravelAgency", name: "Antalya VIP Tourism", url: "https://antalyaviptourism.com/", telephone: "+90 530 265 57 90" }, areaServed: { "@type": "Place", name }, offers: [{ "@type": "Offer", name: text.vito, price: String(route.vito), priceCurrency: "EUR" }, { "@type": "Offer", name: text.sprinter, price: String(route.sprinter), priceCurrency: "EUR" }] };
+  const schema = { "@context": "https://schema.org", "@type": "Service", name: text.h1(name), url, provider: { "@type": "TravelAgency", name: "Antalya VIP Tourism", url: "https://antalyaviptourism.com/", telephone: "+90 530 265 57 90" }, areaServed: { "@type": "Place", name }, offers: [{ "@type": "Offer", name: text.vito, price: vitoPrice, priceCurrency: "EUR" }, { "@type": "Offer", name: text.sprinter, price: sprinterPrice, priceCurrency: "EUR" }] };
   const faqSchema = { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: faq.map(([q, a]) => ({ "@type": "Question", name: q, acceptedAnswer: { "@type": "Answer", text: a } })) };
   return `<!doctype html>
 <html lang="${code}"><head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width,initial-scale=1" />
-<meta name="description" content="${text.routeDescription(name, route.vito)}" /><title>${text.routeTitle(name)}</title>
+<meta name="description" content="${text.routeDescription(name, vitoPrice)}" /><title>${text.routeTitle(name)}</title>
 <link rel="canonical" href="${url}" />${hreflangs(slug)}
-<meta property="og:type" content="website" /><meta property="og:url" content="${url}" /><meta property="og:site_name" content="Antalya VIP Tourism" /><meta property="og:title" content="${text.routeTitle(name)}" /><meta property="og:description" content="${text.routeDescription(name, route.vito)}" /><meta property="og:image" content="https://antalyaviptourism.com/assets/optimized/og-antalya-transfer.jpg" /><meta property="og:locale" content="${text.locale}" /><meta name="twitter:card" content="summary_large_image" /><meta name="twitter:title" content="${text.routeTitle(name)}" /><meta name="twitter:description" content="${text.routeDescription(name, route.vito)}" /><meta name="twitter:image" content="https://antalyaviptourism.com/assets/optimized/og-antalya-transfer.jpg" />
+<meta property="og:type" content="website" /><meta property="og:url" content="${url}" /><meta property="og:site_name" content="Antalya VIP Tourism" /><meta property="og:title" content="${text.routeTitle(name)}" /><meta property="og:description" content="${text.routeDescription(name, vitoPrice)}" /><meta property="og:image" content="https://antalyaviptourism.com/assets/optimized/og-antalya-transfer.jpg" /><meta property="og:locale" content="${text.locale}" /><meta name="twitter:card" content="summary_large_image" /><meta name="twitter:title" content="${text.routeTitle(name)}" /><meta name="twitter:description" content="${text.routeDescription(name, vitoPrice)}" /><meta name="twitter:image" content="https://antalyaviptourism.com/assets/optimized/og-antalya-transfer.jpg" />
 <script type="application/ld+json">${JSON.stringify(breadcrumb)}</script><script type="application/ld+json">${JSON.stringify(schema)}</script><script type="application/ld+json">${JSON.stringify(faqSchema)}</script>
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" /><link rel="stylesheet" href="/src/styles.css" />
-<style>.localized-route{padding:160px var(--section-x) 90px;background:linear-gradient(115deg,rgba(5,5,5,.94),rgba(5,5,5,.55)),url('/assets/optimized/antalya-coastline-hero.jpg') center/cover;color:#fff}.localized-route h1{max-width:900px;font-family:var(--serif);font-size:clamp(2.5rem,6vw,5.5rem);font-weight:400;line-height:1.03}.localized-stats{display:flex;gap:40px;flex-wrap:wrap;margin-top:45px}.localized-stats strong,.localized-stats span{display:block}.localized-stats span{color:rgba(255,255,255,.65)}.localized-content{padding:80px var(--section-x)}.localized-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:70px;max-width:1180px;margin:auto}.localized-grid h2,.localized-faq h2{font-family:var(--serif);font-size:clamp(1.8rem,3vw,2.7rem);font-weight:400}.localized-grid p,.localized-grid li{line-height:1.75;color:var(--muted)}.localized-price{padding:25px;border:1px solid var(--line);border-radius:14px}.localized-price strong{font-size:1.5rem;color:var(--gold)}.localized-faq{max-width:1180px;margin:auto;padding:0 var(--section-x) 80px}.localized-faq article{padding:24px 0;border-bottom:1px solid var(--line)}.localized-faq h3{font-size:1rem}.localized-faq p{color:var(--muted);line-height:1.7}.localized-links{padding:70px var(--section-x);background:var(--cream)}.localized-links div{display:flex;gap:12px;flex-wrap:wrap}.localized-links a{padding:12px 16px;background:#fff;border:1px solid var(--line);border-radius:8px}.localized-contact{padding:70px var(--section-x);text-align:center;background:#111;color:#fff}@media(max-width:760px){.localized-grid{grid-template-columns:1fr}.localized-route{padding-top:120px}}</style></head>
+<style>.localized-route{padding:160px var(--section-x) 90px;background:linear-gradient(115deg,rgba(5,5,5,.94),rgba(5,5,5,.55)),url('/assets/optimized/antalya-coastline-hero.jpg') center/cover;color:#fff}.localized-route h1{max-width:900px;font-family:var(--serif);font-size:clamp(2.5rem,6vw,5.5rem);font-weight:400;line-height:1.03}.localized-campaign{display:inline-block;margin:28px 0 0;padding:10px 14px;border:1px solid rgba(224,198,141,.45);color:var(--gold-light);font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase}.localized-stats{display:flex;gap:40px;flex-wrap:wrap;margin-top:45px}.localized-stats strong,.localized-stats span{display:block}.localized-stats span{color:rgba(255,255,255,.65)}.localized-content{padding:80px var(--section-x)}.localized-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:70px;max-width:1180px;margin:auto}.localized-grid h2,.localized-faq h2{font-family:var(--serif);font-size:clamp(1.8rem,3vw,2.7rem);font-weight:400}.localized-grid p,.localized-grid li{line-height:1.75;color:var(--muted)}.localized-price{padding:25px;border:1px solid var(--line);border-radius:14px}.localized-price strong{font-size:1.5rem;color:var(--gold)}.localized-faq{max-width:1180px;margin:auto;padding:0 var(--section-x) 80px}.localized-faq article{padding:24px 0;border-bottom:1px solid var(--line)}.localized-faq h3{font-size:1rem}.localized-faq p{color:var(--muted);line-height:1.7}.localized-links{padding:70px var(--section-x);background:var(--cream)}.localized-links div{display:flex;gap:12px;flex-wrap:wrap}.localized-links a{padding:12px 16px;background:#fff;border:1px solid var(--line);border-radius:8px}.localized-contact{padding:70px var(--section-x);text-align:center;background:#111;color:#fff}@media(max-width:760px){.localized-grid{grid-template-columns:1fr}.localized-route{padding-top:120px}}</style></head>
 <body><header class="site-header scrolled"><a class="brand" href="${localPrefix}/"><span class="brand-mark">AVL</span><span class="brand-copy"><strong>Antalya VIP</strong><span>Tourism</span></span></a><nav class="desktop-nav"><a href="${localPrefix}/">${text.home}</a><a href="#details">${text.routes}</a><a href="#contact">WhatsApp</a></nav><a class="header-cta" href="${localPrefix}/#booking">${text.book}</a></header>
-<main><section class="localized-route"><div class="eyebrow light"><span></span><p>Antalya VIP Tourism</p></div><h1>${text.h1(name)}</h1><p>${text.routeDescription(name, route.vito)}</p><div class="localized-stats"><div><strong>${duration}</strong><span>${text.duration}</span></div><div><strong>${route.distance}</strong><span>${text.distance}</span></div><div><strong>€${route.vito}</strong><span>${text.from}</span></div></div></section>
-<section class="localized-content" id="details"><div class="localized-grid"><div><h2>${text.h1(name)}</h2><p>${text.intro(name, duration, route.distance)}</p><h3>${text.included}</h3><ul>${text.includeItems.map((item) => `<li>${item}</li>`).join("")}</ul></div><aside><h2>${text.priceHeading}</h2><div class="localized-price"><p>${text.vito}</p><strong>€${route.vito}</strong></div><div class="localized-price"><p>${text.sprinter}</p><strong>€${route.sprinter}</strong></div><p><a class="button button-gold" href="${localPrefix}/#booking">${text.book}</a></p></aside></div></section>
+<main><section class="localized-route"><div class="eyebrow light"><span></span><p>Antalya VIP Tourism</p></div><h1>${text.h1(name)}</h1><p>${text.routeDescription(name, vitoPrice)}</p><p class="localized-campaign">${text.campaign}</p><div class="localized-stats"><div><strong>${duration}</strong><span>${text.duration}</span></div><div><strong>${route.distance}</strong><span>${text.distance}</span></div><div><strong>€${vitoPrice}</strong><span>${text.from}</span></div></div></section>
+<section class="localized-content" id="details"><div class="localized-grid"><div><h2>${text.h1(name)}</h2><p>${text.intro(name, duration, route.distance)}</p><h3>${text.included}</h3><ul>${text.includeItems.map((item) => `<li>${item}</li>`).join("")}</ul></div><aside><h2>${text.priceHeading}</h2><div class="localized-price"><p>${text.vito}</p><strong>€${vitoPrice}</strong></div><div class="localized-price"><p>${text.sprinter}</p><strong>€${sprinterPrice}</strong></div><p><a class="button button-gold" href="${localPrefix}/#booking">${text.book}</a></p></aside></div></section>
 <section class="localized-faq"><h2>${text.faq}</h2>${faq.map(([q,a]) => `<article><h3>${q}</h3><p>${a}</p></article>`).join("")}</section>
 <section class="localized-links"><h2>${text.other}</h2><div>${Object.entries(routes).filter(([key]) => key !== slug).map(([key,value]) => `<a href="${localPrefix}/transfers/${key}/">${value[code]}</a>`).join("")}</div></section>
 <section class="localized-contact" id="contact"><h2>${text.book}</h2><p>${text.contact}</p><a class="button button-gold" href="https://wa.me/905302655790">WhatsApp</a></section></main>

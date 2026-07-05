@@ -107,6 +107,5 @@ export const verifyIyzicoResponseSignature = async (
 }
 
 export const formatPrice = (value: number) => {
-  const price = Number(value).toString()
-  return price.includes('.') ? price : `${price}.0`
+  return Number(value).toFixed(2)
 }

@@ -35,6 +35,12 @@ const translations = {
     heroTitle: "Premium Flughafentransfers<br />in Antalya",
     heroSubtitle:
       "Private Transfers mit Chauffeur vom Flughafen Antalya nach Belek, Side, Kemer und Alanya.",
+    campaignBadge: "Online Spezial",
+    campaignDiscount: "25% Rabatt",
+    campaignScope: "auf alle Transferpreise",
+    campaignApplied: "Online -25% bereits abgezogen",
+    onlineDiscountShort: "Online -25%",
+    discountPricesShown: "Online -25% Preise angezeigt",
     bookTransfer: "Transfer buchen",
     instantQuote: "Sofortpreis erhalten",
     googleRated: "Google-Bewertung",
@@ -154,14 +160,14 @@ const translations = {
     pricingIntro:
       "Wir bieten Festpreise für Planungssicherheit, messen aber die tatsächliche Strecke. Sie zahlen immer den niedrigeren Betrag.",
     pricingFixedPrice: "Festpreis",
-    fixedPriceExample: "Transfer nach Belek: 40 €",
+    fixedPriceExample: "Transfer nach Belek: 30 €",
     fixedPriceDesc:
       "Garantierter Gesamtpreis. Inklusive Flughafengebühren, Parken, Wartezeit und Steuern.",
     distancePrice: "Nach Strecke",
-    distancePriceExample: "24 km × 1,50 € = 36 €",
+    distancePriceExample: "24 km Online-Beispiel: 25 €",
     distancePriceDesc: "Während Ihrer Fahrt per GPS gemessen.",
     youPay: "Sie zahlen",
-    youPayPrice: "36 €",
+    youPayPrice: "25 €",
     youPayDesc: "Der niedrigere Betrag gilt. Der Fahrer bestätigt ihn am Ende.",
     pricingNote:
       "Keine Überraschungen. Keine versteckten Gebühren. Was Sie buchen, zahlen Sie - oder weniger.",
@@ -241,6 +247,12 @@ const translations = {
     heroTitle: "Antalya'da Premium<br />Havalimanı Transferi",
     heroSubtitle:
       "Antalya Havalimanı'ndan Belek, Side, Kemer ve Alanya'ya özel şoförlü transfer.",
+    campaignBadge: "Online'a özel",
+    campaignDiscount: "%25 indirim",
+    campaignScope: "tüm transfer fiyatlarında",
+    campaignApplied: "Online -%25 indirim uygulanmıştır",
+    onlineDiscountShort: "Online -%25",
+    discountPricesShown: "Online -%25 fiyatlar gösteriliyor",
     bookTransfer: "Transferinizi ayırtın",
     instantQuote: "Anında fiyat alın",
     googleRated: "Google puanı",
@@ -360,14 +372,14 @@ const translations = {
     pricingIntro:
       "İçiniz rahat etsin diye sabit fiyat sunarız, ancak gerçek mesafeyi de ölçeriz. Her zaman düşük olan tutarı ödersiniz.",
     pricingFixedPrice: "Sabit fiyat",
-    fixedPriceExample: "Belek transferi: €40",
+    fixedPriceExample: "Belek transferi: €30",
     fixedPriceDesc:
       "Garantili toplam tutar. Havalimanı ücretleri, otopark, bekleme süresi ve vergiler dahildir.",
     distancePrice: "Mesafeye göre",
-    distancePriceExample: "24 km × €1.50 = €36",
+    distancePriceExample: "24 km online örnek: €25",
     distancePriceDesc: "Yolculuğunuz sırasında GPS ile ölçülür.",
     youPay: "Ödeyeceğiniz tutar",
-    youPayPrice: "€36",
+    youPayPrice: "€25",
     youPayDesc: "Hangisi daha düşükse. Şoför yolculuk sonunda teyit eder.",
     pricingNote:
       "Sürpriz yok. Gizli ücret yok. Rezervasyonda gördüğünüz tutarı ödersiniz - ya da daha azını.",
@@ -446,6 +458,12 @@ const translations = {
     heroTitle: "Премиальный трансфер<br />из аэропорта Антальи",
     heroSubtitle:
       "Индивидуальные трансферы с водителем из аэропорта Антальи в Белек, Сиде, Кемер и Аланью.",
+    campaignBadge: "Онлайн-акция",
+    campaignDiscount: "скидка 25%",
+    campaignScope: "на все трансферы",
+    campaignApplied: "Онлайн -25% уже применено",
+    onlineDiscountShort: "Онлайн -25%",
+    discountPricesShown: "Показаны цены онлайн -25%",
     bookTransfer: "Забронировать трансфер",
     instantQuote: "Узнать цену",
     googleRated: "Рейтинг Google",
@@ -565,14 +583,14 @@ const translations = {
     pricingIntro:
       "Мы предлагаем фиксированные цены для спокойствия, но измеряем фактическое расстояние. Вы всегда платите меньшую сумму.",
     pricingFixedPrice: "Фиксированная цена",
-    fixedPriceExample: "Трансфер в Белек: 40 €",
+    fixedPriceExample: "Трансфер в Белек: 30 €",
     fixedPriceDesc:
       "Гарантированная итоговая сумма. Включены сборы аэропорта, парковка, ожидание и налоги.",
     distancePrice: "По расстоянию",
-    distancePriceExample: "24 км × 1,50 € = 36 €",
+    distancePriceExample: "24 км онлайн-пример: 25 €",
     distancePriceDesc: "Измеряется по GPS во время поездки.",
     youPay: "Вы платите",
-    youPayPrice: "36 €",
+    youPayPrice: "25 €",
     youPayDesc: "Применяется меньшая сумма. Водитель подтвердит её в конце.",
     pricingNote:
       "Без сюрпризов. Без скрытых платежей. Вы платите указанную при бронировании сумму - или меньше.",
@@ -770,14 +788,14 @@ const translations = {
     pricingIntro:
       "Dla spokoju podajemy stałe ceny, ale mierzymy rzeczywisty dystans. Zawsze płacisz niższą kwotę.",
     pricingFixedPrice: "Stała cena",
-    fixedPriceExample: "Transfer do Belek: 40 €",
+    fixedPriceExample: "Transfer do Belek: 30 €",
     fixedPriceDesc:
       "Gwarantowana kwota końcowa. Obejmuje opłaty lotniskowe, parking, czas oczekiwania i podatki.",
     distancePrice: "Według dystansu",
-    distancePriceExample: "24 km × 1,50 € = 36 €",
+    distancePriceExample: "Przykład online 24 km: 25 €",
     distancePriceDesc: "Mierzone GPS-em podczas przejazdu.",
     youPay: "Płacisz",
-    youPayPrice: "36 €",
+    youPayPrice: "25 €",
     youPayDesc: "Obowiązuje niższa kwota. Kierowca potwierdza ją na końcu.",
     pricingNote:
       "Bez niespodzianek. Bez ukrytych opłat. Płacisz tyle, ile rezerwujesz - albo mniej.",
@@ -975,14 +993,14 @@ const translations = {
     pricingIntro:
       "We bieden vaste prijzen voor zekerheid, maar meten ook de werkelijke afstand. U betaalt altijd het laagste bedrag.",
     pricingFixedPrice: "Vaste prijs",
-    fixedPriceExample: "Transfer naar Belek: €40",
+    fixedPriceExample: "Transfer naar Belek: €30",
     fixedPriceDesc:
       "Gegarandeerd totaalbedrag. Inclusief luchthavengelden, parkeren, wachttijd en belastingen.",
     distancePrice: "Op afstand",
-    distancePriceExample: "24 km × €1,50 = €36",
+    distancePriceExample: "24 km online voorbeeld: €25",
     distancePriceDesc: "Gemeten met GPS tijdens uw rit.",
     youPay: "U betaalt",
-    youPayPrice: "€36",
+    youPayPrice: "€25",
     youPayDesc:
       "Het laagste bedrag geldt. De chauffeur bevestigt dit aan het einde.",
     pricingNote:
@@ -1181,14 +1199,14 @@ const translations = {
     pricingIntro:
       "Ми пропонуємо фіксовані ціни для вашого спокою, але вимірюємо фактичну відстань. Ви завжди сплачуєте меншу суму.",
     pricingFixedPrice: "Фіксована ціна",
-    fixedPriceExample: "Трансфер до Белека: 40 €",
+    fixedPriceExample: "Трансфер до Белека: 30 €",
     fixedPriceDesc:
       "Гарантована загальна сума. Включає збори аеропорту, паркування, час очікування та податки.",
     distancePrice: "За відстанню",
-    distancePriceExample: "24 км × 1,50 € = 36 €",
+    distancePriceExample: "24 км онлайн-приклад: 25 €",
     distancePriceDesc: "Вимірюється GPS під час поїздки.",
     youPay: "Ви сплачуєте",
-    youPayPrice: "36 €",
+    youPayPrice: "25 €",
     youPayDesc: "Діє менша сума. Водій підтвердить її наприкінці.",
     pricingNote:
       "Без сюрпризів. Без прихованих платежів. Ви сплачуєте суму з бронювання - або менше.",
@@ -1387,14 +1405,14 @@ const translations = {
     pricingIntro:
       "Nous proposons des prix fixes pour votre tranquillité, mais nous mesurons aussi la distance réelle. Vous payez toujours le montant le plus bas.",
     pricingFixedPrice: "Prix fixe",
-    fixedPriceExample: "Transfert vers Belek : 40 €",
+    fixedPriceExample: "Transfert vers Belek : 30 €",
     fixedPriceDesc:
       "Montant total garanti. Inclut les frais d'aéroport, le parking, l'attente et les taxes.",
     distancePrice: "Selon la distance",
-    distancePriceExample: "24 km × 1,50 € = 36 €",
+    distancePriceExample: "Exemple en ligne 24 km : 25 €",
     distancePriceDesc: "Mesuré par GPS pendant votre trajet.",
     youPay: "Vous payez",
-    youPayPrice: "36 €",
+    youPayPrice: "25 €",
     youPayDesc:
       "Le montant le plus bas s'applique. Le chauffeur le confirme à la fin.",
     pricingNote:
@@ -1594,14 +1612,14 @@ const translations = {
     pricingIntro:
       "Vi erbjuder fasta priser för trygghet, men mäter även den faktiska sträckan. Du betalar alltid det lägre beloppet.",
     pricingFixedPrice: "Fast pris",
-    fixedPriceExample: "Transfer till Belek: 40 €",
+    fixedPriceExample: "Transfer till Belek: 30 €",
     fixedPriceDesc:
       "Garanterat totalbelopp. Inkluderar flygplatsavgifter, parkering, väntetid och skatter.",
     distancePrice: "Efter sträcka",
-    distancePriceExample: "24 km × 1,50 € = 36 €",
+    distancePriceExample: "24 km onlineexempel: 25 €",
     distancePriceDesc: "Mäts med GPS under din resa.",
     youPay: "Du betalar",
-    youPayPrice: "36 €",
+    youPayPrice: "25 €",
     youPayDesc: "Det lägre beloppet gäller. Chauffören bekräftar i slutet.",
     pricingNote:
       "Inga överraskningar. Inga dolda avgifter. Du betalar det du bokar - eller mindre.",
@@ -1799,14 +1817,14 @@ const translations = {
     pricingIntro:
       "安心のため固定料金をご提示しつつ、実際の走行距離も計測します。お支払いは常に低い方の金額です。",
     pricingFixedPrice: "固定料金",
-    fixedPriceExample: "ベレキ送迎：40 €",
+    fixedPriceExample: "ベレキ送迎：30 €",
     fixedPriceDesc:
       "保証された総額です。空港料金、駐車料金、待機時間、税金が含まれます。",
     distancePrice: "距離ベース",
-    distancePriceExample: "24 km × 1.50 € = 36 €",
+    distancePriceExample: "24 km online example: 25 €",
     distancePriceDesc: "ご乗車中にGPSで計測します。",
     youPay: "お支払い額",
-    youPayPrice: "36 €",
+    youPayPrice: "25 €",
     youPayDesc: "低い方の金額を適用します。終了時にドライバーが確認します。",
     pricingNote:
       "追加の驚きはありません。隠れた料金もありません。予約時の金額、またはそれより少ない金額をお支払いいただきます。",
@@ -2002,14 +2020,14 @@ const translations = {
     pricingIntro:
       "안심하실 수 있도록 고정 요금을 제시하지만 실제 이동 거리도 측정합니다. 언제나 더 낮은 금액을 결제합니다.",
     pricingFixedPrice: "고정 요금",
-    fixedPriceExample: "벨렉 이동: 40 €",
+    fixedPriceExample: "벨렉 이동: 30 €",
     fixedPriceDesc:
       "보장된 총액입니다. 공항 수수료, 주차비, 대기 시간, 세금이 포함됩니다.",
     distancePrice: "거리 기준",
-    distancePriceExample: "24 km × 1.50 € = 36 €",
+    distancePriceExample: "24 km online example: 25 €",
     distancePriceDesc: "이동 중 GPS로 측정합니다.",
     youPay: "결제 금액",
-    youPayPrice: "36 €",
+    youPayPrice: "25 €",
     youPayDesc: "더 낮은 금액이 적용됩니다. 종료 시 기사가 확인합니다.",
     pricingNote:
       "놀랄 일도, 숨겨진 비용도 없습니다. 예약한 금액을 결제하거나 그보다 적게 결제합니다.",
@@ -2508,20 +2526,31 @@ const syncFleetCarouselForVehicle = (fleetKey) => {
   updateFleetCarousel(0);
 };
 
+const ONLINE_DISCOUNT_RATE = 0.25;
+const PRICE_ROUNDING_STEP = 5;
+const applyOnlineDiscount = (price) =>
+  Math.floor((price * (1 - ONLINE_DISCOUNT_RATE)) / PRICE_ROUNDING_STEP) *
+  PRICE_ROUNDING_STEP;
+const formatEuroAmount = (price) => {
+  const value = Number(price);
+  if (!Number.isFinite(value)) return "€0";
+  return `€${Number.isInteger(value) ? value.toFixed(0) : value.toFixed(2)}`;
+};
+
 const routeData = {
-  belek: { name: "Belek", prices: { vito: 40, sprinter: 60 } },
-  side: { name: "Side", prices: { vito: 50, sprinter: 75 } },
-  kemer: { name: "Kemer", prices: { vito: 55, sprinter: 80 } },
-  alanya: { name: "Alanya", prices: { vito: 100, sprinter: 130 } },
-  tekirova: { name: "Tekirova", prices: { vito: 100, sprinter: 130 } },
-  manavgat: { name: "Manavgat", prices: { vito: 50, sprinter: 75 } },
-  bogazkent: { name: "Boğazkent", prices: { vito: 45, sprinter: 65 } },
-  antalya: { name: "Antalya City", prices: { vito: 30, sprinter: 45 } },
-  bodrum: { name: "Bodrum", prices: { vito: 200, sprinter: 250 } },
-  dalaman: { name: "Dalaman", prices: { vito: 200, sprinter: 250 } },
-  fethiye: { name: "Fethiye", prices: { vito: 200, sprinter: 250 } },
-  pamukkale: { name: "Pamukkale", prices: { vito: 200, sprinter: 250 } },
-  kapadokya: { name: "Kapadokya", prices: { vito: 300, sprinter: 400 } },
+  belek: { name: "Belek", prices: { vito: applyOnlineDiscount(40), sprinter: applyOnlineDiscount(60) } },
+  side: { name: "Side", prices: { vito: applyOnlineDiscount(50), sprinter: applyOnlineDiscount(75) } },
+  kemer: { name: "Kemer", prices: { vito: applyOnlineDiscount(55), sprinter: applyOnlineDiscount(80) } },
+  alanya: { name: "Alanya", prices: { vito: applyOnlineDiscount(100), sprinter: applyOnlineDiscount(130) } },
+  tekirova: { name: "Tekirova", prices: { vito: applyOnlineDiscount(100), sprinter: applyOnlineDiscount(130) } },
+  manavgat: { name: "Manavgat", prices: { vito: applyOnlineDiscount(50), sprinter: applyOnlineDiscount(75) } },
+  bogazkent: { name: "Boğazkent", prices: { vito: applyOnlineDiscount(45), sprinter: applyOnlineDiscount(65) } },
+  antalya: { name: "Antalya City", prices: { vito: applyOnlineDiscount(30), sprinter: applyOnlineDiscount(45) } },
+  bodrum: { name: "Bodrum", prices: { vito: applyOnlineDiscount(200), sprinter: applyOnlineDiscount(250) } },
+  dalaman: { name: "Dalaman", prices: { vito: applyOnlineDiscount(200), sprinter: applyOnlineDiscount(250) } },
+  fethiye: { name: "Fethiye", prices: { vito: applyOnlineDiscount(200), sprinter: applyOnlineDiscount(250) } },
+  pamukkale: { name: "Pamukkale", prices: { vito: applyOnlineDiscount(200), sprinter: applyOnlineDiscount(250) } },
+  kapadokya: { name: "Kapadokya", prices: { vito: applyOnlineDiscount(300), sprinter: applyOnlineDiscount(400) } },
 };
 
 const header = document.querySelector(".site-header");
@@ -2708,7 +2737,7 @@ const updateInlinePrice = (routeKey, vehicleKey = vehicleSelect.value) => {
   const priceNote = translations[language]?.perVehicle || "fixed · per vehicle";
   priceDisplay.innerHTML = `
     <span class="price-display-route">AYT → ${route.name}</span>
-    <strong class="price-display-amount">€${price}</strong>
+    <strong class="price-display-amount">${formatEuroAmount(price)}</strong>
     <span class="price-display-note">${vehicleName} · ${priceNote}</span>
   `;
   priceDisplay.classList.add("visible");
@@ -3005,7 +3034,7 @@ const setWhatsAppBookingUrl = (details) => {
   if (details.guests)    lines.push(`👥 Guests: ${details.guests}`);
   if (details.flight)    lines.push(`✈️ Flight: ${details.flight}`);
   if (details.arrival)   lines.push(`🕐 Arrival: ${details.arrival}`);
-  if (details.price)     lines.push(`💶 Price: €${details.price}`);
+  if (details.price)     lines.push(`💶 Price: ${formatEuroAmount(details.price)}`);
   if (details.payment)   lines.push(`💳 Payment: ${details.payment}`);
   const msg = encodeURIComponent(lines.join("\n"));
   waBtn.href = `https://wa.me/905302655790?text=${msg}`;

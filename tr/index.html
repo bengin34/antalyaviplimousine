@@ -66,7 +66,7 @@
         "logo": "https://antalyaviptourism.com/assets/optimized/logo.png",
         "image": "https://antalyaviptourism.com/assets/optimized/og-antalya-transfer.jpg",
         "telephone": "+90 530 265 57 90",
-        "priceRange": "€30-€200",
+        "priceRange": "€20-€300",
         "address": {
                 "@type": "PostalAddress",
                 "streetAddress": "Belek Mah. Belek 61 Sk. Belek Deniz Apt No: 19 Ic Kapi No: 4",
@@ -141,7 +141,7 @@
                                 },
                                 "priceSpecification": {
                                         "@type": "PriceSpecification",
-                                        "price": "40",
+                                        "price": "30",
                                         "priceCurrency": "EUR"
                                 }
                         },
@@ -153,7 +153,7 @@
                                 },
                                 "priceSpecification": {
                                         "@type": "PriceSpecification",
-                                        "price": "50",
+                                        "price": "35",
                                         "priceCurrency": "EUR"
                                 }
                         },
@@ -165,7 +165,7 @@
                                 },
                                 "priceSpecification": {
                                         "@type": "PriceSpecification",
-                                        "price": "55",
+                                        "price": "40",
                                         "priceCurrency": "EUR"
                                 }
                         },
@@ -177,7 +177,7 @@
                                 },
                                 "priceSpecification": {
                                         "@type": "PriceSpecification",
-                                        "price": "100",
+                                        "price": "75",
                                         "priceCurrency": "EUR"
                                 }
                         },
@@ -189,7 +189,7 @@
                                 },
                                 "priceSpecification": {
                                         "@type": "PriceSpecification",
-                                        "price": "50",
+                                        "price": "35",
                                         "priceCurrency": "EUR"
                                 }
                         },
@@ -201,7 +201,7 @@
                                 },
                                 "priceSpecification": {
                                         "@type": "PriceSpecification",
-                                        "price": "30",
+                                        "price": "20",
                                         "priceCurrency": "EUR"
                                 }
                         }
@@ -547,6 +547,11 @@
             <div class="eyebrow light reveal">
               <span></span>
               <p data-i18n="heroEyebrow">Özel şoför hizmeti · Antalya</p>
+            </div>
+            <div class="campaign-badge reveal" aria-label="Online special discount">
+              <span data-i18n="campaignBadge">Online'a özel</span>
+              <strong data-i18n="campaignDiscount">%25 indirim</strong>
+              <span data-i18n="campaignScope">tüm transfer fiyatlarında</span>
             </div>
             <h1 class="reveal" data-i18n="heroTitle">Antalya'da Premium<br />Havalimanı Transferi</h1>
             <p class="hero-subtitle reveal" data-i18n="heroSubtitle">Antalya Havalimanı'ndan Belek, Side, Kemer ve Alanya'ya özel şoförlü transfer.</p>
@@ -942,23 +947,23 @@
         >
         <div class="price-strip-pills">
           <button class="price-pill" type="button" data-route="belek">
-            Belek <strong>€40</strong>
+            Belek <span class="was-price">€40</span><strong>€30</strong>
           </button>
           <button class="price-pill" type="button" data-route="side">
-            Side <strong>€50</strong>
+            Side <span class="was-price">€50</span><strong>€35</strong>
           </button>
           <button class="price-pill" type="button" data-route="kemer">
-            Kemer <strong>€55</strong>
+            Kemer <span class="was-price">€55</span><strong>€40</strong>
           </button>
           <button class="price-pill" type="button" data-route="alanya">
-            Alanya <strong>€100</strong>
+            Alanya <span class="was-price">€100</span><strong>€75</strong>
           </button>
           <button class="price-pill" type="button" data-route="antalya">
-            Antalya şehir merkezi <strong>€30</strong>
+            Antalya şehir merkezi <span class="was-price">€30</span><strong>€20</strong>
           </button>
         </div>
-        <span class="price-strip-note"
-          >Exact price after vehicle selection</span
+        <span class="price-strip-note" data-i18n="campaignApplied"
+          >Online -%25 indirim uygulanmıştır</span
         >
       </div>
 
@@ -1252,7 +1257,9 @@
         </div>
 
         <div class="route-slider-toolbar">
-          <span class="route-slider-hint">Minimum prices shown</span>
+          <span class="route-slider-hint" data-i18n="discountPricesShown"
+            >Online -%25 fiyatlar gösteriliyor</span
+          >
           <div class="route-slider-controls">
             <button
               class="route-slider-button route-slider-prev"
@@ -1297,7 +1304,7 @@
                   type="button"
                   data-route="belek"
                 >
-                  <span>Başlangıç</span><strong>€40</strong
+                  <span data-i18n="onlineDiscountShort">Online -%25</span><strong><small>€40</small>€30</strong
                   ><svg><use href="#icon-arrow-up-right"></use></svg>
                 </button>
               </div>
@@ -1321,7 +1328,7 @@
                   type="button"
                   data-route="side"
                 >
-                  <span>Başlangıç</span><strong>€50</strong
+                  <span data-i18n="onlineDiscountShort">Online -%25</span><strong><small>€50</small>€35</strong
                   ><svg><use href="#icon-arrow-up-right"></use></svg>
                 </button>
               </div>
@@ -1345,7 +1352,7 @@
                   type="button"
                   data-route="kemer"
                 >
-                  <span>Başlangıç</span><strong>€55</strong
+                  <span data-i18n="onlineDiscountShort">Online -%25</span><strong><small>€55</small>€40</strong
                   ><svg><use href="#icon-arrow-up-right"></use></svg>
                 </button>
               </div>
@@ -1369,7 +1376,7 @@
                   type="button"
                   data-route="alanya"
                 >
-                  <span>Başlangıç</span><strong>€100</strong
+                  <span data-i18n="onlineDiscountShort">Online -%25</span><strong><small>€100</small>€75</strong
                   ><svg><use href="#icon-arrow-up-right"></use></svg>
                 </button>
               </div>
@@ -1393,7 +1400,7 @@
                   type="button"
                   data-route="tekirova"
                 >
-                  <span>Başlangıç</span><strong>€100</strong
+                  <span data-i18n="onlineDiscountShort">Online -%25</span><strong><small>€100</small>€75</strong
                   ><svg><use href="#icon-arrow-up-right"></use></svg>
                 </button>
               </div>
@@ -1417,7 +1424,7 @@
                   type="button"
                   data-route="manavgat"
                 >
-                  <span>Başlangıç</span><strong>€50</strong
+                  <span data-i18n="onlineDiscountShort">Online -%25</span><strong><small>€50</small>€35</strong
                   ><svg><use href="#icon-arrow-up-right"></use></svg>
                 </button>
               </div>
@@ -1444,7 +1451,7 @@
                   type="button"
                   data-route="bogazkent"
                 >
-                  <span>Başlangıç</span><strong>€45</strong
+                  <span data-i18n="onlineDiscountShort">Online -%25</span><strong><small>€45</small>€30</strong
                   ><svg><use href="#icon-arrow-up-right"></use></svg>
                 </button>
               </div>
@@ -1471,7 +1478,7 @@
                   type="button"
                   data-route="antalya"
                 >
-                  <span>Başlangıç</span><strong>€30</strong
+                  <span data-i18n="onlineDiscountShort">Online -%25</span><strong><small>€30</small>€20</strong
                   ><svg><use href="#icon-arrow-up-right"></use></svg>
                 </button>
               </div>
@@ -1498,7 +1505,7 @@
                   type="button"
                   data-route="bodrum"
                 >
-                  <span>Başlangıç</span><strong>€200</strong
+                  <span data-i18n="onlineDiscountShort">Online -%25</span><strong><small>€200</small>€150</strong
                   ><svg><use href="#icon-arrow-up-right"></use></svg>
                 </button>
               </div>
@@ -1525,7 +1532,7 @@
                   type="button"
                   data-route="dalaman"
                 >
-                  <span>Başlangıç</span><strong>€200</strong
+                  <span data-i18n="onlineDiscountShort">Online -%25</span><strong><small>€200</small>€150</strong
                   ><svg><use href="#icon-arrow-up-right"></use></svg>
                 </button>
               </div>
@@ -1552,7 +1559,7 @@
                   type="button"
                   data-route="fethiye"
                 >
-                  <span>Başlangıç</span><strong>€200</strong
+                  <span data-i18n="onlineDiscountShort">Online -%25</span><strong><small>€200</small>€150</strong
                   ><svg><use href="#icon-arrow-up-right"></use></svg>
                 </button>
               </div>
@@ -1579,7 +1586,7 @@
                   type="button"
                   data-route="pamukkale"
                 >
-                  <span>Başlangıç</span><strong>€200</strong
+                  <span data-i18n="onlineDiscountShort">Online -%25</span><strong><small>€200</small>€150</strong
                   ><svg><use href="#icon-arrow-up-right"></use></svg>
                 </button>
               </div>
@@ -1606,7 +1613,7 @@
                   type="button"
                   data-route="kapadokya"
                 >
-                  <span>Başlangıç</span><strong>€300</strong
+                  <span data-i18n="onlineDiscountShort">Online -%25</span><strong><small>€300</small>€225</strong
                   ><svg><use href="#icon-arrow-up-right"></use></svg>
                 </button>
               </div>
@@ -1805,7 +1812,7 @@
             <span class="pricing-card-label" data-i18n="pricingFixedPrice"
               >Sabit fiyat</span
             >
-            <p data-i18n="fixedPriceExample">Belek transferi: €40</p>
+            <p data-i18n="fixedPriceExample">Belek transferi: €30</p>
             <p class="pricing-card-description" data-i18n="fixedPriceDesc">Garantili toplam tutar. Havalimanı ücretleri, otopark, bekleme süresi ve vergiler dahildir.</p>
           </div>
 
@@ -1813,13 +1820,13 @@
             <span class="pricing-card-label" data-i18n="distancePrice"
               >Mesafeye göre</span
             >
-            <p data-i18n="distancePriceExample">24 km × €1.50 = €36</p>
+            <p data-i18n="distancePriceExample">24 km online örnek: €25</p>
             <p class="pricing-card-description" data-i18n="distancePriceDesc">Yolculuğunuz sırasında GPS ile ölçülür.</p>
           </div>
 
           <div class="pricing-card pricing-card-highlight">
             <span class="pricing-card-label" data-i18n="youPay">Ödeyeceğiniz tutar</span>
-            <p data-i18n="youPayPrice">€36</p>
+            <p data-i18n="youPayPrice">€25</p>
             <p class="pricing-card-description" data-i18n="youPayDesc">Hangisi daha düşükse. Şoför yolculuk sonunda teyit eder.</p>
           </div>
         </div>

@@ -566,6 +566,29 @@ html[lang="ru"] .faq-item button span {
   line-height: 1.7;
 }
 
+.campaign-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin: 6px 0 22px;
+  padding: 9px 13px;
+  border: 1px solid rgba(224, 198, 141, 0.42);
+  background: rgba(8, 8, 8, 0.34);
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+}
+
+.campaign-badge strong {
+  color: var(--gold-light);
+  font-size: 12px;
+  letter-spacing: 0.1em;
+}
+
 .hero-buttons {
   display: flex;
   gap: 13px;
@@ -1235,6 +1258,12 @@ html[lang="ru"] .faq-item button span {
   font-size: 11px;
   letter-spacing: 0.04em;
   transition: 0.2s ease;
+}
+
+.was-price {
+  color: #a8a199;
+  font-size: 10px;
+  text-decoration: line-through;
 }
 
 .price-pill strong {
@@ -2048,9 +2077,21 @@ html[lang="ru"] .faq-item button span {
 }
 
 .route-price-button strong {
+  display: flex;
+  align-items: baseline;
+  justify-content: flex-end;
+  gap: 7px;
   font-family: var(--serif);
   font-size: 22px;
   font-weight: 400;
+}
+
+.route-price-button strong small {
+  color: rgba(255, 255, 255, 0.48);
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 600;
+  text-decoration: line-through;
 }
 
 .route-price-button:hover {
@@ -2061,6 +2102,10 @@ html[lang="ru"] .faq-item button span {
 
 .route-price-button:hover span {
   color: rgba(0, 0, 0, 0.62);
+}
+
+.route-price-button:hover strong small {
+  color: rgba(0, 0, 0, 0.52);
 }
 
 .route-price-button svg {

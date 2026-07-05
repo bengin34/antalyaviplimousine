@@ -66,7 +66,7 @@
         "logo": "https://antalyaviptourism.com/assets/optimized/logo.png",
         "image": "https://antalyaviptourism.com/assets/optimized/og-antalya-transfer.jpg",
         "telephone": "+90 530 265 57 90",
-        "priceRange": "€30-€200",
+        "priceRange": "€20-€300",
         "address": {
                 "@type": "PostalAddress",
                 "streetAddress": "Belek Mah. Belek 61 Sk. Belek Deniz Apt No: 19 Ic Kapi No: 4",
@@ -141,7 +141,7 @@
                                 },
                                 "priceSpecification": {
                                         "@type": "PriceSpecification",
-                                        "price": "40",
+                                        "price": "30",
                                         "priceCurrency": "EUR"
                                 }
                         },
@@ -153,7 +153,7 @@
                                 },
                                 "priceSpecification": {
                                         "@type": "PriceSpecification",
-                                        "price": "50",
+                                        "price": "35",
                                         "priceCurrency": "EUR"
                                 }
                         },
@@ -165,7 +165,7 @@
                                 },
                                 "priceSpecification": {
                                         "@type": "PriceSpecification",
-                                        "price": "55",
+                                        "price": "40",
                                         "priceCurrency": "EUR"
                                 }
                         },
@@ -177,7 +177,7 @@
                                 },
                                 "priceSpecification": {
                                         "@type": "PriceSpecification",
-                                        "price": "100",
+                                        "price": "75",
                                         "priceCurrency": "EUR"
                                 }
                         },
@@ -189,7 +189,7 @@
                                 },
                                 "priceSpecification": {
                                         "@type": "PriceSpecification",
-                                        "price": "50",
+                                        "price": "35",
                                         "priceCurrency": "EUR"
                                 }
                         },
@@ -201,7 +201,7 @@
                                 },
                                 "priceSpecification": {
                                         "@type": "PriceSpecification",
-                                        "price": "30",
+                                        "price": "20",
                                         "priceCurrency": "EUR"
                                 }
                         }
@@ -547,6 +547,11 @@
             <div class="eyebrow light reveal">
               <span></span>
               <p data-i18n="heroEyebrow">Персональный шофёр · Анталья</p>
+            </div>
+            <div class="campaign-badge reveal" aria-label="Online special discount">
+              <span data-i18n="campaignBadge">Онлайн-акция</span>
+              <strong data-i18n="campaignDiscount">скидка 25%</strong>
+              <span data-i18n="campaignScope">на все трансферы</span>
             </div>
             <h1 class="reveal" data-i18n="heroTitle">Премиальный трансфер<br />из аэропорта Антальи</h1>
             <p class="hero-subtitle reveal" data-i18n="heroSubtitle">Индивидуальные трансферы с водителем из аэропорта Антальи в Белек, Сиде, Кемер и Аланью.</p>
@@ -942,23 +947,23 @@
         >
         <div class="price-strip-pills">
           <button class="price-pill" type="button" data-route="belek">
-            Belek <strong>€40</strong>
+            Belek <span class="was-price">€40</span><strong>€30</strong>
           </button>
           <button class="price-pill" type="button" data-route="side">
-            Side <strong>€50</strong>
+            Side <span class="was-price">€50</span><strong>€35</strong>
           </button>
           <button class="price-pill" type="button" data-route="kemer">
-            Kemer <strong>€55</strong>
+            Kemer <span class="was-price">€55</span><strong>€40</strong>
           </button>
           <button class="price-pill" type="button" data-route="alanya">
-            Alanya <strong>€100</strong>
+            Alanya <span class="was-price">€100</span><strong>€75</strong>
           </button>
           <button class="price-pill" type="button" data-route="antalya">
-            центр Антальи <strong>€30</strong>
+            центр Антальи <span class="was-price">€30</span><strong>€20</strong>
           </button>
         </div>
-        <span class="price-strip-note"
-          >Exact price after vehicle selection</span
+        <span class="price-strip-note" data-i18n="campaignApplied"
+          >Онлайн -25% уже применено</span
         >
       </div>
 
@@ -1252,7 +1257,9 @@
         </div>
 
         <div class="route-slider-toolbar">
-          <span class="route-slider-hint">Minimum prices shown</span>
+          <span class="route-slider-hint" data-i18n="discountPricesShown"
+            >Показаны цены онлайн -25%</span
+          >
           <div class="route-slider-controls">
             <button
               class="route-slider-button route-slider-prev"
@@ -1297,7 +1304,7 @@
                   type="button"
                   data-route="belek"
                 >
-                  <span>От</span><strong>€40</strong
+                  <span data-i18n="onlineDiscountShort">Онлайн -25%</span><strong><small>€40</small>€30</strong
                   ><svg><use href="#icon-arrow-up-right"></use></svg>
                 </button>
               </div>
@@ -1321,7 +1328,7 @@
                   type="button"
                   data-route="side"
                 >
-                  <span>От</span><strong>€50</strong
+                  <span data-i18n="onlineDiscountShort">Онлайн -25%</span><strong><small>€50</small>€35</strong
                   ><svg><use href="#icon-arrow-up-right"></use></svg>
                 </button>
               </div>
@@ -1345,7 +1352,7 @@
                   type="button"
                   data-route="kemer"
                 >
-                  <span>От</span><strong>€55</strong
+                  <span data-i18n="onlineDiscountShort">Онлайн -25%</span><strong><small>€55</small>€40</strong
                   ><svg><use href="#icon-arrow-up-right"></use></svg>
                 </button>
               </div>
@@ -1369,7 +1376,7 @@
                   type="button"
                   data-route="alanya"
                 >
-                  <span>От</span><strong>€100</strong
+                  <span data-i18n="onlineDiscountShort">Онлайн -25%</span><strong><small>€100</small>€75</strong
                   ><svg><use href="#icon-arrow-up-right"></use></svg>
                 </button>
               </div>
@@ -1393,7 +1400,7 @@
                   type="button"
                   data-route="tekirova"
                 >
-                  <span>От</span><strong>€100</strong
+                  <span data-i18n="onlineDiscountShort">Онлайн -25%</span><strong><small>€100</small>€75</strong
                   ><svg><use href="#icon-arrow-up-right"></use></svg>
                 </button>
               </div>
@@ -1417,7 +1424,7 @@
                   type="button"
                   data-route="manavgat"
                 >
-                  <span>От</span><strong>€50</strong
+                  <span data-i18n="onlineDiscountShort">Онлайн -25%</span><strong><small>€50</small>€35</strong
                   ><svg><use href="#icon-arrow-up-right"></use></svg>
                 </button>
               </div>
@@ -1444,7 +1451,7 @@
                   type="button"
                   data-route="bogazkent"
                 >
-                  <span>От</span><strong>€45</strong
+                  <span data-i18n="onlineDiscountShort">Онлайн -25%</span><strong><small>€45</small>€30</strong
                   ><svg><use href="#icon-arrow-up-right"></use></svg>
                 </button>
               </div>
@@ -1471,7 +1478,7 @@
                   type="button"
                   data-route="antalya"
                 >
-                  <span>От</span><strong>€30</strong
+                  <span data-i18n="onlineDiscountShort">Онлайн -25%</span><strong><small>€30</small>€20</strong
                   ><svg><use href="#icon-arrow-up-right"></use></svg>
                 </button>
               </div>
@@ -1498,7 +1505,7 @@
                   type="button"
                   data-route="bodrum"
                 >
-                  <span>От</span><strong>€200</strong
+                  <span data-i18n="onlineDiscountShort">Онлайн -25%</span><strong><small>€200</small>€150</strong
                   ><svg><use href="#icon-arrow-up-right"></use></svg>
                 </button>
               </div>
@@ -1525,7 +1532,7 @@
                   type="button"
                   data-route="dalaman"
                 >
-                  <span>От</span><strong>€200</strong
+                  <span data-i18n="onlineDiscountShort">Онлайн -25%</span><strong><small>€200</small>€150</strong
                   ><svg><use href="#icon-arrow-up-right"></use></svg>
                 </button>
               </div>
@@ -1552,7 +1559,7 @@
                   type="button"
                   data-route="fethiye"
                 >
-                  <span>От</span><strong>€200</strong
+                  <span data-i18n="onlineDiscountShort">Онлайн -25%</span><strong><small>€200</small>€150</strong
                   ><svg><use href="#icon-arrow-up-right"></use></svg>
                 </button>
               </div>
@@ -1579,7 +1586,7 @@
                   type="button"
                   data-route="pamukkale"
                 >
-                  <span>От</span><strong>€200</strong
+                  <span data-i18n="onlineDiscountShort">Онлайн -25%</span><strong><small>€200</small>€150</strong
                   ><svg><use href="#icon-arrow-up-right"></use></svg>
                 </button>
               </div>
@@ -1606,7 +1613,7 @@
                   type="button"
                   data-route="kapadokya"
                 >
-                  <span>От</span><strong>€300</strong
+                  <span data-i18n="onlineDiscountShort">Онлайн -25%</span><strong><small>€300</small>€225</strong
                   ><svg><use href="#icon-arrow-up-right"></use></svg>
                 </button>
               </div>
@@ -1805,7 +1812,7 @@
             <span class="pricing-card-label" data-i18n="pricingFixedPrice"
               >Фиксированная цена</span
             >
-            <p data-i18n="fixedPriceExample">Трансфер в Белек: 40 €</p>
+            <p data-i18n="fixedPriceExample">Трансфер в Белек: 30 €</p>
             <p class="pricing-card-description" data-i18n="fixedPriceDesc">Гарантированная итоговая сумма. Включены сборы аэропорта, парковка, ожидание и налоги.</p>
           </div>
 
@@ -1813,13 +1820,13 @@
             <span class="pricing-card-label" data-i18n="distancePrice"
               >По расстоянию</span
             >
-            <p data-i18n="distancePriceExample">24 км × 1,50 € = 36 €</p>
+            <p data-i18n="distancePriceExample">24 км онлайн-пример: 25 €</p>
             <p class="pricing-card-description" data-i18n="distancePriceDesc">Измеряется по GPS во время поездки.</p>
           </div>
 
           <div class="pricing-card pricing-card-highlight">
             <span class="pricing-card-label" data-i18n="youPay">Вы платите</span>
-            <p data-i18n="youPayPrice">36 €</p>
+            <p data-i18n="youPayPrice">25 €</p>
             <p class="pricing-card-description" data-i18n="youPayDesc">Применяется меньшая сумма. Водитель подтвердит её в конце.</p>
           </div>
         </div>

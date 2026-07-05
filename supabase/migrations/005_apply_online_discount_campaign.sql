@@ -1,10 +1,13 @@
--- ============================================================
--- Seed route pricing
--- Run AFTER 001_initial_schema.sql
--- Adjust prices to match your actual rates before going live.
--- ============================================================
-
-INSERT INTO routes (from_location, to_location, vehicle_type, price_eur, duration_min, distance_km) VALUES
+-- Apply the online-only 25% discount campaign to the server-side price matrix,
+-- rounded down to the nearest EUR 5 for cleaner campaign pricing.
+INSERT INTO routes (
+  from_location,
+  to_location,
+  vehicle_type,
+  price_eur,
+  duration_min,
+  distance_km
+) VALUES
   ('airport', 'belek',      'vito',    30.00,  35,  45),
   ('airport', 'belek',      'vclass',  45.00,  35,  45),
   ('airport', 'side',       'vito',    35.00,  55,  65),
