@@ -2538,20 +2538,20 @@ const formatEuroAmount = (price) => {
 };
 
 const routeData = {
-  belek: { name: "Belek", prices: { vito: applyOnlineDiscount(40), sprinter: applyOnlineDiscount(60) } },
-  side: { name: "Side", prices: { vito: applyOnlineDiscount(50), sprinter: applyOnlineDiscount(75) } },
-  kemer: { name: "Kemer", prices: { vito: applyOnlineDiscount(55), sprinter: applyOnlineDiscount(80) } },
-  alanya: { name: "Alanya", prices: { vito: applyOnlineDiscount(100), sprinter: applyOnlineDiscount(130) } },
-  tekirova: { name: "Tekirova", prices: { vito: applyOnlineDiscount(100), sprinter: applyOnlineDiscount(130) } },
-  manavgat: { name: "Manavgat", prices: { vito: applyOnlineDiscount(50), sprinter: applyOnlineDiscount(75) } },
-  kizilagac: { name: "Manavgat/Kızılağaç", prices: { vito: applyOnlineDiscount(60), sprinter: applyOnlineDiscount(85) } },
-  bogazkent: { name: "Boğazkent", prices: { vito: applyOnlineDiscount(45), sprinter: applyOnlineDiscount(65) } },
-  antalya: { name: "Antalya City", prices: { vito: applyOnlineDiscount(30), sprinter: applyOnlineDiscount(45) } },
-  bodrum: { name: "Bodrum", prices: { vito: applyOnlineDiscount(200), sprinter: applyOnlineDiscount(250) } },
-  dalaman: { name: "Dalaman", prices: { vito: applyOnlineDiscount(200), sprinter: applyOnlineDiscount(250) } },
-  fethiye: { name: "Fethiye", prices: { vito: applyOnlineDiscount(200), sprinter: applyOnlineDiscount(250) } },
-  pamukkale: { name: "Pamukkale", prices: { vito: applyOnlineDiscount(200), sprinter: applyOnlineDiscount(250) } },
-  kapadokya: { name: "Kapadokya", prices: { vito: applyOnlineDiscount(300), sprinter: applyOnlineDiscount(400) } },
+  belek: { name: "Belek", originalPrices: { vito: 40, sprinter: 60 }, prices: { vito: applyOnlineDiscount(40), sprinter: applyOnlineDiscount(60) } },
+  side: { name: "Side", originalPrices: { vito: 50, sprinter: 75 }, prices: { vito: applyOnlineDiscount(50), sprinter: applyOnlineDiscount(75) } },
+  kemer: { name: "Kemer", originalPrices: { vito: 55, sprinter: 80 }, prices: { vito: applyOnlineDiscount(55), sprinter: applyOnlineDiscount(80) } },
+  alanya: { name: "Alanya", originalPrices: { vito: 100, sprinter: 130 }, prices: { vito: applyOnlineDiscount(100), sprinter: applyOnlineDiscount(130) } },
+  tekirova: { name: "Tekirova", originalPrices: { vito: 100, sprinter: 130 }, prices: { vito: applyOnlineDiscount(100), sprinter: applyOnlineDiscount(130) } },
+  manavgat: { name: "Manavgat", originalPrices: { vito: 50, sprinter: 75 }, prices: { vito: applyOnlineDiscount(50), sprinter: applyOnlineDiscount(75) } },
+  kizilagac: { name: "Manavgat/Kızılağaç", originalPrices: { vito: 60, sprinter: 85 }, prices: { vito: applyOnlineDiscount(60), sprinter: applyOnlineDiscount(85) } },
+  bogazkent: { name: "Boğazkent", originalPrices: { vito: 45, sprinter: 65 }, prices: { vito: applyOnlineDiscount(45), sprinter: applyOnlineDiscount(65) } },
+  antalya: { name: "Antalya City", originalPrices: { vito: 30, sprinter: 45 }, prices: { vito: applyOnlineDiscount(30), sprinter: applyOnlineDiscount(45) } },
+  bodrum: { name: "Bodrum", originalPrices: { vito: 200, sprinter: 250 }, prices: { vito: applyOnlineDiscount(200), sprinter: applyOnlineDiscount(250) } },
+  dalaman: { name: "Dalaman", originalPrices: { vito: 200, sprinter: 250 }, prices: { vito: applyOnlineDiscount(200), sprinter: applyOnlineDiscount(250) } },
+  fethiye: { name: "Fethiye", originalPrices: { vito: 200, sprinter: 250 }, prices: { vito: applyOnlineDiscount(200), sprinter: applyOnlineDiscount(250) } },
+  pamukkale: { name: "Pamukkale", originalPrices: { vito: 200, sprinter: 250 }, prices: { vito: applyOnlineDiscount(200), sprinter: applyOnlineDiscount(250) } },
+  kapadokya: { name: "Kapadokya", originalPrices: { vito: 300, sprinter: 400 }, prices: { vito: applyOnlineDiscount(300), sprinter: applyOnlineDiscount(400) } },
 };
 
 const header = document.querySelector(".site-header");
@@ -2732,13 +2732,21 @@ const updateGuestCapacity = () => {
 const updateInlinePrice = (routeKey, vehicleKey = vehicleSelect.value) => {
   const route = routeData[routeKey];
   const price = route?.prices[vehicleKey];
+  const originalPrice = route?.originalPrices?.[vehicleKey];
   if (!route || !price || !priceDisplay) return;
   const language = document.documentElement.lang;
   const vehicleName = fleetData[vehicleKey]?.name || vehicleKey;
   const priceNote = translations[language]?.perVehicle || "fixed · per vehicle";
+  const originalPriceMarkup =
+    Number.isFinite(Number(originalPrice)) && Number(originalPrice) > Number(price)
+      ? `<span class="price-display-original">${formatEuroAmount(originalPrice)}</span>`
+      : "";
   priceDisplay.innerHTML = `
     <span class="price-display-route">AYT → ${route.name}</span>
-    <strong class="price-display-amount">${formatEuroAmount(price)}</strong>
+    <span class="price-display-prices">
+      ${originalPriceMarkup}
+      <strong class="price-display-amount">${formatEuroAmount(price)}</strong>
+    </span>
     <span class="price-display-note">${vehicleName} · ${priceNote}</span>
   `;
   priceDisplay.classList.add("visible");
@@ -2747,6 +2755,7 @@ const updateInlinePrice = (routeKey, vehicleKey = vehicleSelect.value) => {
     destination: routeKey,
     vehicle: vehicleKey,
     price,
+    originalPrice,
   };
 };
 

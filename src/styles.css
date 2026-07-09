@@ -758,6 +758,21 @@ html[lang="ru"] .faq-item button span {
   text-transform: uppercase;
 }
 
+.price-display-prices {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 8px;
+  white-space: nowrap;
+}
+
+.price-display-original {
+  color: rgba(255, 255, 255, 0.35);
+  font-size: 16px;
+  text-decoration: line-through;
+  text-decoration-color: rgba(200, 169, 106, 0.75);
+  text-decoration-thickness: 1px;
+}
+
 .price-display-amount {
   font-family: var(--serif);
   font-size: 32px;
@@ -3137,6 +3152,7 @@ footer {
 
   .booking-price-display {
     width: 100%;
+    flex-wrap: wrap;
   }
 
   .booking-row-journey,
@@ -3380,6 +3396,11 @@ footer {
 
   .brand-copy strong {
     font-size: 16px;
+  }
+
+  .booking-price-display {
+    align-items: flex-start;
+    flex-direction: column;
   }
 
   .brand-mark {
