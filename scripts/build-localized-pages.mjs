@@ -364,7 +364,7 @@ function routePage(code, slug, route, text) {
 
 const [source, mainJs] = await Promise.all([readFile(path.join(root, "index.html"), "utf8"), readFile(path.join(root, "src/main.js"), "utf8")]);
 const translations = extractTranslations(mainJs);
-const longDistanceRoutes = new Set(["bodrum", "dalaman", "fethiye", "pamukkale", "kapadokya"]);
+const longDistanceRoutes = new Set(["bodrum", "dalaman", "fethiye", "pamukkale", "kapadokya", "kizilagac"]);
 for (const [code, text] of Object.entries(languages)) {
   if (["tr", "ru"].includes(code)) {
     await mkdir(path.join(root, code), { recursive: true });
