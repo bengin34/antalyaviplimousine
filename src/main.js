@@ -2544,6 +2544,7 @@ const routeData = {
   alanya: { name: "Alanya", prices: { vito: applyOnlineDiscount(100), sprinter: applyOnlineDiscount(130) } },
   tekirova: { name: "Tekirova", prices: { vito: applyOnlineDiscount(100), sprinter: applyOnlineDiscount(130) } },
   manavgat: { name: "Manavgat", prices: { vito: applyOnlineDiscount(50), sprinter: applyOnlineDiscount(75) } },
+  kizilagac: { name: "Manavgat/Kızılağaç", prices: { vito: applyOnlineDiscount(60), sprinter: applyOnlineDiscount(85) } },
   bogazkent: { name: "Boğazkent", prices: { vito: applyOnlineDiscount(45), sprinter: applyOnlineDiscount(65) } },
   antalya: { name: "Antalya City", prices: { vito: applyOnlineDiscount(30), sprinter: applyOnlineDiscount(45) } },
   bodrum: { name: "Bodrum", prices: { vito: applyOnlineDiscount(200), sprinter: applyOnlineDiscount(250) } },

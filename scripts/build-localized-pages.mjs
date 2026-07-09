@@ -110,6 +110,7 @@ const routes = {
   alanya: { en: "Alanya", de: "Alanya", tr: "Alanya", ru: "Аланью", distance: "125 km", duration: { en: "110–130 minutes", de: "110–130 Minuten", tr: "110–130 dakika", ru: "110–130 минут" }, vito: 100, sprinter: 130 },
   bogazkent: { en: "Boğazkent", de: "Boğazkent", tr: "Boğazkent", ru: "Богазкент", distance: "40 km", duration: { en: "40–45 minutes", de: "40–45 Minuten", tr: "40–45 dakika", ru: "40–45 минут" }, vito: 45, sprinter: 65 },
   manavgat: { en: "Manavgat", de: "Manavgat", tr: "Manavgat", ru: "Манавгат", distance: "70 km", duration: { en: "55–65 minutes", de: "55–65 Minuten", tr: "55–65 dakika", ru: "55–65 минут" }, vito: 50, sprinter: 75 },
+  kizilagac: { en: "Manavgat/Kızılağaç", de: "Manavgat/Kızılağaç", tr: "Manavgat/Kızılağaç", ru: "Манавгат/Кызылагач", distance: "85 km", duration: { en: "70–80 minutes", de: "70–80 Minuten", tr: "70–80 dakika", ru: "70–80 минут" }, vito: 60, sprinter: 85 },
   tekirova: { en: "Tekirova", de: "Tekirova", tr: "Tekirova", ru: "Текирову", distance: "75 km", duration: { en: "75–90 minutes", de: "75–90 Minuten", tr: "75–90 dakika", ru: "75–90 минут" }, vito: 100, sprinter: 130 },
   bodrum: { en: "Bodrum", de: "Bodrum", tr: "Bodrum", ru: "Бодрум", distance: "420 km", duration: { en: "5–6 hours", de: "5–6 Stunden", tr: "5–6 saat", ru: "5–6 часов" }, vito: 200, sprinter: 250 },
   dalaman: { en: "Dalaman", de: "Dalaman", tr: "Dalaman", ru: "Даламан", distance: "235 km", duration: { en: "3–3.5 hours", de: "3–3,5 Stunden", tr: "3–3,5 saat", ru: "3–3,5 часа" }, vito: 200, sprinter: 250 },

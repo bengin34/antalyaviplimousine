@@ -250,6 +250,7 @@ function localizeRouteLinks(html) {
     "alanya",
     "bogazkent",
     "manavgat",
+    "kizilagac",
     "tekirova",
     "bodrum",
     "dalaman",
