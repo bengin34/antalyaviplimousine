@@ -36,11 +36,11 @@ const translations = {
     heroSubtitle:
       "Private Transfers mit Chauffeur vom Flughafen Antalya nach Belek, Side, Kemer und Alanya.",
     campaignBadge: "Online Spezial",
-    campaignDiscount: "25% Rabatt",
+    campaignDiscount: "15% Rabatt",
     campaignScope: "auf alle Transferpreise",
-    campaignApplied: "Online -25% bereits abgezogen",
-    onlineDiscountShort: "Online -25%",
-    discountPricesShown: "Online -25% Preise angezeigt",
+    campaignApplied: "Online -15% bereits abgezogen",
+    onlineDiscountShort: "Online -15%",
+    discountPricesShown: "Online -15% Preise angezeigt",
     bookTransfer: "Transfer buchen",
     instantQuote: "Sofortpreis erhalten",
     googleRated: "Google-Bewertung",
@@ -248,11 +248,11 @@ const translations = {
     heroSubtitle:
       "Antalya Havalimanı'ndan Belek, Side, Kemer ve Alanya'ya özel şoförlü transfer.",
     campaignBadge: "Online'a özel",
-    campaignDiscount: "%25 indirim",
+    campaignDiscount: "%15 indirim",
     campaignScope: "tüm transfer fiyatlarında",
-    campaignApplied: "Online -%25 indirim uygulanmıştır",
-    onlineDiscountShort: "Online -%25",
-    discountPricesShown: "Online -%25 fiyatlar gösteriliyor",
+    campaignApplied: "Online -%15 indirim uygulanmıştır",
+    onlineDiscountShort: "Online -%15",
+    discountPricesShown: "Online -%15 fiyatlar gösteriliyor",
     bookTransfer: "Transferinizi ayırtın",
     instantQuote: "Anında fiyat alın",
     googleRated: "Google puanı",
@@ -459,11 +459,11 @@ const translations = {
     heroSubtitle:
       "Индивидуальные трансферы с водителем из аэропорта Антальи в Белек, Сиде, Кемер и Аланью.",
     campaignBadge: "Онлайн-акция",
-    campaignDiscount: "скидка 25%",
+    campaignDiscount: "скидка 15%",
     campaignScope: "на все трансферы",
-    campaignApplied: "Онлайн -25% уже применено",
-    onlineDiscountShort: "Онлайн -25%",
-    discountPricesShown: "Показаны цены онлайн -25%",
+    campaignApplied: "Онлайн -15% уже применено",
+    onlineDiscountShort: "Онлайн -15%",
+    discountPricesShown: "Показаны цены онлайн -15%",
     bookTransfer: "Забронировать трансфер",
     instantQuote: "Узнать цену",
     googleRated: "Рейтинг Google",
@@ -2526,7 +2526,7 @@ const syncFleetCarouselForVehicle = (fleetKey) => {
   updateFleetCarousel(0);
 };
 
-const ONLINE_DISCOUNT_RATE = 0.25;
+const ONLINE_DISCOUNT_RATE = 0.15;
 const PRICE_ROUNDING_STEP = 5;
 const applyOnlineDiscount = (price) =>
   Math.floor((price * (1 - ONLINE_DISCOUNT_RATE)) / PRICE_ROUNDING_STEP) *
