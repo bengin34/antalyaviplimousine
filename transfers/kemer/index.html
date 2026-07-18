@@ -631,6 +631,43 @@
               </label>
             </div>
 
+            <div class="booking-row booking-options-row">
+              <label class="booking-field">
+                <span data-i18n="hotelNameLabel">Hotel name</span>
+                <div class="field-control">
+                  <svg class="icon" aria-hidden="true">
+                    <use href="#icon-pin"></use>
+                  </svg>
+                  <input
+                    type="text"
+                    id="hotel-name"
+                    name="hotelName"
+                    required
+                    autocomplete="organization"
+                    minlength="2"
+                    maxlength="120"
+                    data-i18n-placeholder="hotelNamePlaceholder"
+                    placeholder="Hotel or accommodation name"
+                  />
+                </div>
+              </label>
+
+              <label class="booking-field">
+                <span data-i18n="childSeatLabel">Child seats</span>
+                <div class="field-control">
+                  <svg class="icon" aria-hidden="true">
+                    <use href="#icon-baby"></use>
+                  </svg>
+                  <select id="child-seats" name="childSeats">
+                    <option value="0" data-i18n="childSeatNone">No child seat</option>
+                    <option value="1" data-i18n="oneChildSeat">1 child seat</option>
+                    <option value="2" data-i18n="twoChildSeats">2 child seats</option>
+                    <option value="3" data-i18n="threeChildSeats">3 child seats</option>
+                    <option value="4" data-i18n="fourChildSeats">4 child seats</option>
+                  </select>
+                </div>
+              </label>
+            </div>
             <div class="booking-row booking-row-personal">
               <label class="booking-field">
                 <span>Full name</span>
@@ -660,7 +697,7 @@
                     inputmode="tel"
                     maxlength="25"
                     pattern="[\+0-9\s().-]{7,25}"
-                    placeholder="+44 7700 000000"
+                    placeholder="+44 7400 123456"
                   />
                 </div>
               </label>

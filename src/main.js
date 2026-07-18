@@ -1,4 +1,5 @@
 import "./consent.js";
+import { parsePhoneNumberFromString } from "libphonenumber-js/max";
 import fallbackChauffeurPhoto from "../assets/optimized/chauffeur-arrival.jpg?url";
 import fallbackInteriorPhoto from "../assets/optimized/executive-interior.jpg?url";
 import fallbackHeroPhoto from "../assets/optimized/antalya-coastline-hero.jpg?url";
@@ -2113,9 +2114,19 @@ const paymentTranslations = {
     dateInvalid: "Please choose today or a future date.",
     emailInvalid: "Please enter a valid email address.",
     nameInvalid: "Please enter a valid full name.",
-    phoneInvalid: "Please enter a valid phone or WhatsApp number.",
+    phoneInvalid:
+      "Please enter a valid number including the country code (for example +49).",
     flightInvalid: "Please enter a valid flight number.",
     pickupAddressRequired: "Please enter the full pick-up address.",
+    hotelNameLabel: "Hotel name",
+    hotelNamePlaceholder: "Hotel or accommodation name",
+    hotelNameRequired: "Please enter the hotel name.",
+    childSeatLabel: "Child seats",
+    childSeatNone: "No child seat",
+    oneChildSeat: "1 child seat",
+    twoChildSeats: "2 child seats",
+    threeChildSeats: "3 child seats",
+    fourChildSeats: "4 child seats",
   },
   de: {
     paymentMethod: "Zahlungsart wählen",
@@ -2138,9 +2149,18 @@ const paymentTranslations = {
     emailInvalid: "Bitte geben Sie eine gültige E-Mail-Adresse ein.",
     nameInvalid: "Bitte geben Sie einen gültigen vollständigen Namen ein.",
     phoneInvalid:
-      "Bitte geben Sie eine gültige Telefon- oder WhatsApp-Nummer ein.",
+      "Bitte geben Sie eine gültige Nummer mit Ländervorwahl ein (zum Beispiel +49).",
     flightInvalid: "Bitte geben Sie eine gültige Flugnummer ein.",
     pickupAddressRequired: "Bitte geben Sie die vollständige Abholadresse ein.",
+    hotelNameLabel: "Hotelname",
+    hotelNamePlaceholder: "Hotel- oder Unterkunftsname",
+    hotelNameRequired: "Bitte geben Sie den Hotelnamen ein.",
+    childSeatLabel: "Kindersitze",
+    childSeatNone: "Kein Kindersitz",
+    oneChildSeat: "1 Kindersitz",
+    twoChildSeats: "2 Kindersitze",
+    threeChildSeats: "3 Kindersitze",
+    fourChildSeats: "4 Kindersitze",
   },
   tr: {
     paymentMethod: "Ödeme yöntemini seçin",
@@ -2161,9 +2181,19 @@ const paymentTranslations = {
     dateInvalid: "Lütfen bugünü veya gelecekteki bir tarihi seçin.",
     emailInvalid: "Lütfen geçerli bir e-posta adresi girin.",
     nameInvalid: "Lütfen geçerli bir ad soyad girin.",
-    phoneInvalid: "Lütfen geçerli bir telefon veya WhatsApp numarası girin.",
+    phoneInvalid:
+      "Lütfen ülke koduyla birlikte geçerli bir numara girin (örneğin +49).",
     flightInvalid: "Lütfen geçerli bir uçuş numarası girin.",
     pickupAddressRequired: "Lütfen tam alış adresini girin.",
+    hotelNameLabel: "Otel ismi",
+    hotelNamePlaceholder: "Otel veya konaklama adı",
+    hotelNameRequired: "Lütfen otel ismini girin.",
+    childSeatLabel: "Çocuk koltuğu",
+    childSeatNone: "Çocuk koltuğu istemiyorum",
+    oneChildSeat: "1 çocuk koltuğu",
+    twoChildSeats: "2 çocuk koltuğu",
+    threeChildSeats: "3 çocuk koltuğu",
+    fourChildSeats: "4 çocuk koltuğu",
   },
   ru: {
     paymentMethod: "Выберите способ оплаты",
@@ -2184,9 +2214,19 @@ const paymentTranslations = {
     dateInvalid: "Выберите сегодняшнюю или будущую дату.",
     emailInvalid: "Введите действительный адрес электронной почты.",
     nameInvalid: "Введите действительное полное имя.",
-    phoneInvalid: "Введите действительный номер телефона или WhatsApp.",
+    phoneInvalid:
+      "Введите действительный номер с кодом страны (например, +49).",
     flightInvalid: "Введите действительный номер рейса.",
     pickupAddressRequired: "Введите полный адрес подачи.",
+    hotelNameLabel: "Название отеля",
+    hotelNamePlaceholder: "Название отеля или места проживания",
+    hotelNameRequired: "Введите название отеля.",
+    childSeatLabel: "Детские кресла",
+    childSeatNone: "Без детского кресла",
+    oneChildSeat: "1 детское кресло",
+    twoChildSeats: "2 детских кресла",
+    threeChildSeats: "3 детских кресла",
+    fourChildSeats: "4 детских кресла",
   },
   pl: {
     paymentMethod: "Wybierz metodę płatności",
@@ -2207,9 +2247,19 @@ const paymentTranslations = {
     dateInvalid: "Wybierz dzisiejszą lub przyszłą datę.",
     emailInvalid: "Wprowadź prawidłowy adres e-mail.",
     nameInvalid: "Wprowadź prawidłowe imię i nazwisko.",
-    phoneInvalid: "Wprowadź prawidłowy numer telefonu lub WhatsApp.",
+    phoneInvalid:
+      "Wprowadź prawidłowy numer z kodem kraju (na przykład +49).",
     flightInvalid: "Wprowadź prawidłowy numer lotu.",
     pickupAddressRequired: "Wprowadź pełny adres odbioru.",
+    hotelNameLabel: "Nazwa hotelu",
+    hotelNamePlaceholder: "Nazwa hotelu lub zakwaterowania",
+    hotelNameRequired: "Wprowadź nazwę hotelu.",
+    childSeatLabel: "Foteliki dziecięce",
+    childSeatNone: "Bez fotelika dziecięcego",
+    oneChildSeat: "1 fotelik dziecięcy",
+    twoChildSeats: "2 foteliki dziecięce",
+    threeChildSeats: "3 foteliki dziecięce",
+    fourChildSeats: "4 foteliki dziecięce",
   },
   nl: {
     paymentMethod: "Kies betaalmethode",
@@ -2231,9 +2281,19 @@ const paymentTranslations = {
     dateInvalid: "Kies vandaag of een toekomstige datum.",
     emailInvalid: "Voer een geldig e-mailadres in.",
     nameInvalid: "Voer een geldige volledige naam in.",
-    phoneInvalid: "Voer een geldig telefoon- of WhatsApp-nummer in.",
+    phoneInvalid:
+      "Voer een geldig nummer met landcode in (bijvoorbeeld +49).",
     flightInvalid: "Voer een geldig vluchtnummer in.",
     pickupAddressRequired: "Voer het volledige ophaaladres in.",
+    hotelNameLabel: "Hotelnaam",
+    hotelNamePlaceholder: "Naam van hotel of accommodatie",
+    hotelNameRequired: "Voer de hotelnaam in.",
+    childSeatLabel: "Kinderzitjes",
+    childSeatNone: "Geen kinderzitje",
+    oneChildSeat: "1 kinderzitje",
+    twoChildSeats: "2 kinderzitjes",
+    threeChildSeats: "3 kinderzitjes",
+    fourChildSeats: "4 kinderzitjes",
   },
   uk: {
     paymentMethod: "Оберіть спосіб оплати",
@@ -2254,9 +2314,19 @@ const paymentTranslations = {
     dateInvalid: "Оберіть сьогоднішню або майбутню дату.",
     emailInvalid: "Введіть дійсну електронну адресу.",
     nameInvalid: "Введіть дійсне повне ім'я.",
-    phoneInvalid: "Введіть дійсний номер телефону або WhatsApp.",
+    phoneInvalid:
+      "Введіть дійсний номер із кодом країни (наприклад, +49).",
     flightInvalid: "Введіть дійсний номер рейсу.",
     pickupAddressRequired: "Введіть повну адресу подачі.",
+    hotelNameLabel: "Назва готелю",
+    hotelNamePlaceholder: "Назва готелю або місця проживання",
+    hotelNameRequired: "Введіть назву готелю.",
+    childSeatLabel: "Дитячі крісла",
+    childSeatNone: "Без дитячого крісла",
+    oneChildSeat: "1 дитяче крісло",
+    twoChildSeats: "2 дитячі крісла",
+    threeChildSeats: "3 дитячі крісла",
+    fourChildSeats: "4 дитячі крісла",
   },
   fr: {
     paymentMethod: "Choisissez le mode de paiement",
@@ -2279,10 +2349,20 @@ const paymentTranslations = {
     dateInvalid: "Veuillez choisir aujourd'hui ou une date future.",
     emailInvalid: "Veuillez saisir une adresse e-mail valide.",
     nameInvalid: "Veuillez saisir un nom complet valide.",
-    phoneInvalid: "Veuillez saisir un numéro de téléphone ou WhatsApp valide.",
+    phoneInvalid:
+      "Saisissez un numéro valide avec l’indicatif du pays (par exemple +49).",
     flightInvalid: "Veuillez saisir un numéro de vol valide.",
     pickupAddressRequired:
       "Veuillez saisir l'adresse complète de prise en charge.",
+    hotelNameLabel: "Nom de l'hôtel",
+    hotelNamePlaceholder: "Nom de l'hôtel ou de l'hébergement",
+    hotelNameRequired: "Veuillez saisir le nom de l'hôtel.",
+    childSeatLabel: "Sièges enfant",
+    childSeatNone: "Aucun siège enfant",
+    oneChildSeat: "1 siège enfant",
+    twoChildSeats: "2 sièges enfant",
+    threeChildSeats: "3 sièges enfant",
+    fourChildSeats: "4 sièges enfant",
   },
   sv: {
     paymentMethod: "Välj betalningsmetod",
@@ -2303,9 +2383,19 @@ const paymentTranslations = {
     dateInvalid: "Välj dagens datum eller ett framtida datum.",
     emailInvalid: "Ange en giltig e-postadress.",
     nameInvalid: "Ange ett giltigt fullständigt namn.",
-    phoneInvalid: "Ange ett giltigt telefon- eller WhatsApp-nummer.",
+    phoneInvalid:
+      "Ange ett giltigt nummer med landskod (till exempel +49).",
     flightInvalid: "Ange ett giltigt flightnummer.",
     pickupAddressRequired: "Ange den fullständiga hämtningsadressen.",
+    hotelNameLabel: "Hotellnamn",
+    hotelNamePlaceholder: "Hotell- eller boendenamn",
+    hotelNameRequired: "Ange hotellnamnet.",
+    childSeatLabel: "Barnstolar",
+    childSeatNone: "Ingen barnstol",
+    oneChildSeat: "1 barnstol",
+    twoChildSeats: "2 barnstolar",
+    threeChildSeats: "3 barnstolar",
+    fourChildSeats: "4 barnstolar",
   },
   ja: {
     paymentMethod: "お支払い方法を選択",
@@ -2326,9 +2416,19 @@ const paymentTranslations = {
     dateInvalid: "今日または今後の日付を選択してください。",
     emailInvalid: "有効なメールアドレスを入力してください。",
     nameInvalid: "有効な氏名を入力してください。",
-    phoneInvalid: "有効な電話番号またはWhatsApp番号を入力してください。",
+    phoneInvalid:
+      "国番号を含む有効な電話番号を入力してください（例：+49）。",
     flightInvalid: "有効なフライト番号を入力してください。",
     pickupAddressRequired: "お迎え先の詳しい住所を入力してください。",
+    hotelNameLabel: "ホテル名",
+    hotelNamePlaceholder: "ホテルまたは宿泊施設名",
+    hotelNameRequired: "ホテル名を入力してください。",
+    childSeatLabel: "チャイルドシート",
+    childSeatNone: "チャイルドシート不要",
+    oneChildSeat: "チャイルドシート 1台",
+    twoChildSeats: "チャイルドシート 2台",
+    threeChildSeats: "チャイルドシート 3台",
+    fourChildSeats: "チャイルドシート 4台",
   },
   ko: {
     paymentMethod: "결제 방법 선택",
@@ -2349,9 +2449,19 @@ const paymentTranslations = {
     dateInvalid: "오늘 또는 이후 날짜를 선택해 주세요.",
     emailInvalid: "올바른 이메일 주소를 입력해 주세요.",
     nameInvalid: "올바른 전체 이름을 입력해 주세요.",
-    phoneInvalid: "올바른 전화번호 또는 WhatsApp 번호를 입력해 주세요.",
+    phoneInvalid:
+      "국가 코드를 포함한 올바른 번호를 입력해 주세요(예: +49).",
     flightInvalid: "올바른 항공편 번호를 입력해 주세요.",
     pickupAddressRequired: "전체 픽업 주소를 입력해 주세요.",
+    hotelNameLabel: "호텔명",
+    hotelNamePlaceholder: "호텔 또는 숙소 이름",
+    hotelNameRequired: "호텔명을 입력해 주세요.",
+    childSeatLabel: "어린이 좌석",
+    childSeatNone: "어린이 좌석 없음",
+    oneChildSeat: "어린이 좌석 1개",
+    twoChildSeats: "어린이 좌석 2개",
+    threeChildSeats: "어린이 좌석 3개",
+    fourChildSeats: "어린이 좌석 4개",
   },
 };
 
@@ -2526,11 +2636,6 @@ const syncFleetCarouselForVehicle = (fleetKey) => {
   updateFleetCarousel(0);
 };
 
-const ONLINE_DISCOUNT_RATE = 0.15;
-const PRICE_ROUNDING_STEP = 5;
-const applyOnlineDiscount = (price) =>
-  Math.floor((price * (1 - ONLINE_DISCOUNT_RATE)) / PRICE_ROUNDING_STEP) *
-  PRICE_ROUNDING_STEP;
 const formatEuroAmount = (price) => {
   const value = Number(price);
   if (!Number.isFinite(value)) return "€0";
@@ -2538,20 +2643,20 @@ const formatEuroAmount = (price) => {
 };
 
 const routeData = {
-  belek: { name: "Belek", originalPrices: { vito: 40, sprinter: 60 }, prices: { vito: applyOnlineDiscount(40), sprinter: applyOnlineDiscount(60) } },
-  side: { name: "Side", originalPrices: { vito: 50, sprinter: 75 }, prices: { vito: applyOnlineDiscount(50), sprinter: applyOnlineDiscount(75) } },
-  kemer: { name: "Kemer", originalPrices: { vito: 55, sprinter: 80 }, prices: { vito: applyOnlineDiscount(55), sprinter: applyOnlineDiscount(80) } },
-  alanya: { name: "Alanya", originalPrices: { vito: 100, sprinter: 130 }, prices: { vito: applyOnlineDiscount(100), sprinter: applyOnlineDiscount(130) } },
-  tekirova: { name: "Tekirova", originalPrices: { vito: 100, sprinter: 130 }, prices: { vito: applyOnlineDiscount(100), sprinter: applyOnlineDiscount(130) } },
-  manavgat: { name: "Manavgat", originalPrices: { vito: 50, sprinter: 75 }, prices: { vito: applyOnlineDiscount(50), sprinter: applyOnlineDiscount(75) } },
-  kizilagac: { name: "Manavgat/Kızılağaç", originalPrices: { vito: 60, sprinter: 85 }, prices: { vito: applyOnlineDiscount(60), sprinter: applyOnlineDiscount(85) } },
-  bogazkent: { name: "Boğazkent", originalPrices: { vito: 45, sprinter: 65 }, prices: { vito: applyOnlineDiscount(45), sprinter: applyOnlineDiscount(65) } },
-  antalya: { name: "Antalya City", originalPrices: { vito: 30, sprinter: 45 }, prices: { vito: applyOnlineDiscount(30), sprinter: applyOnlineDiscount(45) } },
-  bodrum: { name: "Bodrum", originalPrices: { vito: 200, sprinter: 250 }, prices: { vito: applyOnlineDiscount(200), sprinter: applyOnlineDiscount(250) } },
-  dalaman: { name: "Dalaman", originalPrices: { vito: 200, sprinter: 250 }, prices: { vito: applyOnlineDiscount(200), sprinter: applyOnlineDiscount(250) } },
-  fethiye: { name: "Fethiye", originalPrices: { vito: 200, sprinter: 250 }, prices: { vito: applyOnlineDiscount(200), sprinter: applyOnlineDiscount(250) } },
-  pamukkale: { name: "Pamukkale", originalPrices: { vito: 200, sprinter: 250 }, prices: { vito: applyOnlineDiscount(200), sprinter: applyOnlineDiscount(250) } },
-  kapadokya: { name: "Kapadokya", originalPrices: { vito: 300, sprinter: 400 }, prices: { vito: applyOnlineDiscount(300), sprinter: applyOnlineDiscount(400) } },
+  belek: { name: "Belek", originalPrices: { vito: 40, sprinter: 60 }, prices: { vito: 30, sprinter: 50 } },
+  side: { name: "Side", originalPrices: { vito: 50, sprinter: 75 }, prices: { vito: 40, sprinter: 60 } },
+  kemer: { name: "Kemer", originalPrices: { vito: 55, sprinter: 80 }, prices: { vito: 45, sprinter: 65 } },
+  alanya: { name: "Alanya", originalPrices: { vito: 100, sprinter: 130 }, prices: { vito: 85, sprinter: 110 } },
+  tekirova: { name: "Tekirova", originalPrices: { vito: 100, sprinter: 130 }, prices: { vito: 85, sprinter: 110 } },
+  manavgat: { name: "Manavgat", originalPrices: { vito: 50, sprinter: 75 }, prices: { vito: 40, sprinter: 60 } },
+  kizilagac: { name: "Manavgat/Kızılağaç", originalPrices: { vito: 60, sprinter: 85 }, prices: { vito: 50, sprinter: 70 } },
+  bogazkent: { name: "Boğazkent", originalPrices: { vito: 45, sprinter: 65 }, prices: { vito: 35, sprinter: 55 } },
+  antalya: { name: "Antalya City", originalPrices: { vito: 30, sprinter: 45 }, prices: { vito: 25, sprinter: 35 } },
+  bodrum: { name: "Bodrum", originalPrices: { vito: 200, sprinter: 250 }, prices: { vito: 170, sprinter: 210 } },
+  dalaman: { name: "Dalaman", originalPrices: { vito: 200, sprinter: 250 }, prices: { vito: 170, sprinter: 210 } },
+  fethiye: { name: "Fethiye", originalPrices: { vito: 200, sprinter: 250 }, prices: { vito: 170, sprinter: 210 } },
+  pamukkale: { name: "Pamukkale", originalPrices: { vito: 200, sprinter: 250 }, prices: { vito: 170, sprinter: 210 } },
+  kapadokya: { name: "Kapadokya", originalPrices: { vito: 300, sprinter: 400 }, prices: { vito: 255, sprinter: 340 } },
 };
 
 const header = document.querySelector(".site-header");
@@ -2561,6 +2666,8 @@ const quoteModal = document.querySelector("#quote-modal");
 const pickupSelect = document.querySelector("#pickup");
 const pickupAddressRow = document.querySelector("#pickup-address-row");
 const pickupAddressInput = document.querySelector("#pickup-address");
+const hotelNameInput = document.querySelector("#hotel-name");
+const childSeatsSelect = document.querySelector("#child-seats");
 const destinationSelect = document.querySelector("#destination");
 const vehicleSelect = document.querySelector("#vehicle-type");
 const guestsSelect = document.querySelector("#guests");
@@ -2847,12 +2954,18 @@ const isValidName = (value) => {
 const isValidPhone = (value) => {
   const normalized = normalizeWhitespace(value);
   const digits = normalized.replace(/\D/g, "");
-  return (
+  const hasValidGeneralFormat =
     digits.length >= 7 &&
     digits.length <= 15 &&
     /^[+]?[\d\s().-]+$/.test(normalized) &&
-    !/(?!^)\+/.test(normalized)
-  );
+    !/(?!^)\+/.test(normalized);
+
+  if (!hasValidGeneralFormat) return false;
+
+  const internationalNumber = normalized.replace(/^00/, "+");
+  if (!internationalNumber.startsWith("+")) return false;
+
+  return Boolean(parsePhoneNumberFromString(internationalNumber)?.isValid());
 };
 
 const isValidEmail = (value) => {
@@ -2874,6 +2987,12 @@ const isValidFlightNumber = (value) => {
     alphanumericCount >= 2 &&
     flightNumberPattern.test(normalized)
   );
+};
+
+const isValidHotelName = (value) => {
+  const normalized = normalizeWhitespace(value);
+  const letterCount = normalized.match(/\p{L}/gu)?.length || 0;
+  return normalized.length >= 2 && normalized.length <= 120 && letterCount >= 2;
 };
 
 phoneInput.addEventListener("input", () => {
@@ -2923,11 +3042,13 @@ const validateBookingForm = () => {
   flightNumberInput.value = normalizeWhitespace(
     flightNumberInput.value,
   ).toUpperCase();
+  hotelNameInput.value = normalizeWhitespace(hotelNameInput.value);
 
   const fields = [
     destinationSelect,
     travelDate,
     pickupAddressInput,
+    hotelNameInput,
     nameInput,
     phoneInput,
     emailInput,
@@ -2952,6 +3073,11 @@ const validateBookingForm = () => {
     ) {
       errors.push([pickupAddressInput, copy.pickupAddressRequired]);
     }
+  }
+  if (!hotelNameInput.value.trim()) {
+    errors.push([hotelNameInput, copy.requiredField]);
+  } else if (!isValidHotelName(hotelNameInput.value)) {
+    errors.push([hotelNameInput, copy.hotelNameRequired]);
   }
   if (!nameInput.value.trim()) {
     errors.push([nameInput, copy.requiredField]);
@@ -3038,6 +3164,8 @@ const setWhatsAppBookingUrl = (details) => {
   if (details.phone)     lines.push(`📞 Phone: ${details.phone}`);
   if (details.email)     lines.push(`✉️ Email: ${details.email}`);
   if (details.date)      lines.push(`📅 Date: ${details.date}`);
+  if (details.hotel)     lines.push(`🏨 Hotel: ${details.hotel}`);
+  if (details.childSeats) lines.push(`👶 Child seats: ${details.childSeats}`);
   if (details.pickup)    lines.push(`📍 Pickup: ${details.pickup}`);
   if (details.dropoff)   lines.push(`🏁 Dropoff: ${details.dropoff}`);
   if (details.vehicle)   lines.push(`🚘 Vehicle: ${details.vehicle}`);
@@ -3086,6 +3214,8 @@ quoteForm.addEventListener("submit", async (event) => {
   const name = nameInput.value.trim();
   const phone = phoneInput.value.trim();
   const email = emailInput.value.trim();
+  const hotelName = hotelNameInput.value.trim();
+  const childSeatCount = parseInt(childSeatsSelect.value || "0", 10);
   const paymentMethod = getSelectedPaymentMethod();
   const pickupAddress = pickupAddressInput.value.trim();
 
@@ -3110,6 +3240,8 @@ quoteForm.addEventListener("submit", async (event) => {
       customer_name: name,
       customer_email: email,
       customer_phone: phone,
+      hotel_name: hotelName,
+      child_seat_count: childSeatCount,
       flight_number: flightNumberInput.value.trim() || null,
       flight_arrival_time:
         document.querySelector("#flight-arrival-time").value || null,
@@ -3185,6 +3317,8 @@ quoteForm.addEventListener("submit", async (event) => {
       phone,
       email,
       date: document.querySelector("#travel-date").value,
+      hotel: hotelName,
+      childSeats: childSeatCount,
       pickup: currentQuoteData.pickup === "private_address"
         ? pickupAddress
         : (currentQuoteData.pickup === "airport" ? "Antalya Airport" : currentQuoteData.pickup),

@@ -1,4 +1,5 @@
 import { createClient } from 'https://esm.sh/@supabase/supabase-js@2'
+import { parsePhoneNumberFromString } from 'npm:libphonenumber-js@1.13.9/max'
 
 const corsHeaders = {
   'Access-Control-Allow-Origin': '*',
@@ -23,6 +24,7 @@ const requiredFields = [
   'customer_name',
   'customer_email',
   'customer_phone',
+  'hotel_name',
   'pickup_location',
   'dropoff_location',
   'pickup_date',
@@ -46,7 +48,18 @@ const isValidName = (value: string) => {
 
 const isValidPhone = (value: string) => {
   const digits = value.replace(/\D/g, '')
-  return digits.length >= 7 && digits.length <= 15 && /^[+]?[\d\s().-]+$/.test(value) && !/(?!^)\+/.test(value)
+  const hasValidGeneralFormat =
+    digits.length >= 7 &&
+    digits.length <= 15 &&
+    /^[+]?[\d\s().-]+$/.test(value) &&
+    !/(?!^)\+/.test(value)
+
+  if (!hasValidGeneralFormat) return false
+
+  const internationalNumber = value.replace(/^00/, '+')
+  if (!internationalNumber.startsWith('+')) return false
+
+  return Boolean(parsePhoneNumberFromString(internationalNumber)?.isValid())
 }
 
 const isValidFlightNumber = (value: unknown) => {
@@ -59,6 +72,11 @@ const isValidFlightNumber = (value: unknown) => {
     alphanumericCount >= 2 &&
     /^[a-z0-9][a-z0-9 -]{1,11}$/i.test(normalized)
   )
+}
+
+const isValidHotelName = (value: string) => {
+  const letterCount = value.match(/\p{L}/gu)?.length || 0
+  return value.length >= 2 && value.length <= 120 && letterCount >= 2
 }
 
 Deno.serve(async (req) => {
@@ -89,11 +107,18 @@ Deno.serve(async (req) => {
     const customerEmail = String(payload.customer_email).trim().toLowerCase()
     const customerName = normalizeWhitespace(payload.customer_name)
     const customerPhone = normalizeWhitespace(payload.customer_phone)
+    const hotelName = normalizeWhitespace(payload.hotel_name)
     const pickupLocation = String(payload.pickup_location)
     const pickupDate = String(payload.pickup_date)
     const vehicleType = String(payload.vehicle_type)
     const paymentMethod = String(payload.payment_method)
     const guestCount = Number(payload.guests)
+    const childSeatCount =
+      payload.child_seat_count === undefined ||
+      payload.child_seat_count === null ||
+      payload.child_seat_count === ''
+        ? 0
+        : Number(payload.child_seat_count)
     const vehicleCapacity = vehicleType === 'vclass' ? 13 : 8
 
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(customerEmail) || customerEmail.length > 120) {
@@ -104,6 +129,9 @@ Deno.serve(async (req) => {
     }
     if (!isValidPhone(customerPhone)) {
       return jsonResponse({ error: 'customer_phone is invalid' }, 400)
+    }
+    if (!isValidHotelName(hotelName)) {
+      return jsonResponse({ error: 'hotel_name is invalid' }, 400)
     }
     if (!isValidFlightNumber(payload.flight_number)) {
       return jsonResponse({ error: 'flight_number is invalid' }, 400)
@@ -119,6 +147,9 @@ Deno.serve(async (req) => {
     }
     if (!Number.isInteger(guestCount) || guestCount < 1 || guestCount > vehicleCapacity) {
       return jsonResponse({ error: 'guests exceeds the selected vehicle capacity' }, 400)
+    }
+    if (!Number.isInteger(childSeatCount) || childSeatCount < 0 || childSeatCount > 4) {
+      return jsonResponse({ error: 'child_seat_count is invalid' }, 400)
     }
     if (!/^\d{4}-\d{2}-\d{2}$/.test(pickupDate)) {
       return jsonResponse({ error: 'pickup_date is invalid' }, 400)
@@ -149,6 +180,8 @@ Deno.serve(async (req) => {
       customer_name: customerName,
       customer_email: customerEmail,
       customer_phone: customerPhone,
+      hotel_name: hotelName,
+      child_seat_count: childSeatCount,
       flight_number: normalizeWhitespace(payload.flight_number).toUpperCase() || null,
       flight_arrival_time: payload.flight_arrival_time || null,
       notes: payload.notes || null,
@@ -203,6 +236,8 @@ Deno.serve(async (req) => {
                 <tr><td style="padding:6px 12px;color:#777">Customer</td><td style="padding:6px 12px">${escapeHtml(booking.customer_name)}</td></tr>
                 <tr><td style="padding:6px 12px;color:#777">Email</td><td style="padding:6px 12px">${escapeHtml(booking.customer_email)}</td></tr>
                 <tr><td style="padding:6px 12px;color:#777">Phone / WhatsApp</td><td style="padding:6px 12px">${escapeHtml(booking.customer_phone)}</td></tr>
+                <tr><td style="padding:6px 12px;color:#777">Hotel</td><td style="padding:6px 12px"><strong>${escapeHtml(booking.hotel_name)}</strong></td></tr>
+                <tr><td style="padding:6px 12px;color:#777">Child seats</td><td style="padding:6px 12px">${escapeHtml(booking.child_seat_count || 0)}</td></tr>
                 <tr><td style="padding:6px 12px;color:#777">Pick-up</td><td style="padding:6px 12px">${escapeHtml(booking.pickup_location)}</td></tr>
                 ${addressRow}
                 <tr><td style="padding:6px 12px;color:#777">Destination</td><td style="padding:6px 12px">${escapeHtml(booking.dropoff_location)}</td></tr>

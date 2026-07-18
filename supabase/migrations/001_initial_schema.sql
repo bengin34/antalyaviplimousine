@@ -26,6 +26,8 @@ CREATE TABLE IF NOT EXISTS bookings (
   customer_name        TEXT          NOT NULL,
   customer_email       TEXT          NOT NULL,
   customer_phone       TEXT          NOT NULL,
+  hotel_name           TEXT          NOT NULL CHECK (char_length(trim(hotel_name)) BETWEEN 2 AND 120),
+  child_seat_count     INT           NOT NULL DEFAULT 0 CHECK (child_seat_count BETWEEN 0 AND 4),
   pickup_location      TEXT          NOT NULL,
   dropoff_location     TEXT          NOT NULL,
   pickup_date          DATE          NOT NULL,
