@@ -12,7 +12,23 @@ function offsetISO(days) {
 function fmtTime(t) { return t ? t.slice(0, 5) : '—' }
 
 function statusLabel(s) {
-  return { confirmed: 'Onaylı', in_transit: 'Yolda', completed: 'Tamamlandı', cancelled: 'İptal' }[s] ?? s
+  return {
+    pending: 'Bekliyor',
+    paid: 'Ödendi',
+    confirmed: 'Onaylı',
+    in_transit: 'Yolda',
+    completed: 'Tamamlandı',
+    cancelled: 'İptal',
+  }[s] ?? s
+}
+
+function escapeHTML(value) {
+  return String(value ?? '')
+    .replaceAll('&', '&amp;')
+    .replaceAll('<', '&lt;')
+    .replaceAll('>', '&gt;')
+    .replaceAll('"', '&quot;')
+    .replaceAll("'", '&#039;')
 }
 
 function expandRoundTrips(bookings) {
@@ -41,42 +57,60 @@ function expandRoundTrips(bookings) {
   })
 }
 
+function turkishDayLabel(isoDate) {
+  const date = new Date(`${isoDate}T12:00:00Z`)
+  const label = new Intl.DateTimeFormat('tr-TR', {
+    timeZone: 'Europe/Istanbul',
+    weekday: 'long',
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric',
+  }).format(date)
+
+  return label.charAt(0).toLocaleUpperCase('tr-TR') + label.slice(1)
+}
+
 function groupByDay(cards, today, tomorrow) {
-  const groups = { 'Bugün': [], 'Yarın': [], 'Sonraki': [] }
+  const groups = new Map([['Bugün', []], ['Yarın', []]])
   for (const c of cards) {
-    if (c._displayDate === today) groups['Bugün'].push(c)
-    else if (c._displayDate === tomorrow) groups['Yarın'].push(c)
-    else groups['Sonraki'].push(c)
+    if (c._displayDate === today) {
+      groups.get('Bugün').push(c)
+    } else if (c._displayDate === tomorrow) {
+      groups.get('Yarın').push(c)
+    } else {
+      if (!groups.has(c._displayDate)) groups.set(c._displayDate, [])
+      groups.get(c._displayDate).push(c)
+    }
   }
   return groups
 }
 
 function cardHTML(c) {
-  const route = `${fmtTime(c._displayTime)} &nbsp;${c.pickup_location} → ${c.dropoff_location}`
+  const route = `${fmtTime(c._displayTime)} &nbsp;${escapeHTML(c.pickup_location)} → ${escapeHTML(c.dropoff_location)}`
   const badges = `
     <div class="card-badges">
       <span class="badge badge-${c.status}">${statusLabel(c.status)}</span>
       ${c._isReturn ? '<span class="badge badge-return">Dönüş</span>' : ''}
     </div>`
   const extras = [
-    c.flight_number ? `✈️ ${c.flight_number}${c.flight_arrival_time ? ' · ' + fmtTime(c.flight_arrival_time) : ''}` : '',
-    c.hotel_name ? `🏨 ${c.hotel_name}` : '',
+    c.flight_number ? `✈️ ${escapeHTML(c.flight_number)}${c.flight_arrival_time ? ' · ' + fmtTime(c.flight_arrival_time) : ''}` : '',
+    c.hotel_name ? `🏨 ${escapeHTML(c.hotel_name)}` : '',
     [
       `👥 ${c.guests} kişi · ${c.vehicle_type === 'vclass' ? 'V-Class' : 'Vito'}`,
       c.luggage_count > 0 ? `🧳 ${c.luggage_count}` : '',
       c.child_seat_count > 0 ? `👶 ${c.child_seat_count}` : '',
     ].filter(Boolean).join(' · '),
-    `💳 ${c.payment_method === 'cash' ? 'Nakit' : 'Kart'} · €${c.price_eur}`,
-    c.pickup_address ? `📍 ${c.pickup_address}` : '',
+    `💳 ${c.payment_method === 'cash' ? 'Nakit' : 'Kart'} · €${escapeHTML(c.price_eur)}`,
+    c.pickup_address ? `📍 ${escapeHTML(c.pickup_address)}` : '',
   ].filter(Boolean)
 
   return `
-    <div class="card status-${c.status}" data-ref="${c.booking_ref}" data-return="${c._isReturn}">
+    <div class="card status-${c.status}" data-ref="${escapeHTML(c.booking_ref)}" data-return="${c._isReturn}">
       <div class="card-header">
         <div class="card-route">${route}</div>
         ${badges}
       </div>
-      <div class="card-row">👤 ${c.customer_name} &nbsp;<a href="tel:${c.customer_phone}">${c.customer_phone}</a></div>
+      <div class="card-row">👤 ${escapeHTML(c.customer_name)} &nbsp;<a href="tel:${escapeHTML(c.customer_phone)}">${escapeHTML(c.customer_phone)}</a></div>
       ${extras.map(r => `<div class="card-row">${r}</div>`).join('')}
     </div>`
 }
@@ -84,7 +118,6 @@ function cardHTML(c) {
 export async function renderTimeline(container, navigate) {
   const today = todayISO()
   const tomorrow = offsetISO(1)
-  const maxDate = offsetISO(14)
 
   container.innerHTML = `
     <div class="topbar">
@@ -104,15 +137,13 @@ export async function renderTimeline(container, navigate) {
     navigate('#login')
   })
 
-  // Filter window is on pickup_date (outbound leg) only.
-  // Round-trip return legs with return_date beyond the window still render
-  // because their parent booking row is fetched within the window.
+  // Fetch every active booking with at least one leg today or later. This also
+  // catches round trips whose outbound leg passed but whose return leg is ahead.
   const { data, error } = await supabase
     .from('bookings')
     .select('*, booking_notes(id, note, created_at)')
-    .in('status', ['confirmed', 'in_transit', 'completed'])
-    .gte('pickup_date', today)
-    .lte('pickup_date', maxDate)
+    .in('status', ['pending', 'paid', 'confirmed', 'in_transit', 'completed'])
+    .or(`pickup_date.gte.${today},return_date.gte.${today}`)
     .order('pickup_date')
     .order('pickup_time', { nullsFirst: false })
 
@@ -121,32 +152,37 @@ export async function renderTimeline(container, navigate) {
     return
   }
 
-  const bugun = data.filter(b => b.pickup_date === today && ['confirmed', 'in_transit'].includes(b.status)).length
-  const yarin = data.filter(b => b.pickup_date === tomorrow && b.status === 'confirmed').length
-  const aksiyon = data.filter(b => b.pickup_date === today && b.status === 'confirmed').length
+  const cards = expandRoundTrips(data ?? []).filter(card => card._displayDate >= today)
+  const operationalStatuses = ['pending', 'paid', 'confirmed', 'in_transit']
+  const bugun = cards.filter(c => c._displayDate === today && operationalStatuses.includes(c.status)).length
+  const yarin = cards.filter(c => c._displayDate === tomorrow && operationalStatuses.includes(c.status)).length
+  const aksiyon = cards.filter(c => c._displayDate === today && ['pending', 'confirmed'].includes(c.status)).length
   document.getElementById('stat-bugun').textContent = bugun
   document.getElementById('stat-yarin').textContent = yarin
   document.getElementById('stat-aksiyon').textContent = aksiyon
 
-  const cards = expandRoundTrips(data)
   const groups = groupByDay(cards, today, tomorrow)
   const list = document.getElementById('booking-list')
 
-  const hasBookings = Object.values(groups).some(g => g.length > 0)
+  const hasBookings = [...groups.values()].some(group => group.length > 0)
   if (!hasBookings) {
-    list.innerHTML = `<div class="empty"><div class="empty-icon">📅</div><div>Yakın transfer yok</div></div>`
+    list.innerHTML = `<div class="empty"><div class="empty-icon">📅</div><div>Gelecek transfer yok</div></div>`
     return
   }
 
-  for (const [label, group] of Object.entries(groups)) {
+  for (const [key, group] of groups) {
     if (!group.length) continue
-    const dateLabel = label === 'Bugün' ? `Bugün — ${today}` : label === 'Yarın' ? `Yarın — ${tomorrow}` : 'Sonraki'
+    let dateLabel
+    if (key === 'Bugün') dateLabel = `Bugün · ${turkishDayLabel(today)}`
+    else if (key === 'Yarın') dateLabel = `Yarın · ${turkishDayLabel(tomorrow)}`
+    else dateLabel = turkishDayLabel(key)
     list.innerHTML += `<div class="day-group"><div class="day-label">📅 ${dateLabel}</div>${group.map(cardHTML).join('')}</div>`
   }
 
   list.addEventListener('click', (e) => {
     const card = e.target.closest('.card')
     if (!card) return
-    navigate(`#detail/${card.dataset.ref}`)
+    const leg = card.dataset.return === 'true' ? '?leg=return' : ''
+    navigate(`#detail/${encodeURIComponent(card.dataset.ref)}${leg}`)
   })
 }

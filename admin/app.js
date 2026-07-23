@@ -24,8 +24,11 @@ async function route() {
   }
 
   if (hash.startsWith('#detail/')) {
-    const ref = hash.slice('#detail/'.length)
-    renderDetail(app, ref, navigate)
+    const detailPath = hash.slice('#detail/'.length)
+    const [encodedRef, query = ''] = detailPath.split('?')
+    const ref = decodeURIComponent(encodedRef)
+    const isReturn = new URLSearchParams(query).get('leg') === 'return'
+    renderDetail(app, ref, navigate, isReturn)
     return
   }
 

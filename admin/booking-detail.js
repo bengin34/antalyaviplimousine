@@ -1,9 +1,35 @@
 import { supabase } from './supabase-client.js'
 
 function fmtTime(t) { return t ? t.slice(0, 5) : '—' }
-function fmtDate(d) { return d ?? '—' }
+function fmtDate(d) {
+  if (!d) return '—'
+  const date = new Date(`${d}T12:00:00Z`)
+  const label = new Intl.DateTimeFormat('tr-TR', {
+    timeZone: 'Europe/Istanbul',
+    weekday: 'long',
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric',
+  }).format(date)
+  return label.charAt(0).toLocaleUpperCase('tr-TR') + label.slice(1)
+}
+
+function fmtPrice(value) {
+  return new Intl.NumberFormat('tr-TR', { maximumFractionDigits: 2 }).format(Number(value) || 0)
+}
+
+function escapeHTML(value) {
+  return String(value ?? '')
+    .replaceAll('&', '&amp;')
+    .replaceAll('<', '&lt;')
+    .replaceAll('>', '&gt;')
+    .replaceAll('"', '&quot;')
+    .replaceAll("'", '&#039;')
+}
 
 const STATUS_LABELS = {
+  pending: 'Bekliyor',
+  paid: 'Ödendi',
   confirmed: 'Onaylı',
   in_transit: 'Yolda',
   completed: 'Tamamlandı',
@@ -11,6 +37,8 @@ const STATUS_LABELS = {
 }
 
 const STATUS_TRANSITIONS = {
+  pending: ['confirmed', 'cancelled'],
+  paid: ['in_transit'],
   confirmed: ['in_transit', 'cancelled'],
   in_transit: ['completed', 'cancelled'],
   completed: [],
@@ -18,13 +46,15 @@ const STATUS_TRANSITIONS = {
 }
 
 const STATUS_COLORS = {
+  pending: 'orange',
+  paid: 'green',
   confirmed: 'green',
   in_transit: 'blue',
   completed: '',
   cancelled: 'red',
 }
 
-export async function renderDetail(container, bookingRef, navigate) {
+export async function renderDetail(container, bookingRef, navigate, isReturn = false) {
   container.innerHTML = `
     <div class="topbar">
       <button class="detail-back" id="back-btn">← Geri</button>
@@ -46,11 +76,28 @@ export async function renderDetail(container, bookingRef, navigate) {
     return
   }
 
-  renderDetailBody(rows[0], navigate, bookingRef)
+  renderDetailBody(rows[0], navigate, bookingRef, isReturn)
 }
 
-function renderDetailBody(b, navigate, bookingRef) {
+function renderDetailBody(b, navigate, bookingRef, isReturn) {
   const body = document.getElementById('detail-body')
+  const transfer = isReturn && b.trip_type === 'round_trip' && b.return_date
+    ? {
+        date: b.return_date,
+        time: b.return_pickup_time,
+        pickupLocation: b.dropoff_location,
+        dropoffLocation: b.pickup_location,
+        flightNumber: b.return_flight_number,
+        flightArrivalTime: null,
+      }
+    : {
+        date: b.pickup_date,
+        time: b.pickup_time,
+        pickupLocation: b.pickup_location,
+        dropoffLocation: b.dropoff_location,
+        flightNumber: b.flight_number,
+        flightArrivalTime: b.flight_arrival_time,
+      }
 
   const sortedNotes = [...(b.booking_notes ?? [])].sort(
     (a, c) => new Date(c.created_at) - new Date(a.created_at)
@@ -59,22 +106,25 @@ function renderDetailBody(b, navigate, bookingRef) {
   body.innerHTML = `
     <div class="section">
       <div style="display:flex;justify-content:space-between;align-items:center">
-        <span style="color:var(--text-muted);font-size:13px">${b.booking_ref}</span>
-        <span class="badge badge-${b.status}" id="status-badge">${STATUS_LABELS[b.status]}</span>
+        <span style="color:var(--text-muted);font-size:13px">${escapeHTML(b.booking_ref)}</span>
+        <div class="card-badges">
+          <span class="badge badge-${b.status}" id="status-badge">${STATUS_LABELS[b.status]}</span>
+          ${isReturn ? '<span class="badge badge-return">Dönüş</span>' : ''}
+        </div>
       </div>
     </div>
 
     <div class="section">
       <div class="section-label">Transfer</div>
-      <div style="font-size:17px;font-weight:700;margin-bottom:4px">${fmtTime(b.pickup_time)} &nbsp;${b.pickup_location} → ${b.dropoff_location}</div>
-      <div style="color:var(--text-muted);font-size:13px">${fmtDate(b.pickup_date)}${b.flight_number ? ` · ✈️ ${b.flight_number} varış ${fmtTime(b.flight_arrival_time)}` : ''}</div>
+      <div style="font-size:17px;font-weight:700;margin-bottom:4px">${fmtTime(transfer.time)} &nbsp;${escapeHTML(transfer.pickupLocation)} → ${escapeHTML(transfer.dropoffLocation)}</div>
+      <div style="color:var(--text-muted);font-size:13px">${fmtDate(transfer.date)}${transfer.flightNumber ? ` · ✈️ ${escapeHTML(transfer.flightNumber)}${transfer.flightArrivalTime ? ` varış ${fmtTime(transfer.flightArrivalTime)}` : ''}` : ''}</div>
     </div>
 
     <div class="section">
       <div class="section-label">Müşteri</div>
-      <div style="font-weight:600;margin-bottom:4px">${b.customer_name}</div>
-      <div style="margin-bottom:2px"><a href="tel:${b.customer_phone}" style="color:var(--blue)">📞 ${b.customer_phone}</a></div>
-      <div style="color:var(--text-muted);font-size:13px">✉️ ${b.customer_email}</div>
+      <div style="font-weight:600;margin-bottom:4px">${escapeHTML(b.customer_name)}</div>
+      <div style="margin-bottom:2px"><a href="tel:${escapeHTML(b.customer_phone)}" style="color:var(--blue)">📞 ${escapeHTML(b.customer_phone)}</a></div>
+      <div style="color:var(--text-muted);font-size:13px">✉️ ${escapeHTML(b.customer_email)}</div>
     </div>
 
     <div class="section">
@@ -84,24 +134,37 @@ function renderDetailBody(b, navigate, bookingRef) {
         <div><div class="detail-key">Yolcu</div><div class="detail-val">${b.guests} kişi</div></div>
         <div><div class="detail-key">Bagaj</div><div class="detail-val">${b.luggage_count > 0 ? `🧳 ${b.luggage_count}` : '—'}</div></div>
         <div><div class="detail-key">Çocuk koltuğu</div><div class="detail-val">${b.child_seat_count > 0 ? `👶 ${b.child_seat_count}` : '—'}</div></div>
-        <div class="full"><div class="detail-key">Otel</div><div class="detail-val">${b.hotel_name ?? '—'}</div></div>
-        ${b.pickup_address ? `<div class="full"><div class="detail-key">Alış adresi</div><div class="detail-val">📍 ${b.pickup_address}</div></div>` : ''}
+        <div class="full"><div class="detail-key">Otel</div><div class="detail-val">${escapeHTML(b.hotel_name ?? '—')}</div></div>
+        ${b.pickup_address ? `<div class="full"><div class="detail-key">Alış adresi</div><div class="detail-val">📍 ${escapeHTML(b.pickup_address)}</div></div>` : ''}
       </div>
     </div>
 
     <div class="section">
       <div class="section-label">Ödeme</div>
-      <div style="display:flex;justify-content:space-between">
+      <div style="display:flex;justify-content:space-between;align-items:center">
         <span>${b.payment_method === 'cash' ? 'Nakit' : 'Kart'}</span>
-        <span style="font-weight:700">€${b.price_eur}</span>
+        <div style="display:flex;align-items:center;gap:8px">
+          <span style="font-weight:700" id="price-display">€${fmtPrice(b.price_eur)}</span>
+          <button class="btn-outline price-edit-btn" id="price-edit-btn">Düzenle</button>
+        </div>
       </div>
+      <div class="price-editor" id="price-edit-row" hidden>
+        <div class="price-editor-row">
+          <span style="color:var(--text-muted)">€</span>
+          <input class="input price-input" type="number" id="price-input" min="0" step="0.01" inputmode="decimal" aria-label="Yeni fiyat" />
+          <button class="btn price-action" id="price-save-btn">Kaydet</button>
+          <button class="btn-outline price-action" id="price-cancel-btn">İptal</button>
+        </div>
+        <div class="inline-error" id="price-error"></div>
+      </div>
+      <div class="inline-success" id="price-success" role="status"></div>
     </div>
 
     <div class="section" id="notes-section">
       <div class="section-label">Notlar</div>
-      ${b.notes ? `<div class="note-pinned">📌 ${b.notes}</div>` : ''}
+      ${b.notes ? `<div class="note-pinned">📌 ${escapeHTML(b.notes)}</div>` : ''}
       <div id="notes-list">
-        ${sortedNotes.map(n => `<div class="note-item">${n.note}</div>`).join('') || '<div style="color:var(--text-muted);font-size:13px">Henüz not yok</div>'}
+        ${sortedNotes.map(n => `<div class="note-item">${escapeHTML(n.note)}</div>`).join('') || '<div class="notes-empty">Henüz not yok</div>'}
       </div>
       <div class="note-input-row">
         <input class="input" type="text" id="note-input" placeholder="Not ekle…" />
@@ -119,6 +182,7 @@ function renderDetailBody(b, navigate, bookingRef) {
 
   renderStatusButtons(b.status, b.id, bookingRef)
   setupNoteInput(b.id)
+  setupPriceEditor(b)
 }
 
 function renderStatusButtons(currentStatus, bookingId, bookingRef) {
@@ -137,7 +201,7 @@ function renderStatusButtons(currentStatus, bookingId, bookingRef) {
     return `<button class="btn-outline ${color}" data-next="${next}">${STATUS_LABELS[next]}</button>`
   }).join('')
 
-  container.addEventListener('click', async (e) => {
+  container.onclick = async (e) => {
     const btn = e.target.closest('[data-next]')
     if (!btn) return
     const nextStatus = btn.dataset.next
@@ -166,6 +230,64 @@ function renderStatusButtons(currentStatus, bookingId, bookingRef) {
 
     document.getElementById('status-error').textContent = ''
     renderStatusButtons(nextStatus, bookingId, bookingRef)
+  }
+}
+
+function setupPriceEditor(booking) {
+  const editBtn = document.getElementById('price-edit-btn')
+  const editor = document.getElementById('price-edit-row')
+  const input = document.getElementById('price-input')
+  const saveBtn = document.getElementById('price-save-btn')
+  const cancelBtn = document.getElementById('price-cancel-btn')
+  const errorEl = document.getElementById('price-error')
+  const successEl = document.getElementById('price-success')
+  const display = document.getElementById('price-display')
+
+  if (!editBtn || !editor || !input || !saveBtn || !cancelBtn || !errorEl || !successEl || !display) return
+
+  const closeEditor = () => {
+    editor.hidden = true
+    input.value = String(booking.price_eur ?? 0)
+    errorEl.textContent = ''
+  }
+
+  editBtn.addEventListener('click', () => {
+    successEl.textContent = ''
+    input.value = String(booking.price_eur ?? 0)
+    editor.hidden = false
+    input.focus()
+    input.select()
+  })
+
+  cancelBtn.addEventListener('click', closeEditor)
+
+  saveBtn.addEventListener('click', async () => {
+    const nextPrice = Number(input.value.replace(',', '.'))
+    if (!Number.isFinite(nextPrice) || nextPrice < 0 || nextPrice > 999999.99) {
+      errorEl.textContent = 'Geçerli bir fiyat girin.'
+      return
+    }
+
+    saveBtn.disabled = true
+    errorEl.textContent = ''
+    successEl.textContent = ''
+
+    const { count, error } = await supabase
+      .from('bookings')
+      .update({ price_eur: nextPrice }, { count: 'exact' })
+      .eq('id', booking.id)
+
+    saveBtn.disabled = false
+
+    if (error || count === 0) {
+      errorEl.textContent = 'Fiyat güncellenemedi, tekrar deneyin.'
+      return
+    }
+
+    booking.price_eur = nextPrice
+    display.textContent = `€${fmtPrice(nextPrice)}`
+    closeEditor()
+    successEl.textContent = 'Fiyat güncellendi.'
   })
 }
 
@@ -194,7 +316,7 @@ function setupNoteInput(bookingId) {
     }
 
     const list = document.getElementById('notes-list')
-    const placeholder = list.querySelector('[style*="Henüz"]')
+    const placeholder = list.querySelector('.notes-empty')
     if (placeholder) placeholder.remove()
     const el = document.createElement('div')
     el.className = 'note-item'

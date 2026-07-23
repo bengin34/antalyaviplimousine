@@ -93,6 +93,8 @@ body {
 }
 .card:active { opacity: 0.85; }
 .card.status-confirmed { border-color: var(--green); }
+.card.status-pending { border-color: var(--orange); }
+.card.status-paid { border-color: var(--green); }
 .card.status-in_transit { border-color: var(--blue); }
 .card.status-completed { border-color: var(--border); opacity: 0.7; }
 
@@ -114,6 +116,8 @@ body {
   border-radius: 12px;
 }
 .badge-confirmed { background: var(--green-bg); color: var(--green); }
+.badge-pending { background: var(--orange-bg); color: var(--orange); }
+.badge-paid { background: var(--green-bg); color: var(--green); }
 .badge-in_transit { background: var(--blue-bg); color: var(--blue); }
 .badge-completed { background: var(--grey-bg); color: var(--grey); }
 .badge-cancelled { background: var(--red-bg); color: var(--red); }
@@ -232,6 +236,15 @@ body {
 .note-input-row { display: flex; gap: 8px; margin-top: 8px; }
 .note-input-row .input { flex: 1; padding: 8px 10px; font-size: 13px; }
 .note-input-row .btn { width: auto; padding: 8px 14px; font-size: 13px; }
+.notes-empty { color: var(--text-muted); font-size: 13px; }
+
+/* Price editor */
+.price-edit-btn { flex: 0 0 auto; padding: 6px 10px; font-size: 12px; }
+.price-editor { margin-top: 12px; }
+.price-editor[hidden] { display: none; }
+.price-editor-row { display: flex; align-items: center; gap: 8px; }
+.price-input { width: 110px; flex: 0 1 110px; }
+.price-action { width: auto; flex: 0 0 auto; padding: 10px 14px; font-size: 13px; }
 
 /* Status buttons */
 .status-buttons { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
@@ -255,6 +268,19 @@ body {
   font-size: 12px;
   text-align: center;
   padding: 6px;
+}
+.inline-success {
+  min-height: 18px;
+  color: var(--green);
+  font-size: 12px;
+  text-align: center;
+  padding: 6px;
+}
+
+@media (max-width: 380px) {
+  .price-editor-row { flex-wrap: wrap; }
+  .price-input { flex: 1 1 calc(100% - 26px); }
+  .price-action { flex: 1 1 calc(50% - 4px); }
 }
 
 /* Scroll area */

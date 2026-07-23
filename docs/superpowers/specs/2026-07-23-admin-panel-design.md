@@ -7,16 +7,17 @@ Mobile-first driver admin panel for Antalya VIP Limousine. Drivers and owner sha
 
 ## Goals
 
-- Drivers see today's and tomorrow's transfers at a glance
+- Drivers see every upcoming transfer, with Turkish weekday and full date headings
 - Status updates: confirmed → in_transit → completed (cancel from confirmed/in_transit only)
 - Note-taking per booking (append-only)
+- Admin price adjustments for offers agreed outside the site (for example WhatsApp)
 - Works well on a phone
 
 ## Out of Scope
 
 - Per-driver assignment / separate accounts
-- Booking creation or editing
-- Payment processing (`paid` status exists in DB but not used with active payment flow)
+- Booking creation or editing beyond the agreed price
+- Refund processing for already-paid bookings
 - Push notifications
 
 ---
@@ -66,6 +67,11 @@ CREATE POLICY "admin_insert_notes" ON booking_notes
   WITH CHECK (EXISTS (SELECT 1 FROM bookings WHERE id = booking_id));
 ```
 
+### Migration 014 — Allow admin price updates
+
+Authenticated admins retain status updates and also receive column-level permission
+to update `price_eur`; all other booking columns stay read-only.
+
 ---
 
 ## Auth
@@ -90,18 +96,22 @@ Centered form: email + password + "Giriş Yap" button. Inline error on invalid c
 
 **Top bar:** "🚗 VIP Admin" + logout button
 
-**Stats strip (counts DB rows, not virtual cards):**
-- **Bugün:** `confirmed` + `in_transit` bookings where `pickup_date = today`
-- **Yarın:** `confirmed` bookings where `pickup_date = tomorrow`
-- **Aksiyon:** `confirmed` bookings where `pickup_date = today` (need driver action)
+**Stats strip (counts visible transfer legs):**
+- **Bugün:** operational legs (`pending`, `paid`, `confirmed`, `in_transit`) today
+- **Yarın:** operational legs tomorrow
+- **Aksiyon:** `pending` + `confirmed` legs today
 
-**Booking list:** Grouped by day (Bugün / Yarın / Sonraki), then a **client-side sort** by display pickup_time within each group (see Round-trip note below).
+**Booking list:** Grouped by exact date. Today and tomorrow retain their quick labels,
+and every heading includes the Turkish weekday and full date. Cards are then sorted
+client-side by display pickup time within each group (see Round-trip note below).
 
-**Visible statuses:** `confirmed`, `in_transit`, `completed`. `pending` and `paid` hidden.
+**Visible statuses:** `pending`, `paid`, `confirmed`, `in_transit`, `completed`.
 
-**Query window:** Today through next 14 days. Intentionally bounded to keep queries fast as bookings grow.
+**Query window:** All bookings with an outbound or return date today or later. After
+round-trip expansion, past legs are removed so a future return remains visible even
+when its outbound transfer has already happened.
 
-**Empty state:** If no bookings for today or tomorrow: "Yakın transfer yok" + calendar icon.
+**Empty state:** If no upcoming legs exist: "Gelecek transfer yok" + calendar icon.
 
 **Each card shows:**
 - `pickup_time` (or "—" if null) + route (pickup_location → dropoff_location)
@@ -124,7 +134,8 @@ After expanding round-trips, re-sort the full list client-side by `(pickup_date,
 
 Opened by tapping a card. Replaces timeline. Back arrow → `#timeline` + re-fetch bookings.
 
-**URL:** `#detail/{booking_ref}` (booking_ref is driver-readable; UUID not exposed in URL)
+**URL:** `#detail/{booking_ref}` with optional `?leg=return` (booking_ref is
+driver-readable; UUID is not exposed in the URL)
 
 **booking_id (UUID) for note insertion:** Retrieved from JS state (the booking object fetched on timeline load). Never use `booking_ref` as the FK — `booking_notes.booking_id` expects the UUID `bookings.id`.
 
@@ -134,6 +145,7 @@ Opened by tapping a card. Replaces timeline. Back arrow → `#timeline` + re-fet
 3. Customer: name, phone (`tel:` link), email
 4. Transfer: vehicle type, guests, luggage count, child seat count, hotel name, pickup address
 5. Payment: method, price_eur
+   - `price_eur` can be edited inline and is persisted only after validation
 6. Notes:
    - `bookings.notes` (if not empty): shown pinned at top as "Rezervasyon Notu" with a distinct visual treatment
    - `booking_notes` rows: ordered `created_at DESC` (newest first)
@@ -145,9 +157,11 @@ Opened by tapping a card. Replaces timeline. Back arrow → `#timeline` + re-fet
 ## Status Flow
 
 ```
-confirmed ──→ in_transit ──→ completed
-    ↓               ↓
- cancelled       cancelled
+pending ──→ confirmed ──→ in_transit ──→ completed
+   ↓             ↓               ↓
+cancelled       cancelled       cancelled
+
+paid ──→ in_transit ──→ completed
 ```
 
 - **Cancel** available from `confirmed` and `in_transit` only. Button hidden when status is `completed`.
