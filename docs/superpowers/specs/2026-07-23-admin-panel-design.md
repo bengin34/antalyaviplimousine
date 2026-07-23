@@ -3,144 +3,278 @@ Date: 2026-07-23
 
 ## Overview
 
-Mobile-first driver admin panel for Antalya VIP Limousine. Drivers and owner use a shared login to view upcoming transfers grouped by day, update transfer status, and add notes.
+Mobile-first driver admin panel for Antalya VIP Limousine. Drivers and owner share a single login to view upcoming transfers grouped by day, update status, and add notes.
 
 ## Goals
 
 - Drivers see today's and tomorrow's transfers at a glance
-- Status updates: confirmed → in_transit → completed (cancel always available)
-- Note-taking per booking (e.g. "customer missed flight")
+- Status updates: confirmed → in_transit → completed (cancel from confirmed/in_transit only)
+- Note-taking per booking (append-only)
 - Works well on a phone
 
 ## Out of Scope
 
-- Per-driver assignment / separate driver accounts
-- Booking creation or editing from admin panel
-- Payment processing
+- Per-driver assignment / separate accounts
+- Booking creation or editing
+- Payment processing (`paid` status exists in DB but not used with active payment flow)
 - Push notifications
+
+---
+
+## Database Changes
+
+### Migration 010 — Add pickup_time column
+
+```sql
+ALTER TABLE bookings ADD COLUMN IF NOT EXISTS pickup_time TIME;
+-- No backfill: existing bookings have no reliable pickup time to derive.
+-- New bookings will populate this field once the booking form is updated (separate task).
+-- NULL pickup_time = time unknown; cards show "—" and sort to end of day group.
+```
+
+### Migration 011 — Extend status check constraint
+
+Keep all existing values; add `in_transit` and `completed`:
+
+```sql
+ALTER TABLE bookings DROP CONSTRAINT IF EXISTS bookings_status_check;
+ALTER TABLE bookings ADD CONSTRAINT bookings_status_check
+  CHECK (status IN ('pending', 'paid', 'confirmed', 'in_transit', 'completed', 'cancelled'));
+```
+
+### Migration 012 — Admin RLS policies
+
+`booking_notes` already exists (migration 001) with RLS enabled but no policies.
+
+```sql
+-- Restrict bookings UPDATE to status column only at DB level
+REVOKE UPDATE ON bookings FROM authenticated;
+GRANT UPDATE (status) ON bookings TO authenticated;
+
+CREATE POLICY "admin_read_bookings" ON bookings
+  FOR SELECT TO authenticated USING (true);
+
+CREATE POLICY "admin_update_bookings" ON bookings
+  FOR UPDATE TO authenticated USING (true) WITH CHECK (true);
+
+CREATE POLICY "admin_read_notes" ON booking_notes
+  FOR SELECT TO authenticated USING (true);
+
+-- Only allow notes for bookings that actually exist
+CREATE POLICY "admin_insert_notes" ON booking_notes
+  FOR INSERT TO authenticated
+  WITH CHECK (EXISTS (SELECT 1 FROM bookings WHERE id = booking_id));
+```
+
+---
 
 ## Auth
 
 - Single shared Supabase Auth account (`admin@antalyavip.com` + password)
 - `supabase.auth.signInWithPassword()` on login
-- Session stored by Supabase SDK (localStorage)
-- On load: check session → redirect to login if missing
-- Logout button in top bar
+- `autoRefreshToken: true` (Supabase SDK default — keep it enabled)
+- Session expiry handled via `supabase.auth.onAuthStateChange`: on `SIGNED_OUT` event → redirect to `#login`
+- Do not rely on HTTP 401 detection alone — refresh token expiry fires `SIGNED_OUT`, not 401
+- Logout: `supabase.auth.signOut()` then `#login`
+- Password rotation via Supabase dashboard. Existing sessions invalidated automatically.
+
+---
 
 ## UI Structure
 
 ### Login Screen
-Simple centered form: email + password + button. No registration, no reset (owner manages credentials directly in Supabase dashboard).
+
+Centered form: email + password + "Giriş Yap" button. Inline error on invalid credentials. No registration or in-app reset.
 
 ### Main Screen — Timeline
-- Top bar: "🚗 VIP Admin" + logout
-- Stats strip: today count / tomorrow count / pending-action count
-- Bookings grouped by day (Today / Tomorrow / Later)
-- Within each day: chronological by pickup time
-- Only shows bookings with status `confirmed`, `in_transit`, or `completed` (pending/paid are pre-admin payment states, filtered out)
-- Each card shows:
-  - Time + route (e.g. "09:30 AYT → Kemer")
-  - Status badge (color-coded)
-  - Customer name + phone
-  - Flight number + arrival time (if present)
-  - Hotel name
-  - Guests + vehicle type + luggage count + child seat count
-  - Payment method + amount + paid/unpaid indicator
-  - Pickup address (if present / non-standard)
+
+**Top bar:** "🚗 VIP Admin" + logout button
+
+**Stats strip (counts DB rows, not virtual cards):**
+- **Bugün:** `confirmed` + `in_transit` bookings where `pickup_date = today`
+- **Yarın:** `confirmed` bookings where `pickup_date = tomorrow`
+- **Aksiyon:** `confirmed` bookings where `pickup_date = today` (need driver action)
+
+**Booking list:** Grouped by day (Bugün / Yarın / Sonraki), then a **client-side sort** by display pickup_time within each group (see Round-trip note below).
+
+**Visible statuses:** `confirmed`, `in_transit`, `completed`. `pending` and `paid` hidden.
+
+**Query window:** Today through next 14 days. Intentionally bounded to keep queries fast as bookings grow.
+
+**Empty state:** If no bookings for today or tomorrow: "Yakın transfer yok" + calendar icon.
+
+**Each card shows:**
+- `pickup_time` (or "—" if null) + route (pickup_location → dropoff_location)
+- Status badge (color-coded)
+- **"Dönüş"** tag if return leg of a round_trip
+- Customer name + phone (tap-to-call `tel:` link)
+- Flight number + arrival time (if present; return leg uses `return_flight_number`)
+- Hotel name
+- Guests + vehicle type + luggage count + child seat count (only if > 0)
+- Payment method + price_eur
+- Pickup address (only if present and non-empty)
+
+**Round-trip display:** One DB row with `trip_type = 'round_trip'` produces **two virtual cards** in JS after fetch:
+- Card 1: outbound (pickup_date, pickup_time, pickup_location→dropoff_location, flight_number, flight_arrival_time)
+- Card 2: return leg (return_date, return_pickup_time, dropoff_location→pickup_location, return_flight_number, "Dönüş" badge)
+
+After expanding round-trips, re-sort the full list client-side by `(pickup_date, display_pickup_time NULLS LAST)` so return-leg cards appear in correct time order within their day group. DB-level sort on `pickup_time` is insufficient because Card 2 uses `return_pickup_time`.
 
 ### Booking Detail Screen
-Tapping a card opens the detail view (replaces main view, back arrow to return).
 
-Sections:
-1. Booking ref + status badge
-2. Route + date + flight info
-3. Customer (name, phone, email)
-4. Transfer details (vehicle, guests, luggage, child seats, hotel)
-5. Payment (method, amount, paid status)
-6. Notes (list of existing notes + add-note input)
-7. Status buttons: Confirmed / In Transit / Completed / Cancelled
+Opened by tapping a card. Replaces timeline. Back arrow → `#timeline` + re-fetch bookings.
 
-Status button for current status is highlighted; others are outlined.
+**URL:** `#detail/{booking_ref}` (booking_ref is driver-readable; UUID not exposed in URL)
+
+**booking_id (UUID) for note insertion:** Retrieved from JS state (the booking object fetched on timeline load). Never use `booking_ref` as the FK — `booking_notes.booking_id` expects the UUID `bookings.id`.
+
+**Sections:**
+1. Booking ref + status badge + "Dönüş" badge if return leg
+2. Route + pickup date + `pickup_time` (or "—") + flight info
+3. Customer: name, phone (`tel:` link), email
+4. Transfer: vehicle type, guests, luggage count, child seat count, hotel name, pickup address
+5. Payment: method, price_eur
+6. Notes:
+   - `bookings.notes` (if not empty): shown pinned at top as "Rezervasyon Notu" with a distinct visual treatment
+   - `booking_notes` rows: ordered `created_at DESC` (newest first)
+   - Add-note input + "Ekle" button
+7. Status action buttons
+
+---
 
 ## Status Flow
 
 ```
-confirmed → in_transit → completed
-     ↘          ↘           ↘
-                          cancelled (from any state)
+confirmed ──→ in_transit ──→ completed
+    ↓               ↓
+ cancelled       cancelled
 ```
 
-`pending` and `paid` are payment-pipeline states — never shown in admin panel.
+- **Cancel** available from `confirmed` and `in_transit` only. Button hidden when status is `completed`.
+- Transitions to `cancelled`: show confirmation dialog — *"Bu transferi iptal etmek istediğinize emin misiniz?"*
+- Other transitions: no confirmation required.
+- **Optimistic UI:** update status badge immediately on tap.
+- **On Supabase error** (JS error or `count === 0` from update): revert badge to previous status + show inline error — *"Güncelleme başarısız, tekrar deneyin."*
+- Update query must use `{ count: 'exact' }` to detect 0-row-matched responses (e.g. booking deleted by another session between fetch and tap).
 
-New statuses `in_transit` and `completed` require a migration to extend the check constraint.
+**Round-trip cancellation:** Both cards share one DB row. Cancelling from either card sets `status = 'cancelled'` — both cards disappear from the active timeline.
+
+**Status colors:**
+- `confirmed`: green border + green badge
+- `in_transit`: blue border + blue badge
+- `completed`: grey border + grey badge
+- `cancelled`: red badge (not shown in active timeline)
+
+---
+
+## Timezone
+
+All date boundary calculations use `Europe/Istanbul` (UTC+3). Never use `Date.toISOString()` for date math — it returns UTC and will produce wrong dates for drivers late evening.
+
+```js
+const todayISO = new Intl.DateTimeFormat('sv', { timeZone: 'Europe/Istanbul' }).format(new Date())
+// 'sv' locale produces YYYY-MM-DD format
+```
+
+---
+
+## Navigation / Routing
+
+Hash-based routing (works on static hosting):
+- `#login` → login screen
+- `#timeline` → main timeline (default after auth)
+- `#detail/{booking_ref}` → booking detail
+
+On load: check Supabase session. No session → `#login`. Session exists → `#timeline`.
+`supabase.auth.onAuthStateChange` listener running throughout session: `SIGNED_OUT` → `#login`.
+Back from detail → `#timeline` + re-fetch bookings.
+
+---
 
 ## File Structure
 
 ```
 admin/
-  index.html          ← single HTML shell
-  app.js              ← session check, view router
+  index.html          ← single HTML shell, loads app.js as module
+  app.js              ← session check, onAuthStateChange, hash router, view mount/unmount
   login.js            ← login form + supabase.auth.signInWithPassword()
-  timeline.js         ← query bookings, group by day, render cards
-  booking-detail.js   ← detail view, note insert, status update
-  admin.css           ← dark theme styles (mobile-first)
+  timeline.js         ← fetch (14-day window), expand round-trips, client-sort, group by day, render
+  booking-detail.js   ← detail view, notes (bookings.notes + booking_notes), note insert, status update
+  admin.css           ← dark theme, mobile-first (max-width 480px, centered on desktop)
 
 supabase/migrations/
-  010_admin_rls.sql         ← RLS: authenticated users can SELECT all bookings,
-                               UPDATE status, INSERT booking_notes
-  011_add_status_values.sql ← extend status check: add 'in_transit', 'completed'
+  010_add_pickup_time.sql
+  011_add_status_values.sql
+  012_admin_rls.sql
 ```
+
+---
 
 ## Key Queries
 
 ```js
-// Load upcoming bookings (confirmed and beyond)
-supabase
+// Date window (Istanbul timezone)
+const todayISO = new Intl.DateTimeFormat('sv', { timeZone: 'Europe/Istanbul' }).format(new Date())
+const in14Days = new Date()
+in14Days.setDate(in14Days.getDate() + 14)
+const maxISO = new Intl.DateTimeFormat('sv', { timeZone: 'Europe/Istanbul' }).format(in14Days)
+
+// Load bookings with notes
+const { data } = await supabase
   .from('bookings')
-  .select('*, booking_notes(*)')
+  .select('*, booking_notes(id, note, created_at)')
   .in('status', ['confirmed', 'in_transit', 'completed'])
   .gte('pickup_date', todayISO)
+  .lte('pickup_date', maxISO)
   .order('pickup_date')
-  .order('flight_arrival_time', { nullsFirst: false })
+  .order('pickup_time', { nullsFirst: false })
 
-// Update status
-supabase.from('bookings').update({ status }).eq('id', bookingId)
+// Expand round-trips, then client-sort by (pickup_date, display_pickup_time nulls last)
+const cards = data.flatMap(b => {
+  const out = [{ ...b, _displayDate: b.pickup_date, _displayTime: b.pickup_time }]
+  if (b.trip_type === 'round_trip' && b.return_date) {
+    out.push({
+      ...b,
+      _isReturn: true,
+      _displayDate: b.return_date,
+      _displayTime: b.return_pickup_time,
+      pickup_location: b.dropoff_location,
+      dropoff_location: b.pickup_location,
+      flight_number: b.return_flight_number,
+      flight_arrival_time: null,
+    })
+  }
+  return out
+}).sort((a, b) => {
+  if (a._displayDate !== b._displayDate) return a._displayDate.localeCompare(b._displayDate)
+  if (!a._displayTime && !b._displayTime) return 0
+  if (!a._displayTime) return 1
+  if (!b._displayTime) return -1
+  return a._displayTime.localeCompare(b._displayTime)
+})
 
-// Add note
-supabase.from('booking_notes').insert({ booking_id: bookingId, note })
+// Update status — check count to detect 0-row matches
+const { count, error } = await supabase
+  .from('bookings')
+  .update({ status }, { count: 'exact' })
+  .eq('booking_ref', bookingRef)
+// if (error || count === 0) → revert optimistic update + show error
+
+// Add note (booking_id is the UUID from JS state, not booking_ref)
+await supabase.from('booking_notes').insert({ booking_id: booking.id, note })
 ```
 
-## RLS Policies (migration 010)
-
-```sql
--- Authenticated users can read all bookings
-CREATE POLICY "admin_read_bookings" ON bookings
-  FOR SELECT TO authenticated USING (true);
-
--- Authenticated users can update status only
-CREATE POLICY "admin_update_booking_status" ON bookings
-  FOR UPDATE TO authenticated
-  USING (true)
-  WITH CHECK (true);
-
--- Authenticated users can insert notes
-CREATE POLICY "admin_insert_notes" ON booking_notes
-  FOR INSERT TO authenticated WITH CHECK (true);
-
-CREATE POLICY "admin_read_notes" ON booking_notes
-  FOR SELECT TO authenticated USING (true);
-```
-
-## Visual Design
-
-- Dark theme (#0d1117 background, #161b22 cards)
-- Status colors: confirmed=green, in_transit=blue, completed=grey, cancelled=red
-- Mobile-first, max-width 480px centered on desktop
-- No external CSS framework — plain CSS
+---
 
 ## Success Criteria
 
-- Driver opens panel on phone, sees today's transfers in under 2 seconds
-- Tapping a card shows all booking details
-- Status update persists immediately
-- Note saves and appears in list without page reload
+- Today's transfers visible, sorted by pickup_time (nulls last)
+- Round-trip return leg appears as separate card with "Dönüş" tag, sorted in correct time order
+- Cards with null pickup_time show "—" and sort to end of day group
+- Both note sources shown: bookings.notes pinned + booking_notes DESC
+- Status update reflects immediately; 0-row or error reverts badge and shows message
+- Cancel requires confirmation; button hidden from completed state
+- Note saves and appears at top without page reload
+- Back from detail re-fetches timeline
+- All date math uses Europe/Istanbul timezone
+- SIGNED_OUT auth event → redirect to #login
