@@ -10,13 +10,14 @@ Mobile-first driver admin panel for Antalya VIP Limousine. Drivers and owner sha
 - Drivers see every upcoming transfer, with Turkish weekday and full date headings
 - Status updates: confirmed → in_transit → completed (cancel from confirmed/in_transit only)
 - Note-taking per booking (append-only)
-- Admin price adjustments for offers agreed outside the site (for example WhatsApp)
+- Admin price and hotel-name adjustments for agreements or corrections made outside the site
+- Customer contact from the detail screen through a direct WhatsApp chat link
 - Works well on a phone
 
 ## Out of Scope
 
 - Per-driver assignment / separate accounts
-- Booking creation or editing beyond the agreed price
+- Booking creation or editing beyond price and hotel-name corrections
 - Refund processing for already-paid bookings
 - Push notifications
 
@@ -72,6 +73,11 @@ CREATE POLICY "admin_insert_notes" ON booking_notes
 Authenticated admins retain status updates and also receive column-level permission
 to update `price_eur`; all other booking columns stay read-only.
 
+### Migration 015 — Allow admin hotel updates
+
+Authenticated admins also receive column-level permission to correct `hotel_name`.
+All unrelated customer and transfer fields remain read-only.
+
 ---
 
 ## Auth
@@ -94,7 +100,7 @@ Centered form: email + password + "Giriş Yap" button. Inline error on invalid c
 
 ### Main Screen — Timeline
 
-**Top bar:** "🚗 VIP Admin" + logout button
+**Top bar:** "🚗 VIP Yönetim" + logout button
 
 **Stats strip (counts visible transfer legs):**
 - **Bugün:** operational legs (`pending`, `paid`, `confirmed`, `in_transit`) today
@@ -142,8 +148,10 @@ driver-readable; UUID is not exposed in the URL)
 **Sections:**
 1. Booking ref + status badge + "Dönüş" badge if return leg
 2. Route + pickup date + `pickup_time` (or "—") + flight info
-3. Customer: name, phone (`tel:` link), email
+3. Customer: name, phone (WhatsApp link), email
+   - phone opens the customer's WhatsApp chat without a pre-filled message
 4. Transfer: vehicle type, guests, luggage count, child seat count, hotel name, pickup address
+   - hotel name can be corrected inline
 5. Payment: method, price_eur
    - `price_eur` can be edited inline and is persisted only after validation
 6. Notes:

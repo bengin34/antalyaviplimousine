@@ -214,6 +214,35 @@ body {
 .detail-grid .full { grid-column: 1 / -1; }
 .detail-key { color: var(--text-muted); margin-bottom: 2px; font-size: 11px; }
 .detail-val { color: var(--text); font-weight: 500; }
+.whatsapp-link {
+  display: inline-flex;
+  min-height: 42px;
+  align-items: center;
+  gap: 8px;
+  margin-top: 6px;
+  padding: 9px 12px;
+  border: 1px solid rgba(63, 185, 80, 0.45);
+  border-radius: var(--radius-sm);
+  background: rgba(63, 185, 80, 0.1);
+  color: #68d67a;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+}
+.editable-heading { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.inline-edit-button {
+  padding: 3px 0;
+  border: 0;
+  background: transparent;
+  color: var(--blue);
+  cursor: pointer;
+  font-size: 12px;
+}
+.hotel-editor { margin-top: 10px; }
+.hotel-editor[hidden] { display: none; }
+.inline-editor-actions { display: flex; gap: 8px; margin-top: 8px; }
+.inline-editor-button { width: auto; flex: 1; padding: 9px 12px; font-size: 13px; }
+.hotel-success:empty { display: none; }
 
 /* Notes */
 .note-item {

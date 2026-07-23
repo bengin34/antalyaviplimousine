@@ -1,4 +1,5 @@
 import { supabase } from './supabase-client.js'
+import { locationLabel, whatsappURL } from './turkish-formatters.js'
 
 function fmtTime(t) { return t ? t.slice(0, 5) : '—' }
 function fmtDate(d) {
@@ -116,14 +117,19 @@ function renderDetailBody(b, navigate, bookingRef, isReturn) {
 
     <div class="section">
       <div class="section-label">Transfer</div>
-      <div style="font-size:17px;font-weight:700;margin-bottom:4px">${fmtTime(transfer.time)} &nbsp;${escapeHTML(transfer.pickupLocation)} → ${escapeHTML(transfer.dropoffLocation)}</div>
+      <div style="font-size:17px;font-weight:700;margin-bottom:4px">${fmtTime(transfer.time)} &nbsp;${escapeHTML(locationLabel(transfer.pickupLocation))} → ${escapeHTML(locationLabel(transfer.dropoffLocation))}</div>
       <div style="color:var(--text-muted);font-size:13px">${fmtDate(transfer.date)}${transfer.flightNumber ? ` · ✈️ ${escapeHTML(transfer.flightNumber)}${transfer.flightArrivalTime ? ` varış ${fmtTime(transfer.flightArrivalTime)}` : ''}` : ''}</div>
     </div>
 
     <div class="section">
       <div class="section-label">Müşteri</div>
       <div style="font-weight:600;margin-bottom:4px">${escapeHTML(b.customer_name)}</div>
-      <div style="margin-bottom:2px"><a href="tel:${escapeHTML(b.customer_phone)}" style="color:var(--blue)">📞 ${escapeHTML(b.customer_phone)}</a></div>
+      <div style="margin-bottom:4px">
+        <a class="whatsapp-link" href="${escapeHTML(whatsappURL(b.customer_phone))}" target="_blank" rel="noopener noreferrer" aria-label="Müşterinin WhatsApp sohbetini aç">
+          <span aria-hidden="true">💬</span>
+          <span>WhatsApp'tan yaz: ${escapeHTML(b.customer_phone)}</span>
+        </a>
+      </div>
       <div style="color:var(--text-muted);font-size:13px">✉️ ${escapeHTML(b.customer_email)}</div>
     </div>
 
@@ -134,7 +140,22 @@ function renderDetailBody(b, navigate, bookingRef, isReturn) {
         <div><div class="detail-key">Yolcu</div><div class="detail-val">${b.guests} kişi</div></div>
         <div><div class="detail-key">Bagaj</div><div class="detail-val">${b.luggage_count > 0 ? `🧳 ${b.luggage_count}` : '—'}</div></div>
         <div><div class="detail-key">Çocuk koltuğu</div><div class="detail-val">${b.child_seat_count > 0 ? `👶 ${b.child_seat_count}` : '—'}</div></div>
-        <div class="full"><div class="detail-key">Otel</div><div class="detail-val">${escapeHTML(b.hotel_name ?? '—')}</div></div>
+        <div class="full hotel-detail">
+          <div class="editable-heading">
+            <div class="detail-key">Otel</div>
+            <button class="inline-edit-button" id="hotel-edit-btn" type="button">Düzenle</button>
+          </div>
+          <div class="detail-val" id="hotel-display">${escapeHTML(b.hotel_name ?? '—')}</div>
+          <div class="hotel-editor" id="hotel-edit-row" hidden>
+            <input class="input" type="text" id="hotel-input" maxlength="120" aria-label="Otel adı" />
+            <div class="inline-editor-actions">
+              <button class="btn inline-editor-button" id="hotel-save-btn" type="button">Kaydet</button>
+              <button class="btn-outline inline-editor-button" id="hotel-cancel-btn" type="button">İptal</button>
+            </div>
+            <div class="inline-error" id="hotel-error"></div>
+          </div>
+          <div class="inline-success hotel-success" id="hotel-success" role="status"></div>
+        </div>
         ${b.pickup_address ? `<div class="full"><div class="detail-key">Alış adresi</div><div class="detail-val">📍 ${escapeHTML(b.pickup_address)}</div></div>` : ''}
       </div>
     </div>
@@ -183,6 +204,7 @@ function renderDetailBody(b, navigate, bookingRef, isReturn) {
   renderStatusButtons(b.status, b.id, bookingRef)
   setupNoteInput(b.id)
   setupPriceEditor(b)
+  setupHotelEditor(b)
 }
 
 function renderStatusButtons(currentStatus, bookingId, bookingRef) {
@@ -288,6 +310,66 @@ function setupPriceEditor(booking) {
     display.textContent = `€${fmtPrice(nextPrice)}`
     closeEditor()
     successEl.textContent = 'Fiyat güncellendi.'
+  })
+}
+
+function setupHotelEditor(booking) {
+  const editBtn = document.getElementById('hotel-edit-btn')
+  const editor = document.getElementById('hotel-edit-row')
+  const input = document.getElementById('hotel-input')
+  const saveBtn = document.getElementById('hotel-save-btn')
+  const cancelBtn = document.getElementById('hotel-cancel-btn')
+  const errorEl = document.getElementById('hotel-error')
+  const successEl = document.getElementById('hotel-success')
+  const display = document.getElementById('hotel-display')
+
+  if (!editBtn || !editor || !input || !saveBtn || !cancelBtn || !errorEl || !successEl || !display) return
+
+  const closeEditor = () => {
+    editor.hidden = true
+    input.value = String(booking.hotel_name ?? '')
+    errorEl.textContent = ''
+  }
+
+  editBtn.addEventListener('click', () => {
+    successEl.textContent = ''
+    input.value = String(booking.hotel_name ?? '')
+    editor.hidden = false
+    input.focus()
+    input.select()
+  })
+
+  cancelBtn.addEventListener('click', closeEditor)
+
+  saveBtn.addEventListener('click', async () => {
+    const hotelName = input.value.trim().replace(/\s+/g, ' ')
+    const letterCount = hotelName.match(/\p{L}/gu)?.length ?? 0
+
+    if (hotelName.length < 2 || hotelName.length > 120 || letterCount < 2) {
+      errorEl.textContent = 'Geçerli bir otel adı girin.'
+      return
+    }
+
+    saveBtn.disabled = true
+    errorEl.textContent = ''
+    successEl.textContent = ''
+
+    const { count, error } = await supabase
+      .from('bookings')
+      .update({ hotel_name: hotelName }, { count: 'exact' })
+      .eq('id', booking.id)
+
+    saveBtn.disabled = false
+
+    if (error || count === 0) {
+      errorEl.textContent = 'Otel bilgisi güncellenemedi, tekrar deneyin.'
+      return
+    }
+
+    booking.hotel_name = hotelName
+    display.textContent = hotelName
+    closeEditor()
+    successEl.textContent = 'Otel bilgisi güncellendi.'
   })
 }
 

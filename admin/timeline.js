@@ -1,4 +1,5 @@
 import { supabase } from './supabase-client.js'
+import { locationLabel } from './turkish-formatters.js'
 
 function todayISO() {
   return new Intl.DateTimeFormat('sv', { timeZone: 'Europe/Istanbul' }).format(new Date())
@@ -86,7 +87,7 @@ function groupByDay(cards, today, tomorrow) {
 }
 
 function cardHTML(c) {
-  const route = `${fmtTime(c._displayTime)} &nbsp;${escapeHTML(c.pickup_location)} → ${escapeHTML(c.dropoff_location)}`
+  const route = `${fmtTime(c._displayTime)} &nbsp;${escapeHTML(locationLabel(c.pickup_location))} → ${escapeHTML(locationLabel(c.dropoff_location))}`
   const badges = `
     <div class="card-badges">
       <span class="badge badge-${c.status}">${statusLabel(c.status)}</span>
@@ -121,13 +122,13 @@ export async function renderTimeline(container, navigate) {
 
   container.innerHTML = `
     <div class="topbar">
-      <span class="topbar-title">🚗 VIP Admin</span>
+      <span class="topbar-title">🚗 VIP Yönetim</span>
       <button class="topbar-logout" id="logout-btn">Çıkış</button>
     </div>
     <div class="stats" id="stats-strip">
       <div class="stat stat-bugün"><div class="stat-number" id="stat-bugun">…</div><div class="stat-label">Bugün</div></div>
       <div class="stat stat-yarın"><div class="stat-number" id="stat-yarin">…</div><div class="stat-label">Yarın</div></div>
-      <div class="stat stat-aksiyon"><div class="stat-number" id="stat-aksiyon">…</div><div class="stat-label">Aksiyon</div></div>
+      <div class="stat stat-aksiyon"><div class="stat-number" id="stat-aksiyon">…</div><div class="stat-label">İşlem</div></div>
     </div>
     <div class="scroll-area" id="booking-list"></div>
   `
@@ -180,6 +181,7 @@ export async function renderTimeline(container, navigate) {
   }
 
   list.addEventListener('click', (e) => {
+    if (e.target.closest('a')) return
     const card = e.target.closest('.card')
     if (!card) return
     const leg = card.dataset.return === 'true' ? '?leg=return' : ''

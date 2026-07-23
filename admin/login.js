@@ -3,7 +3,7 @@ import { supabase } from './supabase-client.js'
 export function renderLogin(container, navigate) {
   container.innerHTML = `
     <div class="login-wrap">
-      <div class="login-title">🚗 VIP Admin</div>
+      <div class="login-title">🚗 VIP Yönetim</div>
       <form class="login-form" id="login-form">
         <input class="input" type="email" id="login-email" placeholder="E-posta" autocomplete="email" required />
         <input class="input" type="password" id="login-password" placeholder="Şifre" autocomplete="current-password" required />
