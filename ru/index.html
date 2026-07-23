@@ -66,7 +66,7 @@
         "logo": "https://antalyaviptourism.com/assets/optimized/logo.png",
         "image": "https://antalyaviptourism.com/assets/optimized/og-antalya-transfer.jpg",
         "telephone": "+90 530 265 57 90",
-        "priceRange": "€20-€300",
+        "priceRange": "{{PRICE_RANGE}}",
         "address": {
                 "@type": "PostalAddress",
                 "streetAddress": "Belek Mah. Belek 61 Sk. Belek Deniz Apt No: 19 Ic Kapi No: 4",
@@ -145,7 +145,7 @@
                                 },
                                 "priceSpecification": {
                                         "@type": "PriceSpecification",
-                                        "price": "30",
+                                        "price": "{{PRICE:belek:vito}}",
                                         "priceCurrency": "EUR"
                                 }
                         },
@@ -157,7 +157,7 @@
                                 },
                                 "priceSpecification": {
                                         "@type": "PriceSpecification",
-                                        "price": "35",
+                                        "price": "{{PRICE:side:vito}}",
                                         "priceCurrency": "EUR"
                                 }
                         },
@@ -169,7 +169,7 @@
                                 },
                                 "priceSpecification": {
                                         "@type": "PriceSpecification",
-                                        "price": "40",
+                                        "price": "{{PRICE:kemer:vito}}",
                                         "priceCurrency": "EUR"
                                 }
                         },
@@ -181,7 +181,7 @@
                                 },
                                 "priceSpecification": {
                                         "@type": "PriceSpecification",
-                                        "price": "75",
+                                        "price": "{{PRICE:alanya:vito}}",
                                         "priceCurrency": "EUR"
                                 }
                         },
@@ -193,7 +193,7 @@
                                 },
                                 "priceSpecification": {
                                         "@type": "PriceSpecification",
-                                        "price": "35",
+                                        "price": "{{PRICE:manavgat:vito}}",
                                         "priceCurrency": "EUR"
                                 }
                         },
@@ -205,7 +205,7 @@
                                 },
                                 "priceSpecification": {
                                         "@type": "PriceSpecification",
-                                        "price": "45",
+                                        "price": "{{PRICE:kizilagac:vito}}",
                                         "priceCurrency": "EUR"
                                 }
                         },
@@ -217,7 +217,7 @@
                                 },
                                 "priceSpecification": {
                                         "@type": "PriceSpecification",
-                                        "price": "20",
+                                        "price": "{{PRICE:antalya:vito}}",
                                         "priceCurrency": "EUR"
                                 }
                         }
@@ -752,7 +752,36 @@
                   </select>
                 </div>
               </label>
+
+              <label class="booking-field">
+                <span data-i18n="luggageLabel">Крупный багаж</span>
+                <div class="field-control">
+                  <svg class="icon" aria-hidden="true">
+                    <use href="#icon-luggage"></use>
+                  </svg>
+                  <select
+                    id="luggage"
+                    name="luggage"
+                    aria-label="Number of large suitcases"
+                  >
+                    <option value="0" selected>0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                  </select>
+                </div>
+              </label>
             </div>
+            <p id="capacity-note" class="capacity-note" hidden></p>
 
             <div
               class="booking-row booking-address-row"
@@ -1001,19 +1030,19 @@
         >
         <div class="price-strip-pills">
           <button class="price-pill" type="button" data-route="belek">
-            Belek <span class="was-price">€40</span><strong>€30</strong>
+            Belek <span class="was-price">€{{PRICE:belek:vito:orig}}</span><strong>€{{PRICE:belek:vito}}</strong>
           </button>
           <button class="price-pill" type="button" data-route="side">
-            Side <span class="was-price">€50</span><strong>€40</strong>
+            Side <span class="was-price">€{{PRICE:side:vito:orig}}</span><strong>€{{PRICE:side:vito}}</strong>
           </button>
           <button class="price-pill" type="button" data-route="kemer">
-            Kemer <span class="was-price">€55</span><strong>€45</strong>
+            Kemer <span class="was-price">€{{PRICE:kemer:vito:orig}}</span><strong>€{{PRICE:kemer:vito}}</strong>
           </button>
           <button class="price-pill" type="button" data-route="alanya">
-            Alanya <span class="was-price">€100</span><strong>€85</strong>
+            Alanya <span class="was-price">€{{PRICE:alanya:vito:orig}}</span><strong>€{{PRICE:alanya:vito}}</strong>
           </button>
           <button class="price-pill" type="button" data-route="antalya">
-            центр Антальи <span class="was-price">€30</span><strong>€25</strong>
+            центр Антальи <span class="was-price">€{{PRICE:antalya:vito:orig}}</span><strong>€{{PRICE:antalya:vito}}</strong>
           </button>
         </div>
         <span class="price-strip-note" data-i18n="campaignApplied"
@@ -1358,7 +1387,7 @@
                   type="button"
                   data-route="belek"
                 >
-                  <span data-i18n="onlineDiscountShort">Онлайн -15%</span><strong><small>€40</small>€30</strong
+                  <span data-i18n="onlineDiscountShort">Онлайн -15%</span><strong><small>€{{PRICE:belek:vito:orig}}</small>€{{PRICE:belek:vito}}</strong
                   ><svg><use href="#icon-arrow-up-right"></use></svg>
                 </button>
               </div>
@@ -1382,7 +1411,7 @@
                   type="button"
                   data-route="side"
                 >
-                  <span data-i18n="onlineDiscountShort">Онлайн -15%</span><strong><small>€50</small>€40</strong
+                  <span data-i18n="onlineDiscountShort">Онлайн -15%</span><strong><small>€{{PRICE:side:vito:orig}}</small>€{{PRICE:side:vito}}</strong
                   ><svg><use href="#icon-arrow-up-right"></use></svg>
                 </button>
               </div>
@@ -1406,7 +1435,7 @@
                   type="button"
                   data-route="kemer"
                 >
-                  <span data-i18n="onlineDiscountShort">Онлайн -15%</span><strong><small>€55</small>€45</strong
+                  <span data-i18n="onlineDiscountShort">Онлайн -15%</span><strong><small>€{{PRICE:kemer:vito:orig}}</small>€{{PRICE:kemer:vito}}</strong
                   ><svg><use href="#icon-arrow-up-right"></use></svg>
                 </button>
               </div>
@@ -1430,7 +1459,7 @@
                   type="button"
                   data-route="alanya"
                 >
-                  <span data-i18n="onlineDiscountShort">Онлайн -15%</span><strong><small>€100</small>€85</strong
+                  <span data-i18n="onlineDiscountShort">Онлайн -15%</span><strong><small>€{{PRICE:alanya:vito:orig}}</small>€{{PRICE:alanya:vito}}</strong
                   ><svg><use href="#icon-arrow-up-right"></use></svg>
                 </button>
               </div>
@@ -1454,7 +1483,7 @@
                   type="button"
                   data-route="tekirova"
                 >
-                  <span data-i18n="onlineDiscountShort">Онлайн -15%</span><strong><small>€100</small>€85</strong
+                  <span data-i18n="onlineDiscountShort">Онлайн -15%</span><strong><small>€{{PRICE:tekirova:vito:orig}}</small>€{{PRICE:tekirova:vito}}</strong
                   ><svg><use href="#icon-arrow-up-right"></use></svg>
                 </button>
               </div>
@@ -1478,7 +1507,7 @@
                   type="button"
                   data-route="manavgat"
                 >
-                  <span data-i18n="onlineDiscountShort">Онлайн -15%</span><strong><small>€50</small>€40</strong
+                  <span data-i18n="onlineDiscountShort">Онлайн -15%</span><strong><small>€{{PRICE:manavgat:vito:orig}}</small>€{{PRICE:manavgat:vito}}</strong
                   ><svg><use href="#icon-arrow-up-right"></use></svg>
                 </button>
               </div>
@@ -1502,7 +1531,7 @@
                   type="button"
                   data-route="kizilagac"
                 >
-                  <span data-i18n="onlineDiscountShort">Онлайн -15%</span><strong><small>€60</small>€50</strong
+                  <span data-i18n="onlineDiscountShort">Онлайн -15%</span><strong><small>€{{PRICE:kizilagac:vito:orig}}</small>€{{PRICE:kizilagac:vito}}</strong
                   ><svg><use href="#icon-arrow-up-right"></use></svg>
                 </button>
               </div>
@@ -1529,7 +1558,7 @@
                   type="button"
                   data-route="bogazkent"
                 >
-                  <span data-i18n="onlineDiscountShort">Онлайн -15%</span><strong><small>€45</small>€35</strong
+                  <span data-i18n="onlineDiscountShort">Онлайн -15%</span><strong><small>€{{PRICE:bogazkent:vito:orig}}</small>€{{PRICE:bogazkent:vito}}</strong
                   ><svg><use href="#icon-arrow-up-right"></use></svg>
                 </button>
               </div>
@@ -1556,7 +1585,7 @@
                   type="button"
                   data-route="antalya"
                 >
-                  <span data-i18n="onlineDiscountShort">Онлайн -15%</span><strong><small>€30</small>€25</strong
+                  <span data-i18n="onlineDiscountShort">Онлайн -15%</span><strong><small>€{{PRICE:antalya:vito:orig}}</small>€{{PRICE:antalya:vito}}</strong
                   ><svg><use href="#icon-arrow-up-right"></use></svg>
                 </button>
               </div>
@@ -1583,7 +1612,7 @@
                   type="button"
                   data-route="bodrum"
                 >
-                  <span data-i18n="onlineDiscountShort">Онлайн -15%</span><strong><small>€200</small>€170</strong
+                  <span data-i18n="onlineDiscountShort">Онлайн -15%</span><strong><small>€{{PRICE:bodrum:vito:orig}}</small>€{{PRICE:bodrum:vito}}</strong
                   ><svg><use href="#icon-arrow-up-right"></use></svg>
                 </button>
               </div>
@@ -1610,7 +1639,7 @@
                   type="button"
                   data-route="dalaman"
                 >
-                  <span data-i18n="onlineDiscountShort">Онлайн -15%</span><strong><small>€200</small>€170</strong
+                  <span data-i18n="onlineDiscountShort">Онлайн -15%</span><strong><small>€{{PRICE:dalaman:vito:orig}}</small>€{{PRICE:dalaman:vito}}</strong
                   ><svg><use href="#icon-arrow-up-right"></use></svg>
                 </button>
               </div>
@@ -1637,7 +1666,7 @@
                   type="button"
                   data-route="fethiye"
                 >
-                  <span data-i18n="onlineDiscountShort">Онлайн -15%</span><strong><small>€200</small>€170</strong
+                  <span data-i18n="onlineDiscountShort">Онлайн -15%</span><strong><small>€{{PRICE:fethiye:vito:orig}}</small>€{{PRICE:fethiye:vito}}</strong
                   ><svg><use href="#icon-arrow-up-right"></use></svg>
                 </button>
               </div>
@@ -1664,7 +1693,7 @@
                   type="button"
                   data-route="pamukkale"
                 >
-                  <span data-i18n="onlineDiscountShort">Онлайн -15%</span><strong><small>€200</small>€170</strong
+                  <span data-i18n="onlineDiscountShort">Онлайн -15%</span><strong><small>€{{PRICE:pamukkale:vito:orig}}</small>€{{PRICE:pamukkale:vito}}</strong
                   ><svg><use href="#icon-arrow-up-right"></use></svg>
                 </button>
               </div>
@@ -1691,7 +1720,7 @@
                   type="button"
                   data-route="kapadokya"
                 >
-                  <span data-i18n="onlineDiscountShort">Онлайн -15%</span><strong><small>€300</small>€255</strong
+                  <span data-i18n="onlineDiscountShort">Онлайн -15%</span><strong><small>€{{PRICE:kapadokya:vito:orig}}</small>€{{PRICE:kapadokya:vito}}</strong
                   ><svg><use href="#icon-arrow-up-right"></use></svg>
                 </button>
               </div>
@@ -1890,7 +1919,7 @@
             <span class="pricing-card-label" data-i18n="pricingFixedPrice"
               >Фиксированная цена</span
             >
-            <p data-i18n="fixedPriceExample">Трансфер в Белек: 30 €</p>
+            <p data-i18n="fixedPriceExample">Трансфер в Белек: {{PRICE:belek:vito}} €</p>
             <p class="pricing-card-description" data-i18n="fixedPriceDesc">Гарантированная итоговая сумма. Включены сборы аэропорта, парковка, ожидание и налоги.</p>
           </div>
 

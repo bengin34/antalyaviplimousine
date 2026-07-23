@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Private fixed-price transfer from Antalya Airport to Belek from €30. Meet & greet, flight tracking, golf bag space. Pay in vehicle."
+      content="Private fixed-price transfer from Antalya Airport to Belek from €{{PRICE:belek:vito}}. Meet & greet, flight tracking, golf bag space. Pay in vehicle."
     />
     <meta name="theme-color" content="#0b0b0b" />
     <title>
@@ -34,7 +34,7 @@
     />
     <meta
       property="og:description"
-      content="Private fixed-price transfer from Antalya Airport to Belek from €30. Meet & greet, flight tracking, golf bag space."
+      content="Private fixed-price transfer from Antalya Airport to Belek from €{{PRICE:belek:vito}}. Meet & greet, flight tracking, golf bag space."
     />
     <meta
       property="og:image"
@@ -51,7 +51,7 @@
     />
     <meta
       name="twitter:description"
-      content="Private fixed-price transfer from Antalya Airport to Belek. From €30. Meet & greet, flight tracking."
+      content="Private fixed-price transfer from Antalya Airport to Belek. From €{{PRICE:belek:vito}}. Meet & greet, flight tracking."
     />
     <meta
       name="twitter:image"
@@ -96,7 +96,7 @@
                 "url": "https://antalyaviptourism.com/",
                 "image": "https://antalyaviptourism.com/assets/optimized/og-antalya-transfer.jpg",
                 "telephone": "+90 530 265 57 90",
-                "priceRange": "€20-€300",
+                "priceRange": "{{PRICE_RANGE}}",
                 "address": {
                         "@type": "PostalAddress",
                         "streetAddress": "Belek Mah. Belek 61 Sk. Belek Deniz Apt No: 19 Ic Kapi No: 4",
@@ -115,22 +115,22 @@
                 {
                         "@type": "Offer",
                         "name": "Mercedes Vito — up to 7 passengers",
-                        "price": "30",
+                        "price": "{{PRICE:belek:vito}}",
                         "priceCurrency": "EUR",
                         "priceSpecification": {
                                 "@type": "PriceSpecification",
-                                "price": "30",
+                                "price": "{{PRICE:belek:vito}}",
                                 "priceCurrency": "EUR"
                         }
                 },
                 {
                         "@type": "Offer",
                         "name": "Mercedes Sprinter — up to 13 passengers",
-                        "price": "45",
+                        "price": "{{PRICE:belek:sprinter}}",
                         "priceCurrency": "EUR",
                         "priceSpecification": {
                                 "@type": "PriceSpecification",
-                                "price": "45",
+                                "price": "{{PRICE:belek:sprinter}}",
                                 "priceCurrency": "EUR"
                         }
                 }
@@ -156,7 +156,7 @@
             "name": "What is the fixed price from Antalya Airport to Belek?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Prices from Antalya Airport to Belek start from €30 per vehicle. The exact fixed total is shown in the booking form after the vehicle is selected, with airport fees, parking, waiting time and taxes included."
+              "text": "Prices from Antalya Airport to Belek start from €{{PRICE:belek:vito}} per vehicle. The exact fixed total is shown in the booking form after the vehicle is selected, with airport fees, parking, waiting time and taxes included."
             }
           },
           {
@@ -434,7 +434,7 @@
             <span>Distance</span>
           </div>
           <div class="route-hero-stat">
-            <strong>From €30</strong>
+            <strong>From €{{PRICE:belek:vito}}</strong>
             <span>Fixed price</span>
           </div>
           <div class="route-hero-stat">
@@ -605,7 +605,32 @@
                   </select>
                 </div>
               </label>
+
+              <label class="booking-field">
+                <span data-i18n="luggageLabel">Large luggage</span>
+                <div class="field-control">
+                  <svg class="icon" aria-hidden="true">
+                    <use href="#icon-luggage"></use>
+                  </svg>
+                  <select id="luggage" name="luggage" aria-label="Number of large suitcases">
+                    <option value="0" selected>0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                  </select>
+                </div>
+              </label>
             </div>
+            <p id="capacity-note" class="capacity-note" hidden></p>
 
             <div
               class="booking-row booking-address-row"
@@ -882,7 +907,7 @@
           <div>
             <h2>Starting price — Belek</h2>
             <p>
-              Prices start from €30 per vehicle, not per passenger. Select your
+              Prices start from €{{PRICE:belek:vito}} per vehicle, not per passenger. Select your
               vehicle in the booking form to see the exact fixed total,
               including airport parking, waiting time and any flight delays.
             </p>
@@ -899,7 +924,7 @@
                 <tr>
                   <td>Antalya Airport → Belek</td>
                   <td>Per private vehicle</td>
-                  <td>€30</td>
+                  <td>€{{PRICE:belek:vito}}</td>
                 </tr>
               </tbody>
             </table>
@@ -1132,7 +1157,7 @@
             </button>
             <div class="faq-answer">
               <p>
-                Prices start from €30 per vehicle. Select your vehicle in the
+                Prices start from €{{PRICE:belek:vito}} per vehicle. Select your vehicle in the
                 booking form to see the exact fixed total. All fees, parking and
                 waiting time are included — no supplements.
               </p>
@@ -1205,7 +1230,7 @@
           <a class="route-link-card" href="/transfers/side/">
             <div>
               <strong>Side</strong>
-              <span>From €35 · ~60 min</span>
+              <span>From €{{PRICE:side:vito}} · ~60 min</span>
             </div>
             <svg
               class="icon"
@@ -1222,7 +1247,7 @@
           <a class="route-link-card" href="/transfers/kemer/">
             <div>
               <strong>Kemer</strong>
-              <span>From €40 · ~40 min</span>
+              <span>From €{{PRICE:kemer:vito}} · ~40 min</span>
             </div>
             <svg
               class="icon"
@@ -1239,7 +1264,7 @@
           <a class="route-link-card" href="/#routes">
             <div>
               <strong>Alanya</strong>
-              <span>From €75 · ~90 min</span>
+              <span>From €{{PRICE:alanya:vito}} · ~90 min</span>
             </div>
             <svg
               class="icon"
@@ -1256,7 +1281,7 @@
           <a class="route-link-card" href="/#routes">
             <div>
               <strong>Antalya City</strong>
-              <span>From €20 · ~20 min</span>
+              <span>From €{{PRICE:antalya:vito}} · ~20 min</span>
             </div>
             <svg
               class="icon"

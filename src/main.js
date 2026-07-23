@@ -1,4 +1,5 @@
 import "./consent.js";
+import { resolvePriceTokens, routeData } from "./prices.js";
 import { parsePhoneNumberFromString } from "libphonenumber-js/max";
 import fallbackChauffeurPhoto from "../assets/optimized/chauffeur-arrival.jpg?url";
 import fallbackInteriorPhoto from "../assets/optimized/executive-interior.jpg?url";
@@ -96,6 +97,11 @@ const translations = {
     signatureFleet: "Signature Flotte",
     passengers: "Passagiere",
     suitcases: "Koffer",
+    luggageLabel: "Großes Gepäck",
+    capacitySwitchedSprinter:
+      "Passagiere und Gepäck übersteigen den Vito — auf Mercedes Sprinter umgestellt.",
+    capacityNoVehicle:
+      "So viele Passagiere und Gepäck übersteigen unsere Fahrzeuge. Bitte kontaktieren Sie uns per WhatsApp.",
     leatherSeats: "Premium-Ledersitze",
     wifi: "Kostenloses WLAN",
     water: "Gekühltes Mineralwasser",
@@ -161,7 +167,7 @@ const translations = {
     pricingIntro:
       "Wir bieten Festpreise für Planungssicherheit, messen aber die tatsächliche Strecke. Sie zahlen immer den niedrigeren Betrag.",
     pricingFixedPrice: "Festpreis",
-    fixedPriceExample: "Transfer nach Belek: 30 €",
+    fixedPriceExample: "Transfer nach Belek: {{PRICE:belek:vito}} €",
     fixedPriceDesc:
       "Garantierter Gesamtpreis. Inklusive Flughafengebühren, Parken, Wartezeit und Steuern.",
     distancePrice: "Nach Strecke",
@@ -308,6 +314,11 @@ const translations = {
     signatureFleet: "Seçkin filo",
     passengers: "yolcu",
     suitcases: "bavul",
+    luggageLabel: "Büyük bavul",
+    capacitySwitchedSprinter:
+      "Yolcu ve bagajınız Vito kapasitesini aşıyor — Mercedes Sprinter'a geçildi.",
+    capacityNoVehicle:
+      "Bu kadar yolcu ve bavul araçlarımızın kapasitesini aşıyor. Lütfen WhatsApp'tan bize ulaşın.",
     leatherSeats: "Premium deri koltuklar",
     wifi: "Ücretsiz WiFi",
     water: "Soğuk şişe su",
@@ -373,7 +384,7 @@ const translations = {
     pricingIntro:
       "İçiniz rahat etsin diye sabit fiyat sunarız, ancak gerçek mesafeyi de ölçeriz. Her zaman düşük olan tutarı ödersiniz.",
     pricingFixedPrice: "Sabit fiyat",
-    fixedPriceExample: "Belek transferi: €30",
+    fixedPriceExample: "Belek transferi: €{{PRICE:belek:vito}}",
     fixedPriceDesc:
       "Garantili toplam tutar. Havalimanı ücretleri, otopark, bekleme süresi ve vergiler dahildir.",
     distancePrice: "Mesafeye göre",
@@ -519,6 +530,11 @@ const translations = {
     signatureFleet: "Фирменный автопарк",
     passengers: "пассажиров",
     suitcases: "чемоданов",
+    luggageLabel: "Крупный багаж",
+    capacitySwitchedSprinter:
+      "Пассажиры и багаж превышают вместимость Vito — выбран Mercedes Sprinter.",
+    capacityNoVehicle:
+      "Столько пассажиров и багажа превышает вместимость наших автомобилей. Напишите нам в WhatsApp.",
     leatherSeats: "Премиальные кожаные сиденья",
     wifi: "Бесплатный WiFi",
     water: "Охлаждённая вода",
@@ -584,7 +600,7 @@ const translations = {
     pricingIntro:
       "Мы предлагаем фиксированные цены для спокойствия, но измеряем фактическое расстояние. Вы всегда платите меньшую сумму.",
     pricingFixedPrice: "Фиксированная цена",
-    fixedPriceExample: "Трансфер в Белек: 30 €",
+    fixedPriceExample: "Трансфер в Белек: {{PRICE:belek:vito}} €",
     fixedPriceDesc:
       "Гарантированная итоговая сумма. Включены сборы аэропорта, парковка, ожидание и налоги.",
     distancePrice: "По расстоянию",
@@ -724,6 +740,11 @@ const translations = {
     signatureFleet: "Flota Signature",
     passengers: "pasażerów",
     suitcases: "walizek",
+    luggageLabel: "Duży bagaż",
+    capacitySwitchedSprinter:
+      "Pasażerowie i bagaż przekraczają Vito — przełączono na Mercedes Sprinter.",
+    capacityNoVehicle:
+      "Tylu pasażerów i bagażu przekracza nasze pojazdy. Skontaktuj się z nami na WhatsApp.",
     leatherSeats: "Skórzane fotele premium",
     wifi: "Bezpłatne WiFi",
     water: "Schłodzona woda mineralna",
@@ -789,7 +810,7 @@ const translations = {
     pricingIntro:
       "Dla spokoju podajemy stałe ceny, ale mierzymy rzeczywisty dystans. Zawsze płacisz niższą kwotę.",
     pricingFixedPrice: "Stała cena",
-    fixedPriceExample: "Transfer do Belek: 30 €",
+    fixedPriceExample: "Transfer do Belek: {{PRICE:belek:vito}} €",
     fixedPriceDesc:
       "Gwarantowana kwota końcowa. Obejmuje opłaty lotniskowe, parking, czas oczekiwania i podatki.",
     distancePrice: "Według dystansu",
@@ -929,6 +950,11 @@ const translations = {
     signatureFleet: "Signature vloot",
     passengers: "passagiers",
     suitcases: "koffers",
+    luggageLabel: "Grote bagage",
+    capacitySwitchedSprinter:
+      "Passagiers en bagage overschrijden de Vito — overgeschakeld naar Mercedes Sprinter.",
+    capacityNoVehicle:
+      "Zoveel passagiers en bagage overschrijdt onze voertuigen. Neem contact op via WhatsApp.",
     leatherSeats: "Premium leren stoelen",
     wifi: "Gratis WiFi",
     water: "Gekoeld mineraalwater",
@@ -994,7 +1020,7 @@ const translations = {
     pricingIntro:
       "We bieden vaste prijzen voor zekerheid, maar meten ook de werkelijke afstand. U betaalt altijd het laagste bedrag.",
     pricingFixedPrice: "Vaste prijs",
-    fixedPriceExample: "Transfer naar Belek: €30",
+    fixedPriceExample: "Transfer naar Belek: €{{PRICE:belek:vito}}",
     fixedPriceDesc:
       "Gegarandeerd totaalbedrag. Inclusief luchthavengelden, parkeren, wachttijd en belastingen.",
     distancePrice: "Op afstand",
@@ -1135,6 +1161,11 @@ const translations = {
     signatureFleet: "Фірмовий автопарк",
     passengers: "пасажирів",
     suitcases: "валіз",
+    luggageLabel: "Великий багаж",
+    capacitySwitchedSprinter:
+      "Пасажири та багаж перевищують Vito — обрано Mercedes Sprinter.",
+    capacityNoVehicle:
+      "Стільки пасажирів і багажу перевищує наші автомобілі. Напишіть нам у WhatsApp.",
     leatherSeats: "Преміальні шкіряні сидіння",
     wifi: "Безкоштовний WiFi",
     water: "Охолоджена вода",
@@ -1200,7 +1231,7 @@ const translations = {
     pricingIntro:
       "Ми пропонуємо фіксовані ціни для вашого спокою, але вимірюємо фактичну відстань. Ви завжди сплачуєте меншу суму.",
     pricingFixedPrice: "Фіксована ціна",
-    fixedPriceExample: "Трансфер до Белека: 30 €",
+    fixedPriceExample: "Трансфер до Белека: {{PRICE:belek:vito}} €",
     fixedPriceDesc:
       "Гарантована загальна сума. Включає збори аеропорту, паркування, час очікування та податки.",
     distancePrice: "За відстанню",
@@ -1341,6 +1372,11 @@ const translations = {
     signatureFleet: "Flotte Signature",
     passengers: "passagers",
     suitcases: "valises",
+    luggageLabel: "Gros bagages",
+    capacitySwitchedSprinter:
+      "Passagers et bagages dépassent le Vito — passage au Mercedes Sprinter.",
+    capacityNoVehicle:
+      "Autant de passagers et de bagages dépasse nos véhicules. Contactez-nous sur WhatsApp.",
     leatherSeats: "Sièges en cuir premium",
     wifi: "WiFi gratuit",
     water: "Eau minérale fraîche",
@@ -1406,7 +1442,7 @@ const translations = {
     pricingIntro:
       "Nous proposons des prix fixes pour votre tranquillité, mais nous mesurons aussi la distance réelle. Vous payez toujours le montant le plus bas.",
     pricingFixedPrice: "Prix fixe",
-    fixedPriceExample: "Transfert vers Belek : 30 €",
+    fixedPriceExample: "Transfert vers Belek : {{PRICE:belek:vito}} €",
     fixedPriceDesc:
       "Montant total garanti. Inclut les frais d'aéroport, le parking, l'attente et les taxes.",
     distancePrice: "Selon la distance",
@@ -1548,6 +1584,11 @@ const translations = {
     signatureFleet: "Signature-flotta",
     passengers: "passagerare",
     suitcases: "resväskor",
+    luggageLabel: "Stort bagage",
+    capacitySwitchedSprinter:
+      "Passagerare och bagage överstiger Vito — bytte till Mercedes Sprinter.",
+    capacityNoVehicle:
+      "Så många passagerare och bagage överstiger våra fordon. Kontakta oss på WhatsApp.",
     leatherSeats: "Premium läderstolar",
     wifi: "Gratis WiFi",
     water: "Kylt mineralvatten",
@@ -1613,7 +1654,7 @@ const translations = {
     pricingIntro:
       "Vi erbjuder fasta priser för trygghet, men mäter även den faktiska sträckan. Du betalar alltid det lägre beloppet.",
     pricingFixedPrice: "Fast pris",
-    fixedPriceExample: "Transfer till Belek: 30 €",
+    fixedPriceExample: "Transfer till Belek: {{PRICE:belek:vito}} €",
     fixedPriceDesc:
       "Garanterat totalbelopp. Inkluderar flygplatsavgifter, parkering, väntetid och skatter.",
     distancePrice: "Efter sträcka",
@@ -1753,6 +1794,11 @@ const translations = {
     signatureFleet: "シグネチャーフリート",
     passengers: "名",
     suitcases: "個のスーツケース",
+    luggageLabel: "大型荷物",
+    capacitySwitchedSprinter:
+      "乗客と荷物がVitoの容量を超えています — メルセデス・スプリンターに変更しました。",
+    capacityNoVehicle:
+      "この人数と荷物は当社の車両を超えています。WhatsAppでお問い合わせください。",
     leatherSeats: "プレミアムレザーシート",
     wifi: "無料WiFi",
     water: "冷えたミネラルウォーター",
@@ -1818,7 +1864,7 @@ const translations = {
     pricingIntro:
       "安心のため固定料金をご提示しつつ、実際の走行距離も計測します。お支払いは常に低い方の金額です。",
     pricingFixedPrice: "固定料金",
-    fixedPriceExample: "ベレキ送迎：30 €",
+    fixedPriceExample: "ベレキ送迎：{{PRICE:belek:vito}} €",
     fixedPriceDesc:
       "保証された総額です。空港料金、駐車料金、待機時間、税金が含まれます。",
     distancePrice: "距離ベース",
@@ -1957,6 +2003,11 @@ const translations = {
     signatureFleet: "시그니처 플릿",
     passengers: "명",
     suitcases: "개의 캐리어",
+    luggageLabel: "대형 수하물",
+    capacitySwitchedSprinter:
+      "승객과 수하물이 비토 용량을 초과합니다 — 메르세데스 스프린터로 변경되었습니다.",
+    capacityNoVehicle:
+      "이 인원과 수하물은 차량 용량을 초과합니다. WhatsApp으로 문의해 주세요.",
     leatherSeats: "프리미엄 가죽 시트",
     wifi: "무료 WiFi",
     water: "시원한 생수",
@@ -2021,7 +2072,7 @@ const translations = {
     pricingIntro:
       "안심하실 수 있도록 고정 요금을 제시하지만 실제 이동 거리도 측정합니다. 언제나 더 낮은 금액을 결제합니다.",
     pricingFixedPrice: "고정 요금",
-    fixedPriceExample: "벨렉 이동: 30 €",
+    fixedPriceExample: "벨렉 이동: {{PRICE:belek:vito}} €",
     fixedPriceDesc:
       "보장된 총액입니다. 공항 수수료, 주차비, 대기 시간, 세금이 포함됩니다.",
     distancePrice: "거리 기준",
@@ -2480,6 +2531,7 @@ const fleetData = {
       "Spacious VIP transport for larger groups, with generous room for passengers and luggage.",
     guests: "13",
     bags: "12",
+    maxUnits: 25,
   },
   vito: {
     classKey: "fleetVitoClass",
@@ -2491,6 +2543,7 @@ const fleetData = {
       "A refined private cabin for families and small groups travelling in comfort.",
     guests: "8",
     bags: "6",
+    maxUnits: 11,
   },
 };
 
@@ -2642,22 +2695,6 @@ const formatEuroAmount = (price) => {
   return `€${Number.isInteger(value) ? value.toFixed(0) : value.toFixed(2)}`;
 };
 
-const routeData = {
-  belek: { name: "Belek", originalPrices: { vito: 40, sprinter: 60 }, prices: { vito: 30, sprinter: 50 } },
-  side: { name: "Side", originalPrices: { vito: 50, sprinter: 75 }, prices: { vito: 40, sprinter: 60 } },
-  kemer: { name: "Kemer", originalPrices: { vito: 55, sprinter: 80 }, prices: { vito: 45, sprinter: 65 } },
-  alanya: { name: "Alanya", originalPrices: { vito: 100, sprinter: 130 }, prices: { vito: 85, sprinter: 110 } },
-  tekirova: { name: "Tekirova", originalPrices: { vito: 100, sprinter: 130 }, prices: { vito: 85, sprinter: 110 } },
-  manavgat: { name: "Manavgat", originalPrices: { vito: 50, sprinter: 75 }, prices: { vito: 40, sprinter: 60 } },
-  kizilagac: { name: "Manavgat/Kızılağaç", originalPrices: { vito: 60, sprinter: 85 }, prices: { vito: 50, sprinter: 70 } },
-  bogazkent: { name: "Boğazkent", originalPrices: { vito: 45, sprinter: 65 }, prices: { vito: 35, sprinter: 55 } },
-  antalya: { name: "Antalya City", originalPrices: { vito: 30, sprinter: 45 }, prices: { vito: 25, sprinter: 35 } },
-  bodrum: { name: "Bodrum", originalPrices: { vito: 200, sprinter: 250 }, prices: { vito: 170, sprinter: 210 } },
-  dalaman: { name: "Dalaman", originalPrices: { vito: 200, sprinter: 250 }, prices: { vito: 170, sprinter: 210 } },
-  fethiye: { name: "Fethiye", originalPrices: { vito: 200, sprinter: 250 }, prices: { vito: 170, sprinter: 210 } },
-  pamukkale: { name: "Pamukkale", originalPrices: { vito: 200, sprinter: 250 }, prices: { vito: 170, sprinter: 210 } },
-  kapadokya: { name: "Kapadokya", originalPrices: { vito: 300, sprinter: 400 }, prices: { vito: 255, sprinter: 340 } },
-};
 
 const header = document.querySelector(".site-header");
 const menuButton = document.querySelector(".menu-button");
@@ -2671,6 +2708,9 @@ const childSeatsSelect = document.querySelector("#child-seats");
 const destinationSelect = document.querySelector("#destination");
 const vehicleSelect = document.querySelector("#vehicle-type");
 const guestsSelect = document.querySelector("#guests");
+const luggageSelect = document.querySelector("#luggage");
+const capacityNote = document.querySelector("#capacity-note");
+const bookingOptionsRow = document.querySelector(".booking-options-row");
 const travelDate = document.querySelector("#travel-date");
 const quoteForm = document.querySelector("#quote-form");
 const paymentErrorMessage = document.querySelector("#payment-error-message");
@@ -2827,13 +2867,72 @@ let currentQuoteData = {};
 
 const priceDisplay = document.querySelector("#booking-price-display");
 
+// Keep the compact booking extras together on wide screens.
+const luggageField = luggageSelect?.closest(".booking-field");
+if (luggageField && bookingOptionsRow) {
+  bookingOptionsRow.prepend(luggageField);
+}
+
+// Vehicle order cheapest → largest. Combined capacity: a guest needs a seat,
+// a large bag only needs boot space. So each vehicle has a seat cap (guests)
+// and a combined unit cap (guests + big bags). Vito boundary = 6 pax + 5 bags.
+const VEHICLE_ORDER = ["vito", "sprinter"];
+
+// English lives in the HTML defaults, so `translations` has no `en` entry.
+const capacityFallback = {
+  capacitySwitchedSprinter:
+    "Your party and luggage exceed the Vito — switched to the Mercedes Sprinter.",
+  capacityNoVehicle:
+    "This many passengers and bags exceed our vehicles. Please contact us on WhatsApp.",
+};
+
+const vehicleFits = (key, guests, luggage) => {
+  const spec = fleetData[key];
+  if (!spec) return false;
+  const seats = Number(spec.guests) || 0;
+  const units = Number(spec.maxUnits) || seats;
+  return guests <= seats && guests + luggage <= units;
+};
+
+const setCapacityNote = (state) => {
+  if (!capacityNote) return;
+  if (!state) {
+    capacityNote.hidden = true;
+    capacityNote.textContent = "";
+    capacityNote.removeAttribute("data-i18n");
+    return;
+  }
+  const lang = document.documentElement.lang;
+  const key =
+    state === "none" ? "capacityNoVehicle" : "capacitySwitchedSprinter";
+  capacityNote.dataset.i18n = key;
+  capacityNote.textContent =
+    translations[lang]?.[key] || capacityFallback[key];
+  capacityNote.hidden = false;
+  capacityNote.classList.toggle("capacity-note-error", state === "none");
+};
+
 const updateGuestCapacity = () => {
-  const capacity = Number(fleetData[vehicleSelect.value]?.guests || 1);
-  Array.from(guestsSelect.options).forEach((option) => {
-    option.disabled = Number(option.value) > capacity;
+  const guests = Number(guestsSelect.value) || 1;
+  const luggage = Number(luggageSelect?.value) || 0;
+
+  Array.from(vehicleSelect.options).forEach((option) => {
+    option.disabled = !vehicleFits(option.value, guests, luggage);
   });
-  if (Number(guestsSelect.value) > capacity)
-    guestsSelect.value = String(capacity);
+
+  if (vehicleFits(vehicleSelect.value, guests, luggage)) {
+    setCapacityNote(null);
+    return;
+  }
+
+  const fit = VEHICLE_ORDER.find((key) => vehicleFits(key, guests, luggage));
+  if (fit) {
+    vehicleSelect.value = fit;
+    setCapacityNote("switched");
+    if (destinationSelect.value) updateInlinePrice(destinationSelect.value);
+  } else {
+    setCapacityNote("none");
+  }
 };
 
 const updateInlinePrice = (routeKey, vehicleKey = vehicleSelect.value) => {
@@ -2909,6 +3008,9 @@ vehicleSelect.addEventListener("change", () => {
   updateGuestCapacity();
   if (destinationSelect.value) updateInlinePrice(destinationSelect.value);
 });
+
+guestsSelect.addEventListener("change", updateGuestCapacity);
+luggageSelect?.addEventListener("change", updateGuestCapacity);
 
 updateGuestCapacity();
 updatePickupAddress();
@@ -3166,6 +3268,7 @@ const setWhatsAppBookingUrl = (details) => {
   if (details.date)      lines.push(`📅 Date: ${details.date}`);
   if (details.hotel)     lines.push(`🏨 Hotel: ${details.hotel}`);
   if (details.childSeats) lines.push(`👶 Child seats: ${details.childSeats}`);
+  if (details.luggage)   lines.push(`🧳 Luggage: ${details.luggage}`);
   if (details.pickup)    lines.push(`📍 Pickup: ${details.pickup}`);
   if (details.dropoff)   lines.push(`🏁 Dropoff: ${details.dropoff}`);
   if (details.vehicle)   lines.push(`🚘 Vehicle: ${details.vehicle}`);
@@ -3216,6 +3319,7 @@ quoteForm.addEventListener("submit", async (event) => {
   const email = emailInput.value.trim();
   const hotelName = hotelNameInput.value.trim();
   const childSeatCount = parseInt(childSeatsSelect.value || "0", 10);
+  const luggageCount = parseInt(luggageSelect?.value || "0", 10);
   const paymentMethod = getSelectedPaymentMethod();
   const pickupAddress = pickupAddressInput.value.trim();
 
@@ -3245,7 +3349,7 @@ quoteForm.addEventListener("submit", async (event) => {
       flight_number: flightNumberInput.value.trim() || null,
       flight_arrival_time:
         document.querySelector("#flight-arrival-time").value || null,
-      notes: null,
+      notes: luggageCount ? `Large luggage: ${luggageCount}` : null,
       pickup_location: currentQuoteData.pickup || "airport",
       pickup_address:
         currentQuoteData.pickup === "private_address" ? pickupAddress : null,
@@ -3319,6 +3423,7 @@ quoteForm.addEventListener("submit", async (event) => {
       date: document.querySelector("#travel-date").value,
       hotel: hotelName,
       childSeats: childSeatCount,
+      luggage: luggageCount,
       pickup: currentQuoteData.pickup === "private_address"
         ? pickupAddress
         : (currentQuoteData.pickup === "airport" ? "Antalya Airport" : currentQuoteData.pickup),
@@ -3478,9 +3583,10 @@ const applyLanguage = (language) => {
 
   document.querySelectorAll("[data-i18n]").forEach((element) => {
     if (!element.dataset.original) element.dataset.original = element.innerHTML;
-    element.innerHTML =
+    element.innerHTML = resolvePriceTokens(
       translations[supportedLanguage]?.[element.dataset.i18n] ||
-      element.dataset.original;
+        element.dataset.original,
+    );
   });
 
   document.querySelectorAll("[data-i18n-placeholder]").forEach((element) => {

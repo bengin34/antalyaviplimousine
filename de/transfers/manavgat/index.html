@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Privater Festpreis-Transfer vom Flughafen Antalya nach Manavgat ab €35. Meet &amp; Greet, Echtzeit-Flugverfolgung, Tür-zu-Tür-Service. Zahlung im Fahrzeug."
+      content="Privater Festpreis-Transfer vom Flughafen Antalya nach Manavgat ab €{{PRICE:manavgat:vito}}. Meet &amp; Greet, Echtzeit-Flugverfolgung, Tür-zu-Tür-Service. Zahlung im Fahrzeug."
     />
     <meta name="theme-color" content="#0b0b0b" />
     <title>
@@ -44,7 +44,7 @@
     />
     <meta
       property="og:description"
-      content="Privater Festpreis-Transfer vom Flughafen Antalya nach Manavgat ab €35. Meet &amp; Greet, Flugverfolgung."
+      content="Privater Festpreis-Transfer vom Flughafen Antalya nach Manavgat ab €{{PRICE:manavgat:vito}}. Meet &amp; Greet, Flugverfolgung."
     />
     <meta
       property="og:image"
@@ -58,7 +58,7 @@
     />
     <meta
       name="twitter:description"
-      content="Privater Transfer vom Flughafen Antalya nach Manavgat. Ab €35. Meet &amp; Greet, Flugverfolgung."
+      content="Privater Transfer vom Flughafen Antalya nach Manavgat. Ab €{{PRICE:manavgat:vito}}. Meet &amp; Greet, Flugverfolgung."
     />
     <meta
       name="twitter:image"
@@ -103,7 +103,7 @@
                 "url": "https://antalyaviptourism.com/",
                 "image": "https://antalyaviptourism.com/assets/optimized/og-antalya-transfer.jpg",
                 "telephone": "+90 530 265 57 90",
-                "priceRange": "€20-€300",
+                "priceRange": "{{PRICE_RANGE}}",
                 "address": {
                         "@type": "PostalAddress",
                         "streetAddress": "Belek Mah. Belek 61 Sk. Belek Deniz Apt No: 19 Ic Kapi No: 4",
@@ -122,13 +122,13 @@
                 {
                         "@type": "Offer",
                         "name": "Mercedes Vito",
-                        "price": "35",
+                        "price": "{{PRICE:manavgat:vito}}",
                         "priceCurrency": "EUR"
                 },
                 {
                         "@type": "Offer",
                         "name": "Mercedes Sprinter",
-                        "price": "55",
+                        "price": "{{PRICE:manavgat:sprinter}}",
                         "priceCurrency": "EUR"
                 }
         ]
@@ -152,7 +152,7 @@
             "name": "Was kostet der Transfer nach Manavgat?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Preise ab €35 pro Fahrzeug (Vito). Sprinter ab €55. Alle Gebühren inklusive."
+              "text": "Preise ab €{{PRICE:manavgat:vito}} pro Fahrzeug (Vito). Sprinter ab €{{PRICE:manavgat:sprinter}}. Alle Gebühren inklusive."
             }
           },
           {
@@ -312,7 +312,7 @@
             <strong>65 km</strong><span>Entfernung</span>
           </div>
           <div class="route-hero-stat">
-            <strong>Ab €35</strong><span>Festpreis</span>
+            <strong>Ab €{{PRICE:manavgat:vito}}</strong><span>Festpreis</span>
           </div>
           <div class="route-hero-stat">
             <strong>13 Pers.</strong><span>Max. Kapazität</span>
@@ -454,7 +454,32 @@
                   </select>
                 </div></label
               >
+
+              <label class="booking-field">
+                <span data-i18n="luggageLabel">Großes Gepäck</span>
+                <div class="field-control">
+                  <svg class="icon" aria-hidden="true">
+                    <use href="#icon-users"></use>
+                  </svg>
+                  <select id="luggage" name="luggage" aria-label="Number of large suitcases">
+                    <option value="0" selected>0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                  </select>
+                </div>
+              </label>
             </div>
+            <p id="capacity-note" class="capacity-note" hidden></p>
             <div
               class="booking-row booking-address-row"
               id="pickup-address-row"
@@ -681,7 +706,7 @@
           <div>
             <h2>Startpreis – Manavgat</h2>
             <p>
-              Preise ab €35 pro Fahrzeug (Vito). Alle Gebühren, Parken und
+              Preise ab €{{PRICE:manavgat:vito}} pro Fahrzeug (Vito). Alle Gebühren, Parken und
               Wartezeit inklusive.
             </p>
             <table class="route-price-table">
@@ -696,12 +721,12 @@
                 <tr>
                   <td>Flughafen Antalya → Manavgat (Vito)</td>
                   <td>Pro Privatfahrzeug</td>
-                  <td>€35</td>
+                  <td>€{{PRICE:manavgat:vito}}</td>
                 </tr>
                 <tr>
                   <td>Flughafen Antalya → Manavgat (Sprinter)</td>
                   <td>Pro Privatfahrzeug</td>
-                  <td>€55</td>
+                  <td>€{{PRICE:manavgat:sprinter}}</td>
                 </tr>
               </tbody>
             </table>
@@ -785,7 +810,7 @@
             </button>
             <div class="faq-answer">
               <p>
-                Vito ab €35, Sprinter ab €55 pro Fahrzeug. Alle Gebühren
+                Vito ab €{{PRICE:manavgat:vito}}, Sprinter ab €{{PRICE:manavgat:sprinter}} pro Fahrzeug. Alle Gebühren
                 inklusive.
               </p>
             </div>
@@ -819,7 +844,7 @@
         <h2>Weitere Transferrouten vom Flughafen Antalya</h2>
         <div class="route-links-grid">
           <a class="route-link-card" href="/de/transfers/belek/"
-            ><div><strong>Belek</strong><span>Ab €30 · ~40 Min</span></div>
+            ><div><strong>Belek</strong><span>Ab €{{PRICE:belek:vito}} · ~40 Min</span></div>
             <svg
               class="icon"
               viewBox="0 0 24 24"
@@ -832,7 +857,7 @@
               <path d="M5 12h14M13 6l6 6-6 6" /></svg
           ></a>
           <a class="route-link-card" href="/de/transfers/side/"
-            ><div><strong>Side</strong><span>Ab €35 · ~60 Min</span></div>
+            ><div><strong>Side</strong><span>Ab €{{PRICE:side:vito}} · ~60 Min</span></div>
             <svg
               class="icon"
               viewBox="0 0 24 24"
@@ -845,7 +870,7 @@
               <path d="M5 12h14M13 6l6 6-6 6" /></svg
           ></a>
           <a class="route-link-card" href="/de/transfers/alanya/"
-            ><div><strong>Alanya</strong><span>Ab €75 · ~100 Min</span></div>
+            ><div><strong>Alanya</strong><span>Ab €{{PRICE:alanya:vito}} · ~100 Min</span></div>
             <svg
               class="icon"
               viewBox="0 0 24 24"
@@ -859,7 +884,7 @@
           ></a>
           <a class="route-link-card" href="/de/transfers/antalya/"
             ><div>
-              <strong>Antalya Stadt</strong><span>Ab €20 · ~20 Min</span>
+              <strong>Antalya Stadt</strong><span>Ab €{{PRICE:antalya:vito}} · ~20 Min</span>
             </div>
             <svg
               class="icon"

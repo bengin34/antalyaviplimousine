@@ -2,11 +2,13 @@
   "name": "antalya-vip-limousine",
   "version": "1.0.0",
   "private": true,
+  "type": "module",
   "engines": {
     "node": ">=22.12.0 <23"
   },
   "scripts": {
-    "prebuild": "npm run generate:de-home && npm run generate:localized && npm run generate:privacy && npm run generate:impressum && npm run generate:sitemap",
+    "prebuild": "npm run check:prices && npm run generate:de-home && npm run generate:localized && npm run generate:privacy && npm run generate:impressum && npm run generate:sitemap",
+    "check:prices": "node scripts/verify-prices.mjs",
     "dev": "vite --host 0.0.0.0",
     "build": "vite build",
     "generate:de-home": "node scripts/build-de-homepage.mjs",

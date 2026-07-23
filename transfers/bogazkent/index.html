@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Private fixed-price transfer from Antalya Airport to Boğazkent from €30. Meet & greet, flight tracking, door-to-door. Pay in vehicle."
+      content="Private fixed-price transfer from Antalya Airport to Boğazkent from €{{PRICE:bogazkent:vito}}. Meet & greet, flight tracking, door-to-door. Pay in vehicle."
     />
     <meta name="theme-color" content="#0b0b0b" />
     <title>
@@ -34,7 +34,7 @@
     />
     <meta
       property="og:description"
-      content="Private fixed-price transfer from Antalya Airport to Boğazkent from €30. Meet & greet, flight tracking."
+      content="Private fixed-price transfer from Antalya Airport to Boğazkent from €{{PRICE:bogazkent:vito}}. Meet & greet, flight tracking."
     />
     <meta
       property="og:image"
@@ -51,7 +51,7 @@
     />
     <meta
       name="twitter:description"
-      content="Private transfer from Antalya Airport to Boğazkent. From €30. Meet & greet, flight tracking."
+      content="Private transfer from Antalya Airport to Boğazkent. From €{{PRICE:bogazkent:vito}}. Meet & greet, flight tracking."
     />
     <meta
       name="twitter:image"
@@ -96,7 +96,7 @@
                 "url": "https://antalyaviptourism.com/",
                 "image": "https://antalyaviptourism.com/assets/optimized/og-antalya-transfer.jpg",
                 "telephone": "+90 530 265 57 90",
-                "priceRange": "€20-€300",
+                "priceRange": "{{PRICE_RANGE}}",
                 "address": {
                         "@type": "PostalAddress",
                         "streetAddress": "Belek Mah. Belek 61 Sk. Belek Deniz Apt No: 19 Ic Kapi No: 4",
@@ -115,7 +115,7 @@
                 {
                         "@type": "Offer",
                         "name": "Mercedes Vito — up to 7 passengers",
-                        "price": "30",
+                        "price": "{{PRICE:bogazkent:vito}}",
                         "priceCurrency": "EUR"
                 }
         ]
@@ -140,7 +140,7 @@
             "name": "What is the fixed price from Antalya Airport to Boğazkent?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Prices start from €30 per vehicle. The fixed total includes meet & greet, flight tracking, parking and waiting time."
+              "text": "Prices start from €{{PRICE:bogazkent:vito}} per vehicle. The fixed total includes meet & greet, flight tracking, parking and waiting time."
             }
           },
           {
@@ -400,7 +400,7 @@
             <strong>50 km</strong><span>Distance</span>
           </div>
           <div class="route-hero-stat">
-            <strong>From €30</strong><span>Fixed price</span>
+            <strong>From €{{PRICE:bogazkent:vito}}</strong><span>Fixed price</span>
           </div>
           <div class="route-hero-stat">
             <strong>13 pax</strong><span>Max capacity</span>
@@ -560,7 +560,32 @@
                   </select>
                 </div></label
               >
+
+              <label class="booking-field">
+                <span data-i18n="luggageLabel">Large luggage</span>
+                <div class="field-control">
+                  <svg class="icon" aria-hidden="true">
+                    <use href="#icon-users"></use>
+                  </svg>
+                  <select id="luggage" name="luggage" aria-label="Number of large suitcases">
+                    <option value="0" selected>0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                  </select>
+                </div>
+              </label>
             </div>
+            <p id="capacity-note" class="capacity-note" hidden></p>
             <div
               class="booking-row booking-address-row"
               id="pickup-address-row"
@@ -807,7 +832,7 @@
           <div>
             <h2>Starting price — Boğazkent</h2>
             <p>
-              Prices start from €30 per vehicle, not per passenger. The fixed
+              Prices start from €{{PRICE:bogazkent:vito}} per vehicle, not per passenger. The fixed
               total includes airport parking, meet &amp; greet, flight tracking
               and waiting time.
             </p>
@@ -824,7 +849,7 @@
                 <tr>
                   <td>Antalya Airport → Boğazkent</td>
                   <td>Per private vehicle</td>
-                  <td>€30</td>
+                  <td>€{{PRICE:bogazkent:vito}}</td>
                 </tr>
               </tbody>
             </table>
@@ -916,7 +941,7 @@
             </button>
             <div class="faq-answer">
               <p>
-                Prices start from €30 per vehicle. The total is fixed — no
+                Prices start from €{{PRICE:bogazkent:vito}} per vehicle. The total is fixed — no
                 meter, no surge pricing and no supplements for delays or
                 luggage.
               </p>
@@ -970,7 +995,7 @@
         <h2>Other transfer routes from Antalya Airport</h2>
         <div class="route-links-grid">
           <a class="route-link-card" href="/transfers/belek/"
-            ><div><strong>Belek</strong><span>From €30 · ~40 min</span></div>
+            ><div><strong>Belek</strong><span>From €{{PRICE:belek:vito}} · ~40 min</span></div>
             <svg
               class="icon"
               viewBox="0 0 24 24"
@@ -983,7 +1008,7 @@
               <path d="M5 12h14M13 6l6 6-6 6" /></svg
           ></a>
           <a class="route-link-card" href="/transfers/side/"
-            ><div><strong>Side</strong><span>From €35 · ~60 min</span></div>
+            ><div><strong>Side</strong><span>From €{{PRICE:side:vito}} · ~60 min</span></div>
             <svg
               class="icon"
               viewBox="0 0 24 24"
@@ -996,7 +1021,7 @@
               <path d="M5 12h14M13 6l6 6-6 6" /></svg
           ></a>
           <a class="route-link-card" href="/transfers/manavgat/"
-            ><div><strong>Manavgat</strong><span>From €35 · ~60 min</span></div>
+            ><div><strong>Manavgat</strong><span>From €{{PRICE:manavgat:vito}} · ~60 min</span></div>
             <svg
               class="icon"
               viewBox="0 0 24 24"
@@ -1010,7 +1035,7 @@
           ></a>
           <a class="route-link-card" href="/transfers/antalya/"
             ><div>
-              <strong>Antalya City</strong><span>From €20 · ~20 min</span>
+              <strong>Antalya City</strong><span>From €{{PRICE:antalya:vito}} · ~20 min</span>
             </div>
             <svg
               class="icon"

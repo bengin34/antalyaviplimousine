@@ -189,7 +189,7 @@ function localizeStructuredData(html, translations) {
         data.image =
           "https://antalyaviptourism.com/assets/optimized/og-antalya-transfer.jpg";
         data.telephone = "+90 530 265 57 90";
-        data.priceRange = "€20-€300";
+        data.priceRange = "{{PRICE_RANGE}}";
         data.address = {
           "@type": "PostalAddress",
           streetAddress:

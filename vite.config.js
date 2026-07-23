@@ -1,5 +1,20 @@
 import { resolve } from "node:path";
 import { defineConfig } from "vite";
+import { resolvePriceTokens } from "./src/prices.js";
+
+function priceInjectionPlugin() {
+  return {
+    name: "price-injection",
+    transformIndexHtml(html) {
+      const output = resolvePriceTokens(html);
+      const unresolvedToken = output.match(/\{\{PRICE(?::|_RANGE)[^}]*\}\}/);
+      if (unresolvedToken) {
+        throw new Error(`Unresolved price token: ${unresolvedToken[0]}`);
+      }
+      return output;
+    },
+  };
+}
 
 const localizedRoutes = [
   "antalya",
@@ -30,6 +45,7 @@ const localizedInputs = Object.fromEntries(
 
 export default defineConfig({
   base: "/",
+  plugins: [priceInjectionPlugin()],
   build: {
     rollupOptions: {
       input: {

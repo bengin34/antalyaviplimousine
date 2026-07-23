@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Privater Festpreis-Transfer vom Flughafen Antalya in die Antalya Stadtmitte ab €20. Meet &amp; Greet, Echtzeit-Flugverfolgung, Tür-zu-Tür-Service. Zahlung im Fahrzeug."
+      content="Privater Festpreis-Transfer vom Flughafen Antalya in die Antalya Stadtmitte ab €{{PRICE:antalya:vito}}. Meet &amp; Greet, Echtzeit-Flugverfolgung, Tür-zu-Tür-Service. Zahlung im Fahrzeug."
     />
     <meta name="theme-color" content="#0b0b0b" />
     <title>
@@ -47,7 +47,7 @@
     />
     <meta
       property="og:description"
-      content="Privater Festpreis-Transfer vom Flughafen Antalya in die Antalya Stadtmitte ab €20. Meet &amp; Greet, Flugverfolgung."
+      content="Privater Festpreis-Transfer vom Flughafen Antalya in die Antalya Stadtmitte ab €{{PRICE:antalya:vito}}. Meet &amp; Greet, Flugverfolgung."
     />
     <meta
       property="og:image"
@@ -64,7 +64,7 @@
     />
     <meta
       name="twitter:description"
-      content="Privater Transfer vom Flughafen Antalya nach Antalya Stadt. Ab €20. Meet &amp; Greet, Flugverfolgung."
+      content="Privater Transfer vom Flughafen Antalya nach Antalya Stadt. Ab €{{PRICE:antalya:vito}}. Meet &amp; Greet, Flugverfolgung."
     />
     <meta
       name="twitter:image"
@@ -109,7 +109,7 @@
                 "url": "https://antalyaviptourism.com/",
                 "image": "https://antalyaviptourism.com/assets/optimized/og-antalya-transfer.jpg",
                 "telephone": "+90 530 265 57 90",
-                "priceRange": "€20-€300",
+                "priceRange": "{{PRICE_RANGE}}",
                 "address": {
                         "@type": "PostalAddress",
                         "streetAddress": "Belek Mah. Belek 61 Sk. Belek Deniz Apt No: 19 Ic Kapi No: 4",
@@ -128,7 +128,7 @@
                 {
                         "@type": "Offer",
                         "name": "Mercedes Vito – bis 7 Personen",
-                        "price": "20",
+                        "price": "{{PRICE:antalya:vito}}",
                         "priceCurrency": "EUR"
                 }
         ]
@@ -153,7 +153,7 @@
             "name": "Was kostet der Festpreistransfer vom Flughafen Antalya in die Antalya Stadt?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Die Preise beginnen ab €20 pro Fahrzeug – unsere günstigste Route. Alle Gebühren, Parken und Wartezeit sind inklusive. Kein Taxameter, keine Zuschläge."
+              "text": "Die Preise beginnen ab €{{PRICE:antalya:vito}} pro Fahrzeug – unsere günstigste Route. Alle Gebühren, Parken und Wartezeit sind inklusive. Kein Taxameter, keine Zuschläge."
             }
           },
           {
@@ -360,7 +360,7 @@
             <strong>15 km</strong><span>Entfernung</span>
           </div>
           <div class="route-hero-stat">
-            <strong>Ab €20</strong><span>Festpreis</span>
+            <strong>Ab €{{PRICE:antalya:vito}}</strong><span>Festpreis</span>
           </div>
           <div class="route-hero-stat">
             <strong>13 Pers.</strong><span>Max. Kapazität</span>
@@ -513,7 +513,32 @@
                   </select>
                 </div></label
               >
+
+              <label class="booking-field">
+                <span data-i18n="luggageLabel">Großes Gepäck</span>
+                <div class="field-control">
+                  <svg class="icon" aria-hidden="true">
+                    <use href="#icon-users"></use>
+                  </svg>
+                  <select id="luggage" name="luggage" aria-label="Number of large suitcases">
+                    <option value="0" selected>0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                  </select>
+                </div>
+              </label>
             </div>
+            <p id="capacity-note" class="capacity-note" hidden></p>
             <div
               class="booking-row booking-address-row"
               id="pickup-address-row"
@@ -768,7 +793,7 @@
           <div>
             <h2>Startpreis – Antalya Stadt</h2>
             <p>
-              Preise ab €20 pro Fahrzeug – unsere günstigste Route. Der
+              Preise ab €{{PRICE:antalya:vito}} pro Fahrzeug – unsere günstigste Route. Der
               Festpreis beinhaltet Flughafenparkgebühren, Meet &amp; Greet,
               Flugverfolgung und Wartezeit.
             </p>
@@ -785,7 +810,7 @@
                 <tr>
                   <td>Flughafen Antalya → Antalya Stadt</td>
                   <td>Pro Privatfahrzeug</td>
-                  <td>€20</td>
+                  <td>€{{PRICE:antalya:vito}}</td>
                 </tr>
               </tbody>
             </table>
@@ -877,7 +902,7 @@
             </button>
             <div class="faq-answer">
               <p>
-                Preise ab €20 pro Fahrzeug – unsere günstigste Route. Alle
+                Preise ab €{{PRICE:antalya:vito}} pro Fahrzeug – unsere günstigste Route. Alle
                 Gebühren, Parken und Wartezeit sind inklusive.
               </p>
             </div>
@@ -931,7 +956,7 @@
         <h2>Weitere Transferrouten vom Flughafen Antalya</h2>
         <div class="route-links-grid">
           <a class="route-link-card" href="/de/transfers/belek/"
-            ><div><strong>Belek</strong><span>Ab €30 · ~40 Min</span></div>
+            ><div><strong>Belek</strong><span>Ab €{{PRICE:belek:vito}} · ~40 Min</span></div>
             <svg
               class="icon"
               viewBox="0 0 24 24"
@@ -944,7 +969,7 @@
               <path d="M5 12h14M13 6l6 6-6 6" /></svg
           ></a>
           <a class="route-link-card" href="/de/transfers/kemer/"
-            ><div><strong>Kemer</strong><span>Ab €40 · ~40 Min</span></div>
+            ><div><strong>Kemer</strong><span>Ab €{{PRICE:kemer:vito}} · ~40 Min</span></div>
             <svg
               class="icon"
               viewBox="0 0 24 24"
@@ -957,7 +982,7 @@
               <path d="M5 12h14M13 6l6 6-6 6" /></svg
           ></a>
           <a class="route-link-card" href="/de/transfers/side/"
-            ><div><strong>Side</strong><span>Ab €35 · ~60 Min</span></div>
+            ><div><strong>Side</strong><span>Ab €{{PRICE:side:vito}} · ~60 Min</span></div>
             <svg
               class="icon"
               viewBox="0 0 24 24"
@@ -970,7 +995,7 @@
               <path d="M5 12h14M13 6l6 6-6 6" /></svg
           ></a>
           <a class="route-link-card" href="/de/transfers/alanya/"
-            ><div><strong>Alanya</strong><span>Ab €75 · ~100 Min</span></div>
+            ><div><strong>Alanya</strong><span>Ab €{{PRICE:alanya:vito}} · ~100 Min</span></div>
             <svg
               class="icon"
               viewBox="0 0 24 24"

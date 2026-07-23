@@ -1,10 +1,12 @@
--- ============================================================
--- Seed route pricing
--- Run AFTER 001_initial_schema.sql
--- Adjust prices to match your actual rates before going live.
--- ============================================================
-
-INSERT INTO routes (from_location, to_location, vehicle_type, price_eur, duration_min, distance_km) VALUES
+-- Keep server-side booking and payment amounts aligned with src/prices.js.
+INSERT INTO routes (
+  from_location,
+  to_location,
+  vehicle_type,
+  price_eur,
+  duration_min,
+  distance_km
+) VALUES
   ('airport', 'belek',      'vito',    35.00,  35,  45),
   ('airport', 'belek',      'vclass',  55.00,  35,  45),
   ('airport', 'side',       'vito',    45.00,  55,  65),
