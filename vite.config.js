@@ -89,6 +89,7 @@ export default defineConfig({
         "de-fethiye": resolve(__dirname, "de/transfers/fethiye/index.html"),
         "de-pamukkale": resolve(__dirname, "de/transfers/pamukkale/index.html"),
         "de-kapadokya": resolve(__dirname, "de/transfers/kapadokya/index.html"),
+        admin: resolve(__dirname, "admin/index.html"),
       },
     },
   },
