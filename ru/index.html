@@ -661,8 +661,9 @@
                     name="pickup"
                     aria-label="Место подачи"
                   >
-                    <option value="airport">Аэропорт Антальи (AYT)</option>
-                    <option value="private_address" data-i18n="hotelAddress">Отель / Частный адрес</option>
+                    <option value="airport" data-i18n="airportOption">Аэропорт Антальи (AYT)</option>
+                    <option value="hotel" data-i18n="hotelOption">Отель</option>
+                    <option value="private_address" data-i18n="privateAddressOption">Частный адрес</option>
                   </select>
                 </div>
               </label>
@@ -684,6 +685,11 @@
                       disabled
                       data-i18n="selectDestination"
                     >Выберите направление</option>
+                    <option
+                      value="airport"
+                      data-i18n="airportOption"
+                      disabled
+                    >Аэропорт Антальи (AYT)</option>
                     <option value="belek">Belek</option>
                     <option value="side">Side</option>
                     <option value="kemer">Kemer</option>

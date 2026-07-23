@@ -54,10 +54,14 @@ const translations = {
     destination: "Zielort",
     date: "Datum",
     guests: "Gäste",
-    hotelAddress: "Hotel / Privatadresse",
+    airportOption: "Flughafen Antalya (AYT)",
+    hotelOption: "Hotel",
+    privateAddressOption: "Privatadresse",
     pickupAddress: "Vollständige Abholadresse",
     pickupAddressPlaceholder: "Hotelname, Straße, Hausnummer und Stadtteil",
     selectDestination: "Ziel auswählen",
+    airportReturnPrice:
+      "Der Preis wird nach Prüfung des Hotels oder der Abholadresse bestätigt.",
     oneGuest: "1 Gast",
     twoGuests: "2 Gäste",
     threeGuests: "3 Gäste",
@@ -271,10 +275,14 @@ const translations = {
     destination: "Varış noktası",
     date: "Tarih",
     guests: "Misafir",
-    hotelAddress: "Otel / Özel adres",
+    airportOption: "Antalya Havalimanı (AYT)",
+    hotelOption: "Otel",
+    privateAddressOption: "Özel adres",
     pickupAddress: "Tam alış adresi",
     pickupAddressPlaceholder: "Otel adı, cadde, bina numarası ve ilçe",
     selectDestination: "Varış noktası seçin",
+    airportReturnPrice:
+      "Fiyat, otel veya alış adresi kontrol edildikten sonra teyit edilecektir.",
     oneGuest: "1 misafir",
     twoGuests: "2 misafir",
     threeGuests: "3 misafir",
@@ -487,10 +495,14 @@ const translations = {
     destination: "Направление",
     date: "Дата",
     guests: "Гости",
-    hotelAddress: "Отель / Частный адрес",
+    airportOption: "Аэропорт Антальи (AYT)",
+    hotelOption: "Отель",
+    privateAddressOption: "Частный адрес",
     pickupAddress: "Полный адрес подачи",
     pickupAddressPlaceholder: "Название отеля, улица, номер дома и район",
     selectDestination: "Выберите направление",
+    airportReturnPrice:
+      "Цена будет подтверждена после проверки отеля или адреса подачи.",
     oneGuest: "1 гость",
     twoGuests: "2 гостя",
     threeGuests: "3 гостя",
@@ -697,10 +709,14 @@ const translations = {
     destination: "Cel podróży",
     date: "Data",
     guests: "Goście",
-    hotelAddress: "Hotel / Adres prywatny",
+    airportOption: "Lotnisko Antalya (AYT)",
+    hotelOption: "Hotel",
+    privateAddressOption: "Adres prywatny",
     pickupAddress: "Pełny adres odbioru",
     pickupAddressPlaceholder: "Nazwa hotelu, ulica, numer budynku i dzielnica",
     selectDestination: "Wybierz cel",
+    airportReturnPrice:
+      "Cena zostanie potwierdzona po sprawdzeniu hotelu lub adresu odbioru.",
     oneGuest: "1 gość",
     twoGuests: "2 gości",
     threeGuests: "3 gości",
@@ -907,10 +923,14 @@ const translations = {
     destination: "Bestemming",
     date: "Datum",
     guests: "Gasten",
-    hotelAddress: "Hotel / Privéadres",
+    airportOption: "Luchthaven Antalya (AYT)",
+    hotelOption: "Hotel",
+    privateAddressOption: "Privéadres",
     pickupAddress: "Volledig ophaaladres",
     pickupAddressPlaceholder: "Hotelnaam, straat, huisnummer en wijk",
     selectDestination: "Kies bestemming",
+    airportReturnPrice:
+      "De prijs wordt bevestigd nadat het hotel of ophaaladres is gecontroleerd.",
     oneGuest: "1 gast",
     twoGuests: "2 gasten",
     threeGuests: "3 gasten",
@@ -1118,10 +1138,14 @@ const translations = {
     destination: "Напрямок",
     date: "Дата",
     guests: "Гості",
-    hotelAddress: "Готель / Приватна адреса",
+    airportOption: "Аеропорт Анталії (AYT)",
+    hotelOption: "Готель",
+    privateAddressOption: "Приватна адреса",
     pickupAddress: "Повна адреса подачі",
     pickupAddressPlaceholder: "Назва готелю, вулиця, номер будинку та район",
     selectDestination: "Оберіть напрямок",
+    airportReturnPrice:
+      "Ціну буде підтверджено після перевірки готелю або адреси подачі.",
     oneGuest: "1 гість",
     twoGuests: "2 гості",
     threeGuests: "3 гості",
@@ -1329,10 +1353,14 @@ const translations = {
     destination: "Destination",
     date: "Date",
     guests: "Passagers",
-    hotelAddress: "Hôtel / Adresse privée",
+    airportOption: "Aéroport d’Antalya (AYT)",
+    hotelOption: "Hôtel",
+    privateAddressOption: "Adresse privée",
     pickupAddress: "Adresse complète de prise en charge",
     pickupAddressPlaceholder: "Nom de l'hôtel, rue, numéro et quartier",
     selectDestination: "Choisir une destination",
+    airportReturnPrice:
+      "Le prix sera confirmé après vérification de l’hôtel ou de l’adresse de prise en charge.",
     oneGuest: "1 passager",
     twoGuests: "2 passagers",
     threeGuests: "3 passagers",
@@ -1541,10 +1569,14 @@ const translations = {
     destination: "Destination",
     date: "Datum",
     guests: "Gäster",
-    hotelAddress: "Hotell / Privat adress",
+    airportOption: "Antalya flygplats (AYT)",
+    hotelOption: "Hotell",
+    privateAddressOption: "Privat adress",
     pickupAddress: "Fullständig hämtningsadress",
     pickupAddressPlaceholder: "Hotellnamn, gata, husnummer och område",
     selectDestination: "Välj destination",
+    airportReturnPrice:
+      "Priset bekräftas efter att hotellet eller hämtningsadressen har kontrollerats.",
     oneGuest: "1 gäst",
     twoGuests: "2 gäster",
     threeGuests: "3 gäster",
@@ -1751,10 +1783,14 @@ const translations = {
     destination: "目的地",
     date: "日付",
     guests: "ご利用人数",
-    hotelAddress: "ホテル / 住所",
+    airportOption: "アンタルヤ空港 (AYT)",
+    hotelOption: "ホテル",
+    privateAddressOption: "個人住所",
     pickupAddress: "お迎え先の詳しい住所",
     pickupAddressPlaceholder: "ホテル名、通り、建物番号、地区",
     selectDestination: "目的地を選択",
+    airportReturnPrice:
+      "ホテルまたはお迎え先住所の確認後に料金をご案内します。",
     oneGuest: "1名",
     twoGuests: "2名",
     threeGuests: "3名",
@@ -1960,10 +1996,14 @@ const translations = {
     destination: "목적지",
     date: "날짜",
     guests: "인원",
-    hotelAddress: "호텔 / 개인 주소",
+    airportOption: "안탈리아 공항 (AYT)",
+    hotelOption: "호텔",
+    privateAddressOption: "개인 주소",
     pickupAddress: "전체 픽업 주소",
     pickupAddressPlaceholder: "호텔명, 도로명, 건물 번호 및 지역",
     selectDestination: "목적지 선택",
+    airportReturnPrice:
+      "호텔 또는 픽업 주소를 확인한 후 요금을 안내해 드립니다.",
     oneGuest: "1명",
     twoGuests: "2명",
     threeGuests: "3명",
@@ -2706,6 +2746,9 @@ const pickupAddressInput = document.querySelector("#pickup-address");
 const hotelNameInput = document.querySelector("#hotel-name");
 const childSeatsSelect = document.querySelector("#child-seats");
 const destinationSelect = document.querySelector("#destination");
+const airportDestinationOption = destinationSelect?.querySelector(
+  'option[value="airport"]',
+);
 const vehicleSelect = document.querySelector("#vehicle-type");
 const guestsSelect = document.querySelector("#guests");
 const luggageSelect = document.querySelector("#luggage");
@@ -2939,7 +2982,37 @@ const updateInlinePrice = (routeKey, vehicleKey = vehicleSelect.value) => {
   const route = routeData[routeKey];
   const price = route?.prices[vehicleKey];
   const originalPrice = route?.originalPrices?.[vehicleKey];
-  if (!route || !price || !priceDisplay) return;
+  currentQuoteData = {
+    pickup: pickupSelect.value,
+    destination: routeKey,
+    vehicle: vehicleKey,
+    price: price || 0,
+    originalPrice: originalPrice || 0,
+  };
+
+  if (routeKey === "airport" && priceDisplay) {
+    const language = document.documentElement.lang;
+    const pickupName =
+      pickupSelect.options[pickupSelect.selectedIndex]?.textContent.trim() ||
+      pickupSelect.value;
+    const airportName =
+      airportDestinationOption?.textContent.trim() || "Antalya Airport (AYT)";
+    const priceNote =
+      translations[language]?.airportReturnPrice ||
+      "The price will be confirmed after we check the hotel or pick-up address.";
+    priceDisplay.innerHTML = `
+      <span class="price-display-route">${pickupName} → ${airportName}</span>
+      <span class="price-display-note">${priceNote}</span>
+    `;
+    priceDisplay.classList.add("visible");
+    return;
+  }
+
+  if (!route || !price || !priceDisplay) {
+    priceDisplay?.classList.remove("visible");
+    if (priceDisplay) priceDisplay.innerHTML = "";
+    return;
+  }
   const language = document.documentElement.lang;
   const vehicleName = fleetData[vehicleKey]?.name || vehicleKey;
   const priceNote = translations[language]?.perVehicle || "fixed · per vehicle";
@@ -2956,13 +3029,20 @@ const updateInlinePrice = (routeKey, vehicleKey = vehicleSelect.value) => {
     <span class="price-display-note">${vehicleName} · ${priceNote}</span>
   `;
   priceDisplay.classList.add("visible");
-  currentQuoteData = {
-    pickup: pickupSelect.value,
-    destination: routeKey,
-    vehicle: vehicleKey,
-    price,
-    originalPrice,
-  };
+};
+
+const updateDestinationAvailability = () => {
+  if (!airportDestinationOption) return;
+
+  const canSelectAirport = pickupSelect.value !== "airport";
+  airportDestinationOption.disabled = !canSelectAirport;
+
+  if (!canSelectAirport && destinationSelect.value === "airport") {
+    destinationSelect.value = "";
+    currentQuoteData = {};
+    priceDisplay?.classList.remove("visible");
+    if (priceDisplay) priceDisplay.innerHTML = "";
+  }
 };
 
 const updatePickupAddress = () => {
@@ -2982,6 +3062,7 @@ const updatePickupAddress = () => {
 
 pickupSelect.addEventListener("change", () => {
   updatePickupAddress();
+  updateDestinationAvailability();
   if (destinationSelect.value) updateInlinePrice(destinationSelect.value);
 });
 
@@ -3014,6 +3095,7 @@ luggageSelect?.addEventListener("change", updateGuestCapacity);
 
 updateGuestCapacity();
 updatePickupAddress();
+updateDestinationAvailability();
 if (destinationSelect.value) updateInlinePrice(destinationSelect.value);
 
 const getSelectedPaymentMethod = () =>
@@ -3346,10 +3428,10 @@ quoteForm.addEventListener("submit", async (event) => {
       customer_phone: phone,
       hotel_name: hotelName,
       child_seat_count: childSeatCount,
+      luggage_count: luggageCount,
       flight_number: flightNumberInput.value.trim() || null,
       flight_arrival_time:
         document.querySelector("#flight-arrival-time").value || null,
-      notes: luggageCount ? `Large luggage: ${luggageCount}` : null,
       pickup_location: currentQuoteData.pickup || "airport",
       pickup_address:
         currentQuoteData.pickup === "private_address" ? pickupAddress : null,
@@ -3389,31 +3471,39 @@ quoteForm.addEventListener("submit", async (event) => {
     }
 
     document.querySelector("#confirmed-ref").textContent = booking.booking_ref;
-    confirmationMessage.dataset.i18n = "cashConfirmation";
+    const confirmationKey =
+      currentQuoteData.destination === "airport"
+        ? "airportReturnPrice"
+        : "cashConfirmation";
+    confirmationMessage.dataset.i18n = confirmationKey;
     confirmationMessage.textContent =
-      translations[document.documentElement.lang]?.cashConfirmation ||
-      paymentTranslations.en.cashConfirmation;
+      translations[document.documentElement.lang]?.[confirmationKey] ||
+      (confirmationKey === "airportReturnPrice"
+        ? "The price will be confirmed after we check the hotel or pick-up address."
+        : paymentTranslations.en.cashConfirmation);
 
-    gtag("event", "purchase", {
-      transaction_id: booking.booking_ref,
-      currency: "EUR",
-      value: currentQuoteData.price || 0,
-      payment_type: "cash",
-      items: [
-        {
-          item_id: currentQuoteData.destination,
-          item_name: `Transfer to ${currentQuoteData.destination}`,
-          price: currentQuoteData.price || 0,
-          quantity: 1,
-        },
-      ],
-    });
-    gtag("event", "conversion", {
-      send_to: "AW-18248114753/IW8CCL7H38AcEMHEsP1D",
-      transaction_id: booking.booking_ref,
-      value: currentQuoteData.price || 0,
-      currency: "EUR",
-    });
+    if (currentQuoteData.price > 0) {
+      gtag("event", "purchase", {
+        transaction_id: booking.booking_ref,
+        currency: "EUR",
+        value: currentQuoteData.price,
+        payment_type: "cash",
+        items: [
+          {
+            item_id: currentQuoteData.destination,
+            item_name: `Transfer to ${currentQuoteData.destination}`,
+            price: currentQuoteData.price,
+            quantity: 1,
+          },
+        ],
+      });
+      gtag("event", "conversion", {
+        send_to: "AW-18248114753/IW8CCL7H38AcEMHEsP1D",
+        transaction_id: booking.booking_ref,
+        value: currentQuoteData.price,
+        currency: "EUR",
+      });
+    }
 
     setWhatsAppBookingUrl({
       ref: booking.booking_ref,
@@ -3426,8 +3516,10 @@ quoteForm.addEventListener("submit", async (event) => {
       luggage: luggageCount,
       pickup: currentQuoteData.pickup === "private_address"
         ? pickupAddress
-        : (currentQuoteData.pickup === "airport" ? "Antalya Airport" : currentQuoteData.pickup),
-      dropoff: routeData[currentQuoteData.destination]?.name || currentQuoteData.destination,
+        : (currentQuoteData.pickup === "airport" ? "Antalya Airport" : hotelName),
+      dropoff: currentQuoteData.destination === "airport"
+        ? "Antalya Airport"
+        : (routeData[currentQuoteData.destination]?.name || currentQuoteData.destination),
       vehicle: currentQuoteData.vehicle === "sprinter" ? "V-Class (Sprinter)" : "Mercedes Vito",
       guests: document.querySelector("#guests").value,
       flight: flightNumberInput.value.trim() || null,
@@ -3439,6 +3531,7 @@ quoteForm.addEventListener("submit", async (event) => {
     currentQuoteData = {};
     updateGuestCapacity();
     updatePickupAddress();
+    updateDestinationAvailability();
     updatePaymentMethodUI();
     syncArrivalTimeState();
     if (priceDisplay) priceDisplay.classList.remove("visible");

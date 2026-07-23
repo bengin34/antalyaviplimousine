@@ -78,7 +78,9 @@ Deno.serve(async (req) => {
     const buyerName = splitName(String(booking.customer_name))
     const serviceAddress = booking.pickup_address
       ? String(booking.pickup_address)
-      : 'Antalya Airport (AYT), Antalya'
+      : booking.pickup_location === 'hotel'
+        ? String(booking.hotel_name)
+        : 'Antalya Airport (AYT), Antalya'
 
     const iyzicoResponse = await iyzicoRequest(
       config,

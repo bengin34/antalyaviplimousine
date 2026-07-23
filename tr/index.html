@@ -661,8 +661,9 @@
                     name="pickup"
                     aria-label="Alış konumu"
                   >
-                    <option value="airport">Antalya Havalimanı (AYT)</option>
-                    <option value="private_address" data-i18n="hotelAddress">Otel / Özel adres</option>
+                    <option value="airport" data-i18n="airportOption">Antalya Havalimanı (AYT)</option>
+                    <option value="hotel" data-i18n="hotelOption">Otel</option>
+                    <option value="private_address" data-i18n="privateAddressOption">Özel adres</option>
                   </select>
                 </div>
               </label>
@@ -684,6 +685,11 @@
                       disabled
                       data-i18n="selectDestination"
                     >Varış noktası seçin</option>
+                    <option
+                      value="airport"
+                      data-i18n="airportOption"
+                      disabled
+                    >Antalya Havalimanı (AYT)</option>
                     <option value="belek">Belek</option>
                     <option value="side">Side</option>
                     <option value="kemer">Kemer</option>

@@ -627,9 +627,12 @@
                     name="pickup"
                     aria-label="Pick-up location"
                   >
-                    <option value="airport">Antalya Airport (AYT)</option>
-                    <option value="private_address" data-i18n="hotelAddress">
-                      Hotel / Private Address
+                    <option value="airport" data-i18n="airportOption">
+                      Antalya Airport (AYT)
+                    </option>
+                    <option value="hotel" data-i18n="hotelOption">Hotel</option>
+                    <option value="private_address" data-i18n="privateAddressOption">
+                      Private address
                     </option>
                   </select>
                 </div>
@@ -653,6 +656,13 @@
                       data-i18n="selectDestination"
                     >
                       Select destination
+                    </option>
+                    <option
+                      value="airport"
+                      data-i18n="airportOption"
+                      disabled
+                    >
+                      Antalya Airport (AYT)
                     </option>
                     <option value="belek">Belek</option>
                     <option value="side">Side</option>
