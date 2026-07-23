@@ -615,6 +615,27 @@
           </div>
 
           <form class="booking-card" id="quote-form" novalidate>
+            <fieldset class="trip-type-selector">
+              <legend data-i18n="tripType">Journey type</legend>
+              <div class="trip-type-options">
+                <label class="trip-type-option">
+                  <input
+                    type="radio"
+                    name="tripType"
+                    value="one_way"
+                    checked
+                  />
+                  <span data-i18n="oneWay">One way</span>
+                </label>
+                <label class="trip-type-option">
+                  <input type="radio" name="tripType" value="round_trip" />
+                  <span data-i18n="roundTrip">Round trip</span>
+                </label>
+              </div>
+              <p class="trip-type-hint" data-i18n="roundTripHint">
+                For a round trip, the return follows the same route in reverse.
+              </p>
+            </fieldset>
             <div class="booking-row booking-row-journey">
               <label class="booking-field">
                 <span data-i18n="pickup">Pick-up</span>
@@ -696,16 +717,6 @@
               </label>
 
               <label class="booking-field">
-                <span data-i18n="date">Date</span>
-                <div class="field-control">
-                  <svg class="icon" aria-hidden="true">
-                    <use href="#icon-calendar"></use>
-                  </svg>
-                  <input id="travel-date" type="date" name="date" required />
-                </div>
-              </label>
-
-              <label class="booking-field">
                 <span data-i18n="guests">Guests</span>
                 <div class="field-control">
                   <svg class="icon" aria-hidden="true">
@@ -733,31 +744,102 @@
                 </div>
               </label>
 
+            </div>
+            <div class="booking-row booking-outbound-row">
               <label class="booking-field">
-                <span data-i18n="luggageLabel">Large luggage</span>
+                <span data-i18n="arrivalDate">Arrival date</span>
                 <div class="field-control">
                   <svg class="icon" aria-hidden="true">
-                    <use href="#icon-luggage"></use>
+                    <use href="#icon-calendar"></use>
                   </svg>
-                  <select
-                    id="luggage"
-                    name="luggage"
-                    aria-label="Number of large suitcases"
+                  <input id="travel-date" type="date" name="date" required />
+                </div>
+              </label>
+
+              <label class="booking-field time-booking-field">
+                <span data-i18n="arrivalFlightTime">Flight arrival time</span>
+                <div class="field-control time-field-control">
+                  <svg class="icon" aria-hidden="true">
+                    <use href="#icon-clock"></use>
+                  </svg>
+                  <span class="time-picker-value" data-i18n="chooseTime"
+                    >Choose time</span
                   >
-                    <option value="0" selected>0</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                    <option value="7">7</option>
-                    <option value="8">8</option>
-                    <option value="9">9</option>
-                    <option value="10">10</option>
-                    <option value="11">11</option>
-                    <option value="12">12</option>
-                  </select>
+                  <input
+                    type="time"
+                    id="flight-arrival-time"
+                    name="arrivalTime"
+                  />
+                </div>
+              </label>
+
+              <label class="booking-field">
+                <span data-i18n="arrivalFlightNumber">Arrival flight number</span>
+                <div class="field-control">
+                  <svg class="icon" aria-hidden="true">
+                    <use href="#icon-plane"></use>
+                  </svg>
+                  <input
+                    type="text"
+                    id="flight-number"
+                    name="flight"
+                    autocomplete="off"
+                    autocapitalize="characters"
+                    maxlength="12"
+                    pattern="[A-Za-z0-9 \-]{2,12}"
+                    placeholder="TK1234"
+                  />
+                </div>
+              </label>
+            </div>
+            <div
+              class="booking-row booking-return-row"
+              id="return-journey-row"
+              hidden
+            >
+              <label class="booking-field">
+                <span data-i18n="returnDate">Return date</span>
+                <div class="field-control">
+                  <svg class="icon" aria-hidden="true">
+                    <use href="#icon-calendar"></use>
+                  </svg>
+                  <input id="return-date" type="date" name="returnDate" />
+                </div>
+              </label>
+
+              <label class="booking-field time-booking-field">
+                <span data-i18n="returnPickupTime">Return pick-up time</span>
+                <div class="field-control time-field-control return-time-field-control">
+                  <svg class="icon" aria-hidden="true">
+                    <use href="#icon-clock"></use>
+                  </svg>
+                  <span class="time-picker-value return-time-picker-value" data-i18n="chooseTime"
+                    >Choose time</span
+                  >
+                  <input
+                    type="time"
+                    id="return-pickup-time"
+                    name="returnPickupTime"
+                  />
+                </div>
+              </label>
+
+              <label class="booking-field">
+                <span data-i18n="returnFlightNumber">Return flight number</span>
+                <div class="field-control">
+                  <svg class="icon" aria-hidden="true">
+                    <use href="#icon-plane"></use>
+                  </svg>
+                  <input
+                    type="text"
+                    id="return-flight-number"
+                    name="returnFlight"
+                    autocomplete="off"
+                    autocapitalize="characters"
+                    maxlength="12"
+                    pattern="[A-Za-z0-9 \-]{2,12}"
+                    placeholder="TK1235"
+                  />
                 </div>
               </label>
             </div>
@@ -789,6 +871,34 @@
             </div>
 
             <div class="booking-row booking-options-row">
+              <label class="booking-field">
+                <span data-i18n="luggageLabel">Large luggage</span>
+                <div class="field-control">
+                  <svg class="icon" aria-hidden="true">
+                    <use href="#icon-luggage"></use>
+                  </svg>
+                  <select
+                    id="luggage"
+                    name="luggage"
+                    aria-label="Number of large suitcases"
+                  >
+                    <option value="0" selected>0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                  </select>
+                </div>
+              </label>
+
               <label class="booking-field">
                 <span data-i18n="hotelNameLabel">Hotel name</span>
                 <div class="field-control">
@@ -875,41 +985,6 @@
                 </div>
               </label>
 
-              <label class="booking-field">
-                <span data-i18n="flightNumber">Flight number</span>
-                <div class="field-control">
-                  <svg class="icon" aria-hidden="true">
-                    <use href="#icon-plane"></use>
-                  </svg>
-                  <input
-                    type="text"
-                    id="flight-number"
-                    name="flight"
-                    autocomplete="off"
-                    autocapitalize="characters"
-                    maxlength="12"
-                    pattern="[A-Za-z0-9 \-]{2,12}"
-                    placeholder="TK1234"
-                  />
-                </div>
-              </label>
-
-              <label class="booking-field time-booking-field">
-                <span data-i18n="flightArrivalTime">Arrival time</span>
-                <div class="field-control time-field-control">
-                  <svg class="icon" aria-hidden="true">
-                    <use href="#icon-clock"></use>
-                  </svg>
-                  <span class="time-picker-value" data-i18n="chooseTime"
-                    >Choose time</span
-                  >
-                  <input
-                    type="time"
-                    id="flight-arrival-time"
-                    name="arrivalTime"
-                  />
-                </div>
-              </label>
             </div>
 
             <fieldset class="payment-method-panel">

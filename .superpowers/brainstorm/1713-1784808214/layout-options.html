@@ -1,0 +1,93 @@
+<h2>Admin Panel — Ana Görünüm Yaklaşımı</h2>
+<p class="subtitle">Şoförler için mobil-önce layout. Hangi yapı daha kullanışlı?</p>
+
+<div class="cards">
+
+  <div class="card" data-choice="timeline" onclick="toggleSelect(this)">
+    <div class="card-image" style="background:#0f1117;padding:16px;font-family:monospace;font-size:12px;color:#e2e8f0;min-height:220px">
+      <div style="background:#1e2433;border-radius:8px;padding:10px;margin-bottom:8px">
+        <div style="color:#94a3b8;font-size:10px;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px">📅 BUGÜN — 23 Temmuz</div>
+        <div style="background:#10b981;border-radius:6px;padding:8px;margin-bottom:6px">
+          <div style="font-weight:bold;color:#fff">09:30 • AYT → Kemer</div>
+          <div style="color:#d1fae5;font-size:11px">John Smith • 2 kişi • V-Class</div>
+        </div>
+        <div style="background:#3b82f6;border-radius:6px;padding:8px">
+          <div style="font-weight:bold;color:#fff">14:00 • Belek → AYT</div>
+          <div style="color:#dbeafe;font-size:11px">Maria G. • 4 kişi • Vito</div>
+        </div>
+      </div>
+      <div style="background:#1e2433;border-radius:8px;padding:10px">
+        <div style="color:#94a3b8;font-size:10px;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px">📅 YARIN — 24 Temmuz</div>
+        <div style="background:#8b5cf6;border-radius:6px;padding:8px">
+          <div style="font-weight:bold;color:#fff">11:00 • AYT → Side</div>
+          <div style="color:#ede9fe;font-size:11px">Ahmed K. • 3 kişi • V-Class</div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>A — Günlük Timeline</h3>
+      <p>Transferler gün bazında gruplandı. Bugün/yarın net ayrım. En yakın transfer en üstte.</p>
+    </div>
+  </div>
+
+  <div class="card" data-choice="dashboard" onclick="toggleSelect(this)">
+    <div class="card-image" style="background:#0f1117;padding:16px;font-family:monospace;font-size:12px;color:#e2e8f0;min-height:220px">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px">
+        <div style="background:#10b981;border-radius:8px;padding:10px;text-align:center">
+          <div style="font-size:24px;font-weight:bold;color:#fff">3</div>
+          <div style="color:#d1fae5;font-size:10px">BUGÜN</div>
+        </div>
+        <div style="background:#3b82f6;border-radius:8px;padding:10px;text-align:center">
+          <div style="font-size:24px;font-weight:bold;color:#fff">5</div>
+          <div style="color:#dbeafe;font-size:10px">YARIN</div>
+        </div>
+      </div>
+      <div style="background:#1e2433;border-radius:8px;padding:10px;margin-bottom:6px">
+        <div style="color:#f59e0b;font-size:10px;font-weight:bold;margin-bottom:4px">⚡ SONRAKİ TRANSFER</div>
+        <div style="color:#fff;font-weight:bold">09:30 AYT → Kemer</div>
+        <div style="color:#94a3b8;font-size:11px">John Smith • 26 dakika sonra</div>
+      </div>
+      <div style="display:flex;gap:6px">
+        <div style="flex:1;background:#1e2433;border-radius:6px;padding:8px;text-align:center;font-size:10px;color:#94a3b8">Tüm Liste</div>
+        <div style="flex:1;background:#1e2433;border-radius:6px;padding:8px;text-align:center;font-size:10px;color:#94a3b8">Arama</div>
+        <div style="flex:1;background:#1e2433;border-radius:6px;padding:8px;text-align:center;font-size:10px;color:#94a3b8">Ayarlar</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>B — Dashboard + Liste</h3>
+      <p>Üstte sayı özeti ve bir sonraki transfer. Altında tam liste. Alt nav ile sayfalar arası geçiş.</p>
+    </div>
+  </div>
+
+  <div class="card" data-choice="compact" onclick="toggleSelect(this)">
+    <div class="card-image" style="background:#0f1117;padding:16px;font-family:monospace;font-size:12px;color:#e2e8f0;min-height:220px">
+      <div style="background:#f59e0b;border-radius:8px;padding:8px;margin-bottom:8px;display:flex;align-items:center;gap:8px">
+        <div style="font-size:20px">⚡</div>
+        <div>
+          <div style="font-weight:bold;color:#000;font-size:13px">09:30 AYT → Kemer</div>
+          <div style="color:#78350f;font-size:11px">26 dakika sonra • John Smith</div>
+        </div>
+      </div>
+      <div style="border-left:3px solid #10b981;padding-left:10px;margin-bottom:6px">
+        <div style="color:#10b981;font-size:10px">14:00 BUGÜN</div>
+        <div style="color:#fff">Belek → AYT</div>
+        <div style="color:#64748b;font-size:11px">Maria G. • Vito</div>
+      </div>
+      <div style="border-left:3px solid #10b981;padding-left:10px;margin-bottom:6px">
+        <div style="color:#10b981;font-size:10px">18:30 BUGÜN</div>
+        <div style="color:#fff">Side → AYT</div>
+        <div style="color:#64748b;font-size:11px">Peters Fam. • V-Class</div>
+      </div>
+      <div style="border-left:3px solid #3b82f6;padding-left:10px">
+        <div style="color:#3b82f6;font-size:10px">09:00 YARIN</div>
+        <div style="color:#fff">AYT → Alanya</div>
+        <div style="color:#64748b;font-size:11px">Ahmed K. • Vito</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>C — Feed (Tek Sayfa)</h3>
+      <p>Her şey tek akışta. Sonraki transfer sarı vurgusu ile. Kronolojik, sonsuz liste. En minimal.</p>
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,14 @@
+{"type":"server-started","port":57573,"host":"127.0.0.1","url_host":"localhost","url":"http://localhost:57573","screen_dir":"/Users/engin/Desktop/my/web/vip/.superpowers/brainstorm/1713-1784808214"}
+{"type":"screen-added","file":"/Users/engin/Desktop/my/web/vip/.superpowers/brainstorm/1713-1784808214/layout-options.html"}
+{"source":"user-event","type":"click","text":"📅 BUGÜN — 23 Temmuz\n        \n          09:30 • AYT → Kemer\n          John Smith • 2 kişi • V-Class\n        \n        \n          14:00 • Belek → AYT\n          Maria G. • 4 kişi • Vito\n        \n      \n      \n        📅 YARIN — 24 Temmuz\n        \n          11:00 • AYT → Side\n          Ahmed K. • 3 kişi • V-Class\n        \n      \n    \n    \n      A — Günlük Timeline\n      Transferler gün bazında gruplandı. Bugün/yarın net ayrım. En yakın transfer en üstte.","choice":"timeline","id":null,"timestamp":1784808597685}
+{"type":"screen-added","file":"/Users/engin/Desktop/my/web/vip/.superpowers/brainstorm/1713-1784808214/card-info.html"}
+{"source":"user-event","type":"click","text":"1\n    \n      Güzergah + Saat\n      09:30 • AYT → Kemer","choice":"route","id":null,"timestamp":1784808847735}
+{"source":"user-event","type":"click","text":"2\n    \n      Müşteri Adı + Telefon\n      John Smith • +49 170 123 4567","choice":"customer","id":null,"timestamp":1784808848331}
+{"source":"user-event","type":"click","text":"3\n    \n      Kişi + Araç\n      4 kişi • V-Class • 2 çocuk koltuğu","choice":"guests","id":null,"timestamp":1784808849149}
+{"source":"user-event","type":"click","text":"4\n    \n      Uçuş Bilgisi\n      TK1234 • Varış 08:55","choice":"flight","id":null,"timestamp":1784808850149}
+{"source":"user-event","type":"click","text":"5\n    \n      Otel Adı\n      Rixos Premium Belek","choice":"hotel","id":null,"timestamp":1784808851531}
+{"source":"user-event","type":"click","text":"7\n    \n      Bagaj Sayısı\n      3 bavul","choice":"luggage","id":null,"timestamp":1784808854216}
+{"source":"user-event","type":"click","text":"6\n    \n      Ödeme Durumu + Tutar\n      Nakit • €85 — ödenmedi","choice":"payment","id":null,"timestamp":1784808858382}
+{"type":"screen-added","file":"/Users/engin/Desktop/my/web/vip/.superpowers/brainstorm/1713-1784808214/waiting.html"}
+{"type":"screen-added","file":"/Users/engin/Desktop/my/web/vip/.superpowers/brainstorm/1713-1784808214/admin-mockup.html"}
+{"type":"server-stopped","reason":"idle timeout"}

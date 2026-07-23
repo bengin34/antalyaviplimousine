@@ -74,6 +74,8 @@ const isValidFlightNumber = (value: unknown) => {
   )
 }
 
+const isValidTime = (value: unknown) => /^([01]\d|2[0-3]):[0-5]\d$/.test(String(value ?? ''))
+
 const isValidHotelName = (value: string) => {
   const letterCount = value.match(/\p{L}/gu)?.length || 0
   return value.length >= 2 && value.length <= 120 && letterCount >= 2
@@ -115,6 +117,13 @@ Deno.serve(async (req) => {
       dropoffLocation === 'airport' &&
       ['hotel', 'private_address'].includes(pickupLocation)
     const pickupDate = String(payload.pickup_date)
+    const tripType = String(payload.trip_type || 'one_way')
+    const isRoundTrip = tripType === 'round_trip'
+    const returnDate = isRoundTrip ? String(payload.return_date || '') : ''
+    const returnPickupTime = isRoundTrip ? String(payload.return_pickup_time || '') : ''
+    const returnFlightNumber = isRoundTrip
+      ? normalizeWhitespace(payload.return_flight_number).toUpperCase()
+      : ''
     const vehicleType = String(payload.vehicle_type)
     const paymentMethod = String(payload.payment_method)
     const guestCount = Number(payload.guests)
@@ -149,6 +158,12 @@ Deno.serve(async (req) => {
     if (!isValidFlightNumber(payload.flight_number)) {
       return jsonResponse({ error: 'flight_number is invalid' }, 400)
     }
+    if (!['one_way', 'round_trip'].includes(tripType)) {
+      return jsonResponse({ error: 'trip_type is invalid' }, 400)
+    }
+    if (isRoundTrip && !isValidFlightNumber(returnFlightNumber)) {
+      return jsonResponse({ error: 'return_flight_number is invalid' }, 400)
+    }
     if (!['airport', 'hotel', 'private_address'].includes(pickupLocation)) {
       return jsonResponse({ error: 'pickup_location is invalid' }, 400)
     }
@@ -179,6 +194,14 @@ Deno.serve(async (req) => {
     if (pickupDate < new Date().toISOString().split('T')[0]) {
       return jsonResponse({ error: 'pickup_date cannot be in the past' }, 400)
     }
+    if (isRoundTrip) {
+      if (!/^\d{4}-\d{2}-\d{2}$/.test(returnDate) || returnDate < pickupDate) {
+        return jsonResponse({ error: 'return_date must be on or after pickup_date' }, 400)
+      }
+      if (!isValidTime(returnPickupTime)) {
+        return jsonResponse({ error: 'return_pickup_time is invalid' }, 400)
+      }
+    }
 
     const supabase = createClient(
       Deno.env.get('SUPABASE_URL')!,
@@ -198,7 +221,7 @@ Deno.serve(async (req) => {
       if (routeError || !route) {
         return jsonResponse({ error: 'No active price was found for this route' }, 400)
       }
-      priceEur = Number(route.price_eur)
+      priceEur = Number(route.price_eur) * (isRoundTrip ? 2 : 1)
     }
 
     const bookingPayload = {
@@ -216,6 +239,10 @@ Deno.serve(async (req) => {
       pickup_address: pickupAddress || null,
       dropoff_location: dropoffLocation,
       pickup_date: pickupDate,
+      trip_type: tripType,
+      return_date: returnDate || null,
+      return_pickup_time: returnPickupTime || null,
+      return_flight_number: returnFlightNumber || null,
       guests: guestCount,
       vehicle_type: vehicleType,
       price_eur: priceEur,
@@ -265,7 +292,7 @@ Deno.serve(async (req) => {
         body: JSON.stringify({
           from: fromEmail,
           to: [notificationEmail],
-          subject: `New booking ${booking.booking_ref}: ${pickupLabel} to ${booking.dropoff_location}`,
+          subject: `New ${isRoundTrip ? 'round-trip ' : ''}booking ${booking.booking_ref}: ${pickupLabel} to ${booking.dropoff_location}`,
           html: `
             <div style="font-family:Arial,sans-serif;color:#161616">
               <h2>New booking request</h2>
@@ -280,8 +307,11 @@ Deno.serve(async (req) => {
                 <tr><td style="padding:6px 12px;color:#777">Pick-up type</td><td style="padding:6px 12px">${escapeHtml(pickupLabel)}</td></tr>
                 <tr><td style="padding:6px 12px;color:#777">Pick-up address</td><td style="padding:6px 12px"><strong>${escapeHtml(pickupAddressDisplay)}</strong></td></tr>
                 <tr><td style="padding:6px 12px;color:#777">Destination</td><td style="padding:6px 12px">${escapeHtml(booking.dropoff_location)}</td></tr>
+                <tr><td style="padding:6px 12px;color:#777">Journey type</td><td style="padding:6px 12px"><strong>${escapeHtml(isRoundTrip ? 'Round trip' : 'One way')}</strong></td></tr>
                 <tr><td style="padding:6px 12px;color:#777">Date / arrival</td><td style="padding:6px 12px">${escapeHtml(booking.pickup_date)} ${escapeHtml(booking.flight_arrival_time || '')}</td></tr>
                 <tr><td style="padding:6px 12px;color:#777">Flight</td><td style="padding:6px 12px">${escapeHtml(booking.flight_number || 'Not provided')}</td></tr>
+                ${isRoundTrip ? `<tr><td style="padding:6px 12px;color:#777">Return date / pick-up</td><td style="padding:6px 12px"><strong>${escapeHtml(booking.return_date)} ${escapeHtml(booking.return_pickup_time)}</strong></td></tr>
+                <tr><td style="padding:6px 12px;color:#777">Return flight</td><td style="padding:6px 12px">${escapeHtml(booking.return_flight_number || 'Not provided')}</td></tr>` : ''}
                 <tr><td style="padding:6px 12px;color:#777">Guests / vehicle</td><td style="padding:6px 12px">${escapeHtml(booking.guests)} / ${escapeHtml(booking.vehicle_type)}</td></tr>
                 <tr><td style="padding:6px 12px;color:#777">Price</td><td style="padding:6px 12px"><strong>${escapeHtml(bookingPriceDisplay)}</strong></td></tr>
                 <tr><td style="padding:6px 12px;color:#777">Payment</td><td style="padding:6px 12px"><strong>${escapeHtml(booking.payment_method === 'cash' ? 'Cash in vehicle' : 'Online card')}</strong></td></tr>

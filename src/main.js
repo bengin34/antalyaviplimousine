@@ -53,6 +53,18 @@ const translations = {
     pickup: "Abholung",
     destination: "Zielort",
     date: "Datum",
+    tripType: "Fahrtart",
+    oneWay: "Einfache Fahrt",
+    roundTrip: "Hin- und Rückfahrt",
+    roundTripHint:
+      "Bei Hin- und Rückfahrt erfolgt die Rückfahrt auf derselben Strecke in umgekehrter Richtung.",
+    returnDate: "Rückfahrtdatum",
+    returnPickupTime: "Abholzeit der Rückfahrt",
+    returnFlightNumber: "Rückflugnummer",
+    arrivalDate: "Ankunftsdatum",
+    arrivalFlightTime: "Ankunftszeit des Fluges",
+    arrivalFlightNumber: "Ankunftsflugnummer",
+    roundTripPriceNote: "Hin- und Rückfahrt · 2 Fahrten",
     guests: "Gäste",
     airportOption: "Flughafen Antalya (AYT)",
     hotelOption: "Hotel",
@@ -274,6 +286,18 @@ const translations = {
     pickup: "Alış noktası",
     destination: "Varış noktası",
     date: "Tarih",
+    tripType: "Yolculuk türü",
+    oneWay: "Tek yön",
+    roundTrip: "Gidiş–dönüş",
+    roundTripHint:
+      "Gidiş–dönüş rezervasyonunda dönüş, aynı rotanın ters yönünde gerçekleşir.",
+    returnDate: "Dönüş tarihi",
+    returnPickupTime: "Dönüş alış saati",
+    returnFlightNumber: "Dönüş uçuş numarası",
+    arrivalDate: "Geliş tarihi",
+    arrivalFlightTime: "Geliş uçuş saati",
+    arrivalFlightNumber: "Geliş uçuş numarası",
+    roundTripPriceNote: "gidiş–dönüş · 2 yolculuk",
     guests: "Misafir",
     airportOption: "Antalya Havalimanı (AYT)",
     hotelOption: "Otel",
@@ -494,6 +518,18 @@ const translations = {
     pickup: "Место встречи",
     destination: "Направление",
     date: "Дата",
+    tripType: "Тип поездки",
+    oneWay: "В одну сторону",
+    roundTrip: "Туда и обратно",
+    roundTripHint:
+      "Обратная поездка проходит по тому же маршруту в обратном направлении.",
+    returnDate: "Дата возвращения",
+    returnPickupTime: "Время подачи на обратный путь",
+    returnFlightNumber: "Номер обратного рейса",
+    arrivalDate: "Дата прибытия",
+    arrivalFlightTime: "Время прибытия рейса",
+    arrivalFlightNumber: "Номер рейса прибытия",
+    roundTripPriceNote: "туда и обратно · 2 поездки",
     guests: "Гости",
     airportOption: "Аэропорт Антальи (AYT)",
     hotelOption: "Отель",
@@ -2556,8 +2592,91 @@ const paymentTranslations = {
   },
 };
 
+const tripTranslations = {
+  en: {
+    tripType: "Journey type",
+    oneWay: "One way",
+    roundTrip: "Round trip",
+    roundTripHint:
+      "For a round trip, the return follows the same route in reverse.",
+    returnDate: "Return date",
+    returnPickupTime: "Return pick-up time",
+    returnFlightNumber: "Return flight number",
+    arrivalDate: "Arrival date",
+    arrivalFlightTime: "Flight arrival time",
+    arrivalFlightNumber: "Arrival flight number",
+    roundTripPriceNote: "round trip · 2 journeys",
+    returnDateRequired: "Please choose a return date.",
+    returnDateInvalid:
+      "Please choose a return date on or after the outward journey.",
+    returnTimeRequired: "Please choose the return pick-up time.",
+  },
+  de: {
+    tripType: "Fahrtart",
+    oneWay: "Einfache Fahrt",
+    roundTrip: "Hin- und Rückfahrt",
+    roundTripHint:
+      "Bei Hin- und Rückfahrt erfolgt die Rückfahrt auf derselben Strecke in umgekehrter Richtung.",
+    returnDate: "Rückfahrtdatum",
+    returnPickupTime: "Abholzeit der Rückfahrt",
+    returnFlightNumber: "Rückflugnummer",
+    arrivalDate: "Ankunftsdatum",
+    arrivalFlightTime: "Ankunftszeit des Fluges",
+    arrivalFlightNumber: "Ankunftsflugnummer",
+    roundTripPriceNote: "Hin- und Rückfahrt · 2 Fahrten",
+    returnDateRequired: "Bitte wählen Sie ein Rückfahrtdatum.",
+    returnDateInvalid:
+      "Bitte wählen Sie ein Rückfahrtdatum am oder nach dem Datum der Hinfahrt.",
+    returnTimeRequired: "Bitte wählen Sie die Abholzeit für die Rückfahrt.",
+  },
+  tr: {
+    tripType: "Yolculuk türü",
+    oneWay: "Tek yön",
+    roundTrip: "Gidiş–dönüş",
+    roundTripHint:
+      "Gidiş–dönüş rezervasyonunda dönüş, aynı rotanın ters yönünde gerçekleşir.",
+    returnDate: "Dönüş tarihi",
+    returnPickupTime: "Dönüş alış saati",
+    returnFlightNumber: "Dönüş uçuş numarası",
+    arrivalDate: "Geliş tarihi",
+    arrivalFlightTime: "Geliş uçuş saati",
+    arrivalFlightNumber: "Geliş uçuş numarası",
+    roundTripPriceNote: "gidiş–dönüş · 2 yolculuk",
+    returnDateRequired: "Lütfen dönüş tarihini seçin.",
+    returnDateInvalid:
+      "Lütfen gidiş tarihiyle aynı veya daha sonraki bir dönüş tarihi seçin.",
+    returnTimeRequired: "Lütfen dönüş için alış saatini seçin.",
+  },
+  ru: {
+    tripType: "Тип поездки",
+    oneWay: "В одну сторону",
+    roundTrip: "Туда и обратно",
+    roundTripHint:
+      "Обратная поездка проходит по тому же маршруту в обратном направлении.",
+    returnDate: "Дата возвращения",
+    returnPickupTime: "Время подачи на обратный путь",
+    returnFlightNumber: "Номер обратного рейса",
+    arrivalDate: "Дата прибытия",
+    arrivalFlightTime: "Время прибытия рейса",
+    arrivalFlightNumber: "Номер рейса прибытия",
+    roundTripPriceNote: "туда и обратно · 2 поездки",
+    returnDateRequired: "Выберите дату возвращения.",
+    returnDateInvalid:
+      "Дата возвращения должна совпадать с датой поездки туда или быть позже.",
+    returnTimeRequired: "Выберите время подачи на обратный путь.",
+  },
+};
+
 Object.entries(paymentTranslations).forEach(([language, copy]) => {
   translations[language] = { ...(translations[language] || {}), ...copy };
+});
+
+Object.keys(translations).forEach((language) => {
+  translations[language] = {
+    ...tripTranslations.en,
+    ...translations[language],
+    ...(tripTranslations[language] || {}),
+  };
 });
 
 const fleetData = {
@@ -2753,8 +2872,12 @@ const vehicleSelect = document.querySelector("#vehicle-type");
 const guestsSelect = document.querySelector("#guests");
 const luggageSelect = document.querySelector("#luggage");
 const capacityNote = document.querySelector("#capacity-note");
-const bookingOptionsRow = document.querySelector(".booking-options-row");
 const travelDate = document.querySelector("#travel-date");
+const tripTypeInputs = document.querySelectorAll('input[name="tripType"]');
+const returnJourneyRow = document.querySelector("#return-journey-row");
+const returnDateInput = document.querySelector("#return-date");
+const returnPickupTimeInput = document.querySelector("#return-pickup-time");
+const returnFlightNumberInput = document.querySelector("#return-flight-number");
 const quoteForm = document.querySelector("#quote-form");
 const paymentErrorMessage = document.querySelector("#payment-error-message");
 const paymentMethodInputs = document.querySelectorAll(
@@ -2767,8 +2890,10 @@ const phoneInput = document.querySelector("#customer-phone");
 const emailInput = document.querySelector("#customer-email");
 const flightNumberInput = document.querySelector("#flight-number");
 const arrivalTimeInput = document.querySelector("#flight-arrival-time");
-const arrivalTimeControl = document.querySelector(".time-field-control");
-const arrivalTimeValue = document.querySelector(".time-picker-value");
+const arrivalTimeControl = arrivalTimeInput?.closest(".time-field-control");
+const arrivalTimeValue = arrivalTimeControl?.querySelector(".time-picker-value");
+const returnTimeControl = returnPickupTimeInput?.closest(".time-field-control");
+const returnTimeValue = returnTimeControl?.querySelector(".time-picker-value");
 
 const setHeaderState = () => {
   header.classList.toggle("scrolled", window.scrollY > 40);
@@ -2802,22 +2927,41 @@ const localToday = new Date(today.getTime() - today.getTimezoneOffset() * 60000)
   .split("T")[0];
 travelDate.min = localToday;
 travelDate.value = localToday;
+returnDateInput.min = localToday;
 
-const openNativeDatePicker = () => {
-  if (typeof travelDate.showPicker !== "function") return;
+const openNativeDatePicker = (input) => {
+  if (typeof input.showPicker !== "function") return;
 
   try {
-    travelDate.showPicker();
+    input.showPicker();
   } catch {
-    travelDate.focus();
+    input.focus();
   }
 };
 
-travelDate.addEventListener("click", openNativeDatePicker);
+travelDate.addEventListener("click", () => openNativeDatePicker(travelDate));
 travelDate.closest(".field-control")?.addEventListener("click", (event) => {
   if (event.target === travelDate) return;
   travelDate.focus();
-  openNativeDatePicker();
+  openNativeDatePicker(travelDate);
+});
+
+returnDateInput.addEventListener("click", () =>
+  openNativeDatePicker(returnDateInput),
+);
+returnDateInput
+  .closest(".field-control")
+  ?.addEventListener("click", (event) => {
+    if (event.target === returnDateInput) return;
+    returnDateInput.focus();
+    openNativeDatePicker(returnDateInput);
+  });
+
+travelDate.addEventListener("change", () => {
+  returnDateInput.min = travelDate.value || localToday;
+  if (returnDateInput.value && returnDateInput.value < returnDateInput.min) {
+    returnDateInput.value = returnDateInput.min;
+  }
 });
 
 const updateFleet = (fleetKey) => {
@@ -2909,12 +3053,10 @@ document.querySelectorAll(".faq-item button").forEach((button) => {
 let currentQuoteData = {};
 
 const priceDisplay = document.querySelector("#booking-price-display");
-
-// Keep the compact booking extras together on wide screens.
-const luggageField = luggageSelect?.closest(".booking-field");
-if (luggageField && bookingOptionsRow) {
-  bookingOptionsRow.prepend(luggageField);
-}
+const getSelectedTripType = () =>
+  document.querySelector('input[name="tripType"]:checked')?.value ||
+  "one_way";
+const isRoundTrip = () => getSelectedTripType() === "round_trip";
 
 // Vehicle order cheapest → largest. Combined capacity: a guest needs a seat,
 // a large bag only needs boot space. So each vehicle has a seat cap (guests)
@@ -2980,14 +3122,22 @@ const updateGuestCapacity = () => {
 
 const updateInlinePrice = (routeKey, vehicleKey = vehicleSelect.value) => {
   const route = routeData[routeKey];
-  const price = route?.prices[vehicleKey];
-  const originalPrice = route?.originalPrices?.[vehicleKey];
+  const journeyCount = isRoundTrip() ? 2 : 1;
+  const routeArrow = isRoundTrip() ? "⇄" : "→";
+  const basePrice = route?.prices[vehicleKey];
+  const baseOriginalPrice = route?.originalPrices?.[vehicleKey];
+  const price = basePrice ? basePrice * journeyCount : 0;
+  const originalPrice = baseOriginalPrice
+    ? baseOriginalPrice * journeyCount
+    : 0;
   currentQuoteData = {
     pickup: pickupSelect.value,
     destination: routeKey,
     vehicle: vehicleKey,
     price: price || 0,
     originalPrice: originalPrice || 0,
+    tripType: getSelectedTripType(),
+    journeyCount,
   };
 
   if (routeKey === "airport" && priceDisplay) {
@@ -3001,7 +3151,7 @@ const updateInlinePrice = (routeKey, vehicleKey = vehicleSelect.value) => {
       translations[language]?.airportReturnPrice ||
       "The price will be confirmed after we check the hotel or pick-up address.";
     priceDisplay.innerHTML = `
-      <span class="price-display-route">${pickupName} → ${airportName}</span>
+      <span class="price-display-route">${pickupName} ${routeArrow} ${airportName}</span>
       <span class="price-display-note">${priceNote}</span>
     `;
     priceDisplay.classList.add("visible");
@@ -3015,13 +3165,17 @@ const updateInlinePrice = (routeKey, vehicleKey = vehicleSelect.value) => {
   }
   const language = document.documentElement.lang;
   const vehicleName = fleetData[vehicleKey]?.name || vehicleKey;
-  const priceNote = translations[language]?.perVehicle || "fixed · per vehicle";
+  const fixedPriceNote =
+    translations[language]?.perVehicle || "fixed · per vehicle";
+  const priceNote = isRoundTrip()
+    ? `${translations[language]?.roundTripPriceNote || tripTranslations.en.roundTripPriceNote} · ${fixedPriceNote}`
+    : fixedPriceNote;
   const originalPriceMarkup =
     Number.isFinite(Number(originalPrice)) && Number(originalPrice) > Number(price)
       ? `<span class="price-display-original">${formatEuroAmount(originalPrice)}</span>`
       : "";
   priceDisplay.innerHTML = `
-    <span class="price-display-route">AYT → ${route.name}</span>
+    <span class="price-display-route">AYT ${routeArrow} ${route.name}</span>
     <span class="price-display-prices">
       ${originalPriceMarkup}
       <strong class="price-display-amount">${formatEuroAmount(price)}</strong>
@@ -3029,6 +3183,39 @@ const updateInlinePrice = (routeKey, vehicleKey = vehicleSelect.value) => {
     <span class="price-display-note">${vehicleName} · ${priceNote}</span>
   `;
   priceDisplay.classList.add("visible");
+};
+
+const updateTripTypeUI = () => {
+  const roundTrip = isRoundTrip();
+  returnJourneyRow.hidden = !roundTrip;
+  returnJourneyRow.setAttribute("aria-hidden", String(!roundTrip));
+  returnDateInput.required = roundTrip;
+  returnPickupTimeInput.required = roundTrip;
+
+  if (roundTrip) {
+    returnDateInput.min = travelDate.value || localToday;
+    if (!returnDateInput.value || returnDateInput.value < returnDateInput.min) {
+      returnDateInput.value = returnDateInput.min;
+    }
+  } else {
+    [returnDateInput, returnPickupTimeInput, returnFlightNumberInput].forEach(
+      (input) => {
+        input.value = "";
+        const field = input.closest(".booking-field");
+        field?.classList.remove("has-error");
+        input.removeAttribute("aria-invalid");
+        input.removeAttribute("aria-describedby");
+        field?.querySelector(".field-error-message")?.remove();
+      },
+    );
+    returnTimeControl.classList.remove("has-value");
+    returnTimeValue.dataset.i18n = "chooseTime";
+    returnTimeValue.textContent =
+      translations[document.documentElement.lang]?.chooseTime ||
+      paymentTranslations.en.chooseTime;
+  }
+
+  if (destinationSelect.value) updateInlinePrice(destinationSelect.value);
 };
 
 const updateDestinationAvailability = () => {
@@ -3069,9 +3256,12 @@ pickupSelect.addEventListener("change", () => {
 destinationSelect.addEventListener("change", () => {
   if (destinationSelect.value) {
     const routeName = routeData[destinationSelect.value]?.name || destinationSelect.value;
-    const price = routeData[destinationSelect.value]?.prices[vehicleSelect.value] || 0;
+    const price =
+      (routeData[destinationSelect.value]?.prices[vehicleSelect.value] || 0) *
+      (isRoundTrip() ? 2 : 1);
 
     gtag("event", "view_item", {
+      trip_type: getSelectedTripType(),
       items: [
         {
           item_id: destinationSelect.value,
@@ -3092,10 +3282,14 @@ vehicleSelect.addEventListener("change", () => {
 
 guestsSelect.addEventListener("change", updateGuestCapacity);
 luggageSelect?.addEventListener("change", updateGuestCapacity);
+tripTypeInputs.forEach((input) =>
+  input.addEventListener("change", updateTripTypeUI),
+);
 
 updateGuestCapacity();
 updatePickupAddress();
 updateDestinationAvailability();
+updateTripTypeUI();
 if (destinationSelect.value) updateInlinePrice(destinationSelect.value);
 
 const getSelectedPaymentMethod = () =>
@@ -3194,6 +3388,15 @@ flightNumberInput.addEventListener("input", () => {
     flightNumberInput.value = sanitized;
 });
 
+returnFlightNumberInput.addEventListener("input", () => {
+  const sanitized = returnFlightNumberInput.value
+    .replace(flightNumberCharacters, "")
+    .toUpperCase();
+  if (returnFlightNumberInput.value !== sanitized) {
+    returnFlightNumberInput.value = sanitized;
+  }
+});
+
 const clearFieldError = (input) => {
   const field = input.closest(".booking-field");
   if (!field) return;
@@ -3226,11 +3429,17 @@ const validateBookingForm = () => {
   flightNumberInput.value = normalizeWhitespace(
     flightNumberInput.value,
   ).toUpperCase();
+  returnFlightNumberInput.value = normalizeWhitespace(
+    returnFlightNumberInput.value,
+  ).toUpperCase();
   hotelNameInput.value = normalizeWhitespace(hotelNameInput.value);
 
   const fields = [
     destinationSelect,
     travelDate,
+    returnDateInput,
+    returnPickupTimeInput,
+    returnFlightNumberInput,
     pickupAddressInput,
     hotelNameInput,
     nameInput,
@@ -3248,6 +3457,31 @@ const validateBookingForm = () => {
     errors.push([travelDate, copy.requiredField]);
   } else if (!isValidTravelDate(travelDate.value)) {
     errors.push([travelDate, copy.dateInvalid]);
+  }
+  if (isRoundTrip()) {
+    if (!returnDateInput.value) {
+      errors.push([
+        returnDateInput,
+        copy.returnDateRequired || tripTranslations.en.returnDateRequired,
+      ]);
+    } else if (
+      !isValidTravelDate(returnDateInput.value) ||
+      returnDateInput.value < travelDate.value
+    ) {
+      errors.push([
+        returnDateInput,
+        copy.returnDateInvalid || tripTranslations.en.returnDateInvalid,
+      ]);
+    }
+    if (!returnPickupTimeInput.value) {
+      errors.push([
+        returnPickupTimeInput,
+        copy.returnTimeRequired || tripTranslations.en.returnTimeRequired,
+      ]);
+    }
+    if (!isValidFlightNumber(returnFlightNumberInput.value)) {
+      errors.push([returnFlightNumberInput, copy.flightInvalid]);
+    }
   }
   if (pickupSelect.value === "private_address") {
     pickupAddressInput.value = normalizeWhitespace(pickupAddressInput.value);
@@ -3304,40 +3538,56 @@ quoteForm.querySelectorAll("input, select").forEach((input) => {
   );
 });
 
-const syncArrivalTimeState = () => {
-  const hasValue = Boolean(arrivalTimeInput.value);
-  arrivalTimeControl.classList.toggle("has-value", hasValue);
+const setupTimePicker = (input, control, valueElement) => {
+  const syncState = () => {
+    const hasValue = Boolean(input.value);
+    control.classList.toggle("has-value", hasValue);
 
-  if (hasValue) {
-    arrivalTimeValue.removeAttribute("data-i18n");
-    arrivalTimeValue.textContent = arrivalTimeInput.value;
-  } else {
-    arrivalTimeValue.dataset.i18n = "chooseTime";
-    arrivalTimeValue.textContent =
-      translations[document.documentElement.lang]?.chooseTime ||
-      paymentTranslations.en.chooseTime;
-  }
+    if (hasValue) {
+      valueElement.removeAttribute("data-i18n");
+      valueElement.textContent = input.value;
+    } else {
+      valueElement.dataset.i18n = "chooseTime";
+      valueElement.textContent =
+        translations[document.documentElement.lang]?.chooseTime ||
+        paymentTranslations.en.chooseTime;
+    }
+  };
+
+  control.addEventListener("click", (event) => {
+    if (event.target === input) return;
+    event.preventDefault();
+    input.focus();
+
+    try {
+      if (typeof input.showPicker === "function") {
+        input.showPicker();
+      } else {
+        input.click();
+      }
+    } catch {
+      input.click();
+    }
+  });
+
+  input.addEventListener("input", syncState);
+  input.addEventListener("change", syncState);
+  syncState();
+  return syncState;
 };
 
-arrivalTimeControl.addEventListener("click", (event) => {
-  if (event.target === arrivalTimeInput) return;
-  event.preventDefault();
-  arrivalTimeInput.focus();
-
-  try {
-    if (typeof arrivalTimeInput.showPicker === "function") {
-      arrivalTimeInput.showPicker();
-    } else {
-      arrivalTimeInput.click();
-    }
-  } catch {
-    arrivalTimeInput.click();
-  }
-});
-
-arrivalTimeInput.addEventListener("input", syncArrivalTimeState);
-arrivalTimeInput.addEventListener("change", syncArrivalTimeState);
+const syncArrivalTimeState = setupTimePicker(
+  arrivalTimeInput,
+  arrivalTimeControl,
+  arrivalTimeValue,
+);
+const syncReturnTimeState = setupTimePicker(
+  returnPickupTimeInput,
+  returnTimeControl,
+  returnTimeValue,
+);
 syncArrivalTimeState();
+syncReturnTimeState();
 
 const setWhatsAppBookingUrl = (details) => {
   const waBtn = document.querySelector("#confirmed-whatsapp");
@@ -3347,6 +3597,7 @@ const setWhatsAppBookingUrl = (details) => {
   if (details.name)      lines.push(`👤 Name: ${details.name}`);
   if (details.phone)     lines.push(`📞 Phone: ${details.phone}`);
   if (details.email)     lines.push(`✉️ Email: ${details.email}`);
+  if (details.tripType)  lines.push(`↔️ Journey: ${details.tripType}`);
   if (details.date)      lines.push(`📅 Date: ${details.date}`);
   if (details.hotel)     lines.push(`🏨 Hotel: ${details.hotel}`);
   if (details.childSeats) lines.push(`👶 Child seats: ${details.childSeats}`);
@@ -3357,6 +3608,9 @@ const setWhatsAppBookingUrl = (details) => {
   if (details.guests)    lines.push(`👥 Guests: ${details.guests}`);
   if (details.flight)    lines.push(`✈️ Flight: ${details.flight}`);
   if (details.arrival)   lines.push(`🕐 Arrival: ${details.arrival}`);
+  if (details.returnDate) lines.push(`📅 Return date: ${details.returnDate}`);
+  if (details.returnPickupTime) lines.push(`🕐 Return pickup: ${details.returnPickupTime}`);
+  if (details.returnFlight) lines.push(`✈️ Return flight: ${details.returnFlight}`);
   if (details.price)     lines.push(`💶 Price: ${formatEuroAmount(details.price)}`);
   if (details.payment)   lines.push(`💳 Payment: ${details.payment}`);
   const msg = encodeURIComponent(lines.join("\n"));
@@ -3386,6 +3640,7 @@ quoteForm.addEventListener("submit", async (event) => {
   gtag("event", "begin_checkout", {
     currency: "EUR",
     value: currentQuoteData.price || 0,
+    trip_type: getSelectedTripType(),
     items: [
       {
         item_id: currentQuoteData.destination,
@@ -3404,6 +3659,7 @@ quoteForm.addEventListener("submit", async (event) => {
   const luggageCount = parseInt(luggageSelect?.value || "0", 10);
   const paymentMethod = getSelectedPaymentMethod();
   const pickupAddress = pickupAddressInput.value.trim();
+  const tripType = getSelectedTripType();
 
   const submitBtn = document.querySelector("#main-book-submit");
   submitBtn.disabled = true;
@@ -3411,12 +3667,16 @@ quoteForm.addEventListener("submit", async (event) => {
   submitBtn.querySelector("span").textContent = "…";
 
   if (!currentQuoteData.destination) {
+    const journeyCount = tripType === "round_trip" ? 2 : 1;
     currentQuoteData = {
       pickup: pickupSelect.value,
       destination: destinationSelect.value,
       vehicle: vehicleSelect.value,
       price:
-        routeData[destinationSelect.value]?.prices[vehicleSelect.value] || 0,
+        (routeData[destinationSelect.value]?.prices[vehicleSelect.value] || 0) *
+        journeyCount,
+      tripType,
+      journeyCount,
     };
   }
 
@@ -3437,6 +3697,14 @@ quoteForm.addEventListener("submit", async (event) => {
         currentQuoteData.pickup === "private_address" ? pickupAddress : null,
       dropoff_location: currentQuoteData.destination || "",
       pickup_date: document.querySelector("#travel-date").value,
+      trip_type: tripType,
+      return_date: tripType === "round_trip" ? returnDateInput.value : null,
+      return_pickup_time:
+        tripType === "round_trip" ? returnPickupTimeInput.value : null,
+      return_flight_number:
+        tripType === "round_trip"
+          ? returnFlightNumberInput.value.trim() || null
+          : null,
       guests: parseInt(document.querySelector("#guests").value, 10),
       vehicle_type: currentQuoteData.vehicle === "sprinter" ? "vclass" : "vito",
       payment_method: paymentMethod,
@@ -3511,6 +3779,7 @@ quoteForm.addEventListener("submit", async (event) => {
       phone,
       email,
       date: document.querySelector("#travel-date").value,
+      tripType: tripType === "round_trip" ? "Round trip" : "One way",
       hotel: hotelName,
       childSeats: childSeatCount,
       luggage: luggageCount,
@@ -3524,16 +3793,26 @@ quoteForm.addEventListener("submit", async (event) => {
       guests: document.querySelector("#guests").value,
       flight: flightNumberInput.value.trim() || null,
       arrival: document.querySelector("#flight-arrival-time").value || null,
+      returnDate: tripType === "round_trip" ? returnDateInput.value : null,
+      returnPickupTime:
+        tripType === "round_trip" ? returnPickupTimeInput.value : null,
+      returnFlight:
+        tripType === "round_trip"
+          ? returnFlightNumberInput.value.trim() || null
+          : null,
       price: currentQuoteData.price || null,
       payment: "Cash in vehicle",
     });
     event.target.reset();
+    travelDate.value = localToday;
     currentQuoteData = {};
     updateGuestCapacity();
     updatePickupAddress();
     updateDestinationAvailability();
+    updateTripTypeUI();
     updatePaymentMethodUI();
     syncArrivalTimeState();
+    syncReturnTimeState();
     if (priceDisplay) priceDisplay.classList.remove("visible");
     openConfirmation();
   } catch (err) {
@@ -3550,6 +3829,7 @@ quoteForm.addEventListener("submit", async (event) => {
     }
     updatePaymentMethodUI();
     syncArrivalTimeState();
+    syncReturnTimeState();
   }
 });
 
