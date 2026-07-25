@@ -4,6 +4,7 @@ import { clearTimelineCache, renderTimeline, stopTimeline } from './timeline.js'
 import { renderDetail } from './booking-detail.js'
 import { renderBookingNew } from './booking-new.js'
 import { renderBudget } from './budget.js'
+import { renderAdminPanel } from './admin-panel.js'
 
 const app = document.getElementById('app')
 
@@ -33,6 +34,11 @@ async function route() {
 
   if (hash === '#budget') {
     renderBudget(app, navigate)
+    return
+  }
+
+  if (hash === '#admin') {
+    renderAdminPanel(app, navigate)
     return
   }
 

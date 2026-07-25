@@ -503,6 +503,7 @@ export async function renderTimeline(container, navigate, selectedTab = 'future'
       <span class="topbar-title">🚗 VIP Yönetim</span>
       <div class="topbar-actions">
         <button class="topbar-new" id="new-btn">+ Yeni Kayıt</button>
+        <button class="topbar-icon" id="admin-btn" aria-label="Yönetici paneli" title="Yönetici paneli">⚙️</button>
         <button class="topbar-logout" id="logout-btn">Çıkış</button>
       </div>
     </div>
@@ -533,6 +534,7 @@ export async function renderTimeline(container, navigate, selectedTab = 'future'
   let hasRenderedData = false
 
   document.getElementById('new-btn').addEventListener('click', () => navigate('#new'))
+  document.getElementById('admin-btn').addEventListener('click', () => navigate('#admin'))
 
   document.getElementById('logout-btn').addEventListener('click', async () => {
     clearTimelineCache()

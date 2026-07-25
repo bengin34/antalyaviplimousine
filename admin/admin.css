@@ -104,6 +104,14 @@ body {
   color: #b9dcff;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
 }
+.topbar-icon {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  line-height: 1;
+  padding: 4px;
+}
 
 /* Stats strip */
 .stats {
