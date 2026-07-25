@@ -32,9 +32,9 @@ export function calculateBudgetMetrics(bookings, period, today) {
     return total + bookingLegDates(booking).filter(date => isInPeriod(date, period, today)).length
   }, 0)
   const completedTrips = bookings.reduce((total, booking) => {
-    if (booking.status !== 'completed') return total
+    if (booking.status === 'cancelled') return total
     return total + bookingLegDates(booking)
-      .filter(date => date <= today && isInPeriod(date, period, today)).length
+      .filter(date => date < today && isInPeriod(date, period, today)).length
   }, 0)
 
   const payment = {

@@ -99,7 +99,7 @@ function metricsHTML(metrics, period, today) {
         <span class="budget-kpi-icon" aria-hidden="true">✓</span>
         <span class="budget-kpi-label">Yapılan sefer</span>
         <strong>${metrics.completedTrips}</strong>
-        <small>Tamamlanan gidiş ve dönüşler</small>
+        <small>Geçmişe düşen gidiş ve dönüşler</small>
       </article>
       <article class="budget-kpi">
         <span class="budget-kpi-icon" aria-hidden="true">●</span>
@@ -132,13 +132,13 @@ function metricsHTML(metrics, period, today) {
     </section>
 
     <p class="budget-footnote">
-      Gelirler rezervasyonun gidiş tarihine göre döneme eklenir. “Tahsil edilen”; ödeme kaydı bulunan veya ödendi, yolda ya da tamamlandı durumundaki rezervasyonları kapsar. Seferlerde gidiş ve dönüş ayrı sayılır.
+      Gelirler rezervasyonun gidiş tarihine göre döneme eklenir. “Tahsil edilen”; ödeme kaydı bulunan veya ödendi, yolda ya da tamamlandı durumundaki rezervasyonları kapsar. “Yapılan sefer”; tarihi geçmişe düşmüş ve iptal edilmemiş gidiş/dönüşleri ayrı ayrı sayar.
     </p>`
 }
 
 export async function renderBudget(container, navigate) {
   const today = todayISO()
-  let selectedPeriod = 'month'
+  let selectedPeriod = 'all'
   let bookings = []
   let refreshInFlight = false
 
@@ -157,9 +157,9 @@ export async function renderBudget(container, navigate) {
     </div>
     <div class="budget-toolbar">
       <div class="budget-periods" role="group" aria-label="Bütçe dönemi">
-        <button class="active" type="button" data-period="month">Bu ay</button>
+        <button type="button" data-period="month">Bu ay</button>
         <button type="button" data-period="year">Bu yıl</button>
-        <button type="button" data-period="all">Tümü</button>
+        <button class="active" type="button" data-period="all">Tümü</button>
       </div>
       <button class="sync-button" id="budget-refresh-btn" type="button" aria-label="Bütçe verilerini yenile">↻</button>
     </div>

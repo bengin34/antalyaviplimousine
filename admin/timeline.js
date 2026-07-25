@@ -8,7 +8,7 @@ import {
 
 const ISTANBUL_TIME_ZONE = 'Europe/Istanbul'
 const AUTO_REFRESH_MS = 60_000
-const TODAY_CACHE_KEY = 'vip-admin-today-cache-v1'
+const TODAY_CACHE_KEY = 'vip-admin-today-cache-v2'
 
 let timelineCleanup = null
 
@@ -48,6 +48,18 @@ function fmtLiveDate(value = new Date()) {
 function transferStartTime(pickupLocation, pickupTime, flightArrivalTime) {
   if (pickupLocation === 'airport') return flightArrivalTime || pickupTime
   return pickupTime
+}
+
+function countFutureReservations(bookings) {
+  return new Set(bookings
+    .filter(booking => {
+      if (booking.status !== 'completed') return true
+      return booking.trip_type === 'round_trip' && isFutureIstanbulLeg(
+        booking.return_date,
+        booking.return_pickup_time,
+      )
+    })
+    .map(booking => booking.id ?? booking.booking_ref)).size
 }
 
 function statusLabel(s, isRoundTrip = false) {
@@ -436,13 +448,13 @@ function updateLiveIndicators() {
   })
 }
 
-function cacheTodayBookings(bookings, today, pendingCount) {
+function cacheTodayBookings(bookings, today, futureReservationCount) {
   try {
     const todayBookings = bookings.filter(booking => booking.pickup_date === today || booking.return_date === today)
     localStorage.setItem(TODAY_CACHE_KEY, JSON.stringify({
       date: today,
       savedAt: new Date().toISOString(),
-      pendingCount,
+      futureReservationCount,
       bookings: todayBookings,
     }))
   } catch {
@@ -497,7 +509,7 @@ export async function renderTimeline(container, navigate, selectedTab = 'future'
       <div class="stats" id="stats-strip">
         <div class="stat stat-bugün"><div class="stat-number" id="stat-bugun">…</div><div class="stat-label">Bugün</div></div>
         <div class="stat stat-yarın"><div class="stat-number" id="stat-yarin">…</div><div class="stat-label">Yarın</div></div>
-        <div class="stat stat-bekleyen"><div class="stat-number" id="stat-bekleyen">…</div><div class="stat-label">Bekleyen Rez.</div></div>
+        <div class="stat stat-gelecek-rez"><div class="stat-number" id="stat-gelecek-rez">…</div><div class="stat-label">Gelecek Rez.</div></div>
       </div>`}
     <div class="timeline-statusbar">
       <div class="live-clock-wrap"><span id="live-date"></span><strong id="live-clock"></strong></div>
@@ -544,7 +556,7 @@ export async function renderTimeline(container, navigate, selectedTab = 'future'
     navigate(`#detail/${encodeURIComponent(card.dataset.ref)}${queryString ? `?${queryString}` : ''}`)
   })
 
-  function renderCards(bookings, { cachedOnly = false, pendingCount = null } = {}) {
+  function renderCards(bookings, { cachedOnly = false, futureReservationCount = null } = {}) {
     const cards = expandRoundTrips(bookings ?? [], selectedTab).filter(card => {
       if (cachedOnly) return card._displayDate === today
       return isPast ? card._displayDate < today : card._displayDate >= today
@@ -554,12 +566,12 @@ export async function renderTimeline(container, navigate, selectedTab = 'future'
       const operationalStatuses = ['pending', 'paid', 'confirmed', 'in_transit']
       const bugun = cards.filter(c => c._displayDate === today && operationalStatuses.includes(c.status)).length
       const yarin = cards.filter(c => c._displayDate === tomorrow && operationalStatuses.includes(c.status)).length
-      const bekleyen = Number.isInteger(pendingCount)
-        ? pendingCount
-        : new Set(bookings.filter(booking => booking.status === 'pending').map(booking => booking.id)).size
+      const gelecekRezervasyon = Number.isInteger(futureReservationCount)
+        ? futureReservationCount
+        : countFutureReservations(bookings)
       document.getElementById('stat-bugun').textContent = bugun
       document.getElementById('stat-yarin').textContent = yarin
-      document.getElementById('stat-bekleyen').textContent = bekleyen
+      document.getElementById('stat-gelecek-rez').textContent = gelecekRezervasyon
     }
 
     const groups = groupByDay(cards, today, tomorrow, selectedTab)
@@ -596,7 +608,9 @@ export async function renderTimeline(container, navigate, selectedTab = 'future'
     if (!cached || isPast) return false
     renderCards(cached.bookings, {
       cachedOnly: true,
-      pendingCount: Number.isInteger(cached.pendingCount) ? cached.pendingCount : null,
+      futureReservationCount: Number.isInteger(cached.futureReservationCount)
+        ? cached.futureReservationCount
+        : null,
     })
     const cachedTime = fmtSyncTime(new Date(cached.savedAt))
     syncStatus.textContent = `Kayıt: ${cachedTime}`
@@ -632,20 +646,9 @@ export async function renderTimeline(container, navigate, selectedTab = 'future'
       ? query.lt('pickup_date', today)
       : query.or(`pickup_date.gte.${today},return_date.gte.${today}`)
 
-    const pendingCountRequest = isPast
-      ? Promise.resolve({ count: null, error: null })
-      : supabase
-          .from('bookings')
-          .select('id', { count: 'exact', head: true })
-          .eq('status', 'pending')
-
-    const [bookingsResult, pendingResult] = await Promise.all([
-      query
-        .order('pickup_date')
-        .order('pickup_time', { nullsFirst: false }),
-      pendingCountRequest,
-    ])
-    const { data, error } = bookingsResult
+    const { data, error } = await query
+      .order('pickup_date')
+      .order('pickup_time', { nullsFirst: false })
 
     refreshInFlight = false
     refreshBtn.disabled = false
@@ -661,9 +664,9 @@ export async function renderTimeline(container, navigate, selectedTab = 'future'
       return
     }
 
-    const pendingCount = pendingResult.error ? null : pendingResult.count
-    renderCards(data ?? [], { pendingCount })
-    if (!isPast) cacheTodayBookings(data ?? [], today, pendingCount)
+    const futureReservationCount = isPast ? null : countFutureReservations(data ?? [])
+    renderCards(data ?? [], { futureReservationCount })
+    if (!isPast) cacheTodayBookings(data ?? [], today, futureReservationCount)
     const updatedAt = fmtSyncTime()
     syncStatus.textContent = `Son güncelleme: ${updatedAt}`
     offlineBanner.hidden = true
