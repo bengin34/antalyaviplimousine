@@ -165,7 +165,7 @@ function metricsHTML(metrics, period, today) {
     </section>
 
     <p class="budget-footnote">
-      Gelirler rezervasyonun gidiş tarihine göre döneme eklenir. “Tahsil edilen”; ödeme kaydı bulunan veya ödendi, yolda ya da tamamlandı durumundaki rezervasyonları kapsar. “Yapılan sefer”; tarihi geçmişe düşmüş ve iptal edilmemiş gidiş/dönüşleri ayrı ayrı sayar.
+      Gelirler rezervasyonun gidiş tarihine göre döneme eklenir. “Tahsil edilen”; gidiş tarihi geçmiş, ödeme kaydı bulunan veya ödendi/yolda/tamamlandı durumundaki rezervasyonları kapsar. “Yapılan sefer”; tarihi geçmişe düşmüş ve iptal edilmemiş gidiş/dönüşleri ayrı ayrı sayar.
     </p>`
 }
 

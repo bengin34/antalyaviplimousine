@@ -8,9 +8,11 @@ function isInPeriod(date, period, today) {
   return date.slice(0, 7) === today.slice(0, 7)
 }
 
-function isCollected(booking) {
+function isCollected(booking, today) {
   if (booking.status === 'cancelled') return false
-  return Boolean(booking.paid_at) || COLLECTED_STATUSES.has(booking.status)
+  return booking.pickup_date < today
+    || Boolean(booking.paid_at)
+    || COLLECTED_STATUSES.has(booking.status)
 }
 
 function bookingLegs(booking) {
@@ -32,8 +34,8 @@ function travelArea(leg) {
 export function calculateBudgetMetrics(bookings, period, today) {
   const periodBookings = bookings.filter(booking => isInPeriod(booking.pickup_date, period, today))
   const activeBookings = periodBookings.filter(booking => booking.status !== 'cancelled')
-  const collectedBookings = activeBookings.filter(isCollected)
-  const expectedBookings = activeBookings.filter(booking => !isCollected(booking)
+  const collectedBookings = activeBookings.filter(booking => isCollected(booking, today))
+  const expectedBookings = activeBookings.filter(booking => !isCollected(booking, today)
     && ['pending', 'confirmed'].includes(booking.status))
 
   const amount = (rows) => rows.reduce((total, booking) => total + (Number(booking.price_eur) || 0), 0)
