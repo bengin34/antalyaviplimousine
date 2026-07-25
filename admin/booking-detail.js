@@ -55,7 +55,7 @@ const STATUS_COLORS = {
   cancelled: 'red',
 }
 
-export async function renderDetail(container, bookingRef, navigate, isReturn = false) {
+export async function renderDetail(container, bookingRef, navigate, isReturn = false, sourceTab = 'future') {
   container.innerHTML = `
     <div class="topbar">
       <button class="detail-back" id="back-btn">← Geri</button>
@@ -64,7 +64,9 @@ export async function renderDetail(container, bookingRef, navigate, isReturn = f
     </div>
     <div class="scroll-area" id="detail-body"><div class="empty"><div>Yükleniyor…</div></div></div>
   `
-  document.getElementById('back-btn').addEventListener('click', () => navigate('#timeline'))
+  document.getElementById('back-btn').addEventListener('click', () => {
+    navigate(sourceTab === 'past' ? '#timeline?tab=past' : '#timeline')
+  })
 
   const { data: rows, error } = await supabase
     .from('bookings')

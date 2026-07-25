@@ -32,7 +32,7 @@ function escapeHTML(value) {
     .replaceAll("'", '&#039;')
 }
 
-function expandRoundTrips(bookings) {
+function expandRoundTrips(bookings, selectedTab) {
   const cards = []
   for (const b of bookings) {
     cards.push({ ...b, _displayDate: b.pickup_date, _displayTime: b.pickup_time, _isReturn: false })
@@ -50,11 +50,17 @@ function expandRoundTrips(bookings) {
     }
   }
   return cards.sort((a, b) => {
-    if (a._displayDate !== b._displayDate) return a._displayDate.localeCompare(b._displayDate)
+    if (a._displayDate !== b._displayDate) {
+      return selectedTab === 'past'
+        ? b._displayDate.localeCompare(a._displayDate)
+        : a._displayDate.localeCompare(b._displayDate)
+    }
     if (!a._displayTime && !b._displayTime) return 0
     if (!a._displayTime) return 1
     if (!b._displayTime) return -1
-    return a._displayTime.localeCompare(b._displayTime)
+    return selectedTab === 'past'
+      ? b._displayTime.localeCompare(a._displayTime)
+      : a._displayTime.localeCompare(b._displayTime)
   })
 }
 
@@ -71,12 +77,14 @@ function turkishDayLabel(isoDate) {
   return label.charAt(0).toLocaleUpperCase('tr-TR') + label.slice(1)
 }
 
-function groupByDay(cards, today, tomorrow) {
-  const groups = new Map([['Bugün', []], ['Yarın', []]])
+function groupByDay(cards, today, tomorrow, selectedTab) {
+  const groups = selectedTab === 'future'
+    ? new Map([['Bugün', []], ['Yarın', []]])
+    : new Map()
   for (const c of cards) {
-    if (c._displayDate === today) {
+    if (selectedTab === 'future' && c._displayDate === today) {
       groups.get('Bugün').push(c)
-    } else if (c._displayDate === tomorrow) {
+    } else if (selectedTab === 'future' && c._displayDate === tomorrow) {
       groups.get('Yarın').push(c)
     } else {
       if (!groups.has(c._displayDate)) groups.set(c._displayDate, [])
@@ -116,9 +124,10 @@ function cardHTML(c) {
     </div>`
 }
 
-export async function renderTimeline(container, navigate) {
+export async function renderTimeline(container, navigate, selectedTab = 'future') {
   const today = todayISO()
   const tomorrow = offsetISO(1)
+  const isPast = selectedTab === 'past'
 
   container.innerHTML = `
     <div class="topbar">
@@ -128,11 +137,16 @@ export async function renderTimeline(container, navigate) {
         <button class="topbar-logout" id="logout-btn">Çıkış</button>
       </div>
     </div>
-    <div class="stats" id="stats-strip">
-      <div class="stat stat-bugün"><div class="stat-number" id="stat-bugun">…</div><div class="stat-label">Bugün</div></div>
-      <div class="stat stat-yarın"><div class="stat-number" id="stat-yarin">…</div><div class="stat-label">Yarın</div></div>
-      <div class="stat stat-aksiyon"><div class="stat-number" id="stat-aksiyon">…</div><div class="stat-label">İşlem</div></div>
+    <div class="timeline-tabs" role="tablist" aria-label="Transfer dönemi">
+      <button class="timeline-tab ${isPast ? '' : 'active'}" type="button" role="tab" aria-selected="${!isPast}" data-tab="future">Gelecek</button>
+      <button class="timeline-tab ${isPast ? 'active' : ''}" type="button" role="tab" aria-selected="${isPast}" data-tab="past">Geçmiş</button>
     </div>
+    ${isPast ? '' : `
+      <div class="stats" id="stats-strip">
+        <div class="stat stat-bugün"><div class="stat-number" id="stat-bugun">…</div><div class="stat-label">Bugün</div></div>
+        <div class="stat stat-yarın"><div class="stat-number" id="stat-yarin">…</div><div class="stat-label">Yarın</div></div>
+        <div class="stat stat-aksiyon"><div class="stat-number" id="stat-aksiyon">…</div><div class="stat-label">İşlem</div></div>
+      </div>`}
     <div class="scroll-area" id="booking-list"></div>
   `
 
@@ -143,13 +157,22 @@ export async function renderTimeline(container, navigate) {
     navigate('#login')
   })
 
-  // Fetch every active booking with at least one leg today or later. This also
-  // catches round trips whose outbound leg passed but whose return leg is ahead.
-  const { data, error } = await supabase
+  document.querySelector('.timeline-tabs').addEventListener('click', (event) => {
+    const tab = event.target.closest('[data-tab]')
+    if (!tab || tab.dataset.tab === selectedTab) return
+    navigate(tab.dataset.tab === 'past' ? '#timeline?tab=past' : '#timeline')
+  })
+
+  let query = supabase
     .from('bookings')
     .select('*, booking_notes(id, note, created_at)')
     .in('status', ['pending', 'paid', 'confirmed', 'in_transit', 'completed'])
-    .or(`pickup_date.gte.${today},return_date.gte.${today}`)
+
+  query = isPast
+    ? query.lt('pickup_date', today)
+    : query.or(`pickup_date.gte.${today},return_date.gte.${today}`)
+
+  const { data, error } = await query
     .order('pickup_date')
     .order('pickup_time', { nullsFirst: false })
 
@@ -158,21 +181,26 @@ export async function renderTimeline(container, navigate) {
     return
   }
 
-  const cards = expandRoundTrips(data ?? []).filter(card => card._displayDate >= today)
-  const operationalStatuses = ['pending', 'paid', 'confirmed', 'in_transit']
-  const bugun = cards.filter(c => c._displayDate === today && operationalStatuses.includes(c.status)).length
-  const yarin = cards.filter(c => c._displayDate === tomorrow && operationalStatuses.includes(c.status)).length
-  const aksiyon = cards.filter(c => c._displayDate === today && ['pending', 'confirmed'].includes(c.status)).length
-  document.getElementById('stat-bugun').textContent = bugun
-  document.getElementById('stat-yarin').textContent = yarin
-  document.getElementById('stat-aksiyon').textContent = aksiyon
+  const cards = expandRoundTrips(data ?? [], selectedTab).filter(card => (
+    isPast ? card._displayDate < today : card._displayDate >= today
+  ))
 
-  const groups = groupByDay(cards, today, tomorrow)
+  if (!isPast) {
+    const operationalStatuses = ['pending', 'paid', 'confirmed', 'in_transit']
+    const bugun = cards.filter(c => c._displayDate === today && operationalStatuses.includes(c.status)).length
+    const yarin = cards.filter(c => c._displayDate === tomorrow && operationalStatuses.includes(c.status)).length
+    const aksiyon = cards.filter(c => c._displayDate === today && ['pending', 'confirmed'].includes(c.status)).length
+    document.getElementById('stat-bugun').textContent = bugun
+    document.getElementById('stat-yarin').textContent = yarin
+    document.getElementById('stat-aksiyon').textContent = aksiyon
+  }
+
+  const groups = groupByDay(cards, today, tomorrow, selectedTab)
   const list = document.getElementById('booking-list')
 
   const hasBookings = [...groups.values()].some(group => group.length > 0)
   if (!hasBookings) {
-    list.innerHTML = `<div class="empty"><div class="empty-icon">📅</div><div>Gelecek transfer yok</div></div>`
+    list.innerHTML = `<div class="empty"><div class="empty-icon">📅</div><div>${isPast ? 'Geçmiş transfer yok' : 'Gelecek transfer yok'}</div></div>`
     return
   }
 
@@ -189,7 +217,10 @@ export async function renderTimeline(container, navigate) {
     if (e.target.closest('a')) return
     const card = e.target.closest('.card')
     if (!card) return
-    const leg = card.dataset.return === 'true' ? '?leg=return' : ''
-    navigate(`#detail/${encodeURIComponent(card.dataset.ref)}${leg}`)
+    const params = new URLSearchParams()
+    if (card.dataset.return === 'true') params.set('leg', 'return')
+    if (isPast) params.set('from', 'past')
+    const queryString = params.toString()
+    navigate(`#detail/${encodeURIComponent(card.dataset.ref)}${queryString ? `?${queryString}` : ''}`)
   })
 }

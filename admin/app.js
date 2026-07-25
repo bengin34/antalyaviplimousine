@@ -33,12 +33,16 @@ async function route() {
     const detailPath = hash.slice('#detail/'.length)
     const [encodedRef, query = ''] = detailPath.split('?')
     const ref = decodeURIComponent(encodedRef)
-    const isReturn = new URLSearchParams(query).get('leg') === 'return'
-    renderDetail(app, ref, navigate, isReturn)
+    const detailParams = new URLSearchParams(query)
+    const isReturn = detailParams.get('leg') === 'return'
+    const sourceTab = detailParams.get('from') === 'past' ? 'past' : 'future'
+    renderDetail(app, ref, navigate, isReturn, sourceTab)
     return
   }
 
-  renderTimeline(app, navigate)
+  const timelineQuery = hash.startsWith('#timeline?') ? hash.slice('#timeline?'.length) : ''
+  const selectedTab = new URLSearchParams(timelineQuery).get('tab') === 'past' ? 'past' : 'future'
+  renderTimeline(app, navigate, selectedTab)
 }
 
 supabase.auth.onAuthStateChange((event) => {

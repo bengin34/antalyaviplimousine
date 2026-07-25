@@ -8,6 +8,7 @@ Mobile-first driver admin panel for Antalya VIP Limousine. Drivers and owner sha
 ## Goals
 
 - Drivers see every upcoming transfer, with Turkish weekday and full date headings
+- Drivers can switch to a separate history tab for past transfer legs
 - Status updates: confirmed → in_transit → completed (cancel from confirmed/in_transit only)
 - Note-taking per booking (append-only)
 - Admin price and hotel-name adjustments for agreements or corrections made outside the site
@@ -101,6 +102,10 @@ Centered form: email + password + "Giriş Yap" button. Inline error on invalid c
 ### Main Screen — Timeline
 
 **Top bar:** "🚗 VIP Yönetim" + logout button
+
+**Tabs:** "Gelecek" shows today and future legs in chronological order. "Geçmiş"
+shows past legs with the most recent date and time first. Opening a detail from
+history and going back preserves the selected history tab.
 
 **Stats strip (counts visible transfer legs):**
 - **Bugün:** operational legs (`pending`, `paid`, `confirmed`, `in_transit`) today
