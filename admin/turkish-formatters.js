@@ -29,6 +29,14 @@ export function locationLabel(value) {
   return readable.charAt(0).toLocaleUpperCase('tr-TR') + readable.slice(1)
 }
 
+export function locationDisplay(value, address) {
+  const normalizedAddress = String(address ?? '').trim().replace(/\s+/g, ' ')
+  if (String(value ?? '').trim().toLocaleLowerCase('tr-TR') === 'private_address' && normalizedAddress) {
+    return normalizedAddress
+  }
+  return locationLabel(value)
+}
+
 export function whatsappURL(phone) {
   let digits = String(phone ?? '').replace(/\D/g, '')
   if (digits.startsWith('00')) digits = digits.slice(2)

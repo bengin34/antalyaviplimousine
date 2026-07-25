@@ -1,8 +1,14 @@
 import { supabase } from './supabase-client.js'
-import { locationLabel, whatsappURL } from './turkish-formatters.js'
+import { locationDisplay, whatsappURL } from './turkish-formatters.js'
 import { VEHICLE_CAPACITY, locationOptionsHTML } from './booking-new.js'
 
 function fmtTime(t) { return t ? t.slice(0, 5) : '—' }
+
+function transferStartTime(pickupLocation, pickupTime, flightArrivalTime) {
+  if (pickupLocation === 'airport') return flightArrivalTime || pickupTime
+  return pickupTime
+}
+
 function fmtDate(d) {
   if (!d) return '—'
   const date = new Date(`${d}T12:00:00Z`)
@@ -257,7 +263,7 @@ function renderDetailBody(b, navigate, bookingRef, isReturn) {
       }
     : {
         date: b.pickup_date,
-        time: b.pickup_time,
+        time: transferStartTime(b.pickup_location, b.pickup_time, b.flight_arrival_time),
         pickupLocation: b.pickup_location,
         dropoffLocation: b.dropoff_location,
         pickupAddress: b.pickup_address,
@@ -269,6 +275,9 @@ function renderDetailBody(b, navigate, bookingRef, isReturn) {
   const sortedNotes = [...(b.booking_notes ?? [])].sort(
     (a, c) => new Date(c.created_at) - new Date(a.created_at)
   )
+  const pickupDisplay = locationDisplay(transfer.pickupLocation, transfer.pickupAddress)
+  const dropoffDisplay = locationDisplay(transfer.dropoffLocation, transfer.dropoffAddress)
+  const showSeparateFlightArrival = transfer.flightArrivalTime && transfer.flightArrivalTime !== transfer.time
 
   body.innerHTML = `
     <div class="section">
@@ -286,8 +295,8 @@ function renderDetailBody(b, navigate, bookingRef, isReturn) {
         <div class="section-label" style="margin-bottom:0">Transfer</div>
         <button class="inline-edit-button" id="booking-edit-btn" type="button">Tümünü düzenle</button>
       </div>
-      <div style="font-size:17px;font-weight:700;margin-bottom:4px">${fmtTime(transfer.time)} &nbsp;${escapeHTML(locationLabel(transfer.pickupLocation))} → ${escapeHTML(locationLabel(transfer.dropoffLocation))}</div>
-      <div style="color:var(--text-muted);font-size:13px">${fmtDate(transfer.date)}${transfer.flightNumber ? ` · ✈️ ${escapeHTML(transfer.flightNumber)}${transfer.flightArrivalTime ? ` varış ${fmtTime(transfer.flightArrivalTime)}` : ''}` : ''}</div>
+      <div style="font-size:17px;font-weight:700;margin-bottom:4px">${fmtTime(transfer.time)} &nbsp;${escapeHTML(pickupDisplay)} → ${escapeHTML(dropoffDisplay)}</div>
+      <div style="color:var(--text-muted);font-size:13px">${fmtDate(transfer.date)}${transfer.flightNumber ? ` · ✈️ ${escapeHTML(transfer.flightNumber)}${showSeparateFlightArrival ? ` varış ${fmtTime(transfer.flightArrivalTime)}` : ''}` : ''}</div>
       ${transfer.pickupAddress ? `<div style="color:var(--text-muted);font-size:13px;margin-top:6px">📍 Alış: ${escapeHTML(transfer.pickupAddress)}</div>` : ''}
       ${transfer.dropoffAddress ? `<div style="color:var(--text-muted);font-size:13px;margin-top:3px">📍 Varış: ${escapeHTML(transfer.dropoffAddress)}</div>` : ''}
       <div class="inline-success" id="booking-edit-success" role="status"></div>

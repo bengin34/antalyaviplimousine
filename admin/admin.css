@@ -141,7 +141,13 @@ body {
   margin-bottom: 6px;
   gap: 8px;
 }
-.card-route { font-weight: 700; font-size: 15px; }
+.card-route {
+  flex: 1;
+  min-width: 0;
+  font-weight: 700;
+  font-size: 15px;
+  overflow-wrap: anywhere;
+}
 .card-badges { display: flex; gap: 4px; flex-shrink: 0; }
 
 /* Badges */

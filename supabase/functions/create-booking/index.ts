@@ -102,11 +102,11 @@ Deno.serve(async (req) => {
 
     const pickupAddress = normalizeWhitespace(payload.pickup_address)
     if (payload.pickup_location === 'private_address' && (pickupAddress.length < 6 || pickupAddress.length > 160)) {
-      return jsonResponse({ error: 'pickup_address is required for a private address' }, 400)
+      return jsonResponse({ error: 'pickup_address must be between 6 and 160 characters' }, 400)
     }
     const dropoffAddress = normalizeWhitespace(payload.dropoff_address)
     if (payload.dropoff_location === 'private_address' && (dropoffAddress.length < 6 || dropoffAddress.length > 160)) {
-      return jsonResponse({ error: 'dropoff_address is required for a private destination' }, 400)
+      return jsonResponse({ error: 'dropoff_address must be between 6 and 160 characters' }, 400)
     }
 
     const pickupLocation = String(payload.pickup_location)

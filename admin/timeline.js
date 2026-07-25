@@ -1,5 +1,5 @@
 import { supabase } from './supabase-client.js'
-import { locationLabel } from './turkish-formatters.js'
+import { locationDisplay } from './turkish-formatters.js'
 
 function todayISO() {
   return new Intl.DateTimeFormat('sv', { timeZone: 'Europe/Istanbul' }).format(new Date())
@@ -11,6 +11,11 @@ function offsetISO(days) {
 }
 
 function fmtTime(t) { return t ? t.slice(0, 5) : '—' }
+
+function transferStartTime(pickupLocation, pickupTime, flightArrivalTime) {
+  if (pickupLocation === 'airport') return flightArrivalTime || pickupTime
+  return pickupTime
+}
 
 function statusLabel(s) {
   return {
@@ -35,7 +40,12 @@ function escapeHTML(value) {
 function expandRoundTrips(bookings, selectedTab) {
   const cards = []
   for (const b of bookings) {
-    cards.push({ ...b, _displayDate: b.pickup_date, _displayTime: b.pickup_time, _isReturn: false })
+    cards.push({
+      ...b,
+      _displayDate: b.pickup_date,
+      _displayTime: transferStartTime(b.pickup_location, b.pickup_time, b.flight_arrival_time),
+      _isReturn: false,
+    })
     if (b.trip_type === 'round_trip' && b.return_date) {
       cards.push({
         ...b,
@@ -97,14 +107,17 @@ function groupByDay(cards, today, tomorrow, selectedTab) {
 }
 
 function cardHTML(c) {
-  const route = `${fmtTime(c._displayTime)} &nbsp;${escapeHTML(locationLabel(c.pickup_location))} → ${escapeHTML(locationLabel(c.dropoff_location))}`
+  const pickupDisplay = locationDisplay(c.pickup_location, c.pickup_address)
+  const dropoffDisplay = locationDisplay(c.dropoff_location, c.dropoff_address)
+  const showSeparateFlightArrival = c.flight_arrival_time && c.flight_arrival_time !== c._displayTime
+  const route = `${fmtTime(c._displayTime)} &nbsp;${escapeHTML(pickupDisplay)} → ${escapeHTML(dropoffDisplay)}`
   const badges = `
     <div class="card-badges">
       <span class="badge badge-${c.status}">${statusLabel(c.status)}</span>
       ${c._isReturn ? '<span class="badge badge-return">Dönüş</span>' : ''}
     </div>`
   const extras = [
-    c.flight_number ? `✈️ ${escapeHTML(c.flight_number)}${c.flight_arrival_time ? ' · ' + fmtTime(c.flight_arrival_time) : ''}` : '',
+    c.flight_number ? `✈️ ${escapeHTML(c.flight_number)}${showSeparateFlightArrival ? ' · ' + fmtTime(c.flight_arrival_time) : ''}` : '',
     c.hotel_name ? `🏨 ${escapeHTML(c.hotel_name)}` : '',
     [
       `👥 ${c.guests} kişi · ${c.vehicle_type === 'vclass' ? 'V-Class' : 'Vito'}`,
@@ -112,8 +125,8 @@ function cardHTML(c) {
       c.child_seat_count > 0 ? `👶 ${c.child_seat_count}` : '',
     ].filter(Boolean).join(' · '),
     `💳 ${c.payment_method === 'cash' ? 'Nakit' : 'Kart'} · €${escapeHTML(c.price_eur)}`,
-    c.pickup_address ? `📍 Alış: ${escapeHTML(c.pickup_address)}` : '',
-    c.dropoff_address ? `📍 Varış: ${escapeHTML(c.dropoff_address)}` : '',
+    c.pickup_address && c.pickup_location !== 'private_address' ? `📍 Alış: ${escapeHTML(c.pickup_address)}` : '',
+    c.dropoff_address && c.dropoff_location !== 'private_address' ? `📍 Varış: ${escapeHTML(c.dropoff_address)}` : '',
   ].filter(Boolean)
 
   return `
