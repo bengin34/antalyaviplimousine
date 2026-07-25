@@ -60,10 +60,6 @@ export function renderBookingNew(container, navigate) {
             <input class="input" type="tel" id="f-phone" placeholder="+90 5xx xxx xx xx" autocomplete="off" required />
           </div>
           <div class="form-field">
-            <label class="form-label" for="f-email">E-posta</label>
-            <input class="input" type="email" id="f-email" maxlength="120" autocomplete="off" />
-          </div>
-          <div class="form-field">
             <label class="form-label" for="f-hotel">Otel / Konaklama</label>
             <input class="input" type="text" id="f-hotel" maxlength="120" autocomplete="off" />
           </div>
@@ -87,10 +83,6 @@ export function renderBookingNew(container, navigate) {
               <label class="form-label" for="f-dropoff">Varış *</label>
               <select class="input" id="f-dropoff">${locationOptionsHTML('belek')}</select>
             </div>
-          </div>
-          <div class="form-field" id="pickup-address-field" hidden>
-            <label class="form-label" for="f-pickup-address">Alış adresi</label>
-            <input class="input" type="text" id="f-pickup-address" maxlength="160" autocomplete="off" />
           </div>
           <div class="form-row">
             <div class="form-field">
@@ -210,12 +202,6 @@ export function renderBookingNew(container, navigate) {
     returnSection.hidden = tripTypeEl.value !== 'round_trip'
   })
 
-  const pickupEl = document.getElementById('f-pickup')
-  const addressField = document.getElementById('pickup-address-field')
-  pickupEl.addEventListener('change', () => {
-    addressField.hidden = pickupEl.value !== 'private_address'
-  })
-
   const vehicleEl = document.getElementById('f-vehicle')
   const guestsEl = document.getElementById('f-guests')
   vehicleEl.addEventListener('change', () => {
@@ -238,12 +224,10 @@ async function submitBooking(navigate) {
 
   const name = normalize(val('f-name'))
   const phone = normalize(val('f-phone'))
-  const email = val('f-email').trim().toLowerCase()
   let hotel = normalize(val('f-hotel'))
   const tripType = val('f-trip-type')
   const pickup = val('f-pickup')
   const dropoff = val('f-dropoff')
-  const pickupAddress = normalize(val('f-pickup-address'))
   const pickupDate = val('f-date')
   const pickupTime = val('f-time')
   const flightNumber = normalize(val('f-flight')).toUpperCase()
@@ -263,13 +247,9 @@ async function submitBooking(navigate) {
   const nameLetters = name.match(/\p{L}/gu)?.length ?? 0
   if (name.length < 2 || nameLetters < 2) return fail('Geçerli bir ad soyad girin.')
   if (phone.replace(/\D/g, '').length < 7) return fail('Geçerli bir telefon numarası girin.')
-  if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) return fail('Geçerli bir e-posta girin.')
   if (!hotel) hotel = 'Belirtilmedi'
   if (hotel.length < 2 || hotel.length > 120) return fail('Otel adı 2-120 karakter olmalı.')
   if (pickup === dropoff) return fail('Alış ve varış aynı olamaz.')
-  if (pickup === 'private_address' && (pickupAddress.length < 6 || pickupAddress.length > 160)) {
-    return fail('Özel adres için geçerli bir alış adresi girin.')
-  }
   if (!/^\d{4}-\d{2}-\d{2}$/.test(pickupDate)) return fail('Geçerli bir tarih seçin.')
   const capacity = VEHICLE_CAPACITY[vehicle] ?? 8
   if (!Number.isInteger(guests) || guests < 1 || guests > capacity) {
@@ -292,13 +272,13 @@ async function submitBooking(navigate) {
   const payload = {
     booking_ref: generateBookingRef(),
     customer_name: name,
-    customer_email: email,
+    customer_email: '',
     customer_phone: phone,
     hotel_name: hotel,
     child_seat_count: childSeats,
     luggage_count: luggage,
     pickup_location: pickup,
-    pickup_address: pickupAddress || null,
+    pickup_address: null,
     dropoff_location: dropoff,
     pickup_date: pickupDate,
     pickup_time: pickupTime || null,

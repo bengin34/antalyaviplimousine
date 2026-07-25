@@ -249,11 +249,11 @@ body {
   cursor: pointer;
   font-size: 12px;
 }
-.hotel-editor { margin-top: 10px; }
-.hotel-editor[hidden] { display: none; }
+.hotel-editor, .inline-editor { margin-top: 10px; }
+.hotel-editor[hidden], .inline-editor[hidden] { display: none; }
 .inline-editor-actions { display: flex; gap: 8px; margin-top: 8px; }
 .inline-editor-button { width: auto; flex: 1; padding: 9px 12px; font-size: 13px; }
-.hotel-success:empty { display: none; }
+.hotel-success:empty, .inline-success:empty { display: none; }
 
 /* Notes */
 .note-item {

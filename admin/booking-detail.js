@@ -130,7 +130,20 @@ function renderDetailBody(b, navigate, bookingRef, isReturn) {
           <span>WhatsApp'tan yaz: ${escapeHTML(b.customer_phone)}</span>
         </a>
       </div>
-      <div style="color:var(--text-muted);font-size:13px">✉️ ${escapeHTML(b.customer_email)}</div>
+      <div class="editable-heading" style="margin-top:8px">
+        <div class="detail-key">✉️ E-posta</div>
+        <button class="inline-edit-button" id="email-edit-btn" type="button">Düzenle</button>
+      </div>
+      <div class="detail-val" id="email-display" style="font-size:13px;color:var(--text-muted)">${b.customer_email ? escapeHTML(b.customer_email) : '—'}</div>
+      <div class="inline-editor" id="email-edit-row" hidden>
+        <input class="input" type="email" id="email-input" maxlength="120" aria-label="E-posta" />
+        <div class="inline-editor-actions">
+          <button class="btn inline-editor-button" id="email-save-btn" type="button">Kaydet</button>
+          <button class="btn-outline inline-editor-button" id="email-cancel-btn" type="button">İptal</button>
+        </div>
+        <div class="inline-error" id="email-error"></div>
+      </div>
+      <div class="inline-success" id="email-success" role="status"></div>
     </div>
 
     <div class="section">
@@ -156,7 +169,22 @@ function renderDetailBody(b, navigate, bookingRef, isReturn) {
           </div>
           <div class="inline-success hotel-success" id="hotel-success" role="status"></div>
         </div>
-        ${b.pickup_address ? `<div class="full"><div class="detail-key">Alış adresi</div><div class="detail-val">📍 ${escapeHTML(b.pickup_address)}</div></div>` : ''}
+        <div class="full">
+          <div class="editable-heading">
+            <div class="detail-key">Alış adresi</div>
+            <button class="inline-edit-button" id="address-edit-btn" type="button">Düzenle</button>
+          </div>
+          <div class="detail-val" id="address-display">${b.pickup_address ? '📍 ' + escapeHTML(b.pickup_address) : '—'}</div>
+          <div class="inline-editor" id="address-edit-row" hidden>
+            <input class="input" type="text" id="address-input" maxlength="160" aria-label="Alış adresi" />
+            <div class="inline-editor-actions">
+              <button class="btn inline-editor-button" id="address-save-btn" type="button">Kaydet</button>
+              <button class="btn-outline inline-editor-button" id="address-cancel-btn" type="button">İptal</button>
+            </div>
+            <div class="inline-error" id="address-error"></div>
+          </div>
+          <div class="inline-success" id="address-success" role="status"></div>
+        </div>
       </div>
     </div>
 
@@ -205,6 +233,101 @@ function renderDetailBody(b, navigate, bookingRef, isReturn) {
   setupNoteInput(b.id)
   setupPriceEditor(b)
   setupHotelEditor(b)
+  setupEmailEditor(b)
+  setupAddressEditor(b)
+}
+
+function setupFieldEditor(booking, config) {
+  const { prefix, column, validate, format, saveError, successMsg } = config
+  const editBtn = document.getElementById(`${prefix}-edit-btn`)
+  const editor = document.getElementById(`${prefix}-edit-row`)
+  const input = document.getElementById(`${prefix}-input`)
+  const saveBtn = document.getElementById(`${prefix}-save-btn`)
+  const cancelBtn = document.getElementById(`${prefix}-cancel-btn`)
+  const errorEl = document.getElementById(`${prefix}-error`)
+  const successEl = document.getElementById(`${prefix}-success`)
+  const display = document.getElementById(`${prefix}-display`)
+
+  if (!editBtn || !editor || !input || !saveBtn || !cancelBtn || !errorEl || !successEl || !display) return
+
+  const closeEditor = () => {
+    editor.hidden = true
+    input.value = String(booking[column] ?? '')
+    errorEl.textContent = ''
+  }
+
+  editBtn.addEventListener('click', () => {
+    successEl.textContent = ''
+    input.value = String(booking[column] ?? '')
+    editor.hidden = false
+    input.focus()
+    input.select()
+  })
+
+  cancelBtn.addEventListener('click', closeEditor)
+
+  saveBtn.addEventListener('click', async () => {
+    const result = validate(input.value)
+    if (!result.ok) {
+      errorEl.textContent = result.error
+      return
+    }
+
+    saveBtn.disabled = true
+    errorEl.textContent = ''
+    successEl.textContent = ''
+
+    const { count, error } = await supabase
+      .from('bookings')
+      .update({ [column]: result.value }, { count: 'exact' })
+      .eq('id', booking.id)
+
+    saveBtn.disabled = false
+
+    if (error || count === 0) {
+      errorEl.textContent = saveError
+      return
+    }
+
+    booking[column] = result.value
+    display.textContent = format(result.value)
+    closeEditor()
+    successEl.textContent = successMsg
+  })
+}
+
+function setupEmailEditor(booking) {
+  setupFieldEditor(booking, {
+    prefix: 'email',
+    column: 'customer_email',
+    validate: (raw) => {
+      const email = raw.trim().toLowerCase()
+      if (email && (email.length > 120 || !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email))) {
+        return { ok: false, error: 'Geçerli bir e-posta girin.' }
+      }
+      return { ok: true, value: email }
+    },
+    format: (value) => (value ? value : '—'),
+    saveError: 'E-posta güncellenemedi, tekrar deneyin.',
+    successMsg: 'E-posta güncellendi.',
+  })
+}
+
+function setupAddressEditor(booking) {
+  setupFieldEditor(booking, {
+    prefix: 'address',
+    column: 'pickup_address',
+    validate: (raw) => {
+      const address = raw.trim().replace(/\s+/g, ' ')
+      if (address && (address.length < 6 || address.length > 160)) {
+        return { ok: false, error: 'Adres 6-160 karakter olmalı.' }
+      }
+      return { ok: true, value: address || null }
+    },
+    format: (value) => (value ? `📍 ${value}` : '—'),
+    saveError: 'Adres güncellenemedi, tekrar deneyin.',
+    successMsg: 'Adres güncellendi.',
+  })
 }
 
 function renderStatusButtons(currentStatus, bookingId, bookingRef) {
