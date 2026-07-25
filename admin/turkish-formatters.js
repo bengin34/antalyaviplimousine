@@ -37,7 +37,7 @@ export function locationDisplay(value, address) {
   return locationLabel(value)
 }
 
-export function navigationDestination(value, address, hotelName = '') {
+export function navigationPoint(value, address, hotelName = '') {
   const normalizedAddress = String(address ?? '').trim().replace(/\s+/g, ' ')
   if (normalizedAddress) return normalizedAddress
 
@@ -53,15 +53,29 @@ export function navigationDestination(value, address, hotelName = '') {
   return `${locationLabel(value)}, Antalya, Türkiye`
 }
 
-export function navigationURLs(value, address, hotelName = '') {
-  const destination = navigationDestination(value, address, hotelName)
+export function navigationURLs({
+  originValue,
+  originAddress,
+  destinationValue,
+  destinationAddress,
+  hotelName = '',
+}) {
+  const originLocation = String(originValue ?? '').trim().toLocaleLowerCase('tr-TR')
+  const destinationLocation = String(destinationValue ?? '').trim().toLocaleLowerCase('tr-TR')
+  const originHotel = originLocation === 'hotel' || destinationLocation === 'airport'
+    ? hotelName
+    : ''
+  const destinationHotel = destinationLocation !== 'airport' ? hotelName : ''
+  const origin = navigationPoint(originValue, originAddress, originHotel)
+  const destination = navigationPoint(destinationValue, destinationAddress, destinationHotel)
+  const encodedOrigin = encodeURIComponent(origin)
   const encodedDestination = encodeURIComponent(destination)
 
   return {
+    origin,
     destination,
-    google: `https://www.google.com/maps/dir/?api=1&destination=${encodedDestination}&travelmode=driving`,
-    apple: `https://maps.apple.com/?daddr=${encodedDestination}&dirflg=d`,
-    yandex: `https://yandex.com.tr/harita/?mode=routes&rtext=~${encodedDestination}&rtt=auto`,
+    google: `https://www.google.com/maps/dir/?api=1&origin=${encodedOrigin}&destination=${encodedDestination}&travelmode=driving`,
+    apple: `https://maps.apple.com/?saddr=${encodedOrigin}&daddr=${encodedDestination}&dirflg=d`,
   }
 }
 

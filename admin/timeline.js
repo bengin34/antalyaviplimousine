@@ -205,12 +205,17 @@ function warningHTML(warning) {
 }
 
 function navigationHTML(card) {
-  const urls = navigationURLs(card.pickup_location, card.pickup_address, card.hotel_name)
+  const urls = navigationURLs({
+    originValue: card.pickup_location,
+    originAddress: card.pickup_address,
+    destinationValue: card.dropoff_location,
+    destinationAddress: card.dropoff_address,
+    hotelName: card.hotel_name,
+  })
   return `
-    <div class="card-navigation" aria-label="Alış noktasına yol tarifi">
+    <div class="card-navigation" aria-label="Transfer rotası için yol tarifi">
       <a href="${escapeHTML(urls.google)}" target="_blank" rel="noopener noreferrer"><span aria-hidden="true">↗</span> Google</a>
       <a href="${escapeHTML(urls.apple)}" target="_blank" rel="noopener noreferrer"><span aria-hidden="true">↗</span> Apple</a>
-      <a href="${escapeHTML(urls.yandex)}" target="_blank" rel="noopener noreferrer"><span aria-hidden="true">↗</span> Yandex</a>
     </div>`
 }
 
@@ -264,7 +269,11 @@ function cardHTML(c) {
   ].filter(Boolean)
 
   return `
-    <div class="card status-${c.status}" data-ref="${escapeHTML(c.booking_ref)}" data-return="${c._isReturn}" data-date="${escapeHTML(c._displayDate)}" data-time="${escapeHTML(c._displayTime ?? '')}" data-status="${escapeHTML(c.status)}">
+    <div class="card status-${c.status}" data-ref="${escapeHTML(c.booking_ref)}" data-return="${c._isReturn}" data-date="${escapeHTML(c._displayDate)}" data-time="${escapeHTML(c._displayTime ?? '')}" data-status="${escapeHTML(c.status)}" data-flight-date="${c.pickup_location === 'airport' && c.flight_arrival_time ? escapeHTML(c._displayDate) : ''}" data-flight-arrival="${c.pickup_location === 'airport' ? escapeHTML(c.flight_arrival_time ?? '') : ''}">
+      <div class="flight-landed-alert" data-flight-landed-alert role="status" hidden>
+        <span class="flight-landed-icon" aria-hidden="true">✈</span>
+        <span><strong>Uçak iniş saati geldi</strong><small data-flight-landed-copy></small></span>
+      </div>
       <div class="card-header">
         <div class="card-time-block">
           <span class="card-time-label">Transfer saati</span>
@@ -286,7 +295,10 @@ function cardHTML(c) {
       ${warnings.length ? `<div class="card-warnings">${warnings.map(warningHTML).join('')}</div>` : ''}
       <div class="card-info-grid">${infoItems.join('')}</div>
       ${navigationHTML(c)}
-      <div class="card-footer"><span>${escapeHTML(c.booking_ref)}</span><span>Detayları aç <span aria-hidden="true">›</span></span></div>
+      <div class="card-footer">
+        <span class="card-reference">${escapeHTML(c.booking_ref)}</span>
+        <button class="card-detail-button" type="button" data-open-detail>Detayları aç <span aria-hidden="true">›</span></button>
+      </div>
     </div>`
 }
 
@@ -308,7 +320,8 @@ function transferWallClock(date, time) {
   if (!date || !time) return null
   const [year, month, day] = date.split('-').map(Number)
   const [hour, minute] = time.slice(0, 5).split(':').map(Number)
-  return Date.UTC(year, month - 1, day, hour, minute)
+  const timestamp = Date.UTC(year, month - 1, day, hour, minute)
+  return Number.isFinite(timestamp) ? timestamp : null
 }
 
 function liveTiming(date, time, status) {
@@ -325,6 +338,27 @@ function liveTiming(date, time, status) {
   return { text: '', className: '' }
 }
 
+function flightLandingAlert(date, time, status) {
+  if (!date || !time || !['pending', 'paid', 'confirmed'].includes(status)) return null
+
+  const arrivalAt = transferWallClock(date, time)
+  if (arrivalAt === null) return null
+  const elapsedMinutes = Math.floor((istanbulWallClock() - arrivalAt) / 60000)
+  if (elapsedMinutes < 0) return null
+
+  const elapsedHours = Math.floor(elapsedMinutes / 60)
+  const remainingMinutes = elapsedMinutes % 60
+  const elapsedText = elapsedMinutes < 1
+    ? 'şimdi'
+    : elapsedMinutes < 60
+      ? `${elapsedMinutes} dk geçti`
+      : remainingMinutes
+        ? `${elapsedHours} sa ${remainingMinutes} dk geçti`
+        : `${elapsedHours} sa geçti`
+
+  return `Planlanan varış ${fmtTime(time)} · ${elapsedText}`
+}
+
 function updateLiveIndicators() {
   const clock = document.getElementById('live-clock')
   const date = document.getElementById('live-date')
@@ -337,6 +371,20 @@ function updateLiveIndicators() {
     const timing = liveTiming(card.dataset.date, card.dataset.time, card.dataset.status)
     element.textContent = timing.text
     element.className = `card-live-time${timing.className ? ` ${timing.className}` : ''}`
+  })
+
+  document.querySelectorAll('[data-flight-landed-alert]').forEach(element => {
+    const card = element.closest('.card')
+    if (!card) return
+    const alertCopy = flightLandingAlert(
+      card.dataset.flightDate,
+      card.dataset.flightArrival,
+      card.dataset.status,
+    )
+    element.hidden = !alertCopy
+    const copy = element.querySelector('[data-flight-landed-copy]')
+    if (copy) copy.textContent = alertCopy ?? ''
+    card.classList.toggle('flight-arrived', Boolean(alertCopy))
   })
 }
 
@@ -431,7 +479,8 @@ export async function renderTimeline(container, navigate, selectedTab = 'future'
   })
 
   list.addEventListener('click', (event) => {
-    if (event.target.closest('a, button, summary')) return
+    const detailButton = event.target.closest('[data-open-detail]')
+    if (event.target.closest('a, summary') || (event.target.closest('button') && !detailButton)) return
     const card = event.target.closest('.card')
     if (!card) return
     const params = new URLSearchParams()
