@@ -37,6 +37,34 @@ export function locationDisplay(value, address) {
   return locationLabel(value)
 }
 
+export function navigationDestination(value, address, hotelName = '') {
+  const normalizedAddress = String(address ?? '').trim().replace(/\s+/g, ' ')
+  if (normalizedAddress) return normalizedAddress
+
+  const normalizedHotel = String(hotelName ?? '').trim().replace(/\s+/g, ' ')
+  const hasHotel = normalizedHotel && normalizedHotel.toLocaleLowerCase('tr-TR') !== 'belirtilmedi'
+  const location = String(value ?? '').trim().toLocaleLowerCase('tr-TR')
+
+  if (location !== 'airport' && hasHotel) {
+    return `${normalizedHotel}, ${locationLabel(value)}, Antalya, Türkiye`
+  }
+
+  if (location === 'airport') return 'Antalya Havalimanı, Antalya, Türkiye'
+  return `${locationLabel(value)}, Antalya, Türkiye`
+}
+
+export function navigationURLs(value, address, hotelName = '') {
+  const destination = navigationDestination(value, address, hotelName)
+  const encodedDestination = encodeURIComponent(destination)
+
+  return {
+    destination,
+    google: `https://www.google.com/maps/dir/?api=1&destination=${encodedDestination}&travelmode=driving`,
+    apple: `https://maps.apple.com/?daddr=${encodedDestination}&dirflg=d`,
+    yandex: `https://yandex.com.tr/harita/?mode=routes&rtext=~${encodedDestination}&rtt=auto`,
+  }
+}
+
 export function whatsappURL(phone) {
   let digits = String(phone ?? '').replace(/\D/g, '')
   if (digits.startsWith('00')) digits = digits.slice(2)

@@ -2254,8 +2254,6 @@ const paymentTranslations = {
     recommended: "Recommended",
     cashPaymentDescription:
       "No prepayment. Pay your driver directly once you are satisfied with the service.",
-    cardPayment: "Pay online by card",
-    cardPaymentDescription: "Continue to iyzico's secure payment page.",
     confirmCashBooking: "Confirm booking — pay in vehicle",
     cashConfirmation:
       "Your booking is confirmed. Pay the fixed total directly to your driver in the vehicle.",
@@ -2292,8 +2290,6 @@ const paymentTranslations = {
     recommended: "Empfohlen",
     cashPaymentDescription:
       "Keine Vorauszahlung. Bezahlen Sie Ihren Fahrer direkt, wenn Sie mit dem Service zufrieden sind.",
-    cardPayment: "Online mit Karte bezahlen",
-    cardPaymentDescription: "Weiter zur sicheren Zahlungsseite von iyzico.",
     confirmCashBooking: "Buchung bestätigen — im Fahrzeug zahlen",
     cashConfirmation:
       "Ihre Buchung ist bestätigt. Zahlen Sie den Festpreis direkt beim Fahrer im Fahrzeug.",
@@ -2329,8 +2325,6 @@ const paymentTranslations = {
     recommended: "Önerilen",
     cashPaymentDescription:
       "Ön ödeme yok. Hizmetten memnun kaldığınızda ödemenizi doğrudan şoförünüze yapın.",
-    cardPayment: "Online kartla öde",
-    cardPaymentDescription: "iyzico güvenli ödeme sayfasına devam edin.",
     confirmCashBooking: "Rezervasyonu onayla — araçta öde",
     cashConfirmation:
       "Rezervasyonunuz onaylandı. Sabit toplam tutarı araçta doğrudan şoförünüze ödeyin.",
@@ -2365,8 +2359,6 @@ const paymentTranslations = {
     recommended: "Рекомендуем",
     cashPaymentDescription:
       "Без предоплаты. Оплатите услугу непосредственно водителю, когда останетесь довольны обслуживанием.",
-    cardPayment: "Оплата картой онлайн",
-    cardPaymentDescription: "Перейдите на защищённую страницу оплаты iyzico.",
     confirmCashBooking: "Подтвердить — оплата в автомобиле",
     cashConfirmation:
       "Бронирование подтверждено. Оплатите фиксированную сумму водителю в автомобиле.",
@@ -2401,8 +2393,6 @@ const paymentTranslations = {
     recommended: "Polecane",
     cashPaymentDescription:
       "Bez przedpłaty. Zapłać bezpośrednio kierowcy, gdy usługa spełni Twoje oczekiwania.",
-    cardPayment: "Zapłać kartą online",
-    cardPaymentDescription: "Przejdź do bezpiecznej strony płatności iyzico.",
     confirmCashBooking: "Potwierdź — zapłać w pojeździe",
     cashConfirmation:
       "Rezerwacja jest potwierdzona. Zapłać kierowcy ustaloną kwotę w pojeździe.",
@@ -2437,9 +2427,6 @@ const paymentTranslations = {
     recommended: "Aanbevolen",
     cashPaymentDescription:
       "Geen vooruitbetaling. Betaal uw chauffeur rechtstreeks zodra u tevreden bent over de service.",
-    cardPayment: "Online met kaart betalen",
-    cardPaymentDescription:
-      "Ga verder naar de beveiligde betaalpagina van iyzico.",
     confirmCashBooking: "Bevestig — betaal in het voertuig",
     cashConfirmation:
       "Uw boeking is bevestigd. Betaal het vaste bedrag rechtstreeks aan de chauffeur.",
@@ -2474,8 +2461,6 @@ const paymentTranslations = {
     recommended: "Рекомендуємо",
     cashPaymentDescription:
       "Без передоплати. Сплатіть безпосередньо водієві, коли будете задоволені послугою.",
-    cardPayment: "Оплата карткою онлайн",
-    cardPaymentDescription: "Перейдіть на захищену сторінку оплати iyzico.",
     confirmCashBooking: "Підтвердити — оплата в автомобілі",
     cashConfirmation:
       "Бронювання підтверджено. Сплатіть фіксовану суму водієві в автомобілі.",
@@ -2510,9 +2495,6 @@ const paymentTranslations = {
     recommended: "Recommandé",
     cashPaymentDescription:
       "Aucun prépaiement. Payez directement votre chauffeur une fois satisfait du service.",
-    cardPayment: "Payer en ligne par carte",
-    cardPaymentDescription:
-      "Continuez vers la page de paiement sécurisée iyzico.",
     confirmCashBooking: "Confirmer — payer dans le véhicule",
     cashConfirmation:
       "Votre réservation est confirmée. Réglez le montant fixe directement au chauffeur.",
@@ -2549,8 +2531,6 @@ const paymentTranslations = {
     recommended: "Rekommenderas",
     cashPaymentDescription:
       "Ingen förskottsbetalning. Betala din chaufför direkt när du är nöjd med tjänsten.",
-    cardPayment: "Betala online med kort",
-    cardPaymentDescription: "Fortsätt till iyzicos säkra betalningssida.",
     confirmCashBooking: "Bekräfta — betala i fordonet",
     cashConfirmation:
       "Din bokning är bekräftad. Betala det fasta beloppet direkt till chauffören.",
@@ -2585,8 +2565,6 @@ const paymentTranslations = {
     recommended: "おすすめ",
     cashPaymentDescription:
       "事前のお支払いは不要です。サービスにご満足いただいてから、ドライバーへ直接お支払いください。",
-    cardPayment: "オンラインでカード決済",
-    cardPaymentDescription: "iyzicoの安全な決済ページへ進みます。",
     confirmCashBooking: "予約確定 — 車内払い",
     cashConfirmation:
       "予約が確定しました。固定料金を車内でドライバーへ直接お支払いください。",
@@ -2621,8 +2599,6 @@ const paymentTranslations = {
     recommended: "추천",
     cashPaymentDescription:
       "선결제는 필요 없습니다. 서비스에 만족하신 후 기사에게 직접 결제하세요.",
-    cardPayment: "온라인 카드 결제",
-    cardPaymentDescription: "iyzico 보안 결제 페이지로 이동합니다.",
     confirmCashBooking: "예약 확정 — 차량에서 결제",
     cashConfirmation:
       "예약이 확정되었습니다. 차량에서 기사에게 고정 요금을 직접 결제하세요.",
@@ -2943,11 +2919,7 @@ const returnPickupTimeInput = document.querySelector("#return-pickup-time");
 const returnFlightNumberInput = document.querySelector("#return-flight-number");
 const quoteForm = document.querySelector("#quote-form");
 const paymentErrorMessage = document.querySelector("#payment-error-message");
-const paymentMethodInputs = document.querySelectorAll(
-  'input[name="paymentMethod"]',
-);
 const confirmationMessage = document.querySelector(".confirmed-msg");
-const submitButtonText = document.querySelector("#main-book-submit span");
 const nameInput = document.querySelector("#customer-name");
 const phoneInput = document.querySelector("#customer-phone");
 const emailInput = document.querySelector("#customer-email");
@@ -3412,26 +3384,6 @@ updateHotelRequirement();
 updateTripTypeUI();
 if (destinationSelect.value) updateInlinePrice(destinationSelect.value);
 
-const getSelectedPaymentMethod = () =>
-  document.querySelector('input[name="paymentMethod"]:checked')?.value ||
-  "cash";
-
-const updatePaymentMethodUI = () => {
-  const isCard = getSelectedPaymentMethod() === "card";
-  const translationKey = isCard ? "paySecurely" : "confirmCashBooking";
-  submitButtonText.dataset.i18n = translationKey;
-  submitButtonText.textContent =
-    translations[document.documentElement.lang]?.[translationKey] ||
-    (isCard
-      ? "Continue to secure payment"
-      : "Confirm booking — pay in vehicle");
-};
-
-paymentMethodInputs.forEach((input) => {
-  input.addEventListener("change", updatePaymentMethodUI);
-});
-updatePaymentMethodUI();
-
 const normalizeWhitespace = (value) => value.trim().replace(/\s+/g, " ");
 const allowedPhoneCharacters = /[^\d+()\s.-]/g;
 const flightNumberCharacters = /[^a-z0-9 -]/gi;
@@ -3803,7 +3755,6 @@ quoteForm.addEventListener("submit", async (event) => {
   const hotelName = hotelNameInput.value.trim();
   const childSeatCount = parseInt(childSeatsSelect.value || "0", 10);
   const luggageCount = parseInt(luggageSelect?.value || "0", 10);
-  const paymentMethod = getSelectedPaymentMethod();
   const pickupAddress = pickupAddressInput.value.trim();
   const tripType = getSelectedTripType();
 
@@ -3827,7 +3778,7 @@ quoteForm.addEventListener("submit", async (event) => {
   }
 
   try {
-    const { createBooking, createIyzicoCheckout } = await import("./lib/api.js");
+    const { createBooking } = await import("./lib/api.js");
     const booking = await createBooking({
       customer_name: name,
       customer_email: email,
@@ -3857,36 +3808,9 @@ quoteForm.addEventListener("submit", async (event) => {
           : null,
       guests: parseInt(document.querySelector("#guests").value, 10),
       vehicle_type: currentQuoteData.vehicle === "sprinter" ? "vclass" : "vito",
-      payment_method: paymentMethod,
+      payment_method: "cash",
       language: document.documentElement.lang || "en",
     });
-
-    if (paymentMethod === "card") {
-      gtag("event", "purchase", {
-        transaction_id: booking.booking_ref,
-        currency: "EUR",
-        value: currentQuoteData.price || 0,
-        payment_type: "card",
-        items: [
-          {
-            item_id: currentQuoteData.destination,
-            item_name: `Transfer to ${currentQuoteData.destination}`,
-            price: currentQuoteData.price || 0,
-            quantity: 1,
-          },
-        ],
-      });
-      gtag("event", "conversion", {
-        send_to: "AW-18248114753/IW8CCL7H38AcEMHEsP1D",
-        transaction_id: booking.booking_ref,
-        value: currentQuoteData.price || 0,
-        currency: "EUR",
-      });
-
-      const checkoutUrl = await createIyzicoCheckout(booking.id);
-      window.location.assign(checkoutUrl);
-      return;
-    }
 
     document.querySelector("#confirmed-ref").textContent = booking.booking_ref;
     const confirmationKey =
@@ -3968,7 +3892,6 @@ quoteForm.addEventListener("submit", async (event) => {
     updateDestinationAvailability();
     updateHotelRequirement();
     updateTripTypeUI();
-    updatePaymentMethodUI();
     syncArrivalTimeState();
     syncReturnTimeState();
     if (priceDisplay) priceDisplay.classList.remove("visible");
@@ -3985,7 +3908,6 @@ quoteForm.addEventListener("submit", async (event) => {
     if (submitBtn.querySelector("span").textContent === "…") {
       submitBtn.querySelector("span").textContent = originalText;
     }
-    updatePaymentMethodUI();
     syncArrivalTimeState();
     syncReturnTimeState();
   }
@@ -4141,8 +4063,6 @@ const applyLanguage = (language) => {
   if (destinationSelect.value && priceDisplay.classList.contains("visible")) {
     updateInlinePrice(destinationSelect.value);
   }
-  updatePaymentMethodUI();
-
   try {
     localStorage.setItem("avl-language", supportedLanguage);
   } catch {}

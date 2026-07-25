@@ -1,5 +1,5 @@
 import { supabase } from './supabase-client.js'
-import { locationDisplay, whatsappURL } from './turkish-formatters.js'
+import { locationDisplay, navigationURLs, whatsappURL } from './turkish-formatters.js'
 import { VEHICLE_CAPACITY, locationOptionsHTML } from './booking-new.js'
 
 function fmtTime(t) { return t ? t.slice(0, 5) : '—' }
@@ -277,6 +277,7 @@ function renderDetailBody(b, navigate, bookingRef, isReturn) {
   )
   const pickupDisplay = locationDisplay(transfer.pickupLocation, transfer.pickupAddress)
   const dropoffDisplay = locationDisplay(transfer.dropoffLocation, transfer.dropoffAddress)
+  const navigation = navigationURLs(transfer.pickupLocation, transfer.pickupAddress, b.hotel_name)
   const showSeparateFlightArrival = transfer.flightArrivalTime && transfer.flightArrivalTime !== transfer.time
 
   body.innerHTML = `
@@ -299,6 +300,12 @@ function renderDetailBody(b, navigate, bookingRef, isReturn) {
       <div style="color:var(--text-muted);font-size:13px">${fmtDate(transfer.date)}${transfer.flightNumber ? ` · ✈️ ${escapeHTML(transfer.flightNumber)}${showSeparateFlightArrival ? ` varış ${fmtTime(transfer.flightArrivalTime)}` : ''}` : ''}</div>
       ${transfer.pickupAddress ? `<div style="color:var(--text-muted);font-size:13px;margin-top:6px">📍 Alış: ${escapeHTML(transfer.pickupAddress)}</div>` : ''}
       ${transfer.dropoffAddress ? `<div style="color:var(--text-muted);font-size:13px;margin-top:3px">📍 Varış: ${escapeHTML(transfer.dropoffAddress)}</div>` : ''}
+      <div class="detail-navigation-label">Alış noktasına yol tarifi</div>
+      <div class="detail-navigation" aria-label="Alış noktasına yol tarifi">
+        <a href="${escapeHTML(navigation.google)}" target="_blank" rel="noopener noreferrer">Google Maps</a>
+        <a href="${escapeHTML(navigation.apple)}" target="_blank" rel="noopener noreferrer">Apple Maps</a>
+        <a href="${escapeHTML(navigation.yandex)}" target="_blank" rel="noopener noreferrer">Yandex</a>
+      </div>
       <div class="inline-success" id="booking-edit-success" role="status"></div>
     </div>
 

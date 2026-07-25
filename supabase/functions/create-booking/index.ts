@@ -185,14 +185,11 @@ Deno.serve(async (req) => {
     if (!['vito', 'vclass'].includes(vehicleType)) {
       return jsonResponse({ error: 'vehicle_type is invalid' }, 400)
     }
-    if (!['cash', 'card'].includes(paymentMethod)) {
+    if (paymentMethod !== 'cash') {
       return jsonResponse({ error: 'payment_method is invalid' }, 400)
     }
     if (dropoffLocation === 'airport' && pickupLocation === 'airport') {
       return jsonResponse({ error: 'pickup and destination cannot both be the airport' }, 400)
-    }
-    if (requiresManualPricing && paymentMethod === 'card') {
-      return jsonResponse({ error: 'price must be confirmed before card payment for this route' }, 400)
     }
     if (!Number.isInteger(guestCount) || guestCount < 1 || guestCount > vehicleCapacity) {
       return jsonResponse({ error: 'guests exceeds the selected vehicle capacity' }, 400)
@@ -262,7 +259,7 @@ Deno.serve(async (req) => {
       guests: guestCount,
       vehicle_type: vehicleType,
       price_eur: priceEur,
-      status: requiresManualPricing ? 'pending' : (paymentMethod === 'cash' ? 'confirmed' : 'pending'),
+      status: requiresManualPricing ? 'pending' : 'confirmed',
       payment_method: paymentMethod,
       language: String(payload.language || 'en'),
     }
@@ -334,7 +331,7 @@ Deno.serve(async (req) => {
                 <tr><td style="padding:6px 12px;color:#777">Return flight</td><td style="padding:6px 12px">${escapeHtml(booking.return_flight_number || 'Not provided')}</td></tr>` : ''}
                 <tr><td style="padding:6px 12px;color:#777">Guests / vehicle</td><td style="padding:6px 12px">${escapeHtml(booking.guests)} / ${escapeHtml(booking.vehicle_type)}</td></tr>
                 <tr><td style="padding:6px 12px;color:#777">Price</td><td style="padding:6px 12px"><strong>${escapeHtml(bookingPriceDisplay)}</strong></td></tr>
-                <tr><td style="padding:6px 12px;color:#777">Payment</td><td style="padding:6px 12px"><strong>${escapeHtml(booking.payment_method === 'cash' ? 'Cash in vehicle' : 'Online card')}</strong></td></tr>
+                <tr><td style="padding:6px 12px;color:#777">Payment</td><td style="padding:6px 12px"><strong>Cash in vehicle</strong></td></tr>
               </table>
             </div>
           `,

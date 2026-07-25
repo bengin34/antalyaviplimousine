@@ -1,6 +1,6 @@
 import { supabase } from './supabase-client.js'
 import { renderLogin } from './login.js'
-import { renderTimeline } from './timeline.js'
+import { clearTimelineCache, renderTimeline, stopTimeline } from './timeline.js'
 import { renderDetail } from './booking-detail.js'
 import { renderBookingNew } from './booking-new.js'
 
@@ -11,6 +11,7 @@ function navigate(hash) {
 }
 
 async function route() {
+  stopTimeline()
   const hash = window.location.hash || '#timeline'
   const { data: { session } } = await supabase.auth.getSession()
 
@@ -47,6 +48,7 @@ async function route() {
 
 supabase.auth.onAuthStateChange((event) => {
   if (event === 'SIGNED_OUT') {
+    clearTimelineCache()
     navigate('#login')
     renderLogin(app, navigate)
   }
@@ -54,3 +56,11 @@ supabase.auth.onAuthStateChange((event) => {
 
 window.addEventListener('hashchange', route)
 route()
+
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/admin/service-worker.js', { scope: '/admin/' }).catch(() => {
+      // Offline support is optional; the online admin panel remains usable.
+    })
+  }, { once: true })
+}
