@@ -280,7 +280,7 @@ function paymentInfoHTML(card) {
   </div>`
 }
 
-function cardHTML(c) {
+function cardHTML(c, { showPastConfirm = false } = {}) {
   const pickupDisplay = locationDisplay(c.pickup_location, c.pickup_address)
   const dropoffDisplay = locationDisplay(c.dropoff_location, c.dropoff_address)
   const showSeparateFlightArrival = c.flight_arrival_time && c.flight_arrival_time !== c._displayTime
@@ -295,6 +295,9 @@ function cardHTML(c) {
   const vehicle = c.vehicle_type === 'vclass' ? 'V-Class' : 'Vito'
   const childSeats = Number(c.child_seat_count) || 0
   const luggage = Number(c.luggage_count) || 0
+  const confirmButton = showPastConfirm && c.status === 'pending'
+    ? `<button class="card-confirm-button" type="button" data-confirm-past="${escapeHTML(c.booking_ref)}"><span aria-hidden="true">✓</span> Onayla</button>`
+    : ''
   const infoItems = [
     `<div class="card-info-item full">
       <span class="card-info-label">Müşteri</span>
@@ -357,7 +360,10 @@ function cardHTML(c) {
       ${navigationHTML(c)}
       <div class="card-footer">
         <span class="card-reference">${escapeHTML(c.booking_ref)}</span>
-        <button class="card-detail-button" type="button" data-open-detail>Detayları aç <span aria-hidden="true">›</span></button>
+        <div class="card-footer-actions${confirmButton ? ' has-confirm' : ''}">
+          ${confirmButton}
+          <button class="card-detail-button" type="button" data-open-detail>Detayları aç <span aria-hidden="true">›</span></button>
+        </div>
       </div>
     </div>`
 }
@@ -544,7 +550,30 @@ export async function renderTimeline(container, navigate, selectedTab = 'future'
     navigate(tab.dataset.adminView === 'past' ? '#timeline?tab=past' : '#timeline')
   })
 
-  list.addEventListener('click', (event) => {
+  list.addEventListener('click', async (event) => {
+    const confirmButton = event.target.closest('[data-confirm-past]')
+    if (confirmButton) {
+      const bookingRef = confirmButton.dataset.confirmPast
+      confirmButton.disabled = true
+      confirmButton.innerHTML = '<span aria-hidden="true">…</span> Onaylanıyor'
+
+      const { count, error } = await supabase
+        .from('bookings')
+        .update({ status: 'confirmed' }, { count: 'exact' })
+        .eq('booking_ref', bookingRef)
+        .eq('status', 'pending')
+
+      if (error || count === 0) {
+        confirmButton.disabled = false
+        confirmButton.classList.add('has-error')
+        confirmButton.textContent = 'Tekrar dene'
+        return
+      }
+
+      await refreshBookings()
+      return
+    }
+
     const detailButton = event.target.closest('[data-open-detail]')
     if (event.target.closest('a, summary') || (event.target.closest('button') && !detailButton)) return
     const card = event.target.closest('.card')
@@ -593,11 +622,12 @@ export async function renderTimeline(container, navigate, selectedTab = 'future'
       const collapseCompleted = !isPast && (key === 'Bugün' || key === today)
       const completed = collapseCompleted ? group.filter(card => card.status === 'completed') : []
       const active = collapseCompleted ? group.filter(card => card.status !== 'completed') : group
+      const renderCard = card => cardHTML(card, { showPastConfirm: isPast })
       const completedHTML = completed.length
-        ? `<details class="completed-group"><summary>Tamamlananlar (${completed.length})</summary><div class="completed-list">${completed.map(cardHTML).join('')}</div></details>`
+        ? `<details class="completed-group"><summary>Tamamlananlar (${completed.length})</summary><div class="completed-list">${completed.map(renderCard).join('')}</div></details>`
         : ''
 
-      list.innerHTML += `<div class="day-group"><div class="day-label">📅 ${dateLabel}</div>${active.map(cardHTML).join('')}${completedHTML}</div>`
+      list.innerHTML += `<div class="day-group"><div class="day-label">📅 ${dateLabel}</div>${active.map(renderCard).join('')}${completedHTML}</div>`
     }
     hasRenderedData = true
     updateLiveIndicators()

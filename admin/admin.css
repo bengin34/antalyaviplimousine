@@ -676,6 +676,8 @@ body {
   gap: 7px;
   margin-top: 12px;
 }
+.card-footer-actions { display: grid; }
+.card-footer-actions.has-confirm { grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); gap: 7px; }
 .card-reference {
   color: #69798e;
   font-size: 10px;
@@ -699,6 +701,23 @@ body {
   cursor: pointer;
 }
 .card-detail-button span { font-size: 19px; line-height: 1; }
+.card-confirm-button {
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  border: 1px solid rgba(88, 214, 141, 0.42);
+  border-radius: 12px;
+  background: linear-gradient(180deg, rgba(88, 214, 141, 0.2), rgba(88, 214, 141, 0.08));
+  color: #9aefbd;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 800;
+  cursor: pointer;
+}
+.card-confirm-button:disabled { cursor: wait; opacity: 0.65; }
+.card-confirm-button.has-error { border-color: rgba(255, 113, 107, 0.5); color: var(--red); }
 
 .completed-group {
   margin: 8px 0 5px;
