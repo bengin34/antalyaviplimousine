@@ -123,7 +123,10 @@ export async function renderTimeline(container, navigate) {
   container.innerHTML = `
     <div class="topbar">
       <span class="topbar-title">🚗 VIP Yönetim</span>
-      <button class="topbar-logout" id="logout-btn">Çıkış</button>
+      <div class="topbar-actions">
+        <button class="topbar-new" id="new-btn">+ Yeni Kayıt</button>
+        <button class="topbar-logout" id="logout-btn">Çıkış</button>
+      </div>
     </div>
     <div class="stats" id="stats-strip">
       <div class="stat stat-bugün"><div class="stat-number" id="stat-bugun">…</div><div class="stat-label">Bugün</div></div>
@@ -132,6 +135,8 @@ export async function renderTimeline(container, navigate) {
     </div>
     <div class="scroll-area" id="booking-list"></div>
   `
+
+  document.getElementById('new-btn').addEventListener('click', () => navigate('#new'))
 
   document.getElementById('logout-btn').addEventListener('click', async () => {
     await supabase.auth.signOut()

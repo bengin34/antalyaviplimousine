@@ -2,6 +2,7 @@ import { supabase } from './supabase-client.js'
 import { renderLogin } from './login.js'
 import { renderTimeline } from './timeline.js'
 import { renderDetail } from './booking-detail.js'
+import { renderBookingNew } from './booking-new.js'
 
 const app = document.getElementById('app')
 
@@ -20,6 +21,11 @@ async function route() {
 
   if (hash === '#login') {
     navigate('#timeline')
+    return
+  }
+
+  if (hash === '#new') {
+    renderBookingNew(app, navigate)
     return
   }
 
