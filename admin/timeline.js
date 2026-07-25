@@ -44,6 +44,8 @@ function expandRoundTrips(bookings, selectedTab) {
         _displayTime: b.return_pickup_time,
         pickup_location: b.dropoff_location,
         dropoff_location: b.pickup_location,
+        pickup_address: b.dropoff_address,
+        dropoff_address: b.pickup_address,
         flight_number: b.return_flight_number,
         flight_arrival_time: null,
       })
@@ -110,7 +112,8 @@ function cardHTML(c) {
       c.child_seat_count > 0 ? `👶 ${c.child_seat_count}` : '',
     ].filter(Boolean).join(' · '),
     `💳 ${c.payment_method === 'cash' ? 'Nakit' : 'Kart'} · €${escapeHTML(c.price_eur)}`,
-    c.pickup_address ? `📍 ${escapeHTML(c.pickup_address)}` : '',
+    c.pickup_address ? `📍 Alış: ${escapeHTML(c.pickup_address)}` : '',
+    c.dropoff_address ? `📍 Varış: ${escapeHTML(c.dropoff_address)}` : '',
   ].filter(Boolean)
 
   return `

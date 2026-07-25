@@ -280,6 +280,20 @@ body {
 .inline-editor-button { width: auto; flex: 1; padding: 9px 12px; font-size: 13px; }
 .hotel-success:empty, .inline-success:empty { display: none; }
 
+/* Full booking editor */
+.booking-edit-section[hidden],
+.booking-edit-section .booking-edit-group[hidden],
+.booking-edit-section .form-row[hidden],
+.booking-edit-section .form-field[hidden] { display: none; }
+.booking-edit-group + .booking-edit-group {
+  border-top: 1px solid var(--border);
+  margin-top: 18px;
+  padding-top: 18px;
+}
+.booking-edit-actions { display: flex; gap: 8px; margin-top: 18px; }
+.booking-edit-actions .btn,
+.booking-edit-actions .btn-outline { flex: 1; }
+
 /* Notes */
 .note-item {
   background: var(--bg);
@@ -364,7 +378,9 @@ body {
 .form-row .form-field { flex: 1; }
 select.input { appearance: none; -webkit-appearance: none; background-image: none; }
 textarea.input { resize: vertical; font-family: inherit; line-height: 1.4; }
-#new-booking-form .section[hidden] { display: none; }
+#new-booking-form .section[hidden],
+#new-booking-form .form-row[hidden],
+#new-booking-form .form-field[hidden] { display: none; }
 
 /* Scroll area */
 .scroll-area { flex: 1; overflow-y: auto; padding-bottom: 24px; }

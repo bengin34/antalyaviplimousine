@@ -723,6 +723,7 @@
                     <option value="fethiye">Fethiye</option>
                     <option value="pamukkale">Pamukkale</option>
                     <option value="kapadokya">Kapadokya</option>
+                    <option value="private_address" data-i18n="privateAddressOption">Частный адрес</option>
                   </select>
                 </div>
               </label>
@@ -884,6 +885,31 @@
                     type="text"
                     id="pickup-address"
                     name="pickupAddress"
+                    autocomplete="street-address"
+                    minlength="6"
+                    maxlength="160"
+                    data-i18n-placeholder="Название отеля, улица, номер дома и район"
+                    placeholder="Hotel name, street, building number and district"
+                  />
+                </div>
+              </label>
+            </div>
+
+            <div
+              class="booking-row booking-address-row"
+              id="dropoff-address-row"
+              hidden
+            >
+              <label class="booking-field">
+                <span data-i18n="dropoffAddress">Полный адрес назначения</span>
+                <div class="field-control">
+                  <svg class="icon" aria-hidden="true">
+                    <use href="#icon-pin"></use>
+                  </svg>
+                  <input
+                    type="text"
+                    id="dropoff-address"
+                    name="dropoffAddress"
                     autocomplete="street-address"
                     minlength="6"
                     maxlength="160"

@@ -71,6 +71,10 @@ const translations = {
     privateAddressOption: "Privatadresse",
     pickupAddress: "Vollständige Abholadresse",
     pickupAddressPlaceholder: "Hotelname, Straße, Hausnummer und Stadtteil",
+    dropoffAddress: "Vollständige Zieladresse",
+    dropoffAddressPlaceholder: "Hotelname, Straße, Hausnummer und Stadtteil",
+    dropoffAddressRequired: "Bitte geben Sie die vollständige Zieladresse ein.",
+    customDestinationPrice: "Der Preis wird nach Prüfung der Zieladresse bestätigt.",
     selectDestination: "Ziel auswählen",
     airportReturnPrice:
       "Der Preis wird nach Prüfung des Hotels oder der Abholadresse bestätigt.",
@@ -304,6 +308,10 @@ const translations = {
     privateAddressOption: "Özel adres",
     pickupAddress: "Tam alış adresi",
     pickupAddressPlaceholder: "Otel adı, cadde, bina numarası ve ilçe",
+    dropoffAddress: "Tam varış adresi",
+    dropoffAddressPlaceholder: "Otel adı, cadde, bina numarası ve ilçe",
+    dropoffAddressRequired: "Lütfen tam varış adresini girin.",
+    customDestinationPrice: "Fiyat, varış adresi kontrol edildikten sonra teyit edilecektir.",
     selectDestination: "Varış noktası seçin",
     airportReturnPrice:
       "Fiyat, otel veya alış adresi kontrol edildikten sonra teyit edilecektir.",
@@ -536,6 +544,10 @@ const translations = {
     privateAddressOption: "Частный адрес",
     pickupAddress: "Полный адрес подачи",
     pickupAddressPlaceholder: "Название отеля, улица, номер дома и район",
+    dropoffAddress: "Полный адрес назначения",
+    dropoffAddressPlaceholder: "Название отеля, улица, номер дома и район",
+    dropoffAddressRequired: "Введите полный адрес назначения.",
+    customDestinationPrice: "Цена будет подтверждена после проверки адреса назначения.",
     selectDestination: "Выберите направление",
     airportReturnPrice:
       "Цена будет подтверждена после проверки отеля или адреса подачи.",
@@ -750,6 +762,8 @@ const translations = {
     privateAddressOption: "Adres prywatny",
     pickupAddress: "Pełny adres odbioru",
     pickupAddressPlaceholder: "Nazwa hotelu, ulica, numer budynku i dzielnica",
+    dropoffAddress: "Pełny adres docelowy",
+    dropoffAddressPlaceholder: "Nazwa hotelu, ulica, numer budynku i dzielnica",
     selectDestination: "Wybierz cel",
     airportReturnPrice:
       "Cena zostanie potwierdzona po sprawdzeniu hotelu lub adresu odbioru.",
@@ -964,6 +978,8 @@ const translations = {
     privateAddressOption: "Privéadres",
     pickupAddress: "Volledig ophaaladres",
     pickupAddressPlaceholder: "Hotelnaam, straat, huisnummer en wijk",
+    dropoffAddress: "Volledig bestemmingsadres",
+    dropoffAddressPlaceholder: "Hotelnaam, straat, huisnummer en wijk",
     selectDestination: "Kies bestemming",
     airportReturnPrice:
       "De prijs wordt bevestigd nadat het hotel of ophaaladres is gecontroleerd.",
@@ -1179,6 +1195,8 @@ const translations = {
     privateAddressOption: "Приватна адреса",
     pickupAddress: "Повна адреса подачі",
     pickupAddressPlaceholder: "Назва готелю, вулиця, номер будинку та район",
+    dropoffAddress: "Повна адреса призначення",
+    dropoffAddressPlaceholder: "Назва готелю, вулиця, номер будинку та район",
     selectDestination: "Оберіть напрямок",
     airportReturnPrice:
       "Ціну буде підтверджено після перевірки готелю або адреси подачі.",
@@ -1394,6 +1412,8 @@ const translations = {
     privateAddressOption: "Adresse privée",
     pickupAddress: "Adresse complète de prise en charge",
     pickupAddressPlaceholder: "Nom de l'hôtel, rue, numéro et quartier",
+    dropoffAddress: "Adresse complète de destination",
+    dropoffAddressPlaceholder: "Nom de l'hôtel, rue, numéro et quartier",
     selectDestination: "Choisir une destination",
     airportReturnPrice:
       "Le prix sera confirmé après vérification de l’hôtel ou de l’adresse de prise en charge.",
@@ -1610,6 +1630,8 @@ const translations = {
     privateAddressOption: "Privat adress",
     pickupAddress: "Fullständig hämtningsadress",
     pickupAddressPlaceholder: "Hotellnamn, gata, husnummer och område",
+    dropoffAddress: "Fullständig destinationsadress",
+    dropoffAddressPlaceholder: "Hotellnamn, gata, husnummer och område",
     selectDestination: "Välj destination",
     airportReturnPrice:
       "Priset bekräftas efter att hotellet eller hämtningsadressen har kontrollerats.",
@@ -1824,6 +1846,8 @@ const translations = {
     privateAddressOption: "個人住所",
     pickupAddress: "お迎え先の詳しい住所",
     pickupAddressPlaceholder: "ホテル名、通り、建物番号、地区",
+    dropoffAddress: "目的地の詳しい住所",
+    dropoffAddressPlaceholder: "ホテル名、通り、建物番号、地区",
     selectDestination: "目的地を選択",
     airportReturnPrice:
       "ホテルまたはお迎え先住所の確認後に料金をご案内します。",
@@ -2037,6 +2061,8 @@ const translations = {
     privateAddressOption: "개인 주소",
     pickupAddress: "전체 픽업 주소",
     pickupAddressPlaceholder: "호텔명, 도로명, 건물 번호 및 지역",
+    dropoffAddress: "전체 목적지 주소",
+    dropoffAddressPlaceholder: "호텔명, 도로명, 건물 번호 및 지역",
     selectDestination: "목적지 선택",
     airportReturnPrice:
       "호텔 또는 픽업 주소를 확인한 후 요금을 안내해 드립니다.",
@@ -2245,6 +2271,11 @@ const paymentTranslations = {
       "Please enter a valid number including the country code (for example +49).",
     flightInvalid: "Please enter a valid flight number.",
     pickupAddressRequired: "Please enter the full pick-up address.",
+    dropoffAddress: "Full drop-off address",
+    dropoffAddressPlaceholder: "Hotel name, street, building number and district",
+    dropoffAddressRequired: "Please enter the full drop-off address.",
+    addressesMustDiffer: "Pick-up and drop-off addresses must be different.",
+    customDestinationPrice: "The price will be confirmed after we check the drop-off address.",
     hotelNameLabel: "Hotel name",
     hotelNamePlaceholder: "Hotel or accommodation name",
     hotelNameRequired: "Please enter the hotel name.",
@@ -2279,6 +2310,9 @@ const paymentTranslations = {
       "Bitte geben Sie eine gültige Nummer mit Ländervorwahl ein (zum Beispiel +49).",
     flightInvalid: "Bitte geben Sie eine gültige Flugnummer ein.",
     pickupAddressRequired: "Bitte geben Sie die vollständige Abholadresse ein.",
+    dropoffAddressRequired: "Bitte geben Sie die vollständige Zieladresse ein.",
+    addressesMustDiffer: "Abhol- und Zieladresse müssen unterschiedlich sein.",
+    customDestinationPrice: "Der Preis wird nach Prüfung der Zieladresse bestätigt.",
     hotelNameLabel: "Hotelname",
     hotelNamePlaceholder: "Hotel- oder Unterkunftsname",
     hotelNameRequired: "Bitte geben Sie den Hotelnamen ein.",
@@ -2312,6 +2346,9 @@ const paymentTranslations = {
       "Lütfen ülke koduyla birlikte geçerli bir numara girin (örneğin +49).",
     flightInvalid: "Lütfen geçerli bir uçuş numarası girin.",
     pickupAddressRequired: "Lütfen tam alış adresini girin.",
+    dropoffAddressRequired: "Lütfen tam varış adresini girin.",
+    addressesMustDiffer: "Alış ve varış adresleri farklı olmalıdır.",
+    customDestinationPrice: "Fiyat, varış adresi kontrol edildikten sonra teyit edilecektir.",
     hotelNameLabel: "Otel ismi",
     hotelNamePlaceholder: "Otel veya konaklama adı",
     hotelNameRequired: "Lütfen otel ismini girin.",
@@ -2345,6 +2382,9 @@ const paymentTranslations = {
       "Введите действительный номер с кодом страны (например, +49).",
     flightInvalid: "Введите действительный номер рейса.",
     pickupAddressRequired: "Введите полный адрес подачи.",
+    dropoffAddressRequired: "Введите полный адрес назначения.",
+    addressesMustDiffer: "Адреса подачи и назначения должны отличаться.",
+    customDestinationPrice: "Цена будет подтверждена после проверки адреса назначения.",
     hotelNameLabel: "Название отеля",
     hotelNamePlaceholder: "Название отеля или места проживания",
     hotelNameRequired: "Введите название отеля.",
@@ -2378,6 +2418,9 @@ const paymentTranslations = {
       "Wprowadź prawidłowy numer z kodem kraju (na przykład +49).",
     flightInvalid: "Wprowadź prawidłowy numer lotu.",
     pickupAddressRequired: "Wprowadź pełny adres odbioru.",
+    dropoffAddressRequired: "Wprowadź pełny adres docelowy.",
+    addressesMustDiffer: "Adres odbioru i adres docelowy muszą być różne.",
+    customDestinationPrice: "Cena zostanie potwierdzona po sprawdzeniu adresu docelowego.",
     hotelNameLabel: "Nazwa hotelu",
     hotelNamePlaceholder: "Nazwa hotelu lub zakwaterowania",
     hotelNameRequired: "Wprowadź nazwę hotelu.",
@@ -2412,6 +2455,9 @@ const paymentTranslations = {
       "Voer een geldig nummer met landcode in (bijvoorbeeld +49).",
     flightInvalid: "Voer een geldig vluchtnummer in.",
     pickupAddressRequired: "Voer het volledige ophaaladres in.",
+    dropoffAddressRequired: "Voer het volledige bestemmingsadres in.",
+    addressesMustDiffer: "Het ophaal- en bestemmingsadres moeten verschillen.",
+    customDestinationPrice: "De prijs wordt bevestigd na controle van het bestemmingsadres.",
     hotelNameLabel: "Hotelnaam",
     hotelNamePlaceholder: "Naam van hotel of accommodatie",
     hotelNameRequired: "Voer de hotelnaam in.",
@@ -2445,6 +2491,9 @@ const paymentTranslations = {
       "Введіть дійсний номер із кодом країни (наприклад, +49).",
     flightInvalid: "Введіть дійсний номер рейсу.",
     pickupAddressRequired: "Введіть повну адресу подачі.",
+    dropoffAddressRequired: "Введіть повну адресу призначення.",
+    addressesMustDiffer: "Адреси подачі та призначення мають відрізнятися.",
+    customDestinationPrice: "Ціна буде підтверджена після перевірки адреси призначення.",
     hotelNameLabel: "Назва готелю",
     hotelNamePlaceholder: "Назва готелю або місця проживання",
     hotelNameRequired: "Введіть назву готелю.",
@@ -2481,6 +2530,9 @@ const paymentTranslations = {
     flightInvalid: "Veuillez saisir un numéro de vol valide.",
     pickupAddressRequired:
       "Veuillez saisir l'adresse complète de prise en charge.",
+    dropoffAddressRequired: "Veuillez saisir l'adresse complète de destination.",
+    addressesMustDiffer: "Les adresses de prise en charge et de destination doivent être différentes.",
+    customDestinationPrice: "Le prix sera confirmé après vérification de l'adresse de destination.",
     hotelNameLabel: "Nom de l'hôtel",
     hotelNamePlaceholder: "Nom de l'hôtel ou de l'hébergement",
     hotelNameRequired: "Veuillez saisir le nom de l'hôtel.",
@@ -2514,6 +2566,9 @@ const paymentTranslations = {
       "Ange ett giltigt nummer med landskod (till exempel +49).",
     flightInvalid: "Ange ett giltigt flightnummer.",
     pickupAddressRequired: "Ange den fullständiga hämtningsadressen.",
+    dropoffAddressRequired: "Ange den fullständiga destinationsadressen.",
+    addressesMustDiffer: "Hämtnings- och destinationsadressen måste vara olika.",
+    customDestinationPrice: "Priset bekräftas efter att destinationsadressen kontrollerats.",
     hotelNameLabel: "Hotellnamn",
     hotelNamePlaceholder: "Hotell- eller boendenamn",
     hotelNameRequired: "Ange hotellnamnet.",
@@ -2547,6 +2602,9 @@ const paymentTranslations = {
       "国番号を含む有効な電話番号を入力してください（例：+49）。",
     flightInvalid: "有効なフライト番号を入力してください。",
     pickupAddressRequired: "お迎え先の詳しい住所を入力してください。",
+    dropoffAddressRequired: "目的地の詳しい住所を入力してください。",
+    addressesMustDiffer: "お迎え先と目的地には異なる住所を入力してください。",
+    customDestinationPrice: "目的地の住所を確認後、料金をご案内いたします。",
     hotelNameLabel: "ホテル名",
     hotelNamePlaceholder: "ホテルまたは宿泊施設名",
     hotelNameRequired: "ホテル名を入力してください。",
@@ -2580,6 +2638,9 @@ const paymentTranslations = {
       "국가 코드를 포함한 올바른 번호를 입력해 주세요(예: +49).",
     flightInvalid: "올바른 항공편 번호를 입력해 주세요.",
     pickupAddressRequired: "전체 픽업 주소를 입력해 주세요.",
+    dropoffAddressRequired: "전체 목적지 주소를 입력해 주세요.",
+    addressesMustDiffer: "픽업 주소와 목적지 주소는 달라야 합니다.",
+    customDestinationPrice: "목적지 주소 확인 후 가격이 확정됩니다.",
     hotelNameLabel: "호텔명",
     hotelNamePlaceholder: "호텔 또는 숙소 이름",
     hotelNameRequired: "호텔명을 입력해 주세요.",
@@ -2862,6 +2923,8 @@ const quoteModal = document.querySelector("#quote-modal");
 const pickupSelect = document.querySelector("#pickup");
 const pickupAddressRow = document.querySelector("#pickup-address-row");
 const pickupAddressInput = document.querySelector("#pickup-address");
+const dropoffAddressRow = document.querySelector("#dropoff-address-row");
+const dropoffAddressInput = document.querySelector("#dropoff-address");
 const hotelNameInput = document.querySelector("#hotel-name");
 const childSeatsSelect = document.querySelector("#child-seats");
 const destinationSelect = document.querySelector("#destination");
@@ -3158,6 +3221,25 @@ const updateInlinePrice = (routeKey, vehicleKey = vehicleSelect.value) => {
     return;
   }
 
+  if (routeKey === "private_address" && priceDisplay) {
+    const language = document.documentElement.lang;
+    const pickupName =
+      pickupSelect.options[pickupSelect.selectedIndex]?.textContent.trim() ||
+      pickupSelect.value;
+    const destLabel =
+      destinationSelect.options[destinationSelect.selectedIndex]?.textContent.trim() ||
+      "Private address";
+    const priceNote =
+      translations[language]?.customDestinationPrice ||
+      "The price will be confirmed after we check the drop-off address.";
+    priceDisplay.innerHTML = `
+      <span class="price-display-route">${pickupName} ${routeArrow} ${destLabel}</span>
+      <span class="price-display-note">${priceNote}</span>
+    `;
+    priceDisplay.classList.add("visible");
+    return;
+  }
+
   if (!route || !price || !priceDisplay) {
     priceDisplay?.classList.remove("visible");
     if (priceDisplay) priceDisplay.innerHTML = "";
@@ -3247,13 +3329,49 @@ const updatePickupAddress = () => {
   }
 };
 
+const updateDropoffAddress = () => {
+  const needsAddress = destinationSelect.value === "private_address";
+  if (dropoffAddressRow) {
+    dropoffAddressRow.hidden = !needsAddress;
+    dropoffAddressInput.required = needsAddress;
+    dropoffAddressInput.setAttribute("aria-required", String(needsAddress));
+    if (!needsAddress) {
+      dropoffAddressInput.value = "";
+      const addressField = dropoffAddressInput.closest(".booking-field");
+      addressField?.classList.remove("has-error");
+      dropoffAddressInput.removeAttribute("aria-invalid");
+      dropoffAddressInput.removeAttribute("aria-describedby");
+      addressField?.querySelector(".field-error-message")?.remove();
+    }
+  }
+};
+
+const updateHotelRequirement = () => {
+  const needsHotel =
+    pickupSelect.value === "hotel" ||
+    destinationSelect.value !== "private_address";
+  hotelNameInput.required = needsHotel;
+  hotelNameInput.setAttribute("aria-required", String(needsHotel));
+
+  if (!needsHotel) {
+    const hotelField = hotelNameInput.closest(".booking-field");
+    hotelField?.classList.remove("has-error");
+    hotelNameInput.removeAttribute("aria-invalid");
+    hotelNameInput.removeAttribute("aria-describedby");
+    hotelField?.querySelector(".field-error-message")?.remove();
+  }
+};
+
 pickupSelect.addEventListener("change", () => {
   updatePickupAddress();
   updateDestinationAvailability();
+  updateHotelRequirement();
   if (destinationSelect.value) updateInlinePrice(destinationSelect.value);
 });
 
 destinationSelect.addEventListener("change", () => {
+  updateDropoffAddress();
+  updateHotelRequirement();
   if (destinationSelect.value) {
     const routeName = routeData[destinationSelect.value]?.name || destinationSelect.value;
     const price =
@@ -3288,7 +3406,9 @@ tripTypeInputs.forEach((input) =>
 
 updateGuestCapacity();
 updatePickupAddress();
+updateDropoffAddress();
 updateDestinationAvailability();
+updateHotelRequirement();
 updateTripTypeUI();
 if (destinationSelect.value) updateInlinePrice(destinationSelect.value);
 
@@ -3441,6 +3561,7 @@ const validateBookingForm = () => {
     returnPickupTimeInput,
     returnFlightNumberInput,
     pickupAddressInput,
+    dropoffAddressInput,
     hotelNameInput,
     nameInput,
     phoneInput,
@@ -3492,9 +3613,34 @@ const validateBookingForm = () => {
       errors.push([pickupAddressInput, copy.pickupAddressRequired]);
     }
   }
-  if (!hotelNameInput.value.trim()) {
+  if (destinationSelect.value === "private_address" && dropoffAddressInput) {
+    dropoffAddressInput.value = normalizeWhitespace(dropoffAddressInput.value);
+    if (
+      dropoffAddressInput.value.length < 6 ||
+      dropoffAddressInput.value.length > 160
+    ) {
+      errors.push([dropoffAddressInput, copy.dropoffAddressRequired]);
+    }
+  }
+  if (
+    pickupSelect.value === "private_address" &&
+    destinationSelect.value === "private_address" &&
+    pickupAddressInput.value.length >= 6 &&
+    dropoffAddressInput.value.length >= 6 &&
+    pickupAddressInput.value.toLocaleLowerCase() ===
+      dropoffAddressInput.value.toLocaleLowerCase()
+  ) {
+    errors.push([
+      dropoffAddressInput,
+      copy.addressesMustDiffer || paymentTranslations.en.addressesMustDiffer,
+    ]);
+  }
+  const hotelRequired =
+    pickupSelect.value === "hotel" ||
+    destinationSelect.value !== "private_address";
+  if (hotelRequired && !hotelNameInput.value.trim()) {
     errors.push([hotelNameInput, copy.requiredField]);
-  } else if (!isValidHotelName(hotelNameInput.value)) {
+  } else if (hotelNameInput.value && !isValidHotelName(hotelNameInput.value)) {
     errors.push([hotelNameInput, copy.hotelNameRequired]);
   }
   if (!nameInput.value.trim()) {
@@ -3695,6 +3841,10 @@ quoteForm.addEventListener("submit", async (event) => {
       pickup_location: currentQuoteData.pickup || "airport",
       pickup_address:
         currentQuoteData.pickup === "private_address" ? pickupAddress : null,
+      dropoff_address:
+        currentQuoteData.destination === "private_address"
+          ? dropoffAddressInput?.value.trim() || null
+          : null,
       dropoff_location: currentQuoteData.destination || "",
       pickup_date: document.querySelector("#travel-date").value,
       trip_type: tripType,
@@ -3742,13 +3892,17 @@ quoteForm.addEventListener("submit", async (event) => {
     const confirmationKey =
       currentQuoteData.destination === "airport"
         ? "airportReturnPrice"
-        : "cashConfirmation";
+        : currentQuoteData.destination === "private_address"
+          ? "customDestinationPrice"
+          : "cashConfirmation";
     confirmationMessage.dataset.i18n = confirmationKey;
     confirmationMessage.textContent =
       translations[document.documentElement.lang]?.[confirmationKey] ||
       (confirmationKey === "airportReturnPrice"
         ? "The price will be confirmed after we check the hotel or pick-up address."
-        : paymentTranslations.en.cashConfirmation);
+        : confirmationKey === "customDestinationPrice"
+          ? paymentTranslations.en.customDestinationPrice
+          : paymentTranslations.en.cashConfirmation);
 
     if (currentQuoteData.price > 0) {
       gtag("event", "purchase", {
@@ -3788,7 +3942,9 @@ quoteForm.addEventListener("submit", async (event) => {
         : (currentQuoteData.pickup === "airport" ? "Antalya Airport" : hotelName),
       dropoff: currentQuoteData.destination === "airport"
         ? "Antalya Airport"
-        : (routeData[currentQuoteData.destination]?.name || currentQuoteData.destination),
+        : currentQuoteData.destination === "private_address"
+          ? dropoffAddressInput.value.trim()
+          : (routeData[currentQuoteData.destination]?.name || currentQuoteData.destination),
       vehicle: currentQuoteData.vehicle === "sprinter" ? "V-Class (Sprinter)" : "Mercedes Vito",
       guests: document.querySelector("#guests").value,
       flight: flightNumberInput.value.trim() || null,
@@ -3808,7 +3964,9 @@ quoteForm.addEventListener("submit", async (event) => {
     currentQuoteData = {};
     updateGuestCapacity();
     updatePickupAddress();
+    updateDropoffAddress();
     updateDestinationAvailability();
+    updateHotelRequirement();
     updateTripTypeUI();
     updatePaymentMethodUI();
     syncArrivalTimeState();
@@ -3839,6 +3997,8 @@ document.querySelectorAll(".route-price-button").forEach((button) => {
       button.dataset.vehicle || vehicleSelect.value || "vito";
     destinationSelect.value = button.dataset.route;
     vehicleSelect.value = selectedVehicle;
+    updateDropoffAddress();
+    updateHotelRequirement();
     updateGuestCapacity();
     updateInlinePrice(button.dataset.route, selectedVehicle);
     document.querySelector("#booking").scrollIntoView({ behavior: "smooth" });
@@ -3888,6 +4048,8 @@ updateRouteSliderControls();
 document.querySelectorAll(".price-pill").forEach((pill) => {
   pill.addEventListener("click", () => {
     destinationSelect.value = pill.dataset.route;
+    updateDropoffAddress();
+    updateHotelRequirement();
     updateInlinePrice(pill.dataset.route);
     document.querySelector("#booking").scrollIntoView({ behavior: "smooth" });
     setTimeout(() => document.querySelector("#customer-name").focus(), 600);

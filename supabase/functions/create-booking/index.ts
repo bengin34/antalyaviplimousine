@@ -24,7 +24,6 @@ const requiredFields = [
   'customer_name',
   'customer_email',
   'customer_phone',
-  'hotel_name',
   'pickup_location',
   'dropoff_location',
   'pickup_date',
@@ -105,17 +104,33 @@ Deno.serve(async (req) => {
     if (payload.pickup_location === 'private_address' && (pickupAddress.length < 6 || pickupAddress.length > 160)) {
       return jsonResponse({ error: 'pickup_address is required for a private address' }, 400)
     }
+    const dropoffAddress = normalizeWhitespace(payload.dropoff_address)
+    if (payload.dropoff_location === 'private_address' && (dropoffAddress.length < 6 || dropoffAddress.length > 160)) {
+      return jsonResponse({ error: 'dropoff_address is required for a private destination' }, 400)
+    }
+
+    const pickupLocation = String(payload.pickup_location)
+    const dropoffLocation = String(payload.dropoff_location)
+    if (
+      pickupLocation === 'private_address' &&
+      dropoffLocation === 'private_address' &&
+      pickupAddress.toLocaleLowerCase() === dropoffAddress.toLocaleLowerCase()
+    ) {
+      return jsonResponse({ error: 'pickup and drop-off addresses must be different' }, 400)
+    }
 
     const customerEmail = String(payload.customer_email).trim().toLowerCase()
     const customerName = normalizeWhitespace(payload.customer_name)
     const customerPhone = normalizeWhitespace(payload.customer_phone)
-    const hotelName = normalizeWhitespace(payload.hotel_name)
+    const rawHotelName = normalizeWhitespace(payload.hotel_name)
+    const requiresHotelName = pickupLocation === 'hotel' || dropoffLocation !== 'private_address'
+    const hotelName = rawHotelName || 'Not specified'
     const notes = normalizeWhitespace(payload.notes)
-    const pickupLocation = String(payload.pickup_location)
-    const dropoffLocation = String(payload.dropoff_location)
     const isAirportReturn =
       dropoffLocation === 'airport' &&
       ['hotel', 'private_address'].includes(pickupLocation)
+    const isPrivateDestination = dropoffLocation === 'private_address'
+    const requiresManualPricing = isAirportReturn || isPrivateDestination
     const pickupDate = String(payload.pickup_date)
     const tripType = String(payload.trip_type || 'one_way')
     const isRoundTrip = tripType === 'round_trip'
@@ -152,7 +167,7 @@ Deno.serve(async (req) => {
     if (!isValidPhone(customerPhone)) {
       return jsonResponse({ error: 'customer_phone is invalid' }, 400)
     }
-    if (!isValidHotelName(hotelName)) {
+    if ((requiresHotelName || rawHotelName) && !isValidHotelName(rawHotelName)) {
       return jsonResponse({ error: 'hotel_name is invalid' }, 400)
     }
     if (!isValidFlightNumber(payload.flight_number)) {
@@ -176,8 +191,8 @@ Deno.serve(async (req) => {
     if (dropoffLocation === 'airport' && pickupLocation === 'airport') {
       return jsonResponse({ error: 'pickup and destination cannot both be the airport' }, 400)
     }
-    if (isAirportReturn && paymentMethod === 'card') {
-      return jsonResponse({ error: 'airport return prices must be confirmed before card payment' }, 400)
+    if (requiresManualPricing && paymentMethod === 'card') {
+      return jsonResponse({ error: 'price must be confirmed before card payment for this route' }, 400)
     }
     if (!Number.isInteger(guestCount) || guestCount < 1 || guestCount > vehicleCapacity) {
       return jsonResponse({ error: 'guests exceeds the selected vehicle capacity' }, 400)
@@ -209,7 +224,7 @@ Deno.serve(async (req) => {
     )
 
     let priceEur = 0
-    if (!isAirportReturn) {
+    if (!requiresManualPricing) {
       const { data: route, error: routeError } = await supabase
         .from('routes')
         .select('price_eur')
@@ -237,6 +252,7 @@ Deno.serve(async (req) => {
       notes: notes || null,
       pickup_location: pickupLocation,
       pickup_address: pickupAddress || null,
+      dropoff_address: dropoffAddress || null,
       dropoff_location: dropoffLocation,
       pickup_date: pickupDate,
       trip_type: tripType,
@@ -246,7 +262,7 @@ Deno.serve(async (req) => {
       guests: guestCount,
       vehicle_type: vehicleType,
       price_eur: priceEur,
-      status: isAirportReturn ? 'pending' : (paymentMethod === 'cash' ? 'confirmed' : 'pending'),
+      status: requiresManualPricing ? 'pending' : (paymentMethod === 'cash' ? 'confirmed' : 'pending'),
       payment_method: paymentMethod,
       language: String(payload.language || 'en'),
     }
@@ -270,9 +286,12 @@ Deno.serve(async (req) => {
         ? `Hotel: ${booking.hotel_name}`
         : 'Antalya Airport (AYT)'
     )
-    const bookingPriceDisplay = isAirportReturn
-      ? 'To be confirmed after checking the hotel or pick-up address'
-      : `EUR ${booking.price_eur}`
+    const dropoffAddressDisplay = booking.dropoff_address || booking.dropoff_location
+    const bookingPriceDisplay = isPrivateDestination
+      ? 'To be confirmed after checking the drop-off address'
+      : isAirportReturn
+        ? 'To be confirmed after checking the hotel or pick-up address'
+        : `EUR ${booking.price_eur}`
 
     const resendApiKey = Deno.env.get('RESEND_API_KEY')
     const notificationEmail = Deno.env.get('BOOKING_NOTIFICATION_EMAIL')
@@ -307,6 +326,7 @@ Deno.serve(async (req) => {
                 <tr><td style="padding:6px 12px;color:#777">Pick-up type</td><td style="padding:6px 12px">${escapeHtml(pickupLabel)}</td></tr>
                 <tr><td style="padding:6px 12px;color:#777">Pick-up address</td><td style="padding:6px 12px"><strong>${escapeHtml(pickupAddressDisplay)}</strong></td></tr>
                 <tr><td style="padding:6px 12px;color:#777">Destination</td><td style="padding:6px 12px">${escapeHtml(booking.dropoff_location)}</td></tr>
+                ${booking.dropoff_address ? `<tr><td style="padding:6px 12px;color:#777">Drop-off address</td><td style="padding:6px 12px"><strong>${escapeHtml(dropoffAddressDisplay)}</strong></td></tr>` : ''}
                 <tr><td style="padding:6px 12px;color:#777">Journey type</td><td style="padding:6px 12px"><strong>${escapeHtml(isRoundTrip ? 'Round trip' : 'One way')}</strong></td></tr>
                 <tr><td style="padding:6px 12px;color:#777">Date / arrival</td><td style="padding:6px 12px">${escapeHtml(booking.pickup_date)} ${escapeHtml(booking.flight_arrival_time || '')}</td></tr>
                 <tr><td style="padding:6px 12px;color:#777">Flight</td><td style="padding:6px 12px">${escapeHtml(booking.flight_number || 'Not provided')}</td></tr>

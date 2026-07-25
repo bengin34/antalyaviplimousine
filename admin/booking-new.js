@@ -1,6 +1,6 @@
 import { supabase } from './supabase-client.js'
 
-const LOCATION_OPTIONS = [
+export const LOCATION_OPTIONS = [
   { value: 'airport', label: 'Antalya Havalimanı' },
   { value: 'hotel', label: 'Otel' },
   { value: 'private_address', label: 'Özel adres' },
@@ -20,7 +20,7 @@ const LOCATION_OPTIONS = [
   { value: 'kapadokya', label: 'Kapadokya' },
 ]
 
-const VEHICLE_CAPACITY = { vclass: 13, vito: 8 }
+export const VEHICLE_CAPACITY = { vclass: 13, vito: 8 }
 
 function todayISO() {
   return new Intl.DateTimeFormat('sv', { timeZone: 'Europe/Istanbul' }).format(new Date())
@@ -32,7 +32,7 @@ function generateBookingRef() {
   return `AVL-${year}-${random}`
 }
 
-function locationOptionsHTML(selected) {
+export function locationOptionsHTML(selected) {
   return LOCATION_OPTIONS.map(
     (o) => `<option value="${o.value}"${o.value === selected ? ' selected' : ''}>${o.label}</option>`
   ).join('')
@@ -82,6 +82,16 @@ export function renderBookingNew(container, navigate) {
             <div class="form-field">
               <label class="form-label" for="f-dropoff">Varış *</label>
               <select class="input" id="f-dropoff">${locationOptionsHTML('belek')}</select>
+            </div>
+          </div>
+          <div class="form-row" id="private-address-row" hidden>
+            <div class="form-field" id="pickup-address-field" hidden>
+              <label class="form-label" for="f-pickup-address">Alış özel adresi *</label>
+              <input class="input" type="text" id="f-pickup-address" maxlength="160" autocomplete="street-address" placeholder="Açık adresi girin" />
+            </div>
+            <div class="form-field" id="dropoff-address-field" hidden>
+              <label class="form-label" for="f-dropoff-address">Varış özel adresi *</label>
+              <input class="input" type="text" id="f-dropoff-address" maxlength="160" autocomplete="street-address" placeholder="Açık adresi girin" />
             </div>
           </div>
           <div class="form-row">
@@ -202,6 +212,29 @@ export function renderBookingNew(container, navigate) {
     returnSection.hidden = tripTypeEl.value !== 'round_trip'
   })
 
+  const pickupEl = document.getElementById('f-pickup')
+  const dropoffEl = document.getElementById('f-dropoff')
+  const privateAddressRow = document.getElementById('private-address-row')
+  const pickupAddressField = document.getElementById('pickup-address-field')
+  const dropoffAddressField = document.getElementById('dropoff-address-field')
+  const pickupAddressEl = document.getElementById('f-pickup-address')
+  const dropoffAddressEl = document.getElementById('f-dropoff-address')
+
+  const updatePrivateAddressFields = () => {
+    const needsPickupAddress = pickupEl.value === 'private_address'
+    const needsDropoffAddress = dropoffEl.value === 'private_address'
+
+    privateAddressRow.hidden = !needsPickupAddress && !needsDropoffAddress
+    pickupAddressField.hidden = !needsPickupAddress
+    dropoffAddressField.hidden = !needsDropoffAddress
+    pickupAddressEl.required = needsPickupAddress
+    dropoffAddressEl.required = needsDropoffAddress
+  }
+
+  pickupEl.addEventListener('change', updatePrivateAddressFields)
+  dropoffEl.addEventListener('change', updatePrivateAddressFields)
+  updatePrivateAddressFields()
+
   const vehicleEl = document.getElementById('f-vehicle')
   const guestsEl = document.getElementById('f-guests')
   vehicleEl.addEventListener('change', () => {
@@ -228,6 +261,8 @@ async function submitBooking(navigate) {
   const tripType = val('f-trip-type')
   const pickup = val('f-pickup')
   const dropoff = val('f-dropoff')
+  const pickupAddress = normalize(val('f-pickup-address'))
+  const dropoffAddress = normalize(val('f-dropoff-address'))
   const pickupDate = val('f-date')
   const pickupTime = val('f-time')
   const flightNumber = normalize(val('f-flight')).toUpperCase()
@@ -249,7 +284,16 @@ async function submitBooking(navigate) {
   if (phone.replace(/\D/g, '').length < 7) return fail('Geçerli bir telefon numarası girin.')
   if (!hotel) hotel = 'Belirtilmedi'
   if (hotel.length < 2 || hotel.length > 120) return fail('Otel adı 2-120 karakter olmalı.')
-  if (pickup === dropoff) return fail('Alış ve varış aynı olamaz.')
+  if (pickup === 'private_address' && (pickupAddress.length < 6 || pickupAddress.length > 160)) {
+    return fail('Alış adresi 6-160 karakter olmalı.')
+  }
+  if (dropoff === 'private_address' && (dropoffAddress.length < 6 || dropoffAddress.length > 160)) {
+    return fail('Varış adresi 6-160 karakter olmalı.')
+  }
+  if (pickup === dropoff && pickup !== 'private_address') return fail('Alış ve varış aynı olamaz.')
+  if (pickup === 'private_address' && dropoff === 'private_address' && pickupAddress === dropoffAddress) {
+    return fail('Alış ve varış adresleri aynı olamaz.')
+  }
   if (!/^\d{4}-\d{2}-\d{2}$/.test(pickupDate)) return fail('Geçerli bir tarih seçin.')
   const capacity = VEHICLE_CAPACITY[vehicle] ?? 8
   if (!Number.isInteger(guests) || guests < 1 || guests > capacity) {
@@ -278,8 +322,9 @@ async function submitBooking(navigate) {
     child_seat_count: childSeats,
     luggage_count: luggage,
     pickup_location: pickup,
-    pickup_address: null,
+    pickup_address: pickup === 'private_address' ? pickupAddress : null,
     dropoff_location: dropoff,
+    dropoff_address: dropoff === 'private_address' ? dropoffAddress : null,
     pickup_date: pickupDate,
     pickup_time: pickupTime || null,
     flight_number: flightNumber || null,
