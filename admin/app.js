@@ -3,6 +3,7 @@ import { renderLogin } from './login.js'
 import { clearTimelineCache, renderTimeline, stopTimeline } from './timeline.js'
 import { renderDetail } from './booking-detail.js'
 import { renderBookingNew } from './booking-new.js'
+import { renderBudget } from './budget.js'
 
 const app = document.getElementById('app')
 
@@ -27,6 +28,11 @@ async function route() {
 
   if (hash === '#new') {
     renderBookingNew(app, navigate)
+    return
+  }
+
+  if (hash === '#budget') {
+    renderBudget(app, navigate)
     return
   }
 

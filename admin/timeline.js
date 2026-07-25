@@ -1,5 +1,10 @@
 import { supabase } from './supabase-client.js'
-import { locationDisplay, navigationURLs } from './turkish-formatters.js'
+import {
+  isFutureIstanbulLeg,
+  locationDisplay,
+  navigationURLs,
+  whatsappURL,
+} from './turkish-formatters.js'
 
 const ISTANBUL_TIME_ZONE = 'Europe/Istanbul'
 const AUTO_REFRESH_MS = 60_000
@@ -45,7 +50,8 @@ function transferStartTime(pickupLocation, pickupTime, flightArrivalTime) {
   return pickupTime
 }
 
-function statusLabel(s) {
+function statusLabel(s, isRoundTrip = false) {
+  if (s === 'confirmed' && isRoundTrip) return 'Gidiş-Dönüş Rezerve'
   return {
     pending: 'Bekliyor',
     paid: 'Ödendi',
@@ -75,9 +81,15 @@ function expandRoundTrips(bookings, selectedTab) {
       _isReturn: false,
     })
     if (b.trip_type === 'round_trip' && b.return_date) {
+      const needsReturnContact = b.status === 'completed' && isFutureIstanbulLeg(
+        b.return_date,
+        b.return_pickup_time,
+      )
       cards.push({
         ...b,
+        status: needsReturnContact ? 'confirmed' : b.status,
         _isReturn: true,
+        _needsReturnContact: needsReturnContact,
         _displayDate: b.return_date,
         _displayTime: b.return_pickup_time,
         pickup_location: b.dropoff_location,
@@ -213,10 +225,47 @@ function navigationHTML(card) {
     hotelName: card.hotel_name,
   })
   return `
-    <div class="card-navigation" aria-label="Transfer rotası için yol tarifi">
-      <a href="${escapeHTML(urls.google)}" target="_blank" rel="noopener noreferrer"><span aria-hidden="true">↗</span> Google</a>
-      <a href="${escapeHTML(urls.apple)}" target="_blank" rel="noopener noreferrer"><span aria-hidden="true">↗</span> Apple</a>
+    <div class="card-navigation" aria-label="Google Haritalar ile transfer rotası için yol tarifi">
+      <a href="${escapeHTML(urls.google)}" target="_blank" rel="noopener noreferrer"><span aria-hidden="true">↗</span> Adrese yol tarifi al</a>
     </div>`
+}
+
+function returnContactAlertHTML(card) {
+  if (!card._needsReturnContact) return ''
+
+  return `
+    <div class="return-contact-alert" role="status">
+      <span class="return-contact-icon" aria-hidden="true">☎</span>
+      <span class="return-contact-copy">
+        <strong>Gidiş seyahati için iletişime geç</strong>
+        <small>Geliş tamamlandı · Planlanan dönüş ${escapeHTML(card._displayDate)} ${fmtTime(card._displayTime)}</small>
+      </span>
+      <a href="${escapeHTML(whatsappURL(card.customer_phone))}" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+    </div>`
+}
+
+function paymentInfoHTML(card) {
+  const paymentMethod = card.payment_method === 'cash' ? 'Nakit' : 'Kart'
+  const formattedPrice = `€${fmtPrice(card.price_eur)}`
+
+  if (card.trip_type !== 'round_trip') {
+    return `<div class="card-info-item full payment-info">
+      <span class="card-info-label">Ödeme</span>
+      <div class="card-info-value">${paymentMethod} · <strong>${formattedPrice}</strong></div>
+    </div>`
+  }
+
+  if (card._isReturn) {
+    return `<div class="card-info-item full payment-info payment-info-settled">
+      <span class="card-info-label">Ödeme</span>
+      <div class="card-info-value"><strong>Tahsilat yok</strong><small>Toplam ${formattedPrice} gidişte tahsil edildi</small></div>
+    </div>`
+  }
+
+  return `<div class="card-info-item full payment-info payment-info-collect">
+    <span class="card-info-label">Tahsil edilecek</span>
+    <div class="card-info-value"><strong>${formattedPrice}</strong><small>${paymentMethod} · Gidiş + dönüş toplamı</small></div>
+  </div>`
 }
 
 function cardHTML(c) {
@@ -225,12 +274,13 @@ function cardHTML(c) {
   const showSeparateFlightArrival = c.flight_arrival_time && c.flight_arrival_time !== c._displayTime
   const badges = `
     <div class="card-badges">
-      <span class="badge badge-${c.status}">${statusLabel(c.status)}</span>
-      ${c._isReturn ? '<span class="badge badge-return">Dönüş</span>' : ''}
+      <span class="badge badge-${c.status}">${statusLabel(c.status, c.trip_type === 'round_trip')}</span>
+      ${c.trip_type === 'round_trip'
+        ? `<span class="badge ${c._isReturn ? 'badge-return' : 'badge-outbound'}">${c._isReturn ? 'DÖNÜŞ' : 'GİDİŞ'}</span>`
+        : ''}
     </div>`
   const warnings = operationalWarnings(c)
   const vehicle = c.vehicle_type === 'vclass' ? 'V-Class' : 'Vito'
-  const payment = c.payment_method === 'cash' ? 'Nakit' : 'Kart'
   const childSeats = Number(c.child_seat_count) || 0
   const luggage = Number(c.luggage_count) || 0
   const infoItems = [
@@ -254,10 +304,7 @@ function cardHTML(c) {
       <span class="card-info-label">Bagaj & Koltuk</span>
       <div class="card-info-value">${luggage} bagaj · ${childSeats ? `${childSeats} koltuk` : 'Koltuk yok'}</div>
     </div>`,
-    `<div class="card-info-item full payment-info">
-      <span class="card-info-label">Ödeme</span>
-      <div class="card-info-value">${payment} · <strong>€${fmtPrice(c.price_eur)}</strong></div>
-    </div>`,
+    paymentInfoHTML(c),
     c.pickup_address ? `<div class="card-info-item full address-info">
       <span class="card-info-label">Alış adresi</span>
       <div class="card-info-value">${escapeHTML(c.pickup_address)}</div>
@@ -270,6 +317,7 @@ function cardHTML(c) {
 
   return `
     <div class="card status-${c.status}" data-ref="${escapeHTML(c.booking_ref)}" data-return="${c._isReturn}" data-date="${escapeHTML(c._displayDate)}" data-time="${escapeHTML(c._displayTime ?? '')}" data-status="${escapeHTML(c.status)}" data-flight-date="${c.pickup_location === 'airport' && c.flight_arrival_time ? escapeHTML(c._displayDate) : ''}" data-flight-arrival="${c.pickup_location === 'airport' ? escapeHTML(c.flight_arrival_time ?? '') : ''}">
+      ${returnContactAlertHTML(c)}
       <div class="flight-landed-alert" data-flight-landed-alert role="status" hidden>
         <span class="flight-landed-icon" aria-hidden="true">✈</span>
         <span><strong>Uçak iniş saati geldi</strong><small data-flight-landed-copy></small></span>
@@ -388,12 +436,13 @@ function updateLiveIndicators() {
   })
 }
 
-function cacheTodayBookings(bookings, today) {
+function cacheTodayBookings(bookings, today, pendingCount) {
   try {
     const todayBookings = bookings.filter(booking => booking.pickup_date === today || booking.return_date === today)
     localStorage.setItem(TODAY_CACHE_KEY, JSON.stringify({
       date: today,
       savedAt: new Date().toISOString(),
+      pendingCount,
       bookings: todayBookings,
     }))
   } catch {
@@ -439,15 +488,16 @@ export async function renderTimeline(container, navigate, selectedTab = 'future'
         <button class="topbar-logout" id="logout-btn">Çıkış</button>
       </div>
     </div>
-    <div class="timeline-tabs" role="tablist" aria-label="Transfer dönemi">
-      <button class="timeline-tab ${isPast ? '' : 'active'}" type="button" role="tab" aria-selected="${!isPast}" data-tab="future">Gelecek</button>
-      <button class="timeline-tab ${isPast ? 'active' : ''}" type="button" role="tab" aria-selected="${isPast}" data-tab="past">Geçmiş</button>
+    <div class="timeline-tabs timeline-tabs-with-budget" role="tablist" aria-label="Yönetim sayfaları">
+      <button class="timeline-tab ${isPast ? '' : 'active'}" type="button" role="tab" aria-selected="${!isPast}" data-admin-view="future">Gelecek</button>
+      <button class="timeline-tab ${isPast ? 'active' : ''}" type="button" role="tab" aria-selected="${isPast}" data-admin-view="past">Geçmiş</button>
+      <button class="timeline-tab" type="button" role="tab" aria-selected="false" data-admin-view="budget">Bütçe</button>
     </div>
     ${isPast ? '' : `
       <div class="stats" id="stats-strip">
         <div class="stat stat-bugün"><div class="stat-number" id="stat-bugun">…</div><div class="stat-label">Bugün</div></div>
         <div class="stat stat-yarın"><div class="stat-number" id="stat-yarin">…</div><div class="stat-label">Yarın</div></div>
-        <div class="stat stat-aksiyon"><div class="stat-number" id="stat-aksiyon">…</div><div class="stat-label">İşlem</div></div>
+        <div class="stat stat-bekleyen"><div class="stat-number" id="stat-bekleyen">…</div><div class="stat-label">Bekleyen Rez.</div></div>
       </div>`}
     <div class="timeline-statusbar">
       <div class="live-clock-wrap"><span id="live-date"></span><strong id="live-clock"></strong></div>
@@ -473,9 +523,13 @@ export async function renderTimeline(container, navigate, selectedTab = 'future'
   })
 
   document.querySelector('.timeline-tabs').addEventListener('click', (event) => {
-    const tab = event.target.closest('[data-tab]')
-    if (!tab || tab.dataset.tab === selectedTab) return
-    navigate(tab.dataset.tab === 'past' ? '#timeline?tab=past' : '#timeline')
+    const tab = event.target.closest('[data-admin-view]')
+    if (!tab || tab.dataset.adminView === selectedTab) return
+    if (tab.dataset.adminView === 'budget') {
+      navigate('#budget')
+      return
+    }
+    navigate(tab.dataset.adminView === 'past' ? '#timeline?tab=past' : '#timeline')
   })
 
   list.addEventListener('click', (event) => {
@@ -490,7 +544,7 @@ export async function renderTimeline(container, navigate, selectedTab = 'future'
     navigate(`#detail/${encodeURIComponent(card.dataset.ref)}${queryString ? `?${queryString}` : ''}`)
   })
 
-  function renderCards(bookings, { cachedOnly = false } = {}) {
+  function renderCards(bookings, { cachedOnly = false, pendingCount = null } = {}) {
     const cards = expandRoundTrips(bookings ?? [], selectedTab).filter(card => {
       if (cachedOnly) return card._displayDate === today
       return isPast ? card._displayDate < today : card._displayDate >= today
@@ -500,10 +554,12 @@ export async function renderTimeline(container, navigate, selectedTab = 'future'
       const operationalStatuses = ['pending', 'paid', 'confirmed', 'in_transit']
       const bugun = cards.filter(c => c._displayDate === today && operationalStatuses.includes(c.status)).length
       const yarin = cards.filter(c => c._displayDate === tomorrow && operationalStatuses.includes(c.status)).length
-      const aksiyon = cards.filter(c => c._displayDate === today && ['pending', 'confirmed'].includes(c.status)).length
+      const bekleyen = Number.isInteger(pendingCount)
+        ? pendingCount
+        : new Set(bookings.filter(booking => booking.status === 'pending').map(booking => booking.id)).size
       document.getElementById('stat-bugun').textContent = bugun
       document.getElementById('stat-yarin').textContent = yarin
-      document.getElementById('stat-aksiyon').textContent = aksiyon
+      document.getElementById('stat-bekleyen').textContent = bekleyen
     }
 
     const groups = groupByDay(cards, today, tomorrow, selectedTab)
@@ -538,7 +594,10 @@ export async function renderTimeline(container, navigate, selectedTab = 'future'
   function showCachedTimeline() {
     const cached = readTodayCache(today)
     if (!cached || isPast) return false
-    renderCards(cached.bookings, { cachedOnly: true })
+    renderCards(cached.bookings, {
+      cachedOnly: true,
+      pendingCount: Number.isInteger(cached.pendingCount) ? cached.pendingCount : null,
+    })
     const cachedTime = fmtSyncTime(new Date(cached.savedAt))
     syncStatus.textContent = `Kayıt: ${cachedTime}`
     offlineBanner.hidden = false
@@ -573,9 +632,20 @@ export async function renderTimeline(container, navigate, selectedTab = 'future'
       ? query.lt('pickup_date', today)
       : query.or(`pickup_date.gte.${today},return_date.gte.${today}`)
 
-    const { data, error } = await query
-      .order('pickup_date')
-      .order('pickup_time', { nullsFirst: false })
+    const pendingCountRequest = isPast
+      ? Promise.resolve({ count: null, error: null })
+      : supabase
+          .from('bookings')
+          .select('id', { count: 'exact', head: true })
+          .eq('status', 'pending')
+
+    const [bookingsResult, pendingResult] = await Promise.all([
+      query
+        .order('pickup_date')
+        .order('pickup_time', { nullsFirst: false }),
+      pendingCountRequest,
+    ])
+    const { data, error } = bookingsResult
 
     refreshInFlight = false
     refreshBtn.disabled = false
@@ -591,8 +661,9 @@ export async function renderTimeline(container, navigate, selectedTab = 'future'
       return
     }
 
-    renderCards(data ?? [])
-    if (!isPast) cacheTodayBookings(data ?? [], today)
+    const pendingCount = pendingResult.error ? null : pendingResult.count
+    renderCards(data ?? [], { pendingCount })
+    if (!isPast) cacheTodayBookings(data ?? [], today, pendingCount)
     const updatedAt = fmtSyncTime()
     syncStatus.textContent = `Son güncelleme: ${updatedAt}`
     offlineBanner.hidden = true

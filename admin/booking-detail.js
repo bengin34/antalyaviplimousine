@@ -1,5 +1,10 @@
 import { supabase } from './supabase-client.js'
-import { locationDisplay, navigationURLs, whatsappURL } from './turkish-formatters.js'
+import {
+  isFutureIstanbulLeg,
+  locationDisplay,
+  navigationURLs,
+  whatsappURL,
+} from './turkish-formatters.js'
 import { VEHICLE_CAPACITY, locationOptionsHTML } from './booking-new.js'
 
 function fmtTime(t) { return t ? t.slice(0, 5) : '—' }
@@ -42,6 +47,11 @@ const STATUS_LABELS = {
   in_transit: 'Yolda',
   completed: 'Tamamlandı',
   cancelled: 'İptal',
+}
+
+function statusLabel(status, isRoundTrip = false) {
+  if (status === 'confirmed' && isRoundTrip) return 'Gidiş-Dönüş Rezerve'
+  return STATUS_LABELS[status] ?? status
 }
 
 const STATUS_TRANSITIONS = {
@@ -250,6 +260,18 @@ export async function renderDetail(container, bookingRef, navigate, isReturn = f
 
 function renderDetailBody(b, navigate, bookingRef, isReturn) {
   const body = document.getElementById('detail-body')
+  const isRoundTrip = b.trip_type === 'round_trip'
+  const needsReturnContact = isReturn && isRoundTrip && b.status === 'completed' && isFutureIstanbulLeg(
+    b.return_date,
+    b.return_pickup_time,
+  )
+  const displayStatus = needsReturnContact ? 'confirmed' : b.status
+  const paymentMethod = b.payment_method === 'cash' ? 'Nakit' : 'Kart'
+  const paymentContext = isRoundTrip
+    ? isReturn
+      ? '<strong>Tahsilat yok</strong><small>Toplam ücret gidişte tahsil edildi</small>'
+      : `<strong>${paymentMethod}</strong><small>Gidiş + dönüş toplamı · Gidişte tahsil edilecek</small>`
+    : `<strong>${paymentMethod}</strong>`
   const transfer = isReturn && b.trip_type === 'round_trip' && b.return_date
     ? {
         date: b.return_date,
@@ -291,11 +313,20 @@ function renderDetailBody(b, navigate, bookingRef, isReturn) {
       <div style="display:flex;justify-content:space-between;align-items:center">
         <span style="color:var(--text-muted);font-size:13px">${escapeHTML(b.booking_ref)}</span>
         <div class="card-badges">
-          <span class="badge badge-${b.status}" id="status-badge">${STATUS_LABELS[b.status]}</span>
-          ${isReturn ? '<span class="badge badge-return">Dönüş</span>' : ''}
+          <span class="badge badge-${displayStatus}" id="status-badge">${statusLabel(displayStatus, isRoundTrip)}</span>
+          ${isRoundTrip
+            ? `<span class="badge ${isReturn ? 'badge-return' : 'badge-outbound'}">${isReturn ? 'DÖNÜŞ' : 'GİDİŞ'}</span>`
+            : ''}
         </div>
       </div>
     </div>
+
+    ${needsReturnContact ? `
+      <div class="return-contact-alert detail-return-contact" role="status">
+        <span class="return-contact-icon" aria-hidden="true">☎</span>
+        <span class="return-contact-copy"><strong>Gidiş seyahati için iletişime geç</strong><small>Geliş transferi tamamlandı.</small></span>
+        <a href="${escapeHTML(whatsappURL(b.customer_phone))}" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+      </div>` : ''}
 
     <div class="section">
       <div class="editable-heading" style="margin-bottom:8px">
@@ -307,9 +338,8 @@ function renderDetailBody(b, navigate, bookingRef, isReturn) {
       ${transfer.pickupAddress ? `<div style="color:var(--text-muted);font-size:13px;margin-top:6px">📍 Alış: ${escapeHTML(transfer.pickupAddress)}</div>` : ''}
       ${transfer.dropoffAddress ? `<div style="color:var(--text-muted);font-size:13px;margin-top:3px">📍 Varış: ${escapeHTML(transfer.dropoffAddress)}</div>` : ''}
       <div class="detail-navigation-label">Transfer rotası</div>
-      <div class="detail-navigation" aria-label="Transfer rotası için yol tarifi">
-        <a href="${escapeHTML(navigation.google)}" target="_blank" rel="noopener noreferrer">Google Maps</a>
-        <a href="${escapeHTML(navigation.apple)}" target="_blank" rel="noopener noreferrer">Apple Maps</a>
+      <div class="detail-navigation" aria-label="Google Haritalar ile transfer rotası için yol tarifi">
+        <a href="${escapeHTML(navigation.google)}" target="_blank" rel="noopener noreferrer"><span aria-hidden="true">↗</span> Adrese yol tarifi al</a>
       </div>
       <div class="inline-success" id="booking-edit-success" role="status"></div>
     </div>
@@ -403,11 +433,11 @@ function renderDetailBody(b, navigate, bookingRef, isReturn) {
 
     <div class="section">
       <div class="section-label">Ödeme</div>
-      <div style="display:flex;justify-content:space-between;align-items:center">
-        <span>${b.payment_method === 'cash' ? 'Nakit' : 'Kart'}</span>
+      <div class="detail-payment-row${isRoundTrip && isReturn ? ' detail-payment-settled' : ''}">
+        <span class="detail-payment-context">${paymentContext}</span>
         <div style="display:flex;align-items:center;gap:8px">
-          <span style="font-weight:700" id="price-display">€${fmtPrice(b.price_eur)}</span>
-          <button class="btn-outline price-edit-btn" id="price-edit-btn">Düzenle</button>
+          <span class="detail-payment-price" id="price-display">€${fmtPrice(b.price_eur)}</span>
+          ${isRoundTrip && isReturn ? '' : '<button class="btn-outline price-edit-btn" id="price-edit-btn">Düzenle</button>'}
         </div>
       </div>
       <div class="price-editor" id="price-edit-row" hidden>
@@ -442,7 +472,7 @@ function renderDetailBody(b, navigate, bookingRef, isReturn) {
     </div>
   `
 
-  renderStatusButtons(b.status, b.id, bookingRef)
+  renderStatusButtons(displayStatus, b.id, bookingRef, isRoundTrip)
   setupNoteInput(b.id)
   setupPriceEditor(b)
   setupHotelEditor(b)
@@ -754,7 +784,7 @@ function setupBookingEditor(booking, navigate, bookingRef, isReturn) {
   })
 }
 
-function renderStatusButtons(currentStatus, bookingId, bookingRef) {
+function renderStatusButtons(currentStatus, bookingId, bookingRef, isRoundTrip = false) {
   const container = document.getElementById('status-buttons')
   if (!container) return
 
@@ -767,7 +797,7 @@ function renderStatusButtons(currentStatus, bookingId, bookingRef) {
 
   container.innerHTML = transitions.map(next => {
     const color = STATUS_COLORS[next]
-    return `<button class="btn-outline ${color}" data-next="${next}">${STATUS_LABELS[next]}</button>`
+    return `<button class="btn-outline ${color}" data-next="${next}">${statusLabel(next, isRoundTrip)}</button>`
   }).join('')
 
   container.onclick = async (e) => {
@@ -783,7 +813,7 @@ function renderStatusButtons(currentStatus, bookingId, bookingRef) {
     const prevClass = badge.className
     const prevText = badge.textContent
     badge.className = `badge badge-${nextStatus}`
-    badge.textContent = STATUS_LABELS[nextStatus]
+    badge.textContent = statusLabel(nextStatus, isRoundTrip)
 
     const { count, error } = await supabase
       .from('bookings')
@@ -798,7 +828,7 @@ function renderStatusButtons(currentStatus, bookingId, bookingRef) {
     }
 
     document.getElementById('status-error').textContent = ''
-    renderStatusButtons(nextStatus, bookingId, bookingRef)
+    renderStatusButtons(nextStatus, bookingId, bookingRef, isRoundTrip)
   }
 }
 

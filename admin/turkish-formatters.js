@@ -18,6 +18,8 @@ const LOCATION_LABELS = {
   kapadokya: 'Kapadokya',
 }
 
+const ISTANBUL_TIME_ZONE = 'Europe/Istanbul'
+
 export function locationLabel(value) {
   const raw = String(value ?? '').trim()
   if (!raw) return '—'
@@ -75,8 +77,28 @@ export function navigationURLs({
     origin,
     destination,
     google: `https://www.google.com/maps/dir/?api=1&origin=${encodedOrigin}&destination=${encodedDestination}&travelmode=driving`,
-    apple: `https://maps.apple.com/?saddr=${encodedOrigin}&daddr=${encodedDestination}&dirflg=d`,
   }
+}
+
+export function isFutureIstanbulLeg(date, time, now = new Date()) {
+  const normalizedDate = String(date ?? '').trim()
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(normalizedDate)) return false
+
+  const currentDate = new Intl.DateTimeFormat('sv', {
+    timeZone: ISTANBUL_TIME_ZONE,
+  }).format(now)
+  if (normalizedDate !== currentDate) return normalizedDate > currentDate
+
+  const normalizedTime = String(time ?? '').trim().slice(0, 5)
+  if (!/^([01]\d|2[0-3]):[0-5]\d$/.test(normalizedTime)) return true
+
+  const currentTime = new Intl.DateTimeFormat('en-GB', {
+    timeZone: ISTANBUL_TIME_ZONE,
+    hour: '2-digit',
+    minute: '2-digit',
+    hourCycle: 'h23',
+  }).format(now)
+  return normalizedTime > currentTime
 }
 
 export function whatsappURL(phone) {
