@@ -793,8 +793,16 @@ body {
   font-size: 15px;
   padding: 12px 14px;
   width: 100%;
+  min-width: 0;
+  max-width: 100%;
 }
 .input:focus { outline: none; border-color: var(--blue); }
+/* iOS gives date/time inputs an intrinsic width and centres their value, which
+   overflows narrow two-column rows. Let the value shrink and align left so the
+   fields respect their container (paired with min-width:0 above and on the
+   flex fields). The native picker/affordances are kept intact. */
+.input::-webkit-date-and-time-value { text-align: left; margin: 0; min-width: 0; }
+.input::-webkit-datetime-edit { padding: 0; }
 .btn {
   background: linear-gradient(180deg, #2ca451, #23833f);
   color: #fff;
@@ -859,7 +867,7 @@ body {
 }
 .detail-grid .full { grid-column: 1 / -1; }
 .detail-key { color: var(--text-muted); margin-bottom: 2px; font-size: 11px; }
-.detail-val { color: var(--text); font-weight: 600; line-height: 1.4; }
+.detail-val { color: var(--text); font-weight: 600; line-height: 1.4; overflow-wrap: anywhere; }
 .whatsapp-link {
   display: inline-flex;
   min-height: 42px;
@@ -943,6 +951,7 @@ body {
   justify-content: space-between;
   gap: 12px;
 }
+.detail-payment-context { min-width: 0; }
 .detail-payment-context strong,
 .detail-payment-context small { display: block; }
 .detail-payment-context small {
@@ -1021,8 +1030,8 @@ body {
   font-weight: 600;
   margin-bottom: 5px;
 }
-.form-row { display: flex; gap: 10px; }
-.form-row .form-field { flex: 1; }
+.form-row { display: flex; gap: 10px; min-width: 0; }
+.form-row .form-field { flex: 1 1 0; min-width: 0; }
 select.input { appearance: none; -webkit-appearance: none; background-image: none; }
 textarea.input { resize: vertical; font-family: inherit; line-height: 1.4; }
 #new-booking-form .section[hidden],
