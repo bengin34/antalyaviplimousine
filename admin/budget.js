@@ -1,5 +1,6 @@
 import { supabase } from './supabase-client.js'
 import { calculateBudgetMetrics } from './budget-metrics.js'
+import { locationLabel } from './turkish-formatters.js'
 
 const ISTANBUL_TIME_ZONE = 'Europe/Istanbul'
 const PAGE_SIZE = 1000
@@ -25,6 +26,15 @@ function formatCurrency(value) {
   }).format(Number(value) || 0)
 }
 
+function escapeHTML(value) {
+  return String(value ?? '')
+    .replaceAll('&', '&amp;')
+    .replaceAll('<', '&lt;')
+    .replaceAll('>', '&gt;')
+    .replaceAll('"', '&quot;')
+    .replaceAll("'", '&#039;')
+}
+
 function formatPeriodLabel(period, today) {
   if (period === 'all') return 'Tüm zamanlar'
 
@@ -46,7 +56,7 @@ async function fetchAllBookings() {
   for (let from = 0; ; from += PAGE_SIZE) {
     const { data, error } = await supabase
       .from('bookings')
-      .select('id, pickup_date, return_date, trip_type, price_eur, status, payment_method, paid_at, created_at')
+      .select('id, pickup_location, dropoff_location, pickup_date, return_date, trip_type, price_eur, status, payment_method, paid_at, created_at')
       .order('created_at', { ascending: true })
       .range(from, from + PAGE_SIZE - 1)
 
@@ -79,6 +89,21 @@ function metricsHTML(metrics, period, today) {
       <span><i class="budget-status-dot status-${status}" aria-hidden="true"></i>${label}</span>
       <strong>${metrics.statusCounts[status]}</strong>
     </div>`).join('')
+  const mostVisited = metrics.travelHistory[0]?.count ?? 0
+  const travelRows = metrics.travelHistory.map(({ location, count }) => {
+    const share = mostVisited > 0 ? Math.round((count / mostVisited) * 100) : 0
+    const label = locationLabel(location)
+    return `
+      <div class="travel-history-row">
+        <div class="travel-history-heading">
+          <span>${escapeHTML(label)}</span>
+          <strong>${count} <small>sefer</small></strong>
+        </div>
+        <div class="travel-history-bar" aria-label="${escapeHTML(label)}: ${count} sefer">
+          <span style="width:${share}%"></span>
+        </div>
+      </div>`
+  }).join('')
 
   return `
     <section class="budget-hero" aria-label="Tahsil edilen gelir">
@@ -113,6 +138,14 @@ function metricsHTML(metrics, period, today) {
         <strong>${metrics.reservationCount}</strong>
         <small>İptaller hariç toplam kayıt</small>
       </article>
+    </section>
+
+    <section class="budget-section travel-history-section">
+      <div class="budget-section-heading">
+        <div><span class="budget-section-kicker">SEYAHAT GEÇMİŞİ</span><h2>Gidilen bölgeler</h2></div>
+        <span>${metrics.completedTrips} sefer</span>
+      </div>
+      ${travelRows || '<div class="travel-history-empty">Seçilen dönemde geçmiş sefer bulunmuyor.</div>'}
     </section>
 
     <section class="budget-section">
