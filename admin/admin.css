@@ -145,17 +145,24 @@ body {
   background: rgba(13, 19, 29, 0.8);
 }
 .budget-periods {
-  display: grid;
+  display: flex;
   flex: 1;
-  grid-template-columns: repeat(3, 1fr);
   gap: 4px;
   padding: 3px;
   border: 1px solid var(--border-soft);
   border-radius: 11px;
   background: rgba(255, 255, 255, 0.018);
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.budget-periods::-webkit-scrollbar {
+  display: none;
 }
 .budget-periods button {
+  flex: 0 0 auto;
   min-height: 32px;
+  min-width: 52px;
+  padding: 0 10px;
   border: 0;
   border-radius: 8px;
   background: transparent;
@@ -163,6 +170,7 @@ body {
   cursor: pointer;
   font-size: 11px;
   font-weight: 700;
+  white-space: nowrap;
 }
 .budget-periods button.active {
   background: var(--surface-elevated);
