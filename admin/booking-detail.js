@@ -5,7 +5,7 @@ import {
   navigationURLs,
   whatsappURL,
 } from './turkish-formatters.js'
-import { VEHICLE_CAPACITY, locationOptionsHTML } from './booking-new.js'
+import { VEHICLE_CAPACITY, locationOptionsHTML, queueBookingPrefill } from './booking-new.js'
 
 function fmtTime(t) { return t ? t.slice(0, 5) : '—' }
 
@@ -321,6 +321,11 @@ function renderDetailBody(b, navigate, bookingRef, isReturn) {
       </div>
     </div>
 
+    <div class="section quick-actions-section">
+      <button class="btn-outline blue" id="plan-new-trip-btn" type="button">🆕 Bu yolcudan yeni seyahat planla</button>
+      <button class="btn-outline blue" id="plan-return-trip-btn" type="button">↩ Dönüş yolculuğu planla</button>
+    </div>
+
     ${needsReturnContact ? `
       <div class="return-contact-alert detail-return-contact" role="status">
         <span class="return-contact-icon" aria-hidden="true">☎</span>
@@ -480,6 +485,49 @@ function renderDetailBody(b, navigate, bookingRef, isReturn) {
   setupAddressEditor(b)
   setupDropoffAddressEditor(b)
   setupBookingEditor(b, navigate, bookingRef, isReturn)
+  setupQuickActions(b, transfer, navigate)
+}
+
+function setupQuickActions(booking, transfer, navigate) {
+  const newTripBtn = document.getElementById('plan-new-trip-btn')
+  const returnTripBtn = document.getElementById('plan-return-trip-btn')
+
+  const hotelName = String(booking.hotel_name ?? '').trim()
+  const basePrefill = () => ({
+    sourceRef: booking.booking_ref,
+    customerName: booking.customer_name,
+    customerPhone: booking.customer_phone,
+    hotelName: hotelName.toLocaleLowerCase('tr-TR') === 'belirtilmedi' ? '' : hotelName,
+    vehicleType: booking.vehicle_type,
+    guests: booking.guests,
+    luggageCount: booking.luggage_count,
+    childSeatCount: booking.child_seat_count,
+    paymentMethod: booking.payment_method,
+  })
+
+  newTripBtn?.addEventListener('click', () => {
+    queueBookingPrefill({
+      ...basePrefill(),
+      pickupLocation: transfer.pickupLocation,
+      pickupAddress: transfer.pickupAddress,
+      dropoffLocation: transfer.dropoffLocation,
+      dropoffAddress: transfer.dropoffAddress,
+      notes: `Kaynak rezervasyon: ${booking.booking_ref}`,
+    })
+    navigate('#new')
+  })
+
+  returnTripBtn?.addEventListener('click', () => {
+    queueBookingPrefill({
+      ...basePrefill(),
+      pickupLocation: transfer.dropoffLocation,
+      pickupAddress: transfer.dropoffAddress,
+      dropoffLocation: transfer.pickupLocation,
+      dropoffAddress: transfer.pickupAddress,
+      notes: `Dönüş · Kaynak rezervasyon: ${booking.booking_ref}`,
+    })
+    navigate('#new')
+  })
 }
 
 function setupFieldEditor(booking, config) {

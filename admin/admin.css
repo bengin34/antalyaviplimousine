@@ -840,6 +840,27 @@ body {
 .btn-outline.active-blue { background: var(--blue-bg); border-color: var(--blue); color: var(--blue); }
 .error-msg { color: var(--red); font-size: 13px; text-align: center; }
 
+.quick-actions-section {
+  display: flex;
+  gap: 8px;
+}
+.quick-actions-section .btn-outline {
+  flex: 1;
+  font-size: 12px;
+  padding: 10px 6px;
+  text-align: center;
+}
+.prefill-banner {
+  margin: 12px 12px 0;
+  padding: 9px 12px;
+  border: 1px solid rgba(115, 183, 255, 0.28);
+  border-radius: 11px;
+  background: var(--blue-bg);
+  color: var(--blue);
+  font-size: 12px;
+  line-height: 1.35;
+}
+
 /* Detail screen */
 .detail-back {
   background: none;
