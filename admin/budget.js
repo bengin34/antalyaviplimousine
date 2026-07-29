@@ -4,6 +4,7 @@ import { locationLabel } from './turkish-formatters.js'
 
 const ISTANBUL_TIME_ZONE = 'Europe/Istanbul'
 const PAGE_SIZE = 1000
+const FIRST_BUDGET_MONTH = '2026-07'
 
 const STATUS_LABELS = {
   pending: 'Bekleyen',
@@ -35,19 +36,41 @@ function escapeHTML(value) {
     .replaceAll("'", '&#039;')
 }
 
+function previousMonthISO(today) {
+  const [year, month] = today.slice(0, 7).split('-').map(Number)
+  const prevMonth = month === 1 ? 12 : month - 1
+  const prevYear = month === 1 ? year - 1 : year
+  return `${prevYear}-${String(prevMonth).padStart(2, '0')}`
+}
+
+function monthRange(startYyyyMm, endYyyyMm) {
+  const months = []
+  let [year, month] = startYyyyMm.split('-').map(Number)
+  const [endYear, endMonth] = endYyyyMm.split('-').map(Number)
+  while (year < endYear || (year === endYear && month <= endMonth)) {
+    months.push(`${year}-${String(month).padStart(2, '0')}`)
+    month += 1
+    if (month > 12) { month = 1; year += 1 }
+  }
+  return months
+}
+
+function monthLabel(yyyyMm, { short = false } = {}) {
+  const [year, month] = yyyyMm.split('-').map(Number)
+  const date = new Date(Date.UTC(year, month - 1, 15))
+  const label = new Intl.DateTimeFormat('tr-TR', {
+    month: short ? 'short' : 'long',
+    year: short ? undefined : 'numeric',
+    timeZone: 'UTC',
+  }).format(date)
+  const capitalized = label.charAt(0).toLocaleUpperCase('tr-TR') + label.slice(1)
+  return short ? `${capitalized} '${String(year).slice(2)}` : capitalized
+}
+
 function formatPeriodLabel(period, today) {
   if (period === 'all') return 'Tüm zamanlar'
-
-  const date = new Date(`${today}T12:00:00Z`)
-  if (period === 'year') {
-    return new Intl.DateTimeFormat('tr-TR', { year: 'numeric' }).format(date)
-  }
-
-  const label = new Intl.DateTimeFormat('tr-TR', {
-    month: 'long',
-    year: 'numeric',
-  }).format(date)
-  return label.charAt(0).toLocaleUpperCase('tr-TR') + label.slice(1)
+  if (period === 'last-month') return monthLabel(previousMonthISO(today))
+  return monthLabel(period)
 }
 
 async function fetchAllBookings() {
@@ -169,8 +192,17 @@ function metricsHTML(metrics, period, today) {
     </p>`
 }
 
+function periodButtonsHTML(months, selectedPeriod) {
+  const monthButtons = months.map(month =>
+    `<button type="button" data-period="${month}" class="${selectedPeriod === month ? 'active' : ''}">${monthLabel(month, { short: true })}</button>`).join('')
+  return `${monthButtons}
+    <button type="button" data-period="last-month" class="${selectedPeriod === 'last-month' ? 'active' : ''}">Geçen ay</button>
+    <button type="button" data-period="all" class="${selectedPeriod === 'all' ? 'active' : ''}">Tümü</button>`
+}
+
 export async function renderBudget(container, navigate) {
   const today = todayISO()
+  const months = monthRange(FIRST_BUDGET_MONTH, today.slice(0, 7))
   let selectedPeriod = 'all'
   let bookings = []
   let refreshInFlight = false
@@ -189,11 +221,7 @@ export async function renderBudget(container, navigate) {
       <button class="timeline-tab active" type="button" role="tab" aria-selected="true" data-admin-view="budget">Bütçe</button>
     </div>
     <div class="budget-toolbar">
-      <div class="budget-periods" role="group" aria-label="Bütçe dönemi">
-        <button type="button" data-period="month">Bu ay</button>
-        <button type="button" data-period="year">Bu yıl</button>
-        <button class="active" type="button" data-period="all">Tümü</button>
-      </div>
+      <div class="budget-periods" role="group" aria-label="Bütçe dönemi">${periodButtonsHTML(months, selectedPeriod)}</div>
       <button class="sync-button" id="budget-refresh-btn" type="button" aria-label="Bütçe verilerini yenile">↻</button>
     </div>
     <div class="budget-update-status" id="budget-update-status">Yükleniyor…</div>

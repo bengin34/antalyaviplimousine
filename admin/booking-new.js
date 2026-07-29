@@ -22,8 +22,38 @@ export const LOCATION_OPTIONS = [
 
 export const VEHICLE_CAPACITY = { vclass: 13, vito: 8 }
 
+const PREFILL_STORAGE_KEY = 'vip-admin-new-booking-prefill'
+
 function todayISO() {
   return new Intl.DateTimeFormat('sv', { timeZone: 'Europe/Istanbul' }).format(new Date())
+}
+
+function escapeHTML(value) {
+  return String(value ?? '')
+    .replaceAll('&', '&amp;')
+    .replaceAll('<', '&lt;')
+    .replaceAll('>', '&gt;')
+    .replaceAll('"', '&quot;')
+    .replaceAll("'", '&#039;')
+}
+
+export function queueBookingPrefill(data) {
+  try {
+    sessionStorage.setItem(PREFILL_STORAGE_KEY, JSON.stringify(data))
+  } catch {
+    // Private browsing/storage limits just mean the new form starts blank.
+  }
+}
+
+function consumeBookingPrefill() {
+  try {
+    const raw = sessionStorage.getItem(PREFILL_STORAGE_KEY)
+    if (!raw) return null
+    sessionStorage.removeItem(PREFILL_STORAGE_KEY)
+    return JSON.parse(raw)
+  } catch {
+    return null
+  }
 }
 
 function generateBookingRef() {
@@ -40,6 +70,7 @@ export function locationOptionsHTML(selected) {
 
 export function renderBookingNew(container, navigate) {
   const today = todayISO()
+  const prefill = consumeBookingPrefill()
 
   container.innerHTML = `
     <div class="topbar">
@@ -48,6 +79,7 @@ export function renderBookingNew(container, navigate) {
       <span></span>
     </div>
     <div class="scroll-area">
+      ${prefill ? `<div class="prefill-banner">📋 ${escapeHTML(prefill.sourceRef ?? '')} rezervasyonundan bilgiler kopyalandı</div>` : ''}
       <form id="new-booking-form" novalidate>
         <div class="section">
           <div class="section-label">Müşteri</div>
@@ -245,6 +277,36 @@ export function renderBookingNew(container, navigate) {
     e.preventDefault()
     submitBooking(navigate)
   })
+
+  if (prefill) applyBookingPrefill(prefill)
+}
+
+function applyBookingPrefill(prefill) {
+  const setValue = (id, value) => {
+    if (value == null || value === '') return
+    const el = document.getElementById(id)
+    if (el) el.value = value
+  }
+
+  setValue('f-name', prefill.customerName)
+  setValue('f-phone', prefill.customerPhone)
+  setValue('f-hotel', prefill.hotelName)
+  setValue('f-pickup', prefill.pickupLocation)
+  setValue('f-dropoff', prefill.dropoffLocation)
+  setValue('f-pickup-address', prefill.pickupAddress)
+  setValue('f-dropoff-address', prefill.dropoffAddress)
+  setValue('f-vehicle', prefill.vehicleType)
+  setValue('f-guests', prefill.guests)
+  setValue('f-luggage', prefill.luggageCount)
+  setValue('f-child', prefill.childSeatCount)
+  setValue('f-payment', prefill.paymentMethod)
+  setValue('f-notes', prefill.notes)
+
+  document.getElementById('f-pickup').dispatchEvent(new Event('change'))
+  document.getElementById('f-dropoff').dispatchEvent(new Event('change'))
+  document.getElementById('f-vehicle').dispatchEvent(new Event('change'))
+
+  document.getElementById('f-name').focus()
 }
 
 async function submitBooking(navigate) {

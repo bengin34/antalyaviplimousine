@@ -280,7 +280,7 @@ function paymentInfoHTML(card) {
   </div>`
 }
 
-function cardHTML(c, { showPastConfirm = false } = {}) {
+function cardHTML(c, { showPastConfirm = false, showFlightAlert = true } = {}) {
   const pickupDisplay = locationDisplay(c.pickup_location, c.pickup_address)
   const dropoffDisplay = locationDisplay(c.dropoff_location, c.dropoff_address)
   const showSeparateFlightArrival = c.flight_arrival_time && c.flight_arrival_time !== c._displayTime
@@ -333,10 +333,10 @@ function cardHTML(c, { showPastConfirm = false } = {}) {
   return `
     <div class="card status-${c.status}" data-ref="${escapeHTML(c.booking_ref)}" data-return="${c._isReturn}" data-date="${escapeHTML(c._displayDate)}" data-time="${escapeHTML(c._displayTime ?? '')}" data-status="${escapeHTML(c.status)}" data-flight-date="${c.pickup_location === 'airport' && c.flight_arrival_time ? escapeHTML(c._displayDate) : ''}" data-flight-arrival="${c.pickup_location === 'airport' ? escapeHTML(c.flight_arrival_time ?? '') : ''}">
       ${returnContactAlertHTML(c)}
-      <div class="flight-landed-alert" data-flight-landed-alert role="status" hidden>
+      ${showFlightAlert ? `<div class="flight-landed-alert" data-flight-landed-alert role="status" hidden>
         <span class="flight-landed-icon" aria-hidden="true">✈</span>
         <span><strong>Uçak iniş saati geldi</strong><small data-flight-landed-copy></small></span>
-      </div>
+      </div>` : ''}
       <div class="card-header">
         <div class="card-time-block">
           <span class="card-time-label">Transfer saati</span>
@@ -388,6 +388,15 @@ function transferWallClock(date, time) {
   const [hour, minute] = time.slice(0, 5).split(':').map(Number)
   const timestamp = Date.UTC(year, month - 1, day, hour, minute)
   return Number.isFinite(timestamp) ? timestamp : null
+}
+
+function isCardPast(card, today, nowWallClock) {
+  if (card._displayDate < today) return true
+  if (card._displayDate > today) return false
+  if (!card._displayTime) return false
+  const cardAt = transferWallClock(card._displayDate, card._displayTime)
+  if (cardAt === null) return false
+  return cardAt < nowWallClock
 }
 
 function liveTiming(date, time, status) {
@@ -588,9 +597,10 @@ export async function renderTimeline(container, navigate, selectedTab = 'future'
   })
 
   function renderCards(bookings, { cachedOnly = false, futureReservationCount = null } = {}) {
+    const now = istanbulWallClock()
     const cards = expandRoundTrips(bookings ?? [], selectedTab).filter(card => {
       if (cachedOnly) return card._displayDate === today
-      return isPast ? card._displayDate < today : card._displayDate >= today
+      return isPast ? isCardPast(card, today, now) : !isCardPast(card, today, now)
     })
 
     if (!isPast) {
@@ -624,7 +634,7 @@ export async function renderTimeline(container, navigate, selectedTab = 'future'
       const collapseCompleted = !isPast && (key === 'Bugün' || key === today)
       const completed = collapseCompleted ? group.filter(card => card.status === 'completed') : []
       const active = collapseCompleted ? group.filter(card => card.status !== 'completed') : group
-      const renderCard = card => cardHTML(card, { showPastConfirm: isPast })
+      const renderCard = card => cardHTML(card, { showPastConfirm: isPast, showFlightAlert: !isPast })
       const completedHTML = completed.length
         ? `<details class="completed-group"><summary>Tamamlananlar (${completed.length})</summary><div class="completed-list">${completed.map(renderCard).join('')}</div></details>`
         : ''
@@ -675,7 +685,7 @@ export async function renderTimeline(container, navigate, selectedTab = 'future'
       .in('status', ['pending', 'paid', 'confirmed', 'in_transit', 'completed'])
 
     query = isPast
-      ? query.lt('pickup_date', today)
+      ? query.lte('pickup_date', today)
       : query.or(`pickup_date.gte.${today},return_date.gte.${today}`)
 
     const { data, error } = await query

@@ -1,11 +1,18 @@
 const COLLECTED_STATUSES = new Set(['paid', 'in_transit', 'completed'])
 const BOOKING_STATUSES = ['pending', 'confirmed', 'paid', 'in_transit', 'completed', 'cancelled']
 
+function previousMonthISO(today) {
+  const [year, month] = today.slice(0, 7).split('-').map(Number)
+  const prevMonth = month === 1 ? 12 : month - 1
+  const prevYear = month === 1 ? year - 1 : year
+  return `${prevYear}-${String(prevMonth).padStart(2, '0')}`
+}
+
 function isInPeriod(date, period, today) {
   if (!date) return false
   if (period === 'all') return true
-  if (period === 'year') return date.slice(0, 4) === today.slice(0, 4)
-  return date.slice(0, 7) === today.slice(0, 7)
+  if (period === 'last-month') return date.slice(0, 7) === previousMonthISO(today)
+  return date.slice(0, 7) === period
 }
 
 function isCollected(booking, today) {
