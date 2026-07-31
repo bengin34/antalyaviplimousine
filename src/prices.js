@@ -8,11 +8,11 @@ export const routeData = {
   kizilagac: { name: "Manavgat/Kızılağaç",originalPrices: { vito: 70, sprinter: 115 }, prices: { vito: 60,  sprinter: 95  } },
   bogazkent: { name: "Boğazkent",         originalPrices: { vito: 55, sprinter: 90  }, prices: { vito: 45,  sprinter: 80  } },
   antalya:   { name: "Antalya City",      originalPrices: { vito: 40, sprinter: 65  }, prices: { vito: 35,  sprinter: 55  } },
-  bodrum:    { name: "Bodrum",            originalPrices: { vito: 210, sprinter: 310 }, prices: { vito: 180, sprinter: 265 } },
+  bodrum:    { name: "Bodrum",            originalPrices: { vito: 325, sprinter: 385 }, prices: { vito: 280, sprinter: 330 } },
   dalaman:   { name: "Dalaman",           originalPrices: { vito: 210, sprinter: 310 }, prices: { vito: 180, sprinter: 265 } },
   fethiye:   { name: "Fethiye",           originalPrices: { vito: 210, sprinter: 310 }, prices: { vito: 180, sprinter: 265 } },
-  pamukkale: { name: "Pamukkale",         originalPrices: { vito: 210, sprinter: 310 }, prices: { vito: 180, sprinter: 265 } },
-  kapadokya: { name: "Kapadokya",         originalPrices: { vito: 310, sprinter: 490 }, prices: { vito: 265, sprinter: 420 } },
+  pamukkale: { name: "Pamukkale",         originalPrices: { vito: 290, sprinter: 350 }, prices: { vito: 250, sprinter: 300 } },
+  kapadokya: { name: "Kapadokya",         originalPrices: { vito: 350, sprinter: 490 }, prices: { vito: 300, sprinter: 420 } },
 };
 
 const formatPriceValue = (value) => {
