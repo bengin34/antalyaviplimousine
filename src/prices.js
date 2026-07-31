@@ -12,7 +12,7 @@ export const routeData = {
   dalaman:   { name: "Dalaman",           originalPrices: { vito: 210, sprinter: 310 }, prices: { vito: 180, sprinter: 265 } },
   fethiye:   { name: "Fethiye",           originalPrices: { vito: 210, sprinter: 310 }, prices: { vito: 180, sprinter: 265 } },
   pamukkale: { name: "Pamukkale",         originalPrices: { vito: 290, sprinter: 350 }, prices: { vito: 250, sprinter: 300 } },
-  kapadokya: { name: "Kapadokya",         originalPrices: { vito: 350, sprinter: 490 }, prices: { vito: 300, sprinter: 420 } },
+  kapadokya: { name: "Kapadokya",         originalPrices: { vito: 350, sprinter: 410 }, prices: { vito: 300, sprinter: 350 } },
 };
 
 const formatPriceValue = (value) => {

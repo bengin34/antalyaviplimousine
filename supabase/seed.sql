@@ -32,7 +32,7 @@ INSERT INTO routes (from_location, to_location, vehicle_type, price_eur, duratio
   ('airport', 'pamukkale',  'vito',   250.00, 180, 245),
   ('airport', 'pamukkale',  'vclass', 300.00, 180, 245),
   ('airport', 'kapadokya',  'vito',   300.00, 480, 540),
-  ('airport', 'kapadokya',  'vclass', 420.00, 480, 540)
+  ('airport', 'kapadokya',  'vclass', 350.00, 480, 540)
 ON CONFLICT (from_location, to_location, vehicle_type)
 DO UPDATE SET
   price_eur = EXCLUDED.price_eur,
