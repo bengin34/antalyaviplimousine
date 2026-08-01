@@ -258,7 +258,8 @@ git commit -m "feat: add booking search-match predicate (name/phone/ref/route)"
 
 **Notes for implementer:**
 - Language comes from `booking.language` (`en`/`de`/`ru`/`tr`); unknown/missing → `en`.
-- Only labels/sentences are translated. Location names, dates, times, prices, guest count, driver name, plate are inserted verbatim.
+- Only labels/sentences are translated. Dates, times, prices, guest count, driver name, plate are inserted verbatim.
+- **Locations are stored as slugs**, not display names: `booking.pickup_location` is e.g. `'airport'`, `'belek'`, `'private_address'` (see `LOCATION_OPTIONS` in `booking-new.js:3`). The route MUST be rendered through `locationDisplay(value, address)` (`turkish-formatters.js:34`) — which maps `'airport'`→`'Antalya Havalimanı'`, and for `'private_address'` returns the address string. Pass `pickup_address`/`dropoff_address` as the second arg. Do NOT print raw slugs.
 - Reminder uses the **outbound leg** (`pickup_date`, pickup time, `pickup_location`) even for round trips.
 - Pickup time: reuse `transferStartTime(pickup_location, pickup_time, flight_arrival_time)` from `timeline.js:48`. Export it from `timeline.js` if not already exported, OR duplicate the tiny helper into a shared spot — prefer exporting to stay DRY. Check its current signature before wiring.
 - Driver line appears only when `driver_name` or `vehicle_plate` is non-empty; otherwise omit the whole line.
@@ -271,26 +272,37 @@ Create `admin/whatsapp-templates.test.js`:
 import { test, expect } from 'vitest'
 import { buildConfirmMessage, buildReminderMessage } from './whatsapp-templates.js'
 
+// Locations are SLUGS (as stored in the DB), not display names.
 const base = {
   booking_ref: 'VIP-2026-0042',
   customer_name: 'Ahmet Yılmaz',
   pickup_date: '2026-08-15',
   pickup_time: '10:30',
-  pickup_location: 'Antalya Havalimanı',
-  dropoff_location: 'Belek',
+  pickup_location: 'airport',
+  dropoff_location: 'belek',
   vehicle_type: 'vclass',
   guests: 3,
   price_eur: 55,
   language: 'en',
 }
 
-test('confirm message includes ref, route, date, price verbatim', () => {
+test('confirm message maps location slugs to display names in the route', () => {
   const msg = buildConfirmMessage(base)
   expect(msg).toContain('VIP-2026-0042')
-  expect(msg).toContain('Antalya Havalimanı')
-  expect(msg).toContain('Belek')
+  expect(msg).toContain('Antalya Havalimanı')   // 'airport' → display name
+  expect(msg).toContain('Belek')                // 'belek' → display name
+  expect(msg).not.toContain('airport')          // no raw slug leaks
   expect(msg).toContain('2026-08-15')
   expect(msg).toContain('55')
+})
+
+test('private_address route uses the address string', () => {
+  const msg = buildConfirmMessage({
+    ...base,
+    pickup_location: 'private_address',
+    pickup_address: 'Lara Cd. No:5',
+  })
+  expect(msg).toContain('Lara Cd. No:5')
 })
 
 test('confirm message localizes labels by language', () => {
@@ -345,8 +357,10 @@ Create `admin/whatsapp-templates.js`. Skeleton (implementer fills the four langu
 
 ```js
 // Builds localized, ready-to-send WhatsApp message text for the admin panel.
-// Only labels/sentences are translated; location names, dates, times, prices,
-// guest count and driver details are inserted verbatim.
+// Only labels/sentences are translated; dates, times, prices, guest count and
+// driver details are inserted verbatim. Location SLUGS are mapped to display
+// names via locationDisplay.
+import { locationDisplay } from './turkish-formatters.js'
 
 const VEHICLE_LABEL = { vclass: 'Mercedes V-Class', vito: 'Mercedes Vito' }
 
@@ -388,7 +402,7 @@ export function buildConfirmMessage(b) {
     `${t.ref}: ${b.booking_ref}`,
     `${t.date}: ${b.pickup_date}`,
     `${t.time}: ${pickupTime(b)}`,
-    `${t.route}: ${b.pickup_location} → ${b.dropoff_location}`,
+    `${t.route}: ${locationDisplay(b.pickup_location, b.pickup_address)} → ${locationDisplay(b.dropoff_location, b.dropoff_address)}`,
     `${t.vehicle}: ${vehicleLabel(b.vehicle_type)}`,
     `${t.guests}: ${b.guests}`,
     `${t.price}: €${b.price_eur}`,
@@ -405,7 +419,7 @@ export function buildReminderMessage(b) {
     '',
     `${t.date}: ${b.pickup_date}`,
     `${t.time}: ${pickupTime(b)}`,
-    `${t.meetPoint}: ${b.pickup_location}`,
+    `${t.meetPoint}: ${locationDisplay(b.pickup_location, b.pickup_address)}`,
   ]
   const driver = [b.driver_name, b.vehicle_plate].filter(Boolean)
   if (driver.length) {
@@ -522,14 +536,27 @@ Following the `setupAddressEditor` pattern, add editable fields for `driver_name
 
 - [ ] **Step 4: Add the two WhatsApp template buttons**
 
-Near the existing WhatsApp link (booking-detail.js:360), add:
+**Important:** `setupFieldEditor` updates the displayed value in place (booking-detail.js:~586) and mutates the in-memory `booking` object; it does NOT re-render the detail body. A static href baked into the template string would therefore go stale after a driver-field edit. So build the href **at click time** from the current `booking` object.
+
+Add the buttons as elements (no href, or `href="#"`), near the existing WhatsApp link (booking-detail.js:360):
 
 ```js
-<a class="whatsapp-template-btn" href="${escapeHTML(whatsappURL(b.customer_phone, buildConfirmMessage(b)))}" target="_blank" rel="noopener noreferrer">WhatsApp: Onay gönder</a>
-<a class="whatsapp-template-btn" href="${escapeHTML(whatsappURL(b.customer_phone, buildReminderMessage(b)))}" target="_blank" rel="noopener noreferrer">WhatsApp: Hatırlatma gönder</a>
+<button class="whatsapp-template-btn" type="button" id="wa-confirm-btn">WhatsApp: Onay gönder</button>
+<button class="whatsapp-template-btn" type="button" id="wa-reminder-btn">WhatsApp: Hatırlatma gönder</button>
 ```
 
-If these are built as static hrefs in the template string, they capture the booking state at render time — acceptable since the detail view re-renders after edits. Confirm the buttons re-render after a driver-field edit (so the reminder link picks up new driver data); if the field editor updates in place without re-rendering, build the href at click time instead via an event listener.
+Then wire them (in the same setup path where `setupFieldEditor`/quick actions are wired, so `booking` is in scope), opening a new tab at click time so the reminder picks up freshly-edited driver fields:
+
+```js
+document.getElementById('wa-confirm-btn')?.addEventListener('click', () => {
+  window.open(whatsappURL(booking.customer_phone, buildConfirmMessage(booking)), '_blank', 'noopener')
+})
+document.getElementById('wa-reminder-btn')?.addEventListener('click', () => {
+  window.open(whatsappURL(booking.customer_phone, buildReminderMessage(booking)), '_blank', 'noopener')
+})
+```
+
+Confirm the `booking` object passed to the builders is the same reference that `setupFieldEditor` mutates on save (so `driver_name`/`vehicle_plate` edits are reflected). If the editor writes to a different object, read the current DOM/field values at click time instead.
 
 - [ ] **Step 5: Add minimal styling**
 
