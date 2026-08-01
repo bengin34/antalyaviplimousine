@@ -55,6 +55,12 @@ test('airport pickup time uses flight arrival when present', () => {
   expect(msg).toContain('11:45')
 })
 
+test('pickup time trimmed from HH:MM:SS to HH:MM', () => {
+  const msg = buildConfirmMessage({ ...base, pickup_location: 'belek', pickup_time: '10:30:00' })
+  expect(msg).toContain('10:30')
+  expect(msg).not.toContain('10:30:00')
+})
+
 test('reminder omits driver line when driver fields empty', () => {
   const msg = buildReminderMessage(base)
   expect(msg).not.toMatch(/07 ABC|Mehmet/)

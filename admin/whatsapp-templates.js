@@ -6,6 +6,11 @@ function transferStartTime(pickupLocation, pickupTime, flightArrivalTime) {
   return pickupTime
 }
 
+// Postgres `time` columns arrive as HH:MM:SS; trim to HH:MM for the message.
+function fmtTime(t) {
+  return t ? String(t).slice(0, 5) : t
+}
+
 const VEHICLE_LABELS = {
   vclass: 'Mercedes V-Class',
   vito: 'Mercedes Vito',
@@ -99,7 +104,7 @@ export function buildConfirmMessage(booking) {
 
   const pickupDisplay = locationDisplay(b.pickup_location, b.pickup_address)
   const dropoffDisplay = locationDisplay(b.dropoff_location, b.dropoff_address)
-  const pickupTime = transferStartTime(b.pickup_location, b.pickup_time, b.flight_arrival_time)
+  const pickupTime = fmtTime(transferStartTime(b.pickup_location, b.pickup_time, b.flight_arrival_time))
 
   const lines = [
     t.confirmGreeting(b.customer_name),
@@ -129,7 +134,7 @@ export function buildReminderMessage(booking) {
   const t = getLang(b.language)
 
   // Always use outbound leg for reminders
-  const pickupTime = transferStartTime(b.pickup_location, b.pickup_time, b.flight_arrival_time)
+  const pickupTime = fmtTime(transferStartTime(b.pickup_location, b.pickup_time, b.flight_arrival_time))
   const meetingPoint = locationDisplay(b.pickup_location, b.pickup_address)
 
   const lines = [
