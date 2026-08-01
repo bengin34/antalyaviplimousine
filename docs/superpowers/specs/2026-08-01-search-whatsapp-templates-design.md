@@ -52,7 +52,7 @@ New migration adds two nullable columns to `bookings`:
 - `driver_name TEXT`
 - `vehicle_plate TEXT`
 
-RLS: add an admin `UPDATE` policy allowing these columns, mirroring the existing pattern in `supabase/migrations/017_allow_admin_contact_updates.sql`.
+RLS: the admin `UPDATE` grant is column-level and cumulative-by-full-replacement. The current state is `supabase/migrations/018_add_dropoff_address.sql`, which does `REVOKE UPDATE ON bookings FROM authenticated;` then a single `GRANT UPDATE (...)` re-listing every grantable column. The new migration must copy **018's entire column list verbatim** and append `driver_name`, `vehicle_plate`. Granting only the two new columns would silently revoke update access to all columns 018 added — do **not** mirror 017 (its shorter list is superseded).
 
 In `admin/booking-detail.js`, add two field editors using the existing `setupFieldEditor` infrastructure (the same mechanism already used for email/address editing). Empty values display as `—`. There is a single vehicle/driver for now, so these fields may routinely stay blank.
 
@@ -85,15 +85,15 @@ Language is chosen from `booking.language` (`en` / `de` / `ru` / `tr`), falling 
 **Confirmation message contents:**
 - Greeting + booking reference (`booking_ref`)
 - Date (`pickup_date`)
-- Pickup time (`pickup_time` / flight-derived start, consistent with how the timeline shows start time)
+- Pickup time (`pickup_time` / flight-derived start). Reuse the timeline's existing `transferStartTime` helper (timeline.js:48) rather than reimplementing the flight-arrival derivation.
 - Route: `pickup_location → dropoff_location`
 - Vehicle (`vehicle_type`)
 - Guest count (`guests`)
 - Price (`price_eur`)
 - Meeting note
 
-**Reminder message contents:**
-- Tomorrow's date and time
+**Reminder message contents:** (for a round-trip booking, the reminder targets the **outbound leg** — `pickup_date` / pickup time / `pickup_location`; the return leg is not covered by this template)
+- Date and time of the outbound transfer
 - Meeting point (hotel / pickup location)
 - Driver name + vehicle plate — only if both/either present; the line is omitted entirely when empty
 - Contact line
