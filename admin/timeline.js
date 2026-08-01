@@ -258,25 +258,27 @@ function returnContactAlertHTML(card) {
 
 function paymentInfoHTML(card) {
   const paymentMethod = card.payment_method === 'cash' ? 'Nakit' : 'Kart'
-  const formattedPrice = `€${fmtPrice(card.price_eur)}`
+  const totalPrice = Number(card.price_eur) || 0
 
   if (card.trip_type !== 'round_trip') {
     return `<div class="card-info-item full payment-info">
       <span class="card-info-label">Ödeme</span>
-      <div class="card-info-value">${paymentMethod} · <strong>${formattedPrice}</strong></div>
+      <div class="card-info-value">${paymentMethod} · <strong>€${fmtPrice(totalPrice)}</strong></div>
     </div>`
   }
 
+  const halfPrice = totalPrice / 2
+
   if (card._isReturn) {
     return `<div class="card-info-item full payment-info payment-info-settled">
-      <span class="card-info-label">Ödeme</span>
-      <div class="card-info-value"><strong>Tahsilat yok</strong><small>Toplam ${formattedPrice} gidişte tahsil edildi</small></div>
+      <span class="card-info-label">Dönüş ücreti</span>
+      <div class="card-info-value"><strong>€${fmtPrice(halfPrice)}</strong><small>Gidişte tahsil edildi</small></div>
     </div>`
   }
 
   return `<div class="card-info-item full payment-info payment-info-collect">
-    <span class="card-info-label">Tahsil edilecek</span>
-    <div class="card-info-value"><strong>${formattedPrice}</strong><small>${paymentMethod} · Gidiş + dönüş toplamı</small></div>
+    <span class="card-info-label">Gidiş ücreti</span>
+    <div class="card-info-value"><strong>€${fmtPrice(halfPrice)}</strong><small>${paymentMethod} · Gidişte tahsil edilecek · Toplam €${fmtPrice(totalPrice)}</small></div>
   </div>`
 }
 
@@ -360,6 +362,9 @@ function cardHTML(c, { showPastConfirm = false, showFlightAlert = true } = {}) {
       ${navigationHTML(c)}
       <div class="card-footer">
         <span class="card-reference">${escapeHTML(c.booking_ref)}</span>
+        ${!c._isReturn && c.trip_type === 'round_trip' && c.return_date
+          ? `<button class="card-goto-return-button" type="button" data-goto-return="${escapeHTML(c.booking_ref)}">Dönüşü Gör ↓</button>`
+          : ''}
         <div class="card-footer-actions${confirmButton ? ' has-confirm' : ''}">
           ${confirmButton}
           <button class="card-detail-button" type="button" data-open-detail>Detayları aç <span aria-hidden="true">›</span></button>
@@ -531,6 +536,9 @@ export async function renderTimeline(container, navigate, selectedTab = 'future'
       <div class="live-clock-wrap"><span id="live-date"></span><strong id="live-clock"></strong></div>
       <div class="sync-wrap"><span id="sync-status">Yükleniyor…</span><button class="sync-button" id="refresh-btn" type="button" aria-label="Transferleri yenile">↻</button></div>
     </div>
+    <div class="search-bar">
+      <input class="search-input" type="search" id="customer-search" placeholder="Müşteri adıyla ara…" autocomplete="off" />
+    </div>
     <div class="offline-banner" id="offline-banner" hidden></div>
     <div class="scroll-area" id="booking-list"><div class="empty"><div>Yükleniyor…</div></div></div>
   `
@@ -539,8 +547,11 @@ export async function renderTimeline(container, navigate, selectedTab = 'future'
   const syncStatus = document.getElementById('sync-status')
   const offlineBanner = document.getElementById('offline-banner')
   const refreshBtn = document.getElementById('refresh-btn')
+  const searchInput = document.getElementById('customer-search')
   let refreshInFlight = false
   let hasRenderedData = false
+  let lastBookings = null
+  let searchQuery = ''
 
   document.getElementById('new-btn').addEventListener('click', () => navigate('#new'))
   document.getElementById('admin-btn').addEventListener('click', () => navigate('#admin'))
@@ -562,6 +573,18 @@ export async function renderTimeline(container, navigate, selectedTab = 'future'
   })
 
   list.addEventListener('click', async (event) => {
+    const gotoReturnBtn = event.target.closest('[data-goto-return]')
+    if (gotoReturnBtn) {
+      const ref = gotoReturnBtn.dataset.gotoReturn
+      const returnCard = list.querySelector(`.card[data-ref="${CSS.escape(ref)}"][data-return="true"]`)
+      if (returnCard) {
+        const details = returnCard.closest('details')
+        if (details) details.open = true
+        returnCard.scrollIntoView({ behavior: 'smooth', block: 'center' })
+      }
+      return
+    }
+
     const confirmButton = event.target.closest('[data-confirm-past]')
     if (confirmButton) {
       const bookingRef = confirmButton.dataset.confirmPast
@@ -597,16 +620,22 @@ export async function renderTimeline(container, navigate, selectedTab = 'future'
   })
 
   function renderCards(bookings, { cachedOnly = false, futureReservationCount = null } = {}) {
+    lastBookings = bookings
     const now = istanbulWallClock()
-    const cards = expandRoundTrips(bookings ?? [], selectedTab).filter(card => {
+    const q = searchQuery.trim().toLocaleLowerCase('tr-TR')
+    const sourceBookings = q
+      ? (bookings ?? []).filter(b => String(b.customer_name ?? '').toLocaleLowerCase('tr-TR').includes(q))
+      : bookings ?? []
+    const cards = expandRoundTrips(sourceBookings, selectedTab).filter(card => {
       if (cachedOnly) return card._displayDate === today
       return isPast ? isCardPast(card, today, now) : !isCardPast(card, today, now)
     })
 
     if (!isPast) {
       const operationalStatuses = ['pending', 'paid', 'confirmed', 'in_transit']
-      const bugun = cards.filter(c => c._displayDate === today && operationalStatuses.includes(c.status)).length
-      const yarin = cards.filter(c => c._displayDate === tomorrow && operationalStatuses.includes(c.status)).length
+      const allCards = expandRoundTrips(bookings ?? [], selectedTab).filter(card => !isCardPast(card, today, now))
+      const bugun = allCards.filter(c => c._displayDate === today && operationalStatuses.includes(c.status)).length
+      const yarin = allCards.filter(c => c._displayDate === tomorrow && operationalStatuses.includes(c.status)).length
       const gelecekRezervasyon = Number.isInteger(futureReservationCount)
         ? futureReservationCount
         : countFutureReservations(bookings)
@@ -618,7 +647,10 @@ export async function renderTimeline(container, navigate, selectedTab = 'future'
     const groups = groupByDay(cards, today, tomorrow, selectedTab)
     const hasBookings = [...groups.values()].some(group => group.length > 0)
     if (!hasBookings) {
-      list.innerHTML = `<div class="empty"><div class="empty-icon">📅</div><div>${cachedOnly ? 'Önbellekte bugünkü transfer yok' : isPast ? 'Geçmiş transfer yok' : 'Gelecek transfer yok'}</div></div>`
+      const emptyMsg = q
+        ? `"${q}" için sonuç bulunamadı`
+        : cachedOnly ? 'Önbellekte bugünkü transfer yok' : isPast ? 'Geçmiş transfer yok' : 'Gelecek transfer yok'
+      list.innerHTML = `<div class="empty"><div class="empty-icon">📅</div><div>${emptyMsg}</div></div>`
       hasRenderedData = true
       return
     }
@@ -722,6 +754,12 @@ export async function renderTimeline(container, navigate, selectedTab = 'future'
   const handleOnline = () => refreshBookings()
 
   refreshBtn.addEventListener('click', refreshBookings)
+
+  searchInput.addEventListener('input', () => {
+    searchQuery = searchInput.value
+    if (lastBookings !== null) renderCards(lastBookings)
+  })
+
   window.addEventListener('offline', handleOffline)
   window.addEventListener('online', handleOnline)
 

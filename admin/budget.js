@@ -43,6 +43,74 @@ function previousMonthISO(today) {
   return `${prevYear}-${String(prevMonth).padStart(2, '0')}`
 }
 
+function isInPeriod(date, period, today) {
+  if (!date) return false
+  if (period === 'all') return true
+  if (period === 'last-month') return date.slice(0, 7) === previousMonthISO(today)
+  return date.slice(0, 7) === period
+}
+
+function fmtLongDate(isoDate) {
+  if (!isoDate) return '—'
+  const date = new Date(`${isoDate}T12:00:00Z`)
+  return new Intl.DateTimeFormat('tr-TR', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' }).format(date)
+}
+
+function openSummaryPDF(bookings, selectedPeriod, today, periodLabel) {
+  const filtered = bookings
+    .filter(b => b.status !== 'cancelled' && isInPeriod(b.pickup_date, selectedPeriod, today))
+    .sort((a, b) => (a.pickup_date || '').localeCompare(b.pickup_date || ''))
+
+  const rows = filtered.map(b => {
+    const destRaw = b.dropoff_location === 'airport' ? b.pickup_location : b.dropoff_location
+    const dest = locationLabel(destRaw)
+    const date = fmtLongDate(b.pickup_date)
+    const customer = escapeHTML(b.customer_name || '—')
+    const price = formatCurrency(b.price_eur)
+    const statusTR = { pending: 'Bekliyor', confirmed: 'Onaylı', paid: 'Ödendi', in_transit: 'Yolda', completed: 'Tamamlandı' }[b.status] || b.status
+    return `<tr><td>${escapeHTML(date)}</td><td>${customer}</td><td>${escapeHTML(dest)}</td><td class="price">${escapeHTML(price)}</td><td>${statusTR}</td></tr>`
+  }).join('')
+
+  const total = filtered.reduce((sum, b) => sum + (Number(b.price_eur) || 0), 0)
+
+  const html = `<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<title>VIP Transfer Özet — ${escapeHTML(periodLabel)}</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: system-ui, -apple-system, sans-serif; font-size: 13px; color: #111; padding: 24px; }
+  h1 { font-size: 18px; margin-bottom: 4px; }
+  .subtitle { color: #555; font-size: 13px; margin-bottom: 20px; }
+  table { width: 100%; border-collapse: collapse; }
+  th { background: #f0f0f0; text-align: left; padding: 8px 10px; font-size: 12px; text-transform: uppercase; letter-spacing: .5px; }
+  td { padding: 7px 10px; border-bottom: 1px solid #eee; vertical-align: top; }
+  td.price { font-weight: 600; white-space: nowrap; }
+  tfoot td { background: #f8f8f8; font-weight: 700; padding: 8px 10px; border-top: 2px solid #ccc; }
+  tfoot td.price { color: #1a5c2a; }
+  @media print { body { padding: 0; } }
+</style>
+</head>
+<body>
+<h1>VIP Transfer Özeti</h1>
+<div class="subtitle">${escapeHTML(periodLabel)} · ${filtered.length} rezervasyon</div>
+<table>
+  <thead><tr><th>Tarih</th><th>Yolcu</th><th>Gidilen Yer</th><th>Fiyat</th><th>Durum</th></tr></thead>
+  <tbody>${rows || '<tr><td colspan="5" style="text-align:center;color:#888;padding:24px">Seçilen dönemde rezervasyon yok</td></tr>'}</tbody>
+  <tfoot><tr><td colspan="3"><strong>Toplam</strong></td><td class="price">${escapeHTML(formatCurrency(total))}</td><td></td></tr></tfoot>
+</table>
+</body>
+</html>`
+
+  const win = window.open('', '_blank')
+  if (!win) return
+  win.document.write(html)
+  win.document.close()
+  win.focus()
+  win.print()
+}
+
 function monthRange(startYyyyMm, endYyyyMm) {
   const months = []
   let [year, month] = startYyyyMm.split('-').map(Number)
@@ -79,7 +147,7 @@ async function fetchAllBookings() {
   for (let from = 0; ; from += PAGE_SIZE) {
     const { data, error } = await supabase
       .from('bookings')
-      .select('id, pickup_location, dropoff_location, pickup_date, return_date, trip_type, price_eur, status, payment_method, paid_at, created_at')
+      .select('id, customer_name, pickup_location, dropoff_location, pickup_date, return_date, trip_type, price_eur, status, payment_method, paid_at, created_at')
       .order('created_at', { ascending: true })
       .range(from, from + PAGE_SIZE - 1)
 
@@ -222,7 +290,10 @@ export async function renderBudget(container, navigate) {
     </div>
     <div class="budget-toolbar">
       <div class="budget-periods" role="group" aria-label="Bütçe dönemi">${periodButtonsHTML(months, selectedPeriod)}</div>
-      <button class="sync-button" id="budget-refresh-btn" type="button" aria-label="Bütçe verilerini yenile">↻</button>
+      <div class="budget-toolbar-actions">
+        <button class="btn-outline budget-pdf-btn" id="budget-pdf-btn" type="button" aria-label="Özet PDF çıkar">📄 Özet Çıkar</button>
+        <button class="sync-button" id="budget-refresh-btn" type="button" aria-label="Bütçe verilerini yenile">↻</button>
+      </div>
     </div>
     <div class="budget-update-status" id="budget-update-status">Yükleniyor…</div>
     <main class="scroll-area budget-content" id="budget-content">
@@ -287,5 +358,11 @@ export async function renderBudget(container, navigate) {
   })
 
   refreshButton.addEventListener('click', refreshBudget)
+
+  document.getElementById('budget-pdf-btn').addEventListener('click', () => {
+    const periodLabel = formatPeriodLabel(selectedPeriod, today)
+    openSummaryPDF(bookings, selectedPeriod, today, periodLabel)
+  })
+
   await refreshBudget()
 }
