@@ -5,6 +5,7 @@ import {
   navigationURLs,
   whatsappURL,
 } from './turkish-formatters.js'
+import { buildConfirmMessage, buildReminderMessage } from './whatsapp-templates.js'
 import { VEHICLE_CAPACITY, locationOptionsHTML, queueBookingPrefill } from './booking-new.js'
 
 function fmtTime(t) { return t ? t.slice(0, 5) : '—' }
@@ -362,6 +363,10 @@ function renderDetailBody(b, navigate, bookingRef, isReturn) {
           <span>WhatsApp'tan yaz: ${escapeHTML(b.customer_phone)}</span>
         </a>
       </div>
+      <div class="whatsapp-template-actions">
+        <button class="whatsapp-template-btn" type="button" id="wa-confirm-btn">💬 WhatsApp: Onay gönder</button>
+        <button class="whatsapp-template-btn" type="button" id="wa-reminder-btn">💬 WhatsApp: Hatırlatma gönder</button>
+      </div>
       <div class="editable-heading" style="margin-top:8px">
         <div class="detail-key">✉️ E-posta</div>
         <button class="inline-edit-button" id="email-edit-btn" type="button">Düzenle</button>
@@ -433,6 +438,38 @@ function renderDetailBody(b, navigate, bookingRef, isReturn) {
           </div>
           <div class="inline-success" id="dropoff-address-success" role="status"></div>
         </div>
+        <div class="full">
+          <div class="editable-heading">
+            <div class="detail-key">Şoför</div>
+            <button class="inline-edit-button" id="driver-name-edit-btn" type="button">Düzenle</button>
+          </div>
+          <div class="detail-val" id="driver-name-display">${b.driver_name ? escapeHTML(b.driver_name) : '—'}</div>
+          <div class="inline-editor" id="driver-name-edit-row" hidden>
+            <input class="input" type="text" id="driver-name-input" maxlength="60" aria-label="Şoför adı" />
+            <div class="inline-editor-actions">
+              <button class="btn inline-editor-button" id="driver-name-save-btn" type="button">Kaydet</button>
+              <button class="btn-outline inline-editor-button" id="driver-name-cancel-btn" type="button">İptal</button>
+            </div>
+            <div class="inline-error" id="driver-name-error"></div>
+          </div>
+          <div class="inline-success" id="driver-name-success" role="status"></div>
+        </div>
+        <div class="full">
+          <div class="editable-heading">
+            <div class="detail-key">Plaka</div>
+            <button class="inline-edit-button" id="driver-plate-edit-btn" type="button">Düzenle</button>
+          </div>
+          <div class="detail-val" id="driver-plate-display">${b.vehicle_plate ? escapeHTML(b.vehicle_plate) : '—'}</div>
+          <div class="inline-editor" id="driver-plate-edit-row" hidden>
+            <input class="input" type="text" id="driver-plate-input" maxlength="15" aria-label="Plaka" />
+            <div class="inline-editor-actions">
+              <button class="btn inline-editor-button" id="driver-plate-save-btn" type="button">Kaydet</button>
+              <button class="btn-outline inline-editor-button" id="driver-plate-cancel-btn" type="button">İptal</button>
+            </div>
+            <div class="inline-error" id="driver-plate-error"></div>
+          </div>
+          <div class="inline-success" id="driver-plate-success" role="status"></div>
+        </div>
       </div>
     </div>
 
@@ -484,6 +521,9 @@ function renderDetailBody(b, navigate, bookingRef, isReturn) {
   setupEmailEditor(b)
   setupAddressEditor(b)
   setupDropoffAddressEditor(b)
+  setupDriverNameEditor(b)
+  setupDriverPlateEditor(b)
+  setupWhatsappTemplates(b)
   setupBookingEditor(b, navigate, bookingRef, isReturn)
   setupQuickActions(b, transfer, navigate)
 }
@@ -637,6 +677,45 @@ function setupDropoffAddressEditor(booking) {
     format: (value) => (value ? `📍 ${value}` : '—'),
     saveError: 'Varış adresi güncellenemedi, tekrar deneyin.',
     successMsg: 'Varış adresi güncellendi.',
+  })
+}
+
+function setupDriverNameEditor(booking) {
+  setupFieldEditor(booking, {
+    prefix: 'driver-name',
+    column: 'driver_name',
+    validate: (raw) => {
+      const name = raw.trim().replace(/\s+/g, ' ')
+      if (name && name.length > 60) return { ok: false, error: 'Şoför adı en fazla 60 karakter olmalı.' }
+      return { ok: true, value: name || null }
+    },
+    format: (value) => (value ? value : '—'),
+    saveError: 'Şoför güncellenemedi, tekrar deneyin.',
+    successMsg: 'Şoför güncellendi.',
+  })
+}
+
+function setupDriverPlateEditor(booking) {
+  setupFieldEditor(booking, {
+    prefix: 'driver-plate',
+    column: 'vehicle_plate',
+    validate: (raw) => {
+      const plate = raw.trim().replace(/\s+/g, ' ')
+      if (plate && plate.length > 15) return { ok: false, error: 'Plaka en fazla 15 karakter olmalı.' }
+      return { ok: true, value: plate || null }
+    },
+    format: (value) => (value ? value : '—'),
+    saveError: 'Plaka güncellenemedi, tekrar deneyin.',
+    successMsg: 'Plaka güncellendi.',
+  })
+}
+
+function setupWhatsappTemplates(booking) {
+  document.getElementById('wa-confirm-btn')?.addEventListener('click', () => {
+    window.open(whatsappURL(booking.customer_phone, buildConfirmMessage(booking)), '_blank', 'noopener')
+  })
+  document.getElementById('wa-reminder-btn')?.addEventListener('click', () => {
+    window.open(whatsappURL(booking.customer_phone, buildReminderMessage(booking)), '_blank', 'noopener')
   })
 }
 
