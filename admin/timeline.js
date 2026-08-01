@@ -5,6 +5,7 @@ import {
   navigationURLs,
   whatsappURL,
 } from './turkish-formatters.js'
+import { matchesBookingQuery } from './search-match.js'
 
 const ISTANBUL_TIME_ZONE = 'Europe/Istanbul'
 const AUTO_REFRESH_MS = 60_000
@@ -537,7 +538,7 @@ export async function renderTimeline(container, navigate, selectedTab = 'future'
       <div class="sync-wrap"><span id="sync-status">Yükleniyor…</span><button class="sync-button" id="refresh-btn" type="button" aria-label="Transferleri yenile">↻</button></div>
     </div>
     <div class="search-bar">
-      <input class="search-input" type="search" id="customer-search" placeholder="Müşteri adıyla ara…" autocomplete="off" />
+      <input class="search-input" type="search" id="customer-search" placeholder="İsim, telefon, kod veya güzergah ara…" autocomplete="off" />
     </div>
     <div class="offline-banner" id="offline-banner" hidden></div>
     <div class="scroll-area" id="booking-list"><div class="empty"><div>Yükleniyor…</div></div></div>
@@ -622,10 +623,8 @@ export async function renderTimeline(container, navigate, selectedTab = 'future'
   function renderCards(bookings, { cachedOnly = false, futureReservationCount = null } = {}) {
     lastBookings = bookings
     const now = istanbulWallClock()
-    const q = searchQuery.trim().toLocaleLowerCase('tr-TR')
-    const sourceBookings = q
-      ? (bookings ?? []).filter(b => String(b.customer_name ?? '').toLocaleLowerCase('tr-TR').includes(q))
-      : bookings ?? []
+    const q = searchQuery.trim()
+    const sourceBookings = (bookings ?? []).filter(b => matchesBookingQuery(b, searchQuery))
     const cards = expandRoundTrips(sourceBookings, selectedTab).filter(card => {
       if (cachedOnly) return card._displayDate === today
       return isPast ? isCardPast(card, today, now) : !isCardPast(card, today, now)
