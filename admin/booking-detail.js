@@ -79,6 +79,7 @@ function selected(value, expected) {
 
 function bookingEditFormHTML(b) {
   const isRoundTrip = b.trip_type === 'round_trip'
+  const legPrice = isRoundTrip ? (Number(b.price_eur) || 0) / 2 : (Number(b.price_eur) || 0)
   const needsPickupAddress = b.pickup_location === 'private_address'
   const needsDropoffAddress = b.dropoff_location === 'private_address'
 
@@ -206,8 +207,8 @@ function bookingEditFormHTML(b) {
         <div class="section-label">Ödeme & Not</div>
         <div class="form-row">
           <div class="form-field">
-            <label class="form-label" for="edit-price">Fiyat (€) *</label>
-            <input class="input" type="number" id="edit-price" min="0" max="999999.99" step="0.01" inputmode="decimal" value="${escapeHTML(b.price_eur)}" required />
+            <label class="form-label" for="edit-price">${isRoundTrip ? 'Sefer başına fiyat (€) *' : 'Fiyat (€) *'}</label>
+            <input class="input" type="number" id="edit-price" min="0" max="999999.99" step="0.01" inputmode="decimal" value="${escapeHTML(legPrice)}" required />
           </div>
           <div class="form-field">
             <label class="form-label" for="edit-payment">Ödeme</label>
@@ -268,10 +269,10 @@ function renderDetailBody(b, navigate, bookingRef, isReturn) {
   )
   const displayStatus = needsReturnContact ? 'confirmed' : b.status
   const paymentMethod = b.payment_method === 'cash' ? 'Nakit' : 'Kart'
+  const totalPrice = Number(b.price_eur) || 0
+  const legPrice = isRoundTrip ? totalPrice / 2 : totalPrice
   const paymentContext = isRoundTrip
-    ? isReturn
-      ? '<strong>Tahsilat yok</strong><small>Toplam ücret gidişte tahsil edildi</small>'
-      : `<strong>${paymentMethod}</strong><small>Gidiş + dönüş toplamı · Gidişte tahsil edilecek</small>`
+    ? `<strong>${paymentMethod}</strong><small>${isReturn ? 'Dönüş ücreti' : 'Gidiş ücreti'}</small>`
     : `<strong>${paymentMethod}</strong>`
   const transfer = isReturn && b.trip_type === 'round_trip' && b.return_date
     ? {
@@ -478,7 +479,7 @@ function renderDetailBody(b, navigate, bookingRef, isReturn) {
       <div class="detail-payment-row${isRoundTrip && isReturn ? ' detail-payment-settled' : ''}">
         <span class="detail-payment-context">${paymentContext}</span>
         <div style="display:flex;align-items:center;gap:8px">
-          <span class="detail-payment-price" id="price-display">€${fmtPrice(b.price_eur)}</span>
+          <span class="detail-payment-price" id="price-display">€${fmtPrice(legPrice)}</span>
           ${isRoundTrip && isReturn ? '' : '<button class="btn-outline price-edit-btn" id="price-edit-btn">Düzenle</button>'}
         </div>
       </div>
@@ -884,7 +885,7 @@ function setupBookingEditor(booking, navigate, bookingRef, isReturn) {
       return_flight_number: isRoundTrip ? (returnFlight || null) : null,
       guests,
       vehicle_type: vehicle,
-      price_eur: price,
+      price_eur: isRoundTrip ? price * 2 : price,
       payment_method: payment,
       notes: notes || null,
     }
@@ -971,15 +972,18 @@ function setupPriceEditor(booking) {
 
   if (!editBtn || !editor || !input || !saveBtn || !cancelBtn || !errorEl || !successEl || !display) return
 
+  const isRoundTrip = booking.trip_type === 'round_trip'
+  const legOf = (total) => (isRoundTrip ? (Number(total) || 0) / 2 : (Number(total) || 0))
+
   const closeEditor = () => {
     editor.hidden = true
-    input.value = String(booking.price_eur ?? 0)
+    input.value = String(legOf(booking.price_eur))
     errorEl.textContent = ''
   }
 
   editBtn.addEventListener('click', () => {
     successEl.textContent = ''
-    input.value = String(booking.price_eur ?? 0)
+    input.value = String(legOf(booking.price_eur))
     editor.hidden = false
     input.focus()
     input.select()
@@ -988,11 +992,13 @@ function setupPriceEditor(booking) {
   cancelBtn.addEventListener('click', closeEditor)
 
   saveBtn.addEventListener('click', async () => {
-    const nextPrice = Number(input.value.replace(',', '.'))
-    if (!Number.isFinite(nextPrice) || nextPrice < 0 || nextPrice > 999999.99) {
+    const nextLegPrice = Number(input.value.replace(',', '.'))
+    if (!Number.isFinite(nextLegPrice) || nextLegPrice < 0 || nextLegPrice > 999999.99) {
       errorEl.textContent = 'Geçerli bir fiyat girin.'
       return
     }
+
+    const nextTotal = isRoundTrip ? nextLegPrice * 2 : nextLegPrice
 
     saveBtn.disabled = true
     errorEl.textContent = ''
@@ -1000,7 +1006,7 @@ function setupPriceEditor(booking) {
 
     const { count, error } = await supabase
       .from('bookings')
-      .update({ price_eur: nextPrice }, { count: 'exact' })
+      .update({ price_eur: nextTotal }, { count: 'exact' })
       .eq('id', booking.id)
 
     saveBtn.disabled = false
@@ -1010,8 +1016,8 @@ function setupPriceEditor(booking) {
       return
     }
 
-    booking.price_eur = nextPrice
-    display.textContent = `€${fmtPrice(nextPrice)}`
+    booking.price_eur = nextTotal
+    display.textContent = `€${fmtPrice(nextLegPrice)}`
     closeEditor()
     successEl.textContent = 'Fiyat güncellendi.'
   })

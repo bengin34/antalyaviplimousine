@@ -273,13 +273,13 @@ function paymentInfoHTML(card) {
   if (card._isReturn) {
     return `<div class="card-info-item full payment-info payment-info-settled">
       <span class="card-info-label">Dönüş ücreti</span>
-      <div class="card-info-value"><strong>€${fmtPrice(halfPrice)}</strong><small>Gidişte tahsil edildi</small></div>
+      <div class="card-info-value"><strong>€${fmtPrice(halfPrice)}</strong></div>
     </div>`
   }
 
   return `<div class="card-info-item full payment-info payment-info-collect">
     <span class="card-info-label">Gidiş ücreti</span>
-    <div class="card-info-value"><strong>€${fmtPrice(halfPrice)}</strong><small>${paymentMethod} · Gidişte tahsil edilecek · Toplam €${fmtPrice(totalPrice)}</small></div>
+    <div class="card-info-value"><strong>€${fmtPrice(halfPrice)}</strong><small>${paymentMethod}</small></div>
   </div>`
 }
 
