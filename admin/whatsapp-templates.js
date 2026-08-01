@@ -35,7 +35,7 @@ const LANG = {
     labelPlate: 'Plate',
   },
   de: {
-    confirmGreeting: (name) => `Sehr geehrte/r ${name},\n\nvielen Dank für Ihre Buchung bei Antalya VIP Limousine. Ihre Übertragung wurde bestätigt. Hier sind die Details:`,
+    confirmGreeting: (name) => `Sehr geehrte/r ${name},\n\nvielen Dank für Ihre Buchung bei Antalya VIP Limousine. Ihr Transfer wurde bestätigt. Hier sind die Details:`,
     confirmClosing: 'Wir freuen uns, Sie begrüßen zu dürfen. Bei Fragen stehen wir Ihnen jederzeit gerne zur Verfügung.',
     reminderGreeting: (name) => `Sehr geehrte/r ${name},\n\nhiermit möchten wir Sie an Ihren bevorstehenden Transfer mit Antalya VIP Limousine erinnern:`,
     reminderClosing: 'Ihr Fahrer wird auf Sie warten. Gute Reise!',
