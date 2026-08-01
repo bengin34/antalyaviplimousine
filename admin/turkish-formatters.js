@@ -101,11 +101,12 @@ export function isFutureIstanbulLeg(date, time, now = new Date()) {
   return normalizedTime > currentTime
 }
 
-export function whatsappURL(phone) {
+export function whatsappURL(phone, text) {
   let digits = String(phone ?? '').replace(/\D/g, '')
   if (digits.startsWith('00')) digits = digits.slice(2)
   if (digits.startsWith('0')) digits = `90${digits.slice(1)}`
   if (/^5\d{9}$/.test(digits)) digits = `90${digits}`
 
-  return `https://wa.me/${digits}`
+  const base = `https://wa.me/${digits}`
+  return text ? `${base}?text=${encodeURIComponent(text)}` : base
 }

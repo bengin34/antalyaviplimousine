@@ -5,6 +5,7 @@ import {
   navigationURLs,
   whatsappURL,
 } from './turkish-formatters.js'
+import { buildConfirmMessage, buildReminderMessage } from './whatsapp-templates.js'
 import { VEHICLE_CAPACITY, locationOptionsHTML, queueBookingPrefill } from './booking-new.js'
 
 function fmtTime(t) { return t ? t.slice(0, 5) : '—' }
@@ -78,6 +79,7 @@ function selected(value, expected) {
 
 function bookingEditFormHTML(b) {
   const isRoundTrip = b.trip_type === 'round_trip'
+  const legPrice = isRoundTrip ? (Number(b.price_eur) || 0) / 2 : (Number(b.price_eur) || 0)
   const needsPickupAddress = b.pickup_location === 'private_address'
   const needsDropoffAddress = b.dropoff_location === 'private_address'
 
@@ -205,8 +207,8 @@ function bookingEditFormHTML(b) {
         <div class="section-label">Ödeme & Not</div>
         <div class="form-row">
           <div class="form-field">
-            <label class="form-label" for="edit-price">Fiyat (€) *</label>
-            <input class="input" type="number" id="edit-price" min="0" max="999999.99" step="0.01" inputmode="decimal" value="${escapeHTML(b.price_eur)}" required />
+            <label class="form-label" for="edit-price">${isRoundTrip ? 'Sefer başına fiyat (€) *' : 'Fiyat (€) *'}</label>
+            <input class="input" type="number" id="edit-price" min="0" max="999999.99" step="0.01" inputmode="decimal" value="${escapeHTML(legPrice)}" required />
           </div>
           <div class="form-field">
             <label class="form-label" for="edit-payment">Ödeme</label>
@@ -267,10 +269,10 @@ function renderDetailBody(b, navigate, bookingRef, isReturn) {
   )
   const displayStatus = needsReturnContact ? 'confirmed' : b.status
   const paymentMethod = b.payment_method === 'cash' ? 'Nakit' : 'Kart'
+  const totalPrice = Number(b.price_eur) || 0
+  const legPrice = isRoundTrip ? totalPrice / 2 : totalPrice
   const paymentContext = isRoundTrip
-    ? isReturn
-      ? '<strong>Tahsilat yok</strong><small>Toplam ücret gidişte tahsil edildi</small>'
-      : `<strong>${paymentMethod}</strong><small>Gidiş + dönüş toplamı · Gidişte tahsil edilecek</small>`
+    ? `<strong>${paymentMethod}</strong><small>${isReturn ? 'Dönüş ücreti' : 'Gidiş ücreti'}</small>`
     : `<strong>${paymentMethod}</strong>`
   const transfer = isReturn && b.trip_type === 'round_trip' && b.return_date
     ? {
@@ -362,6 +364,10 @@ function renderDetailBody(b, navigate, bookingRef, isReturn) {
           <span>WhatsApp'tan yaz: ${escapeHTML(b.customer_phone)}</span>
         </a>
       </div>
+      <div class="whatsapp-template-actions">
+        <button class="whatsapp-template-btn" type="button" id="wa-confirm-btn">💬 WhatsApp: Onay gönder</button>
+        <button class="whatsapp-template-btn" type="button" id="wa-reminder-btn">💬 WhatsApp: Hatırlatma gönder</button>
+      </div>
       <div class="editable-heading" style="margin-top:8px">
         <div class="detail-key">✉️ E-posta</div>
         <button class="inline-edit-button" id="email-edit-btn" type="button">Düzenle</button>
@@ -433,6 +439,38 @@ function renderDetailBody(b, navigate, bookingRef, isReturn) {
           </div>
           <div class="inline-success" id="dropoff-address-success" role="status"></div>
         </div>
+        <div class="full">
+          <div class="editable-heading">
+            <div class="detail-key">Şoför</div>
+            <button class="inline-edit-button" id="driver-name-edit-btn" type="button">Düzenle</button>
+          </div>
+          <div class="detail-val" id="driver-name-display">${b.driver_name ? escapeHTML(b.driver_name) : '—'}</div>
+          <div class="inline-editor" id="driver-name-edit-row" hidden>
+            <input class="input" type="text" id="driver-name-input" maxlength="60" aria-label="Şoför adı" />
+            <div class="inline-editor-actions">
+              <button class="btn inline-editor-button" id="driver-name-save-btn" type="button">Kaydet</button>
+              <button class="btn-outline inline-editor-button" id="driver-name-cancel-btn" type="button">İptal</button>
+            </div>
+            <div class="inline-error" id="driver-name-error"></div>
+          </div>
+          <div class="inline-success" id="driver-name-success" role="status"></div>
+        </div>
+        <div class="full">
+          <div class="editable-heading">
+            <div class="detail-key">Plaka</div>
+            <button class="inline-edit-button" id="driver-plate-edit-btn" type="button">Düzenle</button>
+          </div>
+          <div class="detail-val" id="driver-plate-display">${b.vehicle_plate ? escapeHTML(b.vehicle_plate) : '—'}</div>
+          <div class="inline-editor" id="driver-plate-edit-row" hidden>
+            <input class="input" type="text" id="driver-plate-input" maxlength="15" aria-label="Plaka" />
+            <div class="inline-editor-actions">
+              <button class="btn inline-editor-button" id="driver-plate-save-btn" type="button">Kaydet</button>
+              <button class="btn-outline inline-editor-button" id="driver-plate-cancel-btn" type="button">İptal</button>
+            </div>
+            <div class="inline-error" id="driver-plate-error"></div>
+          </div>
+          <div class="inline-success" id="driver-plate-success" role="status"></div>
+        </div>
       </div>
     </div>
 
@@ -441,7 +479,7 @@ function renderDetailBody(b, navigate, bookingRef, isReturn) {
       <div class="detail-payment-row${isRoundTrip && isReturn ? ' detail-payment-settled' : ''}">
         <span class="detail-payment-context">${paymentContext}</span>
         <div style="display:flex;align-items:center;gap:8px">
-          <span class="detail-payment-price" id="price-display">€${fmtPrice(b.price_eur)}</span>
+          <span class="detail-payment-price" id="price-display">€${fmtPrice(legPrice)}</span>
           ${isRoundTrip && isReturn ? '' : '<button class="btn-outline price-edit-btn" id="price-edit-btn">Düzenle</button>'}
         </div>
       </div>
@@ -484,6 +522,9 @@ function renderDetailBody(b, navigate, bookingRef, isReturn) {
   setupEmailEditor(b)
   setupAddressEditor(b)
   setupDropoffAddressEditor(b)
+  setupDriverNameEditor(b)
+  setupDriverPlateEditor(b)
+  setupWhatsappTemplates(b)
   setupBookingEditor(b, navigate, bookingRef, isReturn)
   setupQuickActions(b, transfer, navigate)
 }
@@ -637,6 +678,45 @@ function setupDropoffAddressEditor(booking) {
     format: (value) => (value ? `📍 ${value}` : '—'),
     saveError: 'Varış adresi güncellenemedi, tekrar deneyin.',
     successMsg: 'Varış adresi güncellendi.',
+  })
+}
+
+function setupDriverNameEditor(booking) {
+  setupFieldEditor(booking, {
+    prefix: 'driver-name',
+    column: 'driver_name',
+    validate: (raw) => {
+      const name = raw.trim().replace(/\s+/g, ' ')
+      if (name && name.length > 60) return { ok: false, error: 'Şoför adı en fazla 60 karakter olmalı.' }
+      return { ok: true, value: name || null }
+    },
+    format: (value) => (value ? value : '—'),
+    saveError: 'Şoför güncellenemedi, tekrar deneyin.',
+    successMsg: 'Şoför güncellendi.',
+  })
+}
+
+function setupDriverPlateEditor(booking) {
+  setupFieldEditor(booking, {
+    prefix: 'driver-plate',
+    column: 'vehicle_plate',
+    validate: (raw) => {
+      const plate = raw.trim().replace(/\s+/g, ' ')
+      if (plate && plate.length > 15) return { ok: false, error: 'Plaka en fazla 15 karakter olmalı.' }
+      return { ok: true, value: plate || null }
+    },
+    format: (value) => (value ? value : '—'),
+    saveError: 'Plaka güncellenemedi, tekrar deneyin.',
+    successMsg: 'Plaka güncellendi.',
+  })
+}
+
+function setupWhatsappTemplates(booking) {
+  document.getElementById('wa-confirm-btn')?.addEventListener('click', () => {
+    window.open(whatsappURL(booking.customer_phone, buildConfirmMessage(booking)), '_blank', 'noopener')
+  })
+  document.getElementById('wa-reminder-btn')?.addEventListener('click', () => {
+    window.open(whatsappURL(booking.customer_phone, buildReminderMessage(booking)), '_blank', 'noopener')
   })
 }
 
@@ -805,7 +885,7 @@ function setupBookingEditor(booking, navigate, bookingRef, isReturn) {
       return_flight_number: isRoundTrip ? (returnFlight || null) : null,
       guests,
       vehicle_type: vehicle,
-      price_eur: price,
+      price_eur: isRoundTrip ? price * 2 : price,
       payment_method: payment,
       notes: notes || null,
     }
@@ -892,15 +972,18 @@ function setupPriceEditor(booking) {
 
   if (!editBtn || !editor || !input || !saveBtn || !cancelBtn || !errorEl || !successEl || !display) return
 
+  const isRoundTrip = booking.trip_type === 'round_trip'
+  const legOf = (total) => (isRoundTrip ? (Number(total) || 0) / 2 : (Number(total) || 0))
+
   const closeEditor = () => {
     editor.hidden = true
-    input.value = String(booking.price_eur ?? 0)
+    input.value = String(legOf(booking.price_eur))
     errorEl.textContent = ''
   }
 
   editBtn.addEventListener('click', () => {
     successEl.textContent = ''
-    input.value = String(booking.price_eur ?? 0)
+    input.value = String(legOf(booking.price_eur))
     editor.hidden = false
     input.focus()
     input.select()
@@ -909,11 +992,13 @@ function setupPriceEditor(booking) {
   cancelBtn.addEventListener('click', closeEditor)
 
   saveBtn.addEventListener('click', async () => {
-    const nextPrice = Number(input.value.replace(',', '.'))
-    if (!Number.isFinite(nextPrice) || nextPrice < 0 || nextPrice > 999999.99) {
+    const nextLegPrice = Number(input.value.replace(',', '.'))
+    if (!Number.isFinite(nextLegPrice) || nextLegPrice < 0 || nextLegPrice > 999999.99) {
       errorEl.textContent = 'Geçerli bir fiyat girin.'
       return
     }
+
+    const nextTotal = isRoundTrip ? nextLegPrice * 2 : nextLegPrice
 
     saveBtn.disabled = true
     errorEl.textContent = ''
@@ -921,7 +1006,7 @@ function setupPriceEditor(booking) {
 
     const { count, error } = await supabase
       .from('bookings')
-      .update({ price_eur: nextPrice }, { count: 'exact' })
+      .update({ price_eur: nextTotal }, { count: 'exact' })
       .eq('id', booking.id)
 
     saveBtn.disabled = false
@@ -931,8 +1016,8 @@ function setupPriceEditor(booking) {
       return
     }
 
-    booking.price_eur = nextPrice
-    display.textContent = `€${fmtPrice(nextPrice)}`
+    booking.price_eur = nextTotal
+    display.textContent = `€${fmtPrice(nextLegPrice)}`
     closeEditor()
     successEl.textContent = 'Fiyat güncellendi.'
   })

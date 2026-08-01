@@ -198,6 +198,7 @@ export function renderBookingNew(container, navigate) {
           <div class="form-row">
             <div class="form-field">
               <label class="form-label" for="f-price">Fiyat (€) *</label>
+              <span class="form-hint" id="f-price-hint" hidden>Sefer başına fiyat girin</span>
               <input class="input" type="number" id="f-price" min="0" max="999999.99" step="0.01" inputmode="decimal" required />
             </div>
             <div class="form-field">
@@ -240,8 +241,11 @@ export function renderBookingNew(container, navigate) {
 
   const tripTypeEl = document.getElementById('f-trip-type')
   const returnSection = document.getElementById('return-section')
+  const priceHint = document.getElementById('f-price-hint')
   tripTypeEl.addEventListener('change', () => {
-    returnSection.hidden = tripTypeEl.value !== 'round_trip'
+    const roundTrip = tripTypeEl.value === 'round_trip'
+    returnSection.hidden = !roundTrip
+    if (priceHint) priceHint.hidden = !roundTrip
   })
 
   const pickupEl = document.getElementById('f-pickup')
@@ -397,7 +401,7 @@ async function submitBooking(navigate) {
     return_flight_number: isRoundTrip ? (returnFlight || null) : null,
     guests,
     vehicle_type: vehicle,
-    price_eur: price,
+    price_eur: isRoundTrip ? price * 2 : price,
     status,
     payment_method: payment,
     notes: notes || null,
