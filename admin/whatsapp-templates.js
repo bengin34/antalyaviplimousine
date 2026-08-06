@@ -1,4 +1,4 @@
-import { locationDisplay } from './turkish-formatters.js'
+import { locationLabel, navigationURLs } from './turkish-formatters.js'
 
 // Inline copy consistent with timeline.js:48 and booking-detail.js:12
 function transferStartTime(pickupLocation, pickupTime, flightArrivalTime) {
@@ -8,7 +8,13 @@ function transferStartTime(pickupLocation, pickupTime, flightArrivalTime) {
 
 // Postgres `time` columns arrive as HH:MM:SS; trim to HH:MM for the message.
 function fmtTime(t) {
-  return t ? String(t).slice(0, 5) : t
+  return t ? String(t).slice(0, 5) : '—'
+}
+
+function fmtPrice(value) {
+  const price = Number(value)
+  if (!Number.isFinite(price)) return '0'
+  return Number.isInteger(price) ? String(price) : price.toFixed(2).replace(/0+$/, '').replace(/\.$/, '')
 }
 
 const VEHICLE_LABELS = {
@@ -35,7 +41,15 @@ const LANG = {
     labelVehicle: 'Vehicle',
     labelGuests: 'Guests',
     labelPrice: 'Price',
-    labelMeetingPoint: 'Meeting point',
+    labelTransfer: 'Transfer',
+    labelOutbound: 'Outbound transfer',
+    labelReturn: 'Return transfer',
+    labelPickup: 'Pickup location',
+    labelDropoff: 'Drop-off location',
+    labelMap: 'Google Maps route',
+    labelFlight: 'Flight',
+    labelLuggage: 'Luggage',
+    labelChildSeats: 'Child seats',
     labelDriver: 'Driver',
     labelPlate: 'Plate',
   },
@@ -51,7 +65,15 @@ const LANG = {
     labelVehicle: 'Fahrzeug',
     labelGuests: 'Gäste',
     labelPrice: 'Preis',
-    labelMeetingPoint: 'Treffpunkt',
+    labelTransfer: 'Transfer',
+    labelOutbound: 'Hintransfer',
+    labelReturn: 'Rücktransfer',
+    labelPickup: 'Abholort',
+    labelDropoff: 'Zielort',
+    labelMap: 'Google-Maps-Route',
+    labelFlight: 'Flug',
+    labelLuggage: 'Gepäck',
+    labelChildSeats: 'Kindersitze',
     labelDriver: 'Fahrer',
     labelPlate: 'Kennzeichen',
   },
@@ -67,7 +89,15 @@ const LANG = {
     labelVehicle: 'Автомобиль',
     labelGuests: 'Гостей',
     labelPrice: 'Стоимость',
-    labelMeetingPoint: 'Место встречи',
+    labelTransfer: 'Трансфер',
+    labelOutbound: 'Трансфер туда',
+    labelReturn: 'Обратный трансфер',
+    labelPickup: 'Место подачи',
+    labelDropoff: 'Место назначения',
+    labelMap: 'Маршрут Google Maps',
+    labelFlight: 'Рейс',
+    labelLuggage: 'Багаж',
+    labelChildSeats: 'Детские кресла',
     labelDriver: 'Водитель',
     labelPlate: 'Номер машины',
   },
@@ -83,9 +113,41 @@ const LANG = {
     labelVehicle: 'Araç',
     labelGuests: 'Misafir',
     labelPrice: 'Fiyat',
-    labelMeetingPoint: 'Buluşma noktası',
+    labelTransfer: 'Transfer',
+    labelOutbound: 'Gidiş transferi',
+    labelReturn: 'Dönüş transferi',
+    labelPickup: 'Alış konumu',
+    labelDropoff: 'Varış konumu',
+    labelMap: 'Google Maps güzergâhı',
+    labelFlight: 'Uçuş',
+    labelLuggage: 'Bagaj',
+    labelChildSeats: 'Çocuk koltuğu',
     labelDriver: 'Sürücü',
     labelPlate: 'Plaka',
+  },
+  ar: {
+    confirmGreeting: (name) => `عزيزي/عزيزتي ${name}،\n\nشكراً لاختيارك Antalya VIP Limousine. تم تأكيد خدمة النقل الخاصة بك. إليك أحدث التفاصيل:`,
+    confirmClosing: 'نتطلع إلى استقبالك. لا تتردد في التواصل معنا إذا كان لديك أي سؤال.',
+    reminderGreeting: (name) => `عزيزي/عزيزتي ${name}،\n\nنود تذكيرك بخدمة النقل القادمة مع Antalya VIP Limousine:`,
+    reminderClosing: 'سيكون سائقك في انتظارك. نتمنى لك رحلة آمنة!',
+    labelRef: 'رقم الحجز',
+    labelDate: 'التاريخ',
+    labelPickupTime: 'وقت الاستقبال',
+    labelRoute: 'المسار',
+    labelVehicle: 'السيارة',
+    labelGuests: 'الركاب',
+    labelPrice: 'السعر',
+    labelTransfer: 'خدمة النقل',
+    labelOutbound: 'رحلة الذهاب',
+    labelReturn: 'رحلة العودة',
+    labelPickup: 'موقع الاستقبال',
+    labelDropoff: 'موقع الوصول',
+    labelMap: 'مسار Google Maps',
+    labelFlight: 'الرحلة الجوية',
+    labelLuggage: 'الأمتعة',
+    labelChildSeats: 'مقاعد الأطفال',
+    labelDriver: 'السائق',
+    labelPlate: 'لوحة السيارة',
   },
 }
 
@@ -93,29 +155,93 @@ function getLang(language) {
   return LANG[language] ?? LANG.en
 }
 
+function transferDetails(booking, requestedLeg = 'outbound') {
+  const b = booking ?? {}
+  const isRoundTrip = b.trip_type === 'round_trip'
+  const isReturn = requestedLeg === 'return' && isRoundTrip
+
+  const transfer = isReturn
+    ? {
+        leg: 'return',
+        date: b.return_date,
+        time: b.return_pickup_time,
+        flightNumber: b.return_flight_number,
+        pickupLocation: b.dropoff_location,
+        pickupAddress: b.dropoff_address,
+        dropoffLocation: b.pickup_location,
+        dropoffAddress: b.pickup_address,
+      }
+    : {
+        leg: 'outbound',
+        date: b.pickup_date,
+        time: transferStartTime(b.pickup_location, b.pickup_time, b.flight_arrival_time),
+        flightNumber: b.flight_number,
+        pickupLocation: b.pickup_location,
+        pickupAddress: b.pickup_address,
+        dropoffLocation: b.dropoff_location,
+        dropoffAddress: b.dropoff_address,
+      }
+
+  const navigation = navigationURLs({
+    originValue: transfer.pickupLocation,
+    originAddress: transfer.pickupAddress,
+    destinationValue: transfer.dropoffLocation,
+    destinationAddress: transfer.dropoffAddress,
+    hotelName: b.hotel_name,
+  })
+
+  return {
+    ...transfer,
+    isRoundTrip,
+    route: `${locationLabel(transfer.pickupLocation)} → ${locationLabel(transfer.dropoffLocation)}`,
+    pickup: navigation.origin,
+    dropoff: navigation.destination,
+    mapURL: navigation.google,
+    price: isRoundTrip ? (Number(b.price_eur) || 0) / 2 : Number(b.price_eur) || 0,
+  }
+}
+
+function detailLines(booking, transfer, t) {
+  const b = booking ?? {}
+  const lines = [
+    `*${transfer.isRoundTrip ? (transfer.leg === 'return' ? t.labelReturn : t.labelOutbound) : t.labelTransfer}*`,
+    `${t.labelRoute}: ${transfer.route}`,
+    `${t.labelDate}: ${transfer.date || '—'}`,
+    `${t.labelPickupTime}: ${fmtTime(transfer.time)}`,
+  ]
+
+  if (transfer.flightNumber) lines.push(`${t.labelFlight}: ${transfer.flightNumber}`)
+
+  lines.push(
+    `${t.labelPickup}: ${transfer.pickup}`,
+    `${t.labelDropoff}: ${transfer.dropoff}`,
+    `${t.labelMap}: ${transfer.mapURL}`,
+    `${t.labelVehicle}: ${vehicleLabel(b.vehicle_type)}`,
+    `${t.labelGuests}: ${b.guests ?? '—'}`,
+  )
+
+  if (Number(b.luggage_count) > 0) lines.push(`${t.labelLuggage}: ${b.luggage_count}`)
+  if (Number(b.child_seat_count) > 0) lines.push(`${t.labelChildSeats}: ${b.child_seat_count}`)
+
+  lines.push(`${t.labelPrice}: €${fmtPrice(transfer.price)}`)
+  return lines
+}
+
 /**
  * Build a WhatsApp confirmation message for a booking.
  * @param {object} booking
  * @returns {string}
  */
-export function buildConfirmMessage(booking) {
+export function buildConfirmMessage(booking, { leg = 'outbound' } = {}) {
   const b = booking ?? {}
   const t = getLang(b.language)
-
-  const pickupDisplay = locationDisplay(b.pickup_location, b.pickup_address)
-  const dropoffDisplay = locationDisplay(b.dropoff_location, b.dropoff_address)
-  const pickupTime = fmtTime(transferStartTime(b.pickup_location, b.pickup_time, b.flight_arrival_time))
+  const transfer = transferDetails(b, leg)
 
   const lines = [
     t.confirmGreeting(b.customer_name),
     '',
     `${t.labelRef}: ${b.booking_ref}`,
-    `${t.labelDate}: ${b.pickup_date}`,
-    `${t.labelPickupTime}: ${pickupTime}`,
-    `${t.labelRoute}: ${pickupDisplay} → ${dropoffDisplay}`,
-    `${t.labelVehicle}: ${vehicleLabel(b.vehicle_type)}`,
-    `${t.labelGuests}: ${b.guests}`,
-    `${t.labelPrice}: €${b.price_eur}`,
+    ...detailLines(b, transfer, t),
     '',
     t.confirmClosing,
   ]
@@ -125,24 +251,20 @@ export function buildConfirmMessage(booking) {
 
 /**
  * Build a WhatsApp reminder message for a booking.
- * Uses the outbound leg always (even for round trips).
+ * Builds the reminder for the requested, currently displayed transfer leg.
  * @param {object} booking
  * @returns {string}
  */
-export function buildReminderMessage(booking) {
+export function buildReminderMessage(booking, { leg = 'outbound' } = {}) {
   const b = booking ?? {}
   const t = getLang(b.language)
-
-  // Always use outbound leg for reminders
-  const pickupTime = fmtTime(transferStartTime(b.pickup_location, b.pickup_time, b.flight_arrival_time))
-  const meetingPoint = locationDisplay(b.pickup_location, b.pickup_address)
+  const transfer = transferDetails(b, leg)
 
   const lines = [
     t.reminderGreeting(b.customer_name),
     '',
-    `${t.labelDate}: ${b.pickup_date}`,
-    `${t.labelPickupTime}: ${pickupTime}`,
-    `${t.labelMeetingPoint}: ${meetingPoint}`,
+    `${t.labelRef}: ${b.booking_ref}`,
+    ...detailLines(b, transfer, t),
   ]
 
   if (b.driver_name) {

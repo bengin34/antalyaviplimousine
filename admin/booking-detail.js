@@ -365,9 +365,11 @@ function renderDetailBody(b, navigate, bookingRef, isReturn) {
         </a>
       </div>
       <div class="whatsapp-template-actions">
-        <button class="whatsapp-template-btn" type="button" id="wa-confirm-btn">💬 WhatsApp: Onay gönder</button>
-        <button class="whatsapp-template-btn" type="button" id="wa-reminder-btn">💬 WhatsApp: Hatırlatma gönder</button>
+        <button class="whatsapp-template-btn" type="button" id="wa-confirm-btn">💬 WhatsApp: ${isRoundTrip ? (isReturn ? 'Dönüş onayı' : 'Gidiş onayı') : 'Onay'} gönder</button>
+        <button class="whatsapp-template-btn" type="button" id="wa-reminder-btn">💬 WhatsApp: ${isRoundTrip ? (isReturn ? 'Dönüş hatırlatması' : 'Gidiş hatırlatması') : 'Hatırlatma'} gönder</button>
       </div>
+      <div class="inline-success" id="wa-template-status" role="status"></div>
+      <div class="inline-error" id="wa-template-error" role="alert"></div>
       <div class="editable-heading" style="margin-top:8px">
         <div class="detail-key">✉️ E-posta</div>
         <button class="inline-edit-button" id="email-edit-btn" type="button">Düzenle</button>
@@ -524,7 +526,7 @@ function renderDetailBody(b, navigate, bookingRef, isReturn) {
   setupDropoffAddressEditor(b)
   setupDriverNameEditor(b)
   setupDriverPlateEditor(b)
-  setupWhatsappTemplates(b)
+  setupWhatsappTemplates(b, isReturn)
   setupBookingEditor(b, navigate, bookingRef, isReturn)
   setupQuickActions(b, transfer, navigate)
 }
@@ -711,12 +713,68 @@ function setupDriverPlateEditor(booking) {
   })
 }
 
-function setupWhatsappTemplates(booking) {
-  document.getElementById('wa-confirm-btn')?.addEventListener('click', () => {
-    window.open(whatsappURL(booking.customer_phone, buildConfirmMessage(booking)), '_blank', 'noopener')
+function setupWhatsappTemplates(booking, isReturn) {
+  const confirmBtn = document.getElementById('wa-confirm-btn')
+  const reminderBtn = document.getElementById('wa-reminder-btn')
+  const statusEl = document.getElementById('wa-template-status')
+  const errorEl = document.getElementById('wa-template-error')
+  const buttons = [confirmBtn, reminderBtn].filter(Boolean)
+  // The URL identifies the requested card; the freshly fetched booking decides
+  // whether that return leg is still valid.
+  const leg = isReturn ? 'return' : 'outbound'
+
+  const openLatestTemplate = async (button, buildMessage) => {
+    const popup = window.open('about:blank', '_blank')
+    if (!popup) {
+      errorEl.textContent = 'WhatsApp sekmesi açılamadı. Tarayıcıdaki açılır pencere iznini kontrol edin.'
+      return
+    }
+
+    try {
+      popup.opener = null
+      popup.document.title = 'WhatsApp mesajı hazırlanıyor'
+      popup.document.body.textContent = 'Güncel rezervasyon bilgileri kontrol ediliyor…'
+    } catch {
+      // The blank tab can still be redirected even if its document is unavailable.
+    }
+
+    const originalLabel = button.textContent
+    buttons.forEach((item) => { item.disabled = true })
+    button.textContent = 'Güncel veriler kontrol ediliyor…'
+    statusEl.textContent = ''
+    errorEl.textContent = ''
+
+    try {
+      const { data: latestBooking, error } = await supabase
+        .from('bookings')
+        .select('*')
+        .eq('id', booking.id)
+        .single()
+
+      if (error || !latestBooking) {
+        throw new Error('latest booking could not be loaded')
+      }
+
+      Object.assign(booking, latestBooking)
+      const message = buildMessage(latestBooking, { leg })
+      const url = whatsappURL(latestBooking.customer_phone, message)
+      if (popup.closed) throw new Error('WhatsApp tab was closed')
+      popup.location.replace(url)
+      statusEl.textContent = 'Mesaj, veritabanındaki en güncel transfer ve adres bilgileriyle hazırlandı.'
+    } catch {
+      if (!popup.closed) popup.close()
+      errorEl.textContent = 'Güncel rezervasyon bilgileri alınamadı; eski veriyle mesaj açılmadı.'
+    } finally {
+      buttons.forEach((item) => { item.disabled = false })
+      button.textContent = originalLabel
+    }
+  }
+
+  confirmBtn?.addEventListener('click', () => {
+    openLatestTemplate(confirmBtn, buildConfirmMessage)
   })
-  document.getElementById('wa-reminder-btn')?.addEventListener('click', () => {
-    window.open(whatsappURL(booking.customer_phone, buildReminderMessage(booking)), '_blank', 'noopener')
+  reminderBtn?.addEventListener('click', () => {
+    openLatestTemplate(reminderBtn, buildReminderMessage)
   })
 }
 
