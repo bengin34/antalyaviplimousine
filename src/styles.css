@@ -267,6 +267,10 @@ svg {
   position: absolute;
   top: calc(100% + 8px);
   right: 0;
+  max-height: min(520px, calc(100dvh - 96px));
+  overflow-y: auto;
+  overscroll-behavior-y: contain;
+  -webkit-overflow-scrolling: touch;
   background: #111;
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 10px;
@@ -400,8 +404,15 @@ svg {
   display: flex;
   visibility: hidden;
   flex-direction: column;
-  justify-content: center;
-  padding: 120px var(--section-x) 50px;
+  justify-content: flex-start;
+  min-height: 0;
+  padding: calc(98px + env(safe-area-inset-top, 0px)) var(--section-x)
+    calc(40px + env(safe-area-inset-bottom, 0px));
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior-y: contain;
+  -webkit-overflow-scrolling: touch;
+  touch-action: pan-y;
   background: rgba(9, 9, 9, 0.98);
   color: var(--white);
   opacity: 0;
@@ -449,6 +460,25 @@ html[lang="ru"] .route-card h3,
 html[lang="ru"] .process-line h3,
 html[lang="ru"] .faq-item button span {
   font-family: Georgia, "Times New Roman", serif;
+}
+
+html[dir="rtl"] .lang-menu .language-button,
+html[dir="rtl"] .mobile-menu,
+html[dir="rtl"] .booking-card,
+html[dir="rtl"] .quote-modal,
+html[dir="rtl"] .consent-dialog {
+  text-align: right;
+}
+
+html[dir="rtl"] input[type="email"],
+html[dir="rtl"] input[type="tel"] {
+  direction: ltr;
+  text-align: left;
+}
+
+html[dir="rtl"] a[href^="tel:"] {
+  direction: ltr;
+  unicode-bidi: isolate;
 }
 
 .hero {
