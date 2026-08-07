@@ -87,7 +87,7 @@ body {
   padding: 10px 12px 8px;
   background: rgba(17, 23, 34, 0.72);
 }
-.timeline-tabs-with-budget { grid-template-columns: repeat(3, 1fr); }
+.timeline-tabs-with-budget { grid-template-columns: repeat(4, 1fr); }
 .timeline-tab {
   min-height: 44px;
   border: 1px solid transparent;
@@ -95,7 +95,7 @@ body {
   background: transparent;
   color: var(--text-muted);
   cursor: pointer;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 600;
 }
 .timeline-tab.active {
@@ -366,6 +366,142 @@ body {
 .budget-status-dot.status-completed { background: var(--grey); }
 .budget-status-dot.status-cancelled { background: var(--red); }
 .budget-footnote { margin: 13px 5px 0; color: #657286; font-size: 9px; line-height: 1.5; }
+
+/* Profit / loss dashboard */
+.profit-toolbar .budget-periods { min-width: 0; }
+.profit-content { display: flex; flex-direction: column; gap: 9px; }
+.profit-settings {
+  padding: 17px 15px;
+  border: 1px solid rgba(115, 183, 255, 0.2);
+  border-radius: 17px;
+  background:
+    linear-gradient(145deg, rgba(115, 183, 255, 0.06), transparent 52%),
+    rgba(17, 23, 34, 0.9);
+}
+.profit-settings-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+.profit-settings-heading h2,
+.profit-settings-summary h2 { margin-top: 3px; font-size: 16px; }
+.profit-settings-heading > span { color: var(--text-muted); font-size: 10px; }
+.profit-settings-summary p { margin-top: 8px; color: var(--text-muted); font-size: 11px; line-height: 1.5; }
+.profit-input-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 9px; }
+.profit-input-field { min-width: 0; }
+.profit-input-field > span { display: block; margin-bottom: 6px; color: #b9c5d5; font-size: 11px; font-weight: 700; }
+.profit-input-field > div {
+  display: flex;
+  align-items: center;
+  min-height: 43px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 11px;
+  background: rgba(255, 255, 255, 0.035);
+}
+.profit-input-field > div:focus-within { border-color: rgba(115, 183, 255, 0.56); }
+.profit-input-field b { padding-left: 11px; color: var(--green); font-size: 13px; }
+.profit-input-field input {
+  width: 100%;
+  min-width: 0;
+  height: 41px;
+  border: 0;
+  outline: 0;
+  padding: 0 10px 0 7px;
+  background: transparent;
+  color: var(--text);
+  font: inherit;
+  font-size: 14px;
+  font-variant-numeric: tabular-nums;
+}
+.profit-input-field small { display: block; margin-top: 5px; color: #68778c; font-size: 8px; line-height: 1.35; }
+.profit-input-wide { grid-column: 1 / -1; }
+.profit-save-button { margin-top: 13px; }
+.profit-hero {
+  position: relative;
+  overflow: hidden;
+  min-height: 190px;
+  padding: 21px;
+  border: 1px solid rgba(88, 214, 141, 0.28);
+  border-radius: 20px;
+  background:
+    radial-gradient(circle at 90% 10%, rgba(88, 214, 141, 0.16), transparent 40%),
+    linear-gradient(145deg, rgba(88, 214, 141, 0.12), rgba(115, 183, 255, 0.025) 55%),
+    var(--surface);
+  box-shadow: 0 16px 38px rgba(0, 0, 0, 0.24), inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+.profit-hero.is-negative {
+  border-color: rgba(255, 113, 107, 0.3);
+  background:
+    radial-gradient(circle at 90% 10%, rgba(255, 113, 107, 0.17), transparent 40%),
+    linear-gradient(145deg, rgba(255, 113, 107, 0.1), rgba(115, 183, 255, 0.02) 55%),
+    var(--surface);
+}
+.profit-hero.is-negative .budget-eyebrow,
+.profit-hero.is-negative .profit-total { color: var(--red); }
+.profit-total {
+  margin-top: 13px;
+  color: var(--green);
+  font-size: clamp(33px, 9vw, 45px);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -1.7px;
+  line-height: 1;
+}
+.profit-total-eur { margin-top: 8px; color: #b5c2d2; font-size: 14px; font-weight: 700; }
+.profit-margin {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 22px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  color: var(--text-muted);
+  font-size: 11px;
+}
+.profit-margin strong { color: var(--text); font-size: 16px; font-variant-numeric: tabular-nums; }
+.profit-formula {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr auto 1fr;
+  align-items: center;
+  gap: 5px;
+  padding: 13px 9px;
+  border: 1px solid var(--border-soft);
+  border-radius: 15px;
+  background: rgba(17, 23, 34, 0.82);
+}
+.profit-formula span { min-width: 0; text-align: center; }
+.profit-formula small { display: block; color: var(--text-muted); font-size: 8px; text-transform: uppercase; }
+.profit-formula strong { display: block; overflow-wrap: anywhere; margin-top: 3px; font-size: 11px; font-variant-numeric: tabular-nums; }
+.profit-formula i { color: #526074; font-style: normal; font-size: 12px; }
+.profit-kpi-grid { margin-top: 0; }
+.profit-income-kpi .budget-kpi-icon { color: var(--green); background: rgba(88, 214, 141, 0.1); }
+.profit-distance-kpi .budget-kpi-icon { width: 32px; color: var(--blue); font-size: 8px; }
+.profit-warning {
+  padding: 14px;
+  border: 1px solid rgba(255, 173, 102, 0.34);
+  border-radius: 15px;
+  background: rgba(58, 38, 22, 0.62);
+  color: #ffc18c;
+}
+.profit-warning > strong { font-size: 12px; }
+.profit-warning > p { margin-top: 6px; color: #c39774; font-size: 9px; line-height: 1.45; }
+.profit-warning ul { margin-top: 9px; list-style: none; }
+.profit-warning li { display: flex; justify-content: space-between; gap: 10px; padding: 5px 0; border-top: 1px solid rgba(255, 173, 102, 0.12); font-size: 10px; }
+.profit-warning li small { color: #c39774; text-align: right; }
+.profit-warning > p:last-child { margin-top: 5px; }
+.profit-routes { margin-top: 0; }
+.profit-route-row + .profit-route-row { margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--border-soft); }
+.profit-route-heading { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+.profit-route-heading strong { color: #ced8e5; font-size: 12px; }
+.profit-route-heading span { flex: 0 0 auto; color: var(--blue); font-size: 10px; font-weight: 700; }
+.profit-route-metrics { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; margin-top: 9px; }
+.profit-route-metrics span { min-width: 0; padding: 7px; border-radius: 8px; background: rgba(255, 255, 255, 0.025); }
+.profit-route-metrics small { display: block; color: #69778b; font-size: 7px; text-transform: uppercase; }
+.profit-route-metrics b { display: block; overflow-wrap: anywhere; margin-top: 3px; color: #aebdce; font-size: 9px; font-variant-numeric: tabular-nums; }
+.profit-footnote { margin-top: 2px; padding-bottom: 8px; }
 
 /* Live time and synchronization */
 .timeline-statusbar {

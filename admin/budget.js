@@ -287,6 +287,7 @@ export async function renderBudget(container, navigate) {
       <button class="timeline-tab" type="button" role="tab" aria-selected="false" data-admin-view="future">Gelecek</button>
       <button class="timeline-tab" type="button" role="tab" aria-selected="false" data-admin-view="past">Geçmiş</button>
       <button class="timeline-tab active" type="button" role="tab" aria-selected="true" data-admin-view="budget">Bütçe</button>
+      <button class="timeline-tab" type="button" role="tab" aria-selected="false" data-admin-view="profit-loss">Kâr/Zarar</button>
     </div>
     <div class="budget-toolbar">
       <div class="budget-periods" role="group" aria-label="Bütçe dönemi">${periodButtonsHTML(months, selectedPeriod)}</div>
@@ -344,6 +345,10 @@ export async function renderBudget(container, navigate) {
   document.querySelector('.timeline-tabs').addEventListener('click', event => {
     const tab = event.target.closest('[data-admin-view]')
     if (!tab || tab.dataset.adminView === 'budget') return
+    if (tab.dataset.adminView === 'profit-loss') {
+      navigate('#profit-loss')
+      return
+    }
     navigate(tab.dataset.adminView === 'past' ? '#timeline?tab=past' : '#timeline')
   })
 

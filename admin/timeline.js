@@ -526,6 +526,7 @@ export async function renderTimeline(container, navigate, selectedTab = 'future'
       <button class="timeline-tab ${isPast ? '' : 'active'}" type="button" role="tab" aria-selected="${!isPast}" data-admin-view="future">Gelecek</button>
       <button class="timeline-tab ${isPast ? 'active' : ''}" type="button" role="tab" aria-selected="${isPast}" data-admin-view="past">Geçmiş</button>
       <button class="timeline-tab" type="button" role="tab" aria-selected="false" data-admin-view="budget">Bütçe</button>
+      <button class="timeline-tab" type="button" role="tab" aria-selected="false" data-admin-view="profit-loss">Kâr/Zarar</button>
     </div>
     ${isPast ? '' : `
       <div class="stats" id="stats-strip">
@@ -568,6 +569,10 @@ export async function renderTimeline(container, navigate, selectedTab = 'future'
     if (!tab || tab.dataset.adminView === selectedTab) return
     if (tab.dataset.adminView === 'budget') {
       navigate('#budget')
+      return
+    }
+    if (tab.dataset.adminView === 'profit-loss') {
+      navigate('#profit-loss')
       return
     }
     navigate(tab.dataset.adminView === 'past' ? '#timeline?tab=past' : '#timeline')
