@@ -1,0 +1,55 @@
+import { describe, expect, test } from 'vitest'
+import { buildCustomerMatchCsv } from './pages/AdminPanelPage'
+import { validateBookingForm, type BookingFormState } from './pages/NewBookingPage'
+import { expandRoundTrips } from './pages/timeline-logic'
+import type { Booking } from './types'
+
+const baseForm: BookingFormState = {
+  name: 'Ayşe Yılmaz', phone: '+90 555 111 22 33', email: '', hotel: 'Rixos',
+  tripType: 'one_way', pickup: 'airport', dropoff: 'belek', pickupAddress: '', dropoffAddress: '',
+  pickupDate: '2026-08-10', pickupTime: '12:30', flightNumber: 'TK123', flightTime: '12:10',
+  returnDate: '', returnTime: '', returnFlight: '', vehicle: 'vito', guests: '3', luggage: '2',
+  childSeats: '1', price: '80', payment: 'cash', status: 'confirmed', notes: '',
+}
+
+describe('React admin migration behavior', () => {
+  test('keeps the per-leg round-trip price contract', () => {
+    const result = validateBookingForm({
+      ...baseForm, tripType: 'round_trip', price: '75', returnDate: '2026-08-15', returnTime: '09:00',
+    })
+    expect(result.error).toBe('')
+    expect(result.payload?.price_eur).toBe(150)
+  })
+
+  test('keeps private address validation', () => {
+    const result = validateBookingForm({ ...baseForm, pickup: 'private_address', pickupAddress: 'kısa' })
+    expect(result.error).toBe('Alış adresi 6-160 karakter olmalı.')
+  })
+
+  test('expands a round trip into outbound and return cards', () => {
+    const booking = {
+      id: '1', booking_ref: 'AVL-1', customer_name: 'Ayşe', customer_email: '', customer_phone: '+90555',
+      hotel_name: 'Rixos', child_seat_count: 0, luggage_count: 1, pickup_location: 'airport',
+      pickup_address: null, dropoff_location: 'belek', dropoff_address: null, pickup_date: '2026-08-10',
+      pickup_time: '12:30:00', flight_number: 'TK1', flight_arrival_time: '12:10:00', trip_type: 'round_trip',
+      return_date: '2026-08-15', return_pickup_time: '09:00:00', return_flight_number: 'TK2', guests: 2,
+      vehicle_type: 'vito', price_eur: 150, status: 'confirmed', payment_method: 'cash', notes: null,
+      language: 'tr', created_at: '2026-08-01T00:00:00Z',
+    } as Booking
+    const cards = expandRoundTrips([booking], 'future')
+    expect(cards).toHaveLength(2)
+    expect(cards[0]._displayTime).toBe('12:10:00')
+    expect(cards[1]._isReturn).toBe(true)
+    expect(cards[1].pickup_location).toBe('belek')
+    expect(cards[1].dropoff_location).toBe('airport')
+  })
+
+  test('keeps Google Ads normalization and duplicate removal', () => {
+    const result = buildCustomerMatchCsv([
+      { customer_name: 'Ayşe Yılmaz', customer_email: ' AYSE@example.com ', customer_phone: '0555 111 22 33' },
+      { customer_name: 'Ayşe Yılmaz', customer_email: 'ayse@example.com', customer_phone: '+90 555 111 22 33' },
+    ])
+    expect(result.count).toBe(1)
+    expect(result.csv).toContain('ayse@example.com,+905551112233,Ayşe,Yılmaz')
+  })
+})
