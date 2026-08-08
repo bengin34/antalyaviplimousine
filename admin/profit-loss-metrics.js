@@ -1,0 +1,244 @@
+export const DEFAULT_KM_COST_TRY = 15
+export const DEFAULT_EUR_TRY_RATE = 50
+
+const REALIZED_TODAY_STATUSES = new Set(['paid', 'in_transit', 'completed'])
+
+// Sabit yol mesafeleri. Havalimanı bağlantıları mevcut fiyat tablosundaki
+// yaklaşık mesafelerle aynıdır. Komşu bölgeler arasındaki bağlantılar, admin
+// panelinden havalimanı dışı bir rota girildiğinde en kısa sabit güzergâhın
+// hesaplanabilmesini sağlar; harita servisine istek yapılmaz.
+const ROUTE_EDGES = [
+  ['airport', 'antalya', 15],
+  ['airport', 'belek', 45],
+  ['airport', 'bogazkent', 48],
+  ['airport', 'side', 65],
+  ['airport', 'manavgat', 75],
+  ['airport', 'kizilagac', 85],
+  ['airport', 'alanya', 125],
+  ['airport', 'kemer', 50],
+  ['airport', 'tekirova', 75],
+  ['airport', 'fethiye', 205],
+  ['airport', 'dalaman', 235],
+  ['airport', 'bodrum', 380],
+  ['airport', 'pamukkale', 245],
+  ['airport', 'kapadokya', 540],
+  ['belek', 'bogazkent', 10],
+  ['bogazkent', 'side', 25],
+  ['side', 'manavgat', 10],
+  ['manavgat', 'kizilagac', 15],
+  ['kizilagac', 'alanya', 45],
+  ['antalya', 'kemer', 45],
+  ['kemer', 'tekirova', 20],
+  ['tekirova', 'fethiye', 155],
+  ['fethiye', 'dalaman', 50],
+  ['dalaman', 'bodrum', 200],
+  ['antalya', 'pamukkale', 235],
+  ['pamukkale', 'bodrum', 250],
+  ['manavgat', 'kapadokya', 500],
+]
+
+const ROUTE_GRAPH = ROUTE_EDGES.reduce((graph, [from, to, distance]) => {
+  if (!graph.has(from)) graph.set(from, [])
+  if (!graph.has(to)) graph.set(to, [])
+  graph.get(from).push({ location: to, distance })
+  graph.get(to).push({ location: from, distance })
+  return graph
+}, new Map())
+
+function normalizeLocation(value) {
+  return String(value ?? '').trim().toLocaleLowerCase('tr-TR')
+}
+
+export function fixedRouteDistanceKm(fromValue, toValue) {
+  const from = normalizeLocation(fromValue)
+  const to = normalizeLocation(toValue)
+  if (!from || !to || from === to) return from && from === to ? 0 : null
+  if (!ROUTE_GRAPH.has(from) || !ROUTE_GRAPH.has(to)) return null
+
+  const distances = new Map([[from, 0]])
+  const visited = new Set()
+
+  while (visited.size < ROUTE_GRAPH.size) {
+    let current = null
+    let currentDistance = Infinity
+    for (const [location, distance] of distances) {
+      if (!visited.has(location) && distance < currentDistance) {
+        current = location
+        currentDistance = distance
+      }
+    }
+
+    if (current === null) return null
+    if (current === to) return currentDistance
+    visited.add(current)
+
+    for (const edge of ROUTE_GRAPH.get(current) ?? []) {
+      const nextDistance = currentDistance + edge.distance
+      if (nextDistance < (distances.get(edge.location) ?? Infinity)) {
+        distances.set(edge.location, nextDistance)
+      }
+    }
+  }
+
+  return null
+}
+
+function isInPeriod(date, period) {
+  if (!date) return false
+  return period === 'all' || date.slice(0, 7) === period
+}
+
+function isRealizedLeg(booking, date, today) {
+  if (!date || booking.status === 'cancelled' || date > today) return false
+  return date < today || REALIZED_TODAY_STATUSES.has(booking.status)
+}
+
+function bookingLegs(booking) {
+  const priceEur = Number(booking.price_eur) || 0
+  const hasReturn = booking.trip_type === 'round_trip' && Boolean(booking.return_date)
+  const legRevenueEur = hasReturn ? priceEur / 2 : priceEur
+  const legs = booking.pickup_date
+    ? [{
+        date: booking.pickup_date,
+        from: booking.pickup_location,
+        to: booking.dropoff_location,
+        revenueEur: legRevenueEur,
+      }]
+    : []
+
+  if (hasReturn) {
+    legs.push({
+      date: booking.return_date,
+      from: booking.dropoff_location,
+      to: booking.pickup_location,
+      revenueEur: legRevenueEur,
+    })
+  }
+
+  return legs
+}
+
+function normalizeSetting(setting = {}) {
+  const kmCost = Number(setting.km_cost_try)
+  const exchangeRate = Number(setting.eur_try_rate)
+  const advertising = Number(setting.advertising_expense_try)
+
+  return {
+    kmCostTry: Number.isFinite(kmCost) && kmCost > 0 ? kmCost : DEFAULT_KM_COST_TRY,
+    eurTryRate: Number.isFinite(exchangeRate) && exchangeRate > 0 ? exchangeRate : DEFAULT_EUR_TRY_RATE,
+    advertisingExpenseTry: Number.isFinite(advertising) && advertising >= 0 ? advertising : 0,
+  }
+}
+
+function settingForMonth(settingsByMonth, month) {
+  if (settingsByMonth instanceof Map) return normalizeSetting(settingsByMonth.get(month))
+  return normalizeSetting(settingsByMonth?.[month])
+}
+
+export function calculateProfitLossMetrics(bookings, period, today, settingsByMonth = {}) {
+  const resolvedLegs = []
+  const unresolvedLegs = []
+
+  for (const booking of bookings) {
+    for (const leg of bookingLegs(booking)) {
+      if (!isRealizedLeg(booking, leg.date, today) || !isInPeriod(leg.date, period)) continue
+
+      const oneWayKm = fixedRouteDistanceKm(leg.from, leg.to)
+      const legDetails = {
+        ...leg,
+        bookingId: booking.id,
+        bookingRef: booking.booking_ref,
+        customerName: booking.customer_name,
+        month: leg.date.slice(0, 7),
+      }
+      const settings = settingForMonth(settingsByMonth, legDetails.month)
+      legDetails.revenueTry = leg.revenueEur * settings.eurTryRate
+
+      if (oneWayKm === null) {
+        unresolvedLegs.push(legDetails)
+        continue
+      }
+
+      const vehicleKm = oneWayKm * 2
+      resolvedLegs.push({
+        ...legDetails,
+        oneWayKm,
+        vehicleKm,
+        vehicleCostTry: vehicleKm * settings.kmCostTry,
+      })
+    }
+  }
+
+  const relevantMonths = period === 'all'
+    ? new Set([
+        ...resolvedLegs.map(leg => leg.month),
+        ...unresolvedLegs.map(leg => leg.month),
+        ...(settingsByMonth instanceof Map ? settingsByMonth.keys() : Object.keys(settingsByMonth ?? {})),
+      ])
+    : new Set([period])
+
+  const advertisingExpenseTry = [...relevantMonths].reduce((total, month) => {
+    return total + settingForMonth(settingsByMonth, month).advertisingExpenseTry
+  }, 0)
+  const advertisingExpenseEur = [...relevantMonths].reduce((total, month) => {
+    const settings = settingForMonth(settingsByMonth, month)
+    return total + (settings.advertisingExpenseTry / settings.eurTryRate)
+  }, 0)
+
+  const totals = [...resolvedLegs, ...unresolvedLegs].reduce((result, leg) => {
+    result.incomeEur += leg.revenueEur
+    result.incomeTry += leg.revenueTry
+    result.passengerKm += leg.oneWayKm ?? 0
+    result.vehicleKm += leg.vehicleKm ?? 0
+    result.vehicleCostTry += leg.vehicleCostTry ?? 0
+    return result
+  }, {
+    incomeEur: 0,
+    incomeTry: 0,
+    passengerKm: 0,
+    vehicleKm: 0,
+    vehicleCostTry: 0,
+  })
+  const vehicleCostEur = resolvedLegs.reduce((total, leg) => {
+    return total + (leg.vehicleCostTry / settingForMonth(settingsByMonth, leg.month).eurTryRate)
+  }, 0)
+
+  totals.advertisingExpenseTry = advertisingExpenseTry
+  totals.totalExpenseTry = totals.vehicleCostTry + advertisingExpenseTry
+  totals.netProfitTry = totals.incomeTry - totals.totalExpenseTry
+  totals.totalExpenseEur = vehicleCostEur + advertisingExpenseEur
+  totals.netProfitEur = totals.incomeEur - totals.totalExpenseEur
+  totals.profitMargin = totals.incomeTry > 0 ? (totals.netProfitTry / totals.incomeTry) * 100 : 0
+
+  const routeMap = new Map()
+  for (const leg of resolvedLegs) {
+    const routeKey = [normalizeLocation(leg.from), normalizeLocation(leg.to)].sort().join('|')
+    const route = routeMap.get(routeKey) ?? {
+      routeKey,
+      from: leg.from,
+      to: leg.to,
+      legCount: 0,
+      passengerKm: 0,
+      vehicleKm: 0,
+      incomeEur: 0,
+      vehicleCostTry: 0,
+    }
+    route.legCount += 1
+    route.passengerKm += leg.oneWayKm
+    route.vehicleKm += leg.vehicleKm
+    route.incomeEur += leg.revenueEur
+    route.vehicleCostTry += leg.vehicleCostTry
+    routeMap.set(routeKey, route)
+  }
+
+  const routes = [...routeMap.values()]
+    .sort((a, b) => b.vehicleKm - a.vehicleKm || b.incomeEur - a.incomeEur)
+
+  return {
+    ...totals,
+    completedLegs: resolvedLegs.length + unresolvedLegs.length,
+    resolvedLegs,
+    unresolvedLegs,
+    routes,
+  }
+}

@@ -1,6 +1,6 @@
 import { locationLabel, navigationURLs } from './turkish-formatters.js'
 
-// Inline copy consistent with timeline.js:48 and booking-detail.js:12
+// Shared transfer start-time rule used by the React timeline and detail views.
 function transferStartTime(pickupLocation, pickupTime, flightArrivalTime) {
   if (pickupLocation === 'airport') return flightArrivalTime || pickupTime
   return pickupTime

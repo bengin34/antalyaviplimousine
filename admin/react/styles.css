@@ -1,0 +1,14 @@
+@import "tailwindcss";
+@import "../admin.css";
+
+button,
+[role="button"] {
+  touch-action: manipulation;
+}
+
+.react-route-loading {
+  min-height: 100dvh;
+  display: grid;
+  place-items: center;
+  color: var(--text-muted);
+}

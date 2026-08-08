@@ -1,5 +1,7 @@
 import { resolve } from "node:path";
 import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
+import tailwindcss from "@tailwindcss/vite";
 import { resolvePriceTokens } from "./src/prices.js";
 
 function priceInjectionPlugin() {
@@ -45,7 +47,7 @@ const localizedInputs = Object.fromEntries(
 
 export default defineConfig({
   base: "/",
-  plugins: [priceInjectionPlugin()],
+  plugins: [react(), tailwindcss(), priceInjectionPlugin()],
   build: {
     rollupOptions: {
       input: {

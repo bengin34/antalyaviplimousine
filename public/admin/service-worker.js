@@ -1,5 +1,5 @@
 const CACHE_PREFIX = 'vip-admin-shell-'
-const CACHE_NAME = `${CACHE_PREFIX}v1`
+const CACHE_NAME = `${CACHE_PREFIX}v3`
 const ADMIN_ROOT = new URL('./', self.location.href)
 const INDEX_URL = new URL('index.html', ADMIN_ROOT)
 

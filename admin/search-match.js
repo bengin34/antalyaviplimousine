@@ -1,6 +1,6 @@
 // Pure predicate for the admin timeline search box. Matches a booking against a
 // free-text query by name, phone, booking reference, or route. Extracted from
-// timeline.js so it can be unit-tested without a DOM.
+// Kept DOM-free so the React timeline search can be unit-tested directly.
 export function matchesBookingQuery(booking, query) {
   const raw = String(query ?? '').trim()
   if (!raw) return true
