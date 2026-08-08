@@ -99,23 +99,21 @@ function bookingLegs(booking) {
   const legRevenueEur = hasReturn ? priceEur / 2 : priceEur
   const legs = booking.pickup_date
     ? [{
+        leg: 'outbound',
         date: booking.pickup_date,
         from: booking.pickup_location,
         to: booking.dropoff_location,
         revenueEur: legRevenueEur,
-        isReturn: false,
-        manualDistanceKm: booking.manual_outbound_distance_km,
       }]
     : []
 
   if (hasReturn) {
     legs.push({
+      leg: 'return',
       date: booking.return_date,
       from: booking.dropoff_location,
       to: booking.pickup_location,
       revenueEur: legRevenueEur,
-      isReturn: true,
-      manualDistanceKm: booking.manual_return_distance_km,
     })
   }
 
@@ -139,7 +137,14 @@ function settingForMonth(settingsByMonth, month) {
   return normalizeSetting(settingsByMonth?.[month])
 }
 
-export function calculateProfitLossMetrics(bookings, period, today, settingsByMonth = {}) {
+function distanceOverrideForLeg(distanceOverrides, bookingId, leg) {
+  const key = `${bookingId}:${leg}`
+  const override = distanceOverrides instanceof Map ? distanceOverrides.get(key) : distanceOverrides?.[key]
+  const distance = Number(override?.distance_km ?? override)
+  return Number.isFinite(distance) && distance > 0 ? distance : null
+}
+
+export function calculateProfitLossMetrics(bookings, period, today, settingsByMonth = {}, distanceOverrides = {}) {
   const resolvedLegs = []
   const unresolvedLegs = []
 
@@ -147,10 +152,8 @@ export function calculateProfitLossMetrics(bookings, period, today, settingsByMo
     for (const leg of bookingLegs(booking)) {
       if (!isRealizedLeg(booking, leg.date, today) || !isInPeriod(leg.date, period)) continue
 
-      const fixedDistanceKm = fixedRouteDistanceKm(leg.from, leg.to)
-      const manualDistanceKm = Number(leg.manualDistanceKm)
-      const hasManualDistance = Number.isFinite(manualDistanceKm) && manualDistanceKm > 0
-      const oneWayKm = fixedDistanceKm ?? (hasManualDistance ? manualDistanceKm : null)
+      const manualDistanceKm = distanceOverrideForLeg(distanceOverrides, booking.id, leg.leg)
+      const oneWayKm = manualDistanceKm ?? fixedRouteDistanceKm(leg.from, leg.to)
       const legDetails = {
         ...leg,
         bookingId: booking.id,
@@ -172,7 +175,7 @@ export function calculateProfitLossMetrics(bookings, period, today, settingsByMo
         oneWayKm,
         vehicleKm,
         vehicleCostTry: vehicleKm * settings.kmCostTry,
-        distanceSource: fixedDistanceKm === null ? 'manual' : 'fixed',
+        distanceSource: manualDistanceKm === null ? 'fixed' : 'manual',
       })
     }
   }
