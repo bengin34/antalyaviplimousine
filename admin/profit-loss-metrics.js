@@ -1,3 +1,5 @@
+import { routeEdges } from '../src/routes.js'
+
 export const DEFAULT_KM_COST_TRY = 15
 export const DEFAULT_EUR_TRY_RATE = 50
 
@@ -7,37 +9,7 @@ const REALIZED_TODAY_STATUSES = new Set(['paid', 'in_transit', 'completed'])
 // yaklaşık mesafelerle aynıdır. Komşu bölgeler arasındaki bağlantılar, admin
 // panelinden havalimanı dışı bir rota girildiğinde en kısa sabit güzergâhın
 // hesaplanabilmesini sağlar; harita servisine istek yapılmaz.
-const ROUTE_EDGES = [
-  ['airport', 'antalya', 15],
-  ['airport', 'belek', 45],
-  ['airport', 'bogazkent', 48],
-  ['airport', 'side', 65],
-  ['airport', 'manavgat', 75],
-  ['airport', 'kizilagac', 85],
-  ['airport', 'alanya', 125],
-  ['airport', 'kemer', 50],
-  ['airport', 'tekirova', 75],
-  ['airport', 'fethiye', 205],
-  ['airport', 'dalaman', 235],
-  ['airport', 'bodrum', 380],
-  ['airport', 'pamukkale', 245],
-  ['airport', 'kapadokya', 540],
-  ['belek', 'bogazkent', 10],
-  ['bogazkent', 'side', 25],
-  ['side', 'manavgat', 10],
-  ['manavgat', 'kizilagac', 15],
-  ['kizilagac', 'alanya', 45],
-  ['antalya', 'kemer', 45],
-  ['kemer', 'tekirova', 20],
-  ['tekirova', 'fethiye', 155],
-  ['fethiye', 'dalaman', 50],
-  ['dalaman', 'bodrum', 200],
-  ['antalya', 'pamukkale', 235],
-  ['pamukkale', 'bodrum', 250],
-  ['manavgat', 'kapadokya', 500],
-]
-
-const ROUTE_GRAPH = ROUTE_EDGES.reduce((graph, [from, to, distance]) => {
+const ROUTE_GRAPH = routeEdges.reduce((graph, [from, to, distance]) => {
   if (!graph.has(from)) graph.set(from, [])
   if (!graph.has(to)) graph.set(to, [])
   graph.get(from).push({ location: to, distance })

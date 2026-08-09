@@ -7,26 +7,34 @@
     "node": ">=22.12.0 <23"
   },
   "scripts": {
-    "prebuild": "npm run check:prices && npm run generate:de-home && npm run generate:localized && npm run generate:privacy && npm run generate:impressum && npm run generate:sitemap",
+    "prebuild": "npm run check:prices && npm run generate:translations && npm run generate:legal-copy && npm run generate:sitemap && npm run typecheck && npm test",
     "check:prices": "node scripts/verify-prices.mjs",
-    "dev": "vite --host 0.0.0.0",
-    "build": "vite build",
+    "dev": "react-router dev --config vite.public.config.ts --host 0.0.0.0",
+    "dev:admin": "vite --config vite.admin.config.ts --host 0.0.0.0",
+    "dev:legacy": "vite --config vite.config.js --host 0.0.0.0",
+    "build": "node scripts/build-all.mjs",
+    "build:public": "react-router build --config vite.public.config.ts",
+    "build:admin": "vite build --config vite.admin.config.ts",
     "generate:de-home": "node scripts/build-de-homepage.mjs",
     "generate:localized": "node scripts/build-localized-pages.mjs",
     "generate:privacy": "node scripts/build-privacy-pages.mjs",
     "generate:impressum": "node scripts/build-impressum-pages.mjs",
     "generate:sitemap": "node scripts/generate-sitemap.mjs",
+    "generate:translations": "node scripts/extract-public-translations.mjs",
+    "generate:legal-copy": "node scripts/extract-legal-copy.mjs",
     "optimize:images": "node scripts/optimize-images.mjs",
-    "preview": "vite preview --host 0.0.0.0",
+    "preview": "vite preview --config vite.preview.config.ts",
     "test": "vitest run",
     "test:public": "vitest run scripts/public-site-contracts.test.js",
     "test:watch": "vitest",
     "typecheck": "tsc --noEmit"
   },
   "devDependencies": {
+    "@react-router/dev": "^8.3.0",
     "@tailwindcss/vite": "^4.3.3",
     "@testing-library/jest-dom": "^7.0.0",
     "@testing-library/react": "^16.3.2",
+    "@types/node": "^22.20.1",
     "@types/react": "^19.2.18",
     "@types/react-dom": "^19.2.4",
     "@vitejs/plugin-react": "^5.2.0",
@@ -38,9 +46,16 @@
     "vitest": "^3.0.0"
   },
   "dependencies": {
+    "@hookform/resolvers": "^5.7.1",
     "@supabase/supabase-js": "^2.108.1",
+    "i18next": "^26.3.6",
     "libphonenumber-js": "^1.13.9",
     "react": "^19.2.8",
-    "react-dom": "^19.2.8"
+    "react-dom": "^19.2.8",
+    "react-hook-form": "^7.85.0",
+    "react-i18next": "^17.0.11",
+    "react-router": "^8.3.0",
+    "zod": "^4.4.3",
+    "isbot": "^5"
   }
 }

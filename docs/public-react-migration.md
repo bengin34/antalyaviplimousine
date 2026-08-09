@@ -1,6 +1,6 @@
 # Public Site React Migration
 
-This document records the contracts that must remain stable while the public site is moved to React. The admin React application stays separate during this migration.
+The public-site migration is complete. The public React application and the admin React application remain separate entry points and are combined into one static deploy artifact.
 
 ## Step 1: Baseline (complete)
 
@@ -21,22 +21,23 @@ Run the focused contract suite with:
 npm run test:public
 ```
 
-## Migration sequence
+## Completed architecture
 
-1. Move route identity, public pricing, approximate distance, duration, and localized route names into one canonical module. Do not change customer-visible values until the conflicting distance records have been reviewed.
-2. Introduce the public React/prerender application alongside the existing static output. Keep the current URL paths unchanged.
-3. Port the shared shell, language handling, and SEO metadata.
-4. Port the homepage section by section while retaining the existing CSS and asset paths.
-5. Port the reservation flow behind pure validation and payload-building functions, then connect it to the existing Supabase Edge Function.
-6. Port route and legal pages, prerender every sitemap URL, and remove the legacy generators only after equivalence checks pass.
+- Public routes use React Router framework mode with static prerendering and no production SSR server.
+- All 68 sitemap URLs ship complete HTML, localized metadata and canonical/hreflang links before JavaScript runs.
+- `src/routes.js` is the single source for public/admin destination names, prices, approximate distances and durations.
+- React Hook Form and Zod own the reservation UI and validation; the existing Supabase `create-booking` Edge Function contract is preserved.
+- i18next/react-i18next provide the 12-language runtime selector. English, German, Turkish and Russian retain indexable localized URLs.
+- The existing consent rule is preserved: Google Analytics and Ads load only after explicit acceptance.
+- `npm run build` produces the public React pages, the React admin, sitemap, service worker and static assets together in `dist/`.
 
-## Planned application boundary
+## Application boundary
 
 - Public site: React Router framework routes with build-time prerendering and no runtime SSR requirement.
 - Admin: existing React/Vite entry under `/admin/`.
-- Forms: React Hook Form with Zod schemas after the current payload contract is isolated.
-- Localization: i18next/react-i18next after translations are extracted from `src/main.js`.
-- Tests: Vitest and Testing Library for components; Playwright is added when the first React public route is available.
+- Forms: React Hook Form with Zod schemas and a tested payload builder.
+- Localization: i18next/react-i18next with generated translation resources.
+- Tests: Vitest/Testing Library, a 68-page deploy verifier and a CDP browser smoke test.
 
 ## Non-negotiable compatibility contracts
 
@@ -47,6 +48,14 @@ npm run test:public
 - Public prices must continue to come from one source and structured data must match visible prices.
 - The existing CSS is preserved during component migration; visual redesign is a separate change.
 
-## Known data issue to resolve in Step 2
+## Verification
 
-Distances are duplicated between the localized page generator, database seed/migrations, and admin profit/loss calculations. Some values disagree. Step 2 will create the shared schema and an explicit audit list before any distance is changed.
+Run the complete production gate with:
+
+```bash
+npm run build
+```
+
+This checks route prices/distances against the database seed and migrations, regenerates derived copy and sitemap data, runs TypeScript and all unit/contract tests, prerenders the public pages, builds admin, then verifies the final `dist/` artifact.
+
+For a manual browser smoke run, start `npm run preview`, launch Chrome with remote debugging on port `9225`, then run `node scripts/browser-smoke.mjs`.

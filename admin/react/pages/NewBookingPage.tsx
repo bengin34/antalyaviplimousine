@@ -1,4 +1,5 @@
 import { useRef, useState, type FormEvent } from 'react'
+import { publicRouteSlugs, turkishLocationNames } from '../../../src/routes.js'
 import { Topbar } from '../components/AdminChrome'
 import { todayISO } from '../lib/format'
 import { consumeBookingPrefill } from '../lib/prefill'
@@ -7,11 +8,7 @@ import type { Navigate } from '../types'
 
 export const LOCATION_OPTIONS = [
   ['airport', 'Antalya Havalimanı'], ['hotel', 'Otel'], ['private_address', 'Özel adres'],
-  ['antalya', 'Antalya'], ['belek', 'Belek'], ['side', 'Side'], ['kemer', 'Kemer'],
-  ['alanya', 'Alanya'], ['bogazkent', 'Boğazkent'], ['manavgat', 'Manavgat'],
-  ['kizilagac', 'Kızılağaç'], ['tekirova', 'Tekirova'], ['bodrum', 'Bodrum'],
-  ['dalaman', 'Dalaman'], ['fethiye', 'Fethiye'], ['pamukkale', 'Pamukkale'],
-  ['kapadokya', 'Kapadokya'],
+  ...publicRouteSlugs.map(slug => [slug, (turkishLocationNames as Record<string, string>)[slug]]),
 ] as const
 
 export const VEHICLE_CAPACITY: Record<string, number> = { vclass: 13, vito: 8 }

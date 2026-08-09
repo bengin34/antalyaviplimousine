@@ -1,7 +1,7 @@
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
 import vm from "node:vm";
-import { routeData } from "../src/prices.js";
+import { localizedRoute, publicRouteSlugs, routeData } from "../src/routes.js";
 
 const root = process.cwd();
 const languages = {
@@ -103,22 +103,9 @@ const languages = {
   },
 };
 
-const routes = {
-  antalya: { en: "Antalya City", de: "Antalya Stadt", tr: "Antalya şehir merkezi", ru: "центр Антальи", distance: "15 km", duration: { en: "20–30 minutes", de: "20–30 Minuten", tr: "20–30 dakika", ru: "20–30 минут" } },
-  belek: { en: "Belek", de: "Belek", tr: "Belek", ru: "Белек", distance: "35 km", duration: { en: "35–40 minutes", de: "35–40 Minuten", tr: "35–40 dakika", ru: "35–40 минут" } },
-  side: { en: "Side", de: "Side", tr: "Side", ru: "Сиде", distance: "65 km", duration: { en: "55–65 minutes", de: "55–65 Minuten", tr: "55–65 dakika", ru: "55–65 минут" } },
-  kemer: { en: "Kemer", de: "Kemer", tr: "Kemer", ru: "Кемер", distance: "45 km", duration: { en: "40–50 minutes", de: "40–50 Minuten", tr: "40–50 dakika", ru: "40–50 минут" } },
-  alanya: { en: "Alanya", de: "Alanya", tr: "Alanya", ru: "Аланью", distance: "125 km", duration: { en: "110–130 minutes", de: "110–130 Minuten", tr: "110–130 dakika", ru: "110–130 минут" } },
-  bogazkent: { en: "Boğazkent", de: "Boğazkent", tr: "Boğazkent", ru: "Богазкент", distance: "40 km", duration: { en: "40–45 minutes", de: "40–45 Minuten", tr: "40–45 dakika", ru: "40–45 минут" } },
-  manavgat: { en: "Manavgat", de: "Manavgat", tr: "Manavgat", ru: "Манавгат", distance: "70 km", duration: { en: "55–65 minutes", de: "55–65 Minuten", tr: "55–65 dakika", ru: "55–65 минут" } },
-  kizilagac: { en: "Manavgat/Kızılağaç", de: "Manavgat/Kızılağaç", tr: "Manavgat/Kızılağaç", ru: "Манавгат/Кызылагач", distance: "85 km", duration: { en: "70–80 minutes", de: "70–80 Minuten", tr: "70–80 dakika", ru: "70–80 минут" } },
-  tekirova: { en: "Tekirova", de: "Tekirova", tr: "Tekirova", ru: "Текирову", distance: "75 km", duration: { en: "75–90 minutes", de: "75–90 Minuten", tr: "75–90 dakika", ru: "75–90 минут" } },
-  bodrum: { en: "Bodrum", de: "Bodrum", tr: "Bodrum", ru: "Бодрум", distance: "420 km", duration: { en: "5–6 hours", de: "5–6 Stunden", tr: "5–6 saat", ru: "5–6 часов" } },
-  dalaman: { en: "Dalaman", de: "Dalaman", tr: "Dalaman", ru: "Даламан", distance: "235 km", duration: { en: "3–3.5 hours", de: "3–3,5 Stunden", tr: "3–3,5 saat", ru: "3–3,5 часа" } },
-  fethiye: { en: "Fethiye", de: "Fethiye", tr: "Fethiye", ru: "Фетхие", distance: "200 km", duration: { en: "2.5–3 hours", de: "2,5–3 Stunden", tr: "2,5–3 saat", ru: "2,5–3 часа" } },
-  pamukkale: { en: "Pamukkale", de: "Pamukkale", tr: "Pamukkale", ru: "Памуккале", distance: "240 km", duration: { en: "3–3.5 hours", de: "3–3,5 Stunden", tr: "3–3,5 saat", ru: "3–3,5 часа" } },
-  kapadokya: { en: "Cappadocia", de: "Kappadokien", tr: "Kapadokya", ru: "Каппадокию", distance: "540 km", duration: { en: "7–8 hours", de: "7–8 Stunden", tr: "7–8 saat", ru: "7–8 часов" } },
-};
+const routes = Object.fromEntries(
+  publicRouteSlugs.map((slug) => [slug, localizedRoute(slug)]),
+);
 
 const hreflangs = (slug = "") => {
   const suffix = slug ? `transfers/${slug}/` : "";
@@ -322,7 +309,8 @@ function localizeHome(source, code, text, translations) {
 }
 
 function routePage(code, slug, route, text) {
-  const name = route[code], duration = route.duration[code];
+  const localized = localizedRoute(slug, code);
+  const name = localized.name, duration = localized.durationLabel;
   const prices = routeData[slug]?.prices;
   if (!prices) throw new Error(`Missing prices for route: ${slug}`);
   const vitoPrice = String(prices.vito);
@@ -347,10 +335,10 @@ function routePage(code, slug, route, text) {
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" /><link rel="stylesheet" href="/src/styles.css" />
 <style>.localized-route{padding:160px var(--section-x) 90px;background:linear-gradient(115deg,rgba(5,5,5,.94),rgba(5,5,5,.55)),url('/assets/optimized/antalya-coastline-hero.jpg') center/cover;color:#fff}.localized-route h1{max-width:900px;font-family:var(--serif);font-size:clamp(2.5rem,6vw,5.5rem);font-weight:400;line-height:1.03}.localized-campaign{display:inline-block;margin:28px 0 0;padding:10px 14px;border:1px solid rgba(224,198,141,.45);color:var(--gold-light);font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase}.localized-stats{display:flex;gap:40px;flex-wrap:wrap;margin-top:45px}.localized-stats strong,.localized-stats span{display:block}.localized-stats span{color:rgba(255,255,255,.65)}.localized-content{padding:80px var(--section-x)}.localized-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:70px;max-width:1180px;margin:auto}.localized-grid h2,.localized-faq h2{font-family:var(--serif);font-size:clamp(1.8rem,3vw,2.7rem);font-weight:400}.localized-grid p,.localized-grid li{line-height:1.75;color:var(--muted)}.localized-price{padding:25px;border:1px solid var(--line);border-radius:14px}.localized-price strong{font-size:1.5rem;color:var(--gold)}.localized-faq{max-width:1180px;margin:auto;padding:0 var(--section-x) 80px}.localized-faq article{padding:24px 0;border-bottom:1px solid var(--line)}.localized-faq h3{font-size:1rem}.localized-faq p{color:var(--muted);line-height:1.7}.localized-links{padding:70px var(--section-x);background:var(--cream)}.localized-links div{display:flex;gap:12px;flex-wrap:wrap}.localized-links a{padding:12px 16px;background:#fff;border:1px solid var(--line);border-radius:8px}.localized-contact{padding:70px var(--section-x);text-align:center;background:#111;color:#fff}@media(max-width:760px){.localized-grid{grid-template-columns:1fr}.localized-route{padding-top:120px}}</style></head>
 <body><header class="site-header scrolled"><a class="brand" href="${localPrefix}/"><span class="brand-mark">AVL</span><span class="brand-copy"><strong>Antalya VIP</strong><span>Tourism</span></span></a><nav class="desktop-nav"><a href="${localPrefix}/">${text.home}</a><a href="#details">${text.routes}</a><a href="#contact">WhatsApp</a></nav><a class="header-cta" href="${localPrefix}/#booking">${text.book}</a></header>
-<main><section class="localized-route"><div class="eyebrow light"><span></span><p>Antalya VIP Tourism</p></div><h1>${text.h1(name)}</h1><p>${text.routeDescription(name, vitoPrice)}</p><p class="localized-campaign">${text.campaign}</p><div class="localized-stats"><div><strong>${duration}</strong><span>${text.duration}</span></div><div><strong>${route.distance}</strong><span>${text.distance}</span></div><div><strong>€${vitoPrice}</strong><span>${text.from}</span></div></div></section>
-<section class="localized-content" id="details"><div class="localized-grid"><div><h2>${text.h1(name)}</h2><p>${text.intro(name, duration, route.distance)}</p><h3>${text.included}</h3><ul>${text.includeItems.map((item) => `<li>${item}</li>`).join("")}</ul></div><aside><h2>${text.priceHeading}</h2><div class="localized-price"><p>${text.vito}</p><strong>€${vitoPrice}</strong></div><div class="localized-price"><p>${text.sprinter}</p><strong>€${sprinterPrice}</strong></div><p><a class="button button-gold" href="${localPrefix}/#booking">${text.book}</a></p></aside></div></section>
+<main><section class="localized-route"><div class="eyebrow light"><span></span><p>Antalya VIP Tourism</p></div><h1>${text.h1(name)}</h1><p>${text.routeDescription(name, vitoPrice)}</p><p class="localized-campaign">${text.campaign}</p><div class="localized-stats"><div><strong>${duration}</strong><span>${text.duration}</span></div><div><strong>${localized.distance}</strong><span>${text.distance}</span></div><div><strong>€${vitoPrice}</strong><span>${text.from}</span></div></div></section>
+<section class="localized-content" id="details"><div class="localized-grid"><div><h2>${text.h1(name)}</h2><p>${text.intro(name, duration, localized.distance)}</p><h3>${text.included}</h3><ul>${text.includeItems.map((item) => `<li>${item}</li>`).join("")}</ul></div><aside><h2>${text.priceHeading}</h2><div class="localized-price"><p>${text.vito}</p><strong>€${vitoPrice}</strong></div><div class="localized-price"><p>${text.sprinter}</p><strong>€${sprinterPrice}</strong></div><p><a class="button button-gold" href="${localPrefix}/#booking">${text.book}</a></p></aside></div></section>
 <section class="localized-faq"><h2>${text.faq}</h2>${faq.map(([q,a]) => `<article><h3>${q}</h3><p>${a}</p></article>`).join("")}</section>
-<section class="localized-links"><h2>${text.other}</h2><div>${Object.entries(routes).filter(([key]) => key !== slug).map(([key,value]) => `<a href="${localPrefix}/transfers/${key}/">${value[code]}</a>`).join("")}</div></section>
+<section class="localized-links"><h2>${text.other}</h2><div>${Object.keys(routes).filter((key) => key !== slug).map((key) => `<a href="${localPrefix}/transfers/${key}/">${localizedRoute(key, code).name}</a>`).join("")}</div></section>
 <section class="localized-contact" id="contact"><h2>${text.book}</h2><p>${text.contact}</p><a class="button button-gold" href="https://wa.me/905302655790">WhatsApp</a></section></main>
 <footer><div class="footer-bottom"><span>© 2026 Antalya VIP Tourism</span><span><a href="${text.imprintUrl}">${text.imprint}</a> · <a href="${text.privacyUrl}">${text.privacy}</a></span></div></footer><script type="module" src="/src/consent.js"></script></body></html>`;
 }
