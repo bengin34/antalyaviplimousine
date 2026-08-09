@@ -103,6 +103,8 @@ function bookingLegs(booking) {
         from: booking.pickup_location,
         to: booking.dropoff_location,
         revenueEur: legRevenueEur,
+        isReturn: false,
+        manualDistanceKm: booking.manual_outbound_distance_km,
       }]
     : []
 
@@ -112,6 +114,8 @@ function bookingLegs(booking) {
       from: booking.dropoff_location,
       to: booking.pickup_location,
       revenueEur: legRevenueEur,
+      isReturn: true,
+      manualDistanceKm: booking.manual_return_distance_km,
     })
   }
 
@@ -143,7 +147,10 @@ export function calculateProfitLossMetrics(bookings, period, today, settingsByMo
     for (const leg of bookingLegs(booking)) {
       if (!isRealizedLeg(booking, leg.date, today) || !isInPeriod(leg.date, period)) continue
 
-      const oneWayKm = fixedRouteDistanceKm(leg.from, leg.to)
+      const fixedDistanceKm = fixedRouteDistanceKm(leg.from, leg.to)
+      const manualDistanceKm = Number(leg.manualDistanceKm)
+      const hasManualDistance = Number.isFinite(manualDistanceKm) && manualDistanceKm > 0
+      const oneWayKm = fixedDistanceKm ?? (hasManualDistance ? manualDistanceKm : null)
       const legDetails = {
         ...leg,
         bookingId: booking.id,
@@ -165,6 +172,7 @@ export function calculateProfitLossMetrics(bookings, period, today, settingsByMo
         oneWayKm,
         vehicleKm,
         vehicleCostTry: vehicleKm * settings.kmCostTry,
+        distanceSource: fixedDistanceKm === null ? 'manual' : 'fixed',
       })
     }
   }

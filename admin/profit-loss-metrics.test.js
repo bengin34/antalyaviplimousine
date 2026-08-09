@@ -104,6 +104,39 @@ describe('calculateProfitLossMetrics', () => {
     expect(result.incomeEur).toBe(100)
   })
 
+  test('uses a manually entered one-way distance when a fixed route is unavailable', () => {
+    const custom = {
+      ...baseBooking,
+      pickup_location: 'private_address',
+      dropoff_location: 'airport',
+      manual_outbound_distance_km: 37.5,
+    }
+    const result = calculateProfitLossMetrics([custom], '2026-08', '2026-08-07')
+
+    expect(result.unresolvedLegs).toHaveLength(0)
+    expect(result.passengerKm).toBe(37.5)
+    expect(result.vehicleKm).toBe(75)
+    expect(result.vehicleCostTry).toBe(75 * DEFAULT_KM_COST_TRY)
+    expect(result.resolvedLegs[0].distanceSource).toBe('manual')
+  })
+
+  test('keeps outbound and return manual distances separate', () => {
+    const customRoundTrip = {
+      ...baseBooking,
+      pickup_location: 'private_address',
+      dropoff_location: 'hotel',
+      trip_type: 'round_trip',
+      return_date: '2026-08-05',
+      manual_outbound_distance_km: 24,
+      manual_return_distance_km: 27,
+    }
+    const result = calculateProfitLossMetrics([customRoundTrip], '2026-08', '2026-08-07')
+
+    expect(result.unresolvedLegs).toHaveLength(0)
+    expect(result.passengerKm).toBe(51)
+    expect(result.vehicleKm).toBe(102)
+  })
+
   test('uses each month settings when all periods are combined', () => {
     const july = { ...baseBooking, id: 'july', pickup_date: '2026-07-20' }
     const august = { ...baseBooking, id: 'august', pickup_date: '2026-08-01' }

@@ -55,11 +55,12 @@ export default function App() {
     const detailPath = hash.slice('#detail/'.length)
     const [encodedRef, query = ''] = detailPath.split('?')
     const params = new URLSearchParams(query)
+    const from = params.get('from')
     return <BookingDetailPage
       key={hash}
       bookingRef={decodeURIComponent(encodedRef)}
       isReturn={params.get('leg') === 'return'}
-      sourceTab={params.get('from') === 'past' ? 'past' : 'future'}
+      sourceTab={from === 'profit-loss' ? 'profit-loss' : from === 'past' ? 'past' : 'future'}
       navigate={navigate}
     />
   }

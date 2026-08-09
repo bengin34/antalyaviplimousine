@@ -489,9 +489,75 @@ body {
 .profit-warning > strong { font-size: 12px; }
 .profit-warning > p { margin-top: 6px; color: #c39774; font-size: 9px; line-height: 1.45; }
 .profit-warning ul { margin-top: 9px; list-style: none; }
-.profit-warning li { display: flex; justify-content: space-between; gap: 10px; padding: 5px 0; border-top: 1px solid rgba(255, 173, 102, 0.12); font-size: 10px; }
-.profit-warning li small { color: #c39774; text-align: right; }
-.profit-warning > p:last-child { margin-top: 5px; }
+.profit-warning-item { padding: 10px 0; border-top: 1px solid rgba(255, 173, 102, 0.12); }
+.profit-warning-item:last-child { padding-bottom: 0; }
+.profit-warning-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.profit-warning-copy { min-width: 0; }
+.profit-warning-copy span { display: block; color: #ffd2ac; font-size: 11px; font-weight: 700; }
+.profit-warning-copy small { display: block; margin-top: 3px; color: #c39774; font-size: 9px; line-height: 1.35; }
+.profit-warning-actions { display: flex; flex: 0 0 auto; gap: 6px; }
+.profit-warning-actions button,
+.profit-km-form-actions button {
+  min-height: 32px;
+  padding: 0 9px;
+  border-radius: 9px;
+  cursor: pointer;
+  font: inherit;
+  font-size: 9px;
+  font-weight: 800;
+}
+.profit-trip-button {
+  border: 1px solid rgba(115, 183, 255, 0.35);
+  background: rgba(115, 183, 255, 0.1);
+  color: #a8d3ff;
+}
+.profit-km-button,
+.profit-km-save {
+  border: 1px solid rgba(255, 173, 102, 0.48);
+  background: rgba(255, 173, 102, 0.14);
+  color: #ffc18c;
+}
+.profit-km-form {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 8px 10px;
+  margin-top: 10px;
+  padding: 10px;
+  border: 1px solid rgba(255, 173, 102, 0.16);
+  border-radius: 11px;
+  background: rgba(7, 11, 18, 0.28);
+}
+.profit-km-form label > span { display: block; margin-bottom: 5px; color: #d9ad89; font-size: 9px; font-weight: 700; }
+.profit-km-form label > div {
+  display: flex;
+  align-items: center;
+  min-height: 36px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 173, 102, 0.3);
+  border-radius: 9px;
+  background: rgba(255, 255, 255, 0.035);
+}
+.profit-km-form label > div:focus-within { border-color: rgba(255, 173, 102, 0.68); }
+.profit-km-form input {
+  width: 100%;
+  min-width: 0;
+  height: 34px;
+  padding: 0 9px;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: var(--text);
+  font: inherit;
+  font-size: 13px;
+  font-variant-numeric: tabular-nums;
+}
+.profit-km-form label b { padding-right: 9px; color: #c39774; font-size: 10px; }
+.profit-km-form label > small { display: block; margin-top: 5px; color: #9d775a; font-size: 8px; line-height: 1.35; }
+.profit-km-form-actions { display: flex; align-items: flex-end; gap: 6px; padding-bottom: 16px; }
+.profit-km-cancel { border: 1px solid rgba(255, 255, 255, 0.12); background: transparent; color: #b28c6e; }
+.profit-km-form-actions button:disabled { opacity: 0.55; cursor: wait; }
+.profit-km-error { grid-column: 1 / -1; min-height: 12px; color: #ff9a95; font-size: 9px; text-align: left; }
+.profit-km-error:empty { display: none; }
 .profit-routes { margin-top: 0; }
 .profit-route-row + .profit-route-row { margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--border-soft); }
 .profit-route-heading { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
@@ -1252,6 +1318,11 @@ body {
   .price-editor-row { flex-wrap: wrap; }
   .price-input { flex: 1 1 calc(100% - 26px); }
   .price-action { flex: 1 1 calc(50% - 4px); }
+  .profit-warning-row { align-items: stretch; flex-direction: column; }
+  .profit-warning-actions button { flex: 1; }
+  .profit-km-form { grid-template-columns: 1fr; }
+  .profit-km-form-actions { padding-bottom: 0; }
+  .profit-km-form-actions button { flex: 1; }
 }
 
 /* New booking form */

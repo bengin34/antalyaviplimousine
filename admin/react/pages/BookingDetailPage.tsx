@@ -141,7 +141,7 @@ function PriceEditor({ booking, onSaved }: { booking: Booking; onSaved: (booking
   return <><button className="btn-outline price-edit-btn" type="button" onClick={() => { setValue(String(legPrice)); setError(''); setEditing(true) }}>Düzenle</button>{editing && <div className="price-editor" style={{ gridColumn: '1 / -1' }}><div className="price-editor-row"><span style={{ color: 'var(--text-muted)' }}>€</span><input className="input price-input" type="number" min={0} step={0.01} inputMode="decimal" aria-label="Yeni fiyat" value={value} onChange={e => setValue(e.target.value)} autoFocus /><button className="btn price-action" type="button" disabled={saving} onClick={() => void save()}>Kaydet</button><button className="btn-outline price-action" type="button" onClick={() => setEditing(false)}>İptal</button></div><div className="inline-error">{error}</div></div>}</>
 }
 
-export default function BookingDetailPage({ bookingRef, isReturn, sourceTab, navigate }: { bookingRef: string; isReturn: boolean; sourceTab: 'future' | 'past'; navigate: Navigate }) {
+export default function BookingDetailPage({ bookingRef, isReturn, sourceTab, navigate }: { bookingRef: string; isReturn: boolean; sourceTab: 'future' | 'past' | 'profit-loss'; navigate: Navigate }) {
   const [booking, setBooking] = useState<Booking | null>(null)
   const [loading, setLoading] = useState(true)
   const [notFound, setNotFound] = useState(false)
@@ -168,8 +168,10 @@ export default function BookingDetailPage({ bookingRef, isReturn, sourceTab, nav
 
   const updateBooking = (next: Booking, message = '') => { setBooking(next); setSuccess(message) }
 
-  if (loading) return <><Topbar navigate={navigate} title="Transfer Detayı" back={sourceTab === 'past' ? '#timeline?tab=past' : '#timeline'} /><div className="scroll-area"><div className="empty"><div>Yükleniyor…</div></div></div></>
-  if (notFound || !booking) return <><Topbar navigate={navigate} title="Transfer Detayı" back={sourceTab === 'past' ? '#timeline?tab=past' : '#timeline'} /><div className="scroll-area"><div className="empty"><div>Rezervasyon bulunamadı</div></div></div></>
+  const backHash = sourceTab === 'profit-loss' ? '#profit-loss' : sourceTab === 'past' ? '#timeline?tab=past' : '#timeline'
+
+  if (loading) return <><Topbar navigate={navigate} title="Transfer Detayı" back={backHash} /><div className="scroll-area"><div className="empty"><div>Yükleniyor…</div></div></div></>
+  if (notFound || !booking) return <><Topbar navigate={navigate} title="Transfer Detayı" back={backHash} /><div className="scroll-area"><div className="empty"><div>Rezervasyon bulunamadı</div></div></div></>
 
   const roundTrip = booking.trip_type === 'round_trip'
   const needsReturnContact = Boolean(isReturn && roundTrip && booking.status === 'completed' && isFutureIstanbulLeg(booking.return_date, booking.return_pickup_time))
@@ -241,7 +243,7 @@ export default function BookingDetailPage({ bookingRef, isReturn, sourceTab, nav
     return { ok: true, value: value || null }
   }
 
-  return <><Topbar navigate={navigate} title="Transfer Detayı" back={sourceTab === 'past' ? '#timeline?tab=past' : '#timeline'} />
+  return <><Topbar navigate={navigate} title="Transfer Detayı" back={backHash} />
     <div className="scroll-area">
       <div className="section"><div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}><span style={{ color: 'var(--text-muted)', fontSize: 13 }}>{booking.booking_ref}</span><div className="card-badges"><span className={`badge badge-${displayStatus}`}>{statusLabel(displayStatus, roundTrip)}</span>{roundTrip && <span className={`badge ${isReturn ? 'badge-return' : 'badge-outbound'}`}>{isReturn ? 'DÖNÜŞ' : 'GİDİŞ'}</span>}</div></div></div>
       <div className="section quick-actions-section"><button className="btn-outline blue" type="button" onClick={() => planTrip(false)}>🆕 Bu yolcudan yeni seyahat planla</button><button className="btn-outline blue" type="button" onClick={() => planTrip(true)}>↩ Dönüş yolculuğu planla</button></div>

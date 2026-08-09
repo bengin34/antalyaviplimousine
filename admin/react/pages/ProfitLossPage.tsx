@@ -10,12 +10,22 @@ const PAGE_SIZE = 1000
 const FIRST_PROFIT_MONTH = '2026-07'
 
 type SettingsMap = Map<string, any>
+type ManualDistanceColumn = 'manual_outbound_distance_km' | 'manual_return_distance_km'
+
+interface UnresolvedLeg {
+  bookingId: string
+  bookingRef?: string
+  customerName?: string
+  from: string
+  to: string
+  isReturn: boolean
+}
 
 async function fetchAllBookings() {
   const bookings: Booking[] = []
   for (let from = 0; ; from += PAGE_SIZE) {
     const { data, error } = await supabase.from('bookings')
-      .select('id, booking_ref, customer_name, pickup_location, dropoff_location, pickup_date, return_date, trip_type, price_eur, status, created_at')
+      .select('id, booking_ref, customer_name, pickup_location, dropoff_location, pickup_date, return_date, trip_type, price_eur, status, manual_outbound_distance_km, manual_return_distance_km, created_at')
       .order('created_at', { ascending: true }).range(from, from + PAGE_SIZE - 1)
     if (error) throw error
     const rows = (data ?? []) as Booking[]
@@ -88,7 +98,45 @@ function SettingsForm({ period, settings, onSaved }: { period: string; settings:
   </form>
 }
 
-function ProfitMetrics({ metrics, period }: { metrics: any; period: string }) {
+function MissingDistanceRow({ leg, navigate, onSave }: { leg: UnresolvedLeg; navigate: Navigate; onSave: (leg: UnresolvedLeg, distanceKm: number) => Promise<void> }) {
+  const [editing, setEditing] = useState(false)
+  const [distance, setDistance] = useState('')
+  const [saving, setSaving] = useState(false)
+  const [error, setError] = useState('')
+
+  const openTrip = () => {
+    const params = new URLSearchParams({ from: 'profit-loss' })
+    if (leg.isReturn) params.set('leg', 'return')
+    navigate(`#detail/${encodeURIComponent(leg.bookingRef || leg.bookingId)}?${params}`)
+  }
+
+  const submit = async (event: FormEvent) => {
+    event.preventDefault()
+    const value = Number(distance.replace(',', '.'))
+    setError('')
+    if (!Number.isFinite(value) || value <= 0 || value > 10000) {
+      setError('1 ile 10.000 arasında geçerli bir KM girin.')
+      return
+    }
+    setSaving(true)
+    try {
+      await onSave(leg, value)
+    } catch {
+      setError('KM kaydedilemedi, tekrar deneyin.')
+      setSaving(false)
+    }
+  }
+
+  return <li className="profit-warning-item">
+    <div className="profit-warning-row">
+      <div className="profit-warning-copy"><span>{leg.bookingRef || leg.customerName || 'Kayıt'}</span><small>{locationLabel(leg.from)} → {locationLabel(leg.to)}</small></div>
+      <div className="profit-warning-actions"><button className="profit-trip-button" type="button" onClick={openTrip}>Seyahate git</button><button className="profit-km-button" type="button" aria-expanded={editing} onClick={() => { setEditing(current => !current); setError('') }}>KM&apos;yi gir</button></div>
+    </div>
+    {editing && <form className="profit-km-form" noValidate onSubmit={submit}><label><span>Tek yön mesafe</span><div><input type="number" min="0.01" max="10000" step="0.01" inputMode="decimal" aria-label={`${leg.bookingRef || 'Seyahat'} tek yön mesafesi`} value={distance} onChange={event => setDistance(event.target.value)} autoFocus /><b>km</b></div><small>Araç KM&apos;si gidiş ve boş dönüş için 2× hesaplanır.</small></label><div className="profit-km-form-actions"><button className="profit-km-save" type="submit" disabled={saving}>{saving ? 'Kaydediliyor…' : 'Kaydet'}</button><button className="profit-km-cancel" type="button" disabled={saving} onClick={() => { setEditing(false); setError('') }}>İptal</button></div><div className="profit-km-error" role="alert">{error}</div></form>}
+  </li>
+}
+
+function ProfitMetrics({ metrics, period, navigate, onManualDistanceSave }: { metrics: any; period: string; navigate: Navigate; onManualDistanceSave: (leg: UnresolvedLeg, distanceKm: number) => Promise<void> }) {
   const negative = metrics.netProfitTry < 0
   const formulaOperator = negative ? 'Zarar' : 'Net kâr'
   return <>
@@ -100,9 +148,9 @@ function ProfitMetrics({ metrics, period }: { metrics: any; period: string }) {
       <article className="budget-kpi"><span className="budget-kpi-icon" aria-hidden="true">₺</span><span className="budget-kpi-label">Araç maliyeti</span><strong>{formatTry(metrics.vehicleCostTry)}</strong><small>Toplam araç KM × ayın km maliyeti</small></article>
       <article className="budget-kpi"><span className="budget-kpi-icon" aria-hidden="true">↗</span><span className="budget-kpi-label">Reklam gideri</span><strong>{formatTry(metrics.advertisingExpenseTry)}</strong><small>Manuel girilen aylık reklam toplamı</small></article>
     </section>
-    {metrics.unresolvedLegs.length > 0 && <section className="profit-warning" role="status"><strong>⚠ {metrics.unresolvedLegs.length} seferin sabit mesafesi bulunamadı</strong><p>Özel adres veya genel “Otel” rotalarının geliri dahil edildi; araç kilometresi ve maliyeti net kâra eklenemedi.</p><ul>{metrics.unresolvedLegs.slice(0, 5).map((leg: any, index: number) => <li key={`${leg.bookingRef}-${index}`}><span>{leg.bookingRef || leg.customerName || 'Kayıt'}</span><small>{locationLabel(leg.from)} → {locationLabel(leg.to)}</small></li>)}</ul>{metrics.unresolvedLegs.length > 5 && <p>+ {metrics.unresolvedLegs.length - 5} rota daha</p>}</section>}
+    {metrics.unresolvedLegs.length > 0 && <section className="profit-warning" role="status"><strong>⚠ {metrics.unresolvedLegs.length} seferin sabit mesafesi bulunamadı</strong><p>Özel adres veya genel “Otel” rotalarının geliri dahil edildi; araç kilometresi ve maliyeti net kâra eklenemedi.</p><ul>{metrics.unresolvedLegs.map((leg: UnresolvedLeg) => <MissingDistanceRow key={`${leg.bookingId}-${leg.isReturn ? 'return' : 'outbound'}`} leg={leg} navigate={navigate} onSave={onManualDistanceSave} />)}</ul></section>}
     <section className="budget-section profit-routes"><div className="budget-section-heading"><div><span className="budget-section-kicker">ROTA DÖKÜMÜ</span><h2>Seyahatlerden gelen hesap</h2></div><span>{metrics.completedLegs} sefer</span></div>{metrics.routes.length ? metrics.routes.map((route: any) => <div className="profit-route-row" key={route.routeKey}><div className="profit-route-heading"><strong>{locationLabel(route.from)} ↔ {locationLabel(route.to)}</strong><span>{route.legCount} sefer</span></div><div className="profit-route-metrics"><span><small>Araç KM</small><b>{formatNumber(route.vehicleKm)} km</b></span><span><small>Gelir</small><b>{formatEuro(route.incomeEur)}</b></span><span><small>Araç maliyeti</small><b>{formatTry(route.vehicleCostTry)}</b></span></div></div>) : <div className="travel-history-empty">Seçilen dönemde tamamlanmış ve sabit mesafesi bulunan sefer yok.</div>}</section>
-    <p className="budget-footnote profit-footnote">İptal edilen ve henüz gerçekleşmemiş seferler hesaba katılmaz. Gidiş-dönüş fiyatı iki seyahat ayağına eşit bölünür. Her ayakta aracın yolculu mesafesine aynı uzunlukta boş dönüş eklenir. KM değerleri sabit yaklaşık rota tablosundan gelir; canlı harita hesabı yapılmaz.</p>
+    <p className="budget-footnote profit-footnote">İptal edilen ve henüz gerçekleşmemiş seferler hesaba katılmaz. Gidiş-dönüş fiyatı iki seyahat ayağına eşit bölünür. Her ayakta aracın yolculu mesafesine aynı uzunlukta boş dönüş eklenir. KM değerleri sabit yaklaşık rota tablosundan veya bu ekranda girilen tek yön mesafeden gelir; canlı harita hesabı yapılmaz.</p>
   </>
 }
 
@@ -126,11 +174,18 @@ export default function ProfitLossPage({ navigate }: { navigate: Navigate }) {
   useEffect(() => { void refresh() }, [refresh])
   const metrics = useMemo(() => calculateProfitLossMetrics(bookings, period, today, settings), [bookings, period, settings, today])
   const saveSetting = (month: string, value: any) => setSettings(current => new Map(current).set(month, value))
+  const saveManualDistance = useCallback(async (leg: UnresolvedLeg, distanceKm: number) => {
+    const column: ManualDistanceColumn = leg.isReturn ? 'manual_return_distance_km' : 'manual_outbound_distance_km'
+    const { count, error: saveError } = await supabase.from('bookings').update({ [column]: distanceKm }, { count: 'exact' }).eq('id', leg.bookingId)
+    if (saveError || count === 0) throw saveError || new Error('Booking was not updated')
+    setBookings(current => current.map(booking => booking.id === leg.bookingId ? { ...booking, [column]: distanceKm } : booking))
+    setStatus(`${leg.bookingRef || 'Seyahat'} için KM kaydedildi · Hesap güncellendi`)
+  }, [])
   return <><Topbar navigate={navigate} /><AdminTabs active="profit-loss" navigate={navigate} />
     <div className="budget-toolbar profit-toolbar"><div className="budget-periods" role="group" aria-label="Kâr zarar dönemi">{[...months, 'all'].map(value => <button type="button" key={value} className={period === value ? 'active' : ''} onClick={() => setPeriod(value)}>{value === 'all' ? 'Tümü' : monthLabel(value, { short: true })}</button>)}</div><button className="sync-button" type="button" aria-label="Kâr zarar verilerini yenile" disabled={loading} onClick={() => void refresh()}>↻</button></div>
     <div className="budget-update-status">{status}</div>
     <main className="scroll-area budget-content profit-content">
-      {error ? <div className="empty"><div className="empty-icon">₺</div><div>Kâr/zarar verileri yüklenemedi.</div></div> : loading && !bookings.length ? <><div className="empty"><div>Ayarlar yükleniyor…</div></div><div className="empty"><div>Hesaplanıyor…</div></div></> : <>{period === 'all' ? <section className="profit-settings profit-settings-summary"><div><span className="budget-section-kicker">HESAPLAMA AYARLARI</span><h2>Aylık değerler uygulanıyor</h2><p>Tümü görünümünde her aya kaydettiğiniz km maliyeti, reklam gideri ve kur ayrı ayrı kullanılır.</p></div></section> : <SettingsForm key={period} period={period} settings={settings} onSaved={saveSetting} />}<ProfitMetrics metrics={metrics} period={period} /></>}
+      {error ? <div className="empty"><div className="empty-icon">₺</div><div>Kâr/zarar verileri yüklenemedi.</div></div> : loading && !bookings.length ? <><div className="empty"><div>Ayarlar yükleniyor…</div></div><div className="empty"><div>Hesaplanıyor…</div></div></> : <>{period === 'all' ? <section className="profit-settings profit-settings-summary"><div><span className="budget-section-kicker">HESAPLAMA AYARLARI</span><h2>Aylık değerler uygulanıyor</h2><p>Tümü görünümünde her aya kaydettiğiniz km maliyeti, reklam gideri ve kur ayrı ayrı kullanılır.</p></div></section> : <SettingsForm key={period} period={period} settings={settings} onSaved={saveSetting} />}<ProfitMetrics metrics={metrics} period={period} navigate={navigate} onManualDistanceSave={saveManualDistance} /></>}
     </main>
   </>
 }
