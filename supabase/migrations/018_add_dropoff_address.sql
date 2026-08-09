@@ -1,7 +1,6 @@
 -- Store a private destination independently from the private pick-up address.
 ALTER TABLE bookings
 ADD COLUMN IF NOT EXISTS dropoff_address TEXT;
-
 -- Keep authenticated admin updates limited to the reservation fields exposed by
 -- the admin editor. Provider/payment identifiers and booking references remain
 -- read-only.

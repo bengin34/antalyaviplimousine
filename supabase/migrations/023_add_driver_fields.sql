@@ -4,7 +4,6 @@
 ALTER TABLE bookings
 ADD COLUMN IF NOT EXISTS driver_name TEXT,
 ADD COLUMN IF NOT EXISTS vehicle_plate TEXT;
-
 -- Re-grant the admin (authenticated) column-level UPDATE. This REVOKE+GRANT
 -- replaces the previous grant wholesale, so every column from migration 018 is
 -- re-listed here verbatim, plus the two new driver columns. Dropping any column

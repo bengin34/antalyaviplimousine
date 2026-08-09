@@ -3,7 +3,6 @@ ADD COLUMN IF NOT EXISTS trip_type TEXT NOT NULL DEFAULT 'one_way',
 ADD COLUMN IF NOT EXISTS return_date DATE,
 ADD COLUMN IF NOT EXISTS return_pickup_time TIME,
 ADD COLUMN IF NOT EXISTS return_flight_number TEXT;
-
 DO $$
 BEGIN
   IF NOT EXISTS (

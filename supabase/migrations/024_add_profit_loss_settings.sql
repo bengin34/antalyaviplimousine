@@ -12,16 +12,11 @@ CREATE TABLE IF NOT EXISTS profit_loss_settings (
   updated_at               TIMESTAMPTZ NOT NULL DEFAULT NOW(),
   CHECK (period_month = date_trunc('month', period_month)::date)
 );
-
 ALTER TABLE profit_loss_settings ENABLE ROW LEVEL SECURITY;
-
 GRANT SELECT, INSERT, UPDATE ON profit_loss_settings TO authenticated;
-
 CREATE POLICY "admin_read_profit_loss_settings" ON profit_loss_settings
   FOR SELECT TO authenticated USING (true);
-
 CREATE POLICY "admin_insert_profit_loss_settings" ON profit_loss_settings
   FOR INSERT TO authenticated WITH CHECK (true);
-
 CREATE POLICY "admin_update_profit_loss_settings" ON profit_loss_settings
   FOR UPDATE TO authenticated USING (true) WITH CHECK (true);

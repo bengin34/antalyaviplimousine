@@ -4,7 +4,6 @@
 -- unchanged; this only adds a full-row INSERT capability for the admin role.
 
 GRANT INSERT ON bookings TO authenticated;
-
 CREATE POLICY "admin_insert_bookings" ON bookings
   FOR INSERT TO authenticated
   WITH CHECK (true);
