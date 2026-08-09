@@ -1277,6 +1277,32 @@ body {
 /* Status buttons */
 .status-buttons { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
 
+/* Destructive booking actions */
+.delete-booking-section {
+  border-color: rgba(255, 113, 107, 0.2);
+  background: linear-gradient(145deg, rgba(255, 113, 107, 0.055), transparent 58%), var(--surface);
+}
+.delete-booking-section > p,
+.delete-booking-confirmation p {
+  color: var(--text-muted);
+  font-size: 12px;
+  line-height: 1.45;
+}
+.delete-booking-trigger { width: 100%; margin-top: 12px; }
+.delete-booking-confirmation {
+  padding: 12px;
+  border: 1px solid rgba(255, 113, 107, 0.28);
+  border-radius: 12px;
+  background: rgba(59, 23, 27, 0.52);
+}
+.delete-booking-confirmation strong { display: block; margin-bottom: 5px; color: #ff9a95; font-size: 13px; }
+.delete-booking-confirmation p { color: #c99290; }
+.delete-booking-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 12px; }
+.delete-booking-actions button { min-height: 42px; border-radius: 11px; cursor: pointer; font: inherit; font-size: 12px; font-weight: 700; }
+.delete-booking-confirm { border: 1px solid rgba(255, 113, 107, 0.62); background: var(--red-bg); color: #ff9a95; }
+.delete-booking-actions button:disabled { opacity: 0.55; cursor: wait; }
+.delete-booking-section .inline-error:empty { display: none; }
+
 /* Empty state */
 .empty {
   flex: 1;

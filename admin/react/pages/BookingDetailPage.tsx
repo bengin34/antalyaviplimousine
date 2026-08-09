@@ -7,6 +7,7 @@ import type { Booking, BookingStatus, Navigate } from '../types'
 import { isFutureIstanbulLeg, locationDisplay, navigationURLs, whatsappURL } from '../../turkish-formatters.js'
 import { buildConfirmMessage, buildReminderMessage } from '../../whatsapp-templates.js'
 import { LOCATION_OPTIONS, VEHICLE_CAPACITY, validateBookingForm, type BookingFormState } from './NewBookingPage'
+import { clearTimelineCache } from './timeline-logic'
 
 const STATUS_TRANSITIONS: Record<string, BookingStatus[]> = {
   pending: ['confirmed', 'cancelled'], paid: ['in_transit'], confirmed: ['in_transit', 'cancelled'],
@@ -152,6 +153,9 @@ export default function BookingDetailPage({ bookingRef, isReturn, sourceTab, nav
   const [note, setNote] = useState('')
   const [noteError, setNoteError] = useState('')
   const [noteSaving, setNoteSaving] = useState(false)
+  const [deleteConfirming, setDeleteConfirming] = useState(false)
+  const [deleting, setDeleting] = useState(false)
+  const [deleteError, setDeleteError] = useState('')
   const [templateState, setTemplateState] = useState({ loading: '', success: '', error: '' })
 
   useEffect(() => {
@@ -236,6 +240,18 @@ export default function BookingDetailPage({ bookingRef, isReturn, sourceTab, nav
     setBooking({ ...booking, booking_notes: [data, ...(booking.booking_notes ?? [])] }); setNote('')
   }
 
+  const deleteBooking = async () => {
+    setDeleting(true); setDeleteError('')
+    const { count, error } = await supabase.from('bookings').delete({ count: 'exact' }).eq('id', booking.id)
+    if (error || count === 0) {
+      setDeleting(false)
+      setDeleteError('Seyahat silinemedi, tekrar deneyin.')
+      return
+    }
+    clearTimelineCache()
+    navigate(backHash)
+  }
+
   const genericSaved = (next: Booking, message: string) => updateBooking(next, message)
   const normalizeOptional = (raw: string, max: number, name: string): ValidateResult => {
     const value = raw.trim().replace(/\s+/g, ' ')
@@ -266,6 +282,7 @@ export default function BookingDetailPage({ bookingRef, isReturn, sourceTab, nav
       <div className="section"><div className="section-label">Ödeme</div><div className={`detail-payment-row${roundTrip && isReturn ? ' detail-payment-settled' : ''}`}><span className="detail-payment-context"><strong>{paymentMethod}</strong>{roundTrip && <small>{isReturn ? 'Dönüş ücreti' : 'Gidiş ücreti'}</small>}</span><div style={{ display: 'flex', alignItems: 'center', gap: 8, flexWrap: 'wrap' }}><span className="detail-payment-price">€{fmtPrice(legPrice)}</span>{!(roundTrip && isReturn) && <PriceEditor booking={booking} onSaved={genericSaved} />}</div></div></div>
       <div className="section"><div className="section-label">Notlar</div>{booking.notes && <div className="note-pinned">📌 {booking.notes}</div>}<div>{sortedNotes.length ? sortedNotes.map(item => <div className="note-item" key={item.id}>{item.note}</div>) : <div className="notes-empty">Henüz not yok</div>}</div><div className="note-input-row"><input className="input" type="text" placeholder="Not ekle…" value={note} onChange={e => setNote(e.target.value)} onKeyDown={e => { if (e.key === 'Enter') { e.preventDefault(); void addNote() } }} /><button className="btn" type="button" disabled={noteSaving} style={{ width: 'auto', padding: '8px 14px', fontSize: 13 }} onClick={() => void addNote()}>Ekle</button></div><div className="inline-error">{noteError}</div></div>
       <div className="section"><div className="section-label">Durum Güncelle</div><div className="status-buttons">{(STATUS_TRANSITIONS[displayStatus] ?? []).length ? STATUS_TRANSITIONS[displayStatus].map(next => <button className={`btn-outline ${STATUS_COLORS[next]}`} type="button" key={next} disabled={statusSaving} onClick={() => void updateStatus(next)}>{statusLabel(next, roundTrip)}</button>) : <div style={{ color: 'var(--text-muted)', fontSize: 13, gridColumn: '1/-1' }}>Bu transfer için başka durum seçeneği yok.</div>}</div><div className="inline-error">{statusError}</div></div>
+      <div className="section delete-booking-section"><div className="section-label">Tehlikeli Alan</div>{!deleteConfirming ? <><p>Test veya hatalı oluşturulan bir seyahati kalıcı olarak kaldırın.</p><button className="btn-outline red delete-booking-trigger" type="button" aria-expanded="false" onClick={() => { setDeleteConfirming(true); setDeleteError('') }}>Seyahati sil</button></> : <div className="delete-booking-confirmation" role="alert"><strong>Bu işlem geri alınamaz.</strong><p>{roundTrip ? 'Bu rezervasyona bağlı gidiş ve dönüş seyahatleri ile notlar kalıcı olarak silinecek.' : 'Bu seyahat ve ona bağlı notlar kalıcı olarak silinecek.'}</p><div className="delete-booking-actions"><button className="delete-booking-confirm" type="button" disabled={deleting} onClick={() => void deleteBooking()}>{deleting ? 'Siliniyor…' : 'Evet, kalıcı olarak sil'}</button><button className="btn-outline delete-booking-cancel" type="button" disabled={deleting} onClick={() => { setDeleteConfirming(false); setDeleteError('') }}>Vazgeç</button></div></div>}<div className="inline-error" role="alert">{deleteError}</div></div>
     </div>
   </>
 }
