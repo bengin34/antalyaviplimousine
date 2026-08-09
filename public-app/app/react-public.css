@@ -57,17 +57,11 @@
 .review-grid-react .review-card footer { display: flex; justify-content: space-between; gap: 15px; color: #fff; }
 .review-grid-react .review-card footer span { color: rgba(255,255,255,.55); }
 
-.process-grid-react,
-.pricing-grid-react { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; margin-top: 45px; }
+.process-grid-react { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; margin-top: 45px; }
 .process-grid-react article { padding: 28px 24px; border-top: 1px solid var(--line); }
 .process-grid-react article > span { color: var(--gold-dark); font-size: .72rem; letter-spacing: .15em; }
 .process-grid-react h3 { margin: 30px 0 12px; font-family: var(--serif); font-size: 1.5rem; font-weight: 400; }
 .process-grid-react p { color: var(--muted); line-height: 1.7; }
-.pricing-grid-react { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-.pricing-grid-react .pricing-card { display: flex; min-height: 230px; flex-direction: column; padding: 30px; border: 1px solid var(--line); background: #fff; }
-.pricing-grid-react .pricing-card > strong { margin: auto 0 14px; font-family: var(--serif); font-size: 1.65rem; font-weight: 400; }
-.pricing-grid-react .pricing-card p { color: var(--muted); line-height: 1.65; }
-
 .contact-grid { display: grid; grid-template-columns: 1.2fr .8fr; gap: 70px; }
 .contact-actions { display: grid; align-content: center; gap: 15px; }
 .contact-actions > a:not(.button) { display: flex; flex-direction: column; gap: 4px; padding: 18px 0; border-bottom: 1px solid rgba(255,255,255,.16); }
@@ -79,9 +73,20 @@
 .site-footer .footer-main button { padding: 0; border: 0; background: none; color: inherit; cursor: pointer; }
 
 .modal-backdrop { border: 0; }
-.confirmed-check { display: grid; width: 62px; height: 62px; place-items: center; margin: 0 auto 24px; border-radius: 50%; background: var(--gold); color: #111; font-size: 1.5rem; }
+.is-visible { opacity: 1 !important; transform: translateY(0) !important; }
 
-.mobile-book-bar { display: none; }
+.payment-method-panel,
+.payment-method-options,
+.payment-method-option,
+.payment-method-copy,
+.payment-method-heading {
+  min-width: 0;
+}
+
+.payment-method-copy,
+.payment-method-heading {
+  overflow-wrap: anywhere;
+}
 
 .localized-route {
   padding: 160px var(--section-x) 90px;
@@ -89,31 +94,25 @@
   color: #fff;
 }
 .localized-route h1 { max-width: 900px; font-family: var(--serif); font-size: clamp(2.5rem, 6vw, 5.5rem); font-weight: 400; line-height: 1.03; }
-.localized-route > p { max-width: 760px; color: rgba(255,255,255,.72); line-height: 1.8; }
 .localized-campaign { display: inline-block; margin: 28px 0 0; padding: 10px 14px; border: 1px solid rgba(224,198,141,.45); color: var(--gold-light); font-size: 11px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; }
 .localized-stats { display: flex; flex-wrap: wrap; gap: 40px; margin-top: 45px; }
 .localized-stats strong, .localized-stats span { display: block; }
-.localized-stats strong { font-size: 1.15rem; }
-.localized-stats span { margin-top: 4px; color: rgba(255,255,255,.65); font-size: .78rem; }
+.localized-stats span { color: rgba(255,255,255,.65); }
 .localized-content { padding: 80px var(--section-x); }
 .localized-grid { display: grid; max-width: 1180px; grid-template-columns: 1.4fr 1fr; gap: 70px; margin: auto; }
-.localized-grid h2, .localized-faq h2, .localized-links h2 { font-family: var(--serif); font-size: clamp(1.8rem, 3vw, 2.7rem); font-weight: 400; }
-.localized-grid h3 { margin-top: 38px; }
+.localized-grid h2, .localized-faq h2 { font-family: var(--serif); font-size: clamp(1.8rem, 3vw, 2.7rem); font-weight: 400; }
 .localized-grid p, .localized-grid li { color: var(--muted); line-height: 1.75; }
-.localized-grid ul { display: grid; gap: 8px; padding: 0; list-style: none; }
-.localized-grid aside { padding: 30px; border: 1px solid var(--line); background: #fff; }
-.localized-price { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 25px 0; border-bottom: 1px solid var(--line); }
-.localized-price strong { color: var(--gold-dark); font-size: 1.5rem; }
+.localized-price { padding: 25px; border: 1px solid var(--line); border-radius: 14px; }
+.localized-price strong { color: var(--gold); font-size: 1.5rem; }
 .localized-faq { max-width: 1180px; margin: auto; padding: 0 var(--section-x) 80px; }
 .localized-faq article { padding: 24px 0; border-bottom: 1px solid var(--line); }
 .localized-faq h3 { font-size: 1rem; }
 .localized-faq p { color: var(--muted); line-height: 1.7; }
 .localized-links { padding: 70px var(--section-x); background: var(--cream); }
-.localized-links h2 { max-width: 1180px; margin: 0 auto 28px; }
-.localized-links div { display: flex; max-width: 1180px; flex-wrap: wrap; gap: 12px; margin: auto; }
+.localized-links div { display: flex; flex-wrap: wrap; gap: 12px; }
 .localized-links a { padding: 12px 16px; border: 1px solid var(--line); border-radius: 8px; background: #fff; }
+.localized-contact { padding: 70px var(--section-x); background: #111; color: #fff; text-align: center; }
 .legal-details dd { white-space: pre-line; }
-.legal-card p + p { margin-top: 18px; }
 
 @media (max-width: 980px) {
   .route-grid-react { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -129,13 +128,34 @@
   .booking-heading .booking-price-display { margin-top: 20px; }
   .route-grid-react,
   .process-grid-react,
-  .pricing-grid-react,
   .site-footer .footer-main { grid-template-columns: 1fr; }
   .route-grid-react .route-card { min-height: 0; }
   .route-card-actions { align-items: flex-start; flex-direction: column; }
-  .mobile-book-bar { position: fixed; z-index: 80; right: 12px; bottom: 12px; left: 12px; display: block; }
-  .mobile-book-bar .button { width: 100%; box-shadow: 0 15px 45px rgba(0,0,0,.25); }
-  .consent-dialog ~ .mobile-book-bar { display: none; }
   .localized-grid { grid-template-columns: 1fr; gap: 36px; }
   .localized-route { padding-top: 120px; }
+}
+
+@media (max-width: 340px) {
+  html[lang="de"] .section-heading h2,
+  html[lang="de"] .editorial-grid h2,
+  html[lang="de"] .faq-heading h2,
+  html[lang="de"] .contact-copy h2,
+  html[lang="de"] .review-summary h2 {
+    font-size: 38px;
+    hyphens: auto;
+    overflow-wrap: break-word;
+  }
+
+  html[lang="de"] .quote-submit {
+    min-height: 58px;
+    height: auto;
+    padding: 10px 16px;
+    line-height: 1.45;
+    white-space: normal;
+  }
+
+  html[lang="de"] .quote-submit span {
+    min-width: 0;
+    overflow-wrap: anywhere;
+  }
 }

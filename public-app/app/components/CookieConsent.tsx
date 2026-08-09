@@ -50,6 +50,11 @@ export function CookieConsent() {
     return () => document.removeEventListener("click", openSettings);
   }, []);
 
+  useEffect(() => {
+    document.body.classList.toggle("consent-open", visible);
+    return () => document.body.classList.remove("consent-open");
+  }, [visible]);
+
   const choose = (choice: "accepted" | "rejected") => {
     try { localStorage.setItem(CONSENT_KEY, choice); } catch { /* no-op */ }
     if (choice === "accepted") loadAnalytics();

@@ -7,6 +7,7 @@ import {
   useMatches,
 } from "react-router";
 import type { ReactNode } from "react";
+import { IconSprite } from "./components/Icon";
 import siteStyles from "../../src/styles.css?url";
 import reactPublicStyles from "./react-public.css?url";
 
@@ -34,6 +35,7 @@ export function Layout({ children }: { children: ReactNode }) {
         <Links />
       </head>
       <body>
+        <IconSprite />
         {children}
         <ScrollRestoration />
         <Scripts />

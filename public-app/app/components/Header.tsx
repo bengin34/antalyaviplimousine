@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { languageOptions, useLanguage, type LanguageCode } from "../i18n";
+import { Icon } from "./Icon";
 
 export function Header({ homeHref = "", compact = false }: { homeHref?: string; compact?: boolean }) {
   const { language, selectLanguage, t } = useLanguage();
@@ -12,7 +13,7 @@ export function Header({ homeHref = "", compact = false }: { homeHref?: string; 
 
   useEffect(() => {
     if (compact) return;
-    const update = () => setScrolled(window.scrollY > 20);
+    const update = () => setScrolled(window.scrollY > 40);
     update();
     window.addEventListener("scroll", update, { passive: true });
     return () => window.removeEventListener("scroll", update);
@@ -40,7 +41,6 @@ export function Header({ homeHref = "", compact = false }: { homeHref?: string; 
   const nav = [
     ["#fleet", t("navFleet", "Fleet")],
     ["#services", t("navService", "Service")],
-    ["#pricing", t("navFairPricing", "Fair Pricing")],
     ["#routes", t("navRoutes", "Routes")],
     ["#reviews", t("navReviews", "Reviews")],
     ["#contact", t("navContact", "Contact")],
@@ -66,7 +66,8 @@ export function Header({ homeHref = "", compact = false }: { homeHref?: string; 
               aria-label="Change language"
               onClick={(event) => { event.stopPropagation(); setLanguagesOpen((open) => !open); }}
             >
-              <span className="lang-flag-current">{currentLanguage.flag}</span><span aria-hidden="true">⌄</span>
+              <span className="lang-flag-current">{currentLanguage.flag}</span>
+              <svg width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
             </button>
             <ul className="lang-menu" role="listbox" aria-label="Language">
               {languageOptions.map((option) => (
@@ -82,7 +83,7 @@ export function Header({ homeHref = "", compact = false }: { homeHref?: string; 
               ))}
             </ul>
           </div>
-          <a className="header-cta" href={sectionHref("#booking")}><span>{t("bookNow", "Book now")}</span><span aria-hidden="true">↗</span></a>
+          <a className="header-cta" href={sectionHref("#booking")}><span>{t("bookNow", "Book now")}</span><Icon name="arrow-up-right" className="icon" /></a>
           <button
             className="menu-button"
             type="button"

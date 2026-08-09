@@ -26,6 +26,7 @@
     "preview": "vite preview --config vite.preview.config.ts",
     "test": "vitest run",
     "test:public": "vitest run scripts/public-site-contracts.test.js",
+    "test:responsive": "node scripts/responsive-audit.mjs",
     "test:watch": "vitest",
     "typecheck": "tsc --noEmit"
   },
