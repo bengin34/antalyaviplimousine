@@ -1,7 +1,7 @@
 import { describe, expect, test } from 'vitest'
 import { buildCustomerMatchCsv } from './pages/AdminPanelPage'
 import { validateBookingForm, type BookingFormState } from './pages/NewBookingPage'
-import { expandRoundTrips } from './pages/timeline-logic'
+import { buildMonthCalendar, expandRoundTrips, shiftCalendarMonth } from './pages/timeline-logic'
 import type { Booking } from './types'
 
 const baseForm: BookingFormState = {
@@ -42,6 +42,15 @@ describe('React admin migration behavior', () => {
     expect(cards[1]._isReturn).toBe(true)
     expect(cards[1].pickup_location).toBe('belek')
     expect(cards[1].dropoff_location).toBe('airport')
+  })
+
+  test('builds a Monday-first monthly calendar and moves between years', () => {
+    const august = buildMonthCalendar('2026-08')
+    expect(august).toHaveLength(42)
+    expect(august[5]).toEqual({ day: 1, isoDate: '2026-08-01' })
+    expect(august[35]).toEqual({ day: 31, isoDate: '2026-08-31' })
+    expect(shiftCalendarMonth('2026-01', -1)).toBe('2025-12')
+    expect(shiftCalendarMonth('2026-12', 1)).toBe('2027-01')
   })
 
   test('keeps Google Ads normalization and duplicate removal', () => {

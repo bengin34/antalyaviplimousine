@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { AdminTabs, Topbar } from '../components/AdminChrome'
+import { MonthCalendar } from '../components/MonthCalendar'
 import { fmtLiveDate, fmtPrice, fmtSyncTime, fmtTime, ISTANBUL_TIME_ZONE, offsetISO, statusLabel, todayISO } from '../lib/format'
 import { supabase } from '../lib/supabase'
 import type { Booking, Navigate, TimelineCard } from '../types'
@@ -132,8 +133,11 @@ function BookingCard({ card, now, isPast, navigate, confirmPast, confirming, con
   }
   const gotoReturn = () => {
     const element = document.querySelector<HTMLElement>(`.card[data-ref="${CSS.escape(card.booking_ref)}"][data-return="true"]`)
-    const details = element?.closest('details')
-    if (details) details.open = true
+    let details = element?.closest('details')
+    while (details) {
+      details.open = true
+      details = details.parentElement?.closest('details') ?? null
+    }
     element?.scrollIntoView({ behavior: 'smooth', block: 'center' })
   }
 
@@ -207,6 +211,9 @@ export default function TimelinePage({ selectedTab, navigate }: { selectedTab: '
   const [futureCount, setFutureCount] = useState<number | null>(null)
   const [confirming, setConfirming] = useState<string | null>(null)
   const [confirmFailed, setConfirmFailed] = useState<string | null>(null)
+  const [calendarMonth, setCalendarMonth] = useState(today.slice(0, 7))
+  const [selectedCalendarDate, setSelectedCalendarDate] = useState<string | null>(null)
+  const [collapsedDays, setCollapsedDays] = useState<Set<string>>(() => new Set())
   const refreshingRef = useRef(false)
   const bookingsRef = useRef<Booking[] | null>(null)
   const mounted = useRef(true)
@@ -293,6 +300,26 @@ export default function TimelinePage({ selectedTab, navigate }: { selectedTab: '
     return map
   }, [isPast, today, tomorrow, visibleCards])
   const hasBookings = [...groups.values()].some(group => group.length)
+  const calendarCounts = useMemo(() => {
+    const counts = new Map<string, number>()
+    for (const card of visibleCards) counts.set(card._displayDate, (counts.get(card._displayDate) ?? 0) + 1)
+    return counts
+  }, [visibleCards])
+
+  const selectCalendarDate = (date: string) => {
+    setSelectedCalendarDate(date)
+    setCollapsedDays(previous => {
+      if (!previous.has(date)) return previous
+      const next = new Set(previous)
+      next.delete(date)
+      return next
+    })
+    requestAnimationFrame(() => {
+      const day = document.getElementById(`timeline-day-${date}`)
+      if (day instanceof HTMLDetailsElement) day.open = true
+      day?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    })
+  }
 
   return <>
     <Topbar navigate={navigate} showAdmin />
@@ -306,15 +333,30 @@ export default function TimelinePage({ selectedTab, navigate }: { selectedTab: '
     <div className="search-bar"><input className="search-input" type="search" placeholder="İsim, telefon, kod veya güzergah ara…" autoComplete="off" value={search} onChange={event => setSearch(event.target.value)} /></div>
     {offlineMessage && <div className="offline-banner">{offlineMessage}</div>}
     <div className="scroll-area">
+      {bookings && <MonthCalendar month={calendarMonth} today={today} counts={calendarCounts} selectedDate={selectedCalendarDate} onMonthChange={month => { setCalendarMonth(month); setSelectedCalendarDate(null) }} onSelectDate={selectCalendarDate} />}
       {!bookings ? <div className="empty"><div>Yükleniyor…</div></div> : !hasBookings ? <div className="empty"><div className="empty-icon">📅</div><div>{search.trim() ? `"${search.trim()}" için sonuç bulunamadı` : cachedOnly ? 'Önbellekte bugünkü transfer yok' : isPast ? 'Geçmiş transfer yok' : 'Gelecek transfer yok'}</div></div> :
         [...groups.entries()].map(([key, group]) => {
           if (!group.length) return null
           const label = key === 'Bugün' ? `Bugün · ${turkishDayLabel(today)}` : key === 'Yarın' ? `Yarın · ${turkishDayLabel(tomorrow)}` : turkishDayLabel(key)
+          const groupDate = key === 'Bugün' ? today : key === 'Yarın' ? tomorrow : key
           const collapseCompleted = !isPast && (key === 'Bugün' || key === today)
           const completed = collapseCompleted ? group.filter(card => card.status === 'completed') : []
           const active = collapseCompleted ? group.filter(card => card.status !== 'completed') : group
           const renderCard = (card: TimelineCard) => <BookingCard key={`${card.booking_ref}-${card._isReturn ? 'return' : 'outbound'}`} card={card} now={now} isPast={isPast} navigate={navigate} confirmPast={confirmPast} confirming={confirming} confirmFailed={confirmFailed} />
-          return <div className="day-group" key={key}><div className="day-label">📅 {label}</div>{active.map(renderCard)}{completed.length > 0 && <details className="completed-group"><summary>Tamamlananlar ({completed.length})</summary><div className="completed-list">{completed.map(renderCard)}</div></details>}</div>
+          return <details className="day-group" id={`timeline-day-${groupDate}`} key={key} open={!collapsedDays.has(groupDate)} onToggle={event => {
+            const isOpen = event.currentTarget.open
+            setCollapsedDays(previous => {
+              const isCollapsed = previous.has(groupDate)
+              if (isOpen === !isCollapsed) return previous
+              const next = new Set(previous)
+              if (isOpen) next.delete(groupDate)
+              else next.add(groupDate)
+              return next
+            })
+          }}>
+            <summary className="day-summary"><span className="day-label"><span aria-hidden="true">📅</span> {label}</span><span className="day-count">{group.length} seyahat</span><span className="day-chevron" aria-hidden="true">›</span></summary>
+            <div className="day-content">{active.map(renderCard)}{completed.length > 0 && <details className="completed-group"><summary>Tamamlananlar ({completed.length})</summary><div className="completed-list">{completed.map(renderCard)}</div></details>}</div>
+          </details>
         })}
     </div>
   </>

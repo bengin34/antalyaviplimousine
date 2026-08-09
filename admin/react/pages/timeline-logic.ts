@@ -4,6 +4,34 @@ import { transferStartTime } from '../lib/format'
 
 export const TODAY_CACHE_KEY = 'vip-admin-today-cache-v2'
 
+export interface MonthCalendarDay {
+  isoDate: string
+  day: number
+}
+
+export function shiftCalendarMonth(yyyyMm: string, difference: number) {
+  const [year, month] = yyyyMm.split('-').map(Number)
+  const shifted = new Date(Date.UTC(year, month - 1 + difference, 1))
+  return `${shifted.getUTCFullYear()}-${String(shifted.getUTCMonth() + 1).padStart(2, '0')}`
+}
+
+export function buildMonthCalendar(yyyyMm: string): Array<MonthCalendarDay | null> {
+  const [year, month] = yyyyMm.split('-').map(Number)
+  const firstDay = new Date(Date.UTC(year, month - 1, 1))
+  const mondayOffset = (firstDay.getUTCDay() + 6) % 7
+  const daysInMonth = new Date(Date.UTC(year, month, 0)).getUTCDate()
+  const cells: Array<MonthCalendarDay | null> = Array.from({ length: 42 }, () => null)
+
+  for (let day = 1; day <= daysInMonth; day += 1) {
+    cells[mondayOffset + day - 1] = {
+      day,
+      isoDate: `${yyyyMm}-${String(day).padStart(2, '0')}`,
+    }
+  }
+
+  return cells
+}
+
 export function clearTimelineCache() {
   try { localStorage.removeItem(TODAY_CACHE_KEY) } catch { /* storage is optional */ }
 }
