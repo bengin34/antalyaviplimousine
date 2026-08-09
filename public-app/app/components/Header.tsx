@@ -38,6 +38,18 @@ export function Header({ homeHref = "", compact = false }: { homeHref?: string; 
     selectLanguage(code);
   };
 
+  const scrollTo = (hash: string) => (e: React.MouseEvent<HTMLAnchorElement>) => {
+    if (!homeHref) {
+      const id = hash.replace("#", "");
+      const el = document.getElementById(id);
+      if (el) {
+        e.preventDefault();
+        const top = id === "top" ? 0 : el.getBoundingClientRect().top + window.scrollY - 80;
+        window.scrollTo({ top, behavior: "smooth" });
+      }
+    }
+  };
+
   const nav = [
     ["#fleet", t("navFleet", "Fleet")],
     ["#services", t("navService", "Service")],
@@ -49,12 +61,12 @@ export function Header({ homeHref = "", compact = false }: { homeHref?: string; 
   return (
     <>
       <header className={`site-header${scrolled ? " scrolled" : ""}`} id="site-header">
-        <a className="brand" href={sectionHref("#top")} aria-label="Antalya VIP Tourism home">
+        <a className="brand" href={sectionHref("#top")} onClick={scrollTo("#top")} aria-label="Antalya VIP Tourism home">
           <img src="/assets/optimized/logo.png" alt="Antalya VIP Tourism" className="brand-logo" width="160" height="120" />
           <span className="brand-copy"><strong>Antalya VIP</strong><span>Tourism</span></span>
         </a>
         <nav className="desktop-nav" aria-label="Primary navigation">
-          {nav.map(([href, label]) => <a href={sectionHref(href)} key={href}>{label}</a>)}
+          {nav.map(([href, label]) => <a href={sectionHref(href)} key={href} onClick={scrollTo(href)}>{label}</a>)}
         </nav>
         <div className="header-actions">
           <div className={`lang-dropdown${languagesOpen ? " open" : ""}`} ref={languageMenu}>
@@ -83,7 +95,7 @@ export function Header({ homeHref = "", compact = false }: { homeHref?: string; 
               ))}
             </ul>
           </div>
-          <a className="header-cta" href={sectionHref("#booking")}><span>{t("bookNow", "Book now")}</span><Icon name="arrow-up-right" className="icon" /></a>
+          <a className="header-cta" href={sectionHref("#booking")} onClick={scrollTo("#booking")}><span>{t("bookNow", "Book now")}</span><Icon name="arrow-up-right" className="icon" /></a>
           <button
             className="menu-button"
             type="button"
@@ -95,7 +107,7 @@ export function Header({ homeHref = "", compact = false }: { homeHref?: string; 
       </header>
       <div className={`mobile-menu${menuOpen ? " open" : ""}`} aria-hidden={!menuOpen}>
         <nav aria-label="Mobile navigation">
-          {nav.map(([href, label]) => <a href={sectionHref(href)} key={href} onClick={() => setMenuOpen(false)}>{label}</a>)}
+          {nav.map(([href, label]) => <a href={sectionHref(href)} key={href} onClick={(e) => { setMenuOpen(false); scrollTo(href)(e); }}>{label}</a>)}
         </nav>
         <div className="mobile-language-switcher" aria-label="Language selection">
           {languageOptions.map((option) => (
