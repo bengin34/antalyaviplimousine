@@ -119,8 +119,9 @@ export default function NewBookingPage({ navigate }: { navigate: Navigate }) {
     const result = validateBookingForm(form)
     if (result.error || !result.payload) return setError(result.error)
     setSaving(true); setError('')
+    const manualReturnOf = prefill?.isManualReturn ? prefill.sourceRef ?? null : null
     const { data, error: insertError } = await supabase.from('bookings')
-      .insert([{ ...result.payload, booking_ref: generateBookingRef(), language: 'tr' }])
+      .insert([{ ...result.payload, booking_ref: generateBookingRef(), language: 'tr', manual_return_of_ref: manualReturnOf }])
       .select('booking_ref').single()
     setSaving(false)
     if (insertError) return setError('Kayıt oluşturulamadı, tekrar deneyin.')
@@ -130,7 +131,7 @@ export default function NewBookingPage({ navigate }: { navigate: Navigate }) {
   return <>
     <Topbar navigate={navigate} title="Yeni Kayıt" back="#timeline" />
     <div className="scroll-area">
-      {prefill && <div className="prefill-banner">📋 {prefill.sourceRef ?? ''} rezervasyonundan bilgiler kopyalandı</div>}
+      {prefill && <div className="prefill-banner">{prefill.isManualReturn ? `↩ ${prefill.sourceRef ?? ''} rezervasyonunun dönüş seyahati olarak oluşturuluyor` : `📋 ${prefill.sourceRef ?? ''} rezervasyonundan bilgiler kopyalandı`}</div>}
       <form noValidate onSubmit={submit}>
         <div className="section">
           <div className="section-label">Müşteri</div>

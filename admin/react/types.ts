@@ -39,6 +39,7 @@ export interface Booking {
   vehicle_plate?: string | null
   manual_outbound_distance_km?: number | string | null
   manual_return_distance_km?: number | string | null
+  manual_return_of_ref?: string | null
   created_at: string
   booking_notes?: BookingNote[]
   [key: string]: unknown
