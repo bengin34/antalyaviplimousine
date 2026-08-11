@@ -1,5 +1,6 @@
 export interface BookingPrefill {
   sourceRef?: string
+  isManualReturn?: boolean
   customerName?: string
   customerPhone?: string
   hotelName?: string
