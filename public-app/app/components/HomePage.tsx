@@ -5,6 +5,8 @@ import { BookingForm } from "./BookingForm";
 import { Header } from "./Header";
 import { Icon } from "./Icon";
 
+const VIDEO_ID = "r79dH1HLJtk";
+
 type Vehicle = "vito" | "sprinter";
 
 const serviceItems = [
@@ -260,6 +262,28 @@ export function HomePage({ initialLanguage }: { initialLanguage: string }) {
     atEnd: false,
   });
   const routeSlider = useRef<HTMLDivElement>(null);
+  const videoDialog = useRef<HTMLDialogElement>(null);
+  const videoIframe = useRef<HTMLIFrameElement>(null);
+
+  function openVideoModal() {
+    if (videoIframe.current) {
+      videoIframe.current.src = `https://www.youtube.com/embed/${VIDEO_ID}?autoplay=1`;
+    }
+    videoDialog.current?.showModal();
+  }
+
+  function closeVideoModal() {
+    videoDialog.current?.close();
+    if (videoIframe.current) videoIframe.current.src = "";
+  }
+
+  function handleVideoDialogClick(e: React.MouseEvent<HTMLDialogElement>) {
+    if (e.target === videoDialog.current) closeVideoModal();
+  }
+
+  function handleVideoDialogCancel() {
+    if (videoIframe.current) videoIframe.current.src = "";
+  }
   const routePrefix = ["de", "tr", "ru"].includes(initialLanguage)
     ? `/${initialLanguage}`
     : "";
@@ -992,6 +1016,103 @@ export function HomePage({ initialLanguage }: { initialLanguage: string }) {
               </div>
             </div>
           </div>
+        </section>
+
+        <section className="video-section section">
+          <div className="section-heading">
+            <div>
+              <div className="eyebrow">
+                <span />
+                <p>{t("videoEyebrow", "Behind the scenes")}</p>
+              </div>
+              <h2>
+                <LineBreakText
+                  value={t(
+                    "videoTitle",
+                    "See how we welcome<br />you at the airport.",
+                  )}
+                />
+              </h2>
+            </div>
+            <p>
+              {t(
+                "videoSubtitle",
+                "A glimpse of our meet & greet operations at Antalya Airport — the moment your journey begins.",
+              )}
+            </p>
+          </div>
+
+          <div
+            className="video-card"
+            onClick={openVideoModal}
+            role="button"
+            tabIndex={0}
+            aria-label={t("videoWatch", "Watch the clip")}
+            onKeyDown={(e) => {
+              if (e.key === "Enter" || e.key === " ") openVideoModal();
+            }}
+          >
+            <div className="video-thumb">
+              <img
+                src={`https://img.youtube.com/vi/${VIDEO_ID}/maxresdefault.jpg`}
+                alt="Antalya Airport meet and greet area"
+                width="280"
+                height="498"
+              />
+              <div className="video-play-overlay" aria-hidden="true">
+                <div className="video-play-btn">
+                  <Icon name="play" className="icon" />
+                </div>
+              </div>
+            </div>
+            <div className="video-copy">
+              <span className="mini-label">
+                {t("videoEyebrow", "Behind the scenes")}
+              </span>
+              <h3>
+                <LineBreakText
+                  value={t(
+                    "videoCardTitle",
+                    "Meet & greet at<br />Antalya Airport",
+                  )}
+                />
+              </h3>
+              <p>
+                {t(
+                  "videoCardBody",
+                  "After collecting your luggage, exit to the Meet & Greet Area and look for meeting point J / 777. Tell our team your name — we'll take it from there.",
+                )}
+              </p>
+              <button className="button button-outline-gold" type="button">
+                <span>{t("videoWatch", "Watch the clip")}</span>
+                <Icon name="play" className="icon" />
+              </button>
+            </div>
+          </div>
+
+          <dialog
+            ref={videoDialog}
+            className="video-dialog"
+            aria-label="Airport meet and greet video"
+            onClick={handleVideoDialogClick}
+            onCancel={handleVideoDialogCancel}
+          >
+            <button
+              className="video-dialog-close"
+              type="button"
+              aria-label={t("videoClose", "Close")}
+              onClick={closeVideoModal}
+            >
+              ✕
+            </button>
+            <iframe
+              ref={videoIframe}
+              src=""
+              title="Meet & greet at Antalya Airport"
+              allow="autoplay; fullscreen"
+              allowFullScreen
+            />
+          </dialog>
         </section>
 
         <section className="process section">

@@ -73,6 +73,114 @@
 .site-footer .footer-main button { padding: 0; border: 0; background: none; color: inherit; cursor: pointer; }
 
 .modal-backdrop { border: 0; }
+
+/* Video section */
+.video-card {
+  display: flex;
+  align-items: center;
+  gap: 56px;
+  padding: 40px 48px;
+  border: 1px solid var(--line);
+  max-width: 880px;
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+.video-card:hover { border-color: var(--gold); }
+
+.video-thumb {
+  position: relative;
+  flex-shrink: 0;
+  width: 140px;
+}
+.video-thumb img {
+  width: 100%;
+  aspect-ratio: 9 / 16;
+  object-fit: cover;
+  border-radius: 4px;
+  display: block;
+}
+.video-play-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.video-play-btn {
+  width: 52px;
+  height: 52px;
+  background: var(--gold);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 20px rgba(200, 169, 106, 0.4);
+  color: #1b1b18;
+}
+.video-play-btn .icon { width: 18px; margin-left: 2px; }
+
+.video-copy { flex: 1; }
+.video-copy h3 {
+  font-family: var(--serif);
+  font-size: clamp(22px, 2.5vw, 32px);
+  font-weight: 400;
+  line-height: 1.15;
+  margin: 0 0 10px;
+}
+.video-copy p {
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.8;
+  margin: 0 0 28px;
+  max-width: 340px;
+}
+.video-copy .mini-label { margin-bottom: 14px; }
+
+.video-dialog {
+  border: 0;
+  background: transparent;
+  padding: 0;
+  width: min(380px, 90vw);
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.video-dialog::backdrop { background: rgba(0, 0, 0, 0.85); }
+.video-dialog iframe {
+  width: 100%;
+  aspect-ratio: 9 / 16;
+  display: block;
+  border: 0;
+  border-radius: 6px;
+}
+.video-dialog-close {
+  position: absolute;
+  top: -44px;
+  right: 0;
+  width: 36px;
+  height: 36px;
+  background: rgba(255, 255, 255, 0.15);
+  border: 0;
+  border-radius: 50%;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.video-dialog-close:hover { background: rgba(255, 255, 255, 0.25); }
+
+@media (max-width: 900px) {
+  .video-card { gap: 32px; padding: 24px 28px; }
+  .video-thumb { width: 110px; }
+}
+@media (max-width: 600px) {
+  .video-card { flex-direction: column; align-items: center; text-align: center; gap: 24px; padding: 28px 20px; }
+  .video-thumb { width: 100%; max-width: 200px; }
+  .video-copy p { max-width: 100%; }
+}
 .is-visible { opacity: 1 !important; transform: translateY(0) !important; }
 
 .payment-method-panel,

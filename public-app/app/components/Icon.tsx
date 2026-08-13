@@ -25,7 +25,8 @@ type IconName =
   | "cash"
   | "card"
   | "close"
-  | "arrow-left";
+  | "arrow-left"
+  | "play";
 
 export function Icon({ name, className }: { name: IconName; className?: string }) {
   return <svg className={className} aria-hidden="true"><use href={`#icon-${name}`} /></svg>;
@@ -61,6 +62,7 @@ export function IconSprite() {
       <symbol id="icon-card" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2" /><path d="M3 10h18M7 15h3" /></symbol>
       <symbol id="icon-close" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18" /></symbol>
       <symbol id="icon-arrow-left" viewBox="0 0 24 24"><path d="M19 12H5M11 6l-6 6 6 6" /></symbol>
+      <symbol id="icon-play" viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21" /></symbol>
     </svg>
   );
 }
