@@ -1023,13 +1023,13 @@ export function HomePage({ initialLanguage }: { initialLanguage: string }) {
             <div>
               <div className="eyebrow">
                 <span />
-                <p>{t("videoEyebrow", "Behind the scenes")}</p>
+                <p>{t("videoEyebrow", "How to find us")}</p>
               </div>
               <h2>
                 <LineBreakText
                   value={t(
                     "videoTitle",
-                    "See how we welcome<br />you at the airport.",
+                    "Find us at J / 777<br />after you land.",
                   )}
                 />
               </h2>
@@ -1037,7 +1037,7 @@ export function HomePage({ initialLanguage }: { initialLanguage: string }) {
             <p>
               {t(
                 "videoSubtitle",
-                "A glimpse of our meet & greet operations at Antalya Airport — the moment your journey begins.",
+                "Our chauffeurs wait at the Meet & Greet Area — meeting point J / 777. Exit baggage claim, look for our name sign, and we handle the rest.",
               )}
             </p>
           </div>
@@ -1067,13 +1067,13 @@ export function HomePage({ initialLanguage }: { initialLanguage: string }) {
             </div>
             <div className="video-copy">
               <span className="mini-label">
-                {t("videoEyebrow", "Behind the scenes")}
+                {t("videoEyebrow", "How to find us")}
               </span>
               <h3>
                 <LineBreakText
                   value={t(
                     "videoCardTitle",
-                    "Meet & greet at<br />Antalya Airport",
+                    "Antalya Airport<br />Meet & Greet Point",
                   )}
                 />
               </h3>
