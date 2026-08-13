@@ -83,20 +83,16 @@ Add a video section to the homepage that shows real meet & greet operations at A
 
 ## Video Source
 
-- Platform: YouTube (unlisted or public).
+- Platform: YouTube Shorts.
+- URL: `https://youtube.com/shorts/r79dH1HLJtk`
+- **VIDEO_ID:** `"r79dH1HLJtk"`
 - Orientation: vertical (9:16).
-- `VIDEO_ID` constant at top of `HomePage.tsx`, value `"PLACEHOLDER"`.
-- **Conditional render:** if `VIDEO_ID === "PLACEHOLDER"`, the entire section does **not** render. This prevents a broken thumbnail and malformed iframe src on the live site before the real ID is swapped in.
+- Embed URL: `https://www.youtube.com/embed/r79dH1HLJtk?autoplay=1`
+- Thumbnail: `https://img.youtube.com/vi/r79dH1HLJtk/maxresdefault.jpg`
+- `VIDEO_ID` constant at top of `HomePage.tsx`. No conditional render guard needed — ID is confirmed real.
 
 ```tsx
-const VIDEO_ID = "PLACEHOLDER"; // replace with real YouTube video ID before deploy
-
-// In JSX:
-{VIDEO_ID !== "PLACEHOLDER" && (
-  <section className="video section" id="video">
-    ...
-  </section>
-)}
+const VIDEO_ID = "r79dH1HLJtk";
 ```
 
 ---
@@ -109,7 +105,7 @@ const VIDEO_ID = "PLACEHOLDER"; // replace with real YouTube video ID before dep
 | `videoTitle` | `"See how we welcome<br />you at the airport."` |
 | `videoSubtitle` | `"A glimpse of our meet & greet operations at Antalya Airport — the moment your journey begins."` |
 | `videoCardTitle` | `"Meet & greet at<br />Antalya Airport"` |
-| `videoCardBody` | `"Watch how our chauffeurs welcome guests in arrivals — the personalised name sign, luggage assistance, and the first moments of your VIP experience."` |
+| `videoCardBody` | `"After collecting your luggage, exit to the Meet & Greet Area and look for meeting point J / 777. Tell our team your name — we'll take it from there."` |
 | `videoWatch` | `"Watch the clip"` |
 | `videoClose` | `"Close"` |
 
