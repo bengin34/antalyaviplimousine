@@ -355,8 +355,8 @@ export function HomePage({ initialLanguage }: { initialLanguage: string }) {
       (index) => (index + direction + fleetPhotos.length) % fleetPhotos.length,
     );
 
-  const faqItems = Array.from({ length: 5 }, (_, index) => {
-    const number = ["One", "Two", "Three", "Four", "Five"][index];
+  const faqItems = Array.from({ length: 6 }, (_, index) => {
+    const number = ["One", "Two", "Three", "Four", "Five", "Six"][index];
     return [
       t(`faq${number}Q`, "Frequently asked question"),
       t(`faq${number}A`, "Contact us for complete details."),
