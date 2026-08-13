@@ -50,13 +50,14 @@
     "@hookform/resolvers": "^5.7.1",
     "@supabase/supabase-js": "^2.108.1",
     "i18next": "^26.3.6",
+    "isbot": "^5",
     "libphonenumber-js": "^1.13.9",
     "react": "^19.2.8",
     "react-dom": "^19.2.8",
     "react-hook-form": "^7.85.0",
     "react-i18next": "^17.0.11",
+    "react-player": "^3.4.0",
     "react-router": "^8.3.0",
-    "zod": "^4.4.3",
-    "isbot": "^5"
+    "zod": "^4.4.3"
   }
 }

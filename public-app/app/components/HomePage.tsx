@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import ReactPlayer from "react-player";
 import { publicRouteSlugs, routeCatalog } from "../../../src/routes.js";
 import { LineBreakText, useLanguage } from "../i18n";
 import { BookingForm } from "./BookingForm";
@@ -262,28 +263,7 @@ export function HomePage({ initialLanguage }: { initialLanguage: string }) {
     atEnd: false,
   });
   const routeSlider = useRef<HTMLDivElement>(null);
-  const videoDialog = useRef<HTMLDialogElement>(null);
-  const videoIframe = useRef<HTMLIFrameElement>(null);
-
-  function openVideoModal() {
-    if (videoIframe.current) {
-      videoIframe.current.src = `https://www.youtube.com/embed/${VIDEO_ID}?autoplay=1`;
-    }
-    videoDialog.current?.showModal();
-  }
-
-  function closeVideoModal() {
-    videoDialog.current?.close();
-    if (videoIframe.current) videoIframe.current.src = "";
-  }
-
-  function handleVideoDialogClick(e: React.MouseEvent<HTMLDialogElement>) {
-    if (e.target === videoDialog.current) closeVideoModal();
-  }
-
-  function handleVideoDialogCancel() {
-    if (videoIframe.current) videoIframe.current.src = "";
-  }
+  const [videoOpen, setVideoOpen] = useState(false);
   const routePrefix = ["de", "tr", "ru"].includes(initialLanguage)
     ? `/${initialLanguage}`
     : "";
@@ -1044,12 +1024,12 @@ export function HomePage({ initialLanguage }: { initialLanguage: string }) {
 
           <div
             className="video-card"
-            onClick={openVideoModal}
+            onClick={() => setVideoOpen(true)}
             role="button"
             tabIndex={0}
             aria-label={t("videoWatch", "Watch the clip")}
             onKeyDown={(e) => {
-              if (e.key === "Enter" || e.key === " ") openVideoModal();
+              if (e.key === "Enter" || e.key === " ") setVideoOpen(true);
             }}
           >
             <div className="video-thumb">
@@ -1090,29 +1070,35 @@ export function HomePage({ initialLanguage }: { initialLanguage: string }) {
             </div>
           </div>
 
-          <dialog
-            ref={videoDialog}
-            className="video-dialog"
-            aria-label="Airport meet and greet video"
-            onClick={handleVideoDialogClick}
-            onCancel={handleVideoDialogCancel}
-          >
-            <button
-              className="video-dialog-close"
-              type="button"
-              aria-label={t("videoClose", "Close")}
-              onClick={closeVideoModal}
+          {videoOpen && (
+            <div
+              className="video-overlay"
+              onClick={() => setVideoOpen(false)}
+              role="dialog"
+              aria-label="Airport meet and greet video"
             >
-              ✕
-            </button>
-            <iframe
-              ref={videoIframe}
-              src=""
-              title="Meet & greet at Antalya Airport"
-              allow="autoplay; fullscreen"
-              allowFullScreen
-            />
-          </dialog>
+              <div
+                className="video-modal-content"
+                onClick={(e) => e.stopPropagation()}
+              >
+                <button
+                  className="video-dialog-close"
+                  type="button"
+                  aria-label={t("videoClose", "Close")}
+                  onClick={() => setVideoOpen(false)}
+                >
+                  ✕
+                </button>
+                <ReactPlayer
+                  src={`https://www.youtube.com/shorts/${VIDEO_ID}`}
+                  playing
+                  controls
+                  width="100%"
+                  height="100%"
+                />
+              </div>
+            </div>
+          )}
         </section>
 
         <section className="process section">

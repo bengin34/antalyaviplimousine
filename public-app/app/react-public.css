@@ -90,7 +90,7 @@
 .video-thumb {
   position: relative;
   flex-shrink: 0;
-  width: 140px;
+  width: 200px;
 }
 .video-thumb img {
   width: 100%;
@@ -136,22 +136,22 @@
 }
 .video-copy .mini-label { margin-bottom: 14px; }
 
-.video-dialog {
-  border: 0;
-  background: transparent;
-  padding: 0;
-  width: min(380px, 90vw);
+.video-overlay {
   position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  inset: 0;
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.88);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.video-dialog::backdrop { background: rgba(0, 0, 0, 0.85); }
-.video-dialog iframe {
-  width: 100%;
+.video-modal-content {
+  position: relative;
+  width: min(360px, 90vw);
   aspect-ratio: 9 / 16;
-  display: block;
-  border: 0;
+}
+.video-modal-content iframe,
+.video-modal-content video {
   border-radius: 6px;
 }
 .video-dialog-close {
@@ -169,12 +169,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 1;
 }
 .video-dialog-close:hover { background: rgba(255, 255, 255, 0.25); }
 
 @media (max-width: 900px) {
   .video-card { gap: 32px; padding: 24px 28px; }
-  .video-thumb { width: 110px; }
+  .video-thumb { width: 160px; }
 }
 @media (max-width: 600px) {
   .video-card { flex-direction: column; align-items: center; text-align: center; gap: 24px; padding: 28px 20px; }
