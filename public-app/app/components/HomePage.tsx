@@ -335,8 +335,8 @@ export function HomePage({ initialLanguage }: { initialLanguage: string }) {
       (index) => (index + direction + fleetPhotos.length) % fleetPhotos.length,
     );
 
-  const faqItems = Array.from({ length: 6 }, (_, index) => {
-    const number = ["One", "Two", "Three", "Four", "Five", "Six"][index];
+  const faqItems = Array.from({ length: 5 }, (_, index) => {
+    const number = ["One", "Two", "Three", "Four", "Five"][index];
     return [
       t(`faq${number}Q`, "Frequently asked question"),
       t(`faq${number}A`, "Contact us for complete details."),
@@ -1035,7 +1035,10 @@ export function HomePage({ initialLanguage }: { initialLanguage: string }) {
             <div className="video-thumb">
               <img
                 src={`https://img.youtube.com/vi/${VIDEO_ID}/maxresdefault.jpg`}
-                alt="Antalya Airport meet and greet area"
+                alt={t(
+                  "videoThumbnailAlt",
+                  "Antalya Airport meet and greet area",
+                )}
                 width="280"
                 height="498"
               />
@@ -1075,7 +1078,10 @@ export function HomePage({ initialLanguage }: { initialLanguage: string }) {
               className="video-overlay"
               onClick={() => setVideoOpen(false)}
               role="dialog"
-              aria-label="Airport meet and greet video"
+              aria-label={t(
+                "videoDialogLabel",
+                "Antalya Airport meet and greet video",
+              )}
             >
               <div
                 className="video-modal-content"

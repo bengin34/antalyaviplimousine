@@ -10,6 +10,7 @@ import {
   type ReactNode,
 } from "react";
 import translationData from "./generated/legacy-translations.json";
+import videoTranslationData from "./video-translations.json";
 import { resolvePriceTokens } from "../../src/prices.js";
 
 export const languageOptions = [
@@ -31,7 +32,14 @@ export type LanguageCode = (typeof languageOptions)[number]["code"];
 
 const supportedLanguages = new Set(languageOptions.map(({ code }) => code));
 const indexableLanguages = new Set(["en", "de", "tr", "ru"]);
-const rawResources = translationData.resources as Record<string, Record<string, string>>;
+const legacyResources = translationData.resources as Record<string, Record<string, string>>;
+const videoResources = videoTranslationData.resources as Record<string, Record<string, string>>;
+const rawResources = Object.fromEntries(
+  Object.entries(legacyResources).map(([language, translation]) => [
+    language,
+    { ...translation, ...(videoResources[language] || {}) },
+  ]),
+);
 
 const i18n = i18next.createInstance();
 void i18n.init({

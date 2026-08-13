@@ -1,0 +1,136 @@
+{
+  "resources": {
+    "en": {
+      "videoEyebrow": "How to find us",
+      "videoTitle": "Find us at J / 777<br />after you land.",
+      "videoSubtitle": "Our chauffeurs wait at the Meet & Greet Area — meeting point J / 777. Exit baggage claim, look for our name sign, and we handle the rest.",
+      "videoCardTitle": "Antalya Airport<br />Meet & Greet Point",
+      "videoCardBody": "After collecting your luggage, exit to the Meet & Greet Area and look for meeting point J / 777. Tell our team your name — we'll take it from there.",
+      "videoWatch": "Watch the clip",
+      "videoClose": "Close",
+      "videoThumbnailAlt": "Antalya Airport meet and greet area",
+      "videoDialogLabel": "Antalya Airport meet and greet video"
+    },
+    "de": {
+      "videoEyebrow": "So finden Sie uns",
+      "videoTitle": "Nach der Landung finden Sie uns<br />bei J / 777.",
+      "videoSubtitle": "Unser Team erwartet Sie im Meet-&-Greet-Bereich am Treffpunkt J / 777. Verlassen Sie die Gepäckausgabe und halten Sie nach unserem Namensschild Ausschau — wir kümmern uns um alles Weitere.",
+      "videoCardTitle": "Treffpunkt am Flughafen Antalya<br />J / 777",
+      "videoCardBody": "Nachdem Sie Ihr Gepäck abgeholt haben, gehen Sie zum Meet-&-Greet-Bereich und suchen Sie den Treffpunkt J / 777. Nennen Sie unserem Team Ihren Namen — ab dort übernehmen wir.",
+      "videoWatch": "Video ansehen",
+      "videoClose": "Schließen",
+      "videoThumbnailAlt": "Meet-&-Greet-Bereich am Flughafen Antalya",
+      "videoDialogLabel": "Meet-&-Greet-Video am Flughafen Antalya"
+    },
+    "tr": {
+      "videoEyebrow": "Bizi nasıl bulursunuz",
+      "videoTitle": "İnişten sonra bizi<br />J / 777 noktasında bulun.",
+      "videoSubtitle": "Ekibimiz karşılama alanındaki J / 777 buluşma noktasında sizi bekler. Bagaj teslim alanından çıkın, isim tabelamızı bulun; gerisini biz hallederiz.",
+      "videoCardTitle": "Antalya Havalimanı<br />karşılama noktası",
+      "videoCardBody": "Bagajınızı aldıktan sonra karşılama alanına çıkın ve J / 777 buluşma noktasını bulun. Ekibimize adınızı söyleyin; sonrasını bize bırakın.",
+      "videoWatch": "Videoyu izleyin",
+      "videoClose": "Kapat",
+      "videoThumbnailAlt": "Antalya Havalimanı karşılama alanı",
+      "videoDialogLabel": "Antalya Havalimanı karşılama videosu"
+    },
+    "ru": {
+      "videoEyebrow": "Как нас найти",
+      "videoTitle": "После прилёта найдите нас<br />у точки J / 777.",
+      "videoSubtitle": "Наша команда ждёт вас в зоне встречи у точки J / 777. Выйдите из зоны выдачи багажа и найдите табличку с вашим именем — обо всём остальном позаботимся мы.",
+      "videoCardTitle": "Место встречи в аэропорту Антальи<br />J / 777",
+      "videoCardBody": "После получения багажа выйдите в зону встречи и найдите точку J / 777. Назовите нашей команде своё имя — дальше мы обо всём позаботимся.",
+      "videoWatch": "Смотреть видео",
+      "videoClose": "Закрыть",
+      "videoThumbnailAlt": "Зона встречи в аэропорту Антальи",
+      "videoDialogLabel": "Видео о встрече в аэропорту Антальи"
+    },
+    "pl": {
+      "videoEyebrow": "Jak nas znaleźć",
+      "videoTitle": "Po wylądowaniu znajdziesz nas<br />w punkcie J / 777.",
+      "videoSubtitle": "Nasz zespół czeka w strefie powitalnej przy punkcie J / 777. Po odbiorze bagażu wyjdź z hali i wypatruj tabliczki ze swoim nazwiskiem — resztą zajmiemy się my.",
+      "videoCardTitle": "Punkt powitalny<br />na lotnisku w Antalyi",
+      "videoCardBody": "Po odebraniu bagażu przejdź do strefy powitalnej i znajdź punkt J / 777. Podaj naszemu zespołowi swoje nazwisko — zajmiemy się resztą.",
+      "videoWatch": "Obejrzyj film",
+      "videoClose": "Zamknij",
+      "videoThumbnailAlt": "Strefa powitalna na lotnisku w Antalyi",
+      "videoDialogLabel": "Film o powitaniu na lotnisku w Antalyi"
+    },
+    "nl": {
+      "videoEyebrow": "Zo vindt u ons",
+      "videoTitle": "Na de landing vindt u ons<br />bij punt J / 777.",
+      "videoSubtitle": "Ons team wacht in de Meet & Greet-zone bij ontmoetingspunt J / 777. Verlaat de bagagehal en zoek naar het bord met uw naam — wij regelen de rest.",
+      "videoCardTitle": "Ontmoetingspunt<br />op Antalya Airport",
+      "videoCardBody": "Ga na het ophalen van uw bagage naar de Meet & Greet-zone en zoek punt J / 777. Geef uw naam door aan ons team — vanaf daar regelen wij alles.",
+      "videoWatch": "Bekijk de video",
+      "videoClose": "Sluiten",
+      "videoThumbnailAlt": "Meet & Greet-zone op Antalya Airport",
+      "videoDialogLabel": "Meet & Greet-video op Antalya Airport"
+    },
+    "uk": {
+      "videoEyebrow": "Як нас знайти",
+      "videoTitle": "Після прильоту знайдіть нас<br />біля пункту J / 777.",
+      "videoSubtitle": "Наша команда чекає на вас у зоні зустрічі біля пункту J / 777. Вийдіть із зони видачі багажу та знайдіть табличку зі своїм ім’ям — про все інше подбаємо ми.",
+      "videoCardTitle": "Місце зустрічі в аеропорту Анталії<br />J / 777",
+      "videoCardBody": "Після отримання багажу вийдіть до зони зустрічі та знайдіть пункт J / 777. Назвіть нашій команді своє ім’я — далі ми про все подбаємо.",
+      "videoWatch": "Переглянути відео",
+      "videoClose": "Закрити",
+      "videoThumbnailAlt": "Зона зустрічі в аеропорту Анталії",
+      "videoDialogLabel": "Відео про зустріч в аеропорту Анталії"
+    },
+    "fr": {
+      "videoEyebrow": "Comment nous trouver",
+      "videoTitle": "Après l’atterrissage, retrouvez-nous<br />au point J / 777.",
+      "videoSubtitle": "Notre équipe vous attend dans la zone d’accueil au point J / 777. Quittez la zone de récupération des bagages et cherchez la pancarte à votre nom — nous nous occupons du reste.",
+      "videoCardTitle": "Point d’accueil<br />à l’aéroport d’Antalya",
+      "videoCardBody": "Après avoir récupéré vos bagages, rendez-vous dans la zone d’accueil et cherchez le point J / 777. Donnez votre nom à notre équipe — nous nous chargeons de la suite.",
+      "videoWatch": "Voir la vidéo",
+      "videoClose": "Fermer",
+      "videoThumbnailAlt": "Zone d’accueil de l’aéroport d’Antalya",
+      "videoDialogLabel": "Vidéo d’accueil à l’aéroport d’Antalya"
+    },
+    "sv": {
+      "videoEyebrow": "Så hittar du oss",
+      "videoTitle": "Efter landning hittar du oss<br />vid punkt J / 777.",
+      "videoSubtitle": "Vårt team väntar i välkomstområdet vid mötespunkt J / 777. Lämna bagageutlämningen och leta efter skylten med ditt namn — vi tar hand om resten.",
+      "videoCardTitle": "Mötesplats<br />på Antalya flygplats",
+      "videoCardBody": "När du har hämtat ditt bagage går du till välkomstområdet och letar efter punkt J / 777. Uppge ditt namn för vårt team — sedan tar vi hand om resten.",
+      "videoWatch": "Se videon",
+      "videoClose": "Stäng",
+      "videoThumbnailAlt": "Välkomstområdet på Antalya flygplats",
+      "videoDialogLabel": "Välkomstvideo från Antalya flygplats"
+    },
+    "ja": {
+      "videoEyebrow": "集合場所のご案内",
+      "videoTitle": "ご到着後は<br />J / 777へお越しください。",
+      "videoSubtitle": "スタッフはアンタルヤ空港の出迎えエリア、J / 777でお待ちしています。手荷物受取所を出たら、お名前の書かれたボードをお探しください。その後はすべてお任せください。",
+      "videoCardTitle": "アンタルヤ空港<br />お出迎え集合場所",
+      "videoCardBody": "手荷物を受け取った後、出迎えエリアへ進み、J / 777をお探しください。スタッフにお名前をお伝えいただければ、あとは私たちがご案内します。",
+      "videoWatch": "動画を見る",
+      "videoClose": "閉じる",
+      "videoThumbnailAlt": "アンタルヤ空港のお出迎えエリア",
+      "videoDialogLabel": "アンタルヤ空港のお出迎え案内動画"
+    },
+    "ko": {
+      "videoEyebrow": "찾아오시는 길",
+      "videoTitle": "도착 후 J / 777<br />지점에서 만나세요.",
+      "videoSubtitle": "직원이 안탈리아 공항 환영 구역의 J / 777 지점에서 기다립니다. 수하물 수취대를 나와 이름이 적힌 팻말을 찾으시면 나머지는 저희가 안내해 드립니다.",
+      "videoCardTitle": "안탈리아 공항<br />환영 미팅 장소",
+      "videoCardBody": "수하물을 찾은 후 환영 구역으로 이동해 J / 777 지점을 찾으세요. 직원에게 이름을 말씀해 주시면 이후 절차를 모두 안내해 드립니다.",
+      "videoWatch": "영상 보기",
+      "videoClose": "닫기",
+      "videoThumbnailAlt": "안탈리아 공항 환영 구역",
+      "videoDialogLabel": "안탈리아 공항 환영 안내 영상"
+    },
+    "ar": {
+      "videoEyebrow": "كيف تجدنا",
+      "videoTitle": "بعد وصولك، ستجدنا<br />عند النقطة J / 777.",
+      "videoSubtitle": "ينتظرك فريقنا في منطقة الاستقبال عند نقطة اللقاء J / 777. بعد مغادرة منطقة استلام الأمتعة، ابحث عن اللافتة التي تحمل اسمك وسنتولى نحن الباقي.",
+      "videoCardTitle": "نقطة الاستقبال<br />في مطار أنطاليا",
+      "videoCardBody": "بعد استلام أمتعتك، توجّه إلى منطقة الاستقبال وابحث عن النقطة J / 777. أخبر فريقنا باسمك وسنتولى الباقي.",
+      "videoWatch": "شاهد الفيديو",
+      "videoClose": "إغلاق",
+      "videoThumbnailAlt": "منطقة الاستقبال في مطار أنطاليا",
+      "videoDialogLabel": "فيديو الاستقبال في مطار أنطاليا"
+    }
+  }
+}

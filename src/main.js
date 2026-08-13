@@ -208,7 +208,7 @@ const translations = {
       "Wir verfolgen jede Ankunft in Echtzeit. Ihre Abholzeit wird automatisch angepasst und Ihr Chauffeur wartet ohne Aufpreis.",
     faqTwoQ: "Wo treffe ich meinen Chauffeur?",
     faqTwoA:
-      "Ihr Chauffeur wartet direkt hinter der Gepäckausgabe in der Ankunftshalle mit einem persönlichen Namensschild.",
+      "Verlassen Sie die Gepäckausgabe und gehen Sie zum Meet & Greet Bereich. Suchen Sie den Treffpunkt J / 777 — unser Team wartet mit einem personalisierten Namensschild.",
     faqThreeQ: "Sind Kindersitze verfügbar?",
     faqThreeA:
       "Ja. Babyschalen, Kindersitze und Sitzerhöhungen sind bei Vorbestellung kostenlos verfügbar.",
@@ -445,7 +445,7 @@ const translations = {
       "Tüm uçuşları gerçek zamanlı takip ederiz. Alış saatiniz otomatik olarak güncellenir ve şoförünüz ek ücret olmadan bekler.",
     faqTwoQ: "Şoförümle nerede buluşacağım?",
     faqTwoA:
-      "Şoförünüz bagaj tesliminden hemen sonra gelen yolcu salonunda, isminizin yazılı olduğu tabela ile bekler.",
+      "Bagajınızı aldıktan sonra bagaj teslim alanından çıkın ve Karşılama Alanına gidin. J / 777 buluşma noktasını arayın — ekibimiz kişisel isim tabelasıyla sizi bekliyor olacak.",
     faqThreeQ: "Çocuk koltuğu var mı?",
     faqThreeA:
       "Evet. Bebek koltuğu, çocuk koltuğu ve yükseltici koltuk rezervasyon sırasında ücretsiz olarak talep edilebilir.",
@@ -680,7 +680,7 @@ const translations = {
       "Мы отслеживаем каждый рейс в реальном времени. Время встречи корректируется автоматически, а водитель ждёт без дополнительной платы.",
     faqTwoQ: "Где я встречу водителя?",
     faqTwoA:
-      "Ваш шофёр будет ждать в зале прилёта сразу после выдачи багажа с именной табличкой.",
+      "После получения багажа выйдите из зоны выдачи и пройдите в зону встречи (Meet & Greet). Найдите точку J / 777 — наша команда будет ждать с именной табличкой.",
     faqThreeQ: "Есть ли детские кресла?",
     faqThreeA:
       "Да. Автолюльки, детские кресла и бустеры предоставляются бесплатно по запросу при бронировании.",
@@ -897,7 +897,7 @@ const translations = {
       "Śledzimy każdy przylot w czasie rzeczywistym. Godzina odbioru jest automatycznie dostosowywana, a szofer czeka bez dodatkowych opłat.",
     faqTwoQ: "Gdzie spotkam mojego szofera?",
     faqTwoA:
-      "Szofer czeka w hali przylotów tuż za wydawaniem bagażu z tabliczką z Twoim imieniem.",
+      "Po odebraniu bagażu opuść strefę odbioru i udaj się do strefy powitań (Meet & Greet). Szukaj punktu spotkań J / 777 — nasz zespół czeka z tabliczką z Twoim imieniem.",
     faqThreeQ: "Czy dostępne są foteliki dziecięce?",
     faqThreeA:
       "Tak. Nosidełka, foteliki i podkładki są dostępne bezpłatnie przy wcześniejszej rezerwacji.",
@@ -1114,7 +1114,7 @@ const translations = {
       "We volgen elke aankomst in realtime. Uw ophaaltijd wordt automatisch aangepast en uw chauffeur wacht zonder meerprijs.",
     faqTwoQ: "Waar ontmoet ik mijn chauffeur?",
     faqTwoA:
-      "Uw chauffeur wacht direct na de bagageband in de aankomsthal met een persoonlijk naambordje.",
+      "Na het ophalen van uw bagage, verlaat de bagagehal en ga naar de Meet & Greet Area. Zoek naar ontmoetingspunt J / 777 — ons team wacht met een gepersonaliseerd naambordje.",
     faqThreeQ: "Zijn kinderzitjes beschikbaar?",
     faqThreeA:
       "Ja. Babyschalen, kinderzitjes en zitverhogers zijn bij vooraf boeken gratis beschikbaar.",
@@ -1330,7 +1330,7 @@ const translations = {
       "Ми відстежуємо кожен рейс у реальному часі. Час зустрічі коригується автоматично, а водій чекає без доплати.",
     faqTwoQ: "Де я зустріну водія?",
     faqTwoA:
-      "Ваш шофер чекатиме у залі прильоту одразу після видачі багажу з табличкою з вашим ім'ям.",
+      "Після отримання багажу вийдіть із зони видачі та пройдіть до зони зустрічі (Meet & Greet). Знайдіть точку J / 777 — наша команда чекатиме з табличкою з вашим ім'ям.",
     faqThreeQ: "Чи є дитячі крісла?",
     faqThreeA:
       "Так. Автолюльки, дитячі крісла та бустери надаються безкоштовно на запит при бронюванні.",
@@ -1548,7 +1548,7 @@ const translations = {
       "Nous suivons chaque arrivée en temps réel. Votre heure de prise en charge est ajustée automatiquement et votre chauffeur attend sans surcoût.",
     faqTwoQ: "Où vais-je retrouver mon chauffeur ?",
     faqTwoA:
-      "Votre chauffeur vous attendra juste après le retrait des bagages dans le hall des arrivées, avec une pancarte à votre nom.",
+      "Après avoir récupéré vos bagages, quittez la zone de récupération et dirigez-vous vers la zone Meet & Greet. Cherchez le point de rencontre J / 777 — notre équipe vous attend avec une pancarte personnalisée.",
     faqThreeQ: "Des sièges enfants sont-ils disponibles ?",
     faqThreeA:
       "Oui. Coques bébé, sièges enfants et rehausseurs sont disponibles gratuitement sur réservation.",
@@ -1765,7 +1765,7 @@ const translations = {
       "Vi spårar varje ankomst i realtid. Din hämtningstid justeras automatiskt och din chaufför väntar utan extra kostnad.",
     faqTwoQ: "Var möter jag min chaufför?",
     faqTwoA:
-      "Din chaufför väntar direkt efter bagageutlämningen i ankomsthallen med en personlig skylt med ditt namn.",
+      "När du hämtat ditt bagage, lämna bagageutlämningen och gå till Meet & Greet-området. Leta efter mötespunkt J / 777 — vårt team väntar med en personlig namnbricka.",
     faqThreeQ: "Finns det bilbarnstolar?",
     faqThreeA:
       "Ja. Babyskydd, barnstolar och bälteskuddar finns tillgängliga utan extra kostnad vid förbeställning.",
@@ -1981,7 +1981,7 @@ const translations = {
       "すべての到着便をリアルタイムで追跡しています。お迎え時間は自動的に調整され、ショーファーは追加料金なしでお待ちします。",
     faqTwoQ: "ショーファーはどこで待っていますか？",
     faqTwoA:
-      "ショーファーは手荷物受取所の直後の到着ロビーで、お名前のボードを持ってお待ちしています。",
+      "手荷物を受け取った後、手荷物受取所を出てミート＆グリートエリアへお進みください。J / 777の待合せポイントをお探しください — スタッフがお名前の書かれたボードを持ってお待ちしています。",
     faqThreeQ: "チャイルドシートはありますか？",
     faqThreeA:
       "はい。乳幼児用、チャイルドシート、ジュニアシートは予約時にご要望いただければ無料でご用意します。",
@@ -2194,7 +2194,7 @@ const translations = {
       "모든 도착 항공편을 실시간으로 추적합니다. 픽업 시간은 자동으로 조정되며 쇼퍼는 추가 비용 없이 기다립니다.",
     faqTwoQ: "기사님은 어디에서 기다리시나요?",
     faqTwoA:
-      "쇼퍼는 수하물 수취 바로 다음 도착 로비에서 이름이 적힌 팻말을 들고 기다립니다.",
+      "수하물을 찾은 후 수하물 수취대를 나와 미트 앤 그리트 구역으로 이동하세요. J / 777 만남의 장소를 찾으시면 직원이 이름이 적힌 팻말을 들고 기다리고 있습니다.",
     faqThreeQ: "카시트를 이용할 수 있나요?",
     faqThreeA:
       "네. 신생아용 카시트, 아동용 카시트, 부스터 시트는 예약 시 요청하시면 무료로 제공됩니다.",
@@ -2420,7 +2420,7 @@ const translations = {
       "نتابع جميع الرحلات القادمة مباشرة. نعدّل وقت الاستقبال تلقائياً، وينتظرك سائقك من دون أي رسوم إضافية.",
     faqTwoQ: "أين سألتقي بالسائق؟",
     faqTwoA:
-      "ينتظرك سائقك في صالة الوصول بعد منطقة استلام الأمتعة مباشرة، حاملاً لافتة باسمك.",
+      "بعد استلام أمتعتك، اخرج من منطقة الاستلام وتوجه إلى منطقة الاستقبال (Meet & Greet). ابحث عن نقطة اللقاء J / 777 — سيكون فريقنا بانتظارك حاملاً لافتة باسمك.",
     faqThreeQ: "هل تتوفر مقاعد للأطفال؟",
     faqThreeA:
       "نعم. تتوفر مقاعد للرضع والأطفال والمقاعد المعززة مجاناً عند طلبها أثناء الحجز.",
