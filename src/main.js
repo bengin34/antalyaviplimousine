@@ -2481,6 +2481,7 @@ const paymentTranslations = {
     cashPaymentDescription:
       "No prepayment. Pay your driver directly once you are satisfied with the service.",
     confirmCashBooking: "Confirm booking — pay in vehicle",
+    requestQuote: "Request a price quote",
     cashConfirmation:
       "Your booking is confirmed. Pay the fixed total directly to your driver in the vehicle.",
     bookingError: "Your booking could not be completed. Please try again.",
@@ -2517,6 +2518,7 @@ const paymentTranslations = {
     cashPaymentDescription:
       "Keine Vorauszahlung. Bezahlen Sie Ihren Fahrer direkt, wenn Sie mit dem Service zufrieden sind.",
     confirmCashBooking: "Buchung bestätigen — im Fahrzeug zahlen",
+    requestQuote: "Preisangebot anfordern",
     cashConfirmation:
       "Ihre Buchung ist bestätigt. Zahlen Sie den Festpreis direkt beim Fahrer im Fahrzeug.",
     bookingError:
@@ -2552,6 +2554,7 @@ const paymentTranslations = {
     cashPaymentDescription:
       "Ön ödeme yok. Hizmetten memnun kaldığınızda ödemenizi doğrudan şoförünüze yapın.",
     confirmCashBooking: "Rezervasyonu onayla — araçta öde",
+    requestQuote: "Fiyat teklifi al",
     cashConfirmation:
       "Rezervasyonunuz onaylandı. Sabit toplam tutarı araçta doğrudan şoförünüze ödeyin.",
     bookingError: "Rezervasyonunuz tamamlanamadı. Lütfen tekrar deneyin.",
@@ -2586,6 +2589,7 @@ const paymentTranslations = {
     cashPaymentDescription:
       "Без предоплаты. Оплатите услугу непосредственно водителю, когда останетесь довольны обслуживанием.",
     confirmCashBooking: "Подтвердить — оплата в автомобиле",
+    requestQuote: "Запросить расчёт",
     cashConfirmation:
       "Бронирование подтверждено. Оплатите фиксированную сумму водителю в автомобиле.",
     bookingError: "Не удалось завершить бронирование. Попробуйте ещё раз.",
@@ -2620,6 +2624,7 @@ const paymentTranslations = {
     cashPaymentDescription:
       "Bez przedpłaty. Zapłać bezpośrednio kierowcy, gdy usługa spełni Twoje oczekiwania.",
     confirmCashBooking: "Potwierdź — zapłać w pojeździe",
+    requestQuote: "Poproś o wycenę",
     cashConfirmation:
       "Rezerwacja jest potwierdzona. Zapłać kierowcy ustaloną kwotę w pojeździe.",
     bookingError: "Nie udało się dokończyć rezerwacji. Spróbuj ponownie.",
@@ -2654,6 +2659,7 @@ const paymentTranslations = {
     cashPaymentDescription:
       "Geen vooruitbetaling. Betaal uw chauffeur rechtstreeks zodra u tevreden bent over de service.",
     confirmCashBooking: "Bevestig — betaal in het voertuig",
+    requestQuote: "Prijsopgave aanvragen",
     cashConfirmation:
       "Uw boeking is bevestigd. Betaal het vaste bedrag rechtstreeks aan de chauffeur.",
     bookingError: "Uw boeking kon niet worden voltooid. Probeer het opnieuw.",
@@ -2688,6 +2694,7 @@ const paymentTranslations = {
     cashPaymentDescription:
       "Без передоплати. Сплатіть безпосередньо водієві, коли будете задоволені послугою.",
     confirmCashBooking: "Підтвердити — оплата в автомобілі",
+    requestQuote: "Запросити розрахунок",
     cashConfirmation:
       "Бронювання підтверджено. Сплатіть фіксовану суму водієві в автомобілі.",
     bookingError: "Не вдалося завершити бронювання. Спробуйте ще раз.",
@@ -2722,6 +2729,7 @@ const paymentTranslations = {
     cashPaymentDescription:
       "Aucun prépaiement. Payez directement votre chauffeur une fois satisfait du service.",
     confirmCashBooking: "Confirmer — payer dans le véhicule",
+    requestQuote: "Demander un devis",
     cashConfirmation:
       "Votre réservation est confirmée. Réglez le montant fixe directement au chauffeur.",
     bookingError:
@@ -2758,6 +2766,7 @@ const paymentTranslations = {
     cashPaymentDescription:
       "Ingen förskottsbetalning. Betala din chaufför direkt när du är nöjd med tjänsten.",
     confirmCashBooking: "Bekräfta — betala i fordonet",
+    requestQuote: "Begär prisuppgift",
     cashConfirmation:
       "Din bokning är bekräftad. Betala det fasta beloppet direkt till chauffören.",
     bookingError: "Bokningen kunde inte slutföras. Försök igen.",
@@ -2792,6 +2801,7 @@ const paymentTranslations = {
     cashPaymentDescription:
       "事前のお支払いは不要です。サービスにご満足いただいてから、ドライバーへ直接お支払いください。",
     confirmCashBooking: "予約確定 — 車内払い",
+    requestQuote: "見積もりを依頼",
     cashConfirmation:
       "予約が確定しました。固定料金を車内でドライバーへ直接お支払いください。",
     bookingError: "予約を完了できませんでした。もう一度お試しください。",
@@ -2826,6 +2836,7 @@ const paymentTranslations = {
     cashPaymentDescription:
       "선결제는 필요 없습니다. 서비스에 만족하신 후 기사에게 직접 결제하세요.",
     confirmCashBooking: "예약 확정 — 차량에서 결제",
+    requestQuote: "견적 요청",
     cashConfirmation:
       "예약이 확정되었습니다. 차량에서 기사에게 고정 요금을 직접 결제하세요.",
     bookingError: "예약을 완료하지 못했습니다. 다시 시도해 주세요.",
@@ -2860,6 +2871,7 @@ const paymentTranslations = {
     cashPaymentDescription:
       "لا يلزم الدفع مقدماً. ادفع مباشرة إلى السائق بعد أن تكون راضياً عن الخدمة.",
     confirmCashBooking: "تأكيد الحجز — الدفع داخل السيارة",
+    requestQuote: "طلب عرض سعر",
     cashConfirmation:
       "تم تأكيد حجزك. ادفع المبلغ الثابت مباشرة إلى السائق داخل السيارة.",
     bookingError: "تعذر إكمال حجزك. يرجى المحاولة مرة أخرى.",

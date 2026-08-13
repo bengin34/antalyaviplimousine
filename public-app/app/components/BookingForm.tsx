@@ -82,6 +82,17 @@ export function BookingForm({
   const quote = quoteFor(values);
   const selectedRoute = routeCatalog[values.destination as keyof typeof routeCatalog];
   const selectedRouteName = selectedRoute?.names[language as keyof typeof selectedRoute.names] ?? selectedRoute?.names.en;
+  const pickupName = values.pickup === "airport"
+    ? t("airportOption", "Antalya Airport (AYT)")
+    : values.pickup === "hotel"
+      ? t("hotelOption", "Hotel")
+      : t("privateAddressOption", "Private address");
+  const destinationName = values.destination === "airport"
+    ? t("airportOption", "Antalya Airport (AYT)")
+    : values.destination === "private_address"
+      ? t("privateAddressOption", "Private address")
+      : selectedRouteName ?? values.destination;
+  const isPrivateAddressQuote = values.pickup === "private_address" && values.destination === "private_address";
   const vitoFits = Number(values.guests) <= 7 && Number(values.luggage) <= 6 && Number(values.guests) + Number(values.luggage) <= 13;
 
   useEffect(() => {
@@ -159,7 +170,7 @@ export function BookingForm({
     <section className="booking-shell" id="booking" aria-labelledby="booking-title">
       <div className="booking-shell-inner">
         <div className="booking-shell-header"><div><span className="mini-label">{t("privateJourney", "Your private journey")}</span><h2 id="booking-title">{t("bookTransfer", "Book your transfer")}</h2></div><div id="booking-price-display" className={`booking-price-display${values.destination ? " visible" : ""}`}>
-          {selectedRoute && quote.price > 0 ? <><span className="price-display-route">AYT {values.tripType === "round_trip" ? "⇄" : "→"} {selectedRouteName}</span><span className="price-display-prices">{quote.originalPrice > quote.price && <span className="price-display-original">€{quote.originalPrice}</span>}<strong className="price-display-amount">€{quote.price}</strong></span><span className="price-display-note">{values.vehicle === "sprinter" ? "Mercedes Sprinter" : "Mercedes Vito"} · {values.tripType === "round_trip" ? `${t("roundTripPriceNote", "round trip · 2 journeys")} · ` : ""}{t("perVehicle", "fixed · per vehicle")}</span></> : values.destination ? <><span className="price-display-route">{values.pickup} {values.tripType === "round_trip" ? "⇄" : "→"} {values.destination}</span><span className="price-display-note">{values.destination === "airport" ? t("airportReturnPrice", "Price confirmed after address review.") : t("customDestinationPrice", "Price confirmed after address review.")}</span></> : null}
+          {selectedRoute && quote.price > 0 ? <><span className="price-display-route">{pickupName} {values.tripType === "round_trip" ? "⇄" : "→"} {destinationName}</span><span className="price-display-prices">{quote.originalPrice > quote.price && <span className="price-display-original">€{quote.originalPrice}</span>}<strong className="price-display-amount">€{quote.price}</strong></span><span className="price-display-note">{values.vehicle === "sprinter" ? "Mercedes Sprinter" : "Mercedes Vito"} · {values.tripType === "round_trip" ? `${t("roundTripPriceNote", "round trip · 2 journeys")} · ` : ""}{t("perVehicle", "fixed · per vehicle")}</span></> : values.destination ? <><span className="price-display-route">{pickupName} {values.tripType === "round_trip" ? "⇄" : "→"} {destinationName}</span><span className="price-display-note">{values.destination === "airport" ? t("airportReturnPrice", "Price confirmed after address review.") : t("customDestinationPrice", "Price confirmed after address review.")}</span></> : null}
         </div></div>
         <form className="booking-card" id="quote-form" noValidate onSubmit={handleSubmit(submit)}>
           <fieldset className="trip-type-selector"><legend>{t("tripType", "Journey type")}</legend><div className="trip-type-options"><label className="trip-type-option"><input type="radio" value="one_way" {...register("tripType")} /><span>{t("oneWay", "One way")}</span></label><label className="trip-type-option"><input type="radio" value="round_trip" {...register("tripType")} /><span>{t("roundTrip", "Round trip")}</span></label></div><p className="trip-type-hint">{t("roundTripHint", "For a round trip, the return follows the same route in reverse.")}</p></fieldset>
@@ -193,7 +204,7 @@ export function BookingForm({
             <label className={fieldClass(errors.customerEmail)}><span>{t("emailLabel", "Email")}</span><div className="field-control"><input id="customer-email" type="email" autoComplete="email" maxLength={120} placeholder="john@example.com" {...register("customerEmail")} /></div><FieldErrorMessage error={errors.customerEmail} /></label>
           </div>
           <fieldset className="payment-method-panel"><legend>{t("paymentMethod", "Choose payment method")}</legend><div className="payment-method-options"><label className="payment-method-option payment-method-option-recommended"><input type="radio" name="paymentMethod" value="cash" checked readOnly /><span className="payment-method-radio" aria-hidden="true" /><span className="payment-method-copy"><span className="payment-method-heading"><strong>{t("cashPayment", "Pay in the vehicle")}</strong><small>{t("recommended", "Recommended")}</small></span><span>{t("cashPaymentDescription", "No prepayment. Pay the confirmed total directly to your driver.")}</span></span><Icon name="cash" className="icon" /></label></div></fieldset>
-          <div className="booking-footer"><p className="booking-includes">{t("quoteIncludes", "Includes meet & greet, flight tracking, parking, waiting time and bottled water.")}</p><button className="quote-submit" type="submit" id="main-book-submit" disabled={submitting}><span>{submitting ? "…" : t("confirmCashBooking", "Confirm booking — pay in vehicle")}</span><Icon name="arrow-right" className="icon" /></button></div>
+          <div className="booking-footer"><p className="booking-includes">{t("quoteIncludes", "Includes meet & greet, flight tracking, parking, waiting time and bottled water.")}</p><button className="quote-submit" type="submit" id="main-book-submit" disabled={submitting}><span>{submitting ? "…" : isPrivateAddressQuote ? t("requestQuote", "Request a price quote") : t("confirmCashBooking", "Confirm booking — pay in vehicle")}</span><Icon name="arrow-right" className="icon" /></button></div>
           {submitError && <p className="payment-error" id="payment-error-message" role="alert">{submitError}</p>}
         </form>
       </div>
