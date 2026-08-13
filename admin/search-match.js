@@ -11,6 +11,7 @@ export function matchesBookingQuery(booking, query) {
   if (lowerTR(booking.customer_name).includes(qTR)) return true
   if (lowerTR(booking.pickup_location).includes(qTR)) return true
   if (lowerTR(booking.dropoff_location).includes(qTR)) return true
+  if (booking.trip_type === 'daily_chauffeur' && ['günlük', 'gunluk', 'şoför', 'sofor', 'daily', 'chauffeur'].some(term => term.includes(qTR) || qTR.includes(term))) return true
 
   // Booking ref is ASCII (VIP-YYYY-NNNN); use plain toLowerCase so 'vip' matches
   // 'VIP' regardless of Turkish dotted-i rules.

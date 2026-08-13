@@ -52,6 +52,14 @@ const LANG = {
     labelChildSeats: 'Child seats',
     labelDriver: 'Driver',
     labelPlate: 'Plate',
+    labelDailyHire: 'Daily vehicle + chauffeur',
+    labelPeriod: 'Service period',
+    labelDailyRate: 'Daily rate',
+    labelTotal: 'Total service price',
+    labelFuel: 'Fuel',
+    fuelExcluded: 'Not included; paid separately by the customer according to use',
+    labelArrivalFlight: 'Arrival flight',
+    labelDepartureFlight: 'Departure flight',
   },
   de: {
     confirmGreeting: (name) => `Sehr geehrte/r ${name},\n\nvielen Dank für Ihre Buchung bei Antalya VIP Limousine. Ihr Transfer wurde bestätigt. Hier sind die Details:`,
@@ -124,6 +132,14 @@ const LANG = {
     labelChildSeats: 'Çocuk koltuğu',
     labelDriver: 'Sürücü',
     labelPlate: 'Plaka',
+    labelDailyHire: 'Günlük araç + şoför',
+    labelPeriod: 'Hizmet dönemi',
+    labelDailyRate: 'Günlük ücret',
+    labelTotal: 'Toplam hizmet bedeli',
+    labelFuel: 'Yakıt',
+    fuelExcluded: 'Dahil değildir; müşteri kullanıma göre ayrıca öder',
+    labelArrivalFlight: 'Geliş uçuşu',
+    labelDepartureFlight: 'Dönüş uçuşu',
   },
   ar: {
     confirmGreeting: (name) => `عزيزي/عزيزتي ${name}،\n\nشكراً لاختيارك Antalya VIP Limousine. تم تأكيد خدمة النقل الخاصة بك. إليك أحدث التفاصيل:`,
@@ -158,7 +174,23 @@ function getLang(language) {
 function transferDetails(booking, requestedLeg = 'outbound') {
   const b = booking ?? {}
   const isRoundTrip = b.trip_type === 'round_trip'
+  const isDailyChauffeur = b.trip_type === 'daily_chauffeur'
   const isReturn = requestedLeg === 'return' && isRoundTrip
+
+  if (isDailyChauffeur) {
+    return {
+      leg: 'daily',
+      date: b.pickup_date,
+      time: b.pickup_time,
+      flightNumber: b.flight_number,
+      pickupLocation: b.pickup_location,
+      pickupAddress: b.pickup_address,
+      isRoundTrip: false,
+      isDailyChauffeur: true,
+      pickup: b.pickup_address || b.hotel_name || locationLabel(b.pickup_location),
+      price: Number(b.price_eur) || 0,
+    }
+  }
 
   const transfer = isReturn
     ? {
@@ -203,6 +235,26 @@ function transferDetails(booking, requestedLeg = 'outbound') {
 
 function detailLines(booking, transfer, t) {
   const b = booking ?? {}
+  if (transfer.isDailyChauffeur) {
+    const english = LANG.en
+    const text = (key) => t[key] ?? english[key]
+    const lines = [
+      `*${text('labelDailyHire')}*`,
+      `${text('labelPeriod')}: ${b.pickup_date || '—'} – ${b.service_end_date || '—'}`,
+      `${t.labelPickupTime}: ${fmtTime(b.pickup_time)}`,
+      `${t.labelPickup}: ${transfer.pickup}`,
+      `${t.labelVehicle}: ${vehicleLabel(b.vehicle_type)}`,
+      `${t.labelGuests}: ${b.guests ?? '—'}`,
+      `${text('labelDailyRate')}: €${fmtPrice(b.daily_rate_eur)}`,
+      `${text('labelTotal')}: €${fmtPrice(b.price_eur)}`,
+      `${text('labelFuel')}: ${text('fuelExcluded')}`,
+    ]
+    if (b.flight_number) lines.push(`${text('labelArrivalFlight')}: ${b.flight_number} · ${fmtTime(b.flight_arrival_time)}`)
+    if (b.departure_flight_date) lines.push(`${text('labelDepartureFlight')}: ${b.departure_flight_date} · ${b.departure_flight_number || '—'} · ${fmtTime(b.departure_flight_time)}`)
+    if (Number(b.luggage_count) > 0) lines.push(`${t.labelLuggage}: ${b.luggage_count}`)
+    if (Number(b.child_seat_count) > 0) lines.push(`${t.labelChildSeats}: ${b.child_seat_count}`)
+    return lines
+  }
   const lines = [
     `*${transfer.isRoundTrip ? (transfer.leg === 'return' ? t.labelReturn : t.labelOutbound) : t.labelTransfer}*`,
     `${t.labelRoute}: ${transfer.route}`,

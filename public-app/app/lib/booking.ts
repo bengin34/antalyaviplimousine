@@ -3,6 +3,8 @@ import { z } from "zod";
 import { routeCatalog } from "../../../src/routes.js";
 
 type Translate = (key: string, fallback?: string) => string;
+export const DAILY_CHAUFFEUR_RATE_EUR = 150;
+export const MAX_DAILY_CHAUFFEUR_DAYS = 30;
 
 const normalize = (value: string) => value.trim().replace(/\s+/g, " ");
 const validName = (value: string) => {
@@ -10,16 +12,25 @@ const validName = (value: string) => {
   return normalized.length >= 2 && normalized.length <= 80 && (normalized.match(/\p{L}/gu)?.length ?? 0) >= 2 && !/\d/u.test(normalized);
 };
 
+export function inclusiveDayCount(start: string, end: string) {
+  const startAt = Date.parse(`${start}T00:00:00Z`);
+  const endAt = Date.parse(`${end}T00:00:00Z`);
+  if (!Number.isFinite(startAt) || !Number.isFinite(endAt)) return 0;
+  return Math.floor((endAt - startAt) / 86_400_000) + 1;
+}
+
 export function createPublicBookingSchema(t: Translate) {
   return z.object({
-    tripType: z.enum(["one_way", "round_trip"]),
+    tripType: z.enum(["one_way", "round_trip", "daily_chauffeur"]),
     pickup: z.enum(["airport", "hotel", "private_address"]),
-    destination: z.string().min(1, t("destinationRequired", "Please select a destination.")),
+    destination: z.string(),
     vehicle: z.enum(["vito", "sprinter"]),
     guests: z.string(), luggage: z.string(), childSeats: z.string(),
     travelDate: z.string().regex(/^\d{4}-\d{2}-\d{2}$/, t("dateInvalid", "Please select a valid date.")),
     arrivalTime: z.string(), flightNumber: z.string(),
     returnDate: z.string(), returnPickupTime: z.string(), returnFlightNumber: z.string(),
+    serviceEndDate: z.string(), pickupTime: z.string(),
+    departureFlightDate: z.string(), departureFlightTime: z.string(), departureFlightNumber: z.string(),
     pickupAddress: z.string(), dropoffAddress: z.string(), hotelName: z.string(),
     customerName: z.string(), customerPhone: z.string(), customerEmail: z.string(),
   }).superRefine((values, context) => {
@@ -41,17 +52,29 @@ export function createPublicBookingSchema(t: Translate) {
       if (!values.returnPickupTime) context.addIssue({ code: "custom", path: ["returnPickupTime"], message: t("returnTimeRequired", "Please select the return pick-up time.") });
     }
 
+    if (values.tripType === "daily_chauffeur") {
+      const days = inclusiveDayCount(values.travelDate, values.serviceEndDate);
+      if (!values.pickupTime) context.addIssue({ code: "custom", path: ["pickupTime"], message: t("dailyPickupTimeRequired", "Please select the daily service start time.") });
+      if (!values.serviceEndDate) context.addIssue({ code: "custom", path: ["serviceEndDate"], message: t("serviceEndDateRequired", "Please select the last service day.") });
+      else if (days < 1 || days > MAX_DAILY_CHAUFFEUR_DAYS) context.addIssue({ code: "custom", path: ["serviceEndDate"], message: t("servicePeriodInvalid", "Please select a period between 1 and 30 days.") });
+      const hasDepartureDetails = Boolean(values.departureFlightTime || normalize(values.departureFlightNumber));
+      if (hasDepartureDetails && !values.departureFlightDate) context.addIssue({ code: "custom", path: ["departureFlightDate"], message: t("departureFlightDateRequired", "Please select the departure flight date.") });
+      if (values.departureFlightDate && values.departureFlightDate < values.travelDate) context.addIssue({ code: "custom", path: ["departureFlightDate"], message: t("departureFlightDateInvalid", "Departure flight date cannot be before the service starts.") });
+    } else if (!values.destination) {
+      context.addIssue({ code: "custom", path: ["destination"], message: t("destinationRequired", "Please select a destination.") });
+    }
+
     if (values.pickup === "private_address" && (normalize(values.pickupAddress).length < 6 || normalize(values.pickupAddress).length > 160)) {
       context.addIssue({ code: "custom", path: ["pickupAddress"], message: t("pickupAddressRequired", "Please enter the full pick-up address.") });
     }
-    if (values.destination === "private_address" && (normalize(values.dropoffAddress).length < 6 || normalize(values.dropoffAddress).length > 160)) {
+    if (values.tripType !== "daily_chauffeur" && values.destination === "private_address" && (normalize(values.dropoffAddress).length < 6 || normalize(values.dropoffAddress).length > 160)) {
       context.addIssue({ code: "custom", path: ["dropoffAddress"], message: t("dropoffAddressRequired", "Please enter the full drop-off address.") });
     }
-    if (values.pickup === "private_address" && values.destination === "private_address" && normalize(values.pickupAddress).toLowerCase() === normalize(values.dropoffAddress).toLowerCase()) {
+    if (values.tripType !== "daily_chauffeur" && values.pickup === "private_address" && values.destination === "private_address" && normalize(values.pickupAddress).toLowerCase() === normalize(values.dropoffAddress).toLowerCase()) {
       context.addIssue({ code: "custom", path: ["dropoffAddress"], message: t("addressesMustDiffer", "Pick-up and drop-off addresses must be different.") });
     }
 
-    const needsHotel = values.pickup === "hotel" || values.destination !== "private_address";
+    const needsHotel = values.tripType === "daily_chauffeur" || values.pickup === "hotel" || values.destination !== "private_address";
     if (needsHotel && (normalize(values.hotelName).length < 2 || normalize(values.hotelName).length > 120)) {
       context.addIssue({ code: "custom", path: ["hotelName"], message: t("hotelNameRequired", "Please enter the hotel name.") });
     }
@@ -64,7 +87,7 @@ export function createPublicBookingSchema(t: Translate) {
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(values.customerEmail.trim()) || values.customerEmail.trim().length > 120) {
       context.addIssue({ code: "custom", path: ["customerEmail"], message: t("emailInvalid", "Please enter a valid email address.") });
     }
-    for (const field of ["flightNumber", "returnFlightNumber"] as const) {
+    for (const field of ["flightNumber", "returnFlightNumber", "departureFlightNumber"] as const) {
       const flight = normalize(values[field]);
       if (flight && !/^[a-z0-9][a-z0-9 -]{1,11}$/i.test(flight)) {
         context.addIssue({ code: "custom", path: [field], message: t("flightInvalid", "Please enter a valid flight number.") });
@@ -75,7 +98,12 @@ export function createPublicBookingSchema(t: Translate) {
 
 export type PublicBookingValues = z.input<ReturnType<typeof createPublicBookingSchema>>;
 
-export function quoteFor(values: Pick<PublicBookingValues, "destination" | "vehicle" | "tripType">) {
+export function quoteFor(values: Pick<PublicBookingValues, "destination" | "vehicle" | "tripType" | "travelDate" | "serviceEndDate">) {
+  if (values.tripType === "daily_chauffeur") {
+    const days = inclusiveDayCount(values.travelDate, values.serviceEndDate);
+    const price = days > 0 && days <= MAX_DAILY_CHAUFFEUR_DAYS ? days * DAILY_CHAUFFEUR_RATE_EUR : 0;
+    return { price, originalPrice: price };
+  }
   const route = routeCatalog[values.destination as keyof typeof routeCatalog];
   if (!route) return { price: 0, originalPrice: 0 };
   const journeys = values.tripType === "round_trip" ? 2 : 1;
@@ -85,7 +113,9 @@ export function quoteFor(values: Pick<PublicBookingValues, "destination" | "vehi
   };
 }
 
-export function buildPublicBookingPayload(values: PublicBookingValues, language: string) {
+export function buildPublicBookingPayload(values: PublicBookingValues, language: string, fuelTermsAccepted = false) {
+  const isDailyChauffeur = values.tripType === "daily_chauffeur";
+  if (isDailyChauffeur && !fuelTermsAccepted) throw new Error("Fuel terms must be accepted before booking");
   return {
     customer_name: normalize(values.customerName),
     customer_email: values.customerEmail.trim().toLowerCase(),
@@ -97,13 +127,19 @@ export function buildPublicBookingPayload(values: PublicBookingValues, language:
     flight_arrival_time: values.arrivalTime || null,
     pickup_location: values.pickup,
     pickup_address: values.pickup === "private_address" ? normalize(values.pickupAddress) : null,
-    dropoff_location: values.destination,
-    dropoff_address: values.destination === "private_address" ? normalize(values.dropoffAddress) : null,
+    pickup_time: isDailyChauffeur ? values.pickupTime : null,
+    dropoff_location: isDailyChauffeur ? null : values.destination,
+    dropoff_address: !isDailyChauffeur && values.destination === "private_address" ? normalize(values.dropoffAddress) : null,
     pickup_date: values.travelDate,
     trip_type: values.tripType,
     return_date: values.tripType === "round_trip" ? values.returnDate : null,
     return_pickup_time: values.tripType === "round_trip" ? values.returnPickupTime : null,
     return_flight_number: values.tripType === "round_trip" ? normalize(values.returnFlightNumber).toUpperCase() || null : null,
+    service_end_date: isDailyChauffeur ? values.serviceEndDate : null,
+    departure_flight_date: isDailyChauffeur ? values.departureFlightDate || null : null,
+    departure_flight_time: isDailyChauffeur ? values.departureFlightTime || null : null,
+    departure_flight_number: isDailyChauffeur ? normalize(values.departureFlightNumber).toUpperCase() || null : null,
+    fuel_terms_accepted: isDailyChauffeur ? fuelTermsAccepted : null,
     guests: Number(values.guests),
     vehicle_type: values.vehicle === "sprinter" ? "vclass" : "vito",
     payment_method: "cash",

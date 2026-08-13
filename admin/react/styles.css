@@ -12,3 +12,168 @@ button,
   place-items: center;
   color: var(--text-muted);
 }
+.badge-daily {
+  border-color: #8b6f2d;
+  background: #f3e8c7;
+  color: #6d5116;
+}
+
+.daily-fuel-info .card-info-value {
+  color: #735718;
+}
+
+.admin-fuel-acceptance,
+.admin-fuel-paid {
+  display: flex;
+  align-items: flex-start;
+  gap: 11px;
+  margin-top: 12px;
+  padding: 14px;
+  border: 1px solid #d7c58e;
+  border-radius: 10px;
+  background: #fff9e8;
+  cursor: pointer;
+}
+
+.admin-fuel-acceptance input,
+.admin-fuel-paid input {
+  width: 19px;
+  height: 19px;
+  flex: 0 0 auto;
+  accent-color: #806315;
+}
+
+.admin-fuel-acceptance span {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.admin-fuel-acceptance small {
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+.daily-detail-title {
+  margin: 6px 0 14px;
+  font-size: 19px;
+  font-weight: 750;
+}
+
+.daily-detail-summary {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.daily-detail-summary > span {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 5px;
+  padding: 13px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--surface-soft);
+}
+
+.daily-detail-summary small,
+.daily-detail-summary strong {
+  overflow-wrap: anywhere;
+}
+
+.daily-detail-summary small {
+  color: var(--text-muted);
+}
+
+.fuel-acceptance-status {
+  margin-top: 13px;
+  padding: 12px 14px;
+  border-radius: 9px;
+  font-size: 13px;
+  font-weight: 650;
+}
+
+.fuel-acceptance-status.accepted {
+  background: #e7f5eb;
+  color: #20643a;
+}
+
+.fuel-acceptance-status.missing {
+  background: #fff0ec;
+  color: #9b3528;
+}
+
+.daily-flight-line {
+  margin-top: 9px;
+  color: var(--text-muted);
+  font-size: 13px;
+}
+
+.chauffeur-days-section {
+  display: grid;
+  gap: 12px;
+}
+
+.chauffeur-day-card {
+  padding: 14px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--surface-soft);
+}
+
+.chauffeur-day-heading,
+.chauffeur-day-heading > div,
+.chauffeur-day-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.chauffeur-day-heading {
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.chauffeur-day-heading > div {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+}
+
+.chauffeur-day-heading span {
+  color: var(--text-muted);
+  font-size: 12px;
+}
+
+.chauffeur-day-heading .input {
+  width: auto;
+}
+
+.chauffeur-day-actions {
+  margin-top: 10px;
+}
+
+.chauffeur-day-actions .btn {
+  width: auto;
+}
+
+.daily-total-label {
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+@media (max-width: 720px) {
+  .daily-detail-summary {
+    grid-template-columns: 1fr;
+  }
+
+  .chauffeur-day-heading {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .chauffeur-day-heading .input {
+    width: 100%;
+  }
+}

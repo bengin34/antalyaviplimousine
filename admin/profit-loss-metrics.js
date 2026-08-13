@@ -60,13 +60,27 @@ function isInPeriod(date, period) {
   return period === 'all' || date.slice(0, 7) === period
 }
 
-function isRealizedLeg(booking, date, today) {
+function isRealizedLeg(booking, date, today, legStatus) {
   if (!date || booking.status === 'cancelled' || date > today) return false
-  return date < today || REALIZED_TODAY_STATUSES.has(booking.status)
+  return date < today || REALIZED_TODAY_STATUSES.has(legStatus || booking.status)
 }
 
 function bookingLegs(booking) {
   const priceEur = Number(booking.price_eur) || 0
+  if (booking.trip_type === 'daily_chauffeur') {
+    const days = [...(booking.chauffeur_hire_days || [])].sort((left, right) => left.day_number - right.day_number)
+    const dailyRate = Number(booking.daily_rate_eur) || (days.length ? priceEur / days.length : priceEur)
+    return days.map(day => ({
+      leg: `day-${day.day_number}`,
+      date: day.service_date,
+      from: 'daily_chauffeur',
+      to: 'daily_chauffeur',
+      revenueEur: dailyRate,
+      directVehicleKm: Number.isFinite(Number(day.distance_km)) && Number(day.distance_km) >= 0 ? Number(day.distance_km) : null,
+      legStatus: day.status === 'completed' ? 'completed' : day.status === 'in_progress' ? 'in_transit' : booking.status,
+      isDailyChauffeur: true,
+    }))
+  }
   const hasReturn = booking.trip_type === 'round_trip' && Boolean(booking.return_date)
   const legRevenueEur = hasReturn ? priceEur / 2 : priceEur
   const legs = booking.pickup_date
@@ -122,7 +136,7 @@ export function calculateProfitLossMetrics(bookings, period, today, settingsByMo
 
   for (const booking of bookings) {
     for (const leg of bookingLegs(booking)) {
-      if (!isRealizedLeg(booking, leg.date, today) || !isInPeriod(leg.date, period)) continue
+      if (!isRealizedLeg(booking, leg.date, today, leg.legStatus) || !isInPeriod(leg.date, period)) continue
 
       const manualDistanceKm = distanceOverrideForLeg(distanceOverrides, booking.id, leg.leg)
       const oneWayKm = manualDistanceKm ?? fixedRouteDistanceKm(leg.from, leg.to)
@@ -135,6 +149,18 @@ export function calculateProfitLossMetrics(bookings, period, today, settingsByMo
       }
       const settings = settingForMonth(settingsByMonth, legDetails.month)
       legDetails.revenueTry = leg.revenueEur * settings.eurTryRate
+
+      if (leg.isDailyChauffeur) {
+        const vehicleKm = leg.directVehicleKm ?? 0
+        resolvedLegs.push({
+          ...legDetails,
+          oneWayKm: vehicleKm,
+          vehicleKm,
+          vehicleCostTry: vehicleKm * settings.kmCostTry,
+          distanceSource: leg.directVehicleKm === null ? 'daily-missing' : 'daily-actual',
+        })
+        continue
+      }
 
       if (oneWayKm === null) {
         unresolvedLegs.push(legDetails)
@@ -222,6 +248,7 @@ export function calculateProfitLossMetrics(bookings, period, today, settingsByMo
     completedLegs: resolvedLegs.length + unresolvedLegs.length,
     resolvedLegs,
     unresolvedLegs,
+    missingDailyDistanceCount: resolvedLegs.filter(leg => leg.distanceSource === 'daily-missing').length,
     routes,
   }
 }

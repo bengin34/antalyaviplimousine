@@ -76,7 +76,7 @@ function warningsFor(card: TimelineCard) {
   else if (card.pickup_location !== 'airport' && !pickupAddress && !hasHotel) missing.push('alış adresi/otel')
   if (card.dropoff_location === 'private_address' && !dropoffAddress) missing.push('varış adresi')
   else if (card.dropoff_location !== 'airport' && !dropoffAddress && !hasHotel) missing.push('varış adresi/otel')
-  if ((card.pickup_location === 'airport' || card.dropoff_location === 'airport') && !card.flight_number) missing.push('uçuş no')
+  if ((card.pickup_location === 'airport' || card.dropoff_location === 'airport') && !card.flight_number && (card.trip_type !== 'daily_chauffeur' || card._hireDayNumber === 1)) missing.push('uçuş no')
   if (missing.length) warnings.push({ kind: 'missing', text: `Eksik bilgi: ${missing.join(', ')}` })
   const childSeats = Number(card.child_seat_count) || 0
   if (childSeats > 0) warnings.push({ kind: 'prep', text: `${childSeats} çocuk koltuğu hazırla` })
@@ -103,6 +103,7 @@ function turkishDayLabel(isoDate: string) {
 function PaymentInfo({ card }: { card: TimelineCard }) {
   const paymentMethod = card.payment_method === 'cash' ? 'Nakit' : 'Kart'
   const price = Number(card.price_eur) || 0
+  if (card.trip_type === 'daily_chauffeur') return <div className="card-info-item full payment-info"><span className="card-info-label">Günlük / toplam</span><div className="card-info-value"><strong>€{fmtPrice(Number(card.daily_rate_eur) || 150)}</strong> / gün · toplam €{fmtPrice(price)}<small>{paymentMethod}</small></div></div>
   if (card.trip_type !== 'round_trip') return <div className="card-info-item full payment-info"><span className="card-info-label">Ödeme</span><div className="card-info-value">{paymentMethod} · <strong>€{fmtPrice(price)}</strong></div></div>
   const half = price / 2
   if (card._isReturn) return <div className="card-info-item full payment-info payment-info-settled"><span className="card-info-label">Dönüş ücreti</span><div className="card-info-value"><strong>€{fmtPrice(half)}</strong></div></div>
@@ -113,13 +114,14 @@ function BookingCard({ card, now, isPast, navigate, confirmPast, confirming, con
   card: TimelineCard; now: Date; isPast: boolean; navigate: Navigate
   confirmPast: (ref: string) => Promise<void>; confirming: string | null; confirmFailed: string | null
 }) {
+  const isDailyChauffeur = card.trip_type === 'daily_chauffeur'
   const pickup = locationDisplay(card.pickup_location, card.pickup_address)
-  const dropoff = locationDisplay(card.dropoff_location, card.dropoff_address)
-  const navigation = navigationURLs({
+  const dropoff = isDailyChauffeur ? 'Esnek güzergâh' : locationDisplay(card.dropoff_location, card.dropoff_address)
+  const navigation = !isDailyChauffeur ? navigationURLs({
     originValue: card.pickup_location, originAddress: card.pickup_address,
     destinationValue: card.dropoff_location, destinationAddress: card.dropoff_address,
     hotelName: card.hotel_name,
-  })
+  }) : null
   const warnings = warningsFor(card)
   const timing = liveTiming(card, now)
   const flightAlert = isPast ? null : flightLandingAlert(card, now)
@@ -149,12 +151,12 @@ function BookingCard({ card, now, isPast, navigate, confirmPast, confirming, con
     </div>}
     {flightAlert && <div className="flight-landed-alert" role="status"><span className="flight-landed-icon" aria-hidden="true">✈</span><span><strong>Uçak iniş saati geldi</strong><small>{flightAlert}</small></span></div>}
     <div className="card-header">
-      <div className="card-time-block"><span className="card-time-label">Transfer saati</span><div className="card-time">{fmtTime(card._displayTime)}</div><div className={`card-live-time${timing.className ? ` ${timing.className}` : ''}`}>{timing.text}</div></div>
-      <div className="card-badges"><span className={`badge badge-${card.status}`}>{statusLabel(card.status, card.trip_type === 'round_trip')}</span>{(card.trip_type === 'round_trip' || card.manual_return_of_ref) && <span className={`badge ${(card._isReturn || card.manual_return_of_ref) ? 'badge-return' : 'badge-outbound'}`}>{(card._isReturn || card.manual_return_of_ref) ? 'DÖNÜŞ' : 'GİDİŞ'}</span>}</div>
+      <div className="card-time-block"><span className="card-time-label">{isDailyChauffeur ? 'Hizmet başlangıcı' : 'Transfer saati'}</span><div className="card-time">{fmtTime(card._displayTime)}</div><div className={`card-live-time${timing.className ? ` ${timing.className}` : ''}`}>{timing.text}</div></div>
+      <div className="card-badges"><span className={`badge badge-${card.status}`}>{statusLabel(card.status, card.trip_type === 'round_trip')}</span>{isDailyChauffeur && <span className="badge badge-daily">GÜNLÜK KİRALAMA · {card._hireDayNumber}/{card._hireDayCount}</span>}{(card.trip_type === 'round_trip' || card.manual_return_of_ref) && <span className={`badge ${(card._isReturn || card.manual_return_of_ref) ? 'badge-return' : 'badge-outbound'}`}>{(card._isReturn || card.manual_return_of_ref) ? 'DÖNÜŞ' : 'GİDİŞ'}</span>}</div>
     </div>
     <div className="card-route" aria-label={`${pickup} konumundan ${dropoff} konumuna`}>
       <div className="route-point route-pickup"><span className="route-marker" aria-hidden="true" /><div><span className="route-label">Alış</span><strong>{pickup}</strong></div></div>
-      <div className="route-point route-dropoff"><span className="route-marker" aria-hidden="true" /><div><span className="route-label">Varış</span><strong>{dropoff}</strong></div></div>
+      <div className="route-point route-dropoff"><span className="route-marker" aria-hidden="true" /><div><span className="route-label">{isDailyChauffeur ? 'Hizmet' : 'Varış'}</span><strong>{dropoff}</strong></div></div>
     </div>
     {warnings.length > 0 && <div className="card-warnings">{warnings.map((warning, index) => <div className={`card-warning card-warning-${warning.kind}`} key={`${warning.kind}-${index}`}><span aria-hidden="true">{warning.kind === 'missing' ? '⚠️' : warning.kind === 'note' ? '📌' : '❗'}</span><span>{warning.text}</span></div>)}</div>}
     <div className="card-info-grid">
@@ -163,11 +165,13 @@ function BookingCard({ card, now, isPast, navigate, confirmPast, confirming, con
       {hasUsefulHotel(card.hotel_name) && <div className={`card-info-item${card.flight_number ? '' : ' full'}`}><span className="card-info-label">Otel / Konaklama</span><div className="card-info-value">{card.hotel_name}</div></div>}
       <div className="card-info-item"><span className="card-info-label">Yolcu & Araç</span><div className="card-info-value">{card.guests} kişi · {card.vehicle_type === 'vclass' ? 'V-Class' : 'Vito'}</div></div>
       <div className="card-info-item"><span className="card-info-label">Bagaj & Koltuk</span><div className="card-info-value">{Number(card.luggage_count) || 0} bagaj · {Number(card.child_seat_count) ? `${card.child_seat_count} koltuk` : 'Koltuk yok'}</div></div>
+      {isDailyChauffeur && <div className="card-info-item full"><span className="card-info-label">Şoför & Plaka</span><div className="card-info-value">{card.driver_name || 'Şoför atanmadı'} · {card.vehicle_plate || 'Plaka yok'}</div></div>}
       <PaymentInfo card={card} />
+      {isDailyChauffeur && <div className="card-info-item full daily-fuel-info"><span className="card-info-label">Yakıt koşulu</span><div className="card-info-value">⛽ Yakıt hariç · müşteri kullanıma göre ayrıca öder</div></div>}
       {card.pickup_address && <div className="card-info-item full address-info"><span className="card-info-label">Alış adresi</span><div className="card-info-value">{card.pickup_address}</div></div>}
       {card.dropoff_address && <div className="card-info-item full address-info"><span className="card-info-label">Varış adresi</span><div className="card-info-value">{card.dropoff_address}</div></div>}
     </div>
-    <div className="card-navigation" aria-label="Google Haritalar ile transfer rotası için yol tarifi" onClick={event => event.stopPropagation()}><a href={navigation.google} target="_blank" rel="noopener noreferrer"><span aria-hidden="true">↗</span> Adrese yol tarifi al</a></div>
+    {navigation && <div className="card-navigation" aria-label="Google Haritalar ile transfer rotası için yol tarifi" onClick={event => event.stopPropagation()}><a href={navigation.google} target="_blank" rel="noopener noreferrer"><span aria-hidden="true">↗</span> Adrese yol tarifi al</a></div>}
     <div className="card-footer">
       <span className="card-reference">{card.booking_ref}</span>
       {!card._isReturn && card.trip_type === 'round_trip' && card.return_date && <button className="card-goto-return-button" type="button" onClick={event => { event.stopPropagation(); gotoReturn() }}>Dönüşü Gör ↓</button>}
@@ -192,7 +196,7 @@ function cacheToday(bookings: Booking[], today: string, futureReservationCount: 
   try {
     localStorage.setItem(TODAY_CACHE_KEY, JSON.stringify({
       date: today, savedAt: new Date().toISOString(), futureReservationCount,
-      bookings: bookings.filter(booking => booking.pickup_date === today || booking.return_date === today),
+      bookings: bookings.filter(booking => booking.pickup_date === today || booking.return_date === today || (booking.trip_type === 'daily_chauffeur' && booking.pickup_date <= today && Boolean(booking.service_end_date && booking.service_end_date >= today))),
     }))
   } catch { /* storage is optional */ }
 }
@@ -239,8 +243,8 @@ export default function TimelinePage({ selectedTab, navigate }: { selectedTab: '
       return
     }
     refreshingRef.current = true; setRefreshing(true); setSyncStatus('Yenileniyor…')
-    let query = supabase.from('bookings').select('*, booking_notes(id, note, created_at)').in('status', ['pending', 'paid', 'confirmed', 'in_transit', 'completed'])
-    query = isPast ? query.lte('pickup_date', today) : query.or(`pickup_date.gte.${today},return_date.gte.${today}`)
+    let query = supabase.from('bookings').select('*, booking_notes(id, note, created_at), chauffeur_hire_days(*)').in('status', ['pending', 'paid', 'confirmed', 'in_transit', 'completed'])
+    query = isPast ? query.lte('pickup_date', today) : query.or(`pickup_date.gte.${today},return_date.gte.${today},service_end_date.gte.${today}`)
     const { data, error } = await query.order('pickup_date').order('pickup_time', { nullsFirst: false })
     refreshingRef.current = false
     if (!mounted.current) return

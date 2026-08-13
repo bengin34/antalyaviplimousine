@@ -9,7 +9,8 @@ const baseForm: BookingFormState = {
   tripType: 'one_way', pickup: 'airport', dropoff: 'belek', pickupAddress: '', dropoffAddress: '',
   pickupDate: '2026-08-10', pickupTime: '12:30', flightNumber: 'TK123', flightTime: '12:10',
   returnDate: '', returnTime: '', returnFlight: '', vehicle: 'vito', guests: '3', luggage: '2',
-  childSeats: '1', price: '80', payment: 'cash', status: 'confirmed', notes: '',
+  serviceEndDate: '2026-08-10', departureFlightDate: '', departureFlightTime: '', departureFlight: '',
+  childSeats: '1', price: '80', payment: 'cash', status: 'confirmed', notes: '', fuelAccepted: false,
 }
 
 describe('React admin migration behavior', () => {
@@ -24,6 +25,19 @@ describe('React admin migration behavior', () => {
   test('keeps private address validation', () => {
     const result = validateBookingForm({ ...baseForm, pickup: 'private_address', pickupAddress: 'kısa' })
     expect(result.error).toBe('Alış adresi 6-160 karakter olmalı.')
+  })
+
+  test('builds a daily chauffeur total and requires fuel acceptance', () => {
+    const missingAcceptance = validateBookingForm({
+      ...baseForm, tripType: 'daily_chauffeur', pickupTime: '09:00', serviceEndDate: '2026-08-13', price: '150',
+    })
+    expect(missingAcceptance.error).toContain('yakıt hariç')
+
+    const result = validateBookingForm({
+      ...baseForm, tripType: 'daily_chauffeur', pickupTime: '09:00', serviceEndDate: '2026-08-13', price: '150', fuelAccepted: true,
+    })
+    expect(result.error).toBe('')
+    expect(result.payload).toMatchObject({ trip_type: 'daily_chauffeur', dropoff_location: null, daily_rate_eur: 150, price_eur: 600 })
   })
 
   test('expands a round trip into outbound and return cards', () => {
@@ -42,6 +56,24 @@ describe('React admin migration behavior', () => {
     expect(cards[1]._isReturn).toBe(true)
     expect(cards[1].pickup_location).toBe('belek')
     expect(cards[1].dropoff_location).toBe('airport')
+  })
+
+  test('expands a daily chauffeur hire across every occupied day', () => {
+    const booking = {
+      id: 'daily-1', booking_ref: 'AVL-D1', customer_name: 'Ayşe', customer_email: '', customer_phone: '+90555',
+      hotel_name: 'Rixos', child_seat_count: 0, luggage_count: 1, pickup_location: 'hotel', pickup_address: null,
+      dropoff_location: null, dropoff_address: null, pickup_date: '2026-08-10', pickup_time: '09:00:00',
+      flight_number: null, flight_arrival_time: null, trip_type: 'daily_chauffeur', return_date: null,
+      return_pickup_time: null, return_flight_number: null, service_end_date: '2026-08-13', daily_rate_eur: 150,
+      departure_flight_date: null, departure_flight_time: null, departure_flight_number: null,
+      fuel_terms_accepted_at: '2026-08-01T00:00:00Z', guests: 2, vehicle_type: 'vito', price_eur: 600,
+      status: 'confirmed', payment_method: 'cash', notes: null, language: 'tr', created_at: '2026-08-01T00:00:00Z',
+      chauffeur_hire_days: [],
+    } as Booking
+    const cards = expandRoundTrips([booking], 'future')
+    expect(cards.map(card => [card._displayDate, card._hireDayNumber, card._hireDayCount])).toEqual([
+      ['2026-08-10', 1, 4], ['2026-08-11', 2, 4], ['2026-08-12', 3, 4], ['2026-08-13', 4, 4],
+    ])
   })
 
   test('builds a Monday-first monthly calendar and moves between years', () => {

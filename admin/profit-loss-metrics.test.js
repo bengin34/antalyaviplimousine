@@ -145,6 +145,24 @@ describe('calculateProfitLossMetrics', () => {
     expect(result.vehicleKm).toBe(170)
   })
 
+  test('allocates daily chauffeur income by day and uses actual kilometres without adding an empty return', () => {
+    const daily = {
+      ...baseBooking,
+      trip_type: 'daily_chauffeur', dropoff_location: null, pickup_date: '2026-08-01',
+      service_end_date: '2026-08-02', daily_rate_eur: 150, price_eur: 300,
+      chauffeur_hire_days: [
+        { day_number: 1, service_date: '2026-08-01', status: 'completed', distance_km: 120, fuel_amount_eur: 30 },
+        { day_number: 2, service_date: '2026-08-02', status: 'completed', distance_km: 80, fuel_amount_eur: 20 },
+      ],
+    }
+    const result = calculateProfitLossMetrics([daily], '2026-08', '2026-08-07')
+
+    expect(result.incomeEur).toBe(300)
+    expect(result.vehicleKm).toBe(200)
+    expect(result.vehicleCostTry).toBe(200 * DEFAULT_KM_COST_TRY)
+    expect(result.missingDailyDistanceCount).toBe(0)
+  })
+
   test('uses each month settings when all periods are combined', () => {
     const july = { ...baseBooking, id: 'july', pickup_date: '2026-07-20' }
     const august = { ...baseBooking, id: 'august', pickup_date: '2026-08-01' }

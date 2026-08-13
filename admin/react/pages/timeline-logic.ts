@@ -39,6 +39,33 @@ export function clearTimelineCache() {
 export function expandRoundTrips(bookings: Booking[], selectedTab: 'future' | 'past'): TimelineCard[] {
   const cards: TimelineCard[] = []
   for (const booking of bookings) {
+    if (booking.trip_type === 'daily_chauffeur' && booking.service_end_date) {
+      const start = Date.parse(`${booking.pickup_date}T00:00:00Z`)
+      const end = Date.parse(`${booking.service_end_date}T00:00:00Z`)
+      const dayCount = Math.floor((end - start) / 86_400_000) + 1
+      const dayRecords = new Map((booking.chauffeur_hire_days ?? []).map(day => [day.service_date, day]))
+      if (Number.isInteger(dayCount) && dayCount > 0 && dayCount <= 30) {
+        for (let index = 0; index < dayCount; index += 1) {
+          const serviceDate = new Date(start + index * 86_400_000).toISOString().slice(0, 10)
+          const day = dayRecords.get(serviceDate)
+          const dailyStatus = day?.status === 'completed' ? 'completed' : day?.status === 'in_progress' ? 'in_transit' : booking.status
+          cards.push({
+            ...booking,
+            status: dailyStatus,
+            driver_name: day?.driver_name || booking.driver_name,
+            vehicle_plate: day?.vehicle_plate || booking.vehicle_plate,
+            flight_number: index === 0 ? booking.flight_number : index === dayCount - 1 ? booking.departure_flight_number : null,
+            flight_arrival_time: index === 0 ? booking.flight_arrival_time : index === dayCount - 1 ? booking.departure_flight_time : null,
+            _displayDate: serviceDate,
+            _displayTime: booking.pickup_time,
+            _isReturn: false,
+            _hireDayNumber: index + 1,
+            _hireDayCount: dayCount,
+          })
+        }
+      }
+      continue
+    }
     cards.push({
       ...booking,
       _displayDate: booking.pickup_date,
@@ -56,7 +83,7 @@ export function expandRoundTrips(bookings: Booking[], selectedTab: 'future' | 'p
         _needsReturnContact: needsReturnContact,
         _displayDate: booking.return_date,
         _displayTime: booking.return_pickup_time,
-        pickup_location: booking.dropoff_location,
+        pickup_location: booking.dropoff_location ?? 'hotel',
         dropoff_location: booking.pickup_location,
         pickup_address: booking.dropoff_address,
         dropoff_address: booking.pickup_address,

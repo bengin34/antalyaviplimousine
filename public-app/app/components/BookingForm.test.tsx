@@ -28,4 +28,29 @@ describe("BookingForm route summary", () => {
     expect(routeSummary).not.toHaveTextContent("private_address");
     expect(container.querySelector("#main-book-submit")).toHaveTextContent("Fiyat teklifi al");
   });
+
+  test("requires the fuel acknowledgement before a daily chauffeur booking can continue", async () => {
+    const { container, findByRole } = render(
+      <LanguageProvider initialLanguage="tr">
+        <BookingForm scrollOnSelect={false} />
+      </LanguageProvider>,
+    );
+    const future = `${new Date().getFullYear() + 1}-08-10`;
+
+    fireEvent.click(container.querySelector('input[value="daily_chauffeur"]')!);
+    fireEvent.change(container.querySelector("#travel-date")!, { target: { value: future } });
+    fireEvent.change(container.querySelector("#service-end-date")!, { target: { value: future } });
+    fireEvent.change(container.querySelector("#daily-pickup-time")!, { target: { value: "09:00" } });
+    fireEvent.change(container.querySelector("#hotel-name")!, { target: { value: "Test Hotel" } });
+    fireEvent.change(container.querySelector("#customer-name")!, { target: { value: "Test Guest" } });
+    fireEvent.change(container.querySelector("#customer-phone")!, { target: { value: "+49 151 23456789" } });
+    fireEvent.change(container.querySelector("#customer-email")!, { target: { value: "guest@example.com" } });
+    fireEvent.click(container.querySelector("#main-book-submit")!);
+
+    const dialog = await findByRole("dialog", { name: "Yakıt ücreti hakkında önemli bilgi" });
+    const confirm = dialog.querySelector<HTMLButtonElement>(".button-gold")!;
+    expect(confirm).toBeDisabled();
+    fireEvent.click(dialog.querySelector('input[type="checkbox"]')!);
+    expect(confirm).toBeEnabled();
+  });
 });

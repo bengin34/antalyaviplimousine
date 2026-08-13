@@ -176,3 +176,19 @@ test('Arabic booking messages use Arabic labels and the selected leg', () => {
   expect(msg).toContain('موقع الاستقبال:')
   expect(msg).toContain('مسار Google Maps:')
 })
+
+test('daily chauffeur confirmation states the period, total, and fuel exclusion', () => {
+  const msg = buildConfirmMessage({
+    ...base,
+    language: 'tr', trip_type: 'daily_chauffeur', dropoff_location: null,
+    pickup_date: '2026-08-10', pickup_time: '09:00', service_end_date: '2026-08-13',
+    daily_rate_eur: 150, price_eur: 600, departure_flight_date: '2026-08-14',
+    departure_flight_time: '12:00', departure_flight_number: 'TK1235',
+  })
+
+  expect(msg).toContain('*Günlük araç + şoför*')
+  expect(msg).toContain('2026-08-10 – 2026-08-13')
+  expect(msg).toContain('Günlük ücret: €150')
+  expect(msg).toContain('Toplam hizmet bedeli: €600')
+  expect(msg).toContain('Yakıt: Dahil değildir')
+})

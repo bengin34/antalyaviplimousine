@@ -20,12 +20,13 @@ type DistanceOverride = {
 type DistanceOverridesMap = Map<string, DistanceOverride>
 
 const distanceKey = (bookingId: string, leg: DistanceLeg) => `${bookingId}:${leg}`
+const profitLocationLabel = (location: string) => location === 'daily_chauffeur' ? 'Günlük araç + şoför' : locationLabel(location)
 
 async function fetchAllBookings() {
   const bookings: Booking[] = []
   for (let from = 0; ; from += PAGE_SIZE) {
     const { data, error } = await supabase.from('bookings')
-      .select('id, booking_ref, customer_name, pickup_location, dropoff_location, pickup_date, return_date, trip_type, price_eur, status, created_at')
+      .select('id, booking_ref, customer_name, pickup_location, dropoff_location, pickup_date, return_date, service_end_date, trip_type, price_eur, daily_rate_eur, status, created_at, chauffeur_hire_days(id, service_date, day_number, status, distance_km, fuel_amount_eur, fuel_paid)')
       .order('created_at', { ascending: true }).range(from, from + PAGE_SIZE - 1)
     if (error) throw error
     const rows = (data ?? []) as Booking[]
@@ -153,7 +154,7 @@ function DistanceActionRow({ leg, period, navigate, onSave, currentKm }: {
   return <li className="profit-warning-row">
     <div className="profit-warning-main">
       <span><strong>{leg.bookingRef || leg.customerName || 'Kayıt'}</strong><em>{leg.leg === 'return' ? 'Dönüş' : 'Gidiş'} · {fmtDetailDate(leg.date)}</em></span>
-      <small>{locationLabel(leg.from)} → {locationLabel(leg.to)}</small>
+      <small>{profitLocationLabel(leg.from)} → {profitLocationLabel(leg.to)}</small>
     </div>
     <div className="profit-warning-actions">
       <button className="profit-warning-action" type="button" onClick={() => navigate(detailHash)}>Seyahate git</button>
@@ -182,14 +183,15 @@ function ProfitMetrics({ metrics, period, navigate, onSaveDistance }: {
     <section className="profit-formula" aria-label="Kâr hesaplama özeti"><span><small>Gelir</small><strong>{formatTry(metrics.incomeTry)}</strong></span><i>−</i><span><small>Araç</small><strong>{formatTry(metrics.vehicleCostTry)}</strong></span><i>−</i><span><small>Reklam</small><strong>{formatTry(metrics.advertisingExpenseTry)}</strong></span></section>
     <section className="budget-kpi-grid profit-kpi-grid" aria-label="Kâr zarar özeti">
       <article className="budget-kpi profit-income-kpi"><span className="budget-kpi-icon" aria-hidden="true">€</span><span className="budget-kpi-label">Seyahat geliri</span><strong>{formatEuro(metrics.incomeEur)}</strong><small>{formatTry(metrics.incomeTry)} · yalnızca tamamlanan seferler</small></article>
-      <article className="budget-kpi profit-distance-kpi"><span className="budget-kpi-icon" aria-hidden="true">KM</span><span className="budget-kpi-label">Toplam araç KM</span><strong>{formatNumber(metrics.vehicleKm)} km</strong><small>{formatNumber(metrics.passengerKm)} km yolculu + aynı mesafe boş dönüş</small></article>
+      <article className="budget-kpi profit-distance-kpi"><span className="budget-kpi-icon" aria-hidden="true">KM</span><span className="budget-kpi-label">Toplam araç KM</span><strong>{formatNumber(metrics.vehicleKm)} km</strong><small>Transferlerde boş dönüş; günlük kiralamada gerçek KM</small></article>
       <article className="budget-kpi"><span className="budget-kpi-icon" aria-hidden="true">₺</span><span className="budget-kpi-label">Araç maliyeti</span><strong>{formatTry(metrics.vehicleCostTry)}</strong><small>Toplam araç KM × ayın km maliyeti</small></article>
       <article className="budget-kpi"><span className="budget-kpi-icon" aria-hidden="true">↗</span><span className="budget-kpi-label">Reklam gideri</span><strong>{formatTry(metrics.advertisingExpenseTry)}</strong><small>Manuel girilen aylık reklam toplamı</small></article>
     </section>
     {metrics.unresolvedLegs.length > 0 && <section className="profit-warning" role="status"><strong>⚠ {metrics.unresolvedLegs.length} seferin sabit mesafesi bulunamadı</strong><p>Seyahat kaydını kontrol edin veya tek yön KM girin. Kaydedilen mesafeye aynı uzunlukta boş dönüş eklenerek araç maliyeti anında yeniden hesaplanır.</p><ul>{metrics.unresolvedLegs.map((leg: any) => <DistanceActionRow key={`${leg.bookingId}:${leg.leg}`} leg={leg} period={period} navigate={navigate} onSave={onSaveDistance} />)}</ul></section>}
+    {metrics.missingDailyDistanceCount > 0 && <section className="profit-warning" role="status"><strong>⚠ {metrics.missingDailyDistanceCount} günlük kiralama gününde KM eksik</strong><p>Gelir hesaba katıldı ancak araç maliyeti eksik kalmaması için rezervasyon detayından gerçekleşen günlük kilometreyi girin.</p></section>}
     {manualLegs.length > 0 && <section className="profit-manual-distances"><div className="budget-section-heading"><div><span className="budget-section-kicker">MANUEL MESAFELER</span><h2>Elle girilen KM kayıtları</h2></div><span>{manualLegs.length} sefer</span></div><p>Bu değerleri gerektiğinde seyahate göre yeniden düzenleyebilirsiniz.</p><ul>{manualLegs.map((leg: any) => <DistanceActionRow key={`${leg.bookingId}:${leg.leg}`} leg={leg} period={period} navigate={navigate} onSave={onSaveDistance} currentKm={leg.oneWayKm} />)}</ul></section>}
-    <section className="budget-section profit-routes"><div className="budget-section-heading"><div><span className="budget-section-kicker">ROTA DÖKÜMÜ</span><h2>Seyahatlerden gelen hesap</h2></div><span>{metrics.completedLegs} sefer</span></div>{metrics.routes.length ? metrics.routes.map((route: any) => <div className="profit-route-row" key={route.routeKey}><div className="profit-route-heading"><strong>{locationLabel(route.from)} ↔ {locationLabel(route.to)}</strong><span>{route.legCount} sefer</span></div><div className="profit-route-metrics"><span><small>Araç KM</small><b>{formatNumber(route.vehicleKm)} km</b></span><span><small>Gelir</small><b>{formatEuro(route.incomeEur)}</b></span><span><small>Araç maliyeti</small><b>{formatTry(route.vehicleCostTry)}</b></span></div></div>) : <div className="travel-history-empty">Seçilen dönemde tamamlanmış ve sabit mesafesi bulunan sefer yok.</div>}</section>
-    <p className="budget-footnote profit-footnote">İptal edilen ve henüz gerçekleşmemiş seferler hesaba katılmaz. Gidiş-dönüş fiyatı iki seyahat ayağına eşit bölünür. Her ayakta aracın yolculu mesafesine aynı uzunlukta boş dönüş eklenir. KM değerleri sabit yaklaşık rota tablosundan gelir; canlı harita hesabı yapılmaz.</p>
+    <section className="budget-section profit-routes"><div className="budget-section-heading"><div><span className="budget-section-kicker">ROTA DÖKÜMÜ</span><h2>Seyahatlerden gelen hesap</h2></div><span>{metrics.completedLegs} sefer</span></div>{metrics.routes.length ? metrics.routes.map((route: any) => <div className="profit-route-row" key={route.routeKey}><div className="profit-route-heading"><strong>{profitLocationLabel(route.from)} ↔ {profitLocationLabel(route.to)}</strong><span>{route.legCount} sefer</span></div><div className="profit-route-metrics"><span><small>Araç KM</small><b>{formatNumber(route.vehicleKm)} km</b></span><span><small>Gelir</small><b>{formatEuro(route.incomeEur)}</b></span><span><small>Araç maliyeti</small><b>{formatTry(route.vehicleCostTry)}</b></span></div></div>) : <div className="travel-history-empty">Seçilen dönemde tamamlanmış ve sabit mesafesi bulunan sefer yok.</div>}</section>
+    <p className="budget-footnote profit-footnote">İptal edilen ve henüz gerçekleşmemiş seferler hesaba katılmaz. Gidiş-dönüş fiyatı iki seyahat ayağına eşit bölünür. Transferlerde her yolculu mesafesine aynı uzunlukta boş dönüş eklenir. Günlük kiralamalarda gelir hizmet günlerine dağıtılır ve admin detayına girilen gerçek kilometre kullanılır; müşterinin ayrıca ödediği yakıt tutarı gelire eklenmez.</p>
   </>
 }
 
