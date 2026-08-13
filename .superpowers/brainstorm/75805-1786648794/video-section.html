@@ -1,0 +1,67 @@
+<h2>Video section — after reviews</h2>
+<p class="subtitle">Thumbnail + lightbox. Vertical YouTube video. Pick the thumbnail card style.</p>
+
+<div class="cards">
+
+  <div class="card" data-choice="a" onclick="toggleSelect(this)">
+    <div class="card-image" style="background:#0a0a0a;display:flex;align-items:center;justify-content:center;padding:24px;gap:20px;min-height:180px">
+      <!-- Thumbnail left, text right -->
+      <div style="position:relative;width:90px;flex-shrink:0">
+        <div style="background:#1a1a1a;border:1px solid #333;border-radius:8px;aspect-ratio:9/16;width:90px;display:flex;align-items:center;justify-content:center">
+          <div style="width:28px;height:28px;background:rgba(255,255,255,0.9);border-radius:50%;display:flex;align-items:center;justify-content:center">
+            <div style="width:0;height:0;border-style:solid;border-width:6px 0 6px 10px;border-color:transparent transparent transparent #000;margin-left:2px"></div>
+          </div>
+        </div>
+      </div>
+      <div style="color:#fff;text-align:left">
+        <div style="font-size:10px;letter-spacing:2px;color:#b8975a;text-transform:uppercase;margin-bottom:6px">Behind the scenes</div>
+        <div style="font-size:14px;font-weight:600;line-height:1.4">See how we welcome<br>you at the airport</div>
+        <div style="font-size:11px;color:#888;margin-top:6px">▶ Watch 60s clip</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>A — Horizontal card</h3>
+      <p>Thumbnail left, headline + CTA right. Compact, fits naturally after reviews. Desktop and mobile friendly.</p>
+    </div>
+  </div>
+
+  <div class="card" data-choice="b" onclick="toggleSelect(this)">
+    <div class="card-image" style="background:#0a0a0a;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px;min-height:180px;gap:12px">
+      <!-- Centered portrait thumbnail -->
+      <div style="position:relative;width:80px">
+        <div style="background:#1a1a1a;border:1px solid #333;border-radius:10px;aspect-ratio:9/16;width:80px;display:flex;align-items:center;justify-content:center">
+          <div style="width:32px;height:32px;background:#b8975a;border-radius:50%;display:flex;align-items:center;justify-content:center">
+            <div style="width:0;height:0;border-style:solid;border-width:7px 0 7px 12px;border-color:transparent transparent transparent #000;margin-left:2px"></div>
+          </div>
+        </div>
+      </div>
+      <div style="color:#fff;text-align:center">
+        <div style="font-size:11px;color:#888">Behind the scenes · 60s</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>B — Centered portrait</h3>
+      <p>Phone-shaped thumbnail centered under section heading. Clean, minimal. Signals "vertical video" immediately.</p>
+    </div>
+  </div>
+
+  <div class="card" data-choice="c" onclick="toggleSelect(this)">
+    <div class="card-image" style="background:#0a0a0a;display:flex;align-items:center;justify-content:center;padding:24px;min-height:180px">
+      <!-- Full width banner thumbnail -->
+      <div style="width:100%;max-width:260px;background:#1a1a1a;border:1px solid #333;border-radius:8px;aspect-ratio:16/7;display:flex;align-items:center;justify-content:center;gap:12px;padding:0 16px">
+        <div style="width:36px;height:36px;background:#b8975a;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0">
+          <div style="width:0;height:0;border-style:solid;border-width:7px 0 7px 12px;border-color:transparent transparent transparent #000;margin-left:2px"></div>
+        </div>
+        <div style="color:#fff;text-align:left">
+          <div style="font-size:12px;font-weight:600">Meet &amp; greet at Antalya Airport</div>
+          <div style="font-size:10px;color:#888;margin-top:3px">Tap to watch</div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>C — Wide banner</h3>
+      <p>Full-width landscape banner with play button + title. No portrait preview — just a clean CTA strip. Opens vertical video in modal.</p>
+    </div>
+  </div>
+
+</div>

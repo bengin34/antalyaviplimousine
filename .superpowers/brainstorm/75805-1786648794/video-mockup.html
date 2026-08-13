@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Video Section Mockup</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;600&display=swap');
+
+  :root {
+    --ink: #1b1b18;
+    --muted: #74736d;
+    --line: #dedbd2;
+    --paper: #fcfbf8;
+    --gold: #c8a96a;
+    --gold-light: #e0c68d;
+    --gold-dark: #9d7a3d;
+    --serif: Georgia, "Times New Roman", serif;
+    --section-x: clamp(20px, 6vw, 96px);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: "DM Sans", sans-serif;
+    background: #111;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Simulate the reviews section ending */
+  .reviews-end {
+    background: #0a0a09;
+    padding: 30px var(--section-x);
+    text-align: center;
+    color: rgba(255,255,255,0.3);
+    font-size: 12px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    border-top: 1px solid rgba(255,255,255,0.08);
+  }
+
+  /* === VIDEO SECTION — matches .section pattern === */
+  .video-section {
+    background: var(--paper);
+    color: var(--ink);
+    padding: 130px var(--section-x);
+    max-width: 1440px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  /* Eyebrow — exact match */
+  .eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 25px;
+  }
+  .eyebrow > span {
+    width: 38px;
+    height: 1px;
+    background: var(--gold);
+    display: block;
+  }
+  .eyebrow p {
+    margin: 0;
+    color: var(--gold-dark);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+  }
+
+  /* Section heading — exact match */
+  .section-heading {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 60px;
+    margin-bottom: 70px;
+  }
+  .section-heading h2 {
+    font-family: var(--serif);
+    font-size: clamp(44px, 5.4vw, 78px);
+    font-weight: 400;
+    letter-spacing: -0.025em;
+    line-height: 0.98;
+    margin: 0;
+  }
+  .section-heading > p {
+    max-width: 420px;
+    margin: 0 0 5px;
+    color: var(--muted);
+    font-size: 15px;
+    font-weight: 300;
+    line-height: 1.9;
+  }
+
+  /* Video card — horizontal, A style */
+  .video-card {
+    display: flex;
+    align-items: center;
+    gap: 56px;
+    padding: 40px 48px;
+    border: 1px solid var(--line);
+    max-width: 880px;
+    cursor: pointer;
+    transition: border-color 0.2s;
+  }
+  .video-card:hover { border-color: var(--gold); }
+
+  /* Portrait thumbnail */
+  .video-thumb {
+    position: relative;
+    flex-shrink: 0;
+    width: 140px;
+  }
+  .video-thumb-img {
+    width: 100%;
+    aspect-ratio: 9/16;
+    background: #1a1916;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+  .video-thumb-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 4px;
+    opacity: 0.85;
+  }
+  .video-play-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .video-play-btn {
+    width: 52px;
+    height: 52px;
+    background: var(--gold);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 20px rgba(200,169,106,0.4);
+  }
+  .play-triangle {
+    width: 0; height: 0;
+    border-style: solid;
+    border-width: 9px 0 9px 15px;
+    border-color: transparent transparent transparent #1b1b18;
+    margin-left: 3px;
+  }
+
+  /* Video copy */
+  .video-copy { flex: 1; }
+  .mini-label {
+    display: block;
+    color: var(--gold-dark);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+  .video-copy h3 {
+    font-family: var(--serif);
+    font-size: clamp(22px, 2.5vw, 32px);
+    font-weight: 400;
+    line-height: 1.15;
+    margin: 0 0 10px;
+    color: var(--ink);
+  }
+  .video-copy p {
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.8;
+    margin: 0 0 28px;
+    max-width: 340px;
+  }
+
+  /* Button — outline gold, exact site style */
+  .button-outline-gold {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 0 22px;
+    height: 48px;
+    border: 1px solid var(--gold);
+    color: var(--gold-dark);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    background: transparent;
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  /* === NEXT SECTION (process) — shows contrast === */
+  .process-hint {
+    background: var(--paper);
+    padding: 40px var(--section-x);
+    border-top: 1px solid var(--line);
+    color: var(--muted);
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    max-width: 1440px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  /* Modal preview */
+  .modal-preview {
+    background: rgba(0,0,0,0.85);
+    padding: 60px var(--section-x);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+  .modal-label {
+    color: rgba(255,255,255,0.5);
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+  .modal-frame {
+    width: 300px;
+    aspect-ratio: 9/16;
+    background: #000;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .modal-frame-inner {
+    color: rgba(255,255,255,0.4);
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-align: center;
+  }
+  .modal-close {
+    width: 36px; height: 36px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    color: #fff; font-size: 16px; cursor: pointer;
+    align-self: flex-end;
+    margin-bottom: -10px;
+  }
+
+  .divider {
+    background: #f0ede6;
+    padding: 16px var(--section-x);
+    color: var(--muted);
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-align: center;
+    text-transform: uppercase;
+  }
+</style>
+</head>
+<body>
+
+<!-- Context: end of reviews -->
+<div class="reviews-end">↑ Reviews section ends here</div>
+
+<!-- VIDEO SECTION -->
+<div style="background:var(--paper)">
+  <div class="video-section">
+    <div class="section-heading">
+      <div>
+        <div class="eyebrow">
+          <span></span>
+          <p>Behind the scenes</p>
+        </div>
+        <h2>See how we welcome<br>you at the airport.</h2>
+      </div>
+      <p>A glimpse of our meet &amp; greet operations at Antalya Airport — the moment your journey begins.</p>
+    </div>
+
+    <div class="video-card">
+      <!-- Portrait thumbnail -->
+      <div class="video-thumb">
+        <div class="video-thumb-img">
+          <!-- Real YT thumb would go here: img.youtube.com/vi/VIDEO_ID/maxresdefault.jpg -->
+          <div style="width:100%;height:100%;background:linear-gradient(160deg,#1a1916,#2a2820);display:flex;align-items:center;justify-content:center">
+            <span style="color:rgba(255,255,255,0.2);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;text-align:center;padding:0 8px">YT thumbnail<br>9:16</span>
+          </div>
+        </div>
+        <div class="video-play-overlay">
+          <div class="video-play-btn">
+            <div class="play-triangle"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Copy -->
+      <div class="video-copy">
+        <span class="mini-label">Behind the scenes</span>
+        <h3>Meet &amp; greet at<br>Antalya Airport</h3>
+        <p>Watch how our chauffeurs welcome guests in arrivals — the personalised name sign, luggage assistance, and the first moments of your VIP experience.</p>
+        <a class="button-outline-gold" href="#">
+          <span>Watch the clip</span>
+          <span>▶</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Divider between sections -->
+<div class="divider">— modal preview below (what opens on click) —</div>
+
+<!-- MODAL PREVIEW -->
+<div class="modal-preview">
+  <p class="modal-label">Dialog modal — dark overlay</p>
+  <div class="modal-close">✕</div>
+  <div class="modal-frame">
+    <div class="modal-frame-inner">
+      YouTube iframe<br>(vertical 9:16)<br>autoplay on open<br>src cleared on close
+    </div>
+  </div>
+  <p class="modal-label">Click backdrop or ✕ to close</p>
+</div>
+
+<!-- Context: next section -->
+<div class="process-hint">↓ Process section continues here (existing)</div>
+
+</body>
+</html>

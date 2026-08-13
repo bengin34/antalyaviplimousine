@@ -1,0 +1,6 @@
+{"type":"server-started","port":50523,"host":"127.0.0.1","url_host":"localhost","url":"http://localhost:50523","screen_dir":"/Users/engin/Desktop/my/web/vip/.superpowers/brainstorm/75805-1786648794"}
+{"type":"screen-added","file":"/Users/engin/Desktop/my/web/vip/.superpowers/brainstorm/75805-1786648794/video-section.html"}
+{"source":"user-event","type":"click","text":"Behind the scenes\n        See how we welcomeyou at the airport\n        ▶ Watch 60s clip\n      \n    \n    \n      A — Horizontal card\n      Thumbnail left, headline + CTA right. Compact, fits naturally after reviews. Desktop and mobile friendly.","choice":"a","id":null,"timestamp":1786649197911}
+{"type":"screen-added","file":"/Users/engin/Desktop/my/web/vip/.superpowers/brainstorm/75805-1786648794/waiting-1.html"}
+{"type":"screen-added","file":"/Users/engin/Desktop/my/web/vip/.superpowers/brainstorm/75805-1786648794/video-mockup.html"}
+{"type":"server-stopped","reason":"idle timeout"}
