@@ -7,7 +7,6 @@ import type { Booking, BookingStatus, Navigate } from '../types'
 import { isFutureIstanbulLeg, locationDisplay, navigationURLs, whatsappURL } from '../../turkish-formatters.js'
 import { buildConfirmMessage, buildReminderMessage } from '../../whatsapp-templates.js'
 import { LOCATION_OPTIONS, VEHICLE_CAPACITY, validateBookingForm, type BookingFormState } from './NewBookingPage'
-import { clearTimelineCache } from './timeline-logic'
 
 const STATUS_TRANSITIONS: Record<string, BookingStatus[]> = {
   pending: ['confirmed', 'cancelled'], paid: ['in_transit'], confirmed: ['in_transit', 'cancelled'],
@@ -142,7 +141,7 @@ function PriceEditor({ booking, onSaved }: { booking: Booking; onSaved: (booking
   return <><button className="btn-outline price-edit-btn" type="button" onClick={() => { setValue(String(legPrice)); setError(''); setEditing(true) }}>Düzenle</button>{editing && <div className="price-editor" style={{ gridColumn: '1 / -1' }}><div className="price-editor-row"><span style={{ color: 'var(--text-muted)' }}>€</span><input className="input price-input" type="number" min={0} step={0.01} inputMode="decimal" aria-label="Yeni fiyat" value={value} onChange={e => setValue(e.target.value)} autoFocus /><button className="btn price-action" type="button" disabled={saving} onClick={() => void save()}>Kaydet</button><button className="btn-outline price-action" type="button" onClick={() => setEditing(false)}>İptal</button></div><div className="inline-error">{error}</div></div>}</>
 }
 
-export default function BookingDetailPage({ bookingRef, isReturn, sourceTab, navigate }: { bookingRef: string; isReturn: boolean; sourceTab: 'future' | 'past' | 'profit-loss'; navigate: Navigate }) {
+export default function BookingDetailPage({ bookingRef, isReturn, sourceTab, profitPeriod, navigate }: { bookingRef: string; isReturn: boolean; sourceTab: 'future' | 'past' | 'profit-loss'; profitPeriod?: string | null; navigate: Navigate }) {
   const [booking, setBooking] = useState<Booking | null>(null)
   const [loading, setLoading] = useState(true)
   const [notFound, setNotFound] = useState(false)
@@ -153,9 +152,6 @@ export default function BookingDetailPage({ bookingRef, isReturn, sourceTab, nav
   const [note, setNote] = useState('')
   const [noteError, setNoteError] = useState('')
   const [noteSaving, setNoteSaving] = useState(false)
-  const [deleteConfirming, setDeleteConfirming] = useState(false)
-  const [deleting, setDeleting] = useState(false)
-  const [deleteError, setDeleteError] = useState('')
   const [templateState, setTemplateState] = useState({ loading: '', success: '', error: '' })
 
   useEffect(() => {
@@ -172,14 +168,13 @@ export default function BookingDetailPage({ bookingRef, isReturn, sourceTab, nav
 
   const updateBooking = (next: Booking, message = '') => { setBooking(next); setSuccess(message) }
 
-  const backHash = sourceTab === 'profit-loss' ? '#profit-loss' : sourceTab === 'past' ? '#timeline?tab=past' : '#timeline'
-
+  const backHash = sourceTab === 'profit-loss'
+    ? `#profit-loss${profitPeriod ? `?period=${encodeURIComponent(profitPeriod)}` : ''}`
+    : sourceTab === 'past' ? '#timeline?tab=past' : '#timeline'
   if (loading) return <><Topbar navigate={navigate} title="Transfer Detayı" back={backHash} /><div className="scroll-area"><div className="empty"><div>Yükleniyor…</div></div></div></>
   if (notFound || !booking) return <><Topbar navigate={navigate} title="Transfer Detayı" back={backHash} /><div className="scroll-area"><div className="empty"><div>Rezervasyon bulunamadı</div></div></div></>
 
   const roundTrip = booking.trip_type === 'round_trip'
-  const manualReturn = Boolean(booking.manual_return_of_ref)
-  const showsAsReturn = isReturn || manualReturn
   const needsReturnContact = Boolean(isReturn && roundTrip && booking.status === 'completed' && isFutureIstanbulLeg(booking.return_date, booking.return_pickup_time))
   const displayStatus = (needsReturnContact ? 'confirmed' : booking.status) as BookingStatus
   const transfer = transferFor(booking, isReturn)
@@ -197,7 +192,7 @@ export default function BookingDetailPage({ bookingRef, isReturn, sourceTab, nav
     const to = reverse ? transfer.pickupLocation : transfer.dropoffLocation
     const fromAddress = reverse ? transfer.dropoffAddress : transfer.pickupAddress
     const toAddress = reverse ? transfer.pickupAddress : transfer.dropoffAddress
-    queueBookingPrefill({ sourceRef: booking.booking_ref, isManualReturn: reverse, customerName: booking.customer_name, customerPhone: booking.customer_phone, hotelName: hotel.toLocaleLowerCase('tr-TR') === 'belirtilmedi' ? '' : hotel, vehicleType: booking.vehicle_type, guests: booking.guests, luggageCount: booking.luggage_count, childSeatCount: booking.child_seat_count, paymentMethod: booking.payment_method, pickupLocation: from, pickupAddress: fromAddress, dropoffLocation: to, dropoffAddress: toAddress, notes: reverse ? `Dönüş · Kaynak rezervasyon: ${booking.booking_ref}` : `Kaynak rezervasyon: ${booking.booking_ref}` })
+    queueBookingPrefill({ sourceRef: booking.booking_ref, customerName: booking.customer_name, customerPhone: booking.customer_phone, hotelName: hotel.toLocaleLowerCase('tr-TR') === 'belirtilmedi' ? '' : hotel, vehicleType: booking.vehicle_type, guests: booking.guests, luggageCount: booking.luggage_count, childSeatCount: booking.child_seat_count, paymentMethod: booking.payment_method, pickupLocation: from, pickupAddress: fromAddress, dropoffLocation: to, dropoffAddress: toAddress, notes: reverse ? `Dönüş · Kaynak rezervasyon: ${booking.booking_ref}` : `Kaynak rezervasyon: ${booking.booking_ref}` })
     navigate('#new')
   }
 
@@ -242,18 +237,6 @@ export default function BookingDetailPage({ bookingRef, isReturn, sourceTab, nav
     setBooking({ ...booking, booking_notes: [data, ...(booking.booking_notes ?? [])] }); setNote('')
   }
 
-  const deleteBooking = async () => {
-    setDeleting(true); setDeleteError('')
-    const { count, error } = await supabase.from('bookings').delete({ count: 'exact' }).eq('id', booking.id)
-    if (error || count === 0) {
-      setDeleting(false)
-      setDeleteError('Seyahat silinemedi, tekrar deneyin.')
-      return
-    }
-    clearTimelineCache()
-    navigate(backHash)
-  }
-
   const genericSaved = (next: Booking, message: string) => updateBooking(next, message)
   const normalizeOptional = (raw: string, max: number, name: string): ValidateResult => {
     const value = raw.trim().replace(/\s+/g, ' ')
@@ -263,8 +246,8 @@ export default function BookingDetailPage({ bookingRef, isReturn, sourceTab, nav
 
   return <><Topbar navigate={navigate} title="Transfer Detayı" back={backHash} />
     <div className="scroll-area">
-      <div className="section"><div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}><span style={{ color: 'var(--text-muted)', fontSize: 13 }}>{booking.booking_ref}</span><div className="card-badges"><span className={`badge badge-${displayStatus}`}>{statusLabel(displayStatus, roundTrip)}</span>{(roundTrip || manualReturn) && <span className={`badge ${showsAsReturn ? 'badge-return' : 'badge-outbound'}`}>{showsAsReturn ? 'DÖNÜŞ' : 'GİDİŞ'}</span>}</div></div></div>
-      <div className="section quick-actions-section"><button className="btn-outline blue" type="button" onClick={() => planTrip(false)}>🆕 Bu yolcudan yeni seyahat planla</button>{!showsAsReturn && <button className="btn-outline blue" type="button" onClick={() => planTrip(true)}>↩ Dönüş yolculuğu planla</button>}</div>
+      <div className="section"><div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}><span style={{ color: 'var(--text-muted)', fontSize: 13 }}>{booking.booking_ref}</span><div className="card-badges"><span className={`badge badge-${displayStatus}`}>{statusLabel(displayStatus, roundTrip)}</span>{roundTrip && <span className={`badge ${isReturn ? 'badge-return' : 'badge-outbound'}`}>{isReturn ? 'DÖNÜŞ' : 'GİDİŞ'}</span>}</div></div></div>
+      <div className="section quick-actions-section"><button className="btn-outline blue" type="button" onClick={() => planTrip(false)}>🆕 Bu yolcudan yeni seyahat planla</button><button className="btn-outline blue" type="button" onClick={() => planTrip(true)}>↩ Dönüş yolculuğu planla</button></div>
       {needsReturnContact && <div className="return-contact-alert detail-return-contact" role="status"><span className="return-contact-icon" aria-hidden="true">☎</span><span className="return-contact-copy"><strong>Gidiş seyahati için iletişime geç</strong><small>Geliş transferi tamamlandı.</small></span><a href={whatsappURL(booking.customer_phone)} target="_blank" rel="noopener noreferrer">WhatsApp</a></div>}
       <div className="section"><div className="editable-heading" style={{ marginBottom: 8 }}><div className="section-label" style={{ marginBottom: 0 }}>Transfer</div><button className="inline-edit-button" type="button" hidden={editing} onClick={() => { setSuccess(''); setEditing(true) }}>Tümünü düzenle</button></div><div style={{ fontSize: 17, fontWeight: 700, marginBottom: 4 }}>{fmtTime(transfer.time)} &nbsp;{pickupDisplay} → {dropoffDisplay}</div><div style={{ color: 'var(--text-muted)', fontSize: 13 }}>{fmtDetailDate(transfer.date)}{transfer.flightNumber ? ` · ✈️ ${transfer.flightNumber}${showSeparateFlightArrival ? ` varış ${fmtTime(transfer.flightArrivalTime)}` : ''}` : ''}</div>{transfer.pickupAddress && <div style={{ color: 'var(--text-muted)', fontSize: 13, marginTop: 6 }}>📍 Alış: {transfer.pickupAddress}</div>}{transfer.dropoffAddress && <div style={{ color: 'var(--text-muted)', fontSize: 13, marginTop: 3 }}>📍 Varış: {transfer.dropoffAddress}</div>}<div className="detail-navigation-label">Transfer rotası</div><div className="detail-navigation" aria-label="Google Haritalar ile transfer rotası için yol tarifi"><a href={navigation.google} target="_blank" rel="noopener noreferrer"><span aria-hidden="true">↗</span> Adrese yol tarifi al</a></div><div className="inline-success" role="status">{success}</div></div>
       {editing && <div className="section booking-edit-section"><BookingEditor booking={booking} onCancel={() => setEditing(false)} onSaved={next => { setEditing(false); updateBooking(next, 'Rezervasyon bilgileri güncellendi.') }} /></div>}
@@ -284,7 +267,6 @@ export default function BookingDetailPage({ bookingRef, isReturn, sourceTab, nav
       <div className="section"><div className="section-label">Ödeme</div><div className={`detail-payment-row${roundTrip && isReturn ? ' detail-payment-settled' : ''}`}><span className="detail-payment-context"><strong>{paymentMethod}</strong>{roundTrip && <small>{isReturn ? 'Dönüş ücreti' : 'Gidiş ücreti'}</small>}</span><div style={{ display: 'flex', alignItems: 'center', gap: 8, flexWrap: 'wrap' }}><span className="detail-payment-price">€{fmtPrice(legPrice)}</span>{!(roundTrip && isReturn) && <PriceEditor booking={booking} onSaved={genericSaved} />}</div></div></div>
       <div className="section"><div className="section-label">Notlar</div>{booking.notes && <div className="note-pinned">📌 {booking.notes}</div>}<div>{sortedNotes.length ? sortedNotes.map(item => <div className="note-item" key={item.id}>{item.note}</div>) : <div className="notes-empty">Henüz not yok</div>}</div><div className="note-input-row"><input className="input" type="text" placeholder="Not ekle…" value={note} onChange={e => setNote(e.target.value)} onKeyDown={e => { if (e.key === 'Enter') { e.preventDefault(); void addNote() } }} /><button className="btn" type="button" disabled={noteSaving} style={{ width: 'auto', padding: '8px 14px', fontSize: 13 }} onClick={() => void addNote()}>Ekle</button></div><div className="inline-error">{noteError}</div></div>
       <div className="section"><div className="section-label">Durum Güncelle</div><div className="status-buttons">{(STATUS_TRANSITIONS[displayStatus] ?? []).length ? STATUS_TRANSITIONS[displayStatus].map(next => <button className={`btn-outline ${STATUS_COLORS[next]}`} type="button" key={next} disabled={statusSaving} onClick={() => void updateStatus(next)}>{statusLabel(next, roundTrip)}</button>) : <div style={{ color: 'var(--text-muted)', fontSize: 13, gridColumn: '1/-1' }}>Bu transfer için başka durum seçeneği yok.</div>}</div><div className="inline-error">{statusError}</div></div>
-      <div className="section delete-booking-section"><div className="section-label">Tehlikeli Alan</div>{!deleteConfirming ? <><p>Test veya hatalı oluşturulan bir seyahati kalıcı olarak kaldırın.</p><button className="btn-outline red delete-booking-trigger" type="button" aria-expanded="false" onClick={() => { setDeleteConfirming(true); setDeleteError('') }}>Seyahati sil</button></> : <div className="delete-booking-confirmation" role="alert"><strong>Bu işlem geri alınamaz.</strong><p>{roundTrip ? 'Bu rezervasyona bağlı gidiş ve dönüş seyahatleri ile notlar kalıcı olarak silinecek.' : 'Bu seyahat ve ona bağlı notlar kalıcı olarak silinecek.'}</p><div className="delete-booking-actions"><button className="delete-booking-confirm" type="button" disabled={deleting} onClick={() => void deleteBooking()}>{deleting ? 'Siliniyor…' : 'Evet, kalıcı olarak sil'}</button><button className="btn-outline delete-booking-cancel" type="button" disabled={deleting} onClick={() => { setDeleteConfirming(false); setDeleteError('') }}>Vazgeç</button></div></div>}<div className="inline-error" role="alert">{deleteError}</div></div>
     </div>
   </>
 }

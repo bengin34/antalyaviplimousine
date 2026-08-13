@@ -110,6 +110,11 @@ svg {
   height: 20px;
 }
 
+.whatsapp-icon {
+  fill: currentColor;
+  stroke: none;
+}
+
 .site-header {
   position: fixed;
   z-index: 100;

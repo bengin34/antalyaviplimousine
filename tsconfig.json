@@ -17,5 +17,5 @@
     "noEmit": true,
     "jsx": "react-jsx"
   },
-  "include": ["admin/react", "vite.config.js"]
+  "include": ["admin/react", "public-app", "react-router.config.ts", "vite.config.js", "vite.*.config.ts"]
 }

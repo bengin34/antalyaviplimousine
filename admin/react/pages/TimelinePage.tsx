@@ -332,32 +332,36 @@ export default function TimelinePage({ selectedTab, navigate }: { selectedTab: '
     <div className="timeline-statusbar"><div className="live-clock-wrap"><span>{fmtLiveDate(now)}</span><strong>{fmtSyncTime(now)}</strong></div><div className="sync-wrap"><span>{syncStatus}</span><button className="sync-button" type="button" aria-label="Transferleri yenile" disabled={refreshing} onClick={() => void refresh()}>↻</button></div></div>
     <div className="search-bar"><input className="search-input" type="search" placeholder="İsim, telefon, kod veya güzergah ara…" autoComplete="off" value={search} onChange={event => setSearch(event.target.value)} /></div>
     {offlineMessage && <div className="offline-banner">{offlineMessage}</div>}
-    <div className="scroll-area">
-      {bookings && <MonthCalendar month={calendarMonth} today={today} counts={calendarCounts} selectedDate={selectedCalendarDate} onMonthChange={month => { setCalendarMonth(month); setSelectedCalendarDate(null) }} onSelectDate={selectCalendarDate} />}
-      {!bookings ? <div className="empty"><div>Yükleniyor…</div></div> : !hasBookings ? <div className="empty"><div className="empty-icon">📅</div><div>{search.trim() ? `"${search.trim()}" için sonuç bulunamadı` : cachedOnly ? 'Önbellekte bugünkü transfer yok' : isPast ? 'Geçmiş transfer yok' : 'Gelecek transfer yok'}</div></div> :
-        [...groups.entries()].map(([key, group]) => {
-          if (!group.length) return null
-          const label = key === 'Bugün' ? `Bugün · ${turkishDayLabel(today)}` : key === 'Yarın' ? `Yarın · ${turkishDayLabel(tomorrow)}` : turkishDayLabel(key)
-          const groupDate = key === 'Bugün' ? today : key === 'Yarın' ? tomorrow : key
-          const collapseCompleted = !isPast && (key === 'Bugün' || key === today)
-          const completed = collapseCompleted ? group.filter(card => card.status === 'completed') : []
-          const active = collapseCompleted ? group.filter(card => card.status !== 'completed') : group
-          const renderCard = (card: TimelineCard) => <BookingCard key={`${card.booking_ref}-${card._isReturn ? 'return' : 'outbound'}`} card={card} now={now} isPast={isPast} navigate={navigate} confirmPast={confirmPast} confirming={confirming} confirmFailed={confirmFailed} />
-          return <details className="day-group" id={`timeline-day-${groupDate}`} key={key} open={!collapsedDays.has(groupDate)} onToggle={event => {
-            const isOpen = event.currentTarget.open
-            setCollapsedDays(previous => {
-              const isCollapsed = previous.has(groupDate)
-              if (isOpen === !isCollapsed) return previous
-              const next = new Set(previous)
-              if (isOpen) next.delete(groupDate)
-              else next.add(groupDate)
-              return next
-            })
-          }}>
-            <summary className="day-summary"><span className="day-label"><span aria-hidden="true">📅</span> {label}</span><span className="day-count">{group.length} seyahat</span><span className="day-chevron" aria-hidden="true">›</span></summary>
-            <div className="day-content">{active.map(renderCard)}{completed.length > 0 && <details className="completed-group"><summary>Tamamlananlar ({completed.length})</summary><div className="completed-list">{completed.map(renderCard)}</div></details>}</div>
-          </details>
-        })}
+    <div className="scroll-area timeline-scroll-area">
+      <div className={`timeline-layout${bookings ? '' : ' is-loading'}`}>
+        {bookings && <aside className="timeline-calendar-rail"><MonthCalendar month={calendarMonth} today={today} counts={calendarCounts} selectedDate={selectedCalendarDate} onMonthChange={month => { setCalendarMonth(month); setSelectedCalendarDate(null) }} onSelectDate={selectCalendarDate} /></aside>}
+        <div className="timeline-groups">
+          {!bookings ? <div className="empty"><div>Yükleniyor…</div></div> : !hasBookings ? <div className="empty"><div className="empty-icon">📅</div><div>{search.trim() ? `"${search.trim()}" için sonuç bulunamadı` : cachedOnly ? 'Önbellekte bugünkü transfer yok' : isPast ? 'Geçmiş transfer yok' : 'Gelecek transfer yok'}</div></div> :
+            [...groups.entries()].map(([key, group]) => {
+              if (!group.length) return null
+              const label = key === 'Bugün' ? `Bugün · ${turkishDayLabel(today)}` : key === 'Yarın' ? `Yarın · ${turkishDayLabel(tomorrow)}` : turkishDayLabel(key)
+              const groupDate = key === 'Bugün' ? today : key === 'Yarın' ? tomorrow : key
+              const collapseCompleted = !isPast && (key === 'Bugün' || key === today)
+              const completed = collapseCompleted ? group.filter(card => card.status === 'completed') : []
+              const active = collapseCompleted ? group.filter(card => card.status !== 'completed') : group
+              const renderCard = (card: TimelineCard) => <BookingCard key={`${card.booking_ref}-${card._isReturn ? 'return' : 'outbound'}`} card={card} now={now} isPast={isPast} navigate={navigate} confirmPast={confirmPast} confirming={confirming} confirmFailed={confirmFailed} />
+              return <details className="day-group" id={`timeline-day-${groupDate}`} key={key} open={!collapsedDays.has(groupDate)} onToggle={event => {
+                const isOpen = event.currentTarget.open
+                setCollapsedDays(previous => {
+                  const isCollapsed = previous.has(groupDate)
+                  if (isOpen === !isCollapsed) return previous
+                  const next = new Set(previous)
+                  if (isOpen) next.delete(groupDate)
+                  else next.add(groupDate)
+                  return next
+                })
+              }}>
+                <summary className="day-summary"><span className="day-label"><span aria-hidden="true">📅</span> {label}</span><span className="day-count">{group.length} seyahat</span><span className="day-chevron" aria-hidden="true">›</span></summary>
+                <div className="day-content">{active.map(renderCard)}{completed.length > 0 && <details className="completed-group"><summary>Tamamlananlar ({completed.length})</summary><div className="completed-list">{completed.map(renderCard)}</div></details>}</div>
+              </details>
+            })}
+        </div>
+      </div>
     </div>
   </>
 }

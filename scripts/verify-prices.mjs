@@ -1,19 +1,23 @@
 import { readFile, readdir } from "node:fs/promises";
 import path from "node:path";
-import { routeData } from "../src/prices.js";
+import { routeCatalog } from "../src/routes.js";
 
 const root = process.cwd();
 const rowPattern =
-  /\('airport',\s*'(\w+)',\s*'(vito|vclass)',\s*(\d+(?:\.\d+)?)/g;
+  /\('airport',\s*'(\w+)',\s*'(vito|vclass)',\s*(\d+(?:\.\d+)?),\s*(\d+),\s*(\d+)\)/g;
 
 const readPriceRows = async (files) => {
   const prices = new Map();
   for (const file of files) {
     const sql = await readFile(file, "utf8");
     for (const match of sql.matchAll(rowPattern)) {
-      const [, route, databaseVehicle, price] = match;
+      const [, route, databaseVehicle, price, durationMin, distanceKm] = match;
       const vehicle = databaseVehicle === "vclass" ? "sprinter" : "vito";
-      prices.set(`${route}:${vehicle}`, Number(price));
+      prices.set(`${route}:${vehicle}`, {
+        price: Number(price),
+        durationMin: Number(durationMin),
+        distanceKm: Number(distanceKm),
+      });
     }
   }
   return prices;
@@ -34,13 +38,17 @@ const matrices = {
 
 const errors = [];
 for (const [label, matrix] of Object.entries(matrices)) {
-  for (const [route, data] of Object.entries(routeData)) {
+  for (const [route, data] of Object.entries(routeCatalog)) {
     for (const vehicle of ["vito", "sprinter"]) {
       const key = `${route}:${vehicle}`;
-      const expected = Number(data.prices[vehicle]);
+      const expected = {
+        price: Number(data.prices[vehicle]),
+        durationMin: data.durationMin,
+        distanceKm: data.distanceKm,
+      };
       const actual = matrix.get(key);
-      if (actual !== expected) {
-        errors.push(`${label}: ${key} is ${String(actual)}, expected ${expected}`);
+      if (!actual || Object.keys(expected).some((field) => actual[field] !== expected[field])) {
+        errors.push(`${label}: ${key} is ${JSON.stringify(actual)}, expected ${JSON.stringify(expected)}`);
       }
     }
   }
@@ -51,5 +59,5 @@ if (errors.length) {
 }
 
 console.log(
-  `Verified ${Object.keys(routeData).length} route prices against seed and migrations.`,
+  `Verified ${Object.keys(routeCatalog).length} route prices, durations and distances against seed and migrations.`,
 );

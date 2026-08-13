@@ -1,0 +1,161 @@
+.booking-section {
+  position: relative;
+  z-index: 4;
+  background: var(--paper);
+  padding: clamp(42px, 6vw, 82px) var(--section-x);
+}
+
+.booking-section .booking-shell {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.booking-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 30px;
+  margin-bottom: 24px;
+}
+
+.booking-heading h2 { margin: 5px 0 0; font-family: var(--serif); font-size: clamp(2rem, 4vw, 3.5rem); font-weight: 400; }
+.booking-heading .section-number { color: var(--gold-dark); font-size: .72rem; letter-spacing: .18em; }
+.booking-section .field-control input,
+.booking-section .field-control select { padding-left: 16px; }
+.booking-section .booking-address-row .booking-field { width: 100%; }
+.booking-section .field-error-message { display: block; margin-top: 7px; color: #a93226; font-size: .74rem; line-height: 1.35; }
+.booking-section .booking-field.has-error .field-control { border-color: #a93226; }
+.booking-section .payment-error { display: block; }
+.booking-section .quote-submit:disabled { cursor: wait; opacity: .65; }
+
+.react-icon { display: inline-grid; width: 28px; height: 28px; place-items: center; color: var(--gold); font-size: 1.1rem; }
+
+.route-grid-react {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 50px;
+}
+
+.route-grid-react .route-card { min-height: 315px; padding: 26px; }
+.route-grid-react .route-card-top { display: flex; align-items: center; gap: 12px; }
+.route-grid-react .route-card-top strong { margin-left: auto; font-family: var(--serif); font-size: 1.55rem; font-weight: 400; }
+.route-card-details { display: flex; gap: 18px; margin: 28px 0 18px; color: var(--muted); font-size: .82rem; }
+.route-card-prices { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.route-card-prices > span { display: grid; grid-template-columns: 1fr auto; align-items: baseline; gap: 2px 8px; padding: 13px; border: 1px solid var(--line); }
+.route-card-prices small { grid-column: 1 / -1; color: var(--muted); }
+.route-card-prices s { color: var(--muted); font-size: .78rem; }
+.route-card-prices strong { color: var(--gold-dark); font-size: 1.2rem; }
+.route-card-actions { display: flex; align-items: center; justify-content: space-between; gap: 14px; margin-top: 20px; }
+.route-card-actions .button { min-height: 42px; padding: 0 16px; }
+.route-card-actions .text-link { font-size: .75rem; }
+
+.review-grid-react { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; margin-top: 46px; }
+.review-grid-react .review-card { margin: 0; padding: 30px; border: 1px solid rgba(255,255,255,.14); background: rgba(255,255,255,.04); }
+.review-grid-react .review-card p { min-height: 120px; color: rgba(255,255,255,.82); font-family: var(--serif); font-size: 1.25rem; line-height: 1.6; }
+.review-grid-react .review-card footer { display: flex; justify-content: space-between; gap: 15px; color: #fff; }
+.review-grid-react .review-card footer span { color: rgba(255,255,255,.55); }
+
+.process-grid-react { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; margin-top: 45px; }
+.process-grid-react article { padding: 28px 24px; border-top: 1px solid var(--line); }
+.process-grid-react article > span { color: var(--gold-dark); font-size: .72rem; letter-spacing: .15em; }
+.process-grid-react h3 { margin: 30px 0 12px; font-family: var(--serif); font-size: 1.5rem; font-weight: 400; }
+.process-grid-react p { color: var(--muted); line-height: 1.7; }
+.contact-grid { display: grid; grid-template-columns: 1.2fr .8fr; gap: 70px; }
+.contact-actions { display: grid; align-content: center; gap: 15px; }
+.contact-actions > a:not(.button) { display: flex; flex-direction: column; gap: 4px; padding: 18px 0; border-bottom: 1px solid rgba(255,255,255,.16); }
+.contact-actions small { color: rgba(255,255,255,.55); }
+
+.site-footer .footer-main { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 50px; }
+.site-footer .footer-main > div { display: flex; flex-direction: column; align-items: flex-start; gap: 12px; }
+.site-footer .footer-main .footer-brand img { width: 92px; }
+.site-footer .footer-main button { padding: 0; border: 0; background: none; color: inherit; cursor: pointer; }
+
+.modal-backdrop { border: 0; }
+.is-visible { opacity: 1 !important; transform: translateY(0) !important; }
+
+.payment-method-panel,
+.payment-method-options,
+.payment-method-option,
+.payment-method-copy,
+.payment-method-heading {
+  min-width: 0;
+}
+
+.payment-method-copy,
+.payment-method-heading {
+  overflow-wrap: anywhere;
+}
+
+.localized-route {
+  padding: 160px var(--section-x) 90px;
+  background: linear-gradient(115deg, rgba(5, 5, 5, .94), rgba(5, 5, 5, .55)), url('/assets/optimized/antalya-coastline-hero.jpg') center / cover;
+  color: #fff;
+}
+.localized-route h1 { max-width: 900px; font-family: var(--serif); font-size: clamp(2.5rem, 6vw, 5.5rem); font-weight: 400; line-height: 1.03; }
+.localized-campaign { display: inline-block; margin: 28px 0 0; padding: 10px 14px; border: 1px solid rgba(224,198,141,.45); color: var(--gold-light); font-size: 11px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; }
+.localized-stats { display: flex; flex-wrap: wrap; gap: 40px; margin-top: 45px; }
+.localized-stats strong, .localized-stats span { display: block; }
+.localized-stats span { color: rgba(255,255,255,.65); }
+.localized-content { padding: 80px var(--section-x); }
+.localized-grid { display: grid; max-width: 1180px; grid-template-columns: 1.4fr 1fr; gap: 70px; margin: auto; }
+.localized-grid h2, .localized-faq h2 { font-family: var(--serif); font-size: clamp(1.8rem, 3vw, 2.7rem); font-weight: 400; }
+.localized-grid p, .localized-grid li { color: var(--muted); line-height: 1.75; }
+.localized-price { padding: 25px; border: 1px solid var(--line); border-radius: 14px; }
+.localized-price strong { color: var(--gold); font-size: 1.5rem; }
+.localized-faq { max-width: 1180px; margin: auto; padding: 0 var(--section-x) 80px; }
+.localized-faq article { padding: 24px 0; border-bottom: 1px solid var(--line); }
+.localized-faq h3 { font-size: 1rem; }
+.localized-faq p { color: var(--muted); line-height: 1.7; }
+.localized-links { padding: 70px var(--section-x); background: var(--cream); }
+.localized-links div { display: flex; flex-wrap: wrap; gap: 12px; }
+.localized-links a { padding: 12px 16px; border: 1px solid var(--line); border-radius: 8px; background: #fff; }
+.localized-contact { padding: 70px var(--section-x); background: #111; color: #fff; text-align: center; }
+.legal-details dd { white-space: pre-line; }
+
+@media (max-width: 980px) {
+  .route-grid-react { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .review-grid-react { grid-template-columns: 1fr; }
+  .review-grid-react .review-card p { min-height: auto; }
+  .process-grid-react { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .contact-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 700px) {
+  .booking-section { padding-right: 14px; padding-left: 14px; }
+  .booking-heading { display: block; }
+  .booking-heading .booking-price-display { margin-top: 20px; }
+  .route-grid-react,
+  .process-grid-react,
+  .site-footer .footer-main { grid-template-columns: 1fr; }
+  .route-grid-react .route-card { min-height: 0; }
+  .route-card-actions { align-items: flex-start; flex-direction: column; }
+  .localized-grid { grid-template-columns: 1fr; gap: 36px; }
+  .localized-route { padding-top: 120px; }
+}
+
+@media (max-width: 340px) {
+  html[lang="de"] .section-heading h2,
+  html[lang="de"] .editorial-grid h2,
+  html[lang="de"] .faq-heading h2,
+  html[lang="de"] .contact-copy h2,
+  html[lang="de"] .review-summary h2 {
+    font-size: 38px;
+    hyphens: auto;
+    overflow-wrap: break-word;
+  }
+
+  html[lang="de"] .quote-submit {
+    min-height: 58px;
+    height: auto;
+    padding: 10px 16px;
+    line-height: 1.45;
+    white-space: normal;
+  }
+
+  html[lang="de"] .quote-submit span {
+    min-width: 0;
+    overflow-wrap: anywhere;
+  }
+}

@@ -101,40 +101,48 @@ describe('calculateProfitLossMetrics', () => {
 
     expect(result.completedLegs).toBe(1)
     expect(result.unresolvedLegs).toHaveLength(1)
+    expect(result.unresolvedLegs[0].leg).toBe('outbound')
     expect(result.incomeEur).toBe(100)
   })
 
-  test('uses a manually entered one-way distance when a fixed route is unavailable', () => {
+  test('uses a manual one-way distance for an otherwise unresolved leg', () => {
     const custom = {
       ...baseBooking,
       pickup_location: 'private_address',
       dropoff_location: 'airport',
-      manual_outbound_distance_km: 37.5,
     }
-    const result = calculateProfitLossMetrics([custom], '2026-08', '2026-08-07')
+    const overrides = new Map([
+      ['booking-1:outbound', { distance_km: 42.5 }],
+    ])
+    const result = calculateProfitLossMetrics([custom], '2026-08', '2026-08-07', {}, overrides)
 
     expect(result.unresolvedLegs).toHaveLength(0)
-    expect(result.passengerKm).toBe(37.5)
-    expect(result.vehicleKm).toBe(75)
-    expect(result.vehicleCostTry).toBe(75 * DEFAULT_KM_COST_TRY)
+    expect(result.passengerKm).toBe(42.5)
+    expect(result.vehicleKm).toBe(85)
+    expect(result.vehicleCostTry).toBe(85 * DEFAULT_KM_COST_TRY)
     expect(result.resolvedLegs[0].distanceSource).toBe('manual')
   })
 
   test('keeps outbound and return manual distances separate', () => {
-    const customRoundTrip = {
+    const custom = {
       ...baseBooking,
-      pickup_location: 'private_address',
-      dropoff_location: 'hotel',
       trip_type: 'round_trip',
       return_date: '2026-08-05',
-      manual_outbound_distance_km: 24,
-      manual_return_distance_km: 27,
+      pickup_location: 'private_address',
+      dropoff_location: 'airport',
     }
-    const result = calculateProfitLossMetrics([customRoundTrip], '2026-08', '2026-08-07')
+    const overrides = {
+      'booking-1:outbound': { distance_km: 40 },
+      'booking-1:return': { distance_km: 45 },
+    }
+    const result = calculateProfitLossMetrics([custom], '2026-08', '2026-08-07', {}, overrides)
 
     expect(result.unresolvedLegs).toHaveLength(0)
-    expect(result.passengerKm).toBe(51)
-    expect(result.vehicleKm).toBe(102)
+    expect(result.resolvedLegs.map(leg => [leg.leg, leg.oneWayKm])).toEqual([
+      ['outbound', 40],
+      ['return', 45],
+    ])
+    expect(result.vehicleKm).toBe(170)
   })
 
   test('uses each month settings when all periods are combined', () => {

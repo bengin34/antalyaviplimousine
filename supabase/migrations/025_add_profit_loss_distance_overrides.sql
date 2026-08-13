@@ -7,11 +7,16 @@ CREATE TABLE IF NOT EXISTS profit_loss_distance_overrides (
   updated_at   TIMESTAMPTZ NOT NULL DEFAULT NOW(),
   PRIMARY KEY (booking_id, leg)
 );
+
 ALTER TABLE profit_loss_distance_overrides ENABLE ROW LEVEL SECURITY;
+
 GRANT SELECT, INSERT, UPDATE ON profit_loss_distance_overrides TO authenticated;
+
 CREATE POLICY "admin_read_profit_loss_distance_overrides" ON profit_loss_distance_overrides
   FOR SELECT TO authenticated USING (true);
+
 CREATE POLICY "admin_insert_profit_loss_distance_overrides" ON profit_loss_distance_overrides
   FOR INSERT TO authenticated WITH CHECK (true);
+
 CREATE POLICY "admin_update_profit_loss_distance_overrides" ON profit_loss_distance_overrides
   FOR UPDATE TO authenticated USING (true) WITH CHECK (true);

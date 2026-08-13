@@ -49,18 +49,21 @@ export default function App() {
   }
   if (hash === '#new') return <NewBookingPage navigate={navigate} />
   if (hash === '#budget') return <BudgetPage navigate={navigate} />
-  if (hash === '#profit-loss') return <ProfitLossPage navigate={navigate} />
+  if (hash.startsWith('#profit-loss')) {
+    const profitQuery = hash.startsWith('#profit-loss?') ? hash.slice('#profit-loss?'.length) : ''
+    return <ProfitLossPage key={hash} navigate={navigate} initialPeriod={new URLSearchParams(profitQuery).get('period')} />
+  }
   if (hash === '#admin') return <AdminPanelPage navigate={navigate} />
   if (hash.startsWith('#detail/')) {
     const detailPath = hash.slice('#detail/'.length)
     const [encodedRef, query = ''] = detailPath.split('?')
     const params = new URLSearchParams(query)
-    const from = params.get('from')
     return <BookingDetailPage
       key={hash}
       bookingRef={decodeURIComponent(encodedRef)}
       isReturn={params.get('leg') === 'return'}
-      sourceTab={from === 'profit-loss' ? 'profit-loss' : from === 'past' ? 'past' : 'future'}
+      sourceTab={params.get('from') === 'profit-loss' ? 'profit-loss' : params.get('from') === 'past' ? 'past' : 'future'}
+      profitPeriod={params.get('profitPeriod')}
       navigate={navigate}
     />
   }

@@ -1,22 +1,4 @@
-const LOCATION_LABELS = {
-  airport: 'Antalya Havalimanı',
-  hotel: 'Otel',
-  private_address: 'Özel adres',
-  antalya: 'Antalya',
-  belek: 'Belek',
-  side: 'Side',
-  kemer: 'Kemer',
-  alanya: 'Alanya',
-  bogazkent: 'Boğazkent',
-  manavgat: 'Manavgat',
-  kizilagac: 'Kızılağaç',
-  tekirova: 'Tekirova',
-  bodrum: 'Bodrum',
-  dalaman: 'Dalaman',
-  fethiye: 'Fethiye',
-  pamukkale: 'Pamukkale',
-  kapadokya: 'Kapadokya',
-}
+import { turkishLocationNames as LOCATION_LABELS } from '../src/routes.js'
 
 const ISTANBUL_TIME_ZONE = 'Europe/Istanbul'
 
