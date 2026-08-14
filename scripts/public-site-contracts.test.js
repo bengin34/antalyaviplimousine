@@ -43,6 +43,10 @@ const legalPaths = [
   "/ru/impressum/",
 ];
 
+const healthPaths = Object.keys(languages).map(
+  (language) => `/${languages[language].prefix}health/`,
+);
+
 const pagePath = (language, slug = "") =>
   `/${languages[language].prefix}${slug ? `transfers/${slug}/` : ""}`;
 
@@ -164,12 +168,12 @@ describe("public React migration baseline", () => {
     expect(Object.keys(routeData).sort()).toEqual([...routeSlugs].sort());
   });
 
-  test("keeps all 68 indexable URLs in the sitemap", () => {
+  test("keeps all 72 indexable URLs in the sitemap", () => {
     const commercialPaths = Object.keys(languages).flatMap((language) => [
       pagePath(language),
       ...routeSlugs.map((slug) => pagePath(language, slug)),
     ]);
-    const expectedUrls = [...commercialPaths, ...legalPaths]
+    const expectedUrls = [...commercialPaths, ...healthPaths, ...legalPaths]
       .map(canonicalFor)
       .sort();
     const sitemap = readFileSync(path.join(root, "public", "sitemap.xml"), "utf8");
@@ -177,7 +181,7 @@ describe("public React migration baseline", () => {
       .map((match) => match[1])
       .sort();
 
-    expect(new Set(actualUrls).size).toBe(68);
+    expect(new Set(actualUrls).size).toBe(72);
     expect(actualUrls).toEqual(expectedUrls);
     for (const urlPath of [...commercialPaths, ...legalPaths]) {
       expect(() => readPage(urlPath), `Missing HTML file for ${urlPath}`).not.toThrow();

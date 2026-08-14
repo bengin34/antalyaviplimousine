@@ -145,37 +145,6 @@ const routeDisplayNames: Record<(typeof routeOrder)[number], string> = {
   kapadokya: "Kapadokya",
 };
 
-const processItems = [
-  [
-    "stepOne",
-    "Choose destination",
-    "stepOneBody",
-    "Tell us where and when you would like to travel.",
-    "pin",
-  ],
-  [
-    "stepTwo",
-    "Select vehicle",
-    "stepTwoBody",
-    "Choose the space and comfort that suits your party.",
-    "car",
-  ],
-  [
-    "stepThree",
-    "Confirm booking",
-    "stepThreeBody",
-    "Receive instant confirmation with a fixed total price.",
-    "check-circle",
-  ],
-  [
-    "stepFour",
-    "Meet your driver",
-    "stepFourBody",
-    "Your chauffeur welcomes you inside the arrivals hall.",
-    "user-check",
-  ],
-] as const;
-
 const fallbackFleetPhotos = [
   {
     src: "/assets/optimized/chauffeur-arrival.jpg",
@@ -375,7 +344,7 @@ export function HomePage({ initialLanguage }: { initialLanguage: string }) {
 
   useEffect(() => {
     if (typeof IntersectionObserver === "undefined") return;
-    const elements = Array.from(document.querySelectorAll<HTMLElement>(".service-card, .route-card, .review-card, .process-line article"));
+    const elements = Array.from(document.querySelectorAll<HTMLElement>(".service-card, .route-card, .review-card"));
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (!entry.isIntersecting) return;
@@ -1105,39 +1074,6 @@ export function HomePage({ initialLanguage }: { initialLanguage: string }) {
               </div>
             </div>
           )}
-        </section>
-
-        <section className="process section">
-          <div className="section-heading">
-            <div>
-              <div className="eyebrow">
-                <span />
-                <p>{t("processEyebrow", "Simple by design")}</p>
-              </div>
-              <h2>
-                <LineBreakText
-                  value={t(
-                    "processTitle",
-                    "Four steps to<br />a seamless arrival.",
-                  )}
-                />
-              </h2>
-            </div>
-          </div>
-          <div className="process-line">
-            {processItems.map(
-              ([titleKey, title, bodyKey, body, icon], index) => (
-                <article key={titleKey}>
-                  <span>{String(index + 1).padStart(2, "0")}</span>
-                  <div className="process-icon">
-                    <Icon name={icon} />
-                  </div>
-                  <h3>{t(titleKey, title)}</h3>
-                  <p>{t(bodyKey, body)}</p>
-                </article>
-              ),
-            )}
-          </div>
         </section>
 
         <section className="faq section" id="faq">

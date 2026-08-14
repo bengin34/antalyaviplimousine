@@ -12,6 +12,33 @@ const homeSeo = {
   ru: { locale: "ru_RU", title: "Трансфер из аэропорта Антальи | Частный VIP-трансфер", description: "Частные трансферы по фиксированной цене из аэропорта Антальи в Белек, Сиде, Кемер, Аланью и другие курорты. Встреча и отслеживание рейса." },
 } as const;
 
+const healthSeo = {
+  en: {
+    locale: "en_GB",
+    title: "Health Travel Coordination in Antalya | Antalya VIP Tourism",
+    description: "Plan your Antalya health journey with clear provider roles, private transfers, accommodation coordination and continuity of care led by authorised medical teams.",
+    service: "Health travel coordination and concierge logistics",
+  },
+  de: {
+    locale: "de_DE",
+    title: "Koordination Ihrer Gesundheitsreise in Antalya | Antalya VIP Tourism",
+    description: "Planen Sie Ihre Gesundheitsreise nach Antalya mit klaren Zuständigkeiten, privaten Transfers, Unterkunftskoordination und ärztlich geführter Betreuung.",
+    service: "Koordination von Gesundheitsreisen und Concierge-Logistik",
+  },
+  tr: {
+    locale: "tr_TR",
+    title: "Antalya Sağlık Seyahati Koordinasyonu | Antalya VIP Tourism",
+    description: "Antalya'daki sağlık seyahatinizi net görev ayrımı, özel transfer, konaklama koordinasyonu ve yetkili sağlık ekiplerinin klinik takibiyle planlayın.",
+    service: "Sağlık seyahati koordinasyonu ve concierge lojistiği",
+  },
+  ru: {
+    locale: "ru_RU",
+    title: "Координация медицинской поездки в Анталью | Antalya VIP Tourism",
+    description: "Спланируйте поездку в Анталью с чётким разделением обязанностей, частным трансфером, координацией проживания и наблюдением медицинской команды.",
+    service: "Координация медицинских поездок и консьерж-логистика",
+  },
+} as const;
+
 const routeText = {
   en: {
     title: (name: string) => `Antalya Airport to ${name} Transfer | Private Fixed-Price Service`,
@@ -52,13 +79,19 @@ const alternateDescriptors = (suffix = "") => [
   { tagName: "link", rel: "alternate", hrefLang: "x-default", href: `${domain}${localizedPath("en", suffix)}` },
 ];
 
-const socialDescriptors = (title: string, description: string, url: string, locale: string) => [
+const socialDescriptors = (
+  title: string,
+  description: string,
+  url: string,
+  locale: string,
+  image = `${domain}/assets/optimized/og-antalya-transfer.jpg`,
+) => [
   { property: "og:type", content: "website" }, { property: "og:url", content: url },
   { property: "og:site_name", content: "Antalya VIP Tourism" }, { property: "og:title", content: title },
-  { property: "og:description", content: description }, { property: "og:image", content: `${domain}/assets/optimized/og-antalya-transfer.jpg` },
+  { property: "og:description", content: description }, { property: "og:image", content: image },
   { property: "og:locale", content: locale }, { name: "twitter:card", content: "summary_large_image" },
   { name: "twitter:title", content: title }, { name: "twitter:description", content: description },
-  { name: "twitter:image", content: `${domain}/assets/optimized/og-antalya-transfer.jpg` },
+  { name: "twitter:image", content: image },
 ];
 
 export function homeMeta(language: IndexableLanguage) {
@@ -82,6 +115,49 @@ export function homeMeta(language: IndexableLanguage) {
     ...socialDescriptors(seo.title, seo.description, `${domain}${pathname}`, seo.locale),
     { "script:ld+json": travelAgency },
     { "script:ld+json": { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: faq } },
+  ];
+}
+
+export function healthMeta(language: IndexableLanguage) {
+  const seo = healthSeo[language];
+  const pathname = localizedPath(language, "health/");
+  const url = `${domain}${pathname}`;
+  const image = `${domain}/assets/optimized/og-health-tourism.jpg`;
+  const provider = {
+    "@type": "TravelAgency",
+    name: "Antalya VIP Tourism",
+    url: domain,
+    telephone: "+90 530 265 57 90",
+  };
+
+  return [
+    { title: seo.title },
+    { name: "description", content: seo.description },
+    { tagName: "link", rel: "canonical", href: url },
+    ...alternateDescriptors("health/"),
+    ...socialDescriptors(seo.title, seo.description, url, seo.locale, image),
+    {
+      "script:ld+json": {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Antalya VIP Tourism", item: `${domain}${localizedPath(language)}` },
+          { "@type": "ListItem", position: 2, name: seo.service, item: url },
+        ],
+      },
+    },
+    {
+      "script:ld+json": {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        name: seo.service,
+        description: seo.description,
+        url,
+        provider,
+        areaServed: { "@type": "AdministrativeArea", name: "Antalya, Türkiye" },
+        audience: { "@type": "Audience", audienceType: "International travellers" },
+      },
+    },
   ];
 }
 

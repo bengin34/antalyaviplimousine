@@ -23,6 +23,18 @@ type Pages = {
   "/ru": {
     params: {};
   };
+  "/health": {
+    params: {};
+  };
+  "/de/health": {
+    params: {};
+  };
+  "/tr/health": {
+    params: {};
+  };
+  "/ru/health": {
+    params: {};
+  };
   "/transfers/:slug": {
     params: {
       "slug": string;
@@ -63,7 +75,7 @@ type Pages = {
 type RouteFiles = {
   "root.tsx": {
     id: "root";
-    page: "/" | "/de" | "/tr" | "/ru" | "/transfers/:slug" | "/:language/transfers/:slug" | "/impressum.html" | "/privacy" | "/de/datenschutz" | "/de/impressum" | "/tr/gizlilik" | "/tr/kunye" | "/ru/privacy" | "/ru/impressum";
+    page: "/" | "/de" | "/tr" | "/ru" | "/health" | "/de/health" | "/tr/health" | "/ru/health" | "/transfers/:slug" | "/:language/transfers/:slug" | "/impressum.html" | "/privacy" | "/de/datenschutz" | "/de/impressum" | "/tr/gizlilik" | "/tr/kunye" | "/ru/privacy" | "/ru/impressum";
   };
   "./routes/home.tsx": {
     id: "home-en";
@@ -77,6 +89,19 @@ type RouteFiles = {
   } | {
     id: "home-ru";
     page: "/ru";
+  };
+  "./routes/health.tsx": {
+    id: "health-en";
+    page: "/health";
+  } | {
+    id: "health-de";
+    page: "/de/health";
+  } | {
+    id: "health-tr";
+    page: "/tr/health";
+  } | {
+    id: "health-ru";
+    page: "/ru/health";
   };
   "./routes/transfer.tsx": {
     id: "transfer-en";
@@ -118,6 +143,10 @@ type RouteModules = {
   "home-de": typeof import("./public-app/app/./routes/home.tsx");
   "home-tr": typeof import("./public-app/app/./routes/home.tsx");
   "home-ru": typeof import("./public-app/app/./routes/home.tsx");
+  "health-en": typeof import("./public-app/app/./routes/health.tsx");
+  "health-de": typeof import("./public-app/app/./routes/health.tsx");
+  "health-tr": typeof import("./public-app/app/./routes/health.tsx");
+  "health-ru": typeof import("./public-app/app/./routes/health.tsx");
   "transfer-en": typeof import("./public-app/app/./routes/transfer.tsx");
   "transfer-localized": typeof import("./public-app/app/./routes/transfer.tsx");
   "legal-imprint-en": typeof import("./public-app/app/./routes/legal.tsx");

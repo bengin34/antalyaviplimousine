@@ -80,6 +80,19 @@ async function optimizeCoreAssets() {
     path.join(optimizedDir, "logo"),
     { width: 360, png: true, webpQuality: 82 },
   );
+
+  const healthHero = path.join(sourceDir, "health", "health-coordination-hero.png");
+  await writeResponsiveImage(
+    healthHero,
+    path.join(optimizedDir, "health-coordination-hero"),
+    { width: 1672, jpegQuality: 80, webpQuality: 78 },
+  );
+
+  await sharp(healthHero)
+    .rotate()
+    .resize({ width: 1200, height: 630, fit: "cover", position: "center" })
+    .jpeg({ quality: 82, mozjpeg: true, progressive: true })
+    .toFile(path.join(optimizedDir, "og-health-tourism.jpg"));
 }
 
 async function optimizeFleetImages() {
@@ -113,6 +126,10 @@ async function publishStableSeoAssets() {
   await copyFile(
     path.join(optimizedDir, "logo.png"),
     path.join(publicOptimizedDir, "logo.png"),
+  );
+  await copyFile(
+    path.join(optimizedDir, "og-health-tourism.jpg"),
+    path.join(publicOptimizedDir, "og-health-tourism.jpg"),
   );
 }
 

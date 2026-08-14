@@ -171,16 +171,6 @@ const translations = {
     reviewThree:
       "„Das fühlte sich wie der Chauffeurservice eines Hotels an, nicht wie ein Flughafentaxi. Klare Kommunikation, ein makelloses Fahrzeug und ein aufrichtig höflicher Fahrer.“",
     trustedBy: "Gebucht von Gästen führender Resorts in Antalya",
-    processEyebrow: "Bewusst einfach",
-    processTitle: "Vier Schritte zur<br />entspannten Ankunft.",
-    stepOne: "Ziel wählen",
-    stepOneBody: "Sagen Sie uns, wohin und wann Sie reisen möchten.",
-    stepTwo: "Fahrzeug auswählen",
-    stepTwoBody: "Wählen Sie den passenden Raum und Komfort.",
-    stepThree: "Buchung bestätigen",
-    stepThreeBody: "Erhalten Sie sofort Ihre Bestätigung zum Festpreis.",
-    stepFour: "Chauffeur treffen",
-    stepFourBody: "Ihr Chauffeur empfängt Sie in der Ankunftshalle.",
     pricingEyebrow: "Sicher planen",
     pricingTitle:
       "Kundenfreundliche Preise.<br />Sie zahlen, was fair ist.",
@@ -409,16 +399,6 @@ const translations = {
     reviewThree:
       "“Bu bir havalimanı taksisinden çok beş yıldızlı otel şoför hizmeti gibiydi. Net iletişim, tertemiz araç ve gerçekten nazik bir şoför.”",
     trustedBy: "Antalya'nın önde gelen resort misafirlerinin tercihi",
-    processEyebrow: "Sade ve kolay",
-    processTitle: "Kusursuz bir varış için<br />dört adım.",
-    stepOne: "Varış noktasını seçin",
-    stepOneBody: "Nereye ve ne zaman seyahat etmek istediğinizi belirtin.",
-    stepTwo: "Aracınızı seçin",
-    stepTwoBody: "Grubunuza uygun alanı ve konforu seçin.",
-    stepThree: "Rezervasyonu onaylayın",
-    stepThreeBody: "Sabit toplam fiyatla anında onay alın.",
-    stepFour: "Şoförünüzle buluşun",
-    stepFourBody: "Şoförünüz sizi gelen yolcu salonunda karşılar.",
     pricingEyebrow: "İçiniz rahat olsun",
     pricingTitle: "Müşteri dostu fiyatlandırma.<br />Adil olanı ödersiniz.",
     pricingIntro:
@@ -644,16 +624,6 @@ const translations = {
     reviewThree:
       "«Это было похоже на трансфер от пятизвёздочного отеля, а не на такси из аэропорта. Чёткая связь, безупречный автомобиль и по-настоящему вежливый водитель».",
     trustedBy: "Нам доверяют гости ведущих курортов Антальи",
-    processEyebrow: "Продуманная простота",
-    processTitle: "Четыре шага<br />к комфортному прибытию.",
-    stepOne: "Выберите направление",
-    stepOneBody: "Сообщите нам, куда и когда вы хотите поехать.",
-    stepTwo: "Выберите автомобиль",
-    stepTwoBody: "Подберите пространство и комфорт для вашей компании.",
-    stepThree: "Подтвердите бронирование",
-    stepThreeBody: "Сразу получите подтверждение с фиксированной ценой.",
-    stepFour: "Встретьте водителя",
-    stepFourBody: "Ваш шофёр встретит вас в зале прилёта.",
     pricingEyebrow: "Спокойствие в поездке",
     pricingTitle:
       "Цены в интересах клиента.<br />Вы платите справедливую сумму.",
@@ -860,16 +830,6 @@ const translations = {
     reviewThree:
       "„To było jak serwis szoferski hotelu, a nie taksówka na lotnisku. Jasna komunikacja, nieskazitelny pojazd i naprawdę uprzejmy kierowca.”",
     trustedBy: "Wybór gości czołowych resortów w Antalyi",
-    processEyebrow: "Celowo proste",
-    processTitle: "Cztery kroki do<br />spokojnego przybycia.",
-    stepOne: "Wybierz cel",
-    stepOneBody: "Powiedz nam, dokąd i kiedy chcesz pojechać.",
-    stepTwo: "Wybierz pojazd",
-    stepTwoBody: "Wybierz odpowiednią przestrzeń i komfort.",
-    stepThree: "Potwierdź rezerwację",
-    stepThreeBody: "Otrzymaj natychmiastowe potwierdzenie ze stałą ceną.",
-    stepFour: "Spotkaj szofera",
-    stepFourBody: "Szofer wita Cię w hali przylotów.",
     pricingEyebrow: "Spokój od początku",
     pricingTitle:
       "Ceny przyjazne klientom.<br />Płacisz tyle, ile jest uczciwe.",
@@ -1076,16 +1036,6 @@ const translations = {
     reviewThree:
       "„Dit voelde als een chauffeurservice van een hotel, niet als een luchthaventaxi. Duidelijke communicatie, een onberispelijk voertuig en een oprecht beleefde chauffeur.”",
     trustedBy: "Vertrouwd door gasten van toonaangevende resorts in Antalya",
-    processEyebrow: "Bewust eenvoudig",
-    processTitle: "Vier stappen naar<br />een ontspannen aankomst.",
-    stepOne: "Kies bestemming",
-    stepOneBody: "Vertel ons waarheen en wanneer u wilt reizen.",
-    stepTwo: "Kies voertuig",
-    stepTwoBody: "Kies de juiste ruimte en comfort.",
-    stepThree: "Bevestig boeking",
-    stepThreeBody: "Ontvang direct uw bevestiging met vaste prijs.",
-    stepFour: "Ontmoet uw chauffeur",
-    stepFourBody: "Uw chauffeur verwelkomt u in de aankomsthal.",
     pricingEyebrow: "Zorgeloos reizen",
     pricingTitle:
       "Klantvriendelijke prijzen.<br />U betaalt wat eerlijk is.",
@@ -1293,16 +1243,6 @@ const translations = {
     reviewThree:
       "«Це нагадувало трансфер від п'ятизіркового готелю, а не таксі з аеропорту. Чіткий зв'язок, бездоганний автомобіль та по-справжньому ввічливий водій».",
     trustedBy: "Нам довіряють гості провідних курортів Анталії",
-    processEyebrow: "Навмисно просто",
-    processTitle: "Чотири кроки<br />до комфортного прибуття.",
-    stepOne: "Оберіть напрямок",
-    stepOneBody: "Повідомте нам, куди і коли ви хочете поїхати.",
-    stepTwo: "Оберіть автомобіль",
-    stepTwoBody: "Підберіть простір і комфорт для вашої компанії.",
-    stepThree: "Підтвердіть бронювання",
-    stepThreeBody: "Отримайте миттєве підтвердження з фіксованою ціною.",
-    stepFour: "Зустріньте водія",
-    stepFourBody: "Ваш шофер зустріне вас у залі прильоту.",
     pricingEyebrow: "Спокій у дорозі",
     pricingTitle:
       "Ціни в інтересах клієнта.<br />Ви сплачуєте справедливу суму.",
@@ -1510,16 +1450,6 @@ const translations = {
     reviewThree:
       "« C'était comme un service de chauffeur d'hôtel, pas un taxi d'aéroport. Communication claire, véhicule impeccable et chauffeur sincèrement courtois. »",
     trustedBy: "Recommandé par les clients des meilleurs resorts d'Antalya",
-    processEyebrow: "Délibérément simple",
-    processTitle: "Quatre étapes pour<br />une arrivée sereine.",
-    stepOne: "Choisir la destination",
-    stepOneBody: "Indiquez-nous où et quand vous souhaitez voyager.",
-    stepTwo: "Choisir le véhicule",
-    stepTwoBody: "Sélectionnez l'espace et le confort adaptés.",
-    stepThree: "Confirmer la réservation",
-    stepThreeBody: "Recevez immédiatement votre confirmation au prix fixe.",
-    stepFour: "Rencontrer le chauffeur",
-    stepFourBody: "Votre chauffeur vous accueille dans le hall des arrivées.",
     pricingEyebrow: "Voyagez l'esprit tranquille",
     pricingTitle:
       "Une tarification pensée pour le client.<br />Vous payez le juste prix.",
@@ -1728,16 +1658,6 @@ const translations = {
     reviewThree:
       "„Det kändes som en chaufförstjänst från ett hotell, inte en flygplatstaxibil. Tydlig kommunikation, ett makulöst fordon och en genuint artig chaufför.”",
     trustedBy: "Anlitad av gäster på ledande resorts i Antalya",
-    processEyebrow: "Medvetet enkelt",
-    processTitle: "Fyra steg till<br />en avslappnad ankomst.",
-    stepOne: "Välj destination",
-    stepOneBody: "Berätta för oss vart och när du vill resa.",
-    stepTwo: "Välj fordon",
-    stepTwoBody: "Välj rätt utrymme och komfort.",
-    stepThree: "Bekräfta bokning",
-    stepThreeBody: "Få din bekräftelse direkt till fast pris.",
-    stepFour: "Möt din chaufför",
-    stepFourBody: "Din chaufför välkomnar dig i ankomsthallen.",
     pricingEyebrow: "Res med lugn",
     pricingTitle:
       "Kundvänlig prissättning.<br />Du betalar det som är rättvist.",
@@ -1944,16 +1864,6 @@ const translations = {
     reviewThree:
       "「空港タクシーではなく、ホテルのショーファーサービスのようでした。明確なコミュニケーション、完璧な車両、そして心から礼儀正しいドライバー。」",
     trustedBy: "アンタルヤの一流リゾートのゲストにご利用いただいています",
-    processEyebrow: "シンプルに設計",
-    processTitle: "安心到着のための<br />4ステップ。",
-    stepOne: "目的地を選ぶ",
-    stepOneBody: "どこへ、いつ行きたいかをお知らせください。",
-    stepTwo: "車両を選ぶ",
-    stepTwoBody: "お好みのスペースと快適さをお選びください。",
-    stepThree: "予約を確定する",
-    stepThreeBody: "固定料金で即座に確認書を受け取れます。",
-    stepFour: "ショーファーと合流",
-    stepFourBody: "ショーファーが到着ロビーでお出迎えします。",
     pricingEyebrow: "安心してご利用いただけます",
     pricingTitle:
       "お客様にやさしい料金設定。<br />公平な金額だけをお支払い。",
@@ -2159,16 +2069,6 @@ const translations = {
     reviewThree:
       '"공항 택시가 아닌 호텔 쇼퍼 서비스 같았습니다. 명확한 소통, 완벽한 차량, 진심으로 예의 바른 기사님."',
     trustedBy: "안탈리아 주요 리조트 고객들이 선택했습니다",
-    processEyebrow: "의도적으로 간단하게",
-    processTitle: "편안한 도착을 위한<br />4단계.",
-    stepOne: "목적지 선택",
-    stepOneBody: "어디로, 언제 이동하고 싶은지 알려주세요.",
-    stepTwo: "차량 선택",
-    stepTwoBody: "적합한 공간과 편의를 선택하세요.",
-    stepThree: "예약 확정",
-    stepThreeBody: "고정 요금으로 즉시 확인서를 받으세요.",
-    stepFour: "쇼퍼 만나기",
-    stepFourBody: "쇼퍼가 도착 로비에서 환영합니다.",
     pricingEyebrow: "안심 요금",
     pricingTitle: "고객 친화적인 요금.<br />공정한 금액만 결제하세요.",
     pricingIntro:
@@ -2386,16 +2286,6 @@ const translations = {
     reviewThree:
       '"شعرنا وكأنها خدمة سائق فندق فاخر وليست سيارة أجرة من المطار. تواصل واضح، وسيارة مثالية، وسائق مهذب بصدق."',
     trustedBy: "موثوق من ضيوف أبرز منتجعات أنطاليا",
-    processEyebrow: "بساطة مدروسة",
-    processTitle: "أربع خطوات<br />لوصول مريح.",
-    stepOne: "اختر وجهتك",
-    stepOneBody: "أخبرنا إلى أين ومتى تريد السفر.",
-    stepTwo: "اختر السيارة",
-    stepTwoBody: "اختر المساحة ومستوى الراحة المناسبين لك.",
-    stepThree: "أكد الحجز",
-    stepThreeBody: "احصل فوراً على تأكيدك بسعر ثابت.",
-    stepFour: "التقِ بسائقك",
-    stepFourBody: "يستقبلك سائقك في صالة الوصول.",
     pricingEyebrow: "خطط بثقة",
     pricingTitle: "نضمن سعراً ثابتاً.<br />وتدفع دائماً السعر الأقل.",
     pricingIntro:
@@ -4563,7 +4453,7 @@ const observer = new IntersectionObserver(
 
 document
   .querySelectorAll(
-    ".service-card, .route-card, .review-card, .process-line article",
+    ".service-card, .route-card, .review-card",
   )
   .forEach((element) => {
     const siblings = Array.from(element.parentElement.children);

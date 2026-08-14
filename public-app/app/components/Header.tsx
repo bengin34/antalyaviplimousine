@@ -2,7 +2,19 @@ import { useEffect, useRef, useState } from "react";
 import { languageOptions, useLanguage, type LanguageCode } from "../i18n";
 import { Icon } from "./Icon";
 
-export function Header({ homeHref = "", compact = false }: { homeHref?: string; compact?: boolean }) {
+type HeaderProps = {
+  homeHref?: string;
+  compact?: boolean;
+  ctaHref?: string;
+  ctaLabel?: string;
+};
+
+export function Header({
+  homeHref = "",
+  compact = false,
+  ctaHref,
+  ctaLabel,
+}: HeaderProps) {
   const { language, selectLanguage, t } = useLanguage();
   const [menuOpen, setMenuOpen] = useState(false);
   const [languagesOpen, setLanguagesOpen] = useState(false);
@@ -51,11 +63,11 @@ export function Header({ homeHref = "", compact = false }: { homeHref?: string; 
   };
 
   const nav = [
-    ["#fleet", t("navFleet", "Fleet")],
-    ["#services", t("navService", "Service")],
-    ["#routes", t("navRoutes", "Routes")],
-    ["#reviews", t("navReviews", "Reviews")],
-    ["#contact", t("navContact", "Contact")],
+    { hash: "#fleet", href: sectionHref("#fleet"), label: t("navFleet", "Fleet") },
+    { hash: "#services", href: sectionHref("#services"), label: t("navService", "Service") },
+    { hash: "#routes", href: sectionHref("#routes"), label: t("navRoutes", "Routes") },
+    { hash: "#reviews", href: sectionHref("#reviews"), label: t("navReviews", "Reviews") },
+    { hash: "#contact", href: sectionHref("#contact"), label: t("navContact", "Contact") },
   ];
 
   return (
@@ -66,7 +78,15 @@ export function Header({ homeHref = "", compact = false }: { homeHref?: string; 
           <span className="brand-copy"><strong>Antalya VIP</strong><span>Tourism</span></span>
         </a>
         <nav className="desktop-nav" aria-label="Primary navigation">
-          {nav.map(([href, label]) => <a href={sectionHref(href)} key={href} onClick={scrollTo(href)}>{label}</a>)}
+          {nav.map((item) => (
+            <a
+              href={item.href}
+              key={item.href}
+              onClick={item.hash ? scrollTo(item.hash) : undefined}
+            >
+              {item.label}
+            </a>
+          ))}
         </nav>
         <div className="header-actions">
           <div className={`lang-dropdown${languagesOpen ? " open" : ""}`} ref={languageMenu}>
@@ -95,7 +115,11 @@ export function Header({ homeHref = "", compact = false }: { homeHref?: string; 
               ))}
             </ul>
           </div>
-          <a className="header-cta" href={sectionHref("#booking")} onClick={scrollTo("#booking")}><span>{t("bookNow", "Book now")}</span><Icon name="arrow-up-right" className="icon" /></a>
+          <a
+            className="header-cta"
+            href={ctaHref ?? sectionHref("#booking")}
+            onClick={ctaHref ? undefined : scrollTo("#booking")}
+          ><span>{ctaLabel ?? t("bookNow", "Book now")}</span><Icon name="arrow-up-right" className="icon" /></a>
           <button
             className="menu-button"
             type="button"
@@ -107,7 +131,18 @@ export function Header({ homeHref = "", compact = false }: { homeHref?: string; 
       </header>
       <div className={`mobile-menu${menuOpen ? " open" : ""}`} aria-hidden={!menuOpen}>
         <nav aria-label="Mobile navigation">
-          {nav.map(([href, label]) => <a href={sectionHref(href)} key={href} onClick={(e) => { setMenuOpen(false); scrollTo(href)(e); }}>{label}</a>)}
+          {nav.map((item) => (
+            <a
+              href={item.href}
+              key={item.href}
+              onClick={(event) => {
+                setMenuOpen(false);
+                if (item.hash) scrollTo(item.hash)(event);
+              }}
+            >
+              {item.label}
+            </a>
+          ))}
         </nav>
         <div className="mobile-language-switcher" aria-label="Language selection">
           {languageOptions.map((option) => (

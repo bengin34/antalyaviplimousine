@@ -462,7 +462,6 @@ html[lang="ru"] .fleet-panel-copy h3,
 html[lang="ru"] .interior-copy h3,
 html[lang="ru"] .service-card h3,
 html[lang="ru"] .route-card h3,
-html[lang="ru"] .process-line h3,
 html[lang="ru"] .faq-item button span {
   font-family: Georgia, "Times New Roman", serif;
 }
@@ -2463,76 +2462,6 @@ html[dir="rtl"] a[href^="tel:"] {
   letter-spacing: 0.06em;
 }
 
-.process {
-  padding-bottom: 150px;
-}
-
-.process-line {
-  position: relative;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  margin-top: 80px;
-}
-
-.process-line::before {
-  position: absolute;
-  top: 50px;
-  right: 12.5%;
-  left: 12.5%;
-  height: 1px;
-  background: var(--line);
-  content: "";
-}
-
-.process-line article {
-  position: relative;
-  padding: 0 30px;
-  text-align: center;
-}
-
-.process-line article > span {
-  position: absolute;
-  top: -20px;
-  left: 22%;
-  color: #b8b3a7;
-  font-family: var(--serif);
-  font-size: 18px;
-}
-
-.process-icon {
-  position: relative;
-  z-index: 1;
-  display: grid;
-  width: 100px;
-  height: 100px;
-  place-items: center;
-  margin: 0 auto;
-  border: 1px solid var(--line);
-  border-radius: 50%;
-  background: var(--paper);
-  color: var(--gold-dark);
-}
-
-.process-icon svg {
-  width: 28px;
-  height: 28px;
-}
-
-.process-line h3 {
-  margin: 27px 0 12px;
-  font-family: var(--serif);
-  font-size: 25px;
-  font-weight: 400;
-}
-
-.process-line p {
-  max-width: 210px;
-  margin: 0 auto;
-  color: var(--muted);
-  font-size: 11px;
-  line-height: 1.7;
-}
-
 .faq {
   display: grid;
   grid-template-columns: 0.72fr 1.28fr;
@@ -3543,15 +3472,6 @@ footer {
     min-height: auto;
   }
 
-  .process-line {
-    grid-template-columns: 1fr 1fr;
-    gap: 60px 0;
-  }
-
-  .process-line::before {
-    display: none;
-  }
-
   .faq {
     grid-template-columns: 1fr;
     gap: 60px;
@@ -3951,15 +3871,6 @@ footer {
     justify-content: center;
   }
 
-  .process-line {
-    grid-template-columns: 1fr;
-    gap: 55px;
-  }
-
-  .process-line article > span {
-    left: calc(50% - 70px);
-  }
-
   .faq-item button span {
     font-size: 20px;
   }
@@ -4189,7 +4100,6 @@ footer {
     font-size: 11px;
   }
 
-  .process-line p,
   .footer-main > p {
     font-size: 15px;
     line-height: 1.75;

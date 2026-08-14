@@ -80,7 +80,11 @@ function localizedPath(pathname: string, language: LanguageCode) {
     : `${pathname}/`;
   const localizedMatch = normalized.match(/^\/(de|tr|ru)(\/.*)?$/);
   const basePath = localizedMatch ? localizedMatch[2] || "/" : normalized;
-  if (basePath !== "/" && !basePath.startsWith("/transfers/")) return null;
+  if (
+    basePath !== "/" &&
+    basePath !== "/health/" &&
+    !basePath.startsWith("/transfers/")
+  ) return null;
   return `${language === "en" ? "" : `/${language}`}${basePath}`;
 }
 

@@ -1,13 +1,14 @@
 import { readFile, stat } from "node:fs/promises";
 import path from "node:path";
 import { JSDOM } from "jsdom";
-import { homePaths, legalPaths, prerenderPaths, transferPaths } from "../src/public-paths.js";
+import { healthPaths, homePaths, legalPaths, prerenderPaths, transferPaths } from "../src/public-paths.js";
 import { routeCatalog } from "../src/routes.js";
 
 const root = process.cwd();
 const dist = path.join(root, "dist");
 const domain = "https://antalyaviptourism.com";
 const homeSet = new Set(homePaths);
+const healthSet = new Set(healthPaths);
 const transferSet = new Set(transferPaths);
 const legalSet = new Set(legalPaths);
 const failures = [];
@@ -60,12 +61,25 @@ for (const urlPath of prerenderPaths) {
     if (expected && !service?.offers?.some((offer) => Number(offer.price) === expected.vito)) fail(`${urlPath}: canonical Vito price is missing`);
     if (expected && !service?.offers?.some((offer) => Number(offer.price) === expected.sprinter)) fail(`${urlPath}: canonical Sprinter price is missing`);
   }
+
+  if (healthSet.has(urlPath)) {
+    if (!document.querySelector("#health-consultation")) fail(`${urlPath}: health consultation entry point is missing`);
+    if (!document.querySelector("#health-process")) fail(`${urlPath}: health journey process is missing`);
+    if (!document.querySelector(".health-role-notice")) fail(`${urlPath}: provider-role disclaimer is missing`);
+    if (document.querySelector("#quote-form")) fail(`${urlPath}: transfer booking form leaked into health route`);
+
+    const schemas = [...document.querySelectorAll('script[type="application/ld+json"]')]
+      .map((script) => JSON.parse(script.textContent || "{}"));
+    const service = schemas.find((schema) => schema["@type"] === "Service");
+    if (service?.provider?.["@type"] !== "TravelAgency") fail(`${urlPath}: health coordinator schema must identify a travel agency`);
+    if (schemas.some((schema) => ["MedicalClinic", "Hospital"].includes(schema["@type"]))) fail(`${urlPath}: health route incorrectly claims a medical-provider schema`);
+  }
 }
 
 const sitemap = await readFile(path.join(dist, "sitemap.xml"), "utf8");
 const sitemapUrls = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => match[1]).sort();
 const expectedUrls = [...prerenderPaths].map((urlPath) => `${domain}${urlPath}`).sort();
-if (JSON.stringify(sitemapUrls) !== JSON.stringify(expectedUrls)) fail("sitemap does not match the 68 canonical React routes");
+if (JSON.stringify(sitemapUrls) !== JSON.stringify(expectedUrls)) fail(`sitemap does not match the ${prerenderPaths.length} canonical React routes`);
 
 for (const required of ["admin/index.html", "admin/service-worker.js", "CNAME", "robots.txt"]) {
   if (!(await exists(path.join(dist, required)))) fail(`${required}: deploy artifact is missing`);
