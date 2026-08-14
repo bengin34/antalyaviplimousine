@@ -9,6 +9,7 @@ export default [
   route("de/health", "./routes/health.tsx", { id: "health-de" }),
   route("tr/health", "./routes/health.tsx", { id: "health-tr" }),
   route("ru/health", "./routes/health.tsx", { id: "health-ru" }),
+  route("clinic", "./routes/clinic.tsx", { id: "clinic-tr" }),
   route("transfers/:slug", "./routes/transfer.tsx", { id: "transfer-en" }),
   route(":language/transfers/:slug", "./routes/transfer.tsx", { id: "transfer-localized" }),
   route("impressum.html", "./routes/legal.tsx", { id: "legal-imprint-en" }),

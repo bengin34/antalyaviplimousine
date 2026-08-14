@@ -35,6 +35,9 @@ type Pages = {
   "/ru/health": {
     params: {};
   };
+  "/clinic": {
+    params: {};
+  };
   "/transfers/:slug": {
     params: {
       "slug": string;
@@ -75,7 +78,7 @@ type Pages = {
 type RouteFiles = {
   "root.tsx": {
     id: "root";
-    page: "/" | "/de" | "/tr" | "/ru" | "/health" | "/de/health" | "/tr/health" | "/ru/health" | "/transfers/:slug" | "/:language/transfers/:slug" | "/impressum.html" | "/privacy" | "/de/datenschutz" | "/de/impressum" | "/tr/gizlilik" | "/tr/kunye" | "/ru/privacy" | "/ru/impressum";
+    page: "/" | "/de" | "/tr" | "/ru" | "/health" | "/de/health" | "/tr/health" | "/ru/health" | "/clinic" | "/transfers/:slug" | "/:language/transfers/:slug" | "/impressum.html" | "/privacy" | "/de/datenschutz" | "/de/impressum" | "/tr/gizlilik" | "/tr/kunye" | "/ru/privacy" | "/ru/impressum";
   };
   "./routes/home.tsx": {
     id: "home-en";
@@ -102,6 +105,10 @@ type RouteFiles = {
   } | {
     id: "health-ru";
     page: "/ru/health";
+  };
+  "./routes/clinic.tsx": {
+    id: "clinic-tr";
+    page: "/clinic";
   };
   "./routes/transfer.tsx": {
     id: "transfer-en";
@@ -147,6 +154,7 @@ type RouteModules = {
   "health-de": typeof import("./public-app/app/./routes/health.tsx");
   "health-tr": typeof import("./public-app/app/./routes/health.tsx");
   "health-ru": typeof import("./public-app/app/./routes/health.tsx");
+  "clinic-tr": typeof import("./public-app/app/./routes/clinic.tsx");
   "transfer-en": typeof import("./public-app/app/./routes/transfer.tsx");
   "transfer-localized": typeof import("./public-app/app/./routes/transfer.tsx");
   "legal-imprint-en": typeof import("./public-app/app/./routes/legal.tsx");

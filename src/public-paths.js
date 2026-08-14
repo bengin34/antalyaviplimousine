@@ -23,6 +23,8 @@ export const healthPaths = Object.freeze(
   publicLanguages.map((language) => `${languagePrefix(language)}/health/`),
 );
 
+export const clinicPaths = Object.freeze(["/clinic/"]);
+
 export const transferPaths = Object.freeze(
   publicLanguages.flatMap((language) =>
     publicRouteSlugs.map((slug) => `${languagePrefix(language)}/transfers/${slug}/`),
@@ -30,6 +32,14 @@ export const transferPaths = Object.freeze(
 );
 
 export const prerenderPaths = Object.freeze([
+  ...homePaths,
+  ...healthPaths,
+  ...clinicPaths,
+  ...transferPaths,
+  ...legalPaths,
+]);
+
+export const sitemapPaths = Object.freeze([
   ...homePaths,
   ...healthPaths,
   ...transferPaths,

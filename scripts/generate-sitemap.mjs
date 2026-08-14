@@ -1,6 +1,6 @@
 import { writeFile } from "node:fs/promises";
 import path from "node:path";
-import { homePaths, legalPaths, prerenderPaths } from "../src/public-paths.js";
+import { homePaths, legalPaths, sitemapPaths } from "../src/public-paths.js";
 
 const root = process.cwd();
 const domain = "https://antalyaviptourism.com";
@@ -8,7 +8,7 @@ const today = new Date().toISOString().slice(0, 10);
 const homeSet = new Set(homePaths);
 const legalSet = new Set(legalPaths);
 
-const records = [...prerenderPaths]
+const records = [...sitemapPaths]
   .sort((left, right) => left.localeCompare(right))
   .map((url) => ({
     url,

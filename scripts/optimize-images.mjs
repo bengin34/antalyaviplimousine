@@ -6,12 +6,14 @@ const root = process.cwd();
 const sourceDir = path.join(root, "assets");
 const optimizedDir = path.join(sourceDir, "optimized");
 const optimizedImagesDir = path.join(optimizedDir, "images");
+const optimizedClinicDir = path.join(optimizedDir, "clinic");
 const publicOptimizedDir = path.join(root, "public", "assets", "optimized");
 
 const imageExtensions = new Set([".jpg", ".jpeg", ".png"]);
 
 async function ensureOutputDirs() {
   await mkdir(optimizedImagesDir, { recursive: true });
+  await mkdir(optimizedClinicDir, { recursive: true });
   await mkdir(publicOptimizedDir, { recursive: true });
 }
 
@@ -118,6 +120,33 @@ async function optimizeFleetImages() {
   );
 }
 
+async function optimizeClinicAssets() {
+  const clinicDir = path.join(sourceDir, "clinic");
+  const assets = [
+    ["oriva-hero", { width: 1800, jpegQuality: 80, webpQuality: 79 }],
+    ["doctor-ada-varel", { width: 1000, height: 1250, fit: "cover", jpegQuality: 80, webpQuality: 79 }],
+    ["doctor-kerem-loran", { width: 1000, height: 1250, fit: "cover", jpegQuality: 80, webpQuality: 79 }],
+    ["doctor-nil-arven", { width: 1000, height: 1250, fit: "cover", jpegQuality: 80, webpQuality: 79 }],
+    ["case-hairline", { width: 1500, jpegQuality: 78, webpQuality: 77 }],
+    ["case-facial-profile", { width: 1500, jpegQuality: 78, webpQuality: 77 }],
+    ["case-smile-planning", { width: 1500, jpegQuality: 78, webpQuality: 77 }],
+  ];
+
+  await Promise.all(
+    assets.map(([name, options]) => writeResponsiveImage(
+      path.join(clinicDir, `${name}.png`),
+      path.join(optimizedClinicDir, name),
+      options,
+    )),
+  );
+
+  await sharp(path.join(clinicDir, "oriva-hero.png"))
+    .rotate()
+    .resize({ width: 1200, height: 630, fit: "cover", position: "center" })
+    .jpeg({ quality: 82, mozjpeg: true, progressive: true })
+    .toFile(path.join(optimizedDir, "og-clinic-demo.jpg"));
+}
+
 async function publishStableSeoAssets() {
   await copyFile(
     path.join(optimizedDir, "og-antalya-transfer.jpg"),
@@ -131,11 +160,16 @@ async function publishStableSeoAssets() {
     path.join(optimizedDir, "og-health-tourism.jpg"),
     path.join(publicOptimizedDir, "og-health-tourism.jpg"),
   );
+  await copyFile(
+    path.join(optimizedDir, "og-clinic-demo.jpg"),
+    path.join(publicOptimizedDir, "og-clinic-demo.jpg"),
+  );
 }
 
 await ensureOutputDirs();
 await optimizeCoreAssets();
 await optimizeFleetImages();
+await optimizeClinicAssets();
 await publishStableSeoAssets();
 
 console.log("Optimized images written to assets/optimized");

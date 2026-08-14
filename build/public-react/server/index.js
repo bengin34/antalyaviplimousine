@@ -5,6 +5,7 @@ import { renderToReadableStream } from "react-dom/server";
 import { createContext, useState, useEffect, useCallback, useMemo, useContext, useRef } from "react";
 import i18next from "i18next";
 import { I18nextProvider } from "react-i18next";
+import ReactPlayer from "react-player";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { parsePhoneNumberFromString } from "libphonenumber-js";
@@ -123,12 +124,13 @@ function IconSprite() {
       /* @__PURE__ */ jsx("path", { d: "M3 10h18M7 15h3" })
     ] }),
     /* @__PURE__ */ jsx("symbol", { id: "icon-close", viewBox: "0 0 24 24", children: /* @__PURE__ */ jsx("path", { d: "m6 6 12 12M18 6 6 18" }) }),
-    /* @__PURE__ */ jsx("symbol", { id: "icon-arrow-left", viewBox: "0 0 24 24", children: /* @__PURE__ */ jsx("path", { d: "M19 12H5M11 6l-6 6 6 6" }) })
+    /* @__PURE__ */ jsx("symbol", { id: "icon-arrow-left", viewBox: "0 0 24 24", children: /* @__PURE__ */ jsx("path", { d: "M19 12H5M11 6l-6 6 6 6" }) }),
+    /* @__PURE__ */ jsx("symbol", { id: "icon-play", viewBox: "0 0 24 24", children: /* @__PURE__ */ jsx("polygon", { points: "5,3 19,12 5,21" }) })
   ] });
 }
-const siteStyles = "/assets/styles-DAQhsfs8.css";
-const reactPublicStyles = "/assets/react-public-4amVxyGv.css";
-const links = () => [{
+const siteStyles = "/assets/styles-BaIC9B-N.css";
+const reactPublicStyles = "/assets/react-public-CzSURSVY.css";
+const links$2 = () => [{
   rel: "stylesheet",
   href: siteStyles
 }, {
@@ -180,10 +182,14 @@ const route0 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProper
   HydrateFallback,
   Layout,
   default: root,
-  links
+  links: links$2
 }, Symbol.toStringTag, { value: "Module" }));
-const resources = /* @__PURE__ */ JSON.parse(`{"en":{"navFleet":"Fleet","navService":"Service","navFairPricing":"Fair Pricing","navRoutes":"Routes","navReviews":"Reviews","navContact":"Contact","bookNow":"Book now","alwaysAvailable":"Available 24 hours, every day","heroEyebrow":"Private chauffeur service · Antalya","campaignBadge":"Online special","campaignDiscount":"25% off","campaignScope":"all transfer prices","heroTitle":"Premium Airport<br />Transfers in Antalya","heroSubtitle":"Private chauffeur-driven transfers from Antalya Airport to Belek, Side, Kemer and Alanya.","bookTransfer":"Book your transfer","instantQuote":"Get instant quote","googleRated":"Google rated","trustedGuests":"Trusted by 2,500+ guests","discover":"Discover","tbLicensed":"TÜRSAB Licensed","tbFlightTracking":"Flight Tracking","tbFixedPrice":"Fixed Pricing","tb247Concierge":"24/7 Concierge","tbChildSeats":"Child Seats Included","privateJourney":"Your private journey","tripType":"Journey type","oneWay":"One way","roundTrip":"Round trip","roundTripHint":"For a round trip, the return follows the same route in reverse.","pickup":"Pick-up","airportOption":"Antalya Airport (AYT)","hotelOption":"Hotel","privateAddressOption":"Private address","destination":"Destination","selectDestination":"Select destination","vehicle":"Vehicle","guests":"Guests","arrivalDate":"Arrival date","arrivalFlightTime":"Flight arrival time","chooseTime":"Choose time","arrivalFlightNumber":"Arrival flight number","returnDate":"Return date","returnPickupTime":"Return pick-up time","returnFlightNumber":"Return flight number","pickupAddress":"Full pick-up address","dropoffAddress":"Full drop-off address","luggageLabel":"Large luggage","hotelNameLabel":"Hotel name","childSeatLabel":"Child seats","childSeatNone":"No child seat","oneChildSeat":"1 child seat","twoChildSeats":"2 child seats","threeChildSeats":"3 child seats","fourChildSeats":"4 child seats","fullName":"Full name","phoneLabel":"Phone / WhatsApp","emailLabel":"Email","paymentMethod":"Choose payment method","cashPayment":"Pay in the vehicle","recommended":"Recommended","cashPaymentDescription":"No prepayment. Pay your driver directly once you are satisfied with the service.","quoteIncludes":"Includes meet & greet, flight tracking, parking, waiting time and bottled water.","confirmCashBooking":"Confirm booking — pay in vehicle","flightTracking":"Real-time flight tracking","fixedPrice":"Fixed price guarantee","meetGreet":"Personal meet & greet","speakingDrivers":"English & German speaking","fromAirport":"From Antalya Airport","campaignApplied":"Online -15% already applied","welcomeEyebrow":"Welcome to a better arrival","welcomeTitle":"Travel beautifully.<br />Arrive effortlessly.","welcomeBody":"From the moment your flight lands, every detail is considered. Your chauffeur waits inside arrivals, handles your luggage and guides you to a meticulously prepared private vehicle.","ourStandards":"Our service standards","concierge":"Concierge support","guestsWelcomed":"Guests welcomed","guestRating":"Average guest rating","privateTransfers":"Private transfers","fleetEyebrow":"The fleet","fleetTitle":"Your private space,<br />refined in every detail.","fleetIntro":"Travel in quiet comfort with generous space for your family, golf equipment and luggage.","signatureFleet":"Signature fleet","fleetVclassClass":"Business · First Class","fleetVclassDescription":"Spacious VIP transport for larger groups, with generous room for passengers and luggage.","passengers":"passengers","suitcases":"suitcases","television":"In-vehicle television","coldDrinks":"Cold drinks","snacks":"Snacks","childSeats":"Child seat available","wifi":"Complimentary WiFi","nameSignGreeting":"Meet & greet with a personalised name sign","reserveVehicle":"Reserve this vehicle","insideVclass":"Inside the Sprinter","interiorTitle":"A private lounge between<br />the airport and your hotel.","serviceEyebrow":"The Antalya VIP standard","serviceTitle":"More than a transfer.<br />A considered welcome.","serviceIntro":"Hotel-level attention, experienced local chauffeurs and complete peace of mind from runway to resort.","trackingTitle":"Flight tracking","trackingBody":"We monitor your flight in real time and adjust your pick-up automatically, at no extra charge.","chauffeurTitle":"Professional chauffeurs","chauffeurBody":"Immaculately presented, discreet and selected for their local knowledge and service standards.","greetTitle":"Meet & greet","greetBody":"Your chauffeur will welcome you in arrivals with a personalised name sign and assist with luggage.","supportTitle":"24/7 concierge","supportBody":"A real person is always available by phone or WhatsApp before, during and after your journey.","priceTitle":"Fixed prices","priceBody":"The price confirmed is the price you pay. Waiting time, parking and flight delays are included.","familyTitle":"Family ready","familyBody":"Age-appropriate child seats, spacious cabins and patient assistance for a relaxed family arrival.","routesEyebrow":"Our most requested journeys","routesTitle":"From Antalya Airport<br />to the Turkish Riviera.","routesIntro":"All prices are per vehicle, never per passenger, with complimentary waiting time included.","discountPricesShown":"Online -15% prices shown","golfFavourite":"Golf favourite","onlineDiscountShort":"Online -25%","reviewsEyebrow":"Guest reviews","reviewsTitle":"Service remembered<br />long after arrival.","googleReviews":"Based on 387 verified Google reviews","trustedBy":"Trusted by guests of Antalya's leading resorts","processEyebrow":"Simple by design","processTitle":"Four steps to<br />a seamless arrival.","stepOne":"Choose destination","stepOneBody":"Tell us where and when you would like to travel.","stepTwo":"Select vehicle","stepTwoBody":"Choose the space and comfort that suits your party.","stepThree":"Confirm booking","stepThreeBody":"Receive instant confirmation with a fixed total price.","stepFour":"Meet your driver","stepFourBody":"Your chauffeur welcomes you inside the arrivals hall.","pricingEyebrow":"Peace of mind","pricingTitle":"Customer-friendly pricing.<br />You pay what's fair.","pricingIntro":"We offer fixed prices for peace of mind, but we measure the actual distance. You always pay whichever is lower.","pricingFixedPrice":"Fixed price","fixedPriceExample":"Belek transfer: €{{PRICE:belek:vito}}","fixedPriceDesc":"Guaranteed total. Includes airport fees, parking, waiting time and taxes.","distancePrice":"Distance-based","distancePriceExample":"24 km online example: €25","distancePriceDesc":"Measured with GPS during your journey.","youPay":"You pay","youPayPrice":"€25","youPayDesc":"Whichever is lower. Driver confirms at the end.","pricingNote":"No surprises. No hidden charges. What you book is what you pay — or less.","faqEyebrow":"Frequently asked","faqTitle":"Before you travel.","faqIntro":"Everything you need to know about your private Antalya airport transfer.","askQuestion":"Ask us a question","faqOneQ":"What happens if my flight is delayed?","faqOneA":"We track every arrival in real time. Your pick-up time is adjusted automatically and your chauffeur will wait at no additional charge.","faqTwoQ":"Where will I meet my chauffeur?","faqTwoA":"Your chauffeur will wait inside the arrivals hall, directly after baggage reclaim, holding a personalised name sign.","faqThreeQ":"Are child seats available?","faqThreeA":"Yes. Infant, toddler and booster seats are available free of charge when requested during booking.","faqFourQ":"Can you carry golf bags and large luggage?","faqFourA":"Yes. Our Sprinter and Vito vehicles are ideal for golf groups. Tell us your luggage details and we will allocate the correct vehicle.","faqFiveQ":"Is the quoted price final?","faqFiveA":"Yes. All airport fees, parking, waiting time and taxes are included. There are no hidden charges.","contactEyebrow":"Your journey starts here","contactTitle":"Arrive in Antalya<br />exceptionally well.","contactBody":"Book online in less than two minutes or speak directly with our 24/7 concierge team.","whatsappUs":"WhatsApp us","replyMinutes":"Usually replies within minutes","callUs":"Call us 24/7","emailUs":"Email concierge","replyHour":"Replies within one hour","footerTagline":"Private chauffeur services across the Turkish Riviera.","explore":"Explore","information":"Information","licensed":"Licensed private transfer operator · TÜRSAB compliant","bookingConfirmed":"Booking Confirmed","referenceLabel":"Reference","weWillContact":"Your booking request was sent. We will contact you within 30 minutes.","chatWithUs":"Chat with us","pickupAddressPlaceholder":"Hotel name, street, building number and district","dropoffAddressPlaceholder":"Hotel name, street, building number and district","hotelNamePlaceholder":"Hotel or accommodation name","cashConfirmation":"Your booking is confirmed. Pay the fixed total directly to your driver in the vehicle.","bookingError":"Your booking could not be completed. Please try again.","formIncomplete":"Please complete the highlighted fields.","requiredField":"This field is required.","destinationRequired":"Please select a destination.","dateInvalid":"Please choose today or a future date.","emailInvalid":"Please enter a valid email address.","nameInvalid":"Please enter a valid full name.","phoneInvalid":"Please enter a valid number including the country code (for example +49).","flightInvalid":"Please enter a valid flight number.","pickupAddressRequired":"The pick-up address must be between 6 and 160 characters.","dropoffAddressRequired":"The drop-off address must be between 6 and 160 characters.","addressesMustDiffer":"Pick-up and drop-off addresses must be different.","customDestinationPrice":"The price will be confirmed after we check the drop-off address.","hotelNameRequired":"Please enter the hotel name.","roundTripPriceNote":"round trip · 2 journeys","returnDateRequired":"Please choose a return date.","returnDateInvalid":"Please choose a return date on or after the outward journey.","returnTimeRequired":"Please choose the return pick-up time."},"de":{"navFleet":"Fahrzeuge","navService":"Service","navFairPricing":"Faire Preise","navRoutes":"Strecken","navReviews":"Bewertungen","navContact":"Kontakt","bookNow":"Jetzt buchen","alwaysAvailable":"24 Stunden, jeden Tag erreichbar","heroEyebrow":"Privater Chauffeurservice · Antalya","campaignBadge":"Online Spezial","campaignDiscount":"15% Rabatt","campaignScope":"auf alle Transferpreise","heroTitle":"Premium Flughafentransfers<br />in Antalya","heroSubtitle":"Private Transfers mit Chauffeur vom Flughafen Antalya nach Belek, Side, Kemer und Alanya.","bookTransfer":"Transfer buchen","instantQuote":"Sofortpreis erhalten","googleRated":"Google-Bewertung","trustedGuests":"Von über 2.500 Gästen gebucht","discover":"Entdecken","tbLicensed":"TÜRSAB-zertifiziert","tbFlightTracking":"Flugverfolgung","tbFixedPrice":"Festpreisgarantie","tb247Concierge":"24/7 Concierge","tbChildSeats":"Kindersitze inklusive","privateJourney":"Ihre private Reise","tripType":"Fahrtart","oneWay":"Einfache Fahrt","roundTrip":"Hin- und Rückfahrt","roundTripHint":"Bei Hin- und Rückfahrt erfolgt die Rückfahrt auf derselben Strecke in umgekehrter Richtung.","pickup":"Abholung","airportOption":"Flughafen Antalya (AYT)","hotelOption":"Hotel","privateAddressOption":"Privatadresse","destination":"Zielort","selectDestination":"Ziel auswählen","vehicle":"Fahrzeug","guests":"Gäste","arrivalDate":"Ankunftsdatum","arrivalFlightTime":"Ankunftszeit des Fluges","chooseTime":"Uhrzeit wählen","arrivalFlightNumber":"Ankunftsflugnummer","returnDate":"Rückfahrtdatum","returnPickupTime":"Abholzeit der Rückfahrt","returnFlightNumber":"Rückflugnummer","pickupAddress":"Vollständige Abholadresse","dropoffAddress":"Vollständige Zieladresse","luggageLabel":"Großes Gepäck","hotelNameLabel":"Hotelname","childSeatLabel":"Kindersitze","childSeatNone":"Kein Kindersitz","oneChildSeat":"1 Kindersitz","twoChildSeats":"2 Kindersitze","threeChildSeats":"3 Kindersitze","fourChildSeats":"4 Kindersitze","fullName":"Vollständiger Name","phoneLabel":"Telefon / WhatsApp","emailLabel":"E-Mail","paymentMethod":"Zahlungsart wählen","cashPayment":"Im Fahrzeug bezahlen","recommended":"Empfohlen","cashPaymentDescription":"Keine Vorauszahlung. Bezahlen Sie Ihren Fahrer direkt, wenn Sie mit dem Service zufrieden sind.","quoteIncludes":"Inklusive Meet & Greet, Flugverfolgung, Parken, Wartezeit und Mineralwasser.","confirmCashBooking":"Buchung bestätigen — im Fahrzeug zahlen","flightTracking":"Flugverfolgung in Echtzeit","fixedPrice":"Garantierter Festpreis","meetGreet":"Persönlicher Empfang","speakingDrivers":"Deutsch & Englisch sprechend","fromAirport":"Ab Flughafen Antalya","campaignApplied":"Online -15% bereits abgezogen","welcomeEyebrow":"Willkommen auf höchstem Niveau","welcomeTitle":"Stilvoll reisen.<br />Entspannt ankommen.","welcomeBody":"Ab Ihrer Landung ist jedes Detail organisiert. Ihr Chauffeur wartet in der Ankunftshalle, kümmert sich um Ihr Gepäck und begleitet Sie zu Ihrem sorgfältig vorbereiteten Privatfahrzeug.","ourStandards":"Unsere Servicestandards","concierge":"Concierge-Service","guestsWelcomed":"Begrüßte Gäste","guestRating":"Durchschnittliche Bewertung","privateTransfers":"Private Transfers","fleetEyebrow":"Unsere Flotte","fleetTitle":"Ihr privater Raum,<br />vollendet bis ins Detail.","fleetIntro":"Reisen Sie komfortabel mit großzügigem Platz für Familie, Golfgepäck und Koffer.","signatureFleet":"Signature Flotte","fleetVclassClass":"Business · First Class","fleetVclassDescription":"Großzügiger VIP-Transport für größere Gruppen mit viel Platz für Passagiere und Gepäck.","passengers":"Passagiere","suitcases":"Koffer","television":"Fernseher im Fahrzeug","coldDrinks":"Kalte Getränke","snacks":"Snacks","childSeats":"Kindersitze auf Wunsch","wifi":"Kostenloses WLAN","nameSignGreeting":"Empfang mit persönlichem Namensschild","reserveVehicle":"Fahrzeug reservieren","insideVclass":"Im Sprinter Interieur","interiorTitle":"Eine private Lounge zwischen<br />Flughafen und Hotel.","serviceEyebrow":"Der Antalya VIP Standard","serviceTitle":"Mehr als ein Transfer.<br />Ein besonderer Empfang.","serviceIntro":"Aufmerksamkeit auf Hotelniveau, erfahrene lokale Chauffeure und absolute Sicherheit vom Flughafen bis zum Resort.","trackingTitle":"Flugverfolgung","trackingBody":"Wir verfolgen Ihren Flug in Echtzeit und passen die Abholung automatisch und kostenlos an.","chauffeurTitle":"Professionelle Chauffeure","chauffeurBody":"Stets gepflegt, diskret und ausgewählt für Ortskenntnis und höchsten Servicestandard.","greetTitle":"Meet & Greet","greetBody":"Ihr Chauffeur empfängt Sie mit Namensschild in der Ankunftshalle und hilft mit dem Gepäck.","supportTitle":"24/7 Concierge","supportBody":"Vor, während und nach Ihrer Reise ist immer ein persönlicher Ansprechpartner erreichbar.","priceTitle":"Festpreise","priceBody":"Der bestätigte Preis ist der Endpreis. Wartezeit, Parken und Flugverspätungen sind inklusive.","familyTitle":"Für Familien","familyBody":"Passende Kindersitze, großzügige Innenräume und geduldige Hilfe für eine entspannte Ankunft.","routesEyebrow":"Unsere beliebtesten Fahrten","routesTitle":"Vom Flughafen Antalya<br />an die Türkische Riviera.","routesIntro":"Alle Preise gelten pro Fahrzeug, nie pro Person. Kostenlose Wartezeit ist inklusive.","discountPricesShown":"Online -15% Preise angezeigt","golfFavourite":"Golf-Favorit","onlineDiscountShort":"Online -15%","reviewsEyebrow":"Gästebewertungen","reviewsTitle":"Service, der lange<br />in Erinnerung bleibt.","googleReviews":"Basierend auf 387 verifizierten Google-Bewertungen","trustedBy":"Gebucht von Gästen führender Resorts in Antalya","processEyebrow":"Bewusst einfach","processTitle":"Vier Schritte zur<br />entspannten Ankunft.","stepOne":"Ziel wählen","stepOneBody":"Sagen Sie uns, wohin und wann Sie reisen möchten.","stepTwo":"Fahrzeug auswählen","stepTwoBody":"Wählen Sie den passenden Raum und Komfort.","stepThree":"Buchung bestätigen","stepThreeBody":"Erhalten Sie sofort Ihre Bestätigung zum Festpreis.","stepFour":"Chauffeur treffen","stepFourBody":"Ihr Chauffeur empfängt Sie in der Ankunftshalle.","pricingEyebrow":"Sicher planen","pricingTitle":"Kundenfreundliche Preise.<br />Sie zahlen, was fair ist.","pricingIntro":"Wir bieten Festpreise für Planungssicherheit, messen aber die tatsächliche Strecke. Sie zahlen immer den niedrigeren Betrag.","pricingFixedPrice":"Festpreis","fixedPriceExample":"Transfer nach Belek: {{PRICE:belek:vito}} €","fixedPriceDesc":"Garantierter Gesamtpreis. Inklusive Flughafengebühren, Parken, Wartezeit und Steuern.","distancePrice":"Nach Strecke","distancePriceExample":"24 km Online-Beispiel: 25 €","distancePriceDesc":"Während Ihrer Fahrt per GPS gemessen.","youPay":"Sie zahlen","youPayPrice":"25 €","youPayDesc":"Der niedrigere Betrag gilt. Der Fahrer bestätigt ihn am Ende.","pricingNote":"Keine Überraschungen. Keine versteckten Gebühren. Was Sie buchen, zahlen Sie - oder weniger.","faqEyebrow":"Häufig gefragt","faqTitle":"Vor Ihrer Reise.","faqIntro":"Alles, was Sie über Ihren privaten Flughafentransfer in Antalya wissen müssen.","askQuestion":"Frage stellen","faqOneQ":"Was passiert bei einer Flugverspätung?","faqOneA":"Wir verfolgen jede Ankunft in Echtzeit. Ihre Abholzeit wird automatisch angepasst und Ihr Chauffeur wartet ohne Aufpreis.","faqTwoQ":"Wo treffe ich meinen Chauffeur?","faqTwoA":"Ihr Chauffeur wartet direkt hinter der Gepäckausgabe in der Ankunftshalle mit einem persönlichen Namensschild.","faqThreeQ":"Sind Kindersitze verfügbar?","faqThreeA":"Ja. Babyschalen, Kindersitze und Sitzerhöhungen sind bei Vorbestellung kostenlos verfügbar.","faqFourQ":"Können Golfbags und großes Gepäck transportiert werden?","faqFourA":"Ja. Sprinter und Vito sind ideal für Golfgruppen. Teilen Sie uns Ihr Gepäck mit und wir planen das passende Fahrzeug.","faqFiveQ":"Ist der angezeigte Preis endgültig?","faqFiveA":"Ja. Flughafengebühren, Parken, Wartezeit und Steuern sind inklusive. Es gibt keine versteckten Kosten.","contactEyebrow":"Ihre Reise beginnt hier","contactTitle":"Außergewöhnlich gut<br />in Antalya ankommen.","contactBody":"Buchen Sie in weniger als zwei Minuten online oder sprechen Sie direkt mit unserem 24/7 Concierge-Team.","whatsappUs":"WhatsApp","replyMinutes":"Antwort meist in wenigen Minuten","callUs":"24/7 anrufen","emailUs":"Concierge E-Mail","replyHour":"Antwort innerhalb einer Stunde","footerTagline":"Private Chauffeurservices an der gesamten Türkischen Riviera.","explore":"Entdecken","information":"Information","licensed":"Lizenzierter privater Transferanbieter · TÜRSAB-konform","bookingConfirmed":"Buchung bestätigt","referenceLabel":"Referenz","weWillContact":"Ihre Buchungsanfrage wurde gesendet. Wir melden uns innerhalb von 30 Minuten.","chatWithUs":"Mit uns chatten","pickupAddressPlaceholder":"Hotelname, Straße, Hausnummer und Stadtteil","dropoffAddressPlaceholder":"Hotelname, Straße, Hausnummer und Stadtteil","hotelNamePlaceholder":"Hotel- oder Unterkunftsname","cashConfirmation":"Ihre Buchung ist bestätigt. Zahlen Sie den Festpreis direkt beim Fahrer im Fahrzeug.","bookingError":"Ihre Buchung konnte nicht abgeschlossen werden. Bitte versuchen Sie es erneut.","formIncomplete":"Bitte füllen Sie die markierten Felder aus.","requiredField":"Dieses Feld ist erforderlich.","destinationRequired":"Bitte wählen Sie ein Ziel.","dateInvalid":"Bitte wählen Sie heute oder ein zukünftiges Datum.","emailInvalid":"Bitte geben Sie eine gültige E-Mail-Adresse ein.","nameInvalid":"Bitte geben Sie einen gültigen vollständigen Namen ein.","phoneInvalid":"Bitte geben Sie eine gültige Nummer mit Ländervorwahl ein (zum Beispiel +49).","flightInvalid":"Bitte geben Sie eine gültige Flugnummer ein.","pickupAddressRequired":"Die Abholadresse muss zwischen 6 und 160 Zeichen lang sein.","dropoffAddressRequired":"Die Zieladresse muss zwischen 6 und 160 Zeichen lang sein.","addressesMustDiffer":"Abhol- und Zieladresse müssen unterschiedlich sein.","customDestinationPrice":"Der Preis wird nach Prüfung der Zieladresse bestätigt.","hotelNameRequired":"Bitte geben Sie den Hotelnamen ein.","roundTripPriceNote":"Hin- und Rückfahrt · 2 Fahrten","returnDateRequired":"Bitte wählen Sie ein Rückfahrtdatum.","returnDateInvalid":"Bitte wählen Sie ein Rückfahrtdatum am oder nach dem Datum der Hinfahrt.","returnTimeRequired":"Bitte wählen Sie die Abholzeit für die Rückfahrt.","quoteTitle":"Wohin dürfen wir Sie bringen?","date":"Datum","airportReturnPrice":"Der Preis wird nach Prüfung des Hotels oder der Abholadresse bestätigt.","oneGuest":"1 Gast","twoGuests":"2 Gäste","threeGuests":"3 Gäste","fourGuests":"4 Gäste","fiveGuests":"5 Gäste","sixGuests":"6 Gäste","sevenGuests":"7 Gäste","viewQuote":"Preis anzeigen","fleetVitoClass":"VIP · Grand Touring","fleetVitoDescription":"Eine komfortable Privatkabine für Familien und kleine Gruppen.","capacitySwitchedSprinter":"Passagiere und Gepäck übersteigen den Vito — auf Mercedes Sprinter umgestellt.","capacityNoVehicle":"So viele Passagiere und Gepäck übersteigen unsere Fahrzeuge. Bitte kontaktieren Sie uns per WhatsApp.","leatherSeats":"Premium-Ledersitze","water":"Gekühltes Mineralwasser","from":"Ab","reviewOne":"„Unser Fahrer wartete trotz 90 Minuten Flugverspätung. Das Fahrzeug war makellos, angenehm kühl und bereits mit beiden Kindersitzen ausgestattet. Genau der Empfang, den unsere Familie brauchte.“","reviewTwo":"„Vom ersten WhatsApp-Kontakt bis zur Ankunft in Belek absolut erstklassig. Pünktlich, diskret und sehr professionell. Auch unsere Golftaschen hatten bequem Platz.“","reviewThree":"„Das fühlte sich wie der Chauffeurservice eines Hotels an, nicht wie ein Flughafentaxi. Klare Kommunikation, ein makelloses Fahrzeug und ein aufrichtig höflicher Fahrer.“","perVehicle":"pro Fahrzeug · Festpreis","quoteReady":"Ihr privater Transfer","journeyTime":"Fahrzeit","totalFixed":"Gesamtpreis","confirmWhatsapp":"Über WhatsApp bestätigen","bookNowCta":"Jetzt buchen","backToQuote":"Zurück","yourDetails":"Ihre Daten","flightNumber":"Flugnummer","flightArrivalTime":"Ankunftszeit","notesLabel":"Besondere Wünsche","confirmBooking":"Buchung bestätigen","paySecurely":"Weiter zur sicheren Zahlung","payLaterNote":"Sichere Online-Zahlung nach Bestätigung.","paymentTitle":"Sichere Zahlung","paymentError":"Zahlung fehlgeschlagen. Bitte erneut versuchen."},"tr":{"navFleet":"Araçlar","navService":"Hizmetler","navFairPricing":"Adil fiyat","navRoutes":"Rotalar","navReviews":"Yorumlar","navContact":"İletişim","bookNow":"Hemen rezervasyon","alwaysAvailable":"Her gün 24 saat hizmetinizdeyiz","heroEyebrow":"Özel şoför hizmeti · Antalya","campaignBadge":"Online'a özel","campaignDiscount":"%15 indirim","campaignScope":"tüm transfer fiyatlarında","heroTitle":"Antalya'da Premium<br />Havalimanı Transferi","heroSubtitle":"Antalya Havalimanı'ndan Belek, Side, Kemer ve Alanya'ya özel şoförlü transfer.","bookTransfer":"Transferinizi ayırtın","instantQuote":"Anında fiyat alın","googleRated":"Google puanı","trustedGuests":"2.500'den fazla misafirin tercihi","discover":"Keşfedin","tbLicensed":"TÜRSAB Lisanslı","tbFlightTracking":"Uçuş Takibi","tbFixedPrice":"Sabit Fiyat","tb247Concierge":"7/24 Concierge","tbChildSeats":"Çocuk Koltuğu Dahil","privateJourney":"Size özel yolculuk","tripType":"Yolculuk türü","oneWay":"Tek yön","roundTrip":"Gidiş–dönüş","roundTripHint":"Gidiş–dönüş rezervasyonunda dönüş, aynı rotanın ters yönünde gerçekleşir.","pickup":"Alış noktası","airportOption":"Antalya Havalimanı (AYT)","hotelOption":"Otel","privateAddressOption":"Özel adres","destination":"Varış noktası","selectDestination":"Varış noktası seçin","vehicle":"Araç","guests":"Misafir","arrivalDate":"Geliş tarihi","arrivalFlightTime":"Geliş uçuş saati","chooseTime":"Saat seçin","arrivalFlightNumber":"Geliş uçuş numarası","returnDate":"Dönüş tarihi","returnPickupTime":"Dönüş alış saati","returnFlightNumber":"Dönüş uçuş numarası","pickupAddress":"Tam alış adresi","dropoffAddress":"Tam varış adresi","luggageLabel":"Büyük bavul","hotelNameLabel":"Otel ismi","childSeatLabel":"Çocuk koltuğu","childSeatNone":"Çocuk koltuğu istemiyorum","oneChildSeat":"1 çocuk koltuğu","twoChildSeats":"2 çocuk koltuğu","threeChildSeats":"3 çocuk koltuğu","fourChildSeats":"4 çocuk koltuğu","fullName":"Ad Soyad","phoneLabel":"Telefon / WhatsApp","emailLabel":"E-posta","paymentMethod":"Ödeme yöntemini seçin","cashPayment":"Araçta öde","recommended":"Önerilen","cashPaymentDescription":"Ön ödeme yok. Hizmetten memnun kaldığınızda ödemenizi doğrudan şoförünüze yapın.","quoteIncludes":"Karşılama, uçuş takibi, otopark, bekleme süresi ve şişe su dahildir.","confirmCashBooking":"Rezervasyonu onayla — araçta öde","flightTracking":"Gerçek zamanlı uçuş takibi","fixedPrice":"Sabit fiyat garantisi","meetGreet":"Kişisel karşılama","speakingDrivers":"İngilizce ve Almanca konuşan şoförler","fromAirport":"Antalya Havalimanı'ndan","campaignApplied":"Online -%15 indirim uygulanmıştır","welcomeEyebrow":"Daha iyi bir karşılamaya hoş geldiniz","welcomeTitle":"Zarafetle seyahat edin.<br />Rahatça varın.","welcomeBody":"Uçağınız indiği andan itibaren her ayrıntı düşünülür. Şoförünüz gelen yolcu salonunda bekler, bagajınızla ilgilenir ve sizi özenle hazırlanmış özel aracınıza götürür.","ourStandards":"Hizmet standartlarımız","concierge":"Concierge desteği","guestsWelcomed":"Karşılanan misafir","guestRating":"Ortalama misafir puanı","privateTransfers":"Özel transfer","fleetEyebrow":"Araç filomuz","fleetTitle":"Size özel alan,<br />her ayrıntıda kusursuz.","fleetIntro":"Aileniz, golf ekipmanınız ve bagajınız için geniş alan sunan sessiz bir konforla seyahat edin.","signatureFleet":"Seçkin filo","fleetVclassClass":"Business · First Class","fleetVclassDescription":"Kalabalık gruplar için geniş yolcu ve bagaj alanı sunan VIP ulaşım.","passengers":"yolcu","suitcases":"bavul","television":"Araç içi televizyon","coldDrinks":"Soğuk içecekler","snacks":"Atıştırmalıklar","childSeats":"Talep üzerine çocuk koltuğu","wifi":"Ücretsiz WiFi","nameSignGreeting":"İsminize özel tabela ile karşılama","reserveVehicle":"Bu aracı ayırtın","insideVclass":"Sprinter'ın içinde","interiorTitle":"Havalimanı ile oteliniz arasında<br />size özel bir lounge.","serviceEyebrow":"Antalya VIP standardı","serviceTitle":"Transferden fazlası.<br />Özenli bir karşılama.","serviceIntro":"Havalimanından otele kadar beş yıldızlı ilgi, deneyimli yerel şoförler ve tam huzur.","trackingTitle":"Uçuş takibi","trackingBody":"Uçuşunuzu gerçek zamanlı takip eder, alış saatinizi hiçbir ek ücret olmadan otomatik olarak ayarlarız.","chauffeurTitle":"Profesyonel şoförler","chauffeurBody":"Bakımlı, gizliliğe önem veren ve yerel bilgisi ile hizmet kalitesi için seçilmiş profesyoneller.","greetTitle":"Karşılama hizmeti","greetBody":"Şoförünüz sizi gelen yolcu salonunda isminizin yazılı olduğu tabela ile karşılar ve bagajınıza yardımcı olur.","supportTitle":"7/24 concierge","supportBody":"Yolculuğunuzdan önce, yolculuk sırasında ve sonrasında telefon veya WhatsApp üzerinden gerçek bir kişiye ulaşabilirsiniz.","priceTitle":"Sabit fiyatlar","priceBody":"Onaylanan fiyat ödeyeceğiniz nihai fiyattır. Bekleme, otopark ve uçuş gecikmeleri dahildir.","familyTitle":"Ailelere hazır","familyBody":"Yaşa uygun çocuk koltukları, geniş kabinler ve rahat bir aile karşılaması için özenli destek.","routesEyebrow":"En çok tercih edilen yolculuklar","routesTitle":"Antalya Havalimanı'ndan<br />Türk Rivierası'na.","routesIntro":"Tüm fiyatlar kişi başı değil, araç başıdır ve ücretsiz bekleme süresi dahildir.","discountPricesShown":"Online -%15 fiyatlar gösteriliyor","golfFavourite":"Golf misafirlerinin favorisi","onlineDiscountShort":"Online -%15","reviewsEyebrow":"Misafir yorumları","reviewsTitle":"Varıştan sonra da<br />hatırlanan hizmet.","googleReviews":"Doğrulanmış 387 Google yorumuna göre","trustedBy":"Antalya'nın önde gelen resort misafirlerinin tercihi","processEyebrow":"Sade ve kolay","processTitle":"Kusursuz bir varış için<br />dört adım.","stepOne":"Varış noktasını seçin","stepOneBody":"Nereye ve ne zaman seyahat etmek istediğinizi belirtin.","stepTwo":"Aracınızı seçin","stepTwoBody":"Grubunuza uygun alanı ve konforu seçin.","stepThree":"Rezervasyonu onaylayın","stepThreeBody":"Sabit toplam fiyatla anında onay alın.","stepFour":"Şoförünüzle buluşun","stepFourBody":"Şoförünüz sizi gelen yolcu salonunda karşılar.","pricingEyebrow":"İçiniz rahat olsun","pricingTitle":"Müşteri dostu fiyatlandırma.<br />Adil olanı ödersiniz.","pricingIntro":"İçiniz rahat etsin diye sabit fiyat sunarız, ancak gerçek mesafeyi de ölçeriz. Her zaman düşük olan tutarı ödersiniz.","pricingFixedPrice":"Sabit fiyat","fixedPriceExample":"Belek transferi: €{{PRICE:belek:vito}}","fixedPriceDesc":"Garantili toplam tutar. Havalimanı ücretleri, otopark, bekleme süresi ve vergiler dahildir.","distancePrice":"Mesafeye göre","distancePriceExample":"24 km online örnek: €25","distancePriceDesc":"Yolculuğunuz sırasında GPS ile ölçülür.","youPay":"Ödeyeceğiniz tutar","youPayPrice":"€25","youPayDesc":"Hangisi daha düşükse. Şoför yolculuk sonunda teyit eder.","pricingNote":"Sürpriz yok. Gizli ücret yok. Rezervasyonda gördüğünüz tutarı ödersiniz - ya da daha azını.","faqEyebrow":"Sık sorulanlar","faqTitle":"Seyahatinizden önce.","faqIntro":"Antalya'daki özel havalimanı transferiniz hakkında bilmeniz gereken her şey.","askQuestion":"Bize sorun","faqOneQ":"Uçağım gecikirse ne olur?","faqOneA":"Tüm uçuşları gerçek zamanlı takip ederiz. Alış saatiniz otomatik olarak güncellenir ve şoförünüz ek ücret olmadan bekler.","faqTwoQ":"Şoförümle nerede buluşacağım?","faqTwoA":"Şoförünüz bagaj tesliminden hemen sonra gelen yolcu salonunda, isminizin yazılı olduğu tabela ile bekler.","faqThreeQ":"Çocuk koltuğu var mı?","faqThreeA":"Evet. Bebek koltuğu, çocuk koltuğu ve yükseltici koltuk rezervasyon sırasında ücretsiz olarak talep edilebilir.","faqFourQ":"Golf çantası ve büyük bagaj taşıyor musunuz?","faqFourA":"Evet. Sprinter ve Vito araçlarımız golf grupları için idealdir. Bagaj bilgilerinizi paylaşın, uygun aracı planlayalım.","faqFiveQ":"Verilen fiyat kesin mi?","faqFiveA":"Evet. Havalimanı ücretleri, otopark, bekleme süresi ve vergiler dahildir. Gizli ücret yoktur.","contactEyebrow":"Yolculuğunuz burada başlar","contactTitle":"Antalya'ya ayrıcalıklı<br />bir şekilde varın.","contactBody":"İki dakikadan kısa sürede online rezervasyon yapın veya 7/24 concierge ekibimizle doğrudan görüşün.","whatsappUs":"WhatsApp'tan yazın","replyMinutes":"Genellikle birkaç dakika içinde yanıt veririz","callUs":"7/24 arayın","emailUs":"Concierge e-postası","replyHour":"Bir saat içinde yanıt","footerTagline":"Türk Rivierası genelinde özel şoför hizmetleri.","explore":"Keşfedin","information":"Bilgi","licensed":"Lisanslı özel transfer işletmesi · TÜRSAB standartlarına uygun","bookingConfirmed":"Rezervasyon Onaylandı","referenceLabel":"Referans","weWillContact":"Rezervasyon talebiniz gönderildi. 30 dakika içinde sizinle iletişime geçeceğiz.","chatWithUs":"Bize yazın","pickupAddressPlaceholder":"Otel adı, cadde, bina numarası ve ilçe","dropoffAddressPlaceholder":"Otel adı, cadde, bina numarası ve ilçe","hotelNamePlaceholder":"Otel veya konaklama adı","cashConfirmation":"Rezervasyonunuz onaylandı. Sabit toplam tutarı araçta doğrudan şoförünüze ödeyin.","bookingError":"Rezervasyonunuz tamamlanamadı. Lütfen tekrar deneyin.","formIncomplete":"Lütfen işaretli alanları doldurun.","requiredField":"Bu alan zorunludur.","destinationRequired":"Lütfen bir varış noktası seçin.","dateInvalid":"Lütfen bugünü veya gelecekteki bir tarihi seçin.","emailInvalid":"Lütfen geçerli bir e-posta adresi girin.","nameInvalid":"Lütfen geçerli bir ad soyad girin.","phoneInvalid":"Lütfen ülke koduyla birlikte geçerli bir numara girin (örneğin +49).","flightInvalid":"Lütfen geçerli bir uçuş numarası girin.","pickupAddressRequired":"Alış adresi 6–160 karakter arasında olmalıdır.","dropoffAddressRequired":"Varış adresi 6–160 karakter arasında olmalıdır.","addressesMustDiffer":"Alış ve varış adresleri farklı olmalıdır.","customDestinationPrice":"Fiyat, varış adresi kontrol edildikten sonra teyit edilecektir.","hotelNameRequired":"Lütfen otel ismini girin.","roundTripPriceNote":"gidiş–dönüş · 2 yolculuk","returnDateRequired":"Lütfen dönüş tarihini seçin.","returnDateInvalid":"Lütfen gidiş tarihiyle aynı veya daha sonraki bir dönüş tarihi seçin.","returnTimeRequired":"Lütfen dönüş için alış saatini seçin.","quoteTitle":"Sizi nereye götürelim?","date":"Tarih","airportReturnPrice":"Fiyat, otel veya alış adresi kontrol edildikten sonra teyit edilecektir.","oneGuest":"1 misafir","twoGuests":"2 misafir","threeGuests":"3 misafir","fourGuests":"4 misafir","fiveGuests":"5 misafir","sixGuests":"6 misafir","sevenGuests":"7 misafir","viewQuote":"Fiyatı görüntüle","fleetVitoClass":"VIP · Grand Touring","fleetVitoDescription":"Aileler ve küçük gruplar için konforlu ve özel bir kabin.","capacitySwitchedSprinter":"Yolcu ve bagajınız Vito kapasitesini aşıyor — Mercedes Sprinter'a geçildi.","capacityNoVehicle":"Bu kadar yolcu ve bavul araçlarımızın kapasitesini aşıyor. Lütfen WhatsApp'tan bize ulaşın.","leatherSeats":"Premium deri koltuklar","water":"Soğuk şişe su","from":"Başlangıç","reviewOne":"“Uçağımız 90 dakika gecikmesine rağmen şoförümüz bizi bekliyordu. Aracımız kusursuz, serin ve iki çocuk koltuğu da hazırdı. Ailemizin tam olarak ihtiyaç duyduğu karşılamaydı.”","reviewTwo":"“İlk WhatsApp görüşmesinden Belek'e varışımıza kadar her şey birinci sınıftı. Dakik, gizliliğe önem veren ve son derece profesyonel. Golf çantalarımız da rahatça sığdı.”","reviewThree":"“Bu bir havalimanı taksisinden çok beş yıldızlı otel şoför hizmeti gibiydi. Net iletişim, tertemiz araç ve gerçekten nazik bir şoför.”","perVehicle":"araç başı · sabit fiyat","quoteReady":"Size özel transfer","journeyTime":"Yolculuk süresi","totalFixed":"Toplam sabit fiyat","confirmWhatsapp":"WhatsApp ile onaylayın","bookNowCta":"Rezervasyon yap","backToQuote":"Geri","yourDetails":"Bilgileriniz","flightNumber":"Uçuş numarası","flightArrivalTime":"Varış saati","notesLabel":"Özel istekler","confirmBooking":"Rezervasyonu onayla","paySecurely":"Güvenli ödemeye geç","payLaterNote":"Onay sonrası güvenli online ödeme.","paymentTitle":"Güvenli Ödeme","paymentError":"Ödeme başarısız. Lütfen tekrar deneyin."},"ru":{"navFleet":"Автопарк","navService":"Сервис","navFairPricing":"Честная цена","navRoutes":"Маршруты","navReviews":"Отзывы","navContact":"Контакты","bookNow":"Забронировать","alwaysAvailable":"Мы на связи круглосуточно, каждый день","heroEyebrow":"Персональный шофёр · Анталья","campaignBadge":"Онлайн-акция","campaignDiscount":"скидка 15%","campaignScope":"на все трансферы","heroTitle":"Премиальный трансфер<br />из аэропорта Антальи","heroSubtitle":"Индивидуальные трансферы с водителем из аэропорта Антальи в Белек, Сиде, Кемер и Аланью.","bookTransfer":"Забронировать трансфер","instantQuote":"Узнать цену","googleRated":"Рейтинг Google","trustedGuests":"Нам доверяют более 2 500 гостей","discover":"Подробнее","tbLicensed":"Лицензия TÜRSAB","tbFlightTracking":"Отслеживание рейса","tbFixedPrice":"Фиксированная цена","tb247Concierge":"Консьерж 24/7","tbChildSeats":"Детские кресла в комплекте","privateJourney":"Ваша частная поездка","tripType":"Тип поездки","oneWay":"В одну сторону","roundTrip":"Туда и обратно","roundTripHint":"Обратная поездка проходит по тому же маршруту в обратном направлении.","pickup":"Место встречи","airportOption":"Аэропорт Антальи (AYT)","hotelOption":"Отель","privateAddressOption":"Частный адрес","destination":"Направление","selectDestination":"Выберите направление","vehicle":"Автомобиль","guests":"Гости","arrivalDate":"Дата прибытия","arrivalFlightTime":"Время прибытия рейса","chooseTime":"Выберите время","arrivalFlightNumber":"Номер рейса прибытия","returnDate":"Дата возвращения","returnPickupTime":"Время подачи на обратный путь","returnFlightNumber":"Номер обратного рейса","pickupAddress":"Полный адрес подачи","dropoffAddress":"Полный адрес назначения","luggageLabel":"Крупный багаж","hotelNameLabel":"Название отеля","childSeatLabel":"Детские кресла","childSeatNone":"Без детского кресла","oneChildSeat":"1 детское кресло","twoChildSeats":"2 детских кресла","threeChildSeats":"3 детских кресла","fourChildSeats":"4 детских кресла","fullName":"Имя и фамилия","phoneLabel":"Телефон / WhatsApp","emailLabel":"Эл. почта","paymentMethod":"Выберите способ оплаты","cashPayment":"Оплата в автомобиле","recommended":"Рекомендуем","cashPaymentDescription":"Без предоплаты. Оплатите услугу непосредственно водителю, когда останетесь довольны обслуживанием.","quoteIncludes":"Включены встреча, отслеживание рейса, парковка, ожидание и питьевая вода.","confirmCashBooking":"Подтвердить — оплата в автомобиле","flightTracking":"Отслеживание рейса","fixedPrice":"Гарантия фиксированной цены","meetGreet":"Персональная встреча","speakingDrivers":"Водители говорят на английском и немецком","fromAirport":"Из аэропорта Антальи","campaignApplied":"Онлайн -15% уже применено","welcomeEyebrow":"Добро пожаловать на новый уровень сервиса","welcomeTitle":"Путешествуйте красиво.<br />Прибывайте без забот.","welcomeBody":"С момента посадки вашего самолёта мы продумываем каждую деталь. Шофёр встретит вас в зале прилёта, поможет с багажом и проводит к подготовленному автомобилю.","ourStandards":"Наши стандарты сервиса","concierge":"Поддержка консьержа","guestsWelcomed":"Встреченных гостей","guestRating":"Средняя оценка гостей","privateTransfers":"Частные трансферы","fleetEyebrow":"Наш автопарк","fleetTitle":"Ваше личное пространство,<br />безупречное в деталях.","fleetIntro":"Путешествуйте в тишине и комфорте: достаточно места для семьи, багажа и оборудования для гольфа.","signatureFleet":"Фирменный автопарк","fleetVclassClass":"Business · First Class","fleetVclassDescription":"Эталон комфортных групповых поездок: просторный, исключительно тихий салон и всё необходимое для беззаботного прибытия.","passengers":"пассажиров","suitcases":"чемоданов","television":"Телевизор в автомобиле","coldDrinks":"Холодные напитки","snacks":"Закуски","childSeats":"Детские кресла по запросу","wifi":"Бесплатный WiFi","nameSignGreeting":"Встреча с именной табличкой","reserveVehicle":"Забронировать автомобиль","insideVclass":"Салон Sprinter","interiorTitle":"Персональный лаунж<br />между аэропортом и отелем.","serviceEyebrow":"Стандарт Antalya VIP","serviceTitle":"Больше, чем трансфер.<br />Продуманная встреча.","serviceIntro":"Внимание уровня пятизвёздочного отеля, опытные местные шофёры и спокойствие от аэропорта до курорта.","trackingTitle":"Отслеживание рейса","trackingBody":"Мы отслеживаем ваш рейс в реальном времени и автоматически корректируем время встречи без доплаты.","chauffeurTitle":"Профессиональные шофёры","chauffeurBody":"Безупречный внешний вид, деликатность, знание региона и высокие стандарты обслуживания.","greetTitle":"Встреча в аэропорту","greetBody":"Шофёр встретит вас в зале прилёта с именной табличкой и поможет с багажом.","supportTitle":"Консьерж 24/7","supportBody":"До, во время и после поездки вам всегда ответит человек по телефону или в WhatsApp.","priceTitle":"Фиксированные цены","priceBody":"Подтверждённая цена является окончательной. Ожидание, парковка и задержка рейса уже включены.","familyTitle":"Для всей семьи","familyBody":"Детские кресла по возрасту, просторный салон и внимательная помощь для спокойного семейного приезда.","routesEyebrow":"Самые популярные поездки","routesTitle":"Из аэропорта Антальи<br />на Турецкую Ривьеру.","routesIntro":"Все цены указаны за автомобиль, а не за пассажира. Бесплатное ожидание включено.","discountPricesShown":"Показаны цены онлайн -15%","golfFavourite":"Выбор игроков в гольф","onlineDiscountShort":"Онлайн -15%","reviewsEyebrow":"Отзывы гостей","reviewsTitle":"Сервис, который помнят<br />после прибытия.","googleReviews":"На основе 387 подтверждённых отзывов Google","trustedBy":"Нам доверяют гости ведущих курортов Антальи","processEyebrow":"Продуманная простота","processTitle":"Четыре шага<br />к комфортному прибытию.","stepOne":"Выберите направление","stepOneBody":"Сообщите нам, куда и когда вы хотите поехать.","stepTwo":"Выберите автомобиль","stepTwoBody":"Подберите пространство и комфорт для вашей компании.","stepThree":"Подтвердите бронирование","stepThreeBody":"Сразу получите подтверждение с фиксированной ценой.","stepFour":"Встретьте водителя","stepFourBody":"Ваш шофёр встретит вас в зале прилёта.","pricingEyebrow":"Спокойствие в поездке","pricingTitle":"Цены в интересах клиента.<br />Вы платите справедливую сумму.","pricingIntro":"Мы предлагаем фиксированные цены для спокойствия, но измеряем фактическое расстояние. Вы всегда платите меньшую сумму.","pricingFixedPrice":"Фиксированная цена","fixedPriceExample":"Трансфер в Белек: {{PRICE:belek:vito}} €","fixedPriceDesc":"Гарантированная итоговая сумма. Включены сборы аэропорта, парковка, ожидание и налоги.","distancePrice":"По расстоянию","distancePriceExample":"24 км онлайн-пример: 25 €","distancePriceDesc":"Измеряется по GPS во время поездки.","youPay":"Вы платите","youPayPrice":"25 €","youPayDesc":"Применяется меньшая сумма. Водитель подтвердит её в конце.","pricingNote":"Без сюрпризов. Без скрытых платежей. Вы платите указанную при бронировании сумму - или меньше.","faqEyebrow":"Частые вопросы","faqTitle":"Перед поездкой.","faqIntro":"Всё, что нужно знать о частном трансфере из аэропорта Антальи.","askQuestion":"Задать вопрос","faqOneQ":"Что произойдёт, если мой рейс задержится?","faqOneA":"Мы отслеживаем каждый рейс в реальном времени. Время встречи корректируется автоматически, а водитель ждёт без дополнительной платы.","faqTwoQ":"Где я встречу водителя?","faqTwoA":"Ваш шофёр будет ждать в зале прилёта сразу после выдачи багажа с именной табличкой.","faqThreeQ":"Есть ли детские кресла?","faqThreeA":"Да. Автолюльки, детские кресла и бустеры предоставляются бесплатно по запросу при бронировании.","faqFourQ":"Можно ли взять сумки для гольфа и крупный багаж?","faqFourA":"Да. Sprinter и Vito идеально подходят для групп игроков в гольф. Сообщите объём багажа, и мы подберём автомобиль.","faqFiveQ":"Указанная цена окончательная?","faqFiveA":"Да. Аэропортовые сборы, парковка, ожидание и налоги включены. Скрытых платежей нет.","contactEyebrow":"Ваше путешествие начинается здесь","contactTitle":"Прибудьте в Анталью<br />исключительно комфортно.","contactBody":"Забронируйте онлайн менее чем за две минуты или свяжитесь с нашей службой консьержа 24/7.","whatsappUs":"Написать в WhatsApp","replyMinutes":"Обычно отвечаем за несколько минут","callUs":"Позвонить 24/7","emailUs":"Написать консьержу","replyHour":"Ответ в течение часа","footerTagline":"Частные услуги шофёра по всей Турецкой Ривьере.","explore":"Разделы","information":"Информация","licensed":"Лицензированный оператор частных трансферов · Соответствует требованиям TÜRSAB","bookingConfirmed":"Бронирование подтверждено","referenceLabel":"Референс","weWillContact":"Ваш запрос на бронирование отправлен. Мы свяжемся с вами в течение 30 минут.","chatWithUs":"Написать нам","pickupAddressPlaceholder":"Название отеля, улица, номер дома и район","dropoffAddressPlaceholder":"Название отеля, улица, номер дома и район","hotelNamePlaceholder":"Название отеля или места проживания","cashConfirmation":"Бронирование подтверждено. Оплатите фиксированную сумму водителю в автомобиле.","bookingError":"Не удалось завершить бронирование. Попробуйте ещё раз.","formIncomplete":"Заполните выделенные поля.","requiredField":"Это поле обязательно.","destinationRequired":"Выберите направление.","dateInvalid":"Выберите сегодняшнюю или будущую дату.","emailInvalid":"Введите действительный адрес электронной почты.","nameInvalid":"Введите действительное полное имя.","phoneInvalid":"Введите действительный номер с кодом страны (например, +49).","flightInvalid":"Введите действительный номер рейса.","pickupAddressRequired":"Адрес подачи должен содержать от 6 до 160 символов.","dropoffAddressRequired":"Адрес назначения должен содержать от 6 до 160 символов.","addressesMustDiffer":"Адреса подачи и назначения должны отличаться.","customDestinationPrice":"Цена будет подтверждена после проверки адреса назначения.","hotelNameRequired":"Введите название отеля.","roundTripPriceNote":"туда и обратно · 2 поездки","returnDateRequired":"Выберите дату возвращения.","returnDateInvalid":"Дата возвращения должна совпадать с датой поездки туда или быть позже.","returnTimeRequired":"Выберите время подачи на обратный путь.","quoteTitle":"Куда вас отвезти?","date":"Дата","airportReturnPrice":"Цена будет подтверждена после проверки отеля или адреса подачи.","oneGuest":"1 гость","twoGuests":"2 гостя","threeGuests":"3 гостя","fourGuests":"4 гостя","fiveGuests":"5 гостей","sixGuests":"6 гостей","sevenGuests":"7 гостей","viewQuote":"Показать цену","fleetVitoClass":"VIP · Grand Touring","fleetVitoDescription":"Просторный частный салон для больших семей, групп игроков в гольф и гостей с объёмным багажом.","capacitySwitchedSprinter":"Пассажиры и багаж превышают вместимость Vito — выбран Mercedes Sprinter.","capacityNoVehicle":"Столько пассажиров и багажа превышает вместимость наших автомобилей. Напишите нам в WhatsApp.","leatherSeats":"Премиальные кожаные сиденья","water":"Охлаждённая вода","from":"От","reviewOne":"«Несмотря на задержку рейса на 90 минут, водитель ждал нас. Автомобиль был безупречно чистым и прохладным, а оба детских кресла уже были установлены. Именно такая встреча была нужна нашей семье».","reviewTwo":"«От первого сообщения в WhatsApp до прибытия в Белек всё было на высшем уровне. Пунктуально, деликатно и очень профессионально. Наши сумки для гольфа легко поместились».","reviewThree":"«Это было похоже на трансфер от пятизвёздочного отеля, а не на такси из аэропорта. Чёткая связь, безупречный автомобиль и по-настоящему вежливый водитель».","perVehicle":"за автомобиль · фиксированная цена","quoteReady":"Ваш частный трансфер","journeyTime":"Время в пути","totalFixed":"Итоговая цена","confirmWhatsapp":"Подтвердить в WhatsApp","bookNowCta":"Забронировать","backToQuote":"Назад","yourDetails":"Ваши данные","flightNumber":"Номер рейса","flightArrivalTime":"Время прилёта","notesLabel":"Особые пожелания","confirmBooking":"Подтвердить бронирование","paySecurely":"Перейти к безопасной оплате","payLaterNote":"Оплата онлайн после подтверждения.","paymentTitle":"Безопасная оплата","paymentError":"Оплата не прошла. Попробуйте ещё раз."},"pl":{"navFleet":"Pojazdy","navService":"Usługi","navFairPricing":"Uczciwa cena","navRoutes":"Trasy","navReviews":"Opinie","navContact":"Kontakt","bookNow":"Zarezerwuj","alwaysAvailable":"Do Twojej dyspozycji 24 godziny na dobę","heroEyebrow":"Prywatny serwis szoferski · Antalya","campaignBadge":"Online special","campaignDiscount":"25% off","campaignScope":"all transfer prices","heroTitle":"Transfery lotniskowe premium<br />w Antalyi","heroSubtitle":"Prywatne transfery z szoferem z lotniska Antalya do Belek, Side, Kemer i Alanyi.","bookTransfer":"Zarezerwuj transfer","instantQuote":"Sprawdź cenę","googleRated":"Ocena Google","trustedGuests":"Zaufało nam ponad 2 500 gości","discover":"Odkryj","tbLicensed":"Licencja TÜRSAB","tbFlightTracking":"Śledzenie lotu","tbFixedPrice":"Stała cena","tb247Concierge":"Concierge 24/7","tbChildSeats":"Foteliki w cenie","privateJourney":"Twoja prywatna podróż","tripType":"Journey type","oneWay":"One way","roundTrip":"Round trip","roundTripHint":"For a round trip, the return follows the same route in reverse.","pickup":"Miejsce odbioru","airportOption":"Lotnisko Antalya (AYT)","hotelOption":"Hotel","privateAddressOption":"Adres prywatny","destination":"Cel podróży","selectDestination":"Wybierz cel","vehicle":"Pojazd","guests":"Goście","arrivalDate":"Arrival date","arrivalFlightTime":"Flight arrival time","chooseTime":"Wybierz godzinę","arrivalFlightNumber":"Arrival flight number","returnDate":"Return date","returnPickupTime":"Return pick-up time","returnFlightNumber":"Return flight number","pickupAddress":"Pełny adres odbioru","dropoffAddress":"Pełny adres docelowy","luggageLabel":"Duży bagaż","hotelNameLabel":"Nazwa hotelu","childSeatLabel":"Foteliki dziecięce","childSeatNone":"Bez fotelika dziecięcego","oneChildSeat":"1 fotelik dziecięcy","twoChildSeats":"2 foteliki dziecięce","threeChildSeats":"3 foteliki dziecięce","fourChildSeats":"4 foteliki dziecięce","fullName":"Imię i nazwisko","phoneLabel":"Telefon / WhatsApp","emailLabel":"E-mail","paymentMethod":"Wybierz metodę płatności","cashPayment":"Zapłać w pojeździe","recommended":"Polecane","cashPaymentDescription":"Bez przedpłaty. Zapłać bezpośrednio kierowcy, gdy usługa spełni Twoje oczekiwania.","quoteIncludes":"Wliczono: powitanie, śledzenie lotu, parking, czas oczekiwania i woda.","confirmCashBooking":"Potwierdź — zapłać w pojeździe","flightTracking":"Śledzenie lotu w czasie rzeczywistym","fixedPrice":"Gwarantowana stała cena","meetGreet":"Osobiste powitanie","speakingDrivers":"Kierowcy mówiący po angielsku i niemiecku","fromAirport":"Z lotniska Antalya","campaignApplied":"Online -15% already applied","welcomeEyebrow":"Witamy na najwyższym poziomie","welcomeTitle":"Podróżuj z klasą.<br />Przyjeżdżaj spokojnie.","welcomeBody":"Od chwili lądowania każdy szczegół jest dopracowany. Szofer czeka w hali przylotów, zajmuje się bagażem i odprowadza Cię do starannie przygotowanego pojazdu.","ourStandards":"Nasze standardy usług","concierge":"Usługi concierge","guestsWelcomed":"Powitanych gości","guestRating":"Średnia ocena gości","privateTransfers":"Prywatne transfery","fleetEyebrow":"Nasza flota","fleetTitle":"Twoja prywatna przestrzeń,<br />doskonała w każdym detalu.","fleetIntro":"Podróżuj komfortowo z obszernym miejscem dla rodziny, sprzętu golfowego i walizek.","signatureFleet":"Flota Signature","fleetVclassClass":"Business · First Class","fleetVclassDescription":"Wzorzec eleganckiej podróży grupowej: przestronny, wyjątkowo cichy i wyposażony dla bezproblemowego przybycia.","passengers":"pasażerów","suitcases":"walizek","television":"Telewizor w pojeździe","coldDrinks":"Zimne napoje","snacks":"Przekąski","childSeats":"Foteliki dziecięce na życzenie","wifi":"Bezpłatne WiFi","nameSignGreeting":"Powitanie z tabliczką z imieniem","reserveVehicle":"Zarezerwuj pojazd","insideVclass":"Wnętrze Sprinter","interiorTitle":"Prywatny salon<br />między lotniskiem a hotelem.","serviceEyebrow":"Standard Antalya VIP","serviceTitle":"Więcej niż transfer.<br />Wyjątkowe powitanie.","serviceIntro":"Uwaga na poziomie pięciogwiazdkowego hotelu, doświadczeni lokalni szoferzy i pełen spokój od lotniska po resort.","trackingTitle":"Śledzenie lotu","trackingBody":"Śledzimy Twój lot w czasie rzeczywistym i automatycznie dostosowujemy godzinę odbioru bez dodatkowych opłat.","chauffeurTitle":"Profesjonalni szoferzy","chauffeurBody":"Zawsze zadbani, dyskretni, wybrani za znajomość terenu i najwyższe standardy obsługi.","greetTitle":"Meet & Greet","greetBody":"Szofer wita Cię w hali przylotów z tabliczką z Twoim imieniem i pomaga z bagażem.","supportTitle":"Concierge 24/7","supportBody":"Przed, w trakcie i po podróży zawsze możesz skontaktować się z nami telefonicznie lub przez WhatsApp.","priceTitle":"Stałe ceny","priceBody":"Potwierdzona cena jest ceną ostateczną. Czas oczekiwania, parking i opóźnienia lotów są wliczone.","familyTitle":"Dla rodzin","familyBody":"Odpowiednie foteliki dziecięce, obszerne kabiny i cierpliwa pomoc dla spokojnego przybycia z rodziną.","routesEyebrow":"Nasze najpopularniejsze trasy","routesTitle":"Z lotniska Antalya<br />na Turecką Riwierę.","routesIntro":"Wszystkie ceny dotyczą pojazdu, nie osoby. Bezpłatny czas oczekiwania jest wliczony.","discountPricesShown":"Online -15% prices shown","golfFavourite":"Ulubieniec golfistów","onlineDiscountShort":"Online -25%","reviewsEyebrow":"Opinie gości","reviewsTitle":"Usługa, która<br />zostaje w pamięci.","googleReviews":"Na podstawie 387 zweryfikowanych opinii Google","trustedBy":"Wybór gości czołowych resortów w Antalyi","processEyebrow":"Celowo proste","processTitle":"Cztery kroki do<br />spokojnego przybycia.","stepOne":"Wybierz cel","stepOneBody":"Powiedz nam, dokąd i kiedy chcesz pojechać.","stepTwo":"Wybierz pojazd","stepTwoBody":"Wybierz odpowiednią przestrzeń i komfort.","stepThree":"Potwierdź rezerwację","stepThreeBody":"Otrzymaj natychmiastowe potwierdzenie ze stałą ceną.","stepFour":"Spotkaj szofera","stepFourBody":"Szofer wita Cię w hali przylotów.","pricingEyebrow":"Spokój od początku","pricingTitle":"Ceny przyjazne klientom.<br />Płacisz tyle, ile jest uczciwe.","pricingIntro":"Dla spokoju podajemy stałe ceny, ale mierzymy rzeczywisty dystans. Zawsze płacisz niższą kwotę.","pricingFixedPrice":"Stała cena","fixedPriceExample":"Transfer do Belek: {{PRICE:belek:vito}} €","fixedPriceDesc":"Gwarantowana kwota końcowa. Obejmuje opłaty lotniskowe, parking, czas oczekiwania i podatki.","distancePrice":"Według dystansu","distancePriceExample":"Przykład online 24 km: 25 €","distancePriceDesc":"Mierzone GPS-em podczas przejazdu.","youPay":"Płacisz","youPayPrice":"25 €","youPayDesc":"Obowiązuje niższa kwota. Kierowca potwierdza ją na końcu.","pricingNote":"Bez niespodzianek. Bez ukrytych opłat. Płacisz tyle, ile rezerwujesz - albo mniej.","faqEyebrow":"Często zadawane pytania","faqTitle":"Przed Twoją podróżą.","faqIntro":"Wszystko, co musisz wiedzieć o prywatnym transferze z lotniska w Antalyi.","askQuestion":"Zadaj pytanie","faqOneQ":"Co się stanie, jeśli mój lot się opóźni?","faqOneA":"Śledzimy każdy przylot w czasie rzeczywistym. Godzina odbioru jest automatycznie dostosowywana, a szofer czeka bez dodatkowych opłat.","faqTwoQ":"Gdzie spotkam mojego szofera?","faqTwoA":"Szofer czeka w hali przylotów tuż za wydawaniem bagażu z tabliczką z Twoim imieniem.","faqThreeQ":"Czy dostępne są foteliki dziecięce?","faqThreeA":"Tak. Nosidełka, foteliki i podkładki są dostępne bezpłatnie przy wcześniejszej rezerwacji.","faqFourQ":"Czy można przewieźć torby golfowe i duży bagaż?","faqFourA":"Tak. Sprinter i Vito są idealne dla grup golfowych. Podaj informacje o bagażu, a zaplanujemy odpowiedni pojazd.","faqFiveQ":"Czy podana cena jest ostateczna?","faqFiveA":"Tak. Opłaty lotniskowe, parking, czas oczekiwania i podatki są wliczone. Brak ukrytych kosztów.","contactEyebrow":"Twoja podróż zaczyna się tutaj","contactTitle":"Przybądź do Antalyi<br />wyjątkowo komfortowo.","contactBody":"Zarezerwuj online w mniej niż dwie minuty lub skontaktuj się bezpośrednio z naszym concierge 24/7.","whatsappUs":"WhatsApp","replyMinutes":"Odpowiedź zwykle w kilka minut","callUs":"Zadzwoń 24/7","emailUs":"E-mail do concierge","replyHour":"Odpowiedź w ciągu godziny","footerTagline":"Prywatne usługi szoferskie na całej Tureckiej Riwierze.","explore":"Odkryj","information":"Informacje","licensed":"Licencjonowany prywatny przewoźnik · Zgodny z TÜRSAB","bookingConfirmed":"Rezerwacja potwierdzona","referenceLabel":"Numer referencyjny","weWillContact":"Twoje zgłoszenie rezerwacji zostało wysłane. Skontaktujemy się w ciągu 30 minut.","chatWithUs":"Napisz do nas","pickupAddressPlaceholder":"Nazwa hotelu, ulica, numer budynku i dzielnica","dropoffAddressPlaceholder":"Nazwa hotelu, ulica, numer budynku i dzielnica","hotelNamePlaceholder":"Nazwa hotelu lub zakwaterowania","cashConfirmation":"Rezerwacja jest potwierdzona. Zapłać kierowcy ustaloną kwotę w pojeździe.","bookingError":"Nie udało się dokończyć rezerwacji. Spróbuj ponownie.","formIncomplete":"Uzupełnij zaznaczone pola.","requiredField":"To pole jest wymagane.","destinationRequired":"Wybierz cel podróży.","dateInvalid":"Wybierz dzisiejszą lub przyszłą datę.","emailInvalid":"Wprowadź prawidłowy adres e-mail.","nameInvalid":"Wprowadź prawidłowe imię i nazwisko.","phoneInvalid":"Wprowadź prawidłowy numer z kodem kraju (na przykład +49).","flightInvalid":"Wprowadź prawidłowy numer lotu.","pickupAddressRequired":"Adres odbioru musi mieć od 6 do 160 znaków.","dropoffAddressRequired":"Adres docelowy musi mieć od 6 do 160 znaków.","addressesMustDiffer":"Adres odbioru i adres docelowy muszą być różne.","customDestinationPrice":"Cena zostanie potwierdzona po sprawdzeniu adresu docelowego.","hotelNameRequired":"Wprowadź nazwę hotelu.","roundTripPriceNote":"round trip · 2 journeys","returnDateRequired":"Please choose a return date.","returnDateInvalid":"Please choose a return date on or after the outward journey.","returnTimeRequired":"Please choose the return pick-up time.","quoteTitle":"Dokąd Cię zawieziemy?","date":"Data","airportReturnPrice":"Cena zostanie potwierdzona po sprawdzeniu hotelu lub adresu odbioru.","oneGuest":"1 gość","twoGuests":"2 gości","threeGuests":"3 gości","fourGuests":"4 gości","fiveGuests":"5 gości","sixGuests":"6 gości","sevenGuests":"7 gości","viewQuote":"Pokaż cenę","fleetVitoClass":"VIP · Grand Touring","fleetVitoDescription":"Obszerna prywatna kabina dla większych rodzin, grup golfowych i gości z obfitym bagażem.","capacitySwitchedSprinter":"Pasażerowie i bagaż przekraczają Vito — przełączono na Mercedes Sprinter.","capacityNoVehicle":"Tylu pasażerów i bagażu przekracza nasze pojazdy. Skontaktuj się z nami na WhatsApp.","leatherSeats":"Skórzane fotele premium","water":"Schłodzona woda mineralna","from":"Od","reviewOne":"„Nasz kierowca czekał mimo 90-minutowego opóźnienia. Pojazd był nieskazitelny, przyjemnie chłodny i wyposażony już w oba foteliki. Dokładnie takie powitanie potrzebowała nasza rodzina.”","reviewTwo":"„Od pierwszego kontaktu WhatsApp po przyjazd do Belek wszystko było absolutnie pierwszorzędne. Punktualnie, dyskretnie i bardzo profesjonalnie. Torby golfowe bez problemu się zmieściły.”","reviewThree":"„To było jak serwis szoferski hotelu, a nie taksówka na lotnisku. Jasna komunikacja, nieskazitelny pojazd i naprawdę uprzejmy kierowca.”","perVehicle":"za pojazd · stała cena","quoteReady":"Twój prywatny transfer","journeyTime":"Czas podróży","totalFixed":"Cena łączna","confirmWhatsapp":"Potwierdź przez WhatsApp","bookNowCta":"Zarezerwuj","backToQuote":"Wstecz","yourDetails":"Twoje dane","flightNumber":"Numer lotu","flightArrivalTime":"Godzina przylotu","notesLabel":"Specjalne życzenia","confirmBooking":"Potwierdź rezerwację","paySecurely":"Przejdź do bezpiecznej płatności","payLaterNote":"Bezpieczna płatność online po potwierdzeniu.","paymentTitle":"Bezpieczna płatność","paymentError":"Płatność nie powiodła się. Spróbuj ponownie."},"nl":{"navFleet":"Voertuigen","navService":"Service","navFairPricing":"Eerlijke prijs","navRoutes":"Routes","navReviews":"Reviews","navContact":"Contact","bookNow":"Nu boeken","alwaysAvailable":"24 uur per dag, elke dag bereikbaar","heroEyebrow":"Privé chauffeurservice · Antalya","campaignBadge":"Online special","campaignDiscount":"25% off","campaignScope":"all transfer prices","heroTitle":"Premium luchthavenstransfers<br />in Antalya","heroSubtitle":"Privé transfers met chauffeur van Antalya Luchthaven naar Belek, Side, Kemer en Alanya.","bookTransfer":"Transfer boeken","instantQuote":"Direct prijs ontvangen","googleRated":"Google-beoordeling","trustedGuests":"Vertrouwd door meer dan 2.500 gasten","discover":"Ontdekken","tbLicensed":"TÜRSAB Erkend","tbFlightTracking":"Vluchttracking","tbFixedPrice":"Vaste prijs","tb247Concierge":"Concierge 24/7","tbChildSeats":"Kinderzitjes inbegrepen","privateJourney":"Uw privéreis","tripType":"Journey type","oneWay":"One way","roundTrip":"Round trip","roundTripHint":"For a round trip, the return follows the same route in reverse.","pickup":"Ophaallocatie","airportOption":"Luchthaven Antalya (AYT)","hotelOption":"Hotel","privateAddressOption":"Privéadres","destination":"Bestemming","selectDestination":"Kies bestemming","vehicle":"Voertuig","guests":"Gasten","arrivalDate":"Arrival date","arrivalFlightTime":"Flight arrival time","chooseTime":"Kies tijd","arrivalFlightNumber":"Arrival flight number","returnDate":"Return date","returnPickupTime":"Return pick-up time","returnFlightNumber":"Return flight number","pickupAddress":"Volledig ophaaladres","dropoffAddress":"Volledig bestemmingsadres","luggageLabel":"Grote bagage","hotelNameLabel":"Hotelnaam","childSeatLabel":"Kinderzitjes","childSeatNone":"Geen kinderzitje","oneChildSeat":"1 kinderzitje","twoChildSeats":"2 kinderzitjes","threeChildSeats":"3 kinderzitjes","fourChildSeats":"4 kinderzitjes","fullName":"Volledige naam","phoneLabel":"Telefoon / WhatsApp","emailLabel":"E-mail","paymentMethod":"Kies betaalmethode","cashPayment":"Betaal in het voertuig","recommended":"Aanbevolen","cashPaymentDescription":"Geen vooruitbetaling. Betaal uw chauffeur rechtstreeks zodra u tevreden bent over de service.","quoteIncludes":"Inclusief: welkom, vluchttracking, parkeren, wachttijd en water.","confirmCashBooking":"Bevestig — betaal in het voertuig","flightTracking":"Realtime vluchtvolgend","fixedPrice":"Gegarandeerde vaste prijs","meetGreet":"Persoonlijk welkom","speakingDrivers":"Chauffeurs die Engels en Duits spreken","fromAirport":"Vanaf Antalya Luchthaven","campaignApplied":"Online -15% already applied","welcomeEyebrow":"Welkom op het hoogste niveau","welcomeTitle":"Stijlvol reizen.<br />Ontspannen aankomen.","welcomeBody":"Vanaf uw landing is elk detail geregeld. Uw chauffeur wacht in de aankomsthal, zorgt voor uw bagage en begeleidt u naar uw zorgvuldig voorbereide privévoertuig.","ourStandards":"Onze servicestandaarden","concierge":"Conciërgeservice","guestsWelcomed":"Verwelkomde gasten","guestRating":"Gemiddelde gastbeoordeling","privateTransfers":"Privétransfers","fleetEyebrow":"Onze vloot","fleetTitle":"Uw privéruimte,<br />perfect tot in elk detail.","fleetIntro":"Reis comfortabel met ruimte voor familie, golfbagage en koffers.","signatureFleet":"Signature vloot","fleetVclassClass":"Business · First Class","fleetVclassDescription":"De maatstaf voor verfijnde groepsreizen: ruim, uitzonderlijk stil en uitgerust voor een probleemloze aankomst.","passengers":"passagiers","suitcases":"koffers","television":"Televisie in het voertuig","coldDrinks":"Koude dranken","snacks":"Snacks","childSeats":"Kinderzitjes op verzoek","wifi":"Gratis WiFi","nameSignGreeting":"Ontvangst met persoonlijk naambordje","reserveVehicle":"Voertuig reserveren","insideVclass":"In het Sprinter interieur","interiorTitle":"Een privélounge<br />tussen luchthaven en hotel.","serviceEyebrow":"De Antalya VIP-standaard","serviceTitle":"Meer dan een transfer.<br />Een bijzonder welkom.","serviceIntro":"Aandacht op hotelniveau, ervaren lokale chauffeurs en absolute gemoedsrust van luchthaven tot resort.","trackingTitle":"Vluchttracking","trackingBody":"We volgen uw vlucht in realtime en passen de ophaalafspraak automatisch en kosteloos aan.","chauffeurTitle":"Professionele chauffeurs","chauffeurBody":"Altijd verzorgd, discreet en geselecteerd op lokale kennis en hoogste servicestandaard.","greetTitle":"Meet & Greet","greetBody":"Uw chauffeur verwelkomt u in de aankomsthal met een naambordje en helpt met uw bagage.","supportTitle":"24/7 Conciërge","supportBody":"Voor, tijdens en na uw reis is er altijd iemand bereikbaar per telefoon of WhatsApp.","priceTitle":"Vaste prijzen","priceBody":"De bevestigde prijs is de definitieve prijs. Wachttijd, parkeren en vluchtvertragingen zijn inbegrepen.","familyTitle":"Voor gezinnen","familyBody":"Passende kinderzitjes, ruime interieurs en geduldige hulp voor een ontspannen familieaankomst.","routesEyebrow":"Onze populairste ritten","routesTitle":"Van Antalya Luchthaven<br />naar de Turkse Rivièra.","routesIntro":"Alle prijzen zijn per voertuig, nooit per persoon. Gratis wachttijd is inbegrepen.","discountPricesShown":"Online -15% prices shown","golfFavourite":"Golfliefhebbersfavoriet","onlineDiscountShort":"Online -25%","reviewsEyebrow":"Gastbeoordelingen","reviewsTitle":"Service die lang<br />bijblijft.","googleReviews":"Gebaseerd op 387 geverifieerde Google-beoordelingen","trustedBy":"Vertrouwd door gasten van toonaangevende resorts in Antalya","processEyebrow":"Bewust eenvoudig","processTitle":"Vier stappen naar<br />een ontspannen aankomst.","stepOne":"Kies bestemming","stepOneBody":"Vertel ons waarheen en wanneer u wilt reizen.","stepTwo":"Kies voertuig","stepTwoBody":"Kies de juiste ruimte en comfort.","stepThree":"Bevestig boeking","stepThreeBody":"Ontvang direct uw bevestiging met vaste prijs.","stepFour":"Ontmoet uw chauffeur","stepFourBody":"Uw chauffeur verwelkomt u in de aankomsthal.","pricingEyebrow":"Zorgeloos reizen","pricingTitle":"Klantvriendelijke prijzen.<br />U betaalt wat eerlijk is.","pricingIntro":"We bieden vaste prijzen voor zekerheid, maar meten ook de werkelijke afstand. U betaalt altijd het laagste bedrag.","pricingFixedPrice":"Vaste prijs","fixedPriceExample":"Transfer naar Belek: €{{PRICE:belek:vito}}","fixedPriceDesc":"Gegarandeerd totaalbedrag. Inclusief luchthavengelden, parkeren, wachttijd en belastingen.","distancePrice":"Op afstand","distancePriceExample":"24 km online voorbeeld: €25","distancePriceDesc":"Gemeten met GPS tijdens uw rit.","youPay":"U betaalt","youPayPrice":"€25","youPayDesc":"Het laagste bedrag geldt. De chauffeur bevestigt dit aan het einde.","pricingNote":"Geen verrassingen. Geen verborgen kosten. Wat u boekt, betaalt u - of minder.","faqEyebrow":"Veelgestelde vragen","faqTitle":"Vóór uw reis.","faqIntro":"Alles wat u moet weten over uw privétransfer van de luchthaven Antalya.","askQuestion":"Stel een vraag","faqOneQ":"Wat gebeurt er bij een vluchtvertraging?","faqOneA":"We volgen elke aankomst in realtime. Uw ophaaltijd wordt automatisch aangepast en uw chauffeur wacht zonder meerprijs.","faqTwoQ":"Waar ontmoet ik mijn chauffeur?","faqTwoA":"Uw chauffeur wacht direct na de bagageband in de aankomsthal met een persoonlijk naambordje.","faqThreeQ":"Zijn kinderzitjes beschikbaar?","faqThreeA":"Ja. Babyschalen, kinderzitjes en zitverhogers zijn bij vooraf boeken gratis beschikbaar.","faqFourQ":"Kunnen golfbags en groot bagage worden vervoerd?","faqFourA":"Ja. Sprinter en Vito zijn ideaal voor golfgroepen. Geef uw bagage op en wij plannen het juiste voertuig.","faqFiveQ":"Is de getoonde prijs definitief?","faqFiveA":"Ja. Luchthavengelden, parkeren, wachttijd en belastingen zijn inbegrepen. Geen verborgen kosten.","contactEyebrow":"Uw reis begint hier","contactTitle":"Buitengewoon goed<br />aankomen in Antalya.","contactBody":"Boek online in minder dan twee minuten of spreek direct met ons 24/7 conciërgeteam.","whatsappUs":"WhatsApp","replyMinutes":"Antwoord meestal binnen enkele minuten","callUs":"24/7 bellen","emailUs":"Conciërge e-mail","replyHour":"Antwoord binnen een uur","footerTagline":"Privé chauffeurservices aan de hele Turkse Rivièra.","explore":"Ontdekken","information":"Informatie","licensed":"Erkende privé-transferaanbieder · TÜRSAB-conform","bookingConfirmed":"Boeking bevestigd","referenceLabel":"Referentie","weWillContact":"Uw boekingsaanvraag is verzonden. We nemen binnen 30 minuten contact op.","chatWithUs":"Chat met ons","pickupAddressPlaceholder":"Hotelnaam, straat, huisnummer en wijk","dropoffAddressPlaceholder":"Hotelnaam, straat, huisnummer en wijk","hotelNamePlaceholder":"Naam van hotel of accommodatie","cashConfirmation":"Uw boeking is bevestigd. Betaal het vaste bedrag rechtstreeks aan de chauffeur.","bookingError":"Uw boeking kon niet worden voltooid. Probeer het opnieuw.","formIncomplete":"Vul de gemarkeerde velden in.","requiredField":"Dit veld is verplicht.","destinationRequired":"Kies een bestemming.","dateInvalid":"Kies vandaag of een toekomstige datum.","emailInvalid":"Voer een geldig e-mailadres in.","nameInvalid":"Voer een geldige volledige naam in.","phoneInvalid":"Voer een geldig nummer met landcode in (bijvoorbeeld +49).","flightInvalid":"Voer een geldig vluchtnummer in.","pickupAddressRequired":"Het ophaaladres moet tussen 6 en 160 tekens lang zijn.","dropoffAddressRequired":"Het bestemmingsadres moet tussen 6 en 160 tekens lang zijn.","addressesMustDiffer":"Het ophaal- en bestemmingsadres moeten verschillen.","customDestinationPrice":"De prijs wordt bevestigd na controle van het bestemmingsadres.","hotelNameRequired":"Voer de hotelnaam in.","roundTripPriceNote":"round trip · 2 journeys","returnDateRequired":"Please choose a return date.","returnDateInvalid":"Please choose a return date on or after the outward journey.","returnTimeRequired":"Please choose the return pick-up time.","quoteTitle":"Waar mogen wij u naartoe brengen?","date":"Datum","airportReturnPrice":"De prijs wordt bevestigd nadat het hotel of ophaaladres is gecontroleerd.","oneGuest":"1 gast","twoGuests":"2 gasten","threeGuests":"3 gasten","fourGuests":"4 gasten","fiveGuests":"5 gasten","sixGuests":"6 gasten","sevenGuests":"7 gasten","viewQuote":"Prijs bekijken","fleetVitoClass":"VIP · Grand Touring","fleetVitoDescription":"Een ruime privécabine voor grotere families, golfgroepen en gasten met veel bagage.","capacitySwitchedSprinter":"Passagiers en bagage overschrijden de Vito — overgeschakeld naar Mercedes Sprinter.","capacityNoVehicle":"Zoveel passagiers en bagage overschrijdt onze voertuigen. Neem contact op via WhatsApp.","leatherSeats":"Premium leren stoelen","water":"Gekoeld mineraalwater","from":"Vanaf","reviewOne":"„Onze chauffeur wachtte ondanks 90 minuten vertraging. Het voertuig was onberispelijk, aangenaam koel en al uitgerust met beide kinderzitjes. Precies de ontvangst die onze familie nodig had.”","reviewTwo":"„Van het eerste WhatsApp-contact tot aankomst in Belek absoluut eersteklas. Punctueel, discreet en zeer professioneel. Ook onze golftassen pasten er gemakkelijk in.”","reviewThree":"„Dit voelde als een chauffeurservice van een hotel, niet als een luchthaventaxi. Duidelijke communicatie, een onberispelijk voertuig en een oprecht beleefde chauffeur.”","perVehicle":"per voertuig · vaste prijs","quoteReady":"Uw privétransfer","journeyTime":"Reistijd","totalFixed":"Totaalprijs","confirmWhatsapp":"Bevestigen via WhatsApp","bookNowCta":"Nu boeken","backToQuote":"Terug","yourDetails":"Uw gegevens","flightNumber":"Vluchtnummer","flightArrivalTime":"Aankomsttijd","notesLabel":"Speciale wensen","confirmBooking":"Boeking bevestigen","paySecurely":"Ga door naar veilig betalen","payLaterNote":"Veilige online betaling na bevestiging.","paymentTitle":"Veilige betaling","paymentError":"Betaling mislukt. Probeer het opnieuw."},"uk":{"navFleet":"Автопарк","navService":"Сервіс","navFairPricing":"Чесна ціна","navRoutes":"Маршрути","navReviews":"Відгуки","navContact":"Контакти","bookNow":"Забронювати","alwaysAvailable":"На зв'язку цілодобово, щодня","heroEyebrow":"Приватний шофер · Анталья","campaignBadge":"Online special","campaignDiscount":"25% off","campaignScope":"all transfer prices","heroTitle":"Преміальний трансфер<br />з аеропорту Анталії","heroSubtitle":"Приватні трансфери з водієм з аеропорту Анталії до Белека, Сіде, Кемера та Аланії.","bookTransfer":"Замовити трансфер","instantQuote":"Дізнатися ціну","googleRated":"Рейтинг Google","trustedGuests":"Нам довіряють понад 2 500 гостей","discover":"Детальніше","tbLicensed":"Ліцензія TÜRSAB","tbFlightTracking":"Відстеження рейсу","tbFixedPrice":"Фіксована ціна","tb247Concierge":"Консьєрж 24/7","tbChildSeats":"Дитячі крісла в комплекті","privateJourney":"Ваша приватна поїздка","tripType":"Journey type","oneWay":"One way","roundTrip":"Round trip","roundTripHint":"For a round trip, the return follows the same route in reverse.","pickup":"Місце зустрічі","airportOption":"Аеропорт Анталії (AYT)","hotelOption":"Готель","privateAddressOption":"Приватна адреса","destination":"Напрямок","selectDestination":"Оберіть напрямок","vehicle":"Автомобіль","guests":"Гості","arrivalDate":"Arrival date","arrivalFlightTime":"Flight arrival time","chooseTime":"Оберіть час","arrivalFlightNumber":"Arrival flight number","returnDate":"Return date","returnPickupTime":"Return pick-up time","returnFlightNumber":"Return flight number","pickupAddress":"Повна адреса подачі","dropoffAddress":"Повна адреса призначення","luggageLabel":"Великий багаж","hotelNameLabel":"Назва готелю","childSeatLabel":"Дитячі крісла","childSeatNone":"Без дитячого крісла","oneChildSeat":"1 дитяче крісло","twoChildSeats":"2 дитячі крісла","threeChildSeats":"3 дитячі крісла","fourChildSeats":"4 дитячі крісла","fullName":"Ім'я та прізвище","phoneLabel":"Телефон / WhatsApp","emailLabel":"Ел. пошта","paymentMethod":"Оберіть спосіб оплати","cashPayment":"Оплата в автомобілі","recommended":"Рекомендуємо","cashPaymentDescription":"Без передоплати. Сплатіть безпосередньо водієві, коли будете задоволені послугою.","quoteIncludes":"Включено: зустріч, відстеження рейсу, паркування, очікування та вода.","confirmCashBooking":"Підтвердити — оплата в автомобілі","flightTracking":"Відстеження рейсу в реальному часі","fixedPrice":"Гарантія фіксованої ціни","meetGreet":"Особиста зустріч","speakingDrivers":"Водії розмовляють англійською та німецькою","fromAirport":"З аеропорту Анталії","campaignApplied":"Online -15% already applied","welcomeEyebrow":"Ласкаво просимо на найвищий рівень","welcomeTitle":"Подорожуйте стильно.<br />Прибувайте спокійно.","welcomeBody":"З моменту посадки вашого літака кожна деталь продумана. Шофер чекає на вас у залі прильоту, піклується про багаж і супроводжує вас до підготовленого автомобіля.","ourStandards":"Наші стандарти сервісу","concierge":"Підтримка консьєржа","guestsWelcomed":"Зустрінутих гостей","guestRating":"Середня оцінка гостей","privateTransfers":"Приватні трансфери","fleetEyebrow":"Наш автопарк","fleetTitle":"Ваш особистий простір,<br />бездоганний у деталях.","fleetIntro":"Подорожуйте в тиші та комфорті з місцем для сім'ї, багажу та обладнання для гольфу.","signatureFleet":"Фірмовий автопарк","fleetVclassClass":"Business · First Class","fleetVclassDescription":"Еталон комфортних групових поїздок: просторий, надзвичайно тихий та оснащений для бездоганного прибуття.","passengers":"пасажирів","suitcases":"валіз","television":"Телевізор в автомобілі","coldDrinks":"Холодні напої","snacks":"Закуски","childSeats":"Дитячі крісла на запит","wifi":"Безкоштовний WiFi","nameSignGreeting":"Зустріч з іменною табличкою","reserveVehicle":"Забронювати автомобіль","insideVclass":"Салон Sprinter","interiorTitle":"Приватний лаунж<br />між аеропортом і готелем.","serviceEyebrow":"Стандарт Antalya VIP","serviceTitle":"Більше ніж трансфер.<br />Продумана зустріч.","serviceIntro":"Увага рівня п'ятизіркового готелю, досвідчені місцеві шофери та спокій від аеропорту до курорту.","trackingTitle":"Відстеження рейсу","trackingBody":"Ми відстежуємо ваш рейс у реальному часі та автоматично коригуємо час зустрічі без доплати.","chauffeurTitle":"Професійні шофери","chauffeurBody":"Завжди бездоганний вигляд, делікатність, знання регіону та найвищі стандарти обслуговування.","greetTitle":"Зустріч в аеропорту","greetBody":"Шофер зустріне вас у залі прильоту з табличкою з вашим ім'ям та допоможе з багажем.","supportTitle":"Консьєрж 24/7","supportBody":"До, під час і після поїздки вам завжди відповість людина по телефону або в WhatsApp.","priceTitle":"Фіксовані ціни","priceBody":"Підтверджена ціна є остаточною. Очікування, паркування та затримки рейсів вже включені.","familyTitle":"Для всієї родини","familyBody":"Дитячі крісла за віком, просторий салон та уважна допомога для спокійного сімейного прибуття.","routesEyebrow":"Найпопулярніші поїздки","routesTitle":"З аеропорту Анталії<br />на Турецьку Рив'єру.","routesIntro":"Всі ціни вказані за автомобіль, а не за пасажира. Безкоштовне очікування включено.","discountPricesShown":"Online -15% prices shown","golfFavourite":"Вибір гравців у гольф","onlineDiscountShort":"Online -25%","reviewsEyebrow":"Відгуки гостей","reviewsTitle":"Сервіс, який пам'ятають<br />після прибуття.","googleReviews":"На основі 387 підтверджених відгуків Google","trustedBy":"Нам довіряють гості провідних курортів Анталії","processEyebrow":"Навмисно просто","processTitle":"Чотири кроки<br />до комфортного прибуття.","stepOne":"Оберіть напрямок","stepOneBody":"Повідомте нам, куди і коли ви хочете поїхати.","stepTwo":"Оберіть автомобіль","stepTwoBody":"Підберіть простір і комфорт для вашої компанії.","stepThree":"Підтвердіть бронювання","stepThreeBody":"Отримайте миттєве підтвердження з фіксованою ціною.","stepFour":"Зустріньте водія","stepFourBody":"Ваш шофер зустріне вас у залі прильоту.","pricingEyebrow":"Спокій у дорозі","pricingTitle":"Ціни в інтересах клієнта.<br />Ви сплачуєте справедливу суму.","pricingIntro":"Ми пропонуємо фіксовані ціни для вашого спокою, але вимірюємо фактичну відстань. Ви завжди сплачуєте меншу суму.","pricingFixedPrice":"Фіксована ціна","fixedPriceExample":"Трансфер до Белека: {{PRICE:belek:vito}} €","fixedPriceDesc":"Гарантована загальна сума. Включає збори аеропорту, паркування, час очікування та податки.","distancePrice":"За відстанню","distancePriceExample":"24 км онлайн-приклад: 25 €","distancePriceDesc":"Вимірюється GPS під час поїздки.","youPay":"Ви сплачуєте","youPayPrice":"25 €","youPayDesc":"Діє менша сума. Водій підтвердить її наприкінці.","pricingNote":"Без сюрпризів. Без прихованих платежів. Ви сплачуєте суму з бронювання - або менше.","faqEyebrow":"Часті запитання","faqTitle":"Перед поїздкою.","faqIntro":"Все, що потрібно знати про приватний трансфер з аеропорту Анталії.","askQuestion":"Поставити запитання","faqOneQ":"Що станеться, якщо мій рейс затримається?","faqOneA":"Ми відстежуємо кожен рейс у реальному часі. Час зустрічі коригується автоматично, а водій чекає без доплати.","faqTwoQ":"Де я зустріну водія?","faqTwoA":"Ваш шофер чекатиме у залі прильоту одразу після видачі багажу з табличкою з вашим ім'ям.","faqThreeQ":"Чи є дитячі крісла?","faqThreeA":"Так. Автолюльки, дитячі крісла та бустери надаються безкоштовно на запит при бронюванні.","faqFourQ":"Чи можна перевезти сумки для гольфу та великий багаж?","faqFourA":"Так. Sprinter і Vito ідеально підходять для груп гравців у гольф. Повідомте об'єм багажу і ми підберемо автомобіль.","faqFiveQ":"Вказана ціна є остаточною?","faqFiveA":"Так. Аеропортові збори, паркування, очікування та податки включені. Прихованих платежів немає.","contactEyebrow":"Ваша подорож починається тут","contactTitle":"Прибудьте в Анталью<br />надзвичайно комфортно.","contactBody":"Забронюйте онлайн менш ніж за дві хвилини або зв'яжіться з нашою службою консьєржа 24/7.","whatsappUs":"Написати в WhatsApp","replyMinutes":"Зазвичай відповідаємо за кілька хвилин","callUs":"Зателефонувати 24/7","emailUs":"Написати консьєржу","replyHour":"Відповідь протягом години","footerTagline":"Приватні послуги шофера по всій Турецькій Рив'єрі.","explore":"Розділи","information":"Інформація","licensed":"Ліцензований оператор приватних трансферів · Відповідає вимогам TÜRSAB","bookingConfirmed":"Бронювання підтверджено","referenceLabel":"Референс","weWillContact":"Ваш запит на бронювання надіслано. Ми зв'яжемося з вами протягом 30 хвилин.","chatWithUs":"Написати нам","pickupAddressPlaceholder":"Назва готелю, вулиця, номер будинку та район","dropoffAddressPlaceholder":"Назва готелю, вулиця, номер будинку та район","hotelNamePlaceholder":"Назва готелю або місця проживання","cashConfirmation":"Бронювання підтверджено. Сплатіть фіксовану суму водієві в автомобілі.","bookingError":"Не вдалося завершити бронювання. Спробуйте ще раз.","formIncomplete":"Заповніть виділені поля.","requiredField":"Це поле обов'язкове.","destinationRequired":"Оберіть напрямок.","dateInvalid":"Оберіть сьогоднішню або майбутню дату.","emailInvalid":"Введіть дійсну електронну адресу.","nameInvalid":"Введіть дійсне повне ім'я.","phoneInvalid":"Введіть дійсний номер із кодом країни (наприклад, +49).","flightInvalid":"Введіть дійсний номер рейсу.","pickupAddressRequired":"Адреса подачі має містити від 6 до 160 символів.","dropoffAddressRequired":"Адреса призначення має містити від 6 до 160 символів.","addressesMustDiffer":"Адреси подачі та призначення мають відрізнятися.","customDestinationPrice":"Ціна буде підтверджена після перевірки адреси призначення.","hotelNameRequired":"Введіть назву готелю.","roundTripPriceNote":"round trip · 2 journeys","returnDateRequired":"Please choose a return date.","returnDateInvalid":"Please choose a return date on or after the outward journey.","returnTimeRequired":"Please choose the return pick-up time.","quoteTitle":"Куди вас відвезти?","date":"Дата","airportReturnPrice":"Ціну буде підтверджено після перевірки готелю або адреси подачі.","oneGuest":"1 гість","twoGuests":"2 гості","threeGuests":"3 гості","fourGuests":"4 гості","fiveGuests":"5 гостей","sixGuests":"6 гостей","sevenGuests":"7 гостей","viewQuote":"Показати ціну","fleetVitoClass":"VIP · Grand Touring","fleetVitoDescription":"Просторий приватний салон для великих сімей, груп гравців у гольф та гостей з об'ємним багажем.","capacitySwitchedSprinter":"Пасажири та багаж перевищують Vito — обрано Mercedes Sprinter.","capacityNoVehicle":"Стільки пасажирів і багажу перевищує наші автомобілі. Напишіть нам у WhatsApp.","leatherSeats":"Преміальні шкіряні сидіння","water":"Охолоджена вода","from":"Від","reviewOne":"«Незважаючи на затримку рейсу на 90 хвилин, водій чекав на нас. Автомобіль був бездоганно чистим та прохолодним, а обидва дитячі крісла вже були встановлені. Саме така зустріч потрібна нашій родині».","reviewTwo":"«Від першого повідомлення в WhatsApp до прибуття в Белек все було на найвищому рівні. Пунктуально, делікатно і дуже професійно. Наші сумки для гольфу легко помістилися».","reviewThree":"«Це нагадувало трансфер від п'ятизіркового готелю, а не таксі з аеропорту. Чіткий зв'язок, бездоганний автомобіль та по-справжньому ввічливий водій».","perVehicle":"за автомобіль · фіксована ціна","quoteReady":"Ваш приватний трансфер","journeyTime":"Час у дорозі","totalFixed":"Підсумкова ціна","confirmWhatsapp":"Підтвердити в WhatsApp","bookNowCta":"Забронювати","backToQuote":"Назад","yourDetails":"Ваші дані","flightNumber":"Номер рейсу","flightArrivalTime":"Час прильоту","notesLabel":"Особливі побажання","confirmBooking":"Підтвердити бронювання","paySecurely":"Перейти до безпечної оплати","payLaterNote":"Оплата онлайн після підтвердження.","paymentTitle":"Безпечна оплата","paymentError":"Оплата не пройшла. Спробуйте ще раз."},"fr":{"navFleet":"Véhicules","navService":"Service","navFairPricing":"Prix équitable","navRoutes":"Itinéraires","navReviews":"Avis","navContact":"Contact","bookNow":"Réserver","alwaysAvailable":"Disponible 24h/24, 7j/7","heroEyebrow":"Service chauffeur privé · Antalya","campaignBadge":"Online special","campaignDiscount":"25% off","campaignScope":"all transfer prices","heroTitle":"Transferts aéroport premium<br />à Antalya","heroSubtitle":"Transferts privés avec chauffeur depuis l'aéroport d'Antalya vers Belek, Side, Kemer et Alanya.","bookTransfer":"Réserver un transfert","instantQuote":"Obtenir un devis","googleRated":"Note Google","trustedGuests":"Approuvé par plus de 2 500 clients","discover":"Découvrir","tbLicensed":"Agréé TÜRSAB","tbFlightTracking":"Suivi de vol","tbFixedPrice":"Prix fixe","tb247Concierge":"Conciergerie 24/7","tbChildSeats":"Sièges enfants inclus","privateJourney":"Votre voyage privé","tripType":"Journey type","oneWay":"One way","roundTrip":"Round trip","roundTripHint":"For a round trip, the return follows the same route in reverse.","pickup":"Lieu de prise en charge","airportOption":"Aéroport d’Antalya (AYT)","hotelOption":"Hôtel","privateAddressOption":"Adresse privée","destination":"Destination","selectDestination":"Choisir une destination","vehicle":"Véhicule","guests":"Passagers","arrivalDate":"Arrival date","arrivalFlightTime":"Flight arrival time","chooseTime":"Choisir l'heure","arrivalFlightNumber":"Arrival flight number","returnDate":"Return date","returnPickupTime":"Return pick-up time","returnFlightNumber":"Return flight number","pickupAddress":"Adresse complète de prise en charge","dropoffAddress":"Adresse complète de destination","luggageLabel":"Gros bagages","hotelNameLabel":"Nom de l'hôtel","childSeatLabel":"Sièges enfant","childSeatNone":"Aucun siège enfant","oneChildSeat":"1 siège enfant","twoChildSeats":"2 sièges enfant","threeChildSeats":"3 sièges enfant","fourChildSeats":"4 sièges enfant","fullName":"Nom complet","phoneLabel":"Téléphone / WhatsApp","emailLabel":"E-mail","paymentMethod":"Choisissez le mode de paiement","cashPayment":"Payer dans le véhicule","recommended":"Recommandé","cashPaymentDescription":"Aucun prépaiement. Payez directement votre chauffeur une fois satisfait du service.","quoteIncludes":"Inclus : accueil, suivi de vol, parking, attente et eau minérale.","confirmCashBooking":"Confirmer — payer dans le véhicule","flightTracking":"Suivi de vol en temps réel","fixedPrice":"Prix fixe garanti","meetGreet":"Accueil personnalisé","speakingDrivers":"Chauffeurs parlant anglais et allemand","fromAirport":"Depuis l'aéroport d'Antalya","campaignApplied":"Online -15% already applied","welcomeEyebrow":"Bienvenue au plus haut niveau","welcomeTitle":"Voyager avec élégance.<br />Arriver sereinement.","welcomeBody":"Dès votre atterrissage, chaque détail est organisé. Votre chauffeur vous attend dans le hall des arrivées, s'occupe de vos bagages et vous accompagne jusqu'à votre véhicule privé soigneusement préparé.","ourStandards":"Nos standards de service","concierge":"Service conciergerie","guestsWelcomed":"Clients accueillis","guestRating":"Note moyenne des clients","privateTransfers":"Transferts privés","fleetEyebrow":"Notre flotte","fleetTitle":"Votre espace privé,<br />parfait dans les moindres détails.","fleetIntro":"Voyagez confortablement avec suffisamment d'espace pour la famille, les équipements de golf et les valises.","signatureFleet":"Flotte Signature","fleetVclassClass":"Business · First Class","fleetVclassDescription":"La référence des voyages de groupe raffinés : spacieux, exceptionnellement silencieux et équipé pour une arrivée sans tracas.","passengers":"passagers","suitcases":"valises","television":"Télévision à bord","coldDrinks":"Boissons fraîches","snacks":"En-cas","childSeats":"Sièges enfants sur demande","wifi":"WiFi gratuit","nameSignGreeting":"Accueil avec pancarte nominative","reserveVehicle":"Réserver ce véhicule","insideVclass":"Intérieur Sprinter","interiorTitle":"Un salon privé<br />entre l'aéroport et l'hôtel.","serviceEyebrow":"La norme Antalya VIP","serviceTitle":"Plus qu'un transfert.<br />Un accueil d'exception.","serviceIntro":"Une attention digne d'un hôtel cinq étoiles, des chauffeurs locaux expérimentés et une tranquillité absolue de l'aéroport jusqu'au resort.","trackingTitle":"Suivi de vol","trackingBody":"Nous suivons votre vol en temps réel et ajustons automatiquement l'heure de prise en charge, sans frais supplémentaires.","chauffeurTitle":"Chauffeurs professionnels","chauffeurBody":"Toujours soignés, discrets et sélectionnés pour leur connaissance locale et leurs standards de service irréprochables.","greetTitle":"Accueil Meet & Greet","greetBody":"Votre chauffeur vous accueille dans le hall des arrivées avec une pancarte à votre nom et vous aide avec vos bagages.","supportTitle":"Conciergerie 24/7","supportBody":"Avant, pendant et après votre voyage, une personne est toujours disponible par téléphone ou WhatsApp.","priceTitle":"Prix fixes","priceBody":"Le prix confirmé est le prix définitif. L'attente, le parking et les retards de vol sont inclus.","familyTitle":"Pour les familles","familyBody":"Sièges enfants adaptés, habitacles spacieux et aide patiente pour une arrivée familiale sereine.","routesEyebrow":"Nos trajets les plus populaires","routesTitle":"De l'aéroport d'Antalya<br />vers la Riviera turque.","routesIntro":"Tous les prix sont par véhicule, jamais par personne. L'attente gratuite est incluse.","discountPricesShown":"Online -15% prices shown","golfFavourite":"Favori des golfeurs","onlineDiscountShort":"Online -25%","reviewsEyebrow":"Avis clients","reviewsTitle":"Un service dont on<br />se souvient longtemps.","googleReviews":"Basé sur 387 avis Google vérifiés","trustedBy":"Recommandé par les clients des meilleurs resorts d'Antalya","processEyebrow":"Délibérément simple","processTitle":"Quatre étapes pour<br />une arrivée sereine.","stepOne":"Choisir la destination","stepOneBody":"Indiquez-nous où et quand vous souhaitez voyager.","stepTwo":"Choisir le véhicule","stepTwoBody":"Sélectionnez l'espace et le confort adaptés.","stepThree":"Confirmer la réservation","stepThreeBody":"Recevez immédiatement votre confirmation au prix fixe.","stepFour":"Rencontrer le chauffeur","stepFourBody":"Votre chauffeur vous accueille dans le hall des arrivées.","pricingEyebrow":"Voyagez l'esprit tranquille","pricingTitle":"Une tarification pensée pour le client.<br />Vous payez le juste prix.","pricingIntro":"Nous proposons des prix fixes pour votre tranquillité, mais nous mesurons aussi la distance réelle. Vous payez toujours le montant le plus bas.","pricingFixedPrice":"Prix fixe","fixedPriceExample":"Transfert vers Belek : {{PRICE:belek:vito}} €","fixedPriceDesc":"Montant total garanti. Inclut les frais d'aéroport, le parking, l'attente et les taxes.","distancePrice":"Selon la distance","distancePriceExample":"Exemple en ligne 24 km : 25 €","distancePriceDesc":"Mesuré par GPS pendant votre trajet.","youPay":"Vous payez","youPayPrice":"25 €","youPayDesc":"Le montant le plus bas s'applique. Le chauffeur le confirme à la fin.","pricingNote":"Pas de surprise. Pas de frais cachés. Vous payez ce que vous réservez - ou moins.","faqEyebrow":"Questions fréquentes","faqTitle":"Avant votre voyage.","faqIntro":"Tout ce que vous devez savoir sur votre transfert privé depuis l'aéroport d'Antalya.","askQuestion":"Poser une question","faqOneQ":"Que se passe-t-il en cas de retard de vol ?","faqOneA":"Nous suivons chaque arrivée en temps réel. Votre heure de prise en charge est ajustée automatiquement et votre chauffeur attend sans surcoût.","faqTwoQ":"Où vais-je retrouver mon chauffeur ?","faqTwoA":"Votre chauffeur vous attendra juste après le retrait des bagages dans le hall des arrivées, avec une pancarte à votre nom.","faqThreeQ":"Des sièges enfants sont-ils disponibles ?","faqThreeA":"Oui. Coques bébé, sièges enfants et rehausseurs sont disponibles gratuitement sur réservation.","faqFourQ":"Pouvez-vous transporter des sacs de golf et des bagages volumineux ?","faqFourA":"Oui. Le Sprinter et le Vito sont idéaux pour les groupes de golfeurs. Précisez vos bagages et nous planifions le véhicule adapté.","faqFiveQ":"Le prix affiché est-il définitif ?","faqFiveA":"Oui. Les taxes aéroportuaires, le parking, l'attente et les impôts sont inclus. Aucun frais caché.","contactEyebrow":"Votre voyage commence ici","contactTitle":"Arriver à Antalya<br />de manière exceptionnelle.","contactBody":"Réservez en ligne en moins de deux minutes ou parlez directement avec notre équipe de conciergerie 24/7.","whatsappUs":"WhatsApp","replyMinutes":"Réponse généralement en quelques minutes","callUs":"Appeler 24/7","emailUs":"E-mail conciergerie","replyHour":"Réponse en moins d'une heure","footerTagline":"Services de chauffeur privé sur toute la Riviera turque.","explore":"Découvrir","information":"Informations","licensed":"Prestataire de transferts privés agréé · Conforme TÜRSAB","bookingConfirmed":"Réservation confirmée","referenceLabel":"Référence","weWillContact":"Votre demande de réservation a été envoyée. Nous vous contactons dans les 30 minutes.","chatWithUs":"Nous contacter","pickupAddressPlaceholder":"Nom de l'hôtel, rue, numéro et quartier","dropoffAddressPlaceholder":"Nom de l'hôtel, rue, numéro et quartier","hotelNamePlaceholder":"Nom de l'hôtel ou de l'hébergement","cashConfirmation":"Votre réservation est confirmée. Réglez le montant fixe directement au chauffeur.","bookingError":"Votre réservation n'a pas pu être finalisée. Veuillez réessayer.","formIncomplete":"Veuillez compléter les champs indiqués.","requiredField":"Ce champ est obligatoire.","destinationRequired":"Veuillez choisir une destination.","dateInvalid":"Veuillez choisir aujourd'hui ou une date future.","emailInvalid":"Veuillez saisir une adresse e-mail valide.","nameInvalid":"Veuillez saisir un nom complet valide.","phoneInvalid":"Saisissez un numéro valide avec l’indicatif du pays (par exemple +49).","flightInvalid":"Veuillez saisir un numéro de vol valide.","pickupAddressRequired":"L'adresse de prise en charge doit contenir entre 6 et 160 caractères.","dropoffAddressRequired":"L'adresse de destination doit contenir entre 6 et 160 caractères.","addressesMustDiffer":"Les adresses de prise en charge et de destination doivent être différentes.","customDestinationPrice":"Le prix sera confirmé après vérification de l'adresse de destination.","hotelNameRequired":"Veuillez saisir le nom de l'hôtel.","roundTripPriceNote":"round trip · 2 journeys","returnDateRequired":"Please choose a return date.","returnDateInvalid":"Please choose a return date on or after the outward journey.","returnTimeRequired":"Please choose the return pick-up time.","quoteTitle":"Où souhaitez-vous aller ?","date":"Date","airportReturnPrice":"Le prix sera confirmé après vérification de l’hôtel ou de l’adresse de prise en charge.","oneGuest":"1 passager","twoGuests":"2 passagers","threeGuests":"3 passagers","fourGuests":"4 passagers","fiveGuests":"5 passagers","sixGuests":"6 passagers","sevenGuests":"7 passagers","viewQuote":"Voir le tarif","fleetVitoClass":"VIP · Grand Touring","fleetVitoDescription":"Un vaste habitacle privé pour les grandes familles, les groupes de golf et les voyageurs avec beaucoup de bagages.","capacitySwitchedSprinter":"Passagers et bagages dépassent le Vito — passage au Mercedes Sprinter.","capacityNoVehicle":"Autant de passagers et de bagages dépasse nos véhicules. Contactez-nous sur WhatsApp.","leatherSeats":"Sièges en cuir premium","water":"Eau minérale fraîche","from":"À partir de","reviewOne":"« Notre chauffeur a attendu malgré 90 minutes de retard. Le véhicule était impeccable, agréablement frais et déjà équipé des deux sièges enfants. Exactement l'accueil dont notre famille avait besoin. »","reviewTwo":"« Du premier contact WhatsApp à notre arrivée à Belek, absolument irréprochable. Ponctuel, discret et très professionnel. Nos sacs de golf ont aussi tenu sans problème. »","reviewThree":"« C'était comme un service de chauffeur d'hôtel, pas un taxi d'aéroport. Communication claire, véhicule impeccable et chauffeur sincèrement courtois. »","perVehicle":"par véhicule · prix fixe","quoteReady":"Votre transfert privé","journeyTime":"Durée du trajet","totalFixed":"Prix total","confirmWhatsapp":"Confirmer via WhatsApp","bookNowCta":"Réserver maintenant","backToQuote":"Retour","yourDetails":"Vos coordonnées","flightNumber":"Numéro de vol","flightArrivalTime":"Heure d'arrivée","notesLabel":"Demandes spéciales","confirmBooking":"Confirmer la réservation","paySecurely":"Continuer vers le paiement sécurisé","payLaterNote":"Paiement en ligne sécurisé après confirmation.","paymentTitle":"Paiement sécurisé","paymentError":"Paiement échoué. Veuillez réessayer."},"sv":{"navFleet":"Fordon","navService":"Service","navFairPricing":"Rättvist pris","navRoutes":"Rutter","navReviews":"Recensioner","navContact":"Kontakt","bookNow":"Boka nu","alwaysAvailable":"Tillgänglig 24 timmar om dygnet","heroEyebrow":"Privat chaufförstjänst · Antalya","campaignBadge":"Online special","campaignDiscount":"25% off","campaignScope":"all transfer prices","heroTitle":"Premium flygplatstransfers<br />i Antalya","heroSubtitle":"Privata transfers med chaufför från Antalya flygplats till Belek, Side, Kemer och Alanya.","bookTransfer":"Boka transfer","instantQuote":"Få pris direkt","googleRated":"Google-betyg","trustedGuests":"Anlitad av över 2 500 gäster","discover":"Utforska","tbLicensed":"TÜRSAB-licensierad","tbFlightTracking":"Flygspårning","tbFixedPrice":"Fast pris","tb247Concierge":"Concierge dygnet runt","tbChildSeats":"Bilbarnstolar ingår","privateJourney":"Din privata resa","tripType":"Journey type","oneWay":"One way","roundTrip":"Round trip","roundTripHint":"For a round trip, the return follows the same route in reverse.","pickup":"Hämtplats","airportOption":"Antalya flygplats (AYT)","hotelOption":"Hotell","privateAddressOption":"Privat adress","destination":"Destination","selectDestination":"Välj destination","vehicle":"Fordon","guests":"Gäster","arrivalDate":"Arrival date","arrivalFlightTime":"Flight arrival time","chooseTime":"Välj tid","arrivalFlightNumber":"Arrival flight number","returnDate":"Return date","returnPickupTime":"Return pick-up time","returnFlightNumber":"Return flight number","pickupAddress":"Fullständig hämtningsadress","dropoffAddress":"Fullständig destinationsadress","luggageLabel":"Stort bagage","hotelNameLabel":"Hotellnamn","childSeatLabel":"Barnstolar","childSeatNone":"Ingen barnstol","oneChildSeat":"1 barnstol","twoChildSeats":"2 barnstolar","threeChildSeats":"3 barnstolar","fourChildSeats":"4 barnstolar","fullName":"Fullständigt namn","phoneLabel":"Telefon / WhatsApp","emailLabel":"E-post","paymentMethod":"Välj betalningsmetod","cashPayment":"Betala i fordonet","recommended":"Rekommenderas","cashPaymentDescription":"Ingen förskottsbetalning. Betala din chaufför direkt när du är nöjd med tjänsten.","quoteIncludes":"Inkluderar: välkomnande, flygspårning, parkering, väntetid och mineralvatten.","confirmCashBooking":"Bekräfta — betala i fordonet","flightTracking":"Flygspårning i realtid","fixedPrice":"Garanterat fast pris","meetGreet":"Personlig välkomst","speakingDrivers":"Chaufförer som talar engelska och tyska","fromAirport":"Från Antalya flygplats","campaignApplied":"Online -15% already applied","welcomeEyebrow":"Välkommen till högsta nivå","welcomeTitle":"Res med stil.<br />Anländ avslappnad.","welcomeBody":"Från det ögonblick ditt plan landar är varje detalj ordnad. Din chaufför väntar i ankomsthallen, tar hand om ditt bagage och eskorterar dig till ditt noggrant förberedda fordon.","ourStandards":"Våra servicestandarder","concierge":"Concierge-service","guestsWelcomed":"Välkomnade gäster","guestRating":"Genomsnittligt gästbetyg","privateTransfers":"Privata transfers","fleetEyebrow":"Vår flotta","fleetTitle":"Ditt privata utrymme,<br />perfekt i varje detalj.","fleetIntro":"Res bekvämt med gott om plats för familjen, golfbagaget och resväskorna.","signatureFleet":"Signature-flotta","fleetVclassClass":"Business · First Class","fleetVclassDescription":"Riktmärket för sofistikerade gruppresor: rymlig, exceptionellt tyst och utrustad för en smidig ankomst.","passengers":"passagerare","suitcases":"resväskor","television":"TV i fordonet","coldDrinks":"Kalla drycker","snacks":"Snacks","childSeats":"Bilbarnstolar på begäran","wifi":"Gratis WiFi","nameSignGreeting":"Välkomnande med personlig namnskylt","reserveVehicle":"Boka fordon","insideVclass":"Sprinter interiör","interiorTitle":"En privat lounge<br />mellan flygplatsen och hotellet.","serviceEyebrow":"Antalya VIP-standarden","serviceTitle":"Mer än en transfer.<br />Ett exceptionellt välkomnande.","serviceIntro":"Uppmärksamhet på hotellnivå, erfarna lokala chaufförer och fullständigt lugn från flygplats till resort.","trackingTitle":"Flygspårning","trackingBody":"Vi spårar din flyg i realtid och anpassar automatiskt hämtningstiden utan extra kostnad.","chauffeurTitle":"Professionella chaufförer","chauffeurBody":"Alltid välvårdade, diskreta och utvalda för lokal kunskap och högsta servicestandard.","greetTitle":"Meet & Greet","greetBody":"Din chaufför välkomnar dig i ankomsthallen med en skylt med ditt namn och hjälper med bagaget.","supportTitle":"Concierge 24/7","supportBody":"Före, under och efter din resa finns alltid någon tillgänglig per telefon eller WhatsApp.","priceTitle":"Fasta priser","priceBody":"Det bekräftade priset är slutpriset. Väntetid, parkering och flygförseningar ingår.","familyTitle":"För familjer","familyBody":"Lämpliga bilbarnstolar, rymliga interiörer och tålmodig hjälp för en avslappnad familjeankomst.","routesEyebrow":"Våra populäraste rutter","routesTitle":"Från Antalya flygplats<br />till Turkiska Rivieran.","routesIntro":"Alla priser gäller per fordon, aldrig per person. Gratis väntetid ingår.","discountPricesShown":"Online -15% prices shown","golfFavourite":"Golfarnas favorit","onlineDiscountShort":"Online -25%","reviewsEyebrow":"Gästrecensioner","reviewsTitle":"Service som minns<br />länge efter ankomsten.","googleReviews":"Baserat på 387 verifierade Google-recensioner","trustedBy":"Anlitad av gäster på ledande resorts i Antalya","processEyebrow":"Medvetet enkelt","processTitle":"Fyra steg till<br />en avslappnad ankomst.","stepOne":"Välj destination","stepOneBody":"Berätta för oss vart och när du vill resa.","stepTwo":"Välj fordon","stepTwoBody":"Välj rätt utrymme och komfort.","stepThree":"Bekräfta bokning","stepThreeBody":"Få din bekräftelse direkt till fast pris.","stepFour":"Möt din chaufför","stepFourBody":"Din chaufför välkomnar dig i ankomsthallen.","pricingEyebrow":"Res med lugn","pricingTitle":"Kundvänlig prissättning.<br />Du betalar det som är rättvist.","pricingIntro":"Vi erbjuder fasta priser för trygghet, men mäter även den faktiska sträckan. Du betalar alltid det lägre beloppet.","pricingFixedPrice":"Fast pris","fixedPriceExample":"Transfer till Belek: {{PRICE:belek:vito}} €","fixedPriceDesc":"Garanterat totalbelopp. Inkluderar flygplatsavgifter, parkering, väntetid och skatter.","distancePrice":"Efter sträcka","distancePriceExample":"24 km onlineexempel: 25 €","distancePriceDesc":"Mäts med GPS under din resa.","youPay":"Du betalar","youPayPrice":"25 €","youPayDesc":"Det lägre beloppet gäller. Chauffören bekräftar i slutet.","pricingNote":"Inga överraskningar. Inga dolda avgifter. Du betalar det du bokar - eller mindre.","faqEyebrow":"Vanliga frågor","faqTitle":"Innan din resa.","faqIntro":"Allt du behöver veta om din privata transfer från Antalya flygplats.","askQuestion":"Ställ en fråga","faqOneQ":"Vad händer vid en flygförsening?","faqOneA":"Vi spårar varje ankomst i realtid. Din hämtningstid justeras automatiskt och din chaufför väntar utan extra kostnad.","faqTwoQ":"Var möter jag min chaufför?","faqTwoA":"Din chaufför väntar direkt efter bagageutlämningen i ankomsthallen med en personlig skylt med ditt namn.","faqThreeQ":"Finns det bilbarnstolar?","faqThreeA":"Ja. Babyskydd, barnstolar och bälteskuddar finns tillgängliga utan extra kostnad vid förbeställning.","faqFourQ":"Kan golfbagar och stort bagage transporteras?","faqFourA":"Ja. Sprinter och Vito är idealiska för golfsällskap. Meddela oss om ditt bagage så planerar vi rätt fordon.","faqFiveQ":"Är det visade priset slutgiltigt?","faqFiveA":"Ja. Flygplatsavgifter, parkering, väntetid och skatter ingår. Inga dolda kostnader.","contactEyebrow":"Din resa börjar här","contactTitle":"Anländ till Antalya<br />på ett exceptionellt sätt.","contactBody":"Boka online på under två minuter eller prata direkt med vårt concierge-team dygnet runt.","whatsappUs":"WhatsApp","replyMinutes":"Svar vanligtvis inom några minuter","callUs":"Ring 24/7","emailUs":"Concierge e-post","replyHour":"Svar inom en timme","footerTagline":"Privata chaufförstjänster längs hela Turkiska Rivieran.","explore":"Utforska","information":"Information","licensed":"Licensierad privat transferoperatör · TÜRSAB-kompatibel","bookingConfirmed":"Bokning bekräftad","referenceLabel":"Referensnummer","weWillContact":"Din bokningsförfrågan har skickats. Vi kontaktar dig inom 30 minuter.","chatWithUs":"Chatta med oss","pickupAddressPlaceholder":"Hotellnamn, gata, husnummer och område","dropoffAddressPlaceholder":"Hotellnamn, gata, husnummer och område","hotelNamePlaceholder":"Hotell- eller boendenamn","cashConfirmation":"Din bokning är bekräftad. Betala det fasta beloppet direkt till chauffören.","bookingError":"Bokningen kunde inte slutföras. Försök igen.","formIncomplete":"Fyll i de markerade fälten.","requiredField":"Detta fält är obligatoriskt.","destinationRequired":"Välj en destination.","dateInvalid":"Välj dagens datum eller ett framtida datum.","emailInvalid":"Ange en giltig e-postadress.","nameInvalid":"Ange ett giltigt fullständigt namn.","phoneInvalid":"Ange ett giltigt nummer med landskod (till exempel +49).","flightInvalid":"Ange ett giltigt flightnummer.","pickupAddressRequired":"Hämtningsadressen måste vara mellan 6 och 160 tecken.","dropoffAddressRequired":"Destinationsadressen måste vara mellan 6 och 160 tecken.","addressesMustDiffer":"Hämtnings- och destinationsadressen måste vara olika.","customDestinationPrice":"Priset bekräftas efter att destinationsadressen kontrollerats.","hotelNameRequired":"Ange hotellnamnet.","roundTripPriceNote":"round trip · 2 journeys","returnDateRequired":"Please choose a return date.","returnDateInvalid":"Please choose a return date on or after the outward journey.","returnTimeRequired":"Please choose the return pick-up time.","quoteTitle":"Vart vill du åka?","date":"Datum","airportReturnPrice":"Priset bekräftas efter att hotellet eller hämtningsadressen har kontrollerats.","oneGuest":"1 gäst","twoGuests":"2 gäster","threeGuests":"3 gäster","fourGuests":"4 gäster","fiveGuests":"5 gäster","sixGuests":"6 gäster","sevenGuests":"7 gäster","viewQuote":"Visa pris","fleetVitoClass":"VIP · Grand Touring","fleetVitoDescription":"En rymlig privat kabin för större familjer, golfsällskap och gäster med mycket bagage.","capacitySwitchedSprinter":"Passagerare och bagage överstiger Vito — bytte till Mercedes Sprinter.","capacityNoVehicle":"Så många passagerare och bagage överstiger våra fordon. Kontakta oss på WhatsApp.","leatherSeats":"Premium läderstolar","water":"Kylt mineralvatten","from":"Från","reviewOne":"„Vår chaufför väntade trots 90 minuters försening. Fordonet var makulöst, behagligt svalt och redan utrustat med båda barnstolarna. Precis det välkomnande vår familj behövde.”","reviewTwo":"„Från första WhatsApp-kontakten till ankomst i Belek absolut förstklassigt. Punktlig, diskret och mycket professionell. Våra golfbagar fick också plats utan problem.”","reviewThree":"„Det kändes som en chaufförstjänst från ett hotell, inte en flygplatstaxibil. Tydlig kommunikation, ett makulöst fordon och en genuint artig chaufför.”","perVehicle":"per fordon · fast pris","quoteReady":"Din privata transfer","journeyTime":"Restid","totalFixed":"Totalt pris","confirmWhatsapp":"Bekräfta via WhatsApp","bookNowCta":"Boka nu","backToQuote":"Tillbaka","yourDetails":"Dina uppgifter","flightNumber":"Flygnummer","flightArrivalTime":"Ankomsttid","notesLabel":"Särskilda önskemål","confirmBooking":"Bekräfta bokning","paySecurely":"Fortsätt till säker betalning","payLaterNote":"Säker onlinebetalning efter bekräftelse.","paymentTitle":"Säker betalning","paymentError":"Betalning misslyckades. Försök igen."},"ja":{"navFleet":"車両","navService":"サービス","navFairPricing":"適正価格","navRoutes":"ルート","navReviews":"口コミ","navContact":"お問い合わせ","bookNow":"今すぐ予約","alwaysAvailable":"年中無休・24時間対応","heroEyebrow":"プライベートショーファーサービス · アンタルヤ","campaignBadge":"Online special","campaignDiscount":"25% off","campaignScope":"all transfer prices","heroTitle":"アンタルヤ空港からの<br />プレミアム送迎サービス","heroSubtitle":"アンタルヤ空港からベレック、シデ、ケメル、アランヤへ専属ショーファー付きプライベート送迎。","bookTransfer":"送迎を予約する","instantQuote":"料金を確認する","googleRated":"Google評価","trustedGuests":"2,500名以上のお客様にご利用いただいています","discover":"詳しく見る","tbLicensed":"TÜRSAB認可","tbFlightTracking":"フライト追跡","tbFixedPrice":"固定料金","tb247Concierge":"24時間コンシェルジュ","tbChildSeats":"チャイルドシート込み","privateJourney":"あなただけのプライベートな旅","tripType":"Journey type","oneWay":"One way","roundTrip":"Round trip","roundTripHint":"For a round trip, the return follows the same route in reverse.","pickup":"お迎え場所","airportOption":"アンタルヤ空港 (AYT)","hotelOption":"ホテル","privateAddressOption":"個人住所","destination":"目的地","selectDestination":"目的地を選択","vehicle":"車両","guests":"ご利用人数","arrivalDate":"Arrival date","arrivalFlightTime":"Flight arrival time","chooseTime":"時間を選択","arrivalFlightNumber":"Arrival flight number","returnDate":"Return date","returnPickupTime":"Return pick-up time","returnFlightNumber":"Return flight number","pickupAddress":"お迎え先の詳しい住所","dropoffAddress":"目的地の詳しい住所","luggageLabel":"大型荷物","hotelNameLabel":"ホテル名","childSeatLabel":"チャイルドシート","childSeatNone":"チャイルドシート不要","oneChildSeat":"チャイルドシート 1台","twoChildSeats":"チャイルドシート 2台","threeChildSeats":"チャイルドシート 3台","fourChildSeats":"チャイルドシート 4台","fullName":"氏名","phoneLabel":"電話 / WhatsApp","emailLabel":"メールアドレス","paymentMethod":"お支払い方法を選択","cashPayment":"車内で支払う","recommended":"おすすめ","cashPaymentDescription":"事前のお支払いは不要です。サービスにご満足いただいてから、ドライバーへ直接お支払いください。","quoteIncludes":"ミート＆グリート、フライト追跡、駐車料金、待機時間、ミネラルウォーター込み。","confirmCashBooking":"予約確定 — 車内払い","flightTracking":"リアルタイムフライト追跡","fixedPrice":"料金固定保証","meetGreet":"ミート＆グリートサービス","speakingDrivers":"英語・ドイツ語対応ショーファー","fromAirport":"アンタルヤ空港から","campaignApplied":"Online -15% already applied","welcomeEyebrow":"最高水準のサービスへようこそ","welcomeTitle":"上質な旅を。<br />安心してご到着を。","welcomeBody":"着陸の瞬間から、すべての細部が整っています。ショーファーが到着ロビーでお待ちし、お荷物をお預かりして、丁寧に準備された専用車両へとご案内します。","ourStandards":"私たちのサービス基準","concierge":"コンシェルジュサービス","guestsWelcomed":"お迎えしたゲスト数","guestRating":"ゲスト平均評価","privateTransfers":"プライベート送迎","fleetEyebrow":"車両ラインナップ","fleetTitle":"あなただけのプライベート空間。<br />細部まで完璧に。","fleetIntro":"ご家族、ゴルフ用具、荷物のための十分なスペースを備えた快適な移動をお楽しみください。","signatureFleet":"シグネチャーフリート","fleetVclassClass":"ビジネス · ファーストクラス","fleetVclassDescription":"洗練されたグループ旅行の基準。広々とした車内、卓越した静粛性、シームレスなご到着のための装備が揃っています。","passengers":"名","suitcases":"個のスーツケース","television":"車内テレビ","coldDrinks":"冷たいお飲み物","snacks":"スナック","childSeats":"チャイルドシート（ご要望に応じて）","wifi":"無料WiFi","nameSignGreeting":"お名前ボードでのお出迎え","reserveVehicle":"この車両を予約する","insideVclass":"Sprinterインテリア","interiorTitle":"空港とホテルの間の<br />プライベートラウンジ。","serviceEyebrow":"Antalya VIPスタンダード","serviceTitle":"送迎以上のもの。<br />特別なお出迎え。","serviceIntro":"5つ星ホテルレベルのアテンション、経験豊富な地元ショーファー、空港からリゾートまでの完全な安心感。","trackingTitle":"フライト追跡","trackingBody":"フライトをリアルタイムで追跡し、追加料金なしでお迎え時間を自動的に調整します。","chauffeurTitle":"プロフェッショナルショーファー","chauffeurBody":"常に清潔感があり、思いやりがあり、地元知識と最高のサービス基準のために厳選されています。","greetTitle":"ミート＆グリート","greetBody":"ショーファーはお名前のボードを持って到着ロビーでお出迎えし、お荷物をお手伝いします。","supportTitle":"24/7コンシェルジュ","supportBody":"旅の前・中・後、いつでも電話またはWhatsAppでご対応いたします。","priceTitle":"料金固定","priceBody":"確認された料金が最終料金です。待機時間、駐車料金、フライト遅延はすべて含まれています。","familyTitle":"ご家族向け","familyBody":"年齢に合ったチャイルドシート、広々とした車内、ご家族の安心到着のための丁寧なサポート。","routesEyebrow":"人気のルート","routesTitle":"アンタルヤ空港から<br />トルコリビエラへ。","routesIntro":"すべての料金は車両ごと（お一人様ではありません）。無料待機時間込み。","discountPricesShown":"Online -15% prices shown","golfFavourite":"ゴルファーに人気","onlineDiscountShort":"Online -25%","reviewsEyebrow":"お客様の声","reviewsTitle":"到着後も語り継がれる<br />サービス。","googleReviews":"387件のGoogle認証レビューに基づく","trustedBy":"アンタルヤの一流リゾートのゲストにご利用いただいています","processEyebrow":"シンプルに設計","processTitle":"安心到着のための<br />4ステップ。","stepOne":"目的地を選ぶ","stepOneBody":"どこへ、いつ行きたいかをお知らせください。","stepTwo":"車両を選ぶ","stepTwoBody":"お好みのスペースと快適さをお選びください。","stepThree":"予約を確定する","stepThreeBody":"固定料金で即座に確認書を受け取れます。","stepFour":"ショーファーと合流","stepFourBody":"ショーファーが到着ロビーでお出迎えします。","pricingEyebrow":"安心してご利用いただけます","pricingTitle":"お客様にやさしい料金設定。<br />公平な金額だけをお支払い。","pricingIntro":"安心のため固定料金をご提示しつつ、実際の走行距離も計測します。お支払いは常に低い方の金額です。","pricingFixedPrice":"固定料金","fixedPriceExample":"ベレキ送迎：{{PRICE:belek:vito}} €","fixedPriceDesc":"保証された総額です。空港料金、駐車料金、待機時間、税金が含まれます。","distancePrice":"距離ベース","distancePriceExample":"24 km online example: 25 €","distancePriceDesc":"ご乗車中にGPSで計測します。","youPay":"お支払い額","youPayPrice":"25 €","youPayDesc":"低い方の金額を適用します。終了時にドライバーが確認します。","pricingNote":"追加の驚きはありません。隠れた料金もありません。予約時の金額、またはそれより少ない金額をお支払いいただきます。","faqEyebrow":"よくある質問","faqTitle":"ご旅行の前に。","faqIntro":"アンタルヤ空港からのプライベート送迎について知っておくべきこと。","askQuestion":"質問する","faqOneQ":"フライトが遅延した場合はどうなりますか？","faqOneA":"すべての到着便をリアルタイムで追跡しています。お迎え時間は自動的に調整され、ショーファーは追加料金なしでお待ちします。","faqTwoQ":"ショーファーはどこで待っていますか？","faqTwoA":"ショーファーは手荷物受取所の直後の到着ロビーで、お名前のボードを持ってお待ちしています。","faqThreeQ":"チャイルドシートはありますか？","faqThreeA":"はい。乳幼児用、チャイルドシート、ジュニアシートは予約時にご要望いただければ無料でご用意します。","faqFourQ":"ゴルフバッグや大きな荷物は運べますか？","faqFourA":"はい。SprinterとVitoはゴルフグループに最適です。荷物の詳細をお知らせいただければ、適切な車両をご手配します。","faqFiveQ":"表示された料金は確定ですか？","faqFiveA":"はい。空港税、駐車料金、待機時間、税金はすべて含まれています。隠れた費用はありません。","contactEyebrow":"旅はここから始まります","contactTitle":"アンタルヤへ<br />格別の到着を。","contactBody":"2分以内にオンライン予約、または24/7コンシェルジュチームに直接お問い合わせください。","whatsappUs":"WhatsApp","replyMinutes":"通常数分以内に返信","callUs":"24/7電話","emailUs":"コンシェルジュメール","replyHour":"1時間以内に返信","footerTagline":"トルコリビエラ全域のプライベートショーファーサービス。","explore":"探索する","information":"情報","licensed":"認定プライベート送迎事業者 · TÜRSAB準拠","bookingConfirmed":"予約確定","referenceLabel":"予約番号","weWillContact":"予約リクエストを送信しました。30分以内にご連絡いたします。","chatWithUs":"チャットする","pickupAddressPlaceholder":"ホテル名、通り、建物番号、地区","dropoffAddressPlaceholder":"ホテル名、通り、建物番号、地区","hotelNamePlaceholder":"ホテルまたは宿泊施設名","cashConfirmation":"予約が確定しました。固定料金を車内でドライバーへ直接お支払いください。","bookingError":"予約を完了できませんでした。もう一度お試しください。","formIncomplete":"表示された必須項目を入力してください。","requiredField":"この項目は必須です。","destinationRequired":"目的地を選択してください。","dateInvalid":"今日または今後の日付を選択してください。","emailInvalid":"有効なメールアドレスを入力してください。","nameInvalid":"有効な氏名を入力してください。","phoneInvalid":"国番号を含む有効な電話番号を入力してください（例：+49）。","flightInvalid":"有効なフライト番号を入力してください。","pickupAddressRequired":"お迎え先の住所は6文字以上160文字以内で入力してください。","dropoffAddressRequired":"目的地の住所は6文字以上160文字以内で入力してください。","addressesMustDiffer":"お迎え先と目的地には異なる住所を入力してください。","customDestinationPrice":"目的地の住所を確認後、料金をご案内いたします。","hotelNameRequired":"ホテル名を入力してください。","roundTripPriceNote":"round trip · 2 journeys","returnDateRequired":"Please choose a return date.","returnDateInvalid":"Please choose a return date on or after the outward journey.","returnTimeRequired":"Please choose the return pick-up time.","quoteTitle":"目的地をお知らせください","date":"日付","airportReturnPrice":"ホテルまたはお迎え先住所の確認後に料金をご案内します。","oneGuest":"1名","twoGuests":"2名","threeGuests":"3名","fourGuests":"4名","fiveGuests":"5名","sixGuests":"6名","sevenGuests":"7名","viewQuote":"料金を見る","fleetVitoClass":"VIP · グランドツーリング","fleetVitoDescription":"大家族、ゴルフグループ、大量の荷物をお持ちのゲストのための広々としたプライベートキャビン。","capacitySwitchedSprinter":"乗客と荷物がVitoの容量を超えています — メルセデス・スプリンターに変更しました。","capacityNoVehicle":"この人数と荷物は当社の車両を超えています。WhatsAppでお問い合わせください。","leatherSeats":"プレミアムレザーシート","water":"冷えたミネラルウォーター","from":"から","reviewOne":"「90分のフライト遅延にもかかわらず、ドライバーは待ってくれました。車両は完璧に清潔で心地よく冷えており、チャイルドシートも両方設置済みでした。家族が必要としていたまさにそのお出迎えでした。」","reviewTwo":"「最初のWhatsAppのやり取りからベレックへの到着まで、すべてが最高でした。時間通り、控えめで、とてもプロフェッショナル。ゴルフバッグも余裕で収まりました。」","reviewThree":"「空港タクシーではなく、ホテルのショーファーサービスのようでした。明確なコミュニケーション、完璧な車両、そして心から礼儀正しいドライバー。」","perVehicle":"車両ごと · 固定料金","quoteReady":"あなたのプライベート送迎","journeyTime":"所要時間","totalFixed":"合計料金","confirmWhatsapp":"WhatsAppで確認する","bookNowCta":"今すぐ予約","backToQuote":"戻る","yourDetails":"お客様情報","flightNumber":"フライト番号","flightArrivalTime":"到着時刻","notesLabel":"特別なご要望","confirmBooking":"予約を確定する","paySecurely":"安全なお支払いへ進む","payLaterNote":"確認後にオンラインで安全にお支払い。","paymentTitle":"安全なお支払い","paymentError":"お支払いに失敗しました。もう一度お試しください。"},"ko":{"navFleet":"차량","navService":"서비스","navFairPricing":"공정한 요금","navRoutes":"노선","navReviews":"리뷰","navContact":"문의","bookNow":"지금 예약","alwaysAvailable":"연중무휴 24시간 운영","heroEyebrow":"프라이빗 쇼퍼 서비스 · 안탈리아","campaignBadge":"Online special","campaignDiscount":"25% off","campaignScope":"all transfer prices","heroTitle":"안탈리아 공항에서<br />프리미엄 공항 픽업 서비스","heroSubtitle":"안탈리아 공항에서 벨렉, 시데, 케메르, 알란야까지 전담 쇼퍼와 함께하는 프라이빗 이동.","bookTransfer":"셔틀 예약하기","instantQuote":"요금 확인하기","googleRated":"Google 평점","trustedGuests":"2,500명 이상의 고객이 이용했습니다","discover":"자세히 보기","tbLicensed":"TÜRSAB 인증","tbFlightTracking":"항공편 추적","tbFixedPrice":"고정 요금","tb247Concierge":"24/7 컨시어지","tbChildSeats":"카시트 포함","privateJourney":"나만의 프라이빗 여행","tripType":"Journey type","oneWay":"One way","roundTrip":"Round trip","roundTripHint":"For a round trip, the return follows the same route in reverse.","pickup":"픽업 장소","airportOption":"안탈리아 공항 (AYT)","hotelOption":"호텔","privateAddressOption":"개인 주소","destination":"목적지","selectDestination":"목적지 선택","vehicle":"차량","guests":"인원","arrivalDate":"Arrival date","arrivalFlightTime":"Flight arrival time","chooseTime":"시간 선택","arrivalFlightNumber":"Arrival flight number","returnDate":"Return date","returnPickupTime":"Return pick-up time","returnFlightNumber":"Return flight number","pickupAddress":"전체 픽업 주소","dropoffAddress":"전체 목적지 주소","luggageLabel":"대형 수하물","hotelNameLabel":"호텔명","childSeatLabel":"어린이 좌석","childSeatNone":"어린이 좌석 없음","oneChildSeat":"어린이 좌석 1개","twoChildSeats":"어린이 좌석 2개","threeChildSeats":"어린이 좌석 3개","fourChildSeats":"어린이 좌석 4개","fullName":"성명","phoneLabel":"전화 / WhatsApp","emailLabel":"이메일","paymentMethod":"결제 방법 선택","cashPayment":"차량에서 결제","recommended":"추천","cashPaymentDescription":"선결제는 필요 없습니다. 서비스에 만족하신 후 기사에게 직접 결제하세요.","quoteIncludes":"미트 앤 그리트, 항공편 추적, 주차비, 대기 시간, 생수 포함.","confirmCashBooking":"예약 확정 — 차량에서 결제","flightTracking":"실시간 항공편 추적","fixedPrice":"고정 요금 보장","meetGreet":"미트 앤 그리트 서비스","speakingDrivers":"영어·독일어 가능 쇼퍼","fromAirport":"안탈리아 공항에서","campaignApplied":"Online -15% already applied","welcomeEyebrow":"최고 수준의 서비스에 오신 것을 환영합니다","welcomeTitle":"품격 있게 이동하세요.<br />편안하게 도착하세요.","welcomeBody":"착륙하는 순간부터 모든 세부 사항이 준비되어 있습니다. 쇼퍼가 도착 로비에서 기다리며 수하물을 챙기고 세심하게 준비된 전용 차량으로 안내해 드립니다.","ourStandards":"저희 서비스 기준","concierge":"컨시어지 서비스","guestsWelcomed":"환영한 고객 수","guestRating":"평균 고객 평점","privateTransfers":"프라이빗 이동","fleetEyebrow":"차량 라인업","fleetTitle":"나만의 프라이빗 공간,<br />세부 사항까지 완벽하게.","fleetIntro":"가족, 골프 장비, 여행 가방을 위한 충분한 공간을 갖춘 편안한 이동을 경험하세요.","signatureFleet":"시그니처 플릿","fleetVclassClass":"비즈니스 · 퍼스트클래스","fleetVclassDescription":"정교한 그룹 여행의 기준. 넓고, 탁월하게 조용하며, 원활한 도착을 위한 장비를 갖추고 있습니다.","passengers":"명","suitcases":"개의 캐리어","television":"차량 내 TV","coldDrinks":"차가운 음료","snacks":"스낵","childSeats":"요청 시 카시트 제공","wifi":"무료 WiFi","nameSignGreeting":"이름 팻말을 든 맞춤 영접","reserveVehicle":"이 차량 예약하기","insideVclass":"Sprinter 인테리어","interiorTitle":"공항과 호텔 사이의<br />프라이빗 라운지.","serviceEyebrow":"Antalya VIP 기준","serviceTitle":"단순한 이동 그 이상.<br />특별한 환영.","serviceIntro":"5성급 호텔 수준의 세심한 배려, 경험 풍부한 현지 쇼퍼, 공항에서 리조트까지 완전한 안심.","trackingTitle":"항공편 추적","trackingBody":"항공편을 실시간으로 추적하여 추가 비용 없이 픽업 시간을 자동으로 조정합니다.","chauffeurTitle":"전문 쇼퍼","chauffeurBody":"항상 단정하고 신중하며, 현지 지식과 최고 서비스 기준으로 선별된 전문가들입니다.","greetTitle":"미트 앤 그리트","greetBody":"쇼퍼가 이름이 적힌 팻말을 들고 도착 로비에서 환영하며 수하물을 도와드립니다.","supportTitle":"24/7 컨시어지","supportBody":"여행 전, 중, 후 언제든지 전화 또는 WhatsApp으로 담당자와 연결됩니다.","priceTitle":"고정 요금","priceBody":"확인된 요금이 최종 요금입니다. 대기 시간, 주차비, 항공편 지연이 모두 포함됩니다.","familyTitle":"가족을 위한","familyBody":"연령에 맞는 카시트, 넓은 실내, 편안한 가족 도착을 위한 세심한 도움.","routesEyebrow":"인기 노선","routesTitle":"안탈리아 공항에서<br />터키 리비에라까지.","routesIntro":"모든 요금은 차량 기준(1인 기준 아님)입니다. 무료 대기 시간 포함.","discountPricesShown":"Online -15% prices shown","golfFavourite":"골퍼들의 인기 선택","onlineDiscountShort":"Online -25%","reviewsEyebrow":"고객 후기","reviewsTitle":"도착 후에도 오래 기억되는<br />서비스.","googleReviews":"387건의 Google 인증 리뷰 기준","trustedBy":"안탈리아 주요 리조트 고객들이 선택했습니다","processEyebrow":"의도적으로 간단하게","processTitle":"편안한 도착을 위한<br />4단계.","stepOne":"목적지 선택","stepOneBody":"어디로, 언제 이동하고 싶은지 알려주세요.","stepTwo":"차량 선택","stepTwoBody":"적합한 공간과 편의를 선택하세요.","stepThree":"예약 확정","stepThreeBody":"고정 요금으로 즉시 확인서를 받으세요.","stepFour":"쇼퍼 만나기","stepFourBody":"쇼퍼가 도착 로비에서 환영합니다.","pricingEyebrow":"안심 요금","pricingTitle":"고객 친화적인 요금.<br />공정한 금액만 결제하세요.","pricingIntro":"안심하실 수 있도록 고정 요금을 제시하지만 실제 이동 거리도 측정합니다. 언제나 더 낮은 금액을 결제합니다.","pricingFixedPrice":"고정 요금","fixedPriceExample":"벨렉 이동: {{PRICE:belek:vito}} €","fixedPriceDesc":"보장된 총액입니다. 공항 수수료, 주차비, 대기 시간, 세금이 포함됩니다.","distancePrice":"거리 기준","distancePriceExample":"24 km online example: 25 €","distancePriceDesc":"이동 중 GPS로 측정합니다.","youPay":"결제 금액","youPayPrice":"25 €","youPayDesc":"더 낮은 금액이 적용됩니다. 종료 시 기사가 확인합니다.","pricingNote":"놀랄 일도, 숨겨진 비용도 없습니다. 예약한 금액을 결제하거나 그보다 적게 결제합니다.","faqEyebrow":"자주 묻는 질문","faqTitle":"여행 전에.","faqIntro":"안탈리아 공항 프라이빗 픽업에 대해 알아야 할 모든 것.","askQuestion":"질문하기","faqOneQ":"항공편이 지연되면 어떻게 되나요?","faqOneA":"모든 도착 항공편을 실시간으로 추적합니다. 픽업 시간은 자동으로 조정되며 쇼퍼는 추가 비용 없이 기다립니다.","faqTwoQ":"기사님은 어디에서 기다리시나요?","faqTwoA":"쇼퍼는 수하물 수취 바로 다음 도착 로비에서 이름이 적힌 팻말을 들고 기다립니다.","faqThreeQ":"카시트를 이용할 수 있나요?","faqThreeA":"네. 신생아용 카시트, 아동용 카시트, 부스터 시트는 예약 시 요청하시면 무료로 제공됩니다.","faqFourQ":"골프백과 대형 수하물도 운반할 수 있나요?","faqFourA":"네. Sprinter와 Vito는 골프 그룹에 이상적입니다. 수하물 정보를 알려주시면 적합한 차량을 준비합니다.","faqFiveQ":"표시된 요금이 최종 요금인가요?","faqFiveA":"네. 공항 세금, 주차비, 대기 시간, 세금이 모두 포함됩니다. 숨겨진 비용이 없습니다.","contactEyebrow":"여행은 여기서 시작됩니다","contactTitle":"안탈리아에<br />특별하게 도착하세요.","contactBody":"2분 이내에 온라인 예약하거나 24/7 컨시어지 팀에 직접 문의하세요.","whatsappUs":"WhatsApp","replyMinutes":"보통 몇 분 내로 답변","callUs":"24/7 전화","emailUs":"컨시어지 이메일","replyHour":"1시간 내 답변","footerTagline":"터키 리비에라 전역의 프라이빗 쇼퍼 서비스.","explore":"탐색","information":"정보","licensed":"인증된 프라이빗 이동 사업자 · TÜRSAB 준수","bookingConfirmed":"예약 확정","referenceLabel":"예약 번호","weWillContact":"예약 요청이 전송되었습니다. 30분 내로 연락드리겠습니다.","chatWithUs":"채팅하기","pickupAddressPlaceholder":"호텔명, 도로명, 건물 번호 및 지역","dropoffAddressPlaceholder":"호텔명, 도로명, 건물 번호 및 지역","hotelNamePlaceholder":"호텔 또는 숙소 이름","cashConfirmation":"예약이 확정되었습니다. 차량에서 기사에게 고정 요금을 직접 결제하세요.","bookingError":"예약을 완료하지 못했습니다. 다시 시도해 주세요.","formIncomplete":"표시된 필수 항목을 입력해 주세요.","requiredField":"필수 입력 항목입니다.","destinationRequired":"목적지를 선택해 주세요.","dateInvalid":"오늘 또는 이후 날짜를 선택해 주세요.","emailInvalid":"올바른 이메일 주소를 입력해 주세요.","nameInvalid":"올바른 전체 이름을 입력해 주세요.","phoneInvalid":"국가 코드를 포함한 올바른 번호를 입력해 주세요(예: +49).","flightInvalid":"올바른 항공편 번호를 입력해 주세요.","pickupAddressRequired":"픽업 주소는 6자 이상 160자 이하로 입력해 주세요.","dropoffAddressRequired":"목적지 주소는 6자 이상 160자 이하로 입력해 주세요.","addressesMustDiffer":"픽업 주소와 목적지 주소는 달라야 합니다.","customDestinationPrice":"목적지 주소 확인 후 가격이 확정됩니다.","hotelNameRequired":"호텔명을 입력해 주세요.","roundTripPriceNote":"round trip · 2 journeys","returnDateRequired":"Please choose a return date.","returnDateInvalid":"Please choose a return date on or after the outward journey.","returnTimeRequired":"Please choose the return pick-up time.","quoteTitle":"어디로 모셔다 드릴까요?","date":"날짜","airportReturnPrice":"호텔 또는 픽업 주소를 확인한 후 요금을 안내해 드립니다.","oneGuest":"1명","twoGuests":"2명","threeGuests":"3명","fourGuests":"4명","fiveGuests":"5명","sixGuests":"6명","sevenGuests":"7명","viewQuote":"요금 보기","fleetVitoClass":"VIP · 그랜드 투어링","fleetVitoDescription":"대가족, 골프 그룹, 짐이 많은 고객을 위한 넓은 프라이빗 캐빈.","capacitySwitchedSprinter":"승객과 수하물이 비토 용량을 초과합니다 — 메르세데스 스프린터로 변경되었습니다.","capacityNoVehicle":"이 인원과 수하물은 차량 용량을 초과합니다. WhatsApp으로 문의해 주세요.","leatherSeats":"프리미엄 가죽 시트","water":"시원한 생수","from":"부터","reviewOne":"\\"90분 지연에도 불구하고 기사님이 기다려 주셨습니다. 차량은 완벽하게 청결하고 시원했으며 카시트 두 개도 이미 설치되어 있었습니다. 저희 가족에게 꼭 필요한 환영이었습니다.\\"","reviewTwo":"\\"첫 WhatsApp 연락부터 벨렉 도착까지 모든 것이 최고였습니다. 시간 엄수, 세심함, 매우 전문적. 골프백도 여유롭게 들어갔습니다.\\"","reviewThree":"\\"공항 택시가 아닌 호텔 쇼퍼 서비스 같았습니다. 명확한 소통, 완벽한 차량, 진심으로 예의 바른 기사님.\\"","perVehicle":"차량 기준 · 고정 요금","quoteReady":"나의 프라이빗 이동","journeyTime":"소요 시간","totalFixed":"총 요금","confirmWhatsapp":"WhatsApp으로 확인하기","bookNowCta":"지금 예약","backToQuote":"뒤로","yourDetails":"고객 정보","flightNumber":"항공편 번호","flightArrivalTime":"도착 시간","notesLabel":"특별 요청","confirmBooking":"예약 확정하기","paySecurely":"안전한 결제로 이동","payLaterNote":"확인 후 안전하게 온라인 결제.","paymentTitle":"안전한 결제","paymentError":"결제에 실패했습니다. 다시 시도해 주세요."},"ar":{"navFleet":"أسطولنا","navService":"الخدمات","navFairPricing":"أسعار عادلة","navRoutes":"الوجهات","navReviews":"التقييمات","navContact":"اتصل بنا","bookNow":"احجز الآن","alwaysAvailable":"متاحون على مدار الساعة، كل يوم","heroEyebrow":"خدمة سائق خاص · أنطاليا","campaignBadge":"عرض الحجز عبر الإنترنت","campaignDiscount":"خصم 15٪","campaignScope":"على جميع أسعار النقل","heroTitle":"خدمة نقل فاخرة من المطار<br />في أنطاليا","heroSubtitle":"خدمة نقل خاصة مع سائق من مطار أنطاليا إلى بيليك وسيده وكيمر وألانيا.","bookTransfer":"احجز خدمة النقل","instantQuote":"احصل على السعر فوراً","googleRated":"تقييم Google","trustedGuests":"اختيار أكثر من 2,500 ضيف","discover":"اكتشف المزيد","tbLicensed":"مرخصون من TÜRSAB","tbFlightTracking":"تتبع الرحلات","tbFixedPrice":"سعر ثابت","tb247Concierge":"كونسيرج 24/7","tbChildSeats":"مقاعد أطفال مشمولة","privateJourney":"رحلتك الخاصة","tripType":"نوع الرحلة","oneWay":"ذهاب فقط","roundTrip":"ذهاب وعودة","roundTripHint":"في رحلة الذهاب والعودة، تكون رحلة العودة على المسار نفسه بالاتجاه المعاكس.","pickup":"مكان الاستقبال","airportOption":"مطار أنطاليا (AYT)","hotelOption":"فندق","privateAddressOption":"عنوان خاص","destination":"الوجهة","selectDestination":"اختر الوجهة","vehicle":"السيارة","guests":"الركاب","arrivalDate":"تاريخ الوصول","arrivalFlightTime":"وقت وصول الرحلة","chooseTime":"اختر الوقت","arrivalFlightNumber":"رقم رحلة الوصول","returnDate":"تاريخ العودة","returnPickupTime":"وقت الاستقبال للعودة","returnFlightNumber":"رقم رحلة العودة","pickupAddress":"عنوان الاستقبال الكامل","dropoffAddress":"عنوان الوصول الكامل","luggageLabel":"أمتعة كبيرة","hotelNameLabel":"اسم الفندق","childSeatLabel":"مقاعد الأطفال","childSeatNone":"من دون مقعد أطفال","oneChildSeat":"مقعد أطفال واحد","twoChildSeats":"مقعدا أطفال","threeChildSeats":"3 مقاعد أطفال","fourChildSeats":"4 مقاعد أطفال","fullName":"الاسم الكامل","phoneLabel":"الهاتف / WhatsApp","emailLabel":"البريد الإلكتروني","paymentMethod":"اختر طريقة الدفع","cashPayment":"الدفع داخل السيارة","recommended":"موصى به","cashPaymentDescription":"لا يلزم الدفع مقدماً. ادفع مباشرة إلى السائق بعد أن تكون راضياً عن الخدمة.","quoteIncludes":"يشمل الاستقبال والترحيب، وتتبع الرحلة، ومواقف السيارات، والانتظار، والمياه.","confirmCashBooking":"تأكيد الحجز — الدفع داخل السيارة","flightTracking":"تتبع الرحلة مباشرة","fixedPrice":"سعر ثابت مضمون","meetGreet":"استقبال شخصي","speakingDrivers":"سائقون يتحدثون الإنجليزية والألمانية","fromAirport":"من مطار أنطاليا","campaignApplied":"تم تطبيق خصم الإنترنت 15٪","welcomeEyebrow":"مرحباً بك في مستوى أرقى من الخدمة","welcomeTitle":"سافر بأناقة.<br />وصل براحة.","welcomeBody":"منذ لحظة هبوطك، نعتني بكل التفاصيل. ينتظرك سائقك في صالة الوصول، ويساعدك في الأمتعة، ويرافقك إلى سيارتك الخاصة المجهزة بعناية.","ourStandards":"معايير خدمتنا","concierge":"خدمة الكونسيرج","guestsWelcomed":"الضيوف الذين استقبلناهم","guestRating":"متوسط تقييم الضيوف","privateTransfers":"رحلات نقل خاصة","fleetEyebrow":"أسطولنا","fleetTitle":"مساحتك الخاصة،<br />مصممة بأدق التفاصيل.","fleetIntro":"سافر براحة مع مساحة واسعة للعائلة وحقائب الغولف والأمتعة.","signatureFleet":"الأسطول المميز","fleetVclassClass":"درجة رجال الأعمال · الدرجة الأولى","fleetVclassDescription":"وسيلة نقل VIP رحبة للمجموعات الكبيرة، مع مساحة واسعة للركاب والأمتعة.","passengers":"ركاب","suitcases":"حقائب","television":"تلفاز داخل السيارة","coldDrinks":"مشروبات باردة","snacks":"وجبات خفيفة","childSeats":"مقاعد أطفال عند الطلب","wifi":"واي فاي مجاني","nameSignGreeting":"استقبال شخصي بلافتة تحمل اسمك","reserveVehicle":"احجز هذه السيارة","insideVclass":"مقصورة Sprinter الداخلية","interiorTitle":"صالة خاصة بين<br />المطار والفندق.","serviceEyebrow":"معيار Antalya VIP","serviceTitle":"أكثر من مجرد نقل.<br />إنه ترحيب استثنائي.","serviceIntro":"عناية بمستوى الفنادق الفاخرة، وسائقون محليون ذوو خبرة، وراحة تامة من المطار إلى المنتجع.","trackingTitle":"تتبع الرحلة","trackingBody":"نتابع رحلتك مباشرة ونعدّل وقت الاستقبال تلقائياً من دون أي تكلفة إضافية.","chauffeurTitle":"سائقون محترفون","chauffeurBody":"سائقون أنيقون وكتومون دائماً، تم اختيارهم لمعرفتهم المحلية والتزامهم بأعلى معايير الخدمة.","greetTitle":"الاستقبال والترحيب","greetBody":"يستقبلك سائقك في صالة الوصول بلافتة تحمل اسمك ويساعدك في حمل الأمتعة.","supportTitle":"كونسيرج 24/7","supportBody":"قبل رحلتك وأثناءها وبعدها، يمكنك دائماً التواصل مع شخص حقيقي عبر الهاتف أو WhatsApp.","priceTitle":"أسعار ثابتة","priceBody":"السعر المؤكد هو السعر النهائي. يشمل وقت الانتظار ومواقف السيارات وتأخير الرحلات.","familyTitle":"مناسب للعائلات","familyBody":"مقاعد أطفال مناسبة للأعمار، ومساحات داخلية واسعة، ومساعدة هادئة لوصول عائلي مريح.","routesEyebrow":"رحلاتنا الأكثر طلباً","routesTitle":"من مطار أنطاليا<br />إلى الريفييرا التركية.","routesIntro":"جميع الأسعار للسيارة وليس للشخص، وتشمل وقت انتظار مجاني.","discountPricesShown":"الأسعار المعروضة تشمل خصم الإنترنت 15٪","golfFavourite":"المفضل لدى لاعبي الغولف","onlineDiscountShort":"خصم الإنترنت 15٪","reviewsEyebrow":"آراء الضيوف","reviewsTitle":"خدمة تبقى في الذاكرة<br />بعد الوصول.","googleReviews":"استناداً إلى 387 تقييماً موثقاً على Google","trustedBy":"موثوق من ضيوف أبرز منتجعات أنطاليا","processEyebrow":"بساطة مدروسة","processTitle":"أربع خطوات<br />لوصول مريح.","stepOne":"اختر وجهتك","stepOneBody":"أخبرنا إلى أين ومتى تريد السفر.","stepTwo":"اختر السيارة","stepTwoBody":"اختر المساحة ومستوى الراحة المناسبين لك.","stepThree":"أكد الحجز","stepThreeBody":"احصل فوراً على تأكيدك بسعر ثابت.","stepFour":"التقِ بسائقك","stepFourBody":"يستقبلك سائقك في صالة الوصول.","pricingEyebrow":"خطط بثقة","pricingTitle":"نضمن سعراً ثابتاً.<br />وتدفع دائماً السعر الأقل.","pricingIntro":"نحدد سعراً ثابتاً لراحتك، ونقيس أيضاً المسافة الفعلية للرحلة. ستدفع دائماً المبلغ الأقل.","pricingFixedPrice":"السعر الثابت","fixedPriceExample":"النقل إلى بيليك: {{PRICE:belek:vito}} €","fixedPriceDesc":"إجمالي مضمون يشمل رسوم المطار ومواقف السيارات والانتظار والضرائب.","distancePrice":"حسب المسافة","distancePriceExample":"مثال 24 كم عبر الإنترنت: 25 €","distancePriceDesc":"يتم قياسها عبر GPS أثناء الرحلة.","youPay":"ما تدفعه","youPayPrice":"25 €","youPayDesc":"ينطبق السعر الأقل، ويؤكده السائق في نهاية الرحلة.","pricingNote":"لا مفاجآت ولا رسوم خفية. تدفع السعر المحجوز أو أقل منه.","faqEyebrow":"الأسئلة الشائعة","faqTitle":"قبل رحلتك.","faqIntro":"كل ما تحتاج إلى معرفته عن خدمة النقل الخاصة من مطار أنطاليا.","askQuestion":"اطرح سؤالاً","faqOneQ":"ماذا يحدث إذا تأخرت رحلتي؟","faqOneA":"نتابع جميع الرحلات القادمة مباشرة. نعدّل وقت الاستقبال تلقائياً، وينتظرك سائقك من دون أي رسوم إضافية.","faqTwoQ":"أين سألتقي بالسائق؟","faqTwoA":"ينتظرك سائقك في صالة الوصول بعد منطقة استلام الأمتعة مباشرة، حاملاً لافتة باسمك.","faqThreeQ":"هل تتوفر مقاعد للأطفال؟","faqThreeA":"نعم. تتوفر مقاعد للرضع والأطفال والمقاعد المعززة مجاناً عند طلبها أثناء الحجز.","faqFourQ":"هل يمكن نقل حقائب الغولف والأمتعة الكبيرة؟","faqFourA":"نعم. سيارات Sprinter وVito مناسبة لمجموعات الغولف. أخبرنا بأمتعتك لنجهز السيارة المناسبة.","faqFiveQ":"هل السعر المعروض نهائي؟","faqFiveA":"نعم. تشمل الأسعار رسوم المطار ومواقف السيارات ووقت الانتظار والضرائب، من دون رسوم خفية.","contactEyebrow":"رحلتك تبدأ هنا","contactTitle":"ابدأ وصولك إلى أنطاليا<br />بطريقة استثنائية.","contactBody":"احجز عبر الإنترنت خلال دقيقتين، أو تحدث مباشرة إلى فريق الكونسيرج 24/7.","whatsappUs":"تواصل عبر WhatsApp","replyMinutes":"نرد عادةً خلال دقائق","callUs":"اتصل بنا 24/7","emailUs":"بريد الكونسيرج","replyHour":"نرد خلال ساعة","footerTagline":"خدمة سائق خاص في أنحاء الريفييرا التركية.","explore":"استكشف","information":"معلومات","licensed":"مزود نقل خاص مرخص · متوافق مع TÜRSAB","bookingConfirmed":"تم تأكيد الحجز","referenceLabel":"الرقم المرجعي","weWillContact":"تم إرسال طلب حجزك. سنتواصل معك خلال 30 دقيقة.","chatWithUs":"تحدث معنا","pickupAddressPlaceholder":"اسم الفندق، الشارع، رقم المبنى والمنطقة","dropoffAddressPlaceholder":"اسم الفندق، الشارع، رقم المبنى والمنطقة","hotelNamePlaceholder":"اسم الفندق أو مكان الإقامة","cashConfirmation":"تم تأكيد حجزك. ادفع المبلغ الثابت مباشرة إلى السائق داخل السيارة.","bookingError":"تعذر إكمال حجزك. يرجى المحاولة مرة أخرى.","formIncomplete":"يرجى إكمال الحقول المحددة.","requiredField":"هذا الحقل مطلوب.","destinationRequired":"يرجى اختيار وجهة.","dateInvalid":"يرجى اختيار تاريخ اليوم أو تاريخ لاحق.","emailInvalid":"يرجى إدخال بريد إلكتروني صالح.","nameInvalid":"يرجى إدخال الاسم الكامل بشكل صحيح.","phoneInvalid":"يرجى إدخال رقم صالح مع رمز الدولة (مثلاً +49).","flightInvalid":"يرجى إدخال رقم رحلة صالح.","pickupAddressRequired":"يجب أن يتراوح عنوان الاستقبال بين 6 و160 حرفاً.","dropoffAddressRequired":"يجب أن يتراوح عنوان الوصول بين 6 و160 حرفاً.","addressesMustDiffer":"يجب أن يختلف عنوان الاستقبال عن عنوان الوصول.","customDestinationPrice":"سيتم تأكيد السعر بعد مراجعة عنوان الوصول.","hotelNameRequired":"يرجى إدخال اسم الفندق.","roundTripPriceNote":"ذهاب وعودة · رحلتان","returnDateRequired":"يرجى اختيار تاريخ العودة.","returnDateInvalid":"يرجى اختيار تاريخ عودة يوافق تاريخ الذهاب أو يأتي بعده.","returnTimeRequired":"يرجى اختيار وقت الاستقبال للعودة.","quoteTitle":"إلى أين نوصلك؟","date":"التاريخ","airportReturnPrice":"سيتم تأكيد السعر بعد مراجعة الفندق أو عنوان الاستقبال.","oneGuest":"راكب واحد","twoGuests":"راكبان","threeGuests":"3 ركاب","fourGuests":"4 ركاب","fiveGuests":"5 ركاب","sixGuests":"6 ركاب","sevenGuests":"7 ركاب","viewQuote":"عرض السعر","fleetVitoClass":"VIP · جراند تورينغ","fleetVitoDescription":"مقصورة خاصة ومريحة للعائلات والمجموعات الصغيرة.","capacitySwitchedSprinter":"عدد الركاب والأمتعة يتجاوز سعة Vito — تم التبديل إلى Mercedes Sprinter.","capacityNoVehicle":"هذا العدد من الركاب والأمتعة يتجاوز سعة مركباتنا. يرجى التواصل معنا عبر WhatsApp.","leatherSeats":"مقاعد جلدية فاخرة","water":"مياه معدنية باردة","from":"ابتداءً من","reviewOne":"\\"انتظرنا السائق رغم تأخر الرحلة 90 دقيقة. كانت السيارة نظيفة تماماً وباردة، ومقعدا الأطفال مجهزين مسبقاً. كان هذا بالضبط ما احتاجته عائلتنا عند الوصول.\\"","reviewTwo":"\\"من أول تواصل عبر WhatsApp حتى وصولنا إلى بيليك، كانت الخدمة ممتازة. التزام بالمواعيد واحترافية عالية، مع مساحة مريحة لحقائب الغولف.\\"","reviewThree":"\\"شعرنا وكأنها خدمة سائق فندق فاخر وليست سيارة أجرة من المطار. تواصل واضح، وسيارة مثالية، وسائق مهذب بصدق.\\"","perVehicle":"لكل سيارة · سعر ثابت","quoteReady":"رحلتك الخاصة","journeyTime":"مدة الرحلة","totalFixed":"الإجمالي الثابت","confirmWhatsapp":"التأكيد عبر WhatsApp","bookNowCta":"احجز الآن","backToQuote":"رجوع","yourDetails":"بياناتك","flightNumber":"رقم الرحلة","flightArrivalTime":"وقت الوصول","notesLabel":"طلبات خاصة","confirmBooking":"تأكيد الحجز","paySecurely":"المتابعة إلى الدفع الآمن","payLaterNote":"دفع آمن عبر الإنترنت بعد التأكيد.","paymentTitle":"الدفع الآمن","paymentError":"تعذر إتمام الدفع. يرجى المحاولة مرة أخرى."}}`);
+const resources$1 = /* @__PURE__ */ JSON.parse(`{"en":{"navFleet":"Fleet","navService":"Service","navFairPricing":"Fair Pricing","navRoutes":"Routes","navReviews":"Reviews","navContact":"Contact","bookNow":"Book now","alwaysAvailable":"Available 24 hours, every day","heroEyebrow":"Private chauffeur service · Antalya","campaignBadge":"Online special","campaignDiscount":"25% off","campaignScope":"all transfer prices","heroTitle":"Premium Airport<br />Transfers in Antalya","heroSubtitle":"Private chauffeur-driven transfers from Antalya Airport to Belek, Side, Kemer and Alanya.","bookTransfer":"Book your transfer","instantQuote":"Get instant quote","googleRated":"Google rated","trustedGuests":"Trusted by 2,500+ guests","discover":"Discover","tbLicensed":"TÜRSAB Licensed","tbFlightTracking":"Flight Tracking","tbFixedPrice":"Fixed Pricing","tb247Concierge":"24/7 Concierge","tbChildSeats":"Child Seats Included","privateJourney":"Your private journey","tripType":"Journey type","oneWay":"One way","roundTrip":"Round trip","roundTripHint":"For a round trip, the return follows the same route in reverse.","pickup":"Pick-up","airportOption":"Antalya Airport (AYT)","hotelOption":"Hotel","privateAddressOption":"Private address","destination":"Destination","selectDestination":"Select destination","vehicle":"Vehicle","guests":"Guests","arrivalDate":"Arrival date","arrivalFlightTime":"Flight arrival time","chooseTime":"Choose time","arrivalFlightNumber":"Arrival flight number","returnDate":"Return date","returnPickupTime":"Return pick-up time","returnFlightNumber":"Return flight number","pickupAddress":"Full pick-up address","dropoffAddress":"Full drop-off address","luggageLabel":"Large luggage","hotelNameLabel":"Hotel name","childSeatLabel":"Child seats","childSeatNone":"No child seat","oneChildSeat":"1 child seat","twoChildSeats":"2 child seats","threeChildSeats":"3 child seats","fourChildSeats":"4 child seats","fullName":"Full name","phoneLabel":"Phone / WhatsApp","emailLabel":"Email","paymentMethod":"Choose payment method","cashPayment":"Pay in the vehicle","recommended":"Recommended","cashPaymentDescription":"No prepayment. Pay your driver directly once you are satisfied with the service.","quoteIncludes":"Includes meet & greet, flight tracking, parking, waiting time and bottled water.","confirmCashBooking":"Confirm booking — pay in vehicle","flightTracking":"Real-time flight tracking","fixedPrice":"Fixed price guarantee","meetGreet":"Personal meet & greet","speakingDrivers":"English & German speaking","fromAirport":"From Antalya Airport","campaignApplied":"Online -15% already applied","welcomeEyebrow":"Welcome to a better arrival","welcomeTitle":"Travel beautifully.<br />Arrive effortlessly.","welcomeBody":"From the moment your flight lands, every detail is considered. Your chauffeur waits inside arrivals, handles your luggage and guides you to a meticulously prepared private vehicle.","ourStandards":"Our service standards","concierge":"Concierge support","guestsWelcomed":"Guests welcomed","guestRating":"Average guest rating","privateTransfers":"Private transfers","fleetEyebrow":"The fleet","fleetTitle":"Your private space,<br />refined in every detail.","fleetIntro":"Travel in quiet comfort with generous space for your family, golf equipment and luggage.","signatureFleet":"Signature fleet","fleetVclassClass":"Business · First Class","fleetVclassDescription":"Spacious VIP transport for larger groups, with generous room for passengers and luggage.","passengers":"passengers","suitcases":"suitcases","television":"In-vehicle television","coldDrinks":"Cold drinks","snacks":"Snacks","childSeats":"Child seat available","wifi":"Complimentary WiFi","nameSignGreeting":"Meet & greet with a personalised name sign","reserveVehicle":"Reserve this vehicle","insideVclass":"Inside the Sprinter","interiorTitle":"A private lounge between<br />the airport and your hotel.","serviceEyebrow":"The Antalya VIP standard","serviceTitle":"More than a transfer.<br />A considered welcome.","serviceIntro":"Hotel-level attention, experienced local chauffeurs and complete peace of mind from runway to resort.","trackingTitle":"Flight tracking","trackingBody":"We monitor your flight in real time and adjust your pick-up automatically, at no extra charge.","chauffeurTitle":"Professional chauffeurs","chauffeurBody":"Immaculately presented, discreet and selected for their local knowledge and service standards.","greetTitle":"Meet & greet","greetBody":"Your chauffeur will welcome you in arrivals with a personalised name sign and assist with luggage.","supportTitle":"24/7 concierge","supportBody":"A real person is always available by phone or WhatsApp before, during and after your journey.","priceTitle":"Fixed prices","priceBody":"The price confirmed is the price you pay. Waiting time, parking and flight delays are included.","familyTitle":"Family ready","familyBody":"Age-appropriate child seats, spacious cabins and patient assistance for a relaxed family arrival.","routesEyebrow":"Our most requested journeys","routesTitle":"From Antalya Airport<br />to the Turkish Riviera.","routesIntro":"All prices are per vehicle, never per passenger, with complimentary waiting time included.","discountPricesShown":"Online -15% prices shown","golfFavourite":"Golf favourite","onlineDiscountShort":"Online -25%","reviewsEyebrow":"Guest reviews","reviewsTitle":"Service remembered<br />long after arrival.","googleReviews":"Based on 387 verified Google reviews","trustedBy":"Trusted by guests of Antalya's leading resorts","pricingEyebrow":"Peace of mind","pricingTitle":"Customer-friendly pricing.<br />You pay what's fair.","pricingIntro":"We offer fixed prices for peace of mind, but we measure the actual distance. You always pay whichever is lower.","pricingFixedPrice":"Fixed price","fixedPriceExample":"Belek transfer: €{{PRICE:belek:vito}}","fixedPriceDesc":"Guaranteed total. Includes airport fees, parking, waiting time and taxes.","distancePrice":"Distance-based","distancePriceExample":"24 km online example: €25","distancePriceDesc":"Measured with GPS during your journey.","youPay":"You pay","youPayPrice":"€25","youPayDesc":"Whichever is lower. Driver confirms at the end.","pricingNote":"No surprises. No hidden charges. What you book is what you pay — or less.","faqEyebrow":"Frequently asked","faqTitle":"Before you travel.","faqIntro":"Everything you need to know about your private Antalya airport transfer.","askQuestion":"Ask us a question","faqOneQ":"What happens if my flight is delayed?","faqOneA":"We track every arrival in real time. Your pick-up time is adjusted automatically and your chauffeur will wait at no additional charge.","faqTwoQ":"Where will I meet my chauffeur?","faqTwoA":"After collecting your baggage, exit to the Meet & Greet Area and look for meeting point J / 777. Our team will be waiting with a personalised name sign.","faqThreeQ":"Are child seats available?","faqThreeA":"Yes. Infant, toddler and booster seats are available free of charge when requested during booking.","faqFourQ":"Can you carry golf bags and large luggage?","faqFourA":"Yes. Our Sprinter and Vito vehicles are ideal for golf groups. Tell us your luggage details and we will allocate the correct vehicle.","faqFiveQ":"Is the quoted price final?","faqFiveA":"Yes. All airport fees, parking, waiting time and taxes are included. There are no hidden charges.","contactEyebrow":"Your journey starts here","contactTitle":"Arrive in Antalya<br />exceptionally well.","contactBody":"Book online in less than two minutes or speak directly with our 24/7 concierge team.","whatsappUs":"WhatsApp us","replyMinutes":"Usually replies within minutes","callUs":"Call us 24/7","emailUs":"Email concierge","replyHour":"Replies within one hour","footerTagline":"Private chauffeur services across the Turkish Riviera.","explore":"Explore","information":"Information","licensed":"Licensed private transfer operator · TÜRSAB compliant","bookingConfirmed":"Booking Confirmed","referenceLabel":"Reference","weWillContact":"Your booking request was sent. We will contact you within 30 minutes.","chatWithUs":"Chat with us","pickupAddressPlaceholder":"Hotel name, street, building number and district","dropoffAddressPlaceholder":"Hotel name, street, building number and district","hotelNamePlaceholder":"Hotel or accommodation name","requestQuote":"Request a price quote","cashConfirmation":"Your booking is confirmed. Pay the fixed total directly to your driver in the vehicle.","bookingError":"Your booking could not be completed. Please try again.","formIncomplete":"Please complete the highlighted fields.","requiredField":"This field is required.","destinationRequired":"Please select a destination.","dateInvalid":"Please choose today or a future date.","emailInvalid":"Please enter a valid email address.","nameInvalid":"Please enter a valid full name.","phoneInvalid":"Please enter a valid number including the country code (for example +49).","flightInvalid":"Please enter a valid flight number.","pickupAddressRequired":"The pick-up address must be between 6 and 160 characters.","dropoffAddressRequired":"The drop-off address must be between 6 and 160 characters.","addressesMustDiffer":"Pick-up and drop-off addresses must be different.","customDestinationPrice":"The price will be confirmed after we check the drop-off address.","hotelNameRequired":"Please enter the hotel name.","roundTripPriceNote":"round trip · 2 journeys","returnDateRequired":"Please choose a return date.","returnDateInvalid":"Please choose a return date on or after the outward journey.","returnTimeRequired":"Please choose the return pick-up time.","dailyChauffeur":"Daily vehicle + chauffeur","days":"days","dailyChauffeurHint":"Hire a private vehicle and chauffeur by the day with no kilometre or hour limit. Fuel is paid separately.","serviceStartDate":"First service day","serviceEndDate":"Last service day","dailyPickupTime":"Service start time","dailyPickupTimeRequired":"Please select the daily service start time.","serviceEndDateRequired":"Please select the last service day.","servicePeriodInvalid":"Please select a period between 1 and 30 days.","arrivalFlightTimeOptional":"Arrival flight time (optional)","arrivalFlightNumberOptional":"Arrival flight number (optional)","servicePrice":"Service price","fuelExcludedShort":"fuel excluded","fuelExcludedDetail":"Fuel is not included and is paid separately according to use.","departureFlightDate":"Departure flight date (optional)","departureFlightTime":"Departure flight time","departureFlightNumber":"Departure flight number","departureFlightDateRequired":"Please select the departure flight date.","departureFlightDateInvalid":"Departure flight date cannot be before the service starts.","dailyQuoteIncludes":"Includes the selected vehicle and chauffeur with no kilometre or hour limit. Fuel is excluded.","reviewAndConfirm":"Review and confirm","fuelTermsTitle":"Important information about fuel","fuelTermsBody":"The daily €150 service fee includes the vehicle and chauffeur. Fuel is not included. You will pay the actual fuel cost separately according to use.","fuelTermsCheckbox":"I understand that fuel is excluded and will be paid separately based on use.","cancel":"Cancel","close":"Close","understandAndConfirm":"I understand and confirm","dailyCashConfirmation":"Your daily chauffeur hire is confirmed. The service price excludes fuel, which is paid separately based on use."},"de":{"navFleet":"Fahrzeuge","navService":"Service","navFairPricing":"Faire Preise","navRoutes":"Strecken","navReviews":"Bewertungen","navContact":"Kontakt","bookNow":"Jetzt buchen","alwaysAvailable":"24 Stunden, jeden Tag erreichbar","heroEyebrow":"Privater Chauffeurservice · Antalya","campaignBadge":"Online Spezial","campaignDiscount":"15% Rabatt","campaignScope":"auf alle Transferpreise","heroTitle":"Premium Flughafentransfers<br />in Antalya","heroSubtitle":"Private Transfers mit Chauffeur vom Flughafen Antalya nach Belek, Side, Kemer und Alanya.","bookTransfer":"Transfer buchen","instantQuote":"Sofortpreis erhalten","googleRated":"Google-Bewertung","trustedGuests":"Von über 2.500 Gästen gebucht","discover":"Entdecken","tbLicensed":"TÜRSAB-zertifiziert","tbFlightTracking":"Flugverfolgung","tbFixedPrice":"Festpreisgarantie","tb247Concierge":"24/7 Concierge","tbChildSeats":"Kindersitze inklusive","privateJourney":"Ihre private Reise","tripType":"Fahrtart","oneWay":"Einfache Fahrt","roundTrip":"Hin- und Rückfahrt","roundTripHint":"Bei Hin- und Rückfahrt erfolgt die Rückfahrt auf derselben Strecke in umgekehrter Richtung.","pickup":"Abholung","airportOption":"Flughafen Antalya (AYT)","hotelOption":"Hotel","privateAddressOption":"Privatadresse","destination":"Zielort","selectDestination":"Ziel auswählen","vehicle":"Fahrzeug","guests":"Gäste","arrivalDate":"Ankunftsdatum","arrivalFlightTime":"Ankunftszeit des Fluges","chooseTime":"Uhrzeit wählen","arrivalFlightNumber":"Ankunftsflugnummer","returnDate":"Rückfahrtdatum","returnPickupTime":"Abholzeit der Rückfahrt","returnFlightNumber":"Rückflugnummer","pickupAddress":"Vollständige Abholadresse","dropoffAddress":"Vollständige Zieladresse","luggageLabel":"Großes Gepäck","hotelNameLabel":"Hotelname","childSeatLabel":"Kindersitze","childSeatNone":"Kein Kindersitz","oneChildSeat":"1 Kindersitz","twoChildSeats":"2 Kindersitze","threeChildSeats":"3 Kindersitze","fourChildSeats":"4 Kindersitze","fullName":"Vollständiger Name","phoneLabel":"Telefon / WhatsApp","emailLabel":"E-Mail","paymentMethod":"Zahlungsart wählen","cashPayment":"Im Fahrzeug bezahlen","recommended":"Empfohlen","cashPaymentDescription":"Keine Vorauszahlung. Bezahlen Sie Ihren Fahrer direkt, wenn Sie mit dem Service zufrieden sind.","quoteIncludes":"Inklusive Meet & Greet, Flugverfolgung, Parken, Wartezeit und Mineralwasser.","confirmCashBooking":"Buchung bestätigen — im Fahrzeug zahlen","flightTracking":"Flugverfolgung in Echtzeit","fixedPrice":"Garantierter Festpreis","meetGreet":"Persönlicher Empfang","speakingDrivers":"Deutsch & Englisch sprechend","fromAirport":"Ab Flughafen Antalya","campaignApplied":"Online -15% bereits abgezogen","welcomeEyebrow":"Willkommen auf höchstem Niveau","welcomeTitle":"Stilvoll reisen.<br />Entspannt ankommen.","welcomeBody":"Ab Ihrer Landung ist jedes Detail organisiert. Ihr Chauffeur wartet in der Ankunftshalle, kümmert sich um Ihr Gepäck und begleitet Sie zu Ihrem sorgfältig vorbereiteten Privatfahrzeug.","ourStandards":"Unsere Servicestandards","concierge":"Concierge-Service","guestsWelcomed":"Begrüßte Gäste","guestRating":"Durchschnittliche Bewertung","privateTransfers":"Private Transfers","fleetEyebrow":"Unsere Flotte","fleetTitle":"Ihr privater Raum,<br />vollendet bis ins Detail.","fleetIntro":"Reisen Sie komfortabel mit großzügigem Platz für Familie, Golfgepäck und Koffer.","signatureFleet":"Signature Flotte","fleetVclassClass":"Business · First Class","fleetVclassDescription":"Großzügiger VIP-Transport für größere Gruppen mit viel Platz für Passagiere und Gepäck.","passengers":"Passagiere","suitcases":"Koffer","television":"Fernseher im Fahrzeug","coldDrinks":"Kalte Getränke","snacks":"Snacks","childSeats":"Kindersitze auf Wunsch","wifi":"Kostenloses WLAN","nameSignGreeting":"Empfang mit persönlichem Namensschild","reserveVehicle":"Fahrzeug reservieren","insideVclass":"Im Sprinter Interieur","interiorTitle":"Eine private Lounge zwischen<br />Flughafen und Hotel.","serviceEyebrow":"Der Antalya VIP Standard","serviceTitle":"Mehr als ein Transfer.<br />Ein besonderer Empfang.","serviceIntro":"Aufmerksamkeit auf Hotelniveau, erfahrene lokale Chauffeure und absolute Sicherheit vom Flughafen bis zum Resort.","trackingTitle":"Flugverfolgung","trackingBody":"Wir verfolgen Ihren Flug in Echtzeit und passen die Abholung automatisch und kostenlos an.","chauffeurTitle":"Professionelle Chauffeure","chauffeurBody":"Stets gepflegt, diskret und ausgewählt für Ortskenntnis und höchsten Servicestandard.","greetTitle":"Meet & Greet","greetBody":"Ihr Chauffeur empfängt Sie mit Namensschild in der Ankunftshalle und hilft mit dem Gepäck.","supportTitle":"24/7 Concierge","supportBody":"Vor, während und nach Ihrer Reise ist immer ein persönlicher Ansprechpartner erreichbar.","priceTitle":"Festpreise","priceBody":"Der bestätigte Preis ist der Endpreis. Wartezeit, Parken und Flugverspätungen sind inklusive.","familyTitle":"Für Familien","familyBody":"Passende Kindersitze, großzügige Innenräume und geduldige Hilfe für eine entspannte Ankunft.","routesEyebrow":"Unsere beliebtesten Fahrten","routesTitle":"Vom Flughafen Antalya<br />an die Türkische Riviera.","routesIntro":"Alle Preise gelten pro Fahrzeug, nie pro Person. Kostenlose Wartezeit ist inklusive.","discountPricesShown":"Online -15% Preise angezeigt","golfFavourite":"Golf-Favorit","onlineDiscountShort":"Online -15%","reviewsEyebrow":"Gästebewertungen","reviewsTitle":"Service, der lange<br />in Erinnerung bleibt.","googleReviews":"Basierend auf 387 verifizierten Google-Bewertungen","trustedBy":"Gebucht von Gästen führender Resorts in Antalya","pricingEyebrow":"Sicher planen","pricingTitle":"Kundenfreundliche Preise.<br />Sie zahlen, was fair ist.","pricingIntro":"Wir bieten Festpreise für Planungssicherheit, messen aber die tatsächliche Strecke. Sie zahlen immer den niedrigeren Betrag.","pricingFixedPrice":"Festpreis","fixedPriceExample":"Transfer nach Belek: {{PRICE:belek:vito}} €","fixedPriceDesc":"Garantierter Gesamtpreis. Inklusive Flughafengebühren, Parken, Wartezeit und Steuern.","distancePrice":"Nach Strecke","distancePriceExample":"24 km Online-Beispiel: 25 €","distancePriceDesc":"Während Ihrer Fahrt per GPS gemessen.","youPay":"Sie zahlen","youPayPrice":"25 €","youPayDesc":"Der niedrigere Betrag gilt. Der Fahrer bestätigt ihn am Ende.","pricingNote":"Keine Überraschungen. Keine versteckten Gebühren. Was Sie buchen, zahlen Sie - oder weniger.","faqEyebrow":"Häufig gefragt","faqTitle":"Vor Ihrer Reise.","faqIntro":"Alles, was Sie über Ihren privaten Flughafentransfer in Antalya wissen müssen.","askQuestion":"Frage stellen","faqOneQ":"Was passiert bei einer Flugverspätung?","faqOneA":"Wir verfolgen jede Ankunft in Echtzeit. Ihre Abholzeit wird automatisch angepasst und Ihr Chauffeur wartet ohne Aufpreis.","faqTwoQ":"Wo treffe ich meinen Chauffeur?","faqTwoA":"Verlassen Sie die Gepäckausgabe und gehen Sie zum Meet & Greet Bereich. Suchen Sie den Treffpunkt J / 777 — unser Team wartet mit einem personalisierten Namensschild.","faqThreeQ":"Sind Kindersitze verfügbar?","faqThreeA":"Ja. Babyschalen, Kindersitze und Sitzerhöhungen sind bei Vorbestellung kostenlos verfügbar.","faqFourQ":"Können Golfbags und großes Gepäck transportiert werden?","faqFourA":"Ja. Sprinter und Vito sind ideal für Golfgruppen. Teilen Sie uns Ihr Gepäck mit und wir planen das passende Fahrzeug.","faqFiveQ":"Ist der angezeigte Preis endgültig?","faqFiveA":"Ja. Flughafengebühren, Parken, Wartezeit und Steuern sind inklusive. Es gibt keine versteckten Kosten.","contactEyebrow":"Ihre Reise beginnt hier","contactTitle":"Außergewöhnlich gut<br />in Antalya ankommen.","contactBody":"Buchen Sie in weniger als zwei Minuten online oder sprechen Sie direkt mit unserem 24/7 Concierge-Team.","whatsappUs":"WhatsApp","replyMinutes":"Antwort meist in wenigen Minuten","callUs":"24/7 anrufen","emailUs":"Concierge E-Mail","replyHour":"Antwort innerhalb einer Stunde","footerTagline":"Private Chauffeurservices an der gesamten Türkischen Riviera.","explore":"Entdecken","information":"Information","licensed":"Lizenzierter privater Transferanbieter · TÜRSAB-konform","bookingConfirmed":"Buchung bestätigt","referenceLabel":"Referenz","weWillContact":"Ihre Buchungsanfrage wurde gesendet. Wir melden uns innerhalb von 30 Minuten.","chatWithUs":"Mit uns chatten","pickupAddressPlaceholder":"Hotelname, Straße, Hausnummer und Stadtteil","dropoffAddressPlaceholder":"Hotelname, Straße, Hausnummer und Stadtteil","hotelNamePlaceholder":"Hotel- oder Unterkunftsname","requestQuote":"Preisangebot anfordern","cashConfirmation":"Ihre Buchung ist bestätigt. Zahlen Sie den Festpreis direkt beim Fahrer im Fahrzeug.","bookingError":"Ihre Buchung konnte nicht abgeschlossen werden. Bitte versuchen Sie es erneut.","formIncomplete":"Bitte füllen Sie die markierten Felder aus.","requiredField":"Dieses Feld ist erforderlich.","destinationRequired":"Bitte wählen Sie ein Ziel.","dateInvalid":"Bitte wählen Sie heute oder ein zukünftiges Datum.","emailInvalid":"Bitte geben Sie eine gültige E-Mail-Adresse ein.","nameInvalid":"Bitte geben Sie einen gültigen vollständigen Namen ein.","phoneInvalid":"Bitte geben Sie eine gültige Nummer mit Ländervorwahl ein (zum Beispiel +49).","flightInvalid":"Bitte geben Sie eine gültige Flugnummer ein.","pickupAddressRequired":"Die Abholadresse muss zwischen 6 und 160 Zeichen lang sein.","dropoffAddressRequired":"Die Zieladresse muss zwischen 6 und 160 Zeichen lang sein.","addressesMustDiffer":"Abhol- und Zieladresse müssen unterschiedlich sein.","customDestinationPrice":"Der Preis wird nach Prüfung der Zieladresse bestätigt.","hotelNameRequired":"Bitte geben Sie den Hotelnamen ein.","roundTripPriceNote":"Hin- und Rückfahrt · 2 Fahrten","returnDateRequired":"Bitte wählen Sie ein Rückfahrtdatum.","returnDateInvalid":"Bitte wählen Sie ein Rückfahrtdatum am oder nach dem Datum der Hinfahrt.","returnTimeRequired":"Bitte wählen Sie die Abholzeit für die Rückfahrt.","dailyChauffeur":"Fahrzeug + Chauffeur pro Tag","days":"Tage","dailyChauffeurHint":"Mieten Sie Fahrzeug und Chauffeur tageweise ohne Kilometer- oder Stundenlimit. Kraftstoff wird separat bezahlt.","serviceStartDate":"Erster Servicetag","serviceEndDate":"Letzter Servicetag","dailyPickupTime":"Startzeit des Services","dailyPickupTimeRequired":"Bitte wählen Sie die tägliche Startzeit.","serviceEndDateRequired":"Bitte wählen Sie den letzten Servicetag.","servicePeriodInvalid":"Bitte wählen Sie einen Zeitraum von 1 bis 30 Tagen.","arrivalFlightTimeOptional":"Ankunftszeit (optional)","arrivalFlightNumberOptional":"Ankunftsflugnummer (optional)","servicePrice":"Servicepreis","fuelExcludedShort":"Kraftstoff nicht inbegriffen","fuelExcludedDetail":"Kraftstoff ist nicht enthalten und wird je nach Verbrauch separat bezahlt.","departureFlightDate":"Abflugdatum (optional)","departureFlightTime":"Abflugzeit","departureFlightNumber":"Abflugnummer","departureFlightDateRequired":"Bitte wählen Sie das Abflugdatum.","departureFlightDateInvalid":"Das Abflugdatum darf nicht vor Servicebeginn liegen.","dailyQuoteIncludes":"Inklusive Fahrzeug und Chauffeur ohne Kilometer- oder Stundenlimit. Kraftstoff ist nicht enthalten.","reviewAndConfirm":"Prüfen und bestätigen","fuelTermsTitle":"Wichtige Information zum Kraftstoff","fuelTermsBody":"Die Tagesgebühr von 150 € beinhaltet Fahrzeug und Chauffeur. Kraftstoff ist nicht enthalten und wird nach tatsächlichem Verbrauch separat bezahlt.","fuelTermsCheckbox":"Ich verstehe, dass Kraftstoff nicht enthalten ist und nach Verbrauch separat bezahlt wird.","cancel":"Abbrechen","close":"Schließen","understandAndConfirm":"Verstanden und bestätigen","dailyCashConfirmation":"Ihre tägliche Chauffeurbuchung ist bestätigt. Kraftstoff ist nicht enthalten und wird nach Verbrauch separat bezahlt.","quoteTitle":"Wohin dürfen wir Sie bringen?","date":"Datum","airportReturnPrice":"Der Preis wird nach Prüfung des Hotels oder der Abholadresse bestätigt.","oneGuest":"1 Gast","twoGuests":"2 Gäste","threeGuests":"3 Gäste","fourGuests":"4 Gäste","fiveGuests":"5 Gäste","sixGuests":"6 Gäste","sevenGuests":"7 Gäste","viewQuote":"Preis anzeigen","fleetVitoClass":"VIP · Grand Touring","fleetVitoDescription":"Eine komfortable Privatkabine für Familien und kleine Gruppen.","capacitySwitchedSprinter":"Passagiere und Gepäck übersteigen den Vito — auf Mercedes Sprinter umgestellt.","capacityNoVehicle":"So viele Passagiere und Gepäck übersteigen unsere Fahrzeuge. Bitte kontaktieren Sie uns per WhatsApp.","leatherSeats":"Premium-Ledersitze","water":"Gekühltes Mineralwasser","from":"Ab","reviewOne":"„Unser Fahrer wartete trotz 90 Minuten Flugverspätung. Das Fahrzeug war makellos, angenehm kühl und bereits mit beiden Kindersitzen ausgestattet. Genau der Empfang, den unsere Familie brauchte.“","reviewTwo":"„Vom ersten WhatsApp-Kontakt bis zur Ankunft in Belek absolut erstklassig. Pünktlich, diskret und sehr professionell. Auch unsere Golftaschen hatten bequem Platz.“","reviewThree":"„Das fühlte sich wie der Chauffeurservice eines Hotels an, nicht wie ein Flughafentaxi. Klare Kommunikation, ein makelloses Fahrzeug und ein aufrichtig höflicher Fahrer.“","perVehicle":"pro Fahrzeug · Festpreis","quoteReady":"Ihr privater Transfer","journeyTime":"Fahrzeit","totalFixed":"Gesamtpreis","confirmWhatsapp":"Über WhatsApp bestätigen","bookNowCta":"Jetzt buchen","backToQuote":"Zurück","yourDetails":"Ihre Daten","flightNumber":"Flugnummer","flightArrivalTime":"Ankunftszeit","notesLabel":"Besondere Wünsche","confirmBooking":"Buchung bestätigen","paySecurely":"Weiter zur sicheren Zahlung","payLaterNote":"Sichere Online-Zahlung nach Bestätigung.","paymentTitle":"Sichere Zahlung","paymentError":"Zahlung fehlgeschlagen. Bitte erneut versuchen."},"tr":{"navFleet":"Araçlar","navService":"Hizmetler","navFairPricing":"Adil fiyat","navRoutes":"Rotalar","navReviews":"Yorumlar","navContact":"İletişim","bookNow":"Hemen rezervasyon","alwaysAvailable":"Her gün 24 saat hizmetinizdeyiz","heroEyebrow":"Özel şoför hizmeti · Antalya","campaignBadge":"Online'a özel","campaignDiscount":"%15 indirim","campaignScope":"tüm transfer fiyatlarında","heroTitle":"Antalya'da Premium<br />Havalimanı Transferi","heroSubtitle":"Antalya Havalimanı'ndan Belek, Side, Kemer ve Alanya'ya özel şoförlü transfer.","bookTransfer":"Transferinizi ayırtın","instantQuote":"Anında fiyat alın","googleRated":"Google puanı","trustedGuests":"2.500'den fazla misafirin tercihi","discover":"Keşfedin","tbLicensed":"TÜRSAB Lisanslı","tbFlightTracking":"Uçuş Takibi","tbFixedPrice":"Sabit Fiyat","tb247Concierge":"7/24 Concierge","tbChildSeats":"Çocuk Koltuğu Dahil","privateJourney":"Size özel yolculuk","tripType":"Yolculuk türü","oneWay":"Tek yön","roundTrip":"Gidiş–dönüş","roundTripHint":"Gidiş–dönüş rezervasyonunda dönüş, aynı rotanın ters yönünde gerçekleşir.","pickup":"Alış noktası","airportOption":"Antalya Havalimanı (AYT)","hotelOption":"Otel","privateAddressOption":"Özel adres","destination":"Varış noktası","selectDestination":"Varış noktası seçin","vehicle":"Araç","guests":"Misafir","arrivalDate":"Geliş tarihi","arrivalFlightTime":"Geliş uçuş saati","chooseTime":"Saat seçin","arrivalFlightNumber":"Geliş uçuş numarası","returnDate":"Dönüş tarihi","returnPickupTime":"Dönüş alış saati","returnFlightNumber":"Dönüş uçuş numarası","pickupAddress":"Tam alış adresi","dropoffAddress":"Tam varış adresi","luggageLabel":"Büyük bavul","hotelNameLabel":"Otel ismi","childSeatLabel":"Çocuk koltuğu","childSeatNone":"Çocuk koltuğu istemiyorum","oneChildSeat":"1 çocuk koltuğu","twoChildSeats":"2 çocuk koltuğu","threeChildSeats":"3 çocuk koltuğu","fourChildSeats":"4 çocuk koltuğu","fullName":"Ad Soyad","phoneLabel":"Telefon / WhatsApp","emailLabel":"E-posta","paymentMethod":"Ödeme yöntemini seçin","cashPayment":"Araçta öde","recommended":"Önerilen","cashPaymentDescription":"Ön ödeme yok. Hizmetten memnun kaldığınızda ödemenizi doğrudan şoförünüze yapın.","quoteIncludes":"Karşılama, uçuş takibi, otopark, bekleme süresi ve şişe su dahildir.","confirmCashBooking":"Rezervasyonu onayla — araçta öde","flightTracking":"Gerçek zamanlı uçuş takibi","fixedPrice":"Sabit fiyat garantisi","meetGreet":"Kişisel karşılama","speakingDrivers":"İngilizce ve Almanca konuşan şoförler","fromAirport":"Antalya Havalimanı'ndan","campaignApplied":"Online -%15 indirim uygulanmıştır","welcomeEyebrow":"Daha iyi bir karşılamaya hoş geldiniz","welcomeTitle":"Zarafetle seyahat edin.<br />Rahatça varın.","welcomeBody":"Uçağınız indiği andan itibaren her ayrıntı düşünülür. Şoförünüz gelen yolcu salonunda bekler, bagajınızla ilgilenir ve sizi özenle hazırlanmış özel aracınıza götürür.","ourStandards":"Hizmet standartlarımız","concierge":"Concierge desteği","guestsWelcomed":"Karşılanan misafir","guestRating":"Ortalama misafir puanı","privateTransfers":"Özel transfer","fleetEyebrow":"Araç filomuz","fleetTitle":"Size özel alan,<br />her ayrıntıda kusursuz.","fleetIntro":"Aileniz, golf ekipmanınız ve bagajınız için geniş alan sunan sessiz bir konforla seyahat edin.","signatureFleet":"Seçkin filo","fleetVclassClass":"Business · First Class","fleetVclassDescription":"Kalabalık gruplar için geniş yolcu ve bagaj alanı sunan VIP ulaşım.","passengers":"yolcu","suitcases":"bavul","television":"Araç içi televizyon","coldDrinks":"Soğuk içecekler","snacks":"Atıştırmalıklar","childSeats":"Talep üzerine çocuk koltuğu","wifi":"Ücretsiz WiFi","nameSignGreeting":"İsminize özel tabela ile karşılama","reserveVehicle":"Bu aracı ayırtın","insideVclass":"Sprinter'ın içinde","interiorTitle":"Havalimanı ile oteliniz arasında<br />size özel bir lounge.","serviceEyebrow":"Antalya VIP standardı","serviceTitle":"Transferden fazlası.<br />Özenli bir karşılama.","serviceIntro":"Havalimanından otele kadar beş yıldızlı ilgi, deneyimli yerel şoförler ve tam huzur.","trackingTitle":"Uçuş takibi","trackingBody":"Uçuşunuzu gerçek zamanlı takip eder, alış saatinizi hiçbir ek ücret olmadan otomatik olarak ayarlarız.","chauffeurTitle":"Profesyonel şoförler","chauffeurBody":"Bakımlı, gizliliğe önem veren ve yerel bilgisi ile hizmet kalitesi için seçilmiş profesyoneller.","greetTitle":"Karşılama hizmeti","greetBody":"Şoförünüz sizi gelen yolcu salonunda isminizin yazılı olduğu tabela ile karşılar ve bagajınıza yardımcı olur.","supportTitle":"7/24 concierge","supportBody":"Yolculuğunuzdan önce, yolculuk sırasında ve sonrasında telefon veya WhatsApp üzerinden gerçek bir kişiye ulaşabilirsiniz.","priceTitle":"Sabit fiyatlar","priceBody":"Onaylanan fiyat ödeyeceğiniz nihai fiyattır. Bekleme, otopark ve uçuş gecikmeleri dahildir.","familyTitle":"Ailelere hazır","familyBody":"Yaşa uygun çocuk koltukları, geniş kabinler ve rahat bir aile karşılaması için özenli destek.","routesEyebrow":"En çok tercih edilen yolculuklar","routesTitle":"Antalya Havalimanı'ndan<br />Türk Rivierası'na.","routesIntro":"Tüm fiyatlar kişi başı değil, araç başıdır ve ücretsiz bekleme süresi dahildir.","discountPricesShown":"Online -%15 fiyatlar gösteriliyor","golfFavourite":"Golf misafirlerinin favorisi","onlineDiscountShort":"Online -%15","reviewsEyebrow":"Misafir yorumları","reviewsTitle":"Varıştan sonra da<br />hatırlanan hizmet.","googleReviews":"Doğrulanmış 387 Google yorumuna göre","trustedBy":"Antalya'nın önde gelen resort misafirlerinin tercihi","pricingEyebrow":"İçiniz rahat olsun","pricingTitle":"Müşteri dostu fiyatlandırma.<br />Adil olanı ödersiniz.","pricingIntro":"İçiniz rahat etsin diye sabit fiyat sunarız, ancak gerçek mesafeyi de ölçeriz. Her zaman düşük olan tutarı ödersiniz.","pricingFixedPrice":"Sabit fiyat","fixedPriceExample":"Belek transferi: €{{PRICE:belek:vito}}","fixedPriceDesc":"Garantili toplam tutar. Havalimanı ücretleri, otopark, bekleme süresi ve vergiler dahildir.","distancePrice":"Mesafeye göre","distancePriceExample":"24 km online örnek: €25","distancePriceDesc":"Yolculuğunuz sırasında GPS ile ölçülür.","youPay":"Ödeyeceğiniz tutar","youPayPrice":"€25","youPayDesc":"Hangisi daha düşükse. Şoför yolculuk sonunda teyit eder.","pricingNote":"Sürpriz yok. Gizli ücret yok. Rezervasyonda gördüğünüz tutarı ödersiniz - ya da daha azını.","faqEyebrow":"Sık sorulanlar","faqTitle":"Seyahatinizden önce.","faqIntro":"Antalya'daki özel havalimanı transferiniz hakkında bilmeniz gereken her şey.","askQuestion":"Bize sorun","faqOneQ":"Uçağım gecikirse ne olur?","faqOneA":"Tüm uçuşları gerçek zamanlı takip ederiz. Alış saatiniz otomatik olarak güncellenir ve şoförünüz ek ücret olmadan bekler.","faqTwoQ":"Şoförümle nerede buluşacağım?","faqTwoA":"Bagajınızı aldıktan sonra bagaj teslim alanından çıkın ve Karşılama Alanına gidin. J / 777 buluşma noktasını arayın — ekibimiz kişisel isim tabelasıyla sizi bekliyor olacak.","faqThreeQ":"Çocuk koltuğu var mı?","faqThreeA":"Evet. Bebek koltuğu, çocuk koltuğu ve yükseltici koltuk rezervasyon sırasında ücretsiz olarak talep edilebilir.","faqFourQ":"Golf çantası ve büyük bagaj taşıyor musunuz?","faqFourA":"Evet. Sprinter ve Vito araçlarımız golf grupları için idealdir. Bagaj bilgilerinizi paylaşın, uygun aracı planlayalım.","faqFiveQ":"Verilen fiyat kesin mi?","faqFiveA":"Evet. Havalimanı ücretleri, otopark, bekleme süresi ve vergiler dahildir. Gizli ücret yoktur.","contactEyebrow":"Yolculuğunuz burada başlar","contactTitle":"Antalya'ya ayrıcalıklı<br />bir şekilde varın.","contactBody":"İki dakikadan kısa sürede online rezervasyon yapın veya 7/24 concierge ekibimizle doğrudan görüşün.","whatsappUs":"WhatsApp'tan yazın","replyMinutes":"Genellikle birkaç dakika içinde yanıt veririz","callUs":"7/24 arayın","emailUs":"Concierge e-postası","replyHour":"Bir saat içinde yanıt","footerTagline":"Türk Rivierası genelinde özel şoför hizmetleri.","explore":"Keşfedin","information":"Bilgi","licensed":"Lisanslı özel transfer işletmesi · TÜRSAB standartlarına uygun","bookingConfirmed":"Rezervasyon Onaylandı","referenceLabel":"Referans","weWillContact":"Rezervasyon talebiniz gönderildi. 30 dakika içinde sizinle iletişime geçeceğiz.","chatWithUs":"Bize yazın","pickupAddressPlaceholder":"Otel adı, cadde, bina numarası ve ilçe","dropoffAddressPlaceholder":"Otel adı, cadde, bina numarası ve ilçe","hotelNamePlaceholder":"Otel veya konaklama adı","requestQuote":"Fiyat teklifi al","cashConfirmation":"Rezervasyonunuz onaylandı. Sabit toplam tutarı araçta doğrudan şoförünüze ödeyin.","bookingError":"Rezervasyonunuz tamamlanamadı. Lütfen tekrar deneyin.","formIncomplete":"Lütfen işaretli alanları doldurun.","requiredField":"Bu alan zorunludur.","destinationRequired":"Lütfen bir varış noktası seçin.","dateInvalid":"Lütfen bugünü veya gelecekteki bir tarihi seçin.","emailInvalid":"Lütfen geçerli bir e-posta adresi girin.","nameInvalid":"Lütfen geçerli bir ad soyad girin.","phoneInvalid":"Lütfen ülke koduyla birlikte geçerli bir numara girin (örneğin +49).","flightInvalid":"Lütfen geçerli bir uçuş numarası girin.","pickupAddressRequired":"Alış adresi 6–160 karakter arasında olmalıdır.","dropoffAddressRequired":"Varış adresi 6–160 karakter arasında olmalıdır.","addressesMustDiffer":"Alış ve varış adresleri farklı olmalıdır.","customDestinationPrice":"Fiyat, varış adresi kontrol edildikten sonra teyit edilecektir.","hotelNameRequired":"Lütfen otel ismini girin.","roundTripPriceNote":"gidiş–dönüş · 2 yolculuk","returnDateRequired":"Lütfen dönüş tarihini seçin.","returnDateInvalid":"Lütfen gidiş tarihiyle aynı veya daha sonraki bir dönüş tarihi seçin.","returnTimeRequired":"Lütfen dönüş için alış saatini seçin.","dailyChauffeur":"Günlük araç + şoför","days":"gün","dailyChauffeurHint":"Özel araç ve şoförü kilometre ve saat sınırı olmadan günlük kiralayın. Yakıt ayrıca ödenir.","serviceStartDate":"İlk hizmet günü","serviceEndDate":"Son hizmet günü","dailyPickupTime":"Hizmet başlangıç saati","dailyPickupTimeRequired":"Lütfen günlük hizmet başlangıç saatini seçin.","serviceEndDateRequired":"Lütfen son hizmet gününü seçin.","servicePeriodInvalid":"Lütfen 1 ile 30 gün arasında bir süre seçin.","arrivalFlightTimeOptional":"Geliş uçuş saati (isteğe bağlı)","arrivalFlightNumberOptional":"Geliş uçuş numarası (isteğe bağlı)","servicePrice":"Hizmet bedeli","fuelExcludedShort":"yakıt hariç","fuelExcludedDetail":"Yakıt dahil değildir ve kullanıma göre ayrıca ödenir.","departureFlightDate":"Dönüş uçuş tarihi (isteğe bağlı)","departureFlightTime":"Dönüş uçuş saati","departureFlightNumber":"Dönüş uçuş numarası","departureFlightDateRequired":"Lütfen dönüş uçuş tarihini seçin.","departureFlightDateInvalid":"Dönüş uçuş tarihi hizmet başlangıcından önce olamaz.","dailyQuoteIncludes":"Seçilen araç ve şoför, kilometre ve saat sınırı olmadan dahildir. Yakıt hariçtir.","reviewAndConfirm":"İncele ve onayla","fuelTermsTitle":"Yakıt ücreti hakkında önemli bilgi","fuelTermsBody":"Günlük €150 hizmet bedeline araç ve şoför dahildir. Yakıt ücreti dahil değildir. Gerçekleşen yakıt masrafını kullanıma göre ayrıca ödeyeceksiniz.","fuelTermsCheckbox":"Yakıtın dahil olmadığını ve kullanıma göre ayrıca ödeneceğini anladım.","cancel":"Vazgeç","close":"Kapat","understandAndConfirm":"Anladım ve onaylıyorum","dailyCashConfirmation":"Günlük araç ve şoför rezervasyonunuz onaylandı. Hizmet bedeline yakıt dahil değildir; yakıt kullanıma göre ayrıca ödenir.","quoteTitle":"Sizi nereye götürelim?","date":"Tarih","airportReturnPrice":"Fiyat, otel veya alış adresi kontrol edildikten sonra teyit edilecektir.","oneGuest":"1 misafir","twoGuests":"2 misafir","threeGuests":"3 misafir","fourGuests":"4 misafir","fiveGuests":"5 misafir","sixGuests":"6 misafir","sevenGuests":"7 misafir","viewQuote":"Fiyatı görüntüle","fleetVitoClass":"VIP · Grand Touring","fleetVitoDescription":"Aileler ve küçük gruplar için konforlu ve özel bir kabin.","capacitySwitchedSprinter":"Yolcu ve bagajınız Vito kapasitesini aşıyor — Mercedes Sprinter'a geçildi.","capacityNoVehicle":"Bu kadar yolcu ve bavul araçlarımızın kapasitesini aşıyor. Lütfen WhatsApp'tan bize ulaşın.","leatherSeats":"Premium deri koltuklar","water":"Soğuk şişe su","from":"Başlangıç","reviewOne":"“Uçağımız 90 dakika gecikmesine rağmen şoförümüz bizi bekliyordu. Aracımız kusursuz, serin ve iki çocuk koltuğu da hazırdı. Ailemizin tam olarak ihtiyaç duyduğu karşılamaydı.”","reviewTwo":"“İlk WhatsApp görüşmesinden Belek'e varışımıza kadar her şey birinci sınıftı. Dakik, gizliliğe önem veren ve son derece profesyonel. Golf çantalarımız da rahatça sığdı.”","reviewThree":"“Bu bir havalimanı taksisinden çok beş yıldızlı otel şoför hizmeti gibiydi. Net iletişim, tertemiz araç ve gerçekten nazik bir şoför.”","perVehicle":"araç başı · sabit fiyat","quoteReady":"Size özel transfer","journeyTime":"Yolculuk süresi","totalFixed":"Toplam sabit fiyat","confirmWhatsapp":"WhatsApp ile onaylayın","bookNowCta":"Rezervasyon yap","backToQuote":"Geri","yourDetails":"Bilgileriniz","flightNumber":"Uçuş numarası","flightArrivalTime":"Varış saati","notesLabel":"Özel istekler","confirmBooking":"Rezervasyonu onayla","paySecurely":"Güvenli ödemeye geç","payLaterNote":"Onay sonrası güvenli online ödeme.","paymentTitle":"Güvenli Ödeme","paymentError":"Ödeme başarısız. Lütfen tekrar deneyin."},"ru":{"navFleet":"Автопарк","navService":"Сервис","navFairPricing":"Честная цена","navRoutes":"Маршруты","navReviews":"Отзывы","navContact":"Контакты","bookNow":"Забронировать","alwaysAvailable":"Мы на связи круглосуточно, каждый день","heroEyebrow":"Персональный шофёр · Анталья","campaignBadge":"Онлайн-акция","campaignDiscount":"скидка 15%","campaignScope":"на все трансферы","heroTitle":"Премиальный трансфер<br />из аэропорта Антальи","heroSubtitle":"Индивидуальные трансферы с водителем из аэропорта Антальи в Белек, Сиде, Кемер и Аланью.","bookTransfer":"Забронировать трансфер","instantQuote":"Узнать цену","googleRated":"Рейтинг Google","trustedGuests":"Нам доверяют более 2 500 гостей","discover":"Подробнее","tbLicensed":"Лицензия TÜRSAB","tbFlightTracking":"Отслеживание рейса","tbFixedPrice":"Фиксированная цена","tb247Concierge":"Консьерж 24/7","tbChildSeats":"Детские кресла в комплекте","privateJourney":"Ваша частная поездка","tripType":"Тип поездки","oneWay":"В одну сторону","roundTrip":"Туда и обратно","roundTripHint":"Обратная поездка проходит по тому же маршруту в обратном направлении.","pickup":"Место встречи","airportOption":"Аэропорт Антальи (AYT)","hotelOption":"Отель","privateAddressOption":"Частный адрес","destination":"Направление","selectDestination":"Выберите направление","vehicle":"Автомобиль","guests":"Гости","arrivalDate":"Дата прибытия","arrivalFlightTime":"Время прибытия рейса","chooseTime":"Выберите время","arrivalFlightNumber":"Номер рейса прибытия","returnDate":"Дата возвращения","returnPickupTime":"Время подачи на обратный путь","returnFlightNumber":"Номер обратного рейса","pickupAddress":"Полный адрес подачи","dropoffAddress":"Полный адрес назначения","luggageLabel":"Крупный багаж","hotelNameLabel":"Название отеля","childSeatLabel":"Детские кресла","childSeatNone":"Без детского кресла","oneChildSeat":"1 детское кресло","twoChildSeats":"2 детских кресла","threeChildSeats":"3 детских кресла","fourChildSeats":"4 детских кресла","fullName":"Имя и фамилия","phoneLabel":"Телефон / WhatsApp","emailLabel":"Эл. почта","paymentMethod":"Выберите способ оплаты","cashPayment":"Оплата в автомобиле","recommended":"Рекомендуем","cashPaymentDescription":"Без предоплаты. Оплатите услугу непосредственно водителю, когда останетесь довольны обслуживанием.","quoteIncludes":"Включены встреча, отслеживание рейса, парковка, ожидание и питьевая вода.","confirmCashBooking":"Подтвердить — оплата в автомобиле","flightTracking":"Отслеживание рейса","fixedPrice":"Гарантия фиксированной цены","meetGreet":"Персональная встреча","speakingDrivers":"Водители говорят на английском и немецком","fromAirport":"Из аэропорта Антальи","campaignApplied":"Онлайн -15% уже применено","welcomeEyebrow":"Добро пожаловать на новый уровень сервиса","welcomeTitle":"Путешествуйте красиво.<br />Прибывайте без забот.","welcomeBody":"С момента посадки вашего самолёта мы продумываем каждую деталь. Шофёр встретит вас в зале прилёта, поможет с багажом и проводит к подготовленному автомобилю.","ourStandards":"Наши стандарты сервиса","concierge":"Поддержка консьержа","guestsWelcomed":"Встреченных гостей","guestRating":"Средняя оценка гостей","privateTransfers":"Частные трансферы","fleetEyebrow":"Наш автопарк","fleetTitle":"Ваше личное пространство,<br />безупречное в деталях.","fleetIntro":"Путешествуйте в тишине и комфорте: достаточно места для семьи, багажа и оборудования для гольфа.","signatureFleet":"Фирменный автопарк","fleetVclassClass":"Business · First Class","fleetVclassDescription":"Эталон комфортных групповых поездок: просторный, исключительно тихий салон и всё необходимое для беззаботного прибытия.","passengers":"пассажиров","suitcases":"чемоданов","television":"Телевизор в автомобиле","coldDrinks":"Холодные напитки","snacks":"Закуски","childSeats":"Детские кресла по запросу","wifi":"Бесплатный WiFi","nameSignGreeting":"Встреча с именной табличкой","reserveVehicle":"Забронировать автомобиль","insideVclass":"Салон Sprinter","interiorTitle":"Персональный лаунж<br />между аэропортом и отелем.","serviceEyebrow":"Стандарт Antalya VIP","serviceTitle":"Больше, чем трансфер.<br />Продуманная встреча.","serviceIntro":"Внимание уровня пятизвёздочного отеля, опытные местные шофёры и спокойствие от аэропорта до курорта.","trackingTitle":"Отслеживание рейса","trackingBody":"Мы отслеживаем ваш рейс в реальном времени и автоматически корректируем время встречи без доплаты.","chauffeurTitle":"Профессиональные шофёры","chauffeurBody":"Безупречный внешний вид, деликатность, знание региона и высокие стандарты обслуживания.","greetTitle":"Встреча в аэропорту","greetBody":"Шофёр встретит вас в зале прилёта с именной табличкой и поможет с багажом.","supportTitle":"Консьерж 24/7","supportBody":"До, во время и после поездки вам всегда ответит человек по телефону или в WhatsApp.","priceTitle":"Фиксированные цены","priceBody":"Подтверждённая цена является окончательной. Ожидание, парковка и задержка рейса уже включены.","familyTitle":"Для всей семьи","familyBody":"Детские кресла по возрасту, просторный салон и внимательная помощь для спокойного семейного приезда.","routesEyebrow":"Самые популярные поездки","routesTitle":"Из аэропорта Антальи<br />на Турецкую Ривьеру.","routesIntro":"Все цены указаны за автомобиль, а не за пассажира. Бесплатное ожидание включено.","discountPricesShown":"Показаны цены онлайн -15%","golfFavourite":"Выбор игроков в гольф","onlineDiscountShort":"Онлайн -15%","reviewsEyebrow":"Отзывы гостей","reviewsTitle":"Сервис, который помнят<br />после прибытия.","googleReviews":"На основе 387 подтверждённых отзывов Google","trustedBy":"Нам доверяют гости ведущих курортов Антальи","pricingEyebrow":"Спокойствие в поездке","pricingTitle":"Цены в интересах клиента.<br />Вы платите справедливую сумму.","pricingIntro":"Мы предлагаем фиксированные цены для спокойствия, но измеряем фактическое расстояние. Вы всегда платите меньшую сумму.","pricingFixedPrice":"Фиксированная цена","fixedPriceExample":"Трансфер в Белек: {{PRICE:belek:vito}} €","fixedPriceDesc":"Гарантированная итоговая сумма. Включены сборы аэропорта, парковка, ожидание и налоги.","distancePrice":"По расстоянию","distancePriceExample":"24 км онлайн-пример: 25 €","distancePriceDesc":"Измеряется по GPS во время поездки.","youPay":"Вы платите","youPayPrice":"25 €","youPayDesc":"Применяется меньшая сумма. Водитель подтвердит её в конце.","pricingNote":"Без сюрпризов. Без скрытых платежей. Вы платите указанную при бронировании сумму - или меньше.","faqEyebrow":"Частые вопросы","faqTitle":"Перед поездкой.","faqIntro":"Всё, что нужно знать о частном трансфере из аэропорта Антальи.","askQuestion":"Задать вопрос","faqOneQ":"Что произойдёт, если мой рейс задержится?","faqOneA":"Мы отслеживаем каждый рейс в реальном времени. Время встречи корректируется автоматически, а водитель ждёт без дополнительной платы.","faqTwoQ":"Где я встречу водителя?","faqTwoA":"После получения багажа выйдите из зоны выдачи и пройдите в зону встречи (Meet & Greet). Найдите точку J / 777 — наша команда будет ждать с именной табличкой.","faqThreeQ":"Есть ли детские кресла?","faqThreeA":"Да. Автолюльки, детские кресла и бустеры предоставляются бесплатно по запросу при бронировании.","faqFourQ":"Можно ли взять сумки для гольфа и крупный багаж?","faqFourA":"Да. Sprinter и Vito идеально подходят для групп игроков в гольф. Сообщите объём багажа, и мы подберём автомобиль.","faqFiveQ":"Указанная цена окончательная?","faqFiveA":"Да. Аэропортовые сборы, парковка, ожидание и налоги включены. Скрытых платежей нет.","contactEyebrow":"Ваше путешествие начинается здесь","contactTitle":"Прибудьте в Анталью<br />исключительно комфортно.","contactBody":"Забронируйте онлайн менее чем за две минуты или свяжитесь с нашей службой консьержа 24/7.","whatsappUs":"Написать в WhatsApp","replyMinutes":"Обычно отвечаем за несколько минут","callUs":"Позвонить 24/7","emailUs":"Написать консьержу","replyHour":"Ответ в течение часа","footerTagline":"Частные услуги шофёра по всей Турецкой Ривьере.","explore":"Разделы","information":"Информация","licensed":"Лицензированный оператор частных трансферов · Соответствует требованиям TÜRSAB","bookingConfirmed":"Бронирование подтверждено","referenceLabel":"Референс","weWillContact":"Ваш запрос на бронирование отправлен. Мы свяжемся с вами в течение 30 минут.","chatWithUs":"Написать нам","pickupAddressPlaceholder":"Название отеля, улица, номер дома и район","dropoffAddressPlaceholder":"Название отеля, улица, номер дома и район","hotelNamePlaceholder":"Название отеля или места проживания","requestQuote":"Запросить расчёт","cashConfirmation":"Бронирование подтверждено. Оплатите фиксированную сумму водителю в автомобиле.","bookingError":"Не удалось завершить бронирование. Попробуйте ещё раз.","formIncomplete":"Заполните выделенные поля.","requiredField":"Это поле обязательно.","destinationRequired":"Выберите направление.","dateInvalid":"Выберите сегодняшнюю или будущую дату.","emailInvalid":"Введите действительный адрес электронной почты.","nameInvalid":"Введите действительное полное имя.","phoneInvalid":"Введите действительный номер с кодом страны (например, +49).","flightInvalid":"Введите действительный номер рейса.","pickupAddressRequired":"Адрес подачи должен содержать от 6 до 160 символов.","dropoffAddressRequired":"Адрес назначения должен содержать от 6 до 160 символов.","addressesMustDiffer":"Адреса подачи и назначения должны отличаться.","customDestinationPrice":"Цена будет подтверждена после проверки адреса назначения.","hotelNameRequired":"Введите название отеля.","roundTripPriceNote":"туда и обратно · 2 поездки","returnDateRequired":"Выберите дату возвращения.","returnDateInvalid":"Дата возвращения должна совпадать с датой поездки туда или быть позже.","returnTimeRequired":"Выберите время подачи на обратный путь.","dailyChauffeur":"Daily vehicle + chauffeur","days":"days","dailyChauffeurHint":"Hire a private vehicle and chauffeur by the day with no kilometre or hour limit. Fuel is paid separately.","serviceStartDate":"First service day","serviceEndDate":"Last service day","dailyPickupTime":"Service start time","dailyPickupTimeRequired":"Please select the daily service start time.","serviceEndDateRequired":"Please select the last service day.","servicePeriodInvalid":"Please select a period between 1 and 30 days.","arrivalFlightTimeOptional":"Arrival flight time (optional)","arrivalFlightNumberOptional":"Arrival flight number (optional)","servicePrice":"Service price","fuelExcludedShort":"fuel excluded","fuelExcludedDetail":"Fuel is not included and is paid separately according to use.","departureFlightDate":"Departure flight date (optional)","departureFlightTime":"Departure flight time","departureFlightNumber":"Departure flight number","departureFlightDateRequired":"Please select the departure flight date.","departureFlightDateInvalid":"Departure flight date cannot be before the service starts.","dailyQuoteIncludes":"Includes the selected vehicle and chauffeur with no kilometre or hour limit. Fuel is excluded.","reviewAndConfirm":"Review and confirm","fuelTermsTitle":"Important information about fuel","fuelTermsBody":"The daily €150 service fee includes the vehicle and chauffeur. Fuel is not included. You will pay the actual fuel cost separately according to use.","fuelTermsCheckbox":"I understand that fuel is excluded and will be paid separately based on use.","cancel":"Cancel","close":"Close","understandAndConfirm":"I understand and confirm","dailyCashConfirmation":"Your daily chauffeur hire is confirmed. The service price excludes fuel, which is paid separately based on use.","quoteTitle":"Куда вас отвезти?","date":"Дата","airportReturnPrice":"Цена будет подтверждена после проверки отеля или адреса подачи.","oneGuest":"1 гость","twoGuests":"2 гостя","threeGuests":"3 гостя","fourGuests":"4 гостя","fiveGuests":"5 гостей","sixGuests":"6 гостей","sevenGuests":"7 гостей","viewQuote":"Показать цену","fleetVitoClass":"VIP · Grand Touring","fleetVitoDescription":"Просторный частный салон для больших семей, групп игроков в гольф и гостей с объёмным багажом.","capacitySwitchedSprinter":"Пассажиры и багаж превышают вместимость Vito — выбран Mercedes Sprinter.","capacityNoVehicle":"Столько пассажиров и багажа превышает вместимость наших автомобилей. Напишите нам в WhatsApp.","leatherSeats":"Премиальные кожаные сиденья","water":"Охлаждённая вода","from":"От","reviewOne":"«Несмотря на задержку рейса на 90 минут, водитель ждал нас. Автомобиль был безупречно чистым и прохладным, а оба детских кресла уже были установлены. Именно такая встреча была нужна нашей семье».","reviewTwo":"«От первого сообщения в WhatsApp до прибытия в Белек всё было на высшем уровне. Пунктуально, деликатно и очень профессионально. Наши сумки для гольфа легко поместились».","reviewThree":"«Это было похоже на трансфер от пятизвёздочного отеля, а не на такси из аэропорта. Чёткая связь, безупречный автомобиль и по-настоящему вежливый водитель».","perVehicle":"за автомобиль · фиксированная цена","quoteReady":"Ваш частный трансфер","journeyTime":"Время в пути","totalFixed":"Итоговая цена","confirmWhatsapp":"Подтвердить в WhatsApp","bookNowCta":"Забронировать","backToQuote":"Назад","yourDetails":"Ваши данные","flightNumber":"Номер рейса","flightArrivalTime":"Время прилёта","notesLabel":"Особые пожелания","confirmBooking":"Подтвердить бронирование","paySecurely":"Перейти к безопасной оплате","payLaterNote":"Оплата онлайн после подтверждения.","paymentTitle":"Безопасная оплата","paymentError":"Оплата не прошла. Попробуйте ещё раз."},"pl":{"navFleet":"Pojazdy","navService":"Usługi","navFairPricing":"Uczciwa cena","navRoutes":"Trasy","navReviews":"Opinie","navContact":"Kontakt","bookNow":"Zarezerwuj","alwaysAvailable":"Do Twojej dyspozycji 24 godziny na dobę","heroEyebrow":"Prywatny serwis szoferski · Antalya","campaignBadge":"Online special","campaignDiscount":"25% off","campaignScope":"all transfer prices","heroTitle":"Transfery lotniskowe premium<br />w Antalyi","heroSubtitle":"Prywatne transfery z szoferem z lotniska Antalya do Belek, Side, Kemer i Alanyi.","bookTransfer":"Zarezerwuj transfer","instantQuote":"Sprawdź cenę","googleRated":"Ocena Google","trustedGuests":"Zaufało nam ponad 2 500 gości","discover":"Odkryj","tbLicensed":"Licencja TÜRSAB","tbFlightTracking":"Śledzenie lotu","tbFixedPrice":"Stała cena","tb247Concierge":"Concierge 24/7","tbChildSeats":"Foteliki w cenie","privateJourney":"Twoja prywatna podróż","tripType":"Journey type","oneWay":"One way","roundTrip":"Round trip","roundTripHint":"For a round trip, the return follows the same route in reverse.","pickup":"Miejsce odbioru","airportOption":"Lotnisko Antalya (AYT)","hotelOption":"Hotel","privateAddressOption":"Adres prywatny","destination":"Cel podróży","selectDestination":"Wybierz cel","vehicle":"Pojazd","guests":"Goście","arrivalDate":"Arrival date","arrivalFlightTime":"Flight arrival time","chooseTime":"Wybierz godzinę","arrivalFlightNumber":"Arrival flight number","returnDate":"Return date","returnPickupTime":"Return pick-up time","returnFlightNumber":"Return flight number","pickupAddress":"Pełny adres odbioru","dropoffAddress":"Pełny adres docelowy","luggageLabel":"Duży bagaż","hotelNameLabel":"Nazwa hotelu","childSeatLabel":"Foteliki dziecięce","childSeatNone":"Bez fotelika dziecięcego","oneChildSeat":"1 fotelik dziecięcy","twoChildSeats":"2 foteliki dziecięce","threeChildSeats":"3 foteliki dziecięce","fourChildSeats":"4 foteliki dziecięce","fullName":"Imię i nazwisko","phoneLabel":"Telefon / WhatsApp","emailLabel":"E-mail","paymentMethod":"Wybierz metodę płatności","cashPayment":"Zapłać w pojeździe","recommended":"Polecane","cashPaymentDescription":"Bez przedpłaty. Zapłać bezpośrednio kierowcy, gdy usługa spełni Twoje oczekiwania.","quoteIncludes":"Wliczono: powitanie, śledzenie lotu, parking, czas oczekiwania i woda.","confirmCashBooking":"Potwierdź — zapłać w pojeździe","flightTracking":"Śledzenie lotu w czasie rzeczywistym","fixedPrice":"Gwarantowana stała cena","meetGreet":"Osobiste powitanie","speakingDrivers":"Kierowcy mówiący po angielsku i niemiecku","fromAirport":"Z lotniska Antalya","campaignApplied":"Online -15% already applied","welcomeEyebrow":"Witamy na najwyższym poziomie","welcomeTitle":"Podróżuj z klasą.<br />Przyjeżdżaj spokojnie.","welcomeBody":"Od chwili lądowania każdy szczegół jest dopracowany. Szofer czeka w hali przylotów, zajmuje się bagażem i odprowadza Cię do starannie przygotowanego pojazdu.","ourStandards":"Nasze standardy usług","concierge":"Usługi concierge","guestsWelcomed":"Powitanych gości","guestRating":"Średnia ocena gości","privateTransfers":"Prywatne transfery","fleetEyebrow":"Nasza flota","fleetTitle":"Twoja prywatna przestrzeń,<br />doskonała w każdym detalu.","fleetIntro":"Podróżuj komfortowo z obszernym miejscem dla rodziny, sprzętu golfowego i walizek.","signatureFleet":"Flota Signature","fleetVclassClass":"Business · First Class","fleetVclassDescription":"Wzorzec eleganckiej podróży grupowej: przestronny, wyjątkowo cichy i wyposażony dla bezproblemowego przybycia.","passengers":"pasażerów","suitcases":"walizek","television":"Telewizor w pojeździe","coldDrinks":"Zimne napoje","snacks":"Przekąski","childSeats":"Foteliki dziecięce na życzenie","wifi":"Bezpłatne WiFi","nameSignGreeting":"Powitanie z tabliczką z imieniem","reserveVehicle":"Zarezerwuj pojazd","insideVclass":"Wnętrze Sprinter","interiorTitle":"Prywatny salon<br />między lotniskiem a hotelem.","serviceEyebrow":"Standard Antalya VIP","serviceTitle":"Więcej niż transfer.<br />Wyjątkowe powitanie.","serviceIntro":"Uwaga na poziomie pięciogwiazdkowego hotelu, doświadczeni lokalni szoferzy i pełen spokój od lotniska po resort.","trackingTitle":"Śledzenie lotu","trackingBody":"Śledzimy Twój lot w czasie rzeczywistym i automatycznie dostosowujemy godzinę odbioru bez dodatkowych opłat.","chauffeurTitle":"Profesjonalni szoferzy","chauffeurBody":"Zawsze zadbani, dyskretni, wybrani za znajomość terenu i najwyższe standardy obsługi.","greetTitle":"Meet & Greet","greetBody":"Szofer wita Cię w hali przylotów z tabliczką z Twoim imieniem i pomaga z bagażem.","supportTitle":"Concierge 24/7","supportBody":"Przed, w trakcie i po podróży zawsze możesz skontaktować się z nami telefonicznie lub przez WhatsApp.","priceTitle":"Stałe ceny","priceBody":"Potwierdzona cena jest ceną ostateczną. Czas oczekiwania, parking i opóźnienia lotów są wliczone.","familyTitle":"Dla rodzin","familyBody":"Odpowiednie foteliki dziecięce, obszerne kabiny i cierpliwa pomoc dla spokojnego przybycia z rodziną.","routesEyebrow":"Nasze najpopularniejsze trasy","routesTitle":"Z lotniska Antalya<br />na Turecką Riwierę.","routesIntro":"Wszystkie ceny dotyczą pojazdu, nie osoby. Bezpłatny czas oczekiwania jest wliczony.","discountPricesShown":"Online -15% prices shown","golfFavourite":"Ulubieniec golfistów","onlineDiscountShort":"Online -25%","reviewsEyebrow":"Opinie gości","reviewsTitle":"Usługa, która<br />zostaje w pamięci.","googleReviews":"Na podstawie 387 zweryfikowanych opinii Google","trustedBy":"Wybór gości czołowych resortów w Antalyi","pricingEyebrow":"Spokój od początku","pricingTitle":"Ceny przyjazne klientom.<br />Płacisz tyle, ile jest uczciwe.","pricingIntro":"Dla spokoju podajemy stałe ceny, ale mierzymy rzeczywisty dystans. Zawsze płacisz niższą kwotę.","pricingFixedPrice":"Stała cena","fixedPriceExample":"Transfer do Belek: {{PRICE:belek:vito}} €","fixedPriceDesc":"Gwarantowana kwota końcowa. Obejmuje opłaty lotniskowe, parking, czas oczekiwania i podatki.","distancePrice":"Według dystansu","distancePriceExample":"Przykład online 24 km: 25 €","distancePriceDesc":"Mierzone GPS-em podczas przejazdu.","youPay":"Płacisz","youPayPrice":"25 €","youPayDesc":"Obowiązuje niższa kwota. Kierowca potwierdza ją na końcu.","pricingNote":"Bez niespodzianek. Bez ukrytych opłat. Płacisz tyle, ile rezerwujesz - albo mniej.","faqEyebrow":"Często zadawane pytania","faqTitle":"Przed Twoją podróżą.","faqIntro":"Wszystko, co musisz wiedzieć o prywatnym transferze z lotniska w Antalyi.","askQuestion":"Zadaj pytanie","faqOneQ":"Co się stanie, jeśli mój lot się opóźni?","faqOneA":"Śledzimy każdy przylot w czasie rzeczywistym. Godzina odbioru jest automatycznie dostosowywana, a szofer czeka bez dodatkowych opłat.","faqTwoQ":"Gdzie spotkam mojego szofera?","faqTwoA":"Po odebraniu bagażu opuść strefę odbioru i udaj się do strefy powitań (Meet & Greet). Szukaj punktu spotkań J / 777 — nasz zespół czeka z tabliczką z Twoim imieniem.","faqThreeQ":"Czy dostępne są foteliki dziecięce?","faqThreeA":"Tak. Nosidełka, foteliki i podkładki są dostępne bezpłatnie przy wcześniejszej rezerwacji.","faqFourQ":"Czy można przewieźć torby golfowe i duży bagaż?","faqFourA":"Tak. Sprinter i Vito są idealne dla grup golfowych. Podaj informacje o bagażu, a zaplanujemy odpowiedni pojazd.","faqFiveQ":"Czy podana cena jest ostateczna?","faqFiveA":"Tak. Opłaty lotniskowe, parking, czas oczekiwania i podatki są wliczone. Brak ukrytych kosztów.","contactEyebrow":"Twoja podróż zaczyna się tutaj","contactTitle":"Przybądź do Antalyi<br />wyjątkowo komfortowo.","contactBody":"Zarezerwuj online w mniej niż dwie minuty lub skontaktuj się bezpośrednio z naszym concierge 24/7.","whatsappUs":"WhatsApp","replyMinutes":"Odpowiedź zwykle w kilka minut","callUs":"Zadzwoń 24/7","emailUs":"E-mail do concierge","replyHour":"Odpowiedź w ciągu godziny","footerTagline":"Prywatne usługi szoferskie na całej Tureckiej Riwierze.","explore":"Odkryj","information":"Informacje","licensed":"Licencjonowany prywatny przewoźnik · Zgodny z TÜRSAB","bookingConfirmed":"Rezerwacja potwierdzona","referenceLabel":"Numer referencyjny","weWillContact":"Twoje zgłoszenie rezerwacji zostało wysłane. Skontaktujemy się w ciągu 30 minut.","chatWithUs":"Napisz do nas","pickupAddressPlaceholder":"Nazwa hotelu, ulica, numer budynku i dzielnica","dropoffAddressPlaceholder":"Nazwa hotelu, ulica, numer budynku i dzielnica","hotelNamePlaceholder":"Nazwa hotelu lub zakwaterowania","requestQuote":"Poproś o wycenę","cashConfirmation":"Rezerwacja jest potwierdzona. Zapłać kierowcy ustaloną kwotę w pojeździe.","bookingError":"Nie udało się dokończyć rezerwacji. Spróbuj ponownie.","formIncomplete":"Uzupełnij zaznaczone pola.","requiredField":"To pole jest wymagane.","destinationRequired":"Wybierz cel podróży.","dateInvalid":"Wybierz dzisiejszą lub przyszłą datę.","emailInvalid":"Wprowadź prawidłowy adres e-mail.","nameInvalid":"Wprowadź prawidłowe imię i nazwisko.","phoneInvalid":"Wprowadź prawidłowy numer z kodem kraju (na przykład +49).","flightInvalid":"Wprowadź prawidłowy numer lotu.","pickupAddressRequired":"Adres odbioru musi mieć od 6 do 160 znaków.","dropoffAddressRequired":"Adres docelowy musi mieć od 6 do 160 znaków.","addressesMustDiffer":"Adres odbioru i adres docelowy muszą być różne.","customDestinationPrice":"Cena zostanie potwierdzona po sprawdzeniu adresu docelowego.","hotelNameRequired":"Wprowadź nazwę hotelu.","roundTripPriceNote":"round trip · 2 journeys","returnDateRequired":"Please choose a return date.","returnDateInvalid":"Please choose a return date on or after the outward journey.","returnTimeRequired":"Please choose the return pick-up time.","dailyChauffeur":"Daily vehicle + chauffeur","days":"days","dailyChauffeurHint":"Hire a private vehicle and chauffeur by the day with no kilometre or hour limit. Fuel is paid separately.","serviceStartDate":"First service day","serviceEndDate":"Last service day","dailyPickupTime":"Service start time","dailyPickupTimeRequired":"Please select the daily service start time.","serviceEndDateRequired":"Please select the last service day.","servicePeriodInvalid":"Please select a period between 1 and 30 days.","arrivalFlightTimeOptional":"Arrival flight time (optional)","arrivalFlightNumberOptional":"Arrival flight number (optional)","servicePrice":"Service price","fuelExcludedShort":"fuel excluded","fuelExcludedDetail":"Fuel is not included and is paid separately according to use.","departureFlightDate":"Departure flight date (optional)","departureFlightTime":"Departure flight time","departureFlightNumber":"Departure flight number","departureFlightDateRequired":"Please select the departure flight date.","departureFlightDateInvalid":"Departure flight date cannot be before the service starts.","dailyQuoteIncludes":"Includes the selected vehicle and chauffeur with no kilometre or hour limit. Fuel is excluded.","reviewAndConfirm":"Review and confirm","fuelTermsTitle":"Important information about fuel","fuelTermsBody":"The daily €150 service fee includes the vehicle and chauffeur. Fuel is not included. You will pay the actual fuel cost separately according to use.","fuelTermsCheckbox":"I understand that fuel is excluded and will be paid separately based on use.","cancel":"Cancel","close":"Close","understandAndConfirm":"I understand and confirm","dailyCashConfirmation":"Your daily chauffeur hire is confirmed. The service price excludes fuel, which is paid separately based on use.","quoteTitle":"Dokąd Cię zawieziemy?","date":"Data","airportReturnPrice":"Cena zostanie potwierdzona po sprawdzeniu hotelu lub adresu odbioru.","oneGuest":"1 gość","twoGuests":"2 gości","threeGuests":"3 gości","fourGuests":"4 gości","fiveGuests":"5 gości","sixGuests":"6 gości","sevenGuests":"7 gości","viewQuote":"Pokaż cenę","fleetVitoClass":"VIP · Grand Touring","fleetVitoDescription":"Obszerna prywatna kabina dla większych rodzin, grup golfowych i gości z obfitym bagażem.","capacitySwitchedSprinter":"Pasażerowie i bagaż przekraczają Vito — przełączono na Mercedes Sprinter.","capacityNoVehicle":"Tylu pasażerów i bagażu przekracza nasze pojazdy. Skontaktuj się z nami na WhatsApp.","leatherSeats":"Skórzane fotele premium","water":"Schłodzona woda mineralna","from":"Od","reviewOne":"„Nasz kierowca czekał mimo 90-minutowego opóźnienia. Pojazd był nieskazitelny, przyjemnie chłodny i wyposażony już w oba foteliki. Dokładnie takie powitanie potrzebowała nasza rodzina.”","reviewTwo":"„Od pierwszego kontaktu WhatsApp po przyjazd do Belek wszystko było absolutnie pierwszorzędne. Punktualnie, dyskretnie i bardzo profesjonalnie. Torby golfowe bez problemu się zmieściły.”","reviewThree":"„To było jak serwis szoferski hotelu, a nie taksówka na lotnisku. Jasna komunikacja, nieskazitelny pojazd i naprawdę uprzejmy kierowca.”","perVehicle":"za pojazd · stała cena","quoteReady":"Twój prywatny transfer","journeyTime":"Czas podróży","totalFixed":"Cena łączna","confirmWhatsapp":"Potwierdź przez WhatsApp","bookNowCta":"Zarezerwuj","backToQuote":"Wstecz","yourDetails":"Twoje dane","flightNumber":"Numer lotu","flightArrivalTime":"Godzina przylotu","notesLabel":"Specjalne życzenia","confirmBooking":"Potwierdź rezerwację","paySecurely":"Przejdź do bezpiecznej płatności","payLaterNote":"Bezpieczna płatność online po potwierdzeniu.","paymentTitle":"Bezpieczna płatność","paymentError":"Płatność nie powiodła się. Spróbuj ponownie."},"nl":{"navFleet":"Voertuigen","navService":"Service","navFairPricing":"Eerlijke prijs","navRoutes":"Routes","navReviews":"Reviews","navContact":"Contact","bookNow":"Nu boeken","alwaysAvailable":"24 uur per dag, elke dag bereikbaar","heroEyebrow":"Privé chauffeurservice · Antalya","campaignBadge":"Online special","campaignDiscount":"25% off","campaignScope":"all transfer prices","heroTitle":"Premium luchthavenstransfers<br />in Antalya","heroSubtitle":"Privé transfers met chauffeur van Antalya Luchthaven naar Belek, Side, Kemer en Alanya.","bookTransfer":"Transfer boeken","instantQuote":"Direct prijs ontvangen","googleRated":"Google-beoordeling","trustedGuests":"Vertrouwd door meer dan 2.500 gasten","discover":"Ontdekken","tbLicensed":"TÜRSAB Erkend","tbFlightTracking":"Vluchttracking","tbFixedPrice":"Vaste prijs","tb247Concierge":"Concierge 24/7","tbChildSeats":"Kinderzitjes inbegrepen","privateJourney":"Uw privéreis","tripType":"Journey type","oneWay":"One way","roundTrip":"Round trip","roundTripHint":"For a round trip, the return follows the same route in reverse.","pickup":"Ophaallocatie","airportOption":"Luchthaven Antalya (AYT)","hotelOption":"Hotel","privateAddressOption":"Privéadres","destination":"Bestemming","selectDestination":"Kies bestemming","vehicle":"Voertuig","guests":"Gasten","arrivalDate":"Arrival date","arrivalFlightTime":"Flight arrival time","chooseTime":"Kies tijd","arrivalFlightNumber":"Arrival flight number","returnDate":"Return date","returnPickupTime":"Return pick-up time","returnFlightNumber":"Return flight number","pickupAddress":"Volledig ophaaladres","dropoffAddress":"Volledig bestemmingsadres","luggageLabel":"Grote bagage","hotelNameLabel":"Hotelnaam","childSeatLabel":"Kinderzitjes","childSeatNone":"Geen kinderzitje","oneChildSeat":"1 kinderzitje","twoChildSeats":"2 kinderzitjes","threeChildSeats":"3 kinderzitjes","fourChildSeats":"4 kinderzitjes","fullName":"Volledige naam","phoneLabel":"Telefoon / WhatsApp","emailLabel":"E-mail","paymentMethod":"Kies betaalmethode","cashPayment":"Betaal in het voertuig","recommended":"Aanbevolen","cashPaymentDescription":"Geen vooruitbetaling. Betaal uw chauffeur rechtstreeks zodra u tevreden bent over de service.","quoteIncludes":"Inclusief: welkom, vluchttracking, parkeren, wachttijd en water.","confirmCashBooking":"Bevestig — betaal in het voertuig","flightTracking":"Realtime vluchtvolgend","fixedPrice":"Gegarandeerde vaste prijs","meetGreet":"Persoonlijk welkom","speakingDrivers":"Chauffeurs die Engels en Duits spreken","fromAirport":"Vanaf Antalya Luchthaven","campaignApplied":"Online -15% already applied","welcomeEyebrow":"Welkom op het hoogste niveau","welcomeTitle":"Stijlvol reizen.<br />Ontspannen aankomen.","welcomeBody":"Vanaf uw landing is elk detail geregeld. Uw chauffeur wacht in de aankomsthal, zorgt voor uw bagage en begeleidt u naar uw zorgvuldig voorbereide privévoertuig.","ourStandards":"Onze servicestandaarden","concierge":"Conciërgeservice","guestsWelcomed":"Verwelkomde gasten","guestRating":"Gemiddelde gastbeoordeling","privateTransfers":"Privétransfers","fleetEyebrow":"Onze vloot","fleetTitle":"Uw privéruimte,<br />perfect tot in elk detail.","fleetIntro":"Reis comfortabel met ruimte voor familie, golfbagage en koffers.","signatureFleet":"Signature vloot","fleetVclassClass":"Business · First Class","fleetVclassDescription":"De maatstaf voor verfijnde groepsreizen: ruim, uitzonderlijk stil en uitgerust voor een probleemloze aankomst.","passengers":"passagiers","suitcases":"koffers","television":"Televisie in het voertuig","coldDrinks":"Koude dranken","snacks":"Snacks","childSeats":"Kinderzitjes op verzoek","wifi":"Gratis WiFi","nameSignGreeting":"Ontvangst met persoonlijk naambordje","reserveVehicle":"Voertuig reserveren","insideVclass":"In het Sprinter interieur","interiorTitle":"Een privélounge<br />tussen luchthaven en hotel.","serviceEyebrow":"De Antalya VIP-standaard","serviceTitle":"Meer dan een transfer.<br />Een bijzonder welkom.","serviceIntro":"Aandacht op hotelniveau, ervaren lokale chauffeurs en absolute gemoedsrust van luchthaven tot resort.","trackingTitle":"Vluchttracking","trackingBody":"We volgen uw vlucht in realtime en passen de ophaalafspraak automatisch en kosteloos aan.","chauffeurTitle":"Professionele chauffeurs","chauffeurBody":"Altijd verzorgd, discreet en geselecteerd op lokale kennis en hoogste servicestandaard.","greetTitle":"Meet & Greet","greetBody":"Uw chauffeur verwelkomt u in de aankomsthal met een naambordje en helpt met uw bagage.","supportTitle":"24/7 Conciërge","supportBody":"Voor, tijdens en na uw reis is er altijd iemand bereikbaar per telefoon of WhatsApp.","priceTitle":"Vaste prijzen","priceBody":"De bevestigde prijs is de definitieve prijs. Wachttijd, parkeren en vluchtvertragingen zijn inbegrepen.","familyTitle":"Voor gezinnen","familyBody":"Passende kinderzitjes, ruime interieurs en geduldige hulp voor een ontspannen familieaankomst.","routesEyebrow":"Onze populairste ritten","routesTitle":"Van Antalya Luchthaven<br />naar de Turkse Rivièra.","routesIntro":"Alle prijzen zijn per voertuig, nooit per persoon. Gratis wachttijd is inbegrepen.","discountPricesShown":"Online -15% prices shown","golfFavourite":"Golfliefhebbersfavoriet","onlineDiscountShort":"Online -25%","reviewsEyebrow":"Gastbeoordelingen","reviewsTitle":"Service die lang<br />bijblijft.","googleReviews":"Gebaseerd op 387 geverifieerde Google-beoordelingen","trustedBy":"Vertrouwd door gasten van toonaangevende resorts in Antalya","pricingEyebrow":"Zorgeloos reizen","pricingTitle":"Klantvriendelijke prijzen.<br />U betaalt wat eerlijk is.","pricingIntro":"We bieden vaste prijzen voor zekerheid, maar meten ook de werkelijke afstand. U betaalt altijd het laagste bedrag.","pricingFixedPrice":"Vaste prijs","fixedPriceExample":"Transfer naar Belek: €{{PRICE:belek:vito}}","fixedPriceDesc":"Gegarandeerd totaalbedrag. Inclusief luchthavengelden, parkeren, wachttijd en belastingen.","distancePrice":"Op afstand","distancePriceExample":"24 km online voorbeeld: €25","distancePriceDesc":"Gemeten met GPS tijdens uw rit.","youPay":"U betaalt","youPayPrice":"€25","youPayDesc":"Het laagste bedrag geldt. De chauffeur bevestigt dit aan het einde.","pricingNote":"Geen verrassingen. Geen verborgen kosten. Wat u boekt, betaalt u - of minder.","faqEyebrow":"Veelgestelde vragen","faqTitle":"Vóór uw reis.","faqIntro":"Alles wat u moet weten over uw privétransfer van de luchthaven Antalya.","askQuestion":"Stel een vraag","faqOneQ":"Wat gebeurt er bij een vluchtvertraging?","faqOneA":"We volgen elke aankomst in realtime. Uw ophaaltijd wordt automatisch aangepast en uw chauffeur wacht zonder meerprijs.","faqTwoQ":"Waar ontmoet ik mijn chauffeur?","faqTwoA":"Na het ophalen van uw bagage, verlaat de bagagehal en ga naar de Meet & Greet Area. Zoek naar ontmoetingspunt J / 777 — ons team wacht met een gepersonaliseerd naambordje.","faqThreeQ":"Zijn kinderzitjes beschikbaar?","faqThreeA":"Ja. Babyschalen, kinderzitjes en zitverhogers zijn bij vooraf boeken gratis beschikbaar.","faqFourQ":"Kunnen golfbags en groot bagage worden vervoerd?","faqFourA":"Ja. Sprinter en Vito zijn ideaal voor golfgroepen. Geef uw bagage op en wij plannen het juiste voertuig.","faqFiveQ":"Is de getoonde prijs definitief?","faqFiveA":"Ja. Luchthavengelden, parkeren, wachttijd en belastingen zijn inbegrepen. Geen verborgen kosten.","contactEyebrow":"Uw reis begint hier","contactTitle":"Buitengewoon goed<br />aankomen in Antalya.","contactBody":"Boek online in minder dan twee minuten of spreek direct met ons 24/7 conciërgeteam.","whatsappUs":"WhatsApp","replyMinutes":"Antwoord meestal binnen enkele minuten","callUs":"24/7 bellen","emailUs":"Conciërge e-mail","replyHour":"Antwoord binnen een uur","footerTagline":"Privé chauffeurservices aan de hele Turkse Rivièra.","explore":"Ontdekken","information":"Informatie","licensed":"Erkende privé-transferaanbieder · TÜRSAB-conform","bookingConfirmed":"Boeking bevestigd","referenceLabel":"Referentie","weWillContact":"Uw boekingsaanvraag is verzonden. We nemen binnen 30 minuten contact op.","chatWithUs":"Chat met ons","pickupAddressPlaceholder":"Hotelnaam, straat, huisnummer en wijk","dropoffAddressPlaceholder":"Hotelnaam, straat, huisnummer en wijk","hotelNamePlaceholder":"Naam van hotel of accommodatie","requestQuote":"Prijsopgave aanvragen","cashConfirmation":"Uw boeking is bevestigd. Betaal het vaste bedrag rechtstreeks aan de chauffeur.","bookingError":"Uw boeking kon niet worden voltooid. Probeer het opnieuw.","formIncomplete":"Vul de gemarkeerde velden in.","requiredField":"Dit veld is verplicht.","destinationRequired":"Kies een bestemming.","dateInvalid":"Kies vandaag of een toekomstige datum.","emailInvalid":"Voer een geldig e-mailadres in.","nameInvalid":"Voer een geldige volledige naam in.","phoneInvalid":"Voer een geldig nummer met landcode in (bijvoorbeeld +49).","flightInvalid":"Voer een geldig vluchtnummer in.","pickupAddressRequired":"Het ophaaladres moet tussen 6 en 160 tekens lang zijn.","dropoffAddressRequired":"Het bestemmingsadres moet tussen 6 en 160 tekens lang zijn.","addressesMustDiffer":"Het ophaal- en bestemmingsadres moeten verschillen.","customDestinationPrice":"De prijs wordt bevestigd na controle van het bestemmingsadres.","hotelNameRequired":"Voer de hotelnaam in.","roundTripPriceNote":"round trip · 2 journeys","returnDateRequired":"Please choose a return date.","returnDateInvalid":"Please choose a return date on or after the outward journey.","returnTimeRequired":"Please choose the return pick-up time.","dailyChauffeur":"Daily vehicle + chauffeur","days":"days","dailyChauffeurHint":"Hire a private vehicle and chauffeur by the day with no kilometre or hour limit. Fuel is paid separately.","serviceStartDate":"First service day","serviceEndDate":"Last service day","dailyPickupTime":"Service start time","dailyPickupTimeRequired":"Please select the daily service start time.","serviceEndDateRequired":"Please select the last service day.","servicePeriodInvalid":"Please select a period between 1 and 30 days.","arrivalFlightTimeOptional":"Arrival flight time (optional)","arrivalFlightNumberOptional":"Arrival flight number (optional)","servicePrice":"Service price","fuelExcludedShort":"fuel excluded","fuelExcludedDetail":"Fuel is not included and is paid separately according to use.","departureFlightDate":"Departure flight date (optional)","departureFlightTime":"Departure flight time","departureFlightNumber":"Departure flight number","departureFlightDateRequired":"Please select the departure flight date.","departureFlightDateInvalid":"Departure flight date cannot be before the service starts.","dailyQuoteIncludes":"Includes the selected vehicle and chauffeur with no kilometre or hour limit. Fuel is excluded.","reviewAndConfirm":"Review and confirm","fuelTermsTitle":"Important information about fuel","fuelTermsBody":"The daily €150 service fee includes the vehicle and chauffeur. Fuel is not included. You will pay the actual fuel cost separately according to use.","fuelTermsCheckbox":"I understand that fuel is excluded and will be paid separately based on use.","cancel":"Cancel","close":"Close","understandAndConfirm":"I understand and confirm","dailyCashConfirmation":"Your daily chauffeur hire is confirmed. The service price excludes fuel, which is paid separately based on use.","quoteTitle":"Waar mogen wij u naartoe brengen?","date":"Datum","airportReturnPrice":"De prijs wordt bevestigd nadat het hotel of ophaaladres is gecontroleerd.","oneGuest":"1 gast","twoGuests":"2 gasten","threeGuests":"3 gasten","fourGuests":"4 gasten","fiveGuests":"5 gasten","sixGuests":"6 gasten","sevenGuests":"7 gasten","viewQuote":"Prijs bekijken","fleetVitoClass":"VIP · Grand Touring","fleetVitoDescription":"Een ruime privécabine voor grotere families, golfgroepen en gasten met veel bagage.","capacitySwitchedSprinter":"Passagiers en bagage overschrijden de Vito — overgeschakeld naar Mercedes Sprinter.","capacityNoVehicle":"Zoveel passagiers en bagage overschrijdt onze voertuigen. Neem contact op via WhatsApp.","leatherSeats":"Premium leren stoelen","water":"Gekoeld mineraalwater","from":"Vanaf","reviewOne":"„Onze chauffeur wachtte ondanks 90 minuten vertraging. Het voertuig was onberispelijk, aangenaam koel en al uitgerust met beide kinderzitjes. Precies de ontvangst die onze familie nodig had.”","reviewTwo":"„Van het eerste WhatsApp-contact tot aankomst in Belek absoluut eersteklas. Punctueel, discreet en zeer professioneel. Ook onze golftassen pasten er gemakkelijk in.”","reviewThree":"„Dit voelde als een chauffeurservice van een hotel, niet als een luchthaventaxi. Duidelijke communicatie, een onberispelijk voertuig en een oprecht beleefde chauffeur.”","perVehicle":"per voertuig · vaste prijs","quoteReady":"Uw privétransfer","journeyTime":"Reistijd","totalFixed":"Totaalprijs","confirmWhatsapp":"Bevestigen via WhatsApp","bookNowCta":"Nu boeken","backToQuote":"Terug","yourDetails":"Uw gegevens","flightNumber":"Vluchtnummer","flightArrivalTime":"Aankomsttijd","notesLabel":"Speciale wensen","confirmBooking":"Boeking bevestigen","paySecurely":"Ga door naar veilig betalen","payLaterNote":"Veilige online betaling na bevestiging.","paymentTitle":"Veilige betaling","paymentError":"Betaling mislukt. Probeer het opnieuw."},"uk":{"navFleet":"Автопарк","navService":"Сервіс","navFairPricing":"Чесна ціна","navRoutes":"Маршрути","navReviews":"Відгуки","navContact":"Контакти","bookNow":"Забронювати","alwaysAvailable":"На зв'язку цілодобово, щодня","heroEyebrow":"Приватний шофер · Анталья","campaignBadge":"Online special","campaignDiscount":"25% off","campaignScope":"all transfer prices","heroTitle":"Преміальний трансфер<br />з аеропорту Анталії","heroSubtitle":"Приватні трансфери з водієм з аеропорту Анталії до Белека, Сіде, Кемера та Аланії.","bookTransfer":"Замовити трансфер","instantQuote":"Дізнатися ціну","googleRated":"Рейтинг Google","trustedGuests":"Нам довіряють понад 2 500 гостей","discover":"Детальніше","tbLicensed":"Ліцензія TÜRSAB","tbFlightTracking":"Відстеження рейсу","tbFixedPrice":"Фіксована ціна","tb247Concierge":"Консьєрж 24/7","tbChildSeats":"Дитячі крісла в комплекті","privateJourney":"Ваша приватна поїздка","tripType":"Journey type","oneWay":"One way","roundTrip":"Round trip","roundTripHint":"For a round trip, the return follows the same route in reverse.","pickup":"Місце зустрічі","airportOption":"Аеропорт Анталії (AYT)","hotelOption":"Готель","privateAddressOption":"Приватна адреса","destination":"Напрямок","selectDestination":"Оберіть напрямок","vehicle":"Автомобіль","guests":"Гості","arrivalDate":"Arrival date","arrivalFlightTime":"Flight arrival time","chooseTime":"Оберіть час","arrivalFlightNumber":"Arrival flight number","returnDate":"Return date","returnPickupTime":"Return pick-up time","returnFlightNumber":"Return flight number","pickupAddress":"Повна адреса подачі","dropoffAddress":"Повна адреса призначення","luggageLabel":"Великий багаж","hotelNameLabel":"Назва готелю","childSeatLabel":"Дитячі крісла","childSeatNone":"Без дитячого крісла","oneChildSeat":"1 дитяче крісло","twoChildSeats":"2 дитячі крісла","threeChildSeats":"3 дитячі крісла","fourChildSeats":"4 дитячі крісла","fullName":"Ім'я та прізвище","phoneLabel":"Телефон / WhatsApp","emailLabel":"Ел. пошта","paymentMethod":"Оберіть спосіб оплати","cashPayment":"Оплата в автомобілі","recommended":"Рекомендуємо","cashPaymentDescription":"Без передоплати. Сплатіть безпосередньо водієві, коли будете задоволені послугою.","quoteIncludes":"Включено: зустріч, відстеження рейсу, паркування, очікування та вода.","confirmCashBooking":"Підтвердити — оплата в автомобілі","flightTracking":"Відстеження рейсу в реальному часі","fixedPrice":"Гарантія фіксованої ціни","meetGreet":"Особиста зустріч","speakingDrivers":"Водії розмовляють англійською та німецькою","fromAirport":"З аеропорту Анталії","campaignApplied":"Online -15% already applied","welcomeEyebrow":"Ласкаво просимо на найвищий рівень","welcomeTitle":"Подорожуйте стильно.<br />Прибувайте спокійно.","welcomeBody":"З моменту посадки вашого літака кожна деталь продумана. Шофер чекає на вас у залі прильоту, піклується про багаж і супроводжує вас до підготовленого автомобіля.","ourStandards":"Наші стандарти сервісу","concierge":"Підтримка консьєржа","guestsWelcomed":"Зустрінутих гостей","guestRating":"Середня оцінка гостей","privateTransfers":"Приватні трансфери","fleetEyebrow":"Наш автопарк","fleetTitle":"Ваш особистий простір,<br />бездоганний у деталях.","fleetIntro":"Подорожуйте в тиші та комфорті з місцем для сім'ї, багажу та обладнання для гольфу.","signatureFleet":"Фірмовий автопарк","fleetVclassClass":"Business · First Class","fleetVclassDescription":"Еталон комфортних групових поїздок: просторий, надзвичайно тихий та оснащений для бездоганного прибуття.","passengers":"пасажирів","suitcases":"валіз","television":"Телевізор в автомобілі","coldDrinks":"Холодні напої","snacks":"Закуски","childSeats":"Дитячі крісла на запит","wifi":"Безкоштовний WiFi","nameSignGreeting":"Зустріч з іменною табличкою","reserveVehicle":"Забронювати автомобіль","insideVclass":"Салон Sprinter","interiorTitle":"Приватний лаунж<br />між аеропортом і готелем.","serviceEyebrow":"Стандарт Antalya VIP","serviceTitle":"Більше ніж трансфер.<br />Продумана зустріч.","serviceIntro":"Увага рівня п'ятизіркового готелю, досвідчені місцеві шофери та спокій від аеропорту до курорту.","trackingTitle":"Відстеження рейсу","trackingBody":"Ми відстежуємо ваш рейс у реальному часі та автоматично коригуємо час зустрічі без доплати.","chauffeurTitle":"Професійні шофери","chauffeurBody":"Завжди бездоганний вигляд, делікатність, знання регіону та найвищі стандарти обслуговування.","greetTitle":"Зустріч в аеропорту","greetBody":"Шофер зустріне вас у залі прильоту з табличкою з вашим ім'ям та допоможе з багажем.","supportTitle":"Консьєрж 24/7","supportBody":"До, під час і після поїздки вам завжди відповість людина по телефону або в WhatsApp.","priceTitle":"Фіксовані ціни","priceBody":"Підтверджена ціна є остаточною. Очікування, паркування та затримки рейсів вже включені.","familyTitle":"Для всієї родини","familyBody":"Дитячі крісла за віком, просторий салон та уважна допомога для спокійного сімейного прибуття.","routesEyebrow":"Найпопулярніші поїздки","routesTitle":"З аеропорту Анталії<br />на Турецьку Рив'єру.","routesIntro":"Всі ціни вказані за автомобіль, а не за пасажира. Безкоштовне очікування включено.","discountPricesShown":"Online -15% prices shown","golfFavourite":"Вибір гравців у гольф","onlineDiscountShort":"Online -25%","reviewsEyebrow":"Відгуки гостей","reviewsTitle":"Сервіс, який пам'ятають<br />після прибуття.","googleReviews":"На основі 387 підтверджених відгуків Google","trustedBy":"Нам довіряють гості провідних курортів Анталії","pricingEyebrow":"Спокій у дорозі","pricingTitle":"Ціни в інтересах клієнта.<br />Ви сплачуєте справедливу суму.","pricingIntro":"Ми пропонуємо фіксовані ціни для вашого спокою, але вимірюємо фактичну відстань. Ви завжди сплачуєте меншу суму.","pricingFixedPrice":"Фіксована ціна","fixedPriceExample":"Трансфер до Белека: {{PRICE:belek:vito}} €","fixedPriceDesc":"Гарантована загальна сума. Включає збори аеропорту, паркування, час очікування та податки.","distancePrice":"За відстанню","distancePriceExample":"24 км онлайн-приклад: 25 €","distancePriceDesc":"Вимірюється GPS під час поїздки.","youPay":"Ви сплачуєте","youPayPrice":"25 €","youPayDesc":"Діє менша сума. Водій підтвердить її наприкінці.","pricingNote":"Без сюрпризів. Без прихованих платежів. Ви сплачуєте суму з бронювання - або менше.","faqEyebrow":"Часті запитання","faqTitle":"Перед поїздкою.","faqIntro":"Все, що потрібно знати про приватний трансфер з аеропорту Анталії.","askQuestion":"Поставити запитання","faqOneQ":"Що станеться, якщо мій рейс затримається?","faqOneA":"Ми відстежуємо кожен рейс у реальному часі. Час зустрічі коригується автоматично, а водій чекає без доплати.","faqTwoQ":"Де я зустріну водія?","faqTwoA":"Після отримання багажу вийдіть із зони видачі та пройдіть до зони зустрічі (Meet & Greet). Знайдіть точку J / 777 — наша команда чекатиме з табличкою з вашим ім'ям.","faqThreeQ":"Чи є дитячі крісла?","faqThreeA":"Так. Автолюльки, дитячі крісла та бустери надаються безкоштовно на запит при бронюванні.","faqFourQ":"Чи можна перевезти сумки для гольфу та великий багаж?","faqFourA":"Так. Sprinter і Vito ідеально підходять для груп гравців у гольф. Повідомте об'єм багажу і ми підберемо автомобіль.","faqFiveQ":"Вказана ціна є остаточною?","faqFiveA":"Так. Аеропортові збори, паркування, очікування та податки включені. Прихованих платежів немає.","contactEyebrow":"Ваша подорож починається тут","contactTitle":"Прибудьте в Анталью<br />надзвичайно комфортно.","contactBody":"Забронюйте онлайн менш ніж за дві хвилини або зв'яжіться з нашою службою консьєржа 24/7.","whatsappUs":"Написати в WhatsApp","replyMinutes":"Зазвичай відповідаємо за кілька хвилин","callUs":"Зателефонувати 24/7","emailUs":"Написати консьєржу","replyHour":"Відповідь протягом години","footerTagline":"Приватні послуги шофера по всій Турецькій Рив'єрі.","explore":"Розділи","information":"Інформація","licensed":"Ліцензований оператор приватних трансферів · Відповідає вимогам TÜRSAB","bookingConfirmed":"Бронювання підтверджено","referenceLabel":"Референс","weWillContact":"Ваш запит на бронювання надіслано. Ми зв'яжемося з вами протягом 30 хвилин.","chatWithUs":"Написати нам","pickupAddressPlaceholder":"Назва готелю, вулиця, номер будинку та район","dropoffAddressPlaceholder":"Назва готелю, вулиця, номер будинку та район","hotelNamePlaceholder":"Назва готелю або місця проживання","requestQuote":"Запросити розрахунок","cashConfirmation":"Бронювання підтверджено. Сплатіть фіксовану суму водієві в автомобілі.","bookingError":"Не вдалося завершити бронювання. Спробуйте ще раз.","formIncomplete":"Заповніть виділені поля.","requiredField":"Це поле обов'язкове.","destinationRequired":"Оберіть напрямок.","dateInvalid":"Оберіть сьогоднішню або майбутню дату.","emailInvalid":"Введіть дійсну електронну адресу.","nameInvalid":"Введіть дійсне повне ім'я.","phoneInvalid":"Введіть дійсний номер із кодом країни (наприклад, +49).","flightInvalid":"Введіть дійсний номер рейсу.","pickupAddressRequired":"Адреса подачі має містити від 6 до 160 символів.","dropoffAddressRequired":"Адреса призначення має містити від 6 до 160 символів.","addressesMustDiffer":"Адреси подачі та призначення мають відрізнятися.","customDestinationPrice":"Ціна буде підтверджена після перевірки адреси призначення.","hotelNameRequired":"Введіть назву готелю.","roundTripPriceNote":"round trip · 2 journeys","returnDateRequired":"Please choose a return date.","returnDateInvalid":"Please choose a return date on or after the outward journey.","returnTimeRequired":"Please choose the return pick-up time.","dailyChauffeur":"Daily vehicle + chauffeur","days":"days","dailyChauffeurHint":"Hire a private vehicle and chauffeur by the day with no kilometre or hour limit. Fuel is paid separately.","serviceStartDate":"First service day","serviceEndDate":"Last service day","dailyPickupTime":"Service start time","dailyPickupTimeRequired":"Please select the daily service start time.","serviceEndDateRequired":"Please select the last service day.","servicePeriodInvalid":"Please select a period between 1 and 30 days.","arrivalFlightTimeOptional":"Arrival flight time (optional)","arrivalFlightNumberOptional":"Arrival flight number (optional)","servicePrice":"Service price","fuelExcludedShort":"fuel excluded","fuelExcludedDetail":"Fuel is not included and is paid separately according to use.","departureFlightDate":"Departure flight date (optional)","departureFlightTime":"Departure flight time","departureFlightNumber":"Departure flight number","departureFlightDateRequired":"Please select the departure flight date.","departureFlightDateInvalid":"Departure flight date cannot be before the service starts.","dailyQuoteIncludes":"Includes the selected vehicle and chauffeur with no kilometre or hour limit. Fuel is excluded.","reviewAndConfirm":"Review and confirm","fuelTermsTitle":"Important information about fuel","fuelTermsBody":"The daily €150 service fee includes the vehicle and chauffeur. Fuel is not included. You will pay the actual fuel cost separately according to use.","fuelTermsCheckbox":"I understand that fuel is excluded and will be paid separately based on use.","cancel":"Cancel","close":"Close","understandAndConfirm":"I understand and confirm","dailyCashConfirmation":"Your daily chauffeur hire is confirmed. The service price excludes fuel, which is paid separately based on use.","quoteTitle":"Куди вас відвезти?","date":"Дата","airportReturnPrice":"Ціну буде підтверджено після перевірки готелю або адреси подачі.","oneGuest":"1 гість","twoGuests":"2 гості","threeGuests":"3 гості","fourGuests":"4 гості","fiveGuests":"5 гостей","sixGuests":"6 гостей","sevenGuests":"7 гостей","viewQuote":"Показати ціну","fleetVitoClass":"VIP · Grand Touring","fleetVitoDescription":"Просторий приватний салон для великих сімей, груп гравців у гольф та гостей з об'ємним багажем.","capacitySwitchedSprinter":"Пасажири та багаж перевищують Vito — обрано Mercedes Sprinter.","capacityNoVehicle":"Стільки пасажирів і багажу перевищує наші автомобілі. Напишіть нам у WhatsApp.","leatherSeats":"Преміальні шкіряні сидіння","water":"Охолоджена вода","from":"Від","reviewOne":"«Незважаючи на затримку рейсу на 90 хвилин, водій чекав на нас. Автомобіль був бездоганно чистим та прохолодним, а обидва дитячі крісла вже були встановлені. Саме така зустріч потрібна нашій родині».","reviewTwo":"«Від першого повідомлення в WhatsApp до прибуття в Белек все було на найвищому рівні. Пунктуально, делікатно і дуже професійно. Наші сумки для гольфу легко помістилися».","reviewThree":"«Це нагадувало трансфер від п'ятизіркового готелю, а не таксі з аеропорту. Чіткий зв'язок, бездоганний автомобіль та по-справжньому ввічливий водій».","perVehicle":"за автомобіль · фіксована ціна","quoteReady":"Ваш приватний трансфер","journeyTime":"Час у дорозі","totalFixed":"Підсумкова ціна","confirmWhatsapp":"Підтвердити в WhatsApp","bookNowCta":"Забронювати","backToQuote":"Назад","yourDetails":"Ваші дані","flightNumber":"Номер рейсу","flightArrivalTime":"Час прильоту","notesLabel":"Особливі побажання","confirmBooking":"Підтвердити бронювання","paySecurely":"Перейти до безпечної оплати","payLaterNote":"Оплата онлайн після підтвердження.","paymentTitle":"Безпечна оплата","paymentError":"Оплата не пройшла. Спробуйте ще раз."},"fr":{"navFleet":"Véhicules","navService":"Service","navFairPricing":"Prix équitable","navRoutes":"Itinéraires","navReviews":"Avis","navContact":"Contact","bookNow":"Réserver","alwaysAvailable":"Disponible 24h/24, 7j/7","heroEyebrow":"Service chauffeur privé · Antalya","campaignBadge":"Online special","campaignDiscount":"25% off","campaignScope":"all transfer prices","heroTitle":"Transferts aéroport premium<br />à Antalya","heroSubtitle":"Transferts privés avec chauffeur depuis l'aéroport d'Antalya vers Belek, Side, Kemer et Alanya.","bookTransfer":"Réserver un transfert","instantQuote":"Obtenir un devis","googleRated":"Note Google","trustedGuests":"Approuvé par plus de 2 500 clients","discover":"Découvrir","tbLicensed":"Agréé TÜRSAB","tbFlightTracking":"Suivi de vol","tbFixedPrice":"Prix fixe","tb247Concierge":"Conciergerie 24/7","tbChildSeats":"Sièges enfants inclus","privateJourney":"Votre voyage privé","tripType":"Journey type","oneWay":"One way","roundTrip":"Round trip","roundTripHint":"For a round trip, the return follows the same route in reverse.","pickup":"Lieu de prise en charge","airportOption":"Aéroport d’Antalya (AYT)","hotelOption":"Hôtel","privateAddressOption":"Adresse privée","destination":"Destination","selectDestination":"Choisir une destination","vehicle":"Véhicule","guests":"Passagers","arrivalDate":"Arrival date","arrivalFlightTime":"Flight arrival time","chooseTime":"Choisir l'heure","arrivalFlightNumber":"Arrival flight number","returnDate":"Return date","returnPickupTime":"Return pick-up time","returnFlightNumber":"Return flight number","pickupAddress":"Adresse complète de prise en charge","dropoffAddress":"Adresse complète de destination","luggageLabel":"Gros bagages","hotelNameLabel":"Nom de l'hôtel","childSeatLabel":"Sièges enfant","childSeatNone":"Aucun siège enfant","oneChildSeat":"1 siège enfant","twoChildSeats":"2 sièges enfant","threeChildSeats":"3 sièges enfant","fourChildSeats":"4 sièges enfant","fullName":"Nom complet","phoneLabel":"Téléphone / WhatsApp","emailLabel":"E-mail","paymentMethod":"Choisissez le mode de paiement","cashPayment":"Payer dans le véhicule","recommended":"Recommandé","cashPaymentDescription":"Aucun prépaiement. Payez directement votre chauffeur une fois satisfait du service.","quoteIncludes":"Inclus : accueil, suivi de vol, parking, attente et eau minérale.","confirmCashBooking":"Confirmer — payer dans le véhicule","flightTracking":"Suivi de vol en temps réel","fixedPrice":"Prix fixe garanti","meetGreet":"Accueil personnalisé","speakingDrivers":"Chauffeurs parlant anglais et allemand","fromAirport":"Depuis l'aéroport d'Antalya","campaignApplied":"Online -15% already applied","welcomeEyebrow":"Bienvenue au plus haut niveau","welcomeTitle":"Voyager avec élégance.<br />Arriver sereinement.","welcomeBody":"Dès votre atterrissage, chaque détail est organisé. Votre chauffeur vous attend dans le hall des arrivées, s'occupe de vos bagages et vous accompagne jusqu'à votre véhicule privé soigneusement préparé.","ourStandards":"Nos standards de service","concierge":"Service conciergerie","guestsWelcomed":"Clients accueillis","guestRating":"Note moyenne des clients","privateTransfers":"Transferts privés","fleetEyebrow":"Notre flotte","fleetTitle":"Votre espace privé,<br />parfait dans les moindres détails.","fleetIntro":"Voyagez confortablement avec suffisamment d'espace pour la famille, les équipements de golf et les valises.","signatureFleet":"Flotte Signature","fleetVclassClass":"Business · First Class","fleetVclassDescription":"La référence des voyages de groupe raffinés : spacieux, exceptionnellement silencieux et équipé pour une arrivée sans tracas.","passengers":"passagers","suitcases":"valises","television":"Télévision à bord","coldDrinks":"Boissons fraîches","snacks":"En-cas","childSeats":"Sièges enfants sur demande","wifi":"WiFi gratuit","nameSignGreeting":"Accueil avec pancarte nominative","reserveVehicle":"Réserver ce véhicule","insideVclass":"Intérieur Sprinter","interiorTitle":"Un salon privé<br />entre l'aéroport et l'hôtel.","serviceEyebrow":"La norme Antalya VIP","serviceTitle":"Plus qu'un transfert.<br />Un accueil d'exception.","serviceIntro":"Une attention digne d'un hôtel cinq étoiles, des chauffeurs locaux expérimentés et une tranquillité absolue de l'aéroport jusqu'au resort.","trackingTitle":"Suivi de vol","trackingBody":"Nous suivons votre vol en temps réel et ajustons automatiquement l'heure de prise en charge, sans frais supplémentaires.","chauffeurTitle":"Chauffeurs professionnels","chauffeurBody":"Toujours soignés, discrets et sélectionnés pour leur connaissance locale et leurs standards de service irréprochables.","greetTitle":"Accueil Meet & Greet","greetBody":"Votre chauffeur vous accueille dans le hall des arrivées avec une pancarte à votre nom et vous aide avec vos bagages.","supportTitle":"Conciergerie 24/7","supportBody":"Avant, pendant et après votre voyage, une personne est toujours disponible par téléphone ou WhatsApp.","priceTitle":"Prix fixes","priceBody":"Le prix confirmé est le prix définitif. L'attente, le parking et les retards de vol sont inclus.","familyTitle":"Pour les familles","familyBody":"Sièges enfants adaptés, habitacles spacieux et aide patiente pour une arrivée familiale sereine.","routesEyebrow":"Nos trajets les plus populaires","routesTitle":"De l'aéroport d'Antalya<br />vers la Riviera turque.","routesIntro":"Tous les prix sont par véhicule, jamais par personne. L'attente gratuite est incluse.","discountPricesShown":"Online -15% prices shown","golfFavourite":"Favori des golfeurs","onlineDiscountShort":"Online -25%","reviewsEyebrow":"Avis clients","reviewsTitle":"Un service dont on<br />se souvient longtemps.","googleReviews":"Basé sur 387 avis Google vérifiés","trustedBy":"Recommandé par les clients des meilleurs resorts d'Antalya","pricingEyebrow":"Voyagez l'esprit tranquille","pricingTitle":"Une tarification pensée pour le client.<br />Vous payez le juste prix.","pricingIntro":"Nous proposons des prix fixes pour votre tranquillité, mais nous mesurons aussi la distance réelle. Vous payez toujours le montant le plus bas.","pricingFixedPrice":"Prix fixe","fixedPriceExample":"Transfert vers Belek : {{PRICE:belek:vito}} €","fixedPriceDesc":"Montant total garanti. Inclut les frais d'aéroport, le parking, l'attente et les taxes.","distancePrice":"Selon la distance","distancePriceExample":"Exemple en ligne 24 km : 25 €","distancePriceDesc":"Mesuré par GPS pendant votre trajet.","youPay":"Vous payez","youPayPrice":"25 €","youPayDesc":"Le montant le plus bas s'applique. Le chauffeur le confirme à la fin.","pricingNote":"Pas de surprise. Pas de frais cachés. Vous payez ce que vous réservez - ou moins.","faqEyebrow":"Questions fréquentes","faqTitle":"Avant votre voyage.","faqIntro":"Tout ce que vous devez savoir sur votre transfert privé depuis l'aéroport d'Antalya.","askQuestion":"Poser une question","faqOneQ":"Que se passe-t-il en cas de retard de vol ?","faqOneA":"Nous suivons chaque arrivée en temps réel. Votre heure de prise en charge est ajustée automatiquement et votre chauffeur attend sans surcoût.","faqTwoQ":"Où vais-je retrouver mon chauffeur ?","faqTwoA":"Après avoir récupéré vos bagages, quittez la zone de récupération et dirigez-vous vers la zone Meet & Greet. Cherchez le point de rencontre J / 777 — notre équipe vous attend avec une pancarte personnalisée.","faqThreeQ":"Des sièges enfants sont-ils disponibles ?","faqThreeA":"Oui. Coques bébé, sièges enfants et rehausseurs sont disponibles gratuitement sur réservation.","faqFourQ":"Pouvez-vous transporter des sacs de golf et des bagages volumineux ?","faqFourA":"Oui. Le Sprinter et le Vito sont idéaux pour les groupes de golfeurs. Précisez vos bagages et nous planifions le véhicule adapté.","faqFiveQ":"Le prix affiché est-il définitif ?","faqFiveA":"Oui. Les taxes aéroportuaires, le parking, l'attente et les impôts sont inclus. Aucun frais caché.","contactEyebrow":"Votre voyage commence ici","contactTitle":"Arriver à Antalya<br />de manière exceptionnelle.","contactBody":"Réservez en ligne en moins de deux minutes ou parlez directement avec notre équipe de conciergerie 24/7.","whatsappUs":"WhatsApp","replyMinutes":"Réponse généralement en quelques minutes","callUs":"Appeler 24/7","emailUs":"E-mail conciergerie","replyHour":"Réponse en moins d'une heure","footerTagline":"Services de chauffeur privé sur toute la Riviera turque.","explore":"Découvrir","information":"Informations","licensed":"Prestataire de transferts privés agréé · Conforme TÜRSAB","bookingConfirmed":"Réservation confirmée","referenceLabel":"Référence","weWillContact":"Votre demande de réservation a été envoyée. Nous vous contactons dans les 30 minutes.","chatWithUs":"Nous contacter","pickupAddressPlaceholder":"Nom de l'hôtel, rue, numéro et quartier","dropoffAddressPlaceholder":"Nom de l'hôtel, rue, numéro et quartier","hotelNamePlaceholder":"Nom de l'hôtel ou de l'hébergement","requestQuote":"Demander un devis","cashConfirmation":"Votre réservation est confirmée. Réglez le montant fixe directement au chauffeur.","bookingError":"Votre réservation n'a pas pu être finalisée. Veuillez réessayer.","formIncomplete":"Veuillez compléter les champs indiqués.","requiredField":"Ce champ est obligatoire.","destinationRequired":"Veuillez choisir une destination.","dateInvalid":"Veuillez choisir aujourd'hui ou une date future.","emailInvalid":"Veuillez saisir une adresse e-mail valide.","nameInvalid":"Veuillez saisir un nom complet valide.","phoneInvalid":"Saisissez un numéro valide avec l’indicatif du pays (par exemple +49).","flightInvalid":"Veuillez saisir un numéro de vol valide.","pickupAddressRequired":"L'adresse de prise en charge doit contenir entre 6 et 160 caractères.","dropoffAddressRequired":"L'adresse de destination doit contenir entre 6 et 160 caractères.","addressesMustDiffer":"Les adresses de prise en charge et de destination doivent être différentes.","customDestinationPrice":"Le prix sera confirmé après vérification de l'adresse de destination.","hotelNameRequired":"Veuillez saisir le nom de l'hôtel.","roundTripPriceNote":"round trip · 2 journeys","returnDateRequired":"Please choose a return date.","returnDateInvalid":"Please choose a return date on or after the outward journey.","returnTimeRequired":"Please choose the return pick-up time.","dailyChauffeur":"Daily vehicle + chauffeur","days":"days","dailyChauffeurHint":"Hire a private vehicle and chauffeur by the day with no kilometre or hour limit. Fuel is paid separately.","serviceStartDate":"First service day","serviceEndDate":"Last service day","dailyPickupTime":"Service start time","dailyPickupTimeRequired":"Please select the daily service start time.","serviceEndDateRequired":"Please select the last service day.","servicePeriodInvalid":"Please select a period between 1 and 30 days.","arrivalFlightTimeOptional":"Arrival flight time (optional)","arrivalFlightNumberOptional":"Arrival flight number (optional)","servicePrice":"Service price","fuelExcludedShort":"fuel excluded","fuelExcludedDetail":"Fuel is not included and is paid separately according to use.","departureFlightDate":"Departure flight date (optional)","departureFlightTime":"Departure flight time","departureFlightNumber":"Departure flight number","departureFlightDateRequired":"Please select the departure flight date.","departureFlightDateInvalid":"Departure flight date cannot be before the service starts.","dailyQuoteIncludes":"Includes the selected vehicle and chauffeur with no kilometre or hour limit. Fuel is excluded.","reviewAndConfirm":"Review and confirm","fuelTermsTitle":"Important information about fuel","fuelTermsBody":"The daily €150 service fee includes the vehicle and chauffeur. Fuel is not included. You will pay the actual fuel cost separately according to use.","fuelTermsCheckbox":"I understand that fuel is excluded and will be paid separately based on use.","cancel":"Cancel","close":"Close","understandAndConfirm":"I understand and confirm","dailyCashConfirmation":"Your daily chauffeur hire is confirmed. The service price excludes fuel, which is paid separately based on use.","quoteTitle":"Où souhaitez-vous aller ?","date":"Date","airportReturnPrice":"Le prix sera confirmé après vérification de l’hôtel ou de l’adresse de prise en charge.","oneGuest":"1 passager","twoGuests":"2 passagers","threeGuests":"3 passagers","fourGuests":"4 passagers","fiveGuests":"5 passagers","sixGuests":"6 passagers","sevenGuests":"7 passagers","viewQuote":"Voir le tarif","fleetVitoClass":"VIP · Grand Touring","fleetVitoDescription":"Un vaste habitacle privé pour les grandes familles, les groupes de golf et les voyageurs avec beaucoup de bagages.","capacitySwitchedSprinter":"Passagers et bagages dépassent le Vito — passage au Mercedes Sprinter.","capacityNoVehicle":"Autant de passagers et de bagages dépasse nos véhicules. Contactez-nous sur WhatsApp.","leatherSeats":"Sièges en cuir premium","water":"Eau minérale fraîche","from":"À partir de","reviewOne":"« Notre chauffeur a attendu malgré 90 minutes de retard. Le véhicule était impeccable, agréablement frais et déjà équipé des deux sièges enfants. Exactement l'accueil dont notre famille avait besoin. »","reviewTwo":"« Du premier contact WhatsApp à notre arrivée à Belek, absolument irréprochable. Ponctuel, discret et très professionnel. Nos sacs de golf ont aussi tenu sans problème. »","reviewThree":"« C'était comme un service de chauffeur d'hôtel, pas un taxi d'aéroport. Communication claire, véhicule impeccable et chauffeur sincèrement courtois. »","perVehicle":"par véhicule · prix fixe","quoteReady":"Votre transfert privé","journeyTime":"Durée du trajet","totalFixed":"Prix total","confirmWhatsapp":"Confirmer via WhatsApp","bookNowCta":"Réserver maintenant","backToQuote":"Retour","yourDetails":"Vos coordonnées","flightNumber":"Numéro de vol","flightArrivalTime":"Heure d'arrivée","notesLabel":"Demandes spéciales","confirmBooking":"Confirmer la réservation","paySecurely":"Continuer vers le paiement sécurisé","payLaterNote":"Paiement en ligne sécurisé après confirmation.","paymentTitle":"Paiement sécurisé","paymentError":"Paiement échoué. Veuillez réessayer."},"sv":{"navFleet":"Fordon","navService":"Service","navFairPricing":"Rättvist pris","navRoutes":"Rutter","navReviews":"Recensioner","navContact":"Kontakt","bookNow":"Boka nu","alwaysAvailable":"Tillgänglig 24 timmar om dygnet","heroEyebrow":"Privat chaufförstjänst · Antalya","campaignBadge":"Online special","campaignDiscount":"25% off","campaignScope":"all transfer prices","heroTitle":"Premium flygplatstransfers<br />i Antalya","heroSubtitle":"Privata transfers med chaufför från Antalya flygplats till Belek, Side, Kemer och Alanya.","bookTransfer":"Boka transfer","instantQuote":"Få pris direkt","googleRated":"Google-betyg","trustedGuests":"Anlitad av över 2 500 gäster","discover":"Utforska","tbLicensed":"TÜRSAB-licensierad","tbFlightTracking":"Flygspårning","tbFixedPrice":"Fast pris","tb247Concierge":"Concierge dygnet runt","tbChildSeats":"Bilbarnstolar ingår","privateJourney":"Din privata resa","tripType":"Journey type","oneWay":"One way","roundTrip":"Round trip","roundTripHint":"For a round trip, the return follows the same route in reverse.","pickup":"Hämtplats","airportOption":"Antalya flygplats (AYT)","hotelOption":"Hotell","privateAddressOption":"Privat adress","destination":"Destination","selectDestination":"Välj destination","vehicle":"Fordon","guests":"Gäster","arrivalDate":"Arrival date","arrivalFlightTime":"Flight arrival time","chooseTime":"Välj tid","arrivalFlightNumber":"Arrival flight number","returnDate":"Return date","returnPickupTime":"Return pick-up time","returnFlightNumber":"Return flight number","pickupAddress":"Fullständig hämtningsadress","dropoffAddress":"Fullständig destinationsadress","luggageLabel":"Stort bagage","hotelNameLabel":"Hotellnamn","childSeatLabel":"Barnstolar","childSeatNone":"Ingen barnstol","oneChildSeat":"1 barnstol","twoChildSeats":"2 barnstolar","threeChildSeats":"3 barnstolar","fourChildSeats":"4 barnstolar","fullName":"Fullständigt namn","phoneLabel":"Telefon / WhatsApp","emailLabel":"E-post","paymentMethod":"Välj betalningsmetod","cashPayment":"Betala i fordonet","recommended":"Rekommenderas","cashPaymentDescription":"Ingen förskottsbetalning. Betala din chaufför direkt när du är nöjd med tjänsten.","quoteIncludes":"Inkluderar: välkomnande, flygspårning, parkering, väntetid och mineralvatten.","confirmCashBooking":"Bekräfta — betala i fordonet","flightTracking":"Flygspårning i realtid","fixedPrice":"Garanterat fast pris","meetGreet":"Personlig välkomst","speakingDrivers":"Chaufförer som talar engelska och tyska","fromAirport":"Från Antalya flygplats","campaignApplied":"Online -15% already applied","welcomeEyebrow":"Välkommen till högsta nivå","welcomeTitle":"Res med stil.<br />Anländ avslappnad.","welcomeBody":"Från det ögonblick ditt plan landar är varje detalj ordnad. Din chaufför väntar i ankomsthallen, tar hand om ditt bagage och eskorterar dig till ditt noggrant förberedda fordon.","ourStandards":"Våra servicestandarder","concierge":"Concierge-service","guestsWelcomed":"Välkomnade gäster","guestRating":"Genomsnittligt gästbetyg","privateTransfers":"Privata transfers","fleetEyebrow":"Vår flotta","fleetTitle":"Ditt privata utrymme,<br />perfekt i varje detalj.","fleetIntro":"Res bekvämt med gott om plats för familjen, golfbagaget och resväskorna.","signatureFleet":"Signature-flotta","fleetVclassClass":"Business · First Class","fleetVclassDescription":"Riktmärket för sofistikerade gruppresor: rymlig, exceptionellt tyst och utrustad för en smidig ankomst.","passengers":"passagerare","suitcases":"resväskor","television":"TV i fordonet","coldDrinks":"Kalla drycker","snacks":"Snacks","childSeats":"Bilbarnstolar på begäran","wifi":"Gratis WiFi","nameSignGreeting":"Välkomnande med personlig namnskylt","reserveVehicle":"Boka fordon","insideVclass":"Sprinter interiör","interiorTitle":"En privat lounge<br />mellan flygplatsen och hotellet.","serviceEyebrow":"Antalya VIP-standarden","serviceTitle":"Mer än en transfer.<br />Ett exceptionellt välkomnande.","serviceIntro":"Uppmärksamhet på hotellnivå, erfarna lokala chaufförer och fullständigt lugn från flygplats till resort.","trackingTitle":"Flygspårning","trackingBody":"Vi spårar din flyg i realtid och anpassar automatiskt hämtningstiden utan extra kostnad.","chauffeurTitle":"Professionella chaufförer","chauffeurBody":"Alltid välvårdade, diskreta och utvalda för lokal kunskap och högsta servicestandard.","greetTitle":"Meet & Greet","greetBody":"Din chaufför välkomnar dig i ankomsthallen med en skylt med ditt namn och hjälper med bagaget.","supportTitle":"Concierge 24/7","supportBody":"Före, under och efter din resa finns alltid någon tillgänglig per telefon eller WhatsApp.","priceTitle":"Fasta priser","priceBody":"Det bekräftade priset är slutpriset. Väntetid, parkering och flygförseningar ingår.","familyTitle":"För familjer","familyBody":"Lämpliga bilbarnstolar, rymliga interiörer och tålmodig hjälp för en avslappnad familjeankomst.","routesEyebrow":"Våra populäraste rutter","routesTitle":"Från Antalya flygplats<br />till Turkiska Rivieran.","routesIntro":"Alla priser gäller per fordon, aldrig per person. Gratis väntetid ingår.","discountPricesShown":"Online -15% prices shown","golfFavourite":"Golfarnas favorit","onlineDiscountShort":"Online -25%","reviewsEyebrow":"Gästrecensioner","reviewsTitle":"Service som minns<br />länge efter ankomsten.","googleReviews":"Baserat på 387 verifierade Google-recensioner","trustedBy":"Anlitad av gäster på ledande resorts i Antalya","pricingEyebrow":"Res med lugn","pricingTitle":"Kundvänlig prissättning.<br />Du betalar det som är rättvist.","pricingIntro":"Vi erbjuder fasta priser för trygghet, men mäter även den faktiska sträckan. Du betalar alltid det lägre beloppet.","pricingFixedPrice":"Fast pris","fixedPriceExample":"Transfer till Belek: {{PRICE:belek:vito}} €","fixedPriceDesc":"Garanterat totalbelopp. Inkluderar flygplatsavgifter, parkering, väntetid och skatter.","distancePrice":"Efter sträcka","distancePriceExample":"24 km onlineexempel: 25 €","distancePriceDesc":"Mäts med GPS under din resa.","youPay":"Du betalar","youPayPrice":"25 €","youPayDesc":"Det lägre beloppet gäller. Chauffören bekräftar i slutet.","pricingNote":"Inga överraskningar. Inga dolda avgifter. Du betalar det du bokar - eller mindre.","faqEyebrow":"Vanliga frågor","faqTitle":"Innan din resa.","faqIntro":"Allt du behöver veta om din privata transfer från Antalya flygplats.","askQuestion":"Ställ en fråga","faqOneQ":"Vad händer vid en flygförsening?","faqOneA":"Vi spårar varje ankomst i realtid. Din hämtningstid justeras automatiskt och din chaufför väntar utan extra kostnad.","faqTwoQ":"Var möter jag min chaufför?","faqTwoA":"När du hämtat ditt bagage, lämna bagageutlämningen och gå till Meet & Greet-området. Leta efter mötespunkt J / 777 — vårt team väntar med en personlig namnbricka.","faqThreeQ":"Finns det bilbarnstolar?","faqThreeA":"Ja. Babyskydd, barnstolar och bälteskuddar finns tillgängliga utan extra kostnad vid förbeställning.","faqFourQ":"Kan golfbagar och stort bagage transporteras?","faqFourA":"Ja. Sprinter och Vito är idealiska för golfsällskap. Meddela oss om ditt bagage så planerar vi rätt fordon.","faqFiveQ":"Är det visade priset slutgiltigt?","faqFiveA":"Ja. Flygplatsavgifter, parkering, väntetid och skatter ingår. Inga dolda kostnader.","contactEyebrow":"Din resa börjar här","contactTitle":"Anländ till Antalya<br />på ett exceptionellt sätt.","contactBody":"Boka online på under två minuter eller prata direkt med vårt concierge-team dygnet runt.","whatsappUs":"WhatsApp","replyMinutes":"Svar vanligtvis inom några minuter","callUs":"Ring 24/7","emailUs":"Concierge e-post","replyHour":"Svar inom en timme","footerTagline":"Privata chaufförstjänster längs hela Turkiska Rivieran.","explore":"Utforska","information":"Information","licensed":"Licensierad privat transferoperatör · TÜRSAB-kompatibel","bookingConfirmed":"Bokning bekräftad","referenceLabel":"Referensnummer","weWillContact":"Din bokningsförfrågan har skickats. Vi kontaktar dig inom 30 minuter.","chatWithUs":"Chatta med oss","pickupAddressPlaceholder":"Hotellnamn, gata, husnummer och område","dropoffAddressPlaceholder":"Hotellnamn, gata, husnummer och område","hotelNamePlaceholder":"Hotell- eller boendenamn","requestQuote":"Begär prisuppgift","cashConfirmation":"Din bokning är bekräftad. Betala det fasta beloppet direkt till chauffören.","bookingError":"Bokningen kunde inte slutföras. Försök igen.","formIncomplete":"Fyll i de markerade fälten.","requiredField":"Detta fält är obligatoriskt.","destinationRequired":"Välj en destination.","dateInvalid":"Välj dagens datum eller ett framtida datum.","emailInvalid":"Ange en giltig e-postadress.","nameInvalid":"Ange ett giltigt fullständigt namn.","phoneInvalid":"Ange ett giltigt nummer med landskod (till exempel +49).","flightInvalid":"Ange ett giltigt flightnummer.","pickupAddressRequired":"Hämtningsadressen måste vara mellan 6 och 160 tecken.","dropoffAddressRequired":"Destinationsadressen måste vara mellan 6 och 160 tecken.","addressesMustDiffer":"Hämtnings- och destinationsadressen måste vara olika.","customDestinationPrice":"Priset bekräftas efter att destinationsadressen kontrollerats.","hotelNameRequired":"Ange hotellnamnet.","roundTripPriceNote":"round trip · 2 journeys","returnDateRequired":"Please choose a return date.","returnDateInvalid":"Please choose a return date on or after the outward journey.","returnTimeRequired":"Please choose the return pick-up time.","dailyChauffeur":"Daily vehicle + chauffeur","days":"days","dailyChauffeurHint":"Hire a private vehicle and chauffeur by the day with no kilometre or hour limit. Fuel is paid separately.","serviceStartDate":"First service day","serviceEndDate":"Last service day","dailyPickupTime":"Service start time","dailyPickupTimeRequired":"Please select the daily service start time.","serviceEndDateRequired":"Please select the last service day.","servicePeriodInvalid":"Please select a period between 1 and 30 days.","arrivalFlightTimeOptional":"Arrival flight time (optional)","arrivalFlightNumberOptional":"Arrival flight number (optional)","servicePrice":"Service price","fuelExcludedShort":"fuel excluded","fuelExcludedDetail":"Fuel is not included and is paid separately according to use.","departureFlightDate":"Departure flight date (optional)","departureFlightTime":"Departure flight time","departureFlightNumber":"Departure flight number","departureFlightDateRequired":"Please select the departure flight date.","departureFlightDateInvalid":"Departure flight date cannot be before the service starts.","dailyQuoteIncludes":"Includes the selected vehicle and chauffeur with no kilometre or hour limit. Fuel is excluded.","reviewAndConfirm":"Review and confirm","fuelTermsTitle":"Important information about fuel","fuelTermsBody":"The daily €150 service fee includes the vehicle and chauffeur. Fuel is not included. You will pay the actual fuel cost separately according to use.","fuelTermsCheckbox":"I understand that fuel is excluded and will be paid separately based on use.","cancel":"Cancel","close":"Close","understandAndConfirm":"I understand and confirm","dailyCashConfirmation":"Your daily chauffeur hire is confirmed. The service price excludes fuel, which is paid separately based on use.","quoteTitle":"Vart vill du åka?","date":"Datum","airportReturnPrice":"Priset bekräftas efter att hotellet eller hämtningsadressen har kontrollerats.","oneGuest":"1 gäst","twoGuests":"2 gäster","threeGuests":"3 gäster","fourGuests":"4 gäster","fiveGuests":"5 gäster","sixGuests":"6 gäster","sevenGuests":"7 gäster","viewQuote":"Visa pris","fleetVitoClass":"VIP · Grand Touring","fleetVitoDescription":"En rymlig privat kabin för större familjer, golfsällskap och gäster med mycket bagage.","capacitySwitchedSprinter":"Passagerare och bagage överstiger Vito — bytte till Mercedes Sprinter.","capacityNoVehicle":"Så många passagerare och bagage överstiger våra fordon. Kontakta oss på WhatsApp.","leatherSeats":"Premium läderstolar","water":"Kylt mineralvatten","from":"Från","reviewOne":"„Vår chaufför väntade trots 90 minuters försening. Fordonet var makulöst, behagligt svalt och redan utrustat med båda barnstolarna. Precis det välkomnande vår familj behövde.”","reviewTwo":"„Från första WhatsApp-kontakten till ankomst i Belek absolut förstklassigt. Punktlig, diskret och mycket professionell. Våra golfbagar fick också plats utan problem.”","reviewThree":"„Det kändes som en chaufförstjänst från ett hotell, inte en flygplatstaxibil. Tydlig kommunikation, ett makulöst fordon och en genuint artig chaufför.”","perVehicle":"per fordon · fast pris","quoteReady":"Din privata transfer","journeyTime":"Restid","totalFixed":"Totalt pris","confirmWhatsapp":"Bekräfta via WhatsApp","bookNowCta":"Boka nu","backToQuote":"Tillbaka","yourDetails":"Dina uppgifter","flightNumber":"Flygnummer","flightArrivalTime":"Ankomsttid","notesLabel":"Särskilda önskemål","confirmBooking":"Bekräfta bokning","paySecurely":"Fortsätt till säker betalning","payLaterNote":"Säker onlinebetalning efter bekräftelse.","paymentTitle":"Säker betalning","paymentError":"Betalning misslyckades. Försök igen."},"ja":{"navFleet":"車両","navService":"サービス","navFairPricing":"適正価格","navRoutes":"ルート","navReviews":"口コミ","navContact":"お問い合わせ","bookNow":"今すぐ予約","alwaysAvailable":"年中無休・24時間対応","heroEyebrow":"プライベートショーファーサービス · アンタルヤ","campaignBadge":"Online special","campaignDiscount":"25% off","campaignScope":"all transfer prices","heroTitle":"アンタルヤ空港からの<br />プレミアム送迎サービス","heroSubtitle":"アンタルヤ空港からベレック、シデ、ケメル、アランヤへ専属ショーファー付きプライベート送迎。","bookTransfer":"送迎を予約する","instantQuote":"料金を確認する","googleRated":"Google評価","trustedGuests":"2,500名以上のお客様にご利用いただいています","discover":"詳しく見る","tbLicensed":"TÜRSAB認可","tbFlightTracking":"フライト追跡","tbFixedPrice":"固定料金","tb247Concierge":"24時間コンシェルジュ","tbChildSeats":"チャイルドシート込み","privateJourney":"あなただけのプライベートな旅","tripType":"Journey type","oneWay":"One way","roundTrip":"Round trip","roundTripHint":"For a round trip, the return follows the same route in reverse.","pickup":"お迎え場所","airportOption":"アンタルヤ空港 (AYT)","hotelOption":"ホテル","privateAddressOption":"個人住所","destination":"目的地","selectDestination":"目的地を選択","vehicle":"車両","guests":"ご利用人数","arrivalDate":"Arrival date","arrivalFlightTime":"Flight arrival time","chooseTime":"時間を選択","arrivalFlightNumber":"Arrival flight number","returnDate":"Return date","returnPickupTime":"Return pick-up time","returnFlightNumber":"Return flight number","pickupAddress":"お迎え先の詳しい住所","dropoffAddress":"目的地の詳しい住所","luggageLabel":"大型荷物","hotelNameLabel":"ホテル名","childSeatLabel":"チャイルドシート","childSeatNone":"チャイルドシート不要","oneChildSeat":"チャイルドシート 1台","twoChildSeats":"チャイルドシート 2台","threeChildSeats":"チャイルドシート 3台","fourChildSeats":"チャイルドシート 4台","fullName":"氏名","phoneLabel":"電話 / WhatsApp","emailLabel":"メールアドレス","paymentMethod":"お支払い方法を選択","cashPayment":"車内で支払う","recommended":"おすすめ","cashPaymentDescription":"事前のお支払いは不要です。サービスにご満足いただいてから、ドライバーへ直接お支払いください。","quoteIncludes":"ミート＆グリート、フライト追跡、駐車料金、待機時間、ミネラルウォーター込み。","confirmCashBooking":"予約確定 — 車内払い","flightTracking":"リアルタイムフライト追跡","fixedPrice":"料金固定保証","meetGreet":"ミート＆グリートサービス","speakingDrivers":"英語・ドイツ語対応ショーファー","fromAirport":"アンタルヤ空港から","campaignApplied":"Online -15% already applied","welcomeEyebrow":"最高水準のサービスへようこそ","welcomeTitle":"上質な旅を。<br />安心してご到着を。","welcomeBody":"着陸の瞬間から、すべての細部が整っています。ショーファーが到着ロビーでお待ちし、お荷物をお預かりして、丁寧に準備された専用車両へとご案内します。","ourStandards":"私たちのサービス基準","concierge":"コンシェルジュサービス","guestsWelcomed":"お迎えしたゲスト数","guestRating":"ゲスト平均評価","privateTransfers":"プライベート送迎","fleetEyebrow":"車両ラインナップ","fleetTitle":"あなただけのプライベート空間。<br />細部まで完璧に。","fleetIntro":"ご家族、ゴルフ用具、荷物のための十分なスペースを備えた快適な移動をお楽しみください。","signatureFleet":"シグネチャーフリート","fleetVclassClass":"ビジネス · ファーストクラス","fleetVclassDescription":"洗練されたグループ旅行の基準。広々とした車内、卓越した静粛性、シームレスなご到着のための装備が揃っています。","passengers":"名","suitcases":"個のスーツケース","television":"車内テレビ","coldDrinks":"冷たいお飲み物","snacks":"スナック","childSeats":"チャイルドシート（ご要望に応じて）","wifi":"無料WiFi","nameSignGreeting":"お名前ボードでのお出迎え","reserveVehicle":"この車両を予約する","insideVclass":"Sprinterインテリア","interiorTitle":"空港とホテルの間の<br />プライベートラウンジ。","serviceEyebrow":"Antalya VIPスタンダード","serviceTitle":"送迎以上のもの。<br />特別なお出迎え。","serviceIntro":"5つ星ホテルレベルのアテンション、経験豊富な地元ショーファー、空港からリゾートまでの完全な安心感。","trackingTitle":"フライト追跡","trackingBody":"フライトをリアルタイムで追跡し、追加料金なしでお迎え時間を自動的に調整します。","chauffeurTitle":"プロフェッショナルショーファー","chauffeurBody":"常に清潔感があり、思いやりがあり、地元知識と最高のサービス基準のために厳選されています。","greetTitle":"ミート＆グリート","greetBody":"ショーファーはお名前のボードを持って到着ロビーでお出迎えし、お荷物をお手伝いします。","supportTitle":"24/7コンシェルジュ","supportBody":"旅の前・中・後、いつでも電話またはWhatsAppでご対応いたします。","priceTitle":"料金固定","priceBody":"確認された料金が最終料金です。待機時間、駐車料金、フライト遅延はすべて含まれています。","familyTitle":"ご家族向け","familyBody":"年齢に合ったチャイルドシート、広々とした車内、ご家族の安心到着のための丁寧なサポート。","routesEyebrow":"人気のルート","routesTitle":"アンタルヤ空港から<br />トルコリビエラへ。","routesIntro":"すべての料金は車両ごと（お一人様ではありません）。無料待機時間込み。","discountPricesShown":"Online -15% prices shown","golfFavourite":"ゴルファーに人気","onlineDiscountShort":"Online -25%","reviewsEyebrow":"お客様の声","reviewsTitle":"到着後も語り継がれる<br />サービス。","googleReviews":"387件のGoogle認証レビューに基づく","trustedBy":"アンタルヤの一流リゾートのゲストにご利用いただいています","pricingEyebrow":"安心してご利用いただけます","pricingTitle":"お客様にやさしい料金設定。<br />公平な金額だけをお支払い。","pricingIntro":"安心のため固定料金をご提示しつつ、実際の走行距離も計測します。お支払いは常に低い方の金額です。","pricingFixedPrice":"固定料金","fixedPriceExample":"ベレキ送迎：{{PRICE:belek:vito}} €","fixedPriceDesc":"保証された総額です。空港料金、駐車料金、待機時間、税金が含まれます。","distancePrice":"距離ベース","distancePriceExample":"24 km online example: 25 €","distancePriceDesc":"ご乗車中にGPSで計測します。","youPay":"お支払い額","youPayPrice":"25 €","youPayDesc":"低い方の金額を適用します。終了時にドライバーが確認します。","pricingNote":"追加の驚きはありません。隠れた料金もありません。予約時の金額、またはそれより少ない金額をお支払いいただきます。","faqEyebrow":"よくある質問","faqTitle":"ご旅行の前に。","faqIntro":"アンタルヤ空港からのプライベート送迎について知っておくべきこと。","askQuestion":"質問する","faqOneQ":"フライトが遅延した場合はどうなりますか？","faqOneA":"すべての到着便をリアルタイムで追跡しています。お迎え時間は自動的に調整され、ショーファーは追加料金なしでお待ちします。","faqTwoQ":"ショーファーはどこで待っていますか？","faqTwoA":"手荷物を受け取った後、手荷物受取所を出てミート＆グリートエリアへお進みください。J / 777の待合せポイントをお探しください — スタッフがお名前の書かれたボードを持ってお待ちしています。","faqThreeQ":"チャイルドシートはありますか？","faqThreeA":"はい。乳幼児用、チャイルドシート、ジュニアシートは予約時にご要望いただければ無料でご用意します。","faqFourQ":"ゴルフバッグや大きな荷物は運べますか？","faqFourA":"はい。SprinterとVitoはゴルフグループに最適です。荷物の詳細をお知らせいただければ、適切な車両をご手配します。","faqFiveQ":"表示された料金は確定ですか？","faqFiveA":"はい。空港税、駐車料金、待機時間、税金はすべて含まれています。隠れた費用はありません。","contactEyebrow":"旅はここから始まります","contactTitle":"アンタルヤへ<br />格別の到着を。","contactBody":"2分以内にオンライン予約、または24/7コンシェルジュチームに直接お問い合わせください。","whatsappUs":"WhatsApp","replyMinutes":"通常数分以内に返信","callUs":"24/7電話","emailUs":"コンシェルジュメール","replyHour":"1時間以内に返信","footerTagline":"トルコリビエラ全域のプライベートショーファーサービス。","explore":"探索する","information":"情報","licensed":"認定プライベート送迎事業者 · TÜRSAB準拠","bookingConfirmed":"予約確定","referenceLabel":"予約番号","weWillContact":"予約リクエストを送信しました。30分以内にご連絡いたします。","chatWithUs":"チャットする","pickupAddressPlaceholder":"ホテル名、通り、建物番号、地区","dropoffAddressPlaceholder":"ホテル名、通り、建物番号、地区","hotelNamePlaceholder":"ホテルまたは宿泊施設名","requestQuote":"見積もりを依頼","cashConfirmation":"予約が確定しました。固定料金を車内でドライバーへ直接お支払いください。","bookingError":"予約を完了できませんでした。もう一度お試しください。","formIncomplete":"表示された必須項目を入力してください。","requiredField":"この項目は必須です。","destinationRequired":"目的地を選択してください。","dateInvalid":"今日または今後の日付を選択してください。","emailInvalid":"有効なメールアドレスを入力してください。","nameInvalid":"有効な氏名を入力してください。","phoneInvalid":"国番号を含む有効な電話番号を入力してください（例：+49）。","flightInvalid":"有効なフライト番号を入力してください。","pickupAddressRequired":"お迎え先の住所は6文字以上160文字以内で入力してください。","dropoffAddressRequired":"目的地の住所は6文字以上160文字以内で入力してください。","addressesMustDiffer":"お迎え先と目的地には異なる住所を入力してください。","customDestinationPrice":"目的地の住所を確認後、料金をご案内いたします。","hotelNameRequired":"ホテル名を入力してください。","roundTripPriceNote":"round trip · 2 journeys","returnDateRequired":"Please choose a return date.","returnDateInvalid":"Please choose a return date on or after the outward journey.","returnTimeRequired":"Please choose the return pick-up time.","dailyChauffeur":"Daily vehicle + chauffeur","days":"days","dailyChauffeurHint":"Hire a private vehicle and chauffeur by the day with no kilometre or hour limit. Fuel is paid separately.","serviceStartDate":"First service day","serviceEndDate":"Last service day","dailyPickupTime":"Service start time","dailyPickupTimeRequired":"Please select the daily service start time.","serviceEndDateRequired":"Please select the last service day.","servicePeriodInvalid":"Please select a period between 1 and 30 days.","arrivalFlightTimeOptional":"Arrival flight time (optional)","arrivalFlightNumberOptional":"Arrival flight number (optional)","servicePrice":"Service price","fuelExcludedShort":"fuel excluded","fuelExcludedDetail":"Fuel is not included and is paid separately according to use.","departureFlightDate":"Departure flight date (optional)","departureFlightTime":"Departure flight time","departureFlightNumber":"Departure flight number","departureFlightDateRequired":"Please select the departure flight date.","departureFlightDateInvalid":"Departure flight date cannot be before the service starts.","dailyQuoteIncludes":"Includes the selected vehicle and chauffeur with no kilometre or hour limit. Fuel is excluded.","reviewAndConfirm":"Review and confirm","fuelTermsTitle":"Important information about fuel","fuelTermsBody":"The daily €150 service fee includes the vehicle and chauffeur. Fuel is not included. You will pay the actual fuel cost separately according to use.","fuelTermsCheckbox":"I understand that fuel is excluded and will be paid separately based on use.","cancel":"Cancel","close":"Close","understandAndConfirm":"I understand and confirm","dailyCashConfirmation":"Your daily chauffeur hire is confirmed. The service price excludes fuel, which is paid separately based on use.","quoteTitle":"目的地をお知らせください","date":"日付","airportReturnPrice":"ホテルまたはお迎え先住所の確認後に料金をご案内します。","oneGuest":"1名","twoGuests":"2名","threeGuests":"3名","fourGuests":"4名","fiveGuests":"5名","sixGuests":"6名","sevenGuests":"7名","viewQuote":"料金を見る","fleetVitoClass":"VIP · グランドツーリング","fleetVitoDescription":"大家族、ゴルフグループ、大量の荷物をお持ちのゲストのための広々としたプライベートキャビン。","capacitySwitchedSprinter":"乗客と荷物がVitoの容量を超えています — メルセデス・スプリンターに変更しました。","capacityNoVehicle":"この人数と荷物は当社の車両を超えています。WhatsAppでお問い合わせください。","leatherSeats":"プレミアムレザーシート","water":"冷えたミネラルウォーター","from":"から","reviewOne":"「90分のフライト遅延にもかかわらず、ドライバーは待ってくれました。車両は完璧に清潔で心地よく冷えており、チャイルドシートも両方設置済みでした。家族が必要としていたまさにそのお出迎えでした。」","reviewTwo":"「最初のWhatsAppのやり取りからベレックへの到着まで、すべてが最高でした。時間通り、控えめで、とてもプロフェッショナル。ゴルフバッグも余裕で収まりました。」","reviewThree":"「空港タクシーではなく、ホテルのショーファーサービスのようでした。明確なコミュニケーション、完璧な車両、そして心から礼儀正しいドライバー。」","perVehicle":"車両ごと · 固定料金","quoteReady":"あなたのプライベート送迎","journeyTime":"所要時間","totalFixed":"合計料金","confirmWhatsapp":"WhatsAppで確認する","bookNowCta":"今すぐ予約","backToQuote":"戻る","yourDetails":"お客様情報","flightNumber":"フライト番号","flightArrivalTime":"到着時刻","notesLabel":"特別なご要望","confirmBooking":"予約を確定する","paySecurely":"安全なお支払いへ進む","payLaterNote":"確認後にオンラインで安全にお支払い。","paymentTitle":"安全なお支払い","paymentError":"お支払いに失敗しました。もう一度お試しください。"},"ko":{"navFleet":"차량","navService":"서비스","navFairPricing":"공정한 요금","navRoutes":"노선","navReviews":"리뷰","navContact":"문의","bookNow":"지금 예약","alwaysAvailable":"연중무휴 24시간 운영","heroEyebrow":"프라이빗 쇼퍼 서비스 · 안탈리아","campaignBadge":"Online special","campaignDiscount":"25% off","campaignScope":"all transfer prices","heroTitle":"안탈리아 공항에서<br />프리미엄 공항 픽업 서비스","heroSubtitle":"안탈리아 공항에서 벨렉, 시데, 케메르, 알란야까지 전담 쇼퍼와 함께하는 프라이빗 이동.","bookTransfer":"셔틀 예약하기","instantQuote":"요금 확인하기","googleRated":"Google 평점","trustedGuests":"2,500명 이상의 고객이 이용했습니다","discover":"자세히 보기","tbLicensed":"TÜRSAB 인증","tbFlightTracking":"항공편 추적","tbFixedPrice":"고정 요금","tb247Concierge":"24/7 컨시어지","tbChildSeats":"카시트 포함","privateJourney":"나만의 프라이빗 여행","tripType":"Journey type","oneWay":"One way","roundTrip":"Round trip","roundTripHint":"For a round trip, the return follows the same route in reverse.","pickup":"픽업 장소","airportOption":"안탈리아 공항 (AYT)","hotelOption":"호텔","privateAddressOption":"개인 주소","destination":"목적지","selectDestination":"목적지 선택","vehicle":"차량","guests":"인원","arrivalDate":"Arrival date","arrivalFlightTime":"Flight arrival time","chooseTime":"시간 선택","arrivalFlightNumber":"Arrival flight number","returnDate":"Return date","returnPickupTime":"Return pick-up time","returnFlightNumber":"Return flight number","pickupAddress":"전체 픽업 주소","dropoffAddress":"전체 목적지 주소","luggageLabel":"대형 수하물","hotelNameLabel":"호텔명","childSeatLabel":"어린이 좌석","childSeatNone":"어린이 좌석 없음","oneChildSeat":"어린이 좌석 1개","twoChildSeats":"어린이 좌석 2개","threeChildSeats":"어린이 좌석 3개","fourChildSeats":"어린이 좌석 4개","fullName":"성명","phoneLabel":"전화 / WhatsApp","emailLabel":"이메일","paymentMethod":"결제 방법 선택","cashPayment":"차량에서 결제","recommended":"추천","cashPaymentDescription":"선결제는 필요 없습니다. 서비스에 만족하신 후 기사에게 직접 결제하세요.","quoteIncludes":"미트 앤 그리트, 항공편 추적, 주차비, 대기 시간, 생수 포함.","confirmCashBooking":"예약 확정 — 차량에서 결제","flightTracking":"실시간 항공편 추적","fixedPrice":"고정 요금 보장","meetGreet":"미트 앤 그리트 서비스","speakingDrivers":"영어·독일어 가능 쇼퍼","fromAirport":"안탈리아 공항에서","campaignApplied":"Online -15% already applied","welcomeEyebrow":"최고 수준의 서비스에 오신 것을 환영합니다","welcomeTitle":"품격 있게 이동하세요.<br />편안하게 도착하세요.","welcomeBody":"착륙하는 순간부터 모든 세부 사항이 준비되어 있습니다. 쇼퍼가 도착 로비에서 기다리며 수하물을 챙기고 세심하게 준비된 전용 차량으로 안내해 드립니다.","ourStandards":"저희 서비스 기준","concierge":"컨시어지 서비스","guestsWelcomed":"환영한 고객 수","guestRating":"평균 고객 평점","privateTransfers":"프라이빗 이동","fleetEyebrow":"차량 라인업","fleetTitle":"나만의 프라이빗 공간,<br />세부 사항까지 완벽하게.","fleetIntro":"가족, 골프 장비, 여행 가방을 위한 충분한 공간을 갖춘 편안한 이동을 경험하세요.","signatureFleet":"시그니처 플릿","fleetVclassClass":"비즈니스 · 퍼스트클래스","fleetVclassDescription":"정교한 그룹 여행의 기준. 넓고, 탁월하게 조용하며, 원활한 도착을 위한 장비를 갖추고 있습니다.","passengers":"명","suitcases":"개의 캐리어","television":"차량 내 TV","coldDrinks":"차가운 음료","snacks":"스낵","childSeats":"요청 시 카시트 제공","wifi":"무료 WiFi","nameSignGreeting":"이름 팻말을 든 맞춤 영접","reserveVehicle":"이 차량 예약하기","insideVclass":"Sprinter 인테리어","interiorTitle":"공항과 호텔 사이의<br />프라이빗 라운지.","serviceEyebrow":"Antalya VIP 기준","serviceTitle":"단순한 이동 그 이상.<br />특별한 환영.","serviceIntro":"5성급 호텔 수준의 세심한 배려, 경험 풍부한 현지 쇼퍼, 공항에서 리조트까지 완전한 안심.","trackingTitle":"항공편 추적","trackingBody":"항공편을 실시간으로 추적하여 추가 비용 없이 픽업 시간을 자동으로 조정합니다.","chauffeurTitle":"전문 쇼퍼","chauffeurBody":"항상 단정하고 신중하며, 현지 지식과 최고 서비스 기준으로 선별된 전문가들입니다.","greetTitle":"미트 앤 그리트","greetBody":"쇼퍼가 이름이 적힌 팻말을 들고 도착 로비에서 환영하며 수하물을 도와드립니다.","supportTitle":"24/7 컨시어지","supportBody":"여행 전, 중, 후 언제든지 전화 또는 WhatsApp으로 담당자와 연결됩니다.","priceTitle":"고정 요금","priceBody":"확인된 요금이 최종 요금입니다. 대기 시간, 주차비, 항공편 지연이 모두 포함됩니다.","familyTitle":"가족을 위한","familyBody":"연령에 맞는 카시트, 넓은 실내, 편안한 가족 도착을 위한 세심한 도움.","routesEyebrow":"인기 노선","routesTitle":"안탈리아 공항에서<br />터키 리비에라까지.","routesIntro":"모든 요금은 차량 기준(1인 기준 아님)입니다. 무료 대기 시간 포함.","discountPricesShown":"Online -15% prices shown","golfFavourite":"골퍼들의 인기 선택","onlineDiscountShort":"Online -25%","reviewsEyebrow":"고객 후기","reviewsTitle":"도착 후에도 오래 기억되는<br />서비스.","googleReviews":"387건의 Google 인증 리뷰 기준","trustedBy":"안탈리아 주요 리조트 고객들이 선택했습니다","pricingEyebrow":"안심 요금","pricingTitle":"고객 친화적인 요금.<br />공정한 금액만 결제하세요.","pricingIntro":"안심하실 수 있도록 고정 요금을 제시하지만 실제 이동 거리도 측정합니다. 언제나 더 낮은 금액을 결제합니다.","pricingFixedPrice":"고정 요금","fixedPriceExample":"벨렉 이동: {{PRICE:belek:vito}} €","fixedPriceDesc":"보장된 총액입니다. 공항 수수료, 주차비, 대기 시간, 세금이 포함됩니다.","distancePrice":"거리 기준","distancePriceExample":"24 km online example: 25 €","distancePriceDesc":"이동 중 GPS로 측정합니다.","youPay":"결제 금액","youPayPrice":"25 €","youPayDesc":"더 낮은 금액이 적용됩니다. 종료 시 기사가 확인합니다.","pricingNote":"놀랄 일도, 숨겨진 비용도 없습니다. 예약한 금액을 결제하거나 그보다 적게 결제합니다.","faqEyebrow":"자주 묻는 질문","faqTitle":"여행 전에.","faqIntro":"안탈리아 공항 프라이빗 픽업에 대해 알아야 할 모든 것.","askQuestion":"질문하기","faqOneQ":"항공편이 지연되면 어떻게 되나요?","faqOneA":"모든 도착 항공편을 실시간으로 추적합니다. 픽업 시간은 자동으로 조정되며 쇼퍼는 추가 비용 없이 기다립니다.","faqTwoQ":"기사님은 어디에서 기다리시나요?","faqTwoA":"수하물을 찾은 후 수하물 수취대를 나와 미트 앤 그리트 구역으로 이동하세요. J / 777 만남의 장소를 찾으시면 직원이 이름이 적힌 팻말을 들고 기다리고 있습니다.","faqThreeQ":"카시트를 이용할 수 있나요?","faqThreeA":"네. 신생아용 카시트, 아동용 카시트, 부스터 시트는 예약 시 요청하시면 무료로 제공됩니다.","faqFourQ":"골프백과 대형 수하물도 운반할 수 있나요?","faqFourA":"네. Sprinter와 Vito는 골프 그룹에 이상적입니다. 수하물 정보를 알려주시면 적합한 차량을 준비합니다.","faqFiveQ":"표시된 요금이 최종 요금인가요?","faqFiveA":"네. 공항 세금, 주차비, 대기 시간, 세금이 모두 포함됩니다. 숨겨진 비용이 없습니다.","contactEyebrow":"여행은 여기서 시작됩니다","contactTitle":"안탈리아에<br />특별하게 도착하세요.","contactBody":"2분 이내에 온라인 예약하거나 24/7 컨시어지 팀에 직접 문의하세요.","whatsappUs":"WhatsApp","replyMinutes":"보통 몇 분 내로 답변","callUs":"24/7 전화","emailUs":"컨시어지 이메일","replyHour":"1시간 내 답변","footerTagline":"터키 리비에라 전역의 프라이빗 쇼퍼 서비스.","explore":"탐색","information":"정보","licensed":"인증된 프라이빗 이동 사업자 · TÜRSAB 준수","bookingConfirmed":"예약 확정","referenceLabel":"예약 번호","weWillContact":"예약 요청이 전송되었습니다. 30분 내로 연락드리겠습니다.","chatWithUs":"채팅하기","pickupAddressPlaceholder":"호텔명, 도로명, 건물 번호 및 지역","dropoffAddressPlaceholder":"호텔명, 도로명, 건물 번호 및 지역","hotelNamePlaceholder":"호텔 또는 숙소 이름","requestQuote":"견적 요청","cashConfirmation":"예약이 확정되었습니다. 차량에서 기사에게 고정 요금을 직접 결제하세요.","bookingError":"예약을 완료하지 못했습니다. 다시 시도해 주세요.","formIncomplete":"표시된 필수 항목을 입력해 주세요.","requiredField":"필수 입력 항목입니다.","destinationRequired":"목적지를 선택해 주세요.","dateInvalid":"오늘 또는 이후 날짜를 선택해 주세요.","emailInvalid":"올바른 이메일 주소를 입력해 주세요.","nameInvalid":"올바른 전체 이름을 입력해 주세요.","phoneInvalid":"국가 코드를 포함한 올바른 번호를 입력해 주세요(예: +49).","flightInvalid":"올바른 항공편 번호를 입력해 주세요.","pickupAddressRequired":"픽업 주소는 6자 이상 160자 이하로 입력해 주세요.","dropoffAddressRequired":"목적지 주소는 6자 이상 160자 이하로 입력해 주세요.","addressesMustDiffer":"픽업 주소와 목적지 주소는 달라야 합니다.","customDestinationPrice":"목적지 주소 확인 후 가격이 확정됩니다.","hotelNameRequired":"호텔명을 입력해 주세요.","roundTripPriceNote":"round trip · 2 journeys","returnDateRequired":"Please choose a return date.","returnDateInvalid":"Please choose a return date on or after the outward journey.","returnTimeRequired":"Please choose the return pick-up time.","dailyChauffeur":"Daily vehicle + chauffeur","days":"days","dailyChauffeurHint":"Hire a private vehicle and chauffeur by the day with no kilometre or hour limit. Fuel is paid separately.","serviceStartDate":"First service day","serviceEndDate":"Last service day","dailyPickupTime":"Service start time","dailyPickupTimeRequired":"Please select the daily service start time.","serviceEndDateRequired":"Please select the last service day.","servicePeriodInvalid":"Please select a period between 1 and 30 days.","arrivalFlightTimeOptional":"Arrival flight time (optional)","arrivalFlightNumberOptional":"Arrival flight number (optional)","servicePrice":"Service price","fuelExcludedShort":"fuel excluded","fuelExcludedDetail":"Fuel is not included and is paid separately according to use.","departureFlightDate":"Departure flight date (optional)","departureFlightTime":"Departure flight time","departureFlightNumber":"Departure flight number","departureFlightDateRequired":"Please select the departure flight date.","departureFlightDateInvalid":"Departure flight date cannot be before the service starts.","dailyQuoteIncludes":"Includes the selected vehicle and chauffeur with no kilometre or hour limit. Fuel is excluded.","reviewAndConfirm":"Review and confirm","fuelTermsTitle":"Important information about fuel","fuelTermsBody":"The daily €150 service fee includes the vehicle and chauffeur. Fuel is not included. You will pay the actual fuel cost separately according to use.","fuelTermsCheckbox":"I understand that fuel is excluded and will be paid separately based on use.","cancel":"Cancel","close":"Close","understandAndConfirm":"I understand and confirm","dailyCashConfirmation":"Your daily chauffeur hire is confirmed. The service price excludes fuel, which is paid separately based on use.","quoteTitle":"어디로 모셔다 드릴까요?","date":"날짜","airportReturnPrice":"호텔 또는 픽업 주소를 확인한 후 요금을 안내해 드립니다.","oneGuest":"1명","twoGuests":"2명","threeGuests":"3명","fourGuests":"4명","fiveGuests":"5명","sixGuests":"6명","sevenGuests":"7명","viewQuote":"요금 보기","fleetVitoClass":"VIP · 그랜드 투어링","fleetVitoDescription":"대가족, 골프 그룹, 짐이 많은 고객을 위한 넓은 프라이빗 캐빈.","capacitySwitchedSprinter":"승객과 수하물이 비토 용량을 초과합니다 — 메르세데스 스프린터로 변경되었습니다.","capacityNoVehicle":"이 인원과 수하물은 차량 용량을 초과합니다. WhatsApp으로 문의해 주세요.","leatherSeats":"프리미엄 가죽 시트","water":"시원한 생수","from":"부터","reviewOne":"\\"90분 지연에도 불구하고 기사님이 기다려 주셨습니다. 차량은 완벽하게 청결하고 시원했으며 카시트 두 개도 이미 설치되어 있었습니다. 저희 가족에게 꼭 필요한 환영이었습니다.\\"","reviewTwo":"\\"첫 WhatsApp 연락부터 벨렉 도착까지 모든 것이 최고였습니다. 시간 엄수, 세심함, 매우 전문적. 골프백도 여유롭게 들어갔습니다.\\"","reviewThree":"\\"공항 택시가 아닌 호텔 쇼퍼 서비스 같았습니다. 명확한 소통, 완벽한 차량, 진심으로 예의 바른 기사님.\\"","perVehicle":"차량 기준 · 고정 요금","quoteReady":"나의 프라이빗 이동","journeyTime":"소요 시간","totalFixed":"총 요금","confirmWhatsapp":"WhatsApp으로 확인하기","bookNowCta":"지금 예약","backToQuote":"뒤로","yourDetails":"고객 정보","flightNumber":"항공편 번호","flightArrivalTime":"도착 시간","notesLabel":"특별 요청","confirmBooking":"예약 확정하기","paySecurely":"안전한 결제로 이동","payLaterNote":"확인 후 안전하게 온라인 결제.","paymentTitle":"안전한 결제","paymentError":"결제에 실패했습니다. 다시 시도해 주세요."},"ar":{"navFleet":"أسطولنا","navService":"الخدمات","navFairPricing":"أسعار عادلة","navRoutes":"الوجهات","navReviews":"التقييمات","navContact":"اتصل بنا","bookNow":"احجز الآن","alwaysAvailable":"متاحون على مدار الساعة، كل يوم","heroEyebrow":"خدمة سائق خاص · أنطاليا","campaignBadge":"عرض الحجز عبر الإنترنت","campaignDiscount":"خصم 15٪","campaignScope":"على جميع أسعار النقل","heroTitle":"خدمة نقل فاخرة من المطار<br />في أنطاليا","heroSubtitle":"خدمة نقل خاصة مع سائق من مطار أنطاليا إلى بيليك وسيده وكيمر وألانيا.","bookTransfer":"احجز خدمة النقل","instantQuote":"احصل على السعر فوراً","googleRated":"تقييم Google","trustedGuests":"اختيار أكثر من 2,500 ضيف","discover":"اكتشف المزيد","tbLicensed":"مرخصون من TÜRSAB","tbFlightTracking":"تتبع الرحلات","tbFixedPrice":"سعر ثابت","tb247Concierge":"كونسيرج 24/7","tbChildSeats":"مقاعد أطفال مشمولة","privateJourney":"رحلتك الخاصة","tripType":"نوع الرحلة","oneWay":"ذهاب فقط","roundTrip":"ذهاب وعودة","roundTripHint":"في رحلة الذهاب والعودة، تكون رحلة العودة على المسار نفسه بالاتجاه المعاكس.","pickup":"مكان الاستقبال","airportOption":"مطار أنطاليا (AYT)","hotelOption":"فندق","privateAddressOption":"عنوان خاص","destination":"الوجهة","selectDestination":"اختر الوجهة","vehicle":"السيارة","guests":"الركاب","arrivalDate":"تاريخ الوصول","arrivalFlightTime":"وقت وصول الرحلة","chooseTime":"اختر الوقت","arrivalFlightNumber":"رقم رحلة الوصول","returnDate":"تاريخ العودة","returnPickupTime":"وقت الاستقبال للعودة","returnFlightNumber":"رقم رحلة العودة","pickupAddress":"عنوان الاستقبال الكامل","dropoffAddress":"عنوان الوصول الكامل","luggageLabel":"أمتعة كبيرة","hotelNameLabel":"اسم الفندق","childSeatLabel":"مقاعد الأطفال","childSeatNone":"من دون مقعد أطفال","oneChildSeat":"مقعد أطفال واحد","twoChildSeats":"مقعدا أطفال","threeChildSeats":"3 مقاعد أطفال","fourChildSeats":"4 مقاعد أطفال","fullName":"الاسم الكامل","phoneLabel":"الهاتف / WhatsApp","emailLabel":"البريد الإلكتروني","paymentMethod":"اختر طريقة الدفع","cashPayment":"الدفع داخل السيارة","recommended":"موصى به","cashPaymentDescription":"لا يلزم الدفع مقدماً. ادفع مباشرة إلى السائق بعد أن تكون راضياً عن الخدمة.","quoteIncludes":"يشمل الاستقبال والترحيب، وتتبع الرحلة، ومواقف السيارات، والانتظار، والمياه.","confirmCashBooking":"تأكيد الحجز — الدفع داخل السيارة","flightTracking":"تتبع الرحلة مباشرة","fixedPrice":"سعر ثابت مضمون","meetGreet":"استقبال شخصي","speakingDrivers":"سائقون يتحدثون الإنجليزية والألمانية","fromAirport":"من مطار أنطاليا","campaignApplied":"تم تطبيق خصم الإنترنت 15٪","welcomeEyebrow":"مرحباً بك في مستوى أرقى من الخدمة","welcomeTitle":"سافر بأناقة.<br />وصل براحة.","welcomeBody":"منذ لحظة هبوطك، نعتني بكل التفاصيل. ينتظرك سائقك في صالة الوصول، ويساعدك في الأمتعة، ويرافقك إلى سيارتك الخاصة المجهزة بعناية.","ourStandards":"معايير خدمتنا","concierge":"خدمة الكونسيرج","guestsWelcomed":"الضيوف الذين استقبلناهم","guestRating":"متوسط تقييم الضيوف","privateTransfers":"رحلات نقل خاصة","fleetEyebrow":"أسطولنا","fleetTitle":"مساحتك الخاصة،<br />مصممة بأدق التفاصيل.","fleetIntro":"سافر براحة مع مساحة واسعة للعائلة وحقائب الغولف والأمتعة.","signatureFleet":"الأسطول المميز","fleetVclassClass":"درجة رجال الأعمال · الدرجة الأولى","fleetVclassDescription":"وسيلة نقل VIP رحبة للمجموعات الكبيرة، مع مساحة واسعة للركاب والأمتعة.","passengers":"ركاب","suitcases":"حقائب","television":"تلفاز داخل السيارة","coldDrinks":"مشروبات باردة","snacks":"وجبات خفيفة","childSeats":"مقاعد أطفال عند الطلب","wifi":"واي فاي مجاني","nameSignGreeting":"استقبال شخصي بلافتة تحمل اسمك","reserveVehicle":"احجز هذه السيارة","insideVclass":"مقصورة Sprinter الداخلية","interiorTitle":"صالة خاصة بين<br />المطار والفندق.","serviceEyebrow":"معيار Antalya VIP","serviceTitle":"أكثر من مجرد نقل.<br />إنه ترحيب استثنائي.","serviceIntro":"عناية بمستوى الفنادق الفاخرة، وسائقون محليون ذوو خبرة، وراحة تامة من المطار إلى المنتجع.","trackingTitle":"تتبع الرحلة","trackingBody":"نتابع رحلتك مباشرة ونعدّل وقت الاستقبال تلقائياً من دون أي تكلفة إضافية.","chauffeurTitle":"سائقون محترفون","chauffeurBody":"سائقون أنيقون وكتومون دائماً، تم اختيارهم لمعرفتهم المحلية والتزامهم بأعلى معايير الخدمة.","greetTitle":"الاستقبال والترحيب","greetBody":"يستقبلك سائقك في صالة الوصول بلافتة تحمل اسمك ويساعدك في حمل الأمتعة.","supportTitle":"كونسيرج 24/7","supportBody":"قبل رحلتك وأثناءها وبعدها، يمكنك دائماً التواصل مع شخص حقيقي عبر الهاتف أو WhatsApp.","priceTitle":"أسعار ثابتة","priceBody":"السعر المؤكد هو السعر النهائي. يشمل وقت الانتظار ومواقف السيارات وتأخير الرحلات.","familyTitle":"مناسب للعائلات","familyBody":"مقاعد أطفال مناسبة للأعمار، ومساحات داخلية واسعة، ومساعدة هادئة لوصول عائلي مريح.","routesEyebrow":"رحلاتنا الأكثر طلباً","routesTitle":"من مطار أنطاليا<br />إلى الريفييرا التركية.","routesIntro":"جميع الأسعار للسيارة وليس للشخص، وتشمل وقت انتظار مجاني.","discountPricesShown":"الأسعار المعروضة تشمل خصم الإنترنت 15٪","golfFavourite":"المفضل لدى لاعبي الغولف","onlineDiscountShort":"خصم الإنترنت 15٪","reviewsEyebrow":"آراء الضيوف","reviewsTitle":"خدمة تبقى في الذاكرة<br />بعد الوصول.","googleReviews":"استناداً إلى 387 تقييماً موثقاً على Google","trustedBy":"موثوق من ضيوف أبرز منتجعات أنطاليا","pricingEyebrow":"خطط بثقة","pricingTitle":"نضمن سعراً ثابتاً.<br />وتدفع دائماً السعر الأقل.","pricingIntro":"نحدد سعراً ثابتاً لراحتك، ونقيس أيضاً المسافة الفعلية للرحلة. ستدفع دائماً المبلغ الأقل.","pricingFixedPrice":"السعر الثابت","fixedPriceExample":"النقل إلى بيليك: {{PRICE:belek:vito}} €","fixedPriceDesc":"إجمالي مضمون يشمل رسوم المطار ومواقف السيارات والانتظار والضرائب.","distancePrice":"حسب المسافة","distancePriceExample":"مثال 24 كم عبر الإنترنت: 25 €","distancePriceDesc":"يتم قياسها عبر GPS أثناء الرحلة.","youPay":"ما تدفعه","youPayPrice":"25 €","youPayDesc":"ينطبق السعر الأقل، ويؤكده السائق في نهاية الرحلة.","pricingNote":"لا مفاجآت ولا رسوم خفية. تدفع السعر المحجوز أو أقل منه.","faqEyebrow":"الأسئلة الشائعة","faqTitle":"قبل رحلتك.","faqIntro":"كل ما تحتاج إلى معرفته عن خدمة النقل الخاصة من مطار أنطاليا.","askQuestion":"اطرح سؤالاً","faqOneQ":"ماذا يحدث إذا تأخرت رحلتي؟","faqOneA":"نتابع جميع الرحلات القادمة مباشرة. نعدّل وقت الاستقبال تلقائياً، وينتظرك سائقك من دون أي رسوم إضافية.","faqTwoQ":"أين سألتقي بالسائق؟","faqTwoA":"بعد استلام أمتعتك، اخرج من منطقة الاستلام وتوجه إلى منطقة الاستقبال (Meet & Greet). ابحث عن نقطة اللقاء J / 777 — سيكون فريقنا بانتظارك حاملاً لافتة باسمك.","faqThreeQ":"هل تتوفر مقاعد للأطفال؟","faqThreeA":"نعم. تتوفر مقاعد للرضع والأطفال والمقاعد المعززة مجاناً عند طلبها أثناء الحجز.","faqFourQ":"هل يمكن نقل حقائب الغولف والأمتعة الكبيرة؟","faqFourA":"نعم. سيارات Sprinter وVito مناسبة لمجموعات الغولف. أخبرنا بأمتعتك لنجهز السيارة المناسبة.","faqFiveQ":"هل السعر المعروض نهائي؟","faqFiveA":"نعم. تشمل الأسعار رسوم المطار ومواقف السيارات ووقت الانتظار والضرائب، من دون رسوم خفية.","contactEyebrow":"رحلتك تبدأ هنا","contactTitle":"ابدأ وصولك إلى أنطاليا<br />بطريقة استثنائية.","contactBody":"احجز عبر الإنترنت خلال دقيقتين، أو تحدث مباشرة إلى فريق الكونسيرج 24/7.","whatsappUs":"تواصل عبر WhatsApp","replyMinutes":"نرد عادةً خلال دقائق","callUs":"اتصل بنا 24/7","emailUs":"بريد الكونسيرج","replyHour":"نرد خلال ساعة","footerTagline":"خدمة سائق خاص في أنحاء الريفييرا التركية.","explore":"استكشف","information":"معلومات","licensed":"مزود نقل خاص مرخص · متوافق مع TÜRSAB","bookingConfirmed":"تم تأكيد الحجز","referenceLabel":"الرقم المرجعي","weWillContact":"تم إرسال طلب حجزك. سنتواصل معك خلال 30 دقيقة.","chatWithUs":"تحدث معنا","pickupAddressPlaceholder":"اسم الفندق، الشارع، رقم المبنى والمنطقة","dropoffAddressPlaceholder":"اسم الفندق، الشارع، رقم المبنى والمنطقة","hotelNamePlaceholder":"اسم الفندق أو مكان الإقامة","requestQuote":"طلب عرض سعر","cashConfirmation":"تم تأكيد حجزك. ادفع المبلغ الثابت مباشرة إلى السائق داخل السيارة.","bookingError":"تعذر إكمال حجزك. يرجى المحاولة مرة أخرى.","formIncomplete":"يرجى إكمال الحقول المحددة.","requiredField":"هذا الحقل مطلوب.","destinationRequired":"يرجى اختيار وجهة.","dateInvalid":"يرجى اختيار تاريخ اليوم أو تاريخ لاحق.","emailInvalid":"يرجى إدخال بريد إلكتروني صالح.","nameInvalid":"يرجى إدخال الاسم الكامل بشكل صحيح.","phoneInvalid":"يرجى إدخال رقم صالح مع رمز الدولة (مثلاً +49).","flightInvalid":"يرجى إدخال رقم رحلة صالح.","pickupAddressRequired":"يجب أن يتراوح عنوان الاستقبال بين 6 و160 حرفاً.","dropoffAddressRequired":"يجب أن يتراوح عنوان الوصول بين 6 و160 حرفاً.","addressesMustDiffer":"يجب أن يختلف عنوان الاستقبال عن عنوان الوصول.","customDestinationPrice":"سيتم تأكيد السعر بعد مراجعة عنوان الوصول.","hotelNameRequired":"يرجى إدخال اسم الفندق.","roundTripPriceNote":"ذهاب وعودة · رحلتان","returnDateRequired":"يرجى اختيار تاريخ العودة.","returnDateInvalid":"يرجى اختيار تاريخ عودة يوافق تاريخ الذهاب أو يأتي بعده.","returnTimeRequired":"يرجى اختيار وقت الاستقبال للعودة.","dailyChauffeur":"Daily vehicle + chauffeur","days":"days","dailyChauffeurHint":"Hire a private vehicle and chauffeur by the day with no kilometre or hour limit. Fuel is paid separately.","serviceStartDate":"First service day","serviceEndDate":"Last service day","dailyPickupTime":"Service start time","dailyPickupTimeRequired":"Please select the daily service start time.","serviceEndDateRequired":"Please select the last service day.","servicePeriodInvalid":"Please select a period between 1 and 30 days.","arrivalFlightTimeOptional":"Arrival flight time (optional)","arrivalFlightNumberOptional":"Arrival flight number (optional)","servicePrice":"Service price","fuelExcludedShort":"fuel excluded","fuelExcludedDetail":"Fuel is not included and is paid separately according to use.","departureFlightDate":"Departure flight date (optional)","departureFlightTime":"Departure flight time","departureFlightNumber":"Departure flight number","departureFlightDateRequired":"Please select the departure flight date.","departureFlightDateInvalid":"Departure flight date cannot be before the service starts.","dailyQuoteIncludes":"Includes the selected vehicle and chauffeur with no kilometre or hour limit. Fuel is excluded.","reviewAndConfirm":"Review and confirm","fuelTermsTitle":"Important information about fuel","fuelTermsBody":"The daily €150 service fee includes the vehicle and chauffeur. Fuel is not included. You will pay the actual fuel cost separately according to use.","fuelTermsCheckbox":"I understand that fuel is excluded and will be paid separately based on use.","cancel":"Cancel","close":"Close","understandAndConfirm":"I understand and confirm","dailyCashConfirmation":"Your daily chauffeur hire is confirmed. The service price excludes fuel, which is paid separately based on use.","quoteTitle":"إلى أين نوصلك؟","date":"التاريخ","airportReturnPrice":"سيتم تأكيد السعر بعد مراجعة الفندق أو عنوان الاستقبال.","oneGuest":"راكب واحد","twoGuests":"راكبان","threeGuests":"3 ركاب","fourGuests":"4 ركاب","fiveGuests":"5 ركاب","sixGuests":"6 ركاب","sevenGuests":"7 ركاب","viewQuote":"عرض السعر","fleetVitoClass":"VIP · جراند تورينغ","fleetVitoDescription":"مقصورة خاصة ومريحة للعائلات والمجموعات الصغيرة.","capacitySwitchedSprinter":"عدد الركاب والأمتعة يتجاوز سعة Vito — تم التبديل إلى Mercedes Sprinter.","capacityNoVehicle":"هذا العدد من الركاب والأمتعة يتجاوز سعة مركباتنا. يرجى التواصل معنا عبر WhatsApp.","leatherSeats":"مقاعد جلدية فاخرة","water":"مياه معدنية باردة","from":"ابتداءً من","reviewOne":"\\"انتظرنا السائق رغم تأخر الرحلة 90 دقيقة. كانت السيارة نظيفة تماماً وباردة، ومقعدا الأطفال مجهزين مسبقاً. كان هذا بالضبط ما احتاجته عائلتنا عند الوصول.\\"","reviewTwo":"\\"من أول تواصل عبر WhatsApp حتى وصولنا إلى بيليك، كانت الخدمة ممتازة. التزام بالمواعيد واحترافية عالية، مع مساحة مريحة لحقائب الغولف.\\"","reviewThree":"\\"شعرنا وكأنها خدمة سائق فندق فاخر وليست سيارة أجرة من المطار. تواصل واضح، وسيارة مثالية، وسائق مهذب بصدق.\\"","perVehicle":"لكل سيارة · سعر ثابت","quoteReady":"رحلتك الخاصة","journeyTime":"مدة الرحلة","totalFixed":"الإجمالي الثابت","confirmWhatsapp":"التأكيد عبر WhatsApp","bookNowCta":"احجز الآن","backToQuote":"رجوع","yourDetails":"بياناتك","flightNumber":"رقم الرحلة","flightArrivalTime":"وقت الوصول","notesLabel":"طلبات خاصة","confirmBooking":"تأكيد الحجز","paySecurely":"المتابعة إلى الدفع الآمن","payLaterNote":"دفع آمن عبر الإنترنت بعد التأكيد.","paymentTitle":"الدفع الآمن","paymentError":"تعذر إتمام الدفع. يرجى المحاولة مرة أخرى."}}`);
 const translationData = {
+  resources: resources$1
+};
+const resources = { "en": { "videoEyebrow": "How to find us", "videoTitle": "Find us at J / 777<br />after you land.", "videoSubtitle": "Our chauffeurs wait at the Meet & Greet Area — meeting point J / 777. Exit baggage claim, look for our name sign, and we handle the rest.", "videoCardTitle": "Antalya Airport<br />Meet & Greet Point", "videoCardBody": "After collecting your luggage, exit to the Meet & Greet Area and look for meeting point J / 777. Tell our team your name — we'll take it from there.", "videoWatch": "Watch the clip", "videoClose": "Close", "videoThumbnailAlt": "Antalya Airport meet and greet area", "videoDialogLabel": "Antalya Airport meet and greet video" }, "de": { "videoEyebrow": "So finden Sie uns", "videoTitle": "Nach der Landung finden Sie uns<br />bei J / 777.", "videoSubtitle": "Unser Team erwartet Sie im Meet-&-Greet-Bereich am Treffpunkt J / 777. Verlassen Sie die Gepäckausgabe und halten Sie nach unserem Namensschild Ausschau — wir kümmern uns um alles Weitere.", "videoCardTitle": "Treffpunkt am Flughafen Antalya<br />J / 777", "videoCardBody": "Nachdem Sie Ihr Gepäck abgeholt haben, gehen Sie zum Meet-&-Greet-Bereich und suchen Sie den Treffpunkt J / 777. Nennen Sie unserem Team Ihren Namen — ab dort übernehmen wir.", "videoWatch": "Video ansehen", "videoClose": "Schließen", "videoThumbnailAlt": "Meet-&-Greet-Bereich am Flughafen Antalya", "videoDialogLabel": "Meet-&-Greet-Video am Flughafen Antalya" }, "tr": { "videoEyebrow": "Bizi nasıl bulursunuz", "videoTitle": "İnişten sonra bizi<br />J / 777 noktasında bulun.", "videoSubtitle": "Ekibimiz karşılama alanındaki J / 777 buluşma noktasında sizi bekler. Bagaj teslim alanından çıkın, isim tabelamızı bulun; gerisini biz hallederiz.", "videoCardTitle": "Antalya Havalimanı<br />karşılama noktası", "videoCardBody": "Bagajınızı aldıktan sonra karşılama alanına çıkın ve J / 777 buluşma noktasını bulun. Ekibimize adınızı söyleyin; sonrasını bize bırakın.", "videoWatch": "Videoyu izleyin", "videoClose": "Kapat", "videoThumbnailAlt": "Antalya Havalimanı karşılama alanı", "videoDialogLabel": "Antalya Havalimanı karşılama videosu" }, "ru": { "videoEyebrow": "Как нас найти", "videoTitle": "После прилёта найдите нас<br />у точки J / 777.", "videoSubtitle": "Наша команда ждёт вас в зоне встречи у точки J / 777. Выйдите из зоны выдачи багажа и найдите табличку с вашим именем — обо всём остальном позаботимся мы.", "videoCardTitle": "Место встречи в аэропорту Антальи<br />J / 777", "videoCardBody": "После получения багажа выйдите в зону встречи и найдите точку J / 777. Назовите нашей команде своё имя — дальше мы обо всём позаботимся.", "videoWatch": "Смотреть видео", "videoClose": "Закрыть", "videoThumbnailAlt": "Зона встречи в аэропорту Антальи", "videoDialogLabel": "Видео о встрече в аэропорту Антальи" }, "pl": { "videoEyebrow": "Jak nas znaleźć", "videoTitle": "Po wylądowaniu znajdziesz nas<br />w punkcie J / 777.", "videoSubtitle": "Nasz zespół czeka w strefie powitalnej przy punkcie J / 777. Po odbiorze bagażu wyjdź z hali i wypatruj tabliczki ze swoim nazwiskiem — resztą zajmiemy się my.", "videoCardTitle": "Punkt powitalny<br />na lotnisku w Antalyi", "videoCardBody": "Po odebraniu bagażu przejdź do strefy powitalnej i znajdź punkt J / 777. Podaj naszemu zespołowi swoje nazwisko — zajmiemy się resztą.", "videoWatch": "Obejrzyj film", "videoClose": "Zamknij", "videoThumbnailAlt": "Strefa powitalna na lotnisku w Antalyi", "videoDialogLabel": "Film o powitaniu na lotnisku w Antalyi" }, "nl": { "videoEyebrow": "Zo vindt u ons", "videoTitle": "Na de landing vindt u ons<br />bij punt J / 777.", "videoSubtitle": "Ons team wacht in de Meet & Greet-zone bij ontmoetingspunt J / 777. Verlaat de bagagehal en zoek naar het bord met uw naam — wij regelen de rest.", "videoCardTitle": "Ontmoetingspunt<br />op Antalya Airport", "videoCardBody": "Ga na het ophalen van uw bagage naar de Meet & Greet-zone en zoek punt J / 777. Geef uw naam door aan ons team — vanaf daar regelen wij alles.", "videoWatch": "Bekijk de video", "videoClose": "Sluiten", "videoThumbnailAlt": "Meet & Greet-zone op Antalya Airport", "videoDialogLabel": "Meet & Greet-video op Antalya Airport" }, "uk": { "videoEyebrow": "Як нас знайти", "videoTitle": "Після прильоту знайдіть нас<br />біля пункту J / 777.", "videoSubtitle": "Наша команда чекає на вас у зоні зустрічі біля пункту J / 777. Вийдіть із зони видачі багажу та знайдіть табличку зі своїм ім’ям — про все інше подбаємо ми.", "videoCardTitle": "Місце зустрічі в аеропорту Анталії<br />J / 777", "videoCardBody": "Після отримання багажу вийдіть до зони зустрічі та знайдіть пункт J / 777. Назвіть нашій команді своє ім’я — далі ми про все подбаємо.", "videoWatch": "Переглянути відео", "videoClose": "Закрити", "videoThumbnailAlt": "Зона зустрічі в аеропорту Анталії", "videoDialogLabel": "Відео про зустріч в аеропорту Анталії" }, "fr": { "videoEyebrow": "Comment nous trouver", "videoTitle": "Après l’atterrissage, retrouvez-nous<br />au point J / 777.", "videoSubtitle": "Notre équipe vous attend dans la zone d’accueil au point J / 777. Quittez la zone de récupération des bagages et cherchez la pancarte à votre nom — nous nous occupons du reste.", "videoCardTitle": "Point d’accueil<br />à l’aéroport d’Antalya", "videoCardBody": "Après avoir récupéré vos bagages, rendez-vous dans la zone d’accueil et cherchez le point J / 777. Donnez votre nom à notre équipe — nous nous chargeons de la suite.", "videoWatch": "Voir la vidéo", "videoClose": "Fermer", "videoThumbnailAlt": "Zone d’accueil de l’aéroport d’Antalya", "videoDialogLabel": "Vidéo d’accueil à l’aéroport d’Antalya" }, "sv": { "videoEyebrow": "Så hittar du oss", "videoTitle": "Efter landning hittar du oss<br />vid punkt J / 777.", "videoSubtitle": "Vårt team väntar i välkomstområdet vid mötespunkt J / 777. Lämna bagageutlämningen och leta efter skylten med ditt namn — vi tar hand om resten.", "videoCardTitle": "Mötesplats<br />på Antalya flygplats", "videoCardBody": "När du har hämtat ditt bagage går du till välkomstområdet och letar efter punkt J / 777. Uppge ditt namn för vårt team — sedan tar vi hand om resten.", "videoWatch": "Se videon", "videoClose": "Stäng", "videoThumbnailAlt": "Välkomstområdet på Antalya flygplats", "videoDialogLabel": "Välkomstvideo från Antalya flygplats" }, "ja": { "videoEyebrow": "集合場所のご案内", "videoTitle": "ご到着後は<br />J / 777へお越しください。", "videoSubtitle": "スタッフはアンタルヤ空港の出迎えエリア、J / 777でお待ちしています。手荷物受取所を出たら、お名前の書かれたボードをお探しください。その後はすべてお任せください。", "videoCardTitle": "アンタルヤ空港<br />お出迎え集合場所", "videoCardBody": "手荷物を受け取った後、出迎えエリアへ進み、J / 777をお探しください。スタッフにお名前をお伝えいただければ、あとは私たちがご案内します。", "videoWatch": "動画を見る", "videoClose": "閉じる", "videoThumbnailAlt": "アンタルヤ空港のお出迎えエリア", "videoDialogLabel": "アンタルヤ空港のお出迎え案内動画" }, "ko": { "videoEyebrow": "찾아오시는 길", "videoTitle": "도착 후 J / 777<br />지점에서 만나세요.", "videoSubtitle": "직원이 안탈리아 공항 환영 구역의 J / 777 지점에서 기다립니다. 수하물 수취대를 나와 이름이 적힌 팻말을 찾으시면 나머지는 저희가 안내해 드립니다.", "videoCardTitle": "안탈리아 공항<br />환영 미팅 장소", "videoCardBody": "수하물을 찾은 후 환영 구역으로 이동해 J / 777 지점을 찾으세요. 직원에게 이름을 말씀해 주시면 이후 절차를 모두 안내해 드립니다.", "videoWatch": "영상 보기", "videoClose": "닫기", "videoThumbnailAlt": "안탈리아 공항 환영 구역", "videoDialogLabel": "안탈리아 공항 환영 안내 영상" }, "ar": { "videoEyebrow": "كيف تجدنا", "videoTitle": "بعد وصولك، ستجدنا<br />عند النقطة J / 777.", "videoSubtitle": "ينتظرك فريقنا في منطقة الاستقبال عند نقطة اللقاء J / 777. بعد مغادرة منطقة استلام الأمتعة، ابحث عن اللافتة التي تحمل اسمك وسنتولى نحن الباقي.", "videoCardTitle": "نقطة الاستقبال<br />في مطار أنطاليا", "videoCardBody": "بعد استلام أمتعتك، توجّه إلى منطقة الاستقبال وابحث عن النقطة J / 777. أخبر فريقنا باسمك وسنتولى الباقي.", "videoWatch": "شاهد الفيديو", "videoClose": "إغلاق", "videoThumbnailAlt": "منطقة الاستقبال في مطار أنطاليا", "videoDialogLabel": "فيديو الاستقبال في مطار أنطاليا" } };
+const videoTranslationData = {
   resources
 };
 const routeCatalog = {
@@ -389,7 +395,14 @@ const languageOptions = [
 ];
 const supportedLanguages = new Set(languageOptions.map(({ code }) => code));
 const indexableLanguages$1 = /* @__PURE__ */ new Set(["en", "de", "tr", "ru"]);
-const rawResources = translationData.resources;
+const legacyResources = translationData.resources;
+const videoResources = videoTranslationData.resources;
+const rawResources = Object.fromEntries(
+  Object.entries(legacyResources).map(([language, translation]) => [
+    language,
+    { ...translation, ...videoResources[language] || {} }
+  ])
+);
 const i18n = i18next.createInstance();
 void i18n.init({
   fallbackLng: "en",
@@ -416,7 +429,7 @@ function localizedPath$1(pathname, language) {
   const normalized = pathname.endsWith("/") || pathname.endsWith(".html") ? pathname : `${pathname}/`;
   const localizedMatch = normalized.match(/^\/(de|tr|ru)(\/.*)?$/);
   const basePath = localizedMatch ? localizedMatch[2] || "/" : normalized;
-  if (basePath !== "/" && !basePath.startsWith("/transfers/")) return null;
+  if (basePath !== "/" && basePath !== "/health/" && !basePath.startsWith("/transfers/")) return null;
   return `${language === "en" ? "" : `/${language}`}${basePath}`;
 }
 function LanguageProvider({
@@ -564,16 +577,24 @@ const __vite_glob_1_2 = "/assets/customer-03-DtD0t1Z8.jpg";
 const __vite_glob_1_3 = "/assets/customer-04-vbgO1zLM.jpg";
 const __vite_glob_1_4 = "/assets/customer-05-DX0jqmDH.jpg";
 const __vite_glob_1_5 = "/assets/customer-06-vV8lC0SV.jpg";
+const DAILY_CHAUFFEUR_RATE_EUR = 150;
+const MAX_DAILY_CHAUFFEUR_DAYS = 30;
 const normalize = (value) => value.trim().replace(/\s+/g, " ");
 const validName = (value) => {
   const normalized = normalize(value);
   return normalized.length >= 2 && normalized.length <= 80 && (normalized.match(new RegExp("\\p{L}", "gu"))?.length ?? 0) >= 2 && !/\d/u.test(normalized);
 };
+function inclusiveDayCount(start, end) {
+  const startAt = Date.parse(`${start}T00:00:00Z`);
+  const endAt = Date.parse(`${end}T00:00:00Z`);
+  if (!Number.isFinite(startAt) || !Number.isFinite(endAt)) return 0;
+  return Math.floor((endAt - startAt) / 864e5) + 1;
+}
 function createPublicBookingSchema(t) {
   return z.object({
-    tripType: z.enum(["one_way", "round_trip"]),
+    tripType: z.enum(["one_way", "round_trip", "daily_chauffeur"]),
     pickup: z.enum(["airport", "hotel", "private_address"]),
-    destination: z.string().min(1, t("destinationRequired", "Please select a destination.")),
+    destination: z.string(),
     vehicle: z.enum(["vito", "sprinter"]),
     guests: z.string(),
     luggage: z.string(),
@@ -584,6 +605,11 @@ function createPublicBookingSchema(t) {
     returnDate: z.string(),
     returnPickupTime: z.string(),
     returnFlightNumber: z.string(),
+    serviceEndDate: z.string(),
+    pickupTime: z.string(),
+    departureFlightDate: z.string(),
+    departureFlightTime: z.string(),
+    departureFlightNumber: z.string(),
     pickupAddress: z.string(),
     dropoffAddress: z.string(),
     hotelName: z.string(),
@@ -606,16 +632,27 @@ function createPublicBookingSchema(t) {
       else if (values.returnDate < values.travelDate) context.addIssue({ code: "custom", path: ["returnDate"], message: t("returnDateInvalid", "The return date cannot be earlier.") });
       if (!values.returnPickupTime) context.addIssue({ code: "custom", path: ["returnPickupTime"], message: t("returnTimeRequired", "Please select the return pick-up time.") });
     }
+    if (values.tripType === "daily_chauffeur") {
+      const days = inclusiveDayCount(values.travelDate, values.serviceEndDate);
+      if (!values.pickupTime) context.addIssue({ code: "custom", path: ["pickupTime"], message: t("dailyPickupTimeRequired", "Please select the daily service start time.") });
+      if (!values.serviceEndDate) context.addIssue({ code: "custom", path: ["serviceEndDate"], message: t("serviceEndDateRequired", "Please select the last service day.") });
+      else if (days < 1 || days > MAX_DAILY_CHAUFFEUR_DAYS) context.addIssue({ code: "custom", path: ["serviceEndDate"], message: t("servicePeriodInvalid", "Please select a period between 1 and 30 days.") });
+      const hasDepartureDetails = Boolean(values.departureFlightTime || normalize(values.departureFlightNumber));
+      if (hasDepartureDetails && !values.departureFlightDate) context.addIssue({ code: "custom", path: ["departureFlightDate"], message: t("departureFlightDateRequired", "Please select the departure flight date.") });
+      if (values.departureFlightDate && values.departureFlightDate < values.travelDate) context.addIssue({ code: "custom", path: ["departureFlightDate"], message: t("departureFlightDateInvalid", "Departure flight date cannot be before the service starts.") });
+    } else if (!values.destination) {
+      context.addIssue({ code: "custom", path: ["destination"], message: t("destinationRequired", "Please select a destination.") });
+    }
     if (values.pickup === "private_address" && (normalize(values.pickupAddress).length < 6 || normalize(values.pickupAddress).length > 160)) {
       context.addIssue({ code: "custom", path: ["pickupAddress"], message: t("pickupAddressRequired", "Please enter the full pick-up address.") });
     }
-    if (values.destination === "private_address" && (normalize(values.dropoffAddress).length < 6 || normalize(values.dropoffAddress).length > 160)) {
+    if (values.tripType !== "daily_chauffeur" && values.destination === "private_address" && (normalize(values.dropoffAddress).length < 6 || normalize(values.dropoffAddress).length > 160)) {
       context.addIssue({ code: "custom", path: ["dropoffAddress"], message: t("dropoffAddressRequired", "Please enter the full drop-off address.") });
     }
-    if (values.pickup === "private_address" && values.destination === "private_address" && normalize(values.pickupAddress).toLowerCase() === normalize(values.dropoffAddress).toLowerCase()) {
+    if (values.tripType !== "daily_chauffeur" && values.pickup === "private_address" && values.destination === "private_address" && normalize(values.pickupAddress).toLowerCase() === normalize(values.dropoffAddress).toLowerCase()) {
       context.addIssue({ code: "custom", path: ["dropoffAddress"], message: t("addressesMustDiffer", "Pick-up and drop-off addresses must be different.") });
     }
-    const needsHotel = values.pickup === "hotel" || values.destination !== "private_address";
+    const needsHotel = values.tripType === "daily_chauffeur" || values.pickup === "hotel" || values.destination !== "private_address";
     if (needsHotel && (normalize(values.hotelName).length < 2 || normalize(values.hotelName).length > 120)) {
       context.addIssue({ code: "custom", path: ["hotelName"], message: t("hotelNameRequired", "Please enter the hotel name.") });
     }
@@ -627,7 +664,7 @@ function createPublicBookingSchema(t) {
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(values.customerEmail.trim()) || values.customerEmail.trim().length > 120) {
       context.addIssue({ code: "custom", path: ["customerEmail"], message: t("emailInvalid", "Please enter a valid email address.") });
     }
-    for (const field of ["flightNumber", "returnFlightNumber"]) {
+    for (const field of ["flightNumber", "returnFlightNumber", "departureFlightNumber"]) {
       const flight = normalize(values[field]);
       if (flight && !/^[a-z0-9][a-z0-9 -]{1,11}$/i.test(flight)) {
         context.addIssue({ code: "custom", path: [field], message: t("flightInvalid", "Please enter a valid flight number.") });
@@ -636,6 +673,11 @@ function createPublicBookingSchema(t) {
   });
 }
 function quoteFor(values) {
+  if (values.tripType === "daily_chauffeur") {
+    const days = inclusiveDayCount(values.travelDate, values.serviceEndDate);
+    const price = days > 0 && days <= MAX_DAILY_CHAUFFEUR_DAYS ? days * DAILY_CHAUFFEUR_RATE_EUR : 0;
+    return { price, originalPrice: price };
+  }
   const route = routeCatalog[values.destination];
   if (!route) return { price: 0, originalPrice: 0 };
   const journeys = values.tripType === "round_trip" ? 2 : 1;
@@ -644,7 +686,9 @@ function quoteFor(values) {
     originalPrice: route.originalPrices[values.vehicle] * journeys
   };
 }
-function buildPublicBookingPayload(values, language) {
+function buildPublicBookingPayload(values, language, fuelTermsAccepted = false) {
+  const isDailyChauffeur = values.tripType === "daily_chauffeur";
+  if (isDailyChauffeur && !fuelTermsAccepted) throw new Error("Fuel terms must be accepted before booking");
   return {
     customer_name: normalize(values.customerName),
     customer_email: values.customerEmail.trim().toLowerCase(),
@@ -656,13 +700,19 @@ function buildPublicBookingPayload(values, language) {
     flight_arrival_time: values.arrivalTime || null,
     pickup_location: values.pickup,
     pickup_address: values.pickup === "private_address" ? normalize(values.pickupAddress) : null,
-    dropoff_location: values.destination,
-    dropoff_address: values.destination === "private_address" ? normalize(values.dropoffAddress) : null,
+    pickup_time: isDailyChauffeur ? values.pickupTime : null,
+    dropoff_location: isDailyChauffeur ? null : values.destination,
+    dropoff_address: !isDailyChauffeur && values.destination === "private_address" ? normalize(values.dropoffAddress) : null,
     pickup_date: values.travelDate,
     trip_type: values.tripType,
     return_date: values.tripType === "round_trip" ? values.returnDate : null,
     return_pickup_time: values.tripType === "round_trip" ? values.returnPickupTime : null,
     return_flight_number: values.tripType === "round_trip" ? normalize(values.returnFlightNumber).toUpperCase() || null : null,
+    service_end_date: isDailyChauffeur ? values.serviceEndDate : null,
+    departure_flight_date: isDailyChauffeur ? values.departureFlightDate || null : null,
+    departure_flight_time: isDailyChauffeur ? values.departureFlightTime || null : null,
+    departure_flight_number: isDailyChauffeur ? normalize(values.departureFlightNumber).toUpperCase() || null : null,
+    fuel_terms_accepted: isDailyChauffeur ? fuelTermsAccepted : null,
     guests: Number(values.guests),
     vehicle_type: values.vehicle === "sprinter" ? "vclass" : "vito",
     payment_method: "cash",
@@ -677,6 +727,7 @@ function FieldErrorMessage({ error }) {
   return error ? /* @__PURE__ */ jsx("span", { className: "field-error-message", role: "alert", children: error.message }) : null;
 }
 function whatsappConfirmation(values, bookingRef, price) {
+  const isDailyChauffeur = values.tripType === "daily_chauffeur";
   const routeName = routeCatalog[values.destination]?.names.en ?? values.destination;
   const lines = [
     "🚗 *Antalya VIP Tourism — New Booking*",
@@ -684,19 +735,27 @@ function whatsappConfirmation(values, bookingRef, price) {
     `👤 Name: ${values.customerName}`,
     `📞 Phone: ${values.customerPhone}`,
     `✉️ Email: ${values.customerEmail}`,
-    `↔️ Journey: ${values.tripType === "round_trip" ? "Round trip" : "One way"}`,
+    `↔️ Journey: ${isDailyChauffeur ? "Daily vehicle + chauffeur" : values.tripType === "round_trip" ? "Round trip" : "One way"}`,
     `📅 Date: ${values.travelDate}`,
     `📍 Pickup: ${values.pickup === "private_address" ? values.pickupAddress : values.pickup}`,
-    `🏁 Dropoff: ${values.destination === "private_address" ? values.dropoffAddress : routeName}`,
     `🚘 Vehicle: ${values.vehicle === "sprinter" ? "Mercedes Sprinter" : "Mercedes Vito"}`,
     `👥 Guests: ${values.guests}`
   ];
+  if (!isDailyChauffeur) lines.splice(7, 0, `🏁 Dropoff: ${values.destination === "private_address" ? values.dropoffAddress : routeName}`);
   if (values.hotelName) lines.push(`🏨 Hotel: ${values.hotelName}`);
   if (values.flightNumber) lines.push(`✈️ Flight: ${values.flightNumber}`);
   if (values.arrivalTime) lines.push(`🕐 Arrival: ${values.arrivalTime}`);
   if (values.tripType === "round_trip") {
     lines.push(`📅 Return: ${values.returnDate}`, `🕐 Return pickup: ${values.returnPickupTime}`);
     if (values.returnFlightNumber) lines.push(`✈️ Return flight: ${values.returnFlightNumber}`);
+  }
+  if (isDailyChauffeur) {
+    lines.push(
+      `📅 Last service day: ${values.serviceEndDate}`,
+      `🕐 Daily start: ${values.pickupTime}`,
+      "⛽ Fuel: Excluded — paid separately by the customer based on use"
+    );
+    if (values.departureFlightDate) lines.push(`✈️ Departure: ${values.departureFlightDate} ${values.departureFlightTime} ${values.departureFlightNumber}`.trim());
   }
   if (price) lines.push(`💶 Price: €${price}`);
   return `https://wa.me/905302655790?text=${encodeURIComponent(lines.join("\n"))}`;
@@ -711,6 +770,8 @@ function BookingForm({
   const [submitting, setSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState("");
   const [confirmation, setConfirmation] = useState(null);
+  const [pendingDailyBooking, setPendingDailyBooking] = useState(null);
+  const [fuelAcknowledged, setFuelAcknowledged] = useState(false);
   const {
     register,
     handleSubmit,
@@ -735,6 +796,11 @@ function BookingForm({
       returnPickupTime: "",
       returnFlightNumber: "",
       pickupAddress: "",
+      serviceEndDate: "",
+      pickupTime: "",
+      departureFlightDate: "",
+      departureFlightTime: "",
+      departureFlightNumber: "",
       dropoffAddress: "",
       hotelName: "",
       customerName: "",
@@ -743,14 +809,20 @@ function BookingForm({
     }
   });
   const values = watch();
+  const isDailyChauffeur = values.tripType === "daily_chauffeur";
+  const hireDays = isDailyChauffeur ? inclusiveDayCount(values.travelDate, values.serviceEndDate) : 0;
   const quote = quoteFor(values);
   const selectedRoute = routeCatalog[values.destination];
   const selectedRouteName = selectedRoute?.names[language] ?? selectedRoute?.names.en;
+  const pickupName = values.pickup === "airport" ? t("airportOption", "Antalya Airport (AYT)") : values.pickup === "hotel" ? t("hotelOption", "Hotel") : t("privateAddressOption", "Private address");
+  const destinationName = values.destination === "airport" ? t("airportOption", "Antalya Airport (AYT)") : values.destination === "private_address" ? t("privateAddressOption", "Private address") : selectedRouteName ?? values.destination;
+  const isPrivateAddressQuote = !isDailyChauffeur && values.pickup === "private_address" && values.destination === "private_address";
   const vitoFits = Number(values.guests) <= 7 && Number(values.luggage) <= 6 && Number(values.guests) + Number(values.luggage) <= 13;
   useEffect(() => {
     const today = todayISO();
     setMinimumDate(today);
     setValue("travelDate", today, { shouldValidate: false });
+    setValue("serviceEndDate", today, { shouldValidate: false });
   }, [setValue]);
   useEffect(() => {
     if (!selection) return;
@@ -765,6 +837,12 @@ function BookingForm({
     if (values.vehicle === "vito" && !vitoFits) setValue("vehicle", "sprinter", { shouldValidate: true });
   }, [setValue, values.vehicle, vitoFits]);
   useEffect(() => {
+    if (!isDailyChauffeur || !values.travelDate) return;
+    if (!values.serviceEndDate || values.serviceEndDate < values.travelDate) {
+      setValue("serviceEndDate", values.travelDate, { shouldValidate: true });
+    }
+  }, [isDailyChauffeur, setValue, values.serviceEndDate, values.travelDate]);
+  useEffect(() => {
     const params = new URLSearchParams(window.location.search);
     const bookingRef = params.get("booking_ref");
     if (params.get("payment") === "success" && bookingRef) {
@@ -776,30 +854,45 @@ function BookingForm({
     }
   }, [t]);
   useEffect(() => {
-    document.body.classList.toggle("modal-open", Boolean(confirmation));
+    document.body.classList.toggle("modal-open", Boolean(confirmation || pendingDailyBooking));
     return () => document.body.classList.remove("modal-open");
-  }, [confirmation]);
-  const submit = async (formValues) => {
+  }, [confirmation, pendingDailyBooking]);
+  const createValidatedBooking = async (formValues, acceptedFuelTerms = false) => {
     setSubmitting(true);
     setSubmitError("");
     const currentQuote = quoteFor(formValues);
     window.gtag?.("event", "begin_checkout", { currency: "EUR", value: currentQuote.price, trip_type: formValues.tripType });
     try {
-      const { createBooking } = await import("./assets/api-CUswP9Ii.js");
-      const booking = await createBooking(buildPublicBookingPayload(formValues, language));
-      const message = formValues.destination === "airport" ? t("airportReturnPrice", "The price will be confirmed after we check the pick-up address.") : formValues.destination === "private_address" ? t("customDestinationPrice", "The price will be confirmed after we check the drop-off address.") : t("cashConfirmation", "Your booking is confirmed. Pay the fixed total directly to your driver in the vehicle.");
-      setConfirmation({ ref: booking.booking_ref, whatsapp: whatsappConfirmation(formValues, booking.booking_ref, currentQuote.price), message });
-      if (currentQuote.price > 0) {
-        window.gtag?.("event", "purchase", { transaction_id: booking.booking_ref, currency: "EUR", value: currentQuote.price, payment_type: "cash" });
-        window.gtag?.("event", "conversion", { send_to: "AW-18248114753/IW8CCL7H38AcEMHEsP1D", transaction_id: booking.booking_ref, value: currentQuote.price, currency: "EUR" });
+      const { createBooking } = await import("./assets/api-CACVvh8W.js");
+      const booking = await createBooking(buildPublicBookingPayload(formValues, language, acceptedFuelTerms));
+      const confirmedPrice = Number(booking.price_eur) || currentQuote.price;
+      const message = formValues.tripType === "daily_chauffeur" ? t("dailyCashConfirmation", "Your daily chauffeur hire is confirmed. The service price excludes fuel, which is paid separately based on use.") : formValues.destination === "airport" ? t("airportReturnPrice", "The price will be confirmed after we check the pick-up address.") : formValues.destination === "private_address" ? t("customDestinationPrice", "The price will be confirmed after we check the drop-off address.") : t("cashConfirmation", "Your booking is confirmed. Pay the fixed total directly to your driver in the vehicle.");
+      setConfirmation({ ref: booking.booking_ref, whatsapp: whatsappConfirmation(formValues, booking.booking_ref, confirmedPrice), message });
+      if (confirmedPrice > 0) {
+        window.gtag?.("event", "purchase", { transaction_id: booking.booking_ref, currency: "EUR", value: confirmedPrice, payment_type: "cash" });
+        window.gtag?.("event", "conversion", { send_to: "AW-18248114753/IW8CCL7H38AcEMHEsP1D", transaction_id: booking.booking_ref, value: confirmedPrice, currency: "EUR" });
       }
-      reset({ ...formValues, destination: "", tripType: "one_way", travelDate: minimumDate || todayISO(), returnDate: "", returnPickupTime: "", returnFlightNumber: "", arrivalTime: "", flightNumber: "", customerName: "", customerPhone: "", customerEmail: "" });
+      reset({ ...formValues, destination: "", tripType: "one_way", travelDate: minimumDate || todayISO(), returnDate: "", returnPickupTime: "", returnFlightNumber: "", serviceEndDate: minimumDate || todayISO(), pickupTime: "", departureFlightDate: "", departureFlightTime: "", departureFlightNumber: "", arrivalTime: "", flightNumber: "", customerName: "", customerPhone: "", customerEmail: "" });
     } catch (error) {
       console.error("Booking error", error);
       setSubmitError(t("bookingError", "Your booking could not be completed. Please try again."));
     } finally {
       setSubmitting(false);
     }
+  };
+  const submit = (formValues) => {
+    if (formValues.tripType === "daily_chauffeur") {
+      setFuelAcknowledged(false);
+      setPendingDailyBooking(formValues);
+      return;
+    }
+    void createValidatedBooking(formValues);
+  };
+  const confirmDailyBooking = () => {
+    if (!pendingDailyBooking || !fuelAcknowledged) return;
+    const booking = pendingDailyBooking;
+    setPendingDailyBooking(null);
+    void createValidatedBooking(booking, true);
   };
   const fieldClass = (error) => `booking-field${error ? " has-error" : ""}`;
   const openTimePicker = (id) => {
@@ -817,12 +910,31 @@ function BookingForm({
           /* @__PURE__ */ jsx("span", { className: "mini-label", children: t("privateJourney", "Your private journey") }),
           /* @__PURE__ */ jsx("h2", { id: "booking-title", children: t("bookTransfer", "Book your transfer") })
         ] }),
-        /* @__PURE__ */ jsx("div", { id: "booking-price-display", className: `booking-price-display${values.destination ? " visible" : ""}`, children: selectedRoute && quote.price > 0 ? /* @__PURE__ */ jsxs(Fragment, { children: [
+        /* @__PURE__ */ jsx("div", { id: "booking-price-display", className: `booking-price-display${isDailyChauffeur || values.destination ? " visible" : ""}`, children: isDailyChauffeur ? /* @__PURE__ */ jsxs(Fragment, { children: [
           /* @__PURE__ */ jsxs("span", { className: "price-display-route", children: [
-            "AYT ",
+            t("dailyChauffeur", "Daily vehicle + chauffeur"),
+            " · ",
+            hireDays || 0,
+            " ",
+            t("days", "days")
+          ] }),
+          /* @__PURE__ */ jsx("span", { className: "price-display-prices", children: /* @__PURE__ */ jsxs("strong", { className: "price-display-amount", children: [
+            "€",
+            quote.price
+          ] }) }),
+          /* @__PURE__ */ jsxs("span", { className: "price-display-note", children: [
+            "€150 × ",
+            hireDays || 0,
+            " · ",
+            t("fuelExcludedShort", "fuel excluded")
+          ] })
+        ] }) : selectedRoute && quote.price > 0 ? /* @__PURE__ */ jsxs(Fragment, { children: [
+          /* @__PURE__ */ jsxs("span", { className: "price-display-route", children: [
+            pickupName,
+            " ",
             values.tripType === "round_trip" ? "⇄" : "→",
             " ",
-            selectedRouteName
+            destinationName
           ] }),
           /* @__PURE__ */ jsxs("span", { className: "price-display-prices", children: [
             quote.originalPrice > quote.price && /* @__PURE__ */ jsxs("span", { className: "price-display-original", children: [
@@ -842,11 +954,11 @@ function BookingForm({
           ] })
         ] }) : values.destination ? /* @__PURE__ */ jsxs(Fragment, { children: [
           /* @__PURE__ */ jsxs("span", { className: "price-display-route", children: [
-            values.pickup,
+            pickupName,
             " ",
             values.tripType === "round_trip" ? "⇄" : "→",
             " ",
-            values.destination
+            destinationName
           ] }),
           /* @__PURE__ */ jsx("span", { className: "price-display-note", children: values.destination === "airport" ? t("airportReturnPrice", "Price confirmed after address review.") : t("customDestinationPrice", "Price confirmed after address review.") })
         ] }) : null })
@@ -862,11 +974,15 @@ function BookingForm({
             /* @__PURE__ */ jsxs("label", { className: "trip-type-option", children: [
               /* @__PURE__ */ jsx("input", { type: "radio", value: "round_trip", ...register("tripType") }),
               /* @__PURE__ */ jsx("span", { children: t("roundTrip", "Round trip") })
+            ] }),
+            /* @__PURE__ */ jsxs("label", { className: "trip-type-option", children: [
+              /* @__PURE__ */ jsx("input", { type: "radio", value: "daily_chauffeur", ...register("tripType") }),
+              /* @__PURE__ */ jsx("span", { children: t("dailyChauffeur", "Daily vehicle + chauffeur") })
             ] })
           ] }),
-          /* @__PURE__ */ jsx("p", { className: "trip-type-hint", children: t("roundTripHint", "For a round trip, the return follows the same route in reverse.") })
+          /* @__PURE__ */ jsx("p", { className: "trip-type-hint", children: isDailyChauffeur ? t("dailyChauffeurHint", "Hire a private vehicle and chauffeur by the day with no kilometre or hour limit. Fuel is paid separately.") : t("roundTripHint", "For a round trip, the return follows the same route in reverse.") })
         ] }),
-        /* @__PURE__ */ jsxs("div", { className: "booking-row booking-row-journey", children: [
+        /* @__PURE__ */ jsxs("div", { className: `booking-row booking-row-journey${isDailyChauffeur ? " daily" : ""}`, children: [
           /* @__PURE__ */ jsxs("label", { className: fieldClass(errors.pickup), children: [
             /* @__PURE__ */ jsx("span", { children: t("pickup", "Pick-up") }),
             /* @__PURE__ */ jsxs("div", { className: "field-control", children: [
@@ -879,7 +995,7 @@ function BookingForm({
             ] }),
             /* @__PURE__ */ jsx(FieldErrorMessage, { error: errors.pickup })
           ] }),
-          /* @__PURE__ */ jsxs("label", { className: fieldClass(errors.destination), children: [
+          !isDailyChauffeur && /* @__PURE__ */ jsxs("label", { className: fieldClass(errors.destination), children: [
             /* @__PURE__ */ jsx("span", { children: t("destination", "Destination") }),
             /* @__PURE__ */ jsxs("div", { className: "field-control", children: [
               /* @__PURE__ */ jsx(Icon, { name: "pin", className: "icon" }),
@@ -913,7 +1029,91 @@ function BookingForm({
           ] })
         ] }),
         !vitoFits && /* @__PURE__ */ jsx("p", { id: "capacity-note", className: "capacity-note", children: t("capacitySwitchedSprinter", "We selected the Sprinter for this passenger and luggage count.") }),
-        /* @__PURE__ */ jsxs("div", { className: "booking-row booking-outbound-row", children: [
+        isDailyChauffeur ? /* @__PURE__ */ jsxs(Fragment, { children: [
+          /* @__PURE__ */ jsxs("div", { className: "booking-row booking-outbound-row daily-period-row", children: [
+            /* @__PURE__ */ jsxs("label", { className: fieldClass(errors.travelDate), children: [
+              /* @__PURE__ */ jsx("span", { children: t("serviceStartDate", "First service day") }),
+              /* @__PURE__ */ jsxs("div", { className: "field-control", children: [
+                /* @__PURE__ */ jsx(Icon, { name: "calendar", className: "icon" }),
+                /* @__PURE__ */ jsx("input", { id: "travel-date", type: "date", min: minimumDate || void 0, ...register("travelDate") })
+              ] }),
+              /* @__PURE__ */ jsx(FieldErrorMessage, { error: errors.travelDate })
+            ] }),
+            /* @__PURE__ */ jsxs("label", { className: fieldClass(errors.serviceEndDate), children: [
+              /* @__PURE__ */ jsx("span", { children: t("serviceEndDate", "Last service day") }),
+              /* @__PURE__ */ jsxs("div", { className: "field-control", children: [
+                /* @__PURE__ */ jsx(Icon, { name: "calendar", className: "icon" }),
+                /* @__PURE__ */ jsx("input", { id: "service-end-date", type: "date", min: values.travelDate || minimumDate || void 0, ...register("serviceEndDate") })
+              ] }),
+              /* @__PURE__ */ jsx(FieldErrorMessage, { error: errors.serviceEndDate })
+            ] }),
+            /* @__PURE__ */ jsxs("label", { className: `${fieldClass(errors.pickupTime)} time-booking-field`, children: [
+              /* @__PURE__ */ jsx("span", { children: t("dailyPickupTime", "Service start time") }),
+              /* @__PURE__ */ jsxs("div", { className: "field-control time-field-control", onClick: () => openTimePicker("daily-pickup-time"), children: [
+                /* @__PURE__ */ jsx(Icon, { name: "clock", className: "icon" }),
+                /* @__PURE__ */ jsx("span", { className: "time-picker-value", children: values.pickupTime || t("chooseTime", "Choose time") }),
+                /* @__PURE__ */ jsx("input", { id: "daily-pickup-time", type: "time", ...register("pickupTime") })
+              ] }),
+              /* @__PURE__ */ jsx(FieldErrorMessage, { error: errors.pickupTime })
+            ] })
+          ] }),
+          /* @__PURE__ */ jsxs("div", { className: "booking-row booking-outbound-row", children: [
+            /* @__PURE__ */ jsxs("label", { className: `${fieldClass(errors.arrivalTime)} time-booking-field`, children: [
+              /* @__PURE__ */ jsx("span", { children: t("arrivalFlightTimeOptional", "Arrival flight time (optional)") }),
+              /* @__PURE__ */ jsxs("div", { className: "field-control time-field-control", onClick: () => openTimePicker("flight-arrival-time"), children: [
+                /* @__PURE__ */ jsx(Icon, { name: "clock", className: "icon" }),
+                /* @__PURE__ */ jsx("span", { className: "time-picker-value", children: values.arrivalTime || t("chooseTime", "Choose time") }),
+                /* @__PURE__ */ jsx("input", { id: "flight-arrival-time", type: "time", ...register("arrivalTime") })
+              ] }),
+              /* @__PURE__ */ jsx(FieldErrorMessage, { error: errors.arrivalTime })
+            ] }),
+            /* @__PURE__ */ jsxs("label", { className: fieldClass(errors.flightNumber), children: [
+              /* @__PURE__ */ jsx("span", { children: t("arrivalFlightNumberOptional", "Arrival flight number (optional)") }),
+              /* @__PURE__ */ jsxs("div", { className: "field-control", children: [
+                /* @__PURE__ */ jsx(Icon, { name: "plane", className: "icon" }),
+                /* @__PURE__ */ jsx("input", { id: "flight-number", maxLength: 12, placeholder: "TK1234", ...register("flightNumber") })
+              ] }),
+              /* @__PURE__ */ jsx(FieldErrorMessage, { error: errors.flightNumber })
+            ] }),
+            /* @__PURE__ */ jsxs("div", { className: "daily-price-summary", children: [
+              /* @__PURE__ */ jsx("small", { children: t("servicePrice", "Service price") }),
+              /* @__PURE__ */ jsxs("strong", { children: [
+                "€150 × ",
+                hireDays || 0,
+                " = €",
+                quote.price
+              ] }),
+              /* @__PURE__ */ jsx("span", { children: t("fuelExcludedDetail", "Fuel is not included and is paid separately according to use.") })
+            ] })
+          ] }),
+          /* @__PURE__ */ jsxs("div", { className: "booking-row booking-return-row daily-departure-row", children: [
+            /* @__PURE__ */ jsxs("label", { className: fieldClass(errors.departureFlightDate), children: [
+              /* @__PURE__ */ jsx("span", { children: t("departureFlightDate", "Departure flight date (optional)") }),
+              /* @__PURE__ */ jsxs("div", { className: "field-control", children: [
+                /* @__PURE__ */ jsx(Icon, { name: "calendar", className: "icon" }),
+                /* @__PURE__ */ jsx("input", { id: "departure-flight-date", type: "date", min: values.travelDate || minimumDate || void 0, ...register("departureFlightDate") })
+              ] }),
+              /* @__PURE__ */ jsx(FieldErrorMessage, { error: errors.departureFlightDate })
+            ] }),
+            /* @__PURE__ */ jsxs("label", { className: `${fieldClass(errors.departureFlightTime)} time-booking-field`, children: [
+              /* @__PURE__ */ jsx("span", { children: t("departureFlightTime", "Departure flight time") }),
+              /* @__PURE__ */ jsxs("div", { className: "field-control time-field-control", onClick: () => openTimePicker("departure-flight-time"), children: [
+                /* @__PURE__ */ jsx(Icon, { name: "clock", className: "icon" }),
+                /* @__PURE__ */ jsx("span", { className: "time-picker-value", children: values.departureFlightTime || t("chooseTime", "Choose time") }),
+                /* @__PURE__ */ jsx("input", { id: "departure-flight-time", type: "time", ...register("departureFlightTime") })
+              ] }),
+              /* @__PURE__ */ jsx(FieldErrorMessage, { error: errors.departureFlightTime })
+            ] }),
+            /* @__PURE__ */ jsxs("label", { className: fieldClass(errors.departureFlightNumber), children: [
+              /* @__PURE__ */ jsx("span", { children: t("departureFlightNumber", "Departure flight number") }),
+              /* @__PURE__ */ jsxs("div", { className: "field-control", children: [
+                /* @__PURE__ */ jsx(Icon, { name: "plane", className: "icon" }),
+                /* @__PURE__ */ jsx("input", { id: "departure-flight-number", maxLength: 12, placeholder: "TK1235", ...register("departureFlightNumber") })
+              ] }),
+              /* @__PURE__ */ jsx(FieldErrorMessage, { error: errors.departureFlightNumber })
+            ] })
+          ] })
+        ] }) : /* @__PURE__ */ jsxs("div", { className: "booking-row booking-outbound-row", children: [
           /* @__PURE__ */ jsxs("label", { className: fieldClass(errors.travelDate), children: [
             /* @__PURE__ */ jsx("span", { children: t("arrivalDate", "Arrival date") }),
             /* @__PURE__ */ jsxs("div", { className: "field-control", children: [
@@ -975,7 +1175,7 @@ function BookingForm({
           ] }),
           /* @__PURE__ */ jsx(FieldErrorMessage, { error: errors.pickupAddress })
         ] }) }),
-        values.destination === "private_address" && /* @__PURE__ */ jsx("div", { className: "booking-row booking-address-row", id: "dropoff-address-row", children: /* @__PURE__ */ jsxs("label", { className: fieldClass(errors.dropoffAddress), children: [
+        !isDailyChauffeur && values.destination === "private_address" && /* @__PURE__ */ jsx("div", { className: "booking-row booking-address-row", id: "dropoff-address-row", children: /* @__PURE__ */ jsxs("label", { className: fieldClass(errors.dropoffAddress), children: [
           /* @__PURE__ */ jsx("span", { children: t("dropoffAddress", "Full drop-off address") }),
           /* @__PURE__ */ jsxs("div", { className: "field-control", children: [
             /* @__PURE__ */ jsx(Icon, { name: "pin", className: "icon" }),
@@ -1042,13 +1242,32 @@ function BookingForm({
           ] }) })
         ] }),
         /* @__PURE__ */ jsxs("div", { className: "booking-footer", children: [
-          /* @__PURE__ */ jsx("p", { className: "booking-includes", children: t("quoteIncludes", "Includes meet & greet, flight tracking, parking, waiting time and bottled water.") }),
+          /* @__PURE__ */ jsx("p", { className: "booking-includes", children: isDailyChauffeur ? t("dailyQuoteIncludes", "Includes the selected vehicle and chauffeur with no kilometre or hour limit. Fuel is excluded.") : t("quoteIncludes", "Includes meet & greet, flight tracking, parking, waiting time and bottled water.") }),
           /* @__PURE__ */ jsxs("button", { className: "quote-submit", type: "submit", id: "main-book-submit", disabled: submitting, children: [
-            /* @__PURE__ */ jsx("span", { children: submitting ? "…" : t("confirmCashBooking", "Confirm booking — pay in vehicle") }),
+            /* @__PURE__ */ jsx("span", { children: submitting ? "…" : isDailyChauffeur ? t("reviewAndConfirm", "Review and confirm") : isPrivateAddressQuote ? t("requestQuote", "Request a price quote") : t("confirmCashBooking", "Confirm booking — pay in vehicle") }),
             /* @__PURE__ */ jsx(Icon, { name: "arrow-right", className: "icon" })
           ] })
         ] }),
         submitError && /* @__PURE__ */ jsx("p", { className: "payment-error", id: "payment-error-message", role: "alert", children: submitError })
+      ] })
+    ] }),
+    pendingDailyBooking && /* @__PURE__ */ jsxs("div", { className: "quote-modal open fuel-terms-modal", id: "fuel-terms-modal", role: "dialog", "aria-modal": "true", "aria-labelledby": "fuel-terms-title", children: [
+      /* @__PURE__ */ jsx("button", { className: "modal-backdrop", "aria-label": t("close", "Close"), onClick: () => setPendingDailyBooking(null) }),
+      /* @__PURE__ */ jsxs("div", { className: "modal-card", children: [
+        /* @__PURE__ */ jsx("button", { className: "modal-close", type: "button", "aria-label": t("close", "Close"), onClick: () => setPendingDailyBooking(null), children: /* @__PURE__ */ jsx(Icon, { name: "close" }) }),
+        /* @__PURE__ */ jsxs("div", { className: "fuel-terms-content", children: [
+          /* @__PURE__ */ jsx("span", { className: "fuel-terms-icon", "aria-hidden": "true", children: "⛽" }),
+          /* @__PURE__ */ jsx("h2", { id: "fuel-terms-title", children: t("fuelTermsTitle", "Important information about fuel") }),
+          /* @__PURE__ */ jsx("p", { children: t("fuelTermsBody", "The daily €150 service fee includes the vehicle and chauffeur. Fuel is not included. You will pay the actual fuel cost separately according to use.") }),
+          /* @__PURE__ */ jsxs("label", { className: "fuel-terms-check", children: [
+            /* @__PURE__ */ jsx("input", { type: "checkbox", autoFocus: true, checked: fuelAcknowledged, onChange: (event) => setFuelAcknowledged(event.target.checked) }),
+            /* @__PURE__ */ jsx("span", { children: t("fuelTermsCheckbox", "I understand that fuel is excluded and will be paid separately based on use.") })
+          ] }),
+          /* @__PURE__ */ jsxs("div", { className: "fuel-terms-actions", children: [
+            /* @__PURE__ */ jsx("button", { className: "fuel-terms-cancel", type: "button", onClick: () => setPendingDailyBooking(null), children: t("cancel", "Cancel") }),
+            /* @__PURE__ */ jsx("button", { className: "button button-gold", type: "button", disabled: !fuelAcknowledged || submitting, onClick: confirmDailyBooking, children: submitting ? "…" : t("understandAndConfirm", "I understand and confirm") })
+          ] })
+        ] })
       ] })
     ] }),
     confirmation && /* @__PURE__ */ jsxs("div", { className: "quote-modal open", id: "quote-modal", role: "dialog", "aria-modal": "true", "aria-labelledby": "quote-modal-title", children: [
@@ -1073,7 +1292,12 @@ function BookingForm({
     ] })
   ] });
 }
-function Header({ homeHref = "", compact = false }) {
+function Header({
+  homeHref = "",
+  compact = false,
+  ctaHref,
+  ctaLabel
+}) {
   const { language, selectLanguage, t } = useLanguage();
   const [menuOpen, setMenuOpen] = useState(false);
   const [languagesOpen, setLanguagesOpen] = useState(false);
@@ -1104,23 +1328,42 @@ function Header({ homeHref = "", compact = false }) {
     setMenuOpen(false);
     selectLanguage(code);
   };
+  const scrollTo = (hash) => (e) => {
+    if (!homeHref) {
+      const id = hash.replace("#", "");
+      const el = document.getElementById(id);
+      if (el) {
+        e.preventDefault();
+        const top = id === "top" ? 0 : el.getBoundingClientRect().top + window.scrollY - 80;
+        window.scrollTo({ top, behavior: "smooth" });
+      }
+    }
+  };
   const nav = [
-    ["#fleet", t("navFleet", "Fleet")],
-    ["#services", t("navService", "Service")],
-    ["#routes", t("navRoutes", "Routes")],
-    ["#reviews", t("navReviews", "Reviews")],
-    ["#contact", t("navContact", "Contact")]
+    { hash: "#fleet", href: sectionHref("#fleet"), label: t("navFleet", "Fleet") },
+    { hash: "#services", href: sectionHref("#services"), label: t("navService", "Service") },
+    { hash: "#routes", href: sectionHref("#routes"), label: t("navRoutes", "Routes") },
+    { hash: "#reviews", href: sectionHref("#reviews"), label: t("navReviews", "Reviews") },
+    { hash: "#contact", href: sectionHref("#contact"), label: t("navContact", "Contact") }
   ];
   return /* @__PURE__ */ jsxs(Fragment, { children: [
     /* @__PURE__ */ jsxs("header", { className: `site-header${scrolled ? " scrolled" : ""}`, id: "site-header", children: [
-      /* @__PURE__ */ jsxs("a", { className: "brand", href: sectionHref("#top"), "aria-label": "Antalya VIP Tourism home", children: [
+      /* @__PURE__ */ jsxs("a", { className: "brand", href: sectionHref("#top"), onClick: scrollTo("#top"), "aria-label": "Antalya VIP Tourism home", children: [
         /* @__PURE__ */ jsx("img", { src: "/assets/optimized/logo.png", alt: "Antalya VIP Tourism", className: "brand-logo", width: "160", height: "120" }),
         /* @__PURE__ */ jsxs("span", { className: "brand-copy", children: [
           /* @__PURE__ */ jsx("strong", { children: "Antalya VIP" }),
           /* @__PURE__ */ jsx("span", { children: "Tourism" })
         ] })
       ] }),
-      /* @__PURE__ */ jsx("nav", { className: "desktop-nav", "aria-label": "Primary navigation", children: nav.map(([href, label]) => /* @__PURE__ */ jsx("a", { href: sectionHref(href), children: label }, href)) }),
+      /* @__PURE__ */ jsx("nav", { className: "desktop-nav", "aria-label": "Primary navigation", children: nav.map((item) => /* @__PURE__ */ jsx(
+        "a",
+        {
+          href: item.href,
+          onClick: item.hash ? scrollTo(item.hash) : void 0,
+          children: item.label
+        },
+        item.href
+      )) }),
       /* @__PURE__ */ jsxs("div", { className: "header-actions", children: [
         /* @__PURE__ */ jsxs("div", { className: `lang-dropdown${languagesOpen ? " open" : ""}`, ref: languageMenu, children: [
           /* @__PURE__ */ jsxs(
@@ -1157,10 +1400,18 @@ function Header({ homeHref = "", compact = false }) {
             }
           ) }, option.code)) })
         ] }),
-        /* @__PURE__ */ jsxs("a", { className: "header-cta", href: sectionHref("#booking"), children: [
-          /* @__PURE__ */ jsx("span", { children: t("bookNow", "Book now") }),
-          /* @__PURE__ */ jsx(Icon, { name: "arrow-up-right", className: "icon" })
-        ] }),
+        /* @__PURE__ */ jsxs(
+          "a",
+          {
+            className: "header-cta",
+            href: ctaHref ?? sectionHref("#booking"),
+            onClick: ctaHref ? void 0 : scrollTo("#booking"),
+            children: [
+              /* @__PURE__ */ jsx("span", { children: ctaLabel ?? t("bookNow", "Book now") }),
+              /* @__PURE__ */ jsx(Icon, { name: "arrow-up-right", className: "icon" })
+            ]
+          }
+        ),
         /* @__PURE__ */ jsxs(
           "button",
           {
@@ -1178,7 +1429,18 @@ function Header({ homeHref = "", compact = false }) {
       ] })
     ] }),
     /* @__PURE__ */ jsxs("div", { className: `mobile-menu${menuOpen ? " open" : ""}`, "aria-hidden": !menuOpen, children: [
-      /* @__PURE__ */ jsx("nav", { "aria-label": "Mobile navigation", children: nav.map(([href, label]) => /* @__PURE__ */ jsx("a", { href: sectionHref(href), onClick: () => setMenuOpen(false), children: label }, href)) }),
+      /* @__PURE__ */ jsx("nav", { "aria-label": "Mobile navigation", children: nav.map((item) => /* @__PURE__ */ jsx(
+        "a",
+        {
+          href: item.href,
+          onClick: (event) => {
+            setMenuOpen(false);
+            if (item.hash) scrollTo(item.hash)(event);
+          },
+          children: item.label
+        },
+        item.href
+      )) }),
       /* @__PURE__ */ jsx("div", { className: "mobile-language-switcher", "aria-label": "Language selection", children: languageOptions.map((option) => /* @__PURE__ */ jsxs(
         "button",
         {
@@ -1200,6 +1462,7 @@ function Header({ homeHref = "", compact = false }) {
     ] })
   ] });
 }
+const VIDEO_ID = "r79dH1HLJtk";
 const serviceItems = [
   [
     "trackingTitle",
@@ -1330,36 +1593,6 @@ const routeDisplayNames = {
   pamukkale: "Pamukkale",
   kapadokya: "Kapadokya"
 };
-const processItems = [
-  [
-    "stepOne",
-    "Choose destination",
-    "stepOneBody",
-    "Tell us where and when you would like to travel.",
-    "pin"
-  ],
-  [
-    "stepTwo",
-    "Select vehicle",
-    "stepTwoBody",
-    "Choose the space and comfort that suits your party.",
-    "car"
-  ],
-  [
-    "stepThree",
-    "Confirm booking",
-    "stepThreeBody",
-    "Receive instant confirmation with a fixed total price.",
-    "check-circle"
-  ],
-  [
-    "stepFour",
-    "Meet your driver",
-    "stepFourBody",
-    "Your chauffeur welcomes you inside the arrivals hall.",
-    "user-check"
-  ]
-];
 const fallbackFleetPhotos = [
   {
     src: "/assets/optimized/chauffeur-arrival.jpg",
@@ -1442,6 +1675,7 @@ function HomePage({ initialLanguage }) {
     atEnd: false
   });
   const routeSlider = useRef(null);
+  const [videoOpen, setVideoOpen] = useState(false);
   const routePrefix = ["de", "tr", "ru"].includes(initialLanguage) ? `/${initialLanguage}` : "";
   const routeAirportName = {
     de: "Flughafen Antalya",
@@ -1522,7 +1756,7 @@ function HomePage({ initialLanguage }) {
   }, []);
   useEffect(() => {
     if (typeof IntersectionObserver === "undefined") return;
-    const elements = Array.from(document.querySelectorAll(".service-card, .route-card, .review-card, .process-line article"));
+    const elements = Array.from(document.querySelectorAll(".service-card, .route-card, .review-card"));
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry2) => {
         if (!entry2.isIntersecting) return;
@@ -2123,30 +2357,119 @@ function HomePage({ initialLanguage }) {
           ] })
         ] })
       ] }) }),
-      /* @__PURE__ */ jsxs("section", { className: "process section", children: [
-        /* @__PURE__ */ jsx("div", { className: "section-heading", children: /* @__PURE__ */ jsxs("div", { children: [
-          /* @__PURE__ */ jsxs("div", { className: "eyebrow", children: [
-            /* @__PURE__ */ jsx("span", {}),
-            /* @__PURE__ */ jsx("p", { children: t("processEyebrow", "Simple by design") })
+      /* @__PURE__ */ jsxs("section", { className: "video-section section", children: [
+        /* @__PURE__ */ jsxs("div", { className: "section-heading", children: [
+          /* @__PURE__ */ jsxs("div", { children: [
+            /* @__PURE__ */ jsxs("div", { className: "eyebrow", children: [
+              /* @__PURE__ */ jsx("span", {}),
+              /* @__PURE__ */ jsx("p", { children: t("videoEyebrow", "How to find us") })
+            ] }),
+            /* @__PURE__ */ jsx("h2", { children: /* @__PURE__ */ jsx(
+              LineBreakText,
+              {
+                value: t(
+                  "videoTitle",
+                  "Find us at J / 777<br />after you land."
+                )
+              }
+            ) })
           ] }),
-          /* @__PURE__ */ jsx("h2", { children: /* @__PURE__ */ jsx(
-            LineBreakText,
-            {
-              value: t(
-                "processTitle",
-                "Four steps to<br />a seamless arrival."
-              )
-            }
+          /* @__PURE__ */ jsx("p", { children: t(
+            "videoSubtitle",
+            "Our chauffeurs wait at the Meet & Greet Area — meeting point J / 777. Exit baggage claim, look for our name sign, and we handle the rest."
           ) })
-        ] }) }),
-        /* @__PURE__ */ jsx("div", { className: "process-line", children: processItems.map(
-          ([titleKey, title, bodyKey, body, icon], index) => /* @__PURE__ */ jsxs("article", { children: [
-            /* @__PURE__ */ jsx("span", { children: String(index + 1).padStart(2, "0") }),
-            /* @__PURE__ */ jsx("div", { className: "process-icon", children: /* @__PURE__ */ jsx(Icon, { name: icon }) }),
-            /* @__PURE__ */ jsx("h3", { children: t(titleKey, title) }),
-            /* @__PURE__ */ jsx("p", { children: t(bodyKey, body) })
-          ] }, titleKey)
-        ) })
+        ] }),
+        /* @__PURE__ */ jsxs(
+          "div",
+          {
+            className: "video-card",
+            onClick: () => setVideoOpen(true),
+            role: "button",
+            tabIndex: 0,
+            "aria-label": t("videoWatch", "Watch the clip"),
+            onKeyDown: (e) => {
+              if (e.key === "Enter" || e.key === " ") setVideoOpen(true);
+            },
+            children: [
+              /* @__PURE__ */ jsxs("div", { className: "video-thumb", children: [
+                /* @__PURE__ */ jsx(
+                  "img",
+                  {
+                    src: `https://img.youtube.com/vi/${VIDEO_ID}/maxresdefault.jpg`,
+                    alt: t(
+                      "videoThumbnailAlt",
+                      "Antalya Airport meet and greet area"
+                    ),
+                    width: "280",
+                    height: "498"
+                  }
+                ),
+                /* @__PURE__ */ jsx("div", { className: "video-play-overlay", "aria-hidden": "true", children: /* @__PURE__ */ jsx("div", { className: "video-play-btn", children: /* @__PURE__ */ jsx(Icon, { name: "play", className: "icon" }) }) })
+              ] }),
+              /* @__PURE__ */ jsxs("div", { className: "video-copy", children: [
+                /* @__PURE__ */ jsx("span", { className: "mini-label", children: t("videoEyebrow", "How to find us") }),
+                /* @__PURE__ */ jsx("h3", { children: /* @__PURE__ */ jsx(
+                  LineBreakText,
+                  {
+                    value: t(
+                      "videoCardTitle",
+                      "Antalya Airport<br />Meet & Greet Point"
+                    )
+                  }
+                ) }),
+                /* @__PURE__ */ jsx("p", { children: t(
+                  "videoCardBody",
+                  "After collecting your luggage, exit to the Meet & Greet Area and look for meeting point J / 777. Tell our team your name — we'll take it from there."
+                ) }),
+                /* @__PURE__ */ jsxs("button", { className: "button button-outline-gold", type: "button", children: [
+                  /* @__PURE__ */ jsx("span", { children: t("videoWatch", "Watch the clip") }),
+                  /* @__PURE__ */ jsx(Icon, { name: "play", className: "icon" })
+                ] })
+              ] })
+            ]
+          }
+        ),
+        videoOpen && /* @__PURE__ */ jsx(
+          "div",
+          {
+            className: "video-overlay",
+            onClick: () => setVideoOpen(false),
+            role: "dialog",
+            "aria-label": t(
+              "videoDialogLabel",
+              "Antalya Airport meet and greet video"
+            ),
+            children: /* @__PURE__ */ jsxs(
+              "div",
+              {
+                className: "video-modal-content",
+                onClick: (e) => e.stopPropagation(),
+                children: [
+                  /* @__PURE__ */ jsx(
+                    "button",
+                    {
+                      className: "video-dialog-close",
+                      type: "button",
+                      "aria-label": t("videoClose", "Close"),
+                      onClick: () => setVideoOpen(false),
+                      children: "✕"
+                    }
+                  ),
+                  /* @__PURE__ */ jsx(
+                    ReactPlayer,
+                    {
+                      src: `https://www.youtube.com/shorts/${VIDEO_ID}`,
+                      playing: true,
+                      controls: true,
+                      width: "100%",
+                      height: "100%"
+                    }
+                  )
+                ]
+              }
+            )
+          }
+        )
       ] }),
       /* @__PURE__ */ jsxs("section", { className: "faq section", id: "faq", children: [
         /* @__PURE__ */ jsxs("div", { className: "faq-heading", children: [
@@ -2355,6 +2678,32 @@ const homeSeo = {
   tr: { locale: "tr_TR", title: "Antalya Havalimanı Transferi | Özel VIP Transfer", description: "Antalya Havalimanı'ndan Belek, Side, Kemer, Alanya ve çevresine özel sabit fiyatlı transfer. Vito ve Sprinter, uçuş takibi ve karşılama." },
   ru: { locale: "ru_RU", title: "Трансфер из аэропорта Антальи | Частный VIP-трансфер", description: "Частные трансферы по фиксированной цене из аэропорта Антальи в Белек, Сиде, Кемер, Аланью и другие курорты. Встреча и отслеживание рейса." }
 };
+const healthSeo = {
+  en: {
+    locale: "en_GB",
+    title: "Health Travel Coordination in Antalya | Antalya VIP Tourism",
+    description: "Plan your Antalya health journey with clear provider roles, private transfers, accommodation coordination and continuity of care led by authorised medical teams.",
+    service: "Health travel coordination and concierge logistics"
+  },
+  de: {
+    locale: "de_DE",
+    title: "Koordination Ihrer Gesundheitsreise in Antalya | Antalya VIP Tourism",
+    description: "Planen Sie Ihre Gesundheitsreise nach Antalya mit klaren Zuständigkeiten, privaten Transfers, Unterkunftskoordination und ärztlich geführter Betreuung.",
+    service: "Koordination von Gesundheitsreisen und Concierge-Logistik"
+  },
+  tr: {
+    locale: "tr_TR",
+    title: "Antalya Sağlık Seyahati Koordinasyonu | Antalya VIP Tourism",
+    description: "Antalya'daki sağlık seyahatinizi net görev ayrımı, özel transfer, konaklama koordinasyonu ve yetkili sağlık ekiplerinin klinik takibiyle planlayın.",
+    service: "Sağlık seyahati koordinasyonu ve concierge lojistiği"
+  },
+  ru: {
+    locale: "ru_RU",
+    title: "Координация медицинской поездки в Анталью | Antalya VIP Tourism",
+    description: "Спланируйте поездку в Анталью с чётким разделением обязанностей, частным трансфером, координацией проживания и наблюдением медицинской команды.",
+    service: "Координация медицинских поездок и консьерж-логистика"
+  }
+};
 const routeText = {
   en: {
     title: (name) => `Antalya Airport to ${name} Transfer | Private Fixed-Price Service`,
@@ -2390,18 +2739,18 @@ const alternateDescriptors = (suffix = "") => [
   ...indexableLanguages.map((language) => ({ tagName: "link", rel: "alternate", hrefLang: language, href: `${domain}${localizedPath(language, suffix)}` })),
   { tagName: "link", rel: "alternate", hrefLang: "x-default", href: `${domain}${localizedPath("en", suffix)}` }
 ];
-const socialDescriptors = (title, description, url, locale) => [
+const socialDescriptors = (title, description, url, locale, image = `${domain}/assets/optimized/og-antalya-transfer.jpg`) => [
   { property: "og:type", content: "website" },
   { property: "og:url", content: url },
   { property: "og:site_name", content: "Antalya VIP Tourism" },
   { property: "og:title", content: title },
   { property: "og:description", content: description },
-  { property: "og:image", content: `${domain}/assets/optimized/og-antalya-transfer.jpg` },
+  { property: "og:image", content: image },
   { property: "og:locale", content: locale },
   { name: "twitter:card", content: "summary_large_image" },
   { name: "twitter:title", content: title },
   { name: "twitter:description", content: description },
-  { name: "twitter:image", content: `${domain}/assets/optimized/og-antalya-transfer.jpg` }
+  { name: "twitter:image", content: image }
 ];
 function homeMeta(language) {
   const seo = homeSeo[language];
@@ -2432,6 +2781,60 @@ function homeMeta(language) {
     { "script:ld+json": { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: faq } }
   ];
 }
+function healthMeta(language) {
+  const seo = healthSeo[language];
+  const pathname = localizedPath(language, "health/");
+  const url = `${domain}${pathname}`;
+  const image = `${domain}/assets/optimized/og-health-tourism.jpg`;
+  const provider = {
+    "@type": "TravelAgency",
+    name: "Antalya VIP Tourism",
+    url: domain,
+    telephone: "+90 530 265 57 90"
+  };
+  return [
+    { title: seo.title },
+    { name: "description", content: seo.description },
+    { tagName: "link", rel: "canonical", href: url },
+    ...alternateDescriptors("health/"),
+    ...socialDescriptors(seo.title, seo.description, url, seo.locale, image),
+    {
+      "script:ld+json": {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Antalya VIP Tourism", item: `${domain}${localizedPath(language)}` },
+          { "@type": "ListItem", position: 2, name: seo.service, item: url }
+        ]
+      }
+    },
+    {
+      "script:ld+json": {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        name: seo.service,
+        description: seo.description,
+        url,
+        provider,
+        areaServed: { "@type": "AdministrativeArea", name: "Antalya, Türkiye" },
+        audience: { "@type": "Audience", audienceType: "International travellers" }
+      }
+    }
+  ];
+}
+function clinicMeta() {
+  const title = "ORIVA Clinic — Premium Estetik Klinik Web Sitesi Demosu";
+  const description = "Antalya estetik klinikleri için hazırlanmış kurgusal premium web sitesi konsepti. Gerçek klinik, hekim, hasta veya tedavi sonucu içermez.";
+  const url = `${domain}/clinic/`;
+  const image = `${domain}/assets/optimized/og-clinic-demo.jpg`;
+  return [
+    { title },
+    { name: "description", content: description },
+    { name: "robots", content: "noindex,nofollow" },
+    { tagName: "link", rel: "canonical", href: url },
+    ...socialDescriptors(title, description, url, "tr_TR", image)
+  ];
+}
 function routeMeta(language, slug) {
   const route = routeCatalog[slug];
   if (!route) return [];
@@ -2454,14 +2857,14 @@ function routeMeta(language, slug) {
   ];
 }
 const routeCopy = (language) => routeText[language];
-function loader$2({
+function loader$4({
   request
 }) {
   return {
     language: languageFromPath(new URL(request.url).pathname)
   };
 }
-const meta$2 = ({
+const meta$4 = ({
   loaderData
 }) => homeMeta(loaderData?.language ?? "en");
 const home = UNSAFE_withComponentProps(function HomeRoute() {
@@ -2478,6 +2881,1496 @@ const home = UNSAFE_withComponentProps(function HomeRoute() {
 const route4 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: home,
+  loader: loader$4,
+  meta: meta$4
+}, Symbol.toStringTag, { value: "Module" }));
+const healthCopy = {
+  en: {
+    navCta: "Request a consultation",
+    hero: {
+      eyebrow: "International health travel coordination · Antalya",
+      title: "A considered journey, built around your health.",
+      body: "Antalya VIP Tourism coordinates appointments with authorised healthcare providers, private transfers, accommodation and travel logistics. Medical assessment, treatment decisions and clinical follow-up remain exclusively with the treating physician and healthcare provider.",
+      primary: "Request a coordination call",
+      secondary: "See how it works",
+      note: "Clear roles · Written plan · Named provider · Respect for your data",
+      imageAlt: "Calm private consultation lounge overlooking the Mediterranean in Antalya"
+    },
+    principles: [
+      { title: "Every role is clear", body: "The provider, physician and coordination responsibilities are explained separately." },
+      { title: "Clinical decisions stay clinical", body: "Suitability, method and treatment scope are determined only by an authorised physician." },
+      { title: "The plan is written", body: "Timing, inclusions, exclusions and possible changes are set out before you travel." },
+      { title: "Aftercare is mapped", body: "Discharge advice, follow-up dates and the clinical contact route are clarified before departure." }
+    ],
+    consultation: {
+      label: "Start with a conversation",
+      title: "Tell us what you are considering.",
+      body: "Choose an area and request a callback. We will explain the coordination route before any medical information is requested.",
+      field: "Area of interest",
+      options: ["Hair restoration", "Aesthetic surgery", "Dental care", "Non-surgical aesthetics", "I am not sure yet"],
+      cta: "Continue on WhatsApp",
+      call: "Or call +90 530 265 57 90",
+      note: "Please do not send medical records or photographs in the first message. The receiving healthcare provider and consent process should be confirmed first.",
+      message: "Hello, I would like to request an initial health travel coordination call. Area of interest:"
+    },
+    trust: {
+      eyebrow: "A more responsible standard",
+      title: "Trust starts with the right information.",
+      intro: "Before any journey, you should know who will assess you, where the service will take place, what the indicative plan includes and who remains responsible after you return home. Our job is to make those answers visible and keep the non-clinical parts moving together."
+    },
+    services: {
+      eyebrow: "Areas we coordinate",
+      title: "One journey. Specialist-led care.",
+      intro: "We coordinate the travel around your care. The healthcare provider evaluates suitability and defines every clinical detail.",
+      suitability: "Final suitability requires a physician's assessment.",
+      items: [
+        { number: "01", title: "Hair restoration", body: "Coordination for hair-transplant enquiries, provider appointments, private transport, accommodation and the schedule around treatment.", note: "FUE, DHI or another approach is selected by the treating team after assessment.", icon: "sparkle" },
+        { number: "02", title: "Aesthetic surgery", body: "A carefully paced travel plan for facial and body procedures, including appointments, companion logistics and recovery-day transport.", note: "An online review is not final surgical approval; the plan may change after examination and tests.", icon: "user-check" },
+        { number: "03", title: "Dental care", body: "Coordination for implant, restorative and smile-related enquiries, with travel timing built around the number of clinical visits.", note: "The dental plan is confirmed after examination and any required imaging.", icon: "shield" },
+        { number: "04", title: "Non-surgical aesthetics", body: "Appointment and travel coordination for eligible physician-led aesthetic applications, with transparent provider and product information.", note: "Indication, product, dose and risks must be discussed directly with the healthcare professional.", icon: "check-circle" }
+      ]
+    },
+    roles: {
+      eyebrow: "One point of contact, two distinct roles",
+      title: "Coordination is not medical care.",
+      intro: "Keeping this boundary visible is essential. We organise the journey; authorised medical professionals assess and treat you.",
+      coordinatorTitle: "Antalya VIP Tourism coordinates",
+      coordinatorItems: ["Airport, hotel and provider transfers", "Accommodation and companion logistics", "Appointment and daily itinerary flow", "Language and communication assistance where arranged", "Non-clinical changes to the travel plan"],
+      medicalTitle: "The healthcare provider manages",
+      medicalItems: ["Diagnosis and medical suitability", "Choice and scope of treatment", "Risks, alternatives and recovery guidance", "Informed consent, procedures and medication", "Clinical follow-up and complication management"],
+      notice: "Antalya VIP Tourism is not a healthcare provider and does not diagnose, recommend a treatment method or promise a medical or aesthetic outcome."
+    },
+    journey: {
+      eyebrow: "Your journey",
+      title: "Six clear steps from first call to return.",
+      intro: "Each handover is defined so you always know who you are speaking to and what happens next.",
+      items: [
+        { title: "Initial conversation", body: "We learn your travel expectations, preferred language and approximate dates without requesting detailed health data." },
+        { title: "Provider introduction", body: "The healthcare provider responsible for the assessment is identified before records are shared." },
+        { title: "Consent and records", body: "Only necessary information is transferred to the named provider after the relevant privacy and consent information is clear." },
+        { title: "Physician pre-assessment", body: "The clinical team gives an initial view. This is not a final diagnosis, treatment approval or result guarantee." },
+        { title: "Written plan", body: "Clinical and travel costs, inclusions, exclusions, timing and possible changes are presented separately." },
+        { title: "Arrival and follow-up", body: "The final plan follows in-person assessment. Before return, the provider supplies aftercare and contact instructions." }
+      ]
+    },
+    standards: {
+      eyebrow: "Provider selection",
+      title: "What we look for before making an introduction.",
+      intro: "A polished lobby is not evidence of clinical quality. Provider identity, authority, physician responsibility and continuity of care matter more.",
+      items: ["Verifiable legal identity and physical address", "Relevant international health-tourism authorisation", "Named physician and clearly stated specialty", "Written consent, risk and alternatives process", "Transparent clinical and non-clinical pricing", "Documented discharge and follow-up route"],
+      cardLabel: "Before you decide",
+      cardTitle: "Ask for the complete picture.",
+      cardBody: "You should receive enough information to compare options calmly, without countdowns, pressure or guaranteed-result language.",
+      cardItems: ["Who will perform each stage?", "What can change after examination?", "Which costs sit outside the plan?", "Who is the clinical contact after return?"]
+    },
+    scope: {
+      eyebrow: "Transparent scope",
+      title: "No vague 'all-inclusive' promise.",
+      intro: "Medical care and travel services should be shown as separate lines. Your written plan should state exactly what is included and what remains conditional.",
+      includedTitle: "Travel coordination may include",
+      included: ["Private airport and local transfers", "Accommodation coordination", "Appointment and itinerary management", "Companion and language logistics", "Return-travel planning around clinical advice"],
+      separateTitle: "Always confirmed separately",
+      separate: ["Healthcare provider's clinical fees", "Tests, medication and additional procedures", "Flights, insurance and visa costs", "Changes following in-person examination", "Unexpected or emergency medical care"],
+      note: "The exact scope is defined in the written proposal. Flights should be booked only after the treating provider confirms the recommended schedule."
+    },
+    faq: {
+      eyebrow: "Frequently asked",
+      title: "Questions worth asking before you travel.",
+      intro: "Clear answers are part of informed decision-making.",
+      items: [
+        { question: "Does Antalya VIP Tourism provide treatment?", answer: "No. Antalya VIP Tourism is not a healthcare provider. Diagnosis, treatment and clinical follow-up are delivered by the identified authorised healthcare provider and its medical professionals." },
+        { question: "Which technique is right for me?", answer: "Only the relevant physician can answer after reviewing your history, examination findings and any necessary tests. Our coordination team does not recommend a clinical method." },
+        { question: "Is an online plan final?", answer: "No. An online review is preliminary. The plan and price may change after in-person examination or additional tests; any change should be explained and approved before treatment." },
+        { question: "Can a result be guaranteed?", answer: "No. Medical and aesthetic outcomes vary by person, procedure and recovery. A responsible provider does not guarantee a specific result." },
+        { question: "How long should I stay in Antalya?", answer: "The safe duration depends on the procedure and the treating physician's advice. Confirm the clinical schedule before booking flights." },
+        { question: "What happens after I return home?", answer: "The provider should issue written aftercare and follow-up instructions. The coordination line is not an emergency medical service; use local emergency care whenever urgent help is needed." }
+      ]
+    },
+    final: {
+      eyebrow: "Your first step",
+      title: "See the whole picture before you decide.",
+      body: "Tell us the area you are considering. We will explain what information is needed, which healthcare provider would assess it and how the travel stages fit together.",
+      cta: "Request a coordination call",
+      secondary: "Call us",
+      notice: "This is not a medical diagnosis or emergency channel. No medical documents are requested at the first step."
+    },
+    footer: {
+      tagline: "Private travel and concierge coordination in Antalya.",
+      explore: "Explore",
+      home: "Home",
+      services: "Areas",
+      process: "Process",
+      contact: "Contact",
+      legal: "Information",
+      privacy: "Privacy",
+      imprint: "Imprint",
+      disclaimer: "Antalya VIP Tourism is not a healthcare provider. All medical assessment, treatment and clinical follow-up are the responsibility of the identified authorised healthcare provider and treating professionals."
+    }
+  },
+  tr: {
+    navCta: "Ön görüşme iste",
+    hero: {
+      eyebrow: "Antalya'da uluslararası sağlık seyahati koordinasyonu",
+      title: "Sağlığınız için doğru sorularla başlayan planlı bir yolculuk.",
+      body: "Antalya VIP Tourism; yetkili sağlık kuruluşlarıyla randevu, özel transfer, konaklama ve seyahat lojistiğini koordine eder. Tıbbi değerlendirme, tedavi kararı ve klinik takip yalnızca ilgili hekim ve sağlık kuruluşu tarafından yürütülür.",
+      primary: "Koordinasyon görüşmesi iste",
+      secondary: "Süreç nasıl işliyor?",
+      note: "Rolü açık · Planı yazılı · Sağlık kuruluşu belli · Kişisel veriye saygılı",
+      imageAlt: "Antalya'da Akdeniz manzaralı sakin özel görüşme salonu"
+    },
+    principles: [
+      { title: "Kimin ne yaptığı açık", body: "Sağlık kuruluşu, hekim ve koordinasyon sorumlulukları ayrı ayrı belirtilir." },
+      { title: "Tıbbi karar hekime ait", body: "Uygunluk, yöntem ve tedavi kapsamı yalnızca yetkili hekim tarafından belirlenir." },
+      { title: "Plan ve kapsam yazılı", body: "Takvim, dahil olanlar, hariç olanlar ve olası değişiklikler seyahatten önce sunulur." },
+      { title: "Dönüş sonrası yol belli", body: "Taburculuk bilgisi, kontrol takvimi ve klinik iletişim kanalı ayrılmadan netleşir." }
+    ],
+    consultation: {
+      label: "İlk adım bir görüşme",
+      title: "Neyi değerlendirdiğinizi anlatın.",
+      body: "İlgilendiğiniz alanı seçin ve geri arama talep edin. Sağlık bilgisi istenmeden önce koordinasyon yolunu açıklayalım.",
+      field: "İlgilendiğiniz alan",
+      options: ["Saç ekimi", "Estetik cerrahi", "Diş tedavisi", "Cerrahi olmayan estetik", "Henüz emin değilim"],
+      cta: "WhatsApp'ta devam et",
+      call: "Ya da +90 530 265 57 90'ı arayın",
+      note: "İlk mesajda tıbbi belge veya fotoğraf göndermeyin. Önce değerlendirecek sağlık kuruluşu ve açık rıza süreci netleşmelidir.",
+      message: "Merhaba, sağlık seyahati koordinasyonu için ilk görüşme talep ediyorum. İlgilendiğim alan:"
+    },
+    trust: {
+      eyebrow: "Daha sorumlu bir standart",
+      title: "Güven, doğru bilgiyle başlar.",
+      intro: "Yola çıkmadan önce sizi kimin değerlendireceğini, işlemin nerede yapılacağını, planın neleri kapsadığını ve ülkenize döndükten sonra klinik sorumluluğun kimde olduğunu bilmelisiniz. Biz bu yanıtları görünür kılar, tıbbi olmayan parçaların birlikte ilerlemesini koordine ederiz."
+    },
+    services: {
+      eyebrow: "Koordine ettiğimiz alanlar",
+      title: "Tek yolculuk. Uzmanların yönettiği bakım.",
+      intro: "Biz bakımın çevresindeki seyahati koordine ederiz. Uygunluğu sağlık kuruluşu değerlendirir, tüm klinik ayrıntıları hekim belirler.",
+      suitability: "Nihai uygunluk için hekim değerlendirmesi gerekir.",
+      items: [
+        { number: "01", title: "Saç ekimi", body: "Saç ekimi talepleri için sağlık kuruluşu randevusu, özel ulaşım, konaklama ve işlem çevresindeki programın koordinasyonu.", note: "FUE, DHI veya başka bir yönteme yalnız değerlendirme sonrası sağlık ekibi karar verir.", icon: "sparkle" },
+        { number: "02", title: "Estetik cerrahi", body: "Yüz ve vücut cerrahilerinde randevu, refakatçi lojistiği ve iyileşme günlerine uygun transferleri içeren dengeli bir seyahat planı.", note: "Çevrim içi inceleme nihai ameliyat onayı değildir; plan muayene ve tetkiklerden sonra değişebilir.", icon: "user-check" },
+        { number: "03", title: "Diş tedavisi", body: "İmplant, restoratif uygulamalar ve gülüş estetiği taleplerinde ziyaret sayısına göre randevu ve seyahat koordinasyonu.", note: "Diş tedavisi planı, muayene ve gerekli görüntüleme sonrasında kesinleşir.", icon: "shield" },
+        { number: "04", title: "Cerrahi olmayan estetik", body: "Hekim tarafından yürütülen uygun estetik uygulamalar için şeffaf kuruluş ve ürün bilgisiyle randevu ve seyahat koordinasyonu.", note: "Endikasyon, ürün, doz ve riskler doğrudan sağlık meslek mensubuyla görüşülmelidir.", icon: "check-circle" }
+      ]
+    },
+    roles: {
+      eyebrow: "Tek iletişim noktası, iki ayrı rol",
+      title: "Koordinasyon, sağlık hizmeti değildir.",
+      intro: "Bu sınırın görünür kalması esastır. Biz yolculuğu düzenleriz; yetkili sağlık profesyonelleri sizi değerlendirir ve tedaviyi yürütür.",
+      coordinatorTitle: "Antalya VIP Tourism koordine eder",
+      coordinatorItems: ["Havalimanı, otel ve sağlık kuruluşu transferleri", "Konaklama ve refakatçi lojistiği", "Randevu ve günlük program akışı", "Planlanmışsa dil ve iletişim desteği", "Seyahat planındaki tıbbi olmayan değişiklikler"],
+      medicalTitle: "Sağlık kuruluşu yürütür",
+      medicalItems: ["Tanı ve tıbbi uygunluk değerlendirmesi", "Tedavi yönteminin ve kapsamının belirlenmesi", "Risk, alternatif ve iyileşme bilgisinin verilmesi", "Aydınlatılmış onam, işlem ve ilaç yönetimi", "Klinik takip ve komplikasyon yönetimi"],
+      notice: "Antalya VIP Tourism bir sağlık kuruluşu değildir; tanı koymaz, tedavi yöntemi önermez ve tıbbi ya da estetik sonuç vaat etmez."
+    },
+    journey: {
+      eyebrow: "Yolculuğunuz",
+      title: "İlk görüşmeden dönüşe altı net adım.",
+      intro: "Her geçişin sorumlusu bellidir; böylece her aşamada kiminle konuştuğunuzu ve sırada ne olduğunu bilirsiniz.",
+      items: [
+        { title: "İlk görüşme", body: "Ayrıntılı sağlık verisi istemeden seyahat beklentinizi, tercih ettiğiniz dili ve yaklaşık tarihleri öğreniriz." },
+        { title: "Sağlık kuruluşunun tanıtılması", body: "Belgeler paylaşılmadan önce değerlendirmeden sorumlu sağlık kuruluşu açıkça belirtilir." },
+        { title: "Onam ve belge aktarımı", body: "Yalnız gerekli bilgiler, mahremiyet ve onam süreci açıklandıktan sonra adı belirtilen kuruluşa iletilir." },
+        { title: "Hekim ön değerlendirmesi", body: "Sağlık ekibi ilk görüşünü verir. Bu, nihai tanı, tedavi onayı veya sonuç garantisi değildir." },
+        { title: "Yazılı plan", body: "Tıbbi ve seyahat bedelleri, kapsam, takvim ve olası değişiklikler ayrı kalemlerle sunulur." },
+        { title: "Varış ve dönüş takibi", body: "Nihai plan yüz yüze muayeneyle kesinleşir. Dönüşten önce sağlık kuruluşu bakım ve iletişim talimatlarını verir." }
+      ]
+    },
+    standards: {
+      eyebrow: "Kuruluş seçimi",
+      title: "Sizi bir kuruluşla tanıştırmadan önce aradıklarımız.",
+      intro: "Şık bir lobi klinik kalitenin kanıtı değildir. Kuruluşun kimliği, yetkisi, hekimin sorumluluğu ve bakımın devamlılığı daha önemlidir.",
+      items: ["Doğrulanabilir ticari kimlik ve fiziksel adres", "İlgili uluslararası sağlık turizmi yetkisi", "Adı ve uzmanlığı açıkça belirtilen hekim", "Yazılı onam, risk ve alternatifler süreci", "Şeffaf klinik ve seyahat fiyatlandırması", "Belgeli taburculuk ve takip planı"],
+      cardLabel: "Karar vermeden önce",
+      cardTitle: "Bütün tabloyu isteyin.",
+      cardBody: "Seçenekleri; geri sayım, baskı veya garantili sonuç dili olmadan sakin biçimde karşılaştırabilmelisiniz.",
+      cardItems: ["Her aşamayı kim uygulayacak?", "Muayene sonrası neler değişebilir?", "Hangi bedeller planın dışında?", "Dönüşte klinik muhatap kim?"]
+    },
+    scope: {
+      eyebrow: "Şeffaf kapsam",
+      title: "Belirsiz bir 'her şey dahil' vaadi yok.",
+      intro: "Sağlık hizmeti ve seyahat hizmetleri ayrı kalemlerde gösterilmelidir. Yazılı planınız nelerin dahil, nelerin koşula bağlı olduğunu açıkça belirtmelidir.",
+      includedTitle: "Seyahat koordinasyonuna dahil edilebilir",
+      included: ["Özel havalimanı ve şehir içi transferler", "Konaklama koordinasyonu", "Randevu ve program yönetimi", "Refakatçi ve dil lojistiği", "Hekim önerisine göre dönüş planlaması"],
+      separateTitle: "Her zaman ayrıca teyit edilir",
+      separate: ["Sağlık kuruluşunun klinik hizmet bedeli", "Tetkik, ilaç ve ek işlemler", "Uçuş, sigorta ve vize giderleri", "Yüz yüze muayene sonrası değişiklikler", "Beklenmedik veya acil sağlık hizmetleri"],
+      note: "Kesin kapsam yazılı teklifte tanımlanır. Uçuşlar, ilgili sağlık kuruluşu önerilen takvimi teyit ettikten sonra alınmalıdır."
+    },
+    faq: {
+      eyebrow: "Sık sorulanlar",
+      title: "Yola çıkmadan sorulması gerekenler.",
+      intro: "Açık yanıtlar, bilinçli kararın bir parçasıdır.",
+      items: [
+        { question: "Antalya VIP Tourism tedavi hizmeti sunuyor mu?", answer: "Hayır. Antalya VIP Tourism bir sağlık kuruluşu değildir. Tanı, tedavi ve klinik takip; kimliği açıklanan yetkili sağlık kuruluşu ve onun sağlık meslek mensupları tarafından yürütülür." },
+        { question: "Benim için hangi yöntem uygun?", answer: "Buna yalnızca ilgili hekim; tıbbi öykünüzü, muayene bulgularını ve gerekli tetkikleri değerlendirdikten sonra karar verebilir. Koordinasyon ekibimiz yöntem önermez." },
+        { question: "Çevrim içi plan kesin midir?", answer: "Hayır. Çevrim içi inceleme ön bilgi sağlar. Plan ve fiyat yüz yüze muayene veya ek tetkikler sonrasında değişebilir; her değişiklik işlemden önce açıklanmalı ve onayınıza sunulmalıdır." },
+        { question: "Sonuç garantisi verilebilir mi?", answer: "Hayır. Tıbbi ve estetik sonuçlar kişiye, işleme ve iyileşmeye göre değişir. Sorumlu bir sağlık kuruluşu belirli bir sonucu garanti etmez." },
+        { question: "Antalya'da ne kadar kalmalıyım?", answer: "Güvenli süre işleme ve hekimin önerisine göre değişir. Uçuşunuzu almadan önce klinik takvimi teyit edin." },
+        { question: "Ülkeme döndükten sonra ne olur?", answer: "Sağlık kuruluşu yazılı bakım ve kontrol talimatı vermelidir. Koordinasyon hattı acil sağlık hizmeti değildir; acil durumda bulunduğunuz ülkedeki acil yardım hizmetine başvurun." }
+      ]
+    },
+    final: {
+      eyebrow: "İlk adımınız",
+      title: "Karar vermeden önce bütün tabloyu görün.",
+      body: "İlgilendiğiniz alanı paylaşın. Hangi bilginin gerektiğini, değerlendirmeyi hangi sağlık kuruluşunun yapacağını ve seyahat aşamalarını açıkça anlatalım.",
+      cta: "Koordinasyon görüşmesi iste",
+      secondary: "Bizi arayın",
+      notice: "Bu kanal tıbbi tanı veya acil yardım kanalı değildir. İlk adımda sağlık belgesi istenmez."
+    },
+    footer: {
+      tagline: "Antalya'da özel seyahat ve concierge koordinasyonu.",
+      explore: "Keşfedin",
+      home: "Ana sayfa",
+      services: "Alanlar",
+      process: "Süreç",
+      contact: "İletişim",
+      legal: "Bilgi",
+      privacy: "Gizlilik",
+      imprint: "Künye",
+      disclaimer: "Antalya VIP Tourism bir sağlık kuruluşu değildir. Tüm tıbbi değerlendirme, tedavi ve klinik takip, kimliği açıklanan yetkili sağlık kuruluşu ve ilgili sağlık meslek mensuplarının sorumluluğundadır."
+    }
+  },
+  de: {
+    navCta: "Erstgespräch anfragen",
+    hero: {
+      eyebrow: "Koordination internationaler Gesundheitsreisen · Antalya",
+      title: "Eine durchdachte Reise rund um Ihre Gesundheit.",
+      body: "Antalya VIP Tourism koordiniert Termine bei autorisierten Gesundheitseinrichtungen, private Transfers, Unterkunft und Reiselogistik. Medizinische Beurteilung, Behandlungsentscheidung und klinische Nachsorge liegen ausschließlich beim behandelnden Arzt und der Gesundheitseinrichtung.",
+      primary: "Koordinationsgespräch anfragen",
+      secondary: "So funktioniert es",
+      note: "Klare Rollen · Schriftlicher Plan · Benannte Einrichtung · Respekt vor Ihren Daten",
+      imageAlt: "Ruhige private Beratungslounge mit Blick auf das Mittelmeer in Antalya"
+    },
+    principles: [
+      { title: "Jede Rolle ist klar", body: "Die Aufgaben von Einrichtung, Arzt und Koordination werden getrennt erläutert." },
+      { title: "Medizin bleibt Arztsache", body: "Eignung, Methode und Umfang bestimmt ausschließlich ein autorisierter Arzt." },
+      { title: "Der Plan ist schriftlich", body: "Zeitplan, Leistungen, Ausschlüsse und mögliche Änderungen liegen vor der Reise vor." },
+      { title: "Nachsorge ist geklärt", body: "Entlassungshinweise, Kontrollen und klinischer Kontakt stehen vor der Abreise fest." }
+    ],
+    consultation: {
+      label: "Beginnen Sie mit einem Gespräch",
+      title: "Wofür interessieren Sie sich?",
+      body: "Wählen Sie einen Bereich und bitten Sie um Rückruf. Wir erklären den Ablauf, bevor medizinische Informationen angefragt werden.",
+      field: "Interessensbereich",
+      options: ["Haartransplantation", "Ästhetische Chirurgie", "Zahnmedizin", "Nichtoperative Ästhetik", "Ich bin noch unsicher"],
+      cta: "Über WhatsApp fortfahren",
+      call: "Oder +90 530 265 57 90 anrufen",
+      note: "Bitte senden Sie in der ersten Nachricht keine Befunde oder Fotos. Zuerst müssen die empfangende Gesundheitseinrichtung und das Einwilligungsverfahren geklärt sein.",
+      message: "Hallo, ich wünsche ein Erstgespräch zur Koordination einer Gesundheitsreise. Interessensbereich:"
+    },
+    trust: {
+      eyebrow: "Ein verantwortungsvollerer Standard",
+      title: "Vertrauen beginnt mit den richtigen Informationen.",
+      intro: "Vor der Reise sollten Sie wissen, wer Sie beurteilt, wo die Leistung stattfindet, was der vorläufige Plan umfasst und wer nach Ihrer Rückkehr verantwortlich bleibt. Wir machen diese Antworten sichtbar und koordinieren die nichtmedizinischen Bestandteile."
+    },
+    services: {
+      eyebrow: "Bereiche, die wir koordinieren",
+      title: "Eine Reise. Fachärztlich geführte Versorgung.",
+      intro: "Wir koordinieren die Reise rund um Ihre Versorgung. Die Einrichtung prüft die Eignung; der Arzt legt alle klinischen Details fest.",
+      suitability: "Die endgültige Eignung erfordert eine ärztliche Beurteilung.",
+      items: [
+        { number: "01", title: "Haartransplantation", body: "Koordination von Anfragen, Terminen, Privattransfer, Unterkunft und Zeitplan rund um die Behandlung.", note: "Über FUE, DHI oder eine andere Methode entscheidet das Behandlungsteam erst nach der Beurteilung.", icon: "sparkle" },
+        { number: "02", title: "Ästhetische Chirurgie", body: "Ein angemessen getakteter Reiseplan für Gesichts- und Körpereingriffe, einschließlich Begleitperson und Transfers an Erholungstagen.", note: "Eine Online-Prüfung ist keine endgültige Operationsfreigabe; der Plan kann sich nach Untersuchung und Tests ändern.", icon: "user-check" },
+        { number: "03", title: "Zahnmedizin", body: "Koordination von Implantat-, Restaurations- und ästhetischen Anfragen mit einer Reiseplanung nach Zahl der Behandlungstermine.", note: "Der Behandlungsplan wird nach Untersuchung und erforderlicher Bildgebung bestätigt.", icon: "shield" },
+        { number: "04", title: "Nichtoperative Ästhetik", body: "Termin- und Reisekoordination für geeignete ärztlich durchgeführte Anwendungen mit transparenter Anbieter- und Produktinformation.", note: "Indikation, Produkt, Dosis und Risiken müssen direkt mit dem medizinischen Fachpersonal besprochen werden.", icon: "check-circle" }
+      ]
+    },
+    roles: {
+      eyebrow: "Ein Ansprechpartner, zwei getrennte Rollen",
+      title: "Koordination ist keine medizinische Versorgung.",
+      intro: "Diese Grenze muss sichtbar bleiben. Wir organisieren die Reise; autorisierte Fachkräfte beurteilen und behandeln Sie.",
+      coordinatorTitle: "Antalya VIP Tourism koordiniert",
+      coordinatorItems: ["Transfers zwischen Flughafen, Hotel und Einrichtung", "Unterkunft und Logistik für Begleitpersonen", "Termine und täglicher Programmablauf", "Vereinbarte Sprach- und Kommunikationshilfe", "Nichtmedizinische Änderungen des Reiseplans"],
+      medicalTitle: "Die Gesundheitseinrichtung verantwortet",
+      medicalItems: ["Diagnose und medizinische Eignung", "Wahl und Umfang der Behandlung", "Risiken, Alternativen und Genesungsinformationen", "Aufklärung, Eingriff und Medikation", "Klinische Nachsorge und Komplikationsmanagement"],
+      notice: "Antalya VIP Tourism ist keine Gesundheitseinrichtung, stellt keine Diagnose, empfiehlt keine Behandlungsmethode und verspricht kein medizinisches oder ästhetisches Ergebnis."
+    },
+    journey: {
+      eyebrow: "Ihre Reise",
+      title: "Sechs klare Schritte vom Erstgespräch bis zur Rückkehr.",
+      intro: "Jede Übergabe ist definiert, damit Sie jederzeit wissen, mit wem Sie sprechen und was als Nächstes geschieht.",
+      items: [
+        { title: "Erstgespräch", body: "Wir klären Reiseerwartungen, Sprache und ungefähre Daten, ohne detaillierte Gesundheitsdaten anzufordern." },
+        { title: "Vorstellung der Einrichtung", body: "Die für die Beurteilung verantwortliche Gesundheitseinrichtung wird vor jeder Datenübermittlung benannt." },
+        { title: "Einwilligung und Unterlagen", body: "Nur erforderliche Informationen werden nach geklärtem Datenschutz und Einwilligung an die benannte Einrichtung übermittelt." },
+        { title: "Ärztliche Vorbeurteilung", body: "Das medizinische Team gibt eine erste Einschätzung. Sie ist keine endgültige Diagnose, Freigabe oder Ergebnisgarantie." },
+        { title: "Schriftlicher Plan", body: "Medizinische und Reiseleistungen, Umfang, Zeitplan und mögliche Änderungen werden getrennt ausgewiesen." },
+        { title: "Ankunft und Nachsorge", body: "Der endgültige Plan folgt nach persönlicher Untersuchung. Vor der Rückreise erhalten Sie Nachsorge- und Kontaktangaben." }
+      ]
+    },
+    standards: {
+      eyebrow: "Auswahl der Einrichtung",
+      title: "Was wir vor einer Vorstellung prüfen.",
+      intro: "Eine elegante Lobby beweist keine klinische Qualität. Identität, Autorisierung, ärztliche Verantwortung und Versorgungskontinuität zählen mehr.",
+      items: ["Überprüfbare Rechtspersönlichkeit und Adresse", "Relevante Autorisierung für internationale Gesundheitsreisen", "Namentlich genannter Arzt mit klarer Fachrichtung", "Schriftliche Aufklärung zu Einwilligung, Risiken und Alternativen", "Transparente medizinische und nichtmedizinische Kosten", "Dokumentierte Entlassungs- und Nachsorgewege"],
+      cardLabel: "Vor Ihrer Entscheidung",
+      cardTitle: "Verlangen Sie das vollständige Bild.",
+      cardBody: "Sie sollten Optionen in Ruhe vergleichen können – ohne Countdown, Druck oder garantierte Ergebnisse.",
+      cardItems: ["Wer führt welchen Schritt durch?", "Was kann sich nach der Untersuchung ändern?", "Welche Kosten liegen außerhalb des Plans?", "Wer ist nach der Rückkehr klinisch zuständig?"]
+    },
+    scope: {
+      eyebrow: "Transparenter Umfang",
+      title: "Kein vages „Alles inklusive“.",
+      intro: "Medizinische und Reiseleistungen sollten getrennt ausgewiesen werden. Der schriftliche Plan muss klar sagen, was enthalten und was bedingt ist.",
+      includedTitle: "Die Reisekoordination kann umfassen",
+      included: ["Private Flughafen- und Lokaltransfers", "Koordination der Unterkunft", "Termin- und Programmmanagement", "Begleitpersonen- und Sprachlogistik", "Rückreiseplanung nach ärztlicher Empfehlung"],
+      separateTitle: "Immer separat zu bestätigen",
+      separate: ["Medizinische Gebühren der Einrichtung", "Tests, Medikamente und Zusatzverfahren", "Flüge, Versicherung und Visum", "Änderungen nach persönlicher Untersuchung", "Unerwartete oder dringende medizinische Versorgung"],
+      note: "Der genaue Umfang steht im schriftlichen Angebot. Buchen Sie Flüge erst, nachdem die behandelnde Einrichtung den empfohlenen Zeitplan bestätigt hat."
+    },
+    faq: {
+      eyebrow: "Häufig gefragt",
+      title: "Wichtige Fragen vor der Reise.",
+      intro: "Klare Antworten gehören zu einer informierten Entscheidung.",
+      items: [
+        { question: "Bietet Antalya VIP Tourism Behandlungen an?", answer: "Nein. Antalya VIP Tourism ist keine Gesundheitseinrichtung. Diagnose, Behandlung und klinische Nachsorge erfolgen durch die benannte autorisierte Einrichtung und deren medizinisches Fachpersonal." },
+        { question: "Welche Methode passt zu mir?", answer: "Das kann nur der zuständige Arzt nach Prüfung Ihrer Vorgeschichte, Untersuchung und notwendiger Tests entscheiden. Unser Koordinationsteam empfiehlt keine klinische Methode." },
+        { question: "Ist ein Online-Plan endgültig?", answer: "Nein. Eine Online-Prüfung ist vorläufig. Plan und Preis können sich nach persönlicher Untersuchung oder weiteren Tests ändern; Änderungen müssen vor der Behandlung erläutert und genehmigt werden." },
+        { question: "Kann ein Ergebnis garantiert werden?", answer: "Nein. Medizinische und ästhetische Ergebnisse unterscheiden sich je nach Person, Eingriff und Genesung. Ein verantwortungsvoller Anbieter garantiert kein bestimmtes Ergebnis." },
+        { question: "Wie lange sollte ich in Antalya bleiben?", answer: "Die sichere Dauer hängt vom Eingriff und der ärztlichen Empfehlung ab. Bestätigen Sie den klinischen Zeitplan vor der Flugbuchung." },
+        { question: "Was geschieht nach meiner Rückkehr?", answer: "Die Einrichtung sollte schriftliche Nachsorge- und Kontrollhinweise geben. Die Koordinationsnummer ist kein medizinischer Notdienst; nutzen Sie bei Dringlichkeit den lokalen Rettungsdienst." }
+      ]
+    },
+    final: {
+      eyebrow: "Ihr erster Schritt",
+      title: "Sehen Sie das ganze Bild, bevor Sie entscheiden.",
+      body: "Nennen Sie uns den Bereich. Wir erklären, welche Informationen benötigt werden, welche Einrichtung beurteilt und wie die Reisephasen zusammenpassen.",
+      cta: "Koordinationsgespräch anfragen",
+      secondary: "Rufen Sie uns an",
+      notice: "Dies ist kein Diagnose- oder Notfallkanal. Im ersten Schritt werden keine medizinischen Unterlagen angefordert."
+    },
+    footer: {
+      tagline: "Private Reise- und Concierge-Koordination in Antalya.",
+      explore: "Entdecken",
+      home: "Startseite",
+      services: "Bereiche",
+      process: "Ablauf",
+      contact: "Kontakt",
+      legal: "Information",
+      privacy: "Datenschutz",
+      imprint: "Impressum",
+      disclaimer: "Antalya VIP Tourism ist keine Gesundheitseinrichtung. Medizinische Beurteilung, Behandlung und Nachsorge liegen bei der benannten autorisierten Einrichtung und dem behandelnden Fachpersonal."
+    }
+  },
+  ru: {
+    navCta: "Запросить консультацию",
+    hero: {
+      eyebrow: "Координация международных медицинских поездок · Анталья",
+      title: "Продуманная поездка, построенная вокруг вашего здоровья.",
+      body: "Antalya VIP Tourism координирует запись в уполномоченные медицинские учреждения, частные трансферы, проживание и логистику. Медицинская оценка, решение о лечении и клиническое наблюдение остаются исключительной ответственностью врача и учреждения.",
+      primary: "Запросить беседу с координатором",
+      secondary: "Как всё проходит",
+      note: "Чёткие роли · Письменный план · Названное учреждение · Уважение к вашим данным",
+      imageAlt: "Спокойная частная переговорная с видом на Средиземное море в Анталье"
+    },
+    principles: [
+      { title: "Роли определены", body: "Обязанности учреждения, врача и координатора объясняются отдельно." },
+      { title: "Медицинские решения — врачу", body: "Показания, метод и объём лечения определяет только уполномоченный врач." },
+      { title: "План оформлен письменно", body: "Сроки, включённые услуги, исключения и возможные изменения известны до поездки." },
+      { title: "Наблюдение согласовано", body: "Рекомендации, контроль и клинический контакт уточняются до отъезда." }
+    ],
+    consultation: {
+      label: "Начните с разговора",
+      title: "Расскажите, что вы рассматриваете.",
+      body: "Выберите направление и запросите звонок. Сначала мы объясним процесс, не запрашивая медицинские данные.",
+      field: "Интересующее направление",
+      options: ["Трансплантация волос", "Эстетическая хирургия", "Стоматология", "Безоперационная эстетика", "Я пока не уверен(а)"],
+      cta: "Продолжить в WhatsApp",
+      call: "Или позвонить +90 530 265 57 90",
+      note: "Не отправляйте медицинские документы или фотографии в первом сообщении. Сначала должны быть определены принимающее учреждение и порядок согласия.",
+      message: "Здравствуйте, я хотел(а) бы запросить первичную беседу по координации медицинской поездки. Направление:"
+    },
+    trust: {
+      eyebrow: "Более ответственный стандарт",
+      title: "Доверие начинается с правильной информации.",
+      intro: "До поездки важно знать, кто проводит оценку, где оказывается услуга, что входит в предварительный план и кто отвечает за наблюдение после возвращения. Мы делаем эти ответы видимыми и координируем немедицинские части поездки."
+    },
+    services: {
+      eyebrow: "Что мы координируем",
+      title: "Одна поездка. Помощь под руководством специалистов.",
+      intro: "Мы организуем поездку вокруг медицинской помощи. Учреждение оценивает показания, а врач определяет все клинические детали.",
+      suitability: "Окончательные показания определяет врач.",
+      items: [
+        { number: "01", title: "Трансплантация волос", body: "Координация обращений, записи, частного транспорта, проживания и графика вокруг процедуры.", note: "FUE, DHI или иной метод выбирает медицинская команда после оценки.", icon: "sparkle" },
+        { number: "02", title: "Эстетическая хирургия", body: "Продуманный план поездки для операций на лице и теле, включая логистику сопровождающего и трансферы в дни восстановления.", note: "Онлайн-оценка не является окончательным допуском; план может измениться после осмотра и анализов.", icon: "user-check" },
+        { number: "03", title: "Стоматология", body: "Координация запросов по имплантации, реставрации и эстетике улыбки с учётом числа визитов.", note: "План подтверждается после осмотра и необходимой диагностики.", icon: "shield" },
+        { number: "04", title: "Безоперационная эстетика", body: "Запись и логистика для подходящих врачебных процедур с прозрачной информацией об учреждении и препарате.", note: "Показания, препарат, дозу и риски следует обсуждать непосредственно с медицинским специалистом.", icon: "check-circle" }
+      ]
+    },
+    roles: {
+      eyebrow: "Один контакт, две разные роли",
+      title: "Координация — не медицинская помощь.",
+      intro: "Эта граница должна быть видимой. Мы организуем поездку; уполномоченные специалисты оценивают и лечат.",
+      coordinatorTitle: "Antalya VIP Tourism координирует",
+      coordinatorItems: ["Трансферы аэропорт — отель — учреждение", "Проживание и логистику сопровождающего", "Записи и ежедневный график", "Согласованную языковую поддержку", "Немедицинские изменения плана поездки"],
+      medicalTitle: "Медицинское учреждение отвечает за",
+      medicalItems: ["Диагностику и оценку показаний", "Выбор метода и объёма лечения", "Информацию о рисках, альтернативах и восстановлении", "Информированное согласие, процедуры и лекарства", "Клиническое наблюдение и осложнения"],
+      notice: "Antalya VIP Tourism не является медицинским учреждением, не ставит диагнозы, не рекомендует метод лечения и не обещает медицинский или эстетический результат."
+    },
+    journey: {
+      eyebrow: "Ваша поездка",
+      title: "Шесть понятных шагов от первого звонка до возвращения.",
+      intro: "Каждая передача ответственности определена, чтобы вы всегда знали, с кем говорите и что будет дальше.",
+      items: [
+        { title: "Первичная беседа", body: "Мы уточняем ожидания, язык и примерные даты, не запрашивая подробных медицинских данных." },
+        { title: "Знакомство с учреждением", body: "До передачи документов называется учреждение, ответственное за оценку." },
+        { title: "Согласие и документы", body: "Только необходимые сведения передаются названному учреждению после разъяснения конфиденциальности и согласия." },
+        { title: "Предварительная оценка врача", body: "Команда даёт первичное мнение. Это не окончательный диагноз, допуск или гарантия результата." },
+        { title: "Письменный план", body: "Медицинские и дорожные расходы, объём, сроки и возможные изменения указываются отдельно." },
+        { title: "Прибытие и наблюдение", body: "Окончательный план формируется после очного осмотра. До отъезда учреждение выдаёт рекомендации и контакты." }
+      ]
+    },
+    standards: {
+      eyebrow: "Выбор учреждения",
+      title: "Что важно до знакомства с поставщиком.",
+      intro: "Красивый холл не доказывает клиническое качество. Важнее личность учреждения, полномочия, ответственность врача и непрерывность помощи.",
+      items: ["Проверяемое юридическое лицо и адрес", "Необходимое разрешение для международного медицинского туризма", "Названный врач и чётко указанная специальность", "Письменный порядок согласия, рисков и альтернатив", "Прозрачные медицинские и дорожные расходы", "Документированный план выписки и наблюдения"],
+      cardLabel: "До принятия решения",
+      cardTitle: "Запросите полную картину.",
+      cardBody: "Вы должны спокойно сравнить варианты — без таймеров, давления и обещаний гарантированного результата.",
+      cardItems: ["Кто выполняет каждый этап?", "Что может измениться после осмотра?", "Какие расходы вне плана?", "Кто остаётся клиническим контактом дома?"]
+    },
+    scope: {
+      eyebrow: "Прозрачный объём",
+      title: "Без расплывчатого «всё включено».",
+      intro: "Медицинские и дорожные услуги должны быть указаны отдельно. Письменный план ясно показывает, что включено, а что зависит от условий.",
+      includedTitle: "Координация поездки может включать",
+      included: ["Частные трансферы из аэропорта и по городу", "Координацию проживания", "Управление записями и графиком", "Логистику сопровождающего и языка", "Планирование возвращения по совету врача"],
+      separateTitle: "Всегда подтверждается отдельно",
+      separate: ["Медицинские сборы учреждения", "Анализы, лекарства и дополнительные процедуры", "Перелёты, страхование и виза", "Изменения после очного осмотра", "Неожиданная или экстренная помощь"],
+      note: "Точный объём определяется письменным предложением. Покупайте билеты после подтверждения рекомендуемого графика медицинским учреждением."
+    },
+    faq: {
+      eyebrow: "Частые вопросы",
+      title: "Что стоит спросить до поездки.",
+      intro: "Ясные ответы — часть осознанного решения.",
+      items: [
+        { question: "Antalya VIP Tourism оказывает лечение?", answer: "Нет. Antalya VIP Tourism не является медицинским учреждением. Диагностика, лечение и наблюдение выполняются названным уполномоченным учреждением и его специалистами." },
+        { question: "Какой метод подходит мне?", answer: "Это может определить только врач после изучения анамнеза, осмотра и необходимых исследований. Координаторы не рекомендуют клинический метод." },
+        { question: "Онлайн-план окончательный?", answer: "Нет. Онлайн-оценка предварительна. План и цена могут измениться после очного осмотра или исследований; изменения должны быть объяснены и согласованы до лечения." },
+        { question: "Можно гарантировать результат?", answer: "Нет. Медицинские и эстетические результаты зависят от человека, процедуры и восстановления. Ответственный поставщик не гарантирует конкретный результат." },
+        { question: "Сколько оставаться в Анталье?", answer: "Безопасный срок зависит от процедуры и совета врача. Подтвердите клинический график до покупки билетов." },
+        { question: "Что будет после возвращения?", answer: "Учреждение должно выдать письменные рекомендации и график контроля. Координационная линия не является экстренной службой; при срочной ситуации обращайтесь в местную неотложную помощь." }
+      ]
+    },
+    final: {
+      eyebrow: "Ваш первый шаг",
+      title: "Увидьте полную картину до решения.",
+      body: "Назовите интересующее направление. Мы объясним, какая информация нужна, какое учреждение проведёт оценку и как связаны этапы поездки.",
+      cta: "Запросить беседу с координатором",
+      secondary: "Позвонить нам",
+      notice: "Это не канал диагностики или экстренной помощи. На первом этапе медицинские документы не запрашиваются."
+    },
+    footer: {
+      tagline: "Частная координация поездок и консьерж-сервис в Анталье.",
+      explore: "Разделы",
+      home: "Главная",
+      services: "Направления",
+      process: "Процесс",
+      contact: "Контакты",
+      legal: "Информация",
+      privacy: "Конфиденциальность",
+      imprint: "Правовая информация",
+      disclaimer: "Antalya VIP Tourism не является медицинским учреждением. Медицинская оценка, лечение и наблюдение являются ответственностью названного уполномоченного учреждения и лечащих специалистов."
+    }
+  }
+};
+const supportedHealthLanguages = /* @__PURE__ */ new Set(["en", "de", "tr", "ru"]);
+function HealthPage() {
+  const { language } = useLanguage();
+  const copyLanguage = supportedHealthLanguages.has(language) ? language : "en";
+  const copy2 = healthCopy[copyLanguage];
+  const [selectedServiceIndex, setSelectedServiceIndex] = useState(0);
+  const [openFaq, setOpenFaq] = useState(0);
+  const prefix = ["de", "tr", "ru"].includes(copyLanguage) ? "/" + copyLanguage : "";
+  const homeHref = prefix + "/";
+  const privacyHref = copyLanguage === "de" ? "/de/datenschutz/" : copyLanguage === "tr" ? "/tr/gizlilik/" : copyLanguage === "ru" ? "/ru/privacy/" : "/privacy/";
+  const imprintHref = copyLanguage === "de" ? "/de/impressum/" : copyLanguage === "tr" ? "/tr/kunye/" : copyLanguage === "ru" ? "/ru/impressum/" : "/impressum.html";
+  const whatsappHref = "https://wa.me/905302655790?text=" + encodeURIComponent(
+    copy2.consultation.message + " " + copy2.consultation.options[selectedServiceIndex]
+  );
+  return /* @__PURE__ */ jsxs("div", { className: "health-page", children: [
+    /* @__PURE__ */ jsx(
+      Header,
+      {
+        homeHref,
+        compact: true,
+        ctaHref: "#health-consultation",
+        ctaLabel: copy2.navCta
+      }
+    ),
+    /* @__PURE__ */ jsxs("main", { children: [
+      /* @__PURE__ */ jsxs("section", { className: "health-hero", id: "top", children: [
+        /* @__PURE__ */ jsxs("picture", { className: "health-hero-media", children: [
+          /* @__PURE__ */ jsx("source", { srcSet: "/assets/optimized/health-coordination-hero.webp", type: "image/webp" }),
+          /* @__PURE__ */ jsx(
+            "img",
+            {
+              src: "/assets/optimized/health-coordination-hero.jpg",
+              alt: copy2.hero.imageAlt,
+              width: "1672",
+              height: "941",
+              fetchPriority: "high"
+            }
+          )
+        ] }),
+        /* @__PURE__ */ jsx("div", { className: "health-hero-overlay" }),
+        /* @__PURE__ */ jsxs("div", { className: "health-hero-content", children: [
+          /* @__PURE__ */ jsxs("div", { className: "health-hero-copy", children: [
+            /* @__PURE__ */ jsxs("div", { className: "eyebrow light", children: [
+              /* @__PURE__ */ jsx("span", {}),
+              /* @__PURE__ */ jsx("p", { children: copy2.hero.eyebrow })
+            ] }),
+            /* @__PURE__ */ jsxs("div", { className: "health-brand-line", children: [
+              /* @__PURE__ */ jsx("span", { children: "Health Journey" }),
+              /* @__PURE__ */ jsx("i", {}),
+              /* @__PURE__ */ jsx("strong", { children: "Antalya VIP Tourism" })
+            ] }),
+            /* @__PURE__ */ jsx("h1", { children: copy2.hero.title }),
+            /* @__PURE__ */ jsx("p", { children: copy2.hero.body }),
+            /* @__PURE__ */ jsxs("div", { className: "health-hero-actions", children: [
+              /* @__PURE__ */ jsxs("a", { className: "button button-gold", href: "#health-consultation", children: [
+                /* @__PURE__ */ jsx("span", { children: copy2.hero.primary }),
+                /* @__PURE__ */ jsx(Icon, { name: "arrow-right", className: "icon" })
+              ] }),
+              /* @__PURE__ */ jsx("a", { className: "button health-button-ghost", href: "#health-process", children: copy2.hero.secondary })
+            ] }),
+            /* @__PURE__ */ jsxs("div", { className: "health-hero-note", children: [
+              /* @__PURE__ */ jsx(Icon, { name: "shield", className: "icon" }),
+              /* @__PURE__ */ jsx("span", { children: copy2.hero.note })
+            ] })
+          ] }),
+          /* @__PURE__ */ jsxs("aside", { className: "health-consultation-card", id: "health-consultation", children: [
+            /* @__PURE__ */ jsx("span", { className: "health-card-label", children: copy2.consultation.label }),
+            /* @__PURE__ */ jsx("h2", { children: copy2.consultation.title }),
+            /* @__PURE__ */ jsx("p", { children: copy2.consultation.body }),
+            /* @__PURE__ */ jsx("label", { htmlFor: "health-service", children: copy2.consultation.field }),
+            /* @__PURE__ */ jsxs("div", { className: "health-select-wrap", children: [
+              /* @__PURE__ */ jsx(
+                "select",
+                {
+                  id: "health-service",
+                  value: selectedServiceIndex,
+                  onChange: (event) => setSelectedServiceIndex(Number(event.target.value)),
+                  children: copy2.consultation.options.map((option, index) => /* @__PURE__ */ jsx("option", { value: index, children: option }, option))
+                }
+              ),
+              /* @__PURE__ */ jsx("span", { "aria-hidden": "true", children: "⌄" })
+            ] }),
+            /* @__PURE__ */ jsxs(
+              "a",
+              {
+                className: "health-consultation-submit",
+                href: whatsappHref,
+                target: "_blank",
+                rel: "noreferrer",
+                children: [
+                  /* @__PURE__ */ jsx(Icon, { name: "whatsapp", className: "whatsapp-icon" }),
+                  /* @__PURE__ */ jsx("span", { children: copy2.consultation.cta }),
+                  /* @__PURE__ */ jsx(Icon, { name: "arrow-up-right", className: "icon" })
+                ]
+              }
+            ),
+            /* @__PURE__ */ jsx("a", { className: "health-call-link", href: "tel:+905302655790", children: copy2.consultation.call }),
+            /* @__PURE__ */ jsx("small", { children: copy2.consultation.note })
+          ] })
+        ] })
+      ] }),
+      /* @__PURE__ */ jsx("section", { className: "health-principle-bar", "aria-label": copy2.trust.title, children: copy2.principles.map((principle, index) => /* @__PURE__ */ jsxs("article", { children: [
+        /* @__PURE__ */ jsxs("span", { children: [
+          "0",
+          index + 1
+        ] }),
+        /* @__PURE__ */ jsxs("div", { children: [
+          /* @__PURE__ */ jsx("h2", { children: principle.title }),
+          /* @__PURE__ */ jsx("p", { children: principle.body })
+        ] })
+      ] }, principle.title)) }),
+      /* @__PURE__ */ jsxs("section", { className: "health-trust section", children: [
+        /* @__PURE__ */ jsxs("div", { className: "health-section-intro", children: [
+          /* @__PURE__ */ jsxs("div", { className: "eyebrow", children: [
+            /* @__PURE__ */ jsx("span", {}),
+            /* @__PURE__ */ jsx("p", { children: copy2.trust.eyebrow })
+          ] }),
+          /* @__PURE__ */ jsx("h2", { children: copy2.trust.title }),
+          /* @__PURE__ */ jsx("p", { children: copy2.trust.intro })
+        ] }),
+        /* @__PURE__ */ jsxs("div", { className: "health-trust-visual", "aria-hidden": "true", children: [
+          /* @__PURE__ */ jsxs("div", { children: [
+            /* @__PURE__ */ jsx("span", { children: "01" }),
+            /* @__PURE__ */ jsx("i", {}),
+            /* @__PURE__ */ jsx("strong", { children: "Role" })
+          ] }),
+          /* @__PURE__ */ jsxs("div", { children: [
+            /* @__PURE__ */ jsx("span", { children: "02" }),
+            /* @__PURE__ */ jsx("i", {}),
+            /* @__PURE__ */ jsx("strong", { children: "Plan" })
+          ] }),
+          /* @__PURE__ */ jsxs("div", { children: [
+            /* @__PURE__ */ jsx("span", { children: "03" }),
+            /* @__PURE__ */ jsx("i", {}),
+            /* @__PURE__ */ jsx("strong", { children: "Care" })
+          ] })
+        ] })
+      ] }),
+      /* @__PURE__ */ jsxs("section", { className: "health-services section", id: "health-services", children: [
+        /* @__PURE__ */ jsxs("div", { className: "section-heading", children: [
+          /* @__PURE__ */ jsxs("div", { children: [
+            /* @__PURE__ */ jsxs("div", { className: "eyebrow", children: [
+              /* @__PURE__ */ jsx("span", {}),
+              /* @__PURE__ */ jsx("p", { children: copy2.services.eyebrow })
+            ] }),
+            /* @__PURE__ */ jsx("h2", { children: copy2.services.title })
+          ] }),
+          /* @__PURE__ */ jsx("p", { children: copy2.services.intro })
+        ] }),
+        /* @__PURE__ */ jsx("div", { className: "health-service-grid", children: copy2.services.items.map((service) => /* @__PURE__ */ jsxs("article", { className: "health-service-card", children: [
+          /* @__PURE__ */ jsxs("div", { className: "health-service-top", children: [
+            /* @__PURE__ */ jsx("span", { children: service.number }),
+            /* @__PURE__ */ jsx(Icon, { name: service.icon, className: "icon" })
+          ] }),
+          /* @__PURE__ */ jsx("h3", { children: service.title }),
+          /* @__PURE__ */ jsx("p", { children: service.body }),
+          /* @__PURE__ */ jsxs("div", { className: "health-service-note", children: [
+            /* @__PURE__ */ jsx(Icon, { name: "check-circle", className: "icon" }),
+            /* @__PURE__ */ jsx("span", { children: service.note })
+          ] })
+        ] }, service.number)) }),
+        /* @__PURE__ */ jsxs("p", { className: "health-suitability", children: [
+          /* @__PURE__ */ jsx(Icon, { name: "shield", className: "icon" }),
+          copy2.services.suitability
+        ] })
+      ] }),
+      /* @__PURE__ */ jsx("section", { className: "health-roles section-dark", children: /* @__PURE__ */ jsxs("div", { className: "section health-roles-inner", children: [
+        /* @__PURE__ */ jsxs("div", { className: "health-section-intro health-section-intro-light", children: [
+          /* @__PURE__ */ jsxs("div", { className: "eyebrow light", children: [
+            /* @__PURE__ */ jsx("span", {}),
+            /* @__PURE__ */ jsx("p", { children: copy2.roles.eyebrow })
+          ] }),
+          /* @__PURE__ */ jsx("h2", { children: copy2.roles.title }),
+          /* @__PURE__ */ jsx("p", { children: copy2.roles.intro })
+        ] }),
+        /* @__PURE__ */ jsxs("div", { className: "health-role-grid", children: [
+          /* @__PURE__ */ jsxs("article", { children: [
+            /* @__PURE__ */ jsx("div", { className: "health-role-icon", children: /* @__PURE__ */ jsx(Icon, { name: "message", className: "icon" }) }),
+            /* @__PURE__ */ jsx("h3", { children: copy2.roles.coordinatorTitle }),
+            /* @__PURE__ */ jsx("ul", { children: copy2.roles.coordinatorItems.map((item) => /* @__PURE__ */ jsxs("li", { children: [
+              /* @__PURE__ */ jsx(Icon, { name: "check", className: "icon" }),
+              /* @__PURE__ */ jsx("span", { children: item })
+            ] }, item)) })
+          ] }),
+          /* @__PURE__ */ jsxs("article", { className: "health-role-medical", children: [
+            /* @__PURE__ */ jsx("div", { className: "health-role-icon", children: /* @__PURE__ */ jsx(Icon, { name: "user-check", className: "icon" }) }),
+            /* @__PURE__ */ jsx("h3", { children: copy2.roles.medicalTitle }),
+            /* @__PURE__ */ jsx("ul", { children: copy2.roles.medicalItems.map((item) => /* @__PURE__ */ jsxs("li", { children: [
+              /* @__PURE__ */ jsx(Icon, { name: "check", className: "icon" }),
+              /* @__PURE__ */ jsx("span", { children: item })
+            ] }, item)) })
+          ] })
+        ] }),
+        /* @__PURE__ */ jsxs("div", { className: "health-role-notice", children: [
+          /* @__PURE__ */ jsx(Icon, { name: "shield", className: "icon" }),
+          /* @__PURE__ */ jsx("p", { children: copy2.roles.notice })
+        ] })
+      ] }) }),
+      /* @__PURE__ */ jsxs("section", { className: "health-process section", id: "health-process", children: [
+        /* @__PURE__ */ jsxs("div", { className: "section-heading", children: [
+          /* @__PURE__ */ jsxs("div", { children: [
+            /* @__PURE__ */ jsxs("div", { className: "eyebrow", children: [
+              /* @__PURE__ */ jsx("span", {}),
+              /* @__PURE__ */ jsx("p", { children: copy2.journey.eyebrow })
+            ] }),
+            /* @__PURE__ */ jsx("h2", { children: copy2.journey.title })
+          ] }),
+          /* @__PURE__ */ jsx("p", { children: copy2.journey.intro })
+        ] }),
+        /* @__PURE__ */ jsx("ol", { className: "health-process-list", children: copy2.journey.items.map((step, index) => /* @__PURE__ */ jsxs("li", { children: [
+          /* @__PURE__ */ jsx("div", { className: "health-process-number", children: String(index + 1).padStart(2, "0") }),
+          /* @__PURE__ */ jsxs("div", { children: [
+            /* @__PURE__ */ jsx("h3", { children: step.title }),
+            /* @__PURE__ */ jsx("p", { children: step.body })
+          ] })
+        ] }, step.title)) })
+      ] }),
+      /* @__PURE__ */ jsx("section", { className: "health-standards", children: /* @__PURE__ */ jsxs("div", { className: "section health-standards-grid", children: [
+        /* @__PURE__ */ jsxs("div", { children: [
+          /* @__PURE__ */ jsxs("div", { className: "eyebrow", children: [
+            /* @__PURE__ */ jsx("span", {}),
+            /* @__PURE__ */ jsx("p", { children: copy2.standards.eyebrow })
+          ] }),
+          /* @__PURE__ */ jsx("h2", { children: copy2.standards.title }),
+          /* @__PURE__ */ jsx("p", { children: copy2.standards.intro }),
+          /* @__PURE__ */ jsx("ul", { className: "health-check-list", children: copy2.standards.items.map((item) => /* @__PURE__ */ jsxs("li", { children: [
+            /* @__PURE__ */ jsx(Icon, { name: "check", className: "icon" }),
+            /* @__PURE__ */ jsx("span", { children: item })
+          ] }, item)) })
+        ] }),
+        /* @__PURE__ */ jsxs("aside", { className: "health-question-card", children: [
+          /* @__PURE__ */ jsx("span", { children: copy2.standards.cardLabel }),
+          /* @__PURE__ */ jsx("h3", { children: copy2.standards.cardTitle }),
+          /* @__PURE__ */ jsx("p", { children: copy2.standards.cardBody }),
+          /* @__PURE__ */ jsx("ol", { children: copy2.standards.cardItems.map((item, index) => /* @__PURE__ */ jsxs("li", { children: [
+            /* @__PURE__ */ jsxs("span", { children: [
+              "0",
+              index + 1
+            ] }),
+            item
+          ] }, item)) })
+        ] })
+      ] }) }),
+      /* @__PURE__ */ jsxs("section", { className: "health-scope section", children: [
+        /* @__PURE__ */ jsxs("div", { className: "health-section-intro", children: [
+          /* @__PURE__ */ jsxs("div", { className: "eyebrow", children: [
+            /* @__PURE__ */ jsx("span", {}),
+            /* @__PURE__ */ jsx("p", { children: copy2.scope.eyebrow })
+          ] }),
+          /* @__PURE__ */ jsx("h2", { children: copy2.scope.title }),
+          /* @__PURE__ */ jsx("p", { children: copy2.scope.intro })
+        ] }),
+        /* @__PURE__ */ jsxs("div", { className: "health-scope-grid", children: [
+          /* @__PURE__ */ jsxs("article", { children: [
+            /* @__PURE__ */ jsx("span", { className: "health-scope-index", children: "A" }),
+            /* @__PURE__ */ jsx("h3", { children: copy2.scope.includedTitle }),
+            /* @__PURE__ */ jsx("ul", { children: copy2.scope.included.map((item) => /* @__PURE__ */ jsxs("li", { children: [
+              /* @__PURE__ */ jsx(Icon, { name: "check-circle", className: "icon" }),
+              item
+            ] }, item)) })
+          ] }),
+          /* @__PURE__ */ jsxs("article", { children: [
+            /* @__PURE__ */ jsx("span", { className: "health-scope-index", children: "B" }),
+            /* @__PURE__ */ jsx("h3", { children: copy2.scope.separateTitle }),
+            /* @__PURE__ */ jsx("ul", { children: copy2.scope.separate.map((item) => /* @__PURE__ */ jsxs("li", { children: [
+              /* @__PURE__ */ jsx("span", { className: "health-minus", children: "—" }),
+              item
+            ] }, item)) })
+          ] })
+        ] }),
+        /* @__PURE__ */ jsx("p", { className: "health-scope-note", children: copy2.scope.note })
+      ] }),
+      /* @__PURE__ */ jsxs("section", { className: "health-faq section", id: "health-faq", children: [
+        /* @__PURE__ */ jsxs("div", { className: "health-faq-heading", children: [
+          /* @__PURE__ */ jsxs("div", { className: "eyebrow", children: [
+            /* @__PURE__ */ jsx("span", {}),
+            /* @__PURE__ */ jsx("p", { children: copy2.faq.eyebrow })
+          ] }),
+          /* @__PURE__ */ jsx("h2", { children: copy2.faq.title }),
+          /* @__PURE__ */ jsx("p", { children: copy2.faq.intro })
+        ] }),
+        /* @__PURE__ */ jsx("div", { className: "health-accordion", children: copy2.faq.items.map((item, index) => /* @__PURE__ */ jsxs("article", { className: openFaq === index ? "open" : "", children: [
+          /* @__PURE__ */ jsxs(
+            "button",
+            {
+              type: "button",
+              "aria-expanded": openFaq === index,
+              onClick: () => setOpenFaq(openFaq === index ? -1 : index),
+              children: [
+                /* @__PURE__ */ jsxs("span", { className: "health-faq-number", children: [
+                  "0",
+                  index + 1
+                ] }),
+                /* @__PURE__ */ jsx("span", { children: item.question }),
+                /* @__PURE__ */ jsx("i", {})
+              ]
+            }
+          ),
+          /* @__PURE__ */ jsx("div", { className: "health-faq-answer", children: /* @__PURE__ */ jsx("p", { children: item.answer }) })
+        ] }, item.question)) })
+      ] }),
+      /* @__PURE__ */ jsxs("section", { className: "health-final section-dark", id: "health-contact", children: [
+        /* @__PURE__ */ jsx("div", { className: "health-final-glow" }),
+        /* @__PURE__ */ jsxs("div", { className: "section health-final-inner", children: [
+          /* @__PURE__ */ jsxs("div", { children: [
+            /* @__PURE__ */ jsxs("div", { className: "eyebrow light", children: [
+              /* @__PURE__ */ jsx("span", {}),
+              /* @__PURE__ */ jsx("p", { children: copy2.final.eyebrow })
+            ] }),
+            /* @__PURE__ */ jsx("h2", { children: copy2.final.title }),
+            /* @__PURE__ */ jsx("p", { children: copy2.final.body })
+          ] }),
+          /* @__PURE__ */ jsxs("div", { className: "health-final-actions", children: [
+            /* @__PURE__ */ jsxs("a", { className: "button button-gold", href: "#health-consultation", children: [
+              /* @__PURE__ */ jsx("span", { children: copy2.final.cta }),
+              /* @__PURE__ */ jsx(Icon, { name: "arrow-right", className: "icon" })
+            ] }),
+            /* @__PURE__ */ jsxs("a", { className: "button health-button-ghost", href: "tel:+905302655790", children: [
+              /* @__PURE__ */ jsx(Icon, { name: "phone", className: "icon" }),
+              /* @__PURE__ */ jsx("span", { children: copy2.final.secondary })
+            ] }),
+            /* @__PURE__ */ jsx("small", { children: copy2.final.notice })
+          ] })
+        ] })
+      ] })
+    ] }),
+    /* @__PURE__ */ jsxs("footer", { className: "health-footer", children: [
+      /* @__PURE__ */ jsxs("div", { className: "health-footer-main", children: [
+        /* @__PURE__ */ jsxs("div", { children: [
+          /* @__PURE__ */ jsxs("a", { className: "brand footer-brand", href: homeHref, children: [
+            /* @__PURE__ */ jsx("img", { src: "/assets/optimized/logo.png", alt: "Antalya VIP Tourism", className: "brand-logo", width: "160", height: "120", loading: "lazy" }),
+            /* @__PURE__ */ jsxs("span", { className: "brand-copy", children: [
+              /* @__PURE__ */ jsx("strong", { children: "Antalya VIP" }),
+              /* @__PURE__ */ jsx("span", { children: "Tourism" })
+            ] })
+          ] }),
+          /* @__PURE__ */ jsx("p", { children: copy2.footer.tagline })
+        ] }),
+        /* @__PURE__ */ jsxs("div", { children: [
+          /* @__PURE__ */ jsx("span", { children: copy2.footer.explore }),
+          /* @__PURE__ */ jsx("a", { href: homeHref, children: copy2.footer.home }),
+          /* @__PURE__ */ jsx("a", { href: "#health-services", children: copy2.footer.services }),
+          /* @__PURE__ */ jsx("a", { href: "#health-process", children: copy2.footer.process }),
+          /* @__PURE__ */ jsx("a", { href: "#health-contact", children: copy2.footer.contact })
+        ] }),
+        /* @__PURE__ */ jsxs("div", { children: [
+          /* @__PURE__ */ jsx("span", { children: copy2.footer.legal }),
+          /* @__PURE__ */ jsx("a", { href: privacyHref, children: copy2.footer.privacy }),
+          /* @__PURE__ */ jsx("a", { href: imprintHref, children: copy2.footer.imprint }),
+          /* @__PURE__ */ jsx("a", { href: "mailto:support@antalyaviptourism.com", children: "support@antalyaviptourism.com" })
+        ] })
+      ] }),
+      /* @__PURE__ */ jsxs("div", { className: "health-footer-disclaimer", children: [
+        /* @__PURE__ */ jsx(Icon, { name: "shield", className: "icon" }),
+        /* @__PURE__ */ jsx("p", { children: copy2.footer.disclaimer })
+      ] }),
+      /* @__PURE__ */ jsxs("div", { className: "footer-bottom", children: [
+        /* @__PURE__ */ jsx("span", { children: "© 2026 Antalya VIP Tourism" }),
+        /* @__PURE__ */ jsx("span", { children: "Antalya · Türkiye" })
+      ] })
+    ] }),
+    /* @__PURE__ */ jsxs("a", { className: "health-mobile-cta", href: "#health-consultation", children: [
+      /* @__PURE__ */ jsx("span", { children: copy2.navCta }),
+      /* @__PURE__ */ jsx(Icon, { name: "arrow-right", className: "icon" })
+    ] })
+  ] });
+}
+const healthStyles = "/assets/health-n6733FFm.css";
+const links$1 = () => [{
+  rel: "stylesheet",
+  href: healthStyles
+}];
+function loader$3({
+  request
+}) {
+  return {
+    language: languageFromPath(new URL(request.url).pathname)
+  };
+}
+const meta$3 = ({
+  loaderData
+}) => healthMeta(loaderData?.language ?? "en");
+const health = UNSAFE_withComponentProps(function HealthRoute() {
+  const {
+    language
+  } = useLoaderData();
+  return /* @__PURE__ */ jsxs(LanguageProvider, {
+    initialLanguage: language,
+    children: [/* @__PURE__ */ jsx(HealthPage, {}), /* @__PURE__ */ jsx(CookieConsent, {})]
+  });
+});
+const route8 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+  __proto__: null,
+  default: health,
+  links: links$1,
+  loader: loader$3,
+  meta: meta$3
+}, Symbol.toStringTag, { value: "Module" }));
+const demoWhatsApp = "https://wa.me/905302655790?text=" + encodeURIComponent(
+  "Merhaba, kliniğim için ORIVA benzeri markama özel bir web sitesi demosu hakkında görüşmek istiyorum."
+);
+const services = [
+  {
+    index: "01",
+    title: "Yüz & burun estetiği",
+    text: "Burun, göz çevresi ve yüz cerrahisine ilişkin talepler; anatomi, işlev, tıbbi öykü ve kişisel beklentiler birlikte ele alınarak değerlendirilir.",
+    note: "Nihai uygunluk yalnız hekim muayenesi ve gerekli tetkiklerden sonra belirlenebilir."
+  },
+  {
+    index: "02",
+    title: "Vücut estetiği",
+    text: "Meme ve vücut şekillendirme işlemleri; cerrahi değerlendirme, iyileşme beklentisi ve anestezi uygunluğuyla birlikte kişiye özel planlanır.",
+    note: "Her cerrahi işlem risk içerir ve her işlem herkes için uygun değildir."
+  },
+  {
+    index: "03",
+    title: "Saç restorasyonu",
+    text: "Saç kaybının tipi, donör alanın kapasitesi, saç çizgisi beklentisi ve gelecekteki kayıp ihtimali aynı plan içinde değerlendirilir.",
+    note: "Yöntem, olası greft planı ve uygunluk hekim değerlendirmesine bağlıdır; sonuç garanti edilemez."
+  },
+  {
+    index: "04",
+    title: "Gülüş estetiği",
+    text: "İmplant, restoratif uygulamalar ve estetik diş hekimliği seçenekleri; ağız sağlığı, görüntüleme ve fonksiyonla birlikte aşamalı olarak planlanır.",
+    note: "Uzaktan hazırlanan fikir ön değerlendirmedir; nihai plan klinik ve radyolojik muayeneyle kesinleşir."
+  }
+];
+const doctors = [
+  {
+    name: "Dr. Ada Varel",
+    role: "Estetik cerrahi odak alanı",
+    image: "doctor-ada-varel",
+    alt: "Yapay olarak üretilmiş kurgu hekim portresi Ada Varel",
+    education: "Temsili tıp eğitimi ve estetik-rekonstrüktif cerrahi odaklı ileri eğitim kurgusu; yüz anatomisi, cerrahi güvenlik ve hasta iletişimi modülleri.",
+    focus: "Yüz ve vücut cerrahisinde uygunluk değerlendirmesi, oran odaklı planlama ve iyileşme süreci iletişimi.",
+    principle: "Hastanın yalnız neyi değiştirmek istediğini değil, neyi korumak istediğini de anlamak."
+  },
+  {
+    name: "Dr. Kerem Loran",
+    role: "Saç restorasyonu odak alanı",
+    image: "doctor-kerem-loran",
+    alt: "Yapay olarak üretilmiş kurgu hekim portresi Kerem Loran",
+    education: "Temsili tıp eğitimi; saçlı deri anatomisi, donör alan değerlendirmesi ve cerrahi saç restorasyonu üzerine mesleki gelişim kurgusu.",
+    focus: "Saç çizgisi planlaması, donör kapasitesinin korunması ve uzun vadeli saç kaybının birlikte değerlendirilmesi.",
+    principle: "En yüksek sayıyı değil, mevcut kaynakla sürdürülebilir bir planı konuşmak."
+  },
+  {
+    name: "Dt. Nil Arven",
+    role: "Estetik diş hekimliği odak alanı",
+    image: "doctor-nil-arven",
+    alt: "Yapay olarak üretilmiş kurgu diş hekimi portresi Nil Arven",
+    education: "Temsili diş hekimliği eğitimi; restoratif diş hekimliği, kapanış ilişkileri ve dijital gülüş planlaması odaklı eğitim kurgusu.",
+    focus: "Diş dokusunu koruyan alternatifler, aşamalı tedavi planlaması ve işlev-estetik dengesi.",
+    principle: "Görsel değişimi ağız sağlığı ve doğal fonksiyonla birlikte değerlendirmek."
+  }
+];
+const cases = [
+  {
+    number: "VAKA KURGUSU 01",
+    title: "Doğal saç çizgisi planlaması",
+    image: "case-hairline",
+    alt: "Yapay olarak üretilmiş temsili saç çizgisi değerlendirme sahnesi",
+    question: "Donör alan korunarak uzun dönemli bir plan nasıl yapılır?",
+    assessment: "Saç kaybı tipi · Donör kapasitesi · Yüz oranları · Gelecek kayıp olasılığı",
+    output: "Örnek değerlendirme gündemi ve takip aşamaları"
+  },
+  {
+    number: "VAKA KURGUSU 02",
+    title: "Yüz oranlarını koruyan yaklaşım",
+    image: "case-facial-profile",
+    alt: "Yapay olarak üretilmiş temsili yüz profili görüşmesi",
+    question: "Profil görünümü ve işlevsel ihtiyaçlar birlikte nasıl değerlendirilir?",
+    assessment: "Anatomi · İşlev · Doku özellikleri · Kişisel beklenti · Alternatifler",
+    output: "Örnek muayene gündemi ve iyileşme iletişim planı"
+  },
+  {
+    number: "VAKA KURGUSU 03",
+    title: "Doku koruyucu gülüş planı",
+    image: "case-smile-planning",
+    alt: "Yapay olarak üretilmiş temsili dijital gülüş planlama görüşmesi",
+    question: "Estetik beklenti, ağız sağlığı ve fonksiyonla nasıl dengelenir?",
+    assessment: "Diş eti · Kapanış · Görüntüleme · Koruyucu seçenekler · Zaman planı",
+    output: "Örnek tedavi karar çerçevesi ve ziyaret planı"
+  }
+];
+const personas = [
+  {
+    code: "A",
+    context: "Yurt dışından gelen cerrahi adayı",
+    quote: "Yolculuk yapmadan önce kimin, neyi ve ne zaman yapacağını bilmek istiyorum."
+  },
+  {
+    code: "B",
+    context: "Saç restorasyonu araştıran ziyaretçi",
+    quote: "Sadece sonuç görseli değil, donör alanın nasıl değerlendirildiğini de anlamak istiyorum."
+  },
+  {
+    code: "C",
+    context: "Diş tedavisi planlayan ziyaretçi",
+    quote: "Ülkeme döndükten sonra hangi durumda kime ulaşacağımın açık olmasını istiyorum."
+  }
+];
+const journey = [
+  ["İlk temas", "Genel beklenti, tercih edilen dil, sağlık öyküsü ve zaman planı dinlenir."],
+  ["Doğru uzmanlık", "Talep, ilgili tıp veya diş hekimliği uzmanlık alanına yönlendirilir."],
+  ["Ön değerlendirme", "Gerekli bilgiler güvenli kanalla incelenir; bunun nihai tanı olmadığı açıkça belirtilir."],
+  ["Yazılı plan", "Seçenekler, riskler, alternatifler, tahmini takvim ve ücret kapsamı anlatılır."],
+  ["Muayene & onam", "Nihai karar yüz yüze muayene, gerekli tetkikler ve aydınlatılmış onam sonrasında verilir."],
+  ["Bakım & takip", "Bakım talimatları, kontrol tarihleri ve klinik iletişim yolu yazılı paylaşılır."]
+];
+const safeguards = [
+  ["Yetki ve ruhsat", "Canlı projede resmi belge numarası ve doğrulama bağlantısı burada gösterilir."],
+  ["Uzmanlık doğrulaması", "Hekimin mevzuatta tanımlı uzmanlığı ve çalıştığı sağlık kuruluşu açıkça belirtilir."],
+  ["Gerçek tesis görünürlüğü", "Stok görsel yerine gerçek adres ve izinli tesis fotoğrafları kullanılır."],
+  ["Anestezi ve acil plan", "Sorumlu ekip, tesis altyapısı ve sevk prosedürü işlem öncesinde açıklanır."],
+  ["Onam ve mahremiyet", "Sağlık verisinin kimle, hangi amaçla paylaşılacağı görünür biçimde anlatılır."],
+  ["Takip sorumluluğu", "Dönüş sonrası klinik sorumluluk ve ulaşılacak kanal önceden belirlenir."]
+];
+const faqs = [
+  ["ORIVA gerçek bir klinik mi?", "Hayır. ORIVA, premium klinik web deneyimini göstermek için oluşturulmuş kurgusal bir marka konseptidir. Bu sayfa randevu veya sağlık hizmeti sunmaz."],
+  ["Bu sayfadaki hekimler gerçek mi?", "Hayır. İsimler, portreler, eğitim anlatıları ve deneyim alanları tamamen temsili tasarım içeriğidir; diploma, ruhsat veya meslek kaydı beyanı değildir."],
+  ["Vaka ve hasta anlatıları gerçek mi?", "Hayır. Hiçbiri gerçek hastayı, tedaviyi, yorumu veya sonucu temsil etmez. Canlı projede yalnız açık kullanım izni bulunan, doğrulanabilir materyaller kullanılmalıdır."],
+  ["Bir işlemin uygunluğuna çevrim içi karar verilebilir mi?", "Hayır. Çevrim içi görüşme yalnız ön bilgi sağlayabilir. Uygunluk, ilgili hekimin muayenesi ve gerekli tetkikler sonrasında belirlenir."],
+  ["Tedavi sonucu garanti edilebilir mi?", "Hayır. Tıbbi ve estetik sonuçlar kişiden kişiye değişir; belirli bir sonuç, greft sayısı veya iyileşme süresi garanti edilemez."],
+  ["Gerçek klinik sitesinde fiyat nasıl sunulmalı?", "Fiyat; kişisel plan, işlem kapsamı, tesis, tetkik ve takip ihtiyacına göre kalemlendirilmelidir. Kapsam değişirse nedeni ve ek maliyet karar öncesinde açıklanmalıdır."],
+  ["Demo sağlık verisi topluyor mu?", "Hayır. Bu sayfadaki iletişim çağrısı yalnız klinik web sitesi sunumu içindir; sağlık raporu, hasta fotoğrafı veya tıbbi bilgi kabul etmez."]
+];
+function Arrow({ down = false }) {
+  return /* @__PURE__ */ jsx("svg", { viewBox: "0 0 24 24", "aria-hidden": "true", children: /* @__PURE__ */ jsx("path", { d: down ? "M6 9l6 6 6-6" : "M5 19L19 5M8 5h11v11" }) });
+}
+function ClinicPicture({
+  name,
+  alt,
+  className,
+  eager = false
+}) {
+  return /* @__PURE__ */ jsxs("picture", { className, children: [
+    /* @__PURE__ */ jsx("source", { srcSet: `/assets/optimized/clinic/${name}.webp`, type: "image/webp" }),
+    /* @__PURE__ */ jsx(
+      "img",
+      {
+        src: `/assets/optimized/clinic/${name}.jpg`,
+        alt,
+        loading: eager ? "eager" : "lazy",
+        fetchPriority: eager ? "high" : "auto"
+      }
+    )
+  ] });
+}
+function ClinicPage() {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [openFaq, setOpenFaq] = useState(0);
+  useEffect(() => {
+    document.body.classList.toggle("clinic-menu-open", menuOpen);
+    return () => document.body.classList.remove("clinic-menu-open");
+  }, [menuOpen]);
+  const closeMenu = () => setMenuOpen(false);
+  return /* @__PURE__ */ jsxs("div", { className: "clinic-page", id: "clinic-top", children: [
+    /* @__PURE__ */ jsxs("aside", { className: "clinic-demo-ribbon", role: "note", children: [
+      /* @__PURE__ */ jsx("strong", { children: "KURGU SATIŞ DEMOSU" }),
+      /* @__PURE__ */ jsx("span", { children: "ORIVA gerçek bir sağlık kuruluşu değildir; tüm kişi, vaka ve anlatılar temsilidir." })
+    ] }),
+    /* @__PURE__ */ jsxs("header", { className: "clinic-header", children: [
+      /* @__PURE__ */ jsxs("a", { className: "clinic-logo", href: "#clinic-top", "aria-label": "ORIVA Concept Clinic demo ana sayfa", children: [
+        /* @__PURE__ */ jsx("span", { className: "clinic-logo-mark", "aria-hidden": "true", children: "O" }),
+        /* @__PURE__ */ jsxs("span", { children: [
+          /* @__PURE__ */ jsx("strong", { children: "ORIVA" }),
+          /* @__PURE__ */ jsx("small", { children: "Concept Clinic · Antalya" })
+        ] })
+      ] }),
+      /* @__PURE__ */ jsxs("nav", { className: "clinic-desktop-nav", "aria-label": "Klinik demo navigasyonu", children: [
+        /* @__PURE__ */ jsx("a", { href: "#clinic-approach", children: "Yaklaşım" }),
+        /* @__PURE__ */ jsx("a", { href: "#clinic-services", children: "Tedavi alanları" }),
+        /* @__PURE__ */ jsx("a", { href: "#clinic-team", children: "Kurgu uzmanlar" }),
+        /* @__PURE__ */ jsx("a", { href: "#clinic-cases", children: "Demo vakalar" }),
+        /* @__PURE__ */ jsx("a", { href: "#clinic-journey", children: "Hasta yolculuğu" })
+      ] }),
+      /* @__PURE__ */ jsxs("a", { className: "clinic-header-cta", href: "#clinic-contact", children: [
+        "Markanıza uyarlayın ",
+        /* @__PURE__ */ jsx(Arrow, {})
+      ] }),
+      /* @__PURE__ */ jsxs(
+        "button",
+        {
+          className: `clinic-menu-button${menuOpen ? " is-open" : ""}`,
+          type: "button",
+          "aria-label": menuOpen ? "Menüyü kapat" : "Menüyü aç",
+          "aria-expanded": menuOpen,
+          onClick: () => setMenuOpen((open) => !open),
+          children: [
+            /* @__PURE__ */ jsx("span", {}),
+            /* @__PURE__ */ jsx("span", {})
+          ]
+        }
+      )
+    ] }),
+    /* @__PURE__ */ jsxs("div", { className: `clinic-mobile-menu${menuOpen ? " is-open" : ""}`, "aria-hidden": !menuOpen, children: [
+      /* @__PURE__ */ jsx("nav", { "aria-label": "Mobil klinik demo navigasyonu", children: [
+        ["Yaklaşım", "#clinic-approach"],
+        ["Tedavi alanları", "#clinic-services"],
+        ["Kurgu uzmanlar", "#clinic-team"],
+        ["Demo vakalar", "#clinic-cases"],
+        ["Hasta yolculuğu", "#clinic-journey"],
+        ["Güvenlik", "#clinic-safety"],
+        ["SSS", "#clinic-faq"]
+      ].map(([label, href]) => /* @__PURE__ */ jsx("a", { href, onClick: closeMenu, children: label }, href)) }),
+      /* @__PURE__ */ jsxs("a", { href: "#clinic-contact", className: "clinic-mobile-menu-cta", onClick: closeMenu, children: [
+        "Markanıza özel demo isteyin ",
+        /* @__PURE__ */ jsx(Arrow, {})
+      ] })
+    ] }),
+    /* @__PURE__ */ jsxs("main", { children: [
+      /* @__PURE__ */ jsxs("section", { className: "clinic-hero", children: [
+        /* @__PURE__ */ jsx(
+          ClinicPicture,
+          {
+            name: "oriva-hero",
+            alt: "Yapay olarak üretilmiş kurgu hekim ve premium klinik görüşme odası",
+            className: "clinic-hero-media",
+            eager: true
+          }
+        ),
+        /* @__PURE__ */ jsx("div", { className: "clinic-hero-shade", "aria-hidden": "true" }),
+        /* @__PURE__ */ jsxs("div", { className: "clinic-hero-copy", children: [
+          /* @__PURE__ */ jsx("p", { className: "clinic-kicker", children: "ORIVA / ANTALYA — CONCEPT CLINIC" }),
+          /* @__PURE__ */ jsxs("h1", { children: [
+            "Daha fazlası değil.",
+            /* @__PURE__ */ jsx("br", {}),
+            /* @__PURE__ */ jsx("em", { children: "Size uygun olan." })
+          ] }),
+          /* @__PURE__ */ jsx("p", { className: "clinic-hero-lead", children: "Estetik cerrahi, saç restorasyonu ve gülüş estetiğinde; tıbbi değerlendirmeyi, açık iletişimi ve sakin bir hasta deneyimini merkezine alan premium klinik konsepti." }),
+          /* @__PURE__ */ jsxs("div", { className: "clinic-hero-actions", children: [
+            /* @__PURE__ */ jsxs("a", { className: "clinic-button clinic-button-light", href: "#clinic-journey", children: [
+              "Demo süreci görün ",
+              /* @__PURE__ */ jsx(Arrow, {})
+            ] }),
+            /* @__PURE__ */ jsxs("a", { className: "clinic-text-link", href: "#clinic-services", children: [
+              "Tedavi alanlarını keşfedin ",
+              /* @__PURE__ */ jsx("span", { "aria-hidden": "true", children: "↓" })
+            ] })
+          ] }),
+          /* @__PURE__ */ jsx("p", { className: "clinic-hero-note", children: "Bu sayfa tasarım demosudur; randevu veya sağlık hizmeti sunmaz." })
+        ] }),
+        /* @__PURE__ */ jsxs("div", { className: "clinic-hero-index", "aria-hidden": "true", children: [
+          /* @__PURE__ */ jsx("span", { children: "Antalya" }),
+          /* @__PURE__ */ jsx("i", {}),
+          /* @__PURE__ */ jsx("span", { children: "36.89° N" })
+        ] })
+      ] }),
+      /* @__PURE__ */ jsx("section", { className: "clinic-value-strip", "aria-label": "ORIVA yaklaşım ilkeleri", children: ["Doğru uzmanlık", "Kişisel değerlendirme", "Açık risk iletişimi", "Planlı takip"].map((item, index) => /* @__PURE__ */ jsxs("div", { children: [
+        /* @__PURE__ */ jsxs("span", { children: [
+          "0",
+          index + 1
+        ] }),
+        /* @__PURE__ */ jsx("strong", { children: item })
+      ] }, item)) }),
+      /* @__PURE__ */ jsxs("section", { className: "clinic-section clinic-approach", id: "clinic-approach", children: [
+        /* @__PURE__ */ jsxs("div", { className: "clinic-section-intro", children: [
+          /* @__PURE__ */ jsxs("div", { children: [
+            /* @__PURE__ */ jsx("p", { className: "clinic-eyebrow", children: "ORIVA YAKLAŞIMI" }),
+            /* @__PURE__ */ jsxs("h2", { children: [
+              "Bir işlemi değil,",
+              /* @__PURE__ */ jsx("br", {}),
+              /* @__PURE__ */ jsx("em", { children: "karar kalitesini" }),
+              " tasarlıyoruz."
+            ] })
+          ] }),
+          /* @__PURE__ */ jsx("p", { children: "Güven, etkileyici bir sonuç vaadinden önce doğru uzmanlık, gerçekçi beklenti ve anlaşılır bir süreç gerektirir. ORIVA konsepti, hastanın karar vermeden önce doğru soruları görebildiği bir klinik deneyimini örnekler." })
+        ] }),
+        /* @__PURE__ */ jsx("div", { className: "clinic-approach-grid", children: [
+          ["Önce dinle", "İstenen değişiklik kadar korunmak istenen özellikleri de anlamaya odaklanan görüşme yapısı."],
+          ["Açıkça anlat", "Alternatiflerin, risklerin, iyileşme sürecinin ve kapsam dışı kalemlerin karar öncesinde konuşulması."],
+          ["Kişiye göre planla", "Tek tip paket yerine muayene, sağlık geçmişi ve kişisel önceliklere göre oluşturulan plan."],
+          ["Takibi görünür kıl", "Bakım, kontrol ve iletişim adımlarının işlemden önce açıklanması."]
+        ].map(([title, body], index) => /* @__PURE__ */ jsxs("article", { children: [
+          /* @__PURE__ */ jsxs("span", { children: [
+            "0",
+            index + 1
+          ] }),
+          /* @__PURE__ */ jsx("h3", { children: title }),
+          /* @__PURE__ */ jsx("p", { children: body })
+        ] }, title)) })
+      ] }),
+      /* @__PURE__ */ jsxs("section", { className: "clinic-section clinic-services", id: "clinic-services", children: [
+        /* @__PURE__ */ jsxs("div", { className: "clinic-section-intro clinic-section-intro-light", children: [
+          /* @__PURE__ */ jsxs("div", { children: [
+            /* @__PURE__ */ jsx("p", { className: "clinic-eyebrow", children: "TEDAVİ ALANLARI" }),
+            /* @__PURE__ */ jsxs("h2", { children: [
+              "Her talep,",
+              /* @__PURE__ */ jsx("br", {}),
+              /* @__PURE__ */ jsx("em", { children: "doğru uzmanlıkla" }),
+              " başlar."
+            ] })
+          ] }),
+          /* @__PURE__ */ jsx("p", { children: "Paket satışı yerine klinik uygunluğu, alternatifleri ve kişisel öncelikleri görünür kılan örnek hizmet mimarisi." })
+        ] }),
+        /* @__PURE__ */ jsx("div", { className: "clinic-service-list", children: services.map((service) => /* @__PURE__ */ jsxs("article", { children: [
+          /* @__PURE__ */ jsx("span", { className: "clinic-service-index", children: service.index }),
+          /* @__PURE__ */ jsx("h3", { children: service.title }),
+          /* @__PURE__ */ jsx("p", { children: service.text }),
+          /* @__PURE__ */ jsx("small", { children: service.note }),
+          /* @__PURE__ */ jsxs("a", { href: "#clinic-journey", "aria-label": `${service.title} için örnek süreci görün`, children: [
+            "Örnek süreci görün ",
+            /* @__PURE__ */ jsx(Arrow, {})
+          ] })
+        ] }, service.index)) })
+      ] }),
+      /* @__PURE__ */ jsxs("section", { className: "clinic-section clinic-team", id: "clinic-team", children: [
+        /* @__PURE__ */ jsxs("div", { className: "clinic-section-heading-row", children: [
+          /* @__PURE__ */ jsxs("div", { children: [
+            /* @__PURE__ */ jsx("p", { className: "clinic-eyebrow", children: "TEMSİLİ EKİP · GERÇEK SAĞLIK MESLEK MENSUBU DEĞİLDİR" }),
+            /* @__PURE__ */ jsxs("h2", { children: [
+              "Uzmanlığı görünür kılan",
+              /* @__PURE__ */ jsx("br", {}),
+              /* @__PURE__ */ jsx("em", { children: "profil tasarımı." })
+            ] })
+          ] }),
+          /* @__PURE__ */ jsx("p", { children: "İsimler, portreler ve mesleki geçmişler yalnızca sunum amacıyla kurgulanmıştır. Canlı projede tüm bilgiler resmi kaynaklardan doğrulanır." })
+        ] }),
+        /* @__PURE__ */ jsx("div", { className: "clinic-doctor-grid", children: doctors.map((doctor, index) => /* @__PURE__ */ jsxs("article", { className: "clinic-doctor-card", children: [
+          /* @__PURE__ */ jsxs("div", { className: "clinic-doctor-media", children: [
+            /* @__PURE__ */ jsx(ClinicPicture, { name: doctor.image, alt: doctor.alt }),
+            /* @__PURE__ */ jsx("span", { children: "YAPAY ÜRETİM · KURGU PORTRE" })
+          ] }),
+          /* @__PURE__ */ jsxs("div", { className: "clinic-doctor-header", children: [
+            /* @__PURE__ */ jsxs("span", { children: [
+              "0",
+              index + 1
+            ] }),
+            /* @__PURE__ */ jsxs("div", { children: [
+              /* @__PURE__ */ jsx("h3", { children: doctor.name }),
+              /* @__PURE__ */ jsx("p", { children: doctor.role })
+            ] })
+          ] }),
+          /* @__PURE__ */ jsxs("dl", { children: [
+            /* @__PURE__ */ jsxs("div", { children: [
+              /* @__PURE__ */ jsx("dt", { children: "Eğitim odağı" }),
+              /* @__PURE__ */ jsx("dd", { children: doctor.education })
+            ] }),
+            /* @__PURE__ */ jsxs("div", { children: [
+              /* @__PURE__ */ jsx("dt", { children: "Deneyim odağı" }),
+              /* @__PURE__ */ jsx("dd", { children: doctor.focus })
+            ] }),
+            /* @__PURE__ */ jsxs("div", { children: [
+              /* @__PURE__ */ jsx("dt", { children: "Yaklaşımı" }),
+              /* @__PURE__ */ jsxs("dd", { children: [
+                "“",
+                doctor.principle,
+                "”"
+              ] })
+            ] })
+          ] }),
+          /* @__PURE__ */ jsx("p", { className: "clinic-profile-note", children: "Demo profilidir; gerçek kişi, diploma, ruhsat veya kurum bağlantısı değildir." })
+        ] }, doctor.name)) })
+      ] }),
+      /* @__PURE__ */ jsxs("section", { className: "clinic-section clinic-cases", id: "clinic-cases", children: [
+        /* @__PURE__ */ jsxs("div", { className: "clinic-section-heading-row clinic-section-heading-row-dark", children: [
+          /* @__PURE__ */ jsxs("div", { children: [
+            /* @__PURE__ */ jsx("p", { className: "clinic-eyebrow", children: "TEMSİLİ VAKA KURGULARI · GERÇEK HASTA VEYA SONUÇ DEĞİLDİR" }),
+            /* @__PURE__ */ jsxs("h2", { children: [
+              "Sonuçtan önce",
+              /* @__PURE__ */ jsx("br", {}),
+              /* @__PURE__ */ jsx("em", { children: "karar sürecini" }),
+              " gösterin."
+            ] })
+          ] }),
+          /* @__PURE__ */ jsx("p", { children: "Bu galeri “öncesi–sonrası” iddiası taşımaz. Her kart, klinik düşünme biçiminin ve hasta iletişiminin nasıl anlatılabileceğini örnekler." })
+        ] }),
+        /* @__PURE__ */ jsx("div", { className: "clinic-case-grid", children: cases.map((item) => /* @__PURE__ */ jsxs("article", { children: [
+          /* @__PURE__ */ jsxs("div", { className: "clinic-case-media", children: [
+            /* @__PURE__ */ jsx(ClinicPicture, { name: item.image, alt: item.alt }),
+            /* @__PURE__ */ jsx("span", { children: "YAPAY OLARAK ÜRETİLMİŞ TEMSİLİ GÖRSEL" })
+          ] }),
+          /* @__PURE__ */ jsxs("div", { className: "clinic-case-copy", children: [
+            /* @__PURE__ */ jsx("p", { className: "clinic-case-number", children: item.number }),
+            /* @__PURE__ */ jsx("h3", { children: item.title }),
+            /* @__PURE__ */ jsxs("dl", { children: [
+              /* @__PURE__ */ jsxs("div", { children: [
+                /* @__PURE__ */ jsx("dt", { children: "Başlangıç sorusu" }),
+                /* @__PURE__ */ jsx("dd", { children: item.question })
+              ] }),
+              /* @__PURE__ */ jsxs("div", { children: [
+                /* @__PURE__ */ jsx("dt", { children: "Değerlendirme" }),
+                /* @__PURE__ */ jsx("dd", { children: item.assessment })
+              ] }),
+              /* @__PURE__ */ jsxs("div", { children: [
+                /* @__PURE__ */ jsx("dt", { children: "Demo çıktısı" }),
+                /* @__PURE__ */ jsx("dd", { children: item.output })
+              ] })
+            ] }),
+            /* @__PURE__ */ jsx("small", { children: "Konsept görselleştirme · Tıbbi sonuç veya tedavi önerisi göstermez." })
+          ] })
+        ] }, item.number)) })
+      ] }),
+      /* @__PURE__ */ jsxs("section", { className: "clinic-section clinic-personas", "aria-labelledby": "clinic-personas-title", children: [
+        /* @__PURE__ */ jsxs("div", { className: "clinic-persona-intro", children: [
+          /* @__PURE__ */ jsx("p", { className: "clinic-eyebrow", children: "KURGU HASTA PERSONALARI · GERÇEK YORUM DEĞİLDİR" }),
+          /* @__PURE__ */ jsxs("h2", { id: "clinic-personas-title", children: [
+            "Memnuniyet iddiası değil,",
+            /* @__PURE__ */ jsx("br", {}),
+            /* @__PURE__ */ jsx("em", { children: "gerçek ihtiyacı" }),
+            " dinleyen anlatılar."
+          ] })
+        ] }),
+        /* @__PURE__ */ jsx("div", { className: "clinic-persona-grid", children: personas.map((persona) => /* @__PURE__ */ jsxs("article", { children: [
+          /* @__PURE__ */ jsx("div", { className: "clinic-persona-avatar", "aria-hidden": "true", children: persona.code }),
+          /* @__PURE__ */ jsxs("p", { children: [
+            "“",
+            persona.quote,
+            "”"
+          ] }),
+          /* @__PURE__ */ jsxs("div", { children: [
+            /* @__PURE__ */ jsxs("strong", { children: [
+              "Persona ",
+              persona.code
+            ] }),
+            /* @__PURE__ */ jsx("span", { children: persona.context })
+          ] }),
+          /* @__PURE__ */ jsx("small", { children: "Tasarım araştırması için yazılmış temsili metindir; gerçek hasta görüşü değildir." })
+        ] }, persona.code)) })
+      ] }),
+      /* @__PURE__ */ jsxs("section", { className: "clinic-section clinic-journey", id: "clinic-journey", children: [
+        /* @__PURE__ */ jsxs("div", { className: "clinic-journey-title", children: [
+          /* @__PURE__ */ jsx("p", { className: "clinic-eyebrow", children: "HASTA YOLCULUĞU" }),
+          /* @__PURE__ */ jsxs("h2", { children: [
+            "Belirsizliği azaltan",
+            /* @__PURE__ */ jsx("br", {}),
+            /* @__PURE__ */ jsx("em", { children: "altı net adım." })
+          ] }),
+          /* @__PURE__ */ jsx("p", { children: "İlk temastan dönüş sonrası takibe kadar her sorumluluk, karar anından önce görünür olmalı." })
+        ] }),
+        /* @__PURE__ */ jsx("ol", { className: "clinic-journey-list", children: journey.map(([title, body], index) => /* @__PURE__ */ jsxs("li", { children: [
+          /* @__PURE__ */ jsx("span", { children: String(index + 1).padStart(2, "0") }),
+          /* @__PURE__ */ jsxs("div", { children: [
+            /* @__PURE__ */ jsx("h3", { children: title }),
+            /* @__PURE__ */ jsx("p", { children: body })
+          ] })
+        ] }, title)) }),
+        /* @__PURE__ */ jsx("p", { className: "clinic-journey-note", children: "Bu akış satış demosu için temsili hazırlanmıştır. Gerçek klinik süreç hizmete ve kişinin sağlık durumuna göre değişir." })
+      ] }),
+      /* @__PURE__ */ jsxs("section", { className: "clinic-international", children: [
+        /* @__PURE__ */ jsxs("div", { className: "clinic-international-copy", children: [
+          /* @__PURE__ */ jsx("p", { className: "clinic-eyebrow", children: "ULUSLARARASI HASTA DENEYİMİ" }),
+          /* @__PURE__ */ jsxs("h2", { children: [
+            "Tedavi yolculuğu,",
+            /* @__PURE__ */ jsx("br", {}),
+            /* @__PURE__ */ jsx("em", { children: "parçalı hissettirmemeli." })
+          ] }),
+          /* @__PURE__ */ jsx("p", { children: "Havaalanı, otel, klinik programı, dil desteği ve refakatçi planlamasının tek bir koordinasyon akışında nasıl sunulabileceğini gösteren örnek deneyim." })
+        ] }),
+        /* @__PURE__ */ jsx("div", { className: "clinic-international-grid", children: ["Tek koordinasyon noktası", "Havalimanı–otel–klinik programı", "Tercih edilen dilde iletişim", "Yazılı günlük plan", "Refakatçi lojistiği", "Dönüş öncesi kontrol takvimi"].map((item) => /* @__PURE__ */ jsxs("div", { children: [
+          /* @__PURE__ */ jsx("span", { "aria-hidden": "true", children: "✓" }),
+          item
+        ] }, item)) }),
+        /* @__PURE__ */ jsx("small", { children: "Canlı projede her hizmetin sağlayıcısı, kapsamı ve ücreti ayrı belirtilmelidir." })
+      ] }),
+      /* @__PURE__ */ jsxs("section", { className: "clinic-section clinic-safety", id: "clinic-safety", children: [
+        /* @__PURE__ */ jsxs("div", { className: "clinic-section-heading-row", children: [
+          /* @__PURE__ */ jsxs("div", { children: [
+            /* @__PURE__ */ jsx("p", { className: "clinic-eyebrow", children: "GÜVENLİK & KANIT ALANI" }),
+            /* @__PURE__ */ jsxs("h2", { children: [
+              "Konfor tasarlanır.",
+              /* @__PURE__ */ jsx("br", {}),
+              /* @__PURE__ */ jsx("em", { children: "Güvenlik belgelenir." })
+            ] })
+          ] }),
+          /* @__PURE__ */ jsx("p", { children: "Şık bir arayüz tek başına güven kanıtı değildir. Canlı projede bu alanlar yalnız doğrulanmış klinik bilgileriyle doldurulur." })
+        ] }),
+        /* @__PURE__ */ jsx("div", { className: "clinic-safety-grid", children: safeguards.map(([title, body], index) => /* @__PURE__ */ jsxs("article", { children: [
+          /* @__PURE__ */ jsx("span", { children: String(index + 1).padStart(2, "0") }),
+          /* @__PURE__ */ jsx("h3", { children: title }),
+          /* @__PURE__ */ jsx("p", { children: body })
+        ] }, title)) })
+      ] }),
+      /* @__PURE__ */ jsxs("section", { className: "clinic-section clinic-faq", id: "clinic-faq", children: [
+        /* @__PURE__ */ jsxs("div", { className: "clinic-faq-intro", children: [
+          /* @__PURE__ */ jsx("p", { className: "clinic-eyebrow", children: "SIK SORULANLAR" }),
+          /* @__PURE__ */ jsxs("h2", { children: [
+            "Net cevaplar,",
+            /* @__PURE__ */ jsx("br", {}),
+            /* @__PURE__ */ jsx("em", { children: "güvenli kararlar." })
+          ] }),
+          /* @__PURE__ */ jsx("p", { children: "Demo ile gerçek klinik içeriği arasındaki sınır burada açıkça tanımlanır." })
+        ] }),
+        /* @__PURE__ */ jsx("div", { className: "clinic-faq-list", children: faqs.map(([question, answer], index) => {
+          const open = openFaq === index;
+          return /* @__PURE__ */ jsxs("article", { className: open ? "is-open" : "", children: [
+            /* @__PURE__ */ jsxs(
+              "button",
+              {
+                type: "button",
+                "aria-expanded": open,
+                "aria-controls": `clinic-faq-answer-${index}`,
+                onClick: () => setOpenFaq(open ? -1 : index),
+                children: [
+                  /* @__PURE__ */ jsx("span", { children: String(index + 1).padStart(2, "0") }),
+                  /* @__PURE__ */ jsx("strong", { children: question }),
+                  /* @__PURE__ */ jsx("i", { children: /* @__PURE__ */ jsx(Arrow, { down: true }) })
+                ]
+              }
+            ),
+            /* @__PURE__ */ jsx("div", { id: `clinic-faq-answer-${index}`, hidden: !open, children: /* @__PURE__ */ jsx("p", { children: answer }) })
+          ] }, question);
+        }) })
+      ] }),
+      /* @__PURE__ */ jsxs("section", { className: "clinic-contact", id: "clinic-contact", children: [
+        /* @__PURE__ */ jsxs("div", { className: "clinic-contact-copy", children: [
+          /* @__PURE__ */ jsx("p", { className: "clinic-eyebrow", children: "KLİNİĞİNİZ İÇİN" }),
+          /* @__PURE__ */ jsxs("h2", { children: [
+            "Bu deneyimi",
+            /* @__PURE__ */ jsx("br", {}),
+            /* @__PURE__ */ jsx("em", { children: "gerçek markanızla" }),
+            " görün."
+          ] }),
+          /* @__PURE__ */ jsx("p", { children: "Doğrulanmış uzmanlıklarınız, gerçek tesisiniz ve hasta yolculuğunuzla; güven veren, çok dilli ve dönüşüm odaklı bir klinik web deneyimi tasarlayalım." }),
+          /* @__PURE__ */ jsxs("a", { className: "clinic-button clinic-button-copper", href: demoWhatsApp, target: "_blank", rel: "noreferrer", children: [
+            "Canlı sunum talep edin ",
+            /* @__PURE__ */ jsx(Arrow, {})
+          ] }),
+          /* @__PURE__ */ jsx("small", { children: "Bu bağlantı yalnız web sitesi satış görüşmesi başlatır; tıbbi randevu veya ön değerlendirme oluşturmaz." })
+        ] }),
+        /* @__PURE__ */ jsxs("div", { className: "clinic-contact-card", children: [
+          /* @__PURE__ */ jsx("p", { children: "MARKANIZA ÖZEL KAPSAM" }),
+          /* @__PURE__ */ jsxs("ul", { children: [
+            /* @__PURE__ */ jsxs("li", { children: [
+              /* @__PURE__ */ jsx("span", { children: "01" }),
+              "Gerçek hekim ve uzmanlık profilleri"
+            ] }),
+            /* @__PURE__ */ jsxs("li", { children: [
+              /* @__PURE__ */ jsx("span", { children: "02" }),
+              "İzinli vaka ve hasta hikâyesi sistemi"
+            ] }),
+            /* @__PURE__ */ jsxs("li", { children: [
+              /* @__PURE__ */ jsx("span", { children: "03" }),
+              "Çok dilli uluslararası hasta akışı"
+            ] }),
+            /* @__PURE__ */ jsxs("li", { children: [
+              /* @__PURE__ */ jsx("span", { children: "04" }),
+              "KVKK uyumlu başvuru deneyimi"
+            ] }),
+            /* @__PURE__ */ jsxs("li", { children: [
+              /* @__PURE__ */ jsx("span", { children: "05" }),
+              "SEO, performans ve mobil optimizasyon"
+            ] })
+          ] }),
+          /* @__PURE__ */ jsxs("a", { href: demoWhatsApp, target: "_blank", rel: "noreferrer", children: [
+            "İçerik kapsamını konuşalım ",
+            /* @__PURE__ */ jsx(Arrow, {})
+          ] })
+        ] })
+      ] })
+    ] }),
+    /* @__PURE__ */ jsxs("footer", { className: "clinic-footer", children: [
+      /* @__PURE__ */ jsxs("div", { className: "clinic-footer-brand", children: [
+        /* @__PURE__ */ jsx("span", { className: "clinic-logo-mark", "aria-hidden": "true", children: "O" }),
+        /* @__PURE__ */ jsxs("div", { children: [
+          /* @__PURE__ */ jsx("strong", { children: "ORIVA" }),
+          /* @__PURE__ */ jsx("small", { children: "Concept Clinic · Antalya" })
+        ] })
+      ] }),
+      /* @__PURE__ */ jsx("p", { className: "clinic-demo-disclaimer", children: "ORIVA Clinic ve bu sayfadaki kişiler, hizmet anlatıları, hasta yolculukları ve vaka içerikleri kurgusaldır. Sayfa yalnız web tasarımı ve satış sunumu amacıyla hazırlanmıştır; tıbbi tavsiye, randevu, kurum yetkisi veya klinik sonuç beyanı içermez." }),
+      /* @__PURE__ */ jsxs("div", { className: "clinic-footer-links", children: [
+        /* @__PURE__ */ jsx("a", { href: "#clinic-top", children: "Başa dön" }),
+        /* @__PURE__ */ jsx("a", { href: "#clinic-faq", children: "Demo açıklaması" }),
+        /* @__PURE__ */ jsx("a", { href: demoWhatsApp, target: "_blank", rel: "noreferrer", children: "Satış görüşmesi" })
+      ] })
+    ] }),
+    /* @__PURE__ */ jsxs("a", { className: "clinic-mobile-sticky", href: demoWhatsApp, target: "_blank", rel: "noreferrer", children: [
+      /* @__PURE__ */ jsxs("span", { children: [
+        /* @__PURE__ */ jsx("small", { children: "KLİNİĞİNİZ İÇİN" }),
+        "Markanıza özel demo"
+      ] }),
+      /* @__PURE__ */ jsx(Arrow, {})
+    ] })
+  ] });
+}
+const clinicStyles = "/assets/clinic-C5ajWSJD.css";
+const links = () => [{
+  rel: "stylesheet",
+  href: clinicStyles
+}];
+function loader$2() {
+  return {
+    language: "tr"
+  };
+}
+const meta$2 = () => clinicMeta();
+const clinic = UNSAFE_withComponentProps(function ClinicRoute() {
+  return /* @__PURE__ */ jsxs(LanguageProvider, {
+    initialLanguage: "tr",
+    children: [/* @__PURE__ */ jsx(ClinicPage, {}), /* @__PURE__ */ jsx(CookieConsent, {})]
+  });
+});
+const route9 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+  __proto__: null,
+  default: clinic,
+  links,
   loader: loader$2,
   meta: meta$2
 }, Symbol.toStringTag, { value: "Module" }));
@@ -2724,7 +4617,7 @@ const transfer = UNSAFE_withComponentProps(function TransferRoute() {
     }), /* @__PURE__ */ jsx(CookieConsent, {})]
   });
 });
-const route6 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const route11 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: transfer,
   loader: loader$1,
@@ -2825,19 +4718,19 @@ const legal = UNSAFE_withComponentProps(function LegalRoute() {
     }), /* @__PURE__ */ jsx(CookieConsent, {})]
   });
 });
-const route14 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const route19 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: legal,
   loader,
   meta
 }, Symbol.toStringTag, { value: "Module" }));
-const serverManifest = { "entry": { "module": "/assets/entry.client-CKIlc3Qk.js", "imports": ["/assets/components-BdNtLw1H.js", "/assets/errorBoundaries-BQw1EcSy.js"], "css": [] }, "routes": { "root": { "id": "root", "parentId": void 0, "path": "", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/root-CBQNr3Kx.js", "imports": ["/assets/components-BdNtLw1H.js", "/assets/errorBoundaries-BQw1EcSy.js", "/assets/Icon-B-w0JaHK.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "home-en": { "id": "home-en", "parentId": "root", "path": void 0, "index": true, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/home-BR6Ez2Ne.js", "imports": ["/assets/components-BdNtLw1H.js", "/assets/CookieConsent-Dlwknsbn.js", "/assets/seo-qRw2o5Y_.js", "/assets/Icon-B-w0JaHK.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "home-de": { "id": "home-de", "parentId": "root", "path": "de", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/home-BR6Ez2Ne.js", "imports": ["/assets/components-BdNtLw1H.js", "/assets/CookieConsent-Dlwknsbn.js", "/assets/seo-qRw2o5Y_.js", "/assets/Icon-B-w0JaHK.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "home-tr": { "id": "home-tr", "parentId": "root", "path": "tr", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/home-BR6Ez2Ne.js", "imports": ["/assets/components-BdNtLw1H.js", "/assets/CookieConsent-Dlwknsbn.js", "/assets/seo-qRw2o5Y_.js", "/assets/Icon-B-w0JaHK.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "home-ru": { "id": "home-ru", "parentId": "root", "path": "ru", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/home-BR6Ez2Ne.js", "imports": ["/assets/components-BdNtLw1H.js", "/assets/CookieConsent-Dlwknsbn.js", "/assets/seo-qRw2o5Y_.js", "/assets/Icon-B-w0JaHK.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "transfer-en": { "id": "transfer-en", "parentId": "root", "path": "transfers/:slug", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/transfer-CCrS2GGI.js", "imports": ["/assets/components-BdNtLw1H.js", "/assets/CookieConsent-Dlwknsbn.js", "/assets/seo-qRw2o5Y_.js", "/assets/StaticPageHeader-C5n6KC4d.js", "/assets/Icon-B-w0JaHK.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "transfer-localized": { "id": "transfer-localized", "parentId": "root", "path": ":language/transfers/:slug", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/transfer-CCrS2GGI.js", "imports": ["/assets/components-BdNtLw1H.js", "/assets/CookieConsent-Dlwknsbn.js", "/assets/seo-qRw2o5Y_.js", "/assets/StaticPageHeader-C5n6KC4d.js", "/assets/Icon-B-w0JaHK.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "legal-imprint-en": { "id": "legal-imprint-en", "parentId": "root", "path": "impressum.html", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/legal-BBaCpd-A.js", "imports": ["/assets/components-BdNtLw1H.js", "/assets/CookieConsent-Dlwknsbn.js", "/assets/StaticPageHeader-C5n6KC4d.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "legal-privacy-en": { "id": "legal-privacy-en", "parentId": "root", "path": "privacy", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/legal-BBaCpd-A.js", "imports": ["/assets/components-BdNtLw1H.js", "/assets/CookieConsent-Dlwknsbn.js", "/assets/StaticPageHeader-C5n6KC4d.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "legal-privacy-de": { "id": "legal-privacy-de", "parentId": "root", "path": "de/datenschutz", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/legal-BBaCpd-A.js", "imports": ["/assets/components-BdNtLw1H.js", "/assets/CookieConsent-Dlwknsbn.js", "/assets/StaticPageHeader-C5n6KC4d.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "legal-imprint-de": { "id": "legal-imprint-de", "parentId": "root", "path": "de/impressum", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/legal-BBaCpd-A.js", "imports": ["/assets/components-BdNtLw1H.js", "/assets/CookieConsent-Dlwknsbn.js", "/assets/StaticPageHeader-C5n6KC4d.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "legal-privacy-tr": { "id": "legal-privacy-tr", "parentId": "root", "path": "tr/gizlilik", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/legal-BBaCpd-A.js", "imports": ["/assets/components-BdNtLw1H.js", "/assets/CookieConsent-Dlwknsbn.js", "/assets/StaticPageHeader-C5n6KC4d.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "legal-imprint-tr": { "id": "legal-imprint-tr", "parentId": "root", "path": "tr/kunye", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/legal-BBaCpd-A.js", "imports": ["/assets/components-BdNtLw1H.js", "/assets/CookieConsent-Dlwknsbn.js", "/assets/StaticPageHeader-C5n6KC4d.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "legal-privacy-ru": { "id": "legal-privacy-ru", "parentId": "root", "path": "ru/privacy", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/legal-BBaCpd-A.js", "imports": ["/assets/components-BdNtLw1H.js", "/assets/CookieConsent-Dlwknsbn.js", "/assets/StaticPageHeader-C5n6KC4d.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "legal-imprint-ru": { "id": "legal-imprint-ru", "parentId": "root", "path": "ru/impressum", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/legal-BBaCpd-A.js", "imports": ["/assets/components-BdNtLw1H.js", "/assets/CookieConsent-Dlwknsbn.js", "/assets/StaticPageHeader-C5n6KC4d.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 } }, "url": "/assets/manifest-73a3baf4.js", "version": "73a3baf4", "sri": void 0 };
+const serverManifest = { "entry": { "module": "/assets/entry.client-CKIlc3Qk.js", "imports": ["/assets/components-BdNtLw1H.js", "/assets/errorBoundaries-BQw1EcSy.js"], "css": [] }, "routes": { "root": { "id": "root", "parentId": void 0, "path": "", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/root-BItNZp7h.js", "imports": ["/assets/components-BdNtLw1H.js", "/assets/errorBoundaries-BQw1EcSy.js", "/assets/Icon-BWM-Ki0I.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "home-en": { "id": "home-en", "parentId": "root", "path": void 0, "index": true, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/home-hh1rtV7N.js", "imports": ["/assets/components-BdNtLw1H.js", "/assets/CookieConsent-D_bpMrjr.js", "/assets/BookingForm-DFVRinaA.js", "/assets/Header-3rnDBpg_.js", "/assets/Icon-BWM-Ki0I.js", "/assets/seo-BvGVHAc6.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "home-de": { "id": "home-de", "parentId": "root", "path": "de", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/home-hh1rtV7N.js", "imports": ["/assets/components-BdNtLw1H.js", "/assets/CookieConsent-D_bpMrjr.js", "/assets/BookingForm-DFVRinaA.js", "/assets/Header-3rnDBpg_.js", "/assets/Icon-BWM-Ki0I.js", "/assets/seo-BvGVHAc6.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "home-tr": { "id": "home-tr", "parentId": "root", "path": "tr", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/home-hh1rtV7N.js", "imports": ["/assets/components-BdNtLw1H.js", "/assets/CookieConsent-D_bpMrjr.js", "/assets/BookingForm-DFVRinaA.js", "/assets/Header-3rnDBpg_.js", "/assets/Icon-BWM-Ki0I.js", "/assets/seo-BvGVHAc6.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "home-ru": { "id": "home-ru", "parentId": "root", "path": "ru", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/home-hh1rtV7N.js", "imports": ["/assets/components-BdNtLw1H.js", "/assets/CookieConsent-D_bpMrjr.js", "/assets/BookingForm-DFVRinaA.js", "/assets/Header-3rnDBpg_.js", "/assets/Icon-BWM-Ki0I.js", "/assets/seo-BvGVHAc6.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "health-en": { "id": "health-en", "parentId": "root", "path": "health", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/health-DegoVGfC.js", "imports": ["/assets/components-BdNtLw1H.js", "/assets/CookieConsent-D_bpMrjr.js", "/assets/Header-3rnDBpg_.js", "/assets/Icon-BWM-Ki0I.js", "/assets/seo-BvGVHAc6.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "health-de": { "id": "health-de", "parentId": "root", "path": "de/health", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/health-DegoVGfC.js", "imports": ["/assets/components-BdNtLw1H.js", "/assets/CookieConsent-D_bpMrjr.js", "/assets/Header-3rnDBpg_.js", "/assets/Icon-BWM-Ki0I.js", "/assets/seo-BvGVHAc6.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "health-tr": { "id": "health-tr", "parentId": "root", "path": "tr/health", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/health-DegoVGfC.js", "imports": ["/assets/components-BdNtLw1H.js", "/assets/CookieConsent-D_bpMrjr.js", "/assets/Header-3rnDBpg_.js", "/assets/Icon-BWM-Ki0I.js", "/assets/seo-BvGVHAc6.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "health-ru": { "id": "health-ru", "parentId": "root", "path": "ru/health", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/health-DegoVGfC.js", "imports": ["/assets/components-BdNtLw1H.js", "/assets/CookieConsent-D_bpMrjr.js", "/assets/Header-3rnDBpg_.js", "/assets/Icon-BWM-Ki0I.js", "/assets/seo-BvGVHAc6.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "clinic-tr": { "id": "clinic-tr", "parentId": "root", "path": "clinic", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/clinic-Cjnr8LYV.js", "imports": ["/assets/components-BdNtLw1H.js", "/assets/CookieConsent-D_bpMrjr.js", "/assets/seo-BvGVHAc6.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "transfer-en": { "id": "transfer-en", "parentId": "root", "path": "transfers/:slug", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/transfer-BUCwMf7O.js", "imports": ["/assets/components-BdNtLw1H.js", "/assets/CookieConsent-D_bpMrjr.js", "/assets/seo-BvGVHAc6.js", "/assets/BookingForm-DFVRinaA.js", "/assets/StaticPageHeader-C5n6KC4d.js", "/assets/Icon-BWM-Ki0I.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "transfer-localized": { "id": "transfer-localized", "parentId": "root", "path": ":language/transfers/:slug", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/transfer-BUCwMf7O.js", "imports": ["/assets/components-BdNtLw1H.js", "/assets/CookieConsent-D_bpMrjr.js", "/assets/seo-BvGVHAc6.js", "/assets/BookingForm-DFVRinaA.js", "/assets/StaticPageHeader-C5n6KC4d.js", "/assets/Icon-BWM-Ki0I.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "legal-imprint-en": { "id": "legal-imprint-en", "parentId": "root", "path": "impressum.html", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/legal-weAIsVE6.js", "imports": ["/assets/components-BdNtLw1H.js", "/assets/CookieConsent-D_bpMrjr.js", "/assets/StaticPageHeader-C5n6KC4d.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "legal-privacy-en": { "id": "legal-privacy-en", "parentId": "root", "path": "privacy", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/legal-weAIsVE6.js", "imports": ["/assets/components-BdNtLw1H.js", "/assets/CookieConsent-D_bpMrjr.js", "/assets/StaticPageHeader-C5n6KC4d.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "legal-privacy-de": { "id": "legal-privacy-de", "parentId": "root", "path": "de/datenschutz", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/legal-weAIsVE6.js", "imports": ["/assets/components-BdNtLw1H.js", "/assets/CookieConsent-D_bpMrjr.js", "/assets/StaticPageHeader-C5n6KC4d.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "legal-imprint-de": { "id": "legal-imprint-de", "parentId": "root", "path": "de/impressum", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/legal-weAIsVE6.js", "imports": ["/assets/components-BdNtLw1H.js", "/assets/CookieConsent-D_bpMrjr.js", "/assets/StaticPageHeader-C5n6KC4d.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "legal-privacy-tr": { "id": "legal-privacy-tr", "parentId": "root", "path": "tr/gizlilik", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/legal-weAIsVE6.js", "imports": ["/assets/components-BdNtLw1H.js", "/assets/CookieConsent-D_bpMrjr.js", "/assets/StaticPageHeader-C5n6KC4d.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "legal-imprint-tr": { "id": "legal-imprint-tr", "parentId": "root", "path": "tr/kunye", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/legal-weAIsVE6.js", "imports": ["/assets/components-BdNtLw1H.js", "/assets/CookieConsent-D_bpMrjr.js", "/assets/StaticPageHeader-C5n6KC4d.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "legal-privacy-ru": { "id": "legal-privacy-ru", "parentId": "root", "path": "ru/privacy", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/legal-weAIsVE6.js", "imports": ["/assets/components-BdNtLw1H.js", "/assets/CookieConsent-D_bpMrjr.js", "/assets/StaticPageHeader-C5n6KC4d.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "legal-imprint-ru": { "id": "legal-imprint-ru", "parentId": "root", "path": "ru/impressum", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/legal-weAIsVE6.js", "imports": ["/assets/components-BdNtLw1H.js", "/assets/CookieConsent-D_bpMrjr.js", "/assets/StaticPageHeader-C5n6KC4d.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 } }, "url": "/assets/manifest-6ce63ff3.js", "version": "6ce63ff3", "sri": void 0 };
 const assetsBuildDirectory = "build/public-react/client";
 const basename = "/";
 const future = { "unstable_enableNodeReadableStream": false, "unstable_optimizeDeps": false };
 const ssr = false;
 const isSpaMode = false;
-const prerender = ["/", "/de/", "/tr/", "/ru/", "/transfers/antalya/", "/transfers/belek/", "/transfers/side/", "/transfers/kemer/", "/transfers/alanya/", "/transfers/bogazkent/", "/transfers/manavgat/", "/transfers/kizilagac/", "/transfers/tekirova/", "/transfers/bodrum/", "/transfers/dalaman/", "/transfers/fethiye/", "/transfers/pamukkale/", "/transfers/kapadokya/", "/de/transfers/antalya/", "/de/transfers/belek/", "/de/transfers/side/", "/de/transfers/kemer/", "/de/transfers/alanya/", "/de/transfers/bogazkent/", "/de/transfers/manavgat/", "/de/transfers/kizilagac/", "/de/transfers/tekirova/", "/de/transfers/bodrum/", "/de/transfers/dalaman/", "/de/transfers/fethiye/", "/de/transfers/pamukkale/", "/de/transfers/kapadokya/", "/tr/transfers/antalya/", "/tr/transfers/belek/", "/tr/transfers/side/", "/tr/transfers/kemer/", "/tr/transfers/alanya/", "/tr/transfers/bogazkent/", "/tr/transfers/manavgat/", "/tr/transfers/kizilagac/", "/tr/transfers/tekirova/", "/tr/transfers/bodrum/", "/tr/transfers/dalaman/", "/tr/transfers/fethiye/", "/tr/transfers/pamukkale/", "/tr/transfers/kapadokya/", "/ru/transfers/antalya/", "/ru/transfers/belek/", "/ru/transfers/side/", "/ru/transfers/kemer/", "/ru/transfers/alanya/", "/ru/transfers/bogazkent/", "/ru/transfers/manavgat/", "/ru/transfers/kizilagac/", "/ru/transfers/tekirova/", "/ru/transfers/bodrum/", "/ru/transfers/dalaman/", "/ru/transfers/fethiye/", "/ru/transfers/pamukkale/", "/ru/transfers/kapadokya/", "/impressum.html", "/privacy/", "/de/datenschutz/", "/de/impressum/", "/tr/gizlilik/", "/tr/kunye/", "/ru/privacy/", "/ru/impressum/"];
+const prerender = ["/", "/de/", "/tr/", "/ru/", "/health/", "/de/health/", "/tr/health/", "/ru/health/", "/clinic/", "/transfers/antalya/", "/transfers/belek/", "/transfers/side/", "/transfers/kemer/", "/transfers/alanya/", "/transfers/bogazkent/", "/transfers/manavgat/", "/transfers/kizilagac/", "/transfers/tekirova/", "/transfers/bodrum/", "/transfers/dalaman/", "/transfers/fethiye/", "/transfers/pamukkale/", "/transfers/kapadokya/", "/de/transfers/antalya/", "/de/transfers/belek/", "/de/transfers/side/", "/de/transfers/kemer/", "/de/transfers/alanya/", "/de/transfers/bogazkent/", "/de/transfers/manavgat/", "/de/transfers/kizilagac/", "/de/transfers/tekirova/", "/de/transfers/bodrum/", "/de/transfers/dalaman/", "/de/transfers/fethiye/", "/de/transfers/pamukkale/", "/de/transfers/kapadokya/", "/tr/transfers/antalya/", "/tr/transfers/belek/", "/tr/transfers/side/", "/tr/transfers/kemer/", "/tr/transfers/alanya/", "/tr/transfers/bogazkent/", "/tr/transfers/manavgat/", "/tr/transfers/kizilagac/", "/tr/transfers/tekirova/", "/tr/transfers/bodrum/", "/tr/transfers/dalaman/", "/tr/transfers/fethiye/", "/tr/transfers/pamukkale/", "/tr/transfers/kapadokya/", "/ru/transfers/antalya/", "/ru/transfers/belek/", "/ru/transfers/side/", "/ru/transfers/kemer/", "/ru/transfers/alanya/", "/ru/transfers/bogazkent/", "/ru/transfers/manavgat/", "/ru/transfers/kizilagac/", "/ru/transfers/tekirova/", "/ru/transfers/bodrum/", "/ru/transfers/dalaman/", "/ru/transfers/fethiye/", "/ru/transfers/pamukkale/", "/ru/transfers/kapadokya/", "/impressum.html", "/privacy/", "/de/datenschutz/", "/de/impressum/", "/tr/gizlilik/", "/tr/kunye/", "/ru/privacy/", "/ru/impressum/"];
 const routeDiscovery = { "mode": "initial" };
 const publicPath = "/";
 const entry = { module: entryServer };
@@ -2882,13 +4775,53 @@ const routes = {
     caseSensitive: void 0,
     module: route4
   },
+  "health-en": {
+    id: "health-en",
+    parentId: "root",
+    path: "health",
+    index: void 0,
+    caseSensitive: void 0,
+    module: route8
+  },
+  "health-de": {
+    id: "health-de",
+    parentId: "root",
+    path: "de/health",
+    index: void 0,
+    caseSensitive: void 0,
+    module: route8
+  },
+  "health-tr": {
+    id: "health-tr",
+    parentId: "root",
+    path: "tr/health",
+    index: void 0,
+    caseSensitive: void 0,
+    module: route8
+  },
+  "health-ru": {
+    id: "health-ru",
+    parentId: "root",
+    path: "ru/health",
+    index: void 0,
+    caseSensitive: void 0,
+    module: route8
+  },
+  "clinic-tr": {
+    id: "clinic-tr",
+    parentId: "root",
+    path: "clinic",
+    index: void 0,
+    caseSensitive: void 0,
+    module: route9
+  },
   "transfer-en": {
     id: "transfer-en",
     parentId: "root",
     path: "transfers/:slug",
     index: void 0,
     caseSensitive: void 0,
-    module: route6
+    module: route11
   },
   "transfer-localized": {
     id: "transfer-localized",
@@ -2896,7 +4829,7 @@ const routes = {
     path: ":language/transfers/:slug",
     index: void 0,
     caseSensitive: void 0,
-    module: route6
+    module: route11
   },
   "legal-imprint-en": {
     id: "legal-imprint-en",
@@ -2904,7 +4837,7 @@ const routes = {
     path: "impressum.html",
     index: void 0,
     caseSensitive: void 0,
-    module: route14
+    module: route19
   },
   "legal-privacy-en": {
     id: "legal-privacy-en",
@@ -2912,7 +4845,7 @@ const routes = {
     path: "privacy",
     index: void 0,
     caseSensitive: void 0,
-    module: route14
+    module: route19
   },
   "legal-privacy-de": {
     id: "legal-privacy-de",
@@ -2920,7 +4853,7 @@ const routes = {
     path: "de/datenschutz",
     index: void 0,
     caseSensitive: void 0,
-    module: route14
+    module: route19
   },
   "legal-imprint-de": {
     id: "legal-imprint-de",
@@ -2928,7 +4861,7 @@ const routes = {
     path: "de/impressum",
     index: void 0,
     caseSensitive: void 0,
-    module: route14
+    module: route19
   },
   "legal-privacy-tr": {
     id: "legal-privacy-tr",
@@ -2936,7 +4869,7 @@ const routes = {
     path: "tr/gizlilik",
     index: void 0,
     caseSensitive: void 0,
-    module: route14
+    module: route19
   },
   "legal-imprint-tr": {
     id: "legal-imprint-tr",
@@ -2944,7 +4877,7 @@ const routes = {
     path: "tr/kunye",
     index: void 0,
     caseSensitive: void 0,
-    module: route14
+    module: route19
   },
   "legal-privacy-ru": {
     id: "legal-privacy-ru",
@@ -2952,7 +4885,7 @@ const routes = {
     path: "ru/privacy",
     index: void 0,
     caseSensitive: void 0,
-    module: route14
+    module: route19
   },
   "legal-imprint-ru": {
     id: "legal-imprint-ru",
@@ -2960,7 +4893,7 @@ const routes = {
     path: "ru/impressum",
     index: void 0,
     caseSensitive: void 0,
-    module: route14
+    module: route19
   }
 };
 const allowedActionOrigins = false;

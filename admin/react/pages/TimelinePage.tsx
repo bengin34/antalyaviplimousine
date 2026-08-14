@@ -1,4 +1,22 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
+
+function buildCalendarCounts(rows: Array<{ pickup_date: string; return_date?: string | null; trip_type?: string | null; service_end_date?: string | null }>): Map<string, number> {
+  const counts = new Map<string, number>()
+  const inc = (date: string | null | undefined) => { if (date) counts.set(date, (counts.get(date) ?? 0) + 1) }
+  for (const row of rows) {
+    inc(row.pickup_date)
+    if (row.trip_type === 'round_trip' && row.return_date) inc(row.return_date)
+    if (row.trip_type === 'daily_chauffeur' && row.service_end_date && row.pickup_date) {
+      const start = Date.parse(`${row.pickup_date}T00:00:00Z`)
+      const end = Date.parse(`${row.service_end_date}T00:00:00Z`)
+      const dayCount = Math.floor((end - start) / 86_400_000) + 1
+      for (let index = 1; index < dayCount; index++) {
+        inc(new Date(start + index * 86_400_000).toISOString().slice(0, 10))
+      }
+    }
+  }
+  return counts
+}
 import { AdminTabs, Topbar } from '../components/AdminChrome'
 import { MonthCalendar } from '../components/MonthCalendar'
 import { fmtLiveDate, fmtPrice, fmtSyncTime, fmtTime, ISTANBUL_TIME_ZONE, offsetISO, statusLabel, todayISO } from '../lib/format'
@@ -201,7 +219,7 @@ function cacheToday(bookings: Booking[], today: string, futureReservationCount: 
   } catch { /* storage is optional */ }
 }
 
-export default function TimelinePage({ selectedTab, navigate }: { selectedTab: 'future' | 'past'; navigate: Navigate }) {
+export default function TimelinePage({ selectedTab, navigate, initialDate }: { selectedTab: 'future' | 'past'; navigate: Navigate; initialDate?: string | null }) {
   const today = useMemo(todayISO, [])
   const tomorrow = useMemo(() => offsetISO(1), [])
   const isPast = selectedTab === 'past'
@@ -218,9 +236,11 @@ export default function TimelinePage({ selectedTab, navigate }: { selectedTab: '
   const [calendarMonth, setCalendarMonth] = useState(today.slice(0, 7))
   const [selectedCalendarDate, setSelectedCalendarDate] = useState<string | null>(null)
   const [collapsedDays, setCollapsedDays] = useState<Set<string>>(() => new Set())
+  const [allCalendarCounts, setAllCalendarCounts] = useState<Map<string, number>>(new Map())
   const refreshingRef = useRef(false)
   const bookingsRef = useRef<Booking[] | null>(null)
   const mounted = useRef(true)
+  const scrolledToInitial = useRef(false)
 
   const showCache = useCallback(() => {
     if (isPast) return false
@@ -276,6 +296,25 @@ export default function TimelinePage({ selectedTab, navigate }: { selectedTab: '
     }
   }, []) // route remounts when the selected tab changes
 
+  useEffect(() => {
+    supabase.from('bookings')
+      .select('pickup_date, return_date, trip_type, service_end_date')
+      .in('status', ['pending', 'paid', 'confirmed', 'in_transit', 'completed'])
+      .then(({ data }) => { if (data) setAllCalendarCounts(buildCalendarCounts(data)) })
+  }, [])
+
+  useEffect(() => {
+    if (!initialDate || !bookings || scrolledToInitial.current) return
+    scrolledToInitial.current = true
+    setSelectedCalendarDate(initialDate)
+    setCalendarMonth(initialDate.slice(0, 7))
+    requestAnimationFrame(() => {
+      const day = document.getElementById(`timeline-day-${initialDate}`)
+      if (day instanceof HTMLDetailsElement) day.open = true
+      day?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    })
+  }, [initialDate, bookings])
+
   const confirmPast = async (bookingRef: string) => {
     setConfirming(bookingRef); setConfirmFailed(null)
     const { count, error } = await supabase.from('bookings').update({ status: 'confirmed' }, { count: 'exact' }).eq('booking_ref', bookingRef).eq('status', 'pending')
@@ -304,13 +343,12 @@ export default function TimelinePage({ selectedTab, navigate }: { selectedTab: '
     return map
   }, [isPast, today, tomorrow, visibleCards])
   const hasBookings = [...groups.values()].some(group => group.length)
-  const calendarCounts = useMemo(() => {
-    const counts = new Map<string, number>()
-    for (const card of visibleCards) counts.set(card._displayDate, (counts.get(card._displayDate) ?? 0) + 1)
-    return counts
-  }, [visibleCards])
+  const calendarCounts = allCalendarCounts
 
   const selectCalendarDate = (date: string) => {
+    const dateIsPast = date < today
+    if (dateIsPast && !isPast) { navigate(`#timeline?tab=past&date=${date}`); return }
+    if (!dateIsPast && isPast) { navigate(`#timeline?date=${date}`); return }
     setSelectedCalendarDate(date)
     setCollapsedDays(previous => {
       if (!previous.has(date)) return previous

@@ -161,6 +161,21 @@ export function healthMeta(language: IndexableLanguage) {
   ];
 }
 
+export function clinicMeta() {
+  const title = "ORIVA Clinic — Premium Estetik Klinik Web Sitesi Demosu";
+  const description = "Antalya estetik klinikleri için hazırlanmış kurgusal premium web sitesi konsepti. Gerçek klinik, hekim, hasta veya tedavi sonucu içermez.";
+  const url = `${domain}/clinic/`;
+  const image = `${domain}/assets/optimized/og-clinic-demo.jpg`;
+
+  return [
+    { title },
+    { name: "description", content: description },
+    { name: "robots", content: "noindex,nofollow" },
+    { tagName: "link", rel: "canonical", href: url },
+    ...socialDescriptors(title, description, url, "tr_TR", image),
+  ];
+}
+
 export function routeMeta(language: IndexableLanguage, slug: string) {
   const route = routeCatalog[slug as keyof typeof routeCatalog];
   if (!route) return [];
