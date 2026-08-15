@@ -72,6 +72,16 @@ export default function AdminPanelPage({ navigate }: { navigate: Navigate }) {
     <Topbar navigate={navigate} title="Yönetici Paneli" back="#timeline" />
     <div className="scroll-area">
       <div className="section">
+        <div className="section-label">Fiyatlandırma</div>
+        <div style={{ fontWeight: 600, marginBottom: 4 }}>Fiyat Kontrol Merkezi</div>
+        <div style={{ color: 'var(--text-muted)', fontSize: 13, lineHeight: 1.5, marginBottom: 12 }}>
+          Tüm transfer ve günlük şoförlü araç fiyatlarını görüntüleyin, kilometreden fiyat hesaplayın ve
+          güncel fiyatları tek yerden düzenleyin. Kaydettiğiniz değişiklikler anında hem rezervasyon
+          sistemine hem de sitedeki canlı fiyat teklifine yansır.
+        </div>
+        <button className="btn" type="button" onClick={() => navigate('#prices')}>Fiyatları yönet</button>
+      </div>
+      <div className="section">
         <div className="section-label">Pazarlama</div>
         <div style={{ fontWeight: 600, marginBottom: 4 }}>Google Ads müşteri listesi</div>
         <div style={{ color: 'var(--text-muted)', fontSize: 13, lineHeight: 1.5, marginBottom: 12 }}>

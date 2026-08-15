@@ -98,19 +98,65 @@ export function createPublicBookingSchema(t: Translate) {
 
 export type PublicBookingValues = z.input<ReturnType<typeof createPublicBookingSchema>>;
 
-export function quoteFor(values: Pick<PublicBookingValues, "destination" | "vehicle" | "tripType" | "travelDate" | "serviceEndDate">) {
+/**
+ * Live prices fetched from the admin-controlled Supabase `routes` and
+ * `chauffeur_service_rates` tables. When present, these take priority over
+ * the static routeCatalog figures baked in at build time, so an admin price
+ * update is reflected in the on-site quote without a redeploy.
+ */
+export type LivePriceOverrides = {
+  routePrices?: Partial<Record<string, number>>;
+  dailyRates?: Partial<Record<"vito" | "sprinter", number>>;
+};
+
+export function quoteFor(
+  values: Pick<PublicBookingValues, "destination" | "vehicle" | "tripType" | "travelDate" | "serviceEndDate">,
+  overrides?: LivePriceOverrides,
+) {
   if (values.tripType === "daily_chauffeur") {
     const days = inclusiveDayCount(values.travelDate, values.serviceEndDate);
-    const price = days > 0 && days <= MAX_DAILY_CHAUFFEUR_DAYS ? days * DAILY_CHAUFFEUR_RATE_EUR : 0;
+    const dailyRate = overrides?.dailyRates?.[values.vehicle] ?? DAILY_CHAUFFEUR_RATE_EUR;
+    const price = days > 0 && days <= MAX_DAILY_CHAUFFEUR_DAYS ? days * dailyRate : 0;
     return { price, originalPrice: price };
   }
   const route = routeCatalog[values.destination as keyof typeof routeCatalog];
   if (!route) return { price: 0, originalPrice: 0 };
   const journeys = values.tripType === "round_trip" ? 2 : 1;
+  const liveUnitPrice = overrides?.routePrices?.[`${values.destination}:${values.vehicle}`];
+  const unitPrice = liveUnitPrice ?? route.prices[values.vehicle];
   return {
-    price: route.prices[values.vehicle] * journeys,
+    price: unitPrice * journeys,
     originalPrice: route.originalPrices[values.vehicle] * journeys,
   };
+}
+
+/**
+ * Reads the admin-controlled live prices from Supabase (public, read-only).
+ * Resolves to an empty override set on any failure so callers can always
+ * fall back to the static routeCatalog figures.
+ */
+export async function fetchLivePriceOverrides(): Promise<LivePriceOverrides> {
+  try {
+    const { supabase } = await import("../../../src/lib/supabase.js");
+    if (!supabase) return {};
+    const [{ data: routeRows }, { data: rateRows }] = await Promise.all([
+      supabase.from("routes").select("to_location, vehicle_type, price_eur").eq("from_location", "airport"),
+      supabase.from("chauffeur_service_rates").select("vehicle_type, daily_rate_eur"),
+    ]);
+    const routePrices: Record<string, number> = {};
+    for (const row of routeRows ?? []) {
+      const vehicle = row.vehicle_type === "vclass" ? "sprinter" : "vito";
+      routePrices[`${row.to_location}:${vehicle}`] = Number(row.price_eur);
+    }
+    const dailyRates: Partial<Record<"vito" | "sprinter", number>> = {};
+    for (const row of rateRows ?? []) {
+      const vehicle = row.vehicle_type === "vclass" ? "sprinter" : "vito";
+      dailyRates[vehicle] = Number(row.daily_rate_eur);
+    }
+    return { routePrices, dailyRates };
+  } catch {
+    return {};
+  }
 }
 
 export function buildPublicBookingPayload(values: PublicBookingValues, language: string, fuelTermsAccepted = false) {
