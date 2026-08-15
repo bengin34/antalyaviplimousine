@@ -419,6 +419,25 @@ body {
 .profit-input-field small { display: block; margin-top: 5px; color: #68778c; font-size: 8px; line-height: 1.35; }
 .profit-input-wide { grid-column: 1 / -1; }
 .profit-save-button { margin-top: 13px; }
+
+.price-control-intro { margin: 0 12px 4px; color: var(--text-muted); font-size: 11px; line-height: 1.5; }
+.price-calculator p { margin-top: 6px; color: var(--text-muted); font-size: 11px; line-height: 1.5; }
+.price-km-field { margin-top: 12px; max-width: 220px; }
+.price-estimate-result { display: flex; flex-direction: column; gap: 6px; margin-top: 13px; padding: 11px; border-radius: 11px; background: rgba(255, 255, 255, 0.035); }
+.price-estimate-row { display: flex; align-items: center; justify-content: space-between; font-size: 13px; }
+.price-estimate-row span { color: var(--text-muted); }
+.price-estimate-row strong { font-variant-numeric: tabular-nums; color: var(--green); }
+.price-estimate-result small { color: #68778c; font-size: 9px; line-height: 1.4; }
+.price-routes-section { display: flex; flex-direction: column; gap: 0; }
+.price-route-row { padding: 12px 0; border-top: 1px solid var(--border-soft); }
+.price-route-row:first-of-type { border-top: 0; padding-top: 4px; }
+.price-route-heading { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 9px; }
+.price-route-heading strong { color: #ced8e5; font-size: 13px; }
+.price-route-heading span { flex: 0 0 auto; color: var(--blue); font-size: 10px; font-weight: 700; }
+.price-route-fields { display: grid; grid-template-columns: 1fr 1fr auto; align-items: end; gap: 8px; }
+.price-route-fields .profit-input-field > div { min-height: 38px; }
+.price-route-fields .profit-input-field input { height: 36px; font-size: 13px; }
+.price-route-save { min-height: 38px; padding: 0 14px; white-space: nowrap; }
 .profit-hero {
   position: relative;
   overflow: hidden;

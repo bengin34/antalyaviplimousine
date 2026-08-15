@@ -8,6 +8,7 @@ import NewBookingPage from './pages/NewBookingPage'
 import BookingDetailPage from './pages/BookingDetailPage'
 import BudgetPage from './pages/BudgetPage'
 import ProfitLossPage from './pages/ProfitLossPage'
+import PriceControlPage from './pages/PriceControlPage'
 import { clearTimelineCache } from './pages/timeline-logic'
 
 const navigate = (hash: string) => { window.location.hash = hash }
@@ -54,6 +55,7 @@ export default function App() {
     return <ProfitLossPage key={hash} navigate={navigate} initialPeriod={new URLSearchParams(profitQuery).get('period')} />
   }
   if (hash === '#admin') return <AdminPanelPage navigate={navigate} />
+  if (hash === '#prices') return <PriceControlPage navigate={navigate} />
   if (hash.startsWith('#detail/')) {
     const detailPath = hash.slice('#detail/'.length)
     const [encodedRef, query = ''] = detailPath.split('?')

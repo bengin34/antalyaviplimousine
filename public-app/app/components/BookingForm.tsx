@@ -7,8 +7,11 @@ import { Icon } from "./Icon";
 import {
   buildPublicBookingPayload,
   createPublicBookingSchema,
+  fetchLivePriceOverrides,
   inclusiveDayCount,
   quoteFor,
+  DAILY_CHAUFFEUR_RATE_EUR,
+  type LivePriceOverrides,
   type PublicBookingValues,
 } from "../lib/booking";
 
@@ -73,6 +76,7 @@ export function BookingForm({
   const [confirmation, setConfirmation] = useState<{ ref: string; whatsapp: string; message: string } | null>(null);
   const [pendingDailyBooking, setPendingDailyBooking] = useState<PublicBookingValues | null>(null);
   const [fuelAcknowledged, setFuelAcknowledged] = useState(false);
+  const [liveOverrides, setLiveOverrides] = useState<LivePriceOverrides>({});
   const {
     register,
     handleSubmit,
@@ -94,7 +98,8 @@ export function BookingForm({
   const values = watch();
   const isDailyChauffeur = values.tripType === "daily_chauffeur";
   const hireDays = isDailyChauffeur ? inclusiveDayCount(values.travelDate, values.serviceEndDate) : 0;
-  const quote = quoteFor(values);
+  const quote = quoteFor(values, liveOverrides);
+  const dailyRateEur = liveOverrides.dailyRates?.[values.vehicle] ?? DAILY_CHAUFFEUR_RATE_EUR;
   const selectedRoute = routeCatalog[values.destination as keyof typeof routeCatalog];
   const selectedRouteName = selectedRoute?.names[language as keyof typeof selectedRoute.names] ?? selectedRoute?.names.en;
   const pickupName = values.pickup === "airport"
@@ -116,6 +121,16 @@ export function BookingForm({
     setValue("travelDate", today, { shouldValidate: false });
     setValue("serviceEndDate", today, { shouldValidate: false });
   }, [setValue]);
+
+  useEffect(() => {
+    let cancelled = false;
+    void fetchLivePriceOverrides().then((overrides) => {
+      if (!cancelled) setLiveOverrides(overrides);
+    });
+    return () => {
+      cancelled = true;
+    };
+  }, []);
 
   useEffect(() => {
     if (!selection) return;
@@ -158,7 +173,7 @@ export function BookingForm({
   const createValidatedBooking = async (formValues: PublicBookingValues, acceptedFuelTerms = false) => {
     setSubmitting(true);
     setSubmitError("");
-    const currentQuote = quoteFor(formValues);
+    const currentQuote = quoteFor(formValues, liveOverrides);
     window.gtag?.("event", "begin_checkout", { currency: "EUR", value: currentQuote.price, trip_type: formValues.tripType });
     try {
       const { createBooking } = await import("../../../src/lib/api.js");
@@ -212,7 +227,7 @@ export function BookingForm({
     <section className="booking-shell" id="booking" aria-labelledby="booking-title">
       <div className="booking-shell-inner">
         <div className="booking-shell-header"><div><span className="mini-label">{t("privateJourney", "Your private journey")}</span><h2 id="booking-title">{t("bookTransfer", "Book your transfer")}</h2></div><div id="booking-price-display" className={`booking-price-display${isDailyChauffeur || values.destination ? " visible" : ""}`}>
-          {isDailyChauffeur ? <><span className="price-display-route">{t("dailyChauffeur", "Daily vehicle + chauffeur")} · {hireDays || 0} {t("days", "days")}</span><span className="price-display-prices"><strong className="price-display-amount">€{quote.price}</strong></span><span className="price-display-note">€150 × {hireDays || 0} · {t("fuelExcludedShort", "fuel excluded")}</span></> : selectedRoute && quote.price > 0 ? <><span className="price-display-route">{pickupName} {values.tripType === "round_trip" ? "⇄" : "→"} {destinationName}</span><span className="price-display-prices">{quote.originalPrice > quote.price && <span className="price-display-original">€{quote.originalPrice}</span>}<strong className="price-display-amount">€{quote.price}</strong></span><span className="price-display-note">{values.vehicle === "sprinter" ? "Mercedes Sprinter" : "Mercedes Vito"} · {values.tripType === "round_trip" ? `${t("roundTripPriceNote", "round trip · 2 journeys")} · ` : ""}{t("perVehicle", "fixed · per vehicle")}</span></> : values.destination ? <><span className="price-display-route">{pickupName} {values.tripType === "round_trip" ? "⇄" : "→"} {destinationName}</span><span className="price-display-note">{values.destination === "airport" ? t("airportReturnPrice", "Price confirmed after address review.") : t("customDestinationPrice", "Price confirmed after address review.")}</span></> : null}
+          {isDailyChauffeur ? <><span className="price-display-route">{t("dailyChauffeur", "Daily vehicle + chauffeur")} · {hireDays || 0} {t("days", "days")}</span><span className="price-display-prices"><strong className="price-display-amount">€{quote.price}</strong></span><span className="price-display-note">€{dailyRateEur} × {hireDays || 0} · {t("fuelExcludedShort", "fuel excluded")}</span></> : selectedRoute && quote.price > 0 ? <><span className="price-display-route">{pickupName} {values.tripType === "round_trip" ? "⇄" : "→"} {destinationName}</span><span className="price-display-prices">{quote.originalPrice > quote.price && <span className="price-display-original">€{quote.originalPrice}</span>}<strong className="price-display-amount">€{quote.price}</strong></span><span className="price-display-note">{values.vehicle === "sprinter" ? "Mercedes Sprinter" : "Mercedes Vito"} · {values.tripType === "round_trip" ? `${t("roundTripPriceNote", "round trip · 2 journeys")} · ` : ""}{t("perVehicle", "fixed · per vehicle")}</span></> : values.destination ? <><span className="price-display-route">{pickupName} {values.tripType === "round_trip" ? "⇄" : "→"} {destinationName}</span><span className="price-display-note">{values.destination === "airport" ? t("airportReturnPrice", "Price confirmed after address review.") : t("customDestinationPrice", "Price confirmed after address review.")}</span></> : null}
         </div></div>
         <form className="booking-card" id="quote-form" noValidate onSubmit={handleSubmit(submit)}>
           <fieldset className="trip-type-selector"><legend>{t("tripType", "Journey type")}</legend><div className="trip-type-options"><label className="trip-type-option"><input type="radio" value="one_way" {...register("tripType")} /><span>{t("oneWay", "One way")}</span></label><label className="trip-type-option"><input type="radio" value="round_trip" {...register("tripType")} /><span>{t("roundTrip", "Round trip")}</span></label><label className="trip-type-option"><input type="radio" value="daily_chauffeur" {...register("tripType")} /><span>{t("dailyChauffeur", "Daily vehicle + chauffeur")}</span></label></div><p className="trip-type-hint">{isDailyChauffeur ? t("dailyChauffeurHint", "Hire a private vehicle and chauffeur by the day with no kilometre or hour limit. Fuel is paid separately.") : t("roundTripHint", "For a round trip, the return follows the same route in reverse.")}</p></fieldset>
@@ -232,7 +247,7 @@ export function BookingForm({
             <div className="booking-row booking-outbound-row">
               <label className={`${fieldClass(errors.arrivalTime)} time-booking-field`}><span>{t("arrivalFlightTimeOptional", "Arrival flight time (optional)")}</span><div className="field-control time-field-control" onClick={() => openTimePicker("flight-arrival-time")}><Icon name="clock" className="icon" /><span className="time-picker-value">{values.arrivalTime || t("chooseTime", "Choose time")}</span><input id="flight-arrival-time" type="time" {...register("arrivalTime")} /></div><FieldErrorMessage error={errors.arrivalTime} /></label>
               <label className={fieldClass(errors.flightNumber)}><span>{t("arrivalFlightNumberOptional", "Arrival flight number (optional)")}</span><div className="field-control"><Icon name="plane" className="icon" /><input id="flight-number" maxLength={12} placeholder="TK1234" {...register("flightNumber")} /></div><FieldErrorMessage error={errors.flightNumber} /></label>
-              <div className="daily-price-summary"><small>{t("servicePrice", "Service price")}</small><strong>€150 × {hireDays || 0} = €{quote.price}</strong><span>{t("fuelExcludedDetail", "Fuel is not included and is paid separately according to use.")}</span></div>
+              <div className="daily-price-summary"><small>{t("servicePrice", "Service price")}</small><strong>€{dailyRateEur} × {hireDays || 0} = €{quote.price}</strong><span>{t("fuelExcludedDetail", "Fuel is not included and is paid separately according to use.")}</span></div>
             </div>
             <div className="booking-row booking-return-row daily-departure-row">
               <label className={fieldClass(errors.departureFlightDate)}><span>{t("departureFlightDate", "Departure flight date (optional)")}</span><div className="field-control"><Icon name="calendar" className="icon" /><input id="departure-flight-date" type="date" min={values.travelDate || minimumDate || undefined} {...register("departureFlightDate")} /></div><FieldErrorMessage error={errors.departureFlightDate} /></label>
