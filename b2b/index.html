@@ -231,10 +231,42 @@
         line-height: 1.65;
       }
 
-      @media (max-width: 600px) {
+      /* Video */
+      .b2b-video-wrap {
+        display: flex;
+        gap: 40px;
+        align-items: flex-start;
+        margin-top: 8px;
+      }
+      .b2b-video-phone {
+        flex-shrink: 0;
+        width: 220px;
+        background: #111;
+        border-radius: 24px;
+        padding: 10px;
+        box-shadow: 0 8px 40px rgba(0,0,0,0.18);
+        border: 1px solid rgba(255,255,255,0.08);
+      }
+      .b2b-video-phone iframe {
+        width: 100%;
+        aspect-ratio: 9/16;
+        border-radius: 16px;
+        display: block;
+        border: none;
+      }
+      .b2b-video-copy {
+        padding-top: 8px;
+      }
+      .b2b-video-copy p {
+        margin: 0 0 16px;
+      }
+
+      @media (max-width: 640px) {
         .b2b-cta { padding: 36px 24px; }
         .b2b-price-table th:nth-child(2),
         .b2b-price-table td:nth-child(2) { display: none; }
+        .b2b-video-wrap { flex-direction: column; align-items: center; }
+        .b2b-video-phone { width: 200px; }
       }
     </style>
   </head>
@@ -251,7 +283,7 @@
       </a>
       <nav class="desktop-nav">
         <a href="/">Home</a>
-        <a href="/#pricing">Pricing</a>
+        <a href="#b2b-prices">Prices</a>
         <a href="/#contact">Contact</a>
       </nav>
       <div class="header-actions">
@@ -299,7 +331,7 @@
         </div>
 
         <!-- Price Table: Vito -->
-        <section class="b2b-section" style="margin-top: 56px;">
+        <section class="b2b-section" id="b2b-prices" style="margin-top: 56px;">
           <h2>Mercedes Vito VIP — B2B Transfer Rates</h2>
           <p>Up to 6 passengers. Prices are per vehicle, one way, in EUR.</p>
           <table class="b2b-price-table" aria-label="Vito B2B transfer prices">
@@ -485,13 +517,29 @@
 
         <!-- Meet & Greet -->
         <section class="b2b-section">
-          <h2>Antalya Airport Meet &amp; Greet</h2>
-          <p>
-            After collecting luggage, passengers proceed to our designated
-            <strong>Meet &amp; Greet Area J / 777</strong>. The passenger gives their name
-            to our airport team and is connected with the assigned driver and vehicle.
-            Our operational team manages the airport pickup process directly.
-          </p>
+          <h2>Antalya Airport Meet &amp; Greet — Area J / 777</h2>
+          <div class="b2b-video-wrap">
+            <div class="b2b-video-phone">
+              <iframe
+                src="https://www.youtube.com/embed/r79dH1HLJtk?rel=0&playsinline=1"
+                title="Antalya Airport Meet &amp; Greet Area J 777"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+                loading="lazy"
+              ></iframe>
+            </div>
+            <div class="b2b-video-copy">
+              <p>
+                After collecting luggage, passengers proceed to our designated
+                <strong>Meet &amp; Greet Area J / 777</strong>. The passenger gives their name
+                to our airport team and is connected with the assigned driver and vehicle.
+              </p>
+              <p>
+                Our operational team manages the airport pickup process directly.
+                The video shows the exact meeting point your passengers will use.
+              </p>
+            </div>
+          </div>
         </section>
 
         <!-- Payment -->
