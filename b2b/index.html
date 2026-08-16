@@ -1,0 +1,606 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="B2B Transfer Partner Program — Antalya VIP Tourism. Fixed-price Mercedes transfers for travel agencies, tour operators and hotels. Transparent rates, no hidden fees."
+    />
+    <meta name="theme-color" content="#0b0b0b" />
+    <title>B2B Transfer Partners | Antalya VIP Tourism</title>
+
+    <link rel="canonical" href="https://antalyaviptourism.com/b2b/" />
+    <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/assets/favicons/apple-touch-icon.png" />
+
+    <link rel="stylesheet" href="/src/styles.css" />
+    <style>
+      /* B2B-specific overrides */
+      .b2b-hero {
+        background: linear-gradient(160deg, #0b0b0b 0%, #1a1008 100%);
+        padding: 100px 24px 64px;
+        text-align: center;
+      }
+      .b2b-hero .eyebrow { margin-bottom: 20px; }
+      .b2b-hero h1 {
+        font-family: var(--serif);
+        font-size: clamp(2rem, 5vw, 3.2rem);
+        font-weight: 400;
+        color: #fff;
+        margin: 0 0 20px;
+      }
+      .b2b-hero p {
+        color: rgba(255,255,255,0.65);
+        font-size: 1.05rem;
+        max-width: 640px;
+        margin: 0 auto 36px;
+        line-height: 1.7;
+      }
+      .b2b-hero .hero-ctas {
+        display: flex;
+        gap: 12px;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      .b2b-content {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 60px 24px 80px;
+      }
+
+      .b2b-section {
+        margin-bottom: 60px;
+      }
+      .b2b-section h2 {
+        font-family: var(--serif);
+        font-size: 1.6rem;
+        font-weight: 400;
+        color: var(--ink);
+        margin: 0 0 24px;
+        padding-bottom: 16px;
+        border-bottom: 1px solid var(--line);
+      }
+      .b2b-section p {
+        color: var(--muted);
+        line-height: 1.75;
+        margin: 0 0 16px;
+      }
+      .b2b-section p:last-child { margin-bottom: 0; }
+
+      /* Price table */
+      .b2b-price-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 8px;
+      }
+      .b2b-price-table th {
+        text-align: left;
+        padding: 10px 12px;
+        font-size: 11px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: var(--muted);
+        border-bottom: 2px solid var(--line);
+      }
+      .b2b-price-table td {
+        padding: 13px 12px;
+        border-bottom: 1px solid var(--line);
+        font-size: 0.95rem;
+        vertical-align: middle;
+      }
+      .b2b-price-table tr:last-child td { border-bottom: none; }
+      .b2b-price-table td:first-child { color: var(--ink); font-weight: 500; }
+      .b2b-price-table td.price {
+        font-weight: 700;
+        color: var(--ink);
+        text-align: right;
+        font-variant-numeric: tabular-nums;
+      }
+      .b2b-price-table td.price-contact {
+        text-align: right;
+        color: var(--muted);
+        font-size: 0.875rem;
+        font-style: italic;
+      }
+      .b2b-price-table td.dist {
+        color: var(--muted);
+        font-size: 0.875rem;
+      }
+      .b2b-price-table tr:hover td { background: var(--surface-2, #f9f7f4); }
+
+      /* Included list */
+      .included-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        gap: 10px;
+        margin-top: 4px;
+      }
+      .included-item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 10px 14px;
+        background: var(--surface-1, #f9f7f4);
+        border-radius: 8px;
+        font-size: 0.9rem;
+        color: var(--ink);
+      }
+      .included-item::before {
+        content: "✓";
+        color: #7a6030;
+        font-weight: 700;
+        flex-shrink: 0;
+      }
+
+      /* Info cards */
+      .b2b-info-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+        gap: 20px;
+        margin-top: 4px;
+      }
+      .b2b-info-card {
+        padding: 24px;
+        background: var(--surface-1, #f9f7f4);
+        border-radius: 10px;
+        border: 1px solid var(--line);
+      }
+      .b2b-info-card h3 {
+        font-size: 0.95rem;
+        font-weight: 600;
+        color: var(--ink);
+        margin: 0 0 10px;
+      }
+      .b2b-info-card p {
+        font-size: 0.875rem;
+        color: var(--muted);
+        line-height: 1.65;
+        margin: 0;
+      }
+
+      /* Cancellation */
+      .cancel-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 4px;
+      }
+      .cancel-table th {
+        text-align: left;
+        padding: 10px 12px;
+        font-size: 11px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: var(--muted);
+        border-bottom: 2px solid var(--line);
+      }
+      .cancel-table td {
+        padding: 14px 12px;
+        border-bottom: 1px solid var(--line);
+        font-size: 0.9rem;
+        vertical-align: top;
+        line-height: 1.55;
+      }
+      .cancel-table tr:last-child td { border-bottom: none; }
+      .cancel-table td:first-child { color: var(--ink); font-weight: 500; width: 40%; }
+      .cancel-table td:last-child { color: var(--muted); }
+      .cancel-free { color: #2d7a2d !important; font-weight: 600 !important; }
+      .cancel-fee { color: #b04a00 !important; }
+
+      /* CTA */
+      .b2b-cta {
+        background: linear-gradient(135deg, #0f0a02 0%, #1c1205 100%);
+        border-radius: 16px;
+        padding: 48px 40px;
+        text-align: center;
+        margin-top: 60px;
+      }
+      .b2b-cta h2 {
+        font-family: var(--serif);
+        font-size: 2rem;
+        font-weight: 400;
+        color: #fff;
+        margin: 0 0 16px;
+        border: none;
+        padding: 0;
+      }
+      .b2b-cta p {
+        color: rgba(255,255,255,0.6);
+        max-width: 520px;
+        margin: 0 auto 32px;
+        line-height: 1.7;
+      }
+      .b2b-cta .cta-buttons {
+        display: flex;
+        gap: 12px;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      .b2b-note {
+        background: #fffbf0;
+        border-left: 3px solid #c9a84c;
+        padding: 14px 20px;
+        border-radius: 0 8px 8px 0;
+        margin-top: 20px;
+        font-size: 0.9rem;
+        color: var(--muted);
+        line-height: 1.65;
+      }
+
+      @media (max-width: 600px) {
+        .b2b-cta { padding: 36px 24px; }
+        .b2b-price-table th:nth-child(2),
+        .b2b-price-table td:nth-child(2) { display: none; }
+      }
+    </style>
+  </head>
+
+  <body class="legal-page">
+    <!-- Header -->
+    <header class="site-header legal-header scrolled">
+      <a class="brand" href="/" aria-label="Antalya VIP Tourism home">
+        <span class="brand-mark">AVL</span>
+        <span class="brand-copy">
+          <strong>Antalya VIP</strong>
+          <span>Tourism</span>
+        </span>
+      </a>
+      <nav class="desktop-nav">
+        <a href="/">Home</a>
+        <a href="/#pricing">Pricing</a>
+        <a href="/#contact">Contact</a>
+      </nav>
+      <div class="header-actions">
+        <a class="header-cta" href="https://wa.me/905302655790?text=B2B%20partnership%20enquiry" target="_blank" rel="noopener">
+          <span>WhatsApp us</span>
+          <svg class="icon" aria-hidden="true"><use href="#icon-arrow-up-right"></use></svg>
+        </a>
+      </div>
+    </header>
+
+    <main>
+      <!-- Hero -->
+      <section class="b2b-hero">
+        <div class="eyebrow light">
+          <span></span>
+          <p>Partner Program</p>
+        </div>
+        <h1>B2B Transfer Partner Program</h1>
+        <p>
+          Reliable private airport transfers in Antalya for travel agencies, tour operators,
+          hotels and independent travel professionals. Fixed prices, professional Mercedes vehicles,
+          24/7 operations.
+        </p>
+        <div class="hero-ctas">
+          <a
+            class="button button-gold"
+            href="https://wa.me/905302655790?text=B2B%20partnership%20enquiry"
+            target="_blank"
+            rel="noopener"
+          >WhatsApp us</a>
+          <a
+            class="button button-glass"
+            href="mailto:support@antalyaviptourism.com?subject=B2B%20Partnership%20Enquiry"
+          >Send email</a>
+        </div>
+      </section>
+
+      <div class="b2b-content">
+
+        <!-- Capacity note -->
+        <div class="b2b-note">
+          We operate with sufficient vehicle and driver capacity to handle 20–30 transfers
+          simultaneously — suitable for both individual B2B bookings and regular high-volume
+          cooperation.
+        </div>
+
+        <!-- Price Table: Vito -->
+        <section class="b2b-section" style="margin-top: 56px;">
+          <h2>Mercedes Vito VIP — B2B Transfer Rates</h2>
+          <p>Up to 6 passengers. Prices are per vehicle, one way, in EUR.</p>
+          <table class="b2b-price-table" aria-label="Vito B2B transfer prices">
+            <thead>
+              <tr>
+                <th>Route (from Antalya Airport)</th>
+                <th>Distance</th>
+                <th>B2B Price</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Antalya City Centre</td>
+                <td class="dist">~15 km</td>
+                <td class="price">€35</td>
+              </tr>
+              <tr>
+                <td>Belek</td>
+                <td class="dist">~45 km</td>
+                <td class="price">€40</td>
+              </tr>
+              <tr>
+                <td>Boğazkent</td>
+                <td class="dist">~48 km</td>
+                <td class="price">€45</td>
+              </tr>
+              <tr>
+                <td>Side</td>
+                <td class="dist">~65 km</td>
+                <td class="price">€50</td>
+              </tr>
+              <tr>
+                <td>Manavgat</td>
+                <td class="dist">~75 km</td>
+                <td class="price">€50</td>
+              </tr>
+              <tr>
+                <td>Manavgat / Kızılağaç</td>
+                <td class="dist">~85 km</td>
+                <td class="price">€60</td>
+              </tr>
+              <tr>
+                <td>Kemer</td>
+                <td class="dist">~50 km</td>
+                <td class="price">€55</td>
+              </tr>
+              <tr>
+                <td>Tekirova</td>
+                <td class="dist">~75 km</td>
+                <td class="price">€95</td>
+              </tr>
+              <tr>
+                <td>Alanya</td>
+                <td class="dist">~125 km</td>
+                <td class="price">€95</td>
+              </tr>
+              <tr>
+                <td>Fethiye</td>
+                <td class="dist">~205 km</td>
+                <td class="price">€180</td>
+              </tr>
+              <tr>
+                <td>Dalaman</td>
+                <td class="dist">~235 km</td>
+                <td class="price">€180</td>
+              </tr>
+              <tr>
+                <td>Pamukkale</td>
+                <td class="dist">~245 km</td>
+                <td class="price">€250</td>
+              </tr>
+              <tr>
+                <td>Bodrum</td>
+                <td class="dist">~380 km</td>
+                <td class="price">€280</td>
+              </tr>
+              <tr>
+                <td>Cappadocia</td>
+                <td class="dist">~540 km</td>
+                <td class="price">€300</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="b2b-note" style="margin-top: 16px;">
+            For other destinations, surrounding areas or high booking volumes,
+            contact us for a fixed quotation.
+          </div>
+        </section>
+
+        <!-- Sprinter -->
+        <section class="b2b-section">
+          <h2>Mercedes Sprinter — Groups up to 16</h2>
+          <p>
+            Sprinter vehicles are available for larger groups. Pricing depends on the route
+            and group requirements and is confirmed individually before booking.
+            Contact us with pickup location, destination, date, passenger count and any
+            special requirements.
+          </p>
+        </section>
+
+        <!-- What's included -->
+        <section class="b2b-section">
+          <h2>What Is Included</h2>
+          <p>All standard transfer prices include:</p>
+          <div class="included-grid">
+            <div class="included-item">Private transfer</div>
+            <div class="included-item">Mercedes in booked category</div>
+            <div class="included-item">Professional driver</div>
+            <div class="included-item">Airport Meet &amp; Greet</div>
+            <div class="included-item">Airport parking</div>
+            <div class="included-item">Road &amp; toll costs</div>
+            <div class="included-item">Flight tracking</div>
+            <div class="included-item">Delay waiting (no charge)</div>
+            <div class="included-item">Bottled water</div>
+            <div class="included-item">Wi-Fi where available</div>
+            <div class="included-item">Baby seats</div>
+            <div class="included-item">Child seats</div>
+            <div class="included-item">Booster seats</div>
+            <div class="included-item">Standard luggage</div>
+          </div>
+          <p style="margin-top: 16px; font-size: 0.875rem;">
+            No additional standard charges during a confirmed transfer. Additional stops,
+            route changes or services outside the original reservation may be charged separately.
+          </p>
+        </section>
+
+        <!-- How it works -->
+        <section class="b2b-section">
+          <h2>Booking &amp; Confirmation</h2>
+          <p>
+            For destinations with an established fixed price, reservations are confirmed
+            immediately. Once submitted, the booking is registered in our operational system,
+            all passenger and flight details are recorded, and a confirmation is generated.
+          </p>
+          <p>
+            For B2B partners, we send the confirmation directly to you — not to the passenger.
+            You continue all standard communication with your customer and provide your own
+            confirmation or voucher.
+          </p>
+          <div class="b2b-info-grid" style="margin-top: 24px;">
+            <div class="b2b-info-card">
+              <h3>Customer Communication</h3>
+              <p>
+                You remain the main commercial contact for your customer. We only contact
+                the passenger for operational reasons: airport pickup, driver arrival,
+                flight changes or urgent transfer-day situations. We do not take over
+                the commercial relationship.
+              </p>
+            </div>
+            <div class="b2b-info-card">
+              <h3>Commission &amp; Markup</h3>
+              <p>
+                We do not pay a separate commission. Instead, we provide an agreed B2B price.
+                You are free to add your own agency markup, booking fee or package margin.
+                Your selling price to your customer is your own commercial decision.
+              </p>
+            </div>
+            <div class="b2b-info-card">
+              <h3>Admin Panel</h3>
+              <p>
+                B2B partners can optionally receive access to our online administration
+                system to manage and view registered reservations. Admin panel access is
+                €30/month and is not required to make B2B bookings.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Flight tracking -->
+        <section class="b2b-section">
+          <h2>Flight Tracking &amp; Delays</h2>
+          <p>
+            We monitor incoming flights directly. If a flight is delayed, pickup time is
+            automatically adjusted to the actual arrival time. No additional waiting charge
+            for flight delays — even significant delays carry no extra fee as long as the
+            flight eventually operates.
+          </p>
+          <p>
+            If the airline cancels the flight completely, the airport transfer can be
+            cancelled without a cancellation charge.
+          </p>
+        </section>
+
+        <!-- Meet & Greet -->
+        <section class="b2b-section">
+          <h2>Antalya Airport Meet &amp; Greet</h2>
+          <p>
+            After collecting luggage, passengers proceed to our designated
+            <strong>Meet &amp; Greet Area J / 777</strong>. The passenger gives their name
+            to our airport team and is connected with the assigned driver and vehicle.
+            Our operational team manages the airport pickup process directly.
+          </p>
+        </section>
+
+        <!-- Payment -->
+        <section class="b2b-section">
+          <h2>Payment</h2>
+          <p>
+            Our listed B2B prices apply when the passenger pays the transfer amount directly
+            to the driver on the day of travel. Accepted currencies: <strong>EUR</strong>,
+            USD, TRY. We recommend EUR payment whenever possible.
+          </p>
+          <p>
+            If payment needs to be collected in advance by Antalya VIP Tourism through
+            bank transfer, card payment or invoicing, different prices may apply due to
+            additional tax and processing costs.
+          </p>
+        </section>
+
+        <!-- Cancellation -->
+        <section class="b2b-section">
+          <h2>Cancellation Policy</h2>
+          <table class="cancel-table" aria-label="Cancellation policy">
+            <thead>
+              <tr>
+                <th>Situation</th>
+                <th>Charge</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>More than 48 hours before pickup</td>
+                <td class="cancel-free">Free cancellation</td>
+              </tr>
+              <tr>
+                <td>Less than 48 hours before pickup</td>
+                <td class="cancel-fee">50% of confirmed transfer price</td>
+              </tr>
+              <tr>
+                <td>No-show (passenger does not appear)</td>
+                <td class="cancel-fee">100% of transfer price</td>
+              </tr>
+              <tr>
+                <td>Airline cancels the flight completely</td>
+                <td class="cancel-free">No charge</td>
+              </tr>
+              <tr>
+                <td>Flight delay</td>
+                <td class="cancel-free">No additional charge</td>
+              </tr>
+            </tbody>
+          </table>
+          <p style="margin-top: 16px; font-size: 0.875rem;">
+            Failure to settle valid cancellation or no-show charges may result in
+            suspension or termination of the B2B cooperation.
+          </p>
+        </section>
+
+        <!-- Operational reliability -->
+        <section class="b2b-section">
+          <h2>Operational Reliability</h2>
+          <p>
+            We operate with a large network of vehicles and drivers, handling approximately
+            20–30 simultaneous transfers. If a driver or vehicle encounters an operational
+            problem, we arrange a replacement. Our objective is to complete every confirmed
+            reservation rather than cancel due to internal issues.
+          </p>
+        </section>
+
+        <!-- CTA -->
+        <div class="b2b-cta">
+          <h2>Start a B2B Cooperation</h2>
+          <p>
+            You can start with individual reservations and evaluate our service quality
+            before increasing booking volume. For fixed-price routes, bookings confirm
+            immediately.
+          </p>
+          <div class="cta-buttons">
+            <a
+              class="button button-gold"
+              href="https://wa.me/905302655790?text=B2B%20partnership%20enquiry"
+              target="_blank"
+              rel="noopener"
+            >WhatsApp</a>
+            <a
+              class="button button-glass"
+              href="mailto:support@antalyaviptourism.com?subject=B2B%20Partnership%20Enquiry"
+            >support@antalyaviptourism.com</a>
+          </div>
+        </div>
+
+      </div><!-- /b2b-content -->
+    </main>
+
+    <footer>
+      <div class="footer-bottom">
+        <span>© 2026 Antalya VIP Tourism</span>
+        <span>
+          <a href="/">Home</a> &nbsp;·&nbsp;
+          <a href="/privacy/">Privacy</a> &nbsp;·&nbsp;
+          <a href="/impressum.html">Imprint</a>
+        </span>
+      </div>
+    </footer>
+
+    <svg class="svg-sprite" aria-hidden="true">
+      <symbol id="icon-arrow-up-right" viewBox="0 0 24 24">
+        <path d="M7 17 17 7M7 7h10v10" />
+      </symbol>
+    </svg>
+
+    <script type="module" src="/src/consent.js"></script>
+  </body>
+</html>
