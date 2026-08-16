@@ -2,7 +2,7 @@ import { publicRouteSlugs, routeCatalog } from "../../../src/routes.js";
 import translationData from "../generated/legacy-translations.json";
 
 export const domain = "https://antalyaviptourism.com";
-export const indexableLanguages = ["en", "de", "tr", "ru"] as const;
+export const indexableLanguages = ["en", "de", "tr", "ru", "cs"] as const;
 export type IndexableLanguage = (typeof indexableLanguages)[number];
 
 const homeSeo = {
@@ -10,6 +10,7 @@ const homeSeo = {
   de: { locale: "de_DE", title: "Flughafen Antalya Transfer | Privater VIP Chauffeurservice", description: "Private Festpreis-Transfers vom Flughafen Antalya zu Reisezielen in der gesamten Türkei." },
   tr: { locale: "tr_TR", title: "Antalya Havalimanı Transferi | Özel VIP Transfer", description: "Antalya Havalimanı'ndan Belek, Side, Kemer, Alanya ve çevresine özel sabit fiyatlı transfer. Vito ve Sprinter, uçuş takibi ve karşılama." },
   ru: { locale: "ru_RU", title: "Трансфер из аэропорта Антальи | Частный VIP-трансфер", description: "Частные трансферы по фиксированной цене из аэропорта Антальи в Белек, Сиде, Кемер, Аланью и другие курорты. Встреча и отслеживание рейса." },
+  cs: { locale: "cs_CZ", title: "Transfer z letiště Antalya | Soukromá VIP přeprava", description: "Soukromé transfery s pevnou cenou z letiště Antalya do Beleku, Side, Kemeru a Alanye. Uvítání, sledování letů a služba od dveří ke dveřím." },
 } as const;
 
 const healthSeo = {
@@ -36,6 +37,12 @@ const healthSeo = {
     title: "Координация медицинской поездки в Анталью | Antalya VIP Tourism",
     description: "Спланируйте поездку в Анталью с чётким разделением обязанностей, частным трансфером, координацией проживания и наблюдением медицинской команды.",
     service: "Координация медицинских поездок и консьерж-логистика",
+  },
+  cs: {
+    locale: "cs_CZ",
+    title: "Koordinace zdravotní cesty do Antalye | Antalya VIP Tourism",
+    description: "Naplánujte svou zdravotní cestu do Antalye s jasným rozdělením rolí, soukromými transfery, koordinací ubytování a kontinuální péčí vedenou odbornými lékařskými týmy.",
+    service: "Koordinace zdravotní cesty a concierge logistika",
   },
 } as const;
 
@@ -64,11 +71,17 @@ const routeText = {
     heading: (name: string) => `Частный трансфер из аэропорта Антальи в ${name}`,
     faq: (name: string, price: number, duration: string) => [[`Сколько длится трансфер из аэропорта Антальи в ${name}?`, `При обычном движении поездка занимает около ${duration}.`], [`Сколько стоит трансфер в ${name}?`, `Стоимость Mercedes Vito начинается от €${price} за автомобиль.`], ["Что произойдёт при задержке рейса?", "Мы отслеживаем рейс в реальном времени и бесплатно корректируем время встречи."]],
   },
+  cs: {
+    title: (name: string) => `Transfer z letiště Antalya do ${name} | Soukromá pevná cena`,
+    description: (name: string, price: number) => `Soukromý transfer s pevnou cenou z letiště Antalya do ${name} od €${price}. Uvítání, sledování letů a přeprava od dveří ke dveřím.`,
+    heading: (name: string) => `Soukromý transfer z letiště Antalya do ${name}`,
+    faq: (name: string, price: number, duration: string) => [[`Jak dlouho trvá transfer z letiště Antalya do ${name}?`, `Cesta trvá přibližně ${duration} při běžném provozu.`], [`Jaká je pevná cena transferu do ${name}?`, `Ceny Mercedes Vito začínají od €${price} za vozidlo. Potvrzená celková cena je zobrazena při rezervaci.`], ["Co se stane, když má můj let zpoždění?", "Sledujeme váš let v reálném čase a upravujeme čas setkání bez příplatku."]],
+  },
 } as const;
 
 export const languageFromPath = (pathname: string): IndexableLanguage => {
   const candidate = pathname.split("/").filter(Boolean)[0];
-  return candidate === "de" || candidate === "tr" || candidate === "ru" ? candidate : "en";
+  return candidate === "de" || candidate === "tr" || candidate === "ru" || candidate === "cs" ? candidate : "en";
 };
 
 export const localizedPath = (language: IndexableLanguage, suffix = "") =>

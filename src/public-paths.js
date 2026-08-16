@@ -1,6 +1,6 @@
 import { publicRouteSlugs } from "./routes.js";
 
-export const publicLanguages = Object.freeze(["en", "de", "tr", "ru"]);
+export const publicLanguages = Object.freeze(["en", "de", "tr", "ru", "uk", "ur"]);
 
 export const legalPaths = Object.freeze([
   "/impressum.html",
@@ -11,6 +11,10 @@ export const legalPaths = Object.freeze([
   "/tr/kunye/",
   "/ru/privacy/",
   "/ru/impressum/",
+  "/uk/privacy/",
+  "/uk/impressum/",
+  "/ur/privacy/",
+  "/ur/impressum/",
 ]);
 
 export const languagePrefix = (language) => language === "en" ? "" : `/${language}`;

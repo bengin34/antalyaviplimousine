@@ -4,11 +4,11 @@ import { StaticPageHeader } from "./StaticPageHeader";
 
 type LegalRecord = (typeof legalData)[keyof typeof legalData];
 
-const privacyPath = { en: "/privacy/", de: "/de/datenschutz/", tr: "/tr/gizlilik/", ru: "/ru/privacy/" } as const;
-const imprintPath = { en: "/impressum.html", de: "/de/impressum/", tr: "/tr/kunye/", ru: "/ru/impressum/" } as const;
-const privacyLabel = { en: "Privacy", de: "Datenschutz", tr: "Gizlilik", ru: "Конфиденциальность" } as const;
-const imprintLabel = { en: "Imprint", de: "Impressum", tr: "Künye", ru: "Правовая информация" } as const;
-const privacySettingsLabel = { en: "Open privacy settings", de: "Datenschutzeinstellungen öffnen", tr: "Gizlilik ayarlarını aç", ru: "Открыть настройки конфиденциальности" } as const;
+const privacyPath = { en: "/privacy/", de: "/de/datenschutz/", tr: "/tr/gizlilik/", ru: "/ru/privacy/", cs: "/cs/privacy/" } as const;
+const imprintPath = { en: "/impressum.html", de: "/de/impressum/", tr: "/tr/kunye/", ru: "/ru/impressum/", cs: "/cs/impressum/" } as const;
+const privacyLabel = { en: "Privacy", de: "Datenschutz", tr: "Gizlilik", ru: "Конфиденциальность", cs: "Ochrana soukromí" } as const;
+const imprintLabel = { en: "Imprint", de: "Impressum", tr: "Künye", ru: "Правовая информация", cs: "Impressum" } as const;
+const privacySettingsLabel = { en: "Open privacy settings", de: "Datenschutzeinstellungen öffnen", tr: "Gizlilik ayarlarını aç", ru: "Открыть настройки конфиденциальности", cs: "Otevřít nastavení soukromí" } as const;
 
 export function LegalPage({ language, privacy }: { language: IndexableLanguage; privacy: boolean }) {
   const key = `${language}-${privacy ? "privacy" : "imprint"}` as keyof typeof legalData;

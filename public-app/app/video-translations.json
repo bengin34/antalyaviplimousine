@@ -131,6 +131,28 @@
       "videoClose": "إغلاق",
       "videoThumbnailAlt": "منطقة الاستقبال في مطار أنطاليا",
       "videoDialogLabel": "فيديو الاستقبال في مطار أنطاليا"
+    },
+    "cs": {
+      "videoEyebrow": "Jak nás najít",
+      "videoTitle": "Najdete nás u J / 777<br />po přistání.",
+      "videoSubtitle": "Naši šoféři čekají v oblasti Meet & Greet — setkávací bod J / 777. Vyjděte z výdeje zavazadel, najděte naši jmenovku a zbytek zajistíme my.",
+      "videoCardTitle": "Místo uvítání<br />na letišti Antalya",
+      "videoCardBody": "Po vyzvednutí zavazadel vyjděte do oblasti Meet & Greet a hledejte setkávací bod J / 777. Řekněte našemu týmu své jméno — zbytek vyřešíme za vás.",
+      "videoWatch": "Přehrát video",
+      "videoClose": "Zavřít",
+      "videoThumbnailAlt": "Oblast uvítání na letišti Antalya",
+      "videoDialogLabel": "Video o uvítání na letišti Antalya"
+    },
+    "ur": {
+      "videoEyebrow": "ہمیں کیسے تلاش کریں",
+      "videoTitle": "آمد کے بعد ہمیں<br />J / 777 پر تلاش کریں۔",
+      "videoSubtitle": "ہماری ٹیم J / 777 ملاقات کی جگہ پر آپ کا انتظار کر رہی ہے۔ سامان لینے کے بعد ملاقات کے علاقے میں نکلیں اور اپنے نام کی تختی تلاش کریں — باقی ہم سنبھالیں گے۔",
+      "videoCardTitle": "انطالیہ ایئرپورٹ ملاقات کی جگہ<br />J / 777",
+      "videoCardBody": "سامان لینے کے بعد ملاقات کے علاقے میں نکلیں اور J / 777 تلاش کریں۔ ہماری ٹیم کو اپنا نام بتائیں — آگے ہم سنبھالیں گے۔",
+      "videoWatch": "ویڈیو دیکھیں",
+      "videoClose": "بند کریں",
+      "videoThumbnailAlt": "انطالیہ ایئرپورٹ ملاقات کی جگہ",
+      "videoDialogLabel": "انطالیہ ایئرپورٹ ملاقات ویڈیو"
     }
   }
 }

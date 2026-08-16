@@ -27,7 +27,7 @@ export function Layout({ children }: { children: ReactNode }) {
   const language = routeData?.language ?? "en";
 
   return (
-    <html lang={language} dir={language === "ar" ? "rtl" : "ltr"}>
+    <html lang={language} dir={["ar", "ur"].includes(language) ? "rtl" : "ltr"}>
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />

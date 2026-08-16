@@ -18,10 +18,12 @@ export const languageOptions = [
   { code: "de", flag: "🇩🇪", label: "Deutsch" },
   { code: "tr", flag: "🇹🇷", label: "Türkçe" },
   { code: "ru", flag: "🇷🇺", label: "Русский" },
+  { code: "cs", flag: "🇨🇿", label: "Čeština" },
   { code: "ar", flag: "🇸🇦", label: "العربية" },
   { code: "pl", flag: "🇵🇱", label: "Polski" },
   { code: "nl", flag: "🇳🇱", label: "Nederlands" },
   { code: "uk", flag: "🇺🇦", label: "Українська" },
+  { code: "ur", flag: "🇵🇰", label: "اردو" },
   { code: "fr", flag: "🇫🇷", label: "Français" },
   { code: "sv", flag: "🇸🇪", label: "Svenska" },
   { code: "ja", flag: "🇯🇵", label: "日本語" },
@@ -31,7 +33,7 @@ export const languageOptions = [
 export type LanguageCode = (typeof languageOptions)[number]["code"];
 
 const supportedLanguages = new Set(languageOptions.map(({ code }) => code));
-const indexableLanguages = new Set(["en", "de", "tr", "ru"]);
+const indexableLanguages = new Set(["en", "de", "tr", "ru", "cs", "uk", "ur"]);
 const legacyResources = translationData.resources as Record<string, Record<string, string>>;
 const videoResources = videoTranslationData.resources as Record<string, Record<string, string>>;
 const rawResources = Object.fromEntries(
@@ -78,7 +80,7 @@ function localizedPath(pathname: string, language: LanguageCode) {
   const normalized = pathname.endsWith("/") || pathname.endsWith(".html")
     ? pathname
     : `${pathname}/`;
-  const localizedMatch = normalized.match(/^\/(de|tr|ru)(\/.*)?$/);
+  const localizedMatch = normalized.match(/^\/(de|tr|ru|cs|uk|ur)(\/.*)?$/);
   const basePath = localizedMatch ? localizedMatch[2] || "/" : normalized;
   if (
     basePath !== "/" &&
@@ -109,7 +111,7 @@ export function LanguageProvider({
 
   useEffect(() => {
     document.documentElement.lang = language;
-    document.documentElement.dir = language === "ar" ? "rtl" : "ltr";
+    document.documentElement.dir = ["ar", "ur"].includes(language) ? "rtl" : "ltr";
   }, [language]);
 
   const selectLanguage = useCallback((nextLanguage: LanguageCode) => {

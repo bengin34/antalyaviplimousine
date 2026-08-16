@@ -21,6 +21,10 @@
         "href": "https://antalyaviptourism.com/ru/privacy/"
       },
       {
+        "language": "cs",
+        "href": "https://antalyaviptourism.com/cs/privacy/"
+      },
+      {
         "language": "x-default",
         "href": "https://antalyaviptourism.com/privacy/"
       }
@@ -110,6 +114,10 @@
       {
         "language": "ru",
         "href": "https://antalyaviptourism.com/ru/impressum/"
+      },
+      {
+        "language": "cs",
+        "href": "https://antalyaviptourism.com/cs/impressum/"
       },
       {
         "language": "x-default",
@@ -224,6 +232,10 @@
         "href": "https://antalyaviptourism.com/ru/privacy/"
       },
       {
+        "language": "cs",
+        "href": "https://antalyaviptourism.com/cs/privacy/"
+      },
+      {
         "language": "x-default",
         "href": "https://antalyaviptourism.com/privacy/"
       }
@@ -313,6 +325,10 @@
       {
         "language": "ru",
         "href": "https://antalyaviptourism.com/ru/impressum/"
+      },
+      {
+        "language": "cs",
+        "href": "https://antalyaviptourism.com/cs/impressum/"
       },
       {
         "language": "x-default",
@@ -427,6 +443,10 @@
         "href": "https://antalyaviptourism.com/ru/privacy/"
       },
       {
+        "language": "cs",
+        "href": "https://antalyaviptourism.com/cs/privacy/"
+      },
+      {
         "language": "x-default",
         "href": "https://antalyaviptourism.com/privacy/"
       }
@@ -516,6 +536,10 @@
       {
         "language": "ru",
         "href": "https://antalyaviptourism.com/ru/impressum/"
+      },
+      {
+        "language": "cs",
+        "href": "https://antalyaviptourism.com/cs/impressum/"
       },
       {
         "language": "x-default",
@@ -630,6 +654,10 @@
         "href": "https://antalyaviptourism.com/ru/privacy/"
       },
       {
+        "language": "cs",
+        "href": "https://antalyaviptourism.com/cs/privacy/"
+      },
+      {
         "language": "x-default",
         "href": "https://antalyaviptourism.com/privacy/"
       }
@@ -721,6 +749,10 @@
         "href": "https://antalyaviptourism.com/ru/impressum/"
       },
       {
+        "language": "cs",
+        "href": "https://antalyaviptourism.com/cs/impressum/"
+      },
+      {
         "language": "x-default",
         "href": "https://antalyaviptourism.com/impressum.html"
       }
@@ -810,5 +842,216 @@
       }
     ],
     "homeLabel": "Главная"
+  },
+  "cs-privacy": {
+    "title": "Ochrana soukromí | Antalya VIP Tourism",
+    "description": "Zásady ochrany soukromí Antalya VIP Tourism týkající se dat rezervací, analytiky a vašich práv.",
+    "canonical": "https://antalyaviptourism.com/cs/privacy/",
+    "alternates": [
+      {
+        "language": "en",
+        "href": "https://antalyaviptourism.com/privacy/"
+      },
+      {
+        "language": "de",
+        "href": "https://antalyaviptourism.com/de/datenschutz/"
+      },
+      {
+        "language": "tr",
+        "href": "https://antalyaviptourism.com/tr/gizlilik/"
+      },
+      {
+        "language": "ru",
+        "href": "https://antalyaviptourism.com/ru/privacy/"
+      },
+      {
+        "language": "cs",
+        "href": "https://antalyaviptourism.com/cs/privacy/"
+      },
+      {
+        "language": "x-default",
+        "href": "https://antalyaviptourism.com/privacy/"
+      }
+    ],
+    "hero": {
+      "eyebrow": "Soukromí",
+      "title": "Zásady ochrany soukromí",
+      "intro": "Jak zpracováváme osobní údaje a jaké máte možnosti volby."
+    },
+    "cards": [
+      {
+        "title": "1. Správce",
+        "paragraphs": [
+          "Antalya VIP Tourism, Ahmet Karadag, Belek Mah. Belek 61 Sk., Belek Deniz Apt No: 19 Ic Kapi No: 4, Serik / Antalya, Türkiye. E-mail: support@antalyaviptourism.com. Telefon: +90 530 265 57 90."
+        ],
+        "details": [],
+        "privacySettings": false
+      },
+      {
+        "title": "2. Rezervační a kontaktní údaje",
+        "paragraphs": [
+          "Při žádosti o cestu nebo rezervaci zpracováváme kontaktní, cestovní, letové, vyzvedávací, cílové a platební údaje, které poskytnete. To je nezbytné pro zodpovězení vašeho požadavku, provedení cesty, komunikaci s vámi a plnění zákonných povinností. Údaje jsou uchovávány pouze po dobu nezbytnou pro tyto účely nebo zákonem stanovené lhůty uchovávání."
+        ],
+        "details": [],
+        "privacySettings": false
+      },
+      {
+        "title": "3. Technické zajištění",
+        "paragraphs": [
+          "Při přístupu na webové stránky mohou být zpracovány technicky nezbytné protokolové údaje, včetně IP adresy, času, požadované stránky, informací o prohlížeči a zařízení. To podporuje bezpečné a stabilní doručování webových stránek."
+        ],
+        "details": [],
+        "privacySettings": false
+      },
+      {
+        "title": "4. Google Analytics a Google Ads",
+        "paragraphs": [
+          "Google Analytics a Google Ads se načítají pouze po vašem souhlasu v dialogu ochrany soukromí. Údaje o používání, zařízení, interakcích a konverzích pak mohou být odesílány společnosti Google. Poskytovatelem je Google Ireland Limited a zpracování přidruženými společnostmi mimo Evropský hospodářský prostor může nastat. Souhlas můžete kdykoli odvolat prostřednictvím nastavení soukromí. Odmítnutí analytiky neovlivní funkce rezervace."
+        ],
+        "details": [],
+        "privacySettings": true
+      },
+      {
+        "title": "5. Poskytovatelé služeb a příjemci",
+        "paragraphs": [
+          "Poskytovatelé hostingu, databází, plateb a komunikace mohou zpracovávat pouze údaje nezbytné pro jejich úkol. Platební údaje zpracovává vybraný platební poskytovatel."
+        ],
+        "details": [],
+        "privacySettings": false
+      },
+      {
+        "title": "6. Vaše práva",
+        "paragraphs": [
+          "Tam, kde to příslušné právo umožňuje, můžete požádat o přístup, opravu, výmaz, omezení, přenositelnost nebo vznést námitku proti zpracování. Souhlas můžete odvolat pro budoucnost a podat stížnost u příslušného dozorového úřadu."
+        ],
+        "details": [],
+        "privacySettings": false
+      },
+      {
+        "title": "7. Aktualizace",
+        "paragraphs": [
+          "Tyto zásady jsou aktualizovány při změně služeb nebo zákonných požadavků. Poslední aktualizace: 19. června 2026."
+        ],
+        "details": [],
+        "privacySettings": false
+      }
+    ],
+    "homeLabel": "Domů"
+  },
+  "cs-imprint": {
+    "title": "Impressum | Antalya VIP Tourism",
+    "description": "Právní informace a údaje o poskytovateli pro Antalya VIP Tourism.",
+    "canonical": "https://antalyaviptourism.com/cs/impressum/",
+    "alternates": [
+      {
+        "language": "en",
+        "href": "https://antalyaviptourism.com/impressum.html"
+      },
+      {
+        "language": "de",
+        "href": "https://antalyaviptourism.com/de/impressum/"
+      },
+      {
+        "language": "tr",
+        "href": "https://antalyaviptourism.com/tr/kunye/"
+      },
+      {
+        "language": "ru",
+        "href": "https://antalyaviptourism.com/ru/impressum/"
+      },
+      {
+        "language": "cs",
+        "href": "https://antalyaviptourism.com/cs/impressum/"
+      },
+      {
+        "language": "x-default",
+        "href": "https://antalyaviptourism.com/impressum.html"
+      }
+    ],
+    "hero": {
+      "eyebrow": "Právní informace",
+      "title": "Impressum",
+      "intro": "Informace o poskytovateli těchto webových stránek dle platných informačních povinností."
+    },
+    "cards": [
+      {
+        "title": "Provozovatel",
+        "paragraphs": [],
+        "details": [
+          {
+            "term": "Jméno",
+            "value": "Ahmet Karadag",
+            "href": null
+          },
+          {
+            "term": "Obchodní název",
+            "value": "Antalya VIP Tourism",
+            "href": null
+          },
+          {
+            "term": "Adresa",
+            "value": "Belek Mah. Belek 61 Sk.\nBelek Deniz Apt No: 19 Ic Kapi No: 4\nSerik / Antalya\nTürkiye",
+            "href": null
+          }
+        ],
+        "privacySettings": false
+      },
+      {
+        "title": "Kontakt",
+        "paragraphs": [],
+        "details": [
+          {
+            "term": "Telefon / WhatsApp",
+            "value": "+90 530 265 57 90",
+            "href": "tel:+905302655790"
+          },
+          {
+            "term": "E-mail",
+            "value": "support@antalyaviptourism.com",
+            "href": "mailto:support@antalyaviptourism.com"
+          }
+        ],
+        "privacySettings": false
+      },
+      {
+        "title": "Daňové informace",
+        "paragraphs": [],
+        "details": [
+          {
+            "term": "Finanční úřad",
+            "value": "Serik",
+            "href": null
+          },
+          {
+            "term": "Daňové číslo / Vergi Kimlik No",
+            "value": "507•••8455",
+            "href": null
+          },
+          {
+            "term": "Datum zahájení podnikání",
+            "value": "12.04.2021",
+            "href": null
+          }
+        ],
+        "privacySettings": false
+      },
+      {
+        "title": "Podnikatelská činnost",
+        "paragraphs": [
+          "Přeprava cestujících v městských, příměstských a venkovských oblastech silničními vozidly, včetně transferů pro zaměstnance, studenty a srovnatelné skupiny."
+        ],
+        "details": [],
+        "privacySettings": false
+      },
+      {
+        "title": "Odpovědnost za obsah",
+        "paragraphs": [
+          "Pokud zjistíte nepřesnost nebo máte zájem o obsah těchto webových stránek, kontaktujte nás přímo."
+        ],
+        "details": [],
+        "privacySettings": false
+      }
+    ],
+    "homeLabel": "Domů"
   }
 }
