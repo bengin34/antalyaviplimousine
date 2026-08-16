@@ -68,6 +68,7 @@ export function Header({
     { hash: "#routes", href: sectionHref("#routes"), label: t("navRoutes", "Routes") },
     { hash: "#reviews", href: sectionHref("#reviews"), label: t("navReviews", "Reviews") },
     { hash: "#contact", href: sectionHref("#contact"), label: t("navContact", "Contact") },
+    { hash: "", href: "/b2b/", label: "B2B Partners" },
   ];
 
   return (
