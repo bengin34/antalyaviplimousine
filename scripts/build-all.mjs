@@ -29,8 +29,6 @@ await writeFile(path.join(dist, "impressum.html"), imprintHtml);
 
 await writeFile(path.join(dist, "privacy.html"), `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="robots" content="noindex,follow"><link rel="canonical" href="https://antalyaviptourism.com/privacy/"><meta http-equiv="refresh" content="0;url=/privacy/"><title>Privacy Policy | Antalya VIP Tourism</title></head><body><a href="/privacy/">Privacy Policy</a></body></html>\n`);
 
-await cp(path.join(root, "b2b"), path.join(dist, "b2b"), { recursive: true });
-
 runNode(path.join(root, "node_modules", "vite", "bin", "vite.js"), [
   "build", "--config", "vite.admin.config.ts",
 ]);

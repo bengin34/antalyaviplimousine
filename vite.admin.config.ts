@@ -11,7 +11,10 @@ export default defineConfig({
     outDir: "dist",
     emptyOutDir: false,
     rollupOptions: {
-      input: { admin: resolve(import.meta.dirname, "admin/index.html") },
+      input: {
+        admin: resolve(import.meta.dirname, "admin/index.html"),
+        b2b: resolve(import.meta.dirname, "b2b/index.html"),
+      },
     },
   },
 });
