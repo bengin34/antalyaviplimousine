@@ -226,7 +226,6 @@ export function HomePage({ initialLanguage }: { initialLanguage: string }) {
     nonce: number;
   }>();
   const [openFaq, setOpenFaq] = useState(0);
-  const [mobileBookBarVisible, setMobileBookBarVisible] = useState(false);
   const [routeSliderEdges, setRouteSliderEdges] = useState({
     atStart: true,
     atEnd: false,
@@ -286,8 +285,10 @@ export function HomePage({ initialLanguage }: { initialLanguage: string }) {
         };
   const fleetPhoto = fleetPhotos[fleetPhotoIndex % fleetPhotos.length];
 
-  const bookRoute = (route: string, vehicle: Vehicle = "vito") =>
+  const bookRoute = (route: string, vehicle: Vehicle = "vito") => {
+    window.gtag?.("event", "route_selected", { route, vehicle, source: "home_page" });
     setSelection({ route, vehicle, nonce: Date.now() });
+  };
   const scrollRoutes = (direction: -1 | 1) => {
     const card = routeSlider.current?.querySelector<HTMLElement>(".route-card");
     routeSlider.current?.scrollBy({
@@ -312,16 +313,6 @@ export function HomePage({ initialLanguage }: { initialLanguage: string }) {
     ];
   });
 
-  useEffect(() => {
-    const hero = document.querySelector<HTMLElement>(".hero");
-    if (!hero || typeof IntersectionObserver === "undefined") return;
-    const observer = new IntersectionObserver(
-      ([entry]) => setMobileBookBarVisible(!entry.isIntersecting),
-      { threshold: 0.1 },
-    );
-    observer.observe(hero);
-    return () => observer.disconnect();
-  }, []);
 
   useEffect(() => {
     const slider = routeSlider.current;
@@ -489,17 +480,11 @@ export function HomePage({ initialLanguage }: { initialLanguage: string }) {
                   {routeCatalog[slug].names[
                     language as keyof (typeof routeCatalog)[typeof slug]["names"]
                   ] ?? routeCatalog[slug].names.en}{" "}
-                  <span className="was-price">
-                    €{routeCatalog[slug].originalPrices.vito}
-                  </span>
                   <strong>€{routeCatalog[slug].prices.vito}</strong>
                 </button>
               ),
             )}
           </div>
-          <span className="price-strip-note">
-            {t("campaignApplied", "Online discount already applied")}
-          </span>
         </div>
 
         <section className="editorial-intro section">
@@ -756,21 +741,26 @@ export function HomePage({ initialLanguage }: { initialLanguage: string }) {
           </div>
           <div className="service-grid">
             {serviceItems.map(
-              ([titleKey, title, bodyKey, body, icon], index) => (
-                <article
-                  className={`service-card${index === 0 ? " featured" : ""}`}
-                  key={titleKey}
-                >
-                  <span className="service-number">
-                    {String(index + 1).padStart(2, "0")}
-                  </span>
-                  <div className="service-icon">
-                    <Icon name={icon} />
-                  </div>
-                  <h3>{t(titleKey, title)}</h3>
-                  <p>{t(bodyKey, body)}</p>
-                </article>
-              ),
+              ([titleKey, title, bodyKey, body, icon], index) => {
+                const isGreet = titleKey === "greetTitle";
+                const CardEl = isGreet ? "a" : "article";
+                return (
+                  <CardEl
+                    className={`service-card${index === 0 ? " featured" : ""}${isGreet ? " service-card-link" : ""}`}
+                    key={titleKey}
+                    {...(isGreet ? { href: "#meet-greet" } : {})}
+                  >
+                    <span className="service-number">
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
+                    <div className="service-icon">
+                      <Icon name={icon} />
+                    </div>
+                    <h3>{t(titleKey, title)}</h3>
+                    <p>{t(bodyKey, body)}</p>
+                  </CardEl>
+                );
+              },
             )}
           </div>
         </section>
@@ -880,11 +870,7 @@ export function HomePage({ initialLanguage }: { initialLanguage: string }) {
                         type="button"
                         onClick={() => bookRoute(slug)}
                       >
-                        <span>{t("onlineDiscountShort", "Online -25%")}</span>
-                        <strong>
-                          <small>€{route.originalPrices.vito}</small>€
-                          {route.prices.vito}
-                        </strong>
+                        <strong>€{route.prices.vito}</strong>
                         <Icon name="arrow-up-right" />
                       </button>
                     </div>
@@ -967,7 +953,7 @@ export function HomePage({ initialLanguage }: { initialLanguage: string }) {
           </div>
         </section>
 
-        <section className="video-section section">
+        <section className="video-section section" id="meet-greet">
           <div className="section-heading">
             <div>
               <div className="eyebrow">
@@ -1149,6 +1135,7 @@ export function HomePage({ initialLanguage }: { initialLanguage: string }) {
                 href="https://wa.me/905302655790"
                 target="_blank"
                 rel="noreferrer"
+                onClick={() => window.gtag?.("event", "whatsapp_clicked", { source: "contact_section" })}
               >
                 <div className="contact-icon">
                   <Icon name="whatsapp" className="whatsapp-icon" />
@@ -1246,27 +1233,11 @@ export function HomePage({ initialLanguage }: { initialLanguage: string }) {
         target="_blank"
         rel="noreferrer"
         aria-label="Chat on WhatsApp"
+        onClick={() => window.gtag?.("event", "whatsapp_clicked", { source: "floating_button" })}
       >
         <Icon name="whatsapp" className="whatsapp-icon" />
         <span>{t("chatWithUs", "Chat with us")}</span>
       </a>
-      <div
-        className={`mobile-book-bar${mobileBookBarVisible ? " visible" : ""}`}
-      >
-        <a className="button button-gold" href="#booking">
-          <span>{t("bookTransfer", "Book your transfer")}</span>
-          <Icon name="arrow-right" className="icon" />
-        </a>
-        <a
-          className="btn-wa"
-          href="https://wa.me/905302655790"
-          target="_blank"
-          rel="noreferrer"
-          aria-label="WhatsApp"
-        >
-          <Icon name="whatsapp" className="whatsapp-icon" />
-        </a>
-      </div>
     </>
   );
 }

@@ -917,6 +917,16 @@ const translations = {
     close: "Zavřít",
     understandAndConfirm: "Chápu a potvrzuji",
     dailyCashConfirmation: "Váš denní pronájem šoféra je potvrzen. Cena služby nezahrnuje pohonné hmoty, které se platí zvlášť podle spotřeby.",
+    stepRoute: "Trasa",
+    stepDetails: "Podrobnosti",
+    stepContact: "Kontakt",
+    continue: "Pokračovat",
+    back: "Zpět",
+    reserveForPrice: "Rezervovat",
+    perVehicleNoteVito: "Na vozidlo — ne na osobu · Až 6 cestujících",
+    perVehicleNoteSprinter: "Na vozidlo — ne na osobu · Až 12 cestujících",
+    perVehicle: "pevná cena · na vozidlo",
+    capacitySwitchedSprinter: "Počet cestujících a zavazadel přesahuje kapacitu Vito — přepnuto na Mercedes Sprinter.",
   },
 
   pl: {
@@ -1790,6 +1800,14 @@ const translations = {
     payLaterNote: "گاڑی میں ادا کریں",
     paymentTitle: "ادائیگی",
     paymentError: "ادائیگی کی خرابی۔ براہ کرم دوبارہ کوشش کریں۔",
+    stepRoute: "راستہ",
+    stepDetails: "تفصیلات",
+    stepContact: "رابطہ",
+    continue: "جاری رکھیں",
+    back: "پیچھے",
+    reserveForPrice: "بک کریں",
+    perVehicleNoteVito: "فی گاڑی — فی شخص نہیں · زیادہ سے زیادہ 6 مسافر",
+    perVehicleNoteSprinter: "فی گاڑی — فی شخص نہیں · زیادہ سے زیادہ 12 مسافر",
   },
   fr: {
     navFairPricing: "Prix équitable",
@@ -2839,6 +2857,19 @@ const paymentTranslations = {
     cashPaymentDescription:
       "No prepayment. Pay your driver directly once you are satisfied with the service.",
     confirmCashBooking: "Confirm booking — pay in vehicle",
+    perVehicleNote: "Per vehicle — not per person · Up to 7 passengers",
+    meetGreetNote: "Airport Meet &amp; Greet · Meeting point J / 777",
+    stepRoute: "Route",
+    stepDetails: "Details",
+    stepContact: "Contact",
+    reserveForPrice: "Reserve",
+    continue: "Continue",
+    back: "Back",
+    perVehicleNoteVito: "Per vehicle — not per person · Up to 6 passengers",
+    perVehicleNoteSprinter: "Per vehicle — not per person · Up to 12 passengers",
+    perVehicle: "fixed · per vehicle",
+    noPrePayment: "No prepayment required",
+    payAfterTransfer: "Pay your driver after the transfer",
     requestQuote: "Request a price quote",
     cashConfirmation:
       "Your booking is confirmed. Pay the fixed total directly to your driver in the vehicle.",
@@ -2876,6 +2907,16 @@ const paymentTranslations = {
     cashPaymentDescription:
       "Keine Vorauszahlung. Bezahlen Sie Ihren Fahrer direkt, wenn Sie mit dem Service zufrieden sind.",
     confirmCashBooking: "Buchung bestätigen — im Fahrzeug zahlen",
+    perVehicleNote: "Pro Fahrzeug — nicht pro Person · Bis zu 7 Personen",
+    meetGreetNote: "Airport Meet &amp; Greet · Treffpunkt J / 777",
+    stepRoute: "Route",
+    stepDetails: "Details",
+    stepContact: "Kontakt",
+    continue: "Weiter",
+    back: "Zurück",
+    reserveForPrice: "Reservieren",
+    perVehicleNoteVito: "Pro Fahrzeug — nicht pro Person · Bis zu 6 Personen",
+    perVehicleNoteSprinter: "Pro Fahrzeug — nicht pro Person · Bis zu 12 Personen",
     requestQuote: "Preisangebot anfordern",
     cashConfirmation:
       "Ihre Buchung ist bestätigt. Zahlen Sie den Festpreis direkt beim Fahrer im Fahrzeug.",
@@ -2912,6 +2953,16 @@ const paymentTranslations = {
     cashPaymentDescription:
       "Ön ödeme yok. Hizmetten memnun kaldığınızda ödemenizi doğrudan şoförünüze yapın.",
     confirmCashBooking: "Rezervasyonu onayla — araçta öde",
+    perVehicleNote: "Araç başına — kişi başına değil · 7 yolcuya kadar",
+    meetGreetNote: "Havalimanı Karşılama · Buluşma noktası J / 777",
+    stepRoute: "Rota",
+    stepDetails: "Detaylar",
+    stepContact: "İletişim",
+    continue: "Devam",
+    back: "Geri",
+    reserveForPrice: "Rezerve et",
+    perVehicleNoteVito: "Araç başına — kişi başına değil · 6 yolcuya kadar",
+    perVehicleNoteSprinter: "Araç başına — kişi başına değil · 12 yolcuya kadar",
     requestQuote: "Fiyat teklifi al",
     cashConfirmation:
       "Rezervasyonunuz onaylandı. Sabit toplam tutarı araçta doğrudan şoförünüze ödeyin.",
@@ -2947,6 +2998,16 @@ const paymentTranslations = {
     cashPaymentDescription:
       "Без предоплаты. Оплатите услугу непосредственно водителю, когда останетесь довольны обслуживанием.",
     confirmCashBooking: "Подтвердить — оплата в автомобиле",
+    perVehicleNote: "За автомобиль — не за человека · До 7 пассажиров",
+    meetGreetNote: "Встреча в аэропорту · Пункт встречи J / 777",
+    stepRoute: "Маршрут",
+    stepDetails: "Детали",
+    stepContact: "Контакты",
+    continue: "Продолжить",
+    back: "Назад",
+    reserveForPrice: "Забронировать",
+    perVehicleNoteVito: "За автомобиль — не за человека · До 6 пассажиров",
+    perVehicleNoteSprinter: "За автомобиль — не за человека · До 12 пассажиров",
     requestQuote: "Запросить расчёт",
     cashConfirmation:
       "Бронирование подтверждено. Оплатите фиксированную сумму водителю в автомобиле.",
@@ -2982,6 +3043,14 @@ const paymentTranslations = {
     cashPaymentDescription:
       "Bez przedpłaty. Zapłać bezpośrednio kierowcy, gdy usługa spełni Twoje oczekiwania.",
     confirmCashBooking: "Potwierdź — zapłać w pojeździe",
+    stepRoute: "Trasa",
+    stepDetails: "Szczegóły",
+    stepContact: "Kontakt",
+    continue: "Dalej",
+    back: "Wstecz",
+    reserveForPrice: "Zarezerwuj",
+    perVehicleNoteVito: "Za pojazd — nie za osobę · Do 6 pasażerów",
+    perVehicleNoteSprinter: "Za pojazd — nie za osobę · Do 12 pasażerów",
     requestQuote: "Poproś o wycenę",
     cashConfirmation:
       "Rezerwacja jest potwierdzona. Zapłać kierowcy ustaloną kwotę w pojeździe.",
@@ -3017,6 +3086,14 @@ const paymentTranslations = {
     cashPaymentDescription:
       "Geen vooruitbetaling. Betaal uw chauffeur rechtstreeks zodra u tevreden bent over de service.",
     confirmCashBooking: "Bevestig — betaal in het voertuig",
+    stepRoute: "Route",
+    stepDetails: "Details",
+    stepContact: "Contact",
+    continue: "Verder",
+    back: "Terug",
+    reserveForPrice: "Reserveren",
+    perVehicleNoteVito: "Per voertuig — niet per persoon · Tot 6 passagiers",
+    perVehicleNoteSprinter: "Per voertuig — niet per persoon · Tot 12 passagiers",
     requestQuote: "Prijsopgave aanvragen",
     cashConfirmation:
       "Uw boeking is bevestigd. Betaal het vaste bedrag rechtstreeks aan de chauffeur.",
@@ -3052,6 +3129,14 @@ const paymentTranslations = {
     cashPaymentDescription:
       "Без передоплати. Сплатіть безпосередньо водієві, коли будете задоволені послугою.",
     confirmCashBooking: "Підтвердити — оплата в автомобілі",
+    stepRoute: "Маршрут",
+    stepDetails: "Деталі",
+    stepContact: "Контакт",
+    continue: "Продовжити",
+    back: "Назад",
+    reserveForPrice: "Забронювати",
+    perVehicleNoteVito: "За автомобіль — не за особу · До 6 пасажирів",
+    perVehicleNoteSprinter: "За автомобіль — не за особу · До 12 пасажирів",
     requestQuote: "Запросити розрахунок",
     cashConfirmation:
       "Бронювання підтверджено. Сплатіть фіксовану суму водієві в автомобілі.",
@@ -3087,6 +3172,14 @@ const paymentTranslations = {
     cashPaymentDescription:
       "Aucun prépaiement. Payez directement votre chauffeur une fois satisfait du service.",
     confirmCashBooking: "Confirmer — payer dans le véhicule",
+    stepRoute: "Trajet",
+    stepDetails: "Détails",
+    stepContact: "Contact",
+    continue: "Continuer",
+    back: "Retour",
+    reserveForPrice: "Réserver",
+    perVehicleNoteVito: "Par véhicule — non par personne · Jusqu'à 6 passagers",
+    perVehicleNoteSprinter: "Par véhicule — non par personne · Jusqu'à 12 passagers",
     requestQuote: "Demander un devis",
     cashConfirmation:
       "Votre réservation est confirmée. Réglez le montant fixe directement au chauffeur.",
@@ -3124,6 +3217,14 @@ const paymentTranslations = {
     cashPaymentDescription:
       "Ingen förskottsbetalning. Betala din chaufför direkt när du är nöjd med tjänsten.",
     confirmCashBooking: "Bekräfta — betala i fordonet",
+    stepRoute: "Rutt",
+    stepDetails: "Detaljer",
+    stepContact: "Kontakt",
+    continue: "Fortsätt",
+    back: "Tillbaka",
+    reserveForPrice: "Boka",
+    perVehicleNoteVito: "Per fordon — inte per person · Upp till 6 passagerare",
+    perVehicleNoteSprinter: "Per fordon — inte per person · Upp till 12 passagerare",
     requestQuote: "Begär prisuppgift",
     cashConfirmation:
       "Din bokning är bekräftad. Betala det fasta beloppet direkt till chauffören.",
@@ -3159,6 +3260,14 @@ const paymentTranslations = {
     cashPaymentDescription:
       "事前のお支払いは不要です。サービスにご満足いただいてから、ドライバーへ直接お支払いください。",
     confirmCashBooking: "予約確定 — 車内払い",
+    stepRoute: "ルート",
+    stepDetails: "詳細",
+    stepContact: "連絡先",
+    continue: "続ける",
+    back: "戻る",
+    reserveForPrice: "予約する",
+    perVehicleNoteVito: "1台あたり — 1人あたりではありません · 最大6名",
+    perVehicleNoteSprinter: "1台あたり — 1人あたりではありません · 最大12名",
     requestQuote: "見積もりを依頼",
     cashConfirmation:
       "予約が確定しました。固定料金を車内でドライバーへ直接お支払いください。",
@@ -3194,6 +3303,14 @@ const paymentTranslations = {
     cashPaymentDescription:
       "선결제는 필요 없습니다. 서비스에 만족하신 후 기사에게 직접 결제하세요.",
     confirmCashBooking: "예약 확정 — 차량에서 결제",
+    stepRoute: "경로",
+    stepDetails: "세부 정보",
+    stepContact: "연락처",
+    continue: "계속",
+    back: "뒤로",
+    reserveForPrice: "예약하기",
+    perVehicleNoteVito: "차량 기준 — 1인 기준 아님 · 최대 6명",
+    perVehicleNoteSprinter: "차량 기준 — 1인 기준 아님 · 최대 12명",
     requestQuote: "견적 요청",
     cashConfirmation:
       "예약이 확정되었습니다. 차량에서 기사에게 고정 요금을 직접 결제하세요.",
@@ -3229,6 +3346,14 @@ const paymentTranslations = {
     cashPaymentDescription:
       "لا يلزم الدفع مقدماً. ادفع مباشرة إلى السائق بعد أن تكون راضياً عن الخدمة.",
     confirmCashBooking: "تأكيد الحجز — الدفع داخل السيارة",
+    stepRoute: "المسار",
+    stepDetails: "التفاصيل",
+    stepContact: "التواصل",
+    continue: "متابعة",
+    back: "رجوع",
+    reserveForPrice: "احجز",
+    perVehicleNoteVito: "لكل سيارة — لا للفرد · حتى 6 ركاب",
+    perVehicleNoteSprinter: "لكل سيارة — لا للفرد · حتى 12 راكباً",
     requestQuote: "طلب عرض سعر",
     cashConfirmation:
       "تم تأكيد حجزك. ادفع المبلغ الثابت مباشرة إلى السائق داخل السيارة.",
@@ -3953,14 +4078,9 @@ const updateInlinePrice = (routeKey, vehicleKey = vehicleSelect.value) => {
   const priceNote = isRoundTrip()
     ? `${translations[language]?.roundTripPriceNote || tripTranslations.en.roundTripPriceNote} · ${fixedPriceNote}`
     : fixedPriceNote;
-  const originalPriceMarkup =
-    Number.isFinite(Number(originalPrice)) && Number(originalPrice) > Number(price)
-      ? `<span class="price-display-original">${formatEuroAmount(originalPrice)}</span>`
-      : "";
   priceDisplay.innerHTML = `
     <span class="price-display-route">AYT ${routeArrow} ${route.name}</span>
     <span class="price-display-prices">
-      ${originalPriceMarkup}
       <strong class="price-display-amount">${formatEuroAmount(price)}</strong>
     </span>
     <span class="price-display-note">${vehicleName} · ${priceNote}</span>
@@ -4652,6 +4772,7 @@ document.querySelectorAll(".route-price-button").forEach((button) => {
     updateHotelRequirement();
     updateGuestCapacity();
     updateInlinePrice(button.dataset.route, selectedVehicle);
+    gtag?.("event", "route_selected", { route: button.dataset.route, source: "route_card" });
     document.querySelector("#booking").scrollIntoView({ behavior: "smooth" });
     setTimeout(() => document.querySelector("#customer-name").focus(), 600);
   });
@@ -4702,6 +4823,7 @@ document.querySelectorAll(".price-pill").forEach((pill) => {
     updateDropoffAddress();
     updateHotelRequirement();
     updateInlinePrice(pill.dataset.route);
+    gtag?.("event", "route_selected", { route: pill.dataset.route, source: "price_pill" });
     document.querySelector("#booking").scrollIntoView({ behavior: "smooth" });
     setTimeout(() => document.querySelector("#customer-name").focus(), 600);
   });
@@ -4887,6 +5009,18 @@ try {
   savedLanguage = pathLanguage || detectBrowserLanguage();
 }
 applyLanguage(savedLanguage);
+
+gtag?.("event", "landing_view", {
+  language: savedLanguage,
+  page: window.location.pathname,
+  source: document.referrer ? "referral" : "direct",
+});
+
+document.querySelectorAll("a[href*='wa.me']").forEach((link) => {
+  link.addEventListener("click", () => {
+    gtag?.("event", "whatsapp_clicked", { source: link.closest("[id]")?.id || "unknown" });
+  }, { once: false });
+});
 
 // Handle the verified iyzico callback return.
 const urlParams = new URLSearchParams(window.location.search);

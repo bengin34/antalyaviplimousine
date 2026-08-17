@@ -23,6 +23,15 @@ type Pages = {
   "/ru": {
     params: {};
   };
+  "/cs": {
+    params: {};
+  };
+  "/uk": {
+    params: {};
+  };
+  "/ur": {
+    params: {};
+  };
   "/health": {
     params: {};
   };
@@ -33,6 +42,15 @@ type Pages = {
     params: {};
   };
   "/ru/health": {
+    params: {};
+  };
+  "/cs/health": {
+    params: {};
+  };
+  "/uk/health": {
+    params: {};
+  };
+  "/ur/health": {
     params: {};
   };
   "/clinic": {
@@ -73,12 +91,30 @@ type Pages = {
   "/ru/impressum": {
     params: {};
   };
+  "/cs/privacy": {
+    params: {};
+  };
+  "/cs/impressum": {
+    params: {};
+  };
+  "/uk/privacy": {
+    params: {};
+  };
+  "/uk/impressum": {
+    params: {};
+  };
+  "/ur/privacy": {
+    params: {};
+  };
+  "/ur/impressum": {
+    params: {};
+  };
 };
 
 type RouteFiles = {
   "root.tsx": {
     id: "root";
-    page: "/" | "/de" | "/tr" | "/ru" | "/health" | "/de/health" | "/tr/health" | "/ru/health" | "/clinic" | "/transfers/:slug" | "/:language/transfers/:slug" | "/impressum.html" | "/privacy" | "/de/datenschutz" | "/de/impressum" | "/tr/gizlilik" | "/tr/kunye" | "/ru/privacy" | "/ru/impressum";
+    page: "/" | "/de" | "/tr" | "/ru" | "/cs" | "/uk" | "/ur" | "/health" | "/de/health" | "/tr/health" | "/ru/health" | "/cs/health" | "/uk/health" | "/ur/health" | "/clinic" | "/transfers/:slug" | "/:language/transfers/:slug" | "/impressum.html" | "/privacy" | "/de/datenschutz" | "/de/impressum" | "/tr/gizlilik" | "/tr/kunye" | "/ru/privacy" | "/ru/impressum" | "/cs/privacy" | "/cs/impressum" | "/uk/privacy" | "/uk/impressum" | "/ur/privacy" | "/ur/impressum";
   };
   "./routes/home.tsx": {
     id: "home-en";
@@ -92,6 +128,15 @@ type RouteFiles = {
   } | {
     id: "home-ru";
     page: "/ru";
+  } | {
+    id: "home-cs";
+    page: "/cs";
+  } | {
+    id: "home-uk";
+    page: "/uk";
+  } | {
+    id: "home-ur";
+    page: "/ur";
   };
   "./routes/health.tsx": {
     id: "health-en";
@@ -105,6 +150,15 @@ type RouteFiles = {
   } | {
     id: "health-ru";
     page: "/ru/health";
+  } | {
+    id: "health-cs";
+    page: "/cs/health";
+  } | {
+    id: "health-uk";
+    page: "/uk/health";
+  } | {
+    id: "health-ur";
+    page: "/ur/health";
   };
   "./routes/clinic.tsx": {
     id: "clinic-tr";
@@ -141,6 +195,24 @@ type RouteFiles = {
   } | {
     id: "legal-imprint-ru";
     page: "/ru/impressum";
+  } | {
+    id: "legal-privacy-cs";
+    page: "/cs/privacy";
+  } | {
+    id: "legal-imprint-cs";
+    page: "/cs/impressum";
+  } | {
+    id: "legal-privacy-uk";
+    page: "/uk/privacy";
+  } | {
+    id: "legal-imprint-uk";
+    page: "/uk/impressum";
+  } | {
+    id: "legal-privacy-ur";
+    page: "/ur/privacy";
+  } | {
+    id: "legal-imprint-ur";
+    page: "/ur/impressum";
   };
 };
 
@@ -150,10 +222,16 @@ type RouteModules = {
   "home-de": typeof import("./public-app/app/./routes/home.tsx");
   "home-tr": typeof import("./public-app/app/./routes/home.tsx");
   "home-ru": typeof import("./public-app/app/./routes/home.tsx");
+  "home-cs": typeof import("./public-app/app/./routes/home.tsx");
+  "home-uk": typeof import("./public-app/app/./routes/home.tsx");
+  "home-ur": typeof import("./public-app/app/./routes/home.tsx");
   "health-en": typeof import("./public-app/app/./routes/health.tsx");
   "health-de": typeof import("./public-app/app/./routes/health.tsx");
   "health-tr": typeof import("./public-app/app/./routes/health.tsx");
   "health-ru": typeof import("./public-app/app/./routes/health.tsx");
+  "health-cs": typeof import("./public-app/app/./routes/health.tsx");
+  "health-uk": typeof import("./public-app/app/./routes/health.tsx");
+  "health-ur": typeof import("./public-app/app/./routes/health.tsx");
   "clinic-tr": typeof import("./public-app/app/./routes/clinic.tsx");
   "transfer-en": typeof import("./public-app/app/./routes/transfer.tsx");
   "transfer-localized": typeof import("./public-app/app/./routes/transfer.tsx");
@@ -165,4 +243,10 @@ type RouteModules = {
   "legal-imprint-tr": typeof import("./public-app/app/./routes/legal.tsx");
   "legal-privacy-ru": typeof import("./public-app/app/./routes/legal.tsx");
   "legal-imprint-ru": typeof import("./public-app/app/./routes/legal.tsx");
+  "legal-privacy-cs": typeof import("./public-app/app/./routes/legal.tsx");
+  "legal-imprint-cs": typeof import("./public-app/app/./routes/legal.tsx");
+  "legal-privacy-uk": typeof import("./public-app/app/./routes/legal.tsx");
+  "legal-imprint-uk": typeof import("./public-app/app/./routes/legal.tsx");
+  "legal-privacy-ur": typeof import("./public-app/app/./routes/legal.tsx");
+  "legal-imprint-ur": typeof import("./public-app/app/./routes/legal.tsx");
 };

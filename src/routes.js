@@ -75,8 +75,8 @@ export const routeCatalog = {
     distanceKm: 75,
     durationMin: 75,
     duration: { en: "75–90 minutes", de: "75–90 Minuten", tr: "75–90 dakika", ru: "75–90 минут", cs: "75–90 minut", uk: "75–90 хвилин", ur: "75–90 منٹ" },
-    originalPrices: { vito: 110, sprinter: 170 },
-    prices: { vito: 95, sprinter: 145 },
+    originalPrices: { vito: 90, sprinter: 135 },
+    prices: { vito: 75, sprinter: 115 },
   },
   bodrum: {
     names: { en: "Bodrum", de: "Bodrum", tr: "Bodrum", ru: "Бодрум", cs: "Bodrum", uk: "Бодрум", ur: "بودروم" },

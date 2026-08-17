@@ -43,7 +43,7 @@ export function createPublicBookingSchema(t: Translate) {
 
     if (values.travelDate < localToday) context.addIssue({ code: "custom", path: ["travelDate"], message: t("dateInvalid", "Please select a future date.") });
     if (!Number.isInteger(guests) || guests < 1 || guests > capacity) context.addIssue({ code: "custom", path: ["guests"], message: t("capacityNoVehicle", "Please select a suitable vehicle.") });
-    if (!Number.isInteger(luggage) || luggage < 0 || luggage > 12) context.addIssue({ code: "custom", path: ["luggage"], message: t("requiredField", "Please check this field.") });
+    if (values.luggage === "" || !Number.isInteger(luggage) || luggage < 0 || luggage > 12) context.addIssue({ code: "custom", path: ["luggage"], message: t("luggageRequired", "Please select the number of large bags.") });
     if (!Number.isInteger(childSeats) || childSeats < 0 || childSeats > 4) context.addIssue({ code: "custom", path: ["childSeats"], message: t("requiredField", "Please check this field.") });
 
     if (values.tripType === "round_trip") {
@@ -86,6 +86,9 @@ export function createPublicBookingSchema(t: Translate) {
     }
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(values.customerEmail.trim()) || values.customerEmail.trim().length > 120) {
       context.addIssue({ code: "custom", path: ["customerEmail"], message: t("emailInvalid", "Please enter a valid email address.") });
+    }
+    if (values.tripType !== "daily_chauffeur" && !normalize(values.flightNumber)) {
+      context.addIssue({ code: "custom", path: ["flightNumber"], message: t("arrivalFlightNumberRequired", "Please enter the arrival flight number.") });
     }
     for (const field of ["flightNumber", "returnFlightNumber", "departureFlightNumber"] as const) {
       const flight = normalize(values[field]);

@@ -33,6 +33,24 @@ type Matches = [{
 }, {
   id: "home-ru";
   module: typeof import("../home.js");
+}] | [{
+  id: "root";
+  module: typeof import("../../root.js");
+}, {
+  id: "home-cs";
+  module: typeof import("../home.js");
+}] | [{
+  id: "root";
+  module: typeof import("../../root.js");
+}, {
+  id: "home-uk";
+  module: typeof import("../home.js");
+}] | [{
+  id: "root";
+  module: typeof import("../../root.js");
+}, {
+  id: "home-ur";
+  module: typeof import("../home.js");
 }];
 
 type Annotations = GetAnnotations<Info & { module: Module, matches: Matches }>;

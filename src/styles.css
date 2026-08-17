@@ -862,6 +862,67 @@ html[dir="rtl"] a[href^="tel:"] {
   border-right: 0;
 }
 
+.booking-steps {
+  display: flex;
+  align-items: center;
+  margin-bottom: 32px;
+}
+
+.booking-step {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 10px;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.3);
+  white-space: nowrap;
+  transition: color 0.25s;
+}
+
+.booking-step.active {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.booking-step.done {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.booking-step-num {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  font-size: 11px;
+  font-weight: 500;
+  flex-shrink: 0;
+  transition: border-color 0.25s, background 0.25s, color 0.25s;
+}
+
+.booking-step.active .booking-step-num {
+  border-color: var(--gold);
+  background: var(--gold);
+  color: #000;
+  font-weight: 700;
+}
+
+.booking-step.done .booking-step-num {
+  border-color: rgba(200, 169, 106, 0.45);
+  color: var(--gold);
+  font-size: 13px;
+}
+
+.booking-step-divider {
+  flex: 1;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.1);
+  margin: 0 14px;
+  min-width: 32px;
+}
+
 .booking-card {
   display: flex;
   flex-direction: column;
@@ -1013,6 +1074,42 @@ html[dir="rtl"] a[href^="tel:"] {
   color: #f09a9a;
   font-size: 10px;
   line-height: 1.35;
+}
+
+.step1-per-vehicle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 10px 0 0;
+  padding: 10px 14px;
+  border-radius: 6px;
+  font-size: 12.5px;
+  color: #c9b87a;
+  background: rgba(216, 196, 138, 0.06);
+  box-shadow: inset 0 0 0 1px rgba(216, 196, 138, 0.22);
+}
+
+.step1-per-vehicle .icon {
+  flex-shrink: 0;
+  width: 15px;
+  height: 15px;
+  opacity: 0.7;
+}
+
+.step1-per-vehicle-text {
+  flex: 1;
+  letter-spacing: 0.01em;
+}
+
+.step1-per-vehicle-cap {
+  flex-shrink: 0;
+  padding: 2px 8px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  color: #1a1610;
+  background: #c9b87a;
 }
 
 .capacity-note {
@@ -1329,6 +1426,34 @@ html[dir="rtl"] a[href^="tel:"] {
 }
 
 .quote-submit .icon {
+  width: 16px;
+}
+
+.booking-back-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  height: 58px;
+  padding: 0 24px;
+  border: 0;
+  background: transparent;
+  color: #9b978e;
+  cursor: pointer;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  transition: 0.25s;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.booking-back-btn:hover {
+  color: var(--gold-light);
+}
+
+.booking-back-btn .icon {
   width: 16px;
 }
 
@@ -2027,6 +2152,30 @@ html[dir="rtl"] a[href^="tel:"] {
 
 .service-card:hover p {
   color: rgba(255, 255, 255, 0.52);
+}
+
+.service-card-link {
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.service-card-link::after {
+  content: "↓";
+  position: absolute;
+  bottom: 18px;
+  right: 27px;
+  font-size: 14px;
+  color: var(--gold-dark);
+  opacity: 0;
+  transition: opacity 0.3s, transform 0.3s;
+  transform: translateY(-4px);
+}
+
+.service-card-link:hover::after {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .route-heading {
@@ -3233,6 +3382,10 @@ footer {
   height: 28px;
 }
 
+.confirmed-pending {
+  background: #a07c2a;
+}
+
 .booking-confirmed h2 {
   margin: 0 0 16px;
 }
@@ -3350,6 +3503,13 @@ footer {
   .booking-return-row .booking-field:last-child,
   .booking-options-row .booking-field:last-child {
     border-right: 0;
+  }
+
+  .booking-outbound-row .booking-field:not(:last-child),
+  .booking-row-personal .booking-field:not(:last-child),
+  .booking-return-row .booking-field:not(:last-child),
+  .booking-options-row .booking-field:not(:last-child) {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   }
 
   .booking-footer {
@@ -4206,69 +4366,6 @@ section[id],
   box-shadow: 0 16px 42px rgba(0, 0, 0, 0.3);
 }
 
-/* 6. Mobile sticky booking bar */
-.mobile-book-bar {
-  position: fixed;
-  z-index: 45;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  display: none;
-  align-items: center;
-  gap: 10px;
-  padding: 12px 20px;
-  padding-bottom: calc(12px + env(safe-area-inset-bottom, 0px));
-  background: rgba(9, 9, 9, 0.97);
-  border-top: 1px solid rgba(200, 169, 106, 0.22);
-  -webkit-backdrop-filter: blur(16px);
-  backdrop-filter: blur(16px);
-  transform: translateY(110%);
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-}
-.mobile-book-bar.visible {
-  transform: translateY(0);
-}
-.mobile-book-bar .button {
-  flex: 1;
-  min-height: 50px;
-  font-size: 10px;
-  justify-content: center;
-  gap: 12px;
-}
-.mobile-book-bar .btn-wa {
-  flex: 0 0 50px;
-  width: 50px;
-  min-height: 50px;
-  display: grid;
-  place-items: center;
-  border: 1px solid rgba(117, 208, 147, 0.45);
-  background: rgba(24, 63, 43, 0.9);
-  cursor: pointer;
-  text-decoration: none;
-}
-.mobile-book-bar .btn-wa svg {
-  width: 20px;
-  height: 20px;
-  color: #75d093;
-}
-body.menu-open .mobile-book-bar,
-body.modal-open .mobile-book-bar {
-  display: none !important;
-}
-
-@media (max-width: 900px) {
-  .mobile-book-bar {
-    display: flex;
-  }
-  .floating-whatsapp {
-    bottom: 86px;
-  }
-}
-@media (max-width: 600px) {
-  .floating-whatsapp {
-    bottom: 86px;
-  }
-}
 
 /* Payment feedback */
 .payment-error {

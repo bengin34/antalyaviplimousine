@@ -565,13 +565,7 @@
             <div class="eyebrow light reveal">
               <span></span>
               <p data-i18n="heroEyebrow">Private chauffeur service · Antalya</p>
-            </div>
-            <div class="campaign-badge reveal" aria-label="Online special discount">
-              <span data-i18n="campaignBadge">Online special</span>
-              <strong data-i18n="campaignDiscount">25% off</strong>
-              <span data-i18n="campaignScope">all transfer prices</span>
-            </div>
-            <h1 class="reveal" data-i18n="heroTitle">
+            </div>            <h1 class="reveal" data-i18n="heroTitle">
               Premium Airport<br />Transfers in Antalya
             </h1>
             <p class="hero-subtitle reveal" data-i18n="heroSubtitle">
@@ -648,6 +642,7 @@
               >
               <h2 data-i18n="bookTransfer">Book your transfer</h2>
             </div>
+            <p class="booking-meet-point" data-i18n="meetGreetNote">Airport Meet &amp; Greet · Meeting point J / 777</p>
             <div
               class="booking-price-display"
               id="booking-price-display"
@@ -1095,6 +1090,7 @@
                 Includes meet &amp; greet, flight tracking, parking, waiting
                 time and bottled water.
               </p>
+              <p class="booking-per-vehicle" data-i18n="perVehicleNote">Per vehicle — not per person · Up to 7 passengers</p>
               <button class="quote-submit" type="submit" id="main-book-submit">
                 <span data-i18n="confirmCashBooking"
                   >Confirm booking — pay in vehicle</span
@@ -1147,25 +1143,22 @@
         >
         <div class="price-strip-pills">
           <button class="price-pill" type="button" data-route="belek">
-            Belek <span class="was-price">€{{PRICE:belek:vito:orig}}</span><strong>€{{PRICE:belek:vito}}</strong>
+            Belek<strong>€{{PRICE:belek:vito}}</strong>
           </button>
           <button class="price-pill" type="button" data-route="side">
-            Side <span class="was-price">€{{PRICE:side:vito:orig}}</span><strong>€{{PRICE:side:vito}}</strong>
+            Side<strong>€{{PRICE:side:vito}}</strong>
           </button>
           <button class="price-pill" type="button" data-route="kemer">
-            Kemer <span class="was-price">€{{PRICE:kemer:vito:orig}}</span><strong>€{{PRICE:kemer:vito}}</strong>
+            Kemer<strong>€{{PRICE:kemer:vito}}</strong>
           </button>
           <button class="price-pill" type="button" data-route="alanya">
-            Alanya <span class="was-price">€{{PRICE:alanya:vito:orig}}</span><strong>€{{PRICE:alanya:vito}}</strong>
+            Alanya<strong>€{{PRICE:alanya:vito}}</strong>
           </button>
           <button class="price-pill" type="button" data-route="antalya">
-            Antalya City <span class="was-price">€{{PRICE:antalya:vito:orig}}</span><strong>€{{PRICE:antalya:vito}}</strong>
+            Antalya City<strong>€{{PRICE:antalya:vito}}</strong>
           </button>
         </div>
-        <span class="price-strip-note" data-i18n="campaignApplied"
-          >Online -15% already applied</span
-        >
-      </div>
+</div>
 
       <section class="editorial-intro section">
         <div class="section-index">01</div>
@@ -1501,10 +1494,7 @@
         </div>
 
         <div class="route-slider-toolbar">
-          <span class="route-slider-hint" data-i18n="discountPricesShown"
-            >Online -15% prices shown</span
-          >
-          <div class="route-slider-controls">
+<div class="route-slider-controls">
             <button
               class="route-slider-button route-slider-prev"
               type="button"
@@ -1548,7 +1538,7 @@
                   type="button"
                   data-route="belek"
                 >
-                  <span data-i18n="onlineDiscountShort">Online -25%</span><strong><small>€{{PRICE:belek:vito:orig}}</small>€{{PRICE:belek:vito}}</strong
+                  <strong>€{{PRICE:belek:vito}}</strong
                   ><svg><use href="#icon-arrow-up-right"></use></svg>
                 </button>
               </div>
@@ -1572,7 +1562,7 @@
                   type="button"
                   data-route="side"
                 >
-                  <span data-i18n="onlineDiscountShort">Online -25%</span><strong><small>€{{PRICE:side:vito:orig}}</small>€{{PRICE:side:vito}}</strong
+                  <strong>€{{PRICE:side:vito}}</strong
                   ><svg><use href="#icon-arrow-up-right"></use></svg>
                 </button>
               </div>
@@ -1596,7 +1586,7 @@
                   type="button"
                   data-route="kemer"
                 >
-                  <span data-i18n="onlineDiscountShort">Online -25%</span><strong><small>€{{PRICE:kemer:vito:orig}}</small>€{{PRICE:kemer:vito}}</strong
+                  <strong>€{{PRICE:kemer:vito}}</strong
                   ><svg><use href="#icon-arrow-up-right"></use></svg>
                 </button>
               </div>
@@ -1620,7 +1610,7 @@
                   type="button"
                   data-route="alanya"
                 >
-                  <span data-i18n="onlineDiscountShort">Online -25%</span><strong><small>€{{PRICE:alanya:vito:orig}}</small>€{{PRICE:alanya:vito}}</strong
+                  <strong>€{{PRICE:alanya:vito}}</strong
                   ><svg><use href="#icon-arrow-up-right"></use></svg>
                 </button>
               </div>
@@ -1644,7 +1634,7 @@
                   type="button"
                   data-route="tekirova"
                 >
-                  <span data-i18n="onlineDiscountShort">Online -25%</span><strong><small>€{{PRICE:tekirova:vito:orig}}</small>€{{PRICE:tekirova:vito}}</strong
+                  <strong>€{{PRICE:tekirova:vito}}</strong
                   ><svg><use href="#icon-arrow-up-right"></use></svg>
                 </button>
               </div>
@@ -1668,7 +1658,7 @@
                   type="button"
                   data-route="manavgat"
                 >
-                  <span data-i18n="onlineDiscountShort">Online -25%</span><strong><small>€{{PRICE:manavgat:vito:orig}}</small>€{{PRICE:manavgat:vito}}</strong
+                  <strong>€{{PRICE:manavgat:vito}}</strong
                   ><svg><use href="#icon-arrow-up-right"></use></svg>
                 </button>
               </div>
@@ -1692,7 +1682,7 @@
                   type="button"
                   data-route="kizilagac"
                 >
-                  <span data-i18n="onlineDiscountShort">Online -25%</span><strong><small>€{{PRICE:kizilagac:vito:orig}}</small>€{{PRICE:kizilagac:vito}}</strong
+                  <strong>€{{PRICE:kizilagac:vito}}</strong
                   ><svg><use href="#icon-arrow-up-right"></use></svg>
                 </button>
               </div>
@@ -1719,7 +1709,7 @@
                   type="button"
                   data-route="bogazkent"
                 >
-                  <span data-i18n="onlineDiscountShort">Online -25%</span><strong><small>€{{PRICE:bogazkent:vito:orig}}</small>€{{PRICE:bogazkent:vito}}</strong
+                  <strong>€{{PRICE:bogazkent:vito}}</strong
                   ><svg><use href="#icon-arrow-up-right"></use></svg>
                 </button>
               </div>
@@ -1746,7 +1736,7 @@
                   type="button"
                   data-route="antalya"
                 >
-                  <span data-i18n="onlineDiscountShort">Online -25%</span><strong><small>€{{PRICE:antalya:vito:orig}}</small>€{{PRICE:antalya:vito}}</strong
+                  <strong>€{{PRICE:antalya:vito}}</strong
                   ><svg><use href="#icon-arrow-up-right"></use></svg>
                 </button>
               </div>
@@ -1773,7 +1763,7 @@
                   type="button"
                   data-route="bodrum"
                 >
-                  <span data-i18n="onlineDiscountShort">Online -25%</span><strong><small>€{{PRICE:bodrum:vito:orig}}</small>€{{PRICE:bodrum:vito}}</strong
+                  <strong>€{{PRICE:bodrum:vito}}</strong
                   ><svg><use href="#icon-arrow-up-right"></use></svg>
                 </button>
               </div>
@@ -1800,7 +1790,7 @@
                   type="button"
                   data-route="dalaman"
                 >
-                  <span data-i18n="onlineDiscountShort">Online -25%</span><strong><small>€{{PRICE:dalaman:vito:orig}}</small>€{{PRICE:dalaman:vito}}</strong
+                  <strong>€{{PRICE:dalaman:vito}}</strong
                   ><svg><use href="#icon-arrow-up-right"></use></svg>
                 </button>
               </div>
@@ -1827,7 +1817,7 @@
                   type="button"
                   data-route="fethiye"
                 >
-                  <span data-i18n="onlineDiscountShort">Online -25%</span><strong><small>€{{PRICE:fethiye:vito:orig}}</small>€{{PRICE:fethiye:vito}}</strong
+                  <strong>€{{PRICE:fethiye:vito}}</strong
                   ><svg><use href="#icon-arrow-up-right"></use></svg>
                 </button>
               </div>
@@ -1854,7 +1844,7 @@
                   type="button"
                   data-route="pamukkale"
                 >
-                  <span data-i18n="onlineDiscountShort">Online -25%</span><strong><small>€{{PRICE:pamukkale:vito:orig}}</small>€{{PRICE:pamukkale:vito}}</strong
+                  <strong>€{{PRICE:pamukkale:vito}}</strong
                   ><svg><use href="#icon-arrow-up-right"></use></svg>
                 </button>
               </div>
@@ -1881,7 +1871,7 @@
                   type="button"
                   data-route="kapadokya"
                 >
-                  <span data-i18n="onlineDiscountShort">Online -25%</span><strong><small>€{{PRICE:kapadokya:vito:orig}}</small>€{{PRICE:kapadokya:vito}}</strong
+                  <strong>€{{PRICE:kapadokya:vito}}</strong
                   ><svg><use href="#icon-arrow-up-right"></use></svg>
                 </button>
               </div>

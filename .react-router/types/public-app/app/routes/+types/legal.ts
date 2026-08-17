@@ -57,6 +57,42 @@ type Matches = [{
 }, {
   id: "legal-imprint-ru";
   module: typeof import("../legal.js");
+}] | [{
+  id: "root";
+  module: typeof import("../../root.js");
+}, {
+  id: "legal-privacy-cs";
+  module: typeof import("../legal.js");
+}] | [{
+  id: "root";
+  module: typeof import("../../root.js");
+}, {
+  id: "legal-imprint-cs";
+  module: typeof import("../legal.js");
+}] | [{
+  id: "root";
+  module: typeof import("../../root.js");
+}, {
+  id: "legal-privacy-uk";
+  module: typeof import("../legal.js");
+}] | [{
+  id: "root";
+  module: typeof import("../../root.js");
+}, {
+  id: "legal-imprint-uk";
+  module: typeof import("../legal.js");
+}] | [{
+  id: "root";
+  module: typeof import("../../root.js");
+}, {
+  id: "legal-privacy-ur";
+  module: typeof import("../legal.js");
+}] | [{
+  id: "root";
+  module: typeof import("../../root.js");
+}, {
+  id: "legal-imprint-ur";
+  module: typeof import("../legal.js");
 }];
 
 type Annotations = GetAnnotations<Info & { module: Module, matches: Matches }>;

@@ -26,7 +26,8 @@ describe("BookingForm route summary", () => {
     const routeSummary = container.querySelector(".price-display-route");
     expect(routeSummary).toHaveTextContent("Özel adres → Özel adres");
     expect(routeSummary).not.toHaveTextContent("private_address");
-    expect(container.querySelector("#main-book-submit")).toHaveTextContent("Fiyat teklifi al");
+    // Step 1 CTA shows "Continue" (no price for private→private quote)
+    expect(container.querySelector("#main-book-step1")).toBeInTheDocument();
   });
 
   test("requires the fuel acknowledgement before a daily chauffeur booking can continue", async () => {
