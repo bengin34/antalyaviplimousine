@@ -4,6 +4,7 @@ import { fileURLToPath } from "node:url";
 import { JSDOM } from "jsdom";
 import { describe, expect, test } from "vitest";
 import { resolvePriceTokens, routeData } from "../src/prices.js";
+import { sitemapPaths } from "../src/public-paths.js";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const domain = "https://antalyaviptourism.com";
@@ -43,10 +44,6 @@ const legalPaths = [
   "/ru/impressum/",
 ];
 
-const healthPaths = Object.keys(languages).map(
-  (language) => `/${languages[language].prefix}health/`,
-);
-
 const pagePath = (language, slug = "") =>
   `/${languages[language].prefix}${slug ? `transfers/${slug}/` : ""}`;
 
@@ -84,20 +81,41 @@ const schemaByType = (schemas, type) =>
 
 const expectCoreSeo = (document, urlPath, slug = "") => {
   expect(document.title.trim().length).toBeGreaterThan(20);
-  expect(document.querySelector('meta[name="description"]')?.content.length).toBeGreaterThan(50);
-  expect(document.querySelector('link[rel="canonical"]')?.href).toBe(canonicalFor(urlPath));
-  expect(document.querySelector('meta[property="og:url"]')?.content).toBe(canonicalFor(urlPath));
-  expect(document.querySelector('meta[property="og:title"]')?.content).toBeTruthy();
-  expect(document.querySelector('meta[property="og:description"]')?.content).toBeTruthy();
-  expect(document.querySelector('meta[property="og:image"]')?.content).toMatch(/^https:\/\//);
-  expect(document.querySelector('meta[name="twitter:card"]')?.content).toBe("summary_large_image");
+
+  expect(
+    document.querySelector('meta[name="description"]')?.content.length,
+  ).toBeGreaterThan(50);
+
+  expect(document.querySelector('link[rel="canonical"]')?.href).toBe(
+    canonicalFor(urlPath),
+  );
+
+  expect(document.querySelector('meta[property="og:url"]')?.content).toBe(
+    canonicalFor(urlPath),
+  );
+
+  expect(
+    document.querySelector('meta[property="og:title"]')?.content,
+  ).toBeTruthy();
+
+  expect(
+    document.querySelector('meta[property="og:description"]')?.content,
+  ).toBeTruthy();
+
+  expect(document.querySelector('meta[property="og:image"]')?.content).toMatch(
+    /^https:\/\//,
+  );
+
+  expect(document.querySelector('meta[name="twitter:card"]')?.content).toBe(
+    "summary_large_image",
+  );
 
   const alternates = Object.fromEntries(
-    [...document.querySelectorAll('link[rel="alternate"][hreflang]')].map((link) => [
-      link.getAttribute("hreflang"),
-      link.href,
-    ]),
+    [...document.querySelectorAll('link[rel="alternate"][hreflang]')].map(
+      (link) => [link.getAttribute("hreflang"), link.href],
+    ),
   );
+
   expect(alternates).toEqual(alternateUrls(slug));
 };
 
@@ -128,22 +146,39 @@ const expectBookingFormContract = (document) => {
   ];
 
   for (const id of requiredControls) {
-    expect(form.querySelector(`#${id}`), `Missing booking control #${id}`).not.toBeNull();
+    expect(
+      form.querySelector(`#${id}`),
+      `Missing booking control #${id}`,
+    ).not.toBeNull();
   }
 
-  expect(form.querySelector('input[name="tripType"][value="one_way"]')).not.toBeNull();
-  expect(form.querySelector('input[name="tripType"][value="round_trip"]')).not.toBeNull();
-  expect(form.querySelector('input[name="paymentMethod"][value="cash"]')).not.toBeNull();
-  expect(document.querySelector('script[type="module"][src="/src/main.js"]')).not.toBeNull();
+  expect(
+    form.querySelector('input[name="tripType"][value="one_way"]'),
+  ).not.toBeNull();
+
+  expect(
+    form.querySelector('input[name="tripType"][value="round_trip"]'),
+  ).not.toBeNull();
+
+  expect(
+    form.querySelector('input[name="paymentMethod"][value="cash"]'),
+  ).not.toBeNull();
+
+  expect(
+    document.querySelector('script[type="module"][src="/src/main.js"]'),
+  ).not.toBeNull();
 };
 
 const expectRouteBookingEntry = (document, language) => {
   const form = document.querySelector("#quote-form");
+
   if (!form) {
     const languageHome = languages[language].prefix
       ? `/${languages[language].prefix}#booking`
       : "/#booking";
+
     expect(document.querySelector(`a[href="${languageHome}"]`)).not.toBeNull();
+
     return;
   }
 
@@ -158,9 +193,15 @@ const expectRouteBookingEntry = (document, language) => {
     "customer-email",
     "main-book-submit",
   ]) {
-    expect(form.querySelector(`#${id}`), `Missing route booking control #${id}`).not.toBeNull();
+    expect(
+      form.querySelector(`#${id}`),
+      `Missing route booking control #${id}`,
+    ).not.toBeNull();
   }
-  expect(document.querySelector('script[type="module"][src="/src/main.js"]')).not.toBeNull();
+
+  expect(
+    document.querySelector('script[type="module"][src="/src/main.js"]'),
+  ).not.toBeNull();
 };
 
 describe("public React migration baseline", () => {
@@ -168,23 +209,31 @@ describe("public React migration baseline", () => {
     expect(Object.keys(routeData).sort()).toEqual([...routeSlugs].sort());
   });
 
-  test("keeps all 72 indexable URLs in the sitemap", () => {
+  test("keeps all indexable URLs in the sitemap", () => {
     const commercialPaths = Object.keys(languages).flatMap((language) => [
       pagePath(language),
       ...routeSlugs.map((slug) => pagePath(language, slug)),
     ]);
-    const expectedUrls = [...commercialPaths, ...healthPaths, ...legalPaths]
-      .map(canonicalFor)
-      .sort();
-    const sitemap = readFileSync(path.join(root, "public", "sitemap.xml"), "utf8");
+
+    const expectedUrls = [...sitemapPaths].map(canonicalFor).sort();
+
+    const sitemap = readFileSync(
+      path.join(root, "public", "sitemap.xml"),
+      "utf8",
+    );
+
     const actualUrls = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)]
       .map((match) => match[1])
       .sort();
 
-    expect(new Set(actualUrls).size).toBe(72);
+    expect(new Set(actualUrls).size).toBe(sitemapPaths.length);
     expect(actualUrls).toEqual(expectedUrls);
+
     for (const urlPath of [...commercialPaths, ...legalPaths]) {
-      expect(() => readPage(urlPath), `Missing HTML file for ${urlPath}`).not.toThrow();
+      expect(
+        () => readPage(urlPath),
+        `Missing HTML file for ${urlPath}`,
+      ).not.toThrow();
     }
   });
 
@@ -194,14 +243,18 @@ describe("public React migration baseline", () => {
       const { document } = parsePage(urlPath);
 
       expect(document.documentElement.lang).toBe(language);
+
       expectCoreSeo(document, urlPath);
-      expect(document.querySelector('meta[property="og:locale"]')?.content).toBe(
-        languageConfig.locale,
-      );
+
+      expect(
+        document.querySelector('meta[property="og:locale"]')?.content,
+      ).toBe(languageConfig.locale);
 
       const schemas = structuredData(document);
+
       expect(schemaByType(schemas, "TravelAgency")).toBeTruthy();
       expect(schemaByType(schemas, "FAQPage")).toBeTruthy();
+
       expectBookingFormContract(document);
     });
   }
@@ -213,20 +266,29 @@ describe("public React migration baseline", () => {
         const { document } = parsePage(urlPath);
 
         expect(document.documentElement.lang).toBe(language);
+
         expectCoreSeo(document, urlPath, slug);
 
         const schemas = structuredData(document);
+
         expect(schemaByType(schemas, "BreadcrumbList")).toBeTruthy();
         expect(schemaByType(schemas, "FAQPage")).toBeTruthy();
 
         const service = schemaByType(schemas, "Service");
+
         expect(service).toBeTruthy();
-        if (service.url) expect(service.url).toBe(canonicalFor(urlPath));
+
+        if (service.url) {
+          expect(service.url).toBe(canonicalFor(urlPath));
+        }
 
         expect(service.offers.length).toBeGreaterThan(0);
+
         for (const offer of service.offers) {
           const vehicle = offer.name.includes("Sprinter") ? "sprinter" : "vito";
+
           expect(offer.price).toBe(String(routeData[slug].prices[vehicle]));
+
           expect(offer.priceCurrency).toBe("EUR");
         }
 
@@ -238,8 +300,12 @@ describe("public React migration baseline", () => {
   for (const urlPath of legalPaths) {
     test(`${urlPath} keeps its canonical legal page`, () => {
       const { document } = parsePage(urlPath);
+
       expect(document.title.trim()).not.toBe("");
-      expect(document.querySelector('link[rel="canonical"]')?.href).toBe(canonicalFor(urlPath));
+
+      expect(document.querySelector('link[rel="canonical"]')?.href).toBe(
+        canonicalFor(urlPath),
+      );
     });
   }
 });
