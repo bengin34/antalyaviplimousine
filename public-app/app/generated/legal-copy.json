@@ -21,6 +21,10 @@
         "href": "https://antalyaviptourism.com/ru/privacy/"
       },
       {
+        "language": "cs",
+        "href": "https://antalyaviptourism.com/cs/privacy/"
+      },
+      {
         "language": "x-default",
         "href": "https://antalyaviptourism.com/privacy/"
       }
@@ -110,6 +114,10 @@
       {
         "language": "ru",
         "href": "https://antalyaviptourism.com/ru/impressum/"
+      },
+      {
+        "language": "cs",
+        "href": "https://antalyaviptourism.com/cs/impressum/"
       },
       {
         "language": "x-default",
@@ -224,6 +232,10 @@
         "href": "https://antalyaviptourism.com/ru/privacy/"
       },
       {
+        "language": "cs",
+        "href": "https://antalyaviptourism.com/cs/privacy/"
+      },
+      {
         "language": "x-default",
         "href": "https://antalyaviptourism.com/privacy/"
       }
@@ -313,6 +325,10 @@
       {
         "language": "ru",
         "href": "https://antalyaviptourism.com/ru/impressum/"
+      },
+      {
+        "language": "cs",
+        "href": "https://antalyaviptourism.com/cs/impressum/"
       },
       {
         "language": "x-default",
@@ -427,6 +443,10 @@
         "href": "https://antalyaviptourism.com/ru/privacy/"
       },
       {
+        "language": "cs",
+        "href": "https://antalyaviptourism.com/cs/privacy/"
+      },
+      {
         "language": "x-default",
         "href": "https://antalyaviptourism.com/privacy/"
       }
@@ -516,6 +536,10 @@
       {
         "language": "ru",
         "href": "https://antalyaviptourism.com/ru/impressum/"
+      },
+      {
+        "language": "cs",
+        "href": "https://antalyaviptourism.com/cs/impressum/"
       },
       {
         "language": "x-default",
@@ -630,6 +654,10 @@
         "href": "https://antalyaviptourism.com/ru/privacy/"
       },
       {
+        "language": "cs",
+        "href": "https://antalyaviptourism.com/cs/privacy/"
+      },
+      {
         "language": "x-default",
         "href": "https://antalyaviptourism.com/privacy/"
       }
@@ -719,6 +747,10 @@
       {
         "language": "ru",
         "href": "https://antalyaviptourism.com/ru/impressum/"
+      },
+      {
+        "language": "cs",
+        "href": "https://antalyaviptourism.com/cs/impressum/"
       },
       {
         "language": "x-default",
@@ -1021,5 +1053,427 @@
       }
     ],
     "homeLabel": "Domů"
+  },
+  "uk-privacy": {
+    "title": "Privacy Policy | Antalya VIP Tourism",
+    "description": "Privacy policy of Antalya VIP Tourism covering booking data, optional analytics and your rights.",
+    "canonical": "https://antalyaviptourism.com/uk/privacy/",
+    "alternates": [
+      {
+        "language": "en",
+        "href": "https://antalyaviptourism.com/privacy/"
+      },
+      {
+        "language": "de",
+        "href": "https://antalyaviptourism.com/de/datenschutz/"
+      },
+      {
+        "language": "tr",
+        "href": "https://antalyaviptourism.com/tr/gizlilik/"
+      },
+      {
+        "language": "ru",
+        "href": "https://antalyaviptourism.com/ru/privacy/"
+      },
+      {
+        "language": "cs",
+        "href": "https://antalyaviptourism.com/cs/privacy/"
+      },
+      {
+        "language": "x-default",
+        "href": "https://antalyaviptourism.com/privacy/"
+      }
+    ],
+    "hero": {
+      "eyebrow": "Privacy",
+      "title": "Privacy Policy",
+      "intro": "How we process personal data and the choices available to you."
+    },
+    "cards": [
+      {
+        "title": "1. Controller",
+        "paragraphs": [
+          "Antalya VIP Tourism, Ahmet Karadag, Belek Mah. Belek 61 Sk., Belek Deniz Apt No: 19 Ic Kapi No: 4, Serik / Antalya, Türkiye. Email: support@antalyaviptourism.com. Phone: +90 530 265 57 90."
+        ],
+        "details": [],
+        "privacySettings": false
+      },
+      {
+        "title": "2. Booking and contact data",
+        "paragraphs": [
+          "When you request or book a journey, we process the contact, travel, flight, pickup, destination and payment information you provide. This is necessary to answer your request, perform the journey, communicate with you and meet legal obligations. Data is retained only as long as required for these purposes or statutory retention periods."
+        ],
+        "details": [],
+        "privacySettings": false
+      },
+      {
+        "title": "3. Technical delivery",
+        "paragraphs": [
+          "When the website is accessed, technically necessary log data may be processed, including IP address, time, requested page, browser and device information. This supports secure and stable website delivery."
+        ],
+        "details": [],
+        "privacySettings": false
+      },
+      {
+        "title": "4. Google Analytics and Google Ads",
+        "paragraphs": [
+          "Google Analytics and Google Ads load only after you consent in the privacy dialog. Usage, device, interaction and conversion data may then be sent to Google. The provider is Google Ireland Limited and processing by affiliated companies outside the European Economic Area may occur. You may withdraw consent at any time through Privacy settings. Rejecting analytics does not affect booking functions."
+        ],
+        "details": [],
+        "privacySettings": true
+      },
+      {
+        "title": "5. Service providers and recipients",
+        "paragraphs": [
+          "Hosting, database, payment and communication providers may process only the data required for their task. Payment details are processed by the selected payment provider."
+        ],
+        "details": [],
+        "privacySettings": false
+      },
+      {
+        "title": "6. Your rights",
+        "paragraphs": [
+          "Where applicable law provides, you may request access, correction, deletion, restriction, portability or object to processing. You may withdraw consent for the future and lodge a complaint with a competent supervisory authority."
+        ],
+        "details": [],
+        "privacySettings": false
+      },
+      {
+        "title": "7. Updates",
+        "paragraphs": [
+          "This policy is updated when services or legal requirements change. Last updated: 19 June 2026."
+        ],
+        "details": [],
+        "privacySettings": false
+      }
+    ],
+    "homeLabel": "Home"
+  },
+  "uk-imprint": {
+    "title": "Imprint | Antalya VIP Tourism",
+    "description": "Legal notice and provider information for Antalya VIP Tourism.",
+    "canonical": "https://antalyaviptourism.com/uk/impressum/",
+    "alternates": [
+      {
+        "language": "en",
+        "href": "https://antalyaviptourism.com/impressum.html"
+      },
+      {
+        "language": "de",
+        "href": "https://antalyaviptourism.com/de/impressum/"
+      },
+      {
+        "language": "tr",
+        "href": "https://antalyaviptourism.com/tr/kunye/"
+      },
+      {
+        "language": "ru",
+        "href": "https://antalyaviptourism.com/ru/impressum/"
+      },
+      {
+        "language": "cs",
+        "href": "https://antalyaviptourism.com/cs/impressum/"
+      },
+      {
+        "language": "x-default",
+        "href": "https://antalyaviptourism.com/impressum.html"
+      }
+    ],
+    "hero": {
+      "eyebrow": "Legal notice",
+      "title": "Imprint",
+      "intro": "Provider information for this website under the applicable information obligations."
+    },
+    "cards": [
+      {
+        "title": "Operator",
+        "paragraphs": [],
+        "details": [
+          {
+            "term": "Name",
+            "value": "Ahmet Karadag",
+            "href": null
+          },
+          {
+            "term": "Business name",
+            "value": "Antalya VIP Tourism",
+            "href": null
+          },
+          {
+            "term": "Address",
+            "value": "Belek Mah. Belek 61 Sk.\nBelek Deniz Apt No: 19 Ic Kapi No: 4\nSerik / Antalya\nTürkiye",
+            "href": null
+          }
+        ],
+        "privacySettings": false
+      },
+      {
+        "title": "Contact",
+        "paragraphs": [],
+        "details": [
+          {
+            "term": "Phone / WhatsApp",
+            "value": "+90 530 265 57 90",
+            "href": "tel:+905302655790"
+          },
+          {
+            "term": "E-Mail",
+            "value": "support@antalyaviptourism.com",
+            "href": "mailto:support@antalyaviptourism.com"
+          }
+        ],
+        "privacySettings": false
+      },
+      {
+        "title": "Tax information",
+        "paragraphs": [],
+        "details": [
+          {
+            "term": "Tax office",
+            "value": "Serik",
+            "href": null
+          },
+          {
+            "term": "Tax number / Vergi Kimlik No",
+            "value": "507•••8455",
+            "href": null
+          },
+          {
+            "term": "Business start date",
+            "value": "12.04.2021",
+            "href": null
+          }
+        ],
+        "privacySettings": false
+      },
+      {
+        "title": "Business activity",
+        "paragraphs": [
+          "Passenger transport in urban, suburban and rural areas by road vehicles, including staff, student and comparable group transfers."
+        ],
+        "details": [],
+        "privacySettings": false
+      },
+      {
+        "title": "Liability for content",
+        "paragraphs": [
+          "If you notice any inaccuracy or have a concern about the content on this website, please contact us directly."
+        ],
+        "details": [],
+        "privacySettings": false
+      }
+    ],
+    "homeLabel": "Home"
+  },
+  "ur-privacy": {
+    "title": "Privacy Policy | Antalya VIP Tourism",
+    "description": "Privacy policy of Antalya VIP Tourism covering booking data, optional analytics and your rights.",
+    "canonical": "https://antalyaviptourism.com/ur/privacy/",
+    "alternates": [
+      {
+        "language": "en",
+        "href": "https://antalyaviptourism.com/privacy/"
+      },
+      {
+        "language": "de",
+        "href": "https://antalyaviptourism.com/de/datenschutz/"
+      },
+      {
+        "language": "tr",
+        "href": "https://antalyaviptourism.com/tr/gizlilik/"
+      },
+      {
+        "language": "ru",
+        "href": "https://antalyaviptourism.com/ru/privacy/"
+      },
+      {
+        "language": "cs",
+        "href": "https://antalyaviptourism.com/cs/privacy/"
+      },
+      {
+        "language": "x-default",
+        "href": "https://antalyaviptourism.com/privacy/"
+      }
+    ],
+    "hero": {
+      "eyebrow": "Privacy",
+      "title": "Privacy Policy",
+      "intro": "How we process personal data and the choices available to you."
+    },
+    "cards": [
+      {
+        "title": "1. Controller",
+        "paragraphs": [
+          "Antalya VIP Tourism, Ahmet Karadag, Belek Mah. Belek 61 Sk., Belek Deniz Apt No: 19 Ic Kapi No: 4, Serik / Antalya, Türkiye. Email: support@antalyaviptourism.com. Phone: +90 530 265 57 90."
+        ],
+        "details": [],
+        "privacySettings": false
+      },
+      {
+        "title": "2. Booking and contact data",
+        "paragraphs": [
+          "When you request or book a journey, we process the contact, travel, flight, pickup, destination and payment information you provide. This is necessary to answer your request, perform the journey, communicate with you and meet legal obligations. Data is retained only as long as required for these purposes or statutory retention periods."
+        ],
+        "details": [],
+        "privacySettings": false
+      },
+      {
+        "title": "3. Technical delivery",
+        "paragraphs": [
+          "When the website is accessed, technically necessary log data may be processed, including IP address, time, requested page, browser and device information. This supports secure and stable website delivery."
+        ],
+        "details": [],
+        "privacySettings": false
+      },
+      {
+        "title": "4. Google Analytics and Google Ads",
+        "paragraphs": [
+          "Google Analytics and Google Ads load only after you consent in the privacy dialog. Usage, device, interaction and conversion data may then be sent to Google. The provider is Google Ireland Limited and processing by affiliated companies outside the European Economic Area may occur. You may withdraw consent at any time through Privacy settings. Rejecting analytics does not affect booking functions."
+        ],
+        "details": [],
+        "privacySettings": true
+      },
+      {
+        "title": "5. Service providers and recipients",
+        "paragraphs": [
+          "Hosting, database, payment and communication providers may process only the data required for their task. Payment details are processed by the selected payment provider."
+        ],
+        "details": [],
+        "privacySettings": false
+      },
+      {
+        "title": "6. Your rights",
+        "paragraphs": [
+          "Where applicable law provides, you may request access, correction, deletion, restriction, portability or object to processing. You may withdraw consent for the future and lodge a complaint with a competent supervisory authority."
+        ],
+        "details": [],
+        "privacySettings": false
+      },
+      {
+        "title": "7. Updates",
+        "paragraphs": [
+          "This policy is updated when services or legal requirements change. Last updated: 19 June 2026."
+        ],
+        "details": [],
+        "privacySettings": false
+      }
+    ],
+    "homeLabel": "Home"
+  },
+  "ur-imprint": {
+    "title": "Imprint | Antalya VIP Tourism",
+    "description": "Legal notice and provider information for Antalya VIP Tourism.",
+    "canonical": "https://antalyaviptourism.com/ur/impressum/",
+    "alternates": [
+      {
+        "language": "en",
+        "href": "https://antalyaviptourism.com/impressum.html"
+      },
+      {
+        "language": "de",
+        "href": "https://antalyaviptourism.com/de/impressum/"
+      },
+      {
+        "language": "tr",
+        "href": "https://antalyaviptourism.com/tr/kunye/"
+      },
+      {
+        "language": "ru",
+        "href": "https://antalyaviptourism.com/ru/impressum/"
+      },
+      {
+        "language": "cs",
+        "href": "https://antalyaviptourism.com/cs/impressum/"
+      },
+      {
+        "language": "x-default",
+        "href": "https://antalyaviptourism.com/impressum.html"
+      }
+    ],
+    "hero": {
+      "eyebrow": "Legal notice",
+      "title": "Imprint",
+      "intro": "Provider information for this website under the applicable information obligations."
+    },
+    "cards": [
+      {
+        "title": "Operator",
+        "paragraphs": [],
+        "details": [
+          {
+            "term": "Name",
+            "value": "Ahmet Karadag",
+            "href": null
+          },
+          {
+            "term": "Business name",
+            "value": "Antalya VIP Tourism",
+            "href": null
+          },
+          {
+            "term": "Address",
+            "value": "Belek Mah. Belek 61 Sk.\nBelek Deniz Apt No: 19 Ic Kapi No: 4\nSerik / Antalya\nTürkiye",
+            "href": null
+          }
+        ],
+        "privacySettings": false
+      },
+      {
+        "title": "Contact",
+        "paragraphs": [],
+        "details": [
+          {
+            "term": "Phone / WhatsApp",
+            "value": "+90 530 265 57 90",
+            "href": "tel:+905302655790"
+          },
+          {
+            "term": "E-Mail",
+            "value": "support@antalyaviptourism.com",
+            "href": "mailto:support@antalyaviptourism.com"
+          }
+        ],
+        "privacySettings": false
+      },
+      {
+        "title": "Tax information",
+        "paragraphs": [],
+        "details": [
+          {
+            "term": "Tax office",
+            "value": "Serik",
+            "href": null
+          },
+          {
+            "term": "Tax number / Vergi Kimlik No",
+            "value": "507•••8455",
+            "href": null
+          },
+          {
+            "term": "Business start date",
+            "value": "12.04.2021",
+            "href": null
+          }
+        ],
+        "privacySettings": false
+      },
+      {
+        "title": "Business activity",
+        "paragraphs": [
+          "Passenger transport in urban, suburban and rural areas by road vehicles, including staff, student and comparable group transfers."
+        ],
+        "details": [],
+        "privacySettings": false
+      },
+      {
+        "title": "Liability for content",
+        "paragraphs": [
+          "If you notice any inaccuracy or have a concern about the content on this website, please contact us directly."
+        ],
+        "details": [],
+        "privacySettings": false
+      }
+    ],
+    "homeLabel": "Home"
   }
 }

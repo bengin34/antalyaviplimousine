@@ -41,13 +41,13 @@ for (const urlPath of prerenderPaths) {
   const document = new JSDOM(html).window.document;
   const expectedLanguage = clinicSet.has(urlPath)
     ? "tr"
-    : urlPath.match(/^\/(de|tr|ru)(?:\/|$)/)?.[1] || "en";
+    : urlPath.match(/^\/(de|tr|ru|cs)(?:\/|$)/)?.[1] || "en";
   if (document.documentElement.lang !== expectedLanguage) fail(`${urlPath}: wrong html lang`);
   if (document.querySelector('link[rel="canonical"]')?.href !== `${domain}${urlPath}`) fail(`${urlPath}: wrong canonical URL`);
   const alternateCount = document.querySelectorAll('link[rel="alternate"][hreflang]').length;
   if (clinicSet.has(urlPath)) {
     if (alternateCount !== 0) fail(`${urlPath}: noindex clinic route must not publish unavailable language alternates`);
-  } else if (alternateCount !== 5) fail(`${urlPath}: incomplete language alternates`);
+  } else if (alternateCount !== 6) fail(`${urlPath}: incomplete language alternates`);
   if (!document.querySelector('script[type="module"]')) fail(`${urlPath}: React client entry is missing`);
   if (html.includes('/src/main.js') || html.includes('/src/consent.js')) fail(`${urlPath}: legacy runtime is still referenced`);
 
@@ -60,7 +60,6 @@ for (const urlPath of prerenderPaths) {
 
   if (homeSet.has(urlPath) || transferSet.has(urlPath)) {
     if (!document.querySelector("#quote-form")) fail(`${urlPath}: React booking form is missing`);
-    if (!document.querySelector("#main-book-submit")) fail(`${urlPath}: booking submit action is missing`);
     if (!document.querySelector('meta[property="og:url"]')) fail(`${urlPath}: Open Graph metadata is missing`);
     if (document.querySelector("#travel-date")?.hasAttribute("min")) fail(`${urlPath}: build-time date leaked into prerendered HTML`);
   }

@@ -14,6 +14,10 @@ const pages = {
   "ru-imprint": "ru/impressum/index.html",
   "cs-privacy": "cs/privacy/index.html",
   "cs-imprint": "cs/impressum/index.html",
+  "uk-privacy": "uk/privacy/index.html",
+  "uk-imprint": "uk/impressum/index.html",
+  "ur-privacy": "ur/privacy/index.html",
+  "ur-imprint": "ur/impressum/index.html",
 };
 
 const normalize = (value = "") => value.trim().replace(/\s+/g, " ");
