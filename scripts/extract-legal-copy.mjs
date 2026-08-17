@@ -12,6 +12,8 @@ const pages = {
   "tr-imprint": "tr/kunye/index.html",
   "ru-privacy": "ru/privacy/index.html",
   "ru-imprint": "ru/impressum/index.html",
+  "cs-privacy": "cs/privacy/index.html",
+  "cs-imprint": "cs/impressum/index.html",
 };
 
 const normalize = (value = "") => value.trim().replace(/\s+/g, " ");
