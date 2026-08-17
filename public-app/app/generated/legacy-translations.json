@@ -189,7 +189,6 @@
       "addressesMustDiffer": "Pick-up and drop-off addresses must be different.",
       "customDestinationPrice": "The price will be confirmed after we check the drop-off address.",
       "hotelNameRequired": "Please enter the hotel name.",
-      "arrivalFlightNumberRequired": "Please enter the arrival flight number.",
       "roundTripPriceNote": "round trip · 2 journeys",
       "returnDateRequired": "Please choose a return date.",
       "returnDateInvalid": "Please choose a return date on or after the outward journey.",
@@ -221,10 +220,7 @@
       "cancel": "Cancel",
       "close": "Close",
       "understandAndConfirm": "I understand and confirm",
-      "dailyCashConfirmation": "Your daily chauffeur hire is confirmed. The service price excludes fuel, which is paid separately based on use.",
-      "perVehicleLabel": "Per vehicle — not per person",
-      "upTo6Pax": "Up to 6 passengers",
-      "upTo12Pax": "Up to 12 passengers"
+      "dailyCashConfirmation": "Your daily chauffeur hire is confirmed. The service price excludes fuel, which is paid separately based on use."
     },
     "de": {
       "navFleet": "Fahrzeuge",
@@ -415,7 +411,6 @@
       "addressesMustDiffer": "Abhol- und Zieladresse müssen unterschiedlich sein.",
       "customDestinationPrice": "Der Preis wird nach Prüfung der Zieladresse bestätigt.",
       "hotelNameRequired": "Bitte geben Sie den Hotelnamen ein.",
-      "arrivalFlightNumberRequired": "Bitte geben Sie die Ankunftsflignummer ein.",
       "roundTripPriceNote": "Hin- und Rückfahrt · 2 Fahrten",
       "returnDateRequired": "Bitte wählen Sie ein Rückfahrtdatum.",
       "returnDateInvalid": "Bitte wählen Sie ein Rückfahrtdatum am oder nach dem Datum der Hinfahrt.",
@@ -489,10 +484,7 @@
       "paySecurely": "Weiter zur sicheren Zahlung",
       "payLaterNote": "Sichere Online-Zahlung nach Bestätigung.",
       "paymentTitle": "Sichere Zahlung",
-      "paymentError": "Zahlung fehlgeschlagen. Bitte erneut versuchen.",
-      "perVehicleLabel": "Pro Fahrzeug - nicht pro Person",
-      "upTo6Pax": "Bis zu 6 Personen",
-      "upTo12Pax": "Bis zu 12 Personen"
+      "paymentError": "Zahlung fehlgeschlagen. Bitte erneut versuchen."
     },
     "tr": {
       "navFleet": "Araçlar",
@@ -683,7 +675,6 @@
       "addressesMustDiffer": "Alış ve varış adresleri farklı olmalıdır.",
       "customDestinationPrice": "Fiyat, varış adresi kontrol edildikten sonra teyit edilecektir.",
       "hotelNameRequired": "Lütfen otel ismini girin.",
-      "arrivalFlightNumberRequired": "Lütfen gelen uçuş numarasını girin.",
       "roundTripPriceNote": "gidiş–dönüş · 2 yolculuk",
       "returnDateRequired": "Lütfen dönüş tarihini seçin.",
       "returnDateInvalid": "Lütfen gidiş tarihiyle aynı veya daha sonraki bir dönüş tarihi seçin.",
@@ -757,10 +748,7 @@
       "paySecurely": "Güvenli ödemeye geç",
       "payLaterNote": "Onay sonrası güvenli online ödeme.",
       "paymentTitle": "Güvenli Ödeme",
-      "paymentError": "Ödeme başarısız. Lütfen tekrar deneyin.",
-      "perVehicleLabel": "Araç başına — kişi başına değil",
-      "upTo6Pax": "6 yolcuya kadar",
-      "upTo12Pax": "12 yolcuya kadar"
+      "paymentError": "Ödeme başarısız. Lütfen tekrar deneyin."
     },
     "ru": {
       "navFleet": "Автопарк",
@@ -951,7 +939,6 @@
       "addressesMustDiffer": "Адреса подачи и назначения должны отличаться.",
       "customDestinationPrice": "Цена будет подтверждена после проверки адреса назначения.",
       "hotelNameRequired": "Введите название отеля.",
-      "arrivalFlightNumberRequired": "Введите номер прилетающего рейса.",
       "roundTripPriceNote": "туда и обратно · 2 поездки",
       "returnDateRequired": "Выберите дату возвращения.",
       "returnDateInvalid": "Дата возвращения должна совпадать с датой поездки туда или быть позже.",
@@ -1025,10 +1012,7 @@
       "paySecurely": "Перейти к безопасной оплате",
       "payLaterNote": "Оплата онлайн после подтверждения.",
       "paymentTitle": "Безопасная оплата",
-      "paymentError": "Оплата не прошла. Попробуйте ещё раз.",
-      "perVehicleLabel": "За автомобиль — не за человека",
-      "upTo6Pax": "До 6 пассажиров",
-      "upTo12Pax": "До 12 пассажиров"
+      "paymentError": "Оплата не прошла. Попробуйте ещё раз."
     },
     "cs": {
       "navFleet": "Vozový park",
@@ -1219,7 +1203,6 @@
       "addressesMustDiffer": "Adresy vyzvednutí a vysazení musí být různé.",
       "customDestinationPrice": "Cena bude potvrzena po ověření adresy vysazení.",
       "hotelNameRequired": "Prosím zadejte název hotelu.",
-      "arrivalFlightNumberRequired": "Prosím zadejte číslo příletového letu.",
       "roundTripPriceNote": "zpáteční · 2 cesty",
       "returnDateRequired": "Prosím vyberte datum návratu.",
       "returnDateInvalid": "Prosím vyberte datum návratu nejdříve v den odjezdu.",
@@ -1258,10 +1241,7 @@
       "campaignApplied": "Online -15% již zahrnuto",
       "discountPricesShown": "Online -15% ceny zobrazeny",
       "onlineDiscountShort": "Online -25%",
-      "capacitySwitchedSprinter": "Počet cestujících a zavazadel přesahuje kapacitu Vito — přepnuto na Mercedes Sprinter.",
-      "perVehicleLabel": "Na vozidlo — ne na osobu",
-      "upTo6Pax": "Až 6 cestujících",
-      "upTo12Pax": "Až 12 cestujích"
+      "capacitySwitchedSprinter": "Počet cestujících a zavazadel přesahuje kapacitu Vito — přepnuto na Mercedes Sprinter."
     },
     "pl": {
       "navFleet": "Pojazdy",
@@ -1452,7 +1432,6 @@
       "addressesMustDiffer": "Adres odbioru i adres docelowy muszą być różne.",
       "customDestinationPrice": "Cena zostanie potwierdzona po sprawdzeniu adresu docelowego.",
       "hotelNameRequired": "Wprowadź nazwę hotelu.",
-      "arrivalFlightNumberRequired": "Wprowadź numer lotu przylotu.",
       "roundTripPriceNote": "round trip · 2 journeys",
       "returnDateRequired": "Please choose a return date.",
       "returnDateInvalid": "Please choose a return date on or after the outward journey.",
@@ -1520,10 +1499,7 @@
       "paySecurely": "Przejdź do bezpiecznej płatności",
       "payLaterNote": "Bezpieczna płatność online po potwierdzeniu.",
       "paymentTitle": "Bezpieczna płatność",
-      "paymentError": "Płatność nie powiodła się. Spróbuj ponownie.",
-      "perVehicleLabel": "Za pojazd — nie za osobę",
-      "upTo6Pax": "Do 6 pasażerów",
-      "upTo12Pax": "Do 12 pasażerów"
+      "paymentError": "Płatność nie powiodła się. Spróbuj ponownie."
     },
     "nl": {
       "navFleet": "Voertuigen",
@@ -1714,7 +1690,6 @@
       "addressesMustDiffer": "Het ophaal- en bestemmingsadres moeten verschillen.",
       "customDestinationPrice": "De prijs wordt bevestigd na controle van het bestemmingsadres.",
       "hotelNameRequired": "Voer de hotelnaam in.",
-      "arrivalFlightNumberRequired": "Voer het aankomstvluchtnummer in.",
       "roundTripPriceNote": "round trip · 2 journeys",
       "returnDateRequired": "Please choose a return date.",
       "returnDateInvalid": "Please choose a return date on or after the outward journey.",
@@ -1782,10 +1757,7 @@
       "paySecurely": "Ga door naar veilig betalen",
       "payLaterNote": "Veilige online betaling na bevestiging.",
       "paymentTitle": "Veilige betaling",
-      "paymentError": "Betaling mislukt. Probeer het opnieuw.",
-      "perVehicleLabel": "Per voertuig - niet per persoon",
-      "upTo6Pax": "Tot 6 passagiers",
-      "upTo12Pax": "Tot 12 passagiers"
+      "paymentError": "Betaling mislukt. Probeer het opnieuw."
     },
     "uk": {
       "navFleet": "Автопарк",
@@ -1976,7 +1948,6 @@
       "addressesMustDiffer": "Адреси подачі та призначення мають відрізнятися.",
       "customDestinationPrice": "Ціна буде підтверджена після перевірки адреси призначення.",
       "hotelNameRequired": "Введіть назву готелю.",
-      "arrivalFlightNumberRequired": "Введіть номер прибуваючого рейсу.",
       "roundTripPriceNote": "round trip · 2 journeys",
       "returnDateRequired": "Please choose a return date.",
       "returnDateInvalid": "Please choose a return date on or after the outward journey.",
@@ -2044,10 +2015,7 @@
       "paySecurely": "Перейти до безпечної оплати",
       "payLaterNote": "Оплата онлайн після підтвердження.",
       "paymentTitle": "Безпечна оплата",
-      "paymentError": "Оплата не пройшла. Спробуйте ще раз.",
-      "perVehicleLabel": "За автомобіль — не за особу",
-      "upTo6Pax": "До 6 пасажирів",
-      "upTo12Pax": "До 12 пасажирів"
+      "paymentError": "Оплата не пройшла. Спробуйте ще раз."
     },
     "ur": {
       "navFleet": "گاڑیاں",
@@ -2238,7 +2206,6 @@
       "addressesMustDiffer": "پک اپ اور ڈراپ آف کے پتے مختلف ہونے چاہئیں۔",
       "customDestinationPrice": "ڈراپ آف پتہ جانچنے کے بعد قیمت کی تصدیق کی جائے گی۔",
       "hotelNameRequired": "براہ کرم ہوٹل کا نام درج کریں۔",
-      "arrivalFlightNumberRequired": "براہ کرم آنے والی پروازکی تعداد درج کریں۔",
       "roundTripPriceNote": "آنا جانا · 2 سفر",
       "returnDateRequired": "براہ کرم واپسی کی تاریخ منتخب کریں۔",
       "returnDateInvalid": "براہ کرم جانے کے سفر پر یا اس کے بعد کی واپسی کی تاریخ منتخب کریں۔",
@@ -2312,10 +2279,7 @@
       "paySecurely": "محفوظ طریقے سے ادا کریں",
       "payLaterNote": "گاڑی میں ادا کریں",
       "paymentTitle": "ادائیگی",
-      "paymentError": "ادائیگی کی خرابی۔ براہ کرم دوبارہ کوشش کریں۔",
-      "perVehicleLabel": "Per vehicle — not per person",
-      "upTo6Pax": "Up to 6 passengers",
-      "upTo12Pax": "Up to 12 passengers"
+      "paymentError": "ادائیگی کی خرابی۔ براہ کرم دوبارہ کوشش کریں۔"
     },
     "fr": {
       "navFleet": "Véhicules",
@@ -2506,7 +2470,6 @@
       "addressesMustDiffer": "Les adresses de prise en charge et de destination doivent être différentes.",
       "customDestinationPrice": "Le prix sera confirmé après vérification de l'adresse de destination.",
       "hotelNameRequired": "Veuillez saisir le nom de l'hôtel.",
-      "arrivalFlightNumberRequired": "Veuillez saisir le numéro de vol à l'arrivée.",
       "roundTripPriceNote": "round trip · 2 journeys",
       "returnDateRequired": "Please choose a return date.",
       "returnDateInvalid": "Please choose a return date on or after the outward journey.",
@@ -2574,10 +2537,7 @@
       "paySecurely": "Continuer vers le paiement sécurisé",
       "payLaterNote": "Paiement en ligne sécurisé après confirmation.",
       "paymentTitle": "Paiement sécurisé",
-      "paymentError": "Paiement échoué. Veuillez réessayer.",
-      "perVehicleLabel": "Per vehicle — not per person",
-      "upTo6Pax": "Up to 6 passengers",
-      "upTo12Pax": "Up to 12 passengers"
+      "paymentError": "Paiement échoué. Veuillez réessayer."
     },
     "sv": {
       "navFleet": "Fordon",
@@ -2768,7 +2728,6 @@
       "addressesMustDiffer": "Hämtnings- och destinationsadressen måste vara olika.",
       "customDestinationPrice": "Priset bekräftas efter att destinationsadressen kontrollerats.",
       "hotelNameRequired": "Ange hotellnamnet.",
-      "arrivalFlightNumberRequired": "Vänligen ange ankomstflightnumret.",
       "roundTripPriceNote": "round trip · 2 journeys",
       "returnDateRequired": "Please choose a return date.",
       "returnDateInvalid": "Please choose a return date on or after the outward journey.",
@@ -2836,10 +2795,7 @@
       "paySecurely": "Fortsätt till säker betalning",
       "payLaterNote": "Säker onlinebetalning efter bekräftelse.",
       "paymentTitle": "Säker betalning",
-      "paymentError": "Betalning misslyckades. Försök igen.",
-      "perVehicleLabel": "Per vehicle — not per person",
-      "upTo6Pax": "Up to 6 passengers",
-      "upTo12Pax": "Up to 12 passengers"
+      "paymentError": "Betalning misslyckades. Försök igen."
     },
     "ja": {
       "navFleet": "車両",
@@ -3030,7 +2986,6 @@
       "addressesMustDiffer": "お迎え先と目的地には異なる住所を入力してください。",
       "customDestinationPrice": "目的地の住所を確認後、料金をご案内いたします。",
       "hotelNameRequired": "ホテル名を入力してください。",
-      "arrivalFlightNumberRequired": "到着便番号を入力してください。",
       "roundTripPriceNote": "round trip · 2 journeys",
       "returnDateRequired": "Please choose a return date.",
       "returnDateInvalid": "Please choose a return date on or after the outward journey.",
@@ -3098,10 +3053,7 @@
       "paySecurely": "安全なお支払いへ進む",
       "payLaterNote": "確認後にオンラインで安全にお支払い。",
       "paymentTitle": "安全なお支払い",
-      "paymentError": "お支払いに失敗しました。もう一度お試しください。",
-      "perVehicleLabel": "Per vehicle — not per person",
-      "upTo6Pax": "Up to 6 passengers",
-      "upTo12Pax": "Up to 12 passengers"
+      "paymentError": "お支払いに失敗しました。もう一度お試しください。"
     },
     "ko": {
       "navFleet": "차량",
@@ -3292,7 +3244,6 @@
       "addressesMustDiffer": "픽업 주소와 목적지 주소는 달라야 합니다.",
       "customDestinationPrice": "목적지 주소 확인 후 가격이 확정됩니다.",
       "hotelNameRequired": "호텔명을 입력해 주세요.",
-      "arrivalFlightNumberRequired": "도착 항공편 번호를 입력해주세요.",
       "roundTripPriceNote": "round trip · 2 journeys",
       "returnDateRequired": "Please choose a return date.",
       "returnDateInvalid": "Please choose a return date on or after the outward journey.",
@@ -3360,10 +3311,7 @@
       "paySecurely": "안전한 결제로 이동",
       "payLaterNote": "확인 후 안전하게 온라인 결제.",
       "paymentTitle": "안전한 결제",
-      "paymentError": "결제에 실패했습니다. 다시 시도해 주세요.",
-      "perVehicleLabel": "Per vehicle — not per person",
-      "upTo6Pax": "Up to 6 passengers",
-      "upTo12Pax": "Up to 12 passengers"
+      "paymentError": "결제에 실패했습니다. 다시 시도해 주세요."
     },
     "ar": {
       "navFleet": "أسطولنا",
@@ -3554,7 +3502,6 @@
       "addressesMustDiffer": "يجب أن يختلف عنوان الاستقبال عن عنوان الوصول.",
       "customDestinationPrice": "سيتم تأكيد السعر بعد مراجعة عنوان الوصول.",
       "hotelNameRequired": "يرجى إدخال اسم الفندق.",
-      "arrivalFlightNumberRequired": "يرجى إدخال رقم الرحلة الوافدة.",
       "roundTripPriceNote": "ذهاب وعودة · رحلتان",
       "returnDateRequired": "يرجى اختيار تاريخ العودة.",
       "returnDateInvalid": "يرجى اختيار تاريخ عودة يوافق تاريخ الذهاب أو يأتي بعده.",
@@ -3628,10 +3575,7 @@
       "paySecurely": "المتابعة إلى الدفع الآمن",
       "payLaterNote": "دفع آمن عبر الإنترنت بعد التأكيد.",
       "paymentTitle": "الدفع الآمن",
-      "paymentError": "تعذر إتمام الدفع. يرجى المحاولة مرة أخرى.",
-      "perVehicleLabel": "Per vehicle — not per person",
-      "upTo6Pax": "Up to 6 passengers",
-      "upTo12Pax": "Up to 12 passengers"
+      "paymentError": "تعذر إتمام الدفع. يرجى المحاولة مرة أخرى."
     }
   }
 }

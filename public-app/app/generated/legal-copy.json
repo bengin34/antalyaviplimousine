@@ -21,10 +21,6 @@
         "href": "https://antalyaviptourism.com/ru/privacy/"
       },
       {
-        "language": "cs",
-        "href": "https://antalyaviptourism.com/cs/privacy/"
-      },
-      {
         "language": "x-default",
         "href": "https://antalyaviptourism.com/privacy/"
       }
@@ -114,10 +110,6 @@
       {
         "language": "ru",
         "href": "https://antalyaviptourism.com/ru/impressum/"
-      },
-      {
-        "language": "cs",
-        "href": "https://antalyaviptourism.com/cs/impressum/"
       },
       {
         "language": "x-default",
@@ -232,10 +224,6 @@
         "href": "https://antalyaviptourism.com/ru/privacy/"
       },
       {
-        "language": "cs",
-        "href": "https://antalyaviptourism.com/cs/privacy/"
-      },
-      {
         "language": "x-default",
         "href": "https://antalyaviptourism.com/privacy/"
       }
@@ -325,10 +313,6 @@
       {
         "language": "ru",
         "href": "https://antalyaviptourism.com/ru/impressum/"
-      },
-      {
-        "language": "cs",
-        "href": "https://antalyaviptourism.com/cs/impressum/"
       },
       {
         "language": "x-default",
@@ -443,10 +427,6 @@
         "href": "https://antalyaviptourism.com/ru/privacy/"
       },
       {
-        "language": "cs",
-        "href": "https://antalyaviptourism.com/cs/privacy/"
-      },
-      {
         "language": "x-default",
         "href": "https://antalyaviptourism.com/privacy/"
       }
@@ -536,10 +516,6 @@
       {
         "language": "ru",
         "href": "https://antalyaviptourism.com/ru/impressum/"
-      },
-      {
-        "language": "cs",
-        "href": "https://antalyaviptourism.com/cs/impressum/"
       },
       {
         "language": "x-default",
@@ -654,10 +630,6 @@
         "href": "https://antalyaviptourism.com/ru/privacy/"
       },
       {
-        "language": "cs",
-        "href": "https://antalyaviptourism.com/cs/privacy/"
-      },
-      {
         "language": "x-default",
         "href": "https://antalyaviptourism.com/privacy/"
       }
@@ -747,10 +719,6 @@
       {
         "language": "ru",
         "href": "https://antalyaviptourism.com/ru/impressum/"
-      },
-      {
-        "language": "cs",
-        "href": "https://antalyaviptourism.com/cs/impressum/"
       },
       {
         "language": "x-default",
@@ -844,8 +812,8 @@
     "homeLabel": "Главная"
   },
   "cs-privacy": {
-    "title": "Ochrana soukromí | Antalya VIP Tourism",
-    "description": "Zásady ochrany soukromí Antalya VIP Tourism týkající se dat rezervací, analytiky a vašich práv.",
+    "title": "Zásady ochrany osobních údajů | Antalya VIP Tourism",
+    "description": "Zásady ochrany osobních údajů společnosti Antalya VIP Tourism zahrnující data rezervací, volitelnou analytiku a vaše práva.",
     "canonical": "https://antalyaviptourism.com/cs/privacy/",
     "alternates": [
       {
@@ -874,23 +842,23 @@
       }
     ],
     "hero": {
-      "eyebrow": "Soukromí",
-      "title": "Zásady ochrany soukromí",
+      "eyebrow": "Ochrana soukromí",
+      "title": "Zásady ochrany osobních údajů",
       "intro": "Jak zpracováváme osobní údaje a jaké máte možnosti volby."
     },
     "cards": [
       {
-        "title": "1. Správce",
+        "title": "1. Správce údajů",
         "paragraphs": [
-          "Antalya VIP Tourism, Ahmet Karadag, Belek Mah. Belek 61 Sk., Belek Deniz Apt No: 19 Ic Kapi No: 4, Serik / Antalya, Türkiye. E-mail: support@antalyaviptourism.com. Telefon: +90 530 265 57 90."
+          "Antalya VIP Tourism, Ahmet Karadag, Belek Mah. Belek 61 Sk., Belek Deniz Apt No: 19 Ic Kapi No: 4, Serik / Antalya, Turecko. E-mail: support@antalyaviptourism.com. Telefon: +90 530 265 57 90."
         ],
         "details": [],
         "privacySettings": false
       },
       {
-        "title": "2. Rezervační a kontaktní údaje",
+        "title": "2. Data rezervací a kontaktní data",
         "paragraphs": [
-          "Při žádosti o cestu nebo rezervaci zpracováváme kontaktní, cestovní, letové, vyzvedávací, cílové a platební údaje, které poskytnete. To je nezbytné pro zodpovězení vašeho požadavku, provedení cesty, komunikaci s vámi a plnění zákonných povinností. Údaje jsou uchovávány pouze po dobu nezbytnou pro tyto účely nebo zákonem stanovené lhůty uchovávání."
+          "Pokud požádáte o přepravu nebo ji objednáte, zpracováváme kontaktní, cestovní, letové, vyzvedávací, cílové a platební údaje, které poskytnete. Je to nezbytné k zodpovězení vašeho dotazu, provedení přepravy, komunikaci s vámi a plnění zákonných povinností. Data jsou uchovávána pouze po dobu nezbytnou pro tyto účely nebo po dobu stanovenou zákonem."
         ],
         "details": [],
         "privacySettings": false
@@ -898,7 +866,7 @@
       {
         "title": "3. Technické zajištění",
         "paragraphs": [
-          "Při přístupu na webové stránky mohou být zpracovány technicky nezbytné protokolové údaje, včetně IP adresy, času, požadované stránky, informací o prohlížeči a zařízení. To podporuje bezpečné a stabilní doručování webových stránek."
+          "Při přístupu na webové stránky mohou být zpracovávána technicky nezbytná data protokolu, včetně IP adresy, času, požadované stránky, informací o prohlížeči a zařízení. To slouží k bezpečnému a stabilnímu provozu webových stránek."
         ],
         "details": [],
         "privacySettings": false
@@ -906,7 +874,7 @@
       {
         "title": "4. Google Analytics a Google Ads",
         "paragraphs": [
-          "Google Analytics a Google Ads se načítají pouze po vašem souhlasu v dialogu ochrany soukromí. Údaje o používání, zařízení, interakcích a konverzích pak mohou být odesílány společnosti Google. Poskytovatelem je Google Ireland Limited a zpracování přidruženými společnostmi mimo Evropský hospodářský prostor může nastat. Souhlas můžete kdykoli odvolat prostřednictvím nastavení soukromí. Odmítnutí analytiky neovlivní funkce rezervace."
+          "Google Analytics a Google Ads se načítají pouze po vašem souhlasu v dialogu ochrany soukromí. Poté mohou být data o používání, zařízení, interakcích a konverzích zasílána společnosti Google. Poskytovatelem je Google Ireland Limited a přidružené společnosti mimo Evropský hospodářský prostor mohou zpracovávat data. Souhlas můžete kdykoli odvolat prostřednictvím Nastavení soukromí. Odmítnutí analytiky neovlivní funkce rezervace."
         ],
         "details": [],
         "privacySettings": true
@@ -914,7 +882,7 @@
       {
         "title": "5. Poskytovatelé služeb a příjemci",
         "paragraphs": [
-          "Poskytovatelé hostingu, databází, plateb a komunikace mohou zpracovávat pouze údaje nezbytné pro jejich úkol. Platební údaje zpracovává vybraný platební poskytovatel."
+          "Poskytovatelé hostingu, databází, plateb a komunikace mohou zpracovávat pouze data nezbytná pro jejich úkol. Platební údaje jsou zpracovávány vybraným poskytovatelem plateb."
         ],
         "details": [],
         "privacySettings": false
@@ -922,7 +890,7 @@
       {
         "title": "6. Vaše práva",
         "paragraphs": [
-          "Tam, kde to příslušné právo umožňuje, můžete požádat o přístup, opravu, výmaz, omezení, přenositelnost nebo vznést námitku proti zpracování. Souhlas můžete odvolat pro budoucnost a podat stížnost u příslušného dozorového úřadu."
+          "Pokud to platné právo stanoví, můžete požádat o přístup, opravu, výmaz, omezení, přenositelnost nebo vznést námitku proti zpracování. Souhlas můžete odvolat do budoucna a podat stížnost u příslušného dozorového úřadu."
         ],
         "details": [],
         "privacySettings": false
@@ -930,7 +898,7 @@
       {
         "title": "7. Aktualizace",
         "paragraphs": [
-          "Tyto zásady jsou aktualizovány při změně služeb nebo zákonných požadavků. Poslední aktualizace: 19. června 2026."
+          "Tyto zásady jsou aktualizovány při změně služeb nebo právních požadavků. Poslední aktualizace: 19. června 2026."
         ],
         "details": [],
         "privacySettings": false
@@ -940,7 +908,7 @@
   },
   "cs-imprint": {
     "title": "Impressum | Antalya VIP Tourism",
-    "description": "Právní informace a údaje o poskytovateli pro Antalya VIP Tourism.",
+    "description": "Právní informace a údaje o poskytovateli Antalya VIP Tourism.",
     "canonical": "https://antalyaviptourism.com/cs/impressum/",
     "alternates": [
       {
@@ -971,7 +939,7 @@
     "hero": {
       "eyebrow": "Právní informace",
       "title": "Impressum",
-      "intro": "Informace o poskytovateli těchto webových stránek dle platných informačních povinností."
+      "intro": "Informace o poskytovateli tohoto webu v souladu s platnými informačními povinnostmi."
     },
     "cards": [
       {
@@ -984,13 +952,13 @@
             "href": null
           },
           {
-            "term": "Obchodní název",
+            "term": "Název firmy",
             "value": "Antalya VIP Tourism",
             "href": null
           },
           {
             "term": "Adresa",
-            "value": "Belek Mah. Belek 61 Sk.\nBelek Deniz Apt No: 19 Ic Kapi No: 4\nSerik / Antalya\nTürkiye",
+            "value": "Belek Mah. Belek 61 Sk.\nBelek Deniz Apt No: 19 Ic Kapi No: 4\nSerik / Antalya\nTurecko",
             "href": null
           }
         ],
@@ -1024,7 +992,7 @@
           },
           {
             "term": "Daňové číslo / Vergi Kimlik No",
-            "value": "507•••8455",
+            "value": "507••••8455",
             "href": null
           },
           {
@@ -1036,9 +1004,9 @@
         "privacySettings": false
       },
       {
-        "title": "Podnikatelská činnost",
+        "title": "Předmět podnikání",
         "paragraphs": [
-          "Přeprava cestujících v městských, příměstských a venkovských oblastech silničními vozidly, včetně transferů pro zaměstnance, studenty a srovnatelné skupiny."
+          "Přeprava cestujících v městských, příměstských a venkovských oblastech silničními vozidly, včetně přepravy zaměstnanců, studentů a srovnatelných skupin."
         ],
         "details": [],
         "privacySettings": false
@@ -1046,7 +1014,7 @@
       {
         "title": "Odpovědnost za obsah",
         "paragraphs": [
-          "Pokud zjistíte nepřesnost nebo máte zájem o obsah těchto webových stránek, kontaktujte nás přímo."
+          "Pokud zjistíte nepřesnost nebo máte připomínku k obsahu na tomto webu, kontaktujte nás přímo."
         ],
         "details": [],
         "privacySettings": false
