@@ -5,7 +5,7 @@ import { queueBookingPrefill } from '../lib/prefill'
 import { supabase } from '../lib/supabase'
 import type { Booking, BookingStatus, ChauffeurHireDay, Navigate } from '../types'
 import { isFutureIstanbulLeg, locationDisplay, navigationURLs, whatsappURL } from '../../turkish-formatters.js'
-import { buildConfirmMessage, buildReminderMessage } from '../../whatsapp-templates.js'
+import { buildConfirmMessage, buildReminderMessage, buildReceivedMessage, buildReviewMessage } from '../../whatsapp-templates.js'
 import { LOCATION_OPTIONS, VEHICLE_CAPACITY, validateBookingForm, type BookingFormState } from './NewBookingPage'
 
 const STATUS_TRANSITIONS: Record<string, BookingStatus[]> = {
@@ -247,7 +247,7 @@ export default function BookingDetailPage({ bookingRef, isReturn, sourceTab, pro
     navigate('#new')
   }
 
-  const openTemplate = async (kind: 'confirm' | 'reminder') => {
+  const openTemplate = async (kind: 'confirm' | 'reminder' | 'received' | 'review') => {
     const popup = window.open('about:blank', '_blank')
     if (!popup) return setTemplateState({ loading: '', success: '', error: 'WhatsApp sekmesi açılamadı. Tarayıcıdaki açılır pencere iznini kontrol edin.' })
     try { popup.opener = null; popup.document.title = 'WhatsApp mesajı hazırlanıyor'; popup.document.body.textContent = 'Güncel rezervasyon bilgileri kontrol ediliyor…' } catch { /* redirect can still work */ }
@@ -259,7 +259,11 @@ export default function BookingDetailPage({ bookingRef, isReturn, sourceTab, pro
     }
     const latest = data as Booking
     setBooking(current => ({ ...current!, ...latest }))
-    const message = kind === 'confirm' ? buildConfirmMessage(latest, { leg: isReturn ? 'return' : 'outbound' }) : buildReminderMessage(latest, { leg: isReturn ? 'return' : 'outbound' })
+    let message: string
+    if (kind === 'confirm') message = buildConfirmMessage(latest, { leg: isReturn ? 'return' : 'outbound' })
+    else if (kind === 'reminder') message = buildReminderMessage(latest, { leg: isReturn ? 'return' : 'outbound' })
+    else if (kind === 'received') message = buildReceivedMessage(latest)
+    else message = buildReviewMessage(latest)
     if (popup.closed) return setTemplateState({ loading: '', success: '', error: 'WhatsApp sekmesi kapatıldı.' })
     popup.location.replace(whatsappURL(latest.customer_phone, message))
     setTemplateState({ loading: '', success: 'Mesaj, veritabanındaki en güncel transfer ve adres bilgileriyle hazırlandı.', error: '' })
@@ -312,7 +316,7 @@ export default function BookingDetailPage({ bookingRef, isReturn, sourceTab, pro
 
       {dailyChauffeur && <div className="section chauffeur-days-section"><div className="section-label">Günlük Operasyon</div>{sortedHireDays.length ? sortedHireDays.map(day => <ChauffeurDayEditor key={day.id} day={day} onSaved={updateHireDay} />) : <div className="inline-error">Günlük operasyon kayıtları bulunamadı. Migration ve tetikleyici durumunu kontrol edin.</div>}</div>}
 
-      <div className="section"><div className="section-label">Müşteri</div><div style={{ fontWeight: 600, marginBottom: 4 }}>{booking.customer_name}</div><div style={{ marginBottom: 4 }}><a className="whatsapp-link" href={whatsappURL(booking.customer_phone)} target="_blank" rel="noopener noreferrer" aria-label="Müşterinin WhatsApp sohbetini aç"><span aria-hidden="true">💬</span><span>WhatsApp&apos;tan yaz: {booking.customer_phone}</span></a></div><div className="whatsapp-template-actions"><button className="whatsapp-template-btn" type="button" disabled={Boolean(templateState.loading)} onClick={() => void openTemplate('confirm')}>💬 {templateState.loading === 'confirm' ? 'Güncel veriler kontrol ediliyor…' : `WhatsApp: ${roundTrip ? (isReturn ? 'Dönüş onayı' : 'Gidiş onayı') : 'Onay'} gönder`}</button><button className="whatsapp-template-btn" type="button" disabled={Boolean(templateState.loading)} onClick={() => void openTemplate('reminder')}>💬 {templateState.loading === 'reminder' ? 'Güncel veriler kontrol ediliyor…' : `WhatsApp: ${roundTrip ? (isReturn ? 'Dönüş hatırlatması' : 'Gidiş hatırlatması') : 'Hatırlatma'} gönder`}</button></div><div className="inline-success" role="status">{templateState.success}</div><div className="inline-error" role="alert">{templateState.error}</div>
+      <div className="section"><div className="section-label">Müşteri</div><div style={{ fontWeight: 600, marginBottom: 4 }}>{booking.customer_name}</div><div style={{ marginBottom: 4 }}><a className="whatsapp-link" href={whatsappURL(booking.customer_phone)} target="_blank" rel="noopener noreferrer" aria-label="Müşterinin WhatsApp sohbetini aç"><span aria-hidden="true">💬</span><span>WhatsApp&apos;tan yaz: {booking.customer_phone}</span></a></div><div className="whatsapp-template-actions"><button className="whatsapp-template-btn" type="button" disabled={Boolean(templateState.loading)} onClick={() => void openTemplate('confirm')}>💬 {templateState.loading === 'confirm' ? 'Güncel veriler kontrol ediliyor…' : `WhatsApp: ${roundTrip ? (isReturn ? 'Dönüş onayı' : 'Gidiş onayı') : 'Onay'} gönder`}</button><button className="whatsapp-template-btn" type="button" disabled={Boolean(templateState.loading)} onClick={() => void openTemplate('reminder')}>💬 {templateState.loading === 'reminder' ? 'Güncel veriler kontrol ediliyor…' : `WhatsApp: ${roundTrip ? (isReturn ? 'Dönüş hatırlatması' : 'Gidiş hatırlatması') : 'Hatırlatma'} gönder`}</button><button className="whatsapp-template-btn" type="button" disabled={Boolean(templateState.loading)} onClick={() => void openTemplate('received')}>💬 {templateState.loading === 'received' ? 'Güncel veriler kontrol ediliyor…' : 'WhatsApp: Talebinizi aldık gönder'}</button><button className="whatsapp-template-btn" type="button" disabled={Boolean(templateState.loading)} onClick={() => void openTemplate('review')}>💬 {templateState.loading === 'review' ? 'Güncel veriler kontrol ediliyor…' : 'WhatsApp: Yorum iste gönder'}</button></div><div className="inline-success" role="status">{templateState.success}</div><div className="inline-error" role="alert">{templateState.error}</div>
         <div className="detail-grid" style={{ marginTop: 8 }}><InlineEditor booking={booking} column="customer_email" label="✉️ E-posta" display={booking.customer_email || '—'} maxLength={120} inputType="email" validate={raw => { const email = raw.trim().toLowerCase(); return email && (email.length > 120 || !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) ? { ok: false, error: 'Geçerli bir e-posta girin.' } : { ok: true, value: email } }} onSaved={genericSaved} /></div>
       </div>
 

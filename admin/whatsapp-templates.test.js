@@ -1,5 +1,5 @@
 import { test, expect } from 'vitest'
-import { buildConfirmMessage, buildReminderMessage } from './whatsapp-templates.js'
+import { buildConfirmMessage, buildReminderMessage, buildReceivedMessage, buildReviewMessage } from './whatsapp-templates.js'
 
 // Locations are SLUGS (as stored in the DB), not display names.
 const base = {
@@ -26,6 +26,7 @@ test('confirm message maps location slugs to display names in the route', () => 
   expect(msg).not.toContain('airport')          // no raw slug leaks
   expect(msg).toContain('2026-08-15')
   expect(msg).toContain('55')
+  expect(msg).not.toContain('Google Maps')      // no map URL in confirm
 })
 
 test('private_address route uses the address string', () => {
@@ -82,7 +83,7 @@ test('reminder uses outbound pickup for round trips', () => {
   expect(msg).not.toContain('2026-08-22')  // not the return date
 })
 
-test('current exact addresses override generic location and hotel labels', () => {
+test('current exact addresses appear in confirm message without maps', () => {
   const msg = buildConfirmMessage({
     ...base,
     pickup_location: 'belek',
@@ -95,6 +96,7 @@ test('current exact addresses override generic location and hotel labels', () =>
   expect(msg).toContain('Pickup location: Kadriye Mah. Güncel Alış No: 12')
   expect(msg).toContain('Drop-off location: Antalya Havalimanı Terminal 2 Dış Hatlar')
   expect(msg).not.toContain('Eski Otel Adı')
+  expect(msg).not.toContain('Google Maps')
 })
 
 test('hotel name is used as the precise non-airport endpoint when no address exists', () => {
@@ -102,14 +104,15 @@ test('hotel name is used as the precise non-airport endpoint when no address exi
   expect(msg).toContain('Regnum Carya Golf & Spa Resort, Belek, Antalya, Türkiye')
 })
 
-test('Google Maps route contains the exact current origin and destination', () => {
-  const msg = buildConfirmMessage({
+test('reminder includes Google Maps route with exact origin and destination', () => {
+  const msg = buildReminderMessage({
     ...base,
     pickup_address: 'Antalya Havalimanı Terminal 1',
     dropoff_address: 'İskele Mevkii, Belek Mah. No: 7',
   })
-  const mapLine = msg.split('\n').find((line) => line.startsWith('Google Maps route: '))
-  const mapURL = new URL(mapLine.replace('Google Maps route: ', ''))
+  const mapLine = msg.split('\n').find((line) => line.includes('Google Maps route: '))
+  expect(mapLine).toBeDefined()
+  const mapURL = new URL(mapLine.replace(/.*Google Maps route: /, ''))
 
   expect(mapURL.searchParams.get('origin')).toBe('Antalya Havalimanı Terminal 1')
   expect(mapURL.searchParams.get('destination')).toBe('İskele Mevkii, Belek Mah. No: 7')
@@ -174,7 +177,7 @@ test('Arabic booking messages use Arabic labels and the selected leg', () => {
 
   expect(msg).toContain('*رحلة العودة*')
   expect(msg).toContain('موقع الاستقبال:')
-  expect(msg).toContain('مسار Google Maps:')
+  expect(msg).not.toContain('مسار Google Maps:')
 })
 
 test('daily chauffeur confirmation states the period, total, and fuel exclusion', () => {
@@ -191,4 +194,37 @@ test('daily chauffeur confirmation states the period, total, and fuel exclusion'
   expect(msg).toContain('Günlük ücret: €150')
   expect(msg).toContain('Toplam hizmet bedeli: €600')
   expect(msg).toContain('Yakıt: Dahil değildir')
+})
+
+test('received message acknowledges booking and says we are reviewing', () => {
+  const msg = buildReceivedMessage(base)
+  expect(msg).toContain('Ahmet Yılmaz')
+  expect(msg).toContain('received')
+  expect(msg).not.toContain('VIP-2026-0042')
+  expect(msg).not.toContain('€')
+})
+
+test('received message uses correct language', () => {
+  const en = buildReceivedMessage({ ...base, language: 'en' })
+  const tr = buildReceivedMessage({ ...base, language: 'tr' })
+  const de = buildReceivedMessage({ ...base, language: 'de' })
+  const fr = buildReceivedMessage({ ...base, language: 'fr' })
+  const ru = buildReceivedMessage({ ...base, language: 'ru' })
+
+  expect(new Set([en, tr, de, fr, ru]).size).toBe(5)
+})
+
+test('review message requests customer feedback', () => {
+  const msg = buildReviewMessage(base)
+  expect(msg).toContain('Ahmet Yılmaz')
+  expect(msg).not.toContain('€')
+  expect(msg).not.toContain('VIP-2026-0042')
+})
+
+test('review message localizes by language', () => {
+  const en = buildReviewMessage({ ...base, language: 'en' })
+  const tr = buildReviewMessage({ ...base, language: 'tr' })
+  const de = buildReviewMessage({ ...base, language: 'de' })
+
+  expect(new Set([en, tr, de]).size).toBe(3)
 })

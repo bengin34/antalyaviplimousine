@@ -34,6 +34,10 @@ const LANG = {
     confirmClosing: "We look forward to welcoming you. Please don't hesitate to contact us if you have any questions.",
     reminderGreeting: (name) => `Dear ${name},\n\nThis is a friendly reminder about your upcoming transfer with Antalya VIP Limousine:`,
     reminderClosing: 'Your driver will be waiting for you. Safe travels!',
+    receivedGreeting: (name) => `Dear ${name},\n\nThank you for your request. We have received your booking and are reviewing it carefully.`,
+    receivedClosing: 'We will contact you soon with the details of your transfer.',
+    reviewGreeting: (name) => `Dear ${name},\n\nWe hope you enjoyed your transfer service with Antalya VIP Limousine.`,
+    reviewClosing: 'If you are satisfied with our service, we would love to hear your feedback. Thank you!',
     labelRef: 'Reference',
     labelDate: 'Date',
     labelPickupTime: 'Pickup time',
@@ -66,6 +70,10 @@ const LANG = {
     confirmClosing: 'Wir freuen uns, Sie begrüßen zu dürfen. Bei Fragen stehen wir Ihnen jederzeit gerne zur Verfügung.',
     reminderGreeting: (name) => `Sehr geehrte/r ${name},\n\nhiermit möchten wir Sie an Ihren bevorstehenden Transfer mit Antalya VIP Limousine erinnern:`,
     reminderClosing: 'Ihr Fahrer wird auf Sie warten. Gute Reise!',
+    receivedGreeting: (name) => `Sehr geehrte/r ${name},\n\nvielen Dank für Ihre Anfrage. Wir haben Ihre Buchung erhalten und prüfen sie sorgfältig.`,
+    receivedClosing: 'Wir werden Sie bald mit den Details Ihres Transfers kontaktieren.',
+    reviewGreeting: (name) => `Sehr geehrte/r ${name},\n\nwir hoffen, dass Ihnen Ihr Transferservice mit Antalya VIP Limousine gefallen hat.`,
+    reviewClosing: 'Wenn Sie mit unserem Service zufrieden sind, würden wir uns über Ihr Feedback freuen. Vielen Dank!',
     labelRef: 'Referenz',
     labelDate: 'Datum',
     labelPickupTime: 'Abholzeit',
@@ -90,6 +98,10 @@ const LANG = {
     confirmClosing: 'Мы рады приветствовать вас. Если у вас есть вопросы, пожалуйста, свяжитесь с нами.',
     reminderGreeting: (name) => `Уважаемый(-ая) ${name},\n\nнапоминаем о вашем предстоящем трансфере с Antalya VIP Limousine:`,
     reminderClosing: 'Ваш водитель будет вас ждать. Счастливого пути!',
+    receivedGreeting: (name) => `Уважаемый(-ая) ${name},\n\nспасибо за ваш запрос. Мы получили вашу бронь и тщательно её рассматриваем.`,
+    receivedClosing: 'Мы скоро свяжемся с вами с деталями вашего трансфера.',
+    reviewGreeting: (name) => `Уважаемый(-ая) ${name},\n\nмы надеемся, что вам понравилась услуга трансфера с Antalya VIP Limousine.`,
+    reviewClosing: 'Если вы довольны нашим сервисом, мы будем рады услышать ваше мнение. Спасибо!',
     labelRef: 'Номер брони',
     labelDate: 'Дата',
     labelPickupTime: 'Время подачи',
@@ -114,6 +126,10 @@ const LANG = {
     confirmClosing: 'Sizi ağırlamaktan memnuniyet duyacağız. Herhangi bir sorunuz olursa lütfen bizimle iletişime geçmekten çekinmeyin.',
     reminderGreeting: (name) => `Sayın ${name},\n\nAntalya VIP Limousine ile yaklaşan transferinizi size hatırlatmak istedik:`,
     reminderClosing: 'Sürücünüz sizi bekliyor olacak. İyi yolculuklar!',
+    receivedGreeting: (name) => `Sayın ${name},\n\ntalebiniz için teşekkür ederiz. Rezervasyonunuzu aldık ve dikkatle inceliyoruz.`,
+    receivedClosing: 'Transferinizin detayları ile yakında sizinle iletişime geçeceğiz.',
+    reviewGreeting: (name) => `Sayın ${name},\n\nAntalya VIP Limousine ile transfer hizmetimizden memnun kaldığınız umarız.`,
+    reviewClosing: 'Eğer hizmetimizden memnun iseniz, değerli görüşlerinizi duymaktan mutlu oluruz. Teşekkür ederiz!',
     labelRef: 'Rezervasyon No',
     labelDate: 'Tarih',
     labelPickupTime: 'Alış saati',
@@ -140,6 +156,34 @@ const LANG = {
     fuelExcluded: 'Dahil değildir; müşteri kullanıma göre ayrıca öder',
     labelArrivalFlight: 'Geliş uçuşu',
     labelDepartureFlight: 'Dönüş uçuşu',
+  },
+  fr: {
+    confirmGreeting: (name) => `Cher(e) ${name},\n\nMerci d'avoir choisi Antalya VIP Limousine. Votre transfert a été confirmé. Voici les détails:`,
+    confirmClosing: 'Nous avons hâte de vous accueillir. N\'hésitez pas à nous contacter si vous avez des questions.',
+    reminderGreeting: (name) => `Cher(e) ${name},\n\nCeci est un rappel amical concernant votre transfert à venir avec Antalya VIP Limousine:`,
+    reminderClosing: 'Votre conducteur vous attendra. Bon voyage!',
+    receivedGreeting: (name) => `Cher(e) ${name},\n\nMerci de votre demande. Nous avons bien reçu votre réservation et nous l'examinons attentivement.`,
+    receivedClosing: 'Nous vous recontacterons bientôt avec les détails de votre transfert.',
+    reviewGreeting: (name) => `Cher(e) ${name},\n\nNous espérons que vous avez apprécié votre service de transfert avec Antalya VIP Limousine.`,
+    reviewClosing: 'Si vous êtes satisfait de nos services, nous serions ravis d\'avoir votre avis. Merci!',
+    labelRef: 'Référence',
+    labelDate: 'Date',
+    labelPickupTime: 'Heure de prise en charge',
+    labelRoute: 'Itinéraire',
+    labelVehicle: 'Véhicule',
+    labelGuests: 'Passagers',
+    labelPrice: 'Prix',
+    labelTransfer: 'Transfert',
+    labelOutbound: 'Transfert aller',
+    labelReturn: 'Transfert retour',
+    labelPickup: 'Lieu de prise en charge',
+    labelDropoff: 'Lieu de destination',
+    labelMap: 'Itinéraire Google Maps',
+    labelFlight: 'Vol',
+    labelLuggage: 'Bagages',
+    labelChildSeats: 'Sièges enfant',
+    labelDriver: 'Conducteur',
+    labelPlate: 'Plaque',
   },
   ar: {
     confirmGreeting: (name) => `عزيزي/عزيزتي ${name}،\n\nشكراً لاختيارك Antalya VIP Limousine. تم تأكيد خدمة النقل الخاصة بك. إليك أحدث التفاصيل:`,
@@ -233,7 +277,7 @@ function transferDetails(booking, requestedLeg = 'outbound') {
   }
 }
 
-function detailLines(booking, transfer, t) {
+function detailLines(booking, transfer, t, { includeMap = true } = {}) {
   const b = booking ?? {}
   if (transfer.isDailyChauffeur) {
     const english = LANG.en
@@ -267,7 +311,11 @@ function detailLines(booking, transfer, t) {
   lines.push(
     `${t.labelPickup}: ${transfer.pickup}`,
     `${t.labelDropoff}: ${transfer.dropoff}`,
-    `${t.labelMap}: ${transfer.mapURL}`,
+  )
+
+  if (includeMap) lines.push(`${t.labelMap}: ${transfer.mapURL}`)
+
+  lines.push(
     `${t.labelVehicle}: ${vehicleLabel(b.vehicle_type)}`,
     `${t.labelGuests}: ${b.guests ?? '—'}`,
   )
@@ -293,7 +341,7 @@ export function buildConfirmMessage(booking, { leg = 'outbound' } = {}) {
     t.confirmGreeting(b.customer_name),
     '',
     `${t.labelRef}: ${b.booking_ref}`,
-    ...detailLines(b, transfer, t),
+    ...detailLines(b, transfer, t, { includeMap: false }),
     '',
     t.confirmClosing,
   ]
@@ -328,6 +376,42 @@ export function buildReminderMessage(booking, { leg = 'outbound' } = {}) {
 
   lines.push('')
   lines.push(t.reminderClosing)
+
+  return lines.join('\n')
+}
+
+/**
+ * Build a WhatsApp message acknowledging receipt of booking request.
+ * @param {object} booking
+ * @returns {string}
+ */
+export function buildReceivedMessage(booking) {
+  const b = booking ?? {}
+  const t = getLang(b.language)
+
+  const lines = [
+    t.receivedGreeting(b.customer_name),
+    '',
+    t.receivedClosing,
+  ]
+
+  return lines.join('\n')
+}
+
+/**
+ * Build a WhatsApp message requesting customer review/feedback.
+ * @param {object} booking
+ * @returns {string}
+ */
+export function buildReviewMessage(booking) {
+  const b = booking ?? {}
+  const t = getLang(b.language)
+
+  const lines = [
+    t.reviewGreeting(b.customer_name),
+    '',
+    t.reviewClosing,
+  ]
 
   return lines.join('\n')
 }
