@@ -1,4 +1,4 @@
-# Platform Dönüşüm Planı — Antalya VIP Limousine
+# Platform Dönüşüm Planı — Antalya VIP Tourism
 
 Statik site → Online rezervasyon + ödeme platformu.
 
@@ -14,13 +14,13 @@ Statik site → Online rezervasyon + ödeme platformu.
 
 ## Tech Stack
 
-| Katman | Araç | Maliyet |
-|--------|------|---------|
-| Frontend | Mevcut HTML+Vite | Ücretsiz |
-| Backend/DB | Supabase | Ücretsiz (500MB) → $25/ay |
-| Ödeme | iyzico Checkout Form | Sözleşmedeki işlem oranı |
-| Email | Resend | Ücretsiz (3k/ay) |
-| Hosting | Vercel / Netlify | Ücretsiz |
+| Katman     | Araç                 | Maliyet                   |
+| ---------- | -------------------- | ------------------------- |
+| Frontend   | Mevcut HTML+Vite     | Ücretsiz                  |
+| Backend/DB | Supabase             | Ücretsiz (500MB) → $25/ay |
+| Ödeme      | iyzico Checkout Form | Sözleşmedeki işlem oranı  |
+| Email      | Resend               | Ücretsiz (3k/ay)          |
+| Hosting    | Vercel / Netlify     | Ücretsiz                  |
 
 ---
 
@@ -67,12 +67,14 @@ booking_notes (
 ## iyzico → Türk Banka Hesabı
 
 **Neden iyzico:**
+
 - Türkiye merkezli şirket başvurusu desteklenir
 - Yabancı Visa ve Mastercard ödemeleri alınabilir
 - Checkout Form ile kart verisi site sunucularına girmez
 - Ödeme sonucu API üzerinden doğrulanmadan rezervasyon `paid` yapılmaz
 
 **Kurulum:**
+
 1. iyzico işyeri hesabını ve yabancı kart/döviz yetkisini etkinleştir
 2. API anahtarlarını Supabase secrets içine ekle
 3. Önce sandbox ortamında başarılı ve başarısız kart senaryolarını test et
@@ -114,6 +116,7 @@ ADIM 3 — Ödeme
 **Başlangıç:** Supabase Studio (sıfır geliştirme, hemen hazır)
 
 **İleride custom UI:**
+
 ```
 /admin
 ├── /bookings        — liste + filtre (tarih/status)
@@ -126,12 +129,12 @@ ADIM 3 — Ödeme
 
 ## Faz Sırası
 
-| Faz | İş | Süre |
-|-----|----|------|
-| 1 | Supabase kur, tablolar, Edge Functions | 1–2 gün |
-| 2 | iyzico Checkout + callback entegrasyonu | 1 gün |
-| 3 | Booking formu → 3 adımlı checkout | 2–3 gün |
-| 4 | Email sistemi (Resend) | yarım gün |
-| 5 | Admin paneli | 0 (Studio) / 2 gün (custom) |
+| Faz | İş                                      | Süre                        |
+| --- | --------------------------------------- | --------------------------- |
+| 1   | Supabase kur, tablolar, Edge Functions  | 1–2 gün                     |
+| 2   | iyzico Checkout + callback entegrasyonu | 1 gün                       |
+| 3   | Booking formu → 3 adımlı checkout       | 2–3 gün                     |
+| 4   | Email sistemi (Resend)                  | yarım gün                   |
+| 5   | Admin paneli                            | 0 (Studio) / 2 gün (custom) |
 
 **Toplam: ~1 hafta**

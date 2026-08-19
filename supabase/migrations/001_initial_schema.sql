@@ -1,5 +1,5 @@
 -- ============================================================
--- Antalya VIP Limousine — Initial Schema
+-- Antalya VIP Tourism — Initial Schema
 -- Run this in Supabase SQL Editor (Dashboard > SQL)
 -- ============================================================
 

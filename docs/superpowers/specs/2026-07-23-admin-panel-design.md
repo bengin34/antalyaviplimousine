@@ -1,9 +1,10 @@
 # Admin Panel — Design Spec
+
 Date: 2026-07-23
 
 ## Overview
 
-Mobile-first driver admin panel for Antalya VIP Limousine. Drivers and owner share a single login to view upcoming transfers grouped by day, update status, and add notes.
+Mobile-first driver admin panel for Antalya VIP Tourism. Drivers and owner share a single login to view upcoming transfers grouped by day, update status, and add notes.
 
 ## Goals
 
@@ -108,6 +109,7 @@ shows past legs with the most recent date and time first. Opening a detail from
 history and going back preserves the selected history tab.
 
 **Stats strip (counts visible transfer legs):**
+
 - **Bugün:** operational legs (`pending`, `paid`, `confirmed`, `in_transit`) today
 - **Yarın:** operational legs tomorrow
 - **Aksiyon:** `pending` + `confirmed` legs today
@@ -125,6 +127,7 @@ when its outbound transfer has already happened.
 **Empty state:** If no upcoming legs exist: "Gelecek transfer yok" + calendar icon.
 
 **Each card shows:**
+
 - `pickup_time` (or "—" if null) + route (pickup_location → dropoff_location)
 - Status badge (color-coded)
 - **"Dönüş"** tag if return leg of a round_trip
@@ -136,6 +139,7 @@ when its outbound transfer has already happened.
 - Pickup address (only if present and non-empty)
 
 **Round-trip display:** One DB row with `trip_type = 'round_trip'` produces **two virtual cards** in JS after fetch:
+
 - Card 1: outbound (pickup_date, pickup_time, pickup_location→dropoff_location, flight_number, flight_arrival_time)
 - Card 2: return leg (return_date, return_pickup_time, dropoff_location→pickup_location, return_flight_number, "Dönüş" badge)
 
@@ -151,6 +155,7 @@ driver-readable; UUID is not exposed in the URL)
 **booking_id (UUID) for note insertion:** Retrieved from JS state (the booking object fetched on timeline load). Never use `booking_ref` as the FK — `booking_notes.booking_id` expects the UUID `bookings.id`.
 
 **Sections:**
+
 1. Booking ref + status badge + "Dönüş" badge if return leg
 2. Route + pickup date + `pickup_time` (or "—") + flight info
 3. Customer: name, phone (WhatsApp link), email
@@ -178,15 +183,16 @@ paid ──→ in_transit ──→ completed
 ```
 
 - **Cancel** available from `confirmed` and `in_transit` only. Button hidden when status is `completed`.
-- Transitions to `cancelled`: show confirmation dialog — *"Bu transferi iptal etmek istediğinize emin misiniz?"*
+- Transitions to `cancelled`: show confirmation dialog — _"Bu transferi iptal etmek istediğinize emin misiniz?"_
 - Other transitions: no confirmation required.
 - **Optimistic UI:** update status badge immediately on tap.
-- **On Supabase error** (JS error or `count === 0` from update): revert badge to previous status + show inline error — *"Güncelleme başarısız, tekrar deneyin."*
+- **On Supabase error** (JS error or `count === 0` from update): revert badge to previous status + show inline error — _"Güncelleme başarısız, tekrar deneyin."_
 - Update query must use `{ count: 'exact' }` to detect 0-row-matched responses (e.g. booking deleted by another session between fetch and tap).
 
 **Round-trip cancellation:** Both cards share one DB row. Cancelling from either card sets `status = 'cancelled'` — both cards disappear from the active timeline.
 
 **Status colors:**
+
 - `confirmed`: green border + green badge
 - `in_transit`: blue border + blue badge
 - `completed`: grey border + grey badge
@@ -199,7 +205,9 @@ paid ──→ in_transit ──→ completed
 All date boundary calculations use `Europe/Istanbul` (UTC+3). Never use `Date.toISOString()` for date math — it returns UTC and will produce wrong dates for drivers late evening.
 
 ```js
-const todayISO = new Intl.DateTimeFormat('sv', { timeZone: 'Europe/Istanbul' }).format(new Date())
+const todayISO = new Intl.DateTimeFormat("sv", {
+  timeZone: "Europe/Istanbul",
+}).format(new Date());
 // 'sv' locale produces YYYY-MM-DD format
 ```
 
@@ -208,6 +216,7 @@ const todayISO = new Intl.DateTimeFormat('sv', { timeZone: 'Europe/Istanbul' }).
 ## Navigation / Routing
 
 Hash-based routing (works on static hosting):
+
 - `#login` → login screen
 - `#timeline` → main timeline (default after auth)
 - `#detail/{booking_ref}` → booking detail
@@ -241,54 +250,63 @@ supabase/migrations/
 
 ```js
 // Date window (Istanbul timezone)
-const todayISO = new Intl.DateTimeFormat('sv', { timeZone: 'Europe/Istanbul' }).format(new Date())
-const in14Days = new Date()
-in14Days.setDate(in14Days.getDate() + 14)
-const maxISO = new Intl.DateTimeFormat('sv', { timeZone: 'Europe/Istanbul' }).format(in14Days)
+const todayISO = new Intl.DateTimeFormat("sv", {
+  timeZone: "Europe/Istanbul",
+}).format(new Date());
+const in14Days = new Date();
+in14Days.setDate(in14Days.getDate() + 14);
+const maxISO = new Intl.DateTimeFormat("sv", {
+  timeZone: "Europe/Istanbul",
+}).format(in14Days);
 
 // Load bookings with notes
 const { data } = await supabase
-  .from('bookings')
-  .select('*, booking_notes(id, note, created_at)')
-  .in('status', ['confirmed', 'in_transit', 'completed'])
-  .gte('pickup_date', todayISO)
-  .lte('pickup_date', maxISO)
-  .order('pickup_date')
-  .order('pickup_time', { nullsFirst: false })
+  .from("bookings")
+  .select("*, booking_notes(id, note, created_at)")
+  .in("status", ["confirmed", "in_transit", "completed"])
+  .gte("pickup_date", todayISO)
+  .lte("pickup_date", maxISO)
+  .order("pickup_date")
+  .order("pickup_time", { nullsFirst: false });
 
 // Expand round-trips, then client-sort by (pickup_date, display_pickup_time nulls last)
-const cards = data.flatMap(b => {
-  const out = [{ ...b, _displayDate: b.pickup_date, _displayTime: b.pickup_time }]
-  if (b.trip_type === 'round_trip' && b.return_date) {
-    out.push({
-      ...b,
-      _isReturn: true,
-      _displayDate: b.return_date,
-      _displayTime: b.return_pickup_time,
-      pickup_location: b.dropoff_location,
-      dropoff_location: b.pickup_location,
-      flight_number: b.return_flight_number,
-      flight_arrival_time: null,
-    })
-  }
-  return out
-}).sort((a, b) => {
-  if (a._displayDate !== b._displayDate) return a._displayDate.localeCompare(b._displayDate)
-  if (!a._displayTime && !b._displayTime) return 0
-  if (!a._displayTime) return 1
-  if (!b._displayTime) return -1
-  return a._displayTime.localeCompare(b._displayTime)
-})
+const cards = data
+  .flatMap((b) => {
+    const out = [
+      { ...b, _displayDate: b.pickup_date, _displayTime: b.pickup_time },
+    ];
+    if (b.trip_type === "round_trip" && b.return_date) {
+      out.push({
+        ...b,
+        _isReturn: true,
+        _displayDate: b.return_date,
+        _displayTime: b.return_pickup_time,
+        pickup_location: b.dropoff_location,
+        dropoff_location: b.pickup_location,
+        flight_number: b.return_flight_number,
+        flight_arrival_time: null,
+      });
+    }
+    return out;
+  })
+  .sort((a, b) => {
+    if (a._displayDate !== b._displayDate)
+      return a._displayDate.localeCompare(b._displayDate);
+    if (!a._displayTime && !b._displayTime) return 0;
+    if (!a._displayTime) return 1;
+    if (!b._displayTime) return -1;
+    return a._displayTime.localeCompare(b._displayTime);
+  });
 
 // Update status — check count to detect 0-row matches
 const { count, error } = await supabase
-  .from('bookings')
-  .update({ status }, { count: 'exact' })
-  .eq('booking_ref', bookingRef)
+  .from("bookings")
+  .update({ status }, { count: "exact" })
+  .eq("booking_ref", bookingRef);
 // if (error || count === 0) → revert optimistic update + show error
 
 // Add note (booking_id is the UUID from JS state, not booking_ref)
-await supabase.from('booking_notes').insert({ booking_id: booking.id, note })
+await supabase.from("booking_notes").insert({ booking_id: booking.id, note });
 ```
 
 ---

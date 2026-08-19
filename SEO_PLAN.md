@@ -1,4 +1,4 @@
-# SEO & Reklam Planı - Antalya VIP Limousine
+# SEO & Reklam Planı - Antalya VIP Tourism
 
 Güncelleme: 18 Haziran 2026
 
@@ -42,16 +42,16 @@ SEO açısından kalan açıklar:
 
 ## Öncelik Sırası
 
-| Faz | İş                                           | Etki                           |
-| --- | -------------------------------------------- | ------------------------------ |
-| P0  | Gerçek iletişim ve güven verilerini doğrula  | Reklam onayı ve güven          |
-| P0  | Analytics, consent ve dönüşüm ölçümü         | Reklam optimizasyonu           |
-| P1  | Search Console ve sitemap gönderimi          | Teknik indeksleme              |
-| P1  | PageSpeed ve canlı Core Web Vitals ölçümü    | SEO + dönüşüm                  |
-| P1  | EN ve DE Search kampanyalarını aç            | Hızlı talep                    |
-| P2  | İlk 8 rota içeriğini kalite bakımından büyüt | En yüksek arama potansiyeli    |
-| P2  | Google Fonts self-host denemesi              | Performans                     |
-| P3  | Kalan rotalar, içerik ve backlink çalışması  | Uzun vadeli büyüme             |
+| Faz | İş                                           | Etki                        |
+| --- | -------------------------------------------- | --------------------------- |
+| P0  | Gerçek iletişim ve güven verilerini doğrula  | Reklam onayı ve güven       |
+| P0  | Analytics, consent ve dönüşüm ölçümü         | Reklam optimizasyonu        |
+| P1  | Search Console ve sitemap gönderimi          | Teknik indeksleme           |
+| P1  | PageSpeed ve canlı Core Web Vitals ölçümü    | SEO + dönüşüm               |
+| P1  | EN ve DE Search kampanyalarını aç            | Hızlı talep                 |
+| P2  | İlk 8 rota içeriğini kalite bakımından büyüt | En yüksek arama potansiyeli |
+| P2  | Google Fonts self-host denemesi              | Performans                  |
+| P3  | Kalan rotalar, içerik ve backlink çalışması  | Uzun vadeli büyüme          |
 
 ---
 

@@ -73,8 +73,10 @@ const translations = {
     pickupAddressPlaceholder: "Hotelname, Straße, Hausnummer und Stadtteil",
     dropoffAddress: "Vollständige Zieladresse",
     dropoffAddressPlaceholder: "Hotelname, Straße, Hausnummer und Stadtteil",
-    dropoffAddressRequired: "Die Zieladresse muss zwischen 6 und 160 Zeichen lang sein.",
-    customDestinationPrice: "Der Preis wird nach Prüfung der Zieladresse bestätigt.",
+    dropoffAddressRequired:
+      "Die Zieladresse muss zwischen 6 und 160 Zeichen lang sein.",
+    customDestinationPrice:
+      "Der Preis wird nach Prüfung der Zieladresse bestätigt.",
     selectDestination: "Ziel auswählen",
     airportReturnPrice:
       "Der Preis wird nach Prüfung des Hotels oder der Abholadresse bestätigt.",
@@ -172,8 +174,7 @@ const translations = {
       "„Das fühlte sich wie der Chauffeurservice eines Hotels an, nicht wie ein Flughafentaxi. Klare Kommunikation, ein makelloses Fahrzeug und ein aufrichtig höflicher Fahrer.“",
     trustedBy: "Gebucht von Gästen führender Resorts in Antalya",
     pricingEyebrow: "Sicher planen",
-    pricingTitle:
-      "Kundenfreundliche Preise.<br />Sie zahlen, was fair ist.",
+    pricingTitle: "Kundenfreundliche Preise.<br />Sie zahlen, was fair ist.",
     pricingIntro:
       "Wir bieten Festpreise für Planungssicherheit, messen aber die tatsächliche Strecke. Sie zahlen immer den niedrigeren Betrag.",
     pricingFixedPrice: "Festpreis",
@@ -301,7 +302,8 @@ const translations = {
     dropoffAddress: "Tam varış adresi",
     dropoffAddressPlaceholder: "Otel adı, cadde, bina numarası ve ilçe",
     dropoffAddressRequired: "Varış adresi 6–160 karakter arasında olmalıdır.",
-    customDestinationPrice: "Fiyat, varış adresi kontrol edildikten sonra teyit edilecektir.",
+    customDestinationPrice:
+      "Fiyat, varış adresi kontrol edildikten sonra teyit edilecektir.",
     selectDestination: "Varış noktası seçin",
     airportReturnPrice:
       "Fiyat, otel veya alış adresi kontrol edildikten sonra teyit edilecektir.",
@@ -526,8 +528,10 @@ const translations = {
     pickupAddressPlaceholder: "Название отеля, улица, номер дома и район",
     dropoffAddress: "Полный адрес назначения",
     dropoffAddressPlaceholder: "Название отеля, улица, номер дома и район",
-    dropoffAddressRequired: "Адрес назначения должен содержать от 6 до 160 символов.",
-    customDestinationPrice: "Цена будет подтверждена после проверки адреса назначения.",
+    dropoffAddressRequired:
+      "Адрес назначения должен содержать от 6 до 160 символов.",
+    customDestinationPrice:
+      "Цена будет подтверждена после проверки адреса назначения.",
     selectDestination: "Выберите направление",
     airportReturnPrice:
       "Цена будет подтверждена после проверки отеля или адреса подачи.",
@@ -717,7 +721,8 @@ const translations = {
     campaignDiscount: "25% sleva",
     campaignScope: "ze všech cen transferů",
     heroTitle: "Prémiové letištní<br />transfery v Antalyi",
-    heroSubtitle: "Soukromé transfery se šoférem z letiště Antalya do Beleku, Side, Kemeru a Alanye.",
+    heroSubtitle:
+      "Soukromé transfery se šoférem z letiště Antalya do Beleku, Side, Kemeru a Alanye.",
     bookTransfer: "Rezervovat transfer",
     instantQuote: "Okamžitá nabídka",
     googleRated: "Hodnocení Google",
@@ -732,7 +737,8 @@ const translations = {
     tripType: "Typ cesty",
     oneWay: "Jednosměrně",
     roundTrip: "Tam a zpět",
-    roundTripHint: "U zpáteční cesty následuje zpáteční trasa stejnou cestou v opačném směru.",
+    roundTripHint:
+      "U zpáteční cesty následuje zpáteční trasa stejnou cestou v opačném směru.",
     pickup: "Místo vyzvednutí",
     airportOption: "Letiště Antalya (AYT)",
     hotelOption: "Hotel",
@@ -764,8 +770,10 @@ const translations = {
     paymentMethod: "Zvolte způsob platby",
     cashPayment: "Platba ve vozidle",
     recommended: "Doporučeno",
-    cashPaymentDescription: "Bez zálohy. Zaplaťte řidiči přímo, až budete spokojeni se službou.",
-    quoteIncludes: "Zahrnuje uvítání, sledování letů, parkování, čekání a balenou vodu.",
+    cashPaymentDescription:
+      "Bez zálohy. Zaplaťte řidiči přímo, až budete spokojeni se službou.",
+    quoteIncludes:
+      "Zahrnuje uvítání, sledování letů, parkování, čekání a balenou vodu.",
     confirmCashBooking: "Potvrdit rezervaci — platba ve vozidle",
     flightTracking: "Sledování letů v reálném čase",
     fixedPrice: "Garance pevné ceny",
@@ -775,7 +783,8 @@ const translations = {
     campaignApplied: "Online -15% již zahrnuto",
     welcomeEyebrow: "Vítejte na lepším příjezdu",
     welcomeTitle: "Cestujte krásně.<br />Přijíždějte bez starostí.",
-    welcomeBody: "Od okamžiku přistání letadla je každý detail promyšlen. Váš šofér čeká uvnitř příletové haly, postará se o zavazadla a doprovodí vás k pečlivě připravenému soukromému vozidlu.",
+    welcomeBody:
+      "Od okamžiku přistání letadla je každý detail promyšlen. Váš šofér čeká uvnitř příletové haly, postará se o zavazadla a doprovodí vás k pečlivě připravenému soukromému vozidlu.",
     ourStandards: "Naše standardy služeb",
     concierge: "Podpora recepce",
     guestsWelcomed: "Přivítaných hostů",
@@ -783,10 +792,12 @@ const translations = {
     privateTransfers: "Soukromé transfery",
     fleetEyebrow: "Vozový park",
     fleetTitle: "Váš soukromý prostor,<br />vyladěný do každého detailu.",
-    fleetIntro: "Cestujte v tiché pohodlí s dostatkem místa pro rodinu, golfové vybavení a zavazadla.",
+    fleetIntro:
+      "Cestujte v tiché pohodlí s dostatkem místa pro rodinu, golfové vybavení a zavazadla.",
     signatureFleet: "Prémiový vozový park",
     fleetVclassClass: "Business · První třída",
-    fleetVclassDescription: "Prostorný VIP transport pro větší skupiny s dostatkem místa pro cestující i zavazadla.",
+    fleetVclassDescription:
+      "Prostorný VIP transport pro větší skupiny s dostatkem místa pro cestující i zavazadla.",
     passengers: "cestujících",
     suitcases: "kufrů",
     television: "TV ve vozidle",
@@ -800,22 +811,30 @@ const translations = {
     interiorTitle: "Soukromý salon mezi<br />letištěm a vaším hotelem.",
     serviceEyebrow: "Standard Antalya VIP",
     serviceTitle: "Víc než transfer.<br />Uvítání s péčí.",
-    serviceIntro: "Pozornost na úrovni hotelu, zkušení místní šoféři a naprostý klid od vzletu až po resort.",
+    serviceIntro:
+      "Pozornost na úrovni hotelu, zkušení místní šoféři a naprostý klid od vzletu až po resort.",
     trackingTitle: "Sledování letů",
-    trackingBody: "Monitorujeme váš let v reálném čase a automaticky upravujeme čas vyzvednutí, bez příplatku.",
+    trackingBody:
+      "Monitorujeme váš let v reálném čase a automaticky upravujeme čas vyzvednutí, bez příplatku.",
     chauffeurTitle: "Profesionální šoféři",
-    chauffeurBody: "Bezchybně upravení, diskrétní a vybíraní pro místní znalosti a standardy služeb.",
+    chauffeurBody:
+      "Bezchybně upravení, diskrétní a vybíraní pro místní znalosti a standardy služeb.",
     greetTitle: "Uvítání",
-    greetBody: "Váš šofér vás přivítá v příletové hale s personalizovanou jmenovkou a pomůže se zavazadly.",
+    greetBody:
+      "Váš šofér vás přivítá v příletové hale s personalizovanou jmenovkou a pomůže se zavazadly.",
     supportTitle: "Recepce 24/7",
-    supportBody: "Skutečná osoba je vždy dostupná telefonicky nebo přes WhatsApp před, během a po cestě.",
+    supportBody:
+      "Skutečná osoba je vždy dostupná telefonicky nebo přes WhatsApp před, během a po cestě.",
     priceTitle: "Pevné ceny",
-    priceBody: "Potvrzená cena je cena, kterou zaplatíte. Čekání, parkování a zpoždění letu jsou zahrnuty.",
+    priceBody:
+      "Potvrzená cena je cena, kterou zaplatíte. Čekání, parkování a zpoždění letu jsou zahrnuty.",
     familyTitle: "Přátelské pro rodiny",
-    familyBody: "Věkově vhodné dětské sedačky, prostorné kabiny a trpělivá pomoc pro klidný rodinný příjezd.",
+    familyBody:
+      "Věkově vhodné dětské sedačky, prostorné kabiny a trpělivá pomoc pro klidný rodinný příjezd.",
     routesEyebrow: "Nejžádanější trasy",
     routesTitle: "Z letiště Antalya<br />na tureckou riviéru.",
-    routesIntro: "Všechny ceny jsou za vozidlo, nikdy za cestujícího, se zahrnutým čekáním zdarma.",
+    routesIntro:
+      "Všechny ceny jsou za vozidlo, nikdy za cestujícího, se zahrnutým čekáním zdarma.",
     discountPricesShown: "Online -15% ceny zobrazeny",
     golfFavourite: "Oblíbené pro golf",
     onlineDiscountShort: "Online -25%",
@@ -824,35 +843,46 @@ const translations = {
     googleReviews: "Na základě 387 ověřených recenzí Google",
     trustedBy: "Oblíbené u hostů předních antalyských resortů",
     pricingEyebrow: "Klid v duši",
-    pricingTitle: "Zákaznicky přívětivé ceny.<br />Platíte jen to, co je spravedlivé.",
-    pricingIntro: "Nabízíme pevné ceny pro klid mysli, ale měříme skutečnou vzdálenost. Vždy zaplatíte nižší z obou.",
+    pricingTitle:
+      "Zákaznicky přívětivé ceny.<br />Platíte jen to, co je spravedlivé.",
+    pricingIntro:
+      "Nabízíme pevné ceny pro klid mysli, ale měříme skutečnou vzdálenost. Vždy zaplatíte nižší z obou.",
     pricingFixedPrice: "Pevná cena",
     fixedPriceExample: "Transfer do Beleku: €{{PRICE:belek:vito}}",
-    fixedPriceDesc: "Garantovaná celková cena. Zahrnuje letištní poplatky, parkování, čekání a daně.",
+    fixedPriceDesc:
+      "Garantovaná celková cena. Zahrnuje letištní poplatky, parkování, čekání a daně.",
     distancePrice: "Podle vzdálenosti",
     distancePriceExample: "Příklad 24 km online: €25",
     distancePriceDesc: "Měřeno GPS během jízdy.",
     youPay: "Platíte",
     youPayPrice: "€25",
     youPayDesc: "Cokoliv je nižší. Řidič potvrdí na konci.",
-    pricingNote: "Žádná překvapení. Žádné skryté poplatky. Co si rezervujete, to zaplatíte — nebo méně.",
+    pricingNote:
+      "Žádná překvapení. Žádné skryté poplatky. Co si rezervujete, to zaplatíte — nebo méně.",
     faqEyebrow: "Často kladené dotazy",
     faqTitle: "Před vaší cestou.",
-    faqIntro: "Vše, co potřebujete vědět o svém soukromém transferu z letiště Antalya.",
+    faqIntro:
+      "Vše, co potřebujete vědět o svém soukromém transferu z letiště Antalya.",
     askQuestion: "Zeptejte se nás",
     faqOneQ: "Co se stane, když má můj let zpoždění?",
-    faqOneA: "Sledujeme každý přílet v reálném čase. Čas vyzvednutí je automaticky upraven a váš šofér počká bez dalšího příplatku.",
+    faqOneA:
+      "Sledujeme každý přílet v reálném čase. Čas vyzvednutí je automaticky upraven a váš šofér počká bez dalšího příplatku.",
     faqTwoQ: "Kde najdu šoféra?",
-    faqTwoA: "Po vyzvednutí zavazadel vyjděte do oblasti Meet & Greet a hledejte setkávací bod J / 777. Náš tým bude čekat s personalizovanou jmenovkou.",
+    faqTwoA:
+      "Po vyzvednutí zavazadel vyjděte do oblasti Meet & Greet a hledejte setkávací bod J / 777. Náš tým bude čekat s personalizovanou jmenovkou.",
     faqThreeQ: "Jsou k dispozici dětské sedačky?",
-    faqThreeA: "Ano. Sedačky pro kojence, batolata i posilovací sedačky jsou k dispozici zdarma při objednávce.",
+    faqThreeA:
+      "Ano. Sedačky pro kojence, batolata i posilovací sedačky jsou k dispozici zdarma při objednávce.",
     faqFourQ: "Přepravíte golfové tašky a velká zavazadla?",
-    faqFourA: "Ano. Naše vozidla Sprinter a Vito jsou ideální pro golfové skupiny. Sdělte nám detaily o zavazadlech a přidělíme správné vozidlo.",
+    faqFourA:
+      "Ano. Naše vozidla Sprinter a Vito jsou ideální pro golfové skupiny. Sdělte nám detaily o zavazadlech a přidělíme správné vozidlo.",
     faqFiveQ: "Je nabízená cena konečná?",
-    faqFiveA: "Ano. Veškeré letištní poplatky, parkování, čekání a daně jsou zahrnuty. Žádné skryté poplatky.",
+    faqFiveA:
+      "Ano. Veškeré letištní poplatky, parkování, čekání a daně jsou zahrnuty. Žádné skryté poplatky.",
     contactEyebrow: "Vaše cesta začíná zde",
     contactTitle: "Přijeďte do Antalye<br />výjimečně dobře.",
-    contactBody: "Rezervujte online za méně než dvě minuty nebo mluvte přímo s naším týmem recepce 24/7.",
+    contactBody:
+      "Rezervujte online za méně než dvě minuty nebo mluvte přímo s naším týmem recepce 24/7.",
     whatsappUs: "Napište nám na WhatsApp",
     replyMinutes: "Obvykle odpovídáme do několika minut",
     callUs: "Volejte nás 24/7",
@@ -864,21 +894,25 @@ const translations = {
     licensed: "Licencovaný soukromý přepravce · v souladu s TÜRSAB",
     bookingConfirmed: "Rezervace potvrzena",
     referenceLabel: "Reference",
-    weWillContact: "Vaše žádost o rezervaci byla odeslána. Kontaktujeme vás do 30 minut.",
+    weWillContact:
+      "Vaše žádost o rezervaci byla odeslána. Kontaktujeme vás do 30 minut.",
     chatWithUs: "Napište nám",
     pickupAddressPlaceholder: "Název hotelu, ulice, číslo budovy a čtvrť",
     dropoffAddressPlaceholder: "Název hotelu, ulice, číslo budovy a čtvrť",
     hotelNamePlaceholder: "Název hotelu nebo ubytování",
     requestQuote: "Požádat o cenovou nabídku",
-    cashConfirmation: "Vaše rezervace je potvrzena. Zaplaťte pevnou celkovou cenu přímo řidiči ve vozidle.",
-    bookingError: "Vaši rezervaci se nepodařilo dokončit. Zkuste to prosím znovu.",
+    cashConfirmation:
+      "Vaše rezervace je potvrzena. Zaplaťte pevnou celkovou cenu přímo řidiči ve vozidle.",
+    bookingError:
+      "Vaši rezervaci se nepodařilo dokončit. Zkuste to prosím znovu.",
     formIncomplete: "Prosím vyplňte zvýrazněná pole.",
     requiredField: "Toto pole je povinné.",
     destinationRequired: "Prosím vyberte cíl.",
     dateInvalid: "Prosím vyberte dnešní nebo budoucí datum.",
     emailInvalid: "Prosím zadejte platnou e-mailovou adresu.",
     nameInvalid: "Prosím zadejte platné celé jméno.",
-    phoneInvalid: "Prosím zadejte platné číslo včetně předvolby země (například +420).",
+    phoneInvalid:
+      "Prosím zadejte platné číslo včetně předvolby země (například +420).",
     flightInvalid: "Prosím zadejte platné číslo letu.",
     pickupAddressRequired: "Adresa vyzvednutí musí mít 6 až 160 znaků.",
     dropoffAddressRequired: "Adresa vysazení musí mít 6 až 160 znaků.",
@@ -891,7 +925,8 @@ const translations = {
     returnTimeRequired: "Prosím vyberte čas vyzvednutí při návratu.",
     dailyChauffeur: "Denní vozidlo + šofér",
     days: "dní",
-    dailyChauffeurHint: "Pronajměte si soukromé vozidlo a šoféra na celý den bez limitu kilometrů nebo hodin. Pohonné hmoty se platí zvlášť.",
+    dailyChauffeurHint:
+      "Pronajměte si soukromé vozidlo a šoféra na celý den bez limitu kilometrů nebo hodin. Pohonné hmoty se platí zvlášť.",
     serviceStartDate: "První den služby",
     serviceEndDate: "Poslední den služby",
     dailyPickupTime: "Čas začátku služby",
@@ -902,21 +937,27 @@ const translations = {
     arrivalFlightNumberOptional: "Číslo příletového letu (nepovinné)",
     servicePrice: "Cena služby",
     fuelExcludedShort: "pohonné hmoty nezahrnuty",
-    fuelExcludedDetail: "Pohonné hmoty nejsou zahrnuty a platí se zvlášť podle spotřeby.",
+    fuelExcludedDetail:
+      "Pohonné hmoty nejsou zahrnuty a platí se zvlášť podle spotřeby.",
     departureFlightDate: "Datum odletového letu (nepovinné)",
     departureFlightTime: "Čas odletového letu",
     departureFlightNumber: "Číslo odletového letu",
     departureFlightDateRequired: "Prosím vyberte datum odletového letu.",
-    departureFlightDateInvalid: "Datum odletového letu nesmí být dříve než začátek služby.",
-    dailyQuoteIncludes: "Zahrnuje vybrané vozidlo a šoféra bez limitu kilometrů nebo hodin. Pohonné hmoty jsou vyloučeny.",
+    departureFlightDateInvalid:
+      "Datum odletového letu nesmí být dříve než začátek služby.",
+    dailyQuoteIncludes:
+      "Zahrnuje vybrané vozidlo a šoféra bez limitu kilometrů nebo hodin. Pohonné hmoty jsou vyloučeny.",
     reviewAndConfirm: "Přezkoumat a potvrdit",
     fuelTermsTitle: "Důležité informace o pohonných hmotách",
-    fuelTermsBody: "Denní poplatek €150 za službu zahrnuje vozidlo a šoféra. Pohonné hmoty nejsou zahrnuty. Skutečné náklady na pohonné hmoty zaplatíte zvlášť podle spotřeby.",
-    fuelTermsCheckbox: "Chápu, že pohonné hmoty jsou vyloučeny a budou placeny zvlášť podle spotřeby.",
+    fuelTermsBody:
+      "Denní poplatek €150 za službu zahrnuje vozidlo a šoféra. Pohonné hmoty nejsou zahrnuty. Skutečné náklady na pohonné hmoty zaplatíte zvlášť podle spotřeby.",
+    fuelTermsCheckbox:
+      "Chápu, že pohonné hmoty jsou vyloučeny a budou placeny zvlášť podle spotřeby.",
     cancel: "Zrušit",
     close: "Zavřít",
     understandAndConfirm: "Chápu a potvrzuji",
-    dailyCashConfirmation: "Váš denní pronájem šoféra je potvrzen. Cena služby nezahrnuje pohonné hmoty, které se platí zvlášť podle spotřeby.",
+    dailyCashConfirmation:
+      "Váš denní pronájem šoféra je potvrzen. Cena služby nezahrnuje pohonné hmoty, které se platí zvlášť podle spotřeby.",
     stepRoute: "Trasa",
     stepDetails: "Podrobnosti",
     stepContact: "Kontakt",
@@ -926,7 +967,8 @@ const translations = {
     perVehicleNoteVito: "Na vozidlo — ne na osobu · Až 6 cestujících",
     perVehicleNoteSprinter: "Na vozidlo — ne na osobu · Až 12 cestujících",
     perVehicle: "pevná cena · na vozidlo",
-    capacitySwitchedSprinter: "Počet cestujících a zavazadel přesahuje kapacitu Vito — přepnuto na Mercedes Sprinter.",
+    capacitySwitchedSprinter:
+      "Počet cestujících a zavazadel přesahuje kapacitu Vito — přepnuto na Mercedes Sprinter.",
   },
 
   pl: {
@@ -1263,8 +1305,7 @@ const translations = {
       "„Dit voelde als een chauffeurservice van een hotel, niet als een luchthaventaxi. Duidelijke communicatie, een onberispelijk voertuig en een oprecht beleefde chauffeur.”",
     trustedBy: "Vertrouwd door gasten van toonaangevende resorts in Antalya",
     pricingEyebrow: "Zorgeloos reizen",
-    pricingTitle:
-      "Klantvriendelijke prijzen.<br />U betaalt wat eerlijk is.",
+    pricingTitle: "Klantvriendelijke prijzen.<br />U betaalt wat eerlijk is.",
     pricingIntro:
       "We bieden vaste prijzen voor zekerheid, maar meten ook de werkelijke afstand. U betaalt altijd het laagste bedrag.",
     pricingFixedPrice: "Vaste prijs",
@@ -1563,7 +1604,8 @@ const translations = {
     campaignDiscount: "25% چھوٹ",
     campaignScope: "تمام ٹرانسفر قیمتوں پر",
     heroTitle: "انطالیہ میں پریمیم<br />ایئرپورٹ ٹرانسفر",
-    heroSubtitle: "انطالیہ ایئرپورٹ سے بیلک، سیدے، کیمر اور الانیا تک نجی شوفر سروس۔",
+    heroSubtitle:
+      "انطالیہ ایئرپورٹ سے بیلک، سیدے، کیمر اور الانیا تک نجی شوفر سروس۔",
     bookTransfer: "ٹرانسفر بک کریں",
     instantQuote: "فوری قیمت جانیں",
     googleRated: "گوگل ریٹڈ",
@@ -1610,8 +1652,10 @@ const translations = {
     paymentMethod: "ادائیگی کا طریقہ منتخب کریں",
     cashPayment: "گاڑی میں ادائیگی",
     recommended: "تجویز کردہ",
-    cashPaymentDescription: "پیشگی ادائیگی نہیں۔ سروس سے مطمئن ہونے پر اپنے ڈرائیور کو براہ راست ادا کریں۔",
-    quoteIncludes: "میٹ اینڈ گریٹ، فلائٹ ٹریکنگ، پارکنگ، انتظار کا وقت اور بوتل بند پانی شامل ہے۔",
+    cashPaymentDescription:
+      "پیشگی ادائیگی نہیں۔ سروس سے مطمئن ہونے پر اپنے ڈرائیور کو براہ راست ادا کریں۔",
+    quoteIncludes:
+      "میٹ اینڈ گریٹ، فلائٹ ٹریکنگ، پارکنگ، انتظار کا وقت اور بوتل بند پانی شامل ہے۔",
     confirmCashBooking: "بکنگ کی تصدیق کریں — گاڑی میں ادا کریں",
     flightTracking: "حقیقی وقت کی فلائٹ ٹریکنگ",
     fixedPrice: "مقررہ قیمت کی ضمانت",
@@ -1621,7 +1665,8 @@ const translations = {
     campaignApplied: "آن لائن -15% لاگو ہو گئی",
     welcomeEyebrow: "ایک بہتر آمد میں خوش آمدید",
     welcomeTitle: "خوبصورتی سے سفر کریں۔<br />آسانی سے پہنچیں۔",
-    welcomeBody: "آپ کی فلائٹ لینڈ ہونے کے لمحے سے ہر تفصیل کا خیال رکھا جاتا ہے۔ آپ کا شوفر آمد پر انتظار کرتا ہے، آپ کا سامان اٹھاتا ہے اور آپ کو ایک بے عیب نجی گاڑی تک لے جاتا ہے۔",
+    welcomeBody:
+      "آپ کی فلائٹ لینڈ ہونے کے لمحے سے ہر تفصیل کا خیال رکھا جاتا ہے۔ آپ کا شوفر آمد پر انتظار کرتا ہے، آپ کا سامان اٹھاتا ہے اور آپ کو ایک بے عیب نجی گاڑی تک لے جاتا ہے۔",
     ourStandards: "ہمارے سروس معیارات",
     concierge: "کنسیرج سپورٹ",
     guestsWelcomed: "مسافروں کا استقبال",
@@ -1629,10 +1674,12 @@ const translations = {
     privateTransfers: "نجی ٹرانسفر",
     fleetEyebrow: "گاڑیاں",
     fleetTitle: "آپ کی نجی جگہ،<br />ہر تفصیل میں بہترین۔",
-    fleetIntro: "اپنے خاندان، گولف کا سامان اور سامان کے لیے کافی جگہ کے ساتھ پرسکون آرام سے سفر کریں۔",
+    fleetIntro:
+      "اپنے خاندان، گولف کا سامان اور سامان کے لیے کافی جگہ کے ساتھ پرسکون آرام سے سفر کریں۔",
     signatureFleet: "سگنیچر فلیٹ",
     fleetVclassClass: "بزنس · فرسٹ کلاس",
-    fleetVclassDescription: "بڑے گروپوں کے لیے کشادہ VIP ٹرانسپورٹ، مسافروں اور سامان کے لیے وافر جگہ کے ساتھ۔",
+    fleetVclassDescription:
+      "بڑے گروپوں کے لیے کشادہ VIP ٹرانسپورٹ، مسافروں اور سامان کے لیے وافر جگہ کے ساتھ۔",
     passengers: "مسافر",
     suitcases: "سوٹ کیس",
     television: "گاڑی میں ٹیلی ویژن",
@@ -1646,22 +1693,30 @@ const translations = {
     interiorTitle: "ایئرپورٹ اور آپ کے ہوٹل کے<br />درمیان ایک نجی لاؤنج۔",
     serviceEyebrow: "انطالیہ VIP معیار",
     serviceTitle: "صرف ٹرانسفر سے بڑھ کر۔<br />ایک سوچا سمجھا خیرمقدم۔",
-    serviceIntro: "ہوٹل جیسی توجہ، تجربہ کار مقامی شوفر اور رن وے سے ریزورٹ تک مکمل سکون۔",
+    serviceIntro:
+      "ہوٹل جیسی توجہ، تجربہ کار مقامی شوفر اور رن وے سے ریزورٹ تک مکمل سکون۔",
     trackingTitle: "فلائٹ ٹریکنگ",
-    trackingBody: "ہم آپ کی فلائٹ کو حقیقی وقت میں مانیٹر کرتے ہیں اور آپ کا پک اپ خودکار طور پر ایڈجسٹ کرتے ہیں، بغیر کسی اضافی چارج کے۔",
+    trackingBody:
+      "ہم آپ کی فلائٹ کو حقیقی وقت میں مانیٹر کرتے ہیں اور آپ کا پک اپ خودکار طور پر ایڈجسٹ کرتے ہیں، بغیر کسی اضافی چارج کے۔",
     chauffeurTitle: "پیشہ ور شوفر",
-    chauffeurBody: "بے داغ پیش کردہ، سمجھدار اور اپنی مقامی معلومات اور سروس معیارات کے لیے منتخب۔",
+    chauffeurBody:
+      "بے داغ پیش کردہ، سمجھدار اور اپنی مقامی معلومات اور سروس معیارات کے لیے منتخب۔",
     greetTitle: "میٹ اینڈ گریٹ",
-    greetBody: "آپ کا شوفر آمد پر ذاتی نام کی تختی کے ساتھ آپ کا استقبال کرے گا اور سامان میں مدد کرے گا۔",
+    greetBody:
+      "آپ کا شوفر آمد پر ذاتی نام کی تختی کے ساتھ آپ کا استقبال کرے گا اور سامان میں مدد کرے گا۔",
     supportTitle: "24/7 کنسیرج",
-    supportBody: "آپ کے سفر سے پہلے، دوران اور بعد میں ایک حقیقی شخص فون یا واٹس ایپ پر ہمیشہ دستیاب ہے۔",
+    supportBody:
+      "آپ کے سفر سے پہلے، دوران اور بعد میں ایک حقیقی شخص فون یا واٹس ایپ پر ہمیشہ دستیاب ہے۔",
     priceTitle: "مقررہ قیمتیں",
-    priceBody: "تصدیق شدہ قیمت وہی ہے جو آپ ادا کرتے ہیں۔ انتظار کا وقت، پارکنگ اور فلائٹ میں تاخیر شامل ہے۔",
+    priceBody:
+      "تصدیق شدہ قیمت وہی ہے جو آپ ادا کرتے ہیں۔ انتظار کا وقت، پارکنگ اور فلائٹ میں تاخیر شامل ہے۔",
     familyTitle: "خاندان کے لیے تیار",
-    familyBody: "عمر کے مطابق بچوں کی نشستیں، کشادہ کیبن اور پرسکون خاندانی آمد کے لیے صبر مند مدد۔",
+    familyBody:
+      "عمر کے مطابق بچوں کی نشستیں، کشادہ کیبن اور پرسکون خاندانی آمد کے لیے صبر مند مدد۔",
     routesEyebrow: "ہمارے سب سے مطلوب سفر",
     routesTitle: "انطالیہ ایئرپورٹ سے<br />ترکی ریویرا تک۔",
-    routesIntro: "تمام قیمتیں فی گاڑی ہیں، فی مسافر نہیں، مجانی انتظار کا وقت شامل ہے۔",
+    routesIntro:
+      "تمام قیمتیں فی گاڑی ہیں، فی مسافر نہیں، مجانی انتظار کا وقت شامل ہے۔",
     discountPricesShown: "آن لائن -15% قیمتیں دکھائی گئی ہیں",
     golfFavourite: "گولف کا پسندیدہ",
     onlineDiscountShort: "آن لائن -25%",
@@ -1671,34 +1726,44 @@ const translations = {
     trustedBy: "انطالیہ کے معروف ریزورٹس کے مسافروں کا اعتماد",
     pricingEyebrow: "ذہنی سکون",
     pricingTitle: "مسافر دوست قیمتیں۔<br />آپ وہی ادا کریں جو منصفانہ ہے۔",
-    pricingIntro: "ہم ذہنی سکون کے لیے مقررہ قیمتیں پیش کرتے ہیں، لیکن اصل فاصلہ ناپتے ہیں۔ آپ ہمیشہ کم قیمت ادا کرتے ہیں۔",
+    pricingIntro:
+      "ہم ذہنی سکون کے لیے مقررہ قیمتیں پیش کرتے ہیں، لیکن اصل فاصلہ ناپتے ہیں۔ آپ ہمیشہ کم قیمت ادا کرتے ہیں۔",
     pricingFixedPrice: "مقررہ قیمت",
     fixedPriceExample: "بیلک ٹرانسفر: €{{PRICE:belek:vito}}",
-    fixedPriceDesc: "ضمانت شدہ کل۔ ایئرپورٹ فیس، پارکنگ، انتظار کا وقت اور ٹیکس شامل ہیں۔",
+    fixedPriceDesc:
+      "ضمانت شدہ کل۔ ایئرپورٹ فیس، پارکنگ، انتظار کا وقت اور ٹیکس شامل ہیں۔",
     distancePrice: "فاصلے پر مبنی",
     distancePriceExample: "آن لائن 24 کلومیٹر مثال: €25",
     distancePriceDesc: "آپ کے سفر کے دوران GPS سے ناپا گیا۔",
     youPay: "آپ ادا کریں",
     youPayPrice: "€25",
     youPayDesc: "جو بھی کم ہو۔ ڈرائیور آخر میں تصدیق کرتا ہے۔",
-    pricingNote: "کوئی حیرت نہیں۔ کوئی پوشیدہ چارج نہیں۔ جو بک کریں وہی ادا کریں — یا کم۔",
+    pricingNote:
+      "کوئی حیرت نہیں۔ کوئی پوشیدہ چارج نہیں۔ جو بک کریں وہی ادا کریں — یا کم۔",
     faqEyebrow: "اکثر پوچھے گئے سوالات",
     faqTitle: "سفر سے پہلے۔",
-    faqIntro: "اپنے نجی انطالیہ ایئرپورٹ ٹرانسفر کے بارے میں آپ کو جو کچھ جاننا ضروری ہے۔",
+    faqIntro:
+      "اپنے نجی انطالیہ ایئرپورٹ ٹرانسفر کے بارے میں آپ کو جو کچھ جاننا ضروری ہے۔",
     askQuestion: "ہم سے سوال پوچھیں",
     faqOneQ: "اگر میری فلائٹ میں تاخیر ہو جائے تو کیا ہوگا؟",
-    faqOneA: "ہم ہر آمد کو حقیقی وقت میں ٹریک کرتے ہیں۔ آپ کا پک اپ وقت خودکار طور پر ایڈجسٹ ہو جاتا ہے اور آپ کا شوفر بغیر کسی اضافی چارج کے انتظار کرے گا۔",
+    faqOneA:
+      "ہم ہر آمد کو حقیقی وقت میں ٹریک کرتے ہیں۔ آپ کا پک اپ وقت خودکار طور پر ایڈجسٹ ہو جاتا ہے اور آپ کا شوفر بغیر کسی اضافی چارج کے انتظار کرے گا۔",
     faqTwoQ: "میں اپنے شوفر سے کہاں ملوں گا؟",
-    faqTwoA: "سامان لینے کے بعد، میٹ اینڈ گریٹ ایریا میں نکلیں اور ملاقات کی جگہ J / 777 تلاش کریں۔ ہماری ٹیم ذاتی نام کی تختی کے ساتھ انتظار کر رہی ہوگی۔",
+    faqTwoA:
+      "سامان لینے کے بعد، میٹ اینڈ گریٹ ایریا میں نکلیں اور ملاقات کی جگہ J / 777 تلاش کریں۔ ہماری ٹیم ذاتی نام کی تختی کے ساتھ انتظار کر رہی ہوگی۔",
     faqThreeQ: "کیا بچوں کی نشستیں دستیاب ہیں؟",
-    faqThreeA: "ہاں۔ بکنگ کے وقت درخواست کرنے پر شیر خوار، چھوٹے بچوں اور بوسٹر نشستیں مجانی دستیاب ہیں۔",
+    faqThreeA:
+      "ہاں۔ بکنگ کے وقت درخواست کرنے پر شیر خوار، چھوٹے بچوں اور بوسٹر نشستیں مجانی دستیاب ہیں۔",
     faqFourQ: "کیا آپ گولف بیگ اور بڑا سامان لے جا سکتے ہیں؟",
-    faqFourA: "ہاں۔ ہماری اسپرنٹر اور ویٹو گاڑیاں گولف گروپوں کے لیے موزوں ہیں۔ ہمیں اپنے سامان کی تفصیلات بتائیں اور ہم صحیح گاڑی مختص کریں گے۔",
+    faqFourA:
+      "ہاں۔ ہماری اسپرنٹر اور ویٹو گاڑیاں گولف گروپوں کے لیے موزوں ہیں۔ ہمیں اپنے سامان کی تفصیلات بتائیں اور ہم صحیح گاڑی مختص کریں گے۔",
     faqFiveQ: "کیا دی گئی قیمت حتمی ہے؟",
-    faqFiveA: "ہاں۔ تمام ایئرپورٹ فیس، پارکنگ، انتظار کا وقت اور ٹیکس شامل ہیں۔ کوئی پوشیدہ چارج نہیں ہے۔",
+    faqFiveA:
+      "ہاں۔ تمام ایئرپورٹ فیس، پارکنگ، انتظار کا وقت اور ٹیکس شامل ہیں۔ کوئی پوشیدہ چارج نہیں ہے۔",
     contactEyebrow: "آپ کا سفر یہاں سے شروع ہوتا ہے",
     contactTitle: "انطالیہ میں<br />شاندار طریقے سے پہنچیں۔",
-    contactBody: "دو منٹ سے کم میں آن لائن بک کریں یا ہماری 24/7 کنسیرج ٹیم سے براہ راست بات کریں۔",
+    contactBody:
+      "دو منٹ سے کم میں آن لائن بک کریں یا ہماری 24/7 کنسیرج ٹیم سے براہ راست بات کریں۔",
     whatsappUs: "واٹس ایپ کریں",
     replyMinutes: "عام طور پر منٹوں میں جواب دیتے ہیں",
     callUs: "24/7 کال کریں",
@@ -1710,13 +1775,15 @@ const translations = {
     licensed: "لائسنس یافتہ نجی ٹرانسفر آپریٹر · TÜRSAB تعمیل",
     bookingConfirmed: "بکنگ کی تصدیق ہو گئی",
     referenceLabel: "حوالہ",
-    weWillContact: "آپ کی بکنگ کی درخواست بھیج دی گئی۔ ہم 30 منٹ کے اندر آپ سے رابطہ کریں گے۔",
+    weWillContact:
+      "آپ کی بکنگ کی درخواست بھیج دی گئی۔ ہم 30 منٹ کے اندر آپ سے رابطہ کریں گے۔",
     chatWithUs: "ہم سے چیٹ کریں",
     pickupAddressPlaceholder: "ہوٹل کا نام، گلی، عمارت نمبر اور علاقہ",
     dropoffAddressPlaceholder: "ہوٹل کا نام، گلی، عمارت نمبر اور علاقہ",
     hotelNamePlaceholder: "ہوٹل یا رہائش کا نام",
     requestQuote: "قیمت کا اندازہ لگائیں",
-    cashConfirmation: "آپ کی بکنگ کی تصدیق ہو گئی۔ گاڑی میں اپنے ڈرائیور کو مقررہ کل رقم براہ راست ادا کریں۔",
+    cashConfirmation:
+      "آپ کی بکنگ کی تصدیق ہو گئی۔ گاڑی میں اپنے ڈرائیور کو مقررہ کل رقم براہ راست ادا کریں۔",
     bookingError: "آپ کی بکنگ مکمل نہیں ہو سکی۔ براہ کرم دوبارہ کوشش کریں۔",
     formIncomplete: "براہ کرم نمایاں شدہ خانے مکمل کریں۔",
     requiredField: "یہ خانہ ضروری ہے۔",
@@ -1724,45 +1791,56 @@ const translations = {
     dateInvalid: "براہ کرم آج یا مستقبل کی تاریخ منتخب کریں۔",
     emailInvalid: "براہ کرم ایک درست ای میل پتہ درج کریں۔",
     nameInvalid: "براہ کرم ایک درست پورا نام درج کریں۔",
-    phoneInvalid: "براہ کرم ملک کوڈ کے ساتھ ایک درست نمبر درج کریں (مثال کے طور پر +92)۔",
+    phoneInvalid:
+      "براہ کرم ملک کوڈ کے ساتھ ایک درست نمبر درج کریں (مثال کے طور پر +92)۔",
     flightInvalid: "براہ کرم ایک درست فلائٹ نمبر درج کریں۔",
     pickupAddressRequired: "پک اپ کا پتہ 6 سے 160 حروف کے درمیان ہونا چاہیے۔",
-    dropoffAddressRequired: "ڈراپ آف کا پتہ 6 سے 160 حروف کے درمیان ہونا چاہیے۔",
+    dropoffAddressRequired:
+      "ڈراپ آف کا پتہ 6 سے 160 حروف کے درمیان ہونا چاہیے۔",
     addressesMustDiffer: "پک اپ اور ڈراپ آف کے پتے مختلف ہونے چاہئیں۔",
-    customDestinationPrice: "ڈراپ آف پتہ جانچنے کے بعد قیمت کی تصدیق کی جائے گی۔",
+    customDestinationPrice:
+      "ڈراپ آف پتہ جانچنے کے بعد قیمت کی تصدیق کی جائے گی۔",
     hotelNameRequired: "براہ کرم ہوٹل کا نام درج کریں۔",
     roundTripPriceNote: "آنا جانا · 2 سفر",
     returnDateRequired: "براہ کرم واپسی کی تاریخ منتخب کریں۔",
-    returnDateInvalid: "براہ کرم جانے کے سفر پر یا اس کے بعد کی واپسی کی تاریخ منتخب کریں۔",
+    returnDateInvalid:
+      "براہ کرم جانے کے سفر پر یا اس کے بعد کی واپسی کی تاریخ منتخب کریں۔",
     returnTimeRequired: "براہ کرم واپسی کا پک اپ وقت منتخب کریں۔",
     dailyChauffeur: "روزانہ گاڑی + شوفر",
     days: "دن",
-    dailyChauffeurHint: "بغیر کلومیٹر یا گھنٹے کی حد کے روزانہ کی بنیاد پر نجی گاڑی اور شوفر کرایہ پر لیں۔ ایندھن الگ ادا کیا جاتا ہے۔",
+    dailyChauffeurHint:
+      "بغیر کلومیٹر یا گھنٹے کی حد کے روزانہ کی بنیاد پر نجی گاڑی اور شوفر کرایہ پر لیں۔ ایندھن الگ ادا کیا جاتا ہے۔",
     serviceStartDate: "پہلی سروس کا دن",
     serviceEndDate: "آخری سروس کا دن",
     dailyPickupTime: "سروس شروع ہونے کا وقت",
-    dailyPickupTimeRequired: "براہ کرم روزانہ سروس شروع ہونے کا وقت منتخب کریں۔",
+    dailyPickupTimeRequired:
+      "براہ کرم روزانہ سروس شروع ہونے کا وقت منتخب کریں۔",
     serviceEndDateRequired: "براہ کرم آخری سروس کا دن منتخب کریں۔",
     servicePeriodInvalid: "براہ کرم 1 سے 30 دن کے درمیان مدت منتخب کریں۔",
     arrivalFlightTimeOptional: "آمد کا فلائٹ وقت (اختیاری)",
     arrivalFlightNumberOptional: "آمد کا فلائٹ نمبر (اختیاری)",
     servicePrice: "سروس قیمت",
     fuelExcludedShort: "ایندھن شامل نہیں",
-    fuelExcludedDetail: "ایندھن شامل نہیں ہے اور استعمال کے مطابق الگ ادا کیا جاتا ہے۔",
+    fuelExcludedDetail:
+      "ایندھن شامل نہیں ہے اور استعمال کے مطابق الگ ادا کیا جاتا ہے۔",
     departureFlightDate: "روانگی کی فلائٹ کی تاریخ",
     departureFlightTime: "روانگی کی فلائٹ کا وقت",
     departureFlightNumber: "روانگی کا فلائٹ نمبر",
-    departureFlightDateRequired: "براہ کرم روانگی کی فلائٹ کی تاریخ منتخب کریں۔",
+    departureFlightDateRequired:
+      "براہ کرم روانگی کی فلائٹ کی تاریخ منتخب کریں۔",
     departureFlightDateInvalid: "براہ کرم آج یا مستقبل کی تاریخ منتخب کریں۔",
-    dailyQuoteIncludes: "بغیر کلومیٹر یا گھنٹے کی حد کے روزانہ شوفر سروس شامل ہے۔ ایندھن الگ ادا کیا جاتا ہے۔",
+    dailyQuoteIncludes:
+      "بغیر کلومیٹر یا گھنٹے کی حد کے روزانہ شوفر سروس شامل ہے۔ ایندھن الگ ادا کیا جاتا ہے۔",
     reviewAndConfirm: "جائزہ لیں اور تصدیق کریں",
     fuelTermsTitle: "ایندھن کی شرائط",
-    fuelTermsBody: "روزانہ شوفر سروس کے لیے، ایندھن کی لاگت شامل نہیں ہے۔ آپ ڈرائیور کو براہ راست استعمال شدہ ایندھن کی ادائیگی کریں گے۔",
+    fuelTermsBody:
+      "روزانہ شوفر سروس کے لیے، ایندھن کی لاگت شامل نہیں ہے۔ آپ ڈرائیور کو براہ راست استعمال شدہ ایندھن کی ادائیگی کریں گے۔",
     fuelTermsCheckbox: "میں سمجھتا/سمجھتی ہوں کہ ایندھن الگ ادا کیا جائے گا",
     cancel: "منسوخ کریں",
     close: "بند کریں",
     understandAndConfirm: "سمجھ گیا، تصدیق کریں",
-    dailyCashConfirmation: "آپ کی روزانہ شوفر سروس کی بکنگ کی تصدیق ہو گئی۔ ہر دن کے اختتام پر اپنے ڈرائیور کو ادا کریں۔",
+    dailyCashConfirmation:
+      "آپ کی روزانہ شوفر سروس کی بکنگ کی تصدیق ہو گئی۔ ہر دن کے اختتام پر اپنے ڈرائیور کو ادا کریں۔",
     quoteTitle: "آپ کا کوٹ",
     date: "تاریخ",
     airportReturnPrice: "ایئرپورٹ واپسی قیمت",
@@ -1775,15 +1853,20 @@ const translations = {
     sevenGuests: "7 مسافر",
     viewQuote: "کوٹ دیکھیں",
     fleetVitoClass: "پریمیم · VIP",
-    fleetVitoDescription: "چھوٹے گروپوں کے لیے ایگزیکٹو VIP ٹرانسپورٹ، کشادہ اندرونی حصے اور پریمیم آرام کے ساتھ۔",
-    capacitySwitchedSprinter: "8 یا اس سے زیادہ مسافروں کے لیے اسپرنٹر خودکار طور پر منتخب ہو گیا",
+    fleetVitoDescription:
+      "چھوٹے گروپوں کے لیے ایگزیکٹو VIP ٹرانسپورٹ، کشادہ اندرونی حصے اور پریمیم آرام کے ساتھ۔",
+    capacitySwitchedSprinter:
+      "8 یا اس سے زیادہ مسافروں کے لیے اسپرنٹر خودکار طور پر منتخب ہو گیا",
     capacityNoVehicle: "موجودہ مسافروں کے لیے کوئی گاڑی دستیاب نہیں",
     leatherSeats: "چمڑے کی نشستیں",
     water: "پانی",
     from: "سے",
-    reviewOne: "ویٹو ڈرائیور وقت پر تھے، بہترین گاڑی، ہر چیز بہت اچھی طرح منظم تھی۔",
-    reviewTwo: "شاندار سروس! ڈرائیور وقت پر تھا، گاڑی بالکل صاف تھی، اور سفر بہت آرام دہ تھا۔",
-    reviewThree: "بہترین ٹرانسفر سروس جو ہم نے انطالیہ میں استعمال کی ہے۔ انتہائی پیشہ ورانہ اور قابل اعتماد۔",
+    reviewOne:
+      "ویٹو ڈرائیور وقت پر تھے، بہترین گاڑی، ہر چیز بہت اچھی طرح منظم تھی۔",
+    reviewTwo:
+      "شاندار سروس! ڈرائیور وقت پر تھا، گاڑی بالکل صاف تھی، اور سفر بہت آرام دہ تھا۔",
+    reviewThree:
+      "بہترین ٹرانسفر سروس جو ہم نے انطالیہ میں استعمال کی ہے۔ انتہائی پیشہ ورانہ اور قابل اعتماد۔",
     perVehicle: "فی گاڑی",
     quoteReady: "آپ کا کوٹ تیار ہے",
     journeyTime: "سفر کا وقت",
@@ -2351,8 +2434,7 @@ const translations = {
       "「空港タクシーではなく、ホテルのショーファーサービスのようでした。明確なコミュニケーション、完璧な車両、そして心から礼儀正しいドライバー。」",
     trustedBy: "アンタルヤの一流リゾートのゲストにご利用いただいています",
     pricingEyebrow: "安心してご利用いただけます",
-    pricingTitle:
-      "お客様にやさしい料金設定。<br />公平な金額だけをお支払い。",
+    pricingTitle: "お客様にやさしい料金設定。<br />公平な金額だけをお支払い。",
     pricingIntro:
       "安心のため固定料金をご提示しつつ、実際の走行距離も計測します。お支払いは常に低い方の金額です。",
     pricingFixedPrice: "固定料金",
@@ -2662,7 +2744,8 @@ const translations = {
     tripType: "نوع الرحلة",
     oneWay: "ذهاب فقط",
     roundTrip: "ذهاب وعودة",
-    roundTripHint: "في رحلة الذهاب والعودة، تكون رحلة العودة على المسار نفسه بالاتجاه المعاكس.",
+    roundTripHint:
+      "في رحلة الذهاب والعودة، تكون رحلة العودة على المسار نفسه بالاتجاه المعاكس.",
     returnDate: "تاريخ العودة",
     returnPickupTime: "وقت الاستقبال للعودة",
     returnFlightNumber: "رقم رحلة العودة",
@@ -2681,7 +2764,8 @@ const translations = {
     dropoffAddressRequired: "يجب أن يتراوح عنوان الوصول بين 6 و160 حرفاً.",
     customDestinationPrice: "سيتم تأكيد السعر بعد مراجعة عنوان الوصول.",
     selectDestination: "اختر الوجهة",
-    airportReturnPrice: "سيتم تأكيد السعر بعد مراجعة الفندق أو عنوان الاستقبال.",
+    airportReturnPrice:
+      "سيتم تأكيد السعر بعد مراجعة الفندق أو عنوان الاستقبال.",
     oneGuest: "راكب واحد",
     twoGuests: "راكبان",
     threeGuests: "3 ركاب",
@@ -2808,7 +2892,8 @@ const translations = {
       "نعم. تشمل الأسعار رسوم المطار ومواقف السيارات ووقت الانتظار والضرائب، من دون رسوم خفية.",
     contactEyebrow: "رحلتك تبدأ هنا",
     contactTitle: "ابدأ وصولك إلى أنطاليا<br />بطريقة استثنائية.",
-    contactBody: "احجز عبر الإنترنت خلال دقيقتين، أو تحدث مباشرة إلى فريق الكونسيرج 24/7.",
+    contactBody:
+      "احجز عبر الإنترنت خلال دقيقتين، أو تحدث مباشرة إلى فريق الكونسيرج 24/7.",
     whatsappUs: "تواصل عبر WhatsApp",
     replyMinutes: "نرد عادةً خلال دقائق",
     callUs: "اتصل بنا 24/7",
@@ -2866,7 +2951,8 @@ const paymentTranslations = {
     continue: "Continue",
     back: "Back",
     perVehicleNoteVito: "Per vehicle — not per person · Up to 6 passengers",
-    perVehicleNoteSprinter: "Per vehicle — not per person · Up to 12 passengers",
+    perVehicleNoteSprinter:
+      "Per vehicle — not per person · Up to 12 passengers",
     perVehicle: "fixed · per vehicle",
     noPrePayment: "No prepayment required",
     payAfterTransfer: "Pay your driver after the transfer",
@@ -2884,12 +2970,16 @@ const paymentTranslations = {
     phoneInvalid:
       "Please enter a valid number including the country code (for example +49).",
     flightInvalid: "Please enter a valid flight number.",
-    pickupAddressRequired: "The pick-up address must be between 6 and 160 characters.",
+    pickupAddressRequired:
+      "The pick-up address must be between 6 and 160 characters.",
     dropoffAddress: "Full drop-off address",
-    dropoffAddressPlaceholder: "Hotel name, street, building number and district",
-    dropoffAddressRequired: "The drop-off address must be between 6 and 160 characters.",
+    dropoffAddressPlaceholder:
+      "Hotel name, street, building number and district",
+    dropoffAddressRequired:
+      "The drop-off address must be between 6 and 160 characters.",
     addressesMustDiffer: "Pick-up and drop-off addresses must be different.",
-    customDestinationPrice: "The price will be confirmed after we check the drop-off address.",
+    customDestinationPrice:
+      "The price will be confirmed after we check the drop-off address.",
     hotelNameLabel: "Hotel name",
     hotelNamePlaceholder: "Hotel or accommodation name",
     hotelNameRequired: "Please enter the hotel name.",
@@ -2916,7 +3006,8 @@ const paymentTranslations = {
     back: "Zurück",
     reserveForPrice: "Reservieren",
     perVehicleNoteVito: "Pro Fahrzeug — nicht pro Person · Bis zu 6 Personen",
-    perVehicleNoteSprinter: "Pro Fahrzeug — nicht pro Person · Bis zu 12 Personen",
+    perVehicleNoteSprinter:
+      "Pro Fahrzeug — nicht pro Person · Bis zu 12 Personen",
     requestQuote: "Preisangebot anfordern",
     cashConfirmation:
       "Ihre Buchung ist bestätigt. Zahlen Sie den Festpreis direkt beim Fahrer im Fahrzeug.",
@@ -2932,10 +3023,13 @@ const paymentTranslations = {
     phoneInvalid:
       "Bitte geben Sie eine gültige Nummer mit Ländervorwahl ein (zum Beispiel +49).",
     flightInvalid: "Bitte geben Sie eine gültige Flugnummer ein.",
-    pickupAddressRequired: "Die Abholadresse muss zwischen 6 und 160 Zeichen lang sein.",
-    dropoffAddressRequired: "Die Zieladresse muss zwischen 6 und 160 Zeichen lang sein.",
+    pickupAddressRequired:
+      "Die Abholadresse muss zwischen 6 und 160 Zeichen lang sein.",
+    dropoffAddressRequired:
+      "Die Zieladresse muss zwischen 6 und 160 Zeichen lang sein.",
     addressesMustDiffer: "Abhol- und Zieladresse müssen unterschiedlich sein.",
-    customDestinationPrice: "Der Preis wird nach Prüfung der Zieladresse bestätigt.",
+    customDestinationPrice:
+      "Der Preis wird nach Prüfung der Zieladresse bestätigt.",
     hotelNameLabel: "Hotelname",
     hotelNamePlaceholder: "Hotel- oder Unterkunftsname",
     hotelNameRequired: "Bitte geben Sie den Hotelnamen ein.",
@@ -2962,7 +3056,8 @@ const paymentTranslations = {
     back: "Geri",
     reserveForPrice: "Rezerve et",
     perVehicleNoteVito: "Araç başına — kişi başına değil · 6 yolcuya kadar",
-    perVehicleNoteSprinter: "Araç başına — kişi başına değil · 12 yolcuya kadar",
+    perVehicleNoteSprinter:
+      "Araç başına — kişi başına değil · 12 yolcuya kadar",
     requestQuote: "Fiyat teklifi al",
     cashConfirmation:
       "Rezervasyonunuz onaylandı. Sabit toplam tutarı araçta doğrudan şoförünüze ödeyin.",
@@ -2980,7 +3075,8 @@ const paymentTranslations = {
     pickupAddressRequired: "Alış adresi 6–160 karakter arasında olmalıdır.",
     dropoffAddressRequired: "Varış adresi 6–160 karakter arasında olmalıdır.",
     addressesMustDiffer: "Alış ve varış adresleri farklı olmalıdır.",
-    customDestinationPrice: "Fiyat, varış adresi kontrol edildikten sonra teyit edilecektir.",
+    customDestinationPrice:
+      "Fiyat, varış adresi kontrol edildikten sonra teyit edilecektir.",
     hotelNameLabel: "Otel ismi",
     hotelNamePlaceholder: "Otel veya konaklama adı",
     hotelNameRequired: "Lütfen otel ismini girin.",
@@ -3022,10 +3118,13 @@ const paymentTranslations = {
     phoneInvalid:
       "Введите действительный номер с кодом страны (например, +49).",
     flightInvalid: "Введите действительный номер рейса.",
-    pickupAddressRequired: "Адрес подачи должен содержать от 6 до 160 символов.",
-    dropoffAddressRequired: "Адрес назначения должен содержать от 6 до 160 символов.",
+    pickupAddressRequired:
+      "Адрес подачи должен содержать от 6 до 160 символов.",
+    dropoffAddressRequired:
+      "Адрес назначения должен содержать от 6 до 160 символов.",
     addressesMustDiffer: "Адреса подачи и назначения должны отличаться.",
-    customDestinationPrice: "Цена будет подтверждена после проверки адреса назначения.",
+    customDestinationPrice:
+      "Цена будет подтверждена после проверки адреса назначения.",
     hotelNameLabel: "Название отеля",
     hotelNamePlaceholder: "Название отеля или места проживания",
     hotelNameRequired: "Введите название отеля.",
@@ -3062,13 +3161,13 @@ const paymentTranslations = {
     dateInvalid: "Wybierz dzisiejszą lub przyszłą datę.",
     emailInvalid: "Wprowadź prawidłowy adres e-mail.",
     nameInvalid: "Wprowadź prawidłowe imię i nazwisko.",
-    phoneInvalid:
-      "Wprowadź prawidłowy numer z kodem kraju (na przykład +49).",
+    phoneInvalid: "Wprowadź prawidłowy numer z kodem kraju (na przykład +49).",
     flightInvalid: "Wprowadź prawidłowy numer lotu.",
     pickupAddressRequired: "Adres odbioru musi mieć od 6 do 160 znaków.",
     dropoffAddressRequired: "Adres docelowy musi mieć od 6 do 160 znaków.",
     addressesMustDiffer: "Adres odbioru i adres docelowy muszą być różne.",
-    customDestinationPrice: "Cena zostanie potwierdzona po sprawdzeniu adresu docelowego.",
+    customDestinationPrice:
+      "Cena zostanie potwierdzona po sprawdzeniu adresu docelowego.",
     hotelNameLabel: "Nazwa hotelu",
     hotelNamePlaceholder: "Nazwa hotelu lub zakwaterowania",
     hotelNameRequired: "Wprowadź nazwę hotelu.",
@@ -3093,7 +3192,8 @@ const paymentTranslations = {
     back: "Terug",
     reserveForPrice: "Reserveren",
     perVehicleNoteVito: "Per voertuig — niet per persoon · Tot 6 passagiers",
-    perVehicleNoteSprinter: "Per voertuig — niet per persoon · Tot 12 passagiers",
+    perVehicleNoteSprinter:
+      "Per voertuig — niet per persoon · Tot 12 passagiers",
     requestQuote: "Prijsopgave aanvragen",
     cashConfirmation:
       "Uw boeking is bevestigd. Betaal het vaste bedrag rechtstreeks aan de chauffeur.",
@@ -3105,13 +3205,15 @@ const paymentTranslations = {
     dateInvalid: "Kies vandaag of een toekomstige datum.",
     emailInvalid: "Voer een geldig e-mailadres in.",
     nameInvalid: "Voer een geldige volledige naam in.",
-    phoneInvalid:
-      "Voer een geldig nummer met landcode in (bijvoorbeeld +49).",
+    phoneInvalid: "Voer een geldig nummer met landcode in (bijvoorbeeld +49).",
     flightInvalid: "Voer een geldig vluchtnummer in.",
-    pickupAddressRequired: "Het ophaaladres moet tussen 6 en 160 tekens lang zijn.",
-    dropoffAddressRequired: "Het bestemmingsadres moet tussen 6 en 160 tekens lang zijn.",
+    pickupAddressRequired:
+      "Het ophaaladres moet tussen 6 en 160 tekens lang zijn.",
+    dropoffAddressRequired:
+      "Het bestemmingsadres moet tussen 6 en 160 tekens lang zijn.",
     addressesMustDiffer: "Het ophaal- en bestemmingsadres moeten verschillen.",
-    customDestinationPrice: "De prijs wordt bevestigd na controle van het bestemmingsadres.",
+    customDestinationPrice:
+      "De prijs wordt bevestigd na controle van het bestemmingsadres.",
     hotelNameLabel: "Hotelnaam",
     hotelNamePlaceholder: "Naam van hotel of accommodatie",
     hotelNameRequired: "Voer de hotelnaam in.",
@@ -3148,13 +3250,14 @@ const paymentTranslations = {
     dateInvalid: "Оберіть сьогоднішню або майбутню дату.",
     emailInvalid: "Введіть дійсну електронну адресу.",
     nameInvalid: "Введіть дійсне повне ім'я.",
-    phoneInvalid:
-      "Введіть дійсний номер із кодом країни (наприклад, +49).",
+    phoneInvalid: "Введіть дійсний номер із кодом країни (наприклад, +49).",
     flightInvalid: "Введіть дійсний номер рейсу.",
     pickupAddressRequired: "Адреса подачі має містити від 6 до 160 символів.",
-    dropoffAddressRequired: "Адреса призначення має містити від 6 до 160 символів.",
+    dropoffAddressRequired:
+      "Адреса призначення має містити від 6 до 160 символів.",
     addressesMustDiffer: "Адреси подачі та призначення мають відрізнятися.",
-    customDestinationPrice: "Ціна буде підтверджена після перевірки адреси призначення.",
+    customDestinationPrice:
+      "Ціна буде підтверджена після перевірки адреси призначення.",
     hotelNameLabel: "Назва готелю",
     hotelNamePlaceholder: "Назва готелю або місця проживання",
     hotelNameRequired: "Введіть назву готелю.",
@@ -3179,7 +3282,8 @@ const paymentTranslations = {
     back: "Retour",
     reserveForPrice: "Réserver",
     perVehicleNoteVito: "Par véhicule — non par personne · Jusqu'à 6 passagers",
-    perVehicleNoteSprinter: "Par véhicule — non par personne · Jusqu'à 12 passagers",
+    perVehicleNoteSprinter:
+      "Par véhicule — non par personne · Jusqu'à 12 passagers",
     requestQuote: "Demander un devis",
     cashConfirmation:
       "Votre réservation est confirmée. Réglez le montant fixe directement au chauffeur.",
@@ -3197,9 +3301,12 @@ const paymentTranslations = {
     flightInvalid: "Veuillez saisir un numéro de vol valide.",
     pickupAddressRequired:
       "L'adresse de prise en charge doit contenir entre 6 et 160 caractères.",
-    dropoffAddressRequired: "L'adresse de destination doit contenir entre 6 et 160 caractères.",
-    addressesMustDiffer: "Les adresses de prise en charge et de destination doivent être différentes.",
-    customDestinationPrice: "Le prix sera confirmé après vérification de l'adresse de destination.",
+    dropoffAddressRequired:
+      "L'adresse de destination doit contenir entre 6 et 160 caractères.",
+    addressesMustDiffer:
+      "Les adresses de prise en charge et de destination doivent être différentes.",
+    customDestinationPrice:
+      "Le prix sera confirmé après vérification de l'adresse de destination.",
     hotelNameLabel: "Nom de l'hôtel",
     hotelNamePlaceholder: "Nom de l'hôtel ou de l'hébergement",
     hotelNameRequired: "Veuillez saisir le nom de l'hôtel.",
@@ -3224,7 +3331,8 @@ const paymentTranslations = {
     back: "Tillbaka",
     reserveForPrice: "Boka",
     perVehicleNoteVito: "Per fordon — inte per person · Upp till 6 passagerare",
-    perVehicleNoteSprinter: "Per fordon — inte per person · Upp till 12 passagerare",
+    perVehicleNoteSprinter:
+      "Per fordon — inte per person · Upp till 12 passagerare",
     requestQuote: "Begär prisuppgift",
     cashConfirmation:
       "Din bokning är bekräftad. Betala det fasta beloppet direkt till chauffören.",
@@ -3236,13 +3344,16 @@ const paymentTranslations = {
     dateInvalid: "Välj dagens datum eller ett framtida datum.",
     emailInvalid: "Ange en giltig e-postadress.",
     nameInvalid: "Ange ett giltigt fullständigt namn.",
-    phoneInvalid:
-      "Ange ett giltigt nummer med landskod (till exempel +49).",
+    phoneInvalid: "Ange ett giltigt nummer med landskod (till exempel +49).",
     flightInvalid: "Ange ett giltigt flightnummer.",
-    pickupAddressRequired: "Hämtningsadressen måste vara mellan 6 och 160 tecken.",
-    dropoffAddressRequired: "Destinationsadressen måste vara mellan 6 och 160 tecken.",
-    addressesMustDiffer: "Hämtnings- och destinationsadressen måste vara olika.",
-    customDestinationPrice: "Priset bekräftas efter att destinationsadressen kontrollerats.",
+    pickupAddressRequired:
+      "Hämtningsadressen måste vara mellan 6 och 160 tecken.",
+    dropoffAddressRequired:
+      "Destinationsadressen måste vara mellan 6 och 160 tecken.",
+    addressesMustDiffer:
+      "Hämtnings- och destinationsadressen måste vara olika.",
+    customDestinationPrice:
+      "Priset bekräftas efter att destinationsadressen kontrollerats.",
     hotelNameLabel: "Hotellnamn",
     hotelNamePlaceholder: "Hotell- eller boendenamn",
     hotelNameRequired: "Ange hotellnamnet.",
@@ -3279,11 +3390,12 @@ const paymentTranslations = {
     dateInvalid: "今日または今後の日付を選択してください。",
     emailInvalid: "有効なメールアドレスを入力してください。",
     nameInvalid: "有効な氏名を入力してください。",
-    phoneInvalid:
-      "国番号を含む有効な電話番号を入力してください（例：+49）。",
+    phoneInvalid: "国番号を含む有効な電話番号を入力してください（例：+49）。",
     flightInvalid: "有効なフライト番号を入力してください。",
-    pickupAddressRequired: "お迎え先の住所は6文字以上160文字以内で入力してください。",
-    dropoffAddressRequired: "目的地の住所は6文字以上160文字以内で入力してください。",
+    pickupAddressRequired:
+      "お迎え先の住所は6文字以上160文字以内で入力してください。",
+    dropoffAddressRequired:
+      "目的地の住所は6文字以上160文字以内で入力してください。",
     addressesMustDiffer: "お迎え先と目的地には異なる住所を入力してください。",
     customDestinationPrice: "目的地の住所を確認後、料金をご案内いたします。",
     hotelNameLabel: "ホテル名",
@@ -3322,11 +3434,11 @@ const paymentTranslations = {
     dateInvalid: "오늘 또는 이후 날짜를 선택해 주세요.",
     emailInvalid: "올바른 이메일 주소를 입력해 주세요.",
     nameInvalid: "올바른 전체 이름을 입력해 주세요.",
-    phoneInvalid:
-      "국가 코드를 포함한 올바른 번호를 입력해 주세요(예: +49).",
+    phoneInvalid: "국가 코드를 포함한 올바른 번호를 입력해 주세요(예: +49).",
     flightInvalid: "올바른 항공편 번호를 입력해 주세요.",
     pickupAddressRequired: "픽업 주소는 6자 이상 160자 이하로 입력해 주세요.",
-    dropoffAddressRequired: "목적지 주소는 6자 이상 160자 이하로 입력해 주세요.",
+    dropoffAddressRequired:
+      "목적지 주소는 6자 이상 160자 이하로 입력해 주세요.",
     addressesMustDiffer: "픽업 주소와 목적지 주소는 달라야 합니다.",
     customDestinationPrice: "목적지 주소 확인 후 가격이 확정됩니다.",
     hotelNameLabel: "호텔명",
@@ -3403,7 +3515,8 @@ const tripTranslations = {
     returnTimeRequired: "Please choose the return pick-up time.",
     dailyChauffeur: "Daily vehicle + chauffeur",
     days: "days",
-    dailyChauffeurHint: "Hire a private vehicle and chauffeur by the day with no kilometre or hour limit. Fuel is paid separately.",
+    dailyChauffeurHint:
+      "Hire a private vehicle and chauffeur by the day with no kilometre or hour limit. Fuel is paid separately.",
     serviceStartDate: "First service day",
     serviceEndDate: "Last service day",
     dailyPickupTime: "Service start time",
@@ -3414,21 +3527,27 @@ const tripTranslations = {
     arrivalFlightNumberOptional: "Arrival flight number (optional)",
     servicePrice: "Service price",
     fuelExcludedShort: "fuel excluded",
-    fuelExcludedDetail: "Fuel is not included and is paid separately according to use.",
+    fuelExcludedDetail:
+      "Fuel is not included and is paid separately according to use.",
     departureFlightDate: "Departure flight date (optional)",
     departureFlightTime: "Departure flight time",
     departureFlightNumber: "Departure flight number",
     departureFlightDateRequired: "Please select the departure flight date.",
-    departureFlightDateInvalid: "Departure flight date cannot be before the service starts.",
-    dailyQuoteIncludes: "Includes the selected vehicle and chauffeur with no kilometre or hour limit. Fuel is excluded.",
+    departureFlightDateInvalid:
+      "Departure flight date cannot be before the service starts.",
+    dailyQuoteIncludes:
+      "Includes the selected vehicle and chauffeur with no kilometre or hour limit. Fuel is excluded.",
     reviewAndConfirm: "Review and confirm",
     fuelTermsTitle: "Important information about fuel",
-    fuelTermsBody: "The daily €150 service fee includes the vehicle and chauffeur. Fuel is not included. You will pay the actual fuel cost separately according to use.",
-    fuelTermsCheckbox: "I understand that fuel is excluded and will be paid separately based on use.",
+    fuelTermsBody:
+      "The daily €150 service fee includes the vehicle and chauffeur. Fuel is not included. You will pay the actual fuel cost separately according to use.",
+    fuelTermsCheckbox:
+      "I understand that fuel is excluded and will be paid separately based on use.",
     cancel: "Cancel",
     close: "Close",
     understandAndConfirm: "I understand and confirm",
-    dailyCashConfirmation: "Your daily chauffeur hire is confirmed. The service price excludes fuel, which is paid separately based on use.",
+    dailyCashConfirmation:
+      "Your daily chauffeur hire is confirmed. The service price excludes fuel, which is paid separately based on use.",
   },
   de: {
     tripType: "Fahrtart",
@@ -3449,7 +3568,8 @@ const tripTranslations = {
     returnTimeRequired: "Bitte wählen Sie die Abholzeit für die Rückfahrt.",
     dailyChauffeur: "Fahrzeug + Chauffeur pro Tag",
     days: "Tage",
-    dailyChauffeurHint: "Mieten Sie Fahrzeug und Chauffeur tageweise ohne Kilometer- oder Stundenlimit. Kraftstoff wird separat bezahlt.",
+    dailyChauffeurHint:
+      "Mieten Sie Fahrzeug und Chauffeur tageweise ohne Kilometer- oder Stundenlimit. Kraftstoff wird separat bezahlt.",
     serviceStartDate: "Erster Servicetag",
     serviceEndDate: "Letzter Servicetag",
     dailyPickupTime: "Startzeit des Services",
@@ -3460,21 +3580,27 @@ const tripTranslations = {
     arrivalFlightNumberOptional: "Ankunftsflugnummer (optional)",
     servicePrice: "Servicepreis",
     fuelExcludedShort: "Kraftstoff nicht inbegriffen",
-    fuelExcludedDetail: "Kraftstoff ist nicht enthalten und wird je nach Verbrauch separat bezahlt.",
+    fuelExcludedDetail:
+      "Kraftstoff ist nicht enthalten und wird je nach Verbrauch separat bezahlt.",
     departureFlightDate: "Abflugdatum (optional)",
     departureFlightTime: "Abflugzeit",
     departureFlightNumber: "Abflugnummer",
     departureFlightDateRequired: "Bitte wählen Sie das Abflugdatum.",
-    departureFlightDateInvalid: "Das Abflugdatum darf nicht vor Servicebeginn liegen.",
-    dailyQuoteIncludes: "Inklusive Fahrzeug und Chauffeur ohne Kilometer- oder Stundenlimit. Kraftstoff ist nicht enthalten.",
+    departureFlightDateInvalid:
+      "Das Abflugdatum darf nicht vor Servicebeginn liegen.",
+    dailyQuoteIncludes:
+      "Inklusive Fahrzeug und Chauffeur ohne Kilometer- oder Stundenlimit. Kraftstoff ist nicht enthalten.",
     reviewAndConfirm: "Prüfen und bestätigen",
     fuelTermsTitle: "Wichtige Information zum Kraftstoff",
-    fuelTermsBody: "Die Tagesgebühr von 150 € beinhaltet Fahrzeug und Chauffeur. Kraftstoff ist nicht enthalten und wird nach tatsächlichem Verbrauch separat bezahlt.",
-    fuelTermsCheckbox: "Ich verstehe, dass Kraftstoff nicht enthalten ist und nach Verbrauch separat bezahlt wird.",
+    fuelTermsBody:
+      "Die Tagesgebühr von 150 € beinhaltet Fahrzeug und Chauffeur. Kraftstoff ist nicht enthalten und wird nach tatsächlichem Verbrauch separat bezahlt.",
+    fuelTermsCheckbox:
+      "Ich verstehe, dass Kraftstoff nicht enthalten ist und nach Verbrauch separat bezahlt wird.",
     cancel: "Abbrechen",
     close: "Schließen",
     understandAndConfirm: "Verstanden und bestätigen",
-    dailyCashConfirmation: "Ihre tägliche Chauffeurbuchung ist bestätigt. Kraftstoff ist nicht enthalten und wird nach Verbrauch separat bezahlt.",
+    dailyCashConfirmation:
+      "Ihre tägliche Chauffeurbuchung ist bestätigt. Kraftstoff ist nicht enthalten und wird nach Verbrauch separat bezahlt.",
   },
   tr: {
     tripType: "Yolculuk türü",
@@ -3495,7 +3621,8 @@ const tripTranslations = {
     returnTimeRequired: "Lütfen dönüş için alış saatini seçin.",
     dailyChauffeur: "Günlük araç + şoför",
     days: "gün",
-    dailyChauffeurHint: "Özel araç ve şoförü kilometre ve saat sınırı olmadan günlük kiralayın. Yakıt ayrıca ödenir.",
+    dailyChauffeurHint:
+      "Özel araç ve şoförü kilometre ve saat sınırı olmadan günlük kiralayın. Yakıt ayrıca ödenir.",
     serviceStartDate: "İlk hizmet günü",
     serviceEndDate: "Son hizmet günü",
     dailyPickupTime: "Hizmet başlangıç saati",
@@ -3511,16 +3638,21 @@ const tripTranslations = {
     departureFlightTime: "Dönüş uçuş saati",
     departureFlightNumber: "Dönüş uçuş numarası",
     departureFlightDateRequired: "Lütfen dönüş uçuş tarihini seçin.",
-    departureFlightDateInvalid: "Dönüş uçuş tarihi hizmet başlangıcından önce olamaz.",
-    dailyQuoteIncludes: "Seçilen araç ve şoför, kilometre ve saat sınırı olmadan dahildir. Yakıt hariçtir.",
+    departureFlightDateInvalid:
+      "Dönüş uçuş tarihi hizmet başlangıcından önce olamaz.",
+    dailyQuoteIncludes:
+      "Seçilen araç ve şoför, kilometre ve saat sınırı olmadan dahildir. Yakıt hariçtir.",
     reviewAndConfirm: "İncele ve onayla",
     fuelTermsTitle: "Yakıt ücreti hakkında önemli bilgi",
-    fuelTermsBody: "Günlük €150 hizmet bedeline araç ve şoför dahildir. Yakıt ücreti dahil değildir. Gerçekleşen yakıt masrafını kullanıma göre ayrıca ödeyeceksiniz.",
-    fuelTermsCheckbox: "Yakıtın dahil olmadığını ve kullanıma göre ayrıca ödeneceğini anladım.",
+    fuelTermsBody:
+      "Günlük €150 hizmet bedeline araç ve şoför dahildir. Yakıt ücreti dahil değildir. Gerçekleşen yakıt masrafını kullanıma göre ayrıca ödeyeceksiniz.",
+    fuelTermsCheckbox:
+      "Yakıtın dahil olmadığını ve kullanıma göre ayrıca ödeneceğini anladım.",
     cancel: "Vazgeç",
     close: "Kapat",
     understandAndConfirm: "Anladım ve onaylıyorum",
-    dailyCashConfirmation: "Günlük araç ve şoför rezervasyonunuz onaylandı. Hizmet bedeline yakıt dahil değildir; yakıt kullanıma göre ayrıca ödenir.",
+    dailyCashConfirmation:
+      "Günlük araç ve şoför rezervasyonunuz onaylandı. Hizmet bedeline yakıt dahil değildir; yakıt kullanıma göre ayrıca ödenir.",
   },
   ru: {
     tripType: "Тип поездки",
@@ -3544,7 +3676,8 @@ const tripTranslations = {
     tripType: "نوع الرحلة",
     oneWay: "ذهاب فقط",
     roundTrip: "ذهاب وعودة",
-    roundTripHint: "في رحلة الذهاب والعودة، تكون رحلة العودة على المسار نفسه بالاتجاه المعاكس.",
+    roundTripHint:
+      "في رحلة الذهاب والعودة، تكون رحلة العودة على المسار نفسه بالاتجاه المعاكس.",
     returnDate: "تاريخ العودة",
     returnPickupTime: "وقت الاستقبال للعودة",
     returnFlightNumber: "رقم رحلة العودة",
@@ -3553,7 +3686,8 @@ const tripTranslations = {
     arrivalFlightNumber: "رقم رحلة الوصول",
     roundTripPriceNote: "ذهاب وعودة · رحلتان",
     returnDateRequired: "يرجى اختيار تاريخ العودة.",
-    returnDateInvalid: "يرجى اختيار تاريخ عودة يوافق تاريخ الذهاب أو يأتي بعده.",
+    returnDateInvalid:
+      "يرجى اختيار تاريخ عودة يوافق تاريخ الذهاب أو يأتي بعده.",
     returnTimeRequired: "يرجى اختيار وقت الاستقبال للعودة.",
   },
 };
@@ -3745,7 +3879,6 @@ const formatEuroAmount = (price) => {
   return `€${Number.isInteger(value) ? value.toFixed(0) : value.toFixed(2)}`;
 };
 
-
 const header = document.querySelector(".site-header");
 const menuButton = document.querySelector(".menu-button");
 const mobileMenu = document.querySelector(".mobile-menu");
@@ -3780,7 +3913,8 @@ const emailInput = document.querySelector("#customer-email");
 const flightNumberInput = document.querySelector("#flight-number");
 const arrivalTimeInput = document.querySelector("#flight-arrival-time");
 const arrivalTimeControl = arrivalTimeInput?.closest(".time-field-control");
-const arrivalTimeValue = arrivalTimeControl?.querySelector(".time-picker-value");
+const arrivalTimeValue =
+  arrivalTimeControl?.querySelector(".time-picker-value");
 const returnTimeControl = returnPickupTimeInput?.closest(".time-field-control");
 const returnTimeValue = returnTimeControl?.querySelector(".time-picker-value");
 
@@ -3910,15 +4044,23 @@ const handleSwipe = () => {
     }
   }
 };
-fleetCarousel?.addEventListener("touchstart", (e) => {
-  touchStartX = e.changedTouches[0].clientX;
-  touchStartY = e.changedTouches[0].clientY;
-}, { passive: true });
-fleetCarousel?.addEventListener("touchend", (e) => {
-  touchEndX = e.changedTouches[0].clientX;
-  touchEndY = e.changedTouches[0].clientY;
-  handleSwipe();
-}, { passive: true });
+fleetCarousel?.addEventListener(
+  "touchstart",
+  (e) => {
+    touchStartX = e.changedTouches[0].clientX;
+    touchStartY = e.changedTouches[0].clientY;
+  },
+  { passive: true },
+);
+fleetCarousel?.addEventListener(
+  "touchend",
+  (e) => {
+    touchEndX = e.changedTouches[0].clientX;
+    touchEndY = e.changedTouches[0].clientY;
+    handleSwipe();
+  },
+  { passive: true },
+);
 
 syncFleetCarouselForVehicle(
   document.querySelector(".fleet-tab.active")?.dataset.fleet || "sprinter",
@@ -3943,8 +4085,7 @@ let currentQuoteData = {};
 
 const priceDisplay = document.querySelector("#booking-price-display");
 const getSelectedTripType = () =>
-  document.querySelector('input[name="tripType"]:checked')?.value ||
-  "one_way";
+  document.querySelector('input[name="tripType"]:checked')?.value || "one_way";
 const isRoundTrip = () => getSelectedTripType() === "round_trip";
 
 // Vehicle order cheapest → largest. Combined capacity: a guest needs a seat,
@@ -3980,8 +4121,7 @@ const setCapacityNote = (state) => {
   const key =
     state === "none" ? "capacityNoVehicle" : "capacitySwitchedSprinter";
   capacityNote.dataset.i18n = key;
-  capacityNote.textContent =
-    translations[lang]?.[key] || capacityFallback[key];
+  capacityNote.textContent = translations[lang]?.[key] || capacityFallback[key];
   capacityNote.hidden = false;
   capacityNote.classList.toggle("capacity-note-error", state === "none");
 };
@@ -4053,8 +4193,9 @@ const updateInlinePrice = (routeKey, vehicleKey = vehicleSelect.value) => {
       pickupSelect.options[pickupSelect.selectedIndex]?.textContent.trim() ||
       pickupSelect.value;
     const destLabel =
-      destinationSelect.options[destinationSelect.selectedIndex]?.textContent.trim() ||
-      "Private address";
+      destinationSelect.options[
+        destinationSelect.selectedIndex
+      ]?.textContent.trim() || "Private address";
     const priceNote =
       translations[language]?.customDestinationPrice ||
       "The price will be confirmed after we check the drop-off address.";
@@ -4194,7 +4335,8 @@ destinationSelect.addEventListener("change", () => {
   updateDropoffAddress();
   updateHotelRequirement();
   if (destinationSelect.value) {
-    const routeName = routeData[destinationSelect.value]?.name || destinationSelect.value;
+    const routeName =
+      routeData[destinationSelect.value]?.name || destinationSelect.value;
     const price =
       (routeData[destinationSelect.value]?.prices[vehicleSelect.value] || 0) *
       (isRoundTrip() ? 2 : 1);
@@ -4539,27 +4681,29 @@ syncReturnTimeState();
 const setWhatsAppBookingUrl = (details) => {
   const waBtn = document.querySelector("#confirmed-whatsapp");
   if (!waBtn) return;
-  const lines = ["🚗 *Antalya VIP Limousine — New Booking*"];
-  if (details.ref)       lines.push(`📋 Ref: ${details.ref}`);
-  if (details.name)      lines.push(`👤 Name: ${details.name}`);
-  if (details.phone)     lines.push(`📞 Phone: ${details.phone}`);
-  if (details.email)     lines.push(`✉️ Email: ${details.email}`);
-  if (details.tripType)  lines.push(`↔️ Journey: ${details.tripType}`);
-  if (details.date)      lines.push(`📅 Date: ${details.date}`);
-  if (details.hotel)     lines.push(`🏨 Hotel: ${details.hotel}`);
+  const lines = ["🚗 *Antalya VIP Tourism — New Booking*"];
+  if (details.ref) lines.push(`📋 Ref: ${details.ref}`);
+  if (details.name) lines.push(`👤 Name: ${details.name}`);
+  if (details.phone) lines.push(`📞 Phone: ${details.phone}`);
+  if (details.email) lines.push(`✉️ Email: ${details.email}`);
+  if (details.tripType) lines.push(`↔️ Journey: ${details.tripType}`);
+  if (details.date) lines.push(`📅 Date: ${details.date}`);
+  if (details.hotel) lines.push(`🏨 Hotel: ${details.hotel}`);
   if (details.childSeats) lines.push(`👶 Child seats: ${details.childSeats}`);
-  if (details.luggage)   lines.push(`🧳 Luggage: ${details.luggage}`);
-  if (details.pickup)    lines.push(`📍 Pickup: ${details.pickup}`);
-  if (details.dropoff)   lines.push(`🏁 Dropoff: ${details.dropoff}`);
-  if (details.vehicle)   lines.push(`🚘 Vehicle: ${details.vehicle}`);
-  if (details.guests)    lines.push(`👥 Guests: ${details.guests}`);
-  if (details.flight)    lines.push(`✈️ Flight: ${details.flight}`);
-  if (details.arrival)   lines.push(`🕐 Arrival: ${details.arrival}`);
+  if (details.luggage) lines.push(`🧳 Luggage: ${details.luggage}`);
+  if (details.pickup) lines.push(`📍 Pickup: ${details.pickup}`);
+  if (details.dropoff) lines.push(`🏁 Dropoff: ${details.dropoff}`);
+  if (details.vehicle) lines.push(`🚘 Vehicle: ${details.vehicle}`);
+  if (details.guests) lines.push(`👥 Guests: ${details.guests}`);
+  if (details.flight) lines.push(`✈️ Flight: ${details.flight}`);
+  if (details.arrival) lines.push(`🕐 Arrival: ${details.arrival}`);
   if (details.returnDate) lines.push(`📅 Return date: ${details.returnDate}`);
-  if (details.returnPickupTime) lines.push(`🕐 Return pickup: ${details.returnPickupTime}`);
-  if (details.returnFlight) lines.push(`✈️ Return flight: ${details.returnFlight}`);
-  if (details.price)     lines.push(`💶 Price: ${formatEuroAmount(details.price)}`);
-  if (details.payment)   lines.push(`💳 Payment: ${details.payment}`);
+  if (details.returnPickupTime)
+    lines.push(`🕐 Return pickup: ${details.returnPickupTime}`);
+  if (details.returnFlight)
+    lines.push(`✈️ Return flight: ${details.returnFlight}`);
+  if (details.price) lines.push(`💶 Price: ${formatEuroAmount(details.price)}`);
+  if (details.payment) lines.push(`💳 Payment: ${details.payment}`);
   const msg = encodeURIComponent(lines.join("\n"));
   waBtn.href = `https://wa.me/905302655790?text=${msg}`;
 };
@@ -4710,15 +4854,23 @@ quoteForm.addEventListener("submit", async (event) => {
       hotel: hotelName,
       childSeats: childSeatCount,
       luggage: luggageCount,
-      pickup: currentQuoteData.pickup === "private_address"
-        ? pickupAddress
-        : (currentQuoteData.pickup === "airport" ? "Antalya Airport" : hotelName),
-      dropoff: currentQuoteData.destination === "airport"
-        ? "Antalya Airport"
-        : currentQuoteData.destination === "private_address"
-          ? dropoffAddressInput.value.trim()
-          : (routeData[currentQuoteData.destination]?.name || currentQuoteData.destination),
-      vehicle: currentQuoteData.vehicle === "sprinter" ? "V-Class (Sprinter)" : "Mercedes Vito",
+      pickup:
+        currentQuoteData.pickup === "private_address"
+          ? pickupAddress
+          : currentQuoteData.pickup === "airport"
+            ? "Antalya Airport"
+            : hotelName,
+      dropoff:
+        currentQuoteData.destination === "airport"
+          ? "Antalya Airport"
+          : currentQuoteData.destination === "private_address"
+            ? dropoffAddressInput.value.trim()
+            : routeData[currentQuoteData.destination]?.name ||
+              currentQuoteData.destination,
+      vehicle:
+        currentQuoteData.vehicle === "sprinter"
+          ? "V-Class (Sprinter)"
+          : "Mercedes Vito",
       guests: document.querySelector("#guests").value,
       flight: flightNumberInput.value.trim() || null,
       arrival: document.querySelector("#flight-arrival-time").value || null,
@@ -4772,7 +4924,10 @@ document.querySelectorAll(".route-price-button").forEach((button) => {
     updateHotelRequirement();
     updateGuestCapacity();
     updateInlinePrice(button.dataset.route, selectedVehicle);
-    gtag?.("event", "route_selected", { route: button.dataset.route, source: "route_card" });
+    gtag?.("event", "route_selected", {
+      route: button.dataset.route,
+      source: "route_card",
+    });
     document.querySelector("#booking").scrollIntoView({ behavior: "smooth" });
     setTimeout(() => document.querySelector("#customer-name").focus(), 600);
   });
@@ -4823,7 +4978,10 @@ document.querySelectorAll(".price-pill").forEach((pill) => {
     updateDropoffAddress();
     updateHotelRequirement();
     updateInlinePrice(pill.dataset.route);
-    gtag?.("event", "route_selected", { route: pill.dataset.route, source: "price_pill" });
+    gtag?.("event", "route_selected", {
+      route: pill.dataset.route,
+      source: "price_pill",
+    });
     document.querySelector("#booking").scrollIntoView({ behavior: "smooth" });
     setTimeout(() => document.querySelector("#customer-name").focus(), 600);
   });
@@ -4880,8 +5038,9 @@ const applyLanguage = (language) => {
   const supportedLanguage =
     translations[language] || language === "en" ? language : "en";
   document.documentElement.lang = supportedLanguage;
-  document.documentElement.dir =
-    ["ar", "ur"].includes(supportedLanguage) ? "rtl" : "ltr";
+  document.documentElement.dir = ["ar", "ur"].includes(supportedLanguage)
+    ? "rtl"
+    : "ltr";
 
   if (langFlagEl)
     langFlagEl.textContent = LANG_FLAGS[supportedLanguage] || "🌐";
@@ -4999,12 +5158,11 @@ const pathLanguage =
   "en";
 let savedLanguage = pathLanguage;
 try {
-  savedLanguage =
-    ["de", "tr", "ru"].includes(pathLanguage)
-      ? pathLanguage
-      : localStorage.getItem("avl-language") ||
-        pathLanguage ||
-        detectBrowserLanguage();
+  savedLanguage = ["de", "tr", "ru"].includes(pathLanguage)
+    ? pathLanguage
+    : localStorage.getItem("avl-language") ||
+      pathLanguage ||
+      detectBrowserLanguage();
 } catch {
   savedLanguage = pathLanguage || detectBrowserLanguage();
 }
@@ -5017,9 +5175,15 @@ gtag?.("event", "landing_view", {
 });
 
 document.querySelectorAll("a[href*='wa.me']").forEach((link) => {
-  link.addEventListener("click", () => {
-    gtag?.("event", "whatsapp_clicked", { source: link.closest("[id]")?.id || "unknown" });
-  }, { once: false });
+  link.addEventListener(
+    "click",
+    () => {
+      gtag?.("event", "whatsapp_clicked", {
+        source: link.closest("[id]")?.id || "unknown",
+      });
+    },
+    { once: false },
+  );
 });
 
 // Handle the verified iyzico callback return.
@@ -5056,9 +5220,7 @@ const observer = new IntersectionObserver(
 );
 
 document
-  .querySelectorAll(
-    ".service-card, .route-card, .review-card",
-  )
+  .querySelectorAll(".service-card, .route-card, .review-card")
   .forEach((element) => {
     const siblings = Array.from(element.parentElement.children);
     const delay = (siblings.indexOf(element) % 4) * 0.09;

@@ -9,7 +9,7 @@ formu doldurup doldurmadı — bunları görmek için zorunlu.
 
 1. `analytics.google.com` → Google hesabınla giriş yap
 2. **Admin** → **Create Account**
-3. Account Name: `Antalya VIP Limousine`
+3. Account Name: `Antalya VIP Tourism`
 4. **Property** → Property Name: `antalyaviptourism.com`
 5. Timezone: `Turkey`, Currency: `EUR`
 6. **Data Stream** → Web → URL: `https://antalyaviptourism.com`
@@ -31,12 +31,17 @@ Claude `index.html` dosyasına iki kod bloğu ekler, sen sadece deploy edersin.
 
 ```html
 <!-- Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script
+  async
+  src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"
+></script>
 <script>
   window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-XXXXXXXXXX');
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+  gtag("js", new Date());
+  gtag("config", "G-XXXXXXXXXX");
 </script>
 ```
 
@@ -47,19 +52,20 @@ Claude `index.html` dosyasına iki kod bloğu ekler, sen sadece deploy edersin.
 Bu eventler otomatik değil; sitedeki reservation formuna özel kod eklemek gerekir.
 Claude bunu da yapar ama GA4 kurulduktan sonra.
 
-| Event | Ne zaman ateşlenir |
-|---|---|
-| `booking_submitted_cash` | Nakit rezervasyon formu gönderildi |
-| `checkout_started_card` | iyzico ödeme sayfasına yönlendirildi |
-| `purchase_card` | iyzico ödeme başarıyla tamamlandı |
-| `quote_viewed` | Rota ve fiyat gösterildi |
-| `booking_started` | Form ilk defa etkileşime geçildi |
+| Event                    | Ne zaman ateşlenir                   |
+| ------------------------ | ------------------------------------ |
+| `booking_submitted_cash` | Nakit rezervasyon formu gönderildi   |
+| `checkout_started_card`  | iyzico ödeme sayfasına yönlendirildi |
+| `purchase_card`          | iyzico ödeme başarıyla tamamlandı    |
+| `quote_viewed`           | Rota ve fiyat gösterildi             |
+| `booking_started`        | Form ilk defa etkileşime geçildi     |
 
 ---
 
 ## Adım 4 — Google Ads Bağlantısı
 
 GA4 + Google Ads bağlanmalı ki:
+
 - Hangi reklamdan kaç rezervasyon geldi görünsün
 - Akıllı teklif sistemi (Smart Bidding) çalışsın
 
