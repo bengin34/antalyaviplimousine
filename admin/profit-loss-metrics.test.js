@@ -116,11 +116,9 @@ describe('calculateProfitLossMetrics', () => {
       ...baseBooking,
       pickup_location: 'private_address',
       dropoff_location: 'airport',
+      manual_outbound_distance_km: 42.5,
     }
-    const overrides = new Map([
-      ['booking-1:outbound', { distance_km: 42.5 }],
-    ])
-    const result = calculateProfitLossMetrics([custom], '2026-08', '2026-08-07', {}, overrides)
+    const result = calculateProfitLossMetrics([custom], '2026-08', '2026-08-07')
 
     expect(result.unresolvedLegs).toHaveLength(0)
     expect(result.passengerKm).toBe(42.5)
@@ -149,12 +147,10 @@ describe('calculateProfitLossMetrics', () => {
       return_date: '2026-08-05',
       pickup_location: 'private_address',
       dropoff_location: 'airport',
+      manual_outbound_distance_km: 40,
+      manual_return_distance_km: 45,
     }
-    const overrides = {
-      'booking-1:outbound': { distance_km: 40 },
-      'booking-1:return': { distance_km: 45 },
-    }
-    const result = calculateProfitLossMetrics([custom], '2026-08', '2026-08-07', {}, overrides)
+    const result = calculateProfitLossMetrics([custom], '2026-08', '2026-08-07')
 
     expect(result.unresolvedLegs).toHaveLength(0)
     expect(result.resolvedLegs.map(leg => [leg.leg, leg.oneWayKm])).toEqual([

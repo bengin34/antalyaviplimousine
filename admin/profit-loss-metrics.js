@@ -138,14 +138,15 @@ function settingForMonth(settingsByMonth, month) {
   return normalizeSetting(settingsByMonth?.[month])
 }
 
-function distanceOverrideForLeg(distanceOverrides, bookingId, leg) {
-  const key = `${bookingId}:${leg}`
-  const override = distanceOverrides instanceof Map ? distanceOverrides.get(key) : distanceOverrides?.[key]
-  const distance = Number(override?.distance_km ?? override)
+function manualDistanceForLeg(booking, leg) {
+  const value = leg === 'return'
+    ? booking.manual_return_distance_km
+    : booking.manual_outbound_distance_km
+  const distance = Number(value)
   return Number.isFinite(distance) && distance > 0 ? distance : null
 }
 
-export function calculateProfitLossMetrics(bookings, period, today, settingsByMonth = {}, distanceOverrides = {}) {
+export function calculateProfitLossMetrics(bookings, period, today, settingsByMonth = {}) {
   const resolvedLegs = []
   const unresolvedLegs = []
 
@@ -153,7 +154,7 @@ export function calculateProfitLossMetrics(bookings, period, today, settingsByMo
     for (const leg of bookingLegs(booking)) {
       if (!isRealizedLeg(booking, leg.date, today, leg.legStatus) || !isInPeriod(leg.date, period)) continue
 
-      const manualDistanceKm = distanceOverrideForLeg(distanceOverrides, booking.id, leg.leg)
+      const manualDistanceKm = manualDistanceForLeg(booking, leg.leg)
       const oneWayKm = manualDistanceKm ?? fixedRouteDistanceKm(leg.from, leg.to)
       const legDetails = {
         ...leg,

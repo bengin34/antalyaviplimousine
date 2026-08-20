@@ -10,23 +10,13 @@ const PAGE_SIZE = 1000
 const FIRST_PROFIT_MONTH = '2026-07'
 
 type SettingsMap = Map<string, any>
-type DistanceLeg = 'outbound' | 'return'
-type DistanceOverride = {
-  booking_id: string
-  leg: DistanceLeg
-  distance_km: number | string
-  updated_at: string
-}
-type DistanceOverridesMap = Map<string, DistanceOverride>
-
-const distanceKey = (bookingId: string, leg: DistanceLeg) => `${bookingId}:${leg}`
 const profitLocationLabel = (location: string) => location === 'daily_chauffeur' ? 'Günlük araç + şoför' : locationLabel(location)
 
 async function fetchAllBookings() {
   const bookings: Booking[] = []
   for (let from = 0; ; from += PAGE_SIZE) {
     const { data, error } = await supabase.from('bookings')
-      .select('id, booking_ref, customer_name, pickup_location, dropoff_location, pickup_date, return_date, service_end_date, trip_type, price_eur, daily_rate_eur, service_cost_mode, sold_transfer_cost_try, status, created_at, chauffeur_hire_days(id, service_date, day_number, status, distance_km, fuel_amount_eur, fuel_paid)')
+      .select('id, booking_ref, customer_name, pickup_location, dropoff_location, pickup_date, return_date, service_end_date, trip_type, price_eur, daily_rate_eur, service_cost_mode, sold_transfer_cost_try, status, created_at, manual_outbound_distance_km, manual_return_distance_km, chauffeur_hire_days(id, service_date, day_number, status, distance_km, fuel_amount_eur, fuel_paid)')
       .order('created_at', { ascending: true }).range(from, from + PAGE_SIZE - 1)
     if (error) throw error
     const rows = (data ?? []) as Booking[]
@@ -40,21 +30,6 @@ async function fetchSettings() {
     .select('period_month, km_cost_try, advertising_expense_try, eur_try_rate, updated_at').order('period_month')
   if (error) throw error
   return new Map((data ?? []).map((setting: any) => [setting.period_month.slice(0, 7), setting]))
-}
-
-async function fetchDistanceOverrides() {
-  const overrides: DistanceOverride[] = []
-  for (let from = 0; ; from += PAGE_SIZE) {
-    const { data, error } = await supabase.from('profit_loss_distance_overrides')
-      .select('booking_id, leg, distance_km, updated_at')
-      .order('updated_at', { ascending: true }).range(from, from + PAGE_SIZE - 1)
-    if (error) throw error
-    const rows = (data ?? []) as DistanceOverride[]
-    overrides.push(...rows)
-    if (rows.length < PAGE_SIZE) {
-      return new Map(overrides.map(override => [distanceKey(override.booking_id, override.leg), override]))
-    }
-  }
 }
 
 function settingValues(setting: any = {}) {
@@ -205,35 +180,31 @@ export default function ProfitLossPage({ navigate, initialPeriod }: { navigate: 
   const [period, setPeriod] = useState(() => initialPeriod && [...months, 'all'].includes(initialPeriod) ? initialPeriod : today.slice(0, 7))
   const [bookings, setBookings] = useState<Booking[]>([])
   const [settings, setSettings] = useState<SettingsMap>(new Map())
-  const [distanceOverrides, setDistanceOverrides] = useState<DistanceOverridesMap>(new Map())
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(false)
   const [status, setStatus] = useState('Yükleniyor…')
   const refresh = useCallback(async () => {
     setLoading(true); setError(false); setStatus('Seyahatler ve ayarlar yenileniyor…')
     try {
-      const [nextBookings, nextSettings, nextDistanceOverrides] = await Promise.all([fetchAllBookings(), fetchSettings(), fetchDistanceOverrides()])
-      setBookings(nextBookings); setSettings(nextSettings); setDistanceOverrides(nextDistanceOverrides); setStatus(`Seyahatlerle senkron · Son güncelleme: ${fmtSyncTime()}`)
+      const [nextBookings, nextSettings] = await Promise.all([fetchAllBookings(), fetchSettings()])
+      setBookings(nextBookings); setSettings(nextSettings); setStatus(`Seyahatlerle senkron · Son güncelleme: ${fmtSyncTime()}`)
     } catch { setError(true); setStatus('Bağlantı veya veri tabanı hatası') }
     finally { setLoading(false) }
   }, [])
   useEffect(() => { void refresh() }, [refresh])
-  const metrics = useMemo(() => calculateProfitLossMetrics(bookings, period, today, settings, distanceOverrides), [bookings, distanceOverrides, period, settings, today])
+  const metrics = useMemo(() => calculateProfitLossMetrics(bookings, period, today, settings), [bookings, period, settings, today])
   const saveSetting = (month: string, value: any) => setSettings(current => new Map(current).set(month, value))
   const saveDistance = async (leg: any, distanceKm: number) => {
-    const payload = {
-      booking_id: leg.bookingId,
-      leg: leg.leg as DistanceLeg,
-      distance_km: distanceKm,
-      updated_at: new Date().toISOString(),
-    }
-    const { data, error: saveError } = await supabase.from('profit_loss_distance_overrides')
-      .upsert(payload, { onConflict: 'booking_id,leg' })
-      .select('booking_id, leg, distance_km, updated_at').single()
+    const column = leg.leg === 'return' ? 'manual_return_distance_km' : 'manual_outbound_distance_km'
+    const payload = { [column]: distanceKm }
+    const { data, error: saveError } = await supabase.from('bookings')
+      .update(payload)
+      .eq('id', leg.bookingId)
+      .select(`id, ${column}`).single()
     if (saveError || !data) throw saveError ?? new Error('KM kaydı dönmedi')
-    const saved = data as DistanceOverride
-    setDistanceOverrides(current => new Map(current).set(distanceKey(saved.booking_id, saved.leg), saved))
-    setStatus(`${leg.bookingRef || 'Seyahat'} için tek yön ${formatNumber(saved.distance_km, 2)} km kaydedildi · Hesap güncellendi`)
+    const savedDistance = Number((data as Record<string, unknown>)[column])
+    setBookings(current => current.map(booking => booking.id === leg.bookingId ? { ...booking, [column]: savedDistance } : booking))
+    setStatus(`${leg.bookingRef || 'Seyahat'} için tek yön ${formatNumber(savedDistance, 2)} km kaydedildi · Hesap güncellendi`)
   }
   return <><Topbar navigate={navigate} /><AdminTabs active="profit-loss" navigate={navigate} />
     <div className="budget-toolbar profit-toolbar"><div className="budget-periods" role="group" aria-label="Kâr zarar dönemi">{[...months, 'all'].map(value => <button type="button" key={value} className={period === value ? 'active' : ''} onClick={() => setPeriod(value)}>{value === 'all' ? 'Tümü' : monthLabel(value, { short: true })}</button>)}</div><button className="sync-button" type="button" aria-label="Kâr zarar verilerini yenile" disabled={loading} onClick={() => void refresh()}>↻</button></div>

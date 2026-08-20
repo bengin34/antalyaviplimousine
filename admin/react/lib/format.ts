@@ -73,6 +73,17 @@ export function fmtDetailDate(isoDate?: string | null) {
   return label.charAt(0).toLocaleUpperCase('tr-TR') + label.slice(1)
 }
 
+export function fmtShortDate(isoDate?: string | null) {
+  if (!isoDate) return '—'
+  const date = new Date(`${isoDate}T12:00:00Z`)
+  return new Intl.DateTimeFormat('tr-TR', {
+    timeZone: ISTANBUL_TIME_ZONE,
+    day: 'numeric',
+    month: 'short',
+    year: 'numeric',
+  }).format(date)
+}
+
 export function monthRange(startYyyyMm: string, endYyyyMm: string) {
   const months: string[] = []
   let [year, month] = startYyyyMm.split('-').map(Number)
