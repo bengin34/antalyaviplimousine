@@ -1,5 +1,6 @@
 import { describe, expect, test } from 'vitest'
 import {
+  AIRPORT_MEET_COST_EUR,
   calculateProfitLossMetrics,
   DEFAULT_EUR_TRY_RATE,
   DEFAULT_KM_COST_TRY,
@@ -55,10 +56,12 @@ describe('calculateProfitLossMetrics', () => {
 
     expect(result.incomeEur).toBe(100)
     expect(result.incomeTry).toBe(100 * DEFAULT_EUR_TRY_RATE)
+    expect(result.airportMeetCostEur).toBe(AIRPORT_MEET_COST_EUR)
+    expect(result.airportMeetCostTry).toBe(AIRPORT_MEET_COST_EUR * DEFAULT_EUR_TRY_RATE)
     expect(result.passengerKm).toBe(65)
     expect(result.vehicleKm).toBe(130)
     expect(result.vehicleCostTry).toBe(130 * DEFAULT_KM_COST_TRY)
-    expect(result.netProfitTry).toBe(3050)
+    expect(result.netProfitTry).toBe(2800)
   })
 
   test('splits round-trip income and counts each realized leg separately', () => {
@@ -75,10 +78,11 @@ describe('calculateProfitLossMetrics', () => {
 
     expect(result.completedLegs).toBe(2)
     expect(result.incomeEur).toBe(200)
+    expect(result.airportMeetCostTry).toBe(5 * 40)
     expect(result.vehicleKm).toBe(260)
     expect(result.vehicleCostTry).toBe(5200)
     expect(result.advertisingExpenseTry).toBe(500)
-    expect(result.netProfitTry).toBe(2300)
+    expect(result.netProfitTry).toBe(2100)
   })
 
   test('excludes cancelled, future, and out-of-period legs', () => {
@@ -121,6 +125,19 @@ describe('calculateProfitLossMetrics', () => {
     expect(result.vehicleKm).toBe(85)
     expect(result.vehicleCostTry).toBe(85 * DEFAULT_KM_COST_TRY)
     expect(result.resolvedLegs[0].distanceSource).toBe('manual')
+  })
+
+  test('does not add airport meet cost when the trip does not start at the airport', () => {
+    const hotelPickup = {
+      ...baseBooking,
+      pickup_location: 'side',
+      dropoff_location: 'airport',
+    }
+
+    const result = calculateProfitLossMetrics([hotelPickup], '2026-08', '2026-08-07')
+
+    expect(result.airportMeetCostEur).toBe(0)
+    expect(result.airportMeetCostTry).toBe(0)
   })
 
   test('keeps outbound and return manual distances separate', () => {
@@ -175,6 +192,7 @@ describe('calculateProfitLossMetrics', () => {
     expect(result.incomeTry).toBe(9000)
     expect(result.vehicleCostTry).toBe(3900)
     expect(result.advertisingExpenseTry).toBe(300)
-    expect(result.netProfitTry).toBe(4800)
+    expect(result.airportMeetCostTry).toBe(450)
+    expect(result.netProfitTry).toBe(4350)
   })
 })

@@ -2,6 +2,7 @@ import { routeEdges } from '../src/routes.js'
 
 export const DEFAULT_KM_COST_TRY = 15
 export const DEFAULT_EUR_TRY_RATE = 50
+export const AIRPORT_MEET_COST_EUR = 5
 
 const REALIZED_TODAY_STATUSES = new Set(['paid', 'in_transit', 'completed'])
 
@@ -19,6 +20,10 @@ const ROUTE_GRAPH = routeEdges.reduce((graph, [from, to, distance]) => {
 
 function normalizeLocation(value) {
   return String(value ?? '').trim().toLocaleLowerCase('tr-TR')
+}
+
+function startsFromAirport(location) {
+  return normalizeLocation(location) === 'airport'
 }
 
 export function fixedRouteDistanceKm(fromValue, toValue) {
@@ -149,6 +154,8 @@ export function calculateProfitLossMetrics(bookings, period, today, settingsByMo
       }
       const settings = settingForMonth(settingsByMonth, legDetails.month)
       legDetails.revenueTry = leg.revenueEur * settings.eurTryRate
+      legDetails.airportMeetCostEur = !leg.isDailyChauffeur && startsFromAirport(leg.from) ? AIRPORT_MEET_COST_EUR : 0
+      legDetails.airportMeetCostTry = legDetails.airportMeetCostEur * settings.eurTryRate
 
       if (leg.isDailyChauffeur) {
         const vehicleKm = leg.directVehicleKm ?? 0
@@ -197,6 +204,8 @@ export function calculateProfitLossMetrics(bookings, period, today, settingsByMo
   const totals = [...resolvedLegs, ...unresolvedLegs].reduce((result, leg) => {
     result.incomeEur += leg.revenueEur
     result.incomeTry += leg.revenueTry
+    result.airportMeetCostEur += leg.airportMeetCostEur ?? 0
+    result.airportMeetCostTry += leg.airportMeetCostTry ?? 0
     result.passengerKm += leg.oneWayKm ?? 0
     result.vehicleKm += leg.vehicleKm ?? 0
     result.vehicleCostTry += leg.vehicleCostTry ?? 0
@@ -204,6 +213,8 @@ export function calculateProfitLossMetrics(bookings, period, today, settingsByMo
   }, {
     incomeEur: 0,
     incomeTry: 0,
+    airportMeetCostEur: 0,
+    airportMeetCostTry: 0,
     passengerKm: 0,
     vehicleKm: 0,
     vehicleCostTry: 0,
@@ -213,9 +224,9 @@ export function calculateProfitLossMetrics(bookings, period, today, settingsByMo
   }, 0)
 
   totals.advertisingExpenseTry = advertisingExpenseTry
-  totals.totalExpenseTry = totals.vehicleCostTry + advertisingExpenseTry
+  totals.totalExpenseTry = totals.vehicleCostTry + totals.airportMeetCostTry + advertisingExpenseTry
   totals.netProfitTry = totals.incomeTry - totals.totalExpenseTry
-  totals.totalExpenseEur = vehicleCostEur + advertisingExpenseEur
+  totals.totalExpenseEur = vehicleCostEur + totals.airportMeetCostEur + advertisingExpenseEur
   totals.netProfitEur = totals.incomeEur - totals.totalExpenseEur
   totals.profitMargin = totals.incomeTry > 0 ? (totals.netProfitTry / totals.incomeTry) * 100 : 0
 
