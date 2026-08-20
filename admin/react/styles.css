@@ -163,6 +163,84 @@ button,
   white-space: nowrap;
 }
 
+.profit-trip-history {
+  display: grid;
+  gap: 14px;
+}
+
+.profit-trip-history-note {
+  margin: -4px 0 0;
+  color: var(--text-muted);
+  font-size: 13px;
+}
+
+.profit-trip-history-list {
+  display: grid;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.profit-trip-history-row {
+  display: grid;
+  gap: 14px;
+  padding: 15px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: var(--surface-soft);
+}
+
+.profit-trip-history-main,
+.profit-trip-history-actions,
+.profit-trip-history-top,
+.profit-trip-history-meta {
+  display: flex;
+  gap: 10px;
+}
+
+.profit-trip-history-main {
+  min-width: 0;
+  flex-direction: column;
+}
+
+.profit-trip-history-top {
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.profit-trip-history-top span,
+.profit-trip-history-route,
+.profit-trip-history-meta,
+.profit-trip-history-inline-hint {
+  color: var(--text-muted);
+}
+
+.profit-trip-history-route {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.profit-trip-history-meta {
+  flex-wrap: wrap;
+  font-size: 13px;
+}
+
+.profit-trip-history-actions {
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.profit-trip-history-actions .profit-km-form {
+  flex-basis: 100%;
+}
+
+.profit-trip-history-inline-hint {
+  font-size: 12px;
+  align-self: center;
+}
+
 @media (max-width: 720px) {
   .daily-detail-summary {
     grid-template-columns: 1fr;
@@ -175,5 +253,16 @@ button,
 
   .chauffeur-day-heading .input {
     width: 100%;
+  }
+
+  .profit-trip-history-row {
+    padding: 13px;
+  }
+
+  .profit-trip-history-top,
+  .profit-trip-history-meta,
+  .profit-trip-history-actions {
+    flex-direction: column;
+    align-items: flex-start;
   }
 }
