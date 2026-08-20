@@ -868,11 +868,13 @@ body {
   flex-wrap: wrap;
 }
 .card-date {
-  margin-top: 4px;
-  color: var(--text-muted);
-  font-size: 12px;
+  margin-top: 2px;
+  color: #fff;
+  font-size: clamp(20px, 4.2vw, 30px);
   font-weight: 700;
-  line-height: 1.2;
+  letter-spacing: -0.8px;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
 }
 .card-route {
   position: relative;

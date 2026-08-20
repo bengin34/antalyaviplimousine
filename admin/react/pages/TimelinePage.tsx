@@ -19,7 +19,7 @@ function buildCalendarCounts(rows: Array<{ pickup_date: string; return_date?: st
 }
 import { AdminTabs, Topbar } from '../components/AdminChrome'
 import { MonthCalendar } from '../components/MonthCalendar'
-import { fmtLiveDate, fmtPrice, fmtShortDate, fmtSyncTime, fmtTime, ISTANBUL_TIME_ZONE, offsetISO, statusLabel, todayISO } from '../lib/format'
+import { fmtLiveDate, fmtPrice, fmtShortDateWithWeekday, fmtSyncTime, fmtTime, ISTANBUL_TIME_ZONE, offsetISO, statusLabel, todayISO } from '../lib/format'
 import { supabase } from '../lib/supabase'
 import type { Booking, Navigate, TimelineCard } from '../types'
 import { locationDisplay, navigationURLs, whatsappURL } from '../../turkish-formatters.js'
@@ -169,7 +169,7 @@ function BookingCard({ card, now, isPast, navigate, confirmPast, confirming, con
     </div>}
     {flightAlert && <div className="flight-landed-alert" role="status"><span className="flight-landed-icon" aria-hidden="true">✈</span><span><strong>Uçak iniş saati geldi</strong><small>{flightAlert}</small></span></div>}
     <div className="card-header">
-      <div className="card-time-block"><span className="card-time-label">{isDailyChauffeur ? 'Hizmet başlangıcı' : 'Transfer saati'}</span><div className="card-time-row"><div className="card-time">{fmtTime(card._displayTime)}</div><div className="card-date">{fmtShortDate(card._displayDate)}</div></div><div className={`card-live-time${timing.className ? ` ${timing.className}` : ''}`}>{timing.text}</div></div>
+      <div className="card-time-block"><span className="card-time-label">{isDailyChauffeur ? 'Hizmet başlangıcı' : 'Transfer saati'}</span><div className="card-time-row"><div className="card-time">{fmtTime(card._displayTime)}</div><div className="card-date">{fmtShortDateWithWeekday(card._displayDate)}</div></div><div className={`card-live-time${timing.className ? ` ${timing.className}` : ''}`}>{timing.text}</div></div>
       <div className="card-badges"><span className={`badge badge-${card.status}`}>{statusLabel(card.status, card.trip_type === 'round_trip')}</span>{isDailyChauffeur && <span className="badge badge-daily">GÜNLÜK KİRALAMA · {card._hireDayNumber}/{card._hireDayCount}</span>}{(card.trip_type === 'round_trip' || card.manual_return_of_ref) && <span className={`badge ${(card._isReturn || card.manual_return_of_ref) ? 'badge-return' : 'badge-outbound'}`}>{(card._isReturn || card.manual_return_of_ref) ? 'DÖNÜŞ' : 'GİDİŞ'}</span>}</div>
     </div>
     <div className="card-route" aria-label={`${pickup} konumundan ${dropoff} konumuna`}>

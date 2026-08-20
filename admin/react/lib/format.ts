@@ -84,6 +84,17 @@ export function fmtShortDate(isoDate?: string | null) {
   }).format(date)
 }
 
+export function fmtShortDateWithWeekday(isoDate?: string | null) {
+  if (!isoDate) return '—'
+  const date = new Date(`${isoDate}T12:00:00Z`)
+  return new Intl.DateTimeFormat('tr-TR', {
+    timeZone: ISTANBUL_TIME_ZONE,
+    weekday: 'long',
+    day: 'numeric',
+    month: 'short',
+  }).format(date)
+}
+
 export function monthRange(startYyyyMm: string, endYyyyMm: string) {
   const months: string[] = []
   let [year, month] = startYyyyMm.split('-').map(Number)
