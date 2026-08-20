@@ -863,10 +863,11 @@ body {
 }
 .card-time-row {
   display: flex;
-  align-items: baseline;
-  gap: 8px;
+  align-items: flex-start;
+  gap: 16px;
   flex-wrap: wrap;
 }
+.card-schedule-item { min-width: 0; }
 .card-date {
   margin-top: 2px;
   color: #fff;
