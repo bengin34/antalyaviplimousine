@@ -17,6 +17,8 @@ const baseBooking = {
   return_date: null,
   trip_type: 'one_way',
   price_eur: 100,
+  service_cost_mode: 'own_vehicle',
+  sold_transfer_cost_try: null,
   status: 'completed',
 }
 
@@ -178,6 +180,52 @@ describe('calculateProfitLossMetrics', () => {
     expect(result.vehicleKm).toBe(200)
     expect(result.vehicleCostTry).toBe(200 * DEFAULT_KM_COST_TRY)
     expect(result.missingDailyDistanceCount).toBe(0)
+  })
+
+  test('uses entered total expense for sold transfers', () => {
+    const soldTransfer = {
+      ...baseBooking,
+      service_cost_mode: 'sold_transfer',
+      sold_transfer_cost_try: 3000,
+    }
+    const result = calculateProfitLossMetrics([soldTransfer], '2026-08', '2026-08-07')
+
+    expect(result.vehicleKm).toBe(0)
+    expect(result.vehicleCostTry).toBe(0)
+    expect(result.supplierCostTry).toBe(3000)
+    expect(result.airportMeetCostTry).toBe(0)
+    expect(result.unresolvedLegs).toHaveLength(0)
+  })
+
+  test('splits sold transfer total expense across realized round-trip legs', () => {
+    const booking = {
+      ...baseBooking,
+      trip_type: 'round_trip',
+      price_eur: 200,
+      return_date: '2026-08-05',
+      service_cost_mode: 'sold_transfer',
+      sold_transfer_cost_try: 4000,
+    }
+    const result = calculateProfitLossMetrics([booking], '2026-08', '2026-08-07')
+
+    expect(result.completedLegs).toBe(2)
+    expect(result.supplierCostTry).toBe(4000)
+    expect(result.resolvedLegs.map(leg => leg.supplierCostTry)).toEqual([2000, 2000])
+  })
+
+  test('does not require route distance for sold transfers', () => {
+    const custom = {
+      ...baseBooking,
+      pickup_location: 'private_address',
+      dropoff_location: 'airport',
+      service_cost_mode: 'sold_transfer',
+      sold_transfer_cost_try: 1800,
+    }
+    const result = calculateProfitLossMetrics([custom], '2026-08', '2026-08-07')
+
+    expect(result.unresolvedLegs).toHaveLength(0)
+    expect(result.supplierCostTry).toBe(1800)
+    expect(result.resolvedLegs[0].distanceSource).toBe('sold-transfer')
   })
 
   test('uses each month settings when all periods are combined', () => {

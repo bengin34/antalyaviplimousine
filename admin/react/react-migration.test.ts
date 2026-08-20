@@ -8,7 +8,7 @@ const baseForm: BookingFormState = {
   name: 'Ayşe Yılmaz', phone: '+90 555 111 22 33', email: '', hotel: 'Rixos',
   tripType: 'one_way', pickup: 'airport', dropoff: 'belek', pickupAddress: '', dropoffAddress: '',
   pickupDate: '2026-08-10', pickupTime: '12:30', flightNumber: 'TK123', flightTime: '12:10',
-  returnDate: '', returnTime: '', returnFlight: '', vehicle: 'vito', guests: '3', luggage: '2',
+  returnDate: '', returnTime: '', returnFlight: '', vehicle: 'vito', guests: '3', luggage: '2', costMode: 'own_vehicle', soldTransferCostTry: '',
   serviceEndDate: '2026-08-10', departureFlightDate: '', departureFlightTime: '', departureFlight: '',
   childSeats: '1', price: '80', payment: 'cash', status: 'confirmed', notes: '', fuelAccepted: false,
 }
@@ -40,6 +40,40 @@ describe('React admin migration behavior', () => {
     expect(result.payload).toMatchObject({ trip_type: 'daily_chauffeur', dropoff_location: null, daily_rate_eur: 150, price_eur: 600 })
   })
 
+  test('requires a supplier cost for sold transfers and stores it in TRY', () => {
+    const missingCost = validateBookingForm({
+      ...baseForm,
+      costMode: 'sold_transfer',
+      soldTransferCostTry: '',
+    })
+    expect(missingCost.error).toContain('toplam maliyet')
+
+    const result = validateBookingForm({
+      ...baseForm,
+      costMode: 'sold_transfer',
+      soldTransferCostTry: '3250.50',
+    })
+    expect(result.error).toBe('')
+    expect(result.payload).toMatchObject({
+      service_cost_mode: 'sold_transfer',
+      sold_transfer_cost_try: 3250.5,
+    })
+  })
+
+  test('rejects sold transfer mode for daily chauffeur bookings', () => {
+    const result = validateBookingForm({
+      ...baseForm,
+      tripType: 'daily_chauffeur',
+      pickupTime: '09:00',
+      serviceEndDate: '2026-08-13',
+      price: '150',
+      fuelAccepted: true,
+      costMode: 'sold_transfer',
+      soldTransferCostTry: '1200',
+    })
+    expect(result.error).toContain('Günlük araç + şoför')
+  })
+
   test('expands a round trip into outbound and return cards', () => {
     const booking = {
       id: '1', booking_ref: 'AVL-1', customer_name: 'Ayşe', customer_email: '', customer_phone: '+90555',
@@ -66,7 +100,7 @@ describe('React admin migration behavior', () => {
       flight_number: null, flight_arrival_time: null, trip_type: 'daily_chauffeur', return_date: null,
       return_pickup_time: null, return_flight_number: null, service_end_date: '2026-08-13', daily_rate_eur: 150,
       departure_flight_date: null, departure_flight_time: null, departure_flight_number: null,
-      fuel_terms_accepted_at: '2026-08-01T00:00:00Z', guests: 2, vehicle_type: 'vito', price_eur: 600,
+      fuel_terms_accepted_at: '2026-08-01T00:00:00Z', guests: 2, vehicle_type: 'vito', service_cost_mode: 'own_vehicle', sold_transfer_cost_try: null, price_eur: 600,
       status: 'confirmed', payment_method: 'cash', notes: null, language: 'tr', created_at: '2026-08-01T00:00:00Z',
       chauffeur_hire_days: [],
     } as Booking

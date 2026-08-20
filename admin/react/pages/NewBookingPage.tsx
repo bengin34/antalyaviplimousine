@@ -18,6 +18,7 @@ export interface BookingFormState {
   pickup: string; dropoff: string; pickupAddress: string; dropoffAddress: string
   pickupDate: string; pickupTime: string; flightNumber: string; flightTime: string
   returnDate: string; returnTime: string; returnFlight: string; vehicle: string
+  costMode: 'own_vehicle' | 'sold_transfer'; soldTransferCostTry: string
   serviceEndDate: string; departureFlightDate: string; departureFlightTime: string; departureFlight: string
   guests: string; luggage: string; childSeats: string; price: string; payment: string
   status: string; notes: string; fuelAccepted: boolean
@@ -31,6 +32,7 @@ function createInitialState(): [BookingFormState, ReturnType<typeof consumeBooki
     dropoff: prefill?.dropoffLocation ?? 'belek', pickupAddress: prefill?.pickupAddress ?? '',
     dropoffAddress: prefill?.dropoffAddress ?? '', pickupDate: todayISO(), pickupTime: '',
     flightNumber: '', flightTime: '', returnDate: '', returnTime: '', returnFlight: '',
+    costMode: 'own_vehicle', soldTransferCostTry: '',
     serviceEndDate: todayISO(), departureFlightDate: '', departureFlightTime: '', departureFlight: '',
     vehicle: prefill?.vehicleType ?? 'vito', guests: String(prefill?.guests ?? 1),
     luggage: String(prefill?.luggageCount ?? 0), childSeats: String(prefill?.childSeatCount ?? 0),
@@ -59,9 +61,11 @@ export function validateBookingForm(form: BookingFormState) {
   const luggage = Number(form.luggage || 0)
   const childSeats = Number(form.childSeats || 0)
   const price = Number(String(form.price).replace(',', '.'))
+  const soldTransferCostTry = Number(String(form.soldTransferCostTry).replace(',', '.'))
   const fail = (error: string) => ({ error, payload: null })
   const isRoundTrip = form.tripType === 'round_trip'
   const isDailyChauffeur = form.tripType === 'daily_chauffeur'
+  const isSoldTransfer = form.costMode === 'sold_transfer'
 
   const nameLetters = name.match(/\p{L}/gu)?.length ?? 0
   if (name.length < 2 || name.length > 80 || nameLetters < 2) return fail('Geçerli bir ad soyad girin.')
@@ -79,6 +83,10 @@ export function validateBookingForm(form: BookingFormState) {
   if (!Number.isInteger(childSeats) || childSeats < 0 || childSeats > 4) return fail('Çocuk koltuğu sayısı geçersiz.')
   if (!Number.isFinite(price) || price < 0 || price > 999999.99) return fail('Geçerli bir fiyat girin.')
   if (isDailyChauffeur && price <= 0) return fail('Günlük fiyat sıfırdan büyük olmalı.')
+  if (isDailyChauffeur && isSoldTransfer) return fail('Günlük araç + şoför hizmeti satılan transfer olarak işaretlenemez.')
+  if (isSoldTransfer && (!Number.isFinite(soldTransferCostTry) || soldTransferCostTry <= 0 || soldTransferCostTry > 9999999.99)) {
+    return fail('Satılan transfer için geçerli bir toplam maliyet girin.')
+  }
   if (isRoundTrip) {
     if (!/^\d{4}-\d{2}-\d{2}$/.test(form.returnDate) || form.returnDate < form.pickupDate) return fail('Dönüş tarihi gidiş tarihinden önce olamaz.')
     if (!/^([01]\d|2[0-3]):[0-5]\d$/.test(form.returnTime)) return fail('Geçerli bir dönüş saati girin.')
@@ -113,6 +121,8 @@ export function validateBookingForm(form: BookingFormState) {
     departure_flight_number: isDailyChauffeur ? (departureFlight || null) : null,
     fuel_terms_accepted_at: isDailyChauffeur ? new Date().toISOString() : null,
     guests, vehicle_type: form.vehicle, price_eur: isDailyChauffeur ? price * hireDays : isRoundTrip ? price * 2 : price,
+    service_cost_mode: isDailyChauffeur ? 'own_vehicle' : form.costMode,
+    sold_transfer_cost_try: !isDailyChauffeur && isSoldTransfer ? soldTransferCostTry : null,
     status: form.status, payment_method: form.payment, notes: form.notes.trim() || null,
   } }
 }
@@ -137,6 +147,8 @@ export default function NewBookingPage({ navigate }: { navigate: Navigate }) {
   const onTripTypeChange = (tripType: string) => setForm(current => ({
     ...current,
     tripType,
+    costMode: tripType === 'daily_chauffeur' ? 'own_vehicle' : current.costMode,
+    soldTransferCostTry: tripType === 'daily_chauffeur' ? '' : current.soldTransferCostTry,
     price: tripType === 'daily_chauffeur' && !current.price ? '150' : current.price,
     serviceEndDate: tripType === 'daily_chauffeur' && current.serviceEndDate < current.pickupDate ? current.pickupDate : current.serviceEndDate,
   }))
@@ -215,6 +227,14 @@ export default function NewBookingPage({ navigate }: { navigate: Navigate }) {
             <Field label="Bagaj"><input className="input" type="number" min={0} max={12} step={1} inputMode="numeric" value={form.luggage} onChange={e => set('luggage', e.target.value)} /></Field>
             <Field label="Çocuk koltuğu"><input className="input" type="number" min={0} max={4} step={1} inputMode="numeric" value={form.childSeats} onChange={e => set('childSeats', e.target.value)} /></Field>
           </div>
+          <Field label="Maliyet modeli">
+            <select className="input" value={form.costMode} onChange={e => set('costMode', e.target.value as BookingFormState['costMode'])} disabled={isDailyChauffeur}>
+              <option value="own_vehicle">Kendi aracımız</option>
+              <option value="sold_transfer">Satılan transfer</option>
+            </select>
+          </Field>
+          <div className="form-hint">{isDailyChauffeur ? 'Günlük araç + şoför hizmeti yalnızca kendi aracımız olarak hesaplanır.' : form.costMode === 'sold_transfer' ? 'Girilen toplam maliyet bu rezervasyonun toplam gideri kabul edilir.' : 'Araç maliyeti kâr/zarar ekranında km ve boş dönüş hesabından çıkarılır.'}</div>
+          {!isDailyChauffeur && form.costMode === 'sold_transfer' && <Field label="Toplam maliyet (₺) *"><input className="input" type="number" min={0.01} max={9999999.99} step={0.01} inputMode="decimal" value={form.soldTransferCostTry} onChange={e => set('soldTransferCostTry', e.target.value)} required /></Field>}
         </div>
 
         <div className="section">

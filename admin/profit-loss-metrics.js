@@ -72,6 +72,8 @@ function isRealizedLeg(booking, date, today, legStatus) {
 
 function bookingLegs(booking) {
   const priceEur = Number(booking.price_eur) || 0
+  const costMode = booking.service_cost_mode === 'sold_transfer' ? 'sold_transfer' : 'own_vehicle'
+  const soldTransferTotalCostTry = Number(booking.sold_transfer_cost_try) || 0
   if (booking.trip_type === 'daily_chauffeur') {
     const days = [...(booking.chauffeur_hire_days || [])].sort((left, right) => left.day_number - right.day_number)
     const dailyRate = Number(booking.daily_rate_eur) || (days.length ? priceEur / days.length : priceEur)
@@ -84,6 +86,8 @@ function bookingLegs(booking) {
       directVehicleKm: Number.isFinite(Number(day.distance_km)) && Number(day.distance_km) >= 0 ? Number(day.distance_km) : null,
       legStatus: day.status === 'completed' ? 'completed' : day.status === 'in_progress' ? 'in_transit' : booking.status,
       isDailyChauffeur: true,
+      costMode: 'own_vehicle',
+      soldTransferTotalCostTry: 0,
     }))
   }
   const hasReturn = booking.trip_type === 'round_trip' && Boolean(booking.return_date)
@@ -95,6 +99,9 @@ function bookingLegs(booking) {
         from: booking.pickup_location,
         to: booking.dropoff_location,
         revenueEur: legRevenueEur,
+        costMode,
+        soldTransferTotalCostTry,
+        splitSupplierCostTry: hasReturn ? soldTransferTotalCostTry / 2 : soldTransferTotalCostTry,
       }]
     : []
 
@@ -105,6 +112,9 @@ function bookingLegs(booking) {
       from: booking.dropoff_location,
       to: booking.pickup_location,
       revenueEur: legRevenueEur,
+      costMode,
+      soldTransferTotalCostTry,
+      splitSupplierCostTry: soldTransferTotalCostTry / 2,
     })
   }
 
@@ -169,6 +179,20 @@ export function calculateProfitLossMetrics(bookings, period, today, settingsByMo
         continue
       }
 
+      if (leg.costMode === 'sold_transfer') {
+        resolvedLegs.push({
+          ...legDetails,
+          oneWayKm: 0,
+          vehicleKm: 0,
+          vehicleCostTry: 0,
+          supplierCostTry: leg.splitSupplierCostTry ?? leg.soldTransferTotalCostTry ?? 0,
+          distanceSource: 'sold-transfer',
+          airportMeetCostEur: 0,
+          airportMeetCostTry: 0,
+        })
+        continue
+      }
+
       if (oneWayKm === null) {
         unresolvedLegs.push(legDetails)
         continue
@@ -180,6 +204,7 @@ export function calculateProfitLossMetrics(bookings, period, today, settingsByMo
         oneWayKm,
         vehicleKm,
         vehicleCostTry: vehicleKm * settings.kmCostTry,
+        supplierCostTry: 0,
         distanceSource: manualDistanceKm === null ? 'fixed' : 'manual',
       })
     }
@@ -209,6 +234,7 @@ export function calculateProfitLossMetrics(bookings, period, today, settingsByMo
     result.passengerKm += leg.oneWayKm ?? 0
     result.vehicleKm += leg.vehicleKm ?? 0
     result.vehicleCostTry += leg.vehicleCostTry ?? 0
+    result.supplierCostTry += leg.supplierCostTry ?? 0
     return result
   }, {
     incomeEur: 0,
@@ -218,17 +244,22 @@ export function calculateProfitLossMetrics(bookings, period, today, settingsByMo
     passengerKm: 0,
     vehicleKm: 0,
     vehicleCostTry: 0,
+    supplierCostTry: 0,
   })
   const vehicleCostEur = resolvedLegs.reduce((total, leg) => {
     return total + (leg.vehicleCostTry / settingForMonth(settingsByMonth, leg.month).eurTryRate)
   }, 0)
+  const supplierCostEur = resolvedLegs.reduce((total, leg) => {
+    return total + ((leg.supplierCostTry ?? 0) / settingForMonth(settingsByMonth, leg.month).eurTryRate)
+  }, 0)
 
   totals.advertisingExpenseTry = advertisingExpenseTry
-  totals.totalExpenseTry = totals.vehicleCostTry + totals.airportMeetCostTry + advertisingExpenseTry
+  totals.totalExpenseTry = totals.vehicleCostTry + totals.supplierCostTry + totals.airportMeetCostTry + advertisingExpenseTry
   totals.netProfitTry = totals.incomeTry - totals.totalExpenseTry
-  totals.totalExpenseEur = vehicleCostEur + totals.airportMeetCostEur + advertisingExpenseEur
+  totals.totalExpenseEur = vehicleCostEur + supplierCostEur + totals.airportMeetCostEur + advertisingExpenseEur
   totals.netProfitEur = totals.incomeEur - totals.totalExpenseEur
   totals.profitMargin = totals.incomeTry > 0 ? (totals.netProfitTry / totals.incomeTry) * 100 : 0
+  totals.supplierCostEur = supplierCostEur
 
   const routeMap = new Map()
   for (const leg of resolvedLegs) {
@@ -242,12 +273,14 @@ export function calculateProfitLossMetrics(bookings, period, today, settingsByMo
       vehicleKm: 0,
       incomeEur: 0,
       vehicleCostTry: 0,
+      supplierCostTry: 0,
     }
     route.legCount += 1
     route.passengerKm += leg.oneWayKm
     route.vehicleKm += leg.vehicleKm
     route.incomeEur += leg.revenueEur
     route.vehicleCostTry += leg.vehicleCostTry
+    route.supplierCostTry += leg.supplierCostTry ?? 0
     routeMap.set(routeKey, route)
   }
 
