@@ -6,6 +6,7 @@ build/
 .vite/
 .env
 .env.local
+.worktrees/
 
 # TLS certificates and private keys
 *.pem
