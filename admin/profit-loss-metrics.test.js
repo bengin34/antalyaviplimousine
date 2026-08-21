@@ -66,6 +66,27 @@ describe('calculateProfitLossMetrics', () => {
     expect(result.netProfitTry).toBe(2800)
   })
 
+  test('exposes vehicle cost in euros with normalized resolved leg metadata', () => {
+    const settings = {
+      '2026-08': { km_cost_try: 20, eur_try_rate: 40, advertising_expense_try: 500 },
+    }
+
+    const result = calculateProfitLossMetrics([baseBooking], '2026-08', '2026-08-07', settings)
+
+    expect(result.vehicleCostEur).toBe(65)
+    expect(result.supplierCostEur).toBe(0)
+    expect(result.resolvedLegs).toHaveLength(1)
+    expect(result.resolvedLegs[0]).toMatchObject({
+      bookingId: 'booking-1',
+      leg: 'outbound',
+      date: '2026-08-01',
+      month: '2026-08',
+      revenueEur: 100,
+      revenueTry: 4000,
+      vehicleCostTry: 2600,
+    })
+  })
+
   test('splits round-trip income and counts each realized leg separately', () => {
     const booking = {
       ...baseBooking,

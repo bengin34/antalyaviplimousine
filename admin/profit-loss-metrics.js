@@ -146,13 +146,13 @@ function manualDistanceForLeg(booking, leg) {
   return Number.isFinite(distance) && distance > 0 ? distance : null
 }
 
-export function calculateProfitLossMetrics(bookings, period, today, settingsByMonth = {}) {
+export function resolveRealizedLegs(bookings, today, settingsByMonth = {}) {
   const resolvedLegs = []
   const unresolvedLegs = []
 
   for (const booking of bookings) {
     for (const leg of bookingLegs(booking)) {
-      if (!isRealizedLeg(booking, leg.date, today, leg.legStatus) || !isInPeriod(leg.date, period)) continue
+      if (!isRealizedLeg(booking, leg.date, today, leg.legStatus)) continue
 
       const manualDistanceKm = manualDistanceForLeg(booking, leg.leg)
       const oneWayKm = manualDistanceKm ?? fixedRouteDistanceKm(leg.from, leg.to)
@@ -211,22 +211,10 @@ export function calculateProfitLossMetrics(bookings, period, today, settingsByMo
     }
   }
 
-  const relevantMonths = period === 'all'
-    ? new Set([
-        ...resolvedLegs.map(leg => leg.month),
-        ...unresolvedLegs.map(leg => leg.month),
-        ...(settingsByMonth instanceof Map ? settingsByMonth.keys() : Object.keys(settingsByMonth ?? {})),
-      ])
-    : new Set([period])
+  return { resolvedLegs, unresolvedLegs }
+}
 
-  const advertisingExpenseTry = [...relevantMonths].reduce((total, month) => {
-    return total + settingForMonth(settingsByMonth, month).advertisingExpenseTry
-  }, 0)
-  const advertisingExpenseEur = [...relevantMonths].reduce((total, month) => {
-    const settings = settingForMonth(settingsByMonth, month)
-    return total + (settings.advertisingExpenseTry / settings.eurTryRate)
-  }, 0)
-
+function totalsForLegs(resolvedLegs, unresolvedLegs, settingsByMonth) {
   const totals = [...resolvedLegs, ...unresolvedLegs].reduce((result, leg) => {
     result.incomeEur += leg.revenueEur
     result.incomeTry += leg.revenueTry
@@ -247,20 +235,46 @@ export function calculateProfitLossMetrics(bookings, period, today, settingsByMo
     vehicleCostTry: 0,
     supplierCostTry: 0,
   })
-  const vehicleCostEur = resolvedLegs.reduce((total, leg) => {
+
+  totals.vehicleCostEur = resolvedLegs.reduce((total, leg) => {
     return total + (leg.vehicleCostTry / settingForMonth(settingsByMonth, leg.month).eurTryRate)
   }, 0)
-  const supplierCostEur = resolvedLegs.reduce((total, leg) => {
+  totals.supplierCostEur = resolvedLegs.reduce((total, leg) => {
     return total + ((leg.supplierCostTry ?? 0) / settingForMonth(settingsByMonth, leg.month).eurTryRate)
   }, 0)
+
+  return totals
+}
+
+export function calculateProfitLossMetrics(bookings, period, today, settingsByMonth = {}) {
+  const realizedLegs = resolveRealizedLegs(bookings, today, settingsByMonth)
+  const resolvedLegs = realizedLegs.resolvedLegs.filter(leg => isInPeriod(leg.date, period))
+  const unresolvedLegs = realizedLegs.unresolvedLegs.filter(leg => isInPeriod(leg.date, period))
+
+  const relevantMonths = period === 'all'
+    ? new Set([
+        ...resolvedLegs.map(leg => leg.month),
+        ...unresolvedLegs.map(leg => leg.month),
+        ...(settingsByMonth instanceof Map ? settingsByMonth.keys() : Object.keys(settingsByMonth ?? {})),
+      ])
+    : new Set([period])
+
+  const advertisingExpenseTry = [...relevantMonths].reduce((total, month) => {
+    return total + settingForMonth(settingsByMonth, month).advertisingExpenseTry
+  }, 0)
+  const advertisingExpenseEur = [...relevantMonths].reduce((total, month) => {
+    const settings = settingForMonth(settingsByMonth, month)
+    return total + (settings.advertisingExpenseTry / settings.eurTryRate)
+  }, 0)
+
+  const totals = totalsForLegs(resolvedLegs, unresolvedLegs, settingsByMonth)
 
   totals.advertisingExpenseTry = advertisingExpenseTry
   totals.totalExpenseTry = totals.vehicleCostTry + totals.supplierCostTry + totals.airportMeetCostTry + advertisingExpenseTry
   totals.netProfitTry = totals.incomeTry - totals.totalExpenseTry
-  totals.totalExpenseEur = vehicleCostEur + supplierCostEur + totals.airportMeetCostEur + advertisingExpenseEur
+  totals.totalExpenseEur = totals.vehicleCostEur + totals.supplierCostEur + totals.airportMeetCostEur + advertisingExpenseEur
   totals.netProfitEur = totals.incomeEur - totals.totalExpenseEur
   totals.profitMargin = totals.incomeTry > 0 ? (totals.netProfitTry / totals.incomeTry) * 100 : 0
-  totals.supplierCostEur = supplierCostEur
 
   const routeMap = new Map()
   for (const leg of resolvedLegs) {
