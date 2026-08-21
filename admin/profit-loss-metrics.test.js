@@ -612,6 +612,42 @@ describe('calculateProfitDistribution', () => {
     expect(returned.supplierCostTry).toBe(50)
   })
 
+  test('accepts a positive one-cent supplier total across the full round trip', () => {
+    const booking = {
+      ...baseBooking,
+      id: 'one-cent-round-trip',
+      trip_type: 'round_trip',
+      price_eur: 100,
+      return_date: '2026-08-05',
+      service_cost_mode: 'sold_transfer',
+      sold_transfer_cost_try: 0.01,
+    }
+    const result = calculateProfitDistribution([booking], validOptions)
+
+    expect(result.supplierCostTry).toBe(0.01)
+    expect(result.resolvedLegs.map(leg => leg.supplierCostTry)).toEqual([0.01, 0])
+    expect(result.blockers).not.toContainEqual(expect.objectContaining({ code: 'supplier-cost-invalid' }))
+  })
+
+  test('accepts the zero-cent return allocation when the booking supplier total is positive', () => {
+    const booking = {
+      ...baseBooking,
+      id: 'one-cent-return',
+      trip_type: 'round_trip',
+      price_eur: 100,
+      return_date: '2026-08-05',
+      service_cost_mode: 'sold_transfer',
+      sold_transfer_cost_try: 0.01,
+    }
+    const result = calculateProfitDistribution([booking], {
+      ...validOptions,
+      startDate: '2026-08-05',
+    })
+
+    expect(result.resolvedLegs.map(leg => leg.supplierCostTry)).toEqual([0])
+    expect(result.blockers).not.toContainEqual(expect.objectContaining({ code: 'supplier-cost-invalid' }))
+  })
+
   test('makes per-leg snapshot buckets reconcile with aggregate rounded buckets', () => {
     const ownVehicle = { ...baseBooking, id: 'own', price_eur: 100.02 }
     const supplier = {

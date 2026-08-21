@@ -263,15 +263,24 @@ function distributionAllocations(bookings) {
     const hasReturn = booking.trip_type === 'round_trip' && Boolean(booking.return_date)
     const legCount = hasReturn ? 2 : 1
     const revenueAmounts = allocateMoneyAmounts(priceEur, legCount)
-    const supplierAmounts = allocateMoneyAmounts(Number(booking.sold_transfer_cost_try) || 0, legCount)
+    const supplierSource = booking.sold_transfer_cost_try
+    const supplierTotal = Number(supplierSource)
+    const supplierCostIsValid = supplierSource !== null
+      && supplierSource !== undefined
+      && String(supplierSource).trim() !== ''
+      && Number.isFinite(supplierTotal)
+      && supplierTotal > 0
+    const supplierAmounts = allocateMoneyAmounts(supplierCostIsValid ? supplierTotal : 0, legCount)
     allocations.set(`${booking.id}:outbound`, {
       revenueEur: revenueAmounts[0] ?? 0,
       supplierCostTry: supplierAmounts[0] ?? 0,
+      supplierCostIsValid,
     })
     if (hasReturn) {
       allocations.set(`${booking.id}:return`, {
         revenueEur: revenueAmounts[1] ?? 0,
         supplierCostTry: supplierAmounts[1] ?? 0,
+        supplierCostIsValid,
       })
     }
   }
@@ -556,6 +565,7 @@ function distributionFinancialLeg(leg, settingsByMonth, allocations) {
     vehicleCostEur,
     supplierCostTry,
     supplierCostEur,
+    supplierCostIsValid: allocation?.supplierCostIsValid ?? false,
     airportMeetCostEur,
     airportMeetCostTry,
   }
@@ -690,7 +700,7 @@ export function calculateProfitDistribution(bookings, options = {}) {
     }
     if (
       leg.costMode === 'sold_transfer'
-      && (!Number.isFinite(leg.supplierCostTry) || leg.supplierCostTry <= 0)
+      && !leg.supplierCostIsValid
     ) {
       blockers.push(distributionBlocker('supplier-cost-invalid', leg))
     }
