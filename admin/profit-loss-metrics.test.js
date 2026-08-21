@@ -351,6 +351,15 @@ describe('allocatedAdvertisingForRange', () => {
     expect(result.advertisingExpenseTry).toBe(2.18)
     expect(result.advertisingExpenseEur).toBe(0.55)
   })
+
+  test('rounds exact monthly rational allocations before converting to EUR', () => {
+    const result = allocatedAdvertisingForRange('2026-02-01', '2026-02-18', {
+      '2026-02': { advertising_expense_try: 100.03, eur_try_rate: 2 },
+    })
+
+    expect(result.advertisingExpenseTry).toBe(64.31)
+    expect(result.advertisingExpenseEur).toBe(32.16)
+  })
 })
 
 describe('splitProfit', () => {
@@ -406,6 +415,37 @@ describe('splitProfit', () => {
     expect(result.vehicleOwnerAmountEur).toBe(499999999999.99)
     expect(result.operationsAmountTry).toBe(-500000000000)
     expect(result.vehicleOwnerAmountTry).toBe(-499999999999.99)
+  })
+
+  test('uses exact decimal multiplication for fractional percentages', () => {
+    const result = splitProfit(5477.48, 5477.48, 87.5)
+
+    expect(result.operationsAmountEur).toBe(4792.80)
+    expect(result.vehicleOwnerAmountEur).toBe(684.68)
+    expect(result.operationsAmountTry).toBe(4792.80)
+    expect(result.vehicleOwnerAmountTry).toBe(684.68)
+  })
+
+  test('uses symmetric exact decimal multiplication for negative TRY', () => {
+    const result = splitProfit(5477.48, -5477.48, 87.5)
+
+    expect(result.operationsAmountTry).toBe(-4792.80)
+    expect(result.vehicleOwnerAmountTry).toBe(-684.68)
+  })
+
+  test.each([
+    [0.01, -0.01, 50],
+    [20.15, -20.15, 50],
+    [5477.48, -5477.48, 87.5],
+    [123.45, -123.45, 33.33],
+    [999999999999.99, -999999999999.99, 50],
+  ])('reconciles representative values: EUR %s, TRY %s, %s%%', (eur, tryAmount, pct) => {
+    const result = splitProfit(eur, tryAmount, pct)
+
+    expect(Math.round(result.operationsAmountEur * 100) + Math.round(result.vehicleOwnerAmountEur * 100))
+      .toBe(Math.round(eur * 100))
+    expect(Math.round(result.operationsAmountTry * 100) + Math.round(result.vehicleOwnerAmountTry * 100))
+      .toBe(Math.round(tryAmount * 100))
   })
 
   test('reconciles a negative TRY reference while EUR remains positive', () => {

@@ -166,13 +166,77 @@ function formatDateOnlyUtc(date) {
   return date.toISOString().slice(0, 10)
 }
 
+const DECIMAL_VALUE = /^([+-]?)(?:(\d+)(?:\.(\d*))?|\.(\d+))(?:[eE]([+-]?\d+))?$/
+const MAX_DECIMAL_EXPONENT = 100
+
+function decimalFraction(value) {
+  const text = String(value ?? '').trim()
+  const match = DECIMAL_VALUE.exec(text)
+  if (!match) throw new RangeError('Invalid decimal value')
+
+  const [, sign, integer = '0', decimal = '', leadingDecimal = '', exponentText = '0'] = match
+  const exponent = Number(exponentText)
+  const fractionDigits = decimal || leadingDecimal
+  const scale = fractionDigits.length - exponent
+  if (!Number.isInteger(exponent) || Math.abs(exponent) > MAX_DECIMAL_EXPONENT || Math.abs(scale) > MAX_DECIMAL_EXPONENT) {
+    throw new RangeError('Decimal exponent is outside the supported range')
+  }
+
+  const digits = `${integer}${fractionDigits}`.replace(/^0+(?=\d)/, '')
+  let numerator = BigInt(digits || '0')
+  let denominator = 1n
+  if (scale > 0) denominator = 10n ** BigInt(scale)
+  if (scale < 0) numerator *= 10n ** BigInt(-scale)
+  if (sign === '-') numerator = -numerator
+  return { numerator, denominator }
+}
+
+function roundFractionToCents(numerator, denominator) {
+  if (denominator === 0n) throw new RangeError('Cannot divide by zero')
+  if (denominator < 0n) {
+    numerator = -numerator
+    denominator = -denominator
+  }
+
+  const negative = numerator < 0n
+  const absoluteNumerator = negative ? -numerator : numerator
+  const scaledNumerator = absoluteNumerator * 100n
+  let cents = scaledNumerator / denominator
+  const remainder = scaledNumerator % denominator
+  if (remainder * 2n >= denominator) cents += 1n
+  return negative ? -cents : cents
+}
+
+function centsToNumber(cents) {
+  const absoluteCents = cents < 0n ? -cents : cents
+  if (absoluteCents > BigInt(Number.MAX_SAFE_INTEGER)) {
+    throw new RangeError('Money value is outside the supported range')
+  }
+  const amount = Number(cents) / 100
+  return Object.is(amount, -0) ? 0 : amount
+}
+
+function multiplyDivideMoneyToCents(amount, multiplier, divisor) {
+  const amountFraction = decimalFraction(amount)
+  const multiplierFraction = decimalFraction(multiplier)
+  const divisorFraction = decimalFraction(divisor)
+  if (divisorFraction.numerator === 0n) throw new RangeError('Cannot divide by zero')
+
+  return roundFractionToCents(
+    amountFraction.numerator * multiplierFraction.numerator * divisorFraction.denominator,
+    amountFraction.denominator * multiplierFraction.denominator * divisorFraction.numerator,
+  )
+}
+
 function roundMoney(value) {
   const amount = Number(value)
   if (!Number.isFinite(amount)) return 0
-  const [coefficient, exponent = '0'] = Math.abs(amount).toString().split('e')
-  const shifted = Number(`${coefficient}e${Number(exponent) + 2}`)
-  const rounded = Math.sign(amount) * Math.round(shifted) / 100
-  return Object.is(rounded, -0) ? 0 : rounded
+  try {
+    const fraction = decimalFraction(value)
+    return centsToNumber(roundFractionToCents(fraction.numerator, fraction.denominator))
+  } catch {
+    return 0
+  }
 }
 
 function monthsForRange(startDate, endDate) {
@@ -209,8 +273,8 @@ export function allocatedAdvertisingForRange(startDate, endDate, settingsByMonth
   }
 
   const monthlyAllocations = {}
-  let advertisingExpenseTry = 0
-  let advertisingExpenseEur = 0
+  let advertisingExpenseTryCents = 0n
+  let advertisingExpenseEurCents = 0n
 
   for (const month of monthsForRange(startDate, endDate)) {
     const [year, monthNumber] = month.split('-').map(Number)
@@ -220,10 +284,20 @@ export function allocatedAdvertisingForRange(startDate, endDate, settingsByMonth
     const allocationStart = start > monthStart ? start : monthStart
     const allocationEnd = end < monthEnd ? end : monthEnd
     const settings = settingForMonth(settingsByMonth, month)
-    const throughEnd = roundMoney(settings.advertisingExpenseTry * allocationEnd.getUTCDate() / daysInMonth)
-    const beforeStart = roundMoney(settings.advertisingExpenseTry * (allocationStart.getUTCDate() - 1) / daysInMonth)
-    const allocatedTry = roundMoney(throughEnd - beforeStart)
-    const allocatedEur = roundMoney(allocatedTry / settings.eurTryRate)
+    const throughEndCents = multiplyDivideMoneyToCents(
+      settings.advertisingExpenseTry,
+      allocationEnd.getUTCDate(),
+      daysInMonth,
+    )
+    const beforeStartCents = multiplyDivideMoneyToCents(
+      settings.advertisingExpenseTry,
+      allocationStart.getUTCDate() - 1,
+      daysInMonth,
+    )
+    const allocatedTryCents = throughEndCents - beforeStartCents
+    const allocatedTry = centsToNumber(allocatedTryCents)
+    const allocatedEurCents = multiplyDivideMoneyToCents(allocatedTry, 1, settings.eurTryRate)
+    const allocatedEur = centsToNumber(allocatedEurCents)
 
     monthlyAllocations[month] = {
       startDate: formatDateOnlyUtc(allocationStart),
@@ -231,11 +305,15 @@ export function allocatedAdvertisingForRange(startDate, endDate, settingsByMonth
       advertisingExpenseTry: allocatedTry,
       advertisingExpenseEur: allocatedEur,
     }
-    advertisingExpenseTry = roundMoney(advertisingExpenseTry + allocatedTry)
-    advertisingExpenseEur = roundMoney(advertisingExpenseEur + allocatedEur)
+    advertisingExpenseTryCents += allocatedTryCents
+    advertisingExpenseEurCents += allocatedEurCents
   }
 
-  return { advertisingExpenseTry, advertisingExpenseEur, monthlyAllocations }
+  return {
+    advertisingExpenseTry: centsToNumber(advertisingExpenseTryCents),
+    advertisingExpenseEur: centsToNumber(advertisingExpenseEurCents),
+    monthlyAllocations,
+  }
 }
 
 export function splitProfit(netProfitEur, netProfitTry, operationsSharePct) {
@@ -245,27 +323,36 @@ export function splitProfit(netProfitEur, netProfitTry, operationsSharePct) {
     || String(operationsSharePct).trim() === ''
   ) throw new RangeError('Invalid percentage')
 
-  const percentage = Number(operationsSharePct)
-  const scaledPercentage = percentage * 100
+  let percentageFraction
+  try {
+    percentageFraction = decimalFraction(operationsSharePct)
+  } catch {
+    throw new RangeError('Invalid percentage')
+  }
+  const percentageHundredthsNumerator = percentageFraction.numerator * 100n
   if (
-    !Number.isFinite(percentage)
-    || percentage < 0
-    || percentage > 100
-    || Math.abs(scaledPercentage - Math.round(scaledPercentage)) > 1e-8
+    percentageHundredthsNumerator < 0n
+    || percentageHundredthsNumerator > 10000n * percentageFraction.denominator
+    || percentageHundredthsNumerator % percentageFraction.denominator !== 0n
   ) throw new RangeError('Invalid percentage')
 
-  const eur = roundMoney(netProfitEur)
-  const tryAmount = roundMoney(netProfitTry)
-  const operationsAmountEur = roundMoney(eur * percentage / 100)
-  const operationsAmountTry = roundMoney(tryAmount * percentage / 100)
+  const percentageHundredths = percentageHundredthsNumerator / percentageFraction.denominator
+  const percentage = centsToNumber(percentageHundredths)
+  const vehicleOwnerSharePct = centsToNumber(10000n - percentageHundredths)
+  const eurFraction = decimalFraction(netProfitEur)
+  const tryFraction = decimalFraction(netProfitTry)
+  const eurCents = roundFractionToCents(eurFraction.numerator, eurFraction.denominator)
+  const tryCents = roundFractionToCents(tryFraction.numerator, tryFraction.denominator)
+  const operationsEurCents = multiplyDivideMoneyToCents(netProfitEur, operationsSharePct, 100)
+  const operationsTryCents = multiplyDivideMoneyToCents(netProfitTry, operationsSharePct, 100)
 
   return {
     operationsSharePct: percentage,
-    vehicleOwnerSharePct: roundMoney(100 - percentage),
-    operationsAmountEur,
-    vehicleOwnerAmountEur: roundMoney(eur - operationsAmountEur),
-    operationsAmountTry,
-    vehicleOwnerAmountTry: roundMoney(tryAmount - operationsAmountTry),
+    vehicleOwnerSharePct,
+    operationsAmountEur: centsToNumber(operationsEurCents),
+    vehicleOwnerAmountEur: centsToNumber(eurCents - operationsEurCents),
+    operationsAmountTry: centsToNumber(operationsTryCents),
+    vehicleOwnerAmountTry: centsToNumber(tryCents - operationsTryCents),
   }
 }
 
