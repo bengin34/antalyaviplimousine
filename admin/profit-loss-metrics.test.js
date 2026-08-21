@@ -199,6 +199,29 @@ describe('calculateProfitLossMetrics', () => {
     expect(result.missingDailyDistanceCount).toBe(0)
   })
 
+  test('distinguishes missing daily chauffeur distance from an explicit zero', () => {
+    const daily = {
+      ...baseBooking,
+      trip_type: 'daily_chauffeur',
+      daily_rate_eur: 100,
+      price_eur: 300,
+      chauffeur_hire_days: [
+        { day_number: 1, service_date: '2026-08-01', status: 'completed', distance_km: null },
+        { day_number: 2, service_date: '2026-08-02', status: 'completed', distance_km: '' },
+        { day_number: 3, service_date: '2026-08-03', status: 'completed', distance_km: 0 },
+      ],
+    }
+
+    const result = calculateProfitLossMetrics([daily], '2026-08', '2026-08-07')
+
+    expect(result.resolvedLegs.map(leg => leg.distanceSource)).toEqual([
+      'daily-missing',
+      'daily-missing',
+      'daily-actual',
+    ])
+    expect(result.missingDailyDistanceCount).toBe(2)
+  })
+
   test('uses entered total expense for sold transfers', () => {
     const soldTransfer = {
       ...baseBooking,

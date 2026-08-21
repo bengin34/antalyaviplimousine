@@ -70,6 +70,12 @@ function isRealizedLeg(booking, date, today, legStatus) {
   return date < today || REALIZED_TODAY_STATUSES.has(legStatus || booking.status)
 }
 
+function normalizeDailyDistanceKm(value) {
+  if (value === null || value === undefined || String(value).trim() === '') return null
+  const distance = Number(value)
+  return Number.isFinite(distance) && distance >= 0 ? distance : null
+}
+
 function bookingLegs(booking) {
   const priceEur = Number(booking.price_eur) || 0
   const costMode = booking.service_cost_mode === 'sold_transfer' ? 'sold_transfer' : 'own_vehicle'
@@ -83,7 +89,7 @@ function bookingLegs(booking) {
       from: 'daily_chauffeur',
       to: 'daily_chauffeur',
       revenueEur: dailyRate,
-      directVehicleKm: Number.isFinite(Number(day.distance_km)) && Number(day.distance_km) >= 0 ? Number(day.distance_km) : null,
+      directVehicleKm: normalizeDailyDistanceKm(day.distance_km),
       legStatus: day.status === 'completed' ? 'completed' : day.status === 'in_progress' ? 'in_transit' : booking.status,
       isDailyChauffeur: true,
       costMode: 'own_vehicle',
