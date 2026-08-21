@@ -59,7 +59,7 @@ After setup, the section shows:
 - the two percentage inputs, initially populated from the saved defaults;
 - the calculated EUR and TRY share for each partner.
 
-The preview recalculates immediately when the end date or percentages change. Ratio changes apply only to the pending distribution and do not rewrite the saved defaults or previous distributions.
+The preview recalculates immediately when the end date or percentages change. Percentage inputs accept at most two decimal places, matching the database precision. Ratio changes apply only to the pending distribution and do not rewrite the saved defaults or previous distributions.
 
 ### Confirmation
 
@@ -104,16 +104,15 @@ Round trips continue to split booking revenue and sold-transfer cost equally bet
 
 ## Advertising Expense Allocation
 
-Monthly advertising expense must not be charged twice when distributions split a month. For distribution calculations, allocate it by calendar day:
+Monthly advertising expense must not be charged twice when distributions split a month. For distribution calculations, allocate it by calendar day with cumulative cent rounding. For the portion of one month covered by an interval:
 
 ```text
-allocated advertising TRY
-  = monthly advertising TRY
-  × closed days from that month inside the distribution interval
-  ÷ total calendar days in that month
+allocated advertising TRY =
+  round(monthly advertising TRY × interval end day ÷ days in month, 2)
+  − round(monthly advertising TRY × (interval start day − 1) ÷ days in month, 2)
 ```
 
-The EUR value uses that month's saved EUR/TRY rate. Contiguous distributions covering a complete month therefore allocate exactly the configured monthly advertising total. An opening date in the middle of a month intentionally excludes the earlier portion because those dates are declared already settled.
+For an interval crossing months, calculate each partial month separately and sum the results. This telescoping rule makes adjacent intervals reconcile exactly: regardless of how many times a month is split, intervals covering the whole month sum to the configured monthly advertising total to the cent. The EUR value converts each month's already rounded TRY allocation using that month's saved EUR/TRY rate, then rounds it to two decimals. An opening date in the middle of a month intentionally excludes the earlier cumulative portion because those dates are declared already settled.
 
 All other revenue and costs remain trip-leg based and use the monthly settings belonging to each leg's service month.
 
@@ -157,7 +156,7 @@ One row per confirmed distribution:
 - period fields: `period_start DATE`, `period_end DATE`;
 - applied shares: operations and vehicle-owner percentages;
 - partner results: both partners' EUR and TRY amounts, stored as `NUMERIC(14,2)`;
-- financial snapshot: income EUR/TRY, vehicle cost TRY, supplier cost TRY, airport cost EUR/TRY, advertising cost EUR/TRY, total expense EUR/TRY, net profit EUR/TRY, and realized leg count; all money columns use `NUMERIC(14,2)`;
+- financial snapshot: income EUR/TRY, vehicle cost EUR/TRY, supplier cost EUR/TRY, airport cost EUR/TRY, advertising cost EUR/TRY, total expense EUR/TRY, net profit EUR/TRY, and realized leg count; all money columns use `NUMERIC(14,2)`. History reads these persisted columns directly rather than re-deriving EUR expense buckets from current settings;
 - `calculation_snapshot JSONB` containing `schema_version: 1`, resolved leg identifiers and per-leg snapshot values, plus monthly settings used by the calculation.
 
 Database constraints enforce:
@@ -206,7 +205,7 @@ Automated tests must prove:
 - cancelled and future legs are excluded;
 - sold-transfer and own-vehicle costs match the existing report rules;
 - unresolved distance prevents distribution;
-- advertising is prorated correctly across partial months, leap years, and intervals crossing months;
+- advertising is prorated correctly across partial months, leap years, and intervals crossing months, and adjacent partial distributions reconcile exactly to the configured whole-month TRY total;
 - adjacent distribution periods cannot overlap or leave gaps;
 - a negative open interval stays open and becomes distributable after later profitable trips;
 - 50/50 is the default and custom valid ratios calculate correctly;
