@@ -384,8 +384,8 @@ export default function ProfitLossPage({ navigate, initialPeriod }: { navigate: 
   const [distributionLoading, setDistributionLoading] = useState(true)
   const [distributionError, setDistributionError] = useState('')
 
-  const refreshDistributionLedger = useCallback(async () => {
-    setDistributionLoading(true)
+  const refreshDistributionLedger = useCallback(async ({ silent = false }: { silent?: boolean } = {}) => {
+    if (!silent) setDistributionLoading(true)
     setDistributionError('')
     try {
       const ledger = await fetchProfitDistributionLedger()
@@ -394,7 +394,7 @@ export default function ProfitLossPage({ navigate, initialPeriod }: { navigate: 
     } catch (ledgerError) {
       setDistributionError(profitDistributionErrorMessage(ledgerError))
     } finally {
-      setDistributionLoading(false)
+      if (!silent) setDistributionLoading(false)
     }
   }, [])
 
@@ -435,7 +435,7 @@ export default function ProfitLossPage({ navigate, initialPeriod }: { navigate: 
       await createProfitDistribution({ ...input, snapshot })
     } catch (writeError) {
       const message = profitDistributionErrorMessage(writeError)
-      if (isStaleDistributionWriteError(writeError)) await refreshDistributionLedger()
+      if (isStaleDistributionWriteError(writeError)) await refreshDistributionLedger({ silent: true })
       throw new Error(message)
     }
     await refresh()
