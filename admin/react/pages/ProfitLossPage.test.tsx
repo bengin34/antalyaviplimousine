@@ -57,6 +57,7 @@ const booking: Booking = {
   customer_phone: '+905551112233',
   hotel_name: '',
   child_seat_count: 0,
+  child_ages: [],
   luggage_count: 1,
   pickup_location: 'airport',
   pickup_address: null,

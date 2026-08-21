@@ -78,6 +78,7 @@ function bookingFixture(overrides: Partial<Booking> = {}): Booking {
       updated_at: '2026-08-10T20:00:00Z',
     }],
     ...overrides,
+    child_ages: overrides.child_ages ?? [],
   }
 }
 
