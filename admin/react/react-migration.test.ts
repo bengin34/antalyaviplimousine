@@ -77,7 +77,7 @@ describe('React admin migration behavior', () => {
   test('expands a round trip into outbound and return cards', () => {
     const booking = {
       id: '1', booking_ref: 'AVL-1', customer_name: 'Ayşe', customer_email: '', customer_phone: '+90555',
-      hotel_name: 'Rixos', child_seat_count: 0, luggage_count: 1, pickup_location: 'airport',
+      hotel_name: 'Rixos', child_seat_count: 0, child_ages: [] as number[], luggage_count: 1, pickup_location: 'airport',
       pickup_address: null, dropoff_location: 'belek', dropoff_address: null, pickup_date: '2026-08-10',
       pickup_time: '12:30:00', flight_number: 'TK1', flight_arrival_time: '12:10:00', trip_type: 'round_trip',
       return_date: '2026-08-15', return_pickup_time: '09:00:00', return_flight_number: 'TK2', guests: 2,
@@ -95,7 +95,7 @@ describe('React admin migration behavior', () => {
   test('expands a daily chauffeur hire across every occupied day', () => {
     const booking = {
       id: 'daily-1', booking_ref: 'AVL-D1', customer_name: 'Ayşe', customer_email: '', customer_phone: '+90555',
-      hotel_name: 'Rixos', child_seat_count: 0, luggage_count: 1, pickup_location: 'hotel', pickup_address: null,
+      hotel_name: 'Rixos', child_seat_count: 0, child_ages: [] as number[], luggage_count: 1, pickup_location: 'hotel', pickup_address: null,
       dropoff_location: null, dropoff_address: null, pickup_date: '2026-08-10', pickup_time: '09:00:00',
       flight_number: null, flight_arrival_time: null, trip_type: 'daily_chauffeur', return_date: null,
       return_pickup_time: null, return_flight_number: null, service_end_date: '2026-08-13', daily_rate_eur: 150,

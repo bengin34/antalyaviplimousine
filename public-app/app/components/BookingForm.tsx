@@ -92,7 +92,7 @@ export function BookingForm({
     mode: "onTouched",
     defaultValues: {
       tripType: "one_way", pickup: "airport", destination: "", vehicle: "vito", guests: "2",
-      luggage: "", childSeats: "0", travelDate: "", arrivalTime: "", flightNumber: "",
+      luggage: "", childSeats: "0", childAges: [], travelDate: "", arrivalTime: "", flightNumber: "",
       returnDate: "", returnPickupTime: "", returnFlightNumber: "", pickupAddress: "",
       serviceEndDate: "", pickupTime: "", departureFlightDate: "", departureFlightTime: "", departureFlightNumber: "",
       dropoffAddress: "", hotelName: "", customerName: "", customerPhone: "", customerEmail: "",
@@ -119,6 +119,12 @@ export function BookingForm({
   const isPrivateAddressQuote = !isDailyChauffeur && values.pickup === "private_address" && values.destination === "private_address";
   const vitoFits = Number(values.guests) <= 6 && Number(values.luggage) <= 6 && Number(values.guests) + Number(values.luggage) <= 12;
   const hasPrice = !isDailyChauffeur && selectedRoute && quote.price > 0;
+  const childSeatCount = Number(values.childSeats) || 0;
+
+  useEffect(() => {
+    setValue("childAges", Array.from({ length: childSeatCount }, (_, i) => values.childAges?.[i] ?? ""), { shouldValidate: false });
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [childSeatCount, setValue]);
 
   useEffect(() => {
     const today = todayISO();
@@ -238,7 +244,7 @@ export function BookingForm({
   };
 
   const advanceToStep3 = async () => {
-    const step2Fields: (keyof PublicBookingValues)[] = ["travelDate", "luggage", "childSeats"];
+    const step2Fields: (keyof PublicBookingValues)[] = ["travelDate", "luggage", "childSeats", "childAges"];
     if (values.tripType === "round_trip") step2Fields.push("returnDate", "returnPickupTime");
     if (values.pickup === "private_address") step2Fields.push("pickupAddress");
     if (values.destination === "private_address") step2Fields.push("dropoffAddress");
@@ -440,6 +446,17 @@ export function BookingForm({
                   <FieldErrorMessage error={errors.childSeats} />
                 </label>
               </div>
+              {childSeatCount > 0 && (
+                <div className="booking-row booking-options-row">
+                  {Array.from({ length: childSeatCount }, (_, i) => (
+                    <label key={i} className={fieldClass((errors.childAges as unknown as FieldError[] | undefined)?.[i])}>
+                      <span>{`${t("childAgeLabel", "Child")} ${i + 1} ${t("childAgeLabelAge", "age")}`}</span>
+                      <div className="field-control"><Icon name="baby" className="icon" /><select id={`child-age-${i}`} {...register(`childAges.${i}`)}><option value="">{t("childAgeSelect", "Select age")}</option>{Array.from({ length: 12 }, (_, age) => <option value={age} key={age}>{age === 0 ? t("childAgeBaby", "Under 1") : `${age}`}</option>)}</select></div>
+                      <FieldErrorMessage error={(errors.childAges as unknown as FieldError[] | undefined)?.[i]} />
+                    </label>
+                  ))}
+                </div>
+              )}
               {!vitoFits && <p className="capacity-note">{t("capacitySwitchedSprinter", "We selected the Sprinter for this passenger and luggage count.")}</p>}
 
               <div className="booking-footer booking-footer-step">
@@ -478,6 +495,17 @@ export function BookingForm({
                 <label className={fieldClass(errors.hotelName)}><span>{t("hotelNameLabel", "Hotel name")}</span><div className="field-control"><Icon name="pin" className="icon" /><input id="hotel-name" maxLength={120} placeholder={t("hotelNamePlaceholder", "Hotel or accommodation name")} {...register("hotelName")} /></div><FieldErrorMessage error={errors.hotelName} /></label>
                 <label className={fieldClass(errors.childSeats)}><span>{t("childSeatLabel", "Child seats")}</span><div className="field-control"><Icon name="baby" className="icon" /><select id="child-seats" {...register("childSeats")}>{Array.from({ length: 5 }, (_, index) => <option value={index} key={index}>{index === 0 ? t("childSeatNone", "No child seat") : t(["", "oneChildSeat", "twoChildSeats", "threeChildSeats", "fourChildSeats"][index], `${index} child seat${index > 1 ? "s" : ""}`)}</option>)}</select></div><FieldErrorMessage error={errors.childSeats} /></label>
               </div>
+              {childSeatCount > 0 && (
+                <div className="booking-row booking-options-row">
+                  {Array.from({ length: childSeatCount }, (_, i) => (
+                    <label key={i} className={fieldClass((errors.childAges as unknown as FieldError[] | undefined)?.[i])}>
+                      <span>{`${t("childAgeLabel", "Child")} ${i + 1} ${t("childAgeLabelAge", "age")}`}</span>
+                      <div className="field-control"><Icon name="baby" className="icon" /><select id={`child-age-${i}`} {...register(`childAges.${i}`)}><option value="">{t("childAgeSelect", "Select age")}</option>{Array.from({ length: 12 }, (_, age) => <option value={age} key={age}>{age === 0 ? t("childAgeBaby", "Under 1") : `${age}`}</option>)}</select></div>
+                      <FieldErrorMessage error={(errors.childAges as unknown as FieldError[] | undefined)?.[i]} />
+                    </label>
+                  ))}
+                </div>
+              )}
             </>
           )}
 

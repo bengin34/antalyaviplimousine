@@ -166,6 +166,9 @@ Deno.serve(async (req) => {
       payload.child_seat_count === ''
         ? 0
         : Number(payload.child_seat_count)
+    const childAges: number[] = Array.isArray(payload.child_ages)
+      ? payload.child_ages.slice(0, childSeatCount).map(Number)
+      : []
     const legacyLuggageCount = notes.match(/^Large luggage:\s*(\d+)$/i)?.[1]
     const rawLuggageCount =
       payload.luggage_count === undefined ||
@@ -217,6 +220,9 @@ Deno.serve(async (req) => {
     }
     if (!Number.isInteger(childSeatCount) || childSeatCount < 0 || childSeatCount > 4) {
       return jsonResponse({ error: 'child_seat_count is invalid' }, 400)
+    }
+    if (childSeatCount > 0 && childAges.some(age => !Number.isInteger(age) || age < 0 || age > 11)) {
+      return jsonResponse({ error: 'child_ages contains invalid values' }, 400)
     }
     if (!Number.isInteger(luggageCount) || luggageCount < 0 || luggageCount > 12) {
       return jsonResponse({ error: 'luggage_count is invalid' }, 400)
@@ -296,6 +302,7 @@ Deno.serve(async (req) => {
       customer_phone: customerPhone,
       hotel_name: hotelName,
       child_seat_count: childSeatCount,
+      child_ages: childAges,
       luggage_count: luggageCount,
       flight_number: normalizeWhitespace(payload.flight_number).toUpperCase() || null,
       flight_arrival_time: payload.flight_arrival_time || null,
@@ -382,6 +389,7 @@ Deno.serve(async (req) => {
                 <tr><td style="padding:6px 12px;color:#777">Hotel / accommodation</td><td style="padding:6px 12px"><strong>${escapeHtml(booking.hotel_name)}</strong></td></tr>
                 <tr><td style="padding:6px 12px;color:#777">Large luggage</td><td style="padding:6px 12px"><strong>${escapeHtml(booking.luggage_count ?? luggageCount)}</strong></td></tr>
                 <tr><td style="padding:6px 12px;color:#777">Child seats</td><td style="padding:6px 12px">${escapeHtml(booking.child_seat_count || 0)}</td></tr>
+                ${childAges.length > 0 ? `<tr><td style="padding:6px 12px;color:#777">Child ages</td><td style="padding:6px 12px">${escapeHtml(childAges.map((age, i) => `Child ${i + 1}: ${age === 0 ? 'under 1' : age + ' yr'}`).join(', '))}</td></tr>` : ''}
                 <tr><td style="padding:6px 12px;color:#777">Pick-up type</td><td style="padding:6px 12px">${escapeHtml(pickupLabel)}</td></tr>
                 <tr><td style="padding:6px 12px;color:#777">Pick-up address</td><td style="padding:6px 12px"><strong>${escapeHtml(pickupAddressDisplay)}</strong></td></tr>
                 ${!isDailyChauffeur ? `<tr><td style="padding:6px 12px;color:#777">Destination</td><td style="padding:6px 12px">${escapeHtml(booking.dropoff_location)}</td></tr>` : ''}

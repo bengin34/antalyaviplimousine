@@ -26,6 +26,7 @@ export function createPublicBookingSchema(t: Translate) {
     destination: z.string(),
     vehicle: z.enum(["vito", "sprinter"]),
     guests: z.string(), luggage: z.string(), childSeats: z.string(),
+    childAges: z.array(z.string()).default([]),
     travelDate: z.string().regex(/^\d{4}-\d{2}-\d{2}$/, t("dateInvalid", "Please select a valid date.")),
     arrivalTime: z.string(), flightNumber: z.string(),
     returnDate: z.string(), returnPickupTime: z.string(), returnFlightNumber: z.string(),
@@ -45,6 +46,12 @@ export function createPublicBookingSchema(t: Translate) {
     if (!Number.isInteger(guests) || guests < 1 || guests > capacity) context.addIssue({ code: "custom", path: ["guests"], message: t("capacityNoVehicle", "Please select a suitable vehicle.") });
     if (values.luggage === "" || !Number.isInteger(luggage) || luggage < 0 || luggage > 12) context.addIssue({ code: "custom", path: ["luggage"], message: t("luggageRequired", "Please select the number of large bags.") });
     if (!Number.isInteger(childSeats) || childSeats < 0 || childSeats > 4) context.addIssue({ code: "custom", path: ["childSeats"], message: t("requiredField", "Please check this field.") });
+    for (let i = 0; i < childSeats; i++) {
+      const age = Number(values.childAges?.[i]);
+      if (!Number.isInteger(age) || age < 0 || age > 11 || values.childAges?.[i] === "" || values.childAges?.[i] === undefined) {
+        context.addIssue({ code: "custom", path: ["childAges", i], message: t("childAgeRequired", "Please select the child's age.") });
+      }
+    }
 
     if (values.tripType === "round_trip") {
       if (!values.returnDate) context.addIssue({ code: "custom", path: ["returnDate"], message: t("returnDateRequired", "Please select the return date.") });
@@ -171,6 +178,7 @@ export function buildPublicBookingPayload(values: PublicBookingValues, language:
     customer_phone: normalize(values.customerPhone).replace(/^00/, "+"),
     hotel_name: normalize(values.hotelName) || "Not specified",
     child_seat_count: Number(values.childSeats),
+    child_ages: Array.from({ length: Number(values.childSeats) }, (_, i) => Number(values.childAges?.[i] ?? 0)),
     luggage_count: Number(values.luggage),
     flight_number: normalize(values.flightNumber).toUpperCase() || null,
     flight_arrival_time: values.arrivalTime || null,

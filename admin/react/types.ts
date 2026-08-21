@@ -29,6 +29,7 @@ export interface Booking {
   customer_phone: string
   hotel_name: string
   child_seat_count: number
+  child_ages: number[]
   luggage_count: number
   pickup_location: string
   pickup_address: string | null

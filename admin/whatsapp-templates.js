@@ -389,8 +389,11 @@ function detailLines(booking, transfer, t, { includeMap = true } = {}) {
       );
     if (Number(b.luggage_count) > 0)
       lines.push(`${t.labelLuggage}: ${b.luggage_count}`);
-    if (Number(b.child_seat_count) > 0)
+    if (Number(b.child_seat_count) > 0) {
       lines.push(`${t.labelChildSeats}: ${b.child_seat_count}`);
+      if (Array.isArray(b.child_ages) && b.child_ages.length > 0)
+        lines.push(`Child ages: ${b.child_ages.map((age, i) => `${i + 1}: ${age === 0 ? '<1' : age + 'y'}`).join(', ')}`);
+    }
     return lines;
   }
   const lines = [
@@ -417,8 +420,11 @@ function detailLines(booking, transfer, t, { includeMap = true } = {}) {
 
   if (Number(b.luggage_count) > 0)
     lines.push(`${t.labelLuggage}: ${b.luggage_count}`);
-  if (Number(b.child_seat_count) > 0)
+  if (Number(b.child_seat_count) > 0) {
     lines.push(`${t.labelChildSeats}: ${b.child_seat_count}`);
+    if (Array.isArray(b.child_ages) && b.child_ages.length > 0)
+      lines.push(`Child ages: ${b.child_ages.map((age, i) => `${i + 1}: ${age === 0 ? '<1' : age + 'y'}`).join(', ')}`);
+  }
 
   lines.push(`${t.labelPrice}: €${fmtPrice(transfer.price)}`);
   return lines;
