@@ -144,6 +144,129 @@ function settingForMonth(settingsByMonth, month) {
   return normalizeSetting(settingsByMonth?.[month])
 }
 
+const ISO_DATE_ONLY = /^(\d{4})-(\d{2})-(\d{2})$/
+
+function dateOnlyUtc(value) {
+  const match = ISO_DATE_ONLY.exec(String(value ?? ''))
+  if (!match) return null
+  const [, yearText, monthText, dayText] = match
+  const year = Number(yearText)
+  const month = Number(monthText)
+  const day = Number(dayText)
+  const date = new Date(Date.UTC(year, month - 1, day))
+  if (
+    date.getUTCFullYear() !== year
+    || date.getUTCMonth() !== month - 1
+    || date.getUTCDate() !== day
+  ) return null
+  return date
+}
+
+function formatDateOnlyUtc(date) {
+  return date.toISOString().slice(0, 10)
+}
+
+function roundMoney(value) {
+  const amount = Number(value)
+  if (!Number.isFinite(amount)) return 0
+  const rounded = Math.sign(amount) * Math.round((Math.abs(amount) + Number.EPSILON) * 100) / 100
+  return Object.is(rounded, -0) ? 0 : rounded
+}
+
+function monthsForRange(startDate, endDate) {
+  const start = dateOnlyUtc(startDate)
+  const end = dateOnlyUtc(endDate)
+  if (!start || !end || start > end) return []
+
+  const months = []
+  const cursor = new Date(Date.UTC(start.getUTCFullYear(), start.getUTCMonth(), 1))
+  const finalMonth = Date.UTC(end.getUTCFullYear(), end.getUTCMonth(), 1)
+  while (cursor.getTime() <= finalMonth) {
+    months.push(formatDateOnlyUtc(cursor).slice(0, 7))
+    cursor.setUTCMonth(cursor.getUTCMonth() + 1)
+  }
+  return months
+}
+
+function settingsSnapshotForMonths(months, settingsByMonth) {
+  return Object.fromEntries(months.map(month => {
+    const settings = settingForMonth(settingsByMonth, month)
+    return [month, {
+      km_cost_try: settings.kmCostTry,
+      eur_try_rate: settings.eurTryRate,
+      advertising_expense_try: settings.advertisingExpenseTry,
+    }]
+  }))
+}
+
+export function allocatedAdvertisingForRange(startDate, endDate, settingsByMonth = {}) {
+  const start = dateOnlyUtc(startDate)
+  const end = dateOnlyUtc(endDate)
+  if (!start || !end || start > end) {
+    throw new RangeError('Invalid advertising date range')
+  }
+
+  const monthlyAllocations = {}
+  let advertisingExpenseTry = 0
+  let advertisingExpenseEur = 0
+
+  for (const month of monthsForRange(startDate, endDate)) {
+    const [year, monthNumber] = month.split('-').map(Number)
+    const daysInMonth = new Date(Date.UTC(year, monthNumber, 0)).getUTCDate()
+    const monthStart = new Date(Date.UTC(year, monthNumber - 1, 1))
+    const monthEnd = new Date(Date.UTC(year, monthNumber - 1, daysInMonth))
+    const allocationStart = start > monthStart ? start : monthStart
+    const allocationEnd = end < monthEnd ? end : monthEnd
+    const settings = settingForMonth(settingsByMonth, month)
+    const throughEnd = roundMoney(settings.advertisingExpenseTry * allocationEnd.getUTCDate() / daysInMonth)
+    const beforeStart = roundMoney(settings.advertisingExpenseTry * (allocationStart.getUTCDate() - 1) / daysInMonth)
+    const allocatedTry = roundMoney(throughEnd - beforeStart)
+    const allocatedEur = roundMoney(allocatedTry / settings.eurTryRate)
+
+    monthlyAllocations[month] = {
+      startDate: formatDateOnlyUtc(allocationStart),
+      endDate: formatDateOnlyUtc(allocationEnd),
+      advertisingExpenseTry: allocatedTry,
+      advertisingExpenseEur: allocatedEur,
+    }
+    advertisingExpenseTry = roundMoney(advertisingExpenseTry + allocatedTry)
+    advertisingExpenseEur = roundMoney(advertisingExpenseEur + allocatedEur)
+  }
+
+  return { advertisingExpenseTry, advertisingExpenseEur, monthlyAllocations }
+}
+
+export function splitProfit(netProfitEur, netProfitTry, operationsSharePct) {
+  if (
+    operationsSharePct === null
+    || operationsSharePct === undefined
+    || String(operationsSharePct).trim() === ''
+  ) throw new RangeError('Invalid percentage')
+
+  const percentage = Number(operationsSharePct)
+  const scaledPercentage = percentage * 100
+  if (
+    !Number.isFinite(percentage)
+    || percentage < 0
+    || percentage > 100
+    || Math.abs(scaledPercentage - Math.round(scaledPercentage)) > 1e-8
+  ) throw new RangeError('Invalid percentage')
+
+  const eur = roundMoney(netProfitEur)
+  const tryAmount = roundMoney(netProfitTry)
+  const operationsAmountEur = roundMoney(eur * percentage / 100)
+  const operationsAmountTry = roundMoney(tryAmount * percentage / 100)
+
+  return {
+    operationsSharePct: percentage,
+    vehicleOwnerSharePct: roundMoney(100 - percentage),
+    operationsAmountEur,
+    vehicleOwnerAmountEur: roundMoney(eur - operationsAmountEur),
+    operationsAmountTry,
+    vehicleOwnerAmountTry: roundMoney(tryAmount - operationsAmountTry),
+  }
+}
+
 function manualDistanceForLeg(booking, leg) {
   const value = leg === 'return'
     ? booking.manual_return_distance_km
@@ -316,4 +439,187 @@ export function calculateProfitLossMetrics(bookings, period, today, settingsByMo
     missingDailyDistanceCount: resolvedLegs.filter(leg => leg.distanceSource === 'daily-missing').length,
     routes,
   }
+}
+
+function distributionBlocker(code, leg, extra = {}) {
+  return {
+    code,
+    bookingId: leg?.bookingId ?? null,
+    bookingRef: leg?.bookingRef ?? null,
+    leg: leg?.leg ?? null,
+    date: leg?.date ?? null,
+    ...extra,
+  }
+}
+
+export function calculateProfitDistribution(bookings, options = {}) {
+  const startDate = String(options.startDate ?? '')
+  const endDate = String(options.endDate ?? '')
+  const today = String(options.today ?? '')
+  const settingsByMonth = options.settingsByMonth ?? {}
+  const start = dateOnlyUtc(startDate)
+  const end = dateOnlyUtc(endDate)
+  const todayDate = dateOnlyUtc(today)
+  const rangeIsValid = Boolean(start && end && todayDate && start <= end)
+  const blockers = []
+
+  if (!rangeIsValid) {
+    blockers.push(distributionBlocker('invalid-date-range', null))
+  } else if (end >= todayDate) {
+    blockers.push(distributionBlocker('end-date-not-closed', null))
+  }
+
+  const realized = todayDate
+    ? resolveRealizedLegs(Array.isArray(bookings) ? bookings : [], today, settingsByMonth)
+    : { resolvedLegs: [], unresolvedLegs: [] }
+  const withinRange = leg => rangeIsValid && leg.date >= startDate && leg.date <= endDate
+  const resolvedLegs = realized.resolvedLegs.filter(withinRange)
+  const unresolvedLegs = realized.unresolvedLegs.filter(withinRange)
+
+  for (const leg of unresolvedLegs) {
+    blockers.push(distributionBlocker('unresolved-route', leg))
+  }
+  for (const leg of resolvedLegs) {
+    if (leg.distanceSource === 'daily-missing') {
+      blockers.push(distributionBlocker('daily-distance-missing', leg))
+    }
+    if (
+      leg.costMode === 'sold_transfer'
+      && (!Number.isFinite(leg.supplierCostTry) || leg.supplierCostTry <= 0)
+    ) {
+      blockers.push(distributionBlocker('supplier-cost-invalid', leg))
+    }
+  }
+
+  const directTotals = totalsForLegs(resolvedLegs, unresolvedLegs, settingsByMonth)
+  const advertising = rangeIsValid
+    ? allocatedAdvertisingForRange(startDate, endDate, settingsByMonth)
+    : { advertisingExpenseTry: 0, advertisingExpenseEur: 0 }
+  const months = rangeIsValid ? monthsForRange(startDate, endDate) : []
+  const monthlySettingsSnapshot = settingsSnapshotForMonths(months, settingsByMonth)
+
+  const incomeEur = roundMoney(directTotals.incomeEur)
+  const incomeTry = roundMoney(directTotals.incomeTry)
+  const vehicleCostEur = roundMoney(directTotals.vehicleCostEur)
+  const vehicleCostTry = roundMoney(directTotals.vehicleCostTry)
+  const supplierCostEur = roundMoney(directTotals.supplierCostEur)
+  const supplierCostTry = roundMoney(directTotals.supplierCostTry)
+  const airportMeetCostEur = roundMoney(directTotals.airportMeetCostEur)
+  const airportMeetCostTry = roundMoney(directTotals.airportMeetCostTry)
+  const advertisingExpenseEur = roundMoney(advertising.advertisingExpenseEur)
+  const advertisingExpenseTry = roundMoney(advertising.advertisingExpenseTry)
+  const totalExpenseEur = roundMoney(
+    vehicleCostEur + supplierCostEur + airportMeetCostEur + advertisingExpenseEur,
+  )
+  const totalExpenseTry = roundMoney(
+    vehicleCostTry + supplierCostTry + airportMeetCostTry + advertisingExpenseTry,
+  )
+  const netProfitEur = roundMoney(incomeEur - totalExpenseEur)
+  const netProfitTry = roundMoney(incomeTry - totalExpenseTry)
+
+  let shares = null
+  try {
+    shares = splitProfit(netProfitEur, netProfitTry, options.operationsSharePct)
+  } catch {
+    blockers.push(distributionBlocker('invalid-share', null))
+  }
+
+  if (rangeIsValid && netProfitEur <= 0) {
+    blockers.push(distributionBlocker('non-positive-profit', null))
+  }
+
+  return {
+    startDate,
+    endDate,
+    incomeEur,
+    incomeTry,
+    vehicleCostEur,
+    vehicleCostTry,
+    supplierCostEur,
+    supplierCostTry,
+    airportMeetCostEur,
+    airportMeetCostTry,
+    advertisingExpenseEur,
+    advertisingExpenseTry,
+    totalExpenseEur,
+    totalExpenseTry,
+    netProfitEur,
+    netProfitTry,
+    realizedLegCount: resolvedLegs.length + unresolvedLegs.length,
+    resolvedLegs,
+    monthlySettingsSnapshot,
+    blockers,
+    canDistribute: blockers.length === 0 && netProfitEur > 0,
+    shares,
+  }
+}
+
+function legSnapshot(leg, monthlySettings) {
+  const settings = monthlySettings[leg.month] ?? {
+    eur_try_rate: DEFAULT_EUR_TRY_RATE,
+  }
+  return {
+    key: `${leg.bookingId}:${leg.leg}`,
+    booking_id: leg.bookingId ?? null,
+    booking_ref: leg.bookingRef ?? null,
+    customer_name: leg.customerName ?? null,
+    leg: leg.leg ?? null,
+    date: leg.date ?? null,
+    month: leg.month ?? null,
+    from: leg.from ?? null,
+    to: leg.to ?? null,
+    cost_mode: leg.costMode ?? null,
+    distance_source: leg.distanceSource ?? null,
+    one_way_km: roundMoney(leg.oneWayKm ?? 0),
+    vehicle_km: roundMoney(leg.vehicleKm ?? 0),
+    revenue_eur: roundMoney(leg.revenueEur ?? 0),
+    revenue_try: roundMoney(leg.revenueTry ?? 0),
+    vehicle_cost_eur: roundMoney((leg.vehicleCostTry ?? 0) / settings.eur_try_rate),
+    vehicle_cost_try: roundMoney(leg.vehicleCostTry ?? 0),
+    supplier_cost_eur: roundMoney((leg.supplierCostTry ?? 0) / settings.eur_try_rate),
+    supplier_cost_try: roundMoney(leg.supplierCostTry ?? 0),
+    airport_cost_eur: roundMoney(leg.airportMeetCostEur ?? 0),
+    airport_cost_try: roundMoney(leg.airportMeetCostTry ?? 0),
+  }
+}
+
+export function buildProfitDistributionSnapshot(metrics = {}) {
+  const monthlySettings = Object.fromEntries(
+    Object.entries(metrics.monthlySettingsSnapshot ?? {}).map(([month, settings]) => [month, {
+      km_cost_try: Number(settings.km_cost_try),
+      eur_try_rate: Number(settings.eur_try_rate),
+      advertising_expense_try: roundMoney(settings.advertising_expense_try),
+    }]),
+  )
+  const shares = metrics.shares ?? {}
+  const snapshot = {
+    schema_version: 1,
+    period_start: metrics.startDate ?? null,
+    period_end: metrics.endDate ?? null,
+    operations_share_pct: shares.operationsSharePct ?? null,
+    vehicle_owner_share_pct: shares.vehicleOwnerSharePct ?? null,
+    operations_amount_eur: roundMoney(shares.operationsAmountEur),
+    vehicle_owner_amount_eur: roundMoney(shares.vehicleOwnerAmountEur),
+    operations_amount_try: roundMoney(shares.operationsAmountTry),
+    vehicle_owner_amount_try: roundMoney(shares.vehicleOwnerAmountTry),
+    income_eur: roundMoney(metrics.incomeEur),
+    income_try: roundMoney(metrics.incomeTry),
+    vehicle_cost_eur: roundMoney(metrics.vehicleCostEur),
+    vehicle_cost_try: roundMoney(metrics.vehicleCostTry),
+    supplier_cost_eur: roundMoney(metrics.supplierCostEur),
+    supplier_cost_try: roundMoney(metrics.supplierCostTry),
+    airport_cost_eur: roundMoney(metrics.airportMeetCostEur),
+    airport_cost_try: roundMoney(metrics.airportMeetCostTry),
+    advertising_cost_eur: roundMoney(metrics.advertisingExpenseEur),
+    advertising_cost_try: roundMoney(metrics.advertisingExpenseTry),
+    total_expense_eur: roundMoney(metrics.totalExpenseEur),
+    total_expense_try: roundMoney(metrics.totalExpenseTry),
+    net_profit_eur: roundMoney(metrics.netProfitEur),
+    net_profit_try: roundMoney(metrics.netProfitTry),
+    realized_leg_count: Number(metrics.realizedLegCount) || 0,
+    resolved_legs: (metrics.resolvedLegs ?? []).map(leg => legSnapshot(leg, monthlySettings)),
+    monthly_settings: monthlySettings,
+  }
+
+  return JSON.parse(JSON.stringify(snapshot))
 }

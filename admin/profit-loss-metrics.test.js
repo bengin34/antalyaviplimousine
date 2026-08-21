@@ -1,10 +1,14 @@
 import { describe, expect, test } from 'vitest'
 import {
   AIRPORT_MEET_COST_EUR,
+  allocatedAdvertisingForRange,
+  buildProfitDistributionSnapshot,
+  calculateProfitDistribution,
   calculateProfitLossMetrics,
   DEFAULT_EUR_TRY_RATE,
   DEFAULT_KM_COST_TRY,
   fixedRouteDistanceKm,
+  splitProfit,
 } from './profit-loss-metrics.js'
 
 const baseBooking = {
@@ -282,5 +286,361 @@ describe('calculateProfitLossMetrics', () => {
     expect(result.advertisingExpenseTry).toBe(300)
     expect(result.airportMeetCostTry).toBe(450)
     expect(result.netProfitTry).toBe(4350)
+  })
+})
+
+describe('allocatedAdvertisingForRange', () => {
+  test('uses UTC calendar days for leap-year February', () => {
+    const result = allocatedAdvertisingForRange('2028-02-10', '2028-02-20', {
+      '2028-02': { advertising_expense_try: 290, eur_try_rate: 10 },
+    })
+
+    expect(result).toEqual({
+      advertisingExpenseTry: 110,
+      advertisingExpenseEur: 11,
+      monthlyAllocations: {
+        '2028-02': {
+          startDate: '2028-02-10',
+          endDate: '2028-02-20',
+          advertisingExpenseTry: 110,
+          advertisingExpenseEur: 11,
+        },
+      },
+    })
+  })
+
+  test('allocates each intersected month independently', () => {
+    const result = allocatedAdvertisingForRange('2026-01-30', '2026-02-02', {
+      '2026-01': { advertising_expense_try: 310, eur_try_rate: 10 },
+      '2026-02': { advertising_expense_try: 280, eur_try_rate: 20 },
+    })
+
+    expect(result.advertisingExpenseTry).toBe(40)
+    expect(result.advertisingExpenseEur).toBe(3)
+    expect(result.monthlyAllocations).toMatchObject({
+      '2026-01': { advertisingExpenseTry: 20, advertisingExpenseEur: 2 },
+      '2026-02': { advertisingExpenseTry: 20, advertisingExpenseEur: 1 },
+    })
+  })
+
+  test('makes 31 one-day allocations reconcile exactly to August advertising', () => {
+    const settings = {
+      '2026-08': { advertising_expense_try: 100, eur_try_rate: 40 },
+    }
+    const total = Array.from({ length: 31 }, (_, index) => {
+      const date = `2026-08-${String(index + 1).padStart(2, '0')}`
+      return allocatedAdvertisingForRange(date, date, settings).advertisingExpenseTry
+    }).reduce((sum, amount) => sum + amount, 0)
+
+    expect(total).toBe(100)
+  })
+
+  test('excludes the cumulative allocation before a midmonth opening date', () => {
+    const result = allocatedAdvertisingForRange('2026-08-16', '2026-08-31', {
+      '2026-08': { advertising_expense_try: 310, eur_try_rate: 10 },
+    })
+
+    expect(result.advertisingExpenseTry).toBe(160)
+  })
+})
+
+describe('splitProfit', () => {
+  test('splits profit 50/50', () => {
+    expect(splitProfit(100, 5000, 50)).toEqual({
+      operationsSharePct: 50,
+      vehicleOwnerSharePct: 50,
+      operationsAmountEur: 50,
+      vehicleOwnerAmountEur: 50,
+      operationsAmountTry: 2500,
+      vehicleOwnerAmountTry: 2500,
+    })
+  })
+
+  test('supports a custom 60/40 split', () => {
+    expect(splitProfit(100, 5000, 60)).toMatchObject({
+      operationsSharePct: 60,
+      vehicleOwnerSharePct: 40,
+      operationsAmountEur: 60,
+      vehicleOwnerAmountEur: 40,
+    })
+  })
+
+  test('assigns the odd-cent remainder to the vehicle owner', () => {
+    const result = splitProfit(0.01, 0.01, 50)
+
+    expect(result.operationsAmountEur).toBe(0.01)
+    expect(result.vehicleOwnerAmountEur).toBe(0)
+    expect(result.operationsAmountEur + result.vehicleOwnerAmountEur).toBe(0.01)
+  })
+
+  test('reconciles a negative TRY reference while EUR remains positive', () => {
+    const result = splitProfit(100, -33.33, 60)
+
+    expect(result.operationsAmountTry).toBe(-20)
+    expect(result.vehicleOwnerAmountTry).toBe(-13.33)
+    expect(result.operationsAmountTry + result.vehicleOwnerAmountTry).toBe(-33.33)
+  })
+
+  test.each(['abc', -0.01, 100.01, 33.333])('rejects an invalid percentage: %s', percentage => {
+    expect(() => splitProfit(100, 100, percentage)).toThrow(/percentage/i)
+  })
+})
+
+describe('calculateProfitDistribution', () => {
+  const settings = {
+    '2026-08': { km_cost_try: 15, eur_try_rate: 50, advertising_expense_try: 0 },
+  }
+  const validOptions = {
+    startDate: '2026-08-01',
+    endDate: '2026-08-05',
+    today: '2026-08-07',
+    settingsByMonth: settings,
+    operationsSharePct: 50,
+  }
+
+  test('calculates one-way income, all expense buckets, profit, and shares', () => {
+    const result = calculateProfitDistribution([baseBooking], validOptions)
+
+    expect(result).toMatchObject({
+      startDate: '2026-08-01',
+      endDate: '2026-08-05',
+      incomeEur: 100,
+      incomeTry: 5000,
+      vehicleCostEur: 39,
+      vehicleCostTry: 1950,
+      supplierCostEur: 0,
+      supplierCostTry: 0,
+      airportMeetCostEur: 5,
+      airportMeetCostTry: 250,
+      advertisingExpenseEur: 0,
+      advertisingExpenseTry: 0,
+      totalExpenseEur: 44,
+      totalExpenseTry: 2200,
+      netProfitEur: 56,
+      netProfitTry: 2800,
+      realizedLegCount: 1,
+      blockers: [],
+      canDistribute: true,
+    })
+    expect(result.shares.operationsAmountEur + result.shares.vehicleOwnerAmountEur).toBe(56)
+  })
+
+  test('uses inclusive boundaries and includes only the in-range half of a round trip', () => {
+    const roundTrip = {
+      ...baseBooking,
+      id: 'round-trip',
+      trip_type: 'round_trip',
+      price_eur: 200,
+      pickup_date: '2026-08-01',
+      return_date: '2026-08-05',
+    }
+    const result = calculateProfitDistribution([roundTrip], {
+      ...validOptions,
+      startDate: '2026-08-02',
+    })
+
+    expect(result.resolvedLegs.map(leg => `${leg.bookingId}:${leg.leg}`)).toEqual([
+      'round-trip:return',
+    ])
+    expect(result.incomeEur).toBe(100)
+    expect(result.vehicleCostTry).toBe(1950)
+    expect(result.airportMeetCostEur).toBe(0)
+  })
+
+  test('calculates daily chauffeur legs from each service date', () => {
+    const daily = {
+      ...baseBooking,
+      id: 'daily',
+      trip_type: 'daily_chauffeur',
+      price_eur: 300,
+      daily_rate_eur: 150,
+      chauffeur_hire_days: [
+        { day_number: 1, service_date: '2026-08-01', status: 'completed', distance_km: 120 },
+        { day_number: 2, service_date: '2026-08-06', status: 'completed', distance_km: 80 },
+      ],
+    }
+    const result = calculateProfitDistribution([daily], validOptions)
+
+    expect(result.resolvedLegs.map(leg => leg.leg)).toEqual(['day-1'])
+    expect(result.incomeEur).toBe(150)
+    expect(result.vehicleCostTry).toBe(1800)
+  })
+
+  test('excludes cancelled and future legs', () => {
+    const cancelled = { ...baseBooking, id: 'cancelled', status: 'cancelled' }
+    const future = { ...baseBooking, id: 'future', pickup_date: '2026-08-08' }
+    const result = calculateProfitDistribution([cancelled, future], validOptions)
+
+    expect(result.realizedLegCount).toBe(0)
+    expect(result.incomeEur).toBe(0)
+  })
+
+  test('keeps revenue visible while an own-vehicle route is unresolved', () => {
+    const unresolved = {
+      ...baseBooking,
+      pickup_location: 'private_address',
+      dropoff_location: 'airport',
+    }
+    const result = calculateProfitDistribution([unresolved], validOptions)
+
+    expect(result.incomeEur).toBe(100)
+    expect(result.realizedLegCount).toBe(1)
+    expect(result.blockers).toEqual([expect.objectContaining({ code: 'unresolved-route' })])
+    expect(result.canDistribute).toBe(false)
+  })
+
+  test('blocks missing daily distance but accepts an explicit zero', () => {
+    const daily = {
+      ...baseBooking,
+      trip_type: 'daily_chauffeur',
+      price_eur: 200,
+      daily_rate_eur: 100,
+      chauffeur_hire_days: [
+        { day_number: 1, service_date: '2026-08-01', status: 'completed', distance_km: null },
+        { day_number: 2, service_date: '2026-08-02', status: 'completed', distance_km: 0 },
+      ],
+    }
+    const result = calculateProfitDistribution([daily], validOptions)
+
+    expect(result.incomeEur).toBe(200)
+    expect(result.blockers).toEqual([expect.objectContaining({ code: 'daily-distance-missing', leg: 'day-1' })])
+  })
+
+  test.each([null, 'not-a-number', 0, -10])('blocks an invalid sold-transfer cost: %s', cost => {
+    const soldTransfer = {
+      ...baseBooking,
+      service_cost_mode: 'sold_transfer',
+      sold_transfer_cost_try: cost,
+    }
+    const result = calculateProfitDistribution([soldTransfer], validOptions)
+
+    expect(result.incomeEur).toBe(100)
+    expect(result.blockers).toEqual([expect.objectContaining({ code: 'supplier-cost-invalid' })])
+    expect(result.canDistribute).toBe(false)
+  })
+
+  test.each([
+    [{ endDate: '2026-08-07' }, 'end-date-not-closed'],
+    [{ endDate: '2026-08-08' }, 'end-date-not-closed'],
+    [{ startDate: '2026-08-06', endDate: '2026-08-05' }, 'invalid-date-range'],
+    [{ startDate: '2026-02-30' }, 'invalid-date-range'],
+  ])('returns a blocker instead of throwing for an invalid date range', (override, code) => {
+    expect(() => calculateProfitDistribution([baseBooking], { ...validOptions, ...override })).not.toThrow()
+    const result = calculateProfitDistribution([baseBooking], { ...validOptions, ...override })
+    expect(result.blockers).toContainEqual(expect.objectContaining({ code }))
+    expect(result.canDistribute).toBe(false)
+  })
+
+  test('converts invalid share input to a blocker instead of throwing', () => {
+    const result = calculateProfitDistribution([baseBooking], {
+      ...validOptions,
+      operationsSharePct: 33.333,
+    })
+
+    expect(result.shares).toBeNull()
+    expect(result.blockers).toContainEqual(expect.objectContaining({ code: 'invalid-share' }))
+    expect(result.canDistribute).toBe(false)
+  })
+
+  test('keeps a loss open until a later profitable leg makes the same start distributable', () => {
+    const loss = { ...baseBooking, id: 'loss', price_eur: 10, pickup_date: '2026-08-01' }
+    const profit = { ...baseBooking, id: 'profit', price_eur: 100, pickup_date: '2026-08-02' }
+
+    const firstDay = calculateProfitDistribution([loss, profit], {
+      ...validOptions,
+      endDate: '2026-08-01',
+    })
+    const throughSecondDay = calculateProfitDistribution([loss, profit], {
+      ...validOptions,
+      endDate: '2026-08-02',
+    })
+
+    expect(firstDay.netProfitEur).toBeLessThanOrEqual(0)
+    expect(firstDay.canDistribute).toBe(false)
+    expect(throughSecondDay.netProfitEur).toBeGreaterThan(0)
+    expect(throughSecondDay.canDistribute).toBe(true)
+  })
+
+  test('uses positive EUR as the only profit gate even when TRY is negative', () => {
+    const julyLoss = {
+      ...baseBooking,
+      id: 'july-loss',
+      pickup_date: '2026-07-31',
+      price_eur: 100,
+      service_cost_mode: 'sold_transfer',
+      sold_transfer_cost_try: 20000,
+    }
+    const augustProfit = {
+      ...baseBooking,
+      id: 'august-profit',
+      pickup_date: '2026-08-01',
+      price_eur: 300,
+      service_cost_mode: 'sold_transfer',
+      sold_transfer_cost_try: 1000,
+    }
+    const result = calculateProfitDistribution([julyLoss, augustProfit], {
+      startDate: '2026-07-31',
+      endDate: '2026-08-01',
+      today: '2026-08-02',
+      settingsByMonth: {
+        '2026-07': { eur_try_rate: 100, advertising_expense_try: 0 },
+        '2026-08': { eur_try_rate: 10, advertising_expense_try: 0 },
+      },
+      operationsSharePct: 50,
+    })
+
+    expect(result.netProfitEur).toBe(100)
+    expect(result.netProfitTry).toBe(-8000)
+    expect(result.canDistribute).toBe(true)
+    expect(result.shares.operationsAmountTry + result.shares.vehicleOwnerAmountTry).toBe(-8000)
+  })
+})
+
+describe('buildProfitDistributionSnapshot', () => {
+  test('returns an immutable JSON-safe schema with stable leg keys and rounded DB values', () => {
+    const booking = { ...baseBooking, price_eur: 100.005 }
+    const settings = {
+      '2026-08': { km_cost_try: 15, eur_try_rate: 50, advertising_expense_try: 100 },
+    }
+    const metrics = calculateProfitDistribution([booking], {
+      startDate: '2026-08-01',
+      endDate: '2026-08-01',
+      today: '2026-08-02',
+      settingsByMonth: settings,
+      operationsSharePct: 50,
+    })
+    const snapshot = buildProfitDistributionSnapshot(metrics)
+    const serialized = JSON.stringify(snapshot)
+
+    expect(JSON.parse(serialized)).toEqual(snapshot)
+    expect(snapshot).toMatchObject({
+      schema_version: 1,
+      period_start: '2026-08-01',
+      period_end: '2026-08-01',
+      operations_share_pct: 50,
+      vehicle_owner_share_pct: 50,
+      income_eur: 100.01,
+      realized_leg_count: 1,
+      monthly_settings: {
+        '2026-08': { km_cost_try: 15, eur_try_rate: 50, advertising_expense_try: 100 },
+      },
+    })
+    expect(snapshot.resolved_legs[0]).toMatchObject({
+      key: 'booking-1:outbound',
+      booking_id: 'booking-1',
+      leg: 'outbound',
+    })
+    expect(snapshot.operations_amount_eur + snapshot.vehicle_owner_amount_eur).toBe(snapshot.net_profit_eur)
+
+    booking.price_eur = 999
+    settings['2026-08'].eur_try_rate = 999
+    metrics.resolvedLegs[0].revenueEur = 999
+    metrics.monthlySettingsSnapshot['2026-08'].eur_try_rate = 999
+    metrics.shares.operationsAmountEur = 999
+
+    expect(snapshot.income_eur).toBe(100.01)
+    expect(snapshot.resolved_legs[0].revenue_eur).toBe(100.01)
+    expect(snapshot.monthly_settings['2026-08'].eur_try_rate).toBe(50)
+    expect(snapshot.operations_amount_eur).not.toBe(999)
   })
 })
