@@ -53,6 +53,7 @@ export interface Booking {
   vehicle_type: 'vclass' | 'vito'
   service_cost_mode: 'own_vehicle' | 'sold_transfer'
   sold_transfer_cost_try: number | string | null
+  airport_meet_fee_applies?: boolean | null
   price_eur: number | string
   status: BookingStatus
   payment_method: 'cash' | 'card'

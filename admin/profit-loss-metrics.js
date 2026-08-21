@@ -460,7 +460,9 @@ export function resolveRealizedLegs(bookings, today, settingsByMonth = {}, rates
       const eurTryRate = (ratesByDate instanceof Map ? ratesByDate.get(leg.date) : null) ?? settings.eurTryRate
       legDetails.eurTryRate = eurTryRate
       legDetails.revenueTry = leg.revenueEur * eurTryRate
-      legDetails.airportMeetCostEur = !leg.isDailyChauffeur && startsFromAirport(leg.from) ? AIRPORT_MEET_COST_EUR : 0
+      legDetails.airportMeetCostEur = !leg.isDailyChauffeur && startsFromAirport(leg.from) && booking.airport_meet_fee_applies !== false
+        ? AIRPORT_MEET_COST_EUR
+        : 0
       legDetails.airportMeetCostTry = legDetails.airportMeetCostEur * eurTryRate
 
       if (leg.isDailyChauffeur) {

@@ -9,6 +9,7 @@ const baseForm: BookingFormState = {
   tripType: 'one_way', pickup: 'airport', dropoff: 'belek', pickupAddress: '', dropoffAddress: '',
   pickupDate: '2026-08-10', pickupTime: '12:30', flightNumber: 'TK123', flightTime: '12:10',
   returnDate: '', returnTime: '', returnFlight: '', vehicle: 'vito', guests: '3', luggage: '2', costMode: 'own_vehicle', soldTransferCostTry: '',
+  airportMeetFeeApplies: true,
   serviceEndDate: '2026-08-10', departureFlightDate: '', departureFlightTime: '', departureFlight: '',
   childSeats: '1', price: '80', payment: 'cash', status: 'confirmed', notes: '', fuelAccepted: false,
 }
@@ -20,6 +21,14 @@ describe('React admin migration behavior', () => {
     })
     expect(result.error).toBe('')
     expect(result.payload?.price_eur).toBe(150)
+  })
+
+  test('persists the airport meet-fee opt-out in the booking payload', () => {
+    const form = { ...baseForm, airportMeetFeeApplies: false } as BookingFormState
+    const result = validateBookingForm(form)
+
+    expect(result.error).toBe('')
+    expect(result.payload?.airport_meet_fee_applies).toBe(false)
   })
 
   test('keeps private address validation', () => {

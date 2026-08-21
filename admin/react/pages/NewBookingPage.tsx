@@ -19,6 +19,7 @@ export interface BookingFormState {
   pickupDate: string; pickupTime: string; flightNumber: string; flightTime: string
   returnDate: string; returnTime: string; returnFlight: string; vehicle: string
   costMode: 'own_vehicle' | 'sold_transfer'; soldTransferCostTry: string
+  airportMeetFeeApplies: boolean
   serviceEndDate: string; departureFlightDate: string; departureFlightTime: string; departureFlight: string
   guests: string; luggage: string; childSeats: string; price: string; payment: string
   status: string; notes: string; fuelAccepted: boolean
@@ -33,6 +34,7 @@ function createInitialState(): [BookingFormState, ReturnType<typeof consumeBooki
     dropoffAddress: prefill?.dropoffAddress ?? '', pickupDate: todayISO(), pickupTime: '',
     flightNumber: '', flightTime: '', returnDate: '', returnTime: '', returnFlight: '',
     costMode: 'own_vehicle', soldTransferCostTry: '',
+    airportMeetFeeApplies: true,
     serviceEndDate: todayISO(), departureFlightDate: '', departureFlightTime: '', departureFlight: '',
     vehicle: prefill?.vehicleType ?? 'vito', guests: String(prefill?.guests ?? 1),
     luggage: String(prefill?.luggageCount ?? 0), childSeats: String(prefill?.childSeatCount ?? 0),
@@ -123,6 +125,7 @@ export function validateBookingForm(form: BookingFormState) {
     guests, vehicle_type: form.vehicle, price_eur: isDailyChauffeur ? price * hireDays : isRoundTrip ? price * 2 : price,
     service_cost_mode: isDailyChauffeur ? 'own_vehicle' : form.costMode,
     sold_transfer_cost_try: !isDailyChauffeur && isSoldTransfer ? soldTransferCostTry : null,
+    airport_meet_fee_applies: form.airportMeetFeeApplies,
     status: form.status, payment_method: form.payment, notes: form.notes.trim() || null,
   } }
 }

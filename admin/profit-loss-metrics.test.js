@@ -70,6 +70,15 @@ describe('calculateProfitLossMetrics', () => {
     expect(result.netProfitTry).toBe(2800)
   })
 
+  test('does not add airport meet cost when the booking opts out of greeting', () => {
+    const result = calculateProfitLossMetrics([
+      { ...baseBooking, airport_meet_fee_applies: false },
+    ], '2026-08', '2026-08-07')
+
+    expect(result.airportMeetCostEur).toBe(0)
+    expect(result.airportMeetCostTry).toBe(0)
+  })
+
   test('exposes vehicle cost in euros with normalized resolved leg metadata', () => {
     const settings = {
       '2026-08': { km_cost_try: 20, eur_try_rate: 40, advertising_expense_try: 500 },

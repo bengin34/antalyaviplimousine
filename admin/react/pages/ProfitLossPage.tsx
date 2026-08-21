@@ -46,7 +46,7 @@ async function fetchAllBookings() {
   const bookings: Booking[] = []
   for (let from = 0; ; from += PAGE_SIZE) {
     const { data, error } = await supabase.from('bookings')
-      .select('id, booking_ref, customer_name, pickup_location, dropoff_location, pickup_date, return_date, service_end_date, trip_type, price_eur, daily_rate_eur, service_cost_mode, sold_transfer_cost_try, status, created_at, manual_outbound_distance_km, manual_return_distance_km, chauffeur_hire_days(id, service_date, day_number, status, distance_km, fuel_amount_eur, fuel_paid)')
+      .select('id, booking_ref, customer_name, pickup_location, dropoff_location, pickup_date, return_date, service_end_date, trip_type, price_eur, daily_rate_eur, service_cost_mode, sold_transfer_cost_try, airport_meet_fee_applies, status, created_at, manual_outbound_distance_km, manual_return_distance_km, chauffeur_hire_days(id, service_date, day_number, status, distance_km, fuel_amount_eur, fuel_paid)')
       .order('created_at', { ascending: true }).range(from, from + PAGE_SIZE - 1)
     if (error) throw error
     const rows = (data ?? []) as Booking[]
