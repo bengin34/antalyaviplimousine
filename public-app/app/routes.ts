@@ -18,6 +18,7 @@ export default [
   route("clinic", "./routes/clinic.tsx", { id: "clinic-tr" }),
 route("transfers/:slug", "./routes/transfer.tsx", { id: "transfer-en" }),
   route(":language/transfers/:slug", "./routes/transfer.tsx", { id: "transfer-localized" }),
+  route("de/hotels/:hotelSlug", "./routes/hotel.tsx", { id: "hotel-de" }),
   route("impressum.html", "./routes/legal.tsx", { id: "legal-imprint-en" }),
   route("privacy", "./routes/legal.tsx", { id: "legal-privacy-en" }),
   route("de/datenschutz", "./routes/legal.tsx", { id: "legal-privacy-de" }),

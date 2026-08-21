@@ -1,4 +1,5 @@
 import { publicRouteSlugs, routeCatalog } from "../../../src/routes.js";
+import { hotelBySlug } from "../../../src/hotels.js";
 import translationData from "../generated/legacy-translations.json";
 
 export const domain = "https://antalyaviptourism.com";
@@ -206,6 +207,29 @@ export function routeMeta(language: IndexableLanguage, slug: string) {
     { "script:ld+json": { "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: [{ "@type": "ListItem", position: 1, name: "Home", item: `${domain}${localizedPath(language)}` }, { "@type": "ListItem", position: 2, name: "Transfer routes", item: `${domain}${localizedPath(language)}#routes` }, { "@type": "ListItem", position: 3, name: text.heading(name), item: url }] } },
     { "script:ld+json": { "@context": "https://schema.org", "@type": "Service", name: text.heading(name), url, provider: { "@type": "TravelAgency", name: "Antalya VIP Tourism", url: domain, telephone: "+90 530 265 57 90" }, areaServed: { "@type": "Place", name }, offers: [{ "@type": "Offer", name: "Mercedes Vito", price: String(route.prices.vito), priceCurrency: "EUR" }, { "@type": "Offer", name: "Mercedes Sprinter", price: String(route.prices.sprinter), priceCurrency: "EUR" }] } },
     { "script:ld+json": { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: faq.map(([question, answer]) => ({ "@type": "Question", name: question, acceptedAnswer: { "@type": "Answer", text: answer } })) } },
+  ];
+}
+
+export function hotelMeta(slug: string) {
+  const hotel = hotelBySlug(slug);
+  if (!hotel) return [];
+  const route = routeCatalog[hotel.regionSlug];
+  const url = `${domain}/de/hotels/${hotel.slug}/`;
+  const transferUrl = `${domain}/de/transfers/${hotel.regionSlug}/`;
+  const title = `Flughafen Antalya → ${hotel.name} Transfer | Privater Festpreis`;
+  const description = `Privater Transfer vom Flughafen Antalya zum ${hotel.name} ab €${route.prices.vito} pro Fahrzeug. Flugverfolgung, Empfang und direkte Fahrt zum Hotel.`;
+  const serviceName = `Privattransfer vom Flughafen Antalya zum ${hotel.name}`;
+  const faq = [
+    { "@type": "Question", name: `Wie lange dauert die Fahrt zum ${hotel.name}?`, acceptedAnswer: { "@type": "Answer", text: `Bei normalem Verkehr ungefähr ${route.duration.de}.` } },
+    { "@type": "Question", name: "Was kostet der Transfer?", acceptedAnswer: { "@type": "Answer", text: `Der Mercedes Vito kostet ab €${route.prices.vito} pro Fahrzeug.` } },
+  ];
+  return [
+    { title }, { name: "description", content: description },
+    { tagName: "link", rel: "canonical", href: url },
+    ...socialDescriptors(title, description, url, homeSeo.de.locale),
+    { "script:ld+json": { "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: [{ "@type": "ListItem", position: 1, name: "Antalya VIP Tourism", item: `${domain}/de/` }, { "@type": "ListItem", position: 2, name: `Transfer nach ${route.names.de}`, item: transferUrl }, { "@type": "ListItem", position: 3, name: hotel.name, item: url }] } },
+    { "script:ld+json": { "@context": "https://schema.org", "@type": "Service", name: serviceName, description, url, provider: { "@type": "TravelAgency", name: "Antalya VIP Tourism", url: domain, telephone: "+90 530 265 57 90" }, areaServed: { "@type": "Hotel", name: hotel.name }, offers: [{ "@type": "Offer", name: "Mercedes Vito", price: String(route.prices.vito), priceCurrency: "EUR" }, { "@type": "Offer", name: "Mercedes Sprinter", price: String(route.prices.sprinter), priceCurrency: "EUR" }] } },
+    { "script:ld+json": { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: faq } },
   ];
 }
 

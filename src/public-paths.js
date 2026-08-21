@@ -1,4 +1,5 @@
 import { publicRouteSlugs } from "./routes.js";
+import { hotelPaths } from "./hotels.js";
 
 export const publicLanguages = Object.freeze(["en", "de", "tr", "ru", "cs", "uk", "ur"]);
 
@@ -42,6 +43,7 @@ export const prerenderPaths = Object.freeze([
   ...healthPaths,
   ...clinicPaths,
   ...transferPaths,
+  ...hotelPaths,
   ...legalPaths,
 ]);
 
@@ -49,5 +51,6 @@ export const sitemapPaths = Object.freeze([
   ...homePaths,
   ...healthPaths,
   ...transferPaths,
+  ...hotelPaths,
   ...legalPaths,
 ]);

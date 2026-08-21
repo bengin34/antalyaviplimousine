@@ -1,7 +1,7 @@
 import { readFile, stat } from "node:fs/promises";
 import path from "node:path";
 import { JSDOM } from "jsdom";
-import { clinicPaths, healthPaths, homePaths, legalPaths, prerenderPaths, sitemapPaths, transferPaths } from "../src/public-paths.js";
+import { clinicPaths, healthPaths, homePaths, hotelPaths, legalPaths, prerenderPaths, sitemapPaths, transferPaths } from "../src/public-paths.js";
 import { routeCatalog } from "../src/routes.js";
 
 const root = process.cwd();
@@ -11,6 +11,7 @@ const homeSet = new Set(homePaths);
 const healthSet = new Set(healthPaths);
 const clinicSet = new Set(clinicPaths);
 const transferSet = new Set(transferPaths);
+const hotelSet = new Set(hotelPaths);
 const legalSet = new Set(legalPaths);
 const failures = [];
 
@@ -45,7 +46,7 @@ for (const urlPath of prerenderPaths) {
   if (document.documentElement.lang !== expectedLanguage) fail(`${urlPath}: wrong html lang`);
   if (document.querySelector('link[rel="canonical"]')?.href !== `${domain}${urlPath}`) fail(`${urlPath}: wrong canonical URL`);
   const alternateCount = document.querySelectorAll('link[rel="alternate"][hreflang]').length;
-  if (clinicSet.has(urlPath)) {
+  if (clinicSet.has(urlPath) || hotelSet.has(urlPath)) {
     if (alternateCount !== 0) fail(`${urlPath}: noindex clinic route must not publish unavailable language alternates`);
   } else if (alternateCount !== 6) fail(`${urlPath}: incomplete language alternates`);
   if (!document.querySelector('script[type="module"]')) fail(`${urlPath}: React client entry is missing`);
@@ -58,7 +59,7 @@ for (const urlPath of prerenderPaths) {
     if (!(await exists(assetFile))) fail(`${urlPath}: missing asset ${reference}`);
   }
 
-  if (homeSet.has(urlPath) || transferSet.has(urlPath)) {
+  if (homeSet.has(urlPath) || transferSet.has(urlPath) || hotelSet.has(urlPath)) {
     if (!document.querySelector("#quote-form")) fail(`${urlPath}: React booking form is missing`);
     if (!document.querySelector('meta[property="og:url"]')) fail(`${urlPath}: Open Graph metadata is missing`);
     if (document.querySelector("#travel-date")?.hasAttribute("min")) fail(`${urlPath}: build-time date leaked into prerendered HTML`);

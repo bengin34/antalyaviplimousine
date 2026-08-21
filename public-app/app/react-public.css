@@ -203,6 +203,8 @@
   color: #fff;
 }
 .localized-route h1 { max-width: 900px; font-family: var(--serif); font-size: clamp(2.5rem, 6vw, 5.5rem); font-weight: 400; line-height: 1.03; }
+.localized-trust { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px 28px; max-width: 900px; margin: 34px 0 0; padding: 0; list-style: none; color: rgba(255,255,255,.86); }
+.localized-trust li::before, .localized-price-trust li::before { content: "✓"; margin-right: 9px; color: var(--gold-light); }
 .localized-campaign { display: inline-block; margin: 28px 0 0; padding: 10px 14px; border: 1px solid rgba(224,198,141,.45); color: var(--gold-light); font-size: 11px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; }
 .localized-stats { display: flex; flex-wrap: wrap; gap: 40px; margin-top: 45px; }
 .localized-stats strong, .localized-stats span { display: block; }
@@ -213,6 +215,15 @@
 .localized-grid p, .localized-grid li { color: var(--muted); line-height: 1.75; }
 .localized-price { padding: 25px; border: 1px solid var(--line); border-radius: 14px; }
 .localized-price strong { color: var(--gold); font-size: 1.5rem; }
+.localized-price span { display: block; margin-top: 8px; color: var(--muted); font-size: .9rem; }
+.localized-price + .localized-price { margin-top: 14px; }
+.localized-price-trust { margin: 22px 0 26px; padding: 0; list-style: none; line-height: 1.9; }
+.localized-hotels { display: grid; grid-template-columns: .8fr 1.2fr; gap: 42px; padding: 70px var(--section-x); background: var(--cream); }
+.localized-hotels > div { justify-self: end; max-width: 500px; }
+.localized-hotels h2 { margin: 10px 0; font-family: var(--serif); font-size: clamp(1.8rem, 3vw, 2.7rem); font-weight: 400; }
+.localized-hotels p { color: var(--muted); line-height: 1.7; }
+.localized-hotels ul { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; align-self: center; margin: 0; padding: 0; list-style: none; }
+.localized-hotels li { padding: 16px; border: 1px solid var(--line); border-radius: 8px; background: #fff; }
 .localized-faq { max-width: 1180px; margin: auto; padding: 0 var(--section-x) 80px; }
 .localized-faq article { padding: 24px 0; border-bottom: 1px solid var(--line); }
 .localized-faq h3 { font-size: 1rem; }
@@ -242,6 +253,8 @@
   .route-card-actions { align-items: flex-start; flex-direction: column; }
   .localized-grid { grid-template-columns: 1fr; gap: 36px; }
   .localized-route { padding-top: 120px; }
+  .localized-trust, .localized-hotels, .localized-hotels ul { grid-template-columns: 1fr; }
+  .localized-hotels > div { justify-self: start; }
 }
 
 @media (max-width: 340px) {
