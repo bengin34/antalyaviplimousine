@@ -500,6 +500,66 @@ describe('calculateProfitDistribution', () => {
     expect(result.shares.operationsAmountEur + result.shares.vehicleOwnerAmountEur).toBe(56)
   })
 
+  test('converts revenue with exact decimal multiplication in metrics and snapshots', () => {
+    const result = calculateProfitDistribution([{ ...baseBooking, price_eur: 100.02 }], {
+      ...validOptions,
+      settingsByMonth: {
+        '2026-08': { km_cost_try: 15, eur_try_rate: 31.75, advertising_expense_try: 0 },
+      },
+    })
+    const snapshot = buildProfitDistributionSnapshot(result)
+
+    expect(result.incomeTry).toBe(3175.64)
+    expect(result.resolvedLegs[0].revenueTry).toBe(3175.64)
+    expect(snapshot.income_try).toBe(3175.64)
+    expect(snapshot.resolved_legs[0].revenue_try).toBe(3175.64)
+  })
+
+  test('multiplies decimal vehicle kilometres and kilometre cost exactly', () => {
+    const booking = {
+      ...baseBooking,
+      pickup_location: 'private_address',
+      dropoff_location: 'airport',
+      manual_outbound_distance_km: 1.01,
+    }
+    const result = calculateProfitDistribution([booking], {
+      ...validOptions,
+      settingsByMonth: {
+        '2026-08': { km_cost_try: 3.25, eur_try_rate: 10, advertising_expense_try: 0 },
+      },
+    })
+
+    expect(result.vehicleCostTry).toBe(6.57)
+    expect(result.resolvedLegs[0].vehicleCostTry).toBe(6.57)
+  })
+
+  test('divides supplier TRY by a decimal EUR rate exactly', () => {
+    const booking = {
+      ...baseBooking,
+      service_cost_mode: 'sold_transfer',
+      sold_transfer_cost_try: 0.04,
+    }
+    const result = calculateProfitDistribution([booking], {
+      ...validOptions,
+      settingsByMonth: {
+        '2026-08': { eur_try_rate: 1.6, advertising_expense_try: 0 },
+      },
+    })
+
+    expect(result.supplierCostTry).toBe(0.04)
+    expect(result.supplierCostEur).toBe(0.03)
+    expect(result.resolvedLegs[0].supplierCostEur).toBe(0.03)
+  })
+
+  test('divides rounded advertising TRY by a decimal EUR rate exactly', () => {
+    const result = allocatedAdvertisingForRange('2026-08-01', '2026-08-31', {
+      '2026-08': { advertising_expense_try: 0.04, eur_try_rate: 1.6 },
+    })
+
+    expect(result.advertisingExpenseTry).toBe(0.04)
+    expect(result.advertisingExpenseEur).toBe(0.03)
+  })
+
   test('uses inclusive boundaries and includes only the in-range half of a round trip', () => {
     const roundTrip = {
       ...baseBooking,
@@ -520,6 +580,64 @@ describe('calculateProfitDistribution', () => {
     expect(result.incomeEur).toBe(100)
     expect(result.vehicleCostTry).toBe(1950)
     expect(result.airportMeetCostEur).toBe(0)
+  })
+
+  test('allocates odd-cent round-trip revenue and supplier cost deterministically', () => {
+    const booking = {
+      ...baseBooking,
+      id: 'odd-round-trip',
+      trip_type: 'round_trip',
+      price_eur: 100.01,
+      return_date: '2026-08-05',
+      service_cost_mode: 'sold_transfer',
+      sold_transfer_cost_try: 100.01,
+    }
+    const options = {
+      ...validOptions,
+      settingsByMonth: {
+        '2026-08': { eur_try_rate: 1, advertising_expense_try: 0 },
+      },
+    }
+    const together = calculateProfitDistribution([booking], options)
+    const outbound = calculateProfitDistribution([booking], { ...options, endDate: '2026-08-01' })
+    const returned = calculateProfitDistribution([booking], { ...options, startDate: '2026-08-05' })
+
+    expect(together.incomeEur).toBe(100.01)
+    expect(together.supplierCostTry).toBe(100.01)
+    expect(together.resolvedLegs.map(leg => leg.revenueEur)).toEqual([50.01, 50])
+    expect(together.resolvedLegs.map(leg => leg.supplierCostTry)).toEqual([50.01, 50])
+    expect(outbound.incomeEur).toBe(50.01)
+    expect(outbound.supplierCostTry).toBe(50.01)
+    expect(returned.incomeEur).toBe(50)
+    expect(returned.supplierCostTry).toBe(50)
+  })
+
+  test('makes per-leg snapshot buckets reconcile with aggregate rounded buckets', () => {
+    const ownVehicle = { ...baseBooking, id: 'own', price_eur: 100.02 }
+    const supplier = {
+      ...baseBooking,
+      id: 'supplier',
+      price_eur: 50.03,
+      service_cost_mode: 'sold_transfer',
+      sold_transfer_cost_try: 0.04,
+    }
+    const result = calculateProfitDistribution([ownVehicle, supplier], {
+      ...validOptions,
+      settingsByMonth: {
+        '2026-08': { km_cost_try: 3.25, eur_try_rate: 31.75, advertising_expense_try: 0 },
+      },
+    })
+    const snapshot = buildProfitDistributionSnapshot(result)
+    const sum = field => snapshot.resolved_legs.reduce((total, leg) => total + Math.round(leg[field] * 100), 0)
+
+    expect(sum('revenue_eur')).toBe(Math.round(snapshot.income_eur * 100))
+    expect(sum('revenue_try')).toBe(Math.round(snapshot.income_try * 100))
+    expect(sum('vehicle_cost_try')).toBe(Math.round(snapshot.vehicle_cost_try * 100))
+    expect(sum('vehicle_cost_eur')).toBe(Math.round(snapshot.vehicle_cost_eur * 100))
+    expect(sum('supplier_cost_try')).toBe(Math.round(snapshot.supplier_cost_try * 100))
+    expect(sum('supplier_cost_eur')).toBe(Math.round(snapshot.supplier_cost_eur * 100))
+    expect(sum('airport_cost_try')).toBe(Math.round(snapshot.airport_cost_try * 100))
+    expect(sum('airport_cost_eur')).toBe(Math.round(snapshot.airport_cost_eur * 100))
   })
 
   test('calculates daily chauffeur legs from each service date', () => {

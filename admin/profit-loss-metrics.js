@@ -216,6 +216,72 @@ function centsToNumber(cents) {
   return Object.is(amount, -0) ? 0 : amount
 }
 
+function moneyToCents(value) {
+  const fraction = decimalFraction(value)
+  return roundFractionToCents(fraction.numerator, fraction.denominator)
+}
+
+function allocateMoneyAmounts(total, count) {
+  if (!Number.isInteger(count) || count <= 0) return []
+  let totalCents
+  try {
+    totalCents = moneyToCents(total)
+  } catch {
+    return Array.from({ length: count }, () => 0)
+  }
+  const countBigInt = BigInt(count)
+  const baseCents = totalCents / countBigInt
+  const remainder = totalCents % countBigInt
+  const remainderSign = remainder < 0n ? -1n : 1n
+  const remainderCount = Number(remainder < 0n ? -remainder : remainder)
+  return Array.from({ length: count }, (_, index) => {
+    const cents = baseCents + (index < remainderCount ? remainderSign : 0n)
+    return centsToNumber(cents)
+  })
+}
+
+function distributionAllocations(bookings) {
+  const allocations = new Map()
+  for (const booking of Array.isArray(bookings) ? bookings : []) {
+    const priceEur = Number(booking.price_eur) || 0
+    if (booking.trip_type === 'daily_chauffeur') {
+      const days = [...(booking.chauffeur_hire_days || [])]
+        .sort((left, right) => left.day_number - right.day_number)
+      const explicitDailyRate = Number(booking.daily_rate_eur)
+      const revenueAmounts = explicitDailyRate
+        ? days.map(() => roundMoney(explicitDailyRate))
+        : allocateMoneyAmounts(priceEur, days.length)
+      days.forEach((day, index) => {
+        allocations.set(`${booking.id}:day-${day.day_number}`, {
+          revenueEur: revenueAmounts[index] ?? 0,
+          supplierCostTry: 0,
+        })
+      })
+      continue
+    }
+
+    const hasReturn = booking.trip_type === 'round_trip' && Boolean(booking.return_date)
+    const legCount = hasReturn ? 2 : 1
+    const revenueAmounts = allocateMoneyAmounts(priceEur, legCount)
+    const supplierAmounts = allocateMoneyAmounts(Number(booking.sold_transfer_cost_try) || 0, legCount)
+    allocations.set(`${booking.id}:outbound`, {
+      revenueEur: revenueAmounts[0] ?? 0,
+      supplierCostTry: supplierAmounts[0] ?? 0,
+    })
+    if (hasReturn) {
+      allocations.set(`${booking.id}:return`, {
+        revenueEur: revenueAmounts[1] ?? 0,
+        supplierCostTry: supplierAmounts[1] ?? 0,
+      })
+    }
+  }
+  return allocations
+}
+
+function sumMoney(values) {
+  return centsToNumber(values.reduce((total, value) => total + moneyToCents(value), 0n))
+}
+
 function multiplyDivideMoneyToCents(amount, multiplier, divisor) {
   const amountFraction = decimalFraction(amount)
   const multiplierFraction = decimalFraction(multiplier)
@@ -464,6 +530,51 @@ function totalsForLegs(resolvedLegs, unresolvedLegs, settingsByMonth) {
   return totals
 }
 
+function distributionFinancialLeg(leg, settingsByMonth, allocations) {
+  const settings = settingForMonth(settingsByMonth, leg.month)
+  const allocation = allocations.get(`${leg.bookingId}:${leg.leg}`)
+  const revenueEur = roundMoney(allocation?.revenueEur ?? leg.revenueEur)
+  const revenueTry = centsToNumber(multiplyDivideMoneyToCents(revenueEur, settings.eurTryRate, 1))
+  const vehicleCostTry = leg.costMode === 'sold_transfer'
+    ? 0
+    : centsToNumber(multiplyDivideMoneyToCents(leg.vehicleKm ?? 0, settings.kmCostTry, 1))
+  const vehicleCostEur = centsToNumber(multiplyDivideMoneyToCents(vehicleCostTry, 1, settings.eurTryRate))
+  const supplierCostTry = leg.costMode === 'sold_transfer'
+    ? roundMoney(allocation?.supplierCostTry ?? leg.supplierCostTry ?? 0)
+    : 0
+  const supplierCostEur = centsToNumber(multiplyDivideMoneyToCents(supplierCostTry, 1, settings.eurTryRate))
+  const airportMeetCostEur = roundMoney(leg.airportMeetCostEur ?? 0)
+  const airportMeetCostTry = centsToNumber(
+    multiplyDivideMoneyToCents(airportMeetCostEur, settings.eurTryRate, 1),
+  )
+
+  return {
+    ...leg,
+    revenueEur,
+    revenueTry,
+    vehicleCostTry,
+    vehicleCostEur,
+    supplierCostTry,
+    supplierCostEur,
+    airportMeetCostEur,
+    airportMeetCostTry,
+  }
+}
+
+function distributionTotalsForLegs(resolvedLegs, unresolvedLegs) {
+  const legs = [...resolvedLegs, ...unresolvedLegs]
+  return {
+    incomeEur: sumMoney(legs.map(leg => leg.revenueEur)),
+    incomeTry: sumMoney(legs.map(leg => leg.revenueTry)),
+    vehicleCostEur: sumMoney(legs.map(leg => leg.vehicleCostEur)),
+    vehicleCostTry: sumMoney(legs.map(leg => leg.vehicleCostTry)),
+    supplierCostEur: sumMoney(legs.map(leg => leg.supplierCostEur)),
+    supplierCostTry: sumMoney(legs.map(leg => leg.supplierCostTry)),
+    airportMeetCostEur: sumMoney(legs.map(leg => leg.airportMeetCostEur)),
+    airportMeetCostTry: sumMoney(legs.map(leg => leg.airportMeetCostTry)),
+  }
+}
+
 export function calculateProfitLossMetrics(bookings, period, today, settingsByMonth = {}) {
   const realizedLegs = resolveRealizedLegs(bookings, today, settingsByMonth)
   const resolvedLegs = realizedLegs.resolvedLegs.filter(leg => isInPeriod(leg.date, period))
@@ -561,9 +672,14 @@ export function calculateProfitDistribution(bookings, options = {}) {
   const realized = todayDate
     ? resolveRealizedLegs(Array.isArray(bookings) ? bookings : [], today, settingsByMonth)
     : { resolvedLegs: [], unresolvedLegs: [] }
+  const allocations = distributionAllocations(bookings)
   const withinRange = leg => rangeIsValid && leg.date >= startDate && leg.date <= endDate
-  const resolvedLegs = realized.resolvedLegs.filter(withinRange)
-  const unresolvedLegs = realized.unresolvedLegs.filter(withinRange)
+  const resolvedLegs = realized.resolvedLegs
+    .filter(withinRange)
+    .map(leg => distributionFinancialLeg(leg, settingsByMonth, allocations))
+  const unresolvedLegs = realized.unresolvedLegs
+    .filter(withinRange)
+    .map(leg => distributionFinancialLeg(leg, settingsByMonth, allocations))
 
   for (const leg of unresolvedLegs) {
     blockers.push(distributionBlocker('unresolved-route', leg))
@@ -580,7 +696,7 @@ export function calculateProfitDistribution(bookings, options = {}) {
     }
   }
 
-  const directTotals = totalsForLegs(resolvedLegs, unresolvedLegs, settingsByMonth)
+  const directTotals = distributionTotalsForLegs(resolvedLegs, unresolvedLegs)
   const advertising = rangeIsValid
     ? allocatedAdvertisingForRange(startDate, endDate, settingsByMonth)
     : { advertisingExpenseTry: 0, advertisingExpenseEur: 0 }
@@ -597,14 +713,14 @@ export function calculateProfitDistribution(bookings, options = {}) {
   const airportMeetCostTry = roundMoney(directTotals.airportMeetCostTry)
   const advertisingExpenseEur = roundMoney(advertising.advertisingExpenseEur)
   const advertisingExpenseTry = roundMoney(advertising.advertisingExpenseTry)
-  const totalExpenseEur = roundMoney(
-    vehicleCostEur + supplierCostEur + airportMeetCostEur + advertisingExpenseEur,
-  )
-  const totalExpenseTry = roundMoney(
-    vehicleCostTry + supplierCostTry + airportMeetCostTry + advertisingExpenseTry,
-  )
-  const netProfitEur = roundMoney(incomeEur - totalExpenseEur)
-  const netProfitTry = roundMoney(incomeTry - totalExpenseTry)
+  const totalExpenseEur = sumMoney([
+    vehicleCostEur, supplierCostEur, airportMeetCostEur, advertisingExpenseEur,
+  ])
+  const totalExpenseTry = sumMoney([
+    vehicleCostTry, supplierCostTry, airportMeetCostTry, advertisingExpenseTry,
+  ])
+  const netProfitEur = sumMoney([incomeEur, -totalExpenseEur])
+  const netProfitTry = sumMoney([incomeTry, -totalExpenseTry])
 
   let shares = null
   try {
@@ -643,10 +759,7 @@ export function calculateProfitDistribution(bookings, options = {}) {
   }
 }
 
-function legSnapshot(leg, monthlySettings) {
-  const settings = monthlySettings[leg.month] ?? {
-    eur_try_rate: DEFAULT_EUR_TRY_RATE,
-  }
+function legSnapshot(leg) {
   return {
     key: `${leg.bookingId}:${leg.leg}`,
     booking_id: leg.bookingId ?? null,
@@ -663,9 +776,9 @@ function legSnapshot(leg, monthlySettings) {
     vehicle_km: roundMoney(leg.vehicleKm ?? 0),
     revenue_eur: roundMoney(leg.revenueEur ?? 0),
     revenue_try: roundMoney(leg.revenueTry ?? 0),
-    vehicle_cost_eur: roundMoney((leg.vehicleCostTry ?? 0) / settings.eur_try_rate),
+    vehicle_cost_eur: roundMoney(leg.vehicleCostEur ?? 0),
     vehicle_cost_try: roundMoney(leg.vehicleCostTry ?? 0),
-    supplier_cost_eur: roundMoney((leg.supplierCostTry ?? 0) / settings.eur_try_rate),
+    supplier_cost_eur: roundMoney(leg.supplierCostEur ?? 0),
     supplier_cost_try: roundMoney(leg.supplierCostTry ?? 0),
     airport_cost_eur: roundMoney(leg.airportMeetCostEur ?? 0),
     airport_cost_try: roundMoney(leg.airportMeetCostTry ?? 0),
@@ -706,7 +819,7 @@ export function buildProfitDistributionSnapshot(metrics = {}) {
     net_profit_eur: roundMoney(metrics.netProfitEur),
     net_profit_try: roundMoney(metrics.netProfitTry),
     realized_leg_count: Number(metrics.realizedLegCount) || 0,
-    resolved_legs: (metrics.resolvedLegs ?? []).map(leg => legSnapshot(leg, monthlySettings)),
+    resolved_legs: (metrics.resolvedLegs ?? []).map(legSnapshot),
     monthly_settings: monthlySettings,
   }
 
