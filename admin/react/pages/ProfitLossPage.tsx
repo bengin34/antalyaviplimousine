@@ -251,6 +251,16 @@ function SupplierCostEditor({ booking, currentCostTry, onSave }: {
   </>
 }
 
+function ExpandableSection({ title, detail, children }: { title: string; detail?: string; children: ReactNode }) {
+  const [open, setOpen] = useState(false)
+  return <section className="profit-expandable">
+    <button type="button" className="profit-expandable-trigger" aria-expanded={open} onClick={() => setOpen(value => !value)}>
+      <span><strong>{title}</strong>{detail && <small>{detail}</small>}</span><b aria-hidden="true">{open ? '−' : '+'}</b>
+    </button>
+    {open && <div className="profit-expandable-content">{children}</div>}
+  </section>
+}
+
 function CostModeToggle({ booking, onSave }: {
   booking: Booking
   onSave: (booking: Booking, nextMode: Booking['service_cost_mode']) => Promise<void>
@@ -360,35 +370,23 @@ function TravelHistorySection({ metrics, period, bookings, navigate, onSaveDista
   </section>
 }
 
-function ProfitMetrics({ metrics, period, navigate, onSaveDistance, travelHistory }: {
-  metrics: any
-  period: string
-  navigate: Navigate
-  onSaveDistance: (leg: any, distanceKm: number) => Promise<void>
-  travelHistory?: ReactNode
-}) {
+function ProfitHero({ metrics, period }: { metrics: any; period: string }) {
   const negative = metrics.netProfitTry < 0
   const formulaOperator = negative ? 'Zarar' : 'Net kâr'
-  const manualLegs = metrics.resolvedLegs.filter((leg: any) => leg.distanceSource === 'manual')
-  const soldTransferLegs = metrics.resolvedLegs.filter((leg: any) => leg.distanceSource === 'sold-transfer')
+  return <section className={`profit-hero ${negative ? 'is-negative' : 'is-positive'}`} aria-label={formulaOperator}><div className="budget-eyebrow">{period === 'all' ? 'Tüm zamanlar' : monthLabel(period)} · {formulaOperator}</div><div className="profit-total">{formatTry(metrics.netProfitTry)}</div><div className="profit-total-eur">{formatEuro(metrics.netProfitEur)}</div><div className="profit-margin"><span>Kâr marjı</span><strong>%{formatNumber(metrics.profitMargin, 1)}</strong></div></section>
+}
+
+function ProfitMetrics({ metrics, period, navigate }: { metrics: any; period: string; navigate: Navigate }) {
+  const missingDailyLegs = metrics.resolvedLegs.filter((leg: any) => leg.distanceSource === 'daily-missing')
+  const pendingLegs = [...metrics.unresolvedLegs, ...missingDailyLegs]
   return <>
-    <section className={`profit-hero ${negative ? 'is-negative' : 'is-positive'}`} aria-label={formulaOperator}><div className="budget-eyebrow">{period === 'all' ? 'Tüm zamanlar' : monthLabel(period)} · {formulaOperator}</div><div className="profit-total">{formatTry(metrics.netProfitTry)}</div><div className="profit-total-eur">{formatEuro(metrics.netProfitEur)}</div><div className="profit-margin"><span>Kâr marjı</span><strong>%{formatNumber(metrics.profitMargin, 1)}</strong></div></section>
-    <section className="profit-formula" aria-label="Kâr hesaplama özeti"><span><small>Gelir</small><strong>{formatTry(metrics.incomeTry)}</strong></span><i>−</i><span><small>Kendi araç</small><strong>{formatTry(metrics.vehicleCostTry)}</strong></span><i>−</i><span><small>Satılan transfer</small><strong>{formatTry(metrics.supplierCostTry)}</strong></span><i>−</i><span><small>Karşılama</small><strong>{formatTry(metrics.airportMeetCostTry)}</strong></span><i>−</i><span><small>Reklam</small><strong>{formatTry(metrics.advertisingExpenseTry)}</strong></span></section>
     <section className="budget-kpi-grid profit-kpi-grid" aria-label="Kâr zarar özeti">
-      <article className="budget-kpi profit-income-kpi"><span className="budget-kpi-icon" aria-hidden="true">€</span><span className="budget-kpi-label">Seyahat geliri</span><strong>{formatEuro(metrics.incomeEur)}</strong><small>{formatTry(metrics.incomeTry)} · yalnızca tamamlanan seferler</small></article>
-      <article className="budget-kpi profit-distance-kpi"><span className="budget-kpi-icon" aria-hidden="true">KM</span><span className="budget-kpi-label">Toplam araç KM</span><strong>{formatNumber(metrics.vehicleKm)} km</strong><small>Transferlerde boş dönüş; günlük kiralamada gerçek KM</small></article>
-      <article className="budget-kpi"><span className="budget-kpi-icon" aria-hidden="true">₺</span><span className="budget-kpi-label">Kendi araç maliyeti</span><strong>{formatTry(metrics.vehicleCostTry)}</strong><small>Toplam araç KM × ayın km maliyeti</small></article>
-      <article className="budget-kpi"><span className="budget-kpi-icon" aria-hidden="true">⇄</span><span className="budget-kpi-label">Satılan transfer maliyeti</span><strong>{formatTry(metrics.supplierCostTry)}</strong><small>Manuel girilen toplam tedarikçi gideri</small></article>
-      <article className="budget-kpi"><span className="budget-kpi-icon" aria-hidden="true">🛬</span><span className="budget-kpi-label">Karşılama maliyeti</span><strong>{formatEuro(metrics.airportMeetCostEur)}</strong><small>Havalimanından başlayan her seyahat için 5 €</small></article>
-      <article className="budget-kpi"><span className="budget-kpi-icon" aria-hidden="true">↗</span><span className="budget-kpi-label">Reklam gideri</span><strong>{formatTry(metrics.advertisingExpenseTry)}</strong><small>Manuel girilen aylık reklam toplamı</small></article>
+      <article className="budget-kpi profit-income-kpi"><span className="budget-kpi-icon" aria-hidden="true">€</span><span className="budget-kpi-label">Seyahat geliri</span><strong>{formatEuro(metrics.incomeEur)}</strong><small>{formatTry(metrics.incomeTry)} · tamamlanan seferler</small></article>
+      <article className="budget-kpi"><span className="budget-kpi-icon" aria-hidden="true">₺</span><span className="budget-kpi-label">Toplam gider</span><strong>{formatTry(metrics.totalExpenseTry)}</strong><small>Tüm operasyonel giderler</small></article>
+      <article className="budget-kpi"><span className="budget-kpi-icon" aria-hidden="true">↗</span><span className="budget-kpi-label">Gerçekleşen sefer</span><strong>{formatNumber(metrics.completedLegs)}</strong><small>Seçilen dönemdeki hizmet ayakları</small></article>
     </section>
-    {metrics.unresolvedLegs.length > 0 && <section className="profit-warning" role="status"><strong>⚠ {metrics.unresolvedLegs.length} seferin sabit mesafesi bulunamadı</strong><p>Seyahat kaydını kontrol edin veya tek yön KM girin. Kaydedilen mesafeye aynı uzunlukta boş dönüş eklenerek araç maliyeti anında yeniden hesaplanır.</p><ul>{metrics.unresolvedLegs.map((leg: any) => <DistanceActionRow key={`${leg.bookingId}:${leg.leg}`} leg={leg} period={period} navigate={navigate} onSave={onSaveDistance} />)}</ul></section>}
-    {metrics.missingDailyDistanceCount > 0 && <section className="profit-warning" role="status"><strong>⚠ {metrics.missingDailyDistanceCount} günlük kiralama gününde KM eksik</strong><p>Gelir hesaba katıldı ancak araç maliyeti eksik kalmaması için rezervasyon detayından gerçekleşen günlük kilometreyi girin.</p></section>}
-    {soldTransferLegs.length > 0 && <section className="profit-manual-distances"><div className="budget-section-heading"><div><span className="budget-section-kicker">SATILAN TRANSFERLER</span><h2>Manuel gider girilen seferler</h2></div><span>{soldTransferLegs.length} sefer</span></div><p>Bu seferlerde km hesabı yapılmaz; girilen toplam tedarikçi maliyeti doğrudan gider kabul edilir.</p><ul>{soldTransferLegs.map((leg: any) => <li className="profit-warning-row" key={`${leg.bookingId}:${leg.leg}`}><div className="profit-warning-main"><span><strong>{leg.bookingRef || leg.customerName || 'Kayıt'}</strong><em>{leg.leg === 'return' ? 'Dönüş' : 'Gidiş'} · {fmtDetailDate(leg.date)}</em></span><small>{profitLocationLabel(leg.from)} → {profitLocationLabel(leg.to)}</small></div><div className="profit-warning-actions"><strong>{formatTry(leg.supplierCostTry ?? 0)}</strong></div></li>)}</ul></section>}
-    {manualLegs.length > 0 && <section className="profit-manual-distances"><div className="budget-section-heading"><div><span className="budget-section-kicker">MANUEL MESAFELER</span><h2>Elle girilen KM kayıtları</h2></div><span>{manualLegs.length} sefer</span></div><p>Bu değerleri gerektiğinde seyahate göre yeniden düzenleyebilirsiniz.</p><ul>{manualLegs.map((leg: any) => <DistanceActionRow key={`${leg.bookingId}:${leg.leg}`} leg={leg} period={period} navigate={navigate} onSave={onSaveDistance} currentKm={leg.oneWayKm} />)}</ul></section>}
-    {travelHistory}
-    <section className="budget-section profit-routes"><div className="budget-section-heading"><div><span className="budget-section-kicker">ROTA DÖKÜMÜ</span><h2>Seyahatlerden gelen hesap</h2></div><span>{metrics.completedLegs} sefer</span></div>{metrics.routes.length ? metrics.routes.map((route: any) => <div className="profit-route-row" key={route.routeKey}><div className="profit-route-heading"><strong>{profitLocationLabel(route.from)} ↔ {profitLocationLabel(route.to)}</strong><span>{route.legCount} sefer</span></div><div className="profit-route-metrics"><span><small>Araç KM</small><b>{formatNumber(route.vehicleKm)} km</b></span><span><small>Gelir</small><b>{formatEuro(route.incomeEur)}</b></span><span><small>Kendi araç maliyeti</small><b>{formatTry(route.vehicleCostTry)}</b></span><span><small>Satılan transfer maliyeti</small><b>{formatTry(route.supplierCostTry)}</b></span></div></div>) : <div className="travel-history-empty">Seçilen dönemde tamamlanmış ve sabit mesafesi bulunan sefer yok.</div>}</section>
-    <p className="budget-footnote profit-footnote">İptal edilen ve henüz gerçekleşmemiş seferler hesaba katılmaz. Gidiş-dönüş fiyatı iki seyahat ayağına eşit bölünür. `Kendi aracımız` seçilirse havalimanından başlayan her seyahat için 5 € karşılama maliyeti eklenir ve transferlerde her yolculu mesafesine aynı uzunlukta boş dönüş eklenir. `Satılan transfer` seçilirse girilen toplam tedarikçi maliyeti doğrudan gider sayılır; km ve karşılama maliyeti uygulanmaz. Günlük kiralamalarda gelir hizmet günlerine dağıtılır ve admin detayına girilen gerçek kilometre kullanılır; müşterinin ayrıca ödediği yakıt tutarı gelire eklenmez.</p>
+    {pendingLegs.length > 0 && <ExpandableSection title="İşlem bekleyen kayıtlar" detail={`${pendingLegs.length} kayıt`}><p className="profit-panel-note">Eksik bilgileri rezervasyon detayından tamamlayın; hesap otomatik güncellenir.</p><ul className="profit-action-list">{pendingLegs.map((leg: any) => <li key={`${leg.bookingId}:${leg.leg}`}><span><strong>{leg.bookingRef || leg.customerName || 'Kayıt'}</strong><small>{leg.distanceSource === 'daily-missing' ? 'Günlük hizmet KM bilgisi eksik' : 'Tek yön KM bilgisi eksik'}</small></span><button type="button" onClick={() => navigate(`#detail/${encodeURIComponent(leg.bookingRef)}?from=profit-loss&profitPeriod=${encodeURIComponent(period)}${leg.leg === 'return' ? '&leg=return' : ''}`)}>Kaydı aç</button></li>)}</ul></ExpandableSection>}
+    <ExpandableSection title="Gider dağılımı" detail={formatTry(metrics.totalExpenseTry)}><dl className="profit-breakdown"><div><dt>Kendi araç</dt><dd>{formatTry(metrics.vehicleCostTry)}</dd></div><div><dt>Satılan transfer</dt><dd>{formatTry(metrics.supplierCostTry)}</dd></div><div><dt>Karşılama</dt><dd>{formatTry(metrics.airportMeetCostTry)}</dd></div><div><dt>Reklam</dt><dd>{formatTry(metrics.advertisingExpenseTry)}</dd></div></dl></ExpandableSection>
   </>
 }
 
@@ -485,43 +483,11 @@ export default function ProfitLossPage({ navigate, initialPeriod }: { navigate: 
     }
     await refresh()
   }
-  const saveDistance = async (leg: any, distanceKm: number) => {
-    const column = leg.leg === 'return' ? 'manual_return_distance_km' : 'manual_outbound_distance_km'
-    const payload = { [column]: distanceKm }
-    const { data, error: saveError } = await supabase.from('bookings')
-      .update(payload)
-      .eq('id', leg.bookingId)
-      .select(`id, ${column}`).single()
-    if (saveError || !data) throw saveError ?? new Error('KM kaydı dönmedi')
-    const savedDistance = Number((data as Record<string, unknown>)[column])
-    setBookings(current => current.map(booking => booking.id === leg.bookingId ? { ...booking, [column]: savedDistance } : booking))
-    setStatus(`${leg.bookingRef || 'Seyahat'} için tek yön ${formatNumber(savedDistance, 2)} km kaydedildi · Hesap güncellendi`)
-  }
-  const saveSupplierCost = async (booking: Booking, totalCostTry: number) => {
-    const { data, error: saveError } = await supabase.from('bookings')
-      .update({ sold_transfer_cost_try: totalCostTry })
-      .eq('id', booking.id)
-      .select('id, sold_transfer_cost_try').single()
-    if (saveError || !data) throw saveError ?? new Error('Maliyet kaydı dönmedi')
-    const savedCost = Number((data as Record<string, unknown>).sold_transfer_cost_try)
-    setBookings(current => current.map(item => item.id === booking.id ? { ...item, sold_transfer_cost_try: savedCost } : item))
-    setStatus(`${booking.booking_ref || 'Seyahat'} için toplam tedarikçi maliyeti ${formatTry(savedCost)} olarak kaydedildi · Hesap güncellendi`)
-  }
-  const saveCostMode = async (booking: Booking, nextMode: Booking['service_cost_mode']) => {
-    const { data, error: saveError } = await supabase.from('bookings')
-      .update({ service_cost_mode: nextMode })
-      .eq('id', booking.id)
-      .select('id, service_cost_mode').single()
-    if (saveError || !data) throw saveError ?? new Error('Maliyet modeli kaydı dönmedi')
-    const savedMode = (data as Record<string, unknown>).service_cost_mode as Booking['service_cost_mode']
-    setBookings(current => current.map(item => item.id === booking.id ? { ...item, service_cost_mode: savedMode } : item))
-    setStatus(`${booking.booking_ref || 'Seyahat'} için maliyet modeli ${savedMode === 'sold_transfer' ? 'satılan transfer' : 'kendi aracımız'} olarak kaydedildi · Hesap güncellendi`)
-  }
   return <><Topbar navigate={navigate} /><AdminTabs active="profit-loss" navigate={navigate} />
     <div className="budget-toolbar profit-toolbar"><div className="budget-periods" role="group" aria-label="Kâr zarar dönemi">{[...months, 'all'].map(value => <button type="button" key={value} className={period === value ? 'active' : ''} onClick={() => setPeriod(value)}>{value === 'all' ? 'Tümü' : monthLabel(value, { short: true })}</button>)}</div>{ratesLoading && <span className="rates-loading-hint">Kurlar yükleniyor…</span>}<button className="sync-button" type="button" aria-label="Kâr zarar verilerini yenile" disabled={loading} onClick={() => void refresh()}>↻</button></div>
     <div className="budget-update-status">{status}</div>
     <main className="scroll-area budget-content profit-content">
-      {error ? <div className="empty"><div className="empty-icon">₺</div><div>Kâr/zarar verileri yüklenemedi.</div></div> : loading && !bookings.length ? <><div className="empty"><div>Ayarlar yükleniyor…</div></div><div className="empty"><div>Hesaplanıyor…</div></div></> : <>{period === 'all' ? <section className="profit-settings profit-settings-summary"><div><span className="budget-section-kicker">HESAPLAMA AYARLARI</span><h2>Aylık değerler uygulanıyor</h2><p>Tümü görünümünde her aya kaydettiğiniz km maliyeti, reklam gideri ve kur ayrı ayrı kullanılır.</p></div></section> : <SettingsForm key={period} period={period} settings={settings} onSaved={saveSetting} />}<ProfitDistributionSection today={distributionToday} bookings={bookings} settingsByMonth={settings} shareSettings={shareSettings} distributions={distributions} loading={distributionLoading} error={distributionError} onRetry={() => void refreshDistributionLedger()} onSaveSettings={saveShareSettings} onCreateDistribution={confirmDistribution} navigate={navigate} /><ProfitMetrics metrics={metrics} period={period} navigate={navigate} onSaveDistance={saveDistance} travelHistory={<TravelHistorySection metrics={metrics} period={period} bookings={bookings} navigate={navigate} onSaveDistance={saveDistance} onSaveSupplierCost={saveSupplierCost} onSaveCostMode={saveCostMode} />} /></>}
+      {error ? <div className="empty"><div className="empty-icon">₺</div><div>Kâr/zarar verileri yüklenemedi.</div></div> : loading && !bookings.length ? <><div className="empty"><div>Ayarlar yükleniyor…</div></div><div className="empty"><div>Hesaplanıyor…</div></div></> : <><ProfitHero metrics={metrics} period={period} /><ProfitDistributionSection today={distributionToday} bookings={bookings} settingsByMonth={settings} shareSettings={shareSettings} distributions={distributions} loading={distributionLoading} error={distributionError} onRetry={() => void refreshDistributionLedger()} onSaveSettings={saveShareSettings} onCreateDistribution={confirmDistribution} navigate={navigate} /><ProfitMetrics metrics={metrics} period={period} navigate={navigate} /><ExpandableSection title="Hesaplama ayarları" detail={period === 'all' ? 'Aylık değerler uygulanıyor' : monthLabel(period)}>{period === 'all' ? <p className="profit-panel-note">Tümü görünümünde her ayın KM maliyeti, reklam gideri ve EUR/TL kuru ayrı ayrı kullanılır.</p> : <SettingsForm key={period} period={period} settings={settings} onSaved={saveSetting} />}</ExpandableSection></>}
     </main>
   </>
 }
