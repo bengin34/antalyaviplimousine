@@ -342,6 +342,15 @@ describe('allocatedAdvertisingForRange', () => {
 
     expect(result.advertisingExpenseTry).toBe(160)
   })
+
+  test('rounds cumulative TRY and converted EUR half cents away from zero', () => {
+    const result = allocatedAdvertisingForRange('2026-02-01', '2026-02-21', {
+      '2026-02': { advertising_expense_try: 2.90, eur_try_rate: 4 },
+    })
+
+    expect(result.advertisingExpenseTry).toBe(2.18)
+    expect(result.advertisingExpenseEur).toBe(0.55)
+  })
 })
 
 describe('splitProfit', () => {
@@ -371,6 +380,32 @@ describe('splitProfit', () => {
     expect(result.operationsAmountEur).toBe(0.01)
     expect(result.vehicleOwnerAmountEur).toBe(0)
     expect(result.operationsAmountEur + result.vehicleOwnerAmountEur).toBe(0.01)
+  })
+
+  test('rounds positive half-cent EUR and TRY shares before assigning the remainder', () => {
+    const result = splitProfit(20.15, 20.15, 50)
+
+    expect(result.operationsAmountEur).toBe(10.08)
+    expect(result.vehicleOwnerAmountEur).toBe(10.07)
+    expect(result.operationsAmountTry).toBe(10.08)
+    expect(result.vehicleOwnerAmountTry).toBe(10.07)
+  })
+
+  test('rounds negative half-cent TRY shares symmetrically and reconciles the remainder', () => {
+    const result = splitProfit(20.15, -20.15, 50)
+
+    expect(result.operationsAmountTry).toBe(-10.08)
+    expect(result.vehicleOwnerAmountTry).toBe(-10.07)
+    expect(result.operationsAmountTry + result.vehicleOwnerAmountTry).toBe(-20.15)
+  })
+
+  test('preserves cent reconciliation at the NUMERIC(14,2) range limit', () => {
+    const result = splitProfit(999999999999.99, -999999999999.99, 50)
+
+    expect(result.operationsAmountEur).toBe(500000000000)
+    expect(result.vehicleOwnerAmountEur).toBe(499999999999.99)
+    expect(result.operationsAmountTry).toBe(-500000000000)
+    expect(result.vehicleOwnerAmountTry).toBe(-499999999999.99)
   })
 
   test('reconciles a negative TRY reference while EUR remains positive', () => {

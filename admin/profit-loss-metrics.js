@@ -169,7 +169,9 @@ function formatDateOnlyUtc(date) {
 function roundMoney(value) {
   const amount = Number(value)
   if (!Number.isFinite(amount)) return 0
-  const rounded = Math.sign(amount) * Math.round((Math.abs(amount) + Number.EPSILON) * 100) / 100
+  const [coefficient, exponent = '0'] = Math.abs(amount).toString().split('e')
+  const shifted = Number(`${coefficient}e${Number(exponent) + 2}`)
+  const rounded = Math.sign(amount) * Math.round(shifted) / 100
   return Object.is(rounded, -0) ? 0 : rounded
 }
 
