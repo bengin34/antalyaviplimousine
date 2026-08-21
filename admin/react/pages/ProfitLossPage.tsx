@@ -323,6 +323,9 @@ function TravelHistorySection({ metrics, period, bookings, navigate, onSaveDista
               {booking && !isDailyChauffeur && <span>{currentMode === 'sold_transfer' ? 'Maliyet modeli: Satılan transfer' : 'Maliyet modeli: Kendi aracımız'}</span>}
               <span>{costSummary}</span>
               {!isSoldTransfer && (leg.airportMeetCostTry ?? 0) > 0 && <span>Karşılama: {formatTry(leg.airportMeetCostTry)}</span>}
+              {(leg as any).eurTryRate != null && (
+                <span>Kur: ₺{((leg as any).eurTryRate as number).toFixed(2)}</span>
+              )}
             </div>
           </div>
           <div className="profit-trip-history-actions">
