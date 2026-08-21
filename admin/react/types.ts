@@ -79,4 +79,87 @@ export interface TimelineCard extends Booking {
   _hireDayCount?: number
 }
 
+export interface ProfitShareSettings {
+  id: 1
+  opening_date: string
+  default_operations_share_pct: number | string
+  default_vehicle_owner_share_pct: number | string
+  created_at: string
+  updated_at: string
+}
+
+export interface ProfitDistributionSnapshot {
+  schema_version: 1
+  period_start: string
+  period_end: string
+  operations_share_pct: number
+  vehicle_owner_share_pct: number
+  operations_amount_eur: number
+  vehicle_owner_amount_eur: number
+  operations_amount_try: number
+  vehicle_owner_amount_try: number
+  income_eur: number
+  income_try: number
+  vehicle_cost_eur: number
+  vehicle_cost_try: number
+  supplier_cost_eur: number
+  supplier_cost_try: number
+  airport_cost_eur: number
+  airport_cost_try: number
+  advertising_cost_eur: number
+  advertising_cost_try: number
+  total_expense_eur: number
+  total_expense_try: number
+  net_profit_eur: number
+  net_profit_try: number
+  realized_leg_count: number
+  resolved_legs: Array<Record<string, unknown>>
+  monthly_settings: Record<string, Record<string, number>>
+  [key: string]: unknown
+}
+
+export interface ProfitDistribution {
+  id: string
+  period_start: string
+  period_end: string
+  operations_share_pct: number | string
+  vehicle_owner_share_pct: number | string
+  operations_amount_eur: number | string
+  vehicle_owner_amount_eur: number | string
+  operations_amount_try: number | string
+  vehicle_owner_amount_try: number | string
+  income_eur: number | string
+  income_try: number | string
+  vehicle_cost_eur: number | string
+  vehicle_cost_try: number | string
+  supplier_cost_eur: number | string
+  supplier_cost_try: number | string
+  airport_cost_eur: number | string
+  airport_cost_try: number | string
+  advertising_cost_eur: number | string
+  advertising_cost_try: number | string
+  total_expense_eur: number | string
+  total_expense_try: number | string
+  net_profit_eur: number | string
+  net_profit_try: number | string
+  realized_leg_count: number
+  calculation_snapshot: ProfitDistributionSnapshot
+  created_by: string
+  created_at: string
+}
+
+export interface SaveProfitShareSettingsInput {
+  openingDate: string
+  operationsSharePct: number
+  vehicleOwnerSharePct: number
+}
+
+export interface CreateProfitDistributionInput {
+  expectedStart: string
+  periodEnd: string
+  operationsSharePct: number
+  vehicleOwnerSharePct: number
+  snapshot: ProfitDistributionSnapshot
+}
+
 export type Navigate = (hash: string) => void

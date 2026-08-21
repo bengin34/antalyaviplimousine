@@ -1,9 +1,29 @@
 import { useCallback, useEffect, useMemo, useState, type FormEvent, type ReactNode } from 'react'
 import { AdminTabs, Topbar } from '../components/AdminChrome'
-import { fmtDetailDate, fmtSyncTime, formatEuro, formatNumber, formatTry, monthLabel, monthRange, todayISO } from '../lib/format'
+import { ProfitDistributionSection } from '../components/ProfitDistributionSection'
+import { berlinTodayISO, fmtDetailDate, fmtSyncTime, formatEuro, formatNumber, formatTry, monthLabel, monthRange, todayISO } from '../lib/format'
+import {
+  createProfitDistribution,
+  fetchProfitDistributionLedger,
+  profitDistributionErrorMessage,
+  saveProfitShareSettings,
+} from '../lib/profit-distributions'
 import { supabase } from '../lib/supabase'
-import type { Booking, Navigate } from '../types'
-import { calculateProfitLossMetrics, DEFAULT_EUR_TRY_RATE, DEFAULT_KM_COST_TRY } from '../../profit-loss-metrics.js'
+import type {
+  Booking,
+  CreateProfitDistributionInput,
+  Navigate,
+  ProfitDistribution,
+  ProfitShareSettings,
+  SaveProfitShareSettingsInput,
+} from '../types'
+import {
+  buildProfitDistributionSnapshot,
+  calculateProfitDistribution,
+  calculateProfitLossMetrics,
+  DEFAULT_EUR_TRY_RATE,
+  DEFAULT_KM_COST_TRY,
+} from '../../profit-loss-metrics.js'
 import { locationLabel } from '../../turkish-formatters.js'
 
 const PAGE_SIZE = 1000
@@ -11,6 +31,15 @@ const FIRST_PROFIT_MONTH = '2026-07'
 
 type SettingsMap = Map<string, any>
 const profitLocationLabel = (location: string) => location === 'daily_chauffeur' ? 'Günlük araç + şoför' : locationLabel(location)
+
+function isStaleDistributionWriteError(error: unknown) {
+  const details = error && typeof error === 'object' ? error as { code?: unknown; message?: unknown } : {}
+  const code = typeof details.code === 'string' ? details.code.toLowerCase() : ''
+  const message = typeof details.message === 'string' ? details.message.toLowerCase() : ''
+  return code === '23p01'
+    || message.includes('stale or not contiguous')
+    || message.includes('overlap')
+}
 
 async function fetchAllBookings() {
   const bookings: Booking[] = []
@@ -342,6 +371,7 @@ function ProfitMetrics({ metrics, period, navigate, onSaveDistance, travelHistor
 
 export default function ProfitLossPage({ navigate, initialPeriod }: { navigate: Navigate; initialPeriod?: string | null }) {
   const today = useMemo(todayISO, [])
+  const distributionToday = useMemo(berlinTodayISO, [])
   const months = useMemo(() => monthRange(FIRST_PROFIT_MONTH, today.slice(0, 7)), [today])
   const [period, setPeriod] = useState(() => initialPeriod && [...months, 'all'].includes(initialPeriod) ? initialPeriod : today.slice(0, 7))
   const [bookings, setBookings] = useState<Booking[]>([])
@@ -349,17 +379,67 @@ export default function ProfitLossPage({ navigate, initialPeriod }: { navigate: 
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(false)
   const [status, setStatus] = useState('Yükleniyor…')
+  const [shareSettings, setShareSettings] = useState<ProfitShareSettings | null>(null)
+  const [distributions, setDistributions] = useState<ProfitDistribution[]>([])
+  const [distributionLoading, setDistributionLoading] = useState(true)
+  const [distributionError, setDistributionError] = useState('')
+
+  const refreshDistributionLedger = useCallback(async ({ silent = false }: { silent?: boolean } = {}) => {
+    if (!silent) setDistributionLoading(true)
+    setDistributionError('')
+    try {
+      const ledger = await fetchProfitDistributionLedger()
+      setShareSettings(ledger.settings)
+      setDistributions(ledger.distributions)
+    } catch (ledgerError) {
+      setDistributionError(profitDistributionErrorMessage(ledgerError))
+    } finally {
+      if (!silent) setDistributionLoading(false)
+    }
+  }, [])
+
   const refresh = useCallback(async () => {
     setLoading(true); setError(false); setStatus('Seyahatler ve ayarlar yenileniyor…')
+    const distributionRefresh = refreshDistributionLedger()
     try {
       const [nextBookings, nextSettings] = await Promise.all([fetchAllBookings(), fetchSettings()])
       setBookings(nextBookings); setSettings(nextSettings); setStatus(`Seyahatlerle senkron · Son güncelleme: ${fmtSyncTime()}`)
     } catch { setError(true); setStatus('Bağlantı veya veri tabanı hatası') }
     finally { setLoading(false) }
-  }, [])
+    await distributionRefresh
+  }, [refreshDistributionLedger])
   useEffect(() => { void refresh() }, [refresh])
   const metrics = useMemo(() => calculateProfitLossMetrics(bookings, period, today, settings), [bookings, period, settings, today])
   const saveSetting = (month: string, value: any) => setSettings(current => new Map(current).set(month, value))
+  const saveShareSettings = async (input: SaveProfitShareSettingsInput) => {
+    try {
+      const saved = await saveProfitShareSettings(input)
+      setShareSettings(saved)
+    } catch (writeError) {
+      throw new Error(profitDistributionErrorMessage(writeError))
+    }
+  }
+  const confirmDistribution = async (input: CreateProfitDistributionInput) => {
+    const currentMetrics = calculateProfitDistribution(bookings, {
+      startDate: input.expectedStart,
+      endDate: input.periodEnd,
+      today: distributionToday,
+      settingsByMonth: settings,
+      operationsSharePct: input.operationsSharePct,
+    })
+    if (currentMetrics.blockers.length > 0 || !currentMetrics.canDistribute || currentMetrics.netProfitEur <= 0) {
+      throw new Error('Dağıtım bilgileri güncellendi. Lütfen hesaplamayı kontrol edip tekrar deneyin.')
+    }
+    const snapshot = Object.freeze(buildProfitDistributionSnapshot(currentMetrics))
+    try {
+      await createProfitDistribution({ ...input, snapshot })
+    } catch (writeError) {
+      const message = profitDistributionErrorMessage(writeError)
+      if (isStaleDistributionWriteError(writeError)) await refreshDistributionLedger({ silent: true })
+      throw new Error(message)
+    }
+    await refresh()
+  }
   const saveDistance = async (leg: any, distanceKm: number) => {
     const column = leg.leg === 'return' ? 'manual_return_distance_km' : 'manual_outbound_distance_km'
     const payload = { [column]: distanceKm }
@@ -396,7 +476,7 @@ export default function ProfitLossPage({ navigate, initialPeriod }: { navigate: 
     <div className="budget-toolbar profit-toolbar"><div className="budget-periods" role="group" aria-label="Kâr zarar dönemi">{[...months, 'all'].map(value => <button type="button" key={value} className={period === value ? 'active' : ''} onClick={() => setPeriod(value)}>{value === 'all' ? 'Tümü' : monthLabel(value, { short: true })}</button>)}</div><button className="sync-button" type="button" aria-label="Kâr zarar verilerini yenile" disabled={loading} onClick={() => void refresh()}>↻</button></div>
     <div className="budget-update-status">{status}</div>
     <main className="scroll-area budget-content profit-content">
-      {error ? <div className="empty"><div className="empty-icon">₺</div><div>Kâr/zarar verileri yüklenemedi.</div></div> : loading && !bookings.length ? <><div className="empty"><div>Ayarlar yükleniyor…</div></div><div className="empty"><div>Hesaplanıyor…</div></div></> : <>{period === 'all' ? <section className="profit-settings profit-settings-summary"><div><span className="budget-section-kicker">HESAPLAMA AYARLARI</span><h2>Aylık değerler uygulanıyor</h2><p>Tümü görünümünde her aya kaydettiğiniz km maliyeti, reklam gideri ve kur ayrı ayrı kullanılır.</p></div></section> : <SettingsForm key={period} period={period} settings={settings} onSaved={saveSetting} />}<ProfitMetrics metrics={metrics} period={period} navigate={navigate} onSaveDistance={saveDistance} travelHistory={<TravelHistorySection metrics={metrics} period={period} bookings={bookings} navigate={navigate} onSaveDistance={saveDistance} onSaveSupplierCost={saveSupplierCost} onSaveCostMode={saveCostMode} />} /></>}
+      {error ? <div className="empty"><div className="empty-icon">₺</div><div>Kâr/zarar verileri yüklenemedi.</div></div> : loading && !bookings.length ? <><div className="empty"><div>Ayarlar yükleniyor…</div></div><div className="empty"><div>Hesaplanıyor…</div></div></> : <>{period === 'all' ? <section className="profit-settings profit-settings-summary"><div><span className="budget-section-kicker">HESAPLAMA AYARLARI</span><h2>Aylık değerler uygulanıyor</h2><p>Tümü görünümünde her aya kaydettiğiniz km maliyeti, reklam gideri ve kur ayrı ayrı kullanılır.</p></div></section> : <SettingsForm key={period} period={period} settings={settings} onSaved={saveSetting} />}<ProfitDistributionSection today={distributionToday} bookings={bookings} settingsByMonth={settings} shareSettings={shareSettings} distributions={distributions} loading={distributionLoading} error={distributionError} onRetry={() => void refreshDistributionLedger()} onSaveSettings={saveShareSettings} onCreateDistribution={confirmDistribution} navigate={navigate} /><ProfitMetrics metrics={metrics} period={period} navigate={navigate} onSaveDistance={saveDistance} travelHistory={<TravelHistorySection metrics={metrics} period={period} bookings={bookings} navigate={navigate} onSaveDistance={saveDistance} onSaveSupplierCost={saveSupplierCost} onSaveCostMode={saveCostMode} />} /></>}
     </main>
   </>
 }
