@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState, type FormEvent } from 'react'
 import { buildProfitDistributionSnapshot, calculateProfitDistribution } from '../../profit-loss-metrics.js'
-import { fmtLongDate, formatEuro, formatTry } from '../lib/format'
+import { fmtBerlinLongDate, fmtLongDate, formatEuro, formatTry } from '../lib/format'
 import type {
   Booking,
   CreateProfitDistributionInput,
@@ -74,6 +74,10 @@ function latestOpenStart(settings: ProfitShareSettings, distributions: ProfitDis
   return latestEnd ? shiftUTCDate(latestEnd, 1) : settings.opening_date
 }
 
+function callbackErrorMessage(error: unknown, fallback: string) {
+  return error instanceof Error && error.message.trim() ? error.message : fallback
+}
+
 function SetupForm({ today, onSave }: {
   today: string
   onSave: (input: SaveProfitShareSettingsInput) => Promise<void>
@@ -104,8 +108,8 @@ function SetupForm({ today, onSave }: {
         vehicleOwnerSharePct: 50,
       })
       setStatus('Başlangıç ayarları kaydedildi.')
-    } catch {
-      setMessage('Başlangıç ayarları kaydedilemedi, tekrar deneyin.')
+    } catch (error) {
+      setMessage(callbackErrorMessage(error, 'Başlangıç ayarları kaydedilemedi, tekrar deneyin.'))
     } finally {
       setSaving(false)
     }
@@ -128,6 +132,72 @@ function SetupForm({ today, onSave }: {
     {message && <div role="alert">{message}</div>}
     {status && <div role="status">{status}</div>}
   </form>
+}
+
+function OpeningDateEditor({ today, settings, onSave }: {
+  today: string
+  settings: ProfitShareSettings
+  onSave: (input: SaveProfitShareSettingsInput) => Promise<void>
+}) {
+  const [editing, setEditing] = useState(false)
+  const [openingDate, setOpeningDate] = useState(settings.opening_date)
+  const [saving, setSaving] = useState(false)
+  const [message, setMessage] = useState('')
+  const [status, setStatus] = useState('')
+
+  useEffect(() => {
+    setOpeningDate(settings.opening_date)
+  }, [settings.opening_date])
+
+  const submit = async (event: FormEvent) => {
+    event.preventDefault()
+    setMessage('')
+    setStatus('')
+    if (!isISODate(openingDate)) {
+      setMessage('Geçerli bir başlangıç tarihi girin.')
+      return
+    }
+    if (openingDate >= today) {
+      setMessage('Yeni dönem başlangıcı bugünden önce olmalıdır.')
+      return
+    }
+
+    setSaving(true)
+    try {
+      await onSave({
+        openingDate,
+        operationsSharePct: Number(settings.default_operations_share_pct),
+        vehicleOwnerSharePct: Number(settings.default_vehicle_owner_share_pct),
+      })
+      setEditing(false)
+      setStatus('Başlangıç tarihi güncellendi.')
+    } catch (error) {
+      setMessage(callbackErrorMessage(error, 'Başlangıç tarihi güncellenemedi, tekrar deneyin.'))
+    } finally {
+      setSaving(false)
+    }
+  }
+
+  return <section className="profit-distribution-opening-edit" aria-label="Başlangıç tarihi ayarı">
+    <button type="button" onClick={() => { setEditing(true); setMessage(''); setStatus('') }}>Başlangıç tarihini düzenle</button>
+    {editing && <form noValidate onSubmit={submit}>
+      <label>
+        <span>Dağıtılmamış dönem başlangıcı</span>
+        <input
+          type="date"
+          max={shiftUTCDate(today, -1)}
+          value={openingDate}
+          onChange={event => setOpeningDate(event.target.value)}
+          required
+        />
+      </label>
+      <p>Bu tarihten önce gerçekleşen seyahatler daha önce paylaşılmış kabul edilir.</p>
+      <button type="submit" disabled={saving}>{saving ? 'Kaydediliyor…' : 'Başlangıç tarihini kaydet'}</button>
+      <button type="button" disabled={saving} onClick={() => { setEditing(false); setOpeningDate(settings.opening_date); setMessage('') }}>İptal</button>
+    </form>}
+    {message && <div role="alert">{message}</div>}
+    {status && <div role="status">{status}</div>}
+  </section>
 }
 
 function MoneyPair({ eur, tryAmount }: { eur: unknown; tryAmount: unknown }) {
@@ -212,7 +282,7 @@ function DistributionHistory({ distributions }: { distributions: ProfitDistribut
     <h3 id="distribution-history-title">Dağıtım geçmişi</h3>
     {newestFirst.map(distribution => <article key={distribution.id} data-testid="distribution-history-row">
       <h4>{fmtLongDate(distribution.period_start)} – {fmtLongDate(distribution.period_end)}</h4>
-      <p>Dağıtım tarihi: {fmtLongDate(distribution.created_at.slice(0, 10))}</p>
+      <p>Dağıtım tarihi: {fmtBerlinLongDate(distribution.created_at)}</p>
       <p>{distribution.realized_leg_count} seyahat ayağı</p>
       <p>Net kâr: <MoneyPair eur={distribution.net_profit_eur} tryAmount={distribution.net_profit_try} /></p>
       <div>
@@ -330,8 +400,8 @@ function OpenDistributionPreview({
       })
       setConfirming(false)
       setStatus('Dağıtım kaydedildi.')
-    } catch {
-      setSaveError('Dağıtım kaydedilemedi, tekrar deneyin.')
+    } catch (error) {
+      setSaveError(callbackErrorMessage(error, 'Dağıtım kaydedilemedi, tekrar deneyin.'))
     } finally {
       setSaving(false)
     }
@@ -404,6 +474,7 @@ export function ProfitDistributionSection(props: ProfitDistributionSectionProps)
       <p>{error}</p>
       <button type="button" onClick={onRetry}>Tekrar dene</button>
     </div> : !shareSettings ? <SetupForm today={props.today} onSave={props.onSaveSettings} /> : <>
+      {distributions.length === 0 && <OpeningDateEditor today={props.today} settings={shareSettings} onSave={props.onSaveSettings} />}
       <OpenDistributionPreview {...props} shareSettings={shareSettings} />
       <DistributionHistory distributions={distributions} />
     </>}

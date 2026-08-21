@@ -1,7 +1,12 @@
 export const ISTANBUL_TIME_ZONE = 'Europe/Istanbul'
+export const BERLIN_TIME_ZONE = 'Europe/Berlin'
 
-export function todayISO() {
-  return new Intl.DateTimeFormat('sv', { timeZone: ISTANBUL_TIME_ZONE }).format(new Date())
+export function todayISO(value = new Date()) {
+  return new Intl.DateTimeFormat('sv', { timeZone: ISTANBUL_TIME_ZONE }).format(value)
+}
+
+export function berlinTodayISO(value = new Date()) {
+  return new Intl.DateTimeFormat('sv', { timeZone: BERLIN_TIME_ZONE }).format(value)
 }
 
 export function offsetISO(days: number) {
@@ -60,6 +65,15 @@ export function fmtLongDate(isoDate?: string | null) {
   const date = new Date(`${isoDate}T12:00:00Z`)
   return new Intl.DateTimeFormat('tr-TR', {
     day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC',
+  }).format(date)
+}
+
+export function fmtBerlinLongDate(value?: string | null) {
+  if (!value) return '—'
+  const date = new Date(value)
+  if (Number.isNaN(date.getTime())) return '—'
+  return new Intl.DateTimeFormat('tr-TR', {
+    day: 'numeric', month: 'long', year: 'numeric', timeZone: BERLIN_TIME_ZONE,
   }).format(date)
 }
 

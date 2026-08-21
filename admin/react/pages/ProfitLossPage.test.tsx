@@ -10,6 +10,8 @@ const mocks = vi.hoisted(() => ({
   fetchLedger: vi.fn(),
   saveShareSettings: vi.fn(),
   createDistribution: vi.fn(),
+  mapError: vi.fn(),
+  callbackError: vi.fn(),
   from: vi.fn(),
 }))
 
@@ -17,7 +19,7 @@ vi.mock('../lib/profit-distributions', () => ({
   fetchProfitDistributionLedger: mocks.fetchLedger,
   saveProfitShareSettings: mocks.saveShareSettings,
   createProfitDistribution: mocks.createDistribution,
-  profitDistributionErrorMessage: () => 'Kâr paylaşımı kayıtları alınamadı.',
+  profitDistributionErrorMessage: mocks.mapError,
 }))
 
 vi.mock('../lib/supabase', () => ({
@@ -29,18 +31,19 @@ vi.mock('../components/ProfitDistributionSection', () => ({
     <span data-testid="distribution-error">{props.error}</span>
     <span data-testid="distribution-opening-date">{props.shareSettings?.opening_date ?? ''}</span>
     <button type="button" onClick={props.onRetry}>Dağıtım kayıtlarını yenile</button>
+    <span data-testid="distribution-period-end">{props.distributions[0]?.period_end ?? ''}</span>
     <button type="button" onClick={() => void props.onSaveSettings({
       openingDate: '2026-08-01',
       operationsSharePct: 50,
       vehicleOwnerSharePct: 50,
-    })}>Paylaşımı kur</button>
+    }).catch(mocks.callbackError)}>Paylaşımı kur</button>
     <button type="button" onClick={() => void props.onCreateDistribution({
       expectedStart: '2026-08-01',
       periodEnd: '2026-08-20',
       operationsSharePct: 50,
       vehicleOwnerSharePct: 50,
       snapshot: { schema_version: 1, period_start: 'stale' } as never,
-    })}>Dağıtımı kaydet</button>
+    }).catch(mocks.callbackError)}>Dağıtımı kaydet</button>
   </section>,
 }))
 
@@ -131,6 +134,12 @@ beforeEach(() => {
   mocks.fetchLedger.mockResolvedValue({ settings: shareSettings, distributions: [] })
   mocks.saveShareSettings.mockResolvedValue(shareSettings)
   mocks.createDistribution.mockResolvedValue({ id: 'distribution-1' })
+  mocks.mapError.mockImplementation((error: unknown) => {
+    const code = error && typeof error === 'object' ? (error as { code?: string }).code : ''
+    if (code?.toLowerCase() === '23p01') return 'Dağıtım dönemi güncelliğini yitirdi. Verileri yenileyip tekrar deneyin.'
+    if (error instanceof Error && error.message === 'network') return 'Bağlantı kurulamadı. İnternet bağlantınızı kontrol edip tekrar deneyin.'
+    return 'Kâr paylaşımı kayıtları alınamadı.'
+  })
 })
 
 afterEach(cleanup)
@@ -174,6 +183,20 @@ describe('ProfitLossPage profit distribution integration', () => {
     expect(screen.getByTestId('distribution-opening-date')).toHaveTextContent('2026-08-01')
   })
 
+  test('maps setup write failures before surfacing them to the section', async () => {
+    const apiError = new Error('network')
+    mocks.saveShareSettings.mockRejectedValueOnce(apiError)
+    render(<ProfitLossPage navigate={vi.fn()} initialPeriod="2026-08" />)
+    await screen.findByText('Paylaşımı kur')
+
+    fireEvent.click(screen.getByText('Paylaşımı kur'))
+
+    await waitFor(() => expect(mocks.mapError).toHaveBeenCalledWith(apiError))
+    expect(mocks.callbackError).toHaveBeenCalledWith(expect.objectContaining({
+      message: 'Bağlantı kurulamadı. İnternet bağlantınızı kontrol edip tekrar deneyin.',
+    }))
+  })
+
   test('rebuilds the snapshot and refreshes all three data sources after confirmation', async () => {
     render(<ProfitLossPage navigate={vi.fn()} initialPeriod="2026-08" />)
     await screen.findByText('Dağıtımı kaydet')
@@ -191,5 +214,28 @@ describe('ProfitLossPage profit distribution integration', () => {
     await waitFor(() => expect(mocks.fetchLedger).toHaveBeenCalledTimes(2))
     expect(mocks.from.mock.calls.filter(([table]) => table === 'bookings')).toHaveLength(2)
     expect(mocks.from.mock.calls.filter(([table]) => table === 'profit_loss_settings')).toHaveLength(2)
+  })
+
+  test('reloads the ledger and surfaces the mapped error when confirmation is stale', async () => {
+    const staleError = { code: '23P01', message: 'stale or not contiguous' }
+    mocks.createDistribution.mockRejectedValueOnce(staleError)
+    mocks.fetchLedger
+      .mockResolvedValueOnce({ settings: shareSettings, distributions: [] })
+      .mockResolvedValueOnce({
+        settings: shareSettings,
+        distributions: [{ period_end: '2026-08-10' } as never],
+      })
+    render(<ProfitLossPage navigate={vi.fn()} initialPeriod="2026-08" />)
+    await screen.findByText('Dağıtımı kaydet')
+
+    fireEvent.click(screen.getByText('Dağıtımı kaydet'))
+
+    await waitFor(() => expect(mocks.fetchLedger).toHaveBeenCalledTimes(2))
+    expect(screen.getByTestId('distribution-period-end')).toHaveTextContent('2026-08-10')
+    expect(mocks.callbackError).toHaveBeenCalledWith(expect.objectContaining({
+      message: 'Dağıtım dönemi güncelliğini yitirdi. Verileri yenileyip tekrar deneyin.',
+    }))
+    expect(mocks.from.mock.calls.filter(([table]) => table === 'bookings')).toHaveLength(1)
+    expect(mocks.from.mock.calls.filter(([table]) => table === 'profit_loss_settings')).toHaveLength(1)
   })
 })

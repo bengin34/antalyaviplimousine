@@ -402,11 +402,44 @@ button,
 }
 
 .profit-distribution-setup,
+.profit-distribution-opening-edit,
 .profit-distribution-preview,
 .profit-distribution-confirmation,
 .profit-distribution-history {
   display: grid;
   gap: 12px;
+}
+
+.profit-distribution-opening-edit {
+  padding: 12px;
+  border: 1px solid rgba(255, 173, 102, 0.3);
+  border-radius: 12px;
+  background: rgba(58, 38, 22, 0.34);
+}
+
+.profit-distribution-opening-edit > button {
+  justify-self: start;
+  border-color: rgba(255, 173, 102, 0.4);
+  background: rgba(255, 173, 102, 0.1);
+  color: #ffc18c;
+}
+
+.profit-distribution-opening-edit form {
+  display: grid;
+  gap: 10px;
+}
+
+.profit-distribution-opening-edit form p {
+  color: #c39774;
+  font-size: 11px;
+  line-height: 1.45;
+}
+
+.profit-distribution-opening-edit > [role="alert"],
+.profit-distribution-opening-edit > [role="status"] {
+  color: var(--text-muted);
+  font-size: 12px;
+  line-height: 1.45;
 }
 
 .profit-distribution-setup > p,
@@ -619,6 +652,14 @@ button,
   }
 
   .profit-distribution-confirmation > :not(button) {
+    grid-column: 1 / -1;
+  }
+
+  .profit-distribution-opening-edit form {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .profit-distribution-opening-edit form > :is(label, p) {
     grid-column: 1 / -1;
   }
 }

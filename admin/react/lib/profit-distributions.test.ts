@@ -235,6 +235,10 @@ describe('profitDistributionErrorMessage', () => {
       'Dağıtım dönemi güncelliğini yitirdi. Verileri yenileyip tekrar deneyin.',
     ],
     [
+      { message: 'Distribution period overlaps an existing ledger row', code: 'P0001' },
+      'Dağıtım dönemi güncelliğini yitirdi. Verileri yenileyip tekrar deneyin.',
+    ],
+    [
       { message: 'Distribution end must be on or after its start', code: 'P0001' },
       'Bitiş tarihi başlangıç tarihinden önce olamaz.',
     ],

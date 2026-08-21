@@ -73,7 +73,11 @@ export function profitDistributionErrorMessage(error: unknown): string {
     : typeof error === 'string' ? error.toLowerCase() : ''
   const status = typeof details.status === 'number' ? details.status : null
 
-  if (code === '23p01' || message.includes('stale or not contiguous')) {
+  if (
+    code === '23p01'
+    || message.includes('stale or not contiguous')
+    || message.includes('overlap')
+  ) {
     return 'Dağıtım dönemi güncelliğini yitirdi. Verileri yenileyip tekrar deneyin.'
   }
   if (message.includes('end must be on or after')) {

@@ -194,7 +194,7 @@ describe('ProfitDistributionSection setup', () => {
   })
 
   test('preserves the entered date when setup save fails so it can be retried', async () => {
-    const onSaveSettings = vi.fn().mockRejectedValue(new Error('network'))
+    const onSaveSettings = vi.fn().mockRejectedValue(new Error('Bağlantı kurulamadı. İnternet bağlantınızı kontrol edip tekrar deneyin.'))
     renderSection({ shareSettings: null, bookings: [], onSaveSettings })
 
     const date = screen.getByLabelText('Yeni dönem başlangıcı')
@@ -203,7 +203,29 @@ describe('ProfitDistributionSection setup', () => {
 
     await screen.findByRole('alert')
     expect(date).toHaveValue('2026-08-19')
-    expect(screen.getByRole('alert')).toHaveTextContent('Başlangıç ayarları kaydedilemedi, tekrar deneyin.')
+    expect(screen.getByRole('alert')).toHaveTextContent('Bağlantı kurulamadı. İnternet bağlantınızı kontrol edip tekrar deneyin.')
+  })
+
+  test('edits the opening date with current ratios only before the first distribution', async () => {
+    const onSaveSettings = vi.fn().mockResolvedValue(undefined)
+    const { rerender, props } = renderSection({ onSaveSettings })
+
+    fireEvent.click(screen.getByRole('button', { name: 'Başlangıç tarihini düzenle' }))
+    const date = screen.getByLabelText('Dağıtılmamış dönem başlangıcı')
+    expect(date).toHaveValue('2026-08-01')
+    expect(screen.getByText('Bu tarihten önce gerçekleşen seyahatler daha önce paylaşılmış kabul edilir.')).toBeVisible()
+
+    fireEvent.change(date, { target: { value: '2026-08-02' } })
+    fireEvent.click(screen.getByRole('button', { name: 'Başlangıç tarihini kaydet' }))
+
+    await waitFor(() => expect(onSaveSettings).toHaveBeenCalledWith({
+      openingDate: '2026-08-02',
+      operationsSharePct: 50,
+      vehicleOwnerSharePct: 50,
+    }))
+
+    rerender(<ProfitDistributionSection {...props} distributions={[distributionFixture()]} />)
+    expect(screen.queryByRole('button', { name: 'Başlangıç tarihini düzenle' })).not.toBeInTheDocument()
   })
 })
 
@@ -278,11 +300,25 @@ describe('ProfitDistributionSection preview and confirmation', () => {
     fireEvent.click(confirm)
     expect(onCreateDistribution).toHaveBeenCalledTimes(1)
 
-    rejectSave(new Error('network'))
-    await waitFor(() => expect(screen.getByRole('alert')).toHaveTextContent('Dağıtım kaydedilemedi, tekrar deneyin.'))
+    rejectSave(new Error('Dağıtım dönemi güncelliğini yitirdi. Verileri yenileyip tekrar deneyin.'))
+    await waitFor(() => expect(screen.getByRole('alert')).toHaveTextContent('Dağıtım dönemi güncelliğini yitirdi. Verileri yenileyip tekrar deneyin.'))
     expect(screen.getByText('Dağıtılmamış net kâr')).toBeVisible()
     expect(screen.getByText('€900,00')).toBeVisible()
     expect(screen.getByRole('dialog', { name: 'Dağıtım özeti' })).toBeVisible()
+  })
+
+  test('shows a mapped stale error while moving the open start to refreshed history', async () => {
+    let rejectSave!: (error: Error) => void
+    const onCreateDistribution = vi.fn(() => new Promise<void>((_resolve, reject) => { rejectSave = reject }))
+    const { rerender, props } = renderSection({ onCreateDistribution })
+
+    fireEvent.click(screen.getByRole('button', { name: 'Kârı dağıt' }))
+    fireEvent.click(screen.getByRole('button', { name: 'Dağıtımı onayla' }))
+    rerender(<ProfitDistributionSection {...props} distributions={[distributionFixture()]} />)
+    rejectSave(new Error('Dağıtım dönemi güncelliğini yitirdi. Verileri yenileyip tekrar deneyin.'))
+
+    await waitFor(() => expect(screen.getByLabelText('Dağıtım başlangıç tarihi')).toHaveValue('2026-08-11'))
+    expect(screen.getByRole('alert')).toHaveTextContent('Dağıtım dönemi güncelliğini yitirdi. Verileri yenileyip tekrar deneyin.')
   })
 
   test.each([
@@ -362,7 +398,7 @@ describe('ProfitDistributionSection history and loading states', () => {
       vehicle_owner_share_pct: 50,
       realized_leg_count: 2,
     })
-    const newest = distributionFixture()
+    const newest = distributionFixture({ created_at: '2026-08-10T22:30:00Z' })
     const bookings = [bookingFixture()]
     const settings = new Map(settingsByMonth)
     renderSection({ bookings, settingsByMonth: settings, distributions: [old, newest] })
