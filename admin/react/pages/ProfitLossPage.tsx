@@ -2,7 +2,7 @@ import { useCallback, useEffect, useMemo, useState, type FormEvent, type ReactNo
 import { AdminTabs, Topbar } from '../components/AdminChrome'
 import { ProfitDistributionSection } from '../components/ProfitDistributionSection'
 import { berlinTodayISO, fmtDetailDate, fmtSyncTime, formatEuro, formatNumber, formatTry, monthLabel, monthRange, todayISO } from '../lib/format'
-import { fetchRatesForDates } from '../lib/exchange-rates'
+import { fetchRatesForDates, fetchLatestEurTryRate } from '../lib/exchange-rates'
 import {
   createProfitDistribution,
   fetchProfitDistributionLedger,
@@ -82,6 +82,25 @@ function SettingsForm({ period, settings, onSaved }: { period: string; settings:
   const [saving, setSaving] = useState(false)
   const [error, setError] = useState('')
   const [success, setSuccess] = useState('')
+  const [fetchingRate, setFetchingRate] = useState(false)
+  const [fetchRateError, setFetchRateError] = useState('')
+
+  const handleFetchRate = async () => {
+    setFetchingRate(true)
+    setFetchRateError('')
+    try {
+      const fetched = await fetchLatestEurTryRate()
+      if (fetched === null) {
+        setFetchRateError('Kur alınamadı, manuel girin.')
+      } else {
+        setRate(fetched.toFixed(4))
+      }
+    } catch {
+      setFetchRateError('Kur alınamadı, manuel girin.')
+    } finally {
+      setFetchingRate(false)
+    }
+  }
 
   useEffect(() => {
     const next = settingValues(setting)
@@ -111,7 +130,7 @@ function SettingsForm({ period, settings, onSaved }: { period: string; settings:
     <div className="profit-settings-heading"><div><span className="budget-section-kicker">HESAPLAMA AYARLARI</span><h2>{monthLabel(period)}</h2></div><span>Aylık</span></div>
     <div className="profit-input-grid">
       <label className="profit-input-field"><span>KM başı maliyet</span><div><b>₺</b><input type="number" min="0.01" max="10000" step="0.01" inputMode="decimal" value={kmCost} onChange={e => setKmCost(e.target.value)} required /></div><small>Boşsa varsayılan 15 ₺/km</small></label>
-      <label className="profit-input-field"><span>EUR/TL kuru</span><div><b>₺</b><input type="number" min="0.01" max="10000" step="0.0001" inputMode="decimal" value={rate} onChange={e => setRate(e.target.value)} required /></div><small>1 € karşılığı</small></label>
+      <label className="profit-input-field"><span>EUR/TL kuru</span><div><b>₺</b><input type="number" min="0.01" max="10000" step="0.0001" inputMode="decimal" value={rate} onChange={e => setRate(e.target.value)} required /><button type="button" className="fetch-rate-btn" onClick={() => void handleFetchRate()} disabled={fetchingRate}>{fetchingRate ? '…' : 'Kur al'}</button></div><small>1 € karşılığı{fetchRateError ? ` · ${fetchRateError}` : ''}</small></label>
       <label className="profit-input-field profit-input-wide"><span>Reklam gideri</span><div><b>₺</b><input type="number" min="0" max="1000000000" step="0.01" inputMode="decimal" value={advertising} onChange={e => setAdvertising(e.target.value)} required /></div><small>Bu aya ait toplam reklam harcaması</small></label>
     </div>
     <button className="btn profit-save-button" type="submit" disabled={saving}>{saving ? 'Kaydediliyor…' : 'Ayarları kaydet ve hesapla'}</button>
