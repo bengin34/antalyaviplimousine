@@ -25,7 +25,7 @@ export async function fetchRatesForDates(dates: string[]): Promise<Map<string, n
     missing.map(async date => {
       if (inFlight.has(date)) {
         await inFlight.get(date)
-        return
+        return // first caller already populated rateCache; outer filter handles the rest
       }
       const p = fetchRateForDate(date)
       inFlight.set(date, p)
@@ -40,12 +40,7 @@ export async function fetchRatesForDates(dates: string[]): Promise<Map<string, n
   )
 }
 
-// Fetches today's or latest available EUR/TRY rate (for SettingsForm helper).
-// Falls back to fetchRateForDate('latest') directly — note: 'latest' is not an
-// ISO date so it bypasses the ISO_DATE filter in fetchRatesForDates intentionally.
 export async function fetchLatestEurTryRate(): Promise<number | null> {
-  const today = new Date().toISOString().slice(0, 10)
-  const result = await fetchRatesForDates([today])
-  if (result.has(today)) return result.get(today)!
+  // 'latest' bypasses ISO_DATE filter intentionally — always returns most recent available rate
   return fetchRateForDate('latest')
 }
