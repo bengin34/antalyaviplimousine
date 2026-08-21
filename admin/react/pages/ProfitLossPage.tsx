@@ -2,6 +2,7 @@ import { useCallback, useEffect, useMemo, useState, type FormEvent, type ReactNo
 import { AdminTabs, Topbar } from '../components/AdminChrome'
 import { ProfitDistributionSection } from '../components/ProfitDistributionSection'
 import { berlinTodayISO, fmtDetailDate, fmtSyncTime, formatEuro, formatNumber, formatTry, monthLabel, monthRange, todayISO } from '../lib/format'
+import { fetchRatesForDates, fetchLatestEurTryRate } from '../lib/exchange-rates'
 import {
   createProfitDistribution,
   fetchProfitDistributionLedger,
@@ -81,6 +82,25 @@ function SettingsForm({ period, settings, onSaved }: { period: string; settings:
   const [saving, setSaving] = useState(false)
   const [error, setError] = useState('')
   const [success, setSuccess] = useState('')
+  const [fetchingRate, setFetchingRate] = useState(false)
+  const [fetchRateError, setFetchRateError] = useState('')
+
+  const handleFetchRate = async () => {
+    setFetchingRate(true)
+    setFetchRateError('')
+    try {
+      const fetched = await fetchLatestEurTryRate()
+      if (fetched === null) {
+        setFetchRateError('Kur alınamadı, manuel girin.')
+      } else {
+        setRate(fetched.toFixed(4))
+      }
+    } catch {
+      setFetchRateError('Kur alınamadı, manuel girin.')
+    } finally {
+      setFetchingRate(false)
+    }
+  }
 
   useEffect(() => {
     const next = settingValues(setting)
@@ -110,7 +130,7 @@ function SettingsForm({ period, settings, onSaved }: { period: string; settings:
     <div className="profit-settings-heading"><div><span className="budget-section-kicker">HESAPLAMA AYARLARI</span><h2>{monthLabel(period)}</h2></div><span>Aylık</span></div>
     <div className="profit-input-grid">
       <label className="profit-input-field"><span>KM başı maliyet</span><div><b>₺</b><input type="number" min="0.01" max="10000" step="0.01" inputMode="decimal" value={kmCost} onChange={e => setKmCost(e.target.value)} required /></div><small>Boşsa varsayılan 15 ₺/km</small></label>
-      <label className="profit-input-field"><span>EUR/TL kuru</span><div><b>₺</b><input type="number" min="0.01" max="10000" step="0.0001" inputMode="decimal" value={rate} onChange={e => setRate(e.target.value)} required /></div><small>1 € karşılığı</small></label>
+      <label className="profit-input-field"><span>EUR/TL kuru</span><div><b>₺</b><input type="number" min="0.01" max="10000" step="0.0001" inputMode="decimal" value={rate} onChange={e => setRate(e.target.value)} required /><button type="button" className="fetch-rate-btn" onClick={() => void handleFetchRate()} disabled={fetchingRate}>{fetchingRate ? '…' : 'Kur al'}</button></div><small>1 € karşılığı{fetchRateError ? ` · ${fetchRateError}` : ''}</small></label>
       <label className="profit-input-field profit-input-wide"><span>Reklam gideri</span><div><b>₺</b><input type="number" min="0" max="1000000000" step="0.01" inputMode="decimal" value={advertising} onChange={e => setAdvertising(e.target.value)} required /></div><small>Bu aya ait toplam reklam harcaması</small></label>
     </div>
     <button className="btn profit-save-button" type="submit" disabled={saving}>{saving ? 'Kaydediliyor…' : 'Ayarları kaydet ve hesapla'}</button>
@@ -322,6 +342,9 @@ function TravelHistorySection({ metrics, period, bookings, navigate, onSaveDista
               {booking && !isDailyChauffeur && <span>{currentMode === 'sold_transfer' ? 'Maliyet modeli: Satılan transfer' : 'Maliyet modeli: Kendi aracımız'}</span>}
               <span>{costSummary}</span>
               {!isSoldTransfer && (leg.airportMeetCostTry ?? 0) > 0 && <span>Karşılama: {formatTry(leg.airportMeetCostTry)}</span>}
+              {(leg as any).eurTryRate != null && (
+                <span>Kur: ₺{((leg as any).eurTryRate as number).toFixed(2)}</span>
+              )}
             </div>
           </div>
           <div className="profit-trip-history-actions">
@@ -383,6 +406,8 @@ export default function ProfitLossPage({ navigate, initialPeriod }: { navigate: 
   const [distributions, setDistributions] = useState<ProfitDistribution[]>([])
   const [distributionLoading, setDistributionLoading] = useState(true)
   const [distributionError, setDistributionError] = useState('')
+  const [ratesByDate, setRatesByDate] = useState<Map<string, number>>(new Map())
+  const [ratesLoading, setRatesLoading] = useState(false)
 
   const refreshDistributionLedger = useCallback(async ({ silent = false }: { silent?: boolean } = {}) => {
     if (!silent) setDistributionLoading(true)
@@ -404,12 +429,31 @@ export default function ProfitLossPage({ navigate, initialPeriod }: { navigate: 
     try {
       const [nextBookings, nextSettings] = await Promise.all([fetchAllBookings(), fetchSettings()])
       setBookings(nextBookings); setSettings(nextSettings); setStatus(`Seyahatlerle senkron · Son güncelleme: ${fmtSyncTime()}`)
+      // Fetch per-date EUR/TRY rates in background.
+      // daily_chauffeur legs use chauffeur_hire_days[*].service_date, not pickup_date.
+      setRatesLoading(true)
+      const dates = nextBookings.flatMap((b: Booking) => {
+        if (b.trip_type === 'daily_chauffeur') {
+          return ((b.chauffeur_hire_days ?? []) as Array<{ service_date?: string }>)
+            .map(d => d.service_date)
+            .filter((d): d is string => Boolean(d))
+        }
+        return [b.pickup_date, b.return_date].filter((d): d is string => Boolean(d))
+      })
+      fetchRatesForDates(dates)
+        .then(rates => { setRatesByDate(rates) })
+        .catch(() => { /* silent — falls back to monthly rate */ })
+        .finally(() => { setRatesLoading(false) })
     } catch { setError(true); setStatus('Bağlantı veya veri tabanı hatası') }
     finally { setLoading(false) }
     await distributionRefresh
   }, [refreshDistributionLedger])
   useEffect(() => { void refresh() }, [refresh])
-  const metrics = useMemo(() => calculateProfitLossMetrics(bookings, period, today, settings), [bookings, period, settings, today])
+  const metrics = useMemo(
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    () => calculateProfitLossMetrics(bookings, period, today, settings, ratesByDate as any),
+    [bookings, period, settings, today, ratesByDate],
+  )
   const saveSetting = (month: string, value: any) => setSettings(current => new Map(current).set(month, value))
   const saveShareSettings = async (input: SaveProfitShareSettingsInput) => {
     try {
@@ -426,6 +470,7 @@ export default function ProfitLossPage({ navigate, initialPeriod }: { navigate: 
       today: distributionToday,
       settingsByMonth: settings,
       operationsSharePct: input.operationsSharePct,
+      ratesByDate,  // may be empty Map if API fetch is still in flight — falls back to monthly rate
     })
     if (currentMetrics.blockers.length > 0 || !currentMetrics.canDistribute || currentMetrics.netProfitEur <= 0) {
       throw new Error('Dağıtım bilgileri güncellendi. Lütfen hesaplamayı kontrol edip tekrar deneyin.')
@@ -473,7 +518,7 @@ export default function ProfitLossPage({ navigate, initialPeriod }: { navigate: 
     setStatus(`${booking.booking_ref || 'Seyahat'} için maliyet modeli ${savedMode === 'sold_transfer' ? 'satılan transfer' : 'kendi aracımız'} olarak kaydedildi · Hesap güncellendi`)
   }
   return <><Topbar navigate={navigate} /><AdminTabs active="profit-loss" navigate={navigate} />
-    <div className="budget-toolbar profit-toolbar"><div className="budget-periods" role="group" aria-label="Kâr zarar dönemi">{[...months, 'all'].map(value => <button type="button" key={value} className={period === value ? 'active' : ''} onClick={() => setPeriod(value)}>{value === 'all' ? 'Tümü' : monthLabel(value, { short: true })}</button>)}</div><button className="sync-button" type="button" aria-label="Kâr zarar verilerini yenile" disabled={loading} onClick={() => void refresh()}>↻</button></div>
+    <div className="budget-toolbar profit-toolbar"><div className="budget-periods" role="group" aria-label="Kâr zarar dönemi">{[...months, 'all'].map(value => <button type="button" key={value} className={period === value ? 'active' : ''} onClick={() => setPeriod(value)}>{value === 'all' ? 'Tümü' : monthLabel(value, { short: true })}</button>)}</div>{ratesLoading && <span className="rates-loading-hint">Kurlar yükleniyor…</span>}<button className="sync-button" type="button" aria-label="Kâr zarar verilerini yenile" disabled={loading} onClick={() => void refresh()}>↻</button></div>
     <div className="budget-update-status">{status}</div>
     <main className="scroll-area budget-content profit-content">
       {error ? <div className="empty"><div className="empty-icon">₺</div><div>Kâr/zarar verileri yüklenemedi.</div></div> : loading && !bookings.length ? <><div className="empty"><div>Ayarlar yükleniyor…</div></div><div className="empty"><div>Hesaplanıyor…</div></div></> : <>{period === 'all' ? <section className="profit-settings profit-settings-summary"><div><span className="budget-section-kicker">HESAPLAMA AYARLARI</span><h2>Aylık değerler uygulanıyor</h2><p>Tümü görünümünde her aya kaydettiğiniz km maliyeti, reklam gideri ve kur ayrı ayrı kullanılır.</p></div></section> : <SettingsForm key={period} period={period} settings={settings} onSaved={saveSetting} />}<ProfitDistributionSection today={distributionToday} bookings={bookings} settingsByMonth={settings} shareSettings={shareSettings} distributions={distributions} loading={distributionLoading} error={distributionError} onRetry={() => void refreshDistributionLedger()} onSaveSettings={saveShareSettings} onCreateDistribution={confirmDistribution} navigate={navigate} /><ProfitMetrics metrics={metrics} period={period} navigate={navigate} onSaveDistance={saveDistance} travelHistory={<TravelHistorySection metrics={metrics} period={period} bookings={bookings} navigate={navigate} onSaveDistance={saveDistance} onSaveSupplierCost={saveSupplierCost} onSaveCostMode={saveCostMode} />} /></>}

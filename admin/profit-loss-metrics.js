@@ -439,7 +439,7 @@ function manualDistanceForLeg(booking, leg) {
   return Number.isFinite(distance) && distance > 0 ? distance : null
 }
 
-export function resolveRealizedLegs(bookings, today, settingsByMonth = {}) {
+export function resolveRealizedLegs(bookings, today, settingsByMonth = {}, ratesByDate = null) {
   const resolvedLegs = []
   const unresolvedLegs = []
 
@@ -457,9 +457,11 @@ export function resolveRealizedLegs(bookings, today, settingsByMonth = {}) {
         month: leg.date.slice(0, 7),
       }
       const settings = settingForMonth(settingsByMonth, legDetails.month)
-      legDetails.revenueTry = leg.revenueEur * settings.eurTryRate
+      const eurTryRate = (ratesByDate instanceof Map ? ratesByDate.get(leg.date) : null) ?? settings.eurTryRate
+      legDetails.eurTryRate = eurTryRate
+      legDetails.revenueTry = leg.revenueEur * eurTryRate
       legDetails.airportMeetCostEur = !leg.isDailyChauffeur && startsFromAirport(leg.from) ? AIRPORT_MEET_COST_EUR : 0
-      legDetails.airportMeetCostTry = legDetails.airportMeetCostEur * settings.eurTryRate
+      legDetails.airportMeetCostTry = legDetails.airportMeetCostEur * eurTryRate
 
       if (leg.isDailyChauffeur) {
         const vehicleKm = leg.directVehicleKm ?? 0
@@ -530,10 +532,12 @@ function totalsForLegs(resolvedLegs, unresolvedLegs, settingsByMonth) {
   })
 
   totals.vehicleCostEur = resolvedLegs.reduce((total, leg) => {
-    return total + (leg.vehicleCostTry / settingForMonth(settingsByMonth, leg.month).eurTryRate)
+    const rate = leg.eurTryRate ?? settingForMonth(settingsByMonth, leg.month).eurTryRate
+    return total + (leg.vehicleCostTry / rate)
   }, 0)
   totals.supplierCostEur = resolvedLegs.reduce((total, leg) => {
-    return total + ((leg.supplierCostTry ?? 0) / settingForMonth(settingsByMonth, leg.month).eurTryRate)
+    const rate = leg.eurTryRate ?? settingForMonth(settingsByMonth, leg.month).eurTryRate
+    return total + ((leg.supplierCostTry ?? 0) / rate)
   }, 0)
 
   return totals
@@ -541,20 +545,21 @@ function totalsForLegs(resolvedLegs, unresolvedLegs, settingsByMonth) {
 
 function distributionFinancialLeg(leg, settingsByMonth, allocations) {
   const settings = settingForMonth(settingsByMonth, leg.month)
+  const eurTryRate = leg.eurTryRate ?? settings.eurTryRate
   const allocation = allocations.get(`${leg.bookingId}:${leg.leg}`)
   const revenueEur = roundMoney(allocation?.revenueEur ?? leg.revenueEur)
-  const revenueTry = centsToNumber(multiplyDivideMoneyToCents(revenueEur, settings.eurTryRate, 1))
+  const revenueTry = centsToNumber(multiplyDivideMoneyToCents(revenueEur, eurTryRate, 1))
   const vehicleCostTry = leg.costMode === 'sold_transfer'
     ? 0
     : centsToNumber(multiplyDivideMoneyToCents(leg.vehicleKm ?? 0, settings.kmCostTry, 1))
-  const vehicleCostEur = centsToNumber(multiplyDivideMoneyToCents(vehicleCostTry, 1, settings.eurTryRate))
+  const vehicleCostEur = centsToNumber(multiplyDivideMoneyToCents(vehicleCostTry, 1, eurTryRate))
   const supplierCostTry = leg.costMode === 'sold_transfer'
     ? roundMoney(allocation?.supplierCostTry ?? leg.supplierCostTry ?? 0)
     : 0
-  const supplierCostEur = centsToNumber(multiplyDivideMoneyToCents(supplierCostTry, 1, settings.eurTryRate))
+  const supplierCostEur = centsToNumber(multiplyDivideMoneyToCents(supplierCostTry, 1, eurTryRate))
   const airportMeetCostEur = roundMoney(leg.airportMeetCostEur ?? 0)
   const airportMeetCostTry = centsToNumber(
-    multiplyDivideMoneyToCents(airportMeetCostEur, settings.eurTryRate, 1),
+    multiplyDivideMoneyToCents(airportMeetCostEur, eurTryRate, 1),
   )
 
   return {
@@ -585,8 +590,8 @@ function distributionTotalsForLegs(resolvedLegs, unresolvedLegs) {
   }
 }
 
-export function calculateProfitLossMetrics(bookings, period, today, settingsByMonth = {}) {
-  const realizedLegs = resolveRealizedLegs(bookings, today, settingsByMonth)
+export function calculateProfitLossMetrics(bookings, period, today, settingsByMonth = {}, ratesByDate = null) {
+  const realizedLegs = resolveRealizedLegs(bookings, today, settingsByMonth, ratesByDate)
   const resolvedLegs = realizedLegs.resolvedLegs.filter(leg => isInPeriod(leg.date, period))
   const unresolvedLegs = realizedLegs.unresolvedLegs.filter(leg => isInPeriod(leg.date, period))
 
@@ -679,8 +684,9 @@ export function calculateProfitDistribution(bookings, options = {}) {
     blockers.push(distributionBlocker('end-date-not-closed', null))
   }
 
+  const ratesByDate = options.ratesByDate ?? null
   const realized = todayDate
-    ? resolveRealizedLegs(Array.isArray(bookings) ? bookings : [], today, settingsByMonth)
+    ? resolveRealizedLegs(Array.isArray(bookings) ? bookings : [], today, settingsByMonth, ratesByDate)
     : { resolvedLegs: [], unresolvedLegs: [] }
   const allocations = distributionAllocations(bookings)
   const withinRange = leg => rangeIsValid && leg.date >= startDate && leg.date <= endDate

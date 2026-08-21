@@ -873,3 +873,55 @@ describe('buildProfitDistributionSnapshot', () => {
     expect(snapshot.operations_amount_eur).not.toBe(999)
   })
 })
+
+describe('ratesByDate override', () => {
+  test('uses per-date rate from ratesByDate instead of monthly setting', () => {
+    const settings = {
+      '2026-08': { km_cost_try: 15, eur_try_rate: 40, advertising_expense_try: 0 },
+    }
+    const ratesByDate = new Map([['2026-08-01', 35]])
+    const result = calculateProfitLossMetrics(
+      [baseBooking],
+      '2026-08',
+      '2026-08-07',
+      settings,
+      ratesByDate,
+    )
+    // income should use 35, not 40
+    expect(result.incomeTry).toBe(100 * 35)
+    expect(result.airportMeetCostTry).toBe(5 * 35)
+    // resolved leg should expose its eurTryRate
+    expect(result.resolvedLegs[0].eurTryRate).toBe(35)
+  })
+
+  test('falls back to monthly setting when date not in ratesByDate', () => {
+    const settings = {
+      '2026-08': { km_cost_try: 15, eur_try_rate: 40, advertising_expense_try: 0 },
+    }
+    const ratesByDate = new Map() // empty — plain JS, no TS generics in .js test file
+    const result = calculateProfitLossMetrics(
+      [baseBooking],
+      '2026-08',
+      '2026-08-07',
+      settings,
+      ratesByDate,
+    )
+    expect(result.incomeTry).toBe(100 * 40)
+    expect(result.resolvedLegs[0].eurTryRate).toBe(40)
+  })
+
+  test('omitting ratesByDate (default null) falls back to monthly setting', () => {
+    const settings = {
+      '2026-08': { km_cost_try: 15, eur_try_rate: 40, advertising_expense_try: 0 },
+    }
+    // ratesByDate not passed — tests default param behavior
+    const result = calculateProfitLossMetrics(
+      [baseBooking],
+      '2026-08',
+      '2026-08-07',
+      settings,
+    )
+    expect(result.incomeTry).toBe(100 * 40)
+    expect(result.resolvedLegs[0].eurTryRate).toBe(40)
+  })
+})
