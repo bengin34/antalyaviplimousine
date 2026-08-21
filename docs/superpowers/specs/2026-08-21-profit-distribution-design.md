@@ -15,7 +15,7 @@ Add a profit-sharing ledger to the existing admin Kâr/Zarar page for the two bu
 - Each distribution covers one contiguous, closed calendar interval. Its start is the configured opening date or the day after the previous distribution's end. The admin chooses the end date.
 - A distribution end date must be earlier than the current date in the Europe/Berlin business timezone. This prevents a later trip on the same day from being omitted after the day has already been closed.
 - A new distribution interval may not overlap or leave a gap after a prior interval.
-- A distribution can be confirmed only when cumulative net profit for its interval is greater than zero.
+- EUR is the gating currency because the partners distribute profit in EUR. A distribution can be confirmed only when cumulative net profit in EUR for its interval is greater than zero. TRY is a reference/accounting equivalent and may have a different sign when an interval spans months with different exchange rates; its sign does not independently allow or block distribution.
 - If the interval is at a loss or exactly zero, no distribution record is created. The same start date remains open and a later end date automatically carries that result forward.
 - Confirmed distributions are read-only in the first version. There is no edit, delete, reversal, or correction workflow.
 
@@ -70,8 +70,10 @@ The action is disabled when:
 - the end date is before the open-period start;
 - the end date is today or later;
 - either percentage is invalid or their total is not 100%;
-- net profit is zero or negative;
-- any required distance or cost input prevents the interval from having a complete expense calculation;
+- EUR net profit is zero or negative;
+- any own-vehicle transfer leg has neither a fixed route distance nor a positive manual distance;
+- any daily-chauffeur service day has `distance_km = null` (an explicitly saved zero remains valid);
+- any sold-transfer booking has a missing, non-numeric, or non-positive supplier cost;
 - the save is already in progress.
 
 The UI must explain the specific blocking reason rather than failing silently.
@@ -125,7 +127,7 @@ Extract shared leg resolution from `calculateProfitLossMetrics` so monthly repor
 4. prorates advertising by closed calendar days;
 5. returns the same income and expense buckets plus the exact resolved-leg snapshot;
 6. calculates partner shares from net EUR and net TRY independently using the chosen percentages;
-7. rounds persisted money values to two decimal places, assigning any one-cent EUR rounding remainder to the second partner so the two shares exactly equal the snapshotted net profit.
+7. rounds persisted EUR and TRY money values to two decimal places; in each currency it calculates the operations partner first and assigns that currency's rounding remainder to the vehicle-owner partner so the two shares exactly equal the corresponding snapshotted net profit.
 
 The existing monthly calculation keeps its current whole-month advertising behavior and output contract.
 
@@ -145,6 +147,8 @@ A singleton authenticated-admin table:
 
 The first version uses fixed UI labels `Operasyon ortağı` and `Araç sahibi`; editable partner profiles are out of scope.
 
+A database trigger rejects changes to `opening_date` after the first `profit_distributions` row exists. Before the first distribution, authenticated admins may correct it. Default percentage columns remain independently updateable for future use, although the first-version UI does not include a separate defaults editor.
+
 ### `profit_distributions`
 
 One row per confirmed distribution:
@@ -152,23 +156,23 @@ One row per confirmed distribution:
 - identity and audit fields: `id UUID`, `created_at`, `created_by UUID` when available from `auth.uid()`;
 - period fields: `period_start DATE`, `period_end DATE`;
 - applied shares: operations and vehicle-owner percentages;
-- partner results: both partners' EUR and TRY amounts;
-- financial snapshot: income EUR/TRY, vehicle cost TRY, supplier cost TRY, airport cost EUR/TRY, advertising cost EUR/TRY, total expense EUR/TRY, net profit EUR/TRY, realized leg count;
-- `calculation_snapshot JSONB` containing resolved leg identifiers and per-leg snapshot values plus monthly settings used by the calculation.
+- partner results: both partners' EUR and TRY amounts, stored as `NUMERIC(14,2)`;
+- financial snapshot: income EUR/TRY, vehicle cost TRY, supplier cost TRY, airport cost EUR/TRY, advertising cost EUR/TRY, total expense EUR/TRY, net profit EUR/TRY, and realized leg count; all money columns use `NUMERIC(14,2)`;
+- `calculation_snapshot JSONB` containing `schema_version: 1`, resolved leg identifiers and per-leg snapshot values, plus monthly settings used by the calculation.
 
 Database constraints enforce:
 
 - `period_end >= period_start`;
-- positive EUR and TRY net profit;
+- positive EUR net profit; TRY net profit is a reference value and is not sign-constrained;
 - percentages total exactly 100;
 - both partner shares total the corresponding net profit;
 - no overlapping date ranges.
 
-Authenticated admins may select and insert. Update and delete are not granted in the first version.
+Authenticated admins may select distribution rows. Direct insert, update, and delete are not granted; creation is available only through the atomic database function.
 
 ### Atomic creation
 
-An authenticated database function creates a distribution inside one transaction. It locks the singleton settings row and most recent distribution, verifies the expected next start date and absence of overlap, then inserts the supplied validated snapshot. The client must pass its expected start date; stale concurrent submissions fail cleanly and trigger a refresh.
+An authenticated `SECURITY DEFINER` database function creates a distribution inside one transaction. Execute permission is granted to `authenticated`, while direct table insertion remains revoked. The function sets a safe search path, locks the singleton settings row and most recent distribution, verifies the expected next start date, requires `period_end < (now() AT TIME ZONE 'Europe/Berlin')::date`, checks the share arithmetic and absence of overlap, then inserts the supplied validated snapshot. The client must pass its expected start date; stale concurrent submissions fail cleanly and trigger a refresh.
 
 The database function protects interval sequencing and double submission. The current application remains the source of the detailed calculation because route-distance resolution already lives in the tested JavaScript calculation module.
 
@@ -208,8 +212,10 @@ Automated tests must prove:
 - 50/50 is the default and custom valid ratios calculate correctly;
 - invalid ratios are blocked;
 - rounded partner amounts exactly reconcile to net EUR and TRY;
+- positive EUR is distributable even if the independently calculated TRY reference total is zero or negative;
 - confirmed history displays snapshot values even if source bookings/settings change in a test fixture;
 - duplicate/stale submissions return an error and insert only one record;
+- direct table inserts are denied and the opening date cannot change after the first distribution;
 - existing Kâr/Zarar tests continue to pass unchanged.
 
 Manual verification must cover initial setup, a positive preview, a blocked negative preview, confirmation, automatic next-period advancement, history expansion, mobile layout, and a refresh proving persisted data is stable.
@@ -222,4 +228,3 @@ Manual verification must cover initial setup, a positive preview, a blocked nega
 - custom partner names or more than two partners;
 - attachments, receipts, PDF exports, or accounting-system export;
 - changing the existing booking income/cost model.
-
