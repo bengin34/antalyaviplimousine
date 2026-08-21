@@ -909,4 +909,19 @@ describe('ratesByDate override', () => {
     expect(result.incomeTry).toBe(100 * 40)
     expect(result.resolvedLegs[0].eurTryRate).toBe(40)
   })
+
+  test('omitting ratesByDate (default null) falls back to monthly setting', () => {
+    const settings = {
+      '2026-08': { km_cost_try: 15, eur_try_rate: 40, advertising_expense_try: 0 },
+    }
+    // ratesByDate not passed — tests default param behavior
+    const result = calculateProfitLossMetrics(
+      [baseBooking],
+      '2026-08',
+      '2026-08-07',
+      settings,
+    )
+    expect(result.incomeTry).toBe(100 * 40)
+    expect(result.resolvedLegs[0].eurTryRate).toBe(40)
+  })
 })
