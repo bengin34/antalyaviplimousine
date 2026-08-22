@@ -100,7 +100,7 @@ const translations = {
     welcomeEyebrow: "Willkommen auf höchstem Niveau",
     welcomeTitle: "Stilvoll reisen.<br />Entspannt ankommen.",
     welcomeBody:
-      "Ab Ihrer Landung ist jedes Detail organisiert. Ihr Chauffeur wartet in der Ankunftshalle, kümmert sich um Ihr Gepäck und begleitet Sie zu Ihrem sorgfältig vorbereiteten Privatfahrzeug.",
+      "Nachdem Sie Ihr Gepäck abgeholt haben, gehen Sie bitte zum Meet & Greet Bereich J / 777. Unser Flughafen-Team findet Ihre Buchung, hilft bei Bedarf mit dem Gepäck und bringt Sie mit Ihrem Fahrer zusammen.",
     ourStandards: "Unsere Servicestandards",
     concierge: "Concierge-Service",
     guestsWelcomed: "Begrüßte Gäste",
@@ -147,7 +147,7 @@ const translations = {
       "Stets gepflegt, diskret und ausgewählt für Ortskenntnis und höchsten Servicestandard.",
     greetTitle: "Meet & Greet",
     greetBody:
-      "Ihr Chauffeur empfängt Sie mit Namensschild in der Ankunftshalle und hilft mit dem Gepäck.",
+      "Nachdem Sie Ihr Gepäck abgeholt haben, gehen Sie bitte zum Meet & Greet Bereich J / 777. Unser Flughafen-Team findet Ihre Buchung und bringt Sie mit Ihrem Fahrer zusammen.",
     supportTitle: "24/7 Concierge",
     supportBody:
       "Vor, während und nach Ihrer Reise ist immer ein persönlicher Ansprechpartner erreichbar.",

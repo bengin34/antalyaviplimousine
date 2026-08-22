@@ -203,6 +203,8 @@
   color: #fff;
 }
 .localized-route h1 { max-width: 900px; font-family: var(--serif); font-size: clamp(2.5rem, 6vw, 5.5rem); font-weight: 400; line-height: 1.03; }
+.hero-payment-trust { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px 18px; margin: 24px 0 0; padding: 0; list-style: none; color: rgba(255,255,255,.9); font-size: .9rem; }
+.hero-payment-trust li::before { content: "✓"; margin-right: 8px; color: var(--gold-light); }
 .localized-trust { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px 28px; max-width: 900px; margin: 34px 0 0; padding: 0; list-style: none; color: rgba(255,255,255,.86); }
 .localized-trust li::before, .localized-price-trust li::before { content: "✓"; margin-right: 9px; color: var(--gold-light); }
 .localized-campaign { display: inline-block; margin: 28px 0 0; padding: 10px 14px; border: 1px solid rgba(224,198,141,.45); color: var(--gold-light); font-size: 11px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; }
@@ -253,7 +255,7 @@
   .route-card-actions { align-items: flex-start; flex-direction: column; }
   .localized-grid { grid-template-columns: 1fr; gap: 36px; }
   .localized-route { padding-top: 120px; }
-  .localized-trust, .localized-hotels, .localized-hotels ul { grid-template-columns: 1fr; }
+  .hero-payment-trust, .localized-trust, .localized-hotels, .localized-hotels ul { grid-template-columns: 1fr; }
   .localized-hotels > div { justify-self: start; }
 }
 

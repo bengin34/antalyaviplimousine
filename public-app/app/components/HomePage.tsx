@@ -408,6 +408,7 @@ export function HomePage({ initialLanguage }: { initialLanguage: string }) {
                   {t("instantQuote", "Get instant quote")}
                 </a>
               </div>
+              {language === "de" && <ul className="hero-payment-trust reveal"><li>Keine Vorauszahlung erforderlich</li><li>Zahlung direkt beim Fahrer</li><li>Fester Gesamtpreis</li><li>Keine versteckten Gebühren</li></ul>}
             </div>
             <div className="hero-proof reveal">
               <div className="rating-lockup">

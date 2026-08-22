@@ -18,7 +18,7 @@ export function HotelPage({ hotel }: { hotel: Hotel }) {
       <section className="localized-route">
         <div className="eyebrow light"><span /><p>Antalya VIP Tourism</p></div>
         <h1>Flughafen Antalya → {hotel.name} Privattransfer</h1>
-        <p>Privater Festpreis-Transfer vom Flughafen Antalya direkt zum {hotel.name}. Ihr Fahrer empfängt Sie mit Namensschild und bringt Ihre Gruppe ohne Zwischenstopps zum Hotel.</p>
+        <p>Privater Festpreis-Transfer vom Flughafen Antalya direkt zum {hotel.name}. Nachdem Sie Ihr Gepäck abgeholt haben, gehen Sie bitte zum Meet & Greet Bereich J / 777. Unser Flughafen-Team findet Ihre Buchung und bringt Sie mit Ihrem Fahrer zusammen; anschließend fährt Ihre Gruppe ohne Zwischenstopps zum Hotel.</p>
         <a className="button button-gold" href={bookingHref}>Jetzt Transfer buchen</a>
         <ul className="localized-trust"><li>Bis zu 7 Personen</li><li>Keine Vorauszahlung erforderlich</li><li>Zahlung direkt beim Fahrer</li><li>Kostenloser Kindersitz auf Anfrage</li></ul>
         <div className="localized-stats"><div><strong>{route.durationLabel}</strong><span>Geschätzte Fahrzeit</span></div><div><strong>{route.distance}</strong><span>Entfernung</span></div><div><strong>€{route.prices.vito}</strong><span>Preis ab</span></div></div>
