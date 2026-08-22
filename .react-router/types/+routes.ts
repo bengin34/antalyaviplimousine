@@ -17,6 +17,9 @@ type Pages = {
   "/de": {
     params: {};
   };
+  "/fr": {
+    params: {};
+  };
   "/tr": {
     params: {};
   };
@@ -36,6 +39,9 @@ type Pages = {
     params: {};
   };
   "/de/health": {
+    params: {};
+  };
+  "/fr/health": {
     params: {};
   };
   "/tr/health": {
@@ -65,6 +71,11 @@ type Pages = {
     params: {
       "language": string;
       "slug": string;
+    };
+  };
+  "/de/hotels/:hotelSlug": {
+    params: {
+      "hotelSlug": string;
     };
   };
   "/impressum.html": {
@@ -114,7 +125,7 @@ type Pages = {
 type RouteFiles = {
   "root.tsx": {
     id: "root";
-    page: "/" | "/de" | "/tr" | "/ru" | "/cs" | "/uk" | "/ur" | "/health" | "/de/health" | "/tr/health" | "/ru/health" | "/cs/health" | "/uk/health" | "/ur/health" | "/clinic" | "/transfers/:slug" | "/:language/transfers/:slug" | "/impressum.html" | "/privacy" | "/de/datenschutz" | "/de/impressum" | "/tr/gizlilik" | "/tr/kunye" | "/ru/privacy" | "/ru/impressum" | "/cs/privacy" | "/cs/impressum" | "/uk/privacy" | "/uk/impressum" | "/ur/privacy" | "/ur/impressum";
+    page: "/" | "/de" | "/fr" | "/tr" | "/ru" | "/cs" | "/uk" | "/ur" | "/health" | "/de/health" | "/fr/health" | "/tr/health" | "/ru/health" | "/cs/health" | "/uk/health" | "/ur/health" | "/clinic" | "/transfers/:slug" | "/:language/transfers/:slug" | "/de/hotels/:hotelSlug" | "/impressum.html" | "/privacy" | "/de/datenschutz" | "/de/impressum" | "/tr/gizlilik" | "/tr/kunye" | "/ru/privacy" | "/ru/impressum" | "/cs/privacy" | "/cs/impressum" | "/uk/privacy" | "/uk/impressum" | "/ur/privacy" | "/ur/impressum";
   };
   "./routes/home.tsx": {
     id: "home-en";
@@ -122,6 +133,9 @@ type RouteFiles = {
   } | {
     id: "home-de";
     page: "/de";
+  } | {
+    id: "home-fr";
+    page: "/fr";
   } | {
     id: "home-tr";
     page: "/tr";
@@ -144,6 +158,9 @@ type RouteFiles = {
   } | {
     id: "health-de";
     page: "/de/health";
+  } | {
+    id: "health-fr";
+    page: "/fr/health";
   } | {
     id: "health-tr";
     page: "/tr/health";
@@ -170,6 +187,10 @@ type RouteFiles = {
   } | {
     id: "transfer-localized";
     page: "/:language/transfers/:slug";
+  };
+  "./routes/hotel.tsx": {
+    id: "hotel-de";
+    page: "/de/hotels/:hotelSlug";
   };
   "./routes/legal.tsx": {
     id: "legal-imprint-en";
@@ -220,6 +241,7 @@ type RouteModules = {
   "root": typeof import("./public-app/app/root.tsx");
   "home-en": typeof import("./public-app/app/./routes/home.tsx");
   "home-de": typeof import("./public-app/app/./routes/home.tsx");
+  "home-fr": typeof import("./public-app/app/./routes/home.tsx");
   "home-tr": typeof import("./public-app/app/./routes/home.tsx");
   "home-ru": typeof import("./public-app/app/./routes/home.tsx");
   "home-cs": typeof import("./public-app/app/./routes/home.tsx");
@@ -227,6 +249,7 @@ type RouteModules = {
   "home-ur": typeof import("./public-app/app/./routes/home.tsx");
   "health-en": typeof import("./public-app/app/./routes/health.tsx");
   "health-de": typeof import("./public-app/app/./routes/health.tsx");
+  "health-fr": typeof import("./public-app/app/./routes/health.tsx");
   "health-tr": typeof import("./public-app/app/./routes/health.tsx");
   "health-ru": typeof import("./public-app/app/./routes/health.tsx");
   "health-cs": typeof import("./public-app/app/./routes/health.tsx");
@@ -235,6 +258,7 @@ type RouteModules = {
   "clinic-tr": typeof import("./public-app/app/./routes/clinic.tsx");
   "transfer-en": typeof import("./public-app/app/./routes/transfer.tsx");
   "transfer-localized": typeof import("./public-app/app/./routes/transfer.tsx");
+  "hotel-de": typeof import("./public-app/app/./routes/hotel.tsx");
   "legal-imprint-en": typeof import("./public-app/app/./routes/legal.tsx");
   "legal-privacy-en": typeof import("./public-app/app/./routes/legal.tsx");
   "legal-privacy-de": typeof import("./public-app/app/./routes/legal.tsx");

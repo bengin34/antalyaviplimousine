@@ -3,6 +3,7 @@ import { index, route, type RouteConfig } from "@react-router/dev/routes";
 export default [
   index("./routes/home.tsx", { id: "home-en" }),
   route("de", "./routes/home.tsx", { id: "home-de" }),
+  route("fr", "./routes/home.tsx", { id: "home-fr" }),
   route("tr", "./routes/home.tsx", { id: "home-tr" }),
   route("ru", "./routes/home.tsx", { id: "home-ru" }),
   route("cs", "./routes/home.tsx", { id: "home-cs" }),
@@ -10,6 +11,7 @@ export default [
   route("ur", "./routes/home.tsx", { id: "home-ur" }),
   route("health", "./routes/health.tsx", { id: "health-en" }),
   route("de/health", "./routes/health.tsx", { id: "health-de" }),
+  route("fr/health", "./routes/health.tsx", { id: "health-fr" }),
   route("tr/health", "./routes/health.tsx", { id: "health-tr" }),
   route("ru/health", "./routes/health.tsx", { id: "health-ru" }),
   route("cs/health", "./routes/health.tsx", { id: "health-cs" }),

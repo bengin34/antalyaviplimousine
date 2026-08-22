@@ -329,6 +329,14 @@ Deno.serve(async (req) => {
       status: requiresManualPricing ? 'pending' : 'confirmed',
       payment_method: paymentMethod,
       language: String(payload.language || 'en'),
+      utm_source: payload.utm_source ? String(payload.utm_source).slice(0, 100) : null,
+      utm_medium: payload.utm_medium ? String(payload.utm_medium).slice(0, 100) : null,
+      utm_campaign: payload.utm_campaign ? String(payload.utm_campaign).slice(0, 200) : null,
+      utm_term: payload.utm_term ? String(payload.utm_term).slice(0, 200) : null,
+      utm_content: payload.utm_content ? String(payload.utm_content).slice(0, 200) : null,
+      gclid: payload.gclid ? String(payload.gclid).slice(0, 200) : null,
+      landing_page: payload.landing_page ? String(payload.landing_page).slice(0, 500) : null,
+      referrer: payload.referrer ? String(payload.referrer).slice(0, 500) : null,
     }
 
     const { data: booking, error: insertError } = await supabase

@@ -25,6 +25,12 @@ type Matches = [{
   id: "root";
   module: typeof import("../../root.js");
 }, {
+  id: "home-fr";
+  module: typeof import("../home.js");
+}] | [{
+  id: "root";
+  module: typeof import("../../root.js");
+}, {
   id: "home-tr";
   module: typeof import("../home.js");
 }] | [{

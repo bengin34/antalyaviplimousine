@@ -1993,7 +1993,7 @@ const translations = {
       "Toujours soignés, discrets et sélectionnés pour leur connaissance locale et leurs standards de service irréprochables.",
     greetTitle: "Accueil Meet & Greet",
     greetBody:
-      "Votre chauffeur vous accueille dans le hall des arrivées avec une pancarte à votre nom et vous aide avec vos bagages.",
+      "Après avoir récupéré vos bagages, rendez-vous dans la zone Meet & Greet J / 777. Notre équipe à l'aéroport identifiera votre réservation et vous mettra en contact avec votre chauffeur.",
     supportTitle: "Conciergerie 24/7",
     supportBody:
       "Avant, pendant et après votre voyage, une personne est toujours disponible par téléphone ou WhatsApp.",
@@ -4359,6 +4359,12 @@ destinationSelect.addEventListener("change", () => {
 vehicleSelect.addEventListener("change", () => {
   updateGuestCapacity();
   if (destinationSelect.value) updateInlinePrice(destinationSelect.value);
+  if (vehicleSelect.value) {
+    gtag?.("event", "vehicle_selected", {
+      vehicle: vehicleSelect.value,
+      route: destinationSelect.value || null,
+    });
+  }
 });
 
 guestsSelect.addEventListener("change", updateGuestCapacity);
@@ -4435,6 +4441,17 @@ const isValidHotelName = (value) => {
   const letterCount = normalized.match(/\p{L}/gu)?.length || 0;
   return normalized.length >= 2 && normalized.length <= 120 && letterCount >= 2;
 };
+
+let _bookingStartedFired = false;
+const _fireBookingStarted = () => {
+  if (_bookingStartedFired) return;
+  _bookingStartedFired = true;
+  gtag?.("event", "booking_started", {
+    route: destinationSelect.value || null,
+    language: document.documentElement.lang || "en",
+  });
+};
+nameInput?.addEventListener("focus", _fireBookingStarted, { once: true });
 
 phoneInput.addEventListener("input", () => {
   const sanitized = phoneInput.value
@@ -4803,6 +4820,7 @@ quoteForm.addEventListener("submit", async (event) => {
       vehicle_type: currentQuoteData.vehicle === "sprinter" ? "vclass" : "vito",
       payment_method: "cash",
       language: document.documentElement.lang || "en",
+      ..._utmParams,
     });
 
     document.querySelector("#confirmed-ref").textContent = booking.booking_ref;
@@ -5093,6 +5111,7 @@ document.querySelectorAll(".language-button").forEach((button) => {
       return;
     }
 
+    gtag?.("event", "language_selected", { language });
     applyLanguage(language);
     closeLangDropdown();
     if (mobileMenu.classList.contains("open")) closeMenu();
@@ -5168,10 +5187,35 @@ try {
 }
 applyLanguage(savedLanguage);
 
+const _utmParams = (() => {
+  try {
+    const sp = new URLSearchParams(window.location.search);
+    const stored = JSON.parse(sessionStorage.getItem("avl-attribution") || "{}");
+    const fresh = {
+      utm_source: sp.get("utm_source"),
+      utm_medium: sp.get("utm_medium"),
+      utm_campaign: sp.get("utm_campaign"),
+      utm_term: sp.get("utm_term"),
+      utm_content: sp.get("utm_content"),
+      gclid: sp.get("gclid"),
+    };
+    const merged = {};
+    for (const k of Object.keys(fresh)) merged[k] = fresh[k] || stored[k] || null;
+    merged.landing_page = stored.landing_page || window.location.pathname;
+    merged.referrer = stored.referrer || (document.referrer || null);
+    sessionStorage.setItem("avl-attribution", JSON.stringify(merged));
+    return merged;
+  } catch {
+    return {};
+  }
+})();
+
 gtag?.("event", "landing_view", {
   language: savedLanguage,
   page: window.location.pathname,
   source: document.referrer ? "referral" : "direct",
+  utm_source: _utmParams.utm_source,
+  utm_campaign: _utmParams.utm_campaign,
 });
 
 document.querySelectorAll("a[href*='wa.me']").forEach((link) => {
@@ -5184,6 +5228,14 @@ document.querySelectorAll("a[href*='wa.me']").forEach((link) => {
     },
     { once: false },
   );
+});
+
+document.querySelectorAll("a[href^='tel:']").forEach((link) => {
+  link.addEventListener("click", () => {
+    gtag?.("event", "phone_clicked", {
+      source: link.closest("[id]")?.id || "unknown",
+    });
+  });
 });
 
 // Handle the verified iyzico callback return.
