@@ -128,8 +128,8 @@ function PaymentInfo({ card }: { card: TimelineCard }) {
   return <div className="card-info-item full payment-info payment-info-collect"><span className="card-info-label">Gidiş ücreti</span><div className="card-info-value"><strong>€{fmtPrice(half)}</strong><small>{paymentMethod}</small></div></div>
 }
 
-function BookingCard({ card, now, isPast, navigate, confirmPast, confirming, confirmFailed }: {
-  card: TimelineCard; now: Date; isPast: boolean; navigate: Navigate
+function BookingCard({ card, now, isPast, isCancelled, navigate, confirmPast, confirming, confirmFailed }: {
+  card: TimelineCard; now: Date; isPast: boolean; isCancelled: boolean; navigate: Navigate
   confirmPast: (ref: string) => Promise<void>; confirming: string | null; confirmFailed: string | null
 }) {
   const isDailyChauffeur = card.trip_type === 'daily_chauffeur'
@@ -148,6 +148,7 @@ function BookingCard({ card, now, isPast, navigate, confirmPast, confirming, con
     const params = new URLSearchParams()
     if (card._isReturn) params.set('leg', 'return')
     if (isPast) params.set('from', 'past')
+    else if (isCancelled) params.set('from', 'cancelled')
     const query = params.toString()
     navigate(`#detail/${encodeURIComponent(card.booking_ref)}${query ? `?${query}` : ''}`)
   }
@@ -219,10 +220,11 @@ function cacheToday(bookings: Booking[], today: string, futureReservationCount: 
   } catch { /* storage is optional */ }
 }
 
-export default function TimelinePage({ selectedTab, navigate, initialDate }: { selectedTab: 'future' | 'past'; navigate: Navigate; initialDate?: string | null }) {
+export default function TimelinePage({ selectedTab, navigate, initialDate }: { selectedTab: 'future' | 'past' | 'cancelled'; navigate: Navigate; initialDate?: string | null }) {
   const today = useMemo(todayISO, [])
   const tomorrow = useMemo(() => offsetISO(1), [])
   const isPast = selectedTab === 'past'
+  const isCancelled = selectedTab === 'cancelled'
   const [bookings, setBookings] = useState<Booking[] | null>(null)
   const [search, setSearch] = useState('')
   const [now, setNow] = useState(new Date())
@@ -243,7 +245,7 @@ export default function TimelinePage({ selectedTab, navigate, initialDate }: { s
   const scrolledToInitial = useRef(false)
 
   const showCache = useCallback(() => {
-    if (isPast) return false
+    if (isPast || isCancelled) return false
     const cached = readCache(today)
     if (!cached) return false
     bookingsRef.current = cached.bookings
@@ -263,8 +265,12 @@ export default function TimelinePage({ selectedTab, navigate, initialDate }: { s
       return
     }
     refreshingRef.current = true; setRefreshing(true); setSyncStatus('Yenileniyor…')
-    let query = supabase.from('bookings').select('*, booking_notes(id, note, created_at), chauffeur_hire_days(*)').in('status', ['pending', 'paid', 'confirmed', 'in_transit', 'completed'])
-    query = isPast ? query.lte('pickup_date', today) : query.or(`pickup_date.gte.${today},return_date.gte.${today},service_end_date.gte.${today}`)
+    let query = supabase.from('bookings').select('*, booking_notes(id, note, created_at), chauffeur_hire_days(*)')
+    if (isCancelled) query = query.eq('status', 'cancelled')
+    else {
+      query = query.in('status', ['pending', 'paid', 'confirmed', 'in_transit', 'completed'])
+      query = isPast ? query.lte('pickup_date', today) : query.or(`pickup_date.gte.${today},return_date.gte.${today},service_end_date.gte.${today}`)
+    }
     const { data, error } = await query.order('pickup_date').order('pickup_time', { nullsFirst: false })
     refreshingRef.current = false
     if (!mounted.current) return
@@ -275,11 +281,11 @@ export default function TimelinePage({ selectedTab, navigate, initialDate }: { s
       return
     }
     const rows = (data ?? []) as Booking[]
-    const nextFutureCount = isPast ? null : countFutureReservations(rows)
+    const nextFutureCount = isPast || isCancelled ? null : countFutureReservations(rows)
     bookingsRef.current = rows
     setBookings(rows); setCachedOnly(false); setFutureCount(nextFutureCount); setSyncStatus(`Son güncelleme: ${fmtSyncTime()}`); setOfflineMessage('')
-    if (!isPast && nextFutureCount !== null) cacheToday(rows, today, nextFutureCount)
-  }, [isPast, showCache, today])
+    if (!isPast && !isCancelled && nextFutureCount !== null) cacheToday(rows, today, nextFutureCount)
+  }, [isCancelled, isPast, showCache, today])
 
   useEffect(() => {
     mounted.current = true
@@ -327,21 +333,22 @@ export default function TimelinePage({ selectedTab, navigate, initialDate }: { s
     if (!bookings) return []
     const source = bookings.filter(booking => matchesBookingQuery(booking, search))
     return expandRoundTrips(source, selectedTab).filter(card => {
+      if (isCancelled) return true
       if (cachedOnly) return card._displayDate === today
       return isPast ? isCardPast(card, today) : !isCardPast(card, today)
     })
-  }, [bookings, cachedOnly, isPast, search, selectedTab, today])
+  }, [bookings, cachedOnly, isCancelled, isPast, search, selectedTab, today])
 
   const allFutureCards = useMemo(() => bookings ? expandRoundTrips(bookings, selectedTab).filter(card => !isCardPast(card, today)) : [], [bookings, selectedTab, today])
   const groups = useMemo(() => {
-    const map = isPast ? new Map<string, TimelineCard[]>() : new Map<string, TimelineCard[]>([['Bugün', []], ['Yarın', []]])
+    const map = (isPast || isCancelled) ? new Map<string, TimelineCard[]>() : new Map<string, TimelineCard[]>([['Bugün', []], ['Yarın', []]])
     for (const card of visibleCards) {
-      const key = !isPast && card._displayDate === today ? 'Bugün' : !isPast && card._displayDate === tomorrow ? 'Yarın' : card._displayDate
+      const key = !isPast && !isCancelled && card._displayDate === today ? 'Bugün' : !isPast && !isCancelled && card._displayDate === tomorrow ? 'Yarın' : card._displayDate
       if (!map.has(key)) map.set(key, [])
       map.get(key)!.push(card)
     }
     return map
-  }, [isPast, today, tomorrow, visibleCards])
+  }, [isCancelled, isPast, today, tomorrow, visibleCards])
   const hasBookings = [...groups.values()].some(group => group.length)
   const calendarCounts = allCalendarCounts
 
@@ -366,7 +373,7 @@ export default function TimelinePage({ selectedTab, navigate, initialDate }: { s
   return <>
     <Topbar navigate={navigate} showAdmin />
     <AdminTabs active={selectedTab} navigate={navigate} />
-    {!isPast && <div className="stats">
+    {!isPast && !isCancelled && <div className="stats">
       <div className="stat stat-bugün"><div className="stat-number">{bookings ? allFutureCards.filter(card => card._displayDate === today && OPERATIONAL_STATUSES.includes(card.status)).length : '…'}</div><div className="stat-label">Bugün</div></div>
       <div className="stat stat-yarın"><div className="stat-number">{bookings ? allFutureCards.filter(card => card._displayDate === tomorrow && OPERATIONAL_STATUSES.includes(card.status)).length : '…'}</div><div className="stat-label">Yarın</div></div>
       <div className="stat stat-gelecek-rez"><div className="stat-number">{futureCount ?? '…'}</div><div className="stat-label">Gelecek Rez.</div></div>
@@ -376,17 +383,17 @@ export default function TimelinePage({ selectedTab, navigate, initialDate }: { s
     {offlineMessage && <div className="offline-banner">{offlineMessage}</div>}
     <div className="scroll-area timeline-scroll-area">
       <div className={`timeline-layout${bookings ? '' : ' is-loading'}`}>
-        {bookings && <aside className="timeline-calendar-rail"><MonthCalendar month={calendarMonth} today={today} counts={calendarCounts} selectedDate={selectedCalendarDate} onMonthChange={month => { setCalendarMonth(month); setSelectedCalendarDate(null) }} onSelectDate={selectCalendarDate} /></aside>}
+        {bookings && !isCancelled && <aside className="timeline-calendar-rail"><MonthCalendar month={calendarMonth} today={today} counts={calendarCounts} selectedDate={selectedCalendarDate} onMonthChange={month => { setCalendarMonth(month); setSelectedCalendarDate(null) }} onSelectDate={selectCalendarDate} /></aside>}
         <div className="timeline-groups">
-          {!bookings ? <div className="empty"><div>Yükleniyor…</div></div> : !hasBookings ? <div className="empty"><div className="empty-icon">📅</div><div>{search.trim() ? `"${search.trim()}" için sonuç bulunamadı` : cachedOnly ? 'Önbellekte bugünkü transfer yok' : isPast ? 'Geçmiş transfer yok' : 'Gelecek transfer yok'}</div></div> :
+          {!bookings ? <div className="empty"><div>Yükleniyor…</div></div> : !hasBookings ? <div className="empty"><div className="empty-icon">📅</div><div>{search.trim() ? `"${search.trim()}" için sonuç bulunamadı` : cachedOnly ? 'Önbellekte bugünkü transfer yok' : isCancelled ? 'İptal edilen transfer yok' : isPast ? 'Geçmiş transfer yok' : 'Gelecek transfer yok'}</div></div> :
             [...groups.entries()].map(([key, group]) => {
               if (!group.length) return null
               const label = key === 'Bugün' ? `Bugün · ${turkishDayLabel(today)}` : key === 'Yarın' ? `Yarın · ${turkishDayLabel(tomorrow)}` : turkishDayLabel(key)
               const groupDate = key === 'Bugün' ? today : key === 'Yarın' ? tomorrow : key
-              const collapseCompleted = !isPast && (key === 'Bugün' || key === today)
+              const collapseCompleted = !isPast && !isCancelled && (key === 'Bugün' || key === today)
               const completed = collapseCompleted ? group.filter(card => card.status === 'completed') : []
               const active = collapseCompleted ? group.filter(card => card.status !== 'completed') : group
-              const renderCard = (card: TimelineCard) => <BookingCard key={`${card.booking_ref}-${card._isReturn ? 'return' : 'outbound'}`} card={card} now={now} isPast={isPast} navigate={navigate} confirmPast={confirmPast} confirming={confirming} confirmFailed={confirmFailed} />
+              const renderCard = (card: TimelineCard) => <BookingCard key={`${card.booking_ref}-${card._isReturn ? 'return' : 'outbound'}`} card={card} now={now} isPast={isPast} isCancelled={isCancelled} navigate={navigate} confirmPast={confirmPast} confirming={confirming} confirmFailed={confirmFailed} />
               return <details className="day-group" id={`timeline-day-${groupDate}`} key={key} open={!collapsedDays.has(groupDate)} onToggle={event => {
                 const isOpen = event.currentTarget.open
                 setCollapsedDays(previous => {

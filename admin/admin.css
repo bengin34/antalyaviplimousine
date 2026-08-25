@@ -87,7 +87,7 @@ body {
   padding: 10px 12px 8px;
   background: rgba(17, 23, 34, 0.72);
 }
-.timeline-tabs-with-budget { grid-template-columns: repeat(4, 1fr); }
+.timeline-tabs-with-budget { grid-template-columns: repeat(5, 1fr); }
 .timeline-tab {
   min-height: 44px;
   border: 1px solid transparent;
@@ -1173,6 +1173,12 @@ body {
   max-width: 100%;
 }
 .input:focus { outline: none; border-color: var(--blue); }
+.phone-input.PhoneInput { display: flex; align-items: center; gap: 8px; }
+.phone-input.PhoneInput:focus-within { border-color: var(--blue); }
+.phone-input .PhoneInputInput { flex: 1; min-width: 0; border: 0; outline: 0; background: transparent; color: var(--text); font-size: 15px; padding: 0; }
+.phone-input .PhoneInputCountry { flex: 0 0 auto; }
+.phone-input .PhoneInputCountrySelect { cursor: pointer; }
+.phone-input .PhoneInputCountrySelectArrow { opacity: .55; }
 /* iOS gives date/time inputs an intrinsic width and centres their value, which
    overflows narrow two-column rows. Let the value shrink and align left so the
    fields respect their container (paired with min-width:0 above and on the

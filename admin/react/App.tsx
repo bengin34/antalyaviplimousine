@@ -64,7 +64,7 @@ export default function App() {
       key={hash}
       bookingRef={decodeURIComponent(encodedRef)}
       isReturn={params.get('leg') === 'return'}
-      sourceTab={params.get('from') === 'profit-loss' ? 'profit-loss' : params.get('from') === 'past' ? 'past' : 'future'}
+      sourceTab={params.get('from') === 'profit-loss' ? 'profit-loss' : params.get('from') === 'past' ? 'past' : params.get('from') === 'cancelled' ? 'cancelled' : 'future'}
       profitPeriod={params.get('profitPeriod')}
       navigate={navigate}
     />
@@ -72,7 +72,8 @@ export default function App() {
 
   const timelineQuery = hash.startsWith('#timeline?') ? hash.slice('#timeline?'.length) : ''
   const timelineParams = new URLSearchParams(timelineQuery)
-  const selectedTab = timelineParams.get('tab') === 'past' ? 'past' : 'future'
+  const timelineTabParam = timelineParams.get('tab')
+  const selectedTab = timelineTabParam === 'past' ? 'past' : timelineTabParam === 'cancelled' ? 'cancelled' : 'future'
   const initialDate = timelineParams.get('date') || null
   return <TimelinePage key={selectedTab} selectedTab={selectedTab} navigate={navigate} initialDate={initialDate} />
 }

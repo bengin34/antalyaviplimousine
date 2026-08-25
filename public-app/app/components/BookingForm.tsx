@@ -1,8 +1,10 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useEffect, useMemo, useState } from "react";
-import { useForm, type FieldError } from "react-hook-form";
+import { Controller, useForm, type FieldError } from "react-hook-form";
+import PhoneInput, { type Country } from "react-phone-number-input";
+import "react-phone-number-input/style.css";
 import { publicRouteSlugs, routeCatalog } from "../../../src/routes.js";
-import { useLanguage } from "../i18n";
+import { useLanguage, type LanguageCode } from "../i18n";
 import { Icon } from "./Icon";
 import {
   buildPublicBookingPayload,
@@ -26,6 +28,11 @@ function FieldErrorMessage({ error }: { error?: FieldError }) {
   return error ? <span className="field-error-message" role="alert">{error.message}</span> : null;
 }
 
+const DEFAULT_PHONE_COUNTRY: Partial<Record<LanguageCode, Country>> = {
+  en: "GB", de: "DE", tr: "TR", ru: "RU", cs: "CZ", ar: "SA", pl: "PL",
+  nl: "NL", uk: "UA", ur: "PK", fr: "FR", sv: "SE", ja: "JP", ko: "KR",
+};
+
 function whatsappConfirmation(values: PublicBookingValues, bookingRef: string, price: number) {
   const isDailyChauffeur = values.tripType === "daily_chauffeur";
   const routeName = routeCatalog[values.destination as keyof typeof routeCatalog]?.names.en ?? values.destination;
@@ -43,6 +50,12 @@ function whatsappConfirmation(values: PublicBookingValues, bookingRef: string, p
   ];
   if (!isDailyChauffeur) lines.splice(7, 0, `🏁 Dropoff: ${values.destination === "private_address" ? values.dropoffAddress : routeName}`);
   if (values.hotelName) lines.push(`🏨 Hotel: ${values.hotelName}`);
+  const childSeatCount = Number(values.childSeats) || 0;
+  if (childSeatCount > 0) {
+    const ages = (values.childAges || []).slice(0, childSeatCount).map(age => Number(age));
+    const agesText = ages.length ? ` (${ages.map((age, i) => `Child ${i + 1}: ${age === 0 ? "under 1" : `${age} yr`}`).join(", ")})` : "";
+    lines.push(`👶 Child seats: ${childSeatCount}${agesText}`);
+  }
   if (values.flightNumber) lines.push(`✈️ Flight: ${values.flightNumber}`);
   if (values.arrivalTime) lines.push(`🕐 Arrival: ${values.arrivalTime}`);
   if (values.tripType === "round_trip") {
@@ -86,6 +99,7 @@ export function BookingForm({
     reset,
     setError,
     trigger,
+    control,
     formState: { errors },
   } = useForm<PublicBookingValues>({
     resolver: zodResolver(schema),
@@ -514,7 +528,7 @@ export function BookingForm({
             <>
               <div className="booking-row booking-row-personal">
                 <label className={fieldClass(errors.customerName)}><span>{t("fullName", "Full name")}</span><div className="field-control"><input id="customer-name" autoComplete="name" maxLength={80} placeholder="John Smith" {...register("customerName")} /></div><FieldErrorMessage error={errors.customerName} /></label>
-                <label className={fieldClass(errors.customerPhone)}><span>{t("phoneLabel", "Phone / WhatsApp")}</span><div className="field-control"><input id="customer-phone" type="tel" autoComplete="tel" maxLength={25} placeholder="+44 7400 123456" {...register("customerPhone")} /></div><FieldErrorMessage error={errors.customerPhone} /></label>
+                <label className={fieldClass(errors.customerPhone)}><span>{t("phoneLabel", "Phone / WhatsApp")}</span><div className="field-control phone-field-control"><Controller control={control} name="customerPhone" render={({ field }) => <PhoneInput id="customer-phone" international defaultCountry={DEFAULT_PHONE_COUNTRY[language as LanguageCode] ?? "TR"} autoComplete="tel" placeholder="+44 7400 123456" value={field.value || undefined} onChange={value => field.onChange(value ?? "")} onBlur={field.onBlur} />} /></div><FieldErrorMessage error={errors.customerPhone} /></label>
                 <label className={fieldClass(errors.customerEmail)}><span>{t("emailLabel", "Email")}</span><div className="field-control"><input id="customer-email" type="email" autoComplete="email" maxLength={120} placeholder="john@example.com" {...register("customerEmail")} /></div><FieldErrorMessage error={errors.customerEmail} /></label>
               </div>
 
