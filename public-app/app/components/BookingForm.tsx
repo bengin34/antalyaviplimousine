@@ -43,6 +43,12 @@ function whatsappConfirmation(values: PublicBookingValues, bookingRef: string, p
   ];
   if (!isDailyChauffeur) lines.splice(7, 0, `🏁 Dropoff: ${values.destination === "private_address" ? values.dropoffAddress : routeName}`);
   if (values.hotelName) lines.push(`🏨 Hotel: ${values.hotelName}`);
+  const childSeatCount = Number(values.childSeats) || 0;
+  if (childSeatCount > 0) {
+    const ages = (values.childAges || []).slice(0, childSeatCount).map(age => Number(age));
+    const agesText = ages.length ? ` (${ages.map((age, i) => `Child ${i + 1}: ${age === 0 ? "under 1" : `${age} yr`}`).join(", ")})` : "";
+    lines.push(`👶 Child seats: ${childSeatCount}${agesText}`);
+  }
   if (values.flightNumber) lines.push(`✈️ Flight: ${values.flightNumber}`);
   if (values.arrivalTime) lines.push(`🕐 Arrival: ${values.arrivalTime}`);
   if (values.tripType === "round_trip") {
