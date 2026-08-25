@@ -87,7 +87,7 @@ body {
   padding: 10px 12px 8px;
   background: rgba(17, 23, 34, 0.72);
 }
-.timeline-tabs-with-budget { grid-template-columns: repeat(4, 1fr); }
+.timeline-tabs-with-budget { grid-template-columns: repeat(5, 1fr); }
 .timeline-tab {
   min-height: 44px;
   border: 1px solid transparent;
