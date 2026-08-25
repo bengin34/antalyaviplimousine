@@ -83,6 +83,29 @@ export function isFutureIstanbulLeg(date, time, now = new Date()) {
   return normalizedTime > currentTime
 }
 
+// Calling codes mapped to a language WhatsApp templates are translated into
+// (see admin/whatsapp-templates.js). Sorted longest-prefix-first so e.g. '971'
+// (UAE) is matched before a shorter unrelated prefix would be.
+const LANGUAGE_BY_CALLING_CODE = [
+  ['966', 'ar'], ['971', 'ar'], ['974', 'ar'], ['973', 'ar'], ['968', 'ar'],
+  ['965', 'ar'], ['962', 'ar'], ['961', 'ar'], ['963', 'ar'], ['964', 'ar'],
+  ['970', 'ar'], ['212', 'ar'], ['216', 'ar'], ['213', 'ar'], ['218', 'ar'],
+  ['249', 'ar'], ['380', 'ru'], ['375', 'ru'], ['90', 'tr'], ['49', 'de'],
+  ['43', 'de'], ['41', 'de'], ['33', 'fr'], ['32', 'fr'], ['20', 'ar'],
+  ['7', 'ru'],
+].sort((a, b) => b[0].length - a[0].length)
+
+export function languageFromPhone(phone) {
+  let digits = String(phone ?? '').replace(/\D/g, '')
+  if (!digits) return 'en'
+  if (digits.startsWith('00')) digits = digits.slice(2)
+  if (digits.startsWith('0')) return 'tr'
+  if (/^5\d{9}$/.test(digits)) return 'tr'
+
+  const match = LANGUAGE_BY_CALLING_CODE.find(([code]) => digits.startsWith(code))
+  return match ? match[1] : 'en'
+}
+
 export function whatsappURL(phone, text) {
   let digits = String(phone ?? '').replace(/\D/g, '')
   if (digits.startsWith('00')) digits = digits.slice(2)

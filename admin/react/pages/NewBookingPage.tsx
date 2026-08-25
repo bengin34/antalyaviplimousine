@@ -4,6 +4,7 @@ import { Topbar } from '../components/AdminChrome'
 import { todayISO } from '../lib/format'
 import { consumeBookingPrefill } from '../lib/prefill'
 import { supabase } from '../lib/supabase'
+import { languageFromPhone } from '../../turkish-formatters.js'
 import type { Navigate } from '../types'
 
 export const LOCATION_OPTIONS = [
@@ -163,7 +164,7 @@ export default function NewBookingPage({ navigate }: { navigate: Navigate }) {
     setSaving(true); setError('')
     const manualReturnOf = prefill?.isManualReturn ? prefill.sourceRef ?? null : null
     const { data, error: insertError } = await supabase.from('bookings')
-      .insert([{ ...result.payload, booking_ref: generateBookingRef(), language: 'tr', manual_return_of_ref: manualReturnOf }])
+      .insert([{ ...result.payload, booking_ref: generateBookingRef(), language: languageFromPhone(result.payload.customer_phone), manual_return_of_ref: manualReturnOf }])
       .select('booking_ref').single()
     setSaving(false)
     if (insertError) return setError('Kayıt oluşturulamadı, tekrar deneyin.')
