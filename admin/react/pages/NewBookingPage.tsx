@@ -1,4 +1,6 @@
 import { useRef, useState, type FormEvent } from 'react'
+import PhoneInput from 'react-phone-number-input'
+import 'react-phone-number-input/style.css'
 import { publicRouteSlugs, turkishLocationNames } from '../../../src/routes.js'
 import { Topbar } from '../components/AdminChrome'
 import { todayISO } from '../lib/format'
@@ -179,7 +181,7 @@ export default function NewBookingPage({ navigate }: { navigate: Navigate }) {
         <div className="section">
           <div className="section-label">Müşteri</div>
           <Field label="Ad Soyad *"><input className="input" type="text" maxLength={80} autoComplete="off" value={form.name} onChange={e => set('name', e.target.value)} required autoFocus={Boolean(prefill)} /></Field>
-          <Field label="Telefon *"><input className="input" type="tel" placeholder="+90 5xx xxx xx xx" autoComplete="off" value={form.phone} onChange={e => set('phone', e.target.value)} required /></Field>
+          <Field label="Telefon *"><PhoneInput className="input phone-input" international defaultCountry="TR" placeholder="+90 5xx xxx xx xx" autoComplete="off" value={form.phone || undefined} onChange={value => set('phone', value ?? '')} /></Field>
           <Field label="Otel / Konaklama"><input className="input" type="text" maxLength={120} autoComplete="off" value={form.hotel} onChange={e => set('hotel', e.target.value)} /></Field>
         </div>
 
