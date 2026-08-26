@@ -635,16 +635,16 @@ For high-impression queries that do not rank well:
 
 ## Phase 1 — Immediate
 
-- [ ] Create German Side landing page
-- [ ] Create German Belek landing page
-- [ ] Create French Side landing page
-- [ ] Create French Belek landing page
-- [ ] Add "No Prepayment / Pay Driver" trust messages
-- [ ] Fix Meet & Greet J / 777 wording everywhere
+- [x] Create German Side landing page (route exists at /de/transfers/side/)
+- [x] Create German Belek landing page (route exists at /de/transfers/belek/)
+- [x] Create French Side landing page (FR fully indexed — /fr/transfers/side/)
+- [x] Create French Belek landing page (/fr/transfers/belek/)
+- [ ] Add "No Prepayment / Pay Driver" trust messages (on homepage CTA area)
+- [x] Fix Meet & Greet J / 777 wording everywhere (DE was correct; FR fixed 2026-08-22)
 - [ ] Remove or replace permanent percentage discount messaging
-- [ ] Send Google Ads directly to relevant landing pages
-- [ ] Add GA4 booking funnel events
-- [ ] Store UTM / GCLID / landing-page attribution in Supabase
+- [ ] Send Google Ads directly to relevant landing pages (Google Ads config, not code)
+- [x] Add GA4 booking funnel events (booking_started, vehicle_selected, phone_clicked, language_selected added)
+- [x] Store UTM / GCLID / landing-page attribution in Supabase (migration + edge fn deployed)
 
 ---
 
