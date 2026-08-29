@@ -395,8 +395,10 @@ export default function TimelinePage({ navigate, initialDate }: { navigate: Navi
   const visibleCards = useMemo(() => {
     if (!bookings) return []
     const cards = expandRoundTrips(bookings, 'timeline')
-    return cachedOnly ? cards.filter(card => card._displayDate === today) : cards
-  }, [bookings, cachedOnly, today])
+    if (cachedOnly) return cards.filter(card => card._displayDate === today)
+    // Hide past legs from the timeline; a past day is only shown when picked from the calendar.
+    return cards.filter(card => card._displayDate >= today || card._displayDate === selectedCalendarDate)
+  }, [bookings, cachedOnly, today, selectedCalendarDate])
 
   const searchCards = useMemo(() => {
     if (!searchResults) return []
