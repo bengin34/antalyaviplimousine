@@ -46,3 +46,21 @@ describe("public booking contract", () => {
     });
   });
 });
+
+describe("airport-bound journeys", () => {
+  test("prices the return on the hotel's region, at the same fixed price", () => {
+    const returning = { ...base, pickup: "hotel" as const, destination: "airport", hotelRegion: "side" };
+    expect(quoteFor(returning)).toEqual(quoteFor(base));
+    expect(quoteFor({ ...returning, hotelRegion: "belek" })).toEqual({ price: 40, originalPrice: 50 });
+  });
+
+  test("falls back to a manual quote when the hotel's region is unknown", () => {
+    expect(quoteFor({ ...base, destination: "airport" })).toEqual({ price: 0, originalPrice: 0 });
+    expect(quoteFor({ ...base, destination: "airport", hotelRegion: "not-a-region" }))
+      .toEqual({ price: 0, originalPrice: 0 });
+  });
+
+  test("ignores the hotel's region when the guest is heading to a region", () => {
+    expect(quoteFor({ ...base, destination: "belek", hotelRegion: "alanya" })).toEqual({ price: 40, originalPrice: 50 });
+  });
+});

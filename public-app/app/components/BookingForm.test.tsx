@@ -168,5 +168,10 @@ describe("BookingForm route summary", () => {
 
     expect(container.querySelector<HTMLInputElement>("#hotel-name")!.value).toBe("Rixos Premium Belek");
     expect(container.querySelector<HTMLSelectElement>("#destination")!.value).toBe("airport");
+
+    // The return costs the same as the outbound, so knowing the hotel is
+    // enough to quote it: Belek → airport is the Belek price.
+    expect(container.querySelector(".price-display-amount")).toHaveTextContent("€40");
+    expect(container.querySelector(".price-display-route")).toHaveTextContent("Belek → Antalya Havalimanı (AYT)");
   });
 });

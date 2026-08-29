@@ -12,6 +12,7 @@ import {
   createPublicBookingSchema,
   fetchLivePriceOverrides,
   inclusiveDayCount,
+  pricedRouteSlug,
   quoteFor,
   DAILY_CHAUFFEUR_RATE_EUR,
   type LivePriceOverrides,
@@ -111,7 +112,7 @@ export function BookingForm({
       luggage: "", childSeats: "0", childAges: [], travelDate: "", arrivalTime: "", flightNumber: "",
       returnDate: "", returnPickupTime: "", returnFlightNumber: "", pickupAddress: "",
       serviceEndDate: "", pickupTime: "", departureFlightDate: "", departureFlightTime: "", departureFlightNumber: "",
-      dropoffAddress: "", hotelName: "", customerName: "", customerPhone: "", customerEmail: "",
+      dropoffAddress: "", hotelName: "", hotelRegion: "", customerName: "", customerPhone: "", customerEmail: "",
     },
   });
 
@@ -124,8 +125,9 @@ export function BookingForm({
     const route = routeCatalog[region as keyof typeof routeCatalog];
     return route ? route.names[language as keyof typeof route.names] ?? route.names.en : region;
   };
-  const selectedRoute = routeCatalog[values.destination as keyof typeof routeCatalog];
-  const selectedRouteName = selectedRoute ? regionLabel(values.destination) : undefined;
+  const pricedRoute = pricedRouteSlug(values);
+  const selectedRoute = routeCatalog[pricedRoute as keyof typeof routeCatalog];
+  const selectedRouteName = selectedRoute ? regionLabel(pricedRoute) : undefined;
   const pickupName = values.pickup === "airport"
     ? t("airportOption", "Antalya Airport (AYT)")
     : values.pickup === "hotel"
@@ -136,6 +138,7 @@ export function BookingForm({
     : values.destination === "private_address"
       ? t("privateAddressOption", "Private address")
       : selectedRouteName ?? values.destination;
+  const pickupLabel = values.pickup === "hotel" && selectedRouteName ? selectedRouteName : pickupName;
   const isPrivateAddressQuote = !isDailyChauffeur && values.pickup === "private_address" && values.destination === "private_address";
   const vitoFits = Number(values.guests) <= 6 && Number(values.luggage) <= 6 && Number(values.guests) + Number(values.luggage) <= 12;
   const hasPrice = !isDailyChauffeur && selectedRoute && quote.price > 0;
@@ -149,11 +152,16 @@ export function BookingForm({
 
   const handleHotelInput = (name: string) => {
     setValue("hotelName", name, { shouldValidate: false });
-    if (hotelMatch && name !== hotelMatch.name) setHotelMatch(null);
+    if (!hotelMatch || name === hotelMatch.name) return;
+    // The typed name no longer names the matched hotel, so its region is no
+    // longer ours to price on.
+    setHotelMatch(null);
+    setValue("hotelRegion", "", { shouldValidate: false });
   };
 
   const handleHotelSelect = (hotel: IndexedHotel) => {
     setValue("hotelName", hotel.name, { shouldValidate: true });
+    setValue("hotelRegion", hotel.region, { shouldValidate: false });
     setHotelMatch(hotel);
     if (!hotelSetsDestination) return;
     setValue("destination", hotel.region, { shouldValidate: true });
@@ -333,7 +341,7 @@ export function BookingForm({
             {isDailyChauffeur
               ? <><span className="price-display-route">{t("dailyChauffeur", "Daily vehicle + chauffeur")} · {hireDays || 0} {t("days", "days")}</span><span className="price-display-prices"><strong className="price-display-amount">€{quote.price}</strong></span><span className="price-display-note">€{dailyRateEur} × {hireDays || 0} · {t("fuelExcludedShort", "fuel excluded")}</span></>
               : selectedRoute && quote.price > 0
-                ? <><span className="price-display-route">{pickupName} {values.tripType === "round_trip" ? "⇄" : "→"} {destinationName}</span><span className="price-display-prices"><strong className="price-display-amount">€{quote.price}</strong></span><span className="price-display-note">{values.vehicle === "sprinter" ? "Mercedes Sprinter" : "Mercedes Vito"} · {values.tripType === "round_trip" ? `${t("roundTripPriceNote", "round trip · 2 journeys")} · ` : ""}{t("perVehicle", "fixed · per vehicle")}</span></>
+                ? <><span className="price-display-route">{pickupLabel} {values.tripType === "round_trip" ? "⇄" : "→"} {destinationName}</span><span className="price-display-prices"><strong className="price-display-amount">€{quote.price}</strong></span><span className="price-display-note">{values.vehicle === "sprinter" ? "Mercedes Sprinter" : "Mercedes Vito"} · {values.tripType === "round_trip" ? `${t("roundTripPriceNote", "round trip · 2 journeys")} · ` : ""}{t("perVehicle", "fixed · per vehicle")}</span></>
                 : values.destination
                   ? <><span className="price-display-route">{pickupName} {values.tripType === "round_trip" ? "⇄" : "→"} {destinationName}</span><span className="price-display-note">{values.destination === "airport" ? t("airportReturnPrice", "Price confirmed after address review.") : t("customDestinationPrice", "Price confirmed after address review.")}</span></>
                   : null}

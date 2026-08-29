@@ -1,29 +1,38 @@
 /**
  * Prints the static hotel index as a review checklist.
  *
- * Region assignments decide which fixed price a guest is quoted, so a wrong
- * one costs real money on every transfer to that hotel. Rows seeded from
- * research start as `draft`; this checklist is how the operator walks through
- * them, confirms the region against their own records, and sees which pricing
- * regions still have no hotels behind them.
+ * A hotel's region decides which fixed price the guest is quoted, so a wrong
+ * one is wrong on every transfer to that hotel. The region comes from the
+ * hotel's district, so the district table is the part worth reviewing first:
+ * confirming that Çolaklı is sold as Side settles every hotel in Çolaklı.
  *
  * Usage:
- *   node scripts/hotel-index-review.mjs            # markdown checklist
+ *   node scripts/hotel-index-review.mjs            # district table + hotels
  *   node scripts/hotel-index-review.mjs --csv      # CSV for a spreadsheet
  */
-import { hotelIndex } from "../src/hotel-index.js";
+import { districtRegions, hotelIndex } from "../src/hotel-index.js";
 import { routeCatalog } from "../src/routes.js";
 
-const asCsv = process.argv.includes("--csv");
-const byRegion = new Map(Object.keys(routeCatalog).map((region) => [region, []]));
-for (const hotel of hotelIndex) byRegion.get(hotel.region)?.push(hotel);
+const hotelsByDistrict = new Map(Object.keys(districtRegions).map((district) => [district, []]));
+for (const hotel of hotelIndex) hotelsByDistrict.get(hotel.district)?.push(hotel);
 
-if (asCsv) {
+const districtsByRegion = new Map(Object.keys(routeCatalog).map((region) => [region, []]));
+for (const [district, region] of Object.entries(districtRegions)) districtsByRegion.get(region)?.push(district);
+
+if (process.argv.includes("--csv")) {
   const escape = (value) => `"${String(value).replace(/"/g, '""')}"`;
-  console.log("region,district,hotel,status,slug");
-  for (const [region, hotels] of byRegion) {
-    for (const hotel of [...hotels].sort((a, b) => a.name.localeCompare(b.name, "tr"))) {
-      console.log([region, hotel.district, hotel.name, hotel.status, hotel.slug].map(escape).join(","));
+  console.log("region,vito_eur,sprinter_eur,district,hotel,status,slug");
+  for (const [region, districts] of districtsByRegion) {
+    const { vito, sprinter } = routeCatalog[region].prices;
+    for (const district of districts) {
+      const hotels = hotelsByDistrict.get(district) ?? [];
+      if (hotels.length === 0) {
+        console.log([region, vito, sprinter, district, "", "", ""].map(escape).join(","));
+        continue;
+      }
+      for (const hotel of [...hotels].sort((a, b) => a.name.localeCompare(b.name, "tr"))) {
+        console.log([region, vito, sprinter, district, hotel.name, hotel.status, hotel.slug].map(escape).join(","));
+      }
     }
   }
   process.exit(0);
@@ -31,22 +40,38 @@ if (asCsv) {
 
 const drafts = hotelIndex.filter((hotel) => hotel.status === "draft").length;
 console.log("# Otel bölge eşlemesi — kontrol listesi\n");
-console.log(`Toplam ${hotelIndex.length} otel · ${hotelIndex.length - drafts} doğrulanmış · ${drafts} taslak\n`);
-console.log("Her satırdaki bölgeyi kendi kayıtlarınızla karşılaştırın. Yanlış olanı");
-console.log("`src/hotel-index.js` içinde düzeltin; doğruladıklarınızı bildirin ki");
-console.log("`verified` olarak işaretleyelim.\n");
+console.log(`${hotelIndex.length} otel · ${Object.keys(districtRegions).length} belde · ${hotelIndex.length - drafts} doğrulanmış · ${drafts} taslak\n`);
 
-for (const [region, hotels] of byRegion) {
-  const price = routeCatalog[region].prices;
-  console.log(`\n## ${region} — Vito €${price.vito} · Sprinter €${price.sprinter} (${hotels.length} otel)\n`);
-  if (hotels.length === 0) {
-    console.log("_Bu bölgede indekste otel yok — buradaki misafirler elle bölge seçmek zorunda kalır._");
-    continue;
-  }
-  for (const hotel of [...hotels].sort((a, b) => a.district.localeCompare(b.district, "tr") || a.name.localeCompare(b.name, "tr"))) {
-    console.log(`- [${hotel.status === "verified" ? "x" : " "}] ${hotel.name} — ${hotel.district}`);
+console.log("## 1. Belde → bölge tablosu (önce bunu onaylayın)\n");
+console.log("Bir beldenin bölgesi yanlışsa oradaki bütün oteller yanlış fiyat alır.");
+console.log("Düzeltme `src/hotel-index.js` içindeki `districtRegions` tablosunda tek satırdır.\n");
+console.log("| Bölge | Vito | Sprinter | Beldeler |");
+console.log("| --- | ---: | ---: | --- |");
+for (const [region, districts] of districtsByRegion) {
+  const { vito, sprinter } = routeCatalog[region].prices;
+  const labelled = districts.map((district) => {
+    const count = hotelsByDistrict.get(district)?.length ?? 0;
+    return count === 0 ? `${district} (otel yok)` : `${district} (${count})`;
+  });
+  console.log(`| ${region} | €${vito} | €${sprinter} | ${labelled.join(", ") || "—"} |`);
+}
+
+console.log("\n\n## 2. Belde başına oteller\n");
+for (const [region, districts] of districtsByRegion) {
+  for (const district of districts) {
+    const hotels = hotelsByDistrict.get(district) ?? [];
+    if (hotels.length === 0) continue;
+    console.log(`\n### ${district} → ${region} · Vito €${routeCatalog[region].prices.vito}\n`);
+    for (const hotel of [...hotels].sort((a, b) => a.name.localeCompare(b.name, "tr"))) {
+      console.log(`- [${hotel.status === "verified" ? "x" : " "}] ${hotel.name}`);
+    }
   }
 }
 
-const empty = [...byRegion].filter(([, hotels]) => hotels.length === 0).map(([region]) => region);
-if (empty.length > 0) console.log(`\n\n> Kapsanmayan bölgeler: ${empty.join(", ")}`);
+const emptyRegions = [...districtsByRegion]
+  .filter(([, districts]) => districts.every((district) => (hotelsByDistrict.get(district)?.length ?? 0) === 0))
+  .map(([region]) => region);
+if (emptyRegions.length > 0) {
+  console.log(`\n\n> Hiç otel içermeyen bölgeler: ${emptyRegions.join(", ")}`);
+  console.log("> Buradaki misafirler bölgeyi elle seçmek zorunda kalır.");
+}

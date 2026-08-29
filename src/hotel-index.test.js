@@ -1,5 +1,5 @@
 import { describe, expect, test } from "vitest";
-import { hotelIndex, hotelSlug, indexedHotelBySlug, indexedHotelsForRegion } from "./hotel-index.js";
+import { districtRegions, hotelIndex, hotelSlug, indexedHotelBySlug, indexedHotelsForRegion } from "./hotel-index.js";
 import { hotelCatalog } from "./hotels.js";
 import { routeCatalog } from "./routes.js";
 
@@ -7,6 +7,28 @@ describe("static hotel index", () => {
   test("every hotel points at a region that exists in the route catalogue", () => {
     for (const hotel of hotelIndex) {
       expect(routeCatalog, `${hotel.name} has an unknown region "${hotel.region}"`).toHaveProperty(hotel.region);
+    }
+  });
+
+  test("every mapped district is sold as a region we have a price for", () => {
+    for (const [district, region] of Object.entries(districtRegions)) {
+      expect(routeCatalog, `district "${district}" maps to unknown region "${region}"`).toHaveProperty(region);
+    }
+  });
+
+  test("a hotel's region comes from its district, so correcting one moves them all", () => {
+    for (const hotel of hotelIndex) {
+      expect(districtRegions[hotel.district], `${hotel.name} sits in unmapped district "${hotel.district}"`).toBeDefined();
+      expect(hotel.region).toBe(districtRegions[hotel.district]);
+    }
+  });
+
+  test("hotels in the same district are never priced differently", () => {
+    const regionsByDistrict = new Map();
+    for (const hotel of hotelIndex) {
+      const seen = regionsByDistrict.get(hotel.district);
+      if (seen) expect(hotel.region, `${hotel.district} is split across regions`).toBe(seen);
+      else regionsByDistrict.set(hotel.district, hotel.region);
     }
   });
 

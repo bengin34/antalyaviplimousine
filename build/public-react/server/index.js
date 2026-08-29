@@ -598,156 +598,215 @@ Object.freeze(
   Object.keys(hotelCatalog).map((slug) => `/de/hotels/${slug}/`)
 );
 const hotelSlug = (name) => String(name).replace(/ı/g, "i").replace(/İ/g, "i").replace(/ğ/g, "g").replace(/Ğ/g, "g").replace(/ş/g, "s").replace(/Ş/g, "s").replace(/ç/g, "c").replace(/Ç/g, "c").replace(/ö/g, "o").replace(/Ö/g, "o").replace(/ü/g, "u").replace(/Ü/g, "u").normalize("NFD").replace(new RegExp("\\p{M}+", "gu"), "").toLowerCase().replace(/&/g, " ").replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
+const districtRegions = Object.freeze({
+  // Antalya — €35 Vito
+  "Antalya merkez": "antalya",
+  "Konyaaltı": "antalya",
+  "Lara": "antalya",
+  "Kundu": "antalya",
+  "Aksu": "antalya",
+  // Belek — €40 Vito
+  "Belek": "belek",
+  "Kadriye": "belek",
+  "Serik": "belek",
+  // Boğazkent — €45 Vito
+  "Boğazkent": "bogazkent",
+  // Side — €50 Vito
+  "Side": "side",
+  "Kumköy": "side",
+  "Gündoğdu": "side",
+  "Evrenseki": "side",
+  "Sorgun": "side",
+  "Titreyengöl": "side",
+  "Çolaklı": "side",
+  // Manavgat — €50 Vito
+  "Manavgat": "manavgat",
+  // Manavgat/Kızılağaç — €60 Vito
+  "Kızılağaç": "kizilagac",
+  "Kızılot": "kizilagac",
+  // Kemer — €55 Vito
+  "Kemer": "kemer",
+  "Beldibi": "kemer",
+  "Göynük": "kemer",
+  "Kiriş": "kemer",
+  "Çamyuva": "kemer",
+  // Tekirova — €75 Vito
+  "Tekirova": "tekirova",
+  // Alanya — €95 Vito
+  "Okurcalar": "alanya",
+  "İncekum": "alanya",
+  "Avsallar": "alanya",
+  "Türkler": "alanya",
+  "Payallar": "alanya",
+  "Konaklı": "alanya",
+  "Alanya merkez": "alanya",
+  "Oba": "alanya",
+  "Tosmur": "alanya",
+  "Kestel": "alanya",
+  "Mahmutlar": "alanya",
+  "Kargıcak": "alanya"
+});
 const seedRows = [
   // --- Antalya city, Lara, Kundu, Konyaaltı -------------------------------
-  ["Delphin Imperial Lara", "antalya", "Lara"],
-  ["Delphin Palace", "antalya", "Lara"],
-  ["Delphin BE Grand Resort", "antalya", "Lara"],
-  ["Delphin Diva Premiere", "antalya", "Lara"],
-  ["Titanic Beach Lara", "antalya", "Kundu"],
-  ["Titanic Mardan Palace", "antalya", "Kundu", ["Mardan Palace"]],
-  ["Concorde De Luxe Resort", "antalya", "Lara"],
-  ["Royal Wings Hotel", "antalya", "Lara"],
-  ["Royal Holiday Palace", "antalya", "Kundu"],
-  ["Royal Seginus", "antalya", "Lara"],
-  ["Miracle Resort Hotel", "antalya", "Lara"],
-  ["Baia Lara Hotel", "antalya", "Lara"],
-  ["Adalya Elite Lara", "antalya", "Lara"],
-  ["Limak Lara De Luxe Hotel", "antalya", "Lara"],
-  ["IC Hotels Green Palace", "antalya", "Kundu"],
-  ["IC Hotels Residence", "antalya", "Kundu"],
-  ["Sherwood Exclusive Lara", "antalya", "Lara", ["Sherwood Breezes Resort"]],
-  ["Lara Barut Collection", "antalya", "Lara", ["Barut Lara"]],
-  ["Fame Residence Lara", "antalya", "Lara"],
-  ["Rixos Downtown Antalya", "antalya", "Konyaaltı"],
-  ["Akra Hotel", "antalya", "Antalya merkez", ["Akra Barut"]],
-  ["Porto Bello Hotel Resort & Spa", "antalya", "Konyaaltı"],
-  ["Hotel Su & Aqualand", "antalya", "Konyaaltı", ["Hotel SU"]],
-  ["Crowne Plaza Antalya", "antalya", "Konyaaltı"],
-  ["Ramada Plaza Antalya", "antalya", "Antalya merkez"],
-  ["WOW Kremlin Palace", "antalya", "Kundu", ["Kremlin Palace"]],
-  ["WOW Topkapi Palace", "antalya", "Kundu", ["Topkapi Palace"]],
-  ["Venezia Palace Deluxe Resort", "antalya", "Kundu"],
-  ["Aska Lara Resort & Spa", "antalya", "Lara"],
-  ["Melas Lara Hotel", "antalya", "Lara"],
-  ["Nirvana Cosmopolitan Hotel", "antalya", "Lara"],
-  ["Kervansaray Lara", "antalya", "Lara"],
-  ["Grand Park Lara", "antalya", "Lara"],
-  ["Trendy Lara Hotel", "antalya", "Lara"],
+  ["Delphin Imperial Lara", "Lara"],
+  ["Delphin Palace", "Lara"],
+  ["Delphin BE Grand Resort", "Lara"],
+  ["Delphin Diva Premiere", "Lara"],
+  ["Titanic Beach Lara", "Kundu"],
+  ["Titanic Mardan Palace", "Kundu", ["Mardan Palace"]],
+  ["Concorde De Luxe Resort", "Lara"],
+  ["Royal Wings Hotel", "Lara"],
+  ["Royal Holiday Palace", "Kundu"],
+  ["Royal Seginus", "Lara"],
+  ["Miracle Resort Hotel", "Lara"],
+  ["Baia Lara Hotel", "Lara"],
+  ["Adalya Elite Lara", "Lara"],
+  ["Limak Lara De Luxe Hotel", "Lara"],
+  ["IC Hotels Green Palace", "Kundu"],
+  ["IC Hotels Residence", "Kundu"],
+  ["Sherwood Exclusive Lara", "Lara", ["Sherwood Breezes Resort"]],
+  ["Lara Barut Collection", "Lara", ["Barut Lara"]],
+  ["Fame Residence Lara", "Lara"],
+  ["Rixos Downtown Antalya", "Konyaaltı"],
+  ["Akra Hotel", "Antalya merkez", ["Akra Barut"]],
+  ["Porto Bello Hotel Resort & Spa", "Konyaaltı"],
+  ["Hotel Su & Aqualand", "Konyaaltı", ["Hotel SU"]],
+  ["Crowne Plaza Antalya", "Konyaaltı"],
+  ["Ramada Plaza Antalya", "Antalya merkez"],
+  ["WOW Kremlin Palace", "Kundu", ["Kremlin Palace"]],
+  ["WOW Topkapi Palace", "Kundu", ["Topkapi Palace"]],
+  ["Venezia Palace Deluxe Resort", "Kundu"],
+  ["Aska Lara Resort & Spa", "Lara"],
+  ["Melas Lara Hotel", "Lara"],
+  ["Nirvana Cosmopolitan Hotel", "Lara"],
+  ["Kervansaray Lara", "Lara"],
+  ["Grand Park Lara", "Lara"],
+  ["Trendy Lara Hotel", "Lara"],
   // --- Belek, Kadriye, Serik ----------------------------------------------
-  ["Rixos Premium Belek", "belek", "Belek"],
-  ["Regnum Carya", "belek", "Kadriye"],
-  ["Maxx Royal Belek", "belek", "Belek", ["Maxx Royal Belek Golf Resort"]],
-  ["Gloria Golf Resort", "belek", "Belek"],
-  ["Gloria Verde Resort", "belek", "Belek"],
-  ["Gloria Serenity Resort", "belek", "Belek"],
-  ["Cornelia Diamond Golf Resort & Spa", "belek", "Belek"],
-  ["Cornelia De Luxe Resort", "belek", "Belek"],
-  ["Titanic Deluxe Golf Belek", "belek", "Belek"],
-  ["Kaya Palazzo Golf Resort", "belek", "Belek"],
-  ["Ela Excellence Resort Belek", "belek", "Belek", ["Ela Quality Resort"]],
-  ["Susesi Luxury Resort", "belek", "Belek"],
-  ["Sueno Hotels Deluxe Belek", "belek", "Belek"],
-  ["Sueno Hotels Golf Belek", "belek", "Belek"],
-  ["Voyage Belek Golf & Spa", "belek", "Belek"],
-  ["Calista Luxury Resort", "belek", "Belek"],
-  ["IC Hotels Santai Family Resort", "belek", "Belek"],
-  ["Adam & Eve Hotels", "belek", "Belek"],
-  ["Papillon Zeugma Relaxury", "belek", "Belek"],
-  ["Papillon Ayscha Resort", "belek", "Belek"],
-  ["Papillon Belvil Resort", "belek", "Belek"],
-  ["Limak Atlantis De Luxe Hotel", "belek", "Belek"],
-  ["Limak Arcadia Sport Resort", "belek", "Belek"],
-  ["Robinson Club Nobilis", "belek", "Belek"],
-  ["Spice Hotel & Spa", "belek", "Belek"],
-  ["Xanadu Resort Hotel", "belek", "Belek"],
-  ["Bellis Deluxe Hotel", "belek", "Belek"],
-  ["Sirene Belek Hotel", "belek", "Belek"],
-  ["The Land of Legends", "belek", "Kadriye", ["The Land of Legends Kingdom Hotel", "Legends"]],
-  ["Alva Donna Exclusive Hotel & Spa", "belek", "Belek"],
-  ["Selectum Luxury Resort Belek", "belek", "Belek"],
-  ["Maritim Pine Beach Resort", "belek", "Belek"],
-  ["Crystal Tat Beach Golf Resort & Spa", "belek", "Belek"],
-  ["Crystal Family Resort & Spa", "belek", "Belek"],
-  ["Belconti Resort Hotel", "belek", "Belek"],
-  ["Sherwood Dreams Resort", "belek", "Belek"],
-  ["Aydinbey Famous Resort", "belek", "Belek"],
-  ["Granada Luxury Belek", "belek", "Belek"],
-  ["Kirman Belazur Resort & Spa", "belek", "Belek"],
+  ["Rixos Premium Belek", "Belek"],
+  ["Regnum Carya", "Kadriye"],
+  ["Maxx Royal Belek", "Belek", ["Maxx Royal Belek Golf Resort"]],
+  ["Gloria Golf Resort", "Belek"],
+  ["Gloria Verde Resort", "Belek"],
+  ["Gloria Serenity Resort", "Belek"],
+  ["Cornelia Diamond Golf Resort & Spa", "Belek"],
+  ["Cornelia De Luxe Resort", "Belek"],
+  ["Titanic Deluxe Golf Belek", "Belek"],
+  ["Kaya Palazzo Golf Resort", "Belek"],
+  ["Ela Excellence Resort Belek", "Belek", ["Ela Quality Resort"]],
+  ["Susesi Luxury Resort", "Belek"],
+  ["Sueno Hotels Deluxe Belek", "Belek"],
+  ["Sueno Hotels Golf Belek", "Belek"],
+  ["Voyage Belek Golf & Spa", "Belek"],
+  ["Calista Luxury Resort", "Belek"],
+  ["IC Hotels Santai Family Resort", "Belek"],
+  ["Adam & Eve Hotels", "Belek"],
+  ["Papillon Zeugma Relaxury", "Belek"],
+  ["Papillon Ayscha Resort", "Belek"],
+  ["Papillon Belvil Resort", "Belek"],
+  ["Limak Atlantis De Luxe Hotel", "Belek"],
+  ["Limak Arcadia Sport Resort", "Belek"],
+  ["Robinson Club Nobilis", "Belek"],
+  ["Spice Hotel & Spa", "Belek"],
+  ["Xanadu Resort Hotel", "Belek"],
+  ["Bellis Deluxe Hotel", "Belek"],
+  ["Sirene Belek Hotel", "Belek"],
+  ["The Land of Legends", "Kadriye", ["The Land of Legends Kingdom Hotel", "Legends"]],
+  ["Alva Donna Exclusive Hotel & Spa", "Belek"],
+  ["Selectum Luxury Resort Belek", "Belek"],
+  ["Maritim Pine Beach Resort", "Belek"],
+  ["Crystal Tat Beach Golf Resort & Spa", "Belek"],
+  ["Crystal Family Resort & Spa", "Belek"],
+  ["Belconti Resort Hotel", "Belek"],
+  ["Sherwood Dreams Resort", "Belek"],
+  ["Aydinbey Famous Resort", "Belek"],
+  ["Granada Luxury Belek", "Belek"],
+  ["Kirman Belazur Resort & Spa", "Belek"],
   // --- Boğazkent -----------------------------------------------------------
-  ["Crystal Waterworld Resort & Spa", "bogazkent", "Boğazkent"],
+  ["Crystal Waterworld Resort & Spa", "Boğazkent"],
   // --- Side, Kumköy, Evrenseki, Çolaklı, Sorgun, Titreyengöl ---------------
-  ["Arum Barut Collection", "side", "Kumköy"],
-  ["Barut Hemera", "side", "Kumköy"],
-  ["Barut Acanthus & Cennet", "side", "Side"],
-  ["Side Star Resort", "side", "Gündoğdu"],
-  ["Side Star Elegance", "side", "Side"],
-  ["Side Star Beach", "side", "Side"],
-  ["Royal Dragon Hotel", "side", "Evrenseki"],
-  ["Voyage Sorgun", "side", "Sorgun"],
-  ["Ali Bey Resort Sorgun", "side", "Sorgun"],
-  ["Sunis Kumköy Beach Resort", "side", "Kumköy"],
-  ["Sunis Elita Beach Resort", "side", "Kumköy"],
-  ["Sunis Evren Beach Resort", "side", "Evrenseki"],
-  ["Robinson Club Side", "side", "Side"],
-  ["Crystal Sunset Luxury Resort", "side", "Side"],
-  ["Crystal Palace Luxury Resort", "side", "Side"],
-  ["Alba Resort Hotel", "side", "Çolaklı"],
-  ["Alba Royal Hotel", "side", "Çolaklı"],
-  ["Aydinbey King's Palace", "side", "Çolaklı"],
-  ["Kirman Sidemarin Beach & Spa", "side", "Çolaklı"],
-  ["Sunprime C-Lounge", "side", "Kumköy"],
-  ["Side Prenses Resort", "side", "Titreyengöl"],
-  ["Turquoise Resort Hotel & Spa", "side", "Sorgun"],
-  ["Defne Defnem", "side", "Titreyengöl"],
-  ["Von Resort Golden Coast", "side", "Çolaklı"],
-  ["Melas Resort Hotel", "side", "Sorgun"],
+  ["Arum Barut Collection", "Kumköy"],
+  ["Barut Hemera", "Kumköy"],
+  ["Barut Acanthus & Cennet", "Side"],
+  ["Side Star Resort", "Gündoğdu"],
+  ["Side Star Elegance", "Side"],
+  ["Side Star Beach", "Side"],
+  ["Royal Dragon Hotel", "Evrenseki"],
+  ["Voyage Sorgun", "Sorgun"],
+  ["Ali Bey Resort Sorgun", "Sorgun"],
+  ["Sunis Kumköy Beach Resort", "Kumköy"],
+  ["Sunis Elita Beach Resort", "Kumköy"],
+  ["Sunis Evren Beach Resort", "Evrenseki"],
+  ["Robinson Club Side", "Side"],
+  ["Crystal Sunset Luxury Resort", "Side"],
+  ["Crystal Palace Luxury Resort", "Side"],
+  ["Alba Resort Hotel", "Çolaklı"],
+  ["Alba Royal Hotel", "Çolaklı"],
+  ["Aydinbey King's Palace", "Çolaklı"],
+  ["Kirman Sidemarin Beach & Spa", "Çolaklı"],
+  ["Sunprime C-Lounge", "Kumköy"],
+  ["Side Prenses Resort", "Titreyengöl"],
+  ["Turquoise Resort Hotel & Spa", "Sorgun"],
+  ["Defne Defnem", "Titreyengöl"],
+  ["Von Resort Golden Coast", "Çolaklı"],
+  ["Melas Resort Hotel", "Sorgun"],
+  // --- Kızılot and Kızılağaç ----------------------------------------------
+  ["Sunmelia Beach Resort & Spa", "Kızılot"],
+  ["Adalya Ocean Deluxe", "Kızılot"],
+  ["Seaden Sea Planet Resort & Spa", "Kızılağaç"],
+  ["Trendy Verbena Beach Hotel", "Kızılağaç"],
+  ["Kirman Arycanda De Luxe", "Kızılağaç"],
+  ["Royal Alhambra Palace", "Kızılağaç"],
+  ["Side Royal Paradise", "Kızılağaç"],
+  ["Turan Prince World", "Kızılağaç"],
   // --- Kemer, Göynük, Beldibi, Kiriş --------------------------------------
-  ["Rixos Sungate", "kemer", "Beldibi"],
-  ["Rixos Beldibi", "kemer", "Beldibi"],
-  ["Maxx Royal Kemer Resort", "kemer", "Kiriş"],
-  ["Club Med Palmiye", "kemer", "Kemer"],
-  ["Nirvana Dolce Vita", "kemer", "Beldibi"],
-  ["Orange County Resort Hotel Kemer", "kemer", "Kemer"],
-  ["Crystal Aura Beach Resort & Spa", "kemer", "Kemer"],
-  ["Crystal De Luxe Resort & Spa", "kemer", "Kemer"],
-  ["Crystal Flora Beach Resort", "kemer", "Beldibi"],
-  ["Kemer Barut Collection", "kemer", "Kemer"],
-  ["Limak Limra Hotel & Resort", "kemer", "Kiriş"],
-  ["Sherwood Exclusive Kemer", "kemer", "Göynük"],
-  ["Alva Donna World Palace", "kemer", "Beldibi"],
-  ["Queen's Park Le Jardin", "kemer", "Göynük"],
-  ["Grand Park Kemer", "kemer", "Kemer"],
-  ["Ulusoy Kemer Holiday Club", "kemer", "Göynük"],
-  ["Mirage Park Resort", "kemer", "Göynük"],
-  ["Sealife Buket Resort & Beach", "kemer", "Beldibi"],
+  ["Rixos Sungate", "Beldibi"],
+  ["Rixos Beldibi", "Beldibi"],
+  ["Maxx Royal Kemer Resort", "Kiriş"],
+  ["Club Med Palmiye", "Kemer"],
+  ["Nirvana Dolce Vita", "Beldibi"],
+  ["Orange County Resort Hotel Kemer", "Kemer"],
+  ["Crystal Aura Beach Resort & Spa", "Kemer"],
+  ["Crystal De Luxe Resort & Spa", "Kemer"],
+  ["Crystal Flora Beach Resort", "Beldibi"],
+  ["Kemer Barut Collection", "Kemer"],
+  ["Limak Limra Hotel & Resort", "Kiriş"],
+  ["Sherwood Exclusive Kemer", "Göynük"],
+  ["Alva Donna World Palace", "Beldibi"],
+  ["Queen's Park Le Jardin", "Göynük"],
+  ["Grand Park Kemer", "Kemer"],
+  ["Ulusoy Kemer Holiday Club", "Göynük"],
+  ["Mirage Park Resort", "Göynük"],
+  ["Sealife Buket Resort & Beach", "Beldibi"],
   // --- Tekirova ------------------------------------------------------------
-  ["Rixos Premium Tekirova", "tekirova", "Tekirova"],
-  ["Amara Dolce Vita Luxury", "tekirova", "Tekirova"],
-  ["Marti Myra", "tekirova", "Tekirova"],
-  ["Phaselis Rose Hotel", "tekirova", "Tekirova"],
-  ["Queen's Park Tekirova", "tekirova", "Tekirova"],
+  ["Rixos Premium Tekirova", "Tekirova"],
+  ["Amara Dolce Vita Luxury", "Tekirova"],
+  ["Marti Myra", "Tekirova"],
+  ["Phaselis Rose Hotel", "Tekirova"],
+  ["Queen's Park Tekirova", "Tekirova"],
   // --- Alanya and its western resort strip ---------------------------------
-  ["Kirman Leodikya Resort", "alanya", "Okurcalar"],
-  ["Aydinbey Gold Dreams", "alanya", "Okurcalar"],
-  ["Justiniano Deluxe Resort", "alanya", "Okurcalar"],
-  ["Utopia World Hotel", "alanya", "Türkler"],
-  ["Long Beach Resort Hotel", "alanya", "Konaklı"],
-  ["Delphin Botanik Platinum", "alanya", "Türkler"],
-  ["Alaiye Resort & Spa", "alanya", "Avsallar"],
-  ["Rubi Platinum Spa Resort", "alanya", "Alanya merkez"],
-  ["Asia Beach Resort & Spa", "alanya", "Alanya merkez"],
-  ["Goldcity Hotel", "alanya", "Kargıcak"],
-  ["Numa Bay Exclusive", "alanya", "Avsallar"],
-  ["Granada Luxury Beach", "alanya", "Avsallar"],
-  ["Bera Alanya Hotel", "alanya", "Avsallar"],
-  ["Alan Xafira Deluxe Resort", "alanya", "Konaklı"],
-  ["Kahya Resort Aqua & Spa", "alanya", "Konaklı"]
+  ["Kirman Leodikya Resort", "Okurcalar"],
+  ["Aydinbey Gold Dreams", "Okurcalar"],
+  ["Justiniano Deluxe Resort", "Okurcalar"],
+  ["Utopia World Hotel", "Türkler"],
+  ["Long Beach Resort Hotel", "Konaklı"],
+  ["Delphin Botanik Platinum", "Türkler"],
+  ["Alaiye Resort & Spa", "Avsallar"],
+  ["Rubi Platinum Spa Resort", "Alanya merkez"],
+  ["Asia Beach Resort & Spa", "Alanya merkez"],
+  ["Goldcity Hotel", "Kargıcak"],
+  ["Numa Bay Exclusive", "Avsallar"],
+  ["Granada Luxury Beach", "Avsallar"],
+  ["Bera Alanya Hotel", "Avsallar"],
+  ["Alan Xafira Deluxe Resort", "Konaklı"],
+  ["Kahya Resort Aqua & Spa", "Konaklı"]
 ];
 const verifiedSlugs = new Set(Object.keys(hotelCatalog));
 const hotelIndex = Object.freeze(
-  seedRows.map(([name, region, district, aliases = []]) => {
+  seedRows.map(([name, district, aliases = []]) => {
     const slug = hotelSlug(name);
+    const region = districtRegions[district];
+    if (!region) throw new Error(`Hotel "${name}" sits in unmapped district "${district}"`);
     return Object.freeze({
       slug,
       name,
@@ -1041,6 +1100,7 @@ function createPublicBookingSchema(t) {
     pickupAddress: z.string(),
     dropoffAddress: z.string(),
     hotelName: z.string(),
+    hotelRegion: z.string().default(""),
     customerName: z.string(),
     customerPhone: z.string(),
     customerEmail: z.string()
@@ -1109,6 +1169,10 @@ function createPublicBookingSchema(t) {
     }
   });
 }
+function pricedRouteSlug(values) {
+  const slug = values.destination === "airport" ? values.hotelRegion ?? "" : values.destination;
+  return slug in routeCatalog ? slug : "";
+}
 function quoteFor(values, overrides) {
   if (values.tripType === "daily_chauffeur") {
     const days = inclusiveDayCount(values.travelDate, values.serviceEndDate);
@@ -1116,10 +1180,11 @@ function quoteFor(values, overrides) {
     const price = days > 0 && days <= MAX_DAILY_CHAUFFEUR_DAYS ? days * dailyRate : 0;
     return { price, originalPrice: price };
   }
-  const route = routeCatalog[values.destination];
+  const slug = pricedRouteSlug(values);
+  const route = routeCatalog[slug];
   if (!route) return { price: 0, originalPrice: 0 };
   const journeys = values.tripType === "round_trip" ? 2 : 1;
-  const liveUnitPrice = overrides?.routePrices?.[`${values.destination}:${values.vehicle}`];
+  const liveUnitPrice = overrides?.routePrices?.[`${slug}:${values.vehicle}`];
   const unitPrice = liveUnitPrice ?? route.prices[values.vehicle];
   return {
     price: unitPrice * journeys,
@@ -1297,6 +1362,7 @@ function BookingForm({
       departureFlightNumber: "",
       dropoffAddress: "",
       hotelName: "",
+      hotelRegion: "",
       customerName: "",
       customerPhone: "",
       customerEmail: ""
@@ -1311,10 +1377,12 @@ function BookingForm({
     const route = routeCatalog[region];
     return route ? route.names[language] ?? route.names.en : region;
   };
-  const selectedRoute = routeCatalog[values.destination];
-  const selectedRouteName = selectedRoute ? regionLabel(values.destination) : void 0;
+  const pricedRoute = pricedRouteSlug(values);
+  const selectedRoute = routeCatalog[pricedRoute];
+  const selectedRouteName = selectedRoute ? regionLabel(pricedRoute) : void 0;
   const pickupName = values.pickup === "airport" ? t("airportOption", "Antalya Airport (AYT)") : values.pickup === "hotel" ? t("hotelOption", "Hotel") : t("privateAddressOption", "Private address");
   const destinationName = values.destination === "airport" ? t("airportOption", "Antalya Airport (AYT)") : values.destination === "private_address" ? t("privateAddressOption", "Private address") : selectedRouteName ?? values.destination;
+  const pickupLabel = values.pickup === "hotel" && selectedRouteName ? selectedRouteName : pickupName;
   const isPrivateAddressQuote = !isDailyChauffeur && values.pickup === "private_address" && values.destination === "private_address";
   const vitoFits = Number(values.guests) <= 6 && Number(values.luggage) <= 6 && Number(values.guests) + Number(values.luggage) <= 12;
   const hasPrice = !isDailyChauffeur && selectedRoute && quote.price > 0;
@@ -1323,10 +1391,13 @@ function BookingForm({
   const hotelNeeded = isDailyChauffeur || values.pickup === "hotel" || values.destination !== "private_address";
   const handleHotelInput = (name) => {
     setValue("hotelName", name, { shouldValidate: false });
-    if (hotelMatch && name !== hotelMatch.name) setHotelMatch(null);
+    if (!hotelMatch || name === hotelMatch.name) return;
+    setHotelMatch(null);
+    setValue("hotelRegion", "", { shouldValidate: false });
   };
   const handleHotelSelect = (hotel2) => {
     setValue("hotelName", hotel2.name, { shouldValidate: true });
+    setValue("hotelRegion", hotel2.region, { shouldValidate: false });
     setHotelMatch(hotel2);
     if (!hotelSetsDestination) return;
     setValue("destination", hotel2.region, { shouldValidate: true });
@@ -1504,7 +1575,7 @@ function BookingForm({
           ] })
         ] }) : selectedRoute && quote.price > 0 ? /* @__PURE__ */ jsxs(Fragment, { children: [
           /* @__PURE__ */ jsxs("span", { className: "price-display-route", children: [
-            pickupName,
+            pickupLabel,
             " ",
             values.tripType === "round_trip" ? "⇄" : "→",
             " ",
@@ -5774,7 +5845,7 @@ const route34 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.definePrope
   loader,
   meta
 }, Symbol.toStringTag, { value: "Module" }));
-const serverManifest = { "entry": { "module": "/assets/entry.client-BD2P1iGF.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/errorBoundaries-Y42zlZbV.js"], "css": [] }, "routes": { "root": { "id": "root", "parentId": void 0, "path": "", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/root-DPJGM9wT.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/errorBoundaries-Y42zlZbV.js", "/assets/Icon-cdn0c84e.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "home-en": { "id": "home-en", "parentId": "root", "path": void 0, "index": true, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/home-Bf1RZ0jO.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-CsFBVSUq.js", "/assets/BookingForm-PhiF45DA.js", "/assets/Header-BHWE0zLt.js", "/assets/Icon-cdn0c84e.js"], "css": ["/assets/BookingForm-DpsRipQV.css#"], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "home-de": { "id": "home-de", "parentId": "root", "path": "de", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/home-Bf1RZ0jO.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-CsFBVSUq.js", "/assets/BookingForm-PhiF45DA.js", "/assets/Header-BHWE0zLt.js", "/assets/Icon-cdn0c84e.js"], "css": ["/assets/BookingForm-DpsRipQV.css#"], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "home-fr": { "id": "home-fr", "parentId": "root", "path": "fr", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/home-Bf1RZ0jO.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-CsFBVSUq.js", "/assets/BookingForm-PhiF45DA.js", "/assets/Header-BHWE0zLt.js", "/assets/Icon-cdn0c84e.js"], "css": ["/assets/BookingForm-DpsRipQV.css#"], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "home-tr": { "id": "home-tr", "parentId": "root", "path": "tr", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/home-Bf1RZ0jO.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-CsFBVSUq.js", "/assets/BookingForm-PhiF45DA.js", "/assets/Header-BHWE0zLt.js", "/assets/Icon-cdn0c84e.js"], "css": ["/assets/BookingForm-DpsRipQV.css#"], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "home-ru": { "id": "home-ru", "parentId": "root", "path": "ru", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/home-Bf1RZ0jO.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-CsFBVSUq.js", "/assets/BookingForm-PhiF45DA.js", "/assets/Header-BHWE0zLt.js", "/assets/Icon-cdn0c84e.js"], "css": ["/assets/BookingForm-DpsRipQV.css#"], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "home-cs": { "id": "home-cs", "parentId": "root", "path": "cs", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/home-Bf1RZ0jO.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-CsFBVSUq.js", "/assets/BookingForm-PhiF45DA.js", "/assets/Header-BHWE0zLt.js", "/assets/Icon-cdn0c84e.js"], "css": ["/assets/BookingForm-DpsRipQV.css#"], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "home-uk": { "id": "home-uk", "parentId": "root", "path": "uk", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/home-Bf1RZ0jO.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-CsFBVSUq.js", "/assets/BookingForm-PhiF45DA.js", "/assets/Header-BHWE0zLt.js", "/assets/Icon-cdn0c84e.js"], "css": ["/assets/BookingForm-DpsRipQV.css#"], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "home-ur": { "id": "home-ur", "parentId": "root", "path": "ur", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/home-Bf1RZ0jO.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-CsFBVSUq.js", "/assets/BookingForm-PhiF45DA.js", "/assets/Header-BHWE0zLt.js", "/assets/Icon-cdn0c84e.js"], "css": ["/assets/BookingForm-DpsRipQV.css#"], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "health-en": { "id": "health-en", "parentId": "root", "path": "health", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/health-BEnLinff.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-CsFBVSUq.js", "/assets/Header-BHWE0zLt.js", "/assets/Icon-cdn0c84e.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "health-de": { "id": "health-de", "parentId": "root", "path": "de/health", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/health-BEnLinff.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-CsFBVSUq.js", "/assets/Header-BHWE0zLt.js", "/assets/Icon-cdn0c84e.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "health-fr": { "id": "health-fr", "parentId": "root", "path": "fr/health", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/health-BEnLinff.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-CsFBVSUq.js", "/assets/Header-BHWE0zLt.js", "/assets/Icon-cdn0c84e.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "health-tr": { "id": "health-tr", "parentId": "root", "path": "tr/health", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/health-BEnLinff.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-CsFBVSUq.js", "/assets/Header-BHWE0zLt.js", "/assets/Icon-cdn0c84e.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "health-ru": { "id": "health-ru", "parentId": "root", "path": "ru/health", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/health-BEnLinff.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-CsFBVSUq.js", "/assets/Header-BHWE0zLt.js", "/assets/Icon-cdn0c84e.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "health-cs": { "id": "health-cs", "parentId": "root", "path": "cs/health", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/health-BEnLinff.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-CsFBVSUq.js", "/assets/Header-BHWE0zLt.js", "/assets/Icon-cdn0c84e.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "health-uk": { "id": "health-uk", "parentId": "root", "path": "uk/health", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/health-BEnLinff.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-CsFBVSUq.js", "/assets/Header-BHWE0zLt.js", "/assets/Icon-cdn0c84e.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "health-ur": { "id": "health-ur", "parentId": "root", "path": "ur/health", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/health-BEnLinff.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-CsFBVSUq.js", "/assets/Header-BHWE0zLt.js", "/assets/Icon-cdn0c84e.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "clinic-tr": { "id": "clinic-tr", "parentId": "root", "path": "clinic", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/clinic-B8Oq83IL.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-CsFBVSUq.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "transfer-en": { "id": "transfer-en", "parentId": "root", "path": "transfers/:slug", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/transfer-W-ktlefR.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-CsFBVSUq.js", "/assets/BookingForm-PhiF45DA.js", "/assets/StaticPageHeader-DDzAlzLI.js", "/assets/Icon-cdn0c84e.js"], "css": ["/assets/BookingForm-DpsRipQV.css#"], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "transfer-localized": { "id": "transfer-localized", "parentId": "root", "path": ":language/transfers/:slug", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/transfer-W-ktlefR.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-CsFBVSUq.js", "/assets/BookingForm-PhiF45DA.js", "/assets/StaticPageHeader-DDzAlzLI.js", "/assets/Icon-cdn0c84e.js"], "css": ["/assets/BookingForm-DpsRipQV.css#"], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "hotel-de": { "id": "hotel-de", "parentId": "root", "path": "de/hotels/:hotelSlug", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/hotel-XqRCeL1L.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-CsFBVSUq.js", "/assets/BookingForm-PhiF45DA.js", "/assets/StaticPageHeader-DDzAlzLI.js", "/assets/Icon-cdn0c84e.js"], "css": ["/assets/BookingForm-DpsRipQV.css#"], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "legal-imprint-en": { "id": "legal-imprint-en", "parentId": "root", "path": "impressum.html", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/legal-CaWiJlsD.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-CsFBVSUq.js", "/assets/StaticPageHeader-DDzAlzLI.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "legal-privacy-en": { "id": "legal-privacy-en", "parentId": "root", "path": "privacy", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/legal-CaWiJlsD.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-CsFBVSUq.js", "/assets/StaticPageHeader-DDzAlzLI.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "legal-privacy-de": { "id": "legal-privacy-de", "parentId": "root", "path": "de/datenschutz", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/legal-CaWiJlsD.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-CsFBVSUq.js", "/assets/StaticPageHeader-DDzAlzLI.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "legal-imprint-de": { "id": "legal-imprint-de", "parentId": "root", "path": "de/impressum", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/legal-CaWiJlsD.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-CsFBVSUq.js", "/assets/StaticPageHeader-DDzAlzLI.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "legal-privacy-tr": { "id": "legal-privacy-tr", "parentId": "root", "path": "tr/gizlilik", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/legal-CaWiJlsD.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-CsFBVSUq.js", "/assets/StaticPageHeader-DDzAlzLI.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "legal-imprint-tr": { "id": "legal-imprint-tr", "parentId": "root", "path": "tr/kunye", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/legal-CaWiJlsD.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-CsFBVSUq.js", "/assets/StaticPageHeader-DDzAlzLI.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "legal-privacy-ru": { "id": "legal-privacy-ru", "parentId": "root", "path": "ru/privacy", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/legal-CaWiJlsD.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-CsFBVSUq.js", "/assets/StaticPageHeader-DDzAlzLI.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "legal-imprint-ru": { "id": "legal-imprint-ru", "parentId": "root", "path": "ru/impressum", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/legal-CaWiJlsD.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-CsFBVSUq.js", "/assets/StaticPageHeader-DDzAlzLI.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "legal-privacy-cs": { "id": "legal-privacy-cs", "parentId": "root", "path": "cs/privacy", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/legal-CaWiJlsD.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-CsFBVSUq.js", "/assets/StaticPageHeader-DDzAlzLI.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "legal-imprint-cs": { "id": "legal-imprint-cs", "parentId": "root", "path": "cs/impressum", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/legal-CaWiJlsD.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-CsFBVSUq.js", "/assets/StaticPageHeader-DDzAlzLI.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "legal-privacy-uk": { "id": "legal-privacy-uk", "parentId": "root", "path": "uk/privacy", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/legal-CaWiJlsD.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-CsFBVSUq.js", "/assets/StaticPageHeader-DDzAlzLI.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "legal-imprint-uk": { "id": "legal-imprint-uk", "parentId": "root", "path": "uk/impressum", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/legal-CaWiJlsD.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-CsFBVSUq.js", "/assets/StaticPageHeader-DDzAlzLI.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "legal-privacy-ur": { "id": "legal-privacy-ur", "parentId": "root", "path": "ur/privacy", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/legal-CaWiJlsD.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-CsFBVSUq.js", "/assets/StaticPageHeader-DDzAlzLI.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "legal-imprint-ur": { "id": "legal-imprint-ur", "parentId": "root", "path": "ur/impressum", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/legal-CaWiJlsD.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-CsFBVSUq.js", "/assets/StaticPageHeader-DDzAlzLI.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 } }, "url": "/assets/manifest-a5a52d1a.js", "version": "a5a52d1a", "sri": void 0 };
+const serverManifest = { "entry": { "module": "/assets/entry.client-BD2P1iGF.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/errorBoundaries-Y42zlZbV.js"], "css": [] }, "routes": { "root": { "id": "root", "parentId": void 0, "path": "", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/root-DPJGM9wT.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/errorBoundaries-Y42zlZbV.js", "/assets/Icon-cdn0c84e.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "home-en": { "id": "home-en", "parentId": "root", "path": void 0, "index": true, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/home-kzJEESHl.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-CsFBVSUq.js", "/assets/BookingForm-CRxcRmrS.js", "/assets/Header-BHWE0zLt.js", "/assets/Icon-cdn0c84e.js"], "css": ["/assets/BookingForm-DpsRipQV.css#"], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "home-de": { "id": "home-de", "parentId": "root", "path": "de", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/home-kzJEESHl.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-CsFBVSUq.js", "/assets/BookingForm-CRxcRmrS.js", "/assets/Header-BHWE0zLt.js", "/assets/Icon-cdn0c84e.js"], "css": ["/assets/BookingForm-DpsRipQV.css#"], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "home-fr": { "id": "home-fr", "parentId": "root", "path": "fr", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/home-kzJEESHl.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-CsFBVSUq.js", "/assets/BookingForm-CRxcRmrS.js", "/assets/Header-BHWE0zLt.js", "/assets/Icon-cdn0c84e.js"], "css": ["/assets/BookingForm-DpsRipQV.css#"], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "home-tr": { "id": "home-tr", "parentId": "root", "path": "tr", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/home-kzJEESHl.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-CsFBVSUq.js", "/assets/BookingForm-CRxcRmrS.js", "/assets/Header-BHWE0zLt.js", "/assets/Icon-cdn0c84e.js"], "css": ["/assets/BookingForm-DpsRipQV.css#"], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "home-ru": { "id": "home-ru", "parentId": "root", "path": "ru", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/home-kzJEESHl.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-CsFBVSUq.js", "/assets/BookingForm-CRxcRmrS.js", "/assets/Header-BHWE0zLt.js", "/assets/Icon-cdn0c84e.js"], "css": ["/assets/BookingForm-DpsRipQV.css#"], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "home-cs": { "id": "home-cs", "parentId": "root", "path": "cs", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/home-kzJEESHl.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-CsFBVSUq.js", "/assets/BookingForm-CRxcRmrS.js", "/assets/Header-BHWE0zLt.js", "/assets/Icon-cdn0c84e.js"], "css": ["/assets/BookingForm-DpsRipQV.css#"], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "home-uk": { "id": "home-uk", "parentId": "root", "path": "uk", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/home-kzJEESHl.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-CsFBVSUq.js", "/assets/BookingForm-CRxcRmrS.js", "/assets/Header-BHWE0zLt.js", "/assets/Icon-cdn0c84e.js"], "css": ["/assets/BookingForm-DpsRipQV.css#"], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "home-ur": { "id": "home-ur", "parentId": "root", "path": "ur", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/home-kzJEESHl.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-CsFBVSUq.js", "/assets/BookingForm-CRxcRmrS.js", "/assets/Header-BHWE0zLt.js", "/assets/Icon-cdn0c84e.js"], "css": ["/assets/BookingForm-DpsRipQV.css#"], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "health-en": { "id": "health-en", "parentId": "root", "path": "health", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/health-BEnLinff.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-CsFBVSUq.js", "/assets/Header-BHWE0zLt.js", "/assets/Icon-cdn0c84e.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "health-de": { "id": "health-de", "parentId": "root", "path": "de/health", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/health-BEnLinff.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-CsFBVSUq.js", "/assets/Header-BHWE0zLt.js", "/assets/Icon-cdn0c84e.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "health-fr": { "id": "health-fr", "parentId": "root", "path": "fr/health", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/health-BEnLinff.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-CsFBVSUq.js", "/assets/Header-BHWE0zLt.js", "/assets/Icon-cdn0c84e.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "health-tr": { "id": "health-tr", "parentId": "root", "path": "tr/health", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/health-BEnLinff.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-CsFBVSUq.js", "/assets/Header-BHWE0zLt.js", "/assets/Icon-cdn0c84e.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "health-ru": { "id": "health-ru", "parentId": "root", "path": "ru/health", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/health-BEnLinff.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-CsFBVSUq.js", "/assets/Header-BHWE0zLt.js", "/assets/Icon-cdn0c84e.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "health-cs": { "id": "health-cs", "parentId": "root", "path": "cs/health", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/health-BEnLinff.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-CsFBVSUq.js", "/assets/Header-BHWE0zLt.js", "/assets/Icon-cdn0c84e.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "health-uk": { "id": "health-uk", "parentId": "root", "path": "uk/health", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/health-BEnLinff.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-CsFBVSUq.js", "/assets/Header-BHWE0zLt.js", "/assets/Icon-cdn0c84e.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "health-ur": { "id": "health-ur", "parentId": "root", "path": "ur/health", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/health-BEnLinff.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-CsFBVSUq.js", "/assets/Header-BHWE0zLt.js", "/assets/Icon-cdn0c84e.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "clinic-tr": { "id": "clinic-tr", "parentId": "root", "path": "clinic", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/clinic-B8Oq83IL.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-CsFBVSUq.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "transfer-en": { "id": "transfer-en", "parentId": "root", "path": "transfers/:slug", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/transfer-DxZA2c_5.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-CsFBVSUq.js", "/assets/BookingForm-CRxcRmrS.js", "/assets/StaticPageHeader-DDzAlzLI.js", "/assets/Icon-cdn0c84e.js"], "css": ["/assets/BookingForm-DpsRipQV.css#"], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "transfer-localized": { "id": "transfer-localized", "parentId": "root", "path": ":language/transfers/:slug", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/transfer-DxZA2c_5.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-CsFBVSUq.js", "/assets/BookingForm-CRxcRmrS.js", "/assets/StaticPageHeader-DDzAlzLI.js", "/assets/Icon-cdn0c84e.js"], "css": ["/assets/BookingForm-DpsRipQV.css#"], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "hotel-de": { "id": "hotel-de", "parentId": "root", "path": "de/hotels/:hotelSlug", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/hotel-CC84-MsQ.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-CsFBVSUq.js", "/assets/BookingForm-CRxcRmrS.js", "/assets/StaticPageHeader-DDzAlzLI.js", "/assets/Icon-cdn0c84e.js"], "css": ["/assets/BookingForm-DpsRipQV.css#"], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "legal-imprint-en": { "id": "legal-imprint-en", "parentId": "root", "path": "impressum.html", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/legal-CaWiJlsD.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-CsFBVSUq.js", "/assets/StaticPageHeader-DDzAlzLI.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "legal-privacy-en": { "id": "legal-privacy-en", "parentId": "root", "path": "privacy", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/legal-CaWiJlsD.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-CsFBVSUq.js", "/assets/StaticPageHeader-DDzAlzLI.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "legal-privacy-de": { "id": "legal-privacy-de", "parentId": "root", "path": "de/datenschutz", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/legal-CaWiJlsD.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-CsFBVSUq.js", "/assets/StaticPageHeader-DDzAlzLI.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "legal-imprint-de": { "id": "legal-imprint-de", "parentId": "root", "path": "de/impressum", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/legal-CaWiJlsD.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-CsFBVSUq.js", "/assets/StaticPageHeader-DDzAlzLI.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "legal-privacy-tr": { "id": "legal-privacy-tr", "parentId": "root", "path": "tr/gizlilik", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/legal-CaWiJlsD.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-CsFBVSUq.js", "/assets/StaticPageHeader-DDzAlzLI.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "legal-imprint-tr": { "id": "legal-imprint-tr", "parentId": "root", "path": "tr/kunye", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/legal-CaWiJlsD.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-CsFBVSUq.js", "/assets/StaticPageHeader-DDzAlzLI.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "legal-privacy-ru": { "id": "legal-privacy-ru", "parentId": "root", "path": "ru/privacy", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/legal-CaWiJlsD.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-CsFBVSUq.js", "/assets/StaticPageHeader-DDzAlzLI.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "legal-imprint-ru": { "id": "legal-imprint-ru", "parentId": "root", "path": "ru/impressum", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/legal-CaWiJlsD.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-CsFBVSUq.js", "/assets/StaticPageHeader-DDzAlzLI.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "legal-privacy-cs": { "id": "legal-privacy-cs", "parentId": "root", "path": "cs/privacy", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/legal-CaWiJlsD.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-CsFBVSUq.js", "/assets/StaticPageHeader-DDzAlzLI.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "legal-imprint-cs": { "id": "legal-imprint-cs", "parentId": "root", "path": "cs/impressum", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/legal-CaWiJlsD.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-CsFBVSUq.js", "/assets/StaticPageHeader-DDzAlzLI.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "legal-privacy-uk": { "id": "legal-privacy-uk", "parentId": "root", "path": "uk/privacy", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/legal-CaWiJlsD.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-CsFBVSUq.js", "/assets/StaticPageHeader-DDzAlzLI.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "legal-imprint-uk": { "id": "legal-imprint-uk", "parentId": "root", "path": "uk/impressum", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/legal-CaWiJlsD.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-CsFBVSUq.js", "/assets/StaticPageHeader-DDzAlzLI.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "legal-privacy-ur": { "id": "legal-privacy-ur", "parentId": "root", "path": "ur/privacy", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/legal-CaWiJlsD.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-CsFBVSUq.js", "/assets/StaticPageHeader-DDzAlzLI.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "legal-imprint-ur": { "id": "legal-imprint-ur", "parentId": "root", "path": "ur/impressum", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/legal-CaWiJlsD.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-CsFBVSUq.js", "/assets/StaticPageHeader-DDzAlzLI.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 } }, "url": "/assets/manifest-af532765.js", "version": "af532765", "sri": void 0 };
 const assetsBuildDirectory = "build/public-react/client";
 const basename = "/";
 const future = { "unstable_enableNodeReadableStream": false, "unstable_optimizeDeps": false };
