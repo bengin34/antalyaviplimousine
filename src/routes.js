@@ -12,7 +12,7 @@ export const routeCatalog = {
     durationMin: 25,
     duration: { en: "20–30 minutes", de: "20–30 Minuten", tr: "20–30 dakika", ru: "20–30 минут", cs: "20–30 minut", uk: "20–30 хвилин", ur: "20–30 منٹ" },
     originalPrices: { vito: 40, sprinter: 65 },
-    prices: { vito: 35, sprinter: 55 },
+    prices: { vito: 35, sprinter: 60 },
   },
   belek: {
     names: { en: "Belek", de: "Belek", tr: "Belek", ru: "Белек", cs: "Belek", uk: "Белек", ur: "بیلک" },
