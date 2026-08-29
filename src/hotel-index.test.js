@@ -44,18 +44,22 @@ describe("static hotel index", () => {
     }
   });
 
-  test("every German landing-page hotel is indexed under the same region", () => {
+  test("every German landing-page hotel is indexed under a region that page can price", () => {
     for (const hotel of Object.values(hotelCatalog)) {
-      const indexed = indexedHotelBySlug(hotel.slug);
+      // The catalogue keeps its own hand-written slugs, so match on the name.
+      const indexed = indexedHotelBySlug(hotelSlug(hotel.name));
       expect(indexed, `${hotel.name} is missing from the search index`).not.toBeNull();
-      expect(indexed.region).toBe(hotel.regionSlug);
       expect(indexed.name).toBe(hotel.name);
+      // The index may price a hotel by a sub-region of the page it is presented
+      // on — an Alanya hotel is quoted at its belde's price, not the umbrella.
+      const landing = routeCatalog[indexed.region].landingRoute ?? indexed.region;
+      expect(landing, `${hotel.name} is priced outside its landing region`).toBe(hotel.regionSlug);
     }
   });
 
   test("only hand-checked landing-page hotels count as verified", () => {
-    const verified = hotelIndex.filter((hotel) => hotel.status === "verified").map((hotel) => hotel.slug);
-    expect(verified.sort()).toEqual(Object.keys(hotelCatalog).sort());
+    const verified = hotelIndex.filter((hotel) => hotel.status === "verified").map((hotel) => hotel.name).sort();
+    expect(verified).toEqual(Object.values(hotelCatalog).map((hotel) => hotel.name).sort());
     expect(hotelIndex.some((hotel) => hotel.status === "draft")).toBe(true);
   });
 

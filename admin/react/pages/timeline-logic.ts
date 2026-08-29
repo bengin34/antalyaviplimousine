@@ -36,7 +36,7 @@ export function clearTimelineCache() {
   try { localStorage.removeItem(TODAY_CACHE_KEY) } catch { /* storage is optional */ }
 }
 
-export function expandRoundTrips(bookings: Booking[], selectedTab: 'future' | 'past' | 'cancelled'): TimelineCard[] {
+export function expandRoundTrips(bookings: Booking[], mode: 'timeline' | 'cancelled' = 'timeline'): TimelineCard[] {
   const cards: TimelineCard[] = []
   for (const booking of bookings) {
     if (booking.trip_type === 'daily_chauffeur' && booking.service_end_date) {
@@ -93,7 +93,7 @@ export function expandRoundTrips(bookings: Booking[], selectedTab: 'future' | 'p
     }
   }
 
-  const descending = selectedTab !== 'future'
+  const descending = mode === 'cancelled'
   return cards.sort((left, right) => {
     if (left._displayDate !== right._displayDate) {
       return descending

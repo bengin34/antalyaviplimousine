@@ -198,15 +198,15 @@ const routeCatalog = {
     names: { en: "Antalya City", de: "Antalya Stadt", tr: "Antalya şehir merkezi", ru: "центр Антальи", cs: "centrum Antalye", uk: "Центр Анталії", ur: "انطالیہ شہر" },
     distanceKm: 15,
     durationMin: 25,
-    duration: { en: "20–30 minutes", de: "20–30 Minuten", tr: "20–30 dakika", ru: "20–30 минут", cs: "20–30 minut", uk: "20–30 хвилин", ur: "20–30 منٹ" },
+    duration: { en: "20–30 minutes", de: "20–30 Minuten", tr: "20–30 dakika", ru: "20–30 минут", cs: "20–30 minut", uk: "20–30 хвилин", ur: "20–30 منٹ", pl: "20–30 minut", nl: "20–30 minuten", sv: "20–30 minuter", ar: "20–30 دقيقة" },
     originalPrices: { vito: 40, sprinter: 65 },
-    prices: { vito: 35, sprinter: 55 }
+    prices: { vito: 35, sprinter: 60 }
   },
   belek: {
     names: { en: "Belek", de: "Belek", tr: "Belek", ru: "Белек", cs: "Belek", uk: "Белек", ur: "بیلک" },
     distanceKm: 45,
     durationMin: 35,
-    duration: { en: "35–40 minutes", de: "35–40 Minuten", tr: "35–40 dakika", ru: "35–40 минут", cs: "35–40 minut", uk: "35–40 хвилин", ur: "35–40 منٹ" },
+    duration: { en: "35–40 minutes", de: "35–40 Minuten", tr: "35–40 dakika", ru: "35–40 минут", cs: "35–40 minut", uk: "35–40 хвилин", ur: "35–40 منٹ", pl: "35–40 minut", nl: "35–40 minuten", sv: "35–40 minuter", ar: "35–40 دقيقة" },
     originalPrices: { vito: 50, sprinter: 85 },
     prices: { vito: 40, sprinter: 70 }
   },
@@ -214,7 +214,7 @@ const routeCatalog = {
     names: { en: "Side", de: "Side", tr: "Side", ru: "Сиде", cs: "Side", uk: "Сіде", ur: "سیدے" },
     distanceKm: 65,
     durationMin: 55,
-    duration: { en: "55–65 minutes", de: "55–65 Minuten", tr: "55–65 dakika", ru: "55–65 минут", cs: "55–65 minut", uk: "55–65 хвилин", ur: "55–65 منٹ" },
+    duration: { en: "55–65 minutes", de: "55–65 Minuten", tr: "55–65 dakika", ru: "55–65 минут", cs: "55–65 minut", uk: "55–65 хвилин", ur: "55–65 منٹ", pl: "55–65 minut", nl: "55–65 minuten", sv: "55–65 minuter", ar: "55–65 دقيقة" },
     originalPrices: { vito: 60, sprinter: 100 },
     prices: { vito: 50, sprinter: 85 }
   },
@@ -222,7 +222,7 @@ const routeCatalog = {
     names: { en: "Kemer", de: "Kemer", tr: "Kemer", ru: "Кемер", cs: "Kemer", uk: "Кемер", ur: "کیمر" },
     distanceKm: 50,
     durationMin: 60,
-    duration: { en: "40–50 minutes", de: "40–50 Minuten", tr: "40–50 dakika", ru: "40–50 минут", cs: "40–50 minut", uk: "40–50 хвилин", ur: "40–50 منٹ" },
+    duration: { en: "40–50 minutes", de: "40–50 Minuten", tr: "40–50 dakika", ru: "40–50 минут", cs: "40–50 minut", uk: "40–50 хвилин", ur: "40–50 منٹ", pl: "40–50 minut", nl: "40–50 minuten", sv: "40–50 minuter", ar: "40–50 دقيقة" },
     originalPrices: { vito: 65, sprinter: 110 },
     prices: { vito: 55, sprinter: 90 }
   },
@@ -230,15 +230,77 @@ const routeCatalog = {
     names: { en: "Alanya", de: "Alanya", tr: "Alanya", ru: "Аланью", cs: "Alanya", uk: "Аланья", ur: "الانیا" },
     distanceKm: 125,
     durationMin: 120,
-    duration: { en: "110–130 minutes", de: "110–130 Minuten", tr: "110–130 dakika", ru: "110–130 минут", cs: "110–130 minut", uk: "110–130 хвилин", ur: "110–130 منٹ" },
+    duration: { en: "110–130 minutes", de: "110–130 Minuten", tr: "110–130 dakika", ru: "110–130 минут", cs: "110–130 minut", uk: "110–130 хвилин", ur: "110–130 منٹ", pl: "110–130 minut", nl: "110–130 minuten", sv: "110–130 minuter", ar: "110–130 دقيقة" },
     originalPrices: { vito: 110, sprinter: 170 },
     prices: { vito: 95, sprinter: 145 }
+  },
+  // Alanya sub-regions. The single €95 Alanya tariff covered everything from
+  // Okurcalar to Demirtaş — a 65 km spread — so ALANYA_PRICING_PLAN.md splits
+  // it by distance. `landingRoute` names the marketed page these belong to and
+  // keeps them out of the route pages and the sitemap: they are prices the
+  // hotel index resolves to, not destinations anyone searches for. A hotel in
+  // one of them is still presented under Alanya, and priced by its own
+  // sub-region. `alanya` itself stays listed, keeps its
+  // landing page, and remains the fallback for a guest who cannot place their
+  // own hotel — the dearest of the six, so an unknown hotel is never undersold.
+  //
+  // Distances and durations here are estimates and feed the profit/loss cost
+  // model, not the customer's price. Confirm them against real journeys.
+  alanya_bati: {
+    names: { en: "West Alanya", de: "West-Alanya", tr: "Batı Alanya", ru: "Западную Аланью", cs: "Západní Alanya", uk: "Західна Аланія", ur: "مغربی الانیا" },
+    distanceKm: 105,
+    durationMin: 100,
+    duration: { en: "90–110 minutes", de: "90–110 Minuten", tr: "90–110 dakika", ru: "90–110 минут", cs: "90–110 minut", uk: "90–110 хвилин", ur: "90–110 منٹ" },
+    originalPrices: { vito: 80, sprinter: 105 },
+    prices: { vito: 70, sprinter: 90 },
+    landingRoute: "alanya"
+    // covers Okurcalar, İncekum, Avsallar, Türkler, Payallar, Konaklı
+  },
+  alanya_merkez: {
+    names: { en: "Alanya Centre", de: "Alanya Zentrum", tr: "Alanya merkez", ru: "центр Аланьи", cs: "centrum Alanye", uk: "Центр Аланії", ur: "الانیا شہر" },
+    distanceKm: 125,
+    durationMin: 120,
+    duration: { en: "110–130 minutes", de: "110–130 Minuten", tr: "110–130 dakika", ru: "110–130 минут", cs: "110–130 minut", uk: "110–130 хвилин", ur: "110–130 منٹ" },
+    originalPrices: { vito: 85, sprinter: 110 },
+    prices: { vito: 75, sprinter: 95 },
+    landingRoute: "alanya"
+    // covers Merkez, Kleopatra, Oba, Tosmur
+  },
+  alanya_dogu: {
+    names: { en: "East Alanya", de: "Ost-Alanya", tr: "Doğu Alanya", ru: "Восточную Аланью", cs: "Východní Alanya", uk: "Східна Аланія", ur: "مشرقی الانیا" },
+    distanceKm: 138,
+    durationMin: 130,
+    duration: { en: "120–140 minutes", de: "120–140 Minuten", tr: "120–140 dakika", ru: "120–140 минут", cs: "120–140 minut", uk: "120–140 хвилин", ur: "120–140 منٹ" },
+    originalPrices: { vito: 90, sprinter: 120 },
+    prices: { vito: 80, sprinter: 105 },
+    landingRoute: "alanya"
+    // covers Kestel, Mahmutlar
+  },
+  kargicak: {
+    names: { en: "Kargıcak", de: "Kargıcak", tr: "Kargıcak", ru: "Каргыджак", cs: "Kargıcak", uk: "Каргиджак", ur: "کارگیجاک" },
+    distanceKm: 150,
+    durationMin: 145,
+    duration: { en: "135–155 minutes", de: "135–155 Minuten", tr: "135–155 dakika", ru: "135–155 минут", cs: "135–155 minut", uk: "135–155 хвилин", ur: "135–155 منٹ" },
+    originalPrices: { vito: 105, sprinter: 135 },
+    prices: { vito: 90, sprinter: 115 },
+    landingRoute: "alanya"
+    // covers Kargıcak
+  },
+  demirtas: {
+    names: { en: "Demirtaş", de: "Demirtaş", tr: "Demirtaş", ru: "Демирташ", cs: "Demirtaş", uk: "Демірташ", ur: "دیمرتاش" },
+    distanceKm: 170,
+    durationMin: 165,
+    duration: { en: "155–175 minutes", de: "155–175 Minuten", tr: "155–175 dakika", ru: "155–175 минут", cs: "155–175 minut", uk: "155–175 хвилин", ur: "155–175 منٹ" },
+    originalPrices: { vito: 115, sprinter: 150 },
+    prices: { vito: 100, sprinter: 130 },
+    landingRoute: "alanya"
+    // covers Demirtaş
   },
   bogazkent: {
     names: { en: "Boğazkent", de: "Boğazkent", tr: "Boğazkent", ru: "Богазкент", cs: "Boğazkent", uk: "Богазкент", ur: "بوازکینت" },
     distanceKm: 48,
     durationMin: 45,
-    duration: { en: "40–45 minutes", de: "40–45 Minuten", tr: "40–45 dakika", ru: "40–45 минут", cs: "40–45 minut", uk: "40–45 хвилин", ur: "40–45 منٹ" },
+    duration: { en: "40–45 minutes", de: "40–45 Minuten", tr: "40–45 dakika", ru: "40–45 минут", cs: "40–45 minut", uk: "40–45 хвилин", ur: "40–45 منٹ", pl: "40–45 minut", nl: "40–45 minuten", sv: "40–45 minuter", ar: "40–45 دقيقة" },
     originalPrices: { vito: 55, sprinter: 90 },
     prices: { vito: 45, sprinter: 80 }
   },
@@ -246,7 +308,7 @@ const routeCatalog = {
     names: { en: "Manavgat", de: "Manavgat", tr: "Manavgat", ru: "Манавгат", cs: "Manavgat", uk: "Манавгат", ur: "مانوگات" },
     distanceKm: 75,
     durationMin: 65,
-    duration: { en: "55–65 minutes", de: "55–65 Minuten", tr: "55–65 dakika", ru: "55–65 минут", cs: "55–65 minut", uk: "55–65 хвилин", ur: "55–65 منٹ" },
+    duration: { en: "55–65 minutes", de: "55–65 Minuten", tr: "55–65 dakika", ru: "55–65 минут", cs: "55–65 minut", uk: "55–65 хвилин", ur: "55–65 منٹ", pl: "55–65 minut", nl: "55–65 minuten", sv: "55–65 minuter", ar: "55–65 دقيقة" },
     originalPrices: { vito: 60, sprinter: 100 },
     prices: { vito: 50, sprinter: 85 }
   },
@@ -254,7 +316,7 @@ const routeCatalog = {
     names: { en: "Manavgat/Kızılağaç", de: "Manavgat/Kızılağaç", tr: "Manavgat/Kızılağaç", ru: "Манавгат/Кызылагач", cs: "Manavgat/Kızılağaç", uk: "Манавгат/Кизилагач", ur: "مانوگات/قیزیلاغاچ" },
     distanceKm: 85,
     durationMin: 75,
-    duration: { en: "70–80 minutes", de: "70–80 Minuten", tr: "70–80 dakika", ru: "70–80 минут", cs: "70–80 minut", uk: "70–80 хвилин", ur: "70–80 منٹ" },
+    duration: { en: "70–80 minutes", de: "70–80 Minuten", tr: "70–80 dakika", ru: "70–80 минут", cs: "70–80 minut", uk: "70–80 хвилин", ur: "70–80 منٹ", pl: "70–80 minut", nl: "70–80 minuten", sv: "70–80 minuter", ar: "70–80 دقيقة" },
     originalPrices: { vito: 70, sprinter: 115 },
     prices: { vito: 60, sprinter: 95 }
   },
@@ -262,7 +324,7 @@ const routeCatalog = {
     names: { en: "Tekirova", de: "Tekirova", tr: "Tekirova", ru: "Текирову", cs: "Tekirova", uk: "Текірова", ur: "ٹیکیروا" },
     distanceKm: 75,
     durationMin: 75,
-    duration: { en: "75–90 minutes", de: "75–90 Minuten", tr: "75–90 dakika", ru: "75–90 минут", cs: "75–90 minut", uk: "75–90 хвилин", ur: "75–90 منٹ" },
+    duration: { en: "75–90 minutes", de: "75–90 Minuten", tr: "75–90 dakika", ru: "75–90 минут", cs: "75–90 minut", uk: "75–90 хвилин", ur: "75–90 منٹ", pl: "75–90 minut", nl: "75–90 minuten", sv: "75–90 minuter", ar: "75–90 دقيقة" },
     originalPrices: { vito: 90, sprinter: 135 },
     prices: { vito: 75, sprinter: 115 }
   },
@@ -270,7 +332,7 @@ const routeCatalog = {
     names: { en: "Bodrum", de: "Bodrum", tr: "Bodrum", ru: "Бодрум", cs: "Bodrum", uk: "Бодрум", ur: "بودروم" },
     distanceKm: 380,
     durationMin: 300,
-    duration: { en: "5–6 hours", de: "5–6 Stunden", tr: "5–6 saat", ru: "5–6 часов", cs: "5–6 hodin", uk: "5–6 годин", ur: "5–6 گھنٹے" },
+    duration: { en: "5–6 hours", de: "5–6 Stunden", tr: "5–6 saat", ru: "5–6 часов", cs: "5–6 hodin", uk: "5–6 годин", ur: "5–6 گھنٹے", pl: "5–6 godzin", nl: "5–6 uur", sv: "5–6 timmar", ar: "5–6 ساعات" },
     originalPrices: { vito: 325, sprinter: 385 },
     prices: { vito: 280, sprinter: 330 }
   },
@@ -278,7 +340,7 @@ const routeCatalog = {
     names: { en: "Dalaman", de: "Dalaman", tr: "Dalaman", ru: "Даламан", cs: "Dalaman", uk: "Даламан", ur: "دالامان" },
     distanceKm: 235,
     durationMin: 210,
-    duration: { en: "3–3.5 hours", de: "3–3,5 Stunden", tr: "3–3,5 saat", ru: "3–3,5 часа", cs: "3–3,5 hodiny", uk: "3–3,5 години", ur: "3–3.5 گھنٹے" },
+    duration: { en: "3–3.5 hours", de: "3–3,5 Stunden", tr: "3–3,5 saat", ru: "3–3,5 часа", cs: "3–3,5 hodiny", uk: "3–3,5 години", ur: "3–3.5 گھنٹے", pl: "3–3.5 godzin", nl: "3–3.5 uur", sv: "3–3.5 timmar", ar: "3–3.5 ساعات" },
     originalPrices: { vito: 210, sprinter: 310 },
     prices: { vito: 180, sprinter: 265 }
   },
@@ -286,7 +348,7 @@ const routeCatalog = {
     names: { en: "Fethiye", de: "Fethiye", tr: "Fethiye", ru: "Фетхие", cs: "Fethiye", uk: "Фетхіє", ur: "فتحیہ" },
     distanceKm: 205,
     durationMin: 180,
-    duration: { en: "2.5–3 hours", de: "2,5–3 Stunden", tr: "2,5–3 saat", ru: "2,5–3 часа", cs: "2,5–3 hodiny", uk: "2,5–3 години", ur: "2.5–3 گھنٹے" },
+    duration: { en: "2.5–3 hours", de: "2,5–3 Stunden", tr: "2,5–3 saat", ru: "2,5–3 часа", cs: "2,5–3 hodiny", uk: "2,5–3 години", ur: "2.5–3 گھنٹے", pl: "2.5–3 godzin", nl: "2.5–3 uur", sv: "2.5–3 timmar", ar: "2.5–3 ساعات" },
     originalPrices: { vito: 210, sprinter: 310 },
     prices: { vito: 180, sprinter: 265 }
   },
@@ -294,7 +356,7 @@ const routeCatalog = {
     names: { en: "Pamukkale", de: "Pamukkale", tr: "Pamukkale", ru: "Памуккале", cs: "Pamukkale", uk: "Памуккале", ur: "پاموکالے" },
     distanceKm: 245,
     durationMin: 180,
-    duration: { en: "3–3.5 hours", de: "3–3,5 Stunden", tr: "3–3,5 saat", ru: "3–3,5 часа", cs: "3–3,5 hodiny", uk: "3–3,5 години", ur: "3–3.5 گھنٹے" },
+    duration: { en: "3–3.5 hours", de: "3–3,5 Stunden", tr: "3–3,5 saat", ru: "3–3,5 часа", cs: "3–3,5 hodiny", uk: "3–3,5 години", ur: "3–3.5 گھنٹے", pl: "3–3.5 godzin", nl: "3–3.5 uur", sv: "3–3.5 timmar", ar: "3–3.5 ساعات" },
     originalPrices: { vito: 290, sprinter: 350 },
     prices: { vito: 250, sprinter: 300 }
   },
@@ -302,12 +364,16 @@ const routeCatalog = {
     names: { en: "Cappadocia", de: "Kappadokien", tr: "Kapadokya", ru: "Каппадокию", cs: "Kappadokie", uk: "Каппадокія", ur: "کاپاڈوکیا" },
     distanceKm: 540,
     durationMin: 480,
-    duration: { en: "7–8 hours", de: "7–8 Stunden", tr: "7–8 saat", ru: "7–8 часов", cs: "7–8 hodin", uk: "7–8 годин", ur: "7–8 گھنٹے" },
+    duration: { en: "7–8 hours", de: "7–8 Stunden", tr: "7–8 saat", ru: "7–8 часов", cs: "7–8 hodin", uk: "7–8 годин", ur: "7–8 گھنٹے", pl: "7–8 godzin", nl: "7–8 uur", sv: "7–8 timmar", ar: "7–8 ساعات" },
     originalPrices: { vito: 350, sprinter: 410 },
     prices: { vito: 300, sprinter: 350 }
   }
 };
 const publicRouteSlugs = Object.freeze(
+  /** @type {Array<keyof typeof routeCatalog>} */
+  Object.keys(routeCatalog).filter((slug) => !routeCatalog[slug].landingRoute)
+);
+const bookableRouteSlugs = Object.freeze(
   /** @type {Array<keyof typeof routeCatalog>} */
   Object.keys(routeCatalog)
 );
@@ -323,7 +389,7 @@ Object.freeze({
 });
 const routeData = Object.freeze(
   Object.fromEntries(
-    Object.entries(routeCatalog).map(([slug, route]) => [slug, {
+    Object.entries(routeCatalog).filter(([, route]) => !route.landingRoute).map(([slug, route]) => [slug, {
       name: route.names.en,
       originalPrices: route.originalPrices,
       prices: route.prices
@@ -336,6 +402,11 @@ const regionalConnections = [
   ["side", "manavgat", 10],
   ["manavgat", "kizilagac", 15],
   ["kizilagac", "alanya", 45],
+  ["kizilagac", "alanya_bati", 20],
+  ["alanya_bati", "alanya_merkez", 20],
+  ["alanya_merkez", "alanya_dogu", 13],
+  ["alanya_dogu", "kargicak", 12],
+  ["kargicak", "demirtas", 20],
   ["antalya", "kemer", 45],
   ["kemer", "tekirova", 20],
   ["tekirova", "fethiye", 155],
@@ -397,7 +468,7 @@ const languageOptions = [
   { code: "ko", flag: "🇰🇷", label: "한국어" }
 ];
 const supportedLanguages = new Set(languageOptions.map(({ code }) => code));
-const indexableLanguages$1 = /* @__PURE__ */ new Set(["en", "de", "tr", "ru", "cs", "uk", "ur"]);
+const indexableLanguages$1 = /* @__PURE__ */ new Set(["en", "de", "tr", "ru", "cs", "uk", "ur", "fr", "pl", "nl", "ar", "sv"]);
 const legacyResources = translationData.resources;
 const videoResources = videoTranslationData.resources;
 const rawResources = Object.fromEntries(
@@ -430,7 +501,7 @@ const browserLanguage = () => {
 function localizedPath$1(pathname, language) {
   if (!indexableLanguages$1.has(language)) return null;
   const normalized = pathname.endsWith("/") || pathname.endsWith(".html") ? pathname : `${pathname}/`;
-  const localizedMatch = normalized.match(/^\/(de|tr|ru|cs|uk|ur)(\/.*)?$/);
+  const localizedMatch = normalized.match(/^\/(de|tr|ru|cs|uk|ur|fr|pl|nl|ar|sv)(\/.*)?$/);
   const basePath = localizedMatch ? localizedMatch[2] || "/" : normalized;
   if (basePath !== "/" && basePath !== "/health/" && !basePath.startsWith("/transfers/")) return null;
   return `${language === "en" ? "" : `/${language}`}${basePath}`;
@@ -581,16 +652,37 @@ const __vite_glob_1_3 = "/assets/customer-04-vbgO1zLM.jpg";
 const __vite_glob_1_4 = "/assets/customer-05-DX0jqmDH.jpg";
 const __vite_glob_1_5 = "/assets/customer-06-vV8lC0SV.jpg";
 const hotelCatalog = Object.freeze({
+  // Belek
   "rixos-premium-belek": { slug: "rixos-premium-belek", name: "Rixos Premium Belek", regionSlug: "belek", locationCopy: "Das Resort liegt am Strand von Belek, zwischen Kadriye und dem Belek Beach Park." },
   "the-land-of-legends": { slug: "the-land-of-legends", name: "The Land of Legends", regionSlug: "belek", locationCopy: "Das Hotel liegt in Kadriye, im Belek-Gebiet nahe dem Freizeit- und Einkaufsareal." },
   "maxx-royal-belek": { slug: "maxx-royal-belek", name: "Maxx Royal Belek", regionSlug: "belek", locationCopy: "Das Resort befindet sich an der Küste von Belek, in der Hotelzone südlich des Ortszentrums." },
   "regnum-carya": { slug: "regnum-carya", name: "Regnum Carya", regionSlug: "belek", locationCopy: "Das Hotel liegt im Bereich Kadriye in Belek, nahe der Golf- und Resortanlagen." },
   "gloria-golf-resort": { slug: "gloria-golf-resort", name: "Gloria Golf Resort", regionSlug: "belek", locationCopy: "Das Resort liegt im Belek-Gebiet bei Serik, in der Nähe der Golfanlagen und der Küste." },
+  "cornelia-diamond-golf-resort": { slug: "cornelia-diamond-golf-resort", name: "Cornelia Diamond Golf Resort & Spa", regionSlug: "belek", locationCopy: "Das Resort liegt in Belek, unmittelbar an einer der renommierten Golfanlagen der Region und nahe der Küste." },
+  "ic-hotels-santai": { slug: "ic-hotels-santai", name: "IC Hotels Santai Family Resort", regionSlug: "belek", locationCopy: "Das Familienresort befindet sich in Belek, südlich der D400 in der Küstenhotelzone nahe Kadriye." },
+  // Side
   "arum-barut-collection": { slug: "arum-barut-collection", name: "Arum Barut Collection", regionSlug: "side", locationCopy: "Das Hotel liegt in Kumköy, einem Strand- und Hotelviertel westlich von Side." },
   "side-star-resort": { slug: "side-star-resort", name: "Side Star Resort", regionSlug: "side", locationCopy: "Das Resort befindet sich in Gündoğdu, im westlichen Hotelgebiet von Side." },
   "royal-dragon-hotel": { slug: "royal-dragon-hotel", name: "Royal Dragon Hotel", regionSlug: "side", locationCopy: "Das Hotel liegt in Evrenseki, einem beliebten Strandviertel westlich der Altstadt von Side." },
   "barut-hemera": { slug: "barut-hemera", name: "Barut Hemera", regionSlug: "side", locationCopy: "Das Resort liegt im Bereich Kumköy, nahe der Strandpromenade von Side." },
-  "voyage-sorgun": { slug: "voyage-sorgun", name: "Voyage Sorgun", regionSlug: "side", locationCopy: "Das Resort liegt in Sorgun, östlich von Side zwischen Pinienwald und Küste." }
+  "voyage-sorgun": { slug: "voyage-sorgun", name: "Voyage Sorgun", regionSlug: "side", locationCopy: "Das Resort liegt in Sorgun, östlich von Side zwischen Pinienwald und Küste." },
+  "sentido-flora-garden": { slug: "sentido-flora-garden", name: "Sentido Flora Garden", regionSlug: "side", locationCopy: "Das Hotel befindet sich in Çolaklı, einem Küstenort westlich von Side mit langen Sandstränden." },
+  "crystal-sunset-luxury-resort": { slug: "crystal-sunset-luxury-resort", name: "Crystal Sunset Luxury Resort & Spa", regionSlug: "side", locationCopy: "Das Resort liegt in Gündoğdu, im westlichen Strandabschnitt des Side-Gebiets." },
+  // Kemer
+  "rixos-premium-kemer": { slug: "rixos-premium-kemer", name: "Rixos Premium Kemer", regionSlug: "kemer", locationCopy: "Das Resort liegt in Göynük, einem Strandort unmittelbar westlich des Ortskerns von Kemer, umgeben von Pinienwäldern." },
+  "maxx-royal-kemer": { slug: "maxx-royal-kemer", name: "Maxx Royal Kemer Resort", regionSlug: "kemer", locationCopy: "Das Resort befindet sich in Kiriş, einem Küstenabschnitt nördlich des Ortskerns von Kemer am Fuß des Taurus-Gebirges." },
+  "orange-county-resort-kemer": { slug: "orange-county-resort-kemer", name: "Orange County Resort Hotel Kemer", regionSlug: "kemer", locationCopy: "Das Hotel liegt in Beldibi, am nördlichen Eingang der Kemerer Küste, nahe der Felsklippen am Mittelmeer." },
+  "paloma-pasha-resort": { slug: "paloma-pasha-resort", name: "Paloma Pasha Resort", regionSlug: "kemer", locationCopy: "Das Resort befindet sich in Göynük, an der Küste zwischen der Strandpromenade und der Bucht westlich von Kemer." },
+  "club-hotel-phaselis-rose": { slug: "club-hotel-phaselis-rose", name: "Club Hotel Phaselis Rose", regionSlug: "kemer", locationCopy: "Das Hotel liegt in Çamyuva, zwischen dem Kemer-Stadtzentrum und der antiken Stätte Phaselis an einer ruhigen Küstenbucht." },
+  // Alanya
+  "utopia-world-hotel": { slug: "utopia-world-hotel", name: "Utopia World Hotel", regionSlug: "alanya", locationCopy: "Das Hotel liegt in Konaklı, einem langen Sandstrandabschnitt westlich des Alanya-Zentrums." },
+  "sentido-gold-island": { slug: "sentido-gold-island", name: "Sentido Gold Island Hotel", regionSlug: "alanya", locationCopy: "Das Resort liegt im Alanya-Zentrum, nahe dem Kleopatra-Strand und dem Alanya-Hafen." },
+  "q-premium-resort": { slug: "q-premium-resort", name: "Q Premium Resort Hotel Alanya", regionSlug: "alanya", locationCopy: "Das Hotel befindet sich in Konaklı, westlich des Alanya-Zentrums, direkt am Sandstrand gelegen." },
+  "kirman-arycanda": { slug: "kirman-arycanda", name: "Kirman Arycanda De Luxe", regionSlug: "alanya", locationCopy: "Das Resort liegt in Konaklı, einem Küstengebiet mit langen Stränden westlich des Alanya-Zentrums." },
+  "delphin-diva": { slug: "delphin-diva", name: "Delphin Diva Premiere", regionSlug: "alanya", locationCopy: "Das Hotel befindet sich in Avsallar, einem ruhigen Strandort westlich von Alanya inmitten von Pinien- und Eukalyptuswäldern." },
+  // Tekirova
+  "rixos-premium-tekirova": { slug: "rixos-premium-tekirova", name: "Rixos Premium Tekirova", regionSlug: "tekirova", locationCopy: "Das Resort befindet sich in Tekirova, am Fuße des Taurus-Gebirges, umgeben von Pinienwäldern und dem türkisblauen Mittelmeer." },
+  "amara-prestige": { slug: "amara-prestige", name: "Amara Prestige Hotel", regionSlug: "tekirova", locationCopy: "Das Hotel liegt in Tekirova, direkt am Mittelmeer zwischen dem Naturschutzgebiet Olympos und der antiken Stätte Phaselis." }
 });
 const hotelBySlug = (slug) => hotelCatalog[slug] ?? null;
 const hotelsForRegion = (regionSlug) => Object.values(hotelCatalog).filter((hotel2) => hotel2.regionSlug === regionSlug);
@@ -632,30 +724,30 @@ const districtRegions = Object.freeze({
   "Çamyuva": "kemer",
   // Tekirova — €75 Vito
   "Tekirova": "tekirova",
-  // Alanya — €95 Vito
-  // Okurcalar is administratively Alanya but sits roughly 30 km short of it,
-  // so it could be argued into Manavgat/Kızılağaç. It stays on the dearer
-  // side, per the rule above. ALANYA_PRICING_PLAN.md would settle it properly
-  // at €65 once the five Alanya sub-regions exist.
-  "Okurcalar": "alanya",
-  "İncekum": "alanya",
-  "Avsallar": "alanya",
-  "Türkler": "alanya",
-  "Payallar": "alanya",
-  "Konaklı": "alanya",
-  "Alanya merkez": "alanya",
-  "Oba": "alanya",
-  "Tosmur": "alanya",
-  "Kestel": "alanya",
-  "Mahmutlar": "alanya",
-  "Kargıcak": "alanya"
+  // Batı Alanya — €70 Vito
+  "Okurcalar": "alanya_bati",
+  "İncekum": "alanya_bati",
+  "Avsallar": "alanya_bati",
+  "Türkler": "alanya_bati",
+  "Payallar": "alanya_bati",
+  "Konaklı": "alanya_bati",
+  // Alanya merkez — €75 Vito
+  "Alanya merkez": "alanya_merkez",
+  "Oba": "alanya_merkez",
+  "Tosmur": "alanya_merkez",
+  // Doğu Alanya — €80 Vito
+  "Kestel": "alanya_dogu",
+  "Mahmutlar": "alanya_dogu",
+  // Kargıcak — €90 Vito
+  "Kargıcak": "kargicak",
+  // Demirtaş — €100 Vito
+  "Demirtaş": "demirtas"
 });
 const seedRows = [
   // --- Antalya city, Lara, Kundu, Konyaaltı -------------------------------
   ["Delphin Imperial Lara", "Lara"],
   ["Delphin Palace", "Lara"],
   ["Delphin BE Grand Resort", "Lara"],
-  ["Delphin Diva Premiere", "Lara"],
   ["Titanic Beach Lara", "Kundu"],
   ["Titanic Mardan Palace", "Kundu", ["Mardan Palace"]],
   ["Concorde De Luxe Resort", "Lara"],
@@ -750,7 +842,7 @@ const seedRows = [
   ["Side Star Elegance", "Side"],
   ["Side Star Beach", "Side"],
   ["Robinson Club Side", "Side"],
-  ["Crystal Sunset Luxury Resort", "Side"],
+  ["Crystal Sunset Luxury Resort & Spa", "Gündoğdu"],
   ["Arum Barut Collection", "Kumköy"],
   ["Barut Hemera", "Kumköy"],
   ["Sunis Kumköy Beach Resort", "Kumköy"],
@@ -811,6 +903,7 @@ const seedRows = [
   ["Aydinbey King's Palace", "Çolaklı"],
   ["Kirman Sidemarin Beach & Spa", "Çolaklı"],
   ["Von Resort Golden Coast", "Çolaklı"],
+  ["Sentido Flora Garden", "Çolaklı"],
   ["Royal Alhambra Palace", "Çolaklı"],
   ["Mary Palace Resort & Spa", "Çolaklı"],
   ["Hane Sun Elite Hotel", "Çolaklı"],
@@ -822,7 +915,6 @@ const seedRows = [
   ["Adalya Ocean Deluxe", "Kızılot"],
   ["Seaden Sea Planet Resort & Spa", "Kızılot"],
   ["Crystal Admiral Resort & Spa", "Kızılot"],
-  ["Flora Garden Beach", "Kızılot"],
   ["Alarcha Hotels & Resort", "Kızılot"],
   ["Osay Magic Garden", "Kızılot"],
   ["Esmeralda Butik Otel", "Kızılot"],
@@ -832,7 +924,8 @@ const seedRows = [
   ["Sultan of Dreams Hotel & Spa", "Kızılağaç"],
   // --- Kemer, Göynük, Beldibi, Kiriş, Çamyuva -----------------------------
   ["Club Med Palmiye", "Kemer"],
-  ["Orange County Resort Hotel Kemer", "Kemer"],
+  ["Club Hotel Phaselis Rose", "Çamyuva", ["Phaselis Rose Hotel"]],
+  ["Orange County Resort Hotel Kemer", "Beldibi"],
   ["Crystal Aura Beach Resort & Spa", "Kemer"],
   ["Crystal De Luxe Resort & Spa", "Kemer"],
   ["Kemer Barut Collection", "Kemer"],
@@ -850,6 +943,8 @@ const seedRows = [
   ["The Grand Ring Hotel", "Beldibi"],
   ["Champion Holiday Village", "Beldibi"],
   ["Aydinbey Siu Collection", "Beldibi"],
+  ["Rixos Premium Kemer", "Göynük"],
+  ["Paloma Pasha Resort", "Göynük"],
   ["Sherwood Exclusive Kemer", "Göynük"],
   ["Queen's Park Le Jardin", "Göynük"],
   ["Ulusoy Kemer Holiday Club", "Göynük"],
@@ -860,10 +955,10 @@ const seedRows = [
   ["Aleria Belport Beach Hotel", "Çamyuva"],
   // --- Tekirova ------------------------------------------------------------
   ["Rixos Premium Tekirova", "Tekirova"],
+  ["Amara Prestige Hotel", "Tekirova"],
   ["Amara Dolce Vita Luxury", "Tekirova"],
   ["Nirvana Dolce Vita", "Tekirova"],
   ["Marti Myra", "Tekirova"],
-  ["Club Hotel Phaselis Rose", "Tekirova", ["Phaselis Rose Hotel"]],
   ["Queen's Park Tekirova", "Tekirova"],
   ["Mövenpick Resort Tekirova", "Tekirova"],
   ["Güral Premier Tekirova", "Tekirova"],
@@ -879,23 +974,27 @@ const seedRows = [
   ["Numa Bay Exclusive", "Avsallar"],
   ["Granada Luxury Beach", "Avsallar"],
   ["Bera Alanya Hotel", "Avsallar"],
+  ["Delphin Diva Premiere", "Avsallar"],
   ["Azura Deluxe Resort & Spa", "Avsallar"],
   ["Rubi Platinum Spa Resort", "Avsallar"],
   ["Otel İncekum Su", "İncekum"],
-  ["Utopia World Hotel", "Türkler"],
+  ["Utopia World Hotel", "Konaklı"],
   ["Delphin Botanik Platinum", "Türkler"],
   ["Sirius Deluxe Hotel", "Türkler"],
   ["Long Beach Resort Hotel", "Konaklı"],
+  ["Q Premium Resort Hotel Alanya", "Konaklı"],
+  ["Kirman Arycanda De Luxe", "Konaklı"],
   ["Alan Xafira Deluxe Resort", "Konaklı"],
   ["Kahya Resort Aqua & Spa", "Konaklı"],
   ["The Antik Hotel", "Konaklı"],
   ["Asia Beach Resort & Spa", "Alanya merkez"],
+  ["Sentido Gold Island Hotel", "Alanya merkez"],
   ["Klas More Beach Hotel", "Mahmutlar"],
   ["Sey Beach Hotel & Spa", "Kestel"],
   ["Goldcity Hotel", "Kargıcak"],
   ["Lumos Deluxe Resort Hotel", "Kargıcak"]
 ];
-const verifiedSlugs = new Set(Object.keys(hotelCatalog));
+const verifiedSlugs = new Set(Object.values(hotelCatalog).map((hotel2) => hotelSlug(hotel2.name)));
 const hotelIndex = Object.freeze(
   seedRows.map(([name, district, aliases = []]) => {
     const slug = hotelSlug(name);
@@ -911,6 +1010,7 @@ const hotelIndex = Object.freeze(
     });
   })
 );
+const indexedHotelBySlug = (slug) => hotelIndex.find((hotel2) => hotel2.slug === slug) ?? null;
 const LETTER_FOLD = { "ı": "i", "ß": "ss", "æ": "ae", "ø": "o", "đ": "d", "ł": "l", "þ": "th" };
 const CYRILLIC_FOLD = {
   "а": "a",
@@ -1287,7 +1387,7 @@ function quoteFor(values, overrides) {
 }
 async function fetchLivePriceOverrides() {
   try {
-    const { supabase } = await import("./assets/supabase-DOGOR00o.js");
+    const { supabase } = await import("./assets/supabase-vpckcPMN.js");
     if (!supabase) return {};
     const [{ data: routeRows }, { data: rateRows }] = await Promise.all([
       supabase.from("routes").select("to_location, vehicle_type, price_eur").eq("from_location", "airport"),
@@ -1558,7 +1658,7 @@ function BookingForm({
     const currentQuote = quoteFor(formValues, liveOverrides);
     window.gtag?.("event", "begin_checkout", { currency: "EUR", value: currentQuote.price, trip_type: formValues.tripType });
     try {
-      const { createBooking } = await import("./assets/api-A5R8d5pD.js");
+      const { createBooking } = await import("./assets/api-Bc8F4tNA.js");
       const booking = await createBooking(buildPublicBookingPayload(formValues, language, acceptedFuelTerms));
       const confirmedPrice = Number(booking.price_eur) || currentQuote.price;
       const message = formValues.tripType === "daily_chauffeur" ? t("dailyCashConfirmation", "Your daily chauffeur hire is confirmed. The service price excludes fuel, which is paid separately based on use.") : formValues.destination === "airport" ? t("airportReturnPrice", "The price will be confirmed after we check the pick-up address.") : formValues.destination === "private_address" ? t("customDestinationPrice", "The price will be confirmed after we check the drop-off address.") : t("cashConfirmation", "Your booking is confirmed. Pay the fixed total directly to your driver in the vehicle.");
@@ -1757,7 +1857,7 @@ function BookingForm({
                 /* @__PURE__ */ jsxs("select", { id: "destination", ...register("destination"), children: [
                   /* @__PURE__ */ jsx("option", { value: "", children: t("selectDestination", "Select destination") }),
                   values.pickup !== "airport" && /* @__PURE__ */ jsx("option", { value: "airport", children: t("airportOption", "Antalya Airport (AYT)") }),
-                  publicRouteSlugs.map((slug) => /* @__PURE__ */ jsx("option", { value: slug, children: routeCatalog[slug].names[language] ?? routeCatalog[slug].names.en }, slug)),
+                  bookableRouteSlugs.map((slug) => /* @__PURE__ */ jsx("option", { value: slug, children: routeCatalog[slug].names[language] ?? routeCatalog[slug].names.en }, slug)),
                   /* @__PURE__ */ jsx("option", { value: "private_address", children: t("privateAddressOption", "Private address") })
                 ] })
               ] }),
@@ -3481,14 +3581,20 @@ function HomePage({ initialLanguage }) {
   ] });
 }
 const domain = "https://antalyaviptourism.com";
-const indexableLanguages = ["en", "de", "fr", "tr", "ru", "cs"];
+const indexableLanguages = ["en", "de", "fr", "tr", "ru", "cs", "uk", "ur", "pl", "nl", "ar", "sv"];
 const homeSeo = {
   en: { locale: "en_GB", title: "Antalya Airport Transfer | Private VIP Tourism Service", description: "Private fixed-price transfers from Antalya Airport to resorts across Türkiye." },
   de: { locale: "de_DE", title: "Flughafen Antalya Transfer | Privater VIP Chauffeurservice", description: "Private Festpreis-Transfers vom Flughafen Antalya zu Reisezielen in der gesamten Türkei." },
   tr: { locale: "tr_TR", title: "Antalya Havalimanı Transferi | Özel VIP Transfer", description: "Antalya Havalimanı'ndan Belek, Side, Kemer, Alanya ve çevresine özel sabit fiyatlı transfer. Vito ve Sprinter, uçuş takibi ve karşılama." },
   ru: { locale: "ru_RU", title: "Трансфер из аэропорта Антальи | Частный VIP-трансфер", description: "Частные трансферы по фиксированной цене из аэропорта Антальи в Белек, Сиде, Кемер, Аланью и другие курорты. Встреча и отслеживание рейса." },
   fr: { locale: "fr_FR", title: "Transfert Aéroport Antalya | Service VIP Privé", description: "Transferts privés à prix fixe depuis l'aéroport d'Antalya vers Belek, Side, Kemer et Alanya. Accueil, suivi de vol et service porte-à-porte." },
-  cs: { locale: "cs_CZ", title: "Transfer z letiště Antalya | Soukromá VIP přeprava", description: "Soukromé transfery s pevnou cenou z letiště Antalya do Beleku, Side, Kemeru a Alanye. Uvítání, sledování letů a služba od dveří ke dveřím." }
+  cs: { locale: "cs_CZ", title: "Transfer z letiště Antalya | Soukromá VIP přeprava", description: "Soukromé transfery s pevnou cenou z letiště Antalya do Beleku, Side, Kemeru a Alanye. Uvítání, sledování letů a služba od dveří ke dveřím." },
+  uk: { locale: "uk_UA", title: "Трансфер з аеропорту Анталії | Приватний VIP-трансфер", description: "Приватні трансфери за фіксованою ціною з аеропорту Анталії до Белека, Сіде, Кемера, Аланьї та інших курортів. Зустріч і відстеження рейсу." },
+  ur: { locale: "ur_PK", title: "انطالیہ ایئرپورٹ ٹرانسفر | نجی وی آئی پی سروس", description: "انطالیہ ایئرپورٹ سے بیلک، سیدے، کیمر اور الانیا تک مقررہ قیمت پر نجی ٹرانسفر۔ استقبال، پرواز کی نگرانی اور دروازے تک سروس۔" },
+  pl: { locale: "pl_PL", title: "Transfer z lotniska Antalya | Prywatny transfer VIP", description: "Prywatne transfery w stałej cenie z lotniska Antalya do Belek, Side, Kemer, Alanya i innych kurortów. Powitanie i śledzenie lotu." },
+  nl: { locale: "nl_NL", title: "Luchthaven Antalya Transfer | Privé VIP-vervoer", description: "Privétransfers met vaste prijs vanaf de luchthaven Antalya naar Belek, Side, Kemer, Alanya en andere resorts. Ontvangst en vluchtvolging." },
+  ar: { locale: "ar_SA", title: "نقل مطار أنطاليا | خدمة VIP خاصة", description: "نقل خاص بسعر ثابت من مطار أنطاليا إلى بيليك وسيدي وكيمر وألانيا وغيرها من المنتجعات. استقبال وتتبع الرحلات وخدمة من الباب إلى الباب." },
+  sv: { locale: "sv_SE", title: "Antalya Flygplatstransfer | Privat VIP-transport", description: "Privata transfrar till fast pris från Antalya flygplats till Belek, Side, Kemer, Alanya och andra resorter. Möte och flygbevakning." }
 };
 const healthSeo = {
   en: {
@@ -3526,6 +3632,42 @@ const healthSeo = {
     title: "Koordinace zdravotní cesty do Antalye | Antalya VIP Tourism",
     description: "Naplánujte svou zdravotní cestu do Antalye s jasným rozdělením rolí, soukromými transfery, koordinací ubytování a kontinuální péčí vedenou odbornými lékařskými týmy.",
     service: "Koordinace zdravotní cesty a concierge logistika"
+  },
+  uk: {
+    locale: "uk_UA",
+    title: "Координація медичної подорожі в Анталії | Antalya VIP Tourism",
+    description: "Сплануйте свою медичну подорож до Анталії з чітким розподілом ролей, приватними трансферами, координацією проживання та безперервним медичним супроводом уповноважених команд.",
+    service: "Координація медичних подорожей та консьєрж-логістика"
+  },
+  ur: {
+    locale: "ur_PK",
+    title: "انطالیہ میں طبی سفر کوآرڈینیشن | Antalya VIP Tourism",
+    description: "انطالیہ میں اپنے طبی سفر کی منصوبہ بندی واضح ذمہ داریوں، نجی ٹرانسفر، رہائش کوآرڈینیشن اور مجاز طبی ٹیموں کی مسلسل نگہداشت کے ساتھ کریں۔",
+    service: "طبی سفر کوآرڈینیشن اور کنسیئرج لاجسٹکس"
+  },
+  pl: {
+    locale: "pl_PL",
+    title: "Koordynacja podróży medycznej w Antalyi | Antalya VIP Tourism",
+    description: "Zaplanuj swoją podróż medyczną do Antalyi z jasnym podziałem ról, prywatnymi transferami, koordynacją zakwaterowania i ciągłą opieką prowadzoną przez uprawnione zespoły medyczne.",
+    service: "Koordynacja podróży medycznych i logistyka concierge"
+  },
+  nl: {
+    locale: "nl_NL",
+    title: "Coördinatie van medische reizen in Antalya | Antalya VIP Tourism",
+    description: "Plan uw medische reis naar Antalya met duidelijke rolverdeling, privétransfers, coördinatie van accommodatie en continue zorg onder leiding van bevoegde medische teams.",
+    service: "Coördinatie van medische reizen en conciërgelogistiek"
+  },
+  ar: {
+    locale: "ar_SA",
+    title: "تنسيق الرحلات الصحية في أنطاليا | Antalya VIP Tourism",
+    description: "خطط لرحلتك الصحية إلى أنطاليا مع أدوار واضحة، ونقل خاص، وتنسيق الإقامة، ورعاية مستمرة يقودها فريق طبي معتمد.",
+    service: "تنسيق الرحلات الصحية والخدمات اللوجستية للكونسيرج"
+  },
+  sv: {
+    locale: "sv_SE",
+    title: "Samordning av hälsoresor i Antalya | Antalya VIP Tourism",
+    description: "Planera din hälsoresa till Antalya med tydlig ansvarsfördelning, privata transfrar, boendesamordning och kontinuerlig vård ledd av auktoriserade medicinska team.",
+    service: "Samordning av hälsoresor och conciergelogistik"
   }
 };
 const routeText = {
@@ -3564,11 +3706,47 @@ const routeText = {
     description: (name, price) => `Soukromý transfer s pevnou cenou z letiště Antalya do ${name} od €${price}. Uvítání, sledování letů a přeprava od dveří ke dveřím.`,
     heading: (name) => `Soukromý transfer z letiště Antalya do ${name}`,
     faq: (name, price, duration) => [[`Jak dlouho trvá transfer z letiště Antalya do ${name}?`, `Cesta trvá přibližně ${duration} při běžném provozu.`], [`Jaká je pevná cena transferu do ${name}?`, `Ceny Mercedes Vito začínají od €${price} za vozidlo. Potvrzená celková cena je zobrazena při rezervaci.`], ["Co se stane, když má můj let zpoždění?", "Sledujeme váš let v reálném čase a upravujeme čas setkání bez příplatku."]]
+  },
+  uk: {
+    title: (name) => `Трансфер з аеропорту Анталії до ${name} | Фіксована ціна`,
+    description: (name, price) => `Приватний трансфер за фіксованою ціною з аеропорту Анталії до ${name} від €${price} за автомобіль. Зустріч, відстеження рейсу та доставка до готелю.`,
+    heading: (name) => `Приватний трансфер з аеропорту Анталії до ${name}`,
+    faq: (name, price, duration) => [[`Скільки триває трансфер з аеропорту Анталії до ${name}?`, `За звичайного руху поїздка займає близько ${duration}.`], [`Яка фіксована ціна трансферу до ${name}?`, `Ціни на Mercedes Vito починаються від €${price} за автомобіль. Підтверджена загальна сума показується під час бронювання.`], ["Що станеться, якщо мій рейс затримається?", "Ми відстежуємо ваш рейс у реальному часі та безкоштовно коригуємо час зустрічі."]]
+  },
+  ur: {
+    title: (name) => `انطالیہ ایئرپورٹ سے ${name} ٹرانسفر | نجی مقررہ قیمت`,
+    description: (name, price) => `انطالیہ ایئرپورٹ سے ${name} تک مقررہ قیمت پر نجی ٹرانسفر €${price} فی گاڑی سے شروع۔ استقبال، پرواز کی نگرانی اور دروازے تک سروس۔`,
+    heading: (name) => `انطالیہ ایئرپورٹ سے ${name} تک نجی ٹرانسفر`,
+    faq: (name, price, duration) => [[`انطالیہ ایئرپورٹ سے ${name} تک ٹرانسفر میں کتنا وقت لگتا ہے؟`, `عام ٹریفک میں سفر تقریباً ${duration} لیتا ہے۔`], [`${name} تک ٹرانسفر کی مقررہ قیمت کیا ہے؟`, `Mercedes Vito کی قیمتیں €${price} فی گاڑی سے شروع ہوتی ہیں۔ تصدیق شدہ کل رقم بکنگ کے وقت دکھائی جاتی ہے۔`], ["اگر میری پرواز میں تاخیر ہو جائے تو کیا ہوگا؟", "ہم آپ کی پرواز کو حقیقی وقت میں ٹریک کرتے ہیں اور بغیر کسی اضافی چارج کے ملاقات کا وقت ایڈجسٹ کرتے ہیں۔"]]
+  },
+  pl: {
+    title: (name) => `Transfer z lotniska Antalya do ${name} | Prywatna stała cena`,
+    description: (name, price) => `Prywatny transfer w stałej cenie z lotniska Antalya do ${name} od €${price} za pojazd. Powitanie, śledzenie lotu i dowóz pod hotel.`,
+    heading: (name) => `Prywatny transfer z lotniska Antalya do ${name}`,
+    faq: (name, price, duration) => [[`Jak długo trwa transfer z lotniska Antalya do ${name}?`, `Przy normalnym ruchu podróż trwa około ${duration}.`], [`Jaka jest stała cena transferu do ${name}?`, `Ceny Mercedes Vito zaczynają się od €${price} za pojazd. Potwierdzona łączna kwota jest pokazywana podczas rezerwacji.`], ["Co się stanie, jeśli mój lot będzie opóźniony?", "Śledzimy Twój lot w czasie rzeczywistym i bez dodatkowych opłat dostosowujemy godzinę odbioru."]]
+  },
+  nl: {
+    title: (name) => `Luchthaven Antalya naar ${name} Transfer | Privé Vaste Prijs`,
+    description: (name, price) => `Privétransfer met vaste prijs van de luchthaven Antalya naar ${name} vanaf €${price} per voertuig. Ontvangst, vluchtvolging en deur-tot-deur service.`,
+    heading: (name) => `Privétransfer van de luchthaven Antalya naar ${name}`,
+    faq: (name, price, duration) => [[`Hoe lang duurt de transfer van de luchthaven Antalya naar ${name}?`, `De rit duurt ongeveer ${duration} bij normaal verkeer.`], [`Wat is de vaste transferprijs naar ${name}?`, `Mercedes Vito-prijzen beginnen bij €${price} per voertuig. Het bevestigde totaal wordt getoond bij het boeken.`], ["Wat gebeurt er als mijn vlucht vertraging heeft?", "We volgen uw vlucht in realtime en passen de ophaaltijd zonder extra kosten aan."]]
+  },
+  ar: {
+    title: (name) => `نقل من مطار أنطاليا إلى ${name} | سعر ثابت خاص`,
+    description: (name, price) => `نقل خاص بسعر ثابت من مطار أنطاليا إلى ${name} يبدأ من €${price} لكل مركبة. استقبال وتتبع الرحلة وخدمة من الباب إلى الباب.`,
+    heading: (name) => `نقل خاص من مطار أنطاليا إلى ${name}`,
+    faq: (name, price, duration) => [[`كم يستغرق النقل من مطار أنطاليا إلى ${name}؟`, `تستغرق الرحلة حوالي ${duration} في حركة المرور العادية.`], [`ما هو السعر الثابت للنقل إلى ${name}؟`, `تبدأ أسعار مرسيدس فيتو من €${price} لكل مركبة. يظهر الإجمالي المؤكد عند الحجز.`], ["ماذا يحدث إذا تأخرت رحلتي؟", "نتتبع رحلتك في الوقت الفعلي ونعدّل وقت اللقاء دون أي رسوم إضافية."]]
+  },
+  sv: {
+    title: (name) => `Antalya Flygplats till ${name} Transfer | Privat Fast Pris`,
+    description: (name, price) => `Privat transfer till fast pris från Antalya flygplats till ${name} från €${price} per fordon. Möte, flygbevakning och dörr-till-dörr-service.`,
+    heading: (name) => `Privat transfer från Antalya flygplats till ${name}`,
+    faq: (name, price, duration) => [[`Hur lång tid tar transfern från Antalya flygplats till ${name}?`, `Resan tar cirka ${duration} vid normal trafik.`], [`Vad är det fasta transferpriset till ${name}?`, `Mercedes Vito-priser börjar från €${price} per fordon. Den bekräftade summan visas vid bokning.`], ["Vad händer om mitt flyg är försenat?", "Vi spårar ditt flyg i realtid och justerar mötestiden utan extra kostnad."]]
   }
 };
 const languageFromPath = (pathname) => {
   const candidate = pathname.split("/").filter(Boolean)[0];
-  return candidate === "de" || candidate === "fr" || candidate === "tr" || candidate === "ru" || candidate === "cs" ? candidate : "en";
+  return candidate === "de" || candidate === "fr" || candidate === "tr" || candidate === "ru" || candidate === "cs" || candidate === "uk" || candidate === "ur" || candidate === "pl" || candidate === "nl" || candidate === "ar" || candidate === "sv" ? candidate : "en";
 };
 const localizedPath = (language, suffix = "") => `/${language === "en" ? "" : `${language}/`}${suffix}`;
 const alternateDescriptors = (suffix = "") => [
@@ -3753,7 +3931,7 @@ const home = UNSAFE_withComponentProps(function HomeRoute() {
     }), /* @__PURE__ */ jsx(CookieConsent, {})]
   });
 });
-const route8 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const route12 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: home,
   loader: loader$5,
@@ -4651,7 +4829,7 @@ const health = UNSAFE_withComponentProps(function HealthRoute() {
     children: [/* @__PURE__ */ jsx(HealthPage, {}), /* @__PURE__ */ jsx(CookieConsent, {})]
   });
 });
-const route16 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const route24 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: health,
   links: links$1,
@@ -5253,7 +5431,7 @@ const clinic = UNSAFE_withComponentProps(function ClinicRoute() {
     children: [/* @__PURE__ */ jsx(ClinicPage, {}), /* @__PURE__ */ jsx(CookieConsent, {})]
   });
 });
-const route17 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const route25 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: clinic,
   links,
@@ -5288,12 +5466,12 @@ function StaticPageHeader({
   ] });
 }
 const germanLandingHotels = {
-  belek: ["Rixos Premium Belek", "The Land of Legends", "Maxx Royal Belek", "Regnum Carya", "Gloria Golf Resort"],
-  side: ["Arum Barut Collection", "Side Star Resort", "Royal Dragon Hotel", "Barut Hemera", "Voyage Sorgun"],
-  kemer: ["Maxx Royal Kemer Resort", "Akka Antedon Hotel", "Rixos Sungate", "Nirvana Mediterranean Excellence", "Crystal De Luxe Resort"],
-  alanya: ["Goldcity Hotel", "Haydarpasha Palace", "Labranda Alantur", "Granada Luxury Beach", "Long Beach Resort"],
+  belek: ["Rixos Premium Belek", "The Land of Legends", "Maxx Royal Belek", "Regnum Carya", "Gloria Golf Resort", "Cornelia Diamond Golf Resort & Spa", "IC Hotels Santai Family Resort"],
+  side: ["Arum Barut Collection", "Side Star Resort", "Royal Dragon Hotel", "Barut Hemera", "Voyage Sorgun", "Sentido Flora Garden", "Crystal Sunset Luxury Resort & Spa"],
+  kemer: ["Rixos Premium Kemer", "Maxx Royal Kemer Resort", "Orange County Resort Hotel Kemer", "Paloma Pasha Resort", "Club Hotel Phaselis Rose"],
+  alanya: ["Utopia World Hotel", "Sentido Gold Island Hotel", "Q Premium Resort Hotel Alanya", "Kirman Arycanda De Luxe", "Delphin Diva Premiere"],
   kizilagac: ["Starlight Resort Hotel", "Sunrise Resort Hotel", "Crystal Admiral Resort", "Club Hotel Turan Prince", "Selectum Family Resort"],
-  tekirova: ["Rixos Premium Tekirova", "Nirvana Dolce Vita", "Amara Dolce Vita", "Club Marco Polo", "Pirate’s Beach Club"]
+  tekirova: ["Rixos Premium Tekirova", "Amara Prestige Hotel", "Nirvana Dolce Vita", "Club Marco Polo", "Pirate’s Beach Club"]
 };
 const germanRegionCopy = {
   belek: { about: "Belek liegt östlich von Antalya und ist besonders für Golfplätze, große All-inclusive-Resorts und breite Sandstrände bekannt. Die Hotelanlagen verteilen sich zwischen Kadriye und der Küste bei Serik; deshalb ist die genaue Hoteladresse bei der Reservierung hilfreich.", routeDetails: "Die Fahrt führt vom Flughafen Antalya über die D400 in Richtung Serik und Belek. Für Familien, Golfer und Gäste mit spätem Flug ist der direkte Privattransfer praktisch, weil Sie ohne Sammelstopps oder Umstieg direkt an Ihrer Unterkunft ankommen." },
@@ -5441,6 +5619,144 @@ const copy = {
     intro: (name, duration, distance) => `Cesta z letiště Antalya do ${name}, vzdálená ${distance}, trvá přibližně ${duration} při běžném provozu. Váš šofér vás uvítá v příletové hale s jmenovkou a odveze vás přímo do ubytování.`,
     items: ["Osobní uvítání se jmenovkou", "Sledování letů v reálném čase", "Parkoviště na letišti a čekání", "Pomoc se zavazadly a balená voda", "Bezplatná dětská sedačka na vyžádání"],
     faqItems: (name, price, duration) => [[`Jak dlouho trvá transfer z letiště Antalya do ${name}?`, `Cesta trvá přibližně ${duration} při běžném provozu.`], [`Jaká je pevná cena transferu do ${name}?`, `Ceny Mercedes Vito začínají od €${price} za vozidlo. Potvrzená celková cena je zobrazena při rezervaci.`], ["Co se stane, když má můj let zpoždění?", "Sledujeme váš let v reálném čase a upravujeme čas setkání bez příplatku."]]
+  },
+  uk: {
+    home: "Головна",
+    routes: "Маршрути трансферу",
+    priceHeading: "Фіксовані ціни трансферу",
+    included: "Що входить у ціну",
+    duration: "Орієнтовний час",
+    distance: "Відстань",
+    from: "Ціна від",
+    book: "Забронювати трансфер",
+    faq: "Часті запитання",
+    other: "Інші трансфери з аеропорту Анталії",
+    campaign: "Спеціальні онлайн-ціни доступні для всіх маршрутів трансферу.",
+    contact: "Для бронювання та запитань пишіть нам у WhatsApp.",
+    privacy: "Конфіденційність",
+    imprint: "Правова інформація",
+    privacyUrl: "/uk/privacy/",
+    imprintUrl: "/uk/impressum/",
+    vito: "Mercedes Vito · до 7 пасажирів",
+    sprinter: "Mercedes Sprinter · до 13 пасажирів",
+    intro: (name, duration, distance) => `Поїздка з аеропорту Анталії до ${name} відстанню ${distance} займає приблизно ${duration} за звичайного руху. Ваш водій зустріне вас у залі прильоту з іменною табличкою та відвезе прямо до місця проживання.`,
+    items: ["Зустріч з іменною табличкою", "Відстеження рейсу в реальному часі", "Паркування та очікування в аеропорту", "Допомога з багажем і вода", "Безкоштовне дитяче крісло за запитом"],
+    faqItems: (name, price, duration) => [[`Скільки триває трансфер з аеропорту Анталії до ${name}?`, `За звичайного руху поїздка займає близько ${duration}.`], [`Яка фіксована ціна трансферу до ${name}?`, `Ціни на Mercedes Vito починаються від €${price} за автомобіль. Підтверджена загальна сума показується під час бронювання.`], ["Що станеться, якщо мій рейс затримається?", "Ми відстежуємо ваш рейс у реальному часі та безкоштовно коригуємо час зустрічі."]]
+  },
+  ur: {
+    home: "ہوم",
+    routes: "ٹرانسفر روٹس",
+    priceHeading: "مقررہ ٹرانسفر قیمتیں",
+    included: "قیمت میں شامل",
+    duration: "تخمینی وقت",
+    distance: "فاصلہ",
+    from: "قیمت شروع",
+    book: "اپنا ٹرانسفر بک کریں",
+    faq: "اکثر پوچھے گئے سوالات",
+    other: "انطالیہ ایئرپورٹ کے دیگر ٹرانسفرز",
+    campaign: "تمام ٹرانسفر روٹس کے لیے آن لائن خصوصی قیمتیں دستیاب ہیں۔",
+    contact: "بکنگ اور سوالات کے لیے WhatsApp پر ہم سے رابطہ کریں۔",
+    privacy: "پرائیویسی",
+    imprint: "قانونی معلومات",
+    privacyUrl: "/ur/privacy/",
+    imprintUrl: "/ur/impressum/",
+    vito: "Mercedes Vito · 7 مسافروں تک",
+    sprinter: "Mercedes Sprinter · 13 مسافروں تک",
+    intro: (name, duration, distance) => `انطالیہ ایئرپورٹ سے ${name} تک ${distance} کا سفر عام ٹریفک میں تقریباً ${duration} لیتا ہے۔ آپ کا ڈرائیور آپ کو آمد ہال میں نام کی تختی کے ساتھ ملے گا اور براہ راست آپ کی رہائش گاہ تک لے جائے گا۔`,
+    items: ["نام کی تختی کے ساتھ ذاتی استقبال", "حقیقی وقت میں پرواز کی نگرانی", "ایئرپورٹ پارکنگ اور انتظار", "سامان میں مدد اور بوتل بند پانی", "درخواست پر مفت بچوں کی سیٹ"],
+    faqItems: (name, price, duration) => [[`انطالیہ ایئرپورٹ سے ${name} تک ٹرانسفر میں کتنا وقت لگتا ہے؟`, `عام ٹریفک میں سفر تقریباً ${duration} لیتا ہے۔`], [`${name} تک ٹرانسفر کی مقررہ قیمت کیا ہے؟`, `Mercedes Vito کی قیمتیں €${price} فی گاڑی سے شروع ہوتی ہیں۔ تصدیق شدہ کل رقم بکنگ کے وقت دکھائی جاتی ہے۔`], ["اگر میری پرواز میں تاخیر ہو جائے تو کیا ہوگا؟", "ہم آپ کی پرواز کو حقیقی وقت میں ٹریک کرتے ہیں اور بغیر کسی اضافی چارج کے ملاقات کا وقت ایڈجسٹ کرتے ہیں۔"]]
+  },
+  pl: {
+    home: "Strona główna",
+    routes: "Trasy transferów",
+    priceHeading: "Stałe ceny transferów",
+    included: "Wliczone w cenę",
+    duration: "Szacowany czas",
+    distance: "Odległość",
+    from: "Cena od",
+    book: "Zarezerwuj transfer",
+    faq: "Często zadawane pytania",
+    other: "Inne transfery z lotniska Antalya",
+    campaign: "Specjalne ceny online są dostępne dla wszystkich tras transferu.",
+    contact: "Skontaktuj się z nami przez WhatsApp w sprawie rezerwacji i pytań.",
+    privacy: "Prywatność",
+    imprint: "Nota prawna",
+    privacyUrl: "/privacy/",
+    imprintUrl: "/impressum.html",
+    vito: "Mercedes Vito · do 7 pasażerów",
+    sprinter: "Mercedes Sprinter · do 13 pasażerów",
+    intro: (name, duration, distance) => `Podróż o długości ${distance} z lotniska Antalya do ${name} trwa około ${duration} przy normalnym ruchu. Kierowca powita Cię w hali przylotów z tabliczką z imieniem i zawiezie bezpośrednio do miejsca zakwaterowania.`,
+    items: ["Osobiste powitanie z tabliczką", "Śledzenie lotu w czasie rzeczywistym", "Parking i oczekiwanie na lotnisku", "Pomoc z bagażem i woda butelkowana", "Bezpłatny fotelik dziecięcy na życzenie"],
+    faqItems: (name, price, duration) => [[`Jak długo trwa transfer z lotniska Antalya do ${name}?`, `Przy normalnym ruchu podróż trwa około ${duration}.`], [`Jaka jest stała cena transferu do ${name}?`, `Ceny Mercedes Vito zaczynają się od €${price} za pojazd. Potwierdzona łączna kwota jest pokazywana podczas rezerwacji.`], ["Co się stanie, jeśli mój lot będzie opóźniony?", "Śledzimy Twój lot w czasie rzeczywistym i bez dodatkowych opłat dostosowujemy godzinę odbioru."]]
+  },
+  nl: {
+    home: "Home",
+    routes: "Transferroutes",
+    priceHeading: "Vaste transferprijzen",
+    included: "Inbegrepen in de prijs",
+    duration: "Geschatte tijd",
+    distance: "Afstand",
+    from: "Prijs vanaf",
+    book: "Boek uw transfer",
+    faq: "Veelgestelde vragen",
+    other: "Andere transfers vanaf de luchthaven Antalya",
+    campaign: "Speciale online prijzen zijn beschikbaar voor alle transferroutes.",
+    contact: "Neem contact met ons op via WhatsApp voor boekingen en vragen.",
+    privacy: "Privacy",
+    imprint: "Colofon",
+    privacyUrl: "/privacy/",
+    imprintUrl: "/impressum.html",
+    vito: "Mercedes Vito · tot 7 passagiers",
+    sprinter: "Mercedes Sprinter · tot 13 passagiers",
+    intro: (name, duration, distance) => `De rit van ${distance} van de luchthaven Antalya naar ${name} duurt ongeveer ${duration} bij normaal verkeer. Uw chauffeur ontvangt u in de aankomsthal met een naambordje en rijdt rechtstreeks naar uw accommodatie.`,
+    items: ["Persoonlijke ontvangst met naambordje", "Realtime vluchtvolging", "Parkeren en wachten op de luchthaven", "Bagagehulp en flessenwater", "Gratis kinderzitje op aanvraag"],
+    faqItems: (name, price, duration) => [[`Hoe lang duurt de transfer van de luchthaven Antalya naar ${name}?`, `De rit duurt ongeveer ${duration} bij normaal verkeer.`], [`Wat is de vaste transferprijs naar ${name}?`, `Mercedes Vito-prijzen beginnen bij €${price} per voertuig. Het bevestigde totaal wordt getoond bij het boeken.`], ["Wat gebeurt er als mijn vlucht vertraging heeft?", "We volgen uw vlucht in realtime en passen de ophaaltijd zonder extra kosten aan."]]
+  },
+  ar: {
+    home: "الرئيسية",
+    routes: "مسارات النقل",
+    priceHeading: "أسعار نقل ثابتة",
+    included: "مشمول في السعر",
+    duration: "الوقت المقدر",
+    distance: "المسافة",
+    from: "السعر من",
+    book: "احجز نقلك",
+    faq: "الأسئلة الشائعة",
+    other: "خدمات نقل أخرى من مطار أنطاليا",
+    campaign: "تتوفر أسعار خاصة عبر الإنترنت لجميع مسارات النقل.",
+    contact: "تواصل معنا عبر واتساب للحجوزات والاستفسارات.",
+    privacy: "الخصوصية",
+    imprint: "معلومات قانونية",
+    privacyUrl: "/privacy/",
+    imprintUrl: "/impressum.html",
+    vito: "مرسيدس فيتو · حتى 7 ركاب",
+    sprinter: "مرسيدس سبرينتر · حتى 13 راكبًا",
+    intro: (name, duration, distance) => `تستغرق رحلة المسافة ${distance} من مطار أنطاليا إلى ${name} حوالي ${duration} في حركة المرور العادية. يستقبلك سائقك في صالة الوصول بلافتة تحمل اسمك ويقودك مباشرة إلى مكان إقامتك.`,
+    items: ["استقبال شخصي بلافتة الاسم", "تتبع الرحلة في الوقت الفعلي", "موقف وانتظار في المطار", "المساعدة في الأمتعة ومياه معبأة", "مقعد أطفال مجاني عند الطلب"],
+    faqItems: (name, price, duration) => [[`كم يستغرق النقل من مطار أنطاليا إلى ${name}؟`, `تستغرق الرحلة حوالي ${duration} في حركة المرور العادية.`], [`ما هو السعر الثابت للنقل إلى ${name}؟`, `تبدأ أسعار مرسيدس فيتو من €${price} لكل مركبة. يظهر الإجمالي المؤكد عند الحجز.`], ["ماذا يحدث إذا تأخرت رحلتي؟", "نتتبع رحلتك في الوقت الفعلي ونعدّل وقت اللقاء دون أي رسوم إضافية."]]
+  },
+  sv: {
+    home: "Hem",
+    routes: "Transferrutter",
+    priceHeading: "Fasta transferpriser",
+    included: "Ingår i priset",
+    duration: "Beräknad tid",
+    distance: "Avstånd",
+    from: "Pris från",
+    book: "Boka din transfer",
+    faq: "Vanliga frågor",
+    other: "Andra transfrar från Antalya flygplats",
+    campaign: "Särskilda onlinepriser är tillgängliga för alla transferrutter.",
+    contact: "Kontakta oss på WhatsApp för bokningar och frågor.",
+    privacy: "Integritet",
+    imprint: "Juridisk information",
+    privacyUrl: "/privacy/",
+    imprintUrl: "/impressum.html",
+    vito: "Mercedes Vito · upp till 7 passagerare",
+    sprinter: "Mercedes Sprinter · upp till 13 passagerare",
+    intro: (name, duration, distance) => `Resan på ${distance} från Antalya flygplats till ${name} tar ungefär ${duration} vid normal trafik. Din chaufför möter dig i ankomsthallen med en namnskylt och kör dig direkt till ditt boende.`,
+    items: ["Personligt möte med namnskylt", "Flygbevakning i realtid", "Parkering och väntan på flygplatsen", "Bagagehjälp och vatten på flaska", "Gratis barnstol på begäran"],
+    faqItems: (name, price, duration) => [[`Hur lång tid tar transfern från Antalya flygplats till ${name}?`, `Resan tar cirka ${duration} vid normal trafik.`], [`Vad är det fasta transferpriset till ${name}?`, `Mercedes Vito-priser börjar från €${price} per fordon. Den bekräftade summan visas vid bokning.`], ["Vad händer om mitt flyg är försenat?", "Vi spårar ditt flyg i realtid och justerar mötestiden utan extra kostnad."]]
   }
 };
 function TransferPage({ language, route }) {
@@ -5608,7 +5924,7 @@ function TransferPage({ language, route }) {
     ] }) })
   ] });
 }
-const indexedLanguages = /* @__PURE__ */ new Set(["en", "de", "tr", "ru", "cs", "fr"]);
+const indexedLanguages = /* @__PURE__ */ new Set(["en", "de", "tr", "ru", "cs", "fr", "uk", "ur", "pl", "nl", "ar", "sv"]);
 function loader$2({
   params
 }) {
@@ -5650,7 +5966,7 @@ const transfer = UNSAFE_withComponentProps(function TransferRoute() {
     }), /* @__PURE__ */ jsx(CookieConsent, {})]
   });
 });
-const route19 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const route27 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: transfer,
   loader: loader$2,
@@ -5659,6 +5975,7 @@ const route19 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.definePrope
 function HotelPage({ hotel: hotel2 }) {
   const route = localizedRoute(hotel2.regionSlug, "de");
   if (!route) return null;
+  const priced = localizedRoute(indexedHotelBySlug(hotelSlug(hotel2.name))?.region ?? hotel2.regionSlug, "de") ?? route;
   const transferHref = `/de/transfers/${hotel2.regionSlug}/`;
   const bookingHref = "/de/#booking";
   return /* @__PURE__ */ jsxs(Fragment, { children: [
@@ -5688,17 +6005,17 @@ function HotelPage({ hotel: hotel2 }) {
         ] }),
         /* @__PURE__ */ jsxs("div", { className: "localized-stats", children: [
           /* @__PURE__ */ jsxs("div", { children: [
-            /* @__PURE__ */ jsx("strong", { children: route.durationLabel }),
+            /* @__PURE__ */ jsx("strong", { children: priced.durationLabel }),
             /* @__PURE__ */ jsx("span", { children: "Geschätzte Fahrzeit" })
           ] }),
           /* @__PURE__ */ jsxs("div", { children: [
-            /* @__PURE__ */ jsx("strong", { children: route.distance }),
+            /* @__PURE__ */ jsx("strong", { children: priced.distance }),
             /* @__PURE__ */ jsx("span", { children: "Entfernung" })
           ] }),
           /* @__PURE__ */ jsxs("div", { children: [
             /* @__PURE__ */ jsxs("strong", { children: [
               "€",
-              route.prices.vito
+              priced.prices.vito
             ] }),
             /* @__PURE__ */ jsx("span", { children: "Preis ab" })
           ] })
@@ -5714,7 +6031,7 @@ function HotelPage({ hotel: hotel2 }) {
             "Die Fahrt vom Flughafen Antalya nach ",
             route.name,
             " dauert bei normalem Verkehr ungefähr ",
-            route.durationLabel,
+            priced.durationLabel,
             ". Der angegebene Festpreis gilt für das gesamte Fahrzeug, nicht pro Person."
           ] }),
           /* @__PURE__ */ jsx("h3", { children: "Lage des Hotels" }),
@@ -5732,7 +6049,7 @@ function HotelPage({ hotel: hotel2 }) {
             /* @__PURE__ */ jsx("p", { children: "Mercedes Vito · bis 7 Personen" }),
             /* @__PURE__ */ jsxs("strong", { children: [
               "€",
-              route.prices.vito
+              priced.prices.vito
             ] }),
             /* @__PURE__ */ jsx("span", { children: "Preis für das gesamte Fahrzeug" })
           ] }),
@@ -5740,7 +6057,7 @@ function HotelPage({ hotel: hotel2 }) {
             /* @__PURE__ */ jsx("p", { children: "Mercedes Sprinter · bis 13 Personen" }),
             /* @__PURE__ */ jsxs("strong", { children: [
               "€",
-              route.prices.sprinter
+              priced.prices.sprinter
             ] }),
             /* @__PURE__ */ jsx("span", { children: "Preis für das gesamte Fahrzeug" })
           ] })
@@ -5756,7 +6073,7 @@ function HotelPage({ hotel: hotel2 }) {
           ] }),
           /* @__PURE__ */ jsxs("p", { children: [
             "Bei normalem Verkehr ungefähr ",
-            route.durationLabel,
+            priced.durationLabel,
             "."
           ] })
         ] }),
@@ -5764,7 +6081,7 @@ function HotelPage({ hotel: hotel2 }) {
           /* @__PURE__ */ jsx("h3", { children: "Was kostet der Transfer?" }),
           /* @__PURE__ */ jsxs("p", { children: [
             "Der Mercedes Vito kostet ab €",
-            route.prices.vito,
+            priced.prices.vito,
             " pro Fahrzeug."
           ] })
         ] })
@@ -5775,7 +6092,7 @@ function HotelPage({ hotel: hotel2 }) {
         /* @__PURE__ */ jsx("a", { className: "button button-gold", href: "https://wa.me/905302655790", children: "WhatsApp" })
       ] })
     ] }),
-    /* @__PURE__ */ jsx("div", { hidden: true, "aria-hidden": "true", children: /* @__PURE__ */ jsx(BookingForm, { selection: { route: hotel2.regionSlug, vehicle: "vito", nonce: 1 }, scrollOnSelect: false }) })
+    /* @__PURE__ */ jsx("div", { hidden: true, "aria-hidden": "true", children: /* @__PURE__ */ jsx(BookingForm, { selection: { route: priced.slug, vehicle: "vito", nonce: 1 }, scrollOnSelect: false }) })
   ] });
 }
 function loader$1({
@@ -5804,7 +6121,7 @@ const hotel = UNSAFE_withComponentProps(function HotelRoute() {
     }), /* @__PURE__ */ jsx(CookieConsent, {})]
   });
 });
-const route20 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const route28 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: hotel,
   loader: loader$1,
@@ -5826,17 +6143,22 @@ const legalData = {
   "ur-privacy": { "title": "Privacy Policy | Antalya VIP Tourism", "description": "Privacy policy of Antalya VIP Tourism covering booking data, optional analytics and your rights.", "canonical": "https://antalyaviptourism.com/ur/privacy/", "alternates": [{ "language": "en", "href": "https://antalyaviptourism.com/privacy/" }, { "language": "de", "href": "https://antalyaviptourism.com/de/datenschutz/" }, { "language": "tr", "href": "https://antalyaviptourism.com/tr/gizlilik/" }, { "language": "ru", "href": "https://antalyaviptourism.com/ru/privacy/" }, { "language": "cs", "href": "https://antalyaviptourism.com/cs/privacy/" }, { "language": "x-default", "href": "https://antalyaviptourism.com/privacy/" }], "hero": { "eyebrow": "Privacy", "title": "Privacy Policy", "intro": "How we process personal data and the choices available to you." }, "cards": [{ "title": "1. Controller", "paragraphs": ["Antalya VIP Tourism, Ahmet Karadag, Belek Mah. Belek 61 Sk., Belek Deniz Apt No: 19 Ic Kapi No: 4, Serik / Antalya, Türkiye. Email: support@antalyaviptourism.com. Phone: +90 530 265 57 90."], "details": [], "privacySettings": false }, { "title": "2. Booking and contact data", "paragraphs": ["When you request or book a journey, we process the contact, travel, flight, pickup, destination and payment information you provide. This is necessary to answer your request, perform the journey, communicate with you and meet legal obligations. Data is retained only as long as required for these purposes or statutory retention periods."], "details": [], "privacySettings": false }, { "title": "3. Technical delivery", "paragraphs": ["When the website is accessed, technically necessary log data may be processed, including IP address, time, requested page, browser and device information. This supports secure and stable website delivery."], "details": [], "privacySettings": false }, { "title": "4. Google Analytics and Google Ads", "paragraphs": ["Google Analytics and Google Ads load only after you consent in the privacy dialog. Usage, device, interaction and conversion data may then be sent to Google. The provider is Google Ireland Limited and processing by affiliated companies outside the European Economic Area may occur. You may withdraw consent at any time through Privacy settings. Rejecting analytics does not affect booking functions."], "details": [], "privacySettings": true }, { "title": "5. Service providers and recipients", "paragraphs": ["Hosting, database, payment and communication providers may process only the data required for their task. Payment details are processed by the selected payment provider."], "details": [], "privacySettings": false }, { "title": "6. Your rights", "paragraphs": ["Where applicable law provides, you may request access, correction, deletion, restriction, portability or object to processing. You may withdraw consent for the future and lodge a complaint with a competent supervisory authority."], "details": [], "privacySettings": false }, { "title": "7. Updates", "paragraphs": ["This policy is updated when services or legal requirements change. Last updated: 19 June 2026."], "details": [], "privacySettings": false }], "homeLabel": "Home" },
   "ur-imprint": { "title": "Imprint | Antalya VIP Tourism", "description": "Legal notice and provider information for Antalya VIP Tourism.", "canonical": "https://antalyaviptourism.com/ur/impressum/", "alternates": [{ "language": "en", "href": "https://antalyaviptourism.com/impressum.html" }, { "language": "de", "href": "https://antalyaviptourism.com/de/impressum/" }, { "language": "tr", "href": "https://antalyaviptourism.com/tr/kunye/" }, { "language": "ru", "href": "https://antalyaviptourism.com/ru/impressum/" }, { "language": "cs", "href": "https://antalyaviptourism.com/cs/impressum/" }, { "language": "x-default", "href": "https://antalyaviptourism.com/impressum.html" }], "hero": { "eyebrow": "Legal notice", "title": "Imprint", "intro": "Provider information for this website under the applicable information obligations." }, "cards": [{ "title": "Operator", "paragraphs": [], "details": [{ "term": "Name", "value": "Ahmet Karadag", "href": null }, { "term": "Business name", "value": "Antalya VIP Tourism", "href": null }, { "term": "Address", "value": "Belek Mah. Belek 61 Sk.\nBelek Deniz Apt No: 19 Ic Kapi No: 4\nSerik / Antalya\nTürkiye", "href": null }], "privacySettings": false }, { "title": "Contact", "paragraphs": [], "details": [{ "term": "Phone / WhatsApp", "value": "+90 530 265 57 90", "href": "tel:+905302655790" }, { "term": "E-Mail", "value": "support@antalyaviptourism.com", "href": "mailto:support@antalyaviptourism.com" }], "privacySettings": false }, { "title": "Tax information", "paragraphs": [], "details": [{ "term": "Tax office", "value": "Serik", "href": null }, { "term": "Tax number / Vergi Kimlik No", "value": "507•••8455", "href": null }, { "term": "Business start date", "value": "12.04.2021", "href": null }], "privacySettings": false }, { "title": "Business activity", "paragraphs": ["Passenger transport in urban, suburban and rural areas by road vehicles, including staff, student and comparable group transfers."], "details": [], "privacySettings": false }, { "title": "Liability for content", "paragraphs": ["If you notice any inaccuracy or have a concern about the content on this website, please contact us directly."], "details": [], "privacySettings": false }], "homeLabel": "Home" }
 };
-const privacyPath = { en: "/privacy/", de: "/de/datenschutz/", fr: "/fr/privacy/", tr: "/tr/gizlilik/", ru: "/ru/privacy/", cs: "/cs/privacy/" };
-const imprintPath = { en: "/impressum.html", de: "/de/impressum/", fr: "/fr/impressum/", tr: "/tr/kunye/", ru: "/ru/impressum/", cs: "/cs/impressum/" };
-const privacyLabel = { en: "Privacy", de: "Datenschutz", fr: "Confidentialité", tr: "Gizlilik", ru: "Конфиденциальность", cs: "Ochrana soukromí" };
-const imprintLabel = { en: "Imprint", de: "Impressum", fr: "Mentions légales", tr: "Künye", ru: "Правовая информация", cs: "Impressum" };
-const privacySettingsLabel = { en: "Open privacy settings", de: "Datenschutzeinstellungen öffnen", fr: "Ouvrir les paramètres de confidentialité", tr: "Gizlilik ayarlarını aç", ru: "Открыть настройки конфиденциальности", cs: "Otevřít nastavení soukromí" };
+const privacyPath = { en: "/privacy/", de: "/de/datenschutz/", fr: "/fr/privacy/", tr: "/tr/gizlilik/", ru: "/ru/privacy/", cs: "/cs/privacy/", uk: "/uk/privacy/", ur: "/ur/privacy/" };
+const imprintPath = { en: "/impressum.html", de: "/de/impressum/", fr: "/fr/impressum/", tr: "/tr/kunye/", ru: "/ru/impressum/", cs: "/cs/impressum/", uk: "/uk/impressum/", ur: "/ur/impressum/" };
+const privacyLabel = { en: "Privacy", de: "Datenschutz", fr: "Confidentialité", tr: "Gizlilik", ru: "Конфиденциальность", cs: "Ochrana soukromí", uk: "Конфіденційність", ur: "پرائیویسی" };
+const imprintLabel = { en: "Imprint", de: "Impressum", fr: "Mentions légales", tr: "Künye", ru: "Правовая информация", cs: "Impressum", uk: "Правова інформація", ur: "قانونی معلومات" };
+const privacySettingsLabel = { en: "Open privacy settings", de: "Datenschutzeinstellungen öffnen", fr: "Ouvrir les paramètres de confidentialité", tr: "Gizlilik ayarlarını aç", ru: "Открыть настройки конфиденциальности", cs: "Otevřít nastavení soukromí", uk: "Відкрити налаштування конфіденційності", ur: "پرائیویسی سیٹنگز کھولیں" };
 function LegalPage({ language, privacy }) {
   const key = `${language}-${privacy ? "privacy" : "imprint"}`;
   const page = legalData[key];
   const homeHref = language === "en" ? "/" : `/${language}/`;
+  const pPath = privacyPath[language] ?? privacyPath.en;
+  const iPath = imprintPath[language] ?? imprintPath.en;
+  const pLabel = privacyLabel[language] ?? privacyLabel.en;
+  const iLabel = imprintLabel[language] ?? imprintLabel.en;
+  const psLabel = privacySettingsLabel[language] ?? privacySettingsLabel.en;
   return /* @__PURE__ */ jsxs(Fragment, { children: [
-    /* @__PURE__ */ jsx(StaticPageHeader, { homeHref, homeLabel: page.homeLabel, secondaryHref: privacy ? imprintPath[language] : privacyPath[language], secondaryLabel: privacy ? imprintLabel[language] : privacyLabel[language], legal: true }),
+    /* @__PURE__ */ jsx(StaticPageHeader, { homeHref, homeLabel: page.homeLabel, secondaryHref: privacy ? iPath : pPath, secondaryLabel: privacy ? iLabel : pLabel, legal: true }),
     /* @__PURE__ */ jsxs("main", { children: [
       /* @__PURE__ */ jsxs("section", { className: "legal-hero", children: [
         /* @__PURE__ */ jsxs("div", { className: "eyebrow light", children: [
@@ -5853,12 +6175,12 @@ function LegalPage({ language, privacy }) {
           /* @__PURE__ */ jsx("dt", { children: detail.term }),
           /* @__PURE__ */ jsx("dd", { children: detail.href ? /* @__PURE__ */ jsx("a", { href: detail.href, children: detail.value }) : detail.value })
         ] }, detail.term)) }),
-        card.privacySettings && /* @__PURE__ */ jsx("p", { children: /* @__PURE__ */ jsx("button", { className: "button button-gold", type: "button", "data-open-consent": true, children: privacySettingsLabel[language] }) })
+        card.privacySettings && /* @__PURE__ */ jsx("p", { children: /* @__PURE__ */ jsx("button", { className: "button button-gold", type: "button", "data-open-consent": true, children: psLabel }) })
       ] }, card.title)) })
     ] }),
     /* @__PURE__ */ jsx("footer", { children: /* @__PURE__ */ jsxs("div", { className: "footer-bottom", children: [
       /* @__PURE__ */ jsx("span", { children: "© 2026 Antalya VIP Tourism" }),
-      /* @__PURE__ */ jsx("a", { href: privacy ? imprintPath[language] : privacyPath[language], children: privacy ? imprintLabel[language] : privacyLabel[language] })
+      /* @__PURE__ */ jsx("a", { href: privacy ? iPath : pPath, children: privacy ? iLabel : pLabel })
     ] }) })
   ] });
 }
@@ -5934,19 +6256,19 @@ const legal = UNSAFE_withComponentProps(function LegalRoute() {
     }), /* @__PURE__ */ jsx(CookieConsent, {})]
   });
 });
-const route34 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const route42 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: legal,
   loader,
   meta
 }, Symbol.toStringTag, { value: "Module" }));
-const serverManifest = { "entry": { "module": "/assets/entry.client-BD2P1iGF.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/errorBoundaries-Y42zlZbV.js"], "css": [] }, "routes": { "root": { "id": "root", "parentId": void 0, "path": "", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/root-DPJGM9wT.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/errorBoundaries-Y42zlZbV.js", "/assets/Icon-cdn0c84e.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "home-en": { "id": "home-en", "parentId": "root", "path": void 0, "index": true, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/home-Z84iG20H.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-CsFBVSUq.js", "/assets/BookingForm-Bv8T0rrD.js", "/assets/Header-BHWE0zLt.js", "/assets/Icon-cdn0c84e.js"], "css": ["/assets/BookingForm-DpsRipQV.css#"], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "home-de": { "id": "home-de", "parentId": "root", "path": "de", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/home-Z84iG20H.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-CsFBVSUq.js", "/assets/BookingForm-Bv8T0rrD.js", "/assets/Header-BHWE0zLt.js", "/assets/Icon-cdn0c84e.js"], "css": ["/assets/BookingForm-DpsRipQV.css#"], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "home-fr": { "id": "home-fr", "parentId": "root", "path": "fr", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/home-Z84iG20H.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-CsFBVSUq.js", "/assets/BookingForm-Bv8T0rrD.js", "/assets/Header-BHWE0zLt.js", "/assets/Icon-cdn0c84e.js"], "css": ["/assets/BookingForm-DpsRipQV.css#"], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "home-tr": { "id": "home-tr", "parentId": "root", "path": "tr", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/home-Z84iG20H.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-CsFBVSUq.js", "/assets/BookingForm-Bv8T0rrD.js", "/assets/Header-BHWE0zLt.js", "/assets/Icon-cdn0c84e.js"], "css": ["/assets/BookingForm-DpsRipQV.css#"], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "home-ru": { "id": "home-ru", "parentId": "root", "path": "ru", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/home-Z84iG20H.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-CsFBVSUq.js", "/assets/BookingForm-Bv8T0rrD.js", "/assets/Header-BHWE0zLt.js", "/assets/Icon-cdn0c84e.js"], "css": ["/assets/BookingForm-DpsRipQV.css#"], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "home-cs": { "id": "home-cs", "parentId": "root", "path": "cs", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/home-Z84iG20H.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-CsFBVSUq.js", "/assets/BookingForm-Bv8T0rrD.js", "/assets/Header-BHWE0zLt.js", "/assets/Icon-cdn0c84e.js"], "css": ["/assets/BookingForm-DpsRipQV.css#"], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "home-uk": { "id": "home-uk", "parentId": "root", "path": "uk", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/home-Z84iG20H.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-CsFBVSUq.js", "/assets/BookingForm-Bv8T0rrD.js", "/assets/Header-BHWE0zLt.js", "/assets/Icon-cdn0c84e.js"], "css": ["/assets/BookingForm-DpsRipQV.css#"], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "home-ur": { "id": "home-ur", "parentId": "root", "path": "ur", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/home-Z84iG20H.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-CsFBVSUq.js", "/assets/BookingForm-Bv8T0rrD.js", "/assets/Header-BHWE0zLt.js", "/assets/Icon-cdn0c84e.js"], "css": ["/assets/BookingForm-DpsRipQV.css#"], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "health-en": { "id": "health-en", "parentId": "root", "path": "health", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/health-BEnLinff.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-CsFBVSUq.js", "/assets/Header-BHWE0zLt.js", "/assets/Icon-cdn0c84e.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "health-de": { "id": "health-de", "parentId": "root", "path": "de/health", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/health-BEnLinff.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-CsFBVSUq.js", "/assets/Header-BHWE0zLt.js", "/assets/Icon-cdn0c84e.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "health-fr": { "id": "health-fr", "parentId": "root", "path": "fr/health", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/health-BEnLinff.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-CsFBVSUq.js", "/assets/Header-BHWE0zLt.js", "/assets/Icon-cdn0c84e.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "health-tr": { "id": "health-tr", "parentId": "root", "path": "tr/health", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/health-BEnLinff.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-CsFBVSUq.js", "/assets/Header-BHWE0zLt.js", "/assets/Icon-cdn0c84e.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "health-ru": { "id": "health-ru", "parentId": "root", "path": "ru/health", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/health-BEnLinff.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-CsFBVSUq.js", "/assets/Header-BHWE0zLt.js", "/assets/Icon-cdn0c84e.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "health-cs": { "id": "health-cs", "parentId": "root", "path": "cs/health", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/health-BEnLinff.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-CsFBVSUq.js", "/assets/Header-BHWE0zLt.js", "/assets/Icon-cdn0c84e.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "health-uk": { "id": "health-uk", "parentId": "root", "path": "uk/health", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/health-BEnLinff.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-CsFBVSUq.js", "/assets/Header-BHWE0zLt.js", "/assets/Icon-cdn0c84e.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "health-ur": { "id": "health-ur", "parentId": "root", "path": "ur/health", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/health-BEnLinff.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-CsFBVSUq.js", "/assets/Header-BHWE0zLt.js", "/assets/Icon-cdn0c84e.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "clinic-tr": { "id": "clinic-tr", "parentId": "root", "path": "clinic", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/clinic-B8Oq83IL.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-CsFBVSUq.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "transfer-en": { "id": "transfer-en", "parentId": "root", "path": "transfers/:slug", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/transfer-CXFbHU5z.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-CsFBVSUq.js", "/assets/BookingForm-Bv8T0rrD.js", "/assets/StaticPageHeader-DDzAlzLI.js", "/assets/Icon-cdn0c84e.js"], "css": ["/assets/BookingForm-DpsRipQV.css#"], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "transfer-localized": { "id": "transfer-localized", "parentId": "root", "path": ":language/transfers/:slug", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/transfer-CXFbHU5z.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-CsFBVSUq.js", "/assets/BookingForm-Bv8T0rrD.js", "/assets/StaticPageHeader-DDzAlzLI.js", "/assets/Icon-cdn0c84e.js"], "css": ["/assets/BookingForm-DpsRipQV.css#"], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "hotel-de": { "id": "hotel-de", "parentId": "root", "path": "de/hotels/:hotelSlug", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/hotel-CwZRenao.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-CsFBVSUq.js", "/assets/BookingForm-Bv8T0rrD.js", "/assets/StaticPageHeader-DDzAlzLI.js", "/assets/Icon-cdn0c84e.js"], "css": ["/assets/BookingForm-DpsRipQV.css#"], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "legal-imprint-en": { "id": "legal-imprint-en", "parentId": "root", "path": "impressum.html", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/legal-CaWiJlsD.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-CsFBVSUq.js", "/assets/StaticPageHeader-DDzAlzLI.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "legal-privacy-en": { "id": "legal-privacy-en", "parentId": "root", "path": "privacy", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/legal-CaWiJlsD.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-CsFBVSUq.js", "/assets/StaticPageHeader-DDzAlzLI.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "legal-privacy-de": { "id": "legal-privacy-de", "parentId": "root", "path": "de/datenschutz", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/legal-CaWiJlsD.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-CsFBVSUq.js", "/assets/StaticPageHeader-DDzAlzLI.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "legal-imprint-de": { "id": "legal-imprint-de", "parentId": "root", "path": "de/impressum", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/legal-CaWiJlsD.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-CsFBVSUq.js", "/assets/StaticPageHeader-DDzAlzLI.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "legal-privacy-tr": { "id": "legal-privacy-tr", "parentId": "root", "path": "tr/gizlilik", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/legal-CaWiJlsD.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-CsFBVSUq.js", "/assets/StaticPageHeader-DDzAlzLI.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "legal-imprint-tr": { "id": "legal-imprint-tr", "parentId": "root", "path": "tr/kunye", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/legal-CaWiJlsD.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-CsFBVSUq.js", "/assets/StaticPageHeader-DDzAlzLI.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "legal-privacy-ru": { "id": "legal-privacy-ru", "parentId": "root", "path": "ru/privacy", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/legal-CaWiJlsD.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-CsFBVSUq.js", "/assets/StaticPageHeader-DDzAlzLI.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "legal-imprint-ru": { "id": "legal-imprint-ru", "parentId": "root", "path": "ru/impressum", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/legal-CaWiJlsD.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-CsFBVSUq.js", "/assets/StaticPageHeader-DDzAlzLI.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "legal-privacy-cs": { "id": "legal-privacy-cs", "parentId": "root", "path": "cs/privacy", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/legal-CaWiJlsD.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-CsFBVSUq.js", "/assets/StaticPageHeader-DDzAlzLI.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "legal-imprint-cs": { "id": "legal-imprint-cs", "parentId": "root", "path": "cs/impressum", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/legal-CaWiJlsD.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-CsFBVSUq.js", "/assets/StaticPageHeader-DDzAlzLI.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "legal-privacy-uk": { "id": "legal-privacy-uk", "parentId": "root", "path": "uk/privacy", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/legal-CaWiJlsD.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-CsFBVSUq.js", "/assets/StaticPageHeader-DDzAlzLI.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "legal-imprint-uk": { "id": "legal-imprint-uk", "parentId": "root", "path": "uk/impressum", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/legal-CaWiJlsD.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-CsFBVSUq.js", "/assets/StaticPageHeader-DDzAlzLI.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "legal-privacy-ur": { "id": "legal-privacy-ur", "parentId": "root", "path": "ur/privacy", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/legal-CaWiJlsD.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-CsFBVSUq.js", "/assets/StaticPageHeader-DDzAlzLI.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "legal-imprint-ur": { "id": "legal-imprint-ur", "parentId": "root", "path": "ur/impressum", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/legal-CaWiJlsD.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-CsFBVSUq.js", "/assets/StaticPageHeader-DDzAlzLI.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 } }, "url": "/assets/manifest-7386de9f.js", "version": "7386de9f", "sri": void 0 };
+const serverManifest = { "entry": { "module": "/assets/entry.client-BD2P1iGF.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/errorBoundaries-Y42zlZbV.js"], "css": [] }, "routes": { "root": { "id": "root", "parentId": void 0, "path": "", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/root-DPJGM9wT.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/errorBoundaries-Y42zlZbV.js", "/assets/Icon-cdn0c84e.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "home-en": { "id": "home-en", "parentId": "root", "path": void 0, "index": true, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/home-C-5lfqsg.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-B52vbEmh.js", "/assets/BookingForm-DZh00RGZ.js", "/assets/Header-HCqtc74f.js", "/assets/Icon-cdn0c84e.js"], "css": ["/assets/BookingForm-DpsRipQV.css#"], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "home-de": { "id": "home-de", "parentId": "root", "path": "de", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/home-C-5lfqsg.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-B52vbEmh.js", "/assets/BookingForm-DZh00RGZ.js", "/assets/Header-HCqtc74f.js", "/assets/Icon-cdn0c84e.js"], "css": ["/assets/BookingForm-DpsRipQV.css#"], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "home-fr": { "id": "home-fr", "parentId": "root", "path": "fr", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/home-C-5lfqsg.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-B52vbEmh.js", "/assets/BookingForm-DZh00RGZ.js", "/assets/Header-HCqtc74f.js", "/assets/Icon-cdn0c84e.js"], "css": ["/assets/BookingForm-DpsRipQV.css#"], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "home-tr": { "id": "home-tr", "parentId": "root", "path": "tr", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/home-C-5lfqsg.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-B52vbEmh.js", "/assets/BookingForm-DZh00RGZ.js", "/assets/Header-HCqtc74f.js", "/assets/Icon-cdn0c84e.js"], "css": ["/assets/BookingForm-DpsRipQV.css#"], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "home-ru": { "id": "home-ru", "parentId": "root", "path": "ru", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/home-C-5lfqsg.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-B52vbEmh.js", "/assets/BookingForm-DZh00RGZ.js", "/assets/Header-HCqtc74f.js", "/assets/Icon-cdn0c84e.js"], "css": ["/assets/BookingForm-DpsRipQV.css#"], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "home-cs": { "id": "home-cs", "parentId": "root", "path": "cs", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/home-C-5lfqsg.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-B52vbEmh.js", "/assets/BookingForm-DZh00RGZ.js", "/assets/Header-HCqtc74f.js", "/assets/Icon-cdn0c84e.js"], "css": ["/assets/BookingForm-DpsRipQV.css#"], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "home-uk": { "id": "home-uk", "parentId": "root", "path": "uk", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/home-C-5lfqsg.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-B52vbEmh.js", "/assets/BookingForm-DZh00RGZ.js", "/assets/Header-HCqtc74f.js", "/assets/Icon-cdn0c84e.js"], "css": ["/assets/BookingForm-DpsRipQV.css#"], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "home-ur": { "id": "home-ur", "parentId": "root", "path": "ur", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/home-C-5lfqsg.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-B52vbEmh.js", "/assets/BookingForm-DZh00RGZ.js", "/assets/Header-HCqtc74f.js", "/assets/Icon-cdn0c84e.js"], "css": ["/assets/BookingForm-DpsRipQV.css#"], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "home-pl": { "id": "home-pl", "parentId": "root", "path": "pl", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/home-C-5lfqsg.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-B52vbEmh.js", "/assets/BookingForm-DZh00RGZ.js", "/assets/Header-HCqtc74f.js", "/assets/Icon-cdn0c84e.js"], "css": ["/assets/BookingForm-DpsRipQV.css#"], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "home-nl": { "id": "home-nl", "parentId": "root", "path": "nl", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/home-C-5lfqsg.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-B52vbEmh.js", "/assets/BookingForm-DZh00RGZ.js", "/assets/Header-HCqtc74f.js", "/assets/Icon-cdn0c84e.js"], "css": ["/assets/BookingForm-DpsRipQV.css#"], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "home-ar": { "id": "home-ar", "parentId": "root", "path": "ar", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/home-C-5lfqsg.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-B52vbEmh.js", "/assets/BookingForm-DZh00RGZ.js", "/assets/Header-HCqtc74f.js", "/assets/Icon-cdn0c84e.js"], "css": ["/assets/BookingForm-DpsRipQV.css#"], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "home-sv": { "id": "home-sv", "parentId": "root", "path": "sv", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/home-C-5lfqsg.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-B52vbEmh.js", "/assets/BookingForm-DZh00RGZ.js", "/assets/Header-HCqtc74f.js", "/assets/Icon-cdn0c84e.js"], "css": ["/assets/BookingForm-DpsRipQV.css#"], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "health-en": { "id": "health-en", "parentId": "root", "path": "health", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/health-DDVtOSjj.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-B52vbEmh.js", "/assets/Header-HCqtc74f.js", "/assets/Icon-cdn0c84e.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "health-de": { "id": "health-de", "parentId": "root", "path": "de/health", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/health-DDVtOSjj.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-B52vbEmh.js", "/assets/Header-HCqtc74f.js", "/assets/Icon-cdn0c84e.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "health-fr": { "id": "health-fr", "parentId": "root", "path": "fr/health", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/health-DDVtOSjj.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-B52vbEmh.js", "/assets/Header-HCqtc74f.js", "/assets/Icon-cdn0c84e.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "health-tr": { "id": "health-tr", "parentId": "root", "path": "tr/health", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/health-DDVtOSjj.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-B52vbEmh.js", "/assets/Header-HCqtc74f.js", "/assets/Icon-cdn0c84e.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "health-ru": { "id": "health-ru", "parentId": "root", "path": "ru/health", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/health-DDVtOSjj.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-B52vbEmh.js", "/assets/Header-HCqtc74f.js", "/assets/Icon-cdn0c84e.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "health-cs": { "id": "health-cs", "parentId": "root", "path": "cs/health", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/health-DDVtOSjj.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-B52vbEmh.js", "/assets/Header-HCqtc74f.js", "/assets/Icon-cdn0c84e.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "health-uk": { "id": "health-uk", "parentId": "root", "path": "uk/health", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/health-DDVtOSjj.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-B52vbEmh.js", "/assets/Header-HCqtc74f.js", "/assets/Icon-cdn0c84e.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "health-ur": { "id": "health-ur", "parentId": "root", "path": "ur/health", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/health-DDVtOSjj.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-B52vbEmh.js", "/assets/Header-HCqtc74f.js", "/assets/Icon-cdn0c84e.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "health-pl": { "id": "health-pl", "parentId": "root", "path": "pl/health", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/health-DDVtOSjj.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-B52vbEmh.js", "/assets/Header-HCqtc74f.js", "/assets/Icon-cdn0c84e.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "health-nl": { "id": "health-nl", "parentId": "root", "path": "nl/health", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/health-DDVtOSjj.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-B52vbEmh.js", "/assets/Header-HCqtc74f.js", "/assets/Icon-cdn0c84e.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "health-ar": { "id": "health-ar", "parentId": "root", "path": "ar/health", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/health-DDVtOSjj.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-B52vbEmh.js", "/assets/Header-HCqtc74f.js", "/assets/Icon-cdn0c84e.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "health-sv": { "id": "health-sv", "parentId": "root", "path": "sv/health", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/health-DDVtOSjj.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-B52vbEmh.js", "/assets/Header-HCqtc74f.js", "/assets/Icon-cdn0c84e.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "clinic-tr": { "id": "clinic-tr", "parentId": "root", "path": "clinic", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/clinic-xZW89NmK.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-B52vbEmh.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "transfer-en": { "id": "transfer-en", "parentId": "root", "path": "transfers/:slug", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/transfer-CkKplfCt.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-B52vbEmh.js", "/assets/BookingForm-DZh00RGZ.js", "/assets/StaticPageHeader-DDzAlzLI.js", "/assets/Icon-cdn0c84e.js"], "css": ["/assets/BookingForm-DpsRipQV.css#"], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "transfer-localized": { "id": "transfer-localized", "parentId": "root", "path": ":language/transfers/:slug", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/transfer-CkKplfCt.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-B52vbEmh.js", "/assets/BookingForm-DZh00RGZ.js", "/assets/StaticPageHeader-DDzAlzLI.js", "/assets/Icon-cdn0c84e.js"], "css": ["/assets/BookingForm-DpsRipQV.css#"], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "hotel-de": { "id": "hotel-de", "parentId": "root", "path": "de/hotels/:hotelSlug", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/hotel-C5A-3AJV.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-B52vbEmh.js", "/assets/BookingForm-DZh00RGZ.js", "/assets/StaticPageHeader-DDzAlzLI.js", "/assets/Icon-cdn0c84e.js"], "css": ["/assets/BookingForm-DpsRipQV.css#"], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "legal-imprint-en": { "id": "legal-imprint-en", "parentId": "root", "path": "impressum.html", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/legal-qWcADcLC.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-B52vbEmh.js", "/assets/StaticPageHeader-DDzAlzLI.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "legal-privacy-en": { "id": "legal-privacy-en", "parentId": "root", "path": "privacy", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/legal-qWcADcLC.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-B52vbEmh.js", "/assets/StaticPageHeader-DDzAlzLI.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "legal-privacy-de": { "id": "legal-privacy-de", "parentId": "root", "path": "de/datenschutz", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/legal-qWcADcLC.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-B52vbEmh.js", "/assets/StaticPageHeader-DDzAlzLI.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "legal-imprint-de": { "id": "legal-imprint-de", "parentId": "root", "path": "de/impressum", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/legal-qWcADcLC.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-B52vbEmh.js", "/assets/StaticPageHeader-DDzAlzLI.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "legal-privacy-tr": { "id": "legal-privacy-tr", "parentId": "root", "path": "tr/gizlilik", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/legal-qWcADcLC.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-B52vbEmh.js", "/assets/StaticPageHeader-DDzAlzLI.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "legal-imprint-tr": { "id": "legal-imprint-tr", "parentId": "root", "path": "tr/kunye", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/legal-qWcADcLC.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-B52vbEmh.js", "/assets/StaticPageHeader-DDzAlzLI.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "legal-privacy-ru": { "id": "legal-privacy-ru", "parentId": "root", "path": "ru/privacy", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/legal-qWcADcLC.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-B52vbEmh.js", "/assets/StaticPageHeader-DDzAlzLI.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "legal-imprint-ru": { "id": "legal-imprint-ru", "parentId": "root", "path": "ru/impressum", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/legal-qWcADcLC.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-B52vbEmh.js", "/assets/StaticPageHeader-DDzAlzLI.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "legal-privacy-cs": { "id": "legal-privacy-cs", "parentId": "root", "path": "cs/privacy", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/legal-qWcADcLC.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-B52vbEmh.js", "/assets/StaticPageHeader-DDzAlzLI.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "legal-imprint-cs": { "id": "legal-imprint-cs", "parentId": "root", "path": "cs/impressum", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/legal-qWcADcLC.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-B52vbEmh.js", "/assets/StaticPageHeader-DDzAlzLI.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "legal-privacy-uk": { "id": "legal-privacy-uk", "parentId": "root", "path": "uk/privacy", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/legal-qWcADcLC.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-B52vbEmh.js", "/assets/StaticPageHeader-DDzAlzLI.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "legal-imprint-uk": { "id": "legal-imprint-uk", "parentId": "root", "path": "uk/impressum", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/legal-qWcADcLC.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-B52vbEmh.js", "/assets/StaticPageHeader-DDzAlzLI.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "legal-privacy-ur": { "id": "legal-privacy-ur", "parentId": "root", "path": "ur/privacy", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/legal-qWcADcLC.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-B52vbEmh.js", "/assets/StaticPageHeader-DDzAlzLI.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "legal-imprint-ur": { "id": "legal-imprint-ur", "parentId": "root", "path": "ur/impressum", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/legal-qWcADcLC.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-B52vbEmh.js", "/assets/StaticPageHeader-DDzAlzLI.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 } }, "url": "/assets/manifest-5d5cffc7.js", "version": "5d5cffc7", "sri": void 0 };
 const assetsBuildDirectory = "build/public-react/client";
 const basename = "/";
 const future = { "unstable_enableNodeReadableStream": false, "unstable_optimizeDeps": false };
 const ssr = false;
 const isSpaMode = false;
-const prerender = ["/", "/de/", "/fr/", "/tr/", "/ru/", "/cs/", "/uk/", "/ur/", "/health/", "/de/health/", "/fr/health/", "/tr/health/", "/ru/health/", "/cs/health/", "/uk/health/", "/ur/health/", "/clinic/", "/transfers/antalya/", "/transfers/belek/", "/transfers/side/", "/transfers/kemer/", "/transfers/alanya/", "/transfers/bogazkent/", "/transfers/manavgat/", "/transfers/kizilagac/", "/transfers/tekirova/", "/transfers/bodrum/", "/transfers/dalaman/", "/transfers/fethiye/", "/transfers/pamukkale/", "/transfers/kapadokya/", "/de/transfers/antalya/", "/de/transfers/belek/", "/de/transfers/side/", "/de/transfers/kemer/", "/de/transfers/alanya/", "/de/transfers/bogazkent/", "/de/transfers/manavgat/", "/de/transfers/kizilagac/", "/de/transfers/tekirova/", "/de/transfers/bodrum/", "/de/transfers/dalaman/", "/de/transfers/fethiye/", "/de/transfers/pamukkale/", "/de/transfers/kapadokya/", "/fr/transfers/antalya/", "/fr/transfers/belek/", "/fr/transfers/side/", "/fr/transfers/kemer/", "/fr/transfers/alanya/", "/fr/transfers/bogazkent/", "/fr/transfers/manavgat/", "/fr/transfers/kizilagac/", "/fr/transfers/tekirova/", "/fr/transfers/bodrum/", "/fr/transfers/dalaman/", "/fr/transfers/fethiye/", "/fr/transfers/pamukkale/", "/fr/transfers/kapadokya/", "/tr/transfers/antalya/", "/tr/transfers/belek/", "/tr/transfers/side/", "/tr/transfers/kemer/", "/tr/transfers/alanya/", "/tr/transfers/bogazkent/", "/tr/transfers/manavgat/", "/tr/transfers/kizilagac/", "/tr/transfers/tekirova/", "/tr/transfers/bodrum/", "/tr/transfers/dalaman/", "/tr/transfers/fethiye/", "/tr/transfers/pamukkale/", "/tr/transfers/kapadokya/", "/ru/transfers/antalya/", "/ru/transfers/belek/", "/ru/transfers/side/", "/ru/transfers/kemer/", "/ru/transfers/alanya/", "/ru/transfers/bogazkent/", "/ru/transfers/manavgat/", "/ru/transfers/kizilagac/", "/ru/transfers/tekirova/", "/ru/transfers/bodrum/", "/ru/transfers/dalaman/", "/ru/transfers/fethiye/", "/ru/transfers/pamukkale/", "/ru/transfers/kapadokya/", "/cs/transfers/antalya/", "/cs/transfers/belek/", "/cs/transfers/side/", "/cs/transfers/kemer/", "/cs/transfers/alanya/", "/cs/transfers/bogazkent/", "/cs/transfers/manavgat/", "/cs/transfers/kizilagac/", "/cs/transfers/tekirova/", "/cs/transfers/bodrum/", "/cs/transfers/dalaman/", "/cs/transfers/fethiye/", "/cs/transfers/pamukkale/", "/cs/transfers/kapadokya/", "/uk/transfers/antalya/", "/uk/transfers/belek/", "/uk/transfers/side/", "/uk/transfers/kemer/", "/uk/transfers/alanya/", "/uk/transfers/bogazkent/", "/uk/transfers/manavgat/", "/uk/transfers/kizilagac/", "/uk/transfers/tekirova/", "/uk/transfers/bodrum/", "/uk/transfers/dalaman/", "/uk/transfers/fethiye/", "/uk/transfers/pamukkale/", "/uk/transfers/kapadokya/", "/ur/transfers/antalya/", "/ur/transfers/belek/", "/ur/transfers/side/", "/ur/transfers/kemer/", "/ur/transfers/alanya/", "/ur/transfers/bogazkent/", "/ur/transfers/manavgat/", "/ur/transfers/kizilagac/", "/ur/transfers/tekirova/", "/ur/transfers/bodrum/", "/ur/transfers/dalaman/", "/ur/transfers/fethiye/", "/ur/transfers/pamukkale/", "/ur/transfers/kapadokya/", "/de/hotels/rixos-premium-belek/", "/de/hotels/the-land-of-legends/", "/de/hotels/maxx-royal-belek/", "/de/hotels/regnum-carya/", "/de/hotels/gloria-golf-resort/", "/de/hotels/arum-barut-collection/", "/de/hotels/side-star-resort/", "/de/hotels/royal-dragon-hotel/", "/de/hotels/barut-hemera/", "/de/hotels/voyage-sorgun/", "/impressum.html", "/privacy/", "/de/datenschutz/", "/de/impressum/", "/tr/gizlilik/", "/tr/kunye/", "/ru/privacy/", "/ru/impressum/", "/cs/privacy/", "/cs/impressum/", "/uk/privacy/", "/uk/impressum/", "/ur/privacy/", "/ur/impressum/"];
+const prerender = ["/", "/de/", "/fr/", "/tr/", "/ru/", "/cs/", "/uk/", "/ur/", "/pl/", "/nl/", "/ar/", "/sv/", "/health/", "/de/health/", "/fr/health/", "/tr/health/", "/ru/health/", "/cs/health/", "/uk/health/", "/ur/health/", "/pl/health/", "/nl/health/", "/ar/health/", "/sv/health/", "/clinic/", "/transfers/antalya/", "/transfers/belek/", "/transfers/side/", "/transfers/kemer/", "/transfers/alanya/", "/transfers/bogazkent/", "/transfers/manavgat/", "/transfers/kizilagac/", "/transfers/tekirova/", "/transfers/bodrum/", "/transfers/dalaman/", "/transfers/fethiye/", "/transfers/pamukkale/", "/transfers/kapadokya/", "/de/transfers/antalya/", "/de/transfers/belek/", "/de/transfers/side/", "/de/transfers/kemer/", "/de/transfers/alanya/", "/de/transfers/bogazkent/", "/de/transfers/manavgat/", "/de/transfers/kizilagac/", "/de/transfers/tekirova/", "/de/transfers/bodrum/", "/de/transfers/dalaman/", "/de/transfers/fethiye/", "/de/transfers/pamukkale/", "/de/transfers/kapadokya/", "/fr/transfers/antalya/", "/fr/transfers/belek/", "/fr/transfers/side/", "/fr/transfers/kemer/", "/fr/transfers/alanya/", "/fr/transfers/bogazkent/", "/fr/transfers/manavgat/", "/fr/transfers/kizilagac/", "/fr/transfers/tekirova/", "/fr/transfers/bodrum/", "/fr/transfers/dalaman/", "/fr/transfers/fethiye/", "/fr/transfers/pamukkale/", "/fr/transfers/kapadokya/", "/tr/transfers/antalya/", "/tr/transfers/belek/", "/tr/transfers/side/", "/tr/transfers/kemer/", "/tr/transfers/alanya/", "/tr/transfers/bogazkent/", "/tr/transfers/manavgat/", "/tr/transfers/kizilagac/", "/tr/transfers/tekirova/", "/tr/transfers/bodrum/", "/tr/transfers/dalaman/", "/tr/transfers/fethiye/", "/tr/transfers/pamukkale/", "/tr/transfers/kapadokya/", "/ru/transfers/antalya/", "/ru/transfers/belek/", "/ru/transfers/side/", "/ru/transfers/kemer/", "/ru/transfers/alanya/", "/ru/transfers/bogazkent/", "/ru/transfers/manavgat/", "/ru/transfers/kizilagac/", "/ru/transfers/tekirova/", "/ru/transfers/bodrum/", "/ru/transfers/dalaman/", "/ru/transfers/fethiye/", "/ru/transfers/pamukkale/", "/ru/transfers/kapadokya/", "/cs/transfers/antalya/", "/cs/transfers/belek/", "/cs/transfers/side/", "/cs/transfers/kemer/", "/cs/transfers/alanya/", "/cs/transfers/bogazkent/", "/cs/transfers/manavgat/", "/cs/transfers/kizilagac/", "/cs/transfers/tekirova/", "/cs/transfers/bodrum/", "/cs/transfers/dalaman/", "/cs/transfers/fethiye/", "/cs/transfers/pamukkale/", "/cs/transfers/kapadokya/", "/uk/transfers/antalya/", "/uk/transfers/belek/", "/uk/transfers/side/", "/uk/transfers/kemer/", "/uk/transfers/alanya/", "/uk/transfers/bogazkent/", "/uk/transfers/manavgat/", "/uk/transfers/kizilagac/", "/uk/transfers/tekirova/", "/uk/transfers/bodrum/", "/uk/transfers/dalaman/", "/uk/transfers/fethiye/", "/uk/transfers/pamukkale/", "/uk/transfers/kapadokya/", "/ur/transfers/antalya/", "/ur/transfers/belek/", "/ur/transfers/side/", "/ur/transfers/kemer/", "/ur/transfers/alanya/", "/ur/transfers/bogazkent/", "/ur/transfers/manavgat/", "/ur/transfers/kizilagac/", "/ur/transfers/tekirova/", "/ur/transfers/bodrum/", "/ur/transfers/dalaman/", "/ur/transfers/fethiye/", "/ur/transfers/pamukkale/", "/ur/transfers/kapadokya/", "/pl/transfers/antalya/", "/pl/transfers/belek/", "/pl/transfers/side/", "/pl/transfers/kemer/", "/pl/transfers/alanya/", "/pl/transfers/bogazkent/", "/pl/transfers/manavgat/", "/pl/transfers/kizilagac/", "/pl/transfers/tekirova/", "/pl/transfers/bodrum/", "/pl/transfers/dalaman/", "/pl/transfers/fethiye/", "/pl/transfers/pamukkale/", "/pl/transfers/kapadokya/", "/nl/transfers/antalya/", "/nl/transfers/belek/", "/nl/transfers/side/", "/nl/transfers/kemer/", "/nl/transfers/alanya/", "/nl/transfers/bogazkent/", "/nl/transfers/manavgat/", "/nl/transfers/kizilagac/", "/nl/transfers/tekirova/", "/nl/transfers/bodrum/", "/nl/transfers/dalaman/", "/nl/transfers/fethiye/", "/nl/transfers/pamukkale/", "/nl/transfers/kapadokya/", "/ar/transfers/antalya/", "/ar/transfers/belek/", "/ar/transfers/side/", "/ar/transfers/kemer/", "/ar/transfers/alanya/", "/ar/transfers/bogazkent/", "/ar/transfers/manavgat/", "/ar/transfers/kizilagac/", "/ar/transfers/tekirova/", "/ar/transfers/bodrum/", "/ar/transfers/dalaman/", "/ar/transfers/fethiye/", "/ar/transfers/pamukkale/", "/ar/transfers/kapadokya/", "/sv/transfers/antalya/", "/sv/transfers/belek/", "/sv/transfers/side/", "/sv/transfers/kemer/", "/sv/transfers/alanya/", "/sv/transfers/bogazkent/", "/sv/transfers/manavgat/", "/sv/transfers/kizilagac/", "/sv/transfers/tekirova/", "/sv/transfers/bodrum/", "/sv/transfers/dalaman/", "/sv/transfers/fethiye/", "/sv/transfers/pamukkale/", "/sv/transfers/kapadokya/", "/de/hotels/rixos-premium-belek/", "/de/hotels/the-land-of-legends/", "/de/hotels/maxx-royal-belek/", "/de/hotels/regnum-carya/", "/de/hotels/gloria-golf-resort/", "/de/hotels/cornelia-diamond-golf-resort/", "/de/hotels/ic-hotels-santai/", "/de/hotels/arum-barut-collection/", "/de/hotels/side-star-resort/", "/de/hotels/royal-dragon-hotel/", "/de/hotels/barut-hemera/", "/de/hotels/voyage-sorgun/", "/de/hotels/sentido-flora-garden/", "/de/hotels/crystal-sunset-luxury-resort/", "/de/hotels/rixos-premium-kemer/", "/de/hotels/maxx-royal-kemer/", "/de/hotels/orange-county-resort-kemer/", "/de/hotels/paloma-pasha-resort/", "/de/hotels/club-hotel-phaselis-rose/", "/de/hotels/utopia-world-hotel/", "/de/hotels/sentido-gold-island/", "/de/hotels/q-premium-resort/", "/de/hotels/kirman-arycanda/", "/de/hotels/delphin-diva/", "/de/hotels/rixos-premium-tekirova/", "/de/hotels/amara-prestige/", "/impressum.html", "/privacy/", "/de/datenschutz/", "/de/impressum/", "/tr/gizlilik/", "/tr/kunye/", "/ru/privacy/", "/ru/impressum/", "/cs/privacy/", "/cs/impressum/", "/uk/privacy/", "/uk/impressum/", "/ur/privacy/", "/ur/impressum/"];
 const routeDiscovery = { "mode": "initial" };
 const publicPath = "/";
 const entry = { module: entryServer };
@@ -5965,7 +6287,7 @@ const routes = {
     path: void 0,
     index: true,
     caseSensitive: void 0,
-    module: route8
+    module: route12
   },
   "home-de": {
     id: "home-de",
@@ -5973,7 +6295,7 @@ const routes = {
     path: "de",
     index: void 0,
     caseSensitive: void 0,
-    module: route8
+    module: route12
   },
   "home-fr": {
     id: "home-fr",
@@ -5981,7 +6303,7 @@ const routes = {
     path: "fr",
     index: void 0,
     caseSensitive: void 0,
-    module: route8
+    module: route12
   },
   "home-tr": {
     id: "home-tr",
@@ -5989,7 +6311,7 @@ const routes = {
     path: "tr",
     index: void 0,
     caseSensitive: void 0,
-    module: route8
+    module: route12
   },
   "home-ru": {
     id: "home-ru",
@@ -5997,7 +6319,7 @@ const routes = {
     path: "ru",
     index: void 0,
     caseSensitive: void 0,
-    module: route8
+    module: route12
   },
   "home-cs": {
     id: "home-cs",
@@ -6005,7 +6327,7 @@ const routes = {
     path: "cs",
     index: void 0,
     caseSensitive: void 0,
-    module: route8
+    module: route12
   },
   "home-uk": {
     id: "home-uk",
@@ -6013,7 +6335,7 @@ const routes = {
     path: "uk",
     index: void 0,
     caseSensitive: void 0,
-    module: route8
+    module: route12
   },
   "home-ur": {
     id: "home-ur",
@@ -6021,7 +6343,39 @@ const routes = {
     path: "ur",
     index: void 0,
     caseSensitive: void 0,
-    module: route8
+    module: route12
+  },
+  "home-pl": {
+    id: "home-pl",
+    parentId: "root",
+    path: "pl",
+    index: void 0,
+    caseSensitive: void 0,
+    module: route12
+  },
+  "home-nl": {
+    id: "home-nl",
+    parentId: "root",
+    path: "nl",
+    index: void 0,
+    caseSensitive: void 0,
+    module: route12
+  },
+  "home-ar": {
+    id: "home-ar",
+    parentId: "root",
+    path: "ar",
+    index: void 0,
+    caseSensitive: void 0,
+    module: route12
+  },
+  "home-sv": {
+    id: "home-sv",
+    parentId: "root",
+    path: "sv",
+    index: void 0,
+    caseSensitive: void 0,
+    module: route12
   },
   "health-en": {
     id: "health-en",
@@ -6029,7 +6383,7 @@ const routes = {
     path: "health",
     index: void 0,
     caseSensitive: void 0,
-    module: route16
+    module: route24
   },
   "health-de": {
     id: "health-de",
@@ -6037,7 +6391,7 @@ const routes = {
     path: "de/health",
     index: void 0,
     caseSensitive: void 0,
-    module: route16
+    module: route24
   },
   "health-fr": {
     id: "health-fr",
@@ -6045,7 +6399,7 @@ const routes = {
     path: "fr/health",
     index: void 0,
     caseSensitive: void 0,
-    module: route16
+    module: route24
   },
   "health-tr": {
     id: "health-tr",
@@ -6053,7 +6407,7 @@ const routes = {
     path: "tr/health",
     index: void 0,
     caseSensitive: void 0,
-    module: route16
+    module: route24
   },
   "health-ru": {
     id: "health-ru",
@@ -6061,7 +6415,7 @@ const routes = {
     path: "ru/health",
     index: void 0,
     caseSensitive: void 0,
-    module: route16
+    module: route24
   },
   "health-cs": {
     id: "health-cs",
@@ -6069,7 +6423,7 @@ const routes = {
     path: "cs/health",
     index: void 0,
     caseSensitive: void 0,
-    module: route16
+    module: route24
   },
   "health-uk": {
     id: "health-uk",
@@ -6077,7 +6431,7 @@ const routes = {
     path: "uk/health",
     index: void 0,
     caseSensitive: void 0,
-    module: route16
+    module: route24
   },
   "health-ur": {
     id: "health-ur",
@@ -6085,7 +6439,39 @@ const routes = {
     path: "ur/health",
     index: void 0,
     caseSensitive: void 0,
-    module: route16
+    module: route24
+  },
+  "health-pl": {
+    id: "health-pl",
+    parentId: "root",
+    path: "pl/health",
+    index: void 0,
+    caseSensitive: void 0,
+    module: route24
+  },
+  "health-nl": {
+    id: "health-nl",
+    parentId: "root",
+    path: "nl/health",
+    index: void 0,
+    caseSensitive: void 0,
+    module: route24
+  },
+  "health-ar": {
+    id: "health-ar",
+    parentId: "root",
+    path: "ar/health",
+    index: void 0,
+    caseSensitive: void 0,
+    module: route24
+  },
+  "health-sv": {
+    id: "health-sv",
+    parentId: "root",
+    path: "sv/health",
+    index: void 0,
+    caseSensitive: void 0,
+    module: route24
   },
   "clinic-tr": {
     id: "clinic-tr",
@@ -6093,7 +6479,7 @@ const routes = {
     path: "clinic",
     index: void 0,
     caseSensitive: void 0,
-    module: route17
+    module: route25
   },
   "transfer-en": {
     id: "transfer-en",
@@ -6101,7 +6487,7 @@ const routes = {
     path: "transfers/:slug",
     index: void 0,
     caseSensitive: void 0,
-    module: route19
+    module: route27
   },
   "transfer-localized": {
     id: "transfer-localized",
@@ -6109,7 +6495,7 @@ const routes = {
     path: ":language/transfers/:slug",
     index: void 0,
     caseSensitive: void 0,
-    module: route19
+    module: route27
   },
   "hotel-de": {
     id: "hotel-de",
@@ -6117,7 +6503,7 @@ const routes = {
     path: "de/hotels/:hotelSlug",
     index: void 0,
     caseSensitive: void 0,
-    module: route20
+    module: route28
   },
   "legal-imprint-en": {
     id: "legal-imprint-en",
@@ -6125,7 +6511,7 @@ const routes = {
     path: "impressum.html",
     index: void 0,
     caseSensitive: void 0,
-    module: route34
+    module: route42
   },
   "legal-privacy-en": {
     id: "legal-privacy-en",
@@ -6133,7 +6519,7 @@ const routes = {
     path: "privacy",
     index: void 0,
     caseSensitive: void 0,
-    module: route34
+    module: route42
   },
   "legal-privacy-de": {
     id: "legal-privacy-de",
@@ -6141,7 +6527,7 @@ const routes = {
     path: "de/datenschutz",
     index: void 0,
     caseSensitive: void 0,
-    module: route34
+    module: route42
   },
   "legal-imprint-de": {
     id: "legal-imprint-de",
@@ -6149,7 +6535,7 @@ const routes = {
     path: "de/impressum",
     index: void 0,
     caseSensitive: void 0,
-    module: route34
+    module: route42
   },
   "legal-privacy-tr": {
     id: "legal-privacy-tr",
@@ -6157,7 +6543,7 @@ const routes = {
     path: "tr/gizlilik",
     index: void 0,
     caseSensitive: void 0,
-    module: route34
+    module: route42
   },
   "legal-imprint-tr": {
     id: "legal-imprint-tr",
@@ -6165,7 +6551,7 @@ const routes = {
     path: "tr/kunye",
     index: void 0,
     caseSensitive: void 0,
-    module: route34
+    module: route42
   },
   "legal-privacy-ru": {
     id: "legal-privacy-ru",
@@ -6173,7 +6559,7 @@ const routes = {
     path: "ru/privacy",
     index: void 0,
     caseSensitive: void 0,
-    module: route34
+    module: route42
   },
   "legal-imprint-ru": {
     id: "legal-imprint-ru",
@@ -6181,7 +6567,7 @@ const routes = {
     path: "ru/impressum",
     index: void 0,
     caseSensitive: void 0,
-    module: route34
+    module: route42
   },
   "legal-privacy-cs": {
     id: "legal-privacy-cs",
@@ -6189,7 +6575,7 @@ const routes = {
     path: "cs/privacy",
     index: void 0,
     caseSensitive: void 0,
-    module: route34
+    module: route42
   },
   "legal-imprint-cs": {
     id: "legal-imprint-cs",
@@ -6197,7 +6583,7 @@ const routes = {
     path: "cs/impressum",
     index: void 0,
     caseSensitive: void 0,
-    module: route34
+    module: route42
   },
   "legal-privacy-uk": {
     id: "legal-privacy-uk",
@@ -6205,7 +6591,7 @@ const routes = {
     path: "uk/privacy",
     index: void 0,
     caseSensitive: void 0,
-    module: route34
+    module: route42
   },
   "legal-imprint-uk": {
     id: "legal-imprint-uk",
@@ -6213,7 +6599,7 @@ const routes = {
     path: "uk/impressum",
     index: void 0,
     caseSensitive: void 0,
-    module: route34
+    module: route42
   },
   "legal-privacy-ur": {
     id: "legal-privacy-ur",
@@ -6221,7 +6607,7 @@ const routes = {
     path: "ur/privacy",
     index: void 0,
     caseSensitive: void 0,
-    module: route34
+    module: route42
   },
   "legal-imprint-ur": {
     id: "legal-imprint-ur",
@@ -6229,7 +6615,7 @@ const routes = {
     path: "ur/impressum",
     index: void 0,
     caseSensitive: void 0,
-    module: route34
+    module: route42
   }
 };
 const allowedActionOrigins = false;

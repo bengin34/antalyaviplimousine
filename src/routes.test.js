@@ -13,11 +13,18 @@ describe("canonical route catalogue", () => {
   test("markets fourteen routes and prices those alone on the static pages", () => {
     expect(publicRouteSlugs).toHaveLength(14);
     expect(Object.keys(routeData)).toEqual(publicRouteSlugs);
-    expect(publicRouteSlugs.every((slug) => routeCatalog[slug].landing !== false)).toBe(true);
+    expect(publicRouteSlugs.every((slug) => !routeCatalog[slug].landingRoute)).toBe(true);
+  });
+
+  test("presents every sub-region under a marketed landing page", () => {
+    for (const [slug, route] of Object.entries(routeCatalog)) {
+      if (!route.landingRoute) continue;
+      expect(publicRouteSlugs, `${slug} points at an unmarketed landing page`).toContain(route.landingRoute);
+    }
   });
 
   test("offers the unlisted Alanya sub-regions for booking but not as landing pages", () => {
-    const unlisted = Object.keys(routeCatalog).filter((slug) => routeCatalog[slug].landing === false);
+    const unlisted = Object.keys(routeCatalog).filter((slug) => routeCatalog[slug].landingRoute);
     expect(unlisted).toEqual(["alanya_bati", "alanya_merkez", "alanya_dogu", "kargicak", "demirtas"]);
     expect(Object.keys(routeCatalog)).toEqual(bookableRouteSlugs);
     for (const slug of unlisted) {

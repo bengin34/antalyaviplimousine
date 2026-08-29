@@ -6,7 +6,9 @@ import { supabase } from '../lib/supabase'
 import type { Booking, BookingStatus, ChauffeurHireDay, Navigate } from '../types'
 import { isFutureIstanbulLeg, locationDisplay, navigationURLs, whatsappURL } from '../../turkish-formatters.js'
 import { buildConfirmMessage, buildReminderMessage, buildReceivedMessage, buildReviewMessage } from '../../whatsapp-templates.js'
-import { LOCATION_OPTIONS, VEHICLE_CAPACITY, validateBookingForm, type BookingFormState } from './NewBookingPage'
+import { buildDriverTransferMessage, driverWhatsappURL } from '../../driver-message.js'
+import { LOCATION_OPTIONS, LANGUAGE_OPTIONS, VEHICLE_CAPACITY, validateBookingForm, type BookingFormState } from './NewBookingPage'
+import { languageFromPhone } from '../../turkish-formatters.js'
 
 const STATUS_TRANSITIONS: Record<string, BookingStatus[]> = {
   pending: ['confirmed', 'cancelled'], paid: ['in_transit'], confirmed: ['in_transit', 'cancelled'],
@@ -56,6 +58,7 @@ function createEditForm(booking: Booking): BookingFormState {
     luggage: String(booking.luggage_count ?? 0), childSeats: String(booking.child_seat_count ?? 0),
     price: String(isDailyChauffeur ? Number(booking.daily_rate_eur) || 150 : isRoundTrip ? (Number(booking.price_eur) || 0) / 2 : Number(booking.price_eur) || 0),
     payment: booking.payment_method ?? 'cash', status: booking.status, notes: booking.notes ?? '', fuelAccepted: Boolean(booking.fuel_terms_accepted_at),
+    language: booking.language ?? '',
   }
 }
 
@@ -75,7 +78,8 @@ function BookingEditor({ booking, onCancel, onSaved }: { booking: Booking; onCan
     if (result.error || !result.payload) {
       setError(result.error); requestAnimationFrame(() => errorRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' })); return
     }
-    const { status: _status, ...payload } = result.payload
+    const { status: _status, ...rest } = result.payload
+    const payload = { ...rest, language: form.language || languageFromPhone(form.phone) }
     setSaving(true); setError('')
     const { count, error: updateError } = await supabase.from('bookings').update(payload, { count: 'exact' }).eq('id', booking.id)
     setSaving(false)
@@ -88,6 +92,7 @@ function BookingEditor({ booking, onCancel, onSaved }: { booking: Booking; onCan
       <Field label="Ad Soyad *"><input className="input" type="text" maxLength={80} autoComplete="off" value={form.name} onChange={e => set('name', e.target.value)} required /></Field>
       <div className="form-row"><Field label="Telefon *"><input className="input" type="tel" autoComplete="off" value={form.phone} onChange={e => set('phone', e.target.value)} required /></Field><Field label="E-posta"><input className="input" type="email" maxLength={120} autoComplete="off" value={form.email} onChange={e => set('email', e.target.value)} /></Field></div>
       <Field label="Otel / Konaklama"><input className="input" type="text" maxLength={120} autoComplete="off" value={form.hotel} onChange={e => set('hotel', e.target.value)} /></Field>
+      <Field label="Mesaj dili"><select className="input" value={form.language} onChange={e => set('language', e.target.value)}>{LANGUAGE_OPTIONS.map(([value, label]) => <option key={value} value={value}>{label}</option>)}</select><span className="form-hint">Müşteriye gidecek WhatsApp mesajlarının dili. Otomatik = telefon ülke kodundan.</span></Field>
     </div>
     <div className="booking-edit-group"><div className="section-label">Transfer</div>
       <Field label="Sefer türü"><select className="input" value={form.tripType} onChange={e => {
@@ -209,6 +214,7 @@ export default function BookingDetailPage({ bookingRef, isReturn, sourceTab, pro
   const [noteError, setNoteError] = useState('')
   const [noteSaving, setNoteSaving] = useState(false)
   const [templateState, setTemplateState] = useState({ loading: '', success: '', error: '' })
+  const [forceEnglish, setForceEnglish] = useState(false)
   const [deleting, setDeleting] = useState(false)
   const [deleteError, setDeleteError] = useState('')
 
@@ -228,8 +234,7 @@ export default function BookingDetailPage({ bookingRef, isReturn, sourceTab, pro
 
   const backHash = sourceTab === 'profit-loss'
     ? `#profit-loss${profitPeriod ? `?period=${encodeURIComponent(profitPeriod)}` : ''}`
-    : sourceTab === 'past' ? '#timeline?tab=past'
-    : sourceTab === 'cancelled' ? '#timeline?tab=cancelled' : '#timeline'
+    : '#timeline'
   if (loading) return <><Topbar navigate={navigate} title="Transfer Detayı" back={backHash} /><div className="scroll-area"><div className="empty"><div>Yükleniyor…</div></div></div></>
   if (notFound || !booking) return <><Topbar navigate={navigate} title="Transfer Detayı" back={backHash} /><div className="scroll-area"><div className="empty"><div>Rezervasyon bulunamadı</div></div></div></>
 
@@ -273,11 +278,12 @@ export default function BookingDetailPage({ bookingRef, isReturn, sourceTab, pro
     }
     const latest = data as Booking
     setBooking(current => ({ ...current!, ...latest }))
+    const language = forceEnglish ? 'en' : undefined
     let message: string
-    if (kind === 'confirm') message = buildConfirmMessage(latest, { leg: isReturn ? 'return' : 'outbound' })
-    else if (kind === 'reminder') message = buildReminderMessage(latest, { leg: isReturn ? 'return' : 'outbound' })
-    else if (kind === 'received') message = buildReceivedMessage(latest)
-    else message = buildReviewMessage(latest)
+    if (kind === 'confirm') message = buildConfirmMessage(latest, { leg: isReturn ? 'return' : 'outbound', language })
+    else if (kind === 'reminder') message = buildReminderMessage(latest, { leg: isReturn ? 'return' : 'outbound', language })
+    else if (kind === 'received') message = buildReceivedMessage(latest, { language })
+    else message = buildReviewMessage(latest, { language })
     if (popup.closed) return setTemplateState({ loading: '', success: '', error: 'WhatsApp sekmesi kapatıldı.' })
     popup.location.replace(whatsappURL(latest.customer_phone, message))
     setTemplateState({ loading: '', success: 'Mesaj, veritabanındaki en güncel transfer ve adres bilgileriyle hazırlandı.', error: '' })
@@ -339,7 +345,8 @@ export default function BookingDetailPage({ bookingRef, isReturn, sourceTab, pro
 
       {dailyChauffeur && <div className="section chauffeur-days-section"><div className="section-label">Günlük Operasyon</div>{sortedHireDays.length ? sortedHireDays.map(day => <ChauffeurDayEditor key={day.id} day={day} onSaved={updateHireDay} />) : <div className="inline-error">Günlük operasyon kayıtları bulunamadı. Migration ve tetikleyici durumunu kontrol edin.</div>}</div>}
 
-      <div className="section"><div className="section-label">Müşteri</div><div style={{ fontWeight: 600, marginBottom: 4 }}>{booking.customer_name}</div><div style={{ marginBottom: 4 }}><a className="whatsapp-link" href={whatsappURL(booking.customer_phone)} target="_blank" rel="noopener noreferrer" aria-label="Müşterinin WhatsApp sohbetini aç"><span aria-hidden="true">💬</span><span>WhatsApp&apos;tan yaz: {booking.customer_phone}</span></a></div><div className="whatsapp-template-actions"><button className="whatsapp-template-btn" type="button" disabled={Boolean(templateState.loading)} onClick={() => void openTemplate('confirm')}>💬 {templateState.loading === 'confirm' ? 'Güncel veriler kontrol ediliyor…' : `WhatsApp: ${roundTrip ? (isReturn ? 'Dönüş onayı' : 'Gidiş onayı') : 'Onay'} gönder`}</button><button className="whatsapp-template-btn" type="button" disabled={Boolean(templateState.loading)} onClick={() => void openTemplate('reminder')}>💬 {templateState.loading === 'reminder' ? 'Güncel veriler kontrol ediliyor…' : `WhatsApp: ${roundTrip ? (isReturn ? 'Dönüş hatırlatması' : 'Gidiş hatırlatması') : 'Hatırlatma'} gönder`}</button><button className="whatsapp-template-btn" type="button" disabled={Boolean(templateState.loading)} onClick={() => void openTemplate('received')}>💬 {templateState.loading === 'received' ? 'Güncel veriler kontrol ediliyor…' : 'WhatsApp: Talebinizi aldık gönder'}</button><button className="whatsapp-template-btn" type="button" disabled={Boolean(templateState.loading)} onClick={() => void openTemplate('review')}>💬 {templateState.loading === 'review' ? 'Güncel veriler kontrol ediliyor…' : 'WhatsApp: Yorum iste gönder'}</button></div><div className="inline-success" role="status">{templateState.success}</div><div className="inline-error" role="alert">{templateState.error}</div>
+      <div className="section"><div className="section-label">Müşteri</div><div style={{ fontWeight: 600, marginBottom: 4 }}>{booking.customer_name}</div><div style={{ marginBottom: 4 }}><a className="whatsapp-link" href={whatsappURL(booking.customer_phone)} target="_blank" rel="noopener noreferrer" aria-label="Müşterinin WhatsApp sohbetini aç"><span aria-hidden="true">💬</span><span>WhatsApp&apos;tan yaz: {booking.customer_phone}</span></a></div><label className="whatsapp-lang-toggle" style={{ display: 'flex', alignItems: 'center', gap: 6, marginBottom: 8, fontSize: 13, cursor: 'pointer' }}><input type="checkbox" checked={forceEnglish} onChange={e => setForceEnglish(e.target.checked)} /><span>🇬🇧 Her zaman İngilizce gönder {forceEnglish ? '(açık)' : `(varsayılan: müşteri dili · ${booking.language || 'en'})`}</span></label><div className="whatsapp-template-actions"><button className="whatsapp-template-btn" type="button" disabled={Boolean(templateState.loading)} onClick={() => void openTemplate('confirm')}>💬 {templateState.loading === 'confirm' ? 'Güncel veriler kontrol ediliyor…' : `WhatsApp: ${roundTrip ? (isReturn ? 'Dönüş onayı' : 'Gidiş onayı') : 'Onay'} gönder`}</button><button className="whatsapp-template-btn" type="button" disabled={Boolean(templateState.loading)} onClick={() => void openTemplate('reminder')}>💬 {templateState.loading === 'reminder' ? 'Güncel veriler kontrol ediliyor…' : `WhatsApp: ${roundTrip ? (isReturn ? 'Dönüş hatırlatması' : 'Gidiş hatırlatması') : 'Hatırlatma'} gönder`}</button><button className="whatsapp-template-btn" type="button" disabled={Boolean(templateState.loading)} onClick={() => void openTemplate('received')}>💬 {templateState.loading === 'received' ? 'Güncel veriler kontrol ediliyor…' : 'WhatsApp: Talebinizi aldık gönder'}</button><button className="whatsapp-template-btn" type="button" disabled={Boolean(templateState.loading)} onClick={() => void openTemplate('review')}>💬 {templateState.loading === 'review' ? 'Güncel veriler kontrol ediliyor…' : 'WhatsApp: Yorum iste gönder'}</button></div><div className="inline-success" role="status">{templateState.success}</div><div className="inline-error" role="alert">{templateState.error}</div>
+        <div className="driver-notify-section"><div className="section-label" style={{ marginTop: 12 }}>Şoför Bildirimi</div><a className="whatsapp-template-btn driver-notify-btn" href={driverWhatsappURL(buildDriverTransferMessage(booking))} target="_blank" rel="noopener noreferrer">🚗 Şoföre Bildir (WhatsApp)</a></div>
         <div className="detail-grid" style={{ marginTop: 8 }}><InlineEditor booking={booking} column="customer_email" label="✉️ E-posta" display={booking.customer_email || '—'} maxLength={120} inputType="email" validate={raw => { const email = raw.trim().toLowerCase(); return email && (email.length > 120 || !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) ? { ok: false, error: 'Geçerli bir e-posta girin.' } : { ok: true, value: email } }} onSaved={genericSaved} /></div>
       </div>
 

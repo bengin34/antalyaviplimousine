@@ -33,25 +33,25 @@ function vehicleLabel(type) {
 const LANG = {
   en: {
     confirmGreeting: (name) =>
-      `Dear ${name},\n\n✅ Your premium Antalya VIP transfer is confirmed! We're excited to welcome you.`,
+      `Dear ${name},\n\n✅ Your Antalya VIP transfer is confirmed. Here are the details:`,
     confirmClosing:
-      "Your comfort and punctuality are our priorities. We're ready to provide you with an exceptional VIP experience. If you have any questions, we're just a message away! 🚗",
+      "We'll be ready at the agreed time. If anything changes or you have a question, just message us. Have a good trip! 🚗",
     reminderGreeting: (name) =>
-      `Dear ${name},\n\n🚙 Your VIP transfer is coming up! Here's a quick reminder:`,
+      `Dear ${name},\n\n🚙 A quick reminder about your upcoming transfer:`,
     reminderClosing:
-      "Your professional driver is on standby and ready to welcome you. Looking forward to a smooth, luxurious journey! 🌟",
+      "Your driver will be there on time. If you need anything, we're one message away. 🌟",
     receivedGreeting: (name) =>
-      `Dear ${name},\n\n✨ Thank you for choosing Antalya VIP Tourism! We've received your booking and our team is reviewing it with care.`,
+      `Dear ${name},\n\n✨ Thank you for your booking with Antalya VIP Tourism. We've received it and are reviewing the details.`,
     receivedClosing:
-      "We'll reach out shortly with your personalized transfer details. Get ready for premium service! 🎯",
+      "We'll get back to you shortly to confirm. 🎯",
     meetGreetGreeting: (name) =>
-      `Dear ${name},\n\n✈️ Welcome to Antalya! Your VIP Meet & Greet experience awaits.`,
+      `Dear ${name},\n\n✈️ Welcome to Antalya! Here are your Meet & Greet details:`,
     meetGreetClosing:
-      "Our team will be waiting for you at meeting point J / 777 with your personalized name board. We're here to make your arrival seamless and luxurious! 🌟",
+      "Our team will meet you at meeting point J / 777 with a name board. Safe travels! 🌟",
     reviewGreeting: (name) =>
-      `Dear ${name},\n\n🌟 Thank you for traveling with Antalya VIP Tourism! We hope your journey was exceptional.`,
+      `Dear ${name},\n\n🌟 Thank you for traveling with Antalya VIP Tourism. We hope everything went smoothly.`,
     reviewClosing:
-      "Your feedback helps us deliver premium service. Please share your experience on Google — we'd love to read your review! 👇\n\nhttps://g.page/r/CbJCg7BC63cBEBI/review",
+      "If you have a moment, we'd appreciate a short review on Google — it really helps us. 👇\n\nhttps://g.page/r/CbJCg7BC63cBEBI/review",
     labelRef: "Reference",
     labelDate: "Date",
     labelPickupTime: "Pickup time",
@@ -82,25 +82,25 @@ const LANG = {
   },
   de: {
     confirmGreeting: (name) =>
-      `Sehr geehrte/r ${name},\n\n✅ Ihr Premium-Transfer mit Antalya VIP Tourism ist bestätigt! Wir freuen uns auf Ihre Ankunft.`,
+      `Hallo ${name},\n\n✅ Ihr Antalya VIP-Transfer ist bestätigt. Hier die Details:`,
     confirmClosing:
-      "Ihr Komfort und Ihre Pünktlichkeit sind unsere Priorität. Wir bieten Ihnen ein außergewöhnliches VIP-Erlebnis. Bei Fragen erreichen Sie uns jederzeit! 🚗",
+      "Wir sind zur vereinbarten Zeit bereit. Bei Fragen oder Änderungen schreiben Sie uns einfach. Gute Reise! 🚗",
     reminderGreeting: (name) =>
-      `Sehr geehrte/r ${name},\n\n🚙 Ihr VIP-Transfer steht bevor! Hier ist eine schnelle Erinnerung:`,
+      `Hallo ${name},\n\n🚙 Eine kurze Erinnerung an Ihren bevorstehenden Transfer:`,
     reminderClosing:
-      "Ihr professioneller Fahrer ist einsatzbereit und freut sich auf Ihre Ankunft. Eine reibungslose, luxuriöse Fahrt erwartet Sie! 🌟",
+      "Ihr Fahrer ist pünktlich vor Ort. Bei Fragen sind wir für Sie da. 🌟",
     receivedGreeting: (name) =>
-      `Sehr geehrte/r ${name},\n\n✨ Vielen Dank, dass Sie Antalya VIP Tourism wählen! Wir haben Ihre Buchung erhalten und unser Team überprüft diese sorgfältig.`,
+      `Hallo ${name},\n\n✨ Vielen Dank für Ihre Buchung bei Antalya VIP Tourism. Wir haben sie erhalten und prüfen die Details.`,
     receivedClosing:
-      "Wir kontaktieren Sie in Kürze mit Ihren personalisierten Transferdetails. Genießen Sie Premium-Service! 🎯",
+      "Wir melden uns in Kürze zur Bestätigung. 🎯",
     meetGreetGreeting: (name) =>
-      `Sehr geehrte/r ${name},\n\n✈️ Willkommen in Antalya! Ihr VIP Meet & Greet Erlebnis wartet.`,
+      `Hallo ${name},\n\n✈️ Willkommen in Antalya! Hier Ihre Meet & Greet-Details:`,
     meetGreetClosing:
-      "Unser Team wartet auf Sie am Treffpunkt J / 777 mit Ihrem personalisierten Namensschild. Wir sind hier, um Ihre Ankunft nahtlos und luxuriös zu gestalten! 🌟",
+      "Unser Team erwartet Sie am Treffpunkt J / 777 mit einem Namensschild. Gute Reise! 🌟",
     reviewGreeting: (name) =>
-      `Sehr geehrte/r ${name},\n\n🌟 Vielen Dank für Ihre Reise mit Antalya VIP Tourism! Wir hoffen, Ihre Fahrt war außergewöhnlich.`,
+      `Hallo ${name},\n\n🌟 Danke, dass Sie mit Antalya VIP Tourism gefahren sind. Wir hoffen, alles ist gut verlaufen.`,
     reviewClosing:
-      "Ihr Feedback hilft uns, Premium-Service zu liefern. Bitte teilen Sie Ihre Erfahrung auf Google mit — wir freuen uns auf Ihre Bewertung! 👇\n\nhttps://g.page/r/CbJCg7BC63cBEBI/review",
+      "Wenn Sie einen Moment haben, freuen wir uns über eine kurze Google-Bewertung — das hilft uns sehr. 👇\n\nhttps://g.page/r/CbJCg7BC63cBEBI/review",
     labelRef: "Referenz",
     labelDate: "Datum",
     labelPickupTime: "Abholzeit",
@@ -122,25 +122,25 @@ const LANG = {
   },
   ru: {
     confirmGreeting: (name) =>
-      `Уважаемый(-ая) ${name},\n\n✅ Ваш премиум-трансфер с Antalya VIP Tourism подтверждён! Мы рады приветствовать вас.`,
+      `Здравствуйте, ${name}!\n\n✅ Ваш трансфер Antalya VIP подтверждён. Детали ниже:`,
     confirmClosing:
-      "Ваш комфорт и пунктуальность — наш приоритет. Мы готовы предоставить вам исключительный VIP-сервис. Если у вас есть вопросы, мы в сообщении! 🚗",
+      "Мы будем готовы в назначенное время. Если появятся вопросы или изменения — просто напишите нам. Хорошей поездки! 🚗",
     reminderGreeting: (name) =>
-      `Уважаемый(-ая) ${name},\n\n🚙 Ваш VIP-трансфер уже совсем близко! Вспомните детали:`,
+      `Здравствуйте, ${name}!\n\n🚙 Короткое напоминание о вашем предстоящем трансфере:`,
     reminderClosing:
-      "Ваш профессиональный водитель на связи и готов вас приветствовать. Ожидаем гладкую, люксовую поездку! 🌟",
+      "Водитель подъедет вовремя. Если что-то понадобится — мы на связи. 🌟",
     receivedGreeting: (name) =>
-      `Уважаемый(-ая) ${name},\n\n✨ Спасибо за выбор Antalya VIP Tourism! Мы получили вашу бронь и внимательно её рассматриваем.`,
+      `Здравствуйте, ${name}!\n\n✨ Спасибо за бронирование в Antalya VIP Tourism. Мы получили заявку и проверяем детали.`,
     receivedClosing:
-      "Мы скоро свяжемся с вами с персональными деталями вашего трансфера. Ждите премиум-сервиса! 🎯",
+      "Скоро свяжемся с вами для подтверждения. 🎯",
     meetGreetGreeting: (name) =>
-      `Уважаемый(-ая) ${name},\n\n✈️ Добро пожаловать в Анталью! Ваш VIP Meet & Greet ждёт вас.`,
+      `Здравствуйте, ${name}!\n\n✈️ Добро пожаловать в Анталью! Детали встречи Meet & Greet:`,
     meetGreetClosing:
-      "Наша команда встречает вас в точке J / 777 с персональной табличкой. Мы здесь, чтобы ваш приезд был безупречным и люксовым! 🌟",
+      "Наша команда встретит вас в точке J / 777 с табличкой с вашим именем. Хорошей поездки! 🌟",
     reviewGreeting: (name) =>
-      `Уважаемый(-ая) ${name},\n\n🌟 Спасибо за поездку с Antalya VIP Tourism! Надеемся, ваше путешествие было исключительным.`,
+      `Здравствуйте, ${name}!\n\n🌟 Спасибо, что выбрали Antalya VIP Tourism. Надеемся, всё прошло хорошо.`,
     reviewClosing:
-      "Ваш отзыв помогает нам совершенствовать сервис. Поделитесь впечатлениями на Google — нам важна ваша оценка! 👇\n\nhttps://g.page/r/CbJCg7BC63cBEBI/review",
+      "Если найдётся минутка, будем благодарны за короткий отзыв на Google — это очень помогает нам. 👇\n\nhttps://g.page/r/CbJCg7BC63cBEBI/review",
     labelRef: "Номер брони",
     labelDate: "Дата",
     labelPickupTime: "Время подачи",
@@ -162,25 +162,25 @@ const LANG = {
   },
   tr: {
     confirmGreeting: (name) =>
-      `Sayın ${name},\n\n✅ Antalya VIP Tourism premium transferiniz onaylanmıştır! Sizi ağırlamaktan heyecanlıyız.`,
+      `Merhaba ${name},\n\n✅ Antalya VIP transferiniz onaylandı. Detaylar aşağıda:`,
     confirmClosing:
-      "Konforunuz ve zamanınız bizim önceliğimiz. Size istisnai bir VIP deneyimi sunmaya hazırız. Herhangi bir sorunuz varsa, biz buradayız! 🚗",
+      "Belirlenen saatte hazır olacağız. Sorunuz veya bir değişiklik olursa bize yazmanız yeterli. İyi yolculuklar! 🚗",
     reminderGreeting: (name) =>
-      `Sayın ${name},\n\n🚙 VIP transferiniz yaklaşıyor! İşte detaylar:`,
+      `Merhaba ${name},\n\n🚙 Yaklaşan transferiniz için kısa bir hatırlatma:`,
     reminderClosing:
-      "Profesyonel sürücünüz sizi karşılamak için bekleniyor. Rahat ve lüks bir yolculuk bekleniyor! 🌟",
+      "Sürücünüz zamanında yanınızda olacak. İhtiyacınız olursa bize ulaşabilirsiniz. 🌟",
     receivedGreeting: (name) =>
-      `Sayın ${name},\n\n✨ Antalya VIP Tourism'i seçtiğiniz için teşekkür! Rezervasyonunuzu aldık ve dikkatle inceliyoruz.`,
+      `Merhaba ${name},\n\n✨ Antalya VIP Tourism'i tercih ettiğiniz için teşekkürler. Rezervasyonunuzu aldık, detayları kontrol ediyoruz.`,
     receivedClosing:
-      "Kısa sürede transfer detaylarınızı size iletişim kuracağız. Premium hizmete hazır olun! 🎯",
+      "Onay için kısa süre içinde size döneceğiz. 🎯",
     meetGreetGreeting: (name) =>
-      `Sayın ${name},\n\n✈️ Antalya'ya hoş geldiniz! VIP Meet & Greet deneyiminiz sizi bekliyor.`,
+      `Merhaba ${name},\n\n✈️ Antalya'ya hoş geldiniz! Karşılama (Meet & Greet) detaylarınız:`,
     meetGreetClosing:
-      "Ekibimiz J / 777 buluşma noktasında kişiye özel isim tabelasıyla sizi karşılayacak. Geliş deneyiminizi kusursuz ve lüks yapmak için buradayız! 🌟",
+      "Ekibimiz J / 777 buluşma noktasında isim tabelasıyla sizi karşılayacak. İyi yolculuklar! 🌟",
     reviewGreeting: (name) =>
-      `Sayın ${name},\n\n🌟 Antalya VIP Tourism ile seyahatiniz için teşekkür! Yolculuğunuzun olağanüstü olduğunu umuyoruz.`,
+      `Merhaba ${name},\n\n🌟 Antalya VIP Tourism ile seyahat ettiğiniz için teşekkürler. Umarız her şey yolunda gitmiştir.`,
     reviewClosing:
-      "Geri bildiriminiz bize premium hizmet vermeyi sağlıyor. Lütfen Google'da deneyiminizi paylaşın — değerli görüşlerinizi duymaktan mutlu oluruz! 👇\n\nhttps://g.page/r/CbJCg7BC63cBEBI/review",
+      "Bir dakikanız olursa, Google'da bırakacağınız kısa bir değerlendirme bize çok yardımcı olur. 👇\n\nhttps://g.page/r/CbJCg7BC63cBEBI/review",
     labelRef: "Rezervasyon No",
     labelDate: "Tarih",
     labelPickupTime: "Alış saati",
@@ -210,25 +210,25 @@ const LANG = {
   },
   fr: {
     confirmGreeting: (name) =>
-      `Cher(e) ${name},\n\n✅ Votre transfert premium Antalya VIP Tourism est confirmé! Nous sommes ravis de vous accueillir.`,
+      `Bonjour ${name},\n\n✅ Votre transfert Antalya VIP est confirmé. Voici les détails :`,
     confirmClosing:
-      "Votre confort et votre ponctualité sont nos priorités. Nous sommes prêts à vous offrir une expérience VIP exceptionnelle. Des questions? Nous sommes à votre service! 🚗",
+      "Nous serons prêts à l'heure convenue. Pour toute question ou changement, écrivez-nous. Bon voyage ! 🚗",
     reminderGreeting: (name) =>
-      `Cher(e) ${name},\n\n🚙 Votre transfert VIP arrive bientôt! Voici un rappel:`,
+      `Bonjour ${name},\n\n🚙 Un petit rappel concernant votre transfert à venir :`,
     reminderClosing:
-      "Votre conducteur professionnel vous attend pour une réception chaleureuse. Un voyage en toute sérénité vous attend! 🌟",
+      "Votre chauffeur sera là à l'heure. N'hésitez pas à nous contacter si besoin. 🌟",
     receivedGreeting: (name) =>
-      `Cher(e) ${name},\n\n✨ Merci d'avoir choisi Antalya VIP Tourism! Nous avons bien reçu votre réservation et l'examinons avec attention.`,
+      `Bonjour ${name},\n\n✨ Merci pour votre réservation chez Antalya VIP Tourism. Nous l'avons bien reçue et vérifions les détails.`,
     receivedClosing:
-      "Nous vous recontacterons bientôt avec vos détails de transfert personnalisés. Préparez-vous au service premium! 🎯",
+      "Nous revenons vers vous très vite pour la confirmation. 🎯",
     meetGreetGreeting: (name) =>
-      `Cher(e) ${name},\n\n✈️ Bienvenue à Antalya! Votre expérience VIP Meet & Greet vous attend.`,
+      `Bonjour ${name},\n\n✈️ Bienvenue à Antalya ! Voici les détails de votre accueil Meet & Greet :`,
     meetGreetClosing:
-      "Notre équipe vous attendra au point de rencontre J / 777 avec un panneau personnalisé. Nous sommes là pour rendre votre arrivée exceptionnelle! 🌟",
+      "Notre équipe vous attendra au point de rencontre J / 777 avec un panneau à votre nom. Bon voyage ! 🌟",
     reviewGreeting: (name) =>
-      `Cher(e) ${name},\n\n🌟 Merci d'avoir voyagé avec Antalya VIP Tourism! Nous espérons que votre voyage a été exceptionnel.`,
+      `Bonjour ${name},\n\n🌟 Merci d'avoir voyagé avec Antalya VIP Tourism. Nous espérons que tout s'est bien passé.`,
     reviewClosing:
-      "Vos commentaires nous aident à offrir un service premium. Partagez votre expérience sur Google — nous serions ravis de lire votre avis! 👇\n\nhttps://g.page/r/CbJCg7BC63cBEBI/review",
+      "Si vous avez un instant, un court avis sur Google nous aiderait beaucoup. 👇\n\nhttps://g.page/r/CbJCg7BC63cBEBI/review",
     labelRef: "Référence",
     labelDate: "Date",
     labelPickupTime: "Heure de prise en charge",
@@ -250,25 +250,25 @@ const LANG = {
   },
   ar: {
     confirmGreeting: (name) =>
-      `عزيزي/عزيزتي ${name}،\n\n✅ تم تأكيد خدمة النقل الفاخرة مع Antalya VIP Tourism! نحن متحمسون لاستقبالك.`,
+      `مرحباً ${name}،\n\n✅ تم تأكيد خدمة النقل Antalya VIP الخاصة بك. التفاصيل أدناه:`,
     confirmClosing:
-      "راحتك وموثوقيتنا هما أولويتنا. نحن مستعدون لتقديم تجربة VIP استثنائية. لأي استفسارات، نحن هنا! 🚗",
+      "سنكون جاهزين في الوقت المحدد. لأي سؤال أو تغيير، راسلنا فقط. رحلة سعيدة! 🚗",
     reminderGreeting: (name) =>
-      `عزيزي/عزيزتي ${name}،\n\n🚙 خدمة النقل الفاخرة الخاصة بك قريبة! إليك التفاصيل:`,
+      `مرحباً ${name}،\n\n🚙 تذكير بسيط بخصوص رحلة النقل القادمة:`,
     reminderClosing:
-      "سائقك المحترف مستعد لاستقبالك بحفاوة. رحلة سلسة وفاخرة تنتظرك! 🌟",
+      "سيكون سائقك في الموعد المحدد. نحن متاحون إن احتجت أي شيء. 🌟",
     receivedGreeting: (name) =>
-      `عزيزي/عزيزتي ${name}،\n\n✨ شكراً لاختيارك Antalya VIP Tourism! استقبلنا حجزك وفريقنا يفحصه بعناية.`,
+      `مرحباً ${name}،\n\n✨ شكراً لحجزك مع Antalya VIP Tourism. لقد استلمنا الحجز ونراجع التفاصيل.`,
     receivedClosing:
-      "سنتواصل معك قريباً بتفاصيل نقلك الشخصية. استعد للخدمة الفاخرة! 🎯",
+      "سنعود إليك قريباً للتأكيد. 🎯",
     meetGreetGreeting: (name) =>
-      `عزيزي/عزيزتي ${name}،\n\n✈️ أهلاً وسهلاً في أنطاليا! تجربة Meet & Greet الفاخرة تنتظرك.`,
+      `مرحباً ${name}،\n\n✈️ أهلاً بك في أنطاليا! تفاصيل الاستقبال Meet & Greet:`,
     meetGreetClosing:
-      "فريقنا سينتظرك عند نقطة اللقاء J / 777 برفع لافتة باسمك الشخصي. نحن هنا لجعل استقبالك خالياً من العراقيل وفاخراً! 🌟",
+      "سيستقبلك فريقنا عند نقطة اللقاء J / 777 بلافتة تحمل اسمك. رحلة موفقة! 🌟",
     reviewGreeting: (name) =>
-      `عزيزي/عزيزتي ${name}،\n\n🌟 شكراً لسفرك مع Antalya VIP Tourism! نتمنى أن تكون رحلتك استثنائية.`,
+      `مرحباً ${name}،\n\n🌟 شكراً لسفرك مع Antalya VIP Tourism. نأمل أن يكون كل شيء قد سار على ما يرام.`,
     reviewClosing:
-      "تقييمك يساعدنا على تقديم خدمة فاخرة. يرجى مشاركة تجربتك على Google — نود قراءة رأيك! 👇\n\nhttps://g.page/r/CbJCg7BC63cBEBI/review",
+      "إن توفّرت لديك لحظة، سنكون ممتنين لتقييم قصير على Google — فهذا يساعدنا كثيراً. 👇\n\nhttps://g.page/r/CbJCg7BC63cBEBI/review",
     labelRef: "رقم الحجز",
     labelDate: "التاريخ",
     labelPickupTime: "وقت الاستقبال",
@@ -433,11 +433,12 @@ function detailLines(booking, transfer, t, { includeMap = true } = {}) {
 /**
  * Build a WhatsApp confirmation message for a booking.
  * @param {object} booking
+ * @param {{ leg?: string, language?: string }} [options]
  * @returns {string}
  */
-export function buildConfirmMessage(booking, { leg = "outbound" } = {}) {
+export function buildConfirmMessage(booking, { leg = "outbound", language } = {}) {
   const b = booking ?? {};
-  const t = getLang(b.language);
+  const t = getLang(language ?? b.language);
   const transfer = transferDetails(b, leg);
 
   const lines = [
@@ -456,11 +457,12 @@ export function buildConfirmMessage(booking, { leg = "outbound" } = {}) {
  * Build a WhatsApp reminder message for a booking.
  * Builds the reminder for the requested, currently displayed transfer leg.
  * @param {object} booking
+ * @param {{ leg?: string, language?: string }} [options]
  * @returns {string}
  */
-export function buildReminderMessage(booking, { leg = "outbound" } = {}) {
+export function buildReminderMessage(booking, { leg = "outbound", language } = {}) {
   const b = booking ?? {};
-  const t = getLang(b.language);
+  const t = getLang(language ?? b.language);
   const transfer = transferDetails(b, leg);
 
   const lines = [
@@ -488,9 +490,9 @@ export function buildReminderMessage(booking, { leg = "outbound" } = {}) {
  * @param {object} booking
  * @returns {string}
  */
-export function buildReceivedMessage(booking) {
+export function buildReceivedMessage(booking, { language } = {}) {
   const b = booking ?? {};
-  const t = getLang(b.language);
+  const t = getLang(language ?? b.language);
 
   const lines = [t.receivedGreeting(b.customer_name), "", t.receivedClosing];
 
@@ -502,9 +504,9 @@ export function buildReceivedMessage(booking) {
  * @param {object} booking
  * @returns {string}
  */
-export function buildReviewMessage(booking) {
+export function buildReviewMessage(booking, { language } = {}) {
   const b = booking ?? {};
-  const t = getLang(b.language);
+  const t = getLang(language ?? b.language);
 
   const lines = [t.reviewGreeting(b.customer_name), "", t.reviewClosing];
 
@@ -516,9 +518,9 @@ export function buildReviewMessage(booking) {
  * @param {object} booking
  * @returns {string}
  */
-export function buildMeetGreetMessage(booking) {
+export function buildMeetGreetMessage(booking, { language } = {}) {
   const b = booking ?? {};
-  const t = getLang(b.language);
+  const t = getLang(language ?? b.language);
 
   const lines = [t.meetGreetGreeting(b.customer_name), "", t.meetGreetClosing];
 

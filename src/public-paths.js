@@ -2,7 +2,7 @@ import { publicRouteSlugs } from "./routes.js";
 import { hotelPaths } from "./hotels.js";
 export { hotelPaths };
 
-export const publicLanguages = Object.freeze(["en", "de", "fr", "tr", "ru", "cs", "uk", "ur"]);
+export const publicLanguages = Object.freeze(["en", "de", "fr", "tr", "ru", "cs", "uk", "ur", "pl", "nl", "ar", "sv"]);
 
 export const legalPaths = Object.freeze([
   "/impressum.html",

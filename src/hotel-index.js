@@ -127,7 +127,6 @@ const seedRows = [
   ["Delphin Imperial Lara", "Lara"],
   ["Delphin Palace", "Lara"],
   ["Delphin BE Grand Resort", "Lara"],
-  ["Delphin Diva Premiere", "Lara"],
   ["Titanic Beach Lara", "Kundu"],
   ["Titanic Mardan Palace", "Kundu", ["Mardan Palace"]],
   ["Concorde De Luxe Resort", "Lara"],
@@ -225,7 +224,7 @@ const seedRows = [
   ["Side Star Elegance", "Side"],
   ["Side Star Beach", "Side"],
   ["Robinson Club Side", "Side"],
-  ["Crystal Sunset Luxury Resort", "Side"],
+  ["Crystal Sunset Luxury Resort & Spa", "Gündoğdu"],
   ["Arum Barut Collection", "Kumköy"],
   ["Barut Hemera", "Kumköy"],
   ["Sunis Kumköy Beach Resort", "Kumköy"],
@@ -288,6 +287,7 @@ const seedRows = [
   ["Aydinbey King's Palace", "Çolaklı"],
   ["Kirman Sidemarin Beach & Spa", "Çolaklı"],
   ["Von Resort Golden Coast", "Çolaklı"],
+  ["Sentido Flora Garden", "Çolaklı"],
   ["Royal Alhambra Palace", "Çolaklı"],
   ["Mary Palace Resort & Spa", "Çolaklı"],
   ["Hane Sun Elite Hotel", "Çolaklı"],
@@ -300,7 +300,6 @@ const seedRows = [
   ["Adalya Ocean Deluxe", "Kızılot"],
   ["Seaden Sea Planet Resort & Spa", "Kızılot"],
   ["Crystal Admiral Resort & Spa", "Kızılot"],
-  ["Flora Garden Beach", "Kızılot"],
   ["Alarcha Hotels & Resort", "Kızılot"],
   ["Osay Magic Garden", "Kızılot"],
   ["Esmeralda Butik Otel", "Kızılot"],
@@ -311,7 +310,8 @@ const seedRows = [
 
   // --- Kemer, Göynük, Beldibi, Kiriş, Çamyuva -----------------------------
   ["Club Med Palmiye", "Kemer"],
-  ["Orange County Resort Hotel Kemer", "Kemer"],
+  ["Club Hotel Phaselis Rose", "Çamyuva", ["Phaselis Rose Hotel"]],
+  ["Orange County Resort Hotel Kemer", "Beldibi"],
   ["Crystal Aura Beach Resort & Spa", "Kemer"],
   ["Crystal De Luxe Resort & Spa", "Kemer"],
   ["Kemer Barut Collection", "Kemer"],
@@ -329,6 +329,8 @@ const seedRows = [
   ["The Grand Ring Hotel", "Beldibi"],
   ["Champion Holiday Village", "Beldibi"],
   ["Aydinbey Siu Collection", "Beldibi"],
+  ["Rixos Premium Kemer", "Göynük"],
+  ["Paloma Pasha Resort", "Göynük"],
   ["Sherwood Exclusive Kemer", "Göynük"],
   ["Queen's Park Le Jardin", "Göynük"],
   ["Ulusoy Kemer Holiday Club", "Göynük"],
@@ -340,10 +342,10 @@ const seedRows = [
 
   // --- Tekirova ------------------------------------------------------------
   ["Rixos Premium Tekirova", "Tekirova"],
+  ["Amara Prestige Hotel", "Tekirova"],
   ["Amara Dolce Vita Luxury", "Tekirova"],
   ["Nirvana Dolce Vita", "Tekirova"],
   ["Marti Myra", "Tekirova"],
-  ["Club Hotel Phaselis Rose", "Tekirova", ["Phaselis Rose Hotel"]],
   ["Queen's Park Tekirova", "Tekirova"],
   ["Mövenpick Resort Tekirova", "Tekirova"],
   ["Güral Premier Tekirova", "Tekirova"],
@@ -360,17 +362,21 @@ const seedRows = [
   ["Numa Bay Exclusive", "Avsallar"],
   ["Granada Luxury Beach", "Avsallar"],
   ["Bera Alanya Hotel", "Avsallar"],
+  ["Delphin Diva Premiere", "Avsallar"],
   ["Azura Deluxe Resort & Spa", "Avsallar"],
   ["Rubi Platinum Spa Resort", "Avsallar"],
   ["Otel İncekum Su", "İncekum"],
-  ["Utopia World Hotel", "Türkler"],
+  ["Utopia World Hotel", "Konaklı"],
   ["Delphin Botanik Platinum", "Türkler"],
   ["Sirius Deluxe Hotel", "Türkler"],
   ["Long Beach Resort Hotel", "Konaklı"],
+  ["Q Premium Resort Hotel Alanya", "Konaklı"],
+  ["Kirman Arycanda De Luxe", "Konaklı"],
   ["Alan Xafira Deluxe Resort", "Konaklı"],
   ["Kahya Resort Aqua & Spa", "Konaklı"],
   ["The Antik Hotel", "Konaklı"],
   ["Asia Beach Resort & Spa", "Alanya merkez"],
+  ["Sentido Gold Island Hotel", "Alanya merkez"],
   ["Klas More Beach Hotel", "Mahmutlar"],
   ["Sey Beach Hotel & Spa", "Kestel"],
   ["Goldcity Hotel", "Kargıcak"],
@@ -394,11 +400,13 @@ export const priceBoundaryDistricts = Object.freeze([
 ]);
 
 /**
- * Slugs whose region has been confirmed against the operator's own records.
- * The German landing-page catalogue is hand-written per hotel, so every entry
- * there counts as confirmed; everything else stays a draft until reviewed.
+ * Hotels confirmed against the operator's own records. The German landing
+ * catalogue is hand-written per hotel — its copy names the district — so every
+ * entry there counts as confirmed; everything else stays a draft until
+ * reviewed. Matched on the hotel's name, because that catalogue keeps its own
+ * hand-written slugs and they do not always follow `hotelSlug`.
  */
-const verifiedSlugs = new Set(Object.keys(hotelCatalog));
+const verifiedSlugs = new Set(Object.values(hotelCatalog).map((hotel) => hotelSlug(hotel.name)));
 
 /** @typedef {{ slug: string, name: string, region: IndexRegionSlug, district: string, aliases: readonly string[], status: "verified" | "draft" }} IndexedHotel */
 

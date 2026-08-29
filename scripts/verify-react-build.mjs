@@ -42,7 +42,7 @@ for (const urlPath of prerenderPaths) {
   const document = new JSDOM(html).window.document;
   const expectedLanguage = clinicSet.has(urlPath)
     ? "tr"
-    : urlPath.match(/^\/(de|fr|tr|ru|cs)(?:\/|$)/)?.[1] || "en";
+    : urlPath.match(/^\/(de|fr|tr|ru|cs|uk|ur|pl|nl|ar|sv)(?:\/|$)/)?.[1] || "en";
   if (document.documentElement.lang !== expectedLanguage) fail(`${urlPath}: wrong html lang`);
   if (document.querySelector('link[rel="canonical"]')?.href !== `${domain}${urlPath}`) fail(`${urlPath}: wrong canonical URL`);
   const alternateCount = document.querySelectorAll('link[rel="alternate"][hreflang]').length;
@@ -50,16 +50,14 @@ for (const urlPath of prerenderPaths) {
     if (alternateCount !== 0) fail(`${urlPath}: noindex clinic route must not publish unavailable language alternates`);
   } else if (legalSet.has(urlPath)) {
     if (alternateCount < 5) fail(`${urlPath}: incomplete language alternates`);
-  } else if (alternateCount !== 7) fail(`${urlPath}: incomplete language alternates`);
+  } else if (alternateCount !== 13) fail(`${urlPath}: incomplete language alternates`);
   if (!document.querySelector('script[type="module"]')) fail(`${urlPath}: React client entry is missing`);
   if (html.includes('/src/main.js') || html.includes('/src/consent.js')) fail(`${urlPath}: legacy runtime is still referenced`);
 
   for (const element of document.querySelectorAll('[src^="/assets/"], [href^="/assets/"]')) {
     const reference = element.getAttribute("src") || element.getAttribute("href");
     if (!reference) continue;
-    // Strip the query and the fragment: neither is part of the file on disk,
-    // and the router emits a bare "#" on some stylesheet links.
-    const assetFile = path.join(dist, decodeURIComponent(reference.split(/[?#]/)[0].slice(1)));
+    const assetFile = path.join(dist, decodeURIComponent(reference.split("?")[0].split("#")[0].slice(1)));
     if (!(await exists(assetFile))) fail(`${urlPath}: missing asset ${reference}`);
   }
 

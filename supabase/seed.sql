@@ -32,7 +32,7 @@ INSERT INTO routes (from_location, to_location, vehicle_type, price_eur, duratio
   ('airport', 'bogazkent',  'vito',    45.00,  45,  48),
   ('airport', 'bogazkent',  'vclass',  80.00,  45,  48),
   ('airport', 'antalya',    'vito',    35.00,  25,  15),
-  ('airport', 'antalya',    'vclass',  55.00,  25,  15),
+  ('airport', 'antalya',    'vclass',  60.00,  25,  15),
   ('airport', 'bodrum',     'vito',   280.00, 300, 380),
   ('airport', 'bodrum',     'vclass', 330.00, 300, 380),
   ('airport', 'dalaman',    'vito',   180.00, 210, 235),
