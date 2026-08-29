@@ -10,7 +10,7 @@
  *   node scripts/hotel-index-review.mjs            # district table + hotels
  *   node scripts/hotel-index-review.mjs --csv      # CSV for a spreadsheet
  */
-import { districtRegions, hotelIndex } from "../src/hotel-index.js";
+import { districtRegions, hotelIndex, priceBoundaryDistricts } from "../src/hotel-index.js";
 import { routeCatalog } from "../src/routes.js";
 
 const hotelsByDistrict = new Map(Object.keys(districtRegions).map((district) => [district, []]));
@@ -42,7 +42,21 @@ const drafts = hotelIndex.filter((hotel) => hotel.status === "draft").length;
 console.log("# Otel bölge eşlemesi — kontrol listesi\n");
 console.log(`${hotelIndex.length} otel · ${Object.keys(districtRegions).length} belde · ${hotelIndex.length - drafts} doğrulanmış · ${drafts} taslak\n`);
 
-console.log("## 1. Belde → bölge tablosu (önce bunu onaylayın)\n");
+console.log("## 1. Fiyatı değiştiren beldeler (önce bunları kontrol edin)\n");
+console.log("Bu beldeler farklı fiyatlı bir bölgeyle komşu. Buradaki bir hata");
+console.log("doğrudan yanlış ücret demek. Diğer beldelerde karışıklık fiyatı");
+console.log("değiştirmez, çünkü aynı bölge içindeler.\n");
+for (const district of priceBoundaryDistricts) {
+  const region = districtRegions[district];
+  const hotels = hotelsByDistrict.get(district) ?? [];
+  const price = region ? `${region} · €${routeCatalog[region].prices.vito}` : "eşlenmemiş";
+  console.log(`- **${district}** → ${price} — ${hotels.length} otel`);
+  for (const hotel of [...hotels].sort((a, b) => a.name.localeCompare(b.name, "tr"))) {
+    console.log(`  - [${hotel.status === "verified" ? "x" : " "}] ${hotel.name}`);
+  }
+}
+
+console.log("\n\n## 2. Belde → bölge tablosu\n");
 console.log("Bir beldenin bölgesi yanlışsa oradaki bütün oteller yanlış fiyat alır.");
 console.log("Düzeltme `src/hotel-index.js` içindeki `districtRegions` tablosunda tek satırdır.\n");
 console.log("| Bölge | Vito | Sprinter | Beldeler |");
@@ -56,7 +70,7 @@ for (const [region, districts] of districtsByRegion) {
   console.log(`| ${region} | €${vito} | €${sprinter} | ${labelled.join(", ") || "—"} |`);
 }
 
-console.log("\n\n## 2. Belde başına oteller\n");
+console.log("\n\n## 3. Belde başına oteller\n");
 for (const [region, districts] of districtsByRegion) {
   for (const district of districts) {
     const hotels = hotelsByDistrict.get(district) ?? [];
