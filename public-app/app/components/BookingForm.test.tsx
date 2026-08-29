@@ -96,4 +96,77 @@ describe("BookingForm route summary", () => {
 
     expect(confirm).toBeEnabled();
   });
+
+  test("picking a hotel from the suggestions fills in the region and its price", () => {
+    const { container } = render(
+      <LanguageProvider initialLanguage="tr">
+        <BookingForm scrollOnSelect={false} />
+      </LanguageProvider>,
+    );
+
+    const destination = container.querySelector<HTMLSelectElement>("#destination")!;
+    expect(destination.value).toBe("");
+
+    fireEvent.change(container.querySelector("#hotel-name")!, {
+      target: { value: "rixos belek" },
+    });
+
+    const options = container.querySelectorAll('[role="option"]');
+    expect(options.length).toBeGreaterThan(0);
+    expect(options[0]).toHaveTextContent("Rixos Premium Belek");
+
+    fireEvent.click(options[0]);
+
+    expect(destination.value).toBe("belek");
+    expect(container.querySelector<HTMLInputElement>("#hotel-name")!.value).toBe("Rixos Premium Belek");
+    expect(container.querySelector(".price-display-amount")).toHaveTextContent("€40");
+    expect(container.querySelector(".hotel-region-hint")).toHaveTextContent("Rixos Premium Belek — Belek");
+    expect(container.querySelectorAll('[role="option"]')).toHaveLength(0);
+  });
+
+  test("a guest whose hotel is not indexed keeps their text and chooses the region", () => {
+    const { container } = render(
+      <LanguageProvider initialLanguage="tr">
+        <BookingForm scrollOnSelect={false} />
+      </LanguageProvider>,
+    );
+
+    fireEvent.change(container.querySelector("#hotel-name")!, {
+      target: { value: "Pansiyon Deniz" },
+    });
+
+    expect(container.querySelectorAll('[role="option"]')).toHaveLength(0);
+    fireEvent.click(container.querySelector(".hotel-combobox-dismiss")!);
+
+    expect(container.querySelector<HTMLInputElement>("#hotel-name")!.value).toBe("Pansiyon Deniz");
+
+    fireEvent.change(container.querySelector("#destination")!, {
+      target: { value: "side" },
+    });
+
+    expect(container.querySelector(".price-display-amount")).toHaveTextContent("€50");
+  });
+
+  test("does not change the destination when the guest is leaving their hotel", () => {
+    const { container } = render(
+      <LanguageProvider initialLanguage="tr">
+        <BookingForm scrollOnSelect={false} />
+      </LanguageProvider>,
+    );
+
+    fireEvent.change(container.querySelector("#pickup")!, {
+      target: { value: "hotel" },
+    });
+    fireEvent.change(container.querySelector("#destination")!, {
+      target: { value: "airport" },
+    });
+
+    fireEvent.change(container.querySelector("#hotel-name")!, {
+      target: { value: "rixos belek" },
+    });
+    fireEvent.click(container.querySelectorAll('[role="option"]')[0]);
+
+    expect(container.querySelector<HTMLInputElement>("#hotel-name")!.value).toBe("Rixos Premium Belek");
+    expect(container.querySelector<HTMLSelectElement>("#destination")!.value).toBe("airport");
+  });
 });

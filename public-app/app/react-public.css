@@ -24,6 +24,54 @@
 .booking-section .field-control input,
 .booking-section .field-control select { padding-left: 16px; }
 .booking-section .booking-address-row .booking-field { width: 100%; }
+.booking-section .booking-hotel-row { flex-direction: column; align-items: stretch; gap: 8px; }
+.booking-section .booking-hotel-row .booking-field { width: 100%; }
+
+/* Hotel name field with suggestions. The popover overlays the fields below it,
+   so the row keeps its own stacking context above the rest of the form. */
+.hotel-combobox { position: relative; z-index: 5; }
+.hotel-combobox-popover {
+  position: absolute;
+  z-index: 6;
+  top: calc(100% + 6px);
+  left: 0;
+  right: 0;
+  overflow: hidden;
+  border: 1px solid rgba(0, 0, 0, .12);
+  border-radius: 10px;
+  background: var(--paper, #fff);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, .16);
+}
+.hotel-combobox-list { max-height: 296px; overflow-y: auto; margin: 0; padding: 0; list-style: none; }
+.hotel-combobox-option {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 10px 14px;
+  cursor: pointer;
+  border-bottom: 1px solid rgba(0, 0, 0, .06);
+}
+.hotel-combobox-option:last-child { border-bottom: 0; }
+.hotel-combobox-option.is-active { background: rgba(0, 0, 0, .05); }
+.hotel-combobox-name { color: var(--ink); font-size: .86rem; font-weight: 600; }
+.hotel-combobox-meta { color: var(--gold-dark); font-size: .72rem; letter-spacing: .04em; }
+.hotel-combobox-empty { margin: 0; padding: 12px 14px; color: var(--ink); font-size: .78rem; line-height: 1.4; }
+.hotel-combobox-dismiss {
+  display: block;
+  width: 100%;
+  padding: 10px 14px;
+  border: 0;
+  border-top: 1px solid rgba(0, 0, 0, .08);
+  background: rgba(0, 0, 0, .03);
+  color: var(--ink);
+  font: inherit;
+  font-size: .76rem;
+  text-align: left;
+  cursor: pointer;
+}
+.hotel-combobox-dismiss:hover { background: rgba(0, 0, 0, .06); }
+.booking-section .hotel-region-hint { margin: 0; color: var(--ink); font-size: .76rem; line-height: 1.4; opacity: .72; }
+.booking-section .hotel-region-hint.is-matched { color: var(--gold-dark); font-weight: 600; opacity: 1; }
 .booking-section .field-error-message { display: block; margin-top: 7px; color: #a93226; font-size: .74rem; line-height: 1.35; }
 .booking-section .booking-field.has-error .field-control { border-color: #a93226; }
 .booking-section .payment-error { display: block; }

@@ -25,6 +25,9 @@ const customerPhotoModules = import.meta.glob(
 
 const translations = {
   de: {
+    hotelSearchHint: "Geben Sie Ihren Hotelnamen ein und wählen Sie ihn aus der Liste – Zielregion und Preis tragen wir für Sie ein.",
+    hotelNotListed: "Mein Hotel ist nicht in der Liste",
+    hotelNoMatch: "Noch kein Treffer. Geben Sie den Namen ein und wählen Sie die Region selbst.",
     navFairPricing: "Faire Preise",
     navFleet: "Fahrzeuge",
     navService: "Service",
@@ -253,6 +256,9 @@ const translations = {
     paymentError: "Zahlung fehlgeschlagen. Bitte erneut versuchen.",
   },
   tr: {
+    hotelSearchHint: "Otelinizin adını yazıp listeden seçin; varış bölgesini ve fiyatı sizin için dolduralım.",
+    hotelNotListed: "Otelim listede yok",
+    hotelNoMatch: "Henüz eşleşme yok. Adı yazıp bölgeyi kendiniz seçebilirsiniz.",
     navFairPricing: "Adil fiyat",
     navFleet: "Araçlar",
     navService: "Hizmetler",
@@ -480,6 +486,9 @@ const translations = {
     paymentError: "Ödeme başarısız. Lütfen tekrar deneyin.",
   },
   ru: {
+    hotelSearchHint: "Введите название отеля и выберите его из списка — регион и цену мы заполним за вас.",
+    hotelNotListed: "Моего отеля нет в списке",
+    hotelNoMatch: "Совпадений пока нет. Введите название и выберите регион самостоятельно.",
     navFairPricing: "Честная цена",
     navFleet: "Автопарк",
     navService: "Сервис",
@@ -708,6 +717,9 @@ const translations = {
     paymentError: "Оплата не прошла. Попробуйте ещё раз.",
   },
   cs: {
+    hotelSearchHint: "Zadejte název hotelu a vyberte jej ze seznamu – cílovou oblast i cenu doplníme za vás.",
+    hotelNotListed: "Můj hotel není v seznamu",
+    hotelNoMatch: "Zatím žádná shoda. Zadejte název a oblast vyberte sami.",
     navFleet: "Vozový park",
     navService: "Služby",
     navFairPricing: "Spravedlivé ceny",
@@ -1384,6 +1396,9 @@ const translations = {
     paymentError: "Betaling mislukt. Probeer het opnieuw.",
   },
   uk: {
+    hotelSearchHint: "Введіть назву готелю та оберіть її зі списку — регіон і ціну ми заповнимо за вас.",
+    hotelNotListed: "Мого готелю немає у списку",
+    hotelNoMatch: "Збігів поки немає. Введіть назву та оберіть регіон самостійно.",
     navFairPricing: "Чесна ціна",
     navFleet: "Автопарк",
     navService: "Сервіс",
@@ -1591,6 +1606,9 @@ const translations = {
     paymentError: "Оплата не пройшла. Спробуйте ще раз.",
   },
   ur: {
+    hotelSearchHint: "اپنے ہوٹل کا نام لکھیں اور فہرست میں سے منتخب کریں؛ منزل کا علاقہ اور قیمت ہم خود بھر دیں گے۔",
+    hotelNotListed: "میرا ہوٹل فہرست میں نہیں ہے",
+    hotelNoMatch: "ابھی کوئی مماثلت نہیں۔ نام لکھیں اور علاقہ خود منتخب کریں۔",
     navFleet: "گاڑیاں",
     navService: "خدمات",
     navFairPricing: "منصفانہ قیمتیں",
