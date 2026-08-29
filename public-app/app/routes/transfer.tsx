@@ -5,7 +5,7 @@ import { TransferPage } from "../components/TransferPage";
 import { LanguageProvider } from "../i18n";
 import { domain, languageFromPath, routeMeta, type IndexableLanguage } from "../lib/seo";
 
-const indexedLanguages = new Set(["en", "de", "tr", "ru", "cs", "fr"]);
+const indexedLanguages = new Set(["en", "de", "tr", "ru", "cs", "fr", "uk", "ur"]);
 
 export function loader({ params }: { params: Record<string, string | undefined> }) {
   const language = (params.language && indexedLanguages.has(params.language)

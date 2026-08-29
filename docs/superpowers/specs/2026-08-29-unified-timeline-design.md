@@ -51,10 +51,21 @@ status in [pending, paid, confirmed, in_transit, completed]
 .or(pickup_date.gte.{today}, return_date.gte.{today}, service_end_date.gte.{today})
 ```
 
+**Affected functions (don't miss):** `selectCalendarDate` (`TimelinePage.tsx:357-373`) currently
+navigates `#timeline?tab=past&date=...` for past days and mutates `collapsedDays` — rewrite to
+in-place fetch+merge (no `tab=past`) and `expandedDays` semantics. `expandRoundTrips(source,
+selectedTab)` uses `descending = selectedTab !== 'future'`. Change to `descending = selectedTab ===
+'cancelled'` so the main forward timeline sorts **ascending** and only the cancelled section sorts
+descending. Pass `'timeline'` for main, `'cancelled'` for the lazy section. Cover the sort in `timeline-logic` units.
+
 **Past on demand:** clicking a past calendar day fetches that single day's rows
 (`pickup_date = date OR return_date = date OR daily-chauffeur span covers date`),
 merges into `bookings` state deduped by `id`/`booking_ref`, then auto-expands +
 scrolls to that day-group. No route change, no separate tab.
+
+**Calendar counts:** keep the existing background `buildCalendarCounts` full query
+(`TimelinePage.tsx:307-312`) unchanged. Past days must still show count badges in the
+calendar rail so on-demand fetch is discoverable — without it the operator has no cue to click.
 
 **Cache:** today-cache (`TODAY_CACHE_KEY`) logic unchanged — still caches today's rows for offline.
 
@@ -62,8 +73,14 @@ scrolls to that day-group. No route change, no separate tab.
 
 - On non-empty `search`, debounce ~300ms then query Supabase across all dates:
   - `status in [pending, paid, confirmed, in_transit, completed]` (cancelled excluded)
-  - server filter: `.or(customer_name.ilike, customer_phone.ilike, booking_ref.ilike)`
-  - route/other matching stays client-side via `matchesBookingQuery` on the returned set.
+  - server filter casts a **wide** net so client refinement can fire — `.or()` over
+    every field `matchesBookingQuery` inspects:
+    `customer_name.ilike`, `customer_phone.ilike`, `booking_ref.ilike`,
+    `pickup_location.ilike`, `dropoff_location.ilike`, `trip_type.ilike`.
+  - client `matchesBookingQuery` then narrows the returned set (final relevance + route/keyword logic).
+  - **Phone caveat:** `matchesBookingQuery` matches phone on digits-only; the server `ilike`
+    matches the raw stored phone. A phone search works when the typed digits are a contiguous
+    substring of the stored value. Accepted limitation — no phone normalization column added (YAGNI).
 - Results render as a **flat, date-sorted list** (nearest date first). Calendar rail,
   day-groups, and cancelled section are hidden while searching.
 - Clearing search restores the today+future timeline (and any on-demand past days already merged).
@@ -74,7 +91,12 @@ scrolls to that day-group. No route change, no separate tab.
 - Replace collapsed-set with expanded-set semantics:
   `open={groupDate === today || expandedDays.has(groupDate)}`.
 - Seed expansion with `today` and any `initialDate` / calendar-selected day.
-- Toggling a group updates `expandedDays`.
+- **Invert the `onToggle` handler too:** current handler mutates `collapsedDays` (add on close);
+  new handler mutates `expandedDays` (add on open, delete on close). Don't leave the handler
+  in collapsed-set semantics while flipping only the `open=` expression.
+- `isPast` still computed via `isCardPast` per card, so merged past-day cards keep correct
+  `isPast` → `BookingCard`'s "Onayla" pending-confirm button and flight-alert suppression stay
+  intact (no `BookingCard` change needed).
 - Completed-today: keep existing `completed-group` `<details>` inside the today group
   ("Tamamlananlar (N)") — unchanged.
 
@@ -108,7 +130,9 @@ cancelled <details> first open → fetch cancelled → render
 
 ## Testing
 
-- `timeline-logic` unit tests: expansion + dedup of merged past rows.
+- New `timeline-logic` unit tests: expansion + dedup of merged past rows (no test file exists yet).
 - Component/integration: default renders today open + future collapsed; search switches to flat
   list and excludes cancelled; cancelled section lazy-loads on expand; past calendar day merges.
-- Existing `MonthCalendar` / `TimelinePage` tests updated for removed tabs.
+- Update `components/AdminChrome.test.tsx` for the reduced tab set (removed Gelecek/Geçmiş/İptaller).
+- `MonthCalendar.test.tsx` exists and is unaffected (calendar API unchanged). No `TimelinePage`
+  test currently exists — add lightweight coverage if feasible, otherwise rely on timeline-logic units.

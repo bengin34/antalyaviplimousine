@@ -11,7 +11,7 @@ const baseForm: BookingFormState = {
   returnDate: '', returnTime: '', returnFlight: '', vehicle: 'vito', guests: '3', luggage: '2', costMode: 'own_vehicle', soldTransferCostTry: '',
   airportMeetFeeApplies: true,
   serviceEndDate: '2026-08-10', departureFlightDate: '', departureFlightTime: '', departureFlight: '',
-  childSeats: '1', price: '80', payment: 'cash', status: 'confirmed', notes: '', fuelAccepted: false,
+  childSeats: '1', price: '80', payment: 'cash', status: 'confirmed', notes: '', fuelAccepted: false, language: '',
 }
 
 describe('React admin migration behavior', () => {
@@ -93,7 +93,7 @@ describe('React admin migration behavior', () => {
       vehicle_type: 'vito', price_eur: 150, status: 'confirmed', payment_method: 'cash', notes: null,
       language: 'tr', created_at: '2026-08-01T00:00:00Z',
     } as Booking
-    const cards = expandRoundTrips([booking], 'future')
+    const cards = expandRoundTrips([booking], 'timeline')
     expect(cards).toHaveLength(2)
     expect(cards[0]._displayTime).toBe('12:10:00')
     expect(cards[1]._isReturn).toBe(true)
@@ -113,10 +113,27 @@ describe('React admin migration behavior', () => {
       status: 'confirmed', payment_method: 'cash', notes: null, language: 'tr', created_at: '2026-08-01T00:00:00Z',
       chauffeur_hire_days: [],
     } as Booking
-    const cards = expandRoundTrips([booking], 'future')
+    const cards = expandRoundTrips([booking], 'timeline')
     expect(cards.map(card => [card._displayDate, card._hireDayNumber, card._hireDayCount])).toEqual([
       ['2026-08-10', 1, 4], ['2026-08-11', 2, 4], ['2026-08-12', 3, 4], ['2026-08-13', 4, 4],
     ])
+  })
+
+  test('sorts the unified timeline ascending and the cancelled list descending', () => {
+    const make = (ref: string, date: string) => ({
+      id: ref, booking_ref: ref, customer_name: 'X', customer_email: '', customer_phone: '+90555',
+      hotel_name: null, child_seat_count: 0, child_ages: [] as number[], luggage_count: 0, pickup_location: 'airport',
+      pickup_address: null, dropoff_location: 'belek', dropoff_address: null, pickup_date: date,
+      pickup_time: '10:00:00', flight_number: null, flight_arrival_time: null, trip_type: 'one_way',
+      return_date: null, return_pickup_time: null, return_flight_number: null, guests: 1,
+      vehicle_type: 'vito', price_eur: 100, status: 'confirmed', payment_method: 'cash', notes: null,
+      language: 'tr', created_at: '2026-08-01T00:00:00Z',
+    } as Booking)
+    const rows = [make('A', '2026-08-12'), make('B', '2026-08-10'), make('C', '2026-08-11')]
+    expect(expandRoundTrips(rows, 'timeline').map(card => card._displayDate)).toEqual(['2026-08-10', '2026-08-11', '2026-08-12'])
+    expect(expandRoundTrips(rows, 'cancelled').map(card => card._displayDate)).toEqual(['2026-08-12', '2026-08-11', '2026-08-10'])
+    // default mode is the ascending timeline
+    expect(expandRoundTrips(rows).map(card => card._displayDate)).toEqual(['2026-08-10', '2026-08-11', '2026-08-12'])
   })
 
   test('builds a Monday-first monthly calendar and moves between years', () => {
