@@ -51,6 +51,13 @@ status in [pending, paid, confirmed, in_transit, completed]
 .or(pickup_date.gte.{today}, return_date.gte.{today}, service_end_date.gte.{today})
 ```
 
+**Affected functions (don't miss):** `selectCalendarDate` (`TimelinePage.tsx:357-373`) currently
+navigates `#timeline?tab=past&date=...` for past days and mutates `collapsedDays` — rewrite to
+in-place fetch+merge (no `tab=past`) and `expandedDays` semantics. `expandRoundTrips(source,
+selectedTab)` uses `descending = selectedTab !== 'future'`. Change to `descending = selectedTab ===
+'cancelled'` so the main forward timeline sorts **ascending** and only the cancelled section sorts
+descending. Pass `'timeline'` for main, `'cancelled'` for the lazy section. Cover the sort in `timeline-logic` units.
+
 **Past on demand:** clicking a past calendar day fetches that single day's rows
 (`pickup_date = date OR return_date = date OR daily-chauffeur span covers date`),
 merges into `bookings` state deduped by `id`/`booking_ref`, then auto-expands +
