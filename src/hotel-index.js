@@ -22,6 +22,13 @@
  * price boundary — see `priceBoundaryDistricts` — because filing a hotel under
  * the wrong district inside one region quotes exactly the same price.
  *
+ * Where a district could defensibly belong to either of two regions and those
+ * two prices differ sharply, it is filed under the nearer, cheaper one. An
+ * over-quote loses the booking outright — the guest sees a number well above
+ * the market and books elsewhere — while an under-quote still converts and can
+ * be corrected before the transfer is confirmed. The two are not symmetric, so
+ * the tie is broken towards the near side.
+ *
  * `status` records how much a row can be trusted. Rows marked `draft` are a
  * research seed and must be checked against the operator's own records before
  * they are treated as authoritative — see `scripts/hotel-index-review.mjs`.
@@ -85,6 +92,11 @@ export const districtRegions = Object.freeze({
   // Manavgat/Kızılağaç — €60 Vito
   "Kızılağaç": "kizilagac",
   "Kızılot": "kizilagac",
+  // Okurcalar is administratively Alanya but sits roughly 30 km short of it,
+  // and ALANYA_PRICING_PLAN.md prices the western strip it belongs to at €65.
+  // Of the regions that exist today €60 is the closest to that; Alanya's €95
+  // would be €30 over. Priced near rather than far, per the rule below.
+  "Okurcalar": "kizilagac",
   // Kemer — €55 Vito
   "Kemer": "kemer",
   "Beldibi": "kemer",
@@ -94,7 +106,6 @@ export const districtRegions = Object.freeze({
   // Tekirova — €75 Vito
   "Tekirova": "tekirova",
   // Alanya — €95 Vito
-  "Okurcalar": "alanya",
   "İncekum": "alanya",
   "Avsallar": "alanya",
   "Türkler": "alanya",

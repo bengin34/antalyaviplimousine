@@ -121,6 +121,23 @@ describe("BookingForm route summary", () => {
     expect(container.querySelector<HTMLInputElement>("#hotel-name")!.value).toBe("Rixos Premium Belek");
     expect(container.querySelector(".price-display-amount")).toHaveTextContent("€40");
     expect(container.querySelector(".hotel-region-hint")).toHaveTextContent("Rixos Premium Belek — Belek");
+  });
+
+  test("names the belde when the hotel is priced under a neighbouring region", () => {
+    const { container } = render(
+      <LanguageProvider initialLanguage="tr">
+        <BookingForm scrollOnSelect={false} />
+      </LanguageProvider>,
+    );
+
+    fireEvent.change(container.querySelector("#hotel-name")!, {
+      target: { value: "kirman leodikya" },
+    });
+    fireEvent.click(container.querySelectorAll('[role="option"]')[0]);
+
+    expect(container.querySelector<HTMLSelectElement>("#destination")!.value).toBe("kizilagac");
+    expect(container.querySelector(".hotel-region-hint"))
+      .toHaveTextContent("Kirman Leodikya Resort · Okurcalar — Manavgat/Kızılağaç");
     expect(container.querySelectorAll('[role="option"]')).toHaveLength(0);
   });
 

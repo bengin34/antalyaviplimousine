@@ -150,6 +150,13 @@ export function BookingForm({
     && values.destination !== "airport" && values.destination !== "private_address";
   const hotelNeeded = isDailyChauffeur || values.pickup === "hotel" || values.destination !== "private_address";
 
+  // Naming the belde alongside the region reassures a guest whose hotel is
+  // priced under a neighbouring region's name — an Okurcalar hotel quoted at
+  // the Manavgat/Kızılağaç tariff should still see "Okurcalar" confirmed back.
+  const hotelMatchLabel = !hotelMatch ? "" : hotelMatch.district === regionLabel(hotelMatch.region)
+    ? `${hotelMatch.name} — ${hotelMatch.district}`
+    : `${hotelMatch.name} · ${hotelMatch.district} — ${regionLabel(hotelMatch.region)}`;
+
   const handleHotelInput = (name: string) => {
     setValue("hotelName", name, { shouldValidate: false });
     if (!hotelMatch || name === hotelMatch.name) return;
@@ -387,7 +394,7 @@ export function BookingForm({
                   {renderHotelField()}
                   <p className={`hotel-region-hint${hotelMatch && hotelSetsDestination ? " is-matched" : ""}`} id="hotel-region-hint">
                     {hotelMatch && hotelSetsDestination
-                      ? `${hotelMatch.name} — ${regionLabel(hotelMatch.region)}`
+                      ? hotelMatchLabel
                       : t("hotelSearchHint", "Type your hotel name and pick it from the list; we fill in the destination region and price for you.")}
                   </p>
                 </div>
