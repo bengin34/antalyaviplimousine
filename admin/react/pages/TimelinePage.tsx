@@ -23,6 +23,7 @@ import { fmtLiveDate, fmtPrice, fmtShortDateWithWeekday, fmtSyncTime, fmtTime, I
 import { supabase } from '../lib/supabase'
 import type { Booking, Navigate, TimelineCard } from '../types'
 import { locationDisplay, navigationURLs, whatsappURL } from '../../turkish-formatters.js'
+import { buildDriverTransferMessage, driverWhatsappURL } from '../../driver-message.js'
 import { matchesBookingQuery } from '../../search-match.js'
 import { countFutureReservations, expandRoundTrips, TODAY_CACHE_KEY } from './timeline-logic'
 
@@ -196,6 +197,7 @@ function BookingCard({ card, now, isPast, isCancelled, navigate, confirmPast, co
       {!card._isReturn && card.trip_type === 'round_trip' && card.return_date && <button className="card-goto-return-button" type="button" onClick={event => { event.stopPropagation(); gotoReturn() }}>Dönüşü Gör ↓</button>}
       <div className={`card-footer-actions${isPast && card.status === 'pending' ? ' has-confirm' : ''}`}>
         {isPast && card.status === 'pending' && <button className={`card-confirm-button${confirmFailed === card.booking_ref ? ' has-error' : ''}`} type="button" disabled={confirming === card.booking_ref} onClick={event => { event.stopPropagation(); void confirmPast(card.booking_ref) }}><span aria-hidden="true">{confirming === card.booking_ref ? '…' : confirmFailed === card.booking_ref ? '↻' : '✓'}</span> {confirming === card.booking_ref ? 'Onaylanıyor' : confirmFailed === card.booking_ref ? 'Tekrar dene' : 'Onayla'}</button>}
+        <a className="card-driver-notify-button" href={driverWhatsappURL(buildDriverTransferMessage(card))} target="_blank" rel="noopener noreferrer" onClick={event => event.stopPropagation()}>🚗 Şoföre Bildir</a>
         <button className="card-detail-button" type="button" onClick={event => { event.stopPropagation(); open() }}>Detayları aç <span aria-hidden="true">›</span></button>
       </div>
     </div>

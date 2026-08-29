@@ -9,6 +9,7 @@ import BookingDetailPage from './pages/BookingDetailPage'
 import BudgetPage from './pages/BudgetPage'
 import ProfitLossPage from './pages/ProfitLossPage'
 import PriceControlPage from './pages/PriceControlPage'
+import DriverCommsPage from './pages/DriverCommsPage'
 import { clearTimelineCache } from './pages/timeline-logic'
 
 const navigate = (hash: string) => { window.location.hash = hash }
@@ -55,6 +56,7 @@ export default function App() {
     return <ProfitLossPage key={hash} navigate={navigate} initialPeriod={new URLSearchParams(profitQuery).get('period')} />
   }
   if (hash === '#admin') return <AdminPanelPage navigate={navigate} />
+  if (hash === '#driver-comms') return <DriverCommsPage navigate={navigate} />
   if (hash === '#prices') return <PriceControlPage navigate={navigate} />
   if (hash.startsWith('#detail/')) {
     const detailPath = hash.slice('#detail/'.length)
