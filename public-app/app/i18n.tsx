@@ -33,7 +33,7 @@ export const languageOptions = [
 export type LanguageCode = (typeof languageOptions)[number]["code"];
 
 const supportedLanguages = new Set(languageOptions.map(({ code }) => code));
-const indexableLanguages = new Set(["en", "de", "tr", "ru", "cs", "uk", "ur"]);
+const indexableLanguages = new Set(["en", "de", "tr", "ru", "cs", "uk", "ur", "fr", "pl", "nl", "ar", "sv"]);
 const legacyResources = translationData.resources as Record<string, Record<string, string>>;
 const videoResources = videoTranslationData.resources as Record<string, Record<string, string>>;
 const rawResources = Object.fromEntries(
@@ -80,7 +80,7 @@ function localizedPath(pathname: string, language: LanguageCode) {
   const normalized = pathname.endsWith("/") || pathname.endsWith(".html")
     ? pathname
     : `${pathname}/`;
-  const localizedMatch = normalized.match(/^\/(de|tr|ru|cs|uk|ur)(\/.*)?$/);
+  const localizedMatch = normalized.match(/^\/(de|tr|ru|cs|uk|ur|fr|pl|nl|ar|sv)(\/.*)?$/);
   const basePath = localizedMatch ? localizedMatch[2] || "/" : normalized;
   if (
     basePath !== "/" &&

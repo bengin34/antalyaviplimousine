@@ -3,7 +3,7 @@ import { hotelBySlug } from "../../../src/hotels.js";
 import translationData from "../generated/legacy-translations.json";
 
 export const domain = "https://antalyaviptourism.com";
-export const indexableLanguages = ["en", "de", "fr", "tr", "ru", "cs", "uk", "ur"] as const;
+export const indexableLanguages = ["en", "de", "fr", "tr", "ru", "cs", "uk", "ur", "pl", "nl", "ar", "sv"] as const;
 export type IndexableLanguage = (typeof indexableLanguages)[number];
 
 const homeSeo = {
@@ -15,6 +15,10 @@ const homeSeo = {
   cs: { locale: "cs_CZ", title: "Transfer z letiště Antalya | Soukromá VIP přeprava", description: "Soukromé transfery s pevnou cenou z letiště Antalya do Beleku, Side, Kemeru a Alanye. Uvítání, sledování letů a služba od dveří ke dveřím." },
   uk: { locale: "uk_UA", title: "Трансфер з аеропорту Анталії | Приватний VIP-трансфер", description: "Приватні трансфери за фіксованою ціною з аеропорту Анталії до Белека, Сіде, Кемера, Аланьї та інших курортів. Зустріч і відстеження рейсу." },
   ur: { locale: "ur_PK", title: "انطالیہ ایئرپورٹ ٹرانسفر | نجی وی آئی پی سروس", description: "انطالیہ ایئرپورٹ سے بیلک، سیدے، کیمر اور الانیا تک مقررہ قیمت پر نجی ٹرانسفر۔ استقبال، پرواز کی نگرانی اور دروازے تک سروس۔" },
+  pl: { locale: "pl_PL", title: "Transfer z lotniska Antalya | Prywatny transfer VIP", description: "Prywatne transfery w stałej cenie z lotniska Antalya do Belek, Side, Kemer, Alanya i innych kurortów. Powitanie i śledzenie lotu." },
+  nl: { locale: "nl_NL", title: "Luchthaven Antalya Transfer | Privé VIP-vervoer", description: "Privétransfers met vaste prijs vanaf de luchthaven Antalya naar Belek, Side, Kemer, Alanya en andere resorts. Ontvangst en vluchtvolging." },
+  ar: { locale: "ar_SA", title: "نقل مطار أنطاليا | خدمة VIP خاصة", description: "نقل خاص بسعر ثابت من مطار أنطاليا إلى بيليك وسيدي وكيمر وألانيا وغيرها من المنتجعات. استقبال وتتبع الرحلات وخدمة من الباب إلى الباب." },
+  sv: { locale: "sv_SE", title: "Antalya Flygplatstransfer | Privat VIP-transport", description: "Privata transfrar till fast pris från Antalya flygplats till Belek, Side, Kemer, Alanya och andra resorter. Möte och flygbevakning." },
 } as const;
 
 const healthSeo = {
@@ -65,6 +69,30 @@ const healthSeo = {
     title: "انطالیہ میں طبی سفر کوآرڈینیشن | Antalya VIP Tourism",
     description: "انطالیہ میں اپنے طبی سفر کی منصوبہ بندی واضح ذمہ داریوں، نجی ٹرانسفر، رہائش کوآرڈینیشن اور مجاز طبی ٹیموں کی مسلسل نگہداشت کے ساتھ کریں۔",
     service: "طبی سفر کوآرڈینیشن اور کنسیئرج لاجسٹکس",
+  },
+  pl: {
+    locale: "pl_PL",
+    title: "Koordynacja podróży medycznej w Antalyi | Antalya VIP Tourism",
+    description: "Zaplanuj swoją podróż medyczną do Antalyi z jasnym podziałem ról, prywatnymi transferami, koordynacją zakwaterowania i ciągłą opieką prowadzoną przez uprawnione zespoły medyczne.",
+    service: "Koordynacja podróży medycznych i logistyka concierge",
+  },
+  nl: {
+    locale: "nl_NL",
+    title: "Coördinatie van medische reizen in Antalya | Antalya VIP Tourism",
+    description: "Plan uw medische reis naar Antalya met duidelijke rolverdeling, privétransfers, coördinatie van accommodatie en continue zorg onder leiding van bevoegde medische teams.",
+    service: "Coördinatie van medische reizen en conciërgelogistiek",
+  },
+  ar: {
+    locale: "ar_SA",
+    title: "تنسيق الرحلات الصحية في أنطاليا | Antalya VIP Tourism",
+    description: "خطط لرحلتك الصحية إلى أنطاليا مع أدوار واضحة، ونقل خاص، وتنسيق الإقامة، ورعاية مستمرة يقودها فريق طبي معتمد.",
+    service: "تنسيق الرحلات الصحية والخدمات اللوجستية للكونسيرج",
+  },
+  sv: {
+    locale: "sv_SE",
+    title: "Samordning av hälsoresor i Antalya | Antalya VIP Tourism",
+    description: "Planera din hälsoresa till Antalya med tydlig ansvarsfördelning, privata transfrar, boendesamordning och kontinuerlig vård ledd av auktoriserade medicinska team.",
+    service: "Samordning av hälsoresor och conciergelogistik",
   },
 } as const;
 
@@ -117,11 +145,35 @@ const routeText = {
     heading: (name: string) => `انطالیہ ایئرپورٹ سے ${name} تک نجی ٹرانسفر`,
     faq: (name: string, price: number, duration: string) => [[`انطالیہ ایئرپورٹ سے ${name} تک ٹرانسفر میں کتنا وقت لگتا ہے؟`, `عام ٹریفک میں سفر تقریباً ${duration} لیتا ہے۔`], [`${name} تک ٹرانسفر کی مقررہ قیمت کیا ہے؟`, `Mercedes Vito کی قیمتیں €${price} فی گاڑی سے شروع ہوتی ہیں۔ تصدیق شدہ کل رقم بکنگ کے وقت دکھائی جاتی ہے۔`], ["اگر میری پرواز میں تاخیر ہو جائے تو کیا ہوگا؟", "ہم آپ کی پرواز کو حقیقی وقت میں ٹریک کرتے ہیں اور بغیر کسی اضافی چارج کے ملاقات کا وقت ایڈجسٹ کرتے ہیں۔"]],
   },
+  pl: {
+    title: (name: string) => `Transfer z lotniska Antalya do ${name} | Prywatna stała cena`,
+    description: (name: string, price: number) => `Prywatny transfer w stałej cenie z lotniska Antalya do ${name} od €${price} za pojazd. Powitanie, śledzenie lotu i dowóz pod hotel.`,
+    heading: (name: string) => `Prywatny transfer z lotniska Antalya do ${name}`,
+    faq: (name: string, price: number, duration: string) => [[`Jak długo trwa transfer z lotniska Antalya do ${name}?`, `Przy normalnym ruchu podróż trwa około ${duration}.`], [`Jaka jest stała cena transferu do ${name}?`, `Ceny Mercedes Vito zaczynają się od €${price} za pojazd. Potwierdzona łączna kwota jest pokazywana podczas rezerwacji.`], ["Co się stanie, jeśli mój lot będzie opóźniony?", "Śledzimy Twój lot w czasie rzeczywistym i bez dodatkowych opłat dostosowujemy godzinę odbioru."]],
+  },
+  nl: {
+    title: (name: string) => `Luchthaven Antalya naar ${name} Transfer | Privé Vaste Prijs`,
+    description: (name: string, price: number) => `Privétransfer met vaste prijs van de luchthaven Antalya naar ${name} vanaf €${price} per voertuig. Ontvangst, vluchtvolging en deur-tot-deur service.`,
+    heading: (name: string) => `Privétransfer van de luchthaven Antalya naar ${name}`,
+    faq: (name: string, price: number, duration: string) => [[`Hoe lang duurt de transfer van de luchthaven Antalya naar ${name}?`, `De rit duurt ongeveer ${duration} bij normaal verkeer.`], [`Wat is de vaste transferprijs naar ${name}?`, `Mercedes Vito-prijzen beginnen bij €${price} per voertuig. Het bevestigde totaal wordt getoond bij het boeken.`], ["Wat gebeurt er als mijn vlucht vertraging heeft?", "We volgen uw vlucht in realtime en passen de ophaaltijd zonder extra kosten aan."]],
+  },
+  ar: {
+    title: (name: string) => `نقل من مطار أنطاليا إلى ${name} | سعر ثابت خاص`,
+    description: (name: string, price: number) => `نقل خاص بسعر ثابت من مطار أنطاليا إلى ${name} يبدأ من €${price} لكل مركبة. استقبال وتتبع الرحلة وخدمة من الباب إلى الباب.`,
+    heading: (name: string) => `نقل خاص من مطار أنطاليا إلى ${name}`,
+    faq: (name: string, price: number, duration: string) => [[`كم يستغرق النقل من مطار أنطاليا إلى ${name}؟`, `تستغرق الرحلة حوالي ${duration} في حركة المرور العادية.`], [`ما هو السعر الثابت للنقل إلى ${name}؟`, `تبدأ أسعار مرسيدس فيتو من €${price} لكل مركبة. يظهر الإجمالي المؤكد عند الحجز.`], ["ماذا يحدث إذا تأخرت رحلتي؟", "نتتبع رحلتك في الوقت الفعلي ونعدّل وقت اللقاء دون أي رسوم إضافية."]],
+  },
+  sv: {
+    title: (name: string) => `Antalya Flygplats till ${name} Transfer | Privat Fast Pris`,
+    description: (name: string, price: number) => `Privat transfer till fast pris från Antalya flygplats till ${name} från €${price} per fordon. Möte, flygbevakning och dörr-till-dörr-service.`,
+    heading: (name: string) => `Privat transfer från Antalya flygplats till ${name}`,
+    faq: (name: string, price: number, duration: string) => [[`Hur lång tid tar transfern från Antalya flygplats till ${name}?`, `Resan tar cirka ${duration} vid normal trafik.`], [`Vad är det fasta transferpriset till ${name}?`, `Mercedes Vito-priser börjar från €${price} per fordon. Den bekräftade summan visas vid bokning.`], ["Vad händer om mitt flyg är försenat?", "Vi spårar ditt flyg i realtid och justerar mötestiden utan extra kostnad."]],
+  },
 } as const;
 
 export const languageFromPath = (pathname: string): IndexableLanguage => {
   const candidate = pathname.split("/").filter(Boolean)[0];
-  return candidate === "de" || candidate === "fr" || candidate === "tr" || candidate === "ru" || candidate === "cs" || candidate === "uk" || candidate === "ur" ? candidate : "en";
+  return candidate === "de" || candidate === "fr" || candidate === "tr" || candidate === "ru" || candidate === "cs" || candidate === "uk" || candidate === "ur" || candidate === "pl" || candidate === "nl" || candidate === "ar" || candidate === "sv" ? candidate : "en";
 };
 
 export const localizedPath = (language: IndexableLanguage, suffix = "") =>
