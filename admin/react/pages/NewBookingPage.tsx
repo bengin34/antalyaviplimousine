@@ -16,6 +16,13 @@ export const LOCATION_OPTIONS = [
 
 export const VEHICLE_CAPACITY: Record<string, number> = { vclass: 13, vito: 7 }
 
+// Customer-facing message languages supported by whatsapp-templates.js.
+// Empty value = auto-detect from phone country code.
+export const LANGUAGE_OPTIONS = [
+  ['', 'Otomatik (telefondan)'], ['tr', 'Türkçe'], ['en', 'İngilizce'], ['de', 'Almanca'],
+  ['ru', 'Rusça'], ['fr', 'Fransızca'], ['ar', 'Arapça'],
+] as const
+
 export interface BookingFormState {
   name: string; phone: string; email: string; hotel: string; tripType: string
   pickup: string; dropoff: string; pickupAddress: string; dropoffAddress: string
@@ -25,7 +32,7 @@ export interface BookingFormState {
   airportMeetFeeApplies: boolean
   serviceEndDate: string; departureFlightDate: string; departureFlightTime: string; departureFlight: string
   guests: string; luggage: string; childSeats: string; price: string; payment: string
-  status: string; notes: string; fuelAccepted: boolean
+  status: string; notes: string; fuelAccepted: boolean; language: string
 }
 
 function createInitialState(): [BookingFormState, ReturnType<typeof consumeBookingPrefill>] {
@@ -41,7 +48,7 @@ function createInitialState(): [BookingFormState, ReturnType<typeof consumeBooki
     serviceEndDate: todayISO(), departureFlightDate: '', departureFlightTime: '', departureFlight: '',
     vehicle: prefill?.vehicleType ?? 'vito', guests: String(prefill?.guests ?? 1),
     luggage: String(prefill?.luggageCount ?? 0), childSeats: String(prefill?.childSeatCount ?? 0),
-    price: '', payment: prefill?.paymentMethod ?? 'cash', status: 'confirmed', notes: prefill?.notes ?? '', fuelAccepted: false,
+    price: '', payment: prefill?.paymentMethod ?? 'cash', status: 'confirmed', notes: prefill?.notes ?? '', fuelAccepted: false, language: '',
   }, prefill]
 }
 
@@ -166,7 +173,7 @@ export default function NewBookingPage({ navigate }: { navigate: Navigate }) {
     setSaving(true); setError('')
     const manualReturnOf = prefill?.isManualReturn ? prefill.sourceRef ?? null : null
     const { data, error: insertError } = await supabase.from('bookings')
-      .insert([{ ...result.payload, booking_ref: generateBookingRef(), language: languageFromPhone(result.payload.customer_phone), manual_return_of_ref: manualReturnOf }])
+      .insert([{ ...result.payload, booking_ref: generateBookingRef(), language: form.language || languageFromPhone(result.payload.customer_phone), manual_return_of_ref: manualReturnOf }])
       .select('booking_ref').single()
     setSaving(false)
     if (insertError) return setError('Kayıt oluşturulamadı, tekrar deneyin.')
@@ -183,6 +190,7 @@ export default function NewBookingPage({ navigate }: { navigate: Navigate }) {
           <Field label="Ad Soyad *"><input className="input" type="text" maxLength={80} autoComplete="off" value={form.name} onChange={e => set('name', e.target.value)} required autoFocus={Boolean(prefill)} /></Field>
           <Field label="Telefon *"><PhoneInput className="input phone-input" international defaultCountry="TR" placeholder="+90 5xx xxx xx xx" autoComplete="off" value={form.phone || undefined} onChange={value => set('phone', value ?? '')} /></Field>
           <Field label="Otel / Konaklama"><input className="input" type="text" maxLength={120} autoComplete="off" value={form.hotel} onChange={e => set('hotel', e.target.value)} /></Field>
+          <Field label="Mesaj dili"><select className="input" value={form.language} onChange={e => set('language', e.target.value)}>{LANGUAGE_OPTIONS.map(([value, label]) => <option key={value} value={value}>{label}</option>)}</select><span className="form-hint">Müşteriye gidecek WhatsApp mesajlarının dili. Otomatik = telefon ülke kodundan.</span></Field>
         </div>
 
         <div className="section">

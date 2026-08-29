@@ -33,7 +33,7 @@ export default function DriverCommsPage({ navigate }: { navigate: Navigate }) {
     supabase
       .from('bookings')
       .select('*, booking_notes(id, note, created_at), chauffeur_hire_days(*)')
-      .in('status', ['pending', 'paid', 'confirmed', 'in_transit'])
+      .in('status', ['pending', 'paid', 'confirmed', 'in_transit', 'completed'])
       .or(`pickup_date.eq.${selectedDate},return_date.eq.${selectedDate},and(trip_type.eq.daily_chauffeur,pickup_date.lte.${selectedDate},service_end_date.gte.${selectedDate})`)
       .order('pickup_date')
       .order('pickup_time', { nullsFirst: false })
