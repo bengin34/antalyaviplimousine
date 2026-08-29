@@ -23,11 +23,12 @@
  * the wrong district inside one region quotes exactly the same price.
  *
  * Where a district could defensibly belong to either of two regions and those
- * two prices differ sharply, it is filed under the nearer, cheaper one. An
- * over-quote loses the booking outright — the guest sees a number well above
- * the market and books elsewhere — while an under-quote still converts and can
- * be corrected before the transfer is confirmed. The two are not symmetric, so
- * the tie is broken towards the near side.
+ * two prices differ sharply, it is filed under the dearer one. The quoted
+ * price is a fixed commitment for the whole vehicle, so an under-quote is a
+ * loss carried on every single transfer to that hotel for as long as the row
+ * stays wrong, while an over-quote costs at most the one booking that walks
+ * away. The two are not symmetric, so the tie is broken towards the dearer
+ * region and a corrected row can always bring the price down later.
  *
  * `status` records how much a row can be trusted. Rows marked `draft` are a
  * research seed and must be checked against the operator's own records before
@@ -92,11 +93,6 @@ export const districtRegions = Object.freeze({
   // Manavgat/Kızılağaç — €60 Vito
   "Kızılağaç": "kizilagac",
   "Kızılot": "kizilagac",
-  // Okurcalar is administratively Alanya but sits roughly 30 km short of it,
-  // and ALANYA_PRICING_PLAN.md prices the western strip it belongs to at €65.
-  // Of the regions that exist today €60 is the closest to that; Alanya's €95
-  // would be €30 over. Priced near rather than far, per the rule below.
-  "Okurcalar": "kizilagac",
   // Kemer — €55 Vito
   "Kemer": "kemer",
   "Beldibi": "kemer",
@@ -106,6 +102,11 @@ export const districtRegions = Object.freeze({
   // Tekirova — €75 Vito
   "Tekirova": "tekirova",
   // Alanya — €95 Vito
+  // Okurcalar is administratively Alanya but sits roughly 30 km short of it,
+  // so it could be argued into Manavgat/Kızılağaç. It stays on the dearer
+  // side, per the rule above. ALANYA_PRICING_PLAN.md would settle it properly
+  // at €65 once the five Alanya sub-regions exist.
+  "Okurcalar": "alanya",
   "İncekum": "alanya",
   "Avsallar": "alanya",
   "Türkler": "alanya",
@@ -195,7 +196,6 @@ const seedRows = [
   ["Crystal Tat Beach Golf Resort & Spa", "Belek"],
   ["Crystal Family Resort & Spa", "Belek"],
   ["Belconti Resort Hotel", "Belek"],
-  ["Sherwood Dreams Resort", "Belek"],
   ["Granada Luxury Belek", "Belek"],
   ["Kirman Belazur Resort & Spa", "Belek"],
   ["Ethno Belek Hotel", "Belek"],
@@ -215,6 +215,9 @@ const seedRows = [
   // --- Boğazkent -----------------------------------------------------------
   ["Crystal Waterworld Resort & Spa", "Boğazkent"],
   ["Aydinbey Famous Resort", "Boğazkent"],
+  // Its own address reads Belek, TripAdvisor files it under Boğazkent. Split
+  // evidence across a price boundary goes to the dearer side.
+  ["Sherwood Dreams Resort", "Boğazkent"],
 
   // --- Side, Kumköy, Evrenseki, Gündoğdu ----------------------------------
   ["Barut Acanthus & Cennet", "Side"],
@@ -313,6 +316,7 @@ const seedRows = [
   ["Kemer Barut Collection", "Kemer"],
   ["Grand Park Kemer", "Kemer"],
   ["Seven Seas Hotel Life Kemer", "Kemer"],
+  ["Viking Star Hotel", "Kemer"],
   ["Rixos Sungate", "Beldibi"],
   ["Rixos Beldibi", "Beldibi"],
   ["Crystal Flora Beach Resort", "Beldibi"],
@@ -332,7 +336,6 @@ const seedRows = [
   ["Maxx Royal Kemer Resort", "Kiriş"],
   ["Limak Limra Hotel & Resort", "Kiriş"],
   ["Aleria Belport Beach Hotel", "Çamyuva"],
-  ["Viking Star Hotel", "Çamyuva"],
 
   // --- Tekirova ------------------------------------------------------------
   ["Rixos Premium Tekirova", "Tekirova"],

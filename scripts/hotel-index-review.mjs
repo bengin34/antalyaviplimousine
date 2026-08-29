@@ -46,6 +46,9 @@ console.log("## 1. Fiyatı değiştiren beldeler (önce bunları kontrol edin)\n
 console.log("Bu beldeler farklı fiyatlı bir bölgeyle komşu. Buradaki bir hata");
 console.log("doğrudan yanlış ücret demek. Diğer beldelerde karışıklık fiyatı");
 console.log("değiştirmez, çünkü aynı bölge içindeler.\n");
+console.log("Kararsız kalınan belde pahalı bölgeye yazılır: eksik fiyat o otele");
+console.log("giden her transferde zarar yazar, fazla fiyat en fazla tek bir");
+console.log("rezervasyon kaybettirir.\n");
 for (const district of priceBoundaryDistricts) {
   const region = districtRegions[district];
   const hotels = hotelsByDistrict.get(district) ?? [];

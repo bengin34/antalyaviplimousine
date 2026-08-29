@@ -135,9 +135,9 @@ describe("BookingForm route summary", () => {
     });
     fireEvent.click(container.querySelectorAll('[role="option"]')[0]);
 
-    expect(container.querySelector<HTMLSelectElement>("#destination")!.value).toBe("kizilagac");
+    expect(container.querySelector<HTMLSelectElement>("#destination")!.value).toBe("alanya");
     expect(container.querySelector(".hotel-region-hint"))
-      .toHaveTextContent("Kirman Leodikya Resort · Okurcalar — Manavgat/Kızılağaç");
+      .toHaveTextContent("Kirman Leodikya Resort · Okurcalar — Alanya");
     expect(container.querySelectorAll('[role="option"]')).toHaveLength(0);
   });
 
