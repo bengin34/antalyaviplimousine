@@ -38,7 +38,7 @@
  */
 import { hotelCatalog } from "./hotels.js";
 
-/** @typedef {import("./hotels.js").HotelRegionSlug | "antalya"} IndexRegionSlug */
+/** @typedef {keyof typeof import("./routes.js").routeCatalog} IndexRegionSlug */
 /** @typedef {[name: string, district: string, aliases?: string[]]} HotelSeedRow */
 
 /**
@@ -101,23 +101,24 @@ export const districtRegions = Object.freeze({
   "Çamyuva": "kemer",
   // Tekirova — €75 Vito
   "Tekirova": "tekirova",
-  // Alanya — €95 Vito
-  // Okurcalar is administratively Alanya but sits roughly 30 km short of it,
-  // so it could be argued into Manavgat/Kızılağaç. It stays on the dearer
-  // side, per the rule above. ALANYA_PRICING_PLAN.md would settle it properly
-  // at €65 once the five Alanya sub-regions exist.
-  "Okurcalar": "alanya",
-  "İncekum": "alanya",
-  "Avsallar": "alanya",
-  "Türkler": "alanya",
-  "Payallar": "alanya",
-  "Konaklı": "alanya",
-  "Alanya merkez": "alanya",
-  "Oba": "alanya",
-  "Tosmur": "alanya",
-  "Kestel": "alanya",
-  "Mahmutlar": "alanya",
-  "Kargıcak": "alanya",
+  // Batı Alanya — €70 Vito
+  "Okurcalar": "alanya_bati",
+  "İncekum": "alanya_bati",
+  "Avsallar": "alanya_bati",
+  "Türkler": "alanya_bati",
+  "Payallar": "alanya_bati",
+  "Konaklı": "alanya_bati",
+  // Alanya merkez — €75 Vito
+  "Alanya merkez": "alanya_merkez",
+  "Oba": "alanya_merkez",
+  "Tosmur": "alanya_merkez",
+  // Doğu Alanya — €80 Vito
+  "Kestel": "alanya_dogu",
+  "Mahmutlar": "alanya_dogu",
+  // Kargıcak — €90 Vito
+  "Kargıcak": "kargicak",
+  // Demirtaş — €100 Vito
+  "Demirtaş": "demirtas",
 });
 
 /** @type {HotelSeedRow[]} */
@@ -385,11 +386,11 @@ const seedRows = [
  * @type {readonly string[]}
  */
 export const priceBoundaryDistricts = Object.freeze([
+  "Çamyuva", "Tekirova",     // kemer €55 ↔ tekirova €75 — the widest gap left
   "Kundu", "Aksu",           // antalya €35 ↔ belek €40
   "Belek", "Boğazkent",      // belek €40 ↔ bogazkent €45 ↔ side €50
   "Çolaklı", "Kızılot",      // side €50 ↔ kizilagac €60
-  "Kızılağaç", "Okurcalar",  // kizilagac €60 ↔ alanya €95
-  "Çamyuva", "Tekirova",     // kemer €55 ↔ tekirova €75
+  "Kızılağaç", "Okurcalar",  // kizilagac €60 ↔ alanya_bati €70
 ]);
 
 /**

@@ -3,7 +3,7 @@ import { useEffect, useMemo, useState } from "react";
 import { Controller, useForm, type FieldError } from "react-hook-form";
 import PhoneInput, { type Country } from "react-phone-number-input";
 import "react-phone-number-input/style.css";
-import { publicRouteSlugs, routeCatalog } from "../../../src/routes.js";
+import { bookableRouteSlugs, routeCatalog } from "../../../src/routes.js";
 import { useLanguage, type LanguageCode } from "../i18n";
 import { HotelCombobox, type IndexedHotel } from "./HotelCombobox";
 import { Icon } from "./Icon";
@@ -409,7 +409,7 @@ export function BookingForm({
                 {!isDailyChauffeur && (
                   <label className={fieldClass(errors.destination)}>
                     <span>{t("destination", "Destination")}</span>
-                    <div className="field-control"><Icon name="pin" className="icon" /><select id="destination" {...register("destination")}><option value="">{t("selectDestination", "Select destination")}</option>{values.pickup !== "airport" && <option value="airport">{t("airportOption", "Antalya Airport (AYT)")}</option>}{publicRouteSlugs.map((slug) => <option value={slug} key={slug}>{routeCatalog[slug].names[language as keyof typeof routeCatalog[typeof slug]["names"]] ?? routeCatalog[slug].names.en}</option>)}<option value="private_address">{t("privateAddressOption", "Private address")}</option></select></div>
+                    <div className="field-control"><Icon name="pin" className="icon" /><select id="destination" {...register("destination")}><option value="">{t("selectDestination", "Select destination")}</option>{values.pickup !== "airport" && <option value="airport">{t("airportOption", "Antalya Airport (AYT)")}</option>}{bookableRouteSlugs.map((slug) => <option value={slug} key={slug}>{routeCatalog[slug].names[language as keyof typeof routeCatalog[typeof slug]["names"]] ?? routeCatalog[slug].names.en}</option>)}<option value="private_address">{t("privateAddressOption", "Private address")}</option></select></div>
                     <FieldErrorMessage error={errors.destination} />
                   </label>
                 )}

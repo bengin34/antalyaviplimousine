@@ -57,7 +57,9 @@ for (const urlPath of prerenderPaths) {
   for (const element of document.querySelectorAll('[src^="/assets/"], [href^="/assets/"]')) {
     const reference = element.getAttribute("src") || element.getAttribute("href");
     if (!reference) continue;
-    const assetFile = path.join(dist, decodeURIComponent(reference.split("?")[0].slice(1)));
+    // Strip the query and the fragment: neither is part of the file on disk,
+    // and the router emits a bare "#" on some stylesheet links.
+    const assetFile = path.join(dist, decodeURIComponent(reference.split(/[?#]/)[0].slice(1)));
     if (!(await exists(assetFile))) fail(`${urlPath}: missing asset ${reference}`);
   }
 

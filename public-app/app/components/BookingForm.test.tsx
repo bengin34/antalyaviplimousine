@@ -135,9 +135,10 @@ describe("BookingForm route summary", () => {
     });
     fireEvent.click(container.querySelectorAll('[role="option"]')[0]);
 
-    expect(container.querySelector<HTMLSelectElement>("#destination")!.value).toBe("alanya");
+    expect(container.querySelector<HTMLSelectElement>("#destination")!.value).toBe("alanya_bati");
     expect(container.querySelector(".hotel-region-hint"))
-      .toHaveTextContent("Kirman Leodikya Resort · Okurcalar — Alanya");
+      .toHaveTextContent("Kirman Leodikya Resort · Okurcalar — Batı Alanya");
+    expect(container.querySelector(".price-display-amount")).toHaveTextContent("€70");
     expect(container.querySelectorAll('[role="option"]')).toHaveLength(0);
   });
 

@@ -46,6 +46,61 @@ export const routeCatalog = {
     originalPrices: { vito: 110, sprinter: 170 },
     prices: { vito: 95, sprinter: 145 },
   },
+  // Alanya sub-regions. The single €95 Alanya tariff covered everything from
+  // Okurcalar to Demirtaş — a 65 km spread — so ALANYA_PRICING_PLAN.md splits
+  // it by distance. `landing: false` keeps these out of the marketed route
+  // pages and the sitemap: they are prices the hotel index resolves to, not
+  // destinations anyone searches for. `alanya` itself stays listed, keeps its
+  // landing page, and remains the fallback for a guest who cannot place their
+  // own hotel — the dearest of the six, so an unknown hotel is never undersold.
+  //
+  // Distances and durations here are estimates and feed the profit/loss cost
+  // model, not the customer's price. Confirm them against real journeys.
+  alanya_bati: {
+    names: { en: "West Alanya", de: "West-Alanya", tr: "Batı Alanya", ru: "Западную Аланью", cs: "Západní Alanya", uk: "Західна Аланія", ur: "مغربی الانیا" },
+    distanceKm: 105,
+    durationMin: 100,
+    duration: { en: "90–110 minutes", de: "90–110 Minuten", tr: "90–110 dakika", ru: "90–110 минут", cs: "90–110 minut", uk: "90–110 хвилин", ur: "90–110 منٹ" },
+    originalPrices: { vito: 80, sprinter: 105 },
+    prices: { vito: 70, sprinter: 90 },
+    landing: false, // covers Okurcalar, İncekum, Avsallar, Türkler, Payallar, Konaklı
+  },
+  alanya_merkez: {
+    names: { en: "Alanya Centre", de: "Alanya Zentrum", tr: "Alanya merkez", ru: "центр Аланьи", cs: "centrum Alanye", uk: "Центр Аланії", ur: "الانیا شہر" },
+    distanceKm: 125,
+    durationMin: 120,
+    duration: { en: "110–130 minutes", de: "110–130 Minuten", tr: "110–130 dakika", ru: "110–130 минут", cs: "110–130 minut", uk: "110–130 хвилин", ur: "110–130 منٹ" },
+    originalPrices: { vito: 85, sprinter: 110 },
+    prices: { vito: 75, sprinter: 95 },
+    landing: false, // covers Merkez, Kleopatra, Oba, Tosmur
+  },
+  alanya_dogu: {
+    names: { en: "East Alanya", de: "Ost-Alanya", tr: "Doğu Alanya", ru: "Восточную Аланью", cs: "Východní Alanya", uk: "Східна Аланія", ur: "مشرقی الانیا" },
+    distanceKm: 138,
+    durationMin: 130,
+    duration: { en: "120–140 minutes", de: "120–140 Minuten", tr: "120–140 dakika", ru: "120–140 минут", cs: "120–140 minut", uk: "120–140 хвилин", ur: "120–140 منٹ" },
+    originalPrices: { vito: 90, sprinter: 120 },
+    prices: { vito: 80, sprinter: 105 },
+    landing: false, // covers Kestel, Mahmutlar
+  },
+  kargicak: {
+    names: { en: "Kargıcak", de: "Kargıcak", tr: "Kargıcak", ru: "Каргыджак", cs: "Kargıcak", uk: "Каргиджак", ur: "کارگیجاک" },
+    distanceKm: 150,
+    durationMin: 145,
+    duration: { en: "135–155 minutes", de: "135–155 Minuten", tr: "135–155 dakika", ru: "135–155 минут", cs: "135–155 minut", uk: "135–155 хвилин", ur: "135–155 منٹ" },
+    originalPrices: { vito: 105, sprinter: 135 },
+    prices: { vito: 90, sprinter: 115 },
+    landing: false, // covers Kargıcak
+  },
+  demirtas: {
+    names: { en: "Demirtaş", de: "Demirtaş", tr: "Demirtaş", ru: "Демирташ", cs: "Demirtaş", uk: "Демірташ", ur: "دیمرتاش" },
+    distanceKm: 170,
+    durationMin: 165,
+    duration: { en: "155–175 minutes", de: "155–175 Minuten", tr: "155–175 dakika", ru: "155–175 минут", cs: "155–175 minut", uk: "155–175 хвилин", ur: "155–175 منٹ" },
+    originalPrices: { vito: 115, sprinter: 150 },
+    prices: { vito: 100, sprinter: 130 },
+    landing: false, // covers Demirtaş
+  },
   bogazkent: {
     names: { en: "Boğazkent", de: "Boğazkent", tr: "Boğazkent", ru: "Богазкент", cs: "Boğazkent", uk: "Богазкент", ur: "بوازکینت" },
     distanceKm: 48,
@@ -120,7 +175,15 @@ export const routeCatalog = {
   },
 };
 
+/** Routes with their own marketed landing page and sitemap entry. */
 export const publicRouteSlugs = Object.freeze(
+  /** @type {Array<keyof typeof routeCatalog>} */ (
+    Object.keys(routeCatalog).filter((slug) => routeCatalog[slug].landing !== false)
+  ),
+);
+
+/** Routes a guest can pick as a destination in the booking form. */
+export const bookableRouteSlugs = Object.freeze(
   /** @type {Array<keyof typeof routeCatalog>} */ (Object.keys(routeCatalog)),
 );
 
@@ -135,9 +198,14 @@ export const turkishLocationNames = Object.freeze({
   kizilagac: "Kızılağaç",
 });
 
+/**
+ * Price lookup for the marketed routes, used by the legacy static site's
+ * price tokens. Unlisted sub-regions are excluded: nothing on those pages
+ * quotes them.
+ */
 export const routeData = Object.freeze(
   Object.fromEntries(
-    Object.entries(routeCatalog).map(([slug, route]) => [slug, {
+    Object.entries(routeCatalog).filter(([, route]) => route.landing !== false).map(([slug, route]) => [slug, {
       name: route.names.en,
       originalPrices: route.originalPrices,
       prices: route.prices,
@@ -151,6 +219,11 @@ const regionalConnections = [
   ["side", "manavgat", 10],
   ["manavgat", "kizilagac", 15],
   ["kizilagac", "alanya", 45],
+  ["kizilagac", "alanya_bati", 20],
+  ["alanya_bati", "alanya_merkez", 20],
+  ["alanya_merkez", "alanya_dogu", 13],
+  ["alanya_dogu", "kargicak", 12],
+  ["kargicak", "demirtas", 20],
   ["antalya", "kemer", 45],
   ["kemer", "tekirova", 20],
   ["tekirova", "fethiye", 155],
