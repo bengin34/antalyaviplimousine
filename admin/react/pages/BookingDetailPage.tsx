@@ -234,8 +234,7 @@ export default function BookingDetailPage({ bookingRef, isReturn, sourceTab, pro
 
   const backHash = sourceTab === 'profit-loss'
     ? `#profit-loss${profitPeriod ? `?period=${encodeURIComponent(profitPeriod)}` : ''}`
-    : sourceTab === 'past' ? '#timeline?tab=past'
-    : sourceTab === 'cancelled' ? '#timeline?tab=cancelled' : '#timeline'
+    : '#timeline'
   if (loading) return <><Topbar navigate={navigate} title="Transfer Detayı" back={backHash} /><div className="scroll-area"><div className="empty"><div>Yükleniyor…</div></div></div></>
   if (notFound || !booking) return <><Topbar navigate={navigate} title="Transfer Detayı" back={backHash} /><div className="scroll-area"><div className="empty"><div>Rezervasyon bulunamadı</div></div></div></>
 

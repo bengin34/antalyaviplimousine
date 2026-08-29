@@ -6,18 +6,25 @@ import { AdminTabs } from './AdminChrome'
 afterEach(cleanup)
 
 describe('AdminTabs', () => {
-  test('keeps the existing hash routes while navigating React views', () => {
+  test('navigates React views via their hash routes', () => {
     const navigate = vi.fn()
-    render(<AdminTabs active="future" navigate={navigate} />)
+    render(<AdminTabs active="budget" navigate={navigate} />)
 
-    fireEvent.click(screen.getByRole('tab', { name: 'Geçmiş' }))
-    fireEvent.click(screen.getByRole('tab', { name: 'Bütçe' }))
+    fireEvent.click(screen.getByRole('tab', { name: 'Transferler' }))
     fireEvent.click(screen.getByRole('tab', { name: 'Kâr/Zarar' }))
+    fireEvent.click(screen.getByRole('tab', { name: '📱 Şoför' }))
 
     expect(navigate.mock.calls).toEqual([
-      ['#timeline?tab=past'],
-      ['#budget'],
+      ['#timeline'],
       ['#profit-loss'],
+      ['#driver-comms'],
     ])
+  })
+
+  test('no longer renders removed past/future/cancelled tabs', () => {
+    render(<AdminTabs active="timeline" navigate={vi.fn()} />)
+    expect(screen.queryByRole('tab', { name: 'Gelecek' })).toBeNull()
+    expect(screen.queryByRole('tab', { name: 'Geçmiş' })).toBeNull()
+    expect(screen.queryByRole('tab', { name: 'İptaller' })).toBeNull()
   })
 })

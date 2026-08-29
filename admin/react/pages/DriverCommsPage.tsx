@@ -49,7 +49,7 @@ export default function DriverCommsPage({ navigate }: { navigate: Navigate }) {
 
   const cards = useMemo(() => {
     if (!bookings) return []
-    return expandRoundTrips(bookings, 'future').filter(card => card._displayDate === selectedDate)
+    return expandRoundTrips(bookings, 'timeline').filter(card => card._displayDate === selectedDate)
   }, [bookings, selectedDate])
 
   const message = useMemo(() => buildDriverDailyProgram(cards, selectedDate), [cards, selectedDate])

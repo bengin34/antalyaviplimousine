@@ -74,8 +74,6 @@ export default function App() {
 
   const timelineQuery = hash.startsWith('#timeline?') ? hash.slice('#timeline?'.length) : ''
   const timelineParams = new URLSearchParams(timelineQuery)
-  const timelineTabParam = timelineParams.get('tab')
-  const selectedTab = timelineTabParam === 'past' ? 'past' : timelineTabParam === 'cancelled' ? 'cancelled' : 'future'
   const initialDate = timelineParams.get('date') || null
-  return <TimelinePage key={selectedTab} selectedTab={selectedTab} navigate={navigate} initialDate={initialDate} />
+  return <TimelinePage navigate={navigate} initialDate={initialDate} />
 }
