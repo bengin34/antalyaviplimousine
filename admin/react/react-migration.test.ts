@@ -122,7 +122,7 @@ describe('React admin migration behavior', () => {
   test('sorts the unified timeline ascending and the cancelled list descending', () => {
     const make = (ref: string, date: string) => ({
       id: ref, booking_ref: ref, customer_name: 'X', customer_email: '', customer_phone: '+90555',
-      hotel_name: null, child_seat_count: 0, child_ages: [] as number[], luggage_count: 0, pickup_location: 'airport',
+      hotel_name: '', child_seat_count: 0, child_ages: [] as number[], luggage_count: 0, pickup_location: 'airport',
       pickup_address: null, dropoff_location: 'belek', dropoff_address: null, pickup_date: date,
       pickup_time: '10:00:00', flight_number: null, flight_arrival_time: null, trip_type: 'one_way',
       return_date: null, return_pickup_time: null, return_flight_number: null, guests: 1,
