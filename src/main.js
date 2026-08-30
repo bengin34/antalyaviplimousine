@@ -201,6 +201,18 @@ const translations = {
     faqTenQ: "Wie halte ich beim Rücktransfer Kontakt?",
     faqTenA:
       "Sobald Sie Datum und Uhrzeit Ihrer Rückfahrt per WhatsApp mit unserem Team bestätigt haben, teilen wir Ihnen einige Stunden vor dem Transfer Ihr Fahrzeug zu und senden Ihnen Fotos davon über WhatsApp – auf Wunsch auch die Telefonnummer Ihres Chauffeurs. Erreicht Ihr Chauffeur das Hotel, informiert er die Rezeption, die Ihr Zimmer benachrichtigt, sobald der Wagen bereitsteht. Unsere Chauffeure rufen Gäste nie direkt an: Die gesamte Kommunikation läuft über unsere zentrale WhatsApp-Betreuung, sodass Sie immer genau wissen, mit wem Sie sprechen.",
+    faqElevenQ: "Kann ich meine Buchung stornieren oder ändern?",
+    faqElevenA:
+      "Ja, und das immer kostenfrei. Da wir keine Vorauszahlung nehmen, gibt es nichts zu erstatten und keine Wartezeit auf Ihr Geld — ändern sich Ihre Pläne, genügt eine Nachricht über WhatsApp. Änderungen von Uhrzeit, Flugnummer oder Zieladresse regeln wir ebenso, ohne Aufpreis.",
+    faqTwelveQ: "In welchen Währungen kann ich bezahlen?",
+    faqTwelveA:
+      "Wir akzeptieren Euro, Türkische Lira und US-Dollar. Die Preise sind in Euro festgelegt; möchten Sie in Lira oder Dollar zahlen, wird der Betrag zum Tageskurs umgerechnet und vor der Abfahrt gemeinsam mit Ihrem Chauffeur bestätigt. Die Suche nach einer Wechselstube am Flughafen entfällt.",
+    faqThirteenQ: "Wie viel Gepäck darf ich mitnehmen?",
+    faqThirteenA:
+      "In der Regel ein großer Koffer und ein Handgepäckstück pro Person. Haben Sie mehr dabei — einen zusätzlichen Koffer, ein Golfbag, einen Kinderwagen, Ski oder ein Fahrrad — sagen Sie es einfach bei der Buchung; wir stellen ohne Aufpreis ein Fahrzeug mit passender Kapazität. Entscheidend ist nur, dass wir es vorher wissen.",
+    faqFourteenQ: "Was passiert, wenn ich mich beim Rücktransfer verspäte?",
+    faqFourteenA:
+      "Ihr Chauffeur ist zur vereinbarten Zeit an Ihrem Hotel und wartet 15 Minuten kostenfrei. Zeichnet sich eine Verzögerung ab, genügt eine Nachricht über WhatsApp: Wir prüfen Ihre Flugzeit, informieren Ihren Chauffeur und stimmen den Ablauf mit Ihnen ab. Unser Ziel ist nicht, Sie zu hetzen, sondern Sie entspannt zu Ihrem Flug zu bringen.",
     faqThreeQ: "Sind Kindersitze verfügbar?",
     faqThreeA:
       "Ja. Babyschalen, Kindersitze und Sitzerhöhungen sind bei Vorbestellung kostenlos verfügbar.",
@@ -424,6 +436,18 @@ const translations = {
     faqTenQ: "Dönüş transferimde iletişimi nasıl kuracağım?",
     faqTenA:
       "Dönüş gün ve saatinizi ekibimizle WhatsApp üzerinden teyit ettikten sonra, transferinize saatler kala aracınızı belirler ve size WhatsApp'tan aracın fotoğraflarını gönderiririz; dilerseniz şoförünüzün telefon numarasını da paylaşırız. Şoförünüz belirlenen saatte otelinize ulaştığında resepsiyona haber verir, resepsiyon da odanıza aracınızın hazır olduğunu bildirir. Şoförlerimiz misafirlerimizi doğrudan aramaz; tüm iletişim tek bir noktadan, WhatsApp müşteri destek hattımız üzerinden yürür. Böylece kiminle konuştuğunuzdan her zaman emin olursunuz.",
+    faqElevenQ: "Rezervasyonumu iptal edebilir veya değiştirebilir miyim?",
+    faqElevenA:
+      "Elbette, üstelik tamamen ücretsiz. Ön ödeme almadığımız için iptalde iade edilecek bir tutar ve beklenecek bir iade süreci yoktur — planınız değişirse WhatsApp'tan haber vermeniz yeterli. Saat, uçuş numarası veya varış adresi değişikliklerini de aynı şekilde, ek ücret olmadan yaparız.",
+    faqTwelveQ: "Hangi para birimiyle ödeyebilirim?",
+    faqTwelveA:
+      "Euro, Türk Lirası ve ABD Doları kabul ediyoruz. Fiyatlar euro üzerinden belirlenir; TL veya dolar ödemek isterseniz tutar günün kurundan hesaplanır ve yola çıkmadan önce şoförünüzle birlikte teyit edilir. Havalimanında döviz bürosu aramanıza gerek kalmaz.",
+    faqThirteenQ: "Ne kadar bagaj getirebilirim?",
+    faqThirteenA:
+      "Kural olarak yolcu başına bir büyük valiz ve bir el bagajı. Daha fazlası varsa — ek valiz, golf çantası, bebek arabası, kayak veya bisiklet — rezervasyon sırasında belirtmeniz yeterli; ek ücret almadan uygun kapasitede bir araç planlarız. Önemli olan tek şey, bunu önceden biliyor olmamız.",
+    faqFourteenQ: "Dönüş transferime geç kalırsam ne olur?",
+    faqFourteenA:
+      "Şoförünüz belirlenen saatte otelinizde olur ve 15 dakika ücretsiz bekler. Gecikeceğinizi düşünüyorsanız WhatsApp'tan tek bir mesaj yeterli: uçuş saatinizi kontrol eder, şoförünüzü bilgilendirir ve programı sizinle birlikte ayarlarız. Amacımız sizi acele ettirmek değil, uçağınıza rahatça yetiştirmektir.",
     faqThreeQ: "Çocuk koltuğu var mı?",
     faqThreeA:
       "Evet. Bebek koltuğu, çocuk koltuğu ve yükseltici koltuk rezervasyon sırasında ücretsiz olarak talep edilebilir.",
@@ -646,6 +670,18 @@ const translations = {
     faqTenQ: "Как поддерживать связь при обратном трансфере?",
     faqTenA:
       "После того как вы подтвердите дату и время обратной поездки нашей команде в WhatsApp, мы за несколько часов до трансфера назначаем автомобиль и присылаем вам его фотографии в WhatsApp — при желании также номер телефона водителя. Когда водитель приезжает в отель, он сообщает на стойку регистрации, а та передаёт в ваш номер, что машина подана. Наши водители никогда не звонят гостям напрямую: всё общение идёт через единую линию поддержки в WhatsApp, поэтому вы всегда точно знаете, с кем разговариваете.",
+    faqElevenQ: "Могу ли я отменить или изменить бронирование?",
+    faqElevenA:
+      "Да, и всегда бесплатно. Мы не берём предоплату, поэтому возвращать нечего и ждать возврата денег не нужно — если планы изменились, достаточно написать нам в WhatsApp. Изменение времени, номера рейса или адреса назначения оформляем так же, без доплат.",
+    faqTwelveQ: "В какой валюте можно оплатить?",
+    faqTwelveA:
+      "Мы принимаем евро, турецкие лиры и доллары США. Цены установлены в евро; если удобнее заплатить в лирах или долларах, сумма пересчитывается по курсу дня и подтверждается вместе с водителем перед выездом. Искать обменный пункт в аэропорту не придётся.",
+    faqThirteenQ: "Сколько багажа можно взять?",
+    faqThirteenA:
+      "Как правило, один большой чемодан и одно место ручной клади на пассажира. Если багажа больше — дополнительный чемодан, гольф-бэг, коляска, лыжи или велосипед — просто укажите это при бронировании, и мы без доплаты подадим автомобиль подходящей вместимости. Важно лишь предупредить заранее.",
+    faqFourteenQ: "Что делать, если я опаздываю на обратный трансфер?",
+    faqFourteenA:
+      "Водитель приезжает к отелю в назначенное время и ждёт 15 минут бесплатно. Если понимаете, что задержитесь, напишите нам в WhatsApp: мы проверим время вылета, предупредим водителя и вместе скорректируем план. Наша задача — не торопить вас, а спокойно доставить к рейсу.",
     faqThreeQ: "Есть ли детские кресла?",
     faqThreeA:
       "Да. Автолюльки, детские кресла и бустеры предоставляются бесплатно по запросу при бронировании.",
@@ -855,6 +891,18 @@ const translations = {
     faqTenQ: "Jak zůstanu ve spojení při zpátečním transferu?",
     faqTenA:
       "Jakmile s naším týmem potvrdíte datum a čas zpáteční cesty přes WhatsApp, několik hodin před transferem přidělíme vozidlo a pošleme vám jeho fotografie na WhatsApp – na přání i telefonní číslo řidiče. Když řidič dorazí k hotelu, oznámí to recepci, která dá vědět na váš pokoj, že vůz je připraven. Naši řidiči hostům nikdy nevolají přímo: veškerá komunikace probíhá přes jedinou zákaznickou linku na WhatsAppu, takže vždy víte, s kým mluvíte.",
+    faqElevenQ: "Mohu rezervaci zrušit nebo změnit?",
+    faqElevenA:
+      "Ano, a vždy zdarma. Nevybíráme platbu předem, takže není co vracet ani na co čekat — pokud se vaše plány změní, stačí zpráva na WhatsAppu. Změnu času, čísla letu nebo cílové adresy vyřídíme stejně, bez příplatku.",
+    faqTwelveQ: "V jaké měně mohu zaplatit?",
+    faqTwelveA:
+      "Přijímáme eura, turecké liry i americké dolary. Ceny jsou stanoveny v eurech; chcete-li platit v lirách nebo dolarech, částku přepočítáme denním kurzem a potvrdíme se šoférem před odjezdem. Směnárnu na letišti tak hledat nemusíte.",
+    faqThirteenQ: "Kolik zavazadel si mohu vzít?",
+    faqThirteenA:
+      "Zpravidla jeden velký kufr a jedno příruční zavazadlo na osobu. Pokud máte více — kufr navíc, golfovou výbavu, kočárek, lyže nebo kolo — stačí to uvést při rezervaci a bez příplatku přistavíme vůz s odpovídající kapacitou. Důležité je jen dát nám vědět předem.",
+    faqFourteenQ: "Co když se na zpáteční transfer opozdím?",
+    faqFourteenA:
+      "Šofér je u hotelu v dohodnutý čas a čeká 15 minut zdarma. Pokud tušíte zdržení, napište nám na WhatsApp: zkontrolujeme čas odletu, informujeme šoféra a plán upravíme společně s vámi. Nechceme vás popohánět, ale v klidu vás doručit k letadlu.",
     faqThreeQ: "Jsou k dispozici dětské sedačky?",
     faqThreeA:
       "Ano. Sedačky pro kojence, batolata i posilovací sedačky jsou k dispozici zdarma při objednávce.",
@@ -1108,6 +1156,18 @@ const translations = {
     faqTenQ: "Jak utrzymać kontakt przy transferze powrotnym?",
     faqTenA:
       "Gdy potwierdzisz naszemu zespołowi datę i godzinę powrotu przez WhatsApp, na kilka godzin przed transferem przydzielamy pojazd i wysyłamy Ci jego zdjęcia na WhatsAppie – a jeśli chcesz, także numer telefonu kierowcy. Gdy kierowca dotrze do hotelu, informuje recepcję, która przekazuje do Twojego pokoju, że samochód czeka. Nasi kierowcy nigdy nie dzwonią do gości bezpośrednio: cała komunikacja przechodzi przez jedną linię wsparcia na WhatsAppie, więc zawsze wiesz dokładnie, z kim rozmawiasz.",
+    faqElevenQ: "Czy mogę anulować lub zmienić rezerwację?",
+    faqElevenA:
+      "Tak, i zawsze bezpłatnie. Nie pobieramy przedpłaty, więc nie ma czego zwracać ani na co czekać — jeśli plany się zmienią, wystarczy wiadomość na WhatsAppie. Zmianę godziny, numeru lotu czy adresu docelowego załatwiamy tak samo, bez dopłat.",
+    faqTwelveQ: "W jakiej walucie mogę zapłacić?",
+    faqTwelveA:
+      "Przyjmujemy euro, liry tureckie i dolary amerykańskie. Ceny ustalane są w euro; jeśli wolisz zapłacić w lirach lub dolarach, kwotę przeliczamy po kursie z danego dnia i potwierdzamy z kierowcą przed odjazdem. Nie musisz szukać kantoru na lotnisku.",
+    faqThirteenQ: "Ile bagażu mogę zabrać?",
+    faqThirteenA:
+      "Zasadniczo jedna duża walizka i jeden bagaż podręczny na osobę. Jeśli masz więcej — dodatkową walizkę, sprzęt golfowy, wózek, narty czy rower — po prostu zaznacz to przy rezerwacji, a bez dopłaty podstawimy pojazd o odpowiedniej pojemności. Liczy się tylko to, żebyśmy wiedzieli wcześniej.",
+    faqFourteenQ: "Co jeśli spóźnię się na transfer powrotny?",
+    faqFourteenA:
+      "Kierowca jest pod hotelem o umówionej godzinie i czeka 15 minut bezpłatnie. Jeśli przewidujesz opóźnienie, wystarczy jedna wiadomość na WhatsAppie: sprawdzimy godzinę wylotu, poinformujemy kierowcę i wspólnie dostosujemy plan. Nie chodzi o pośpiech, lecz o spokojny dojazd na lot.",
     faqThreeQ: "Czy dostępne są foteliki dziecięce?",
     faqThreeA:
       "Tak. Nosidełka, foteliki i podkładki są dostępne bezpłatnie przy wcześniejszej rezerwacji.",
@@ -1311,6 +1371,18 @@ const translations = {
     faqTenQ: "Hoe houd ik contact voor de terugtransfer?",
     faqTenA:
       "Zodra u datum en tijd van uw terugreis via WhatsApp met ons team hebt bevestigd, wijzen wij enkele uren vóór de transfer uw voertuig toe en sturen wij u foto's ervan via WhatsApp – desgewenst ook het telefoonnummer van uw chauffeur. Zodra uw chauffeur bij het hotel is, meldt hij zich bij de receptie, die uw kamer laat weten dat de auto klaarstaat. Onze chauffeurs bellen gasten nooit rechtstreeks: alle contact loopt via onze centrale WhatsApp-supportlijn, zodat u altijd precies weet met wie u spreekt.",
+    faqElevenQ: "Kan ik mijn boeking annuleren of wijzigen?",
+    faqElevenA:
+      "Ja, en altijd kosteloos. Wij vragen geen vooruitbetaling, dus er valt niets terug te betalen en u hoeft nergens op te wachten — veranderen uw plannen, dan volstaat een bericht via WhatsApp. Een ander tijdstip, vluchtnummer of afleveradres regelen wij op dezelfde manier, zonder meerkosten.",
+    faqTwelveQ: "In welke valuta kan ik betalen?",
+    faqTwelveA:
+      "Wij accepteren euro's, Turkse lira en Amerikaanse dollars. De prijzen zijn in euro's; betaalt u liever in lira of dollar, dan rekenen wij om tegen de dagkoers en bevestigt u het bedrag met uw chauffeur voor vertrek. Zoeken naar een wisselkantoor op de luchthaven is niet nodig.",
+    faqThirteenQ: "Hoeveel bagage mag ik meenemen?",
+    faqThirteenA:
+      "In de regel één grote koffer en één handbagagestuk per passagier. Hebt u meer bij zich — een extra koffer, golftas, kinderwagen, ski's of een fiets — geef het dan aan bij het boeken; wij zetten zonder meerkosten een voertuig met de juiste capaciteit in. Het enige wat telt, is dat wij het vooraf weten.",
+    faqFourteenQ: "Wat als ik te laat ben voor mijn terugtransfer?",
+    faqFourteenA:
+      "Uw chauffeur staat op het afgesproken tijdstip bij uw hotel en wacht 15 minuten kosteloos. Verwacht u vertraging, stuur dan één bericht via WhatsApp: wij controleren uw vluchttijd, informeren uw chauffeur en stemmen het plan met u af. Wij willen u niet opjagen, maar u rustig op tijd bij uw vlucht krijgen.",
     faqThreeQ: "Zijn kinderzitjes beschikbaar?",
     faqThreeA:
       "Ja. Babyschalen, kinderzitjes en zitverhogers zijn bij vooraf boeken gratis beschikbaar.",
@@ -1512,6 +1584,18 @@ const translations = {
     faqTenQ: "Як підтримувати зв'язок під час зворотного трансферу?",
     faqTenA:
       "Щойно ви підтвердите дату й час зворотної поїздки нашій команді у WhatsApp, за кілька годин до трансферу ми призначаємо автомобіль і надсилаємо вам його фотографії у WhatsApp — за бажанням також номер телефону водія. Коли водій приїжджає до готелю, він повідомляє рецепцію, а вона передає у ваш номер, що авто подано. Наші водії ніколи не телефонують гостям напряму: усе спілкування відбувається через єдину лінію підтримки у WhatsApp, тож ви завжди точно знаєте, з ким розмовляєте.",
+    faqElevenQ: "Чи можу я скасувати або змінити бронювання?",
+    faqElevenA:
+      "Так, і завжди безкоштовно. Ми не беремо передоплати, тож повертати нічого й чекати на гроші не доводиться — якщо плани змінилися, достатньо написати нам у WhatsApp. Зміну часу, номера рейсу чи адреси призначення оформлюємо так само, без доплат.",
+    faqTwelveQ: "У якій валюті можна розрахуватися?",
+    faqTwelveA:
+      "Ми приймаємо євро, турецькі ліри та долари США. Ціни встановлені в євро; якщо зручніше платити в лірах чи доларах, суму перераховуємо за курсом дня та підтверджуємо з водієм перед виїздом. Шукати обмінник в аеропорту не потрібно.",
+    faqThirteenQ: "Скільки багажу можна взяти?",
+    faqThirteenA:
+      "Як правило, одна велика валіза та одне місце ручної поклажі на пасажира. Якщо багажу більше — додаткова валіза, гольф-бег, візочок, лижі чи велосипед — просто зазначте це під час бронювання, і ми без доплат подамо автомобіль потрібної місткості. Головне — попередити заздалегідь.",
+    faqFourteenQ: "Що робити, якщо я запізнююся на зворотний трансфер?",
+    faqFourteenA:
+      "Водій приїжджає до готелю в узгоджений час і чекає 15 хвилин безкоштовно. Якщо розумієте, що затримаєтеся, напишіть нам у WhatsApp: ми перевіримо час вильоту, повідомимо водія та скоригуємо план разом із вами. Наша мета — не квапити вас, а спокійно доправити на рейс.",
     faqThreeQ: "Чи є дитячі крісла?",
     faqThreeA:
       "Так. Автолюльки, дитячі крісла та бустери надаються безкоштовно на запит при бронюванні.",
@@ -1722,6 +1806,18 @@ const translations = {
     faqTenQ: "واپسی کے ٹرانسفر کے لیے رابطہ کیسے رہے گا؟",
     faqTenA:
       "جب آپ WhatsApp پر ہماری ٹیم کے ساتھ واپسی کی تاریخ اور وقت کی تصدیق کر دیتے ہیں، تو ہم ٹرانسفر سے چند گھنٹے پہلے آپ کی گاڑی مقرر کرتے ہیں اور WhatsApp پر اس کی تصاویر بھیجتے ہیں — آپ چاہیں تو ڈرائیور کا فون نمبر بھی۔ ڈرائیور ہوٹل پہنچ کر استقبالیہ کو اطلاع دیتا ہے، اور استقبالیہ آپ کے کمرے میں بتا دیتا ہے کہ گاڑی تیار ہے۔ ہمارے ڈرائیور مہمانوں کو براہِ راست فون نہیں کرتے: تمام رابطہ ہماری واحد WhatsApp سپورٹ لائن کے ذریعے ہوتا ہے، تاکہ آپ کو ہمیشہ معلوم ہو کہ آپ کس سے بات کر رہے ہیں۔",
+    faqElevenQ: "کیا میں اپنی بکنگ منسوخ یا تبدیل کر سکتا ہوں؟",
+    faqElevenA:
+      "جی ہاں، اور ہمیشہ مفت۔ چونکہ ہم پیشگی ادائیگی نہیں لیتے، اس لیے واپس کرنے کو کچھ نہیں ہوتا اور رقم کی واپسی کا انتظار بھی نہیں کرنا پڑتا — منصوبہ بدل جائے تو WhatsApp پر ایک پیغام کافی ہے۔ وقت، فلائٹ نمبر یا منزل کے پتے کی تبدیلی بھی اسی طرح، بغیر کسی اضافی چارج کے کر دی جاتی ہے۔",
+    faqTwelveQ: "میں کن کرنسیوں میں ادائیگی کر سکتا ہوں؟",
+    faqTwelveA:
+      "ہم یورو، ترک لیرا اور امریکی ڈالر قبول کرتے ہیں۔ قیمتیں یورو میں مقرر ہوتی ہیں؛ اگر آپ لیرا یا ڈالر میں ادائیگی کرنا چاہیں تو رقم اسی دن کے ریٹ پر تبدیل کی جاتی ہے اور روانگی سے پہلے ڈرائیور کے ساتھ تصدیق کر لی جاتی ہے۔ ایئرپورٹ پر ایکسچینج تلاش کرنے کی ضرورت نہیں۔",
+    faqThirteenQ: "میں کتنا سامان لا سکتا ہوں؟",
+    faqThirteenA:
+      "عام اصول یہ ہے کہ فی مسافر ایک بڑا سوٹ کیس اور ایک ہینڈ بیگ۔ اگر اس سے زیادہ ہو — اضافی سوٹ کیس، گولف بیگ، بچوں کی پرام، اسکیز یا سائیکل — تو بکنگ کے وقت بتا دیں؛ ہم بغیر اضافی چارج کے مناسب گنجائش والی گاڑی مقرر کر دیں گے۔ اہم صرف یہ ہے کہ ہمیں پہلے سے علم ہو۔",
+    faqFourteenQ: "اگر میں واپسی کے ٹرانسفر کے لیے دیر کر دوں تو کیا ہوگا؟",
+    faqFourteenA:
+      "آپ کا ڈرائیور مقررہ وقت پر ہوٹل پہنچ جاتا ہے اور 15 منٹ مفت انتظار کرتا ہے۔ اگر آپ کو تاخیر کا اندازہ ہو تو WhatsApp پر ایک پیغام کافی ہے: ہم آپ کی پرواز کا وقت دیکھتے ہیں، ڈرائیور کو بتاتے ہیں اور آپ کے ساتھ مل کر پروگرام ترتیب دیتے ہیں۔ ہمارا مقصد آپ کو جلدی میں ڈالنا نہیں بلکہ آرام سے آپ کی پرواز تک پہنچانا ہے۔",
     faqThreeQ: "کیا بچوں کی نشستیں دستیاب ہیں؟",
     faqThreeA:
       "ہاں۔ بکنگ کے وقت درخواست کرنے پر شیر خوار، چھوٹے بچوں اور بوسٹر نشستیں مجانی دستیاب ہیں۔",
@@ -2014,6 +2110,19 @@ const translations = {
     faqTenQ: "Comment rester en contact pour le transfert retour ?",
     faqTenA:
       "Une fois la date et l'heure de votre retour confirmées avec notre équipe sur WhatsApp, nous attribuons votre véhicule quelques heures avant le transfert et vous en envoyons les photos sur WhatsApp — ainsi que le numéro de votre chauffeur si vous le souhaitez. À son arrivée à l'hôtel, votre chauffeur prévient la réception, qui informe votre chambre que la voiture est prête. Nos chauffeurs n'appellent jamais directement les clients : tous les échanges passent par notre ligne d'assistance WhatsApp unique, afin que vous sachiez toujours exactement à qui vous parlez.",
+    faqElevenQ: "Puis-je annuler ou modifier ma réservation ?",
+    faqElevenA:
+      "Oui, et toujours gratuitement. Comme nous ne prenons aucun prépaiement, il n'y a rien à rembourser ni d'attente pour récupérer votre argent : si vos plans changent, un message sur WhatsApp suffit. Un changement d'horaire, de numéro de vol ou d'adresse se règle de la même façon, sans frais.",
+    faqTwelveQ: "Dans quelles devises puis-je payer ?",
+    faqTwelveA:
+      "Nous acceptons l'euro, la livre turque et le dollar américain. Les prix sont fixés en euros ; si vous préférez payer en livres ou en dollars, le montant est converti au cours du jour et confirmé avec votre chauffeur avant le départ. Inutile de chercher un bureau de change à l'aéroport.",
+    faqThirteenQ: "Quelle quantité de bagages puis-je emporter ?",
+    faqThirteenA:
+      "En règle générale, une grande valise et un bagage à main par passager. Si vous avez davantage — une valise supplémentaire, un sac de golf, une poussette, des skis ou un vélo — indiquez-le lors de la réservation : nous prévoyons sans supplément un véhicule à la capacité adaptée. L'essentiel est simplement que nous le sachions à l'avance.",
+    faqFourteenQ:
+      "Que se passe-t-il si je suis en retard pour mon transfert retour ?",
+    faqFourteenA:
+      "Votre chauffeur se présente à l'hôtel à l'heure convenue et attend 15 minutes sans frais. Si vous prévoyez du retard, un message sur WhatsApp suffit : nous vérifions l'heure de votre vol, prévenons votre chauffeur et ajustons le programme avec vous. Notre objectif n'est pas de vous presser, mais de vous conduire sereinement à votre vol.",
     faqThreeQ: "Des sièges enfants sont-ils disponibles ?",
     faqThreeA:
       "Oui. Coques bébé, sièges enfants et rehausseurs sont disponibles gratuitement sur réservation.",
@@ -2216,6 +2325,18 @@ const translations = {
     faqTenQ: "Hur håller jag kontakten inför hemtransfern?",
     faqTenA:
       "När du har bekräftat datum och tid för hemresan med vårt team på WhatsApp tilldelar vi ditt fordon några timmar före transfern och skickar bilder på det via WhatsApp – och chaufförens telefonnummer om du vill ha det. När chauffören kommer till hotellet meddelar han receptionen, som ringer upp ditt rum och berättar att bilen står redo. Våra chaufförer ringer aldrig gästerna direkt: all kontakt går via vår enda WhatsApp-supportlinje, så du vet alltid exakt vem du talar med.",
+    faqElevenQ: "Kan jag avboka eller ändra min bokning?",
+    faqElevenA:
+      "Ja, och alltid kostnadsfritt. Eftersom vi inte tar någon förskottsbetalning finns det inget att återbetala och inget att vänta på — ändras dina planer räcker ett meddelande på WhatsApp. Ändrad tid, nytt flightnummer eller ny adress ordnar vi på samma sätt, utan extra kostnad.",
+    faqTwelveQ: "Vilka valutor kan jag betala i?",
+    faqTwelveA:
+      "Vi tar emot euro, turkiska lira och amerikanska dollar. Priserna anges i euro; vill du betala i lira eller dollar räknas beloppet om till dagens kurs och bekräftas med chauffören innan avfärd. Du behöver alltså inte leta efter växlingskontor på flygplatsen.",
+    faqThirteenQ: "Hur mycket bagage får jag ta med?",
+    faqThirteenA:
+      "Som regel en stor resväska och ett handbagage per person. Har du mer med dig — en extra väska, golfbag, barnvagn, skidor eller cykel — nämn det vid bokningen, så sätter vi in ett fordon med rätt kapacitet utan extra kostnad. Det enda som betyder något är att vi vet om det i förväg.",
+    faqFourteenQ: "Vad händer om jag blir sen till hemtransfern?",
+    faqFourteenA:
+      "Chauffören är vid hotellet på avtalad tid och väntar 15 minuter kostnadsfritt. Tror du att du blir försenad räcker ett meddelande på WhatsApp: vi kontrollerar din avgångstid, informerar chauffören och justerar upplägget tillsammans med dig. Målet är aldrig att stressa dig, bara att få dig i god tid till flyget.",
     faqThreeQ: "Finns det bilbarnstolar?",
     faqThreeA:
       "Ja. Babyskydd, barnstolar och bälteskuddar finns tillgängliga utan extra kostnad vid förbeställning.",
@@ -2414,6 +2535,18 @@ const translations = {
     faqTenQ: "復路の送迎ではどのように連絡を取りますか？",
     faqTenA:
       "WhatsApp で復路の日時をご確定いただいた後、送迎の数時間前に車両を手配し、WhatsApp で車両の写真をお送りします。ご希望であればドライバーの電話番号もお伝えします。ドライバーがホテルに到着するとフロントへ伝え、フロントからお部屋へ車の準備が整った旨をご連絡いたします。ドライバーがお客様に直接お電話することはありません。ご連絡はすべて WhatsApp のカスタマーサポート窓口に一本化されていますので、どなたとやり取りしているか常に明確です。",
+    faqElevenQ: "予約のキャンセルや変更はできますか？",
+    faqElevenA:
+      "はい、いつでも無料です。事前決済をいただいていないため、返金する金額も、お金が戻るのを待つ必要もありません。ご予定が変わったら WhatsApp にご一報ください。時刻・便名・目的地の変更も同様に、追加料金なく承ります。",
+    faqTwelveQ: "どの通貨で支払えますか？",
+    faqTwelveA:
+      "ユーロ、トルコリラ、米ドルを承ります。料金はユーロ建てで、リラまたはドルでのお支払いをご希望の場合はその日のレートで換算し、ご出発前にドライバーと一緒に確認いたします。空港で両替所を探す必要はありません。",
+    faqThirteenQ: "荷物はどのくらい持ち込めますか？",
+    faqThirteenA:
+      "目安はお一人につき大型スーツケース1個と手荷物1個です。それ以上ある場合 — 追加のスーツケース、ゴルフバッグ、ベビーカー、スキー、自転車など — はご予約時にお知らせください。追加料金なしで十分な積載量の車両をご用意します。大切なのは、事前に把握できていることだけです。",
+    faqFourteenQ: "復路の送迎に遅れそうな場合はどうなりますか？",
+    faqFourteenA:
+      "ドライバーはお約束の時刻にホテルへ到着し、15分間は無料でお待ちします。遅れそうなときは WhatsApp にご一報ください。搭乗時刻を確認し、ドライバーに伝え、一緒に段取りを調整いたします。お急かしするためではなく、余裕をもってご搭乗いただくためのご案内です。",
     faqThreeQ: "チャイルドシートはありますか？",
     faqThreeA:
       "はい。乳幼児用、チャイルドシート、ジュニアシートは予約時にご要望いただければ無料でご用意します。",
@@ -2609,6 +2742,18 @@ const translations = {
     faqTenQ: "돌아가는 차량과는 어떻게 연락하나요?",
     faqTenA:
       "WhatsApp으로 저희 팀과 복귀 날짜와 시간을 확정하시면, 이동 몇 시간 전에 차량을 배정하고 WhatsApp으로 차량 사진을 보내 드립니다. 원하시면 기사 연락처도 함께 전달해 드립니다. 기사가 호텔에 도착하면 프런트에 알리고, 프런트에서 객실로 차량이 준비되었음을 안내해 드립니다. 저희 기사는 고객님께 직접 전화하지 않으며, 모든 연락은 WhatsApp 고객지원 창구 한 곳을 통해 이루어집니다. 그래서 누구와 대화하고 있는지 항상 분명합니다.",
+    faqElevenQ: "예약을 취소하거나 변경할 수 있나요?",
+    faqElevenA:
+      "네, 언제나 무료입니다. 선결제를 받지 않기 때문에 환불할 금액도, 돈이 돌아오기를 기다릴 일도 없습니다. 일정이 바뀌면 WhatsApp으로 알려 주시면 됩니다. 시간, 항공편 번호, 도착 주소 변경도 같은 방식으로 추가 비용 없이 처리해 드립니다.",
+    faqTwelveQ: "어떤 통화로 결제할 수 있나요?",
+    faqTwelveA:
+      "유로, 튀르키예 리라, 미국 달러를 받습니다. 요금은 유로 기준이며, 리라나 달러로 결제하고 싶으시면 당일 환율로 환산해 출발 전에 기사와 함께 확인해 드립니다. 공항에서 환전소를 찾으실 필요가 없습니다.",
+    faqThirteenQ: "짐은 얼마나 가져올 수 있나요?",
+    faqThirteenA:
+      "원칙적으로 승객 한 분당 대형 캐리어 1개와 기내용 가방 1개입니다. 그보다 많다면 — 추가 캐리어, 골프백, 유모차, 스키, 자전거 등 — 예약 시 알려 주십시오. 추가 요금 없이 적절한 적재 공간을 갖춘 차량을 배정해 드립니다. 중요한 것은 미리 알려 주시는 것뿐입니다.",
+    faqFourteenQ: "복귀 차량 시간에 늦을 것 같으면 어떻게 되나요?",
+    faqFourteenA:
+      "기사는 약속된 시간에 호텔에 도착해 15분간 무료로 대기합니다. 늦어질 것 같으면 WhatsApp으로 한 번만 알려 주십시오. 항공편 시간을 확인하고 기사에게 전달한 뒤 일정을 함께 조정해 드립니다. 서두르시게 하려는 것이 아니라 여유롭게 비행기를 타시도록 돕기 위한 것입니다.",
     faqThreeQ: "카시트를 이용할 수 있나요?",
     faqThreeA:
       "네. 신생아용 카시트, 아동용 카시트, 부스터 시트는 예약 시 요청하시면 무료로 제공됩니다.",
@@ -2824,6 +2969,18 @@ const translations = {
     faqTenQ: "كيف أبقى على تواصل في رحلة العودة؟",
     faqTenA:
       "بعد تأكيد تاريخ العودة وموعدها مع فريقنا عبر WhatsApp، نخصص مركبتك قبل الموعد بساعات ونرسل إليك صورها عبر WhatsApp، ورقم هاتف السائق أيضًا إذا رغبت. وعند وصول السائق إلى الفندق يُبلغ الاستقبال، ويقوم الاستقبال بإخطار غرفتك بأن السيارة جاهزة. لا يتصل سائقونا بالضيوف مباشرة أبدًا: يمر التواصل كله عبر خط دعم العملاء الوحيد على WhatsApp، لتعرف دائمًا بالضبط مع من تتحدث.",
+    faqElevenQ: "هل يمكنني إلغاء الحجز أو تعديله؟",
+    faqElevenA:
+      "نعم، ودائمًا مجانًا. لأننا لا نأخذ أي دفعة مسبقة، فليس هناك ما يُسترد ولا انتظار لعودة أموالك — إذا تغيرت خططك تكفي رسالة عبر WhatsApp. وتعديل الموعد أو رقم الرحلة أو عنوان الوصول يتم بالطريقة نفسها، دون رسوم إضافية.",
+    faqTwelveQ: "بأي عملات يمكنني الدفع؟",
+    faqTwelveA:
+      "نقبل اليورو والليرة التركية والدولار الأمريكي. الأسعار محددة باليورو؛ وإذا فضّلت الدفع بالليرة أو بالدولار يُحوَّل المبلغ بسعر اليوم ويُؤكَّد مع سائقك قبل الانطلاق. لا حاجة للبحث عن مكتب صرافة في المطار.",
+    faqThirteenQ: "ما مقدار الأمتعة التي يمكنني اصطحابها؟",
+    faqThirteenA:
+      "القاعدة هي حقيبة كبيرة واحدة وحقيبة يد واحدة لكل راكب. وإذا كان لديك أكثر من ذلك — حقيبة إضافية أو حقيبة غولف أو عربة أطفال أو تزلج أو دراجة — فاذكر ذلك عند الحجز، وسنخصص مركبة بسعة مناسبة دون أي تكلفة إضافية. المهم فقط أن نعرف مسبقًا.",
+    faqFourteenQ: "ماذا لو تأخرت عن رحلة العودة؟",
+    faqFourteenA:
+      "يصل سائقك إلى الفندق في الموعد المتفق عليه وينتظر 15 دقيقة مجانًا. وإذا توقعت تأخرًا تكفي رسالة واحدة عبر WhatsApp: نتحقق من موعد رحلتك، ونبلّغ سائقك، ونعدّل البرنامج معك. هدفنا ليس استعجالك، بل إيصالك إلى رحلتك براحة.",
     faqThreeQ: "هل تتوفر مقاعد للأطفال؟",
     faqThreeA:
       "نعم. تتوفر مقاعد للرضع والأطفال والمقاعد المعززة مجاناً عند طلبها أثناء الحجز.",

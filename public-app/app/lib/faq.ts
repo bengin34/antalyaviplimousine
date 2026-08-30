@@ -7,8 +7,12 @@ export const homeFaqOrder = [
   "Seven",
   "Eight",
   "Nine",
+  "Twelve",
+  "Eleven",
   "Ten",
+  "Fourteen",
   "Three",
+  "Thirteen",
   "Four",
   "Five",
 ];
