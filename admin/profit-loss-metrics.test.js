@@ -41,6 +41,18 @@ describe('fixedRouteDistanceKm', () => {
     expect(fixedRouteDistanceKm('private_address', 'airport')).toBeNull()
   })
 
+  test('treats a placeholder location on both ends as unresolved, not zero km', () => {
+    // İki farklı özel adres yüzlerce km uzakta olabilir; 0 km varsaymak seferi
+    // sıfır maliyetle (%100 marjla) geçirirdi.
+    expect(fixedRouteDistanceKm('private_address', 'private_address')).toBeNull()
+    expect(fixedRouteDistanceKm('hotel', 'hotel')).toBeNull()
+  })
+
+  test('keeps zero distance for a real region on both ends', () => {
+    expect(fixedRouteDistanceKm('belek', 'belek')).toBe(0)
+    expect(fixedRouteDistanceKm('airport', 'airport')).toBe(0)
+  })
+
   test('covers every named route offered by the manual booking form', () => {
     const namedLocations = [
       'airport', 'antalya', 'belek', 'side', 'kemer', 'alanya', 'bogazkent',

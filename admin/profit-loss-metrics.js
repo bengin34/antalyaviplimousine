@@ -29,8 +29,14 @@ function startsFromAirport(location) {
 export function fixedRouteDistanceKm(fromValue, toValue) {
   const from = normalizeLocation(fromValue)
   const to = normalizeLocation(toValue)
-  if (!from || !to || from === to) return from && from === to ? 0 : null
+  if (!from || !to) return null
+  // `hotel` ve `private_address` bir koordinat değil, yer tutucudur: iki farklı
+  // özel adres yüzlerce km uzakta olabilir. Bunlar rota grafiğinde yer almaz ve
+  // aynı yer tutucu iki uçta da geçse bile mesafe bilinemez — ayak "çözülemedi"
+  // olarak işaretlenip manuel KM istenir. Gerçek bölgelerde from === to ise
+  // mesafe fiilen sıfırdır.
   if (!ROUTE_GRAPH.has(from) || !ROUTE_GRAPH.has(to)) return null
+  if (from === to) return 0
 
   const distances = new Map([[from, 0]])
   const visited = new Set()
