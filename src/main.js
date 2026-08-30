@@ -186,7 +186,7 @@ const translations = {
     distancePriceDesc: "Während Ihrer Fahrt per GPS gemessen.",
     youPay: "Sie zahlen",
     youPayPrice: "25 €",
-    youPayDesc: "Der niedrigere Betrag gilt. Der Fahrer bestätigt ihn am Ende.",
+    youPayDesc: "Der niedrigere Betrag gilt.",
     pricingNote:
       "Keine Überraschungen. Keine versteckten Gebühren. Was Sie buchen, zahlen Sie - oder weniger.",
     faqEyebrow: "Häufig gefragt",
@@ -248,7 +248,7 @@ const translations = {
     journeyTime: "Fahrzeit",
     totalFixed: "Gesamtpreis",
     quoteIncludes:
-      "Inklusive Meet & Greet, Flugverfolgung, Parken, Wartezeit und Mineralwasser.",
+      "Inklusive Meet & Greet, Flugverfolgung, Parken, 90 Minuten Wartezeit und Mineralwasser.",
     confirmWhatsapp: "Über WhatsApp bestätigen",
     chatWithUs: "Mit uns chatten",
     bookNowCta: "Jetzt buchen",
@@ -261,13 +261,10 @@ const translations = {
     flightArrivalTime: "Ankunftszeit",
     notesLabel: "Besondere Wünsche",
     confirmBooking: "Buchung bestätigen",
-    paySecurely: "Weiter zur sicheren Zahlung",
-    payLaterNote: "Sichere Online-Zahlung nach Bestätigung.",
     bookingConfirmed: "Buchung bestätigt",
     referenceLabel: "Referenz",
     weWillContact:
       "Ihre Buchungsanfrage wurde gesendet. Wir melden uns innerhalb von 30 Minuten.",
-    paymentTitle: "Sichere Zahlung",
     paymentError: "Zahlung fehlgeschlagen. Bitte erneut versuchen.",
   },
   tr: {
@@ -432,7 +429,7 @@ const translations = {
     distancePriceDesc: "Yolculuğunuz sırasında GPS ile ölçülür.",
     youPay: "Ödeyeceğiniz tutar",
     youPayPrice: "€25",
-    youPayDesc: "Hangisi daha düşükse. Şoför yolculuk sonunda teyit eder.",
+    youPayDesc: "Hangisi daha düşükse.",
     pricingNote:
       "Sürpriz yok. Gizli ücret yok. Rezervasyonda gördüğünüz tutarı ödersiniz - ya da daha azını.",
     faqEyebrow: "Sık sorulanlar",
@@ -490,7 +487,7 @@ const translations = {
     journeyTime: "Yolculuk süresi",
     totalFixed: "Toplam sabit fiyat",
     quoteIncludes:
-      "Karşılama, uçuş takibi, otopark, bekleme süresi ve şişe su dahildir.",
+      "Karşılama, uçuş takibi, otopark, 90 dakika bekleme ve şişe su dahildir.",
     confirmWhatsapp: "WhatsApp ile onaylayın",
     chatWithUs: "Bize yazın",
     bookNowCta: "Rezervasyon yap",
@@ -503,13 +500,10 @@ const translations = {
     flightArrivalTime: "Varış saati",
     notesLabel: "Özel istekler",
     confirmBooking: "Rezervasyonu onayla",
-    paySecurely: "Güvenli ödemeye geç",
-    payLaterNote: "Onay sonrası güvenli online ödeme.",
     bookingConfirmed: "Rezervasyon Onaylandı",
     referenceLabel: "Referans",
     weWillContact:
       "Rezervasyon talebiniz gönderildi. 30 dakika içinde sizinle iletişime geçeceğiz.",
-    paymentTitle: "Güvenli Ödeme",
     paymentError: "Ödeme başarısız. Lütfen tekrar deneyin.",
   },
   ru: {
@@ -675,7 +669,7 @@ const translations = {
     distancePriceDesc: "Измеряется по GPS во время поездки.",
     youPay: "Вы платите",
     youPayPrice: "25 €",
-    youPayDesc: "Применяется меньшая сумма. Водитель подтвердит её в конце.",
+    youPayDesc: "Применяется меньшая сумма.",
     pricingNote:
       "Без сюрпризов. Без скрытых платежей. Вы платите указанную при бронировании сумму - или меньше.",
     faqEyebrow: "Частые вопросы",
@@ -734,7 +728,7 @@ const translations = {
     journeyTime: "Время в пути",
     totalFixed: "Итоговая цена",
     quoteIncludes:
-      "Включены встреча, отслеживание рейса, парковка, ожидание и питьевая вода.",
+      "Включены встреча, отслеживание рейса, парковка, 90 минут ожидания и питьевая вода.",
     confirmWhatsapp: "Подтвердить в WhatsApp",
     chatWithUs: "Написать нам",
     bookNowCta: "Забронировать",
@@ -747,13 +741,10 @@ const translations = {
     flightArrivalTime: "Время прилёта",
     notesLabel: "Особые пожелания",
     confirmBooking: "Подтвердить бронирование",
-    paySecurely: "Перейти к безопасной оплате",
-    payLaterNote: "Оплата онлайн после подтверждения.",
     bookingConfirmed: "Бронирование подтверждено",
     referenceLabel: "Референс",
     weWillContact:
       "Ваш запрос на бронирование отправлен. Мы свяжемся с вами в течение 30 минут.",
-    paymentTitle: "Безопасная оплата",
     paymentError: "Оплата не прошла. Попробуйте ещё раз.",
   },
   cs: {
@@ -820,9 +811,9 @@ const translations = {
     cashPayment: "Platba ve vozidle",
     recommended: "Doporučeno",
     cashPaymentDescription:
-      "Bez zálohy. Zaplaťte řidiči přímo, až budete spokojeni se službou.",
+      "Žádná platba online předem. Pevnou částku předáte řidiči v hotovosti na začátku jízdy.",
     quoteIncludes:
-      "Zahrnuje uvítání, sledování letů, parkování, čekání a balenou vodu.",
+      "Zahrnuje přivítání, sledování letu, parkování, 90 minut čekání a balenou vodu.",
     confirmCashBooking: "Potvrdit rezervaci — platba ve vozidle",
     flightTracking: "Sledování letů v reálném čase",
     fixedPrice: "Garance pevné ceny",
@@ -905,7 +896,7 @@ const translations = {
     distancePriceDesc: "Měřeno GPS během jízdy.",
     youPay: "Platíte",
     youPayPrice: "€25",
-    youPayDesc: "Cokoliv je nižší. Řidič potvrdí na konci.",
+    youPayDesc: "Platí nižší částka.",
     pricingNote:
       "Žádná překvapení. Žádné skryté poplatky. Co si rezervujete, to zaplatíte — nebo méně.",
     faqEyebrow: "Často kladené dotazy",
@@ -966,7 +957,7 @@ const translations = {
     hotelNamePlaceholder: "Název hotelu nebo ubytování",
     requestQuote: "Požádat o cenovou nabídku",
     cashConfirmation:
-      "Vaše rezervace je potvrzena. Zaplaťte pevnou celkovou cenu přímo řidiči ve vozidle.",
+      "Vaše rezervace je potvrzena. Pevnou částku předáte řidiči v hotovosti na začátku jízdy.",
     bookingError:
       "Vaši rezervaci se nepodařilo dokončit. Zkuste to prosím znovu.",
     formIncomplete: "Prosím vyplňte zvýrazněná pole.",
@@ -1176,7 +1167,7 @@ const translations = {
     distancePriceDesc: "Mierzone GPS-em podczas przejazdu.",
     youPay: "Płacisz",
     youPayPrice: "25 €",
-    youPayDesc: "Obowiązuje niższa kwota. Kierowca potwierdza ją na końcu.",
+    youPayDesc: "Obowiązuje niższa kwota.",
     pricingNote:
       "Bez niespodzianek. Bez ukrytych opłat. Płacisz tyle, ile rezerwujesz - albo mniej.",
     faqEyebrow: "Często zadawane pytania",
@@ -1234,7 +1225,7 @@ const translations = {
     journeyTime: "Czas podróży",
     totalFixed: "Cena łączna",
     quoteIncludes:
-      "Wliczono: powitanie, śledzenie lotu, parking, czas oczekiwania i woda.",
+      "Obejmuje powitanie, śledzenie lotu, parking, 90 minut oczekiwania i wodę butelkowaną.",
     confirmWhatsapp: "Potwierdź przez WhatsApp",
     chatWithUs: "Napisz do nas",
     bookNowCta: "Zarezerwuj",
@@ -1247,13 +1238,10 @@ const translations = {
     flightArrivalTime: "Godzina przylotu",
     notesLabel: "Specjalne życzenia",
     confirmBooking: "Potwierdź rezerwację",
-    paySecurely: "Przejdź do bezpiecznej płatności",
-    payLaterNote: "Bezpieczna płatność online po potwierdzeniu.",
     bookingConfirmed: "Rezerwacja potwierdzona",
     referenceLabel: "Numer referencyjny",
     weWillContact:
       "Twoje zgłoszenie rezerwacji zostało wysłane. Skontaktujemy się w ciągu 30 minut.",
-    paymentTitle: "Bezpieczna płatność",
     paymentError: "Płatność nie powiodła się. Spróbuj ponownie.",
   },
   nl: {
@@ -1396,8 +1384,7 @@ const translations = {
     distancePriceDesc: "Gemeten met GPS tijdens uw rit.",
     youPay: "U betaalt",
     youPayPrice: "€25",
-    youPayDesc:
-      "Het laagste bedrag geldt. De chauffeur bevestigt dit aan het einde.",
+    youPayDesc: "Het laagste bedrag geldt.",
     pricingNote:
       "Geen verrassingen. Geen verborgen kosten. Wat u boekt, betaalt u - of minder.",
     faqEyebrow: "Veelgestelde vragen",
@@ -1458,7 +1445,7 @@ const translations = {
     journeyTime: "Reistijd",
     totalFixed: "Totaalprijs",
     quoteIncludes:
-      "Inclusief: welkom, vluchttracking, parkeren, wachttijd en water.",
+      "Inclusief meet & greet, vluchtvolging, parkeren, 90 minuten wachttijd en flesje water.",
     confirmWhatsapp: "Bevestigen via WhatsApp",
     chatWithUs: "Chat met ons",
     bookNowCta: "Nu boeken",
@@ -1471,13 +1458,10 @@ const translations = {
     flightArrivalTime: "Aankomsttijd",
     notesLabel: "Speciale wensen",
     confirmBooking: "Boeking bevestigen",
-    paySecurely: "Ga door naar veilig betalen",
-    payLaterNote: "Veilige online betaling na bevestiging.",
     bookingConfirmed: "Boeking bevestigd",
     referenceLabel: "Referentie",
     weWillContact:
       "Uw boekingsaanvraag is verzonden. We nemen binnen 30 minuten contact op.",
-    paymentTitle: "Veilige betaling",
     paymentError: "Betaling mislukt. Probeer het opnieuw.",
   },
   uk: {
@@ -1621,7 +1605,7 @@ const translations = {
     distancePriceDesc: "Вимірюється GPS під час поїздки.",
     youPay: "Ви сплачуєте",
     youPayPrice: "25 €",
-    youPayDesc: "Діє менша сума. Водій підтвердить її наприкінці.",
+    youPayDesc: "Діє менша сума.",
     pricingNote:
       "Без сюрпризів. Без прихованих платежів. Ви сплачуєте суму з бронювання - або менше.",
     faqEyebrow: "Часті запитання",
@@ -1681,7 +1665,7 @@ const translations = {
     journeyTime: "Час у дорозі",
     totalFixed: "Підсумкова ціна",
     quoteIncludes:
-      "Включено: зустріч, відстеження рейсу, паркування, очікування та вода.",
+      "Включено зустріч, відстеження рейсу, паркування, 90 хвилин очікування та питну воду.",
     confirmWhatsapp: "Підтвердити в WhatsApp",
     chatWithUs: "Написати нам",
     bookNowCta: "Забронювати",
@@ -1694,13 +1678,10 @@ const translations = {
     flightArrivalTime: "Час прильоту",
     notesLabel: "Особливі побажання",
     confirmBooking: "Підтвердити бронювання",
-    paySecurely: "Перейти до безпечної оплати",
-    payLaterNote: "Оплата онлайн після підтвердження.",
     bookingConfirmed: "Бронювання підтверджено",
     referenceLabel: "Референс",
     weWillContact:
       "Ваш запит на бронювання надіслано. Ми зв'яжемося з вами протягом 30 хвилин.",
-    paymentTitle: "Безпечна оплата",
     paymentError: "Оплата не пройшла. Спробуйте ще раз.",
   },
   ur: {
@@ -1766,9 +1747,9 @@ const translations = {
     cashPayment: "گاڑی میں ادائیگی",
     recommended: "تجویز کردہ",
     cashPaymentDescription:
-      "پیشگی ادائیگی نہیں۔ سروس سے مطمئن ہونے پر اپنے ڈرائیور کو براہ راست ادا کریں۔",
+      "آن لائن پیشگی ادائیگی نہیں۔ مقررہ رقم آپ سفر کے آغاز پر ڈرائیور کو نقد ادا کرتے ہیں۔",
     quoteIncludes:
-      "میٹ اینڈ گریٹ، فلائٹ ٹریکنگ، پارکنگ، انتظار کا وقت اور بوتل بند پانی شامل ہے۔",
+      "استقبال، فلائٹ ٹریکنگ، پارکنگ، 90 منٹ انتظار اور بوتل بند پانی شامل ہے۔",
     confirmCashBooking: "بکنگ کی تصدیق کریں — گاڑی میں ادا کریں",
     flightTracking: "حقیقی وقت کی فلائٹ ٹریکنگ",
     fixedPrice: "مقررہ قیمت کی ضمانت",
@@ -1850,7 +1831,7 @@ const translations = {
     distancePriceDesc: "آپ کے سفر کے دوران GPS سے ناپا گیا۔",
     youPay: "آپ ادا کریں",
     youPayPrice: "€25",
-    youPayDesc: "جو بھی کم ہو۔ ڈرائیور آخر میں تصدیق کرتا ہے۔",
+    youPayDesc: "جو کم ہو وہی لاگو ہوگی۔",
     pricingNote:
       "کوئی حیرت نہیں۔ کوئی پوشیدہ چارج نہیں۔ جو بک کریں وہی ادا کریں — یا کم۔",
     faqEyebrow: "اکثر پوچھے گئے سوالات",
@@ -1913,7 +1894,7 @@ const translations = {
     hotelNamePlaceholder: "ہوٹل یا رہائش کا نام",
     requestQuote: "قیمت کا اندازہ لگائیں",
     cashConfirmation:
-      "آپ کی بکنگ کی تصدیق ہو گئی۔ گاڑی میں اپنے ڈرائیور کو مقررہ کل رقم براہ راست ادا کریں۔",
+      "آپ کی بکنگ کی تصدیق ہو گئی۔ مقررہ کل رقم آپ سفر کے آغاز پر ڈرائیور کو نقد ادا کریں گے۔",
     bookingError: "آپ کی بکنگ مکمل نہیں ہو سکی۔ براہ کرم دوبارہ کوشش کریں۔",
     formIncomplete: "براہ کرم نمایاں شدہ خانے مکمل کریں۔",
     requiredField: "یہ خانہ ضروری ہے۔",
@@ -2009,9 +1990,6 @@ const translations = {
     flightArrivalTime: "فلائٹ آمد کا وقت",
     notesLabel: "نوٹس",
     confirmBooking: "بکنگ کی تصدیق کریں",
-    paySecurely: "محفوظ طریقے سے ادا کریں",
-    payLaterNote: "گاڑی میں ادا کریں",
-    paymentTitle: "ادائیگی",
     paymentError: "ادائیگی کی خرابی۔ براہ کرم دوبارہ کوشش کریں۔",
     stepRoute: "راستہ",
     stepDetails: "تفصیلات",
@@ -2163,8 +2141,7 @@ const translations = {
     distancePriceDesc: "Mesuré par GPS pendant votre trajet.",
     youPay: "Vous payez",
     youPayPrice: "25 €",
-    youPayDesc:
-      "Le montant le plus bas s'applique. Le chauffeur le confirme à la fin.",
+    youPayDesc: "Le montant le plus bas s'applique.",
     pricingNote:
       "Pas de surprise. Pas de frais cachés. Vous payez ce que vous réservez - ou moins.",
     faqEyebrow: "Questions fréquentes",
@@ -2225,7 +2202,7 @@ const translations = {
     journeyTime: "Durée du trajet",
     totalFixed: "Prix total",
     quoteIncludes:
-      "Inclus : accueil, suivi de vol, parking, attente et eau minérale.",
+      "Inclus : accueil, suivi de vol, parking, 90 minutes d'attente et eau minérale.",
     confirmWhatsapp: "Confirmer via WhatsApp",
     chatWithUs: "Nous contacter",
     bookNowCta: "Réserver maintenant",
@@ -2238,13 +2215,10 @@ const translations = {
     flightArrivalTime: "Heure d'arrivée",
     notesLabel: "Demandes spéciales",
     confirmBooking: "Confirmer la réservation",
-    paySecurely: "Continuer vers le paiement sécurisé",
-    payLaterNote: "Paiement en ligne sécurisé après confirmation.",
     bookingConfirmed: "Réservation confirmée",
     referenceLabel: "Référence",
     weWillContact:
       "Votre demande de réservation a été envoyée. Nous vous contactons dans les 30 minutes.",
-    paymentTitle: "Paiement sécurisé",
     paymentError: "Paiement échoué. Veuillez réessayer.",
   },
   sv: {
@@ -2388,7 +2362,7 @@ const translations = {
     distancePriceDesc: "Mäts med GPS under din resa.",
     youPay: "Du betalar",
     youPayPrice: "25 €",
-    youPayDesc: "Det lägre beloppet gäller. Chauffören bekräftar i slutet.",
+    youPayDesc: "Det lägre beloppet gäller.",
     pricingNote:
       "Inga överraskningar. Inga dolda avgifter. Du betalar det du bokar - eller mindre.",
     faqEyebrow: "Vanliga frågor",
@@ -2447,7 +2421,7 @@ const translations = {
     journeyTime: "Restid",
     totalFixed: "Totalt pris",
     quoteIncludes:
-      "Inkluderar: välkomnande, flygspårning, parkering, väntetid och mineralvatten.",
+      "Inkluderar möte, flygbevakning, parkering, 90 minuters väntetid och vatten på flaska.",
     confirmWhatsapp: "Bekräfta via WhatsApp",
     chatWithUs: "Chatta med oss",
     bookNowCta: "Boka nu",
@@ -2460,13 +2434,10 @@ const translations = {
     flightArrivalTime: "Ankomsttid",
     notesLabel: "Särskilda önskemål",
     confirmBooking: "Bekräfta bokning",
-    paySecurely: "Fortsätt till säker betalning",
-    payLaterNote: "Säker onlinebetalning efter bekräftelse.",
     bookingConfirmed: "Bokning bekräftad",
     referenceLabel: "Referensnummer",
     weWillContact:
       "Din bokningsförfrågan har skickats. Vi kontaktar dig inom 30 minuter.",
-    paymentTitle: "Säker betalning",
     paymentError: "Betalning misslyckades. Försök igen.",
   },
   ja: {
@@ -2609,7 +2580,7 @@ const translations = {
     distancePriceDesc: "ご乗車中にGPSで計測します。",
     youPay: "お支払い額",
     youPayPrice: "25 €",
-    youPayDesc: "低い方の金額を適用します。終了時にドライバーが確認します。",
+    youPayDesc: "いずれか低い方が適用されます。",
     pricingNote:
       "追加の驚きはありません。隠れた料金もありません。予約時の金額、またはそれより少ない金額をお支払いいただきます。",
     faqEyebrow: "よくある質問",
@@ -2666,8 +2637,7 @@ const translations = {
     vehicle: "車両",
     journeyTime: "所要時間",
     totalFixed: "合計料金",
-    quoteIncludes:
-      "ミート＆グリート、フライト追跡、駐車料金、待機時間、ミネラルウォーター込み。",
+    quoteIncludes: "お出迎え、フライト追跡、駐車料金、90分の待機、ボトル入りの水が含まれます。",
     confirmWhatsapp: "WhatsAppで確認する",
     chatWithUs: "チャットする",
     bookNowCta: "今すぐ予約",
@@ -2680,12 +2650,9 @@ const translations = {
     flightArrivalTime: "到着時刻",
     notesLabel: "特別なご要望",
     confirmBooking: "予約を確定する",
-    paySecurely: "安全なお支払いへ進む",
-    payLaterNote: "確認後にオンラインで安全にお支払い。",
     bookingConfirmed: "予約確定",
     referenceLabel: "予約番号",
     weWillContact: "予約リクエストを送信しました。30分以内にご連絡いたします。",
-    paymentTitle: "安全なお支払い",
     paymentError: "お支払いに失敗しました。もう一度お試しください。",
   },
   ko: {
@@ -2828,7 +2795,7 @@ const translations = {
     distancePriceDesc: "이동 중 GPS로 측정합니다.",
     youPay: "결제 금액",
     youPayPrice: "25 €",
-    youPayDesc: "더 낮은 금액이 적용됩니다. 종료 시 기사가 확인합니다.",
+    youPayDesc: "둘 중 더 낮은 금액이 적용됩니다.",
     pricingNote:
       "놀랄 일도, 숨겨진 비용도 없습니다. 예약한 금액을 결제하거나 그보다 적게 결제합니다.",
     faqEyebrow: "자주 묻는 질문",
@@ -2884,7 +2851,7 @@ const translations = {
     vehicle: "차량",
     journeyTime: "소요 시간",
     totalFixed: "총 요금",
-    quoteIncludes: "미트 앤 그리트, 항공편 추적, 주차비, 대기 시간, 생수 포함.",
+    quoteIncludes: "미팅 서비스, 항공편 추적, 주차, 90분 대기, 생수가 포함됩니다.",
     confirmWhatsapp: "WhatsApp으로 확인하기",
     chatWithUs: "채팅하기",
     bookNowCta: "지금 예약",
@@ -2897,12 +2864,9 @@ const translations = {
     flightArrivalTime: "도착 시간",
     notesLabel: "특별 요청",
     confirmBooking: "예약 확정하기",
-    paySecurely: "안전한 결제로 이동",
-    payLaterNote: "확인 후 안전하게 온라인 결제.",
     bookingConfirmed: "예약 확정",
     referenceLabel: "예약 번호",
     weWillContact: "예약 요청이 전송되었습니다. 30분 내로 연락드리겠습니다.",
-    paymentTitle: "안전한 결제",
     paymentError: "결제에 실패했습니다. 다시 시도해 주세요.",
   },
   ar: {
@@ -3062,7 +3026,7 @@ const translations = {
     distancePriceDesc: "يتم قياسها عبر GPS أثناء الرحلة.",
     youPay: "ما تدفعه",
     youPayPrice: "25 €",
-    youPayDesc: "ينطبق السعر الأقل، ويؤكده السائق في نهاية الرحلة.",
+    youPayDesc: "يُطبَّق المبلغ الأقل.",
     pricingNote: "لا مفاجآت ولا رسوم خفية. تدفع السعر المحجوز أو أقل منه.",
     faqEyebrow: "الأسئلة الشائعة",
     faqTitle: "قبل رحلتك.",
@@ -3118,7 +3082,7 @@ const translations = {
     journeyTime: "مدة الرحلة",
     totalFixed: "الإجمالي الثابت",
     quoteIncludes:
-      "يشمل الاستقبال والترحيب، وتتبع الرحلة، ومواقف السيارات، والانتظار، والمياه.",
+      "يشمل الاستقبال وتتبع الرحلة ووقوف السيارة و90 دقيقة انتظار ومياه معبأة.",
     confirmWhatsapp: "التأكيد عبر WhatsApp",
     chatWithUs: "تحدث معنا",
     bookNowCta: "احجز الآن",
@@ -3131,12 +3095,9 @@ const translations = {
     flightArrivalTime: "وقت الوصول",
     notesLabel: "طلبات خاصة",
     confirmBooking: "تأكيد الحجز",
-    paySecurely: "المتابعة إلى الدفع الآمن",
-    payLaterNote: "دفع آمن عبر الإنترنت بعد التأكيد.",
     bookingConfirmed: "تم تأكيد الحجز",
     referenceLabel: "الرقم المرجعي",
     weWillContact: "تم إرسال طلب حجزك. سنتواصل معك خلال 30 دقيقة.",
-    paymentTitle: "الدفع الآمن",
     paymentError: "تعذر إتمام الدفع. يرجى المحاولة مرة أخرى.",
   },
 };
@@ -3148,7 +3109,7 @@ const paymentTranslations = {
     cashPayment: "Pay in the vehicle",
     recommended: "Recommended",
     cashPaymentDescription:
-      "No prepayment. Pay your driver directly once you are satisfied with the service.",
+      "No online prepayment. You pay the fixed total to your driver in cash at the start of the journey.",
     confirmCashBooking: "Confirm booking — pay in vehicle",
     perVehicleNote: "Per vehicle — not per person · Up to 7 passengers",
     meetGreetNote: "Airport Meet &amp; Greet · Meeting point J / 777",
@@ -3162,11 +3123,9 @@ const paymentTranslations = {
     perVehicleNoteSprinter:
       "Per vehicle — not per person · Up to 12 passengers",
     perVehicle: "fixed · per vehicle",
-    noPrePayment: "No prepayment required",
-    payAfterTransfer: "Pay your driver after the transfer",
     requestQuote: "Request a price quote",
     cashConfirmation:
-      "Your booking is confirmed. Pay the fixed total directly to your driver in the vehicle.",
+      "Your booking is confirmed. You pay the fixed total to your driver in cash at the start of the journey.",
     bookingError: "Your booking could not be completed. Please try again.",
     chooseTime: "Choose time",
     formIncomplete: "Please complete the highlighted fields.",
@@ -3203,7 +3162,7 @@ const paymentTranslations = {
     cashPayment: "Im Fahrzeug bezahlen",
     recommended: "Empfohlen",
     cashPaymentDescription:
-      "Keine Vorauszahlung. Bezahlen Sie Ihren Fahrer direkt, wenn Sie mit dem Service zufrieden sind.",
+      "Keine Online-Vorauszahlung. Den Festpreis zahlen Sie zu Beginn der Fahrt bar an Ihren Chauffeur.",
     confirmCashBooking: "Buchung bestätigen — im Fahrzeug zahlen",
     perVehicleNote: "Pro Fahrzeug — nicht pro Person · Bis zu 7 Personen",
     meetGreetNote: "Airport Meet &amp; Greet · Treffpunkt J / 777",
@@ -3218,7 +3177,7 @@ const paymentTranslations = {
       "Pro Fahrzeug — nicht pro Person · Bis zu 12 Personen",
     requestQuote: "Preisangebot anfordern",
     cashConfirmation:
-      "Ihre Buchung ist bestätigt. Zahlen Sie den Festpreis direkt beim Fahrer im Fahrzeug.",
+      "Ihre Buchung ist bestätigt. Den Festpreis zahlen Sie zu Beginn der Fahrt bar an Ihren Chauffeur.",
     bookingError:
       "Ihre Buchung konnte nicht abgeschlossen werden. Bitte versuchen Sie es erneut.",
     chooseTime: "Uhrzeit wählen",
@@ -3253,7 +3212,7 @@ const paymentTranslations = {
     cashPayment: "Araçta öde",
     recommended: "Önerilen",
     cashPaymentDescription:
-      "Ön ödeme yok. Hizmetten memnun kaldığınızda ödemenizi doğrudan şoförünüze yapın.",
+      "Online ön ödeme yok. Sabit tutarı yolculuğun başında şoförünüze nakit olarak ödersiniz.",
     confirmCashBooking: "Rezervasyonu onayla — araçta öde",
     perVehicleNote: "Araç başına — kişi başına değil · 7 yolcuya kadar",
     meetGreetNote: "Havalimanı Karşılama · Buluşma noktası J / 777",
@@ -3268,7 +3227,7 @@ const paymentTranslations = {
       "Araç başına — kişi başına değil · 12 yolcuya kadar",
     requestQuote: "Fiyat teklifi al",
     cashConfirmation:
-      "Rezervasyonunuz onaylandı. Sabit toplam tutarı araçta doğrudan şoförünüze ödeyin.",
+      "Rezervasyonunuz onaylandı. Sabit toplam tutarı yolculuğun başında şoförünüze nakit olarak ödersiniz.",
     bookingError: "Rezervasyonunuz tamamlanamadı. Lütfen tekrar deneyin.",
     chooseTime: "Saat seçin",
     formIncomplete: "Lütfen işaretli alanları doldurun.",
@@ -3300,7 +3259,7 @@ const paymentTranslations = {
     cashPayment: "Оплата в автомобиле",
     recommended: "Рекомендуем",
     cashPaymentDescription:
-      "Без предоплаты. Оплатите услугу непосредственно водителю, когда останетесь довольны обслуживанием.",
+      "Без предоплаты онлайн. Фиксированную сумму вы передаёте водителю наличными в начале поездки.",
     confirmCashBooking: "Подтвердить — оплата в автомобиле",
     perVehicleNote: "За автомобиль — не за человека · До 7 пассажиров",
     meetGreetNote: "Встреча в аэропорту · Пункт встречи J / 777",
@@ -3314,7 +3273,7 @@ const paymentTranslations = {
     perVehicleNoteSprinter: "За автомобиль — не за человека · До 12 пассажиров",
     requestQuote: "Запросить расчёт",
     cashConfirmation:
-      "Бронирование подтверждено. Оплатите фиксированную сумму водителю в автомобиле.",
+      "Ваше бронирование подтверждено. Фиксированную сумму вы передадите водителю наличными в начале поездки.",
     bookingError: "Не удалось завершить бронирование. Попробуйте ещё раз.",
     chooseTime: "Выберите время",
     formIncomplete: "Заполните выделенные поля.",
@@ -3348,7 +3307,7 @@ const paymentTranslations = {
     cashPayment: "Zapłać w pojeździe",
     recommended: "Polecane",
     cashPaymentDescription:
-      "Bez przedpłaty. Zapłać bezpośrednio kierowcy, gdy usługa spełni Twoje oczekiwania.",
+      "Bez przedpłaty online. Stałą kwotę przekazujesz kierowcy gotówką na początku podróży.",
     confirmCashBooking: "Potwierdź — zapłać w pojeździe",
     stepRoute: "Trasa",
     stepDetails: "Szczegóły",
@@ -3360,7 +3319,7 @@ const paymentTranslations = {
     perVehicleNoteSprinter: "Za pojazd — nie za osobę · Do 12 pasażerów",
     requestQuote: "Poproś o wycenę",
     cashConfirmation:
-      "Rezerwacja jest potwierdzona. Zapłać kierowcy ustaloną kwotę w pojeździe.",
+      "Twoja rezerwacja jest potwierdzona. Stałą kwotę przekażesz kierowcy gotówką na początku podróży.",
     bookingError: "Nie udało się dokończyć rezerwacji. Spróbuj ponownie.",
     chooseTime: "Wybierz godzinę",
     formIncomplete: "Uzupełnij zaznaczone pola.",
@@ -3391,7 +3350,7 @@ const paymentTranslations = {
     cashPayment: "Betaal in het voertuig",
     recommended: "Aanbevolen",
     cashPaymentDescription:
-      "Geen vooruitbetaling. Betaal uw chauffeur rechtstreeks zodra u tevreden bent over de service.",
+      "Geen online vooruitbetaling. U betaalt het vaste bedrag contant aan uw chauffeur bij aanvang van de rit.",
     confirmCashBooking: "Bevestig — betaal in het voertuig",
     stepRoute: "Route",
     stepDetails: "Details",
@@ -3404,7 +3363,7 @@ const paymentTranslations = {
       "Per voertuig — niet per persoon · Tot 12 passagiers",
     requestQuote: "Prijsopgave aanvragen",
     cashConfirmation:
-      "Uw boeking is bevestigd. Betaal het vaste bedrag rechtstreeks aan de chauffeur.",
+      "Uw boeking is bevestigd. U betaalt het vaste bedrag contant aan uw chauffeur bij aanvang van de rit.",
     bookingError: "Uw boeking kon niet worden voltooid. Probeer het opnieuw.",
     chooseTime: "Kies tijd",
     formIncomplete: "Vul de gemarkeerde velden in.",
@@ -3437,7 +3396,7 @@ const paymentTranslations = {
     cashPayment: "Оплата в автомобілі",
     recommended: "Рекомендуємо",
     cashPaymentDescription:
-      "Без передоплати. Сплатіть безпосередньо водієві, коли будете задоволені послугою.",
+      "Без онлайн-передоплати. Фіксовану суму ви передаєте водієві готівкою на початку поїздки.",
     confirmCashBooking: "Підтвердити — оплата в автомобілі",
     stepRoute: "Маршрут",
     stepDetails: "Деталі",
@@ -3449,7 +3408,7 @@ const paymentTranslations = {
     perVehicleNoteSprinter: "За автомобіль — не за особу · До 12 пасажирів",
     requestQuote: "Запросити розрахунок",
     cashConfirmation:
-      "Бронювання підтверджено. Сплатіть фіксовану суму водієві в автомобілі.",
+      "Ваше бронювання підтверджено. Фіксовану суму ви передасте водієві готівкою на початку поїздки.",
     bookingError: "Не вдалося завершити бронювання. Спробуйте ще раз.",
     chooseTime: "Оберіть час",
     formIncomplete: "Заповніть виділені поля.",
@@ -3481,7 +3440,7 @@ const paymentTranslations = {
     cashPayment: "Payer dans le véhicule",
     recommended: "Recommandé",
     cashPaymentDescription:
-      "Aucun prépaiement. Payez directement votre chauffeur une fois satisfait du service.",
+      "Aucun prépaiement en ligne. Vous réglez le prix fixe en espèces à votre chauffeur au début du trajet.",
     confirmCashBooking: "Confirmer — payer dans le véhicule",
     stepRoute: "Trajet",
     stepDetails: "Détails",
@@ -3494,7 +3453,7 @@ const paymentTranslations = {
       "Par véhicule — non par personne · Jusqu'à 12 passagers",
     requestQuote: "Demander un devis",
     cashConfirmation:
-      "Votre réservation est confirmée. Réglez le montant fixe directement au chauffeur.",
+      "Votre réservation est confirmée. Vous réglerez le prix fixe en espèces à votre chauffeur au début du trajet.",
     bookingError:
       "Votre réservation n'a pas pu être finalisée. Veuillez réessayer.",
     chooseTime: "Choisir l'heure",
@@ -3530,7 +3489,7 @@ const paymentTranslations = {
     cashPayment: "Betala i fordonet",
     recommended: "Rekommenderas",
     cashPaymentDescription:
-      "Ingen förskottsbetalning. Betala din chaufför direkt när du är nöjd med tjänsten.",
+      "Ingen förskottsbetalning online. Du betalar det fasta beloppet kontant till chauffören när resan börjar.",
     confirmCashBooking: "Bekräfta — betala i fordonet",
     stepRoute: "Rutt",
     stepDetails: "Detaljer",
@@ -3543,7 +3502,7 @@ const paymentTranslations = {
       "Per fordon — inte per person · Upp till 12 passagerare",
     requestQuote: "Begär prisuppgift",
     cashConfirmation:
-      "Din bokning är bekräftad. Betala det fasta beloppet direkt till chauffören.",
+      "Din bokning är bekräftad. Du betalar det fasta beloppet kontant till chauffören när resan börjar.",
     bookingError: "Bokningen kunde inte slutföras. Försök igen.",
     chooseTime: "Välj tid",
     formIncomplete: "Fyll i de markerade fälten.",
@@ -3576,8 +3535,7 @@ const paymentTranslations = {
     paymentMethod: "お支払い方法を選択",
     cashPayment: "車内で支払う",
     recommended: "おすすめ",
-    cashPaymentDescription:
-      "事前のお支払いは不要です。サービスにご満足いただいてから、ドライバーへ直接お支払いください。",
+    cashPaymentDescription: "オンラインでの事前決済はありません。定額料金はご乗車時にドライバーへ現金でお支払いいただきます。",
     confirmCashBooking: "予約確定 — 車内払い",
     stepRoute: "ルート",
     stepDetails: "詳細",
@@ -3588,8 +3546,7 @@ const paymentTranslations = {
     perVehicleNoteVito: "1台あたり — 1人あたりではありません · 最大6名",
     perVehicleNoteSprinter: "1台あたり — 1人あたりではありません · 最大12名",
     requestQuote: "見積もりを依頼",
-    cashConfirmation:
-      "予約が確定しました。固定料金を車内でドライバーへ直接お支払いください。",
+    cashConfirmation: "ご予約が確定しました。定額料金はご乗車時にドライバーへ現金でお支払いください。",
     bookingError: "予約を完了できませんでした。もう一度お試しください。",
     chooseTime: "時間を選択",
     formIncomplete: "表示された必須項目を入力してください。",
@@ -3620,8 +3577,7 @@ const paymentTranslations = {
     paymentMethod: "결제 방법 선택",
     cashPayment: "차량에서 결제",
     recommended: "추천",
-    cashPaymentDescription:
-      "선결제는 필요 없습니다. 서비스에 만족하신 후 기사에게 직접 결제하세요.",
+    cashPaymentDescription: "온라인 선결제가 없습니다. 고정 요금은 출발할 때 기사에게 현금으로 결제하시면 됩니다.",
     confirmCashBooking: "예약 확정 — 차량에서 결제",
     stepRoute: "경로",
     stepDetails: "세부 정보",
@@ -3632,8 +3588,7 @@ const paymentTranslations = {
     perVehicleNoteVito: "차량 기준 — 1인 기준 아님 · 최대 6명",
     perVehicleNoteSprinter: "차량 기준 — 1인 기준 아님 · 최대 12명",
     requestQuote: "견적 요청",
-    cashConfirmation:
-      "예약이 확정되었습니다. 차량에서 기사에게 고정 요금을 직접 결제하세요.",
+    cashConfirmation: "예약이 확정되었습니다. 고정 요금은 출발할 때 기사에게 현금으로 결제해 주십시오.",
     bookingError: "예약을 완료하지 못했습니다. 다시 시도해 주세요.",
     chooseTime: "시간 선택",
     formIncomplete: "표시된 필수 항목을 입력해 주세요.",
@@ -3664,7 +3619,7 @@ const paymentTranslations = {
     cashPayment: "الدفع داخل السيارة",
     recommended: "موصى به",
     cashPaymentDescription:
-      "لا يلزم الدفع مقدماً. ادفع مباشرة إلى السائق بعد أن تكون راضياً عن الخدمة.",
+      "لا دفع مسبق عبر الإنترنت. تدفع السعر الثابت نقدًا لسائقك في بداية الرحلة.",
     confirmCashBooking: "تأكيد الحجز — الدفع داخل السيارة",
     stepRoute: "المسار",
     stepDetails: "التفاصيل",
@@ -3676,7 +3631,7 @@ const paymentTranslations = {
     perVehicleNoteSprinter: "لكل سيارة — لا للفرد · حتى 12 راكباً",
     requestQuote: "طلب عرض سعر",
     cashConfirmation:
-      "تم تأكيد حجزك. ادفع المبلغ الثابت مباشرة إلى السائق داخل السيارة.",
+      "تم تأكيد حجزك. تدفع المبلغ الثابت نقدًا لسائقك في بداية الرحلة.",
     bookingError: "تعذر إكمال حجزك. يرجى المحاولة مرة أخرى.",
     chooseTime: "اختر الوقت",
     formIncomplete: "يرجى إكمال الحقول المحددة.",

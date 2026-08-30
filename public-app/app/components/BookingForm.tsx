@@ -214,7 +214,7 @@ export function BookingForm({
         ? t("airportReturnPrice", "The price will be confirmed after we check the pick-up address.")
         : formValues.destination === "private_address"
           ? t("customDestinationPrice", "The price will be confirmed after we check the drop-off address.")
-          : t("cashConfirmation", "Your booking is confirmed. Pay the fixed total directly to your driver in the vehicle.");
+          : t("cashConfirmation", "Your booking is confirmed. You pay the fixed total to your driver in cash at the start of the journey.");
       setConfirmation({ ref: booking.booking_ref, whatsapp: whatsappConfirmation(formValues, booking.booking_ref, confirmedPrice), message });
       if (confirmedPrice > 0) {
         window.gtag?.("event", "purchase", { transaction_id: booking.booking_ref, currency: "EUR", value: confirmedPrice, payment_type: "cash" });
@@ -540,7 +540,7 @@ export function BookingForm({
                     <span className="payment-method-radio" aria-hidden="true" />
                     <span className="payment-method-copy">
                       <span className="payment-method-heading"><strong>{t("cashPayment", "Pay in the vehicle")}</strong><small>{t("recommended", "Recommended")}</small></span>
-                      <span>{t("cashPaymentDescription", "No prepayment. Pay the confirmed total directly to your driver.")}</span>
+                      <span>{t("cashPaymentDescription", "No online prepayment. You pay the fixed total to your driver in cash at the start of the journey.")}</span>
                     </span>
                     <Icon name="cash" className="icon" />
                   </label>
@@ -555,7 +555,7 @@ export function BookingForm({
                     <span>{t("back", "Back")}</span>
                   </button>
                 )}
-                <p className="booking-includes">{isDailyChauffeur ? t("dailyQuoteIncludes", "Includes the selected vehicle and chauffeur with no kilometre or hour limit. Fuel is excluded.") : t("quoteIncludes", "Includes meet & greet, flight tracking, parking, waiting time and bottled water.")}</p>
+                <p className="booking-includes">{isDailyChauffeur ? t("dailyQuoteIncludes", "Includes the selected vehicle and chauffeur with no kilometre or hour limit. Fuel is excluded.") : t("quoteIncludes", "Includes meet & greet, flight tracking, parking, 90 minutes of waiting and bottled water.")}</p>
                 <button className="quote-submit" type="submit" id="main-book-submit" disabled={submitting}>
                   <span>{submitting ? "…" : isDailyChauffeur ? t("reviewAndConfirm", "Review and confirm") : isPrivateAddressQuote ? t("requestQuote", "Request a price quote") : t("confirmCashBooking", "Confirm booking — pay in vehicle")}</span>
                   <Icon name="arrow-right" className="icon" />
