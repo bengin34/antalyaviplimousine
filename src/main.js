@@ -177,6 +177,8 @@ const translations = {
     faqCatArrival: "Ankunft & Transfer",
     faqCatPayment: "Zahlung & Preis",
     faqCatVehicle: "Fahrzeug & Gepäck",
+    faqReminder: "Bitte lesen Sie vor Ihrer Reise den FAQ-Bereich auf unserer Website.",
+    viewFaq: "FAQ ansehen",
     faqIntro:
       "Alles, was Sie über Ihren privaten Flughafentransfer in Antalya wissen müssen.",
     askQuestion: "Frage stellen",
@@ -406,6 +408,8 @@ const translations = {
     faqCatArrival: "Karşılama & Transfer",
     faqCatPayment: "Ödeme & Fiyat",
     faqCatVehicle: "Araç & Bagaj",
+    faqReminder: "Seyahatinizden önce lütfen sitemizdeki SSS bölümünü inceleyin.",
+    viewFaq: "SSS'yi görüntüle",
     faqIntro:
       "Antalya'daki özel havalimanı transferiniz hakkında bilmeniz gereken her şey.",
     askQuestion: "Bize sorun",
@@ -631,6 +635,8 @@ const translations = {
     faqCatArrival: "Встреча и трансфер",
     faqCatPayment: "Оплата и цена",
     faqCatVehicle: "Автомобиль и багаж",
+    faqReminder: "Перед поездкой ознакомьтесь с разделом вопросов и ответов на нашем сайте.",
+    viewFaq: "Открыть FAQ",
     faqIntro: "Всё, что нужно знать о частном трансфере из аэропорта Антальи.",
     askQuestion: "Задать вопрос",
     faqOneQ: "Что произойдёт, если мой рейс задержится?",
@@ -843,6 +849,8 @@ const translations = {
     faqCatArrival: "Vyzvednutí a transfer",
     faqCatPayment: "Platba a cena",
     faqCatVehicle: "Vozidlo a zavazadla",
+    faqReminder: "Před cestou si prosím přečtěte sekci častých dotazů na našem webu.",
+    viewFaq: "Zobrazit FAQ",
     faqIntro:
       "Vše, co potřebujete vědět o svém soukromém transferu z letiště Antalya.",
     askQuestion: "Zeptejte se nás",
@@ -1099,6 +1107,8 @@ const translations = {
     faqCatArrival: "Odbiór i transfer",
     faqCatPayment: "Płatność i cena",
     faqCatVehicle: "Pojazd i bagaż",
+    faqReminder: "Przed podróżą zapoznaj się z sekcją FAQ na naszej stronie.",
+    viewFaq: "Zobacz FAQ",
     faqIntro:
       "Wszystko, co musisz wiedzieć o prywatnym transferze z lotniska w Antalyi.",
     askQuestion: "Zadaj pytanie",
@@ -1302,6 +1312,8 @@ const translations = {
     faqCatArrival: "Aankomst & transfer",
     faqCatPayment: "Betaling & prijs",
     faqCatVehicle: "Voertuig & bagage",
+    faqReminder: "Lees vóór uw reis het FAQ-gedeelte op onze website.",
+    viewFaq: "FAQ bekijken",
     faqIntro:
       "Alles wat u moet weten over uw privétransfer van de luchthaven Antalya.",
     askQuestion: "Stel een vraag",
@@ -1508,6 +1520,8 @@ const translations = {
     faqCatArrival: "Зустріч і трансфер",
     faqCatPayment: "Оплата й ціна",
     faqCatVehicle: "Автомобіль і багаж",
+    faqReminder: "Перед поїздкою ознайомтеся з розділом поширених запитань на нашому сайті.",
+    viewFaq: "Переглянути FAQ",
     faqIntro:
       "Все, що потрібно знати про приватний трансфер з аеропорту Анталії.",
     askQuestion: "Поставити запитання",
@@ -1720,6 +1734,8 @@ const translations = {
     faqCatArrival: "آمد اور ٹرانسفر",
     faqCatPayment: "ادائیگی اور قیمت",
     faqCatVehicle: "گاڑی اور سامان",
+    faqReminder: "اپنے سفر سے پہلے براہِ کرم ہماری ویب سائٹ کا FAQ سیکشن ملاحظہ کریں۔",
+    viewFaq: "FAQ دیکھیں",
     faqIntro:
       "اپنے نجی انطالیہ ایئرپورٹ ٹرانسفر کے بارے میں آپ کو جو کچھ جاننا ضروری ہے۔",
     askQuestion: "ہم سے سوال پوچھیں",
@@ -2015,6 +2031,8 @@ const translations = {
     faqCatArrival: "Arrivée & transfert",
     faqCatPayment: "Paiement & prix",
     faqCatVehicle: "Véhicule & bagages",
+    faqReminder: "Avant votre voyage, veuillez consulter la section FAQ de notre site.",
+    viewFaq: "Voir la FAQ",
     faqIntro:
       "Tout ce que vous devez savoir sur votre transfert privé depuis l'aéroport d'Antalya.",
     askQuestion: "Poser une question",
@@ -2221,6 +2239,8 @@ const translations = {
     faqCatArrival: "Ankomst & transfer",
     faqCatPayment: "Betalning & pris",
     faqCatVehicle: "Fordon & bagage",
+    faqReminder: "Läs gärna FAQ-avsnittet på vår webbplats innan din resa.",
+    viewFaq: "Visa FAQ",
     faqIntro:
       "Allt du behöver veta om din privata transfer från Antalya flygplats.",
     askQuestion: "Ställ en fråga",
@@ -2425,6 +2445,8 @@ const translations = {
     faqCatArrival: "到着・送迎",
     faqCatPayment: "お支払い・料金",
     faqCatVehicle: "車両・お手荷物",
+    faqReminder: "ご旅行の前に、当サイトのFAQをご確認ください。",
+    viewFaq: "FAQを見る",
     faqIntro:
       "アンタルヤ空港からのプライベート送迎について知っておくべきこと。",
     askQuestion: "質問する",
@@ -2626,6 +2648,8 @@ const translations = {
     faqCatArrival: "도착 및 이동",
     faqCatPayment: "결제 및 요금",
     faqCatVehicle: "차량 및 수하물",
+    faqReminder: "여행 전에 저희 웹사이트의 FAQ를 확인해 주세요.",
+    viewFaq: "FAQ 보기",
     faqIntro: "안탈리아 공항 프라이빗 픽업에 대해 알아야 할 모든 것.",
     askQuestion: "질문하기",
     faqOneQ: "항공편이 지연되면 어떻게 되나요?",
@@ -2843,6 +2867,8 @@ const translations = {
     faqCatArrival: "الوصول والنقل",
     faqCatPayment: "الدفع والسعر",
     faqCatVehicle: "المركبة والأمتعة",
+    faqReminder: "قبل رحلتك، يُرجى الاطلاع على قسم الأسئلة الشائعة على موقعنا.",
+    viewFaq: "عرض الأسئلة الشائعة",
     faqIntro: "كل ما تحتاج إلى معرفته عن خدمة النقل الخاصة من مطار أنطاليا.",
     askQuestion: "اطرح سؤالاً",
     faqOneQ: "ماذا يحدث إذا تأخرت رحلتي؟",

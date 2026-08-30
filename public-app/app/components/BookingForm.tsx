@@ -16,6 +16,10 @@ import {
   type LivePriceOverrides,
   type PublicBookingValues,
 } from "../lib/booking";
+import { domain } from "../lib/seo";
+
+const faqUrlForLanguage = (language: string) =>
+  `${domain}${language === "en" ? "" : `/${language}`}/#faq`;
 
 type RouteSelection = { route: string; vehicle: "vito" | "sprinter"; nonce: number };
 
@@ -33,7 +37,7 @@ const DEFAULT_PHONE_COUNTRY: Partial<Record<LanguageCode, Country>> = {
   nl: "NL", uk: "UA", ur: "PK", fr: "FR", sv: "SE", ja: "JP", ko: "KR",
 };
 
-function whatsappConfirmation(values: PublicBookingValues, bookingRef: string, price: number) {
+function whatsappConfirmation(values: PublicBookingValues, bookingRef: string, price: number, language: string) {
   const isDailyChauffeur = values.tripType === "daily_chauffeur";
   const routeName = routeCatalog[values.destination as keyof typeof routeCatalog]?.names.en ?? values.destination;
   const lines = [
@@ -71,6 +75,7 @@ function whatsappConfirmation(values: PublicBookingValues, bookingRef: string, p
     if (values.departureFlightDate) lines.push(`✈️ Departure: ${values.departureFlightDate} ${values.departureFlightTime} ${values.departureFlightNumber}`.trim());
   }
   if (price) lines.push(`💶 Price: €${price}`);
+  lines.push(`📖 Please read our FAQ before your trip: ${faqUrlForLanguage(language)}`);
   return `https://wa.me/905302655790?text=${encodeURIComponent(lines.join("\n"))}`;
 }
 
@@ -186,7 +191,7 @@ export function BookingForm({
     const params = new URLSearchParams(window.location.search);
     const bookingRef = params.get("booking_ref");
     if (params.get("payment") === "success" && bookingRef) {
-      setConfirmation({ ref: bookingRef, whatsapp: `https://wa.me/905302655790?text=${encodeURIComponent(`Booking reference: ${bookingRef}`)}`, message: t("weWillContact", "Your payment was successful. We will contact you shortly.") });
+      setConfirmation({ ref: bookingRef, whatsapp: `https://wa.me/905302655790?text=${encodeURIComponent([`Booking reference: ${bookingRef}`, `📖 Please read our FAQ before your trip: ${faqUrlForLanguage(language)}`].join("\n"))}`, message: t("weWillContact", "Your payment was successful. We will contact you shortly.") });
       window.history.replaceState({}, "", window.location.pathname);
     } else if (params.get("payment") === "failed") {
       setSubmitError(t("paymentError", "Payment failed. Please try again."));
@@ -215,7 +220,7 @@ export function BookingForm({
         : formValues.destination === "private_address"
           ? t("customDestinationPrice", "The price will be confirmed after we check the drop-off address.")
           : t("cashConfirmation", "Your booking is confirmed. You pay the fixed total to your driver in cash at the start of the journey.");
-      setConfirmation({ ref: booking.booking_ref, whatsapp: whatsappConfirmation(formValues, booking.booking_ref, confirmedPrice), message });
+      setConfirmation({ ref: booking.booking_ref, whatsapp: whatsappConfirmation(formValues, booking.booking_ref, confirmedPrice, language), message });
       if (confirmedPrice > 0) {
         window.gtag?.("event", "purchase", { transaction_id: booking.booking_ref, currency: "EUR", value: confirmedPrice, payment_type: "cash" });
         window.gtag?.("event", "conversion", { send_to: "AW-18248114753/IW8CCL7H38AcEMHEsP1D", transaction_id: booking.booking_ref, value: confirmedPrice, currency: "EUR" });
@@ -569,7 +574,7 @@ export function BookingForm({
       </div>
 
       {pendingDailyBooking && <div className="quote-modal open fuel-terms-modal" id="fuel-terms-modal" role="dialog" aria-modal="true" aria-labelledby="fuel-terms-title"><button className="modal-backdrop" aria-label={t("close", "Close")} onClick={() => setPendingDailyBooking(null)} /><div className="modal-card"><button className="modal-close" type="button" aria-label={t("close", "Close")} onClick={() => setPendingDailyBooking(null)}><Icon name="close" /></button><div className="fuel-terms-content"><span className="fuel-terms-icon" aria-hidden="true">⛽</span><h2 id="fuel-terms-title">{t("fuelTermsTitle", "Important information about fuel")}</h2><p>{t("fuelTermsBody", "The daily €150 service fee includes the vehicle and chauffeur. Fuel is not included. You will pay the actual fuel cost separately according to use.")}</p><label className="fuel-terms-check"><input type="checkbox" autoFocus checked={fuelAcknowledged} onChange={event => setFuelAcknowledged(event.target.checked)} /><span>{t("fuelTermsCheckbox", "I understand that fuel is excluded and will be paid separately based on use.")}</span></label><div className="fuel-terms-actions"><button className="fuel-terms-cancel" type="button" onClick={() => setPendingDailyBooking(null)}>{t("cancel", "Cancel")}</button><button className="button button-gold" type="button" disabled={!fuelAcknowledged || submitting} onClick={confirmDailyBooking}>{submitting ? "…" : t("understandAndConfirm", "I understand and confirm")}</button></div></div></div></div>}
-      {confirmation && <div className="quote-modal open" id="quote-modal" role="dialog" aria-modal="true" aria-labelledby="quote-modal-title"><button className="modal-backdrop" aria-label="Close" onClick={() => setConfirmation(null)} /><div className="modal-card"><button className="modal-close" type="button" aria-label="Close" onClick={() => setConfirmation(null)}><Icon name="close" /></button><div className="booking-confirmed"><div className="confirmed-check confirmed-pending" aria-hidden="true"><Icon name="clock" /></div><h2 id="quote-modal-title">{t("requestReceived", "Request Received")}</h2><p className="confirmed-ref"><span>{t("referenceLabel", "Reference")}</span>&nbsp;<strong id="confirmed-ref">{confirmation.ref}</strong></p><p className="confirmed-msg">{t("approvalPending", "We received your request and will review your details. You'll receive an approval message via WhatsApp shortly.")}</p><a className="button button-gold" href={confirmation.whatsapp} target="_blank" rel="noreferrer" id="confirmed-whatsapp"><span>{t("whatsappUs", "WhatsApp us")}</span><Icon name="arrow-up-right" className="icon" /></a></div></div></div>}
+      {confirmation && <div className="quote-modal open" id="quote-modal" role="dialog" aria-modal="true" aria-labelledby="quote-modal-title"><button className="modal-backdrop" aria-label="Close" onClick={() => setConfirmation(null)} /><div className="modal-card"><button className="modal-close" type="button" aria-label="Close" onClick={() => setConfirmation(null)}><Icon name="close" /></button><div className="booking-confirmed"><div className="confirmed-check confirmed-pending" aria-hidden="true"><Icon name="clock" /></div><h2 id="quote-modal-title">{t("requestReceived", "Request Received")}</h2><p className="confirmed-ref"><span>{t("referenceLabel", "Reference")}</span>&nbsp;<strong id="confirmed-ref">{confirmation.ref}</strong></p><p className="confirmed-msg">{t("approvalPending", "We received your request and will review your details. You'll receive an approval message via WhatsApp shortly.")}</p><a className="button button-gold" href={confirmation.whatsapp} target="_blank" rel="noreferrer" id="confirmed-whatsapp"><span>{t("whatsappUs", "WhatsApp us")}</span><Icon name="arrow-up-right" className="icon" /></a><p className="confirmed-faq">{t("faqReminder", "Before your trip, please review the FAQ section on our website.")}&nbsp;<a href={faqUrlForLanguage(language)} target="_blank" rel="noreferrer">{t("viewFaq", "View FAQ")}</a></p></div></div></div>}
     </section>
   );
 }

@@ -3496,6 +3496,19 @@ footer {
   width: 100%;
 }
 
+.confirmed-faq {
+  margin-top: 18px;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.confirmed-faq a {
+  color: var(--gold-dark);
+  text-decoration: underline;
+  white-space: nowrap;
+}
+
 .reveal {
   animation: reveal-up 0.9s both;
 }
