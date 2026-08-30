@@ -422,12 +422,27 @@ const translations = {
     faqIntro:
       "Antalya'daki özel havalimanı transferiniz hakkında bilmeniz gereken her şey.",
     askQuestion: "Bize sorun",
-    faqOneQ: "Uçağım gecikirse ne olur?",
+    faqOneQ: "Uçuşum gecikirse ne olur?",
     faqOneA:
-      "Tüm uçuşları gerçek zamanlı takip ederiz. Alış saatiniz otomatik olarak güncellenir ve şoförünüz ek ücret olmadan bekler.",
-    faqTwoQ: "Şoförümle nerede buluşacağım?",
+      "Sizin yapmanız gereken hiçbir şey yok. Uçuşunuzu canlı takip eder, alış saatinizi otomatik olarak güncelleriz. Uçuş kaynaklı gecikmeler için hiçbir ek ücret alınmaz; ne zaman inerseniz inin şoförünüz sizi bekliyor olur ve inişten sonraki ilk 90 dakika her zaman fiyata dahildir.",
+    faqTwoQ: "Dış hat uçuşuyla geliyorum, karşılama nasıl işliyor?",
     faqTwoA:
-      "Bagajınızı aldıktan sonra bagaj teslim alanından çıkın ve Karşılama Alanına gidin. J / 777 buluşma noktasını arayın — ekibimiz kişisel isim tabelasıyla sizi bekliyor olacak.",
+      "Pasaport kontrolü ve bagajınızı aldıktan sonra tüm yolcuların yöneldiği Karşılama (Meet & Greet) alanına ilerleyin ve J / 777 numaralı kontuarımıza gelin. Personelimize adınızı söylemeniz yeterli; sakin saatlerde isim tabelanızı da görürsünüz, yoğun saatlerde adınızı iletmeniz işinizi görür. Personelimiz aynı anda şoförünüzü bilgilendirir; şoförünüz havalimanına giriş yapıp karşılama noktasındaki yerini alır, siz de personelimiz eşliğinde aracınıza ilerlersiniz. Tüm süreç ortalama 7-8 dakika sürer.",
+    faqSixQ: "Yurt içi uçuşla geliyorum, şoförümü nasıl bulacağım?",
+    faqSixA:
+      "Karşılama (Meet & Greet) alanı yalnızca dış hat yolcuları içindir; iç hatlarda böyle bir alan bulunmaz. Bu nedenle iç hat misafirlerimize transferden önce şoförlerinin telefon numarasını iletiriz. İndiğinizde kendisine kısaca haber vermeniz yeterli; şoförünüz sizi yolcu karşılama bölümünden alır.",
+    faqSevenQ: "J / 777 kontuarında görevli yoksa ne yapmalıyım?",
+    faqSevenA:
+      "Kontuarımızda sürekli iki personelimiz görev yapar ve tek işleri gelen misafirleri araçlarına yönlendirmektir. Kontuarı bir an boş bulursanız bu, personelimizin sizden hemen önce gelen misafiri aracına götürdüğü anlamına gelir; her yönlendirme yaklaşık 7-8 dakika sürer. Lütfen yaklaşık 10 dakika bekleyin. Bu sürenin sonunda hâlâ kimse dönmediyse WhatsApp hattımızdan bize yazın: şoförünüzü anında bilgilendirir, en yakın noktaya park etmesini sağlar ve sizi hiç bekletmeden doğrudan aracınıza ulaştırırız.",
+    faqEightQ: "Havalimanından çıkmam 90 dakikadan uzun sürerse ne olur?",
+    faqEightA:
+      "Uçağınız indikten sonraki ilk 90 dakika ücretsiz olarak fiyata dahildir; pasaport, bagaj ve gümrük için fazlasıyla yeterli bir süredir ve uçuş gecikmelerinde bu süre otomatik olarak kayar. Yalnızca uçuşunuzla ilgisi olmayan bir nedenle terminalde 90 dakikadan uzun kalırsanız, aracınızın otoparkta geçirdiği her ek saat için 5 € otopark katkı bedeli eklenir. Uygulamada bu neredeyse hiç yaşanmaz; misafirlerimizin tamamına yakını bu sürenin çok öncesinde yola çıkar.",
+    faqNineQ: "Ödemeyi nasıl yapıyorum?",
+    faqNineA:
+      "Ödemenizi yolculuğun başında, doğrudan şoförünüze nakit olarak yaparsınız. Ödeyeceğiniz tutar rezervasyonda gördüğünüz sabit fiyattır: araç başına, tüm havalimanı ve otopark ücretleri dahil, sonradan eklenen kalem yok. Şoförünüz sizi karşılar, bagajlarınızı yükler, talep ettiyseniz çocuk koltuklarını hazırlar; ödemenizin ardından yolculuğunuz başlar.",
+    faqTenQ: "Dönüş transferimde iletişimi nasıl kuracağım?",
+    faqTenA:
+      "Dönüş gün ve saatinizi ekibimizle WhatsApp üzerinden teyit ettikten sonra, transferinize saatler kala aracınızı belirler ve size WhatsApp'tan aracın fotoğraflarını gönderiririz; dilerseniz şoförünüzün telefon numarasını da paylaşırız. Şoförünüz belirlenen saatte otelinize ulaştığında resepsiyona haber verir, resepsiyon da odanıza aracınızın hazır olduğunu bildirir. Şoförlerimiz misafirlerimizi doğrudan aramaz; tüm iletişim tek bir noktadan, WhatsApp müşteri destek hattımız üzerinden yürür. Böylece kiminle konuştuğunuzdan her zaman emin olursunuz.",
     faqThreeQ: "Çocuk koltuğu var mı?",
     faqThreeA:
       "Evet. Bebek koltuğu, çocuk koltuğu ve yükseltici koltuk rezervasyon sırasında ücretsiz olarak talep edilebilir.",
@@ -436,7 +451,7 @@ const translations = {
       "Evet. Sprinter ve Vito araçlarımız golf grupları için idealdir. Bagaj bilgilerinizi paylaşın, uygun aracı planlayalım.",
     faqFiveQ: "Verilen fiyat kesin mi?",
     faqFiveA:
-      "Evet. Havalimanı ücretleri, otopark, bekleme süresi ve vergiler dahildir. Gizli ücret yoktur.",
+      "Evet. Rezervasyonda gördüğünüz tutar, yolculuğun başında şoförünüze nakit ödeyeceğiniz tutardır: araç başına; tüm havalimanı ücretleri, otopark ve inişten sonraki ilk 90 dakikalık bekleme dahil. Gizli ücret yoktur.",
     contactEyebrow: "Yolculuğunuz burada başlar",
     contactTitle: "Antalya'ya ayrıcalıklı<br />bir şekilde varın.",
     contactBody:

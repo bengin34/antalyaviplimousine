@@ -2,6 +2,7 @@ import { lazy, Suspense, useEffect, useRef, useState } from "react";
 const ReactPlayer = lazy(() => import("react-player"));
 import { publicRouteSlugs, routeCatalog } from "../../../src/routes.js";
 import { LineBreakText, useLanguage } from "../i18n";
+import { homeFaqOrder } from "../lib/faq";
 import { BookingForm } from "./BookingForm";
 import { Header } from "./Header";
 import { Icon } from "./Icon";
@@ -305,13 +306,10 @@ export function HomePage({ initialLanguage }: { initialLanguage: string }) {
       (index) => (index + direction + fleetPhotos.length) % fleetPhotos.length,
     );
 
-  const faqItems = Array.from({ length: 5 }, (_, index) => {
-    const number = ["One", "Two", "Three", "Four", "Five"][index];
-    return [
-      t(`faq${number}Q`, "Frequently asked question"),
-      t(`faq${number}A`, "Contact us for complete details."),
-    ];
-  });
+  const faqItems = homeFaqOrder.map((number) => [
+    t(`faq${number}Q`, "Frequently asked question"),
+    t(`faq${number}A`, "Contact us for complete details."),
+  ]);
 
 
   useEffect(() => {
