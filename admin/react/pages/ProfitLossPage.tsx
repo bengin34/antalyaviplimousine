@@ -340,6 +340,10 @@ function TravelHistorySection({ metrics, period, bookings, navigate, onSaveDista
             : isUnresolved
               ? 'Araç maliyeti hesaplanamadı · tek yön KM bekleniyor'
               : `Araç maliyeti: ${formatTry(leg.vehicleCostTry ?? 0)} · Tek yön ${formatNumber(leg.oneWayKm ?? 0, 1)} km`
+        // Sefer bazlı net kâr = gelir − araç − tedarikçi − karşılama. Reklam
+        // aylık toplu gider olduğu için sefere yansıtılmaz (kâr/zarar özetinde ayrı gösterilir).
+        const netProfitTry = (leg.revenueTry ?? 0) - (leg.vehicleCostTry ?? 0) - (leg.supplierCostTry ?? 0) - (leg.airportMeetCostTry ?? 0)
+        const netProfitEur = leg.eurTryRate ? netProfitTry / leg.eurTryRate : (leg.revenueEur ?? 0)
         return <li className="profit-trip-history-row" key={`${leg.bookingId}:${leg.leg}`}>
           <div className="profit-trip-history-main">
             <div className="profit-trip-history-top">
@@ -347,6 +351,9 @@ function TravelHistorySection({ metrics, period, bookings, navigate, onSaveDista
               <span>{leg.leg === 'return' ? 'Dönüş' : isDailyChauffeur ? 'Günlük hizmet' : 'Gidiş'} · {fmtDetailDate(leg.date)}</span>
             </div>
             <div className="profit-trip-history-route">{profitLocationLabel(leg.from)} → {profitLocationLabel(leg.to)}</div>
+            {!isUnresolved && <div className={`profit-trip-history-net ${netProfitTry < 0 ? 'is-negative' : 'is-positive'}`}>
+              <span>Net kâr</span><strong>{formatTry(netProfitTry)}</strong><em>{formatEuro(netProfitEur)}</em>
+            </div>}
             <div className="profit-trip-history-meta">
               <span>Gelir: {formatEuro(leg.revenueEur ?? 0)}</span>
               {booking && !isDailyChauffeur && <span>{currentMode === 'sold_transfer' ? 'Maliyet modeli: Satılan transfer' : 'Maliyet modeli: Kendi aracımız'}</span>}
@@ -453,6 +460,38 @@ export default function ProfitLossPage({ navigate, initialPeriod }: { navigate: 
     [bookings, period, settings, today, ratesByDate],
   )
   const saveSetting = (month: string, value: any) => setSettings(current => new Map(current).set(month, value))
+  const saveDistance = async (leg: any, distanceKm: number) => {
+    const column = leg.leg === 'return' ? 'manual_return_distance_km' : 'manual_outbound_distance_km'
+    const payload = { [column]: distanceKm }
+    const { data, error: saveError } = await supabase.from('bookings')
+      .update(payload)
+      .eq('id', leg.bookingId)
+      .select(`id, ${column}`).single()
+    if (saveError || !data) throw saveError ?? new Error('KM kaydı dönmedi')
+    const savedDistance = Number((data as Record<string, unknown>)[column])
+    setBookings(current => current.map(booking => booking.id === leg.bookingId ? { ...booking, [column]: savedDistance } : booking))
+    setStatus(`${leg.bookingRef || 'Seyahat'} için tek yön ${formatNumber(savedDistance, 2)} km kaydedildi · Hesap güncellendi`)
+  }
+  const saveSupplierCost = async (booking: Booking, totalCostTry: number) => {
+    const { data, error: saveError } = await supabase.from('bookings')
+      .update({ sold_transfer_cost_try: totalCostTry })
+      .eq('id', booking.id)
+      .select('id, sold_transfer_cost_try').single()
+    if (saveError || !data) throw saveError ?? new Error('Maliyet kaydı dönmedi')
+    const savedCost = Number((data as Record<string, unknown>).sold_transfer_cost_try)
+    setBookings(current => current.map(item => item.id === booking.id ? { ...item, sold_transfer_cost_try: savedCost } : item))
+    setStatus(`${booking.booking_ref || 'Seyahat'} için toplam tedarikçi maliyeti ${formatTry(savedCost)} olarak kaydedildi · Hesap güncellendi`)
+  }
+  const saveCostMode = async (booking: Booking, nextMode: Booking['service_cost_mode']) => {
+    const { data, error: saveError } = await supabase.from('bookings')
+      .update({ service_cost_mode: nextMode })
+      .eq('id', booking.id)
+      .select('id, service_cost_mode').single()
+    if (saveError || !data) throw saveError ?? new Error('Maliyet modeli kaydı dönmedi')
+    const savedMode = (data as Record<string, unknown>).service_cost_mode as Booking['service_cost_mode']
+    setBookings(current => current.map(item => item.id === booking.id ? { ...item, service_cost_mode: savedMode } : item))
+    setStatus(`${booking.booking_ref || 'Seyahat'} için maliyet modeli ${savedMode === 'sold_transfer' ? 'satılan transfer' : 'kendi aracımız'} olarak kaydedildi · Hesap güncellendi`)
+  }
   const saveShareSettings = async (input: SaveProfitShareSettingsInput) => {
     try {
       const saved = await saveProfitShareSettings(input)
@@ -487,7 +526,7 @@ export default function ProfitLossPage({ navigate, initialPeriod }: { navigate: 
     <div className="budget-toolbar profit-toolbar"><div className="budget-periods" role="group" aria-label="Kâr zarar dönemi">{[...months, 'all'].map(value => <button type="button" key={value} className={period === value ? 'active' : ''} onClick={() => setPeriod(value)}>{value === 'all' ? 'Tümü' : monthLabel(value, { short: true })}</button>)}</div>{ratesLoading && <span className="rates-loading-hint">Kurlar yükleniyor…</span>}<button className="sync-button" type="button" aria-label="Kâr zarar verilerini yenile" disabled={loading} onClick={() => void refresh()}>↻</button></div>
     <div className="budget-update-status">{status}</div>
     <main className="scroll-area budget-content profit-content">
-      {error ? <div className="empty"><div className="empty-icon">₺</div><div>Kâr/zarar verileri yüklenemedi.</div></div> : loading && !bookings.length ? <><div className="empty"><div>Ayarlar yükleniyor…</div></div><div className="empty"><div>Hesaplanıyor…</div></div></> : <><ProfitHero metrics={metrics} period={period} /><ProfitDistributionSection today={distributionToday} bookings={bookings} settingsByMonth={settings} shareSettings={shareSettings} distributions={distributions} loading={distributionLoading} error={distributionError} onRetry={() => void refreshDistributionLedger()} onSaveSettings={saveShareSettings} onCreateDistribution={confirmDistribution} navigate={navigate} /><ProfitMetrics metrics={metrics} period={period} navigate={navigate} /><ExpandableSection title="Hesaplama ayarları" detail={period === 'all' ? 'Aylık değerler uygulanıyor' : monthLabel(period)}>{period === 'all' ? <p className="profit-panel-note">Tümü görünümünde her ayın KM maliyeti, reklam gideri ve EUR/TL kuru ayrı ayrı kullanılır.</p> : <SettingsForm key={period} period={period} settings={settings} onSaved={saveSetting} />}</ExpandableSection></>}
+      {error ? <div className="empty"><div className="empty-icon">₺</div><div>Kâr/zarar verileri yüklenemedi.</div></div> : loading && !bookings.length ? <><div className="empty"><div>Ayarlar yükleniyor…</div></div><div className="empty"><div>Hesaplanıyor…</div></div></> : <><ProfitHero metrics={metrics} period={period} /><ProfitDistributionSection today={distributionToday} bookings={bookings} settingsByMonth={settings} shareSettings={shareSettings} distributions={distributions} loading={distributionLoading} error={distributionError} onRetry={() => void refreshDistributionLedger()} onSaveSettings={saveShareSettings} onCreateDistribution={confirmDistribution} navigate={navigate} /><ProfitMetrics metrics={metrics} period={period} navigate={navigate} /><TravelHistorySection metrics={metrics} period={period} bookings={bookings} navigate={navigate} onSaveDistance={saveDistance} onSaveSupplierCost={saveSupplierCost} onSaveCostMode={saveCostMode} /><ExpandableSection title="Hesaplama ayarları" detail={period === 'all' ? 'Aylık değerler uygulanıyor' : monthLabel(period)}>{period === 'all' ? <p className="profit-panel-note">Tümü görünümünde her ayın KM maliyeti, reklam gideri ve EUR/TL kuru ayrı ayrı kullanılır.</p> : <SettingsForm key={period} period={period} settings={settings} onSaved={saveSetting} />}</ExpandableSection></>}
     </main>
   </>
 }

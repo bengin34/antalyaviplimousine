@@ -130,7 +130,7 @@ const translations = {
     television: "Fernseher im Fahrzeug",
     coldDrinks: "Kalte Getränke",
     snacks: "Snacks",
-    nameSignGreeting: "Empfang mit persönlichem Namensschild",
+    nameSignGreeting: "Persönlicher Empfang bei der Ankunft",
     reserveVehicle: "Fahrzeug reservieren",
     insideVclass: "Im Sprinter Interieur",
     interiorTitle: "Eine private Lounge zwischen<br />Flughafen und Hotel.",
@@ -183,7 +183,7 @@ const translations = {
     faqTwoQ:
       "Ich komme mit einem internationalen Flug an. Wie läuft die Abholung ab?",
     faqTwoA:
-      "Nach Passkontrolle und Gepäckausgabe folgen Sie den übrigen Passagieren in den Meet & Greet Bereich und kommen zu unserem Schalter J / 777. Nennen Sie unseren Mitarbeitern einfach Ihren Namen – in ruhigen Zeiten sehen Sie zusätzlich Ihr persönliches Namensschild, in Stoßzeiten genügt Ihr Name. Unser Team informiert sofort Ihren Chauffeur; er fährt in den Flughafen ein und steht am Abholpunkt bereit, während unser Mitarbeiter Sie zum Fahrzeug begleitet. Der gesamte Ablauf dauert etwa 7–8 Minuten.",
+      "Nach Passkontrolle und Gepäckausgabe folgen Sie den übrigen Passagieren in den Meet & Greet Bereich und kommen zu unserem Schalter J / 777. Nennen Sie unseren Mitarbeitern einfach Ihren Namen – das genügt. Unser Team informiert sofort Ihren Chauffeur; er fährt in den Flughafen ein und steht am Abholpunkt bereit, während unser Mitarbeiter Sie zum Fahrzeug begleitet. Der gesamte Ablauf dauert etwa 7–8 Minuten.",
     faqSixQ:
       "Ich komme mit einem Inlandsflug an. Wo finde ich meinen Chauffeur?",
     faqSixA:
@@ -355,7 +355,7 @@ const translations = {
     television: "Araç içi televizyon",
     coldDrinks: "Soğuk içecekler",
     snacks: "Atıştırmalıklar",
-    nameSignGreeting: "İsminize özel tabela ile karşılama",
+    nameSignGreeting: "Gelişte kişisel karşılama",
     reserveVehicle: "Bu aracı ayırtın",
     insideVclass: "Sprinter'ın içinde",
     interiorTitle:
@@ -372,7 +372,7 @@ const translations = {
       "Bakımlı, gizliliğe önem veren ve yerel bilgisi ile hizmet kalitesi için seçilmiş profesyoneller.",
     greetTitle: "Karşılama hizmeti",
     greetBody:
-      "Şoförünüz sizi gelen yolcu salonunda isminizin yazılı olduğu tabela ile karşılar ve bagajınıza yardımcı olur.",
+      "Şoförünüz sizi gelen yolcu salonunda karşılar ve bagajınıza yardımcı olur.",
     supportTitle: "7/24 concierge",
     supportBody:
       "Yolculuğunuzdan önce, yolculuk sırasında ve sonrasında telefon veya WhatsApp üzerinden gerçek bir kişiye ulaşabilirsiniz.",
@@ -408,7 +408,7 @@ const translations = {
       "Sizin yapmanız gereken hiçbir şey yok. Uçuşunuzu canlı takip eder, alış saatinizi otomatik olarak güncelleriz. Uçuş kaynaklı gecikmeler için hiçbir ek ücret alınmaz; ne zaman inerseniz inin şoförünüz sizi bekliyor olur ve inişten sonraki ilk 90 dakika her zaman fiyata dahildir.",
     faqTwoQ: "Dış hat uçuşuyla geliyorum, karşılama nasıl işliyor?",
     faqTwoA:
-      "Pasaport kontrolü ve bagajınızı aldıktan sonra tüm yolcuların yöneldiği Karşılama (Meet & Greet) alanına ilerleyin ve J / 777 numaralı kontuarımıza gelin. Personelimize adınızı söylemeniz yeterli; sakin saatlerde isim tabelanızı da görürsünüz, yoğun saatlerde adınızı iletmeniz işinizi görür. Personelimiz aynı anda şoförünüzü bilgilendirir; şoförünüz havalimanına giriş yapıp karşılama noktasındaki yerini alır, siz de personelimiz eşliğinde aracınıza ilerlersiniz. Tüm süreç ortalama 7-8 dakika sürer.",
+      "Pasaport kontrolü ve bagajınızı aldıktan sonra tüm yolcuların yöneldiği Karşılama (Meet & Greet) alanına ilerleyin ve J / 777 numaralı kontuarımıza gelin. Personelimize adınızı söylemeniz yeterli. Personelimiz aynı anda şoförünüzü bilgilendirir; şoförünüz havalimanına giriş yapıp karşılama noktasındaki yerini alır, siz de personelimiz eşliğinde aracınıza ilerlersiniz. Tüm süreç ortalama 7-8 dakika sürer.",
     faqSixQ: "Yurt içi uçuşla geliyorum, şoförümü nasıl bulacağım?",
     faqSixA:
       "Karşılama (Meet & Greet) alanı yalnızca dış hat yolcuları içindir; iç hatlarda böyle bir alan bulunmaz. Bu nedenle iç hat misafirlerimize transferden önce şoförlerinin telefon numarasını iletiriz. İndiğinizde kendisine kısaca haber vermeniz yeterli; şoförünüz sizi yolcu karşılama bölümünden alır.",
@@ -578,7 +578,7 @@ const translations = {
     television: "Телевизор в автомобиле",
     coldDrinks: "Холодные напитки",
     snacks: "Закуски",
-    nameSignGreeting: "Встреча с именной табличкой",
+    nameSignGreeting: "Личная встреча в зале прилёта",
     reserveVehicle: "Забронировать автомобиль",
     insideVclass: "Салон Sprinter",
     interiorTitle: "Персональный лаунж<br />между аэропортом и отелем.",
@@ -594,7 +594,7 @@ const translations = {
       "Безупречный внешний вид, деликатность, знание региона и высокие стандарты обслуживания.",
     greetTitle: "Встреча в аэропорту",
     greetBody:
-      "Шофёр встретит вас в зале прилёта с именной табличкой и поможет с багажом.",
+      "Шофёр встретит вас в зале прилёта и поможет с багажом.",
     supportTitle: "Консьерж 24/7",
     supportBody:
       "До, во время и после поездки вам всегда ответит человек по телефону или в WhatsApp.",
@@ -629,7 +629,7 @@ const translations = {
       "От вас ничего не требуется. Мы отслеживаем ваш рейс в режиме реального времени и автоматически корректируем время подачи автомобиля. Задержки по вине авиакомпании никогда не оплачиваются дополнительно — водитель встретит вас в любое время прилёта, а первые 90 минут после посадки всегда включены в стоимость.",
     faqTwoQ: "Я прилетаю международным рейсом. Как проходит встреча?",
     faqTwoA:
-      "После паспортного контроля и получения багажа следуйте вместе с другими пассажирами в зону встречи Meet & Greet и подойдите к нашей стойке J / 777. Просто назовите сотруднику своё имя — в спокойные часы вы также увидите именную табличку, а в часы пик достаточно назвать имя. Наша команда сразу сообщает водителю; он въезжает на территорию аэропорта и подаёт машину к месту посадки, а сотрудник в это время провожает вас к автомобилю. Вся процедура занимает около 7–8 минут.",
+      "После паспортного контроля и получения багажа следуйте вместе с другими пассажирами в зону встречи Meet & Greet и подойдите к нашей стойке J / 777. Просто назовите сотруднику своё имя — этого достаточно. Наша команда сразу сообщает водителю; он въезжает на территорию аэропорта и подаёт машину к месту посадки, а сотрудник в это время провожает вас к автомобилю. Вся процедура занимает около 7–8 минут.",
     faqSixQ: "Я прилетаю внутренним рейсом. Где найти водителя?",
     faqSixA:
       "Зона встречи Meet & Greet работает только для международных рейсов, поэтому гостей внутренних рейсов мы сопровождаем иначе: перед трансфером мы присылаем вам номер телефона водителя. После посадки просто сообщите ему об этом — он встретит вас в зале прилёта.",
@@ -792,7 +792,7 @@ const translations = {
     snacks: "Občerstvení",
     childSeats: "Dětská sedačka k dispozici",
     wifi: "Bezplatné WiFi",
-    nameSignGreeting: "Uvítání s personalizovanou jmenovkou",
+    nameSignGreeting: "Osobní uvítání při příletu",
     reserveVehicle: "Rezervovat vozidlo",
     insideVclass: "Interiér Sprinteru",
     interiorTitle: "Soukromý salon mezi<br />letištěm a vaším hotelem.",
@@ -808,7 +808,7 @@ const translations = {
       "Bezchybně upravení, diskrétní a vybíraní pro místní znalosti a standardy služeb.",
     greetTitle: "Uvítání",
     greetBody:
-      "Váš šofér vás přivítá v příletové hale s personalizovanou jmenovkou a pomůže se zavazadly.",
+      "Váš šofér vás přivítá v příletové hale a pomůže se zavazadly.",
     supportTitle: "Recepce 24/7",
     supportBody:
       "Skutečná osoba je vždy dostupná telefonicky nebo přes WhatsApp před, během a po cestě.",
@@ -839,7 +839,7 @@ const translations = {
       "Nemusíte dělat vůbec nic. Váš let sledujeme v reálném čase a čas vyzvednutí upravíme automaticky. Zpoždění způsobená leteckou společností nikdy neúčtujeme – řidič na vás počká, ať přistanete kdykoli, a prvních 90 minut po přistání je vždy v ceně.",
     faqTwoQ: "Přilétám mezinárodním letem. Jak vyzvednutí probíhá?",
     faqTwoA:
-      "Po pasové kontrole a výdeji zavazadel se vydejte s ostatními cestujícími do zóny Meet & Greet a přijďte k naší přepážce J / 777. Stačí říct našemu pracovníkovi své jméno – v klidnějších časech uvidíte i osobní jmenovku, ve špičce postačí jméno sdělit. Náš tým okamžitě informuje řidiče; ten vjede na letiště a přistaví vůz na místo pro vyzvednutí, zatímco vás náš pracovník doprovodí k autu. Celý proces trvá přibližně 7–8 minut.",
+      "Po pasové kontrole a výdeji zavazadel se vydejte s ostatními cestujícími do zóny Meet & Greet a přijďte k naší přepážce J / 777. Stačí říct našemu pracovníkovi své jméno. Náš tým okamžitě informuje řidiče; ten vjede na letiště a přistaví vůz na místo pro vyzvednutí, zatímco vás náš pracovník doprovodí k autu. Celý proces trvá přibližně 7–8 minut.",
     faqSixQ: "Přilétám vnitrostátním letem. Kde najdu svého řidiče?",
     faqSixA:
       "Zóna Meet & Greet slouží pouze mezinárodním příletům, proto se o hosty z vnitrostátních letů staráme jinak: před transferem vám pošleme telefonní číslo řidiče. Po přistání mu stačí dát vědět a vyzvedne vás v příletové hale.",
@@ -1040,7 +1040,7 @@ const translations = {
     television: "Telewizor w pojeździe",
     coldDrinks: "Zimne napoje",
     snacks: "Przekąski",
-    nameSignGreeting: "Powitanie z tabliczką z imieniem",
+    nameSignGreeting: "Osobiste powitanie po przylocie",
     reserveVehicle: "Zarezerwuj pojazd",
     insideVclass: "Wnętrze Sprinter",
     interiorTitle: "Prywatny salon<br />między lotniskiem a hotelem.",
@@ -1056,7 +1056,7 @@ const translations = {
       "Zawsze zadbani, dyskretni, wybrani za znajomość terenu i najwyższe standardy obsługi.",
     greetTitle: "Meet & Greet",
     greetBody:
-      "Szofer wita Cię w hali przylotów z tabliczką z Twoim imieniem i pomaga z bagażem.",
+      "Szofer wita Cię w hali przylotów i pomaga z bagażem.",
     supportTitle: "Concierge 24/7",
     supportBody:
       "Przed, w trakcie i po podróży zawsze możesz skontaktować się z nami telefonicznie lub przez WhatsApp.",
@@ -1092,7 +1092,7 @@ const translations = {
       "Nie musisz nic robić. Śledzimy Twój lot na bieżąco i automatycznie dostosowujemy godzinę odbioru. Za opóźnienia linii lotniczych nigdy nie pobieramy dopłat – kierowca czeka bez względu na godzinę lądowania, a pierwsze 90 minut po wylądowaniu zawsze jest wliczone w cenę.",
     faqTwoQ: "Przylatuję lotem międzynarodowym. Jak wygląda odbiór?",
     faqTwoA:
-      "Po kontroli paszportowej i odbiorze bagażu udaj się razem z innymi pasażerami do strefy Meet & Greet i podejdź do naszego stanowiska J / 777. Wystarczy podać naszemu pracownikowi swoje nazwisko – w spokojniejszych godzinach zobaczysz również imienną tabliczkę, a w szczycie wystarczy samo nazwisko. Nasz zespół natychmiast powiadamia kierowcę; wjeżdża on na teren lotniska i podjeżdża w miejsce odbioru, a nasz pracownik odprowadza Cię do samochodu. Cały proces trwa około 7–8 minut.",
+      "Po kontroli paszportowej i odbiorze bagażu udaj się razem z innymi pasażerami do strefy Meet & Greet i podejdź do naszego stanowiska J / 777. Wystarczy podać naszemu pracownikowi swoje nazwisko. Nasz zespół natychmiast powiadamia kierowcę; wjeżdża on na teren lotniska i podjeżdża w miejsce odbioru, a nasz pracownik odprowadza Cię do samochodu. Cały proces trwa około 7–8 minut.",
     faqSixQ: "Przylatuję lotem krajowym. Gdzie znajdę kierowcę?",
     faqSixA:
       "Strefa Meet & Greet obsługuje wyłącznie przyloty międzynarodowe, dlatego gośćmi lotów krajowych zajmujemy się inaczej: przed transferem wysyłamy Ci numer telefonu kierowcy. Po wylądowaniu wystarczy dać mu znać – odbierze Cię w hali przylotów.",
@@ -1240,7 +1240,7 @@ const translations = {
     television: "Televisie in het voertuig",
     coldDrinks: "Koude dranken",
     snacks: "Snacks",
-    nameSignGreeting: "Ontvangst met persoonlijk naambordje",
+    nameSignGreeting: "Persoonlijke ontvangst bij aankomst",
     reserveVehicle: "Voertuig reserveren",
     insideVclass: "In het Sprinter interieur",
     interiorTitle: "Een privélounge<br />tussen luchthaven en hotel.",
@@ -1256,7 +1256,7 @@ const translations = {
       "Altijd verzorgd, discreet en geselecteerd op lokale kennis en hoogste servicestandaard.",
     greetTitle: "Meet & Greet",
     greetBody:
-      "Uw chauffeur verwelkomt u in de aankomsthal met een naambordje en helpt met uw bagage.",
+      "Uw chauffeur verwelkomt u in de aankomsthal en helpt met uw bagage.",
     supportTitle: "24/7 Conciërge",
     supportBody:
       "Voor, tijdens en na uw reis is er altijd iemand bereikbaar per telefoon of WhatsApp.",
@@ -1293,7 +1293,7 @@ const translations = {
     faqTwoQ:
       "Ik kom aan met een internationale vlucht. Hoe verloopt de ontvangst?",
     faqTwoA:
-      "Loop na de paspoortcontrole en bagageafhandeling met de andere passagiers mee naar de Meet & Greet-zone en kom naar onze balie J / 777. Geef onze medewerker eenvoudig uw naam door – op rustige momenten ziet u ook uw persoonlijke naambordje, tijdens drukke uren volstaat uw naam. Ons team waarschuwt meteen uw chauffeur; hij rijdt het luchthaventerrein op en staat klaar op het ophaalpunt, terwijl onze medewerker u naar de auto begeleidt. Het hele proces duurt ongeveer 7–8 minuten.",
+      "Loop na de paspoortcontrole en bagageafhandeling met de andere passagiers mee naar de Meet & Greet-zone en kom naar onze balie J / 777. Geef onze medewerker eenvoudig uw naam door – dat volstaat. Ons team waarschuwt meteen uw chauffeur; hij rijdt het luchthaventerrein op en staat klaar op het ophaalpunt, terwijl onze medewerker u naar de auto begeleidt. Het hele proces duurt ongeveer 7–8 minuten.",
     faqSixQ:
       "Ik kom aan met een binnenlandse vlucht. Waar vind ik mijn chauffeur?",
     faqSixA:
@@ -1443,7 +1443,7 @@ const translations = {
     television: "Телевізор в автомобілі",
     coldDrinks: "Холодні напої",
     snacks: "Закуски",
-    nameSignGreeting: "Зустріч з іменною табличкою",
+    nameSignGreeting: "Особиста зустріч у залі прильоту",
     reserveVehicle: "Забронювати автомобіль",
     insideVclass: "Салон Sprinter",
     interiorTitle: "Приватний лаунж<br />між аеропортом і готелем.",
@@ -1459,7 +1459,7 @@ const translations = {
       "Завжди бездоганний вигляд, делікатність, знання регіону та найвищі стандарти обслуговування.",
     greetTitle: "Зустріч в аеропорту",
     greetBody:
-      "Шофер зустріне вас у залі прильоту з табличкою з вашим ім'ям та допоможе з багажем.",
+      "Шофер зустріне вас у залі прильоту та допоможе з багажем.",
     supportTitle: "Консьєрж 24/7",
     supportBody:
       "До, під час і після поїздки вам завжди відповість людина по телефону або в WhatsApp.",
@@ -1495,7 +1495,7 @@ const translations = {
       "Від вас нічого не потрібно. Ми стежимо за вашим рейсом у реальному часі й автоматично коригуємо час подачі автомобіля. За затримки авіакомпанії ми ніколи не беремо доплат — водій зустріне вас о будь-якій годині, а перші 90 хвилин після посадки завжди включені у вартість.",
     faqTwoQ: "Я прилітаю міжнародним рейсом. Як відбувається зустріч?",
     faqTwoA:
-      "Після паспортного контролю та отримання багажу прямуйте разом з іншими пасажирами до зони зустрічі Meet & Greet і підійдіть до нашої стійки J / 777. Достатньо назвати нашому працівникові своє ім'я — у спокійні години ви також побачите іменну табличку, а в години пік вистачить просто назвати ім'я. Наша команда одразу повідомляє водія; він в'їжджає на територію аеропорту та подає автомобіль до місця посадки, а працівник тим часом проводжає вас до авто. Уся процедура триває близько 7–8 хвилин.",
+      "Після паспортного контролю та отримання багажу прямуйте разом з іншими пасажирами до зони зустрічі Meet & Greet і підійдіть до нашої стійки J / 777. Достатньо назвати нашому працівникові своє ім'я. Наша команда одразу повідомляє водія; він в'їжджає на територію аеропорту та подає автомобіль до місця посадки, а працівник тим часом проводжає вас до авто. Уся процедура триває близько 7–8 хвилин.",
     faqSixQ: "Я прилітаю внутрішнім рейсом. Де знайти водія?",
     faqSixA:
       "Зона Meet & Greet працює лише для міжнародних прильотів, тому гостей внутрішніх рейсів ми супроводжуємо інакше: перед трансфером надсилаємо вам номер телефону водія. Після посадки просто повідомте йому — він зустріне вас у залі прильотів.",
@@ -1657,7 +1657,7 @@ const translations = {
     snacks: "اسنیکس",
     childSeats: "بچوں کی نشست دستیاب",
     wifi: "مجانی WiFi",
-    nameSignGreeting: "ذاتی نام کی تختی کے ساتھ میٹ اینڈ گریٹ",
+    nameSignGreeting: "آمد پر ذاتی استقبال",
     reserveVehicle: "یہ گاڑی بک کریں",
     insideVclass: "اسپرنٹر کے اندر",
     interiorTitle: "ایئرپورٹ اور آپ کے ہوٹل کے<br />درمیان ایک نجی لاؤنج۔",
@@ -1673,7 +1673,7 @@ const translations = {
       "بے داغ پیش کردہ، سمجھدار اور اپنی مقامی معلومات اور سروس معیارات کے لیے منتخب۔",
     greetTitle: "میٹ اینڈ گریٹ",
     greetBody:
-      "آپ کا شوفر آمد پر ذاتی نام کی تختی کے ساتھ آپ کا استقبال کرے گا اور سامان میں مدد کرے گا۔",
+      "آپ کا شوفر آمد پر آپ کا استقبال کرے گا اور سامان میں مدد کرے گا۔",
     supportTitle: "24/7 کنسیرج",
     supportBody:
       "آپ کے سفر سے پہلے، دوران اور بعد میں ایک حقیقی شخص فون یا واٹس ایپ پر ہمیشہ دستیاب ہے۔",
@@ -1944,7 +1944,7 @@ const translations = {
     television: "Télévision à bord",
     coldDrinks: "Boissons fraîches",
     snacks: "En-cas",
-    nameSignGreeting: "Accueil avec pancarte nominative",
+    nameSignGreeting: "Accueil personnalisé à l'arrivée",
     reserveVehicle: "Réserver ce véhicule",
     insideVclass: "Intérieur Sprinter",
     interiorTitle: "Un salon privé<br />entre l'aéroport et l'hôtel.",
@@ -2147,7 +2147,7 @@ const translations = {
     television: "TV i fordonet",
     coldDrinks: "Kalla drycker",
     snacks: "Snacks",
-    nameSignGreeting: "Välkomnande med personlig namnskylt",
+    nameSignGreeting: "Personligt välkomnande vid ankomst",
     reserveVehicle: "Boka fordon",
     insideVclass: "Sprinter interiör",
     interiorTitle: "En privat lounge<br />mellan flygplatsen och hotellet.",
@@ -2163,7 +2163,7 @@ const translations = {
       "Alltid välvårdade, diskreta och utvalda för lokal kunskap och högsta servicestandard.",
     greetTitle: "Meet & Greet",
     greetBody:
-      "Din chaufför välkomnar dig i ankomsthallen med en skylt med ditt namn och hjälper med bagaget.",
+      "Din chaufför välkomnar dig i ankomsthallen och hjälper med bagaget.",
     supportTitle: "Concierge 24/7",
     supportBody:
       "Före, under och efter din resa finns alltid någon tillgänglig per telefon eller WhatsApp.",
@@ -2199,7 +2199,7 @@ const translations = {
       "Du behöver inte göra något. Vi följer ditt flyg i realtid och justerar upphämtningstiden automatiskt. Förseningar som beror på flygbolaget debiteras aldrig – din chaufför är på plats oavsett när du landar, och de första 90 minuterna efter landning ingår alltid.",
     faqTwoQ: "Jag kommer med ett utrikesflyg. Hur går upphämtningen till?",
     faqTwoA:
-      "Efter passkontroll och bagageutlämning följer du med övriga passagerare till Meet & Greet-området och kommer till vår disk J / 777. Det räcker att du uppger ditt namn för vår personal – under lugnare tider ser du även din personliga namnskylt, och under rusningstid räcker namnet. Vårt team meddelar din chaufför direkt; han kör in på flygplatsen och står vid upphämtningsplatsen medan vår personal följer dig till bilen. Hela processen tar ungefär 7–8 minuter.",
+      "Efter passkontroll och bagageutlämning följer du med övriga passagerare till Meet & Greet-området och kommer till vår disk J / 777. Det räcker att du uppger ditt namn för vår personal. Vårt team meddelar din chaufför direkt; han kör in på flygplatsen och står vid upphämtningsplatsen medan vår personal följer dig till bilen. Hela processen tar ungefär 7–8 minuter.",
     faqSixQ: "Jag kommer med ett inrikesflyg. Var hittar jag min chaufför?",
     faqSixA:
       "Meet & Greet-området är endast till för utrikes ankomster, så gäster på inrikesflyg tas emot på ett annat sätt: vi skickar dig chaufförens telefonnummer före transfern. Hör bara av dig till honom när du landat – han möter dig i ankomsthallen.",
@@ -2348,7 +2348,7 @@ const translations = {
     television: "車内テレビ",
     coldDrinks: "冷たいお飲み物",
     snacks: "スナック",
-    nameSignGreeting: "お名前ボードでのお出迎え",
+    nameSignGreeting: "到着ロビーでのお出迎え",
     reserveVehicle: "この車両を予約する",
     insideVclass: "Sprinterインテリア",
     interiorTitle: "空港とホテルの間の<br />プライベートラウンジ。",
@@ -2364,7 +2364,7 @@ const translations = {
       "常に清潔感があり、思いやりがあり、地元知識と最高のサービス基準のために厳選されています。",
     greetTitle: "ミート＆グリート",
     greetBody:
-      "ショーファーはお名前のボードを持って到着ロビーでお出迎えし、お荷物をお手伝いします。",
+      "ショーファーが到着ロビーでお出迎えし、お荷物をお手伝いします。",
     supportTitle: "24/7コンシェルジュ",
     supportBody:
       "旅の前・中・後、いつでも電話またはWhatsAppでご対応いたします。",
@@ -2400,7 +2400,7 @@ const translations = {
       "お客様に必要な手続きはございません。フライトをリアルタイムで追跡し、お迎え時刻を自動的に調整いたします。航空会社都合の遅延に追加料金は一切かかりません。到着が何時になってもドライバーがお待ちしており、着陸後最初の90分は常に料金に含まれています。",
     faqTwoQ: "国際線で到着します。お迎えの流れを教えてください。",
     faqTwoA:
-      "入国審査と手荷物の受け取りを終えられたら、ほかのお客様と同じくミート＆グリートエリアへお進みいただき、当社カウンター J / 777 へお越しください。スタッフにお名前をお伝えいただくだけで結構です。混雑の少ない時間帯にはお名前を記したボードもご用意しておりますが、混雑時はお名前をお伝えいただければ十分です。スタッフがただちにドライバーへ連絡し、ドライバーは空港に入って乗車地点に車をつけます。その間、スタッフがお客様を車までご案内いたします。所要時間はおよそ7〜8分です。",
+      "入国審査と手荷物の受け取りを終えられたら、ほかのお客様と同じくミート＆グリートエリアへお進みいただき、当社カウンター J / 777 へお越しください。スタッフにお名前をお伝えいただくだけで結構です。スタッフがただちにドライバーへ連絡し、ドライバーは空港に入って乗車地点に車をつけます。その間、スタッフがお客様を車までご案内いたします。所要時間はおよそ7〜8分です。",
     faqSixQ: "国内線で到着します。ドライバーはどこで見つけられますか？",
     faqSixA:
       "ミート＆グリートエリアは国際線到着のお客様専用のため、国内線でお越しのお客様は別のご案内となります。送迎の前にドライバーの電話番号をお送りしますので、到着後に一言ご連絡ください。到着ロビーでお迎えいたします。",
@@ -2546,7 +2546,7 @@ const translations = {
     television: "차량 내 TV",
     coldDrinks: "차가운 음료",
     snacks: "스낵",
-    nameSignGreeting: "이름 팻말을 든 맞춤 영접",
+    nameSignGreeting: "도착 로비에서의 개인 영접",
     reserveVehicle: "이 차량 예약하기",
     insideVclass: "Sprinter 인테리어",
     interiorTitle: "공항과 호텔 사이의<br />프라이빗 라운지.",
@@ -2562,7 +2562,7 @@ const translations = {
       "항상 단정하고 신중하며, 현지 지식과 최고 서비스 기준으로 선별된 전문가들입니다.",
     greetTitle: "미트 앤 그리트",
     greetBody:
-      "쇼퍼가 이름이 적힌 팻말을 들고 도착 로비에서 환영하며 수하물을 도와드립니다.",
+      "쇼퍼가 도착 로비에서 환영하며 수하물을 도와드립니다.",
     supportTitle: "24/7 컨시어지",
     supportBody:
       "여행 전, 중, 후 언제든지 전화 또는 WhatsApp으로 담당자와 연결됩니다.",
@@ -2761,7 +2761,7 @@ const translations = {
     television: "تلفاز داخل السيارة",
     coldDrinks: "مشروبات باردة",
     snacks: "وجبات خفيفة",
-    nameSignGreeting: "استقبال شخصي بلافتة تحمل اسمك",
+    nameSignGreeting: "استقبال شخصي عند الوصول",
     reserveVehicle: "احجز هذه السيارة",
     insideVclass: "مقصورة Sprinter الداخلية",
     interiorTitle: "صالة خاصة بين<br />المطار والفندق.",
@@ -2777,7 +2777,7 @@ const translations = {
       "سائقون أنيقون وكتومون دائماً، تم اختيارهم لمعرفتهم المحلية والتزامهم بأعلى معايير الخدمة.",
     greetTitle: "الاستقبال والترحيب",
     greetBody:
-      "يستقبلك سائقك في صالة الوصول بلافتة تحمل اسمك ويساعدك في حمل الأمتعة.",
+      "يستقبلك سائقك في صالة الوصول ويساعدك في حمل الأمتعة.",
     supportTitle: "كونسيرج 24/7",
     supportBody:
       "قبل رحلتك وأثناءها وبعدها، يمكنك دائماً التواصل مع شخص حقيقي عبر الهاتف أو WhatsApp.",
@@ -2811,7 +2811,7 @@ const translations = {
       "لا يتطلب الأمر منك شيئًا. نتابع رحلتك لحظة بلحظة ونعدّل موعد الاستقبال تلقائيًا. لا نفرض أي رسوم إضافية على التأخيرات الناتجة عن شركة الطيران؛ سائقك في انتظارك مهما كان وقت الهبوط، وأول 90 دقيقة بعد الهبوط مشمولة دائمًا في السعر.",
     faqTwoQ: "سأصل على رحلة دولية. كيف تتم عملية الاستقبال؟",
     faqTwoA:
-      "بعد إنهاء إجراءات الجوازات واستلام الأمتعة، توجّه مع بقية المسافرين إلى منطقة الاستقبال Meet & Greet وتعال إلى مكتبنا رقم J / 777. يكفي أن تذكر اسمك لموظفينا؛ في الأوقات الهادئة ستجد أيضًا لافتة تحمل اسمك، وفي أوقات الذروة يكفي ذكر الاسم. يبلّغ فريقنا سائقك على الفور، فيدخل إلى المطار ويقف في نقطة الاستقبال، بينما يرافقك موظفنا إلى السيارة. تستغرق العملية كاملة نحو 7 إلى 8 دقائق.",
+      "بعد إنهاء إجراءات الجوازات واستلام الأمتعة، توجّه مع بقية المسافرين إلى منطقة الاستقبال Meet & Greet وتعال إلى مكتبنا رقم J / 777. يكفي أن تذكر اسمك لموظفينا. يبلّغ فريقنا سائقك على الفور، فيدخل إلى المطار ويقف في نقطة الاستقبال، بينما يرافقك موظفنا إلى السيارة. تستغرق العملية كاملة نحو 7 إلى 8 دقائق.",
     faqSixQ: "سأصل على رحلة داخلية. أين أجد سائقي؟",
     faqSixA:
       "منطقة الاستقبال Meet & Greet مخصصة للرحلات الدولية فقط، لذلك نتعامل مع ضيوف الرحلات الداخلية بطريقة مختلفة: نرسل إليك رقم هاتف السائق قبل موعد النقل. ما عليك سوى إبلاغه بعد الهبوط، وسيستقبلك في صالة القدوم.",

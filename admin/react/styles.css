@@ -227,6 +227,39 @@ button,
   font-size: 13px;
 }
 
+.profit-trip-history-net {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin: 4px 0 2px;
+}
+
+.profit-trip-history-net span {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--text-muted);
+}
+
+.profit-trip-history-net strong {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.profit-trip-history-net em {
+  font-size: 13px;
+  font-style: normal;
+  color: var(--text-muted);
+}
+
+.profit-trip-history-net.is-positive strong {
+  color: var(--success, #16a34a);
+}
+
+.profit-trip-history-net.is-negative strong {
+  color: var(--danger, #dc2626);
+}
+
 .profit-trip-history-actions {
   align-items: flex-start;
   flex-wrap: wrap;
