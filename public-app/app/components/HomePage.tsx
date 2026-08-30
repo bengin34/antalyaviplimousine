@@ -1,5 +1,5 @@
-import { useEffect, useRef, useState } from "react";
-import ReactPlayer from "react-player";
+import { lazy, Suspense, useEffect, useRef, useState } from "react";
+const ReactPlayer = lazy(() => import("react-player"));
 import { publicRouteSlugs, routeCatalog } from "../../../src/routes.js";
 import { LineBreakText, useLanguage } from "../i18n";
 import { BookingForm } from "./BookingForm";
@@ -1051,13 +1051,15 @@ export function HomePage({ initialLanguage }: { initialLanguage: string }) {
                 >
                   ✕
                 </button>
-                <ReactPlayer
-                  src={`https://www.youtube.com/shorts/${VIDEO_ID}`}
-                  playing
-                  controls
-                  width="100%"
-                  height="100%"
-                />
+                <Suspense fallback={null}>
+                  <ReactPlayer
+                    src={`https://www.youtube.com/shorts/${VIDEO_ID}`}
+                    playing
+                    controls
+                    width="100%"
+                    height="100%"
+                  />
+                </Suspense>
               </div>
             </div>
           )}
@@ -1183,14 +1185,17 @@ export function HomePage({ initialLanguage }: { initialLanguage: string }) {
       <footer>
         <div className="footer-main">
           <a className="brand footer-brand" href="#top">
-            <img
-              src="/assets/optimized/logo.png"
-              alt="Antalya VIP Tourism"
-              className="brand-logo"
-              width="160"
-              height="120"
-              loading="lazy"
-            />
+            <picture>
+              <source srcSet="/assets/optimized/logo.webp" type="image/webp" />
+              <img
+                src="/assets/optimized/logo.png"
+                alt="Antalya VIP Tourism"
+                className="brand-logo"
+                width="160"
+                height="120"
+                loading="lazy"
+              />
+            </picture>
             <span className="brand-copy">
               <strong>Antalya VIP</strong>
               <span>Tourism</span>
