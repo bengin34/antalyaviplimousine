@@ -313,6 +313,9 @@ export function hotelMeta(slug: string) {
   const faq = [
     { "@type": "Question", name: `Wie lange dauert die Fahrt zum ${hotel.name}?`, acceptedAnswer: { "@type": "Answer", text: `Bei normalem Verkehr ungefähr ${route.duration.de}.` } },
     { "@type": "Question", name: "Was kostet der Transfer?", acceptedAnswer: { "@type": "Answer", text: `Der Mercedes Vito kostet ab €${route.prices.vito} pro Fahrzeug.` } },
+    { "@type": "Question", name: "Was passiert bei einer Flugverspätung?", acceptedAnswer: { "@type": "Answer", text: "Wir verfolgen Ihren Flug in Echtzeit und passen die Abholzeit ohne Aufpreis an." } },
+    { "@type": "Question", name: "Wie lange wartet mein Chauffeur am Flughafen?", acceptedAnswer: { "@type": "Answer", text: "Die ersten 90 Minuten nach der Landung sind kostenfrei enthalten, und bei Flugverspätungen verschiebt sich dieses Zeitfenster automatisch." } },
+    { "@type": "Question", name: "Wie bezahle ich den Transfer?", acceptedAnswer: { "@type": "Answer", text: "Bar an Ihren Chauffeur zu Beginn der Fahrt - zum Festpreis aus Ihrer Buchung, pro Fahrzeug." } },
   ];
   return [
     { title }, { name: "description", content: description },
