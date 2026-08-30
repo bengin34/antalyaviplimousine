@@ -219,6 +219,9 @@ const translations = {
     faqFourQ: "Können Golfbags und großes Gepäck transportiert werden?",
     faqFourA:
       "Ja. Sprinter und Vito sind ideal für Golfgruppen. Teilen Sie uns Ihr Gepäck mit und wir planen das passende Fahrzeug.",
+    faqFifteenQ: "Sind Zwischenstopps während der Fahrt möglich?",
+    faqFifteenA:
+      "Selbstverständlich. Möchten Sie an einem Supermarkt oder einer Apotheke halten oder kurz für ein Foto anhalten, sagen Sie es einfach bei der Buchung oder über WhatsApp — wir planen die Route entsprechend. Führt ein Halt deutlich von Ihrer Strecke weg, sagen wir Ihnen vor der Abfahrt, ob etwas hinzukommt; nachträglich überrascht Sie nichts.",
     faqFiveQ: "Ist der angezeigte Preis endgültig?",
     faqFiveA:
       "Ja. Der Preis aus Ihrer Buchung ist der Betrag, den Sie Ihrem Chauffeur bar übergeben – pro Fahrzeug, inklusive aller Flughafengebühren, Parkkosten und der ersten 90 Minuten Wartezeit. Es gibt keine versteckten Kosten.",
@@ -454,6 +457,9 @@ const translations = {
     faqFourQ: "Golf çantası ve büyük bagaj taşıyor musunuz?",
     faqFourA:
       "Evet. Sprinter ve Vito araçlarımız golf grupları için idealdir. Bagaj bilgilerinizi paylaşın, uygun aracı planlayalım.",
+    faqFifteenQ: "Yolculuk sırasında ek durak mümkün mü?",
+    faqFifteenA:
+      "Elbette mümkün. Market, eczane veya kısa bir fotoğraf molası isterseniz rezervasyon sırasında ya da WhatsApp üzerinden belirtmeniz yeterli; güzergâhı buna göre planlarız. Rotanızdan belirgin şekilde sapan uzun bir durak söz konusuysa, ek bir tutar olup olmadığını yola çıkmadan önce net olarak paylaşırız — sonradan eklenen hiçbir kalem olmaz.",
     faqFiveQ: "Verilen fiyat kesin mi?",
     faqFiveA:
       "Evet. Rezervasyonda gördüğünüz tutar, yolculuğun başında şoförünüze nakit ödeyeceğiniz tutardır: araç başına; tüm havalimanı ücretleri, otopark ve inişten sonraki ilk 90 dakikalık bekleme dahil. Gizli ücret yoktur.",
@@ -688,6 +694,9 @@ const translations = {
     faqFourQ: "Можно ли взять сумки для гольфа и крупный багаж?",
     faqFourA:
       "Да. Sprinter и Vito идеально подходят для групп игроков в гольф. Сообщите объём багажа, и мы подберём автомобиль.",
+    faqFifteenQ: "Можно ли сделать остановку в пути?",
+    faqFifteenA:
+      "Конечно. Если хотите заехать в супермаркет или аптеку либо остановиться для фотографии, скажите об этом при бронировании или напишите в WhatsApp — мы спланируем маршрут с учётом остановки. Если остановка заметно уводит в сторону от маршрута, мы до выезда сообщим, добавляется ли что-то к сумме: постфактум сюрпризов не бывает.",
     faqFiveQ: "Указанная цена окончательная?",
     faqFiveA:
       "Да. Цена, которую вы видите при бронировании, — это сумма, которую вы передаёте водителю наличными: за автомобиль, включая все аэропортовые сборы, парковку и первые 90 минут ожидания. Скрытых платежей нет.",
@@ -909,6 +918,9 @@ const translations = {
     faqFourQ: "Přepravíte golfové tašky a velká zavazadla?",
     faqFourA:
       "Ano. Naše vozidla Sprinter a Vito jsou ideální pro golfové skupiny. Sdělte nám detaily o zavazadlech a přidělíme správné vozidlo.",
+    faqFifteenQ: "Je možné se během cesty zastavit?",
+    faqFifteenA:
+      "Samozřejmě. Chcete-li se cestou zastavit v supermarketu či lékárně nebo na chvíli kvůli fotografii, řekněte nám to při rezervaci nebo na WhatsAppu — trasu podle toho naplánujeme. Pokud zastávka vede výrazně mimo trasu, před odjezdem vám řekneme, zda se něco připočítává; dodatečně vás nic nepřekvapí.",
     faqFiveQ: "Je nabízená cena konečná?",
     faqFiveA:
       "Ano. Cena, kterou vidíte při rezervaci, je částka, kterou předáte řidiči v hotovosti – za vozidlo, včetně všech letištních poplatků, parkování a prvních 90 minut čekání. Žádné skryté poplatky.",
@@ -1175,6 +1187,9 @@ const translations = {
     faqFourQ: "Czy można przewieźć torby golfowe i duży bagaż?",
     faqFourA:
       "Tak. Sprinter i Vito są idealne dla grup golfowych. Podaj informacje o bagażu, a zaplanujemy odpowiedni pojazd.",
+    faqFifteenQ: "Czy w trakcie podróży można zrobić dodatkowy postój?",
+    faqFifteenA:
+      "Oczywiście. Jeśli chcesz zatrzymać się przy supermarkecie lub aptece albo na chwilę na zdjęcie, powiedz nam o tym przy rezerwacji lub na WhatsAppie — zaplanujemy trasę z takim postojem. Jeśli postój wyraźnie zbacza z trasy, przed wyjazdem powiemy, czy coś dochodzi do kwoty; nic nie pojawia się później jako niespodzianka.",
     faqFiveQ: "Czy podana cena jest ostateczna?",
     faqFiveA:
       "Tak. Cena, którą widzisz przy rezerwacji, to kwota, którą przekazujesz kierowcy gotówką – za pojazd, ze wszystkimi opłatami lotniskowymi, parkingiem i pierwszymi 90 minutami oczekiwania. Nie ma żadnych ukrytych opłat.",
@@ -1390,6 +1405,9 @@ const translations = {
     faqFourQ: "Kunnen golfbags en groot bagage worden vervoerd?",
     faqFourA:
       "Ja. Sprinter en Vito zijn ideaal voor golfgroepen. Geef uw bagage op en wij plannen het juiste voertuig.",
+    faqFifteenQ: "Is een tussenstop tijdens de rit mogelijk?",
+    faqFifteenA:
+      "Natuurlijk. Wilt u onderweg stoppen bij een supermarkt of apotheek of even voor een foto, laat het ons weten bij het boeken of via WhatsApp — wij plannen de route erop. Leidt een stop ver van uw route af, dan zeggen wij vóór vertrek of er iets bij komt; achteraf verrast u niets.",
     faqFiveQ: "Is de getoonde prijs definitief?",
     faqFiveA:
       "Ja. De prijs die u bij het boeken ziet, is het bedrag dat u contant aan uw chauffeur geeft – per voertuig, inclusief alle luchthavenkosten, parkeren en de eerste 90 minuten wachttijd. Er zijn geen verborgen kosten.",
@@ -1603,6 +1621,9 @@ const translations = {
     faqFourQ: "Чи можна перевезти сумки для гольфу та великий багаж?",
     faqFourA:
       "Так. Sprinter і Vito ідеально підходять для груп гравців у гольф. Повідомте об'єм багажу і ми підберемо автомобіль.",
+    faqFifteenQ: "Чи можна зробити зупинку в дорозі?",
+    faqFifteenA:
+      "Звісно. Якщо хочете заїхати до супермаркету чи аптеки або зупинитися для фото, скажіть про це під час бронювання або напишіть у WhatsApp — ми спланусмо маршрут із урахуванням зупинки. Якщо зупинка суттєво відхиляє від маршруту, перед виїздом повідомимо, чи додається щось до суми: жодних сюрпризів потім.",
     faqFiveQ: "Вказана ціна є остаточною?",
     faqFiveA:
       "Так. Ціна, яку ви бачите під час бронювання, — це сума, яку ви передаєте водієві готівкою: за автомобіль, з усіма аеропортовими зборами, паркуванням і першими 90 хвилинами очікування. Прихованих платежів немає.",
@@ -1825,6 +1846,9 @@ const translations = {
     faqFourQ: "کیا آپ گولف بیگ اور بڑا سامان لے جا سکتے ہیں؟",
     faqFourA:
       "ہاں۔ ہماری اسپرنٹر اور ویٹو گاڑیاں گولف گروپوں کے لیے موزوں ہیں۔ ہمیں اپنے سامان کی تفصیلات بتائیں اور ہم صحیح گاڑی مختص کریں گے۔",
+    faqFifteenQ: "کیا سفر کے دوران اضافی اسٹاپ ممکن ہے؟",
+    faqFifteenA:
+      "بالکل ممکن ہے۔ اگر آپ راستے میں سپر مارکیٹ یا فارمیسی پر رکنا چاہیں یا تصویر کے لیے مختصر وقفہ لینا چاہیں تو بکنگ کے وقت یا WhatsApp پر بتا دیں — ہم راستہ اسی حساب سے ترتیب دیں گے۔ اگر اسٹاپ آپ کے راستے سے نمایاں طور پر دور لے جائے تو روانگی سے پہلے واضح کر دیتے ہیں کہ کوئی اضافی رقم ہوگی یا نہیں؛ بعد میں کچھ بھی شامل نہیں کیا جاتا۔",
     faqFiveQ: "کیا دی گئی قیمت حتمی ہے؟",
     faqFiveA:
       "جی ہاں۔ بکنگ کے وقت نظر آنے والی قیمت ہی وہ رقم ہے جو آپ ڈرائیور کو نقد دیتے ہیں — فی گاڑی، تمام ایئرپورٹ فیس، پارکنگ اور لینڈنگ کے بعد پہلے 90 منٹ کے انتظار سمیت۔ کوئی پوشیدہ چارجز نہیں۔",
@@ -2132,6 +2156,9 @@ const translations = {
       "Pouvez-vous transporter des sacs de golf et des bagages volumineux ?",
     faqFourA:
       "Oui. Le Sprinter et le Vito sont idéaux pour les groupes de golfeurs. Précisez vos bagages et nous planifions le véhicule adapté.",
+    faqFifteenQ: "Puis-je demander un arrêt pendant le trajet ?",
+    faqFifteenA:
+      "Bien sûr. Si vous souhaitez vous arrêter à un supermarché ou à une pharmacie, ou faire une courte pause photo, indiquez-le lors de la réservation ou sur WhatsApp : nous organisons l'itinéraire en conséquence. Si l'arrêt vous éloigne nettement de votre route, nous vous disons avant le départ si un montant s'ajoute ; rien n'apparaît après coup.",
     faqFiveQ: "Le prix affiché est-il définitif ?",
     faqFiveA:
       "Oui. Le prix affiché à la réservation est le montant que vous remettez en espèces à votre chauffeur : par véhicule, tous frais d'aéroport, stationnement et 90 premières minutes d'attente compris. Aucun frais caché.",
@@ -2345,6 +2372,9 @@ const translations = {
     faqFourQ: "Kan golfbagar och stort bagage transporteras?",
     faqFourA:
       "Ja. Sprinter och Vito är idealiska för golfsällskap. Meddela oss om ditt bagage så planerar vi rätt fordon.",
+    faqFifteenQ: "Går det att göra ett stopp under resan?",
+    faqFifteenA:
+      "Självklart. Vill du stanna vid en mataffär eller ett apotek, eller ta en kort fotopaus, säg till vid bokningen eller på WhatsApp — vi planerar rutten efter det. Tar stoppet dig långt från vägen säger vi före avfärd om något tillkommer; inget dyker upp i efterhand.",
     faqFiveQ: "Är det visade priset slutgiltigt?",
     faqFiveA:
       "Ja. Priset du ser vid bokningen är beloppet du lämnar kontant till chauffören – per fordon, inklusive alla flygplatsavgifter, parkering och de första 90 minuternas väntetid. Inga dolda avgifter.",
@@ -2555,6 +2585,9 @@ const translations = {
     faqFourQ: "ゴルフバッグや大きな荷物は運べますか？",
     faqFourA:
       "はい。SprinterとVitoはゴルフグループに最適です。荷物の詳細をお知らせいただければ、適切な車両をご手配します。",
+    faqFifteenQ: "途中で立ち寄りをお願いできますか？",
+    faqFifteenA:
+      "もちろん可能です。スーパーや薬局に立ち寄りたい、途中で写真を撮りたいといったご希望は、ご予約時または WhatsApp でお知らせください。ルートをそれに合わせてご用意します。ルートから大きく外れる立ち寄りの場合は、追加が生じるかどうかをご出発前に明確にお伝えします。後から加算されることはありません。",
     faqFiveQ: "表示された料金は確定ですか？",
     faqFiveA:
       "はい。ご予約時にご覧いただいた金額を、そのままドライバーへ現金でお支払いいただきます。車両単位で、空港諸費用・駐車料金・着陸後90分までの待機時間がすべて含まれ、隠れた費用はありません。",
@@ -2762,6 +2795,9 @@ const translations = {
     faqFourQ: "골프백과 대형 수하물도 운반할 수 있나요?",
     faqFourA:
       "네. Sprinter와 Vito는 골프 그룹에 이상적입니다. 수하물 정보를 알려주시면 적합한 차량을 준비합니다.",
+    faqFifteenQ: "이동 중에 잠시 들를 수 있나요?",
+    faqFifteenA:
+      "물론입니다. 가는 길에 마트나 약국에 들르거나 잠시 사진을 찍고 싶으시면 예약 시 또는 WhatsApp으로 알려 주십시오. 경로를 그에 맞춰 계획해 드립니다. 경로에서 크게 벗어나는 정차라면 추가 금액이 있는지 출발 전에 분명히 알려 드리며, 나중에 붙는 금액은 없습니다.",
     faqFiveQ: "표시된 요금이 최종 요금인가요?",
     faqFiveA:
       "네. 예약 시 확인하신 금액을 그대로 기사에게 현금으로 전달하시면 됩니다. 차량 단위이며 모든 공항 비용, 주차료, 착륙 후 첫 90분의 대기 시간이 포함되어 있습니다. 숨겨진 요금은 없습니다.",
@@ -2989,6 +3025,9 @@ const translations = {
     faqFourQ: "هل يمكن نقل حقائب الغولف والأمتعة الكبيرة؟",
     faqFourA:
       "نعم. سيارات Sprinter وVito مناسبة لمجموعات الغولف. أخبرنا بأمتعتك لنجهز السيارة المناسبة.",
+    faqFifteenQ: "هل يمكن التوقف في الطريق؟",
+    faqFifteenA:
+      "بالطبع. إذا رغبت في التوقف عند سوق أو صيدلية أو لالتقاط صورة في الطريق، فاذكر ذلك عند الحجز أو عبر WhatsApp وسنخطّط المسار على هذا الأساس. وإذا كان التوقف يبعدك كثيرًا عن مسارك، نخبرك قبل الانطلاق بما إذا كان سيُضاف أي مبلغ؛ فلا شيء يظهر لاحقًا كمفاجأة.",
     faqFiveQ: "هل السعر المعروض نهائي؟",
     faqFiveA:
       "نعم. السعر الذي تراه عند الحجز هو المبلغ الذي تسلّمه للسائق نقدًا: لكل مركبة، شاملًا جميع رسوم المطار والوقوف وأول 90 دقيقة من الانتظار. لا توجد رسوم خفية.",

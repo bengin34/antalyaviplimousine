@@ -14,5 +14,6 @@ export const homeFaqOrder = [
   "Three",
   "Thirteen",
   "Four",
+  "Fifteen",
   "Five",
 ];
