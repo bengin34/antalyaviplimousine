@@ -174,6 +174,9 @@ const translations = {
     trustedBy: "Gebucht von Gästen führender Resorts in Antalya",
     faqEyebrow: "Häufig gefragt",
     faqTitle: "Vor Ihrer Reise.",
+    faqCatArrival: "Ankunft & Transfer",
+    faqCatPayment: "Zahlung & Preis",
+    faqCatVehicle: "Fahrzeug & Gepäck",
     faqIntro:
       "Alles, was Sie über Ihren privaten Flughafentransfer in Antalya wissen müssen.",
     askQuestion: "Frage stellen",
@@ -197,7 +200,7 @@ const translations = {
       "Die ersten 90 Minuten nach der Landung sind kostenfrei enthalten – deutlich mehr, als Passkontrolle, Gepäck und Zoll benötigen – und dieses Zeitfenster verschiebt sich bei Flugverspätungen automatisch. Nur wenn Sie aus Gründen, die nicht mit Ihrem Flug zusammenhängen, länger im Terminal bleiben, kommt ein Parkkostenbeitrag von 5 € je weitere Stunde hinzu. In der Praxis kommt das so gut wie nie vor: Nahezu alle unsere Gäste sind längst vorher unterwegs.",
     faqNineQ: "Wie bezahle ich?",
     faqNineA:
-      "Sie bezahlen Ihrem Chauffeur zu Beginn der Fahrt bar. Der Betrag ist der Festpreis aus Ihrer Buchung – pro Fahrzeug, inklusive aller Flughafen- und Parkgebühren, ohne spätere Zusätze. Ihr Chauffeur begrüßt Sie, verlädt Ihr Gepäck und montiert die gewünschten Kindersitze; nach der Zahlung beginnt Ihre Fahrt.",
+      "Sie bezahlen Ihrem Chauffeur zu Beginn der Fahrt bar – Kartenzahlung ist nicht möglich. Die Preise sind in Euro (EUR) festgelegt: Der Festbetrag entspricht genau dem, was Sie bei der Buchung gesehen haben – pro Fahrzeug, inklusive aller Flughafen- und Parkgebühren, ohne spätere Zusätze. Möchten Sie lieber in US-Dollar oder Türkischer Lira zahlen? Schreiben Sie uns vorab über WhatsApp für einen separaten Preis, da der Wechselkurs abweicht. Ihr Chauffeur begrüßt Sie, verlädt Ihr Gepäck und montiert die gewünschten Kindersitze; nach der Zahlung beginnt Ihre Fahrt.",
     faqTenQ: "Wie halte ich beim Rücktransfer Kontakt?",
     faqTenA:
       "Sobald Sie Datum und Uhrzeit Ihrer Rückfahrt per WhatsApp mit unserem Team bestätigt haben, teilen wir Ihnen einige Stunden vor dem Transfer Ihr Fahrzeug zu und senden Ihnen Fotos davon über WhatsApp – auf Wunsch auch die Telefonnummer Ihres Chauffeurs. Erreicht Ihr Chauffeur das Hotel, informiert er die Rezeption, die Ihr Zimmer benachrichtigt, sobald der Wagen bereitsteht. Unsere Chauffeure rufen Gäste nie direkt an: Die gesamte Kommunikation läuft über unsere zentrale WhatsApp-Betreuung, sodass Sie immer genau wissen, mit wem Sie sprechen.",
@@ -400,6 +403,9 @@ const translations = {
     trustedBy: "Antalya'nın önde gelen resort misafirlerinin tercihi",
     faqEyebrow: "Sık sorulanlar",
     faqTitle: "Seyahatinizden önce.",
+    faqCatArrival: "Karşılama & Transfer",
+    faqCatPayment: "Ödeme & Fiyat",
+    faqCatVehicle: "Araç & Bagaj",
     faqIntro:
       "Antalya'daki özel havalimanı transferiniz hakkında bilmeniz gereken her şey.",
     askQuestion: "Bize sorun",
@@ -420,7 +426,7 @@ const translations = {
       "Uçağınız indikten sonraki ilk 90 dakika ücretsiz olarak fiyata dahildir; pasaport, bagaj ve gümrük için fazlasıyla yeterli bir süredir ve uçuş gecikmelerinde bu süre otomatik olarak kayar. Yalnızca uçuşunuzla ilgisi olmayan bir nedenle terminalde 90 dakikadan uzun kalırsanız, aracınızın otoparkta geçirdiği her ek saat için 5 € otopark katkı bedeli eklenir. Uygulamada bu neredeyse hiç yaşanmaz; misafirlerimizin tamamına yakını bu sürenin çok öncesinde yola çıkar.",
     faqNineQ: "Ödemeyi nasıl yapıyorum?",
     faqNineA:
-      "Ödemenizi yolculuğun başında, doğrudan şoförünüze nakit olarak yaparsınız. Ödeyeceğiniz tutar rezervasyonda gördüğünüz sabit fiyattır: araç başına, tüm havalimanı ve otopark ücretleri dahil, sonradan eklenen kalem yok. Şoförünüz sizi karşılar, bagajlarınızı yükler, talep ettiyseniz çocuk koltuklarını hazırlar; ödemenizin ardından yolculuğunuz başlar.",
+      "Ödemenizi yolculuğun başında, doğrudan şoförünüze nakit olarak yaparsınız; kart geçmez. Fiyatlar euro (EUR) üzerinden belirlenir: ödeyeceğiniz sabit tutar, rezervasyonda gördüğünüz tutarın aynısıdır – araç başına, tüm havalimanı ve otopark ücretleri dahil, sonradan eklenen kalem yok. Amerikan doları veya Türk lirasıyla ödemek isterseniz, kur farklı olduğundan ayrı bir fiyat için önceden WhatsApp'tan bize yazın. Şoförünüz sizi karşılar, bagajlarınızı yükler, talep ettiyseniz çocuk koltuklarını hazırlar; ödemenizin ardından yolculuğunuz başlar.",
     faqTenQ: "Dönüş transferimde iletişimi nasıl kuracağım?",
     faqTenA:
       "Dönüş gün ve saatinizi ekibimizle WhatsApp üzerinden teyit ettikten sonra, transferinize saatler kala aracınızı belirler ve size WhatsApp'tan aracın fotoğraflarını gönderiririz; dilerseniz şoförünüzün telefon numarasını da paylaşırız. Şoförünüz belirlenen saatte otelinize ulaştığında resepsiyona haber verir, resepsiyon da odanıza aracınızın hazır olduğunu bildirir. Şoförlerimiz misafirlerimizi doğrudan aramaz; tüm iletişim tek bir noktadan, WhatsApp müşteri destek hattımız üzerinden yürür. Böylece kiminle konuştuğunuzdan her zaman emin olursunuz.",
@@ -622,6 +628,9 @@ const translations = {
     trustedBy: "Нам доверяют гости ведущих курортов Антальи",
     faqEyebrow: "Частые вопросы",
     faqTitle: "Перед поездкой.",
+    faqCatArrival: "Встреча и трансфер",
+    faqCatPayment: "Оплата и цена",
+    faqCatVehicle: "Автомобиль и багаж",
     faqIntro: "Всё, что нужно знать о частном трансфере из аэропорта Антальи.",
     askQuestion: "Задать вопрос",
     faqOneQ: "Что произойдёт, если мой рейс задержится?",
@@ -642,7 +651,7 @@ const translations = {
       "Первые 90 минут после посадки включены в стоимость — этого с запасом хватает на паспортный контроль, багаж и таможню, а при задержке рейса отсчёт сдвигается автоматически. Только если вы задержитесь в терминале дольше по причинам, не связанным с рейсом, добавляется парковочный сбор 5 € за каждый дополнительный час. На практике это почти не случается: подавляющее большинство гостей выезжает задолго до этого.",
     faqNineQ: "Как проходит оплата?",
     faqNineA:
-      "Вы оплачиваете поездку водителю наличными в начале трансфера. Сумма — это фиксированная цена из вашего бронирования: за автомобиль, со всеми аэропортовыми и парковочными сборами, без доплат впоследствии. Водитель встречает вас, загружает багаж и устанавливает заказанные детские кресла; после оплаты начинается ваша поездка.",
+      "Вы оплачиваете поездку водителю наличными в начале трансфера — карты не принимаются. Цены установлены в евро (EUR): фиксированная сумма в точности соответствует той, что вы видели при бронировании, — за автомобиль, со всеми аэропортовыми и парковочными сборами, без доплат впоследствии. Хотите оплатить в долларах США или турецких лирах? Напишите нам заранее в WhatsApp, чтобы получить отдельную цену, так как курс отличается. Водитель встречает вас, загружает багаж и устанавливает заказанные детские кресла; после оплаты начинается ваша поездка.",
     faqTenQ: "Как поддерживать связь при обратном трансфере?",
     faqTenA:
       "После того как вы подтвердите дату и время обратной поездки нашей команде в WhatsApp, мы за несколько часов до трансфера назначаем автомобиль и присылаем вам его фотографии в WhatsApp — при желании также номер телефона водителя. Когда водитель приезжает в отель, он сообщает на стойку регистрации, а та передаёт в ваш номер, что машина подана. Наши водители никогда не звонят гостям напрямую: всё общение идёт через единую линию поддержки в WhatsApp, поэтому вы всегда точно знаете, с кем разговариваете.",
@@ -831,6 +840,9 @@ const translations = {
     trustedBy: "Oblíbené u hostů předních antalyských resortů",
     faqEyebrow: "Často kladené dotazy",
     faqTitle: "Před vaší cestou.",
+    faqCatArrival: "Vyzvednutí a transfer",
+    faqCatPayment: "Platba a cena",
+    faqCatVehicle: "Vozidlo a zavazadla",
     faqIntro:
       "Vše, co potřebujete vědět o svém soukromém transferu z letiště Antalya.",
     askQuestion: "Zeptejte se nás",
@@ -851,7 +863,7 @@ const translations = {
       "Prvních 90 minut po přistání je zdarma v ceně – s rezervou více, než vyžaduje pasová kontrola, zavazadla a celní odbavení – a při zpoždění letu se tento interval automaticky posouvá. Pouze pokud vás v terminálu zdrží něco, co s letem nesouvisí, připočítáváme příspěvek na parkování 5 € za každou další hodinu. V praxi k tomu téměř nikdy nedojde: naprostá většina hostů je na cestě dávno předtím.",
     faqNineQ: "Jak probíhá platba?",
     faqNineA:
-      "Řidiči platíte v hotovosti na začátku jízdy. Částka odpovídá pevné ceně z vaší rezervace – za vozidlo, včetně všech letištních a parkovacích poplatků, bez dodatečných položek. Řidič vás přivítá, naloží zavazadla a připraví objednané dětské sedačky; po zaplacení vaše cesta začíná.",
+      "Řidiči platíte v hotovosti na začátku jízdy – karty nepřijímáme. Ceny jsou stanoveny v eurech (EUR): pevná částka přesně odpovídá té, kterou jste viděli při rezervaci – za vozidlo, včetně všech letištních a parkovacích poplatků, bez dodatečných položek. Chcete raději platit v amerických dolarech nebo tureckých lirách? Napište nám předem na WhatsApp pro samostatnou cenu, protože kurz se liší. Řidič vás přivítá, naloží zavazadla a připraví objednané dětské sedačky; po zaplacení vaše cesta začíná.",
     faqTenQ: "Jak zůstanu ve spojení při zpátečním transferu?",
     faqTenA:
       "Jakmile s naším týmem potvrdíte datum a čas zpáteční cesty přes WhatsApp, několik hodin před transferem přidělíme vozidlo a pošleme vám jeho fotografie na WhatsApp – na přání i telefonní číslo řidiče. Když řidič dorazí k hotelu, oznámí to recepci, která dá vědět na váš pokoj, že vůz je připraven. Naši řidiči hostům nikdy nevolají přímo: veškerá komunikace probíhá přes jedinou zákaznickou linku na WhatsAppu, takže vždy víte, s kým mluvíte.",
@@ -1084,6 +1096,9 @@ const translations = {
     trustedBy: "Wybór gości czołowych resortów w Antalyi",
     faqEyebrow: "Często zadawane pytania",
     faqTitle: "Przed Twoją podróżą.",
+    faqCatArrival: "Odbiór i transfer",
+    faqCatPayment: "Płatność i cena",
+    faqCatVehicle: "Pojazd i bagaż",
     faqIntro:
       "Wszystko, co musisz wiedzieć o prywatnym transferze z lotniska w Antalyi.",
     askQuestion: "Zadaj pytanie",
@@ -1104,7 +1119,7 @@ const translations = {
       "Pierwsze 90 minut po wylądowaniu jest wliczone w cenę – z zapasem wystarcza na kontrolę paszportową, bagaż i odprawę celną – a przy opóźnieniu lotu okno to przesuwa się automatycznie. Dopiero jeśli coś niezwiązanego z lotem zatrzyma Cię w terminalu dłużej, doliczamy 5 € dopłaty parkingowej za każdą kolejną godzinę. W praktyce zdarza się to niezwykle rzadko: niemal wszyscy nasi goście są w drodze na długo przed upływem tego czasu.",
     faqNineQ: "Jak wygląda płatność?",
     faqNineA:
-      "Płacisz kierowcy gotówką na początku podróży. Kwota to stała cena z rezerwacji – za pojazd, ze wszystkimi opłatami lotniskowymi i parkingowymi, bez późniejszych dopłat. Kierowca wita Cię, ładuje bagaże i montuje zamówione foteliki dziecięce; po uregulowaniu płatności rozpoczyna się podróż.",
+      "Płacisz kierowcy gotówką na początku podróży – nie przyjmujemy kart. Ceny są ustalane w euro (EUR): stała kwota jest dokładnie taka, jaką widziałeś przy rezerwacji – za pojazd, ze wszystkimi opłatami lotniskowymi i parkingowymi, bez późniejszych dopłat. Wolisz zapłacić w dolarach amerykańskich lub lirach tureckich? Napisz do nas wcześniej na WhatsAppie po osobną wycenę, ponieważ kurs się różni. Kierowca wita Cię, ładuje bagaże i montuje zamówione foteliki dziecięce; po uregulowaniu płatności rozpoczyna się podróż.",
     faqTenQ: "Jak utrzymać kontakt przy transferze powrotnym?",
     faqTenA:
       "Gdy potwierdzisz naszemu zespołowi datę i godzinę powrotu przez WhatsApp, na kilka godzin przed transferem przydzielamy pojazd i wysyłamy Ci jego zdjęcia na WhatsAppie – a jeśli chcesz, także numer telefonu kierowcy. Gdy kierowca dotrze do hotelu, informuje recepcję, która przekazuje do Twojego pokoju, że samochód czeka. Nasi kierowcy nigdy nie dzwonią do gości bezpośrednio: cała komunikacja przechodzi przez jedną linię wsparcia na WhatsAppie, więc zawsze wiesz dokładnie, z kim rozmawiasz.",
@@ -1284,6 +1299,9 @@ const translations = {
     trustedBy: "Vertrouwd door gasten van toonaangevende resorts in Antalya",
     faqEyebrow: "Veelgestelde vragen",
     faqTitle: "Vóór uw reis.",
+    faqCatArrival: "Aankomst & transfer",
+    faqCatPayment: "Betaling & prijs",
+    faqCatVehicle: "Voertuig & bagage",
     faqIntro:
       "Alles wat u moet weten over uw privétransfer van de luchthaven Antalya.",
     askQuestion: "Stel een vraag",
@@ -1307,7 +1325,7 @@ const translations = {
       "De eerste 90 minuten na de landing zijn kosteloos inbegrepen – ruim meer dan paspoortcontrole, bagage en douane vragen – en dit tijdvenster schuift automatisch mee bij vertraging. Alleen wanneer iets dat losstaat van uw vlucht u langer in de terminal houdt, komt er een parkeerbijdrage van € 5 per extra uur bij. In de praktijk gebeurt dat vrijwel nooit: bijna al onze gasten zijn ruim daarvoor onderweg.",
     faqNineQ: "Hoe betaal ik?",
     faqNineA:
-      "U betaalt uw chauffeur contant aan het begin van de rit. Het bedrag is de vaste prijs uit uw boeking – per voertuig, inclusief alle luchthaven- en parkeerkosten, zonder latere toeslagen. Uw chauffeur verwelkomt u, laadt uw bagage in en plaatst de gevraagde kinderzitjes; na de betaling begint uw rit.",
+      "U betaalt uw chauffeur contant aan het begin van de rit – kaarten accepteren we niet. De prijzen zijn vastgesteld in euro's (EUR): het vaste bedrag is precies wat u bij het boeken zag – per voertuig, inclusief alle luchthaven- en parkeerkosten, zonder latere toeslagen. Wilt u liever in Amerikaanse dollars of Turkse lira betalen? Stuur ons vooraf een bericht via WhatsApp voor een aparte prijs, aangezien de wisselkoers verschilt. Uw chauffeur verwelkomt u, laadt uw bagage in en plaatst de gevraagde kinderzitjes; na de betaling begint uw rit.",
     faqTenQ: "Hoe houd ik contact voor de terugtransfer?",
     faqTenA:
       "Zodra u datum en tijd van uw terugreis via WhatsApp met ons team hebt bevestigd, wijzen wij enkele uren vóór de transfer uw voertuig toe en sturen wij u foto's ervan via WhatsApp – desgewenst ook het telefoonnummer van uw chauffeur. Zodra uw chauffeur bij het hotel is, meldt hij zich bij de receptie, die uw kamer laat weten dat de auto klaarstaat. Onze chauffeurs bellen gasten nooit rechtstreeks: alle contact loopt via onze centrale WhatsApp-supportlijn, zodat u altijd precies weet met wie u spreekt.",
@@ -1487,6 +1505,9 @@ const translations = {
     trustedBy: "Нам довіряють гості провідних курортів Анталії",
     faqEyebrow: "Часті запитання",
     faqTitle: "Перед поїздкою.",
+    faqCatArrival: "Зустріч і трансфер",
+    faqCatPayment: "Оплата й ціна",
+    faqCatVehicle: "Автомобіль і багаж",
     faqIntro:
       "Все, що потрібно знати про приватний трансфер з аеропорту Анталії.",
     askQuestion: "Поставити запитання",
@@ -1508,7 +1529,7 @@ const translations = {
       "Перші 90 хвилин після посадки включені у вартість — цього з запасом вистачає на паспортний контроль, багаж і митницю, а в разі затримки рейсу відлік зміщується автоматично. Лише якщо ви затримаєтеся в терміналі довше з причин, не пов'язаних із рейсом, додається паркувальний внесок 5 € за кожну додаткову годину. На практиці це трапляється майже ніколи: переважна більшість гостей вирушає задовго до цього.",
     faqNineQ: "Як відбувається оплата?",
     faqNineA:
-      "Ви розраховуєтеся з водієм готівкою на початку поїздки. Сума — це фіксована ціна з вашого бронювання: за автомобіль, з усіма аеропортовими та паркувальними зборами, без подальших доплат. Водій зустрічає вас, завантажує багаж і встановлює замовлені дитячі крісла; після оплати ваша поїздка починається.",
+      "Ви розраховуєтеся з водієм готівкою на початку поїздки — картки не приймаються. Ціни встановлені в євро (EUR): фіксована сума точно відповідає тій, яку ви бачили під час бронювання, — за автомобіль, з усіма аеропортовими та паркувальними зборами, без подальших доплат. Бажаєте сплатити в доларах США чи турецьких лірах? Напишіть нам заздалегідь у WhatsApp, щоб отримати окрему ціну, оскільки курс відрізняється. Водій зустрічає вас, завантажує багаж і встановлює замовлені дитячі крісла; після оплати ваша поїздка починається.",
     faqTenQ: "Як підтримувати зв'язок під час зворотного трансферу?",
     faqTenA:
       "Щойно ви підтвердите дату й час зворотної поїздки нашій команді у WhatsApp, за кілька годин до трансферу ми призначаємо автомобіль і надсилаємо вам його фотографії у WhatsApp — за бажанням також номер телефону водія. Коли водій приїжджає до готелю, він повідомляє рецепцію, а вона передає у ваш номер, що авто подано. Наші водії ніколи не телефонують гостям напряму: усе спілкування відбувається через єдину лінію підтримки у WhatsApp, тож ви завжди точно знаєте, з ким розмовляєте.",
@@ -1696,6 +1717,9 @@ const translations = {
     trustedBy: "انطالیہ کے معروف ریزورٹس کے مسافروں کا اعتماد",
     faqEyebrow: "اکثر پوچھے گئے سوالات",
     faqTitle: "سفر سے پہلے۔",
+    faqCatArrival: "آمد اور ٹرانسفر",
+    faqCatPayment: "ادائیگی اور قیمت",
+    faqCatVehicle: "گاڑی اور سامان",
     faqIntro:
       "اپنے نجی انطالیہ ایئرپورٹ ٹرانسفر کے بارے میں آپ کو جو کچھ جاننا ضروری ہے۔",
     askQuestion: "ہم سے سوال پوچھیں",
@@ -1718,7 +1742,7 @@ const translations = {
       "طیارے کی لینڈنگ کے بعد پہلے 90 منٹ مفت شامل ہیں — پاسپورٹ کنٹرول، سامان اور کسٹم کے لیے یہ وقت بخوبی کافی ہے، اور پرواز میں تاخیر کی صورت میں یہ دورانیہ خودکار طور پر آگے کھسک جاتا ہے۔ صرف اس صورت میں جب پرواز سے غیر متعلق کوئی وجہ آپ کو ٹرمینل میں زیادہ دیر روکے، ہر اضافی گھنٹے کے لیے 5 یورو پارکنگ چارج شامل کیا جاتا ہے۔ عملی طور پر ایسا تقریباً کبھی نہیں ہوتا؛ ہمارے تقریباً تمام مہمان اس سے کہیں پہلے روانہ ہو چکے ہوتے ہیں۔",
     faqNineQ: "ادائیگی کیسے کی جاتی ہے؟",
     faqNineA:
-      "آپ سفر کے آغاز پر اپنے ڈرائیور کو نقد ادائیگی کرتے ہیں۔ رقم وہی مقررہ قیمت ہے جو بکنگ کے وقت آپ نے دیکھی تھی — فی گاڑی، تمام ایئرپورٹ اور پارکنگ فیس سمیت، بعد میں کچھ شامل نہیں ہوتا۔ آپ کا ڈرائیور آپ کا استقبال کرتا ہے، سامان گاڑی میں رکھتا ہے اور درخواست کردہ چائلڈ سیٹس لگاتا ہے؛ ادائیگی کے بعد آپ کا سفر شروع ہو جاتا ہے۔",
+      "آپ سفر کے آغاز پر اپنے ڈرائیور کو نقد ادائیگی کرتے ہیں — ہم کارڈ قبول نہیں کرتے۔ قیمتیں یورو (EUR) میں مقرر ہیں: مقررہ رقم بالکل وہی ہے جو بکنگ کے وقت آپ نے دیکھی تھی — فی گاڑی، تمام ایئرپورٹ اور پارکنگ فیس سمیت، بعد میں کچھ شامل نہیں ہوتا۔ اگر آپ امریکی ڈالر یا ترک لیرا میں ادائیگی کرنا چاہیں تو پہلے سے WhatsApp پر ہمیں پیغام بھیجیں تاکہ الگ قیمت دی جا سکے، کیونکہ شرحِ تبادلہ مختلف ہوتی ہے۔ آپ کا ڈرائیور آپ کا استقبال کرتا ہے، سامان گاڑی میں رکھتا ہے اور درخواست کردہ چائلڈ سیٹس لگاتا ہے؛ ادائیگی کے بعد آپ کا سفر شروع ہو جاتا ہے۔",
     faqTenQ: "واپسی کے ٹرانسفر کے لیے رابطہ کیسے رہے گا؟",
     faqTenA:
       "جب آپ WhatsApp پر ہماری ٹیم کے ساتھ واپسی کی تاریخ اور وقت کی تصدیق کر دیتے ہیں، تو ہم ٹرانسفر سے چند گھنٹے پہلے آپ کی گاڑی مقرر کرتے ہیں اور WhatsApp پر اس کی تصاویر بھیجتے ہیں — آپ چاہیں تو ڈرائیور کا فون نمبر بھی۔ ڈرائیور ہوٹل پہنچ کر استقبالیہ کو اطلاع دیتا ہے، اور استقبالیہ آپ کے کمرے میں بتا دیتا ہے کہ گاڑی تیار ہے۔ ہمارے ڈرائیور مہمانوں کو براہِ راست فون نہیں کرتے: تمام رابطہ ہماری واحد WhatsApp سپورٹ لائن کے ذریعے ہوتا ہے، تاکہ آپ کو ہمیشہ معلوم ہو کہ آپ کس سے بات کر رہے ہیں۔",
@@ -1988,6 +2012,9 @@ const translations = {
     trustedBy: "Recommandé par les clients des meilleurs resorts d'Antalya",
     faqEyebrow: "Questions fréquentes",
     faqTitle: "Avant votre voyage.",
+    faqCatArrival: "Arrivée & transfert",
+    faqCatPayment: "Paiement & prix",
+    faqCatVehicle: "Véhicule & bagages",
     faqIntro:
       "Tout ce que vous devez savoir sur votre transfert privé depuis l'aéroport d'Antalya.",
     askQuestion: "Poser une question",
@@ -2010,7 +2037,7 @@ const translations = {
       "Les 90 premières minutes après l'atterrissage sont incluses sans frais — largement plus que ne demandent le contrôle des passeports, les bagages et la douane — et ce délai se décale automatiquement en cas de retard de vol. Ce n'est que si un motif sans lien avec votre vol vous retient plus longtemps dans le terminal qu'une participation au stationnement de 5 € par heure supplémentaire s'ajoute. Dans les faits, cela n'arrive pour ainsi dire jamais : la quasi-totalité de nos clients est sur la route bien avant.",
     faqNineQ: "Comment se déroule le paiement ?",
     faqNineA:
-      "Vous réglez votre chauffeur en espèces au début du trajet. Le montant correspond au prix fixe affiché lors de la réservation : par véhicule, tous frais d'aéroport et de stationnement compris, sans supplément ultérieur. Votre chauffeur vous accueille, charge vos bagages et installe les sièges enfant demandés ; une fois le paiement réglé, votre trajet commence.",
+      "Vous réglez votre chauffeur en espèces au début du trajet – nous n'acceptons pas les cartes. Les prix sont fixés en euros (EUR) : le montant fixe correspond exactement à celui affiché lors de la réservation – par véhicule, tous frais d'aéroport et de stationnement compris, sans supplément ultérieur. Vous préférez payer en dollars américains ou en livres turques ? Écrivez-nous au préalable sur WhatsApp pour obtenir un tarif distinct, car le taux de change diffère. Votre chauffeur vous accueille, charge vos bagages et installe les sièges enfant demandés ; une fois le paiement réglé, votre trajet commence.",
     faqTenQ: "Comment rester en contact pour le transfert retour ?",
     faqTenA:
       "Une fois la date et l'heure de votre retour confirmées avec notre équipe sur WhatsApp, nous attribuons votre véhicule quelques heures avant le transfert et vous en envoyons les photos sur WhatsApp — ainsi que le numéro de votre chauffeur si vous le souhaitez. À son arrivée à l'hôtel, votre chauffeur prévient la réception, qui informe votre chambre que la voiture est prête. Nos chauffeurs n'appellent jamais directement les clients : tous les échanges passent par notre ligne d'assistance WhatsApp unique, afin que vous sachiez toujours exactement à qui vous parlez.",
@@ -2191,6 +2218,9 @@ const translations = {
     trustedBy: "Anlitad av gäster på ledande resorts i Antalya",
     faqEyebrow: "Vanliga frågor",
     faqTitle: "Innan din resa.",
+    faqCatArrival: "Ankomst & transfer",
+    faqCatPayment: "Betalning & pris",
+    faqCatVehicle: "Fordon & bagage",
     faqIntro:
       "Allt du behöver veta om din privata transfer från Antalya flygplats.",
     askQuestion: "Ställ en fråga",
@@ -2212,7 +2242,7 @@ const translations = {
       "De första 90 minuterna efter landning ingår utan kostnad – gott och väl mer än vad passkontroll, bagage och tull kräver – och tidsfönstret förskjuts automatiskt vid flygförsening. Endast om något som inte har med flyget att göra håller kvar dig längre i terminalen tillkommer ett parkeringsbidrag på 5 € för varje ytterligare timme. I praktiken händer det nästan aldrig: så gott som alla våra gäster är på väg långt innan dess.",
     faqNineQ: "Hur betalar jag?",
     faqNineA:
-      "Du betalar din chaufför kontant i början av resan. Beloppet är det fasta priset från din bokning – per fordon, med alla flygplats- och parkeringsavgifter inkluderade, utan tillägg i efterhand. Chauffören välkomnar dig, lastar bagaget och monterar de bilbarnstolar du beställt; när betalningen är klar börjar din resa.",
+      "Du betalar din chaufför kontant i början av resan – vi tar inte kort. Priserna anges i euro (EUR): det fasta beloppet är exakt det du såg vid bokningen – per fordon, med alla flygplats- och parkeringsavgifter inkluderade, utan tillägg i efterhand. Vill du hellre betala i amerikanska dollar eller turkiska lira? Skriv till oss i förväg på WhatsApp för ett separat pris, eftersom växelkursen skiljer sig. Chauffören välkomnar dig, lastar bagaget och monterar de bilbarnstolar du beställt; när betalningen är klar börjar din resa.",
     faqTenQ: "Hur håller jag kontakten inför hemtransfern?",
     faqTenA:
       "När du har bekräftat datum och tid för hemresan med vårt team på WhatsApp tilldelar vi ditt fordon några timmar före transfern och skickar bilder på det via WhatsApp – och chaufförens telefonnummer om du vill ha det. När chauffören kommer till hotellet meddelar han receptionen, som ringer upp ditt rum och berättar att bilen står redo. Våra chaufförer ringer aldrig gästerna direkt: all kontakt går via vår enda WhatsApp-supportlinje, så du vet alltid exakt vem du talar med.",
@@ -2392,6 +2422,9 @@ const translations = {
     trustedBy: "アンタルヤの一流リゾートのゲストにご利用いただいています",
     faqEyebrow: "よくある質問",
     faqTitle: "ご旅行の前に。",
+    faqCatArrival: "到着・送迎",
+    faqCatPayment: "お支払い・料金",
+    faqCatVehicle: "車両・お手荷物",
     faqIntro:
       "アンタルヤ空港からのプライベート送迎について知っておくべきこと。",
     askQuestion: "質問する",
@@ -2412,7 +2445,7 @@ const translations = {
       "着陸後最初の90分は無料で料金に含まれています。入国審査・手荷物・税関には十分すぎる時間で、フライトが遅延した場合はこの時間も自動的にずれます。フライトと関係のない事情でターミナル内に90分を超えて留まられた場合のみ、追加1時間ごとに5ユーロの駐車協力金を申し受けます。実際にはほとんど発生いたしません。ほぼすべてのお客様がそれよりずっと早くご出発になっています。",
     faqNineQ: "支払い方法を教えてください。",
     faqNineA:
-      "ご乗車時に、ドライバーへ現金でお支払いいただきます。金額はご予約時にご覧いただいた定額料金で、車両単位、空港料金・駐車料金込み、後からの追加はございません。ドライバーがお出迎えし、お荷物を積み込み、ご希望のチャイルドシートを設置いたします。お支払いののち、ご出発となります。",
+      "ご乗車時に、ドライバーへ現金でお支払いいただきます（カードはご利用いただけません）。料金はユーロ（EUR）建てで、ご予約時にご覧いただいた定額と同額です。車両単位、空港料金・駐車料金込みで、後からの追加はございません。米ドルまたはトルコリラでのお支払いをご希望の場合は、為替レートが異なるため、事前にWhatsAppでご連絡いただき、別途お見積りをお受け取りください。ドライバーがお出迎えし、お荷物を積み込み、ご希望のチャイルドシートを設置いたします。お支払いののち、ご出発となります。",
     faqTenQ: "復路の送迎ではどのように連絡を取りますか？",
     faqTenA:
       "WhatsApp で復路の日時をご確定いただいた後、送迎の数時間前に車両を手配し、WhatsApp で車両の写真をお送りします。ご希望であればドライバーの電話番号もお伝えします。ドライバーがホテルに到着するとフロントへ伝え、フロントからお部屋へ車の準備が整った旨をご連絡いたします。ドライバーがお客様に直接お電話することはありません。ご連絡はすべて WhatsApp のカスタマーサポート窓口に一本化されていますので、どなたとやり取りしているか常に明確です。",
@@ -2590,6 +2623,9 @@ const translations = {
     trustedBy: "안탈리아 주요 리조트 고객들이 선택했습니다",
     faqEyebrow: "자주 묻는 질문",
     faqTitle: "여행 전에.",
+    faqCatArrival: "도착 및 이동",
+    faqCatPayment: "결제 및 요금",
+    faqCatVehicle: "차량 및 수하물",
     faqIntro: "안탈리아 공항 프라이빗 픽업에 대해 알아야 할 모든 것.",
     askQuestion: "질문하기",
     faqOneQ: "항공편이 지연되면 어떻게 되나요?",
@@ -2609,7 +2645,7 @@ const translations = {
       "착륙 후 첫 90분은 무료로 포함되어 있습니다. 입국 심사와 수하물, 세관 절차에 충분하고도 남는 시간이며, 항공편이 지연되면 이 시간도 자동으로 조정됩니다. 항공편과 무관한 사유로 터미널에 90분을 넘겨 머무르시는 경우에만 추가 1시간마다 5유로의 주차 비용이 더해집니다. 실제로는 거의 발생하지 않으며, 대부분의 고객님은 그보다 훨씬 이전에 출발하십니다.",
     faqNineQ: "결제는 어떻게 하나요?",
     faqNineA:
-      "출발할 때 기사에게 현금으로 결제하십니다. 금액은 예약 시 확인하신 고정 요금이며, 차량 단위로 모든 공항 및 주차 비용이 포함되어 있고 이후 추가되는 항목은 없습니다. 기사가 고객님을 맞이해 짐을 싣고 요청하신 카시트를 장착해 드리며, 결제가 끝나면 여정이 시작됩니다.",
+      "출발할 때 기사에게 현금으로 결제하십니다(카드는 받지 않습니다). 요금은 유로(EUR) 기준이며, 예약 시 확인하신 고정 금액과 동일합니다. 차량 단위로 모든 공항 및 주차 비용이 포함되어 있고 이후 추가되는 항목은 없습니다. 미국 달러나 터키 리라로 결제를 원하시면 환율이 다르므로 미리 WhatsApp으로 연락 주시면 별도의 금액을 안내해 드립니다. 기사가 고객님을 맞이해 짐을 싣고 요청하신 카시트를 장착해 드리며, 결제가 끝나면 여정이 시작됩니다.",
     faqTenQ: "돌아가는 차량과는 어떻게 연락하나요?",
     faqTenA:
       "WhatsApp으로 저희 팀과 복귀 날짜와 시간을 확정하시면, 이동 몇 시간 전에 차량을 배정하고 WhatsApp으로 차량 사진을 보내 드립니다. 원하시면 기사 연락처도 함께 전달해 드립니다. 기사가 호텔에 도착하면 프런트에 알리고, 프런트에서 객실로 차량이 준비되었음을 안내해 드립니다. 저희 기사는 고객님께 직접 전화하지 않으며, 모든 연락은 WhatsApp 고객지원 창구 한 곳을 통해 이루어집니다. 그래서 누구와 대화하고 있는지 항상 분명합니다.",
@@ -2804,6 +2840,9 @@ const translations = {
     trustedBy: "موثوق من ضيوف أبرز منتجعات أنطاليا",
     faqEyebrow: "الأسئلة الشائعة",
     faqTitle: "قبل رحلتك.",
+    faqCatArrival: "الوصول والنقل",
+    faqCatPayment: "الدفع والسعر",
+    faqCatVehicle: "المركبة والأمتعة",
     faqIntro: "كل ما تحتاج إلى معرفته عن خدمة النقل الخاصة من مطار أنطاليا.",
     askQuestion: "اطرح سؤالاً",
     faqOneQ: "ماذا يحدث إذا تأخرت رحلتي؟",
@@ -2823,7 +2862,7 @@ const translations = {
       "أول 90 دقيقة بعد هبوط الطائرة مشمولة مجانًا، وهي مدة تزيد عمّا تتطلبه إجراءات الجوازات والأمتعة والجمارك، وتتحرك تلقائيًا مع أي تأخير في الرحلة. وفقط إذا أبقاك داخل الصالة سبب لا علاقة له برحلتك مدة أطول، تُضاف مساهمة وقوف بقيمة 5 يورو عن كل ساعة إضافية. عمليًا لا يحدث ذلك تقريبًا؛ فجميع ضيوفنا تقريبًا ينطلقون قبل ذلك بكثير.",
     faqNineQ: "كيف تتم عملية الدفع؟",
     faqNineA:
-      "تدفع لسائقك نقدًا في بداية الرحلة. المبلغ هو السعر الثابت الذي رأيته عند الحجز: لكل مركبة، شاملًا جميع رسوم المطار والوقوف، دون أي إضافات لاحقة. يستقبلك السائق ويحمّل أمتعتك ويركّب مقاعد الأطفال التي طلبتها، وبعد إتمام الدفع تبدأ رحلتك.",
+      "تدفع لسائقك نقدًا في بداية الرحلة — لا نقبل البطاقات. الأسعار محددة باليورو (EUR): المبلغ الثابت هو نفسه تمامًا الذي رأيته عند الحجز، لكل مركبة، شاملًا جميع رسوم المطار والوقوف، دون أي إضافات لاحقة. هل تفضّل الدفع بالدولار الأمريكي أو الليرة التركية؟ راسِلنا مسبقًا عبر واتساب للحصول على سعر منفصل، لأن سعر الصرف يختلف. يستقبلك السائق ويحمّل أمتعتك ويركّب مقاعد الأطفال التي طلبتها، وبعد إتمام الدفع تبدأ رحلتك.",
     faqTenQ: "كيف أبقى على تواصل في رحلة العودة؟",
     faqTenA:
       "بعد تأكيد تاريخ العودة وموعدها مع فريقنا عبر WhatsApp، نخصص مركبتك قبل الموعد بساعات ونرسل إليك صورها عبر WhatsApp، ورقم هاتف السائق أيضًا إذا رغبت. وعند وصول السائق إلى الفندق يُبلغ الاستقبال، ويقوم الاستقبال بإخطار غرفتك بأن السيارة جاهزة. لا يتصل سائقونا بالضيوف مباشرة أبدًا: يمر التواصل كله عبر خط دعم العملاء الوحيد على WhatsApp، لتعرف دائمًا بالضبط مع من تتحدث.",

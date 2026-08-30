@@ -2696,12 +2696,26 @@ html[dir="rtl"] a[href^="tel:"] {
   margin-top: 28px;
 }
 
+.faq-group + .faq-group {
+  margin-top: 46px;
+}
+
+.faq-category {
+  margin-bottom: 4px;
+  font-family: var(--sans);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold-dark);
+}
+
 .faq-item {
   border-top: 1px solid var(--line);
   scroll-margin-top: 100px;
 }
 
-.faq-item:last-child {
+.faq-group > .faq-item:last-child {
   border-bottom: 1px solid var(--line);
 }
 

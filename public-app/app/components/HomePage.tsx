@@ -2,7 +2,7 @@ import { lazy, Suspense, useEffect, useRef, useState } from "react";
 const ReactPlayer = lazy(() => import("react-player"));
 import { publicRouteSlugs, routeCatalog } from "../../../src/routes.js";
 import { LineBreakText, useLanguage } from "../i18n";
-import { homeFaqOrder } from "../lib/faq";
+import { homeFaqGroups, homeFaqOrder } from "../lib/faq";
 import { BookingForm } from "./BookingForm";
 import { Header } from "./Header";
 import { Icon } from "./Icon";
@@ -1153,31 +1153,46 @@ export function HomePage({ initialLanguage }: { initialLanguage: string }) {
             </a>
           </div>
           <div className="accordion">
-            {faqItems.map(([question, answer, id], index) => (
-              <article
-                id={id}
-                className={`faq-item${openFaq === index ? " open" : ""}`}
-                key={question}
-              >
-                <button
-                  type="button"
-                  aria-expanded={openFaq === index}
-                  onClick={() => {
-                    const next = openFaq === index ? -1 : index;
-                    setOpenFaq(next);
-                    if (next === index && typeof history !== "undefined") {
-                      history.replaceState(null, "", `#${id}`);
-                    }
-                  }}
-                >
-                  <span>{question}</span>
-                  <i />
-                </button>
-                <div className="faq-answer">
-                  <p>{answer}</p>
+            {(() => {
+              let flatIndex = -1;
+              return homeFaqGroups.map((group) => (
+                <div className="faq-group" key={group.labelKey}>
+                  <h3 className="faq-category">
+                    {t(group.labelKey, group.labelFallback)}
+                  </h3>
+                  {group.items.map(() => {
+                    flatIndex += 1;
+                    const index = flatIndex;
+                    const [question, answer, id] = faqItems[index];
+                    return (
+                      <article
+                        id={id}
+                        className={`faq-item${openFaq === index ? " open" : ""}`}
+                        key={question}
+                      >
+                        <button
+                          type="button"
+                          aria-expanded={openFaq === index}
+                          onClick={() => {
+                            const next = openFaq === index ? -1 : index;
+                            setOpenFaq(next);
+                            if (next === index && typeof history !== "undefined") {
+                              history.replaceState(null, "", `#${id}`);
+                            }
+                          }}
+                        >
+                          <span>{question}</span>
+                          <i />
+                        </button>
+                        <div className="faq-answer">
+                          <p>{answer}</p>
+                        </div>
+                      </article>
+                    );
+                  })}
                 </div>
-              </article>
-            ))}
+              ));
+            })()}
           </div>
         </section>
 
