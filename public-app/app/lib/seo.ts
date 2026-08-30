@@ -1,6 +1,7 @@
 import { publicRouteSlugs, routeCatalog } from "../../../src/routes.js";
 import { hotelBySlug } from "../../../src/hotels.js";
 import translationData from "../generated/legacy-translations.json";
+import { homeFaqOrder } from "./faq";
 
 export const domain = "https://antalyaviptourism.com";
 export const indexableLanguages = ["en", "de", "fr", "tr", "ru", "cs", "uk", "ur", "pl", "nl", "ar", "sv"] as const;
@@ -204,10 +205,7 @@ export function homeMeta(language: IndexableLanguage) {
   const pathname = localizedPath(language);
   const resources = translationData.resources as Record<string, Record<string, string>>;
   const copy = resources[language] ?? resources.en;
-  const faq = [1, 2, 3, 4, 5].map((number) => {
-    const word = ["One", "Two", "Three", "Four", "Five"][number - 1];
-    return { "@type": "Question", name: copy[`faq${word}Q`], acceptedAnswer: { "@type": "Answer", text: copy[`faq${word}A`] } };
-  });
+  const faq = homeFaqOrder.map((word) => ({ "@type": "Question", name: copy[`faq${word}Q`], acceptedAnswer: { "@type": "Answer", text: copy[`faq${word}A`] } }));
   const travelAgency = {
     "@context": "https://schema.org", "@type": "TravelAgency", name: "Antalya VIP Tourism",
     url: domain, telephone: "+90 530 265 57 90", image: `${domain}/assets/optimized/og-antalya-transfer.jpg`,

@@ -25,7 +25,6 @@ const customerPhotoModules = import.meta.glob(
 
 const translations = {
   de: {
-    navFairPricing: "Faire Preise",
     navFleet: "Fahrzeuge",
     navService: "Service",
     navRoutes: "Strecken",
@@ -173,22 +172,6 @@ const translations = {
     reviewThree:
       "„Das fühlte sich wie der Chauffeurservice eines Hotels an, nicht wie ein Flughafentaxi. Klare Kommunikation, ein makelloses Fahrzeug und ein aufrichtig höflicher Fahrer.“",
     trustedBy: "Gebucht von Gästen führender Resorts in Antalya",
-    pricingEyebrow: "Sicher planen",
-    pricingTitle: "Kundenfreundliche Preise.<br />Sie zahlen, was fair ist.",
-    pricingIntro:
-      "Wir bieten Festpreise für Planungssicherheit, messen aber die tatsächliche Strecke. Sie zahlen immer den niedrigeren Betrag.",
-    pricingFixedPrice: "Festpreis",
-    fixedPriceExample: "Transfer nach Belek: {{PRICE:belek:vito}} €",
-    fixedPriceDesc:
-      "Garantierter Gesamtpreis. Inklusive Flughafengebühren, Parken, Wartezeit und Steuern.",
-    distancePrice: "Nach Strecke",
-    distancePriceExample: "24 km Online-Beispiel: 25 €",
-    distancePriceDesc: "Während Ihrer Fahrt per GPS gemessen.",
-    youPay: "Sie zahlen",
-    youPayPrice: "25 €",
-    youPayDesc: "Der niedrigere Betrag gilt. Der Fahrer bestätigt ihn am Ende.",
-    pricingNote:
-      "Keine Überraschungen. Keine versteckten Gebühren. Was Sie buchen, zahlen Sie - oder weniger.",
     faqEyebrow: "Häufig gefragt",
     faqTitle: "Vor Ihrer Reise.",
     faqIntro:
@@ -196,10 +179,28 @@ const translations = {
     askQuestion: "Frage stellen",
     faqOneQ: "Was passiert bei einer Flugverspätung?",
     faqOneA:
-      "Wir verfolgen jede Ankunft in Echtzeit. Ihre Abholzeit wird automatisch angepasst und Ihr Chauffeur wartet ohne Aufpreis.",
-    faqTwoQ: "Wo treffe ich meinen Chauffeur?",
+      "Sie müssen nichts unternehmen. Wir verfolgen Ihren Flug in Echtzeit und passen Ihre Abholzeit automatisch an. Verspätungen der Fluggesellschaft berechnen wir nie – Ihr Chauffeur ist da, wann immer Sie landen, und die ersten 90 Minuten nach der Landung sind immer inklusive.",
+    faqTwoQ:
+      "Ich komme mit einem internationalen Flug an. Wie läuft die Abholung ab?",
     faqTwoA:
-      "Verlassen Sie die Gepäckausgabe und gehen Sie zum Meet & Greet Bereich. Suchen Sie den Treffpunkt J / 777 — unser Team wartet mit einem personalisierten Namensschild.",
+      "Nach Passkontrolle und Gepäckausgabe folgen Sie den übrigen Passagieren in den Meet & Greet Bereich und kommen zu unserem Schalter J / 777. Nennen Sie unseren Mitarbeitern einfach Ihren Namen – in ruhigen Zeiten sehen Sie zusätzlich Ihr persönliches Namensschild, in Stoßzeiten genügt Ihr Name. Unser Team informiert sofort Ihren Chauffeur; er fährt in den Flughafen ein und steht am Abholpunkt bereit, während unser Mitarbeiter Sie zum Fahrzeug begleitet. Der gesamte Ablauf dauert etwa 7–8 Minuten.",
+    faqSixQ:
+      "Ich komme mit einem Inlandsflug an. Wo finde ich meinen Chauffeur?",
+    faqSixA:
+      "Der Meet & Greet Bereich steht ausschließlich internationalen Ankünften zur Verfügung. Inlandsgäste betreuen wir deshalb anders: Wir senden Ihnen vor dem Transfer die Telefonnummer Ihres Chauffeurs. Geben Sie ihm nach der Landung kurz Bescheid – er holt Sie in der Ankunftshalle ab.",
+    faqSevenQ: "Was tue ich, wenn am Schalter J / 777 niemand ist?",
+    faqSevenA:
+      "An unserem Schalter sind durchgehend zwei Mitarbeiter im Einsatz, deren einzige Aufgabe es ist, ankommende Gäste zu ihrem Fahrzeug zu begleiten. Ist der Schalter kurz unbesetzt, begleitet ein Kollege gerade den Gast vor Ihnen – jede Begleitung dauert etwa 7–8 Minuten. Bitte warten Sie rund 10 Minuten. Ist bis dahin niemand zurück, schreiben Sie uns über WhatsApp: Wir informieren Ihren Chauffeur umgehend, lassen ihn am nächstgelegenen Punkt halten und führen Sie ohne weiteres Warten direkt zu Ihrem Wagen.",
+    faqEightQ:
+      "Was gilt, wenn ich länger als 90 Minuten für den Weg aus dem Flughafen brauche?",
+    faqEightA:
+      "Die ersten 90 Minuten nach der Landung sind kostenfrei enthalten – deutlich mehr, als Passkontrolle, Gepäck und Zoll benötigen – und dieses Zeitfenster verschiebt sich bei Flugverspätungen automatisch. Nur wenn Sie aus Gründen, die nicht mit Ihrem Flug zusammenhängen, länger im Terminal bleiben, kommt ein Parkkostenbeitrag von 5 € je weitere Stunde hinzu. In der Praxis kommt das so gut wie nie vor: Nahezu alle unsere Gäste sind längst vorher unterwegs.",
+    faqNineQ: "Wie bezahle ich?",
+    faqNineA:
+      "Sie bezahlen Ihrem Chauffeur zu Beginn der Fahrt bar. Der Betrag ist der Festpreis aus Ihrer Buchung – pro Fahrzeug, inklusive aller Flughafen- und Parkgebühren, ohne spätere Zusätze. Ihr Chauffeur begrüßt Sie, verlädt Ihr Gepäck und montiert die gewünschten Kindersitze; nach der Zahlung beginnt Ihre Fahrt.",
+    faqTenQ: "Wie halte ich beim Rücktransfer Kontakt?",
+    faqTenA:
+      "Sobald Sie Datum und Uhrzeit Ihrer Rückfahrt per WhatsApp mit unserem Team bestätigt haben, teilen wir Ihnen einige Stunden vor dem Transfer Ihr Fahrzeug zu und senden Ihnen Fotos davon über WhatsApp – auf Wunsch auch die Telefonnummer Ihres Chauffeurs. Erreicht Ihr Chauffeur das Hotel, informiert er die Rezeption, die Ihr Zimmer benachrichtigt, sobald der Wagen bereitsteht. Unsere Chauffeure rufen Gäste nie direkt an: Die gesamte Kommunikation läuft über unsere zentrale WhatsApp-Betreuung, sodass Sie immer genau wissen, mit wem Sie sprechen.",
     faqThreeQ: "Sind Kindersitze verfügbar?",
     faqThreeA:
       "Ja. Babyschalen, Kindersitze und Sitzerhöhungen sind bei Vorbestellung kostenlos verfügbar.",
@@ -208,7 +209,7 @@ const translations = {
       "Ja. Sprinter und Vito sind ideal für Golfgruppen. Teilen Sie uns Ihr Gepäck mit und wir planen das passende Fahrzeug.",
     faqFiveQ: "Ist der angezeigte Preis endgültig?",
     faqFiveA:
-      "Ja. Flughafengebühren, Parken, Wartezeit und Steuern sind inklusive. Es gibt keine versteckten Kosten.",
+      "Ja. Der Preis aus Ihrer Buchung ist der Betrag, den Sie Ihrem Chauffeur bar übergeben – pro Fahrzeug, inklusive aller Flughafengebühren, Parkkosten und der ersten 90 Minuten Wartezeit. Es gibt keine versteckten Kosten.",
     contactEyebrow: "Ihre Reise beginnt hier",
     contactTitle: "Außergewöhnlich gut<br />in Antalya ankommen.",
     contactBody:
@@ -230,7 +231,7 @@ const translations = {
     journeyTime: "Fahrzeit",
     totalFixed: "Gesamtpreis",
     quoteIncludes:
-      "Inklusive Meet & Greet, Flugverfolgung, Parken, Wartezeit und Mineralwasser.",
+      "Inklusive Meet & Greet, Flugverfolgung, Parken, 90 Minuten Wartezeit und Mineralwasser.",
     confirmWhatsapp: "Über WhatsApp bestätigen",
     chatWithUs: "Mit uns chatten",
     bookNowCta: "Jetzt buchen",
@@ -243,17 +244,13 @@ const translations = {
     flightArrivalTime: "Ankunftszeit",
     notesLabel: "Besondere Wünsche",
     confirmBooking: "Buchung bestätigen",
-    paySecurely: "Weiter zur sicheren Zahlung",
-    payLaterNote: "Sichere Online-Zahlung nach Bestätigung.",
     bookingConfirmed: "Buchung bestätigt",
     referenceLabel: "Referenz",
     weWillContact:
       "Ihre Buchungsanfrage wurde gesendet. Wir melden uns innerhalb von 30 Minuten.",
-    paymentTitle: "Sichere Zahlung",
     paymentError: "Zahlung fehlgeschlagen. Bitte erneut versuchen.",
   },
   tr: {
-    navFairPricing: "Adil fiyat",
     navFleet: "Araçlar",
     navService: "Hizmetler",
     navRoutes: "Rotalar",
@@ -401,33 +398,32 @@ const translations = {
     reviewThree:
       "“Bu bir havalimanı taksisinden çok beş yıldızlı otel şoför hizmeti gibiydi. Net iletişim, tertemiz araç ve gerçekten nazik bir şoför.”",
     trustedBy: "Antalya'nın önde gelen resort misafirlerinin tercihi",
-    pricingEyebrow: "İçiniz rahat olsun",
-    pricingTitle: "Müşteri dostu fiyatlandırma.<br />Adil olanı ödersiniz.",
-    pricingIntro:
-      "İçiniz rahat etsin diye sabit fiyat sunarız, ancak gerçek mesafeyi de ölçeriz. Her zaman düşük olan tutarı ödersiniz.",
-    pricingFixedPrice: "Sabit fiyat",
-    fixedPriceExample: "Belek transferi: €{{PRICE:belek:vito}}",
-    fixedPriceDesc:
-      "Garantili toplam tutar. Havalimanı ücretleri, otopark, bekleme süresi ve vergiler dahildir.",
-    distancePrice: "Mesafeye göre",
-    distancePriceExample: "24 km online örnek: €25",
-    distancePriceDesc: "Yolculuğunuz sırasında GPS ile ölçülür.",
-    youPay: "Ödeyeceğiniz tutar",
-    youPayPrice: "€25",
-    youPayDesc: "Hangisi daha düşükse. Şoför yolculuk sonunda teyit eder.",
-    pricingNote:
-      "Sürpriz yok. Gizli ücret yok. Rezervasyonda gördüğünüz tutarı ödersiniz - ya da daha azını.",
     faqEyebrow: "Sık sorulanlar",
     faqTitle: "Seyahatinizden önce.",
     faqIntro:
       "Antalya'daki özel havalimanı transferiniz hakkında bilmeniz gereken her şey.",
     askQuestion: "Bize sorun",
-    faqOneQ: "Uçağım gecikirse ne olur?",
+    faqOneQ: "Uçuşum gecikirse ne olur?",
     faqOneA:
-      "Tüm uçuşları gerçek zamanlı takip ederiz. Alış saatiniz otomatik olarak güncellenir ve şoförünüz ek ücret olmadan bekler.",
-    faqTwoQ: "Şoförümle nerede buluşacağım?",
+      "Sizin yapmanız gereken hiçbir şey yok. Uçuşunuzu canlı takip eder, alış saatinizi otomatik olarak güncelleriz. Uçuş kaynaklı gecikmeler için hiçbir ek ücret alınmaz; ne zaman inerseniz inin şoförünüz sizi bekliyor olur ve inişten sonraki ilk 90 dakika her zaman fiyata dahildir.",
+    faqTwoQ: "Dış hat uçuşuyla geliyorum, karşılama nasıl işliyor?",
     faqTwoA:
-      "Bagajınızı aldıktan sonra bagaj teslim alanından çıkın ve Karşılama Alanına gidin. J / 777 buluşma noktasını arayın — ekibimiz kişisel isim tabelasıyla sizi bekliyor olacak.",
+      "Pasaport kontrolü ve bagajınızı aldıktan sonra tüm yolcuların yöneldiği Karşılama (Meet & Greet) alanına ilerleyin ve J / 777 numaralı kontuarımıza gelin. Personelimize adınızı söylemeniz yeterli; sakin saatlerde isim tabelanızı da görürsünüz, yoğun saatlerde adınızı iletmeniz işinizi görür. Personelimiz aynı anda şoförünüzü bilgilendirir; şoförünüz havalimanına giriş yapıp karşılama noktasındaki yerini alır, siz de personelimiz eşliğinde aracınıza ilerlersiniz. Tüm süreç ortalama 7-8 dakika sürer.",
+    faqSixQ: "Yurt içi uçuşla geliyorum, şoförümü nasıl bulacağım?",
+    faqSixA:
+      "Karşılama (Meet & Greet) alanı yalnızca dış hat yolcuları içindir; iç hatlarda böyle bir alan bulunmaz. Bu nedenle iç hat misafirlerimize transferden önce şoförlerinin telefon numarasını iletiriz. İndiğinizde kendisine kısaca haber vermeniz yeterli; şoförünüz sizi yolcu karşılama bölümünden alır.",
+    faqSevenQ: "J / 777 kontuarında görevli yoksa ne yapmalıyım?",
+    faqSevenA:
+      "Kontuarımızda sürekli iki personelimiz görev yapar ve tek işleri gelen misafirleri araçlarına yönlendirmektir. Kontuarı bir an boş bulursanız bu, personelimizin sizden hemen önce gelen misafiri aracına götürdüğü anlamına gelir; her yönlendirme yaklaşık 7-8 dakika sürer. Lütfen yaklaşık 10 dakika bekleyin. Bu sürenin sonunda hâlâ kimse dönmediyse WhatsApp hattımızdan bize yazın: şoförünüzü anında bilgilendirir, en yakın noktaya park etmesini sağlar ve sizi hiç bekletmeden doğrudan aracınıza ulaştırırız.",
+    faqEightQ: "Havalimanından çıkmam 90 dakikadan uzun sürerse ne olur?",
+    faqEightA:
+      "Uçağınız indikten sonraki ilk 90 dakika ücretsiz olarak fiyata dahildir; pasaport, bagaj ve gümrük için fazlasıyla yeterli bir süredir ve uçuş gecikmelerinde bu süre otomatik olarak kayar. Yalnızca uçuşunuzla ilgisi olmayan bir nedenle terminalde 90 dakikadan uzun kalırsanız, aracınızın otoparkta geçirdiği her ek saat için 5 € otopark katkı bedeli eklenir. Uygulamada bu neredeyse hiç yaşanmaz; misafirlerimizin tamamına yakını bu sürenin çok öncesinde yola çıkar.",
+    faqNineQ: "Ödemeyi nasıl yapıyorum?",
+    faqNineA:
+      "Ödemenizi yolculuğun başında, doğrudan şoförünüze nakit olarak yaparsınız. Ödeyeceğiniz tutar rezervasyonda gördüğünüz sabit fiyattır: araç başına, tüm havalimanı ve otopark ücretleri dahil, sonradan eklenen kalem yok. Şoförünüz sizi karşılar, bagajlarınızı yükler, talep ettiyseniz çocuk koltuklarını hazırlar; ödemenizin ardından yolculuğunuz başlar.",
+    faqTenQ: "Dönüş transferimde iletişimi nasıl kuracağım?",
+    faqTenA:
+      "Dönüş gün ve saatinizi ekibimizle WhatsApp üzerinden teyit ettikten sonra, transferinize saatler kala aracınızı belirler ve size WhatsApp'tan aracın fotoğraflarını gönderiririz; dilerseniz şoförünüzün telefon numarasını da paylaşırız. Şoförünüz belirlenen saatte otelinize ulaştığında resepsiyona haber verir, resepsiyon da odanıza aracınızın hazır olduğunu bildirir. Şoförlerimiz misafirlerimizi doğrudan aramaz; tüm iletişim tek bir noktadan, WhatsApp müşteri destek hattımız üzerinden yürür. Böylece kiminle konuştuğunuzdan her zaman emin olursunuz.",
     faqThreeQ: "Çocuk koltuğu var mı?",
     faqThreeA:
       "Evet. Bebek koltuğu, çocuk koltuğu ve yükseltici koltuk rezervasyon sırasında ücretsiz olarak talep edilebilir.",
@@ -436,7 +432,7 @@ const translations = {
       "Evet. Sprinter ve Vito araçlarımız golf grupları için idealdir. Bagaj bilgilerinizi paylaşın, uygun aracı planlayalım.",
     faqFiveQ: "Verilen fiyat kesin mi?",
     faqFiveA:
-      "Evet. Havalimanı ücretleri, otopark, bekleme süresi ve vergiler dahildir. Gizli ücret yoktur.",
+      "Evet. Rezervasyonda gördüğünüz tutar, yolculuğun başında şoförünüze nakit ödeyeceğiniz tutardır: araç başına; tüm havalimanı ücretleri, otopark ve inişten sonraki ilk 90 dakikalık bekleme dahil. Gizli ücret yoktur.",
     contactEyebrow: "Yolculuğunuz burada başlar",
     contactTitle: "Antalya'ya ayrıcalıklı<br />bir şekilde varın.",
     contactBody:
@@ -457,7 +453,7 @@ const translations = {
     journeyTime: "Yolculuk süresi",
     totalFixed: "Toplam sabit fiyat",
     quoteIncludes:
-      "Karşılama, uçuş takibi, otopark, bekleme süresi ve şişe su dahildir.",
+      "Karşılama, uçuş takibi, otopark, 90 dakika bekleme ve şişe su dahildir.",
     confirmWhatsapp: "WhatsApp ile onaylayın",
     chatWithUs: "Bize yazın",
     bookNowCta: "Rezervasyon yap",
@@ -470,17 +466,13 @@ const translations = {
     flightArrivalTime: "Varış saati",
     notesLabel: "Özel istekler",
     confirmBooking: "Rezervasyonu onayla",
-    paySecurely: "Güvenli ödemeye geç",
-    payLaterNote: "Onay sonrası güvenli online ödeme.",
     bookingConfirmed: "Rezervasyon Onaylandı",
     referenceLabel: "Referans",
     weWillContact:
       "Rezervasyon talebiniz gönderildi. 30 dakika içinde sizinle iletişime geçeceğiz.",
-    paymentTitle: "Güvenli Ödeme",
     paymentError: "Ödeme başarısız. Lütfen tekrar deneyin.",
   },
   ru: {
-    navFairPricing: "Честная цена",
     navFleet: "Автопарк",
     navService: "Сервис",
     navRoutes: "Маршруты",
@@ -628,33 +620,32 @@ const translations = {
     reviewThree:
       "«Это было похоже на трансфер от пятизвёздочного отеля, а не на такси из аэропорта. Чёткая связь, безупречный автомобиль и по-настоящему вежливый водитель».",
     trustedBy: "Нам доверяют гости ведущих курортов Антальи",
-    pricingEyebrow: "Спокойствие в поездке",
-    pricingTitle:
-      "Цены в интересах клиента.<br />Вы платите справедливую сумму.",
-    pricingIntro:
-      "Мы предлагаем фиксированные цены для спокойствия, но измеряем фактическое расстояние. Вы всегда платите меньшую сумму.",
-    pricingFixedPrice: "Фиксированная цена",
-    fixedPriceExample: "Трансфер в Белек: {{PRICE:belek:vito}} €",
-    fixedPriceDesc:
-      "Гарантированная итоговая сумма. Включены сборы аэропорта, парковка, ожидание и налоги.",
-    distancePrice: "По расстоянию",
-    distancePriceExample: "24 км онлайн-пример: 25 €",
-    distancePriceDesc: "Измеряется по GPS во время поездки.",
-    youPay: "Вы платите",
-    youPayPrice: "25 €",
-    youPayDesc: "Применяется меньшая сумма. Водитель подтвердит её в конце.",
-    pricingNote:
-      "Без сюрпризов. Без скрытых платежей. Вы платите указанную при бронировании сумму - или меньше.",
     faqEyebrow: "Частые вопросы",
     faqTitle: "Перед поездкой.",
     faqIntro: "Всё, что нужно знать о частном трансфере из аэропорта Антальи.",
     askQuestion: "Задать вопрос",
     faqOneQ: "Что произойдёт, если мой рейс задержится?",
     faqOneA:
-      "Мы отслеживаем каждый рейс в реальном времени. Время встречи корректируется автоматически, а водитель ждёт без дополнительной платы.",
-    faqTwoQ: "Где я встречу водителя?",
+      "От вас ничего не требуется. Мы отслеживаем ваш рейс в режиме реального времени и автоматически корректируем время подачи автомобиля. Задержки по вине авиакомпании никогда не оплачиваются дополнительно — водитель встретит вас в любое время прилёта, а первые 90 минут после посадки всегда включены в стоимость.",
+    faqTwoQ: "Я прилетаю международным рейсом. Как проходит встреча?",
     faqTwoA:
-      "После получения багажа выйдите из зоны выдачи и пройдите в зону встречи (Meet & Greet). Найдите точку J / 777 — наша команда будет ждать с именной табличкой.",
+      "После паспортного контроля и получения багажа следуйте вместе с другими пассажирами в зону встречи Meet & Greet и подойдите к нашей стойке J / 777. Просто назовите сотруднику своё имя — в спокойные часы вы также увидите именную табличку, а в часы пик достаточно назвать имя. Наша команда сразу сообщает водителю; он въезжает на территорию аэропорта и подаёт машину к месту посадки, а сотрудник в это время провожает вас к автомобилю. Вся процедура занимает около 7–8 минут.",
+    faqSixQ: "Я прилетаю внутренним рейсом. Где найти водителя?",
+    faqSixA:
+      "Зона встречи Meet & Greet работает только для международных рейсов, поэтому гостей внутренних рейсов мы сопровождаем иначе: перед трансфером мы присылаем вам номер телефона водителя. После посадки просто сообщите ему об этом — он встретит вас в зале прилёта.",
+    faqSevenQ: "Что делать, если у стойки J / 777 никого нет?",
+    faqSevenA:
+      "На стойке постоянно дежурят два наших сотрудника, и их единственная задача — проводить прибывающих гостей к автомобилю. Если стойка на минуту пуста, значит коллега сопровождает гостя, прилетевшего прямо перед вами: каждое сопровождение занимает около 7–8 минут. Пожалуйста, подождите примерно 10 минут. Если за это время никто не вернулся, напишите нам в WhatsApp: мы немедленно свяжемся с водителем, он подъедет к ближайшей точке, и мы проводим вас прямо к машине без дальнейшего ожидания.",
+    faqEightQ:
+      "Что будет, если мне понадобится больше 90 минут, чтобы выйти из аэропорта?",
+    faqEightA:
+      "Первые 90 минут после посадки включены в стоимость — этого с запасом хватает на паспортный контроль, багаж и таможню, а при задержке рейса отсчёт сдвигается автоматически. Только если вы задержитесь в терминале дольше по причинам, не связанным с рейсом, добавляется парковочный сбор 5 € за каждый дополнительный час. На практике это почти не случается: подавляющее большинство гостей выезжает задолго до этого.",
+    faqNineQ: "Как проходит оплата?",
+    faqNineA:
+      "Вы оплачиваете поездку водителю наличными в начале трансфера. Сумма — это фиксированная цена из вашего бронирования: за автомобиль, со всеми аэропортовыми и парковочными сборами, без доплат впоследствии. Водитель встречает вас, загружает багаж и устанавливает заказанные детские кресла; после оплаты начинается ваша поездка.",
+    faqTenQ: "Как поддерживать связь при обратном трансфере?",
+    faqTenA:
+      "После того как вы подтвердите дату и время обратной поездки нашей команде в WhatsApp, мы за несколько часов до трансфера назначаем автомобиль и присылаем вам его фотографии в WhatsApp — при желании также номер телефона водителя. Когда водитель приезжает в отель, он сообщает на стойку регистрации, а та передаёт в ваш номер, что машина подана. Наши водители никогда не звонят гостям напрямую: всё общение идёт через единую линию поддержки в WhatsApp, поэтому вы всегда точно знаете, с кем разговариваете.",
     faqThreeQ: "Есть ли детские кресла?",
     faqThreeA:
       "Да. Автолюльки, детские кресла и бустеры предоставляются бесплатно по запросу при бронировании.",
@@ -663,7 +654,7 @@ const translations = {
       "Да. Sprinter и Vito идеально подходят для групп игроков в гольф. Сообщите объём багажа, и мы подберём автомобиль.",
     faqFiveQ: "Указанная цена окончательная?",
     faqFiveA:
-      "Да. Аэропортовые сборы, парковка, ожидание и налоги включены. Скрытых платежей нет.",
+      "Да. Цена, которую вы видите при бронировании, — это сумма, которую вы передаёте водителю наличными: за автомобиль, включая все аэропортовые сборы, парковку и первые 90 минут ожидания. Скрытых платежей нет.",
     contactEyebrow: "Ваше путешествие начинается здесь",
     contactTitle: "Прибудьте в Анталью<br />исключительно комфортно.",
     contactBody:
@@ -685,7 +676,7 @@ const translations = {
     journeyTime: "Время в пути",
     totalFixed: "Итоговая цена",
     quoteIncludes:
-      "Включены встреча, отслеживание рейса, парковка, ожидание и питьевая вода.",
+      "Включены встреча, отслеживание рейса, парковка, 90 минут ожидания и питьевая вода.",
     confirmWhatsapp: "Подтвердить в WhatsApp",
     chatWithUs: "Написать нам",
     bookNowCta: "Забронировать",
@@ -698,19 +689,15 @@ const translations = {
     flightArrivalTime: "Время прилёта",
     notesLabel: "Особые пожелания",
     confirmBooking: "Подтвердить бронирование",
-    paySecurely: "Перейти к безопасной оплате",
-    payLaterNote: "Оплата онлайн после подтверждения.",
     bookingConfirmed: "Бронирование подтверждено",
     referenceLabel: "Референс",
     weWillContact:
       "Ваш запрос на бронирование отправлен. Мы свяжемся с вами в течение 30 минут.",
-    paymentTitle: "Безопасная оплата",
     paymentError: "Оплата не прошла. Попробуйте ещё раз.",
   },
   cs: {
     navFleet: "Vozový park",
     navService: "Služby",
-    navFairPricing: "Spravedlivé ceny",
     navRoutes: "Trasy",
     navReviews: "Recenze",
     navContact: "Kontakt",
@@ -771,9 +758,9 @@ const translations = {
     cashPayment: "Platba ve vozidle",
     recommended: "Doporučeno",
     cashPaymentDescription:
-      "Bez zálohy. Zaplaťte řidiči přímo, až budete spokojeni se službou.",
+      "Žádná platba online předem. Pevnou částku předáte řidiči v hotovosti na začátku jízdy.",
     quoteIncludes:
-      "Zahrnuje uvítání, sledování letů, parkování, čekání a balenou vodu.",
+      "Zahrnuje přivítání, sledování letu, parkování, 90 minut čekání a balenou vodu.",
     confirmCashBooking: "Potvrdit rezervaci — platba ve vozidle",
     flightTracking: "Sledování letů v reálném čase",
     fixedPrice: "Garance pevné ceny",
@@ -842,23 +829,6 @@ const translations = {
     reviewsTitle: "Služba, na kterou se<br />nezapomíná ani po příjezdu.",
     googleReviews: "Na základě 387 ověřených recenzí Google",
     trustedBy: "Oblíbené u hostů předních antalyských resortů",
-    pricingEyebrow: "Klid v duši",
-    pricingTitle:
-      "Zákaznicky přívětivé ceny.<br />Platíte jen to, co je spravedlivé.",
-    pricingIntro:
-      "Nabízíme pevné ceny pro klid mysli, ale měříme skutečnou vzdálenost. Vždy zaplatíte nižší z obou.",
-    pricingFixedPrice: "Pevná cena",
-    fixedPriceExample: "Transfer do Beleku: €{{PRICE:belek:vito}}",
-    fixedPriceDesc:
-      "Garantovaná celková cena. Zahrnuje letištní poplatky, parkování, čekání a daně.",
-    distancePrice: "Podle vzdálenosti",
-    distancePriceExample: "Příklad 24 km online: €25",
-    distancePriceDesc: "Měřeno GPS během jízdy.",
-    youPay: "Platíte",
-    youPayPrice: "€25",
-    youPayDesc: "Cokoliv je nižší. Řidič potvrdí na konci.",
-    pricingNote:
-      "Žádná překvapení. Žádné skryté poplatky. Co si rezervujete, to zaplatíte — nebo méně.",
     faqEyebrow: "Často kladené dotazy",
     faqTitle: "Před vaší cestou.",
     faqIntro:
@@ -866,10 +836,25 @@ const translations = {
     askQuestion: "Zeptejte se nás",
     faqOneQ: "Co se stane, když má můj let zpoždění?",
     faqOneA:
-      "Sledujeme každý přílet v reálném čase. Čas vyzvednutí je automaticky upraven a váš šofér počká bez dalšího příplatku.",
-    faqTwoQ: "Kde najdu šoféra?",
+      "Nemusíte dělat vůbec nic. Váš let sledujeme v reálném čase a čas vyzvednutí upravíme automaticky. Zpoždění způsobená leteckou společností nikdy neúčtujeme – řidič na vás počká, ať přistanete kdykoli, a prvních 90 minut po přistání je vždy v ceně.",
+    faqTwoQ: "Přilétám mezinárodním letem. Jak vyzvednutí probíhá?",
     faqTwoA:
-      "Po vyzvednutí zavazadel vyjděte do oblasti Meet & Greet a hledejte setkávací bod J / 777. Náš tým bude čekat s personalizovanou jmenovkou.",
+      "Po pasové kontrole a výdeji zavazadel se vydejte s ostatními cestujícími do zóny Meet & Greet a přijďte k naší přepážce J / 777. Stačí říct našemu pracovníkovi své jméno – v klidnějších časech uvidíte i osobní jmenovku, ve špičce postačí jméno sdělit. Náš tým okamžitě informuje řidiče; ten vjede na letiště a přistaví vůz na místo pro vyzvednutí, zatímco vás náš pracovník doprovodí k autu. Celý proces trvá přibližně 7–8 minut.",
+    faqSixQ: "Přilétám vnitrostátním letem. Kde najdu svého řidiče?",
+    faqSixA:
+      "Zóna Meet & Greet slouží pouze mezinárodním příletům, proto se o hosty z vnitrostátních letů staráme jinak: před transferem vám pošleme telefonní číslo řidiče. Po přistání mu stačí dát vědět a vyzvedne vás v příletové hale.",
+    faqSevenQ: "Co mám dělat, když u přepážky J / 777 nikdo není?",
+    faqSevenA:
+      "U přepážky trvale slouží dva naši pracovníci a jejich jediným úkolem je doprovodit přilétající hosty k vozu. Pokud je přepážka na chvíli prázdná, znamená to, že kolega právě doprovází hosta, který přiletěl těsně před vámi – každý doprovod trvá asi 7–8 minut. Počkejte prosím zhruba 10 minut. Pokud se do té doby nikdo nevrátí, napište nám na WhatsApp: okamžitě informujeme vašeho řidiče, necháme ho zastavit na nejbližším místě a dovedeme vás rovnou k vozu bez dalšího čekání.",
+    faqEightQ: "Co když budu potřebovat na odchod z letiště více než 90 minut?",
+    faqEightA:
+      "Prvních 90 minut po přistání je zdarma v ceně – s rezervou více, než vyžaduje pasová kontrola, zavazadla a celní odbavení – a při zpoždění letu se tento interval automaticky posouvá. Pouze pokud vás v terminálu zdrží něco, co s letem nesouvisí, připočítáváme příspěvek na parkování 5 € za každou další hodinu. V praxi k tomu téměř nikdy nedojde: naprostá většina hostů je na cestě dávno předtím.",
+    faqNineQ: "Jak probíhá platba?",
+    faqNineA:
+      "Řidiči platíte v hotovosti na začátku jízdy. Částka odpovídá pevné ceně z vaší rezervace – za vozidlo, včetně všech letištních a parkovacích poplatků, bez dodatečných položek. Řidič vás přivítá, naloží zavazadla a připraví objednané dětské sedačky; po zaplacení vaše cesta začíná.",
+    faqTenQ: "Jak zůstanu ve spojení při zpátečním transferu?",
+    faqTenA:
+      "Jakmile s naším týmem potvrdíte datum a čas zpáteční cesty přes WhatsApp, několik hodin před transferem přidělíme vozidlo a pošleme vám jeho fotografie na WhatsApp – na přání i telefonní číslo řidiče. Když řidič dorazí k hotelu, oznámí to recepci, která dá vědět na váš pokoj, že vůz je připraven. Naši řidiči hostům nikdy nevolají přímo: veškerá komunikace probíhá přes jedinou zákaznickou linku na WhatsAppu, takže vždy víte, s kým mluvíte.",
     faqThreeQ: "Jsou k dispozici dětské sedačky?",
     faqThreeA:
       "Ano. Sedačky pro kojence, batolata i posilovací sedačky jsou k dispozici zdarma při objednávce.",
@@ -878,7 +863,7 @@ const translations = {
       "Ano. Naše vozidla Sprinter a Vito jsou ideální pro golfové skupiny. Sdělte nám detaily o zavazadlech a přidělíme správné vozidlo.",
     faqFiveQ: "Je nabízená cena konečná?",
     faqFiveA:
-      "Ano. Veškeré letištní poplatky, parkování, čekání a daně jsou zahrnuty. Žádné skryté poplatky.",
+      "Ano. Cena, kterou vidíte při rezervaci, je částka, kterou předáte řidiči v hotovosti – za vozidlo, včetně všech letištních poplatků, parkování a prvních 90 minut čekání. Žádné skryté poplatky.",
     contactEyebrow: "Vaše cesta začíná zde",
     contactTitle: "Přijeďte do Antalye<br />výjimečně dobře.",
     contactBody:
@@ -902,7 +887,7 @@ const translations = {
     hotelNamePlaceholder: "Název hotelu nebo ubytování",
     requestQuote: "Požádat o cenovou nabídku",
     cashConfirmation:
-      "Vaše rezervace je potvrzena. Zaplaťte pevnou celkovou cenu přímo řidiči ve vozidle.",
+      "Vaše rezervace je potvrzena. Pevnou částku předáte řidiči v hotovosti na začátku jízdy.",
     bookingError:
       "Vaši rezervaci se nepodařilo dokončit. Zkuste to prosím znovu.",
     formIncomplete: "Prosím vyplňte zvýrazněná pole.",
@@ -972,7 +957,6 @@ const translations = {
   },
 
   pl: {
-    navFairPricing: "Uczciwa cena",
     navFleet: "Pojazdy",
     navService: "Usługi",
     navRoutes: "Trasy",
@@ -1098,23 +1082,6 @@ const translations = {
     reviewThree:
       "„To było jak serwis szoferski hotelu, a nie taksówka na lotnisku. Jasna komunikacja, nieskazitelny pojazd i naprawdę uprzejmy kierowca.”",
     trustedBy: "Wybór gości czołowych resortów w Antalyi",
-    pricingEyebrow: "Spokój od początku",
-    pricingTitle:
-      "Ceny przyjazne klientom.<br />Płacisz tyle, ile jest uczciwe.",
-    pricingIntro:
-      "Dla spokoju podajemy stałe ceny, ale mierzymy rzeczywisty dystans. Zawsze płacisz niższą kwotę.",
-    pricingFixedPrice: "Stała cena",
-    fixedPriceExample: "Transfer do Belek: {{PRICE:belek:vito}} €",
-    fixedPriceDesc:
-      "Gwarantowana kwota końcowa. Obejmuje opłaty lotniskowe, parking, czas oczekiwania i podatki.",
-    distancePrice: "Według dystansu",
-    distancePriceExample: "Przykład online 24 km: 25 €",
-    distancePriceDesc: "Mierzone GPS-em podczas przejazdu.",
-    youPay: "Płacisz",
-    youPayPrice: "25 €",
-    youPayDesc: "Obowiązuje niższa kwota. Kierowca potwierdza ją na końcu.",
-    pricingNote:
-      "Bez niespodzianek. Bez ukrytych opłat. Płacisz tyle, ile rezerwujesz - albo mniej.",
     faqEyebrow: "Często zadawane pytania",
     faqTitle: "Przed Twoją podróżą.",
     faqIntro:
@@ -1122,10 +1089,25 @@ const translations = {
     askQuestion: "Zadaj pytanie",
     faqOneQ: "Co się stanie, jeśli mój lot się opóźni?",
     faqOneA:
-      "Śledzimy każdy przylot w czasie rzeczywistym. Godzina odbioru jest automatycznie dostosowywana, a szofer czeka bez dodatkowych opłat.",
-    faqTwoQ: "Gdzie spotkam mojego szofera?",
+      "Nie musisz nic robić. Śledzimy Twój lot na bieżąco i automatycznie dostosowujemy godzinę odbioru. Za opóźnienia linii lotniczych nigdy nie pobieramy dopłat – kierowca czeka bez względu na godzinę lądowania, a pierwsze 90 minut po wylądowaniu zawsze jest wliczone w cenę.",
+    faqTwoQ: "Przylatuję lotem międzynarodowym. Jak wygląda odbiór?",
     faqTwoA:
-      "Po odebraniu bagażu opuść strefę odbioru i udaj się do strefy powitań (Meet & Greet). Szukaj punktu spotkań J / 777 — nasz zespół czeka z tabliczką z Twoim imieniem.",
+      "Po kontroli paszportowej i odbiorze bagażu udaj się razem z innymi pasażerami do strefy Meet & Greet i podejdź do naszego stanowiska J / 777. Wystarczy podać naszemu pracownikowi swoje nazwisko – w spokojniejszych godzinach zobaczysz również imienną tabliczkę, a w szczycie wystarczy samo nazwisko. Nasz zespół natychmiast powiadamia kierowcę; wjeżdża on na teren lotniska i podjeżdża w miejsce odbioru, a nasz pracownik odprowadza Cię do samochodu. Cały proces trwa około 7–8 minut.",
+    faqSixQ: "Przylatuję lotem krajowym. Gdzie znajdę kierowcę?",
+    faqSixA:
+      "Strefa Meet & Greet obsługuje wyłącznie przyloty międzynarodowe, dlatego gośćmi lotów krajowych zajmujemy się inaczej: przed transferem wysyłamy Ci numer telefonu kierowcy. Po wylądowaniu wystarczy dać mu znać – odbierze Cię w hali przylotów.",
+    faqSevenQ: "Co zrobić, jeśli przy stanowisku J / 777 nikogo nie ma?",
+    faqSevenA:
+      "Przy stanowisku stale dyżurują dwie osoby z naszego zespołu, a ich jedynym zadaniem jest odprowadzanie przybywających gości do samochodów. Jeśli zastaniesz stanowisko na moment puste, oznacza to, że kolega odprowadza właśnie gościa, który przyleciał tuż przed Tobą – każde odprowadzenie trwa około 7–8 minut. Poczekaj proszę około 10 minut. Jeśli w tym czasie nikt nie wróci, napisz do nas na WhatsAppie: natychmiast powiadomimy kierowcę, poprosimy go o podjechanie w najbliższe miejsce i zaprowadzimy Cię prosto do auta bez dalszego czekania.",
+    faqEightQ: "Co, jeśli wyjście z lotniska zajmie mi więcej niż 90 minut?",
+    faqEightA:
+      "Pierwsze 90 minut po wylądowaniu jest wliczone w cenę – z zapasem wystarcza na kontrolę paszportową, bagaż i odprawę celną – a przy opóźnieniu lotu okno to przesuwa się automatycznie. Dopiero jeśli coś niezwiązanego z lotem zatrzyma Cię w terminalu dłużej, doliczamy 5 € dopłaty parkingowej za każdą kolejną godzinę. W praktyce zdarza się to niezwykle rzadko: niemal wszyscy nasi goście są w drodze na długo przed upływem tego czasu.",
+    faqNineQ: "Jak wygląda płatność?",
+    faqNineA:
+      "Płacisz kierowcy gotówką na początku podróży. Kwota to stała cena z rezerwacji – za pojazd, ze wszystkimi opłatami lotniskowymi i parkingowymi, bez późniejszych dopłat. Kierowca wita Cię, ładuje bagaże i montuje zamówione foteliki dziecięce; po uregulowaniu płatności rozpoczyna się podróż.",
+    faqTenQ: "Jak utrzymać kontakt przy transferze powrotnym?",
+    faqTenA:
+      "Gdy potwierdzisz naszemu zespołowi datę i godzinę powrotu przez WhatsApp, na kilka godzin przed transferem przydzielamy pojazd i wysyłamy Ci jego zdjęcia na WhatsAppie – a jeśli chcesz, także numer telefonu kierowcy. Gdy kierowca dotrze do hotelu, informuje recepcję, która przekazuje do Twojego pokoju, że samochód czeka. Nasi kierowcy nigdy nie dzwonią do gości bezpośrednio: cała komunikacja przechodzi przez jedną linię wsparcia na WhatsAppie, więc zawsze wiesz dokładnie, z kim rozmawiasz.",
     faqThreeQ: "Czy dostępne są foteliki dziecięce?",
     faqThreeA:
       "Tak. Nosidełka, foteliki i podkładki są dostępne bezpłatnie przy wcześniejszej rezerwacji.",
@@ -1134,7 +1116,7 @@ const translations = {
       "Tak. Sprinter i Vito są idealne dla grup golfowych. Podaj informacje o bagażu, a zaplanujemy odpowiedni pojazd.",
     faqFiveQ: "Czy podana cena jest ostateczna?",
     faqFiveA:
-      "Tak. Opłaty lotniskowe, parking, czas oczekiwania i podatki są wliczone. Brak ukrytych kosztów.",
+      "Tak. Cena, którą widzisz przy rezerwacji, to kwota, którą przekazujesz kierowcy gotówką – za pojazd, ze wszystkimi opłatami lotniskowymi, parkingiem i pierwszymi 90 minutami oczekiwania. Nie ma żadnych ukrytych opłat.",
     contactEyebrow: "Twoja podróż zaczyna się tutaj",
     contactTitle: "Przybądź do Antalyi<br />wyjątkowo komfortowo.",
     contactBody:
@@ -1155,7 +1137,7 @@ const translations = {
     journeyTime: "Czas podróży",
     totalFixed: "Cena łączna",
     quoteIncludes:
-      "Wliczono: powitanie, śledzenie lotu, parking, czas oczekiwania i woda.",
+      "Obejmuje powitanie, śledzenie lotu, parking, 90 minut oczekiwania i wodę butelkowaną.",
     confirmWhatsapp: "Potwierdź przez WhatsApp",
     chatWithUs: "Napisz do nas",
     bookNowCta: "Zarezerwuj",
@@ -1168,17 +1150,13 @@ const translations = {
     flightArrivalTime: "Godzina przylotu",
     notesLabel: "Specjalne życzenia",
     confirmBooking: "Potwierdź rezerwację",
-    paySecurely: "Przejdź do bezpiecznej płatności",
-    payLaterNote: "Bezpieczna płatność online po potwierdzeniu.",
     bookingConfirmed: "Rezerwacja potwierdzona",
     referenceLabel: "Numer referencyjny",
     weWillContact:
       "Twoje zgłoszenie rezerwacji zostało wysłane. Skontaktujemy się w ciągu 30 minut.",
-    paymentTitle: "Bezpieczna płatność",
     paymentError: "Płatność nie powiodła się. Spróbuj ponownie.",
   },
   nl: {
-    navFairPricing: "Eerlijke prijs",
     navFleet: "Voertuigen",
     navService: "Service",
     navRoutes: "Routes",
@@ -1304,23 +1282,6 @@ const translations = {
     reviewThree:
       "„Dit voelde als een chauffeurservice van een hotel, niet als een luchthaventaxi. Duidelijke communicatie, een onberispelijk voertuig en een oprecht beleefde chauffeur.”",
     trustedBy: "Vertrouwd door gasten van toonaangevende resorts in Antalya",
-    pricingEyebrow: "Zorgeloos reizen",
-    pricingTitle: "Klantvriendelijke prijzen.<br />U betaalt wat eerlijk is.",
-    pricingIntro:
-      "We bieden vaste prijzen voor zekerheid, maar meten ook de werkelijke afstand. U betaalt altijd het laagste bedrag.",
-    pricingFixedPrice: "Vaste prijs",
-    fixedPriceExample: "Transfer naar Belek: €{{PRICE:belek:vito}}",
-    fixedPriceDesc:
-      "Gegarandeerd totaalbedrag. Inclusief luchthavengelden, parkeren, wachttijd en belastingen.",
-    distancePrice: "Op afstand",
-    distancePriceExample: "24 km online voorbeeld: €25",
-    distancePriceDesc: "Gemeten met GPS tijdens uw rit.",
-    youPay: "U betaalt",
-    youPayPrice: "€25",
-    youPayDesc:
-      "Het laagste bedrag geldt. De chauffeur bevestigt dit aan het einde.",
-    pricingNote:
-      "Geen verrassingen. Geen verborgen kosten. Wat u boekt, betaalt u - of minder.",
     faqEyebrow: "Veelgestelde vragen",
     faqTitle: "Vóór uw reis.",
     faqIntro:
@@ -1328,10 +1289,28 @@ const translations = {
     askQuestion: "Stel een vraag",
     faqOneQ: "Wat gebeurt er bij een vluchtvertraging?",
     faqOneA:
-      "We volgen elke aankomst in realtime. Uw ophaaltijd wordt automatisch aangepast en uw chauffeur wacht zonder meerprijs.",
-    faqTwoQ: "Waar ontmoet ik mijn chauffeur?",
+      "U hoeft niets te doen. Wij volgen uw vlucht live en passen uw ophaaltijd automatisch aan. Vertragingen van de luchtvaartmaatschappij brengen wij nooit in rekening – uw chauffeur staat er, hoe laat u ook landt, en de eerste 90 minuten na de landing zijn altijd inbegrepen.",
+    faqTwoQ:
+      "Ik kom aan met een internationale vlucht. Hoe verloopt de ontvangst?",
     faqTwoA:
-      "Na het ophalen van uw bagage, verlaat de bagagehal en ga naar de Meet & Greet Area. Zoek naar ontmoetingspunt J / 777 — ons team wacht met een gepersonaliseerd naambordje.",
+      "Loop na de paspoortcontrole en bagageafhandeling met de andere passagiers mee naar de Meet & Greet-zone en kom naar onze balie J / 777. Geef onze medewerker eenvoudig uw naam door – op rustige momenten ziet u ook uw persoonlijke naambordje, tijdens drukke uren volstaat uw naam. Ons team waarschuwt meteen uw chauffeur; hij rijdt het luchthaventerrein op en staat klaar op het ophaalpunt, terwijl onze medewerker u naar de auto begeleidt. Het hele proces duurt ongeveer 7–8 minuten.",
+    faqSixQ:
+      "Ik kom aan met een binnenlandse vlucht. Waar vind ik mijn chauffeur?",
+    faqSixA:
+      "De Meet & Greet-zone is uitsluitend voor internationale aankomsten. Gasten van binnenlandse vluchten begeleiden wij daarom anders: wij sturen u vóór de transfer het telefoonnummer van uw chauffeur. Laat het hem na de landing kort weten – hij haalt u op in de aankomsthal.",
+    faqSevenQ: "Wat als er niemand bij balie J / 777 staat?",
+    faqSevenA:
+      "Bij onze balie zijn permanent twee medewerkers aanwezig; hun enige taak is aankomende gasten naar hun voertuig te begeleiden. Treft u de balie even onbemand aan, dan begeleidt een collega net de gast die vlak vóór u aankwam – elke begeleiding duurt ongeveer 7–8 minuten. Wacht dan alstublieft zo'n 10 minuten. Is er daarna nog niemand terug, stuur ons dan een bericht via WhatsApp: wij informeren uw chauffeur direct, laten hem op het dichtstbijzijnde punt stoppen en begeleiden u zonder verder wachten rechtstreeks naar uw auto.",
+    faqEightQ:
+      "Wat als ik meer dan 90 minuten nodig heb om de luchthaven te verlaten?",
+    faqEightA:
+      "De eerste 90 minuten na de landing zijn kosteloos inbegrepen – ruim meer dan paspoortcontrole, bagage en douane vragen – en dit tijdvenster schuift automatisch mee bij vertraging. Alleen wanneer iets dat losstaat van uw vlucht u langer in de terminal houdt, komt er een parkeerbijdrage van € 5 per extra uur bij. In de praktijk gebeurt dat vrijwel nooit: bijna al onze gasten zijn ruim daarvoor onderweg.",
+    faqNineQ: "Hoe betaal ik?",
+    faqNineA:
+      "U betaalt uw chauffeur contant aan het begin van de rit. Het bedrag is de vaste prijs uit uw boeking – per voertuig, inclusief alle luchthaven- en parkeerkosten, zonder latere toeslagen. Uw chauffeur verwelkomt u, laadt uw bagage in en plaatst de gevraagde kinderzitjes; na de betaling begint uw rit.",
+    faqTenQ: "Hoe houd ik contact voor de terugtransfer?",
+    faqTenA:
+      "Zodra u datum en tijd van uw terugreis via WhatsApp met ons team hebt bevestigd, wijzen wij enkele uren vóór de transfer uw voertuig toe en sturen wij u foto's ervan via WhatsApp – desgewenst ook het telefoonnummer van uw chauffeur. Zodra uw chauffeur bij het hotel is, meldt hij zich bij de receptie, die uw kamer laat weten dat de auto klaarstaat. Onze chauffeurs bellen gasten nooit rechtstreeks: alle contact loopt via onze centrale WhatsApp-supportlijn, zodat u altijd precies weet met wie u spreekt.",
     faqThreeQ: "Zijn kinderzitjes beschikbaar?",
     faqThreeA:
       "Ja. Babyschalen, kinderzitjes en zitverhogers zijn bij vooraf boeken gratis beschikbaar.",
@@ -1340,7 +1319,7 @@ const translations = {
       "Ja. Sprinter en Vito zijn ideaal voor golfgroepen. Geef uw bagage op en wij plannen het juiste voertuig.",
     faqFiveQ: "Is de getoonde prijs definitief?",
     faqFiveA:
-      "Ja. Luchthavengelden, parkeren, wachttijd en belastingen zijn inbegrepen. Geen verborgen kosten.",
+      "Ja. De prijs die u bij het boeken ziet, is het bedrag dat u contant aan uw chauffeur geeft – per voertuig, inclusief alle luchthavenkosten, parkeren en de eerste 90 minuten wachttijd. Er zijn geen verborgen kosten.",
     contactEyebrow: "Uw reis begint hier",
     contactTitle: "Buitengewoon goed<br />aankomen in Antalya.",
     contactBody:
@@ -1361,7 +1340,7 @@ const translations = {
     journeyTime: "Reistijd",
     totalFixed: "Totaalprijs",
     quoteIncludes:
-      "Inclusief: welkom, vluchttracking, parkeren, wachttijd en water.",
+      "Inclusief meet & greet, vluchtvolging, parkeren, 90 minuten wachttijd en flesje water.",
     confirmWhatsapp: "Bevestigen via WhatsApp",
     chatWithUs: "Chat met ons",
     bookNowCta: "Nu boeken",
@@ -1374,17 +1353,13 @@ const translations = {
     flightArrivalTime: "Aankomsttijd",
     notesLabel: "Speciale wensen",
     confirmBooking: "Boeking bevestigen",
-    paySecurely: "Ga door naar veilig betalen",
-    payLaterNote: "Veilige online betaling na bevestiging.",
     bookingConfirmed: "Boeking bevestigd",
     referenceLabel: "Referentie",
     weWillContact:
       "Uw boekingsaanvraag is verzonden. We nemen binnen 30 minuten contact op.",
-    paymentTitle: "Veilige betaling",
     paymentError: "Betaling mislukt. Probeer het opnieuw.",
   },
   uk: {
-    navFairPricing: "Чесна ціна",
     navFleet: "Автопарк",
     navService: "Сервіс",
     navRoutes: "Маршрути",
@@ -1510,23 +1485,6 @@ const translations = {
     reviewThree:
       "«Це нагадувало трансфер від п'ятизіркового готелю, а не таксі з аеропорту. Чіткий зв'язок, бездоганний автомобіль та по-справжньому ввічливий водій».",
     trustedBy: "Нам довіряють гості провідних курортів Анталії",
-    pricingEyebrow: "Спокій у дорозі",
-    pricingTitle:
-      "Ціни в інтересах клієнта.<br />Ви сплачуєте справедливу суму.",
-    pricingIntro:
-      "Ми пропонуємо фіксовані ціни для вашого спокою, але вимірюємо фактичну відстань. Ви завжди сплачуєте меншу суму.",
-    pricingFixedPrice: "Фіксована ціна",
-    fixedPriceExample: "Трансфер до Белека: {{PRICE:belek:vito}} €",
-    fixedPriceDesc:
-      "Гарантована загальна сума. Включає збори аеропорту, паркування, час очікування та податки.",
-    distancePrice: "За відстанню",
-    distancePriceExample: "24 км онлайн-приклад: 25 €",
-    distancePriceDesc: "Вимірюється GPS під час поїздки.",
-    youPay: "Ви сплачуєте",
-    youPayPrice: "25 €",
-    youPayDesc: "Діє менша сума. Водій підтвердить її наприкінці.",
-    pricingNote:
-      "Без сюрпризів. Без прихованих платежів. Ви сплачуєте суму з бронювання - або менше.",
     faqEyebrow: "Часті запитання",
     faqTitle: "Перед поїздкою.",
     faqIntro:
@@ -1534,10 +1492,26 @@ const translations = {
     askQuestion: "Поставити запитання",
     faqOneQ: "Що станеться, якщо мій рейс затримається?",
     faqOneA:
-      "Ми відстежуємо кожен рейс у реальному часі. Час зустрічі коригується автоматично, а водій чекає без доплати.",
-    faqTwoQ: "Де я зустріну водія?",
+      "Від вас нічого не потрібно. Ми стежимо за вашим рейсом у реальному часі й автоматично коригуємо час подачі автомобіля. За затримки авіакомпанії ми ніколи не беремо доплат — водій зустріне вас о будь-якій годині, а перші 90 хвилин після посадки завжди включені у вартість.",
+    faqTwoQ: "Я прилітаю міжнародним рейсом. Як відбувається зустріч?",
     faqTwoA:
-      "Після отримання багажу вийдіть із зони видачі та пройдіть до зони зустрічі (Meet & Greet). Знайдіть точку J / 777 — наша команда чекатиме з табличкою з вашим ім'ям.",
+      "Після паспортного контролю та отримання багажу прямуйте разом з іншими пасажирами до зони зустрічі Meet & Greet і підійдіть до нашої стійки J / 777. Достатньо назвати нашому працівникові своє ім'я — у спокійні години ви також побачите іменну табличку, а в години пік вистачить просто назвати ім'я. Наша команда одразу повідомляє водія; він в'їжджає на територію аеропорту та подає автомобіль до місця посадки, а працівник тим часом проводжає вас до авто. Уся процедура триває близько 7–8 хвилин.",
+    faqSixQ: "Я прилітаю внутрішнім рейсом. Де знайти водія?",
+    faqSixA:
+      "Зона Meet & Greet працює лише для міжнародних прильотів, тому гостей внутрішніх рейсів ми супроводжуємо інакше: перед трансфером надсилаємо вам номер телефону водія. Після посадки просто повідомте йому — він зустріне вас у залі прильотів.",
+    faqSevenQ: "Що робити, якщо біля стійки J / 777 нікого немає?",
+    faqSevenA:
+      "На стійці постійно чергують двоє наших працівників, і їхнє єдине завдання — провести гостей до автомобіля. Якщо стійка на мить порожня, це означає, що колега саме супроводжує гостя, який прилетів перед вами: кожен супровід триває близько 7–8 хвилин. Будь ласка, зачекайте приблизно 10 хвилин. Якщо за цей час ніхто не повернувся, напишіть нам у WhatsApp: ми негайно повідомимо водія, він під'їде до найближчої точки, і ми проведемо вас просто до авто без подальшого очікування.",
+    faqEightQ:
+      "Що буде, якщо мені знадобиться більше ніж 90 хвилин, щоб вийти з аеропорту?",
+    faqEightA:
+      "Перші 90 хвилин після посадки включені у вартість — цього з запасом вистачає на паспортний контроль, багаж і митницю, а в разі затримки рейсу відлік зміщується автоматично. Лише якщо ви затримаєтеся в терміналі довше з причин, не пов'язаних із рейсом, додається паркувальний внесок 5 € за кожну додаткову годину. На практиці це трапляється майже ніколи: переважна більшість гостей вирушає задовго до цього.",
+    faqNineQ: "Як відбувається оплата?",
+    faqNineA:
+      "Ви розраховуєтеся з водієм готівкою на початку поїздки. Сума — це фіксована ціна з вашого бронювання: за автомобіль, з усіма аеропортовими та паркувальними зборами, без подальших доплат. Водій зустрічає вас, завантажує багаж і встановлює замовлені дитячі крісла; після оплати ваша поїздка починається.",
+    faqTenQ: "Як підтримувати зв'язок під час зворотного трансферу?",
+    faqTenA:
+      "Щойно ви підтвердите дату й час зворотної поїздки нашій команді у WhatsApp, за кілька годин до трансферу ми призначаємо автомобіль і надсилаємо вам його фотографії у WhatsApp — за бажанням також номер телефону водія. Коли водій приїжджає до готелю, він повідомляє рецепцію, а вона передає у ваш номер, що авто подано. Наші водії ніколи не телефонують гостям напряму: усе спілкування відбувається через єдину лінію підтримки у WhatsApp, тож ви завжди точно знаєте, з ким розмовляєте.",
     faqThreeQ: "Чи є дитячі крісла?",
     faqThreeA:
       "Так. Автолюльки, дитячі крісла та бустери надаються безкоштовно на запит при бронюванні.",
@@ -1546,7 +1520,7 @@ const translations = {
       "Так. Sprinter і Vito ідеально підходять для груп гравців у гольф. Повідомте об'єм багажу і ми підберемо автомобіль.",
     faqFiveQ: "Вказана ціна є остаточною?",
     faqFiveA:
-      "Так. Аеропортові збори, паркування, очікування та податки включені. Прихованих платежів немає.",
+      "Так. Ціна, яку ви бачите під час бронювання, — це сума, яку ви передаєте водієві готівкою: за автомобіль, з усіма аеропортовими зборами, паркуванням і першими 90 хвилинами очікування. Прихованих платежів немає.",
     contactEyebrow: "Ваша подорож починається тут",
     contactTitle: "Прибудьте в Анталью<br />надзвичайно комфортно.",
     contactBody:
@@ -1568,7 +1542,7 @@ const translations = {
     journeyTime: "Час у дорозі",
     totalFixed: "Підсумкова ціна",
     quoteIncludes:
-      "Включено: зустріч, відстеження рейсу, паркування, очікування та вода.",
+      "Включено зустріч, відстеження рейсу, паркування, 90 хвилин очікування та питну воду.",
     confirmWhatsapp: "Підтвердити в WhatsApp",
     chatWithUs: "Написати нам",
     bookNowCta: "Забронювати",
@@ -1581,19 +1555,15 @@ const translations = {
     flightArrivalTime: "Час прильоту",
     notesLabel: "Особливі побажання",
     confirmBooking: "Підтвердити бронювання",
-    paySecurely: "Перейти до безпечної оплати",
-    payLaterNote: "Оплата онлайн після підтвердження.",
     bookingConfirmed: "Бронювання підтверджено",
     referenceLabel: "Референс",
     weWillContact:
       "Ваш запит на бронювання надіслано. Ми зв'яжемося з вами протягом 30 хвилин.",
-    paymentTitle: "Безпечна оплата",
     paymentError: "Оплата не пройшла. Спробуйте ще раз.",
   },
   ur: {
     navFleet: "گاڑیاں",
     navService: "خدمات",
-    navFairPricing: "منصفانہ قیمتیں",
     navRoutes: "راستے",
     navReviews: "جائزے",
     navContact: "رابطہ",
@@ -1653,9 +1623,9 @@ const translations = {
     cashPayment: "گاڑی میں ادائیگی",
     recommended: "تجویز کردہ",
     cashPaymentDescription:
-      "پیشگی ادائیگی نہیں۔ سروس سے مطمئن ہونے پر اپنے ڈرائیور کو براہ راست ادا کریں۔",
+      "آن لائن پیشگی ادائیگی نہیں۔ مقررہ رقم آپ سفر کے آغاز پر ڈرائیور کو نقد ادا کرتے ہیں۔",
     quoteIncludes:
-      "میٹ اینڈ گریٹ، فلائٹ ٹریکنگ، پارکنگ، انتظار کا وقت اور بوتل بند پانی شامل ہے۔",
+      "استقبال، فلائٹ ٹریکنگ، پارکنگ، 90 منٹ انتظار اور بوتل بند پانی شامل ہے۔",
     confirmCashBooking: "بکنگ کی تصدیق کریں — گاڑی میں ادا کریں",
     flightTracking: "حقیقی وقت کی فلائٹ ٹریکنگ",
     fixedPrice: "مقررہ قیمت کی ضمانت",
@@ -1724,33 +1694,34 @@ const translations = {
     reviewsTitle: "آمد کے بعد بھی یاد رہنے<br />والی سروس۔",
     googleReviews: "387 تصدیق شدہ گوگل جائزوں پر مبنی",
     trustedBy: "انطالیہ کے معروف ریزورٹس کے مسافروں کا اعتماد",
-    pricingEyebrow: "ذہنی سکون",
-    pricingTitle: "مسافر دوست قیمتیں۔<br />آپ وہی ادا کریں جو منصفانہ ہے۔",
-    pricingIntro:
-      "ہم ذہنی سکون کے لیے مقررہ قیمتیں پیش کرتے ہیں، لیکن اصل فاصلہ ناپتے ہیں۔ آپ ہمیشہ کم قیمت ادا کرتے ہیں۔",
-    pricingFixedPrice: "مقررہ قیمت",
-    fixedPriceExample: "بیلک ٹرانسفر: €{{PRICE:belek:vito}}",
-    fixedPriceDesc:
-      "ضمانت شدہ کل۔ ایئرپورٹ فیس، پارکنگ، انتظار کا وقت اور ٹیکس شامل ہیں۔",
-    distancePrice: "فاصلے پر مبنی",
-    distancePriceExample: "آن لائن 24 کلومیٹر مثال: €25",
-    distancePriceDesc: "آپ کے سفر کے دوران GPS سے ناپا گیا۔",
-    youPay: "آپ ادا کریں",
-    youPayPrice: "€25",
-    youPayDesc: "جو بھی کم ہو۔ ڈرائیور آخر میں تصدیق کرتا ہے۔",
-    pricingNote:
-      "کوئی حیرت نہیں۔ کوئی پوشیدہ چارج نہیں۔ جو بک کریں وہی ادا کریں — یا کم۔",
     faqEyebrow: "اکثر پوچھے گئے سوالات",
     faqTitle: "سفر سے پہلے۔",
     faqIntro:
       "اپنے نجی انطالیہ ایئرپورٹ ٹرانسفر کے بارے میں آپ کو جو کچھ جاننا ضروری ہے۔",
     askQuestion: "ہم سے سوال پوچھیں",
-    faqOneQ: "اگر میری فلائٹ میں تاخیر ہو جائے تو کیا ہوگا؟",
+    faqOneQ: "اگر میری پرواز میں تاخیر ہو جائے تو کیا ہوگا؟",
     faqOneA:
-      "ہم ہر آمد کو حقیقی وقت میں ٹریک کرتے ہیں۔ آپ کا پک اپ وقت خودکار طور پر ایڈجسٹ ہو جاتا ہے اور آپ کا شوفر بغیر کسی اضافی چارج کے انتظار کرے گا۔",
-    faqTwoQ: "میں اپنے شوفر سے کہاں ملوں گا؟",
+      "آپ کو کچھ کرنے کی ضرورت نہیں۔ ہم آپ کی پرواز کو حقیقی وقت میں ٹریک کرتے ہیں اور پک اپ کا وقت خودکار طور پر ایڈجسٹ کر دیتے ہیں۔ ایئر لائن کی وجہ سے ہونے والی تاخیر پر کبھی کوئی اضافی چارج نہیں لیا جاتا — آپ جب بھی لینڈ کریں، آپ کا ڈرائیور موجود ہوگا، اور لینڈنگ کے بعد پہلے 90 منٹ ہمیشہ قیمت میں شامل ہیں۔",
+    faqTwoQ: "میں بین الاقوامی پرواز سے آ رہا ہوں، استقبال کیسے ہوتا ہے؟",
     faqTwoA:
-      "سامان لینے کے بعد، میٹ اینڈ گریٹ ایریا میں نکلیں اور ملاقات کی جگہ J / 777 تلاش کریں۔ ہماری ٹیم ذاتی نام کی تختی کے ساتھ انتظار کر رہی ہوگی۔",
+      "پاسپورٹ کنٹرول اور سامان وصول کرنے کے بعد دیگر مسافروں کے ساتھ Meet & Greet ایریا کی طرف بڑھیں اور ہمارے کاؤنٹر J / 777 پر آئیں۔ ہمارے عملے کو صرف اپنا نام بتائیں — کم رش کے اوقات میں آپ کو اپنے نام کا سائن بورڈ بھی نظر آئے گا، جبکہ مصروف اوقات میں نام بتانا ہی کافی ہے۔ ہماری ٹیم فوراً آپ کے ڈرائیور کو اطلاع دیتی ہے؛ وہ ایئرپورٹ میں داخل ہو کر پک اپ پوائنٹ پر گاڑی لے آتا ہے اور اسی دوران ہمارا عملہ آپ کو گاڑی تک پہنچاتا ہے۔ پورا عمل تقریباً 7 سے 8 منٹ لیتا ہے۔",
+    faqSixQ:
+      "میں ملکی (ڈومیسٹک) پرواز سے آ رہا ہوں، اپنے ڈرائیور کو کہاں تلاش کروں؟",
+    faqSixA:
+      "Meet & Greet ایریا صرف بین الاقوامی آمد کے لیے ہے، اس لیے ڈومیسٹک مہمانوں کا انتظام مختلف ہے: ہم ٹرانسفر سے پہلے آپ کو ڈرائیور کا فون نمبر بھیج دیتے ہیں۔ لینڈ کرنے کے بعد انہیں مختصر اطلاع دیں — وہ آپ کو ارائیول ہال سے وصول کریں گے۔",
+    faqSevenQ: "اگر کاؤنٹر J / 777 پر کوئی موجود نہ ہو تو کیا کروں؟",
+    faqSevenA:
+      "ہمارے کاؤنٹر پر مستقل طور پر دو اہلکار موجود رہتے ہیں اور ان کا واحد کام آنے والے مہمانوں کو ان کی گاڑی تک پہنچانا ہے۔ اگر کاؤنٹر لمحہ بھر کے لیے خالی ملے تو اس کا مطلب ہے کہ ساتھی اہلکار آپ سے پہلے آنے والے مہمان کو گاڑی تک لے گیا ہے — ہر مہمان کو پہنچانے میں تقریباً 7 سے 8 منٹ لگتے ہیں۔ براہِ کرم تقریباً 10 منٹ انتظار کریں۔ اگر اس دوران بھی کوئی واپس نہ آئے تو ہمیں WhatsApp پر پیغام دیں: ہم فوراً آپ کے ڈرائیور کو اطلاع دیں گے، اسے قریب ترین مقام پر کھڑا کروائیں گے اور آپ کو مزید انتظار کے بغیر سیدھا گاڑی تک پہنچا دیں گے۔",
+    faqEightQ:
+      "اگر مجھے ایئرپورٹ سے نکلنے میں 90 منٹ سے زیادہ لگ جائیں تو کیا ہوگا؟",
+    faqEightA:
+      "طیارے کی لینڈنگ کے بعد پہلے 90 منٹ مفت شامل ہیں — پاسپورٹ کنٹرول، سامان اور کسٹم کے لیے یہ وقت بخوبی کافی ہے، اور پرواز میں تاخیر کی صورت میں یہ دورانیہ خودکار طور پر آگے کھسک جاتا ہے۔ صرف اس صورت میں جب پرواز سے غیر متعلق کوئی وجہ آپ کو ٹرمینل میں زیادہ دیر روکے، ہر اضافی گھنٹے کے لیے 5 یورو پارکنگ چارج شامل کیا جاتا ہے۔ عملی طور پر ایسا تقریباً کبھی نہیں ہوتا؛ ہمارے تقریباً تمام مہمان اس سے کہیں پہلے روانہ ہو چکے ہوتے ہیں۔",
+    faqNineQ: "ادائیگی کیسے کی جاتی ہے؟",
+    faqNineA:
+      "آپ سفر کے آغاز پر اپنے ڈرائیور کو نقد ادائیگی کرتے ہیں۔ رقم وہی مقررہ قیمت ہے جو بکنگ کے وقت آپ نے دیکھی تھی — فی گاڑی، تمام ایئرپورٹ اور پارکنگ فیس سمیت، بعد میں کچھ شامل نہیں ہوتا۔ آپ کا ڈرائیور آپ کا استقبال کرتا ہے، سامان گاڑی میں رکھتا ہے اور درخواست کردہ چائلڈ سیٹس لگاتا ہے؛ ادائیگی کے بعد آپ کا سفر شروع ہو جاتا ہے۔",
+    faqTenQ: "واپسی کے ٹرانسفر کے لیے رابطہ کیسے رہے گا؟",
+    faqTenA:
+      "جب آپ WhatsApp پر ہماری ٹیم کے ساتھ واپسی کی تاریخ اور وقت کی تصدیق کر دیتے ہیں، تو ہم ٹرانسفر سے چند گھنٹے پہلے آپ کی گاڑی مقرر کرتے ہیں اور WhatsApp پر اس کی تصاویر بھیجتے ہیں — آپ چاہیں تو ڈرائیور کا فون نمبر بھی۔ ڈرائیور ہوٹل پہنچ کر استقبالیہ کو اطلاع دیتا ہے، اور استقبالیہ آپ کے کمرے میں بتا دیتا ہے کہ گاڑی تیار ہے۔ ہمارے ڈرائیور مہمانوں کو براہِ راست فون نہیں کرتے: تمام رابطہ ہماری واحد WhatsApp سپورٹ لائن کے ذریعے ہوتا ہے، تاکہ آپ کو ہمیشہ معلوم ہو کہ آپ کس سے بات کر رہے ہیں۔",
     faqThreeQ: "کیا بچوں کی نشستیں دستیاب ہیں؟",
     faqThreeA:
       "ہاں۔ بکنگ کے وقت درخواست کرنے پر شیر خوار، چھوٹے بچوں اور بوسٹر نشستیں مجانی دستیاب ہیں۔",
@@ -1759,7 +1730,7 @@ const translations = {
       "ہاں۔ ہماری اسپرنٹر اور ویٹو گاڑیاں گولف گروپوں کے لیے موزوں ہیں۔ ہمیں اپنے سامان کی تفصیلات بتائیں اور ہم صحیح گاڑی مختص کریں گے۔",
     faqFiveQ: "کیا دی گئی قیمت حتمی ہے؟",
     faqFiveA:
-      "ہاں۔ تمام ایئرپورٹ فیس، پارکنگ، انتظار کا وقت اور ٹیکس شامل ہیں۔ کوئی پوشیدہ چارج نہیں ہے۔",
+      "جی ہاں۔ بکنگ کے وقت نظر آنے والی قیمت ہی وہ رقم ہے جو آپ ڈرائیور کو نقد دیتے ہیں — فی گاڑی، تمام ایئرپورٹ فیس، پارکنگ اور لینڈنگ کے بعد پہلے 90 منٹ کے انتظار سمیت۔ کوئی پوشیدہ چارجز نہیں۔",
     contactEyebrow: "آپ کا سفر یہاں سے شروع ہوتا ہے",
     contactTitle: "انطالیہ میں<br />شاندار طریقے سے پہنچیں۔",
     contactBody:
@@ -1783,7 +1754,7 @@ const translations = {
     hotelNamePlaceholder: "ہوٹل یا رہائش کا نام",
     requestQuote: "قیمت کا اندازہ لگائیں",
     cashConfirmation:
-      "آپ کی بکنگ کی تصدیق ہو گئی۔ گاڑی میں اپنے ڈرائیور کو مقررہ کل رقم براہ راست ادا کریں۔",
+      "آپ کی بکنگ کی تصدیق ہو گئی۔ مقررہ کل رقم آپ سفر کے آغاز پر ڈرائیور کو نقد ادا کریں گے۔",
     bookingError: "آپ کی بکنگ مکمل نہیں ہو سکی۔ براہ کرم دوبارہ کوشش کریں۔",
     formIncomplete: "براہ کرم نمایاں شدہ خانے مکمل کریں۔",
     requiredField: "یہ خانہ ضروری ہے۔",
@@ -1879,9 +1850,6 @@ const translations = {
     flightArrivalTime: "فلائٹ آمد کا وقت",
     notesLabel: "نوٹس",
     confirmBooking: "بکنگ کی تصدیق کریں",
-    paySecurely: "محفوظ طریقے سے ادا کریں",
-    payLaterNote: "گاڑی میں ادا کریں",
-    paymentTitle: "ادائیگی",
     paymentError: "ادائیگی کی خرابی۔ براہ کرم دوبارہ کوشش کریں۔",
     stepRoute: "راستہ",
     stepDetails: "تفصیلات",
@@ -1893,7 +1861,6 @@ const translations = {
     perVehicleNoteSprinter: "فی گاڑی — فی شخص نہیں · زیادہ سے زیادہ 12 مسافر",
   },
   fr: {
-    navFairPricing: "Prix équitable",
     navFleet: "Véhicules",
     navService: "Service",
     navRoutes: "Itinéraires",
@@ -2019,24 +1986,6 @@ const translations = {
     reviewThree:
       "« C'était comme un service de chauffeur d'hôtel, pas un taxi d'aéroport. Communication claire, véhicule impeccable et chauffeur sincèrement courtois. »",
     trustedBy: "Recommandé par les clients des meilleurs resorts d'Antalya",
-    pricingEyebrow: "Voyagez l'esprit tranquille",
-    pricingTitle:
-      "Une tarification pensée pour le client.<br />Vous payez le juste prix.",
-    pricingIntro:
-      "Nous proposons des prix fixes pour votre tranquillité, mais nous mesurons aussi la distance réelle. Vous payez toujours le montant le plus bas.",
-    pricingFixedPrice: "Prix fixe",
-    fixedPriceExample: "Transfert vers Belek : {{PRICE:belek:vito}} €",
-    fixedPriceDesc:
-      "Montant total garanti. Inclut les frais d'aéroport, le parking, l'attente et les taxes.",
-    distancePrice: "Selon la distance",
-    distancePriceExample: "Exemple en ligne 24 km : 25 €",
-    distancePriceDesc: "Mesuré par GPS pendant votre trajet.",
-    youPay: "Vous payez",
-    youPayPrice: "25 €",
-    youPayDesc:
-      "Le montant le plus bas s'applique. Le chauffeur le confirme à la fin.",
-    pricingNote:
-      "Pas de surprise. Pas de frais cachés. Vous payez ce que vous réservez - ou moins.",
     faqEyebrow: "Questions fréquentes",
     faqTitle: "Avant votre voyage.",
     faqIntro:
@@ -2044,10 +1993,27 @@ const translations = {
     askQuestion: "Poser une question",
     faqOneQ: "Que se passe-t-il en cas de retard de vol ?",
     faqOneA:
-      "Nous suivons chaque arrivée en temps réel. Votre heure de prise en charge est ajustée automatiquement et votre chauffeur attend sans surcoût.",
-    faqTwoQ: "Où vais-je retrouver mon chauffeur ?",
+      "Vous n'avez rien à faire. Nous suivons votre vol en temps réel et ajustons automatiquement l'heure de prise en charge. Les retards imputables à la compagnie aérienne ne sont jamais facturés : votre chauffeur est présent quelle que soit l'heure d'atterrissage, et les 90 premières minutes après l'atterrissage sont toujours comprises.",
+    faqTwoQ:
+      "J'arrive sur un vol international. Comment se déroule l'accueil ?",
     faqTwoA:
-      "Après avoir récupéré vos bagages, quittez la zone de récupération et dirigez-vous vers la zone Meet & Greet. Cherchez le point de rencontre J / 777 — notre équipe vous attend avec une pancarte personnalisée.",
+      "Après le contrôle des passeports et la récupération des bagages, suivez les autres passagers jusqu'à la zone Meet & Greet et présentez-vous à notre comptoir J / 777. Il suffit d'indiquer votre nom à notre personnel : aux heures calmes, vous verrez également votre panonceau nominatif, et aux heures de pointe, votre nom suffit. Notre équipe prévient immédiatement votre chauffeur ; il entre dans l'aéroport et se place au point de prise en charge pendant que notre personnel vous accompagne jusqu'au véhicule. L'ensemble prend environ 7 à 8 minutes.",
+    faqSixQ: "J'arrive sur un vol intérieur. Où trouver mon chauffeur ?",
+    faqSixA:
+      "La zone Meet & Greet est réservée aux arrivées internationales ; les clients des vols intérieurs sont donc accueillis différemment : nous vous transmettons le numéro de téléphone de votre chauffeur avant le transfert. Prévenez-le simplement après l'atterrissage, il vous retrouvera dans le hall des arrivées.",
+    faqSevenQ: "Que faire si personne ne se trouve au comptoir J / 777 ?",
+    faqSevenA:
+      "Deux membres de notre équipe sont en permanence au comptoir et leur seule mission est d'accompagner les clients jusqu'à leur véhicule. Si vous trouvez le comptoir momentanément vide, c'est qu'un collègue accompagne le client arrivé juste avant vous : chaque accompagnement dure environ 7 à 8 minutes. Patientez environ 10 minutes. Si personne n'est revenu d'ici là, écrivez-nous sur WhatsApp : nous prévenons immédiatement votre chauffeur, le faisons stationner au point le plus proche et vous guidons directement vers votre voiture, sans attente supplémentaire.",
+    faqEightQ:
+      "Que se passe-t-il s'il me faut plus de 90 minutes pour sortir de l'aéroport ?",
+    faqEightA:
+      "Les 90 premières minutes après l'atterrissage sont incluses sans frais — largement plus que ne demandent le contrôle des passeports, les bagages et la douane — et ce délai se décale automatiquement en cas de retard de vol. Ce n'est que si un motif sans lien avec votre vol vous retient plus longtemps dans le terminal qu'une participation au stationnement de 5 € par heure supplémentaire s'ajoute. Dans les faits, cela n'arrive pour ainsi dire jamais : la quasi-totalité de nos clients est sur la route bien avant.",
+    faqNineQ: "Comment se déroule le paiement ?",
+    faqNineA:
+      "Vous réglez votre chauffeur en espèces au début du trajet. Le montant correspond au prix fixe affiché lors de la réservation : par véhicule, tous frais d'aéroport et de stationnement compris, sans supplément ultérieur. Votre chauffeur vous accueille, charge vos bagages et installe les sièges enfant demandés ; une fois le paiement réglé, votre trajet commence.",
+    faqTenQ: "Comment rester en contact pour le transfert retour ?",
+    faqTenA:
+      "Une fois la date et l'heure de votre retour confirmées avec notre équipe sur WhatsApp, nous attribuons votre véhicule quelques heures avant le transfert et vous en envoyons les photos sur WhatsApp — ainsi que le numéro de votre chauffeur si vous le souhaitez. À son arrivée à l'hôtel, votre chauffeur prévient la réception, qui informe votre chambre que la voiture est prête. Nos chauffeurs n'appellent jamais directement les clients : tous les échanges passent par notre ligne d'assistance WhatsApp unique, afin que vous sachiez toujours exactement à qui vous parlez.",
     faqThreeQ: "Des sièges enfants sont-ils disponibles ?",
     faqThreeA:
       "Oui. Coques bébé, sièges enfants et rehausseurs sont disponibles gratuitement sur réservation.",
@@ -2057,7 +2023,7 @@ const translations = {
       "Oui. Le Sprinter et le Vito sont idéaux pour les groupes de golfeurs. Précisez vos bagages et nous planifions le véhicule adapté.",
     faqFiveQ: "Le prix affiché est-il définitif ?",
     faqFiveA:
-      "Oui. Les taxes aéroportuaires, le parking, l'attente et les impôts sont inclus. Aucun frais caché.",
+      "Oui. Le prix affiché à la réservation est le montant que vous remettez en espèces à votre chauffeur : par véhicule, tous frais d'aéroport, stationnement et 90 premières minutes d'attente compris. Aucun frais caché.",
     contactEyebrow: "Votre voyage commence ici",
     contactTitle: "Arriver à Antalya<br />de manière exceptionnelle.",
     contactBody:
@@ -2078,7 +2044,7 @@ const translations = {
     journeyTime: "Durée du trajet",
     totalFixed: "Prix total",
     quoteIncludes:
-      "Inclus : accueil, suivi de vol, parking, attente et eau minérale.",
+      "Inclus : accueil, suivi de vol, parking, 90 minutes d'attente et eau minérale.",
     confirmWhatsapp: "Confirmer via WhatsApp",
     chatWithUs: "Nous contacter",
     bookNowCta: "Réserver maintenant",
@@ -2091,17 +2057,13 @@ const translations = {
     flightArrivalTime: "Heure d'arrivée",
     notesLabel: "Demandes spéciales",
     confirmBooking: "Confirmer la réservation",
-    paySecurely: "Continuer vers le paiement sécurisé",
-    payLaterNote: "Paiement en ligne sécurisé après confirmation.",
     bookingConfirmed: "Réservation confirmée",
     referenceLabel: "Référence",
     weWillContact:
       "Votre demande de réservation a été envoyée. Nous vous contactons dans les 30 minutes.",
-    paymentTitle: "Paiement sécurisé",
     paymentError: "Paiement échoué. Veuillez réessayer.",
   },
   sv: {
-    navFairPricing: "Rättvist pris",
     navFleet: "Fordon",
     navService: "Service",
     navRoutes: "Rutter",
@@ -2227,23 +2189,6 @@ const translations = {
     reviewThree:
       "„Det kändes som en chaufförstjänst från ett hotell, inte en flygplatstaxibil. Tydlig kommunikation, ett makulöst fordon och en genuint artig chaufför.”",
     trustedBy: "Anlitad av gäster på ledande resorts i Antalya",
-    pricingEyebrow: "Res med lugn",
-    pricingTitle:
-      "Kundvänlig prissättning.<br />Du betalar det som är rättvist.",
-    pricingIntro:
-      "Vi erbjuder fasta priser för trygghet, men mäter även den faktiska sträckan. Du betalar alltid det lägre beloppet.",
-    pricingFixedPrice: "Fast pris",
-    fixedPriceExample: "Transfer till Belek: {{PRICE:belek:vito}} €",
-    fixedPriceDesc:
-      "Garanterat totalbelopp. Inkluderar flygplatsavgifter, parkering, väntetid och skatter.",
-    distancePrice: "Efter sträcka",
-    distancePriceExample: "24 km onlineexempel: 25 €",
-    distancePriceDesc: "Mäts med GPS under din resa.",
-    youPay: "Du betalar",
-    youPayPrice: "25 €",
-    youPayDesc: "Det lägre beloppet gäller. Chauffören bekräftar i slutet.",
-    pricingNote:
-      "Inga överraskningar. Inga dolda avgifter. Du betalar det du bokar - eller mindre.",
     faqEyebrow: "Vanliga frågor",
     faqTitle: "Innan din resa.",
     faqIntro:
@@ -2251,10 +2196,26 @@ const translations = {
     askQuestion: "Ställ en fråga",
     faqOneQ: "Vad händer vid en flygförsening?",
     faqOneA:
-      "Vi spårar varje ankomst i realtid. Din hämtningstid justeras automatiskt och din chaufför väntar utan extra kostnad.",
-    faqTwoQ: "Var möter jag min chaufför?",
+      "Du behöver inte göra något. Vi följer ditt flyg i realtid och justerar upphämtningstiden automatiskt. Förseningar som beror på flygbolaget debiteras aldrig – din chaufför är på plats oavsett när du landar, och de första 90 minuterna efter landning ingår alltid.",
+    faqTwoQ: "Jag kommer med ett utrikesflyg. Hur går upphämtningen till?",
     faqTwoA:
-      "När du hämtat ditt bagage, lämna bagageutlämningen och gå till Meet & Greet-området. Leta efter mötespunkt J / 777 — vårt team väntar med en personlig namnbricka.",
+      "Efter passkontroll och bagageutlämning följer du med övriga passagerare till Meet & Greet-området och kommer till vår disk J / 777. Det räcker att du uppger ditt namn för vår personal – under lugnare tider ser du även din personliga namnskylt, och under rusningstid räcker namnet. Vårt team meddelar din chaufför direkt; han kör in på flygplatsen och står vid upphämtningsplatsen medan vår personal följer dig till bilen. Hela processen tar ungefär 7–8 minuter.",
+    faqSixQ: "Jag kommer med ett inrikesflyg. Var hittar jag min chaufför?",
+    faqSixA:
+      "Meet & Greet-området är endast till för utrikes ankomster, så gäster på inrikesflyg tas emot på ett annat sätt: vi skickar dig chaufförens telefonnummer före transfern. Hör bara av dig till honom när du landat – han möter dig i ankomsthallen.",
+    faqSevenQ: "Vad gör jag om ingen finns vid disk J / 777?",
+    faqSevenA:
+      "Två av våra medarbetare tjänstgör alltid vid disken och deras enda uppgift är att följa ankommande gäster till bilen. Om disken står tom ett ögonblick betyder det att en kollega just följer gästen som anlände strax före dig – varje följe tar cirka 7–8 minuter. Vänta gärna omkring 10 minuter. Om ingen är tillbaka då, skriv till oss på WhatsApp: vi meddelar din chaufför omedelbart, låter honom stanna vid närmaste plats och leder dig direkt till bilen utan mer väntan.",
+    faqEightQ:
+      "Vad händer om jag behöver mer än 90 minuter för att lämna flygplatsen?",
+    faqEightA:
+      "De första 90 minuterna efter landning ingår utan kostnad – gott och väl mer än vad passkontroll, bagage och tull kräver – och tidsfönstret förskjuts automatiskt vid flygförsening. Endast om något som inte har med flyget att göra håller kvar dig längre i terminalen tillkommer ett parkeringsbidrag på 5 € för varje ytterligare timme. I praktiken händer det nästan aldrig: så gott som alla våra gäster är på väg långt innan dess.",
+    faqNineQ: "Hur betalar jag?",
+    faqNineA:
+      "Du betalar din chaufför kontant i början av resan. Beloppet är det fasta priset från din bokning – per fordon, med alla flygplats- och parkeringsavgifter inkluderade, utan tillägg i efterhand. Chauffören välkomnar dig, lastar bagaget och monterar de bilbarnstolar du beställt; när betalningen är klar börjar din resa.",
+    faqTenQ: "Hur håller jag kontakten inför hemtransfern?",
+    faqTenA:
+      "När du har bekräftat datum och tid för hemresan med vårt team på WhatsApp tilldelar vi ditt fordon några timmar före transfern och skickar bilder på det via WhatsApp – och chaufförens telefonnummer om du vill ha det. När chauffören kommer till hotellet meddelar han receptionen, som ringer upp ditt rum och berättar att bilen står redo. Våra chaufförer ringer aldrig gästerna direkt: all kontakt går via vår enda WhatsApp-supportlinje, så du vet alltid exakt vem du talar med.",
     faqThreeQ: "Finns det bilbarnstolar?",
     faqThreeA:
       "Ja. Babyskydd, barnstolar och bälteskuddar finns tillgängliga utan extra kostnad vid förbeställning.",
@@ -2263,7 +2224,7 @@ const translations = {
       "Ja. Sprinter och Vito är idealiska för golfsällskap. Meddela oss om ditt bagage så planerar vi rätt fordon.",
     faqFiveQ: "Är det visade priset slutgiltigt?",
     faqFiveA:
-      "Ja. Flygplatsavgifter, parkering, väntetid och skatter ingår. Inga dolda kostnader.",
+      "Ja. Priset du ser vid bokningen är beloppet du lämnar kontant till chauffören – per fordon, inklusive alla flygplatsavgifter, parkering och de första 90 minuternas väntetid. Inga dolda avgifter.",
     contactEyebrow: "Din resa börjar här",
     contactTitle: "Anländ till Antalya<br />på ett exceptionellt sätt.",
     contactBody:
@@ -2284,7 +2245,7 @@ const translations = {
     journeyTime: "Restid",
     totalFixed: "Totalt pris",
     quoteIncludes:
-      "Inkluderar: välkomnande, flygspårning, parkering, väntetid och mineralvatten.",
+      "Inkluderar möte, flygbevakning, parkering, 90 minuters väntetid och vatten på flaska.",
     confirmWhatsapp: "Bekräfta via WhatsApp",
     chatWithUs: "Chatta med oss",
     bookNowCta: "Boka nu",
@@ -2297,17 +2258,13 @@ const translations = {
     flightArrivalTime: "Ankomsttid",
     notesLabel: "Särskilda önskemål",
     confirmBooking: "Bekräfta bokning",
-    paySecurely: "Fortsätt till säker betalning",
-    payLaterNote: "Säker onlinebetalning efter bekräftelse.",
     bookingConfirmed: "Bokning bekräftad",
     referenceLabel: "Referensnummer",
     weWillContact:
       "Din bokningsförfrågan har skickats. Vi kontaktar dig inom 30 minuter.",
-    paymentTitle: "Säker betalning",
     paymentError: "Betalning misslyckades. Försök igen.",
   },
   ja: {
-    navFairPricing: "適正価格",
     navFleet: "車両",
     navService: "サービス",
     navRoutes: "ルート",
@@ -2433,22 +2390,6 @@ const translations = {
     reviewThree:
       "「空港タクシーではなく、ホテルのショーファーサービスのようでした。明確なコミュニケーション、完璧な車両、そして心から礼儀正しいドライバー。」",
     trustedBy: "アンタルヤの一流リゾートのゲストにご利用いただいています",
-    pricingEyebrow: "安心してご利用いただけます",
-    pricingTitle: "お客様にやさしい料金設定。<br />公平な金額だけをお支払い。",
-    pricingIntro:
-      "安心のため固定料金をご提示しつつ、実際の走行距離も計測します。お支払いは常に低い方の金額です。",
-    pricingFixedPrice: "固定料金",
-    fixedPriceExample: "ベレキ送迎：{{PRICE:belek:vito}} €",
-    fixedPriceDesc:
-      "保証された総額です。空港料金、駐車料金、待機時間、税金が含まれます。",
-    distancePrice: "距離ベース",
-    distancePriceExample: "24 km online example: 25 €",
-    distancePriceDesc: "ご乗車中にGPSで計測します。",
-    youPay: "お支払い額",
-    youPayPrice: "25 €",
-    youPayDesc: "低い方の金額を適用します。終了時にドライバーが確認します。",
-    pricingNote:
-      "追加の驚きはありません。隠れた料金もありません。予約時の金額、またはそれより少ない金額をお支払いいただきます。",
     faqEyebrow: "よくある質問",
     faqTitle: "ご旅行の前に。",
     faqIntro:
@@ -2456,10 +2397,25 @@ const translations = {
     askQuestion: "質問する",
     faqOneQ: "フライトが遅延した場合はどうなりますか？",
     faqOneA:
-      "すべての到着便をリアルタイムで追跡しています。お迎え時間は自動的に調整され、ショーファーは追加料金なしでお待ちします。",
-    faqTwoQ: "ショーファーはどこで待っていますか？",
+      "お客様に必要な手続きはございません。フライトをリアルタイムで追跡し、お迎え時刻を自動的に調整いたします。航空会社都合の遅延に追加料金は一切かかりません。到着が何時になってもドライバーがお待ちしており、着陸後最初の90分は常に料金に含まれています。",
+    faqTwoQ: "国際線で到着します。お迎えの流れを教えてください。",
     faqTwoA:
-      "手荷物を受け取った後、手荷物受取所を出てミート＆グリートエリアへお進みください。J / 777の待合せポイントをお探しください — スタッフがお名前の書かれたボードを持ってお待ちしています。",
+      "入国審査と手荷物の受け取りを終えられたら、ほかのお客様と同じくミート＆グリートエリアへお進みいただき、当社カウンター J / 777 へお越しください。スタッフにお名前をお伝えいただくだけで結構です。混雑の少ない時間帯にはお名前を記したボードもご用意しておりますが、混雑時はお名前をお伝えいただければ十分です。スタッフがただちにドライバーへ連絡し、ドライバーは空港に入って乗車地点に車をつけます。その間、スタッフがお客様を車までご案内いたします。所要時間はおよそ7〜8分です。",
+    faqSixQ: "国内線で到着します。ドライバーはどこで見つけられますか？",
+    faqSixA:
+      "ミート＆グリートエリアは国際線到着のお客様専用のため、国内線でお越しのお客様は別のご案内となります。送迎の前にドライバーの電話番号をお送りしますので、到着後に一言ご連絡ください。到着ロビーでお迎えいたします。",
+    faqSevenQ: "カウンター J / 777 に誰もいない場合はどうすればよいですか？",
+    faqSevenA:
+      "カウンターには常時2名のスタッフが常駐しており、到着されたお客様を車までご案内することだけを担当しています。カウンターが一時的に空いている場合は、直前に到着されたお客様をご案内している最中です。1組あたりのご案内には約7〜8分かかります。10分ほどお待ちください。それでも誰も戻らない場合は、WhatsApp でご連絡ください。ただちにドライバーへ連絡し、最寄りの場所に車をつけさせて、お待たせすることなく車まで直接ご案内いたします。",
+    faqEightQ: "空港を出るまでに90分以上かかった場合はどうなりますか？",
+    faqEightA:
+      "着陸後最初の90分は無料で料金に含まれています。入国審査・手荷物・税関には十分すぎる時間で、フライトが遅延した場合はこの時間も自動的にずれます。フライトと関係のない事情でターミナル内に90分を超えて留まられた場合のみ、追加1時間ごとに5ユーロの駐車協力金を申し受けます。実際にはほとんど発生いたしません。ほぼすべてのお客様がそれよりずっと早くご出発になっています。",
+    faqNineQ: "支払い方法を教えてください。",
+    faqNineA:
+      "ご乗車時に、ドライバーへ現金でお支払いいただきます。金額はご予約時にご覧いただいた定額料金で、車両単位、空港料金・駐車料金込み、後からの追加はございません。ドライバーがお出迎えし、お荷物を積み込み、ご希望のチャイルドシートを設置いたします。お支払いののち、ご出発となります。",
+    faqTenQ: "復路の送迎ではどのように連絡を取りますか？",
+    faqTenA:
+      "WhatsApp で復路の日時をご確定いただいた後、送迎の数時間前に車両を手配し、WhatsApp で車両の写真をお送りします。ご希望であればドライバーの電話番号もお伝えします。ドライバーがホテルに到着するとフロントへ伝え、フロントからお部屋へ車の準備が整った旨をご連絡いたします。ドライバーがお客様に直接お電話することはありません。ご連絡はすべて WhatsApp のカスタマーサポート窓口に一本化されていますので、どなたとやり取りしているか常に明確です。",
     faqThreeQ: "チャイルドシートはありますか？",
     faqThreeA:
       "はい。乳幼児用、チャイルドシート、ジュニアシートは予約時にご要望いただければ無料でご用意します。",
@@ -2468,7 +2424,7 @@ const translations = {
       "はい。SprinterとVitoはゴルフグループに最適です。荷物の詳細をお知らせいただければ、適切な車両をご手配します。",
     faqFiveQ: "表示された料金は確定ですか？",
     faqFiveA:
-      "はい。空港税、駐車料金、待機時間、税金はすべて含まれています。隠れた費用はありません。",
+      "はい。ご予約時にご覧いただいた金額を、そのままドライバーへ現金でお支払いいただきます。車両単位で、空港諸費用・駐車料金・着陸後90分までの待機時間がすべて含まれ、隠れた費用はありません。",
     contactEyebrow: "旅はここから始まります",
     contactTitle: "アンタルヤへ<br />格別の到着を。",
     contactBody:
@@ -2488,8 +2444,7 @@ const translations = {
     vehicle: "車両",
     journeyTime: "所要時間",
     totalFixed: "合計料金",
-    quoteIncludes:
-      "ミート＆グリート、フライト追跡、駐車料金、待機時間、ミネラルウォーター込み。",
+    quoteIncludes: "お出迎え、フライト追跡、駐車料金、90分の待機、ボトル入りの水が含まれます。",
     confirmWhatsapp: "WhatsAppで確認する",
     chatWithUs: "チャットする",
     bookNowCta: "今すぐ予約",
@@ -2502,16 +2457,12 @@ const translations = {
     flightArrivalTime: "到着時刻",
     notesLabel: "特別なご要望",
     confirmBooking: "予約を確定する",
-    paySecurely: "安全なお支払いへ進む",
-    payLaterNote: "確認後にオンラインで安全にお支払い。",
     bookingConfirmed: "予約確定",
     referenceLabel: "予約番号",
     weWillContact: "予約リクエストを送信しました。30分以内にご連絡いたします。",
-    paymentTitle: "安全なお支払い",
     paymentError: "お支払いに失敗しました。もう一度お試しください。",
   },
   ko: {
-    navFairPricing: "공정한 요금",
     navFleet: "차량",
     navService: "서비스",
     navRoutes: "노선",
@@ -2637,32 +2588,31 @@ const translations = {
     reviewThree:
       '"공항 택시가 아닌 호텔 쇼퍼 서비스 같았습니다. 명확한 소통, 완벽한 차량, 진심으로 예의 바른 기사님."',
     trustedBy: "안탈리아 주요 리조트 고객들이 선택했습니다",
-    pricingEyebrow: "안심 요금",
-    pricingTitle: "고객 친화적인 요금.<br />공정한 금액만 결제하세요.",
-    pricingIntro:
-      "안심하실 수 있도록 고정 요금을 제시하지만 실제 이동 거리도 측정합니다. 언제나 더 낮은 금액을 결제합니다.",
-    pricingFixedPrice: "고정 요금",
-    fixedPriceExample: "벨렉 이동: {{PRICE:belek:vito}} €",
-    fixedPriceDesc:
-      "보장된 총액입니다. 공항 수수료, 주차비, 대기 시간, 세금이 포함됩니다.",
-    distancePrice: "거리 기준",
-    distancePriceExample: "24 km online example: 25 €",
-    distancePriceDesc: "이동 중 GPS로 측정합니다.",
-    youPay: "결제 금액",
-    youPayPrice: "25 €",
-    youPayDesc: "더 낮은 금액이 적용됩니다. 종료 시 기사가 확인합니다.",
-    pricingNote:
-      "놀랄 일도, 숨겨진 비용도 없습니다. 예약한 금액을 결제하거나 그보다 적게 결제합니다.",
     faqEyebrow: "자주 묻는 질문",
     faqTitle: "여행 전에.",
     faqIntro: "안탈리아 공항 프라이빗 픽업에 대해 알아야 할 모든 것.",
     askQuestion: "질문하기",
     faqOneQ: "항공편이 지연되면 어떻게 되나요?",
     faqOneA:
-      "모든 도착 항공편을 실시간으로 추적합니다. 픽업 시간은 자동으로 조정되며 쇼퍼는 추가 비용 없이 기다립니다.",
-    faqTwoQ: "기사님은 어디에서 기다리시나요?",
+      "고객님께서 하실 일은 없습니다. 항공편을 실시간으로 추적해 픽업 시간을 자동으로 조정합니다. 항공사 사정으로 인한 지연에는 추가 요금이 전혀 없으며, 언제 도착하시든 기사가 대기하고 있습니다. 착륙 후 첫 90분은 언제나 요금에 포함됩니다.",
+    faqTwoQ: "국제선으로 도착합니다. 미팅 절차는 어떻게 되나요?",
     faqTwoA:
-      "수하물을 찾은 후 수하물 수취대를 나와 미트 앤 그리트 구역으로 이동하세요. J / 777 만남의 장소를 찾으시면 직원이 이름이 적힌 팻말을 들고 기다리고 있습니다.",
+      "입국 심사와 수하물 수령을 마치신 후 다른 승객들과 함께 미트 앤 그리트(Meet & Greet) 구역으로 이동하셔서 저희 J / 777 카운터로 오십시오. 직원에게 성함만 말씀해 주시면 됩니다. 한산한 시간대에는 성함이 적힌 안내판도 준비되어 있으며, 혼잡한 시간대에는 성함을 말씀해 주시는 것으로 충분합니다. 직원이 즉시 기사에게 연락하면 기사는 공항으로 진입해 픽업 지점에 차를 대고, 그동안 직원이 고객님을 차량까지 안내해 드립니다. 전체 과정은 약 7~8분 소요됩니다.",
+    faqSixQ: "국내선으로 도착합니다. 기사를 어디에서 만나나요?",
+    faqSixA:
+      "미트 앤 그리트 구역은 국제선 도착 승객만을 위한 공간이므로 국내선 고객님은 다른 방식으로 안내해 드립니다. 출발 전에 기사 연락처를 보내 드리니, 도착하신 후 간단히 알려 주시면 기사가 도착 로비에서 모시겠습니다.",
+    faqSevenQ: "J / 777 카운터에 아무도 없으면 어떻게 해야 하나요?",
+    faqSevenA:
+      "카운터에는 항상 두 명의 직원이 상주하며, 도착하신 고객님을 차량까지 안내하는 것이 유일한 업무입니다. 카운터가 잠시 비어 있다면 직전에 도착한 고객을 안내 중이라는 뜻이며, 한 번 안내에 약 7~8분이 소요됩니다. 10분 정도 기다려 주십시오. 그때까지 아무도 돌아오지 않으면 WhatsApp으로 메시지를 보내 주십시오. 즉시 기사에게 연락해 가장 가까운 지점에 차를 대도록 하고, 더 기다리실 필요 없이 차량까지 바로 안내해 드리겠습니다.",
+    faqEightQ: "공항을 나오는 데 90분 이상 걸리면 어떻게 되나요?",
+    faqEightA:
+      "착륙 후 첫 90분은 무료로 포함되어 있습니다. 입국 심사와 수하물, 세관 절차에 충분하고도 남는 시간이며, 항공편이 지연되면 이 시간도 자동으로 조정됩니다. 항공편과 무관한 사유로 터미널에 90분을 넘겨 머무르시는 경우에만 추가 1시간마다 5유로의 주차 비용이 더해집니다. 실제로는 거의 발생하지 않으며, 대부분의 고객님은 그보다 훨씬 이전에 출발하십니다.",
+    faqNineQ: "결제는 어떻게 하나요?",
+    faqNineA:
+      "출발할 때 기사에게 현금으로 결제하십니다. 금액은 예약 시 확인하신 고정 요금이며, 차량 단위로 모든 공항 및 주차 비용이 포함되어 있고 이후 추가되는 항목은 없습니다. 기사가 고객님을 맞이해 짐을 싣고 요청하신 카시트를 장착해 드리며, 결제가 끝나면 여정이 시작됩니다.",
+    faqTenQ: "돌아가는 차량과는 어떻게 연락하나요?",
+    faqTenA:
+      "WhatsApp으로 저희 팀과 복귀 날짜와 시간을 확정하시면, 이동 몇 시간 전에 차량을 배정하고 WhatsApp으로 차량 사진을 보내 드립니다. 원하시면 기사 연락처도 함께 전달해 드립니다. 기사가 호텔에 도착하면 프런트에 알리고, 프런트에서 객실로 차량이 준비되었음을 안내해 드립니다. 저희 기사는 고객님께 직접 전화하지 않으며, 모든 연락은 WhatsApp 고객지원 창구 한 곳을 통해 이루어집니다. 그래서 누구와 대화하고 있는지 항상 분명합니다.",
     faqThreeQ: "카시트를 이용할 수 있나요?",
     faqThreeA:
       "네. 신생아용 카시트, 아동용 카시트, 부스터 시트는 예약 시 요청하시면 무료로 제공됩니다.",
@@ -2671,7 +2621,7 @@ const translations = {
       "네. Sprinter와 Vito는 골프 그룹에 이상적입니다. 수하물 정보를 알려주시면 적합한 차량을 준비합니다.",
     faqFiveQ: "표시된 요금이 최종 요금인가요?",
     faqFiveA:
-      "네. 공항 세금, 주차비, 대기 시간, 세금이 모두 포함됩니다. 숨겨진 비용이 없습니다.",
+      "네. 예약 시 확인하신 금액을 그대로 기사에게 현금으로 전달하시면 됩니다. 차량 단위이며 모든 공항 비용, 주차료, 착륙 후 첫 90분의 대기 시간이 포함되어 있습니다. 숨겨진 요금은 없습니다.",
     contactEyebrow: "여행은 여기서 시작됩니다",
     contactTitle: "안탈리아에<br />특별하게 도착하세요.",
     contactBody:
@@ -2691,7 +2641,7 @@ const translations = {
     vehicle: "차량",
     journeyTime: "소요 시간",
     totalFixed: "총 요금",
-    quoteIncludes: "미트 앤 그리트, 항공편 추적, 주차비, 대기 시간, 생수 포함.",
+    quoteIncludes: "미팅 서비스, 항공편 추적, 주차, 90분 대기, 생수가 포함됩니다.",
     confirmWhatsapp: "WhatsApp으로 확인하기",
     chatWithUs: "채팅하기",
     bookNowCta: "지금 예약",
@@ -2704,16 +2654,12 @@ const translations = {
     flightArrivalTime: "도착 시간",
     notesLabel: "특별 요청",
     confirmBooking: "예약 확정하기",
-    paySecurely: "안전한 결제로 이동",
-    payLaterNote: "확인 후 안전하게 온라인 결제.",
     bookingConfirmed: "예약 확정",
     referenceLabel: "예약 번호",
     weWillContact: "예약 요청이 전송되었습니다. 30분 내로 연락드리겠습니다.",
-    paymentTitle: "안전한 결제",
     paymentError: "결제에 실패했습니다. 다시 시도해 주세요.",
   },
   ar: {
-    navFairPricing: "أسعار عادلة",
     navFleet: "أسطولنا",
     navService: "الخدمات",
     navRoutes: "الوجهات",
@@ -2856,31 +2802,31 @@ const translations = {
     reviewThree:
       '"شعرنا وكأنها خدمة سائق فندق فاخر وليست سيارة أجرة من المطار. تواصل واضح، وسيارة مثالية، وسائق مهذب بصدق."',
     trustedBy: "موثوق من ضيوف أبرز منتجعات أنطاليا",
-    pricingEyebrow: "خطط بثقة",
-    pricingTitle: "نضمن سعراً ثابتاً.<br />وتدفع دائماً السعر الأقل.",
-    pricingIntro:
-      "نحدد سعراً ثابتاً لراحتك، ونقيس أيضاً المسافة الفعلية للرحلة. ستدفع دائماً المبلغ الأقل.",
-    pricingFixedPrice: "السعر الثابت",
-    fixedPriceExample: "النقل إلى بيليك: {{PRICE:belek:vito}} €",
-    fixedPriceDesc:
-      "إجمالي مضمون يشمل رسوم المطار ومواقف السيارات والانتظار والضرائب.",
-    distancePrice: "حسب المسافة",
-    distancePriceExample: "مثال 24 كم عبر الإنترنت: 25 €",
-    distancePriceDesc: "يتم قياسها عبر GPS أثناء الرحلة.",
-    youPay: "ما تدفعه",
-    youPayPrice: "25 €",
-    youPayDesc: "ينطبق السعر الأقل، ويؤكده السائق في نهاية الرحلة.",
-    pricingNote: "لا مفاجآت ولا رسوم خفية. تدفع السعر المحجوز أو أقل منه.",
     faqEyebrow: "الأسئلة الشائعة",
     faqTitle: "قبل رحلتك.",
     faqIntro: "كل ما تحتاج إلى معرفته عن خدمة النقل الخاصة من مطار أنطاليا.",
     askQuestion: "اطرح سؤالاً",
     faqOneQ: "ماذا يحدث إذا تأخرت رحلتي؟",
     faqOneA:
-      "نتابع جميع الرحلات القادمة مباشرة. نعدّل وقت الاستقبال تلقائياً، وينتظرك سائقك من دون أي رسوم إضافية.",
-    faqTwoQ: "أين سألتقي بالسائق؟",
+      "لا يتطلب الأمر منك شيئًا. نتابع رحلتك لحظة بلحظة ونعدّل موعد الاستقبال تلقائيًا. لا نفرض أي رسوم إضافية على التأخيرات الناتجة عن شركة الطيران؛ سائقك في انتظارك مهما كان وقت الهبوط، وأول 90 دقيقة بعد الهبوط مشمولة دائمًا في السعر.",
+    faqTwoQ: "سأصل على رحلة دولية. كيف تتم عملية الاستقبال؟",
     faqTwoA:
-      "بعد استلام أمتعتك، اخرج من منطقة الاستلام وتوجه إلى منطقة الاستقبال (Meet & Greet). ابحث عن نقطة اللقاء J / 777 — سيكون فريقنا بانتظارك حاملاً لافتة باسمك.",
+      "بعد إنهاء إجراءات الجوازات واستلام الأمتعة، توجّه مع بقية المسافرين إلى منطقة الاستقبال Meet & Greet وتعال إلى مكتبنا رقم J / 777. يكفي أن تذكر اسمك لموظفينا؛ في الأوقات الهادئة ستجد أيضًا لافتة تحمل اسمك، وفي أوقات الذروة يكفي ذكر الاسم. يبلّغ فريقنا سائقك على الفور، فيدخل إلى المطار ويقف في نقطة الاستقبال، بينما يرافقك موظفنا إلى السيارة. تستغرق العملية كاملة نحو 7 إلى 8 دقائق.",
+    faqSixQ: "سأصل على رحلة داخلية. أين أجد سائقي؟",
+    faqSixA:
+      "منطقة الاستقبال Meet & Greet مخصصة للرحلات الدولية فقط، لذلك نتعامل مع ضيوف الرحلات الداخلية بطريقة مختلفة: نرسل إليك رقم هاتف السائق قبل موعد النقل. ما عليك سوى إبلاغه بعد الهبوط، وسيستقبلك في صالة القدوم.",
+    faqSevenQ: "ماذا أفعل إذا لم يكن أحد في المكتب J / 777؟",
+    faqSevenA:
+      "يعمل في المكتب موظفان بشكل دائم، ومهمتهما الوحيدة هي مرافقة الضيوف القادمين إلى سياراتهم. إذا وجدت المكتب خاليًا للحظات، فهذا يعني أن أحد الزملاء يرافق الضيف الذي وصل قبلك مباشرة؛ إذ تستغرق كل مرافقة نحو 7 إلى 8 دقائق. يرجى الانتظار نحو 10 دقائق. وإذا لم يعد أحد خلال هذه المدة، راسلنا عبر WhatsApp: سنبلغ سائقك فورًا ونطلب منه التوقف في أقرب نقطة، ونرشدك مباشرة إلى سيارتك دون مزيد من الانتظار.",
+    faqEightQ: "ماذا لو احتجت إلى أكثر من 90 دقيقة للخروج من المطار؟",
+    faqEightA:
+      "أول 90 دقيقة بعد هبوط الطائرة مشمولة مجانًا، وهي مدة تزيد عمّا تتطلبه إجراءات الجوازات والأمتعة والجمارك، وتتحرك تلقائيًا مع أي تأخير في الرحلة. وفقط إذا أبقاك داخل الصالة سبب لا علاقة له برحلتك مدة أطول، تُضاف مساهمة وقوف بقيمة 5 يورو عن كل ساعة إضافية. عمليًا لا يحدث ذلك تقريبًا؛ فجميع ضيوفنا تقريبًا ينطلقون قبل ذلك بكثير.",
+    faqNineQ: "كيف تتم عملية الدفع؟",
+    faqNineA:
+      "تدفع لسائقك نقدًا في بداية الرحلة. المبلغ هو السعر الثابت الذي رأيته عند الحجز: لكل مركبة، شاملًا جميع رسوم المطار والوقوف، دون أي إضافات لاحقة. يستقبلك السائق ويحمّل أمتعتك ويركّب مقاعد الأطفال التي طلبتها، وبعد إتمام الدفع تبدأ رحلتك.",
+    faqTenQ: "كيف أبقى على تواصل في رحلة العودة؟",
+    faqTenA:
+      "بعد تأكيد تاريخ العودة وموعدها مع فريقنا عبر WhatsApp، نخصص مركبتك قبل الموعد بساعات ونرسل إليك صورها عبر WhatsApp، ورقم هاتف السائق أيضًا إذا رغبت. وعند وصول السائق إلى الفندق يُبلغ الاستقبال، ويقوم الاستقبال بإخطار غرفتك بأن السيارة جاهزة. لا يتصل سائقونا بالضيوف مباشرة أبدًا: يمر التواصل كله عبر خط دعم العملاء الوحيد على WhatsApp، لتعرف دائمًا بالضبط مع من تتحدث.",
     faqThreeQ: "هل تتوفر مقاعد للأطفال؟",
     faqThreeA:
       "نعم. تتوفر مقاعد للرضع والأطفال والمقاعد المعززة مجاناً عند طلبها أثناء الحجز.",
@@ -2889,7 +2835,7 @@ const translations = {
       "نعم. سيارات Sprinter وVito مناسبة لمجموعات الغولف. أخبرنا بأمتعتك لنجهز السيارة المناسبة.",
     faqFiveQ: "هل السعر المعروض نهائي؟",
     faqFiveA:
-      "نعم. تشمل الأسعار رسوم المطار ومواقف السيارات ووقت الانتظار والضرائب، من دون رسوم خفية.",
+      "نعم. السعر الذي تراه عند الحجز هو المبلغ الذي تسلّمه للسائق نقدًا: لكل مركبة، شاملًا جميع رسوم المطار والوقوف وأول 90 دقيقة من الانتظار. لا توجد رسوم خفية.",
     contactEyebrow: "رحلتك تبدأ هنا",
     contactTitle: "ابدأ وصولك إلى أنطاليا<br />بطريقة استثنائية.",
     contactBody:
@@ -2910,7 +2856,7 @@ const translations = {
     journeyTime: "مدة الرحلة",
     totalFixed: "الإجمالي الثابت",
     quoteIncludes:
-      "يشمل الاستقبال والترحيب، وتتبع الرحلة، ومواقف السيارات، والانتظار، والمياه.",
+      "يشمل الاستقبال وتتبع الرحلة ووقوف السيارة و90 دقيقة انتظار ومياه معبأة.",
     confirmWhatsapp: "التأكيد عبر WhatsApp",
     chatWithUs: "تحدث معنا",
     bookNowCta: "احجز الآن",
@@ -2923,24 +2869,20 @@ const translations = {
     flightArrivalTime: "وقت الوصول",
     notesLabel: "طلبات خاصة",
     confirmBooking: "تأكيد الحجز",
-    paySecurely: "المتابعة إلى الدفع الآمن",
-    payLaterNote: "دفع آمن عبر الإنترنت بعد التأكيد.",
     bookingConfirmed: "تم تأكيد الحجز",
     referenceLabel: "الرقم المرجعي",
     weWillContact: "تم إرسال طلب حجزك. سنتواصل معك خلال 30 دقيقة.",
-    paymentTitle: "الدفع الآمن",
     paymentError: "تعذر إتمام الدفع. يرجى المحاولة مرة أخرى.",
   },
 };
 
 const paymentTranslations = {
   en: {
-    navFairPricing: "Fair Pricing",
     paymentMethod: "Choose payment method",
     cashPayment: "Pay in the vehicle",
     recommended: "Recommended",
     cashPaymentDescription:
-      "No prepayment. Pay your driver directly once you are satisfied with the service.",
+      "No online prepayment. You pay the fixed total to your driver in cash at the start of the journey.",
     confirmCashBooking: "Confirm booking — pay in vehicle",
     perVehicleNote: "Per vehicle — not per person · Up to 7 passengers",
     meetGreetNote: "Airport Meet &amp; Greet · Meeting point J / 777",
@@ -2954,11 +2896,9 @@ const paymentTranslations = {
     perVehicleNoteSprinter:
       "Per vehicle — not per person · Up to 12 passengers",
     perVehicle: "fixed · per vehicle",
-    noPrePayment: "No prepayment required",
-    payAfterTransfer: "Pay your driver after the transfer",
     requestQuote: "Request a price quote",
     cashConfirmation:
-      "Your booking is confirmed. Pay the fixed total directly to your driver in the vehicle.",
+      "Your booking is confirmed. You pay the fixed total to your driver in cash at the start of the journey.",
     bookingError: "Your booking could not be completed. Please try again.",
     chooseTime: "Choose time",
     formIncomplete: "Please complete the highlighted fields.",
@@ -2995,7 +2935,7 @@ const paymentTranslations = {
     cashPayment: "Im Fahrzeug bezahlen",
     recommended: "Empfohlen",
     cashPaymentDescription:
-      "Keine Vorauszahlung. Bezahlen Sie Ihren Fahrer direkt, wenn Sie mit dem Service zufrieden sind.",
+      "Keine Online-Vorauszahlung. Den Festpreis zahlen Sie zu Beginn der Fahrt bar an Ihren Chauffeur.",
     confirmCashBooking: "Buchung bestätigen — im Fahrzeug zahlen",
     perVehicleNote: "Pro Fahrzeug — nicht pro Person · Bis zu 7 Personen",
     meetGreetNote: "Airport Meet &amp; Greet · Treffpunkt J / 777",
@@ -3010,7 +2950,7 @@ const paymentTranslations = {
       "Pro Fahrzeug — nicht pro Person · Bis zu 12 Personen",
     requestQuote: "Preisangebot anfordern",
     cashConfirmation:
-      "Ihre Buchung ist bestätigt. Zahlen Sie den Festpreis direkt beim Fahrer im Fahrzeug.",
+      "Ihre Buchung ist bestätigt. Den Festpreis zahlen Sie zu Beginn der Fahrt bar an Ihren Chauffeur.",
     bookingError:
       "Ihre Buchung konnte nicht abgeschlossen werden. Bitte versuchen Sie es erneut.",
     chooseTime: "Uhrzeit wählen",
@@ -3045,7 +2985,7 @@ const paymentTranslations = {
     cashPayment: "Araçta öde",
     recommended: "Önerilen",
     cashPaymentDescription:
-      "Ön ödeme yok. Hizmetten memnun kaldığınızda ödemenizi doğrudan şoförünüze yapın.",
+      "Online ön ödeme yok. Sabit tutarı yolculuğun başında şoförünüze nakit olarak ödersiniz.",
     confirmCashBooking: "Rezervasyonu onayla — araçta öde",
     perVehicleNote: "Araç başına — kişi başına değil · 7 yolcuya kadar",
     meetGreetNote: "Havalimanı Karşılama · Buluşma noktası J / 777",
@@ -3060,7 +3000,7 @@ const paymentTranslations = {
       "Araç başına — kişi başına değil · 12 yolcuya kadar",
     requestQuote: "Fiyat teklifi al",
     cashConfirmation:
-      "Rezervasyonunuz onaylandı. Sabit toplam tutarı araçta doğrudan şoförünüze ödeyin.",
+      "Rezervasyonunuz onaylandı. Sabit toplam tutarı yolculuğun başında şoförünüze nakit olarak ödersiniz.",
     bookingError: "Rezervasyonunuz tamamlanamadı. Lütfen tekrar deneyin.",
     chooseTime: "Saat seçin",
     formIncomplete: "Lütfen işaretli alanları doldurun.",
@@ -3092,7 +3032,7 @@ const paymentTranslations = {
     cashPayment: "Оплата в автомобиле",
     recommended: "Рекомендуем",
     cashPaymentDescription:
-      "Без предоплаты. Оплатите услугу непосредственно водителю, когда останетесь довольны обслуживанием.",
+      "Без предоплаты онлайн. Фиксированную сумму вы передаёте водителю наличными в начале поездки.",
     confirmCashBooking: "Подтвердить — оплата в автомобиле",
     perVehicleNote: "За автомобиль — не за человека · До 7 пассажиров",
     meetGreetNote: "Встреча в аэропорту · Пункт встречи J / 777",
@@ -3106,7 +3046,7 @@ const paymentTranslations = {
     perVehicleNoteSprinter: "За автомобиль — не за человека · До 12 пассажиров",
     requestQuote: "Запросить расчёт",
     cashConfirmation:
-      "Бронирование подтверждено. Оплатите фиксированную сумму водителю в автомобиле.",
+      "Ваше бронирование подтверждено. Фиксированную сумму вы передадите водителю наличными в начале поездки.",
     bookingError: "Не удалось завершить бронирование. Попробуйте ещё раз.",
     chooseTime: "Выберите время",
     formIncomplete: "Заполните выделенные поля.",
@@ -3140,7 +3080,7 @@ const paymentTranslations = {
     cashPayment: "Zapłać w pojeździe",
     recommended: "Polecane",
     cashPaymentDescription:
-      "Bez przedpłaty. Zapłać bezpośrednio kierowcy, gdy usługa spełni Twoje oczekiwania.",
+      "Bez przedpłaty online. Stałą kwotę przekazujesz kierowcy gotówką na początku podróży.",
     confirmCashBooking: "Potwierdź — zapłać w pojeździe",
     stepRoute: "Trasa",
     stepDetails: "Szczegóły",
@@ -3152,7 +3092,7 @@ const paymentTranslations = {
     perVehicleNoteSprinter: "Za pojazd — nie za osobę · Do 12 pasażerów",
     requestQuote: "Poproś o wycenę",
     cashConfirmation:
-      "Rezerwacja jest potwierdzona. Zapłać kierowcy ustaloną kwotę w pojeździe.",
+      "Twoja rezerwacja jest potwierdzona. Stałą kwotę przekażesz kierowcy gotówką na początku podróży.",
     bookingError: "Nie udało się dokończyć rezerwacji. Spróbuj ponownie.",
     chooseTime: "Wybierz godzinę",
     formIncomplete: "Uzupełnij zaznaczone pola.",
@@ -3183,7 +3123,7 @@ const paymentTranslations = {
     cashPayment: "Betaal in het voertuig",
     recommended: "Aanbevolen",
     cashPaymentDescription:
-      "Geen vooruitbetaling. Betaal uw chauffeur rechtstreeks zodra u tevreden bent over de service.",
+      "Geen online vooruitbetaling. U betaalt het vaste bedrag contant aan uw chauffeur bij aanvang van de rit.",
     confirmCashBooking: "Bevestig — betaal in het voertuig",
     stepRoute: "Route",
     stepDetails: "Details",
@@ -3196,7 +3136,7 @@ const paymentTranslations = {
       "Per voertuig — niet per persoon · Tot 12 passagiers",
     requestQuote: "Prijsopgave aanvragen",
     cashConfirmation:
-      "Uw boeking is bevestigd. Betaal het vaste bedrag rechtstreeks aan de chauffeur.",
+      "Uw boeking is bevestigd. U betaalt het vaste bedrag contant aan uw chauffeur bij aanvang van de rit.",
     bookingError: "Uw boeking kon niet worden voltooid. Probeer het opnieuw.",
     chooseTime: "Kies tijd",
     formIncomplete: "Vul de gemarkeerde velden in.",
@@ -3229,7 +3169,7 @@ const paymentTranslations = {
     cashPayment: "Оплата в автомобілі",
     recommended: "Рекомендуємо",
     cashPaymentDescription:
-      "Без передоплати. Сплатіть безпосередньо водієві, коли будете задоволені послугою.",
+      "Без онлайн-передоплати. Фіксовану суму ви передаєте водієві готівкою на початку поїздки.",
     confirmCashBooking: "Підтвердити — оплата в автомобілі",
     stepRoute: "Маршрут",
     stepDetails: "Деталі",
@@ -3241,7 +3181,7 @@ const paymentTranslations = {
     perVehicleNoteSprinter: "За автомобіль — не за особу · До 12 пасажирів",
     requestQuote: "Запросити розрахунок",
     cashConfirmation:
-      "Бронювання підтверджено. Сплатіть фіксовану суму водієві в автомобілі.",
+      "Ваше бронювання підтверджено. Фіксовану суму ви передасте водієві готівкою на початку поїздки.",
     bookingError: "Не вдалося завершити бронювання. Спробуйте ще раз.",
     chooseTime: "Оберіть час",
     formIncomplete: "Заповніть виділені поля.",
@@ -3273,7 +3213,7 @@ const paymentTranslations = {
     cashPayment: "Payer dans le véhicule",
     recommended: "Recommandé",
     cashPaymentDescription:
-      "Aucun prépaiement. Payez directement votre chauffeur une fois satisfait du service.",
+      "Aucun prépaiement en ligne. Vous réglez le prix fixe en espèces à votre chauffeur au début du trajet.",
     confirmCashBooking: "Confirmer — payer dans le véhicule",
     stepRoute: "Trajet",
     stepDetails: "Détails",
@@ -3286,7 +3226,7 @@ const paymentTranslations = {
       "Par véhicule — non par personne · Jusqu'à 12 passagers",
     requestQuote: "Demander un devis",
     cashConfirmation:
-      "Votre réservation est confirmée. Réglez le montant fixe directement au chauffeur.",
+      "Votre réservation est confirmée. Vous réglerez le prix fixe en espèces à votre chauffeur au début du trajet.",
     bookingError:
       "Votre réservation n'a pas pu être finalisée. Veuillez réessayer.",
     chooseTime: "Choisir l'heure",
@@ -3322,7 +3262,7 @@ const paymentTranslations = {
     cashPayment: "Betala i fordonet",
     recommended: "Rekommenderas",
     cashPaymentDescription:
-      "Ingen förskottsbetalning. Betala din chaufför direkt när du är nöjd med tjänsten.",
+      "Ingen förskottsbetalning online. Du betalar det fasta beloppet kontant till chauffören när resan börjar.",
     confirmCashBooking: "Bekräfta — betala i fordonet",
     stepRoute: "Rutt",
     stepDetails: "Detaljer",
@@ -3335,7 +3275,7 @@ const paymentTranslations = {
       "Per fordon — inte per person · Upp till 12 passagerare",
     requestQuote: "Begär prisuppgift",
     cashConfirmation:
-      "Din bokning är bekräftad. Betala det fasta beloppet direkt till chauffören.",
+      "Din bokning är bekräftad. Du betalar det fasta beloppet kontant till chauffören när resan börjar.",
     bookingError: "Bokningen kunde inte slutföras. Försök igen.",
     chooseTime: "Välj tid",
     formIncomplete: "Fyll i de markerade fälten.",
@@ -3368,8 +3308,7 @@ const paymentTranslations = {
     paymentMethod: "お支払い方法を選択",
     cashPayment: "車内で支払う",
     recommended: "おすすめ",
-    cashPaymentDescription:
-      "事前のお支払いは不要です。サービスにご満足いただいてから、ドライバーへ直接お支払いください。",
+    cashPaymentDescription: "オンラインでの事前決済はありません。定額料金はご乗車時にドライバーへ現金でお支払いいただきます。",
     confirmCashBooking: "予約確定 — 車内払い",
     stepRoute: "ルート",
     stepDetails: "詳細",
@@ -3380,8 +3319,7 @@ const paymentTranslations = {
     perVehicleNoteVito: "1台あたり — 1人あたりではありません · 最大6名",
     perVehicleNoteSprinter: "1台あたり — 1人あたりではありません · 最大12名",
     requestQuote: "見積もりを依頼",
-    cashConfirmation:
-      "予約が確定しました。固定料金を車内でドライバーへ直接お支払いください。",
+    cashConfirmation: "ご予約が確定しました。定額料金はご乗車時にドライバーへ現金でお支払いください。",
     bookingError: "予約を完了できませんでした。もう一度お試しください。",
     chooseTime: "時間を選択",
     formIncomplete: "表示された必須項目を入力してください。",
@@ -3412,8 +3350,7 @@ const paymentTranslations = {
     paymentMethod: "결제 방법 선택",
     cashPayment: "차량에서 결제",
     recommended: "추천",
-    cashPaymentDescription:
-      "선결제는 필요 없습니다. 서비스에 만족하신 후 기사에게 직접 결제하세요.",
+    cashPaymentDescription: "온라인 선결제가 없습니다. 고정 요금은 출발할 때 기사에게 현금으로 결제하시면 됩니다.",
     confirmCashBooking: "예약 확정 — 차량에서 결제",
     stepRoute: "경로",
     stepDetails: "세부 정보",
@@ -3424,8 +3361,7 @@ const paymentTranslations = {
     perVehicleNoteVito: "차량 기준 — 1인 기준 아님 · 최대 6명",
     perVehicleNoteSprinter: "차량 기준 — 1인 기준 아님 · 최대 12명",
     requestQuote: "견적 요청",
-    cashConfirmation:
-      "예약이 확정되었습니다. 차량에서 기사에게 고정 요금을 직접 결제하세요.",
+    cashConfirmation: "예약이 확정되었습니다. 고정 요금은 출발할 때 기사에게 현금으로 결제해 주십시오.",
     bookingError: "예약을 완료하지 못했습니다. 다시 시도해 주세요.",
     chooseTime: "시간 선택",
     formIncomplete: "표시된 필수 항목을 입력해 주세요.",
@@ -3456,7 +3392,7 @@ const paymentTranslations = {
     cashPayment: "الدفع داخل السيارة",
     recommended: "موصى به",
     cashPaymentDescription:
-      "لا يلزم الدفع مقدماً. ادفع مباشرة إلى السائق بعد أن تكون راضياً عن الخدمة.",
+      "لا دفع مسبق عبر الإنترنت. تدفع السعر الثابت نقدًا لسائقك في بداية الرحلة.",
     confirmCashBooking: "تأكيد الحجز — الدفع داخل السيارة",
     stepRoute: "المسار",
     stepDetails: "التفاصيل",
@@ -3468,7 +3404,7 @@ const paymentTranslations = {
     perVehicleNoteSprinter: "لكل سيارة — لا للفرد · حتى 12 راكباً",
     requestQuote: "طلب عرض سعر",
     cashConfirmation:
-      "تم تأكيد حجزك. ادفع المبلغ الثابت مباشرة إلى السائق داخل السيارة.",
+      "تم تأكيد حجزك. تدفع المبلغ الثابت نقدًا لسائقك في بداية الرحلة.",
     bookingError: "تعذر إكمال حجزك. يرجى المحاولة مرة أخرى.",
     chooseTime: "اختر الوقت",
     formIncomplete: "يرجى إكمال الحقول المحددة.",
