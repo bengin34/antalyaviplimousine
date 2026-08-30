@@ -350,7 +350,7 @@ export function BookingForm({
                 </label>
                 <label className={fieldClass(errors.guests)}>
                   <span>{t("guests", "Guests")}</span>
-                  <div className="field-control"><Icon name="users" className="icon" /><select id="guests" {...register("guests")}>{Array.from({ length: 13 }, (_, index) => <option value={index + 1} key={index + 1}>{index + 1}</option>)}</select></div>
+                  <div className="field-control"><Icon name="users" className="icon" /><select id="guests" {...register("guests")}>{Array.from({ length: 12 }, (_, index) => <option value={index + 1} key={index + 1}>{index + 1}</option>)}</select></div>
                   <FieldErrorMessage error={errors.guests} />
                 </label>
               </div>

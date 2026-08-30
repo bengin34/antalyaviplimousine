@@ -209,7 +209,7 @@ const translations = {
       "Wir akzeptieren Euro, Türkische Lira und US-Dollar. Die Preise sind in Euro festgelegt; möchten Sie in Lira oder Dollar zahlen, wird der Betrag zum Tageskurs umgerechnet und vor der Abfahrt gemeinsam mit Ihrem Chauffeur bestätigt. Die Suche nach einer Wechselstube am Flughafen entfällt.",
     faqThirteenQ: "Wie viel Gepäck darf ich mitnehmen?",
     faqThirteenA:
-      "In der Regel ein großer Koffer und ein Handgepäckstück pro Person. Haben Sie mehr dabei — einen zusätzlichen Koffer, ein Golfbag, einen Kinderwagen, Ski oder ein Fahrrad — sagen Sie es einfach bei der Buchung; wir stellen ohne Aufpreis ein Fahrzeug mit passender Kapazität. Entscheidend ist nur, dass wir es vorher wissen.",
+      "In der Regel ein großer Koffer und ein Handgepäckstück pro Person. Haben Sie mehr dabei — einen zusätzlichen Koffer, ein Golfbag, einen Kinderwagen, Ski oder ein Fahrrad — sagen Sie es einfach bei der Buchung; wir stellen ohne Aufpreis ein Fahrzeug mit passender Kapazität. Entscheidend ist nur, dass wir es vorher wissen. Ein Mercedes Vito fasst bis zu 6 Personen, ein Sprinter bis zu 12.",
     faqFourteenQ: "Was passiert, wenn ich mich beim Rücktransfer verspäte?",
     faqFourteenA:
       "Ihr Chauffeur ist zur vereinbarten Zeit an Ihrem Hotel und wartet 15 Minuten kostenfrei. Zeichnet sich eine Verzögerung ab, genügt eine Nachricht über WhatsApp: Wir prüfen Ihre Flugzeit, informieren Ihren Chauffeur und stimmen den Ablauf mit Ihnen ab. Unser Ziel ist nicht, Sie zu hetzen, sondern Sie entspannt zu Ihrem Flug zu bringen.",
@@ -444,7 +444,7 @@ const translations = {
       "Euro, Türk Lirası ve ABD Doları kabul ediyoruz. Fiyatlar euro üzerinden belirlenir; TL veya dolar ödemek isterseniz tutar günün kurundan hesaplanır ve yola çıkmadan önce şoförünüzle birlikte teyit edilir. Havalimanında döviz bürosu aramanıza gerek kalmaz.",
     faqThirteenQ: "Ne kadar bagaj getirebilirim?",
     faqThirteenA:
-      "Kural olarak yolcu başına bir büyük valiz ve bir el bagajı. Daha fazlası varsa — ek valiz, golf çantası, bebek arabası, kayak veya bisiklet — rezervasyon sırasında belirtmeniz yeterli; ek ücret almadan uygun kapasitede bir araç planlarız. Önemli olan tek şey, bunu önceden biliyor olmamız.",
+      "Kural olarak yolcu başına bir büyük valiz ve bir el bagajı. Daha fazlası varsa — ek valiz, golf çantası, bebek arabası, kayak veya bisiklet — rezervasyon sırasında belirtmeniz yeterli; ek ücret almadan uygun kapasitede bir araç planlarız. Önemli olan tek şey, bunu önceden biliyor olmamız. Mercedes Vito 6, Mercedes Sprinter ise 12 yolcuya kadar taşır.",
     faqFourteenQ: "Dönüş transferime geç kalırsam ne olur?",
     faqFourteenA:
       "Şoförünüz belirlenen saatte otelinizde olur ve 15 dakika ücretsiz bekler. Gecikeceğinizi düşünüyorsanız WhatsApp'tan tek bir mesaj yeterli: uçuş saatinizi kontrol eder, şoförünüzü bilgilendirir ve programı sizinle birlikte ayarlarız. Amacımız sizi acele ettirmek değil, uçağınıza rahatça yetiştirmektir.",
@@ -678,7 +678,7 @@ const translations = {
       "Мы принимаем евро, турецкие лиры и доллары США. Цены установлены в евро; если удобнее заплатить в лирах или долларах, сумма пересчитывается по курсу дня и подтверждается вместе с водителем перед выездом. Искать обменный пункт в аэропорту не придётся.",
     faqThirteenQ: "Сколько багажа можно взять?",
     faqThirteenA:
-      "Как правило, один большой чемодан и одно место ручной клади на пассажира. Если багажа больше — дополнительный чемодан, гольф-бэг, коляска, лыжи или велосипед — просто укажите это при бронировании, и мы без доплаты подадим автомобиль подходящей вместимости. Важно лишь предупредить заранее.",
+      "Как правило, один большой чемодан и одно место ручной клади на пассажира. Если багажа больше — дополнительный чемодан, гольф-бэг, коляска, лыжи или велосипед — просто укажите это при бронировании, и мы без доплаты подадим автомобиль подходящей вместимости. Важно лишь предупредить заранее. Mercedes Vito вмещает до 6 пассажиров, Sprinter — до 12.",
     faqFourteenQ: "Что делать, если я опаздываю на обратный трансфер?",
     faqFourteenA:
       "Водитель приезжает к отелю в назначенное время и ждёт 15 минут бесплатно. Если понимаете, что задержитесь, напишите нам в WhatsApp: мы проверим время вылета, предупредим водителя и вместе скорректируем план. Наша задача — не торопить вас, а спокойно доставить к рейсу.",
@@ -899,7 +899,7 @@ const translations = {
       "Přijímáme eura, turecké liry i americké dolary. Ceny jsou stanoveny v eurech; chcete-li platit v lirách nebo dolarech, částku přepočítáme denním kurzem a potvrdíme se šoférem před odjezdem. Směnárnu na letišti tak hledat nemusíte.",
     faqThirteenQ: "Kolik zavazadel si mohu vzít?",
     faqThirteenA:
-      "Zpravidla jeden velký kufr a jedno příruční zavazadlo na osobu. Pokud máte více — kufr navíc, golfovou výbavu, kočárek, lyže nebo kolo — stačí to uvést při rezervaci a bez příplatku přistavíme vůz s odpovídající kapacitou. Důležité je jen dát nám vědět předem.",
+      "Zpravidla jeden velký kufr a jedno příruční zavazadlo na osobu. Pokud máte více — kufr navíc, golfovou výbavu, kočárek, lyže nebo kolo — stačí to uvést při rezervaci a bez příplatku přistavíme vůz s odpovídající kapacitou. Důležité je jen dát nám vědět předem. Mercedes Vito pojme až 6 cestujících, Sprinter až 12.",
     faqFourteenQ: "Co když se na zpáteční transfer opozdím?",
     faqFourteenA:
       "Šofér je u hotelu v dohodnutý čas a čeká 15 minut zdarma. Pokud tušíte zdržení, napište nám na WhatsApp: zkontrolujeme čas odletu, informujeme šoféra a plán upravíme společně s vámi. Nechceme vás popohánět, ale v klidu vás doručit k letadlu.",
@@ -997,6 +997,7 @@ const translations = {
     continue: "Pokračovat",
     back: "Zpět",
     reserveForPrice: "Rezervovat",
+    perVehicleNote: "Na vozidlo — ne na osobu · Až 6 cestujících",
     perVehicleNoteVito: "Na vozidlo — ne na osobu · Až 6 cestujících",
     perVehicleNoteSprinter: "Na vozidlo — ne na osobu · Až 12 cestujících",
     perVehicle: "pevná cena · na vozidlo",
@@ -1164,7 +1165,7 @@ const translations = {
       "Przyjmujemy euro, liry tureckie i dolary amerykańskie. Ceny ustalane są w euro; jeśli wolisz zapłacić w lirach lub dolarach, kwotę przeliczamy po kursie z danego dnia i potwierdzamy z kierowcą przed odjazdem. Nie musisz szukać kantoru na lotnisku.",
     faqThirteenQ: "Ile bagażu mogę zabrać?",
     faqThirteenA:
-      "Zasadniczo jedna duża walizka i jeden bagaż podręczny na osobę. Jeśli masz więcej — dodatkową walizkę, sprzęt golfowy, wózek, narty czy rower — po prostu zaznacz to przy rezerwacji, a bez dopłaty podstawimy pojazd o odpowiedniej pojemności. Liczy się tylko to, żebyśmy wiedzieli wcześniej.",
+      "Zasadniczo jedna duża walizka i jeden bagaż podręczny na osobę. Jeśli masz więcej — dodatkową walizkę, sprzęt golfowy, wózek, narty czy rower — po prostu zaznacz to przy rezerwacji, a bez dopłaty podstawimy pojazd o odpowiedniej pojemności. Liczy się tylko to, żebyśmy wiedzieli wcześniej. Mercedes Vito zabiera do 6 pasażerów, a Sprinter do 12.",
     faqFourteenQ: "Co jeśli spóźnię się na transfer powrotny?",
     faqFourteenA:
       "Kierowca jest pod hotelem o umówionej godzinie i czeka 15 minut bezpłatnie. Jeśli przewidujesz opóźnienie, wystarczy jedna wiadomość na WhatsAppie: sprawdzimy godzinę wylotu, poinformujemy kierowcę i wspólnie dostosujemy plan. Nie chodzi o pośpiech, lecz o spokojny dojazd na lot.",
@@ -1379,7 +1380,7 @@ const translations = {
       "Wij accepteren euro's, Turkse lira en Amerikaanse dollars. De prijzen zijn in euro's; betaalt u liever in lira of dollar, dan rekenen wij om tegen de dagkoers en bevestigt u het bedrag met uw chauffeur voor vertrek. Zoeken naar een wisselkantoor op de luchthaven is niet nodig.",
     faqThirteenQ: "Hoeveel bagage mag ik meenemen?",
     faqThirteenA:
-      "In de regel één grote koffer en één handbagagestuk per passagier. Hebt u meer bij zich — een extra koffer, golftas, kinderwagen, ski's of een fiets — geef het dan aan bij het boeken; wij zetten zonder meerkosten een voertuig met de juiste capaciteit in. Het enige wat telt, is dat wij het vooraf weten.",
+      "In de regel één grote koffer en één handbagagestuk per passagier. Hebt u meer bij zich — een extra koffer, golftas, kinderwagen, ski's of een fiets — geef het dan aan bij het boeken; wij zetten zonder meerkosten een voertuig met de juiste capaciteit in. Het enige wat telt, is dat wij het vooraf weten. Een Mercedes Vito vervoert tot 6 passagiers, een Sprinter tot 12.",
     faqFourteenQ: "Wat als ik te laat ben voor mijn terugtransfer?",
     faqFourteenA:
       "Uw chauffeur staat op het afgesproken tijdstip bij uw hotel en wacht 15 minuten kosteloos. Verwacht u vertraging, stuur dan één bericht via WhatsApp: wij controleren uw vluchttijd, informeren uw chauffeur en stemmen het plan met u af. Wij willen u niet opjagen, maar u rustig op tijd bij uw vlucht krijgen.",
@@ -1592,7 +1593,7 @@ const translations = {
       "Ми приймаємо євро, турецькі ліри та долари США. Ціни встановлені в євро; якщо зручніше платити в лірах чи доларах, суму перераховуємо за курсом дня та підтверджуємо з водієм перед виїздом. Шукати обмінник в аеропорту не потрібно.",
     faqThirteenQ: "Скільки багажу можна взяти?",
     faqThirteenA:
-      "Як правило, одна велика валіза та одне місце ручної поклажі на пасажира. Якщо багажу більше — додаткова валіза, гольф-бег, візочок, лижі чи велосипед — просто зазначте це під час бронювання, і ми без доплат подамо автомобіль потрібної місткості. Головне — попередити заздалегідь.",
+      "Як правило, одна велика валіза та одне місце ручної поклажі на пасажира. Якщо багажу більше — додаткова валіза, гольф-бег, візочок, лижі чи велосипед — просто зазначте це під час бронювання, і ми без доплат подамо автомобіль потрібної місткості. Головне — попередити заздалегідь. Mercedes Vito вміщує до 6 пасажирів, Sprinter — до 12.",
     faqFourteenQ: "Що робити, якщо я запізнююся на зворотний трансфер?",
     faqFourteenA:
       "Водій приїжджає до готелю в узгоджений час і чекає 15 хвилин безкоштовно. Якщо розумієте, що затримаєтеся, напишіть нам у WhatsApp: ми перевіримо час вильоту, повідомимо водія та скоригуємо план разом із вами. Наша мета — не квапити вас, а спокійно доправити на рейс.",
@@ -1814,7 +1815,7 @@ const translations = {
       "ہم یورو، ترک لیرا اور امریکی ڈالر قبول کرتے ہیں۔ قیمتیں یورو میں مقرر ہوتی ہیں؛ اگر آپ لیرا یا ڈالر میں ادائیگی کرنا چاہیں تو رقم اسی دن کے ریٹ پر تبدیل کی جاتی ہے اور روانگی سے پہلے ڈرائیور کے ساتھ تصدیق کر لی جاتی ہے۔ ایئرپورٹ پر ایکسچینج تلاش کرنے کی ضرورت نہیں۔",
     faqThirteenQ: "میں کتنا سامان لا سکتا ہوں؟",
     faqThirteenA:
-      "عام اصول یہ ہے کہ فی مسافر ایک بڑا سوٹ کیس اور ایک ہینڈ بیگ۔ اگر اس سے زیادہ ہو — اضافی سوٹ کیس، گولف بیگ، بچوں کی پرام، اسکیز یا سائیکل — تو بکنگ کے وقت بتا دیں؛ ہم بغیر اضافی چارج کے مناسب گنجائش والی گاڑی مقرر کر دیں گے۔ اہم صرف یہ ہے کہ ہمیں پہلے سے علم ہو۔",
+      "عام اصول یہ ہے کہ فی مسافر ایک بڑا سوٹ کیس اور ایک ہینڈ بیگ۔ اگر اس سے زیادہ ہو — اضافی سوٹ کیس، گولف بیگ، بچوں کی پرام، اسکیز یا سائیکل — تو بکنگ کے وقت بتا دیں؛ ہم بغیر اضافی چارج کے مناسب گنجائش والی گاڑی مقرر کر دیں گے۔ اہم صرف یہ ہے کہ ہمیں پہلے سے علم ہو۔ مرسیڈیز ویٹو 6 مسافروں تک اور سپرنٹر 12 مسافروں تک لے جاتی ہے۔",
     faqFourteenQ: "اگر میں واپسی کے ٹرانسفر کے لیے دیر کر دوں تو کیا ہوگا؟",
     faqFourteenA:
       "آپ کا ڈرائیور مقررہ وقت پر ہوٹل پہنچ جاتا ہے اور 15 منٹ مفت انتظار کرتا ہے۔ اگر آپ کو تاخیر کا اندازہ ہو تو WhatsApp پر ایک پیغام کافی ہے: ہم آپ کی پرواز کا وقت دیکھتے ہیں، ڈرائیور کو بتاتے ہیں اور آپ کے ساتھ مل کر پروگرام ترتیب دیتے ہیں۔ ہمارا مقصد آپ کو جلدی میں ڈالنا نہیں بلکہ آرام سے آپ کی پرواز تک پہنچانا ہے۔",
@@ -1953,6 +1954,7 @@ const translations = {
     continue: "جاری رکھیں",
     back: "پیچھے",
     reserveForPrice: "بک کریں",
+    perVehicleNote: "فی گاڑی — فی شخص نہیں · زیادہ سے زیادہ 6 مسافر",
     perVehicleNoteVito: "فی گاڑی — فی شخص نہیں · زیادہ سے زیادہ 6 مسافر",
     perVehicleNoteSprinter: "فی گاڑی — فی شخص نہیں · زیادہ سے زیادہ 12 مسافر",
   },
@@ -2118,7 +2120,7 @@ const translations = {
       "Nous acceptons l'euro, la livre turque et le dollar américain. Les prix sont fixés en euros ; si vous préférez payer en livres ou en dollars, le montant est converti au cours du jour et confirmé avec votre chauffeur avant le départ. Inutile de chercher un bureau de change à l'aéroport.",
     faqThirteenQ: "Quelle quantité de bagages puis-je emporter ?",
     faqThirteenA:
-      "En règle générale, une grande valise et un bagage à main par passager. Si vous avez davantage — une valise supplémentaire, un sac de golf, une poussette, des skis ou un vélo — indiquez-le lors de la réservation : nous prévoyons sans supplément un véhicule à la capacité adaptée. L'essentiel est simplement que nous le sachions à l'avance.",
+      "En règle générale, une grande valise et un bagage à main par passager. Si vous avez davantage — une valise supplémentaire, un sac de golf, une poussette, des skis ou un vélo — indiquez-le lors de la réservation : nous prévoyons sans supplément un véhicule à la capacité adaptée. L'essentiel est simplement que nous le sachions à l'avance. Un Mercedes Vito accueille jusqu'à 6 passagers et un Sprinter jusqu'à 12.",
     faqFourteenQ:
       "Que se passe-t-il si je suis en retard pour mon transfert retour ?",
     faqFourteenA:
@@ -2333,7 +2335,7 @@ const translations = {
       "Vi tar emot euro, turkiska lira och amerikanska dollar. Priserna anges i euro; vill du betala i lira eller dollar räknas beloppet om till dagens kurs och bekräftas med chauffören innan avfärd. Du behöver alltså inte leta efter växlingskontor på flygplatsen.",
     faqThirteenQ: "Hur mycket bagage får jag ta med?",
     faqThirteenA:
-      "Som regel en stor resväska och ett handbagage per person. Har du mer med dig — en extra väska, golfbag, barnvagn, skidor eller cykel — nämn det vid bokningen, så sätter vi in ett fordon med rätt kapacitet utan extra kostnad. Det enda som betyder något är att vi vet om det i förväg.",
+      "Som regel en stor resväska och ett handbagage per person. Har du mer med dig — en extra väska, golfbag, barnvagn, skidor eller cykel — nämn det vid bokningen, så sätter vi in ett fordon med rätt kapacitet utan extra kostnad. Det enda som betyder något är att vi vet om det i förväg. En Mercedes Vito tar upp till 6 passagerare och en Sprinter upp till 12.",
     faqFourteenQ: "Vad händer om jag blir sen till hemtransfern?",
     faqFourteenA:
       "Chauffören är vid hotellet på avtalad tid och väntar 15 minuter kostnadsfritt. Tror du att du blir försenad räcker ett meddelande på WhatsApp: vi kontrollerar din avgångstid, informerar chauffören och justerar upplägget tillsammans med dig. Målet är aldrig att stressa dig, bara att få dig i god tid till flyget.",
@@ -2543,7 +2545,7 @@ const translations = {
       "ユーロ、トルコリラ、米ドルを承ります。料金はユーロ建てで、リラまたはドルでのお支払いをご希望の場合はその日のレートで換算し、ご出発前にドライバーと一緒に確認いたします。空港で両替所を探す必要はありません。",
     faqThirteenQ: "荷物はどのくらい持ち込めますか？",
     faqThirteenA:
-      "目安はお一人につき大型スーツケース1個と手荷物1個です。それ以上ある場合 — 追加のスーツケース、ゴルフバッグ、ベビーカー、スキー、自転車など — はご予約時にお知らせください。追加料金なしで十分な積載量の車両をご用意します。大切なのは、事前に把握できていることだけです。",
+      "目安はお一人につき大型スーツケース1個と手荷物1個です。それ以上ある場合 — 追加のスーツケース、ゴルフバッグ、ベビーカー、スキー、自転車など — はご予約時にお知らせください。追加料金なしで十分な積載量の車両をご用意します。大切なのは、事前に把握できていることだけです。 メルセデス・ヴィートは最大6名、スプリンターは最大12名までご乗車いただけます。",
     faqFourteenQ: "復路の送迎に遅れそうな場合はどうなりますか？",
     faqFourteenA:
       "ドライバーはお約束の時刻にホテルへ到着し、15分間は無料でお待ちします。遅れそうなときは WhatsApp にご一報ください。搭乗時刻を確認し、ドライバーに伝え、一緒に段取りを調整いたします。お急かしするためではなく、余裕をもってご搭乗いただくためのご案内です。",
@@ -2750,7 +2752,7 @@ const translations = {
       "유로, 튀르키예 리라, 미국 달러를 받습니다. 요금은 유로 기준이며, 리라나 달러로 결제하고 싶으시면 당일 환율로 환산해 출발 전에 기사와 함께 확인해 드립니다. 공항에서 환전소를 찾으실 필요가 없습니다.",
     faqThirteenQ: "짐은 얼마나 가져올 수 있나요?",
     faqThirteenA:
-      "원칙적으로 승객 한 분당 대형 캐리어 1개와 기내용 가방 1개입니다. 그보다 많다면 — 추가 캐리어, 골프백, 유모차, 스키, 자전거 등 — 예약 시 알려 주십시오. 추가 요금 없이 적절한 적재 공간을 갖춘 차량을 배정해 드립니다. 중요한 것은 미리 알려 주시는 것뿐입니다.",
+      "원칙적으로 승객 한 분당 대형 캐리어 1개와 기내용 가방 1개입니다. 그보다 많다면 — 추가 캐리어, 골프백, 유모차, 스키, 자전거 등 — 예약 시 알려 주십시오. 추가 요금 없이 적절한 적재 공간을 갖춘 차량을 배정해 드립니다. 중요한 것은 미리 알려 주시는 것뿐입니다. 메르세데스 비토는 최대 6명, 스프린터는 최대 12명까지 탑승하실 수 있습니다.",
     faqFourteenQ: "복귀 차량 시간에 늦을 것 같으면 어떻게 되나요?",
     faqFourteenA:
       "기사는 약속된 시간에 호텔에 도착해 15분간 무료로 대기합니다. 늦어질 것 같으면 WhatsApp으로 한 번만 알려 주십시오. 항공편 시간을 확인하고 기사에게 전달한 뒤 일정을 함께 조정해 드립니다. 서두르시게 하려는 것이 아니라 여유롭게 비행기를 타시도록 돕기 위한 것입니다.",
@@ -2977,7 +2979,7 @@ const translations = {
       "نقبل اليورو والليرة التركية والدولار الأمريكي. الأسعار محددة باليورو؛ وإذا فضّلت الدفع بالليرة أو بالدولار يُحوَّل المبلغ بسعر اليوم ويُؤكَّد مع سائقك قبل الانطلاق. لا حاجة للبحث عن مكتب صرافة في المطار.",
     faqThirteenQ: "ما مقدار الأمتعة التي يمكنني اصطحابها؟",
     faqThirteenA:
-      "القاعدة هي حقيبة كبيرة واحدة وحقيبة يد واحدة لكل راكب. وإذا كان لديك أكثر من ذلك — حقيبة إضافية أو حقيبة غولف أو عربة أطفال أو تزلج أو دراجة — فاذكر ذلك عند الحجز، وسنخصص مركبة بسعة مناسبة دون أي تكلفة إضافية. المهم فقط أن نعرف مسبقًا.",
+      "القاعدة هي حقيبة كبيرة واحدة وحقيبة يد واحدة لكل راكب. وإذا كان لديك أكثر من ذلك — حقيبة إضافية أو حقيبة غولف أو عربة أطفال أو تزلج أو دراجة — فاذكر ذلك عند الحجز، وسنخصص مركبة بسعة مناسبة دون أي تكلفة إضافية. المهم فقط أن نعرف مسبقًا. تتسع مرسيدس فيتو حتى 6 ركاب، وسبرينتر حتى 12 راكبًا.",
     faqFourteenQ: "ماذا لو تأخرت عن رحلة العودة؟",
     faqFourteenA:
       "يصل سائقك إلى الفندق في الموعد المتفق عليه وينتظر 15 دقيقة مجانًا. وإذا توقعت تأخرًا تكفي رسالة واحدة عبر WhatsApp: نتحقق من موعد رحلتك، ونبلّغ سائقك، ونعدّل البرنامج معك. هدفنا ليس استعجالك، بل إيصالك إلى رحلتك براحة.",
@@ -3038,7 +3040,7 @@ const paymentTranslations = {
     cashPaymentDescription:
       "No online prepayment. You pay the fixed total to your driver in cash at the start of the journey.",
     confirmCashBooking: "Confirm booking — pay in vehicle",
-    perVehicleNote: "Per vehicle — not per person · Up to 7 passengers",
+    perVehicleNote: "Per vehicle — not per person · Up to 6 passengers",
     meetGreetNote: "Airport Meet &amp; Greet · Meeting point J / 777",
     stepRoute: "Route",
     stepDetails: "Details",
@@ -3091,7 +3093,7 @@ const paymentTranslations = {
     cashPaymentDescription:
       "Keine Online-Vorauszahlung. Den Festpreis zahlen Sie zu Beginn der Fahrt bar an Ihren Chauffeur.",
     confirmCashBooking: "Buchung bestätigen — im Fahrzeug zahlen",
-    perVehicleNote: "Pro Fahrzeug — nicht pro Person · Bis zu 7 Personen",
+    perVehicleNote: "Pro Fahrzeug — nicht pro Person · Bis zu 6 Personen",
     meetGreetNote: "Airport Meet &amp; Greet · Treffpunkt J / 777",
     stepRoute: "Route",
     stepDetails: "Details",
@@ -3141,7 +3143,7 @@ const paymentTranslations = {
     cashPaymentDescription:
       "Online ön ödeme yok. Sabit tutarı yolculuğun başında şoförünüze nakit olarak ödersiniz.",
     confirmCashBooking: "Rezervasyonu onayla — araçta öde",
-    perVehicleNote: "Araç başına — kişi başına değil · 7 yolcuya kadar",
+    perVehicleNote: "Araç başına — kişi başına değil · 6 yolcuya kadar",
     meetGreetNote: "Havalimanı Karşılama · Buluşma noktası J / 777",
     stepRoute: "Rota",
     stepDetails: "Detaylar",
@@ -3188,7 +3190,7 @@ const paymentTranslations = {
     cashPaymentDescription:
       "Без предоплаты онлайн. Фиксированную сумму вы передаёте водителю наличными в начале поездки.",
     confirmCashBooking: "Подтвердить — оплата в автомобиле",
-    perVehicleNote: "За автомобиль — не за человека · До 7 пассажиров",
+    perVehicleNote: "За автомобиль — не за человека · До 6 пассажиров",
     meetGreetNote: "Встреча в аэропорту · Пункт встречи J / 777",
     stepRoute: "Маршрут",
     stepDetails: "Детали",
@@ -3242,6 +3244,7 @@ const paymentTranslations = {
     continue: "Dalej",
     back: "Wstecz",
     reserveForPrice: "Zarezerwuj",
+    perVehicleNote: "Za pojazd — nie za osobę · Do 6 pasażerów",
     perVehicleNoteVito: "Za pojazd — nie za osobę · Do 6 pasażerów",
     perVehicleNoteSprinter: "Za pojazd — nie za osobę · Do 12 pasażerów",
     requestQuote: "Poproś o wycenę",
@@ -3285,6 +3288,7 @@ const paymentTranslations = {
     continue: "Verder",
     back: "Terug",
     reserveForPrice: "Reserveren",
+    perVehicleNote: "Per voertuig — niet per persoon · Tot 6 passagiers",
     perVehicleNoteVito: "Per voertuig — niet per persoon · Tot 6 passagiers",
     perVehicleNoteSprinter:
       "Per voertuig — niet per persoon · Tot 12 passagiers",
@@ -3331,6 +3335,7 @@ const paymentTranslations = {
     continue: "Продовжити",
     back: "Назад",
     reserveForPrice: "Забронювати",
+    perVehicleNote: "За автомобіль — не за особу · До 6 пасажирів",
     perVehicleNoteVito: "За автомобіль — не за особу · До 6 пасажирів",
     perVehicleNoteSprinter: "За автомобіль — не за особу · До 12 пасажирів",
     requestQuote: "Запросити розрахунок",
@@ -3375,6 +3380,7 @@ const paymentTranslations = {
     continue: "Continuer",
     back: "Retour",
     reserveForPrice: "Réserver",
+    perVehicleNote: "Par véhicule — non par personne · Jusqu'à 6 passagers",
     perVehicleNoteVito: "Par véhicule — non par personne · Jusqu'à 6 passagers",
     perVehicleNoteSprinter:
       "Par véhicule — non par personne · Jusqu'à 12 passagers",
@@ -3424,6 +3430,7 @@ const paymentTranslations = {
     continue: "Fortsätt",
     back: "Tillbaka",
     reserveForPrice: "Boka",
+    perVehicleNote: "Per fordon — inte per person · Upp till 6 passagerare",
     perVehicleNoteVito: "Per fordon — inte per person · Upp till 6 passagerare",
     perVehicleNoteSprinter:
       "Per fordon — inte per person · Upp till 12 passagerare",
@@ -3470,6 +3477,7 @@ const paymentTranslations = {
     continue: "続ける",
     back: "戻る",
     reserveForPrice: "予約する",
+    perVehicleNote: "1台あたり — 1人あたりではありません · 最大6名",
     perVehicleNoteVito: "1台あたり — 1人あたりではありません · 最大6名",
     perVehicleNoteSprinter: "1台あたり — 1人あたりではありません · 最大12名",
     requestQuote: "見積もりを依頼",
@@ -3512,6 +3520,7 @@ const paymentTranslations = {
     continue: "계속",
     back: "뒤로",
     reserveForPrice: "예약하기",
+    perVehicleNote: "차량 기준 — 1인 기준 아님 · 최대 6명",
     perVehicleNoteVito: "차량 기준 — 1인 기준 아님 · 최대 6명",
     perVehicleNoteSprinter: "차량 기준 — 1인 기준 아님 · 최대 12명",
     requestQuote: "견적 요청",
@@ -3554,6 +3563,7 @@ const paymentTranslations = {
     continue: "متابعة",
     back: "رجوع",
     reserveForPrice: "احجز",
+    perVehicleNote: "لكل سيارة — لا للفرد · حتى 6 ركاب",
     perVehicleNoteVito: "لكل سيارة — لا للفرد · حتى 6 ركاب",
     perVehicleNoteSprinter: "لكل سيارة — لا للفرد · حتى 12 راكباً",
     requestQuote: "طلب عرض سعر",
@@ -3803,7 +3813,7 @@ const fleetData = {
     descriptionKey: "fleetVclassDescription",
     description:
       "Spacious VIP transport for larger groups, with generous room for passengers and luggage.",
-    guests: "13",
+    guests: "12",
     bags: "12",
     maxUnits: 25,
   },
@@ -3815,7 +3825,7 @@ const fleetData = {
     descriptionKey: "fleetVitoDescription",
     description:
       "A refined private cabin for families and small groups travelling in comfort.",
-    guests: "8",
+    guests: "6",
     bags: "6",
     maxUnits: 11,
   },

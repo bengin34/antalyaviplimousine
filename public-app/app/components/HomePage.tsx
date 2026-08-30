@@ -270,7 +270,7 @@ export function HomePage({ initialLanguage }: { initialLanguage: string }) {
           descriptionKey: "fleetVclassDescription",
           descriptionFallback:
             "Spacious VIP transport for larger groups, with generous room for passengers and luggage.",
-          guests: 13,
+          guests: 12,
           bags: 12,
         }
       : {
@@ -281,7 +281,7 @@ export function HomePage({ initialLanguage }: { initialLanguage: string }) {
           descriptionKey: "fleetVitoDescription",
           descriptionFallback:
             "A refined private cabin for families and small groups travelling in comfort.",
-          guests: 8,
+          guests: 6,
           bags: 6,
         };
   const fleetPhoto = fleetPhotos[fleetPhotoIndex % fleetPhotos.length];
