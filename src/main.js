@@ -99,7 +99,7 @@ const translations = {
     welcomeEyebrow: "Willkommen auf höchstem Niveau",
     welcomeTitle: "Stilvoll reisen.<br />Entspannt ankommen.",
     welcomeBody:
-      "Nachdem Sie Ihr Gepäck abgeholt haben, gehen Sie bitte zum Meet & Greet Bereich J / 777. Unser Flughafen-Team findet Ihre Buchung, hilft bei Bedarf mit dem Gepäck und bringt Sie mit Ihrem Fahrer zusammen.",
+      "Vom Moment Ihrer Landung an ist an jedes Detail gedacht. Unser Flughafenteam empfängt Sie, Ihr Chauffeur fährt am Abholpunkt vor und Ihr Gepäck wird in ein sorgfältig vorbereitetes Privatfahrzeug geladen.",
     ourStandards: "Unsere Servicestandards",
     concierge: "Concierge-Service",
     guestsWelcomed: "Begrüßte Gäste",
@@ -130,7 +130,7 @@ const translations = {
     television: "Fernseher im Fahrzeug",
     coldDrinks: "Kalte Getränke",
     snacks: "Snacks",
-    nameSignGreeting: "Empfang mit persönlichem Namensschild",
+    nameSignGreeting: "Empfang am Schalter J / 777",
     reserveVehicle: "Fahrzeug reservieren",
     insideVclass: "Im Sprinter Interieur",
     interiorTitle: "Eine private Lounge zwischen<br />Flughafen und Hotel.",
@@ -146,7 +146,7 @@ const translations = {
       "Stets gepflegt, diskret und ausgewählt für Ortskenntnis und höchsten Servicestandard.",
     greetTitle: "Meet & Greet",
     greetBody:
-      "Nachdem Sie Ihr Gepäck abgeholt haben, gehen Sie bitte zum Meet & Greet Bereich J / 777. Unser Flughafen-Team findet Ihre Buchung und bringt Sie mit Ihrem Fahrer zusammen.",
+      "Bei internationalen Ankünften empfängt Sie unser Flughafenteam am Schalter J / 777, ruft Ihren Chauffeur zum Abholpunkt und hilft mit dem Gepäck.",
     supportTitle: "24/7 Concierge",
     supportBody:
       "Vor, während und nach Ihrer Reise ist immer ein persönlicher Ansprechpartner erreichbar.",
@@ -159,7 +159,7 @@ const translations = {
     routesEyebrow: "Unsere beliebtesten Fahrten",
     routesTitle: "Vom Flughafen Antalya<br />an die Türkische Riviera.",
     routesIntro:
-      "Alle Preise gelten pro Fahrzeug, nie pro Person. Kostenlose Wartezeit ist inklusive.",
+      "Alle Preise gelten pro Fahrzeug, nicht pro Person, inklusive 90 Minuten Wartezeit.",
     golfFavourite: "Golf-Favorit",
     from: "Ab",
     reviewsEyebrow: "Gästebewertungen",
@@ -324,7 +324,7 @@ const translations = {
     welcomeEyebrow: "Daha iyi bir karşılamaya hoş geldiniz",
     welcomeTitle: "Zarafetle seyahat edin.<br />Rahatça varın.",
     welcomeBody:
-      "Uçağınız indiği andan itibaren her ayrıntı düşünülür. Şoförünüz gelen yolcu salonunda bekler, bagajınızla ilgilenir ve sizi özenle hazırlanmış özel aracınıza götürür.",
+      "Uçağınız indiği andan itibaren her ayrıntı düşünülür. Havalimanı ekibimiz sizi karşılar, şoförünüz aracıyla karşılama noktasına gelir ve bagajlarınız özenle hazırlanmış özel aracınıza yerleştirilir.",
     ourStandards: "Hizmet standartlarımız",
     concierge: "Concierge desteği",
     guestsWelcomed: "Karşılanan misafir",
@@ -355,7 +355,7 @@ const translations = {
     television: "Araç içi televizyon",
     coldDrinks: "Soğuk içecekler",
     snacks: "Atıştırmalıklar",
-    nameSignGreeting: "İsminize özel tabela ile karşılama",
+    nameSignGreeting: "J / 777 kontuarında karşılama",
     reserveVehicle: "Bu aracı ayırtın",
     insideVclass: "Sprinter'ın içinde",
     interiorTitle:
@@ -372,7 +372,7 @@ const translations = {
       "Bakımlı, gizliliğe önem veren ve yerel bilgisi ile hizmet kalitesi için seçilmiş profesyoneller.",
     greetTitle: "Karşılama hizmeti",
     greetBody:
-      "Şoförünüz sizi gelen yolcu salonunda isminizin yazılı olduğu tabela ile karşılar ve bagajınıza yardımcı olur.",
+      "Dış hat gelişlerinde havalimanı ekibimiz sizi J / 777 kontuarında karşılar, şoförünüzü karşılama noktasına çağırır ve bagajınıza yardımcı olur.",
     supportTitle: "7/24 concierge",
     supportBody:
       "Yolculuğunuzdan önce, yolculuk sırasında ve sonrasında telefon veya WhatsApp üzerinden gerçek bir kişiye ulaşabilirsiniz.",
@@ -385,7 +385,7 @@ const translations = {
     routesEyebrow: "En çok tercih edilen yolculuklar",
     routesTitle: "Antalya Havalimanı'ndan<br />Türk Rivierası'na.",
     routesIntro:
-      "Tüm fiyatlar kişi başı değil, araç başıdır ve ücretsiz bekleme süresi dahildir.",
+      "Tüm fiyatlar kişi başı değil, araç başıdır ve 90 dakika bekleme dahildir.",
     golfFavourite: "Golf misafirlerinin favorisi",
     from: "Başlangıç",
     reviewsEyebrow: "Misafir yorumları",
@@ -547,7 +547,7 @@ const translations = {
     welcomeEyebrow: "Добро пожаловать на новый уровень сервиса",
     welcomeTitle: "Путешествуйте красиво.<br />Прибывайте без забот.",
     welcomeBody:
-      "С момента посадки вашего самолёта мы продумываем каждую деталь. Шофёр встретит вас в зале прилёта, поможет с багажом и проводит к подготовленному автомобилю.",
+      "С момента посадки продумана каждая деталь. Наша команда в аэропорту встречает вас, водитель подаёт машину к месту посадки, а багаж загружается в тщательно подготовленный частный автомобиль.",
     ourStandards: "Наши стандарты сервиса",
     concierge: "Поддержка консьержа",
     guestsWelcomed: "Встреченных гостей",
@@ -578,7 +578,7 @@ const translations = {
     television: "Телевизор в автомобиле",
     coldDrinks: "Холодные напитки",
     snacks: "Закуски",
-    nameSignGreeting: "Встреча с именной табличкой",
+    nameSignGreeting: "Встреча у стойки J / 777",
     reserveVehicle: "Забронировать автомобиль",
     insideVclass: "Салон Sprinter",
     interiorTitle: "Персональный лаунж<br />между аэропортом и отелем.",
@@ -594,7 +594,7 @@ const translations = {
       "Безупречный внешний вид, деликатность, знание региона и высокие стандарты обслуживания.",
     greetTitle: "Встреча в аэропорту",
     greetBody:
-      "Шофёр встретит вас в зале прилёта с именной табличкой и поможет с багажом.",
+      "При международных прилётах наша команда встречает вас у стойки J / 777, вызывает водителя к месту посадки и помогает с багажом.",
     supportTitle: "Консьерж 24/7",
     supportBody:
       "До, во время и после поездки вам всегда ответит человек по телефону или в WhatsApp.",
@@ -607,7 +607,7 @@ const translations = {
     routesEyebrow: "Самые популярные поездки",
     routesTitle: "Из аэропорта Антальи<br />на Турецкую Ривьеру.",
     routesIntro:
-      "Все цены указаны за автомобиль, а не за пассажира. Бесплатное ожидание включено.",
+      "Все цены указаны за автомобиль, а не за пассажира, и включают 90 минут ожидания.",
     golfFavourite: "Выбор игроков в гольф",
     from: "От",
     reviewsEyebrow: "Отзывы гостей",
@@ -771,7 +771,7 @@ const translations = {
     welcomeEyebrow: "Vítejte na lepším příjezdu",
     welcomeTitle: "Cestujte krásně.<br />Přijíždějte bez starostí.",
     welcomeBody:
-      "Od okamžiku přistání letadla je každý detail promyšlen. Váš šofér čeká uvnitř příletové haly, postará se o zavazadla a doprovodí vás k pečlivě připravenému soukromému vozidlu.",
+      "Od okamžiku přistání je promyšlen každý detail. Náš tým na letišti vás přivítá, šofér přistaví vůz na místo vyzvednutí a vaše zavazadla putují do pečlivě připraveného soukromého vozu.",
     ourStandards: "Naše standardy služeb",
     concierge: "Podpora recepce",
     guestsWelcomed: "Přivítaných hostů",
@@ -792,7 +792,7 @@ const translations = {
     snacks: "Občerstvení",
     childSeats: "Dětská sedačka k dispozici",
     wifi: "Bezplatné WiFi",
-    nameSignGreeting: "Uvítání s personalizovanou jmenovkou",
+    nameSignGreeting: "Uvítání u přepážky J / 777",
     reserveVehicle: "Rezervovat vozidlo",
     insideVclass: "Interiér Sprinteru",
     interiorTitle: "Soukromý salon mezi<br />letištěm a vaším hotelem.",
@@ -808,7 +808,7 @@ const translations = {
       "Bezchybně upravení, diskrétní a vybíraní pro místní znalosti a standardy služeb.",
     greetTitle: "Uvítání",
     greetBody:
-      "Váš šofér vás přivítá v příletové hale s personalizovanou jmenovkou a pomůže se zavazadly.",
+      "U mezinárodních příletů vás náš tým přivítá u přepážky J / 777, přivolá šoféra na místo vyzvednutí a pomůže se zavazadly.",
     supportTitle: "Recepce 24/7",
     supportBody:
       "Skutečná osoba je vždy dostupná telefonicky nebo přes WhatsApp před, během a po cestě.",
@@ -821,7 +821,7 @@ const translations = {
     routesEyebrow: "Nejžádanější trasy",
     routesTitle: "Z letiště Antalya<br />na tureckou riviéru.",
     routesIntro:
-      "Všechny ceny jsou za vozidlo, nikdy za cestujícího, se zahrnutým čekáním zdarma.",
+      "Všechny ceny jsou za vozidlo, nikoli za osobu, a zahrnují 90 minut čekání.",
     discountPricesShown: "Zobrazeny online speciální ceny",
     golfFavourite: "Oblíbené pro golf",
     onlineDiscountShort: "Online speciál",
@@ -1009,7 +1009,7 @@ const translations = {
     welcomeEyebrow: "Witamy na najwyższym poziomie",
     welcomeTitle: "Podróżuj z klasą.<br />Przyjeżdżaj spokojnie.",
     welcomeBody:
-      "Od chwili lądowania każdy szczegół jest dopracowany. Szofer czeka w hali przylotów, zajmuje się bagażem i odprowadza Cię do starannie przygotowanego pojazdu.",
+      "Od chwili lądowania dopracowany jest każdy szczegół. Nasz zespół na lotnisku wita Cię, kierowca podjeżdża w miejsce odbioru, a bagaże trafiają do starannie przygotowanego prywatnego auta.",
     ourStandards: "Nasze standardy usług",
     concierge: "Usługi concierge",
     guestsWelcomed: "Powitanych gości",
@@ -1040,7 +1040,7 @@ const translations = {
     television: "Telewizor w pojeździe",
     coldDrinks: "Zimne napoje",
     snacks: "Przekąski",
-    nameSignGreeting: "Powitanie z tabliczką z imieniem",
+    nameSignGreeting: "Powitanie przy stanowisku J / 777",
     reserveVehicle: "Zarezerwuj pojazd",
     insideVclass: "Wnętrze Sprinter",
     interiorTitle: "Prywatny salon<br />między lotniskiem a hotelem.",
@@ -1056,7 +1056,7 @@ const translations = {
       "Zawsze zadbani, dyskretni, wybrani za znajomość terenu i najwyższe standardy obsługi.",
     greetTitle: "Meet & Greet",
     greetBody:
-      "Szofer wita Cię w hali przylotów z tabliczką z Twoim imieniem i pomaga z bagażem.",
+      "Przy przylotach międzynarodowych nasz zespół wita Cię przy stanowisku J / 777, wzywa kierowcę w miejsce odbioru i pomaga z bagażem.",
     supportTitle: "Concierge 24/7",
     supportBody:
       "Przed, w trakcie i po podróży zawsze możesz skontaktować się z nami telefonicznie lub przez WhatsApp.",
@@ -1069,7 +1069,7 @@ const translations = {
     routesEyebrow: "Nasze najpopularniejsze trasy",
     routesTitle: "Z lotniska Antalya<br />na Turecką Riwierę.",
     routesIntro:
-      "Wszystkie ceny dotyczą pojazdu, nie osoby. Bezpłatny czas oczekiwania jest wliczony.",
+      "Wszystkie ceny są za pojazd, nie za osobę, i obejmują 90 minut oczekiwania.",
     golfFavourite: "Ulubieniec golfistów",
     from: "Od",
     reviewsEyebrow: "Opinie gości",
@@ -1209,7 +1209,7 @@ const translations = {
     welcomeEyebrow: "Welkom op het hoogste niveau",
     welcomeTitle: "Stijlvol reizen.<br />Ontspannen aankomen.",
     welcomeBody:
-      "Vanaf uw landing is elk detail geregeld. Uw chauffeur wacht in de aankomsthal, zorgt voor uw bagage en begeleidt u naar uw zorgvuldig voorbereide privévoertuig.",
+      "Vanaf het moment dat u landt, is aan elk detail gedacht. Ons luchthaventeam ontvangt u, uw chauffeur staat klaar op het ophaalpunt en uw bagage gaat in een zorgvuldig voorbereide privéwagen.",
     ourStandards: "Onze servicestandaarden",
     concierge: "Conciërgeservice",
     guestsWelcomed: "Verwelkomde gasten",
@@ -1240,7 +1240,7 @@ const translations = {
     television: "Televisie in het voertuig",
     coldDrinks: "Koude dranken",
     snacks: "Snacks",
-    nameSignGreeting: "Ontvangst met persoonlijk naambordje",
+    nameSignGreeting: "Ontvangst bij balie J / 777",
     reserveVehicle: "Voertuig reserveren",
     insideVclass: "In het Sprinter interieur",
     interiorTitle: "Een privélounge<br />tussen luchthaven en hotel.",
@@ -1256,7 +1256,7 @@ const translations = {
       "Altijd verzorgd, discreet en geselecteerd op lokale kennis en hoogste servicestandaard.",
     greetTitle: "Meet & Greet",
     greetBody:
-      "Uw chauffeur verwelkomt u in de aankomsthal met een naambordje en helpt met uw bagage.",
+      "Bij internationale aankomsten ontvangt ons team u bij balie J / 777, roept uw chauffeur naar het ophaalpunt en helpt met de bagage.",
     supportTitle: "24/7 Conciërge",
     supportBody:
       "Voor, tijdens en na uw reis is er altijd iemand bereikbaar per telefoon of WhatsApp.",
@@ -1269,7 +1269,7 @@ const translations = {
     routesEyebrow: "Onze populairste ritten",
     routesTitle: "Van Antalya Luchthaven<br />naar de Turkse Rivièra.",
     routesIntro:
-      "Alle prijzen zijn per voertuig, nooit per persoon. Gratis wachttijd is inbegrepen.",
+      "Alle prijzen gelden per voertuig, niet per persoon, inclusief 90 minuten wachttijd.",
     golfFavourite: "Golfliefhebbersfavoriet",
     from: "Vanaf",
     reviewsEyebrow: "Gastbeoordelingen",
@@ -1412,7 +1412,7 @@ const translations = {
     welcomeEyebrow: "Ласкаво просимо на найвищий рівень",
     welcomeTitle: "Подорожуйте стильно.<br />Прибувайте спокійно.",
     welcomeBody:
-      "З моменту посадки вашого літака кожна деталь продумана. Шофер чекає на вас у залі прильоту, піклується про багаж і супроводжує вас до підготовленого автомобіля.",
+      "З моменту приземлення продумано кожну деталь. Наша команда в аеропорту зустрічає вас, водій подає автомобіль до місця посадки, а багаж завантажують у ретельно підготовлене приватне авто.",
     ourStandards: "Наші стандарти сервісу",
     concierge: "Підтримка консьєржа",
     guestsWelcomed: "Зустрінутих гостей",
@@ -1443,7 +1443,7 @@ const translations = {
     television: "Телевізор в автомобілі",
     coldDrinks: "Холодні напої",
     snacks: "Закуски",
-    nameSignGreeting: "Зустріч з іменною табличкою",
+    nameSignGreeting: "Зустріч біля стійки J / 777",
     reserveVehicle: "Забронювати автомобіль",
     insideVclass: "Салон Sprinter",
     interiorTitle: "Приватний лаунж<br />між аеропортом і готелем.",
@@ -1459,7 +1459,7 @@ const translations = {
       "Завжди бездоганний вигляд, делікатність, знання регіону та найвищі стандарти обслуговування.",
     greetTitle: "Зустріч в аеропорту",
     greetBody:
-      "Шофер зустріне вас у залі прильоту з табличкою з вашим ім'ям та допоможе з багажем.",
+      "Під час міжнародних прильотів наша команда зустрічає вас біля стійки J / 777, викликає водія до місця посадки та допомагає з багажем.",
     supportTitle: "Консьєрж 24/7",
     supportBody:
       "До, під час і після поїздки вам завжди відповість людина по телефону або в WhatsApp.",
@@ -1472,7 +1472,7 @@ const translations = {
     routesEyebrow: "Найпопулярніші поїздки",
     routesTitle: "З аеропорту Анталії<br />на Турецьку Рив'єру.",
     routesIntro:
-      "Всі ціни вказані за автомобіль, а не за пасажира. Безкоштовне очікування включено.",
+      "Усі ціни вказані за автомобіль, а не за пасажира, і включають 90 хвилин очікування.",
     golfFavourite: "Вибір гравців у гольф",
     from: "Від",
     reviewsEyebrow: "Відгуки гостей",
@@ -1636,7 +1636,7 @@ const translations = {
     welcomeEyebrow: "ایک بہتر آمد میں خوش آمدید",
     welcomeTitle: "خوبصورتی سے سفر کریں۔<br />آسانی سے پہنچیں۔",
     welcomeBody:
-      "آپ کی فلائٹ لینڈ ہونے کے لمحے سے ہر تفصیل کا خیال رکھا جاتا ہے۔ آپ کا شوفر آمد پر انتظار کرتا ہے، آپ کا سامان اٹھاتا ہے اور آپ کو ایک بے عیب نجی گاڑی تک لے جاتا ہے۔",
+      "آپ کی لینڈنگ کے لمحے سے ہر تفصیل کا خیال رکھا جاتا ہے۔ ہماری ایئرپورٹ ٹیم آپ کا استقبال کرتی ہے، آپ کا ڈرائیور پک اپ پوائنٹ پر گاڑی لے آتا ہے اور آپ کا سامان احتیاط سے تیار کی گئی نجی گاڑی میں رکھا جاتا ہے۔",
     ourStandards: "ہمارے سروس معیارات",
     concierge: "کنسیرج سپورٹ",
     guestsWelcomed: "مسافروں کا استقبال",
@@ -1657,7 +1657,7 @@ const translations = {
     snacks: "اسنیکس",
     childSeats: "بچوں کی نشست دستیاب",
     wifi: "مجانی WiFi",
-    nameSignGreeting: "ذاتی نام کی تختی کے ساتھ میٹ اینڈ گریٹ",
+    nameSignGreeting: "کاؤنٹر J / 777 پر استقبال",
     reserveVehicle: "یہ گاڑی بک کریں",
     insideVclass: "اسپرنٹر کے اندر",
     interiorTitle: "ایئرپورٹ اور آپ کے ہوٹل کے<br />درمیان ایک نجی لاؤنج۔",
@@ -1673,7 +1673,7 @@ const translations = {
       "بے داغ پیش کردہ، سمجھدار اور اپنی مقامی معلومات اور سروس معیارات کے لیے منتخب۔",
     greetTitle: "میٹ اینڈ گریٹ",
     greetBody:
-      "آپ کا شوفر آمد پر ذاتی نام کی تختی کے ساتھ آپ کا استقبال کرے گا اور سامان میں مدد کرے گا۔",
+      "بین الاقوامی آمد پر ہماری ایئرپورٹ ٹیم آپ کو کاؤنٹر J / 777 پر ملتی ہے، ڈرائیور کو پک اپ پوائنٹ پر بلاتی ہے اور سامان میں مدد کرتی ہے۔",
     supportTitle: "24/7 کنسیرج",
     supportBody:
       "آپ کے سفر سے پہلے، دوران اور بعد میں ایک حقیقی شخص فون یا واٹس ایپ پر ہمیشہ دستیاب ہے۔",
@@ -1686,7 +1686,7 @@ const translations = {
     routesEyebrow: "ہمارے سب سے مطلوب سفر",
     routesTitle: "انطالیہ ایئرپورٹ سے<br />ترکی ریویرا تک۔",
     routesIntro:
-      "تمام قیمتیں فی گاڑی ہیں، فی مسافر نہیں، مجانی انتظار کا وقت شامل ہے۔",
+      "تمام قیمتیں فی گاڑی ہیں، فی مسافر نہیں، اور ان میں 90 منٹ کا انتظار شامل ہے۔",
     discountPricesShown: "آن لائن خصوصی قیمتیں دکھائی جا رہی ہیں",
     golfFavourite: "گولف کا پسندیدہ",
     onlineDiscountShort: "آن لائن خصوصی قیمت",
@@ -1913,7 +1913,7 @@ const translations = {
     welcomeEyebrow: "Bienvenue au plus haut niveau",
     welcomeTitle: "Voyager avec élégance.<br />Arriver sereinement.",
     welcomeBody:
-      "Dès votre atterrissage, chaque détail est organisé. Votre chauffeur vous attend dans le hall des arrivées, s'occupe de vos bagages et vous accompagne jusqu'à votre véhicule privé soigneusement préparé.",
+      "Dès l'atterrissage, chaque détail est pensé. Notre équipe de l'aéroport vous accueille, votre chauffeur se présente au point de prise en charge et vos bagages sont chargés dans un véhicule privé soigneusement préparé.",
     ourStandards: "Nos standards de service",
     concierge: "Service conciergerie",
     guestsWelcomed: "Clients accueillis",
@@ -1944,7 +1944,7 @@ const translations = {
     television: "Télévision à bord",
     coldDrinks: "Boissons fraîches",
     snacks: "En-cas",
-    nameSignGreeting: "Accueil avec pancarte nominative",
+    nameSignGreeting: "Accueil au comptoir J / 777",
     reserveVehicle: "Réserver ce véhicule",
     insideVclass: "Intérieur Sprinter",
     interiorTitle: "Un salon privé<br />entre l'aéroport et l'hôtel.",
@@ -1960,7 +1960,7 @@ const translations = {
       "Toujours soignés, discrets et sélectionnés pour leur connaissance locale et leurs standards de service irréprochables.",
     greetTitle: "Accueil Meet & Greet",
     greetBody:
-      "Après avoir récupéré vos bagages, rendez-vous dans la zone Meet & Greet J / 777. Notre équipe à l'aéroport identifiera votre réservation et vous mettra en contact avec votre chauffeur.",
+      "Pour les arrivées internationales, notre équipe vous accueille au comptoir J / 777, appelle votre chauffeur au point de prise en charge et vous aide avec vos bagages.",
     supportTitle: "Conciergerie 24/7",
     supportBody:
       "Avant, pendant et après votre voyage, une personne est toujours disponible par téléphone ou WhatsApp.",
@@ -1973,7 +1973,7 @@ const translations = {
     routesEyebrow: "Nos trajets les plus populaires",
     routesTitle: "De l'aéroport d'Antalya<br />vers la Riviera turque.",
     routesIntro:
-      "Tous les prix sont par véhicule, jamais par personne. L'attente gratuite est incluse.",
+      "Tous les prix s'entendent par véhicule, jamais par passager, avec 90 minutes d'attente incluses.",
     golfFavourite: "Favori des golfeurs",
     from: "À partir de",
     reviewsEyebrow: "Avis clients",
@@ -2116,7 +2116,7 @@ const translations = {
     welcomeEyebrow: "Välkommen till högsta nivå",
     welcomeTitle: "Res med stil.<br />Anländ avslappnad.",
     welcomeBody:
-      "Från det ögonblick ditt plan landar är varje detalj ordnad. Din chaufför väntar i ankomsthallen, tar hand om ditt bagage och eskorterar dig till ditt noggrant förberedda fordon.",
+      "Från det ögonblick du landar är varje detalj genomtänkt. Vårt flygplatsteam möter dig, chauffören står vid upphämtningsplatsen och ditt bagage lastas in i en omsorgsfullt förberedd privat bil.",
     ourStandards: "Våra servicestandarder",
     concierge: "Concierge-service",
     guestsWelcomed: "Välkomnade gäster",
@@ -2147,7 +2147,7 @@ const translations = {
     television: "TV i fordonet",
     coldDrinks: "Kalla drycker",
     snacks: "Snacks",
-    nameSignGreeting: "Välkomnande med personlig namnskylt",
+    nameSignGreeting: "Mottagning vid disk J / 777",
     reserveVehicle: "Boka fordon",
     insideVclass: "Sprinter interiör",
     interiorTitle: "En privat lounge<br />mellan flygplatsen och hotellet.",
@@ -2163,7 +2163,7 @@ const translations = {
       "Alltid välvårdade, diskreta och utvalda för lokal kunskap och högsta servicestandard.",
     greetTitle: "Meet & Greet",
     greetBody:
-      "Din chaufför välkomnar dig i ankomsthallen med en skylt med ditt namn och hjälper med bagaget.",
+      "Vid utrikes ankomster möter vårt flygplatsteam dig vid disk J / 777, kallar din chaufför till upphämtningsplatsen och hjälper till med bagaget.",
     supportTitle: "Concierge 24/7",
     supportBody:
       "Före, under och efter din resa finns alltid någon tillgänglig per telefon eller WhatsApp.",
@@ -2176,7 +2176,7 @@ const translations = {
     routesEyebrow: "Våra populäraste rutter",
     routesTitle: "Från Antalya flygplats<br />till Turkiska Rivieran.",
     routesIntro:
-      "Alla priser gäller per fordon, aldrig per person. Gratis väntetid ingår.",
+      "Alla priser gäller per fordon, aldrig per passagerare, med 90 minuters väntetid inkluderad.",
     golfFavourite: "Golfarnas favorit",
     from: "Från",
     reviewsEyebrow: "Gästrecensioner",
@@ -2317,7 +2317,7 @@ const translations = {
     welcomeEyebrow: "最高水準のサービスへようこそ",
     welcomeTitle: "上質な旅を。<br />安心してご到着を。",
     welcomeBody:
-      "着陸の瞬間から、すべての細部が整っています。ショーファーが到着ロビーでお待ちし、お荷物をお預かりして、丁寧に準備された専用車両へとご案内します。",
+      "着陸の瞬間から、細部まで整えてお待ちしています。空港スタッフがお出迎えし、ドライバーが乗車地点に車をつけ、丁寧に準備された専用車へお荷物をお積みします。",
     ourStandards: "私たちのサービス基準",
     concierge: "コンシェルジュサービス",
     guestsWelcomed: "お迎えしたゲスト数",
@@ -2348,7 +2348,7 @@ const translations = {
     television: "車内テレビ",
     coldDrinks: "冷たいお飲み物",
     snacks: "スナック",
-    nameSignGreeting: "お名前ボードでのお出迎え",
+    nameSignGreeting: "カウンター J / 777 でのお出迎え",
     reserveVehicle: "この車両を予約する",
     insideVclass: "Sprinterインテリア",
     interiorTitle: "空港とホテルの間の<br />プライベートラウンジ。",
@@ -2363,8 +2363,7 @@ const translations = {
     chauffeurBody:
       "常に清潔感があり、思いやりがあり、地元知識と最高のサービス基準のために厳選されています。",
     greetTitle: "ミート＆グリート",
-    greetBody:
-      "ショーファーはお名前のボードを持って到着ロビーでお出迎えし、お荷物をお手伝いします。",
+    greetBody: "国際線到着では、空港スタッフがカウンター J / 777 でお出迎えし、ドライバーを乗車地点に呼び、お荷物をお手伝いします。",
     supportTitle: "24/7コンシェルジュ",
     supportBody:
       "旅の前・中・後、いつでも電話またはWhatsAppでご対応いたします。",
@@ -2376,8 +2375,7 @@ const translations = {
       "年齢に合ったチャイルドシート、広々とした車内、ご家族の安心到着のための丁寧なサポート。",
     routesEyebrow: "人気のルート",
     routesTitle: "アンタルヤ空港から<br />トルコリビエラへ。",
-    routesIntro:
-      "すべての料金は車両ごと（お一人様ではありません）。無料待機時間込み。",
+    routesIntro: "料金はすべて1台あたり（お一人あたりではありません）で、90分の待機時間を含みます。",
     golfFavourite: "ゴルファーに人気",
     from: "から",
     reviewsEyebrow: "お客様の声",
@@ -2515,7 +2513,7 @@ const translations = {
     welcomeEyebrow: "최고 수준의 서비스에 오신 것을 환영합니다",
     welcomeTitle: "품격 있게 이동하세요.<br />편안하게 도착하세요.",
     welcomeBody:
-      "착륙하는 순간부터 모든 세부 사항이 준비되어 있습니다. 쇼퍼가 도착 로비에서 기다리며 수하물을 챙기고 세심하게 준비된 전용 차량으로 안내해 드립니다.",
+      "착륙하는 순간부터 모든 것이 준비되어 있습니다. 공항 직원이 고객님을 맞이하고, 기사가 픽업 지점에 차량을 대며, 짐은 정성껏 준비된 전용 차량에 실립니다.",
     ourStandards: "저희 서비스 기준",
     concierge: "컨시어지 서비스",
     guestsWelcomed: "환영한 고객 수",
@@ -2546,7 +2544,7 @@ const translations = {
     television: "차량 내 TV",
     coldDrinks: "차가운 음료",
     snacks: "스낵",
-    nameSignGreeting: "이름 팻말을 든 맞춤 영접",
+    nameSignGreeting: "J / 777 카운터에서 미팅",
     reserveVehicle: "이 차량 예약하기",
     insideVclass: "Sprinter 인테리어",
     interiorTitle: "공항과 호텔 사이의<br />프라이빗 라운지.",
@@ -2561,8 +2559,7 @@ const translations = {
     chauffeurBody:
       "항상 단정하고 신중하며, 현지 지식과 최고 서비스 기준으로 선별된 전문가들입니다.",
     greetTitle: "미트 앤 그리트",
-    greetBody:
-      "쇼퍼가 이름이 적힌 팻말을 들고 도착 로비에서 환영하며 수하물을 도와드립니다.",
+    greetBody: "국제선 도착 시 공항 직원이 J / 777 카운터에서 맞이하고, 픽업 지점으로 기사를 부르며 짐을 도와드립니다.",
     supportTitle: "24/7 컨시어지",
     supportBody:
       "여행 전, 중, 후 언제든지 전화 또는 WhatsApp으로 담당자와 연결됩니다.",
@@ -2574,8 +2571,7 @@ const translations = {
       "연령에 맞는 카시트, 넓은 실내, 편안한 가족 도착을 위한 세심한 도움.",
     routesEyebrow: "인기 노선",
     routesTitle: "안탈리아 공항에서<br />터키 리비에라까지.",
-    routesIntro:
-      "모든 요금은 차량 기준(1인 기준 아님)입니다. 무료 대기 시간 포함.",
+    routesIntro: "모든 요금은 인당이 아닌 차량당이며, 90분의 대기 시간이 포함됩니다.",
     golfFavourite: "골퍼들의 인기 선택",
     from: "부터",
     reviewsEyebrow: "고객 후기",
@@ -2732,7 +2728,7 @@ const translations = {
     welcomeEyebrow: "مرحباً بك في مستوى أرقى من الخدمة",
     welcomeTitle: "سافر بأناقة.<br />وصل براحة.",
     welcomeBody:
-      "منذ لحظة هبوطك، نعتني بكل التفاصيل. ينتظرك سائقك في صالة الوصول، ويساعدك في الأمتعة، ويرافقك إلى سيارتك الخاصة المجهزة بعناية.",
+      "منذ لحظة هبوطك، رُوعيت كل التفاصيل. يستقبلك فريقنا في المطار، ويقف سائقك في نقطة الاستقبال، وتُحمَّل أمتعتك في سيارة خاصة أُعدّت بعناية.",
     ourStandards: "معايير خدمتنا",
     concierge: "خدمة الكونسيرج",
     guestsWelcomed: "الضيوف الذين استقبلناهم",
@@ -2761,7 +2757,7 @@ const translations = {
     television: "تلفاز داخل السيارة",
     coldDrinks: "مشروبات باردة",
     snacks: "وجبات خفيفة",
-    nameSignGreeting: "استقبال شخصي بلافتة تحمل اسمك",
+    nameSignGreeting: "استقبال عند المكتب J / 777",
     reserveVehicle: "احجز هذه السيارة",
     insideVclass: "مقصورة Sprinter الداخلية",
     interiorTitle: "صالة خاصة بين<br />المطار والفندق.",
@@ -2777,7 +2773,7 @@ const translations = {
       "سائقون أنيقون وكتومون دائماً، تم اختيارهم لمعرفتهم المحلية والتزامهم بأعلى معايير الخدمة.",
     greetTitle: "الاستقبال والترحيب",
     greetBody:
-      "يستقبلك سائقك في صالة الوصول بلافتة تحمل اسمك ويساعدك في حمل الأمتعة.",
+      "في القدوم الدولي يستقبلك فريقنا عند المكتب J / 777، ويستدعي سائقك إلى نقطة الاستقبال، ويساعدك في الأمتعة.",
     supportTitle: "كونسيرج 24/7",
     supportBody:
       "قبل رحلتك وأثناءها وبعدها، يمكنك دائماً التواصل مع شخص حقيقي عبر الهاتف أو WhatsApp.",
@@ -2789,7 +2785,8 @@ const translations = {
       "مقاعد أطفال مناسبة للأعمار، ومساحات داخلية واسعة، ومساعدة هادئة لوصول عائلي مريح.",
     routesEyebrow: "رحلاتنا الأكثر طلباً",
     routesTitle: "من مطار أنطاليا<br />إلى الريفييرا التركية.",
-    routesIntro: "جميع الأسعار للسيارة وليس للشخص، وتشمل وقت انتظار مجاني.",
+    routesIntro:
+      "جميع الأسعار لكل مركبة وليست لكل راكب، وتشمل 90 دقيقة انتظار.",
     golfFavourite: "المفضل لدى لاعبي الغولف",
     from: "ابتداءً من",
     reviewsEyebrow: "آراء الضيوف",
