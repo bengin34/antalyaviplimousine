@@ -24,6 +24,7 @@ import {
   calculateProfitLossMetrics,
   DEFAULT_EUR_TRY_RATE,
   DEFAULT_KM_COST_TRY,
+  legCostModel,
 } from '../../profit-loss-metrics.js'
 import { locationLabel } from '../../turkish-formatters.js'
 
@@ -46,7 +47,7 @@ async function fetchAllBookings() {
   const bookings: Booking[] = []
   for (let from = 0; ; from += PAGE_SIZE) {
     const { data, error } = await supabase.from('bookings')
-      .select('id, booking_ref, customer_name, pickup_location, dropoff_location, pickup_date, return_date, service_end_date, trip_type, price_eur, daily_rate_eur, service_cost_mode, sold_transfer_cost_try, airport_meet_fee_applies, status, created_at, manual_outbound_distance_km, manual_return_distance_km, chauffeur_hire_days(id, service_date, day_number, status, distance_km, fuel_amount_eur, fuel_paid)')
+      .select('id, booking_ref, customer_name, pickup_location, dropoff_location, pickup_date, return_date, service_end_date, trip_type, price_eur, daily_rate_eur, service_cost_mode, sold_transfer_cost_try, return_service_cost_mode, return_sold_transfer_cost_try, airport_meet_fee_applies, status, created_at, manual_outbound_distance_km, manual_return_distance_km, chauffeur_hire_days(id, service_date, day_number, status, distance_km, fuel_amount_eur, fuel_paid)')
       .order('created_at', { ascending: true }).range(from, from + PAGE_SIZE - 1)
     if (error) throw error
     const rows = (data ?? []) as Booking[]
@@ -206,12 +207,15 @@ function DistanceActionRow({ leg, period, navigate, onSave, currentKm }: {
   </li>
 }
 
-function SupplierCostEditor({ booking, currentCostTry, onSave }: {
+function SupplierCostEditor({ booking, leg, legLabel, currentCostTry, editing, setEditing, onSave }: {
   booking: Booking
+  leg: LegKey
+  legLabel: string
   currentCostTry: number
-  onSave: (booking: Booking, totalCostTry: number) => Promise<void>
+  editing: boolean
+  setEditing: (open: boolean) => void
+  onSave: (booking: Booking, leg: LegKey, costTry: number) => Promise<void>
 }) {
-  const [editing, setEditing] = useState(false)
   const [value, setValue] = useState(currentCostTry > 0 ? String(currentCostTry) : '')
   const [saving, setSaving] = useState(false)
   const [error, setError] = useState('')
@@ -226,12 +230,12 @@ function SupplierCostEditor({ booking, currentCostTry, onSave }: {
     const totalCostTry = Number(value.replace(',', '.'))
     setError('')
     if (!Number.isFinite(totalCostTry) || totalCostTry <= 0 || totalCostTry > 9_999_999.99) {
-      setError('0 ile 9.999.999,99 arasında geçerli bir toplam maliyet girin.')
+      setError('0 ile 9.999.999,99 arasında geçerli bir maliyet girin.')
       return
     }
     setSaving(true)
     try {
-      await onSave(booking, totalCostTry)
+      await onSave(booking, leg, totalCostTry)
       setEditing(false)
     } catch {
       setError('Maliyet kaydedilemedi, tekrar deneyin.')
@@ -243,7 +247,7 @@ function SupplierCostEditor({ booking, currentCostTry, onSave }: {
   return <>
     <button className="profit-warning-action is-primary" type="button" onClick={openEditor}>Maliyet düzenle</button>
     {editing && <form className="profit-km-form" onSubmit={submit} noValidate>
-      <label><span>Toplam tedarikçi maliyeti (₺)</span><input type="number" min="0.01" max="9999999.99" step="0.01" inputMode="decimal" value={value} onChange={event => setValue(event.target.value)} autoFocus required /></label>
+      <label><span>{legLabel} tedarikçi maliyeti (₺)</span><input type="number" min="0.01" max="9999999.99" step="0.01" inputMode="decimal" value={value} onChange={event => setValue(event.target.value)} autoFocus required /></label>
       <button type="submit" disabled={saving}>{saving ? 'Kaydediliyor…' : 'Kaydet'}</button>
       <button type="button" disabled={saving} onClick={() => { setEditing(false); setError('') }}>İptal</button>
       {error && <div className="inline-error" role="alert">{error}</div>}
@@ -261,25 +265,48 @@ function ExpandableSection({ title, detail, children }: { title: string; detail?
   </section>
 }
 
-function CostModeToggle({ booking, onSave }: {
-  booking: Booking
-  onSave: (booking: Booking, nextMode: Booking['service_cost_mode']) => Promise<void>
-}) {
-  const [savingMode, setSavingMode] = useState<Booking['service_cost_mode'] | ''>('')
+type CostMode = 'own_vehicle' | 'sold_transfer'
+type LegKey = 'outbound' | 'return'
 
-  const toggle = async (nextMode: Booking['service_cost_mode']) => {
-    if (booking.trip_type === 'daily_chauffeur' || booking.service_cost_mode === nextMode) return
+/** Ayağın kendi maliyet modeli; kâr/zarar motoruyla aynı kuralı kullanır. */
+function legCostMode(booking: Booking | undefined, leg: LegKey): CostMode {
+  return booking && legCostModel(booking, leg).costMode === 'sold_transfer' ? 'sold_transfer' : 'own_vehicle'
+}
+
+/** Ayağın maliyetinin yazıldığı sütunlar. */
+function legCostColumns(leg: LegKey) {
+  return leg === 'return'
+    ? { mode: 'return_service_cost_mode' as const, cost: 'return_sold_transfer_cost_try' as const }
+    : { mode: 'service_cost_mode' as const, cost: 'sold_transfer_cost_try' as const }
+}
+
+function CostModeToggle({ booking, leg, onSave, onNeedsCost }: {
+  booking: Booking
+  leg: LegKey
+  onSave: (booking: Booking, leg: LegKey, nextMode: CostMode) => Promise<void>
+  onNeedsCost: () => void
+}) {
+  const [savingMode, setSavingMode] = useState<CostMode | ''>('')
+  const current = legCostMode(booking, leg)
+
+  const toggle = async (nextMode: CostMode) => {
+    if (booking.trip_type === 'daily_chauffeur' || current === nextMode) return
+    // Satılan transfer için maliyet zorunlu (sütun kısıtı); yoksa önce onu iste.
+    if (nextMode === 'sold_transfer' && !(Number(booking[legCostColumns(leg).cost]) > 0)) {
+      onNeedsCost()
+      return
+    }
     setSavingMode(nextMode)
     try {
-      await onSave(booking, nextMode)
+      await onSave(booking, leg, nextMode)
     } finally {
       setSavingMode('')
     }
   }
 
-  return <div className="profit-cost-toggle" role="group" aria-label="Maliyet modeli">
+  return <div className="profit-cost-toggle" role="group" aria-label={leg === 'return' ? 'Dönüş maliyet modeli' : 'Gidiş maliyet modeli'}>
     <button
-      className={booking.service_cost_mode === 'own_vehicle' ? 'is-active' : ''}
+      className={current === 'own_vehicle' ? 'is-active' : ''}
       type="button"
       disabled={Boolean(savingMode) || booking.trip_type === 'daily_chauffeur'}
       onClick={() => void toggle('own_vehicle')}
@@ -287,7 +314,7 @@ function CostModeToggle({ booking, onSave }: {
       {savingMode === 'own_vehicle' ? 'Kaydediliyor…' : 'Kendi aracımız'}
     </button>
     <button
-      className={booking.service_cost_mode === 'sold_transfer' ? 'is-active' : ''}
+      className={current === 'sold_transfer' ? 'is-active' : ''}
       type="button"
       disabled={Boolean(savingMode) || booking.trip_type === 'daily_chauffeur'}
       onClick={() => void toggle('sold_transfer')}
@@ -297,14 +324,38 @@ function CostModeToggle({ booking, onSave }: {
   </div>
 }
 
+/**
+ * Bir ayağın maliyet modeli + tedarikçi bedeli. Model "satılan transfer"e
+ * çevrilirken bedel zorunlu olduğu için düzenleyici aynı yerden açılır.
+ */
+function LegCostControls({ booking, leg, legLabel, currentCostTry, isSoldTransfer, onSaveCostMode, onSaveSupplierCost }: {
+  booking: Booking
+  leg: LegKey
+  legLabel: string
+  currentCostTry: number
+  isSoldTransfer: boolean
+  onSaveCostMode: (booking: Booking, leg: LegKey, nextMode: CostMode) => Promise<void>
+  onSaveSupplierCost: (booking: Booking, leg: LegKey, costTry: number) => Promise<void>
+}) {
+  const [editingCost, setEditingCost] = useState(false)
+
+  return <>
+    <CostModeToggle booking={booking} leg={leg} onSave={onSaveCostMode} onNeedsCost={() => setEditingCost(true)} />
+    {(isSoldTransfer || editingCost) && <SupplierCostEditor
+      booking={booking} leg={leg} legLabel={legLabel} currentCostTry={currentCostTry}
+      editing={editingCost} setEditing={setEditingCost} onSave={onSaveSupplierCost}
+    />}
+  </>
+}
+
 function TravelHistorySection({ metrics, period, bookings, navigate, onSaveDistance, onSaveSupplierCost, onSaveCostMode }: {
   metrics: any
   period: string
   bookings: Booking[]
   navigate: Navigate
   onSaveDistance: (leg: any, distanceKm: number) => Promise<void>
-  onSaveSupplierCost: (booking: Booking, totalCostTry: number) => Promise<void>
-  onSaveCostMode: (booking: Booking, nextMode: Booking['service_cost_mode']) => Promise<void>
+  onSaveSupplierCost: (booking: Booking, leg: LegKey, costTry: number) => Promise<void>
+  onSaveCostMode: (booking: Booking, leg: LegKey, nextMode: CostMode) => Promise<void>
 }) {
   const bookingMap = useMemo(() => new Map(bookings.map(booking => [booking.id, booking])), [bookings])
   const legs = useMemo(() => {
@@ -324,17 +375,22 @@ function TravelHistorySection({ metrics, period, bookings, navigate, onSaveDista
 
   return <section className="budget-section profit-trip-history">
     <div className="budget-section-heading"><div><span className="budget-section-kicker">SEYAHAT GEÇMİŞİ</span><h2>Tüm seyahatler</h2></div><span>{legs.length} sefer · en yeni üstte</span></div>
-    <p className="profit-trip-history-note">Bu listede kendi araç seferlerinde tek yön KM, satılan transferlerde toplam tedarikçi maliyeti doğrudan güncellenir.</p>
+    <p className="profit-trip-history-note">Bu listede kendi araç seferlerinde tek yön KM, satılan transferlerde tedarikçi maliyeti doğrudan güncellenir. Gidiş ve dönüş ayrı ayrı ayarlanır.</p>
     <ul className="profit-trip-history-list">
       {legs.map((leg: any) => {
         const booking = bookingMap.get(leg.bookingId)
         const isDailyChauffeur = leg.isDailyChauffeur
-        const currentMode = booking?.service_cost_mode === 'sold_transfer' ? 'sold_transfer' : 'own_vehicle'
+        const legKey: LegKey = leg.leg === 'return' ? 'return' : 'outbound'
+        const legLabel = legKey === 'return' ? 'Dönüş' : 'Gidiş'
+        const currentMode = legCostMode(booking, legKey)
         const isSoldTransfer = currentMode === 'sold_transfer'
+        const legCostTry = booking
+          ? Number(booking[legCostColumns(legKey).cost]) || 0
+          : 0
         const isUnresolved = leg.oneWayKm == null && !isSoldTransfer && !isDailyChauffeur
         const detailHash = `#detail/${encodeURIComponent(leg.bookingRef)}?from=profit-loss&profitPeriod=${encodeURIComponent(period)}${leg.leg === 'return' ? '&leg=return' : ''}`
         const costSummary = isSoldTransfer
-          ? `Tedarikçi gideri: ${formatTry(leg.supplierCostTry ?? 0)}${leg.bookingRef ? ' · rezervasyon toplamı düzenlenir' : ''}`
+          ? `Tedarikçi gideri: ${formatTry(leg.supplierCostTry ?? 0)}${leg.bookingRef ? ` · ${legLabel.toLocaleLowerCase('tr-TR')} ayağı düzenlenir` : ''}`
           : isDailyChauffeur
             ? `Araç maliyeti: ${formatTry(leg.vehicleCostTry ?? 0)} · Gerçek KM: ${formatNumber(leg.oneWayKm ?? 0, 1)} km`
             : isUnresolved
@@ -356,7 +412,7 @@ function TravelHistorySection({ metrics, period, bookings, navigate, onSaveDista
             </div>}
             <div className="profit-trip-history-meta">
               <span>Gelir: {formatEuro(leg.revenueEur ?? 0)}</span>
-              {booking && !isDailyChauffeur && <span>{currentMode === 'sold_transfer' ? 'Maliyet modeli: Satılan transfer' : 'Maliyet modeli: Kendi aracımız'}</span>}
+              {booking && !isDailyChauffeur && <span>{`${legLabel} maliyet modeli: ${currentMode === 'sold_transfer' ? 'Satılan transfer' : 'Kendi aracımız'}`}</span>}
               <span>{costSummary}</span>
               {!isSoldTransfer && (leg.airportMeetCostTry ?? 0) > 0 && <span>Karşılama: {formatTry(leg.airportMeetCostTry)}</span>}
               {(leg as any).eurTryRate != null && (
@@ -366,8 +422,7 @@ function TravelHistorySection({ metrics, period, bookings, navigate, onSaveDista
           </div>
           <div className="profit-trip-history-actions">
             <button className="profit-warning-action" type="button" onClick={() => navigate(detailHash)}>Seyahate git</button>
-            {booking && !isDailyChauffeur && <CostModeToggle booking={booking} onSave={onSaveCostMode} />}
-            {isSoldTransfer && booking && <SupplierCostEditor booking={booking} currentCostTry={Number(booking.sold_transfer_cost_try) || 0} onSave={onSaveSupplierCost} />}
+            {booking && !isDailyChauffeur && <LegCostControls booking={booking} leg={legKey} legLabel={legLabel} currentCostTry={legCostTry} isSoldTransfer={isSoldTransfer} onSaveCostMode={onSaveCostMode} onSaveSupplierCost={onSaveSupplierCost} />}
             {!isSoldTransfer && !isDailyChauffeur && <DistanceEditor leg={leg} onSave={onSaveDistance} currentKm={leg.oneWayKm ?? undefined} />}
             {isDailyChauffeur && <span className="profit-trip-history-inline-hint">Günlük KM rezervasyon detayından düzenlenir.</span>}
           </div>
@@ -472,25 +527,42 @@ export default function ProfitLossPage({ navigate, initialPeriod }: { navigate: 
     setBookings(current => current.map(booking => booking.id === leg.bookingId ? { ...booking, [column]: savedDistance } : booking))
     setStatus(`${leg.bookingRef || 'Seyahat'} için tek yön ${formatNumber(savedDistance, 2)} km kaydedildi · Hesap güncellendi`)
   }
-  const saveSupplierCost = async (booking: Booking, totalCostTry: number) => {
+  // Bir ayağa maliyet girmek o ayağı satılan transfer yapar; sütun kısıtı
+  // model ile bedelin birlikte tutarlı olmasını şart koştuğu için tek update.
+  const saveSupplierCost = async (booking: Booking, leg: LegKey, costTry: number) => {
+    const columns = legCostColumns(leg)
+    const legLabel = leg === 'return' ? 'dönüş' : 'gidiş'
     const { data, error: saveError } = await supabase.from('bookings')
-      .update({ sold_transfer_cost_try: totalCostTry })
+      .update({ [columns.cost]: costTry, [columns.mode]: 'sold_transfer' })
       .eq('id', booking.id)
-      .select('id, sold_transfer_cost_try').single()
+      .select(`id, ${columns.mode}, ${columns.cost}`).single()
     if (saveError || !data) throw saveError ?? new Error('Maliyet kaydı dönmedi')
-    const savedCost = Number((data as Record<string, unknown>).sold_transfer_cost_try)
-    setBookings(current => current.map(item => item.id === booking.id ? { ...item, sold_transfer_cost_try: savedCost } : item))
-    setStatus(`${booking.booking_ref || 'Seyahat'} için toplam tedarikçi maliyeti ${formatTry(savedCost)} olarak kaydedildi · Hesap güncellendi`)
+    const saved = data as Record<string, unknown>
+    const savedCost = Number(saved[columns.cost])
+    setBookings(current => current.map(item => item.id === booking.id
+      ? { ...item, [columns.mode]: saved[columns.mode], [columns.cost]: savedCost }
+      : item))
+    setStatus(`${booking.booking_ref || 'Seyahat'} için ${legLabel} tedarikçi maliyeti ${formatTry(savedCost)} olarak kaydedildi · Hesap güncellendi`)
   }
-  const saveCostMode = async (booking: Booking, nextMode: Booking['service_cost_mode']) => {
+  const saveCostMode = async (booking: Booking, leg: LegKey, nextMode: CostMode) => {
+    const columns = legCostColumns(leg)
+    const legLabel = leg === 'return' ? 'dönüş' : 'gidiş'
+    // `own_vehicle`e dönerken maliyet sıfırlanmalı; sütun kısıtı ikisinin
+    // tutarlı olmasını şart koşuyor. Satılan transfere geçiş yalnızca kayıtlı
+    // bir bedel varken gelir (aksi halde önce düzenleyici açılır).
+    const update: Record<string, unknown> = nextMode === 'own_vehicle'
+      ? { [columns.mode]: nextMode, [columns.cost]: null }
+      : { [columns.mode]: nextMode }
     const { data, error: saveError } = await supabase.from('bookings')
-      .update({ service_cost_mode: nextMode })
+      .update(update)
       .eq('id', booking.id)
-      .select('id, service_cost_mode').single()
+      .select(`id, ${columns.mode}, ${columns.cost}`).single()
     if (saveError || !data) throw saveError ?? new Error('Maliyet modeli kaydı dönmedi')
-    const savedMode = (data as Record<string, unknown>).service_cost_mode as Booking['service_cost_mode']
-    setBookings(current => current.map(item => item.id === booking.id ? { ...item, service_cost_mode: savedMode } : item))
-    setStatus(`${booking.booking_ref || 'Seyahat'} için maliyet modeli ${savedMode === 'sold_transfer' ? 'satılan transfer' : 'kendi aracımız'} olarak kaydedildi · Hesap güncellendi`)
+    const saved = data as Record<string, unknown>
+    setBookings(current => current.map(item => item.id === booking.id
+      ? { ...item, [columns.mode]: saved[columns.mode], [columns.cost]: saved[columns.cost] }
+      : item))
+    setStatus(`${booking.booking_ref || 'Seyahat'} için ${legLabel} maliyet modeli ${saved[columns.mode] === 'sold_transfer' ? 'satılan transfer' : 'kendi aracımız'} olarak kaydedildi · Hesap güncellendi`)
   }
   const saveShareSettings = async (input: SaveProfitShareSettingsInput) => {
     try {
