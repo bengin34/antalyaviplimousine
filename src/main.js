@@ -25,7 +25,6 @@ const customerPhotoModules = import.meta.glob(
 
 const translations = {
   de: {
-    navFairPricing: "Faire Preise",
     navFleet: "Fahrzeuge",
     navService: "Service",
     navRoutes: "Strecken",
@@ -173,22 +172,6 @@ const translations = {
     reviewThree:
       "„Das fühlte sich wie der Chauffeurservice eines Hotels an, nicht wie ein Flughafentaxi. Klare Kommunikation, ein makelloses Fahrzeug und ein aufrichtig höflicher Fahrer.“",
     trustedBy: "Gebucht von Gästen führender Resorts in Antalya",
-    pricingEyebrow: "Sicher planen",
-    pricingTitle: "Kundenfreundliche Preise.<br />Sie zahlen, was fair ist.",
-    pricingIntro:
-      "Wir bieten Festpreise für Planungssicherheit, messen aber die tatsächliche Strecke. Sie zahlen immer den niedrigeren Betrag.",
-    pricingFixedPrice: "Festpreis",
-    fixedPriceExample: "Transfer nach Belek: {{PRICE:belek:vito}} €",
-    fixedPriceDesc:
-      "Garantierter Gesamtpreis. Inklusive Flughafengebühren, Parken, Wartezeit und Steuern.",
-    distancePrice: "Nach Strecke",
-    distancePriceExample: "24 km Online-Beispiel: 25 €",
-    distancePriceDesc: "Während Ihrer Fahrt per GPS gemessen.",
-    youPay: "Sie zahlen",
-    youPayPrice: "25 €",
-    youPayDesc: "Der niedrigere Betrag gilt.",
-    pricingNote:
-      "Keine Überraschungen. Keine versteckten Gebühren. Was Sie buchen, zahlen Sie - oder weniger.",
     faqEyebrow: "Häufig gefragt",
     faqTitle: "Vor Ihrer Reise.",
     faqIntro:
@@ -268,7 +251,6 @@ const translations = {
     paymentError: "Zahlung fehlgeschlagen. Bitte erneut versuchen.",
   },
   tr: {
-    navFairPricing: "Adil fiyat",
     navFleet: "Araçlar",
     navService: "Hizmetler",
     navRoutes: "Rotalar",
@@ -416,22 +398,6 @@ const translations = {
     reviewThree:
       "“Bu bir havalimanı taksisinden çok beş yıldızlı otel şoför hizmeti gibiydi. Net iletişim, tertemiz araç ve gerçekten nazik bir şoför.”",
     trustedBy: "Antalya'nın önde gelen resort misafirlerinin tercihi",
-    pricingEyebrow: "İçiniz rahat olsun",
-    pricingTitle: "Müşteri dostu fiyatlandırma.<br />Adil olanı ödersiniz.",
-    pricingIntro:
-      "İçiniz rahat etsin diye sabit fiyat sunarız, ancak gerçek mesafeyi de ölçeriz. Her zaman düşük olan tutarı ödersiniz.",
-    pricingFixedPrice: "Sabit fiyat",
-    fixedPriceExample: "Belek transferi: €{{PRICE:belek:vito}}",
-    fixedPriceDesc:
-      "Garantili toplam tutar. Havalimanı ücretleri, otopark, bekleme süresi ve vergiler dahildir.",
-    distancePrice: "Mesafeye göre",
-    distancePriceExample: "24 km online örnek: €25",
-    distancePriceDesc: "Yolculuğunuz sırasında GPS ile ölçülür.",
-    youPay: "Ödeyeceğiniz tutar",
-    youPayPrice: "€25",
-    youPayDesc: "Hangisi daha düşükse.",
-    pricingNote:
-      "Sürpriz yok. Gizli ücret yok. Rezervasyonda gördüğünüz tutarı ödersiniz - ya da daha azını.",
     faqEyebrow: "Sık sorulanlar",
     faqTitle: "Seyahatinizden önce.",
     faqIntro:
@@ -507,7 +473,6 @@ const translations = {
     paymentError: "Ödeme başarısız. Lütfen tekrar deneyin.",
   },
   ru: {
-    navFairPricing: "Честная цена",
     navFleet: "Автопарк",
     navService: "Сервис",
     navRoutes: "Маршруты",
@@ -655,23 +620,6 @@ const translations = {
     reviewThree:
       "«Это было похоже на трансфер от пятизвёздочного отеля, а не на такси из аэропорта. Чёткая связь, безупречный автомобиль и по-настоящему вежливый водитель».",
     trustedBy: "Нам доверяют гости ведущих курортов Антальи",
-    pricingEyebrow: "Спокойствие в поездке",
-    pricingTitle:
-      "Цены в интересах клиента.<br />Вы платите справедливую сумму.",
-    pricingIntro:
-      "Мы предлагаем фиксированные цены для спокойствия, но измеряем фактическое расстояние. Вы всегда платите меньшую сумму.",
-    pricingFixedPrice: "Фиксированная цена",
-    fixedPriceExample: "Трансфер в Белек: {{PRICE:belek:vito}} €",
-    fixedPriceDesc:
-      "Гарантированная итоговая сумма. Включены сборы аэропорта, парковка, ожидание и налоги.",
-    distancePrice: "По расстоянию",
-    distancePriceExample: "24 км онлайн-пример: 25 €",
-    distancePriceDesc: "Измеряется по GPS во время поездки.",
-    youPay: "Вы платите",
-    youPayPrice: "25 €",
-    youPayDesc: "Применяется меньшая сумма.",
-    pricingNote:
-      "Без сюрпризов. Без скрытых платежей. Вы платите указанную при бронировании сумму - или меньше.",
     faqEyebrow: "Частые вопросы",
     faqTitle: "Перед поездкой.",
     faqIntro: "Всё, что нужно знать о частном трансфере из аэропорта Антальи.",
@@ -750,7 +698,6 @@ const translations = {
   cs: {
     navFleet: "Vozový park",
     navService: "Služby",
-    navFairPricing: "Spravedlivé ceny",
     navRoutes: "Trasy",
     navReviews: "Recenze",
     navContact: "Kontakt",
@@ -882,23 +829,6 @@ const translations = {
     reviewsTitle: "Služba, na kterou se<br />nezapomíná ani po příjezdu.",
     googleReviews: "Na základě 387 ověřených recenzí Google",
     trustedBy: "Oblíbené u hostů předních antalyských resortů",
-    pricingEyebrow: "Klid v duši",
-    pricingTitle:
-      "Zákaznicky přívětivé ceny.<br />Platíte jen to, co je spravedlivé.",
-    pricingIntro:
-      "Nabízíme pevné ceny pro klid mysli, ale měříme skutečnou vzdálenost. Vždy zaplatíte nižší z obou.",
-    pricingFixedPrice: "Pevná cena",
-    fixedPriceExample: "Transfer do Beleku: €{{PRICE:belek:vito}}",
-    fixedPriceDesc:
-      "Garantovaná celková cena. Zahrnuje letištní poplatky, parkování, čekání a daně.",
-    distancePrice: "Podle vzdálenosti",
-    distancePriceExample: "Příklad 24 km online: €25",
-    distancePriceDesc: "Měřeno GPS během jízdy.",
-    youPay: "Platíte",
-    youPayPrice: "€25",
-    youPayDesc: "Platí nižší částka.",
-    pricingNote:
-      "Žádná překvapení. Žádné skryté poplatky. Co si rezervujete, to zaplatíte — nebo méně.",
     faqEyebrow: "Často kladené dotazy",
     faqTitle: "Před vaší cestou.",
     faqIntro:
@@ -1027,7 +957,6 @@ const translations = {
   },
 
   pl: {
-    navFairPricing: "Uczciwa cena",
     navFleet: "Pojazdy",
     navService: "Usługi",
     navRoutes: "Trasy",
@@ -1153,23 +1082,6 @@ const translations = {
     reviewThree:
       "„To było jak serwis szoferski hotelu, a nie taksówka na lotnisku. Jasna komunikacja, nieskazitelny pojazd i naprawdę uprzejmy kierowca.”",
     trustedBy: "Wybór gości czołowych resortów w Antalyi",
-    pricingEyebrow: "Spokój od początku",
-    pricingTitle:
-      "Ceny przyjazne klientom.<br />Płacisz tyle, ile jest uczciwe.",
-    pricingIntro:
-      "Dla spokoju podajemy stałe ceny, ale mierzymy rzeczywisty dystans. Zawsze płacisz niższą kwotę.",
-    pricingFixedPrice: "Stała cena",
-    fixedPriceExample: "Transfer do Belek: {{PRICE:belek:vito}} €",
-    fixedPriceDesc:
-      "Gwarantowana kwota końcowa. Obejmuje opłaty lotniskowe, parking, czas oczekiwania i podatki.",
-    distancePrice: "Według dystansu",
-    distancePriceExample: "Przykład online 24 km: 25 €",
-    distancePriceDesc: "Mierzone GPS-em podczas przejazdu.",
-    youPay: "Płacisz",
-    youPayPrice: "25 €",
-    youPayDesc: "Obowiązuje niższa kwota.",
-    pricingNote:
-      "Bez niespodzianek. Bez ukrytych opłat. Płacisz tyle, ile rezerwujesz - albo mniej.",
     faqEyebrow: "Często zadawane pytania",
     faqTitle: "Przed Twoją podróżą.",
     faqIntro:
@@ -1245,7 +1157,6 @@ const translations = {
     paymentError: "Płatność nie powiodła się. Spróbuj ponownie.",
   },
   nl: {
-    navFairPricing: "Eerlijke prijs",
     navFleet: "Voertuigen",
     navService: "Service",
     navRoutes: "Routes",
@@ -1371,22 +1282,6 @@ const translations = {
     reviewThree:
       "„Dit voelde als een chauffeurservice van een hotel, niet als een luchthaventaxi. Duidelijke communicatie, een onberispelijk voertuig en een oprecht beleefde chauffeur.”",
     trustedBy: "Vertrouwd door gasten van toonaangevende resorts in Antalya",
-    pricingEyebrow: "Zorgeloos reizen",
-    pricingTitle: "Klantvriendelijke prijzen.<br />U betaalt wat eerlijk is.",
-    pricingIntro:
-      "We bieden vaste prijzen voor zekerheid, maar meten ook de werkelijke afstand. U betaalt altijd het laagste bedrag.",
-    pricingFixedPrice: "Vaste prijs",
-    fixedPriceExample: "Transfer naar Belek: €{{PRICE:belek:vito}}",
-    fixedPriceDesc:
-      "Gegarandeerd totaalbedrag. Inclusief luchthavengelden, parkeren, wachttijd en belastingen.",
-    distancePrice: "Op afstand",
-    distancePriceExample: "24 km online voorbeeld: €25",
-    distancePriceDesc: "Gemeten met GPS tijdens uw rit.",
-    youPay: "U betaalt",
-    youPayPrice: "€25",
-    youPayDesc: "Het laagste bedrag geldt.",
-    pricingNote:
-      "Geen verrassingen. Geen verborgen kosten. Wat u boekt, betaalt u - of minder.",
     faqEyebrow: "Veelgestelde vragen",
     faqTitle: "Vóór uw reis.",
     faqIntro:
@@ -1465,7 +1360,6 @@ const translations = {
     paymentError: "Betaling mislukt. Probeer het opnieuw.",
   },
   uk: {
-    navFairPricing: "Чесна ціна",
     navFleet: "Автопарк",
     navService: "Сервіс",
     navRoutes: "Маршрути",
@@ -1591,23 +1485,6 @@ const translations = {
     reviewThree:
       "«Це нагадувало трансфер від п'ятизіркового готелю, а не таксі з аеропорту. Чіткий зв'язок, бездоганний автомобіль та по-справжньому ввічливий водій».",
     trustedBy: "Нам довіряють гості провідних курортів Анталії",
-    pricingEyebrow: "Спокій у дорозі",
-    pricingTitle:
-      "Ціни в інтересах клієнта.<br />Ви сплачуєте справедливу суму.",
-    pricingIntro:
-      "Ми пропонуємо фіксовані ціни для вашого спокою, але вимірюємо фактичну відстань. Ви завжди сплачуєте меншу суму.",
-    pricingFixedPrice: "Фіксована ціна",
-    fixedPriceExample: "Трансфер до Белека: {{PRICE:belek:vito}} €",
-    fixedPriceDesc:
-      "Гарантована загальна сума. Включає збори аеропорту, паркування, час очікування та податки.",
-    distancePrice: "За відстанню",
-    distancePriceExample: "24 км онлайн-приклад: 25 €",
-    distancePriceDesc: "Вимірюється GPS під час поїздки.",
-    youPay: "Ви сплачуєте",
-    youPayPrice: "25 €",
-    youPayDesc: "Діє менша сума.",
-    pricingNote:
-      "Без сюрпризів. Без прихованих платежів. Ви сплачуєте суму з бронювання - або менше.",
     faqEyebrow: "Часті запитання",
     faqTitle: "Перед поїздкою.",
     faqIntro:
@@ -1687,7 +1564,6 @@ const translations = {
   ur: {
     navFleet: "گاڑیاں",
     navService: "خدمات",
-    navFairPricing: "منصفانہ قیمتیں",
     navRoutes: "راستے",
     navReviews: "جائزے",
     navContact: "رابطہ",
@@ -1818,22 +1694,6 @@ const translations = {
     reviewsTitle: "آمد کے بعد بھی یاد رہنے<br />والی سروس۔",
     googleReviews: "387 تصدیق شدہ گوگل جائزوں پر مبنی",
     trustedBy: "انطالیہ کے معروف ریزورٹس کے مسافروں کا اعتماد",
-    pricingEyebrow: "ذہنی سکون",
-    pricingTitle: "مسافر دوست قیمتیں۔<br />آپ وہی ادا کریں جو منصفانہ ہے۔",
-    pricingIntro:
-      "ہم ذہنی سکون کے لیے مقررہ قیمتیں پیش کرتے ہیں، لیکن اصل فاصلہ ناپتے ہیں۔ آپ ہمیشہ کم قیمت ادا کرتے ہیں۔",
-    pricingFixedPrice: "مقررہ قیمت",
-    fixedPriceExample: "بیلک ٹرانسفر: €{{PRICE:belek:vito}}",
-    fixedPriceDesc:
-      "ضمانت شدہ کل۔ ایئرپورٹ فیس، پارکنگ، انتظار کا وقت اور ٹیکس شامل ہیں۔",
-    distancePrice: "فاصلے پر مبنی",
-    distancePriceExample: "آن لائن 24 کلومیٹر مثال: €25",
-    distancePriceDesc: "آپ کے سفر کے دوران GPS سے ناپا گیا۔",
-    youPay: "آپ ادا کریں",
-    youPayPrice: "€25",
-    youPayDesc: "جو کم ہو وہی لاگو ہوگی۔",
-    pricingNote:
-      "کوئی حیرت نہیں۔ کوئی پوشیدہ چارج نہیں۔ جو بک کریں وہی ادا کریں — یا کم۔",
     faqEyebrow: "اکثر پوچھے گئے سوالات",
     faqTitle: "سفر سے پہلے۔",
     faqIntro:
@@ -2001,7 +1861,6 @@ const translations = {
     perVehicleNoteSprinter: "فی گاڑی — فی شخص نہیں · زیادہ سے زیادہ 12 مسافر",
   },
   fr: {
-    navFairPricing: "Prix équitable",
     navFleet: "Véhicules",
     navService: "Service",
     navRoutes: "Itinéraires",
@@ -2127,23 +1986,6 @@ const translations = {
     reviewThree:
       "« C'était comme un service de chauffeur d'hôtel, pas un taxi d'aéroport. Communication claire, véhicule impeccable et chauffeur sincèrement courtois. »",
     trustedBy: "Recommandé par les clients des meilleurs resorts d'Antalya",
-    pricingEyebrow: "Voyagez l'esprit tranquille",
-    pricingTitle:
-      "Une tarification pensée pour le client.<br />Vous payez le juste prix.",
-    pricingIntro:
-      "Nous proposons des prix fixes pour votre tranquillité, mais nous mesurons aussi la distance réelle. Vous payez toujours le montant le plus bas.",
-    pricingFixedPrice: "Prix fixe",
-    fixedPriceExample: "Transfert vers Belek : {{PRICE:belek:vito}} €",
-    fixedPriceDesc:
-      "Montant total garanti. Inclut les frais d'aéroport, le parking, l'attente et les taxes.",
-    distancePrice: "Selon la distance",
-    distancePriceExample: "Exemple en ligne 24 km : 25 €",
-    distancePriceDesc: "Mesuré par GPS pendant votre trajet.",
-    youPay: "Vous payez",
-    youPayPrice: "25 €",
-    youPayDesc: "Le montant le plus bas s'applique.",
-    pricingNote:
-      "Pas de surprise. Pas de frais cachés. Vous payez ce que vous réservez - ou moins.",
     faqEyebrow: "Questions fréquentes",
     faqTitle: "Avant votre voyage.",
     faqIntro:
@@ -2222,7 +2064,6 @@ const translations = {
     paymentError: "Paiement échoué. Veuillez réessayer.",
   },
   sv: {
-    navFairPricing: "Rättvist pris",
     navFleet: "Fordon",
     navService: "Service",
     navRoutes: "Rutter",
@@ -2348,23 +2189,6 @@ const translations = {
     reviewThree:
       "„Det kändes som en chaufförstjänst från ett hotell, inte en flygplatstaxibil. Tydlig kommunikation, ett makulöst fordon och en genuint artig chaufför.”",
     trustedBy: "Anlitad av gäster på ledande resorts i Antalya",
-    pricingEyebrow: "Res med lugn",
-    pricingTitle:
-      "Kundvänlig prissättning.<br />Du betalar det som är rättvist.",
-    pricingIntro:
-      "Vi erbjuder fasta priser för trygghet, men mäter även den faktiska sträckan. Du betalar alltid det lägre beloppet.",
-    pricingFixedPrice: "Fast pris",
-    fixedPriceExample: "Transfer till Belek: {{PRICE:belek:vito}} €",
-    fixedPriceDesc:
-      "Garanterat totalbelopp. Inkluderar flygplatsavgifter, parkering, väntetid och skatter.",
-    distancePrice: "Efter sträcka",
-    distancePriceExample: "24 km onlineexempel: 25 €",
-    distancePriceDesc: "Mäts med GPS under din resa.",
-    youPay: "Du betalar",
-    youPayPrice: "25 €",
-    youPayDesc: "Det lägre beloppet gäller.",
-    pricingNote:
-      "Inga överraskningar. Inga dolda avgifter. Du betalar det du bokar - eller mindre.",
     faqEyebrow: "Vanliga frågor",
     faqTitle: "Innan din resa.",
     faqIntro:
@@ -2441,7 +2265,6 @@ const translations = {
     paymentError: "Betalning misslyckades. Försök igen.",
   },
   ja: {
-    navFairPricing: "適正価格",
     navFleet: "車両",
     navService: "サービス",
     navRoutes: "ルート",
@@ -2567,22 +2390,6 @@ const translations = {
     reviewThree:
       "「空港タクシーではなく、ホテルのショーファーサービスのようでした。明確なコミュニケーション、完璧な車両、そして心から礼儀正しいドライバー。」",
     trustedBy: "アンタルヤの一流リゾートのゲストにご利用いただいています",
-    pricingEyebrow: "安心してご利用いただけます",
-    pricingTitle: "お客様にやさしい料金設定。<br />公平な金額だけをお支払い。",
-    pricingIntro:
-      "安心のため固定料金をご提示しつつ、実際の走行距離も計測します。お支払いは常に低い方の金額です。",
-    pricingFixedPrice: "固定料金",
-    fixedPriceExample: "ベレキ送迎：{{PRICE:belek:vito}} €",
-    fixedPriceDesc:
-      "保証された総額です。空港料金、駐車料金、待機時間、税金が含まれます。",
-    distancePrice: "距離ベース",
-    distancePriceExample: "24 km online example: 25 €",
-    distancePriceDesc: "ご乗車中にGPSで計測します。",
-    youPay: "お支払い額",
-    youPayPrice: "25 €",
-    youPayDesc: "いずれか低い方が適用されます。",
-    pricingNote:
-      "追加の驚きはありません。隠れた料金もありません。予約時の金額、またはそれより少ない金額をお支払いいただきます。",
     faqEyebrow: "よくある質問",
     faqTitle: "ご旅行の前に。",
     faqIntro:
@@ -2656,7 +2463,6 @@ const translations = {
     paymentError: "お支払いに失敗しました。もう一度お試しください。",
   },
   ko: {
-    navFairPricing: "공정한 요금",
     navFleet: "차량",
     navService: "서비스",
     navRoutes: "노선",
@@ -2782,22 +2588,6 @@ const translations = {
     reviewThree:
       '"공항 택시가 아닌 호텔 쇼퍼 서비스 같았습니다. 명확한 소통, 완벽한 차량, 진심으로 예의 바른 기사님."',
     trustedBy: "안탈리아 주요 리조트 고객들이 선택했습니다",
-    pricingEyebrow: "안심 요금",
-    pricingTitle: "고객 친화적인 요금.<br />공정한 금액만 결제하세요.",
-    pricingIntro:
-      "안심하실 수 있도록 고정 요금을 제시하지만 실제 이동 거리도 측정합니다. 언제나 더 낮은 금액을 결제합니다.",
-    pricingFixedPrice: "고정 요금",
-    fixedPriceExample: "벨렉 이동: {{PRICE:belek:vito}} €",
-    fixedPriceDesc:
-      "보장된 총액입니다. 공항 수수료, 주차비, 대기 시간, 세금이 포함됩니다.",
-    distancePrice: "거리 기준",
-    distancePriceExample: "24 km online example: 25 €",
-    distancePriceDesc: "이동 중 GPS로 측정합니다.",
-    youPay: "결제 금액",
-    youPayPrice: "25 €",
-    youPayDesc: "둘 중 더 낮은 금액이 적용됩니다.",
-    pricingNote:
-      "놀랄 일도, 숨겨진 비용도 없습니다. 예약한 금액을 결제하거나 그보다 적게 결제합니다.",
     faqEyebrow: "자주 묻는 질문",
     faqTitle: "여행 전에.",
     faqIntro: "안탈리아 공항 프라이빗 픽업에 대해 알아야 할 모든 것.",
@@ -2870,7 +2660,6 @@ const translations = {
     paymentError: "결제에 실패했습니다. 다시 시도해 주세요.",
   },
   ar: {
-    navFairPricing: "أسعار عادلة",
     navFleet: "أسطولنا",
     navService: "الخدمات",
     navRoutes: "الوجهات",
@@ -3013,21 +2802,6 @@ const translations = {
     reviewThree:
       '"شعرنا وكأنها خدمة سائق فندق فاخر وليست سيارة أجرة من المطار. تواصل واضح، وسيارة مثالية، وسائق مهذب بصدق."',
     trustedBy: "موثوق من ضيوف أبرز منتجعات أنطاليا",
-    pricingEyebrow: "خطط بثقة",
-    pricingTitle: "نضمن سعراً ثابتاً.<br />وتدفع دائماً السعر الأقل.",
-    pricingIntro:
-      "نحدد سعراً ثابتاً لراحتك، ونقيس أيضاً المسافة الفعلية للرحلة. ستدفع دائماً المبلغ الأقل.",
-    pricingFixedPrice: "السعر الثابت",
-    fixedPriceExample: "النقل إلى بيليك: {{PRICE:belek:vito}} €",
-    fixedPriceDesc:
-      "إجمالي مضمون يشمل رسوم المطار ومواقف السيارات والانتظار والضرائب.",
-    distancePrice: "حسب المسافة",
-    distancePriceExample: "مثال 24 كم عبر الإنترنت: 25 €",
-    distancePriceDesc: "يتم قياسها عبر GPS أثناء الرحلة.",
-    youPay: "ما تدفعه",
-    youPayPrice: "25 €",
-    youPayDesc: "يُطبَّق المبلغ الأقل.",
-    pricingNote: "لا مفاجآت ولا رسوم خفية. تدفع السعر المحجوز أو أقل منه.",
     faqEyebrow: "الأسئلة الشائعة",
     faqTitle: "قبل رحلتك.",
     faqIntro: "كل ما تحتاج إلى معرفته عن خدمة النقل الخاصة من مطار أنطاليا.",
@@ -3104,7 +2878,6 @@ const translations = {
 
 const paymentTranslations = {
   en: {
-    navFairPricing: "Fair Pricing",
     paymentMethod: "Choose payment method",
     cashPayment: "Pay in the vehicle",
     recommended: "Recommended",
