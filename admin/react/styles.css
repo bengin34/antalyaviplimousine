@@ -778,3 +778,67 @@ button,
 @media (min-width: 1100px) {
   .profit-content > .profit-expandable { grid-column: 1 / -1; }
 }
+
+/* Dönüş uçuşunun kalkış saatinden türetilen otelden alınma tavsiyesi. */
+.return-pickup-hint {
+  display: grid;
+  gap: 4px;
+  margin: 2px 0 10px;
+  padding: 10px 12px;
+  border: 1px solid var(--border-soft);
+  border-left: 3px solid var(--blue);
+  border-radius: 10px;
+  background: var(--surface-soft);
+}
+
+.return-pickup-hint.is-late {
+  border-left-color: var(--orange);
+}
+
+.return-pickup-hint-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.return-pickup-hint-label {
+  color: var(--text-muted);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.return-pickup-hint-head strong {
+  font-size: 17px;
+  font-variant-numeric: tabular-nums;
+}
+
+.return-pickup-apply {
+  margin-left: auto;
+  padding: 5px 10px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: transparent;
+  color: var(--blue);
+  font: inherit;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.return-pickup-hint-rule,
+.return-pickup-hint-note {
+  color: var(--text-muted);
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.return-pickup-hint-warning {
+  color: var(--orange);
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.return-pickup-section .detail-grid {
+  margin-bottom: 10px;
+}

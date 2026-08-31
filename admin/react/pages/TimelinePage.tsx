@@ -22,6 +22,8 @@ import { MonthCalendar } from '../components/MonthCalendar'
 import { fmtLiveDate, fmtPrice, fmtShortDateWithWeekday, fmtSyncTime, fmtTime, ISTANBUL_TIME_ZONE, offsetISO, statusLabel, todayISO } from '../lib/format'
 import { supabase } from '../lib/supabase'
 import type { Booking, Navigate, TimelineCard } from '../types'
+import { returnPickupAdvice } from '../components/ReturnPickupHint'
+import { comparePickupTime, formatDurationTr } from '../../../src/airport-pickup.js'
 import { locationDisplay, navigationURLs, whatsappURL } from '../../turkish-formatters.js'
 import { buildDriverTransferMessage, driverWhatsappURL } from '../../driver-message.js'
 import { matchesBookingQuery } from '../../search-match.js'
@@ -96,7 +98,17 @@ function warningsFor(card: TimelineCard) {
   if (card.dropoff_location === 'private_address' && !dropoffAddress) missing.push('varış adresi')
   else if (card.dropoff_location !== 'airport' && !dropoffAddress && !hasHotel) missing.push('varış adresi/otel')
   if ((card.pickup_location === 'airport' || card.dropoff_location === 'airport') && !card.flight_number && (card.trip_type !== 'daily_chauffeur' || card._hireDayNumber === 1)) missing.push('uçuş no')
+  if (card._isReturn && card.dropoff_location === 'airport' && !card._flightDepartureTime) missing.push('dönüş uçuşu kalkış saati')
   if (missing.length) warnings.push({ kind: 'missing', text: `Eksik bilgi: ${missing.join(', ')}` })
+  // Dönüşte otelden alınma saati, bölge kuralına göre uçağı kaçırtacak kadar geç olabilir.
+  const returnPickup = card._isReturn ? returnPickupAdvice(card._flightDepartureTime, card.pickup_location) : null
+  if (returnPickup) {
+    const comparison = comparePickupTime(card._displayTime, returnPickup)
+    if (comparison?.isLate) {
+      const dayNote = returnPickup.dayOffset < 0 ? ' (bir önceki gün)' : ''
+      warnings.push({ kind: 'prep', text: `Alış saati tavsiyeden ${formatDurationTr(comparison.diffMinutes)} geç · ${returnPickup.time}${dayNote} önerilir` })
+    }
+  }
   const childSeats = Number(card.child_seat_count) || 0
   if (childSeats > 0) warnings.push({ kind: 'prep', text: `${childSeats} çocuk koltuğu hazırla` })
   const luggage = Number(card.luggage_count) || 0
@@ -145,6 +157,10 @@ function BookingCard({ card, now, isPast, isCancelled, navigate, confirmPast, co
   const timing = liveTiming(card, now)
   const flightAlert = isPast ? null : flightLandingAlert(card, now)
   const showSeparateFlightArrival = card.flight_arrival_time && card.flight_arrival_time !== card._displayTime
+  // Dönüş / son gün kartlarında saat uçağın kalkışıdır; geliş kartlarında varışı.
+  const flightTimeText = card._flightDepartureTime
+    ? ` · kalkış ${fmtTime(card._flightDepartureTime)}`
+    : showSeparateFlightArrival ? ` · varış ${fmtTime(card.flight_arrival_time)}` : ''
   const open = () => {
     const params = new URLSearchParams()
     if (card._isReturn) params.set('leg', 'return')
@@ -181,7 +197,7 @@ function BookingCard({ card, now, isPast, isCancelled, navigate, confirmPast, co
     {warnings.length > 0 && <div className="card-warnings">{warnings.map((warning, index) => <div className={`card-warning card-warning-${warning.kind}`} key={`${warning.kind}-${index}`}><span aria-hidden="true">{warning.kind === 'missing' ? '⚠️' : warning.kind === 'note' ? '📌' : '❗'}</span><span>{warning.text}</span></div>)}</div>}
     <div className="card-info-grid">
       <div className="card-info-item full"><span className="card-info-label">Müşteri</span><div className="card-info-value customer-value"><strong>{card.customer_name}</strong><a href={`tel:${card.customer_phone}`} onClick={event => event.stopPropagation()}>{card.customer_phone}</a></div></div>
-      {card.flight_number && <div className="card-info-item"><span className="card-info-label">Uçuş</span><div className="card-info-value">✈ {card.flight_number}{showSeparateFlightArrival ? ` · ${fmtTime(card.flight_arrival_time)}` : ''}</div></div>}
+      {card.flight_number && <div className="card-info-item"><span className="card-info-label">Uçuş</span><div className="card-info-value">✈ {card.flight_number}{flightTimeText}</div></div>}
       {hasUsefulHotel(card.hotel_name) && <div className={`card-info-item${card.flight_number ? '' : ' full'}`}><span className="card-info-label">Otel / Konaklama</span><div className="card-info-value">{card.hotel_name}</div></div>}
       <div className="card-info-item"><span className="card-info-label">Yolcu & Araç</span><div className="card-info-value">{card.guests} kişi · {card.vehicle_type === 'vclass' ? 'V-Class' : 'Vito'}</div></div>
       <div className="card-info-item"><span className="card-info-label">Bagaj & Koltuk</span><div className="card-info-value">{Number(card.luggage_count) || 0} bagaj · {Number(card.child_seat_count) ? `${card.child_seat_count} koltuk` : 'Koltuk yok'}</div></div>

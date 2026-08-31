@@ -228,3 +228,61 @@ test('review message localizes by language', () => {
 
   expect(new Set([en, tr, de]).size).toBe(3)
 })
+
+test('return confirmation quotes the return flight departure time, not an arrival', () => {
+  const roundTrip = {
+    ...base,
+    trip_type: 'round_trip',
+    return_date: '2026-08-22',
+    return_pickup_time: '10:40',
+    return_flight_number: 'XQ101',
+    return_flight_departure_time: '14:00:00',
+    price_eur: 110,
+  }
+  const msg = buildConfirmMessage(roundTrip, { leg: 'return' })
+
+  expect(msg).toContain('Flight: XQ101 · Departure: 14:00')
+  expect(msg).not.toContain('Arrival')
+})
+
+test('return confirmation keeps the flight line short when no departure time is stored', () => {
+  const roundTrip = {
+    ...base,
+    trip_type: 'round_trip',
+    return_date: '2026-08-22',
+    return_pickup_time: '10:40',
+    return_flight_number: 'XQ101',
+    price_eur: 110,
+  }
+
+  expect(buildConfirmMessage(roundTrip, { leg: 'return' })).toContain('Flight: XQ101\n')
+})
+
+test('outbound confirmation is unaffected by the return departure time', () => {
+  const roundTrip = {
+    ...base,
+    trip_type: 'round_trip',
+    flight_number: 'XQ100',
+    return_date: '2026-08-22',
+    return_pickup_time: '10:40',
+    return_flight_departure_time: '14:00:00',
+    price_eur: 110,
+  }
+
+  expect(buildConfirmMessage(roundTrip, { leg: 'outbound' })).not.toContain('Departure')
+})
+
+test('Turkish return confirmation labels the flight time as kalkış', () => {
+  const roundTrip = {
+    ...base,
+    language: 'tr',
+    trip_type: 'round_trip',
+    return_date: '2026-08-22',
+    return_pickup_time: '10:40',
+    return_flight_number: 'XQ101',
+    return_flight_departure_time: '14:00:00',
+    price_eur: 110,
+  }
+
+  expect(buildConfirmMessage(roundTrip, { leg: 'return' })).toContain('Uçuş: XQ101 · Kalkış: 14:00')
+})

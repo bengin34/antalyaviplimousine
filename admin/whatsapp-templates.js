@@ -67,6 +67,7 @@ const LANG = {
     labelDropoff: "Drop-off location",
     labelMap: "Google Maps route",
     labelFlight: "Flight",
+    labelFlightDeparture: "Departure",
     labelLuggage: "Luggage",
     labelChildSeats: "Child seats",
     labelDriver: "Driver",
@@ -117,6 +118,7 @@ const LANG = {
     labelDropoff: "Zielort",
     labelMap: "Google-Maps-Route",
     labelFlight: "Flug",
+    labelFlightDeparture: "Abflug",
     labelLuggage: "Gepäck",
     labelChildSeats: "Kindersitze",
     labelDriver: "Fahrer",
@@ -158,6 +160,7 @@ const LANG = {
     labelDropoff: "Место назначения",
     labelMap: "Маршрут Google Maps",
     labelFlight: "Рейс",
+    labelFlightDeparture: "Вылет",
     labelLuggage: "Багаж",
     labelChildSeats: "Детские кресла",
     labelDriver: "Водитель",
@@ -199,6 +202,7 @@ const LANG = {
     labelDropoff: "Varış konumu",
     labelMap: "Google Maps güzergâhı",
     labelFlight: "Uçuş",
+    labelFlightDeparture: "Kalkış",
     labelLuggage: "Bagaj",
     labelChildSeats: "Çocuk koltuğu",
     labelDriver: "Sürücü",
@@ -248,6 +252,7 @@ const LANG = {
     labelDropoff: "Lieu de destination",
     labelMap: "Itinéraire Google Maps",
     labelFlight: "Vol",
+    labelFlightDeparture: "Décollage",
     labelLuggage: "Bagages",
     labelChildSeats: "Sièges enfant",
     labelDriver: "Conducteur",
@@ -289,6 +294,7 @@ const LANG = {
     labelDropoff: "موقع الوصول",
     labelMap: "مسار Google Maps",
     labelFlight: "الرحلة الجوية",
+    labelFlightDeparture: "الإقلاع",
     labelLuggage: "الأمتعة",
     labelChildSeats: "مقاعد الأطفال",
     labelDriver: "السائق",
@@ -337,6 +343,8 @@ function transferDetails(booking, requestedLeg = "outbound") {
         date: b.return_date,
         time: b.return_pickup_time,
         flightNumber: b.return_flight_number,
+        // Dönüşte uçuşun kalkış saati verilir; alış saati buna göre planlanır.
+        flightDepartureTime: b.return_flight_departure_time,
         pickupLocation: b.dropoff_location,
         pickupAddress: b.dropoff_address,
         dropoffLocation: b.pickup_location,
@@ -418,8 +426,13 @@ function detailLines(booking, transfer, t, { includeMap = true } = {}) {
     `${t.labelPickupTime}: ${fmtTime(transfer.time)}`,
   ];
 
-  if (transfer.flightNumber)
-    lines.push(`${t.labelFlight}: ${transfer.flightNumber}`);
+  if (transfer.flightNumber) {
+    const english = LANG.en;
+    const departure = transfer.flightDepartureTime
+      ? ` · ${t.labelFlightDeparture ?? english.labelFlightDeparture}: ${fmtTime(transfer.flightDepartureTime)}`
+      : "";
+    lines.push(`${t.labelFlight}: ${transfer.flightNumber}${departure}`);
+  }
 
   lines.push(
     `${t.labelPickup}: ${transfer.pickup}`,
