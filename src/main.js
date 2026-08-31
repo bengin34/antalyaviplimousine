@@ -99,7 +99,7 @@ const translations = {
     welcomeEyebrow: "Willkommen auf höchstem Niveau",
     welcomeTitle: "Stilvoll reisen.<br />Entspannt ankommen.",
     welcomeBody:
-      "Nachdem Sie Ihr Gepäck abgeholt haben, gehen Sie bitte zum Meet & Greet Bereich J / 777. Unser Flughafen-Team findet Ihre Buchung, hilft bei Bedarf mit dem Gepäck und bringt Sie mit Ihrem Fahrer zusammen.",
+      "Vom Moment Ihrer Landung an ist an jedes Detail gedacht. Unser Flughafenteam empfängt Sie, Ihr Chauffeur fährt am Abholpunkt vor und Ihr Gepäck wird in ein sorgfältig vorbereitetes Privatfahrzeug geladen.",
     ourStandards: "Unsere Servicestandards",
     concierge: "Concierge-Service",
     guestsWelcomed: "Begrüßte Gäste",
@@ -130,7 +130,7 @@ const translations = {
     television: "Fernseher im Fahrzeug",
     coldDrinks: "Kalte Getränke",
     snacks: "Snacks",
-    nameSignGreeting: "Persönlicher Empfang bei der Ankunft",
+    nameSignGreeting: "Empfang am Schalter J / 777",
     reserveVehicle: "Fahrzeug reservieren",
     insideVclass: "Im Sprinter Interieur",
     interiorTitle: "Eine private Lounge zwischen<br />Flughafen und Hotel.",
@@ -146,7 +146,7 @@ const translations = {
       "Stets gepflegt, diskret und ausgewählt für Ortskenntnis und höchsten Servicestandard.",
     greetTitle: "Meet & Greet",
     greetBody:
-      "Nachdem Sie Ihr Gepäck abgeholt haben, gehen Sie bitte zum Meet & Greet Bereich J / 777. Unser Flughafen-Team findet Ihre Buchung und bringt Sie mit Ihrem Fahrer zusammen.",
+      "Bei internationalen Ankünften empfängt Sie unser Flughafenteam am Schalter J / 777, ruft Ihren Chauffeur zum Abholpunkt und hilft mit dem Gepäck.",
     supportTitle: "24/7 Concierge",
     supportBody:
       "Vor, während und nach Ihrer Reise ist immer ein persönlicher Ansprechpartner erreichbar.",
@@ -175,6 +175,7 @@ const translations = {
     faqEyebrow: "Häufig gefragt",
     faqTitle: "Vor Ihrer Reise.",
     faqCatArrival: "Ankunft & Transfer",
+    faqCatJourney: "Rückfahrt & Fahrt",
     faqCatPayment: "Zahlung & Preis",
     faqCatVehicle: "Fahrzeug & Gepäck",
     faqReminder: "Bitte lesen Sie vor Ihrer Reise den FAQ-Bereich auf unserer Website.",
@@ -344,7 +345,7 @@ const translations = {
     welcomeEyebrow: "Daha iyi bir karşılamaya hoş geldiniz",
     welcomeTitle: "Zarafetle seyahat edin.<br />Rahatça varın.",
     welcomeBody:
-      "Uçağınız indiği andan itibaren her ayrıntı düşünülür. Şoförünüz gelen yolcu salonunda bekler, bagajınızla ilgilenir ve sizi özenle hazırlanmış özel aracınıza götürür.",
+      "Uçağınız indiği andan itibaren her ayrıntı düşünülür. Havalimanı ekibimiz sizi karşılar, şoförünüz aracıyla karşılama noktasına gelir ve bagajlarınız özenle hazırlanmış özel aracınıza yerleştirilir.",
     ourStandards: "Hizmet standartlarımız",
     concierge: "Concierge desteği",
     guestsWelcomed: "Karşılanan misafir",
@@ -375,7 +376,7 @@ const translations = {
     television: "Araç içi televizyon",
     coldDrinks: "Soğuk içecekler",
     snacks: "Atıştırmalıklar",
-    nameSignGreeting: "Gelişte kişisel karşılama",
+    nameSignGreeting: "J / 777 kontuarında karşılama",
     reserveVehicle: "Bu aracı ayırtın",
     insideVclass: "Sprinter'ın içinde",
     interiorTitle:
@@ -392,7 +393,7 @@ const translations = {
       "Bakımlı, gizliliğe önem veren ve yerel bilgisi ile hizmet kalitesi için seçilmiş profesyoneller.",
     greetTitle: "Karşılama hizmeti",
     greetBody:
-      "Şoförünüz sizi gelen yolcu salonunda karşılar ve bagajınıza yardımcı olur.",
+      "Dış hat gelişlerinde havalimanı ekibimiz sizi J / 777 kontuarında karşılar, şoförünüzü karşılama noktasına çağırır ve bagajınıza yardımcı olur.",
     supportTitle: "7/24 concierge",
     supportBody:
       "Yolculuğunuzdan önce, yolculuk sırasında ve sonrasında telefon veya WhatsApp üzerinden gerçek bir kişiye ulaşabilirsiniz.",
@@ -421,6 +422,7 @@ const translations = {
     faqEyebrow: "Sık sorulanlar",
     faqTitle: "Seyahatinizden önce.",
     faqCatArrival: "Karşılama & Transfer",
+    faqCatJourney: "Dönüş & Yolculuk",
     faqCatPayment: "Ödeme & Fiyat",
     faqCatVehicle: "Araç & Bagaj",
     faqReminder: "Seyahatinizden önce lütfen sitemizdeki SSS bölümünü inceleyin.",
@@ -587,7 +589,7 @@ const translations = {
     welcomeEyebrow: "Добро пожаловать на новый уровень сервиса",
     welcomeTitle: "Путешествуйте красиво.<br />Прибывайте без забот.",
     welcomeBody:
-      "С момента посадки вашего самолёта мы продумываем каждую деталь. Шофёр встретит вас в зале прилёта, поможет с багажом и проводит к подготовленному автомобилю.",
+      "С момента посадки продумана каждая деталь. Наша команда в аэропорту встречает вас, водитель подаёт машину к месту посадки, а багаж загружается в тщательно подготовленный частный автомобиль.",
     ourStandards: "Наши стандарты сервиса",
     concierge: "Поддержка консьержа",
     guestsWelcomed: "Встреченных гостей",
@@ -618,7 +620,7 @@ const translations = {
     television: "Телевизор в автомобиле",
     coldDrinks: "Холодные напитки",
     snacks: "Закуски",
-    nameSignGreeting: "Личная встреча в зале прилёта",
+    nameSignGreeting: "Встреча у стойки J / 777",
     reserveVehicle: "Забронировать автомобиль",
     insideVclass: "Салон Sprinter",
     interiorTitle: "Персональный лаунж<br />между аэропортом и отелем.",
@@ -634,7 +636,7 @@ const translations = {
       "Безупречный внешний вид, деликатность, знание региона и высокие стандарты обслуживания.",
     greetTitle: "Встреча в аэропорту",
     greetBody:
-      "Шофёр встретит вас в зале прилёта и поможет с багажом.",
+      "При международных прилётах наша команда встречает вас у стойки J / 777, вызывает водителя к месту посадки и помогает с багажом.",
     supportTitle: "Консьерж 24/7",
     supportBody:
       "До, во время и после поездки вам всегда ответит человек по телефону или в WhatsApp.",
@@ -663,6 +665,7 @@ const translations = {
     faqEyebrow: "Частые вопросы",
     faqTitle: "Перед поездкой.",
     faqCatArrival: "Встреча и трансфер",
+    faqCatJourney: "Обратный трансфер и поездка",
     faqCatPayment: "Оплата и цена",
     faqCatVehicle: "Автомобиль и багаж",
     faqReminder: "Перед поездкой ознакомьтесь с разделом вопросов и ответов на нашем сайте.",
@@ -831,7 +834,7 @@ const translations = {
     welcomeEyebrow: "Vítejte na lepším příjezdu",
     welcomeTitle: "Cestujte krásně.<br />Přijíždějte bez starostí.",
     welcomeBody:
-      "Od okamžiku přistání letadla je každý detail promyšlen. Váš šofér čeká uvnitř příletové haly, postará se o zavazadla a doprovodí vás k pečlivě připravenému soukromému vozidlu.",
+      "Od okamžiku přistání je promyšlen každý detail. Náš tým na letišti vás přivítá, šofér přistaví vůz na místo vyzvednutí a vaše zavazadla putují do pečlivě připraveného soukromého vozu.",
     ourStandards: "Naše standardy služeb",
     concierge: "Podpora recepce",
     guestsWelcomed: "Přivítaných hostů",
@@ -852,7 +855,7 @@ const translations = {
     snacks: "Občerstvení",
     childSeats: "Dětská sedačka k dispozici",
     wifi: "Bezplatné WiFi",
-    nameSignGreeting: "Osobní uvítání při příletu",
+    nameSignGreeting: "Uvítání u přepážky J / 777",
     reserveVehicle: "Rezervovat vozidlo",
     insideVclass: "Interiér Sprinteru",
     interiorTitle: "Soukromý salon mezi<br />letištěm a vaším hotelem.",
@@ -868,7 +871,7 @@ const translations = {
       "Bezchybně upravení, diskrétní a vybíraní pro místní znalosti a standardy služeb.",
     greetTitle: "Uvítání",
     greetBody:
-      "Váš šofér vás přivítá v příletové hale a pomůže se zavazadly.",
+      "U mezinárodních příletů vás náš tým přivítá u přepážky J / 777, přivolá šoféra na místo vyzvednutí a pomůže se zavazadly.",
     supportTitle: "Recepce 24/7",
     supportBody:
       "Skutečná osoba je vždy dostupná telefonicky nebo přes WhatsApp před, během a po cestě.",
@@ -892,6 +895,7 @@ const translations = {
     faqEyebrow: "Často kladené dotazy",
     faqTitle: "Před vaší cestou.",
     faqCatArrival: "Vyzvednutí a transfer",
+    faqCatJourney: "Zpáteční cesta a jízda",
     faqCatPayment: "Platba a cena",
     faqCatVehicle: "Vozidlo a zavazadla",
     faqReminder: "Před cestou si prosím přečtěte sekci častých dotazů na našem webu.",
@@ -1090,7 +1094,7 @@ const translations = {
     welcomeEyebrow: "Witamy na najwyższym poziomie",
     welcomeTitle: "Podróżuj z klasą.<br />Przyjeżdżaj spokojnie.",
     welcomeBody:
-      "Od chwili lądowania każdy szczegół jest dopracowany. Szofer czeka w hali przylotów, zajmuje się bagażem i odprowadza Cię do starannie przygotowanego pojazdu.",
+      "Od chwili lądowania dopracowany jest każdy szczegół. Nasz zespół na lotnisku wita Cię, kierowca podjeżdża w miejsce odbioru, a bagaże trafiają do starannie przygotowanego prywatnego auta.",
     ourStandards: "Nasze standardy usług",
     concierge: "Usługi concierge",
     guestsWelcomed: "Powitanych gości",
@@ -1121,7 +1125,7 @@ const translations = {
     television: "Telewizor w pojeździe",
     coldDrinks: "Zimne napoje",
     snacks: "Przekąski",
-    nameSignGreeting: "Osobiste powitanie po przylocie",
+    nameSignGreeting: "Powitanie przy stanowisku J / 777",
     reserveVehicle: "Zarezerwuj pojazd",
     insideVclass: "Wnętrze Sprinter",
     interiorTitle: "Prywatny salon<br />między lotniskiem a hotelem.",
@@ -1137,7 +1141,7 @@ const translations = {
       "Zawsze zadbani, dyskretni, wybrani za znajomość terenu i najwyższe standardy obsługi.",
     greetTitle: "Meet & Greet",
     greetBody:
-      "Szofer wita Cię w hali przylotów i pomaga z bagażem.",
+      "Przy przylotach międzynarodowych nasz zespół wita Cię przy stanowisku J / 777, wzywa kierowcę w miejsce odbioru i pomaga z bagażem.",
     supportTitle: "Concierge 24/7",
     supportBody:
       "Przed, w trakcie i po podróży zawsze możesz skontaktować się z nami telefonicznie lub przez WhatsApp.",
@@ -1166,6 +1170,7 @@ const translations = {
     faqEyebrow: "Często zadawane pytania",
     faqTitle: "Przed Twoją podróżą.",
     faqCatArrival: "Odbiór i transfer",
+    faqCatJourney: "Powrót i podróż",
     faqCatPayment: "Płatność i cena",
     faqCatVehicle: "Pojazd i bagaż",
     faqReminder: "Przed podróżą zapoznaj się z sekcją FAQ na naszej stronie.",
@@ -1310,7 +1315,7 @@ const translations = {
     welcomeEyebrow: "Welkom op het hoogste niveau",
     welcomeTitle: "Stijlvol reizen.<br />Ontspannen aankomen.",
     welcomeBody:
-      "Vanaf uw landing is elk detail geregeld. Uw chauffeur wacht in de aankomsthal, zorgt voor uw bagage en begeleidt u naar uw zorgvuldig voorbereide privévoertuig.",
+      "Vanaf het moment dat u landt, is aan elk detail gedacht. Ons luchthaventeam ontvangt u, uw chauffeur staat klaar op het ophaalpunt en uw bagage gaat in een zorgvuldig voorbereide privéwagen.",
     ourStandards: "Onze servicestandaarden",
     concierge: "Conciërgeservice",
     guestsWelcomed: "Verwelkomde gasten",
@@ -1341,7 +1346,7 @@ const translations = {
     television: "Televisie in het voertuig",
     coldDrinks: "Koude dranken",
     snacks: "Snacks",
-    nameSignGreeting: "Persoonlijke ontvangst bij aankomst",
+    nameSignGreeting: "Ontvangst bij balie J / 777",
     reserveVehicle: "Voertuig reserveren",
     insideVclass: "In het Sprinter interieur",
     interiorTitle: "Een privélounge<br />tussen luchthaven en hotel.",
@@ -1357,7 +1362,7 @@ const translations = {
       "Altijd verzorgd, discreet en geselecteerd op lokale kennis en hoogste servicestandaard.",
     greetTitle: "Meet & Greet",
     greetBody:
-      "Uw chauffeur verwelkomt u in de aankomsthal en helpt met uw bagage.",
+      "Bij internationale aankomsten ontvangt ons team u bij balie J / 777, roept uw chauffeur naar het ophaalpunt en helpt met de bagage.",
     supportTitle: "24/7 Conciërge",
     supportBody:
       "Voor, tijdens en na uw reis is er altijd iemand bereikbaar per telefoon of WhatsApp.",
@@ -1386,6 +1391,7 @@ const translations = {
     faqEyebrow: "Veelgestelde vragen",
     faqTitle: "Vóór uw reis.",
     faqCatArrival: "Aankomst & transfer",
+    faqCatJourney: "Terugrit & onderweg",
     faqCatPayment: "Betaling & prijs",
     faqCatVehicle: "Voertuig & bagage",
     faqReminder: "Lees vóór uw reis het FAQ-gedeelte op onze website.",
@@ -1533,7 +1539,7 @@ const translations = {
     welcomeEyebrow: "Ласкаво просимо на найвищий рівень",
     welcomeTitle: "Подорожуйте стильно.<br />Прибувайте спокійно.",
     welcomeBody:
-      "З моменту посадки вашого літака кожна деталь продумана. Шофер чекає на вас у залі прильоту, піклується про багаж і супроводжує вас до підготовленого автомобіля.",
+      "З моменту приземлення продумано кожну деталь. Наша команда в аеропорту зустрічає вас, водій подає автомобіль до місця посадки, а багаж завантажують у ретельно підготовлене приватне авто.",
     ourStandards: "Наші стандарти сервісу",
     concierge: "Підтримка консьєржа",
     guestsWelcomed: "Зустрінутих гостей",
@@ -1564,7 +1570,7 @@ const translations = {
     television: "Телевізор в автомобілі",
     coldDrinks: "Холодні напої",
     snacks: "Закуски",
-    nameSignGreeting: "Особиста зустріч у залі прильоту",
+    nameSignGreeting: "Зустріч біля стійки J / 777",
     reserveVehicle: "Забронювати автомобіль",
     insideVclass: "Салон Sprinter",
     interiorTitle: "Приватний лаунж<br />між аеропортом і готелем.",
@@ -1580,7 +1586,7 @@ const translations = {
       "Завжди бездоганний вигляд, делікатність, знання регіону та найвищі стандарти обслуговування.",
     greetTitle: "Зустріч в аеропорту",
     greetBody:
-      "Шофер зустріне вас у залі прильоту та допоможе з багажем.",
+      "Під час міжнародних прильотів наша команда зустрічає вас біля стійки J / 777, викликає водія до місця посадки та допомагає з багажем.",
     supportTitle: "Консьєрж 24/7",
     supportBody:
       "До, під час і після поїздки вам завжди відповість людина по телефону або в WhatsApp.",
@@ -1609,6 +1615,7 @@ const translations = {
     faqEyebrow: "Часті запитання",
     faqTitle: "Перед поїздкою.",
     faqCatArrival: "Зустріч і трансфер",
+    faqCatJourney: "Зворотний трансфер і поїздка",
     faqCatPayment: "Оплата й ціна",
     faqCatVehicle: "Автомобіль і багаж",
     faqReminder: "Перед поїздкою ознайомтеся з розділом поширених запитань на нашому сайті.",
@@ -1777,7 +1784,7 @@ const translations = {
     welcomeEyebrow: "ایک بہتر آمد میں خوش آمدید",
     welcomeTitle: "خوبصورتی سے سفر کریں۔<br />آسانی سے پہنچیں۔",
     welcomeBody:
-      "آپ کی فلائٹ لینڈ ہونے کے لمحے سے ہر تفصیل کا خیال رکھا جاتا ہے۔ آپ کا شوفر آمد پر انتظار کرتا ہے، آپ کا سامان اٹھاتا ہے اور آپ کو ایک بے عیب نجی گاڑی تک لے جاتا ہے۔",
+      "آپ کی لینڈنگ کے لمحے سے ہر تفصیل کا خیال رکھا جاتا ہے۔ ہماری ایئرپورٹ ٹیم آپ کا استقبال کرتی ہے، آپ کا ڈرائیور پک اپ پوائنٹ پر گاڑی لے آتا ہے اور آپ کا سامان احتیاط سے تیار کی گئی نجی گاڑی میں رکھا جاتا ہے۔",
     ourStandards: "ہمارے سروس معیارات",
     concierge: "کنسیرج سپورٹ",
     guestsWelcomed: "مسافروں کا استقبال",
@@ -1798,7 +1805,7 @@ const translations = {
     snacks: "اسنیکس",
     childSeats: "بچوں کی نشست دستیاب",
     wifi: "مجانی WiFi",
-    nameSignGreeting: "آمد پر ذاتی استقبال",
+    nameSignGreeting: "کاؤنٹر J / 777 پر استقبال",
     reserveVehicle: "یہ گاڑی بک کریں",
     insideVclass: "اسپرنٹر کے اندر",
     interiorTitle: "ایئرپورٹ اور آپ کے ہوٹل کے<br />درمیان ایک نجی لاؤنج۔",
@@ -1814,7 +1821,7 @@ const translations = {
       "بے داغ پیش کردہ، سمجھدار اور اپنی مقامی معلومات اور سروس معیارات کے لیے منتخب۔",
     greetTitle: "میٹ اینڈ گریٹ",
     greetBody:
-      "آپ کا شوفر آمد پر آپ کا استقبال کرے گا اور سامان میں مدد کرے گا۔",
+      "بین الاقوامی آمد پر ہماری ایئرپورٹ ٹیم آپ کو کاؤنٹر J / 777 پر ملتی ہے، ڈرائیور کو پک اپ پوائنٹ پر بلاتی ہے اور سامان میں مدد کرتی ہے۔",
     supportTitle: "24/7 کنسیرج",
     supportBody:
       "آپ کے سفر سے پہلے، دوران اور بعد میں ایک حقیقی شخص فون یا واٹس ایپ پر ہمیشہ دستیاب ہے۔",
@@ -1838,6 +1845,7 @@ const translations = {
     faqEyebrow: "اکثر پوچھے گئے سوالات",
     faqTitle: "سفر سے پہلے۔",
     faqCatArrival: "آمد اور ٹرانسفر",
+    faqCatJourney: "واپسی اور سفر",
     faqCatPayment: "ادائیگی اور قیمت",
     faqCatVehicle: "گاڑی اور سامان",
     faqReminder: "اپنے سفر سے پہلے براہِ کرم ہماری ویب سائٹ کا FAQ سیکشن ملاحظہ کریں۔",
@@ -2075,7 +2083,7 @@ const translations = {
     welcomeEyebrow: "Bienvenue au plus haut niveau",
     welcomeTitle: "Voyager avec élégance.<br />Arriver sereinement.",
     welcomeBody:
-      "Dès votre atterrissage, chaque détail est organisé. Votre chauffeur vous attend dans le hall des arrivées, s'occupe de vos bagages et vous accompagne jusqu'à votre véhicule privé soigneusement préparé.",
+      "Dès l'atterrissage, chaque détail est pensé. Notre équipe de l'aéroport vous accueille, votre chauffeur se présente au point de prise en charge et vos bagages sont chargés dans un véhicule privé soigneusement préparé.",
     ourStandards: "Nos standards de service",
     concierge: "Service conciergerie",
     guestsWelcomed: "Clients accueillis",
@@ -2106,7 +2114,7 @@ const translations = {
     television: "Télévision à bord",
     coldDrinks: "Boissons fraîches",
     snacks: "En-cas",
-    nameSignGreeting: "Accueil personnalisé à l'arrivée",
+    nameSignGreeting: "Accueil au comptoir J / 777",
     reserveVehicle: "Réserver ce véhicule",
     insideVclass: "Intérieur Sprinter",
     interiorTitle: "Un salon privé<br />entre l'aéroport et l'hôtel.",
@@ -2122,7 +2130,7 @@ const translations = {
       "Toujours soignés, discrets et sélectionnés pour leur connaissance locale et leurs standards de service irréprochables.",
     greetTitle: "Accueil Meet & Greet",
     greetBody:
-      "Après avoir récupéré vos bagages, rendez-vous dans la zone Meet & Greet J / 777. Notre équipe à l'aéroport identifiera votre réservation et vous mettra en contact avec votre chauffeur.",
+      "Pour les arrivées internationales, notre équipe vous accueille au comptoir J / 777, appelle votre chauffeur au point de prise en charge et vous aide avec vos bagages.",
     supportTitle: "Conciergerie 24/7",
     supportBody:
       "Avant, pendant et après votre voyage, une personne est toujours disponible par téléphone ou WhatsApp.",
@@ -2151,6 +2159,7 @@ const translations = {
     faqEyebrow: "Questions fréquentes",
     faqTitle: "Avant votre voyage.",
     faqCatArrival: "Arrivée & transfert",
+    faqCatJourney: "Retour & trajet",
     faqCatPayment: "Paiement & prix",
     faqCatVehicle: "Véhicule & bagages",
     faqReminder: "Avant votre voyage, veuillez consulter la section FAQ de notre site.",
@@ -2299,7 +2308,7 @@ const translations = {
     welcomeEyebrow: "Välkommen till högsta nivå",
     welcomeTitle: "Res med stil.<br />Anländ avslappnad.",
     welcomeBody:
-      "Från det ögonblick ditt plan landar är varje detalj ordnad. Din chaufför väntar i ankomsthallen, tar hand om ditt bagage och eskorterar dig till ditt noggrant förberedda fordon.",
+      "Från det ögonblick du landar är varje detalj genomtänkt. Vårt flygplatsteam möter dig, chauffören står vid upphämtningsplatsen och ditt bagage lastas in i en omsorgsfullt förberedd privat bil.",
     ourStandards: "Våra servicestandarder",
     concierge: "Concierge-service",
     guestsWelcomed: "Välkomnade gäster",
@@ -2330,7 +2339,7 @@ const translations = {
     television: "TV i fordonet",
     coldDrinks: "Kalla drycker",
     snacks: "Snacks",
-    nameSignGreeting: "Personligt välkomnande vid ankomst",
+    nameSignGreeting: "Mottagning vid disk J / 777",
     reserveVehicle: "Boka fordon",
     insideVclass: "Sprinter interiör",
     interiorTitle: "En privat lounge<br />mellan flygplatsen och hotellet.",
@@ -2346,7 +2355,7 @@ const translations = {
       "Alltid välvårdade, diskreta och utvalda för lokal kunskap och högsta servicestandard.",
     greetTitle: "Meet & Greet",
     greetBody:
-      "Din chaufför välkomnar dig i ankomsthallen och hjälper med bagaget.",
+      "Vid utrikes ankomster möter vårt flygplatsteam dig vid disk J / 777, kallar din chaufför till upphämtningsplatsen och hjälper till med bagaget.",
     supportTitle: "Concierge 24/7",
     supportBody:
       "Före, under och efter din resa finns alltid någon tillgänglig per telefon eller WhatsApp.",
@@ -2375,6 +2384,7 @@ const translations = {
     faqEyebrow: "Vanliga frågor",
     faqTitle: "Innan din resa.",
     faqCatArrival: "Ankomst & transfer",
+    faqCatJourney: "Hemresa & färd",
     faqCatPayment: "Betalning & pris",
     faqCatVehicle: "Fordon & bagage",
     faqReminder: "Läs gärna FAQ-avsnittet på vår webbplats innan din resa.",
@@ -2520,7 +2530,7 @@ const translations = {
     welcomeEyebrow: "最高水準のサービスへようこそ",
     welcomeTitle: "上質な旅を。<br />安心してご到着を。",
     welcomeBody:
-      "着陸の瞬間から、すべての細部が整っています。ショーファーが到着ロビーでお待ちし、お荷物をお預かりして、丁寧に準備された専用車両へとご案内します。",
+      "着陸の瞬間から、細部まで整えてお待ちしています。空港スタッフがお出迎えし、ドライバーが乗車地点に車をつけ、丁寧に準備された専用車へお荷物をお積みします。",
     ourStandards: "私たちのサービス基準",
     concierge: "コンシェルジュサービス",
     guestsWelcomed: "お迎えしたゲスト数",
@@ -2551,7 +2561,7 @@ const translations = {
     television: "車内テレビ",
     coldDrinks: "冷たいお飲み物",
     snacks: "スナック",
-    nameSignGreeting: "到着ロビーでのお出迎え",
+    nameSignGreeting: "カウンター J / 777 でのお出迎え",
     reserveVehicle: "この車両を予約する",
     insideVclass: "Sprinterインテリア",
     interiorTitle: "空港とホテルの間の<br />プライベートラウンジ。",
@@ -2566,8 +2576,7 @@ const translations = {
     chauffeurBody:
       "常に清潔感があり、思いやりがあり、地元知識と最高のサービス基準のために厳選されています。",
     greetTitle: "ミート＆グリート",
-    greetBody:
-      "ショーファーが到着ロビーでお出迎えし、お荷物をお手伝いします。",
+    greetBody: "国際線到着では、空港スタッフがカウンター J / 777 でお出迎えし、ドライバーを乗車地点に呼び、お荷物をお手伝いします。",
     supportTitle: "24/7コンシェルジュ",
     supportBody:
       "旅の前・中・後、いつでも電話またはWhatsAppでご対応いたします。",
@@ -2595,6 +2604,7 @@ const translations = {
     faqEyebrow: "よくある質問",
     faqTitle: "ご旅行の前に。",
     faqCatArrival: "到着・送迎",
+    faqCatJourney: "復路・道中",
     faqCatPayment: "お支払い・料金",
     faqCatVehicle: "車両・お手荷物",
     faqReminder: "ご旅行の前に、当サイトのFAQをご確認ください。",
@@ -2737,7 +2747,7 @@ const translations = {
     welcomeEyebrow: "최고 수준의 서비스에 오신 것을 환영합니다",
     welcomeTitle: "품격 있게 이동하세요.<br />편안하게 도착하세요.",
     welcomeBody:
-      "착륙하는 순간부터 모든 세부 사항이 준비되어 있습니다. 쇼퍼가 도착 로비에서 기다리며 수하물을 챙기고 세심하게 준비된 전용 차량으로 안내해 드립니다.",
+      "착륙하는 순간부터 모든 것이 준비되어 있습니다. 공항 직원이 고객님을 맞이하고, 기사가 픽업 지점에 차량을 대며, 짐은 정성껏 준비된 전용 차량에 실립니다.",
     ourStandards: "저희 서비스 기준",
     concierge: "컨시어지 서비스",
     guestsWelcomed: "환영한 고객 수",
@@ -2768,7 +2778,7 @@ const translations = {
     television: "차량 내 TV",
     coldDrinks: "차가운 음료",
     snacks: "스낵",
-    nameSignGreeting: "도착 로비에서의 개인 영접",
+    nameSignGreeting: "J / 777 카운터에서 미팅",
     reserveVehicle: "이 차량 예약하기",
     insideVclass: "Sprinter 인테리어",
     interiorTitle: "공항과 호텔 사이의<br />프라이빗 라운지.",
@@ -2783,8 +2793,7 @@ const translations = {
     chauffeurBody:
       "항상 단정하고 신중하며, 현지 지식과 최고 서비스 기준으로 선별된 전문가들입니다.",
     greetTitle: "미트 앤 그리트",
-    greetBody:
-      "쇼퍼가 도착 로비에서 환영하며 수하물을 도와드립니다.",
+    greetBody: "국제선 도착 시 공항 직원이 J / 777 카운터에서 맞이하고, 픽업 지점으로 기사를 부르며 짐을 도와드립니다.",
     supportTitle: "24/7 컨시어지",
     supportBody:
       "여행 전, 중, 후 언제든지 전화 또는 WhatsApp으로 담당자와 연결됩니다.",
@@ -2812,6 +2821,7 @@ const translations = {
     faqEyebrow: "자주 묻는 질문",
     faqTitle: "여행 전에.",
     faqCatArrival: "도착 및 이동",
+    faqCatJourney: "복귀 및 이동",
     faqCatPayment: "결제 및 요금",
     faqCatVehicle: "차량 및 수하물",
     faqReminder: "여행 전에 저희 웹사이트의 FAQ를 확인해 주세요.",
@@ -2973,7 +2983,7 @@ const translations = {
     welcomeEyebrow: "مرحباً بك في مستوى أرقى من الخدمة",
     welcomeTitle: "سافر بأناقة.<br />وصل براحة.",
     welcomeBody:
-      "منذ لحظة هبوطك، نعتني بكل التفاصيل. ينتظرك سائقك في صالة الوصول، ويساعدك في الأمتعة، ويرافقك إلى سيارتك الخاصة المجهزة بعناية.",
+      "منذ لحظة هبوطك، رُوعيت كل التفاصيل. يستقبلك فريقنا في المطار، ويقف سائقك في نقطة الاستقبال، وتُحمَّل أمتعتك في سيارة خاصة أُعدّت بعناية.",
     ourStandards: "معايير خدمتنا",
     concierge: "خدمة الكونسيرج",
     guestsWelcomed: "الضيوف الذين استقبلناهم",
@@ -3002,7 +3012,7 @@ const translations = {
     television: "تلفاز داخل السيارة",
     coldDrinks: "مشروبات باردة",
     snacks: "وجبات خفيفة",
-    nameSignGreeting: "استقبال شخصي عند الوصول",
+    nameSignGreeting: "استقبال عند المكتب J / 777",
     reserveVehicle: "احجز هذه السيارة",
     insideVclass: "مقصورة Sprinter الداخلية",
     interiorTitle: "صالة خاصة بين<br />المطار والفندق.",
@@ -3018,7 +3028,7 @@ const translations = {
       "سائقون أنيقون وكتومون دائماً، تم اختيارهم لمعرفتهم المحلية والتزامهم بأعلى معايير الخدمة.",
     greetTitle: "الاستقبال والترحيب",
     greetBody:
-      "يستقبلك سائقك في صالة الوصول ويساعدك في حمل الأمتعة.",
+      "في القدوم الدولي يستقبلك فريقنا عند المكتب J / 777، ويستدعي سائقك إلى نقطة الاستقبال، ويساعدك في الأمتعة.",
     supportTitle: "كونسيرج 24/7",
     supportBody:
       "قبل رحلتك وأثناءها وبعدها، يمكنك دائماً التواصل مع شخص حقيقي عبر الهاتف أو WhatsApp.",
@@ -3047,6 +3057,7 @@ const translations = {
     faqEyebrow: "الأسئلة الشائعة",
     faqTitle: "قبل رحلتك.",
     faqCatArrival: "الوصول والنقل",
+    faqCatJourney: "العودة والرحلة",
     faqCatPayment: "الدفع والسعر",
     faqCatVehicle: "المركبة والأمتعة",
     faqReminder: "قبل رحلتك، يُرجى الاطلاع على قسم الأسئلة الشائعة على موقعنا.",
