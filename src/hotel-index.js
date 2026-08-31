@@ -36,6 +36,7 @@
  * The booking form therefore treats an index hit as a *pre-selection* the
  * guest can still change, never as a locked value.
  */
+import { antalyaCitySeedRows } from "./hotel-index-antalya-city.js";
 import { hotelCatalog } from "./hotels.js";
 
 /** @typedef {keyof typeof import("./routes.js").routeCatalog} IndexRegionSlug */
@@ -412,7 +413,7 @@ const verifiedSlugs = new Set(Object.values(hotelCatalog).map((hotel) => hotelSl
 
 /** @type {readonly IndexedHotel[]} */
 export const hotelIndex = Object.freeze(
-  seedRows.map(([name, district, aliases = []]) => {
+  [...seedRows, ...antalyaCitySeedRows].map(([name, district, aliases = []]) => {
     const slug = hotelSlug(name);
     const region = districtRegions[district];
     if (!region) throw new Error(`Hotel "${name}" sits in unmapped district "${district}"`);

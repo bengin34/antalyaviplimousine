@@ -3,6 +3,12 @@ import { foldHotelText, phoneticKey, resolveHotelRegion, searchHotels } from "./
 
 const names = (query, options) => searchHotels(query, options).map((hotel) => hotel.name);
 
+/** Two real hotels whose names share only the words every hotel name carries. */
+const lookalikes = [
+  { slug: "esmeralda-butik-otel", name: "Esmeralda Butik Otel", region: "kizilagac", district: "Kızılot", aliases: [], status: "draft" },
+  { slug: "the-grand-ring-hotel", name: "The Grand Ring Hotel", region: "kemer", district: "Beldibi", aliases: [], status: "draft" },
+];
+
 describe("text folding", () => {
   test("folds Turkish letters", () => {
     expect(foldHotelText("Kumköy")).toBe("kumkoy");
@@ -96,5 +102,20 @@ describe("unambiguous resolution", () => {
 
   test("returns null when nothing matches", () => {
     expect(resolveHotelRegion("zzzz")).toBeNull();
+  });
+
+  test("resolves a name still being typed, as long as one hotel answers to it", () => {
+    expect(resolveHotelRegion("voyage sorg")?.name).toBe("Voyage Sorgun");
+  });
+
+  test("refuses a lookalike that merely shares generic words", () => {
+    // Pinned to a fixture: this is about the resolver's judgement, not about
+    // which hotels happen to be indexed today. Suggestion ranking offers these
+    // pairs together, and resolving one into the other without the guest
+    // confirming would price an Antalya stay as Kızılot or Kemer.
+    for (const query of ["Kaleiçi Butik Otel", "Grand Can Hotel", "Deniz Apart Otel"]) {
+      expect(resolveHotelRegion(query, { index: lookalikes }), `${query} resolved to another hotel`).toBeNull();
+    }
+    expect(resolveHotelRegion("Esmeralda Butik Otel", { index: lookalikes })?.region).toBe("kizilagac");
   });
 });

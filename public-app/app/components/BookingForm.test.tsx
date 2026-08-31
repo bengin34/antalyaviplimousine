@@ -150,13 +150,13 @@ describe("BookingForm route summary", () => {
     );
 
     fireEvent.change(container.querySelector("#hotel-name")!, {
-      target: { value: "Pansiyon Deniz" },
+      target: { value: "Qwx Zyx Konukevi" },
     });
 
     expect(container.querySelectorAll('[role="option"]')).toHaveLength(0);
     fireEvent.click(container.querySelector(".hotel-combobox-dismiss")!);
 
-    expect(container.querySelector<HTMLInputElement>("#hotel-name")!.value).toBe("Pansiyon Deniz");
+    expect(container.querySelector<HTMLInputElement>("#hotel-name")!.value).toBe("Qwx Zyx Konukevi");
 
     fireEvent.change(container.querySelector("#destination")!, {
       target: { value: "side" },

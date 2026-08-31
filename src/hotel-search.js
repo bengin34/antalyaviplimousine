@@ -177,11 +177,24 @@ export function searchHotels(query, { limit = 8, index = hotelIndex } = {}) {
 /**
  * Resolves a typed hotel name to a single hotel when the match is unambiguous,
  * so a guest who types the full name and never opens the suggestion list still
- * gets their region pre-selected. Returns `null` when the answer is uncertain.
+ * gets their region pre-selected. Returns `null` whenever the answer is at all
+ * uncertain, because the caller turns the answer straight into a price.
+ *
+ * Suggestion ranking is deliberately generous — it may as well offer something
+ * to choose from — but resolving without the guest confirming is not. So this
+ * accepts only a hotel whose whole name the query reproduces, allowing for
+ * spelling ("Delfin Imperial Lara") and for a name still being typed
+ * ("Voyage Sorg"), and refuses as soon as two hotels answer to it.
  */
 export function resolveHotelRegion(query, options = {}) {
-  const matches = searchHotels(query, { ...options, limit: 2 });
-  if (matches.length === 0) return null;
-  if (matches.length > 1 && foldHotelText(matches[0].name) !== foldHotelText(query)) return null;
-  return matches[0];
+  const queryKey = phoneticKey(foldHotelText(query));
+  if (queryKey.length < 2) return null;
+
+  const candidates = [];
+  for (const hotel of searchHotels(query, { ...options, limit: 25 })) {
+    const nameKey = phoneticKey(foldHotelText(hotel.name));
+    if (nameKey === queryKey) return hotel;
+    if (nameKey.startsWith(queryKey)) candidates.push(hotel);
+  }
+  return candidates.length === 1 ? candidates[0] : null;
 }
