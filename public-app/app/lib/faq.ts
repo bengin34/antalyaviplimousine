@@ -4,17 +4,22 @@ export const homeFaqGroups = [
   {
     labelKey: "faqCatArrival",
     labelFallback: "Arrival & transfer",
-    items: ["One", "Two", "Six", "Seven", "Eight", "Ten"],
+    items: ["One", "Two", "Six", "Seven", "Eight"],
+  },
+  {
+    labelKey: "faqCatJourney",
+    labelFallback: "Return & journey",
+    items: ["Ten", "Fourteen", "Fifteen"],
   },
   {
     labelKey: "faqCatPayment",
     labelFallback: "Payment & price",
-    items: ["Nine", "Five"],
+    items: ["Nine", "Twelve", "Eleven", "Five"],
   },
   {
     labelKey: "faqCatVehicle",
     labelFallback: "Vehicle & luggage",
-    items: ["Three", "Four"],
+    items: ["Three", "Thirteen", "Four"],
   },
 ];
 

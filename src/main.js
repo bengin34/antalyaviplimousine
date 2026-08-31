@@ -99,7 +99,7 @@ const translations = {
     welcomeEyebrow: "Willkommen auf höchstem Niveau",
     welcomeTitle: "Stilvoll reisen.<br />Entspannt ankommen.",
     welcomeBody:
-      "Nachdem Sie Ihr Gepäck abgeholt haben, gehen Sie bitte zum Meet & Greet Bereich J / 777. Unser Flughafen-Team findet Ihre Buchung, hilft bei Bedarf mit dem Gepäck und bringt Sie mit Ihrem Fahrer zusammen.",
+      "Vom Moment Ihrer Landung an ist an jedes Detail gedacht. Unser Flughafenteam empfängt Sie, Ihr Chauffeur fährt am Abholpunkt vor und Ihr Gepäck wird in ein sorgfältig vorbereitetes Privatfahrzeug geladen.",
     ourStandards: "Unsere Servicestandards",
     concierge: "Concierge-Service",
     guestsWelcomed: "Begrüßte Gäste",
@@ -130,7 +130,7 @@ const translations = {
     television: "Fernseher im Fahrzeug",
     coldDrinks: "Kalte Getränke",
     snacks: "Snacks",
-    nameSignGreeting: "Persönlicher Empfang bei der Ankunft",
+    nameSignGreeting: "Empfang am Schalter J / 777",
     reserveVehicle: "Fahrzeug reservieren",
     insideVclass: "Im Sprinter Interieur",
     interiorTitle: "Eine private Lounge zwischen<br />Flughafen und Hotel.",
@@ -146,7 +146,7 @@ const translations = {
       "Stets gepflegt, diskret und ausgewählt für Ortskenntnis und höchsten Servicestandard.",
     greetTitle: "Meet & Greet",
     greetBody:
-      "Nachdem Sie Ihr Gepäck abgeholt haben, gehen Sie bitte zum Meet & Greet Bereich J / 777. Unser Flughafen-Team findet Ihre Buchung und bringt Sie mit Ihrem Fahrer zusammen.",
+      "Bei internationalen Ankünften empfängt Sie unser Flughafenteam am Schalter J / 777, ruft Ihren Chauffeur zum Abholpunkt und hilft mit dem Gepäck.",
     supportTitle: "24/7 Concierge",
     supportBody:
       "Vor, während und nach Ihrer Reise ist immer ein persönlicher Ansprechpartner erreichbar.",
@@ -159,7 +159,7 @@ const translations = {
     routesEyebrow: "Unsere beliebtesten Fahrten",
     routesTitle: "Vom Flughafen Antalya<br />an die Türkische Riviera.",
     routesIntro:
-      "Alle Preise gelten pro Fahrzeug, nie pro Person. Kostenlose Wartezeit ist inklusive.",
+      "Alle Preise gelten pro Fahrzeug, nicht pro Person, inklusive 90 Minuten Wartezeit.",
     golfFavourite: "Golf-Favorit",
     from: "Ab",
     reviewsEyebrow: "Gästebewertungen",
@@ -175,6 +175,7 @@ const translations = {
     faqEyebrow: "Häufig gefragt",
     faqTitle: "Vor Ihrer Reise.",
     faqCatArrival: "Ankunft & Transfer",
+    faqCatJourney: "Rückfahrt & Fahrt",
     faqCatPayment: "Zahlung & Preis",
     faqCatVehicle: "Fahrzeug & Gepäck",
     faqReminder: "Bitte lesen Sie vor Ihrer Reise den FAQ-Bereich auf unserer Website.",
@@ -206,6 +207,21 @@ const translations = {
     faqTenQ: "Wie halte ich beim Rücktransfer Kontakt?",
     faqTenA:
       "Sobald Sie Datum und Uhrzeit Ihrer Rückfahrt per WhatsApp mit unserem Team bestätigt haben, teilen wir Ihnen einige Stunden vor dem Transfer Ihr Fahrzeug zu und senden Ihnen Fotos davon über WhatsApp – auf Wunsch auch die Telefonnummer Ihres Chauffeurs. Erreicht Ihr Chauffeur das Hotel, informiert er die Rezeption, die Ihr Zimmer benachrichtigt, sobald der Wagen bereitsteht. Unsere Chauffeure rufen Gäste nie direkt an: Die gesamte Kommunikation läuft über unsere zentrale WhatsApp-Betreuung, sodass Sie immer genau wissen, mit wem Sie sprechen.",
+    faqElevenQ: "Kann ich meine Buchung stornieren oder ändern?",
+    faqElevenA:
+      "Ja, und das immer kostenfrei. Da wir keine Vorauszahlung nehmen, gibt es nichts zu erstatten und keine Wartezeit auf Ihr Geld — ändern sich Ihre Pläne, genügt eine Nachricht über WhatsApp. Änderungen von Uhrzeit, Flugnummer oder Zieladresse regeln wir ebenso, ohne Aufpreis.",
+    faqTwelveQ: "In welcher Währung kann ich bezahlen?",
+    faqTwelveA:
+      "Unsere Preise sind in Euro (EUR) festgelegt und werden bar bezahlt; Karten werden nicht akzeptiert. Möchten Sie in US-Dollar oder Türkischen Lira zahlen, hängt der Betrag vom Tageskurs ab — schreiben Sie uns deshalb vor Ihrem Transfer über WhatsApp. Wir nennen Ihnen einen klaren Preis und informieren Ihren Chauffeur, sodass im Fahrzeug nichts verhandelt wird.",
+    faqThirteenQ: "Wie viel Gepäck darf ich mitnehmen?",
+    faqThirteenA:
+      "In der Regel ein großer Koffer und ein Handgepäckstück pro Person. Haben Sie mehr dabei — einen zusätzlichen Koffer, ein Golfbag, einen Kinderwagen, Ski oder ein Fahrrad — sagen Sie es einfach bei der Buchung; wir stellen ohne Aufpreis ein Fahrzeug mit passender Kapazität. Entscheidend ist nur, dass wir es vorher wissen. Ein Mercedes Vito fasst bis zu 6 Personen, ein Sprinter bis zu 12.",
+    faqFourteenQ: "Was passiert, wenn ich mich beim Rücktransfer verspäte?",
+    faqFourteenA:
+      "Ihr Chauffeur ist zur vereinbarten Zeit an Ihrem Hotel und wartet 15 Minuten kostenfrei. Zeichnet sich eine Verzögerung ab, genügt eine Nachricht über WhatsApp: Wir prüfen Ihre Flugzeit, informieren Ihren Chauffeur und stimmen den Ablauf mit Ihnen ab. Unser Ziel ist nicht, Sie zu hetzen, sondern Sie entspannt zu Ihrem Flug zu bringen.",
+    faqFifteenQ: "Sind Zwischenstopps während der Fahrt möglich?",
+    faqFifteenA:
+      "Selbstverständlich. Möchten Sie an einem Supermarkt oder einer Apotheke halten oder kurz für ein Foto anhalten, sagen Sie es einfach bei der Buchung oder über WhatsApp — wir planen die Route entsprechend. Führt ein Halt deutlich von Ihrer Strecke weg, sagen wir Ihnen vor der Abfahrt, ob etwas hinzukommt; nachträglich überrascht Sie nichts.",
     faqThreeQ: "Sind Kindersitze verfügbar?",
     faqThreeA:
       "Ja. Babyschalen, Kindersitze und Sitzerhöhungen sind bei Vorbestellung kostenlos verfügbar.",
@@ -329,7 +345,7 @@ const translations = {
     welcomeEyebrow: "Daha iyi bir karşılamaya hoş geldiniz",
     welcomeTitle: "Zarafetle seyahat edin.<br />Rahatça varın.",
     welcomeBody:
-      "Uçağınız indiği andan itibaren her ayrıntı düşünülür. Şoförünüz gelen yolcu salonunda bekler, bagajınızla ilgilenir ve sizi özenle hazırlanmış özel aracınıza götürür.",
+      "Uçağınız indiği andan itibaren her ayrıntı düşünülür. Havalimanı ekibimiz sizi karşılar, şoförünüz aracıyla karşılama noktasına gelir ve bagajlarınız özenle hazırlanmış özel aracınıza yerleştirilir.",
     ourStandards: "Hizmet standartlarımız",
     concierge: "Concierge desteği",
     guestsWelcomed: "Karşılanan misafir",
@@ -360,7 +376,7 @@ const translations = {
     television: "Araç içi televizyon",
     coldDrinks: "Soğuk içecekler",
     snacks: "Atıştırmalıklar",
-    nameSignGreeting: "Gelişte kişisel karşılama",
+    nameSignGreeting: "J / 777 kontuarında karşılama",
     reserveVehicle: "Bu aracı ayırtın",
     insideVclass: "Sprinter'ın içinde",
     interiorTitle:
@@ -377,7 +393,7 @@ const translations = {
       "Bakımlı, gizliliğe önem veren ve yerel bilgisi ile hizmet kalitesi için seçilmiş profesyoneller.",
     greetTitle: "Karşılama hizmeti",
     greetBody:
-      "Şoförünüz sizi gelen yolcu salonunda karşılar ve bagajınıza yardımcı olur.",
+      "Dış hat gelişlerinde havalimanı ekibimiz sizi J / 777 kontuarında karşılar, şoförünüzü karşılama noktasına çağırır ve bagajınıza yardımcı olur.",
     supportTitle: "7/24 concierge",
     supportBody:
       "Yolculuğunuzdan önce, yolculuk sırasında ve sonrasında telefon veya WhatsApp üzerinden gerçek bir kişiye ulaşabilirsiniz.",
@@ -390,7 +406,7 @@ const translations = {
     routesEyebrow: "En çok tercih edilen yolculuklar",
     routesTitle: "Antalya Havalimanı'ndan<br />Türk Rivierası'na.",
     routesIntro:
-      "Tüm fiyatlar kişi başı değil, araç başıdır ve ücretsiz bekleme süresi dahildir.",
+      "Tüm fiyatlar kişi başı değil, araç başıdır ve 90 dakika bekleme dahildir.",
     golfFavourite: "Golf misafirlerinin favorisi",
     from: "Başlangıç",
     reviewsEyebrow: "Misafir yorumları",
@@ -406,6 +422,7 @@ const translations = {
     faqEyebrow: "Sık sorulanlar",
     faqTitle: "Seyahatinizden önce.",
     faqCatArrival: "Karşılama & Transfer",
+    faqCatJourney: "Dönüş & Yolculuk",
     faqCatPayment: "Ödeme & Fiyat",
     faqCatVehicle: "Araç & Bagaj",
     faqReminder: "Seyahatinizden önce lütfen sitemizdeki SSS bölümünü inceleyin.",
@@ -434,6 +451,21 @@ const translations = {
     faqTenQ: "Dönüş transferimde iletişimi nasıl kuracağım?",
     faqTenA:
       "Dönüş gün ve saatinizi ekibimizle WhatsApp üzerinden teyit ettikten sonra, transferinize saatler kala aracınızı belirler ve size WhatsApp'tan aracın fotoğraflarını gönderiririz; dilerseniz şoförünüzün telefon numarasını da paylaşırız. Şoförünüz belirlenen saatte otelinize ulaştığında resepsiyona haber verir, resepsiyon da odanıza aracınızın hazır olduğunu bildirir. Şoförlerimiz misafirlerimizi doğrudan aramaz; tüm iletişim tek bir noktadan, WhatsApp müşteri destek hattımız üzerinden yürür. Böylece kiminle konuştuğunuzdan her zaman emin olursunuz.",
+    faqElevenQ: "Rezervasyonumu iptal edebilir veya değiştirebilir miyim?",
+    faqElevenA:
+      "Elbette, üstelik tamamen ücretsiz. Ön ödeme almadığımız için iptalde iade edilecek bir tutar ve beklenecek bir iade süreci yoktur — planınız değişirse WhatsApp'tan haber vermeniz yeterli. Saat, uçuş numarası veya varış adresi değişikliklerini de aynı şekilde, ek ücret olmadan yaparız.",
+    faqTwelveQ: "Hangi para birimiyle ödeyebilirim?",
+    faqTwelveA:
+      "Fiyatlarımız euro (EUR) üzerinden belirlenir ve ödeme nakit olarak yapılır; kart geçmez. Amerikan doları veya Türk lirasıyla ödemek isterseniz tutar günün kuruna bağlı olarak değişir; bu nedenle transferinizden önce WhatsApp'tan bize yazın. Size net bir fiyat verir ve şoförünüzü bilgilendiririz — araç içinde pazarlık yapılmaz.",
+    faqThirteenQ: "Ne kadar bagaj getirebilirim?",
+    faqThirteenA:
+      "Kural olarak yolcu başına bir büyük valiz ve bir el bagajı. Daha fazlası varsa — ek valiz, golf çantası, bebek arabası, kayak veya bisiklet — rezervasyon sırasında belirtmeniz yeterli; ek ücret almadan uygun kapasitede bir araç planlarız. Önemli olan tek şey, bunu önceden biliyor olmamız. Mercedes Vito 6, Mercedes Sprinter ise 12 yolcuya kadar taşır.",
+    faqFourteenQ: "Dönüş transferime geç kalırsam ne olur?",
+    faqFourteenA:
+      "Şoförünüz belirlenen saatte otelinizde olur ve 15 dakika ücretsiz bekler. Gecikeceğinizi düşünüyorsanız WhatsApp'tan tek bir mesaj yeterli: uçuş saatinizi kontrol eder, şoförünüzü bilgilendirir ve programı sizinle birlikte ayarlarız. Amacımız sizi acele ettirmek değil, uçağınıza rahatça yetiştirmektir.",
+    faqFifteenQ: "Yolculuk sırasında ek durak mümkün mü?",
+    faqFifteenA:
+      "Elbette mümkün. Market, eczane veya kısa bir fotoğraf molası isterseniz rezervasyon sırasında ya da WhatsApp üzerinden belirtmeniz yeterli; güzergâhı buna göre planlarız. Rotanızdan belirgin şekilde sapan uzun bir durak söz konusuysa, ek bir tutar olup olmadığını yola çıkmadan önce net olarak paylaşırız — sonradan eklenen hiçbir kalem olmaz.",
     faqThreeQ: "Çocuk koltuğu var mı?",
     faqThreeA:
       "Evet. Bebek koltuğu, çocuk koltuğu ve yükseltici koltuk rezervasyon sırasında ücretsiz olarak talep edilebilir.",
@@ -557,7 +589,7 @@ const translations = {
     welcomeEyebrow: "Добро пожаловать на новый уровень сервиса",
     welcomeTitle: "Путешествуйте красиво.<br />Прибывайте без забот.",
     welcomeBody:
-      "С момента посадки вашего самолёта мы продумываем каждую деталь. Шофёр встретит вас в зале прилёта, поможет с багажом и проводит к подготовленному автомобилю.",
+      "С момента посадки продумана каждая деталь. Наша команда в аэропорту встречает вас, водитель подаёт машину к месту посадки, а багаж загружается в тщательно подготовленный частный автомобиль.",
     ourStandards: "Наши стандарты сервиса",
     concierge: "Поддержка консьержа",
     guestsWelcomed: "Встреченных гостей",
@@ -588,7 +620,7 @@ const translations = {
     television: "Телевизор в автомобиле",
     coldDrinks: "Холодные напитки",
     snacks: "Закуски",
-    nameSignGreeting: "Личная встреча в зале прилёта",
+    nameSignGreeting: "Встреча у стойки J / 777",
     reserveVehicle: "Забронировать автомобиль",
     insideVclass: "Салон Sprinter",
     interiorTitle: "Персональный лаунж<br />между аэропортом и отелем.",
@@ -604,7 +636,7 @@ const translations = {
       "Безупречный внешний вид, деликатность, знание региона и высокие стандарты обслуживания.",
     greetTitle: "Встреча в аэропорту",
     greetBody:
-      "Шофёр встретит вас в зале прилёта и поможет с багажом.",
+      "При международных прилётах наша команда встречает вас у стойки J / 777, вызывает водителя к месту посадки и помогает с багажом.",
     supportTitle: "Консьерж 24/7",
     supportBody:
       "До, во время и после поездки вам всегда ответит человек по телефону или в WhatsApp.",
@@ -617,7 +649,7 @@ const translations = {
     routesEyebrow: "Самые популярные поездки",
     routesTitle: "Из аэропорта Антальи<br />на Турецкую Ривьеру.",
     routesIntro:
-      "Все цены указаны за автомобиль, а не за пассажира. Бесплатное ожидание включено.",
+      "Все цены указаны за автомобиль, а не за пассажира, и включают 90 минут ожидания.",
     golfFavourite: "Выбор игроков в гольф",
     from: "От",
     reviewsEyebrow: "Отзывы гостей",
@@ -633,6 +665,7 @@ const translations = {
     faqEyebrow: "Частые вопросы",
     faqTitle: "Перед поездкой.",
     faqCatArrival: "Встреча и трансфер",
+    faqCatJourney: "Обратный трансфер и поездка",
     faqCatPayment: "Оплата и цена",
     faqCatVehicle: "Автомобиль и багаж",
     faqReminder: "Перед поездкой ознакомьтесь с разделом вопросов и ответов на нашем сайте.",
@@ -661,6 +694,21 @@ const translations = {
     faqTenQ: "Как поддерживать связь при обратном трансфере?",
     faqTenA:
       "После того как вы подтвердите дату и время обратной поездки нашей команде в WhatsApp, мы за несколько часов до трансфера назначаем автомобиль и присылаем вам его фотографии в WhatsApp — при желании также номер телефона водителя. Когда водитель приезжает в отель, он сообщает на стойку регистрации, а та передаёт в ваш номер, что машина подана. Наши водители никогда не звонят гостям напрямую: всё общение идёт через единую линию поддержки в WhatsApp, поэтому вы всегда точно знаете, с кем разговариваете.",
+    faqElevenQ: "Могу ли я отменить или изменить бронирование?",
+    faqElevenA:
+      "Да, и всегда бесплатно. Мы не берём предоплату, поэтому возвращать нечего и ждать возврата денег не нужно — если планы изменились, достаточно написать нам в WhatsApp. Изменение времени, номера рейса или адреса назначения оформляем так же, без доплат.",
+    faqTwelveQ: "В какой валюте можно оплатить?",
+    faqTwelveA:
+      "Наши цены установлены в евро (EUR) и оплачиваются наличными; карты не принимаются. Если удобнее заплатить в долларах США или турецких лирах, сумма зависит от курса на день, поэтому напишите нам в WhatsApp до трансфера: мы назовём точную цену и предупредим водителя — в машине ничего не обсуждается.",
+    faqThirteenQ: "Сколько багажа можно взять?",
+    faqThirteenA:
+      "Как правило, один большой чемодан и одно место ручной клади на пассажира. Если багажа больше — дополнительный чемодан, гольф-бэг, коляска, лыжи или велосипед — просто укажите это при бронировании, и мы без доплаты подадим автомобиль подходящей вместимости. Важно лишь предупредить заранее. Mercedes Vito вмещает до 6 пассажиров, Sprinter — до 12.",
+    faqFourteenQ: "Что делать, если я опаздываю на обратный трансфер?",
+    faqFourteenA:
+      "Водитель приезжает к отелю в назначенное время и ждёт 15 минут бесплатно. Если понимаете, что задержитесь, напишите нам в WhatsApp: мы проверим время вылета, предупредим водителя и вместе скорректируем план. Наша задача — не торопить вас, а спокойно доставить к рейсу.",
+    faqFifteenQ: "Можно ли сделать остановку в пути?",
+    faqFifteenA:
+      "Конечно. Если хотите заехать в супермаркет или аптеку либо остановиться для фотографии, скажите об этом при бронировании или напишите в WhatsApp — мы спланируем маршрут с учётом остановки. Если остановка заметно уводит в сторону от маршрута, мы до выезда сообщим, добавляется ли что-то к сумме: постфактум сюрпризов не бывает.",
     faqThreeQ: "Есть ли детские кресла?",
     faqThreeA:
       "Да. Автолюльки, детские кресла и бустеры предоставляются бесплатно по запросу при бронировании.",
@@ -786,7 +834,7 @@ const translations = {
     welcomeEyebrow: "Vítejte na lepším příjezdu",
     welcomeTitle: "Cestujte krásně.<br />Přijíždějte bez starostí.",
     welcomeBody:
-      "Od okamžiku přistání letadla je každý detail promyšlen. Váš šofér čeká uvnitř příletové haly, postará se o zavazadla a doprovodí vás k pečlivě připravenému soukromému vozidlu.",
+      "Od okamžiku přistání je promyšlen každý detail. Náš tým na letišti vás přivítá, šofér přistaví vůz na místo vyzvednutí a vaše zavazadla putují do pečlivě připraveného soukromého vozu.",
     ourStandards: "Naše standardy služeb",
     concierge: "Podpora recepce",
     guestsWelcomed: "Přivítaných hostů",
@@ -807,7 +855,7 @@ const translations = {
     snacks: "Občerstvení",
     childSeats: "Dětská sedačka k dispozici",
     wifi: "Bezplatné WiFi",
-    nameSignGreeting: "Osobní uvítání při příletu",
+    nameSignGreeting: "Uvítání u přepážky J / 777",
     reserveVehicle: "Rezervovat vozidlo",
     insideVclass: "Interiér Sprinteru",
     interiorTitle: "Soukromý salon mezi<br />letištěm a vaším hotelem.",
@@ -823,7 +871,7 @@ const translations = {
       "Bezchybně upravení, diskrétní a vybíraní pro místní znalosti a standardy služeb.",
     greetTitle: "Uvítání",
     greetBody:
-      "Váš šofér vás přivítá v příletové hale a pomůže se zavazadly.",
+      "U mezinárodních příletů vás náš tým přivítá u přepážky J / 777, přivolá šoféra na místo vyzvednutí a pomůže se zavazadly.",
     supportTitle: "Recepce 24/7",
     supportBody:
       "Skutečná osoba je vždy dostupná telefonicky nebo přes WhatsApp před, během a po cestě.",
@@ -836,7 +884,7 @@ const translations = {
     routesEyebrow: "Nejžádanější trasy",
     routesTitle: "Z letiště Antalya<br />na tureckou riviéru.",
     routesIntro:
-      "Všechny ceny jsou za vozidlo, nikdy za cestujícího, se zahrnutým čekáním zdarma.",
+      "Všechny ceny jsou za vozidlo, nikoli za osobu, a zahrnují 90 minut čekání.",
     discountPricesShown: "Zobrazeny online speciální ceny",
     golfFavourite: "Oblíbené pro golf",
     onlineDiscountShort: "Online speciál",
@@ -847,6 +895,7 @@ const translations = {
     faqEyebrow: "Často kladené dotazy",
     faqTitle: "Před vaší cestou.",
     faqCatArrival: "Vyzvednutí a transfer",
+    faqCatJourney: "Zpáteční cesta a jízda",
     faqCatPayment: "Platba a cena",
     faqCatVehicle: "Vozidlo a zavazadla",
     faqReminder: "Před cestou si prosím přečtěte sekci častých dotazů na našem webu.",
@@ -875,6 +924,21 @@ const translations = {
     faqTenQ: "Jak zůstanu ve spojení při zpátečním transferu?",
     faqTenA:
       "Jakmile s naším týmem potvrdíte datum a čas zpáteční cesty přes WhatsApp, několik hodin před transferem přidělíme vozidlo a pošleme vám jeho fotografie na WhatsApp – na přání i telefonní číslo řidiče. Když řidič dorazí k hotelu, oznámí to recepci, která dá vědět na váš pokoj, že vůz je připraven. Naši řidiči hostům nikdy nevolají přímo: veškerá komunikace probíhá přes jedinou zákaznickou linku na WhatsAppu, takže vždy víte, s kým mluvíte.",
+    faqElevenQ: "Mohu rezervaci zrušit nebo změnit?",
+    faqElevenA:
+      "Ano, a vždy zdarma. Nevybíráme platbu předem, takže není co vracet ani na co čekat — pokud se vaše plány změní, stačí zpráva na WhatsAppu. Změnu času, čísla letu nebo cílové adresy vyřídíme stejně, bez příplatku.",
+    faqTwelveQ: "V jaké měně mohu zaplatit?",
+    faqTwelveA:
+      "Naše ceny jsou stanoveny v eurech (EUR) a platí se v hotovosti; karty nepřijímáme. Chcete-li platit v amerických dolarech nebo tureckých lirách, částka závisí na denním kurzu — napište nám proto před transferem na WhatsApp. Sdělíme vám jasnou cenu a informujeme šoféra, takže ve voze se o ničem nevyjednává.",
+    faqThirteenQ: "Kolik zavazadel si mohu vzít?",
+    faqThirteenA:
+      "Zpravidla jeden velký kufr a jedno příruční zavazadlo na osobu. Pokud máte více — kufr navíc, golfovou výbavu, kočárek, lyže nebo kolo — stačí to uvést při rezervaci a bez příplatku přistavíme vůz s odpovídající kapacitou. Důležité je jen dát nám vědět předem. Mercedes Vito pojme až 6 cestujících, Sprinter až 12.",
+    faqFourteenQ: "Co když se na zpáteční transfer opozdím?",
+    faqFourteenA:
+      "Šofér je u hotelu v dohodnutý čas a čeká 15 minut zdarma. Pokud tušíte zdržení, napište nám na WhatsApp: zkontrolujeme čas odletu, informujeme šoféra a plán upravíme společně s vámi. Nechceme vás popohánět, ale v klidu vás doručit k letadlu.",
+    faqFifteenQ: "Je možné se během cesty zastavit?",
+    faqFifteenA:
+      "Samozřejmě. Chcete-li se cestou zastavit v supermarketu či lékárně nebo na chvíli kvůli fotografii, řekněte nám to při rezervaci nebo na WhatsAppu — trasu podle toho naplánujeme. Pokud zastávka vede výrazně mimo trasu, před odjezdem vám řekneme, zda se něco připočítává; dodatečně vás nic nepřekvapí.",
     faqThreeQ: "Jsou k dispozici dětské sedačky?",
     faqThreeA:
       "Ano. Sedačky pro kojence, batolata i posilovací sedačky jsou k dispozici zdarma při objednávce.",
@@ -969,6 +1033,7 @@ const translations = {
     continue: "Pokračovat",
     back: "Zpět",
     reserveForPrice: "Rezervovat",
+    perVehicleNote: "Na vozidlo — ne na osobu · Až 6 cestujících",
     perVehicleNoteVito: "Na vozidlo — ne na osobu · Až 6 cestujících",
     perVehicleNoteSprinter: "Na vozidlo — ne na osobu · Až 12 cestujících",
     perVehicle: "pevná cena · na vozidlo",
@@ -1029,7 +1094,7 @@ const translations = {
     welcomeEyebrow: "Witamy na najwyższym poziomie",
     welcomeTitle: "Podróżuj z klasą.<br />Przyjeżdżaj spokojnie.",
     welcomeBody:
-      "Od chwili lądowania każdy szczegół jest dopracowany. Szofer czeka w hali przylotów, zajmuje się bagażem i odprowadza Cię do starannie przygotowanego pojazdu.",
+      "Od chwili lądowania dopracowany jest każdy szczegół. Nasz zespół na lotnisku wita Cię, kierowca podjeżdża w miejsce odbioru, a bagaże trafiają do starannie przygotowanego prywatnego auta.",
     ourStandards: "Nasze standardy usług",
     concierge: "Usługi concierge",
     guestsWelcomed: "Powitanych gości",
@@ -1060,7 +1125,7 @@ const translations = {
     television: "Telewizor w pojeździe",
     coldDrinks: "Zimne napoje",
     snacks: "Przekąski",
-    nameSignGreeting: "Osobiste powitanie po przylocie",
+    nameSignGreeting: "Powitanie przy stanowisku J / 777",
     reserveVehicle: "Zarezerwuj pojazd",
     insideVclass: "Wnętrze Sprinter",
     interiorTitle: "Prywatny salon<br />między lotniskiem a hotelem.",
@@ -1076,7 +1141,7 @@ const translations = {
       "Zawsze zadbani, dyskretni, wybrani za znajomość terenu i najwyższe standardy obsługi.",
     greetTitle: "Meet & Greet",
     greetBody:
-      "Szofer wita Cię w hali przylotów i pomaga z bagażem.",
+      "Przy przylotach międzynarodowych nasz zespół wita Cię przy stanowisku J / 777, wzywa kierowcę w miejsce odbioru i pomaga z bagażem.",
     supportTitle: "Concierge 24/7",
     supportBody:
       "Przed, w trakcie i po podróży zawsze możesz skontaktować się z nami telefonicznie lub przez WhatsApp.",
@@ -1089,7 +1154,7 @@ const translations = {
     routesEyebrow: "Nasze najpopularniejsze trasy",
     routesTitle: "Z lotniska Antalya<br />na Turecką Riwierę.",
     routesIntro:
-      "Wszystkie ceny dotyczą pojazdu, nie osoby. Bezpłatny czas oczekiwania jest wliczony.",
+      "Wszystkie ceny są za pojazd, nie za osobę, i obejmują 90 minut oczekiwania.",
     golfFavourite: "Ulubieniec golfistów",
     from: "Od",
     reviewsEyebrow: "Opinie gości",
@@ -1105,6 +1170,7 @@ const translations = {
     faqEyebrow: "Często zadawane pytania",
     faqTitle: "Przed Twoją podróżą.",
     faqCatArrival: "Odbiór i transfer",
+    faqCatJourney: "Powrót i podróż",
     faqCatPayment: "Płatność i cena",
     faqCatVehicle: "Pojazd i bagaż",
     faqReminder: "Przed podróżą zapoznaj się z sekcją FAQ na naszej stronie.",
@@ -1133,6 +1199,21 @@ const translations = {
     faqTenQ: "Jak utrzymać kontakt przy transferze powrotnym?",
     faqTenA:
       "Gdy potwierdzisz naszemu zespołowi datę i godzinę powrotu przez WhatsApp, na kilka godzin przed transferem przydzielamy pojazd i wysyłamy Ci jego zdjęcia na WhatsAppie – a jeśli chcesz, także numer telefonu kierowcy. Gdy kierowca dotrze do hotelu, informuje recepcję, która przekazuje do Twojego pokoju, że samochód czeka. Nasi kierowcy nigdy nie dzwonią do gości bezpośrednio: cała komunikacja przechodzi przez jedną linię wsparcia na WhatsAppie, więc zawsze wiesz dokładnie, z kim rozmawiasz.",
+    faqElevenQ: "Czy mogę anulować lub zmienić rezerwację?",
+    faqElevenA:
+      "Tak, i zawsze bezpłatnie. Nie pobieramy przedpłaty, więc nie ma czego zwracać ani na co czekać — jeśli plany się zmienią, wystarczy wiadomość na WhatsAppie. Zmianę godziny, numeru lotu czy adresu docelowego załatwiamy tak samo, bez dopłat.",
+    faqTwelveQ: "W jakiej walucie mogę zapłacić?",
+    faqTwelveA:
+      "Nasze ceny ustalane są w euro (EUR) i płatne gotówką; kart nie przyjmujemy. Jeśli wolisz zapłacić w dolarach amerykańskich lub lirach tureckich, kwota zależy od kursu z danego dnia — napisz więc do nas na WhatsAppie przed transferem. Podamy jasną cenę i poinformujemy kierowcę, więc w aucie nie ma żadnych negocjacji.",
+    faqThirteenQ: "Ile bagażu mogę zabrać?",
+    faqThirteenA:
+      "Zasadniczo jedna duża walizka i jeden bagaż podręczny na osobę. Jeśli masz więcej — dodatkową walizkę, sprzęt golfowy, wózek, narty czy rower — po prostu zaznacz to przy rezerwacji, a bez dopłaty podstawimy pojazd o odpowiedniej pojemności. Liczy się tylko to, żebyśmy wiedzieli wcześniej. Mercedes Vito zabiera do 6 pasażerów, a Sprinter do 12.",
+    faqFourteenQ: "Co jeśli spóźnię się na transfer powrotny?",
+    faqFourteenA:
+      "Kierowca jest pod hotelem o umówionej godzinie i czeka 15 minut bezpłatnie. Jeśli przewidujesz opóźnienie, wystarczy jedna wiadomość na WhatsAppie: sprawdzimy godzinę wylotu, poinformujemy kierowcę i wspólnie dostosujemy plan. Nie chodzi o pośpiech, lecz o spokojny dojazd na lot.",
+    faqFifteenQ: "Czy w trakcie podróży można zrobić dodatkowy postój?",
+    faqFifteenA:
+      "Oczywiście. Jeśli chcesz zatrzymać się przy supermarkecie lub aptece albo na chwilę na zdjęcie, powiedz nam o tym przy rezerwacji lub na WhatsAppie — zaplanujemy trasę z takim postojem. Jeśli postój wyraźnie zbacza z trasy, przed wyjazdem powiemy, czy coś dochodzi do kwoty; nic nie pojawia się później jako niespodzianka.",
     faqThreeQ: "Czy dostępne są foteliki dziecięce?",
     faqThreeA:
       "Tak. Nosidełka, foteliki i podkładki są dostępne bezpłatnie przy wcześniejszej rezerwacji.",
@@ -1234,7 +1315,7 @@ const translations = {
     welcomeEyebrow: "Welkom op het hoogste niveau",
     welcomeTitle: "Stijlvol reizen.<br />Ontspannen aankomen.",
     welcomeBody:
-      "Vanaf uw landing is elk detail geregeld. Uw chauffeur wacht in de aankomsthal, zorgt voor uw bagage en begeleidt u naar uw zorgvuldig voorbereide privévoertuig.",
+      "Vanaf het moment dat u landt, is aan elk detail gedacht. Ons luchthaventeam ontvangt u, uw chauffeur staat klaar op het ophaalpunt en uw bagage gaat in een zorgvuldig voorbereide privéwagen.",
     ourStandards: "Onze servicestandaarden",
     concierge: "Conciërgeservice",
     guestsWelcomed: "Verwelkomde gasten",
@@ -1265,7 +1346,7 @@ const translations = {
     television: "Televisie in het voertuig",
     coldDrinks: "Koude dranken",
     snacks: "Snacks",
-    nameSignGreeting: "Persoonlijke ontvangst bij aankomst",
+    nameSignGreeting: "Ontvangst bij balie J / 777",
     reserveVehicle: "Voertuig reserveren",
     insideVclass: "In het Sprinter interieur",
     interiorTitle: "Een privélounge<br />tussen luchthaven en hotel.",
@@ -1281,7 +1362,7 @@ const translations = {
       "Altijd verzorgd, discreet en geselecteerd op lokale kennis en hoogste servicestandaard.",
     greetTitle: "Meet & Greet",
     greetBody:
-      "Uw chauffeur verwelkomt u in de aankomsthal en helpt met uw bagage.",
+      "Bij internationale aankomsten ontvangt ons team u bij balie J / 777, roept uw chauffeur naar het ophaalpunt en helpt met de bagage.",
     supportTitle: "24/7 Conciërge",
     supportBody:
       "Voor, tijdens en na uw reis is er altijd iemand bereikbaar per telefoon of WhatsApp.",
@@ -1294,7 +1375,7 @@ const translations = {
     routesEyebrow: "Onze populairste ritten",
     routesTitle: "Van Antalya Luchthaven<br />naar de Turkse Rivièra.",
     routesIntro:
-      "Alle prijzen zijn per voertuig, nooit per persoon. Gratis wachttijd is inbegrepen.",
+      "Alle prijzen gelden per voertuig, niet per persoon, inclusief 90 minuten wachttijd.",
     golfFavourite: "Golfliefhebbersfavoriet",
     from: "Vanaf",
     reviewsEyebrow: "Gastbeoordelingen",
@@ -1310,6 +1391,7 @@ const translations = {
     faqEyebrow: "Veelgestelde vragen",
     faqTitle: "Vóór uw reis.",
     faqCatArrival: "Aankomst & transfer",
+    faqCatJourney: "Terugrit & onderweg",
     faqCatPayment: "Betaling & prijs",
     faqCatVehicle: "Voertuig & bagage",
     faqReminder: "Lees vóór uw reis het FAQ-gedeelte op onze website.",
@@ -1341,6 +1423,21 @@ const translations = {
     faqTenQ: "Hoe houd ik contact voor de terugtransfer?",
     faqTenA:
       "Zodra u datum en tijd van uw terugreis via WhatsApp met ons team hebt bevestigd, wijzen wij enkele uren vóór de transfer uw voertuig toe en sturen wij u foto's ervan via WhatsApp – desgewenst ook het telefoonnummer van uw chauffeur. Zodra uw chauffeur bij het hotel is, meldt hij zich bij de receptie, die uw kamer laat weten dat de auto klaarstaat. Onze chauffeurs bellen gasten nooit rechtstreeks: alle contact loopt via onze centrale WhatsApp-supportlijn, zodat u altijd precies weet met wie u spreekt.",
+    faqElevenQ: "Kan ik mijn boeking annuleren of wijzigen?",
+    faqElevenA:
+      "Ja, en altijd kosteloos. Wij vragen geen vooruitbetaling, dus er valt niets terug te betalen en u hoeft nergens op te wachten — veranderen uw plannen, dan volstaat een bericht via WhatsApp. Een ander tijdstip, vluchtnummer of afleveradres regelen wij op dezelfde manier, zonder meerkosten.",
+    faqTwelveQ: "In welke valuta kan ik betalen?",
+    faqTwelveA:
+      "Onze prijzen zijn in euro's (EUR) en worden contant voldaan; kaarten accepteren wij niet. Betaalt u liever in Amerikaanse dollars of Turkse lira, dan hangt het bedrag af van de dagkoers — stuur ons daarom vóór uw transfer een bericht via WhatsApp. Wij bevestigen een duidelijke prijs en informeren uw chauffeur, zodat er in de auto niets onderhandeld wordt.",
+    faqThirteenQ: "Hoeveel bagage mag ik meenemen?",
+    faqThirteenA:
+      "In de regel één grote koffer en één handbagagestuk per passagier. Hebt u meer bij zich — een extra koffer, golftas, kinderwagen, ski's of een fiets — geef het dan aan bij het boeken; wij zetten zonder meerkosten een voertuig met de juiste capaciteit in. Het enige wat telt, is dat wij het vooraf weten. Een Mercedes Vito vervoert tot 6 passagiers, een Sprinter tot 12.",
+    faqFourteenQ: "Wat als ik te laat ben voor mijn terugtransfer?",
+    faqFourteenA:
+      "Uw chauffeur staat op het afgesproken tijdstip bij uw hotel en wacht 15 minuten kosteloos. Verwacht u vertraging, stuur dan één bericht via WhatsApp: wij controleren uw vluchttijd, informeren uw chauffeur en stemmen het plan met u af. Wij willen u niet opjagen, maar u rustig op tijd bij uw vlucht krijgen.",
+    faqFifteenQ: "Is een tussenstop tijdens de rit mogelijk?",
+    faqFifteenA:
+      "Natuurlijk. Wilt u onderweg stoppen bij een supermarkt of apotheek of even voor een foto, laat het ons weten bij het boeken of via WhatsApp — wij plannen de route erop. Leidt een stop ver van uw route af, dan zeggen wij vóór vertrek of er iets bij komt; achteraf verrast u niets.",
     faqThreeQ: "Zijn kinderzitjes beschikbaar?",
     faqThreeA:
       "Ja. Babyschalen, kinderzitjes en zitverhogers zijn bij vooraf boeken gratis beschikbaar.",
@@ -1442,7 +1539,7 @@ const translations = {
     welcomeEyebrow: "Ласкаво просимо на найвищий рівень",
     welcomeTitle: "Подорожуйте стильно.<br />Прибувайте спокійно.",
     welcomeBody:
-      "З моменту посадки вашого літака кожна деталь продумана. Шофер чекає на вас у залі прильоту, піклується про багаж і супроводжує вас до підготовленого автомобіля.",
+      "З моменту приземлення продумано кожну деталь. Наша команда в аеропорту зустрічає вас, водій подає автомобіль до місця посадки, а багаж завантажують у ретельно підготовлене приватне авто.",
     ourStandards: "Наші стандарти сервісу",
     concierge: "Підтримка консьєржа",
     guestsWelcomed: "Зустрінутих гостей",
@@ -1473,7 +1570,7 @@ const translations = {
     television: "Телевізор в автомобілі",
     coldDrinks: "Холодні напої",
     snacks: "Закуски",
-    nameSignGreeting: "Особиста зустріч у залі прильоту",
+    nameSignGreeting: "Зустріч біля стійки J / 777",
     reserveVehicle: "Забронювати автомобіль",
     insideVclass: "Салон Sprinter",
     interiorTitle: "Приватний лаунж<br />між аеропортом і готелем.",
@@ -1489,7 +1586,7 @@ const translations = {
       "Завжди бездоганний вигляд, делікатність, знання регіону та найвищі стандарти обслуговування.",
     greetTitle: "Зустріч в аеропорту",
     greetBody:
-      "Шофер зустріне вас у залі прильоту та допоможе з багажем.",
+      "Під час міжнародних прильотів наша команда зустрічає вас біля стійки J / 777, викликає водія до місця посадки та допомагає з багажем.",
     supportTitle: "Консьєрж 24/7",
     supportBody:
       "До, під час і після поїздки вам завжди відповість людина по телефону або в WhatsApp.",
@@ -1502,7 +1599,7 @@ const translations = {
     routesEyebrow: "Найпопулярніші поїздки",
     routesTitle: "З аеропорту Анталії<br />на Турецьку Рив'єру.",
     routesIntro:
-      "Всі ціни вказані за автомобіль, а не за пасажира. Безкоштовне очікування включено.",
+      "Усі ціни вказані за автомобіль, а не за пасажира, і включають 90 хвилин очікування.",
     golfFavourite: "Вибір гравців у гольф",
     from: "Від",
     reviewsEyebrow: "Відгуки гостей",
@@ -1518,6 +1615,7 @@ const translations = {
     faqEyebrow: "Часті запитання",
     faqTitle: "Перед поїздкою.",
     faqCatArrival: "Зустріч і трансфер",
+    faqCatJourney: "Зворотний трансфер і поїздка",
     faqCatPayment: "Оплата й ціна",
     faqCatVehicle: "Автомобіль і багаж",
     faqReminder: "Перед поїздкою ознайомтеся з розділом поширених запитань на нашому сайті.",
@@ -1547,6 +1645,21 @@ const translations = {
     faqTenQ: "Як підтримувати зв'язок під час зворотного трансферу?",
     faqTenA:
       "Щойно ви підтвердите дату й час зворотної поїздки нашій команді у WhatsApp, за кілька годин до трансферу ми призначаємо автомобіль і надсилаємо вам його фотографії у WhatsApp — за бажанням також номер телефону водія. Коли водій приїжджає до готелю, він повідомляє рецепцію, а вона передає у ваш номер, що авто подано. Наші водії ніколи не телефонують гостям напряму: усе спілкування відбувається через єдину лінію підтримки у WhatsApp, тож ви завжди точно знаєте, з ким розмовляєте.",
+    faqElevenQ: "Чи можу я скасувати або змінити бронювання?",
+    faqElevenA:
+      "Так, і завжди безкоштовно. Ми не беремо передоплати, тож повертати нічого й чекати на гроші не доводиться — якщо плани змінилися, достатньо написати нам у WhatsApp. Зміну часу, номера рейсу чи адреси призначення оформлюємо так само, без доплат.",
+    faqTwelveQ: "У якій валюті можна розрахуватися?",
+    faqTwelveA:
+      "Наші ціни встановлені в євро (EUR) і сплачуються готівкою; картки не приймаємо. Якщо зручніше платити в доларах США чи турецьких лірах, сума залежить від курсу на день, тому напишіть нам у WhatsApp перед трансфером: ми назвемо чітку ціну та попередимо водія — в автомобілі нічого не обговорюється.",
+    faqThirteenQ: "Скільки багажу можна взяти?",
+    faqThirteenA:
+      "Як правило, одна велика валіза та одне місце ручної поклажі на пасажира. Якщо багажу більше — додаткова валіза, гольф-бег, візочок, лижі чи велосипед — просто зазначте це під час бронювання, і ми без доплат подамо автомобіль потрібної місткості. Головне — попередити заздалегідь. Mercedes Vito вміщує до 6 пасажирів, Sprinter — до 12.",
+    faqFourteenQ: "Що робити, якщо я запізнююся на зворотний трансфер?",
+    faqFourteenA:
+      "Водій приїжджає до готелю в узгоджений час і чекає 15 хвилин безкоштовно. Якщо розумієте, що затримаєтеся, напишіть нам у WhatsApp: ми перевіримо час вильоту, повідомимо водія та скоригуємо план разом із вами. Наша мета — не квапити вас, а спокійно доправити на рейс.",
+    faqFifteenQ: "Чи можна зробити зупинку в дорозі?",
+    faqFifteenA:
+      "Звісно. Якщо хочете заїхати до супермаркету чи аптеки або зупинитися для фото, скажіть про це під час бронювання або напишіть у WhatsApp — ми спланусмо маршрут із урахуванням зупинки. Якщо зупинка суттєво відхиляє від маршруту, перед виїздом повідомимо, чи додається щось до суми: жодних сюрпризів потім.",
     faqThreeQ: "Чи є дитячі крісла?",
     faqThreeA:
       "Так. Автолюльки, дитячі крісла та бустери надаються безкоштовно на запит при бронюванні.",
@@ -1671,7 +1784,7 @@ const translations = {
     welcomeEyebrow: "ایک بہتر آمد میں خوش آمدید",
     welcomeTitle: "خوبصورتی سے سفر کریں۔<br />آسانی سے پہنچیں۔",
     welcomeBody:
-      "آپ کی فلائٹ لینڈ ہونے کے لمحے سے ہر تفصیل کا خیال رکھا جاتا ہے۔ آپ کا شوفر آمد پر انتظار کرتا ہے، آپ کا سامان اٹھاتا ہے اور آپ کو ایک بے عیب نجی گاڑی تک لے جاتا ہے۔",
+      "آپ کی لینڈنگ کے لمحے سے ہر تفصیل کا خیال رکھا جاتا ہے۔ ہماری ایئرپورٹ ٹیم آپ کا استقبال کرتی ہے، آپ کا ڈرائیور پک اپ پوائنٹ پر گاڑی لے آتا ہے اور آپ کا سامان احتیاط سے تیار کی گئی نجی گاڑی میں رکھا جاتا ہے۔",
     ourStandards: "ہمارے سروس معیارات",
     concierge: "کنسیرج سپورٹ",
     guestsWelcomed: "مسافروں کا استقبال",
@@ -1692,7 +1805,7 @@ const translations = {
     snacks: "اسنیکس",
     childSeats: "بچوں کی نشست دستیاب",
     wifi: "مجانی WiFi",
-    nameSignGreeting: "آمد پر ذاتی استقبال",
+    nameSignGreeting: "کاؤنٹر J / 777 پر استقبال",
     reserveVehicle: "یہ گاڑی بک کریں",
     insideVclass: "اسپرنٹر کے اندر",
     interiorTitle: "ایئرپورٹ اور آپ کے ہوٹل کے<br />درمیان ایک نجی لاؤنج۔",
@@ -1708,7 +1821,7 @@ const translations = {
       "بے داغ پیش کردہ، سمجھدار اور اپنی مقامی معلومات اور سروس معیارات کے لیے منتخب۔",
     greetTitle: "میٹ اینڈ گریٹ",
     greetBody:
-      "آپ کا شوفر آمد پر آپ کا استقبال کرے گا اور سامان میں مدد کرے گا۔",
+      "بین الاقوامی آمد پر ہماری ایئرپورٹ ٹیم آپ کو کاؤنٹر J / 777 پر ملتی ہے، ڈرائیور کو پک اپ پوائنٹ پر بلاتی ہے اور سامان میں مدد کرتی ہے۔",
     supportTitle: "24/7 کنسیرج",
     supportBody:
       "آپ کے سفر سے پہلے، دوران اور بعد میں ایک حقیقی شخص فون یا واٹس ایپ پر ہمیشہ دستیاب ہے۔",
@@ -1721,7 +1834,7 @@ const translations = {
     routesEyebrow: "ہمارے سب سے مطلوب سفر",
     routesTitle: "انطالیہ ایئرپورٹ سے<br />ترکی ریویرا تک۔",
     routesIntro:
-      "تمام قیمتیں فی گاڑی ہیں، فی مسافر نہیں، مجانی انتظار کا وقت شامل ہے۔",
+      "تمام قیمتیں فی گاڑی ہیں، فی مسافر نہیں، اور ان میں 90 منٹ کا انتظار شامل ہے۔",
     discountPricesShown: "آن لائن خصوصی قیمتیں دکھائی جا رہی ہیں",
     golfFavourite: "گولف کا پسندیدہ",
     onlineDiscountShort: "آن لائن خصوصی قیمت",
@@ -1732,6 +1845,7 @@ const translations = {
     faqEyebrow: "اکثر پوچھے گئے سوالات",
     faqTitle: "سفر سے پہلے۔",
     faqCatArrival: "آمد اور ٹرانسفر",
+    faqCatJourney: "واپسی اور سفر",
     faqCatPayment: "ادائیگی اور قیمت",
     faqCatVehicle: "گاڑی اور سامان",
     faqReminder: "اپنے سفر سے پہلے براہِ کرم ہماری ویب سائٹ کا FAQ سیکشن ملاحظہ کریں۔",
@@ -1762,6 +1876,21 @@ const translations = {
     faqTenQ: "واپسی کے ٹرانسفر کے لیے رابطہ کیسے رہے گا؟",
     faqTenA:
       "جب آپ WhatsApp پر ہماری ٹیم کے ساتھ واپسی کی تاریخ اور وقت کی تصدیق کر دیتے ہیں، تو ہم ٹرانسفر سے چند گھنٹے پہلے آپ کی گاڑی مقرر کرتے ہیں اور WhatsApp پر اس کی تصاویر بھیجتے ہیں — آپ چاہیں تو ڈرائیور کا فون نمبر بھی۔ ڈرائیور ہوٹل پہنچ کر استقبالیہ کو اطلاع دیتا ہے، اور استقبالیہ آپ کے کمرے میں بتا دیتا ہے کہ گاڑی تیار ہے۔ ہمارے ڈرائیور مہمانوں کو براہِ راست فون نہیں کرتے: تمام رابطہ ہماری واحد WhatsApp سپورٹ لائن کے ذریعے ہوتا ہے، تاکہ آپ کو ہمیشہ معلوم ہو کہ آپ کس سے بات کر رہے ہیں۔",
+    faqElevenQ: "کیا میں اپنی بکنگ منسوخ یا تبدیل کر سکتا ہوں؟",
+    faqElevenA:
+      "جی ہاں، اور ہمیشہ مفت۔ چونکہ ہم پیشگی ادائیگی نہیں لیتے، اس لیے واپس کرنے کو کچھ نہیں ہوتا اور رقم کی واپسی کا انتظار بھی نہیں کرنا پڑتا — منصوبہ بدل جائے تو WhatsApp پر ایک پیغام کافی ہے۔ وقت، فلائٹ نمبر یا منزل کے پتے کی تبدیلی بھی اسی طرح، بغیر کسی اضافی چارج کے کر دی جاتی ہے۔",
+    faqTwelveQ: "میں کس کرنسی میں ادائیگی کر سکتا ہوں؟",
+    faqTwelveA:
+      "ہماری قیمتیں یورو (EUR) میں مقرر ہیں اور ادائیگی نقد ہوتی ہے؛ کارڈ قبول نہیں کیے جاتے۔ اگر آپ امریکی ڈالر یا ترک لیرا میں ادائیگی کرنا چاہیں تو رقم اُس دن کے ریٹ پر منحصر ہوگی، اس لیے ٹرانسفر سے پہلے ہمیں WhatsApp پر پیغام دیں۔ ہم آپ کو واضح قیمت بتا دیں گے اور ڈرائیور کو بھی مطلع کر دیں گے — گاڑی میں کوئی بات چیت نہیں ہوتی۔",
+    faqThirteenQ: "میں کتنا سامان لا سکتا ہوں؟",
+    faqThirteenA:
+      "عام اصول یہ ہے کہ فی مسافر ایک بڑا سوٹ کیس اور ایک ہینڈ بیگ۔ اگر اس سے زیادہ ہو — اضافی سوٹ کیس، گولف بیگ، بچوں کی پرام، اسکیز یا سائیکل — تو بکنگ کے وقت بتا دیں؛ ہم بغیر اضافی چارج کے مناسب گنجائش والی گاڑی مقرر کر دیں گے۔ اہم صرف یہ ہے کہ ہمیں پہلے سے علم ہو۔ مرسیڈیز ویٹو 6 مسافروں تک اور سپرنٹر 12 مسافروں تک لے جاتی ہے۔",
+    faqFourteenQ: "اگر میں واپسی کے ٹرانسفر کے لیے دیر کر دوں تو کیا ہوگا؟",
+    faqFourteenA:
+      "آپ کا ڈرائیور مقررہ وقت پر ہوٹل پہنچ جاتا ہے اور 15 منٹ مفت انتظار کرتا ہے۔ اگر آپ کو تاخیر کا اندازہ ہو تو WhatsApp پر ایک پیغام کافی ہے: ہم آپ کی پرواز کا وقت دیکھتے ہیں، ڈرائیور کو بتاتے ہیں اور آپ کے ساتھ مل کر پروگرام ترتیب دیتے ہیں۔ ہمارا مقصد آپ کو جلدی میں ڈالنا نہیں بلکہ آرام سے آپ کی پرواز تک پہنچانا ہے۔",
+    faqFifteenQ: "کیا سفر کے دوران اضافی اسٹاپ ممکن ہے؟",
+    faqFifteenA:
+      "بالکل ممکن ہے۔ اگر آپ راستے میں سپر مارکیٹ یا فارمیسی پر رکنا چاہیں یا تصویر کے لیے مختصر وقفہ لینا چاہیں تو بکنگ کے وقت یا WhatsApp پر بتا دیں — ہم راستہ اسی حساب سے ترتیب دیں گے۔ اگر اسٹاپ آپ کے راستے سے نمایاں طور پر دور لے جائے تو روانگی سے پہلے واضح کر دیتے ہیں کہ کوئی اضافی رقم ہوگی یا نہیں؛ بعد میں کچھ بھی شامل نہیں کیا جاتا۔",
     faqThreeQ: "کیا بچوں کی نشستیں دستیاب ہیں؟",
     faqThreeA:
       "ہاں۔ بکنگ کے وقت درخواست کرنے پر شیر خوار، چھوٹے بچوں اور بوسٹر نشستیں مجانی دستیاب ہیں۔",
@@ -1897,6 +2026,7 @@ const translations = {
     continue: "جاری رکھیں",
     back: "پیچھے",
     reserveForPrice: "بک کریں",
+    perVehicleNote: "فی گاڑی — فی شخص نہیں · زیادہ سے زیادہ 6 مسافر",
     perVehicleNoteVito: "فی گاڑی — فی شخص نہیں · زیادہ سے زیادہ 6 مسافر",
     perVehicleNoteSprinter: "فی گاڑی — فی شخص نہیں · زیادہ سے زیادہ 12 مسافر",
   },
@@ -1953,7 +2083,7 @@ const translations = {
     welcomeEyebrow: "Bienvenue au plus haut niveau",
     welcomeTitle: "Voyager avec élégance.<br />Arriver sereinement.",
     welcomeBody:
-      "Dès votre atterrissage, chaque détail est organisé. Votre chauffeur vous attend dans le hall des arrivées, s'occupe de vos bagages et vous accompagne jusqu'à votre véhicule privé soigneusement préparé.",
+      "Dès l'atterrissage, chaque détail est pensé. Notre équipe de l'aéroport vous accueille, votre chauffeur se présente au point de prise en charge et vos bagages sont chargés dans un véhicule privé soigneusement préparé.",
     ourStandards: "Nos standards de service",
     concierge: "Service conciergerie",
     guestsWelcomed: "Clients accueillis",
@@ -1984,7 +2114,7 @@ const translations = {
     television: "Télévision à bord",
     coldDrinks: "Boissons fraîches",
     snacks: "En-cas",
-    nameSignGreeting: "Accueil personnalisé à l'arrivée",
+    nameSignGreeting: "Accueil au comptoir J / 777",
     reserveVehicle: "Réserver ce véhicule",
     insideVclass: "Intérieur Sprinter",
     interiorTitle: "Un salon privé<br />entre l'aéroport et l'hôtel.",
@@ -2000,7 +2130,7 @@ const translations = {
       "Toujours soignés, discrets et sélectionnés pour leur connaissance locale et leurs standards de service irréprochables.",
     greetTitle: "Accueil Meet & Greet",
     greetBody:
-      "Après avoir récupéré vos bagages, rendez-vous dans la zone Meet & Greet J / 777. Notre équipe à l'aéroport identifiera votre réservation et vous mettra en contact avec votre chauffeur.",
+      "Pour les arrivées internationales, notre équipe vous accueille au comptoir J / 777, appelle votre chauffeur au point de prise en charge et vous aide avec vos bagages.",
     supportTitle: "Conciergerie 24/7",
     supportBody:
       "Avant, pendant et après votre voyage, une personne est toujours disponible par téléphone ou WhatsApp.",
@@ -2013,7 +2143,7 @@ const translations = {
     routesEyebrow: "Nos trajets les plus populaires",
     routesTitle: "De l'aéroport d'Antalya<br />vers la Riviera turque.",
     routesIntro:
-      "Tous les prix sont par véhicule, jamais par personne. L'attente gratuite est incluse.",
+      "Tous les prix s'entendent par véhicule, jamais par passager, avec 90 minutes d'attente incluses.",
     golfFavourite: "Favori des golfeurs",
     from: "À partir de",
     reviewsEyebrow: "Avis clients",
@@ -2029,6 +2159,7 @@ const translations = {
     faqEyebrow: "Questions fréquentes",
     faqTitle: "Avant votre voyage.",
     faqCatArrival: "Arrivée & transfert",
+    faqCatJourney: "Retour & trajet",
     faqCatPayment: "Paiement & prix",
     faqCatVehicle: "Véhicule & bagages",
     faqReminder: "Avant votre voyage, veuillez consulter la section FAQ de notre site.",
@@ -2059,6 +2190,22 @@ const translations = {
     faqTenQ: "Comment rester en contact pour le transfert retour ?",
     faqTenA:
       "Une fois la date et l'heure de votre retour confirmées avec notre équipe sur WhatsApp, nous attribuons votre véhicule quelques heures avant le transfert et vous en envoyons les photos sur WhatsApp — ainsi que le numéro de votre chauffeur si vous le souhaitez. À son arrivée à l'hôtel, votre chauffeur prévient la réception, qui informe votre chambre que la voiture est prête. Nos chauffeurs n'appellent jamais directement les clients : tous les échanges passent par notre ligne d'assistance WhatsApp unique, afin que vous sachiez toujours exactement à qui vous parlez.",
+    faqElevenQ: "Puis-je annuler ou modifier ma réservation ?",
+    faqElevenA:
+      "Oui, et toujours gratuitement. Comme nous ne prenons aucun prépaiement, il n'y a rien à rembourser ni d'attente pour récupérer votre argent : si vos plans changent, un message sur WhatsApp suffit. Un changement d'horaire, de numéro de vol ou d'adresse se règle de la même façon, sans frais.",
+    faqTwelveQ: "Dans quelle devise puis-je payer ?",
+    faqTwelveA:
+      "Nos prix sont fixés en euros (EUR) et réglés en espèces ; les cartes ne sont pas acceptées. Si vous préférez payer en dollars américains ou en livres turques, le montant dépend du cours du jour : écrivez-nous sur WhatsApp avant votre transfert. Nous vous confirmons un prix clair et prévenons votre chauffeur, afin que rien ne se négocie dans la voiture.",
+    faqThirteenQ: "Quelle quantité de bagages puis-je emporter ?",
+    faqThirteenA:
+      "En règle générale, une grande valise et un bagage à main par passager. Si vous avez davantage — une valise supplémentaire, un sac de golf, une poussette, des skis ou un vélo — indiquez-le lors de la réservation : nous prévoyons sans supplément un véhicule à la capacité adaptée. L'essentiel est simplement que nous le sachions à l'avance. Un Mercedes Vito accueille jusqu'à 6 passagers et un Sprinter jusqu'à 12.",
+    faqFourteenQ:
+      "Que se passe-t-il si je suis en retard pour mon transfert retour ?",
+    faqFourteenA:
+      "Votre chauffeur se présente à l'hôtel à l'heure convenue et attend 15 minutes sans frais. Si vous prévoyez du retard, un message sur WhatsApp suffit : nous vérifions l'heure de votre vol, prévenons votre chauffeur et ajustons le programme avec vous. Notre objectif n'est pas de vous presser, mais de vous conduire sereinement à votre vol.",
+    faqFifteenQ: "Puis-je demander un arrêt pendant le trajet ?",
+    faqFifteenA:
+      "Bien sûr. Si vous souhaitez vous arrêter à un supermarché ou à une pharmacie, ou faire une courte pause photo, indiquez-le lors de la réservation ou sur WhatsApp : nous organisons l'itinéraire en conséquence. Si l'arrêt vous éloigne nettement de votre route, nous vous disons avant le départ si un montant s'ajoute ; rien n'apparaît après coup.",
     faqThreeQ: "Des sièges enfants sont-ils disponibles ?",
     faqThreeA:
       "Oui. Coques bébé, sièges enfants et rehausseurs sont disponibles gratuitement sur réservation.",
@@ -2161,7 +2308,7 @@ const translations = {
     welcomeEyebrow: "Välkommen till högsta nivå",
     welcomeTitle: "Res med stil.<br />Anländ avslappnad.",
     welcomeBody:
-      "Från det ögonblick ditt plan landar är varje detalj ordnad. Din chaufför väntar i ankomsthallen, tar hand om ditt bagage och eskorterar dig till ditt noggrant förberedda fordon.",
+      "Från det ögonblick du landar är varje detalj genomtänkt. Vårt flygplatsteam möter dig, chauffören står vid upphämtningsplatsen och ditt bagage lastas in i en omsorgsfullt förberedd privat bil.",
     ourStandards: "Våra servicestandarder",
     concierge: "Concierge-service",
     guestsWelcomed: "Välkomnade gäster",
@@ -2192,7 +2339,7 @@ const translations = {
     television: "TV i fordonet",
     coldDrinks: "Kalla drycker",
     snacks: "Snacks",
-    nameSignGreeting: "Personligt välkomnande vid ankomst",
+    nameSignGreeting: "Mottagning vid disk J / 777",
     reserveVehicle: "Boka fordon",
     insideVclass: "Sprinter interiör",
     interiorTitle: "En privat lounge<br />mellan flygplatsen och hotellet.",
@@ -2208,7 +2355,7 @@ const translations = {
       "Alltid välvårdade, diskreta och utvalda för lokal kunskap och högsta servicestandard.",
     greetTitle: "Meet & Greet",
     greetBody:
-      "Din chaufför välkomnar dig i ankomsthallen och hjälper med bagaget.",
+      "Vid utrikes ankomster möter vårt flygplatsteam dig vid disk J / 777, kallar din chaufför till upphämtningsplatsen och hjälper till med bagaget.",
     supportTitle: "Concierge 24/7",
     supportBody:
       "Före, under och efter din resa finns alltid någon tillgänglig per telefon eller WhatsApp.",
@@ -2221,7 +2368,7 @@ const translations = {
     routesEyebrow: "Våra populäraste rutter",
     routesTitle: "Från Antalya flygplats<br />till Turkiska Rivieran.",
     routesIntro:
-      "Alla priser gäller per fordon, aldrig per person. Gratis väntetid ingår.",
+      "Alla priser gäller per fordon, aldrig per passagerare, med 90 minuters väntetid inkluderad.",
     golfFavourite: "Golfarnas favorit",
     from: "Från",
     reviewsEyebrow: "Gästrecensioner",
@@ -2237,6 +2384,7 @@ const translations = {
     faqEyebrow: "Vanliga frågor",
     faqTitle: "Innan din resa.",
     faqCatArrival: "Ankomst & transfer",
+    faqCatJourney: "Hemresa & färd",
     faqCatPayment: "Betalning & pris",
     faqCatVehicle: "Fordon & bagage",
     faqReminder: "Läs gärna FAQ-avsnittet på vår webbplats innan din resa.",
@@ -2266,6 +2414,21 @@ const translations = {
     faqTenQ: "Hur håller jag kontakten inför hemtransfern?",
     faqTenA:
       "När du har bekräftat datum och tid för hemresan med vårt team på WhatsApp tilldelar vi ditt fordon några timmar före transfern och skickar bilder på det via WhatsApp – och chaufförens telefonnummer om du vill ha det. När chauffören kommer till hotellet meddelar han receptionen, som ringer upp ditt rum och berättar att bilen står redo. Våra chaufförer ringer aldrig gästerna direkt: all kontakt går via vår enda WhatsApp-supportlinje, så du vet alltid exakt vem du talar med.",
+    faqElevenQ: "Kan jag avboka eller ändra min bokning?",
+    faqElevenA:
+      "Ja, och alltid kostnadsfritt. Eftersom vi inte tar någon förskottsbetalning finns det inget att återbetala och inget att vänta på — ändras dina planer räcker ett meddelande på WhatsApp. Ändrad tid, nytt flightnummer eller ny adress ordnar vi på samma sätt, utan extra kostnad.",
+    faqTwelveQ: "Vilken valuta kan jag betala i?",
+    faqTwelveA:
+      "Våra priser anges i euro (EUR) och betalas kontant; kort tas inte emot. Vill du hellre betala i amerikanska dollar eller turkiska lira beror beloppet på dagskursen — skriv därför till oss på WhatsApp före transfern. Vi bekräftar ett tydligt pris och informerar chauffören, så att inget förhandlas i bilen.",
+    faqThirteenQ: "Hur mycket bagage får jag ta med?",
+    faqThirteenA:
+      "Som regel en stor resväska och ett handbagage per person. Har du mer med dig — en extra väska, golfbag, barnvagn, skidor eller cykel — nämn det vid bokningen, så sätter vi in ett fordon med rätt kapacitet utan extra kostnad. Det enda som betyder något är att vi vet om det i förväg. En Mercedes Vito tar upp till 6 passagerare och en Sprinter upp till 12.",
+    faqFourteenQ: "Vad händer om jag blir sen till hemtransfern?",
+    faqFourteenA:
+      "Chauffören är vid hotellet på avtalad tid och väntar 15 minuter kostnadsfritt. Tror du att du blir försenad räcker ett meddelande på WhatsApp: vi kontrollerar din avgångstid, informerar chauffören och justerar upplägget tillsammans med dig. Målet är aldrig att stressa dig, bara att få dig i god tid till flyget.",
+    faqFifteenQ: "Går det att göra ett stopp under resan?",
+    faqFifteenA:
+      "Självklart. Vill du stanna vid en mataffär eller ett apotek, eller ta en kort fotopaus, säg till vid bokningen eller på WhatsApp — vi planerar rutten efter det. Tar stoppet dig långt från vägen säger vi före avfärd om något tillkommer; inget dyker upp i efterhand.",
     faqThreeQ: "Finns det bilbarnstolar?",
     faqThreeA:
       "Ja. Babyskydd, barnstolar och bälteskuddar finns tillgängliga utan extra kostnad vid förbeställning.",
@@ -2367,7 +2530,7 @@ const translations = {
     welcomeEyebrow: "最高水準のサービスへようこそ",
     welcomeTitle: "上質な旅を。<br />安心してご到着を。",
     welcomeBody:
-      "着陸の瞬間から、すべての細部が整っています。ショーファーが到着ロビーでお待ちし、お荷物をお預かりして、丁寧に準備された専用車両へとご案内します。",
+      "着陸の瞬間から、細部まで整えてお待ちしています。空港スタッフがお出迎えし、ドライバーが乗車地点に車をつけ、丁寧に準備された専用車へお荷物をお積みします。",
     ourStandards: "私たちのサービス基準",
     concierge: "コンシェルジュサービス",
     guestsWelcomed: "お迎えしたゲスト数",
@@ -2398,7 +2561,7 @@ const translations = {
     television: "車内テレビ",
     coldDrinks: "冷たいお飲み物",
     snacks: "スナック",
-    nameSignGreeting: "到着ロビーでのお出迎え",
+    nameSignGreeting: "カウンター J / 777 でのお出迎え",
     reserveVehicle: "この車両を予約する",
     insideVclass: "Sprinterインテリア",
     interiorTitle: "空港とホテルの間の<br />プライベートラウンジ。",
@@ -2413,8 +2576,7 @@ const translations = {
     chauffeurBody:
       "常に清潔感があり、思いやりがあり、地元知識と最高のサービス基準のために厳選されています。",
     greetTitle: "ミート＆グリート",
-    greetBody:
-      "ショーファーが到着ロビーでお出迎えし、お荷物をお手伝いします。",
+    greetBody: "国際線到着では、空港スタッフがカウンター J / 777 でお出迎えし、ドライバーを乗車地点に呼び、お荷物をお手伝いします。",
     supportTitle: "24/7コンシェルジュ",
     supportBody:
       "旅の前・中・後、いつでも電話またはWhatsAppでご対応いたします。",
@@ -2426,8 +2588,7 @@ const translations = {
       "年齢に合ったチャイルドシート、広々とした車内、ご家族の安心到着のための丁寧なサポート。",
     routesEyebrow: "人気のルート",
     routesTitle: "アンタルヤ空港から<br />トルコリビエラへ。",
-    routesIntro:
-      "すべての料金は車両ごと（お一人様ではありません）。無料待機時間込み。",
+    routesIntro: "料金はすべて1台あたり（お一人あたりではありません）で、90分の待機時間を含みます。",
     golfFavourite: "ゴルファーに人気",
     from: "から",
     reviewsEyebrow: "お客様の声",
@@ -2443,6 +2604,7 @@ const translations = {
     faqEyebrow: "よくある質問",
     faqTitle: "ご旅行の前に。",
     faqCatArrival: "到着・送迎",
+    faqCatJourney: "復路・道中",
     faqCatPayment: "お支払い・料金",
     faqCatVehicle: "車両・お手荷物",
     faqReminder: "ご旅行の前に、当サイトのFAQをご確認ください。",
@@ -2471,6 +2633,21 @@ const translations = {
     faqTenQ: "復路の送迎ではどのように連絡を取りますか？",
     faqTenA:
       "WhatsApp で復路の日時をご確定いただいた後、送迎の数時間前に車両を手配し、WhatsApp で車両の写真をお送りします。ご希望であればドライバーの電話番号もお伝えします。ドライバーがホテルに到着するとフロントへ伝え、フロントからお部屋へ車の準備が整った旨をご連絡いたします。ドライバーがお客様に直接お電話することはありません。ご連絡はすべて WhatsApp のカスタマーサポート窓口に一本化されていますので、どなたとやり取りしているか常に明確です。",
+    faqElevenQ: "予約のキャンセルや変更はできますか？",
+    faqElevenA:
+      "はい、いつでも無料です。事前決済をいただいていないため、返金する金額も、お金が戻るのを待つ必要もありません。ご予定が変わったら WhatsApp にご一報ください。時刻・便名・目的地の変更も同様に、追加料金なく承ります。",
+    faqTwelveQ: "どの通貨で支払えますか？",
+    faqTwelveA:
+      "料金はユーロ（EUR）建てで、現金でのお支払いとなります。カードはご利用いただけません。米ドルまたはトルコリラでのお支払いをご希望の場合、金額はその日のレートによって変わりますので、送迎前に WhatsApp までご連絡ください。明確な金額をお伝えし、ドライバーにも共有しますので、車内で金額の相談が生じることはありません。",
+    faqThirteenQ: "荷物はどのくらい持ち込めますか？",
+    faqThirteenA:
+      "目安はお一人につき大型スーツケース1個と手荷物1個です。それ以上ある場合 — 追加のスーツケース、ゴルフバッグ、ベビーカー、スキー、自転車など — はご予約時にお知らせください。追加料金なしで十分な積載量の車両をご用意します。大切なのは、事前に把握できていることだけです。 メルセデス・ヴィートは最大6名、スプリンターは最大12名までご乗車いただけます。",
+    faqFourteenQ: "復路の送迎に遅れそうな場合はどうなりますか？",
+    faqFourteenA:
+      "ドライバーはお約束の時刻にホテルへ到着し、15分間は無料でお待ちします。遅れそうなときは WhatsApp にご一報ください。搭乗時刻を確認し、ドライバーに伝え、一緒に段取りを調整いたします。お急かしするためではなく、余裕をもってご搭乗いただくためのご案内です。",
+    faqFifteenQ: "途中で立ち寄りをお願いできますか？",
+    faqFifteenA:
+      "もちろん可能です。スーパーや薬局に立ち寄りたい、途中で写真を撮りたいといったご希望は、ご予約時または WhatsApp でお知らせください。ルートをそれに合わせてご用意します。ルートから大きく外れる立ち寄りの場合は、追加が生じるかどうかをご出発前に明確にお伝えします。後から加算されることはありません。",
     faqThreeQ: "チャイルドシートはありますか？",
     faqThreeA:
       "はい。乳幼児用、チャイルドシート、ジュニアシートは予約時にご要望いただければ無料でご用意します。",
@@ -2570,7 +2747,7 @@ const translations = {
     welcomeEyebrow: "최고 수준의 서비스에 오신 것을 환영합니다",
     welcomeTitle: "품격 있게 이동하세요.<br />편안하게 도착하세요.",
     welcomeBody:
-      "착륙하는 순간부터 모든 세부 사항이 준비되어 있습니다. 쇼퍼가 도착 로비에서 기다리며 수하물을 챙기고 세심하게 준비된 전용 차량으로 안내해 드립니다.",
+      "착륙하는 순간부터 모든 것이 준비되어 있습니다. 공항 직원이 고객님을 맞이하고, 기사가 픽업 지점에 차량을 대며, 짐은 정성껏 준비된 전용 차량에 실립니다.",
     ourStandards: "저희 서비스 기준",
     concierge: "컨시어지 서비스",
     guestsWelcomed: "환영한 고객 수",
@@ -2601,7 +2778,7 @@ const translations = {
     television: "차량 내 TV",
     coldDrinks: "차가운 음료",
     snacks: "스낵",
-    nameSignGreeting: "도착 로비에서의 개인 영접",
+    nameSignGreeting: "J / 777 카운터에서 미팅",
     reserveVehicle: "이 차량 예약하기",
     insideVclass: "Sprinter 인테리어",
     interiorTitle: "공항과 호텔 사이의<br />프라이빗 라운지.",
@@ -2616,8 +2793,7 @@ const translations = {
     chauffeurBody:
       "항상 단정하고 신중하며, 현지 지식과 최고 서비스 기준으로 선별된 전문가들입니다.",
     greetTitle: "미트 앤 그리트",
-    greetBody:
-      "쇼퍼가 도착 로비에서 환영하며 수하물을 도와드립니다.",
+    greetBody: "국제선 도착 시 공항 직원이 J / 777 카운터에서 맞이하고, 픽업 지점으로 기사를 부르며 짐을 도와드립니다.",
     supportTitle: "24/7 컨시어지",
     supportBody:
       "여행 전, 중, 후 언제든지 전화 또는 WhatsApp으로 담당자와 연결됩니다.",
@@ -2629,8 +2805,7 @@ const translations = {
       "연령에 맞는 카시트, 넓은 실내, 편안한 가족 도착을 위한 세심한 도움.",
     routesEyebrow: "인기 노선",
     routesTitle: "안탈리아 공항에서<br />터키 리비에라까지.",
-    routesIntro:
-      "모든 요금은 차량 기준(1인 기준 아님)입니다. 무료 대기 시간 포함.",
+    routesIntro: "모든 요금은 인당이 아닌 차량당이며, 90분의 대기 시간이 포함됩니다.",
     golfFavourite: "골퍼들의 인기 선택",
     from: "부터",
     reviewsEyebrow: "고객 후기",
@@ -2646,6 +2821,7 @@ const translations = {
     faqEyebrow: "자주 묻는 질문",
     faqTitle: "여행 전에.",
     faqCatArrival: "도착 및 이동",
+    faqCatJourney: "복귀 및 이동",
     faqCatPayment: "결제 및 요금",
     faqCatVehicle: "차량 및 수하물",
     faqReminder: "여행 전에 저희 웹사이트의 FAQ를 확인해 주세요.",
@@ -2673,6 +2849,21 @@ const translations = {
     faqTenQ: "돌아가는 차량과는 어떻게 연락하나요?",
     faqTenA:
       "WhatsApp으로 저희 팀과 복귀 날짜와 시간을 확정하시면, 이동 몇 시간 전에 차량을 배정하고 WhatsApp으로 차량 사진을 보내 드립니다. 원하시면 기사 연락처도 함께 전달해 드립니다. 기사가 호텔에 도착하면 프런트에 알리고, 프런트에서 객실로 차량이 준비되었음을 안내해 드립니다. 저희 기사는 고객님께 직접 전화하지 않으며, 모든 연락은 WhatsApp 고객지원 창구 한 곳을 통해 이루어집니다. 그래서 누구와 대화하고 있는지 항상 분명합니다.",
+    faqElevenQ: "예약을 취소하거나 변경할 수 있나요?",
+    faqElevenA:
+      "네, 언제나 무료입니다. 선결제를 받지 않기 때문에 환불할 금액도, 돈이 돌아오기를 기다릴 일도 없습니다. 일정이 바뀌면 WhatsApp으로 알려 주시면 됩니다. 시간, 항공편 번호, 도착 주소 변경도 같은 방식으로 추가 비용 없이 처리해 드립니다.",
+    faqTwelveQ: "어떤 통화로 결제할 수 있나요?",
+    faqTwelveA:
+      "요금은 유로(EUR) 기준이며 현금으로 결제하십니다. 카드는 받지 않습니다. 미국 달러나 튀르키예 리라로 결제하고 싶으시면 금액이 그날의 환율에 따라 달라지므로, 이동 전에 WhatsApp으로 알려 주십시오. 정확한 금액을 확정해 드리고 기사에게도 전달하므로 차 안에서 금액을 조율할 일이 없습니다.",
+    faqThirteenQ: "짐은 얼마나 가져올 수 있나요?",
+    faqThirteenA:
+      "원칙적으로 승객 한 분당 대형 캐리어 1개와 기내용 가방 1개입니다. 그보다 많다면 — 추가 캐리어, 골프백, 유모차, 스키, 자전거 등 — 예약 시 알려 주십시오. 추가 요금 없이 적절한 적재 공간을 갖춘 차량을 배정해 드립니다. 중요한 것은 미리 알려 주시는 것뿐입니다. 메르세데스 비토는 최대 6명, 스프린터는 최대 12명까지 탑승하실 수 있습니다.",
+    faqFourteenQ: "복귀 차량 시간에 늦을 것 같으면 어떻게 되나요?",
+    faqFourteenA:
+      "기사는 약속된 시간에 호텔에 도착해 15분간 무료로 대기합니다. 늦어질 것 같으면 WhatsApp으로 한 번만 알려 주십시오. 항공편 시간을 확인하고 기사에게 전달한 뒤 일정을 함께 조정해 드립니다. 서두르시게 하려는 것이 아니라 여유롭게 비행기를 타시도록 돕기 위한 것입니다.",
+    faqFifteenQ: "이동 중에 잠시 들를 수 있나요?",
+    faqFifteenA:
+      "물론입니다. 가는 길에 마트나 약국에 들르거나 잠시 사진을 찍고 싶으시면 예약 시 또는 WhatsApp으로 알려 주십시오. 경로를 그에 맞춰 계획해 드립니다. 경로에서 크게 벗어나는 정차라면 추가 금액이 있는지 출발 전에 분명히 알려 드리며, 나중에 붙는 금액은 없습니다.",
     faqThreeQ: "카시트를 이용할 수 있나요?",
     faqThreeA:
       "네. 신생아용 카시트, 아동용 카시트, 부스터 시트는 예약 시 요청하시면 무료로 제공됩니다.",
@@ -2792,7 +2983,7 @@ const translations = {
     welcomeEyebrow: "مرحباً بك في مستوى أرقى من الخدمة",
     welcomeTitle: "سافر بأناقة.<br />وصل براحة.",
     welcomeBody:
-      "منذ لحظة هبوطك، نعتني بكل التفاصيل. ينتظرك سائقك في صالة الوصول، ويساعدك في الأمتعة، ويرافقك إلى سيارتك الخاصة المجهزة بعناية.",
+      "منذ لحظة هبوطك، رُوعيت كل التفاصيل. يستقبلك فريقنا في المطار، ويقف سائقك في نقطة الاستقبال، وتُحمَّل أمتعتك في سيارة خاصة أُعدّت بعناية.",
     ourStandards: "معايير خدمتنا",
     concierge: "خدمة الكونسيرج",
     guestsWelcomed: "الضيوف الذين استقبلناهم",
@@ -2821,7 +3012,7 @@ const translations = {
     television: "تلفاز داخل السيارة",
     coldDrinks: "مشروبات باردة",
     snacks: "وجبات خفيفة",
-    nameSignGreeting: "استقبال شخصي عند الوصول",
+    nameSignGreeting: "استقبال عند المكتب J / 777",
     reserveVehicle: "احجز هذه السيارة",
     insideVclass: "مقصورة Sprinter الداخلية",
     interiorTitle: "صالة خاصة بين<br />المطار والفندق.",
@@ -2837,7 +3028,7 @@ const translations = {
       "سائقون أنيقون وكتومون دائماً، تم اختيارهم لمعرفتهم المحلية والتزامهم بأعلى معايير الخدمة.",
     greetTitle: "الاستقبال والترحيب",
     greetBody:
-      "يستقبلك سائقك في صالة الوصول ويساعدك في حمل الأمتعة.",
+      "في القدوم الدولي يستقبلك فريقنا عند المكتب J / 777، ويستدعي سائقك إلى نقطة الاستقبال، ويساعدك في الأمتعة.",
     supportTitle: "كونسيرج 24/7",
     supportBody:
       "قبل رحلتك وأثناءها وبعدها، يمكنك دائماً التواصل مع شخص حقيقي عبر الهاتف أو WhatsApp.",
@@ -2849,7 +3040,8 @@ const translations = {
       "مقاعد أطفال مناسبة للأعمار، ومساحات داخلية واسعة، ومساعدة هادئة لوصول عائلي مريح.",
     routesEyebrow: "رحلاتنا الأكثر طلباً",
     routesTitle: "من مطار أنطاليا<br />إلى الريفييرا التركية.",
-    routesIntro: "جميع الأسعار للسيارة وليس للشخص، وتشمل وقت انتظار مجاني.",
+    routesIntro:
+      "جميع الأسعار لكل مركبة وليست لكل راكب، وتشمل 90 دقيقة انتظار.",
     golfFavourite: "المفضل لدى لاعبي الغولف",
     from: "ابتداءً من",
     reviewsEyebrow: "آراء الضيوف",
@@ -2865,6 +3057,7 @@ const translations = {
     faqEyebrow: "الأسئلة الشائعة",
     faqTitle: "قبل رحلتك.",
     faqCatArrival: "الوصول والنقل",
+    faqCatJourney: "العودة والرحلة",
     faqCatPayment: "الدفع والسعر",
     faqCatVehicle: "المركبة والأمتعة",
     faqReminder: "قبل رحلتك، يُرجى الاطلاع على قسم الأسئلة الشائعة على موقعنا.",
@@ -2892,6 +3085,21 @@ const translations = {
     faqTenQ: "كيف أبقى على تواصل في رحلة العودة؟",
     faqTenA:
       "بعد تأكيد تاريخ العودة وموعدها مع فريقنا عبر WhatsApp، نخصص مركبتك قبل الموعد بساعات ونرسل إليك صورها عبر WhatsApp، ورقم هاتف السائق أيضًا إذا رغبت. وعند وصول السائق إلى الفندق يُبلغ الاستقبال، ويقوم الاستقبال بإخطار غرفتك بأن السيارة جاهزة. لا يتصل سائقونا بالضيوف مباشرة أبدًا: يمر التواصل كله عبر خط دعم العملاء الوحيد على WhatsApp، لتعرف دائمًا بالضبط مع من تتحدث.",
+    faqElevenQ: "هل يمكنني إلغاء الحجز أو تعديله؟",
+    faqElevenA:
+      "نعم، ودائمًا مجانًا. لأننا لا نأخذ أي دفعة مسبقة، فليس هناك ما يُسترد ولا انتظار لعودة أموالك — إذا تغيرت خططك تكفي رسالة عبر WhatsApp. وتعديل الموعد أو رقم الرحلة أو عنوان الوصول يتم بالطريقة نفسها، دون رسوم إضافية.",
+    faqTwelveQ: "بأي عملة يمكنني الدفع؟",
+    faqTwelveA:
+      "أسعارنا محددة باليورو (EUR) وتُدفع نقدًا؛ ولا نقبل البطاقات. وإذا فضّلت الدفع بالدولار الأمريكي أو بالليرة التركية فإن المبلغ يعتمد على سعر الصرف في ذلك اليوم، لذا راسلنا عبر WhatsApp قبل موعد النقل: نؤكد لك سعرًا واضحًا ونبلّغ سائقك، فلا يجري أي تفاوض داخل السيارة.",
+    faqThirteenQ: "ما مقدار الأمتعة التي يمكنني اصطحابها؟",
+    faqThirteenA:
+      "القاعدة هي حقيبة كبيرة واحدة وحقيبة يد واحدة لكل راكب. وإذا كان لديك أكثر من ذلك — حقيبة إضافية أو حقيبة غولف أو عربة أطفال أو تزلج أو دراجة — فاذكر ذلك عند الحجز، وسنخصص مركبة بسعة مناسبة دون أي تكلفة إضافية. المهم فقط أن نعرف مسبقًا. تتسع مرسيدس فيتو حتى 6 ركاب، وسبرينتر حتى 12 راكبًا.",
+    faqFourteenQ: "ماذا لو تأخرت عن رحلة العودة؟",
+    faqFourteenA:
+      "يصل سائقك إلى الفندق في الموعد المتفق عليه وينتظر 15 دقيقة مجانًا. وإذا توقعت تأخرًا تكفي رسالة واحدة عبر WhatsApp: نتحقق من موعد رحلتك، ونبلّغ سائقك، ونعدّل البرنامج معك. هدفنا ليس استعجالك، بل إيصالك إلى رحلتك براحة.",
+    faqFifteenQ: "هل يمكن التوقف في الطريق؟",
+    faqFifteenA:
+      "بالطبع. إذا رغبت في التوقف عند سوق أو صيدلية أو لالتقاط صورة في الطريق، فاذكر ذلك عند الحجز أو عبر WhatsApp وسنخطّط المسار على هذا الأساس. وإذا كان التوقف يبعدك كثيرًا عن مسارك، نخبرك قبل الانطلاق بما إذا كان سيُضاف أي مبلغ؛ فلا شيء يظهر لاحقًا كمفاجأة.",
     faqThreeQ: "هل تتوفر مقاعد للأطفال؟",
     faqThreeA:
       "نعم. تتوفر مقاعد للرضع والأطفال والمقاعد المعززة مجاناً عند طلبها أثناء الحجز.",
@@ -2949,7 +3157,7 @@ const paymentTranslations = {
     cashPaymentDescription:
       "No online prepayment. You pay the fixed total to your driver in cash at the start of the journey.",
     confirmCashBooking: "Confirm booking — pay in vehicle",
-    perVehicleNote: "Per vehicle — not per person · Up to 7 passengers",
+    perVehicleNote: "Per vehicle — not per person · Up to 6 passengers",
     meetGreetNote: "Airport Meet &amp; Greet · Meeting point J / 777",
     stepRoute: "Route",
     stepDetails: "Details",
@@ -3002,7 +3210,7 @@ const paymentTranslations = {
     cashPaymentDescription:
       "Keine Online-Vorauszahlung. Den Festpreis zahlen Sie zu Beginn der Fahrt bar an Ihren Chauffeur.",
     confirmCashBooking: "Buchung bestätigen — im Fahrzeug zahlen",
-    perVehicleNote: "Pro Fahrzeug — nicht pro Person · Bis zu 7 Personen",
+    perVehicleNote: "Pro Fahrzeug — nicht pro Person · Bis zu 6 Personen",
     meetGreetNote: "Airport Meet &amp; Greet · Treffpunkt J / 777",
     stepRoute: "Route",
     stepDetails: "Details",
@@ -3052,7 +3260,7 @@ const paymentTranslations = {
     cashPaymentDescription:
       "Online ön ödeme yok. Sabit tutarı yolculuğun başında şoförünüze nakit olarak ödersiniz.",
     confirmCashBooking: "Rezervasyonu onayla — araçta öde",
-    perVehicleNote: "Araç başına — kişi başına değil · 7 yolcuya kadar",
+    perVehicleNote: "Araç başına — kişi başına değil · 6 yolcuya kadar",
     meetGreetNote: "Havalimanı Karşılama · Buluşma noktası J / 777",
     stepRoute: "Rota",
     stepDetails: "Detaylar",
@@ -3099,7 +3307,7 @@ const paymentTranslations = {
     cashPaymentDescription:
       "Без предоплаты онлайн. Фиксированную сумму вы передаёте водителю наличными в начале поездки.",
     confirmCashBooking: "Подтвердить — оплата в автомобиле",
-    perVehicleNote: "За автомобиль — не за человека · До 7 пассажиров",
+    perVehicleNote: "За автомобиль — не за человека · До 6 пассажиров",
     meetGreetNote: "Встреча в аэропорту · Пункт встречи J / 777",
     stepRoute: "Маршрут",
     stepDetails: "Детали",
@@ -3153,6 +3361,7 @@ const paymentTranslations = {
     continue: "Dalej",
     back: "Wstecz",
     reserveForPrice: "Zarezerwuj",
+    perVehicleNote: "Za pojazd — nie za osobę · Do 6 pasażerów",
     perVehicleNoteVito: "Za pojazd — nie za osobę · Do 6 pasażerów",
     perVehicleNoteSprinter: "Za pojazd — nie za osobę · Do 12 pasażerów",
     requestQuote: "Poproś o wycenę",
@@ -3196,6 +3405,7 @@ const paymentTranslations = {
     continue: "Verder",
     back: "Terug",
     reserveForPrice: "Reserveren",
+    perVehicleNote: "Per voertuig — niet per persoon · Tot 6 passagiers",
     perVehicleNoteVito: "Per voertuig — niet per persoon · Tot 6 passagiers",
     perVehicleNoteSprinter:
       "Per voertuig — niet per persoon · Tot 12 passagiers",
@@ -3242,6 +3452,7 @@ const paymentTranslations = {
     continue: "Продовжити",
     back: "Назад",
     reserveForPrice: "Забронювати",
+    perVehicleNote: "За автомобіль — не за особу · До 6 пасажирів",
     perVehicleNoteVito: "За автомобіль — не за особу · До 6 пасажирів",
     perVehicleNoteSprinter: "За автомобіль — не за особу · До 12 пасажирів",
     requestQuote: "Запросити розрахунок",
@@ -3286,6 +3497,7 @@ const paymentTranslations = {
     continue: "Continuer",
     back: "Retour",
     reserveForPrice: "Réserver",
+    perVehicleNote: "Par véhicule — non par personne · Jusqu'à 6 passagers",
     perVehicleNoteVito: "Par véhicule — non par personne · Jusqu'à 6 passagers",
     perVehicleNoteSprinter:
       "Par véhicule — non par personne · Jusqu'à 12 passagers",
@@ -3335,6 +3547,7 @@ const paymentTranslations = {
     continue: "Fortsätt",
     back: "Tillbaka",
     reserveForPrice: "Boka",
+    perVehicleNote: "Per fordon — inte per person · Upp till 6 passagerare",
     perVehicleNoteVito: "Per fordon — inte per person · Upp till 6 passagerare",
     perVehicleNoteSprinter:
       "Per fordon — inte per person · Upp till 12 passagerare",
@@ -3381,6 +3594,7 @@ const paymentTranslations = {
     continue: "続ける",
     back: "戻る",
     reserveForPrice: "予約する",
+    perVehicleNote: "1台あたり — 1人あたりではありません · 最大6名",
     perVehicleNoteVito: "1台あたり — 1人あたりではありません · 最大6名",
     perVehicleNoteSprinter: "1台あたり — 1人あたりではありません · 最大12名",
     requestQuote: "見積もりを依頼",
@@ -3423,6 +3637,7 @@ const paymentTranslations = {
     continue: "계속",
     back: "뒤로",
     reserveForPrice: "예약하기",
+    perVehicleNote: "차량 기준 — 1인 기준 아님 · 최대 6명",
     perVehicleNoteVito: "차량 기준 — 1인 기준 아님 · 최대 6명",
     perVehicleNoteSprinter: "차량 기준 — 1인 기준 아님 · 최대 12명",
     requestQuote: "견적 요청",
@@ -3465,6 +3680,7 @@ const paymentTranslations = {
     continue: "متابعة",
     back: "رجوع",
     reserveForPrice: "احجز",
+    perVehicleNote: "لكل سيارة — لا للفرد · حتى 6 ركاب",
     perVehicleNoteVito: "لكل سيارة — لا للفرد · حتى 6 ركاب",
     perVehicleNoteSprinter: "لكل سيارة — لا للفرد · حتى 12 راكباً",
     requestQuote: "طلب عرض سعر",
@@ -3714,7 +3930,7 @@ const fleetData = {
     descriptionKey: "fleetVclassDescription",
     description:
       "Spacious VIP transport for larger groups, with generous room for passengers and luggage.",
-    guests: "13",
+    guests: "12",
     bags: "12",
     maxUnits: 25,
   },
@@ -3726,7 +3942,7 @@ const fleetData = {
     descriptionKey: "fleetVitoDescription",
     description:
       "A refined private cabin for families and small groups travelling in comfort.",
-    guests: "8",
+    guests: "6",
     bags: "6",
     maxUnits: 11,
   },

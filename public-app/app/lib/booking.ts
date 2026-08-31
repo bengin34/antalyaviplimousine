@@ -40,7 +40,7 @@ export function createPublicBookingSchema(t: Translate) {
     const guests = Number(values.guests);
     const luggage = Number(values.luggage);
     const childSeats = Number(values.childSeats);
-    const capacity = values.vehicle === "sprinter" ? 13 : 7;
+    const capacity = values.vehicle === "sprinter" ? 12 : 6;
 
     if (values.travelDate < localToday) context.addIssue({ code: "custom", path: ["travelDate"], message: t("dateInvalid", "Please select a future date.") });
     if (!Number.isInteger(guests) || guests < 1 || guests > capacity) context.addIssue({ code: "custom", path: ["guests"], message: t("capacityNoVehicle", "Please select a suitable vehicle.") });
