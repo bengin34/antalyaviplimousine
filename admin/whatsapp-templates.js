@@ -358,13 +358,19 @@ export function faqURL(language, topic = "general") {
 
 // The FAQ entry that answers the question customers actually ask at this point
 // of the journey: how the airport pickup works before an arrival transfer, how
-// we stay in touch before the return leg, extra stops for a daily chauffeur,
+// we stay in touch before the trip home, extra stops for a daily chauffeur,
 // payment for everything else.
+//
+// The direction of travel decides, not the leg label: a return transfer is
+// often entered as its own one-way booking rather than as the return leg of a
+// round trip, and that booking carries no "return" leg at all. Anything heading
+// to the airport is the trip home, however it was booked.
 export function faqTopicFor(transfer) {
   if (!transfer) return "general";
   if (transfer.isDailyChauffeur) return "daily";
-  if (transfer.leg === "return") return "return";
   if (transfer.pickupLocation === "airport") return "arrival";
+  if (transfer.dropoffLocation === "airport" || transfer.leg === "return")
+    return "return";
   return "payment";
 }
 

@@ -330,6 +330,22 @@ test('the return leg links the FAQ answer about the return transfer', () => {
   expect(buildConfirmMessage(roundTrip, { leg: 'outbound' })).toContain('#faq-Two')
 })
 
+test('a transfer to the airport links the return answer however it was booked', () => {
+  // The return leg is often entered as its own one-way booking rather than as
+  // the return of a round trip, so it never carries a 'return' leg label.
+  const manualReturn = {
+    ...base,
+    trip_type: 'one_way',
+    manual_return_of_ref: 'VIP-2026-0042',
+    pickup_location: 'belek',
+    dropoff_location: 'airport',
+  }
+
+  expect(buildReminderMessage(manualReturn)).toContain('#faq-Ten')
+  expect(buildConfirmMessage(manualReturn)).toContain('#faq-Ten')
+  expect(buildReminderMessage(manualReturn)).not.toContain('#faq-Nine')
+})
+
 test('a hotel-to-hotel transfer links the payment answer', () => {
   const msg = buildConfirmMessage({ ...base, pickup_location: 'belek', dropoff_location: 'kemer' })
   expect(msg).toContain('Payment & price: https://antalyaviptourism.com/#faq-Nine')
