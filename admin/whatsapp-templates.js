@@ -70,7 +70,6 @@ const LANG = {
     labelReturn: "Return transfer",
     labelPickup: "Pickup location",
     labelDropoff: "Drop-off location",
-    labelMap: "Google Maps route",
     labelFlight: "Flight",
     labelFlightDeparture: "Departure",
     labelLuggage: "Luggage",
@@ -126,7 +125,6 @@ const LANG = {
     labelReturn: "Rücktransfer",
     labelPickup: "Abholort",
     labelDropoff: "Zielort",
-    labelMap: "Google-Maps-Route",
     labelFlight: "Flug",
     labelFlightDeparture: "Abflug",
     labelLuggage: "Gepäck",
@@ -173,7 +171,6 @@ const LANG = {
     labelReturn: "Обратный трансфер",
     labelPickup: "Место подачи",
     labelDropoff: "Место назначения",
-    labelMap: "Маршрут Google Maps",
     labelFlight: "Рейс",
     labelFlightDeparture: "Вылет",
     labelLuggage: "Багаж",
@@ -220,7 +217,6 @@ const LANG = {
     labelReturn: "Dönüş transferi",
     labelPickup: "Alış konumu",
     labelDropoff: "Varış konumu",
-    labelMap: "Google Maps güzergâhı",
     labelFlight: "Uçuş",
     labelFlightDeparture: "Kalkış",
     labelLuggage: "Bagaj",
@@ -275,7 +271,6 @@ const LANG = {
     labelReturn: "Transfert retour",
     labelPickup: "Lieu de prise en charge",
     labelDropoff: "Lieu de destination",
-    labelMap: "Itinéraire Google Maps",
     labelFlight: "Vol",
     labelFlightDeparture: "Décollage",
     labelLuggage: "Bagages",
@@ -322,7 +317,6 @@ const LANG = {
     labelReturn: "رحلة العودة",
     labelPickup: "موقع الاستقبال",
     labelDropoff: "موقع الوصول",
-    labelMap: "مسار Google Maps",
     labelFlight: "الرحلة الجوية",
     labelFlightDeparture: "الإقلاع",
     labelLuggage: "الأمتعة",
@@ -450,14 +444,13 @@ function transferDetails(booking, requestedLeg = "outbound") {
     route: `${locationLabel(transfer.pickupLocation)} → ${locationLabel(transfer.dropoffLocation)}`,
     pickup: navigation.origin,
     dropoff: navigation.destination,
-    mapURL: navigation.google,
     price: isRoundTrip
       ? (Number(b.price_eur) || 0) / 2
       : Number(b.price_eur) || 0,
   };
 }
 
-function detailLines(booking, transfer, t, { includeMap = true } = {}) {
+function detailLines(booking, transfer, t) {
   const b = booking ?? {};
   if (transfer.isDailyChauffeur) {
     const english = LANG.en;
@@ -510,8 +503,6 @@ function detailLines(booking, transfer, t, { includeMap = true } = {}) {
     `${t.labelDropoff}: ${transfer.dropoff}`,
   );
 
-  if (includeMap) lines.push(`${t.labelMap}: ${transfer.mapURL}`);
-
   lines.push(
     `${t.labelVehicle}: ${vehicleLabel(b.vehicle_type)}`,
     `${t.labelGuests}: ${b.guests ?? "—"}`,
@@ -545,7 +536,7 @@ export function buildConfirmMessage(booking, { leg = "outbound", language } = {}
     t.confirmGreeting(b.customer_name),
     "",
     `${t.labelRef}: ${b.booking_ref}`,
-    ...detailLines(b, transfer, t, { includeMap: false }),
+    ...detailLines(b, transfer, t),
     "",
     t.confirmClosing,
     ...faqLines(t, lang, faqTopicFor(transfer)),

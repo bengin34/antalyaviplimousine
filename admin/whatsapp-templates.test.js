@@ -104,19 +104,40 @@ test('hotel name is used as the precise non-airport endpoint when no address exi
   expect(msg).toContain('Regnum Carya Golf & Spa Resort, Belek, Antalya, Türkiye')
 })
 
-test('reminder includes Google Maps route with exact origin and destination', () => {
+test('reminder names the exact pickup and drop-off without a map link', () => {
   const msg = buildReminderMessage({
     ...base,
     pickup_address: 'Antalya Havalimanı Terminal 1',
     dropoff_address: 'İskele Mevkii, Belek Mah. No: 7',
   })
-  const mapLine = msg.split('\n').find((line) => line.includes('Google Maps route: '))
-  expect(mapLine).toBeDefined()
-  const mapURL = new URL(mapLine.replace(/.*Google Maps route: /, ''))
 
-  expect(mapURL.searchParams.get('origin')).toBe('Antalya Havalimanı Terminal 1')
-  expect(mapURL.searchParams.get('destination')).toBe('İskele Mevkii, Belek Mah. No: 7')
-  expect(mapURL.searchParams.get('travelmode')).toBe('driving')
+  expect(msg).toContain('Pickup location: Antalya Havalimanı Terminal 1')
+  expect(msg).toContain('Drop-off location: İskele Mevkii, Belek Mah. No: 7')
+  expect(msg).not.toContain('google.com/maps')
+})
+
+test('no customer message carries a map link', () => {
+  const roundTrip = {
+    ...base,
+    trip_type: 'round_trip',
+    return_date: '2026-08-22',
+    return_pickup_time: '10:40',
+    price_eur: 110,
+  }
+  const messages = [
+    buildConfirmMessage(roundTrip, { leg: 'outbound' }),
+    buildConfirmMessage(roundTrip, { leg: 'return' }),
+    buildReminderMessage(roundTrip, { leg: 'outbound' }),
+    buildReminderMessage(roundTrip, { leg: 'return' }),
+    buildReceivedMessage(base),
+    buildReviewMessage(base),
+    buildMeetGreetMessage(base),
+  ]
+
+  for (const msg of messages) {
+    expect(msg).not.toContain('google.com/maps')
+    expect(msg).not.toContain('Google Maps')
+  }
 })
 
 test('return confirmation uses current return fields and reverses exact endpoints', () => {
