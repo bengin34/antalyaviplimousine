@@ -26,6 +26,11 @@ vi.mock('../lib/supabase', () => ({
   supabase: { from: mocks.from },
 }))
 
+vi.mock('../lib/exchange-rates', () => ({
+  fetchRatesForDates: vi.fn().mockResolvedValue(new Map()),
+  fetchLatestEurTryRate: vi.fn().mockResolvedValue(null),
+}))
+
 vi.mock('../components/ProfitDistributionSection', () => ({
   ProfitDistributionSection: (props: ComponentProps<typeof ProfitDistributionSection>) => <section data-testid="distribution-section">
     <span data-testid="distribution-error">{props.error}</span>

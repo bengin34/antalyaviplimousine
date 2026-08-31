@@ -1,7 +1,18 @@
 import { useCallback, useEffect, useMemo, useState, type FormEvent, type ReactNode } from 'react'
 import { AdminTabs, Topbar } from '../components/AdminChrome'
 import { ProfitDistributionSection } from '../components/ProfitDistributionSection'
-import { berlinTodayISO, fmtDetailDate, fmtSyncTime, formatEuro, formatNumber, formatTry, monthLabel, monthRange, todayISO } from '../lib/format'
+import {
+  LegCostControls,
+  legCostColumns,
+  legCostMode,
+  legLabelFor,
+  legTargetId,
+  toLegKey,
+  type CostMode,
+  type LegKey,
+  type ProfitLegRef,
+} from '../components/LegCostEditors'
+import { berlinTodayISO, fmtDetailDate, fmtSyncTime, formatEuro, formatNumber, formatTry, monthLabel, monthRange, profitLocationLabel, todayISO } from '../lib/format'
 import { fetchRatesForDates, fetchLatestEurTryRate } from '../lib/exchange-rates'
 import {
   createProfitDistribution,
@@ -24,15 +35,12 @@ import {
   calculateProfitLossMetrics,
   DEFAULT_EUR_TRY_RATE,
   DEFAULT_KM_COST_TRY,
-  legCostModel,
 } from '../../profit-loss-metrics.js'
-import { locationLabel } from '../../turkish-formatters.js'
 
 const PAGE_SIZE = 1000
 const FIRST_PROFIT_MONTH = '2026-07'
 
 type SettingsMap = Map<string, any>
-const profitLocationLabel = (location: string) => location === 'daily_chauffeur' ? 'Günlük araç + şoför' : locationLabel(location)
 
 function isStaleDistributionWriteError(error: unknown) {
   const details = error && typeof error === 'object' ? error as { code?: unknown; message?: unknown } : {}
@@ -139,122 +147,6 @@ function SettingsForm({ period, settings, onSaved }: { period: string; settings:
   </form>
 }
 
-function DistanceEditor({ leg, onSave, currentKm, triggerLabel }: {
-  leg: any
-  onSave: (leg: any, distanceKm: number) => Promise<void>
-  currentKm?: number
-  triggerLabel?: string
-}) {
-  const label = triggerLabel || (currentKm ? 'KM düzenle' : 'KM gir')
-  const [editing, setEditing] = useState(false)
-  const [value, setValue] = useState(currentKm ? String(currentKm) : '')
-  const [saving, setSaving] = useState(false)
-  const [error, setError] = useState('')
-
-  const openEditor = () => {
-    setValue(currentKm ? String(currentKm) : '')
-    setError('')
-    setEditing(true)
-  }
-  const submit = async (event: FormEvent) => {
-    event.preventDefault()
-    const distanceKm = Number(value.replace(',', '.'))
-    setError('')
-    if (!Number.isFinite(distanceKm) || distanceKm <= 0 || distanceKm > 5000) {
-      setError('0 ile 5.000 arasında geçerli bir tek yön KM girin.')
-      return
-    }
-    setSaving(true)
-    try {
-      await onSave(leg, distanceKm)
-      setEditing(false)
-    } catch {
-      setError('KM kaydedilemedi, tekrar deneyin.')
-    } finally {
-      setSaving(false)
-    }
-  }
-
-  return <>
-    <button className="profit-warning-action is-primary" type="button" onClick={openEditor}>{label}</button>
-    {editing && <form className="profit-km-form" onSubmit={submit} noValidate>
-      <label><span>Tek yön KM</span><input type="number" min="0.01" max="5000" step="0.01" inputMode="decimal" value={value} onChange={event => setValue(event.target.value)} autoFocus required /></label>
-      <button type="submit" disabled={saving}>{saving ? 'Kaydediliyor…' : 'Kaydet ve hesapla'}</button>
-      <button type="button" disabled={saving} onClick={() => { setEditing(false); setError('') }}>İptal</button>
-      {error && <div className="inline-error" role="alert">{error}</div>}
-    </form>}
-  </>
-}
-
-function DistanceActionRow({ leg, period, navigate, onSave, currentKm }: {
-  leg: any
-  period: string
-  navigate: Navigate
-  onSave: (leg: any, distanceKm: number) => Promise<void>
-  currentKm?: number
-}) {
-  const detailHash = `#detail/${encodeURIComponent(leg.bookingRef)}?from=profit-loss&profitPeriod=${encodeURIComponent(period)}${leg.leg === 'return' ? '&leg=return' : ''}`
-
-  return <li className="profit-warning-row">
-    <div className="profit-warning-main">
-      <span><strong>{leg.bookingRef || leg.customerName || 'Kayıt'}</strong><em>{leg.leg === 'return' ? 'Dönüş' : 'Gidiş'} · {fmtDetailDate(leg.date)}</em></span>
-      <small>{profitLocationLabel(leg.from)} → {profitLocationLabel(leg.to)}</small>
-    </div>
-    <div className="profit-warning-actions">
-      <button className="profit-warning-action" type="button" onClick={() => navigate(detailHash)}>Seyahate git</button>
-      <DistanceEditor leg={leg} onSave={onSave} currentKm={currentKm} />
-    </div>
-  </li>
-}
-
-function SupplierCostEditor({ booking, leg, legLabel, currentCostTry, editing, setEditing, onSave }: {
-  booking: Booking
-  leg: LegKey
-  legLabel: string
-  currentCostTry: number
-  editing: boolean
-  setEditing: (open: boolean) => void
-  onSave: (booking: Booking, leg: LegKey, costTry: number) => Promise<void>
-}) {
-  const [value, setValue] = useState(currentCostTry > 0 ? String(currentCostTry) : '')
-  const [saving, setSaving] = useState(false)
-  const [error, setError] = useState('')
-
-  const openEditor = () => {
-    setValue(currentCostTry > 0 ? String(currentCostTry) : '')
-    setError('')
-    setEditing(true)
-  }
-  const submit = async (event: FormEvent) => {
-    event.preventDefault()
-    const totalCostTry = Number(value.replace(',', '.'))
-    setError('')
-    if (!Number.isFinite(totalCostTry) || totalCostTry <= 0 || totalCostTry > 9_999_999.99) {
-      setError('0 ile 9.999.999,99 arasında geçerli bir maliyet girin.')
-      return
-    }
-    setSaving(true)
-    try {
-      await onSave(booking, leg, totalCostTry)
-      setEditing(false)
-    } catch {
-      setError('Maliyet kaydedilemedi, tekrar deneyin.')
-    } finally {
-      setSaving(false)
-    }
-  }
-
-  return <>
-    <button className="profit-warning-action is-primary" type="button" onClick={openEditor}>Maliyet düzenle</button>
-    {editing && <form className="profit-km-form" onSubmit={submit} noValidate>
-      <label><span>{legLabel} tedarikçi maliyeti (₺)</span><input type="number" min="0.01" max="9999999.99" step="0.01" inputMode="decimal" value={value} onChange={event => setValue(event.target.value)} autoFocus required /></label>
-      <button type="submit" disabled={saving}>{saving ? 'Kaydediliyor…' : 'Kaydet'}</button>
-      <button type="button" disabled={saving} onClick={() => { setEditing(false); setError('') }}>İptal</button>
-      {error && <div className="inline-error" role="alert">{error}</div>}
-    </form>}
-  </>
-}
-
 function ExpandableSection({ title, detail, children }: { title: string; detail?: string; children: ReactNode }) {
   const [open, setOpen] = useState(false)
   return <section className="profit-expandable">
@@ -265,95 +157,13 @@ function ExpandableSection({ title, detail, children }: { title: string; detail?
   </section>
 }
 
-type CostMode = 'own_vehicle' | 'sold_transfer'
-type LegKey = 'outbound' | 'return'
-
-/** Ayağın kendi maliyet modeli; kâr/zarar motoruyla aynı kuralı kullanır. */
-function legCostMode(booking: Booking | undefined, leg: LegKey): CostMode {
-  return booking && legCostModel(booking, leg).costMode === 'sold_transfer' ? 'sold_transfer' : 'own_vehicle'
-}
-
-/** Ayağın maliyetinin yazıldığı sütunlar. */
-function legCostColumns(leg: LegKey) {
-  return leg === 'return'
-    ? { mode: 'return_service_cost_mode' as const, cost: 'return_sold_transfer_cost_try' as const }
-    : { mode: 'service_cost_mode' as const, cost: 'sold_transfer_cost_try' as const }
-}
-
-function CostModeToggle({ booking, leg, onSave, onNeedsCost }: {
-  booking: Booking
-  leg: LegKey
-  onSave: (booking: Booking, leg: LegKey, nextMode: CostMode) => Promise<void>
-  onNeedsCost: () => void
-}) {
-  const [savingMode, setSavingMode] = useState<CostMode | ''>('')
-  const current = legCostMode(booking, leg)
-
-  const toggle = async (nextMode: CostMode) => {
-    if (booking.trip_type === 'daily_chauffeur' || current === nextMode) return
-    // Satılan transfer için maliyet zorunlu (sütun kısıtı); yoksa önce onu iste.
-    if (nextMode === 'sold_transfer' && !(Number(booking[legCostColumns(leg).cost]) > 0)) {
-      onNeedsCost()
-      return
-    }
-    setSavingMode(nextMode)
-    try {
-      await onSave(booking, leg, nextMode)
-    } finally {
-      setSavingMode('')
-    }
-  }
-
-  return <div className="profit-cost-toggle" role="group" aria-label={leg === 'return' ? 'Dönüş maliyet modeli' : 'Gidiş maliyet modeli'}>
-    <button
-      className={current === 'own_vehicle' ? 'is-active' : ''}
-      type="button"
-      disabled={Boolean(savingMode) || booking.trip_type === 'daily_chauffeur'}
-      onClick={() => void toggle('own_vehicle')}
-    >
-      {savingMode === 'own_vehicle' ? 'Kaydediliyor…' : 'Kendi aracımız'}
-    </button>
-    <button
-      className={current === 'sold_transfer' ? 'is-active' : ''}
-      type="button"
-      disabled={Boolean(savingMode) || booking.trip_type === 'daily_chauffeur'}
-      onClick={() => void toggle('sold_transfer')}
-    >
-      {savingMode === 'sold_transfer' ? 'Kaydediliyor…' : 'Satılan transfer'}
-    </button>
-  </div>
-}
-
-/**
- * Bir ayağın maliyet modeli + tedarikçi bedeli. Model "satılan transfer"e
- * çevrilirken bedel zorunlu olduğu için düzenleyici aynı yerden açılır.
- */
-function LegCostControls({ booking, leg, legLabel, currentCostTry, isSoldTransfer, onSaveCostMode, onSaveSupplierCost }: {
-  booking: Booking
-  leg: LegKey
-  legLabel: string
-  currentCostTry: number
-  isSoldTransfer: boolean
-  onSaveCostMode: (booking: Booking, leg: LegKey, nextMode: CostMode) => Promise<void>
-  onSaveSupplierCost: (booking: Booking, leg: LegKey, costTry: number) => Promise<void>
-}) {
-  const [editingCost, setEditingCost] = useState(false)
-
-  return <>
-    <CostModeToggle booking={booking} leg={leg} onSave={onSaveCostMode} onNeedsCost={() => setEditingCost(true)} />
-    {(isSoldTransfer || editingCost) && <SupplierCostEditor
-      booking={booking} leg={leg} legLabel={legLabel} currentCostTry={currentCostTry}
-      editing={editingCost} setEditing={setEditingCost} onSave={onSaveSupplierCost}
-    />}
-  </>
-}
-
-function TravelHistorySection({ metrics, period, bookings, navigate, onSaveDistance, onSaveSupplierCost, onSaveCostMode }: {
+function TravelHistorySection({ metrics, period, bookings, navigate, focusedLegKey, onSaveDistance, onSaveSupplierCost, onSaveCostMode }: {
   metrics: any
   period: string
   bookings: Booking[]
   navigate: Navigate
-  onSaveDistance: (leg: any, distanceKm: number) => Promise<void>
+  focusedLegKey: string | null
+  onSaveDistance: (leg: ProfitLegRef, distanceKm: number) => Promise<void>
   onSaveSupplierCost: (booking: Booking, leg: LegKey, costTry: number) => Promise<void>
   onSaveCostMode: (booking: Booking, leg: LegKey, nextMode: CostMode) => Promise<void>
 }) {
@@ -380,7 +190,7 @@ function TravelHistorySection({ metrics, period, bookings, navigate, onSaveDista
       {legs.map((leg: any) => {
         const booking = bookingMap.get(leg.bookingId)
         const isDailyChauffeur = leg.isDailyChauffeur
-        const legKey: LegKey = leg.leg === 'return' ? 'return' : 'outbound'
+        const legKey: LegKey = toLegKey(leg.leg)
         const legLabel = legKey === 'return' ? 'Dönüş' : 'Gidiş'
         const currentMode = legCostMode(booking, legKey)
         const isSoldTransfer = currentMode === 'sold_transfer'
@@ -400,12 +210,21 @@ function TravelHistorySection({ metrics, period, bookings, navigate, onSaveDista
         // aylık toplu gider olduğu için sefere yansıtılmaz (kâr/zarar özetinde ayrı gösterilir).
         const netProfitTry = (leg.revenueTry ?? 0) - (leg.vehicleCostTry ?? 0) - (leg.supplierCostTry ?? 0) - (leg.airportMeetCostTry ?? 0)
         const netProfitEur = leg.eurTryRate ? netProfitTry / leg.eurTryRate : (leg.revenueEur ?? 0)
-        return <li className="profit-trip-history-row" key={`${leg.bookingId}:${leg.leg}`}>
+        const rowKey = `${leg.bookingId}:${leg.leg}`
+        const needsAttention = isUnresolved || (isSoldTransfer && legCostTry <= 0) || leg.distanceSource === 'daily-missing'
+        return <li
+          className={`profit-trip-history-row${needsAttention ? ' is-incomplete' : ''}${focusedLegKey === rowKey ? ' is-focused' : ''}`}
+          id={legTargetId(leg.bookingId, leg.leg)}
+          key={rowKey}
+        >
           <div className="profit-trip-history-main">
             <div className="profit-trip-history-top">
               <strong>{leg.bookingRef || leg.customerName || 'Kayıt'}</strong>
               <span>{leg.leg === 'return' ? 'Dönüş' : isDailyChauffeur ? 'Günlük hizmet' : 'Gidiş'} · {fmtDetailDate(leg.date)}</span>
             </div>
+            {needsAttention && <p className="profit-leg-badge is-warning">{leg.distanceSource === 'daily-missing'
+              ? 'Günlük hizmet KM bilgisi eksik'
+              : isUnresolved ? 'Tek yön KM bilgisi eksik' : 'Tedarikçi maliyeti eksik'}</p>}
             <div className="profit-trip-history-route">{profitLocationLabel(leg.from)} → {profitLocationLabel(leg.to)}</div>
             {!isUnresolved && <div className={`profit-trip-history-net ${netProfitTry < 0 ? 'is-negative' : 'is-positive'}`}>
               <span>Net kâr</span><strong>{formatTry(netProfitTry)}</strong><em>{formatEuro(netProfitEur)}</em>
@@ -421,10 +240,20 @@ function TravelHistorySection({ metrics, period, bookings, navigate, onSaveDista
             </div>
           </div>
           <div className="profit-trip-history-actions">
-            <button className="profit-warning-action" type="button" onClick={() => navigate(detailHash)}>Seyahate git</button>
-            {booking && !isDailyChauffeur && <LegCostControls booking={booking} leg={legKey} legLabel={legLabel} currentCostTry={legCostTry} isSoldTransfer={isSoldTransfer} onSaveCostMode={onSaveCostMode} onSaveSupplierCost={onSaveSupplierCost} />}
-            {!isSoldTransfer && !isDailyChauffeur && <DistanceEditor leg={leg} onSave={onSaveDistance} currentKm={leg.oneWayKm ?? undefined} />}
+            {booking && !isDailyChauffeur && <LegCostControls
+              booking={booking}
+              legRef={leg}
+              leg={legKey}
+              legLabel={legLabel}
+              currentCostTry={legCostTry}
+              isSoldTransfer={isSoldTransfer}
+              oneWayKm={leg.oneWayKm ?? undefined}
+              onSaveDistance={onSaveDistance}
+              onSaveCostMode={onSaveCostMode}
+              onSaveSupplierCost={onSaveSupplierCost}
+            />}
             {isDailyChauffeur && <span className="profit-trip-history-inline-hint">Günlük KM rezervasyon detayından düzenlenir.</span>}
+            <button className="profit-leg-action is-ghost" type="button" onClick={() => navigate(detailHash)}>Seyahate git</button>
           </div>
         </li>
       })}
@@ -438,7 +267,12 @@ function ProfitHero({ metrics, period }: { metrics: any; period: string }) {
   return <section className={`profit-hero ${negative ? 'is-negative' : 'is-positive'}`} aria-label={formulaOperator}><div className="budget-eyebrow">{period === 'all' ? 'Tüm zamanlar' : monthLabel(period)} · {formulaOperator}</div><div className="profit-total">{formatTry(metrics.netProfitTry)}</div><div className="profit-total-eur">{formatEuro(metrics.netProfitEur)}</div><div className="profit-margin"><span>Kâr marjı</span><strong>%{formatNumber(metrics.profitMargin, 1)}</strong></div></section>
 }
 
-function ProfitMetrics({ metrics, period, navigate }: { metrics: any; period: string; navigate: Navigate }) {
+function ProfitMetrics({ metrics, period, navigate, onFocusLeg }: {
+  metrics: any
+  period: string
+  navigate: Navigate
+  onFocusLeg: (leg: ProfitLegRef & { date?: string | null }) => void
+}) {
   const missingDailyLegs = metrics.resolvedLegs.filter((leg: any) => leg.distanceSource === 'daily-missing')
   const pendingLegs = [...metrics.unresolvedLegs, ...missingDailyLegs]
   return <>
@@ -447,7 +281,22 @@ function ProfitMetrics({ metrics, period, navigate }: { metrics: any; period: st
       <article className="budget-kpi"><span className="budget-kpi-icon" aria-hidden="true">₺</span><span className="budget-kpi-label">Toplam gider</span><strong>{formatTry(metrics.totalExpenseTry)}</strong><small>Tüm operasyonel giderler</small></article>
       <article className="budget-kpi"><span className="budget-kpi-icon" aria-hidden="true">↗</span><span className="budget-kpi-label">Gerçekleşen sefer</span><strong>{formatNumber(metrics.completedLegs)}</strong><small>Seçilen dönemdeki hizmet ayakları</small></article>
     </section>
-    {pendingLegs.length > 0 && <ExpandableSection title="İşlem bekleyen kayıtlar" detail={`${pendingLegs.length} kayıt`}><p className="profit-panel-note">Eksik bilgileri rezervasyon detayından tamamlayın; hesap otomatik güncellenir.</p><ul className="profit-action-list">{pendingLegs.map((leg: any) => <li key={`${leg.bookingId}:${leg.leg}`}><span><strong>{leg.bookingRef || leg.customerName || 'Kayıt'}</strong><small>{leg.distanceSource === 'daily-missing' ? 'Günlük hizmet KM bilgisi eksik' : 'Tek yön KM bilgisi eksik'}</small></span><button type="button" onClick={() => navigate(`#detail/${encodeURIComponent(leg.bookingRef)}?from=profit-loss&profitPeriod=${encodeURIComponent(period)}${leg.leg === 'return' ? '&leg=return' : ''}`)}>Kaydı aç</button></li>)}</ul></ExpandableSection>}
+    {pendingLegs.length > 0 && <ExpandableSection title="İşlem bekleyen kayıtlar" detail={`${pendingLegs.length} kayıt`}>
+      <p className="profit-panel-note">Tek yön KM eksikse aşağıdaki seyahat listesinden doğrudan girilebilir; günlük hizmet KM bilgisi rezervasyon detayından güncellenir.</p>
+      <ul className="profit-action-list">{pendingLegs.map((leg: any) => {
+        const dailyMissing = leg.distanceSource === 'daily-missing'
+        const detailHash = `#detail/${encodeURIComponent(leg.bookingRef)}?from=profit-loss&profitPeriod=${encodeURIComponent(period)}${leg.leg === 'return' ? '&leg=return' : ''}`
+        return <li key={`${leg.bookingId}:${leg.leg}`}>
+          <span>
+            <strong>{leg.bookingRef || leg.customerName || 'Kayıt'}</strong>
+            <small>{legLabelFor(leg.leg)} · {dailyMissing ? 'Günlük hizmet KM bilgisi eksik' : 'Tek yön KM bilgisi eksik'}</small>
+          </span>
+          {dailyMissing
+            ? <button className="profit-leg-action is-primary" type="button" onClick={() => navigate(detailHash)}>Kaydı aç</button>
+            : <button className="profit-leg-action is-primary" type="button" onClick={() => onFocusLeg(leg)}>KM gir</button>}
+        </li>
+      })}</ul>
+    </ExpandableSection>}
     <ExpandableSection title="Gider dağılımı" detail={formatTry(metrics.totalExpenseTry)}><dl className="profit-breakdown"><div><dt>Kendi araç</dt><dd>{formatTry(metrics.vehicleCostTry)}</dd></div><div><dt>Satılan transfer</dt><dd>{formatTry(metrics.supplierCostTry)}</dd></div><div><dt>Karşılama</dt><dd>{formatTry(metrics.airportMeetCostTry)}</dd></div><div><dt>Reklam</dt><dd>{formatTry(metrics.advertisingExpenseTry)}</dd></div></dl></ExpandableSection>
   </>
 }
@@ -468,6 +317,28 @@ export default function ProfitLossPage({ navigate, initialPeriod }: { navigate: 
   const [distributionError, setDistributionError] = useState('')
   const [ratesByDate, setRatesByDate] = useState<Map<string, number>>(new Map())
   const [ratesLoading, setRatesLoading] = useState(false)
+  const [focusedLeg, setFocusedLeg] = useState<{ bookingId: string; leg: string } | null>(null)
+
+  /**
+   * Uyarı kartlarından seyahat listesindeki satıra götürür. Liste seçili döneme
+   * göre filtrelendiği için ayak başka bir aya aitse önce o döneme geçilir;
+   * aksi halde satır ekranda hiç bulunmaz ve eksik bilgi düzeltilemez.
+   */
+  const focusLeg = useCallback((leg: ProfitLegRef & { date?: string | null }) => {
+    const legMonth = typeof leg.date === 'string' ? leg.date.slice(0, 7) : ''
+    if (legMonth && period !== 'all' && legMonth !== period) {
+      setPeriod(months.includes(legMonth) ? legMonth : 'all')
+    }
+    setFocusedLeg({ bookingId: leg.bookingId, leg: leg.leg })
+  }, [months, period])
+
+  useEffect(() => {
+    if (!focusedLeg) return
+    const target = document.getElementById(legTargetId(focusedLeg.bookingId, focusedLeg.leg))
+    if (typeof target?.scrollIntoView === 'function') target.scrollIntoView({ behavior: 'smooth', block: 'center' })
+    const timer = window.setTimeout(() => setFocusedLeg(null), 4000)
+    return () => window.clearTimeout(timer)
+  }, [focusedLeg])
 
   const refreshDistributionLedger = useCallback(async ({ silent = false }: { silent?: boolean } = {}) => {
     if (!silent) setDistributionLoading(true)
@@ -515,7 +386,7 @@ export default function ProfitLossPage({ navigate, initialPeriod }: { navigate: 
     [bookings, period, settings, today, ratesByDate],
   )
   const saveSetting = (month: string, value: any) => setSettings(current => new Map(current).set(month, value))
-  const saveDistance = async (leg: any, distanceKm: number) => {
+  const saveDistance = async (leg: ProfitLegRef, distanceKm: number) => {
     const column = leg.leg === 'return' ? 'manual_return_distance_km' : 'manual_outbound_distance_km'
     const payload = { [column]: distanceKm }
     const { data, error: saveError } = await supabase.from('bookings')
@@ -598,7 +469,7 @@ export default function ProfitLossPage({ navigate, initialPeriod }: { navigate: 
     <div className="budget-toolbar profit-toolbar"><div className="budget-periods" role="group" aria-label="Kâr zarar dönemi">{[...months, 'all'].map(value => <button type="button" key={value} className={period === value ? 'active' : ''} onClick={() => setPeriod(value)}>{value === 'all' ? 'Tümü' : monthLabel(value, { short: true })}</button>)}</div>{ratesLoading && <span className="rates-loading-hint">Kurlar yükleniyor…</span>}<button className="sync-button" type="button" aria-label="Kâr zarar verilerini yenile" disabled={loading} onClick={() => void refresh()}>↻</button></div>
     <div className="budget-update-status">{status}</div>
     <main className="scroll-area budget-content profit-content">
-      {error ? <div className="empty"><div className="empty-icon">₺</div><div>Kâr/zarar verileri yüklenemedi.</div></div> : loading && !bookings.length ? <><div className="empty"><div>Ayarlar yükleniyor…</div></div><div className="empty"><div>Hesaplanıyor…</div></div></> : <><ProfitHero metrics={metrics} period={period} /><ProfitDistributionSection today={distributionToday} bookings={bookings} settingsByMonth={settings} shareSettings={shareSettings} distributions={distributions} loading={distributionLoading} error={distributionError} onRetry={() => void refreshDistributionLedger()} onSaveSettings={saveShareSettings} onCreateDistribution={confirmDistribution} navigate={navigate} /><ProfitMetrics metrics={metrics} period={period} navigate={navigate} /><TravelHistorySection metrics={metrics} period={period} bookings={bookings} navigate={navigate} onSaveDistance={saveDistance} onSaveSupplierCost={saveSupplierCost} onSaveCostMode={saveCostMode} /><ExpandableSection title="Hesaplama ayarları" detail={period === 'all' ? 'Aylık değerler uygulanıyor' : monthLabel(period)}>{period === 'all' ? <p className="profit-panel-note">Tümü görünümünde her ayın KM maliyeti, reklam gideri ve EUR/TL kuru ayrı ayrı kullanılır.</p> : <SettingsForm key={period} period={period} settings={settings} onSaved={saveSetting} />}</ExpandableSection></>}
+      {error ? <div className="empty"><div className="empty-icon">₺</div><div>Kâr/zarar verileri yüklenemedi.</div></div> : loading && !bookings.length ? <><div className="empty"><div>Ayarlar yükleniyor…</div></div><div className="empty"><div>Hesaplanıyor…</div></div></> : <><ProfitHero metrics={metrics} period={period} /><ProfitDistributionSection today={distributionToday} bookings={bookings} settingsByMonth={settings} ratesByDate={ratesByDate} shareSettings={shareSettings} distributions={distributions} loading={distributionLoading} error={distributionError} onRetry={() => void refreshDistributionLedger()} onSaveSettings={saveShareSettings} onCreateDistribution={confirmDistribution} onSaveDistance={saveDistance} onSaveSupplierCost={saveSupplierCost} onSaveCostMode={saveCostMode} onFocusLeg={focusLeg} navigate={navigate} /><ProfitMetrics metrics={metrics} period={period} navigate={navigate} onFocusLeg={focusLeg} /><TravelHistorySection metrics={metrics} period={period} bookings={bookings} navigate={navigate} focusedLegKey={focusedLeg ? `${focusedLeg.bookingId}:${focusedLeg.leg}` : null} onSaveDistance={saveDistance} onSaveSupplierCost={saveSupplierCost} onSaveCostMode={saveCostMode} /><ExpandableSection title="Hesaplama ayarları" detail={period === 'all' ? 'Aylık değerler uygulanıyor' : monthLabel(period)}>{period === 'all' ? <p className="profit-panel-note">Tümü görünümünde her ayın KM maliyeti, reklam gideri ve EUR/TL kuru ayrı ayrı kullanılır.</p> : <SettingsForm key={period} period={period} settings={settings} onSaved={saveSetting} />}</ExpandableSection></>}
     </main>
   </>
 }

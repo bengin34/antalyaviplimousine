@@ -712,6 +712,10 @@ function distributionBlocker(code, leg, extra = {}) {
     bookingRef: leg?.bookingRef ?? null,
     leg: leg?.leg ?? null,
     date: leg?.date ?? null,
+    // Uyarı kartı eksik bilgiyi yerinde düzeltebilsin diye ayağın tamamı
+    // taşınır; böylece rota, gelir ve maliyet modeli için rezervasyon
+    // detayına gitmek gerekmez.
+    legDetails: leg ? { ...leg } : null,
     ...extra,
   }
 }
