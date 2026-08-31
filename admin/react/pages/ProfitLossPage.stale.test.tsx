@@ -22,6 +22,11 @@ vi.mock('../lib/supabase', () => ({
   supabase: { from: mocks.from },
 }))
 
+vi.mock('../lib/exchange-rates', () => ({
+  fetchRatesForDates: vi.fn().mockResolvedValue(new Map()),
+  fetchLatestEurTryRate: vi.fn().mockResolvedValue(null),
+}))
+
 import ProfitLossPage from './ProfitLossPage'
 
 const booking: Booking = {

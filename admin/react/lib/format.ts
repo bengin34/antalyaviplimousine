@@ -1,3 +1,5 @@
+import { locationLabel } from '../../turkish-formatters.js'
+
 export const ISTANBUL_TIME_ZONE = 'Europe/Istanbul'
 export const BERLIN_TIME_ZONE = 'Europe/Berlin'
 
@@ -36,6 +38,11 @@ export function formatTry(value: unknown) {
     currency: 'TRY',
     maximumFractionDigits: 2,
   }).format(Number(value) || 0)
+}
+
+/** Kâr/zarar ekranlarında konum etiketi; günlük hizmet ayaklarının sahte konumunu okunur hale getirir. */
+export function profitLocationLabel(location: unknown) {
+  return location === 'daily_chauffeur' ? 'Günlük araç + şoför' : locationLabel(String(location ?? ''))
 }
 
 export function formatNumber(value: unknown, maximumFractionDigits = 0) {

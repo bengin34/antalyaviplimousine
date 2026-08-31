@@ -158,6 +158,10 @@ function renderSection(overrides: Partial<React.ComponentProps<typeof ProfitDist
     onRetry: vi.fn(),
     onSaveSettings: vi.fn().mockResolvedValue(undefined),
     onCreateDistribution: vi.fn().mockResolvedValue(undefined),
+    onSaveDistance: vi.fn().mockResolvedValue(undefined),
+    onSaveSupplierCost: vi.fn().mockResolvedValue(undefined),
+    onSaveCostMode: vi.fn().mockResolvedValue(undefined),
+    onFocusLeg: vi.fn(),
     navigate: vi.fn(),
     ...overrides,
   }
@@ -379,6 +383,159 @@ describe('ProfitDistributionSection preview and confirmation', () => {
 
     fireEvent.click(within(blocker).getByRole('button', { name: 'Seyahate git' }))
     expect(navigate).toHaveBeenCalledWith('#detail/AVL-101?from=profit-loss')
+  })
+
+  test('carries route, revenue and cost model onto the blocker so the trip need not be opened', () => {
+    renderSection({
+      bookings: [bookingFixture({
+        trip_type: 'one_way',
+        pickup_location: 'private_address',
+        dropoff_location: 'airport',
+        chauffeur_hire_days: [],
+      })],
+    })
+
+    const blocker = screen.getByRole('alert')
+    expect(blocker).toHaveTextContent('Özel adres → Antalya Havalimanı')
+    expect(blocker).toHaveTextContent('Gelir')
+    expect(blocker).toHaveTextContent('€900,00')
+    expect(blocker).toHaveTextContent('Maliyet modeli')
+    expect(blocker).toHaveTextContent('Kendi aracımız')
+    expect(blocker).toHaveTextContent('Tek yön KM')
+    expect(blocker).toHaveTextContent('Girilmedi')
+  })
+
+  test('saves a one-way distance straight from the blocker', async () => {
+    const onSaveDistance = vi.fn().mockResolvedValue(undefined)
+    renderSection({
+      bookings: [bookingFixture({
+        trip_type: 'one_way',
+        pickup_location: 'private_address',
+        dropoff_location: 'airport',
+        chauffeur_hire_days: [],
+      })],
+      onSaveDistance,
+    })
+
+    const blocker = screen.getByRole('alert')
+    fireEvent.click(within(blocker).getByRole('button', { name: 'KM gir' }))
+    fireEvent.change(within(blocker).getByLabelText('Tek yön KM'), { target: { value: '42.5' } })
+    fireEvent.click(within(blocker).getByRole('button', { name: 'Kaydet ve hesapla' }))
+
+    await waitFor(() => expect(onSaveDistance).toHaveBeenCalledWith(
+      expect.objectContaining({ bookingId: 'booking-1', bookingRef: 'AVL-101', leg: 'outbound' }),
+      42.5,
+    ))
+  })
+
+  test('rejects an out-of-range distance without calling the writer', async () => {
+    const onSaveDistance = vi.fn().mockResolvedValue(undefined)
+    renderSection({
+      bookings: [bookingFixture({
+        trip_type: 'one_way',
+        pickup_location: 'private_address',
+        dropoff_location: 'airport',
+        chauffeur_hire_days: [],
+      })],
+      onSaveDistance,
+    })
+
+    const blocker = screen.getByRole('alert')
+    fireEvent.click(within(blocker).getByRole('button', { name: 'KM gir' }))
+    fireEvent.change(within(blocker).getByLabelText('Tek yön KM'), { target: { value: '7000' } })
+    fireEvent.click(within(blocker).getByRole('button', { name: 'Kaydet ve hesapla' }))
+
+    await screen.findByText('0 ile 5.000 arasında geçerli bir tek yön KM girin.')
+    expect(onSaveDistance).not.toHaveBeenCalled()
+  })
+
+  test('saves a missing supplier cost straight from the blocker', async () => {
+    const onSaveSupplierCost = vi.fn().mockResolvedValue(undefined)
+    const booking = bookingFixture({
+      trip_type: 'one_way',
+      pickup_location: 'airport',
+      dropoff_location: 'side',
+      chauffeur_hire_days: [],
+      service_cost_mode: 'sold_transfer',
+      sold_transfer_cost_try: null,
+    })
+    renderSection({ bookings: [booking], onSaveSupplierCost })
+
+    const blocker = screen.getByRole('alert')
+    fireEvent.click(within(blocker).getByRole('button', { name: 'Maliyet düzenle' }))
+    fireEvent.change(within(blocker).getByLabelText('Gidiş tedarikçi maliyeti (₺)'), { target: { value: '2200' } })
+    fireEvent.click(within(blocker).getByRole('button', { name: 'Kaydet' }))
+
+    await waitFor(() => expect(onSaveSupplierCost).toHaveBeenCalledWith(booking, 'outbound', 2200))
+  })
+
+  test('switches a blocked leg back to own vehicle from the blocker', async () => {
+    const onSaveCostMode = vi.fn().mockResolvedValue(undefined)
+    const booking = bookingFixture({
+      trip_type: 'one_way',
+      pickup_location: 'airport',
+      dropoff_location: 'side',
+      chauffeur_hire_days: [],
+      service_cost_mode: 'sold_transfer',
+      sold_transfer_cost_try: null,
+    })
+    renderSection({ bookings: [booking], onSaveCostMode })
+
+    fireEvent.click(within(screen.getByRole('alert')).getByRole('button', { name: 'Kendi aracımız' }))
+
+    await waitFor(() => expect(onSaveCostMode).toHaveBeenCalledWith(booking, 'outbound', 'own_vehicle'))
+  })
+
+  test('hands the blocked leg to the trip list instead of the detail screen', () => {
+    const onFocusLeg = vi.fn()
+    renderSection({
+      bookings: [bookingFixture({
+        trip_type: 'one_way',
+        pickup_location: 'private_address',
+        dropoff_location: 'airport',
+        chauffeur_hire_days: [],
+      })],
+      onFocusLeg,
+    })
+
+    fireEvent.click(within(screen.getByRole('alert')).getByRole('button', { name: 'Listede aç' }))
+
+    expect(onFocusLeg).toHaveBeenCalledWith(expect.objectContaining({
+      bookingId: 'booking-1',
+      leg: 'outbound',
+      date: '2026-08-10',
+    }))
+  })
+
+  test('keeps daily chauffeur KM on the booking detail screen', () => {
+    renderSection({
+      bookings: [bookingFixture({
+        chauffeur_hire_days: [{
+          ...(bookingFixture().chauffeur_hire_days?.[0]!),
+          distance_km: null,
+        }],
+      })],
+    })
+
+    const blocker = screen.getByRole('alert')
+    expect(blocker).toHaveTextContent('Günlük hizmette gerçekleşen KM, rezervasyon detayındaki gün kartından girilir.')
+    expect(within(blocker).queryByRole('button', { name: 'KM gir' })).toBeNull()
+    expect(within(blocker).getByRole('button', { name: 'Seyahate git' })).toBeVisible()
+  })
+
+  test('prices the preview with the same per-date rates the confirmation uses', () => {
+    const bookings = [bookingFixture({
+      trip_type: 'one_way',
+      pickup_location: 'airport',
+      dropoff_location: 'side',
+      chauffeur_hire_days: [],
+      price_eur: 100,
+      daily_rate_eur: null,
+    })]
+    renderSection({ bookings, ratesByDate: new Map([['2026-08-10', 40]]) })
+
+    // Aylık kur 50 ₺ olsa da tarihe özel 40 ₺ kullanılır: 100 € geliri 4.000 ₺ olur.
+    expect(screen.getByText('Gelir').parentElement).toHaveTextContent('₺4.000,00')
   })
 })
 
