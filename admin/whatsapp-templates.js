@@ -53,6 +53,11 @@ const LANG = {
     reviewClosing:
       "If you have a moment, we'd appreciate a short review on Google — it really helps us. 👇\n\nhttps://g.page/r/CbJCg7BC63cBEBI/review",
     faqNote: "📖 Please read our FAQ before your trip:",
+    faqTopicArrival: "Airport pickup — how it works",
+    faqTopicReturn: "Return transfer — how we stay in touch",
+    faqTopicPayment: "Payment & price",
+    faqTopicDaily: "Your journey & extra stops",
+    faqTopicGeneral: "All frequently asked questions",
     labelRef: "Reference",
     labelDate: "Date",
     labelPickupTime: "Pickup time",
@@ -104,6 +109,11 @@ const LANG = {
     reviewClosing:
       "Wenn Sie einen Moment haben, freuen wir uns über eine kurze Google-Bewertung — das hilft uns sehr. 👇\n\nhttps://g.page/r/CbJCg7BC63cBEBI/review",
     faqNote: "📖 Bitte lesen Sie vor Ihrer Reise unsere FAQ:",
+    faqTopicArrival: "Flughafen-Abholung — so läuft es ab",
+    faqTopicReturn: "Rücktransfer — so bleiben wir in Kontakt",
+    faqTopicPayment: "Zahlung & Preis",
+    faqTopicDaily: "Ihre Fahrt & Zwischenstopps",
+    faqTopicGeneral: "Alle häufigen Fragen",
     labelRef: "Referenz",
     labelDate: "Datum",
     labelPickupTime: "Abholzeit",
@@ -146,6 +156,11 @@ const LANG = {
     reviewClosing:
       "Если найдётся минутка, будем благодарны за короткий отзыв на Google — это очень помогает нам. 👇\n\nhttps://g.page/r/CbJCg7BC63cBEBI/review",
     faqNote: "📖 Перед поездкой ознакомьтесь с нашими вопросами и ответами:",
+    faqTopicArrival: "Встреча в аэропорту — как это происходит",
+    faqTopicReturn: "Обратный трансфер — как мы остаёмся на связи",
+    faqTopicPayment: "Оплата и стоимость",
+    faqTopicDaily: "Поездка и дополнительные остановки",
+    faqTopicGeneral: "Все частые вопросы",
     labelRef: "Номер брони",
     labelDate: "Дата",
     labelPickupTime: "Время подачи",
@@ -188,6 +203,11 @@ const LANG = {
     reviewClosing:
       "Bir dakikanız olursa, Google'da bırakacağınız kısa bir değerlendirme bize çok yardımcı olur. 👇\n\nhttps://g.page/r/CbJCg7BC63cBEBI/review",
     faqNote: "📖 Seyahatinizden önce lütfen SSS bölümümüzü okuyun:",
+    faqTopicArrival: "Havalimanı karşılama — nasıl işliyor",
+    faqTopicReturn: "Dönüş transferi — nasıl iletişimde kalıyoruz",
+    faqTopicPayment: "Ödeme ve fiyat",
+    faqTopicDaily: "Yolculuk ve ara duraklar",
+    faqTopicGeneral: "Tüm sık sorulan sorular",
     labelRef: "Rezervasyon No",
     labelDate: "Tarih",
     labelPickupTime: "Alış saati",
@@ -238,6 +258,11 @@ const LANG = {
     reviewClosing:
       "Si vous avez un instant, un court avis sur Google nous aiderait beaucoup. 👇\n\nhttps://g.page/r/CbJCg7BC63cBEBI/review",
     faqNote: "📖 Avant votre voyage, veuillez lire notre FAQ :",
+    faqTopicArrival: "Accueil à l'aéroport — comment ça se passe",
+    faqTopicReturn: "Transfert retour — comment nous restons en contact",
+    faqTopicPayment: "Paiement et prix",
+    faqTopicDaily: "Votre trajet et les arrêts",
+    faqTopicGeneral: "Toutes les questions fréquentes",
     labelRef: "Référence",
     labelDate: "Date",
     labelPickupTime: "Heure de prise en charge",
@@ -280,6 +305,11 @@ const LANG = {
     reviewClosing:
       "إن توفّرت لديك لحظة، سنكون ممتنين لتقييم قصير على Google — فهذا يساعدنا كثيراً. 👇\n\nhttps://g.page/r/CbJCg7BC63cBEBI/review",
     faqNote: "📖 قبل رحلتك، يُرجى قراءة الأسئلة الشائعة لدينا:",
+    faqTopicArrival: "الاستقبال في المطار — كيف تتم العملية",
+    faqTopicReturn: "رحلة العودة — كيف نبقى على تواصل",
+    faqTopicPayment: "الدفع والسعر",
+    faqTopicDaily: "رحلتك والتوقفات الإضافية",
+    faqTopicGeneral: "كل الأسئلة الشائعة",
     labelRef: "رقم الحجز",
     labelDate: "التاريخ",
     labelPickupTime: "وقت الاستقبال",
@@ -308,11 +338,52 @@ function getLang(language) {
 
 const FAQ_BASE = "https://antalyaviptourism.com";
 
-// Language-specific FAQ URL customers should read before their trip.
-// Falls back to the English homepage when the language has no dedicated page.
-function faqURL(language) {
+// Deep links into the public site's FAQ accordion. The anchors match the
+// `faq-<Item>` ids the home page renders; following one opens that question
+// and scrolls to it, so the customer lands on the answer, not on a long list.
+const FAQ_TOPICS = {
+  arrival: { anchor: "faq-Two", label: "faqTopicArrival" },
+  return: { anchor: "faq-Ten", label: "faqTopicReturn" },
+  payment: { anchor: "faq-Nine", label: "faqTopicPayment" },
+  daily: { anchor: "faq-Fifteen", label: "faqTopicDaily" },
+  general: { anchor: "faq", label: "faqTopicGeneral" },
+};
+
+/**
+ * Language-specific FAQ URL customers should read before their trip.
+ * Falls back to the English homepage when the language has no dedicated page.
+ * @param {string} [language]
+ * @param {keyof typeof FAQ_TOPICS} [topic]
+ * @returns {string}
+ */
+export function faqURL(language, topic = "general") {
   const hasPage = language && language !== "en" && LANG[language];
-  return `${FAQ_BASE}${hasPage ? `/${language}` : ""}/#faq`;
+  const { anchor } = FAQ_TOPICS[topic] ?? FAQ_TOPICS.general;
+  return `${FAQ_BASE}${hasPage ? `/${language}` : ""}/#${anchor}`;
+}
+
+// The FAQ entry that answers the question customers actually ask at this point
+// of the journey: how the airport pickup works before an arrival transfer, how
+// we stay in touch before the return leg, extra stops for a daily chauffeur,
+// payment for everything else.
+export function faqTopicFor(transfer) {
+  if (!transfer) return "general";
+  if (transfer.isDailyChauffeur) return "daily";
+  if (transfer.leg === "return") return "return";
+  if (transfer.pickupLocation === "airport") return "arrival";
+  return "payment";
+}
+
+// "Please read this before your trip" block, closing every pre-trip message
+// with the one FAQ answer that is relevant to it.
+function faqLines(t, language, topic) {
+  const english = LANG.en;
+  const { label } = FAQ_TOPICS[topic] ?? FAQ_TOPICS.general;
+  return [
+    "",
+    t.faqNote ?? english.faqNote,
+    `${t[label] ?? english[label]}: ${faqURL(language, topic)}`,
+  ];
 }
 
 function transferDetails(booking, requestedLeg = "outbound") {
@@ -466,7 +537,8 @@ function detailLines(booking, transfer, t, { includeMap = true } = {}) {
  */
 export function buildConfirmMessage(booking, { leg = "outbound", language } = {}) {
   const b = booking ?? {};
-  const t = getLang(language ?? b.language);
+  const lang = language ?? b.language;
+  const t = getLang(lang);
   const transfer = transferDetails(b, leg);
 
   const lines = [
@@ -476,9 +548,7 @@ export function buildConfirmMessage(booking, { leg = "outbound", language } = {}
     ...detailLines(b, transfer, t, { includeMap: false }),
     "",
     t.confirmClosing,
-    "",
-    t.faqNote,
-    faqURL(language ?? b.language),
+    ...faqLines(t, lang, faqTopicFor(transfer)),
   ];
 
   return lines.join("\n");
@@ -493,7 +563,8 @@ export function buildConfirmMessage(booking, { leg = "outbound", language } = {}
  */
 export function buildReminderMessage(booking, { leg = "outbound", language } = {}) {
   const b = booking ?? {};
-  const t = getLang(language ?? b.language);
+  const lang = language ?? b.language;
+  const t = getLang(lang);
   const transfer = transferDetails(b, leg);
 
   const lines = [
@@ -512,9 +583,7 @@ export function buildReminderMessage(booking, { leg = "outbound", language } = {
 
   lines.push("");
   lines.push(t.reminderClosing);
-  lines.push("");
-  lines.push(t.faqNote);
-  lines.push(faqURL(language ?? b.language));
+  lines.push(...faqLines(t, lang, faqTopicFor(transfer)));
 
   return lines.join("\n");
 }
@@ -526,15 +595,16 @@ export function buildReminderMessage(booking, { leg = "outbound", language } = {
  */
 export function buildReceivedMessage(booking, { language } = {}) {
   const b = booking ?? {};
-  const t = getLang(language ?? b.language);
+  const lang = language ?? b.language;
+  const t = getLang(lang);
 
   const lines = [
     t.receivedGreeting(b.customer_name),
     "",
     t.receivedClosing,
-    "",
-    t.faqNote,
-    faqURL(language ?? b.language),
+    // Nothing is confirmed yet, so point at the FAQ as a whole rather than at
+    // one leg's answer.
+    ...faqLines(t, lang, "general"),
   ];
 
   return lines.join("\n");
@@ -561,9 +631,15 @@ export function buildReviewMessage(booking, { language } = {}) {
  */
 export function buildMeetGreetMessage(booking, { language } = {}) {
   const b = booking ?? {};
-  const t = getLang(language ?? b.language);
+  const lang = language ?? b.language;
+  const t = getLang(lang);
 
-  const lines = [t.meetGreetGreeting(b.customer_name), "", t.meetGreetClosing];
+  const lines = [
+    t.meetGreetGreeting(b.customer_name),
+    "",
+    t.meetGreetClosing,
+    ...faqLines(t, lang, "arrival"),
+  ];
 
   return lines.join("\n");
 }
