@@ -29,8 +29,8 @@ export interface BookingFormState {
   pickup: string; dropoff: string; pickupAddress: string; dropoffAddress: string
   pickupDate: string; pickupTime: string; flightNumber: string; flightTime: string
   returnDate: string; returnTime: string; returnFlight: string; returnFlightTime: string; vehicle: string
-  costMode: 'own_vehicle' | 'sold_transfer'; soldTransferCostTry: string
-  returnCostMode: 'own_vehicle' | 'sold_transfer'; returnSoldTransferCostTry: string
+  costMode: 'own_vehicle' | 'sold_transfer' | 'no_cost'; soldTransferCostTry: string
+  returnCostMode: 'own_vehicle' | 'sold_transfer' | 'no_cost'; returnSoldTransferCostTry: string
   airportMeetFeeApplies: boolean
   serviceEndDate: string; departureFlightDate: string; departureFlightTime: string; departureFlight: string
   guests: string; luggage: string; childSeats: string; price: string; payment: string
@@ -264,15 +264,17 @@ export default function NewBookingPage({ navigate }: { navigate: Navigate }) {
             <select className="input" value={form.costMode} onChange={e => set('costMode', e.target.value as BookingFormState['costMode'])} disabled={isDailyChauffeur}>
               <option value="own_vehicle">Kendi aracımız</option>
               <option value="sold_transfer">Satılan transfer</option>
+              <option value="no_cost">Maliyeti yok</option>
             </select>
           </Field>
-          <div className="form-hint">{isDailyChauffeur ? 'Günlük araç + şoför hizmeti yalnızca kendi aracımız olarak hesaplanır.' : form.costMode === 'sold_transfer' ? (isRoundTrip ? 'Girilen maliyet yalnızca gidiş ayağının gideri kabul edilir.' : 'Girilen toplam maliyet bu rezervasyonun toplam gideri kabul edilir.') : 'Araç maliyeti kâr/zarar ekranında km ve boş dönüş hesabından çıkarılır.'}</div>
+          <div className="form-hint">{isDailyChauffeur ? 'Günlük araç + şoför hizmeti yalnızca kendi aracımız olarak hesaplanır.' : form.costMode === 'no_cost' ? 'Bu ayak için gider hesaplanmaz; kâr/zarar ekranında KM veya tedarikçi bedeli sorulmaz.' : form.costMode === 'sold_transfer' ? (isRoundTrip ? 'Girilen maliyet yalnızca gidiş ayağının gideri kabul edilir.' : 'Girilen toplam maliyet bu rezervasyonun toplam gideri kabul edilir.') : 'Araç maliyeti kâr/zarar ekranında km ve boş dönüş hesabından çıkarılır.'}</div>
           {!isDailyChauffeur && form.costMode === 'sold_transfer' && <Field label={isRoundTrip ? 'Gidiş maliyeti (₺) *' : 'Toplam maliyet (₺) *'}><input className="input" type="number" min={0.01} max={9999999.99} step={0.01} inputMode="decimal" value={form.soldTransferCostTry} onChange={e => set('soldTransferCostTry', e.target.value)} required /></Field>}
           {isRoundTrip && !isDailyChauffeur && <>
             <Field label="Dönüş maliyet modeli">
               <select className="input" value={form.returnCostMode} onChange={e => set('returnCostMode', e.target.value as BookingFormState['returnCostMode'])}>
                 <option value="own_vehicle">Kendi aracımız</option>
                 <option value="sold_transfer">Satılan transfer</option>
+                <option value="no_cost">Maliyeti yok</option>
               </select>
             </Field>
             <div className="form-hint">Gidiş ve dönüş ayrı hesaplanır: bir ayağı satabilir, diğerini kendi aracınızla yapabilirsiniz.</div>

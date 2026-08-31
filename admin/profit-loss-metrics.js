@@ -71,8 +71,17 @@ function isInPeriod(date, period) {
   return period === 'all' || date.slice(0, 7) === period
 }
 
+/**
+ * İptal edilen (ve panelden kalıcı silinmeden önce iptale çekilen) kayıtlar
+ * kâr/zarar hesabının hiçbir yerinde görünmez: ne gelir, ne gider, ne de
+ * "işlem bekleyen" uyarılarında.
+ */
+export function isProfitRelevantBooking(booking) {
+  return Boolean(booking) && booking.status !== 'cancelled'
+}
+
 function isRealizedLeg(booking, date, today, legStatus) {
-  if (!date || booking.status === 'cancelled' || date > today) return false
+  if (!date || !isProfitRelevantBooking(booking) || date > today) return false
   return date < today || REALIZED_TODAY_STATUSES.has(legStatus || booking.status)
 }
 
@@ -113,7 +122,7 @@ export function legCostModel(booking, leg) {
   const legacySplit = usesLegacyCostSplit(booking)
   const useOutboundFields = leg !== 'return' || legacySplit
   const rawMode = useOutboundFields ? booking.service_cost_mode : booking.return_service_cost_mode
-  const costMode = rawMode === 'sold_transfer' ? 'sold_transfer' : 'own_vehicle'
+  const costMode = rawMode === 'sold_transfer' || rawMode === 'no_cost' ? rawMode : 'own_vehicle'
   const source = useOutboundFields ? booking.sold_transfer_cost_try : booking.return_sold_transfer_cost_try
   const { amount, isValid } = parsePositiveMoney(source)
   return {
@@ -133,6 +142,7 @@ function bookingLegs(booking) {
     const dailyRate = Number(booking.daily_rate_eur) || (days.length ? priceEur / days.length : priceEur)
     return days.map(day => ({
       leg: `day-${day.day_number}`,
+      dayId: day.id,
       date: day.service_date,
       from: 'daily_chauffeur',
       to: 'daily_chauffeur',
@@ -520,6 +530,22 @@ export function resolveRealizedLegs(bookings, today, settingsByMonth = {}, rates
           vehicleKm,
           vehicleCostTry: vehicleKm * settings.kmCostTry,
           distanceSource: leg.directVehicleKm === null ? 'daily-missing' : 'daily-actual',
+        })
+        continue
+      }
+
+      // "Maliyeti yok": gideri olmayan ayak. KM veya tedarikçi bedeli beklenmez,
+      // yalnızca geliri hesaba girer.
+      if (leg.costMode === 'no_cost') {
+        resolvedLegs.push({
+          ...legDetails,
+          oneWayKm: 0,
+          vehicleKm: 0,
+          vehicleCostTry: 0,
+          supplierCostTry: 0,
+          distanceSource: 'no-cost',
+          airportMeetCostEur: 0,
+          airportMeetCostTry: 0,
         })
         continue
       }

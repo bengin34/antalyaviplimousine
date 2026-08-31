@@ -82,6 +82,62 @@ describe('calculateProfitLossMetrics', () => {
     expect(result.netProfitTry).toBe(2800)
   })
 
+  test('keeps cancelled bookings out of income, expenses and pending records', () => {
+    const cancelled = {
+      ...baseBooking,
+      id: 'booking-cancelled',
+      booking_ref: 'AVL-CANCEL',
+      pickup_location: 'private_address',
+      status: 'cancelled',
+    }
+    const result = calculateProfitLossMetrics([baseBooking, cancelled], '2026-08', '2026-08-07')
+
+    expect(result.completedLegs).toBe(1)
+    expect(result.incomeEur).toBe(100)
+    expect(result.resolvedLegs.every(leg => leg.bookingId !== 'booking-cancelled')).toBe(true)
+    expect(result.unresolvedLegs).toHaveLength(0)
+  })
+
+  test('treats a "maliyeti yok" leg as realized with no expense at all', () => {
+    // Rota sabit tabloda olmasa bile ayak çözülmüş sayılır: KM sorulmaz,
+    // araç/tedarikçi/karşılama gideri sıfırdır, gelir hesaba girer.
+    const booking = {
+      ...baseBooking,
+      pickup_location: 'private_address',
+      service_cost_mode: 'no_cost',
+      sold_transfer_cost_try: null,
+    }
+    const result = calculateProfitLossMetrics([booking], '2026-08', '2026-08-07')
+
+    expect(result.unresolvedLegs).toHaveLength(0)
+    expect(result.resolvedLegs).toHaveLength(1)
+    expect(result.resolvedLegs[0].distanceSource).toBe('no-cost')
+    expect(result.vehicleCostTry).toBe(0)
+    expect(result.supplierCostTry).toBe(0)
+    expect(result.airportMeetCostTry).toBe(0)
+    expect(result.incomeEur).toBe(100)
+    expect(result.netProfitTry).toBe(100 * DEFAULT_EUR_TRY_RATE)
+  })
+
+  test('marks only the leg set to "maliyeti yok" as free of cost', () => {
+    const booking = {
+      ...baseBooking,
+      trip_type: 'round_trip',
+      price_eur: 200,
+      return_date: '2026-08-05',
+      return_service_cost_mode: 'no_cost',
+      return_sold_transfer_cost_try: null,
+    }
+    const result = calculateProfitLossMetrics([booking], '2026-08', '2026-08-07')
+
+    const outbound = result.resolvedLegs.find(leg => leg.leg === 'outbound')
+    const returnLeg = result.resolvedLegs.find(leg => leg.leg === 'return')
+    expect(outbound.vehicleCostTry).toBe(130 * DEFAULT_KM_COST_TRY)
+    expect(returnLeg.vehicleCostTry).toBe(0)
+    expect(returnLeg.airportMeetCostTry).toBe(0)
+    expect(result.incomeEur).toBe(200)
+  })
+
   test('does not add airport meet cost when the booking opts out of greeting', () => {
     const result = calculateProfitLossMetrics([
       { ...baseBooking, airport_meet_fee_applies: false },
@@ -533,6 +589,22 @@ describe('calculateProfitDistribution', () => {
     settingsByMonth: settings,
     operationsSharePct: 50,
   }
+
+  test('does not block the distribution for a leg marked as "maliyeti yok"', () => {
+    const booking = {
+      ...baseBooking,
+      pickup_location: 'private_address',
+      service_cost_mode: 'no_cost',
+    }
+    const result = calculateProfitDistribution([booking], validOptions)
+
+    expect(result.blockers).toHaveLength(0)
+    expect(result.canDistribute).toBe(true)
+    expect(result.vehicleCostTry).toBe(0)
+    expect(result.supplierCostTry).toBe(0)
+    expect(result.airportMeetCostTry).toBe(0)
+    expect(result.incomeEur).toBe(100)
+  })
 
   test('calculates one-way income, all expense buckets, profit, and shares', () => {
     const result = calculateProfitDistribution([baseBooking], validOptions)
