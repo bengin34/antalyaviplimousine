@@ -4,10 +4,22 @@ import translationData from "../generated/legacy-translations.json";
 import { homeFaqOrder } from "./faq";
 
 export const domain = "https://antalyaviptourism.com";
-export const indexableLanguages = ["en", "de", "fr", "tr", "ru", "cs", "uk", "ur", "pl", "nl", "ar", "sv"] as const;
+export const indexableLanguages = ["en", "de", "fr", "tr", "ru", "cs", "uk", "ur", "pl", "nl", "ar", "sv", "da", "el", "es", "he", "hu", "it", "ja", "ko", "pt", "ro", "zh"] as const;
 export type IndexableLanguage = (typeof indexableLanguages)[number];
 
 const homeSeo = {
+  zh: { locale: "zh_CN", title: "安塔利亚机场接送 | 私人VIP旅游服务", description: "从安塔利亚机场到土耳其各度假区的私人固定价格接送服务。" },
+  da: { locale: "da_DK", title: "Antalya Lufthavnstransfer | Privat VIP-turistservice", description: "Private transfers til fast pris fra Antalya Lufthavn til feriesteder i hele Tyrkiet." },
+  es: { locale: "es_ES", title: "Traslado Aeropuerto de Antalya | Servicio Turístico VIP Privado", description: "Traslados privados a precio fijo desde el Aeropuerto de Antalya a resorts de toda Türkiye." },
+  el: { locale: "el_GR", title: "Μεταφορά από το Αεροδρόμιο Αντάλια | Ιδιωτική Υπηρεσία VIP Τουρισμού", description: "Ιδιωτικές μεταφορές με σταθερή τιμή από το Αεροδρόμιο της Αντάλια προς θέρετρα σε όλη την Τουρκία." },
+  he: { locale: "he_IL", title: "העברות משדה התעופה אנטליה | שירות תיירות VIP פרטי", description: "העברות פרטיות במחיר קבוע משדה התעופה אנטליה לאתרי הנופש ברחבי טורקיה." },
+  hu: { locale: "hu_HU", title: "Antalya reptéri transzfer | Privát VIP turisztikai szolgáltatás", description: "Privát, fix áras transzferek az antalyai repülőtérről a törökországi üdülőhelyekre." },
+  it: { locale: "it_IT", title: "Transfer Aeroporto di Antalya | Servizio Turistico VIP Privato", description: "Transfer privati a prezzo fisso dall'Aeroporto di Antalya verso i resort di tutta la Türkiye." },
+  ja: { locale: "ja_JP", title: "アンタルヤ空港送迎 | プライベートVIP観光サービス", description: "アンタルヤ空港からトルコ各地のリゾートへの固定料金プライベート送迎。" },
+  ko: { locale: "ko_KR", title: "안탈리아 공항 이동 서비스 | 프라이빗 VIP 관광 서비스", description: "안탈리아 공항에서 튀르키예 전역의 리조트까지 정찰제 프라이빗 이동 서비스." },
+  pt: { locale: "pt_PT", title: "Transfer do Aeroporto de Antalya | Serviço Privado de Turismo VIP", description: "Transfers privados a preço fixo do Aeroporto de Antalya para resorts em toda a Turquia." },
+  ro: { locale: "ro_RO", title: "Transfer Aeroport Antalya | Serviciu Privat de Turism VIP", description: "Transferuri private cu preț fix de la Aeroportul Antalya către stațiunile din Turcia." },
+
   en: { locale: "en_GB", title: "Antalya Airport Transfer | Private VIP Tourism Service", description: "Private fixed-price transfers from Antalya Airport to resorts across Türkiye." },
   de: { locale: "de_DE", title: "Flughafen Antalya Transfer | Privater VIP Chauffeurservice", description: "Private Festpreis-Transfers vom Flughafen Antalya zu Reisezielen in der gesamten Türkei." },
   tr: { locale: "tr_TR", title: "Antalya Havalimanı Transferi | Özel VIP Transfer", description: "Antalya Havalimanı'ndan Belek, Side, Kemer, Alanya ve çevresine özel sabit fiyatlı transfer. Vito ve Sprinter, uçuş takibi ve karşılama." },
@@ -23,6 +35,73 @@ const homeSeo = {
 } as const;
 
 const healthSeo = {
+  zh: {
+    locale: "zh_CN",
+    title: "安塔利亚健康旅行协调 | Antalya VIP旅游",
+    description: "规划您的安塔利亚健康之旅，明确的服务方职责、私人接送、住宿协调，以及由授权医疗团队主导的连续护理。",
+    service: "健康旅行协调与礼宾物流服务",
+  },
+  da: {
+    locale: "da_DK",
+    title: "Koordinering af sundhedsrejser i Antalya | Antalya VIP Tourism",
+    description: "Planlæg din sundhedsrejse til Antalya med klare udbyderroller, private transfers, koordinering af overnatning og sammenhængende behandling ledet af autoriserede lægeteams.",
+    service: "Koordinering af sundhedsrejser og concierge-logistik",
+  },
+  es: {
+    locale: "es_ES",
+    title: "Coordinación de Turismo de Salud en Antalya | Antalya VIP Tourism",
+    description: "Planifique su viaje de salud a Antalya con funciones claras de los proveedores, traslados privados, coordinación de alojamiento y continuidad asistencial dirigida por equipos médicos autorizados.",
+    service: "Coordinación de turismo de salud y logística de conserjería",
+  },
+  el: {
+    locale: "el_GR",
+    title: "Συντονισμός Ιατρικού Τουρισμού στην Αντάλια | Antalya VIP Tourism",
+    description: "Σχεδιάστε το ιατρικό σας ταξίδι στην Αντάλια με σαφείς ρόλους παρόχων, ιδιωτικές μεταφορές, συντονισμό διαμονής και συνέχεια φροντίδας υπό την καθοδήγηση εξουσιοδοτημένων ιατρικών ομάδων.",
+    service: "Συντονισμός ιατρικού τουρισμού και υπηρεσίες concierge logistics",
+  },
+  he: {
+    locale: "he_IL",
+    title: "תיאום תיירות רפואית באנטליה | Antalya VIP Tourism",
+    description: "תכננו את מסע התיירות הרפואית שלכם באנטליה עם חלוקת תפקידים ברורה בין הספקים, העברות פרטיות, תיאום מקומות לינה ורצף טיפולי בהובלת צוותים רפואיים מורשים.",
+    service: "תיאום תיירות רפואית ולוגיסטיקת קונסיירז'",
+  },
+  hu: {
+    locale: "hu_HU",
+    title: "Egészségturisztikai koordináció Antalyában | Antalya VIP Tourism",
+    description: "Tervezze meg antalyai egészségügyi utazását világos szolgáltatói szerepekkel, privát transzferekkel, szálláskoordinációval és folyamatos ellátással, engedéllyel rendelkező orvosi csapatok vezetésével.",
+    service: "Egészségturisztikai koordináció és concierge logisztika",
+  },
+  it: {
+    locale: "it_IT",
+    title: "Coordinamento del Turismo Sanitario ad Antalya | Antalya VIP Tourism",
+    description: "Pianifica il tuo viaggio sanitario ad Antalya con ruoli chiari dei fornitori, transfer privati, coordinamento dell'alloggio e continuità delle cure guidate da équipe mediche autorizzate.",
+    service: "Coordinamento del turismo sanitario e logistica concierge",
+  },
+  ja: {
+    locale: "ja_JP",
+    title: "アンタルヤの医療渡航コーディネート | Antalya VIP Tourism",
+    description: "認可された医療チームが主導する明確な提供者の役割、プライベート送迎、宿泊手配、継続的なケアで、アンタルヤでの医療渡航を計画します。",
+    service: "医療渡航コーディネートおよびコンシェルジュロジスティクス",
+  },
+  ko: {
+    locale: "ko_KR",
+    title: "안탈리아 의료 여행 코디네이션 | 안탈리아 VIP 관광",
+    description: "명확한 제공자 역할, 프라이빗 이동, 숙박 코디네이션, 그리고 공인 의료팀이 이끄는 지속적인 케어로 안탈리아 의료 여행을 계획하세요.",
+    service: "의료 여행 코디네이션 및 컨시어지 물류",
+  },
+  pt: {
+    locale: "pt_PT",
+    title: "Coordenação de Turismo de Saúde em Antalya | Antalya VIP Tourism",
+    description: "Planeie a sua viagem de saúde em Antalya com funções de prestadores bem definidas, transfers privados, coordenação de alojamento e continuidade de cuidados liderada por equipas médicas autorizadas.",
+    service: "Coordenação de turismo de saúde e logística de concierge",
+  },
+  ro: {
+    locale: "ro_RO",
+    title: "Coordonare Turism Medical în Antalya | Antalya VIP Tourism",
+    description: "Planificați-vă călătoria medicală în Antalya cu roluri clare ale furnizorilor, transferuri private, coordonarea cazării și continuitatea îngrijirii asigurate de echipe medicale autorizate.",
+    service: "Coordonare turism medical și logistică concierge",
+  },
+
   en: {
     locale: "en_GB",
     title: "Health Travel Coordination in Antalya | Antalya VIP Tourism",
@@ -98,6 +177,73 @@ const healthSeo = {
 } as const;
 
 const routeText = {
+  zh: {
+    title: (name: string) => `安塔利亚机场至${name}接送 | 私人固定价格服务`,
+    description: (name: string, price: number) => `从安塔利亚机场至${name}的私人固定价格接送，€${price}起。含接机问候、航班追踪及门到门服务。`,
+    heading: (name: string) => `从安塔利亚机场到${name}的私人接送`,
+    faq: (name: string, price: number, duration: string) => [[`从安塔利亚机场到${name}的接送需要多长时间？`, `在正常交通情况下，行程约需${duration}。`], [`到${name}的固定接送价格是多少？`, `Mercedes Vito价格每车€${price}起。确认的总价将在预订时显示。`], ["如果我的航班延误怎么办？", "我们会实时追踪您的航班，并免费调整接机时间。"], ["我的司机会在机场等候多久？", "落地后的前90分钟免费包含在内，如果您的航班延误，等候时间会自动顺延。"], ["我该如何支付接送费用？", "在行程开始时以现金支付给您的司机——即您预订时的固定价格，按每车计算。"]],
+  },
+  da: {
+    title: (name: string) => `Antalya Lufthavn til ${name} Transfer | Privat service til fast pris`,
+    description: (name: string, price: number) => `Privat transfer til fast pris fra Antalya Lufthavn til ${name} fra €${price}. Meet & Greet, flysporing og dør-til-dør-service.`,
+    heading: (name: string) => `Privat transfer fra Antalya Lufthavn til ${name}`,
+    faq: (name: string, price: number, duration: string) => [[`Hvor lang er transferen fra Antalya Lufthavn til ${name}?`, `Rejsen tager cirka ${duration} i normal trafik.`], [`Hvad er den faste transferpris til ${name}?`, `Priser for Mercedes Vito starter fra €${price} pr. køretøj. Den bekræftede totalpris vises ved bestilling.`], ["Hvad sker der, hvis mit fly er forsinket?", "Vi sporer dit fly i realtid og justerer mødetidspunktet uden ekstra beregning."], ["Hvor længe venter min chauffør i lufthavnen?", "De første 90 minutter efter landing er inkluderet uden beregning, og tidsvinduet flyttes automatisk, hvis dit fly er forsinket."], ["Hvordan betaler jeg for transferen?", "Kontant til din chauffør ved rejsens start - den faste pris fra din bestilling, pr. køretøj."]],
+  },
+  es: {
+    title: (name: string) => `Traslado del Aeropuerto de Antalya a ${name} | Servicio Privado a Precio Fijo`,
+    description: (name: string, price: number) => `Traslado privado a precio fijo desde el Aeropuerto de Antalya a ${name} desde €${price}. Recepción personal, seguimiento de vuelos y servicio puerta a puerta.`,
+    heading: (name: string) => `Traslado privado del Aeropuerto de Antalya a ${name}`,
+    faq: (name: string, price: number, duration: string) => [[`¿Cuánto dura el traslado del Aeropuerto de Antalya a ${name}?`, `El trayecto dura aproximadamente ${duration} con tráfico normal.`], [`¿Cuál es el precio fijo del traslado a ${name}?`, `Los precios del Mercedes Vito comienzan desde €${price} por vehículo. El total confirmado se muestra al reservar.`], ["¿Qué ocurre si mi vuelo se retrasa?", "Seguimos su vuelo en tiempo real y ajustamos la hora de encuentro sin coste adicional."], ["¿Cuánto tiempo espera mi chófer en el aeropuerto?", "Los primeros 90 minutos tras el aterrizaje están incluidos de forma gratuita, y el margen se ajusta automáticamente si su vuelo se retrasa."], ["¿Cómo pago el traslado?", "En efectivo a su chófer al inicio del trayecto: el precio fijo de su reserva, por vehículo."]],
+  },
+  el: {
+    title: (name: string) => `Μεταφορά από το Αεροδρόμιο Αντάλια προς ${name} | Ιδιωτική Υπηρεσία με Σταθερή Τιμή`,
+    description: (name: string, price: number) => `Ιδιωτική μεταφορά με σταθερή τιμή από το Αεροδρόμιο Αντάλια προς ${name} από €${price}. Υποδοχή Meet & Greet, παρακολούθηση πτήσης και εξυπηρέτηση από πόρτα σε πόρτα.`,
+    heading: (name: string) => `Ιδιωτική μεταφορά από το Αεροδρόμιο Αντάλια προς ${name}`,
+    faq: (name: string, price: number, duration: string) => [[`Πόσο διαρκεί η μεταφορά από το Αεροδρόμιο Αντάλια προς ${name};`, `Το ταξίδι διαρκεί περίπου ${duration} υπό κανονικές συνθήκες κυκλοφορίας.`], [`Ποια είναι η σταθερή τιμή μεταφοράς προς ${name};`, `Οι τιμές για Mercedes Vito ξεκινούν από €${price} ανά όχημα. Το επιβεβαιωμένο σύνολο εμφανίζεται κατά την κράτηση.`], ["Τι συμβαίνει αν η πτήση μου καθυστερήσει;", "Παρακολουθούμε την πτήση σας σε πραγματικό χρόνο και προσαρμόζουμε την ώρα συνάντησης χωρίς επιπλέον χρέωση."], ["Πόση ώρα περιμένει ο οδηγός μου στο αεροδρόμιο;", "Τα πρώτα 90 λεπτά μετά την προσγείωση περιλαμβάνονται δωρεάν, και το χρονικό περιθώριο μετατοπίζεται αυτόματα αν η πτήση σας καθυστερήσει."], ["Πώς πληρώνω για τη μεταφορά;", "Σε μετρητά στον οδηγό σας στην αρχή του ταξιδιού - τη σταθερή τιμή από την κράτησή σας, ανά όχημα."]],
+  },
+  he: {
+    title: (name: string) => `העברה משדה התעופה אנטליה אל ${name} | שירות פרטי במחיר קבוע`,
+    description: (name: string, price: number) => `העברה פרטית במחיר קבוע משדה התעופה אנטליה אל ${name} החל מ-€${price}. קבלת פנים אישית, מעקב טיסות ושירות מדלת לדלת.`,
+    heading: (name: string) => `העברה פרטית משדה התעופה אנטליה אל ${name}`,
+    faq: (name: string, price: number, duration: string) => [[`כמה זמן אורכת ההעברה משדה התעופה אנטליה אל ${name}?`, `הנסיעה אורכת כ-${duration} בתנועה רגילה.`], [`מהו המחיר הקבוע של ההעברה אל ${name}?`, `מחירי Mercedes Vito מתחילים מ-€${price} לרכב. הסכום הכולל המאושר מוצג בעת ההזמנה.`], ["מה קורה אם הטיסה שלי מתעכבת?", "אנו עוקבים אחר הטיסה שלכם בזמן אמת ומתאימים את שעת המפגש ללא תוספת תשלום."], ["כמה זמן ממתין הנהג שלי בשדה התעופה?", "90 הדקות הראשונות לאחר הנחיתה כלולות ללא תשלום, וחלון ההמתנה זז אוטומטית אם הטיסה מתעכבת."], ["כיצד אני משלם עבור ההעברה?", "במזומן לנהג בתחילת הנסיעה - המחיר הקבוע מתוך ההזמנה שלכם, לכל רכב."]],
+  },
+  hu: {
+    title: (name: string) => `Antalya repülőtér – ${name} transzfer | Privát, fix áras szolgáltatás`,
+    description: (name: string, price: number) => `Privát, fix áras transzfer az antalyai repülőtérről ${name} felé, már €${price}-tól. Meet & Greet, járatkövetés és háztól házig szolgáltatás.`,
+    heading: (name: string) => `Privát transzfer az antalyai repülőtérről ${name} felé`,
+    faq: (name: string, price: number, duration: string) => [[`Mennyi ideig tart a transzfer az antalyai repülőtérről ${name} felé?`, `Az út normál forgalomban körülbelül ${duration} tart.`], [`Mennyi a fix transzfer ára ${name} felé?`, `A Mercedes Vito árai járművenként €${price}-tól kezdődnek. A megerősített végösszeg a foglaláskor jelenik meg.`], ["Mi történik, ha a járatom késik?", "Valós időben követjük a járatát, és extra költség nélkül igazítjuk a találkozás időpontját."], ["Meddig vár a sofőröm a repülőtéren?", "A leszállás utáni első 90 perc ingyenesen benne van, és az időablak automatikusan eltolódik, ha a járata késik."], ["Hogyan fizetek a transzferért?", "Készpénzben a sofőrnek az út elején – a foglalásból származó fix ár, járművenként."]],
+  },
+  it: {
+    title: (name: string) => `Transfer dall'Aeroporto di Antalya a ${name} | Servizio Privato a Prezzo Fisso`,
+    description: (name: string, price: number) => `Transfer privato a prezzo fisso dall'Aeroporto di Antalya a ${name} da €${price}. Meet & Greet, monitoraggio del volo e servizio porta a porta.`,
+    heading: (name: string) => `Transfer privato dall'Aeroporto di Antalya a ${name}`,
+    faq: (name: string, price: number, duration: string) => [[`Quanto dura il transfer dall'Aeroporto di Antalya a ${name}?`, `Il viaggio dura circa ${duration} con traffico normale.`], [`Qual è il prezzo fisso del transfer per ${name}?`, `I prezzi Mercedes Vito partono da €${price} per veicolo. Il totale confermato viene mostrato al momento della prenotazione.`], ["Cosa succede se il mio volo è in ritardo?", "Monitoriamo il tuo volo in tempo reale e adeguiamo l'orario dell'incontro senza costi aggiuntivi."], ["Quanto tempo aspetta il mio autista in aeroporto?", "I primi 90 minuti dopo l'atterraggio sono inclusi gratuitamente, e la finestra si sposta automaticamente se il tuo volo è in ritardo."], ["Come pago il transfer?", "In contanti al tuo autista all'inizio del viaggio - il prezzo fisso della tua prenotazione, per veicolo."]],
+  },
+  ja: {
+    title: (name: string) => `アンタルヤ空港から${name}への送迎 | プライベート固定料金サービス`,
+    description: (name: string, price: number) => `アンタルヤ空港から${name}へのプライベート固定料金送迎、€${price}から。ミート＆グリート、フライト追跡、ドアツードアサービス。`,
+    heading: (name: string) => `アンタルヤ空港から${name}へのプライベート送迎`,
+    faq: (name: string, price: number, duration: string) => [[`アンタルヤ空港から${name}までの送迎はどのくらいかかりますか？`, `通常の交通状況で所要時間は約${duration}です。`], [`${name}への固定送迎料金はいくらですか？`, `Mercedes Vitoの料金は1台あたり€${price}からです。確定合計金額は予約時に表示されます。`], ["フライトが遅延した場合はどうなりますか？", "私たちはお客様のフライトをリアルタイムで追跡し、追加料金なしでお迎え時間を調整します。"], ["運転手は空港でどのくらい待ちますか？", "着陸後の最初の90分は無料に含まれており、フライトが遅延した場合は自動的に時間枠が移動します。"], ["送迎料金の支払い方法は？", "旅程開始時に運転手へ現金でお支払いください。予約時の固定料金、1台あたりの金額です。"]],
+  },
+  ko: {
+    title: (name: string) => `안탈리아 공항에서 ${name}까지 이동 | 프라이빗 정찰제 서비스`,
+    description: (name: string, price: number) => `안탈리아 공항에서 ${name}까지 €${price}부터 시작하는 프라이빗 정찰제 이동 서비스. 미팅 서비스, 항공편 추적, 도어 투 도어 서비스를 제공합니다.`,
+    heading: (name: string) => `안탈리아 공항에서 ${name}까지 프라이빗 이동`,
+    faq: (name: string, price: number, duration: string) => [[`안탈리아 공항에서 ${name}까지 이동 시간은 얼마나 걸리나요?`, `일반적인 교통 상황에서 약 ${duration} 소요됩니다.`], [`${name}까지의 정찰제 이동 요금은 얼마인가요?`, `Mercedes Vito 요금은 차량당 €${price}부터 시작합니다. 확정 총액은 예약 시 표시됩니다.`], ["항공편이 지연되면 어떻게 되나요?", "실시간으로 항공편을 추적하며 추가 요금 없이 미팅 시간을 조정합니다."], ["기사님은 공항에서 얼마나 대기하나요?", "착륙 후 첫 90분은 무료로 포함되며, 항공편이 지연되면 대기 시간이 자동으로 조정됩니다."], ["이동 요금은 어떻게 결제하나요?", "이동 시작 시 기사님께 현금으로 결제합니다 - 예약 시 확정된 차량당 정찰제 요금입니다."]],
+  },
+  pt: {
+    title: (name: string) => `Transfer do Aeroporto de Antalya para ${name} | Serviço Privado a Preço Fixo`,
+    description: (name: string, price: number) => `Transfer privado a preço fixo do Aeroporto de Antalya para ${name} desde €${price}. Serviço de receção personalizada, monitorização de voos e serviço porta a porta.`,
+    heading: (name: string) => `Transfer privado do Aeroporto de Antalya para ${name}`,
+    faq: (name: string, price: number, duration: string) => [[`Quanto tempo demora o transfer do Aeroporto de Antalya para ${name}?`, `A viagem demora aproximadamente ${duration} em trânsito normal.`], [`Qual é o preço fixo do transfer para ${name}?`, `Os preços do Mercedes Vito começam em €${price} por veículo. O total confirmado é apresentado na reserva.`], ["O que acontece se o meu voo tiver atraso?", "Monitorizamos o seu voo em tempo real e ajustamos a hora do encontro sem custos adicionais."], ["Quanto tempo espera o meu motorista no aeroporto?", "Os primeiros 90 minutos após a aterragem estão incluídos gratuitamente, e o período ajusta-se automaticamente se o seu voo tiver atraso."], ["Como pago o transfer?", "Em dinheiro ao seu motorista no início da viagem - o preço fixo da sua reserva, por veículo."]],
+  },
+  ro: {
+    title: (name: string) => `Transfer de la Aeroportul Antalya la ${name} | Serviciu Privat cu Preț Fix`,
+    description: (name: string, price: number) => `Transfer privat cu preț fix de la Aeroportul Antalya la ${name} de la €${price}. Întâmpinare personală, urmărirea zborului și serviciu din ușă în ușă.`,
+    heading: (name: string) => `Transfer privat de la Aeroportul Antalya la ${name}`,
+    faq: (name: string, price: number, duration: string) => [[`Cât durează transferul de la Aeroportul Antalya la ${name}?`, `Călătoria durează aproximativ ${duration} în condiții normale de trafic.`], [`Care este prețul fix al transferului către ${name}?`, `Prețurile Mercedes Vito încep de la €${price} per vehicul. Totalul confirmat este afișat la momentul rezervării.`], ["Ce se întâmplă dacă zborul meu întârzie?", "Vă urmărim zborul în timp real și ajustăm ora întâlnirii fără costuri suplimentare."], ["Cât timp așteaptă șoferul la aeroport?", "Primele 90 de minute după aterizare sunt incluse gratuit, iar intervalul se ajustează automat dacă zborul dumneavoastră întârzie."], ["Cum plătesc transferul?", "În numerar șoferului la începutul călătoriei - prețul fix din rezervarea dumneavoastră, per vehicul."]],
+  },
+
   en: {
     title: (name: string) => `Antalya Airport to ${name} Transfer | Private Fixed-Price Service`,
     description: (name: string, price: number) => `Private fixed-price transfer from Antalya Airport to ${name} from €${price}. Meet and greet, flight tracking and door-to-door service.`,
@@ -174,7 +320,9 @@ const routeText = {
 
 export const languageFromPath = (pathname: string): IndexableLanguage => {
   const candidate = pathname.split("/").filter(Boolean)[0];
-  return candidate === "de" || candidate === "fr" || candidate === "tr" || candidate === "ru" || candidate === "cs" || candidate === "uk" || candidate === "ur" || candidate === "pl" || candidate === "nl" || candidate === "ar" || candidate === "sv" ? candidate : "en";
+  return (indexableLanguages as readonly string[]).includes(candidate ?? "")
+    ? (candidate as IndexableLanguage)
+    : "en";
 };
 
 export const localizedPath = (language: IndexableLanguage, suffix = "") =>

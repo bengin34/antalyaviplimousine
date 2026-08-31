@@ -28,12 +28,21 @@ export const languageOptions = [
   { code: "sv", flag: "🇸🇪", label: "Svenska" },
   { code: "ja", flag: "🇯🇵", label: "日本語" },
   { code: "ko", flag: "🇰🇷", label: "한국어" },
+  { code: "zh", flag: "🇨🇳", label: "简体中文" },
+  { code: "da", flag: "🇩🇰", label: "Dansk" },
+  { code: "es", flag: "🇪🇸", label: "Español" },
+  { code: "el", flag: "🇬🇷", label: "Ελληνικά" },
+  { code: "he", flag: "🇮🇱", label: "עברית" },
+  { code: "it", flag: "🇮🇹", label: "Italiano" },
+  { code: "hu", flag: "🇭🇺", label: "Magyar" },
+  { code: "pt", flag: "🇵🇹", label: "Português" },
+  { code: "ro", flag: "🇷🇴", label: "Română" },
 ] as const;
 
 export type LanguageCode = (typeof languageOptions)[number]["code"];
 
 const supportedLanguages = new Set(languageOptions.map(({ code }) => code));
-const indexableLanguages = new Set(["en", "de", "tr", "ru", "cs", "uk", "ur", "fr", "pl", "nl", "ar", "sv"]);
+const indexableLanguages = new Set(["en", "de", "tr", "ru", "cs", "uk", "ur", "fr", "pl", "nl", "ar", "sv", "da", "el", "es", "he", "hu", "it", "ja", "ko", "pt", "ro", "zh"]);
 const legacyResources = translationData.resources as Record<string, Record<string, string>>;
 const videoResources = videoTranslationData.resources as Record<string, Record<string, string>>;
 const rawResources = Object.fromEntries(
