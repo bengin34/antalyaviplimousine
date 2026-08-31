@@ -1,5 +1,13 @@
 import { test, expect } from 'vitest'
 import { buildConfirmMessage, buildReminderMessage, buildReceivedMessage, buildReviewMessage, buildMeetGreetMessage, faqURL } from './whatsapp-templates.js'
+import { faqAnchor, homeFaqGroups } from '../public-app/app/lib/faq'
+
+// The message minus its FAQ link, for assertions about the booking details.
+const bookingDetailsOf = (msg) =>
+  msg
+    .split('\n')
+    .filter((line) => !line.includes('antalyaviptourism.com'))
+    .join('\n')
 
 // Locations are SLUGS (as stored in the DB), not display names.
 const base = {
@@ -23,7 +31,9 @@ test('confirm message maps location slugs to display names in the route', () => 
   expect(msg).toContain('VIP-2026-0042')
   expect(msg).toContain('Antalya Havalimanı')   // 'airport' → display name
   expect(msg).toContain('Belek')                // 'belek' → display name
-  expect(msg).not.toContain('airport')          // no raw slug leaks
+  // No raw slug leaks. The FAQ link is excluded: its slug names the question
+  // it opens, so words like 'airport' belong there.
+  expect(bookingDetailsOf(msg)).not.toContain('airport')
   expect(msg).toContain('2026-08-15')
   expect(msg).toContain('55')
   expect(msg).not.toContain('Google Maps')      // no map URL in confirm
@@ -312,7 +322,7 @@ test('Turkish return confirmation labels the flight time as kalkış', () => {
 test('an airport arrival links the FAQ answer about the airport pickup', () => {
   const msg = buildReminderMessage({ ...base, pickup_location: 'airport' })
   expect(msg).toContain('Please read our FAQ before your trip:')
-  expect(msg).toContain('Airport pickup — how it works: https://antalyaviptourism.com/#faq-Two')
+  expect(msg).toContain('Airport pickup — how it works: https://antalyaviptourism.com/#faq-airport-pickup')
 })
 
 test('the return leg links the FAQ answer about the return transfer', () => {
@@ -324,10 +334,10 @@ test('the return leg links the FAQ answer about the return transfer', () => {
     price_eur: 110,
   }
 
-  expect(buildReminderMessage(roundTrip, { leg: 'return' })).toContain('#faq-Ten')
-  expect(buildConfirmMessage(roundTrip, { leg: 'return' })).toContain('#faq-Ten')
+  expect(buildReminderMessage(roundTrip, { leg: 'return' })).toContain('#faq-return-contact')
+  expect(buildConfirmMessage(roundTrip, { leg: 'return' })).toContain('#faq-return-contact')
   // The outbound leg of the same booking keeps its own answer.
-  expect(buildConfirmMessage(roundTrip, { leg: 'outbound' })).toContain('#faq-Two')
+  expect(buildConfirmMessage(roundTrip, { leg: 'outbound' })).toContain('#faq-airport-pickup')
 })
 
 test('a transfer to the airport links the return answer however it was booked', () => {
@@ -341,14 +351,14 @@ test('a transfer to the airport links the return answer however it was booked', 
     dropoff_location: 'airport',
   }
 
-  expect(buildReminderMessage(manualReturn)).toContain('#faq-Ten')
-  expect(buildConfirmMessage(manualReturn)).toContain('#faq-Ten')
-  expect(buildReminderMessage(manualReturn)).not.toContain('#faq-Nine')
+  expect(buildReminderMessage(manualReturn)).toContain('#faq-return-contact')
+  expect(buildConfirmMessage(manualReturn)).toContain('#faq-return-contact')
+  expect(buildReminderMessage(manualReturn)).not.toContain('#faq-payment')
 })
 
 test('a hotel-to-hotel transfer links the payment answer', () => {
   const msg = buildConfirmMessage({ ...base, pickup_location: 'belek', dropoff_location: 'kemer' })
-  expect(msg).toContain('Payment & price: https://antalyaviptourism.com/#faq-Nine')
+  expect(msg).toContain('Payment & price: https://antalyaviptourism.com/#faq-payment')
 })
 
 test('a daily chauffeur booking links the journey answer', () => {
@@ -359,7 +369,7 @@ test('a daily chauffeur booking links the journey answer', () => {
     service_end_date: '2026-08-18',
     daily_rate_eur: 150,
   })
-  expect(msg).toContain('#faq-Fifteen')
+  expect(msg).toContain('#faq-extra-stops')
 })
 
 test('a request acknowledgement links the FAQ section as a whole', () => {
@@ -368,24 +378,24 @@ test('a request acknowledgement links the FAQ section as a whole', () => {
 })
 
 test('meet & greet links the airport pickup answer', () => {
-  expect(buildMeetGreetMessage(base)).toContain('#faq-Two')
+  expect(buildMeetGreetMessage(base)).toContain('#faq-airport-pickup')
 })
 
 test('the FAQ link is localized and keeps its topic anchor', () => {
-  expect(faqURL('tr', 'return')).toBe('https://antalyaviptourism.com/tr/#faq-Ten')
-  expect(faqURL('de', 'arrival')).toBe('https://antalyaviptourism.com/de/#faq-Two')
-  expect(faqURL('en', 'payment')).toBe('https://antalyaviptourism.com/#faq-Nine')
+  expect(faqURL('tr', 'return')).toBe('https://antalyaviptourism.com/tr/#faq-return-contact')
+  expect(faqURL('de', 'arrival')).toBe('https://antalyaviptourism.com/de/#faq-airport-pickup')
+  expect(faqURL('en', 'payment')).toBe('https://antalyaviptourism.com/#faq-payment')
   // A language without its own home page falls back to the English one.
-  expect(faqURL('zz', 'arrival')).toBe('https://antalyaviptourism.com/#faq-Two')
+  expect(faqURL('zz', 'arrival')).toBe('https://antalyaviptourism.com/#faq-airport-pickup')
 })
 
 test('the FAQ note and topic label follow the requested language', () => {
   const tr = buildReminderMessage(base, { language: 'tr' })
   expect(tr).toContain('📖 Seyahatinizden önce lütfen SSS bölümümüzü okuyun:')
-  expect(tr).toContain('Havalimanı karşılama — nasıl işliyor: https://antalyaviptourism.com/tr/#faq-Two')
+  expect(tr).toContain('Havalimanı karşılama — nasıl işliyor: https://antalyaviptourism.com/tr/#faq-airport-pickup')
 
   const ru = buildReminderMessage(base, { language: 'ru' })
-  expect(ru).toContain('Встреча в аэропорту — как это происходит: https://antalyaviptourism.com/ru/#faq-Two')
+  expect(ru).toContain('Встреча в аэропорту — как это происходит: https://antalyaviptourism.com/ru/#faq-airport-pickup')
 })
 
 test('an explicit language overrides the language stored on the booking', () => {
@@ -399,4 +409,30 @@ test('the review request stays a single call to action', () => {
   const msg = buildReviewMessage(base)
   expect(msg).toContain('https://g.page/r/CbJCg7BC63cBEBI/review')
   expect(msg).not.toContain('#faq')
+})
+
+
+test('every FAQ link points at an anchor the public home page actually renders', () => {
+  // The anchors live in whatsapp-templates.js but the ids are rendered from
+  // public-app/app/lib/faq.ts, so a renamed slug must not silently produce a
+  // dead link in a customer's message.
+  const rendered = new Set(
+    homeFaqGroups.flatMap((group) => group.items.map((item) => faqAnchor(item.slug))),
+  )
+
+  for (const topic of ['arrival', 'return', 'payment', 'daily']) {
+    const anchor = faqURL('en', topic).split('#')[1]
+    expect(rendered.has(anchor), `${topic} -> #${anchor}`).toBe(true)
+  }
+
+  // The general topic points at the FAQ section itself, not at one question.
+  expect(faqURL('en', 'general').split('#')[1]).toBe('faq')
+})
+
+test('FAQ anchors name their question rather than its position in the list', () => {
+  for (const group of homeFaqGroups) {
+    for (const item of group.items) {
+      expect(item.slug).toMatch(/^[a-z][a-z-]*[a-z]$/)
+    }
+  }
 })

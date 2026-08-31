@@ -2,7 +2,7 @@ import { lazy, Suspense, useEffect, useRef, useState } from "react";
 const ReactPlayer = lazy(() => import("react-player"));
 import { publicRouteSlugs, routeCatalog } from "../../../src/routes.js";
 import { LineBreakText, useLanguage } from "../i18n";
-import { homeFaqGroups, homeFaqOrder } from "../lib/faq";
+import { faqAnchor, homeFaqGroups, resolveFaqAnchor } from "../lib/faq";
 import { BookingForm } from "./BookingForm";
 import { Header } from "./Header";
 import { Icon } from "./Icon";
@@ -354,23 +354,34 @@ export function HomePage({ initialLanguage }: { initialLanguage: string }) {
       (index) => (index + direction + fleetPhotos.length) % fleetPhotos.length,
     );
 
-  const faqItems = homeFaqOrder.map((number) => [
-    t(`faq${number}Q`, "Frequently asked question"),
-    t(`faq${number}A`, "Contact us for complete details."),
-    `faq-${number}`,
-  ]);
+  const faqItems = homeFaqGroups
+    .flatMap((group) => group.items)
+    .map(({ key, slug }) => [
+      t(`faq${key}Q`, "Frequently asked question"),
+      t(`faq${key}A`, "Contact us for complete details."),
+      faqAnchor(slug),
+    ]);
 
   useEffect(() => {
-    const hash = window.location.hash.replace(/^#/, "");
-    if (!hash) return;
-    const index = faqItems.findIndex(([, , id]) => id === hash);
-    if (index >= 0) setOpenFaq(index);
-    const target = document.getElementById(hash);
-    if (target) {
-      requestAnimationFrame(() =>
-        target.scrollIntoView({ behavior: "smooth", block: "start" }),
-      );
-    }
+    const openFromHash = () => {
+      // Older links carry the positional anchor; both open the same question.
+      const hash = resolveFaqAnchor(window.location.hash.replace(/^#/, ""));
+      if (!hash) return;
+      const index = faqItems.findIndex(([, , id]) => id === hash);
+      if (index >= 0) setOpenFaq(index);
+      const target = document.getElementById(hash);
+      if (target) {
+        requestAnimationFrame(() =>
+          target.scrollIntoView({ behavior: "smooth", block: "start" }),
+        );
+      }
+    };
+
+    openFromHash();
+    // Following a second link with this page already open only changes the
+    // hash, so the mount effect alone would leave the first question showing.
+    window.addEventListener("hashchange", openFromHash);
+    return () => window.removeEventListener("hashchange", openFromHash);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
