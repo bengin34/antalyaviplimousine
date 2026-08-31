@@ -43,6 +43,7 @@ export interface Booking {
   return_date: string | null
   return_pickup_time: string | null
   return_flight_number: string | null
+  return_flight_departure_time?: string | null
   service_end_date: string | null
   daily_rate_eur: number | string | null
   departure_flight_date: string | null
@@ -53,6 +54,8 @@ export interface Booking {
   vehicle_type: 'vclass' | 'vito'
   service_cost_mode: 'own_vehicle' | 'sold_transfer'
   sold_transfer_cost_try: number | string | null
+  return_service_cost_mode?: 'own_vehicle' | 'sold_transfer' | null
+  return_sold_transfer_cost_try?: number | string | null
   airport_meet_fee_applies?: boolean | null
   price_eur: number | string
   status: BookingStatus
@@ -75,6 +78,8 @@ export interface TimelineCard extends Booking {
   _displayDate: string
   _displayTime: string | null
   _isReturn: boolean
+  /** Dönüş/son gün kartlarında gösterilecek uçuş KALKIŞ saati. */
+  _flightDepartureTime?: string | null
   _needsReturnContact?: boolean
   _hireDayNumber?: number
   _hireDayCount?: number

@@ -8,7 +8,8 @@ const baseForm: BookingFormState = {
   name: 'Ayşe Yılmaz', phone: '+90 555 111 22 33', email: '', hotel: 'Rixos',
   tripType: 'one_way', pickup: 'airport', dropoff: 'belek', pickupAddress: '', dropoffAddress: '',
   pickupDate: '2026-08-10', pickupTime: '12:30', flightNumber: 'TK123', flightTime: '12:10',
-  returnDate: '', returnTime: '', returnFlight: '', vehicle: 'vito', guests: '3', luggage: '2', costMode: 'own_vehicle', soldTransferCostTry: '',
+  returnDate: '', returnTime: '', returnFlight: '', returnFlightTime: '', vehicle: 'vito', guests: '3', luggage: '2', costMode: 'own_vehicle', soldTransferCostTry: '',
+  returnCostMode: 'own_vehicle', returnSoldTransferCostTry: '',
   airportMeetFeeApplies: true,
   serviceEndDate: '2026-08-10', departureFlightDate: '', departureFlightTime: '', departureFlight: '',
   childSeats: '1', price: '80', payment: 'cash', status: 'confirmed', notes: '', fuelAccepted: false, language: '',
@@ -67,6 +68,78 @@ describe('React admin migration behavior', () => {
       service_cost_mode: 'sold_transfer',
       sold_transfer_cost_try: 3250.5,
     })
+  })
+
+  test('stores the outbound and return leg costs independently', () => {
+    const result = validateBookingForm({
+      ...baseForm,
+      tripType: 'round_trip',
+      returnDate: '2026-08-15',
+      returnTime: '09:00',
+      costMode: 'sold_transfer',
+      soldTransferCostTry: '1800',
+      returnCostMode: 'own_vehicle',
+      returnSoldTransferCostTry: '',
+    })
+
+    expect(result.error).toBe('')
+    expect(result.payload).toMatchObject({
+      service_cost_mode: 'sold_transfer',
+      sold_transfer_cost_try: 1800,
+      return_service_cost_mode: 'own_vehicle',
+      return_sold_transfer_cost_try: null,
+    })
+  })
+
+  test('requires a cost for a sold return leg without touching the outbound leg', () => {
+    const base = {
+      ...baseForm,
+      tripType: 'round_trip',
+      returnDate: '2026-08-15',
+      returnTime: '09:00',
+      returnCostMode: 'sold_transfer' as const,
+    }
+    expect(validateBookingForm({ ...base, returnSoldTransferCostTry: '' }).error).toContain('Dönüş için geçerli bir maliyet')
+
+    const result = validateBookingForm({ ...base, returnSoldTransferCostTry: '2600' })
+    expect(result.error).toBe('')
+    expect(result.payload).toMatchObject({
+      service_cost_mode: 'own_vehicle',
+      sold_transfer_cost_try: null,
+      return_service_cost_mode: 'sold_transfer',
+      return_sold_transfer_cost_try: 2600,
+    })
+  })
+
+  test('stores the return flight departure time only for round trips', () => {
+    const roundTrip = validateBookingForm({
+      ...baseForm, tripType: 'round_trip', returnDate: '2026-08-15', returnTime: '09:00', returnFlightTime: '14:00',
+    })
+    expect(roundTrip.error).toBe('')
+    expect(roundTrip.payload?.return_flight_departure_time).toBe('14:00')
+
+    const oneWay = validateBookingForm({ ...baseForm, returnFlightTime: '14:00' })
+    expect(oneWay.payload?.return_flight_departure_time).toBeNull()
+  })
+
+  test('carries the return flight departure time onto the return timeline card', () => {
+    const booking = {
+      id: '2', booking_ref: 'AVL-2', customer_name: 'Ayşe', customer_email: '', customer_phone: '+90555',
+      hotel_name: 'Rixos', child_seat_count: 0, child_ages: [] as number[], luggage_count: 1, pickup_location: 'airport',
+      pickup_address: null, dropoff_location: 'belek', dropoff_address: null, pickup_date: '2026-08-10',
+      pickup_time: '12:30:00', flight_number: 'TK1', flight_arrival_time: '12:10:00', trip_type: 'round_trip',
+      return_date: '2026-08-15', return_pickup_time: '10:40:00', return_flight_number: 'TK2',
+      return_flight_departure_time: '14:00:00', guests: 2,
+      vehicle_type: 'vito', price_eur: 150, status: 'confirmed', payment_method: 'cash', notes: null,
+      language: 'tr', created_at: '2026-08-01T00:00:00Z',
+    } as Booking
+    const cards = expandRoundTrips([booking], 'timeline')
+
+    // Gidiş kartında uçuş saati varış, dönüş kartında kalkıştır.
+    expect(cards[0].flight_arrival_time).toBe('12:10:00')
+    expect(cards[0]._flightDepartureTime).toBeUndefined()
+    expect(cards[1].flight_arrival_time).toBeNull()
+    expect(cards[1]._flightDepartureTime).toBe('14:00:00')
   })
 
   test('rejects sold transfer mode for daily chauffeur bookings', () => {

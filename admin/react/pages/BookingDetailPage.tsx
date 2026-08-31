@@ -7,7 +7,9 @@ import type { Booking, BookingStatus, ChauffeurHireDay, Navigate } from '../type
 import { isFutureIstanbulLeg, locationDisplay, navigationURLs, whatsappURL } from '../../turkish-formatters.js'
 import { buildConfirmMessage, buildReminderMessage, buildReceivedMessage, buildReviewMessage } from '../../whatsapp-templates.js'
 import { buildDriverTransferMessage, driverWhatsappURL } from '../../driver-message.js'
+import { legCostModel } from '../../profit-loss-metrics.js'
 import { LOCATION_OPTIONS, LANGUAGE_OPTIONS, VEHICLE_CAPACITY, validateBookingForm, type BookingFormState } from './NewBookingPage'
+import { ReturnPickupHint, returnPickupAdvice } from '../components/ReturnPickupHint'
 import { languageFromPhone } from '../../turkish-formatters.js'
 
 const STATUS_TRANSITIONS: Record<string, BookingStatus[]> = {
@@ -16,18 +18,36 @@ const STATUS_TRANSITIONS: Record<string, BookingStatus[]> = {
 }
 const STATUS_COLORS: Record<string, string> = { pending: 'orange', paid: 'green', confirmed: 'green', in_transit: 'blue', completed: '', cancelled: 'red' }
 
+type TemplateKind = 'confirm' | 'reminder' | 'received' | 'review'
+
+// Flags for the WhatsApp language picker. Names stay in LANGUAGE_OPTIONS so the
+// picker and the booking form can never drift apart.
+const LANGUAGE_FLAGS: Record<string, string> = { tr: '🇹🇷', en: '🇬🇧', de: '🇩🇪', ru: '🇷🇺', fr: '🇫🇷', ar: '🇸🇦' }
+const MESSAGE_LANGUAGES = LANGUAGE_OPTIONS.filter(([value]) => value !== '')
+
+function languageName(code: string) {
+  return LANGUAGE_OPTIONS.find(([value]) => value === code)?.[1] ?? 'İngilizce'
+}
+
+function languageChip(code: string) {
+  return `${LANGUAGE_FLAGS[code] ?? '🌐'} ${languageName(code)}`
+}
+
 function transferFor(booking: Booking, isReturn: boolean) {
   if (isReturn && booking.trip_type === 'round_trip' && booking.return_date) {
     return {
       date: booking.return_date, time: booking.return_pickup_time,
       pickupLocation: booking.dropoff_location, dropoffLocation: booking.pickup_location,
       pickupAddress: booking.dropoff_address, dropoffAddress: booking.pickup_address,
+      // Dönüşte referans uçağın kalkış saatidir, varış değil.
       flightNumber: booking.return_flight_number, flightArrivalTime: null,
+      flightDepartureTime: booking.return_flight_departure_time,
     }
   }
   return {
     date: booking.pickup_date,
     time: transferStartTime(booking.pickup_location, booking.pickup_time, booking.flight_arrival_time),
+    flightDepartureTime: null,
     pickupLocation: booking.pickup_location, dropoffLocation: booking.dropoff_location,
     pickupAddress: booking.pickup_address, dropoffAddress: booking.dropoff_address,
     flightNumber: booking.flight_number, flightArrivalTime: booking.flight_arrival_time,
@@ -50,8 +70,12 @@ function createEditForm(booking: Booking): BookingFormState {
     dropoffAddress: booking.dropoff_address ?? '', pickupDate: booking.pickup_date ?? '', pickupTime: fmtTime(booking.pickup_time) === '—' ? '' : fmtTime(booking.pickup_time),
     flightNumber: booking.flight_number ?? '', flightTime: fmtTime(booking.flight_arrival_time) === '—' ? '' : fmtTime(booking.flight_arrival_time),
     returnDate: booking.return_date ?? '', returnTime: fmtTime(booking.return_pickup_time) === '—' ? '' : fmtTime(booking.return_pickup_time),
-    returnFlight: booking.return_flight_number ?? '', vehicle: booking.vehicle_type ?? 'vito', guests: String(booking.guests ?? 1),
+    returnFlight: booking.return_flight_number ?? '',
+    returnFlightTime: fmtTime(booking.return_flight_departure_time) === '—' ? '' : fmtTime(booking.return_flight_departure_time),
+    vehicle: booking.vehicle_type ?? 'vito', guests: String(booking.guests ?? 1),
     costMode: booking.service_cost_mode ?? 'own_vehicle', soldTransferCostTry: booking.sold_transfer_cost_try == null ? '' : String(booking.sold_transfer_cost_try),
+    returnCostMode: booking.return_service_cost_mode ?? 'own_vehicle',
+    returnSoldTransferCostTry: booking.return_sold_transfer_cost_try == null ? '' : String(booking.return_sold_transfer_cost_try),
     airportMeetFeeApplies: booking.airport_meet_fee_applies !== false,
     serviceEndDate: booking.service_end_date ?? booking.pickup_date ?? '', departureFlightDate: booking.departure_flight_date ?? '',
     departureFlightTime: fmtTime(booking.departure_flight_time) === '—' ? '' : fmtTime(booking.departure_flight_time), departureFlight: booking.departure_flight_number ?? '',
@@ -83,7 +107,10 @@ function BookingEditor({ booking, onCancel, onSaved }: { booking: Booking; onCan
     setSaving(true); setError('')
     const { count, error: updateError } = await supabase.from('bookings').update(payload, { count: 'exact' }).eq('id', booking.id)
     setSaving(false)
-    if (updateError || count === 0) return setError('Rezervasyon güncellenemedi, tekrar deneyin.')
+    if (updateError || count === 0) {
+      if (updateError) console.error('Rezervasyon güncelleme hatası:', updateError.message, updateError.details, updateError.hint, updateError.code)
+      return setError('Rezervasyon güncellenemedi, tekrar deneyin.')
+    }
     onSaved({ ...booking, ...payload } as Booking)
   }
 
@@ -102,6 +129,8 @@ function BookingEditor({ booking, onCancel, onSaved }: { booking: Booking; onCan
           tripType,
           costMode: tripType === 'daily_chauffeur' ? 'own_vehicle' : current.costMode,
           soldTransferCostTry: tripType === 'daily_chauffeur' ? '' : current.soldTransferCostTry,
+          returnCostMode: tripType === 'round_trip' ? current.returnCostMode : 'own_vehicle',
+          returnSoldTransferCostTry: tripType === 'round_trip' ? current.returnSoldTransferCostTry : '',
         }))
       }}><option value="one_way">Tek yön</option><option value="round_trip">Gidiş-dönüş</option><option value="daily_chauffeur">Günlük araç + şoför</option></select></Field>
       <div className="form-row"><Field label="Alış *"><select className="input" value={form.pickup} onChange={e => set('pickup', e.target.value)}>{options}</select></Field>{!dailyChauffeur && <Field label="Varış *"><select className="input" value={form.dropoff} onChange={e => set('dropoff', e.target.value)}>{options}</select></Field>}</div>
@@ -109,9 +138,9 @@ function BookingEditor({ booking, onCancel, onSaved }: { booking: Booking; onCan
       <div className="form-row"><Field label={dailyChauffeur ? 'İlk hizmet günü *' : 'Tarih *'}><input className="input" type="date" value={form.pickupDate} onChange={e => set('pickupDate', e.target.value)} required /></Field><Field label={dailyChauffeur ? 'Hizmet başlangıç saati *' : 'Saat'}><input className="input" type="time" value={form.pickupTime} onChange={e => set('pickupTime', e.target.value)} required={dailyChauffeur} /></Field></div>
       <div className="form-row"><Field label="Uçuş no"><input className="input" type="text" maxLength={12} autoComplete="off" value={form.flightNumber} onChange={e => set('flightNumber', e.target.value)} /></Field><Field label="Uçuş varış"><input className="input" type="time" value={form.flightTime} onChange={e => set('flightTime', e.target.value)} /></Field></div>
     </div>
-    {roundTrip && <div className="booking-edit-group"><div className="section-label">Dönüş</div><div className="form-row"><Field label="Dönüş tarihi *"><input className="input" type="date" value={form.returnDate} onChange={e => set('returnDate', e.target.value)} required /></Field><Field label="Dönüş saati *"><input className="input" type="time" value={form.returnTime} onChange={e => set('returnTime', e.target.value)} required /></Field></div><Field label="Dönüş uçuş no"><input className="input" type="text" maxLength={12} autoComplete="off" value={form.returnFlight} onChange={e => set('returnFlight', e.target.value)} /></Field></div>}
+    {roundTrip && <div className="booking-edit-group"><div className="section-label">Dönüş</div><div className="form-row"><Field label="Dönüş uçuş no"><input className="input" type="text" maxLength={12} autoComplete="off" value={form.returnFlight} onChange={e => set('returnFlight', e.target.value)} /></Field><Field label="Dönüş uçuşu kalkış saati"><input className="input" type="time" value={form.returnFlightTime} onChange={e => set('returnFlightTime', e.target.value)} /></Field></div><ReturnPickupHint departureTime={form.returnFlightTime} pickupLocation={form.dropoff} actualTime={form.returnTime} onApply={time => set('returnTime', time)} /><div className="form-row"><Field label="Dönüş tarihi *"><input className="input" type="date" value={form.returnDate} onChange={e => set('returnDate', e.target.value)} required /></Field><Field label="Otelden alınma saati *"><input className="input" type="time" value={form.returnTime} onChange={e => set('returnTime', e.target.value)} required /></Field></div></div>}
     {dailyChauffeur && <div className="booking-edit-group"><div className="section-label">Günlük Kiralama</div><Field label="Son hizmet günü *"><input className="input" type="date" min={form.pickupDate} value={form.serviceEndDate} onChange={e => set('serviceEndDate', e.target.value)} required /></Field><div className="form-row"><Field label="Dönüş uçuş tarihi"><input className="input" type="date" min={form.pickupDate} value={form.departureFlightDate} onChange={e => set('departureFlightDate', e.target.value)} /></Field><Field label="Dönüş uçuş saati"><input className="input" type="time" value={form.departureFlightTime} onChange={e => set('departureFlightTime', e.target.value)} /></Field></div><Field label="Dönüş uçuş no"><input className="input" type="text" maxLength={12} value={form.departureFlight} onChange={e => set('departureFlight', e.target.value)} /></Field><label className="admin-fuel-acceptance"><input type="checkbox" checked={form.fuelAccepted} onChange={e => set('fuelAccepted', e.target.checked)} /><span><strong>Yakıt hariç koşulu kabul edildi</strong><small>Müşteri yakıtı kullanıma göre ayrıca ödeyecek.</small></span></label></div>}
-    <div className="booking-edit-group"><div className="section-label">Araç & Detaylar</div><div className="form-row"><Field label="Araç *"><select className="input" value={form.vehicle} onChange={e => set('vehicle', e.target.value)}><option value="vito">Vito</option><option value="vclass">V-Class</option></select></Field><Field label="Yolcu *"><input className="input" type="number" min={1} max={VEHICLE_CAPACITY[form.vehicle] ?? 8} step={1} inputMode="numeric" value={form.guests} onChange={e => set('guests', e.target.value)} required /></Field></div><div className="form-row"><Field label="Bagaj"><input className="input" type="number" min={0} max={12} step={1} inputMode="numeric" value={form.luggage} onChange={e => set('luggage', e.target.value)} /></Field><Field label="Çocuk koltuğu"><input className="input" type="number" min={0} max={4} step={1} inputMode="numeric" value={form.childSeats} onChange={e => set('childSeats', e.target.value)} /></Field></div><Field label="Maliyet modeli"><select className="input" value={form.costMode} onChange={e => set('costMode', e.target.value as BookingFormState['costMode'])} disabled={dailyChauffeur}><option value="own_vehicle">Kendi aracımız</option><option value="sold_transfer">Satılan transfer</option></select></Field><div className="form-hint">{dailyChauffeur ? 'Günlük araç + şoför hizmeti yalnızca kendi aracımız olarak hesaplanır.' : form.costMode === 'sold_transfer' ? 'Girilen toplam maliyet bu rezervasyonun toplam gideri kabul edilir.' : 'Araç maliyeti kâr/zarar ekranında km ve boş dönüş hesabından çıkarılır.'}</div>{form.pickup === 'airport' && !dailyChauffeur && <label className="admin-fuel-acceptance"><input type="checkbox" checked={!form.airportMeetFeeApplies} onChange={e => set('airportMeetFeeApplies', !e.target.checked)} /><span><strong>Karşılama ücreti uygulanmasın</strong><small>Yolcular havalimanından karşılama hizmeti olmadan alınacak.</small></span></label>}{!dailyChauffeur && form.costMode === 'sold_transfer' && <Field label="Toplam maliyet (₺) *"><input className="input" type="number" min={0.01} max={9999999.99} step={0.01} inputMode="decimal" value={form.soldTransferCostTry} onChange={e => set('soldTransferCostTry', e.target.value)} required /></Field>}</div>
+    <div className="booking-edit-group"><div className="section-label">Araç & Detaylar</div><div className="form-row"><Field label="Araç *"><select className="input" value={form.vehicle} onChange={e => set('vehicle', e.target.value)}><option value="vito">Vito</option><option value="vclass">V-Class</option></select></Field><Field label="Yolcu *"><input className="input" type="number" min={1} max={VEHICLE_CAPACITY[form.vehicle] ?? 8} step={1} inputMode="numeric" value={form.guests} onChange={e => set('guests', e.target.value)} required /></Field></div><div className="form-row"><Field label="Bagaj"><input className="input" type="number" min={0} max={12} step={1} inputMode="numeric" value={form.luggage} onChange={e => set('luggage', e.target.value)} /></Field><Field label="Çocuk koltuğu"><input className="input" type="number" min={0} max={4} step={1} inputMode="numeric" value={form.childSeats} onChange={e => set('childSeats', e.target.value)} /></Field></div><Field label={roundTrip ? 'Gidiş maliyet modeli' : 'Maliyet modeli'}><select className="input" value={form.costMode} onChange={e => set('costMode', e.target.value as BookingFormState['costMode'])} disabled={dailyChauffeur}><option value="own_vehicle">Kendi aracımız</option><option value="sold_transfer">Satılan transfer</option></select></Field><div className="form-hint">{dailyChauffeur ? 'Günlük araç + şoför hizmeti yalnızca kendi aracımız olarak hesaplanır.' : form.costMode === 'sold_transfer' ? (roundTrip ? 'Girilen maliyet yalnızca gidiş ayağının gideri kabul edilir.' : 'Girilen toplam maliyet bu rezervasyonun toplam gideri kabul edilir.') : 'Araç maliyeti kâr/zarar ekranında km ve boş dönüş hesabından çıkarılır.'}</div>{form.pickup === 'airport' && !dailyChauffeur && <label className="admin-fuel-acceptance"><input type="checkbox" checked={!form.airportMeetFeeApplies} onChange={e => set('airportMeetFeeApplies', !e.target.checked)} /><span><strong>Karşılama ücreti uygulanmasın</strong><small>Yolcular havalimanından karşılama hizmeti olmadan alınacak.</small></span></label>}{!dailyChauffeur && form.costMode === 'sold_transfer' && <Field label={roundTrip ? 'Gidiş maliyeti (₺) *' : 'Toplam maliyet (₺) *'}><input className="input" type="number" min={0.01} max={9999999.99} step={0.01} inputMode="decimal" value={form.soldTransferCostTry} onChange={e => set('soldTransferCostTry', e.target.value)} required /></Field>}{roundTrip && !dailyChauffeur && <><Field label="Dönüş maliyet modeli"><select className="input" value={form.returnCostMode} onChange={e => set('returnCostMode', e.target.value as BookingFormState['returnCostMode'])}><option value="own_vehicle">Kendi aracımız</option><option value="sold_transfer">Satılan transfer</option></select></Field><div className="form-hint">Gidiş ve dönüş ayrı hesaplanır: bir ayağı satabilir, diğerini kendi aracınızla yapabilirsiniz.</div>{form.returnCostMode === 'sold_transfer' && <Field label="Dönüş maliyeti (₺) *"><input className="input" type="number" min={0.01} max={9999999.99} step={0.01} inputMode="decimal" value={form.returnSoldTransferCostTry} onChange={e => set('returnSoldTransferCostTry', e.target.value)} required /></Field>}</>}</div>
     <div className="booking-edit-group"><div className="section-label">Ödeme & Not</div><div className="form-row"><Field label={dailyChauffeur ? 'Günlük fiyat (€) *' : roundTrip ? 'Sefer başına fiyat (€) *' : 'Fiyat (€) *'}><input className="input" type="number" min={0} max={999999.99} step={0.01} inputMode="decimal" value={form.price} onChange={e => set('price', e.target.value)} required /></Field><Field label="Ödeme"><select className="input" value={form.payment} onChange={e => set('payment', e.target.value)}><option value="cash">Nakit</option><option value="card">Kart</option></select></Field></div><Field label="Rezervasyon notu"><textarea className="input" rows={3} maxLength={500} value={form.notes} onChange={e => set('notes', e.target.value)} /></Field></div>
     <div className="booking-edit-actions"><button className="btn" type="submit" disabled={saving}>{saving ? 'Kaydediliyor...' : 'Değişiklikleri Kaydet'}</button><button className="btn-outline" type="button" onClick={onCancel}>İptal</button></div><div className="inline-error" ref={errorRef}>{error}</div>
   </form>
@@ -135,7 +164,10 @@ function InlineEditor({ booking, column, label, display, maxLength, inputType = 
     setSaving(true); setError('')
     const { count, error: updateError } = await supabase.from('bookings').update({ [column]: result.value }, { count: 'exact' }).eq('id', booking.id)
     setSaving(false)
-    if (updateError || count === 0) return setError(`${label} güncellenemedi, tekrar deneyin.`)
+    if (updateError || count === 0) {
+      if (updateError) console.error(`${label} güncelleme hatası:`, updateError.message, updateError.details, updateError.hint, updateError.code)
+      return setError(`${label} güncellenemedi, tekrar deneyin.`)
+    }
     setEditing(false); onSaved({ ...booking, [column]: result.value } as Booking, `${label} güncellendi.`)
   }
   return <div className="full"><div className="editable-heading"><div className="detail-key">{label}</div><button className="inline-edit-button" type="button" onClick={open}>Düzenle</button></div><div className="detail-val">{display}</div>{editing && <div className="inline-editor"><input ref={inputRef} className="input" type={inputType} maxLength={maxLength} aria-label={label} value={value} onChange={e => setValue(e.target.value)} /><div className="inline-editor-actions"><button className="btn inline-editor-button" type="button" disabled={saving} onClick={() => void save()}>Kaydet</button><button className="btn-outline inline-editor-button" type="button" onClick={() => { setEditing(false); setError('') }}>İptal</button></div><div className="inline-error">{error}</div></div>}</div>
@@ -160,7 +192,10 @@ function PriceEditor({ booking, onSaved }: { booking: Booking; onSaved: (booking
     const pricePayload = dailyChauffeur ? { price_eur: total, daily_rate_eur: nextLegPrice } : { price_eur: total }
     const { count, error: updateError } = await supabase.from('bookings').update(pricePayload, { count: 'exact' }).eq('id', booking.id)
     setSaving(false)
-    if (updateError || count === 0) return setError('Fiyat güncellenemedi, tekrar deneyin.')
+    if (updateError || count === 0) {
+      if (updateError) console.error('Fiyat güncelleme hatası:', updateError.message, updateError.details, updateError.hint, updateError.code)
+      return setError('Fiyat güncellenemedi, tekrar deneyin.')
+    }
     setEditing(false); onSaved({ ...booking, ...pricePayload }, 'Fiyat güncellendi.')
   }
   return <><button className="btn-outline price-edit-btn" type="button" onClick={() => { setValue(String(legPrice)); setError(''); setEditing(true) }}>Düzenle</button>{editing && <div className="price-editor" style={{ gridColumn: '1 / -1' }}><div className="price-editor-row"><span style={{ color: 'var(--text-muted)' }}>€</span><input className="input price-input" type="number" min={dailyChauffeur ? 0.01 : 0} step={0.01} inputMode="decimal" aria-label="Yeni fiyat" value={value} onChange={e => setValue(e.target.value)} autoFocus /><button className="btn price-action" type="button" disabled={saving} onClick={() => void save()}>Kaydet</button><button className="btn-outline price-action" type="button" onClick={() => setEditing(false)}>İptal</button></div><div className="inline-error">{error}</div></div>}</>
@@ -189,7 +224,10 @@ function ChauffeurDayEditor({ day, onSaved }: { day: ChauffeurHireDay; onSaved: 
     setSaving(true); setMessage('')
     const { data, error } = await supabase.from('chauffeur_hire_days').update(payload).eq('id', day.id).select().single()
     setSaving(false)
-    if (error || !data) return setMessage('Günlük kayıt güncellenemedi.')
+    if (error || !data) {
+      if (error) console.error('Günlük kayıt güncelleme hatası:', error.message, error.details, error.hint, error.code)
+      return setMessage('Günlük kayıt güncellenemedi.')
+    }
     onSaved(data as ChauffeurHireDay); setMessage('Kaydedildi.')
   }
   return <div className="chauffeur-day-card">
@@ -214,7 +252,8 @@ export default function BookingDetailPage({ bookingRef, isReturn, sourceTab, pro
   const [noteError, setNoteError] = useState('')
   const [noteSaving, setNoteSaving] = useState(false)
   const [templateState, setTemplateState] = useState({ loading: '', success: '', error: '' })
-  const [forceEnglish, setForceEnglish] = useState(false)
+  const [messageLang, setMessageLang] = useState('')
+  const [preview, setPreview] = useState<{ kind: TemplateKind; text: string } | null>(null)
   const [deleting, setDeleting] = useState(false)
   const [deleteError, setDeleteError] = useState('')
 
@@ -248,9 +287,17 @@ export default function BookingDetailPage({ bookingRef, isReturn, sourceTab, pro
   const navigation = !dailyChauffeur ? navigationURLs({ originValue: transfer.pickupLocation, originAddress: transfer.pickupAddress, destinationValue: transfer.dropoffLocation, destinationAddress: transfer.dropoffAddress, hotelName: booking.hotel_name }) : null
   const legPrice = dailyChauffeur ? Number(booking.daily_rate_eur) || 150 : roundTrip ? (Number(booking.price_eur) || 0) / 2 : Number(booking.price_eur) || 0
   const paymentMethod = booking.payment_method === 'cash' ? 'Nakit' : 'Kart'
-  const costModeLabel = booking.service_cost_mode === 'sold_transfer' ? 'Satılan transfer' : 'Kendi aracımız'
+  // Kâr/zarar motoruyla aynı kural: ayrıştırılmamış eski kayıtlarda toplam
+  // maliyet iki ayağa bölünür, ayrıştırılmışlarda her ayak kendi bedelini taşır.
+  const legCost = legCostModel(booking, isReturn && roundTrip ? 'return' : 'outbound')
+  const costModeLabel = legCost.costMode === 'sold_transfer' ? 'Satılan transfer' : 'Kendi aracımız'
+  // Dönüş ayağında yolcu, gidişin varış bölgesinden alınır.
+  const returnPickup = returnPickupAdvice(booking.return_flight_departure_time, booking.dropoff_location)
   const sortedNotes = [...(booking.booking_notes ?? [])].sort((a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime())
   const showSeparateFlightArrival = transfer.flightArrivalTime && transfer.flightArrivalTime !== transfer.time
+  const flightTimeSuffix = transfer.flightDepartureTime
+    ? ` kalkış ${fmtTime(transfer.flightDepartureTime)}`
+    : showSeparateFlightArrival ? ` varış ${fmtTime(transfer.flightArrivalTime)}` : ''
   const hireDays = dailyChauffeur && booking.service_end_date
     ? Math.floor((Date.parse(`${booking.service_end_date}T00:00:00Z`) - Date.parse(`${booking.pickup_date}T00:00:00Z`)) / 86_400_000) + 1
     : 0
@@ -266,7 +313,48 @@ export default function BookingDetailPage({ bookingRef, isReturn, sourceTab, pro
     navigate('#new')
   }
 
-  const openTemplate = async (kind: 'confirm' | 'reminder' | 'received' | 'review') => {
+  // Each button says what it sends and when it is the right one to send, so the
+  // operator never has to open a message to remember which is which.
+  const templateCards: { kind: TemplateKind; icon: string; title: string; hint: string }[] = [
+    { kind: 'received', icon: '📥', title: 'Talebinizi aldık', hint: 'Yeni talep geldiğinde ilk cevap' },
+    { kind: 'confirm', icon: '✅', title: roundTrip ? (isReturn ? 'Dönüş onayı' : 'Gidiş onayı') : 'Rezervasyon onayı', hint: 'Fiyat ve transfer detaylarıyla onay' },
+    { kind: 'reminder', icon: '⏰', title: roundTrip ? (isReturn ? 'Dönüş hatırlatması' : 'Gidiş hatırlatması') : 'Transfer hatırlatması', hint: 'Transferden önce sürücü, plaka ve harita' },
+    { kind: 'review', icon: '⭐', title: 'Yorum iste', hint: 'Transfer tamamlandıktan sonra' },
+  ]
+
+  // The dropdown wins; 'auto' keeps the booking's own language and, when that
+  // was never stored, falls back to the phone's country code — never silently
+  // to English, which is what used to reach customers.
+  const resolveLanguage = (source: Booking = booking) =>
+    messageLang || source.language || languageFromPhone(source.customer_phone)
+
+  const buildMessage = (source: Booking, kind: TemplateKind, language: string) => {
+    const leg = isReturn ? 'return' : 'outbound'
+    if (kind === 'confirm') return buildConfirmMessage(source, { leg, language })
+    if (kind === 'reminder') return buildReminderMessage(source, { leg, language })
+    if (kind === 'received') return buildReceivedMessage(source, { language })
+    return buildReviewMessage(source, { language })
+  }
+
+  const showPreview = (kind: TemplateKind) => {
+    setTemplateState({ loading: '', success: '', error: '' })
+    setPreview(current => current?.kind === kind
+      ? null
+      : { kind, text: buildMessage(booking, kind, resolveLanguage()) })
+  }
+
+  const copyPreview = async () => {
+    if (!preview) return
+    try {
+      await navigator.clipboard.writeText(preview.text)
+      setTemplateState({ loading: '', success: 'Mesaj panoya kopyalandı.', error: '' })
+    } catch {
+      setTemplateState({ loading: '', success: '', error: 'Panoya kopyalanamadı; metni elle seçip kopyalayın.' })
+    }
+  }
+
+  const openTemplate = async (kind: TemplateKind) => {
+    setPreview(null)
     const popup = window.open('about:blank', '_blank')
     if (!popup) return setTemplateState({ loading: '', success: '', error: 'WhatsApp sekmesi açılamadı. Tarayıcıdaki açılır pencere iznini kontrol edin.' })
     try { popup.opener = null; popup.document.title = 'WhatsApp mesajı hazırlanıyor'; popup.document.body.textContent = 'Güncel rezervasyon bilgileri kontrol ediliyor…' } catch { /* redirect can still work */ }
@@ -278,15 +366,10 @@ export default function BookingDetailPage({ bookingRef, isReturn, sourceTab, pro
     }
     const latest = data as Booking
     setBooking(current => ({ ...current!, ...latest }))
-    const language = forceEnglish ? 'en' : undefined
-    let message: string
-    if (kind === 'confirm') message = buildConfirmMessage(latest, { leg: isReturn ? 'return' : 'outbound', language })
-    else if (kind === 'reminder') message = buildReminderMessage(latest, { leg: isReturn ? 'return' : 'outbound', language })
-    else if (kind === 'received') message = buildReceivedMessage(latest, { language })
-    else message = buildReviewMessage(latest, { language })
+    const message = buildMessage(latest, kind, resolveLanguage(latest))
     if (popup.closed) return setTemplateState({ loading: '', success: '', error: 'WhatsApp sekmesi kapatıldı.' })
     popup.location.replace(whatsappURL(latest.customer_phone, message))
-    setTemplateState({ loading: '', success: 'Mesaj, veritabanındaki en güncel transfer ve adres bilgileriyle hazırlandı.', error: '' })
+    setTemplateState({ loading: '', success: `Mesaj ${languageName(resolveLanguage(latest))} dilinde, en güncel transfer ve adres bilgileriyle hazırlandı.`, error: '' })
   }
 
   const updateStatus = async (next: BookingStatus) => {
@@ -297,6 +380,7 @@ export default function BookingDetailPage({ bookingRef, isReturn, sourceTab, pro
     const { count, error } = await supabase.from('bookings').update({ status: next }, { count: 'exact' }).eq('booking_ref', bookingRef)
     setStatusSaving(false)
     if (error || count === 0) {
+      if (error) console.error('Durum güncelleme hatası:', error.message, error.details, error.hint, error.code)
       setBooking({ ...booking, status: previousStatus })
       setStatusError('Güncelleme başarısız, tekrar deneyin.')
     }
@@ -340,17 +424,38 @@ export default function BookingDetailPage({ bookingRef, isReturn, sourceTab, pro
       <div className="section"><div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}><span style={{ color: 'var(--text-muted)', fontSize: 13 }}>{booking.booking_ref}</span><div className="card-badges"><span className={`badge badge-${displayStatus}`}>{statusLabel(displayStatus, roundTrip)}</span>{dailyChauffeur && <span className="badge badge-daily">GÜNLÜK KİRALAMA</span>}{roundTrip && <span className={`badge ${isReturn ? 'badge-return' : 'badge-outbound'}`}>{isReturn ? 'DÖNÜŞ' : 'GİDİŞ'}</span>}</div></div></div>
       <div className="section quick-actions-section"><button className="btn-outline blue" type="button" onClick={() => planTrip(false)}>🆕 Bu yolcudan yeni seyahat planla</button>{!dailyChauffeur && <button className="btn-outline blue" type="button" onClick={() => planTrip(true)}>↩ Dönüş yolculuğu planla</button>}</div>
       {needsReturnContact && <div className="return-contact-alert detail-return-contact" role="status"><span className="return-contact-icon" aria-hidden="true">☎</span><span className="return-contact-copy"><strong>Gidiş seyahati için iletişime geç</strong><small>Geliş transferi tamamlandı.</small></span><a href={whatsappURL(booking.customer_phone)} target="_blank" rel="noopener noreferrer">WhatsApp</a></div>}
-      <div className="section"><div className="editable-heading" style={{ marginBottom: 8 }}><div className="section-label" style={{ marginBottom: 0 }}>{dailyChauffeur ? 'Günlük Araç + Şoför' : 'Transfer'}</div><button className="inline-edit-button" type="button" hidden={editing} onClick={() => { setSuccess(''); setEditing(true) }}>Tümünü düzenle</button></div>{dailyChauffeur ? <><div className="daily-detail-title">{fmtDetailDate(booking.pickup_date)} – {fmtDetailDate(booking.service_end_date)} · {hireDays} gün</div><div className="daily-detail-summary"><span><small>Başlangıç</small><strong>{fmtTime(booking.pickup_time)} · {pickupDisplay}</strong></span><span><small>Hizmet</small><strong>Kilometre ve saat sınırı yok</strong></span><span><small>Ücret</small><strong>€{fmtPrice(Number(booking.daily_rate_eur) || 150)} × {hireDays} = €{fmtPrice(booking.price_eur)}</strong></span></div><div className={`fuel-acceptance-status${booking.fuel_terms_accepted_at ? ' accepted' : ' missing'}`}>{booking.fuel_terms_accepted_at ? `✓ Yakıt hariç koşulu müşteri tarafından onaylandı · ${new Date(booking.fuel_terms_accepted_at).toLocaleString('tr-TR')}` : '⚠ Yakıt hariç koşulu onaylanmamış'}</div>{booking.flight_number && <div className="daily-flight-line">✈ Geliş: {booking.pickup_date} · {booking.flight_number} · {fmtTime(booking.flight_arrival_time)}</div>}{booking.departure_flight_date && <div className="daily-flight-line">✈ Dönüş: {booking.departure_flight_date} · {booking.departure_flight_number || 'Uçuş no yok'} · {fmtTime(booking.departure_flight_time)}</div>}</> : <><div style={{ fontSize: 17, fontWeight: 700, marginBottom: 4 }}>{fmtTime(transfer.time)} &nbsp;{pickupDisplay} → {dropoffDisplay}</div><div style={{ color: 'var(--text-muted)', fontSize: 13 }}>{fmtDetailDate(transfer.date)}{transfer.flightNumber ? ` · ✈️ ${transfer.flightNumber}${showSeparateFlightArrival ? ` varış ${fmtTime(transfer.flightArrivalTime)}` : ''}` : ''}</div>{transfer.pickupAddress && <div style={{ color: 'var(--text-muted)', fontSize: 13, marginTop: 6 }}>📍 Alış: {transfer.pickupAddress}</div>}{transfer.dropoffAddress && <div style={{ color: 'var(--text-muted)', fontSize: 13, marginTop: 3 }}>📍 Varış: {transfer.dropoffAddress}</div>}{navigation && <><div className="detail-navigation-label">Transfer rotası</div><div className="detail-navigation" aria-label="Google Haritalar ile transfer rotası için yol tarifi"><a href={navigation.google} target="_blank" rel="noopener noreferrer"><span aria-hidden="true">↗</span> Adrese yol tarifi al</a></div></>}</>}<div className="inline-success" role="status">{success}</div></div>
+      <div className="section"><div className="editable-heading" style={{ marginBottom: 8 }}><div className="section-label" style={{ marginBottom: 0 }}>{dailyChauffeur ? 'Günlük Araç + Şoför' : 'Transfer'}</div><button className="inline-edit-button" type="button" hidden={editing} onClick={() => { setSuccess(''); setEditing(true) }}>Tümünü düzenle</button></div>{dailyChauffeur ? <><div className="daily-detail-title">{fmtDetailDate(booking.pickup_date)} – {fmtDetailDate(booking.service_end_date)} · {hireDays} gün</div><div className="daily-detail-summary"><span><small>Başlangıç</small><strong>{fmtTime(booking.pickup_time)} · {pickupDisplay}</strong></span><span><small>Hizmet</small><strong>Kilometre ve saat sınırı yok</strong></span><span><small>Ücret</small><strong>€{fmtPrice(Number(booking.daily_rate_eur) || 150)} × {hireDays} = €{fmtPrice(booking.price_eur)}</strong></span></div><div className={`fuel-acceptance-status${booking.fuel_terms_accepted_at ? ' accepted' : ' missing'}`}>{booking.fuel_terms_accepted_at ? `✓ Yakıt hariç koşulu müşteri tarafından onaylandı · ${new Date(booking.fuel_terms_accepted_at).toLocaleString('tr-TR')}` : '⚠ Yakıt hariç koşulu onaylanmamış'}</div>{booking.flight_number && <div className="daily-flight-line">✈ Geliş: {booking.pickup_date} · {booking.flight_number} · varış {fmtTime(booking.flight_arrival_time)}</div>}{booking.departure_flight_date && <div className="daily-flight-line">✈ Dönüş: {booking.departure_flight_date} · {booking.departure_flight_number || 'Uçuş no yok'} · kalkış {fmtTime(booking.departure_flight_time)}</div>}</> : <><div style={{ fontSize: 17, fontWeight: 700, marginBottom: 4 }}>{fmtTime(transfer.time)} &nbsp;{pickupDisplay} → {dropoffDisplay}</div><div style={{ color: 'var(--text-muted)', fontSize: 13 }}>{fmtDetailDate(transfer.date)}{transfer.flightNumber ? ` · ✈️ ${transfer.flightNumber}${flightTimeSuffix}` : ''}</div>{transfer.pickupAddress && <div style={{ color: 'var(--text-muted)', fontSize: 13, marginTop: 6 }}>📍 Alış: {transfer.pickupAddress}</div>}{transfer.dropoffAddress && <div style={{ color: 'var(--text-muted)', fontSize: 13, marginTop: 3 }}>📍 Varış: {transfer.dropoffAddress}</div>}{navigation && <><div className="detail-navigation-label">Transfer rotası</div><div className="detail-navigation" aria-label="Google Haritalar ile transfer rotası için yol tarifi"><a href={navigation.google} target="_blank" rel="noopener noreferrer"><span aria-hidden="true">↗</span> Adrese yol tarifi al</a></div></>}</>}<div className="inline-success" role="status">{success}</div></div>
+      {roundTrip && isReturn && !editing && <div className="section return-pickup-section"><div className="section-label">Dönüş Uçuşu & Otelden Alınma</div>
+        <div className="detail-grid">
+          <div><div className="detail-key">Dönüş uçuşu</div><div className="detail-val">{booking.return_flight_number ? `✈️ ${booking.return_flight_number}` : '—'}</div></div>
+          <div><div className="detail-key">Uçuş kalkış saati</div><div className="detail-val">{fmtTime(booking.return_flight_departure_time)}</div></div>
+          <div><div className="detail-key">Planlanan alış</div><div className="detail-val">{fmtTime(booking.return_pickup_time)}</div></div>
+          <div><div className="detail-key">Tavsiye edilen alış</div><div className="detail-val">{returnPickup ? returnPickup.time : '—'}</div></div>
+        </div>
+        {returnPickup
+          ? <ReturnPickupHint departureTime={booking.return_flight_departure_time} pickupLocation={booking.dropoff_location} actualTime={booking.return_pickup_time} />
+          : <div className="form-hint">Tavsiye edilen alış saatini hesaplamak için dönüş uçuşunun kalkış saatini girin.</div>}
+      </div>}
       {editing && <div className="section booking-edit-section"><BookingEditor booking={booking} onCancel={() => setEditing(false)} onSaved={next => { setEditing(false); updateBooking(next, 'Rezervasyon bilgileri güncellendi.') }} /></div>}
 
       {dailyChauffeur && <div className="section chauffeur-days-section"><div className="section-label">Günlük Operasyon</div>{sortedHireDays.length ? sortedHireDays.map(day => <ChauffeurDayEditor key={day.id} day={day} onSaved={updateHireDay} />) : <div className="inline-error">Günlük operasyon kayıtları bulunamadı. Migration ve tetikleyici durumunu kontrol edin.</div>}</div>}
 
-      <div className="section"><div className="section-label">Müşteri</div><div style={{ fontWeight: 600, marginBottom: 4 }}>{booking.customer_name}</div><div style={{ marginBottom: 4 }}><a className="whatsapp-link" href={whatsappURL(booking.customer_phone)} target="_blank" rel="noopener noreferrer" aria-label="Müşterinin WhatsApp sohbetini aç"><span aria-hidden="true">💬</span><span>WhatsApp&apos;tan yaz: {booking.customer_phone}</span></a></div><label className="whatsapp-lang-toggle" style={{ display: 'flex', alignItems: 'center', gap: 6, marginBottom: 8, fontSize: 13, cursor: 'pointer' }}><input type="checkbox" checked={forceEnglish} onChange={e => setForceEnglish(e.target.checked)} /><span>🇬🇧 Her zaman İngilizce gönder {forceEnglish ? '(açık)' : `(varsayılan: müşteri dili · ${booking.language || 'en'})`}</span></label><div className="whatsapp-template-actions"><button className="whatsapp-template-btn" type="button" disabled={Boolean(templateState.loading)} onClick={() => void openTemplate('confirm')}>💬 {templateState.loading === 'confirm' ? 'Güncel veriler kontrol ediliyor…' : `WhatsApp: ${roundTrip ? (isReturn ? 'Dönüş onayı' : 'Gidiş onayı') : 'Onay'} gönder`}</button><button className="whatsapp-template-btn" type="button" disabled={Boolean(templateState.loading)} onClick={() => void openTemplate('reminder')}>💬 {templateState.loading === 'reminder' ? 'Güncel veriler kontrol ediliyor…' : `WhatsApp: ${roundTrip ? (isReturn ? 'Dönüş hatırlatması' : 'Gidiş hatırlatması') : 'Hatırlatma'} gönder`}</button><button className="whatsapp-template-btn" type="button" disabled={Boolean(templateState.loading)} onClick={() => void openTemplate('received')}>💬 {templateState.loading === 'received' ? 'Güncel veriler kontrol ediliyor…' : 'WhatsApp: Talebinizi aldık gönder'}</button><button className="whatsapp-template-btn" type="button" disabled={Boolean(templateState.loading)} onClick={() => void openTemplate('review')}>💬 {templateState.loading === 'review' ? 'Güncel veriler kontrol ediliyor…' : 'WhatsApp: Yorum iste gönder'}</button></div><div className="inline-success" role="status">{templateState.success}</div><div className="inline-error" role="alert">{templateState.error}</div>
+      <div className="section"><div className="section-label">Müşteri</div><div style={{ fontWeight: 600, marginBottom: 4 }}>{booking.customer_name}</div><div style={{ marginBottom: 4 }}><a className="whatsapp-link" href={whatsappURL(booking.customer_phone)} target="_blank" rel="noopener noreferrer" aria-label="Müşterinin WhatsApp sohbetini aç"><span aria-hidden="true">💬</span><span>WhatsApp&apos;tan yaz: {booking.customer_phone}</span></a></div><div className="whatsapp-panel">
+        <div className="whatsapp-panel-head"><span className="whatsapp-panel-title"><span aria-hidden="true">💬</span> WhatsApp mesajları</span><span className="whatsapp-panel-lang-chip">{languageChip(resolveLanguage())}</span></div>
+        <label className="whatsapp-lang-field"><span className="whatsapp-lang-label">Mesaj dili</span><select className="input whatsapp-lang-select" value={messageLang} onChange={e => { setMessageLang(e.target.value); setPreview(null) }}><option value="">Otomatik · {languageChip(booking.language || languageFromPhone(booking.customer_phone))}</option>{MESSAGE_LANGUAGES.map(([value, label]) => <option key={value} value={value}>{LANGUAGE_FLAGS[value] ?? '🌐'} {label}</option>)}</select></label>
+        <p className="whatsapp-lang-hint">{messageLang ? `Bu ekranda gönderilecek mesajlar ${languageName(messageLang)} dilinde hazırlanır.` : `Rezervasyonun kayıtlı dili kullanılır; kayıt yoksa telefon ülke kodundan bulunur (şu an ${languageName(resolveLanguage())}).`}</p>
+        <div className="whatsapp-template-actions">{templateCards.map(card => <div className={`whatsapp-template-card${preview?.kind === card.kind ? ' previewing' : ''}`} key={card.kind}>
+          <button className="whatsapp-template-btn" type="button" disabled={Boolean(templateState.loading)} onClick={() => void openTemplate(card.kind)}><span className="whatsapp-template-icon" aria-hidden="true">{card.icon}</span><span className="whatsapp-template-copy"><strong>{card.title}</strong><small>{templateState.loading === card.kind ? 'Güncel veriler kontrol ediliyor…' : card.hint}</small></span><span className="whatsapp-template-go" aria-hidden="true">{templateState.loading === card.kind ? '…' : '↗'}</span></button>
+          <button className="whatsapp-preview-btn" type="button" aria-pressed={preview?.kind === card.kind} aria-label={`${card.title} mesajını önizle`} title="Önizle" onClick={() => showPreview(card.kind)}>👁</button>
+        </div>)}</div>
+        {preview && <div className="whatsapp-preview"><div className="whatsapp-preview-head"><span>Önizleme · {languageChip(resolveLanguage())}</span><button type="button" className="whatsapp-preview-close" aria-label="Önizlemeyi kapat" onClick={() => setPreview(null)}>✕</button></div><pre className="whatsapp-preview-body">{preview.text}</pre><div className="whatsapp-preview-actions"><button type="button" className="whatsapp-preview-action" onClick={() => void copyPreview()}>📋 Kopyala</button><button type="button" className="whatsapp-preview-action primary" disabled={Boolean(templateState.loading)} onClick={() => void openTemplate(preview.kind)}>💬 WhatsApp&apos;ta aç</button></div><p className="whatsapp-preview-note">Gönderirken transfer ve adres bilgileri veritabanından yeniden okunur.</p></div>}
+        <div className="inline-success" role="status">{templateState.success}</div><div className="inline-error" role="alert">{templateState.error}</div>
+      </div>
         <div className="driver-notify-section"><div className="section-label" style={{ marginTop: 12 }}>Şoför Bildirimi</div><a className="whatsapp-template-btn driver-notify-btn" href={driverWhatsappURL(buildDriverTransferMessage(booking))} target="_blank" rel="noopener noreferrer">🚗 Şoföre Bildir (WhatsApp)</a></div>
         <div className="detail-grid" style={{ marginTop: 8 }}><InlineEditor booking={booking} column="customer_email" label="✉️ E-posta" display={booking.customer_email || '—'} maxLength={120} inputType="email" validate={raw => { const email = raw.trim().toLowerCase(); return email && (email.length > 120 || !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) ? { ok: false, error: 'Geçerli bir e-posta girin.' } : { ok: true, value: email } }} onSaved={genericSaved} /></div>
       </div>
 
-      <div className="section"><div className="section-label">Detaylar</div><div className="detail-grid"><div><div className="detail-key">Araç</div><div className="detail-val">{booking.vehicle_type === 'vclass' ? 'V-Class' : 'Vito'}</div></div><div><div className="detail-key">Yolcu</div><div className="detail-val">{booking.guests} kişi</div></div><div><div className="detail-key">Bagaj</div><div className="detail-val">{booking.luggage_count > 0 ? `🧳 ${booking.luggage_count}` : '—'}</div></div><div><div className="detail-key">Çocuk koltuğu</div><div className="detail-val">{booking.child_seat_count > 0 ? `👶 ${booking.child_seat_count}${booking.child_ages?.length > 0 ? ` (${booking.child_ages.map((a, i) => `${i + 1}: ${a === 0 ? '<1' : a + 'y'}`).join(', ')})` : ''}` : '—'}</div></div><div><div className="detail-key">Maliyet modeli</div><div className="detail-val">{booking.service_cost_mode === 'sold_transfer' && booking.sold_transfer_cost_try != null ? `${costModeLabel} · ₺${fmtPrice(booking.sold_transfer_cost_try)}` : costModeLabel}</div></div>
+      <div className="section"><div className="section-label">Detaylar</div><div className="detail-grid"><div><div className="detail-key">Araç</div><div className="detail-val">{booking.vehicle_type === 'vclass' ? 'V-Class' : 'Vito'}</div></div><div><div className="detail-key">Yolcu</div><div className="detail-val">{booking.guests} kişi</div></div><div><div className="detail-key">Bagaj</div><div className="detail-val">{booking.luggage_count > 0 ? `🧳 ${booking.luggage_count}` : '—'}</div></div><div><div className="detail-key">Çocuk koltuğu</div><div className="detail-val">{booking.child_seat_count > 0 ? `👶 ${booking.child_seat_count}${booking.child_ages?.length > 0 ? ` (${booking.child_ages.map((a, i) => `${i + 1}: ${a === 0 ? '<1' : a + 'y'}`).join(', ')})` : ''}` : '—'}</div></div><div><div className="detail-key">{roundTrip ? `Maliyet modeli · ${isReturn ? 'dönüş' : 'gidiş'}` : 'Maliyet modeli'}</div><div className="detail-val">{legCost.costMode === 'sold_transfer' && legCost.costIsValid ? `${costModeLabel} · ₺${fmtPrice(legCost.legSupplierCostTry)}` : costModeLabel}</div></div>
         <InlineEditor booking={booking} column="hotel_name" label="Otel" display={booking.hotel_name || '—'} maxLength={120} validate={raw => { const value = raw.trim().replace(/\s+/g, ' '); const letters = value.match(/\p{L}/gu)?.length ?? 0; return value.length < 2 || value.length > 120 || letters < 2 ? { ok: false, error: 'Geçerli bir otel adı girin.' } : { ok: true, value } }} onSaved={genericSaved} />
         <InlineEditor booking={booking} column="pickup_address" label="Alış adresi" display={booking.pickup_address ? `📍 ${booking.pickup_address}` : '—'} maxLength={160} validate={raw => { const value = raw.trim().replace(/\s+/g, ' '); return value && (value.length < 6 || value.length > 160) ? { ok: false, error: 'Adres 6-160 karakter olmalı.' } : { ok: true, value: value || null } }} onSaved={genericSaved} />
         {!dailyChauffeur && <InlineEditor booking={booking} column="dropoff_address" label="Varış adresi" display={booking.dropoff_address ? `📍 ${booking.dropoff_address}` : '—'} maxLength={160} validate={raw => { const value = raw.trim().replace(/\s+/g, ' '); return value && (value.length < 6 || value.length > 160) ? { ok: false, error: 'Adres 6-160 karakter olmalı.' } : { ok: true, value: value || null } }} onSaved={genericSaved} />}

@@ -75,7 +75,10 @@ export function Header({
     <>
       <header className={`site-header${scrolled ? " scrolled" : ""}`} id="site-header">
         <a className="brand" href={sectionHref("#top")} onClick={scrollTo("#top")} aria-label="Antalya VIP Tourism home">
-          <img src="/assets/optimized/logo.png" alt="Antalya VIP Tourism" className="brand-logo" width="160" height="120" />
+          <picture>
+            <source srcSet="/assets/optimized/logo.webp" type="image/webp" />
+            <img src="/assets/optimized/logo.png" alt="Antalya VIP Tourism" className="brand-logo" width="160" height="120" />
+          </picture>
           <span className="brand-copy"><strong>Antalya VIP</strong><span>Tourism</span></span>
         </a>
         <nav className="desktop-nav" aria-label="Primary navigation">

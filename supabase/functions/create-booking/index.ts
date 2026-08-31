@@ -317,6 +317,9 @@ Deno.serve(async (req) => {
       return_date: returnDate || null,
       return_pickup_time: returnPickupTime || null,
       return_flight_number: returnFlightNumber || null,
+      // Gidiş ve dönüş ayakları ayrı maliyetlenir; genel talepler kendi
+      // aracımızla başlar, satılan transfer admin panelinden işaretlenir.
+      return_service_cost_mode: isRoundTrip ? 'own_vehicle' : null,
       service_end_date: serviceEndDate || null,
       daily_rate_eur: dailyRateEur,
       departure_flight_date: departureFlightDate || null,

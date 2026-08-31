@@ -55,7 +55,9 @@ export function expandRoundTrips(bookings: Booking[], mode: 'timeline' | 'cancel
             driver_name: day?.driver_name || booking.driver_name,
             vehicle_plate: day?.vehicle_plate || booking.vehicle_plate,
             flight_number: index === 0 ? booking.flight_number : index === dayCount - 1 ? booking.departure_flight_number : null,
-            flight_arrival_time: index === 0 ? booking.flight_arrival_time : index === dayCount - 1 ? booking.departure_flight_time : null,
+            flight_arrival_time: index === 0 ? booking.flight_arrival_time : null,
+            // Son gün gösterilen uçuş saati dönüş uçuşunun kalkışıdır, varış değil.
+            _flightDepartureTime: index === dayCount - 1 && index !== 0 ? booking.departure_flight_time : null,
             _displayDate: serviceDate,
             _displayTime: booking.pickup_time,
             _isReturn: false,
@@ -89,6 +91,7 @@ export function expandRoundTrips(bookings: Booking[], mode: 'timeline' | 'cancel
         dropoff_address: booking.pickup_address,
         flight_number: booking.return_flight_number,
         flight_arrival_time: null,
+        _flightDepartureTime: booking.return_flight_departure_time ?? null,
       })
     }
   }

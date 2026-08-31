@@ -1,6 +1,6 @@
 /**
  * Antalya city accommodations, imported from the all-hotels listing the
- * operator supplied (assets/hotels.html, August 2026).
+ * operator supplied (docs/hotel-sources/antalya-all-hotels.html, August 2026).
  *
  * That listing is the aggregator's Antalya destination page: 673 entries
  * grouped by star rating, with no district column. Everything on it is

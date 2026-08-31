@@ -963,7 +963,10 @@ export function HealthPage() {
         <div className="health-footer-main">
           <div>
             <a className="brand footer-brand" href={homeHref}>
-              <img src="/assets/optimized/logo.png" alt="Antalya VIP Tourism" className="brand-logo" width="160" height="120" loading="lazy" />
+              <picture>
+                <source srcSet="/assets/optimized/logo.webp" type="image/webp" />
+                <img src="/assets/optimized/logo.png" alt="Antalya VIP Tourism" className="brand-logo" width="160" height="120" loading="lazy" />
+              </picture>
               <span className="brand-copy"><strong>Antalya VIP</strong><span>Tourism</span></span>
             </a>
             <p>{copy.footer.tagline}</p>

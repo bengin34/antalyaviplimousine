@@ -52,6 +52,12 @@ const LANG = {
       `Dear ${name},\n\n🌟 Thank you for traveling with Antalya VIP Tourism. We hope everything went smoothly.`,
     reviewClosing:
       "If you have a moment, we'd appreciate a short review on Google — it really helps us. 👇\n\nhttps://g.page/r/CbJCg7BC63cBEBI/review",
+    faqNote: "📖 Please read our FAQ before your trip:",
+    faqTopicArrival: "Airport pickup — how it works",
+    faqTopicReturn: "Return transfer — how we stay in touch",
+    faqTopicPayment: "Payment & price",
+    faqTopicDaily: "Your journey & extra stops",
+    faqTopicGeneral: "All frequently asked questions",
     labelRef: "Reference",
     labelDate: "Date",
     labelPickupTime: "Pickup time",
@@ -64,8 +70,8 @@ const LANG = {
     labelReturn: "Return transfer",
     labelPickup: "Pickup location",
     labelDropoff: "Drop-off location",
-    labelMap: "Google Maps route",
     labelFlight: "Flight",
+    labelFlightDeparture: "Departure",
     labelLuggage: "Luggage",
     labelChildSeats: "Child seats",
     labelDriver: "Driver",
@@ -101,6 +107,12 @@ const LANG = {
       `Hallo ${name},\n\n🌟 Danke, dass Sie mit Antalya VIP Tourism gefahren sind. Wir hoffen, alles ist gut verlaufen.`,
     reviewClosing:
       "Wenn Sie einen Moment haben, freuen wir uns über eine kurze Google-Bewertung — das hilft uns sehr. 👇\n\nhttps://g.page/r/CbJCg7BC63cBEBI/review",
+    faqNote: "📖 Bitte lesen Sie vor Ihrer Reise unsere FAQ:",
+    faqTopicArrival: "Flughafen-Abholung — so läuft es ab",
+    faqTopicReturn: "Rücktransfer — so bleiben wir in Kontakt",
+    faqTopicPayment: "Zahlung & Preis",
+    faqTopicDaily: "Ihre Fahrt & Zwischenstopps",
+    faqTopicGeneral: "Alle häufigen Fragen",
     labelRef: "Referenz",
     labelDate: "Datum",
     labelPickupTime: "Abholzeit",
@@ -113,8 +125,8 @@ const LANG = {
     labelReturn: "Rücktransfer",
     labelPickup: "Abholort",
     labelDropoff: "Zielort",
-    labelMap: "Google-Maps-Route",
     labelFlight: "Flug",
+    labelFlightDeparture: "Abflug",
     labelLuggage: "Gepäck",
     labelChildSeats: "Kindersitze",
     labelDriver: "Fahrer",
@@ -141,6 +153,12 @@ const LANG = {
       `Здравствуйте, ${name}!\n\n🌟 Спасибо, что выбрали Antalya VIP Tourism. Надеемся, всё прошло хорошо.`,
     reviewClosing:
       "Если найдётся минутка, будем благодарны за короткий отзыв на Google — это очень помогает нам. 👇\n\nhttps://g.page/r/CbJCg7BC63cBEBI/review",
+    faqNote: "📖 Перед поездкой ознакомьтесь с нашими вопросами и ответами:",
+    faqTopicArrival: "Встреча в аэропорту — как это происходит",
+    faqTopicReturn: "Обратный трансфер — как мы остаёмся на связи",
+    faqTopicPayment: "Оплата и стоимость",
+    faqTopicDaily: "Поездка и дополнительные остановки",
+    faqTopicGeneral: "Все частые вопросы",
     labelRef: "Номер брони",
     labelDate: "Дата",
     labelPickupTime: "Время подачи",
@@ -153,8 +171,8 @@ const LANG = {
     labelReturn: "Обратный трансфер",
     labelPickup: "Место подачи",
     labelDropoff: "Место назначения",
-    labelMap: "Маршрут Google Maps",
     labelFlight: "Рейс",
+    labelFlightDeparture: "Вылет",
     labelLuggage: "Багаж",
     labelChildSeats: "Детские кресла",
     labelDriver: "Водитель",
@@ -181,6 +199,12 @@ const LANG = {
       `Merhaba ${name},\n\n🌟 Antalya VIP Tourism ile seyahat ettiğiniz için teşekkürler. Umarız her şey yolunda gitmiştir.`,
     reviewClosing:
       "Bir dakikanız olursa, Google'da bırakacağınız kısa bir değerlendirme bize çok yardımcı olur. 👇\n\nhttps://g.page/r/CbJCg7BC63cBEBI/review",
+    faqNote: "📖 Seyahatinizden önce lütfen SSS bölümümüzü okuyun:",
+    faqTopicArrival: "Havalimanı karşılama — nasıl işliyor",
+    faqTopicReturn: "Dönüş transferi — nasıl iletişimde kalıyoruz",
+    faqTopicPayment: "Ödeme ve fiyat",
+    faqTopicDaily: "Yolculuk ve ara duraklar",
+    faqTopicGeneral: "Tüm sık sorulan sorular",
     labelRef: "Rezervasyon No",
     labelDate: "Tarih",
     labelPickupTime: "Alış saati",
@@ -193,8 +217,8 @@ const LANG = {
     labelReturn: "Dönüş transferi",
     labelPickup: "Alış konumu",
     labelDropoff: "Varış konumu",
-    labelMap: "Google Maps güzergâhı",
     labelFlight: "Uçuş",
+    labelFlightDeparture: "Kalkış",
     labelLuggage: "Bagaj",
     labelChildSeats: "Çocuk koltuğu",
     labelDriver: "Sürücü",
@@ -229,6 +253,12 @@ const LANG = {
       `Bonjour ${name},\n\n🌟 Merci d'avoir voyagé avec Antalya VIP Tourism. Nous espérons que tout s'est bien passé.`,
     reviewClosing:
       "Si vous avez un instant, un court avis sur Google nous aiderait beaucoup. 👇\n\nhttps://g.page/r/CbJCg7BC63cBEBI/review",
+    faqNote: "📖 Avant votre voyage, veuillez lire notre FAQ :",
+    faqTopicArrival: "Accueil à l'aéroport — comment ça se passe",
+    faqTopicReturn: "Transfert retour — comment nous restons en contact",
+    faqTopicPayment: "Paiement et prix",
+    faqTopicDaily: "Votre trajet et les arrêts",
+    faqTopicGeneral: "Toutes les questions fréquentes",
     labelRef: "Référence",
     labelDate: "Date",
     labelPickupTime: "Heure de prise en charge",
@@ -241,8 +271,8 @@ const LANG = {
     labelReturn: "Transfert retour",
     labelPickup: "Lieu de prise en charge",
     labelDropoff: "Lieu de destination",
-    labelMap: "Itinéraire Google Maps",
     labelFlight: "Vol",
+    labelFlightDeparture: "Décollage",
     labelLuggage: "Bagages",
     labelChildSeats: "Sièges enfant",
     labelDriver: "Conducteur",
@@ -269,6 +299,12 @@ const LANG = {
       `مرحباً ${name}،\n\n🌟 شكراً لسفرك مع Antalya VIP Tourism. نأمل أن يكون كل شيء قد سار على ما يرام.`,
     reviewClosing:
       "إن توفّرت لديك لحظة، سنكون ممتنين لتقييم قصير على Google — فهذا يساعدنا كثيراً. 👇\n\nhttps://g.page/r/CbJCg7BC63cBEBI/review",
+    faqNote: "📖 قبل رحلتك، يُرجى قراءة الأسئلة الشائعة لدينا:",
+    faqTopicArrival: "الاستقبال في المطار — كيف تتم العملية",
+    faqTopicReturn: "رحلة العودة — كيف نبقى على تواصل",
+    faqTopicPayment: "الدفع والسعر",
+    faqTopicDaily: "رحلتك والتوقفات الإضافية",
+    faqTopicGeneral: "كل الأسئلة الشائعة",
     labelRef: "رقم الحجز",
     labelDate: "التاريخ",
     labelPickupTime: "وقت الاستقبال",
@@ -281,8 +317,8 @@ const LANG = {
     labelReturn: "رحلة العودة",
     labelPickup: "موقع الاستقبال",
     labelDropoff: "موقع الوصول",
-    labelMap: "مسار Google Maps",
     labelFlight: "الرحلة الجوية",
+    labelFlightDeparture: "الإقلاع",
     labelLuggage: "الأمتعة",
     labelChildSeats: "مقاعد الأطفال",
     labelDriver: "السائق",
@@ -292,6 +328,64 @@ const LANG = {
 
 function getLang(language) {
   return LANG[language] ?? LANG.en;
+}
+
+const FAQ_BASE = "https://antalyaviptourism.com";
+
+// Deep links into the public site's FAQ accordion. The anchors are the slugs
+// defined in public-app/app/lib/faq.ts, which the home page renders as element
+// ids; following one opens that question and scrolls to it, so the customer
+// lands on the answer rather than on a long list. The slug names the question,
+// because the customer reads the whole link in the message.
+const FAQ_TOPICS = {
+  arrival: { anchor: "faq-airport-pickup", label: "faqTopicArrival" },
+  return: { anchor: "faq-return-contact", label: "faqTopicReturn" },
+  payment: { anchor: "faq-payment", label: "faqTopicPayment" },
+  daily: { anchor: "faq-extra-stops", label: "faqTopicDaily" },
+  general: { anchor: "faq", label: "faqTopicGeneral" },
+};
+
+/**
+ * Language-specific FAQ URL customers should read before their trip.
+ * Falls back to the English homepage when the language has no dedicated page.
+ * @param {string} [language]
+ * @param {keyof typeof FAQ_TOPICS} [topic]
+ * @returns {string}
+ */
+export function faqURL(language, topic = "general") {
+  const hasPage = language && language !== "en" && LANG[language];
+  const { anchor } = FAQ_TOPICS[topic] ?? FAQ_TOPICS.general;
+  return `${FAQ_BASE}${hasPage ? `/${language}` : ""}/#${anchor}`;
+}
+
+// The FAQ entry that answers the question customers actually ask at this point
+// of the journey: how the airport pickup works before an arrival transfer, how
+// we stay in touch before the trip home, extra stops for a daily chauffeur,
+// payment for everything else.
+//
+// The direction of travel decides, not the leg label: a return transfer is
+// often entered as its own one-way booking rather than as the return leg of a
+// round trip, and that booking carries no "return" leg at all. Anything heading
+// to the airport is the trip home, however it was booked.
+export function faqTopicFor(transfer) {
+  if (!transfer) return "general";
+  if (transfer.isDailyChauffeur) return "daily";
+  if (transfer.pickupLocation === "airport") return "arrival";
+  if (transfer.dropoffLocation === "airport" || transfer.leg === "return")
+    return "return";
+  return "payment";
+}
+
+// "Please read this before your trip" block, closing every pre-trip message
+// with the one FAQ answer that is relevant to it.
+function faqLines(t, language, topic) {
+  const english = LANG.en;
+  const { label } = FAQ_TOPICS[topic] ?? FAQ_TOPICS.general;
+  return [
+    "",
+    t.faqNote ?? english.faqNote,
+    `${t[label] ?? english[label]}: ${faqURL(language, topic)}`,
+  ];
 }
 
 function transferDetails(booking, requestedLeg = "outbound") {
@@ -322,6 +416,8 @@ function transferDetails(booking, requestedLeg = "outbound") {
         date: b.return_date,
         time: b.return_pickup_time,
         flightNumber: b.return_flight_number,
+        // Dönüşte uçuşun kalkış saati verilir; alış saati buna göre planlanır.
+        flightDepartureTime: b.return_flight_departure_time,
         pickupLocation: b.dropoff_location,
         pickupAddress: b.dropoff_address,
         dropoffLocation: b.pickup_location,
@@ -356,14 +452,13 @@ function transferDetails(booking, requestedLeg = "outbound") {
     route: `${locationLabel(transfer.pickupLocation)} → ${locationLabel(transfer.dropoffLocation)}`,
     pickup: navigation.origin,
     dropoff: navigation.destination,
-    mapURL: navigation.google,
     price: isRoundTrip
       ? (Number(b.price_eur) || 0) / 2
       : Number(b.price_eur) || 0,
   };
 }
 
-function detailLines(booking, transfer, t, { includeMap = true } = {}) {
+function detailLines(booking, transfer, t) {
   const b = booking ?? {};
   if (transfer.isDailyChauffeur) {
     const english = LANG.en;
@@ -403,15 +498,18 @@ function detailLines(booking, transfer, t, { includeMap = true } = {}) {
     `${t.labelPickupTime}: ${fmtTime(transfer.time)}`,
   ];
 
-  if (transfer.flightNumber)
-    lines.push(`${t.labelFlight}: ${transfer.flightNumber}`);
+  if (transfer.flightNumber) {
+    const english = LANG.en;
+    const departure = transfer.flightDepartureTime
+      ? ` · ${t.labelFlightDeparture ?? english.labelFlightDeparture}: ${fmtTime(transfer.flightDepartureTime)}`
+      : "";
+    lines.push(`${t.labelFlight}: ${transfer.flightNumber}${departure}`);
+  }
 
   lines.push(
     `${t.labelPickup}: ${transfer.pickup}`,
     `${t.labelDropoff}: ${transfer.dropoff}`,
   );
-
-  if (includeMap) lines.push(`${t.labelMap}: ${transfer.mapURL}`);
 
   lines.push(
     `${t.labelVehicle}: ${vehicleLabel(b.vehicle_type)}`,
@@ -438,16 +536,18 @@ function detailLines(booking, transfer, t, { includeMap = true } = {}) {
  */
 export function buildConfirmMessage(booking, { leg = "outbound", language } = {}) {
   const b = booking ?? {};
-  const t = getLang(language ?? b.language);
+  const lang = language ?? b.language;
+  const t = getLang(lang);
   const transfer = transferDetails(b, leg);
 
   const lines = [
     t.confirmGreeting(b.customer_name),
     "",
     `${t.labelRef}: ${b.booking_ref}`,
-    ...detailLines(b, transfer, t, { includeMap: false }),
+    ...detailLines(b, transfer, t),
     "",
     t.confirmClosing,
+    ...faqLines(t, lang, faqTopicFor(transfer)),
   ];
 
   return lines.join("\n");
@@ -462,7 +562,8 @@ export function buildConfirmMessage(booking, { leg = "outbound", language } = {}
  */
 export function buildReminderMessage(booking, { leg = "outbound", language } = {}) {
   const b = booking ?? {};
-  const t = getLang(language ?? b.language);
+  const lang = language ?? b.language;
+  const t = getLang(lang);
   const transfer = transferDetails(b, leg);
 
   const lines = [
@@ -481,6 +582,7 @@ export function buildReminderMessage(booking, { leg = "outbound", language } = {
 
   lines.push("");
   lines.push(t.reminderClosing);
+  lines.push(...faqLines(t, lang, faqTopicFor(transfer)));
 
   return lines.join("\n");
 }
@@ -492,9 +594,17 @@ export function buildReminderMessage(booking, { leg = "outbound", language } = {
  */
 export function buildReceivedMessage(booking, { language } = {}) {
   const b = booking ?? {};
-  const t = getLang(language ?? b.language);
+  const lang = language ?? b.language;
+  const t = getLang(lang);
 
-  const lines = [t.receivedGreeting(b.customer_name), "", t.receivedClosing];
+  const lines = [
+    t.receivedGreeting(b.customer_name),
+    "",
+    t.receivedClosing,
+    // Nothing is confirmed yet, so point at the FAQ as a whole rather than at
+    // one leg's answer.
+    ...faqLines(t, lang, "general"),
+  ];
 
   return lines.join("\n");
 }
@@ -520,9 +630,15 @@ export function buildReviewMessage(booking, { language } = {}) {
  */
 export function buildMeetGreetMessage(booking, { language } = {}) {
   const b = booking ?? {};
-  const t = getLang(language ?? b.language);
+  const lang = language ?? b.language;
+  const t = getLang(lang);
 
-  const lines = [t.meetGreetGreeting(b.customer_name), "", t.meetGreetClosing];
+  const lines = [
+    t.meetGreetGreeting(b.customer_name),
+    "",
+    t.meetGreetClosing,
+    ...faqLines(t, lang, "arrival"),
+  ];
 
   return lines.join("\n");
 }
