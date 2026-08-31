@@ -332,14 +332,16 @@ function getLang(language) {
 
 const FAQ_BASE = "https://antalyaviptourism.com";
 
-// Deep links into the public site's FAQ accordion. The anchors match the
-// `faq-<Item>` ids the home page renders; following one opens that question
-// and scrolls to it, so the customer lands on the answer, not on a long list.
+// Deep links into the public site's FAQ accordion. The anchors are the slugs
+// defined in public-app/app/lib/faq.ts, which the home page renders as element
+// ids; following one opens that question and scrolls to it, so the customer
+// lands on the answer rather than on a long list. The slug names the question,
+// because the customer reads the whole link in the message.
 const FAQ_TOPICS = {
-  arrival: { anchor: "faq-Two", label: "faqTopicArrival" },
-  return: { anchor: "faq-Ten", label: "faqTopicReturn" },
-  payment: { anchor: "faq-Nine", label: "faqTopicPayment" },
-  daily: { anchor: "faq-Fifteen", label: "faqTopicDaily" },
+  arrival: { anchor: "faq-airport-pickup", label: "faqTopicArrival" },
+  return: { anchor: "faq-return-contact", label: "faqTopicReturn" },
+  payment: { anchor: "faq-payment", label: "faqTopicPayment" },
+  daily: { anchor: "faq-extra-stops", label: "faqTopicDaily" },
   general: { anchor: "faq", label: "faqTopicGeneral" },
 };
 
@@ -358,13 +360,19 @@ export function faqURL(language, topic = "general") {
 
 // The FAQ entry that answers the question customers actually ask at this point
 // of the journey: how the airport pickup works before an arrival transfer, how
-// we stay in touch before the return leg, extra stops for a daily chauffeur,
+// we stay in touch before the trip home, extra stops for a daily chauffeur,
 // payment for everything else.
+//
+// The direction of travel decides, not the leg label: a return transfer is
+// often entered as its own one-way booking rather than as the return leg of a
+// round trip, and that booking carries no "return" leg at all. Anything heading
+// to the airport is the trip home, however it was booked.
 export function faqTopicFor(transfer) {
   if (!transfer) return "general";
   if (transfer.isDailyChauffeur) return "daily";
-  if (transfer.leg === "return") return "return";
   if (transfer.pickupLocation === "airport") return "arrival";
+  if (transfer.dropoffLocation === "airport" || transfer.leg === "return")
+    return "return";
   return "payment";
 }
 
