@@ -52,6 +52,7 @@ const LANG = {
       `Dear ${name},\n\n🌟 Thank you for traveling with Antalya VIP Tourism. We hope everything went smoothly.`,
     reviewClosing:
       "If you have a moment, we'd appreciate a short review on Google — it really helps us. 👇\n\nhttps://g.page/r/CbJCg7BC63cBEBI/review",
+    faqNote: "📖 Please read our FAQ before your trip:",
     labelRef: "Reference",
     labelDate: "Date",
     labelPickupTime: "Pickup time",
@@ -66,6 +67,7 @@ const LANG = {
     labelDropoff: "Drop-off location",
     labelMap: "Google Maps route",
     labelFlight: "Flight",
+    labelFlightDeparture: "Departure",
     labelLuggage: "Luggage",
     labelChildSeats: "Child seats",
     labelDriver: "Driver",
@@ -101,6 +103,7 @@ const LANG = {
       `Hallo ${name},\n\n🌟 Danke, dass Sie mit Antalya VIP Tourism gefahren sind. Wir hoffen, alles ist gut verlaufen.`,
     reviewClosing:
       "Wenn Sie einen Moment haben, freuen wir uns über eine kurze Google-Bewertung — das hilft uns sehr. 👇\n\nhttps://g.page/r/CbJCg7BC63cBEBI/review",
+    faqNote: "📖 Bitte lesen Sie vor Ihrer Reise unsere FAQ:",
     labelRef: "Referenz",
     labelDate: "Datum",
     labelPickupTime: "Abholzeit",
@@ -115,6 +118,7 @@ const LANG = {
     labelDropoff: "Zielort",
     labelMap: "Google-Maps-Route",
     labelFlight: "Flug",
+    labelFlightDeparture: "Abflug",
     labelLuggage: "Gepäck",
     labelChildSeats: "Kindersitze",
     labelDriver: "Fahrer",
@@ -141,6 +145,7 @@ const LANG = {
       `Здравствуйте, ${name}!\n\n🌟 Спасибо, что выбрали Antalya VIP Tourism. Надеемся, всё прошло хорошо.`,
     reviewClosing:
       "Если найдётся минутка, будем благодарны за короткий отзыв на Google — это очень помогает нам. 👇\n\nhttps://g.page/r/CbJCg7BC63cBEBI/review",
+    faqNote: "📖 Перед поездкой ознакомьтесь с нашими вопросами и ответами:",
     labelRef: "Номер брони",
     labelDate: "Дата",
     labelPickupTime: "Время подачи",
@@ -155,6 +160,7 @@ const LANG = {
     labelDropoff: "Место назначения",
     labelMap: "Маршрут Google Maps",
     labelFlight: "Рейс",
+    labelFlightDeparture: "Вылет",
     labelLuggage: "Багаж",
     labelChildSeats: "Детские кресла",
     labelDriver: "Водитель",
@@ -181,6 +187,7 @@ const LANG = {
       `Merhaba ${name},\n\n🌟 Antalya VIP Tourism ile seyahat ettiğiniz için teşekkürler. Umarız her şey yolunda gitmiştir.`,
     reviewClosing:
       "Bir dakikanız olursa, Google'da bırakacağınız kısa bir değerlendirme bize çok yardımcı olur. 👇\n\nhttps://g.page/r/CbJCg7BC63cBEBI/review",
+    faqNote: "📖 Seyahatinizden önce lütfen SSS bölümümüzü okuyun:",
     labelRef: "Rezervasyon No",
     labelDate: "Tarih",
     labelPickupTime: "Alış saati",
@@ -195,6 +202,7 @@ const LANG = {
     labelDropoff: "Varış konumu",
     labelMap: "Google Maps güzergâhı",
     labelFlight: "Uçuş",
+    labelFlightDeparture: "Kalkış",
     labelLuggage: "Bagaj",
     labelChildSeats: "Çocuk koltuğu",
     labelDriver: "Sürücü",
@@ -229,6 +237,7 @@ const LANG = {
       `Bonjour ${name},\n\n🌟 Merci d'avoir voyagé avec Antalya VIP Tourism. Nous espérons que tout s'est bien passé.`,
     reviewClosing:
       "Si vous avez un instant, un court avis sur Google nous aiderait beaucoup. 👇\n\nhttps://g.page/r/CbJCg7BC63cBEBI/review",
+    faqNote: "📖 Avant votre voyage, veuillez lire notre FAQ :",
     labelRef: "Référence",
     labelDate: "Date",
     labelPickupTime: "Heure de prise en charge",
@@ -243,6 +252,7 @@ const LANG = {
     labelDropoff: "Lieu de destination",
     labelMap: "Itinéraire Google Maps",
     labelFlight: "Vol",
+    labelFlightDeparture: "Décollage",
     labelLuggage: "Bagages",
     labelChildSeats: "Sièges enfant",
     labelDriver: "Conducteur",
@@ -269,6 +279,7 @@ const LANG = {
       `مرحباً ${name}،\n\n🌟 شكراً لسفرك مع Antalya VIP Tourism. نأمل أن يكون كل شيء قد سار على ما يرام.`,
     reviewClosing:
       "إن توفّرت لديك لحظة، سنكون ممتنين لتقييم قصير على Google — فهذا يساعدنا كثيراً. 👇\n\nhttps://g.page/r/CbJCg7BC63cBEBI/review",
+    faqNote: "📖 قبل رحلتك، يُرجى قراءة الأسئلة الشائعة لدينا:",
     labelRef: "رقم الحجز",
     labelDate: "التاريخ",
     labelPickupTime: "وقت الاستقبال",
@@ -283,6 +294,7 @@ const LANG = {
     labelDropoff: "موقع الوصول",
     labelMap: "مسار Google Maps",
     labelFlight: "الرحلة الجوية",
+    labelFlightDeparture: "الإقلاع",
     labelLuggage: "الأمتعة",
     labelChildSeats: "مقاعد الأطفال",
     labelDriver: "السائق",
@@ -292,6 +304,15 @@ const LANG = {
 
 function getLang(language) {
   return LANG[language] ?? LANG.en;
+}
+
+const FAQ_BASE = "https://antalyaviptourism.com";
+
+// Language-specific FAQ URL customers should read before their trip.
+// Falls back to the English homepage when the language has no dedicated page.
+function faqURL(language) {
+  const hasPage = language && language !== "en" && LANG[language];
+  return `${FAQ_BASE}${hasPage ? `/${language}` : ""}/#faq`;
 }
 
 function transferDetails(booking, requestedLeg = "outbound") {
@@ -322,6 +343,8 @@ function transferDetails(booking, requestedLeg = "outbound") {
         date: b.return_date,
         time: b.return_pickup_time,
         flightNumber: b.return_flight_number,
+        // Dönüşte uçuşun kalkış saati verilir; alış saati buna göre planlanır.
+        flightDepartureTime: b.return_flight_departure_time,
         pickupLocation: b.dropoff_location,
         pickupAddress: b.dropoff_address,
         dropoffLocation: b.pickup_location,
@@ -403,8 +426,13 @@ function detailLines(booking, transfer, t, { includeMap = true } = {}) {
     `${t.labelPickupTime}: ${fmtTime(transfer.time)}`,
   ];
 
-  if (transfer.flightNumber)
-    lines.push(`${t.labelFlight}: ${transfer.flightNumber}`);
+  if (transfer.flightNumber) {
+    const english = LANG.en;
+    const departure = transfer.flightDepartureTime
+      ? ` · ${t.labelFlightDeparture ?? english.labelFlightDeparture}: ${fmtTime(transfer.flightDepartureTime)}`
+      : "";
+    lines.push(`${t.labelFlight}: ${transfer.flightNumber}${departure}`);
+  }
 
   lines.push(
     `${t.labelPickup}: ${transfer.pickup}`,
@@ -448,6 +476,9 @@ export function buildConfirmMessage(booking, { leg = "outbound", language } = {}
     ...detailLines(b, transfer, t, { includeMap: false }),
     "",
     t.confirmClosing,
+    "",
+    t.faqNote,
+    faqURL(language ?? b.language),
   ];
 
   return lines.join("\n");
@@ -481,6 +512,9 @@ export function buildReminderMessage(booking, { leg = "outbound", language } = {
 
   lines.push("");
   lines.push(t.reminderClosing);
+  lines.push("");
+  lines.push(t.faqNote);
+  lines.push(faqURL(language ?? b.language));
 
   return lines.join("\n");
 }
@@ -494,7 +528,14 @@ export function buildReceivedMessage(booking, { language } = {}) {
   const b = booking ?? {};
   const t = getLang(language ?? b.language);
 
-  const lines = [t.receivedGreeting(b.customer_name), "", t.receivedClosing];
+  const lines = [
+    t.receivedGreeting(b.customer_name),
+    "",
+    t.receivedClosing,
+    "",
+    t.faqNote,
+    faqURL(language ?? b.language),
+  ];
 
   return lines.join("\n");
 }

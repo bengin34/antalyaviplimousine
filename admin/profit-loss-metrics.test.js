@@ -41,6 +41,18 @@ describe('fixedRouteDistanceKm', () => {
     expect(fixedRouteDistanceKm('private_address', 'airport')).toBeNull()
   })
 
+  test('treats a placeholder location on both ends as unresolved, not zero km', () => {
+    // İki farklı özel adres yüzlerce km uzakta olabilir; 0 km varsaymak seferi
+    // sıfır maliyetle (%100 marjla) geçirirdi.
+    expect(fixedRouteDistanceKm('private_address', 'private_address')).toBeNull()
+    expect(fixedRouteDistanceKm('hotel', 'hotel')).toBeNull()
+  })
+
+  test('keeps zero distance for a real region on both ends', () => {
+    expect(fixedRouteDistanceKm('belek', 'belek')).toBe(0)
+    expect(fixedRouteDistanceKm('airport', 'airport')).toBe(0)
+  })
+
   test('covers every named route offered by the manual booking form', () => {
     const namedLocations = [
       'airport', 'antalya', 'belek', 'side', 'kemer', 'alanya', 'bogazkent',
@@ -264,6 +276,46 @@ describe('calculateProfitLossMetrics', () => {
     expect(result.completedLegs).toBe(2)
     expect(result.supplierCostTry).toBe(4000)
     expect(result.resolvedLegs.map(leg => leg.supplierCostTry)).toEqual([2000, 2000])
+  })
+
+  test('uses a separate cost model and cost for each round-trip leg', () => {
+    const booking = {
+      ...baseBooking,
+      trip_type: 'round_trip',
+      price_eur: 200,
+      return_date: '2026-08-05',
+      // Gidiş başkasına satıldı, dönüşü kendi aracımızla yapıyoruz.
+      service_cost_mode: 'sold_transfer',
+      sold_transfer_cost_try: 2500,
+      return_service_cost_mode: 'own_vehicle',
+      return_sold_transfer_cost_try: null,
+    }
+    const result = calculateProfitLossMetrics([booking], '2026-08', '2026-08-07')
+
+    expect(result.completedLegs).toBe(2)
+    expect(result.supplierCostTry).toBe(2500)
+    expect(result.resolvedLegs.map(leg => leg.supplierCostTry)).toEqual([2500, 0])
+    // Yalnızca dönüş ayağı kendi aracımızla yapıldığı için km maliyeti taşır.
+    expect(result.resolvedLegs.map(leg => leg.costMode)).toEqual(['sold_transfer', 'own_vehicle'])
+    expect(result.resolvedLegs[0].vehicleCostTry).toBe(0)
+    expect(result.resolvedLegs[1].vehicleCostTry).toBeGreaterThan(0)
+  })
+
+  test('keeps different sold costs for the outbound and return legs', () => {
+    const booking = {
+      ...baseBooking,
+      trip_type: 'round_trip',
+      price_eur: 200,
+      return_date: '2026-08-05',
+      service_cost_mode: 'sold_transfer',
+      sold_transfer_cost_try: 1800,
+      return_service_cost_mode: 'sold_transfer',
+      return_sold_transfer_cost_try: 2600,
+    }
+    const result = calculateProfitLossMetrics([booking], '2026-08', '2026-08-07')
+
+    expect(result.supplierCostTry).toBe(4400)
+    expect(result.resolvedLegs.map(leg => leg.supplierCostTry)).toEqual([1800, 2600])
   })
 
   test('does not require route distance for sold transfers', () => {
@@ -655,6 +707,43 @@ describe('calculateProfitDistribution', () => {
 
     expect(result.resolvedLegs.map(leg => leg.supplierCostTry)).toEqual([0])
     expect(result.blockers).not.toContainEqual(expect.objectContaining({ code: 'supplier-cost-invalid' }))
+  })
+
+  test('distributes per-leg sold transfer costs without splitting them', () => {
+    const booking = {
+      ...baseBooking,
+      id: 'per-leg-round-trip',
+      trip_type: 'round_trip',
+      price_eur: 200,
+      return_date: '2026-08-05',
+      service_cost_mode: 'sold_transfer',
+      sold_transfer_cost_try: 1800,
+      return_service_cost_mode: 'sold_transfer',
+      return_sold_transfer_cost_try: 2600,
+    }
+    const result = calculateProfitDistribution([booking], validOptions)
+
+    expect(result.supplierCostTry).toBe(4400)
+    expect(result.resolvedLegs.map(leg => leg.supplierCostTry)).toEqual([1800, 2600])
+    expect(result.blockers).not.toContainEqual(expect.objectContaining({ code: 'supplier-cost-invalid' }))
+  })
+
+  test('blocks only the leg whose sold transfer cost is missing', () => {
+    const booking = {
+      ...baseBooking,
+      id: 'missing-return-cost',
+      trip_type: 'round_trip',
+      price_eur: 200,
+      return_date: '2026-08-05',
+      service_cost_mode: 'sold_transfer',
+      sold_transfer_cost_try: 1800,
+      return_service_cost_mode: 'sold_transfer',
+      return_sold_transfer_cost_try: null,
+    }
+    const result = calculateProfitDistribution([booking], validOptions)
+
+    expect(result.blockers).toContainEqual(expect.objectContaining({ code: 'supplier-cost-invalid', leg: 'return' }))
+    expect(result.blockers).not.toContainEqual(expect.objectContaining({ code: 'supplier-cost-invalid', leg: 'outbound' }))
   })
 
   test('makes per-leg snapshot buckets reconcile with aggregate rounded buckets', () => {

@@ -1,4 +1,5 @@
 import { locationLabel } from './turkish-formatters.js'
+import { recommendedAirportPickup } from '../src/airport-pickup.js'
 
 const DRIVER_PHONE = '905056565790'
 
@@ -84,8 +85,19 @@ function transferBlock(booking, leg = 'outbound') {
   lines.push(`📞 Telefon: ${booking.customer_phone || '—'}`)
 
   if (flightNo) {
-    const arrTime = !isReturn && booking.flight_arrival_time ? ` · İniş: ${fmtTime(booking.flight_arrival_time)}` : ''
-    lines.push(`✈️ Uçuş: ${flightNo}${arrTime}`)
+    // Gidişte uçağın inişi, dönüşte kalkışı şoför için belirleyicidir.
+    const flightTime = isReturn
+      ? (booking.return_flight_departure_time ? ` · Kalkış: ${fmtTime(booking.return_flight_departure_time)}` : '')
+      : (booking.flight_arrival_time ? ` · İniş: ${fmtTime(booking.flight_arrival_time)}` : '')
+    lines.push(`✈️ Uçuş: ${flightNo}${flightTime}`)
+  }
+
+  if (isReturn) {
+    const advice = recommendedAirportPickup(booking.return_flight_departure_time, booking.dropoff_location)
+    if (advice) {
+      const dayNote = advice.dayOffset < 0 ? ' (bir önceki gün)' : advice.dayOffset > 0 ? ' (ertesi gün)' : ''
+      lines.push(`⏰ Tavsiye edilen otelden alınma: ${advice.time}${dayNote}`)
+    }
   }
 
   lines.push(`🚌 Araç: ${vehicleLabel(booking.vehicle_type)} · ${booking.guests ?? '—'} kişi`)

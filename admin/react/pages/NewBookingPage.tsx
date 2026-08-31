@@ -2,6 +2,7 @@ import { useRef, useState, type FormEvent } from 'react'
 import PhoneInput from 'react-phone-number-input'
 import 'react-phone-number-input/style.css'
 import { publicRouteSlugs, turkishLocationNames } from '../../../src/routes.js'
+import { ReturnPickupHint } from '../components/ReturnPickupHint'
 import { Topbar } from '../components/AdminChrome'
 import { todayISO } from '../lib/format'
 import { consumeBookingPrefill } from '../lib/prefill'
@@ -27,8 +28,9 @@ export interface BookingFormState {
   name: string; phone: string; email: string; hotel: string; tripType: string
   pickup: string; dropoff: string; pickupAddress: string; dropoffAddress: string
   pickupDate: string; pickupTime: string; flightNumber: string; flightTime: string
-  returnDate: string; returnTime: string; returnFlight: string; vehicle: string
+  returnDate: string; returnTime: string; returnFlight: string; returnFlightTime: string; vehicle: string
   costMode: 'own_vehicle' | 'sold_transfer'; soldTransferCostTry: string
+  returnCostMode: 'own_vehicle' | 'sold_transfer'; returnSoldTransferCostTry: string
   airportMeetFeeApplies: boolean
   serviceEndDate: string; departureFlightDate: string; departureFlightTime: string; departureFlight: string
   guests: string; luggage: string; childSeats: string; price: string; payment: string
@@ -42,8 +44,9 @@ function createInitialState(): [BookingFormState, ReturnType<typeof consumeBooki
     hotel: prefill?.hotelName ?? '', tripType: 'one_way', pickup: prefill?.pickupLocation ?? 'airport',
     dropoff: prefill?.dropoffLocation ?? 'belek', pickupAddress: prefill?.pickupAddress ?? '',
     dropoffAddress: prefill?.dropoffAddress ?? '', pickupDate: todayISO(), pickupTime: '',
-    flightNumber: '', flightTime: '', returnDate: '', returnTime: '', returnFlight: '',
+    flightNumber: '', flightTime: '', returnDate: '', returnTime: '', returnFlight: '', returnFlightTime: '',
     costMode: 'own_vehicle', soldTransferCostTry: '',
+    returnCostMode: 'own_vehicle', returnSoldTransferCostTry: '',
     airportMeetFeeApplies: true,
     serviceEndDate: todayISO(), departureFlightDate: '', departureFlightTime: '', departureFlight: '',
     vehicle: prefill?.vehicleType ?? 'vito', guests: String(prefill?.guests ?? 1),
@@ -74,10 +77,13 @@ export function validateBookingForm(form: BookingFormState) {
   const childSeats = Number(form.childSeats || 0)
   const price = Number(String(form.price).replace(',', '.'))
   const soldTransferCostTry = Number(String(form.soldTransferCostTry).replace(',', '.'))
+  const returnSoldTransferCostTry = Number(String(form.returnSoldTransferCostTry).replace(',', '.'))
   const fail = (error: string) => ({ error, payload: null })
   const isRoundTrip = form.tripType === 'round_trip'
   const isDailyChauffeur = form.tripType === 'daily_chauffeur'
   const isSoldTransfer = form.costMode === 'sold_transfer'
+  // Dönüş ayağı yalnızca gidiş-dönüş seyahatlerde kendi maliyet modelini taşır.
+  const isReturnSoldTransfer = isRoundTrip && !isDailyChauffeur && form.returnCostMode === 'sold_transfer'
 
   const nameLetters = name.match(/\p{L}/gu)?.length ?? 0
   if (name.length < 2 || name.length > 80 || nameLetters < 2) return fail('Geçerli bir ad soyad girin.')
@@ -97,11 +103,15 @@ export function validateBookingForm(form: BookingFormState) {
   if (isDailyChauffeur && price <= 0) return fail('Günlük fiyat sıfırdan büyük olmalı.')
   if (isDailyChauffeur && isSoldTransfer) return fail('Günlük araç + şoför hizmeti satılan transfer olarak işaretlenemez.')
   if (isSoldTransfer && (!Number.isFinite(soldTransferCostTry) || soldTransferCostTry <= 0 || soldTransferCostTry > 9999999.99)) {
-    return fail('Satılan transfer için geçerli bir toplam maliyet girin.')
+    return fail(isRoundTrip ? 'Gidiş için geçerli bir maliyet girin.' : 'Satılan transfer için geçerli bir toplam maliyet girin.')
+  }
+  if (isReturnSoldTransfer && (!Number.isFinite(returnSoldTransferCostTry) || returnSoldTransferCostTry <= 0 || returnSoldTransferCostTry > 9999999.99)) {
+    return fail('Dönüş için geçerli bir maliyet girin.')
   }
   if (isRoundTrip) {
     if (!/^\d{4}-\d{2}-\d{2}$/.test(form.returnDate) || form.returnDate < form.pickupDate) return fail('Dönüş tarihi gidiş tarihinden önce olamaz.')
     if (!/^([01]\d|2[0-3]):[0-5]\d$/.test(form.returnTime)) return fail('Geçerli bir dönüş saati girin.')
+    if (form.returnFlightTime && !/^([01]\d|2[0-3]):[0-5]\d$/.test(form.returnFlightTime)) return fail('Geçerli bir dönüş uçuşu kalkış saati girin.')
   }
   let hireDays = 0
   if (isDailyChauffeur) {
@@ -126,6 +136,7 @@ export function validateBookingForm(form: BookingFormState) {
     trip_type: form.tripType, return_date: isRoundTrip ? form.returnDate : null,
     return_pickup_time: isRoundTrip ? form.returnTime : null,
     return_flight_number: isRoundTrip ? (returnFlight || null) : null,
+    return_flight_departure_time: isRoundTrip ? (form.returnFlightTime || null) : null,
     service_end_date: isDailyChauffeur ? form.serviceEndDate : null,
     daily_rate_eur: isDailyChauffeur ? price : null,
     departure_flight_date: isDailyChauffeur ? (form.departureFlightDate || null) : null,
@@ -135,6 +146,8 @@ export function validateBookingForm(form: BookingFormState) {
     guests, vehicle_type: form.vehicle, price_eur: isDailyChauffeur ? price * hireDays : isRoundTrip ? price * 2 : price,
     service_cost_mode: isDailyChauffeur ? 'own_vehicle' : form.costMode,
     sold_transfer_cost_try: !isDailyChauffeur && isSoldTransfer ? soldTransferCostTry : null,
+    return_service_cost_mode: isRoundTrip && !isDailyChauffeur ? form.returnCostMode : null,
+    return_sold_transfer_cost_try: isReturnSoldTransfer ? returnSoldTransferCostTry : null,
     airport_meet_fee_applies: form.airportMeetFeeApplies,
     status: form.status, payment_method: form.payment, notes: form.notes.trim() || null,
   } }
@@ -162,6 +175,8 @@ export default function NewBookingPage({ navigate }: { navigate: Navigate }) {
     tripType,
     costMode: tripType === 'daily_chauffeur' ? 'own_vehicle' : current.costMode,
     soldTransferCostTry: tripType === 'daily_chauffeur' ? '' : current.soldTransferCostTry,
+    returnCostMode: tripType === 'round_trip' ? current.returnCostMode : 'own_vehicle',
+    returnSoldTransferCostTry: tripType === 'round_trip' ? current.returnSoldTransferCostTry : '',
     price: tripType === 'daily_chauffeur' && !current.price ? '150' : current.price,
     serviceEndDate: tripType === 'daily_chauffeur' && current.serviceEndDate < current.pickupDate ? current.pickupDate : current.serviceEndDate,
   }))
@@ -225,10 +240,14 @@ export default function NewBookingPage({ navigate }: { navigate: Navigate }) {
         {isRoundTrip && <div className="section">
           <div className="section-label">Dönüş</div>
           <div className="form-row">
-            <Field label="Dönüş tarihi"><input className="input" type="date" value={form.returnDate} onChange={e => set('returnDate', e.target.value)} /></Field>
-            <Field label="Dönüş saati"><input className="input" type="time" value={form.returnTime} onChange={e => set('returnTime', e.target.value)} /></Field>
+            <Field label="Dönüş uçuş no"><input className="input" type="text" maxLength={12} autoComplete="off" value={form.returnFlight} onChange={e => set('returnFlight', e.target.value)} /></Field>
+            <Field label="Dönüş uçuşu kalkış saati"><input className="input" type="time" value={form.returnFlightTime} onChange={e => set('returnFlightTime', e.target.value)} /></Field>
           </div>
-          <Field label="Dönüş uçuş no"><input className="input" type="text" maxLength={12} autoComplete="off" value={form.returnFlight} onChange={e => set('returnFlight', e.target.value)} /></Field>
+          <ReturnPickupHint departureTime={form.returnFlightTime} pickupLocation={form.dropoff} actualTime={form.returnTime} onApply={time => set('returnTime', time)} />
+          <div className="form-row">
+            <Field label="Dönüş tarihi"><input className="input" type="date" value={form.returnDate} onChange={e => set('returnDate', e.target.value)} /></Field>
+            <Field label="Otelden alınma saati"><input className="input" type="time" value={form.returnTime} onChange={e => set('returnTime', e.target.value)} /></Field>
+          </div>
         </div>}
 
         <div className="section">
@@ -241,14 +260,24 @@ export default function NewBookingPage({ navigate }: { navigate: Navigate }) {
             <Field label="Bagaj"><input className="input" type="number" min={0} max={12} step={1} inputMode="numeric" value={form.luggage} onChange={e => set('luggage', e.target.value)} /></Field>
             <Field label="Çocuk koltuğu"><input className="input" type="number" min={0} max={4} step={1} inputMode="numeric" value={form.childSeats} onChange={e => set('childSeats', e.target.value)} /></Field>
           </div>
-          <Field label="Maliyet modeli">
+          <Field label={isRoundTrip ? 'Gidiş maliyet modeli' : 'Maliyet modeli'}>
             <select className="input" value={form.costMode} onChange={e => set('costMode', e.target.value as BookingFormState['costMode'])} disabled={isDailyChauffeur}>
               <option value="own_vehicle">Kendi aracımız</option>
               <option value="sold_transfer">Satılan transfer</option>
             </select>
           </Field>
-          <div className="form-hint">{isDailyChauffeur ? 'Günlük araç + şoför hizmeti yalnızca kendi aracımız olarak hesaplanır.' : form.costMode === 'sold_transfer' ? 'Girilen toplam maliyet bu rezervasyonun toplam gideri kabul edilir.' : 'Araç maliyeti kâr/zarar ekranında km ve boş dönüş hesabından çıkarılır.'}</div>
-          {!isDailyChauffeur && form.costMode === 'sold_transfer' && <Field label="Toplam maliyet (₺) *"><input className="input" type="number" min={0.01} max={9999999.99} step={0.01} inputMode="decimal" value={form.soldTransferCostTry} onChange={e => set('soldTransferCostTry', e.target.value)} required /></Field>}
+          <div className="form-hint">{isDailyChauffeur ? 'Günlük araç + şoför hizmeti yalnızca kendi aracımız olarak hesaplanır.' : form.costMode === 'sold_transfer' ? (isRoundTrip ? 'Girilen maliyet yalnızca gidiş ayağının gideri kabul edilir.' : 'Girilen toplam maliyet bu rezervasyonun toplam gideri kabul edilir.') : 'Araç maliyeti kâr/zarar ekranında km ve boş dönüş hesabından çıkarılır.'}</div>
+          {!isDailyChauffeur && form.costMode === 'sold_transfer' && <Field label={isRoundTrip ? 'Gidiş maliyeti (₺) *' : 'Toplam maliyet (₺) *'}><input className="input" type="number" min={0.01} max={9999999.99} step={0.01} inputMode="decimal" value={form.soldTransferCostTry} onChange={e => set('soldTransferCostTry', e.target.value)} required /></Field>}
+          {isRoundTrip && !isDailyChauffeur && <>
+            <Field label="Dönüş maliyet modeli">
+              <select className="input" value={form.returnCostMode} onChange={e => set('returnCostMode', e.target.value as BookingFormState['returnCostMode'])}>
+                <option value="own_vehicle">Kendi aracımız</option>
+                <option value="sold_transfer">Satılan transfer</option>
+              </select>
+            </Field>
+            <div className="form-hint">Gidiş ve dönüş ayrı hesaplanır: bir ayağı satabilir, diğerini kendi aracınızla yapabilirsiniz.</div>
+            {form.returnCostMode === 'sold_transfer' && <Field label="Dönüş maliyeti (₺) *"><input className="input" type="number" min={0.01} max={9999999.99} step={0.01} inputMode="decimal" value={form.returnSoldTransferCostTry} onChange={e => set('returnSoldTransferCostTry', e.target.value)} required /></Field>}
+          </>}
         </div>
 
         <div className="section">

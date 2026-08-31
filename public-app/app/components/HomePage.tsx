@@ -2,7 +2,7 @@ import { lazy, Suspense, useEffect, useRef, useState } from "react";
 const ReactPlayer = lazy(() => import("react-player"));
 import { publicRouteSlugs, routeCatalog } from "../../../src/routes.js";
 import { LineBreakText, useLanguage } from "../i18n";
-import { homeFaqOrder } from "../lib/faq";
+import { homeFaqGroups, homeFaqOrder } from "../lib/faq";
 import { BookingForm } from "./BookingForm";
 import { Header } from "./Header";
 import { Icon } from "./Icon";
@@ -30,7 +30,7 @@ const serviceItems = [
     "greetTitle",
     "Meet & greet",
     "greetBody",
-    "Your chauffeur welcomes you in arrivals with a personalised name sign and assists with luggage.",
+    "Your chauffeur welcomes you in arrivals and assists with luggage.",
     "sparkle",
   ],
   [
@@ -58,40 +58,88 @@ const serviceItems = [
 
 const reviews = [
   [
-    "B.E.C",
-    "BE",
-    "4 days ago",
-    "We were very satisfied with the VIP transfer. The service was professional, punctual, and very pleasant from start to finish. The vehicle was modern, clean, and comfortable. The friendly communication and reliable service were particularly impressive. We would book Antalya VIP Tourism again without hesitation.",
+    "L.E",
+    "LE",
+    "5 days ago",
+    "It was a perfect experience — I recommend them :)",
+    "🇫🇷 France",
   ],
   [
-    "G.Z",
-    "GZ",
-    "2 days ago",
-    "An outstanding experience of the highest caliber. The service was absolutely first-class from beginning to end and perfectly tailored to our individual needs. The attention to detail and years of professionalism are immediately apparent — from seamless planning to personalized on-site support, every wish was fulfilled.",
+    "M.Ö",
+    "MÖ",
+    "2 months ago",
+    "I found them online and booked after reading the reviews — so glad I did. The car was air-conditioned and spotless, and the driver was very friendly. They never left us struggling in the Antalya heat. Thank you.",
+    "🇹🇷 Turkey",
   ],
   [
-    "A.K",
-    "AK",
-    "3 days ago",
-    "We had a wonderful trip; the refreshments on board were cold, the comfort was great, and the driving experience was excellent. It deserves 5 stars 😊",
-  ],
-  [
-    "M.O",
-    "MO",
-    "3 days ago",
-    "I found this place online and booked it based on reviews, and I'm so glad I did. The car was air-conditioned and very clean, and the driver was very friendly. They didn't let us down at all in the Antalya heat. Thank you.",
+    "R.M",
+    "RM",
+    "1 week ago",
+    "Thank you for your service. The driver was very patient — it was perfect 👌🙏❤️",
+    "🇩🇿 Algeria",
   ],
   [
     "A.K",
     "AK",
-    "3 days ago",
-    "I had no problems during my transfer; their vehicles were new and clean, and they place the utmost importance on driving safety. Thank you.",
+    "2 months ago",
+    "I had no issues at all during my transfer. The vehicles were new and clean, and they give the utmost importance to driving safety. Thank you.",
+    "🇹🇷 Turkey",
   ],
   [
-    "A.D",
-    "AD",
-    "3 days ago",
-    "We would like to thank all the staff who accompanied us from the airport to our hotel and who were always smiling and attentive throughout the entire process. It was a wonderful experience.",
+    "P.V",
+    "PV",
+    "1 week ago",
+    "Perfect service.",
+    "🇧🇪 Belgium",
+  ],
+  [
+    "A.KA",
+    "AK",
+    "2 months ago",
+    "We had a wonderful trip — cold refreshments on board, great comfort, and a smooth drive. It truly deserves 5 stars 😊",
+    "🇹🇷 Turkey",
+  ],
+  [
+    "M.A",
+    "MA",
+    "3 weeks ago",
+    "I highly recommend them.",
+    "🇸🇦 Saudi Arabia",
+  ],
+  [
+    "E.D",
+    "ED",
+    "2 months ago",
+    "It was a journey with excellent service. We were picked up right on time and the vehicle was very comfortable. Our driver was a true professional and got us there safely. We'll choose you again on our next trip. Thank you.",
+    "🇹🇷 Turkey",
+  ],
+  [
+    "A.I",
+    "AI",
+    "2 months ago",
+    "We received support for our transfer in Antalya and were extremely satisfied. Many thanks to Antalya VIP Tourism for helping us with a super-luxurious vehicle and such a kind, friendly manner. Coming from Germany, getting service like this made us very happy. I highly recommend them to anyone who needs an airport–hotel transfer.",
+    "🇩🇪 Germany",
+  ],
+  [
+    "R.Ö",
+    "RÖ",
+    "2 months ago",
+    "A genuinely attentive company — I recommend them to everyone. The staff were very helpful from the very first moment. Thanks for everything.",
+    "🇳🇱 Netherlands",
+  ],
+  [
+    "E.Y",
+    "EY",
+    "2 months ago",
+    "It was flawless. Thank you!",
+    "🇸🇦 Saudi Arabia",
+  ],
+  [
+    "D.E",
+    "DE",
+    "2 months ago",
+    "A reliable, friendly team. You can choose them with complete peace of mind.",
+    "🇩🇪 Germany",
   ],
 ] as const;
 
@@ -309,7 +357,22 @@ export function HomePage({ initialLanguage }: { initialLanguage: string }) {
   const faqItems = homeFaqOrder.map((number) => [
     t(`faq${number}Q`, "Frequently asked question"),
     t(`faq${number}A`, "Contact us for complete details."),
+    `faq-${number}`,
   ]);
+
+  useEffect(() => {
+    const hash = window.location.hash.replace(/^#/, "");
+    if (!hash) return;
+    const index = faqItems.findIndex(([, , id]) => id === hash);
+    if (index >= 0) setOpenFaq(index);
+    const target = document.getElementById(hash);
+    if (target) {
+      requestAnimationFrame(() =>
+        target.scrollIntoView({ behavior: "smooth", block: "start" }),
+      );
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
 
   useEffect(() => {
@@ -680,7 +743,7 @@ export function HomePage({ initialLanguage }: { initialLanguage: string }) {
                   <span>
                     {t(
                       "nameSignGreeting",
-                      "Meet & greet with a personalised name sign",
+                      "Personal meet & greet on arrival",
                     )}
                   </span>
                 </div>
@@ -901,38 +964,46 @@ export function HomePage({ initialLanguage }: { initialLanguage: string }) {
                 <div className="google-g">G</div>
                 <div>
                   <div>
-                    <strong>4.9</strong>
+                    <strong>5.0</strong>
                     <span className="stars">★★★★★</span>
                   </div>
-                  <p>
-                    {t("googleReviews", "Based on 387 verified Google reviews")}
-                  </p>
                 </div>
               </div>
             </div>
-            <div className="review-grid">
-              {reviews.map(([name, initials, time, review], index) => (
-                <a
-                  className="review-card"
-                  href="https://www.google.com/maps/place/Antalya+Vip+Tourism/@36.7321721,30.4262099,17z"
-                  target="_blank"
-                  rel="noopener"
-                  key={`${name}-${index}`}
-                >
-                  <div className="review-card-top">
-                    <span className="stars">★★★★★</span>
-                    <span>Google</span>
-                  </div>
-                  <blockquote>“{review}”</blockquote>
-                  <footer>
-                    <div className="avatar">{initials}</div>
-                    <div>
-                      <strong>{name}</strong>
-                    </div>
-                    <time>{time}</time>
-                  </footer>
-                </a>
-              ))}
+            <div className="review-marquee">
+              <div className="review-track">
+                {[...reviews, ...reviews].map(
+                  ([name, initials, time, review, country], index) => (
+                    <a
+                      className="review-card"
+                      href="https://www.google.com/maps/place/Antalya+Vip+Tourism/@36.7321721,30.4262099,17z"
+                      target="_blank"
+                      rel="noopener"
+                      key={`${name}-${index}`}
+                      aria-hidden={index >= reviews.length}
+                      tabIndex={index >= reviews.length ? -1 : undefined}
+                    >
+                      <div className="review-card-top">
+                        <span className="stars">★★★★★</span>
+                        <span>Google</span>
+                      </div>
+                      <blockquote>“{review}”</blockquote>
+                      <footer>
+                        <div className="avatar">{initials}</div>
+                        <div>
+                          <strong>{name}</strong>
+                        </div>
+                        <div className="review-meta">
+                          <time>{time}</time>
+                          <span className="review-country">
+                            {country.split(" ")[0]}
+                          </span>
+                        </div>
+                      </footer>
+                    </a>
+                  ),
+                )}
+              </div>
             </div>
             <div className="trusted-by">
               <span>
@@ -971,7 +1042,7 @@ export function HomePage({ initialLanguage }: { initialLanguage: string }) {
             <p>
               {t(
                 "videoSubtitle",
-                "Our chauffeurs wait at the Meet & Greet Area — meeting point J / 777. Exit baggage claim, look for our name sign, and we handle the rest.",
+                "Our chauffeurs wait at the Meet & Greet Area — meeting point J / 777. Exit baggage claim, head to point J / 777, and we handle the rest.",
               )}
             </p>
           </div>
@@ -1082,24 +1153,46 @@ export function HomePage({ initialLanguage }: { initialLanguage: string }) {
             </a>
           </div>
           <div className="accordion">
-            {faqItems.map(([question, answer], index) => (
-              <article
-                className={`faq-item${openFaq === index ? " open" : ""}`}
-                key={question}
-              >
-                <button
-                  type="button"
-                  aria-expanded={openFaq === index}
-                  onClick={() => setOpenFaq(openFaq === index ? -1 : index)}
-                >
-                  <span>{question}</span>
-                  <i />
-                </button>
-                <div className="faq-answer">
-                  <p>{answer}</p>
+            {(() => {
+              let flatIndex = -1;
+              return homeFaqGroups.map((group) => (
+                <div className="faq-group" key={group.labelKey}>
+                  <h3 className="faq-category">
+                    {t(group.labelKey, group.labelFallback)}
+                  </h3>
+                  {group.items.map(() => {
+                    flatIndex += 1;
+                    const index = flatIndex;
+                    const [question, answer, id] = faqItems[index];
+                    return (
+                      <article
+                        id={id}
+                        className={`faq-item${openFaq === index ? " open" : ""}`}
+                        key={question}
+                      >
+                        <button
+                          type="button"
+                          aria-expanded={openFaq === index}
+                          onClick={() => {
+                            const next = openFaq === index ? -1 : index;
+                            setOpenFaq(next);
+                            if (next === index && typeof history !== "undefined") {
+                              history.replaceState(null, "", `#${id}`);
+                            }
+                          }}
+                        >
+                          <span>{question}</span>
+                          <i />
+                        </button>
+                        <div className="faq-answer">
+                          <p>{answer}</p>
+                        </div>
+                      </article>
+                    );
+                  })}
                 </div>
-              </article>
-            ))}
+              ));
+            })()}
           </div>
         </section>
 

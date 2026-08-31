@@ -29,8 +29,14 @@ function startsFromAirport(location) {
 export function fixedRouteDistanceKm(fromValue, toValue) {
   const from = normalizeLocation(fromValue)
   const to = normalizeLocation(toValue)
-  if (!from || !to || from === to) return from && from === to ? 0 : null
+  if (!from || !to) return null
+  // `hotel` ve `private_address` bir koordinat değil, yer tutucudur: iki farklı
+  // özel adres yüzlerce km uzakta olabilir. Bunlar rota grafiğinde yer almaz ve
+  // aynı yer tutucu iki uçta da geçse bile mesafe bilinemez — ayak "çözülemedi"
+  // olarak işaretlenip manuel KM istenir. Gerçek bölgelerde from === to ise
+  // mesafe fiilen sıfırdır.
   if (!ROUTE_GRAPH.has(from) || !ROUTE_GRAPH.has(to)) return null
+  if (from === to) return 0
 
   const distances = new Map([[from, 0]])
   const visited = new Set()
@@ -76,10 +82,52 @@ function normalizeDailyDistanceKm(value) {
   return Number.isFinite(distance) && distance >= 0 ? distance : null
 }
 
+// Ayak bazlı maliyet ayrımından önce kaydedilmiş gidiş-dönüşlerde tek bir
+// toplam maliyet iki ayağa bölüştürülüyordu. `return_service_cost_mode` boşsa
+// kayıt henüz ayrıştırılmamıştır; toplam bozulmasın diye eski bölüştürme
+// davranışı sürdürülür.
+export function usesLegacyCostSplit(booking) {
+  return booking.trip_type === 'round_trip'
+    && Boolean(booking.return_date)
+    && booking.return_service_cost_mode == null
+}
+
+function parsePositiveMoney(value) {
+  const amount = Number(value)
+  const isValid = value !== null
+    && value !== undefined
+    && String(value).trim() !== ''
+    && Number.isFinite(amount)
+    && amount > 0
+  return { amount: isValid ? amount : 0, isValid }
+}
+
+/**
+ * Bir ayağın maliyet modeli ve tedarikçi bedeli. Gidiş ve dönüş kendi
+ * modelini taşır: bir ayak kendi aracımızla, diğeri satılan transfer olabilir.
+ *
+ * `soldTransferCostTry` kayıtlı ham bedeldir; `legSupplierCostTry` ise o ayağa
+ * düşen paydır — eski (ayrıştırılmamış) kayıtlarda toplamın yarısıdır.
+ */
+export function legCostModel(booking, leg) {
+  const legacySplit = usesLegacyCostSplit(booking)
+  const useOutboundFields = leg !== 'return' || legacySplit
+  const rawMode = useOutboundFields ? booking.service_cost_mode : booking.return_service_cost_mode
+  const costMode = rawMode === 'sold_transfer' ? 'sold_transfer' : 'own_vehicle'
+  const source = useOutboundFields ? booking.sold_transfer_cost_try : booking.return_sold_transfer_cost_try
+  const { amount, isValid } = parsePositiveMoney(source)
+  return {
+    costMode,
+    soldTransferCostTry: amount,
+    legSupplierCostTry: legacySplit ? amount / 2 : amount,
+    costIsValid: isValid,
+    isLegacySplit: legacySplit,
+  }
+}
+
 function bookingLegs(booking) {
   const priceEur = Number(booking.price_eur) || 0
-  const costMode = booking.service_cost_mode === 'sold_transfer' ? 'sold_transfer' : 'own_vehicle'
-  const soldTransferTotalCostTry = Number(booking.sold_transfer_cost_try) || 0
+  const outboundCost = legCostModel(booking, 'outbound')
   if (booking.trip_type === 'daily_chauffeur') {
     const days = [...(booking.chauffeur_hire_days || [])].sort((left, right) => left.day_number - right.day_number)
     const dailyRate = Number(booking.daily_rate_eur) || (days.length ? priceEur / days.length : priceEur)
@@ -93,7 +141,7 @@ function bookingLegs(booking) {
       legStatus: day.status === 'completed' ? 'completed' : day.status === 'in_progress' ? 'in_transit' : booking.status,
       isDailyChauffeur: true,
       costMode: 'own_vehicle',
-      soldTransferTotalCostTry: 0,
+      legSupplierCostTry: 0,
     }))
   }
   const hasReturn = booking.trip_type === 'round_trip' && Boolean(booking.return_date)
@@ -105,22 +153,21 @@ function bookingLegs(booking) {
         from: booking.pickup_location,
         to: booking.dropoff_location,
         revenueEur: legRevenueEur,
-        costMode,
-        soldTransferTotalCostTry,
-        splitSupplierCostTry: hasReturn ? soldTransferTotalCostTry / 2 : soldTransferTotalCostTry,
+        costMode: outboundCost.costMode,
+        legSupplierCostTry: outboundCost.legSupplierCostTry,
       }]
     : []
 
   if (hasReturn) {
+    const returnCost = legCostModel(booking, 'return')
     legs.push({
       leg: 'return',
       date: booking.return_date,
       from: booking.dropoff_location,
       to: booking.pickup_location,
       revenueEur: legRevenueEur,
-      costMode,
-      soldTransferTotalCostTry,
-      splitSupplierCostTry: soldTransferTotalCostTry / 2,
+      costMode: returnCost.costMode,
+      legSupplierCostTry: returnCost.legSupplierCostTry,
     })
   }
 
@@ -263,24 +310,24 @@ function distributionAllocations(bookings) {
     const hasReturn = booking.trip_type === 'round_trip' && Boolean(booking.return_date)
     const legCount = hasReturn ? 2 : 1
     const revenueAmounts = allocateMoneyAmounts(priceEur, legCount)
-    const supplierSource = booking.sold_transfer_cost_try
-    const supplierTotal = Number(supplierSource)
-    const supplierCostIsValid = supplierSource !== null
-      && supplierSource !== undefined
-      && String(supplierSource).trim() !== ''
-      && Number.isFinite(supplierTotal)
-      && supplierTotal > 0
-    const supplierAmounts = allocateMoneyAmounts(supplierCostIsValid ? supplierTotal : 0, legCount)
+    // Ayrıştırılmış kayıtlarda her ayak kendi tedarikçi maliyetini taşır;
+    // eski kayıtlarda tek toplam iki ayağa kuruşu kuruşuna bölüştürülür.
+    const outboundCost = legCostModel(booking, 'outbound')
+    const returnCost = legCostModel(booking, 'return')
+    const legacySplit = usesLegacyCostSplit(booking)
+    const legacyAmounts = legacySplit
+      ? allocateMoneyAmounts(outboundCost.soldTransferCostTry, legCount)
+      : null
     allocations.set(`${booking.id}:outbound`, {
       revenueEur: revenueAmounts[0] ?? 0,
-      supplierCostTry: supplierAmounts[0] ?? 0,
-      supplierCostIsValid,
+      supplierCostTry: legacyAmounts ? legacyAmounts[0] ?? 0 : roundMoney(outboundCost.soldTransferCostTry),
+      supplierCostIsValid: outboundCost.costIsValid,
     })
     if (hasReturn) {
       allocations.set(`${booking.id}:return`, {
         revenueEur: revenueAmounts[1] ?? 0,
-        supplierCostTry: supplierAmounts[1] ?? 0,
-        supplierCostIsValid,
+        supplierCostTry: legacyAmounts ? legacyAmounts[1] ?? 0 : roundMoney(returnCost.soldTransferCostTry),
+        supplierCostIsValid: legacySplit ? outboundCost.costIsValid : returnCost.costIsValid,
       })
     }
   }
@@ -483,7 +530,7 @@ export function resolveRealizedLegs(bookings, today, settingsByMonth = {}, rates
           oneWayKm: 0,
           vehicleKm: 0,
           vehicleCostTry: 0,
-          supplierCostTry: leg.splitSupplierCostTry ?? leg.soldTransferTotalCostTry ?? 0,
+          supplierCostTry: leg.legSupplierCostTry ?? 0,
           distanceSource: 'sold-transfer',
           airportMeetCostEur: 0,
           airportMeetCostTry: 0,
