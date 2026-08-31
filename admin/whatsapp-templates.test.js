@@ -1,5 +1,5 @@
 import { test, expect } from 'vitest'
-import { buildConfirmMessage, buildReminderMessage, buildReceivedMessage, buildReviewMessage } from './whatsapp-templates.js'
+import { buildConfirmMessage, buildReminderMessage, buildReceivedMessage, buildReviewMessage, buildMeetGreetMessage, faqURL } from './whatsapp-templates.js'
 
 // Locations are SLUGS (as stored in the DB), not display names.
 const base = {
@@ -104,19 +104,40 @@ test('hotel name is used as the precise non-airport endpoint when no address exi
   expect(msg).toContain('Regnum Carya Golf & Spa Resort, Belek, Antalya, Türkiye')
 })
 
-test('reminder includes Google Maps route with exact origin and destination', () => {
+test('reminder names the exact pickup and drop-off without a map link', () => {
   const msg = buildReminderMessage({
     ...base,
     pickup_address: 'Antalya Havalimanı Terminal 1',
     dropoff_address: 'İskele Mevkii, Belek Mah. No: 7',
   })
-  const mapLine = msg.split('\n').find((line) => line.includes('Google Maps route: '))
-  expect(mapLine).toBeDefined()
-  const mapURL = new URL(mapLine.replace(/.*Google Maps route: /, ''))
 
-  expect(mapURL.searchParams.get('origin')).toBe('Antalya Havalimanı Terminal 1')
-  expect(mapURL.searchParams.get('destination')).toBe('İskele Mevkii, Belek Mah. No: 7')
-  expect(mapURL.searchParams.get('travelmode')).toBe('driving')
+  expect(msg).toContain('Pickup location: Antalya Havalimanı Terminal 1')
+  expect(msg).toContain('Drop-off location: İskele Mevkii, Belek Mah. No: 7')
+  expect(msg).not.toContain('google.com/maps')
+})
+
+test('no customer message carries a map link', () => {
+  const roundTrip = {
+    ...base,
+    trip_type: 'round_trip',
+    return_date: '2026-08-22',
+    return_pickup_time: '10:40',
+    price_eur: 110,
+  }
+  const messages = [
+    buildConfirmMessage(roundTrip, { leg: 'outbound' }),
+    buildConfirmMessage(roundTrip, { leg: 'return' }),
+    buildReminderMessage(roundTrip, { leg: 'outbound' }),
+    buildReminderMessage(roundTrip, { leg: 'return' }),
+    buildReceivedMessage(base),
+    buildReviewMessage(base),
+    buildMeetGreetMessage(base),
+  ]
+
+  for (const msg of messages) {
+    expect(msg).not.toContain('google.com/maps')
+    expect(msg).not.toContain('Google Maps')
+  }
 })
 
 test('return confirmation uses current return fields and reverses exact endpoints', () => {
@@ -285,4 +306,81 @@ test('Turkish return confirmation labels the flight time as kalkış', () => {
   }
 
   expect(buildConfirmMessage(roundTrip, { leg: 'return' })).toContain('Uçuş: XQ101 · Kalkış: 14:00')
+})
+
+
+test('an airport arrival links the FAQ answer about the airport pickup', () => {
+  const msg = buildReminderMessage({ ...base, pickup_location: 'airport' })
+  expect(msg).toContain('Please read our FAQ before your trip:')
+  expect(msg).toContain('Airport pickup — how it works: https://antalyaviptourism.com/#faq-Two')
+})
+
+test('the return leg links the FAQ answer about the return transfer', () => {
+  const roundTrip = {
+    ...base,
+    trip_type: 'round_trip',
+    return_date: '2026-08-22',
+    return_pickup_time: '10:40',
+    price_eur: 110,
+  }
+
+  expect(buildReminderMessage(roundTrip, { leg: 'return' })).toContain('#faq-Ten')
+  expect(buildConfirmMessage(roundTrip, { leg: 'return' })).toContain('#faq-Ten')
+  // The outbound leg of the same booking keeps its own answer.
+  expect(buildConfirmMessage(roundTrip, { leg: 'outbound' })).toContain('#faq-Two')
+})
+
+test('a hotel-to-hotel transfer links the payment answer', () => {
+  const msg = buildConfirmMessage({ ...base, pickup_location: 'belek', dropoff_location: 'kemer' })
+  expect(msg).toContain('Payment & price: https://antalyaviptourism.com/#faq-Nine')
+})
+
+test('a daily chauffeur booking links the journey answer', () => {
+  const msg = buildConfirmMessage({
+    ...base,
+    trip_type: 'daily_chauffeur',
+    dropoff_location: null,
+    service_end_date: '2026-08-18',
+    daily_rate_eur: 150,
+  })
+  expect(msg).toContain('#faq-Fifteen')
+})
+
+test('a request acknowledgement links the FAQ section as a whole', () => {
+  expect(buildReceivedMessage(base)).toContain('https://antalyaviptourism.com/#faq')
+  expect(buildReceivedMessage(base)).not.toContain('#faq-')
+})
+
+test('meet & greet links the airport pickup answer', () => {
+  expect(buildMeetGreetMessage(base)).toContain('#faq-Two')
+})
+
+test('the FAQ link is localized and keeps its topic anchor', () => {
+  expect(faqURL('tr', 'return')).toBe('https://antalyaviptourism.com/tr/#faq-Ten')
+  expect(faqURL('de', 'arrival')).toBe('https://antalyaviptourism.com/de/#faq-Two')
+  expect(faqURL('en', 'payment')).toBe('https://antalyaviptourism.com/#faq-Nine')
+  // A language without its own home page falls back to the English one.
+  expect(faqURL('zz', 'arrival')).toBe('https://antalyaviptourism.com/#faq-Two')
+})
+
+test('the FAQ note and topic label follow the requested language', () => {
+  const tr = buildReminderMessage(base, { language: 'tr' })
+  expect(tr).toContain('📖 Seyahatinizden önce lütfen SSS bölümümüzü okuyun:')
+  expect(tr).toContain('Havalimanı karşılama — nasıl işliyor: https://antalyaviptourism.com/tr/#faq-Two')
+
+  const ru = buildReminderMessage(base, { language: 'ru' })
+  expect(ru).toContain('Встреча в аэропорту — как это происходит: https://antalyaviptourism.com/ru/#faq-Two')
+})
+
+test('an explicit language overrides the language stored on the booking', () => {
+  const stored = { ...base, language: 'en' }
+  expect(buildReminderMessage(stored, { language: 'de' })).toBe(
+    buildReminderMessage({ ...stored, language: 'de' }),
+  )
+})
+
+test('the review request stays a single call to action', () => {
+  const msg = buildReviewMessage(base)
+  expect(msg).toContain('https://g.page/r/CbJCg7BC63cBEBI/review')
+  expect(msg).not.toContain('#faq')
 })
