@@ -107,7 +107,10 @@ function BookingEditor({ booking, onCancel, onSaved }: { booking: Booking; onCan
     setSaving(true); setError('')
     const { count, error: updateError } = await supabase.from('bookings').update(payload, { count: 'exact' }).eq('id', booking.id)
     setSaving(false)
-    if (updateError || count === 0) return setError('Rezervasyon güncellenemedi, tekrar deneyin.')
+    if (updateError || count === 0) {
+      if (updateError) console.error('Rezervasyon güncelleme hatası:', updateError.message, updateError.details, updateError.hint, updateError.code)
+      return setError('Rezervasyon güncellenemedi, tekrar deneyin.')
+    }
     onSaved({ ...booking, ...payload } as Booking)
   }
 
@@ -161,7 +164,10 @@ function InlineEditor({ booking, column, label, display, maxLength, inputType = 
     setSaving(true); setError('')
     const { count, error: updateError } = await supabase.from('bookings').update({ [column]: result.value }, { count: 'exact' }).eq('id', booking.id)
     setSaving(false)
-    if (updateError || count === 0) return setError(`${label} güncellenemedi, tekrar deneyin.`)
+    if (updateError || count === 0) {
+      if (updateError) console.error(`${label} güncelleme hatası:`, updateError.message, updateError.details, updateError.hint, updateError.code)
+      return setError(`${label} güncellenemedi, tekrar deneyin.`)
+    }
     setEditing(false); onSaved({ ...booking, [column]: result.value } as Booking, `${label} güncellendi.`)
   }
   return <div className="full"><div className="editable-heading"><div className="detail-key">{label}</div><button className="inline-edit-button" type="button" onClick={open}>Düzenle</button></div><div className="detail-val">{display}</div>{editing && <div className="inline-editor"><input ref={inputRef} className="input" type={inputType} maxLength={maxLength} aria-label={label} value={value} onChange={e => setValue(e.target.value)} /><div className="inline-editor-actions"><button className="btn inline-editor-button" type="button" disabled={saving} onClick={() => void save()}>Kaydet</button><button className="btn-outline inline-editor-button" type="button" onClick={() => { setEditing(false); setError('') }}>İptal</button></div><div className="inline-error">{error}</div></div>}</div>
@@ -186,7 +192,10 @@ function PriceEditor({ booking, onSaved }: { booking: Booking; onSaved: (booking
     const pricePayload = dailyChauffeur ? { price_eur: total, daily_rate_eur: nextLegPrice } : { price_eur: total }
     const { count, error: updateError } = await supabase.from('bookings').update(pricePayload, { count: 'exact' }).eq('id', booking.id)
     setSaving(false)
-    if (updateError || count === 0) return setError('Fiyat güncellenemedi, tekrar deneyin.')
+    if (updateError || count === 0) {
+      if (updateError) console.error('Fiyat güncelleme hatası:', updateError.message, updateError.details, updateError.hint, updateError.code)
+      return setError('Fiyat güncellenemedi, tekrar deneyin.')
+    }
     setEditing(false); onSaved({ ...booking, ...pricePayload }, 'Fiyat güncellendi.')
   }
   return <><button className="btn-outline price-edit-btn" type="button" onClick={() => { setValue(String(legPrice)); setError(''); setEditing(true) }}>Düzenle</button>{editing && <div className="price-editor" style={{ gridColumn: '1 / -1' }}><div className="price-editor-row"><span style={{ color: 'var(--text-muted)' }}>€</span><input className="input price-input" type="number" min={dailyChauffeur ? 0.01 : 0} step={0.01} inputMode="decimal" aria-label="Yeni fiyat" value={value} onChange={e => setValue(e.target.value)} autoFocus /><button className="btn price-action" type="button" disabled={saving} onClick={() => void save()}>Kaydet</button><button className="btn-outline price-action" type="button" onClick={() => setEditing(false)}>İptal</button></div><div className="inline-error">{error}</div></div>}</>
@@ -215,7 +224,10 @@ function ChauffeurDayEditor({ day, onSaved }: { day: ChauffeurHireDay; onSaved: 
     setSaving(true); setMessage('')
     const { data, error } = await supabase.from('chauffeur_hire_days').update(payload).eq('id', day.id).select().single()
     setSaving(false)
-    if (error || !data) return setMessage('Günlük kayıt güncellenemedi.')
+    if (error || !data) {
+      if (error) console.error('Günlük kayıt güncelleme hatası:', error.message, error.details, error.hint, error.code)
+      return setMessage('Günlük kayıt güncellenemedi.')
+    }
     onSaved(data as ChauffeurHireDay); setMessage('Kaydedildi.')
   }
   return <div className="chauffeur-day-card">
@@ -368,6 +380,7 @@ export default function BookingDetailPage({ bookingRef, isReturn, sourceTab, pro
     const { count, error } = await supabase.from('bookings').update({ status: next }, { count: 'exact' }).eq('booking_ref', bookingRef)
     setStatusSaving(false)
     if (error || count === 0) {
+      if (error) console.error('Durum güncelleme hatası:', error.message, error.details, error.hint, error.code)
       setBooking({ ...booking, status: previousStatus })
       setStatusError('Güncelleme başarısız, tekrar deneyin.')
     }
