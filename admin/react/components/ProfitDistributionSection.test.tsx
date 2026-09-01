@@ -481,7 +481,7 @@ describe('ProfitDistributionSection preview and confirmation', () => {
     })
     renderSection({ bookings: [booking], onSaveCostMode })
 
-    fireEvent.click(within(screen.getByRole('alert')).getByRole('button', { name: 'Kendi aracımız' }))
+    fireEvent.change(within(screen.getByRole('alert')).getByRole('combobox'), { target: { value: 'own_vehicle' } })
 
     await waitFor(() => expect(onSaveCostMode).toHaveBeenCalledWith(booking, 'outbound', 'own_vehicle'))
   })

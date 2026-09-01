@@ -204,18 +204,17 @@ export function CostModeToggle({ booking, leg, onSave, onNeedsCost }: {
 
   return <div className="profit-cost-toggle-field">
     <span className="profit-field-label" id={labelId}>{leg === 'return' ? 'Dönüş maliyet modeli' : 'Gidiş maliyet modeli'}</span>
-    <div className="profit-cost-toggle" role="group" aria-labelledby={labelId}>
-      {(Object.keys(COST_MODE_LABELS) as CostMode[]).map(mode => <button
-        key={mode}
-        className={current === mode ? 'is-active' : ''}
-        type="button"
-        aria-pressed={current === mode}
-        disabled={Boolean(savingMode) || locked}
-        onClick={() => void toggle(mode)}
-      >
-        {savingMode === mode ? 'Kaydediliyor…' : COST_MODE_LABELS[mode]}
-      </button>)}
-    </div>
+    <select
+      className="profit-cost-mode-select"
+      aria-labelledby={labelId}
+      value={current}
+      disabled={Boolean(savingMode) || locked}
+      onChange={event => void toggle(event.target.value as CostMode)}
+    >
+      {(Object.keys(COST_MODE_LABELS) as CostMode[]).map(mode => <option key={mode} value={mode}>
+        {COST_MODE_LABELS[mode]}
+      </option>)}
+    </select>
   </div>
 }
 

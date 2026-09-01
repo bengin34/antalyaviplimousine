@@ -1531,7 +1531,7 @@ button.profit-leg-action.is-ghost:hover:not(:disabled) {
 .ledger-table td {
   padding: 7px 10px;
   text-align: right;
-  border-bottom: 1px solid var(--border-soft);
+  border: 1px solid var(--border-soft);
   font-size: 12px;
 }
 .ledger-table th:nth-child(-n+2),
@@ -1560,6 +1560,20 @@ button.profit-leg-action.is-ghost:hover:not(:disabled) {
   border: 1px dashed var(--border-soft);
   border-radius: 12px;
 }
+
+/* Maliyet modeli seçici: kompakt açılır kutu (eski segmented buton yer kaplıyordu) */
+.profit-cost-mode-select {
+  width: 100%;
+  padding: 7px 10px;
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  background: var(--surface-soft, rgba(255, 255, 255, 0.04));
+  color: var(--text);
+  font: inherit;
+  font-size: 12px;
+  cursor: pointer;
+}
+.profit-cost-mode-select:disabled { opacity: 0.6; cursor: default; }
 
 /* Masaüstünde .profit-content, .budget-content'in 12 sütunlu gridini miras alır;
    yeni dashboard tek sütun dikey yığın olduğundan tüm bölümler tam genişlik. */
