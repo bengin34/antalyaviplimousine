@@ -1,6 +1,6 @@
 // @vitest-environment jsdom
 import '@testing-library/jest-dom/vitest'
-import { render, screen, cleanup } from '@testing-library/react'
+import { render, screen, cleanup, fireEvent } from '@testing-library/react'
 import { afterEach, describe, test, expect, vi } from 'vitest'
 
 afterEach(cleanup)
@@ -50,4 +50,34 @@ test('editable=false iken düzenleme butonu yok', () => {
 test('mobil kart yapısı bacak başına render eder', () => {
   const { container } = render(<ProfitLedgerGrid legs={legs} bookingsById={new Map()} editable={false} />)
   expect(container.querySelectorAll('.ledger-card')).toHaveLength(2)
+})
+
+const attentionLeg = { bookingId: '9', bookingRef: 'A9', customerName: 'Zoe', leg: 'outbound', date: '2026-08-20', from: 'AYT', to: 'Nowhere', revenueEur: 90, revenueTry: 4500, oneWayKm: null, vehicleCostTry: 0, supplierCostTry: 0, airportMeetCostTry: 0, advertisingPerLegTry: 100, advertisingPerLegEur: 2, netProfitTry: 4400, netProfitEur: 88, eurTryRate: 50 }
+
+test('eksik KM li ayak dikkat işareti alır ve Maliyeti yok butonu gösterir', () => {
+  const booking = { id: '9', booking_ref: 'A9', service_cost_mode: 'own_vehicle' } as any
+  const onSaveNoCost = vi.fn().mockResolvedValue(undefined)
+  const { container } = render(<ProfitLedgerGrid
+    legs={[attentionLeg]} bookingsById={new Map([['9', booking]])} editable={true}
+    onSaveDistance={vi.fn()} onSaveSupplierCost={vi.fn()} onSaveCostMode={vi.fn()} onSaveNoCost={onSaveNoCost}
+  />)
+  expect(container.querySelector('.is-attention, .ledger-attention')).toBeTruthy()
+  expect(screen.getAllByRole('button', { name: /Maliyeti yok/i }).length).toBeGreaterThan(0)
+})
+
+test('Maliyeti yok tıklanınca onSaveNoCost çağrılır', async () => {
+  const booking = { id: '9', booking_ref: 'A9', service_cost_mode: 'own_vehicle' } as any
+  const onSaveNoCost = vi.fn().mockResolvedValue(undefined)
+  render(<ProfitLedgerGrid
+    legs={[attentionLeg]} bookingsById={new Map([['9', booking]])} editable={true}
+    onSaveDistance={vi.fn()} onSaveSupplierCost={vi.fn()} onSaveCostMode={vi.fn()} onSaveNoCost={onSaveNoCost}
+  />)
+  fireEvent.click(screen.getAllByRole('button', { name: /Maliyeti yok/i })[0])
+  expect(onSaveNoCost).toHaveBeenCalledWith(attentionLeg)
+})
+
+test('editable=false iken Maliyeti yok butonu yok', () => {
+  const booking = { id: '9', booking_ref: 'A9', service_cost_mode: 'own_vehicle' } as any
+  render(<ProfitLedgerGrid legs={[attentionLeg]} bookingsById={new Map([['9', booking]])} editable={false} />)
+  expect(screen.queryByRole('button', { name: /Maliyeti yok/i })).toBeNull()
 })

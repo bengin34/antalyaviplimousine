@@ -1,4 +1,4 @@
-import { useMemo } from 'react'
+import { useState, useMemo } from 'react'
 import { fmtDetailDate, formatEuro, formatNumber, formatTry, profitLocationLabel } from '../lib/format'
 import type { Booking } from '../types'
 import {
@@ -41,13 +41,58 @@ function groupByDate(legs: LedgerLeg[]) {
     }))
 }
 
-export function ProfitLedgerGrid({ legs, bookingsById, editable, onSaveDistance, onSaveSupplierCost, onSaveCostMode }: {
+/** Mirrors TripRow needsAttention logic from ProfitLossPage.tsx */
+function computeNeedsAttention(leg: LedgerLeg, booking: Booking | undefined): boolean {
+  const isDailyChauffeur = Boolean(leg.isDailyChauffeur)
+  if (isDailyChauffeur && leg.distanceSource !== 'daily-missing') return false
+  if (leg.distanceSource === 'daily-missing') return true
+  if (isDailyChauffeur) return false
+  const legKey = toLegKey(leg.leg)
+  const currentMode = legCostMode(booking, legKey)
+  const isSoldTransfer = currentMode === 'sold_transfer'
+  const isNoCost = currentMode === 'no_cost'
+  if (isNoCost) return false
+  if (isSoldTransfer) {
+    const costTry = booking ? Number(booking[legCostColumns(legKey).cost]) || 0 : 0
+    return costTry <= 0
+  }
+  // own-vehicle: missing KM
+  return leg.oneWayKm == null
+}
+
+/** Lightweight "Maliyeti yok" button with pending/failed state. */
+function NoCostButton({ leg, onSaveNoCost }: {
+  leg: LedgerLeg
+  onSaveNoCost: (leg: LedgerLeg) => Promise<void>
+}) {
+  const [saving, setSaving] = useState(false)
+  const [failed, setFailed] = useState(false)
+  const save = async () => {
+    setSaving(true); setFailed(false)
+    try {
+      await onSaveNoCost(leg)
+    } catch {
+      setFailed(true)
+    } finally {
+      setSaving(false)
+    }
+  }
+  return <>
+    <button className="profit-leg-action is-ghost" type="button" disabled={saving} onClick={() => void save()}>
+      {saving ? 'Kaydediliyor…' : 'Maliyeti yok'}
+    </button>
+    {failed && <span className="inline-error" role="alert">Kaydedilemedi, tekrar deneyin.</span>}
+  </>
+}
+
+export function ProfitLedgerGrid({ legs, bookingsById, editable, onSaveDistance, onSaveSupplierCost, onSaveCostMode, onSaveNoCost }: {
   legs: LedgerLeg[]
   bookingsById: Map<string, Booking>
   editable: boolean
   onSaveDistance?: SaveDistance
   onSaveSupplierCost?: SaveSupplierCost
   onSaveCostMode?: SaveCostMode
+  onSaveNoCost?: (leg: LedgerLeg) => Promise<void>
 }) {
   const groups = useMemo(() => groupByDate([...legs].sort((a, b) =>
     String(b.date).localeCompare(String(a.date)) || String(a.bookingRef ?? '').localeCompare(String(b.bookingRef ?? '')),
@@ -80,8 +125,9 @@ export function ProfitLedgerGrid({ legs, bookingsById, editable, onSaveDistance,
             const isSoldTransfer = !isDailyChauffeur && currentMode === 'sold_transfer'
             const currentCostTry = booking ? Number(booking[legCostColumns(legKey).cost]) || 0 : 0
             const showEditor = editable && booking && !isDailyChauffeur
+            const needsAttention = computeNeedsAttention(leg, booking)
 
-            return <tr key={`${leg.bookingId}:${leg.leg}`}>
+            return <tr key={`${leg.bookingId}:${leg.leg}`} className={needsAttention ? 'is-attention' : undefined}>
               <td>{leg.bookingRef || leg.customerName || 'Kayıt'}</td>
               <td>{profitLocationLabel(leg.from)} → {profitLocationLabel(leg.to)}</td>
               <td>{formatEuro(leg.revenueEur ?? 0)}</td>
@@ -92,6 +138,8 @@ export function ProfitLedgerGrid({ legs, bookingsById, editable, onSaveDistance,
               <td>{formatTry(leg.advertisingPerLegTry ?? 0)}</td>
               <td className={(leg.netProfitTry ?? 0) < 0 ? 'is-neg' : 'is-pos'}>{formatTry(leg.netProfitTry ?? 0)}</td>
               {editable && <td>
+                {needsAttention && <span className="ledger-attention">Eksik bilgi</span>}
+                {editable && needsAttention && onSaveNoCost && <NoCostButton leg={leg} onSaveNoCost={onSaveNoCost} />}
                 {showEditor && onSaveDistance && onSaveCostMode && onSaveSupplierCost && <LegCostControls
                   booking={booking}
                   legRef={{ bookingId: leg.bookingId, bookingRef: leg.bookingRef, leg: leg.leg }}
@@ -128,12 +176,14 @@ export function ProfitLedgerGrid({ legs, bookingsById, editable, onSaveDistance,
           const isSoldTransfer = !isDailyChauffeur && currentMode === 'sold_transfer'
           const currentCostTry = booking ? Number(booking[legCostColumns(legKey).cost]) || 0 : 0
           const showEditor = editable && booking && !isDailyChauffeur
+          const needsAttention = computeNeedsAttention(leg, booking)
 
-          return <li className="ledger-card" key={`${leg.bookingId}:${leg.leg}`}>
+          return <li className={`ledger-card${needsAttention ? ' is-attention' : ''}`} key={`${leg.bookingId}:${leg.leg}`}>
             <div className="ledger-card-head">
               <strong>{leg.bookingRef || leg.customerName || 'Kayıt'}</strong>
               <b className={(leg.netProfitTry ?? 0) < 0 ? 'is-neg' : 'is-pos'}>{formatTry(leg.netProfitTry ?? 0)}</b>
             </div>
+            {needsAttention && <span className="ledger-attention">Eksik bilgi</span>}
             <div className="ledger-card-route">{profitLocationLabel(leg.from)} → {profitLocationLabel(leg.to)}</div>
             <dl className="ledger-card-facts">
               <div><dt>Gelir</dt><dd>{formatEuro(leg.revenueEur ?? 0)}</dd></div>
@@ -144,6 +194,7 @@ export function ProfitLedgerGrid({ legs, bookingsById, editable, onSaveDistance,
               {(leg.airportMeetCostTry ?? 0) > 0 && <div><dt>Karşılama</dt><dd>{formatTry(leg.airportMeetCostTry)}</dd></div>}
               <div><dt>Reklam</dt><dd>{formatTry(leg.advertisingPerLegTry ?? 0)}</dd></div>
             </dl>
+            {editable && needsAttention && onSaveNoCost && <NoCostButton leg={leg} onSaveNoCost={onSaveNoCost} />}
             {showEditor && onSaveDistance && onSaveCostMode && onSaveSupplierCost && <LegCostControls
               booking={booking}
               legRef={{ bookingId: leg.bookingId, bookingRef: leg.bookingRef, leg: leg.leg }}
