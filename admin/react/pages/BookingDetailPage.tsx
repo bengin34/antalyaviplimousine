@@ -1,14 +1,15 @@
 import { useEffect, useMemo, useRef, useState, type FormEvent, type ReactNode } from 'react'
 import { Topbar } from '../components/AdminChrome'
-import { fmtDetailDate, fmtPrice, fmtTime, statusLabel, transferStartTime } from '../lib/format'
+import { fmtDetailDate, fmtPrice, fmtTime, statusLabel, todayISO, transferStartTime } from '../lib/format'
 import { queueBookingPrefill } from '../lib/prefill'
 import { supabase } from '../lib/supabase'
 import type { Booking, BookingStatus, ChauffeurHireDay, Navigate } from '../types'
 import { isFutureIstanbulLeg, locationDisplay, navigationURLs, whatsappURL } from '../../turkish-formatters.js'
 import { buildConfirmMessage, buildReminderMessage, buildReceivedMessage, buildReviewMessage } from '../../whatsapp-templates.js'
 import { buildDriverTransferMessage, driverWhatsappURL } from '../../driver-message.js'
-import { COST_MODE_LABELS, type CostMode } from '../components/LegCostEditors'
-import { legCostModel } from '../../profit-loss-metrics.js'
+import { COST_MODE_LABELS, legLabelFor, type CostMode } from '../components/LegCostEditors'
+import { legCostModel, bookingLegCostStatus } from '../../profit-loss-metrics.js'
+import CostDialog from '../components/CostDialog'
 import { LOCATION_OPTIONS, LANGUAGE_OPTIONS, VEHICLE_CAPACITY, validateBookingForm, type BookingFormState } from './NewBookingPage'
 import { ReturnPickupHint, returnPickupAdvice } from '../components/ReturnPickupHint'
 import { languageFromPhone } from '../../turkish-formatters.js'
@@ -241,6 +242,14 @@ function ChauffeurDayEditor({ day, onSaved }: { day: ChauffeurHireDay; onSaved: 
   </div>
 }
 
+function costSummary(cs: { costMode?: string; oneWayKm?: number | null; supplierCostTry?: number | null; meetFeeApplicable?: boolean; meetFeeApplies?: boolean }) {
+  if (cs.costMode === 'no_cost') return 'Maliyeti yok'
+  if (cs.costMode === 'sold_transfer') return `Satılan transfer · ₺${Number(cs.supplierCostTry ?? 0).toLocaleString('tr-TR')}`
+  const km = cs.oneWayKm != null ? `${cs.oneWayKm} km` : 'KM girilmedi'
+  const meet = cs.meetFeeApplicable && cs.meetFeeApplies ? ' · Karşılama 250 ₺' : ''
+  return `Kendi aracımız · ${km}${meet}`
+}
+
 export default function BookingDetailPage({ bookingRef, isReturn, sourceTab, profitPeriod, navigate }: { bookingRef: string; isReturn: boolean; sourceTab: 'future' | 'past' | 'cancelled' | 'profit-loss'; profitPeriod?: string | null; navigate: Navigate }) {
   const [booking, setBooking] = useState<Booking | null>(null)
   const [loading, setLoading] = useState(true)
@@ -249,6 +258,7 @@ export default function BookingDetailPage({ bookingRef, isReturn, sourceTab, pro
   const [success, setSuccess] = useState('')
   const [statusError, setStatusError] = useState('')
   const [statusSaving, setStatusSaving] = useState(false)
+  const [costDialogOpen, setCostDialogOpen] = useState(false)
   const [note, setNote] = useState('')
   const [noteError, setNoteError] = useState('')
   const [noteSaving, setNoteSaving] = useState(false)
@@ -402,7 +412,9 @@ export default function BookingDetailPage({ bookingRef, isReturn, sourceTab, pro
       if (error) console.error('Durum güncelleme hatası:', error.message, error.details, error.hint, error.code)
       setBooking({ ...booking, status: previousStatus })
       setStatusError('Güncelleme başarısız, tekrar deneyin.')
+      return
     }
+    if (next === 'completed' && !dailyChauffeur) setCostDialogOpen(true)
   }
 
   const deleteBooking = async () => {
@@ -509,6 +521,18 @@ export default function BookingDetailPage({ bookingRef, isReturn, sourceTab, pro
 
       <div className="section"><div className="section-label">Ödeme</div><div className={`detail-payment-row${roundTrip && isReturn ? ' detail-payment-settled' : ''}`}><span className="detail-payment-context"><strong>{paymentMethod}</strong>{dailyChauffeur ? <small>Günlük €{fmtPrice(Number(booking.daily_rate_eur) || 150)} · yakıt hariç</small> : roundTrip && <small>{isReturn ? 'Dönüş ücreti' : 'Gidiş ücreti'}</small>}</span><div style={{ display: 'flex', alignItems: 'center', gap: 8, flexWrap: 'wrap' }}><span className="detail-payment-price">€{fmtPrice(legPrice)}</span>{dailyChauffeur && <small className="daily-total-label">Toplam €{fmtPrice(booking.price_eur)}</small>}{!(roundTrip && isReturn) && <PriceEditor booking={booking} onSaved={genericSaved} />}</div></div></div>
       <div className="section"><div className="section-label">Notlar</div>{booking.notes && <div className="note-pinned">📌 {booking.notes}</div>}<div>{sortedNotes.length ? sortedNotes.map(item => <div className="note-item" key={item.id}>{item.note}</div>) : <div className="notes-empty">Henüz not yok</div>}</div><div className="note-input-row"><input className="input" type="text" placeholder="Not ekle…" value={note} onChange={e => setNote(e.target.value)} onKeyDown={e => { if (e.key === 'Enter') { e.preventDefault(); void addNote() } }} /><button className="btn" type="button" disabled={noteSaving} style={{ width: 'auto', padding: '8px 14px', fontSize: 13 }} onClick={() => void addNote()}>Ekle</button></div><div className="inline-error">{noteError}</div></div>
+      {displayStatus === 'completed' && !dailyChauffeur && (() => {
+        const legKey = isReturn && roundTrip ? 'return' : 'outbound'
+        const cs = bookingLegCostStatus(booking, legKey, todayISO())
+        if (!cs.applicable) return null
+        return <div className="section">
+          <div className="section-label">{legLabelFor(legKey)} Maliyeti</div>
+          {cs.complete
+            ? <div className="cost-banner ok"><span className="grow">{costSummary(cs)}</span><button className="btn-sm" type="button" onClick={() => setCostDialogOpen(true)}>Düzenle</button></div>
+            : <div className="cost-banner warn"><span className="grow"><strong>Maliyet eksik</strong></span><button className="btn-sm" type="button" onClick={() => setCostDialogOpen(true)}>Maliyet gir</button></div>}
+        </div>
+      })()}
+      {costDialogOpen && <CostDialog booking={booking} leg={isReturn && roundTrip ? 'return' : 'outbound'} today={todayISO()} onClose={() => setCostDialogOpen(false)} onSaved={updated => setBooking(updated)} />}
       <div className="section"><div className="section-label">Durum Güncelle</div><div className="status-buttons">{(STATUS_TRANSITIONS[displayStatus] ?? []).length ? STATUS_TRANSITIONS[displayStatus].map(next => <button className={`btn-outline ${STATUS_COLORS[next]}`} type="button" key={next} disabled={statusSaving} onClick={() => void updateStatus(next)}>{statusLabel(next, roundTrip)}</button>) : <div style={{ color: 'var(--text-muted)', fontSize: 13, gridColumn: '1/-1' }}>Bu transfer için başka durum seçeneği yok.</div>}</div><div className="inline-error">{statusError}</div></div>
       {booking.status === 'cancelled' && <div className="section"><div className="section-label">Kalıcı Silme</div><div style={{ color: 'var(--text-muted)', fontSize: 13, marginBottom: 8 }}>İptal edilen bu rezervasyonu kalıcı olarak silebilirsiniz. Bu işlem geri alınamaz; test rezervasyonlarını temizlemek için kullanabilirsiniz.</div>
         {linkedReturns.length > 0 && <label className="admin-fuel-acceptance linked-return-choice"><input type="checkbox" checked={deleteLinkedReturns} onChange={e => setDeleteLinkedReturns(e.target.checked)} /><span><strong>Bağlı kayıtlar da silinsin</strong><small>Bu rezervasyondan planlanan {linkedReturns.length} ayrı kayıt var: {linkedReturns.map(item => `${item.booking_ref} · ${fmtDetailDate(item.pickup_date)}`).join(' · ')}. İşaretlenmezse bu kayıtlar durur ve kâr/zarar ekranında görünmeye devam eder.</small></span></label>}
