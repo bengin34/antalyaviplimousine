@@ -737,11 +737,27 @@ export function calculateProfitLossMetrics(bookings, period, today, settingsByMo
   const routes = [...routeMap.values()]
     .sort((a, b) => b.vehicleKm - a.vehicleKm || b.incomeEur - a.incomeEur)
 
+  // Sefer başına reklam: dönem reklamını (gün-payı toplamı) gerçekleşen tüm
+  // ayaklara eşit böl; bacak neti reklamı da düşer. Dönem toplamları değişmez.
+  const legsWithAds = attachAdvertisingPerLeg(
+    [...resolvedLegs, ...unresolvedLegs],
+    { advertisingExpenseEur, advertisingExpenseTry },
+  )
+  const withNet = legsWithAds.map(leg => {
+    const expenseTry = (leg.vehicleCostTry ?? 0) + (leg.supplierCostTry ?? 0)
+      + (leg.airportMeetCostTry ?? 0) + (leg.advertisingPerLegTry ?? 0)
+    const rate = leg.eurTryRate || 0
+    const netProfitTry = (leg.revenueTry ?? 0) - expenseTry
+    return { ...leg, netProfitTry, netProfitEur: rate ? netProfitTry / rate : (leg.revenueEur ?? 0) }
+  })
+  const resolvedWithNet = withNet.slice(0, resolvedLegs.length)
+  const unresolvedWithNet = withNet.slice(resolvedLegs.length)
+
   return {
     ...totals,
     completedLegs: resolvedLegs.length + unresolvedLegs.length,
-    resolvedLegs,
-    unresolvedLegs,
+    resolvedLegs: resolvedWithNet,
+    unresolvedLegs: unresolvedWithNet,
     missingDailyDistanceCount: resolvedLegs.filter(leg => leg.distanceSource === 'daily-missing').length,
     routes,
   }
