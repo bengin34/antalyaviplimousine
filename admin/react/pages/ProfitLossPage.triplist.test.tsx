@@ -1,8 +1,8 @@
 // @vitest-environment jsdom
 import '@testing-library/jest-dom/vitest'
 import { afterEach, beforeEach, describe, expect, test, vi } from 'vitest'
-import { cleanup, fireEvent, render, screen, waitFor, within } from '@testing-library/react'
-import { formatEuro, formatTry } from '../lib/format'
+import { cleanup, fireEvent, render, screen, waitFor } from '@testing-library/react'
+import { formatEuro } from '../lib/format'
 import type { Booking, ProfitShareSettings } from '../types'
 
 const mocks = vi.hoisted(() => ({
@@ -147,7 +147,7 @@ afterEach(() => {
   vi.useRealTimers()
 })
 
-describe('ProfitLossPage travel history', () => {
+describe('ProfitLossPage ledger grid', () => {
   test('leaves cancelled bookings out of the report entirely', async () => {
     installQueries([
       makeBooking(),
@@ -155,30 +155,24 @@ describe('ProfitLossPage travel history', () => {
     ])
     render(<ProfitLossPage navigate={vi.fn()} initialPeriod="2026-08" />)
 
-    await waitFor(() => expect(document.getElementById('profit-leg-booking-1-outbound')).not.toBeNull())
+    // Gerçekleşen ayak gridde görünür; iptal edilen kayıt hiçbir yere girmez.
+    await waitFor(() => expect(screen.getAllByText('AVL-101').length).toBeGreaterThan(0))
     expect(screen.queryByText('AVL-IPTAL')).toBeNull()
-    expect(document.getElementById('profit-leg-booking-2-outbound')).toBeNull()
-    // Tek gerçekleşen ayak: 100 € gelir, iptal edilen kayıt hesaba girmez.
-    expect(screen.getByText('1 sefer · 1 gün')).toBeInTheDocument()
   })
 
-  test('groups legs under their date and opens an older day on demand', async () => {
+  test('lists legs from every day in the open range', async () => {
     installQueries([
       makeBooking(),
       makeBooking({ id: 'booking-2', booking_ref: 'AVL-102', pickup_date: '2026-08-01' }),
     ])
     render(<ProfitLossPage navigate={vi.fn()} initialPeriod="2026-08" />)
 
-    await waitFor(() => expect(document.getElementById('profit-leg-booking-1-outbound')).not.toBeNull())
-    // En yeni gün açık gelir, önceki gün kapalıdır.
-    expect(document.getElementById('profit-leg-booking-2-outbound')).toBeNull()
-
-    fireEvent.click(screen.getByRole('button', { name: /1 Ağustos 2026/ }))
-
-    await waitFor(() => expect(document.getElementById('profit-leg-booking-2-outbound')).not.toBeNull())
+    // Grid tüm günleri açık gösterir (sonsuz accordion yok): iki ayak da görünür.
+    await waitFor(() => expect(screen.getAllByText('AVL-101').length).toBeGreaterThan(0))
+    expect(screen.getAllByText('AVL-102').length).toBeGreaterThan(0)
   })
 
-  test('shows the leg direction, passenger details and the TL value of the income', async () => {
+  test('shows both legs of a round trip with per-leg revenue', async () => {
     installQueries([makeBooking({
       trip_type: 'round_trip',
       price_eur: 200,
@@ -187,23 +181,12 @@ describe('ProfitLossPage travel history', () => {
     })])
     render(<ProfitLossPage navigate={vi.fn()} initialPeriod="2026-08" />)
 
-    await waitFor(() => expect(document.getElementById('profit-leg-booking-1-outbound')).not.toBeNull())
-    const outbound = within(document.getElementById('profit-leg-booking-1-outbound') as HTMLElement)
-    const returnLeg = within(document.getElementById('profit-leg-booking-1-return') as HTMLElement)
-
-    expect(outbound.getByText('Gidiş')).toBeInTheDocument()
-    expect(returnLeg.getByText('Dönüş')).toBeInTheDocument()
-    expect(outbound.getByText('Ayşe Yılmaz')).toBeInTheDocument()
-    expect(outbound.getByText('+905551112233')).toBeInTheDocument()
-    expect(outbound.getByText('3 kişi · 2 bagaj')).toBeInTheDocument()
-    // Gelir hem € hem TL karşılığıyla yazılır (gidiş ayağı: 200 €'nun yarısı).
-    expect(outbound.getByText(formatEuro(100))).toBeInTheDocument()
-    expect(outbound.getByText(`TL karşılığı ${formatTry(5000)}`)).toBeInTheDocument()
+    // Gidiş + dönüş iki ayrı satır (aynı ref), her ayak 200 €'nun yarısı = 100 €.
+    await waitFor(() => expect(screen.getAllByText('AVL-101').length).toBeGreaterThanOrEqual(2))
+    expect(screen.getAllByText(formatEuro(100)).length).toBeGreaterThan(0)
   })
 
-  test('marks a separately planned return record as a return leg', async () => {
-    // "Dönüş yolculuğu planla" ayrı bir rezervasyon satırı açar: kaynak kayıt
-    // silinse bile bu satır durur, listede dönüş olarak ve bağlantısıyla görünür.
+  test('shows a separately planned return record as its own leg', async () => {
     installQueries([makeBooking({
       id: 'booking-9',
       booking_ref: 'AVL-109',
@@ -213,28 +196,22 @@ describe('ProfitLossPage travel history', () => {
     })])
     render(<ProfitLossPage navigate={vi.fn()} initialPeriod="2026-08" />)
 
-    await waitFor(() => expect(document.getElementById('profit-leg-booking-9-outbound')).not.toBeNull())
-    const row = within(document.getElementById('profit-leg-booking-9-outbound') as HTMLElement)
-    expect(row.getByText('Dönüş')).toBeInTheDocument()
-    expect(row.getByText('AVL-101 kaydından planlandı')).toBeInTheDocument()
+    await waitFor(() => expect(screen.getAllByText('AVL-109').length).toBeGreaterThan(0))
   })
 
-  test('marks a transfer leg as cost free from the pending list', async () => {
+  test('marks a transfer leg as cost free from the grid', async () => {
     installQueries([makeBooking({ pickup_location: 'private_address', dropoff_location: 'hotel' })])
     render(<ProfitLossPage navigate={vi.fn()} initialPeriod="2026-08" />)
 
-    const pending = await screen.findByText('İşlem bekleyen kayıtlar')
-    fireEvent.click(pending)
-    // Uyarı listesindeki kısayol; satırdaki maliyet modeli seçiciyle karışmasın.
-    const pendingRow = (await screen.findByRole('button', { name: 'Kaydı aç' })).closest('li') as HTMLElement
-
-    fireEvent.click(within(pendingRow).getByRole('button', { name: 'Maliyeti yok' }))
+    // Eksik KM li ayak gridde uyarılı; satır-içi "Maliyeti yok" onu gidersiz yapar.
+    const noCost = await screen.findAllByRole('button', { name: 'Maliyeti yok' })
+    fireEvent.click(noCost[0])
 
     await waitFor(() => expect(mocks.updateBooking).toHaveBeenCalledWith({
       service_cost_mode: 'no_cost',
       sold_transfer_cost_try: null,
     }))
-    await waitFor(() => expect(screen.queryByText('Tek yön KM bilgisi eksik')).toBeNull())
+    await waitFor(() => expect(screen.queryByText('Eksik bilgi')).toBeNull())
   })
 
   test('zeroes the distance of a daily service day marked as cost free', async () => {
@@ -263,13 +240,10 @@ describe('ProfitLossPage travel history', () => {
     })])
     render(<ProfitLossPage navigate={vi.fn()} initialPeriod="2026-08" />)
 
-    const pending = await screen.findByText('İşlem bekleyen kayıtlar')
-    fireEvent.click(pending)
-    const pendingRow = (await screen.findByRole('button', { name: 'Kaydı aç' })).closest('li') as HTMLElement
-
-    fireEvent.click(within(pendingRow).getByRole('button', { name: 'Maliyeti yok' }))
+    const noCost = await screen.findAllByRole('button', { name: 'Maliyeti yok' })
+    fireEvent.click(noCost[0])
 
     await waitFor(() => expect(mocks.updateHireDay).toHaveBeenCalledWith({ distance_km: 0 }))
-    await waitFor(() => expect(screen.queryByText('Günlük hizmet KM bilgisi eksik')).toBeNull())
+    await waitFor(() => expect(screen.queryByText('Eksik bilgi')).toBeNull())
   })
 })

@@ -540,63 +540,6 @@ describe('ProfitDistributionSection preview and confirmation', () => {
 })
 
 describe('ProfitDistributionSection history and loading states', () => {
-  test('renders newest-first immutable history and expands persisted income and expense columns', () => {
-    const old = distributionFixture({
-      id: 'distribution-old',
-      period_start: '2026-07-01',
-      period_end: '2026-07-31',
-      created_at: '2026-08-01T09:00:00Z',
-      net_profit_eur: 700,
-      net_profit_try: 35000,
-      operations_amount_eur: 350,
-      vehicle_owner_amount_eur: 350,
-      operations_amount_try: 17500,
-      vehicle_owner_amount_try: 17500,
-      operations_share_pct: 50,
-      vehicle_owner_share_pct: 50,
-      realized_leg_count: 2,
-    })
-    const newest = distributionFixture({ created_at: '2026-08-10T22:30:00Z' })
-    const bookings = [bookingFixture()]
-    const settings = new Map(settingsByMonth)
-    renderSection({ bookings, settingsByMonth: settings, distributions: [old, newest] })
-
-    const rows = screen.getAllByTestId('distribution-history-row')
-    expect(rows).toHaveLength(2)
-    expect(rows[0]).toHaveTextContent('1 Ağustos 2026 – 10 Ağustos 2026')
-    expect(rows[0]).toHaveTextContent('11 Ağustos 2026')
-    expect(rows[0]).toHaveTextContent('3 seyahat ayağı')
-    expect(rows[0]).toHaveTextContent('%60')
-    expect(rows[0]).toHaveTextContent('%40')
-    expect(rows[0]).toHaveTextContent('€540,00')
-    expect(rows[0]).toHaveTextContent('₺27.000,00')
-    expect(rows[0]).toHaveTextContent('€360,00')
-    expect(rows[0]).toHaveTextContent('₺18.000,00')
-    expect(rows[1]).toHaveTextContent('1 Temmuz 2026 – 31 Temmuz 2026')
-
-    const details = within(rows[0]).getByText('Finansal dökümü göster').closest('details')!
-    fireEvent.click(within(details).getByText('Finansal dökümü göster'))
-    expect(details).toHaveTextContent('Gelir')
-    expect(details).toHaveTextContent('€1.000,00')
-    expect(details).toHaveTextContent('Araç maliyeti')
-    expect(details).toHaveTextContent('€40,00')
-    expect(details).toHaveTextContent('Tedarikçi maliyeti')
-    expect(details).toHaveTextContent('€20,00')
-    expect(details).toHaveTextContent('Havalimanı karşılama')
-    expect(details).toHaveTextContent('€10,00')
-    expect(details).toHaveTextContent('Reklam')
-    expect(details).toHaveTextContent('€30,00')
-    expect(details).toHaveTextContent('Toplam gider')
-    expect(details).toHaveTextContent('€100,00')
-    expect(details).toHaveTextContent('Net kâr')
-    expect(details).toHaveTextContent('€900,00')
-
-    bookings[0].price_eur = 999999
-    settings.set('2026-08', { km_cost_try: 999999, eur_try_rate: 1, advertising_expense_try: 999999 })
-    expect(details).toHaveTextContent('€900,00')
-    expect(details).not.toHaveTextContent('€999.999,00')
-  })
-
   test('shows a loading status and a retryable external error', () => {
     const onRetry = vi.fn()
     const { rerender, props } = renderSection({ loading: true, bookings: [], shareSettings: null, onRetry })

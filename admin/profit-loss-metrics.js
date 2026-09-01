@@ -737,11 +737,27 @@ export function calculateProfitLossMetrics(bookings, period, today, settingsByMo
   const routes = [...routeMap.values()]
     .sort((a, b) => b.vehicleKm - a.vehicleKm || b.incomeEur - a.incomeEur)
 
+  // Sefer başına reklam: dönem reklamını (gün-payı toplamı) gerçekleşen tüm
+  // ayaklara eşit böl; bacak neti reklamı da düşer. Dönem toplamları değişmez.
+  const legsWithAds = attachAdvertisingPerLeg(
+    [...resolvedLegs, ...unresolvedLegs],
+    { advertisingExpenseEur, advertisingExpenseTry },
+  )
+  const withNet = legsWithAds.map(leg => {
+    const expenseTry = (leg.vehicleCostTry ?? 0) + (leg.supplierCostTry ?? 0)
+      + (leg.airportMeetCostTry ?? 0) + (leg.advertisingPerLegTry ?? 0)
+    const rate = leg.eurTryRate || 0
+    const netProfitTry = (leg.revenueTry ?? 0) - expenseTry
+    return { ...leg, netProfitTry, netProfitEur: rate ? netProfitTry / rate : (leg.revenueEur ?? 0) }
+  })
+  const resolvedWithNet = withNet.slice(0, resolvedLegs.length)
+  const unresolvedWithNet = withNet.slice(resolvedLegs.length)
+
   return {
     ...totals,
     completedLegs: resolvedLegs.length + unresolvedLegs.length,
-    resolvedLegs,
-    unresolvedLegs,
+    resolvedLegs: resolvedWithNet,
+    unresolvedLegs: unresolvedWithNet,
     missingDailyDistanceCount: resolvedLegs.filter(leg => leg.distanceSource === 'daily-missing').length,
     routes,
   }
@@ -935,4 +951,108 @@ export function buildProfitDistributionSnapshot(metrics = {}) {
   }
 
   return JSON.parse(JSON.stringify(snapshot))
+}
+
+/**
+ * Verilen [startDate, endDate] aralığı için grid-hazır bir kâr/zarar defteri
+ * hesaplar. Her ayakta per-leg reklam payı ve net kâr dahil; dönem KPI toplamları
+ * da eklenir. Tüm sekme türleri (dağıtılmamış açık aralık, her dağıtım aralığı,
+ * tüm zamanlar) için tek ve tutarlı bir veri kaynağı sağlar.
+ */
+export function calculateLedgerForRange(bookings, options = {}) {
+  const startDate = String(options.startDate ?? '')
+  const endDate = String(options.endDate ?? '')
+  const today = String(options.today ?? '')
+  const settingsByMonth = options.settingsByMonth ?? {}
+  const ratesByDate = options.ratesByDate ?? null
+  const start = dateOnlyUtc(startDate)
+  const end = dateOnlyUtc(endDate)
+  const rangeIsValid = Boolean(start && end && start <= end)
+
+  const realized = today
+    ? resolveRealizedLegs(Array.isArray(bookings) ? bookings : [], today, settingsByMonth, ratesByDate)
+    : { resolvedLegs: [], unresolvedLegs: [] }
+  const allocations = distributionAllocations(bookings)
+  const withinRange = leg => rangeIsValid && leg.date >= startDate && leg.date <= endDate
+  const resolvedLegs = realized.resolvedLegs
+    .filter(withinRange)
+    .map(leg => distributionFinancialLeg(leg, settingsByMonth, allocations))
+  const unresolvedLegs = realized.unresolvedLegs
+    .filter(withinRange)
+    .map(leg => distributionFinancialLeg(leg, settingsByMonth, allocations))
+
+  const advertising = rangeIsValid
+    ? allocatedAdvertisingForRange(startDate, endDate, settingsByMonth)
+    : { advertisingExpenseTry: 0, advertisingExpenseEur: 0 }
+
+  // Per-leg reklam: aralık reklamını tüm ayaklara böl
+  const withAds = attachAdvertisingPerLeg(
+    [...resolvedLegs, ...unresolvedLegs],
+    { advertisingExpenseEur: advertising.advertisingExpenseEur, advertisingExpenseTry: advertising.advertisingExpenseTry },
+  )
+  const withNet = withAds.map(leg => {
+    const expenseTry = (leg.vehicleCostTry ?? 0) + (leg.supplierCostTry ?? 0)
+      + (leg.airportMeetCostTry ?? 0) + (leg.advertisingPerLegTry ?? 0)
+    const rate = leg.eurTryRate || 0
+    const netProfitTry = (leg.revenueTry ?? 0) - expenseTry
+    return { ...leg, netProfitTry, netProfitEur: rate ? netProfitTry / rate : (leg.revenueEur ?? 0) }
+  })
+  const resolvedWithNet = withNet.slice(0, resolvedLegs.length)
+  const unresolvedWithNet = withNet.slice(resolvedLegs.length)
+
+  const directTotals = distributionTotalsForLegs(resolvedLegs, unresolvedLegs)
+  const incomeEur = roundMoney(directTotals.incomeEur)
+  const incomeTry = roundMoney(directTotals.incomeTry)
+  const vehicleCostEur = roundMoney(directTotals.vehicleCostEur)
+  const vehicleCostTry = roundMoney(directTotals.vehicleCostTry)
+  const supplierCostEur = roundMoney(directTotals.supplierCostEur)
+  const supplierCostTry = roundMoney(directTotals.supplierCostTry)
+  const airportMeetCostEur = roundMoney(directTotals.airportMeetCostEur)
+  const airportMeetCostTry = roundMoney(directTotals.airportMeetCostTry)
+  const advertisingExpenseEur = roundMoney(advertising.advertisingExpenseEur)
+  const advertisingExpenseTry = roundMoney(advertising.advertisingExpenseTry)
+  const totalExpenseEur = sumMoney([vehicleCostEur, supplierCostEur, airportMeetCostEur, advertisingExpenseEur])
+  const totalExpenseTry = sumMoney([vehicleCostTry, supplierCostTry, airportMeetCostTry, advertisingExpenseTry])
+  const netProfitEur = sumMoney([incomeEur, -totalExpenseEur])
+  const netProfitTry = sumMoney([incomeTry, -totalExpenseTry])
+  const profitMargin = incomeTry > 0 ? (netProfitTry / incomeTry) * 100 : 0
+
+  return {
+    startDate,
+    endDate,
+    resolvedLegs: resolvedWithNet,
+    unresolvedLegs: unresolvedWithNet,
+    incomeEur,
+    incomeTry,
+    vehicleCostEur,
+    vehicleCostTry,
+    supplierCostEur,
+    supplierCostTry,
+    airportMeetCostEur,
+    airportMeetCostTry,
+    advertisingExpenseEur,
+    advertisingExpenseTry,
+    totalExpenseEur,
+    totalExpenseTry,
+    netProfitEur,
+    netProfitTry,
+    profitMargin,
+    completedLegs: resolvedWithNet.length + unresolvedWithNet.length,
+  }
+}
+
+/**
+ * Aralığa düşen toplam reklamı (gün-payı) bacaklara kuruşu kuruşuna eşit böler.
+ * Toplam korunur; artık kuruşlar ilk bacaklara gider (allocateMoneyAmounts).
+ * Reklam yalnız gösterim/hesap katmanında; kayıtlı dağıtımları değiştirmez.
+ */
+export function attachAdvertisingPerLeg(legs, { advertisingExpenseEur = 0, advertisingExpenseTry = 0 } = {}) {
+  if (!Array.isArray(legs) || legs.length === 0) return []
+  const eurShares = allocateMoneyAmounts(advertisingExpenseEur, legs.length)
+  const tryShares = allocateMoneyAmounts(advertisingExpenseTry, legs.length)
+  return legs.map((leg, index) => ({
+    ...leg,
+    advertisingPerLegEur: eurShares[index] ?? 0,
+    advertisingPerLegTry: tryShares[index] ?? 0,
+  }))
 }

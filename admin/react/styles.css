@@ -659,7 +659,7 @@ button,
 
 .profit-distribution-setup > p,
 .profit-distribution-preview > p,
-.profit-distribution-history article > p,
+.profit-distribution-history-body > p,
 .profit-distribution-confirmation > p {
   color: var(--text-muted);
   font-size: 12px;
@@ -805,41 +805,60 @@ button,
   padding-top: 4px;
 }
 
-.profit-distribution-history > article {
-  display: grid;
-  gap: 8px;
-  padding: 13px;
+.profit-distribution-history-item {
+  min-width: 0;
   border: 1px solid var(--border-soft);
   border-radius: 13px;
   background: rgba(13, 19, 29, 0.58);
+  overflow: hidden;
 }
 
-.profit-distribution-history article h4 {
+.profit-distribution-history-item > summary {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 12px;
+  align-items: baseline;
+  justify-content: space-between;
+  padding: 13px;
+  cursor: pointer;
+  list-style: none;
+}
+
+.profit-distribution-history-item > summary::-webkit-details-marker {
+  display: none;
+}
+
+.profit-distribution-history-range {
   font-size: 14px;
+  font-weight: 700;
 }
 
-.profit-distribution-history article > div {
+.profit-distribution-history-net {
+  color: var(--green);
+  font-size: 12px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.profit-distribution-history-item[open] > summary {
+  border-bottom: 1px solid var(--border-soft);
+}
+
+.profit-distribution-history-body {
+  display: grid;
+  gap: 8px;
+  padding: 13px;
+}
+
+.profit-distribution-history-body > div {
   display: grid;
   gap: 4px;
   color: var(--text-muted);
   font-size: 12px;
 }
 
-.profit-distribution-history details {
-  min-width: 0;
-  padding-top: 8px;
-  border-top: 1px solid var(--border-soft);
-}
-
-.profit-distribution-history summary {
-  color: var(--blue);
-  cursor: pointer;
-  font-size: 12px;
-  font-weight: 700;
-}
-
-.profit-distribution-history details .profit-distribution-history-financials {
-  margin-top: 10px;
+.profit-distribution-history-body .profit-distribution-history-financials {
+  margin-top: 2px;
 }
 
 @media (min-width: 600px) {
@@ -1377,4 +1396,167 @@ button.profit-leg-action.is-ghost:hover:not(:disabled) {
   .profit-blocker-actions > .profit-leg-form {
     grid-column: 1 / -1;
   }
+}
+
+/* Ledger responsive: table on desktop, cards on mobile */
+.ledger-table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+.ledger-cards { display: none; list-style: none; margin: 0; padding: 0; }
+@media (max-width: 640px) {
+  .ledger-table { display: none; }
+  .ledger-cards { display: grid; gap: 8px; }
+}
+.ledger-card {
+  padding: 12px;
+  border: 1px solid var(--border-soft);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.03);
+}
+.ledger-card-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+.ledger-card-route {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+.ledger-card-facts {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: 4px 12px;
+  margin: 0;
+}
+.ledger-card-facts dt {
+  font-size: 10px;
+  color: var(--text-muted);
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+.ledger-card-facts dd {
+  margin: 0;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Ledger attention / missing-data flags */
+.ledger-table tr.is-attention td { background: var(--orange-bg); }
+.ledger-card.is-attention { border-color: var(--orange); }
+.ledger-attention { color: var(--orange); font-size: 11px; font-weight: 700; }
+
+/* ---- Muhasebeci dashboard: KPI şeridi + sekmeler + Excel tablo ---- */
+
+/* Sabit üst KPI şeridi */
+.profit-kpi-strip {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr 0.8fr;
+  gap: 10px;
+  margin-bottom: 14px;
+  padding: 14px;
+  border: 1px solid var(--border-soft);
+  border-radius: 14px;
+  background: rgba(13, 19, 29, 0.66);
+}
+@media (max-width: 640px) {
+  .profit-kpi-strip { grid-template-columns: 1fr 1fr; }
+  .profit-kpi-primary { grid-column: 1 / -1; }
+}
+.profit-kpi-cell {
+  display: grid;
+  gap: 3px;
+  align-content: start;
+  min-width: 0;
+}
+.profit-kpi-cell > strong { font-size: 17px; font-variant-numeric: tabular-nums; }
+.profit-kpi-primary > strong {
+  font-size: clamp(24px, 6vw, 32px);
+  line-height: 1.05;
+}
+.profit-kpi-strip.is-positive .profit-kpi-primary > strong { color: var(--green); }
+.profit-kpi-strip.is-negative .profit-kpi-primary > strong { color: var(--danger, #e5484d); }
+.profit-kpi-primary > small { color: #b5c2d2; font-size: 13px; font-weight: 700; font-variant-numeric: tabular-nums; }
+.profit-kpi-label {
+  color: var(--text-muted);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+/* Dönem sekmeleri: yatay kaydırılabilir, dağıtımlar için */
+.profit-tabs {
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  scrollbar-width: thin;
+}
+.profit-tabs > button { white-space: nowrap; flex: 0 0 auto; }
+
+.profit-snapshot-note {
+  margin: -4px 0 12px;
+  padding: 10px 12px;
+  border: 1px solid var(--border-soft);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--text-muted);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+/* Gün grupları + Excel tablo */
+.ledger { display: grid; gap: 16px; }
+.ledger-day {
+  border: 1px solid var(--border-soft);
+  border-radius: 14px;
+  overflow: hidden;
+  background: rgba(13, 19, 29, 0.5);
+}
+.ledger-day-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 11px 14px;
+  background: rgba(115, 183, 255, 0.08);
+  border-bottom: 1px solid var(--border-soft);
+}
+.ledger-day-head > span:first-child { font-weight: 700; font-size: 14px; }
+.ledger-day-head > span { color: var(--text-muted); font-size: 12px; }
+.ledger-day-head > b { font-variant-numeric: tabular-nums; font-size: 14px; }
+.ledger-day-head > b.is-pos { color: var(--green); }
+.ledger-day-head > b.is-neg { color: var(--danger, #e5484d); }
+
+.ledger-table th,
+.ledger-table td {
+  padding: 7px 10px;
+  text-align: right;
+  border-bottom: 1px solid var(--border-soft);
+  font-size: 12px;
+}
+.ledger-table th:nth-child(-n+2),
+.ledger-table td:nth-child(-n+2) { text-align: left; }
+.ledger-table th {
+  color: var(--text-muted);
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  background: rgba(255, 255, 255, 0.02);
+}
+.ledger-table tbody tr:hover td { background: rgba(255, 255, 255, 0.02); }
+.ledger-table td.is-pos { color: var(--green); font-weight: 700; }
+.ledger-table td.is-neg { color: var(--danger, #e5484d); font-weight: 700; }
+.ledger-subtotal td {
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  background: rgba(255, 255, 255, 0.03);
+  border-top: 1px solid var(--border);
+}
+.ledger-empty {
+  padding: 24px;
+  text-align: center;
+  color: var(--text-muted);
+  border: 1px dashed var(--border-soft);
+  border-radius: 12px;
 }
