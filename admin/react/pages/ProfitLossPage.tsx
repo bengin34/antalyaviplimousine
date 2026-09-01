@@ -461,6 +461,7 @@ export default function ProfitLossPage({ navigate, initialPeriod }: { navigate: 
             legs={legs}
             bookingsById={bookingsById}
             editable={editable}
+            attentionSince={openStart}
             onSaveDistance={saveDistance}
             onSaveSupplierCost={saveSupplierCost}
             onSaveCostMode={saveCostMode}

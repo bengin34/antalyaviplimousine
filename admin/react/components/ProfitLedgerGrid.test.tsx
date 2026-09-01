@@ -81,3 +81,26 @@ test('editable=false iken Maliyeti yok butonu yok', () => {
   render(<ProfitLedgerGrid legs={[attentionLeg]} bookingsById={new Map([['9', booking]])} editable={false} />)
   expect(screen.queryByRole('button', { name: /Maliyeti yok/i })).toBeNull()
 })
+
+test('attentionSince öncesi (dağıtılmış) eksik ayak uyarı almaz', () => {
+  const booking = { id: '9', booking_ref: 'A9', service_cost_mode: 'own_vehicle' } as any
+  // Ayak 2026-08-20; attentionSince 2026-08-25 → dağıtım öncesi, eksik KM ignore edilir.
+  const { container } = render(<ProfitLedgerGrid
+    legs={[attentionLeg]} bookingsById={new Map([['9', booking]])} editable={true}
+    attentionSince="2026-08-25"
+    onSaveDistance={vi.fn()} onSaveSupplierCost={vi.fn()} onSaveCostMode={vi.fn()} onSaveNoCost={vi.fn()}
+  />)
+  // Uyarı işareti + "Eksik bilgi" bayrağı susar (düzenleyici açık kalabilir).
+  expect(container.querySelector('.is-attention')).toBeNull()
+  expect(screen.queryByText('Eksik bilgi')).toBeNull()
+})
+
+test('attentionSince sonrası eksik ayak uyarı alır', () => {
+  const booking = { id: '9', booking_ref: 'A9', service_cost_mode: 'own_vehicle' } as any
+  const { container } = render(<ProfitLedgerGrid
+    legs={[attentionLeg]} bookingsById={new Map([['9', booking]])} editable={true}
+    attentionSince="2026-08-01"
+    onSaveDistance={vi.fn()} onSaveSupplierCost={vi.fn()} onSaveCostMode={vi.fn()} onSaveNoCost={vi.fn()}
+  />)
+  expect(container.querySelector('.is-attention')).toBeTruthy()
+})

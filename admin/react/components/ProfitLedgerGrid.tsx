@@ -85,15 +85,19 @@ function NoCostButton({ leg, onSaveNoCost }: {
   </>
 }
 
-export function ProfitLedgerGrid({ legs, bookingsById, editable, onSaveDistance, onSaveSupplierCost, onSaveCostMode, onSaveNoCost }: {
+export function ProfitLedgerGrid({ legs, bookingsById, editable, attentionSince, onSaveDistance, onSaveSupplierCost, onSaveCostMode, onSaveNoCost }: {
   legs: LedgerLeg[]
   bookingsById: Map<string, Booking>
   editable: boolean
+  /** Bu ISO tarihten önceki ayaklar eksik-bilgi uyarısı almaz (dağıtılmış dönem kapanmış sayılır). */
+  attentionSince?: string
   onSaveDistance?: SaveDistance
   onSaveSupplierCost?: SaveSupplierCost
   onSaveCostMode?: SaveCostMode
   onSaveNoCost?: (leg: LedgerLeg) => Promise<void>
 }) {
+  const needsAttentionFor = (leg: LedgerLeg, booking: Booking | undefined) =>
+    computeNeedsAttention(leg, booking) && (!attentionSince || String(leg.date ?? '') >= attentionSince)
   const groups = useMemo(() => groupByDate([...legs].sort((a, b) =>
     String(b.date).localeCompare(String(a.date)) || String(a.bookingRef ?? '').localeCompare(String(b.bookingRef ?? '')),
   )), [legs])
@@ -125,7 +129,7 @@ export function ProfitLedgerGrid({ legs, bookingsById, editable, onSaveDistance,
             const isSoldTransfer = !isDailyChauffeur && currentMode === 'sold_transfer'
             const currentCostTry = booking ? Number(booking[legCostColumns(legKey).cost]) || 0 : 0
             const showEditor = editable && booking && !isDailyChauffeur
-            const needsAttention = computeNeedsAttention(leg, booking)
+            const needsAttention = needsAttentionFor(leg, booking)
 
             return <tr key={`${leg.bookingId}:${leg.leg}`} className={needsAttention ? 'is-attention' : undefined}>
               <td>{leg.bookingRef || leg.customerName || 'Kayıt'}</td>
@@ -176,7 +180,7 @@ export function ProfitLedgerGrid({ legs, bookingsById, editable, onSaveDistance,
           const isSoldTransfer = !isDailyChauffeur && currentMode === 'sold_transfer'
           const currentCostTry = booking ? Number(booking[legCostColumns(legKey).cost]) || 0 : 0
           const showEditor = editable && booking && !isDailyChauffeur
-          const needsAttention = computeNeedsAttention(leg, booking)
+          const needsAttention = needsAttentionFor(leg, booking)
 
           return <li className={`ledger-card${needsAttention ? ' is-attention' : ''}`} key={`${leg.bookingId}:${leg.leg}`}>
             <div className="ledger-card-head">
