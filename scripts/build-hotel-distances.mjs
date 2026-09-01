@@ -19,6 +19,7 @@ import { writeFile } from "node:fs/promises";
 import { hotelIndex } from "../src/hotel-index.js";
 import { routeCatalog } from "../src/routes.js";
 import { slugsToProcess, applyResult } from "./lib/hotel-distances-merge.mjs";
+import { distanceToleranceKm, isPlausibleHotelDistance } from "../src/hotel-distance-lookup.js";
 import { hotelDistances as existing } from "../src/hotel-distances.js";
 
 const AYT = { lat: 36.898701, lng: 30.800545 };
@@ -30,7 +31,6 @@ const opts = {
   refresh: args.includes("--refresh"),
   only: args.includes("--only") ? args[args.indexOf("--only") + 1] : undefined,
 };
-const OUTLIER_PCT = 40; // report flag threshold vs region distance
 
 // A hard search box around AYT, sized to how far the hotel's region sits from
 // the airport. A same-name hotel resolves to the one at the right distance:
@@ -107,11 +107,17 @@ for (const slug of todo) {
     console.error(`  ${slug}: ${err.message}`);
   }
   data = applyResult(data, hotel, result);
+  // An OUTLIER row is one the profit model will refuse to cost on until a
+  // human confirms it — same tolerance, from the same module, so the report
+  // and the runtime cannot drift apart. Review these and either correct the
+  // hotel's district or flip `checked: true` on the row.
   const regionKm = routeCatalog[hotel.region]?.distanceKm ?? null;
   const dev = result && regionKm ? Math.round(((result.km - regionKm) / regionKm) * 100) : null;
+  const outlier = result && regionKm != null && !isPlausibleHotelDistance(result.km, regionKm);
   report.push({ slug, name: hotel.name, district: hotel.district, region: hotel.region,
-    km: result?.km ?? null, regionKm, deviationPct: dev, matched,
-    flag: dev != null && Math.abs(dev) > OUTLIER_PCT ? "OUTLIER" : (result ? "" : "NO-MATCH") });
+    km: result?.km ?? null, regionKm, deviationPct: dev,
+    toleranceKm: regionKm == null ? null : Math.round(distanceToleranceKm(regionKm)), matched,
+    flag: outlier ? "OUTLIER" : (result ? "" : "NO-MATCH") });
   await new Promise((r) => setTimeout(r, 120)); // gentle throttle
 }
 
