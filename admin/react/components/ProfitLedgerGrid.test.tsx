@@ -46,3 +46,8 @@ test('editable=false iken düzenleme butonu yok', () => {
   render(<ProfitLedgerGrid legs={[legs[0]]} bookingsById={new Map([['1', booking]])} editable={false} />)
   expect(screen.queryAllByRole('button')).toHaveLength(0)
 })
+
+test('mobil kart yapısı bacak başına render eder', () => {
+  const { container } = render(<ProfitLedgerGrid legs={legs} bookingsById={new Map()} editable={false} />)
+  expect(container.querySelectorAll('.ledger-card')).toHaveLength(2)
+})

@@ -659,7 +659,7 @@ button,
 
 .profit-distribution-setup > p,
 .profit-distribution-preview > p,
-.profit-distribution-history article > p,
+.profit-distribution-history-body > p,
 .profit-distribution-confirmation > p {
   color: var(--text-muted);
   font-size: 12px;
@@ -805,41 +805,60 @@ button,
   padding-top: 4px;
 }
 
-.profit-distribution-history > article {
-  display: grid;
-  gap: 8px;
-  padding: 13px;
+.profit-distribution-history-item {
+  min-width: 0;
   border: 1px solid var(--border-soft);
   border-radius: 13px;
   background: rgba(13, 19, 29, 0.58);
+  overflow: hidden;
 }
 
-.profit-distribution-history article h4 {
+.profit-distribution-history-item > summary {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 12px;
+  align-items: baseline;
+  justify-content: space-between;
+  padding: 13px;
+  cursor: pointer;
+  list-style: none;
+}
+
+.profit-distribution-history-item > summary::-webkit-details-marker {
+  display: none;
+}
+
+.profit-distribution-history-range {
   font-size: 14px;
+  font-weight: 700;
 }
 
-.profit-distribution-history article > div {
+.profit-distribution-history-net {
+  color: var(--green);
+  font-size: 12px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.profit-distribution-history-item[open] > summary {
+  border-bottom: 1px solid var(--border-soft);
+}
+
+.profit-distribution-history-body {
+  display: grid;
+  gap: 8px;
+  padding: 13px;
+}
+
+.profit-distribution-history-body > div {
   display: grid;
   gap: 4px;
   color: var(--text-muted);
   font-size: 12px;
 }
 
-.profit-distribution-history details {
-  min-width: 0;
-  padding-top: 8px;
-  border-top: 1px solid var(--border-soft);
-}
-
-.profit-distribution-history summary {
-  color: var(--blue);
-  cursor: pointer;
-  font-size: 12px;
-  font-weight: 700;
-}
-
-.profit-distribution-history details .profit-distribution-history-financials {
-  margin-top: 10px;
+.profit-distribution-history-body .profit-distribution-history-financials {
+  margin-top: 2px;
 }
 
 @media (min-width: 600px) {
@@ -1377,4 +1396,47 @@ button.profit-leg-action.is-ghost:hover:not(:disabled) {
   .profit-blocker-actions > .profit-leg-form {
     grid-column: 1 / -1;
   }
+}
+
+/* Ledger responsive: table on desktop, cards on mobile */
+.ledger-table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+.ledger-cards { display: none; list-style: none; margin: 0; padding: 0; }
+@media (max-width: 640px) {
+  .ledger-table { display: none; }
+  .ledger-cards { display: grid; gap: 8px; }
+}
+.ledger-card {
+  padding: 12px;
+  border: 1px solid var(--border-soft);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.03);
+}
+.ledger-card-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+.ledger-card-route {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+.ledger-card-facts {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: 4px 12px;
+  margin: 0;
+}
+.ledger-card-facts dt {
+  font-size: 10px;
+  color: var(--text-muted);
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+.ledger-card-facts dd {
+  margin: 0;
+  font-variant-numeric: tabular-nums;
 }

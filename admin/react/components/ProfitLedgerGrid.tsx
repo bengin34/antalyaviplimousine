@@ -118,6 +118,47 @@ export function ProfitLedgerGrid({ legs, bookingsById, editable, onSaveDistance,
           <td className={group.netProfitTry < 0 ? 'is-neg' : 'is-pos'} colSpan={colCount - 8}>{formatTry(group.netProfitTry)}</td>
         </tr></tfoot>
       </table>
+      <ul className="ledger-cards">
+        {group.legs.map(leg => {
+          const booking = bookingsById.get(leg.bookingId)
+          const isDailyChauffeur = Boolean(leg.isDailyChauffeur)
+          const legKey = toLegKey(leg.leg)
+          const legLabel = legLabelFor(leg.leg)
+          const currentMode = legCostMode(booking, legKey)
+          const isSoldTransfer = !isDailyChauffeur && currentMode === 'sold_transfer'
+          const currentCostTry = booking ? Number(booking[legCostColumns(legKey).cost]) || 0 : 0
+          const showEditor = editable && booking && !isDailyChauffeur
+
+          return <li className="ledger-card" key={`${leg.bookingId}:${leg.leg}`}>
+            <div className="ledger-card-head">
+              <strong>{leg.bookingRef || leg.customerName || 'Kayıt'}</strong>
+              <b className={(leg.netProfitTry ?? 0) < 0 ? 'is-neg' : 'is-pos'}>{formatTry(leg.netProfitTry ?? 0)}</b>
+            </div>
+            <div className="ledger-card-route">{profitLocationLabel(leg.from)} → {profitLocationLabel(leg.to)}</div>
+            <dl className="ledger-card-facts">
+              <div><dt>Gelir</dt><dd>{formatEuro(leg.revenueEur ?? 0)}</dd></div>
+              {(leg.supplierCostTry ?? 0) > 0
+                ? <div><dt>Tedarikçi</dt><dd>{formatTry(leg.supplierCostTry)}</dd></div>
+                : <><div><dt>KM</dt><dd>{leg.oneWayKm ? formatNumber(leg.oneWayKm, 1) : '—'}</dd></div>
+                   <div><dt>Araç</dt><dd>{formatTry(leg.vehicleCostTry ?? 0)}</dd></div></>}
+              {(leg.airportMeetCostTry ?? 0) > 0 && <div><dt>Karşılama</dt><dd>{formatTry(leg.airportMeetCostTry)}</dd></div>}
+              <div><dt>Reklam</dt><dd>{formatTry(leg.advertisingPerLegTry ?? 0)}</dd></div>
+            </dl>
+            {showEditor && onSaveDistance && onSaveCostMode && onSaveSupplierCost && <LegCostControls
+              booking={booking}
+              legRef={{ bookingId: leg.bookingId, bookingRef: leg.bookingRef, leg: leg.leg }}
+              leg={legKey}
+              legLabel={legLabel}
+              currentCostTry={currentCostTry}
+              isSoldTransfer={isSoldTransfer}
+              oneWayKm={leg.oneWayKm ?? undefined}
+              onSaveDistance={onSaveDistance}
+              onSaveCostMode={onSaveCostMode}
+              onSaveSupplierCost={onSaveSupplierCost}
+            />}
+          </li>
+        })}
+      </ul>
     </section>)}
   </div>
 }
