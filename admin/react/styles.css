@@ -1445,21 +1445,39 @@ button.profit-leg-action.is-ghost:hover:not(:disabled) {
   color: var(--text-muted);
   margin-bottom: 8px;
 }
+/* Mobil kart alanları: 2 sütunlu hücre gridi (tablo hissi) + zebra */
 .ledger-card-facts {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-  gap: 4px 12px;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
   margin: 0;
+  border: 1px solid var(--border-soft);
+  border-radius: 8px;
+  overflow: hidden;
 }
+.ledger-card-facts > div {
+  display: grid;
+  gap: 2px;
+  padding: 7px 9px;
+  border-top: 1px solid var(--border-soft);
+}
+/* İlk satırın üst çizgisi olmasın (çerçeve zaten var) */
+.ledger-card-facts > div:nth-child(1),
+.ledger-card-facts > div:nth-child(2) { border-top: 0; }
+/* Sol sütun ile sağ sütun arası dikey çizgi */
+.ledger-card-facts > div:nth-child(odd) { border-right: 1px solid var(--border-soft); }
+/* Zebra: çift hücreye hafif ton */
+.ledger-card-facts > div:nth-child(even) { background: rgba(255, 255, 255, 0.04); }
 .ledger-card-facts dt {
-  font-size: 10px;
+  font-size: 9px;
   color: var(--text-muted);
-  font-weight: 600;
-  letter-spacing: 0.5px;
+  font-weight: 700;
+  letter-spacing: 0.4px;
   text-transform: uppercase;
 }
 .ledger-card-facts dd {
   margin: 0;
+  font-size: 13px;
   font-variant-numeric: tabular-nums;
 }
 
