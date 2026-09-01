@@ -22,8 +22,8 @@ import { slugsToProcess, applyResult } from "./lib/hotel-distances-merge.mjs";
 import { hotelDistances as existing } from "../src/hotel-distances.js";
 
 const AYT = { lat: 36.898701, lng: 30.800545 };
-const KEY = process.env.GOOGLE_MAPS_API_KEY;
-if (!KEY) { console.error("Set GOOGLE_MAPS_API_KEY"); process.exit(1); }
+const KEY = process.env.GOOGLE_MAPS_API_KEY || process.env.GOOGLE_PLACES_API_KEY;
+if (!KEY) { console.error("Set GOOGLE_MAPS_API_KEY (or GOOGLE_PLACES_API_KEY)"); process.exit(1); }
 
 const args = process.argv.slice(2);
 const opts = {
@@ -31,6 +31,22 @@ const opts = {
   only: args.includes("--only") ? args[args.indexOf("--only") + 1] : undefined,
 };
 const OUTLIER_PCT = 40; // report flag threshold vs region distance
+
+// A hard search box around AYT, sized to how far the hotel's region sits from
+// the airport. A same-name hotel resolves to the one at the right distance:
+// "Artemis" in the 15 km antalya region can't match Kaş Artemis 185 km away,
+// while a Kaş hotel (185 km region) still gets a box wide enough to include it.
+// Centered on AYT with a generous floor so a whole region always fits.
+function searchBox(hotel) {
+  const regionKm = routeCatalog[hotel.region]?.distanceKm ?? 50;
+  const halfKm = Math.max(regionKm * 1.6, 35);
+  const latSpan = halfKm / 111;
+  const lngSpan = halfKm / (111 * Math.cos((AYT.lat * Math.PI) / 180));
+  return {
+    low: { latitude: AYT.lat - latSpan, longitude: AYT.lng - lngSpan },
+    high: { latitude: AYT.lat + latSpan, longitude: AYT.lng + lngSpan },
+  };
+}
 
 async function geocode(hotel) {
   const res = await fetch("https://places.googleapis.com/v1/places:searchText", {
@@ -40,8 +56,12 @@ async function geocode(hotel) {
       "X-Goog-Api-Key": KEY,
       "X-Goog-FieldMask": "places.id,places.location,places.displayName",
     },
-    body: JSON.stringify({ textQuery: `${hotel.name}, ${hotel.district}, Antalya, Turkey` }),
+    body: JSON.stringify({
+      textQuery: `${hotel.name}, ${hotel.district}, Antalya, Turkey`,
+      locationRestriction: { rectangle: searchBox(hotel) },
+    }),
   });
+  if (!res.ok) throw new Error(`Places ${res.status}: ${(await res.text()).slice(0, 200)}`);
   const json = await res.json();
   const place = json.places?.[0];
   if (!place) return null;
@@ -62,6 +82,7 @@ async function drive(dest) {
       travelMode: "DRIVE",
     }),
   });
+  if (!res.ok) throw new Error(`Routes ${res.status}: ${(await res.text()).slice(0, 200)}`);
   const json = await res.json();
   const meters = json.routes?.[0]?.distanceMeters;
   return Number.isFinite(meters) ? Math.round(meters / 1000) : null;
