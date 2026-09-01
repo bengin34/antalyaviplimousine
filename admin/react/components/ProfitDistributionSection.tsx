@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState, type FormEvent } from 'react'
 import { buildProfitDistributionSnapshot, calculateProfitDistribution } from '../../profit-loss-metrics.js'
-import { fmtBerlinLongDate, fmtLongDate, formatEuro, formatNumber, formatTry, profitLocationLabel } from '../lib/format'
+import { fmtLongDate, formatEuro, formatNumber, formatTry, profitLocationLabel } from '../lib/format'
 import {
   LegCostControls,
   legCostColumns,
@@ -373,46 +373,6 @@ function DistributionConfirmation({ metrics, saving, onCancel, onConfirm }: {
   </section>
 }
 
-function HistoryFinancials({ distribution }: { distribution: ProfitDistribution }) {
-  return <div className="profit-distribution-history-financials">
-    <FinancialBucket label="Gelir" eur={distribution.income_eur} tryAmount={distribution.income_try} />
-    <FinancialBucket label="Araç maliyeti" eur={distribution.vehicle_cost_eur} tryAmount={distribution.vehicle_cost_try} />
-    <FinancialBucket label="Tedarikçi maliyeti" eur={distribution.supplier_cost_eur} tryAmount={distribution.supplier_cost_try} />
-    <FinancialBucket label="Havalimanı karşılama" eur={distribution.airport_cost_eur} tryAmount={distribution.airport_cost_try} />
-    <FinancialBucket label="Reklam" eur={distribution.advertising_cost_eur} tryAmount={distribution.advertising_cost_try} />
-    <FinancialBucket label="Toplam gider" eur={distribution.total_expense_eur} tryAmount={distribution.total_expense_try} />
-    <FinancialBucket label="Net kâr" eur={distribution.net_profit_eur} tryAmount={distribution.net_profit_try} />
-  </div>
-}
-
-function DistributionHistory({ distributions }: { distributions: ProfitDistribution[] }) {
-  const newestFirst = useMemo(() => [...distributions].sort((left, right) => (
-    right.created_at.localeCompare(left.created_at) || right.period_end.localeCompare(left.period_end)
-  )), [distributions])
-
-  if (!newestFirst.length) return null
-  return <section className="profit-distribution-history" aria-labelledby="distribution-history-title">
-    <h3 id="distribution-history-title">Dağıtım geçmişi</h3>
-    {newestFirst.map(distribution => <article key={distribution.id} data-testid="distribution-history-row">
-      <h4>{fmtLongDate(distribution.period_start)} – {fmtLongDate(distribution.period_end)}</h4>
-      <p>Dağıtım tarihi: {fmtBerlinLongDate(distribution.created_at)}</p>
-      <p>{distribution.realized_leg_count} seyahat ayağı</p>
-      <p>Net kâr: <MoneyPair eur={distribution.net_profit_eur} tryAmount={distribution.net_profit_try} /></p>
-      <div>
-        <p>Operasyon ortağı {percentageLabel(distribution.operations_share_pct)}</p>
-        <MoneyPair eur={distribution.operations_amount_eur} tryAmount={distribution.operations_amount_try} />
-      </div>
-      <div>
-        <p>Araç sahibi {percentageLabel(distribution.vehicle_owner_share_pct)}</p>
-        <MoneyPair eur={distribution.vehicle_owner_amount_eur} tryAmount={distribution.vehicle_owner_amount_try} />
-      </div>
-      <details>
-        <summary>Finansal dökümü göster</summary>
-        <HistoryFinancials distribution={distribution} />
-      </details>
-    </article>)}
-  </section>
-}
 
 function OpenDistributionPreview({
   today,
@@ -609,7 +569,6 @@ export function ProfitDistributionSection(props: ProfitDistributionSectionProps)
     </div> : !shareSettings ? <SetupForm today={props.today} onSave={props.onSaveSettings} /> : <>
       {distributions.length === 0 && <OpeningDateEditor today={props.today} settings={shareSettings} onSave={props.onSaveSettings} />}
       <OpenDistributionPreview {...props} shareSettings={shareSettings} />
-      <DistributionHistory distributions={distributions} />
     </>}
   </section>
 }
