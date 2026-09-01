@@ -34,17 +34,31 @@ describe("canonical route catalogue", () => {
     }
   });
 
-  test("keeps the Alanya fallback at or above every sub-region a hotel resolves to", () => {
+  test("keeps the Alanya fallback covering every sub-region within its own distance", () => {
     // A guest who cannot place their own hotel picks plain "Alanya", so that
-    // price has to cover the sub-regions the index can land them in.
-    const placed = ["alanya_bati", "alanya_merkez", "alanya_dogu", "kargicak"];
-    expect(Math.max(...placed.map((slug) => routeCatalog[slug].prices.vito)))
-      .toBeLessThanOrEqual(routeCatalog.alanya.prices.vito);
-    // Demirtaş sits €5 above that fallback and no hotel is indexed there, so it
-    // is only ever reached by naming it outright. Adding a Demirtaş hotel means
-    // revisiting the fallback price.
-    expect(routeCatalog.demirtas.prices.vito).toBeGreaterThan(routeCatalog.alanya.prices.vito);
-    expect(routeCatalog.demirtas.prices.sprinter).toBeLessThanOrEqual(routeCatalog.alanya.prices.sprinter);
+    // price has to cover the sub-regions the index can land them in. It cannot
+    // cover all five and stay a €95 tariff: at 15 TRY/km the eastern end of
+    // Alanya costs more to reach than the fallback charges. What it can do —
+    // and what this pins — is cover everything out to its own 125 km.
+    const covered = Object.entries(routeCatalog)
+      .filter(([, route]) => route.landingRoute === "alanya" && route.distanceKm <= routeCatalog.alanya.distanceKm);
+    expect(covered.map(([slug]) => slug)).toEqual(["alanya_bati", "alanya_merkez"]);
+    for (const [slug, route] of covered) {
+      expect(route.prices.vito, `${slug} above the Alanya fallback`).toBeLessThanOrEqual(routeCatalog.alanya.prices.vito);
+      expect(route.prices.sprinter, `${slug} above the Alanya fallback`).toBeLessThanOrEqual(routeCatalog.alanya.prices.sprinter);
+    }
+  });
+
+  test("names the Alanya sub-regions the fallback under-quotes", () => {
+    // Doğu Alanya, Kargıcak and Demirtaş cost more to reach than the €95
+    // fallback charges, so a guest there who cannot name their hotel is
+    // under-quoted and the transfer wants confirming by hand. This is a
+    // deliberate, bounded exposure — the list is here so it stays visible and
+    // so adding a sixth sub-region forces the question again.
+    const beyond = Object.entries(routeCatalog)
+      .filter(([, route]) => route.landingRoute === "alanya" && route.prices.vito > routeCatalog.alanya.prices.vito)
+      .map(([slug]) => slug);
+    expect(beyond).toEqual(["alanya_dogu", "kargicak", "demirtas"]);
   });
 
   test("derives legacy pricing data from the catalogue", () => {

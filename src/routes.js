@@ -52,9 +52,21 @@ export const routeCatalog = {
   // keeps them out of the route pages and the sitemap: they are prices the
   // hotel index resolves to, not destinations anyone searches for. A hotel in
   // one of them is still presented under Alanya, and priced by its own
-  // sub-region. `alanya` itself stays listed, keeps its
-  // landing page, and remains the fallback for a guest who cannot place their
-  // own hotel — the dearest of the six, so an unknown hotel is never undersold.
+  // sub-region. `alanya` itself stays listed, keeps its landing page, and
+  // remains the fallback for a guest who cannot place their own hotel.
+  //
+  // Every price here clears the profit model's own cost for the distance —
+  // `route-margin.test.js` fails the build if one stops doing so. That is what
+  // holds the western strip below the old €95 and puts Alanya centre and
+  // everything east of it above it: at 15 TRY/km with an empty return leg, a
+  // 125 km round trip costs €80 before a driver is paid, so the plan's
+  // €65–€95 ladder was a loss on four of these five regions.
+  //
+  // The €95 `alanya` fallback therefore no longer tops the ladder. It stays
+  // safe out to its own 125 km, which covers the sub-regions a guest is most
+  // likely to fail to place; a Kargıcak or Demirtaş guest who cannot name
+  // their hotel is still under-quoted, so those two are worth confirming by
+  // hand before the transfer is accepted.
   //
   // Distances and durations here are estimates and feed the profit/loss cost
   // model, not the customer's price. Confirm them against real journeys.
@@ -63,8 +75,8 @@ export const routeCatalog = {
     distanceKm: 105,
     durationMin: 100,
     duration: { en: "90–110 minutes", de: "90–110 Minuten", tr: "90–110 dakika", ru: "90–110 минут", cs: "90–110 minut", uk: "90–110 хвилин", ur: "90–110 منٹ" },
-    originalPrices: { vito: 80, sprinter: 105 },
-    prices: { vito: 70, sprinter: 90 },
+    originalPrices: { vito: 90, sprinter: 115 },
+    prices: { vito: 80, sprinter: 100 },
     landingRoute: "alanya", // covers Okurcalar, İncekum, Avsallar, Türkler, Payallar, Konaklı
   },
   alanya_merkez: {
@@ -72,8 +84,8 @@ export const routeCatalog = {
     distanceKm: 125,
     durationMin: 120,
     duration: { en: "110–130 minutes", de: "110–130 Minuten", tr: "110–130 dakika", ru: "110–130 минут", cs: "110–130 minut", uk: "110–130 хвилин", ur: "110–130 منٹ" },
-    originalPrices: { vito: 85, sprinter: 110 },
-    prices: { vito: 75, sprinter: 95 },
+    originalPrices: { vito: 105, sprinter: 130 },
+    prices: { vito: 95, sprinter: 115 },
     landingRoute: "alanya", // covers Merkez, Kleopatra, Oba, Tosmur
   },
   alanya_dogu: {
@@ -81,8 +93,8 @@ export const routeCatalog = {
     distanceKm: 138,
     durationMin: 130,
     duration: { en: "120–140 minutes", de: "120–140 Minuten", tr: "120–140 dakika", ru: "120–140 минут", cs: "120–140 minut", uk: "120–140 хвилин", ur: "120–140 منٹ" },
-    originalPrices: { vito: 90, sprinter: 120 },
-    prices: { vito: 80, sprinter: 105 },
+    originalPrices: { vito: 115, sprinter: 145 },
+    prices: { vito: 105, sprinter: 130 },
     landingRoute: "alanya", // covers Kestel, Mahmutlar
   },
   kargicak: {
@@ -90,8 +102,8 @@ export const routeCatalog = {
     distanceKm: 150,
     durationMin: 145,
     duration: { en: "135–155 minutes", de: "135–155 Minuten", tr: "135–155 dakika", ru: "135–155 минут", cs: "135–155 minut", uk: "135–155 хвилин", ur: "135–155 منٹ" },
-    originalPrices: { vito: 105, sprinter: 135 },
-    prices: { vito: 90, sprinter: 115 },
+    originalPrices: { vito: 130, sprinter: 160 },
+    prices: { vito: 115, sprinter: 140 },
     landingRoute: "alanya", // covers Kargıcak
   },
   demirtas: {
@@ -99,8 +111,8 @@ export const routeCatalog = {
     distanceKm: 170,
     durationMin: 165,
     duration: { en: "155–175 minutes", de: "155–175 Minuten", tr: "155–175 dakika", ru: "155–175 минут", cs: "155–175 minut", uk: "155–175 хвилин", ur: "155–175 منٹ" },
-    originalPrices: { vito: 115, sprinter: 150 },
-    prices: { vito: 100, sprinter: 130 },
+    originalPrices: { vito: 145, sprinter: 180 },
+    prices: { vito: 130, sprinter: 160 },
     landingRoute: "alanya", // covers Demirtaş
   },
   bogazkent: {
@@ -124,8 +136,8 @@ export const routeCatalog = {
     distanceKm: 85,
     durationMin: 75,
     duration: { en: "70–80 minutes", de: "70–80 Minuten", tr: "70–80 dakika", ru: "70–80 минут", cs: "70–80 minut", uk: "70–80 хвилин", ur: "70–80 منٹ", pl: "70–80 minut", nl: "70–80 minuten", sv: "70–80 minuter", ar: "70–80 دقيقة", zh: "70–80分钟", da: "70-80 minutter", es: "70–80 minutos", el: "70–80 λεπτά", he: "70–80 דקות", hu: "70–80 perc", it: "70–80 minuti", ja: "70〜80分", ko: "70~80분", pt: "70–80 minutos", ro: "70–80 de minute" },
-    originalPrices: { vito: 70, sprinter: 115 },
-    prices: { vito: 60, sprinter: 95 },
+    originalPrices: { vito: 75, sprinter: 120 },
+    prices: { vito: 65, sprinter: 100 },
   },
   tekirova: {
     names: { en: "Tekirova", de: "Tekirova", tr: "Tekirova", ru: "Текирову", cs: "Tekirova", uk: "Текірова", ur: "ٹیکیروا", zh: "泰基罗瓦", da: "Tekirova", es: "Tekirova", el: "Τεκίροβα", he: "טקירובה", hu: "Tekirova", it: "Tekirova", ja: "テキロヴァ", ko: "테키로바", pt: "Tekirova", ro: "Tekirova" },
@@ -197,8 +209,8 @@ export const routeCatalog = {
     distanceKm: 540,
     durationMin: 480,
     duration: { en: "7–8 hours", de: "7–8 Stunden", tr: "7–8 saat", ru: "7–8 часов", cs: "7–8 hodin", uk: "7–8 годин", ur: "7–8 گھنٹے", pl: "7–8 godzin", nl: "7–8 uur", sv: "7–8 timmar", ar: "7–8 ساعات", zh: "7–8小时", da: "7-8 timer", es: "7–8 horas", el: "7–8 ώρες", he: "7–8 שעות", hu: "7–8 óra", it: "7–8 ore", ja: "7〜8時間", ko: "7~8시간", pt: "7–8 horas", ro: "7–8 ore" },
-    originalPrices: { vito: 350, sprinter: 410 },
-    prices: { vito: 300, sprinter: 350 },
+    originalPrices: { vito: 380, sprinter: 440 },
+    prices: { vito: 330, sprinter: 380 },
   },
 };
 
