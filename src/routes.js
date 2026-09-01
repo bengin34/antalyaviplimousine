@@ -135,6 +135,31 @@ export const routeCatalog = {
     originalPrices: { vito: 90, sprinter: 135 },
     prices: { vito: 75, sprinter: 115 },
   },
+  // Kumluca and Kaş sit west of Tekirova on the Antalya–Fethiye coast road,
+  // far past the €75 Tekirova tariff. They carry no marketed landing page —
+  // the index resolves a handful of Kumluca/Adrasan and Kaş hotels to them and
+  // prices those journeys on their own distance. `landingRoute` keeps them out
+  // of the route pages and sitemap while still letting a guest name them as a
+  // destination and quote the fare. Distances feed the profit model, not the
+  // customer price.
+  kumluca: {
+    names: { en: "Kumluca", de: "Kumluca", tr: "Kumluca", ru: "Кумлуджа", cs: "Kumluca", uk: "Кумлуджа", ur: "قوملوجہ" },
+    distanceKm: 90,
+    durationMin: 80,
+    duration: { en: "75–90 minutes", de: "75–90 Minuten", tr: "75–90 dakika", ru: "75–90 минут", cs: "75–90 minut", uk: "75–90 хвилин", ur: "75–90 منٹ" },
+    originalPrices: { vito: 140, sprinter: 200 },
+    prices: { vito: 120, sprinter: 170 },
+    landingRoute: "tekirova", // covers Kumluca, Adrasan
+  },
+  kas: {
+    names: { en: "Kaş", de: "Kaş", tr: "Kaş", ru: "Каш", cs: "Kaş", uk: "Каш", ur: "کاش" },
+    distanceKm: 185,
+    durationMin: 165,
+    duration: { en: "2.5–3 hours", de: "2,5–3 Stunden", tr: "2,5–3 saat", ru: "2,5–3 часа", cs: "2,5–3 hodiny", uk: "2,5–3 години", ur: "2.5–3 گھنٹے" },
+    originalPrices: { vito: 195, sprinter: 290 },
+    prices: { vito: 170, sprinter: 250 },
+    landingRoute: "fethiye", // covers Kaş, Çukurbağ
+  },
   bodrum: {
     names: { en: "Bodrum", de: "Bodrum", tr: "Bodrum", ru: "Бодрум", cs: "Bodrum", uk: "Бодрум", ur: "بودروم", zh: "博德鲁姆", da: "Bodrum", es: "Bodrum", el: "Μπόντρουμ", he: "בודרום", hu: "Bodrum", it: "Bodrum", ja: "ボドルム", ko: "보드룸", pt: "Bodrum", ro: "Bodrum" },
     distanceKm: 380,
@@ -228,6 +253,9 @@ const regionalConnections = [
   ["kargicak", "demirtas", 20],
   ["antalya", "kemer", 45],
   ["kemer", "tekirova", 20],
+  ["tekirova", "kumluca", 30],
+  ["kumluca", "kas", 95],
+  ["kas", "fethiye", 110],
   ["tekirova", "fethiye", 155],
   ["fethiye", "dalaman", 50],
   ["dalaman", "bodrum", 200],

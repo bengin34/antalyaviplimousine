@@ -25,7 +25,7 @@ describe("canonical route catalogue", () => {
 
   test("offers the unlisted Alanya sub-regions for booking but not as landing pages", () => {
     const unlisted = Object.keys(routeCatalog).filter((slug) => routeCatalog[slug].landingRoute);
-    expect(unlisted).toEqual(["alanya_bati", "alanya_merkez", "alanya_dogu", "kargicak", "demirtas"]);
+    expect(unlisted).toEqual(["alanya_bati", "alanya_merkez", "alanya_dogu", "kargicak", "demirtas", "kumluca", "kas"]);
     expect(Object.keys(routeCatalog)).toEqual(bookableRouteSlugs);
     for (const slug of unlisted) {
       expect(bookableRouteSlugs).toContain(slug);

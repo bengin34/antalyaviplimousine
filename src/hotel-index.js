@@ -102,6 +102,11 @@ export const districtRegions = Object.freeze({
   "Çamyuva": "kemer",
   // Tekirova — €75 Vito
   "Tekirova": "tekirova",
+  // Kumluca/Adrasan — €120 Vito
+  "Kumluca": "kumluca",
+  "Adrasan": "kumluca",
+  // Kaş — €170 Vito
+  "Kaş": "kas",
   // Batı Alanya — €70 Vito
   "Okurcalar": "alanya_bati",
   "İncekum": "alanya_bati",
@@ -228,6 +233,7 @@ const seedRows = [
   ["Crystal Sunset Luxury Resort & Spa", "Gündoğdu"],
   ["Arum Barut Collection", "Kumköy"],
   ["Barut Hemera", "Kumköy"],
+  ["Cesars Resort", "Kumköy", ["Sezar Resort", "Cesar Side", "Cesars Side", "Sezar Side"]],
   ["Sunis Kumköy Beach Resort", "Kumköy"],
   ["Sunis Elita Beach Resort", "Kumköy"],
   ["Sunprime C-Lounge", "Kumköy"],
@@ -298,10 +304,10 @@ const seedRows = [
 
   // --- Kızılot and Kızılağaç ----------------------------------------------
   ["Sunmelia Beach Resort & Spa", "Kızılot"],
-  ["Adalya Ocean Deluxe", "Kızılot"],
+  ["Adalya Ocean Deluxe", "Evrenseki"],
   ["Seaden Sea Planet Resort & Spa", "Kızılot"],
   ["Crystal Admiral Resort & Spa", "Kızılot"],
-  ["Alarcha Hotels & Resort", "Kızılot"],
+  ["Alarcha Hotels & Resort", "Okurcalar"],
   ["Osay Magic Garden", "Kızılot"],
   ["Esmeralda Butik Otel", "Kızılot"],
   ["Selge Beach Resort & Spa", "Kızılağaç"],
@@ -322,7 +328,7 @@ const seedRows = [
   ["Rixos Sungate", "Beldibi"],
   ["Rixos Beldibi", "Beldibi"],
   ["Crystal Flora Beach Resort", "Beldibi"],
-  ["Sealife Buket Resort & Beach", "Beldibi"],
+  ["Sealife Buket Resort & Beach", "Okurcalar"],
   ["Alva Donna World Palace", "Beldibi"],
   ["Juju Premier Palace", "Beldibi"],
   ["Nirvana Mediterranean Excellence", "Beldibi"],
