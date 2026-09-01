@@ -553,7 +553,7 @@ export const antalyaCitySeedRows = [
   ["Sherwood Premio Hotel", "Antalya merkez"],
   ["Sibel Hotel", "Antalya merkez"],
   ["Siete Hotel", "Antalya merkez"],
-  ["Sinemis Hotel", "Antalya merkez"],
+  ["Sinemis Hotel", "Adrasan"],
   ["Sirena Apart & Spa", "Antalya merkez"],
   ["Sirius Town Residence And Spa", "Antalya merkez"],
   ["Sky Business Hotel", "Antalya merkez"],

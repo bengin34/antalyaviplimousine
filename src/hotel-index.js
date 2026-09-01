@@ -236,7 +236,7 @@ const seedRows = [
   ["Cesars Resort", "Kumköy", ["Sezar Resort", "Cesar Side", "Cesars Side", "Sezar Side"]],
   ["Sunis Kumköy Beach Resort", "Kumköy"],
   ["Sunis Elita Beach Resort", "Kumköy"],
-  ["Sunprime C-Lounge", "Kumköy"],
+  ["Sunprime C-Lounge", "Tosmur"],
   ["Hotel Terrace Beach Resort", "Kumköy"],
   ["Narcia Resort Side", "Kumköy"],
   ["Side Village Hotel", "Kumköy"],
