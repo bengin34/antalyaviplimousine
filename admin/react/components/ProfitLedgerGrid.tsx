@@ -1,6 +1,6 @@
 import { useState, useMemo } from 'react'
 import { fmtDetailDate, formatEuro, formatNumber, formatTry, profitLocationLabel } from '../lib/format'
-import type { Booking } from '../types'
+import type { Booking, Navigate } from '../types'
 import {
   LegCostControls,
   legCostColumns,
@@ -85,12 +85,14 @@ function NoCostButton({ leg, onSaveNoCost }: {
   </>
 }
 
-export function ProfitLedgerGrid({ legs, bookingsById, editable, attentionSince, onSaveDistance, onSaveSupplierCost, onSaveCostMode, onSaveNoCost }: {
+export function ProfitLedgerGrid({ legs, bookingsById, editable, attentionSince, navigate, onSaveDistance, onSaveSupplierCost, onSaveCostMode, onSaveNoCost }: {
   legs: LedgerLeg[]
   bookingsById: Map<string, Booking>
   editable: boolean
   /** Bu ISO tarihten önceki ayaklar eksik-bilgi uyarısı almaz (dağıtılmış dönem kapanmış sayılır). */
   attentionSince?: string
+  /** Verilirse sefer numarası tıklanabilir olur ve seyahat detayına gider. */
+  navigate?: Navigate
   onSaveDistance?: SaveDistance
   onSaveSupplierCost?: SaveSupplierCost
   onSaveCostMode?: SaveCostMode
@@ -98,6 +100,12 @@ export function ProfitLedgerGrid({ legs, bookingsById, editable, attentionSince,
 }) {
   const needsAttentionFor = (leg: LedgerLeg, booking: Booking | undefined) =>
     computeNeedsAttention(leg, booking) && (!attentionSince || String(leg.date ?? '') >= attentionSince)
+  const detailHash = (leg: LedgerLeg) =>
+    `#detail/${encodeURIComponent(String(leg.bookingRef ?? ''))}?from=profit-loss${leg.leg === 'return' ? '&leg=return' : ''}`
+  const refLabel = (leg: LedgerLeg) => leg.bookingRef || leg.customerName || 'Kayıt'
+  const RefCell = ({ leg }: { leg: LedgerLeg }) => (navigate && leg.bookingRef)
+    ? <button type="button" className="ledger-ref-link" onClick={() => navigate(detailHash(leg))}>{refLabel(leg)}</button>
+    : <>{refLabel(leg)}</>
   const groups = useMemo(() => groupByDate([...legs].sort((a, b) =>
     String(b.date).localeCompare(String(a.date)) || String(a.bookingRef ?? '').localeCompare(String(b.bookingRef ?? '')),
   )), [legs])
@@ -132,7 +140,7 @@ export function ProfitLedgerGrid({ legs, bookingsById, editable, attentionSince,
             const needsAttention = needsAttentionFor(leg, booking)
 
             return <tr key={`${leg.bookingId}:${leg.leg}`} className={needsAttention ? 'is-attention' : undefined}>
-              <td>{leg.bookingRef || leg.customerName || 'Kayıt'}</td>
+              <td><RefCell leg={leg} /></td>
               <td>{profitLocationLabel(leg.from)} → {profitLocationLabel(leg.to)}</td>
               <td>{formatEuro(leg.revenueEur ?? 0)}</td>
               <td>{leg.oneWayKm ? formatNumber(leg.oneWayKm, 1) : '—'}</td>
@@ -184,7 +192,7 @@ export function ProfitLedgerGrid({ legs, bookingsById, editable, attentionSince,
 
           return <li className={`ledger-card${needsAttention ? ' is-attention' : ''}`} key={`${leg.bookingId}:${leg.leg}`}>
             <div className="ledger-card-head">
-              <strong>{leg.bookingRef || leg.customerName || 'Kayıt'}</strong>
+              <strong><RefCell leg={leg} /></strong>
               <b className={(leg.netProfitTry ?? 0) < 0 ? 'is-neg' : 'is-pos'}>{formatTry(leg.netProfitTry ?? 0)}</b>
             </div>
             {needsAttention && <span className="ledger-attention">Eksik bilgi</span>}

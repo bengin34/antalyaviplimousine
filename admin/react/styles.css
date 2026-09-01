@@ -1561,6 +1561,21 @@ button.profit-leg-action.is-ghost:hover:not(:disabled) {
   border-radius: 12px;
 }
 
+/* Tıklanabilir sefer numarası → seyahat detayı */
+.ledger-ref-link {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--blue);
+  font: inherit;
+  font-weight: 700;
+  text-align: left;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.ledger-ref-link:hover { color: var(--text); }
+
 /* Maliyet modeli seçici: kompakt açılır kutu (eski segmented buton yer kaplıyordu) */
 .profit-cost-mode-select {
   width: 100%;

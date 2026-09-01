@@ -82,6 +82,18 @@ test('editable=false iken Maliyeti yok butonu yok', () => {
   expect(screen.queryByRole('button', { name: /Maliyeti yok/i })).toBeNull()
 })
 
+test('sefer numarası tıklanınca detaya gider', () => {
+  const navigate = vi.fn()
+  render(<ProfitLedgerGrid legs={[legs[0]]} bookingsById={new Map()} editable={false} navigate={navigate} />)
+  fireEvent.click(screen.getAllByRole('button', { name: 'A102' })[0])
+  expect(navigate).toHaveBeenCalledWith('#detail/A102?from=profit-loss')
+})
+
+test('navigate yoksa sefer numarası düz metin', () => {
+  render(<ProfitLedgerGrid legs={[legs[0]]} bookingsById={new Map()} editable={false} />)
+  expect(screen.queryByRole('button', { name: 'A102' })).toBeNull()
+})
+
 test('attentionSince öncesi (dağıtılmış) eksik ayak uyarı almaz', () => {
   const booking = { id: '9', booking_ref: 'A9', service_cost_mode: 'own_vehicle' } as any
   // Ayak 2026-08-20; attentionSince 2026-08-25 → dağıtım öncesi, eksik KM ignore edilir.
