@@ -625,11 +625,31 @@ button,
   gap: 12px;
 }
 
+/* Aksiyon satırındaki flex'e katılsın: trigger + form ayrı öğeler olur. */
 .profit-distribution-opening-edit {
+  display: contents;
+}
+
+/* "Başlangıç tarihini düzenle" + "Kârı dağıt" aynı satır (desktop), alt alta (mobil) */
+.profit-distribution-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+.profit-distribution-opening-edit > form,
+.profit-distribution-opening-edit > [role="alert"],
+.profit-distribution-opening-edit > [role="status"] {
+  flex-basis: 100%;
+}
+.profit-distribution-opening-edit > form {
   padding: 12px;
   border: 1px solid rgba(255, 173, 102, 0.3);
   border-radius: 12px;
   background: rgba(58, 38, 22, 0.34);
+}
+@media (max-width: 599px) {
+  .profit-distribution-actions { flex-direction: column; align-items: stretch; }
 }
 
 .profit-distribution-opening-edit > button {
@@ -700,7 +720,8 @@ button,
 .profit-distribution-preview > .profit-distribution-partners,
 .profit-distribution-preview > .profit-distribution-alert,
 .profit-distribution-preview > [role="status"],
-.profit-distribution-preview > button {
+.profit-distribution-preview > button,
+.profit-distribution-preview > .profit-distribution-actions {
   grid-column: 1 / -1;
 }
 

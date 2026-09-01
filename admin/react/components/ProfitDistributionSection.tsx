@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState, type FormEvent } from 'react'
+import { useEffect, useMemo, useState, type FormEvent, type ReactNode } from 'react'
 import { buildProfitDistributionSnapshot, calculateProfitDistribution } from '../../profit-loss-metrics.js'
 import { fmtLongDate, formatEuro, formatNumber, formatTry, profitLocationLabel } from '../lib/format'
 import {
@@ -387,10 +387,11 @@ function OpenDistributionPreview({
   onSaveCostMode,
   onFocusLeg,
   navigate,
+  openingEditor,
 }: Pick<ProfitDistributionSectionProps,
   'today' | 'bookings' | 'settingsByMonth' | 'ratesByDate' | 'shareSettings' | 'distributions'
   | 'onCreateDistribution' | 'onSaveDistance' | 'onSaveSupplierCost' | 'onSaveCostMode' | 'onFocusLeg' | 'navigate'
-> & { shareSettings: ProfitShareSettings }) {
+> & { shareSettings: ProfitShareSettings; openingEditor?: ReactNode }) {
   const openStart = useMemo(
     () => latestOpenStart(shareSettings, distributions),
     [shareSettings, distributions],
@@ -550,7 +551,10 @@ function OpenDistributionPreview({
         navigate={navigate}
       />
       {status && <div role="status">{status}</div>}
-      <button type="button" disabled={!canDistribute} onClick={() => { setConfirming(true); setSaveError('') }}>Kârı dağıt</button>
+      <div className="profit-distribution-actions">
+        {openingEditor}
+        <button type="button" disabled={!canDistribute} onClick={() => { setConfirming(true); setSaveError('') }}>Kârı dağıt</button>
+      </div>
     </section>
     {confirming && <DistributionConfirmation metrics={metrics} saving={saving} onCancel={() => setConfirming(false)} onConfirm={confirm} />}
   </>
@@ -567,8 +571,13 @@ export function ProfitDistributionSection(props: ProfitDistributionSectionProps)
       <p>{error}</p>
       <button type="button" onClick={onRetry}>Tekrar dene</button>
     </div> : !shareSettings ? <SetupForm today={props.today} onSave={props.onSaveSettings} /> : <>
-      {distributions.length === 0 && <OpeningDateEditor today={props.today} settings={shareSettings} onSave={props.onSaveSettings} />}
-      <OpenDistributionPreview {...props} shareSettings={shareSettings} />
+      <OpenDistributionPreview
+        {...props}
+        shareSettings={shareSettings}
+        openingEditor={distributions.length === 0
+          ? <OpeningDateEditor today={props.today} settings={shareSettings} onSave={props.onSaveSettings} />
+          : null}
+      />
     </>}
   </section>
 }
