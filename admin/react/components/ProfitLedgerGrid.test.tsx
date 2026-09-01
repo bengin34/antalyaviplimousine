@@ -1,7 +1,9 @@
 // @vitest-environment jsdom
 import '@testing-library/jest-dom/vitest'
-import { render, screen } from '@testing-library/react'
-import { describe, test, expect } from 'vitest'
+import { render, screen, cleanup } from '@testing-library/react'
+import { afterEach, describe, test, expect, vi } from 'vitest'
+
+afterEach(cleanup)
 import { ProfitLedgerGrid } from './ProfitLedgerGrid'
 
 const legs = [
@@ -22,4 +24,25 @@ describe('ProfitLedgerGrid', () => {
     render(<ProfitLedgerGrid legs={legs} bookingsById={new Map()} editable={false} />)
     expect(screen.queryByRole('button', { name: /KM|düzenle|kaydet/i })).toBeNull()
   })
+})
+
+test('editable modda düzenlenebilir bacakta LegCostControls render eder', () => {
+  const booking = { id: '1', booking_ref: 'A102', service_cost_mode: 'own_vehicle' } as any
+  render(<ProfitLedgerGrid
+    legs={[legs[0]]}
+    bookingsById={new Map([['1', booking]])}
+    editable={true}
+    onSaveDistance={vi.fn()}
+    onSaveSupplierCost={vi.fn()}
+    onSaveCostMode={vi.fn()}
+  />)
+  // LegCostControls bir düzenleme tetikleyici buton render eder (KM / tek yön / maliyet modeli)
+  const buttons = screen.getAllByRole('button')
+  expect(buttons.length).toBeGreaterThan(0)
+})
+
+test('editable=false iken düzenleme butonu yok', () => {
+  const booking = { id: '1', booking_ref: 'A102', service_cost_mode: 'own_vehicle' } as any
+  render(<ProfitLedgerGrid legs={[legs[0]]} bookingsById={new Map([['1', booking]])} editable={false} />)
+  expect(screen.queryAllByRole('button')).toHaveLength(0)
 })
