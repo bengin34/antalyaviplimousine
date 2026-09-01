@@ -55,7 +55,7 @@ function isStaleDistributionWriteError(error: unknown) {
 
 // Supabase satır tiplerini çıkarabilsin diye tek bir düz metin: liste hem
 // hesaplama alanlarını hem de listede gösterilen yolcu bilgilerini içerir.
-const BOOKING_COLUMNS = 'id, booking_ref, customer_name, customer_phone, hotel_name, guests, luggage_count, child_seat_count, vehicle_type, pickup_location, pickup_address, dropoff_location, dropoff_address, pickup_date, pickup_time, flight_number, return_date, return_pickup_time, return_flight_number, service_end_date, trip_type, price_eur, daily_rate_eur, payment_method, service_cost_mode, sold_transfer_cost_try, return_service_cost_mode, return_sold_transfer_cost_try, airport_meet_fee_applies, status, created_at, manual_outbound_distance_km, manual_return_distance_km, chauffeur_hire_days(id, service_date, day_number, status, distance_km, fuel_amount_eur, fuel_paid)'
+const BOOKING_COLUMNS = 'id, booking_ref, customer_name, customer_phone, hotel_name, guests, luggage_count, child_seat_count, vehicle_type, pickup_location, pickup_address, dropoff_location, dropoff_address, pickup_date, pickup_time, flight_number, return_date, return_pickup_time, return_flight_number, service_end_date, trip_type, price_eur, daily_rate_eur, payment_method, service_cost_mode, sold_transfer_cost_try, return_service_cost_mode, return_sold_transfer_cost_try, airport_meet_fee_applies, status, created_at, manual_outbound_distance_km, manual_return_distance_km, manual_return_of_ref, chauffeur_hire_days(id, service_date, day_number, status, distance_km, fuel_amount_eur, fuel_paid)'
 
 async function fetchAllBookings() {
   const bookings: Booking[] = []
@@ -186,10 +186,14 @@ type ProfitLeg = {
   distanceSource?: string
 }
 
-/** Ayak yönü rozetinin metni ve rengi; listede gidiş/dönüş ilk bakışta ayrılır. */
-function legDirection(leg: ProfitLeg) {
+/**
+ * Ayak yönü rozetinin metni ve rengi; listede gidiş/dönüş ilk bakışta ayrılır.
+ * "Dönüş yolculuğu planla" ile açılan kayıtlar ayrı bir rezervasyon satırıdır
+ * ama seyahat olarak dönüştür; rozet bunu da dönüş gösterir.
+ */
+function legDirection(leg: ProfitLeg, booking?: Booking) {
   if (leg.isDailyChauffeur) return { className: 'is-daily', icon: '📅', label: legLabelFor(leg.leg) }
-  if (leg.leg === 'return') return { className: 'is-return', icon: '↩', label: 'Dönüş' }
+  if (leg.leg === 'return' || booking?.manual_return_of_ref) return { className: 'is-return', icon: '↩', label: 'Dönüş' }
   return { className: 'is-outbound', icon: '↗', label: 'Gidiş' }
 }
 
@@ -281,7 +285,7 @@ function TripRow({ leg, booking, period, navigate, isFocused, focusOpensEditor, 
   const isDailyChauffeur = Boolean(leg.isDailyChauffeur)
   const legKey: LegKey = toLegKey(leg.leg)
   const legLabel = legLabelFor(leg.leg)
-  const direction = legDirection(leg)
+  const direction = legDirection(leg, booking)
   const currentMode = legCostMode(booking, legKey)
   const isSoldTransfer = !isDailyChauffeur && currentMode === 'sold_transfer'
   const isNoCost = !isDailyChauffeur && currentMode === 'no_cost'
@@ -311,6 +315,7 @@ function TripRow({ leg, booking, period, navigate, isFocused, focusOpensEditor, 
           <span aria-hidden="true">{direction.icon}</span>{direction.label}
         </span>
         <strong>{leg.bookingRef || leg.customerName || 'Kayıt'}</strong>
+        {booking?.manual_return_of_ref && <small className="profit-linked-ref">{String(booking.manual_return_of_ref)} kaydından planlandı</small>}
       </div>
       {needsAttention && <p className="profit-leg-badge is-warning">{dailyMissing
         ? 'Günlük hizmet KM bilgisi eksik'

@@ -201,6 +201,24 @@ describe('ProfitLossPage travel history', () => {
     expect(outbound.getByText(`TL karşılığı ${formatTry(5000)}`)).toBeInTheDocument()
   })
 
+  test('marks a separately planned return record as a return leg', async () => {
+    // "Dönüş yolculuğu planla" ayrı bir rezervasyon satırı açar: kaynak kayıt
+    // silinse bile bu satır durur, listede dönüş olarak ve bağlantısıyla görünür.
+    installQueries([makeBooking({
+      id: 'booking-9',
+      booking_ref: 'AVL-109',
+      pickup_location: 'side',
+      dropoff_location: 'airport',
+      manual_return_of_ref: 'AVL-101',
+    })])
+    render(<ProfitLossPage navigate={vi.fn()} initialPeriod="2026-08" />)
+
+    await waitFor(() => expect(document.getElementById('profit-leg-booking-9-outbound')).not.toBeNull())
+    const row = within(document.getElementById('profit-leg-booking-9-outbound') as HTMLElement)
+    expect(row.getByText('Dönüş')).toBeInTheDocument()
+    expect(row.getByText('AVL-101 kaydından planlandı')).toBeInTheDocument()
+  })
+
   test('marks a transfer leg as cost free from the pending list', async () => {
     installQueries([makeBooking({ pickup_location: 'private_address', dropoff_location: 'hotel' })])
     render(<ProfitLossPage navigate={vi.fn()} initialPeriod="2026-08" />)

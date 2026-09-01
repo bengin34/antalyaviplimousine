@@ -328,6 +328,12 @@ button,
   color: var(--orange);
 }
 
+.profit-linked-ref {
+  flex-basis: 100%;
+  color: var(--text-muted);
+  font-size: 11px;
+}
+
 .profit-trip-history-route,
 .profit-trip-history-meta,
 .profit-trip-history-inline-hint {

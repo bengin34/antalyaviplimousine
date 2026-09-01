@@ -257,6 +257,11 @@ export default function BookingDetailPage({ bookingRef, isReturn, sourceTab, pro
   const [preview, setPreview] = useState<{ kind: TemplateKind; text: string } | null>(null)
   const [deleting, setDeleting] = useState(false)
   const [deleteError, setDeleteError] = useState('')
+  // "Dönüş yolculuğu planla" / "yeni seyahat planla" kısayolları ayrı bir
+  // rezervasyon satırı oluşturur. Bu kayıt silinince bağlı satır yerinde kalır
+  // ve kâr/zarar ekranında aynı yolcu adıyla görünmeye devam eder.
+  const [linkedReturns, setLinkedReturns] = useState<Array<{ id: string; booking_ref: string; pickup_date: string; status: string }>>([])
+  const [deleteLinkedReturns, setDeleteLinkedReturns] = useState(true)
 
   useEffect(() => {
     let active = true
@@ -270,13 +275,26 @@ export default function BookingDetailPage({ bookingRef, isReturn, sourceTab, pro
     return () => { active = false }
   }, [bookingRef])
 
+  // Bu kayıttan türetilmiş ayrı rezervasyon satırları (manuel dönüş kısayolu).
+  useEffect(() => {
+    let active = true
+    setLinkedReturns([])
+    supabase.from('bookings').select('id, booking_ref, pickup_date, status')
+      .eq('manual_return_of_ref', bookingRef)
+      .then(({ data, error }: any) => {
+        if (!active || error) return
+        setLinkedReturns((data ?? []) as Array<{ id: string; booking_ref: string; pickup_date: string; status: string }>)
+      })
+    return () => { active = false }
+  }, [bookingRef])
+
   const updateBooking = (next: Booking, message = '') => { setBooking(next); setSuccess(message) }
 
   const backHash = sourceTab === 'profit-loss'
     ? `#profit-loss${profitPeriod ? `?period=${encodeURIComponent(profitPeriod)}` : ''}`
     : '#timeline'
   if (loading) return <><Topbar navigate={navigate} title="Transfer Detayı" back={backHash} /><div className="scroll-area"><div className="empty"><div>Yükleniyor…</div></div></div></>
-  if (notFound || !booking) return <><Topbar navigate={navigate} title="Transfer Detayı" back={backHash} /><div className="scroll-area"><div className="empty"><div>Rezervasyon bulunamadı</div></div></div></>
+  if (notFound || !booking) return <><Topbar navigate={navigate} title="Transfer Detayı" back={backHash} /><div className="scroll-area"><div className="empty"><div>Rezervasyon bulunamadı</div><div className="empty-hint">{bookingRef} kaydı silinmiş olabilir. Geldiğiniz listeyi yenileyin; silinen kayıtlar kâr/zarar hesabına girmez.</div></div></div></>
 
   const roundTrip = booking.trip_type === 'round_trip'
   const dailyChauffeur = booking.trip_type === 'daily_chauffeur'
@@ -388,8 +406,25 @@ export default function BookingDetailPage({ bookingRef, isReturn, sourceTab, pro
   }
 
   const deleteBooking = async () => {
-    if (!window.confirm('Bu rezervasyonu kalıcı olarak silmek istediğinize emin misiniz? Bu işlem geri alınamaz.')) return
+    const alsoDeleting = deleteLinkedReturns ? linkedReturns : []
+    const confirmation = alsoDeleting.length
+      ? `Bu rezervasyon ve bağlı ${alsoDeleting.length} kayıt (${alsoDeleting.map(item => item.booking_ref).join(', ')}) kalıcı olarak silinecek. Bu işlem geri alınamaz. Devam edilsin mi?`
+      : 'Bu rezervasyonu kalıcı olarak silmek istediğinize emin misiniz? Bu işlem geri alınamaz.'
+    if (!window.confirm(confirmation)) return
     setDeleting(true); setDeleteError('')
+    // Bağlı kayıtlar önce silinir: ana kayıt gidince bağlantı sütunu NULL'a
+    // düşer ve satırlar sahipsiz kalır.
+    for (const linked of alsoDeleting) {
+      const { count: linkedCount, error: linkedError } = await supabase.from('bookings')
+        .delete({ count: 'exact' }).eq('id', linked.id)
+      if (linkedError || linkedCount === 0) {
+        if (linkedError) console.error('Bağlı rezervasyon silme hatası:', linkedError.message, linkedError.details, linkedError.hint, linkedError.code)
+        setDeleting(false)
+        setDeleteError(`${linked.booking_ref} silinemedi, hiçbir kayıt silinmedi. Tekrar deneyin.`)
+        return
+      }
+      setLinkedReturns(current => current.filter(item => item.id !== linked.id))
+    }
     const { count, error } = await supabase.from('bookings').delete({ count: 'exact' }).eq('id', booking.id)
     setDeleting(false)
     // Yetki kuralları bir satırı gizlerse Supabase hata döndürmez, yalnızca 0
@@ -428,7 +463,9 @@ export default function BookingDetailPage({ bookingRef, isReturn, sourceTab, pro
 
   return <><Topbar navigate={navigate} title={dailyChauffeur ? 'Günlük Kiralama Detayı' : 'Transfer Detayı'} back={backHash} />
     <div className="scroll-area">
-      <div className="section"><div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}><span style={{ color: 'var(--text-muted)', fontSize: 13 }}>{booking.booking_ref}</span><div className="card-badges"><span className={`badge badge-${displayStatus}`}>{statusLabel(displayStatus, roundTrip)}</span>{dailyChauffeur && <span className="badge badge-daily">GÜNLÜK KİRALAMA</span>}{roundTrip && <span className={`badge ${isReturn ? 'badge-return' : 'badge-outbound'}`}>{isReturn ? 'DÖNÜŞ' : 'GİDİŞ'}</span>}</div></div></div>
+      <div className="section"><div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}><span style={{ color: 'var(--text-muted)', fontSize: 13 }}>{booking.booking_ref}</span><div className="card-badges"><span className={`badge badge-${displayStatus}`}>{statusLabel(displayStatus, roundTrip)}</span>{dailyChauffeur && <span className="badge badge-daily">GÜNLÜK KİRALAMA</span>}{roundTrip && <span className={`badge ${isReturn ? 'badge-return' : 'badge-outbound'}`}>{isReturn ? 'DÖNÜŞ' : 'GİDİŞ'}</span>}{booking.manual_return_of_ref && <span className="badge badge-return">DÖNÜŞ · {booking.manual_return_of_ref}</span>}</div></div>{(booking.manual_return_of_ref || linkedReturns.length > 0) && <div className="linked-booking-note">{booking.manual_return_of_ref
+        ? <>Bu kayıt <strong>{booking.manual_return_of_ref}</strong> rezervasyonundan planlanan ayrı bir kayıttır; o kaydı silmek bunu silmez.</>
+        : <>Bu rezervasyondan planlanan ayrı kayıt(lar): <strong>{linkedReturns.map(item => item.booking_ref).join(', ')}</strong>. Bunlar bağımsız kayıtlardır.</>}</div>}</div>
       <div className="section quick-actions-section"><button className="btn-outline blue" type="button" onClick={() => planTrip(false)}>🆕 Bu yolcudan yeni seyahat planla</button>{!dailyChauffeur && <button className="btn-outline blue" type="button" onClick={() => planTrip(true)}>↩ Dönüş yolculuğu planla</button>}</div>
       {needsReturnContact && <div className="return-contact-alert detail-return-contact" role="status"><span className="return-contact-icon" aria-hidden="true">☎</span><span className="return-contact-copy"><strong>Gidiş seyahati için iletişime geç</strong><small>Geliş transferi tamamlandı.</small></span><a href={whatsappURL(booking.customer_phone)} target="_blank" rel="noopener noreferrer">WhatsApp</a></div>}
       <div className="section"><div className="editable-heading" style={{ marginBottom: 8 }}><div className="section-label" style={{ marginBottom: 0 }}>{dailyChauffeur ? 'Günlük Araç + Şoför' : 'Transfer'}</div><button className="inline-edit-button" type="button" hidden={editing} onClick={() => { setSuccess(''); setEditing(true) }}>Tümünü düzenle</button></div>{dailyChauffeur ? <><div className="daily-detail-title">{fmtDetailDate(booking.pickup_date)} – {fmtDetailDate(booking.service_end_date)} · {hireDays} gün</div><div className="daily-detail-summary"><span><small>Başlangıç</small><strong>{fmtTime(booking.pickup_time)} · {pickupDisplay}</strong></span><span><small>Hizmet</small><strong>Kilometre ve saat sınırı yok</strong></span><span><small>Ücret</small><strong>€{fmtPrice(Number(booking.daily_rate_eur) || 150)} × {hireDays} = €{fmtPrice(booking.price_eur)}</strong></span></div><div className={`fuel-acceptance-status${booking.fuel_terms_accepted_at ? ' accepted' : ' missing'}`}>{booking.fuel_terms_accepted_at ? `✓ Yakıt hariç koşulu müşteri tarafından onaylandı · ${new Date(booking.fuel_terms_accepted_at).toLocaleString('tr-TR')}` : '⚠ Yakıt hariç koşulu onaylanmamış'}</div>{booking.flight_number && <div className="daily-flight-line">✈ Geliş: {booking.pickup_date} · {booking.flight_number} · varış {fmtTime(booking.flight_arrival_time)}</div>}{booking.departure_flight_date && <div className="daily-flight-line">✈ Dönüş: {booking.departure_flight_date} · {booking.departure_flight_number || 'Uçuş no yok'} · kalkış {fmtTime(booking.departure_flight_time)}</div>}</> : <><div style={{ fontSize: 17, fontWeight: 700, marginBottom: 4 }}>{fmtTime(transfer.time)} &nbsp;{pickupDisplay} → {dropoffDisplay}</div><div style={{ color: 'var(--text-muted)', fontSize: 13 }}>{fmtDetailDate(transfer.date)}{transfer.flightNumber ? ` · ✈️ ${transfer.flightNumber}${flightTimeSuffix}` : ''}</div>{transfer.pickupAddress && <div style={{ color: 'var(--text-muted)', fontSize: 13, marginTop: 6 }}>📍 Alış: {transfer.pickupAddress}</div>}{transfer.dropoffAddress && <div style={{ color: 'var(--text-muted)', fontSize: 13, marginTop: 3 }}>📍 Varış: {transfer.dropoffAddress}</div>}{navigation && <><div className="detail-navigation-label">Transfer rotası</div><div className="detail-navigation" aria-label="Google Haritalar ile transfer rotası için yol tarifi"><a href={navigation.google} target="_blank" rel="noopener noreferrer"><span aria-hidden="true">↗</span> Adrese yol tarifi al</a></div></>}</>}<div className="inline-success" role="status">{success}</div></div>
@@ -473,7 +510,9 @@ export default function BookingDetailPage({ bookingRef, isReturn, sourceTab, pro
       <div className="section"><div className="section-label">Ödeme</div><div className={`detail-payment-row${roundTrip && isReturn ? ' detail-payment-settled' : ''}`}><span className="detail-payment-context"><strong>{paymentMethod}</strong>{dailyChauffeur ? <small>Günlük €{fmtPrice(Number(booking.daily_rate_eur) || 150)} · yakıt hariç</small> : roundTrip && <small>{isReturn ? 'Dönüş ücreti' : 'Gidiş ücreti'}</small>}</span><div style={{ display: 'flex', alignItems: 'center', gap: 8, flexWrap: 'wrap' }}><span className="detail-payment-price">€{fmtPrice(legPrice)}</span>{dailyChauffeur && <small className="daily-total-label">Toplam €{fmtPrice(booking.price_eur)}</small>}{!(roundTrip && isReturn) && <PriceEditor booking={booking} onSaved={genericSaved} />}</div></div></div>
       <div className="section"><div className="section-label">Notlar</div>{booking.notes && <div className="note-pinned">📌 {booking.notes}</div>}<div>{sortedNotes.length ? sortedNotes.map(item => <div className="note-item" key={item.id}>{item.note}</div>) : <div className="notes-empty">Henüz not yok</div>}</div><div className="note-input-row"><input className="input" type="text" placeholder="Not ekle…" value={note} onChange={e => setNote(e.target.value)} onKeyDown={e => { if (e.key === 'Enter') { e.preventDefault(); void addNote() } }} /><button className="btn" type="button" disabled={noteSaving} style={{ width: 'auto', padding: '8px 14px', fontSize: 13 }} onClick={() => void addNote()}>Ekle</button></div><div className="inline-error">{noteError}</div></div>
       <div className="section"><div className="section-label">Durum Güncelle</div><div className="status-buttons">{(STATUS_TRANSITIONS[displayStatus] ?? []).length ? STATUS_TRANSITIONS[displayStatus].map(next => <button className={`btn-outline ${STATUS_COLORS[next]}`} type="button" key={next} disabled={statusSaving} onClick={() => void updateStatus(next)}>{statusLabel(next, roundTrip)}</button>) : <div style={{ color: 'var(--text-muted)', fontSize: 13, gridColumn: '1/-1' }}>Bu transfer için başka durum seçeneği yok.</div>}</div><div className="inline-error">{statusError}</div></div>
-      {booking.status === 'cancelled' && <div className="section"><div className="section-label">Kalıcı Silme</div><div style={{ color: 'var(--text-muted)', fontSize: 13, marginBottom: 8 }}>İptal edilen bu rezervasyonu kalıcı olarak silebilirsiniz. Bu işlem geri alınamaz; test rezervasyonlarını temizlemek için kullanabilirsiniz.</div><button className="btn-outline red" type="button" disabled={deleting} onClick={() => void deleteBooking()}>🗑 {deleting ? 'Siliniyor…' : 'Kalıcı olarak sil'}</button><div className="inline-error">{deleteError}</div></div>}
+      {booking.status === 'cancelled' && <div className="section"><div className="section-label">Kalıcı Silme</div><div style={{ color: 'var(--text-muted)', fontSize: 13, marginBottom: 8 }}>İptal edilen bu rezervasyonu kalıcı olarak silebilirsiniz. Bu işlem geri alınamaz; test rezervasyonlarını temizlemek için kullanabilirsiniz.</div>
+        {linkedReturns.length > 0 && <label className="admin-fuel-acceptance linked-return-choice"><input type="checkbox" checked={deleteLinkedReturns} onChange={e => setDeleteLinkedReturns(e.target.checked)} /><span><strong>Bağlı kayıtlar da silinsin</strong><small>Bu rezervasyondan planlanan {linkedReturns.length} ayrı kayıt var: {linkedReturns.map(item => `${item.booking_ref} · ${fmtDetailDate(item.pickup_date)}`).join(' · ')}. İşaretlenmezse bu kayıtlar durur ve kâr/zarar ekranında görünmeye devam eder.</small></span></label>}
+        <button className="btn-outline red" type="button" disabled={deleting} onClick={() => void deleteBooking()}>🗑 {deleting ? 'Siliniyor…' : 'Kalıcı olarak sil'}</button><div className="inline-error">{deleteError}</div></div>}
     </div>
   </>
 }

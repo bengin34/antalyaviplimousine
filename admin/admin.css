@@ -1894,3 +1894,27 @@ button:focus-visible, a:focus-visible, .card:focus-visible, summary:focus-visibl
   text-decoration: none;
   text-align: center;
 }
+
+/* Aynı yolcudan planlanan ayrı rezervasyon satırlarını görünür kılar. */
+.linked-booking-note {
+  margin-top: 8px;
+  color: var(--text-muted);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.linked-booking-note strong {
+  color: var(--text);
+}
+
+.linked-return-choice {
+  margin-bottom: 10px;
+}
+
+.empty-hint {
+  margin-top: 6px;
+  max-width: 34ch;
+  color: var(--text-muted);
+  font-size: 12px;
+  line-height: 1.5;
+}
