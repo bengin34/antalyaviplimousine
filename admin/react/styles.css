@@ -1584,6 +1584,22 @@ button.profit-leg-action.is-ghost:hover:not(:disabled) {
   border-radius: 12px;
 }
 
+/* Hücre içi düzenleme ikonu (KM / tedarikçi) → maliyet modalı açar */
+.ledger-edit-cell { white-space: nowrap; }
+.cell-edit {
+  margin-left: 6px;
+  padding: 1px 5px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--blue);
+  font-size: 12px;
+  line-height: 1.4;
+  cursor: pointer;
+  vertical-align: middle;
+}
+.cell-edit:hover { background: rgba(115, 183, 255, 0.18); color: var(--text); }
+
 /* Tıklanabilir sefer numarası → seyahat detayı */
 .ledger-ref-link {
   padding: 0;

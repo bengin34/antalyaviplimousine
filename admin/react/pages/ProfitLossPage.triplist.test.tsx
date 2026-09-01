@@ -1,7 +1,7 @@
 // @vitest-environment jsdom
 import '@testing-library/jest-dom/vitest'
 import { afterEach, beforeEach, describe, expect, test, vi } from 'vitest'
-import { cleanup, fireEvent, render, screen, waitFor } from '@testing-library/react'
+import { cleanup, fireEvent, render, screen, waitFor, within } from '@testing-library/react'
 import { formatEuro } from '../lib/format'
 import type { Booking, ProfitShareSettings } from '../types'
 
@@ -199,19 +199,21 @@ describe('ProfitLossPage ledger grid', () => {
     await waitFor(() => expect(screen.getAllByText('AVL-109').length).toBeGreaterThan(0))
   })
 
-  test('marks a transfer leg as cost free from the grid', async () => {
+  test('marks a transfer leg as cost free via the cost dialog', async () => {
     installQueries([makeBooking({ pickup_location: 'private_address', dropoff_location: 'hotel' })])
     render(<ProfitLossPage navigate={vi.fn()} initialPeriod="2026-08" />)
 
-    // Eksik KM li ayak gridde uyarılı; satır-içi "Maliyeti yok" onu gidersiz yapar.
-    const noCost = await screen.findAllByRole('button', { name: 'Maliyeti yok' })
-    fireEvent.click(noCost[0])
+    // Eksik KM li ayak gridde uyarılı; KM hücresindeki ikon maliyet modalını açar.
+    const edit = await screen.findAllByRole('button', { name: 'Maliyet düzenle' })
+    fireEvent.click(edit[0])
+    // Modaldaki maliyet modelini "Maliyeti yok" yap → gidersiz kaydedilir.
+    const dialog = screen.getByRole('dialog')
+    fireEvent.change(within(dialog).getByRole('combobox'), { target: { value: 'no_cost' } })
 
     await waitFor(() => expect(mocks.updateBooking).toHaveBeenCalledWith({
       service_cost_mode: 'no_cost',
       sold_transfer_cost_try: null,
     }))
-    await waitFor(() => expect(screen.queryByText('Eksik bilgi')).toBeNull())
   })
 
   test('zeroes the distance of a daily service day marked as cost free', async () => {

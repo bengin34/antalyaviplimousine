@@ -26,25 +26,28 @@ describe('ProfitLedgerGrid', () => {
   })
 })
 
-test('editable modda düzenlenebilir bacakta LegCostControls render eder', () => {
-  const booking = { id: '1', booking_ref: 'A102', service_cost_mode: 'own_vehicle' } as any
+const fullBooking = { id: '1', booking_ref: 'A102', customer_name: 'Ali', trip_type: 'one_way', pickup_location: 'airport', dropoff_location: 'side', pickup_date: '2026-08-18', price_eur: 85, status: 'completed', service_cost_mode: 'own_vehicle' } as any
+
+test('editable kendi-araç ayağında KM hücresinde düzenleme ikonu var', () => {
   render(<ProfitLedgerGrid
-    legs={[legs[0]]}
-    bookingsById={new Map([['1', booking]])}
-    editable={true}
-    onSaveDistance={vi.fn()}
-    onSaveSupplierCost={vi.fn()}
-    onSaveCostMode={vi.fn()}
+    legs={[legs[0]]} bookingsById={new Map([['1', fullBooking]])} editable={true}
+    today="2026-09-01" onBookingSaved={vi.fn()}
   />)
-  // LegCostControls bir düzenleme tetikleyici buton render eder (KM / tek yön / maliyet modeli)
-  const buttons = screen.getAllByRole('button')
-  expect(buttons.length).toBeGreaterThan(0)
+  expect(screen.getAllByRole('button', { name: 'Maliyet düzenle' }).length).toBeGreaterThan(0)
 })
 
-test('editable=false iken düzenleme butonu yok', () => {
-  const booking = { id: '1', booking_ref: 'A102', service_cost_mode: 'own_vehicle' } as any
-  render(<ProfitLedgerGrid legs={[legs[0]]} bookingsById={new Map([['1', booking]])} editable={false} />)
-  expect(screen.queryAllByRole('button')).toHaveLength(0)
+test('düzenleme ikonuna tıklayınca maliyet modalı açılır', () => {
+  render(<ProfitLedgerGrid
+    legs={[legs[0]]} bookingsById={new Map([['1', fullBooking]])} editable={true}
+    today="2026-09-01" onBookingSaved={vi.fn()}
+  />)
+  fireEvent.click(screen.getAllByRole('button', { name: 'Maliyet düzenle' })[0])
+  expect(screen.getByRole('dialog')).toBeInTheDocument()
+})
+
+test('editable=false iken düzenleme ikonu yok', () => {
+  render(<ProfitLedgerGrid legs={[legs[0]]} bookingsById={new Map([['1', fullBooking]])} editable={false} />)
+  expect(screen.queryByRole('button', { name: 'Maliyet düzenle' })).toBeNull()
 })
 
 test('mobil kart yapısı bacak başına render eder', () => {
@@ -54,32 +57,27 @@ test('mobil kart yapısı bacak başına render eder', () => {
 
 const attentionLeg = { bookingId: '9', bookingRef: 'A9', customerName: 'Zoe', leg: 'outbound', date: '2026-08-20', from: 'AYT', to: 'Nowhere', revenueEur: 90, revenueTry: 4500, oneWayKm: null, vehicleCostTry: 0, supplierCostTry: 0, airportMeetCostTry: 0, advertisingPerLegTry: 100, advertisingPerLegEur: 2, netProfitTry: 4400, netProfitEur: 88, eurTryRate: 50 }
 
-test('eksik KM li ayak dikkat işareti alır ve Maliyeti yok butonu gösterir', () => {
+test('eksik KM li kendi-araç ayağı dikkat işareti + düzenleme ikonu alır', () => {
   const booking = { id: '9', booking_ref: 'A9', service_cost_mode: 'own_vehicle' } as any
-  const onSaveNoCost = vi.fn().mockResolvedValue(undefined)
   const { container } = render(<ProfitLedgerGrid
     legs={[attentionLeg]} bookingsById={new Map([['9', booking]])} editable={true}
-    onSaveDistance={vi.fn()} onSaveSupplierCost={vi.fn()} onSaveCostMode={vi.fn()} onSaveNoCost={onSaveNoCost}
+    today="2026-09-01" onBookingSaved={vi.fn()}
   />)
-  expect(container.querySelector('.is-attention, .ledger-attention')).toBeTruthy()
-  expect(screen.getAllByRole('button', { name: /Maliyeti yok/i }).length).toBeGreaterThan(0)
+  expect(container.querySelector('.is-attention')).toBeTruthy()
+  expect(screen.getAllByRole('button', { name: 'Maliyet düzenle' }).length).toBeGreaterThan(0)
 })
 
-test('Maliyeti yok tıklanınca onSaveNoCost çağrılır', async () => {
-  const booking = { id: '9', booking_ref: 'A9', service_cost_mode: 'own_vehicle' } as any
+const dailyMissingLeg = { bookingId: 'd', bookingRef: 'D1', customerName: 'Deniz', leg: 'day-1', date: '2026-08-20', from: 'Günlük', to: 'Günlük', revenueEur: 100, revenueTry: 5000, oneWayKm: null, vehicleCostTry: 0, supplierCostTry: 0, airportMeetCostTry: 0, advertisingPerLegTry: 0, advertisingPerLegEur: 0, netProfitTry: 5000, netProfitEur: 100, eurTryRate: 50, isDailyChauffeur: true, distanceSource: 'daily-missing', dayId: 'day-1' }
+
+test('günlük hizmet eksik KM ayağı Maliyeti yok butonu gösterir ve çağırır', () => {
+  const booking = { id: 'd', booking_ref: 'D1', trip_type: 'daily_chauffeur' } as any
   const onSaveNoCost = vi.fn().mockResolvedValue(undefined)
   render(<ProfitLedgerGrid
-    legs={[attentionLeg]} bookingsById={new Map([['9', booking]])} editable={true}
-    onSaveDistance={vi.fn()} onSaveSupplierCost={vi.fn()} onSaveCostMode={vi.fn()} onSaveNoCost={onSaveNoCost}
+    legs={[dailyMissingLeg]} bookingsById={new Map([['d', booking]])} editable={true}
+    today="2026-09-01" onSaveNoCost={onSaveNoCost}
   />)
   fireEvent.click(screen.getAllByRole('button', { name: /Maliyeti yok/i })[0])
-  expect(onSaveNoCost).toHaveBeenCalledWith(attentionLeg)
-})
-
-test('editable=false iken Maliyeti yok butonu yok', () => {
-  const booking = { id: '9', booking_ref: 'A9', service_cost_mode: 'own_vehicle' } as any
-  render(<ProfitLedgerGrid legs={[attentionLeg]} bookingsById={new Map([['9', booking]])} editable={false} />)
-  expect(screen.queryByRole('button', { name: /Maliyeti yok/i })).toBeNull()
+  expect(onSaveNoCost).toHaveBeenCalledWith(dailyMissingLeg)
 })
 
 test('sefer numarası tıklanınca detaya gider', () => {
@@ -99,8 +97,7 @@ test('attentionSince öncesi (dağıtılmış) eksik ayak uyarı almaz', () => {
   // Ayak 2026-08-20; attentionSince 2026-08-25 → dağıtım öncesi, eksik KM ignore edilir.
   const { container } = render(<ProfitLedgerGrid
     legs={[attentionLeg]} bookingsById={new Map([['9', booking]])} editable={true}
-    attentionSince="2026-08-25"
-    onSaveDistance={vi.fn()} onSaveSupplierCost={vi.fn()} onSaveCostMode={vi.fn()} onSaveNoCost={vi.fn()}
+    attentionSince="2026-08-25" today="2026-09-01" onBookingSaved={vi.fn()}
   />)
   // Uyarı işareti + "Eksik bilgi" bayrağı susar (düzenleyici açık kalabilir).
   expect(container.querySelector('.is-attention')).toBeNull()
@@ -111,8 +108,7 @@ test('attentionSince sonrası eksik ayak uyarı alır', () => {
   const booking = { id: '9', booking_ref: 'A9', service_cost_mode: 'own_vehicle' } as any
   const { container } = render(<ProfitLedgerGrid
     legs={[attentionLeg]} bookingsById={new Map([['9', booking]])} editable={true}
-    attentionSince="2026-08-01"
-    onSaveDistance={vi.fn()} onSaveSupplierCost={vi.fn()} onSaveCostMode={vi.fn()} onSaveNoCost={vi.fn()}
+    attentionSince="2026-08-01" today="2026-09-01" onBookingSaved={vi.fn()}
   />)
   expect(container.querySelector('.is-attention')).toBeTruthy()
 })

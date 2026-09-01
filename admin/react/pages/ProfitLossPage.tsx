@@ -333,6 +333,11 @@ export default function ProfitLossPage({ navigate, initialPeriod }: { navigate: 
   }, [editable, activeRange.startDate, openStart, today])
 
   const saveSetting = (month: string, value: any) => setSettings(current => new Map(current).set(month, value))
+  // Maliyet modalı (CostDialog) doğrudan kaydeder; güncel booking'i state'e yaz.
+  const applyBookingPatch = (next: Booking) => {
+    setBookings(current => current.map(item => item.id === next.id ? { ...item, ...next } : item))
+    setStatus(`${next.booking_ref || 'Seyahat'} maliyeti güncellendi · Hesap güncellendi`)
+  }
   const saveDistance = async (leg: ProfitLegRef, distanceKm: number) => {
     const legKey: LegKey = leg.leg === 'return' ? 'return' : 'outbound'
     const patch = await saveLegDistance(leg.bookingId, legKey, distanceKm)
@@ -463,9 +468,8 @@ export default function ProfitLossPage({ navigate, initialPeriod }: { navigate: 
             editable={editable}
             attentionSince={openStart}
             navigate={navigate}
-            onSaveDistance={saveDistance}
-            onSaveSupplierCost={saveSupplierCost}
-            onSaveCostMode={saveCostMode}
+            today={today}
+            onBookingSaved={applyBookingPatch}
             onSaveNoCost={saveNoCost}
           />
           {editable && <ExpandableSection title="Hesaplama ayarları" detail={settingsMonths.length > 1 ? `${settingsMonths.length} ay` : monthLabel(settingsMonths[0] ?? today.slice(0, 7))}>
