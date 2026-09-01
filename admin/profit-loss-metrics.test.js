@@ -2,6 +2,7 @@ import { describe, expect, test } from 'vitest'
 import {
   AIRPORT_MEET_COST_TRY,
   allocatedAdvertisingForRange,
+  bookingLegCostStatus,
   buildProfitDistributionSnapshot,
   calculateProfitDistribution,
   calculateProfitLossMetrics,
@@ -420,6 +421,88 @@ describe('calculateProfitLossMetrics', () => {
     expect(result.advertisingExpenseTry).toBe(300)
     expect(result.airportMeetCostTry).toBe(500)
     expect(result.netProfitTry).toBe(4300)
+  })
+})
+
+describe('bookingLegCostStatus', () => {
+  const settings = { '2026-09': { eurTryRate: 50, kmCostTry: 15 } }
+  const today = '2026-09-01'
+
+  test('marks an own-vehicle unknown route as applicable but incomplete', () => {
+    const booking = {
+      ...baseBooking,
+      pickup_location: 'private_address',
+      dropoff_location: 'private_address',
+      service_cost_mode: 'own_vehicle',
+    }
+    const result = bookingLegCostStatus(booking, 'outbound', today, settings)
+
+    expect(result.applicable).toBe(true)
+    expect(result.complete).toBe(false)
+    expect(result.costMode).toBe('own_vehicle')
+  })
+
+  test('marks an own-vehicle known route as complete', () => {
+    const booking = {
+      ...baseBooking,
+      pickup_location: 'airport',
+      dropoff_location: 'belek',
+      service_cost_mode: 'own_vehicle',
+    }
+    const result = bookingLegCostStatus(booking, 'outbound', today, settings)
+
+    expect(result.applicable).toBe(true)
+    expect(result.complete).toBe(true)
+    expect(result.costMode).toBe('own_vehicle')
+  })
+
+  test('marks a sold transfer leg as complete', () => {
+    const booking = {
+      ...baseBooking,
+      pickup_location: 'private_address',
+      dropoff_location: 'private_address',
+      service_cost_mode: 'sold_transfer',
+      sold_transfer_cost_try: 900,
+    }
+    const result = bookingLegCostStatus(booking, 'outbound', today, settings)
+
+    expect(result.applicable).toBe(true)
+    expect(result.complete).toBe(true)
+    expect(result.costMode).toBe('sold_transfer')
+  })
+
+  test('marks a no-cost leg as complete', () => {
+    const booking = {
+      ...baseBooking,
+      pickup_location: 'private_address',
+      dropoff_location: 'private_address',
+      service_cost_mode: 'no_cost',
+    }
+    const result = bookingLegCostStatus(booking, 'outbound', today, settings)
+
+    expect(result.applicable).toBe(true)
+    expect(result.complete).toBe(true)
+    expect(result.costMode).toBe('no_cost')
+  })
+
+  test('reports a return leg on a one-way booking as not applicable', () => {
+    const result = bookingLegCostStatus(baseBooking, 'return', today, settings)
+
+    expect(result.applicable).toBe(false)
+    expect(result.complete).toBe(true)
+  })
+
+  test('flags the airport meet fee for an airport-start own-vehicle leg', () => {
+    const booking = {
+      ...baseBooking,
+      pickup_location: 'airport',
+      dropoff_location: 'belek',
+      service_cost_mode: 'own_vehicle',
+    }
+    const result = bookingLegCostStatus(booking, 'outbound', today, settings)
+
+    expect(result.meetFeeApplicable).toBe(true)
+    expect(result.meetFeeApplies).toBe(true)
   })
 })
 

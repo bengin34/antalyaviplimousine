@@ -663,6 +663,24 @@ function distributionTotalsForLegs(resolvedLegs, unresolvedLegs) {
   }
 }
 
+export function bookingLegCostStatus(booking, leg, today, settingsByMonth = {}, ratesByDate = null) {
+  const { resolvedLegs, unresolvedLegs } = resolveRealizedLegs([booking], today, settingsByMonth, ratesByDate)
+  const match = [...resolvedLegs, ...unresolvedLegs].find(item => item.leg === leg)
+  if (!match) return { applicable: false, complete: true }
+  const complete = !unresolvedLegs.some(item => item.leg === leg)
+  const { costMode } = legCostModel(booking, leg)
+  return {
+    applicable: true,
+    complete,
+    costMode,
+    oneWayKm: match.oneWayKm ?? null,
+    supplierCostTry: match.supplierCostTry ?? null,
+    meetFeeApplicable: startsFromAirport(match.from),
+    meetFeeApplies: booking.airport_meet_fee_applies !== false,
+    meetCostTry: match.airportMeetCostTry ?? 0,
+  }
+}
+
 export function calculateProfitLossMetrics(bookings, period, today, settingsByMonth = {}, ratesByDate = null) {
   const realizedLegs = resolveRealizedLegs(bookings, today, settingsByMonth, ratesByDate)
   const resolvedLegs = realizedLegs.resolvedLegs.filter(leg => isInPeriod(leg.date, period))
