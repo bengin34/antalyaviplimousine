@@ -153,18 +153,17 @@ describe('ProfitLossPage missing distance recovery', () => {
     expect(screen.getByRole('button', { name: 'Kârı dağıt' })).toBeEnabled()
   })
 
-  test('moves the trip list to the blocked leg period so the row can be reached', async () => {
+  test('shows the unresolved leg in the grid so it can be fixed there too', async () => {
     installQueries([unresolvedBooking()])
     render(<ProfitLossPage navigate={vi.fn()} initialPeriod="2026-08" />)
 
+    // Dağıtılmamış sekmesindeki grid, açık aralıktaki eksik ayağı doğrudan gösterir.
+    await waitFor(() => expect(screen.getAllByText('AVL-101').length).toBeGreaterThan(0))
+    expect(screen.getAllByText('Eksik bilgi').length).toBeGreaterThan(0)
+
+    // "Listede aç" dağıtılmamış sekmede kalır (ay taşıma yok).
     const blocker = await screen.findByRole('alert')
-    // Ağustos seçiliyken temmuz ayağı listede yoktur; "Listede aç" dönemi taşımalıdır.
-    expect(document.getElementById('profit-leg-booking-1-outbound')).toBeNull()
-
     fireEvent.click(within(blocker).getByRole('button', { name: 'Listede aç' }))
-
-    await waitFor(() => expect(document.getElementById('profit-leg-booking-1-outbound')).not.toBeNull())
-    expect(document.getElementById('profit-leg-booking-1-outbound')).toHaveClass('is-focused')
-    expect(screen.getByRole('button', { name: "Tem '26" })).toHaveClass('active')
+    expect(screen.getByRole('button', { name: 'Dağıtılmamış' })).toHaveClass('active')
   })
 })
