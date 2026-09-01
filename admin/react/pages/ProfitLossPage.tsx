@@ -22,6 +22,7 @@ import {
   saveProfitShareSettings,
 } from '../lib/profit-distributions'
 import { supabase } from '../lib/supabase'
+import { saveLegCostMode, saveLegDistance, saveLegSupplierCost } from '../lib/leg-cost-actions'
 import type {
   Booking,
   CreateProfitDistributionInput,
@@ -623,15 +624,10 @@ export default function ProfitLossPage({ navigate, initialPeriod }: { navigate: 
   )
   const saveSetting = (month: string, value: any) => setSettings(current => new Map(current).set(month, value))
   const saveDistance = async (leg: ProfitLegRef, distanceKm: number) => {
-    const column = leg.leg === 'return' ? 'manual_return_distance_km' : 'manual_outbound_distance_km'
-    const payload = { [column]: distanceKm }
-    const { data, error: saveError } = await supabase.from('bookings')
-      .update(payload)
-      .eq('id', leg.bookingId)
-      .select(`id, ${column}`).single()
-    if (saveError || !data) throw saveError ?? new Error('KM kaydı dönmedi')
-    const savedDistance = Number((data as Record<string, unknown>)[column])
-    setBookings(current => current.map(booking => booking.id === leg.bookingId ? { ...booking, [column]: savedDistance } : booking))
+    const legKey: LegKey = leg.leg === 'return' ? 'return' : 'outbound'
+    const patch = await saveLegDistance(leg.bookingId, legKey, distanceKm)
+    const savedDistance = Number(patch.manual_return_distance_km ?? patch.manual_outbound_distance_km)
+    setBookings(current => current.map(booking => booking.id === leg.bookingId ? { ...booking, ...patch } : booking))
     setStatus(`${leg.bookingRef || 'Seyahat'} için tek yön ${formatNumber(savedDistance, 2)} km kaydedildi · Hesap güncellendi`)
   }
   // Bir ayağa maliyet girmek o ayağı satılan transfer yapar; sütun kısıtı
@@ -639,16 +635,9 @@ export default function ProfitLossPage({ navigate, initialPeriod }: { navigate: 
   const saveSupplierCost = async (booking: Booking, leg: LegKey, costTry: number) => {
     const columns = legCostColumns(leg)
     const legLabel = leg === 'return' ? 'dönüş' : 'gidiş'
-    const { data, error: saveError } = await supabase.from('bookings')
-      .update({ [columns.cost]: costTry, [columns.mode]: 'sold_transfer' })
-      .eq('id', booking.id)
-      .select(`id, ${columns.mode}, ${columns.cost}`).single()
-    if (saveError || !data) throw saveError ?? new Error('Maliyet kaydı dönmedi')
-    const saved = data as Record<string, unknown>
-    const savedCost = Number(saved[columns.cost])
-    setBookings(current => current.map(item => item.id === booking.id
-      ? { ...item, [columns.mode]: saved[columns.mode], [columns.cost]: savedCost }
-      : item))
+    const patch = await saveLegSupplierCost(booking.id, leg, costTry)
+    const savedCost = Number(patch[columns.cost])
+    setBookings(current => current.map(item => item.id === booking.id ? { ...item, ...patch } : item))
     setStatus(`${booking.booking_ref || 'Seyahat'} için ${legLabel} tedarikçi maliyeti ${formatTry(savedCost)} olarak kaydedildi · Hesap güncellendi`)
   }
   const saveCostMode = async (booking: Booking, leg: LegKey, nextMode: CostMode) => {
@@ -657,20 +646,11 @@ export default function ProfitLossPage({ navigate, initialPeriod }: { navigate: 
     // `own_vehicle`e dönerken maliyet sıfırlanmalı; sütun kısıtı ikisinin
     // tutarlı olmasını şart koşuyor. Satılan transfere geçiş yalnızca kayıtlı
     // bir bedel varken gelir (aksi halde önce düzenleyici açılır).
-    const update: Record<string, unknown> = nextMode === 'sold_transfer'
-      ? { [columns.mode]: nextMode }
-      : { [columns.mode]: nextMode, [columns.cost]: null }
-    const { data, error: saveError } = await supabase.from('bookings')
-      .update(update)
-      .eq('id', booking.id)
-      .select(`id, ${columns.mode}, ${columns.cost}`).single()
-    if (saveError || !data) throw saveError ?? new Error('Maliyet modeli kaydı dönmedi')
-    const saved = data as Record<string, unknown>
-    setBookings(current => current.map(item => item.id === booking.id
-      ? { ...item, [columns.mode]: saved[columns.mode], [columns.cost]: saved[columns.cost] }
-      : item))
-    const savedMode = saved[columns.mode] === 'sold_transfer' || saved[columns.mode] === 'no_cost'
-      ? saved[columns.mode] as CostMode
+    const patch = await saveLegCostMode(booking.id, leg, nextMode)
+    setBookings(current => current.map(item => item.id === booking.id ? { ...item, ...patch } : item))
+    const savedModeValue = String(patch[columns.mode])
+    const savedMode: CostMode = savedModeValue === 'sold_transfer' || savedModeValue === 'no_cost'
+      ? savedModeValue as CostMode
       : 'own_vehicle'
     setStatus(`${booking.booking_ref || 'Seyahat'} için ${legLabel} maliyet modeli “${COST_MODE_LABELS[savedMode]}” olarak kaydedildi · Hesap güncellendi`)
   }

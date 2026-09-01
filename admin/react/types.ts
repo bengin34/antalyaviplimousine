@@ -52,9 +52,9 @@ export interface Booking {
   fuel_terms_accepted_at: string | null
   guests: number
   vehicle_type: 'vclass' | 'vito'
-  service_cost_mode: 'own_vehicle' | 'sold_transfer'
+  service_cost_mode: 'own_vehicle' | 'sold_transfer' | 'no_cost'
   sold_transfer_cost_try: number | string | null
-  return_service_cost_mode?: 'own_vehicle' | 'sold_transfer' | null
+  return_service_cost_mode?: 'own_vehicle' | 'sold_transfer' | 'no_cost' | null
   return_sold_transfer_cost_try?: number | string | null
   airport_meet_fee_applies?: boolean | null
   price_eur: number | string

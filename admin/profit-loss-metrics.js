@@ -2,7 +2,7 @@ import { routeEdges } from '../src/routes.js'
 
 export const DEFAULT_KM_COST_TRY = 15
 export const DEFAULT_EUR_TRY_RATE = 50
-export const AIRPORT_MEET_COST_EUR = 5
+export const AIRPORT_MEET_COST_TRY = 250
 
 const REALIZED_TODAY_STATUSES = new Set(['paid', 'in_transit', 'completed'])
 
@@ -22,7 +22,7 @@ function normalizeLocation(value) {
   return String(value ?? '').trim().toLocaleLowerCase('tr-TR')
 }
 
-function startsFromAirport(location) {
+export function startsFromAirport(location) {
   return normalizeLocation(location) === 'airport'
 }
 
@@ -517,10 +517,10 @@ export function resolveRealizedLegs(bookings, today, settingsByMonth = {}, rates
       const eurTryRate = (ratesByDate instanceof Map ? ratesByDate.get(leg.date) : null) ?? settings.eurTryRate
       legDetails.eurTryRate = eurTryRate
       legDetails.revenueTry = leg.revenueEur * eurTryRate
-      legDetails.airportMeetCostEur = !leg.isDailyChauffeur && startsFromAirport(leg.from) && booking.airport_meet_fee_applies !== false
-        ? AIRPORT_MEET_COST_EUR
+      legDetails.airportMeetCostTry = !leg.isDailyChauffeur && startsFromAirport(leg.from) && booking.airport_meet_fee_applies !== false
+        ? AIRPORT_MEET_COST_TRY
         : 0
-      legDetails.airportMeetCostTry = legDetails.airportMeetCostEur * eurTryRate
+      legDetails.airportMeetCostEur = eurTryRate > 0 ? legDetails.airportMeetCostTry / eurTryRate : 0
 
       if (leg.isDailyChauffeur) {
         const vehicleKm = leg.directVehicleKm ?? 0
@@ -632,10 +632,8 @@ function distributionFinancialLeg(leg, settingsByMonth, allocations) {
     ? roundMoney(allocation?.supplierCostTry ?? leg.supplierCostTry ?? 0)
     : 0
   const supplierCostEur = centsToNumber(multiplyDivideMoneyToCents(supplierCostTry, 1, eurTryRate))
-  const airportMeetCostEur = roundMoney(leg.airportMeetCostEur ?? 0)
-  const airportMeetCostTry = centsToNumber(
-    multiplyDivideMoneyToCents(airportMeetCostEur, eurTryRate, 1),
-  )
+  const airportMeetCostTry = roundMoney(leg.airportMeetCostTry ?? 0)
+  const airportMeetCostEur = centsToNumber(multiplyDivideMoneyToCents(airportMeetCostTry, 1, eurTryRate))
 
   return {
     ...leg,
@@ -662,6 +660,24 @@ function distributionTotalsForLegs(resolvedLegs, unresolvedLegs) {
     supplierCostTry: sumMoney(legs.map(leg => leg.supplierCostTry)),
     airportMeetCostEur: sumMoney(legs.map(leg => leg.airportMeetCostEur)),
     airportMeetCostTry: sumMoney(legs.map(leg => leg.airportMeetCostTry)),
+  }
+}
+
+export function bookingLegCostStatus(booking, leg, today, settingsByMonth = {}, ratesByDate = null) {
+  const { resolvedLegs, unresolvedLegs } = resolveRealizedLegs([booking], today, settingsByMonth, ratesByDate)
+  const match = [...resolvedLegs, ...unresolvedLegs].find(item => item.leg === leg)
+  if (!match) return { applicable: false, complete: true }
+  const complete = !unresolvedLegs.some(item => item.leg === leg)
+  const { costMode } = legCostModel(booking, leg)
+  return {
+    applicable: true,
+    complete,
+    costMode,
+    oneWayKm: match.oneWayKm ?? null,
+    supplierCostTry: match.supplierCostTry ?? null,
+    meetFeeApplicable: startsFromAirport(match.from),
+    meetFeeApplies: booking.airport_meet_fee_applies !== false,
+    meetCostTry: match.airportMeetCostTry ?? 0,
   }
 }
 

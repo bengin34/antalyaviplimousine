@@ -1918,3 +1918,82 @@ button:focus-visible, a:focus-visible, .card:focus-visible, summary:focus-visibl
   font-size: 12px;
   line-height: 1.5;
 }
+
+/* Tamamlanan transfer maliyet dialogu + ayak maliyet bandı */
+.cost-dialog-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 18px;
+  background: rgba(4, 8, 15, 0.72);
+}
+.cost-dialog {
+  width: 100%;
+  max-width: 420px;
+  max-height: 90vh;
+  overflow: auto;
+  background: var(--surface-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+.cost-dialog-head {
+  padding: 16px 16px 12px;
+  border-bottom: 1px solid var(--border-soft);
+}
+.cost-dialog-head h3 { margin: 0; font-size: 16px; }
+.cost-dialog-head p { margin: 4px 0 0; font-size: 12px; color: var(--text-muted); }
+.cost-dialog-body { padding: 12px 16px; display: flex; flex-direction: column; gap: 12px; }
+.cost-dialog-foot {
+  padding: 14px 16px;
+  border-top: 1px solid var(--border-soft);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.cost-dialog-status { font-size: 12px; font-weight: 700; text-align: center; }
+.cost-dialog-status.is-need { color: var(--orange); }
+.cost-dialog-status.is-done { color: var(--green); }
+.cost-dialog-actions { display: flex; gap: 10px; }
+.cost-dialog-actions .btn,
+.cost-dialog-actions .btn-outline { flex: 1; width: auto; }
+
+.meet-toggle {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  padding: 10px;
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  border: 1px solid var(--border-soft);
+  cursor: pointer;
+}
+.meet-toggle input { margin-top: 2px; width: 16px; height: 16px; }
+.meet-toggle strong { display: block; font-size: 13px; }
+.meet-toggle small { display: block; color: var(--text-muted); font-size: 11px; margin-top: 2px; }
+
+.cost-banner {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+}
+.cost-banner .grow { flex: 1; }
+.cost-banner.warn { background: var(--orange-bg); border: 1px solid var(--orange); color: var(--orange); }
+.cost-banner.ok { background: var(--surface-elevated); border: 1px solid var(--border-soft); color: var(--text); }
+.cost-banner .btn-sm {
+  border: none;
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  white-space: nowrap;
+  background: var(--blue);
+  color: #06121f;
+}
+.cost-banner.ok .btn-sm { background: transparent; border: 1px solid var(--border); color: var(--text-muted); }
