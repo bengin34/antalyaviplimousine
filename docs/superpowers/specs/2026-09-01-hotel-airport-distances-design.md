@@ -92,8 +92,9 @@ untouched. This is the job re-run after adding hotels.
 **Per hotel:**
 1. Geocode query `"{name}, {district}, Antalya, Turkey"` via Google **Places
    Text Search** → top match `place_id` + latlng.
-2. Driving km via **Routes API** (or Distance Matrix), origin AYT, destination
-   hotel latlng, `mode=driving`, meters → km.
+2. Driving km via the **Routes API** `computeRoutes` endpoint (pin this one, not
+   the legacy Distance Matrix, so the free-tier/cost claim stays concrete),
+   origin AYT, destination hotel latlng, `travelMode: DRIVE`, meters → km.
 3. Merge into `hotel-distances.js`, preserving `checked: true` rows.
 
 **Operational:**
@@ -113,6 +114,13 @@ Asserts **every `hotelIndex` slug has a `hotel-distances.js` entry with a numeri
 `km`**. A missing entry or a `km: null` fails the test — a forgotten or
 unresolved hotel becomes red CI, not a silent gap. Mirrors the existing
 `hotel-index.test.js` slug-agreement check.
+
+**Escape hatch:** a hotel Google genuinely cannot map (permanently closed, no
+findable pin) would otherwise keep CI red forever. The guard reads an explicit
+allowlist of intentionally-unmapped slugs (`UNMAPPED_HOTEL_SLUGS`, kept next to
+the test with a one-line reason each); a slug on that list is exempted from the
+numeric-km requirement. The list is the deliberate, reviewed record of what has
+no distance — small and auditable, not a silent gap.
 
 ### 4. Wiring into the cost model — `admin/profit-loss-metrics.js`
 
