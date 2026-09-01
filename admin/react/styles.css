@@ -172,13 +172,99 @@ button,
   margin: -4px 0 0;
   color: var(--text-muted);
   font-size: 13px;
+  line-height: 1.5;
+}
+
+/* Tarihe göre açılır gün grupları. */
+.profit-day-groups {
+  display: grid;
+  gap: 10px;
+}
+
+.profit-day-group {
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: rgba(17, 23, 34, 0.6);
+}
+
+.profit-day-group.is-open {
+  border-color: rgba(115, 183, 255, 0.35);
+}
+
+.profit-day-summary {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 56px;
+  border: 0;
+  padding: 12px 14px;
+  background: transparent;
+  color: var(--text);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.profit-day-summary:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: -2px;
+}
+
+.profit-day-summary-main {
+  display: grid;
+  gap: 3px;
+  min-width: 0;
+}
+
+.profit-day-summary-main strong {
+  font-size: 14px;
+}
+
+.profit-day-summary-main small {
+  color: var(--text-muted);
+  font-size: 11px;
+}
+
+.profit-day-summary-side {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: 8px;
+}
+
+.profit-day-summary-side b {
+  font-size: 14px;
+  font-variant-numeric: tabular-nums;
+}
+
+.profit-day-summary-side b.is-positive { color: var(--success, #16a34a); }
+.profit-day-summary-side b.is-negative { color: var(--danger, #dc2626); }
+
+.profit-day-attention {
+  padding: 3px 8px;
+  border-radius: 999px;
+  background: var(--orange-bg);
+  color: var(--orange);
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 700;
+}
+
+.profit-day-summary-side i {
+  color: var(--blue);
+  font-size: 20px;
+  font-style: normal;
+  line-height: 1;
 }
 
 .profit-trip-history-list {
   display: grid;
   gap: 12px;
   margin: 0;
-  padding: 0;
+  padding: 0 12px 12px;
   list-style: none;
 }
 
@@ -191,25 +277,63 @@ button,
   background: var(--surface-soft);
 }
 
-.profit-trip-history-main,
-.profit-trip-history-top,
-.profit-trip-history-meta {
+.profit-trip-history-main {
   display: flex;
+  min-width: 0;
+  flex-direction: column;
   gap: 10px;
 }
 
-.profit-trip-history-main {
-  min-width: 0;
-  flex-direction: column;
-}
-
 .profit-trip-history-top {
-  align-items: baseline;
-  justify-content: space-between;
+  display: flex;
+  align-items: center;
+  gap: 10px;
   flex-wrap: wrap;
 }
 
-.profit-trip-history-top span,
+.profit-trip-history-top strong {
+  font-size: 14px;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Gidiş / dönüş / günlük hizmet ayrımı ilk bakışta okunur. */
+.profit-direction-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 10px;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.profit-direction-badge.is-outbound {
+  border-color: rgba(115, 183, 255, 0.4);
+  background: rgba(49, 130, 206, 0.22);
+  color: #cbe5ff;
+}
+
+.profit-direction-badge.is-return {
+  border-color: rgba(196, 154, 255, 0.4);
+  background: rgba(126, 87, 194, 0.22);
+  color: #e2d1ff;
+}
+
+.profit-direction-badge.is-daily {
+  border-color: rgba(255, 173, 102, 0.4);
+  background: var(--orange-bg);
+  color: var(--orange);
+}
+
+.profit-linked-ref {
+  flex-basis: 100%;
+  color: var(--text-muted);
+  font-size: 11px;
+}
+
 .profit-trip-history-route,
 .profit-trip-history-meta,
 .profit-trip-history-inline-hint {
@@ -221,8 +345,83 @@ button,
   font-weight: 600;
 }
 
-.profit-trip-history-meta {
+/* Yolcu bilgileri: transfer detayına gitmeden görünür. */
+.profit-passenger-facts {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 7px;
+  margin: 0;
+}
+
+.profit-passenger-facts > div {
+  min-width: 0;
+  padding: 8px 10px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.profit-passenger-facts > div.is-wide {
+  grid-column: 1 / -1;
+}
+
+.profit-passenger-facts dt {
+  color: var(--text-muted);
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.profit-passenger-facts dd {
+  margin: 3px 0 0;
+  color: var(--text);
+  font-size: 13px;
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+.profit-passenger-facts dd a {
+  color: var(--blue);
+  text-decoration: none;
+}
+
+/* Gelir satırı: € tutarı ve TL karşılığı birlikte. */
+.profit-revenue-line {
+  display: flex;
+  align-items: baseline;
   flex-wrap: wrap;
+  gap: 4px 8px;
+  margin: 0;
+}
+
+.profit-revenue-line span {
+  color: var(--text-muted);
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.profit-revenue-line strong {
+  font-size: 16px;
+  font-variant-numeric: tabular-nums;
+}
+
+.profit-revenue-line em {
+  color: var(--text);
+  font-size: 13px;
+  font-style: normal;
+  font-variant-numeric: tabular-nums;
+}
+
+.profit-revenue-line small {
+  color: var(--text-muted);
+  font-size: 11px;
+}
+
+.profit-trip-history-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
   font-size: 13px;
 }
 
@@ -230,7 +429,7 @@ button,
   display: flex;
   align-items: baseline;
   gap: 8px;
-  margin: 4px 0 2px;
+  margin: 0;
 }
 
 .profit-trip-history-net span {
@@ -243,6 +442,7 @@ button,
 .profit-trip-history-net strong {
   font-size: 16px;
   font-weight: 700;
+  font-variant-numeric: tabular-nums;
 }
 
 .profit-trip-history-net em {
@@ -264,6 +464,13 @@ button,
   align-self: center;
 }
 
+.profit-leg-inline-note {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 12px;
+  line-height: 1.45;
+}
+
 @media (max-width: 720px) {
   .daily-detail-summary {
     grid-template-columns: 1fr;
@@ -282,10 +489,23 @@ button,
     padding: 13px;
   }
 
-  .profit-trip-history-top,
+  .profit-trip-history-list {
+    padding: 0 10px 10px;
+  }
+
   .profit-trip-history-meta {
     flex-direction: column;
     align-items: flex-start;
+    gap: 6px;
+  }
+
+  .profit-day-summary {
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .profit-passenger-facts {
+    gap: 6px;
   }
 }
 
@@ -888,7 +1108,7 @@ button.profit-leg-action.is-ghost:hover:not(:disabled) {
 
 .profit-cost-toggle {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 4px;
   padding: 4px;
   border: 1px solid var(--border);
@@ -904,9 +1124,10 @@ button.profit-leg-action.is-ghost:hover:not(:disabled) {
   background: transparent;
   color: var(--text-muted);
   font: inherit;
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 700;
   line-height: 1.2;
+  overflow-wrap: anywhere;
   cursor: pointer;
   transition: background-color 0.15s ease, color 0.15s ease;
 }
@@ -930,6 +1151,18 @@ button.profit-leg-action.is-ghost:hover:not(:disabled) {
 .profit-cost-toggle button:disabled {
   cursor: not-allowed;
   opacity: 0.6;
+}
+
+/* Dar ekranda üç maliyet modeli alt alta tam genişlikte durur. */
+@media (max-width: 430px) {
+  .profit-cost-toggle {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .profit-cost-toggle button {
+    min-height: 44px;
+    font-size: 13px;
+  }
 }
 
 .profit-leg-form {
@@ -1099,10 +1332,37 @@ button.profit-leg-action.is-ghost:hover:not(:disabled) {
   line-height: 1.5;
 }
 
+.profit-action-list li {
+  align-items: stretch;
+  flex-direction: column;
+}
+
+.profit-action-list li > .profit-action-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
 .profit-action-list li .profit-leg-action {
-  flex: 0 0 auto;
-  min-height: 40px;
+  flex: 1 1 132px;
+  min-height: 42px;
   padding: 9px 14px;
+}
+
+@media (min-width: 720px) {
+  .profit-action-list li {
+    align-items: center;
+    flex-direction: row;
+  }
+
+  .profit-action-list li > .profit-action-buttons {
+    flex: 0 0 auto;
+    justify-content: flex-end;
+  }
+
+  .profit-action-list li .profit-leg-action {
+    flex: 0 0 auto;
+  }
 }
 
 @media (min-width: 600px) {

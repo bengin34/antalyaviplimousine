@@ -1,9 +1,16 @@
-import { useId, useState, type FormEvent, type ReactNode } from 'react'
+import { useEffect, useId, useState, type FormEvent, type ReactNode } from 'react'
 import { legCostModel } from '../../profit-loss-metrics.js'
 import type { Booking } from '../types'
 
-export type CostMode = 'own_vehicle' | 'sold_transfer'
+export type CostMode = 'own_vehicle' | 'sold_transfer' | 'no_cost'
 export type LegKey = 'outbound' | 'return'
+
+/** Maliyet modeli seçeneklerinin ekranda kullanılan adları. */
+export const COST_MODE_LABELS: Record<CostMode, string> = {
+  own_vehicle: 'Kendi aracımız',
+  sold_transfer: 'Satılan transfer',
+  no_cost: 'Maliyeti yok',
+}
 
 /**
  * Kâr/zarar ekranındaki bir seyahat ayağının kimliği. Motorun ürettiği ayak
@@ -21,7 +28,8 @@ export type SaveCostMode = (booking: Booking, leg: LegKey, nextMode: CostMode) =
 
 /** Ayağın kendi maliyet modeli; kâr/zarar motoruyla aynı kuralı kullanır. */
 export function legCostMode(booking: Booking | undefined, leg: LegKey): CostMode {
-  return booking && legCostModel(booking, leg).costMode === 'sold_transfer' ? 'sold_transfer' : 'own_vehicle'
+  const mode = booking ? legCostModel(booking, leg).costMode : 'own_vehicle'
+  return mode === 'sold_transfer' || mode === 'no_cost' ? mode : 'own_vehicle'
 }
 
 /** Ayağın maliyetinin yazıldığı sütunlar. */
@@ -55,11 +63,13 @@ function EditorPanel({ title, children }: { title: string; children: ReactNode }
   </div>
 }
 
-export function DistanceEditor({ leg, onSave, currentKm, triggerLabel, onSaved }: {
+export function DistanceEditor({ leg, onSave, currentKm, triggerLabel, autoOpen = false, onSaved }: {
   leg: ProfitLegRef
   onSave: SaveDistance
   currentKm?: number
   triggerLabel?: string
+  /** Uyarı listesindeki "KM gir" düğmesi satırı odaklarken düzenleyici kendiliğinden açılır. */
+  autoOpen?: boolean
   onSaved?: () => void
 }) {
   const hasKm = typeof currentKm === 'number' && currentKm > 0
@@ -74,6 +84,9 @@ export function DistanceEditor({ leg, onSave, currentKm, triggerLabel, onSaved }
     setError('')
     setEditing(true)
   }
+  useEffect(() => {
+    if (autoOpen) setEditing(true)
+  }, [autoOpen])
   const submit = async (event: FormEvent) => {
     event.preventDefault()
     const distanceKm = Number(value.replace(',', '.'))
@@ -192,24 +205,16 @@ export function CostModeToggle({ booking, leg, onSave, onNeedsCost }: {
   return <div className="profit-cost-toggle-field">
     <span className="profit-field-label" id={labelId}>{leg === 'return' ? 'Dönüş maliyet modeli' : 'Gidiş maliyet modeli'}</span>
     <div className="profit-cost-toggle" role="group" aria-labelledby={labelId}>
-    <button
-      className={current === 'own_vehicle' ? 'is-active' : ''}
-      type="button"
-      aria-pressed={current === 'own_vehicle'}
-      disabled={Boolean(savingMode) || locked}
-      onClick={() => void toggle('own_vehicle')}
-    >
-      {savingMode === 'own_vehicle' ? 'Kaydediliyor…' : 'Kendi aracımız'}
-    </button>
-    <button
-      className={current === 'sold_transfer' ? 'is-active' : ''}
-      type="button"
-      aria-pressed={current === 'sold_transfer'}
-      disabled={Boolean(savingMode) || locked}
-      onClick={() => void toggle('sold_transfer')}
-    >
-      {savingMode === 'sold_transfer' ? 'Kaydediliyor…' : 'Satılan transfer'}
-    </button>
+      {(Object.keys(COST_MODE_LABELS) as CostMode[]).map(mode => <button
+        key={mode}
+        className={current === mode ? 'is-active' : ''}
+        type="button"
+        aria-pressed={current === mode}
+        disabled={Boolean(savingMode) || locked}
+        onClick={() => void toggle(mode)}
+      >
+        {savingMode === mode ? 'Kaydediliyor…' : COST_MODE_LABELS[mode]}
+      </button>)}
     </div>
   </div>
 }
@@ -220,7 +225,7 @@ export function CostModeToggle({ booking, leg, onSave, onNeedsCost }: {
  * kendisi. Model "satılan transfer"e çevrilirken bedel zorunlu olduğu için
  * düzenleyici aynı yerden açılır.
  */
-export function LegCostControls({ booking, legRef, leg, legLabel, currentCostTry, isSoldTransfer, oneWayKm, onSaveDistance, onSaveCostMode, onSaveSupplierCost }: {
+export function LegCostControls({ booking, legRef, leg, legLabel, currentCostTry, isSoldTransfer, oneWayKm, autoOpenDistanceEditor = false, onSaveDistance, onSaveCostMode, onSaveSupplierCost }: {
   booking: Booking
   legRef: ProfitLegRef
   leg: LegKey
@@ -228,19 +233,23 @@ export function LegCostControls({ booking, legRef, leg, legLabel, currentCostTry
   currentCostTry: number
   isSoldTransfer: boolean
   oneWayKm?: number
+  autoOpenDistanceEditor?: boolean
   onSaveDistance: SaveDistance
   onSaveCostMode: SaveCostMode
   onSaveSupplierCost: SaveSupplierCost
 }) {
   const [editingCost, setEditingCost] = useState(false)
+  const isNoCost = legCostMode(booking, leg) === 'no_cost'
 
   return <>
-    {isSoldTransfer || editingCost
-      ? <SupplierCostEditor
-          booking={booking} leg={leg} legLabel={legLabel} currentCostTry={currentCostTry}
-          editing={editingCost} setEditing={setEditingCost} onSave={onSaveSupplierCost}
-        />
-      : <DistanceEditor leg={legRef} onSave={onSaveDistance} currentKm={oneWayKm} />}
+    {isNoCost && !editingCost
+      ? <p className="profit-leg-inline-note">Bu ayak “maliyeti yok” olarak işaretli; KM veya tedarikçi bedeli beklenmiyor.</p>
+      : isSoldTransfer || editingCost
+        ? <SupplierCostEditor
+            booking={booking} leg={leg} legLabel={legLabel} currentCostTry={currentCostTry}
+            editing={editingCost} setEditing={setEditingCost} onSave={onSaveSupplierCost}
+          />
+        : <DistanceEditor leg={legRef} onSave={onSaveDistance} currentKm={oneWayKm} autoOpen={autoOpenDistanceEditor} />}
     <CostModeToggle booking={booking} leg={leg} onSave={onSaveCostMode} onNeedsCost={() => setEditingCost(true)} />
   </>
 }
