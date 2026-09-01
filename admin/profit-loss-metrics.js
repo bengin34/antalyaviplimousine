@@ -936,3 +936,19 @@ export function buildProfitDistributionSnapshot(metrics = {}) {
 
   return JSON.parse(JSON.stringify(snapshot))
 }
+
+/**
+ * Aralığa düşen toplam reklamı (gün-payı) bacaklara kuruşu kuruşuna eşit böler.
+ * Toplam korunur; artık kuruşlar ilk bacaklara gider (allocateMoneyAmounts).
+ * Reklam yalnız gösterim/hesap katmanında; kayıtlı dağıtımları değiştirmez.
+ */
+export function attachAdvertisingPerLeg(legs, { advertisingExpenseEur = 0, advertisingExpenseTry = 0 } = {}) {
+  if (!Array.isArray(legs) || legs.length === 0) return []
+  const eurShares = allocateMoneyAmounts(advertisingExpenseEur, legs.length)
+  const tryShares = allocateMoneyAmounts(advertisingExpenseTry, legs.length)
+  return legs.map((leg, index) => ({
+    ...leg,
+    advertisingPerLegEur: eurShares[index] ?? 0,
+    advertisingPerLegTry: tryShares[index] ?? 0,
+  }))
+}
