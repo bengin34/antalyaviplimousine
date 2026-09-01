@@ -1411,6 +1411,7 @@ button.profit-leg-action.is-ghost:hover:not(:disabled) {
   border-radius: 10px;
   background: rgba(255, 255, 255, 0.03);
 }
+.ledger-card:nth-child(even) { background: rgba(255, 255, 255, 0.055); }
 .ledger-card-head {
   display: flex;
   justify-content: space-between;
@@ -1544,7 +1545,8 @@ button.profit-leg-action.is-ghost:hover:not(:disabled) {
   text-transform: uppercase;
   background: rgba(255, 255, 255, 0.02);
 }
-.ledger-table tbody tr:hover td { background: rgba(255, 255, 255, 0.02); }
+.ledger-table tbody tr:nth-child(even) td { background: rgba(255, 255, 255, 0.035); }
+.ledger-table tbody tr:hover td { background: rgba(115, 183, 255, 0.1); }
 .ledger-table td.is-pos { color: var(--green); font-weight: 700; }
 .ledger-table td.is-neg { color: var(--danger, #e5484d); font-weight: 700; }
 .ledger-subtotal td {
