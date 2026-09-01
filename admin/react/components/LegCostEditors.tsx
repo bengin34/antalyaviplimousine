@@ -46,6 +46,23 @@ export function legLabelFor(leg: unknown) {
   return 'Gidiş'
 }
 
+function isAirport(location: unknown) {
+  return String(location ?? '').trim().toLocaleLowerCase('tr-TR') === 'airport'
+}
+
+/**
+ * Yönü konuma göre belirler: varış havalimanı ve kalkış havalimanı değilse bu
+ * bir dönüş transferidir (tek yön kayıtlar leg anahtarı hep `outbound` olsa da).
+ * Dönüş ayağı ve "dönüş planla" kayıtları da dönüş sayılır; günlük hizmet gün adı.
+ */
+export function legDirectionLabel(booking: Booking | undefined, leg: unknown) {
+  if (typeof leg === 'string' && leg.startsWith('day-')) return `${leg.slice(4)}. gün`
+  if (leg === 'return') return 'Dönüş'
+  if (booking?.manual_return_of_ref) return 'Dönüş'
+  if (booking && isAirport(booking.dropoff_location) && !isAirport(booking.pickup_location)) return 'Dönüş'
+  return 'Gidiş'
+}
+
 /** Seyahat geçmişi satırının DOM kimliği; uyarı kartlarından buraya kaydırmak için kullanılır. */
 export function legTargetId(bookingId: string, leg: string) {
   return `profit-leg-${bookingId}-${leg}`
@@ -203,7 +220,7 @@ export function CostModeToggle({ booking, leg, onSave, onNeedsCost }: {
   }
 
   return <div className="profit-cost-toggle-field">
-    <span className="profit-field-label" id={labelId}>{leg === 'return' ? 'Dönüş maliyet modeli' : 'Gidiş maliyet modeli'}</span>
+    <span className="profit-field-label" id={labelId}>{legDirectionLabel(booking, leg)} maliyet modeli</span>
     <select
       className="profit-cost-mode-select"
       aria-labelledby={labelId}

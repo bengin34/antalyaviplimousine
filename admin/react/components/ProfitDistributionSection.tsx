@@ -5,7 +5,7 @@ import {
   LegCostControls,
   legCostColumns,
   legCostMode,
-  legLabelFor,
+  legDirectionLabel,
   toLegKey,
   type CostMode,
   type LegKey,
@@ -253,7 +253,7 @@ function BlockerCard({ blocker, booking, onSaveDistance, onSaveSupplierCost, onS
 }) {
   const details = (blocker.legDetails ?? {}) as Record<string, unknown>
   const legKey: LegKey = toLegKey(blocker.leg)
-  const legLabel = legLabelFor(blocker.leg)
+  const legLabel = legDirectionLabel(booking, blocker.leg)
   const isDailyChauffeur = Boolean(details.isDailyChauffeur)
   const bookingRef = String(blocker.bookingRef ?? '')
   const legRef: ProfitLegRef & { date?: string | null } = {

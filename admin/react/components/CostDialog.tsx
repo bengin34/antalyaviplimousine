@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { LegCostControls, legLabelFor, type CostMode, type LegKey } from './LegCostEditors'
+import { LegCostControls, legDirectionLabel, type CostMode, type LegKey } from './LegCostEditors'
 import { bookingLegCostStatus } from '../../profit-loss-metrics.js'
 import { saveLegDistance, saveLegSupplierCost, saveLegCostMode, saveLegMeetFee } from '../lib/leg-cost-actions'
 import type { Booking } from '../types'
@@ -11,7 +11,7 @@ export default function CostDialog({ booking: initial, leg, today, onClose, onSa
   const apply = (patch: Partial<Booking>) => setBooking(prev => { const next = { ...prev, ...patch }; onSaved(next); return next })
   const status = bookingLegCostStatus(booking, leg, today)
   const legRef = { bookingId: booking.id, bookingRef: booking.booking_ref, leg }
-  const legLabel = legLabelFor(leg)
+  const legLabel = legDirectionLabel(booking, leg)
   const oneWayKm = leg === 'return' ? booking.manual_return_distance_km : booking.manual_outbound_distance_km
   const currentCostTry = Number(leg === 'return' ? booking.return_sold_transfer_cost_try : booking.sold_transfer_cost_try) || 0
 
