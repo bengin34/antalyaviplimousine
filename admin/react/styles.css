@@ -1560,3 +1560,13 @@ button.profit-leg-action.is-ghost:hover:not(:disabled) {
   border: 1px dashed var(--border-soft);
   border-radius: 12px;
 }
+
+/* Masaüstünde .profit-content, .budget-content'in 12 sütunlu gridini miras alır;
+   yeni dashboard tek sütun dikey yığın olduğundan tüm bölümler tam genişlik. */
+@media (min-width: 1100px) {
+  .profit-content > .profit-kpi-strip,
+  .profit-content > .profit-distribution-section,
+  .profit-content > .profit-snapshot-note,
+  .profit-content > .ledger,
+  .profit-content > .profit-expandable { grid-column: 1 / -1; }
+}
