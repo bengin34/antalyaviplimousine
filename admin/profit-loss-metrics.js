@@ -1,4 +1,6 @@
 import { routeEdges } from '../src/routes.js'
+import { hotelDistanceKm } from '../src/hotel-distance-lookup.js'
+import { hotelDistances } from '../src/hotel-distances.js'
 
 export const DEFAULT_KM_COST_TRY = 15
 export const DEFAULT_EUR_TRY_RATE = 50
@@ -486,6 +488,17 @@ function manualDistanceForLeg(booking, leg) {
   return Number.isFinite(distance) && distance > 0 ? distance : null
 }
 
+// One-way km for an airport↔hotel leg, from the hotel the booking names. The
+// per-hotel distance is measured from AYT, so it only applies when the other
+// endpoint is the airport; any other pairing falls through to the region graph.
+function hotelDistanceForLeg(booking, leg) {
+  const from = normalizeLocation(leg.from)
+  const to = normalizeLocation(leg.to)
+  const hotelSide = from === 'hotel' ? to === 'airport' : to === 'hotel' && from === 'airport'
+  if (!hotelSide) return null
+  return hotelDistanceKm(booking.hotel_name, hotelDistances)
+}
+
 export function resolveRealizedLegs(bookings, today, settingsByMonth = {}, ratesByDate = null) {
   const resolvedLegs = []
   const unresolvedLegs = []
@@ -495,7 +508,8 @@ export function resolveRealizedLegs(bookings, today, settingsByMonth = {}, rates
       if (!isRealizedLeg(booking, leg.date, today, leg.legStatus)) continue
 
       const manualDistanceKm = manualDistanceForLeg(booking, leg.leg)
-      const oneWayKm = manualDistanceKm ?? fixedRouteDistanceKm(leg.from, leg.to)
+      const hotelDistanceKmValue = manualDistanceKm == null ? hotelDistanceForLeg(booking, leg) : null
+      const oneWayKm = manualDistanceKm ?? hotelDistanceKmValue ?? fixedRouteDistanceKm(leg.from, leg.to)
       const legDetails = {
         ...leg,
         bookingId: booking.id,
@@ -550,7 +564,7 @@ export function resolveRealizedLegs(bookings, today, settingsByMonth = {}, rates
         vehicleKm,
         vehicleCostTry: vehicleKm * settings.kmCostTry,
         supplierCostTry: 0,
-        distanceSource: manualDistanceKm === null ? 'fixed' : 'manual',
+        distanceSource: manualDistanceKm != null ? 'manual' : hotelDistanceKmValue != null ? 'hotel' : 'fixed',
       })
     }
   }
