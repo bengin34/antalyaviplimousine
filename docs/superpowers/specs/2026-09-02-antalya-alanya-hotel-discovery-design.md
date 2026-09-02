@@ -209,7 +209,8 @@ Source-status conflicts are explicit:
   `unverified-ministry`, not `missing`;
 - an active Ministry row confidently matched to a Google result whose status is
   temporarily or permanently closed goes to `status-conflicts` and is excluded
-  from `missing`;
+  from `missing`, unless it already matches a current-index hotel—in that case
+  the current-index `known` rule takes precedence;
 - an `OPERATIONAL` Google Place ID with no Ministry match goes to
   `google-unmatched-place-ids`; and
 - a current-index hotel remains `known` regardless of whether this run finds a
@@ -316,7 +317,9 @@ Vitest coverage uses saved fixtures and no live API calls:
 - a 19-result cell finishes and a 20-result cell subdivides;
 - minimum-size saturation is reported, not discarded;
 - overlapping results deduplicate by Place ID;
-- only `hotel`/`resort_hotel` and `OPERATIONAL` records survive;
+- only `hotel`/`resort_hotel` records with `OPERATIONAL` status can survive as
+  missing candidates, while closed statuses remain transiently available for
+  the conflict report;
 - Ministry parser includes active hotel/holiday-village rows and excludes the
   agreed out-of-scope types/statuses;
 - exact Place ID and alias matches classify as known;
