@@ -1386,6 +1386,10 @@ function BookingForm({
 }) {
   const { language, t } = useLanguage();
   const schema = useMemo(() => createPublicBookingSchema(t), [t]);
+  const destinationSlugs = useMemo(() => {
+    const nameFor = (slug) => routeCatalog[slug].names[language] ?? routeCatalog[slug].names.en;
+    return [...publicRouteSlugs].sort((a, b) => nameFor(a).localeCompare(nameFor(b), language));
+  }, [language]);
   const [step, setStep] = useState(1);
   const [minimumDate, setMinimumDate] = useState("");
   const [submitting, setSubmitting] = useState(false);
@@ -1683,7 +1687,7 @@ function BookingForm({
                 /* @__PURE__ */ jsxs("select", { id: "destination", ...register("destination"), children: [
                   /* @__PURE__ */ jsx("option", { value: "", children: t("selectDestination", "Select destination") }),
                   values.pickup !== "airport" && /* @__PURE__ */ jsx("option", { value: "airport", children: t("airportOption", "Antalya Airport (AYT)") }),
-                  publicRouteSlugs.map((slug) => /* @__PURE__ */ jsx("option", { value: slug, children: routeCatalog[slug].names[language] ?? routeCatalog[slug].names.en }, slug)),
+                  destinationSlugs.map((slug) => /* @__PURE__ */ jsx("option", { value: slug, children: routeCatalog[slug].names[language] ?? routeCatalog[slug].names.en }, slug)),
                   /* @__PURE__ */ jsx("option", { value: "private_address", children: t("privateAddressOption", "Private address") })
                 ] })
               ] }),
