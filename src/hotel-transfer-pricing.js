@@ -33,3 +33,17 @@ export function bandUnitPrice(km, vehicle) {
   const vito = band ? band[1] : targetUnitPrice(km);
   return vehicle === "sprinter" ? roundUp5(vito * SPRINTER_MULTIPLIER) : vito;
 }
+
+/**
+ * Banded unit price for a hotel, floored by the price the guest sees today.
+ *
+ * `currentUnitPrice` is the effective price the caller would otherwise quote —
+ * the admin live override if any, else the static region price. The result is
+ * never below it, so no quote is lowered. A hotel that matches nothing, or a
+ * matched hotel with no seeded distance, yields `currentUnitPrice` unchanged.
+ */
+export function hotelUnitPrice(hotelName, vehicle, currentUnitPrice, distances = hotelDistances) {
+  const km = hotelDistanceKm(hotelName, distances);
+  const band = bandUnitPrice(km, vehicle);
+  return band == null ? currentUnitPrice : Math.max(band, currentUnitPrice);
+}
