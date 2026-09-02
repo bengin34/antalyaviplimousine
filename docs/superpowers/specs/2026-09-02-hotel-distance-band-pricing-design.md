@@ -38,10 +38,11 @@ nearest €5, then floored by the price the guest would pay today.
 This is the "2× one-way" margin target the owner chose: it assumes the vehicle
 is not driven empty on the return (a return-day passenger shares the leg), so
 `0.30 × km + 5` is treated as the effective one-way cost and doubled. Against the
-conservative round-trip cost it yields an 8–38 % margin; against the empty-return
-assumption it approaches 100 %. **This trade was chosen deliberately for
-competitiveness — a strict 2× of the full round-trip cost pushed Kemer to €115
-and Alanya to €190.**
+conservative round-trip cost it yields a positive margin on every hotel —
+guaranteed ≥ €5 per leg at the band edges (~12 % worst case), higher mid-band;
+against the empty-return assumption it approaches 100 %. **This trade was chosen
+deliberately for competitiveness — a strict 2× of the full round-trip cost pushed
+Kemer to €115 and Alanya to €190.**
 
 ### Non-negotiable floor
 
@@ -99,36 +100,62 @@ Pure, dependency-light, no DOM/network. Testable in isolation.
 - `hotelUnitPrice(hotelName, vehicle, currentUnitPrice)` — looks up the hotel's
   km via `hotelDistanceKm` (existing `src/hotel-distance-lookup.js` +
   `src/hotel-distances.js`), computes the band price, returns
-  `max(band, currentUnitPrice)`. If the hotel has no distance (unknown hotel),
-  returns `currentUnitPrice` unchanged — never a lower quote.
+  `max(band, currentUnitPrice)`. `hotelDistanceKm` returns `null` in **two**
+  cases — the name matched nothing, *or* it matched a hotel with no seeded
+  distance. In either case, and for any non-finite band, the function returns
+  `currentUnitPrice` unchanged — never a lower quote.
 
 **Dependencies:** `hotelDistanceKm`, `hotelDistances`. No route/region data — the
 caller passes the current unit price so the module stays agnostic about where the
-floor comes from (static catalogue or admin override).
+floor comes from (static catalogue or admin override). Because the cost model is
+per-km and vehicle-agnostic (same `oneWayKm × 2` for Vito and Sprinter), the
+Sprinter band — `roundUp5(vito × 1.7)` — is always `> vito ≥ true cost`, so it
+clears cost automatically.
 
 ### Integration — `public-app/app/lib/booking.ts` `quoteFor()`
 
 `quoteFor` currently computes `unitPrice = liveUnitPrice ?? route.prices[vehicle]`.
-Change: after resolving that effective unit price, and only for an airport leg
-where a hotel is matched, run it through `hotelUnitPrice(hotelName, vehicle,
-effectiveUnitPrice)`. `journeys` (×2 for round-trip) still multiplies the result.
+Change: after resolving that effective unit price, run it through
+`hotelUnitPrice(hotelName, vehicle, effectiveUnitPrice)`, then multiply:
 
-`quoteFor`'s `values` gains `hotelName` (already present on
-`PublicBookingValues`; `BookingForm` already tracks the matched hotel). The
-band price only applies when `pricedRouteSlug` resolved a region *and* a hotel
-name is present — i.e. the same guarded path that fills `hotelRegion` today.
+```
+finalUnit = hotelUnitPrice(hotelName, vehicle, effectiveUnitPrice)
+price     = journeys × finalUnit          // journeys = 2 for round-trip
+```
+
+The floor is applied to the **per-leg unit price**, then multiplied by
+`journeys` — never floor the round-trip total.
+
+**Both transfer directions get the band.** `pricedRouteSlug` (booking.ts:132)
+resolves a region in two cases, and both are airport↔hotel transfers priced on
+the hotel:
+- `destination === "airport"` → region from `hotelRegion` (hotel→airport).
+- `destination === <region>` → airport→hotel arrival (the more common case).
+
+The band applies whenever `pricedRouteSlug` resolved a region *and* `hotelName`
+resolves to a known distance — mirroring `hotelDistanceForLeg` in
+profit-loss-metrics.js:497, which accepts the hotel on either endpoint. Applying
+it to only one direction would leave arrivals at the flat region price.
+
+**Type change:** `quoteFor`'s parameter is a narrowed
+`Pick<PublicBookingValues, ...>` (booking.ts:138) that does **not** currently
+include `hotelName`. Widen the `Pick` to add `"hotelName"`. (`hotelName` already
+exists on `PublicBookingValues` and `BookingForm` already tracks the matched
+hotel.)
 
 `originalPrice` (the struck-through "was" price) stays region-based so the
 discount framing is unaffected; only the live price is raised.
 
 ## Error handling / edge cases
 
-- **Unknown hotel** (typed, not matched, no distance): no band applied, region
-  price stands. No regression, no low quote.
+- **Unmatched hotel** (typed string matches no index entry): `hotelDistanceKm`
+  returns `null`, no band applied, region price stands.
+- **Matched hotel with no seeded distance**: `hotelDistanceKm` also returns
+  `null` — same safe fallback to region price.
 - **Admin live override below band**: band wins (raises), still ≥ override floor
   because floor = `max(band, override)`.
 - **Admin live override above band**: override wins — never lowered.
-- **Round-trip**: `journeys × finalUnit`, unchanged multiplication.
+- **Round-trip**: `journeys × finalUnit`, floor applied per-leg before multiply.
 - **Daily chauffeur**: untouched (priced by day, not by route).
 - **km beyond table**: direct formula, no cap.
 
@@ -141,15 +168,22 @@ New `src/hotel-transfer-pricing.test.js`:
 2. **Sprinter derivation** — `= roundUp5(vito × 1.7)` at sample bands.
 3. **Floor** — when band < current unit price, current wins; when band >
    current, band wins.
-4. **Unknown hotel** — returns current unit price unchanged.
-5. **Whole-index guard** — for every indexed hotel, final Vito & Sprinter price
+4. **Unmatched hotel** — returns current unit price unchanged.
+5. **Matched hotel, no seeded distance** — `hotelDistanceKm` → `null`, returns
+   current unit price unchanged.
+6. **Whole-index guard** — for every indexed hotel, final Vito & Sprinter price
    ≥ true cost `0.60 × km + 5` (0 loss-makers) **and** ≥ current region price
    (never undercuts today).
+7. **Margin invariant** — every band price ≥ `0.60 × maxKm + 5`, locking the
+   ≥ €5 worst-case margin against future band-table edits.
 
 Extend `public-app` booking tests (or `booking.ts` unit tests if present):
 
-6. `quoteFor` with a matched far hotel returns the band price × journeys.
-7. `quoteFor` with an unknown hotel returns the region price (regression guard).
+8. `quoteFor` airport→hotel (`destination = <region>`) with a matched far hotel
+   returns the band price × journeys.
+9. `quoteFor` hotel→airport (`destination = "airport"`, `hotelRegion` set) with
+   the same hotel returns the same band price — proves both directions get it.
+10. `quoteFor` with an unmatched hotel returns the region price (regression guard).
 
 ## Out of scope
 
