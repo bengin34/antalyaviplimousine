@@ -47,6 +47,22 @@ The scan covers these continuous tourism corridors:
 Kaş, Kalkan, Finike, Kumluca, Adrasan, inland Antalya, and areas east of
 Demirtaş are outside this job.
 
+The initial implementation uses this explicit union of WGS84 rectangles. The
+coordinates are discovery bounds, not pricing-region boundaries:
+
+| Corridor segment | South | West | North | East |
+| --- | ---: | ---: | ---: | ---: |
+| Kemer coast (Tekirova–Beldibi) | 36.45 | 30.40 | 36.78 | 30.68 |
+| Antalya coast (Konyaaltı–Kundu) | 36.80 | 30.50 | 36.97 | 30.99 |
+| Belek–Boğazkent | 36.78 | 30.97 | 36.92 | 31.25 |
+| Side–Kızılot | 36.68 | 31.20 | 36.86 | 31.65 |
+| Alanya west | 36.55 | 31.55 | 36.72 | 31.98 |
+| Alanya centre–Demirtaş | 36.35 | 31.90 | 36.62 | 32.30 |
+
+Overlaps are intentional. A fixture list with one known hotel point per named
+district guards against accidental gaps. Changing these bounds later is a
+reviewed configuration change and does not alter commercial region mappings.
+
 ### Establishments
 
 Include only currently operating classic hotels and resorts:
@@ -122,9 +138,12 @@ This module performs no filesystem or network operations.
 ### `scripts/hotel-discovery-zones.mjs`
 
 Human-readable geographic configuration for the tourism corridors. Root cells
-tile the corridor with overlap. Each logical square is queried through the
-smallest Nearby Search circle that fully contains it; results outside the
-logical square/corridor are discarded after the response. This avoids holes
+are 2,000 metre logical squares aligned to each corridor rectangle's southwest
+corner. They tile the corridor, including a clipped final row/column. Each
+logical square is queried through the smallest Nearby Search circle that fully
+contains it (approximately 1,414 metres radius for a full root square); results
+outside the logical square/corridor are discarded after the response. Adjacent
+query circles overlap, while the logical squares do not. This avoids holes
 while allowing Google’s circle-only location restriction.
 
 The configuration is discovery geography only. It must not assign pricing
@@ -156,13 +175,15 @@ CLI orchestrator that:
    "resort_hotel"]`, `maxResultCount: 20`, `includeFutureOpeningBusinesses:
    false`, and only the minimal Pro field mask required for identity, filtering,
    and review.
-2. Retain only results inside the logical corridor and whose business status is
-   `OPERATIONAL`.
+2. Discard results outside the logical corridor. Keep returned status only in
+   the transient checkpoint so Ministry conflicts can be classified; only
+   `OPERATIONAL` records are eligible for missing candidates.
 3. If the API returned fewer than 20 results, mark the cell complete.
 4. If the API returned exactly 20 results, treat the cell as saturated, split
    it into four children, and queue the children.
-5. Continue until every cell is unsaturated, the minimum cell size is reached,
-   or the request budget is exhausted.
+5. Continue through 1,000 m, 500 m, and 250 m logical squares until every cell
+   is unsaturated, the 250 m minimum cell size is reached, or the request
+   budget is exhausted.
 6. A cell still returning 20 results at minimum size is recorded as residual
    saturation; it is never silently marked complete.
 
@@ -179,7 +200,20 @@ Matching proceeds from strongest to weakest evidence:
    known;
 4. near match, multiple plausible matches, or conflicting identities → possible
    duplicate; and
-5. active Ministry hotel with no current-index match → missing.
+5. active Ministry hotel, matched to an `OPERATIONAL` Google result, with no
+   current-index match → missing.
+
+Source-status conflicts are explicit:
+
+- an active Ministry row with no confident Google match goes to
+  `unverified-ministry`, not `missing`;
+- an active Ministry row confidently matched to a Google result whose status is
+  temporarily or permanently closed goes to `status-conflicts` and is excluded
+  from `missing`;
+- an `OPERATIONAL` Google Place ID with no Ministry match goes to
+  `google-unmatched-place-ids`; and
+- a current-index hotel remains `known` regardless of whether this run finds a
+  Google match, because this phase does not remove or deactivate existing rows.
 
 Fuzzy matching may only route a row to `possible-duplicates`; it must never
 silently suppress a candidate as known. Thresholds are constants documented by
@@ -191,6 +225,8 @@ Persistent outputs:
 - `scripts/hotel-discovery/missing-hotels.csv`
 - `scripts/hotel-discovery/possible-duplicates.json`
 - `scripts/hotel-discovery/known-hotels.json`
+- `scripts/hotel-discovery/unverified-ministry.json`
+- `scripts/hotel-discovery/status-conflicts.json`
 - `scripts/hotel-discovery/google-unmatched-place-ids.json`
 - `scripts/hotel-discovery/coverage-report.json`
 
@@ -222,6 +258,10 @@ npm run discover:hotels -- --cleanup-cache
   including retries and failures.
 - Progress is printed at least every 100 calls and includes calls used/limit,
   unique places, missing candidates, saturated cells, and estimated price.
+- Optional `--remaining-free-calls <0..5000>` supplies the operator's current
+  Nearby Search Pro allowance from Billing Console. It is persisted in the
+  checkpoint/report and used only for an estimate. If omitted, the estimated
+  post-cap charge is `null` rather than assuming all 5,000 free calls remain.
 
 Nearby Search Pro currently has a monthly free usage cap of 5,000 requests and
 a list price of USD 32 per 1,000 requests after the cap. The report must not
@@ -245,6 +285,11 @@ configured remaining-free-call input. Billing Console remains authoritative.
 - Reaching 4,500 calls stops cleanly. Remaining queued cells and residual
   saturation are reported; partial output is clearly labelled incomplete.
 
+Exit codes are stable: `0` means complete coverage and reconciled reports; `2`
+means a valid but incomplete run (budget exhausted, failed cells, queued cells,
+or residual saturation); and `1` means a fatal configuration, authentication,
+authorization, parsing, or filesystem error.
+
 ## Observability
 
 `coverage-report.json` includes:
@@ -253,7 +298,8 @@ configured remaining-free-call input. Billing Console remains authoritative.
 - total attempts, successful calls, failed calls, and request limit;
 - root, split, completed, failed, queued, and residually saturated cell counts;
 - unique operational Place IDs discovered;
-- known, missing, possible-duplicate, and unmatched-Place-ID counts; and
+- known, missing, possible-duplicate, unverified-Ministry, status-conflict, and
+  unmatched-Place-ID counts; and
 - raw list-price exposure plus the configured free-cap estimate.
 
 The operator can independently verify traffic in Google Cloud Console under
@@ -275,7 +321,9 @@ Vitest coverage uses saved fixtures and no live API calls:
   agreed out-of-scope types/statuses;
 - exact Place ID and alias matches classify as known;
 - fuzzy or ambiguous names classify only as possible duplicates;
-- an unmatched active Ministry row classifies as missing;
+- an unmatched active Ministry row classifies as `unverified-ministry`;
+- an active Ministry row becomes missing only when an `OPERATIONAL` Google
+  identity confirms it, otherwise it becomes unverified or a status conflict;
 - retries consume the budget and the 4,500 limit stops further requests;
 - checkpoint resume does not repeat completed cells; and
 - report totals reconcile with the classified output rows.
@@ -295,7 +343,8 @@ The discovery phase is complete when:
 4. every persistent hotel name has Ministry or independent first-party
    provenance;
 5. Google-derived persistent data is limited to allowed Place IDs;
-6. missing, known, possible-duplicate, and coverage artifacts reconcile; and
+6. missing, known, possible-duplicate, unverified, status-conflict, and coverage
+   artifacts reconcile; and
 7. no production index, region, price, route, or distance file changed.
 
 ## Follow-on work
