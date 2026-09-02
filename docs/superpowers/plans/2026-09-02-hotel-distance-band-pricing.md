@@ -180,7 +180,11 @@ describe("hotelUnitPrice", () => {
   });
 
   test("returns today's price for a matched hotel with no seeded distance", () => {
-    expect(hotelUnitPrice("no km hotel", "vito", 50, { "no-km-hotel": { km: null } })).toBe(50);
+    // A real hotel name that resolves to slug caner-mountain-hotel, but injected
+    // with a null distance — exercises the matched-but-no-km branch (distinct
+    // from the unmatched-name branch above). Every real hotel currently HAS a
+    // distance, so the null case must be forced via the fixture.
+    expect(hotelUnitPrice("Caner Mountain Hotel", "vito", 50, { "caner-mountain-hotel": { km: null } })).toBe(50);
   });
 
   test("never quotes below true cost for any indexed hotel (Vito and Sprinter)", () => {
@@ -202,7 +206,12 @@ describe("hotelUnitPrice", () => {
 });
 ```
 
-Note: `"no km hotel"` must resolve via the form matcher to slug `no-km-hotel`. If the matcher does not resolve that free-text string, use a real indexed hotel whose seeded distance is null instead (find one with: `hotelIndex.find(h => hotelDistanceKm(h.name, hotelDistances) == null)`), and assert it returns the passed price.
+Note: the matched-but-no-km test must exercise the branch where a name *resolves*
+to a hotel but that hotel's distance is null. All 871 indexed hotels currently
+have a distance, so this branch can only be reached by matching a real name while
+injecting a fixture that maps its slug to `{ km: null }` (as written above with
+`Caner Mountain Hotel` → `{ "caner-mountain-hotel": { km: null } }`). Do not try
+to find a real null-distance hotel — there are none.
 
 - [ ] **Step 2: Run test to verify it fails**
 
