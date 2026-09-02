@@ -1,5 +1,5 @@
 import { describe, expect, test } from 'vitest'
-import { buildCustomerMatchCsv } from './pages/AdminPanelPage'
+import { buildCustomerMatchCsv, buildHotelNamesList } from './pages/AdminPanelPage'
 import { validateBookingForm, type BookingFormState } from './pages/NewBookingPage'
 import { buildMonthCalendar, expandRoundTrips, shiftCalendarMonth } from './pages/timeline-logic'
 import type { Booking } from './types'
@@ -225,5 +225,18 @@ describe('React admin migration behavior', () => {
     ])
     expect(result.count).toBe(1)
     expect(result.csv).toContain('ayse@example.com,+905551112233,Ayşe,Yılmaz')
+  })
+
+  test('hotel list dedupes, sorts and keeps only names', () => {
+    const result = buildHotelNamesList([
+      { name: 'Zzz Otel' }, { name: 'Amara Prestige' }, { name: ' Amara Prestige ' }, { name: '' },
+    ])
+    expect(result.count).toBe(2)
+    expect(result.text).toBe('Amara Prestige\r\nZzz Otel')
+  })
+
+  test('hotel list defaults to the full index', () => {
+    const result = buildHotelNamesList()
+    expect(result.count).toBeGreaterThan(100)
   })
 })

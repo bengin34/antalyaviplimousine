@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Topbar } from '../components/AdminChrome'
 import { supabase } from '../lib/supabase'
 import { todayISO } from '../lib/format'
+import { hotelIndex } from '../../../src/hotel-index.js'
 import type { Navigate } from '../types'
 
 function toE164(phone: unknown) {
@@ -40,6 +41,24 @@ export function buildCustomerMatchCsv(bookings: Array<Record<string, unknown>>) 
   return { csv: [['Email', 'Phone Number', 'First Name', 'Last Name', 'Country', 'Zip'].join(','), ...rows].join('\r\n'), count: rows.length }
 }
 
+export function buildHotelNamesList(hotels: ReadonlyArray<{ name: string }> = hotelIndex) {
+  const names = [...new Set(hotels.map((hotel) => hotel.name.trim()).filter(Boolean))]
+    .sort((a, b) => a.localeCompare(b, 'tr'))
+  return { text: names.join('\r\n'), count: names.length }
+}
+
+function downloadTextFile(content: string, filename: string, mime = 'text/plain;charset=utf-8;') {
+  const blob = new Blob([content], { type: mime })
+  const url = URL.createObjectURL(blob)
+  const anchor = document.createElement('a')
+  anchor.href = url
+  anchor.download = filename
+  document.body.appendChild(anchor)
+  anchor.click()
+  anchor.remove()
+  URL.revokeObjectURL(url)
+}
+
 function downloadCsv(csv: string, filename: string) {
   const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' })
   const url = URL.createObjectURL(blob)
@@ -68,6 +87,13 @@ export default function AdminPanelPage({ navigate }: { navigate: Navigate }) {
     setSuccess(`${result.count} müşteri indirildi.`)
   }
 
+  const downloadHotels = () => {
+    setError(''); setSuccess('')
+    const result = buildHotelNamesList()
+    downloadTextFile(result.text, `otel-listesi-${todayISO()}.txt`)
+    setSuccess(`${result.count} otel adı indirildi.`)
+  }
+
   return <>
     <Topbar navigate={navigate} title="Yönetici Paneli" back="#timeline" />
     <div className="scroll-area">
@@ -93,6 +119,15 @@ export default function AdminPanelPage({ navigate }: { navigate: Navigate }) {
         <button className="btn" type="button" disabled={loading} onClick={download}>{loading ? 'Hazırlanıyor…' : 'Google Ads listesini indir'}</button>
         <div className="inline-success" role="status">{success}</div>
         <div className="inline-error">{error}</div>
+      </div>
+      <div className="section">
+        <div className="section-label">Oteller</div>
+        <div style={{ fontWeight: 600, marginBottom: 4 }}>Otel listesi</div>
+        <div style={{ color: 'var(--text-muted)', fontSize: 13, lineHeight: 1.5, marginBottom: 12 }}>
+          Rezervasyon formundaki tüm otel adlarını, her satırda bir otel olacak şekilde düz metin (.txt)
+          dosyası olarak indirir. Yalnızca otel adları; tekrar edenler ayıklanır, alfabetik sıralanır.
+        </div>
+        <button className="btn" type="button" onClick={downloadHotels}>Otel listesini indir</button>
       </div>
     </div>
   </>
