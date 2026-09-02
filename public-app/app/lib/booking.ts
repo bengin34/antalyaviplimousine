@@ -151,13 +151,16 @@ export function quoteFor(
   const journeys = values.tripType === "round_trip" ? 2 : 1;
   const liveUnitPrice = overrides?.routePrices?.[`${slug}:${values.vehicle}`];
   const effectiveUnitPrice = liveUnitPrice ?? route.prices[values.vehicle];
-  // Floor the region price by the hotel's own distance band. Applies to both
-  // directions: `slug` is resolved whether the guest arrives at (destination =
-  // region) or leaves (destination = "airport", hotelRegion set) the hotel.
+  // Floor both the live price and the struck-through "was" price by the hotel's
+  // own distance band. Applies to both directions: `slug` resolves whether the
+  // guest arrives at (destination = region) or leaves (destination = "airport",
+  // hotelRegion set) the hotel. Flooring originalPrice too keeps it ≥ price, so
+  // the discount never inverts when a distant hotel is banded above its region.
   const unitPrice = hotelUnitPrice(values.hotelName, values.vehicle, effectiveUnitPrice);
+  const originalUnitPrice = hotelUnitPrice(values.hotelName, values.vehicle, route.originalPrices[values.vehicle]);
   return {
     price: unitPrice * journeys,
-    originalPrice: route.originalPrices[values.vehicle] * journeys,
+    originalPrice: originalUnitPrice * journeys,
   };
 }
 

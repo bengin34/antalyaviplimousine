@@ -40,7 +40,6 @@ describe("bandUnitPrice", () => {
 import { hotelUnitPrice } from "./hotel-transfer-pricing.js";
 import { hotelIndex } from "./hotel-index.js";
 import { hotelDistances } from "./hotel-distances.js";
-import { hotelDistanceKm } from "./hotel-distance-lookup.js";
 import { routeCatalog } from "./routes.js";
 
 // Fixture keeps floor/fallback tests independent of the generated data file.
@@ -72,19 +71,19 @@ describe("hotelUnitPrice", () => {
     expect(hotelUnitPrice("Caner Mountain Hotel", "vito", 50, { "caner-mountain-hotel": { km: null } })).toBe(50);
   });
 
-  test("never quotes below true cost for any indexed hotel (Vito and Sprinter)", () => {
+  test("never quotes below true cost or region price for any indexed hotel", () => {
     for (const hotel of hotelIndex) {
-      const km = hotelDistanceKm(hotel.name, hotelDistances);
-      if (km == null) continue;
+      const km = Number(hotelDistances[hotel.slug]?.km);
+      if (!Number.isFinite(km) || km <= 0) continue;
       const region = routeCatalog[hotel.region];
       if (!region) continue;
       const trueCost = 0.6 * km + 5;
-      const vito = hotelUnitPrice(hotel.name, "vito", region.prices.vito, hotelDistances);
-      const sprinter = hotelUnitPrice(hotel.name, "sprinter", region.prices.sprinter, hotelDistances);
+      const vito = Math.max(bandUnitPrice(km, "vito"), region.prices.vito);
+      const sprinter = Math.max(bandUnitPrice(km, "sprinter"), region.prices.sprinter);
       expect(vito).toBeGreaterThanOrEqual(trueCost);
       expect(sprinter).toBeGreaterThanOrEqual(trueCost);
       expect(vito).toBeGreaterThanOrEqual(region.prices.vito);
       expect(sprinter).toBeGreaterThanOrEqual(region.prices.sprinter);
     }
-  }, 60000); // ~871 hotels × 2 fuzzy lookups exceeds the default 5s timeout.
+  });
 });

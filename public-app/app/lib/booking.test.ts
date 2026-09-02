@@ -85,3 +85,19 @@ describe("per-hotel band pricing", () => {
     expect(quoteFor({ ...base, destination: "side" }).price).toBe(50);
   });
 });
+
+describe("original price never inverts below the floored live price", () => {
+  test("a band-raised hotel keeps originalPrice at or above price", () => {
+    // Sunprime C-Lounge: band raises Vito to €100; region original (alanya_merkez) is €85.
+    // originalPrice must be floored up to at least the live price, never below it.
+    const q = quoteFor({ ...base, destination: "alanya_merkez", hotelName: "Sunprime C-Lounge", vehicle: "vito" as const });
+    expect(q.originalPrice).toBeGreaterThanOrEqual(q.price);
+  });
+
+  test("an unchanged hotel keeps its original discount framing", () => {
+    // base: side region, unmatched hotel -> price 50, originalPrice 60 (unchanged)
+    const q = quoteFor({ ...base, destination: "side" });
+    expect(q.price).toBe(50);
+    expect(q.originalPrice).toBe(60);
+  });
+});
