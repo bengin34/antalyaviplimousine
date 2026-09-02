@@ -1,6 +1,7 @@
 import { parsePhoneNumberFromString } from "libphonenumber-js";
 import { z } from "zod";
 import { routeCatalog } from "../../../src/routes.js";
+import { hotelUnitPrice } from "../../../src/hotel-transfer-pricing.js";
 
 type Translate = (key: string, fallback?: string) => string;
 export const DAILY_CHAUFFEUR_RATE_EUR = 150;
@@ -135,7 +136,7 @@ export function pricedRouteSlug(values: Pick<PublicBookingValues, "destination" 
 }
 
 export function quoteFor(
-  values: Pick<PublicBookingValues, "destination" | "hotelRegion" | "vehicle" | "tripType" | "travelDate" | "serviceEndDate">,
+  values: Pick<PublicBookingValues, "destination" | "hotelRegion" | "hotelName" | "vehicle" | "tripType" | "travelDate" | "serviceEndDate">,
   overrides?: LivePriceOverrides,
 ) {
   if (values.tripType === "daily_chauffeur") {
@@ -149,7 +150,11 @@ export function quoteFor(
   if (!route) return { price: 0, originalPrice: 0 };
   const journeys = values.tripType === "round_trip" ? 2 : 1;
   const liveUnitPrice = overrides?.routePrices?.[`${slug}:${values.vehicle}`];
-  const unitPrice = liveUnitPrice ?? route.prices[values.vehicle];
+  const effectiveUnitPrice = liveUnitPrice ?? route.prices[values.vehicle];
+  // Floor the region price by the hotel's own distance band. Applies to both
+  // directions: `slug` is resolved whether the guest arrives at (destination =
+  // region) or leaves (destination = "airport", hotelRegion set) the hotel.
+  const unitPrice = hotelUnitPrice(values.hotelName, values.vehicle, effectiveUnitPrice);
   return {
     price: unitPrice * journeys,
     originalPrice: route.originalPrices[values.vehicle] * journeys,
