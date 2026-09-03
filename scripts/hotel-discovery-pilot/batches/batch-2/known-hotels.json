@@ -1,0 +1,2312 @@
+[
+  {
+    "certificateNo": "2022-7-1166",
+    "name": "ACROPOL BEACH HOTEL",
+    "documentType": "Basit Konaklama",
+    "facilityType": "OTEL",
+    "facilityClass": null,
+    "city": "ANTALYA",
+    "district": "KONYAALTI",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "15655",
+    "name": "ADALYA ELİTE LARA HOTEL",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "5 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "AKSU",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "13298",
+    "name": "ADALYA OCEAN DELUXE HOTEL",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "5 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "MANAVGAT",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "11498",
+    "name": "ADALYA RESORT & SPA OTEL",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "5 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "MANAVGAT",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "2022-7-0412",
+    "name": "AFŞİN HOTEL",
+    "documentType": "Basit Konaklama",
+    "facilityType": "OTEL",
+    "facilityClass": null,
+    "city": "ANTALYA",
+    "district": "KONYAALTI",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "2021-7-0011",
+    "name": "AHSEN HOTEL",
+    "documentType": "Basit Konaklama",
+    "facilityType": "OTEL",
+    "facilityClass": null,
+    "city": "ANTALYA",
+    "district": "MURATPAŞA",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "2493",
+    "name": "AKRA OTEL",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "5 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "MURATPAŞA",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "12020",
+    "name": "ALAİYE RESORT & SPA HOTEL",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "5 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "ALANYA",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "11167",
+    "name": "ALBA QUEEN",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "5 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "MANAVGAT",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "6514",
+    "name": "ALBA RESORT",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "5 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "MANAVGAT",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "10550",
+    "name": "ALBA ROYAL",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "5 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "MANAVGAT",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "8118",
+    "name": "ANTİK",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "4 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "ALANYA",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "2022-7-0344",
+    "name": "ARKK HOMES",
+    "documentType": "Basit Konaklama",
+    "facilityType": "OTEL",
+    "facilityClass": null,
+    "city": "ANTALYA",
+    "district": "MURATPAŞA",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "15408",
+    "name": "ASIA BEACH RESORT & SPA HOTEL",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "5 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "ALANYA",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "12974",
+    "name": "ASKA LARA RESORT & SPA",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "5 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "AKSU",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "G_24935",
+    "name": "ASTERIA COLLECTION SİDE",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "4 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "MANAVGAT",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "20509",
+    "name": "ASTERIA FAMILY RESORT BELEK",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "5 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "SERİK",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "16188",
+    "name": "ASTERİA BLOOM SİDE",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "5 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "MANAVGAT",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "2022-7-0239",
+    "name": "ATAER OTEL",
+    "documentType": "Basit Konaklama",
+    "facilityType": "OTEL",
+    "facilityClass": null,
+    "city": "ANTALYA",
+    "district": "KONYAALTI",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "2022-7-1033",
+    "name": "ATALLA HOTEL",
+    "documentType": "Basit Konaklama",
+    "facilityType": "OTEL",
+    "facilityClass": null,
+    "city": "ANTALYA",
+    "district": "MURATPAŞA",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "15255",
+    "name": "AYDINBEY FAMOUS RESORT OTEL",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "5 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "SERİK",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "7582",
+    "name": "AYDINBEY GOLD DREAMS HOTEL",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "5 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "ALANYA",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "2022-7-1450",
+    "name": "AYHAN HOTEL",
+    "documentType": "Basit Konaklama",
+    "facilityType": "OTEL",
+    "facilityClass": null,
+    "city": "ANTALYA",
+    "district": "MURATPAŞA",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "15069",
+    "name": "AZURA DELUXE RESORT & SPA OTEL",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "5 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "ALANYA",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "21933",
+    "name": "AZUU BOHEM",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "3 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "MURATPAŞA",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "10898",
+    "name": "BAİA LARA HOTEL",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "5 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "AKSU",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "2022-7-1016",
+    "name": "BASEL OTEL",
+    "documentType": "Basit Konaklama",
+    "facilityType": "OTEL",
+    "facilityClass": null,
+    "city": "ANTALYA",
+    "district": "KONYAALTI",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "2021-7-0027",
+    "name": "BAYINDIR PALME HOTEL",
+    "documentType": "Basit Konaklama",
+    "facilityType": "OTEL",
+    "facilityClass": null,
+    "city": "ANTALYA",
+    "district": "MURATPAŞA",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "3860",
+    "name": "BELCONTİ RESORT",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "5 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "SERİK",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "9414",
+    "name": "BELEK BEACH RESORT OTEL",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "5 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "SERİK",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "4026",
+    "name": "BELLİS DELUXE HOTEL",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "5 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "SERİK",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "5016",
+    "name": "BENNA OTEL",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "2 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "KONYAALTI",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "11600",
+    "name": "BERA ALANYA OTEL",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "5 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "ALANYA",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "15501",
+    "name": "BEST WESTERN PLUS KHAN HOTEL",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "4 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "MURATPAŞA",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "2022-7-0414",
+    "name": "BEYAZ MELEK OTEL",
+    "documentType": "Basit Konaklama",
+    "facilityType": "OTEL",
+    "facilityClass": null,
+    "city": "ANTALYA",
+    "district": "KONYAALTI",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "19712",
+    "name": "BEYOND OTEL",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "2 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "KONYAALTI",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "2022-7-0942",
+    "name": "BİLGEHAN OTEL",
+    "documentType": "Basit Konaklama",
+    "facilityType": "OTEL",
+    "facilityClass": null,
+    "city": "ANTALYA",
+    "district": "MURATPAŞA",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "2022-7-1060",
+    "name": "BİR HOTEL",
+    "documentType": "Basit Konaklama",
+    "facilityType": "HOTEL",
+    "facilityClass": null,
+    "city": "ANTALYA",
+    "district": "MURATPAŞA",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "18883",
+    "name": "BLUE GARDEN HOTEL",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "3 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "KONYAALTI",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "2022-7-0340",
+    "name": "BODENSEE OTEL",
+    "documentType": "Basit Konaklama",
+    "facilityType": "OTEL",
+    "facilityClass": null,
+    "city": "ANTALYA",
+    "district": "KONYAALTI",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "2022-7-1066",
+    "name": "BULVAR HOTEL",
+    "documentType": "Basit Konaklama",
+    "facilityType": "OTEL",
+    "facilityClass": null,
+    "city": "ANTALYA",
+    "district": "MURATPAŞA",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "9890",
+    "name": "CALISTA LUXURY RESORT",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "5 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "SERİK",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "2022-7-0375",
+    "name": "CASTIVAL HOTEL",
+    "documentType": "Basit Konaklama",
+    "facilityType": "OTEL",
+    "facilityClass": null,
+    "city": "ANTALYA",
+    "district": "MANAVGAT",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "3871",
+    "name": "CENDER HOTEL",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "4 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "MURATPAŞA",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "10925",
+    "name": "CESARS OTEL",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "5 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "MANAVGAT",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "23978",
+    "name": "CİTRUS PARK HOTELS",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "3 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "KONYAALTI",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "20732",
+    "name": "City Live",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "3 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "MURATPAŞA",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "2022-7-1505",
+    "name": "CLUB HOTEL SERA",
+    "documentType": "Basit Konaklama",
+    "facilityType": "OTEL",
+    "facilityClass": null,
+    "city": "ANTALYA",
+    "district": "MURATPAŞA",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "2022-7-1632",
+    "name": "COASTLINE ORANGE OTEL",
+    "documentType": "Basit Konaklama",
+    "facilityType": "OTEL",
+    "facilityClass": null,
+    "city": "ANTALYA",
+    "district": "KONYAALTI",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "9014",
+    "name": "CONCORDE DE LUXE RESORT",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "5 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "AKSU",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "13139",
+    "name": "CORENDON PLAYA KEMER",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "5 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "KEMER",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "18945",
+    "name": "CRYSTAL AURA BEACH RESORT&SPA",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "3 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "KEMER",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "21061",
+    "name": "CRYSTAL CENTRO RESORT",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "5 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "AKSU",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "10255",
+    "name": "CRYSTAL HOTELS DE LUXE RESORT&SPA",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "5 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "KEMER",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "10205",
+    "name": "CRYSTAL HOTELS FAMILY RESORT",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "5 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "SERİK",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "10992",
+    "name": "CRYSTAL HOTELS FLORA BEACH",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Tatil Köyü",
+    "facilityClass": "5 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "KEMER",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "13246",
+    "name": "CRYSTAL SUNSET LUXURY RESORT & SPA",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "5 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "MANAVGAT",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "2022-7-1024",
+    "name": "DAM HOTEL LARA",
+    "documentType": "Basit Konaklama",
+    "facilityType": "OTEL",
+    "facilityClass": null,
+    "city": "ANTALYA",
+    "district": "MURATPAŞA",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "7343",
+    "name": "DELPHIN BE GRAND RESORT",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "5 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "MURATPAŞA",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "8961",
+    "name": "DELPHIN PALACE",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "5 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "AKSU",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "7657",
+    "name": "DENİZHAN",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "2 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "MURATPAŞA",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "2022-7-1519",
+    "name": "DIONISUS HOTEL-BELEK",
+    "documentType": "Basit Konaklama",
+    "facilityType": "OTEL",
+    "facilityClass": null,
+    "city": "ANTALYA",
+    "district": "SERİK",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "6921",
+    "name": "DUCALE LARA",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "5 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "AKSU",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "17839",
+    "name": "ELIPS ROYAL HOTEL",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "4 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "MURATPAŞA",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "23286",
+    "name": "ERDEM HOTEL",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "1 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "KONYAALTI",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "18289",
+    "name": "ESPİNA OTEL",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "2 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "MURATPAŞA",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "21726",
+    "name": "EXPOROYAL HOTEL",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "3 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "MURATPAŞA",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "19783",
+    "name": "FALCON HOTEL",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "4 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "MURATPAŞA",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "8832",
+    "name": "FAME RESİDENCE LARA",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "5 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "AKSU",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "2022-7-0935",
+    "name": "FAR LIFE HOTEL",
+    "documentType": "Basit Konaklama",
+    "facilityType": "OTEL",
+    "facilityClass": null,
+    "city": "ANTALYA",
+    "district": "KONYAALTI",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "23970",
+    "name": "FOUR HILLS HOTEL",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "3 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "KONYAALTI",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "2022-7-0602",
+    "name": "GOLD STONE HOTEL",
+    "documentType": "Basit Konaklama",
+    "facilityType": "OTEL",
+    "facilityClass": null,
+    "city": "ANTALYA",
+    "district": "KEMER",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "13901",
+    "name": "GOLDCITY OTEL",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "5 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "ALANYA",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "18895",
+    "name": "GOLDEN ORANGE",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "3 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "KONYAALTI",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "16713",
+    "name": "GRANADA LUXURY BEACH SPA",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "5 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "ALANYA",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "21803",
+    "name": "GRAND NERGİZ OTEL",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "3 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "MURATPAŞA",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "13990",
+    "name": "GRAND PARK LARA HOTEL",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "4 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "AKSU",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "20606",
+    "name": "GRAND RİNG HOTEL",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "5 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "KEMER",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "G_26045",
+    "name": "GÜLİZAR OTEL",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "2 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "KONYAALTI",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "7174",
+    "name": "GÜRAL PREMİER TEKİROVA",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Tatil Köyü",
+    "facilityClass": "5 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "KEMER",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "6811",
+    "name": "GÜRTAŞ OTEL",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "3 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "MURATPAŞA",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "22117",
+    "name": "HANE SUN ELİTE OTEL",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "5 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "MANAVGAT",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "14852",
+    "name": "HOTEL DEFNE DEFNEM",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "5 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "MANAVGAT",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "6569",
+    "name": "HOTEL GRAND KAYALAR",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "3 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "MURATPAŞA",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "6038",
+    "name": "HOTEL KAYALAR",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "2 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "MURATPAŞA",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "9502",
+    "name": "HOTEL ROYAL HİLL",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "3 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "KONYAALTI",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "25474",
+    "name": "HOTEL S WHİTE",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "3 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "KONYAALTI",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "7219",
+    "name": "HOTEL SİDE STAR BEACH",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "5 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "MANAVGAT",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "8369",
+    "name": "HOTEL SİDE STAR RESORT",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "5 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "MANAVGAT",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "7011",
+    "name": "HOTEL ZEL",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "3 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "KONYAALTI",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "7426",
+    "name": "IC HOTELS AIRPORT",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "4 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "AKSU",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "10352",
+    "name": "IMPERIAL SUNLAND RESORT OTEL",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "5 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "KEMER",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "4692",
+    "name": "İNCEKUM SU",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "4 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "ALANYA",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "2021-7-0045",
+    "name": "İSİNDA OTEL",
+    "documentType": "Basit Konaklama",
+    "facilityType": "OTEL",
+    "facilityClass": null,
+    "city": "ANTALYA",
+    "district": "KONYAALTI",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "7771",
+    "name": "JUJU PREMİER PALACE OTEL",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "5 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "KEMER",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "2021-7-0040",
+    "name": "KAFKAS HOTEL",
+    "documentType": "Basit Konaklama",
+    "facilityType": "OTEL",
+    "facilityClass": null,
+    "city": "ANTALYA",
+    "district": "KONYAALTI",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "18585",
+    "name": "KAHYA RESORT AQUA&SPA",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "5 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "ALANYA",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "2022-7-1076",
+    "name": "KARDEN OTEL",
+    "documentType": "Basit Konaklama",
+    "facilityType": "OTEL",
+    "facilityClass": null,
+    "city": "ANTALYA",
+    "district": "MURATPAŞA",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "2022-7-1342",
+    "name": "KAYA OTEL",
+    "documentType": "Basit Konaklama",
+    "facilityType": "OTEL",
+    "facilityClass": null,
+    "city": "ANTALYA",
+    "district": "MURATPAŞA",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "2527",
+    "name": "KAYA SİDE OTEL",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "5 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "MANAVGAT",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "2022-7-0226",
+    "name": "KIVRAK OTEL",
+    "documentType": "Basit Konaklama",
+    "facilityType": "OTEL",
+    "facilityClass": null,
+    "city": "ANTALYA",
+    "district": "MURATPAŞA",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "24444",
+    "name": "KOLİBRY SV HOTEL",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "3 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "KONYAALTI",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "6784",
+    "name": "KREMLIN PALACE",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "5 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "AKSU",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "2022-7-0397",
+    "name": "KRİSTAL BEACH HOTEL",
+    "documentType": "Basit Konaklama",
+    "facilityType": "OTEL",
+    "facilityClass": null,
+    "city": "ANTALYA",
+    "district": "KONYAALTI",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "9899",
+    "name": "LA BRISA HOTEL",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "3 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "KONYAALTI",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "21375",
+    "name": "LA MAJA HOTEL",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "3 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "MURATPAŞA",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "26407",
+    "name": "LA VİTA ES BELLA",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "2 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "KONYAALTI",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "17023",
+    "name": "LAGO HOTEL",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "5 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "MANAVGAT",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "7362",
+    "name": "LARA BARUT COLLECTION HOTEL",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "5 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "MURATPAŞA",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "2022-7-1018",
+    "name": "LARA DIAMOND HOTEL",
+    "documentType": "Basit Konaklama",
+    "facilityType": "OTEL",
+    "facilityClass": null,
+    "city": "ANTALYA",
+    "district": "MURATPAŞA",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "12360",
+    "name": "LARA OTEL",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "3 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "MURATPAŞA",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "2022-7-1744",
+    "name": "LARA PALACE HOTEL",
+    "documentType": "Basit Konaklama",
+    "facilityType": "OTEL",
+    "facilityClass": null,
+    "city": "ANTALYA",
+    "district": "MURATPAŞA",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "2022-7-1054",
+    "name": "LARA PARK HOTEL",
+    "documentType": "Basit Konaklama",
+    "facilityType": "OTEL",
+    "facilityClass": null,
+    "city": "ANTALYA",
+    "district": "MURATPAŞA",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "2022-7-1605",
+    "name": "LARA WORLD OTEL",
+    "documentType": "Basit Konaklama",
+    "facilityType": "OTEL",
+    "facilityClass": null,
+    "city": "ANTALYA",
+    "district": "MURATPAŞA",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "2022-7-1373",
+    "name": "LE MARDEN HOTEL",
+    "documentType": "Basit Konaklama",
+    "facilityType": "OTEL",
+    "facilityClass": null,
+    "city": "ANTALYA",
+    "district": "KEMER",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "2022-7-1028",
+    "name": "LEGEND TULIP HOTEL",
+    "documentType": "Basit Konaklama",
+    "facilityType": "OTEL",
+    "facilityClass": null,
+    "city": "ANTALYA",
+    "district": "MURATPAŞA",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "8805",
+    "name": "LİBERTY LARA",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "5 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "AKSU",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "9759",
+    "name": "LİMAK LARA DE LUXE HOTEL & RESORT",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "5 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "AKSU",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "2022-7-0240",
+    "name": "LOFT 1502 OTEL",
+    "documentType": "Basit Konaklama",
+    "facilityType": "OTEL",
+    "facilityClass": null,
+    "city": "ANTALYA",
+    "district": "MURATPAŞA",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "22296",
+    "name": "LUPO LİBERO HOTEL & SPA",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "3 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "MURATPAŞA",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "2022-7-0699",
+    "name": "MAİ İNCİ OTEL",
+    "documentType": "Basit Konaklama",
+    "facilityType": "OTEL",
+    "facilityClass": null,
+    "city": "ANTALYA",
+    "district": "MURATPAŞA",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "2022-7-0403",
+    "name": "MARKA OTEL",
+    "documentType": "Basit Konaklama",
+    "facilityType": "OTEL",
+    "facilityClass": null,
+    "city": "ANTALYA",
+    "district": "MURATPAŞA",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "20012",
+    "name": "MARTI MYRA",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "4 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "KEMER",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "14901",
+    "name": "MARY PALACE",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "5 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "MANAVGAT",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "11958",
+    "name": "MAXX ROYAL KEMER",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "5 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "KEMER",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "2886",
+    "name": "MEGASARAY RESORT SİDE",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "5 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "MANAVGAT",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "10581",
+    "name": "MELAS LARA OTEL",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "5 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "AKSU",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "2022-7-1297",
+    "name": "MELTEM OTEL",
+    "documentType": "Basit Konaklama",
+    "facilityType": "OTEL",
+    "facilityClass": null,
+    "city": "ANTALYA",
+    "district": "KONYAALTI",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "7125",
+    "name": "MENE CİTY HOTEL",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "3 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "MURATPAŞA",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "2022-7-0674",
+    "name": "MERA PARK HOTEL",
+    "documentType": "Basit Konaklama",
+    "facilityType": "OTEL",
+    "facilityClass": null,
+    "city": "ANTALYA",
+    "district": "MURATPAŞA",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "21906",
+    "name": "MERCURE HOTEL ANTALYA KONYAALTI",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "4 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "KONYAALTI",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "12615",
+    "name": "MEVRE OTEL",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "3 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "MURATPAŞA",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "4016",
+    "name": "MIRAGE PARK RESORT",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "5 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "KEMER",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "6395",
+    "name": "MİRAMARE QUEEN",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "5 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "MANAVGAT",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "6876",
+    "name": "MONACHUS HOTEL & SPA",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "4 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "MANAVGAT",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "4802",
+    "name": "MOSTAR",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "3 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "MURATPAŞA",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "13574",
+    "name": "NARCIA RESORT SİDE",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "5 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "MANAVGAT",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "5024",
+    "name": "NASA FLORA OTEL",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "2 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "MURATPAŞA",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "12017",
+    "name": "Nashira City Resort Hotel",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "4 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "MURATPAŞA",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "21548",
+    "name": "NIRVANA COSMOPOLITAN HOTEL",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "5 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "MURATPAŞA",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "10084",
+    "name": "Nİ HOTEL LARA",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "2 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "MURATPAŞA",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "2203",
+    "name": "NİRVANA MEDİTERRANEAN EXCELLENCE",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Tatil Köyü",
+    "facilityClass": "5 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "KEMER",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "16586",
+    "name": "NUMA BAY EXCLUSIVE",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "5 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "ALANYA",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "2022-7-1254",
+    "name": "NUN OTEL",
+    "documentType": "Basit Konaklama",
+    "facilityType": "OTEL",
+    "facilityClass": null,
+    "city": "ANTALYA",
+    "district": "KEMER",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "2021-7-0013",
+    "name": "OLBİA HOTEL",
+    "documentType": "Basit Konaklama",
+    "facilityType": "OTEL",
+    "facilityClass": null,
+    "city": "ANTALYA",
+    "district": "KONYAALTI",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "2022-7-0052",
+    "name": "OLBİA RESIDENCE HOTEL",
+    "documentType": "Basit Konaklama",
+    "facilityType": "OTEL",
+    "facilityClass": null,
+    "city": "ANTALYA",
+    "district": "KONYAALTI",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "2022-7-1443",
+    "name": "ON HOTEL",
+    "documentType": "Basit Konaklama",
+    "facilityType": "OTEL",
+    "facilityClass": null,
+    "city": "ANTALYA",
+    "district": "MURATPAŞA",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "2175",
+    "name": "ÖZKAYMAK FALEZ OTEL",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "5 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "KONYAALTI",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "3976",
+    "name": "PAPILLON BELVIL",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "4 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "SERİK",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "7354",
+    "name": "PAPİLLON AYSCHA",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "5 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "SERİK",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "12365",
+    "name": "PEARLY HOTEL&SPA",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "3 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "KONYAALTI",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "19660",
+    "name": "PERAMİS HOTEL&SPA",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "3 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "MURATPAŞA",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "8790",
+    "name": "PHASELİS ROSE",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "5 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "KEMER",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "2022-7-1181",
+    "name": "PİNUS OTEL",
+    "documentType": "Basit Konaklama",
+    "facilityType": "OTEL",
+    "facilityClass": null,
+    "city": "ANTALYA",
+    "district": "MURATPAŞA",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "2022-7-0404",
+    "name": "PİYES OTEL",
+    "documentType": "Basit Konaklama",
+    "facilityType": "OTEL",
+    "facilityClass": null,
+    "city": "ANTALYA",
+    "district": "MURATPAŞA",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "7991",
+    "name": "PORTO BELLO HOTEL RESORT&SPA",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "5 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "KONYAALTI",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "24885",
+    "name": "PREMIER INN CITY OTEL",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "2 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "MURATPAŞA",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "2022-7-0134",
+    "name": "PURE BLANCHE HOTEL",
+    "documentType": "Basit Konaklama",
+    "facilityType": "OTEL",
+    "facilityClass": null,
+    "city": "ANTALYA",
+    "district": "MURATPAŞA",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "22899",
+    "name": "QİNN HOTELS",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "3 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "MURATPAŞA",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "2022-7-1065",
+    "name": "RAMONA KALE HOTEL",
+    "documentType": "Basit Konaklama",
+    "facilityType": "OTEL",
+    "facilityClass": null,
+    "city": "ANTALYA",
+    "district": "MURATPAŞA",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "20576",
+    "name": "REO HOTEL",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "4 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "KONYAALTI",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "20117",
+    "name": "RING DOWNTOWN HOTEL",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "4 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "MURATPAŞA",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "2578",
+    "name": "RIXOS DOWNTOWN ANTALYA",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "5 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "MURATPAŞA",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "7253",
+    "name": "RIXOS SUNGATE OTEL",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "5 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "KEMER",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "21479",
+    "name": "RİXOS OTEL BELDİBİ",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "5 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "KEMER",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "7342",
+    "name": "RİXOS PARK BELEK OTEL",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "5 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "SERİK",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "15117",
+    "name": "ROYAL ALHAMBRA PALACE",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "5 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "MANAVGAT",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "10629",
+    "name": "ROYAL DRAGON HOTEL",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "5 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "MANAVGAT",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "12116",
+    "name": "ROYAL HOLIDAY PALACE",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "5 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "AKSU",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "16388",
+    "name": "ROYAL SEGİNUS HOTEL",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "5 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "AKSU",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "15508",
+    "name": "ROYAL TAJ MAHAL",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "5 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "MANAVGAT",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "9052",
+    "name": "ROYAL WINGS",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "5 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "AKSU",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "2021-7-0024",
+    "name": "SAFARİ OTEL",
+    "documentType": "Basit Konaklama",
+    "facilityType": "OTEL",
+    "facilityClass": null,
+    "city": "ANTALYA",
+    "district": "MURATPAŞA",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "23717",
+    "name": "SAM HOTEL",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "1 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "KONYAALTI",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "2022-7-0387",
+    "name": "SARP OTEL KADRİYE",
+    "documentType": "Basit Konaklama",
+    "facilityType": "OTEL",
+    "facilityClass": null,
+    "city": "ANTALYA",
+    "district": "SERİK",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "9286",
+    "name": "SATURN PALACE RESORT OTEL",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "5 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "AKSU",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "12421",
+    "name": "SAVA OTEL",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "2 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "KONYAALTI",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "24810",
+    "name": "SEA CİTY DEVRAN HOTEL",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "2 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "KONYAALTI",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "18876",
+    "name": "SEADEN QUALITY RESORT SPA",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "5 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "MANAVGAT",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "11876",
+    "name": "SEALİFE BUKET BEACH & RESORT",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "5 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "ALANYA",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "20340",
+    "name": "SELGE BEACH  RESORT",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "5 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "MANAVGAT",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "23647",
+    "name": "SEY BEACH HOTEL&SPA",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "4 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "ALANYA",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "12402",
+    "name": "SHERWOOD DREAMS RESORT HOTEL",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "5 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "SERİK",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "11297",
+    "name": "SHERWOOD EXCLUSIVE LARA",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "5 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "AKSU",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "2314",
+    "name": "SHERWOOD EXCLUSİVE KEMER",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Tatil Köyü",
+    "facilityClass": "5 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "KEMER",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "20874",
+    "name": "SHERWOOD PREMİO HOTEL",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "3 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "MURATPAŞA",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "2021-7-0018",
+    "name": "SIETE HOTEL",
+    "documentType": "Basit Konaklama",
+    "facilityType": "OTEL",
+    "facilityClass": null,
+    "city": "ANTALYA",
+    "district": "MURATPAŞA",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "13999",
+    "name": "SİDE CROWN PALACE",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "5 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "MANAVGAT",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "21808",
+    "name": "SİDE MOON PALACE HOTEL",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "5 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "MANAVGAT",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "14134",
+    "name": "SİDE PREMIUM",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "5 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "MANAVGAT",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "11205",
+    "name": "SİDE PRENSES RESORT HOTEL & SPA",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "5 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "MANAVGAT",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "2199",
+    "name": "SİDE STAR ELEGANCE OTEL",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "5 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "MANAVGAT",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "20432",
+    "name": "SİDE SUNPORT HOTEL & SPA",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "5 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "MANAVGAT",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "6536",
+    "name": "SİRENE BELEK",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "5 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "SERİK",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "20309",
+    "name": "SKY KAMER",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "3 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "MURATPAŞA",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "9973",
+    "name": "SPICE HOTEL & SPA",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "5 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "SERİK",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "2022-7-1681",
+    "name": "START OTEL",
+    "documentType": "Basit Konaklama",
+    "facilityType": "OTEL",
+    "facilityClass": null,
+    "city": "ANTALYA",
+    "district": "MURATPAŞA",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "2022-7-0463",
+    "name": "SUİTE LAGUNA OTEL",
+    "documentType": "Basit Konaklama",
+    "facilityType": "OTEL",
+    "facilityClass": null,
+    "city": "ANTALYA",
+    "district": "MURATPAŞA",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "16052",
+    "name": "SULTAN OF DREAMS",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "5 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "MANAVGAT",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "13142",
+    "name": "SULTAN OF SİDE RESORT&SPA",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "4 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "MANAVGAT",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "7414",
+    "name": "SUNİS ELİTA BEACH RESORT HOTEL",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "5 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "MANAVGAT",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "12212",
+    "name": "SUNİS KUMKÖY BEACH RESORT HOTEL&SPA",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "5 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "MANAVGAT",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "14716",
+    "name": "SUNMELİA BEACH RESORT HOTEL & SPA",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "5 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "MANAVGAT",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "13577",
+    "name": "SUNPRİME C-LOUNGE HOTEL",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "5 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "ALANYA",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "9971",
+    "name": "SUSESİ LUXURY RESORT",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "5 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "SERİK",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "17221",
+    "name": "SWANDOR HOTELS & RESORTS TOPKAPI PALACE",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "5 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "AKSU",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "11565",
+    "name": "ŞEHİR OTEL",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "2 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "MURATPAŞA",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "27166",
+    "name": "TALYA OTEL",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "5 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "MURATPAŞA",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "20270",
+    "name": "TAMARA BUSİNESS OTEL",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "2 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "MURATPAŞA",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "23077",
+    "name": "TEMA 242 HOTEL",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "3 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "MURATPAŞA",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "16125",
+    "name": "TERRACE ELITE RESORT HOTEL",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "5 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "MANAVGAT",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "23397",
+    "name": "THE CORNER PARK HOTEL",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "3 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "KONYAALTI",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "15350",
+    "name": "THE LUMOS DELUXE RESORT HOTEL & SPA",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "5 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "ALANYA",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "11931",
+    "name": "THE MARMARA ANTALYA",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "5 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "MURATPAŞA",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "14988",
+    "name": "TREND PARK",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "3 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "KONYAALTI",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "9311",
+    "name": "TRENDY HOTELS ASPENDOS BEACH",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "5 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "MANAVGAT",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "15836",
+    "name": "TRENDY LARA",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "5 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "AKSU",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "12686",
+    "name": "TRENDY VERBENA BEACH",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "5 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "MANAVGAT",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "2022-7-1058",
+    "name": "TRIANA OTEL",
+    "documentType": "Basit Konaklama",
+    "facilityType": "OTEL",
+    "facilityClass": null,
+    "city": "ANTALYA",
+    "district": "MURATPAŞA",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "2304",
+    "name": "TURQUOİSE",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "5 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "MANAVGAT",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "2022-7-0049",
+    "name": "TUT HOTEL",
+    "documentType": "Basit Konaklama",
+    "facilityType": "OTEL",
+    "facilityClass": null,
+    "city": "ANTALYA",
+    "district": "KONYAALTI",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "11226",
+    "name": "VICTORY RESORT OTEL",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "5 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "MANAVGAT",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "19016",
+    "name": "VİKİNG STAR OTEL",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "5 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "KEMER",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "2022-7-1020",
+    "name": "VOLKİİ HOTEL",
+    "documentType": "Basit Konaklama",
+    "facilityType": "OTEL",
+    "facilityClass": null,
+    "city": "ANTALYA",
+    "district": "KONYAALTI",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "21800",
+    "name": "VOYAGE KUNDU",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "5 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "AKSU",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "2408",
+    "name": "VOYAGE SORGUN",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "5 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "MANAVGAT",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "19529",
+    "name": "WATER SIDE RESORT & SPA HOTEL",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "5 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "MANAVGAT",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "15569",
+    "name": "WIND OF LARA HOTEL & SPA",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "5 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "AKSU",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "13737",
+    "name": "WYNDHAM GARDEN LARA",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "4 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "AKSU",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "2022-7-1156",
+    "name": "YALÇIN HOTEL",
+    "documentType": "Basit Konaklama",
+    "facilityType": "OTEL",
+    "facilityClass": null,
+    "city": "ANTALYA",
+    "district": "MURATPAŞA",
+    "reason": "current-name"
+  },
+  {
+    "certificateNo": "22851",
+    "name": "ZENİA HOTEL",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "3 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "MURATPAŞA",
+    "reason": "current-name"
+  }
+]

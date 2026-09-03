@@ -59,9 +59,10 @@ coordinates are discovery bounds, not pricing-region boundaries:
 | Alanya west | 36.55 | 31.55 | 36.72 | 31.98 |
 | Alanya centre–Demirtaş | 36.35 | 31.90 | 36.62 | 32.30 |
 
-Overlaps are intentional. A fixture list with one known hotel point per named
-district guards against accidental gaps. Changing these bounds later is a
-reviewed configuration change and does not alter commercial region mappings.
+Overlaps are intentional. A fixture list with one representative locality point
+per included administrative district guards against accidental gaps. These are
+scope anchors, not Google-derived hotel records. Changing these bounds later is
+a reviewed configuration change and does not alter commercial region mappings.
 
 ### Establishments
 
@@ -107,14 +108,24 @@ not silently fall back to scraping unrelated commercial listing sites.
 Google Places is a coverage and current-status verifier, not the permanent name
 source. The job may store Google Place IDs indefinitely. Other raw Places
 fields—display name, formatted address, coordinates, primary type, and business
-status—remain only in the local run checkpoint needed to finish/review the run,
-are excluded from git, carry a retrieval timestamp, and are deleted by an
-explicit cleanup command. Any UI or report that displays live Google content
-must show the required Google Maps attribution.
+status—are processed only in memory for the current response and are never
+written to a checkpoint or report. Before checkpointing, a response is reduced
+to Place IDs, matched Ministry certificate numbers/current-index slugs, and
+internal evidence flags such as `operationalConfirmed`. Any UI or report that
+displays live Google content must show the required Google Maps attribution.
 
 The implementation plan must include a final check against the Google Maps
 Platform terms applicable to the project's billing address. This specification
 is an engineering control, not legal advice.
+
+Before any live Places request, the operator must identify the billing account
+address. For an EEA billing address, the product owner must confirm that this
+workflow is within one of the current EEA Places API permitted uses (or has
+separate written approval); otherwise the Google verification stage must not
+run. The Ministry-only snapshot can still be generated, but it cannot satisfy
+the “currently operational” acceptance criterion by itself. The applicable
+official references are the [current EEA service-specific terms](https://cloud.google.com/terms/maps-platform/eea/maps-service-terms)
+and [EEA Places API permitted uses](https://cloud.google.com/terms/maps-platform/eea-places-api-permitted-uses).
 
 ## Architecture
 
@@ -164,7 +175,8 @@ CLI orchestrator that:
 1. loads the canonical Ministry rows and the current hotel index;
 2. loads known Google Place IDs from `src/hotel-distances.js`;
 3. scans Google Places adaptively;
-4. checkpoints after each completed request;
+4. reduces each response to Place IDs and internal evidence, discards its raw
+   fields, and checkpoints after each completed request;
 5. deduplicates Google results by Place ID;
 6. matches Ministry rows and Google identities against the current index; and
 7. writes the review artifacts and coverage report.
@@ -175,9 +187,11 @@ CLI orchestrator that:
    "resort_hotel"]`, `maxResultCount: 20`, `includeFutureOpeningBusinesses:
    false`, and only the minimal Pro field mask required for identity, filtering,
    and review.
-2. Discard results outside the logical corridor. Keep returned status only in
-   the transient checkpoint so Ministry conflicts can be classified; only
-   `OPERATIONAL` records are eligible for missing candidates.
+2. Discard results outside the logical corridor. Use returned name, location,
+   type, and status only while processing that response. Before checkpointing,
+   reduce each retained result to its Place ID, exact Ministry/current matches,
+   and an internal operational-confirmation boolean; only confirmed records are
+   eligible for missing candidates.
 3. If the API returned fewer than 20 results, mark the cell complete.
 4. If the API returned exactly 20 results, treat the cell as saturated, split
    it into four children, and queue the children.
@@ -194,13 +208,11 @@ and improves boundary coverage.
 
 Matching proceeds from strongest to weakest evidence:
 
-1. exact Google Place ID already present in `src/hotel-distances.js` → known;
-2. exact normalised current name or alias → known;
-3. unique high-confidence normalised Ministry/Google/current-index name match →
-   known;
-4. near match, multiple plausible matches, or conflicting identities → possible
+1. exact normalised current name or alias → known;
+2. exact Google Place ID already present in `src/hotel-distances.js` → known;
+3. near match, multiple plausible matches, or conflicting identities → possible
    duplicate; and
-5. active Ministry hotel, matched to an `OPERATIONAL` Google result, with no
+4. active Ministry hotel, matched to one exact `OPERATIONAL` Google identity, with no
    current-index match → missing.
 
 Source-status conflicts are explicit:
@@ -233,10 +245,13 @@ Persistent outputs:
 
 The missing/known/duplicate files use Ministry names and source metadata.
 `google-unmatched-place-ids.json` stores Place IDs and internal review state,
-not copied Google names, addresses, or coordinates.
+not copied Google names, addresses, or coordinates. Persistent internal
+classification metadata may record whether operation was confirmed, but must
+not copy the underlying Places status or other content.
 
-Transient raw Google data and checkpoints live below a gitignored
-`scripts/hotel-discovery/.cache/` directory.
+Checkpoints live below a gitignored `scripts/hotel-discovery/.cache/` directory.
+They contain resumability state, Place IDs, and reduced internal evidence, but
+no raw Google name, location, type, or status fields.
 
 ## CLI and spend controls
 
@@ -244,7 +259,7 @@ Commands exposed through `package.json`:
 
 ```text
 npm run discover:hotels -- --dry-run
-npm run discover:hotels -- --scan
+npm run discover:hotels -- --scan --confirm-places-terms
 npm run discover:hotels -- --resume
 npm run discover:hotels -- --cleanup-cache
 ```
@@ -253,6 +268,9 @@ npm run discover:hotels -- --cleanup-cache
   limit, and list-price exposure.
 - `--scan` starts a new run only after printing the same estimate.
 - `--resume` continues the checkpoint without repeating completed cells.
+- `--confirm-places-terms` is required for `--scan` and `--smoke` and may be
+  supplied only after the billing-address gate above is completed. Its value is
+  recorded in the checkpoint; `--resume` accepts only such a checkpoint.
 - The default and maximum allowed request budget is 4,500 calls. Changing it
   requires a source-code/config change rather than an unbounded CLI value.
 - Every HTTP attempt counts against the local conservative request counter,
@@ -264,8 +282,9 @@ npm run discover:hotels -- --cleanup-cache
   checkpoint/report and used only for an estimate. If omitted, the estimated
   post-cap charge is `null` rather than assuming all 5,000 free calls remain.
 
-Nearby Search Pro currently has a monthly free usage cap of 5,000 requests and
-a list price of USD 32 per 1,000 requests after the cap. The report must not
+As verified against the [official price list](https://developers.google.com/maps/billing-and-pricing/pricing)
+on 2026-09-02, Nearby Search Pro has a monthly free usage cap of 5,000 requests
+and a list price of USD 32 per 1,000 requests after the cap. The report must not
 promise a zero charge because other project usage can consume that monthly cap.
 It records both raw list-price exposure and the estimate supplied by the user’s
 configured remaining-free-call input. Billing Console remains authoritative.
@@ -345,7 +364,8 @@ The discovery phase is complete when:
 3. only currently operating classic hotels/resorts are candidate rows;
 4. every persistent hotel name has Ministry or independent first-party
    provenance;
-5. Google-derived persistent data is limited to allowed Place IDs;
+5. persistent Google Maps content is limited to allowed Place IDs; internal
+   classification metadata does not copy the underlying Places fields;
 6. missing, known, possible-duplicate, unverified, status-conflict, and coverage
    artifacts reconcile; and
 7. no production index, region, price, route, or distance file changed.

@@ -1,5 +1,5 @@
 import { describe, test, expect } from "vitest";
-import { slugsToProcess, applyResult } from "./hotel-distances-merge.mjs";
+import { slugsToProcess, applyResult, routeDestination } from "./hotel-distances-merge.mjs";
 
 const index = [
   { slug: "a", name: "A Hotel", district: "Side" },
@@ -43,5 +43,17 @@ describe("applyResult", () => {
     const data = { a: { km: 50, place: "p", district: "Side", checked: true } };
     const next = applyResult(data, { slug: "a", district: "Side" }, { km: 999, place: "q" });
     expect(next.a).toEqual(data.a);
+  });
+});
+
+describe("routeDestination", () => {
+  test("uses a discovered hotel's Place ID directly", () => {
+    expect(routeDestination({ placeId: "place-123" })).toEqual({ placeId: "place-123" });
+  });
+
+  test("uses the geocoded coordinates for legacy index rows", () => {
+    expect(routeDestination({}, { lat: 36.8, lng: 30.7 })).toEqual({
+      location: { latLng: { latitude: 36.8, longitude: 30.7 } },
+    });
   });
 });

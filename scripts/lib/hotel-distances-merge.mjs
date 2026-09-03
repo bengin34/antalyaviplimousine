@@ -36,3 +36,16 @@ export function applyResult(data, hotel, result) {
     : { km: null, place: null, district: hotel.district, checked: false, note: "no-match" };
   return { ...data, [hotel.slug]: entry };
 }
+
+/** Builds a Routes API waypoint, preferring an already verified Place ID. */
+export function routeDestination(hotel, geocoded) {
+  if (hotel.placeId) return { placeId: hotel.placeId };
+  return {
+    location: {
+      latLng: {
+        latitude: geocoded.lat,
+        longitude: geocoded.lng,
+      },
+    },
+  };
+}

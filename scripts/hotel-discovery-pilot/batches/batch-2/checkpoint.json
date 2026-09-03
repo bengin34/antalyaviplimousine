@@ -1,0 +1,4771 @@
+{
+  "schemaVersion": 1,
+  "attempts": 462,
+  "maxCalls": 1000,
+  "completedCells": 462,
+  "queue": [],
+  "evidence": [
+    {
+      "placeId": "ChIJox83FzOMwxQRg36FRdMqSzU",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJCbfFB4NTwxQR4SXbEoBMLN0",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJE1TU84tTwxQRxred9H-3zR4",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJOa2yro1TwxQRFjW3Qa2IIaI",
+      "ministryCertificateNos": [],
+      "currentSlugs": [
+        "aperion-beach-hotel"
+      ],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJm_YLvKlTwxQRvw36nY1S3Vo",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJU_peCp5XwxQRyxn0_28oN_M",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJN5YqB5JTwxQRcnYIjiSGqhU",
+      "ministryCertificateNos": [
+        "16052"
+      ],
+      "currentSlugs": [
+        "sultan-of-dreams-hotel-spa"
+      ],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJqfsLyYlTwxQRgobxQbfXOgA",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJ33e4ZqxZwxQReeUX_Ol1G0Y",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJkTT0LdyPwxQRJVUHyjT57kU",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJn3Z7Yuij3BQRz7zhiT43tow",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJ9SGsUMn8xUcRLa3TuEJTpQs",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJzXRET5ej3BQRzbZJwLHWLFQ",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJJ2VsEwCj3BQRBvwHQLg_crk",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJ6w4BbJui3BQR8CTSZnHYCBQ",
+      "ministryCertificateNos": [
+        "8429"
+      ],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJT7SmK5ui3BQRR3rVCS6e3L0",
+      "ministryCertificateNos": [
+        "8539"
+      ],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJlR9CnZyi3BQRpNZGaYaGSh8",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJW9-0Z5ui3BQRyTVKUDLfofc",
+      "ministryCertificateNos": [
+        "2022-7-1130"
+      ],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJYbiuQpui3BQRQeBPg6b-pyg",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJhfADcvWE0BQRCS-DXbAKeH0",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJf41tm5yi3BQRKE1jXhl4xz0",
+      "ministryCertificateNos": [
+        "10469"
+      ],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJd16A0m6j3BQRpB90KOtUOUU",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJ9dG4HACj3BQRl3qUVC7pG0o",
+      "ministryCertificateNos": [
+        "8591"
+      ],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJCSz315qi3BQR_9sDWLLO-Fk",
+      "ministryCertificateNos": [
+        "2455"
+      ],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJ383dRJyi3BQR4CrEsHRqRPI",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJnwibj5yi3BQRgDjMHSxy-Yk",
+      "ministryCertificateNos": [
+        "20400"
+      ],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJy1Xjj5yi3BQR_UVwfnci0DI",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJRwks2bSj3BQR38Z5h90nTcM",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJHRSqXZui3BQR33c_E7F_2to",
+      "ministryCertificateNos": [
+        "2022-7-0257"
+      ],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJEb0ygVKj3BQRqWYpAeCTljY",
+      "ministryCertificateNos": [
+        "2456"
+      ],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJE2umgVWPwxQRRJ7FLEQMnf0",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJi3QssW6PwxQRGOKY1FFOSLc",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJba3fcgSQwxQRTs0N6dqqyBk",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJs74NCwCZ3BQRLuqEhQSy0E4",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJ5W1nA3SY3BQRj2WvMZuYflU",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJaRSFySKZ3BQRB68zaiDbNjw",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJj5_w1HCY3BQRSalJzFCPDrA",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJK5MCDXSY3BQRXaYAc1DKWLM",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJTS0d13aY3BQR31Eu-Xard2Q",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJzeMPBfyY3BQRXLui3nXvFHg",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJRZbxZlSY3BQRisTDQt7wY4k",
+      "ministryCertificateNos": [
+        "19151"
+      ],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJ9Uj-anSY3BQRm5cnHazUE0M",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJud8na3SY3BQRC7MDWWO0hyU",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJJavJKHeY3BQRRoZMz3xwtso",
+      "ministryCertificateNos": [
+        "2022-7-0568"
+      ],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJsbhgL3eY3BQRDhwHAqLWhg4",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJ9cqtu3CY3BQR49rchK1Rm1U",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJgQiNL3eY3BQR-MmGU5qxXxM",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJu3U3EQCZ3BQRrVxBWWHB7Ck",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJ35kGmySZ3BQRO5Oq9Ju1SiQ",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJp5o1RneY3BQRqMqsGx8eeyE",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJSeI-PYWY3BQRMY6zhyG0Xg0",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJx1DLvXqY3BQRFFSoatJQDj0",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJecJkOEaPwxQRzwWiXG-YMMk",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJ-b0ZyyHHf0IRU_xlrVFK56M",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": false
+    },
+    {
+      "placeId": "ChIJISRzG1qY3BQRq_tjH1_k5cw",
+      "ministryCertificateNos": [
+        "20812"
+      ],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJC0iNTlmY3BQR5vFVlEZq_Ts",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJEbeQUlmY3BQRLoyHlb5VpXg",
+      "ministryCertificateNos": [
+        "3139"
+      ],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJo8IlGQCZ3BQRJnU0-hC1RKc",
+      "ministryCertificateNos": [
+        "12874"
+      ],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJ25aUCQCZ3BQRQ8lFTToopZI",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJf_Kks16Y3BQR_XBlrSI5f_g",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJjSYMTmSY3BQRbQPrhAt-rdA",
+      "ministryCertificateNos": [
+        "13654"
+      ],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJIcvRTVeY3BQRCyrLmwae3TU",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJESiirFmY3BQRYDnduYdtXwg",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJsSU1RleY3BQRtZUhmRkn8CQ",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJ08YX31iY3BQRG8NJV6DHolI",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJZVnPRVeY3BQRboiOM1JSkbg",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJBZYVR1eY3BQRLolt-VKZjwo",
+      "ministryCertificateNos": [
+        "2022-7-0739"
+      ],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJB3uOQVeY3BQRw-yOBj2OVx8",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJa3YDQVeY3BQRp9VQGgAOhK0",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJ5VPGHHWZ3BQRbGAUVwV9Q6E",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJYYrhGwCZ3BQR5_-xQdaVtRg",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJm8wL0l6Y3BQRYLyk0jMzxRA",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJxVqmVQmZ3BQRTxXREq271QQ",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJ2ecPY6uFwxQR8oaBugqNo60",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJ01L9iKmZ3BQR5_TBd_t9vvw",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJI9Vv0KuZ3BQR6iS-JrUhj4o",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJeyru_6qZ3BQRuLSIONjvO_g",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJR2ySYYSZ3BQR9L8qwY7pRN0",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJM_KOfquZ3BQRm4u0po_dcIk",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJyYVg2aqZ3BQRX8IQSShW5oM",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJaV220lSY3BQR2C-yh2r4-GM",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJKXVVAa-Z3BQRiROeOMqqgsM",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJWYLUVFaZ3BQR8nGoaLszBC4",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJpzG8sqeZ3BQRG1YwOm1lmEM",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJ4UpkiqyZ3BQRzfGSrPCEHzc",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJQc1882-Z3BQRoN3ZKvzf5tU",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJ4w3lF6yZ3BQRUzq_iC31dIc",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJkXuJLXiY3BQRAVAorCI1BkI",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJkXgI01SY3BQRdamwkzeuDFE",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJGxhaajKZ3BQR7nwcYC0yvC0",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJP_qNH1WY3BQRBN6ZwIW_hus",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJD4CELsyZ3BQRNZiaM-DXQYw",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJN-eK9KyZ3BQR1avwZrXuVLw",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJvSIx_ayZ3BQRkN38ekCz9BM",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJcxOExdaFwxQRj3tyQseEM0Y",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJ6-1JbYmZ3BQRwOCK07Foj4o",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJq-c6fwuZ3BQRreuoMAdo2hs",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJRdHHiZqb3BQRN6YP3N-2-6s",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJz1fPbwC_wxQRkYg4xwn0IxE",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJGRrhfSG_wxQRmil4xRdmFiI",
+      "ministryCertificateNos": [
+        "2203"
+      ],
+      "currentSlugs": [
+        "nirvana-mediterranean-excellence"
+      ],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJj_o1awC_wxQRJtG4gli3Ucg",
+      "ministryCertificateNos": [
+        "2615"
+      ],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJgxRMXIm4wxQRg4z-Jit1ZPA",
+      "ministryCertificateNos": [],
+      "currentSlugs": [
+        "champion-holiday-village"
+      ],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJDYNqkyW_wxQR8RVK7AiZOkQ",
+      "ministryCertificateNos": [
+        "2546"
+      ],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJ61Bc-yK_wxQR-ZM2paLJMms",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJ56eljCK_wxQRU3tTWshL0l4",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJKWvpkSK_wxQRSpYHXgUkNyc",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJqwbahCK_wxQR-RhNHF3kAUM",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJM5bj09-_wxQRUgjP91tY48U",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJHcpnEQC_wxQR-aNetYMI8hc",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJW27GEvbIwxQRRCq4LT1_BjY",
+      "ministryCertificateNos": [
+        "3756"
+      ],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJI4A8rSK_wxQRFq2Onfmr1yY",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJM6oDiBe_wxQR1BHumrwC-qE",
+      "ministryCertificateNos": [
+        "12490"
+      ],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJKZuSBzWBwxQR3oGh3FuPDuw",
+      "ministryCertificateNos": [],
+      "currentSlugs": [
+        "lara-dinc-hotel"
+      ],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJj6Q_bgCBwxQRt_t6NySphh0",
+      "ministryCertificateNos": [
+        "7426"
+      ],
+      "currentSlugs": [
+        "ic-hotels-airport"
+      ],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJybNTRvWBwxQRSA6x0kXBeUA",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJPwmytfGBwxQRHvs7hubIOj8",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJ5xbXCwBfwxQRGZMRVCliVS4",
+      "ministryCertificateNos": [
+        "8056",
+        "10404"
+      ],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJlzRQvMVfwxQRUIwqN_zyHvs",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJFwzhR9RfwxQRbJCmjQ9h3nI",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJhXTyUQCj3BQR4yhQF9-PL9U",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJ3VtOYxKj3BQRmY3Y2WI450I",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJ7YXhEX2j3BQR_xifRR4RQmc",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJzVO-_wKj3BQRz1IPPsjx7gA",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJy2WHUgCj3BQR7EYqmLEy0G8",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJfb0XpPai3BQRl2IByIMl4kk",
+      "ministryCertificateNos": [
+        "2022-7-1214"
+      ],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJ6-lgiPai3BQRf83NyBz32X0",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJTT_1YGKj3BQRKRcqUuE7-jk",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJt7diJ0uj3BQRTCecNbgfNlY",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJufq52gKj3BQR3SGRD9enCwc",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJz4wD8QKj3BQR_pcGtdhO-LU",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJARtI_AKj3BQRGN70Yc2ggnI",
+      "ministryCertificateNos": [
+        "2022-7-1273"
+      ],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJxdqmEHK_wxQR93cIEx3gk4U",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJ22TizAu_wxQRg1nmDi1EcEI",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJa_JvMwq_wxQRpYW_B1K9uD4",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJO-avbImi3BQRPUnMJQh7o3A",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJa28YAomi3BQRrrsCHMHL-8Y",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJxbg_4oii3BQRl2PNtcWzPZ8",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJie5DFMej3BQR24drKT4bCs8",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJ81C0JYmi3BQRde-1vAxm8oc",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJ81C0JYmi3BQRFdXqwPN_4Z4",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJgbQUcwCj3BQRK6p-Gn2asW8",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJ81C0JYmi3BQRdlNHJ7yljQw",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJv-5wJomi3BQRF20IH4JMn04",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJbfR4xIii3BQRM-RBgC0-cqo",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJe4X6TqGj3BQR_2j90yH0OEA",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJ_QRhcaCj3BQRT2SH1s_AMhk",
+      "ministryCertificateNos": [
+        "2022-7-0628"
+      ],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJLxwW1oei3BQRaOOC-eJEN4k",
+      "ministryCertificateNos": [
+        "10048"
+      ],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJV3dydoii3BQRvpsyybUU9og",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJqZjA342j3BQRsT2lhMIqG18",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJv2qQc2yj3BQRfnrQn3tgmPY",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJ0Zvbpluj3BQRLSZCU0FXqrg",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJdU-HNI-i3BQRpc-gRNBx9nI",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJ_Zp7l4ii3BQRQgOzqAWZoTw",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJCQlazoei3BQRP7JfmWJDX8o",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJK9j0eQ-_wxQRRE5fZVl4d9M",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJe-02_gW_wxQRNE_7JY8yvso",
+      "ministryCertificateNos": [
+        "2022-7-1481"
+      ],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJh2SLBga_wxQRuW24roT3ql0",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJ89spIa6_wxQR3q_JAV3s7pY",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJy04t6ZK3wxQRDtmI-f6kvVs",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJS2g3q0C_wxQRZIBFn7gfA3Y",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJ4VUrSX25wxQRr_k5eYOj6SA",
+      "ministryCertificateNos": [
+        "2022-7-0644"
+      ],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJQUy7C9y_wxQR_OWxvJbqqas",
+      "ministryCertificateNos": [
+        "2022-7-0461"
+      ],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJ90MkvSi_wxQROG2zFXB_BUI",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJ7YxxIru_wxQRdXLEO8AZmao",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJDat6aw-_wxQRQrL4hhI645Q",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJy6E6EgC_wxQRdWPZLploV9A",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJzWrjiTS_wxQRCKaiOVjVNeU",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJnb7ZrvG_wxQR__SJVVrDuEg",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJe03OOga_wxQR66_ck2ndmBg",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJVReZOga_wxQRy4RtNQW86n0",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJz5SlKm-_wxQRVmLlQ56y034",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJuU7CTLK_wxQRSfWZEloYFWg",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJDWUF0amb3BQRrdtBmtxnUTE",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJj6IPOhC_wxQRBxq-rG8zLfo",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJN39Fv4WY3BQR2EeF2F3_CbM",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJod6PNoeY3BQRwYfry1bYj-U",
+      "ministryCertificateNos": [
+        "2022-7-1188"
+      ],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJdb33soeY3BQR0mxq1C9X6YE",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJ4-n3soeY3BQR-p1oqIOVIsg",
+      "ministryCertificateNos": [
+        "11388"
+      ],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJ3Wq9IoWY3BQRaX2cA2SuIC8",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJI_9364CY3BQRehFzsI6RnBM",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJGRrpPIWY3BQRCxOzOHfMWpo",
+      "ministryCertificateNos": [
+        "3073"
+      ],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJkx3NxJqZ3BQR_127xBuM4v4",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJmehVSIWY3BQRBWdcXEl_Xqw",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJWwvuIn6Y3BQRJFn96fcmIes",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJkxxofFGZ3BQR93A0rRDB7Mc",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJeeb5_X6Y3BQRNIv50s589L4",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJXRsQnX-i3BQRPNw_lNreY4Q",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJ3UWKAn-Y3BQRfYRxxkPQxYY",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJZ-H_lH-i3BQRxhyq_ZFrA-k",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJ-auqqn2Y3BQRlLb1PNV2zjY",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJY7h1lH-i3BQRIN2V8ixs7oY",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJO-8ipX-i3BQRh-ZrATpOjF8",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJpb5ntgCZ3BQR2NdhMeNrdEY",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJpRd_DwCZ3BQRmB8xUPa8qXI",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJi3ksYPSY3BQRrg2uqZzuWbw",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJzZKxIfSY3BQRhDU2-h6rmhU",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJX8klRuSZ3BQRYJlTsK4wZ8o",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJU4mReSKZ3BQRBrZSzna1i8w",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": false
+    },
+    {
+      "placeId": "ChIJ6WEPD32Z3BQRVORsaf1nQZg",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJn0yhvbiZ3BQRA0cLJ4ZPd6Y",
+      "ministryCertificateNos": [
+        "2022-7-1498"
+      ],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJDcGjtoqY3BQR8NOEtZRo-4o",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJ3QOF1oqZ3BQRLCrlwcQ6R4k",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJXWSFpoqY3BQRTQ-EFCg1x0w",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJeYqloYqY3BQRNfa3arVssL8",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJ41XMl4qY3BQR5LEE6Zr2LhU",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJU0ktJBKZ3BQRvLA88-FW3qs",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJCTe2XyGZ3BQR7UlAwsJ3B0U",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJN3v422eZ3BQRFmZAYhjU_XA",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJj52FFhaZ3BQRnOldDUW9cXE",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJV4YfV-yZ3BQRmCOnNPU8QUc",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJf32HynOZ3BQR-gtrCnIH5c0",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJcYckXwCZ3BQRGU6nqDaSGvg",
+      "ministryCertificateNos": [
+        "14918"
+      ],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJIyNQdHmPwxQRfmsuBn-9MYE",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJMVb3bAiGwxQRrFXnXGrQ9D4",
+      "ministryCertificateNos": [],
+      "currentSlugs": [
+        "baran-hotel"
+      ],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJkzcy0YOb3BQRj0J58nSxQ-g",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJq7UfIwaQwxQRXCzff-ptelA",
+      "ministryCertificateNos": [
+        "8808"
+      ],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJL4Mk4Aqa3BQRndEAgrlTYNg",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJq7UfIwaQwxQR06SkwIXeugU",
+      "ministryCertificateNos": [
+        "11177"
+      ],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJM_EfIwaQwxQR1l_C6f9ztgo",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJMyVFQwmd3BQRmisWf3daRz0",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJAc1X766_wxQRztooRbhmN88",
+      "ministryCertificateNos": [
+        "7771"
+      ],
+      "currentSlugs": [
+        "juju-premier-palace"
+      ],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJ4UoVYZdXwxQR5bHfpucZNdE",
+      "ministryCertificateNos": [],
+      "currentSlugs": [
+        "gizli-koy-hotel"
+      ],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJIbI4-PO4wxQRg32udnBGa14",
+      "ministryCertificateNos": [],
+      "currentSlugs": [
+        "guler-butik-hotel"
+      ],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJ3_XG1qi_wxQRFc2scJhCiDQ",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJneNml35XwxQR2Av0c6foDYc",
+      "ministryCertificateNos": [
+        "2022-7-1581"
+      ],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJB7MVfeaj3BQRfjccZ5rOeAY",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJXaxHBuCj3BQREJ5oMwk-1_Y",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJ5fooPk-j3BQR63d014S03K4",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJGzNDqXCk3BQRIJH-7MRSAuM",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJ-_RCd82RwxQRe1PWa7EoMAI",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJowy4n32j3BQR0qoFUf4eCdw",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJY8LGIV2l3BQReIdj34Pfg1o",
+      "ministryCertificateNos": [
+        "4365"
+      ],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJO6L6K3Cj3BQRFTs2Bswtk0g",
+      "ministryCertificateNos": [
+        "8450"
+      ],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJ2yLGX0al3BQRuYISD3JhwQs",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJq4EFzW-j3BQRIBl03jtESbo",
+      "ministryCertificateNos": [
+        "11069"
+      ],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJbb8wa0ej3BQRAuHsI07GP7Q",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJC0myjYyj3BQRje_hE15Geu4",
+      "ministryCertificateNos": [
+        "G_26117"
+      ],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJsb4UEQCj3BQRMhsu_24wTC8",
+      "ministryCertificateNos": [
+        "G_26117"
+      ],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJK_jpf8il3BQRQ_GAmoFTk9Q",
+      "ministryCertificateNos": [
+        "18610"
+      ],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJ6aLnM26j3BQRLYMSPnvyYrY",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJc_EuyqKY3BQRqW3Jb78a_tI",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJT7wphLCZ3BQRwPak79o65ek",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJPWDvgLCY3BQRJRXkzAlkfEA",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJr8RzfQCZ3BQR6O-eS-zrX5I",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJ3fK_LQSQwxQR2z_QPDVMP18",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJ73wOiSmf3BQRmUz0jvd-C54",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJmzSMVHLBwxQRmIBOj5Kr6Co",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJbweSH9mD3BQR0D1b_sDesBI",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJu7ZF16Oe3BQRqvQtoM28LVs",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJ9RnXKgWf3BQRanxCxmIlmR4",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJT7SmK5ui3BQRu2rLo0SrdgQ",
+      "ministryCertificateNos": [
+        "11547"
+      ],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJKfIZc32j3BQRnfPV6Vz3JqY",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJHzvvPJui3BQRwbUZNFCHq0g",
+      "ministryCertificateNos": [
+        "8543"
+      ],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJyfiSwHSY3BQRrQwpNuzUIco",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJlaOzB6Ci3BQRrz2uwX6-a0g",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJnynywT2Z3BQRm7B8kt50EUY",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJ4YvawL-Z3BQRAoyQDaWbywU",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJ91viQdyZ3BQRTgPMEY8Eq_s",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJ7SjdnqCZ3BQRXSaYgHaQc3c",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJCcY_DXeY3BQR-j5r2xspp1I",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJkXuJLXiY3BQRbC5y1_b95go",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJd8yT0XmY3BQRuM0kQvGU7Lk",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJ0V-JLXiY3BQRIrdjkuNndqw",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJJ7mvYgCZ3BQRDmEC9EC1U88",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJf6F2KQCZ3BQR2pcDfy8oEm0",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJxee0HwCZ3BQRFAKxtyFlTHM",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJqaR0HwCZ3BQRRRx_4FYM1no",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJgW9TTwCZ3BQR4RwWp8HVPQA",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJ63fmagCZ3BQR_dHvWw6pc9M",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJkXuJLXiY3BQRpI45b3fwNb0",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJJ13NIACZ3BQRU6Z9ZbpWeTM",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJ92WSYQCZ3BQRCryMKrlG2H4",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJTa_HXJqZ3BQRv0py6KzarZ0",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJ6eS1Q_CZ3BQRz69HUtY8TNc",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJ7fd4m_GZ3BQRtBZ_j0XWuB4",
+      "ministryCertificateNos": [
+        "4919"
+      ],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJl1CCIAWZ3BQRD0ZDEUYVgbk",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJL3lLaPaZ3BQRbnx2CtSBWN8",
+      "ministryCertificateNos": [
+        "17129"
+      ],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJSxgIQJuZ3BQRUiwtFY_C67k",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJHdXX2W2Z3BQRpm7QwEdob3Q",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJM8o4jWSY3BQRP8guC7GayQg",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJqxYiZGSY3BQRafAo4PO9WM4",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJi_x1jmSY3BQRzqg98srT-og",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJV4ssjWSY3BQRoXIw5naObU4",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJl8au8mSY3BQRwifVpUJw4DE",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJ59LCbGSY3BQRpEfvLpqacy8",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJsQmbjmSY3BQR2jEw1TewPJw",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJN3waV9KZ3BQRgX6vgUZJjxo",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJl0BfKmWY3BQRWCjGbYtg7VY",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJxWfVn3-i3BQRVZHWa601OFU",
+      "ministryCertificateNos": [
+        "2022-7-1149"
+      ],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJv6n3vmSY3BQR9zjz3hXw-3c",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJM25Ej2SY3BQRYGcs-Z5etOQ",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJwSpey3CY3BQRaXqLcW0enP0",
+      "ministryCertificateNos": [
+        "1352"
+      ],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJNRe7zWSY3BQRVNmHb2-xIik",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJSeI-PYWY3BQRqttlJVEOaGo",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": false
+    },
+    {
+      "placeId": "ChIJQwaOFl2Z3BQRZ9e_kee5JOk",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJoUryEmSY3BQRdGmvKjfWfvs",
+      "ministryCertificateNos": [
+        "2687"
+      ],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJ5a8WeyUQKxURX-vXT8TmGwY",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJhYhp2a6Z3BQRwS00-oVY9yI",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJL9zaKleY3BQRu2w5EXMMTkM",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJi1IaHYWY3BQRYbtSBeIjFfY",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJJ6lARQCZ3BQRRXX-Qwo-Urw",
+      "ministryCertificateNos": [
+        "19151"
+      ],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJdQRdXV6Y3BQRrwSgPMP0kMk",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJ73L0XV6Y3BQRdxj49704DOM",
+      "ministryCertificateNos": [
+        "2022-7-0561"
+      ],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJ9Ug6XV6Y3BQReAug-Kt0tIE",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJAb3MVHyZ3BQRLrkEJcIcm_M",
+      "ministryCertificateNos": [
+        "2022-7-0740"
+      ],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJP1teWV6Y3BQRXYjybVCtf1M",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJ8WT7G16Y3BQRkRE7q0_DlmE",
+      "ministryCertificateNos": [
+        "1459"
+      ],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJEeo3YF6Y3BQRX-znFYNadgA",
+      "ministryCertificateNos": [
+        "3204"
+      ],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJuW-aHl6Y3BQRm8cg6E5OeEk",
+      "ministryCertificateNos": [
+        "2022-7-0545"
+      ],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJdaZUq1-Y3BQRZTeEw0Yos2k",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJU_0_KgCl3BQRbzzmbciVoPc",
+      "ministryCertificateNos": [
+        "9694"
+      ],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJ-6-1416Y3BQRun6tqesJcso",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJ03ZGBl-Y3BQRV09wtf1WLQc",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJM5dOzHCY3BQR8WoRx2i1kzA",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJTSnAsF-Y3BQRqvUHlipboGM",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJ9dZjfYWZ3BQR4pfpfpwRyzk",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJL_aIvmCY3BQRoLqCYisIwL0",
+      "ministryCertificateNos": [
+        "2022-7-0630"
+      ],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJfdfKouiZ3BQRstlQ6lCRxCQ",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJC0Uyo2CY3BQR09xLZJ4HS4A",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJjY22i1eY3BQRWZGwBNTX19Y",
+      "ministryCertificateNos": [
+        "12316"
+      ],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJs52AtFeY3BQRs5H-qGxY-Sk",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJeV30r1eY3BQRjoXDxsGWDlA",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJu9_R2cKZ3BQRVwLasaaTrwQ",
+      "ministryCertificateNos": [
+        "2022-7-1106"
+      ],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJa4uzS1-Z3BQRZxEcoF2I3QY",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJz-j8YKeQ3BQRULz4EgbqHyc",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJ-e8mW1aY3BQRrueQG8d_GhY",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJh1m2bFeY3BQRrn31yP-lcL8",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJHZpPVfiY3BQRsEQClMo5cBc",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJ7Wr6M1aY3BQRUBqEr53ga_M",
+      "ministryCertificateNos": [
+        "17987"
+      ],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJAxtqsFeY3BQRVfJBv-Mm3Sk",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJI4-g4ceZ3BQRmhyZnGdHj44",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJIWP7MlOY3BQRHmU9oseWJoQ",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJb7svMlOY3BQRfc-CKn628qM",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJY-LZP5qY3BQR30XhWDC93BY",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJXYz9SFOY3BQRezB48BkM8rQ",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJP0JuI62Z3BQRQLIvwvsQdVQ",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJySo5Lq2Z3BQRbz1sREgZnWs",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJaYZp0lKY3BQRH65Xcbe28K4",
+      "ministryCertificateNos": [
+        "12023"
+      ],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJryKfLKSZ3BQRErpAPF1CkxI",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJJaq6-F-Z3BQR900dYe717Ig",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJt5i7mCyZ3BQR-CvwkOb_gBs",
+      "ministryCertificateNos": [
+        "18682"
+      ],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJkd5uS66Z3BQROqfidMJQIDE",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJGziQlC6Z3BQRiFQIY_OUK94",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJm8p_R66Z3BQRgCjuKUINlV8",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJJWBMnFWY3BQR7zrgh3tlBcI",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJQ8gaegCj3BQRDPBQYwReHNI",
+      "ministryCertificateNos": [
+        "6984"
+      ],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJn4thaoyi3BQR9bSU8DOSORY",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJHSfADYyi3BQRzenOqFtT4Lk",
+      "ministryCertificateNos": [
+        "11078"
+      ],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJMditbYyi3BQRxqvf6LBpd_A",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJAQDQa4yi3BQRGW3FMalWTfA",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJU1-2jYyi3BQRrenT-RkXW-k",
+      "ministryCertificateNos": [
+        "3307"
+      ],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJv-O7XwCj3BQRIXmlcWJ5Sdc",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJTS__IYyi3BQRusPrTjgK4Fg",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJZwvLPIyi3BQRUY86UJmsZY0",
+      "ministryCertificateNos": [
+        "6984"
+      ],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJYx7HNoyi3BQRmw8phqLQfs4",
+      "ministryCertificateNos": [
+        "3695"
+      ],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJDyhAWg-j3BQRSuIdrZOoKLc",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJ2-TNrDmZ3BQRyElbDKa4jIk",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJR2bb19uj3BQRig8nxSdrAnk",
+      "ministryCertificateNos": [
+        "10367"
+      ],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJD2hMkYyi3BQRUX4leWkZIxI",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJdytzcvWE0BQR1atTTEDcTsI",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJT5yfoI6i3BQRIPv01_ik6pQ",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJ8-gxC4yi3BQRUvTWy_56Kxc",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJubrdm46i3BQRdgzx-WAzEtg",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJQ78B3Yui3BQRnwkf6UBegZE",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJG9-x7Cuj3BQRWfN09trlgrM",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJa-LX3IWi3BQRAW7o5HzZWxk",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJiQmQs4Wi3BQR_DX5vMD2fRE",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJt38i5oWi3BQREfOPxHUR8us",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJfwZz5IWi3BQRwJZqB28jnDk",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJCTkQHYWY3BQR6m17Pxmigo0",
+      "ministryCertificateNos": [
+        "7904"
+      ],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJ3-MolIWi3BQR_NG9rF0zEjg",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJ2bASvoWi3BQRvvXi18BjbVE",
+      "ministryCertificateNos": [
+        "2022-7-0288"
+      ],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJJzdQGWyj3BQRC3QNC3nRx34",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJYeB0vYWi3BQRcz4dMDnIlN4",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJCZOyUoSi3BQRvMjW9jlemWQ",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJP7hFU4Si3BQRftYjSZEyDjc",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJFfMOoIWi3BQR-u9eFsJ8-W8",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJLQ69eIWi3BQRGmcy4taroMQ",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJLc7EZo-i3BQRgquBxkmUWBg",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJ10jW3imj3BQRmPiLYWkDeCM",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJuZPVvSGQwxQRzCDHPTTHLek",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJi3HSeIWi3BQRA2M5BeVSz8k",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJqYfoWoSi3BQR1F7UyJSQQ_A",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJKffdrfSi3BQRKOoa18niBGk",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJoW1crfSi3BQRno9g6ODLa7A",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJ70vUg_Oi3BQRwMVhL5GNSsE",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJAQAAFRuj3BQRxdIz_2QIHt4",
+      "ministryCertificateNos": [
+        "2022-7-0202"
+      ],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJTWp5Eaa_wxQRaTYI9R6zyGU",
+      "ministryCertificateNos": [
+        "8979"
+      ],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJq3Qpop23wxQRhUMrGGBEbXk",
+      "ministryCertificateNos": [
+        "24745"
+      ],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJU9lPuRC_wxQRk6XGzXMnACY",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJsbD2wqW_wxQRpbcfWCY8KgM",
+      "ministryCertificateNos": [
+        "2022-7-1575"
+      ],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJbb4GsRC_wxQRhTE_0iWHDLc",
+      "ministryCertificateNos": [
+        "2022-7-1474"
+      ],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJPSxfBgC_wxQRkBzPr6TDylE",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJb3kuQxC_wxQR_9YhzoyYgvc",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJNbeOXBC_wxQRZ1IpDPq-WVE",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJ6TOMHNi3wxQR65FX0aUJ8vU",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJBakXFmG_wxQRq9vtPVYMB6I",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJo55kYBe_wxQRiXy0AcMx9nY",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJI6B7lZe_wxQRdmC9DOP12M0",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJLU5PcBe_wxQRuHcBONbyvvE",
+      "ministryCertificateNos": [
+        "2021-7-0026"
+      ],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJ_3pilk-_wxQRtZURsIWBSEI",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJ57yhI_K_wxQRt3E02E23O_M",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJ65zMKw6_wxQRq_KJ3vHDlNw",
+      "ministryCertificateNos": [
+        "2022-7-0531"
+      ],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJjTw9zw-_wxQR9juwSbulWt8",
+      "ministryCertificateNos": [
+        "G_25248"
+      ],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJw88jiRa_wxQRo9jwfL4Jq2s",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJIztezya_wxQREkAR2XKJFKU",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJwRaPpQi_wxQRMZFMQQThOAI",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJSV4GNmW_wxQR4JSWzfs2e2A",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJpSo0J6O3wxQRrSQGKx9gGrY",
+      "ministryCertificateNos": [
+        "2022-7-1376"
+      ],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJMxS0UwNjwxQR76hXSWd2HAI",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": false
+    },
+    {
+      "placeId": "ChIJZ6omQJy_wxQRMFSSknVsVIg",
+      "ministryCertificateNos": [
+        "2022-7-1105"
+      ],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJ_em1zDi3wxQRVpFeLCkZxPo",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJQyi4LdW_wxQRUKKmG4uU30A",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJWXCxy4Gi3BQRrEJmsw2eBkw",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJcZb12X6Y3BQR1ggAs-ZaYuY",
+      "ministryCertificateNos": [
+        "24164"
+      ],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJA64moXiY3BQR03mfxPPkQV4",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJu9Pl_4Ci3BQRSXHCRdDryis",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJX2eQkMWj3BQRpTA2raBVn4Y",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJ7el3MH-Y3BQRmvYA6nBu0Q4",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJkbliaoKi3BQR_oDuWAJz7YI",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJB0ulN4Ki3BQR10ot_we9EbA",
+      "ministryCertificateNos": [
+        "2022-7-0093"
+      ],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJYTE3SIKi3BQREQVLu5ZVOy8",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJPVVXV2KY3BQRkEBYppHCSns",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJr5krOn2Y3BQR8SUm3t87XDg",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJBwybHGKY3BQR_hH3J43Ls68",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJM6DZAmKY3BQRqVi7wJnaUBc",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJTRQPjGGY3BQRxQ_WRyXsvXk",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJVR8OL8uZ3BQRRnIr3occujw",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJI8aU73yY3BQRcD7hvIswRdA",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJxaFm0n-i3BQRnzPC2pN9eAM",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJVx407d2Z3BQRSPA0l5M3YhI",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJiV_sUn6i3BQRat7DeQAAK64",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJuUoOJgeZ3BQRZd4u5RFxDVo",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJuUKtvHCY3BQRBdCVnwA6PXs",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJjR4zFluj3BQRHRG_-7diRds",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJ-_-BVpui3BQR6D8mLMs-WIM",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJxYKEW5ui3BQRr8V_TXp_1-E",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJIee3FACj3BQRoRdNYgMjcHk",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJK9iAVpui3BQRL_l70QMyesg",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJQfLKpi2Z3BQRzXph6BU-q74",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJC5yHLQCj3BQRs-iuwwHJSRs",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJc7rDU4Oi3BQR0Ugzn2Al_VY",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJ2ecMqoSi3BQRbRoMjliFIc8",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJwSNTZPWE0BQRpkPII7cnas8",
+      "ministryCertificateNos": [
+        "20636"
+      ],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJ958KJwCZ3BQRi9JQODSAsxA",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJGyXBuZ2i3BQRH_6s_rljLoo",
+      "ministryCertificateNos": [
+        "5052"
+      ],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJ14-QDwCZ3BQRlKgHdsYYD6c",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJr0O9QQCZ3BQR9xjLEReEn0w",
+      "ministryCertificateNos": [
+        "26458"
+      ],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJ1276dp2i3BQRV5jdHJikxJM",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJTT3fVpyi3BQRUh2eSEeDQAk",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJn5_hFHeY3BQRoJ_GPFXlX1M",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJjc-bcH6Y3BQR_fxc1jnxst8",
+      "ministryCertificateNos": [
+        "2022-7-1188"
+      ],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJ8XScW3eY3BQR0POeAG6vYSI",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJt84IzVqZ3BQR5P4dfK4OJhc",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJA9ty-gGZ3BQRpA-1dUCkI34",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJY09gCPuZ3BQRJjr-X10b2IQ",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJB_XngI2Z3BQRduyXKrsC_YE",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJWRcS4Caj3BQRiKbeLYesB54",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJOyjI9SSZ3BQRjLl6BKldZk8",
+      "ministryCertificateNos": [
+        "2022-7-1156"
+      ],
+      "currentSlugs": [
+        "yalcin-otel"
+      ],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJExr1FXiY3BQRNt-hATeEJOY",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJc2jDVp2i3BQRd-UocZz-qFY",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": false
+    },
+    {
+      "placeId": "ChIJ8YRv6oKi3BQR5MiX3k0h12I",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJw7S9ZVij3BQRrBvpIeiC2Eo",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJ-RVpaniY3BQR-g2cKR6gxOg",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJT5jJ7YKi3BQRDXer6C-3XTE",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJYa89FniY3BQR9qieJ1RgRpw",
+      "ministryCertificateNos": [
+        "19946"
+      ],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJl9dCQgCZ3BQRKm3_dHoI6bk",
+      "ministryCertificateNos": [
+        "19946"
+      ],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJW9ZQCjyZ3BQRFhfsXN162XM",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJf14mb52i3BQRSXhF1ZuHzLk",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJ3TrgAeyj3BQROq1WYENdbSU",
+      "ministryCertificateNos": [
+        "20636"
+      ],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJlw1uVQaQwxQRJXjiLlvpMfQ",
+      "ministryCertificateNos": [
+        "2022-7-0091"
+      ],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJL-PmWvSj3BQRETxNs8T0CmQ",
+      "ministryCertificateNos": [
+        "24043"
+      ],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJK68V1oKi3BQRfn9GyaTuyfI",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJ8fPEG52i3BQRHsS66m4JlFQ",
+      "ministryCertificateNos": [
+        "6269"
+      ],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJN8UmIJ2i3BQRH3QsKxp_Cwo",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJMQCAAtSZ3BQRl_9OOllJXQ4",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJo2yIsaOZ3BQRfUy9u4P_HgY",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJKWMzeXmY3BQRpoMrBJkHqWI",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJ9WQJdnmY3BQRxRtHpR1UmJM",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJN4SadnmY3BQRjPaRg8dsVbY",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJkfCIwnuY3BQRobnYPgP0ncI",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJpZ7UbHmY3BQR8xcMNGXhUmA",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJUw_mRACZ3BQRF6sQp7fU4wQ",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJh0INqmuZ3BQRSYLTJhMIWvY",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJoxpDJ3qY3BQRbath4HSdios",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJPy3Cs_2Z3BQR9cqKXNdRe48",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJ_VMC8weZ3BQRFCkemxBjbbU",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJKcjwOQCZ3BQR9svOdZ_Zdec",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJf_VvenqY3BQRSXNT_zvMrs8",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJ42c9bvWE0BQRMH70GcZ3CJM",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJp2HasTaZ3BQRJdX4cbF_KU0",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJu383y2SY3BQRqnvkpImaNRs",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJ04sxzWSY3BQRWwZQwcuIN6M",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJmQQZ_nqY3BQR_pBg0Wj2AYQ",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJCVYWsXyY3BQRdUsDRgRuoPk",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJd5AQo-WZ3BQR8FSJ-ntXBmk",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJU4v-hXyY3BQRntn_xDfh8X4",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJLXTfuHyY3BQR3t7lefowmDo",
+      "ministryCertificateNos": [
+        "8641"
+      ],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJzVEX-HqY3BQRq-egl9hxVAk",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJD2dH3QGZ3BQRBXl-AeHzU3U",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJZ5xefuSZ3BQR778IIURjrw8",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJqYzuMruZ3BQRjzGlDKL0fWI",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJWdjq-WOY3BQRPoEijZbfGhc",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJL1uewWOY3BQRkR9pi0miJYs",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJDbR9nZCZ3BQRCxMr9aK8Myk",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJjws1hWOY3BQRLLOUGllwbD0",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJefIqhWOY3BQRcqFvSZqwD3A",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJBdVVY2GY3BQRJ2OjHP07ZR8",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJI3r9ZWGY3BQRAfDeB9tFPqQ",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJ49LwiNuZ3BQRdFcR8wQlCfY",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJ3cG8PSiZ3BQRslYHl9Ph2ns",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJtVCnTGOZ3BQRh7-PKhTajN4",
+      "ministryCertificateNos": [
+        "9019"
+      ],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJA3EGamGY3BQRhKAvOlfqpbY",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJqfIMRmGY3BQRVc6a9MXCdDs",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJrf5q_FOZ3BQRxqRyq5pRnHI",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJB88n3ruZ3BQRHCm5mOFIhaU",
+      "ministryCertificateNos": [
+        "2022-7-1299"
+      ],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJi_jpTACZ3BQRb5p6Q4bF5aw",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJWUrOawCZ3BQRCF-VWWGAU2c",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJA_8vQmCY3BQR-7Z5rE8yLKc",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJiYi0wGCY3BQRFubP316-Bek",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJcd7qAXOZ3BQR1pY5khQInJs",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJBUkZ22CY3BQRywve6TLrDCw",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJ_____2CY3BQRIprYYMH4USI",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJN7gPz2CY3BQR6QzkJ2qtpjk",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJn39iVACZ3BQRi3Ry_-szGds",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJaZtQ4mCY3BQRrV71K52wEb8",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJE1awoF-Y3BQRZ5eah-nbhE0",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJb56ga06Z3BQRmVsbKg1bGZc",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJSe3NN1-Y3BQRQrA5zPu0Lqw",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJ2dk8-NuZ3BQROYrOoWpzyFo",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJ-5VaMl-Y3BQRESvhoJtOYLo",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJtT-4qzmZ3BQRhPfMjerdAKE",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJX4pJtnCY3BQRfSPCTAuoYNc",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJEbz96FiY3BQRmtax9vnyRng",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJEyT2MVeY3BQRXtYuqXgusUA",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJcejmeQCZ3BQRPgS-i4qRq7g",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJywYLt_ak3BQRCeoqRP2KJfA",
+      "ministryCertificateNos": [
+        "2022-7-0456"
+      ],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJwzdwX4ml3BQR5o-tAUvD3ok",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJq6ouu62Z3BQRmBuOsH4aqqY",
+      "ministryCertificateNos": [
+        "16205"
+      ],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJDaNPk62Z3BQRn753CbAQj8w",
+      "ministryCertificateNos": [
+        "15408"
+      ],
+      "currentSlugs": [
+        "asia-beach-resort-spa"
+      ],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJoaD9o62Z3BQR2jUCdWMJ4YU",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJBz9zs0eZ3BQRtPF3dMFsZOo",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJv3rKnq2Z3BQR_667fDpfH_Y",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJP-t17q2Z3BQRw_zTpFggVTQ",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJEVIDmwKZ3BQRYMMfsAK4DZE",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJgQl_hyu7yhQRJ_VreFWnank",
+      "ministryCertificateNos": [
+        "9115"
+      ],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJwajh7q2Z3BQRCotoT29nFSI",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJ0-G-n1SY3BQR9tvOcLK968s",
+      "ministryCertificateNos": [
+        "2022-7-0184"
+      ],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJ-1vpnlSY3BQRnwl08P_GvBk",
+      "ministryCertificateNos": [
+        "14918"
+      ],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJ3Yip59SZ3BQRMJhC_e0XvdI",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJP1g9ZFOY3BQREKmQ8ugyzYk",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJsaaLblOY3BQRttAplmH1ySs",
+      "ministryCertificateNos": [
+        "12951"
+      ],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJZ3tId1OY3BQRzBaMAOYTRz4",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJ0S4AeFOY3BQRESpsQoAxT_4",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJu4vHPeiZ3BQR4YgNs56pDP4",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJS9qannCY3BQRCWcOR-FQc8Y",
+      "ministryCertificateNos": [
+        "5072"
+      ],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJ5csGVFOY3BQR1fvAJyxlvs8",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJWf9XgVOY3BQR_VJZ6ZtBl9s",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJwe6QGFOY3BQRh3sRilkZvU8",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJPW6Lg1OY3BQRLS49RLLFcfE",
+      "ministryCertificateNos": [
+        "2022-7-0619"
+      ],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJo_TTPlOY3BQR5el2hqc9KIU",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJ3xRccFOY3BQRqhH44P1768A",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJyb-hD1OY3BQRen29vJoAtkA",
+      "ministryCertificateNos": [
+        "2022-7-1670"
+      ],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJdcKYLS6Z3BQRBT3ry8aEVns",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJ57MwAQCj3BQRuBzfUjL2aqo",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJs4VJ9I6i3BQR6rPJy3YWrrA",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJZ4-SjI6i3BQRCbOWThGjvTU",
+      "ministryCertificateNos": [
+        "4114"
+      ],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJcY30946i3BQRoknHaY3m9bY",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJ4amw-Xuj3BQRE7i0uLmpZ_o",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJR79Xgoyi3BQR5n2lyj7AdGI",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJ-_YFfQCj3BQRwv4zI8pX9XA",
+      "ministryCertificateNos": [
+        "12316"
+      ],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJhV7qoByj3BQRqU8Hh-9sNqU",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJR79Xgoyi3BQR6Fykc75TI3k",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJsZxFeoui3BQRGyk2bmupM20",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJZwW4efOi3BQR-banSjLJ9Yw",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJx0E2h4yi3BQRp0T0ZeXBgMo",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJN_k0hI-i3BQRlpM_ufbj9II",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJ40IVko-i3BQRFPENaajUp3M",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJX4pJtnCY3BQR6qoPGEXf7_k",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJ36lLko-i3BQRx4WKTkvf9lw",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJT9StywGj3BQR-JVeyrq_MEk",
+      "ministryCertificateNos": [
+        "6312"
+      ],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJU19sofai3BQR69z-zg-sA2Q",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJN7NHagWj3BQRIL8AYl8d5d0",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJhVbnjI-i3BQR0SFzGWapy54",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJczjGTjuj3BQRYmkT4u-v1Kw",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJH6F9eYWi3BQRmgywjrOXNz0",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJNduBYIWi3BQRVmkCCF08Adc",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJpxLEfySj3BQRV6PCQm6wbpo",
+      "ministryCertificateNos": [
+        "6269"
+      ],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJB7avmCqj3BQRy7OZD08adEM",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJL4Mk4Aqa3BQRP7g9M5NMOWY",
+      "ministryCertificateNos": [
+        "11828"
+      ],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJdyw37o-i3BQRNaMJ86W_oms",
+      "ministryCertificateNos": [
+        "8808"
+      ],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJXQKDsI-i3BQR6Udcd7DSHoA",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJn1lGc4Si3BQRlJhlgR5dPHA",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJLxcxvYSi3BQRVqzfDkYAvKU",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJK8g_Z4Si3BQR4Aoi6vrXUnc",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJh0L7YISi3BQRPVumZqmi0Qw",
+      "ministryCertificateNos": [
+        "2022-7-1266"
+      ],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJ_d2SZQKj3BQRtsA93y0TSJQ",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJjcqq-4Oi3BQRBgm2qLruwFA",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJAyTYioSi3BQRzkYdAp2_Pxs",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJxUW9W4Si3BQRGg7VLe0QCDU",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJUdodUYGi3BQRTRm5ZE1k6aA",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJjfjMjISi3BQR8Jkb8eG-f2A",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJP90nSFKj3BQR0jlOy9oBf9E",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJAVdGhoSi3BQR8-RGfKCa0rc",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJI3wOhISi3BQRpBV9BVt2k_g",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJ69GX5SOj3BQRd8VQUk8G2wM",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJMZDcp4eY3BQRx0j6UC4YRE8",
+      "ministryCertificateNos": [
+        "19848"
+      ],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJX8WLP3Gj3BQRfCO9VFordoE",
+      "ministryCertificateNos": [
+        "26130"
+      ],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJ3UW7U4Gi3BQRRNIYp0uOmdE",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJ-U9Uwa2j3BQRuzJvRKUgvvg",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJXzCRR4-i3BQRLDiZ7XEF9es",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJ5TCo8qmj3BQRPYi1bf4gjh4",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJQe0oIYei3BQRqOa1-zsKkm8",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJpW6FDQCj3BQRIp_7j_XuRII",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJ4z2-jrKj3BQRJ_fbmLPZbys",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJ3d7LuYCi3BQRIgYzFAzDyBM",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJHxrDsoCi3BQRUkPdgpnrmuc",
+      "ministryCertificateNos": [
+        "17085"
+      ],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJfYWZGIWY3BQRDZMcTiT0Ruo",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJPe7M-Wij3BQRiAbXKBb_Oz4",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJ5fnpGn6i3BQRzY0-SU4j7FU",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJARV81e2_wxQRguCgLAN3LC8",
+      "ministryCertificateNos": [
+        "2022-7-1758"
+      ],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJPQIAAA-_wxQRQQuQ1vfUAvE",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJ9ccIRwC_wxQRRLK5EzfExG8",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJa-znXGa_wxQRUf2OLJDJfjg",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJg9BQnRa_wxQRpLDFpFFM5PI",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJ_0iFCwC_wxQRXSbZlB7g95E",
+      "ministryCertificateNos": [
+        "2022-7-1648"
+      ],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJAdK37Ru_wxQRU73ARebWJbE",
+      "ministryCertificateNos": [],
+      "currentSlugs": [
+        "melodi-hotel"
+      ],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJ9QWL2Ai_wxQRXBpnt6ls3IA",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJfXmUBJe3wxQRnk8kkDbGUc8",
+      "ministryCertificateNos": [
+        "2022-7-0602"
+      ],
+      "currentSlugs": [
+        "hotel-gold-stone"
+      ],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJZZBaKQm_wxQR4L_VGBD9yt8",
+      "ministryCertificateNos": [
+        "2022-7-1374"
+      ],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJmyx0s26_wxQRhnG9YIXnsQ4",
+      "ministryCertificateNos": [
+        "2022-7-0601"
+      ],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJ78JeTAi_wxQRZcqic0FmyaA",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": false
+    },
+    {
+      "placeId": "ChIJw-StSwi_wxQRT5VpsvbyNtw",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJDwsOYIa_wxQRjb8i80hCztQ",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJd3qbe9i_wxQR8TX8tL7ALzQ",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJYb1wIQm_wxQR5n3eNbopV2Y",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJOYWBcQi_wxQRwESGLKGQf-o",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJ6U8zgH-_wxQRBVFekQ2fe6E",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJ7RR2RX65wRQR9vZD-LKbWhI",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJ3RGlpDC_wxQR0oRiMEWwDOE",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJ_xUeVKu_wxQRtGj1uQwsnBM",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJ8fevahm3wxQR9b45G8zlIdc",
+      "ministryCertificateNos": [
+        "21714"
+      ],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJqSP6EgC_wxQRp6BbcGi7jEQ",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJSyfLXAC_wxQRLaaMTMR8rvE",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJ-aowIUW3wxQRXXhfUSUn0p0",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJmWpztam_wxQRjGYG5bnCLe4",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJ-XRL5Qe_wxQRisIPg4Yuv1s",
+      "ministryCertificateNos": [
+        "2022-7-1387"
+      ],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJkfLJNwC_wxQRRKniVUVgdW4",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJtTsJ5we_wxQRz5C8UJikxFU",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJ8Ryg-yi_wxQR4brr5h9LOnU",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJx8fTwQu_wxQRMSVgiYf-OX8",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJ97fl3we_wxQRLJTbnnokBgY",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJ82hLF6i_wxQRVS7zXvFxyB8",
+      "ministryCertificateNos": [
+        "2022-7-0584"
+      ],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJYz2GEai_wxQRxsq_Y4ePBGI",
+      "ministryCertificateNos": [
+        "2022-7-0581"
+      ],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJ1z8dkniY3BQRrMO6YZIs9Wk",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJ888bm66j3BQR8-x7GTulJ0k",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJC8LSkJyi3BQRbuHoPBbDmV4",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJy1Xjj5yi3BQRG30ybHKWA9U",
+      "ministryCertificateNos": [
+        "2022-7-0428"
+      ],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJpbbDFwCj3BQRqODReBmTb9k",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJu3r20Jqi3BQR3yYfay-dvdI",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJyaIcvoSi3BQRRJdYT2dc4gY",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJ2w1dmISi3BQRu3AXx1jjk5U",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJy1ejAwCj3BQRoMN0EAOni6A",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJB21jR4Oi3BQRrHp0l68tGQg",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJBwVMOIOi3BQRQ2skP2_x8d4",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJtfYxoISi3BQRlv8SrzNFNDs",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJD_uG9Vmj3BQRRNuzRfmg14M",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJex5zm-SZ3BQR1pwozSJC9_w",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJVze1romZ3BQRv95SEczY34I",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJQx8Mjz2Z3BQR1WKMca_DGK4",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJ5-3KtUKZ3BQRPBWpLHsxXms",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJawjXWnqY3BQRdxMCFXSt29c",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJrXzE1nuY3BQR0lolxWD9ccc",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJeXn6NWGY3BQRjNu4lKE-a-Q",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJqRASSmGY3BQRbdhJk4yCVDI",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJM6tELquZ3BQRVVhIP9gbamg",
+      "ministryCertificateNos": [
+        "23119"
+      ],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJaQJ7TGGY3BQRKWGDwTxpadk",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJkdcpSGGY3BQRhvWMqiZAhEA",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJT-X7TeOZ3BQRH9jvzZwGem4",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJ_VZ8hmCY3BQRcECvsyyshyw",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJHxYPwCKZ3BQRgYz0sFb48ec",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJFX37R2GY3BQRW6U7SIs7luU",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJx564pWOY3BQRAPrc-uCEoV4",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJcZrGr2OY3BQRlDeGt9BHoPQ",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJcwpfuGGY3BQRFhI87ctuDN8",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJzTgWSniZ3BQRyWrocb9b2T8",
+      "ministryCertificateNos": [
+        "2022-7-0590"
+      ],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJ0TFtfbSZ3BQRRqaH8683SCE",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJr5LsJ2KY3BQR6kBQEkzJE4Q",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJT9msv2GY3BQRK5SZan4stTk",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJW4jJwGGY3BQRu0QSaIdBMGE",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJcwpfuGGY3BQRZ3F9H7yG_os",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJ46gKsGGY3BQRbHOkMk09toY",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJM0S4plOY3BQRKXv2fiBeUao",
+      "ministryCertificateNos": [
+        "4698"
+      ],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJP08EcQCZ3BQRWkwsZ6YjV88",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJ2VD-UAuZ3BQRpfCRFiPHH2Y",
+      "ministryCertificateNos": [
+        "2863"
+      ],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJ7dn8QZSZ3BQRZX5RVmgoo8k",
+      "ministryCertificateNos": [
+        "19151"
+      ],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJJfRJx46i3BQR6W8-Lkiw194",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJh3KFmoSj3BQRvLNQkXIBfPc",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJf3KEAkmj3BQRFua5dPQwPQg",
+      "ministryCertificateNos": [
+        "27393"
+      ],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJE1j8WYOi3BQRzACsF74cLJY",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJEwJb2o-i3BQR7s1-U4Htm2E",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJ80IyA5Ci3BQRkABOvHw1yEo",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJo7NvFwCj3BQRIGXnBjgYVEY",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJJfo_QYWi3BQR19WayxMqxFs",
+      "ministryCertificateNos": [
+        "2025"
+      ],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJ7XqsS2Kj3BQRQZSDQV3Gb8s",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJLf8iynCY3BQRE3IZcHGWuK8",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJk9vpBwua3BQRCRoE8YzFes8",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJX2aDUIWi3BQRrvRtHs6saiY",
+      "ministryCertificateNos": [
+        "10945"
+      ],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJC9ncVoWi3BQRp3is7KtSk10",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJE4NxSYWi3BQRdvNbIyeVJWw",
+      "ministryCertificateNos": [
+        "9585"
+      ],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJX9VhHgCj3BQRreNAz_A2WP0",
+      "ministryCertificateNos": [
+        "4579"
+      ],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJ_-bFV4Wi3BQR6b_en732VhA",
+      "ministryCertificateNos": [
+        "12435"
+      ],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJX636N4Wi3BQRsFF1INq_rwk",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJs_1Z_4-i3BQRfYCnCLRr1QM",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJT7SmK5ui3BQR2WzD-XREde8",
+      "ministryCertificateNos": [
+        "7379"
+      ],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJZYb3r4-i3BQR6gVSw_soI-o",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJCYVFBo-i3BQRMx9MzV6CV6E",
+      "ministryCertificateNos": [
+        "2148"
+      ],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJ8ZITebej3BQRz2HWxxGaUm0",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJs2Jfqo-i3BQR7g3mbAcIC9s",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJg5438YWi3BQRaWd1TEsJxQg",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJreihIo-i3BQRCPJfASJTT8Y",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJc4vOuo-i3BQRUKdzvCkBFPA",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJAzIapY-i3BQRviE9z2QJvj8",
+      "ministryCertificateNos": [
+        "20717"
+      ],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJhxiVrI-i3BQRn-JDfm7THn8",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJH_J9a4-i3BQRc5v5etyV_BE",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJf0UNGY-i3BQRnxPQ7U5R8OA",
+      "ministryCertificateNos": [
+        "2022-7-0557"
+      ],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJ0_wj_I6i3BQReWaUND8lLUY",
+      "ministryCertificateNos": [
+        "2022-7-0564"
+      ],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJrXBKPo-i3BQRlPsE5HDIadE",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJN3V-yHyj3BQRA85tvVXw3w4",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJ9zj9UI6i3BQRVsRT1KMjI0M",
+      "ministryCertificateNos": [
+        "15354"
+      ],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJ_b_Elqyj3BQRvDDfP9_YQoo",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJ1-u15oSi3BQRMaFb-K_2-_8",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJ5fp80ISi3BQRvRhRBCKahyk",
+      "ministryCertificateNos": [
+        "12464"
+      ],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJZVLtl4Si3BQR3hB49YUeqHA",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJNRioU16Y3BQR8mT0PGX_oXg",
+      "ministryCertificateNos": [
+        "2022-7-1144"
+      ],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJYccyKFOY3BQRblmsIx5FCeo",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    },
+    {
+      "placeId": "ChIJ_b8aE6i_wxQRIcwAxBA62aQ",
+      "ministryCertificateNos": [],
+      "currentSlugs": [],
+      "operationalConfirmed": true
+    }
+  ],
+  "failedCells": [],
+  "residualSaturation": [
+    "alanya-east:10:3.3.3.2",
+    "alanya-east:10:4.2.2.1",
+    "alanya-east:10:4.2.3.0",
+    "alanya-east:10:4.3.3.0",
+    "alanya-east:10:5.2.2.0",
+    "alanya-east:11:3.1.0.0",
+    "alanya-east:11:3.1.0.1",
+    "alanya-east:11:3.1.0.2",
+    "alanya-east:11:3.1.1.0"
+  ],
+  "complete": false
+}

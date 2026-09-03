@@ -18,7 +18,7 @@
 import { writeFile } from "node:fs/promises";
 import { hotelIndex } from "../src/hotel-index.js";
 import { routeCatalog } from "../src/routes.js";
-import { slugsToProcess, applyResult } from "./lib/hotel-distances-merge.mjs";
+import { slugsToProcess, applyResult, routeDestination } from "./lib/hotel-distances-merge.mjs";
 import { hotelDistances as existing } from "../src/hotel-distances.js";
 
 const AYT = { lat: 36.898701, lng: 30.800545 };
@@ -68,7 +68,7 @@ async function geocode(hotel) {
   return { place: place.id, lat: place.location.latitude, lng: place.location.longitude, matched: place.displayName?.text };
 }
 
-async function drive(dest) {
+async function drive(destination) {
   const res = await fetch("https://routes.googleapis.com/directions/v2:computeRoutes", {
     method: "POST",
     headers: {
@@ -78,7 +78,7 @@ async function drive(dest) {
     },
     body: JSON.stringify({
       origin: { location: { latLng: { latitude: AYT.lat, longitude: AYT.lng } } },
-      destination: { location: { latLng: { latitude: dest.lat, longitude: dest.lng } } },
+      destination,
       travelMode: "DRIVE",
     }),
   });
@@ -98,10 +98,14 @@ for (const slug of todo) {
   const hotel = bySlug.get(slug);
   let result = null, matched = null;
   try {
-    const geo = await geocode(hotel);
-    if (geo) {
-      const km = await drive(geo);
-      if (km != null) { result = { km, place: geo.place }; matched = geo.matched; }
+    const geo = hotel.placeId ? null : await geocode(hotel);
+    if (hotel.placeId || geo) {
+      const km = await drive(routeDestination(hotel, geo));
+      const place = hotel.placeId ?? geo.place;
+      if (km != null) {
+        result = { km, place };
+        matched = hotel.placeId ? hotel.name : geo.matched;
+      }
     }
   } catch (err) {
     console.error(`  ${slug}: ${err.message}`);

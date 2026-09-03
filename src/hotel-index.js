@@ -37,6 +37,7 @@
  * guest can still change, never as a locked value.
  */
 import { antalyaCitySeedRows } from "./hotel-index-antalya-city.js";
+import { discoveredHotelRows } from "./hotel-index-discovered.js";
 import { hotelCatalog } from "./hotels.js";
 
 /** @typedef {keyof typeof import("./routes.js").routeCatalog} IndexRegionSlug */
@@ -415,7 +416,7 @@ export const priceBoundaryDistricts = Object.freeze([
  */
 const verifiedSlugs = new Set(Object.values(hotelCatalog).map((hotel) => hotelSlug(hotel.name)));
 
-/** @typedef {{ slug: string, name: string, region: IndexRegionSlug, district: string, aliases: readonly string[], status: "verified" | "draft" }} IndexedHotel */
+/** @typedef {{ slug: string, name: string, region: IndexRegionSlug, district: string, aliases: readonly string[], status: "verified" | "draft", regionSource: "district" | "discovery", placeId?: string }} IndexedHotel */
 
 /** @type {readonly IndexedHotel[]} */
 export const hotelIndex = Object.freeze(
@@ -427,8 +428,18 @@ export const hotelIndex = Object.freeze(
       slug, name, region, district,
       aliases: Object.freeze([...aliases]),
       status: verifiedSlugs.has(slug) ? "verified" : "draft",
+      regionSource: "district",
     });
-  }),
+  }).concat(discoveredHotelRows.map(({ name, district, region, placeId, aliases = [] }) => Object.freeze({
+    slug: hotelSlug(name),
+    name,
+    region,
+    district,
+    aliases: Object.freeze([...aliases]),
+    status: "draft",
+    regionSource: "discovery",
+    placeId,
+  }))),
 );
 
 export const indexedHotelBySlug = (slug) => hotelIndex.find((hotel) => hotel.slug === slug) ?? null;

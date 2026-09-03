@@ -18,6 +18,8 @@ describe("static hotel index", () => {
 
   test("a hotel's region comes from its district, so correcting one moves them all", () => {
     for (const hotel of hotelIndex) {
+      expect(["district", "discovery"]).toContain(hotel.regionSource);
+      if (hotel.regionSource === "discovery") continue;
       expect(districtRegions[hotel.district], `${hotel.name} sits in unmapped district "${hotel.district}"`).toBeDefined();
       expect(hotel.region).toBe(districtRegions[hotel.district]);
     }
@@ -26,6 +28,7 @@ describe("static hotel index", () => {
   test("hotels in the same district are never priced differently", () => {
     const regionsByDistrict = new Map();
     for (const hotel of hotelIndex) {
+      if (hotel.regionSource === "discovery") continue;
       const seen = regionsByDistrict.get(hotel.district);
       if (seen) expect(hotel.region, `${hotel.district} is split across regions`).toBe(seen);
       else regionsByDistrict.set(hotel.district, hotel.region);
@@ -61,6 +64,20 @@ describe("static hotel index", () => {
     const verified = hotelIndex.filter((hotel) => hotel.status === "verified").map((hotel) => hotel.name).sort();
     expect(verified).toEqual(Object.values(hotelCatalog).map((hotel) => hotel.name).sort());
     expect(hotelIndex.some((hotel) => hotel.status === "draft")).toBe(true);
+  });
+
+  test("merges safe discovered hotels with explicit pricing regions", () => {
+    const discovered = hotelIndex.filter((hotel) => hotel.regionSource === "discovery");
+    expect(discovered).toHaveLength(351);
+    expect(new Set(discovered.map((hotel) => hotel.placeId)).size).toBe(discovered.length);
+    expect(indexedHotelBySlug("side-sun-otel")).toMatchObject({
+      name: "SİDE SUN OTEL",
+      district: "Manavgat",
+      region: "side",
+      placeId: "ChIJyZpwOHxZwxQRFfUUBWXfZPs",
+      regionSource: "discovery",
+      status: "draft",
+    });
   });
 
   test("slugs are derived from the name, including Turkish letters", () => {
