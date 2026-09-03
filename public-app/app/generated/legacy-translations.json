@@ -228,7 +228,9 @@
       "cancel": "Cancel",
       "close": "Close",
       "understandAndConfirm": "I understand and confirm",
-      "dailyCashConfirmation": "Your daily chauffeur hire is confirmed. The service price excludes fuel, which is paid separately based on use."
+      "dailyCashConfirmation": "Your daily chauffeur hire is confirmed. The service price excludes fuel, which is paid separately based on use.",
+      "requestReceived": "Request Received",
+      "approvalPending": "We received your request and will review your details. You'll receive an approval message via WhatsApp shortly."
     },
     "zh": {
       "navFleet": "车型",
@@ -499,7 +501,9 @@
       "flightArrivalTime": "抵达时间",
       "notesLabel": "特殊需求",
       "confirmBooking": "确认预订",
-      "paymentError": "付款失败。请重试。"
+      "paymentError": "付款失败。请重试。",
+      "requestReceived": "请求已收到",
+      "approvalPending": "我们已收到您的请求，将审核您的详细信息。您将很快通过WhatsApp收到确认消息。"
     },
     "da": {
       "navFleet": "Køretøjer",
@@ -770,7 +774,9 @@
       "flightArrivalTime": "Ankomsttid",
       "notesLabel": "Særlige ønsker",
       "confirmBooking": "Bekræft booking",
-      "paymentError": "Betalingen mislykkedes. Prøv venligst igen."
+      "paymentError": "Betalingen mislykkedes. Prøv venligst igen.",
+      "requestReceived": "Anmodning modtaget",
+      "approvalPending": "Vi har modtaget din anmodning og gennemgår dine oplysninger. Du modtager snart en godkendelsesbesked via WhatsApp."
     },
     "es": {
       "navFleet": "Vehículos",
@@ -1041,7 +1047,9 @@
       "flightArrivalTime": "Hora de llegada",
       "notesLabel": "Peticiones especiales",
       "confirmBooking": "Confirmar reserva",
-      "paymentError": "El pago ha fallado. Inténtelo de nuevo."
+      "paymentError": "El pago ha fallado. Inténtelo de nuevo.",
+      "requestReceived": "Solicitud recibida",
+      "approvalPending": "Hemos recibido tu solicitud y revisaremos tus datos. Recibirás un mensaje de aprobación por WhatsApp en breve."
     },
     "el": {
       "navFleet": "Οχήματα",
@@ -1312,7 +1320,9 @@
       "flightArrivalTime": "Ώρα άφιξης",
       "notesLabel": "Ειδικά αιτήματα",
       "confirmBooking": "Επιβεβαίωση κράτησης",
-      "paymentError": "Η πληρωμή απέτυχε. Παρακαλούμε δοκιμάστε ξανά."
+      "paymentError": "Η πληρωμή απέτυχε. Παρακαλούμε δοκιμάστε ξανά.",
+      "requestReceived": "Το αίτημα ελήφθη",
+      "approvalPending": "Λάβαμε το αίτημά σας και θα ελέγξουμε τα στοιχεία σας. Σύντομα θα λάβετε μήνυμα έγκρισης μέσω WhatsApp."
     },
     "he": {
       "navFleet": "רכבים",
@@ -1583,7 +1593,9 @@
       "flightArrivalTime": "שעת הגעה",
       "notesLabel": "בקשות מיוחדות",
       "confirmBooking": "אשרו הזמנה",
-      "paymentError": "התשלום נכשל. אנא נסו שוב."
+      "paymentError": "התשלום נכשל. אנא נסו שוב.",
+      "requestReceived": "הבקשה התקבלה",
+      "approvalPending": "קיבלנו את בקשתך ונבדוק את הפרטים. תקבל/י הודעת אישור בקרוב דרך WhatsApp."
     },
     "it": {
       "navFleet": "Veicoli",
@@ -1854,7 +1866,9 @@
       "flightArrivalTime": "Orario di arrivo",
       "notesLabel": "Richieste particolari",
       "confirmBooking": "Conferma la prenotazione",
-      "paymentError": "Pagamento non riuscito. Vi preghiamo di riprovare."
+      "paymentError": "Pagamento non riuscito. Vi preghiamo di riprovare.",
+      "requestReceived": "Richiesta ricevuta",
+      "approvalPending": "Abbiamo ricevuto la tua richiesta e verificheremo i tuoi dati. Riceverai a breve un messaggio di conferma su WhatsApp."
     },
     "hu": {
       "navFleet": "Járművek",
@@ -2125,7 +2139,9 @@
       "flightArrivalTime": "Érkezési idő",
       "notesLabel": "Különleges kérések",
       "confirmBooking": "Foglalás megerősítése",
-      "paymentError": "A fizetés sikertelen. Kérjük, próbálja újra."
+      "paymentError": "A fizetés sikertelen. Kérjük, próbálja újra.",
+      "requestReceived": "Kérés fogadva",
+      "approvalPending": "Megkaptuk a kérését, és hamarosan ellenőrizzük adatait. Rövidesen jóváhagyó üzenetet kap WhatsAppon."
     },
     "pt": {
       "navFleet": "Veículos",
@@ -2396,7 +2412,9 @@
       "flightArrivalTime": "Hora de chegada",
       "notesLabel": "Pedidos especiais",
       "confirmBooking": "Confirmar reserva",
-      "paymentError": "O pagamento falhou. Tente novamente."
+      "paymentError": "O pagamento falhou. Tente novamente.",
+      "requestReceived": "Pedido recebido",
+      "approvalPending": "Recebemos o seu pedido e iremos rever os seus dados. Receberá em breve uma mensagem de aprovação via WhatsApp."
     },
     "ro": {
       "navFleet": "Vehicule",
@@ -2667,7 +2685,9 @@
       "flightArrivalTime": "Ora sosirii",
       "notesLabel": "Cerințe speciale",
       "confirmBooking": "Confirmă rezervarea",
-      "paymentError": "Plata a eșuat. Vă rugăm să încercați din nou."
+      "paymentError": "Plata a eșuat. Vă rugăm să încercați din nou.",
+      "requestReceived": "Cerere primită",
+      "approvalPending": "Am primit cererea dumneavoastră și vom verifica detaliile. Veți primi în curând un mesaj de confirmare pe WhatsApp."
     },
     "de": {
       "navFleet": "Fahrzeuge",
@@ -2942,7 +2962,9 @@
       "flightArrivalTime": "Ankunftszeit",
       "notesLabel": "Besondere Wünsche",
       "confirmBooking": "Buchung bestätigen",
-      "paymentError": "Zahlung fehlgeschlagen. Bitte erneut versuchen."
+      "paymentError": "Zahlung fehlgeschlagen. Bitte erneut versuchen.",
+      "requestReceived": "Anfrage erhalten",
+      "approvalPending": "Wir haben Ihre Anfrage erhalten und prüfen Ihre Angaben. Sie erhalten in Kürze eine Bestätigungsnachricht per WhatsApp."
     },
     "tr": {
       "navFleet": "Araçlar",
@@ -3217,7 +3239,9 @@
       "flightArrivalTime": "Varış saati",
       "notesLabel": "Özel istekler",
       "confirmBooking": "Rezervasyonu onayla",
-      "paymentError": "Ödeme başarısız. Lütfen tekrar deneyin."
+      "paymentError": "Ödeme başarısız. Lütfen tekrar deneyin.",
+      "requestReceived": "İsteğiniz Alındı",
+      "approvalPending": "Talebinizi aldık ve bilgilerinizi inceleyeceğiz. Kısa süre içinde WhatsApp üzerinden bir onay mesajı alacaksınız."
     },
     "ru": {
       "navFleet": "Автопарк",
@@ -3492,7 +3516,9 @@
       "flightArrivalTime": "Время прилёта",
       "notesLabel": "Особые пожелания",
       "confirmBooking": "Подтвердить бронирование",
-      "paymentError": "Оплата не прошла. Попробуйте ещё раз."
+      "paymentError": "Оплата не прошла. Попробуйте ещё раз.",
+      "requestReceived": "Запрос получен",
+      "approvalPending": "Мы получили ваш запрос и проверим детали. Вскоре вы получите сообщение с подтверждением через WhatsApp."
     },
     "cs": {
       "navFleet": "Vozový park",
@@ -3735,7 +3761,9 @@
       "onlineDiscountShort": "Online speciál",
       "faqReminder": "Před cestou si prosím přečtěte sekci častých dotazů na našem webu.",
       "viewFaq": "Zobrazit FAQ",
-      "capacitySwitchedSprinter": "Počet cestujících a zavazadel přesahuje kapacitu Vito — přepnuto na Mercedes Sprinter."
+      "capacitySwitchedSprinter": "Počet cestujících a zavazadel přesahuje kapacitu Vito — přepnuto na Mercedes Sprinter.",
+      "requestReceived": "Žádost přijata",
+      "approvalPending": "Obdrželi jsme vaši žádost a zkontrolujeme vaše údaje. Brzy obdržíte potvrzovací zprávu přes WhatsApp."
     },
     "pl": {
       "navFleet": "Pojazdy",
@@ -4000,7 +4028,9 @@
       "flightArrivalTime": "Godzina przylotu",
       "notesLabel": "Specjalne życzenia",
       "confirmBooking": "Potwierdź rezerwację",
-      "paymentError": "Płatność nie powiodła się. Spróbuj ponownie."
+      "paymentError": "Płatność nie powiodła się. Spróbuj ponownie.",
+      "requestReceived": "Zgłoszenie otrzymane",
+      "approvalPending": "Otrzymaliśmy Twoje zgłoszenie i sprawdzimy podane dane. Wkrótce otrzymasz wiadomość z potwierdzeniem na WhatsApp."
     },
     "nl": {
       "navFleet": "Voertuigen",
@@ -4265,7 +4295,9 @@
       "flightArrivalTime": "Aankomsttijd",
       "notesLabel": "Speciale wensen",
       "confirmBooking": "Boeking bevestigen",
-      "paymentError": "Betaling mislukt. Probeer het opnieuw."
+      "paymentError": "Betaling mislukt. Probeer het opnieuw.",
+      "requestReceived": "Aanvraag ontvangen",
+      "approvalPending": "We hebben uw aanvraag ontvangen en controleren uw gegevens. U ontvangt binnenkort een goedkeuringsbericht via WhatsApp."
     },
     "uk": {
       "navFleet": "Автопарк",
@@ -4534,7 +4566,9 @@
       "flightArrivalTime": "Час прильоту",
       "notesLabel": "Особливі побажання",
       "confirmBooking": "Підтвердити бронювання",
-      "paymentError": "Оплата не пройшла. Спробуйте ще раз."
+      "paymentError": "Оплата не пройшла. Спробуйте ще раз.",
+      "requestReceived": "Запит отримано",
+      "approvalPending": "Ми отримали ваш запит і перевіримо ваші дані. Незабаром ви отримаєте підтвердження через WhatsApp."
     },
     "ur": {
       "navFleet": "گاڑیاں",
@@ -4809,7 +4843,9 @@
       "flightArrivalTime": "فلائٹ آمد کا وقت",
       "notesLabel": "نوٹس",
       "confirmBooking": "بکنگ کی تصدیق کریں",
-      "paymentError": "ادائیگی کی خرابی۔ براہ کرم دوبارہ کوشش کریں۔"
+      "paymentError": "ادائیگی کی خرابی۔ براہ کرم دوبارہ کوشش کریں۔",
+      "requestReceived": "درخواست موصول ہو گئی",
+      "approvalPending": "ہمیں آپ کی درخواست موصول ہو گئی ہے اور ہم آپ کی تفصیلات کا جائزہ لیں گے۔ آپ کو جلد ہی واٹس ایپ کے ذریعے منظوری کا پیغام ملے گا۔"
     },
     "fr": {
       "navFleet": "Véhicules",
@@ -5074,7 +5110,9 @@
       "flightArrivalTime": "Heure d'arrivée",
       "notesLabel": "Demandes spéciales",
       "confirmBooking": "Confirmer la réservation",
-      "paymentError": "Paiement échoué. Veuillez réessayer."
+      "paymentError": "Paiement échoué. Veuillez réessayer.",
+      "requestReceived": "Demande reçue",
+      "approvalPending": "Nous avons bien reçu votre demande et allons vérifier vos informations. Vous recevrez bientôt un message de confirmation via WhatsApp."
     },
     "sv": {
       "navFleet": "Fordon",
@@ -5339,7 +5377,9 @@
       "flightArrivalTime": "Ankomsttid",
       "notesLabel": "Särskilda önskemål",
       "confirmBooking": "Bekräfta bokning",
-      "paymentError": "Betalning misslyckades. Försök igen."
+      "paymentError": "Betalning misslyckades. Försök igen.",
+      "requestReceived": "Förfrågan mottagen",
+      "approvalPending": "Vi har tagit emot din förfrågan och granskar dina uppgifter. Du får inom kort ett godkännandemeddelande via WhatsApp."
     },
     "ja": {
       "navFleet": "車両",
@@ -5604,7 +5644,9 @@
       "flightArrivalTime": "到着時刻",
       "notesLabel": "特別なご要望",
       "confirmBooking": "予約を確定する",
-      "paymentError": "お支払いに失敗しました。もう一度お試しください。"
+      "paymentError": "お支払いに失敗しました。もう一度お試しください。",
+      "requestReceived": "リクエストを受け付けました",
+      "approvalPending": "ご依頼を受け付け、詳細を確認しています。まもなくWhatsAppにて承認メッセージをお送りします。"
     },
     "ko": {
       "navFleet": "차량",
@@ -5869,7 +5911,9 @@
       "flightArrivalTime": "도착 시간",
       "notesLabel": "특별 요청",
       "confirmBooking": "예약 확정하기",
-      "paymentError": "결제에 실패했습니다. 다시 시도해 주세요."
+      "paymentError": "결제에 실패했습니다. 다시 시도해 주세요.",
+      "requestReceived": "요청이 접수되었습니다",
+      "approvalPending": "요청을 접수했으며 세부 정보를 검토할 예정입니다. 곧 WhatsApp을 통해 승인 메시지를 받으실 것입니다."
     },
     "ar": {
       "navFleet": "أسطولنا",
@@ -6140,7 +6184,9 @@
       "flightArrivalTime": "وقت الوصول",
       "notesLabel": "طلبات خاصة",
       "confirmBooking": "تأكيد الحجز",
-      "paymentError": "تعذر إتمام الدفع. يرجى المحاولة مرة أخرى."
+      "paymentError": "تعذر إتمام الدفع. يرجى المحاولة مرة أخرى.",
+      "requestReceived": "تم استلام الطلب",
+      "approvalPending": "لقد استلمنا طلبك وسنراجع تفاصيلك. ستتلقى قريبًا رسالة موافقة عبر واتساب."
     }
   }
 }

@@ -267,6 +267,8 @@ const translations = {
     notesLabel: "特殊需求",
     confirmBooking: "确认预订",
     bookingConfirmed: "预订已确认",
+    requestReceived: "请求已收到",
+    approvalPending: "我们已收到您的请求，将审核您的详细信息。您将很快通过WhatsApp收到确认消息。",
     referenceLabel: "参考编号",
     weWillContact:
       "您的预订请求已发送。我们将在30分钟内与您联系。",
@@ -514,6 +516,8 @@ const translations = {
     notesLabel: "Særlige ønsker",
     confirmBooking: "Bekræft booking",
     bookingConfirmed: "Booking bekræftet",
+    requestReceived: "Anmodning modtaget",
+    approvalPending: "Vi har modtaget din anmodning og gennemgår dine oplysninger. Du modtager snart en godkendelsesbesked via WhatsApp.",
     referenceLabel: "Reference",
     weWillContact:
       "Din bookingforespørgsel er sendt. Vi vender tilbage inden for 30 minutter.",
@@ -761,6 +765,8 @@ const translations = {
     notesLabel: "Peticiones especiales",
     confirmBooking: "Confirmar reserva",
     bookingConfirmed: "Reserva confirmada",
+    requestReceived: "Solicitud recibida",
+    approvalPending: "Hemos recibido tu solicitud y revisaremos tus datos. Recibirás un mensaje de aprobación por WhatsApp en breve.",
     referenceLabel: "Referencia",
     weWillContact:
       "Su solicitud de reserva ha sido enviada. Le contactaremos en un plazo de 30 minutos.",
@@ -1008,6 +1014,8 @@ const translations = {
     notesLabel: "Ειδικά αιτήματα",
     confirmBooking: "Επιβεβαίωση κράτησης",
     bookingConfirmed: "Η κράτηση επιβεβαιώθηκε",
+    requestReceived: "Το αίτημα ελήφθη",
+    approvalPending: "Λάβαμε το αίτημά σας και θα ελέγξουμε τα στοιχεία σας. Σύντομα θα λάβετε μήνυμα έγκρισης μέσω WhatsApp.",
     referenceLabel: "Αναφορά",
     weWillContact:
       "Το αίτημα κράτησής σας εστάλη. Θα επικοινωνήσουμε μαζί σας εντός 30 λεπτών.",
@@ -1255,6 +1263,8 @@ const translations = {
     notesLabel: "בקשות מיוחדות",
     confirmBooking: "אשרו הזמנה",
     bookingConfirmed: "ההזמנה אושרה",
+    requestReceived: "הבקשה התקבלה",
+    approvalPending: "קיבלנו את בקשתך ונבדוק את הפרטים. תקבל/י הודעת אישור בקרוב דרך WhatsApp.",
     referenceLabel: "מספר אסמכתא",
     weWillContact:
       "בקשת ההזמנה שלכם נשלחה. ניצור איתכם קשר בתוך 30 דקות.",
@@ -1502,6 +1512,8 @@ const translations = {
     notesLabel: "Richieste particolari",
     confirmBooking: "Conferma la prenotazione",
     bookingConfirmed: "Prenotazione confermata",
+    requestReceived: "Richiesta ricevuta",
+    approvalPending: "Abbiamo ricevuto la tua richiesta e verificheremo i tuoi dati. Riceverai a breve un messaggio di conferma su WhatsApp.",
     referenceLabel: "Riferimento",
     weWillContact:
       "La vostra richiesta di prenotazione è stata inviata. Vi ricontatteremo entro 30 minuti.",
@@ -1749,6 +1761,8 @@ const translations = {
     notesLabel: "Különleges kérések",
     confirmBooking: "Foglalás megerősítése",
     bookingConfirmed: "Foglalás megerősítve",
+    requestReceived: "Kérés fogadva",
+    approvalPending: "Megkaptuk a kérését, és hamarosan ellenőrizzük adatait. Rövidesen jóváhagyó üzenetet kap WhatsAppon.",
     referenceLabel: "Referencia",
     weWillContact:
       "Foglalási kérelmét elküldtük. 30 percen belül jelentkezünk.",
@@ -1996,6 +2010,8 @@ const translations = {
     notesLabel: "Pedidos especiais",
     confirmBooking: "Confirmar reserva",
     bookingConfirmed: "Reserva confirmada",
+    requestReceived: "Pedido recebido",
+    approvalPending: "Recebemos o seu pedido e iremos rever os seus dados. Receberá em breve uma mensagem de aprovação via WhatsApp.",
     referenceLabel: "Referência",
     weWillContact:
       "O seu pedido de reserva foi enviado. Entraremos em contacto no prazo de 30 minutos.",
@@ -2243,6 +2259,8 @@ const translations = {
     notesLabel: "Cerințe speciale",
     confirmBooking: "Confirmă rezervarea",
     bookingConfirmed: "Rezervare confirmată",
+    requestReceived: "Cerere primită",
+    approvalPending: "Am primit cererea dumneavoastră și vom verifica detaliile. Veți primi în curând un mesaj de confirmare pe WhatsApp.",
     referenceLabel: "Referință",
     weWillContact:
       "Cererea dumneavoastră de rezervare a fost trimisă. Vă contactăm în decurs de 30 de minute.",
@@ -2495,6 +2513,8 @@ const translations = {
     notesLabel: "Besondere Wünsche",
     confirmBooking: "Buchung bestätigen",
     bookingConfirmed: "Buchung bestätigt",
+    requestReceived: "Anfrage erhalten",
+    approvalPending: "Wir haben Ihre Anfrage erhalten und prüfen Ihre Angaben. Sie erhalten in Kürze eine Bestätigungsnachricht per WhatsApp.",
     referenceLabel: "Referenz",
     weWillContact:
       "Ihre Buchungsanfrage wurde gesendet. Wir melden uns innerhalb von 30 Minuten.",
@@ -2742,6 +2762,8 @@ const translations = {
     notesLabel: "Özel istekler",
     confirmBooking: "Rezervasyonu onayla",
     bookingConfirmed: "Rezervasyon Onaylandı",
+    requestReceived: "İsteğiniz Alındı",
+    approvalPending: "Talebinizi aldık ve bilgilerinizi inceleyeceğiz. Kısa süre içinde WhatsApp üzerinden bir onay mesajı alacaksınız.",
     referenceLabel: "Referans",
     weWillContact:
       "Rezervasyon talebiniz gönderildi. 30 dakika içinde sizinle iletişime geçeceğiz.",
@@ -2990,6 +3012,8 @@ const translations = {
     notesLabel: "Особые пожелания",
     confirmBooking: "Подтвердить бронирование",
     bookingConfirmed: "Бронирование подтверждено",
+    requestReceived: "Запрос получен",
+    approvalPending: "Мы получили ваш запрос и проверим детали. Вскоре вы получите сообщение с подтверждением через WhatsApp.",
     referenceLabel: "Референс",
     weWillContact:
       "Ваш запрос на бронирование отправлен. Мы свяжемся с вами в течение 30 минут.",
@@ -3203,6 +3227,8 @@ const translations = {
     information: "Informace",
     licensed: "Licencovaný soukromý přepravce · v souladu s TÜRSAB",
     bookingConfirmed: "Rezervace potvrzena",
+    requestReceived: "Žádost přijata",
+    approvalPending: "Obdrželi jsme vaši žádost a zkontrolujeme vaše údaje. Brzy obdržíte potvrzovací zprávu přes WhatsApp.",
     referenceLabel: "Reference",
     weWillContact:
       "Vaše žádost o rezervaci byla odeslána. Kontaktujeme vás do 30 minut.",
@@ -3498,6 +3524,8 @@ const translations = {
     notesLabel: "Specjalne życzenia",
     confirmBooking: "Potwierdź rezerwację",
     bookingConfirmed: "Rezerwacja potwierdzona",
+    requestReceived: "Zgłoszenie otrzymane",
+    approvalPending: "Otrzymaliśmy Twoje zgłoszenie i sprawdzimy podane dane. Wkrótce otrzymasz wiadomość z potwierdzeniem na WhatsApp.",
     referenceLabel: "Numer referencyjny",
     weWillContact:
       "Twoje zgłoszenie rezerwacji zostało wysłane. Skontaktujemy się w ciągu 30 minut.",
@@ -3722,6 +3750,8 @@ const translations = {
     notesLabel: "Speciale wensen",
     confirmBooking: "Boeking bevestigen",
     bookingConfirmed: "Boeking bevestigd",
+    requestReceived: "Aanvraag ontvangen",
+    approvalPending: "We hebben uw aanvraag ontvangen en controleren uw gegevens. U ontvangt binnenkort een goedkeuringsbericht via WhatsApp.",
     referenceLabel: "Referentie",
     weWillContact:
       "Uw boekingsaanvraag is verzonden. We nemen binnen 30 minuten contact op.",
@@ -3949,6 +3979,8 @@ const translations = {
     notesLabel: "Особливі побажання",
     confirmBooking: "Підтвердити бронювання",
     bookingConfirmed: "Бронювання підтверджено",
+    requestReceived: "Запит отримано",
+    approvalPending: "Ми отримали ваш запит і перевіримо ваші дані. Незабаром ви отримаєте підтвердження через WhatsApp.",
     referenceLabel: "Референс",
     weWillContact:
       "Ваш запит на бронювання надіслано. Ми зв'яжемося з вами протягом 30 хвилин.",
@@ -4163,6 +4195,8 @@ const translations = {
     information: "معلومات",
     licensed: "لائسنس یافتہ نجی ٹرانسفر آپریٹر · TÜRSAB تعمیل",
     bookingConfirmed: "بکنگ کی تصدیق ہو گئی",
+    requestReceived: "درخواست موصول ہو گئی",
+    approvalPending: "ہمیں آپ کی درخواست موصول ہو گئی ہے اور ہم آپ کی تفصیلات کا جائزہ لیں گے۔ آپ کو جلد ہی واٹس ایپ کے ذریعے منظوری کا پیغام ملے گا۔",
     referenceLabel: "حوالہ",
     weWillContact:
       "آپ کی بکنگ کی درخواست بھیج دی گئی۔ ہم 30 منٹ کے اندر آپ سے رابطہ کریں گے۔",
@@ -4499,6 +4533,8 @@ const translations = {
     notesLabel: "Demandes spéciales",
     confirmBooking: "Confirmer la réservation",
     bookingConfirmed: "Réservation confirmée",
+    requestReceived: "Demande reçue",
+    approvalPending: "Nous avons bien reçu votre demande et allons vérifier vos informations. Vous recevrez bientôt un message de confirmation via WhatsApp.",
     referenceLabel: "Référence",
     weWillContact:
       "Votre demande de réservation a été envoyée. Nous vous contactons dans les 30 minutes.",
@@ -4721,6 +4757,8 @@ const translations = {
     notesLabel: "Särskilda önskemål",
     confirmBooking: "Bekräfta bokning",
     bookingConfirmed: "Bokning bekräftad",
+    requestReceived: "Förfrågan mottagen",
+    approvalPending: "Vi har tagit emot din förfrågan och granskar dina uppgifter. Du får inom kort ett godkännandemeddelande via WhatsApp.",
     referenceLabel: "Referensnummer",
     weWillContact:
       "Din bokningsförfrågan har skickats. Vi kontaktar dig inom 30 minuter.",
@@ -4939,6 +4977,8 @@ const translations = {
     notesLabel: "特別なご要望",
     confirmBooking: "予約を確定する",
     bookingConfirmed: "予約確定",
+    requestReceived: "リクエストを受け付けました",
+    approvalPending: "ご依頼を受け付け、詳細を確認しています。まもなくWhatsAppにて承認メッセージをお送りします。",
     referenceLabel: "予約番号",
     weWillContact: "予約リクエストを送信しました。30分以内にご連絡いたします。",
     paymentError: "お支払いに失敗しました。もう一度お試しください。",
@@ -5155,6 +5195,8 @@ const translations = {
     notesLabel: "특별 요청",
     confirmBooking: "예약 확정하기",
     bookingConfirmed: "예약 확정",
+    requestReceived: "요청이 접수되었습니다",
+    approvalPending: "요청을 접수했으며 세부 정보를 검토할 예정입니다. 곧 WhatsApp을 통해 승인 메시지를 받으실 것입니다.",
     referenceLabel: "예약 번호",
     weWillContact: "예약 요청이 전송되었습니다. 30분 내로 연락드리겠습니다.",
     paymentError: "결제에 실패했습니다. 다시 시도해 주세요.",
@@ -5392,6 +5434,8 @@ const translations = {
     notesLabel: "طلبات خاصة",
     confirmBooking: "تأكيد الحجز",
     bookingConfirmed: "تم تأكيد الحجز",
+    requestReceived: "تم استلام الطلب",
+    approvalPending: "لقد استلمنا طلبك وسنراجع تفاصيلك. ستتلقى قريبًا رسالة موافقة عبر واتساب.",
     referenceLabel: "الرقم المرجعي",
     weWillContact: "تم إرسال طلب حجزك. سنتواصل معك خلال 30 دقيقة.",
     paymentError: "تعذر إتمام الدفع. يرجى المحاولة مرة أخرى.",
