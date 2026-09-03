@@ -9,6 +9,7 @@ import {
   DEFAULT_EUR_TRY_RATE,
   DEFAULT_KM_COST_TRY,
   fixedRouteDistanceKm,
+  resolveRealizedLegs,
   splitProfit,
 } from './profit-loss-metrics.js'
 
@@ -1143,6 +1144,49 @@ describe('buildProfitDistributionSnapshot', () => {
     expect(snapshot.operations_amount_eur).not.toBe(999)
   })
 })
+
+describe('resolveRealizedLegs — hotel km tier', () => {
+  test("an airport→hotel leg is costed from the hotel's own km", () => {
+    const today = "2026-09-02";
+    const booking = {
+      id: "h1", booking_ref: "AVL-H1", status: "completed", trip_type: "one_way",
+      price_eur: 100, pickup_date: "2026-09-01",
+      pickup_location: "airport", dropoff_location: "hotel",
+      hotel_name: "Voyage Sorgun",
+    };
+    const { resolvedLegs } = resolveRealizedLegs([booking], today);
+    const leg = resolvedLegs.find((l) => l.bookingId === "h1");
+    expect(leg.oneWayKm).toBe(70);
+    expect(leg.distanceSource).toBe("hotel");
+  });
+
+  test("an unresolvable hotel name falls through to unresolved", () => {
+    const today = "2026-09-02";
+    const booking = {
+      id: "h2", booking_ref: "AVL-H2", status: "completed", trip_type: "one_way",
+      price_eur: 100, pickup_date: "2026-09-01",
+      pickup_location: "airport", dropoff_location: "hotel",
+      hotel_name: "zzzz not a real hotel zzzz",
+    };
+    const { resolvedLegs, unresolvedLegs } = resolveRealizedLegs([booking], today);
+    expect(resolvedLegs.find((l) => l.bookingId === "h2")?.distanceSource).not.toBe("hotel");
+    expect(unresolvedLegs.some((l) => l.bookingId === "h2")).toBe(true);
+  });
+
+  test("a manual km still overrides the hotel km", () => {
+    const today = "2026-09-02";
+    const booking = {
+      id: "h3", booking_ref: "AVL-H3", status: "completed", trip_type: "one_way",
+      price_eur: 100, pickup_date: "2026-09-01",
+      pickup_location: "airport", dropoff_location: "hotel",
+      hotel_name: "Voyage Sorgun", manual_outbound_distance_km: 12,
+    };
+    const { resolvedLegs } = resolveRealizedLegs([booking], today);
+    const leg = resolvedLegs.find((l) => l.bookingId === "h3");
+    expect(leg.oneWayKm).toBe(12);
+    expect(leg.distanceSource).toBe("manual");
+  });
+});
 
 describe('ratesByDate override', () => {
   test('uses per-date rate from ratesByDate instead of monthly setting', () => {

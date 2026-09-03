@@ -46,3 +46,58 @@ describe("public booking contract", () => {
     });
   });
 });
+
+describe("airport-bound journeys", () => {
+  test("prices the return on the hotel's region, at the same fixed price", () => {
+    const returning = { ...base, pickup: "hotel" as const, destination: "airport", hotelRegion: "side" };
+    expect(quoteFor(returning)).toEqual(quoteFor(base));
+    expect(quoteFor({ ...returning, hotelRegion: "belek" })).toEqual({ price: 40, originalPrice: 50 });
+  });
+
+  test("falls back to a manual quote when the hotel's region is unknown", () => {
+    expect(quoteFor({ ...base, destination: "airport" })).toEqual({ price: 0, originalPrice: 0 });
+    expect(quoteFor({ ...base, destination: "airport", hotelRegion: "not-a-region" }))
+      .toEqual({ price: 0, originalPrice: 0 });
+  });
+
+  test("ignores the hotel's region when the guest is heading to a region", () => {
+    expect(quoteFor({ ...base, destination: "belek", hotelRegion: "alanya" })).toEqual({ price: 40, originalPrice: 50 });
+  });
+});
+
+describe("per-hotel band pricing", () => {
+  test("airport→hotel arrival is priced on the hotel's band, not the flat region", () => {
+    const arriving = { ...base, destination: "antalya", hotelName: "Caner Mountain Hotel", vehicle: "vito" as const };
+    expect(quoteFor(arriving).price).toBe(65);
+  });
+
+  test("hotel→airport is priced on the same band (both directions)", () => {
+    const leaving = { ...base, destination: "airport", hotelRegion: "antalya", hotelName: "Caner Mountain Hotel", vehicle: "vito" as const };
+    expect(quoteFor(leaving).price).toBe(65);
+  });
+
+  test("round trip doubles the floored unit price, not the region price", () => {
+    const roundTrip = { ...base, destination: "antalya", hotelName: "Caner Mountain Hotel", vehicle: "vito" as const, tripType: "round_trip" as const };
+    expect(quoteFor(roundTrip).price).toBe(130);
+  });
+
+  test("an unmatched hotel keeps the flat region price", () => {
+    expect(quoteFor({ ...base, destination: "side" }).price).toBe(50);
+  });
+});
+
+describe("original price never inverts below the floored live price", () => {
+  test("a band-raised hotel keeps originalPrice at or above price", () => {
+    // Sunprime C-Lounge: band raises Vito to €100; region original (alanya_merkez) is €85.
+    // originalPrice must be floored up to at least the live price, never below it.
+    const q = quoteFor({ ...base, destination: "alanya_merkez", hotelName: "Sunprime C-Lounge", vehicle: "vito" as const });
+    expect(q.originalPrice).toBeGreaterThanOrEqual(q.price);
+  });
+
+  test("an unchanged hotel keeps its original discount framing", () => {
+    // base: side region, unmatched hotel -> price 50, originalPrice 60 (unchanged)
+    const q = quoteFor({ ...base, destination: "side" });
+    expect(q.price).toBe(50);
+    expect(q.originalPrice).toBe(60);
+  });
+});

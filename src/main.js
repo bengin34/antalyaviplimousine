@@ -2250,6 +2250,9 @@ const translations = {
   },
 
   de: {
+    hotelSearchHint: "Geben Sie Ihren Hotelnamen ein und wählen Sie ihn aus der Liste – Zielregion und Preis tragen wir für Sie ein.",
+    hotelNotListed: "Mein Hotel ist nicht in der Liste",
+    hotelNoMatch: "Noch kein Treffer. Geben Sie den Namen ein und wählen Sie die Region selbst.",
     navFleet: "Fahrzeuge",
     navService: "Service",
     navRoutes: "Strecken",
@@ -2497,6 +2500,9 @@ const translations = {
     paymentError: "Zahlung fehlgeschlagen. Bitte erneut versuchen.",
   },
   tr: {
+    hotelSearchHint: "Otelinizin adını yazıp listeden seçin; varış bölgesini ve fiyatı sizin için dolduralım.",
+    hotelNotListed: "Otelim listede yok",
+    hotelNoMatch: "Henüz eşleşme yok. Adı yazıp bölgeyi kendiniz seçebilirsiniz.",
     navFleet: "Araçlar",
     navService: "Hizmetler",
     navRoutes: "Rotalar",
@@ -2740,6 +2746,9 @@ const translations = {
     paymentError: "Ödeme başarısız. Lütfen tekrar deneyin.",
   },
   ru: {
+    hotelSearchHint: "Введите название отеля и выберите его из списка — регион и цену мы заполним за вас.",
+    hotelNotListed: "Моего отеля нет в списке",
+    hotelNoMatch: "Совпадений пока нет. Введите название и выберите регион самостоятельно.",
     navFleet: "Автопарк",
     navService: "Сервис",
     navRoutes: "Маршруты",
@@ -2984,6 +2993,9 @@ const translations = {
     paymentError: "Оплата не прошла. Попробуйте ещё раз.",
   },
   cs: {
+    hotelSearchHint: "Zadejte název hotelu a vyberte jej ze seznamu – cílovou oblast i cenu doplníme za vás.",
+    hotelNotListed: "Můj hotel není v seznamu",
+    hotelNoMatch: "Zatím žádná shoda. Zadejte název a oblast vyberte sami.",
     navFleet: "Vozový park",
     navService: "Služby",
     navRoutes: "Trasy",
@@ -3712,6 +3724,9 @@ const translations = {
     paymentError: "Betaling mislukt. Probeer het opnieuw.",
   },
   uk: {
+    hotelSearchHint: "Введіть назву готелю та оберіть її зі списку — регіон і ціну ми заповнимо за вас.",
+    hotelNotListed: "Мого готелю немає у списку",
+    hotelNoMatch: "Збігів поки немає. Введіть назву та оберіть регіон самостійно.",
     navFleet: "Автопарк",
     navService: "Сервіс",
     navRoutes: "Маршрути",
@@ -3935,6 +3950,9 @@ const translations = {
     paymentError: "Оплата не пройшла. Спробуйте ще раз.",
   },
   ur: {
+    hotelSearchHint: "اپنے ہوٹل کا نام لکھیں اور فہرست میں سے منتخب کریں؛ منزل کا علاقہ اور قیمت ہم خود بھر دیں گے۔",
+    hotelNotListed: "میرا ہوٹل فہرست میں نہیں ہے",
+    hotelNoMatch: "ابھی کوئی مماثلت نہیں۔ نام لکھیں اور علاقہ خود منتخب کریں۔",
     navFleet: "گاڑیاں",
     navService: "خدمات",
     navRoutes: "راستے",

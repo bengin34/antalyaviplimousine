@@ -13,10 +13,12 @@ const clinicSet = new Set(clinicPaths);
 const transferSet = new Set(transferPaths);
 const hotelSet = new Set(hotelPaths);
 const legalSet = new Set(legalPaths);
-const localizedLanguages = publicLanguages.filter((language) => language !== "en");
-const languagePrefixPattern = new RegExp(`^/(${localizedLanguages.join("|")})(?:/|$)`);
-// One <link rel="alternate" hreflang> per public language plus a single x-default.
-const expectedAlternateCount = publicLanguages.length + 1;
+// Derived from the language list rather than repeated here: the two drifted
+// apart once already, when the site grew to 23 languages and this file kept
+// checking for 11 of them.
+const localisedPrefix = new RegExp(`^/(${publicLanguages.filter((language) => language !== "en").join("|")})(?:/|$)`);
+// Every indexable language, plus the x-default that points at English.
+const expectedAlternates = publicLanguages.length + 1;
 const failures = [];
 
 const outputFile = (urlPath) => {
@@ -46,7 +48,7 @@ for (const urlPath of prerenderPaths) {
   const document = new JSDOM(html).window.document;
   const expectedLanguage = clinicSet.has(urlPath)
     ? "tr"
-    : urlPath.match(languagePrefixPattern)?.[1] || "en";
+    : urlPath.match(localisedPrefix)?.[1] || "en";
   if (document.documentElement.lang !== expectedLanguage) fail(`${urlPath}: wrong html lang`);
   if (document.querySelector('link[rel="canonical"]')?.href !== `${domain}${urlPath}`) fail(`${urlPath}: wrong canonical URL`);
   const alternateCount = document.querySelectorAll('link[rel="alternate"][hreflang]').length;
@@ -54,7 +56,7 @@ for (const urlPath of prerenderPaths) {
     if (alternateCount !== 0) fail(`${urlPath}: noindex clinic route must not publish unavailable language alternates`);
   } else if (legalSet.has(urlPath)) {
     if (alternateCount < 5) fail(`${urlPath}: incomplete language alternates`);
-  } else if (alternateCount !== expectedAlternateCount) fail(`${urlPath}: incomplete language alternates`);
+  } else if (alternateCount !== expectedAlternates) fail(`${urlPath}: expected ${expectedAlternates} language alternates, found ${alternateCount}`);
   if (!document.querySelector('script[type="module"]')) fail(`${urlPath}: React client entry is missing`);
   if (html.includes('/src/main.js') || html.includes('/src/consent.js')) fail(`${urlPath}: legacy runtime is still referenced`);
 

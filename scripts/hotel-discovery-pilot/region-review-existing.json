@@ -1,0 +1,64 @@
+[
+  {
+    "name": "BEGONYA HOTEL",
+    "certificateNos": [
+      "2022-7-1544"
+    ],
+    "ministryDistricts": [
+      "KEMER"
+    ],
+    "placeId": "ChIJYb1wIQm_wxQR5n3eNbopV2Y",
+    "currentSlugs": [
+      "begonya-hotel-kemer-all-inclisuve"
+    ],
+    "currentNames": [
+      "BEGONYA HOTEL KEMER-All İnclisuve"
+    ],
+    "pricingRegions": [
+      "kemer"
+    ],
+    "status": "existing"
+  },
+  {
+    "name": "DENİZ HOTEL",
+    "certificateNos": [
+      "2022-7-0541"
+    ],
+    "ministryDistricts": [
+      "KONYAALTI"
+    ],
+    "placeId": "ChIJ5dqj2XGRwxQRQ-F11J7VoI4",
+    "currentSlugs": [
+      "deniz-boutique-hotel"
+    ],
+    "currentNames": [
+      "Deniz Boutique Hotel"
+    ],
+    "pricingRegions": [
+      "antalya"
+    ],
+    "status": "existing"
+  },
+  {
+    "name": "TITANIC RESORT OTEL",
+    "certificateNos": [
+      "11352"
+    ],
+    "ministryDistricts": [
+      "MURATPAŞA"
+    ],
+    "placeId": "ChIJASy63c-CwxQRlHBoXAKcF5k",
+    "currentSlugs": [
+      "titanic-beach-lara",
+      "titanic-deluxe-lara-otel"
+    ],
+    "currentNames": [
+      "Titanic Beach Lara",
+      "Titanic Deluxe Lara Otel"
+    ],
+    "pricingRegions": [
+      "antalya"
+    ],
+    "status": "existing"
+  }
+]

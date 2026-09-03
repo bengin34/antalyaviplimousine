@@ -1,0 +1,393 @@
+[
+  {
+    "placeId": "ChIJqYvIITSDwxQRyuoO-Xpe5Wk",
+    "candidateNames": [
+      "AKRA V"
+    ],
+    "certificateNos": [
+      "8974"
+    ],
+    "currentSlugs": [
+      "akra-v-access-to-akra-antalya-otel"
+    ],
+    "currentNames": [
+      "Akra V - Access To Akra Antalya Otel"
+    ],
+    "pricingRegion": "antalya",
+    "pricingName": "Antalya şehir merkezi",
+    "prices": {
+      "vito": 35,
+      "sprinter": 60
+    },
+    "status": "existing",
+    "reviewReasons": []
+  },
+  {
+    "placeId": "ChIJs2m3mWSr3BQRbqawMoJ2MpM",
+    "candidateNames": [
+      "ALARCHA HOTEL & RESORTS"
+    ],
+    "certificateNos": [
+      "20571"
+    ],
+    "currentSlugs": [
+      "alarcha-hotels-resort"
+    ],
+    "currentNames": [
+      "Alarcha Hotels & Resort"
+    ],
+    "pricingRegion": "alanya_bati",
+    "pricingName": "Batı Alanya",
+    "prices": {
+      "vito": 70,
+      "sprinter": 90
+    },
+    "status": "existing",
+    "reviewReasons": []
+  },
+  {
+    "placeId": "ChIJ9wS5xQybwxQRAXDg4EceCKI",
+    "candidateNames": [
+      "CASATIVO HOTELS"
+    ],
+    "certificateNos": [
+      "2022-7-1805"
+    ],
+    "currentSlugs": [
+      "casativo-hotels-lara"
+    ],
+    "currentNames": [
+      "Casativo Hotels Lara"
+    ],
+    "pricingRegion": "antalya",
+    "pricingName": "Antalya şehir merkezi",
+    "prices": {
+      "vito": 35,
+      "sprinter": 60
+    },
+    "status": "existing",
+    "reviewReasons": []
+  },
+  {
+    "placeId": "ChIJK5r80CybwxQRZrc45UnFN_s",
+    "candidateNames": [
+      "DELTA HOTELS BY MARRİOTT ANTALYA LARA"
+    ],
+    "certificateNos": [
+      "15217"
+    ],
+    "currentSlugs": [
+      "delta-hotels-antalya-lara-adult-only-18-plus"
+    ],
+    "currentNames": [
+      "Delta Hotels Antalya Lara - Adult Only 18 Plus"
+    ],
+    "pricingRegion": "antalya",
+    "pricingName": "Antalya şehir merkezi",
+    "prices": {
+      "vito": 35,
+      "sprinter": 60
+    },
+    "status": "existing",
+    "reviewReasons": []
+  },
+  {
+    "placeId": "ChIJIb9CrUJewxQRmImBZK_UWwU",
+    "candidateNames": [
+      "DİAMOND EXCELLENCE RESORT & SPA HOTEL"
+    ],
+    "certificateNos": [
+      "25842"
+    ],
+    "currentSlugs": [
+      "crystal-palace-luxury-resort"
+    ],
+    "currentNames": [
+      "Crystal Palace Luxury Resort"
+    ],
+    "pricingRegion": "side",
+    "pricingName": "Side",
+    "prices": {
+      "vito": 50,
+      "sprinter": 85
+    },
+    "status": "existing",
+    "reviewReasons": []
+  },
+  {
+    "placeId": "ChIJccqd4XJkwxQRd1Bgc9kaSWY",
+    "candidateNames": [
+      "DOBEDAN EXCLUSİVE HOTEL BELEK"
+    ],
+    "certificateNos": [
+      "9284"
+    ],
+    "currentSlugs": [
+      "alva-donna-exclusive-hotel-spa"
+    ],
+    "currentNames": [
+      "Alva Donna Exclusive Hotel & Spa"
+    ],
+    "pricingRegion": "belek",
+    "pricingName": "Belek",
+    "prices": {
+      "vito": 40,
+      "sprinter": 70
+    },
+    "status": "existing",
+    "reviewReasons": []
+  },
+  {
+    "placeId": "ChIJi4YgNPy2wxQR9YRhKbRueBs",
+    "candidateNames": [
+      "DOBEDAN WORLD PALACE KEMER"
+    ],
+    "certificateNos": [
+      "13646"
+    ],
+    "currentSlugs": [
+      "alva-donna-world-palace"
+    ],
+    "currentNames": [
+      "Alva Donna World Palace"
+    ],
+    "pricingRegion": "kemer",
+    "pricingName": "Kemer",
+    "prices": {
+      "vito": 55,
+      "sprinter": 90
+    },
+    "status": "existing",
+    "reviewReasons": []
+  },
+  {
+    "placeId": "ChIJkeRXvYViwxQRxoS1Ny6O6R0",
+    "candidateNames": [
+      "GÜLERYÜZ 2 OTEL"
+    ],
+    "certificateNos": [
+      "4501"
+    ],
+    "currentSlugs": [
+      "hotel-guleryuz"
+    ],
+    "currentNames": [
+      "Hotel Güleryüz"
+    ],
+    "pricingRegion": "antalya",
+    "pricingName": "Antalya şehir merkezi",
+    "prices": {
+      "vito": 35,
+      "sprinter": 60
+    },
+    "status": "existing",
+    "reviewReasons": []
+  },
+  {
+    "placeId": "ChIJ25Plb6SRwxQRXFBDHhVtGfU",
+    "candidateNames": [
+      "GÜNDÜZ OTEL"
+    ],
+    "certificateNos": [
+      "2022-7-0509"
+    ],
+    "currentSlugs": [
+      "otel-guenduez"
+    ],
+    "currentNames": [
+      "Otel Guenduez"
+    ],
+    "pricingRegion": "antalya",
+    "pricingName": "Antalya şehir merkezi",
+    "prices": {
+      "vito": 35,
+      "sprinter": 60
+    },
+    "status": "existing",
+    "reviewReasons": []
+  },
+  {
+    "placeId": "ChIJTSAfLhqbwxQRK0GjiQ6q8yQ",
+    "candidateNames": [
+      "LET'STAY HOTEL"
+    ],
+    "certificateNos": [
+      "2022-7-0604"
+    ],
+    "currentSlugs": [
+      "letstay-hotel-adults-only"
+    ],
+    "currentNames": [
+      "Letstay Hotel - Adults Only"
+    ],
+    "pricingRegion": "antalya",
+    "pricingName": "Antalya şehir merkezi",
+    "prices": {
+      "vito": 35,
+      "sprinter": 60
+    },
+    "status": "existing",
+    "reviewReasons": []
+  },
+  {
+    "placeId": "ChIJ7WxCwmG3yhQRyKPOOhD4jJA",
+    "candidateNames": [
+      "MARY HOTELS ALANYA"
+    ],
+    "certificateNos": [
+      "14872"
+    ],
+    "currentSlugs": [
+      "sirius-deluxe-hotel"
+    ],
+    "currentNames": [
+      "Sirius Deluxe Hotel"
+    ],
+    "pricingRegion": "alanya_bati",
+    "pricingName": "Batı Alanya",
+    "prices": {
+      "vito": 70,
+      "sprinter": 90
+    },
+    "status": "existing",
+    "reviewReasons": []
+  },
+  {
+    "placeId": "ChIJ8QFYA3a2wxQRG2wktrZGX88",
+    "candidateNames": [
+      "MG HOTELS CLUB AKMAN BEACH"
+    ],
+    "certificateNos": [
+      "2022-7-0492"
+    ],
+    "currentSlugs": [
+      "otium-park-club-akman-otel"
+    ],
+    "currentNames": [
+      "Otium Park Club Akman Otel"
+    ],
+    "pricingRegion": "kemer",
+    "pricingName": "Kemer",
+    "prices": {
+      "vito": 55,
+      "sprinter": 90
+    },
+    "status": "existing",
+    "reviewReasons": []
+  },
+  {
+    "placeId": "ChIJ8dw-eeyawxQRPCZHApptuCE",
+    "candidateNames": [
+      "NEBILUX HOTEL"
+    ],
+    "certificateNos": [
+      "2022-7-1034"
+    ],
+    "currentSlugs": [
+      "nebiluex-hotel"
+    ],
+    "currentNames": [
+      "Nebiluex Hotel"
+    ],
+    "pricingRegion": "antalya",
+    "pricingName": "Antalya şehir merkezi",
+    "prices": {
+      "vito": 35,
+      "sprinter": 60
+    },
+    "status": "existing",
+    "reviewReasons": []
+  },
+  {
+    "placeId": "ChIJvX5j1KaawxQRtE5w3BIjk7o",
+    "candidateNames": [
+      "PRIME OTEL"
+    ],
+    "certificateNos": [
+      "18083"
+    ],
+    "currentSlugs": [
+      "prime-boutique-hotel"
+    ],
+    "currentNames": [
+      "Prime Boutique Hotel"
+    ],
+    "pricingRegion": "antalya",
+    "pricingName": "Antalya şehir merkezi",
+    "prices": {
+      "vito": 35,
+      "sprinter": 60
+    },
+    "status": "existing",
+    "reviewReasons": []
+  },
+  {
+    "placeId": "ChIJBdQi_3W2wxQRFyao9RznRqs",
+    "candidateNames": [
+      "ROBINSON CLUB PAMFİLYA"
+    ],
+    "certificateNos": [
+      "2389"
+    ],
+    "currentSlugs": [
+      "robinson-club-side"
+    ],
+    "currentNames": [
+      "Robinson Club Side"
+    ],
+    "pricingRegion": "side",
+    "pricingName": "Side",
+    "prices": {
+      "vito": 50,
+      "sprinter": 85
+    },
+    "status": "existing",
+    "reviewReasons": []
+  },
+  {
+    "placeId": "ChIJYe2y50FfwxQRSQrVk63HSbI",
+    "candidateNames": [
+      "SEHER SUN PALACE RESORT & SPA"
+    ],
+    "certificateNos": [
+      "12554"
+    ],
+    "currentSlugs": [
+      "seher-sun-beach"
+    ],
+    "currentNames": [
+      "Seher Sun Beach"
+    ],
+    "pricingRegion": "side",
+    "pricingName": "Side",
+    "prices": {
+      "vito": 50,
+      "sprinter": 85
+    },
+    "status": "existing",
+    "reviewReasons": []
+  },
+  {
+    "placeId": "ChIJTXbd1libwxQRphKP7dB0MHk",
+    "candidateNames": [
+      "TOURİST OTEL ANTALYA"
+    ],
+    "certificateNos": [
+      "15159"
+    ],
+    "currentSlugs": [
+      "tourist-hotel"
+    ],
+    "currentNames": [
+      "Tourist Hotel"
+    ],
+    "pricingRegion": "antalya",
+    "pricingName": "Antalya şehir merkezi",
+    "prices": {
+      "vito": 35,
+      "sprinter": 60
+    },
+    "status": "existing",
+    "reviewReasons": []
+  }
+]

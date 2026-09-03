@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-09-03T09:01:33.479Z",
+  "sourceCandidateRows": 397,
+  "uniqueCandidatePlaceIds": 393,
+  "existingPlaceIdMatches": 17,
+  "newPlaceIds": 376,
+  "placesDetailsFetchAttempts": 388,
+  "placesDetailsSuccessfulResponses": 376,
+  "readyCount": 351,
+  "reviewCount": 25,
+  "failedCount": 0,
+  "unresolvedCount": 0,
+  "readyByPricingRegion": {
+    "side": 53,
+    "alanya_merkez": 86,
+    "kemer": 92,
+    "alanya_bati": 76,
+    "tekirova": 3,
+    "bogazkent": 5,
+    "alanya_dogu": 9,
+    "belek": 8,
+    "antalya": 8,
+    "kizilagac": 8,
+    "kargicak": 3
+  },
+  "complete": true
+}

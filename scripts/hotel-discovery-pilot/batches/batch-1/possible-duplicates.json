@@ -1,0 +1,54 @@
+[
+  {
+    "certificateNo": "10502",
+    "name": "MARVİDA FAMILY ECO",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "5 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "MANAVGAT",
+    "placeId": "ChIJxSU3mnZZwxQRGYdz2yYy-_g",
+    "reason": "possible-current-name-duplicate",
+    "possibleCurrentSlug": "marvida-family-eco-side",
+    "similarity": 0.857
+  },
+  {
+    "certificateNo": "15077",
+    "name": "Q PREMIUM RESORT HOTEL",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "5 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "ALANYA",
+    "placeId": "ChIJI_AXWuas3BQRLSDEKqNKzK0",
+    "reason": "possible-current-name-duplicate",
+    "possibleCurrentSlug": "q-premium-resort-hotel-alanya",
+    "similarity": 0.8
+  },
+  {
+    "certificateNo": "3420",
+    "name": "SEVEN SEAS HOTEL LIFE",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "5 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "KEMER",
+    "placeId": "ChIJC8-_S-W4wxQRxSHFfG-p7xw",
+    "reason": "possible-current-name-duplicate",
+    "possibleCurrentSlug": "seven-seas-hotel-life-kemer",
+    "similarity": 0.857
+  },
+  {
+    "certificateNo": "10357",
+    "name": "VOYAGE BELEK",
+    "documentType": "Turizm İşletmesi Belgesi",
+    "facilityType": "Otel",
+    "facilityClass": "5 Yıldızlı",
+    "city": "ANTALYA",
+    "district": "SERİK",
+    "placeId": "ChIJv7YsfgB7wxQRS1ULmQWACCU",
+    "reason": "possible-current-name-duplicate",
+    "possibleCurrentSlug": "voyage-belek-golf-spa",
+    "similarity": 0.8
+  }
+]

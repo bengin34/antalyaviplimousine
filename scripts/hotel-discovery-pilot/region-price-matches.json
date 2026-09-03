@@ -1,0 +1,8078 @@
+[
+  {
+    "proposedSlug": "adenya-hotel-resort",
+    "name": "ADENYA HOTEL & RESORT",
+    "certificateNos": [
+      "12603"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJVyYhCbqv3BQR1HTfx5J3pnk",
+    "pricingRegion": "alanya_bati",
+    "pricingName": "Batı Alanya",
+    "prices": {
+      "vito": 70,
+      "sprinter": 90
+    },
+    "originalPrices": {
+      "vito": 80,
+      "sprinter": 105
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "adin-beach-resort-spa-hotel",
+    "name": "ADİN BEACH RESORT & SPA HOTEL",
+    "certificateNos": [
+      "13586"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJwfuDGaOv3BQRUU2-hx4urrU",
+    "pricingRegion": "alanya_bati",
+    "pricingName": "Batı Alanya",
+    "prices": {
+      "vito": 70,
+      "sprinter": 90
+    },
+    "originalPrices": {
+      "vito": 80,
+      "sprinter": 105
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "algora-halal-hotel",
+    "name": "ALGORA HALAL HOTEL",
+    "certificateNos": [
+      "19238"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJXYxdgg-l3BQRMfO5enYFeXo",
+    "pricingRegion": "alanya_bati",
+    "pricingName": "Batı Alanya",
+    "prices": {
+      "vito": 70,
+      "sprinter": 90
+    },
+    "originalPrices": {
+      "vito": 80,
+      "sprinter": 105
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "anitas-otel",
+    "name": "ANİTAS OTEL",
+    "certificateNos": [
+      "4255"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJodm7yo-k3BQRjsRZSi0nKvo",
+    "pricingRegion": "alanya_bati",
+    "pricingName": "Batı Alanya",
+    "prices": {
+      "vito": 70,
+      "sprinter": 90
+    },
+    "originalPrices": {
+      "vito": 80,
+      "sprinter": 105
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "annabella-diamond-hotel-spa",
+    "name": "ANNABELLA DIAMOND HOTEL & SPA",
+    "certificateNos": [
+      "11955"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJe3nkXuWu3BQRU1Ec0X7H6U8",
+    "pricingRegion": "alanya_bati",
+    "pricingName": "Batı Alanya",
+    "prices": {
+      "vito": 70,
+      "sprinter": 90
+    },
+    "originalPrices": {
+      "vito": 80,
+      "sprinter": 105
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "annabella-park-otel",
+    "name": "ANNABELLA PARK OTEL",
+    "certificateNos": [
+      "22112"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJLwMpdr2v3BQRdv7D-femfyU",
+    "pricingRegion": "alanya_bati",
+    "pricingName": "Batı Alanya",
+    "prices": {
+      "vito": 70,
+      "sprinter": 90
+    },
+    "originalPrices": {
+      "vito": 80,
+      "sprinter": 105
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "aria-resort-spa",
+    "name": "ARİA RESORT & SPA",
+    "certificateNos": [
+      "4466"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJSeI-PYWY3BQR7l_WwN7ilpE",
+    "pricingRegion": "alanya_bati",
+    "pricingName": "Batı Alanya",
+    "prices": {
+      "vito": 70,
+      "sprinter": 90
+    },
+    "originalPrices": {
+      "vito": 80,
+      "sprinter": 105
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "aska-just-in-beach-hotel",
+    "name": "ASKA JUST IN BEACH HOTEL",
+    "certificateNos": [
+      "12114"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJD9BMGKmv3BQR0cAEqNkS2Ak",
+    "pricingRegion": "alanya_bati",
+    "pricingName": "Batı Alanya",
+    "prices": {
+      "vito": 70,
+      "sprinter": 90
+    },
+    "originalPrices": {
+      "vito": 80,
+      "sprinter": 105
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "azura-world-otel",
+    "name": "AZURA WORLD OTEL",
+    "certificateNos": [
+      "25223"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJscB1uhal3BQRRWsvf2nez1E",
+    "pricingRegion": "alanya_bati",
+    "pricingName": "Batı Alanya",
+    "prices": {
+      "vito": 70,
+      "sprinter": 90
+    },
+    "originalPrices": {
+      "vito": 80,
+      "sprinter": 105
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "beach-club-doganay-otel",
+    "name": "BEACH CLUB DOĞANAY OTEL",
+    "certificateNos": [
+      "8450"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJO6L6K3Cj3BQRFTs2Bswtk0g",
+    "pricingRegion": "alanya_bati",
+    "pricingName": "Batı Alanya",
+    "prices": {
+      "vito": 70,
+      "sprinter": 90
+    },
+    "originalPrices": {
+      "vito": 80,
+      "sprinter": 105
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "blue-fish-otel",
+    "name": "BLUE FİSH OTEL",
+    "certificateNos": [
+      "11069"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJq4EFzW-j3BQRIBl03jtESbo",
+    "pricingRegion": "alanya_bati",
+    "pricingName": "Batı Alanya",
+    "prices": {
+      "vito": 70,
+      "sprinter": 90
+    },
+    "originalPrices": {
+      "vito": 80,
+      "sprinter": 105
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "calido-sol-hotel",
+    "name": "CALIDO SOL HOTEL",
+    "certificateNos": [
+      "8689"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJi1AT6Oes3BQRzsyCZ2mnCeY",
+    "pricingRegion": "alanya_bati",
+    "pricingName": "Batı Alanya",
+    "prices": {
+      "vito": 70,
+      "sprinter": 90
+    },
+    "originalPrices": {
+      "vito": 80,
+      "sprinter": 105
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "caretta-beach-otel",
+    "name": "CARETTA BEACH OTEL",
+    "certificateNos": [
+      "4612"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJGzNDqXCk3BQRhEyngEAp5Ls",
+    "pricingRegion": "alanya_bati",
+    "pricingName": "Batı Alanya",
+    "prices": {
+      "vito": 70,
+      "sprinter": 90
+    },
+    "originalPrices": {
+      "vito": 80,
+      "sprinter": 105
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "caretta-relax-otel",
+    "name": "CARETTA RELAX OTEL",
+    "certificateNos": [
+      "6759"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJJ6YYf_Ok3BQR8AvJ5tnFUuM",
+    "pricingRegion": "alanya_bati",
+    "pricingName": "Batı Alanya",
+    "prices": {
+      "vito": 70,
+      "sprinter": 90
+    },
+    "originalPrices": {
+      "vito": 80,
+      "sprinter": 105
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "club-dizalya",
+    "name": "CLUB DİZALYA",
+    "certificateNos": [
+      "8560"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJRYMpWnal3BQRULePBbcaupk",
+    "pricingRegion": "alanya_bati",
+    "pricingName": "Batı Alanya",
+    "prices": {
+      "vito": 70,
+      "sprinter": 90
+    },
+    "originalPrices": {
+      "vito": 80,
+      "sprinter": 105
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "club-kastalia",
+    "name": "CLUB KASTALIA",
+    "certificateNos": [
+      "1497"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJ3cid1oyk3BQRsjP5JrR0WRA",
+    "pricingRegion": "alanya_bati",
+    "pricingName": "Batı Alanya",
+    "prices": {
+      "vito": 70,
+      "sprinter": 90
+    },
+    "originalPrices": {
+      "vito": 80,
+      "sprinter": 105
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "club-otel-mermaid-village",
+    "name": "CLUB OTEL MERMAID VILLAGE",
+    "certificateNos": [
+      "14377"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJ44qVyoKk3BQRxOxhmT1z8dI",
+    "pricingRegion": "alanya_bati",
+    "pricingName": "Batı Alanya",
+    "prices": {
+      "vito": 70,
+      "sprinter": 90
+    },
+    "originalPrices": {
+      "vito": 80,
+      "sprinter": 105
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "club-tess-otel",
+    "name": "CLUB TESS OTEL",
+    "certificateNos": [
+      "15370"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJA_D2hvmk3BQR6SvRU6cVQw8",
+    "pricingRegion": "alanya_bati",
+    "pricingName": "Batı Alanya",
+    "prices": {
+      "vito": 70,
+      "sprinter": 90
+    },
+    "originalPrices": {
+      "vito": 80,
+      "sprinter": 105
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "concordia-celes",
+    "name": "CONCORDİA CELES",
+    "certificateNos": [
+      "17129"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJdyUU8-as3BQR937Rx3E85JI",
+    "pricingRegion": "alanya_bati",
+    "pricingName": "Batı Alanya",
+    "prices": {
+      "vito": 70,
+      "sprinter": 90
+    },
+    "originalPrices": {
+      "vito": 80,
+      "sprinter": 105
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "dizalya-palm-garden-otel",
+    "name": "DİZALYA PALM GARDEN OTEL",
+    "certificateNos": [
+      "13152"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJW4912o6k3BQRJNJw5tpcQik",
+    "pricingRegion": "alanya_bati",
+    "pricingName": "Batı Alanya",
+    "prices": {
+      "vito": 70,
+      "sprinter": 90
+    },
+    "originalPrices": {
+      "vito": 80,
+      "sprinter": 105
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "eftalia-blue-hotel",
+    "name": "EFTALIA BLUE HOTEL",
+    "certificateNos": [
+      "23885"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJd2_lQ-al3BQRN87fQpAsXlI",
+    "pricingRegion": "alanya_bati",
+    "pricingName": "Batı Alanya",
+    "prices": {
+      "vito": 70,
+      "sprinter": 90
+    },
+    "originalPrices": {
+      "vito": 80,
+      "sprinter": 105
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "eftalia-marin-resort-otel",
+    "name": "EFTALIA MARIN RESORT OTEL",
+    "certificateNos": [
+      "14630"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJb9ljZL6RwxQRmyntWM67mjk",
+    "pricingRegion": "alanya_bati",
+    "pricingName": "Batı Alanya",
+    "prices": {
+      "vito": 70,
+      "sprinter": 90
+    },
+    "originalPrices": {
+      "vito": 80,
+      "sprinter": 105
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "eftalia-ocean",
+    "name": "EFTALIA OCEAN",
+    "certificateNos": [
+      "15846"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJ____tGSl3BQRDfqfCTmx3eQ",
+    "pricingRegion": "alanya_bati",
+    "pricingName": "Batı Alanya",
+    "prices": {
+      "vito": 70,
+      "sprinter": 90
+    },
+    "originalPrices": {
+      "vito": 80,
+      "sprinter": 105
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "eos-beach-hotel",
+    "name": "EOS BEACH HOTEL",
+    "certificateNos": [
+      "26111"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJs46WYKil3BQRx-iAPvWkctw",
+    "pricingRegion": "alanya_bati",
+    "pricingName": "Batı Alanya",
+    "prices": {
+      "vito": 70,
+      "sprinter": 90
+    },
+    "originalPrices": {
+      "vito": 80,
+      "sprinter": 105
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "galeri-resort-hotel",
+    "name": "GALERİ RESORT HOTEL",
+    "certificateNos": [
+      "5153"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJq6qq6jCs3BQRVyzIAM2FEVU",
+    "pricingRegion": "alanya_bati",
+    "pricingName": "Batı Alanya",
+    "prices": {
+      "vito": 70,
+      "sprinter": 90
+    },
+    "originalPrices": {
+      "vito": 80,
+      "sprinter": 105
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "gardenia-beach-otel",
+    "name": "GARDENIA BEACH OTEL",
+    "certificateNos": [
+      "6055"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJgdpKYf6s3BQRhIs4jF8PluQ",
+    "pricingRegion": "alanya_bati",
+    "pricingName": "Batı Alanya",
+    "prices": {
+      "vito": 70,
+      "sprinter": 90
+    },
+    "originalPrices": {
+      "vito": 80,
+      "sprinter": 105
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "granada-luxury-red",
+    "name": "GRANADA LUXURY RED",
+    "certificateNos": [
+      "24970"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJFehGPViv3BQR8rOmpCeIQTg",
+    "pricingRegion": "alanya_bati",
+    "pricingName": "Batı Alanya",
+    "prices": {
+      "vito": 70,
+      "sprinter": 90
+    },
+    "originalPrices": {
+      "vito": 80,
+      "sprinter": 105
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "grand-cortez-resort-hotel-spa",
+    "name": "GRAND CORTEZ RESORT HOTEL & SPA",
+    "certificateNos": [
+      "23985"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJ8wqiCS-l3BQReaww-Ace6ls",
+    "pricingRegion": "alanya_bati",
+    "pricingName": "Batı Alanya",
+    "prices": {
+      "vito": 70,
+      "sprinter": 90
+    },
+    "originalPrices": {
+      "vito": 80,
+      "sprinter": 105
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "hedef-beach-hotel",
+    "name": "HEDEF BEACH HOTEL",
+    "certificateNos": [
+      "25806"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJsQb9-_Kk3BQRIq5eSdORfi4",
+    "pricingRegion": "alanya_bati",
+    "pricingName": "Batı Alanya",
+    "prices": {
+      "vito": 70,
+      "sprinter": 90
+    },
+    "originalPrices": {
+      "vito": 80,
+      "sprinter": 105
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "hedef-resort-otel",
+    "name": "HEDEF RESORT OTEL",
+    "certificateNos": [
+      "2022-7-0456"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJl2fJLACl3BQRRn0emyDWXpA",
+    "pricingRegion": "alanya_bati",
+    "pricingName": "Batı Alanya",
+    "prices": {
+      "vito": 70,
+      "sprinter": 90
+    },
+    "originalPrices": {
+      "vito": 80,
+      "sprinter": 105
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "incekum-west-otel",
+    "name": "İNCEKUM WEST OTEL",
+    "certificateNos": [
+      "4103"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJ6zs6zcW9vxQR6Fz19wPhmK4",
+    "pricingRegion": "alanya_bati",
+    "pricingName": "Batı Alanya",
+    "prices": {
+      "vito": 70,
+      "sprinter": 90
+    },
+    "originalPrices": {
+      "vito": 80,
+      "sprinter": 105
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "justiniano-theodora-otel",
+    "name": "JUSTINIANO THEODORA OTEL",
+    "certificateNos": [
+      "17916"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJ_zboDVWs3BQR3DzNt5a-hbE",
+    "pricingRegion": "alanya_bati",
+    "pricingName": "Batı Alanya",
+    "prices": {
+      "vito": 70,
+      "sprinter": 90
+    },
+    "originalPrices": {
+      "vito": 80,
+      "sprinter": 105
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "justiniano-park-conti-otel",
+    "name": "JUSTİNİANO PARK CONTİ OTEL",
+    "certificateNos": [
+      "19927"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJ93obnf2s3BQRirZU6DCxJZ8",
+    "pricingRegion": "alanya_bati",
+    "pricingName": "Batı Alanya",
+    "prices": {
+      "vito": 70,
+      "sprinter": 90
+    },
+    "originalPrices": {
+      "vito": 80,
+      "sprinter": 105
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "kahya-otel",
+    "name": "KAHYA OTEL",
+    "certificateNos": [
+      "11547"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJu7f-jXOl3BQRk-v6WyP5rV8",
+    "pricingRegion": "alanya_bati",
+    "pricingName": "Batı Alanya",
+    "prices": {
+      "vito": 70,
+      "sprinter": 90
+    },
+    "originalPrices": {
+      "vito": 80,
+      "sprinter": 105
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "kaia-coracesium",
+    "name": "KAİA CORACESİUM",
+    "certificateNos": [
+      "13686"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJw6oJyE-l3BQRM9FtT9mr-6U",
+    "pricingRegion": "alanya_bati",
+    "pricingName": "Batı Alanya",
+    "prices": {
+      "vito": 70,
+      "sprinter": 90
+    },
+    "originalPrices": {
+      "vito": 80,
+      "sprinter": 105
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "laguna-beach-alya-resort-spa-hotel",
+    "name": "LAGUNA BEACH ALYA RESORT & SPA HOTEL",
+    "certificateNos": [
+      "18761"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJCTlMxKqt3BQRXLgf4V0cnSo",
+    "pricingRegion": "alanya_bati",
+    "pricingName": "Batı Alanya",
+    "prices": {
+      "vito": 70,
+      "sprinter": 90
+    },
+    "originalPrices": {
+      "vito": 80,
+      "sprinter": 105
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "litore-hotel",
+    "name": "LITORE HOTEL",
+    "certificateNos": [
+      "18107"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJSeI-PYWY3BQRYqFsEmS9dH4",
+    "pricingRegion": "alanya_bati",
+    "pricingName": "Batı Alanya",
+    "prices": {
+      "vito": 70,
+      "sprinter": 90
+    },
+    "originalPrices": {
+      "vito": 80,
+      "sprinter": 105
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "lonicera-premium",
+    "name": "LONICERA PREMIUM",
+    "certificateNos": [
+      "18338"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJv0voUCiZ3BQRm81DC9Ry-40",
+    "pricingRegion": "alanya_bati",
+    "pricingName": "Batı Alanya",
+    "prices": {
+      "vito": 70,
+      "sprinter": 90
+    },
+    "originalPrices": {
+      "vito": 80,
+      "sprinter": 105
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "lonicera-world-resort-spa-hotel",
+    "name": "LONİCERA WORLD RESORT SPA HOTEL",
+    "certificateNos": [
+      "14066"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJ9Y8NdwCv3BQRy5Pr6IJvs40",
+    "pricingRegion": "alanya_bati",
+    "pricingName": "Batı Alanya",
+    "prices": {
+      "vito": 70,
+      "sprinter": 90
+    },
+    "originalPrices": {
+      "vito": 80,
+      "sprinter": 105
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "lycus-beach-otel",
+    "name": "LYCUS BEACH OTEL",
+    "certificateNos": [
+      "10090"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJtxCOQP6s3BQR4myydqz7h28",
+    "pricingRegion": "alanya_bati",
+    "pricingName": "Batı Alanya",
+    "prices": {
+      "vito": 70,
+      "sprinter": 90
+    },
+    "originalPrices": {
+      "vito": 80,
+      "sprinter": 105
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "mc-arancia-resort-otel",
+    "name": "MC ARANCIA RESORT OTEL",
+    "certificateNos": [
+      "18609"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJ3xRqxPOk3BQRp3gzUDeEHlA",
+    "pricingRegion": "alanya_bati",
+    "pricingName": "Batı Alanya",
+    "prices": {
+      "vito": 70,
+      "sprinter": 90
+    },
+    "originalPrices": {
+      "vito": 80,
+      "sprinter": 105
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "meryan-otel",
+    "name": "MERYAN OTEL",
+    "certificateNos": [
+      "4799"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJTc5KlIeY3BQRimW-WBB4rkM",
+    "pricingRegion": "alanya_bati",
+    "pricingName": "Batı Alanya",
+    "prices": {
+      "vito": 70,
+      "sprinter": 90
+    },
+    "originalPrices": {
+      "vito": 80,
+      "sprinter": 105
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "miarosa-konakli-garden-otel",
+    "name": "MIAROSA KONAKLI GARDEN OTEL",
+    "certificateNos": [
+      "2022-7-1698"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJbxo7K4ul3BQRJ962Ng3jy5o",
+    "pricingRegion": "alanya_bati",
+    "pricingName": "Batı Alanya",
+    "prices": {
+      "vito": 70,
+      "sprinter": 90
+    },
+    "originalPrices": {
+      "vito": 80,
+      "sprinter": 105
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "mira-meridia-beach-resort-hotel",
+    "name": "MIRA MERIDIA BEACH RESORT HOTEL",
+    "certificateNos": [
+      "16675"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJW5dS2FOj3BQR_wBWbL_kzC4",
+    "pricingRegion": "alanya_bati",
+    "pricingName": "Batı Alanya",
+    "prices": {
+      "vito": 70,
+      "sprinter": 90
+    },
+    "originalPrices": {
+      "vito": 80,
+      "sprinter": 105
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "my-home-resort-otel",
+    "name": "MY HOME RESORT OTEL",
+    "certificateNos": [
+      "11113"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJV5h4faav3BQRzEDsq9HeljE",
+    "pricingRegion": "alanya_bati",
+    "pricingName": "Batı Alanya",
+    "prices": {
+      "vito": 70,
+      "sprinter": 90
+    },
+    "originalPrices": {
+      "vito": 80,
+      "sprinter": 105
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "my-home-sky-otel",
+    "name": "MY HOME SKY OTEL",
+    "certificateNos": [
+      "12688"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJxTQY6aWv3BQRzEVCX2wk4RA",
+    "pricingRegion": "alanya_bati",
+    "pricingName": "Batı Alanya",
+    "prices": {
+      "vito": 70,
+      "sprinter": 90
+    },
+    "originalPrices": {
+      "vito": 80,
+      "sprinter": 105
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "mylome-luxury-hotel-resort",
+    "name": "MYLOME LUXURY HOTEL & RESORT",
+    "certificateNos": [
+      "21102"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJ4QtzUayt3BQRrJD5CRTzxzQ",
+    "pricingRegion": "alanya_bati",
+    "pricingName": "Batı Alanya",
+    "prices": {
+      "vito": 70,
+      "sprinter": 90
+    },
+    "originalPrices": {
+      "vito": 80,
+      "sprinter": 105
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "noxinn-club-hotels",
+    "name": "NOXINN CLUB HOTELS",
+    "certificateNos": [
+      "G_20406"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJ636fC-Wl3BQROvJndwRu_OA",
+    "pricingRegion": "alanya_bati",
+    "pricingName": "Batı Alanya",
+    "prices": {
+      "vito": 70,
+      "sprinter": 90
+    },
+    "originalPrices": {
+      "vito": 80,
+      "sprinter": 105
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "noxinn-deluxe-hotel",
+    "name": "NOXINN DELUXE HOTEL",
+    "certificateNos": [
+      "20826"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJby11WnKj3BQRFvJTIc5nuyc",
+    "pricingRegion": "alanya_bati",
+    "pricingName": "Batı Alanya",
+    "prices": {
+      "vito": 70,
+      "sprinter": 90
+    },
+    "originalPrices": {
+      "vito": 80,
+      "sprinter": 105
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "numa-konaktepe-otel",
+    "name": "NUMA KONAKTEPE OTEL",
+    "certificateNos": [
+      "17308"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJFS363vSk3BQRYv0rpT7I_L4",
+    "pricingRegion": "alanya_bati",
+    "pricingName": "Batı Alanya",
+    "prices": {
+      "vito": 70,
+      "sprinter": 90
+    },
+    "originalPrices": {
+      "vito": 80,
+      "sprinter": 105
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "oz-hotels-sui",
+    "name": "OZ HOTELS SUİ",
+    "certificateNos": [
+      "15065"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJS6dSaFSs3BQR1F8RuQZLXVk",
+    "pricingRegion": "alanya_bati",
+    "pricingName": "Batı Alanya",
+    "prices": {
+      "vito": 70,
+      "sprinter": 90
+    },
+    "originalPrices": {
+      "vito": 80,
+      "sprinter": 105
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "ozkaymak-select-resort-otel",
+    "name": "ÖZKAYMAK SELECT RESORT OTEL",
+    "certificateNos": [
+      "15327"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJ9XbBdJqv3BQRkfiW6OaNbhw",
+    "pricingRegion": "alanya_bati",
+    "pricingName": "Batı Alanya",
+    "prices": {
+      "vito": 70,
+      "sprinter": 90
+    },
+    "originalPrices": {
+      "vito": 80,
+      "sprinter": 105
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "palmeras-beach-hotel",
+    "name": "PALMERAS BEACH HOTEL",
+    "certificateNos": [
+      "11475"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJ6Y0FyPuk3BQREtW596sXmX0",
+    "pricingRegion": "alanya_bati",
+    "pricingName": "Batı Alanya",
+    "prices": {
+      "vito": 70,
+      "sprinter": 90
+    },
+    "originalPrices": {
+      "vito": 80,
+      "sprinter": 105
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "perre-delta-resort-spa",
+    "name": "PERRE DELTA RESORT & SPA",
+    "certificateNos": [
+      "7525"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJl_QPEI2t3BQRzt-Z4gmVLto",
+    "pricingRegion": "alanya_bati",
+    "pricingName": "Batı Alanya",
+    "prices": {
+      "vito": 70,
+      "sprinter": 90
+    },
+    "originalPrices": {
+      "vito": 80,
+      "sprinter": 105
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "quattro-beach-spa-resort",
+    "name": "QUATTRO BEACH SPA &RESORT",
+    "certificateNos": [
+      "13520"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJSeI-PYWY3BQRobs-UEU6Rxg",
+    "pricingRegion": "alanya_bati",
+    "pricingName": "Batı Alanya",
+    "prices": {
+      "vito": 70,
+      "sprinter": 90
+    },
+    "originalPrices": {
+      "vito": 80,
+      "sprinter": 105
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "ramira-beach-hotel",
+    "name": "RAMİRA BEACH HOTEL",
+    "certificateNos": [
+      "16339"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJBzh1oqqv3BQRvWHcVdwLrC8",
+    "pricingRegion": "alanya_bati",
+    "pricingName": "Batı Alanya",
+    "prices": {
+      "vito": 70,
+      "sprinter": 90
+    },
+    "originalPrices": {
+      "vito": 80,
+      "sprinter": 105
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "royal-garden-beach-otel",
+    "name": "ROYAL GARDEN BEACH OTEL",
+    "certificateNos": [
+      "7967"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJVdk_zfak3BQRteDolPOsjnk",
+    "pricingRegion": "alanya_bati",
+    "pricingName": "Batı Alanya",
+    "prices": {
+      "vito": 70,
+      "sprinter": 90
+    },
+    "originalPrices": {
+      "vito": 80,
+      "sprinter": 105
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "rubi-hotel",
+    "name": "RUBİ HOTEL",
+    "certificateNos": [
+      "20710"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJpXrwFKmv3BQRB7kMjzxIfiY",
+    "pricingRegion": "alanya_bati",
+    "pricingName": "Batı Alanya",
+    "prices": {
+      "vito": 70,
+      "sprinter": 90
+    },
+    "originalPrices": {
+      "vito": 80,
+      "sprinter": 105
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "saphir-resort-spa",
+    "name": "SAPHİR RESORT & SPA",
+    "certificateNos": [
+      "11926"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJ25yaM_6s3BQRc5cBOF4ZO00",
+    "pricingRegion": "alanya_bati",
+    "pricingName": "Batı Alanya",
+    "prices": {
+      "vito": 70,
+      "sprinter": 90
+    },
+    "originalPrices": {
+      "vito": 80,
+      "sprinter": 105
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "senza-garden-holiday-club-hotel",
+    "name": "SENZA GARDEN HOLIDAY CLUB HOTEL",
+    "certificateNos": [
+      "18610"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJK_jpf8il3BQRQ_GAmoFTk9Q",
+    "pricingRegion": "alanya_bati",
+    "pricingName": "Batı Alanya",
+    "prices": {
+      "vito": 70,
+      "sprinter": 90
+    },
+    "originalPrices": {
+      "vito": 80,
+      "sprinter": 105
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "senza-the-inn-resort-spa",
+    "name": "SENZA THE INN RESORT & SPA",
+    "certificateNos": [
+      "19582"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJswA_o2Kl3BQRJeSSGC4a5gg",
+    "pricingRegion": "alanya_bati",
+    "pricingName": "Batı Alanya",
+    "prices": {
+      "vito": 70,
+      "sprinter": 90
+    },
+    "originalPrices": {
+      "vito": 80,
+      "sprinter": 105
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "serenity-queen-hotel",
+    "name": "SERENİTY QUEEN HOTEL",
+    "certificateNos": [
+      "23555"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJbxxH-Xyj3BQRo7bw6Q_hvm4",
+    "pricingRegion": "alanya_bati",
+    "pricingName": "Batı Alanya",
+    "prices": {
+      "vito": 70,
+      "sprinter": 90
+    },
+    "originalPrices": {
+      "vito": 80,
+      "sprinter": 105
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "seven-seas-palmeras-bay-hotel",
+    "name": "SEVEN SEAS PALMERAS BAY HOTEL",
+    "certificateNos": [
+      "4365"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJY8LGIV2l3BQReIdj34Pfg1o",
+    "pricingRegion": "alanya_bati",
+    "pricingName": "Batı Alanya",
+    "prices": {
+      "vito": 70,
+      "sprinter": 90
+    },
+    "originalPrices": {
+      "vito": 80,
+      "sprinter": 105
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "solivia-hotel",
+    "name": "SOLIVIA HOTEL",
+    "certificateNos": [
+      "13213"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJBWLJRzil3BQRKaMAcSUrfr4",
+    "pricingRegion": "alanya_bati",
+    "pricingName": "Batı Alanya",
+    "prices": {
+      "vito": 70,
+      "sprinter": 90
+    },
+    "originalPrices": {
+      "vito": 80,
+      "sprinter": 105
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "sun-heaven-otel",
+    "name": "SUN HEAVEN OTEL",
+    "certificateNos": [
+      "15427"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJY5EwYQ-l3BQRzObZ41jQs7Y",
+    "pricingRegion": "alanya_bati",
+    "pricingName": "Batı Alanya",
+    "prices": {
+      "vito": 70,
+      "sprinter": 90
+    },
+    "originalPrices": {
+      "vito": 80,
+      "sprinter": 105
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "sun-heaven-queen",
+    "name": "SUN HEAVEN QUEEN",
+    "certificateNos": [
+      "2022-7-0547"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJm28dZUplwBQR5Svdem-mZH8",
+    "pricingRegion": "alanya_bati",
+    "pricingName": "Batı Alanya",
+    "prices": {
+      "vito": 70,
+      "sprinter": 90
+    },
+    "originalPrices": {
+      "vito": 80,
+      "sprinter": 105
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "telatiye-resort-otel",
+    "name": "TELATİYE RESORT OTEL",
+    "certificateNos": [
+      "14240"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJ-YdjAHqk3BQR2KHzECCGO98",
+    "pricingRegion": "alanya_bati",
+    "pricingName": "Batı Alanya",
+    "prices": {
+      "vito": 70,
+      "sprinter": 90
+    },
+    "originalPrices": {
+      "vito": 80,
+      "sprinter": 105
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "the-marilis-hill-resort-hotel-spa",
+    "name": "THE MARİLİS HİLL RESORT HOTEL&SPA",
+    "certificateNos": [
+      "20834"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJ9eE9xdKt3BQRV1K5hWubTV0",
+    "pricingRegion": "alanya_bati",
+    "pricingName": "Batı Alanya",
+    "prices": {
+      "vito": 70,
+      "sprinter": 90
+    },
+    "originalPrices": {
+      "vito": 80,
+      "sprinter": 105
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "timo-deluxe-resort",
+    "name": "TİMO DELUXE RESORT",
+    "certificateNos": [
+      "8852"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJ00mjBv6k3BQRQPl1pHcgzSk",
+    "pricingRegion": "alanya_bati",
+    "pricingName": "Batı Alanya",
+    "prices": {
+      "vito": 70,
+      "sprinter": 90
+    },
+    "originalPrices": {
+      "vito": 80,
+      "sprinter": 105
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "vikingen-infinity-resort-spa",
+    "name": "VİKİNGEN İNFİNİTY RESORT & SPA",
+    "certificateNos": [
+      "13089"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJ65OOuBWv3BQRgL8fUpyO86w",
+    "pricingRegion": "alanya_bati",
+    "pricingName": "Batı Alanya",
+    "prices": {
+      "vito": 70,
+      "sprinter": 90
+    },
+    "originalPrices": {
+      "vito": 80,
+      "sprinter": 105
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "wome-deluxe-hotel",
+    "name": "WOME DELUXE HOTEL",
+    "certificateNos": [
+      "26173"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJSeI-PYWY3BQRVZfQ-ryV_bs",
+    "pricingRegion": "alanya_bati",
+    "pricingName": "Batı Alanya",
+    "prices": {
+      "vito": 70,
+      "sprinter": 90
+    },
+    "originalPrices": {
+      "vito": 80,
+      "sprinter": 105
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "xeno-eftalia-resort-otel",
+    "name": "XENO EFTALİA RESORT OTEL",
+    "certificateNos": [
+      "9091"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJxYxuzpOl3BQRV6EmZzoZZrk",
+    "pricingRegion": "alanya_bati",
+    "pricingName": "Batı Alanya",
+    "prices": {
+      "vito": 70,
+      "sprinter": 90
+    },
+    "originalPrices": {
+      "vito": 80,
+      "sprinter": 105
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "xoria-deluxe-hotel",
+    "name": "XORİA DELUXE HOTEL",
+    "certificateNos": [
+      "18776"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJ18E-DAml3BQRWbicBRkBOjo",
+    "pricingRegion": "alanya_bati",
+    "pricingName": "Batı Alanya",
+    "prices": {
+      "vito": 70,
+      "sprinter": 90
+    },
+    "originalPrices": {
+      "vito": 80,
+      "sprinter": 105
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "yalihan-aspendos-otel",
+    "name": "YALIHAN ASPENDOS OTEL",
+    "certificateNos": [
+      "2022-7-1673"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJpRbgcamv3BQR7LKLomvg-os",
+    "pricingRegion": "alanya_bati",
+    "pricingName": "Batı Alanya",
+    "prices": {
+      "vito": 70,
+      "sprinter": 90
+    },
+    "originalPrices": {
+      "vito": 80,
+      "sprinter": 105
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "yalihan-una",
+    "name": "YALIHAN UNA",
+    "certificateNos": [
+      "13594"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJWaJ8mKqv3BQRZI7PUYnCc6A",
+    "pricingRegion": "alanya_bati",
+    "pricingName": "Batı Alanya",
+    "prices": {
+      "vito": 70,
+      "sprinter": 90
+    },
+    "originalPrices": {
+      "vito": 80,
+      "sprinter": 105
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "yetkin-club-otel",
+    "name": "YETKİN CLUB OTEL",
+    "certificateNos": [
+      "3535"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJC6RH2AGl3BQRDppg8H8Pa5g",
+    "pricingRegion": "alanya_bati",
+    "pricingName": "Batı Alanya",
+    "prices": {
+      "vito": 70,
+      "sprinter": 90
+    },
+    "originalPrices": {
+      "vito": 80,
+      "sprinter": 105
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "bariscan-otel",
+    "name": "BARIŞCAN OTEL",
+    "certificateNos": [
+      "2022-7-0246"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJ5xhxNQOa3BQR1dIILgmUlKQ",
+    "pricingRegion": "alanya_dogu",
+    "pricingName": "Doğu Alanya",
+    "prices": {
+      "vito": 80,
+      "sprinter": 105
+    },
+    "originalPrices": {
+      "vito": 90,
+      "sprinter": 120
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "campus-hill-otel",
+    "name": "CAMPUS HİLL OTEL",
+    "certificateNos": [
+      "20179"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJoeJxs5WZ3BQRmDFaxaihit0",
+    "pricingRegion": "alanya_dogu",
+    "pricingName": "Doğu Alanya",
+    "prices": {
+      "vito": 80,
+      "sprinter": 105
+    },
+    "originalPrices": {
+      "vito": 90,
+      "sprinter": 120
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "club-paradiso-hotel",
+    "name": "CLUB PARADİSO HOTEL",
+    "certificateNos": [
+      "24499"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJcx0tdIGZ3BQRCpHgtd3W_VM",
+    "pricingRegion": "alanya_dogu",
+    "pricingName": "Doğu Alanya",
+    "prices": {
+      "vito": 80,
+      "sprinter": 105
+    },
+    "originalPrices": {
+      "vito": 90,
+      "sprinter": 120
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "graf-victor-otel",
+    "name": "GRAF VİCTOR OTEL",
+    "certificateNos": [
+      "2022-7-1280"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJ13MZLYSZ3BQR8n5a5GmSlmM",
+    "pricingRegion": "alanya_dogu",
+    "pricingName": "Doğu Alanya",
+    "prices": {
+      "vito": 80,
+      "sprinter": 105
+    },
+    "originalPrices": {
+      "vito": 90,
+      "sprinter": 120
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "grand-zaman-garden-otel",
+    "name": "GRAND ZAMAN GARDEN OTEL",
+    "certificateNos": [
+      "12464"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJrdxPlgua3BQR7f-0AYUVPLQ",
+    "pricingRegion": "alanya_dogu",
+    "pricingName": "Doğu Alanya",
+    "prices": {
+      "vito": 80,
+      "sprinter": 105
+    },
+    "originalPrices": {
+      "vito": 90,
+      "sprinter": 120
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "michell-hotel",
+    "name": "MICHELL HOTEL",
+    "certificateNos": [
+      "2022-7-0050"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJKXk_kpWZ3BQRWatrnHfzFWw",
+    "pricingRegion": "alanya_dogu",
+    "pricingName": "Doğu Alanya",
+    "prices": {
+      "vito": 80,
+      "sprinter": 105
+    },
+    "originalPrices": {
+      "vito": 90,
+      "sprinter": 120
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "senza-grand-santana-otel",
+    "name": "SENZA GRAND SANTANA OTEL",
+    "certificateNos": [
+      "22309"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJHzb1Owia3BQRuprj6kxeB44",
+    "pricingRegion": "alanya_dogu",
+    "pricingName": "Doğu Alanya",
+    "prices": {
+      "vito": 80,
+      "sprinter": 105
+    },
+    "originalPrices": {
+      "vito": 90,
+      "sprinter": 120
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "senza-sunset-beach-hotel",
+    "name": "SENZA SUNSET BEACH HOTEL",
+    "certificateNos": [
+      "26069"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJoT9uAZmv3BQRjIDHhIiS_0I",
+    "pricingRegion": "alanya_dogu",
+    "pricingName": "Doğu Alanya",
+    "prices": {
+      "vito": 80,
+      "sprinter": 105
+    },
+    "originalPrices": {
+      "vito": 90,
+      "sprinter": 120
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "viva-beach-hotel",
+    "name": "VİVA BEACH HOTEL",
+    "certificateNos": [
+      "2022-7-0196"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJp9HyP-KR3BQRh635RQRhgSI",
+    "pricingRegion": "alanya_dogu",
+    "pricingName": "Doğu Alanya",
+    "prices": {
+      "vito": 80,
+      "sprinter": 105
+    },
+    "originalPrices": {
+      "vito": 90,
+      "sprinter": 120
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "acar-otel",
+    "name": "ACAR OTEL",
+    "certificateNos": [
+      "2022-7-0184"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJ0-G-n1SY3BQR9tvOcLK968s",
+    "pricingRegion": "alanya_merkez",
+    "pricingName": "Alanya merkez",
+    "prices": {
+      "vito": 75,
+      "sprinter": 95
+    },
+    "originalPrices": {
+      "vito": 85,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "alaiye-kleopatra-otel",
+    "name": "ALAİYE KLEOPATRA OTEL",
+    "certificateNos": [
+      "2025"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJJfo_QYWi3BQR19WayxMqxFs",
+    "pricingRegion": "alanya_merkez",
+    "pricingName": "Alanya merkez",
+    "prices": {
+      "vito": 75,
+      "sprinter": 95
+    },
+    "originalPrices": {
+      "vito": 85,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "alanya-beach",
+    "name": "ALANYA BEACH",
+    "certificateNos": [
+      "9694"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJU_0_KgCl3BQRbzzmbciVoPc",
+    "pricingRegion": "alanya_merkez",
+    "pricingName": "Alanya merkez",
+    "prices": {
+      "vito": 75,
+      "sprinter": 95
+    },
+    "originalPrices": {
+      "vito": 85,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "alanya-buyuk-otel",
+    "name": "ALANYA BÜYÜK OTEL",
+    "certificateNos": [
+      "1352"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJwSpey3CY3BQRaXqLcW0enP0",
+    "pricingRegion": "alanya_merkez",
+    "pricingName": "Alanya merkez",
+    "prices": {
+      "vito": 75,
+      "sprinter": 95
+    },
+    "originalPrices": {
+      "vito": 85,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "alanya-risus-park-otel",
+    "name": "ALANYA RISUS PARK OTEL",
+    "certificateNos": [
+      "2022-7-1106"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJu9_R2cKZ3BQRVwLasaaTrwQ",
+    "pricingRegion": "alanya_merkez",
+    "pricingName": "Alanya merkez",
+    "prices": {
+      "vito": 75,
+      "sprinter": 95
+    },
+    "originalPrices": {
+      "vito": 85,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "alanya-sunway-hotel",
+    "name": "ALANYA SUNWAY HOTEL",
+    "certificateNos": [
+      "20400"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJnwibj5yi3BQRgDjMHSxy-Yk",
+    "pricingRegion": "alanya_merkez",
+    "pricingName": "Alanya merkez",
+    "prices": {
+      "vito": 75,
+      "sprinter": 95
+    },
+    "originalPrices": {
+      "vito": 85,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "alin-otel",
+    "name": "ALİN OTEL",
+    "certificateNos": [
+      "11388"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJ4-n3soeY3BQR-p1oqIOVIsg",
+    "pricingRegion": "alanya_merkez",
+    "pricingName": "Alanya merkez",
+    "prices": {
+      "vito": 75,
+      "sprinter": 95
+    },
+    "originalPrices": {
+      "vito": 85,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "anna-queen-hotel",
+    "name": "ANNA QUEEN HOTEL",
+    "certificateNos": [
+      "10469"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJf41tm5yi3BQRKE1jXhl4xz0",
+    "pricingRegion": "alanya_merkez",
+    "pricingName": "Alanya merkez",
+    "prices": {
+      "vito": 75,
+      "sprinter": 95
+    },
+    "originalPrices": {
+      "vito": 85,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "antique-roman-palace",
+    "name": "ANTIQUE ROMAN PALACE",
+    "certificateNos": [
+      "9115"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJgQl_hyu7yhQRJ_VreFWnank",
+    "pricingRegion": "alanya_merkez",
+    "pricingName": "Alanya merkez",
+    "prices": {
+      "vito": 75,
+      "sprinter": 95
+    },
+    "originalPrices": {
+      "vito": 85,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "arsi-enfi-city-beach-otel",
+    "name": "ARSİ ENFİ CITY BEACH OTEL",
+    "certificateNos": [
+      "2022-7-0630"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJL_aIvmCY3BQRoLqCYisIwL0",
+    "pricingRegion": "alanya_merkez",
+    "pricingName": "Alanya merkez",
+    "prices": {
+      "vito": 75,
+      "sprinter": 95
+    },
+    "originalPrices": {
+      "vito": 85,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "avena-mountain-otel",
+    "name": "AVENA MOUNTAIN OTEL",
+    "certificateNos": [
+      "25204"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJmTaNVzuh3BQRtDA_pRMuyOE",
+    "pricingRegion": "alanya_merkez",
+    "pricingName": "Alanya merkez",
+    "prices": {
+      "vito": 75,
+      "sprinter": 95
+    },
+    "originalPrices": {
+      "vito": 85,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "avlion-otel",
+    "name": "AVLİON OTEL",
+    "certificateNos": [
+      "24043"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJL-PmWvSj3BQRETxNs8T0CmQ",
+    "pricingRegion": "alanya_merkez",
+    "pricingName": "Alanya merkez",
+    "prices": {
+      "vito": 75,
+      "sprinter": 95
+    },
+    "originalPrices": {
+      "vito": 85,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "aysev-otel",
+    "name": "AYSEV OTEL",
+    "certificateNos": [
+      "2022-7-1130"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJW9-0Z5ui3BQRyTVKUDLfofc",
+    "pricingRegion": "alanya_merkez",
+    "pricingName": "Alanya merkez",
+    "prices": {
+      "vito": 75,
+      "sprinter": 95
+    },
+    "originalPrices": {
+      "vito": 85,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "azak-beach-otel",
+    "name": "AZAK BEACH OTEL",
+    "certificateNos": [
+      "7379"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJT7SmK5ui3BQR2WzD-XREde8",
+    "pricingRegion": "alanya_merkez",
+    "pricingName": "Alanya merkez",
+    "prices": {
+      "vito": 75,
+      "sprinter": 95
+    },
+    "originalPrices": {
+      "vito": 85,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "azak-otel",
+    "name": "AZAK OTEL",
+    "certificateNos": [
+      "10945"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJX2aDUIWi3BQRrvRtHs6saiY",
+    "pricingRegion": "alanya_merkez",
+    "pricingName": "Alanya merkez",
+    "prices": {
+      "vito": 75,
+      "sprinter": 95
+    },
+    "originalPrices": {
+      "vito": 85,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "balik-otel",
+    "name": "BALIK OTEL",
+    "certificateNos": [
+      "3307"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJU1-2jYyi3BQRrenT-RkXW-k",
+    "pricingRegion": "alanya_merkez",
+    "pricingName": "Alanya merkez",
+    "prices": {
+      "vito": 75,
+      "sprinter": 95
+    },
+    "originalPrices": {
+      "vito": 85,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "best-house-otel",
+    "name": "BEST HOUSE OTEL",
+    "certificateNos": [
+      "2022-7-1266"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJh0L7YISi3BQRPVumZqmi0Qw",
+    "pricingRegion": "alanya_merkez",
+    "pricingName": "Alanya merkez",
+    "prices": {
+      "vito": 75,
+      "sprinter": 95
+    },
+    "originalPrices": {
+      "vito": 85,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "blue-diamond-alya-hotel",
+    "name": "BLUE DIAMOND ALYA HOTEL",
+    "certificateNos": [
+      "2863"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJ2VD-UAuZ3BQRpfCRFiPHH2Y",
+    "pricingRegion": "alanya_merkez",
+    "pricingName": "Alanya merkez",
+    "prices": {
+      "vito": 75,
+      "sprinter": 95
+    },
+    "originalPrices": {
+      "vito": 85,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "blue-dream-hotel",
+    "name": "BLUE DREAM HOTEL",
+    "certificateNos": [
+      "2022-7-1144"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJNRioU16Y3BQR8mT0PGX_oXg",
+    "pricingRegion": "alanya_merkez",
+    "pricingName": "Alanya merkez",
+    "prices": {
+      "vito": 75,
+      "sprinter": 95
+    },
+    "originalPrices": {
+      "vito": 85,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "blue-star-otel",
+    "name": "BLUE STAR OTEL",
+    "certificateNos": [
+      "10048"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJLxwW1oei3BQRaOOC-eJEN4k",
+    "pricingRegion": "alanya_merkez",
+    "pricingName": "Alanya merkez",
+    "prices": {
+      "vito": 75,
+      "sprinter": 95
+    },
+    "originalPrices": {
+      "vito": 85,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "boulevard-otel",
+    "name": "BOULEVARD OTEL",
+    "certificateNos": [
+      "2687"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJoUryEmSY3BQRdGmvKjfWfvs",
+    "pricingRegion": "alanya_merkez",
+    "pricingName": "Alanya merkez",
+    "prices": {
+      "vito": 75,
+      "sprinter": 95
+    },
+    "originalPrices": {
+      "vito": 85,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "castello-by-mediterra-hotel",
+    "name": "CASTELLO BY MEDITERRA HOTEL",
+    "certificateNos": [
+      "26458"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJr0O9QQCZ3BQR9xjLEReEn0w",
+    "pricingRegion": "alanya_merkez",
+    "pricingName": "Alanya merkez",
+    "prices": {
+      "vito": 75,
+      "sprinter": 95
+    },
+    "originalPrices": {
+      "vito": 85,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "club-big-blue-suite-hotel",
+    "name": "CLUB BIG BLUE SUITE HOTEL",
+    "certificateNos": [
+      "17987"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJ7Wr6M1aY3BQRUBqEr53ga_M",
+    "pricingRegion": "alanya_merkez",
+    "pricingName": "Alanya merkez",
+    "prices": {
+      "vito": 75,
+      "sprinter": 95
+    },
+    "originalPrices": {
+      "vito": 85,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "day-one-beach-resort-hotel",
+    "name": "Day One Beach Resort Hotel",
+    "certificateNos": [
+      "20812"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJISRzG1qY3BQRq_tjH1_k5cw",
+    "pricingRegion": "alanya_merkez",
+    "pricingName": "Alanya merkez",
+    "prices": {
+      "vito": 75,
+      "sprinter": 95
+    },
+    "originalPrices": {
+      "vito": 85,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "diamond-hill-resort",
+    "name": "DIAMOND HILL RESORT",
+    "certificateNos": [
+      "12874"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJo8IlGQCZ3BQRJnU0-hC1RKc",
+    "pricingRegion": "alanya_merkez",
+    "pricingName": "Alanya merkez",
+    "prices": {
+      "vito": 75,
+      "sprinter": 95
+    },
+    "originalPrices": {
+      "vito": 85,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "diamore-hotel",
+    "name": "DIAMORE HOTEL",
+    "certificateNos": [
+      "2022-7-0091"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJlw1uVQaQwxQRJXjiLlvpMfQ",
+    "pricingRegion": "alanya_merkez",
+    "pricingName": "Alanya merkez",
+    "prices": {
+      "vito": 75,
+      "sprinter": 95
+    },
+    "originalPrices": {
+      "vito": 85,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "elysee-beach",
+    "name": "ELYSEE BEACH",
+    "certificateNos": [
+      "9585"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJE4NxSYWi3BQRdvNbIyeVJWw",
+    "pricingRegion": "alanya_merkez",
+    "pricingName": "Alanya merkez",
+    "prices": {
+      "vito": 75,
+      "sprinter": 95
+    },
+    "originalPrices": {
+      "vito": 85,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "elysee-rive",
+    "name": "ELYSEE RIVE",
+    "certificateNos": [
+      "3204"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJEeo3YF6Y3BQRX-znFYNadgA",
+    "pricingRegion": "alanya_merkez",
+    "pricingName": "Alanya merkez",
+    "prices": {
+      "vito": 75,
+      "sprinter": 95
+    },
+    "originalPrices": {
+      "vito": 85,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "en-vie-beach-otel",
+    "name": "EN VIE BEACH OTEL",
+    "certificateNos": [
+      "2022-7-1149"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJxWfVn3-i3BQRVZHWa601OFU",
+    "pricingRegion": "alanya_merkez",
+    "pricingName": "Alanya merkez",
+    "prices": {
+      "vito": 75,
+      "sprinter": 95
+    },
+    "originalPrices": {
+      "vito": 85,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "gardenia",
+    "name": "GARDENİA",
+    "certificateNos": [
+      "2455"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJCSz315qi3BQR_9sDWLLO-Fk",
+    "pricingRegion": "alanya_merkez",
+    "pricingName": "Alanya merkez",
+    "prices": {
+      "vito": 75,
+      "sprinter": 95
+    },
+    "originalPrices": {
+      "vito": 85,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "hawaii-suite-beach-otel",
+    "name": "HAWAII SUITE BEACH OTEL",
+    "certificateNos": [
+      "2022-7-0545"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJuW-aHl6Y3BQRm8cg6E5OeEk",
+    "pricingRegion": "alanya_merkez",
+    "pricingName": "Alanya merkez",
+    "prices": {
+      "vito": 75,
+      "sprinter": 95
+    },
+    "originalPrices": {
+      "vito": 85,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "hilal-otel",
+    "name": "HİLAL OTEL",
+    "certificateNos": [
+      "2022-7-0557"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJf0UNGY-i3BQRnxPQ7U5R8OA",
+    "pricingRegion": "alanya_merkez",
+    "pricingName": "Alanya merkez",
+    "prices": {
+      "vito": 75,
+      "sprinter": 95
+    },
+    "originalPrices": {
+      "vito": 85,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "hotel-ozkaymak",
+    "name": "HOTEL ÖZKAYMAK",
+    "certificateNos": [
+      "3073"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJGRrpPIWY3BQRCxOzOHfMWpo",
+    "pricingRegion": "alanya_merkez",
+    "pricingName": "Alanya merkez",
+    "prices": {
+      "vito": 75,
+      "sprinter": 95
+    },
+    "originalPrices": {
+      "vito": 85,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "illusion-beach-club-hotel",
+    "name": "İLLUSİON BEACH CLUB HOTEL",
+    "certificateNos": [
+      "2022-7-1273"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJARtI_AKj3BQRGN70Yc2ggnI",
+    "pricingRegion": "alanya_merkez",
+    "pricingName": "Alanya merkez",
+    "prices": {
+      "vito": 75,
+      "sprinter": 95
+    },
+    "originalPrices": {
+      "vito": 85,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "kadeer-hotel",
+    "name": "KADEER HOTEL",
+    "certificateNos": [
+      "9019"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJtVCnTGOZ3BQRh7-PKhTajN4",
+    "pricingRegion": "alanya_merkez",
+    "pricingName": "Alanya merkez",
+    "prices": {
+      "vito": 75,
+      "sprinter": 95
+    },
+    "originalPrices": {
+      "vito": 85,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "kaila-beach-hotel",
+    "name": "KAİLA BEACH HOTEL",
+    "certificateNos": [
+      "16205"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJq6ouu62Z3BQRmBuOsH4aqqY",
+    "pricingRegion": "alanya_merkez",
+    "pricingName": "Alanya merkez",
+    "prices": {
+      "vito": 75,
+      "sprinter": 95
+    },
+    "originalPrices": {
+      "vito": 85,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "kaila-krizantem-otel",
+    "name": "KAİLA KRİZANTEM OTEL",
+    "certificateNos": [
+      "4698"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJM0S4plOY3BQRKXv2fiBeUao",
+    "pricingRegion": "alanya_merkez",
+    "pricingName": "Alanya merkez",
+    "prices": {
+      "vito": 75,
+      "sprinter": 95
+    },
+    "originalPrices": {
+      "vito": 85,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "kandelor-otel",
+    "name": "KANDELOR OTEL",
+    "certificateNos": [
+      "19848"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJMZDcp4eY3BQRx0j6UC4YRE8",
+    "pricingRegion": "alanya_merkez",
+    "pricingName": "Alanya merkez",
+    "prices": {
+      "vito": 75,
+      "sprinter": 95
+    },
+    "originalPrices": {
+      "vito": 85,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "kleopatra-ada-beach-otel",
+    "name": "KLEOPATRA ADA BEACH OTEL",
+    "certificateNos": [
+      "3695"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJYx7HNoyi3BQRmw8phqLQfs4",
+    "pricingRegion": "alanya_merkez",
+    "pricingName": "Alanya merkez",
+    "prices": {
+      "vito": 75,
+      "sprinter": 95
+    },
+    "originalPrices": {
+      "vito": 85,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "kleopatra-arsi-otel",
+    "name": "KLEOPATRA ARSİ OTEL",
+    "certificateNos": [
+      "15354"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJ9zj9UI6i3BQRVsRT1KMjI0M",
+    "pricingRegion": "alanya_merkez",
+    "pricingName": "Alanya merkez",
+    "prices": {
+      "vito": 75,
+      "sprinter": 95
+    },
+    "originalPrices": {
+      "vito": 85,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "kleopatra-beach-otel",
+    "name": "KLEOPATRA BEACH OTEL",
+    "certificateNos": [
+      "4114"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJZ4-SjI6i3BQRCbOWThGjvTU",
+    "pricingRegion": "alanya_merkez",
+    "pricingName": "Alanya merkez",
+    "prices": {
+      "vito": 75,
+      "sprinter": 95
+    },
+    "originalPrices": {
+      "vito": 85,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "kleopatra-bebek-otel",
+    "name": "KLEOPATRA BEBEK OTEL",
+    "certificateNos": [
+      "8543"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJHzvvPJui3BQRwbUZNFCHq0g",
+    "pricingRegion": "alanya_merkez",
+    "pricingName": "Alanya merkez",
+    "prices": {
+      "vito": 75,
+      "sprinter": 95
+    },
+    "originalPrices": {
+      "vito": 85,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "kleopatra-carina-otel",
+    "name": "KLEOPATRA CARINA OTEL",
+    "certificateNos": [
+      "2022-7-0257"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJHRSqXZui3BQR33c_E7F_2to",
+    "pricingRegion": "alanya_merkez",
+    "pricingName": "Alanya merkez",
+    "prices": {
+      "vito": 75,
+      "sprinter": 95
+    },
+    "originalPrices": {
+      "vito": 85,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "kleopatra-life-otel",
+    "name": "KLEOPATRA LIFE OTEL",
+    "certificateNos": [
+      "10367"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJR2bb19uj3BQRig8nxSdrAnk",
+    "pricingRegion": "alanya_merkez",
+    "pricingName": "Alanya merkez",
+    "prices": {
+      "vito": 75,
+      "sprinter": 95
+    },
+    "originalPrices": {
+      "vito": 85,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "kleopatra-micador",
+    "name": "KLEOPATRA MİCADOR",
+    "certificateNos": [
+      "7904"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJCTkQHYWY3BQR6m17Pxmigo0",
+    "pricingRegion": "alanya_merkez",
+    "pricingName": "Alanya merkez",
+    "prices": {
+      "vito": 75,
+      "sprinter": 95
+    },
+    "originalPrices": {
+      "vito": 85,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "kleopatra-ramira-hotel",
+    "name": "KLEOPATRA RAMİRA HOTEL",
+    "certificateNos": [
+      "17085"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJHxrDsoCi3BQRUkPdgpnrmuc",
+    "pricingRegion": "alanya_merkez",
+    "pricingName": "Alanya merkez",
+    "prices": {
+      "vito": 75,
+      "sprinter": 95
+    },
+    "originalPrices": {
+      "vito": 85,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "kleopatra-royal-palm-otel",
+    "name": "KLEOPATRA ROYAL PALM OTEL",
+    "certificateNos": [
+      "11078"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJHSfADYyi3BQRzenOqFtT4Lk",
+    "pricingRegion": "alanya_merkez",
+    "pricingName": "Alanya merkez",
+    "prices": {
+      "vito": 75,
+      "sprinter": 95
+    },
+    "originalPrices": {
+      "vito": 85,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "kleopatra-sahara-otel",
+    "name": "KLEOPATRA SAHARA OTEL",
+    "certificateNos": [
+      "2022-7-0564"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJ0_wj_I6i3BQReWaUND8lLUY",
+    "pricingRegion": "alanya_merkez",
+    "pricingName": "Alanya merkez",
+    "prices": {
+      "vito": 75,
+      "sprinter": 95
+    },
+    "originalPrices": {
+      "vito": 85,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "kleopatra-smile-otel",
+    "name": "KLEOPATRA SMİLE OTEL",
+    "certificateNos": [
+      "26130"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJX8WLP3Gj3BQRfCO9VFordoE",
+    "pricingRegion": "alanya_merkez",
+    "pricingName": "Alanya merkez",
+    "prices": {
+      "vito": 75,
+      "sprinter": 95
+    },
+    "originalPrices": {
+      "vito": 85,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "lonicera-city-hotel",
+    "name": "LONİCERA CİTY HOTEL",
+    "certificateNos": [
+      "2022-7-0288"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJ2bASvoWi3BQRvvXi18BjbVE",
+    "pricingRegion": "alanya_merkez",
+    "pricingName": "Alanya merkez",
+    "prices": {
+      "vito": 75,
+      "sprinter": 95
+    },
+    "originalPrices": {
+      "vito": 85,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "merhaba-otel",
+    "name": "MERHABA OTEL",
+    "certificateNos": [
+      "13654"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJjSYMTmSY3BQRbQPrhAt-rdA",
+    "pricingRegion": "alanya_merkez",
+    "pricingName": "Alanya merkez",
+    "prices": {
+      "vito": 75,
+      "sprinter": 95
+    },
+    "originalPrices": {
+      "vito": 85,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "mesut-otel",
+    "name": "MESUT OTEL",
+    "certificateNos": [
+      "2022-7-1670"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJyb-hD1OY3BQRen29vJoAtkA",
+    "pricingRegion": "alanya_merkez",
+    "pricingName": "Alanya merkez",
+    "prices": {
+      "vito": 75,
+      "sprinter": 95
+    },
+    "originalPrices": {
+      "vito": 85,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "miss-cleopatra-hotel",
+    "name": "MISS CLEOPATRA HOTEL",
+    "certificateNos": [
+      "2148"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJCYVFBo-i3BQRMx9MzV6CV6E",
+    "pricingRegion": "alanya_merkez",
+    "pricingName": "Alanya merkez",
+    "prices": {
+      "vito": 75,
+      "sprinter": 95
+    },
+    "originalPrices": {
+      "vito": 85,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "midi-suites-otel",
+    "name": "MİDİ SUİTES OTEL",
+    "certificateNos": [
+      "2022-7-0590"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJzTgWSniZ3BQRyWrocb9b2T8",
+    "pricingRegion": "alanya_merkez",
+    "pricingName": "Alanya merkez",
+    "prices": {
+      "vito": 75,
+      "sprinter": 95
+    },
+    "originalPrices": {
+      "vito": 85,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "miray-otel",
+    "name": "MİRAY OTEL",
+    "certificateNos": [
+      "4579"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJX9VhHgCj3BQRreNAz_A2WP0",
+    "pricingRegion": "alanya_merkez",
+    "pricingName": "Alanya merkez",
+    "prices": {
+      "vito": 75,
+      "sprinter": 95
+    },
+    "originalPrices": {
+      "vito": 85,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "mola-otel",
+    "name": "MOLA OTEL",
+    "certificateNos": [
+      "2022-7-0428"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJy1Xjj5yi3BQRG30ybHKWA9U",
+    "pricingRegion": "alanya_merkez",
+    "pricingName": "Alanya merkez",
+    "prices": {
+      "vito": 75,
+      "sprinter": 95
+    },
+    "originalPrices": {
+      "vito": 85,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "monart-city-otel",
+    "name": "MONART CITY OTEL",
+    "certificateNos": [
+      "3139"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJEbeQUlmY3BQRLoyHlb5VpXg",
+    "pricingRegion": "alanya_merkez",
+    "pricingName": "Alanya merkez",
+    "prices": {
+      "vito": 75,
+      "sprinter": 95
+    },
+    "originalPrices": {
+      "vito": 85,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "monte-carlo",
+    "name": "MONTE CARLO",
+    "certificateNos": [
+      "5072"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJS9qannCY3BQRCWcOR-FQc8Y",
+    "pricingRegion": "alanya_merkez",
+    "pricingName": "Alanya merkez",
+    "prices": {
+      "vito": 75,
+      "sprinter": 95
+    },
+    "originalPrices": {
+      "vito": 85,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "moonbow-beach-hotel",
+    "name": "MOONBOW BEACH HOTEL",
+    "certificateNos": [
+      "23119"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJM6tELquZ3BQRVVhIP9gbamg",
+    "pricingRegion": "alanya_merkez",
+    "pricingName": "Alanya merkez",
+    "prices": {
+      "vito": 75,
+      "sprinter": 95
+    },
+    "originalPrices": {
+      "vito": 85,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "muz-otel",
+    "name": "MUZ OTEL",
+    "certificateNos": [
+      "2022-7-0202"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJAQAAFRuj3BQRxdIz_2QIHt4",
+    "pricingRegion": "alanya_merkez",
+    "pricingName": "Alanya merkez",
+    "prices": {
+      "vito": 75,
+      "sprinter": 95
+    },
+    "originalPrices": {
+      "vito": 85,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "novis-hotel-cleopatra",
+    "name": "NOVİS HOTEL CLEOPATRA",
+    "certificateNos": [
+      "6312"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJT9StywGj3BQR-JVeyrq_MEk",
+    "pricingRegion": "alanya_merkez",
+    "pricingName": "Alanya merkez",
+    "prices": {
+      "vito": 75,
+      "sprinter": 95
+    },
+    "originalPrices": {
+      "vito": 85,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "oba-star-otel-spa",
+    "name": "OBA STAR OTEL & SPA",
+    "certificateNos": [
+      "12951"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJsaaLblOY3BQRttAplmH1ySs",
+    "pricingRegion": "alanya_merkez",
+    "pricingName": "Alanya merkez",
+    "prices": {
+      "vito": 75,
+      "sprinter": 95
+    },
+    "originalPrices": {
+      "vito": 85,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "palm-city-alanya-hotel",
+    "name": "PALM CİTY ALANYA HOTEL",
+    "certificateNos": [
+      "2022-7-1299"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJB88n3ruZ3BQRHCm5mOFIhaU",
+    "pricingRegion": "alanya_merkez",
+    "pricingName": "Alanya merkez",
+    "prices": {
+      "vito": 75,
+      "sprinter": 95
+    },
+    "originalPrices": {
+      "vito": 85,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "ramira-joy-hotel",
+    "name": "RAMİRA JOY HOTEL",
+    "certificateNos": [
+      "2022-7-0093"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJB0ulN4Ki3BQR10ot_we9EbA",
+    "pricingRegion": "alanya_merkez",
+    "pricingName": "Alanya merkez",
+    "prices": {
+      "vito": 75,
+      "sprinter": 95
+    },
+    "originalPrices": {
+      "vito": 85,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "relax-beach-hotel",
+    "name": "RELAX BEACH HOTEL",
+    "certificateNos": [
+      "2022-7-0546"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJ7QV2YiGZ3BQR6TuzPka51vw",
+    "pricingRegion": "alanya_merkez",
+    "pricingName": "Alanya merkez",
+    "prices": {
+      "vito": 75,
+      "sprinter": 95
+    },
+    "originalPrices": {
+      "vito": 85,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "resitalya-otel",
+    "name": "RESİTALYA OTEL",
+    "certificateNos": [
+      "2022-7-0561"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJ73L0XV6Y3BQRdxj49704DOM",
+    "pricingRegion": "alanya_merkez",
+    "pricingName": "Alanya merkez",
+    "prices": {
+      "vito": 75,
+      "sprinter": 95
+    },
+    "originalPrices": {
+      "vito": 85,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "riviera-otel",
+    "name": "RİVİERA OTEL",
+    "certificateNos": [
+      "8539"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJT7SmK5ui3BQRR3rVCS6e3L0",
+    "pricingRegion": "alanya_merkez",
+    "pricingName": "Alanya merkez",
+    "prices": {
+      "vito": 75,
+      "sprinter": 95
+    },
+    "originalPrices": {
+      "vito": 85,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "riviera-zen-otel",
+    "name": "RİVİERA ZEN OTEL",
+    "certificateNos": [
+      "2456"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJEb0ygVKj3BQRqWYpAeCTljY",
+    "pricingRegion": "alanya_merkez",
+    "pricingName": "Alanya merkez",
+    "prices": {
+      "vito": 75,
+      "sprinter": 95
+    },
+    "originalPrices": {
+      "vito": 85,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "rosella-hotel",
+    "name": "ROSELLA HOTEL",
+    "certificateNos": [
+      "2022-7-0740"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJAb3MVHyZ3BQRLrkEJcIcm_M",
+    "pricingRegion": "alanya_merkez",
+    "pricingName": "Alanya merkez",
+    "prices": {
+      "vito": 75,
+      "sprinter": 95
+    },
+    "originalPrices": {
+      "vito": 85,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "royal-otel",
+    "name": "ROYAL OTEL",
+    "certificateNos": [
+      "2022-7-1214"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJfb0XpPai3BQRl2IByIMl4kk",
+    "pricingRegion": "alanya_merkez",
+    "pricingName": "Alanya merkez",
+    "prices": {
+      "vito": 75,
+      "sprinter": 95
+    },
+    "originalPrices": {
+      "vito": 85,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "saritas-otel",
+    "name": "SARITAŞ OTEL",
+    "certificateNos": [
+      "10151"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJSeI-PYWY3BQR8k_f_9ykVI8",
+    "pricingRegion": "alanya_merkez",
+    "pricingName": "Alanya merkez",
+    "prices": {
+      "vito": 75,
+      "sprinter": 95
+    },
+    "originalPrices": {
+      "vito": 85,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "sette-serenity-otel",
+    "name": "SETTE SERENITY OTEL",
+    "certificateNos": [
+      "2022-7-0619"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJPW6Lg1OY3BQRLS49RLLFcfE",
+    "pricingRegion": "alanya_merkez",
+    "pricingName": "Alanya merkez",
+    "prices": {
+      "vito": 75,
+      "sprinter": 95
+    },
+    "originalPrices": {
+      "vito": 85,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "simply-fine-hotel-alize",
+    "name": "SİMPLY FİNE HOTEL ALİZE",
+    "certificateNos": [
+      "18682"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJt5i7mCyZ3BQR-CvwkOb_gBs",
+    "pricingRegion": "alanya_merkez",
+    "pricingName": "Alanya merkez",
+    "prices": {
+      "vito": 75,
+      "sprinter": 95
+    },
+    "originalPrices": {
+      "vito": 85,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "sultan-sipahi-resort-hotel",
+    "name": "SULTAN SİPAHİ RESORT HOTEL",
+    "certificateNos": [
+      "8429"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJ6w4BbJui3BQR8CTSZnHYCBQ",
+    "pricingRegion": "alanya_merkez",
+    "pricingName": "Alanya merkez",
+    "prices": {
+      "vito": 75,
+      "sprinter": 95
+    },
+    "originalPrices": {
+      "vito": 85,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "sun-vera-otel",
+    "name": "SUN VERA OTEL",
+    "certificateNos": [
+      "2022-7-0628"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJ_QRhcaCj3BQRT2SH1s_AMhk",
+    "pricingRegion": "alanya_merkez",
+    "pricingName": "Alanya merkez",
+    "prices": {
+      "vito": 75,
+      "sprinter": 95
+    },
+    "originalPrices": {
+      "vito": 85,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "sunny-hill-alya",
+    "name": "SUNNY HİLL ALYA",
+    "certificateNos": [
+      "5052"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJGyXBuZ2i3BQRH_6s_rljLoo",
+    "pricingRegion": "alanya_merkez",
+    "pricingName": "Alanya merkez",
+    "prices": {
+      "vito": 75,
+      "sprinter": 95
+    },
+    "originalPrices": {
+      "vito": 85,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "tac-premier-hotel-spa",
+    "name": "TAÇ PREMIER HOTEL & SPA",
+    "certificateNos": [
+      "11828"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJL4Mk4Aqa3BQRP7g9M5NMOWY",
+    "pricingRegion": "alanya_merkez",
+    "pricingName": "Alanya merkez",
+    "prices": {
+      "vito": 75,
+      "sprinter": 95
+    },
+    "originalPrices": {
+      "vito": 85,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "temiz-otel",
+    "name": "TEMİZ OTEL",
+    "certificateNos": [
+      "2022-7-0568"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJJavJKHeY3BQRRoZMz3xwtso",
+    "pricingRegion": "alanya_merkez",
+    "pricingName": "Alanya merkez",
+    "prices": {
+      "vito": 75,
+      "sprinter": 95
+    },
+    "originalPrices": {
+      "vito": 85,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "time-beach-otel",
+    "name": "TİME BEACH OTEL",
+    "certificateNos": [
+      "8591"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJ9dG4HACj3BQRl3qUVC7pG0o",
+    "pricingRegion": "alanya_merkez",
+    "pricingName": "Alanya merkez",
+    "prices": {
+      "vito": 75,
+      "sprinter": 95
+    },
+    "originalPrices": {
+      "vito": 85,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "tolenza-hotels",
+    "name": "TOLENZA HOTELS",
+    "certificateNos": [
+      "27393"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJf3KEAkmj3BQRFua5dPQwPQg",
+    "pricingRegion": "alanya_merkez",
+    "pricingName": "Alanya merkez",
+    "prices": {
+      "vito": 75,
+      "sprinter": 95
+    },
+    "originalPrices": {
+      "vito": 85,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "villa-sunflower-hotel",
+    "name": "VILLA SUNFLOWER HOTEL",
+    "certificateNos": [
+      "24164"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJcZb12X6Y3BQR1ggAs-ZaYuY",
+    "pricingRegion": "alanya_merkez",
+    "pricingName": "Alanya merkez",
+    "prices": {
+      "vito": 75,
+      "sprinter": 95
+    },
+    "originalPrices": {
+      "vito": 85,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "white-gold",
+    "name": "WHİTE GOLD",
+    "certificateNos": [
+      "12023"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJaYZp0lKY3BQRH65Xcbe28K4",
+    "pricingRegion": "alanya_merkez",
+    "pricingName": "Alanya merkez",
+    "prices": {
+      "vito": 75,
+      "sprinter": 95
+    },
+    "originalPrices": {
+      "vito": 85,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "wien-star-otel",
+    "name": "WIEN STAR OTEL",
+    "certificateNos": [
+      "1459"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJ8WT7G16Y3BQRkRE7q0_DlmE",
+    "pricingRegion": "alanya_merkez",
+    "pricingName": "Alanya merkez",
+    "prices": {
+      "vito": 75,
+      "sprinter": 95
+    },
+    "originalPrices": {
+      "vito": 85,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "xperia-saray-beach-otel",
+    "name": "XPERIA SARAY BEACH OTEL",
+    "certificateNos": [
+      "12435"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJ_-bFV4Wi3BQR6b_en732VhA",
+    "pricingRegion": "alanya_merkez",
+    "pricingName": "Alanya merkez",
+    "prices": {
+      "vito": 75,
+      "sprinter": 95
+    },
+    "originalPrices": {
+      "vito": 85,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "yaman-life-otel",
+    "name": "YAMAN LİFE OTEL",
+    "certificateNos": [
+      "2022-7-0739"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJBZYVR1eY3BQRLolt-VKZjwo",
+    "pricingRegion": "alanya_merkez",
+    "pricingName": "Alanya merkez",
+    "prices": {
+      "vito": 75,
+      "sprinter": 95
+    },
+    "originalPrices": {
+      "vito": 85,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "yildirimoglu",
+    "name": "YILDIRIMOĞLU",
+    "certificateNos": [
+      "8641"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJLXTfuHyY3BQR3t7lefowmDo",
+    "pricingRegion": "alanya_merkez",
+    "pricingName": "Alanya merkez",
+    "prices": {
+      "vito": 75,
+      "sprinter": 95
+    },
+    "originalPrices": {
+      "vito": 85,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "bilem-hotel",
+    "name": "BİLEM HOTEL",
+    "certificateNos": [
+      "20132"
+    ],
+    "ministryDistricts": [
+      "MURATPAŞA"
+    ],
+    "placeId": "ChIJ9QFoLv-bwxQRx0gDCplxVs0",
+    "pricingRegion": "antalya",
+    "pricingName": "Antalya şehir merkezi",
+    "prices": {
+      "vito": 35,
+      "sprinter": 60
+    },
+    "originalPrices": {
+      "vito": 40,
+      "sprinter": 65
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "birpa-kundu-otel",
+    "name": "BİRPA KUNDU OTEL",
+    "certificateNos": [
+      "25032"
+    ],
+    "ministryDistricts": [
+      "MURATPAŞA"
+    ],
+    "placeId": "ChIJhVXvFUaDwxQRO_sTxp_V-ZU",
+    "pricingRegion": "antalya",
+    "pricingName": "Antalya şehir merkezi",
+    "prices": {
+      "vito": 35,
+      "sprinter": 60
+    },
+    "originalPrices": {
+      "vito": 40,
+      "sprinter": 65
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "blue-more-suite-hotel",
+    "name": "BLUE MORE SUİTE  HOTEL",
+    "certificateNos": [
+      "G_26416"
+    ],
+    "ministryDistricts": [
+      "KONYAALTI"
+    ],
+    "placeId": "ChIJySwoXiKRwxQRUIvmmesZW8M",
+    "pricingRegion": "antalya",
+    "pricingName": "Antalya şehir merkezi",
+    "prices": {
+      "vito": 35,
+      "sprinter": 60
+    },
+    "originalPrices": {
+      "vito": 40,
+      "sprinter": 65
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "citrus-urban-hotel",
+    "name": "CİTRUS URBAN HOTEL",
+    "certificateNos": [
+      "26377"
+    ],
+    "ministryDistricts": [
+      "KONYAALTI"
+    ],
+    "placeId": "ChIJCcuAY6CRwxQRialR5JgHk8c",
+    "pricingRegion": "antalya",
+    "pricingName": "Antalya şehir merkezi",
+    "prices": {
+      "vito": 35,
+      "sprinter": 60
+    },
+    "originalPrices": {
+      "vito": 40,
+      "sprinter": 65
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "deluxe-ersoy-hotel",
+    "name": "DELUXE ERSOY HOTEL",
+    "certificateNos": [
+      "2022-7-1071"
+    ],
+    "ministryDistricts": [
+      "MURATPAŞA"
+    ],
+    "placeId": "ChIJBU3hiweRwxQROdu_aIFBjIo",
+    "pricingRegion": "antalya",
+    "pricingName": "Antalya şehir merkezi",
+    "prices": {
+      "vito": 35,
+      "sprinter": 60
+    },
+    "originalPrices": {
+      "vito": 40,
+      "sprinter": 65
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "europa-selale-hotel",
+    "name": "EUROPA ŞELALE HOTEL",
+    "certificateNos": [
+      "G_25972"
+    ],
+    "ministryDistricts": [
+      "KONYAALTI"
+    ],
+    "placeId": "ChIJxexh46SRwxQRmo9DZcOdkpI",
+    "pricingRegion": "antalya",
+    "pricingName": "Antalya şehir merkezi",
+    "prices": {
+      "vito": 35,
+      "sprinter": 60
+    },
+    "originalPrices": {
+      "vito": 40,
+      "sprinter": 65
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "in-the-middle",
+    "name": "IN THE MIDDLE",
+    "certificateNos": [
+      "22533"
+    ],
+    "ministryDistricts": [
+      "MURATPAŞA"
+    ],
+    "placeId": "ChIJ5f6lBamRwxQR0uxMvAHu3s8",
+    "pricingRegion": "antalya",
+    "pricingName": "Antalya şehir merkezi",
+    "prices": {
+      "vito": 35,
+      "sprinter": 60
+    },
+    "originalPrices": {
+      "vito": 40,
+      "sprinter": 65
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "opera-hotel-antalya",
+    "name": "OPERA HOTEL ANTALYA",
+    "certificateNos": [
+      "4504"
+    ],
+    "ministryDistricts": [
+      "KONYAALTI"
+    ],
+    "placeId": "ChIJOR4X0geRwxQRonzsrQKuSA4",
+    "pricingRegion": "antalya",
+    "pricingName": "Antalya şehir merkezi",
+    "prices": {
+      "vito": 35,
+      "sprinter": 60
+    },
+    "originalPrices": {
+      "vito": 40,
+      "sprinter": 65
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "belenli-resort-hotel-belek",
+    "name": "BELENLİ RESORT HOTEL BELEK",
+    "certificateNos": [
+      "G_26130"
+    ],
+    "ministryDistricts": [
+      "SERİK"
+    ],
+    "placeId": "ChIJORx1u2B7wxQRfzV3Qy7L0Lw",
+    "pricingRegion": "belek",
+    "pricingName": "Belek",
+    "prices": {
+      "vito": 40,
+      "sprinter": 70
+    },
+    "originalPrices": {
+      "vito": 50,
+      "sprinter": 85
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "belkon-hotel",
+    "name": "BELKON HOTEL",
+    "certificateNos": [
+      "2022-7-0779"
+    ],
+    "ministryDistricts": [
+      "SERİK"
+    ],
+    "placeId": "ChIJo15LL-N7wxQRjUhUlFhzdYw",
+    "pricingRegion": "belek",
+    "pricingName": "Belek",
+    "prices": {
+      "vito": 40,
+      "sprinter": 70
+    },
+    "originalPrices": {
+      "vito": 50,
+      "sprinter": 85
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "mercure-antalya-belek-otel",
+    "name": "MERCURE ANTALYA BELEK OTEL",
+    "certificateNos": [
+      "19266"
+    ],
+    "ministryDistricts": [
+      "SERİK"
+    ],
+    "placeId": "ChIJMR3-ie17wxQRlD1TjW1Gwi0",
+    "pricingRegion": "belek",
+    "pricingName": "Belek",
+    "prices": {
+      "vito": 40,
+      "sprinter": 70
+    },
+    "originalPrices": {
+      "vito": 50,
+      "sprinter": 85
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "paloma-sencia",
+    "name": "PALOMA SENCIA",
+    "certificateNos": [
+      "7346"
+    ],
+    "ministryDistricts": [
+      "SERİK"
+    ],
+    "placeId": "ChIJ0wWOGgBlwxQRywiDd3684QA",
+    "pricingRegion": "belek",
+    "pricingName": "Belek",
+    "prices": {
+      "vito": 40,
+      "sprinter": 70
+    },
+    "originalPrices": {
+      "vito": 50,
+      "sprinter": 85
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "pascha-otel",
+    "name": "PASCHA OTEL",
+    "certificateNos": [
+      "2022-7-1488"
+    ],
+    "ministryDistricts": [
+      "SERİK"
+    ],
+    "placeId": "ChIJLzBJAfV9wxQRSlBb8y3pVU0",
+    "pricingRegion": "belek",
+    "pricingName": "Belek",
+    "prices": {
+      "vito": 40,
+      "sprinter": 70
+    },
+    "originalPrices": {
+      "vito": 50,
+      "sprinter": 85
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "selectum-noa-belek",
+    "name": "SELECTUM NOA BELEK",
+    "certificateNos": [
+      "4601"
+    ],
+    "ministryDistricts": [
+      "SERİK"
+    ],
+    "placeId": "ChIJuQv5mL1kwxQRdcA9MFF4ReQ",
+    "pricingRegion": "belek",
+    "pricingName": "Belek",
+    "prices": {
+      "vito": 40,
+      "sprinter": 70
+    },
+    "originalPrices": {
+      "vito": 50,
+      "sprinter": 85
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "sy-hotels-belek",
+    "name": "SY HOTELS BELEK",
+    "certificateNos": [
+      "27009"
+    ],
+    "ministryDistricts": [
+      "SERİK"
+    ],
+    "placeId": "ChIJERi-_L17wxQRT0WLJXq0r-U",
+    "pricingRegion": "belek",
+    "pricingName": "Belek",
+    "prices": {
+      "vito": 40,
+      "sprinter": 70
+    },
+    "originalPrices": {
+      "vito": 50,
+      "sprinter": 85
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "the-x-belek-otel",
+    "name": "THE X BELEK OTEL",
+    "certificateNos": [
+      "20308"
+    ],
+    "ministryDistricts": [
+      "SERİK"
+    ],
+    "placeId": "ChIJU_8aZJZ9wxQRH9FU58Mnzw0",
+    "pricingRegion": "belek",
+    "pricingName": "Belek",
+    "prices": {
+      "vito": 40,
+      "sprinter": 70
+    },
+    "originalPrices": {
+      "vito": 50,
+      "sprinter": 85
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "armas-life-belek-otel",
+    "name": "ARMAS LİFE  BELEK OTEL",
+    "certificateNos": [
+      "2022-7-1224"
+    ],
+    "ministryDistricts": [
+      "SERİK"
+    ],
+    "placeId": "ChIJo_g5Hg1kwxQRQdedypPUA1Q",
+    "pricingRegion": "bogazkent",
+    "pricingName": "Boğazkent",
+    "prices": {
+      "vito": 45,
+      "sprinter": 80
+    },
+    "originalPrices": {
+      "vito": 55,
+      "sprinter": 90
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "black-royal-belek",
+    "name": "Black Royal Belek",
+    "certificateNos": [
+      "27253"
+    ],
+    "ministryDistricts": [
+      "SERİK"
+    ],
+    "placeId": "ChIJ7R4mgrdlwxQRgySTIFSRYok",
+    "pricingRegion": "bogazkent",
+    "pricingName": "Boğazkent",
+    "prices": {
+      "vito": 45,
+      "sprinter": 80
+    },
+    "originalPrices": {
+      "vito": 55,
+      "sprinter": 90
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "sensitive-premium-resort",
+    "name": "SENSITIVE PREMIUM RESORT",
+    "certificateNos": [
+      "16338"
+    ],
+    "ministryDistricts": [
+      "SERİK"
+    ],
+    "placeId": "ChIJ0y6GYnlkwxQRWWUVbasntOA",
+    "pricingRegion": "bogazkent",
+    "pricingName": "Boğazkent",
+    "prices": {
+      "vito": 45,
+      "sprinter": 80
+    },
+    "originalPrices": {
+      "vito": 55,
+      "sprinter": 90
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "siam-elegance-hotel-spa",
+    "name": "SİAM ELEGANCE HOTEL&SPA",
+    "certificateNos": [
+      "11094"
+    ],
+    "ministryDistricts": [
+      "SERİK"
+    ],
+    "placeId": "ChIJFWBF2QxkwxQRzOoGdQxqCBI",
+    "pricingRegion": "bogazkent",
+    "pricingName": "Boğazkent",
+    "prices": {
+      "vito": 45,
+      "sprinter": 80
+    },
+    "originalPrices": {
+      "vito": 55,
+      "sprinter": 90
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "tui-blue-sherwood-belek",
+    "name": "TUI BLUE SHERWOOD BELEK",
+    "certificateNos": [
+      "12512"
+    ],
+    "ministryDistricts": [
+      "SERİK"
+    ],
+    "placeId": "ChIJywcAQGd7wxQRega1IgpU0NQ",
+    "pricingRegion": "bogazkent",
+    "pricingName": "Boğazkent",
+    "prices": {
+      "vito": 45,
+      "sprinter": 80
+    },
+    "originalPrices": {
+      "vito": 55,
+      "sprinter": 90
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "drita-otel",
+    "name": "DRİTA OTEL",
+    "certificateNos": [
+      "12642"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJW4A4iI6Q3BQRm13U9D8OudY",
+    "pricingRegion": "kargicak",
+    "pricingName": "Kargıcak",
+    "prices": {
+      "vito": 90,
+      "sprinter": 115
+    },
+    "originalPrices": {
+      "vito": 105,
+      "sprinter": 135
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "kirbiyik-resort-otel",
+    "name": "KIRBIYIK RESORT OTEL",
+    "certificateNos": [
+      "6234"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJr5kQIHuQ3BQRuwInSiPTpBg",
+    "pricingRegion": "kargicak",
+    "pricingName": "Kargıcak",
+    "prices": {
+      "vito": 90,
+      "sprinter": 115
+    },
+    "originalPrices": {
+      "vito": 105,
+      "sprinter": 135
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "sedir-park-joy-otel",
+    "name": "SEDİR PARK JOY OTEL",
+    "certificateNos": [
+      "23192"
+    ],
+    "ministryDistricts": [
+      "ALANYA"
+    ],
+    "placeId": "ChIJrRj-YTCbwxQRq0blRTGTOD4",
+    "pricingRegion": "kargicak",
+    "pricingName": "Kargıcak",
+    "prices": {
+      "vito": 90,
+      "sprinter": 115
+    },
+    "originalPrices": {
+      "vito": 105,
+      "sprinter": 135
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "adalin-resort-otel",
+    "name": "ADALİN RESORT OTEL",
+    "certificateNos": [
+      "2022-7-1737"
+    ],
+    "ministryDistricts": [
+      "KEMER"
+    ],
+    "placeId": "ChIJOcikYMO3wxQRocYkr09dAnM",
+    "pricingRegion": "kemer",
+    "pricingName": "Kemer",
+    "prices": {
+      "vito": 55,
+      "sprinter": 90
+    },
+    "originalPrices": {
+      "vito": 65,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "alder-garden-hotel",
+    "name": "ALDER GARDEN HOTEL",
+    "certificateNos": [
+      "2022-7-0379"
+    ],
+    "ministryDistricts": [
+      "KEMER"
+    ],
+    "placeId": "ChIJSzD7JLe5wxQRMpQVBSQNcCI",
+    "pricingRegion": "kemer",
+    "pricingName": "Kemer",
+    "prices": {
+      "vito": 55,
+      "sprinter": 90
+    },
+    "originalPrices": {
+      "vito": 65,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "alder-resort-otel",
+    "name": "ALDER RESORT OTEL",
+    "certificateNos": [
+      "23650"
+    ],
+    "ministryDistricts": [
+      "KEMER"
+    ],
+    "placeId": "ChIJW5kygDe5wxQRMb6voQOsXjo",
+    "pricingRegion": "kemer",
+    "pricingName": "Kemer",
+    "prices": {
+      "vito": 55,
+      "sprinter": 90
+    },
+    "originalPrices": {
+      "vito": 65,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "ambassador-plaza",
+    "name": "AMBASSADOR PLAZA",
+    "certificateNos": [
+      "12110"
+    ],
+    "ministryDistricts": [
+      "KEMER"
+    ],
+    "placeId": "ChIJe1e8dZm3wxQRQ19Skenj97g",
+    "pricingRegion": "kemer",
+    "pricingName": "Kemer",
+    "prices": {
+      "vito": 55,
+      "sprinter": 90
+    },
+    "originalPrices": {
+      "vito": 65,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "anita-dream-hotel",
+    "name": "ANİTA DREAM HOTEL",
+    "certificateNos": [
+      "2022-7-1683"
+    ],
+    "ministryDistricts": [
+      "KEMER"
+    ],
+    "placeId": "ChIJoxbmoP-3wxQR-vU1QVOg1do",
+    "pricingRegion": "kemer",
+    "pricingName": "Kemer",
+    "prices": {
+      "vito": 55,
+      "sprinter": 90
+    },
+    "originalPrices": {
+      "vito": 65,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "ares-blue-otel",
+    "name": "ARES BLUE OTEL",
+    "certificateNos": [
+      "2022-7-0638"
+    ],
+    "ministryDistricts": [
+      "KEMER"
+    ],
+    "placeId": "ChIJF07P9f62wxQRmXqDGAXY9ZE",
+    "pricingRegion": "kemer",
+    "pricingName": "Kemer",
+    "prices": {
+      "vito": 55,
+      "sprinter": 90
+    },
+    "originalPrices": {
+      "vito": 65,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "armas-beach-hotel",
+    "name": "ARMAS BEACH HOTEL",
+    "certificateNos": [
+      "2022-7-0172"
+    ],
+    "ministryDistricts": [
+      "KEMER"
+    ],
+    "placeId": "ChIJF0Y_g4C3wxQRILGsZ2_twQs",
+    "pricingRegion": "kemer",
+    "pricingName": "Kemer",
+    "prices": {
+      "vito": 55,
+      "sprinter": 90
+    },
+    "originalPrices": {
+      "vito": 65,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "armas-gul-beach-otel",
+    "name": "ARMAS GÜL BEACH OTEL",
+    "certificateNos": [
+      "2022-7-0171",
+      "2022-7-0170"
+    ],
+    "ministryDistricts": [
+      "KEMER"
+    ],
+    "placeId": "ChIJz6gcviK3wxQRC9r6N27YSTk",
+    "pricingRegion": "kemer",
+    "pricingName": "Kemer",
+    "prices": {
+      "vito": 55,
+      "sprinter": 90
+    },
+    "originalPrices": {
+      "vito": 65,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "armas-labada-otel",
+    "name": "ARMAS LABADA OTEL",
+    "certificateNos": [
+      "17954"
+    ],
+    "ministryDistricts": [
+      "KEMER"
+    ],
+    "placeId": "ChIJY5zZLGe2wxQR1nW1fYUCmj0",
+    "pricingRegion": "kemer",
+    "pricingName": "Kemer",
+    "prices": {
+      "vito": 55,
+      "sprinter": 90
+    },
+    "originalPrices": {
+      "vito": 65,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "aybel-inn-hotel",
+    "name": "AYBEL İNN HOTEL",
+    "certificateNos": [
+      "2022-7-0531"
+    ],
+    "ministryDistricts": [
+      "KEMER"
+    ],
+    "placeId": "ChIJ65zMKw6_wxQRq_KJ3vHDlNw",
+    "pricingRegion": "kemer",
+    "pricingName": "Kemer",
+    "prices": {
+      "vito": 55,
+      "sprinter": 90
+    },
+    "originalPrices": {
+      "vito": 65,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "aysu-tunc-hotel",
+    "name": "AYSU TUNÇ HOTEL",
+    "certificateNos": [
+      "2022-7-1648"
+    ],
+    "ministryDistricts": [
+      "KEMER"
+    ],
+    "placeId": "ChIJ_0iFCwC_wxQRXSbZlB7g95E",
+    "pricingRegion": "kemer",
+    "pricingName": "Kemer",
+    "prices": {
+      "vito": 55,
+      "sprinter": 90
+    },
+    "originalPrices": {
+      "vito": 65,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "baia-salima-kemer",
+    "name": "BAIA SALİMA KEMER",
+    "certificateNos": [
+      "2546"
+    ],
+    "ministryDistricts": [
+      "KEMER"
+    ],
+    "placeId": "ChIJDYNqkyW_wxQR8RVK7AiZOkQ",
+    "pricingRegion": "kemer",
+    "pricingName": "Kemer",
+    "prices": {
+      "vito": 55,
+      "sprinter": 90
+    },
+    "originalPrices": {
+      "vito": 65,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "balmy-beach-resort-kemer",
+    "name": "BALMY BEACH RESORT KEMER",
+    "certificateNos": [
+      "21714"
+    ],
+    "ministryDistricts": [
+      "KEMER"
+    ],
+    "placeId": "ChIJ8fevahm3wxQR9b45G8zlIdc",
+    "pricingRegion": "kemer",
+    "pricingName": "Kemer",
+    "prices": {
+      "vito": 55,
+      "sprinter": 90
+    },
+    "originalPrices": {
+      "vito": 65,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "balmy-foresta",
+    "name": "BALMY FORESTA",
+    "certificateNos": [
+      "2615"
+    ],
+    "ministryDistricts": [
+      "KEMER"
+    ],
+    "placeId": "ChIJj_o1awC_wxQRJtG4gli3Ucg",
+    "pricingRegion": "kemer",
+    "pricingName": "Kemer",
+    "prices": {
+      "vito": 55,
+      "sprinter": 90
+    },
+    "originalPrices": {
+      "vito": 65,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "belcan-hotel",
+    "name": "BELCAN HOTEL",
+    "certificateNos": [
+      "2022-7-1105"
+    ],
+    "ministryDistricts": [
+      "KEMER"
+    ],
+    "placeId": "ChIJZ6omQJy_wxQRMFSSknVsVIg",
+    "pricingRegion": "kemer",
+    "pricingName": "Kemer",
+    "prices": {
+      "vito": 55,
+      "sprinter": 90
+    },
+    "originalPrices": {
+      "vito": 65,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "belpoint-beach-hotel",
+    "name": "BELPOINT BEACH HOTEL",
+    "certificateNos": [
+      "2022-7-1376"
+    ],
+    "ministryDistricts": [
+      "KEMER"
+    ],
+    "placeId": "ChIJpSo0J6O3wxQRrSQGKx9gGrY",
+    "pricingRegion": "kemer",
+    "pricingName": "Kemer",
+    "prices": {
+      "vito": 55,
+      "sprinter": 90
+    },
+    "originalPrices": {
+      "vito": 65,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "belsea-hotel",
+    "name": "BELSEA HOTEL",
+    "certificateNos": [
+      "2022-7-1758"
+    ],
+    "ministryDistricts": [
+      "KEMER"
+    ],
+    "placeId": "ChIJARV81e2_wxQRguCgLAN3LC8",
+    "pricingRegion": "kemer",
+    "pricingName": "Kemer",
+    "prices": {
+      "vito": 55,
+      "sprinter": 90
+    },
+    "originalPrices": {
+      "vito": 65,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "belsun-hotel",
+    "name": "BELSUN HOTEL",
+    "certificateNos": [
+      "2022-7-0461"
+    ],
+    "ministryDistricts": [
+      "KEMER"
+    ],
+    "placeId": "ChIJQUy7C9y_wxQR_OWxvJbqqas",
+    "pricingRegion": "kemer",
+    "pricingName": "Kemer",
+    "prices": {
+      "vito": 55,
+      "sprinter": 90
+    },
+    "originalPrices": {
+      "vito": 65,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "castle-park-hotel",
+    "name": "CASTLE PARK HOTEL",
+    "certificateNos": [
+      "2022-7-0601"
+    ],
+    "ministryDistricts": [
+      "KEMER"
+    ],
+    "placeId": "ChIJmyx0s26_wxQRhnG9YIXnsQ4",
+    "pricingRegion": "kemer",
+    "pricingName": "Kemer",
+    "prices": {
+      "vito": 55,
+      "sprinter": 90
+    },
+    "originalPrices": {
+      "vito": 65,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "catamaran",
+    "name": "CATAMARAN",
+    "certificateNos": [
+      "8979"
+    ],
+    "ministryDistricts": [
+      "KEMER"
+    ],
+    "placeId": "ChIJTVVVVZK3wxQRPJ_uQXBaJJ8",
+    "pricingRegion": "kemer",
+    "pricingName": "Kemer",
+    "prices": {
+      "vito": 55,
+      "sprinter": 90
+    },
+    "originalPrices": {
+      "vito": 65,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "city-otel-ambassador",
+    "name": "CİTY OTEL AMBASSADOR",
+    "certificateNos": [
+      "2022-7-1075",
+      "2022-7-0964"
+    ],
+    "ministryDistricts": [
+      "KEMER"
+    ],
+    "placeId": "ChIJea_Y3mO3wxQRW39fVYFutW0",
+    "pricingRegion": "kemer",
+    "pricingName": "Kemer",
+    "prices": {
+      "vito": 55,
+      "sprinter": 90
+    },
+    "originalPrices": {
+      "vito": 65,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "club-otel-rama",
+    "name": "CLUB  OTEL  RAMA",
+    "certificateNos": [
+      "11006"
+    ],
+    "ministryDistricts": [
+      "KEMER"
+    ],
+    "placeId": "ChIJQ3z6MtS4wxQRqmSv2jkfwKM",
+    "pricingRegion": "kemer",
+    "pricingName": "Kemer",
+    "prices": {
+      "vito": 55,
+      "sprinter": 90
+    },
+    "originalPrices": {
+      "vito": 65,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "club-boran-mare-beach",
+    "name": "CLUB BORAN MARE BEACH",
+    "certificateNos": [
+      "4497"
+    ],
+    "ministryDistricts": [
+      "KEMER"
+    ],
+    "placeId": "ChIJBZzOh_q4wxQRmdkYA2aDMgM",
+    "pricingRegion": "kemer",
+    "pricingName": "Kemer",
+    "prices": {
+      "vito": 55,
+      "sprinter": 90
+    },
+    "originalPrices": {
+      "vito": 65,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "club-hotel-belpinar",
+    "name": "CLUB HOTEL BELPINAR",
+    "certificateNos": [
+      "2022-7-0581"
+    ],
+    "ministryDistricts": [
+      "KEMER"
+    ],
+    "placeId": "ChIJYz2GEai_wxQRxsq_Y4ePBGI",
+    "pricingRegion": "kemer",
+    "pricingName": "Kemer",
+    "prices": {
+      "vito": 55,
+      "sprinter": 90
+    },
+    "originalPrices": {
+      "vito": 65,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "club-hotel-sunbel",
+    "name": "CLUB HOTEL SUNBEL",
+    "certificateNos": [
+      "11102"
+    ],
+    "ministryDistricts": [
+      "KEMER"
+    ],
+    "placeId": "ChIJlxaOCiO_wxQR1PM5s3_diX4",
+    "pricingRegion": "kemer",
+    "pricingName": "Kemer",
+    "prices": {
+      "vito": 55,
+      "sprinter": 90
+    },
+    "originalPrices": {
+      "vito": 65,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "club-marakesh-beach-hotel",
+    "name": "CLUB MARAKESH BEACH HOTEL",
+    "certificateNos": [
+      "13254"
+    ],
+    "ministryDistricts": [
+      "KEMER"
+    ],
+    "placeId": "ChIJ8bmrKUe_wxQRDE2cBP4E39U",
+    "pricingRegion": "kemer",
+    "pricingName": "Kemer",
+    "prices": {
+      "vito": 55,
+      "sprinter": 90
+    },
+    "originalPrices": {
+      "vito": 65,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "club-marco-polo",
+    "name": "CLUB MARCO POLO",
+    "certificateNos": [
+      "12870"
+    ],
+    "ministryDistricts": [
+      "KEMER"
+    ],
+    "placeId": "ChIJNw2cNQDJwxQRS_ez5kWkdY4",
+    "pricingRegion": "kemer",
+    "pricingName": "Kemer",
+    "prices": {
+      "vito": 55,
+      "sprinter": 90
+    },
+    "originalPrices": {
+      "vito": 65,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "corendon-hydros-club-kemer",
+    "name": "CORENDON HYDROS CLUB KEMER",
+    "certificateNos": [
+      "7111"
+    ],
+    "ministryDistricts": [
+      "KEMER"
+    ],
+    "placeId": "ChIJUU-8hZq3wxQRZtllIcLJwmg",
+    "pricingRegion": "kemer",
+    "pricingName": "Kemer",
+    "prices": {
+      "vito": 55,
+      "sprinter": 90
+    },
+    "originalPrices": {
+      "vito": 65,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "camyuva-beach-hotel",
+    "name": "ÇAMYUVA BEACH HOTEL",
+    "certificateNos": [
+      "9347"
+    ],
+    "ministryDistricts": [
+      "KEMER"
+    ],
+    "placeId": "ChIJf_saTGa2wxQRrH0iHKFrDJA",
+    "pricingRegion": "kemer",
+    "pricingName": "Kemer",
+    "prices": {
+      "vito": 55,
+      "sprinter": 90
+    },
+    "originalPrices": {
+      "vito": 65,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "daima-biz-hotel",
+    "name": "DAİMA BİZ HOTEL",
+    "certificateNos": [
+      "14299"
+    ],
+    "ministryDistricts": [
+      "KEMER"
+    ],
+    "placeId": "ChIJv80aCFi2wxQRK4DtXCX_cPo",
+    "pricingRegion": "kemer",
+    "pricingName": "Kemer",
+    "prices": {
+      "vito": 55,
+      "sprinter": 90
+    },
+    "originalPrices": {
+      "vito": 65,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "dedeman-kemer-resort",
+    "name": "DEDEMAN KEMER RESORT",
+    "certificateNos": [
+      "2022-7-1110"
+    ],
+    "ministryDistricts": [
+      "KEMER"
+    ],
+    "placeId": "ChIJ26Pj-VW3wxQRBMXkIygG888",
+    "pricingRegion": "kemer",
+    "pricingName": "Kemer",
+    "prices": {
+      "vito": 55,
+      "sprinter": 90
+    },
+    "originalPrices": {
+      "vito": 65,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "dosinia-luxury-resort",
+    "name": "DOSINIA LUXURY RESORT",
+    "certificateNos": [
+      "G_25679"
+    ],
+    "ministryDistricts": [
+      "KEMER"
+    ],
+    "placeId": "ChIJHYRgoKK4wxQRMMtLDts2qnE",
+    "pricingRegion": "kemer",
+    "pricingName": "Kemer",
+    "prices": {
+      "vito": 55,
+      "sprinter": 90
+    },
+    "originalPrices": {
+      "vito": 65,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "edem-flower-otel",
+    "name": "EDEM FLOWER OTEL",
+    "certificateNos": [
+      "2022-7-1491"
+    ],
+    "ministryDistricts": [
+      "KEMER"
+    ],
+    "placeId": "ChIJwxjurgq3wxQRE6R3b_hWnAE",
+    "pricingRegion": "kemer",
+    "pricingName": "Kemer",
+    "prices": {
+      "vito": 55,
+      "sprinter": 90
+    },
+    "originalPrices": {
+      "vito": 65,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "elamir-resort-hotel",
+    "name": "ELAMIR RESORT HOTEL",
+    "certificateNos": [
+      "17537"
+    ],
+    "ministryDistricts": [
+      "KEMER"
+    ],
+    "placeId": "ChIJPUvH3iVZwxQR6hlp5Hz7V-A",
+    "pricingRegion": "kemer",
+    "pricingName": "Kemer",
+    "prices": {
+      "vito": 55,
+      "sprinter": 90
+    },
+    "originalPrices": {
+      "vito": 65,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "elijah-hotel",
+    "name": "ELIJAH HOTEL",
+    "certificateNos": [
+      "2022-7-1478"
+    ],
+    "ministryDistricts": [
+      "KEMER"
+    ],
+    "placeId": "ChIJAQBA6KC3wxQR44rvPYW5LBw",
+    "pricingRegion": "kemer",
+    "pricingName": "Kemer",
+    "prices": {
+      "vito": 55,
+      "sprinter": 90
+    },
+    "originalPrices": {
+      "vito": 65,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "elit-life-hotel",
+    "name": "ELİT LİFE HOTEL",
+    "certificateNos": [
+      "2022-7-0444"
+    ],
+    "ministryDistricts": [
+      "KEMER"
+    ],
+    "placeId": "ChIJc-Aya2a2wxQRc9TWqQiCJmM",
+    "pricingRegion": "kemer",
+    "pricingName": "Kemer",
+    "prices": {
+      "vito": 55,
+      "sprinter": 90
+    },
+    "originalPrices": {
+      "vito": 65,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "emelda-sun-club",
+    "name": "EMELDA SUN CLUB",
+    "certificateNos": [
+      "27397"
+    ],
+    "ministryDistricts": [
+      "KEMER"
+    ],
+    "placeId": "ChIJA9MW0G-2wxQRqaWWykx-v_Y",
+    "pricingRegion": "kemer",
+    "pricingName": "Kemer",
+    "prices": {
+      "vito": 55,
+      "sprinter": 90
+    },
+    "originalPrices": {
+      "vito": 65,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "erkal-resort-hotel",
+    "name": "ERKAL RESORT HOTEL",
+    "certificateNos": [
+      "2022-7-0535"
+    ],
+    "ministryDistricts": [
+      "KEMER"
+    ],
+    "placeId": "ChIJx4rO0423wxQRqUWuaj8Ww04",
+    "pricingRegion": "kemer",
+    "pricingName": "Kemer",
+    "prices": {
+      "vito": 55,
+      "sprinter": 90
+    },
+    "originalPrices": {
+      "vito": 65,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "esma-clove-resort",
+    "name": "ESMA CLOVE RESORT",
+    "certificateNos": [
+      "12032"
+    ],
+    "ministryDistricts": [
+      "KEMER"
+    ],
+    "placeId": "ChIJXW-0IvW3wxQRaMOlW-zi5hQ",
+    "pricingRegion": "kemer",
+    "pricingName": "Kemer",
+    "prices": {
+      "vito": 55,
+      "sprinter": 90
+    },
+    "originalPrices": {
+      "vito": 65,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "fame-beach-hotel",
+    "name": "FAME BEACH HOTEL",
+    "certificateNos": [
+      "6239"
+    ],
+    "ministryDistricts": [
+      "KEMER"
+    ],
+    "placeId": "ChIJ6URHQpm3wxQRkK1I-AC2_Ok",
+    "pricingRegion": "kemer",
+    "pricingName": "Kemer",
+    "prices": {
+      "vito": 55,
+      "sprinter": 90
+    },
+    "originalPrices": {
+      "vito": 65,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "fame-residence-goynuk-otel",
+    "name": "FAME RESİDENCE GÖYNÜK OTEL",
+    "certificateNos": [
+      "16174"
+    ],
+    "ministryDistricts": [
+      "KEMER"
+    ],
+    "placeId": "ChIJ93La3_a4wxQRKeWDxVkSWhk",
+    "pricingRegion": "kemer",
+    "pricingName": "Kemer",
+    "prices": {
+      "vito": 55,
+      "sprinter": 90
+    },
+    "originalPrices": {
+      "vito": 65,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "fashiontv-luxe-resort",
+    "name": "FASHIONTV LUXE RESORT",
+    "certificateNos": [
+      "23071"
+    ],
+    "ministryDistricts": [
+      "KEMER"
+    ],
+    "placeId": "ChIJe523-1u5wxQRVhqzv2Cd8w4",
+    "pricingRegion": "kemer",
+    "pricingName": "Kemer",
+    "prices": {
+      "vito": 55,
+      "sprinter": 90
+    },
+    "originalPrices": {
+      "vito": 65,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "fore-resort-otel",
+    "name": "FORE RESORT OTEL",
+    "certificateNos": [
+      "2022-7-1495"
+    ],
+    "ministryDistricts": [
+      "KEMER"
+    ],
+    "placeId": "ChIJgQMEJ-u3wxQRv0NwB0_HAhQ",
+    "pricingRegion": "kemer",
+    "pricingName": "Kemer",
+    "prices": {
+      "vito": 55,
+      "sprinter": 90
+    },
+    "originalPrices": {
+      "vito": 65,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "forest-park",
+    "name": "FOREST PARK",
+    "certificateNos": [
+      "10021"
+    ],
+    "ministryDistricts": [
+      "KEMER"
+    ],
+    "placeId": "ChIJQYoJsKS3wxQRFZc6fR4FigQ",
+    "pricingRegion": "kemer",
+    "pricingName": "Kemer",
+    "prices": {
+      "vito": 55,
+      "sprinter": 90
+    },
+    "originalPrices": {
+      "vito": 65,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "fun-sun-smart-akman-beach",
+    "name": "FUN SUN SMART AKMAN BEACH",
+    "certificateNos": [
+      "2022-7-1467"
+    ],
+    "ministryDistricts": [
+      "KEMER"
+    ],
+    "placeId": "ChIJTYrmjXa2wxQRghj3_7V6mHA",
+    "pricingRegion": "kemer",
+    "pricingName": "Kemer",
+    "prices": {
+      "vito": 55,
+      "sprinter": 90
+    },
+    "originalPrices": {
+      "vito": 65,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "fun-sun-smart-lurea-beach",
+    "name": "FUN SUN SMART LUREA BEACH",
+    "certificateNos": [
+      "11558"
+    ],
+    "ministryDistricts": [
+      "KEMER"
+    ],
+    "placeId": "ChIJgQsBh_a3wxQR_gDkuNOwMQU",
+    "pricingRegion": "kemer",
+    "pricingName": "Kemer",
+    "prices": {
+      "vito": 55,
+      "sprinter": 90
+    },
+    "originalPrices": {
+      "vito": 65,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "garden-park-beldibi-hotel",
+    "name": "GARDEN PARK BELDİBİ HOTEL",
+    "certificateNos": [
+      "G_25248"
+    ],
+    "ministryDistricts": [
+      "KEMER"
+    ],
+    "placeId": "ChIJjTw9zw-_wxQR9juwSbulWt8",
+    "pricingRegion": "kemer",
+    "pricingName": "Kemer",
+    "prices": {
+      "vito": 55,
+      "sprinter": 90
+    },
+    "originalPrices": {
+      "vito": 65,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "golden-lotus",
+    "name": "GOLDEN LOTUS",
+    "certificateNos": [
+      "9590"
+    ],
+    "ministryDistricts": [
+      "KEMER"
+    ],
+    "placeId": "ChIJR2Id2Ju3wxQRq_UFI1ZVzVM",
+    "pricingRegion": "kemer",
+    "pricingName": "Kemer",
+    "prices": {
+      "vito": 55,
+      "sprinter": 90
+    },
+    "originalPrices": {
+      "vito": 65,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "grand-hotel-derin",
+    "name": "GRAND HOTEL DERİN",
+    "certificateNos": [
+      "2021-7-0026"
+    ],
+    "ministryDistricts": [
+      "KEMER"
+    ],
+    "placeId": "ChIJLU5PcBe_wxQRuHcBONbyvvE",
+    "pricingRegion": "kemer",
+    "pricingName": "Kemer",
+    "prices": {
+      "vito": 55,
+      "sprinter": 90
+    },
+    "originalPrices": {
+      "vito": 65,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "grand-mir-amor-hotel-spa",
+    "name": "GRAND MİR'AMOR HOTEL & SPA",
+    "certificateNos": [
+      "G_25152"
+    ],
+    "ministryDistricts": [
+      "KEMER"
+    ],
+    "placeId": "ChIJMTPuVwC3wxQRCWkjeg4QJvg",
+    "pricingRegion": "kemer",
+    "pricingName": "Kemer",
+    "prices": {
+      "vito": 55,
+      "sprinter": 90
+    },
+    "originalPrices": {
+      "vito": 65,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "grand-nar-otel",
+    "name": "GRAND NAR OTEL",
+    "certificateNos": [
+      "2022-7-0530"
+    ],
+    "ministryDistricts": [
+      "KEMER"
+    ],
+    "placeId": "ChIJ-2_iU6S3wxQRJvBpr80g-3c",
+    "pricingRegion": "kemer",
+    "pricingName": "Kemer",
+    "prices": {
+      "vito": 55,
+      "sprinter": 90
+    },
+    "originalPrices": {
+      "vito": 65,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "grand-viking",
+    "name": "GRAND VİKİNG",
+    "certificateNos": [
+      "2022-7-0467"
+    ],
+    "ministryDistricts": [
+      "KEMER"
+    ],
+    "placeId": "ChIJP2NKq6W3wxQRxJFxdlxuwZg",
+    "pricingRegion": "kemer",
+    "pricingName": "Kemer",
+    "prices": {
+      "vito": 55,
+      "sprinter": 90
+    },
+    "originalPrices": {
+      "vito": 65,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "gul-mountain-hotel",
+    "name": "GÜL MOUNTAIN HOTEL",
+    "certificateNos": [
+      "2022-7-1292"
+    ],
+    "ministryDistricts": [
+      "KEMER"
+    ],
+    "placeId": "ChIJyR1dmv3FwxQRVsuAjUJCTi4",
+    "pricingRegion": "kemer",
+    "pricingName": "Kemer",
+    "prices": {
+      "vito": 55,
+      "sprinter": 90
+    },
+    "originalPrices": {
+      "vito": 65,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "gypsophila-club-marine",
+    "name": "GYPSOPHILA CLUB MARINE",
+    "certificateNos": [
+      "3756"
+    ],
+    "ministryDistricts": [
+      "KEMER"
+    ],
+    "placeId": "ChIJW27GEvbIwxQRRCq4LT1_BjY",
+    "pricingRegion": "kemer",
+    "pricingName": "Kemer",
+    "prices": {
+      "vito": 55,
+      "sprinter": 90
+    },
+    "originalPrices": {
+      "vito": 65,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "hotel-golden-sun",
+    "name": "HOTEL GOLDEN SUN",
+    "certificateNos": [
+      "12490"
+    ],
+    "ministryDistricts": [
+      "KEMER"
+    ],
+    "placeId": "ChIJM6oDiBe_wxQR1BHumrwC-qE",
+    "pricingRegion": "kemer",
+    "pricingName": "Kemer",
+    "prices": {
+      "vito": 55,
+      "sprinter": 90
+    },
+    "originalPrices": {
+      "vito": 65,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "karmir-resort-spa-hotel",
+    "name": "KARMİR RESORT & SPA HOTEL",
+    "certificateNos": [
+      "14330"
+    ],
+    "ministryDistricts": [
+      "KEMER"
+    ],
+    "placeId": "ChIJ8wAAAPC4wxQR4VbkdcjqxUg",
+    "pricingRegion": "kemer",
+    "pricingName": "Kemer",
+    "prices": {
+      "vito": 55,
+      "sprinter": 90
+    },
+    "originalPrices": {
+      "vito": 65,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "kemer-dream-otel",
+    "name": "KEMER DREAM OTEL",
+    "certificateNos": [
+      "12200"
+    ],
+    "ministryDistricts": [
+      "KEMER"
+    ],
+    "placeId": "ChIJQ08eWZC3wxQR1P7WcT6-aVg",
+    "pricingRegion": "kemer",
+    "pricingName": "Kemer",
+    "prices": {
+      "vito": 55,
+      "sprinter": 90
+    },
+    "originalPrices": {
+      "vito": 65,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "l-ancora-beach-hotel",
+    "name": "L'ANCORA BEACH HOTEL",
+    "certificateNos": [
+      "2881"
+    ],
+    "ministryDistricts": [
+      "KEMER"
+    ],
+    "placeId": "ChIJTdEpbpm3wxQR45zLUktqBKw",
+    "pricingRegion": "kemer",
+    "pricingName": "Kemer",
+    "prices": {
+      "vito": 55,
+      "sprinter": 90
+    },
+    "originalPrices": {
+      "vito": 65,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "l-oceanica-beach-resort",
+    "name": "L'OCEANICA BEACH RESORT",
+    "certificateNos": [
+      "10102"
+    ],
+    "ministryDistricts": [
+      "KEMER"
+    ],
+    "placeId": "ChIJf0rL32a2wxQRdrY1mhTn60k",
+    "pricingRegion": "kemer",
+    "pricingName": "Kemer",
+    "prices": {
+      "vito": 55,
+      "sprinter": 90
+    },
+    "originalPrices": {
+      "vito": 65,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "lims-bona-dea-beach-hotel",
+    "name": "LİMS BONA DEA BEACH HOTEL",
+    "certificateNos": [
+      "2022-7-0646"
+    ],
+    "ministryDistricts": [
+      "KEMER"
+    ],
+    "placeId": "ChIJawopIbC3wxQRG6-iN4bir_I",
+    "pricingRegion": "kemer",
+    "pricingName": "Kemer",
+    "prices": {
+      "vito": 55,
+      "sprinter": 90
+    },
+    "originalPrices": {
+      "vito": 65,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "lucida-beach-hotel",
+    "name": "LUCIDA BEACH HOTEL",
+    "certificateNos": [
+      "10142"
+    ],
+    "ministryDistricts": [
+      "KEMER"
+    ],
+    "placeId": "ChIJtY5bima2wxQRudl40gjwpco",
+    "pricingRegion": "kemer",
+    "pricingName": "Kemer",
+    "prices": {
+      "vito": 55,
+      "sprinter": 90
+    },
+    "originalPrices": {
+      "vito": 65,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "ma-biche-kemer-by-werde-hotels",
+    "name": "MA BICHE KEMER BY WERDE HOTELS",
+    "certificateNos": [
+      "8542"
+    ],
+    "ministryDistricts": [
+      "KEMER"
+    ],
+    "placeId": "ChIJc1x31Oe5wxQRMMbk5hiJzQA",
+    "pricingRegion": "kemer",
+    "pricingName": "Kemer",
+    "prices": {
+      "vito": 55,
+      "sprinter": 90
+    },
+    "originalPrices": {
+      "vito": 65,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "magic-sun-otel",
+    "name": "MAGIC SUN OTEL",
+    "certificateNos": [
+      "2022-7-1575"
+    ],
+    "ministryDistricts": [
+      "KEMER"
+    ],
+    "placeId": "ChIJsbD2wqW_wxQRpbcfWCY8KgM",
+    "pricingRegion": "kemer",
+    "pricingName": "Kemer",
+    "prices": {
+      "vito": 55,
+      "sprinter": 90
+    },
+    "originalPrices": {
+      "vito": 65,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "malibu-garden-resort",
+    "name": "MALİBU GARDEN RESORT",
+    "certificateNos": [
+      "2022-7-1742"
+    ],
+    "ministryDistricts": [
+      "KEMER"
+    ],
+    "placeId": "ChIJq0U2cv62wxQRmEcFXTSPt7g",
+    "pricingRegion": "kemer",
+    "pricingName": "Kemer",
+    "prices": {
+      "vito": 55,
+      "sprinter": 90
+    },
+    "originalPrices": {
+      "vito": 65,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "mirada-del-mar-hotel",
+    "name": "MİRADA DEL MAR HOTEL",
+    "certificateNos": [
+      "G_24137"
+    ],
+    "ministryDistricts": [
+      "KEMER"
+    ],
+    "placeId": "ChIJ9zFH-ua4wxQRSkD0EIwgVlg",
+    "pricingRegion": "kemer",
+    "pricingName": "Kemer",
+    "prices": {
+      "vito": 55,
+      "sprinter": 90
+    },
+    "originalPrices": {
+      "vito": 65,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "more-otel",
+    "name": "MORE OTEL",
+    "certificateNos": [
+      "2022-7-1481"
+    ],
+    "ministryDistricts": [
+      "KEMER"
+    ],
+    "placeId": "ChIJe-02_gW_wxQRNE_7JY8yvso",
+    "pricingRegion": "kemer",
+    "pricingName": "Kemer",
+    "prices": {
+      "vito": 55,
+      "sprinter": 90
+    },
+    "originalPrices": {
+      "vito": 65,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "neuron-otel",
+    "name": "NEURON OTEL",
+    "certificateNos": [
+      "21772"
+    ],
+    "ministryDistricts": [
+      "KEMER"
+    ],
+    "placeId": "ChIJ9zn1HLK5wxQROeeET3X3rKM",
+    "pricingRegion": "kemer",
+    "pricingName": "Kemer",
+    "prices": {
+      "vito": 55,
+      "sprinter": 90
+    },
+    "originalPrices": {
+      "vito": 65,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "ng-phaselis-bay",
+    "name": "NG PHASELIS BAY",
+    "certificateNos": [
+      "18875"
+    ],
+    "ministryDistricts": [
+      "KEMER"
+    ],
+    "placeId": "ChIJobI6a4PLwxQRD6Sz71MlqF0",
+    "pricingRegion": "kemer",
+    "pricingName": "Kemer",
+    "prices": {
+      "vito": 55,
+      "sprinter": 90
+    },
+    "originalPrices": {
+      "vito": 65,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "olya-otel",
+    "name": "OLYA OTEL",
+    "certificateNos": [
+      "2022-7-1581"
+    ],
+    "ministryDistricts": [
+      "KEMER"
+    ],
+    "placeId": "ChIJneNml35XwxQR2Av0c6foDYc",
+    "pricingRegion": "kemer",
+    "pricingName": "Kemer",
+    "prices": {
+      "vito": 55,
+      "sprinter": 90
+    },
+    "originalPrices": {
+      "vito": 65,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "onkel-hotels-beldibi-resort",
+    "name": "ONKEL HOTELS BELDİBİ RESORT",
+    "certificateNos": [
+      "11177"
+    ],
+    "ministryDistricts": [
+      "KEMER"
+    ],
+    "placeId": "ChIJqXIm-PO4wxQRSO6QC2R7zXg",
+    "pricingRegion": "kemer",
+    "pricingName": "Kemer",
+    "prices": {
+      "vito": 55,
+      "sprinter": 90
+    },
+    "originalPrices": {
+      "vito": 65,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "oranj-ranch-hotel",
+    "name": "ORANJ RANCH HOTEL",
+    "certificateNos": [
+      "2022-7-1080"
+    ],
+    "ministryDistricts": [
+      "KEMER"
+    ],
+    "placeId": "ChIJvWc1gQu2wxQRtyFnQWddtCs",
+    "pricingRegion": "kemer",
+    "pricingName": "Kemer",
+    "prices": {
+      "vito": 55,
+      "sprinter": 90
+    },
+    "originalPrices": {
+      "vito": 65,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "ozkaymak-marina-otel",
+    "name": "ÖZKAYMAK MARİNA OTEL",
+    "certificateNos": [
+      "2022-7-0982"
+    ],
+    "ministryDistricts": [
+      "KEMER"
+    ],
+    "placeId": "ChIJfRRzCZi3wxQRPXuJ8wsWeL4",
+    "pricingRegion": "kemer",
+    "pricingName": "Kemer",
+    "prices": {
+      "vito": 55,
+      "sprinter": 90
+    },
+    "originalPrices": {
+      "vito": 65,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "pera-aura",
+    "name": "PERA AURA",
+    "certificateNos": [
+      "27382"
+    ],
+    "ministryDistricts": [
+      "KEMER"
+    ],
+    "placeId": "ChIJqzYifpC3wxQRd7YQuAFlaIc",
+    "pricingRegion": "kemer",
+    "pricingName": "Kemer",
+    "prices": {
+      "vito": 55,
+      "sprinter": 90
+    },
+    "originalPrices": {
+      "vito": 65,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "rios-latte-beach-otel",
+    "name": "RIOS LATTE BEACH OTEL",
+    "certificateNos": [
+      "2022-7-1387"
+    ],
+    "ministryDistricts": [
+      "KEMER"
+    ],
+    "placeId": "ChIJ-XRL5Qe_wxQRisIPg4Yuv1s",
+    "pricingRegion": "kemer",
+    "pricingName": "Kemer",
+    "prices": {
+      "vito": 55,
+      "sprinter": 90
+    },
+    "originalPrices": {
+      "vito": 65,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "ring-beach-otel",
+    "name": "RİNG BEACH OTEL",
+    "certificateNos": [
+      "2022-7-1474"
+    ],
+    "ministryDistricts": [
+      "KEMER"
+    ],
+    "placeId": "ChIJbb4GsRC_wxQRhTE_0iWHDLc",
+    "pricingRegion": "kemer",
+    "pricingName": "Kemer",
+    "prices": {
+      "vito": 55,
+      "sprinter": 90
+    },
+    "originalPrices": {
+      "vito": 65,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "rk-magic-dream-hotel",
+    "name": "RK MAGİC DREAM HOTEL",
+    "certificateNos": [
+      "26174"
+    ],
+    "ministryDistricts": [
+      "KEMER"
+    ],
+    "placeId": "ChIJxU6WK4y3wxQR-SRtkfNOqYs",
+    "pricingRegion": "kemer",
+    "pricingName": "Kemer",
+    "prices": {
+      "vito": 55,
+      "sprinter": 90
+    },
+    "originalPrices": {
+      "vito": 65,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "robinson-club-camyuva",
+    "name": "ROBINSON CLUB ÇAMYUVA",
+    "certificateNos": [
+      "12069"
+    ],
+    "ministryDistricts": [
+      "KEMER"
+    ],
+    "placeId": "ChIJvWj609i1wxQRrUVrZR72PLY",
+    "pricingRegion": "kemer",
+    "pricingName": "Kemer",
+    "prices": {
+      "vito": 55,
+      "sprinter": 90
+    },
+    "originalPrices": {
+      "vito": 65,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "rose-garden-premium-hotel",
+    "name": "ROSE GARDEN PREMİUM HOTEL",
+    "certificateNos": [
+      "24745"
+    ],
+    "ministryDistricts": [
+      "KEMER"
+    ],
+    "placeId": "ChIJq3Qpop23wxQRhUMrGGBEbXk",
+    "pricingRegion": "kemer",
+    "pricingName": "Kemer",
+    "prices": {
+      "vito": 55,
+      "sprinter": 90
+    },
+    "originalPrices": {
+      "vito": 65,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "rox-resort-hotel",
+    "name": "ROX RESORT HOTEL",
+    "certificateNos": [
+      "16316"
+    ],
+    "ministryDistricts": [
+      "KEMER"
+    ],
+    "placeId": "ChIJecMZxKi3wxQR4UlL7S5jdiA",
+    "pricingRegion": "kemer",
+    "pricingName": "Kemer",
+    "prices": {
+      "vito": 55,
+      "sprinter": 90
+    },
+    "originalPrices": {
+      "vito": 65,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "sailor-s-beach-club",
+    "name": "SAILOR'S BEACH CLUB",
+    "certificateNos": [
+      "8550"
+    ],
+    "ministryDistricts": [
+      "KEMER"
+    ],
+    "placeId": "ChIJz26SQgK3wxQRfGjkrrlCK9Y",
+    "pricingRegion": "kemer",
+    "pricingName": "Kemer",
+    "prices": {
+      "vito": 55,
+      "sprinter": 90
+    },
+    "originalPrices": {
+      "vito": 65,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "santana-hotel",
+    "name": "SANTANA HOTEL",
+    "certificateNos": [
+      "2022-7-1374"
+    ],
+    "ministryDistricts": [
+      "KEMER"
+    ],
+    "placeId": "ChIJZZBaKQm_wxQR4L_VGBD9yt8",
+    "pricingRegion": "kemer",
+    "pricingName": "Kemer",
+    "prices": {
+      "vito": 55,
+      "sprinter": 90
+    },
+    "originalPrices": {
+      "vito": 65,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "sealife-kemer-resort-hotel",
+    "name": "SEALIFE KEMER RESORT HOTEL",
+    "certificateNos": [
+      "21775"
+    ],
+    "ministryDistricts": [
+      "KEMER"
+    ],
+    "placeId": "ChIJxeRjcgm3wxQRFRHMndsaBm8",
+    "pricingRegion": "kemer",
+    "pricingName": "Kemer",
+    "prices": {
+      "vito": 55,
+      "sprinter": 90
+    },
+    "originalPrices": {
+      "vito": 65,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "selcukhan-hotel",
+    "name": "SELÇUKHAN HOTEL",
+    "certificateNos": [
+      "2022-7-0584"
+    ],
+    "ministryDistricts": [
+      "KEMER"
+    ],
+    "placeId": "ChIJ82hLF6i_wxQRVS7zXvFxyB8",
+    "pricingRegion": "kemer",
+    "pricingName": "Kemer",
+    "prices": {
+      "vito": 55,
+      "sprinter": 90
+    },
+    "originalPrices": {
+      "vito": 65,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "sveo-resort-kemer",
+    "name": "SVEO RESORT KEMER",
+    "certificateNos": [
+      "2366"
+    ],
+    "ministryDistricts": [
+      "KEMER"
+    ],
+    "placeId": "ChIJ9T2C4Aa3wxQRGN1ox8-2Z5Q",
+    "pricingRegion": "kemer",
+    "pricingName": "Kemer",
+    "prices": {
+      "vito": 55,
+      "sprinter": 90
+    },
+    "originalPrices": {
+      "vito": 65,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "swandor-hotels-resorts-kemer",
+    "name": "SWANDOR HOTELS & RESORTS KEMER",
+    "certificateNos": [
+      "5833"
+    ],
+    "ministryDistricts": [
+      "KEMER"
+    ],
+    "placeId": "ChIJObboQ_m2wxQRsVzsrZwstcQ",
+    "pricingRegion": "kemer",
+    "pricingName": "Kemer",
+    "prices": {
+      "vito": 55,
+      "sprinter": 90
+    },
+    "originalPrices": {
+      "vito": 65,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "tal-beach-hotel",
+    "name": "TAL BEACH HOTEL",
+    "certificateNos": [
+      "2022-7-0644"
+    ],
+    "ministryDistricts": [
+      "KEMER"
+    ],
+    "placeId": "ChIJ4VUrSX25wxQRr_k5eYOj6SA",
+    "pricingRegion": "kemer",
+    "pricingName": "Kemer",
+    "prices": {
+      "vito": 55,
+      "sprinter": 90
+    },
+    "originalPrices": {
+      "vito": 65,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "the-norm-oriental-otel",
+    "name": "THE NORM ORIENTAL OTEL",
+    "certificateNos": [
+      "5499"
+    ],
+    "ministryDistricts": [
+      "KEMER"
+    ],
+    "placeId": "ChIJ2wWFC9u3wxQRpYR6dkMoKKA",
+    "pricingRegion": "kemer",
+    "pricingName": "Kemer",
+    "prices": {
+      "vito": 55,
+      "sprinter": 90
+    },
+    "originalPrices": {
+      "vito": 65,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "transatlantik-hotel-spa",
+    "name": "TRANSATLANTİK HOTEL & SPA",
+    "certificateNos": [
+      "20140"
+    ],
+    "ministryDistricts": [
+      "KEMER"
+    ],
+    "placeId": "ChIJXauaaPW4wxQR0L0XIQxMKk4",
+    "pricingRegion": "kemer",
+    "pricingName": "Kemer",
+    "prices": {
+      "vito": 55,
+      "sprinter": 90
+    },
+    "originalPrices": {
+      "vito": 65,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "valeri-beach",
+    "name": "VALERİ BEACH",
+    "certificateNos": [
+      "8098"
+    ],
+    "ministryDistricts": [
+      "KEMER"
+    ],
+    "placeId": "ChIJ2TNc0pu3wxQRQ1fJHSuUATA",
+    "pricingRegion": "kemer",
+    "pricingName": "Kemer",
+    "prices": {
+      "vito": 55,
+      "sprinter": 90
+    },
+    "originalPrices": {
+      "vito": 65,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "viking-beach-otel",
+    "name": "VİKİNG BEACH OTEL",
+    "certificateNos": [
+      "24591"
+    ],
+    "ministryDistricts": [
+      "KEMER"
+    ],
+    "placeId": "ChIJH5jRgmK3wxQR-Gtj8busHkA",
+    "pricingRegion": "kemer",
+    "pricingName": "Kemer",
+    "prices": {
+      "vito": 55,
+      "sprinter": 90
+    },
+    "originalPrices": {
+      "vito": 65,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "viking-park-otel",
+    "name": "VİKİNG PARK OTEL",
+    "certificateNos": [
+      "19953"
+    ],
+    "ministryDistricts": [
+      "KEMER"
+    ],
+    "placeId": "ChIJQTL95fi2wxQRUlnd6UVrQok",
+    "pricingRegion": "kemer",
+    "pricingName": "Kemer",
+    "prices": {
+      "vito": 55,
+      "sprinter": 90
+    },
+    "originalPrices": {
+      "vito": 65,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "zena-resort-otel",
+    "name": "ZENA RESORT OTEL",
+    "certificateNos": [
+      "9364"
+    ],
+    "ministryDistricts": [
+      "KEMER"
+    ],
+    "placeId": "ChIJp62D9Mi3wxQRBUVLITZX25Q",
+    "pricingRegion": "kemer",
+    "pricingName": "Kemer",
+    "prices": {
+      "vito": 55,
+      "sprinter": 90
+    },
+    "originalPrices": {
+      "vito": 65,
+      "sprinter": 110
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "club-hotel-turan-prince-world",
+    "name": "CLUB HOTEL TURAN PRİNCE WORLD",
+    "certificateNos": [
+      "3676"
+    ],
+    "ministryDistricts": [
+      "MANAVGAT"
+    ],
+    "placeId": "ChIJexkPXtBe2xQRUXvSC4so7TE",
+    "pricingRegion": "kizilagac",
+    "pricingName": "Manavgat/Kızılağaç",
+    "prices": {
+      "vito": 60,
+      "sprinter": 95
+    },
+    "originalPrices": {
+      "vito": 70,
+      "sprinter": 115
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "club-nena",
+    "name": "CLUB NENA",
+    "certificateNos": [
+      "4407"
+    ],
+    "ministryDistricts": [
+      "MANAVGAT"
+    ],
+    "placeId": "ChIJX74wAP9TwxQRGdeOITY1prk",
+    "pricingRegion": "kizilagac",
+    "pricingName": "Manavgat/Kızılağaç",
+    "prices": {
+      "vito": 60,
+      "sprinter": 95
+    },
+    "originalPrices": {
+      "vito": 70,
+      "sprinter": 115
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "selectum-family-resort-side",
+    "name": "SELECTUM FAMILY RESORT SİDE",
+    "certificateNos": [
+      "18145"
+    ],
+    "ministryDistricts": [
+      "MANAVGAT"
+    ],
+    "placeId": "ChIJ-VceAeCsxBQRUgJ6YWpjC1k",
+    "pricingRegion": "kizilagac",
+    "pricingName": "Manavgat/Kızılağaç",
+    "prices": {
+      "vito": 60,
+      "sprinter": 95
+    },
+    "originalPrices": {
+      "vito": 70,
+      "sprinter": 115
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "selectum-family-comfort-side",
+    "name": "SELECTUM FAMİLY COMFORT SİDE",
+    "certificateNos": [
+      "10977"
+    ],
+    "ministryDistricts": [
+      "MANAVGAT"
+    ],
+    "placeId": "ChIJz-C9WfpTwxQRSSdKLkqtNR0",
+    "pricingRegion": "kizilagac",
+    "pricingName": "Manavgat/Kızılağaç",
+    "prices": {
+      "vito": 60,
+      "sprinter": 95
+    },
+    "originalPrices": {
+      "vito": 70,
+      "sprinter": 115
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "skys-hotel",
+    "name": "SKYS HOTEL",
+    "certificateNos": [
+      "2022-7-0460"
+    ],
+    "ministryDistricts": [
+      "MANAVGAT"
+    ],
+    "placeId": "ChIJP4xMyo9TwxQRUNKQKxsO8rk",
+    "pricingRegion": "kizilagac",
+    "pricingName": "Manavgat/Kızılağaç",
+    "prices": {
+      "vito": 60,
+      "sprinter": 95
+    },
+    "originalPrices": {
+      "vito": 70,
+      "sprinter": 115
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "tui-blue-palm-garden",
+    "name": "TUI BLUE PALM GARDEN",
+    "certificateNos": [
+      "12240"
+    ],
+    "ministryDistricts": [
+      "MANAVGAT"
+    ],
+    "placeId": "ChIJPQsgfFVRwxQRRu1m94sXmsQ",
+    "pricingRegion": "kizilagac",
+    "pricingName": "Manavgat/Kızılağaç",
+    "prices": {
+      "vito": 60,
+      "sprinter": 95
+    },
+    "originalPrices": {
+      "vito": 70,
+      "sprinter": 115
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "vita-silva-otel",
+    "name": "VITA SILVA OTEL",
+    "certificateNos": [
+      "25755"
+    ],
+    "ministryDistricts": [
+      "MANAVGAT"
+    ],
+    "placeId": "ChIJTY_iS5pTwxQRgYP1dICP62E",
+    "pricingRegion": "kizilagac",
+    "pricingName": "Manavgat/Kızılağaç",
+    "prices": {
+      "vito": 60,
+      "sprinter": 95
+    },
+    "originalPrices": {
+      "vito": 70,
+      "sprinter": 115
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "washington-resort-hotel-spa",
+    "name": "WASHINGTON RESORT HOTEL&SPA",
+    "certificateNos": [
+      "11116"
+    ],
+    "ministryDistricts": [
+      "MANAVGAT"
+    ],
+    "placeId": "ChIJ1ZxMfvpTwxQR_04VRUHPw3g",
+    "pricingRegion": "kizilagac",
+    "pricingName": "Manavgat/Kızılağaç",
+    "prices": {
+      "vito": 60,
+      "sprinter": 95
+    },
+    "originalPrices": {
+      "vito": 70,
+      "sprinter": 115
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "a-hotel-side",
+    "name": "A HOTEL SİDE",
+    "certificateNos": [
+      "21655"
+    ],
+    "ministryDistricts": [
+      "MANAVGAT"
+    ],
+    "placeId": "ChIJWy7MeRZZwxQR83ISvgQWJLo",
+    "pricingRegion": "side",
+    "pricingName": "Side",
+    "prices": {
+      "vito": 50,
+      "sprinter": 85
+    },
+    "originalPrices": {
+      "vito": 60,
+      "sprinter": 100
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "alessia-hotel",
+    "name": "ALESSIA HOTEL",
+    "certificateNos": [
+      "25517"
+    ],
+    "ministryDistricts": [
+      "MANAVGAT"
+    ],
+    "placeId": "ChIJB8VV7IVZwxQRXoCDlXkwcio",
+    "pricingRegion": "side",
+    "pricingName": "Side",
+    "prices": {
+      "vito": 50,
+      "sprinter": 85
+    },
+    "originalPrices": {
+      "vito": 60,
+      "sprinter": 100
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "arcanus-trendline-resort-side",
+    "name": "ARCANUS TRENDLİNE RESORT SİDE",
+    "certificateNos": [
+      "20498"
+    ],
+    "ministryDistricts": [
+      "MANAVGAT"
+    ],
+    "placeId": "ChIJQ9j-NrRXwxQRoje2e4Y0hmA",
+    "pricingRegion": "side",
+    "pricingName": "Side",
+    "prices": {
+      "vito": 50,
+      "sprinter": 85
+    },
+    "originalPrices": {
+      "vito": 60,
+      "sprinter": 100
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "barut-b-suites",
+    "name": "BARUT B SUITES",
+    "certificateNos": [
+      "12184"
+    ],
+    "ministryDistricts": [
+      "MANAVGAT"
+    ],
+    "placeId": "ChIJj4JtNs9ewxQRVVV9vrd5M0k",
+    "pricingRegion": "side",
+    "pricingName": "Side",
+    "prices": {
+      "vito": 50,
+      "sprinter": 85
+    },
+    "originalPrices": {
+      "vito": 60,
+      "sprinter": 100
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "barut-goia-otel",
+    "name": "BARUT GOIA OTEL",
+    "certificateNos": [
+      "23621"
+    ],
+    "ministryDistricts": [
+      "MANAVGAT"
+    ],
+    "placeId": "ChIJA5EV5IZZwxQRIXKH2PGKl1w",
+    "pricingRegion": "side",
+    "pricingName": "Side",
+    "prices": {
+      "vito": 50,
+      "sprinter": 85
+    },
+    "originalPrices": {
+      "vito": 60,
+      "sprinter": 100
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "bella-resort-spa",
+    "name": "BELLA RESORT &SPA",
+    "certificateNos": [
+      "27357"
+    ],
+    "ministryDistricts": [
+      "MANAVGAT"
+    ],
+    "placeId": "ChIJIftI4V1ewxQR5xTPKloFVug",
+    "pricingRegion": "side",
+    "pricingName": "Side",
+    "prices": {
+      "vito": 50,
+      "sprinter": 85
+    },
+    "originalPrices": {
+      "vito": 60,
+      "sprinter": 100
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "berry-blue-hotel",
+    "name": "BERRY BLUE HOTEL",
+    "certificateNos": [
+      "26309"
+    ],
+    "ministryDistricts": [
+      "MANAVGAT"
+    ],
+    "placeId": "ChIJo-Ty9MZZwxQR6m46ox551JU",
+    "pricingRegion": "side",
+    "pricingName": "Side",
+    "prices": {
+      "vito": 50,
+      "sprinter": 85
+    },
+    "originalPrices": {
+      "vito": 60,
+      "sprinter": 100
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "beyaz-saray-otel",
+    "name": "BEYAZ SARAY OTEL",
+    "certificateNos": [
+      "2022-7-1388"
+    ],
+    "ministryDistricts": [
+      "MANAVGAT"
+    ],
+    "placeId": "ChIJO_jrCplZwxQRTGlzgiA2bbM",
+    "pricingRegion": "side",
+    "pricingName": "Side",
+    "prices": {
+      "vito": 50,
+      "sprinter": 85
+    },
+    "originalPrices": {
+      "vito": 60,
+      "sprinter": 100
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "bieno-venus-hotel",
+    "name": "BİENO VENÜS HOTEL",
+    "certificateNos": [
+      "G_25724"
+    ],
+    "ministryDistricts": [
+      "MANAVGAT"
+    ],
+    "placeId": "ChIJzxcWzMlnwRQRV6BdjiiZDe4",
+    "pricingRegion": "side",
+    "pricingName": "Side",
+    "prices": {
+      "vito": 50,
+      "sprinter": 85
+    },
+    "originalPrices": {
+      "vito": 60,
+      "sprinter": 100
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "can-garden-resort-otel",
+    "name": "CAN GARDEN RESORT OTEL",
+    "certificateNos": [
+      "11604"
+    ],
+    "ministryDistricts": [
+      "MANAVGAT"
+    ],
+    "placeId": "ChIJX4LJIO9ewxQRMvlAIN_j6Rc",
+    "pricingRegion": "side",
+    "pricingName": "Side",
+    "prices": {
+      "vito": 50,
+      "sprinter": 85
+    },
+    "originalPrices": {
+      "vito": 60,
+      "sprinter": 100
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "club-grand-side",
+    "name": "CLUB GRAND SİDE",
+    "certificateNos": [
+      "6448"
+    ],
+    "ministryDistricts": [
+      "MANAVGAT"
+    ],
+    "placeId": "ChIJXf6cj_FewxQRqltZ7X7F4xM",
+    "pricingRegion": "side",
+    "pricingName": "Side",
+    "prices": {
+      "vito": 50,
+      "sprinter": 85
+    },
+    "originalPrices": {
+      "vito": 60,
+      "sprinter": 100
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "club-side-coast-hotel",
+    "name": "CLUB SİDE COAST HOTEL",
+    "certificateNos": [
+      "26021",
+      "16186"
+    ],
+    "ministryDistricts": [
+      "MANAVGAT"
+    ],
+    "placeId": "ChIJi9zMyMNewxQRbKRBQULtx_I",
+    "pricingRegion": "side",
+    "pricingName": "Side",
+    "prices": {
+      "vito": 50,
+      "sprinter": 85
+    },
+    "originalPrices": {
+      "vito": 60,
+      "sprinter": 100
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "defne-dream",
+    "name": "DEFNE DREAM",
+    "certificateNos": [
+      "7763"
+    ],
+    "ministryDistricts": [
+      "MANAVGAT"
+    ],
+    "placeId": "ChIJX-JRGEdHdkAR7gXlKAGAT60",
+    "pricingRegion": "side",
+    "pricingName": "Side",
+    "prices": {
+      "vito": 50,
+      "sprinter": 85
+    },
+    "originalPrices": {
+      "vito": 60,
+      "sprinter": 100
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "defne-garden",
+    "name": "DEFNE GARDEN",
+    "certificateNos": [
+      "11050"
+    ],
+    "ministryDistricts": [
+      "MANAVGAT"
+    ],
+    "placeId": "ChIJgymPDjVZwxQRd5T0oJwQqro",
+    "pricingRegion": "side",
+    "pricingName": "Side",
+    "prices": {
+      "vito": 50,
+      "sprinter": 85
+    },
+    "originalPrices": {
+      "vito": 60,
+      "sprinter": 100
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "diamond-premium-hotel",
+    "name": "DİAMOND PREMİUM HOTEL",
+    "certificateNos": [
+      "15641"
+    ],
+    "ministryDistricts": [
+      "MANAVGAT"
+    ],
+    "placeId": "ChIJF2mtcUtXwxQRyo65MLo5LV8",
+    "pricingRegion": "side",
+    "pricingName": "Side",
+    "prices": {
+      "vito": 50,
+      "sprinter": 85
+    },
+    "originalPrices": {
+      "vito": 60,
+      "sprinter": 100
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "dosi-otel",
+    "name": "DOSİ OTEL",
+    "certificateNos": [
+      "13680"
+    ],
+    "ministryDistricts": [
+      "MANAVGAT"
+    ],
+    "placeId": "ChIJUa5lDrDmn0ARsQQGxBA0q3o",
+    "pricingRegion": "side",
+    "pricingName": "Side",
+    "prices": {
+      "vito": 50,
+      "sprinter": 85
+    },
+    "originalPrices": {
+      "vito": 60,
+      "sprinter": 100
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "dream-water-world",
+    "name": "DREAM WATER WORLD",
+    "certificateNos": [
+      "20583"
+    ],
+    "ministryDistricts": [
+      "MANAVGAT"
+    ],
+    "placeId": "ChIJT0umQiZZwxQRlvAd2w3CGPE",
+    "pricingRegion": "side",
+    "pricingName": "Side",
+    "prices": {
+      "vito": 50,
+      "sprinter": 85
+    },
+    "originalPrices": {
+      "vito": 60,
+      "sprinter": 100
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "dream-world-palace-hotel",
+    "name": "DREAM WORLD PALACE HOTEL",
+    "certificateNos": [
+      "20566"
+    ],
+    "ministryDistricts": [
+      "MANAVGAT"
+    ],
+    "placeId": "ChIJIfhjJQZfwxQRf58Dw8CPyUE",
+    "pricingRegion": "side",
+    "pricingName": "Side",
+    "prices": {
+      "vito": 50,
+      "sprinter": 85
+    },
+    "originalPrices": {
+      "vito": 60,
+      "sprinter": 100
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "dream-world-resort-hotel-spa",
+    "name": "DREAM WORLD RESORT HOTEL & SPA",
+    "certificateNos": [
+      "13821"
+    ],
+    "ministryDistricts": [
+      "MANAVGAT"
+    ],
+    "placeId": "ChIJc32DQ8xewxQRqmb14jXD6ew",
+    "pricingRegion": "side",
+    "pricingName": "Side",
+    "prices": {
+      "vito": 50,
+      "sprinter": 85
+    },
+    "originalPrices": {
+      "vito": 60,
+      "sprinter": 100
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "ersan-otel",
+    "name": "ERSAN OTEL",
+    "certificateNos": [
+      "2022-7-1092"
+    ],
+    "ministryDistricts": [
+      "MANAVGAT"
+    ],
+    "placeId": "ChIJnaIoTdZZwxQRglCeRAMuA6g",
+    "pricingRegion": "side",
+    "pricingName": "Side",
+    "prices": {
+      "vito": 50,
+      "sprinter": 85
+    },
+    "originalPrices": {
+      "vito": 60,
+      "sprinter": 100
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "febeach-otel",
+    "name": "FEBEACH OTEL",
+    "certificateNos": [
+      "6450"
+    ],
+    "ministryDistricts": [
+      "MANAVGAT"
+    ],
+    "placeId": "ChIJyZpwOHxZwxQRQ7WXtbsojcA",
+    "pricingRegion": "side",
+    "pricingName": "Side",
+    "prices": {
+      "vito": 50,
+      "sprinter": 85
+    },
+    "originalPrices": {
+      "vito": 60,
+      "sprinter": 100
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "hane-family-resort",
+    "name": "HANE FAMİLY RESORT",
+    "certificateNos": [
+      "9216"
+    ],
+    "ministryDistricts": [
+      "MANAVGAT"
+    ],
+    "placeId": "ChIJvfIajjhZwxQR6kW50l91YB0",
+    "pricingRegion": "side",
+    "pricingName": "Side",
+    "prices": {
+      "vito": 50,
+      "sprinter": 85
+    },
+    "originalPrices": {
+      "vito": 60,
+      "sprinter": 100
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "iz-flower-side-beach-hotel",
+    "name": "İZ FLOWER SİDE BEACH HOTEL",
+    "certificateNos": [
+      "13683"
+    ],
+    "ministryDistricts": [
+      "MANAVGAT"
+    ],
+    "placeId": "ChIJrVDR5jVZwxQR6uAwz-7Zo6E",
+    "pricingRegion": "side",
+    "pricingName": "Side",
+    "prices": {
+      "vito": 50,
+      "sprinter": 85
+    },
+    "originalPrices": {
+      "vito": 60,
+      "sprinter": 100
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "kelebek-otel",
+    "name": "KELEBEK OTEL",
+    "certificateNos": [
+      "2022-7-1322"
+    ],
+    "ministryDistricts": [
+      "MANAVGAT"
+    ],
+    "placeId": "ChIJGee7Y7pZwxQRDWeyFy9QLt0",
+    "pricingRegion": "side",
+    "pricingName": "Side",
+    "prices": {
+      "vito": 50,
+      "sprinter": 85
+    },
+    "originalPrices": {
+      "vito": 60,
+      "sprinter": 100
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "liu-resorts",
+    "name": "LIU RESORTS",
+    "certificateNos": [
+      "19450"
+    ],
+    "ministryDistricts": [
+      "MANAVGAT"
+    ],
+    "placeId": "ChIJieNOmnWR3BQR8a1SfQY_VH0",
+    "pricingRegion": "side",
+    "pricingName": "Side",
+    "prices": {
+      "vito": 50,
+      "sprinter": 85
+    },
+    "originalPrices": {
+      "vito": 60,
+      "sprinter": 100
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "linda-otel",
+    "name": "LİNDA OTEL",
+    "certificateNos": [
+      "10863"
+    ],
+    "ministryDistricts": [
+      "MANAVGAT"
+    ],
+    "placeId": "ChIJK8dfD1RXwxQRa-efk99vqVA",
+    "pricingRegion": "side",
+    "pricingName": "Side",
+    "prices": {
+      "vito": 50,
+      "sprinter": 85
+    },
+    "originalPrices": {
+      "vito": 60,
+      "sprinter": 100
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "linda-sunny-beach-spa",
+    "name": "LİNDA SUNNY BEACH & SPA",
+    "certificateNos": [
+      "13561"
+    ],
+    "ministryDistricts": [
+      "MANAVGAT"
+    ],
+    "placeId": "ChIJM9Zt7fFewxQR6kb6HymfaTk",
+    "pricingRegion": "side",
+    "pricingName": "Side",
+    "prices": {
+      "vito": 50,
+      "sprinter": 85
+    },
+    "originalPrices": {
+      "vito": 60,
+      "sprinter": 100
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "lrs-port-river-hotel-spa",
+    "name": "LRS PORT RIVER HOTEL & SPA",
+    "certificateNos": [
+      "14902"
+    ],
+    "ministryDistricts": [
+      "MANAVGAT"
+    ],
+    "placeId": "ChIJc_4bXABXwxQRnLNtNDVsnio",
+    "pricingRegion": "side",
+    "pricingName": "Side",
+    "prices": {
+      "vito": 50,
+      "sprinter": 85
+    },
+    "originalPrices": {
+      "vito": 60,
+      "sprinter": 100
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "lusso-sorgun",
+    "name": "LUSSO SORGUN",
+    "certificateNos": [
+      "27158"
+    ],
+    "ministryDistricts": [
+      "MANAVGAT"
+    ],
+    "placeId": "ChIJCYgnecpQwxQRDzNqgP_4BOo",
+    "pricingRegion": "side",
+    "pricingName": "Side",
+    "prices": {
+      "vito": 50,
+      "sprinter": 85
+    },
+    "originalPrices": {
+      "vito": 60,
+      "sprinter": 100
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "manavgat-kervan-otel",
+    "name": "MANAVGAT KERVAN OTEL",
+    "certificateNos": [
+      "2022-7-1479"
+    ],
+    "ministryDistricts": [
+      "MANAVGAT"
+    ],
+    "placeId": "ChIJUe2ablNXwxQRyfatw_gbJo4",
+    "pricingRegion": "side",
+    "pricingName": "Side",
+    "prices": {
+      "vito": 50,
+      "sprinter": 85
+    },
+    "originalPrices": {
+      "vito": 60,
+      "sprinter": 100
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "miramare-beach-hotel",
+    "name": "MIRAMARE BEACH HOTEL",
+    "certificateNos": [
+      "3497"
+    ],
+    "ministryDistricts": [
+      "MANAVGAT"
+    ],
+    "placeId": "ChIJZVu81MpewxQRT5VRKMVfGkU",
+    "pricingRegion": "side",
+    "pricingName": "Side",
+    "prices": {
+      "vito": 50,
+      "sprinter": 85
+    },
+    "originalPrices": {
+      "vito": 60,
+      "sprinter": 100
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "numa-club-side",
+    "name": "NUMA CLUB SIDE",
+    "certificateNos": [
+      "22762"
+    ],
+    "ministryDistricts": [
+      "MANAVGAT"
+    ],
+    "placeId": "ChIJX-JRGEdHdkAR8U_eIQibbcg",
+    "pricingRegion": "side",
+    "pricingName": "Side",
+    "prices": {
+      "vito": 50,
+      "sprinter": 85
+    },
+    "originalPrices": {
+      "vito": 60,
+      "sprinter": 100
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "oleander-otel",
+    "name": "OLEANDER OTEL",
+    "certificateNos": [
+      "11529"
+    ],
+    "ministryDistricts": [
+      "MANAVGAT"
+    ],
+    "placeId": "ChIJvzj3P9dZwxQRWtiH-t_2UCA",
+    "pricingRegion": "side",
+    "pricingName": "Side",
+    "prices": {
+      "vito": 50,
+      "sprinter": 85
+    },
+    "originalPrices": {
+      "vito": 60,
+      "sprinter": 100
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "orfeus-queen-spa",
+    "name": "ORFEUS  QUEEN  SPA",
+    "certificateNos": [
+      "20766"
+    ],
+    "ministryDistricts": [
+      "MANAVGAT"
+    ],
+    "placeId": "ChIJZcK-OllewxQR8Gp-w4mIqj4",
+    "pricingRegion": "side",
+    "pricingName": "Side",
+    "prices": {
+      "vito": 50,
+      "sprinter": 85
+    },
+    "originalPrices": {
+      "vito": 60,
+      "sprinter": 100
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "otel-durkaya",
+    "name": "OTEL DURKAYA",
+    "certificateNos": [
+      "2022-7-1442"
+    ],
+    "ministryDistricts": [
+      "MANAVGAT"
+    ],
+    "placeId": "ChIJA5quahNXwxQR5_7hucaoLS0",
+    "pricingRegion": "side",
+    "pricingName": "Side",
+    "prices": {
+      "vito": 50,
+      "sprinter": 85
+    },
+    "originalPrices": {
+      "vito": 60,
+      "sprinter": 100
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "port-side-resort-hotel",
+    "name": "PORT SİDE RESORT HOTEL",
+    "certificateNos": [
+      "12650"
+    ],
+    "ministryDistricts": [
+      "MANAVGAT"
+    ],
+    "placeId": "ChIJx4bG68hewxQR9WuzJbdX4B8",
+    "pricingRegion": "side",
+    "pricingName": "Side",
+    "prices": {
+      "vito": 50,
+      "sprinter": 85
+    },
+    "originalPrices": {
+      "vito": 60,
+      "sprinter": 100
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "ramada-resort-side",
+    "name": "RAMADA RESORT SİDE",
+    "certificateNos": [
+      "13744"
+    ],
+    "ministryDistricts": [
+      "MANAVGAT"
+    ],
+    "placeId": "ChIJa50ODCRfwxQR04QbiH5YjPk",
+    "pricingRegion": "side",
+    "pricingName": "Side",
+    "prices": {
+      "vito": 50,
+      "sprinter": 85
+    },
+    "originalPrices": {
+      "vito": 60,
+      "sprinter": 100
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "riolavitas-resort-spa",
+    "name": "RIOLAVITAS RESORT&SPA",
+    "certificateNos": [
+      "G_25977"
+    ],
+    "ministryDistricts": [
+      "MANAVGAT"
+    ],
+    "placeId": "ChIJh9wijE1XwxQRiZmaLOomt1E",
+    "pricingRegion": "side",
+    "pricingName": "Side",
+    "prices": {
+      "vito": 50,
+      "sprinter": 85
+    },
+    "originalPrices": {
+      "vito": 60,
+      "sprinter": 100
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "river-suite-otel",
+    "name": "RIVER SUITE OTEL",
+    "certificateNos": [
+      "2022-7-0354"
+    ],
+    "ministryDistricts": [
+      "MANAVGAT"
+    ],
+    "placeId": "ChIJezPGDNFXwxQRLOm6wClTf68",
+    "pricingRegion": "side",
+    "pricingName": "Side",
+    "prices": {
+      "vito": 50,
+      "sprinter": 85
+    },
+    "originalPrices": {
+      "vito": 60,
+      "sprinter": 100
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "roma-beach-resort-spa",
+    "name": "ROMA BEACH RESORT & SPA",
+    "certificateNos": [
+      "11644"
+    ],
+    "ministryDistricts": [
+      "MANAVGAT"
+    ],
+    "placeId": "ChIJd896kidZwxQR0GiHr13JANk",
+    "pricingRegion": "side",
+    "pricingName": "Side",
+    "prices": {
+      "vito": 50,
+      "sprinter": 85
+    },
+    "originalPrices": {
+      "vito": 60,
+      "sprinter": 100
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "seashell-vega",
+    "name": "SEASHELL VEGA",
+    "certificateNos": [
+      "23623"
+    ],
+    "ministryDistricts": [
+      "MANAVGAT"
+    ],
+    "placeId": "ChIJmSCa1q1ZwxQRlURQtG1J2Wc",
+    "pricingRegion": "side",
+    "pricingName": "Side",
+    "prices": {
+      "vito": 50,
+      "sprinter": 85
+    },
+    "originalPrices": {
+      "vito": 60,
+      "sprinter": 100
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "side-alegria-hotel-spa",
+    "name": "SİDE ALEGRİA HOTEL & SPA",
+    "certificateNos": [
+      "16293"
+    ],
+    "ministryDistricts": [
+      "MANAVGAT"
+    ],
+    "placeId": "ChIJk0qHjzhZwxQRSWBUjaw9KDY",
+    "pricingRegion": "side",
+    "pricingName": "Side",
+    "prices": {
+      "vito": 50,
+      "sprinter": 85
+    },
+    "originalPrices": {
+      "vito": 60,
+      "sprinter": 100
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "side-breeze-otel",
+    "name": "SİDE BREEZE OTEL",
+    "certificateNos": [
+      "9767"
+    ],
+    "ministryDistricts": [
+      "MANAVGAT"
+    ],
+    "placeId": "ChIJbaC1DcZewxQRB1gdj1P-Gsw",
+    "pricingRegion": "side",
+    "pricingName": "Side",
+    "prices": {
+      "vito": 50,
+      "sprinter": 85
+    },
+    "originalPrices": {
+      "vito": 60,
+      "sprinter": 100
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "side-mare-resort-spa-otel",
+    "name": "SİDE MARE RESORT & SPA OTEL",
+    "certificateNos": [
+      "9476"
+    ],
+    "ministryDistricts": [
+      "MANAVGAT"
+    ],
+    "placeId": "ChIJLdtXyTlZwxQRIefolhI8UDA",
+    "pricingRegion": "side",
+    "pricingName": "Side",
+    "prices": {
+      "vito": 50,
+      "sprinter": 85
+    },
+    "originalPrices": {
+      "vito": 60,
+      "sprinter": 100
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "side-story-resort-spa",
+    "name": "Side Story Resort & Spa",
+    "certificateNos": [
+      "9717"
+    ],
+    "ministryDistricts": [
+      "MANAVGAT"
+    ],
+    "placeId": "ChIJIXHdm25ZwxQR-ZR8hDE3oz4",
+    "pricingRegion": "side",
+    "pricingName": "Side",
+    "prices": {
+      "vito": 50,
+      "sprinter": 85
+    },
+    "originalPrices": {
+      "vito": 60,
+      "sprinter": 100
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "side-sun-otel",
+    "name": "SİDE SUN OTEL",
+    "certificateNos": [
+      "8067"
+    ],
+    "ministryDistricts": [
+      "MANAVGAT"
+    ],
+    "placeId": "ChIJyZpwOHxZwxQRFfUUBWXfZPs",
+    "pricingRegion": "side",
+    "pricingName": "Side",
+    "prices": {
+      "vito": 50,
+      "sprinter": 85
+    },
+    "originalPrices": {
+      "vito": 60,
+      "sprinter": 100
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "side-west-park-otel",
+    "name": "SİDE WEST PARK OTEL",
+    "certificateNos": [
+      "13895"
+    ],
+    "ministryDistricts": [
+      "MANAVGAT"
+    ],
+    "placeId": "ChIJVZf5XMRewxQRWohZ4qQUyS4",
+    "pricingRegion": "side",
+    "pricingName": "Side",
+    "prices": {
+      "vito": 50,
+      "sprinter": 85
+    },
+    "originalPrices": {
+      "vito": 60,
+      "sprinter": 100
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "sidekum-otel",
+    "name": "SİDEKUM OTEL",
+    "certificateNos": [
+      "11667"
+    ],
+    "ministryDistricts": [
+      "MANAVGAT"
+    ],
+    "placeId": "ChIJB5jG8DRZwxQRGiaXMi6eh5A",
+    "pricingRegion": "side",
+    "pricingName": "Side",
+    "prices": {
+      "vito": 50,
+      "sprinter": 85
+    },
+    "originalPrices": {
+      "vito": 60,
+      "sprinter": 100
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "sidelya-otel",
+    "name": "SİDELYA OTEL",
+    "certificateNos": [
+      "9972"
+    ],
+    "ministryDistricts": [
+      "MANAVGAT"
+    ],
+    "placeId": "ChIJ5RDFYQBfwxQRaUm7Ek7APYs",
+    "pricingRegion": "side",
+    "pricingName": "Side",
+    "prices": {
+      "vito": 50,
+      "sprinter": 85
+    },
+    "originalPrices": {
+      "vito": 60,
+      "sprinter": 100
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "simus-beach-hotel",
+    "name": "SİMUS BEACH HOTEL",
+    "certificateNos": [
+      "25021"
+    ],
+    "ministryDistricts": [
+      "MANAVGAT"
+    ],
+    "placeId": "ChIJCxawGnxZwxQRI2XM3jiDt4Y",
+    "pricingRegion": "side",
+    "pricingName": "Side",
+    "prices": {
+      "vito": 50,
+      "sprinter": 85
+    },
+    "originalPrices": {
+      "vito": 60,
+      "sprinter": 100
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "sueno-hotels-beach-side",
+    "name": "SUENO HOTELS BEACH SİDE",
+    "certificateNos": [
+      "18256"
+    ],
+    "ministryDistricts": [
+      "MANAVGAT"
+    ],
+    "placeId": "ChIJk7wjmnZZwxQRQC_w7LKyaF8",
+    "pricingRegion": "side",
+    "pricingName": "Side",
+    "prices": {
+      "vito": 50,
+      "sprinter": 85
+    },
+    "originalPrices": {
+      "vito": 60,
+      "sprinter": 100
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "thalia-unique",
+    "name": "THALİA UNİQUE",
+    "certificateNos": [
+      "18054"
+    ],
+    "ministryDistricts": [
+      "MANAVGAT"
+    ],
+    "placeId": "ChIJyZpwOHxZwxQRVHZETHKuCOY",
+    "pricingRegion": "side",
+    "pricingName": "Side",
+    "prices": {
+      "vito": 50,
+      "sprinter": 85
+    },
+    "originalPrices": {
+      "vito": 60,
+      "sprinter": 100
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "trendy-side-beach",
+    "name": "TRENDY SİDE BEACH",
+    "certificateNos": [
+      "9147"
+    ],
+    "ministryDistricts": [
+      "MANAVGAT"
+    ],
+    "placeId": "ChIJCaxQBXtZwxQRdFb063OkEKE",
+    "pricingRegion": "side",
+    "pricingName": "Side",
+    "prices": {
+      "vito": 50,
+      "sprinter": 85
+    },
+    "originalPrices": {
+      "vito": 60,
+      "sprinter": 100
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "armas-kaplan-paradise",
+    "name": "ARMAS KAPLAN PARADISE",
+    "certificateNos": [
+      "G_25626"
+    ],
+    "ministryDistricts": [
+      "KONYAALTI"
+    ],
+    "placeId": "ChIJ-2O_Suy1wxQRKczGYbvX87A",
+    "pricingRegion": "tekirova",
+    "pricingName": "Tekirova",
+    "prices": {
+      "vito": 75,
+      "sprinter": 115
+    },
+    "originalPrices": {
+      "vito": 90,
+      "sprinter": 135
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "rai-foresta-tekirova-spa",
+    "name": "RAI FORESTA TEKIROVA & SPA",
+    "certificateNos": [
+      "19034"
+    ],
+    "ministryDistricts": [
+      "KEMER"
+    ],
+    "placeId": "ChIJ33WX-Mq1wxQRGbqLv73lKCI",
+    "pricingRegion": "tekirova",
+    "pricingName": "Tekirova",
+    "prices": {
+      "vito": 75,
+      "sprinter": 115
+    },
+    "originalPrices": {
+      "vito": 90,
+      "sprinter": 135
+    },
+    "status": "ready",
+    "reviewReasons": []
+  },
+  {
+    "proposedSlug": "sirius-otel",
+    "name": "SİRİUS OTEL",
+    "certificateNos": [
+      "4919"
+    ],
+    "ministryDistricts": [
+      "KEMER"
+    ],
+    "placeId": "ChIJybi8Ep7KwxQRq6cfATMhjX0",
+    "pricingRegion": "tekirova",
+    "pricingName": "Tekirova",
+    "prices": {
+      "vito": 75,
+      "sprinter": 115
+    },
+    "originalPrices": {
+      "vito": 90,
+      "sprinter": 135
+    },
+    "status": "ready",
+    "reviewReasons": []
+  }
+]

@@ -1,6 +1,7 @@
 import { parsePhoneNumberFromString } from "libphonenumber-js";
 import { z } from "zod";
 import { routeCatalog } from "../../../src/routes.js";
+import { hotelUnitPrice } from "../../../src/hotel-transfer-pricing.js";
 
 type Translate = (key: string, fallback?: string) => string;
 export const DAILY_CHAUFFEUR_RATE_EUR = 150;
@@ -33,6 +34,7 @@ export function createPublicBookingSchema(t: Translate) {
     serviceEndDate: z.string(), pickupTime: z.string(),
     departureFlightDate: z.string(), departureFlightTime: z.string(), departureFlightNumber: z.string(),
     pickupAddress: z.string(), dropoffAddress: z.string(), hotelName: z.string(),
+    hotelRegion: z.string().default(""),
     customerName: z.string(), customerPhone: z.string(), customerEmail: z.string(),
   }).superRefine((values, context) => {
     const today = new Date();
@@ -119,8 +121,22 @@ export type LivePriceOverrides = {
   dailyRates?: Partial<Record<"vito" | "sprinter", number>>;
 };
 
+/**
+ * The route whose fixed price applies to this journey.
+ *
+ * Transfers are priced per region and cost the same in both directions, so a
+ * run from a hotel back to the airport is priced on that hotel's region just
+ * like the outbound leg was. `hotelRegion` is filled in when the guest picks
+ * their hotel from the index; without it an airport-bound journey has no
+ * region to price on and still falls back to a manual quote.
+ */
+export function pricedRouteSlug(values: Pick<PublicBookingValues, "destination" | "hotelRegion">) {
+  const slug = values.destination === "airport" ? values.hotelRegion ?? "" : values.destination;
+  return slug in routeCatalog ? slug : "";
+}
+
 export function quoteFor(
-  values: Pick<PublicBookingValues, "destination" | "vehicle" | "tripType" | "travelDate" | "serviceEndDate">,
+  values: Pick<PublicBookingValues, "destination" | "hotelRegion" | "hotelName" | "vehicle" | "tripType" | "travelDate" | "serviceEndDate">,
   overrides?: LivePriceOverrides,
 ) {
   if (values.tripType === "daily_chauffeur") {
@@ -129,14 +145,22 @@ export function quoteFor(
     const price = days > 0 && days <= MAX_DAILY_CHAUFFEUR_DAYS ? days * dailyRate : 0;
     return { price, originalPrice: price };
   }
-  const route = routeCatalog[values.destination as keyof typeof routeCatalog];
+  const slug = pricedRouteSlug(values);
+  const route = routeCatalog[slug as keyof typeof routeCatalog];
   if (!route) return { price: 0, originalPrice: 0 };
   const journeys = values.tripType === "round_trip" ? 2 : 1;
-  const liveUnitPrice = overrides?.routePrices?.[`${values.destination}:${values.vehicle}`];
-  const unitPrice = liveUnitPrice ?? route.prices[values.vehicle];
+  const liveUnitPrice = overrides?.routePrices?.[`${slug}:${values.vehicle}`];
+  const effectiveUnitPrice = liveUnitPrice ?? route.prices[values.vehicle];
+  // Floor both the live price and the struck-through "was" price by the hotel's
+  // own distance band. Applies to both directions: `slug` resolves whether the
+  // guest arrives at (destination = region) or leaves (destination = "airport",
+  // hotelRegion set) the hotel. Flooring originalPrice too keeps it ≥ price, so
+  // the discount never inverts when a distant hotel is banded above its region.
+  const unitPrice = hotelUnitPrice(values.hotelName, values.vehicle, effectiveUnitPrice);
+  const originalUnitPrice = hotelUnitPrice(values.hotelName, values.vehicle, route.originalPrices[values.vehicle]);
   return {
     price: unitPrice * journeys,
-    originalPrice: route.originalPrices[values.vehicle] * journeys,
+    originalPrice: originalUnitPrice * journeys,
   };
 }
 

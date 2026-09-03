@@ -1,0 +1,130 @@
+// scripts/build-hotel-distances.mjs
+/**
+ * Generates src/hotel-distances.js — one-way driving km from Antalya Airport
+ * (AYT) to each indexed hotel — by geocoding the hotel (Places Text Search) and
+ * routing to it (Routes API computeRoutes).
+ *
+ * Incremental by default: only hotels missing a km are fetched, so re-running
+ * after adding hotels to the index costs only the new ones. Existing rows — and
+ * always checked:true rows — are preserved.
+ *
+ *   export GOOGLE_MAPS_API_KEY="AIza…"
+ *   node scripts/build-hotel-distances.mjs            # gap-fill
+ *   node scripts/build-hotel-distances.mjs --refresh  # re-pull all but checked
+ *   node scripts/build-hotel-distances.mjs --only voyage-sorgun
+ *
+ * Writes src/hotel-distances.js and scripts/hotel-distances.report.json.
+ */
+import { writeFile } from "node:fs/promises";
+import { hotelIndex } from "../src/hotel-index.js";
+import { routeCatalog } from "../src/routes.js";
+import { slugsToProcess, applyResult, routeDestination } from "./lib/hotel-distances-merge.mjs";
+import { hotelDistances as existing } from "../src/hotel-distances.js";
+
+const AYT = { lat: 36.898701, lng: 30.800545 };
+const KEY = process.env.GOOGLE_MAPS_API_KEY || process.env.GOOGLE_PLACES_API_KEY;
+if (!KEY) { console.error("Set GOOGLE_MAPS_API_KEY (or GOOGLE_PLACES_API_KEY)"); process.exit(1); }
+
+const args = process.argv.slice(2);
+const opts = {
+  refresh: args.includes("--refresh"),
+  only: args.includes("--only") ? args[args.indexOf("--only") + 1] : undefined,
+};
+const OUTLIER_PCT = 40; // report flag threshold vs region distance
+
+// A hard search box around AYT, sized to how far the hotel's region sits from
+// the airport. A same-name hotel resolves to the one at the right distance:
+// "Artemis" in the 15 km antalya region can't match Kaş Artemis 185 km away,
+// while a Kaş hotel (185 km region) still gets a box wide enough to include it.
+// Centered on AYT with a generous floor so a whole region always fits.
+function searchBox(hotel) {
+  const regionKm = routeCatalog[hotel.region]?.distanceKm ?? 50;
+  const halfKm = Math.max(regionKm * 1.6, 35);
+  const latSpan = halfKm / 111;
+  const lngSpan = halfKm / (111 * Math.cos((AYT.lat * Math.PI) / 180));
+  return {
+    low: { latitude: AYT.lat - latSpan, longitude: AYT.lng - lngSpan },
+    high: { latitude: AYT.lat + latSpan, longitude: AYT.lng + lngSpan },
+  };
+}
+
+async function geocode(hotel) {
+  const res = await fetch("https://places.googleapis.com/v1/places:searchText", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "X-Goog-Api-Key": KEY,
+      "X-Goog-FieldMask": "places.id,places.location,places.displayName",
+    },
+    body: JSON.stringify({
+      textQuery: `${hotel.name}, ${hotel.district}, Antalya, Turkey`,
+      locationRestriction: { rectangle: searchBox(hotel) },
+    }),
+  });
+  if (!res.ok) throw new Error(`Places ${res.status}: ${(await res.text()).slice(0, 200)}`);
+  const json = await res.json();
+  const place = json.places?.[0];
+  if (!place) return null;
+  return { place: place.id, lat: place.location.latitude, lng: place.location.longitude, matched: place.displayName?.text };
+}
+
+async function drive(destination) {
+  const res = await fetch("https://routes.googleapis.com/directions/v2:computeRoutes", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "X-Goog-Api-Key": KEY,
+      "X-Goog-FieldMask": "routes.distanceMeters",
+    },
+    body: JSON.stringify({
+      origin: { location: { latLng: { latitude: AYT.lat, longitude: AYT.lng } } },
+      destination,
+      travelMode: "DRIVE",
+    }),
+  });
+  if (!res.ok) throw new Error(`Routes ${res.status}: ${(await res.text()).slice(0, 200)}`);
+  const json = await res.json();
+  const meters = json.routes?.[0]?.distanceMeters;
+  return Number.isFinite(meters) ? Math.round(meters / 1000) : null;
+}
+
+const bySlug = new Map(hotelIndex.map((h) => [h.slug, h]));
+const todo = slugsToProcess(hotelIndex, existing, opts);
+console.error(`Processing ${todo.length} of ${hotelIndex.length} hotels`);
+
+let data = existing;
+const report = [];
+for (const slug of todo) {
+  const hotel = bySlug.get(slug);
+  let result = null, matched = null;
+  try {
+    const geo = hotel.placeId ? null : await geocode(hotel);
+    if (hotel.placeId || geo) {
+      const km = await drive(routeDestination(hotel, geo));
+      const place = hotel.placeId ?? geo.place;
+      if (km != null) {
+        result = { km, place };
+        matched = hotel.placeId ? hotel.name : geo.matched;
+      }
+    }
+  } catch (err) {
+    console.error(`  ${slug}: ${err.message}`);
+  }
+  data = applyResult(data, hotel, result);
+  const regionKm = routeCatalog[hotel.region]?.distanceKm ?? null;
+  const dev = result && regionKm ? Math.round(((result.km - regionKm) / regionKm) * 100) : null;
+  report.push({ slug, name: hotel.name, district: hotel.district, region: hotel.region,
+    km: result?.km ?? null, regionKm, deviationPct: dev, matched,
+    flag: dev != null && Math.abs(dev) > OUTLIER_PCT ? "OUTLIER" : (result ? "" : "NO-MATCH") });
+  await new Promise((r) => setTimeout(r, 120)); // gentle throttle
+}
+
+const sorted = Object.fromEntries(Object.entries(data).sort(([a], [b]) => a.localeCompare(b)));
+const file = `// Generated by scripts/build-hotel-distances.mjs — do not edit by hand except
+// to flip \`checked: true\` on a human-verified row (the generator preserves those).
+// One-way driving km from Antalya Airport (AYT) to each indexed hotel.
+export const hotelDistances = Object.freeze(${JSON.stringify(sorted, null, 2)});
+`;
+await writeFile(new URL("../src/hotel-distances.js", import.meta.url), file);
+await writeFile(new URL("./hotel-distances.report.json", import.meta.url), JSON.stringify(report, null, 2));
+console.error(`Wrote ${Object.keys(sorted).length} rows. Outliers/no-match: ${report.filter((r) => r.flag).length}`);

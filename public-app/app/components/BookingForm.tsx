@@ -3,14 +3,16 @@ import { useEffect, useMemo, useState } from "react";
 import { Controller, useForm, type FieldError } from "react-hook-form";
 import PhoneInput, { type Country } from "react-phone-number-input";
 import "react-phone-number-input/style.css";
-import { publicRouteSlugs, routeCatalog } from "../../../src/routes.js";
+import { bookableRouteSlugs, routeCatalog } from "../../../src/routes.js";
 import { useLanguage, type LanguageCode } from "../i18n";
+import { HotelCombobox, type IndexedHotel } from "./HotelCombobox";
 import { Icon } from "./Icon";
 import {
   buildPublicBookingPayload,
   createPublicBookingSchema,
   fetchLivePriceOverrides,
   inclusiveDayCount,
+  pricedRouteSlug,
   quoteFor,
   DAILY_CHAUFFEUR_RATE_EUR,
   type LivePriceOverrides,
@@ -89,9 +91,9 @@ export function BookingForm({
   const { language, t } = useLanguage();
   const schema = useMemo(() => createPublicBookingSchema(t), [t]);
   const destinationSlugs = useMemo(() => {
-    const nameFor = (slug: typeof publicRouteSlugs[number]) =>
+    const nameFor = (slug: typeof bookableRouteSlugs[number]) =>
       routeCatalog[slug].names[language as keyof typeof routeCatalog[typeof slug]["names"]] ?? routeCatalog[slug].names.en;
-    return [...publicRouteSlugs].sort((a, b) => nameFor(a).localeCompare(nameFor(b), language));
+    return [...bookableRouteSlugs].sort((a, b) => nameFor(a).localeCompare(nameFor(b), language));
   }, [language]);
   const [step, setStep] = useState<1 | 2 | 3>(1);
   const [minimumDate, setMinimumDate] = useState("");
@@ -101,6 +103,7 @@ export function BookingForm({
   const [pendingDailyBooking, setPendingDailyBooking] = useState<PublicBookingValues | null>(null);
   const [fuelAcknowledged, setFuelAcknowledged] = useState(false);
   const [liveOverrides, setLiveOverrides] = useState<LivePriceOverrides>({});
+  const [hotelMatch, setHotelMatch] = useState<IndexedHotel | null>(null);
   const {
     register,
     handleSubmit,
@@ -119,7 +122,7 @@ export function BookingForm({
       luggage: "", childSeats: "0", childAges: [], travelDate: "", arrivalTime: "", flightNumber: "",
       returnDate: "", returnPickupTime: "", returnFlightNumber: "", pickupAddress: "",
       serviceEndDate: "", pickupTime: "", departureFlightDate: "", departureFlightTime: "", departureFlightNumber: "",
-      dropoffAddress: "", hotelName: "", customerName: "", customerPhone: "", customerEmail: "",
+      dropoffAddress: "", hotelName: "", hotelRegion: "", customerName: "", customerPhone: "", customerEmail: "",
     },
   });
 
@@ -128,8 +131,13 @@ export function BookingForm({
   const hireDays = isDailyChauffeur ? inclusiveDayCount(values.travelDate, values.serviceEndDate) : 0;
   const quote = quoteFor(values, liveOverrides);
   const dailyRateEur = liveOverrides.dailyRates?.[values.vehicle] ?? DAILY_CHAUFFEUR_RATE_EUR;
-  const selectedRoute = routeCatalog[values.destination as keyof typeof routeCatalog];
-  const selectedRouteName = selectedRoute?.names[language as keyof typeof selectedRoute.names] ?? selectedRoute?.names.en;
+  const regionLabel = (region: string) => {
+    const route = routeCatalog[region as keyof typeof routeCatalog];
+    return route ? route.names[language as keyof typeof route.names] ?? route.names.en : region;
+  };
+  const pricedRoute = pricedRouteSlug(values);
+  const selectedRoute = routeCatalog[pricedRoute as keyof typeof routeCatalog];
+  const selectedRouteName = selectedRoute ? regionLabel(pricedRoute) : undefined;
   const pickupName = values.pickup === "airport"
     ? t("airportOption", "Antalya Airport (AYT)")
     : values.pickup === "hotel"
@@ -140,10 +148,42 @@ export function BookingForm({
     : values.destination === "private_address"
       ? t("privateAddressOption", "Private address")
       : selectedRouteName ?? values.destination;
+  const pickupLabel = values.pickup === "hotel" && selectedRouteName ? selectedRouteName : pickupName;
   const isPrivateAddressQuote = !isDailyChauffeur && values.pickup === "private_address" && values.destination === "private_address";
   const vitoFits = Number(values.guests) <= 6 && Number(values.luggage) <= 6 && Number(values.guests) + Number(values.luggage) <= 12;
   const hasPrice = !isDailyChauffeur && selectedRoute && quote.price > 0;
   const childSeatCount = Number(values.childSeats) || 0;
+  // The hotel is the destination on an airport pickup, and that is the case
+  // where knowing it also tells us the region. Leaving a hotel, or heading to
+  // a private address, the name is only collected as an address detail.
+  const hotelSetsDestination = !isDailyChauffeur && values.pickup !== "hotel"
+    && values.destination !== "airport" && values.destination !== "private_address";
+  const hotelNeeded = isDailyChauffeur || values.pickup === "hotel" || values.destination !== "private_address";
+
+  // Naming the belde alongside the region reassures a guest whose hotel is
+  // priced under a neighbouring region's name — an Okurcalar hotel quoted at
+  // the Manavgat/Kızılağaç tariff should still see "Okurcalar" confirmed back.
+  const hotelMatchLabel = !hotelMatch ? "" : hotelMatch.district === regionLabel(hotelMatch.region)
+    ? `${hotelMatch.name} — ${hotelMatch.district}`
+    : `${hotelMatch.name} · ${hotelMatch.district} — ${regionLabel(hotelMatch.region)}`;
+
+  const handleHotelInput = (name: string) => {
+    setValue("hotelName", name, { shouldValidate: false });
+    if (!hotelMatch || name === hotelMatch.name) return;
+    // The typed name no longer names the matched hotel, so its region is no
+    // longer ours to price on.
+    setHotelMatch(null);
+    setValue("hotelRegion", "", { shouldValidate: false });
+  };
+
+  const handleHotelSelect = (hotel: IndexedHotel) => {
+    setValue("hotelName", hotel.name, { shouldValidate: true });
+    setValue("hotelRegion", hotel.region, { shouldValidate: false });
+    setHotelMatch(hotel);
+    if (!hotelSetsDestination) return;
+    setValue("destination", hotel.region, { shouldValidate: true });
+    window.gtag?.("event", "hotel_region_detected", { hotel: hotel.slug, region: hotel.region });
+  };
 
   useEffect(() => {
     setValue("childAges", Array.from({ length: childSeatCount }, (_, i) => values.childAges?.[i] ?? ""), { shouldValidate: false });
@@ -257,11 +297,12 @@ export function BookingForm({
     void createValidatedBooking(booking, true);
   };
 
-  const advanceToStep2 = () => {
+  const advanceToStep2 = async () => {
     if (!isDailyChauffeur && !values.destination) {
       setError("destination", { message: t("destinationRequired", "Please select a destination.") });
       return;
     }
+    if (hotelNeeded && !(await trigger("hotelName"))) return;
     window.gtag?.("event", "price_shown", { route: values.destination, price: quote.price, vehicle: values.vehicle });
     setStep(2);
     window.setTimeout(() => document.querySelector<HTMLElement>("#travel-date")?.focus(), 100);
@@ -272,7 +313,7 @@ export function BookingForm({
     if (values.tripType === "round_trip") step2Fields.push("returnDate", "returnPickupTime");
     if (values.pickup === "private_address") step2Fields.push("pickupAddress");
     if (values.destination === "private_address") step2Fields.push("dropoffAddress");
-    if (!isDailyChauffeur) step2Fields.push("hotelName", "flightNumber");
+    if (!isDailyChauffeur) step2Fields.push("flightNumber");
     const valid = await trigger(step2Fields);
     if (!valid) return;
     window.gtag?.("event", "booking_started", { route: values.destination, price: quote.price });
@@ -281,6 +322,24 @@ export function BookingForm({
   };
 
   const fieldClass = (error?: FieldError) => `booking-field${error ? " has-error" : ""}`;
+  const renderHotelField = () => (
+    <label className={fieldClass(errors.hotelName)} htmlFor="hotel-name">
+      <span>{t("hotelNameLabel", "Hotel name")}</span>
+      <HotelCombobox
+        id="hotel-name"
+        value={values.hotelName}
+        onChange={handleHotelInput}
+        onSelect={handleHotelSelect}
+        onNotListed={() => document.querySelector<HTMLSelectElement>("#destination")?.focus()}
+        placeholder={t("hotelNamePlaceholder", "Hotel or accommodation name")}
+        regionLabel={regionLabel}
+        notListedLabel={t("hotelNotListed", "My hotel is not in the list")}
+        noResultsLabel={t("hotelNoMatch", "No match yet. Type the name and pick the region yourself.")}
+        describedBy={hotelSetsDestination ? "hotel-region-hint" : undefined}
+      />
+      <FieldErrorMessage error={errors.hotelName} />
+    </label>
+  );
   const openTimePicker = (id: string) => {
     const input = document.querySelector<HTMLInputElement>(`#${id}`);
     input?.focus();
@@ -299,7 +358,7 @@ export function BookingForm({
             {isDailyChauffeur
               ? <><span className="price-display-route">{t("dailyChauffeur", "Daily vehicle + chauffeur")} · {hireDays || 0} {t("days", "days")}</span><span className="price-display-prices"><strong className="price-display-amount">€{quote.price}</strong></span><span className="price-display-note">€{dailyRateEur} × {hireDays || 0} · {t("fuelExcludedShort", "fuel excluded")}</span></>
               : selectedRoute && quote.price > 0
-                ? <><span className="price-display-route">{pickupName} {values.tripType === "round_trip" ? "⇄" : "→"} {destinationName}</span><span className="price-display-prices"><strong className="price-display-amount">€{quote.price}</strong></span><span className="price-display-note">{values.vehicle === "sprinter" ? "Mercedes Sprinter" : "Mercedes Vito"} · {values.tripType === "round_trip" ? `${t("roundTripPriceNote", "round trip · 2 journeys")} · ` : ""}{t("perVehicle", "fixed · per vehicle")}</span></>
+                ? <><span className="price-display-route">{pickupLabel} {values.tripType === "round_trip" ? "⇄" : "→"} {destinationName}</span><span className="price-display-prices"><strong className="price-display-amount">€{quote.price}</strong></span><span className="price-display-note">{values.vehicle === "sprinter" ? "Mercedes Sprinter" : "Mercedes Vito"} · {values.tripType === "round_trip" ? `${t("roundTripPriceNote", "round trip · 2 journeys")} · ` : ""}{t("perVehicle", "fixed · per vehicle")}</span></>
                 : values.destination
                   ? <><span className="price-display-route">{pickupName} {values.tripType === "round_trip" ? "⇄" : "→"} {destinationName}</span><span className="price-display-note">{values.destination === "airport" ? t("airportReturnPrice", "Price confirmed after address review.") : t("customDestinationPrice", "Price confirmed after address review.")}</span></>
                   : null}
@@ -339,6 +398,17 @@ export function BookingForm({
                 </div>
                 <p className="trip-type-hint">{isDailyChauffeur ? t("dailyChauffeurHint", "Hire a private vehicle and chauffeur by the day with no kilometre or hour limit. Fuel is paid separately.") : t("roundTripHint", "For a round trip, the return follows the same route in reverse.")}</p>
               </fieldset>
+
+              {!isDailyChauffeur && (
+                <div className="booking-row booking-hotel-row">
+                  {renderHotelField()}
+                  <p className={`hotel-region-hint${hotelMatch && hotelSetsDestination ? " is-matched" : ""}`} id="hotel-region-hint">
+                    {hotelMatch && hotelSetsDestination
+                      ? hotelMatchLabel
+                      : t("hotelSearchHint", "Type your hotel name and pick it from the list; we fill in the destination region and price for you.")}
+                  </p>
+                </div>
+              )}
 
               <div className={`booking-row booking-row-journey${isDailyChauffeur ? " daily" : ""}`}>
                 <label className={fieldClass(errors.pickup)}>
@@ -454,11 +524,6 @@ export function BookingForm({
               )}
 
               <div className="booking-row booking-options-row">
-                <label className={fieldClass(errors.hotelName)}>
-                  <span>{t("hotelNameLabel", "Hotel name")}</span>
-                  <div className="field-control"><Icon name="pin" className="icon" /><input id="hotel-name" maxLength={120} placeholder={t("hotelNamePlaceholder", "Hotel or accommodation name")} {...register("hotelName")} /></div>
-                  <FieldErrorMessage error={errors.hotelName} />
-                </label>
                 <label className={fieldClass(errors.luggage)}>
                   <span>{t("luggageLabel", "Large luggage")}</span>
                   <div className="field-control"><Icon name="luggage" className="icon" /><select id="luggage" {...register("luggage")}><option value="">{t("selectLuggage", "Select")}</option>{Array.from({ length: 13 }, (_, index) => <option value={index} key={index}>{index}</option>)}</select></div>
@@ -516,7 +581,7 @@ export function BookingForm({
               </div>
               <div className="booking-row booking-options-row">
                 <label className={fieldClass(errors.luggage)}><span>{t("luggageLabel", "Large luggage")}</span><div className="field-control"><Icon name="luggage" className="icon" /><select id="luggage" {...register("luggage")}><option value="">{t("selectLuggage", "Select")}</option>{Array.from({ length: 13 }, (_, index) => <option value={index} key={index}>{index}</option>)}</select></div><FieldErrorMessage error={errors.luggage} /></label>
-                <label className={fieldClass(errors.hotelName)}><span>{t("hotelNameLabel", "Hotel name")}</span><div className="field-control"><Icon name="pin" className="icon" /><input id="hotel-name" maxLength={120} placeholder={t("hotelNamePlaceholder", "Hotel or accommodation name")} {...register("hotelName")} /></div><FieldErrorMessage error={errors.hotelName} /></label>
+                {renderHotelField()}
                 <label className={fieldClass(errors.childSeats)}><span>{t("childSeatLabel", "Child seats")}</span><div className="field-control"><Icon name="baby" className="icon" /><select id="child-seats" {...register("childSeats")}>{Array.from({ length: 5 }, (_, index) => <option value={index} key={index}>{index === 0 ? t("childSeatNone", "No child seat") : t(["", "oneChildSeat", "twoChildSeats", "threeChildSeats", "fourChildSeats"][index], `${index} child seat${index > 1 ? "s" : ""}`)}</option>)}</select></div><FieldErrorMessage error={errors.childSeats} /></label>
               </div>
               {childSeatCount > 0 && (

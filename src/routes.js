@@ -46,6 +46,63 @@ export const routeCatalog = {
     originalPrices: { vito: 110, sprinter: 170 },
     prices: { vito: 95, sprinter: 145 },
   },
+  // Alanya sub-regions. The single €95 Alanya tariff covered everything from
+  // Okurcalar to Demirtaş — a 65 km spread — so ALANYA_PRICING_PLAN.md splits
+  // it by distance. `landingRoute` names the marketed page these belong to and
+  // keeps them out of the route pages and the sitemap: they are prices the
+  // hotel index resolves to, not destinations anyone searches for. A hotel in
+  // one of them is still presented under Alanya, and priced by its own
+  // sub-region. `alanya` itself stays listed, keeps its
+  // landing page, and remains the fallback for a guest who cannot place their
+  // own hotel — the dearest of the six, so an unknown hotel is never undersold.
+  //
+  // Distances and durations here are estimates and feed the profit/loss cost
+  // model, not the customer's price. Confirm them against real journeys.
+  alanya_bati: {
+    names: { en: "West Alanya", de: "West-Alanya", tr: "Batı Alanya", ru: "Западную Аланью", cs: "Západní Alanya", uk: "Західна Аланія", ur: "مغربی الانیا" },
+    distanceKm: 105,
+    durationMin: 100,
+    duration: { en: "90–110 minutes", de: "90–110 Minuten", tr: "90–110 dakika", ru: "90–110 минут", cs: "90–110 minut", uk: "90–110 хвилин", ur: "90–110 منٹ" },
+    originalPrices: { vito: 80, sprinter: 105 },
+    prices: { vito: 70, sprinter: 90 },
+    landingRoute: "alanya", // covers Okurcalar, İncekum, Avsallar, Türkler, Payallar, Konaklı
+  },
+  alanya_merkez: {
+    names: { en: "Alanya Centre", de: "Alanya Zentrum", tr: "Alanya merkez", ru: "центр Аланьи", cs: "centrum Alanye", uk: "Центр Аланії", ur: "الانیا شہر" },
+    distanceKm: 125,
+    durationMin: 120,
+    duration: { en: "110–130 minutes", de: "110–130 Minuten", tr: "110–130 dakika", ru: "110–130 минут", cs: "110–130 minut", uk: "110–130 хвилин", ur: "110–130 منٹ" },
+    originalPrices: { vito: 85, sprinter: 110 },
+    prices: { vito: 75, sprinter: 95 },
+    landingRoute: "alanya", // covers Merkez, Kleopatra, Oba, Tosmur
+  },
+  alanya_dogu: {
+    names: { en: "East Alanya", de: "Ost-Alanya", tr: "Doğu Alanya", ru: "Восточную Аланью", cs: "Východní Alanya", uk: "Східна Аланія", ur: "مشرقی الانیا" },
+    distanceKm: 138,
+    durationMin: 130,
+    duration: { en: "120–140 minutes", de: "120–140 Minuten", tr: "120–140 dakika", ru: "120–140 минут", cs: "120–140 minut", uk: "120–140 хвилин", ur: "120–140 منٹ" },
+    originalPrices: { vito: 90, sprinter: 120 },
+    prices: { vito: 80, sprinter: 105 },
+    landingRoute: "alanya", // covers Kestel, Mahmutlar
+  },
+  kargicak: {
+    names: { en: "Kargıcak", de: "Kargıcak", tr: "Kargıcak", ru: "Каргыджак", cs: "Kargıcak", uk: "Каргиджак", ur: "کارگیجاک" },
+    distanceKm: 150,
+    durationMin: 145,
+    duration: { en: "135–155 minutes", de: "135–155 Minuten", tr: "135–155 dakika", ru: "135–155 минут", cs: "135–155 minut", uk: "135–155 хвилин", ur: "135–155 منٹ" },
+    originalPrices: { vito: 105, sprinter: 135 },
+    prices: { vito: 90, sprinter: 115 },
+    landingRoute: "alanya", // covers Kargıcak
+  },
+  demirtas: {
+    names: { en: "Demirtaş", de: "Demirtaş", tr: "Demirtaş", ru: "Демирташ", cs: "Demirtaş", uk: "Демірташ", ur: "دیمرتاش" },
+    distanceKm: 170,
+    durationMin: 165,
+    duration: { en: "155–175 minutes", de: "155–175 Minuten", tr: "155–175 dakika", ru: "155–175 минут", cs: "155–175 minut", uk: "155–175 хвилин", ur: "155–175 منٹ" },
+    originalPrices: { vito: 115, sprinter: 150 },
+    prices: { vito: 100, sprinter: 130 },
+    landingRoute: "alanya", // covers Demirtaş
+  },
   bogazkent: {
     names: { en: "Boğazkent", de: "Boğazkent", tr: "Boğazkent", ru: "Богазкент", cs: "Boğazkent", uk: "Богазкент", ur: "بوازکینت", zh: "博阿兹肯特", da: "Boğazkent", es: "Boğazkent", el: "Μπογάζκεντ", he: "בואזקנט", hu: "Boğazkent", it: "Boğazkent", ja: "ボアズケント", ko: "보아즈켄트", pt: "Boğazkent", ro: "Boğazkent" },
     distanceKm: 48,
@@ -77,6 +134,31 @@ export const routeCatalog = {
     duration: { en: "75–90 minutes", de: "75–90 Minuten", tr: "75–90 dakika", ru: "75–90 минут", cs: "75–90 minut", uk: "75–90 хвилин", ur: "75–90 منٹ", pl: "75–90 minut", nl: "75–90 minuten", sv: "75–90 minuter", ar: "75–90 دقيقة", zh: "75–90分钟", da: "75-90 minutter", es: "75–90 minutos", el: "75–90 λεπτά", he: "75–90 דקות", hu: "75–90 perc", it: "75–90 minuti", ja: "75〜90分", ko: "75~90분", pt: "75–90 minutos", ro: "75–90 de minute" },
     originalPrices: { vito: 90, sprinter: 135 },
     prices: { vito: 75, sprinter: 115 },
+  },
+  // Kumluca and Kaş sit west of Tekirova on the Antalya–Fethiye coast road,
+  // far past the €75 Tekirova tariff. They carry no marketed landing page —
+  // the index resolves a handful of Kumluca/Adrasan and Kaş hotels to them and
+  // prices those journeys on their own distance. `landingRoute` keeps them out
+  // of the route pages and sitemap while still letting a guest name them as a
+  // destination and quote the fare. Distances feed the profit model, not the
+  // customer price.
+  kumluca: {
+    names: { en: "Kumluca", de: "Kumluca", tr: "Kumluca", ru: "Кумлуджа", cs: "Kumluca", uk: "Кумлуджа", ur: "قوملوجہ" },
+    distanceKm: 90,
+    durationMin: 80,
+    duration: { en: "75–90 minutes", de: "75–90 Minuten", tr: "75–90 dakika", ru: "75–90 минут", cs: "75–90 minut", uk: "75–90 хвилин", ur: "75–90 منٹ" },
+    originalPrices: { vito: 140, sprinter: 200 },
+    prices: { vito: 120, sprinter: 170 },
+    landingRoute: "tekirova", // covers Kumluca, Adrasan
+  },
+  kas: {
+    names: { en: "Kaş", de: "Kaş", tr: "Kaş", ru: "Каш", cs: "Kaş", uk: "Каш", ur: "کاش" },
+    distanceKm: 185,
+    durationMin: 165,
+    duration: { en: "2.5–3 hours", de: "2,5–3 Stunden", tr: "2,5–3 saat", ru: "2,5–3 часа", cs: "2,5–3 hodiny", uk: "2,5–3 години", ur: "2.5–3 گھنٹے" },
+    originalPrices: { vito: 195, sprinter: 290 },
+    prices: { vito: 170, sprinter: 250 },
+    landingRoute: "fethiye", // covers Kaş, Çukurbağ
   },
   bodrum: {
     names: { en: "Bodrum", de: "Bodrum", tr: "Bodrum", ru: "Бодрум", cs: "Bodrum", uk: "Бодрум", ur: "بودروم", zh: "博德鲁姆", da: "Bodrum", es: "Bodrum", el: "Μπόντρουμ", he: "בודרום", hu: "Bodrum", it: "Bodrum", ja: "ボドルム", ko: "보드룸", pt: "Bodrum", ro: "Bodrum" },
@@ -120,7 +202,15 @@ export const routeCatalog = {
   },
 };
 
+/** Routes with their own marketed landing page and sitemap entry. */
 export const publicRouteSlugs = Object.freeze(
+  /** @type {Array<keyof typeof routeCatalog>} */ (
+    Object.keys(routeCatalog).filter((slug) => !routeCatalog[slug].landingRoute)
+  ),
+);
+
+/** Routes a guest can pick as a destination in the booking form. */
+export const bookableRouteSlugs = Object.freeze(
   /** @type {Array<keyof typeof routeCatalog>} */ (Object.keys(routeCatalog)),
 );
 
@@ -135,9 +225,14 @@ export const turkishLocationNames = Object.freeze({
   kizilagac: "Kızılağaç",
 });
 
+/**
+ * Price lookup for the marketed routes, used by the legacy static site's
+ * price tokens. Unlisted sub-regions are excluded: nothing on those pages
+ * quotes them.
+ */
 export const routeData = Object.freeze(
   Object.fromEntries(
-    Object.entries(routeCatalog).map(([slug, route]) => [slug, {
+    Object.entries(routeCatalog).filter(([, route]) => !route.landingRoute).map(([slug, route]) => [slug, {
       name: route.names.en,
       originalPrices: route.originalPrices,
       prices: route.prices,
@@ -151,8 +246,16 @@ const regionalConnections = [
   ["side", "manavgat", 10],
   ["manavgat", "kizilagac", 15],
   ["kizilagac", "alanya", 45],
+  ["kizilagac", "alanya_bati", 20],
+  ["alanya_bati", "alanya_merkez", 20],
+  ["alanya_merkez", "alanya_dogu", 13],
+  ["alanya_dogu", "kargicak", 12],
+  ["kargicak", "demirtas", 20],
   ["antalya", "kemer", 45],
   ["kemer", "tekirova", 20],
+  ["tekirova", "kumluca", 30],
+  ["kumluca", "kas", 95],
+  ["kas", "fethiye", 110],
   ["tekirova", "fethiye", 155],
   ["fethiye", "dalaman", 50],
   ["dalaman", "bodrum", 200],
