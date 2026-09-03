@@ -313,6 +313,7 @@ const seedRows = [
   ["Esmeralda Butik Otel", "Kızılot"],
   ["Selge Beach Resort & Spa", "Kızılağaç"],
   ["Seaden Sea World Resort & Spa", "Kızılağaç"],
+  ["Seaden De Mar Resort & Spa", "Kızılağaç"],
   ["Asteria Bloom Side", "Kızılağaç"],
   ["Sultan of Dreams Hotel & Spa", "Kızılağaç"],
 

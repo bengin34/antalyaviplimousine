@@ -104,6 +104,7 @@ export function BookingForm({
   const [fuelAcknowledged, setFuelAcknowledged] = useState(false);
   const [liveOverrides, setLiveOverrides] = useState<LivePriceOverrides>({});
   const [hotelMatch, setHotelMatch] = useState<IndexedHotel | null>(null);
+  const [hotelNotListed, setHotelNotListed] = useState(false);
   const {
     register,
     handleSubmit,
@@ -169,6 +170,9 @@ export function BookingForm({
 
   const handleHotelInput = (name: string) => {
     setValue("hotelName", name, { shouldValidate: false });
+    // Typing again means the guest is still naming a hotel, so the "not
+    // listed" hint gives way to the normal search hint.
+    setHotelNotListed(false);
     if (!hotelMatch || name === hotelMatch.name) return;
     // The typed name no longer names the matched hotel, so its region is no
     // longer ours to price on.
@@ -180,9 +184,20 @@ export function BookingForm({
     setValue("hotelName", hotel.name, { shouldValidate: true });
     setValue("hotelRegion", hotel.region, { shouldValidate: false });
     setHotelMatch(hotel);
+    setHotelNotListed(false);
     if (!hotelSetsDestination) return;
     setValue("destination", hotel.region, { shouldValidate: true });
     window.gtag?.("event", "hotel_region_detected", { hotel: hotel.slug, region: hotel.region });
+  };
+
+  const handleHotelNotListed = () => {
+    // The guest already typed something, and it stays in the field — they
+    // just told us it will not resolve to a region on its own, so make that
+    // explicit instead of leaving them staring at unchanged search text.
+    setHotelMatch(null);
+    setValue("hotelRegion", "", { shouldValidate: false });
+    setHotelNotListed(true);
+    document.querySelector<HTMLSelectElement>("#destination")?.focus();
   };
 
   useEffect(() => {
@@ -330,7 +345,7 @@ export function BookingForm({
         value={values.hotelName}
         onChange={handleHotelInput}
         onSelect={handleHotelSelect}
-        onNotListed={() => document.querySelector<HTMLSelectElement>("#destination")?.focus()}
+        onNotListed={handleHotelNotListed}
         placeholder={t("hotelNamePlaceholder", "Hotel or accommodation name")}
         regionLabel={regionLabel}
         notListedLabel={t("hotelNotListed", "My hotel is not in the list")}
@@ -405,7 +420,9 @@ export function BookingForm({
                   <p className={`hotel-region-hint${hotelMatch && hotelSetsDestination ? " is-matched" : ""}`} id="hotel-region-hint">
                     {hotelMatch && hotelSetsDestination
                       ? hotelMatchLabel
-                      : t("hotelSearchHint", "Type your hotel name and pick it from the list; we fill in the destination region and price for you.")}
+                      : hotelNotListed
+                        ? t("hotelNotListedHint", "No problem — just tell us your hotel name and pick your region below.")
+                        : t("hotelSearchHint", "Type your hotel name and pick it from the list; we fill in the destination region and price for you.")}
                   </p>
                 </div>
               )}

@@ -104,8 +104,11 @@ export function HotelCombobox({
         />
       </div>
       {/* Keep focus on the input so the blur handler does not close the list
-          before a click on one of its options is delivered. */}
-      {(matches.length > 0 || showEmptyNote) && (
+          before a click on one of its options is delivered. The dismiss
+          button stays reachable even with an empty field or a single
+          character typed, so a guest who knows their hotel is not listed
+          is never stuck waiting on a second keystroke to say so. */}
+      {open && (
         <div className="hotel-combobox-popover" onMouseDown={(event) => event.preventDefault()}>
           <ul className="hotel-combobox-list" id={listId} role="listbox">
             {matches.map((hotel, index) => (

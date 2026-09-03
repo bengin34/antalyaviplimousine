@@ -2252,6 +2252,7 @@ const translations = {
   de: {
     hotelSearchHint: "Geben Sie Ihren Hotelnamen ein und wählen Sie ihn aus der Liste – Zielregion und Preis tragen wir für Sie ein.",
     hotelNotListed: "Mein Hotel ist nicht in der Liste",
+    hotelNotListedHint: "Kein Problem — nennen Sie uns den Hotelnamen und wählen Sie unten Ihre Region.",
     hotelNoMatch: "Noch kein Treffer. Geben Sie den Namen ein und wählen Sie die Region selbst.",
     navFleet: "Fahrzeuge",
     navService: "Service",
@@ -2502,6 +2503,7 @@ const translations = {
   tr: {
     hotelSearchHint: "Otelinizin adını yazıp listeden seçin; varış bölgesini ve fiyatı sizin için dolduralım.",
     hotelNotListed: "Otelim listede yok",
+    hotelNotListedHint: "Sorun değil — otel adınızı yazın, bölgenizi siz seçin.",
     hotelNoMatch: "Henüz eşleşme yok. Adı yazıp bölgeyi kendiniz seçebilirsiniz.",
     navFleet: "Araçlar",
     navService: "Hizmetler",
@@ -2748,6 +2750,7 @@ const translations = {
   ru: {
     hotelSearchHint: "Введите название отеля и выберите его из списка — регион и цену мы заполним за вас.",
     hotelNotListed: "Моего отеля нет в списке",
+    hotelNotListedHint: "Ничего страшного — напишите название отеля и выберите регион ниже.",
     hotelNoMatch: "Совпадений пока нет. Введите название и выберите регион самостоятельно.",
     navFleet: "Автопарк",
     navService: "Сервис",
@@ -2995,6 +2998,7 @@ const translations = {
   cs: {
     hotelSearchHint: "Zadejte název hotelu a vyberte jej ze seznamu – cílovou oblast i cenu doplníme za vás.",
     hotelNotListed: "Můj hotel není v seznamu",
+    hotelNotListedHint: "Žádný problém — napište název hotelu a vyberte oblast níže.",
     hotelNoMatch: "Zatím žádná shoda. Zadejte název a oblast vyberte sami.",
     navFleet: "Vozový park",
     navService: "Služby",
@@ -3726,6 +3730,7 @@ const translations = {
   uk: {
     hotelSearchHint: "Введіть назву готелю та оберіть її зі списку — регіон і ціну ми заповнимо за вас.",
     hotelNotListed: "Мого готелю немає у списку",
+    hotelNotListedHint: "Не проблема — напишіть назву готелю та оберіть регіон нижче.",
     hotelNoMatch: "Збігів поки немає. Введіть назву та оберіть регіон самостійно.",
     navFleet: "Автопарк",
     navService: "Сервіс",
@@ -3952,6 +3957,7 @@ const translations = {
   ur: {
     hotelSearchHint: "اپنے ہوٹل کا نام لکھیں اور فہرست میں سے منتخب کریں؛ منزل کا علاقہ اور قیمت ہم خود بھر دیں گے۔",
     hotelNotListed: "میرا ہوٹل فہرست میں نہیں ہے",
+    hotelNotListedHint: "کوئی بات نہیں — ہوٹل کا نام لکھیں اور نیچے اپنا علاقہ منتخب کریں۔",
     hotelNoMatch: "ابھی کوئی مماثلت نہیں۔ نام لکھیں اور علاقہ خود منتخب کریں۔",
     navFleet: "گاڑیاں",
     navService: "خدمات",

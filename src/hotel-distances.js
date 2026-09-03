@@ -5858,6 +5858,12 @@ export const hotelDistances = Object.freeze({
     "district": "Antalya merkez",
     "checked": false
   },
+  "seaden-de-mar-resort-spa": {
+    "km": 80,
+    "place": "ChIJc2qCtMdTwxQRZMG2bADZtoU",
+    "district": "Kızılağaç",
+    "checked": false
+  },
   "seaden-quality-resort-spa": {
     "km": 62,
     "place": "ChIJ42Omx-pZwxQRMETNR_dn-OE",

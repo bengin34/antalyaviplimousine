@@ -125,7 +125,7 @@ export const routeCatalog = {
     durationMin: 75,
     duration: { en: "70–80 minutes", de: "70–80 Minuten", tr: "70–80 dakika", ru: "70–80 минут", cs: "70–80 minut", uk: "70–80 хвилин", ur: "70–80 منٹ", pl: "70–80 minut", nl: "70–80 minuten", sv: "70–80 minuter", ar: "70–80 دقيقة", zh: "70–80分钟", da: "70-80 minutter", es: "70–80 minutos", el: "70–80 λεπτά", he: "70–80 דקות", hu: "70–80 perc", it: "70–80 minuti", ja: "70〜80分", ko: "70~80분", pt: "70–80 minutos", ro: "70–80 de minute" },
     originalPrices: { vito: 70, sprinter: 115 },
-    prices: { vito: 60, sprinter: 95 },
+    prices: { vito: 70, sprinter: 115 },
   },
   tekirova: {
     names: { en: "Tekirova", de: "Tekirova", tr: "Tekirova", ru: "Текирову", cs: "Tekirova", uk: "Текірова", ur: "ٹیکیروا", zh: "泰基罗瓦", da: "Tekirova", es: "Tekirova", el: "Τεκίροβα", he: "טקירובה", hu: "Tekirova", it: "Tekirova", ja: "テキロヴァ", ko: "테키로바", pt: "Tekirova", ro: "Tekirova" },

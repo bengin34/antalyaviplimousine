@@ -234,18 +234,18 @@
         "mainEntity": [
                 {
                         "@type": "Question",
-                        "name": "Uçağım gecikirse ne olur?",
+                        "name": "Uçuşum gecikirse ne olur?",
                         "acceptedAnswer": {
                                 "@type": "Answer",
-                                "text": "Tüm uçuşları gerçek zamanlı takip ederiz. Alış saatiniz otomatik olarak güncellenir ve şoförünüz ek ücret olmadan bekler."
+                                "text": "Sizin yapmanız gereken hiçbir şey yok. Uçuşunuzu canlı takip eder, alış saatinizi otomatik olarak güncelleriz. Uçuş kaynaklı gecikmeler için hiçbir ek ücret alınmaz; ne zaman inerseniz inin şoförünüz sizi bekliyor olur ve inişten sonraki ilk 90 dakika her zaman fiyata dahildir."
                         }
                 },
                 {
                         "@type": "Question",
-                        "name": "Şoförümle nerede buluşacağım?",
+                        "name": "Dış hat uçuşuyla geliyorum, karşılama nasıl işliyor?",
                         "acceptedAnswer": {
                                 "@type": "Answer",
-                                "text": "Bagajınızı aldıktan sonra bagaj teslim alanından çıkın ve Karşılama Alanına gidin. J / 777 buluşma noktasını arayın — ekibimiz kişisel isim tabelasıyla sizi bekliyor olacak."
+                                "text": "Pasaport kontrolü ve bagajınızı aldıktan sonra tüm yolcuların yöneldiği Karşılama (Meet & Greet) alanına ilerleyin ve J / 777 numaralı kontuarımıza gelin. Personelimize adınızı söylemeniz yeterli. Personelimiz aynı anda şoförünüzü bilgilendirir; şoförünüz havalimanına giriş yapıp karşılama noktasındaki yerini alır, siz de personelimiz eşliğinde aracınıza ilerlersiniz. Tüm süreç ortalama 7-8 dakika sürer."
                         }
                 },
                 {
@@ -269,7 +269,7 @@
                         "name": "Verilen fiyat kesin mi?",
                         "acceptedAnswer": {
                                 "@type": "Answer",
-                                "text": "Evet. Havalimanı ücretleri, otopark, bekleme süresi ve vergiler dahildir. Gizli ücret yoktur."
+                                "text": "Evet. Rezervasyonda gördüğünüz tutar, yolculuğun başında şoförünüze nakit ödeyeceğiniz tutardır: araç başına; tüm havalimanı ücretleri, otopark ve inişten sonraki ilk 90 dakikalık bekleme dahil. Gizli ücret yoktur."
                         }
                 }
         ]
@@ -327,7 +327,6 @@
       <nav class="desktop-nav" aria-label="Ana navigasyon">
         <a href="#fleet" data-i18n="navFleet">Araçlar</a>
         <a href="#services" data-i18n="navService">Hizmetler</a>
-        <a href="#pricing" data-i18n="navFairPricing">Adil fiyat</a>
         <a href="#routes" data-i18n="navRoutes">Rotalar</a>
         <a href="#reviews" data-i18n="navReviews">Yorumlar</a>
         <a href="#contact" data-i18n="navContact">İletişim</a>
@@ -501,6 +500,96 @@
                 🇰🇷 한국어
               </button>
             </li>
+            <li>
+              <button
+                class="language-button"
+                type="button"
+                data-language="zh"
+                role="option"
+              >
+                🇨🇳 简体中文
+              </button>
+            </li>
+            <li>
+              <button
+                class="language-button"
+                type="button"
+                data-language="da"
+                role="option"
+              >
+                🇩🇰 Dansk
+              </button>
+            </li>
+            <li>
+              <button
+                class="language-button"
+                type="button"
+                data-language="es"
+                role="option"
+              >
+                🇪🇸 Español
+              </button>
+            </li>
+            <li>
+              <button
+                class="language-button"
+                type="button"
+                data-language="el"
+                role="option"
+              >
+                🇬🇷 Ελληνικά
+              </button>
+            </li>
+            <li>
+              <button
+                class="language-button"
+                type="button"
+                data-language="he"
+                role="option"
+              >
+                🇮🇱 עברית
+              </button>
+            </li>
+            <li>
+              <button
+                class="language-button"
+                type="button"
+                data-language="it"
+                role="option"
+              >
+                🇮🇹 Italiano
+              </button>
+            </li>
+            <li>
+              <button
+                class="language-button"
+                type="button"
+                data-language="hu"
+                role="option"
+              >
+                🇭🇺 Magyar
+              </button>
+            </li>
+            <li>
+              <button
+                class="language-button"
+                type="button"
+                data-language="pt"
+                role="option"
+              >
+                🇵🇹 Português
+              </button>
+            </li>
+            <li>
+              <button
+                class="language-button"
+                type="button"
+                data-language="ro"
+                role="option"
+              >
+                🇷🇴 Română
+              </button>
+            </li>
           </ul>
         </div>
         <a class="header-cta" href="#booking">
@@ -524,7 +613,6 @@
       <nav aria-label="Mobil navigasyon">
         <a href="#fleet" data-i18n="navFleet">Araçlar</a>
         <a href="#services" data-i18n="navService">Hizmetler</a>
-        <a href="#pricing" data-i18n="navFairPricing">Adil fiyat</a>
         <a href="#routes" data-i18n="navRoutes">Rotalar</a>
         <a href="#reviews" data-i18n="navReviews">Yorumlar</a>
         <a href="#contact" data-i18n="navContact">İletişim</a>
@@ -572,6 +660,33 @@
         </button>
         <button class="language-button" type="button" data-language="ko">
           🇰🇷 KO
+        </button>
+        <button class="language-button" type="button" data-language="zh">
+          🇨🇳 ZH
+        </button>
+        <button class="language-button" type="button" data-language="da">
+          🇩🇰 DA
+        </button>
+        <button class="language-button" type="button" data-language="es">
+          🇪🇸 ES
+        </button>
+        <button class="language-button" type="button" data-language="el">
+          🇬🇷 EL
+        </button>
+        <button class="language-button" type="button" data-language="he">
+          🇮🇱 HE
+        </button>
+        <button class="language-button" type="button" data-language="it">
+          🇮🇹 IT
+        </button>
+        <button class="language-button" type="button" data-language="hu">
+          🇭🇺 HU
+        </button>
+        <button class="language-button" type="button" data-language="pt">
+          🇵🇹 PT
+        </button>
+        <button class="language-button" type="button" data-language="ro">
+          🇷🇴 RO
         </button>
       </div>
       <div class="mobile-menu-footer">
@@ -1094,8 +1209,8 @@
                       <small data-i18n="recommended">Recommended</small>
                     </span>
                     <span data-i18n="cashPaymentDescription"
-                      >No prepayment. Pay the confirmed total directly to your
-                      driver.</span
+                      >No online prepayment. You pay the fixed total to your
+                      driver in cash at the start of the journey.</span
                     >
                   </span>
                   <svg class="icon" aria-hidden="true">
@@ -1108,8 +1223,8 @@
             </fieldset>
 
             <div class="booking-footer">
-              <p class="booking-includes" data-i18n="quoteIncludes">Karşılama, uçuş takibi, otopark, bekleme süresi ve şişe su dahildir.</p>
-              <p class="booking-per-vehicle" data-i18n="perVehicleNote">Per vehicle — not per person · Up to 7 passengers</p>
+              <p class="booking-includes" data-i18n="quoteIncludes">Karşılama, uçuş takibi, otopark, 90 dakika bekleme ve şişe su dahildir.</p>
+              <p class="booking-per-vehicle" data-i18n="perVehicleNote">Per vehicle — not per person · Up to 6 passengers</p>
               <button class="quote-submit" type="submit" id="main-book-submit">
                 <span data-i18n="confirmCashBooking"
                   >Confirm booking — pay in vehicle</span
@@ -1188,7 +1303,7 @@
         <div class="editorial-grid">
           <h2 data-i18n="welcomeTitle">Zarafetle seyahat edin.<br />Rahatça varın.</h2>
           <div>
-            <p data-i18n="welcomeBody">Uçağınız indiği andan itibaren her ayrıntı düşünülür. Şoförünüz gelen yolcu salonunda bekler, bagajınızla ilgilenir ve sizi özenle hazırlanmış özel aracınıza götürür.</p>
+            <p data-i18n="welcomeBody">Uçağınız indiği andan itibaren her ayrıntı düşünülür. Havalimanı ekibimiz sizi karşılar, şoförünüz aracıyla karşılama noktasına gelir ve bagajlarınız özenle hazırlanmış özel aracınıza yerleştirilir.</p>
             <a class="text-link" href="#services">
               <span data-i18n="ourStandards">Hizmet standartlarımız</span>
               <svg class="icon" aria-hidden="true">
@@ -1324,7 +1439,7 @@
                     <use href="#icon-users"></use>
                   </svg>
                   <span
-                    ><strong id="fleet-guests">13</strong>
+                    ><strong id="fleet-guests">12</strong>
                     <span data-i18n="passengers">yolcu</span></span
                   >
                 </div>
@@ -1363,7 +1478,7 @@
               <div class="fleet-welcome-note">
                 <svg class="icon"><use href="#icon-user-check"></use></svg>
                 <span data-i18n="nameSignGreeting"
-                  >İsminize özel tabela ile karşılama</span
+                  >J / 777 kontuarında karşılama</span
                 >
               </div>
               <a class="button button-outline-gold" href="#booking">
@@ -1427,7 +1542,7 @@
               <svg><use href="#icon-sparkle"></use></svg>
             </div>
             <h3 data-i18n="greetTitle">Karşılama hizmeti</h3>
-            <p data-i18n="greetBody">Şoförünüz sizi gelen yolcu salonunda isminizin yazılı olduğu tabela ile karşılar ve bagajınıza yardımcı olur.</p>
+            <p data-i18n="greetBody">Dış hat gelişlerinde havalimanı ekibimiz sizi J / 777 kontuarında karşılar, şoförünüzü karşılama noktasına çağırır ve bagajınıza yardımcı olur.</p>
           </article>
           <article class="service-card">
             <span class="service-number">04</span>
@@ -1465,7 +1580,7 @@
             </div>
             <h2 data-i18n="routesTitle">Antalya Havalimanı'ndan<br />Türk Rivierası'na.</h2>
           </div>
-          <p data-i18n="routesIntro">Tüm fiyatlar kişi başı değil, araç başıdır ve ücretsiz bekleme süresi dahildir.</p>
+          <p data-i18n="routesIntro">Tüm fiyatlar kişi başı değil, araç başıdır ve 90 dakika bekleme dahildir.</p>
         </div>
 
         <div class="route-slider-toolbar">
@@ -1982,47 +2097,6 @@
         </div>
       </section>
 
-      <section class="pricing-transparency section" id="pricing">
-        <div class="section-heading">
-          <div>
-            <div class="eyebrow">
-              <span></span>
-              <p data-i18n="pricingEyebrow">İçiniz rahat olsun</p>
-            </div>
-            <h2 data-i18n="pricingTitle">Müşteri dostu fiyatlandırma.<br />Adil olanı ödersiniz.</h2>
-          </div>
-          <p data-i18n="pricingIntro">İçiniz rahat etsin diye sabit fiyat sunarız, ancak gerçek mesafeyi de ölçeriz. Her zaman düşük olan tutarı ödersiniz.</p>
-        </div>
-
-        <div class="pricing-comparison">
-          <div class="pricing-card">
-            <span class="pricing-card-label" data-i18n="pricingFixedPrice"
-              >Sabit fiyat</span
-            >
-            <p data-i18n="fixedPriceExample">Belek transferi: €{{PRICE:belek:vito}}</p>
-            <p class="pricing-card-description" data-i18n="fixedPriceDesc">Garantili toplam tutar. Havalimanı ücretleri, otopark, bekleme süresi ve vergiler dahildir.</p>
-          </div>
-
-          <div class="pricing-card">
-            <span class="pricing-card-label" data-i18n="distancePrice"
-              >Mesafeye göre</span
-            >
-            <p data-i18n="distancePriceExample">24 km online örnek: €25</p>
-            <p class="pricing-card-description" data-i18n="distancePriceDesc">Yolculuğunuz sırasında GPS ile ölçülür.</p>
-          </div>
-
-          <div class="pricing-card pricing-card-highlight">
-            <span class="pricing-card-label" data-i18n="youPay">Ödeyeceğiniz tutar</span>
-            <p data-i18n="youPayPrice">€25</p>
-            <p class="pricing-card-description" data-i18n="youPayDesc">Hangisi daha düşükse. Şoför yolculuk sonunda teyit eder.</p>
-          </div>
-        </div>
-
-        <div class="pricing-note">
-          <p data-i18n="pricingNote">Sürpriz yok. Gizli ücret yok. Rezervasyonda gördüğünüz tutarı ödersiniz - ya da daha azını.</p>
-        </div>
-      </section>
-
       <section class="faq section" id="faq">
         <div class="faq-heading">
           <div class="eyebrow">
@@ -2037,53 +2111,168 @@
           ></a>
         </div>
         <div class="accordion">
-          <article class="faq-item open">
-            <button type="button" aria-expanded="true">
-              <span data-i18n="faqOneQ"
-                >Uçağım gecikirse ne olur?</span
-              ><i></i>
-            </button>
-            <div class="faq-answer">
-              <p data-i18n="faqOneA">Tüm uçuşları gerçek zamanlı takip ederiz. Alış saatiniz otomatik olarak güncellenir ve şoförünüz ek ücret olmadan bekler.</p>
-            </div>
-          </article>
-          <article class="faq-item">
-            <button type="button" aria-expanded="false">
-              <span data-i18n="faqTwoQ">Şoförümle nerede buluşacağım?</span
-              ><i></i>
-            </button>
-            <div class="faq-answer">
-              <p data-i18n="faqTwoA">Bagajınızı aldıktan sonra bagaj teslim alanından çıkın ve Karşılama Alanına gidin. J / 777 buluşma noktasını arayın — ekibimiz kişisel isim tabelasıyla sizi bekliyor olacak.</p>
-            </div>
-          </article>
-          <article class="faq-item">
-            <button type="button" aria-expanded="false">
-              <span data-i18n="faqThreeQ">Çocuk koltuğu var mı?</span
-              ><i></i>
-            </button>
-            <div class="faq-answer">
-              <p data-i18n="faqThreeA">Evet. Bebek koltuğu, çocuk koltuğu ve yükseltici koltuk rezervasyon sırasında ücretsiz olarak talep edilebilir.</p>
-            </div>
-          </article>
-          <article class="faq-item">
-            <button type="button" aria-expanded="false">
-              <span data-i18n="faqFourQ"
-                >Golf çantası ve büyük bagaj taşıyor musunuz?</span
-              ><i></i>
-            </button>
-            <div class="faq-answer">
-              <p data-i18n="faqFourA">Evet. Sprinter ve Vito araçlarımız golf grupları için idealdir. Bagaj bilgilerinizi paylaşın, uygun aracı planlayalım.</p>
-            </div>
-          </article>
-          <article class="faq-item">
-            <button type="button" aria-expanded="false">
-              <span data-i18n="faqFiveQ">Verilen fiyat kesin mi?</span
-              ><i></i>
-            </button>
-            <div class="faq-answer">
-              <p data-i18n="faqFiveA">Evet. Havalimanı ücretleri, otopark, bekleme süresi ve vergiler dahildir. Gizli ücret yoktur.</p>
-            </div>
-          </article>
+          <div class="faq-group">
+            <h3 class="faq-category" data-i18n="faqCatArrival">Karşılama & Transfer</h3>
+            <article class="faq-item open">
+              <button type="button" aria-expanded="true">
+                <span data-i18n="faqOneQ"
+                  >Uçuşum gecikirse ne olur?</span
+                ><i></i>
+              </button>
+              <div class="faq-answer">
+                <p data-i18n="faqOneA">Sizin yapmanız gereken hiçbir şey yok. Uçuşunuzu canlı takip eder, alış saatinizi otomatik olarak güncelleriz. Uçuş kaynaklı gecikmeler için hiçbir ek ücret alınmaz; ne zaman inerseniz inin şoförünüz sizi bekliyor olur ve inişten sonraki ilk 90 dakika her zaman fiyata dahildir.</p>
+              </div>
+            </article>
+            <article class="faq-item">
+              <button type="button" aria-expanded="false">
+                <span data-i18n="faqTwoQ"
+                  >Dış hat uçuşuyla geliyorum, karşılama nasıl işliyor?</span
+                ><i></i>
+              </button>
+              <div class="faq-answer">
+                <p data-i18n="faqTwoA">Pasaport kontrolü ve bagajınızı aldıktan sonra tüm yolcuların yöneldiği Karşılama (Meet & Greet) alanına ilerleyin ve J / 777 numaralı kontuarımıza gelin. Personelimize adınızı söylemeniz yeterli. Personelimiz aynı anda şoförünüzü bilgilendirir; şoförünüz havalimanına giriş yapıp karşılama noktasındaki yerini alır, siz de personelimiz eşliğinde aracınıza ilerlersiniz. Tüm süreç ortalama 7-8 dakika sürer.</p>
+              </div>
+            </article>
+            <article class="faq-item">
+              <button type="button" aria-expanded="false">
+                <span data-i18n="faqSixQ"
+                  >Yurt içi uçuşla geliyorum, şoförümü nasıl bulacağım?</span
+                ><i></i>
+              </button>
+              <div class="faq-answer">
+                <p data-i18n="faqSixA">Karşılama (Meet & Greet) alanı yalnızca dış hat yolcuları içindir; iç hatlarda böyle bir alan bulunmaz. Bu nedenle iç hat misafirlerimize transferden önce şoförlerinin telefon numarasını iletiriz. İndiğinizde kendisine kısaca haber vermeniz yeterli; şoförünüz sizi yolcu karşılama bölümünden alır.</p>
+              </div>
+            </article>
+            <article class="faq-item">
+              <button type="button" aria-expanded="false">
+                <span data-i18n="faqSevenQ"
+                  >J / 777 kontuarında görevli yoksa ne yapmalıyım?</span
+                ><i></i>
+              </button>
+              <div class="faq-answer">
+                <p data-i18n="faqSevenA">Kontuarımızda sürekli iki personelimiz görev yapar ve tek işleri gelen misafirleri araçlarına yönlendirmektir. Kontuarı bir an boş bulursanız bu, personelimizin sizden hemen önce gelen misafiri aracına götürdüğü anlamına gelir; her yönlendirme yaklaşık 7-8 dakika sürer. Lütfen yaklaşık 10 dakika bekleyin. Bu sürenin sonunda hâlâ kimse dönmediyse WhatsApp hattımızdan bize yazın: şoförünüzü anında bilgilendirir, en yakın noktaya park etmesini sağlar ve sizi hiç bekletmeden doğrudan aracınıza ulaştırırız.</p>
+              </div>
+            </article>
+            <article class="faq-item">
+              <button type="button" aria-expanded="false">
+                <span data-i18n="faqEightQ"
+                  >Havalimanından çıkmam 90 dakikadan uzun sürerse ne olur?</span
+                ><i></i>
+              </button>
+              <div class="faq-answer">
+                <p data-i18n="faqEightA">Uçağınız indikten sonraki ilk 90 dakika ücretsiz olarak fiyata dahildir; pasaport, bagaj ve gümrük için fazlasıyla yeterli bir süredir ve uçuş gecikmelerinde bu süre otomatik olarak kayar. Yalnızca uçuşunuzla ilgisi olmayan bir nedenle terminalde 90 dakikadan uzun kalırsanız, aracınızın otoparkta geçirdiği her ek saat için 5 € otopark katkı bedeli eklenir. Uygulamada bu neredeyse hiç yaşanmaz; misafirlerimizin tamamına yakını bu sürenin çok öncesinde yola çıkar.</p>
+              </div>
+            </article>
+          </div>
+          <div class="faq-group">
+            <h3 class="faq-category" data-i18n="faqCatJourney">Dönüş & Yolculuk</h3>
+            <article class="faq-item">
+              <button type="button" aria-expanded="false">
+                <span data-i18n="faqTenQ"
+                  >Dönüş transferimde iletişimi nasıl kuracağım?</span
+                ><i></i>
+              </button>
+              <div class="faq-answer">
+                <p data-i18n="faqTenA">Dönüş gün ve saatinizi ekibimizle WhatsApp üzerinden teyit ettikten sonra, transferinize saatler kala aracınızı belirler ve size WhatsApp'tan aracın fotoğraflarını gönderiririz; dilerseniz şoförünüzün telefon numarasını da paylaşırız. Şoförünüz belirlenen saatte otelinize ulaştığında resepsiyona haber verir, resepsiyon da odanıza aracınızın hazır olduğunu bildirir. Şoförlerimiz misafirlerimizi doğrudan aramaz; tüm iletişim tek bir noktadan, WhatsApp müşteri destek hattımız üzerinden yürür. Böylece kiminle konuştuğunuzdan her zaman emin olursunuz.</p>
+              </div>
+            </article>
+            <article class="faq-item">
+              <button type="button" aria-expanded="false">
+                <span data-i18n="faqFourteenQ"
+                  >Dönüş transferime geç kalırsam ne olur?</span
+                ><i></i>
+              </button>
+              <div class="faq-answer">
+                <p data-i18n="faqFourteenA">Şoförünüz belirlenen saatte otelinizde olur ve 15 dakika ücretsiz bekler. Gecikeceğinizi düşünüyorsanız WhatsApp'tan tek bir mesaj yeterli: uçuş saatinizi kontrol eder, şoförünüzü bilgilendirir ve programı sizinle birlikte ayarlarız. Amacımız sizi acele ettirmek değil, uçağınıza rahatça yetiştirmektir.</p>
+              </div>
+            </article>
+            <article class="faq-item">
+              <button type="button" aria-expanded="false">
+                <span data-i18n="faqFifteenQ"
+                  >Yolculuk sırasında ek durak mümkün mü?</span
+                ><i></i>
+              </button>
+              <div class="faq-answer">
+                <p data-i18n="faqFifteenA">Elbette mümkün. Market, eczane veya kısa bir fotoğraf molası isterseniz rezervasyon sırasında ya da WhatsApp üzerinden belirtmeniz yeterli; güzergâhı buna göre planlarız. Rotanızdan belirgin şekilde sapan uzun bir durak söz konusuysa, ek bir tutar olup olmadığını yola çıkmadan önce net olarak paylaşırız — sonradan eklenen hiçbir kalem olmaz.</p>
+              </div>
+            </article>
+          </div>
+          <div class="faq-group">
+            <h3 class="faq-category" data-i18n="faqCatPayment">Ödeme & Fiyat</h3>
+            <article class="faq-item">
+              <button type="button" aria-expanded="false">
+                <span data-i18n="faqNineQ"
+                  >Ödemeyi nasıl yapıyorum?</span
+                ><i></i>
+              </button>
+              <div class="faq-answer">
+                <p data-i18n="faqNineA">Ödemenizi yolculuğun başında, doğrudan şoförünüze nakit olarak yaparsınız; kart geçmez. Fiyatlar euro (EUR) üzerinden belirlenir: ödeyeceğiniz sabit tutar, rezervasyonda gördüğünüz tutarın aynısıdır – araç başına, tüm havalimanı ve otopark ücretleri dahil, sonradan eklenen kalem yok. Amerikan doları veya Türk lirasıyla ödemek isterseniz, kur farklı olduğundan ayrı bir fiyat için önceden WhatsApp'tan bize yazın. Şoförünüz sizi karşılar, bagajlarınızı yükler, talep ettiyseniz çocuk koltuklarını hazırlar; ödemenizin ardından yolculuğunuz başlar.</p>
+              </div>
+            </article>
+            <article class="faq-item">
+              <button type="button" aria-expanded="false">
+                <span data-i18n="faqTwelveQ"
+                  >Hangi para birimiyle ödeyebilirim?</span
+                ><i></i>
+              </button>
+              <div class="faq-answer">
+                <p data-i18n="faqTwelveA">Fiyatlarımız euro (EUR) üzerinden belirlenir ve ödeme nakit olarak yapılır; kart geçmez. Amerikan doları veya Türk lirasıyla ödemek isterseniz tutar günün kuruna bağlı olarak değişir; bu nedenle transferinizden önce WhatsApp'tan bize yazın. Size net bir fiyat verir ve şoförünüzü bilgilendiririz — araç içinde pazarlık yapılmaz.</p>
+              </div>
+            </article>
+            <article class="faq-item">
+              <button type="button" aria-expanded="false">
+                <span data-i18n="faqElevenQ"
+                  >Rezervasyonumu iptal edebilir veya değiştirebilir miyim?</span
+                ><i></i>
+              </button>
+              <div class="faq-answer">
+                <p data-i18n="faqElevenA">Elbette, üstelik tamamen ücretsiz. Ön ödeme almadığımız için iptalde iade edilecek bir tutar ve beklenecek bir iade süreci yoktur — planınız değişirse WhatsApp'tan haber vermeniz yeterli. Saat, uçuş numarası veya varış adresi değişikliklerini de aynı şekilde, ek ücret olmadan yaparız.</p>
+              </div>
+            </article>
+            <article class="faq-item">
+              <button type="button" aria-expanded="false">
+                <span data-i18n="faqFiveQ"
+                  >Verilen fiyat kesin mi?</span
+                ><i></i>
+              </button>
+              <div class="faq-answer">
+                <p data-i18n="faqFiveA">Evet. Rezervasyonda gördüğünüz tutar, yolculuğun başında şoförünüze nakit ödeyeceğiniz tutardır: araç başına; tüm havalimanı ücretleri, otopark ve inişten sonraki ilk 90 dakikalık bekleme dahil. Gizli ücret yoktur.</p>
+              </div>
+            </article>
+          </div>
+          <div class="faq-group">
+            <h3 class="faq-category" data-i18n="faqCatVehicle">Araç & Bagaj</h3>
+            <article class="faq-item">
+              <button type="button" aria-expanded="false">
+                <span data-i18n="faqThreeQ"
+                  >Çocuk koltuğu var mı?</span
+                ><i></i>
+              </button>
+              <div class="faq-answer">
+                <p data-i18n="faqThreeA">Evet. Bebek koltuğu, çocuk koltuğu ve yükseltici koltuk rezervasyon sırasında ücretsiz olarak talep edilebilir.</p>
+              </div>
+            </article>
+            <article class="faq-item">
+              <button type="button" aria-expanded="false">
+                <span data-i18n="faqThirteenQ"
+                  >Ne kadar bagaj getirebilirim?</span
+                ><i></i>
+              </button>
+              <div class="faq-answer">
+                <p data-i18n="faqThirteenA">Kural olarak yolcu başına bir büyük valiz ve bir el bagajı. Daha fazlası varsa — ek valiz, golf çantası, bebek arabası, kayak veya bisiklet — rezervasyon sırasında belirtmeniz yeterli; ek ücret almadan uygun kapasitede bir araç planlarız. Önemli olan tek şey, bunu önceden biliyor olmamız. Mercedes Vito 6, Mercedes Sprinter ise 12 yolcuya kadar taşır.</p>
+              </div>
+            </article>
+            <article class="faq-item">
+              <button type="button" aria-expanded="false">
+                <span data-i18n="faqFourQ"
+                  >Golf çantası ve büyük bagaj taşıyor musunuz?</span
+                ><i></i>
+              </button>
+              <div class="faq-answer">
+                <p data-i18n="faqFourA">Evet. Sprinter ve Vito araçlarımız golf grupları için idealdir. Bagaj bilgilerinizi paylaşın, uygun aracı planlayalım.</p>
+              </div>
+            </article>
+          </div>
         </div>
       </section>
 
