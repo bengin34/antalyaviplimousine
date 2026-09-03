@@ -90,6 +90,11 @@ export function BookingForm({
 }) {
   const { language, t } = useLanguage();
   const schema = useMemo(() => createPublicBookingSchema(t), [t]);
+  const destinationSlugs = useMemo(() => {
+    const nameFor = (slug: typeof bookableRouteSlugs[number]) =>
+      routeCatalog[slug].names[language as keyof typeof routeCatalog[typeof slug]["names"]] ?? routeCatalog[slug].names.en;
+    return [...bookableRouteSlugs].sort((a, b) => nameFor(a).localeCompare(nameFor(b), language));
+  }, [language]);
   const [step, setStep] = useState<1 | 2 | 3>(1);
   const [minimumDate, setMinimumDate] = useState("");
   const [submitting, setSubmitting] = useState(false);
@@ -414,7 +419,7 @@ export function BookingForm({
                 {!isDailyChauffeur && (
                   <label className={fieldClass(errors.destination)}>
                     <span>{t("destination", "Destination")}</span>
-                    <div className="field-control"><Icon name="pin" className="icon" /><select id="destination" {...register("destination")}><option value="">{t("selectDestination", "Select destination")}</option>{values.pickup !== "airport" && <option value="airport">{t("airportOption", "Antalya Airport (AYT)")}</option>}{bookableRouteSlugs.map((slug) => <option value={slug} key={slug}>{routeCatalog[slug].names[language as keyof typeof routeCatalog[typeof slug]["names"]] ?? routeCatalog[slug].names.en}</option>)}<option value="private_address">{t("privateAddressOption", "Private address")}</option></select></div>
+                    <div className="field-control"><Icon name="pin" className="icon" /><select id="destination" {...register("destination")}><option value="">{t("selectDestination", "Select destination")}</option>{values.pickup !== "airport" && <option value="airport">{t("airportOption", "Antalya Airport (AYT)")}</option>}{destinationSlugs.map((slug) => <option value={slug} key={slug}>{routeCatalog[slug].names[language as keyof typeof routeCatalog[typeof slug]["names"]] ?? routeCatalog[slug].names.en}</option>)}<option value="private_address">{t("privateAddressOption", "Private address")}</option></select></div>
                     <FieldErrorMessage error={errors.destination} />
                   </label>
                 )}

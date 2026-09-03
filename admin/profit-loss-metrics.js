@@ -4,7 +4,7 @@ import { hotelDistances } from '../src/hotel-distances.js'
 
 export const DEFAULT_KM_COST_TRY = 15
 export const DEFAULT_EUR_TRY_RATE = 50
-export const AIRPORT_MEET_COST_EUR = 5
+export const AIRPORT_MEET_COST_TRY = 250
 
 const REALIZED_TODAY_STATUSES = new Set(['paid', 'in_transit', 'completed'])
 
@@ -24,7 +24,7 @@ function normalizeLocation(value) {
   return String(value ?? '').trim().toLocaleLowerCase('tr-TR')
 }
 
-function startsFromAirport(location) {
+export function startsFromAirport(location) {
   return normalizeLocation(location) === 'airport'
 }
 
@@ -73,8 +73,17 @@ function isInPeriod(date, period) {
   return period === 'all' || date.slice(0, 7) === period
 }
 
+/**
+ * İptal edilen (ve panelden kalıcı silinmeden önce iptale çekilen) kayıtlar
+ * kâr/zarar hesabının hiçbir yerinde görünmez: ne gelir, ne gider, ne de
+ * "işlem bekleyen" uyarılarında.
+ */
+export function isProfitRelevantBooking(booking) {
+  return Boolean(booking) && booking.status !== 'cancelled'
+}
+
 function isRealizedLeg(booking, date, today, legStatus) {
-  if (!date || booking.status === 'cancelled' || date > today) return false
+  if (!date || !isProfitRelevantBooking(booking) || date > today) return false
   return date < today || REALIZED_TODAY_STATUSES.has(legStatus || booking.status)
 }
 
@@ -115,7 +124,7 @@ export function legCostModel(booking, leg) {
   const legacySplit = usesLegacyCostSplit(booking)
   const useOutboundFields = leg !== 'return' || legacySplit
   const rawMode = useOutboundFields ? booking.service_cost_mode : booking.return_service_cost_mode
-  const costMode = rawMode === 'sold_transfer' ? 'sold_transfer' : 'own_vehicle'
+  const costMode = rawMode === 'sold_transfer' || rawMode === 'no_cost' ? rawMode : 'own_vehicle'
   const source = useOutboundFields ? booking.sold_transfer_cost_try : booking.return_sold_transfer_cost_try
   const { amount, isValid } = parsePositiveMoney(source)
   return {
@@ -135,6 +144,7 @@ function bookingLegs(booking) {
     const dailyRate = Number(booking.daily_rate_eur) || (days.length ? priceEur / days.length : priceEur)
     return days.map(day => ({
       leg: `day-${day.day_number}`,
+      dayId: day.id,
       date: day.service_date,
       from: 'daily_chauffeur',
       to: 'daily_chauffeur',
@@ -521,10 +531,10 @@ export function resolveRealizedLegs(bookings, today, settingsByMonth = {}, rates
       const eurTryRate = (ratesByDate instanceof Map ? ratesByDate.get(leg.date) : null) ?? settings.eurTryRate
       legDetails.eurTryRate = eurTryRate
       legDetails.revenueTry = leg.revenueEur * eurTryRate
-      legDetails.airportMeetCostEur = !leg.isDailyChauffeur && startsFromAirport(leg.from) && booking.airport_meet_fee_applies !== false
-        ? AIRPORT_MEET_COST_EUR
+      legDetails.airportMeetCostTry = !leg.isDailyChauffeur && startsFromAirport(leg.from) && booking.airport_meet_fee_applies !== false
+        ? AIRPORT_MEET_COST_TRY
         : 0
-      legDetails.airportMeetCostTry = legDetails.airportMeetCostEur * eurTryRate
+      legDetails.airportMeetCostEur = eurTryRate > 0 ? legDetails.airportMeetCostTry / eurTryRate : 0
 
       if (leg.isDailyChauffeur) {
         const vehicleKm = leg.directVehicleKm ?? 0
@@ -534,6 +544,22 @@ export function resolveRealizedLegs(bookings, today, settingsByMonth = {}, rates
           vehicleKm,
           vehicleCostTry: vehicleKm * settings.kmCostTry,
           distanceSource: leg.directVehicleKm === null ? 'daily-missing' : 'daily-actual',
+        })
+        continue
+      }
+
+      // "Maliyeti yok": gideri olmayan ayak. KM veya tedarikçi bedeli beklenmez,
+      // yalnızca geliri hesaba girer.
+      if (leg.costMode === 'no_cost') {
+        resolvedLegs.push({
+          ...legDetails,
+          oneWayKm: 0,
+          vehicleKm: 0,
+          vehicleCostTry: 0,
+          supplierCostTry: 0,
+          distanceSource: 'no-cost',
+          airportMeetCostEur: 0,
+          airportMeetCostTry: 0,
         })
         continue
       }
@@ -620,10 +646,8 @@ function distributionFinancialLeg(leg, settingsByMonth, allocations) {
     ? roundMoney(allocation?.supplierCostTry ?? leg.supplierCostTry ?? 0)
     : 0
   const supplierCostEur = centsToNumber(multiplyDivideMoneyToCents(supplierCostTry, 1, eurTryRate))
-  const airportMeetCostEur = roundMoney(leg.airportMeetCostEur ?? 0)
-  const airportMeetCostTry = centsToNumber(
-    multiplyDivideMoneyToCents(airportMeetCostEur, eurTryRate, 1),
-  )
+  const airportMeetCostTry = roundMoney(leg.airportMeetCostTry ?? 0)
+  const airportMeetCostEur = centsToNumber(multiplyDivideMoneyToCents(airportMeetCostTry, 1, eurTryRate))
 
   return {
     ...leg,
@@ -650,6 +674,24 @@ function distributionTotalsForLegs(resolvedLegs, unresolvedLegs) {
     supplierCostTry: sumMoney(legs.map(leg => leg.supplierCostTry)),
     airportMeetCostEur: sumMoney(legs.map(leg => leg.airportMeetCostEur)),
     airportMeetCostTry: sumMoney(legs.map(leg => leg.airportMeetCostTry)),
+  }
+}
+
+export function bookingLegCostStatus(booking, leg, today, settingsByMonth = {}, ratesByDate = null) {
+  const { resolvedLegs, unresolvedLegs } = resolveRealizedLegs([booking], today, settingsByMonth, ratesByDate)
+  const match = [...resolvedLegs, ...unresolvedLegs].find(item => item.leg === leg)
+  if (!match) return { applicable: false, complete: true }
+  const complete = !unresolvedLegs.some(item => item.leg === leg)
+  const { costMode } = legCostModel(booking, leg)
+  return {
+    applicable: true,
+    complete,
+    costMode,
+    oneWayKm: match.oneWayKm ?? null,
+    supplierCostTry: match.supplierCostTry ?? null,
+    meetFeeApplicable: startsFromAirport(match.from),
+    meetFeeApplies: booking.airport_meet_fee_applies !== false,
+    meetCostTry: match.airportMeetCostTry ?? 0,
   }
 }
 
@@ -709,11 +751,27 @@ export function calculateProfitLossMetrics(bookings, period, today, settingsByMo
   const routes = [...routeMap.values()]
     .sort((a, b) => b.vehicleKm - a.vehicleKm || b.incomeEur - a.incomeEur)
 
+  // Sefer başına reklam: dönem reklamını (gün-payı toplamı) gerçekleşen tüm
+  // ayaklara eşit böl; bacak neti reklamı da düşer. Dönem toplamları değişmez.
+  const legsWithAds = attachAdvertisingPerLeg(
+    [...resolvedLegs, ...unresolvedLegs],
+    { advertisingExpenseEur, advertisingExpenseTry },
+  )
+  const withNet = legsWithAds.map(leg => {
+    const expenseTry = (leg.vehicleCostTry ?? 0) + (leg.supplierCostTry ?? 0)
+      + (leg.airportMeetCostTry ?? 0) + (leg.advertisingPerLegTry ?? 0)
+    const rate = leg.eurTryRate || 0
+    const netProfitTry = (leg.revenueTry ?? 0) - expenseTry
+    return { ...leg, netProfitTry, netProfitEur: rate ? netProfitTry / rate : (leg.revenueEur ?? 0) }
+  })
+  const resolvedWithNet = withNet.slice(0, resolvedLegs.length)
+  const unresolvedWithNet = withNet.slice(resolvedLegs.length)
+
   return {
     ...totals,
     completedLegs: resolvedLegs.length + unresolvedLegs.length,
-    resolvedLegs,
-    unresolvedLegs,
+    resolvedLegs: resolvedWithNet,
+    unresolvedLegs: unresolvedWithNet,
     missingDailyDistanceCount: resolvedLegs.filter(leg => leg.distanceSource === 'daily-missing').length,
     routes,
   }
@@ -726,6 +784,10 @@ function distributionBlocker(code, leg, extra = {}) {
     bookingRef: leg?.bookingRef ?? null,
     leg: leg?.leg ?? null,
     date: leg?.date ?? null,
+    // Uyarı kartı eksik bilgiyi yerinde düzeltebilsin diye ayağın tamamı
+    // taşınır; böylece rota, gelir ve maliyet modeli için rezervasyon
+    // detayına gitmek gerekmez.
+    legDetails: leg ? { ...leg } : null,
     ...extra,
   }
 }
@@ -903,4 +965,108 @@ export function buildProfitDistributionSnapshot(metrics = {}) {
   }
 
   return JSON.parse(JSON.stringify(snapshot))
+}
+
+/**
+ * Verilen [startDate, endDate] aralığı için grid-hazır bir kâr/zarar defteri
+ * hesaplar. Her ayakta per-leg reklam payı ve net kâr dahil; dönem KPI toplamları
+ * da eklenir. Tüm sekme türleri (dağıtılmamış açık aralık, her dağıtım aralığı,
+ * tüm zamanlar) için tek ve tutarlı bir veri kaynağı sağlar.
+ */
+export function calculateLedgerForRange(bookings, options = {}) {
+  const startDate = String(options.startDate ?? '')
+  const endDate = String(options.endDate ?? '')
+  const today = String(options.today ?? '')
+  const settingsByMonth = options.settingsByMonth ?? {}
+  const ratesByDate = options.ratesByDate ?? null
+  const start = dateOnlyUtc(startDate)
+  const end = dateOnlyUtc(endDate)
+  const rangeIsValid = Boolean(start && end && start <= end)
+
+  const realized = today
+    ? resolveRealizedLegs(Array.isArray(bookings) ? bookings : [], today, settingsByMonth, ratesByDate)
+    : { resolvedLegs: [], unresolvedLegs: [] }
+  const allocations = distributionAllocations(bookings)
+  const withinRange = leg => rangeIsValid && leg.date >= startDate && leg.date <= endDate
+  const resolvedLegs = realized.resolvedLegs
+    .filter(withinRange)
+    .map(leg => distributionFinancialLeg(leg, settingsByMonth, allocations))
+  const unresolvedLegs = realized.unresolvedLegs
+    .filter(withinRange)
+    .map(leg => distributionFinancialLeg(leg, settingsByMonth, allocations))
+
+  const advertising = rangeIsValid
+    ? allocatedAdvertisingForRange(startDate, endDate, settingsByMonth)
+    : { advertisingExpenseTry: 0, advertisingExpenseEur: 0 }
+
+  // Per-leg reklam: aralık reklamını tüm ayaklara böl
+  const withAds = attachAdvertisingPerLeg(
+    [...resolvedLegs, ...unresolvedLegs],
+    { advertisingExpenseEur: advertising.advertisingExpenseEur, advertisingExpenseTry: advertising.advertisingExpenseTry },
+  )
+  const withNet = withAds.map(leg => {
+    const expenseTry = (leg.vehicleCostTry ?? 0) + (leg.supplierCostTry ?? 0)
+      + (leg.airportMeetCostTry ?? 0) + (leg.advertisingPerLegTry ?? 0)
+    const rate = leg.eurTryRate || 0
+    const netProfitTry = (leg.revenueTry ?? 0) - expenseTry
+    return { ...leg, netProfitTry, netProfitEur: rate ? netProfitTry / rate : (leg.revenueEur ?? 0) }
+  })
+  const resolvedWithNet = withNet.slice(0, resolvedLegs.length)
+  const unresolvedWithNet = withNet.slice(resolvedLegs.length)
+
+  const directTotals = distributionTotalsForLegs(resolvedLegs, unresolvedLegs)
+  const incomeEur = roundMoney(directTotals.incomeEur)
+  const incomeTry = roundMoney(directTotals.incomeTry)
+  const vehicleCostEur = roundMoney(directTotals.vehicleCostEur)
+  const vehicleCostTry = roundMoney(directTotals.vehicleCostTry)
+  const supplierCostEur = roundMoney(directTotals.supplierCostEur)
+  const supplierCostTry = roundMoney(directTotals.supplierCostTry)
+  const airportMeetCostEur = roundMoney(directTotals.airportMeetCostEur)
+  const airportMeetCostTry = roundMoney(directTotals.airportMeetCostTry)
+  const advertisingExpenseEur = roundMoney(advertising.advertisingExpenseEur)
+  const advertisingExpenseTry = roundMoney(advertising.advertisingExpenseTry)
+  const totalExpenseEur = sumMoney([vehicleCostEur, supplierCostEur, airportMeetCostEur, advertisingExpenseEur])
+  const totalExpenseTry = sumMoney([vehicleCostTry, supplierCostTry, airportMeetCostTry, advertisingExpenseTry])
+  const netProfitEur = sumMoney([incomeEur, -totalExpenseEur])
+  const netProfitTry = sumMoney([incomeTry, -totalExpenseTry])
+  const profitMargin = incomeTry > 0 ? (netProfitTry / incomeTry) * 100 : 0
+
+  return {
+    startDate,
+    endDate,
+    resolvedLegs: resolvedWithNet,
+    unresolvedLegs: unresolvedWithNet,
+    incomeEur,
+    incomeTry,
+    vehicleCostEur,
+    vehicleCostTry,
+    supplierCostEur,
+    supplierCostTry,
+    airportMeetCostEur,
+    airportMeetCostTry,
+    advertisingExpenseEur,
+    advertisingExpenseTry,
+    totalExpenseEur,
+    totalExpenseTry,
+    netProfitEur,
+    netProfitTry,
+    profitMargin,
+    completedLegs: resolvedWithNet.length + unresolvedWithNet.length,
+  }
+}
+
+/**
+ * Aralığa düşen toplam reklamı (gün-payı) bacaklara kuruşu kuruşuna eşit böler.
+ * Toplam korunur; artık kuruşlar ilk bacaklara gider (allocateMoneyAmounts).
+ * Reklam yalnız gösterim/hesap katmanında; kayıtlı dağıtımları değiştirmez.
+ */
+export function attachAdvertisingPerLeg(legs, { advertisingExpenseEur = 0, advertisingExpenseTry = 0 } = {}) {
+  if (!Array.isArray(legs) || legs.length === 0) return []
+  const eurShares = allocateMoneyAmounts(advertisingExpenseEur, legs.length)
+  const tryShares = allocateMoneyAmounts(advertisingExpenseTry, legs.length)
+  return legs.map((leg, index) => ({
+    ...leg,
+    advertisingPerLegEur: eurShares[index] ?? 0,
+    advertisingPerLegTry: tryShares[index] ?? 0,
+  }))
 }

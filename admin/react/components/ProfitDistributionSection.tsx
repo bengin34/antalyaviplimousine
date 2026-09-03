@@ -1,6 +1,19 @@
-import { useEffect, useMemo, useState, type FormEvent } from 'react'
+import { useEffect, useMemo, useState, type FormEvent, type ReactNode } from 'react'
 import { buildProfitDistributionSnapshot, calculateProfitDistribution } from '../../profit-loss-metrics.js'
-import { fmtBerlinLongDate, fmtLongDate, formatEuro, formatTry } from '../lib/format'
+import { fmtLongDate, formatEuro, formatNumber, formatTry, profitLocationLabel } from '../lib/format'
+import {
+  LegCostControls,
+  legCostColumns,
+  legCostMode,
+  legDirectionLabel,
+  toLegKey,
+  type CostMode,
+  type LegKey,
+  type ProfitLegRef,
+  type SaveCostMode,
+  type SaveDistance,
+  type SaveSupplierCost,
+} from './LegCostEditors'
 import type {
   Booking,
   CreateProfitDistributionInput,
@@ -15,6 +28,8 @@ export interface ProfitDistributionSectionProps {
   today: string
   bookings: Booking[]
   settingsByMonth: Map<string, unknown>
+  /** Tarihe özel EUR/TL kurları; önizleme ile kaydedilen dağıtım aynı kuru kullanmalıdır. */
+  ratesByDate?: Map<string, number>
   shareSettings: ProfitShareSettings | null
   distributions: ProfitDistribution[]
   loading: boolean
@@ -22,6 +37,11 @@ export interface ProfitDistributionSectionProps {
   onRetry: () => void
   onSaveSettings: (input: SaveProfitShareSettingsInput) => Promise<void>
   onCreateDistribution: (input: CreateProfitDistributionInput) => Promise<void>
+  onSaveDistance: SaveDistance
+  onSaveSupplierCost: SaveSupplierCost
+  onSaveCostMode: SaveCostMode
+  /** Aşağıdaki seyahat listesinde ilgili satıra kaydırır. */
+  onFocusLeg: (leg: ProfitLegRef & { date?: string | null }) => void
   navigate: Navigate
 }
 
@@ -211,34 +231,127 @@ function FinancialBucket({ label, eur, tryAmount }: { label: string; eur: unknow
   </div>
 }
 
-function bookingLegLabel(leg: unknown) {
-  if (leg === 'return') return 'Dönüş'
-  if (typeof leg === 'string' && leg.startsWith('day-')) return `Gün ${leg.slice(4)}`
-  return 'Gidiş'
+const BLOCKER_HINTS: Record<string, string> = {
+  'unresolved-route': 'Bu rota sabit mesafe tablosunda yok. Tek yön KM girin ya da ayağı satılan transfer olarak işaretleyip tedarikçi bedelini yazın.',
+  'daily-distance-missing': 'Günlük hizmette gerçekleşen KM, rezervasyon detayındaki gün kartından girilir.',
+  'supplier-cost-invalid': 'Ayak satılan transfer olarak işaretli ama tedarikçi bedeli boş. Bedeli girin ya da ayağı kendi aracımıza çevirin.',
 }
 
-function BlockerList({ messages, blockers, navigate }: {
+/**
+ * Dağıtımı durduran bir seyahat ayağı. Eksik bilgi burada, kartın içinde
+ * düzeltilir; rezervasyon detayına gitmek yalnızca günlük hizmet KM'si için
+ * gerekir. Ayak başka bir aya aitse "Listede aç" seyahat listesini o döneme alır.
+ */
+function BlockerCard({ blocker, booking, onSaveDistance, onSaveSupplierCost, onSaveCostMode, onFocusLeg, navigate }: {
+  blocker: DistributionBlocker
+  booking: Booking | undefined
+  onSaveDistance: SaveDistance
+  onSaveSupplierCost: SaveSupplierCost
+  onSaveCostMode: SaveCostMode
+  onFocusLeg: (leg: ProfitLegRef & { date?: string | null }) => void
+  navigate: Navigate
+}) {
+  const details = (blocker.legDetails ?? {}) as Record<string, unknown>
+  const legKey: LegKey = toLegKey(blocker.leg)
+  const legLabel = legDirectionLabel(booking, blocker.leg)
+  const isDailyChauffeur = Boolean(details.isDailyChauffeur)
+  const bookingRef = String(blocker.bookingRef ?? '')
+  const legRef: ProfitLegRef & { date?: string | null } = {
+    bookingId: String(blocker.bookingId ?? ''),
+    bookingRef,
+    leg: String(blocker.leg ?? 'outbound'),
+    date: blocker.date ?? null,
+  }
+  const currentMode: CostMode = legCostMode(booking, legKey)
+  const currentCostTry = booking ? Number(booking[legCostColumns(legKey).cost]) || 0 : 0
+  const oneWayKm = Number(details.oneWayKm)
+  const revenueEur = Number(details.revenueEur) || 0
+  const eurTryRate = Number(details.eurTryRate)
+  const canEditLeg = Boolean(booking) && !isDailyChauffeur
+  const hint = BLOCKER_HINTS[blocker.code]
+
+  return <div className="profit-blocker-card">
+    <p className="profit-leg-badge is-warning">{BLOCKER_MESSAGES[blocker.code] ?? 'Dağıtım için eksik bilgi var.'}</p>
+    <p className="profit-blocker-ref">
+      <strong>{bookingRef}</strong>
+      {' · '}{legLabel}
+      {blocker.date ? ` · ${fmtLongDate(blocker.date)}` : ''}
+    </p>
+    {details.from != null && <p className="profit-blocker-route">
+      {profitLocationLabel(details.from)} → {profitLocationLabel(details.to)}
+    </p>}
+    <dl className="profit-blocker-facts">
+      <div><dt>Gelir</dt><dd>{formatEuro(revenueEur)}</dd></div>
+      {!isDailyChauffeur && <div>
+        <dt>Maliyet modeli</dt>
+        <dd>{currentMode === 'sold_transfer' ? 'Satılan transfer' : 'Kendi aracımız'}</dd>
+      </div>}
+      {currentMode === 'sold_transfer' && !isDailyChauffeur && <div>
+        <dt>Tedarikçi gideri</dt>
+        <dd>{currentCostTry > 0 ? formatTry(currentCostTry) : 'Girilmedi'}</dd>
+      </div>}
+      {currentMode === 'own_vehicle' && <div>
+        <dt>{isDailyChauffeur ? 'Gerçekleşen KM' : 'Tek yön KM'}</dt>
+        <dd>{Number.isFinite(oneWayKm) && oneWayKm > 0 ? `${formatNumber(oneWayKm, 1)} km` : 'Girilmedi'}</dd>
+      </div>}
+      {Number.isFinite(eurTryRate) && eurTryRate > 0 && <div>
+        <dt>Kur</dt><dd>₺{eurTryRate.toFixed(2)}</dd>
+      </div>}
+    </dl>
+    {hint && <p className="profit-blocker-hint">{hint}</p>}
+    <div className="profit-blocker-actions">
+      {canEditLeg && booking && <LegCostControls
+        booking={booking}
+        legRef={legRef}
+        leg={legKey}
+        legLabel={legLabel}
+        currentCostTry={currentCostTry}
+        isSoldTransfer={currentMode === 'sold_transfer'}
+        oneWayKm={Number.isFinite(oneWayKm) && oneWayKm > 0 ? oneWayKm : undefined}
+        onSaveDistance={onSaveDistance}
+        onSaveCostMode={onSaveCostMode}
+        onSaveSupplierCost={onSaveSupplierCost}
+      />}
+      {legRef.bookingId && <button
+        className="profit-leg-action is-ghost"
+        type="button"
+        onClick={() => onFocusLeg(legRef)}
+      >Listede aç</button>}
+      <button
+        className="profit-leg-action is-ghost"
+        type="button"
+        onClick={() => navigate(`#detail/${encodeURIComponent(bookingRef)}?from=profit-loss`)}
+      >Seyahate git</button>
+    </div>
+  </div>
+}
+
+function BlockerList({ messages, blockers, bookingsById, onSaveDistance, onSaveSupplierCost, onSaveCostMode, onFocusLeg, navigate }: {
   messages: string[]
   blockers: DistributionBlocker[]
+  bookingsById: Map<string, Booking>
+  onSaveDistance: SaveDistance
+  onSaveSupplierCost: SaveSupplierCost
+  onSaveCostMode: SaveCostMode
+  onFocusLeg: (leg: ProfitLegRef & { date?: string | null }) => void
   navigate: Navigate
 }) {
   if (!messages.length && !blockers.length) return null
   return <div className="profit-distribution-alert" role="alert">
     {messages.map(message => <p key={message}>{message}</p>)}
-    {blockers.map((blocker, index) => <div key={`${blocker.code}:${blocker.bookingId ?? index}`}>
-      <p>{BLOCKER_MESSAGES[blocker.code] ?? 'Dağıtım için eksik bilgi var.'}</p>
-      {blocker.bookingRef && <>
-        <p>
-          <strong>{blocker.bookingRef}</strong>
-          {' · '}{bookingLegLabel(blocker.leg)}
-          {blocker.date ? ` · ${fmtLongDate(blocker.date)}` : ''}
-        </p>
-        <button
-          type="button"
-          onClick={() => navigate(`#detail/${encodeURIComponent(blocker.bookingRef)}?from=profit-loss`)}
-        >Seyahate git</button>
-      </>}
-    </div>)}
+    {blockers.length > 0 && <p className="profit-blocker-lead">
+      {blockers.length} seyahat ayağı dağıtımı durduruyor. Eksik bilgiyi buradan tamamlayabilirsiniz.
+    </p>}
+    {blockers.map((blocker, index) => <BlockerCard
+      key={`${blocker.code}:${blocker.bookingId ?? index}:${blocker.leg ?? index}`}
+      blocker={blocker}
+      booking={bookingsById.get(String(blocker.bookingId ?? ''))}
+      onSaveDistance={onSaveDistance}
+      onSaveSupplierCost={onSaveSupplierCost}
+      onSaveCostMode={onSaveCostMode}
+      onFocusLeg={onFocusLeg}
+      navigate={navigate}
+    />)}
   </div>
 }
 
@@ -260,58 +373,25 @@ function DistributionConfirmation({ metrics, saving, onCancel, onConfirm }: {
   </section>
 }
 
-function HistoryFinancials({ distribution }: { distribution: ProfitDistribution }) {
-  return <div className="profit-distribution-history-financials">
-    <FinancialBucket label="Gelir" eur={distribution.income_eur} tryAmount={distribution.income_try} />
-    <FinancialBucket label="Araç maliyeti" eur={distribution.vehicle_cost_eur} tryAmount={distribution.vehicle_cost_try} />
-    <FinancialBucket label="Tedarikçi maliyeti" eur={distribution.supplier_cost_eur} tryAmount={distribution.supplier_cost_try} />
-    <FinancialBucket label="Havalimanı karşılama" eur={distribution.airport_cost_eur} tryAmount={distribution.airport_cost_try} />
-    <FinancialBucket label="Reklam" eur={distribution.advertising_cost_eur} tryAmount={distribution.advertising_cost_try} />
-    <FinancialBucket label="Toplam gider" eur={distribution.total_expense_eur} tryAmount={distribution.total_expense_try} />
-    <FinancialBucket label="Net kâr" eur={distribution.net_profit_eur} tryAmount={distribution.net_profit_try} />
-  </div>
-}
-
-function DistributionHistory({ distributions }: { distributions: ProfitDistribution[] }) {
-  const newestFirst = useMemo(() => [...distributions].sort((left, right) => (
-    right.created_at.localeCompare(left.created_at) || right.period_end.localeCompare(left.period_end)
-  )), [distributions])
-
-  if (!newestFirst.length) return null
-  return <section className="profit-distribution-history" aria-labelledby="distribution-history-title">
-    <h3 id="distribution-history-title">Dağıtım geçmişi</h3>
-    {newestFirst.map(distribution => <article key={distribution.id} data-testid="distribution-history-row">
-      <h4>{fmtLongDate(distribution.period_start)} – {fmtLongDate(distribution.period_end)}</h4>
-      <p>Dağıtım tarihi: {fmtBerlinLongDate(distribution.created_at)}</p>
-      <p>{distribution.realized_leg_count} seyahat ayağı</p>
-      <p>Net kâr: <MoneyPair eur={distribution.net_profit_eur} tryAmount={distribution.net_profit_try} /></p>
-      <div>
-        <p>Operasyon ortağı {percentageLabel(distribution.operations_share_pct)}</p>
-        <MoneyPair eur={distribution.operations_amount_eur} tryAmount={distribution.operations_amount_try} />
-      </div>
-      <div>
-        <p>Araç sahibi {percentageLabel(distribution.vehicle_owner_share_pct)}</p>
-        <MoneyPair eur={distribution.vehicle_owner_amount_eur} tryAmount={distribution.vehicle_owner_amount_try} />
-      </div>
-      <details>
-        <summary>Finansal dökümü göster</summary>
-        <HistoryFinancials distribution={distribution} />
-      </details>
-    </article>)}
-  </section>
-}
 
 function OpenDistributionPreview({
   today,
   bookings,
   settingsByMonth,
+  ratesByDate,
   shareSettings,
   distributions,
   onCreateDistribution,
+  onSaveDistance,
+  onSaveSupplierCost,
+  onSaveCostMode,
+  onFocusLeg,
   navigate,
+  openingEditor,
 }: Pick<ProfitDistributionSectionProps,
-  'today' | 'bookings' | 'settingsByMonth' | 'shareSettings' | 'distributions' | 'onCreateDistribution' | 'navigate'
-> & { shareSettings: ProfitShareSettings }) {
+  'today' | 'bookings' | 'settingsByMonth' | 'ratesByDate' | 'shareSettings' | 'distributions'
+  | 'onCreateDistribution' | 'onSaveDistance' | 'onSaveSupplierCost' | 'onSaveCostMode' | 'onFocusLeg' | 'navigate'
+> & { shareSettings: ProfitShareSettings; openingEditor?: ReactNode }) {
   const openStart = useMemo(
     () => latestOpenStart(shareSettings, distributions),
     [shareSettings, distributions],
@@ -348,13 +428,18 @@ function OpenDistributionPreview({
   const percentagesTotal = percentagesInRange
     && Math.round((operationsSharePct + vehicleOwnerSharePct) * 100) === 10000
 
+  // Önizleme, onay adımındaki yeniden hesapla birebir aynı girdileri kullanmalı;
+  // aksi halde tarihe özel kurlar geldiğinde onay "veriler değişti" diye reddedilir.
   const metrics = useMemo(() => calculateProfitDistribution(bookings, {
     startDate: openStart,
     endDate,
     today,
     settingsByMonth,
     operationsSharePct,
-  }), [bookings, openStart, endDate, today, settingsByMonth, operationsSharePct])
+    ratesByDate,
+  }), [bookings, openStart, endDate, today, settingsByMonth, operationsSharePct, ratesByDate])
+
+  const bookingsById = useMemo(() => new Map(bookings.map(booking => [booking.id, booking])), [bookings])
 
   const localMessages: string[] = []
   if (!operationsPrecise || !vehiclePrecise) {
@@ -455,9 +540,21 @@ function OpenDistributionPreview({
           <span>{formatTry(metrics.shares?.vehicleOwnerAmountTry)}</span>
         </article>
       </div>
-      <BlockerList messages={allMessages} blockers={detailBlockers} navigate={navigate} />
+      <BlockerList
+        messages={allMessages}
+        blockers={detailBlockers}
+        bookingsById={bookingsById}
+        onSaveDistance={onSaveDistance}
+        onSaveSupplierCost={onSaveSupplierCost}
+        onSaveCostMode={onSaveCostMode}
+        onFocusLeg={onFocusLeg}
+        navigate={navigate}
+      />
       {status && <div role="status">{status}</div>}
-      <button type="button" disabled={!canDistribute} onClick={() => { setConfirming(true); setSaveError('') }}>Kârı dağıt</button>
+      <div className="profit-distribution-actions">
+        {openingEditor}
+        <button type="button" disabled={!canDistribute} onClick={() => { setConfirming(true); setSaveError('') }}>Kârı dağıt</button>
+      </div>
     </section>
     {confirming && <DistributionConfirmation metrics={metrics} saving={saving} onCancel={() => setConfirming(false)} onConfirm={confirm} />}
   </>
@@ -474,9 +571,13 @@ export function ProfitDistributionSection(props: ProfitDistributionSectionProps)
       <p>{error}</p>
       <button type="button" onClick={onRetry}>Tekrar dene</button>
     </div> : !shareSettings ? <SetupForm today={props.today} onSave={props.onSaveSettings} /> : <>
-      {distributions.length === 0 && <OpeningDateEditor today={props.today} settings={shareSettings} onSave={props.onSaveSettings} />}
-      <OpenDistributionPreview {...props} shareSettings={shareSettings} />
-      <DistributionHistory distributions={distributions} />
+      <OpenDistributionPreview
+        {...props}
+        shareSettings={shareSettings}
+        openingEditor={distributions.length === 0
+          ? <OpeningDateEditor today={props.today} settings={shareSettings} onSave={props.onSaveSettings} />
+          : null}
+      />
     </>}
   </section>
 }

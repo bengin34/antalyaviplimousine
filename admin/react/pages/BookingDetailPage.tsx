@@ -1,13 +1,15 @@
 import { useEffect, useMemo, useRef, useState, type FormEvent, type ReactNode } from 'react'
 import { Topbar } from '../components/AdminChrome'
-import { fmtDetailDate, fmtPrice, fmtTime, statusLabel, transferStartTime } from '../lib/format'
+import { fmtDetailDate, fmtPrice, fmtTime, statusLabel, todayISO, transferStartTime } from '../lib/format'
 import { queueBookingPrefill } from '../lib/prefill'
 import { supabase } from '../lib/supabase'
 import type { Booking, BookingStatus, ChauffeurHireDay, Navigate } from '../types'
 import { isFutureIstanbulLeg, locationDisplay, navigationURLs, whatsappURL } from '../../turkish-formatters.js'
 import { buildConfirmMessage, buildReminderMessage, buildReceivedMessage, buildReviewMessage } from '../../whatsapp-templates.js'
 import { buildDriverTransferMessage, driverWhatsappURL } from '../../driver-message.js'
-import { legCostModel } from '../../profit-loss-metrics.js'
+import { COST_MODE_LABELS, legLabelFor, type CostMode } from '../components/LegCostEditors'
+import { legCostModel, bookingLegCostStatus } from '../../profit-loss-metrics.js'
+import CostDialog from '../components/CostDialog'
 import { LOCATION_OPTIONS, LANGUAGE_OPTIONS, VEHICLE_CAPACITY, validateBookingForm, type BookingFormState } from './NewBookingPage'
 import { ReturnPickupHint, returnPickupAdvice } from '../components/ReturnPickupHint'
 import { languageFromPhone } from '../../turkish-formatters.js'
@@ -140,7 +142,7 @@ function BookingEditor({ booking, onCancel, onSaved }: { booking: Booking; onCan
     </div>
     {roundTrip && <div className="booking-edit-group"><div className="section-label">Dönüş</div><div className="form-row"><Field label="Dönüş uçuş no"><input className="input" type="text" maxLength={12} autoComplete="off" value={form.returnFlight} onChange={e => set('returnFlight', e.target.value)} /></Field><Field label="Dönüş uçuşu kalkış saati"><input className="input" type="time" value={form.returnFlightTime} onChange={e => set('returnFlightTime', e.target.value)} /></Field></div><ReturnPickupHint departureTime={form.returnFlightTime} pickupLocation={form.dropoff} actualTime={form.returnTime} onApply={time => set('returnTime', time)} /><div className="form-row"><Field label="Dönüş tarihi *"><input className="input" type="date" value={form.returnDate} onChange={e => set('returnDate', e.target.value)} required /></Field><Field label="Otelden alınma saati *"><input className="input" type="time" value={form.returnTime} onChange={e => set('returnTime', e.target.value)} required /></Field></div></div>}
     {dailyChauffeur && <div className="booking-edit-group"><div className="section-label">Günlük Kiralama</div><Field label="Son hizmet günü *"><input className="input" type="date" min={form.pickupDate} value={form.serviceEndDate} onChange={e => set('serviceEndDate', e.target.value)} required /></Field><div className="form-row"><Field label="Dönüş uçuş tarihi"><input className="input" type="date" min={form.pickupDate} value={form.departureFlightDate} onChange={e => set('departureFlightDate', e.target.value)} /></Field><Field label="Dönüş uçuş saati"><input className="input" type="time" value={form.departureFlightTime} onChange={e => set('departureFlightTime', e.target.value)} /></Field></div><Field label="Dönüş uçuş no"><input className="input" type="text" maxLength={12} value={form.departureFlight} onChange={e => set('departureFlight', e.target.value)} /></Field><label className="admin-fuel-acceptance"><input type="checkbox" checked={form.fuelAccepted} onChange={e => set('fuelAccepted', e.target.checked)} /><span><strong>Yakıt hariç koşulu kabul edildi</strong><small>Müşteri yakıtı kullanıma göre ayrıca ödeyecek.</small></span></label></div>}
-    <div className="booking-edit-group"><div className="section-label">Araç & Detaylar</div><div className="form-row"><Field label="Araç *"><select className="input" value={form.vehicle} onChange={e => set('vehicle', e.target.value)}><option value="vito">Vito</option><option value="vclass">V-Class</option></select></Field><Field label="Yolcu *"><input className="input" type="number" min={1} max={VEHICLE_CAPACITY[form.vehicle] ?? 8} step={1} inputMode="numeric" value={form.guests} onChange={e => set('guests', e.target.value)} required /></Field></div><div className="form-row"><Field label="Bagaj"><input className="input" type="number" min={0} max={12} step={1} inputMode="numeric" value={form.luggage} onChange={e => set('luggage', e.target.value)} /></Field><Field label="Çocuk koltuğu"><input className="input" type="number" min={0} max={4} step={1} inputMode="numeric" value={form.childSeats} onChange={e => set('childSeats', e.target.value)} /></Field></div><Field label={roundTrip ? 'Gidiş maliyet modeli' : 'Maliyet modeli'}><select className="input" value={form.costMode} onChange={e => set('costMode', e.target.value as BookingFormState['costMode'])} disabled={dailyChauffeur}><option value="own_vehicle">Kendi aracımız</option><option value="sold_transfer">Satılan transfer</option></select></Field><div className="form-hint">{dailyChauffeur ? 'Günlük araç + şoför hizmeti yalnızca kendi aracımız olarak hesaplanır.' : form.costMode === 'sold_transfer' ? (roundTrip ? 'Girilen maliyet yalnızca gidiş ayağının gideri kabul edilir.' : 'Girilen toplam maliyet bu rezervasyonun toplam gideri kabul edilir.') : 'Araç maliyeti kâr/zarar ekranında km ve boş dönüş hesabından çıkarılır.'}</div>{form.pickup === 'airport' && !dailyChauffeur && <label className="admin-fuel-acceptance"><input type="checkbox" checked={!form.airportMeetFeeApplies} onChange={e => set('airportMeetFeeApplies', !e.target.checked)} /><span><strong>Karşılama ücreti uygulanmasın</strong><small>Yolcular havalimanından karşılama hizmeti olmadan alınacak.</small></span></label>}{!dailyChauffeur && form.costMode === 'sold_transfer' && <Field label={roundTrip ? 'Gidiş maliyeti (₺) *' : 'Toplam maliyet (₺) *'}><input className="input" type="number" min={0.01} max={9999999.99} step={0.01} inputMode="decimal" value={form.soldTransferCostTry} onChange={e => set('soldTransferCostTry', e.target.value)} required /></Field>}{roundTrip && !dailyChauffeur && <><Field label="Dönüş maliyet modeli"><select className="input" value={form.returnCostMode} onChange={e => set('returnCostMode', e.target.value as BookingFormState['returnCostMode'])}><option value="own_vehicle">Kendi aracımız</option><option value="sold_transfer">Satılan transfer</option></select></Field><div className="form-hint">Gidiş ve dönüş ayrı hesaplanır: bir ayağı satabilir, diğerini kendi aracınızla yapabilirsiniz.</div>{form.returnCostMode === 'sold_transfer' && <Field label="Dönüş maliyeti (₺) *"><input className="input" type="number" min={0.01} max={9999999.99} step={0.01} inputMode="decimal" value={form.returnSoldTransferCostTry} onChange={e => set('returnSoldTransferCostTry', e.target.value)} required /></Field>}</>}</div>
+    <div className="booking-edit-group"><div className="section-label">Araç & Detaylar</div><div className="form-row"><Field label="Araç *"><select className="input" value={form.vehicle} onChange={e => set('vehicle', e.target.value)}><option value="vito">Vito</option><option value="vclass">V-Class</option></select></Field><Field label="Yolcu *"><input className="input" type="number" min={1} max={VEHICLE_CAPACITY[form.vehicle] ?? 8} step={1} inputMode="numeric" value={form.guests} onChange={e => set('guests', e.target.value)} required /></Field></div><div className="form-row"><Field label="Bagaj"><input className="input" type="number" min={0} max={12} step={1} inputMode="numeric" value={form.luggage} onChange={e => set('luggage', e.target.value)} /></Field><Field label="Çocuk koltuğu"><input className="input" type="number" min={0} max={4} step={1} inputMode="numeric" value={form.childSeats} onChange={e => set('childSeats', e.target.value)} /></Field></div><Field label={roundTrip ? 'Gidiş maliyet modeli' : 'Maliyet modeli'}><select className="input" value={form.costMode} onChange={e => set('costMode', e.target.value as BookingFormState['costMode'])} disabled={dailyChauffeur}><option value="own_vehicle">Kendi aracımız</option><option value="sold_transfer">Satılan transfer</option><option value="no_cost">Maliyeti yok</option></select></Field><div className="form-hint">{dailyChauffeur ? 'Günlük araç + şoför hizmeti yalnızca kendi aracımız olarak hesaplanır.' : form.costMode === 'no_cost' ? 'Bu ayak için gider hesaplanmaz; kâr/zarar ekranında KM veya tedarikçi bedeli sorulmaz.' : form.costMode === 'sold_transfer' ? (roundTrip ? 'Girilen maliyet yalnızca gidiş ayağının gideri kabul edilir.' : 'Girilen toplam maliyet bu rezervasyonun toplam gideri kabul edilir.') : 'Araç maliyeti kâr/zarar ekranında km ve boş dönüş hesabından çıkarılır.'}</div>{form.pickup === 'airport' && !dailyChauffeur && <label className="admin-fuel-acceptance"><input type="checkbox" checked={!form.airportMeetFeeApplies} onChange={e => set('airportMeetFeeApplies', !e.target.checked)} /><span><strong>Karşılama ücreti uygulanmasın</strong><small>Yolcular havalimanından karşılama hizmeti olmadan alınacak.</small></span></label>}{!dailyChauffeur && form.costMode === 'sold_transfer' && <Field label={roundTrip ? 'Gidiş maliyeti (₺) *' : 'Toplam maliyet (₺) *'}><input className="input" type="number" min={0.01} max={9999999.99} step={0.01} inputMode="decimal" value={form.soldTransferCostTry} onChange={e => set('soldTransferCostTry', e.target.value)} required /></Field>}{roundTrip && !dailyChauffeur && <><Field label="Dönüş maliyet modeli"><select className="input" value={form.returnCostMode} onChange={e => set('returnCostMode', e.target.value as BookingFormState['returnCostMode'])}><option value="own_vehicle">Kendi aracımız</option><option value="sold_transfer">Satılan transfer</option><option value="no_cost">Maliyeti yok</option></select></Field><div className="form-hint">Gidiş ve dönüş ayrı hesaplanır: bir ayağı satabilir, diğerini kendi aracınızla yapabilirsiniz.</div>{form.returnCostMode === 'sold_transfer' && <Field label="Dönüş maliyeti (₺) *"><input className="input" type="number" min={0.01} max={9999999.99} step={0.01} inputMode="decimal" value={form.returnSoldTransferCostTry} onChange={e => set('returnSoldTransferCostTry', e.target.value)} required /></Field>}</>}</div>
     <div className="booking-edit-group"><div className="section-label">Ödeme & Not</div><div className="form-row"><Field label={dailyChauffeur ? 'Günlük fiyat (€) *' : roundTrip ? 'Sefer başına fiyat (€) *' : 'Fiyat (€) *'}><input className="input" type="number" min={0} max={999999.99} step={0.01} inputMode="decimal" value={form.price} onChange={e => set('price', e.target.value)} required /></Field><Field label="Ödeme"><select className="input" value={form.payment} onChange={e => set('payment', e.target.value)}><option value="cash">Nakit</option><option value="card">Kart</option></select></Field></div><Field label="Rezervasyon notu"><textarea className="input" rows={3} maxLength={500} value={form.notes} onChange={e => set('notes', e.target.value)} /></Field></div>
     <div className="booking-edit-actions"><button className="btn" type="submit" disabled={saving}>{saving ? 'Kaydediliyor...' : 'Değişiklikleri Kaydet'}</button><button className="btn-outline" type="button" onClick={onCancel}>İptal</button></div><div className="inline-error" ref={errorRef}>{error}</div>
   </form>
@@ -240,6 +242,14 @@ function ChauffeurDayEditor({ day, onSaved }: { day: ChauffeurHireDay; onSaved: 
   </div>
 }
 
+function costSummary(cs: { costMode?: string; oneWayKm?: number | null; supplierCostTry?: number | null; meetFeeApplicable?: boolean; meetFeeApplies?: boolean }) {
+  if (cs.costMode === 'no_cost') return 'Maliyeti yok'
+  if (cs.costMode === 'sold_transfer') return `Satılan transfer · ₺${Number(cs.supplierCostTry ?? 0).toLocaleString('tr-TR')}`
+  const km = cs.oneWayKm != null ? `${cs.oneWayKm} km` : 'KM girilmedi'
+  const meet = cs.meetFeeApplicable && cs.meetFeeApplies ? ' · Karşılama 250 ₺' : ''
+  return `Kendi aracımız · ${km}${meet}`
+}
+
 export default function BookingDetailPage({ bookingRef, isReturn, sourceTab, profitPeriod, navigate }: { bookingRef: string; isReturn: boolean; sourceTab: 'future' | 'past' | 'cancelled' | 'profit-loss'; profitPeriod?: string | null; navigate: Navigate }) {
   const [booking, setBooking] = useState<Booking | null>(null)
   const [loading, setLoading] = useState(true)
@@ -248,6 +258,7 @@ export default function BookingDetailPage({ bookingRef, isReturn, sourceTab, pro
   const [success, setSuccess] = useState('')
   const [statusError, setStatusError] = useState('')
   const [statusSaving, setStatusSaving] = useState(false)
+  const [costDialogOpen, setCostDialogOpen] = useState(false)
   const [note, setNote] = useState('')
   const [noteError, setNoteError] = useState('')
   const [noteSaving, setNoteSaving] = useState(false)
@@ -256,6 +267,11 @@ export default function BookingDetailPage({ bookingRef, isReturn, sourceTab, pro
   const [preview, setPreview] = useState<{ kind: TemplateKind; text: string } | null>(null)
   const [deleting, setDeleting] = useState(false)
   const [deleteError, setDeleteError] = useState('')
+  // "Dönüş yolculuğu planla" / "yeni seyahat planla" kısayolları ayrı bir
+  // rezervasyon satırı oluşturur. Bu kayıt silinince bağlı satır yerinde kalır
+  // ve kâr/zarar ekranında aynı yolcu adıyla görünmeye devam eder.
+  const [linkedReturns, setLinkedReturns] = useState<Array<{ id: string; booking_ref: string; pickup_date: string; status: string }>>([])
+  const [deleteLinkedReturns, setDeleteLinkedReturns] = useState(true)
 
   useEffect(() => {
     let active = true
@@ -269,13 +285,26 @@ export default function BookingDetailPage({ bookingRef, isReturn, sourceTab, pro
     return () => { active = false }
   }, [bookingRef])
 
+  // Bu kayıttan türetilmiş ayrı rezervasyon satırları (manuel dönüş kısayolu).
+  useEffect(() => {
+    let active = true
+    setLinkedReturns([])
+    supabase.from('bookings').select('id, booking_ref, pickup_date, status')
+      .eq('manual_return_of_ref', bookingRef)
+      .then(({ data, error }: any) => {
+        if (!active || error) return
+        setLinkedReturns((data ?? []) as Array<{ id: string; booking_ref: string; pickup_date: string; status: string }>)
+      })
+    return () => { active = false }
+  }, [bookingRef])
+
   const updateBooking = (next: Booking, message = '') => { setBooking(next); setSuccess(message) }
 
   const backHash = sourceTab === 'profit-loss'
     ? `#profit-loss${profitPeriod ? `?period=${encodeURIComponent(profitPeriod)}` : ''}`
     : '#timeline'
   if (loading) return <><Topbar navigate={navigate} title="Transfer Detayı" back={backHash} /><div className="scroll-area"><div className="empty"><div>Yükleniyor…</div></div></div></>
-  if (notFound || !booking) return <><Topbar navigate={navigate} title="Transfer Detayı" back={backHash} /><div className="scroll-area"><div className="empty"><div>Rezervasyon bulunamadı</div></div></div></>
+  if (notFound || !booking) return <><Topbar navigate={navigate} title="Transfer Detayı" back={backHash} /><div className="scroll-area"><div className="empty"><div>Rezervasyon bulunamadı</div><div className="empty-hint">{bookingRef} kaydı silinmiş olabilir. Geldiğiniz listeyi yenileyin; silinen kayıtlar kâr/zarar hesabına girmez.</div></div></div></>
 
   const roundTrip = booking.trip_type === 'round_trip'
   const dailyChauffeur = booking.trip_type === 'daily_chauffeur'
@@ -290,7 +319,7 @@ export default function BookingDetailPage({ bookingRef, isReturn, sourceTab, pro
   // Kâr/zarar motoruyla aynı kural: ayrıştırılmamış eski kayıtlarda toplam
   // maliyet iki ayağa bölünür, ayrıştırılmışlarda her ayak kendi bedelini taşır.
   const legCost = legCostModel(booking, isReturn && roundTrip ? 'return' : 'outbound')
-  const costModeLabel = legCost.costMode === 'sold_transfer' ? 'Satılan transfer' : 'Kendi aracımız'
+  const costModeLabel = COST_MODE_LABELS[legCost.costMode as CostMode] ?? 'Kendi aracımız'
   // Dönüş ayağında yolcu, gidişin varış bölgesinden alınır.
   const returnPickup = returnPickupAdvice(booking.return_flight_departure_time, booking.dropoff_location)
   const sortedNotes = [...(booking.booking_notes ?? [])].sort((a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime())
@@ -383,15 +412,40 @@ export default function BookingDetailPage({ bookingRef, isReturn, sourceTab, pro
       if (error) console.error('Durum güncelleme hatası:', error.message, error.details, error.hint, error.code)
       setBooking({ ...booking, status: previousStatus })
       setStatusError('Güncelleme başarısız, tekrar deneyin.')
+      return
     }
+    if (next === 'completed' && !dailyChauffeur) setCostDialogOpen(true)
   }
 
   const deleteBooking = async () => {
-    if (!window.confirm('Bu rezervasyonu kalıcı olarak silmek istediğinize emin misiniz? Bu işlem geri alınamaz.')) return
+    const alsoDeleting = deleteLinkedReturns ? linkedReturns : []
+    const confirmation = alsoDeleting.length
+      ? `Bu rezervasyon ve bağlı ${alsoDeleting.length} kayıt (${alsoDeleting.map(item => item.booking_ref).join(', ')}) kalıcı olarak silinecek. Bu işlem geri alınamaz. Devam edilsin mi?`
+      : 'Bu rezervasyonu kalıcı olarak silmek istediğinize emin misiniz? Bu işlem geri alınamaz.'
+    if (!window.confirm(confirmation)) return
     setDeleting(true); setDeleteError('')
-    const { error } = await supabase.from('bookings').delete().eq('id', booking.id)
+    // Bağlı kayıtlar önce silinir: ana kayıt gidince bağlantı sütunu NULL'a
+    // düşer ve satırlar sahipsiz kalır.
+    for (const linked of alsoDeleting) {
+      const { count: linkedCount, error: linkedError } = await supabase.from('bookings')
+        .delete({ count: 'exact' }).eq('id', linked.id)
+      if (linkedError || linkedCount === 0) {
+        if (linkedError) console.error('Bağlı rezervasyon silme hatası:', linkedError.message, linkedError.details, linkedError.hint, linkedError.code)
+        setDeleting(false)
+        setDeleteError(`${linked.booking_ref} silinemedi, hiçbir kayıt silinmedi. Tekrar deneyin.`)
+        return
+      }
+      setLinkedReturns(current => current.filter(item => item.id !== linked.id))
+    }
+    const { count, error } = await supabase.from('bookings').delete({ count: 'exact' }).eq('id', booking.id)
     setDeleting(false)
-    if (error) { setDeleteError('Silme başarısız, tekrar deneyin.'); return }
+    // Yetki kuralları bir satırı gizlerse Supabase hata döndürmez, yalnızca 0
+    // satır siler; bu durumda kayıt hâlâ duruyor demektir.
+    if (error || count === 0) {
+      if (error) console.error('Rezervasyon silme hatası:', error.message, error.details, error.hint, error.code)
+      setDeleteError('Silme başarısız, kayıt hâlâ duruyor. Tekrar deneyin.')
+      return
+    }
     navigate(backHash)
   }
 
@@ -421,7 +475,9 @@ export default function BookingDetailPage({ bookingRef, isReturn, sourceTab, pro
 
   return <><Topbar navigate={navigate} title={dailyChauffeur ? 'Günlük Kiralama Detayı' : 'Transfer Detayı'} back={backHash} />
     <div className="scroll-area">
-      <div className="section"><div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}><span style={{ color: 'var(--text-muted)', fontSize: 13 }}>{booking.booking_ref}</span><div className="card-badges"><span className={`badge badge-${displayStatus}`}>{statusLabel(displayStatus, roundTrip)}</span>{dailyChauffeur && <span className="badge badge-daily">GÜNLÜK KİRALAMA</span>}{roundTrip && <span className={`badge ${isReturn ? 'badge-return' : 'badge-outbound'}`}>{isReturn ? 'DÖNÜŞ' : 'GİDİŞ'}</span>}</div></div></div>
+      <div className="section"><div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}><span style={{ color: 'var(--text-muted)', fontSize: 13 }}>{booking.booking_ref}</span><div className="card-badges"><span className={`badge badge-${displayStatus}`}>{statusLabel(displayStatus, roundTrip)}</span>{dailyChauffeur && <span className="badge badge-daily">GÜNLÜK KİRALAMA</span>}{roundTrip && <span className={`badge ${isReturn ? 'badge-return' : 'badge-outbound'}`}>{isReturn ? 'DÖNÜŞ' : 'GİDİŞ'}</span>}{booking.manual_return_of_ref && <span className="badge badge-return">DÖNÜŞ · {booking.manual_return_of_ref}</span>}</div></div>{(booking.manual_return_of_ref || linkedReturns.length > 0) && <div className="linked-booking-note">{booking.manual_return_of_ref
+        ? <>Bu kayıt <strong>{booking.manual_return_of_ref}</strong> rezervasyonundan planlanan ayrı bir kayıttır; o kaydı silmek bunu silmez.</>
+        : <>Bu rezervasyondan planlanan ayrı kayıt(lar): <strong>{linkedReturns.map(item => item.booking_ref).join(', ')}</strong>. Bunlar bağımsız kayıtlardır.</>}</div>}</div>
       <div className="section quick-actions-section"><button className="btn-outline blue" type="button" onClick={() => planTrip(false)}>🆕 Bu yolcudan yeni seyahat planla</button>{!dailyChauffeur && <button className="btn-outline blue" type="button" onClick={() => planTrip(true)}>↩ Dönüş yolculuğu planla</button>}</div>
       {needsReturnContact && <div className="return-contact-alert detail-return-contact" role="status"><span className="return-contact-icon" aria-hidden="true">☎</span><span className="return-contact-copy"><strong>Gidiş seyahati için iletişime geç</strong><small>Geliş transferi tamamlandı.</small></span><a href={whatsappURL(booking.customer_phone)} target="_blank" rel="noopener noreferrer">WhatsApp</a></div>}
       <div className="section"><div className="editable-heading" style={{ marginBottom: 8 }}><div className="section-label" style={{ marginBottom: 0 }}>{dailyChauffeur ? 'Günlük Araç + Şoför' : 'Transfer'}</div><button className="inline-edit-button" type="button" hidden={editing} onClick={() => { setSuccess(''); setEditing(true) }}>Tümünü düzenle</button></div>{dailyChauffeur ? <><div className="daily-detail-title">{fmtDetailDate(booking.pickup_date)} – {fmtDetailDate(booking.service_end_date)} · {hireDays} gün</div><div className="daily-detail-summary"><span><small>Başlangıç</small><strong>{fmtTime(booking.pickup_time)} · {pickupDisplay}</strong></span><span><small>Hizmet</small><strong>Kilometre ve saat sınırı yok</strong></span><span><small>Ücret</small><strong>€{fmtPrice(Number(booking.daily_rate_eur) || 150)} × {hireDays} = €{fmtPrice(booking.price_eur)}</strong></span></div><div className={`fuel-acceptance-status${booking.fuel_terms_accepted_at ? ' accepted' : ' missing'}`}>{booking.fuel_terms_accepted_at ? `✓ Yakıt hariç koşulu müşteri tarafından onaylandı · ${new Date(booking.fuel_terms_accepted_at).toLocaleString('tr-TR')}` : '⚠ Yakıt hariç koşulu onaylanmamış'}</div>{booking.flight_number && <div className="daily-flight-line">✈ Geliş: {booking.pickup_date} · {booking.flight_number} · varış {fmtTime(booking.flight_arrival_time)}</div>}{booking.departure_flight_date && <div className="daily-flight-line">✈ Dönüş: {booking.departure_flight_date} · {booking.departure_flight_number || 'Uçuş no yok'} · kalkış {fmtTime(booking.departure_flight_time)}</div>}</> : <><div style={{ fontSize: 17, fontWeight: 700, marginBottom: 4 }}>{fmtTime(transfer.time)} &nbsp;{pickupDisplay} → {dropoffDisplay}</div><div style={{ color: 'var(--text-muted)', fontSize: 13 }}>{fmtDetailDate(transfer.date)}{transfer.flightNumber ? ` · ✈️ ${transfer.flightNumber}${flightTimeSuffix}` : ''}</div>{transfer.pickupAddress && <div style={{ color: 'var(--text-muted)', fontSize: 13, marginTop: 6 }}>📍 Alış: {transfer.pickupAddress}</div>}{transfer.dropoffAddress && <div style={{ color: 'var(--text-muted)', fontSize: 13, marginTop: 3 }}>📍 Varış: {transfer.dropoffAddress}</div>}{navigation && <><div className="detail-navigation-label">Transfer rotası</div><div className="detail-navigation" aria-label="Google Haritalar ile transfer rotası için yol tarifi"><a href={navigation.google} target="_blank" rel="noopener noreferrer"><span aria-hidden="true">↗</span> Adrese yol tarifi al</a></div></>}</>}<div className="inline-success" role="status">{success}</div></div>
@@ -465,8 +521,22 @@ export default function BookingDetailPage({ bookingRef, isReturn, sourceTab, pro
 
       <div className="section"><div className="section-label">Ödeme</div><div className={`detail-payment-row${roundTrip && isReturn ? ' detail-payment-settled' : ''}`}><span className="detail-payment-context"><strong>{paymentMethod}</strong>{dailyChauffeur ? <small>Günlük €{fmtPrice(Number(booking.daily_rate_eur) || 150)} · yakıt hariç</small> : roundTrip && <small>{isReturn ? 'Dönüş ücreti' : 'Gidiş ücreti'}</small>}</span><div style={{ display: 'flex', alignItems: 'center', gap: 8, flexWrap: 'wrap' }}><span className="detail-payment-price">€{fmtPrice(legPrice)}</span>{dailyChauffeur && <small className="daily-total-label">Toplam €{fmtPrice(booking.price_eur)}</small>}{!(roundTrip && isReturn) && <PriceEditor booking={booking} onSaved={genericSaved} />}</div></div></div>
       <div className="section"><div className="section-label">Notlar</div>{booking.notes && <div className="note-pinned">📌 {booking.notes}</div>}<div>{sortedNotes.length ? sortedNotes.map(item => <div className="note-item" key={item.id}>{item.note}</div>) : <div className="notes-empty">Henüz not yok</div>}</div><div className="note-input-row"><input className="input" type="text" placeholder="Not ekle…" value={note} onChange={e => setNote(e.target.value)} onKeyDown={e => { if (e.key === 'Enter') { e.preventDefault(); void addNote() } }} /><button className="btn" type="button" disabled={noteSaving} style={{ width: 'auto', padding: '8px 14px', fontSize: 13 }} onClick={() => void addNote()}>Ekle</button></div><div className="inline-error">{noteError}</div></div>
+      {displayStatus === 'completed' && !dailyChauffeur && (() => {
+        const legKey = isReturn && roundTrip ? 'return' : 'outbound'
+        const cs = bookingLegCostStatus(booking, legKey, todayISO())
+        if (!cs.applicable) return null
+        return <div className="section">
+          <div className="section-label">{legLabelFor(legKey)} Maliyeti</div>
+          {cs.complete
+            ? <div className="cost-banner ok"><span className="grow">{costSummary(cs)}</span><button className="btn-sm" type="button" onClick={() => setCostDialogOpen(true)}>Düzenle</button></div>
+            : <div className="cost-banner warn"><span className="grow"><strong>Maliyet eksik</strong></span><button className="btn-sm" type="button" onClick={() => setCostDialogOpen(true)}>Maliyet gir</button></div>}
+        </div>
+      })()}
+      {costDialogOpen && <CostDialog booking={booking} leg={isReturn && roundTrip ? 'return' : 'outbound'} today={todayISO()} onClose={() => setCostDialogOpen(false)} onSaved={updated => setBooking(updated)} />}
       <div className="section"><div className="section-label">Durum Güncelle</div><div className="status-buttons">{(STATUS_TRANSITIONS[displayStatus] ?? []).length ? STATUS_TRANSITIONS[displayStatus].map(next => <button className={`btn-outline ${STATUS_COLORS[next]}`} type="button" key={next} disabled={statusSaving} onClick={() => void updateStatus(next)}>{statusLabel(next, roundTrip)}</button>) : <div style={{ color: 'var(--text-muted)', fontSize: 13, gridColumn: '1/-1' }}>Bu transfer için başka durum seçeneği yok.</div>}</div><div className="inline-error">{statusError}</div></div>
-      {booking.status === 'cancelled' && <div className="section"><div className="section-label">Kalıcı Silme</div><div style={{ color: 'var(--text-muted)', fontSize: 13, marginBottom: 8 }}>İptal edilen bu rezervasyonu kalıcı olarak silebilirsiniz. Bu işlem geri alınamaz; test rezervasyonlarını temizlemek için kullanabilirsiniz.</div><button className="btn-outline red" type="button" disabled={deleting} onClick={() => void deleteBooking()}>🗑 {deleting ? 'Siliniyor…' : 'Kalıcı olarak sil'}</button><div className="inline-error">{deleteError}</div></div>}
+      {booking.status === 'cancelled' && <div className="section"><div className="section-label">Kalıcı Silme</div><div style={{ color: 'var(--text-muted)', fontSize: 13, marginBottom: 8 }}>İptal edilen bu rezervasyonu kalıcı olarak silebilirsiniz. Bu işlem geri alınamaz; test rezervasyonlarını temizlemek için kullanabilirsiniz.</div>
+        {linkedReturns.length > 0 && <label className="admin-fuel-acceptance linked-return-choice"><input type="checkbox" checked={deleteLinkedReturns} onChange={e => setDeleteLinkedReturns(e.target.checked)} /><span><strong>Bağlı kayıtlar da silinsin</strong><small>Bu rezervasyondan planlanan {linkedReturns.length} ayrı kayıt var: {linkedReturns.map(item => `${item.booking_ref} · ${fmtDetailDate(item.pickup_date)}`).join(' · ')}. İşaretlenmezse bu kayıtlar durur ve kâr/zarar ekranında görünmeye devam eder.</small></span></label>}
+        <button className="btn-outline red" type="button" disabled={deleting} onClick={() => void deleteBooking()}>🗑 {deleting ? 'Siliniyor…' : 'Kalıcı olarak sil'}</button><div className="inline-error">{deleteError}</div></div>}
     </div>
   </>
 }

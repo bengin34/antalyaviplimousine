@@ -118,6 +118,8 @@
 .field-control.phone-field-control .PhoneInput { display: flex; align-items: center; gap: 8px; width: 100%; }
 .field-control.phone-field-control .PhoneInputInput,
 .booking-section .field-control.phone-field-control input.PhoneInputInput { padding-left: 0; width: 100%; min-width: 0; border: 0; outline: 0; background: transparent; color: var(--ink); font-size: 12px; font-weight: 500; }
+.booking-shell .field-control.phone-field-control .PhoneInputInput,
+.booking-shell .field-control.phone-field-control input.PhoneInputInput { color: var(--white); }
 .field-control.phone-field-control .PhoneInputCountry { flex: 0 0 auto; }
 .field-control.phone-field-control .PhoneInputCountrySelect { cursor: pointer; }
 .field-control.phone-field-control .PhoneInputCountrySelectArrow { opacity: .55; }
@@ -168,6 +170,7 @@
 .site-footer .footer-main button { padding: 0; border: 0; background: none; color: inherit; cursor: pointer; }
 
 .modal-backdrop { border: 0; }
+.booking-shell .modal-card { color: var(--ink); }
 
 /* Video section */
 .video-card {
