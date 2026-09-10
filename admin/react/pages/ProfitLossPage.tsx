@@ -448,6 +448,19 @@ export default function ProfitLossPage({ navigate, initialPeriod }: { navigate: 
         : loading && !bookings.length ? <><div className="empty"><div>Ayarlar yükleniyor…</div></div><div className="empty"><div>Hesaplanıyor…</div></div></>
         : <>
           <KpiStrip label={tabLabel} {...kpi} />
+          {/* Muhasebe tablosu özet kartların hemen altında; kâr paylaşımı/dağıtım aşağıda kalır. */}
+          {activeDistribution && <p className="profit-snapshot-note">Üstteki özet dağıtım anındaki kayıtlı değerlerdir. Aşağıdaki liste güncel veriye göre hesaplanır ve salt okunurdur.</p>}
+          <ProfitLedgerGrid
+            legs={legs}
+            bookingsById={bookingsById}
+            editable={editable}
+            attentionSince={openStart}
+            navigate={navigate}
+            today={today}
+            onBookingSaved={applyBookingPatch}
+            onSaveNoCost={saveNoCost}
+            periodLabel={periodLabel}
+          />
           {activeTab === 'open' && <ProfitDistributionSection
             today={distributionToday}
             bookings={bookings}
@@ -466,18 +479,6 @@ export default function ProfitLossPage({ navigate, initialPeriod }: { navigate: 
             onFocusLeg={focusLeg}
             navigate={navigate}
           />}
-          {activeDistribution && <p className="profit-snapshot-note">Üstteki özet dağıtım anındaki kayıtlı değerlerdir. Aşağıdaki liste güncel veriye göre hesaplanır ve salt okunurdur.</p>}
-          <ProfitLedgerGrid
-            legs={legs}
-            bookingsById={bookingsById}
-            editable={editable}
-            attentionSince={openStart}
-            navigate={navigate}
-            today={today}
-            onBookingSaved={applyBookingPatch}
-            onSaveNoCost={saveNoCost}
-            periodLabel={periodLabel}
-          />
           {editable && <ExpandableSection title="Hesaplama ayarları" detail={settingsMonths.length > 1 ? `${settingsMonths.length} ay` : monthLabel(settingsMonths[0] ?? today.slice(0, 7))}>
             {settingsMonths.map(month => <SettingsForm key={month} period={month} settings={settings} onSaved={saveSetting} />)}
           </ExpandableSection>}
