@@ -33,14 +33,14 @@
   --black: #090909;
   --charcoal: #11110f;
   --ink: #1b1b18;
-  --muted: #74736d;
+  --muted: #706f69;
   --line: #dedbd2;
   --cream: #f6f3ec;
   --paper: #fcfbf8;
   --white: #ffffff;
   --gold: #c8a96a;
   --gold-light: #e0c68d;
-  --gold-dark: #9d7a3d;
+  --gold-dark: #866326;
   --serif: "Italiana", "Bodoni 72", Didot, serif;
   --sans: "DM Sans", Arial, sans-serif;
   --shadow: 0 30px 80px rgba(20, 17, 10, 0.12);
@@ -815,7 +815,7 @@ html[dir="rtl"] a[href^="tel:"] {
 }
 
 .price-display-note {
-  color: rgba(255, 255, 255, 0.35);
+  color: rgba(255, 255, 255, 0.5);
   font-size: 9px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -864,7 +864,9 @@ html[dir="rtl"] a[href^="tel:"] {
 
 .booking-steps {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
+  gap: 8px 0;
   margin-bottom: 32px;
 }
 
@@ -875,9 +877,19 @@ html[dir="rtl"] a[href^="tel:"] {
   font-size: 10px;
   letter-spacing: 0.13em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.3);
+  color: rgba(255, 255, 255, 0.5);
   white-space: nowrap;
   transition: color 0.25s;
+}
+
+@media (max-width: 420px) {
+  .booking-step {
+    white-space: normal;
+  }
+
+  .booking-step-label {
+    overflow-wrap: anywhere;
+  }
 }
 
 .booking-step.active {
@@ -1013,7 +1025,7 @@ html[dir="rtl"] a[href^="tel:"] {
 
 .trip-type-hint {
   margin: 0;
-  color: rgba(255, 255, 255, 0.42);
+  color: rgba(255, 255, 255, 0.5);
   font-size: 11px;
   line-height: 1.45;
 }
@@ -1318,7 +1330,7 @@ html[dir="rtl"] a[href^="tel:"] {
 
 .booking-includes {
   margin: 0;
-  color: rgba(255, 255, 255, 0.35);
+  color: rgba(255, 255, 255, 0.5);
   font-size: 10px;
   letter-spacing: 0.03em;
   line-height: 1.6;
@@ -1599,7 +1611,7 @@ html[dir="rtl"] a[href^="tel:"] {
 
 .section-index {
   margin-bottom: -8px;
-  color: #d6d1c7;
+  color: #969187;
   font-family: var(--serif);
   font-size: 68px;
 }
@@ -1680,7 +1692,7 @@ html[dir="rtl"] a[href^="tel:"] {
 
 .luxury-stats span {
   margin-top: 10px;
-  color: #8b877e;
+  color: #78746b;
   font-size: 9px;
   letter-spacing: 0.16em;
   text-transform: uppercase;
@@ -2910,7 +2922,7 @@ footer {
 .footer-main > p {
   max-width: 300px;
   margin: 0;
-  color: rgba(255, 255, 255, 0.38);
+  color: rgba(255, 255, 255, 0.5);
   font-size: 12px;
   line-height: 1.8;
 }
@@ -2947,7 +2959,7 @@ footer {
   margin: 0 auto;
   padding: 22px var(--section-x);
   border-top: 1px solid rgba(255, 255, 255, 0.08);
-  color: rgba(255, 255, 255, 0.25);
+  color: rgba(255, 255, 255, 0.5);
   font-size: 8px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -3005,9 +3017,11 @@ footer {
   max-width: 900px;
   margin: 0;
   font-family: var(--serif);
-  font-size: clamp(58px, 7vw, 108px);
+  font-size: clamp(34px, 7vw, 108px);
   font-weight: 400;
   line-height: 0.95;
+  hyphens: auto;
+  overflow-wrap: anywhere;
 }
 
 .legal-hero > p {
@@ -3021,16 +3035,24 @@ footer {
 .legal-content {
   display: grid;
   max-width: 1180px;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: 18px;
   margin: 0 auto;
   padding: 90px var(--section-x) 120px;
 }
 
 .legal-card {
+  min-width: 0;
   border: 1px solid var(--line);
   background: var(--white);
   padding: clamp(28px, 4vw, 46px);
+}
+
+.legal-card h2,
+.legal-card p,
+.legal-card dt,
+.legal-card dd {
+  overflow-wrap: anywhere;
 }
 
 .legal-card-wide {
@@ -3688,7 +3710,7 @@ footer {
   }
 
   .legal-content {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .fleet-image {

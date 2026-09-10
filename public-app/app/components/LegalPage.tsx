@@ -23,7 +23,7 @@ export function LegalPage({ language, privacy }: { language: IndexableLanguage; 
   return (
     <>
       <StaticPageHeader homeHref={homeHref} homeLabel={page.homeLabel} secondaryHref={privacy ? iPath : pPath} secondaryLabel={privacy ? iLabel : pLabel} legal />
-      <main>
+      <main id="main-content" tabIndex={-1}>
         <section className="legal-hero"><div className="eyebrow light"><span /><p>{page.hero.eyebrow}</p></div><h1>{page.hero.title}</h1><p>{page.hero.intro}</p></section>
         <section className="legal-content" aria-label={page.hero.title}>{page.cards.map((card) => <div className={`legal-card${card.paragraphs.length ? " legal-card-wide" : ""}`} key={card.title}><h2>{card.title}</h2>{card.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}{card.details.length > 0 && <dl className="legal-details">{card.details.map((detail) => <div key={detail.term}><dt>{detail.term}</dt><dd>{detail.href ? <a href={detail.href}>{detail.value}</a> : detail.value}</dd></div>)}</dl>}{card.privacySettings && <p><button className="button button-gold" type="button" data-open-consent>{psLabel}</button></p>}</div>)}</section>
       </main>

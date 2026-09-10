@@ -23,11 +23,11 @@ export function StaticPageHeader({
 }: StaticPageHeaderProps) {
   return (
     <header className={`site-header${legal ? " legal-header" : ""} scrolled`}>
-      <a className="brand" href={homeHref}>
-        <span className="brand-mark">AVL</span>
+      <a className="brand" href={homeHref} aria-label="Antalya VIP Tourism">
+        <span className="brand-mark" aria-hidden="true">AVL</span>
         <span className="brand-copy"><strong>Antalya VIP</strong><span>Tourism</span></span>
       </a>
-      <nav className="desktop-nav">
+      <nav className="desktop-nav" aria-label="Primary navigation">
         <a href={homeHref}>{homeLabel}</a>
         <a href={secondaryHref}>{secondaryLabel}</a>
         {tertiaryHref && tertiaryLabel && <a href={tertiaryHref}>{tertiaryLabel}</a>}

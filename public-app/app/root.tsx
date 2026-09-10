@@ -18,6 +18,24 @@ export const links = () => [
   { rel: "manifest", href: "/assets/favicons/site.webmanifest" },
 ];
 
+/** Skip-link wording per site language; falls back to English. */
+const skipLabels: Record<string, string> = {
+  en: "Skip to main content",
+  de: "Zum Hauptinhalt springen",
+  tr: "Ana içeriğe geç",
+  ru: "Перейти к основному содержанию",
+  fr: "Aller au contenu principal",
+  cs: "Přejít na hlavní obsah",
+  uk: "Перейти до основного вмісту",
+  ar: "تخطي إلى المحتوى الرئيسي",
+  ur: "مرکزی مواد پر جائیں",
+  nl: "Naar hoofdinhoud",
+  pl: "Przejdź do treści głównej",
+  sv: "Hoppa till huvudinnehållet",
+  ja: "本文へスキップ",
+  ko: "본문으로 건너뛰기",
+};
+
 export function Layout({ children }: { children: ReactNode }) {
   const matches = useMatches();
   const routeData = [...matches].reverse().find((match) => {
@@ -36,6 +54,12 @@ export function Layout({ children }: { children: ReactNode }) {
       </head>
       <body>
         <IconSprite />
+        {/* SC 2.4.1 Bypass Blocks: every page repeats the same header and
+            nav, so the first Tab stop offers a jump straight to the page's
+            own content. Each route labels its <main> with id="main-content". */}
+        <a className="skip-link" href="#main-content">
+          {skipLabels[language] ?? skipLabels.en}
+        </a>
         {children}
         <ScrollRestoration />
         <Scripts />

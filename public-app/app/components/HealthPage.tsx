@@ -641,7 +641,7 @@ export function HealthPage() {
         ctaLabel={copy.navCta}
       />
 
-      <main>
+      <main id="main-content" tabIndex={-1}>
         <section className="health-hero" id="top">
           <picture className="health-hero-media">
             <source srcSet="/assets/optimized/health-coordination-hero.webp" type="image/webp" />
@@ -682,7 +682,7 @@ export function HealthPage() {
               </div>
             </div>
 
-            <aside className="health-consultation-card" id="health-consultation">
+            <div className="health-consultation-card" id="health-consultation">
               <span className="health-card-label">{copy.consultation.label}</span>
               <h2>{copy.consultation.title}</h2>
               <p>{copy.consultation.body}</p>
@@ -707,11 +707,12 @@ export function HealthPage() {
               >
                 <Icon name="whatsapp" className="whatsapp-icon" />
                 <span>{copy.consultation.cta}</span>
+                <span className="sr-only">(WhatsApp — opens in a new tab)</span>
                 <Icon name="arrow-up-right" className="icon" />
               </a>
               <a className="health-call-link" href="tel:+905302655790">{copy.consultation.call}</a>
               <small>{copy.consultation.note}</small>
-            </aside>
+            </div>
           </div>
         </section>
 
@@ -861,7 +862,7 @@ export function HealthPage() {
                 ))}
               </ul>
             </div>
-            <aside className="health-question-card">
+            <div className="health-question-card">
               <span>{copy.standards.cardLabel}</span>
               <h3>{copy.standards.cardTitle}</h3>
               <p>{copy.standards.cardBody}</p>
@@ -870,7 +871,7 @@ export function HealthPage() {
                   <li key={item}><span>0{index + 1}</span>{item}</li>
                 ))}
               </ol>
-            </aside>
+            </div>
           </div>
         </section>
 
@@ -920,14 +921,21 @@ export function HealthPage() {
               <article className={openFaq === index ? "open" : ""} key={item.question}>
                 <button
                   type="button"
+                  id={`health-faq-trigger-${index}`}
                   aria-expanded={openFaq === index}
+                  aria-controls={`health-faq-answer-${index}`}
                   onClick={() => setOpenFaq(openFaq === index ? -1 : index)}
                 >
-                  <span className="health-faq-number">0{index + 1}</span>
+                  <span className="health-faq-number" aria-hidden="true">0{index + 1}</span>
                   <span>{item.question}</span>
-                  <i />
+                  <i aria-hidden="true" />
                 </button>
-                <div className="health-faq-answer"><p>{item.answer}</p></div>
+                <div
+                  className="health-faq-answer"
+                  id={`health-faq-answer-${index}`}
+                  role="region"
+                  aria-labelledby={`health-faq-trigger-${index}`}
+                ><p>{item.answer}</p></div>
               </article>
             ))}
           </div>
@@ -995,10 +1003,12 @@ export function HealthPage() {
         </div>
       </footer>
 
-      <a className="health-mobile-cta" href="#health-consultation">
-        <span>{copy.navCta}</span>
-        <Icon name="arrow-right" className="icon" />
-      </a>
+      <div role="complementary" aria-label={copy.navCta}>
+        <a className="health-mobile-cta" href="#health-consultation">
+          <span>{copy.navCta}</span>
+          <Icon name="arrow-right" className="icon" />
+        </a>
+      </div>
     </div>
   );
 }

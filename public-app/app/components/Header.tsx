@@ -20,6 +20,9 @@ export function Header({
   const [languagesOpen, setLanguagesOpen] = useState(false);
   const [scrolled, setScrolled] = useState(compact);
   const languageMenu = useRef<HTMLDivElement>(null);
+  const languageTrigger = useRef<HTMLButtonElement>(null);
+  const menuTrigger = useRef<HTMLButtonElement>(null);
+  const mobileMenu = useRef<HTMLDivElement>(null);
   const currentLanguage = languageOptions.find(({ code }) => code === language) ?? languageOptions[0];
   const sectionHref = (hash: string) => `${homeHref}${hash}`;
 
@@ -42,6 +45,74 @@ export function Header({
   useEffect(() => {
     document.body.classList.toggle("menu-open", menuOpen);
     return () => document.body.classList.remove("menu-open");
+  }, [menuOpen]);
+
+  // SC 2.1.2 No Keyboard Trap: both overlays must be dismissable from the
+  // keyboard, and focus has to land back on the control that opened them —
+  // otherwise the tab order restarts at the top of the document.
+  useEffect(() => {
+    if (!menuOpen && !languagesOpen) return;
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key !== "Escape") return;
+      if (languagesOpen) {
+        setLanguagesOpen(false);
+        languageTrigger.current?.focus();
+        return;
+      }
+      setMenuOpen(false);
+      menuTrigger.current?.focus();
+    };
+    document.addEventListener("keydown", onKeyDown);
+    return () => document.removeEventListener("keydown", onKeyDown);
+  }, [menuOpen, languagesOpen]);
+
+  // The open menu covers the page, so Tab must stay inside it; otherwise
+  // focus walks the hidden content behind the overlay (SC 2.4.3).
+  useEffect(() => {
+    if (!menuOpen) return;
+    const node = mobileMenu.current;
+    if (!node) return;
+
+    const focusable = () =>
+      Array.from(
+        node.querySelectorAll<HTMLElement>('a[href], button:not([disabled])'),
+      ).filter((element) => element.offsetParent !== null);
+
+    // The overlay animates in from visibility:hidden, and a hidden element
+    // silently refuses focus. There is no event for "the visibility
+    // transition has started", so retry across frames until the focus
+    // actually sticks, giving up rather than spinning if it never does.
+    let frame = 0;
+    let attempts = 0;
+    const focusFirst = () => {
+      const first = focusable()[0];
+      first?.focus();
+      if (document.activeElement === first) return;
+      if (++attempts < 40) frame = requestAnimationFrame(focusFirst);
+    };
+    frame = requestAnimationFrame(focusFirst);
+
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key !== "Tab") return;
+      const items = focusable();
+      if (items.length === 0) return;
+      const first = items[0];
+      const last = items[items.length - 1];
+      const active = document.activeElement;
+      if (event.shiftKey && (active === first || !node.contains(active))) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && active === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    };
+
+    document.addEventListener("keydown", onKeyDown);
+    return () => {
+      cancelAnimationFrame(frame);
+      document.removeEventListener("keydown", onKeyDown);
+    };
   }, [menuOpen]);
 
   const chooseLanguage = (code: LanguageCode) => {
@@ -97,24 +168,32 @@ export function Header({
             <button
               className="lang-trigger"
               type="button"
-              aria-haspopup="listbox"
+              ref={languageTrigger}
+              aria-haspopup="true"
+              aria-controls="language-menu"
               aria-expanded={languagesOpen}
-              aria-label="Change language"
+              aria-label={`Change language (current: ${currentLanguage.label})`}
               onClick={(event) => { event.stopPropagation(); setLanguagesOpen((open) => !open); }}
             >
-              <span className="lang-flag-current">{currentLanguage.flag}</span>
-              <svg width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
+              {/* The flag is decoration: the accessible name above already
+                  carries the current language, and a flag emoji announces
+                  as a country, not a language. */}
+              <span className="lang-flag-current" aria-hidden="true">{currentLanguage.flag}</span>
+              <svg width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true" focusable="false"><path d="M1 1l4 4 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
             </button>
-            <ul className="lang-menu" role="listbox" aria-label="Language">
+            {/* A plain list of native buttons rather than a listbox: these
+                navigate on activation, and role="option" on a <button>
+                inside an <li> is not a shape the listbox pattern allows. */}
+            <ul className="lang-menu" id="language-menu" aria-label="Language">
               {languageOptions.map((option) => (
                 <li key={option.code}>
                   <button
                     className={`language-button${language === option.code ? " active" : ""}`}
                     type="button"
-                    role="option"
-                    aria-selected={language === option.code}
+                    lang={option.code}
+                    aria-current={language === option.code ? "true" : undefined}
                     onClick={() => chooseLanguage(option.code)}
-                  >{option.flag} {option.label}</button>
+                  ><span aria-hidden="true">{option.flag}</span> {option.label}</button>
                 </li>
               ))}
             </ul>
@@ -127,13 +206,30 @@ export function Header({
           <button
             className="menu-button"
             type="button"
+            ref={menuTrigger}
             aria-label={menuOpen ? "Close menu" : "Open menu"}
             aria-expanded={menuOpen}
+            aria-controls="mobile-menu"
             onClick={() => setMenuOpen((open) => !open)}
-          ><span /><span /></button>
+          ><span aria-hidden="true" /><span aria-hidden="true" /></button>
         </div>
       </header>
-      <div className={`mobile-menu${menuOpen ? " open" : ""}`} aria-hidden={!menuOpen}>
+      {/* The open menu covers the whole viewport, so it behaves as a dialog:
+          that gives its nav, language buttons and footer a containing
+          landmark and lets focus be trapped while the page behind is inert. */}
+      <div
+        className={`mobile-menu${menuOpen ? " open" : ""}`}
+        id="mobile-menu"
+        ref={mobileMenu}
+        role="dialog"
+        aria-modal={menuOpen || undefined}
+        aria-label={t("menu", "Menu")}
+        aria-hidden={!menuOpen}
+        // `inert` keeps the closed overlay's links out of the tab order even
+        // where the CSS visibility transition has not finished, so aria-hidden
+        // never ends up hiding a focusable element from screen readers only.
+        inert={!menuOpen}
+      >
         <nav aria-label="Mobile navigation">
           {nav.map((item) => (
             <a
@@ -148,14 +244,19 @@ export function Header({
             </a>
           ))}
         </nav>
-        <div className="mobile-language-switcher" aria-label="Language selection">
+        {/* aria-label on a bare <div> is dropped by assistive technology —
+            the group role is what makes the name reachable. */}
+        <div className="mobile-language-switcher" role="group" aria-label="Language selection">
           {languageOptions.map((option) => (
             <button
               className={`language-button${language === option.code ? " active" : ""}`}
               type="button"
               key={option.code}
+              lang={option.code}
+              aria-label={option.label}
+              aria-current={language === option.code ? "true" : undefined}
               onClick={() => chooseLanguage(option.code)}
-            >{option.flag} {option.code.toUpperCase()}</button>
+            ><span aria-hidden="true">{option.flag} {option.code.toUpperCase()}</span></button>
           ))}
         </div>
         <div className="mobile-menu-footer"><a href="tel:+905302655790">+90 530 265 57 90</a><span>{t("alwaysAvailable", "Available 24 hours, every day")}</span></div>

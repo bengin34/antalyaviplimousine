@@ -30,9 +30,25 @@ const todayISO = () => {
   return `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, "0")}-${String(date.getDate()).padStart(2, "0")}`;
 };
 
-function FieldErrorMessage({ error }: { error?: FieldError }) {
-  return error ? <span className="field-error-message" role="alert">{error.message}</span> : null;
+/** One id per field, shared by the message node and its control's
+ *  aria-describedby — that link is what makes the message reachable
+ *  from the field instead of only being announced once on render. */
+const fieldErrorId = (name: string) => `booking-error-${name.replace(/[^a-zA-Z0-9]+/g, "-")}`;
+
+function FieldErrorMessage({ name, error }: { name: string; error?: FieldError }) {
+  return error ? (
+    <span className="field-error-message" id={fieldErrorId(name)} role="alert">
+      {error.message}
+    </span>
+  ) : null;
 }
+
+/** SC 4.1.2 + SC 3.3.1: mark the control invalid and point it at the
+ *  message that says how to fix it. Spread onto the control itself. */
+const fieldStatus = (name: string, error?: FieldError) =>
+  error
+    ? { "aria-invalid": true as const, "aria-describedby": fieldErrorId(name) }
+    : {};
 
 const DEFAULT_PHONE_COUNTRY: Partial<Record<LanguageCode, Country>> = {
   en: "GB", de: "DE", tr: "TR", ru: "RU", cs: "CZ", ar: "SA", pl: "PL",
@@ -350,9 +366,13 @@ export function BookingForm({
         regionLabel={regionLabel}
         notListedLabel={t("hotelNotListed", "My hotel is not in the list")}
         noResultsLabel={t("hotelNoMatch", "No match yet. Type the name and pick the region yourself.")}
-        describedBy={hotelSetsDestination ? "hotel-region-hint" : undefined}
+        describedBy={[
+          hotelSetsDestination ? "hotel-region-hint" : "",
+          errors.hotelName ? fieldErrorId("hotelName") : "",
+        ].filter(Boolean).join(" ") || undefined}
+        invalid={Boolean(errors.hotelName)}
       />
-      <FieldErrorMessage error={errors.hotelName} />
+      <FieldErrorMessage name="hotelName" error={errors.hotelName} />
     </label>
   );
   const openTimePicker = (id: string) => {
@@ -369,7 +389,13 @@ export function BookingForm({
             <span className="mini-label">{t("privateJourney", "Your private journey")}</span>
             <h2 id="booking-title">{t("bookTransfer", "Book your transfer")}</h2>
           </div>
-          <div id="booking-price-display" className={`booking-price-display${isDailyChauffeur || values.destination ? " visible" : ""}`}>
+          <div
+            id="booking-price-display"
+            className={`booking-price-display${isDailyChauffeur || values.destination ? " visible" : ""}`}
+            role="status"
+            aria-live="polite"
+            aria-atomic="true"
+          >
             {isDailyChauffeur
               ? <><span className="price-display-route">{t("dailyChauffeur", "Daily vehicle + chauffeur")} · {hireDays || 0} {t("days", "days")}</span><span className="price-display-prices"><strong className="price-display-amount">€{quote.price}</strong></span><span className="price-display-note">€{dailyRateEur} × {hireDays || 0} · {t("fuelExcludedShort", "fuel excluded")}</span></>
               : selectedRoute && quote.price > 0
@@ -407,9 +433,9 @@ export function BookingForm({
               <fieldset className="trip-type-selector">
                 <legend>{t("tripType", "Journey type")}</legend>
                 <div className="trip-type-options">
-                  <label className="trip-type-option"><input type="radio" value="one_way" {...register("tripType")} /><span>{t("oneWay", "One way")}</span></label>
-                  <label className="trip-type-option"><input type="radio" value="round_trip" {...register("tripType")} /><span>{t("roundTrip", "Round trip")}</span></label>
-                  <label className="trip-type-option"><input type="radio" value="daily_chauffeur" {...register("tripType")} /><span>{t("dailyChauffeur", "Daily vehicle + chauffeur")}</span></label>
+                  <label className="trip-type-option"><input type="radio" value="one_way" {...register("tripType")} {...fieldStatus("tripType", errors.tripType)} /><span>{t("oneWay", "One way")}</span></label>
+                  <label className="trip-type-option"><input type="radio" value="round_trip" {...register("tripType")} {...fieldStatus("tripType", errors.tripType)} /><span>{t("roundTrip", "Round trip")}</span></label>
+                  <label className="trip-type-option"><input type="radio" value="daily_chauffeur" {...register("tripType")} {...fieldStatus("tripType", errors.tripType)} /><span>{t("dailyChauffeur", "Daily vehicle + chauffeur")}</span></label>
                 </div>
                 <p className="trip-type-hint">{isDailyChauffeur ? t("dailyChauffeurHint", "Hire a private vehicle and chauffeur by the day with no kilometre or hour limit. Fuel is paid separately.") : t("roundTripHint", "For a round trip, the return follows the same route in reverse.")}</p>
               </fieldset>
@@ -430,25 +456,25 @@ export function BookingForm({
               <div className={`booking-row booking-row-journey${isDailyChauffeur ? " daily" : ""}`}>
                 <label className={fieldClass(errors.pickup)}>
                   <span>{t("pickup", "Pick-up")}</span>
-                  <div className="field-control"><Icon name="plane" className="icon" /><select id="pickup" {...register("pickup")}><option value="airport">{t("airportOption", "Antalya Airport (AYT)")}</option><option value="hotel">{t("hotelOption", "Hotel")}</option><option value="private_address">{t("privateAddressOption", "Private address")}</option></select></div>
-                  <FieldErrorMessage error={errors.pickup} />
+                  <div className="field-control"><Icon name="plane" className="icon" /><select id="pickup" {...register("pickup")} {...fieldStatus("pickup", errors.pickup)}><option value="airport">{t("airportOption", "Antalya Airport (AYT)")}</option><option value="hotel">{t("hotelOption", "Hotel")}</option><option value="private_address">{t("privateAddressOption", "Private address")}</option></select></div>
+                  <FieldErrorMessage name="pickup" error={errors.pickup} />
                 </label>
                 {!isDailyChauffeur && (
                   <label className={fieldClass(errors.destination)}>
                     <span>{t("destination", "Destination")}</span>
-                    <div className="field-control"><Icon name="pin" className="icon" /><select id="destination" {...register("destination")}><option value="">{t("selectDestination", "Select destination")}</option>{values.pickup !== "airport" && <option value="airport">{t("airportOption", "Antalya Airport (AYT)")}</option>}{destinationSlugs.map((slug) => <option value={slug} key={slug}>{routeCatalog[slug].names[language as keyof typeof routeCatalog[typeof slug]["names"]] ?? routeCatalog[slug].names.en}</option>)}<option value="private_address">{t("privateAddressOption", "Private address")}</option></select></div>
-                    <FieldErrorMessage error={errors.destination} />
+                    <div className="field-control"><Icon name="pin" className="icon" /><select id="destination" {...register("destination")} {...fieldStatus("destination", errors.destination)}><option value="">{t("selectDestination", "Select destination")}</option>{values.pickup !== "airport" && <option value="airport">{t("airportOption", "Antalya Airport (AYT)")}</option>}{destinationSlugs.map((slug) => <option value={slug} key={slug}>{routeCatalog[slug].names[language as keyof typeof routeCatalog[typeof slug]["names"]] ?? routeCatalog[slug].names.en}</option>)}<option value="private_address">{t("privateAddressOption", "Private address")}</option></select></div>
+                    <FieldErrorMessage name="destination" error={errors.destination} />
                   </label>
                 )}
                 <label className={fieldClass(errors.vehicle)}>
                   <span>{t("vehicle", "Vehicle")}</span>
-                  <div className="field-control"><Icon name="car" className="icon" /><select id="vehicle-type" {...register("vehicle")}><option value="vito" disabled={!vitoFits}>Mercedes Vito</option><option value="sprinter">Mercedes Sprinter</option></select></div>
-                  <FieldErrorMessage error={errors.vehicle} />
+                  <div className="field-control"><Icon name="car" className="icon" /><select id="vehicle-type" {...register("vehicle")} {...fieldStatus("vehicle", errors.vehicle)}><option value="vito" disabled={!vitoFits}>Mercedes Vito</option><option value="sprinter">Mercedes Sprinter</option></select></div>
+                  <FieldErrorMessage name="vehicle" error={errors.vehicle} />
                 </label>
                 <label className={fieldClass(errors.guests)}>
                   <span>{t("guests", "Guests")}</span>
-                  <div className="field-control"><Icon name="users" className="icon" /><select id="guests" {...register("guests")}>{Array.from({ length: 12 }, (_, index) => <option value={index + 1} key={index + 1}>{index + 1}</option>)}</select></div>
-                  <FieldErrorMessage error={errors.guests} />
+                  <div className="field-control"><Icon name="users" className="icon" /><select id="guests" {...register("guests")} {...fieldStatus("guests", errors.guests)}>{Array.from({ length: 12 }, (_, index) => <option value={index + 1} key={index + 1}>{index + 1}</option>)}</select></div>
+                  <FieldErrorMessage name="guests" error={errors.guests} />
                 </label>
               </div>
               {!vitoFits && <p id="capacity-note" className="capacity-note">{t("capacitySwitchedSprinter", "We selected the Sprinter for this passenger and luggage count.")}</p>}
@@ -485,18 +511,18 @@ export function BookingForm({
               <div className="booking-row booking-outbound-row">
                 <label className={fieldClass(errors.travelDate)}>
                   <span>{t("arrivalDate", "Arrival date")}</span>
-                  <div className="field-control"><Icon name="calendar" className="icon" /><input id="travel-date" type="date" min={minimumDate || undefined} {...register("travelDate")} /></div>
-                  <FieldErrorMessage error={errors.travelDate} />
+                  <div className="field-control"><Icon name="calendar" className="icon" /><input id="travel-date" type="date" min={minimumDate || undefined} {...register("travelDate")} {...fieldStatus("travelDate", errors.travelDate)} /></div>
+                  <FieldErrorMessage name="travelDate" error={errors.travelDate} />
                 </label>
                 <label className={`${fieldClass(errors.arrivalTime)} time-booking-field`}>
                   <span>{t("arrivalFlightTime", "Flight arrival time")}</span>
-                  <div className="field-control time-field-control" onClick={() => openTimePicker("flight-arrival-time")}><Icon name="clock" className="icon" /><span className="time-picker-value">{values.arrivalTime || t("chooseTime", "Choose time")}</span><input id="flight-arrival-time" type="time" {...register("arrivalTime")} /></div>
-                  <FieldErrorMessage error={errors.arrivalTime} />
+                  <div className="field-control time-field-control" onClick={() => openTimePicker("flight-arrival-time")}><Icon name="clock" className="icon" /><span className="time-picker-value">{values.arrivalTime || t("chooseTime", "Choose time")}</span><input id="flight-arrival-time" type="time" {...register("arrivalTime")} {...fieldStatus("arrivalTime", errors.arrivalTime)} /></div>
+                  <FieldErrorMessage name="arrivalTime" error={errors.arrivalTime} />
                 </label>
                 <label className={fieldClass(errors.flightNumber)}>
                   <span>{t("arrivalFlightNumber", "Arrival flight number")}</span>
-                  <div className="field-control"><Icon name="plane" className="icon" /><input id="flight-number" maxLength={12} placeholder="TK1234" {...register("flightNumber")} /></div>
-                  <FieldErrorMessage error={errors.flightNumber} />
+                  <div className="field-control"><Icon name="plane" className="icon" /><input id="flight-number" maxLength={12} placeholder="TK1234" {...register("flightNumber")} {...fieldStatus("flightNumber", errors.flightNumber)} /></div>
+                  <FieldErrorMessage name="flightNumber" error={errors.flightNumber} />
                 </label>
               </div>
 
@@ -504,18 +530,18 @@ export function BookingForm({
                 <div className="booking-row booking-return-row" id="return-journey-row">
                   <label className={fieldClass(errors.returnDate)}>
                     <span>{t("returnDate", "Return date")}</span>
-                    <div className="field-control"><Icon name="calendar" className="icon" /><input id="return-date" type="date" min={values.travelDate || minimumDate || undefined} {...register("returnDate")} /></div>
-                    <FieldErrorMessage error={errors.returnDate} />
+                    <div className="field-control"><Icon name="calendar" className="icon" /><input id="return-date" type="date" min={values.travelDate || minimumDate || undefined} {...register("returnDate")} {...fieldStatus("returnDate", errors.returnDate)} /></div>
+                    <FieldErrorMessage name="returnDate" error={errors.returnDate} />
                   </label>
                   <label className={`${fieldClass(errors.returnPickupTime)} time-booking-field`}>
                     <span>{t("returnPickupTime", "Return pick-up time")}</span>
-                    <div className="field-control time-field-control" onClick={() => openTimePicker("return-pickup-time")}><Icon name="clock" className="icon" /><span className="time-picker-value">{values.returnPickupTime || t("chooseTime", "Choose time")}</span><input id="return-pickup-time" type="time" {...register("returnPickupTime")} /></div>
-                    <FieldErrorMessage error={errors.returnPickupTime} />
+                    <div className="field-control time-field-control" onClick={() => openTimePicker("return-pickup-time")}><Icon name="clock" className="icon" /><span className="time-picker-value">{values.returnPickupTime || t("chooseTime", "Choose time")}</span><input id="return-pickup-time" type="time" {...register("returnPickupTime")} {...fieldStatus("returnPickupTime", errors.returnPickupTime)} /></div>
+                    <FieldErrorMessage name="returnPickupTime" error={errors.returnPickupTime} />
                   </label>
                   <label className={fieldClass(errors.returnFlightNumber)}>
                     <span>{t("returnFlightNumber", "Return flight number")}</span>
-                    <div className="field-control"><Icon name="plane" className="icon" /><input id="return-flight-number" maxLength={12} placeholder="TK1235" {...register("returnFlightNumber")} /></div>
-                    <FieldErrorMessage error={errors.returnFlightNumber} />
+                    <div className="field-control"><Icon name="plane" className="icon" /><input id="return-flight-number" maxLength={12} placeholder="TK1235" {...register("returnFlightNumber")} {...fieldStatus("returnFlightNumber", errors.returnFlightNumber)} /></div>
+                    <FieldErrorMessage name="returnFlightNumber" error={errors.returnFlightNumber} />
                   </label>
                 </div>
               )}
@@ -524,8 +550,8 @@ export function BookingForm({
                 <div className="booking-row booking-address-row" id="pickup-address-row">
                   <label className={fieldClass(errors.pickupAddress)}>
                     <span>{t("pickupAddress", "Full pick-up address")}</span>
-                    <div className="field-control"><Icon name="pin" className="icon" /><input id="pickup-address" maxLength={160} placeholder={t("pickupAddressPlaceholder", "Hotel name, street, building number and district")} {...register("pickupAddress")} /></div>
-                    <FieldErrorMessage error={errors.pickupAddress} />
+                    <div className="field-control"><Icon name="pin" className="icon" /><input id="pickup-address" maxLength={160} placeholder={t("pickupAddressPlaceholder", "Hotel name, street, building number and district")} {...register("pickupAddress")} {...fieldStatus("pickupAddress", errors.pickupAddress)} /></div>
+                    <FieldErrorMessage name="pickupAddress" error={errors.pickupAddress} />
                   </label>
                 </div>
               )}
@@ -534,8 +560,8 @@ export function BookingForm({
                 <div className="booking-row booking-address-row" id="dropoff-address-row">
                   <label className={fieldClass(errors.dropoffAddress)}>
                     <span>{t("dropoffAddress", "Full drop-off address")}</span>
-                    <div className="field-control"><Icon name="pin" className="icon" /><input id="dropoff-address" maxLength={160} placeholder={t("dropoffAddressPlaceholder", "Hotel name, street, building number and district")} {...register("dropoffAddress")} /></div>
-                    <FieldErrorMessage error={errors.dropoffAddress} />
+                    <div className="field-control"><Icon name="pin" className="icon" /><input id="dropoff-address" maxLength={160} placeholder={t("dropoffAddressPlaceholder", "Hotel name, street, building number and district")} {...register("dropoffAddress")} {...fieldStatus("dropoffAddress", errors.dropoffAddress)} /></div>
+                    <FieldErrorMessage name="dropoffAddress" error={errors.dropoffAddress} />
                   </label>
                 </div>
               )}
@@ -543,13 +569,13 @@ export function BookingForm({
               <div className="booking-row booking-options-row">
                 <label className={fieldClass(errors.luggage)}>
                   <span>{t("luggageLabel", "Large luggage")}</span>
-                  <div className="field-control"><Icon name="luggage" className="icon" /><select id="luggage" {...register("luggage")}><option value="">{t("selectLuggage", "Select")}</option>{Array.from({ length: 13 }, (_, index) => <option value={index} key={index}>{index}</option>)}</select></div>
-                  <FieldErrorMessage error={errors.luggage} />
+                  <div className="field-control"><Icon name="luggage" className="icon" /><select id="luggage" {...register("luggage")} {...fieldStatus("luggage", errors.luggage)}><option value="">{t("selectLuggage", "Select")}</option>{Array.from({ length: 13 }, (_, index) => <option value={index} key={index}>{index}</option>)}</select></div>
+                  <FieldErrorMessage name="luggage" error={errors.luggage} />
                 </label>
                 <label className={fieldClass(errors.childSeats)}>
                   <span>{t("childSeatLabel", "Child seats")}</span>
-                  <div className="field-control"><Icon name="baby" className="icon" /><select id="child-seats" {...register("childSeats")}>{Array.from({ length: 5 }, (_, index) => <option value={index} key={index}>{index === 0 ? t("childSeatNone", "No child seat") : t(["", "oneChildSeat", "twoChildSeats", "threeChildSeats", "fourChildSeats"][index], `${index} child seat${index > 1 ? "s" : ""}`)}</option>)}</select></div>
-                  <FieldErrorMessage error={errors.childSeats} />
+                  <div className="field-control"><Icon name="baby" className="icon" /><select id="child-seats" {...register("childSeats")} {...fieldStatus("childSeats", errors.childSeats)}>{Array.from({ length: 5 }, (_, index) => <option value={index} key={index}>{index === 0 ? t("childSeatNone", "No child seat") : t(["", "oneChildSeat", "twoChildSeats", "threeChildSeats", "fourChildSeats"][index], `${index} child seat${index > 1 ? "s" : ""}`)}</option>)}</select></div>
+                  <FieldErrorMessage name="childSeats" error={errors.childSeats} />
                 </label>
               </div>
               {childSeatCount > 0 && (
@@ -557,8 +583,8 @@ export function BookingForm({
                   {Array.from({ length: childSeatCount }, (_, i) => (
                     <label key={i} className={fieldClass((errors.childAges as unknown as FieldError[] | undefined)?.[i])}>
                       <span>{`${t("childAgeLabel", "Child")} ${i + 1} ${t("childAgeLabelAge", "age")}`}</span>
-                      <div className="field-control"><Icon name="baby" className="icon" /><select id={`child-age-${i}`} {...register(`childAges.${i}`)}><option value="">{t("childAgeSelect", "Select age")}</option>{Array.from({ length: 12 }, (_, age) => <option value={age} key={age}>{age === 0 ? t("childAgeBaby", "Under 1") : `${age}`}</option>)}</select></div>
-                      <FieldErrorMessage error={(errors.childAges as unknown as FieldError[] | undefined)?.[i]} />
+                      <div className="field-control"><Icon name="baby" className="icon" /><select id={`child-age-${i}`} {...register(`childAges.${i}`)} {...fieldStatus(`childAges-${i}`, (errors.childAges as unknown as FieldError[] | undefined)?.[i])}><option value="">{t("childAgeSelect", "Select age")}</option>{Array.from({ length: 12 }, (_, age) => <option value={age} key={age}>{age === 0 ? t("childAgeBaby", "Under 1") : `${age}`}</option>)}</select></div>
+                      <FieldErrorMessage name={`childAges-${i}`} error={(errors.childAges as unknown as FieldError[] | undefined)?.[i]} />
                     </label>
                   ))}
                 </div>
@@ -582,32 +608,32 @@ export function BookingForm({
           {isDailyChauffeur && (
             <>
               <div className="booking-row booking-outbound-row daily-period-row">
-                <label className={fieldClass(errors.travelDate)}><span>{t("serviceStartDate", "First service day")}</span><div className="field-control"><Icon name="calendar" className="icon" /><input id="travel-date" type="date" min={minimumDate || undefined} {...register("travelDate")} /></div><FieldErrorMessage error={errors.travelDate} /></label>
-                <label className={fieldClass(errors.serviceEndDate)}><span>{t("serviceEndDate", "Last service day")}</span><div className="field-control"><Icon name="calendar" className="icon" /><input id="service-end-date" type="date" min={values.travelDate || minimumDate || undefined} {...register("serviceEndDate")} /></div><FieldErrorMessage error={errors.serviceEndDate} /></label>
-                <label className={`${fieldClass(errors.pickupTime)} time-booking-field`}><span>{t("dailyPickupTime", "Service start time")}</span><div className="field-control time-field-control" onClick={() => openTimePicker("daily-pickup-time")}><Icon name="clock" className="icon" /><span className="time-picker-value">{values.pickupTime || t("chooseTime", "Choose time")}</span><input id="daily-pickup-time" type="time" {...register("pickupTime")} /></div><FieldErrorMessage error={errors.pickupTime} /></label>
+                <label className={fieldClass(errors.travelDate)}><span>{t("serviceStartDate", "First service day")}</span><div className="field-control"><Icon name="calendar" className="icon" /><input id="travel-date" type="date" min={minimumDate || undefined} {...register("travelDate")} {...fieldStatus("travelDate", errors.travelDate)} /></div><FieldErrorMessage name="travelDate" error={errors.travelDate} /></label>
+                <label className={fieldClass(errors.serviceEndDate)}><span>{t("serviceEndDate", "Last service day")}</span><div className="field-control"><Icon name="calendar" className="icon" /><input id="service-end-date" type="date" min={values.travelDate || minimumDate || undefined} {...register("serviceEndDate")} {...fieldStatus("serviceEndDate", errors.serviceEndDate)} /></div><FieldErrorMessage name="serviceEndDate" error={errors.serviceEndDate} /></label>
+                <label className={`${fieldClass(errors.pickupTime)} time-booking-field`}><span>{t("dailyPickupTime", "Service start time")}</span><div className="field-control time-field-control" onClick={() => openTimePicker("daily-pickup-time")}><Icon name="clock" className="icon" /><span className="time-picker-value">{values.pickupTime || t("chooseTime", "Choose time")}</span><input id="daily-pickup-time" type="time" {...register("pickupTime")} {...fieldStatus("pickupTime", errors.pickupTime)} /></div><FieldErrorMessage name="pickupTime" error={errors.pickupTime} /></label>
               </div>
               <div className="booking-row booking-outbound-row">
-                <label className={`${fieldClass(errors.arrivalTime)} time-booking-field`}><span>{t("arrivalFlightTimeOptional", "Arrival flight time (optional)")}</span><div className="field-control time-field-control" onClick={() => openTimePicker("flight-arrival-time")}><Icon name="clock" className="icon" /><span className="time-picker-value">{values.arrivalTime || t("chooseTime", "Choose time")}</span><input id="flight-arrival-time" type="time" {...register("arrivalTime")} /></div><FieldErrorMessage error={errors.arrivalTime} /></label>
-                <label className={fieldClass(errors.flightNumber)}><span>{t("arrivalFlightNumberOptional", "Arrival flight number (optional)")}</span><div className="field-control"><Icon name="plane" className="icon" /><input id="flight-number" maxLength={12} placeholder="TK1234" {...register("flightNumber")} /></div><FieldErrorMessage error={errors.flightNumber} /></label>
+                <label className={`${fieldClass(errors.arrivalTime)} time-booking-field`}><span>{t("arrivalFlightTimeOptional", "Arrival flight time (optional)")}</span><div className="field-control time-field-control" onClick={() => openTimePicker("flight-arrival-time")}><Icon name="clock" className="icon" /><span className="time-picker-value">{values.arrivalTime || t("chooseTime", "Choose time")}</span><input id="flight-arrival-time" type="time" {...register("arrivalTime")} {...fieldStatus("arrivalTime", errors.arrivalTime)} /></div><FieldErrorMessage name="arrivalTime" error={errors.arrivalTime} /></label>
+                <label className={fieldClass(errors.flightNumber)}><span>{t("arrivalFlightNumberOptional", "Arrival flight number (optional)")}</span><div className="field-control"><Icon name="plane" className="icon" /><input id="flight-number" maxLength={12} placeholder="TK1234" {...register("flightNumber")} {...fieldStatus("flightNumber", errors.flightNumber)} /></div><FieldErrorMessage name="flightNumber" error={errors.flightNumber} /></label>
                 <div className="daily-price-summary"><small>{t("servicePrice", "Service price")}</small><strong>€{dailyRateEur} × {hireDays || 0} = €{quote.price}</strong><span>{t("fuelExcludedDetail", "Fuel is not included and is paid separately according to use.")}</span></div>
               </div>
               <div className="booking-row booking-return-row daily-departure-row">
-                <label className={fieldClass(errors.departureFlightDate)}><span>{t("departureFlightDate", "Departure flight date (optional)")}</span><div className="field-control"><Icon name="calendar" className="icon" /><input id="departure-flight-date" type="date" min={values.travelDate || minimumDate || undefined} {...register("departureFlightDate")} /></div><FieldErrorMessage error={errors.departureFlightDate} /></label>
-                <label className={`${fieldClass(errors.departureFlightTime)} time-booking-field`}><span>{t("departureFlightTime", "Departure flight time")}</span><div className="field-control time-field-control" onClick={() => openTimePicker("departure-flight-time")}><Icon name="clock" className="icon" /><span className="time-picker-value">{values.departureFlightTime || t("chooseTime", "Choose time")}</span><input id="departure-flight-time" type="time" {...register("departureFlightTime")} /></div><FieldErrorMessage error={errors.departureFlightTime} /></label>
-                <label className={fieldClass(errors.departureFlightNumber)}><span>{t("departureFlightNumber", "Departure flight number")}</span><div className="field-control"><Icon name="plane" className="icon" /><input id="departure-flight-number" maxLength={12} placeholder="TK1235" {...register("departureFlightNumber")} /></div><FieldErrorMessage error={errors.departureFlightNumber} /></label>
+                <label className={fieldClass(errors.departureFlightDate)}><span>{t("departureFlightDate", "Departure flight date (optional)")}</span><div className="field-control"><Icon name="calendar" className="icon" /><input id="departure-flight-date" type="date" min={values.travelDate || minimumDate || undefined} {...register("departureFlightDate")} {...fieldStatus("departureFlightDate", errors.departureFlightDate)} /></div><FieldErrorMessage name="departureFlightDate" error={errors.departureFlightDate} /></label>
+                <label className={`${fieldClass(errors.departureFlightTime)} time-booking-field`}><span>{t("departureFlightTime", "Departure flight time")}</span><div className="field-control time-field-control" onClick={() => openTimePicker("departure-flight-time")}><Icon name="clock" className="icon" /><span className="time-picker-value">{values.departureFlightTime || t("chooseTime", "Choose time")}</span><input id="departure-flight-time" type="time" {...register("departureFlightTime")} {...fieldStatus("departureFlightTime", errors.departureFlightTime)} /></div><FieldErrorMessage name="departureFlightTime" error={errors.departureFlightTime} /></label>
+                <label className={fieldClass(errors.departureFlightNumber)}><span>{t("departureFlightNumber", "Departure flight number")}</span><div className="field-control"><Icon name="plane" className="icon" /><input id="departure-flight-number" maxLength={12} placeholder="TK1235" {...register("departureFlightNumber")} {...fieldStatus("departureFlightNumber", errors.departureFlightNumber)} /></div><FieldErrorMessage name="departureFlightNumber" error={errors.departureFlightNumber} /></label>
               </div>
               <div className="booking-row booking-options-row">
-                <label className={fieldClass(errors.luggage)}><span>{t("luggageLabel", "Large luggage")}</span><div className="field-control"><Icon name="luggage" className="icon" /><select id="luggage" {...register("luggage")}><option value="">{t("selectLuggage", "Select")}</option>{Array.from({ length: 13 }, (_, index) => <option value={index} key={index}>{index}</option>)}</select></div><FieldErrorMessage error={errors.luggage} /></label>
+                <label className={fieldClass(errors.luggage)}><span>{t("luggageLabel", "Large luggage")}</span><div className="field-control"><Icon name="luggage" className="icon" /><select id="luggage" {...register("luggage")} {...fieldStatus("luggage", errors.luggage)}><option value="">{t("selectLuggage", "Select")}</option>{Array.from({ length: 13 }, (_, index) => <option value={index} key={index}>{index}</option>)}</select></div><FieldErrorMessage name="luggage" error={errors.luggage} /></label>
                 {renderHotelField()}
-                <label className={fieldClass(errors.childSeats)}><span>{t("childSeatLabel", "Child seats")}</span><div className="field-control"><Icon name="baby" className="icon" /><select id="child-seats" {...register("childSeats")}>{Array.from({ length: 5 }, (_, index) => <option value={index} key={index}>{index === 0 ? t("childSeatNone", "No child seat") : t(["", "oneChildSeat", "twoChildSeats", "threeChildSeats", "fourChildSeats"][index], `${index} child seat${index > 1 ? "s" : ""}`)}</option>)}</select></div><FieldErrorMessage error={errors.childSeats} /></label>
+                <label className={fieldClass(errors.childSeats)}><span>{t("childSeatLabel", "Child seats")}</span><div className="field-control"><Icon name="baby" className="icon" /><select id="child-seats" {...register("childSeats")} {...fieldStatus("childSeats", errors.childSeats)}>{Array.from({ length: 5 }, (_, index) => <option value={index} key={index}>{index === 0 ? t("childSeatNone", "No child seat") : t(["", "oneChildSeat", "twoChildSeats", "threeChildSeats", "fourChildSeats"][index], `${index} child seat${index > 1 ? "s" : ""}`)}</option>)}</select></div><FieldErrorMessage name="childSeats" error={errors.childSeats} /></label>
               </div>
               {childSeatCount > 0 && (
                 <div className="booking-row booking-options-row">
                   {Array.from({ length: childSeatCount }, (_, i) => (
                     <label key={i} className={fieldClass((errors.childAges as unknown as FieldError[] | undefined)?.[i])}>
                       <span>{`${t("childAgeLabel", "Child")} ${i + 1} ${t("childAgeLabelAge", "age")}`}</span>
-                      <div className="field-control"><Icon name="baby" className="icon" /><select id={`child-age-${i}`} {...register(`childAges.${i}`)}><option value="">{t("childAgeSelect", "Select age")}</option>{Array.from({ length: 12 }, (_, age) => <option value={age} key={age}>{age === 0 ? t("childAgeBaby", "Under 1") : `${age}`}</option>)}</select></div>
-                      <FieldErrorMessage error={(errors.childAges as unknown as FieldError[] | undefined)?.[i]} />
+                      <div className="field-control"><Icon name="baby" className="icon" /><select id={`child-age-${i}`} {...register(`childAges.${i}`)} {...fieldStatus(`childAges-${i}`, (errors.childAges as unknown as FieldError[] | undefined)?.[i])}><option value="">{t("childAgeSelect", "Select age")}</option>{Array.from({ length: 12 }, (_, age) => <option value={age} key={age}>{age === 0 ? t("childAgeBaby", "Under 1") : `${age}`}</option>)}</select></div>
+                      <FieldErrorMessage name={`childAges-${i}`} error={(errors.childAges as unknown as FieldError[] | undefined)?.[i]} />
                     </label>
                   ))}
                 </div>
@@ -619,9 +645,9 @@ export function BookingForm({
           {(isDailyChauffeur || step === 3) && (
             <>
               <div className="booking-row booking-row-personal">
-                <label className={fieldClass(errors.customerName)}><span>{t("fullName", "Full name")}</span><div className="field-control"><input id="customer-name" autoComplete="name" maxLength={80} placeholder="John Smith" {...register("customerName")} /></div><FieldErrorMessage error={errors.customerName} /></label>
-                <label className={fieldClass(errors.customerPhone)}><span>{t("phoneLabel", "Phone / WhatsApp")}</span><div className="field-control phone-field-control"><Controller control={control} name="customerPhone" render={({ field }) => <PhoneInput id="customer-phone" international defaultCountry={DEFAULT_PHONE_COUNTRY[language as LanguageCode] ?? "TR"} autoComplete="tel" placeholder="+44 7400 123456" value={field.value || undefined} onChange={value => field.onChange(value ?? "")} onBlur={field.onBlur} />} /></div><FieldErrorMessage error={errors.customerPhone} /></label>
-                <label className={fieldClass(errors.customerEmail)}><span>{t("emailLabel", "Email")}</span><div className="field-control"><input id="customer-email" type="email" autoComplete="email" maxLength={120} placeholder="john@example.com" {...register("customerEmail")} /></div><FieldErrorMessage error={errors.customerEmail} /></label>
+                <label className={fieldClass(errors.customerName)}><span>{t("fullName", "Full name")}</span><div className="field-control"><input id="customer-name" autoComplete="name" maxLength={80} placeholder="John Smith" {...register("customerName")} {...fieldStatus("customerName", errors.customerName)} /></div><FieldErrorMessage name="customerName" error={errors.customerName} /></label>
+                <label className={fieldClass(errors.customerPhone)}><span>{t("phoneLabel", "Phone / WhatsApp")}</span><div className="field-control phone-field-control"><Controller control={control} name="customerPhone" render={({ field }) => <PhoneInput id="customer-phone" {...fieldStatus("customerPhone", errors.customerPhone)} international defaultCountry={DEFAULT_PHONE_COUNTRY[language as LanguageCode] ?? "TR"} autoComplete="tel" placeholder="+44 7400 123456" value={field.value || undefined} onChange={value => field.onChange(value ?? "")} onBlur={field.onBlur} />} /></div><FieldErrorMessage name="customerPhone" error={errors.customerPhone} /></label>
+                <label className={fieldClass(errors.customerEmail)}><span>{t("emailLabel", "Email")}</span><div className="field-control"><input id="customer-email" type="email" autoComplete="email" maxLength={120} placeholder="john@example.com" {...register("customerEmail")} {...fieldStatus("customerEmail", errors.customerEmail)} /></div><FieldErrorMessage name="customerEmail" error={errors.customerEmail} /></label>
               </div>
 
               <fieldset className="payment-method-panel">

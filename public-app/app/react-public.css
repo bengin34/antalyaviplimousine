@@ -314,7 +314,7 @@
 .localized-grid h2, .localized-faq h2 { font-family: var(--serif); font-size: clamp(1.8rem, 3vw, 2.7rem); font-weight: 400; }
 .localized-grid p, .localized-grid li { color: var(--muted); line-height: 1.75; }
 .localized-price { padding: 25px; border: 1px solid var(--line); border-radius: 14px; }
-.localized-price strong { color: var(--gold); font-size: 1.5rem; }
+.localized-price strong { color: var(--gold-dark); font-size: 1.5rem; }
 .localized-price span { display: block; margin-top: 8px; color: var(--muted); font-size: .9rem; }
 .localized-price + .localized-price { margin-top: 14px; }
 .localized-price-trust { margin: 22px 0 26px; padding: 0; list-style: none; line-height: 1.9; }
@@ -380,4 +380,169 @@
     min-width: 0;
     overflow-wrap: anywhere;
   }
+}
+
+/* ─── ACCESSIBILITY ──────────────────────────────────────────────
+   Shared WCAG 2.2 AA primitives for every public marketing page.
+   Loaded from root.tsx, so clinic/health/legal inherit them too. */
+
+/* Text that only assistive technology needs — never visually shown,
+   but kept in the accessibility tree (so no display:none). */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* SC 2.4.1 Bypass Blocks — the header repeats on every page, so a
+   keyboard user gets one Tab stop that jumps past it. */
+.skip-link {
+  position: fixed;
+  top: 8px;
+  left: 8px;
+  z-index: 1000;
+  padding: 12px 20px;
+  border-radius: 8px;
+  background: var(--gold, #c8a45c);
+  color: #101010;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+  transform: translateY(-160%);
+  transition: transform 0.2s ease;
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+html[dir="rtl"] .skip-link {
+  left: auto;
+  right: 8px;
+}
+
+/* SC 2.4.7 / 2.4.11 Focus Appearance — one visible, high-contrast
+   indicator for every interactive element on the marketing site.
+   Component rules that define their own focus ring still win. */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+summary:focus-visible,
+[tabindex]:focus-visible {
+  outline: 3px solid var(--gold-light, #e2c98a);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* Dark sections need the light ring; light sections need a dark one
+   so the indicator itself clears 3:1 against its background. */
+.section-light a:focus-visible,
+.section-light button:focus-visible,
+.legal-content a:focus-visible,
+.legal-content button:focus-visible,
+.health-page a:focus-visible,
+.health-page button:focus-visible,
+.health-page select:focus-visible {
+  outline-color: var(--gold-dark, #9d7a3d);
+}
+
+/* SC 2.5.8 Target Size (Minimum) — the carousel dots read as 7px
+   but must be hittable at 24px, so the tap area grows invisibly. */
+.fleet-carousel-dot {
+  position: relative;
+  width: 24px;
+  height: 24px;
+  min-width: 24px;
+  background: transparent;
+}
+
+.fleet-carousel-dot.active {
+  width: 32px;
+  background: transparent;
+}
+
+.fleet-carousel-dot::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.34);
+  transform: translate(-50%, -50%);
+  transition: width 0.25s, background 0.25s;
+}
+
+.fleet-carousel-dot.active::before {
+  width: 24px;
+  background: var(--gold-light);
+}
+
+/* The "Watch the clip" button sits on the near-white meet-and-greet
+   card, where the light gold measured 1.6:1. */
+.video-copy .button-outline-gold {
+  color: #8a7037;
+  border-color: rgba(138, 112, 55, 0.62);
+}
+
+.video-copy .button-outline-gold:hover {
+  color: #101010;
+}
+
+/* Collapsed accordion answers: max-height alone keeps the text in
+   the accessibility tree and its links in the tab order. Hiding
+   visibility removes both while the height transition still runs. */
+.faq-answer,
+.health-faq-answer {
+  visibility: hidden;
+}
+
+.faq-item.open .faq-answer,
+.health-accordion article.open .health-faq-answer {
+  visibility: visible;
+}
+
+/* SC 2.2.2 Pause, Stop, Hide — the review marquee scrolls forever,
+   so it must stop for keyboard users and on explicit request. */
+.review-marquee:focus-within .review-track,
+.review-marquee.is-paused .review-track {
+  animation-play-state: paused;
+}
+
+.review-motion-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 10px 18px;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--white, #fff);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.review-motion-toggle:hover {
+  border-color: var(--gold-light, #e2c98a);
+  color: var(--gold-light, #e2c98a);
+}
+
+/* The health select suppressed its outline entirely (SC 2.4.7). */
+.health-select-wrap select:focus-visible {
+  outline: 3px solid var(--gold-dark, #9d7a3d);
+  outline-offset: 2px;
 }

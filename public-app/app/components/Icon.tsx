@@ -29,12 +29,12 @@ type IconName =
   | "play";
 
 export function Icon({ name, className }: { name: IconName; className?: string }) {
-  return <svg className={className} aria-hidden="true"><use href={`#icon-${name}`} /></svg>;
+  return <svg className={className} aria-hidden="true" focusable="false"><use href={`#icon-${name}`} /></svg>;
 }
 
 export function IconSprite() {
   return (
-    <svg className="svg-sprite" aria-hidden="true">
+    <svg className="svg-sprite" aria-hidden="true" focusable="false">
       <symbol id="icon-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" /></symbol>
       <symbol id="icon-arrow-up-right" viewBox="0 0 24 24"><path d="M7 17 17 7M7 7h10v10" /></symbol>
       <symbol id="icon-plane" viewBox="0 0 24 24"><path d="M22 2 9.6 14.4M22 2l-7.8 20-4.6-7.6L2 9.8 22 2Z" /></symbol>

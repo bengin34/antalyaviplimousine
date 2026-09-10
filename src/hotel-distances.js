@@ -3521,7 +3521,7 @@ export const hotelDistances = Object.freeze({
   "kirman-belazur-resort-spa": {
     "km": 43,
     "place": "ChIJ5Y7F-AxkwxQRR9PP9OvOW8c",
-    "district": "Belek",
+    "district": "Boğazkent",
     "checked": false
   },
   "kirman-leodikya-resort": {

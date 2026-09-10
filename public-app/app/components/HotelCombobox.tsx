@@ -28,6 +28,7 @@ export function HotelCombobox({
   notListedLabel,
   noResultsLabel,
   describedBy,
+  invalid = false,
 }: {
   id: string;
   value: string;
@@ -39,8 +40,10 @@ export function HotelCombobox({
   notListedLabel: string;
   noResultsLabel: string;
   describedBy?: string;
+  invalid?: boolean;
 }) {
   const listId = useId();
+  const statusId = useId();
   const [open, setOpen] = useState(false);
   const [activeIndex, setActiveIndex] = useState(-1);
   const matches = useMemo(() => (open ? searchHotels(value) : []), [open, value]);
@@ -92,8 +95,9 @@ export function HotelCombobox({
           aria-expanded={open && matches.length > 0}
           aria-controls={listId}
           aria-autocomplete="list"
+          aria-invalid={invalid || undefined}
           aria-activedescendant={activeIndex >= 0 ? `${listId}-${activeIndex}` : undefined}
-          aria-describedby={describedBy}
+          aria-describedby={describedBy ? `${describedBy} ${statusId}` : statusId}
           onChange={(event) => {
             onChange(event.target.value);
             setOpen(true);
@@ -103,6 +107,16 @@ export function HotelCombobox({
           onBlur={close}
         />
       </div>
+      {/* Suggestions appear and disappear as the guest types, with no other
+          cue that the list changed. This says how many there are; it stays
+          in the DOM so the live region is registered before it updates. */}
+      <span className="sr-only" id={statusId} role="status" aria-live="polite">
+        {open && matches.length > 0
+          ? `${matches.length} hotel suggestions available. Use the arrow keys to review them.`
+          : showEmptyNote
+            ? noResultsLabel
+            : ""}
+      </span>
       {/* Keep focus on the input so the blur handler does not close the list
           before a click on one of its options is delivered. The dismiss
           button stays reachable even with an empty field or a single
@@ -110,7 +124,7 @@ export function HotelCombobox({
           is never stuck waiting on a second keystroke to say so. */}
       {open && (
         <div className="hotel-combobox-popover" onMouseDown={(event) => event.preventDefault()}>
-          <ul className="hotel-combobox-list" id={listId} role="listbox">
+          <ul className="hotel-combobox-list" id={listId} role="listbox" aria-label={placeholder}>
             {matches.map((hotel, index) => (
               <li
                 key={hotel.slug}

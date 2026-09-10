@@ -11,6 +11,9 @@ const VIDEO_ID = "r79dH1HLJtk";
 
 type Vehicle = "vito" | "sprinter";
 
+/** Visual order of the fleet tablist; arrow keys walk this list. */
+const fleetTabOrder: Vehicle[] = ["sprinter", "vito"];
+
 const serviceItems = [
   [
     "trackingTitle",
@@ -281,6 +284,10 @@ export function HomePage({ initialLanguage }: { initialLanguage: string }) {
   });
   const routeSlider = useRef<HTMLDivElement>(null);
   const [videoOpen, setVideoOpen] = useState(false);
+  const [reviewsPaused, setReviewsPaused] = useState(false);
+  const videoDialog = useRef<HTMLDivElement>(null);
+  const videoTrigger = useRef<HTMLButtonElement>(null);
+  const fleetTabs = useRef<HTMLDivElement>(null);
   const routePrefix = ["de", "tr", "ru"].includes(initialLanguage)
     ? `/${initialLanguage}`
     : "";
@@ -349,6 +356,74 @@ export function HomePage({ initialLanguage }: { initialLanguage: string }) {
     setFleet(vehicle);
     setFleetPhotoIndex(0);
   };
+  // The tablist is one tab stop; Arrow/Home/End move between tabs and
+  // select as they go, which is the expected pattern for tabs whose
+  // panels are already rendered (WAI-ARIA APG, automatic activation).
+  const onFleetTabKeyDown = (event: React.KeyboardEvent<HTMLDivElement>) => {
+    const step =
+      event.key === "ArrowRight" ? 1 : event.key === "ArrowLeft" ? -1 : 0;
+    let next: Vehicle | null = null;
+    if (step !== 0) {
+      const current = fleetTabOrder.indexOf(fleet);
+      next = fleetTabOrder[(current + step + fleetTabOrder.length) % fleetTabOrder.length];
+    } else if (event.key === "Home") {
+      next = fleetTabOrder[0];
+    } else if (event.key === "End") {
+      next = fleetTabOrder[fleetTabOrder.length - 1];
+    }
+    if (!next) return;
+    event.preventDefault();
+    changeFleet(next);
+    fleetTabs.current
+      ?.querySelector<HTMLButtonElement>(`#fleet-tab-${next}`)
+      ?.focus();
+  };
+  const openVideo = () => setVideoOpen(true);
+  const closeVideo = () => {
+    setVideoOpen(false);
+    videoTrigger.current?.focus();
+  };
+
+  // The video overlay claims aria-modal, so the keyboard has to match:
+  // focus moves to the close button, Tab stays inside, Escape leaves,
+  // and focus returns to the button that opened it (SC 2.1.2, 2.4.3).
+  useEffect(() => {
+    if (!videoOpen) return;
+    const node = videoDialog.current;
+    if (!node) return;
+    const closeButton = node.querySelector<HTMLElement>(".video-dialog-close");
+    closeButton?.focus();
+
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        event.preventDefault();
+        closeVideo();
+        return;
+      }
+      if (event.key !== "Tab") return;
+      const items = Array.from(
+        node.querySelectorAll<HTMLElement>(
+          'a[href], button:not([disabled]), iframe, video, [tabindex]:not([tabindex="-1"])',
+        ),
+      ).filter((element) => element.offsetParent !== null);
+      if (items.length === 0) return;
+      const first = items[0];
+      const last = items[items.length - 1];
+      const active = document.activeElement;
+      if (event.shiftKey && (active === first || !node.contains(active))) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && active === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    };
+
+    document.addEventListener("keydown", onKeyDown);
+    return () => document.removeEventListener("keydown", onKeyDown);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [videoOpen]);
+
   const changeFleetPhoto = (direction: -1 | 1) =>
     setFleetPhotoIndex(
       (index) => (index + direction + fleetPhotos.length) % fleetPhotos.length,
@@ -429,7 +504,7 @@ export function HomePage({ initialLanguage }: { initialLanguage: string }) {
   return (
     <>
       <Header />
-      <main>
+      <main id="main-content" tabIndex={-1}>
         <section className="hero" id="top">
           <picture className="hero-media">
             <source
@@ -484,10 +559,10 @@ export function HomePage({ initialLanguage }: { initialLanguage: string }) {
             </div>
             <div className="hero-proof reveal">
               <div className="rating-lockup">
-                <div className="stars" aria-label="5 out of 5 stars">
-                  ★★★★★
+                <div className="stars" role="img" aria-label="Rated 4.9 out of 5 stars">
+                  <span aria-hidden="true">★★★★★</span>
                 </div>
-                <strong>4.9</strong>
+                <strong aria-hidden="true">4.9</strong>
               </div>
               <div className="proof-divider" />
               <p>
@@ -504,7 +579,7 @@ export function HomePage({ initialLanguage }: { initialLanguage: string }) {
           </div>
         </section>
 
-        <div className="trust-bar" aria-label="Service credentials">
+        <div className="trust-bar" role="group" aria-label="Service credentials">
           {[
             ["tbLicensed", "TÜRSAB Licensed"],
             ["tbFlightTracking", "Flight Tracking"],
@@ -536,6 +611,7 @@ export function HomePage({ initialLanguage }: { initialLanguage: string }) {
         </section>
         <div
           className="price-strip"
+          role="group"
           aria-label="Route prices from Antalya Airport"
         >
           <span className="price-strip-label">
@@ -635,9 +711,17 @@ export function HomePage({ initialLanguage }: { initialLanguage: string }) {
             <div className="fleet-showcase">
               <div
                 className="fleet-image fleet-carousel"
+                role="group"
+                aria-roledescription="carousel"
                 aria-label="Our vehicle photos"
               >
-                <div className="fleet-carousel-track">
+                {/* Changing photo swaps the image and its caption with no
+                    other visible cue, so the new slide is announced. */}
+                <div
+                  className="fleet-carousel-track"
+                  aria-live="polite"
+                  aria-atomic="true"
+                >
                   <img
                     src={fleetPhoto.src}
                     alt={fleetPhoto.alt}
@@ -664,6 +748,7 @@ export function HomePage({ initialLanguage }: { initialLanguage: string }) {
                   </button>
                   <div
                     className="fleet-carousel-dots"
+                    role="group"
                     aria-label="Vehicle photo selection"
                   >
                     {fleetPhotos.map((photo, index) => (
@@ -688,29 +773,39 @@ export function HomePage({ initialLanguage }: { initialLanguage: string }) {
                 </div>
               </div>
               <div className="fleet-panel">
+                {/* Tabs owe assistive technology four things the markup was
+                    missing: which one is selected, which panel each controls,
+                    a single tab stop, and arrow-key movement between them. */}
                 <div
                   className="fleet-tabs"
                   role="tablist"
                   aria-label="Fleet vehicles"
+                  ref={fleetTabs}
+                  onKeyDown={onFleetTabKeyDown}
                 >
-                  <button
-                    className={`fleet-tab${fleet === "sprinter" ? " active" : ""}`}
-                    type="button"
-                    role="tab"
-                    onClick={() => changeFleet("sprinter")}
-                  >
-                    Mercedes Sprinter
-                  </button>
-                  <button
-                    className={`fleet-tab${fleet === "vito" ? " active" : ""}`}
-                    type="button"
-                    role="tab"
-                    onClick={() => changeFleet("vito")}
-                  >
-                    Mercedes Vito
-                  </button>
+                  {fleetTabOrder.map((vehicle) => (
+                    <button
+                      key={vehicle}
+                      className={`fleet-tab${fleet === vehicle ? " active" : ""}`}
+                      type="button"
+                      role="tab"
+                      id={`fleet-tab-${vehicle}`}
+                      aria-selected={fleet === vehicle}
+                      aria-controls="fleet-tabpanel"
+                      tabIndex={fleet === vehicle ? 0 : -1}
+                      onClick={() => changeFleet(vehicle)}
+                    >
+                      {vehicle === "sprinter" ? "Mercedes Sprinter" : "Mercedes Vito"}
+                    </button>
+                  ))}
                 </div>
-                <div className="fleet-panel-copy">
+                <div
+                  className="fleet-panel-copy"
+                  id="fleet-tabpanel"
+                  role="tabpanel"
+                  aria-labelledby={`fleet-tab-${fleet}`}
+                  tabIndex={0}
+                >
                   <span className="mini-label">
                     {t(fleetCopy.classKey, fleetCopy.classFallback)}
                   </span>
@@ -889,6 +984,7 @@ export function HomePage({ initialLanguage }: { initialLanguage: string }) {
           <div
             className="route-slider"
             ref={routeSlider}
+            role="group"
             aria-label="Antalya Airport transfer routes"
             tabIndex={0}
           >
@@ -972,16 +1068,31 @@ export function HomePage({ initialLanguage }: { initialLanguage: string }) {
                 </h2>
               </div>
               <div className="google-score">
-                <div className="google-g">G</div>
+                <div className="google-g" aria-hidden="true">G</div>
                 <div>
                   <div>
-                    <strong>5.0</strong>
-                    <span className="stars">★★★★★</span>
+                    <span className="sr-only">Google rating: 5.0 out of 5 stars</span>
+                    <strong aria-hidden="true">5.0</strong>
+                    <span className="stars" aria-hidden="true">★★★★★</span>
                   </div>
                 </div>
               </div>
             </div>
-            <div className="review-marquee">
+            {/* SC 2.2.2 Pause, Stop, Hide: the marquee scrolls indefinitely,
+                so there has to be a way to stop it. Hover already paused it;
+                keyboard and screen-reader users get an explicit control (and
+                :focus-within pauses it while tabbing through the cards). */}
+            <button
+              type="button"
+              className="review-motion-toggle"
+              aria-pressed={reviewsPaused}
+              onClick={() => setReviewsPaused((paused) => !paused)}
+            >
+              {reviewsPaused
+                ? t("reviewsResume", "Resume review scrolling")
+                : t("reviewsPause", "Pause review scrolling")}
+            </button>
+            <div className={`review-marquee${reviewsPaused ? " is-paused" : ""}`}>
               <div className="review-track">
                 {[...reviews, ...reviews].map(
                   ([name, initials, time, review, country], index) => (
@@ -995,7 +1106,8 @@ export function HomePage({ initialLanguage }: { initialLanguage: string }) {
                       tabIndex={index >= reviews.length ? -1 : undefined}
                     >
                       <div className="review-card-top">
-                        <span className="stars">★★★★★</span>
+                        <span className="sr-only">Rated 5 out of 5. Opens Google Maps in a new tab.</span>
+                        <span className="stars" aria-hidden="true">★★★★★</span>
                         <span>Google</span>
                       </div>
                       <blockquote>“{review}”</blockquote>
@@ -1058,15 +1170,14 @@ export function HomePage({ initialLanguage }: { initialLanguage: string }) {
             </p>
           </div>
 
+          {/* The card was itself role="button" with an aria-label, which
+              replaced the heading and body copy with a bare "Watch the
+              clip" and nested a real button inside a button. The card is
+              now plain content; the button inside it is the control, and
+              clicking anywhere still works for pointer users. */}
           <div
             className="video-card"
-            onClick={() => setVideoOpen(true)}
-            role="button"
-            tabIndex={0}
-            aria-label={t("videoWatch", "Watch the clip")}
-            onKeyDown={(e) => {
-              if (e.key === "Enter" || e.key === " ") setVideoOpen(true);
-            }}
+            onClick={() => openVideo()}
           >
             <div className="video-thumb">
               <img
@@ -1102,7 +1213,15 @@ export function HomePage({ initialLanguage }: { initialLanguage: string }) {
                   "After collecting your luggage, exit to the Meet & Greet Area and look for meeting point J / 777. Tell our team your name — we'll take it from there.",
                 )}
               </p>
-              <button className="button button-outline-gold" type="button">
+              <button
+                className="button button-outline-gold"
+                type="button"
+                ref={videoTrigger}
+                onClick={(event) => {
+                  event.stopPropagation();
+                  openVideo();
+                }}
+              >
                 <span>{t("videoWatch", "Watch the clip")}</span>
                 <Icon name="play" className="icon" />
               </button>
@@ -1112,8 +1231,10 @@ export function HomePage({ initialLanguage }: { initialLanguage: string }) {
           {videoOpen && (
             <div
               className="video-overlay"
-              onClick={() => setVideoOpen(false)}
+              onClick={closeVideo}
               role="dialog"
+              aria-modal="true"
+              ref={videoDialog}
               aria-label={t(
                 "videoDialogLabel",
                 "Antalya Airport meet and greet video",
@@ -1127,9 +1248,9 @@ export function HomePage({ initialLanguage }: { initialLanguage: string }) {
                   className="video-dialog-close"
                   type="button"
                   aria-label={t("videoClose", "Close")}
-                  onClick={() => setVideoOpen(false)}
+                  onClick={closeVideo}
                 >
-                  ✕
+                  <span aria-hidden="true">✕</span>
                 </button>
                 <Suspense fallback={null}>
                   <ReactPlayer
@@ -1138,6 +1259,10 @@ export function HomePage({ initialLanguage }: { initialLanguage: string }) {
                     controls
                     width="100%"
                     height="100%"
+                    title={t(
+                      "videoDialogLabel",
+                      "Antalya Airport meet and greet video",
+                    )}
                   />
                 </Suspense>
               </div>
@@ -1183,7 +1308,9 @@ export function HomePage({ initialLanguage }: { initialLanguage: string }) {
                       >
                         <button
                           type="button"
+                          id={`${id}-trigger`}
                           aria-expanded={openFaq === index}
+                          aria-controls={`${id}-answer`}
                           onClick={() => {
                             const next = openFaq === index ? -1 : index;
                             setOpenFaq(next);
@@ -1195,7 +1322,12 @@ export function HomePage({ initialLanguage }: { initialLanguage: string }) {
                           <span>{question}</span>
                           <i />
                         </button>
-                        <div className="faq-answer">
+                        <div
+                          className="faq-answer"
+                          id={`${id}-answer`}
+                          role="region"
+                          aria-labelledby={`${id}-trigger`}
+                        >
                           <p>{answer}</p>
                         </div>
                       </article>
@@ -1248,6 +1380,7 @@ export function HomePage({ initialLanguage }: { initialLanguage: string }) {
                 <div>
                   <span>{t("whatsappUs", "WhatsApp us")}</span>
                   <strong>+90 530 265 57 90</strong>
+                  <span className="sr-only">{t("opensNewTab", "Opens in a new tab")}</span>
                   <small>
                     {t("replyMinutes", "Usually replies within minutes")}
                   </small>
@@ -1335,17 +1468,21 @@ export function HomePage({ initialLanguage }: { initialLanguage: string }) {
           </span>
         </div>
       </footer>
+      {/* The floating button sat outside every landmark, so a screen-reader
+          user browsing by region never reached it. */}
+      <div role="complementary" aria-label={t("quickContact", "Quick contact")}>
       <a
         className="floating-whatsapp"
         href="https://wa.me/905302655790"
         target="_blank"
         rel="noreferrer"
-        aria-label="Chat on WhatsApp"
+        aria-label={`Chat on WhatsApp. ${t("opensNewTab", "Opens in a new tab")}`}
         onClick={() => window.gtag?.("event", "whatsapp_clicked", { source: "floating_button" })}
       >
         <Icon name="whatsapp" className="whatsapp-icon" />
         <span>{t("chatWithUs", "Chat with us")}</span>
       </a>
+      </div>
     </>
   );
 }

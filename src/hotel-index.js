@@ -204,7 +204,6 @@ const seedRows = [
   ["Crystal Family Resort & Spa", "Belek"],
   ["Belconti Resort Hotel", "Belek"],
   ["Granada Luxury Belek", "Belek"],
-  ["Kirman Belazur Resort & Spa", "Belek"],
   ["Ethno Belek Hotel", "Belek"],
   ["Port Nature Luxury Resort", "Belek"],
   ["Novia Dionis Resort & Spa", "Belek"],
@@ -225,6 +224,9 @@ const seedRows = [
   // Its own address reads Belek, TripAdvisor files it under Boğazkent. Split
   // evidence across a price boundary goes to the dearer side.
   ["Sherwood Dreams Resort", "Boğazkent"],
+  // Sold as "Belek" by the booking sites the seed came from, but its own
+  // address is Boğazkent, Serik — 8 km east of Belek, across the price line.
+  ["Kirman Belazur Resort & Spa", "Boğazkent"],
 
   // --- Side, Kumköy, Evrenseki, Gündoğdu ----------------------------------
   ["Barut Acanthus & Cennet", "Side"],
