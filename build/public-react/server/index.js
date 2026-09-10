@@ -823,12 +823,13 @@ const antalyaCitySeedRows = [
   ["Akca Apart Otel", "Antalya merkez"],
   ["Akra V - Access To Akra Antalya Otel", "Antalya merkez"],
   ["Akçahan Apart Hotel", "Antalya merkez"],
-  ["Akın Apart&Hotel", "Antalya merkez"],
   ["Alanya Divan Otel", "Alanya merkez"],
-  ["Ale Apartments Hotel", "Antalya merkez"],
+  // Google lists it as "Alea Hotel Apartments" (rebrand or spelling; region audit 2026-09).
+  ["Ale Apartments Hotel", "Antalya merkez", ["Alea Hotel Apartments"]],
   ["Ale Boutique Apartments", "Antalya merkez"],
   ["Ale Park Hotel Apartments", "Antalya merkez"],
-  ["Ales Park Hotel", "Antalya merkez"],
+  // Google lists it as "ALE PARK HOTEL & APARTMENTS" (rebrand or spelling; region audit 2026-09).
+  ["Ales Park Hotel", "Antalya merkez", ["ALE PARK HOTEL & APARTMENTS"]],
   ["Alice Hotel", "Antalya merkez"],
   ["Alp Pasa Gazetta - Special Class", "Antalya merkez"],
   ["Alp Pasa Hotel - Special Class", "Antalya merkez"],
@@ -856,7 +857,6 @@ const antalyaCitySeedRows = [
   ["Arkk Homes", "Antalya merkez"],
   ["Arma pansiyon", "Antalya merkez"],
   ["Armas Sunrise Lara", "Lara"],
-  ["Arsi Sweet Suite Hotel", "Antalya merkez"],
   ["Artemis Luxury Palace Hotel", "Antalya merkez"],
   ["Arya Apart Kundu Hotel", "Kundu"],
   ["Asena Hotel", "Antalya merkez"],
@@ -929,7 +929,6 @@ const antalyaCitySeedRows = [
   ["Camel Apartment", "Antalya merkez"],
   ["Camel Hotel & Apart", "Antalya merkez"],
   ["Can Adalya Palace Hotel", "Antalya merkez"],
-  ["Caner Mountain Hotel", "Antalya merkez"],
   ["Cap Dperge Otel", "Antalya merkez"],
   ["Casa Franco Old Town Otel", "Antalya merkez"],
   ["Casa Maria Hotel", "Antalya merkez"],
@@ -963,20 +962,18 @@ const antalyaCitySeedRows = [
   ["Crystal Centro Resort", "Antalya merkez"],
   ["Dagtekin Apartments", "Antalya merkez"],
   ["Dam Hotel Lara", "Lara"],
-  ["Dantel Pansiyon", "Antalya merkez"],
+  // The listing filed it under the city, but Dantel Pansiyon is the Kaş pension (audit 2026-09, €135/vehicle).
+  ["Dantel Pansiyon", "Kaş"],
   ["Dea Del Hotel", "Antalya merkez"],
   ["Dedehan Pansiyon", "Antalya merkez"],
-  ["Deja Vu Hotel", "Antalya merkez"],
   ["Delight Deluxe Aparts", "Antalya merkez"],
   ["Delight Deluxe Hotel", "Antalya merkez"],
   ["Delta Hotels Antalya Lara - Adult Only 18 Plus", "Lara"],
   ["Demak Suit & Homes", "Antalya merkez"],
-  ["Demirci Hotel", "Antalya merkez"],
   ["Deniz Boutique Hotel", "Antalya merkez"],
   ["Denizhan Hotel", "Antalya merkez"],
   ["Der Inn Hotel Konyaaltı", "Konyaaltı"],
   ["Der Inn Lara", "Lara"],
-  ["Dg Hotels Rose Resort", "Antalya merkez"],
   ["Diamond De Luxe Hotel Spa", "Çolaklı"],
   ["Diamond Luxury Hotel", "Antalya merkez"],
   ["Dilara Hotel", "Antalya merkez"],
@@ -985,12 +982,12 @@ const antalyaCitySeedRows = [
   ["Doganin Ruhu Otel, Bungalow & Restaurant", "Kaş"],
   ["Dogus Hotel", "Antalya merkez"],
   ["Doubletree By Hilton Antalya City Centre", "Antalya merkez"],
-  ["Dr. Greens", "Antalya merkez"],
+  // Google lists it as "Doctor Greens" (rebrand or spelling; region audit 2026-09).
+  ["Dr. Greens", "Antalya merkez", ["Doctor Greens"]],
   ["Ducale Lara Otel", "Lara"],
   ["Dumlupınar Royal Rooms", "Antalya merkez"],
   ["Durusu Suites", "Antalya merkez"],
   ["Echinus Lara Hotel", "Lara"],
-  ["Eden Nest Exclusive Hotel", "Antalya merkez"],
   ["Efsali Hotel Kaleiçi", "Antalya merkez"],
   ["Elanis Suites", "Antalya merkez"],
   ["Elegance East Hotel", "Antalya merkez"],
@@ -1058,7 +1055,6 @@ const antalyaCitySeedRows = [
   ["Gurtas Hotel", "Antalya merkez"],
   ["Gvar Hotel", "Antalya merkez"],
   ["Gypsophila Holiday Village", "Okurcalar"],
-  ["Güler Butık Hotel", "Antalya merkez"],
   ["Gızlı Koy Hotel", "Beldibi"],
   ["Hadrian Gate Hotel", "Antalya merkez"],
   ["Hadrianus Pansion Otel", "Antalya merkez"],
@@ -1073,7 +1069,6 @@ const antalyaCitySeedRows = [
   ["Hotel 1207 Special Class", "Antalya merkez"],
   ["Hotel Alyans", "Antalya merkez"],
   ["Hotel Destıll", "Antalya merkez"],
-  ["Hotel Gold Stone", "Antalya merkez"],
   ["Hotel Güleryüz", "Antalya merkez"],
   ["Hotel Karyatit Kaleici", "Antalya merkez"],
   ["Hotel Lunay", "Antalya merkez"],
@@ -1115,7 +1110,8 @@ const antalyaCitySeedRows = [
   ["Kervan Hotel", "Antalya merkez"],
   ["Kervansaray Lara Convention Center & Spa", "Lara"],
   ["Kiana Kaleıçı Otel", "Antalya merkez"],
-  ["Kisla Pansiyon", "Antalya merkez"],
+  // Google lists it as "barracks Hostel" (rebrand or spelling; region audit 2026-09).
+  ["Kisla Pansiyon", "Antalya merkez", ["barracks Hostel"]],
   ["Kivrak Hotel", "Antalya merkez"],
   ["Koesk Boutique Hotel - Old Town & City Center", "Antalya merkez"],
   ["Konak Hotel Kaleiçi", "Antalya merkez"],
@@ -1148,7 +1144,8 @@ const antalyaCitySeedRows = [
   ["Lara Olympos Pansiyon", "Lara"],
   ["Lara Palace Hotel", "Lara"],
   ["Lara Park Hotel", "Lara"],
-  ["Lara Suite'S Apart Hotel", "Lara"],
+  // Google lists it as "Lara Suites Kundu Apart" (rebrand or spelling; region audit 2026-09).
+  ["Lara Suite'S Apart Hotel", "Lara", ["Lara Suites Kundu Apart"]],
   ["Lara Vista Hotel Suits & Spa", "Lara"],
   ["Lara World Hotel", "Lara"],
   ["Laren Family Hotel & Spa - Boutique Class", "Antalya merkez"],
@@ -1198,7 +1195,6 @@ const antalyaCitySeedRows = [
   ["Medworld Cosmos Health & Rehabilitation Center Otel", "Antalya merkez"],
   ["Megasaray Westbeach", "Antalya merkez"],
   ["Melda Palace", "Antalya merkez"],
-  ["Melodi Hotel", "Antalya merkez"],
   ["Meltem Otel", "Antalya merkez"],
   ["Mene City Hotel", "Antalya merkez"],
   ["Mene Suites", "Antalya merkez"],
@@ -1214,9 +1210,9 @@ const antalyaCitySeedRows = [
   ["Minyon Hotel", "Antalya merkez"],
   ["Mira Hotel", "Antalya merkez"],
   ["Miramor Hotel & Spa", "Çamyuva"],
-  ["Moda Otel", "Antalya merkez"],
+  // Google lists it as "M-ODA OTEL" (rebrand or spelling; region audit 2026-09).
+  ["Moda Otel", "Antalya merkez", ["M-ODA OTEL"]],
   ["Moda Suıt Çamyuva", "Çamyuva"],
-  ["Monna Roza Family Suit", "Antalya merkez"],
   ["Mono Hotel", "Antalya merkez"],
   ["Moon Suites", "Antalya merkez"],
   ["Mostar Hotel", "Antalya merkez"],
@@ -1237,7 +1233,8 @@ const antalyaCitySeedRows = [
   ["Ni Hotel Lara", "Lara"],
   ["Niss Lara Hotel", "Lara"],
   ["Noa'S Boutique Hotel", "Antalya merkez"],
-  ["Nox Suite Rezidans", "Antalya merkez"],
+  // Google lists it as "Nox Suite Hotel" (rebrand or spelling; region audit 2026-09).
+  ["Nox Suite Rezidans", "Antalya merkez", ["Nox Suite Hotel"]],
   ["Nun Hotel", "Antalya merkez"],
   ["Nurella Pansiyon", "Antalya merkez"],
   ["Oez Mert Hotel", "Antalya merkez"],
@@ -1258,7 +1255,6 @@ const antalyaCitySeedRows = [
   ["Otel Guenduez", "Antalya merkez"],
   ["Otel Wood House", "Antalya merkez"],
   ["Otium Boutique Happy Suites", "Antalya merkez"],
-  ["Otium Family Club Marine Beach Otel", "Manavgat"],
   ["Otium Park Club Akman Otel", "Çamyuva"],
   ["Otto Lara Hotel", "Lara"],
   ["Ozgur Otel", "Antalya merkez"],
@@ -1266,13 +1262,14 @@ const antalyaCitySeedRows = [
   ["Ozturk Hotel", "Antalya merkez"],
   ["Palm House 17 - Adult Only Otel", "Antalya merkez"],
   ["Palm House 17 Oriental Guesthouse", "Antalya merkez"],
-  ["Palmenhaus Antalya Otel", "Antalya merkez"],
+  // Google lists it as "Palm House 17" (rebrand or spelling; region audit 2026-09).
+  ["Palmenhaus Antalya Otel", "Antalya merkez", ["Palm House 17"]],
   ["Palvan House", "Antalya merkez"],
   ["Park Hotel Rooms & Apart", "Antalya merkez"],
   ["Patio Hotel", "Antalya merkez"],
-  ["Patron Hotel", "Antalya merkez"],
+  // Google lists it as "Boss Boutique Hotel" (rebrand or spelling; region audit 2026-09).
+  ["Patron Hotel", "Antalya merkez", ["Boss Boutique Hotel"]],
   ["Pearly Hotel", "Antalya merkez"],
-  ["Peker Otel", "Antalya merkez"],
   ["Pera Boutique Hotel", "Antalya merkez"],
   ["Peramis Hotel & Spa", "Antalya merkez"],
   ["Perast City Hotel", "Antalya merkez"],
@@ -1324,7 +1321,8 @@ const antalyaCitySeedRows = [
   ["Saturn Palace Resort", "Antalya merkez"],
   ["Sava Hotel", "Antalya merkez"],
   ["Saye Konak Hotel ' Kaleiçi&Oldtown'", "Antalya merkez"],
-  ["Sea City Devran Hotel & Spa", "Antalya merkez"],
+  // Google lists it as "Pacco Sea & City Hotel Spa" (rebrand or spelling; region audit 2026-09).
+  ["Sea City Devran Hotel & Spa", "Antalya merkez", ["Pacco Sea & City Hotel Spa"]],
   ["Sealife Family Resort Hotel", "Antalya merkez"],
   ["Sealife Lounge - Adult Only Otel", "Antalya merkez"],
   ["Sehir Hotel", "Antalya merkez"],
@@ -1377,7 +1375,8 @@ const antalyaCitySeedRows = [
   ["The Ninova Otel", "Antalya merkez"],
   ["The Room Hotel & Apartments", "Antalya merkez"],
   ["The Suite Apart Hotel", "Antalya merkez"],
-  ["The Suites", "Antalya merkez"],
+  // Google lists it as "The Suites Antalya" (rebrand or spelling; region audit 2026-09).
+  ["The Suites", "Antalya merkez", ["The Suites Antalya"]],
   ["Titanic Deluxe Lara Otel", "Lara"],
   ["Toprak Apart Otel", "Antalya merkez"],
   ["Tourist Hotel", "Antalya merkez"],
@@ -1386,7 +1385,8 @@ const antalyaCitySeedRows = [
   ["Trend Suites Cycle", "Antalya merkez"],
   ["Triana Hotel", "Antalya merkez"],
   ["Tu Casa Linda Otel", "Antalya merkez"],
-  ["Tumay Hotel", "Antalya merkez"],
+  // Google lists it as "Tuma Hotel" (rebrand or spelling; region audit 2026-09).
+  ["Tumay Hotel", "Antalya merkez", ["Tuma Hotel"]],
   ["Tunali Apart Hotel", "Antalya merkez"],
   ["Tunç Apart Otel", "Antalya merkez"],
   ["Turunç Hotel ANTALYA - Ex Omur Hotel", "Antalya merkez"],
@@ -1617,6 +1617,12 @@ const discoveredHotelRows = Object.freeze([
     "placeId": "ChIJo_g5Hg1kwxQRQdedypPUA1Q"
   },
   {
+    "name": "ARSİ BLUE BEACH HOTEL",
+    "district": "Alanya",
+    "region": "alanya_merkez",
+    "placeId": "ChIJ4Rbvw7qZ3BQRaC3pnfi1GZY"
+  },
+  {
     "name": "ARSİ ENFİ CITY BEACH OTEL",
     "district": "Alanya",
     "region": "alanya_merkez",
@@ -1785,6 +1791,12 @@ const discoveredHotelRows = Object.freeze([
     "placeId": "ChIJO_jrCplZwxQRTGlzgiA2bbM"
   },
   {
+    "name": "BİENO CLUB SVS HOTEL",
+    "district": "Alanya",
+    "region": "alanya_dogu",
+    "placeId": "ChIJVVo-ze2R3BQRBq7_8DmzR1A"
+  },
+  {
     "name": "BİENO VENÜS HOTEL",
     "district": "Manavgat",
     "region": "side",
@@ -1851,6 +1863,12 @@ const discoveredHotelRows = Object.freeze([
     "placeId": "ChIJi1AT6Oes3BQRzsyCZ2mnCeY"
   },
   {
+    "name": "CALİDO MARİS",
+    "district": "Manavgat",
+    "region": "kizilagac",
+    "placeId": "ChIJOcRmqDlTwxQRHOPzlqucAKE"
+  },
+  {
     "name": "CAMPUS HİLL OTEL",
     "district": "Alanya",
     "region": "alanya_dogu",
@@ -1903,6 +1921,12 @@ const discoveredHotelRows = Object.freeze([
     "district": "Kemer",
     "region": "kemer",
     "placeId": "ChIJea_Y3mO3wxQRW39fVYFutW0"
+  },
+  {
+    "name": "CLEOPATRA GOLDEN BEACH OTEL",
+    "district": "Alanya",
+    "region": "alanya_merkez",
+    "placeId": "ChIJAzIapY-i3BQRviE9z2QJvj8"
   },
   {
     "name": "CLUB  OTEL  RAMA",
@@ -2017,6 +2041,12 @@ const discoveredHotelRows = Object.freeze([
     "district": "Kemer",
     "region": "kemer",
     "placeId": "ChIJf_saTGa2wxQRrH0iHKFrDJA"
+  },
+  {
+    "name": "ÇENGER BEACH RESORT OTEL",
+    "district": "Manavgat",
+    "region": "kizilagac",
+    "placeId": "ChIJU_peCp5XwxQRh6ps93LHuR0"
   },
   {
     "name": "DAİMA BİZ HOTEL",
@@ -2187,6 +2217,12 @@ const discoveredHotelRows = Object.freeze([
     "placeId": "ChIJs46WYKil3BQRx-iAPvWkctw"
   },
   {
+    "name": "ERGÜN OTEL",
+    "district": "Alanya",
+    "region": "alanya_merkez",
+    "placeId": "ChIJjc-bcH6Y3BQR_fxc1jnxst8"
+  },
+  {
     "name": "ERKAL RESORT HOTEL",
     "district": "Kemer",
     "region": "kemer",
@@ -2215,6 +2251,12 @@ const discoveredHotelRows = Object.freeze([
     "district": "Kemer",
     "region": "kemer",
     "placeId": "ChIJ6URHQpm3wxQRkK1I-AC2_Ok"
+  },
+  {
+    "name": "FAME OTEL",
+    "district": "Kemer",
+    "region": "kemer",
+    "placeId": "ChIJl_AhB5m3wxQRr6yggHb4Tnk"
   },
   {
     "name": "FAME RESİDENCE GÖYNÜK OTEL",
@@ -2257,6 +2299,12 @@ const discoveredHotelRows = Object.freeze([
     "district": "Kemer",
     "region": "kemer",
     "placeId": "ChIJgQsBh_a3wxQR_gDkuNOwMQU"
+  },
+  {
+    "name": "GALAXY BEACH",
+    "district": "Alanya",
+    "region": "alanya_dogu",
+    "placeId": "ChIJi4cWtqCQ3BQRbKUGCCG4Lu4"
   },
   {
     "name": "GALERİ RESORT HOTEL",
@@ -2355,6 +2403,12 @@ const discoveredHotelRows = Object.freeze([
     "placeId": "ChIJvfIajjhZwxQR6kW50l91YB0"
   },
   {
+    "name": "HARE HOTEL",
+    "district": "Alanya",
+    "region": "demirtas",
+    "placeId": "ChIJ1b7kqguO3BQRXLF0tdUUMp4"
+  },
+  {
     "name": "HAWAII SUITE BEACH OTEL",
     "district": "Alanya",
     "region": "alanya_merkez",
@@ -2395,6 +2449,12 @@ const discoveredHotelRows = Object.freeze([
     "district": "Muratpaşa",
     "region": "antalya",
     "placeId": "ChIJ5f6lBamRwxQR0uxMvAHu3s8"
+  },
+  {
+    "name": "INSULA RESORT&SPA",
+    "district": "Alanya",
+    "region": "alanya_bati",
+    "placeId": "ChIJuSnkgf6k3BQRL0yM6TQiZ2Q"
   },
   {
     "name": "İLLUSİON BEACH CLUB HOTEL",
@@ -2481,6 +2541,12 @@ const discoveredHotelRows = Object.freeze([
     "placeId": "ChIJQ08eWZC3wxQR1P7WcT6-aVg"
   },
   {
+    "name": "KEMER HOTEL",
+    "district": "Kemer",
+    "region": "kemer",
+    "placeId": "ChIJaxlmBJ-3wxQRw3dm4bBV_mI"
+  },
+  {
     "name": "KIRBIYIK RESORT OTEL",
     "district": "Alanya",
     "region": "kargicak",
@@ -2565,10 +2631,25 @@ const discoveredHotelRows = Object.freeze([
     "placeId": "ChIJf0rL32a2wxQRdrY1mhTn60k"
   },
   {
+    "name": "LA BENATA HOTEL",
+    "district": "Manavgat",
+    "region": "side",
+    "placeId": "ChIJWZK_Spet3BQRGfONqE3xEO4"
+  },
+  {
     "name": "LAGUNA BEACH ALYA RESORT & SPA HOTEL",
     "district": "Alanya",
     "region": "alanya_bati",
     "placeId": "ChIJCTlMxKqt3BQRXLgf4V0cnSo"
+  },
+  {
+    "name": "LAKE & RIVER SIDE HOTEL & SPA",
+    "district": "Manavgat",
+    "region": "side",
+    "placeId": "ChIJYzq97FNXwxQRQkAYgZvYZg8",
+    "aliases": [
+      "LRS LAKE & RIVER SIDE HOTEL & SPA"
+    ]
   },
   {
     "name": "LITORE HOTEL",
@@ -2892,7 +2973,10 @@ const discoveredHotelRows = Object.freeze([
     "name": "OZ HOTELS SUİ",
     "district": "Alanya",
     "region": "alanya_bati",
-    "placeId": "ChIJS6dSaFSs3BQR1F8RuQZLXVk"
+    "placeId": "ChIJS6dSaFSs3BQR1F8RuQZLXVk",
+    "aliases": [
+      "Sui Resort Hotel"
+    ]
   },
   {
     "name": "ÖZKAYMAK MARİNA OTEL",
@@ -2949,6 +3033,12 @@ const discoveredHotelRows = Object.freeze([
     "placeId": "ChIJx4bG68hewxQR9WuzJbdX4B8"
   },
   {
+    "name": "PRENSES SEALİNE BEACH OTEL",
+    "district": "Serik",
+    "region": "bogazkent",
+    "placeId": "ChIJwRKbpeKPwxQRBqzaZz4Anb4"
+  },
+  {
     "name": "QUATTRO BEACH SPA &RESORT",
     "district": "Alanya",
     "region": "alanya_bati",
@@ -3001,6 +3091,15 @@ const discoveredHotelRows = Object.freeze([
     "district": "Kemer",
     "region": "kemer",
     "placeId": "ChIJ-XRL5Qe_wxQRisIPg4Yuv1s"
+  },
+  {
+    "name": "RIVADOR HOTEL KEMER",
+    "district": "Kemer",
+    "region": "kemer",
+    "placeId": "ChIJgVp4U3u3wxQRtlzQZ5Ff3Q0",
+    "aliases": [
+      "KORIENT MIRA OTEL"
+    ]
   },
   {
     "name": "RIVER SUITE OTEL",
@@ -3063,10 +3162,19 @@ const discoveredHotelRows = Object.freeze([
     "placeId": "ChIJecMZxKi3wxQR4UlL7S5jdiA"
   },
   {
+    "name": "ROYAL ATLANTİS SPA & RESORT",
+    "district": "Manavgat",
+    "region": "side",
+    "placeId": "ChIJu6ojebhfwxQRk_6-JaF6dCY"
+  },
+  {
     "name": "ROYAL GARDEN BEACH OTEL",
     "district": "Alanya",
     "region": "alanya_bati",
-    "placeId": "ChIJVdk_zfak3BQRteDolPOsjnk"
+    "placeId": "ChIJVdk_zfak3BQRteDolPOsjnk",
+    "aliases": [
+      "Royal Garden Select & Suite Hotel"
+    ]
   },
   {
     "name": "ROYAL OTEL",
@@ -3087,6 +3195,12 @@ const discoveredHotelRows = Object.freeze([
     "placeId": "ChIJz26SQgK3wxQRfGjkrrlCK9Y"
   },
   {
+    "name": "SANDY BEACH OTEL",
+    "district": "Manavgat",
+    "region": "side",
+    "placeId": "ChIJyZpwOHxZwxQRPuQg9roPGBk"
+  },
+  {
     "name": "SANTANA HOTEL",
     "district": "Kemer",
     "region": "kemer",
@@ -3105,10 +3219,22 @@ const discoveredHotelRows = Object.freeze([
     "placeId": "ChIJSeI-PYWY3BQR8k_f_9ykVI8"
   },
   {
+    "name": "SCYLAX HOTELS FAMİLY CLUB",
+    "district": "Alanya",
+    "region": "alanya_dogu",
+    "placeId": "ChIJS-S2iZqQ3BQR-AT3YERkNdI"
+  },
+  {
     "name": "SEALIFE KEMER RESORT HOTEL",
     "district": "Kemer",
     "region": "kemer",
     "placeId": "ChIJxeRjcgm3wxQRFRHMndsaBm8"
+  },
+  {
+    "name": "SEAMELIA BEACH RESORT HOTEL & SPA",
+    "district": "Manavgat",
+    "region": "side",
+    "placeId": "ChIJW6-c-zhZwxQRkCBU7PqVkOE"
   },
   {
     "name": "SEASHELL VEGA",
@@ -3119,7 +3245,7 @@ const discoveredHotelRows = Object.freeze([
   {
     "name": "SEDİR PARK JOY OTEL",
     "district": "Alanya",
-    "region": "kargicak",
+    "region": "demirtas",
     "placeId": "ChIJrRj-YTCbwxQRq0blRTGTOD4"
   },
   {
@@ -3193,6 +3319,12 @@ const discoveredHotelRows = Object.freeze([
     "district": "Alanya",
     "region": "alanya_bati",
     "placeId": "ChIJY8LGIV2l3BQReIdj34Pfg1o"
+  },
+  {
+    "name": "SIRMA OTEL",
+    "district": "Manavgat",
+    "region": "side",
+    "placeId": "ChIJFQ0l6W9ZwxQR3pHnp0T28Dc"
   },
   {
     "name": "SİAM ELEGANCE HOTEL&SPA",
@@ -3381,6 +3513,12 @@ const discoveredHotelRows = Object.freeze([
     "placeId": "ChIJU_8aZJZ9wxQRH9FU58Mnzw0"
   },
   {
+    "name": "THRONE NİLBAHİR RESORT & SPA",
+    "district": "Manavgat",
+    "region": "side",
+    "placeId": "ChIJg7P7dPWr3BQRbVKeGRzyp7g"
+  },
+  {
     "name": "TİME BEACH OTEL",
     "district": "Alanya",
     "region": "alanya_merkez",
@@ -3409,6 +3547,12 @@ const discoveredHotelRows = Object.freeze([
     "district": "Manavgat",
     "region": "side",
     "placeId": "ChIJCaxQBXtZwxQRdFb063OkEKE"
+  },
+  {
+    "name": "TU CASA GELİDONYA HOTEL",
+    "district": "Kemer",
+    "region": "kemer",
+    "placeId": "ChIJyTlBD463wxQRjJe1g9EZ9yA"
   },
   {
     "name": "TUI BLUE PALM GARDEN",
@@ -3558,23 +3702,28 @@ const hotelCatalog = Object.freeze({
   "royal-dragon-hotel": { slug: "royal-dragon-hotel", name: "Royal Dragon Hotel", regionSlug: "side", locationCopy: "Das Hotel liegt in Evrenseki, einem beliebten Strandviertel westlich der Altstadt von Side." },
   "barut-hemera": { slug: "barut-hemera", name: "Barut Hemera", regionSlug: "side", locationCopy: "Das Resort liegt im Bereich Kumköy, nahe der Strandpromenade von Side." },
   "voyage-sorgun": { slug: "voyage-sorgun", name: "Voyage Sorgun", regionSlug: "side", locationCopy: "Das Resort liegt in Sorgun, östlich von Side zwischen Pinienwald und Küste." },
-  "sentido-flora-garden": { slug: "sentido-flora-garden", name: "Sentido Flora Garden", regionSlug: "side", locationCopy: "Das Hotel befindet sich in Çolaklı, einem Küstenort westlich von Side mit langen Sandstränden." },
+  "sentido-flora-garden": { slug: "sentido-flora-garden", name: "Sentido Flora Garden", regionSlug: "kizilagac", locationCopy: "Das Hotel liegt in Kızılağaç, östlich von Side in Richtung Manavgat und Kızılot, direkt am Strand." },
   "crystal-sunset-luxury-resort": { slug: "crystal-sunset-luxury-resort", name: "Crystal Sunset Luxury Resort & Spa", regionSlug: "side", locationCopy: "Das Resort liegt in Gündoğdu, im westlichen Strandabschnitt des Side-Gebiets." },
   // Kemer
-  "rixos-premium-kemer": { slug: "rixos-premium-kemer", name: "Rixos Premium Kemer", regionSlug: "kemer", locationCopy: "Das Resort liegt in Göynük, einem Strandort unmittelbar westlich des Ortskerns von Kemer, umgeben von Pinienwäldern." },
+  // Its own address is Göynük, Kemer (the former Amara Club Marine), not Tekirova; the 2026-09 region audit moved it (€75 → €55 Vito).
+  "amara-prestige": { slug: "amara-prestige", name: "Amara Prestige Hotel", regionSlug: "kemer", locationCopy: "Das Hotel liegt in Göynük, einem Strandort unmittelbar nordwestlich von Kemer, zwischen Pinienwäldern und dem Mittelmeer." },
+  "rixos-premium-kemer": { slug: "rixos-premium-kemer", name: "Rixos Premium Kemer", regionSlug: "tekirova", locationCopy: "Das Resort liegt in Tekirova, südlich von Kemer, umgeben von Pinienwäldern und nahe der antiken Stätte Phaselis." },
   "maxx-royal-kemer": { slug: "maxx-royal-kemer", name: "Maxx Royal Kemer Resort", regionSlug: "kemer", locationCopy: "Das Resort befindet sich in Kiriş, einem Küstenabschnitt nördlich des Ortskerns von Kemer am Fuß des Taurus-Gebirges." },
   "orange-county-resort-kemer": { slug: "orange-county-resort-kemer", name: "Orange County Resort Hotel Kemer", regionSlug: "kemer", locationCopy: "Das Hotel liegt in Beldibi, am nördlichen Eingang der Kemerer Küste, nahe der Felsklippen am Mittelmeer." },
   "paloma-pasha-resort": { slug: "paloma-pasha-resort", name: "Paloma Pasha Resort", regionSlug: "kemer", locationCopy: "Das Resort befindet sich in Göynük, an der Küste zwischen der Strandpromenade und der Bucht westlich von Kemer." },
-  "club-hotel-phaselis-rose": { slug: "club-hotel-phaselis-rose", name: "Club Hotel Phaselis Rose", regionSlug: "kemer", locationCopy: "Das Hotel liegt in Çamyuva, zwischen dem Kemer-Stadtzentrum und der antiken Stätte Phaselis an einer ruhigen Küstenbucht." },
   // Alanya
-  "utopia-world-hotel": { slug: "utopia-world-hotel", name: "Utopia World Hotel", regionSlug: "alanya", locationCopy: "Das Hotel liegt in Konaklı, einem langen Sandstrandabschnitt westlich des Alanya-Zentrums." },
-  "sentido-gold-island": { slug: "sentido-gold-island", name: "Sentido Gold Island Hotel", regionSlug: "alanya", locationCopy: "Das Resort liegt im Alanya-Zentrum, nahe dem Kleopatra-Strand und dem Alanya-Hafen." },
+  // Its own address is Kargıcak, east of Alanya, not Konaklı; the 2026-09 region audit moved it (€70 → €90 Vito).
+  "utopia-world-hotel": { slug: "utopia-world-hotel", name: "Utopia World Hotel", regionSlug: "alanya", locationCopy: "Das Hotel liegt in Kargıcak, einem Küstenabschnitt östlich des Alanya-Zentrums, am Hang über dem Mittelmeer." },
+  "sentido-gold-island": { slug: "sentido-gold-island", name: "Sentido Gold Island Hotel", regionSlug: "alanya", locationCopy: "Das Resort liegt in Türkler, westlich des Zentrums von Alanya, an dem langen Sandstrandstreifen der Küste." },
   "q-premium-resort": { slug: "q-premium-resort", name: "Q Premium Resort Hotel Alanya", regionSlug: "alanya", locationCopy: "Das Hotel befindet sich in Konaklı, westlich des Alanya-Zentrums, direkt am Sandstrand gelegen." },
   "kirman-arycanda": { slug: "kirman-arycanda", name: "Kirman Arycanda De Luxe", regionSlug: "alanya", locationCopy: "Das Resort liegt in Konaklı, einem Küstengebiet mit langen Stränden westlich des Alanya-Zentrums." },
-  "delphin-diva": { slug: "delphin-diva", name: "Delphin Diva Premiere", regionSlug: "alanya", locationCopy: "Das Hotel befindet sich in Avsallar, einem ruhigen Strandort westlich von Alanya inmitten von Pinien- und Eukalyptuswäldern." },
+  // Antalya (Lara)
+  // Its own address is Lara/Kundu in Aksu, not Avsallar; the 2026-09 region audit moved it (€70 → €35 Vito).
+  "delphin-diva": { slug: "delphin-diva", name: "Delphin Diva Premiere", regionSlug: "antalya", locationCopy: "Das Hotel befindet sich in Lara (Kundu), östlich des Antalya-Zentrums und nur wenige Kilometer vom Flughafen entfernt, direkt am Sandstrand." },
   // Tekirova
   "rixos-premium-tekirova": { slug: "rixos-premium-tekirova", name: "Rixos Premium Tekirova", regionSlug: "tekirova", locationCopy: "Das Resort befindet sich in Tekirova, am Fuße des Taurus-Gebirges, umgeben von Pinienwäldern und dem türkisblauen Mittelmeer." },
-  "amara-prestige": { slug: "amara-prestige", name: "Amara Prestige Hotel", regionSlug: "tekirova", locationCopy: "Das Hotel liegt in Tekirova, direkt am Mittelmeer zwischen dem Naturschutzgebiet Olympos und der antiken Stätte Phaselis." }
+  // Its own address is Tekirova, not Çamyuva; the 2026-09 region audit moved it (€55 → €75 Vito).
+  "club-hotel-phaselis-rose": { slug: "club-hotel-phaselis-rose", name: "Club Hotel Phaselis Rose", regionSlug: "tekirova", locationCopy: "Das Hotel liegt in Tekirova, südlich von Çamyuva, zwischen der antiken Stätte Phaselis und dem Kemer-Küstenstreifen an einer ruhigen Bucht." }
 });
 const hotelBySlug = (slug) => hotelCatalog[slug] ?? null;
 const hotelsForRegion = (regionSlug) => Object.values(hotelCatalog).filter((hotel2) => hotel2.regionSlug === regionSlug);
@@ -3675,6 +3824,12 @@ const seedRows = [
   ["Kervansaray Kundu", "Kundu", ["Kervansaray Lara"]],
   ["Grand Park Lara", "Lara"],
   ["Trendy Lara Hotel", "Lara"],
+  // Seed said Avsallar; its own address is Aksu (audit 2026-09, €35/vehicle) —
+  // this is the Lara/Kundu Delphin Diva, not an Alanya hotel of the same name.
+  ["Delphin Diva Premiere", "Aksu"],
+  // Seed said Kadriye; its own address is Antalya merkez, in Muratpaşa
+  // (audit 2026-09, €5/vehicle).
+  ["Fun & Sun Smart River Resort", "Antalya merkez"],
   // --- Belek, Kadriye, Serik ----------------------------------------------
   ["Rixos Premium Belek", "Belek"],
   ["Rixos Park Belek", "Belek"],
@@ -3706,18 +3861,15 @@ const seedRows = [
   ["Xanadu Resort Hotel", "Belek"],
   ["Bellis Deluxe Hotel", "Belek"],
   ["Sirene Belek Hotel", "Belek"],
-  ["Alva Donna Exclusive Hotel & Spa", "Belek"],
+  // Google lists it as "Dobedan Exclusive Hotel Belek" (rebrand or spelling; region audit 2026-09).
   ["Selectum Luxury Resort Belek", "Belek"],
   ["Selectum Family Resort Belek", "Belek"],
   ["Maritim Pine Beach Resort", "Belek"],
   ["Crystal Tat Beach Golf Resort & Spa", "Belek"],
-  ["Crystal Family Resort & Spa", "Belek"],
   ["Belconti Resort Hotel", "Belek"],
   ["Granada Luxury Belek", "Belek"],
   ["Ethno Belek Hotel", "Belek"],
-  ["Port Nature Luxury Resort", "Belek"],
   ["Novia Dionis Resort & Spa", "Belek"],
-  ["Belek Beach Resort Hotel", "Belek"],
   ["The Land of Legends", "Kadriye", ["The Land of Legends Kingdom Hotel", "Legends", "Land of Legends Nickelodeon"]],
   ["Megasaray Club Belek", "Kadriye"],
   ["Innvista Hotel Belek", "Kadriye"],
@@ -3726,8 +3878,15 @@ const seedRows = [
   ["Dionisus Hotel & Spa Belek", "Kadriye"],
   ["Sarp Hotel Kadriye", "Kadriye"],
   ["TUI Magic Life Belek", "Kadriye"],
-  ["Fun & Sun Smart River Resort", "Kadriye"],
+  // Seed said Antalya merkez; its own address is Kadriye (audit 2026-09,
+  // €5/vehicle).
+  ["Demirci Hotel", "Kadriye"],
+  // Seed said Antalya merkez; its own address is Belek (audit 2026-09,
+  // €5/vehicle).
+  ["Eden Nest Exclusive Hotel", "Belek"],
   // --- Boğazkent -----------------------------------------------------------
+  // Sold as Belek, but its own address is Boğazkent (audit 2026-09, €5/vehicle).
+  ["Alva Donna Exclusive Hotel & Spa", "Boğazkent", ["Dobedan Exclusive Hotel Belek"]],
   ["Crystal Waterworld Resort & Spa", "Boğazkent"],
   ["Aydinbey Famous Resort", "Boğazkent"],
   // Its own address reads Belek, TripAdvisor files it under Boğazkent. Split
@@ -3736,6 +3895,11 @@ const seedRows = [
   // Sold as "Belek" by the booking sites the seed came from, but its own
   // address is Boğazkent, Serik — 8 km east of Belek, across the price line.
   ["Kirman Belazur Resort & Spa", "Boğazkent"],
+  // All three were seeded as Belek, but their own addresses are Boğazkent
+  // (audit 2026-09, €5/vehicle each).
+  ["Crystal Family Resort & Spa", "Boğazkent"],
+  ["Port Nature Luxury Resort", "Boğazkent"],
+  ["Belek Beach Resort Hotel", "Boğazkent"],
   // --- Side, Kumköy, Evrenseki, Gündoğdu ----------------------------------
   ["Barut Acanthus & Cennet", "Side"],
   ["Side Star Elegance", "Side"],
@@ -3746,7 +3910,6 @@ const seedRows = [
   ["Barut Hemera", "Kumköy"],
   ["Cesars Resort", "Kumköy", ["Sezar Resort", "Cesar Side", "Cesars Side", "Sezar Side"]],
   ["Sunis Kumköy Beach Resort", "Kumköy"],
-  ["Sunis Elita Beach Resort", "Kumköy"],
   ["Sunprime C-Lounge", "Tosmur"],
   ["Hotel Terrace Beach Resort", "Kumköy"],
   ["Narcia Resort Side", "Kumköy"],
@@ -3782,7 +3945,8 @@ const seedRows = [
   ["Turquoise Resort Hotel & Spa", "Sorgun"],
   ["Melas Resort Hotel", "Sorgun"],
   ["Otium Hotel Seven Seas", "Sorgun", ["Seven Seas Hotel Blue"]],
-  ["Otium Family Eco Club", "Sorgun"],
+  // Google lists it as "Marvida Family Eco" (rebrand or spelling; region audit 2026-09).
+  ["Otium Family Eco Club", "Sorgun", ["Marvida Family Eco"]],
   ["Side Moon Palace Hotel", "Sorgun"],
   ["AQI Pegasos World", "Sorgun"],
   ["Megasaray Resort Side", "Sorgun"],
@@ -3803,7 +3967,6 @@ const seedRows = [
   ["Aydinbey King's Palace", "Çolaklı"],
   ["Kirman Sidemarin Beach & Spa", "Çolaklı"],
   ["Von Resort Golden Coast", "Çolaklı"],
-  ["Sentido Flora Garden", "Çolaklı"],
   ["Royal Alhambra Palace", "Çolaklı"],
   ["Mary Palace Resort & Spa", "Çolaklı"],
   ["Hane Sun Elite Hotel", "Çolaklı"],
@@ -3823,28 +3986,46 @@ const seedRows = [
   ["Seaden De Mar Resort & Spa", "Kızılağaç"],
   ["Asteria Bloom Side", "Kızılağaç"],
   ["Sultan of Dreams Hotel & Spa", "Kızılağaç"],
+  // Seed said Kumköy; its own address is Kızılağaç (audit 2026-09,
+  // €20/vehicle).
+  ["Sunis Elita Beach Resort", "Kızılağaç"],
+  // Came off the Antalya city listing filed under Manavgat; its own address is
+  // Kızılağaç, not Manavgat centre (audit 2026-09, €20/vehicle).
+  ["Otium Family Club Marine Beach Otel", "Kızılağaç"],
+  // Sold as Çolaklı, and Google names it "Flora Garden Beach Hotel" at a
+  // Kızılağaç address, east of Side across the price line (audit 2026-09,
+  // €20/vehicle).
+  ["Sentido Flora Garden", "Kızılağaç"],
   // --- Kemer, Göynük, Beldibi, Kiriş, Çamyuva -----------------------------
+  // The former Amara Club Marine in Göynük, not the Tekirova Amara; its address is Kemer (audit 2026-09, €20/vehicle).
+  ["Amara Prestige Hotel", "Göynük", ["Crystal Prestige Elite Hotel"]],
+  // Monna Roza Family Suit is in Kemer, not Antalya city (audit 2026-09, €20/vehicle).
+  ["Monna Roza Family Suit", "Kemer"],
+  // Hotel Deja Vu is in Kemer, not Antalya city (audit 2026-09, €20/vehicle).
+  ["Deja Vu Hotel", "Kemer"],
+  // Google finds Akın Apart & Hotel in Çamyuva, not Antalya city (audit 2026-09, €20/vehicle).
+  ["Akın Apart&Hotel", "Çamyuva"],
   ["Club Med Palmiye", "Kemer"],
-  ["Club Hotel Phaselis Rose", "Çamyuva", ["Phaselis Rose Hotel"]],
   ["Orange County Resort Hotel Kemer", "Beldibi"],
   ["Crystal Aura Beach Resort & Spa", "Kemer"],
   ["Crystal De Luxe Resort & Spa", "Kemer"],
   ["Kemer Barut Collection", "Kemer"],
-  ["Grand Park Kemer", "Kemer"],
+  // Google lists it as "Corendon Playa Kemer" (rebrand or spelling; region audit 2026-09).
+  ["Grand Park Kemer", "Kemer", ["Corendon Playa Kemer"]],
   ["Seven Seas Hotel Life Kemer", "Kemer"],
   ["Viking Star Hotel", "Kemer"],
   ["Rixos Sungate", "Beldibi"],
   ["Rixos Beldibi", "Beldibi"],
   ["Crystal Flora Beach Resort", "Beldibi"],
   ["Sealife Buket Resort & Beach", "Okurcalar"],
-  ["Alva Donna World Palace", "Beldibi"],
+  // Google lists it as "Dobedan World Palace Kemer" (rebrand or spelling; region audit 2026-09).
+  ["Alva Donna World Palace", "Beldibi", ["Dobedan World Palace Kemer"]],
   ["Juju Premier Palace", "Beldibi"],
   ["Nirvana Mediterranean Excellence", "Beldibi"],
   ["Corendon Playa Kemer", "Beldibi"],
   ["The Grand Ring Hotel", "Beldibi"],
   ["Champion Holiday Village", "Beldibi"],
   ["Aydinbey Siu Collection", "Beldibi"],
-  ["Rixos Premium Kemer", "Göynük"],
   ["Paloma Pasha Resort", "Göynük"],
   ["Sherwood Exclusive Kemer", "Göynük"],
   ["Queen's Park Le Jardin", "Göynük"],
@@ -3854,9 +4035,17 @@ const seedRows = [
   ["Maxx Royal Kemer Resort", "Kiriş"],
   ["Limak Limra Hotel & Resort", "Kiriş"],
   ["Aleria Belport Beach Hotel", "Çamyuva"],
+  // Seeded as Antalya merkez off the city listing, but their own addresses
+  // are in Kemer and its beldes (audit 2026-09, €20/vehicle each).
+  ["Caner Mountain Hotel", "Kemer"],
+  ["Dg Hotels Rose Resort", "Kemer"],
+  ["Güler Butık Hotel", "Beldibi"],
+  ["Hotel Gold Stone", "Beldibi"],
+  ["Melodi Hotel", "Beldibi"],
+  ["Peker Otel", "Göynük"],
   // --- Tekirova ------------------------------------------------------------
   ["Rixos Premium Tekirova", "Tekirova"],
-  ["Amara Prestige Hotel", "Tekirova"],
+  // Google lists it as "Crystal Prestige Elite Hotel" (rebrand or spelling; region audit 2026-09).
   ["Amara Dolce Vita Luxury", "Tekirova"],
   ["Nirvana Dolce Vita", "Tekirova"],
   ["Marti Myra", "Tekirova"],
@@ -3865,7 +4054,16 @@ const seedRows = [
   ["Güral Premier Tekirova", "Tekirova"],
   ["Rai Premium Tekirova", "Tekirova"],
   ["Le Marden Hotel Spa", "Tekirova"],
+  // Seed said Çamyuva; its own address is Tekirova (audit 2026-09,
+  // €20/vehicle).
+  ["Club Hotel Phaselis Rose", "Tekirova", ["Phaselis Rose Hotel"]],
+  // Named for Kemer and seeded in Göynük, but the only Rixos Premium on this
+  // coast is the Tekirova one, and Google resolves the name there
+  // (audit 2026-09, €20/vehicle).
+  ["Rixos Premium Kemer", "Tekirova"],
   // --- Alanya and its western resort strip ---------------------------------
+  // Apart Arsi Sweet Suite sits in Güller Pınarı, Alanya, not Antalya city (audit 2026-09, €40/vehicle).
+  ["Arsi Sweet Suite Hotel", "Alanya merkez"],
   ["Kirman Leodikya Resort", "Okurcalar"],
   ["Aydinbey Gold Dreams", "Okurcalar"],
   ["Justiniano Deluxe Resort", "Okurcalar"],
@@ -3875,25 +4073,29 @@ const seedRows = [
   ["Numa Bay Exclusive", "Avsallar"],
   ["Granada Luxury Beach", "Avsallar"],
   ["Bera Alanya Hotel", "Avsallar"],
-  ["Delphin Diva Premiere", "Avsallar"],
   ["Azura Deluxe Resort & Spa", "Avsallar"],
   ["Rubi Platinum Spa Resort", "Avsallar"],
   ["Otel İncekum Su", "İncekum"],
-  ["Utopia World Hotel", "Konaklı"],
   ["Delphin Botanik Platinum", "Türkler"],
   ["Sirius Deluxe Hotel", "Türkler"],
+  // Seed said Alanya merkez; Google names it "Gold Island Selected" at a
+  // Türkler address, west of the centre (audit 2026-09, €5/vehicle).
+  ["Sentido Gold Island Hotel", "Türkler"],
   ["Long Beach Resort Hotel", "Konaklı"],
   ["Q Premium Resort Hotel Alanya", "Konaklı"],
   ["Kirman Arycanda De Luxe", "Konaklı"],
   ["Alan Xafira Deluxe Resort", "Konaklı"],
   ["Kahya Resort Aqua & Spa", "Konaklı"],
-  ["The Antik Hotel", "Konaklı"],
+  // Google lists it as "Antique Hotel" (rebrand or spelling; region audit 2026-09).
+  ["The Antik Hotel", "Konaklı", ["Antique Hotel"]],
   ["Asia Beach Resort & Spa", "Alanya merkez"],
-  ["Sentido Gold Island Hotel", "Alanya merkez"],
   ["Klas More Beach Hotel", "Mahmutlar"],
   ["Sey Beach Hotel & Spa", "Kestel"],
   ["Goldcity Hotel", "Kargıcak"],
-  ["Lumos Deluxe Resort Hotel", "Kargıcak"]
+  ["Lumos Deluxe Resort Hotel", "Kargıcak"],
+  // Seed said Konaklı; its own address is Kargıcak, east of Alanya
+  // (audit 2026-09, €20/vehicle).
+  ["Utopia World Hotel", "Kargıcak"]
 ];
 const verifiedSlugs = new Set(Object.values(hotelCatalog).map((hotel2) => hotelSlug(hotel2.name)));
 const hotelIndex = Object.freeze(
@@ -4194,7340 +4396,6227 @@ const hotelDistances = Object.freeze({
   "7inn": {
     "km": 23,
     "place": "ChIJswcoiEmRwxQRlM8vzp6E024",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "a-hotel-side": {
     "km": 63,
     "place": "ChIJWy7MeRZZwxQR83ISvgQWJLo",
-    "district": "Manavgat",
-    "checked": false
+    "checked": true
   },
   "abc-apart-hotel": {
     "km": 15,
     "place": "ChIJAQ5gMwybwxQRAurazcEYjYE",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "acar-apart-otel": {
     "km": 18,
     "place": "ChIJQ6FDiL6PwxQR247A6wgf0KM",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "acar-apart-otel-3": {
     "km": 22,
     "place": "ChIJ2T4Ya96RwxQRCY5kptJRovo",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "acar-otel": {
     "km": 130,
     "place": "ChIJ0-G-n1SY3BQR9tvOcLK968s",
-    "district": "Alanya",
-    "checked": false
+    "checked": true
   },
   "acropol-beach-hotel": {
     "km": 24,
     "place": "ChIJ4dr2RqeRwxQRWieKUb54emU",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "ada-apart-hotel": {
     "km": 23,
     "place": "ChIJ5bNSRqGRwxQRy3vtROiSxY4",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "adalia-hotel": {
     "km": 16,
     "place": "ChIJF_61kQaQwxQRrOooTLEJutQ",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "adalin-resort-otel": {
     "km": 61,
     "place": "ChIJOcikYMO3wxQRocYkr09dAnM",
-    "district": "Kemer",
-    "checked": false
+    "checked": true
   },
   "adalya-elite-lara": {
     "km": 17,
     "place": "ChIJBcAY45-CwxQRHD8zJVYCGbE",
-    "district": "Lara",
-    "checked": false
+    "checked": true
   },
   "adalya-grand-art-side": {
     "km": 58,
     "place": "ChIJ2VKxlhxfwxQRdbKbQcSYyzs",
-    "district": "Evrenseki",
-    "checked": false
+    "checked": true
   },
   "adalya-ocean-deluxe": {
     "km": 59,
     "place": "ChIJ5fd92MZewxQRD91Z4ncvVd4",
-    "district": "Evrenseki",
-    "checked": false
+    "checked": true
   },
   "adalya-ocean-hotel": {
     "km": 59,
     "place": "ChIJ5fd92MZewxQRD91Z4ncvVd4",
-    "district": "Evrenseki",
-    "checked": false
+    "checked": true
   },
   "adalya-port-hotel": {
     "km": 18,
     "place": "ChIJBRsQYw-QwxQRSdZALOCaumg",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "adalya-resort-spa": {
     "km": 59,
     "place": "ChIJ85WnKsFewxQRgYvwZWWnhPk",
-    "district": "Evrenseki",
-    "checked": false
+    "checked": true
   },
   "adam-apart-hotel": {
     "km": 18,
     "place": "ChIJ8dEvIL2PwxQRHZ0eNw_wS4s",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "adam-apart-hotel-2": {
     "km": 18,
     "place": "ChIJtQvvKiWPwxQRHDDpu7BlSaY",
-    "district": "Antalya merkez",
     "checked": false
   },
   "adam-eve-hotels": {
     "km": 37,
     "place": "ChIJz2hjI0Z7wxQRYXEREjKu6ro",
-    "district": "Belek",
-    "checked": false
+    "checked": true
   },
   "address-residence-suite-hotel": {
-    "km": 13,
-    "place": "ChIJBf6THo2bwxQRM0mVDqHdluI",
-    "district": "Antalya merkez",
-    "checked": false
+    "km": 14,
+    "place": "ChIJzwmNsj-bwxQRpi_nkuVOr1E",
+    "checked": true
   },
   "adenya-hotel-resort": {
     "km": 105,
     "place": "ChIJVyYhCbqv3BQR1HTfx5J3pnk",
-    "district": "Alanya",
-    "checked": false
+    "checked": true
   },
   "adin-beach-resort-spa-hotel": {
     "km": 105,
     "place": "ChIJwfuDGaOv3BQRUU2-hx4urrU",
-    "district": "Alanya",
-    "checked": false
+    "checked": true
   },
   "adonis-hotel": {
     "km": 16,
     "place": "ChIJTZ2UvZOawxQRaIK1cToD8G8",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "adrasan-beach-club": {
     "km": 110,
     "place": "ChIJjUpFKKc5whQR3xkR_SmKq7U",
-    "district": "Adrasan",
-    "checked": false
+    "checked": true
   },
   "af-ra-hotel": {
     "km": 24,
     "place": "ChIJh6fINoKRwxQRxbm6GXtYtw4",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "afflon-hotels-loft-city": {
     "km": 18,
     "place": "ChIJ5VIHTBqQwxQRB13rRAVFrgk",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "afflon-hotels-sea-hill-concept-adult-only": {
     "km": 18,
     "place": "ChIJ_w4c7raRwxQRauCOUxrvq5I",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "afsin-hotel": {
     "km": 24,
     "place": "ChIJCSWwUKGRwxQRBwEb9KMit2k",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "ag-hotels": {
     "km": 13,
     "place": "ChIJ21XrO0qFwxQR8t-LoW92e7g",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "ahsen-hotel": {
     "km": 16,
     "place": "ChIJxQfbU2mPwxQR3yX5adnaAas",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "akca-apart-otel": {
     "km": 19,
     "place": "ChIJXbMSf9aRwxQRyqGdqe7ksEc",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "akcahan-apart-hotel": {
     "km": 25,
     "place": "ChIJfWj1ZXSRwxQRj3pTBLBExlE",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "akin-apart-hotel": {
-    "km": 18,
-    "place": "ChIJQz4YstuPwxQRVgK-dzpsTxg",
-    "district": "Antalya merkez",
-    "checked": false
+    "km": 67,
+    "place": "ChIJhctABGi2wxQRRUnqNjaj-PU",
+    "checked": true
   },
   "akra-hotel": {
     "km": 17,
     "place": "ChIJDSt9rZeawxQRe7q9tbvcd3w",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "akra-v-access-to-akra-antalya-otel": {
     "km": 15,
     "place": "ChIJqYvIITSDwxQRyuoO-Xpe5Wk",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "alaiye-kleopatra-otel": {
     "km": 125,
     "place": "ChIJJfo_QYWi3BQR19WayxMqxFs",
-    "district": "Alanya",
-    "checked": false
+    "checked": true
   },
   "alaiye-resort-spa": {
     "km": 104,
     "place": "ChIJUexH46Sv3BQRdBF6T66nOhM",
-    "district": "Avsallar",
-    "checked": false
+    "checked": true
   },
   "alan-xafira-deluxe-resort": {
     "km": 109,
     "place": "ChIJx3p45a7euxQRyk3CbQHnH_4",
-    "district": "Konaklı",
-    "checked": false
+    "checked": true
   },
   "alanya-beach": {
     "km": 128,
     "place": "ChIJU_0_KgCl3BQRbzzmbciVoPc",
-    "district": "Alanya",
-    "checked": false
+    "checked": true
   },
   "alanya-buyuk-otel": {
     "km": 127,
     "place": "ChIJwSpey3CY3BQRaXqLcW0enP0",
-    "district": "Alanya",
-    "checked": false
+    "checked": true
   },
   "alanya-divan-otel": {
     "km": 124,
     "place": "ChIJDyhAWg-j3BQRSuIdrZOoKLc",
-    "district": "Alanya merkez",
     "checked": false
   },
   "alanya-risus-park-otel": {
     "km": 129,
     "place": "ChIJu9_R2cKZ3BQRVwLasaaTrwQ",
-    "district": "Alanya",
-    "checked": false
+    "checked": true
   },
   "alanya-sunway-hotel": {
     "km": 125,
     "place": "ChIJnwibj5yi3BQRgDjMHSxy-Yk",
-    "district": "Alanya",
-    "checked": false
+    "checked": true
   },
   "alarcha-hotels-resort": {
     "km": 90,
     "place": "ChIJs2m3mWSr3BQRbqawMoJ2MpM",
-    "district": "Okurcalar",
     "checked": false
   },
   "alba-queen-hotel": {
     "km": 57,
     "place": "ChIJE6sG3ZRZwxQR6NcYNokV0M8",
-    "district": "Çolaklı",
-    "checked": false
+    "checked": true
   },
   "alba-resort-hotel": {
     "km": 57,
     "place": "ChIJ3cYcXhdfwxQRb9mf4wduFqQ",
-    "district": "Çolaklı",
-    "checked": false
+    "checked": true
   },
   "alba-royal-hotel": {
     "km": 57,
     "place": "ChIJR5FdJehfwxQRQ_EvdbYo_IM",
-    "district": "Çolaklı",
-    "checked": false
+    "checked": true
   },
   "alder-garden-hotel": {
     "km": 53,
     "place": "ChIJSzD7JLe5wxQRMpQVBSQNcCI",
-    "district": "Kemer",
-    "checked": false
+    "checked": true
   },
   "alder-resort-otel": {
     "km": 53,
     "place": "ChIJW5kygDe5wxQRMb6voQOsXjo",
-    "district": "Kemer",
-    "checked": false
+    "checked": true
   },
   "ale-apartments-hotel": {
     "km": 24,
     "place": "ChIJP0mkM6KRwxQRbImhg8wl5Wo",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "ale-boutique-apartments": {
     "km": 24,
     "place": "ChIJySfbl3aRwxQRub4RYenzYns",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "ale-park-hotel-apartments": {
     "km": 25,
     "place": "ChIJ_5aWmHGRwxQRwnn8SN_iFFw",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "aleria-belport-beach-hotel": {
     "km": 50,
     "place": "ChIJmUq3Jyu_wxQRwsdUK_o764k",
-    "district": "Çamyuva",
-    "checked": false
+    "checked": true
   },
   "ales-park-hotel": {
     "km": 25,
     "place": "ChIJ_5aWmHGRwxQRwnn8SN_iFFw",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "alessia-hotel": {
     "km": 64,
     "place": "ChIJB8VV7IVZwxQRXoCDlXkwcio",
-    "district": "Manavgat",
-    "checked": false
+    "checked": true
   },
   "algora-halal-hotel": {
     "km": 115,
     "place": "ChIJXYxdgg-l3BQRMfO5enYFeXo",
-    "district": "Alanya",
-    "checked": false
+    "checked": true
   },
   "ali-bey-resort-sorgun": {
     "km": 69,
     "place": "ChIJAwAAAHRZwxQRdgUEai6JLVE",
-    "district": "Sorgun",
-    "checked": false
+    "checked": true
   },
   "alice-hotel": {
     "km": 17,
     "place": "ChIJialBxwKDwxQRXdebjYoUt-o",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "alin-otel": {
     "km": 126,
     "place": "ChIJ4-n3soeY3BQR-p1oqIOVIsg",
-    "district": "Alanya",
-    "checked": false
+    "checked": true
   },
   "alp-pasa-gazetta-special-class": {
     "km": 16,
     "place": "ChIJ8_vGF9qCwxQReGt-PAfdd9g",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "alp-pasa-hotel-special-class": {
     "km": 16,
     "place": "ChIJ8_vGF9qCwxQReGt-PAfdd9g",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "altes-hotel": {
     "km": 17,
     "place": "ChIJETabBByQwxQRfIBQYLkVckA",
-    "district": "Antalya merkez",
     "checked": false
   },
   "altinay-hotel": {
     "km": 24,
     "place": "ChIJ0TncbimRwxQRfDPCPf1j-0E",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "alva-donna-exclusive-hotel-spa": {
     "km": 42,
     "place": "ChIJccqd4XJkwxQRd1Bgc9kaSWY",
-    "district": "Belek",
-    "checked": false
+    "checked": true
   },
   "alva-donna-world-palace": {
     "km": 68,
     "place": "ChIJi4YgNPy2wxQR9YRhKbRueBs",
-    "district": "Beldibi",
-    "checked": false
+    "checked": true
   },
   "amara-dolce-vita-luxury": {
     "km": 78,
     "place": "ChIJjaf6vqbKwxQRky_1mm60Gwk",
-    "district": "Tekirova",
-    "checked": false
+    "checked": true
   },
   "amara-luxury-resort-and-villas": {
     "km": 51,
     "place": "ChIJxYJVjOa4wxQRQMxAuzEPgwA",
-    "district": "Göynük",
-    "checked": false
+    "checked": true
   },
   "amara-prestige-hotel": {
     "km": 52,
     "place": "ChIJMXusSfG4wxQROGj5bXmGBuY",
-    "district": "Tekirova",
-    "checked": false
+    "checked": true
   },
   "ambassador-plaza": {
     "km": 61,
     "place": "ChIJe1e8dZm3wxQRQ19Skenj97g",
-    "district": "Kemer",
-    "checked": false
+    "checked": true
   },
   "anadolu-pension": {
     "km": 17,
     "place": "ChIJkS_MMAmQwxQRy5uvtdUAuUg",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "anatolian-homes-apart": {
     "km": 25,
     "place": "ChIJWzuphUKRwxQRHMrWqXUdygc",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "anelli-hotel": {
     "km": 20,
     "place": "ChIJif9d1f-RwxQRtyOEINRxLR0",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "angelo-coffee-suites": {
     "km": 12,
     "place": "ChIJpf-UOU6FwxQRjJvWbjtC20I",
-    "district": "Antalya merkez",
     "checked": false
   },
   "anita-dream-hotel": {
     "km": 68,
     "place": "ChIJoxbmoP-3wxQR-vU1QVOg1do",
-    "district": "Kemer",
-    "checked": false
+    "checked": true
   },
   "anitas-otel": {
     "km": 116,
     "place": "ChIJodm7yo-k3BQRjsRZSi0nKvo",
-    "district": "Alanya",
-    "checked": false
+    "checked": true
   },
   "anna-queen-hotel": {
     "km": 126,
     "place": "ChIJf41tm5yi3BQRKE1jXhl4xz0",
-    "district": "Alanya",
-    "checked": false
+    "checked": true
   },
   "annabella-diamond-hotel-spa": {
     "km": 101,
     "place": "ChIJe3nkXuWu3BQRU1Ec0X7H6U8",
-    "district": "Alanya",
-    "checked": false
+    "checked": true
   },
   "annabella-park-otel": {
     "km": 102,
     "place": "ChIJLwMpdr2v3BQRdv7D-femfyU",
-    "district": "Alanya",
-    "checked": false
+    "checked": true
   },
   "antalya-business-hotel": {
     "km": 16,
     "place": "ChIJfYkuse2PwxQRTIpwGoKDwpA",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "antalya-city-hotel-spa-adults-only": {
     "km": 12,
     "place": "ChIJoVAnW9ObwxQRyJ_er7rGiSY",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "antalya-dream-hotel": {
     "km": 16,
     "place": "ChIJeXFUfwiQwxQRa9wpscqncZk",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "antalya-gul-apart": {
     "km": 16,
     "place": "ChIJtw8kRb-CwxQRxrFFqQ4ciUE",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "antalya-inn-hotel": {
     "km": 16,
     "place": "ChIJHwBRew-QwxQReFiErIxuzk8",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "antalya-nun-junior-hotel": {
     "km": 15,
     "place": "ChIJ5UGCshCbwxQRViMY-5rJS8c",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "antey-aqua-city": {
     "km": 31,
     "place": "ChIJicdDcPCTwxQRRppTqbu0dtI",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "antique-house-otel": {
     "km": 16,
     "place": "ChIJFxL8fQaQwxQRVkFsP7oasfM",
-    "district": "Antalya merkez",
     "checked": false
   },
   "antique-roman-palace": {
     "km": 131,
     "place": "ChIJgQl_hyu7yhQRJ_VreFWnank",
-    "district": "Alanya",
-    "checked": false
+    "checked": true
   },
   "antroyal-hotel": {
     "km": 17,
     "place": "ChIJ901JnR6QwxQRrBHP_hnR1tA",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "apa-mountain-lodge": {
     "km": 43,
     "place": "ChIJ-zvdvPTrwxQRkJc8rvuGVs8",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "aperion-beach-hotel": {
     "km": 81,
     "place": "ChIJOa2yro1TwxQRFjW3Qa2IIaI",
-    "district": "Kızılot",
-    "checked": false
+    "checked": true
   },
   "aqi-pegasos-world": {
     "km": 71,
     "place": "ChIJ5xDFTgJawxQRJO6p4Y2qK4g",
-    "district": "Sorgun",
-    "checked": false
+    "checked": true
   },
   "araucaria-pension": {
     "km": 16,
     "place": "ChIJseaj9QaQwxQRZRLSs4I5Syo",
-    "district": "Antalya merkez",
     "checked": false
   },
   "arcanus-trendline-resort-side": {
     "km": 57,
     "place": "ChIJQ9j-NrRXwxQRoje2e4Y0hmA",
-    "district": "Manavgat",
-    "checked": false
+    "checked": true
   },
   "ares-blue-otel": {
     "km": 68,
     "place": "ChIJF07P9f62wxQRmXqDGAXY9ZE",
-    "district": "Kemer",
-    "checked": false
+    "checked": true
   },
   "argos-hotel": {
     "km": 17,
     "place": "ChIJ8z_MOwSQwxQRvT_xVNLTYSs",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "aria-resort-spa": {
     "km": 116,
     "place": "ChIJSeI-PYWY3BQR7l_WwN7ilpE",
-    "district": "Alanya",
-    "checked": false
+    "checked": true
   },
   "arinna-park-hotel": {
     "km": 25,
     "place": "ChIJLZ16eoqRwxQR2r49hjnb5Ng",
-    "district": "Antalya merkez",
     "checked": false
   },
   "arkk-homes": {
     "km": 15,
     "place": "ChIJCRq-LweQwxQRFfAKnk0cGJA",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "arma-pansiyon": {
     "km": 20,
     "place": "ChIJlaSGXtaRwxQRTE2LyhbM2yM",
-    "district": "Antalya merkez",
     "checked": false
   },
   "armas-beach-hotel": {
     "km": 59,
     "place": "ChIJF0Y_g4C3wxQRILGsZ2_twQs",
-    "district": "Kemer",
-    "checked": false
+    "checked": true
   },
   "armas-gul-beach-otel": {
     "km": 59,
     "place": "ChIJz6gcviK3wxQRC9r6N27YSTk",
-    "district": "Kemer",
-    "checked": false
+    "checked": true
   },
   "armas-kaplan-paradise": {
     "km": 76,
     "place": "ChIJ-2O_Suy1wxQRKczGYbvX87A",
-    "district": "Konyaaltı",
-    "checked": false
+    "checked": true
   },
   "armas-labada-otel": {
     "km": 68,
     "place": "ChIJY5zZLGe2wxQR1nW1fYUCmj0",
-    "district": "Kemer",
-    "checked": false
+    "checked": true
   },
   "armas-life-belek-otel": {
     "km": 43,
     "place": "ChIJo_g5Hg1kwxQRQdedypPUA1Q",
-    "district": "Serik",
-    "checked": false
+    "checked": true
   },
   "armas-sunrise-lara": {
     "km": 13,
     "place": "ChIJZTiUeZWdwxQRhRDbW79UXVg",
-    "district": "Lara",
     "checked": false
+  },
+  "arsi-blue-beach-hotel": {
+    "km": 132,
+    "place": "ChIJ4Rbvw7qZ3BQRaC3pnfi1GZY",
+    "checked": true
   },
   "arsi-enfi-city-beach-otel": {
     "km": 128,
     "place": "ChIJL_aIvmCY3BQRoLqCYisIwL0",
-    "district": "Alanya",
-    "checked": false
+    "checked": true
   },
   "arsi-sweet-suite-hotel": {
-    "km": 25,
-    "place": "ChIJNSpMlnGRwxQRgJr0YcL72gg",
-    "district": "Antalya merkez",
-    "checked": false
+    "km": 128,
+    "place": "ChIJTSnAsF-Y3BQRqvUHlipboGM",
+    "checked": true
   },
   "artemis-luxury-palace-hotel": {
     "km": 25,
     "place": "ChIJs1yAQ1x4wxQR2lAY2mxqxOA",
-    "district": "Antalya merkez",
     "checked": false
   },
   "arum-barut-collection": {
     "km": 63,
     "place": "ChIJ9zj7AGpZwxQRwezqiTF4Jck",
-    "district": "Kumköy",
-    "checked": false
+    "checked": true
   },
   "arya-apart-kundu-hotel": {
     "km": 11,
     "place": "ChIJlexHJy6DwxQRXC1JXswu4Ns",
-    "district": "Kundu",
-    "checked": false
+    "checked": true
   },
   "asena-hotel": {
     "km": 19,
     "place": "ChIJOStLeY6PwxQR6HlCxa9pf_w",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "asia-beach-resort-spa": {
     "km": 131,
     "place": "ChIJDaNPk62Z3BQRn753CbAQj8w",
-    "district": "Alanya merkez",
-    "checked": false
+    "checked": true
   },
   "asimado-hotel": {
     "km": 5,
     "place": "ChIJw7biOvi3wxQREgjYPIPdNjU",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "aska-just-in-beach-hotel": {
     "km": 104,
     "place": "ChIJD9BMGKmv3BQR0cAEqNkS2Ak",
-    "district": "Alanya",
-    "checked": false
+    "checked": true
   },
   "aska-lara-resort-spa": {
     "km": 17,
     "place": "ChIJXWSyiHV4wxQRXAJHuqMXmW0",
-    "district": "Lara",
-    "checked": false
+    "checked": true
   },
   "aska-river-suites": {
     "km": 18,
     "place": "ChIJb8QXbXZ4wxQR_MDn_d3UkK8",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "aspen-hotel-kaleici": {
     "km": 16,
     "place": "ChIJy1S4pAWQwxQRIUE-j4KYwtM",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "aspendos-extra-apart-otel": {
     "km": 25,
     "place": "ChIJc_ZSRfaRwxQRFdX4zaEZYmk",
-    "district": "Antalya merkez",
     "checked": false
   },
   "aspendos-seaside-apart-otel": {
     "km": 25,
     "place": "ChIJYXyI63GRwxQRR5hoq4qnPuA",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "aspendos-suites-konyaalti-apart": {
     "km": 25,
     "place": "ChIJNSpMlnGRwxQRgJr0YcL72gg",
-    "district": "Konyaaltı",
-    "checked": false
+    "checked": true
   },
   "asteria-bloom-side": {
     "km": 80,
     "place": "ChIJM7GHYvlTwxQRii9nhJO__hc",
-    "district": "Kızılağaç",
-    "checked": false
+    "checked": true
   },
   "asteria-collection-side": {
     "km": 70,
     "place": "ChIJNwROe-qPwxQRxGCVnE8Gh5I",
-    "district": "Titreyengöl",
-    "checked": false
+    "checked": true
   },
   "asteria-family-resort-belek": {
     "km": 38,
     "place": "ChIJhVxisGl7wxQRNwzwlenUkjk",
-    "district": "Belek",
-    "checked": false
+    "checked": true
   },
   "ataer-hotel": {
     "km": 25,
     "place": "ChIJTxRuSNiRwxQRKycGvsH1_8A",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "atalla-hotel": {
     "km": 15,
     "place": "ChIJo2n6iKmawxQRn5Fb_BKSon8",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "atelya-art-hotel": {
     "km": 16,
     "place": "ChIJ-22u51CRwxQRkIvL8Re3ppQ",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "atici-hotel": {
     "km": 15,
     "place": "ChIJ_aZ97xGRwxQR6kErrYn2Nn0",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "atlas-pansiyon": {
     "km": 17,
     "place": "ChIJU2y4TxmQwxQRTL83BBaw9EQ",
-    "district": "Antalya merkez",
     "checked": false
   },
   "avena-mountain-otel": {
     "km": 132,
     "place": "ChIJmTaNVzuh3BQRtDA_pRMuyOE",
-    "district": "Alanya",
-    "checked": false
+    "checked": true
   },
   "avion-suite-hotel": {
     "km": 14,
     "place": "ChIJJe7GsqibwxQRt-RruflfdZw",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "avlion-otel": {
     "km": 126,
     "place": "ChIJL-PmWvSj3BQRETxNs8T0CmQ",
-    "district": "Alanya",
-    "checked": false
+    "checked": true
   },
   "avsar-boutique-hotel": {
     "km": 17,
     "place": "ChIJsXUq4XqbwxQRBWXPEu8_2tI",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "avullar-palace-hotel": {
     "km": 15,
     "place": "ChIJlXpZSRebwxQR1xT1rZ_zW8E",
-    "district": "Antalya merkez",
     "checked": false
   },
   "ay-otel-2": {
     "km": 17,
     "place": "ChIJX8ZgVQKQwxQRYK2IOJ3IazY",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "aybel-inn-hotel": {
     "km": 45,
     "place": "ChIJ65zMKw6_wxQRq_KJ3vHDlNw",
-    "district": "Kemer",
-    "checked": false
+    "checked": true
   },
   "aydin-otel-pansiyon": {
     "km": 17,
     "place": "ChIJA9SUnByQwxQRhGS6MRzNJbo",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "aydinbey-famous-resort": {
     "km": 44,
     "place": "ChIJQbURUlJ5wxQRsO9ic-VbZDg",
-    "district": "Boğazkent",
     "checked": false
   },
   "aydinbey-gold-dreams": {
     "km": 108,
     "place": "ChIJQX4s4nyl3BQR2ARR0w8ogGg",
-    "district": "Okurcalar",
-    "checked": false
+    "checked": true
   },
   "aydinbey-king-s-palace": {
     "km": 58,
     "place": "ChIJ6QVYFMhewxQRgehOfJZDbbo",
-    "district": "Çolaklı",
-    "checked": false
+    "checked": true
   },
   "aydinbey-siu-collection": {
     "km": 47,
     "place": "ChIJM5bj09-_wxQRUgjP91tY48U",
-    "district": "Beldibi",
-    "checked": false
+    "checked": true
   },
   "ayhan-hotel": {
     "km": 17,
     "place": "ChIJHa-HpByQwxQRG4CyLYvyzic",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "ayka-life-nature-peace-all-inclusive": {
-    "km": 26,
-    "place": "ChIJNwk0tCuJwxQR8qkGMS5Dv1A",
-    "district": "Antalya merkez",
-    "checked": false
+    "km": 25,
+    "place": "ChIJ0w5qSiqJwxQRAcYIY2PieNg",
+    "checked": true
   },
   "ayka-vital-park": {
     "km": 26,
     "place": "ChIJ6SlpsSuJwxQRyFbuOVOEEBE",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "ayka-vital-park-hotel-adults-only-duaci": {
     "km": 26,
     "place": "ChIJ6SlpsSuJwxQRyFbuOVOEEBE",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "aysev-otel": {
     "km": 125,
     "place": "ChIJW9-0Z5ui3BQRyTVKUDLfofc",
-    "district": "Alanya",
-    "checked": false
+    "checked": true
   },
   "aysu-tunc-hotel": {
     "km": 44,
     "place": "ChIJ_0iFCwC_wxQRXSbZlB7g95E",
-    "district": "Kemer",
-    "checked": false
+    "checked": true
   },
   "azak-beach-otel": {
     "km": 125,
     "place": "ChIJT7SmK5ui3BQR2WzD-XREde8",
-    "district": "Alanya",
-    "checked": false
+    "checked": true
   },
   "azak-otel": {
     "km": 125,
     "place": "ChIJX2aDUIWi3BQRrvRtHs6saiY",
-    "district": "Alanya",
-    "checked": false
+    "checked": true
   },
   "aziz-otel": {
     "km": 17,
     "place": "ChIJeYrlAAOQwxQRyChHODkZd4A",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "aziz-pansiyon-2": {
     "km": 17,
     "place": "ChIJeYrlAAOQwxQRyChHODkZd4A",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "azura-deluxe-resort-spa": {
     "km": 103,
     "place": "ChIJ-WXPRrKv3BQRsOgHH9syXts",
-    "district": "Avsallar",
-    "checked": false
+    "checked": true
   },
   "azura-world-otel": {
     "km": 107,
     "place": "ChIJscB1uhal3BQRRWsvf2nez1E",
-    "district": "Alanya",
-    "checked": false
+    "checked": true
   },
   "azuu-bohem-hotel": {
     "km": 15,
     "place": "ChIJ2x12hRmbwxQRLeyfZcrOKt0",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "azuu-boutique-hotel": {
     "km": 15,
     "place": "ChIJC2LalxmbwxQR-mwjRpf_YpQ",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "b-business-hotel-spa": {
     "km": 21,
     "place": "ChIJBTRLismPwxQRUY1r755qsEo",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "babil-hotel": {
     "km": 23,
     "place": "ChIJ3-ySPn-RwxQRPeapxMe4tmM",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "bacchus-pension": {
     "km": 16,
     "place": "ChIJdRzPKA-QwxQRQjCHSWO-UpI",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "baia-lara-hotel": {
     "km": 17,
     "place": "ChIJb7IMTKKCwxQRDMjOFSWhyJI",
-    "district": "Lara",
-    "checked": false
+    "checked": true
   },
   "baia-salima-kemer": {
     "km": 47,
     "place": "ChIJDYNqkyW_wxQR8RVK7AiZOkQ",
-    "district": "Kemer",
-    "checked": false
+    "checked": true
   },
   "balik-otel": {
     "km": 124,
     "place": "ChIJU1-2jYyi3BQRrenT-RkXW-k",
-    "district": "Alanya",
-    "checked": false
+    "checked": true
   },
   "balmy-beach-resort-kemer": {
     "km": 44,
     "place": "ChIJ8fevahm3wxQR9b45G8zlIdc",
-    "district": "Kemer",
-    "checked": false
+    "checked": true
   },
   "balmy-foresta": {
     "km": 47,
     "place": "ChIJj_o1awC_wxQRJtG4gli3Ucg",
-    "district": "Kemer",
-    "checked": false
+    "checked": true
   },
   "baran-hotel": {
     "km": 15,
     "place": "ChIJywskEUebwxQRTfjS9CWJQa4",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "bariscan-otel": {
     "km": 140,
     "place": "ChIJ5xhxNQOa3BQR1dIILgmUlKQ",
-    "district": "Alanya",
     "checked": false
   },
   "barut-acanthus-cennet": {
     "km": 64,
     "place": "ChIJTdvARGVZwxQRxwfO4fH-peU",
-    "district": "Side",
-    "checked": false
+    "checked": true
   },
   "barut-b-suites": {
     "km": 58,
     "place": "ChIJj4JtNs9ewxQRVVV9vrd5M0k",
-    "district": "Manavgat",
-    "checked": false
+    "checked": true
   },
   "barut-goia-otel": {
     "km": 67,
     "place": "ChIJA5EV5IZZwxQRIXKH2PGKl1w",
-    "district": "Manavgat",
-    "checked": false
+    "checked": true
   },
   "barut-hemera": {
     "km": 63,
     "place": "ChIJUa5lDrDmn0ARZZQRZgVUBTQ",
-    "district": "Kumköy",
-    "checked": false
+    "checked": true
   },
   "basel-hotel": {
     "km": 24,
     "place": "ChIJObLYXqGRwxQRBBDqWrxbr4I",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "bayindir-palme-hotel": {
     "km": 18,
     "place": "ChIJ_zJ13CmQwxQRPKOn-tpGErs",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "bayou-villas": {
     "km": 14,
     "place": "ChIJj7TDLQCDwxQRImgd7bHZCk8",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "be-bold-hostel": {
     "km": 15,
     "place": "ChIJQfN6tOCRwxQRvUHHaWSPyeU",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "beach-club-doganay-otel": {
     "km": 118,
     "place": "ChIJO6L6K3Cj3BQRFTs2Bswtk0g",
-    "district": "Alanya",
-    "checked": false
+    "checked": true
   },
   "begonya-hotel-kemer-all-inclisuve": {
     "km": 43,
     "place": "ChIJYb1wIQm_wxQR5n3eNbopV2Y",
-    "district": "Kemer",
-    "checked": false
+    "checked": true
   },
   "begumhan-pansiyon": {
     "km": 17,
     "place": "ChIJCUKpqeiawxQR-DQ6KD7kEbA",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "behram-hotel": {
     "km": 23,
     "place": "ChIJzy4-VqSRwxQRoSkjBhYmSIw",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "belcan-hotel": {
     "km": 44,
     "place": "ChIJZ6omQJy_wxQRMFSSknVsVIg",
-    "district": "Kemer",
-    "checked": false
+    "checked": true
   },
   "belconti-resort-hotel": {
     "km": 36,
     "place": "ChIJFWKM-dt_wxQR6UZ_mR2S6H8",
-    "district": "Belek",
-    "checked": false
+    "checked": true
   },
   "belek-beach-resort-hotel": {
     "km": 44,
     "place": "ChIJe3XYEQZkwxQRVlJYpKTyIr8",
-    "district": "Belek",
-    "checked": false
+    "checked": true
   },
   "belek-diamonds-hotel": {
     "km": 26,
     "place": "ChIJs7pUT1d9wxQRSs9O_fkZqeM",
-    "district": "Kadriye",
-    "checked": false
+    "checked": true
   },
   "belenli-resort-hotel-belek": {
     "km": 34,
     "place": "ChIJORx1u2B7wxQRfzV3Qy7L0Lw",
-    "district": "Serik",
-    "checked": false
+    "checked": true
   },
   "belkon-hotel": {
     "km": 28,
     "place": "ChIJo15LL-N7wxQRjUhUlFhzdYw",
-    "district": "Serik",
-    "checked": false
+    "checked": true
   },
   "bella-resort-spa": {
     "km": 57,
     "place": "ChIJIftI4V1ewxQR5xTPKloFVug",
-    "district": "Manavgat",
-    "checked": false
+    "checked": true
   },
   "bellis-deluxe-hotel": {
     "km": 31,
     "place": "ChIJUx1UFJh7wxQRFfTpP_ToC54",
-    "district": "Belek",
-    "checked": false
+    "checked": true
   },
   "belmondo-suites-old-town": {
     "km": 16,
     "place": "ChIJsajL0eaRwxQRREubE23C1K8",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "belpoint-beach-hotel": {
     "km": 44,
     "place": "ChIJpSo0J6O3wxQRrSQGKx9gGrY",
-    "district": "Kemer",
-    "checked": false
+    "checked": true
   },
   "belsea-hotel": {
     "km": 44,
     "place": "ChIJARV81e2_wxQRguCgLAN3LC8",
-    "district": "Kemer",
-    "checked": false
+    "checked": true
   },
   "belsun-hotel": {
     "km": 44,
     "place": "ChIJQUy7C9y_wxQR_OWxvJbqqas",
-    "district": "Kemer",
-    "checked": false
+    "checked": true
   },
   "benna-hotel": {
     "km": 25,
     "place": "ChIJg7h5wG-RwxQRxMP9hDmGbm4",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "bera-alanya-hotel": {
     "km": 115,
     "place": "ChIJWYtLlo6k3BQRvZftidudPno",
-    "district": "Avsallar",
-    "checked": false
+    "checked": true
   },
   "berlin-hostel-street": {
     "km": 16,
     "place": "ChIJJz_f7gaQwxQRlygWnwNVo8o",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "berrak-su-hotel": {
     "km": 19,
     "place": "ChIJXYsOjNaRwxQR3UbHAtFVmM8",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "berry-blue-hotel": {
     "km": 70,
     "place": "ChIJo-Ty9MZZwxQR6m46ox551JU",
-    "district": "Manavgat",
-    "checked": false
+    "checked": true
   },
   "best-house-otel": {
     "km": 125,
     "place": "ChIJh0L7YISi3BQRPVumZqmi0Qw",
-    "district": "Alanya",
-    "checked": false
+    "checked": true
   },
   "best-western-plus-khan-hotel": {
     "km": 17,
     "place": "ChIJ_____yJxwRQRlKly_9p8Mzo",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "beta-guesthouse": {
     "km": 17,
     "place": "ChIJWdQXHwOQwxQRmbujvxhzRCw",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "betas-guesthouse": {
     "km": 18,
     "place": "ChIJa0FgLi2RwxQReLAOWUp9lhI",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "beyaz-melek-hotel": {
     "km": 25,
     "place": "ChIJtWBeKXKRwxQRzkUjvnudRYg",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "beyaz-saray-otel": {
     "km": 67,
     "place": "ChIJO_jrCplZwxQRTGlzgiA2bbM",
-    "district": "Manavgat",
-    "checked": false
+    "checked": true
   },
   "beyond-otel": {
     "km": 24,
     "place": "ChIJ1cz3zWmRwxQRsJ42LoFmwOo",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
+  },
+  "bieno-club-svs-hotel": {
+    "km": 142,
+    "place": "ChIJVVo-ze2R3BQRBq7_8DmzR1A",
+    "checked": true
   },
   "bieno-venus-hotel": {
     "km": 70,
     "place": "ChIJzxcWzMlnwRQRV6BdjiiZDe4",
-    "district": "Manavgat",
-    "checked": false
+    "checked": true
   },
   "bilem-hotel": {
     "km": 14,
     "place": "ChIJ9QFoLv-bwxQRx0gDCplxVs0",
-    "district": "Muratpaşa",
-    "checked": false
+    "checked": true
   },
   "bilem-hotel-beach-spa": {
     "km": 17,
     "place": "ChIJi-wFoQ2N2RQR3S99YrYjpFs",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "bilgehan-hotel": {
     "km": 16,
     "place": "ChIJ25Nua_2PwxQRZ7R5r0Wri0A",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "bir-hotel": {
     "km": 13,
     "place": "ChIJscFHB3mdwxQRjGRscAqfs4w",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "birpa-kundu-otel": {
     "km": 12,
     "place": "ChIJhVXvFUaDwxQRO_sTxp_V-ZU",
-    "district": "Muratpaşa",
-    "checked": false
+    "checked": true
   },
   "bisuites": {
     "km": 29,
     "place": "ChIJI-3wX_KTwxQREqztriPoDYw",
-    "district": "Antalya merkez",
     "checked": false
   },
   "black-royal-belek": {
     "km": 43,
     "place": "ChIJ7R4mgrdlwxQRgySTIFSRYok",
-    "district": "Serik",
-    "checked": false
+    "checked": true
   },
   "bloomtalya-hotel": {
     "km": 14,
     "place": "ChIJWYSvEtiFwxQRGMkcsPFviQ4",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "blue-diamond-alya-hotel": {
     "km": 130,
     "place": "ChIJ2VD-UAuZ3BQRpfCRFiPHH2Y",
-    "district": "Alanya",
-    "checked": false
+    "checked": true
   },
   "blue-dream-hotel": {
     "km": 125,
     "place": "ChIJNRioU16Y3BQR8mT0PGX_oXg",
-    "district": "Alanya",
-    "checked": false
+    "checked": true
   },
   "blue-fish-otel": {
     "km": 118,
     "place": "ChIJq4EFzW-j3BQRIBl03jtESbo",
-    "district": "Alanya",
-    "checked": false
+    "checked": true
   },
   "blue-garden-hotel": {
     "km": 23,
     "place": "ChIJq1i5Xa-RwxQRvBtFZ6kvPCw",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "blue-heaven-beach-apart": {
     "km": 16,
     "place": "ChIJYeTybQmQwxQRMjKUGI230ko",
-    "district": "Antalya merkez",
     "checked": false
   },
   "blue-marina-hotel-spa": {
     "km": 17,
     "place": "ChIJW1Kt6JqRwxQR-IxFNv0Huj8",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "blue-more-suite-hotel": {
     "km": 25,
     "place": "ChIJySwoXiKRwxQRUIvmmesZW8M",
-    "district": "Konyaaltı",
-    "checked": false
+    "checked": true
   },
   "blue-sea-garden-otel": {
     "km": 17,
     "place": "ChIJcVkxEQSQwxQRna3YO_5c2CU",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "blue-star-otel": {
     "km": 124,
     "place": "ChIJLxwW1oei3BQRaOOC-eJEN4k",
-    "district": "Alanya",
-    "checked": false
+    "checked": true
   },
   "bmk-apart-otel": {
     "km": 17,
     "place": "ChIJHRhrD-eawxQRnef33Y38h6o",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "bodensee-hotel": {
     "km": 22,
     "place": "ChIJbR4fTDSQwxQReVuq1-4SvK0",
-    "district": "Antalya merkez",
     "checked": false
   },
   "bone-apart-otel": {
     "km": 17,
     "place": "ChIJ418_Dr6PwxQRG6WNjLHBBfs",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "bone-best-otel": {
     "km": 17,
     "place": "ChIJk4X3ijmPwxQRzHzlMGgi4ws",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "bonnie-city-hotel": {
     "km": 17,
     "place": "ChIJZ_z0jMORwxQR8xZYvdGo6-E",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "boulevard-otel": {
     "km": 129,
     "place": "ChIJoUryEmSY3BQRdGmvKjfWfvs",
-    "district": "Alanya",
-    "checked": false
+    "checked": true
   },
   "boutique-house-mim-a-otel": {
     "km": 16,
     "place": "ChIJgw1nlaaawxQRen2o3JOauk0",
-    "district": "Antalya merkez",
     "checked": false
   },
   "brandhill-apart-hotel": {
     "km": 16,
     "place": "ChIJbwj5AwaQwxQRSVd-fFLiEfE",
-    "district": "Antalya merkez",
     "checked": false
   },
   "bulvar-hotel": {
     "km": 19,
     "place": "ChIJI8xw1jqQwxQRzUvOc0P694k",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "butunoglu-pansiyon": {
     "km": 16,
     "place": "ChIJYUaPGgSQwxQRx5WWswvYFI8",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "cabbana-hotel-lara": {
     "km": 15,
     "place": "ChIJU3nol3-bwxQRKC8Uapd417o",
-    "district": "Lara",
-    "checked": false
+    "checked": true
   },
   "cagan-hotel": {
     "km": 31,
     "place": "ChIJ8ewcouKTwxQRU5NNrNBV9vU",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
+  },
+  "calido-maris": {
+    "km": 88,
+    "place": "ChIJOcRmqDlTwxQRHOPzlqucAKE",
+    "checked": true
   },
   "calido-sol-hotel": {
     "km": 91,
     "place": "ChIJi1AT6Oes3BQRzsyCZ2mnCeY",
-    "district": "Alanya",
-    "checked": false
+    "checked": true
   },
   "calista-luxury-resort": {
     "km": 32,
     "place": "ChIJIdmNYXp5wxQR_mRpAR_s2eQ",
-    "district": "Belek",
-    "checked": false
+    "checked": true
   },
   "camel-apartment": {
     "km": 16,
     "place": "ChIJ_5OGXQ-QwxQRXoxrhM3fyz0",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "camel-hotel-apart": {
     "km": 16,
     "place": "ChIJxxWnfgaQwxQRQpnshRsVfuo",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "campus-hill-otel": {
     "km": 136,
     "place": "ChIJoeJxs5WZ3BQRmDFaxaihit0",
-    "district": "Alanya",
-    "checked": false
+    "checked": true
   },
   "camyuva-beach-hotel": {
     "km": 67,
     "place": "ChIJf_saTGa2wxQRrH0iHKFrDJA",
-    "district": "Kemer",
-    "checked": false
+    "checked": true
   },
   "can-adalya-palace-hotel": {
     "km": 13,
     "place": "ChIJp9ggSpuFwxQR3-_cux83pWo",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "can-garden-resort-otel": {
     "km": 57,
     "place": "ChIJX4LJIO9ewxQRMvlAIN_j6Rc",
-    "district": "Manavgat",
-    "checked": false
+    "checked": true
   },
   "caner-mountain-hotel": {
     "km": 74,
     "place": "ChIJKfjPA9bIwxQRq5SqGaY5KuE",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "cap-dperge-otel": {
     "km": 16,
     "place": "ChIJac6hNwmQwxQRD0Yuk3b4mdQ",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "caretta-beach-otel": {
     "km": 114,
     "place": "ChIJGzNDqXCk3BQRhEyngEAp5Ls",
-    "district": "Alanya",
-    "checked": false
+    "checked": true
   },
   "caretta-relax-otel": {
     "km": 114,
     "place": "ChIJJ6YYf_Ok3BQR8AvJ5tnFUuM",
-    "district": "Alanya",
-    "checked": false
+    "checked": true
   },
   "casa-franco-old-town-otel": {
     "km": 16,
     "place": "ChIJUwcl8wWQwxQRUQZFBztdS18",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "casa-maria-hotel": {
     "km": 15,
     "place": "ChIJvxahmi-RwxQRv5VRaF-piTE",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "casa-sur-antalya-otel": {
     "km": 16,
     "place": "ChIJj4B3pvWRwxQRvEpI8onyIj0",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "casamax-suites": {
     "km": 23,
     "place": "ChIJJ3KoFOyRwxQRY6T-8lOlRRM",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "casativo-hotels-lara": {
     "km": 15,
     "place": "ChIJ9wS5xQybwxQRAXDg4EceCKI",
-    "district": "Lara",
-    "checked": false
+    "checked": true
   },
   "castello-by-mediterra-hotel": {
     "km": 127,
     "place": "ChIJr0O9QQCZ3BQR9xjLEReEn0w",
-    "district": "Alanya",
-    "checked": false
+    "checked": true
   },
   "castival-hotel": {
     "km": 59,
     "place": "ChIJP1Eg-GhZwxQRQuHFhVYenN8",
-    "district": "Kumköy",
-    "checked": false
+    "checked": true
   },
   "castle-old-town-hotel": {
     "km": 16,
     "place": "ChIJx-HKM56RwxQRyLs5mH4zFKs",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "castle-park-hotel": {
     "km": 44,
     "place": "ChIJmyx0s26_wxQRhnG9YIXnsQ4",
-    "district": "Kemer",
-    "checked": false
+    "checked": true
   },
   "catamaran": {
     "km": 60,
     "place": "ChIJTVVVVZK3wxQRPJ_uQXBaJJ8",
-    "district": "Kemer",
-    "checked": false
+    "checked": true
   },
   "cedrus-hotel": {
     "km": 16,
     "place": "ChIJ6c0Kt6SRwxQRU0IqxTy5NGk",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "cender-hotel": {
     "km": 16,
     "place": "ChIJlaHHWaeawxQRXvCThnrwpb0",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
+  },
+  "cenger-beach-resort-otel": {
+    "km": 88,
+    "place": "ChIJU_peCp5XwxQRh6ps93LHuR0",
+    "checked": true
   },
   "cesars-resort": {
     "km": 61,
     "place": "ChIJh9yS3zRZwxQRikXnj24nAek",
-    "district": "Kumköy",
-    "checked": false
+    "checked": true
   },
   "cevik-palace-otel": {
     "km": 17,
     "place": "ChIJgewKSduPwxQRghvmKe_TmYk",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "champion-holiday-village": {
     "km": 51,
     "place": "ChIJgxRMXIm4wxQRg4z-Jit1ZPA",
-    "district": "Beldibi",
-    "checked": false
+    "checked": true
   },
   "char-me-hotel": {
     "km": 16,
     "place": "ChIJ04IEZQaQwxQRFyMRiAat0Ls",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "cicerone-apart": {
     "km": 16,
     "place": "ChIJ28jWvAaQwxQRkZaGzUu5mPQ",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "cicerone-lodge-hotel": {
     "km": 16,
     "place": "ChIJZZB-K_mRwxQRH3SWqvhv7es",
-    "district": "Antalya merkez",
     "checked": false
   },
   "citrus-luna-suite-hotel": {
     "km": 23,
     "place": "ChIJEY2xeQuRwxQRtAcFNbiU3uo",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "citrus-park-hotel": {
     "km": 23,
     "place": "ChIJax6KiKWRwxQRg7oqgTsdJyw",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "citrus-urban-hotel": {
     "km": 26,
     "place": "ChIJCcuAY6CRwxQRialR5JgHk8c",
-    "district": "Konyaaltı",
-    "checked": false
+    "checked": true
   },
   "city-live-hotel": {
     "km": 16,
     "place": "ChIJaS7EKeKawxQROGXr2feI_GM",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "city-moonlight-apart-hotel": {
     "km": 16,
     "place": "ChIJDbyKxXOPwxQRdP6PrgLqDvo",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "city-otel-ambassador": {
     "km": 61,
     "place": "ChIJea_Y3mO3wxQRW39fVYFutW0",
-    "district": "Kemer",
-    "checked": false
+    "checked": true
   },
   "cityhub": {
     "km": 16,
     "place": "ChIJaSJiceSRwxQRdU0aI2ra6OE",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
+  },
+  "cleopatra-golden-beach-otel": {
+    "km": 124,
+    "place": "ChIJAzIapY-i3BQRviE9z2QJvj8",
+    "checked": true
   },
   "clover-magic-seagate-belek": {
     "km": 44,
     "place": "ChIJc8EDVPh7wxQRJICJuAk44S0",
-    "district": "Boğazkent",
-    "checked": false
+    "checked": true
   },
   "club-big-blue-suite-hotel": {
     "km": 129,
     "place": "ChIJ7Wr6M1aY3BQRUBqEr53ga_M",
-    "district": "Alanya",
-    "checked": false
+    "checked": true
   },
   "club-boran-mare-beach": {
     "km": 52,
     "place": "ChIJBZzOh_q4wxQRmdkYA2aDMgM",
-    "district": "Kemer",
-    "checked": false
+    "checked": true
   },
   "club-dizalya": {
     "km": 117,
     "place": "ChIJRYMpWnal3BQRULePBbcaupk",
-    "district": "Alanya",
-    "checked": false
+    "checked": true
   },
   "club-grand-side": {
     "km": 56,
     "place": "ChIJXf6cj_FewxQRqltZ7X7F4xM",
-    "district": "Manavgat",
-    "checked": false
+    "checked": true
   },
   "club-hotel-belpinar": {
     "km": 44,
     "place": "ChIJYz2GEai_wxQRxsq_Y4ePBGI",
-    "district": "Kemer",
-    "checked": false
+    "checked": true
   },
   "club-hotel-phaselis-rose": {
     "km": 76,
     "place": "ChIJ-dA6EMe3wxQRa9OSc7t4_uo",
-    "district": "Çamyuva",
-    "checked": false
+    "checked": true
   },
   "club-hotel-sera": {
     "km": 13,
     "place": "ChIJGQJkJDSDwxQRZw93mwhpLMM",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "club-hotel-sunbel": {
     "km": 49,
     "place": "ChIJlxaOCiO_wxQR1PM5s3_diX4",
-    "district": "Kemer",
-    "checked": false
+    "checked": true
   },
   "club-hotel-turan-prince-world": {
     "km": 81,
     "place": "ChIJexkPXtBe2xQRUXvSC4so7TE",
-    "district": "Manavgat",
-    "checked": false
+    "checked": true
   },
   "club-jovia-kemer-otel": {
     "km": 59,
     "place": "ChIJVSv0rY23wxQRfg7lGm_nzj4",
-    "district": "Kemer",
-    "checked": false
+    "checked": true
   },
   "club-kastalia": {
     "km": 114,
     "place": "ChIJ3cid1oyk3BQRsjP5JrR0WRA",
-    "district": "Alanya",
-    "checked": false
+    "checked": true
   },
   "club-marakesh-beach-hotel": {
     "km": 50,
     "place": "ChIJ8bmrKUe_wxQRDE2cBP4E39U",
-    "district": "Kemer",
-    "checked": false
+    "checked": true
   },
   "club-marco-polo": {
     "km": 64,
     "place": "ChIJNw2cNQDJwxQRS_ez5kWkdY4",
-    "district": "Kemer",
-    "checked": false
+    "checked": true
   },
   "club-med-palmiye": {
     "km": 59,
     "place": "ChIJp62D9Mi3wxQRdqn-FzLnlZ8",
-    "district": "Kemer",
-    "checked": false
+    "checked": true
   },
   "club-nena": {
     "km": 80,
     "place": "ChIJX74wAP9TwxQRGdeOITY1prk",
-    "district": "Manavgat",
-    "checked": false
+    "checked": true
   },
   "club-otel-mermaid-village": {
     "km": 108,
     "place": "ChIJ44qVyoKk3BQRxOxhmT1z8dI",
-    "district": "Alanya",
-    "checked": false
+    "checked": true
   },
   "club-otel-rama": {
     "km": 49,
     "place": "ChIJQ3z6MtS4wxQRqmSv2jkfwKM",
-    "district": "Kemer",
-    "checked": false
+    "checked": true
   },
   "club-paradiso-hotel": {
     "km": 134,
     "place": "ChIJcx0tdIGZ3BQRCpHgtd3W_VM",
-    "district": "Alanya",
-    "checked": false
+    "checked": true
   },
   "club-side-coast-hotel": {
     "km": 57,
     "place": "ChIJi9zMyMNewxQRbKRBQULtx_I",
-    "district": "Manavgat",
-    "checked": false
+    "checked": true
   },
   "club-tess-otel": {
     "km": 113,
     "place": "ChIJA_D2hvmk3BQR6SvRU6cVQw8",
-    "district": "Alanya",
-    "checked": false
+    "checked": true
   },
   "club-tropical-beach-hotel": {
     "km": 66,
     "place": "ChIJt_m3JXxZwxQR09Y4IReijkE",
-    "district": "Konaklı",
     "checked": false
   },
   "coastline-orange-hotel": {
     "km": 24,
     "place": "ChIJv-FR7KORwxQRcfLYXgQHBGw",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "collesium-garden-apart-otel": {
     "km": 32,
     "place": "ChIJCVDYmgePwxQR5d-Dme0sCak",
-    "district": "Antalya merkez",
     "checked": false
   },
   "comfort-basaran-otel": {
     "km": 16,
     "place": "ChIJ0Xodl_CPwxQR8r-OOey-8gA",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "comfy-otel-antalya-lara": {
     "km": 15,
     "place": "ChIJU3nol3-bwxQRKC8Uapd417o",
-    "district": "Lara",
     "checked": false
   },
   "concorde-de-luxe-resort": {
     "km": 16,
     "place": "ChIJZ1ktgLmCwxQRY1YL02I4JVk",
-    "district": "Lara",
-    "checked": false
+    "checked": true
   },
   "concorde-de-luxe-resort-lara": {
     "km": 16,
     "place": "ChIJZ1ktgLmCwxQRY1YL02I4JVk",
-    "district": "Lara",
-    "checked": false
+    "checked": true
   },
   "concordia-celes": {
     "km": 91,
     "place": "ChIJdyUU8-as3BQR937Rx3E85JI",
-    "district": "Alanya",
-    "checked": false
+    "checked": true
   },
   "corendon-grand-park-lara": {
     "km": 17,
     "place": "ChIJryYFiq2cwxQRAT3EWXehqkw",
-    "district": "Lara",
-    "checked": false
+    "checked": true
   },
   "corendon-hydros-club-kemer": {
     "km": 60,
     "place": "ChIJUU-8hZq3wxQRZtllIcLJwmg",
-    "district": "Kemer",
-    "checked": false
+    "checked": true
   },
   "corendon-playa-kemer": {
     "km": 49,
     "place": "ChIJVVVVVYW4wxQRS-Hb_3LnNcw",
-    "district": "Beldibi",
-    "checked": false
+    "checked": true
   },
   "cornelia-de-luxe-resort": {
-    "km": 38,
-    "place": "ChIJ7aA137dlwxQRw5pz58PpPSM",
-    "district": "Belek",
-    "checked": false
+    "km": 37,
+    "place": "ChIJtyF6-G17wxQRJwlH64uq-1U",
+    "checked": true
   },
   "cornelia-diamond-golf-resort-spa": {
     "km": 37,
     "place": "ChIJtyF6-G17wxQRJwlH64uq-1U",
-    "district": "Belek",
-    "checked": false
+    "checked": true
   },
   "crowne-plaza-antalya": {
     "km": 26,
     "place": "ChIJIVgyTqeRwxQRHZYRCCXVIDk",
-    "district": "Konyaaltı",
-    "checked": false
+    "checked": true
   },
   "crowne-plaza-antalya-by-ihg-otel": {
     "km": 26,
     "place": "ChIJIVgyTqeRwxQRHZYRCCXVIDk",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "crystal-admiral-resort-spa": {
     "km": 85,
     "place": "ChIJmZu8MGxTwxQRMeBnmDbvvlw",
-    "district": "Kızılot",
     "checked": false
   },
   "crystal-aura-beach-resort-spa": {
     "km": 60,
     "place": "ChIJY3vdEo63wxQRszUhQlsNodc",
-    "district": "Kemer",
-    "checked": false
+    "checked": true
   },
   "crystal-boutique-comfort-collection-adults-only": {
     "km": 16,
     "place": "ChIJt0l4Of2PwxQRp9lu9P1iCJI",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "crystal-centro-pearl-collection-otel": {
     "km": 17,
     "place": "ChIJJRncWmCDwxQRQL-8xqIV-AM",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "crystal-centro-resort": {
     "km": 17,
     "place": "ChIJJRncWmCDwxQRQL-8xqIV-AM",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "crystal-de-luxe-resort-spa": {
     "km": 60,
     "place": "ChIJ4_gJxJC3wxQR9pKjWo_552k",
-    "district": "Kemer",
-    "checked": false
+    "checked": true
   },
   "crystal-family-resort-spa": {
     "km": 43,
     "place": "ChIJoQNdLA1kwxQRIaLubGvan-8",
-    "district": "Belek",
-    "checked": false
+    "checked": true
   },
   "crystal-flora-beach-resort": {
     "km": 46,
     "place": "ChIJqwbahCK_wxQR-RhNHF3kAUM",
-    "district": "Beldibi",
-    "checked": false
+    "checked": true
   },
   "crystal-palace-luxury-resort": {
     "km": 56,
     "place": "ChIJIb9CrUJewxQRmImBZK_UWwU",
-    "district": "Gündoğdu",
     "checked": false
   },
   "crystal-sunset-luxury-resort-spa": {
     "km": 63,
     "place": "ChIJ0e9V6GlZwxQRT4NpNZwSzEo",
-    "district": "Gündoğdu",
     "checked": true
   },
   "crystal-tat-beach-golf-resort-spa": {
     "km": 30,
     "place": "ChIJOxEs02J5wxQRtS3LPIcXciY",
-    "district": "Belek",
-    "checked": false
+    "checked": true
   },
   "crystal-waterworld-resort-spa": {
     "km": 44,
     "place": "ChIJs50zrg1kwxQRzPr4JtZRhH4",
-    "district": "Boğazkent",
-    "checked": false
+    "checked": true
   },
   "cullinan-belek": {
     "km": 31,
     "place": "ChIJl31mOJBkwxQRPiZCk0lG9AI",
-    "district": "Kadriye",
-    "checked": false
+    "checked": true
   },
   "dagtekin-apartments": {
     "km": 17,
     "place": "ChIJg3vhkeWawxQRLJca-aDPV70",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "daima-biz-hotel": {
     "km": 66,
     "place": "ChIJv80aCFi2wxQRK4DtXCX_cPo",
-    "district": "Kemer",
-    "checked": false
+    "checked": true
   },
   "dam-hotel-lara": {
     "km": 15,
     "place": "ChIJ9dkG_zmbwxQR5Iy1CmVPu00",
-    "district": "Lara",
-    "checked": false
+    "checked": true
   },
   "dantel-pansiyon": {
-    "km": 17,
-    "place": "ChIJ59Ea5OKPwxQRCiupngC1iCY",
-    "district": "Antalya merkez",
-    "checked": false
+    "km": 202,
+    "place": "ChIJ7_CHJeLbwRQRYzJSBzCQwOM",
+    "checked": true
   },
   "day-one-beach-resort-hotel": {
     "km": 129,
     "place": "ChIJISRzG1qY3BQRq_tjH1_k5cw",
-    "district": "Alanya",
-    "checked": false
+    "checked": true
   },
   "dea-del-hotel": {
-    "km": 13,
-    "place": "ChIJBf6THo2bwxQRM0mVDqHdluI",
-    "district": "Antalya merkez",
-    "checked": false
+    "km": 11,
+    "place": "ChIJIx_OGQuFwxQRw1GLvx4Yveo",
+    "checked": true
   },
   "dedehan-pansiyon": {
     "km": 16,
     "place": "ChIJF3kmSQGQwxQRhMD2btD3GZU",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "dedeman-kemer-resort": {
     "km": 59,
     "place": "ChIJ26Pj-VW3wxQRBMXkIygG888",
-    "district": "Kemer",
-    "checked": false
+    "checked": true
   },
   "defne-defnem": {
     "km": 64,
     "place": "ChIJAS8ymG5ZwxQRc0-Ylscv-To",
-    "district": "Titreyengöl",
-    "checked": false
+    "checked": true
   },
   "defne-dream": {
     "km": 57,
     "place": "ChIJX-JRGEdHdkAR7gXlKAGAT60",
-    "district": "Manavgat",
-    "checked": false
+    "checked": true
   },
   "defne-garden": {
     "km": 61,
     "place": "ChIJgymPDjVZwxQRd5T0oJwQqro",
-    "district": "Manavgat",
-    "checked": false
+    "checked": true
   },
   "deja-vu-hotel": {
-    "km": 13,
-    "place": "ChIJBf6THo2bwxQRM0mVDqHdluI",
-    "district": "Antalya merkez",
-    "checked": false
+    "km": 66,
+    "place": "ChIJqanJWUK2wxQRuczPvBO8yKc",
+    "checked": true
   },
   "delight-deluxe-aparts": {
     "km": 16,
     "place": "ChIJSaUbduSRwxQRpny-Xkb8CrA",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "delight-deluxe-hotel": {
     "km": 16,
-    "place": "ChIJDQoLkgWQwxQRs05I4zip5Oo",
-    "district": "Antalya merkez",
-    "checked": false
+    "place": "ChIJCb7PmAaQwxQR-yckkH-LM2k",
+    "checked": true
   },
   "delphin-be-grand-resort": {
     "km": 16,
     "place": "ChIJH2uGg8-CwxQRhpdEjVwkMJA",
-    "district": "Lara",
-    "checked": false
+    "checked": true
   },
   "delphin-botanik-platinum": {
     "km": 92,
     "place": "ChIJDRhvC-et3BQR6-VSTDMpwts",
-    "district": "Türkler",
-    "checked": false
+    "checked": true
   },
   "delphin-diva-premiere": {
     "km": 15,
     "place": "ChIJfdUt_-SawxQRi-LsgisBwjI",
-    "district": "Avsallar",
-    "checked": false
+    "checked": true
   },
   "delphin-imperial-lara": {
     "km": 15,
     "place": "ChIJfxIHj7iCwxQRgVDYpdAbyFw",
-    "district": "Lara",
-    "checked": false
+    "checked": true
   },
   "delphin-palace": {
     "km": 16,
     "place": "ChIJEUim47iCwxQRMjzFkst6rbw",
-    "district": "Lara",
-    "checked": false
+    "checked": true
   },
   "delta-hotels-antalya-lara-adult-only-18-plus": {
     "km": 17,
     "place": "ChIJK5r80CybwxQRZrc45UnFN_s",
-    "district": "Lara",
-    "checked": false
+    "checked": true
   },
   "deluxe-ersoy-hotel": {
     "km": 18,
     "place": "ChIJBU3hiweRwxQROdu_aIFBjIo",
-    "district": "Muratpaşa",
-    "checked": false
+    "checked": true
   },
   "demak-suit-homes": {
     "km": 31,
     "place": "ChIJy7nr7XCUwxQRJ_epuaxBIXs",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "demirci-hotel": {
     "km": 27,
     "place": "ChIJdUhBJAp8wxQRQyb8PcW09Dg",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "deniz-boutique-hotel": {
     "km": 25,
     "place": "ChIJ5dqj2XGRwxQRQ-F11J7VoI4",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "denizhan-hotel": {
     "km": 16,
     "place": "ChIJ3edQHfuPwxQR7GzyGFtDJSs",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "der-inn-hotel-konyaalti": {
     "km": 23,
     "place": "ChIJswcoiEmRwxQRlM8vzp6E024",
-    "district": "Konyaaltı",
     "checked": false
   },
   "der-inn-lara": {
     "km": 16,
     "place": "ChIJpdLmI6ibwxQRO8bkjWhEPnM",
-    "district": "Lara",
-    "checked": false
+    "checked": true
   },
   "dg-hotels-rose-resort": {
     "km": 59,
     "place": "ChIJdcVn9b-3wxQRYlFXYi5qKHA",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "diamond-de-luxe-hotel-spa": {
     "km": 55,
     "place": "ChIJme5LLs5fwxQRdwcpmWFn9Vk",
-    "district": "Çolaklı",
-    "checked": false
+    "checked": true
   },
   "diamond-hill-resort": {
     "km": 129,
     "place": "ChIJo8IlGQCZ3BQRJnU0-hC1RKc",
-    "district": "Alanya",
-    "checked": false
+    "checked": true
   },
   "diamond-luxury-hotel": {
     "km": 17,
     "place": "ChIJscrDwByQwxQRExZKRyx-hYY",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "diamond-premium-hotel": {
     "km": 72,
     "place": "ChIJF2mtcUtXwxQRyo65MLo5LV8",
-    "district": "Manavgat",
-    "checked": false
+    "checked": true
   },
   "diamore-hotel": {
     "km": 126,
     "place": "ChIJlw1uVQaQwxQRJXjiLlvpMfQ",
-    "district": "Alanya",
-    "checked": false
+    "checked": true
   },
   "dilara-hotel": {
     "km": 17,
     "place": "ChIJ41vDGwOQwxQR3gakHnOxbK8",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "dimo-hotel": {
     "km": 16,
     "place": "ChIJ55hVpQWQwxQR5FABQHrfKTo",
-    "district": "Antalya merkez",
     "checked": false
   },
   "dionisus-hotel-spa-belek": {
     "km": 27,
     "place": "ChIJD75ZwwB9wxQReIUXH8zFiZ4",
-    "district": "Kadriye",
-    "checked": false
+    "checked": true
   },
   "dizalya-palm-garden-otel": {
     "km": 115,
     "place": "ChIJW4912o6k3BQRJNJw5tpcQik",
-    "district": "Alanya",
-    "checked": false
+    "checked": true
   },
   "dogan-hotel": {
     "km": 16,
     "place": "ChIJ55hVpQWQwxQR5FABQHrfKTo",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "doganin-ruhu-otel-bungalow-restaurant": {
     "km": 206,
     "place": "ChIJn8oGsGDdwRQRKkwnLiWBEFc",
-    "district": "Kaş",
-    "checked": false
+    "checked": true
   },
   "dogus-hotel": {
     "km": 25,
     "place": "ChIJt1GHeEmRwxQRH5qzVWwEfSo",
-    "district": "Antalya merkez",
     "checked": false
   },
   "dosi-otel": {
     "km": 63,
     "place": "ChIJUa5lDrDmn0ARsQQGxBA0q3o",
-    "district": "Manavgat",
-    "checked": false
+    "checked": true
   },
   "dosinia-luxury-resort": {
     "km": 49,
     "place": "ChIJHYRgoKK4wxQRMMtLDts2qnE",
-    "district": "Kemer",
-    "checked": false
+    "checked": true
   },
   "doubletree-by-hilton-antalya-city-centre": {
     "km": 15,
     "place": "ChIJbQNfjfiPwxQR-QvdIQg1-uA",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "dr-greens": {
     "km": 16,
     "place": "ChIJecJkOEaPwxQRzwWiXG-YMMk",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "dream-water-world": {
     "km": 60,
     "place": "ChIJT0umQiZZwxQRlvAd2w3CGPE",
-    "district": "Manavgat",
-    "checked": false
+    "checked": true
   },
   "dream-world-palace-hotel": {
     "km": 55,
     "place": "ChIJIfhjJQZfwxQRf58Dw8CPyUE",
-    "district": "Manavgat",
-    "checked": false
+    "checked": true
   },
   "dream-world-resort-hotel-spa": {
     "km": 59,
     "place": "ChIJc32DQ8xewxQRqmb14jXD6ew",
-    "district": "Manavgat",
-    "checked": false
+    "checked": true
   },
   "drita-otel": {
     "km": 143,
     "place": "ChIJW4A4iI6Q3BQRm13U9D8OudY",
-    "district": "Alanya",
-    "checked": false
+    "checked": true
   },
   "ducale-lara-otel": {
     "km": 19,
     "place": "ChIJqaHidDCPwxQRBqxVySqmf80",
-    "district": "Lara",
-    "checked": false
+    "checked": true
   },
   "dumlupinar-royal-rooms": {
     "km": 20,
     "place": "ChIJWUxWh2aPwxQRuEQegfMp0G8",
-    "district": "Antalya merkez",
     "checked": false
   },
   "durusu-suites": {
-    "km": 16,
-    "place": "ChIJjyEkkL6RwxQR99TdTNoHBVI",
-    "district": "Antalya merkez",
-    "checked": false
+    "km": 17,
+    "place": "ChIJp7ZHW--awxQRuoidFA_3yMU",
+    "checked": true
   },
   "echinus-lara-hotel": {
     "km": 13,
     "place": "ChIJRQM2yUqDwxQRNZVBC1TjqQI",
-    "district": "Lara",
-    "checked": false
+    "checked": true
   },
   "edem-flower-otel": {
     "km": 67,
     "place": "ChIJwxjurgq3wxQRE6R3b_hWnAE",
-    "district": "Kemer",
-    "checked": false
+    "checked": true
   },
   "eden-nest-exclusive-hotel": {
     "km": 37,
     "place": "ChIJpdtLMFV7wxQR7oZ3SyRfHJk",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "efsali-hotel-kaleici": {
     "km": 16,
     "place": "ChIJE-Wd_gWQwxQRvr7b7iITs8o",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "eftalia-blue-hotel": {
     "km": 110,
     "place": "ChIJd2_lQ-al3BQRN87fQpAsXlI",
-    "district": "Alanya",
-    "checked": false
+    "checked": true
   },
   "eftalia-marin-resort-otel": {
     "km": 108,
     "place": "ChIJb9ljZL6RwxQRmyntWM67mjk",
-    "district": "Alanya",
-    "checked": false
+    "checked": true
   },
   "eftalia-ocean": {
     "km": 109,
     "place": "ChIJ____tGSl3BQRDfqfCTmx3eQ",
-    "district": "Alanya",
-    "checked": false
+    "checked": true
   },
   "ela-excellence-resort-belek": {
     "km": 37,
     "place": "ChIJne-BsnN7wxQRHqi-kFBlONA",
-    "district": "Belek",
-    "checked": false
+    "checked": true
   },
   "elamir-resort-hotel": {
     "km": 59,
     "place": "ChIJPUvH3iVZwxQR6hlp5Hz7V-A",
-    "district": "Kemer",
-    "checked": false
+    "checked": true
   },
   "elanis-suites": {
     "km": 17,
     "place": "ChIJBa-5_uWawxQRYdUZHjrp6FI",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "elegance-east-hotel": {
     "km": 15,
     "place": "ChIJJ0I9IAeQwxQRL00lz-4oTCk",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "elijah-hotel": {
     "km": 62,
     "place": "ChIJAQBA6KC3wxQR44rvPYW5LBw",
-    "district": "Kemer",
-    "checked": false
+    "checked": true
   },
   "elips-royal-hotel-spa": {
     "km": 16,
     "place": "ChIJA9AU8PmPwxQR9SFsIBJac_k",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "elit-life-hotel": {
     "km": 67,
     "place": "ChIJc-Aya2a2wxQRc9TWqQiCJmM",
-    "district": "Kemer",
-    "checked": false
+    "checked": true
   },
   "elit-otel": {
     "km": 19,
     "place": "ChIJI_F78NaRwxQRjq__8Gdnqbs",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "eliz-hotel": {
     "km": 12,
     "place": "ChIJx5ZA3DaDwxQReQUgqY3U7aU",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "elysee-beach": {
     "km": 125,
     "place": "ChIJE4NxSYWi3BQRdvNbIyeVJWw",
-    "district": "Alanya",
-    "checked": false
+    "checked": true
   },
   "elysee-rive": {
     "km": 129,
     "place": "ChIJEeo3YF6Y3BQRX-znFYNadgA",
-    "district": "Alanya",
-    "checked": false
+    "checked": true
   },
   "elysium-deluxe-suites": {
     "km": 12,
     "place": "ChIJ71yHWcGFwxQR4qThMBDdyKU",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "elysium-green-suites": {
     "km": 11,
     "place": "ChIJqXUZSAqFwxQRvI9tQDMwMck",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "ema-houses": {
     "km": 8,
     "place": "ChIJcfsYG12EwxQR1HCll8DmKQ4",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "emelda-sun-club": {
     "km": 69,
     "place": "ChIJA9MW0G-2wxQRqaWWykx-v_Y",
-    "district": "Kemer",
-    "checked": false
+    "checked": true
   },
   "en-vie-beach-otel": {
     "km": 128,
     "place": "ChIJxWfVn3-i3BQRVZHWa601OFU",
-    "district": "Alanya",
-    "checked": false
+    "checked": true
   },
   "enda-lara-hotel": {
     "km": 13,
     "place": "ChIJOdM7HqicwxQR6cQol5HMZxs",
-    "district": "Lara",
-    "checked": false
+    "checked": true
   },
   "ender-hotel": {
     "km": 16,
     "place": "ChIJlaHHWaeawxQRXvCThnrwpb0",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "eos-beach-hotel": {
     "km": 105,
     "place": "ChIJs46WYKil3BQRx-iAPvWkctw",
-    "district": "Alanya",
-    "checked": false
+    "checked": true
   },
   "erdem-hotel": {
     "km": 23,
     "place": "ChIJX1BGBoiRwxQRlsR0vyLk400",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "erdeniz-apart-otel": {
     "km": 15,
     "place": "ChIJv-5pyFeFwxQRPvuZNBzuAcU",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
+  },
+  "ergun-otel": {
+    "km": 127,
+    "place": "ChIJjc-bcH6Y3BQR_fxc1jnxst8",
+    "checked": true
   },
   "erkal-pension": {
     "km": 16,
     "place": "ChIJseaj9QaQwxQRZRLSs4I5Syo",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "erkal-resort-hotel": {
     "km": 59,
     "place": "ChIJx4rO0423wxQRqUWuaj8Ww04",
-    "district": "Kemer",
-    "checked": false
+    "checked": true
   },
   "ersan-otel": {
     "km": 67,
     "place": "ChIJnaIoTdZZwxQRglCeRAMuA6g",
-    "district": "Manavgat",
-    "checked": false
+    "checked": true
   },
   "ersoy-aga-otel": {
     "km": 16,
     "place": "ChIJF1Ll-fyPwxQRQh_SechTfh0",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "ersoy-ak-pansiyon": {
     "km": 16,
     "place": "ChIJqySBxNePwxQRNfuHsohNwmI",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "ersoy-efe-pansiyon": {
     "km": 16,
     "place": "ChIJyQX63PyPwxQRqy5xbq6xOb4",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "ersoy-ege-apart-otel": {
     "km": 17,
     "place": "ChIJf7J5Jh-RwxQRiIEWlDRbarY",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "ersoy-ikiz-otel": {
     "km": 16,
     "place": "ChIJnY37wz2PwxQRTAgNcIrJLuo",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "esen-otel": {
     "km": 15,
     "place": "ChIJM21Pa8qRwxQRmEPCXM5LIGc",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "eski-masal-hotel-special-class-adults-only": {
     "km": 16,
     "place": "ChIJF3kmSQGQwxQRZ92lnl3UxLY",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "esma-clove-resort": {
     "km": 49,
     "place": "ChIJXW-0IvW3wxQRaMOlW-zi5hQ",
-    "district": "Kemer",
-    "checked": false
+    "checked": true
   },
   "esmeralda-butik-otel": {
     "km": 82,
     "place": "ChIJ14sILptTwxQROVqdJXteHno",
-    "district": "Kızılot",
-    "checked": false
+    "checked": true
   },
   "esperanza-hotel": {
     "km": 13,
     "place": "ChIJ5x9bRFibwxQR00WDDhyPKA8",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "espina-hotel": {
     "km": 15,
     "place": "ChIJD9ePORqbwxQRs6J7VEbmBZM",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "esse-joven-hotel": {
     "km": 16,
     "place": "ChIJJXs_e1SPwxQRxHGB6btg87s",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "estera-hotel-silent": {
     "km": 25,
     "place": "ChIJGbUuD26RwxQRa_peosNTTHs",
-    "district": "Antalya merkez",
     "checked": false
   },
   "ethno-belek-hotel": {
     "km": 38,
     "place": "ChIJ8y6dSvZ7wxQREPFcQmKiGiA",
-    "district": "Belek",
-    "checked": false
+    "checked": true
   },
   "europa-selale-hotel": {
     "km": 23,
     "place": "ChIJxexh46SRwxQRmo9DZcOdkpI",
-    "district": "Konyaaltı",
-    "checked": false
+    "checked": true
   },
   "eva-boutique-hotel": {
     "km": 25,
     "place": "ChIJXVEO_8mRwxQRvBOxhhJf1nM",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "expo-park-hotel": {
     "km": 12,
     "place": "ChIJaaNL8RGFwxQRnA9gB8eax00",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "exporoyal-hotel": {
     "km": 17,
     "place": "ChIJydQvaeOPwxQR_K4D76YbHbo",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "ezel-group-hotel": {
     "km": 19,
     "place": "ChIJC7pewYGRwxQRyXZm7xSL-rc",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "falcon-1511": {
     "km": 17,
     "place": "ChIJBXaGPzGbwxQRPU2JEhJB3xU",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "falcon-hotel": {
     "km": 17,
     "place": "ChIJ0frQwO6awxQRaaW4AEPKyKs",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "falez-uygulama-oteli": {
     "km": 23,
     "place": "ChIJKSiHxiaQwxQRWv_30H9tLvI",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "fame-beach-hotel": {
     "km": 61,
     "place": "ChIJ6URHQpm3wxQRkK1I-AC2_Ok",
-    "district": "Kemer",
-    "checked": false
+    "checked": true
+  },
+  "fame-otel": {
+    "km": 61,
+    "place": "ChIJl_AhB5m3wxQRr6yggHb4Tnk",
+    "checked": true
   },
   "fame-residence-goynuk-otel": {
     "km": 52,
     "place": "ChIJ93La3_a4wxQRKeWDxVkSWhk",
-    "district": "Kemer",
-    "checked": false
+    "checked": true
   },
   "fame-residence-lara": {
     "km": 16,
     "place": "ChIJ____P1D2wxQRAM6ZFZJ4RPk",
-    "district": "Lara",
-    "checked": false
+    "checked": true
   },
   "family-apart-hotel-2022-6": {
     "km": 24,
     "place": "ChIJTeVMwLWRwxQRC2k6FcaG-VU",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "far-life-hotel": {
     "km": 31,
     "place": "ChIJD9Y_EfqTwxQREIbo-vOzwMM",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "fashiontv-luxe-resort": {
     "km": 51,
     "place": "ChIJe523-1u5wxQRVhqzv2Cd8w4",
-    "district": "Kemer",
-    "checked": false
+    "checked": true
   },
   "febeach-otel": {
     "km": 62,
     "place": "ChIJyZpwOHxZwxQRQ7WXtbsojcA",
-    "district": "Manavgat",
-    "checked": false
+    "checked": true
   },
   "flamingo-residence": {
     "km": 29,
     "place": "ChIJ2ZU7quyTwxQRFrjjdA1LJLM",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "flaneur-hostel": {
     "km": 16,
     "place": "ChIJk0hv3pyRwxQRH5jrxWbV22Q",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "fora-inn-lara": {
     "km": 18,
     "place": "ChIJp5uGq8KawxQRXwjMZEP6rsM",
-    "district": "Lara",
-    "checked": false
+    "checked": true
   },
   "fore-resort-otel": {
     "km": 60,
     "place": "ChIJgQMEJ-u3wxQRv0NwB0_HAhQ",
-    "district": "Kemer",
-    "checked": false
+    "checked": true
   },
   "forest-park": {
     "km": 62,
     "place": "ChIJQYoJsKS3wxQRFZc6fR4FigQ",
-    "district": "Kemer",
-    "checked": false
+    "checked": true
   },
   "four-hills-hotel": {
     "km": 25,
     "place": "ChIJaQsELW6RwxQRnwOCUXc-ffc",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "four-points-flex-by-sheraton-antalya-lara": {
     "km": 14,
     "place": "ChIJw_nhdr-bwxQR6Qkm1okPRXU",
-    "district": "Lara",
-    "checked": false
+    "checked": true
   },
   "frankfurt-hotel": {
     "km": 16,
     "place": "ChIJhX7rew-QwxQRGi13UHK9G-w",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "fun-sun-smart-akman-beach": {
     "km": 71,
     "place": "ChIJTYrmjXa2wxQRghj3_7V6mHA",
-    "district": "Kemer",
-    "checked": false
+    "checked": true
   },
   "fun-sun-smart-lurea-beach": {
     "km": 67,
     "place": "ChIJgQsBh_a3wxQR_gDkuNOwMQU",
-    "district": "Kemer",
-    "checked": false
+    "checked": true
   },
   "fun-sun-smart-river-resort": {
     "km": 17,
     "place": "ChIJByJiOB2QwxQRjqM8siYeeX4",
-    "district": "Kadriye",
-    "checked": false
+    "checked": true
   },
   "furkan-homes": {
     "km": 24,
     "place": "ChIJhwVkEuSRwxQRbBfhYBaFdPI",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "gagarin-pub-hotel": {
     "km": 16,
     "place": "ChIJD1uYDQaQwxQRVwOVM5AUpyg",
-    "district": "Antalya merkez",
     "checked": false
+  },
+  "galaxy-beach": {
+    "km": 143,
+    "place": "ChIJi4cWtqCQ3BQRbKUGCCG4Lu4",
+    "checked": true
   },
   "galeri-resort-hotel": {
     "km": 91,
     "place": "ChIJq6qq6jCs3BQRVyzIAM2FEVU",
-    "district": "Alanya",
-    "checked": false
+    "checked": true
   },
   "garden-bungalows-and-suites": {
     "km": 44,
     "place": "ChIJJ8Rl5fW_wxQRBug-n5na2jE",
-    "district": "Beldibi",
-    "checked": false
+    "checked": true
   },
   "garden-park-beldibi-hotel": {
     "km": 44,
     "place": "ChIJjTw9zw-_wxQR9juwSbulWt8",
-    "district": "Kemer",
-    "checked": false
+    "checked": true
   },
   "gardenia": {
     "km": 125,
     "place": "ChIJCSz315qi3BQR_9sDWLLO-Fk",
-    "district": "Alanya",
-    "checked": false
+    "checked": true
   },
   "gardenia-beach-otel": {
     "km": 93,
     "place": "ChIJgdpKYf6s3BQRhIs4jF8PluQ",
-    "district": "Alanya",
-    "checked": false
+    "checked": true
   },
   "gardenya-house-antalya-apart-otel": {
     "km": 12,
     "place": "ChIJQwaV002DwxQRT3pxBwLy0zM",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "gardenya-lara-suit-hotel": {
     "km": 12,
     "place": "ChIJQwaV002DwxQRT3pxBwLy0zM",
-    "district": "Lara",
-    "checked": false
+    "checked": true
   },
   "giges-king-boutique-hotel": {
     "km": 16,
     "place": "ChIJkdIY2AWQwxQRh7D8lPw_Teo",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "gizli-koy-hotel": {
     "km": 44,
     "place": "ChIJ4UoVYZdXwxQR5bHfpucZNdE",
-    "district": "Beldibi",
-    "checked": false
+    "checked": true
   },
   "gloria-golf-resort": {
     "km": 41,
     "place": "ChIJt5ahH0x7wxQRXDpgkWmSW1s",
-    "district": "Belek",
-    "checked": false
+    "checked": true
   },
   "gloria-serenity-resort": {
     "km": 41,
     "place": "ChIJzaPxxZZkwxQR1Li1YtE_-ss",
-    "district": "Belek",
-    "checked": false
+    "checked": true
   },
   "gloria-verde-resort": {
     "km": 39,
     "place": "ChIJE6rIDbdkwxQRie5aFP-jj_4",
-    "district": "Belek",
-    "checked": false
+    "checked": true
   },
   "gold-coast-hostel": {
     "km": 16,
     "place": "ChIJ5VdrVw-QwxQR7pIF9GSAq2k",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "golda-hotel": {
     "km": 17,
     "place": "ChIJp_n-3naRwxQRckY7m-LFtic",
-    "district": "Antalya merkez",
     "checked": false
   },
   "goldcity-hotel": {
     "km": 146,
     "place": "ChIJSeI-PYWY3BQRVDvDz27wCRU",
-    "district": "Kargıcak",
-    "checked": false
+    "checked": true
   },
   "golden-lotus": {
     "km": 61,
     "place": "ChIJR2Id2Ju3wxQRq_UFI1ZVzVM",
-    "district": "Kemer",
-    "checked": false
+    "checked": true
   },
   "golden-lux-hotel": {
     "km": 17,
     "place": "ChIJp_n-3naRwxQRckY7m-LFtic",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "golden-orange-hotel": {
     "km": 26,
     "place": "ChIJ0QYcXG-RwxQRbKGFDrASvbM",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "golden-spark-apart-otel": {
     "km": 17,
     "place": "ChIJp_n-3naRwxQRckY7m-LFtic",
-    "district": "Antalya merkez",
     "checked": false
   },
   "golden-world-suite-hotel": {
     "km": 29,
     "place": "ChIJ-a-pUVOTwxQRFQ6C7h3YIY0",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "graf-victor-otel": {
     "km": 141,
     "place": "ChIJ13MZLYSZ3BQR8n5a5GmSlmM",
-    "district": "Alanya",
-    "checked": false
+    "checked": true
   },
   "granada-luxury-beach": {
     "km": 103,
     "place": "ChIJzdspSeqv3BQRZWAHV4elPMQ",
-    "district": "Avsallar",
-    "checked": false
+    "checked": true
   },
   "granada-luxury-belek": {
     "km": 37,
     "place": "ChIJ0QsJ_VB7wxQRM2WyQwXYBMA",
-    "district": "Belek",
-    "checked": false
+    "checked": true
   },
   "granada-luxury-red": {
     "km": 103,
     "place": "ChIJFehGPViv3BQR8rOmpCeIQTg",
-    "district": "Alanya",
-    "checked": false
+    "checked": true
   },
   "grand-antalya-hotel": {
     "km": 17,
     "place": "ChIJ_0qFDX-RwxQRGBBgJ2oaMdY",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "grand-can-hotel": {
     "km": 17,
     "place": "ChIJP3M7AwGQwxQRuMLCv4DLQtI",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "grand-cortez-resort-hotel-spa": {
     "km": 115,
     "place": "ChIJ8wqiCS-l3BQReaww-Ace6ls",
-    "district": "Alanya",
-    "checked": false
+    "checked": true
   },
   "grand-erken-hotel": {
     "km": 16,
     "place": "ChIJMe7FvwaQwxQR3Nt-t2S-V-Q",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "grand-friends-bed-breakfast": {
     "km": 16,
     "place": "ChIJ83sv4aORwxQRhclTSh8fPDI",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "grand-hotel-derin": {
     "km": 45,
     "place": "ChIJLU5PcBe_wxQRuHcBONbyvvE",
-    "district": "Kemer",
-    "checked": false
+    "checked": true
   },
   "grand-kayalar-hotel": {
     "km": 16,
     "place": "ChIJ1STeEASQwxQRsDACXXZOPDw",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "grand-mir-amor-hotel-spa": {
     "km": 67,
     "place": "ChIJMTPuVwC3wxQRCWkjeg4QJvg",
-    "district": "Kemer",
-    "checked": false
+    "checked": true
   },
   "grand-nar-otel": {
     "km": 62,
     "place": "ChIJ-2_iU6S3wxQRJvBpr80g-3c",
-    "district": "Kemer",
-    "checked": false
+    "checked": true
   },
   "grand-nergiz-otel": {
     "km": 16,
     "place": "ChIJGzim22qPwxQRIaf58y37kxY",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "grand-niki-hotel-spa": {
     "km": 12,
     "place": "ChIJu7DdXnubwxQRKAljfuT2o28",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "grand-park-kemer": {
     "km": 49,
     "place": "ChIJVVVVVYW4wxQRS-Hb_3LnNcw",
-    "district": "Kemer",
-    "checked": false
+    "checked": true
   },
   "grand-park-lara": {
     "km": 17,
     "place": "ChIJryYFiq2cwxQRAT3EWXehqkw",
-    "district": "Lara",
-    "checked": false
+    "checked": true
   },
   "grand-viking": {
     "km": 62,
     "place": "ChIJP2NKq6W3wxQRxJFxdlxuwZg",
-    "district": "Kemer",
-    "checked": false
+    "checked": true
   },
   "grand-zaman-garden-otel": {
     "km": 141,
     "place": "ChIJrdxPlgua3BQR7f-0AYUVPLQ",
-    "district": "Alanya",
-    "checked": false
+    "checked": true
   },
   "green-beyza-hotel": {
     "km": 15,
     "place": "ChIJZxB_GlmbwxQRh8jrOWJcJH0",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "green-valley-boutique-hotel-spa-restourant": {
     "km": 64,
     "place": "ChIJWaSW_zTJwxQRtomhVldHpbo",
-    "district": "Kemer",
-    "checked": false
+    "checked": true
   },
   "greenwood-suites-resort": {
     "km": 17,
     "place": "ChIJn1Ptjx-FwxQRWzLs2V3dikA",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "gul-mountain-hotel": {
     "km": 65,
     "place": "ChIJyR1dmv3FwxQRVsuAjUJCTi4",
-    "district": "Kemer",
-    "checked": false
+    "checked": true
   },
   "guler-butik-hotel": {
     "km": 44,
     "place": "ChIJIbI4-PO4wxQRg32udnBGa14",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "gulizar-hotel": {
     "km": 25,
     "place": "ChIJMXk8nPqRwxQRwj7rgQoay8Q",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "gunay-pansiyon": {
     "km": 18,
     "place": "ChIJz8N5ZdCPwxQRPJs5jFLAvC8",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "gural-premier-tekirova": {
     "km": 77,
     "place": "ChIJM9x6Kn21wxQR5IQqVJne9NI",
-    "district": "Tekirova",
-    "checked": false
+    "checked": true
   },
   "gurtas-hotel": {
     "km": 17,
     "place": "ChIJv2pDrOOPwxQRfolPT4AKdw8",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "gvar-hotel": {
     "km": 17,
     "place": "ChIJmRl-pQOQwxQRW2rGITpDjCI",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "gypsophila-club-marine": {
     "km": 48,
     "place": "ChIJW27GEvbIwxQRRCq4LT1_BjY",
-    "district": "Kemer",
-    "checked": false
+    "checked": true
   },
   "gypsophila-holiday-village": {
     "km": 91,
     "place": "ChIJAVSVKOSs3BQRB-SLzEDkHfU",
-    "district": "Okurcalar",
-    "checked": false
+    "checked": true
   },
   "hadrian-gate-hotel": {
     "km": 16,
     "place": "ChIJsdGVxQaQwxQRWueQfhzZdXY",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "hadrians-tower-apart-otel": {
     "km": 15,
     "place": "ChIJnYLBL_6RwxQR5WBugdkV0zs",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "hadrianus-pansion-otel": {
     "km": 16,
     "place": "ChIJL766iQWQwxQRCj3JZHVK1fg",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "hampton-by-hilton-antalya-airport-otel": {
     "km": 9,
     "place": "ChIJ0xi0ltKFwxQRkOu3GkmsTyI",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "han-hotel": {
     "km": 17,
     "place": "ChIJHa-HpByQwxQRG4CyLYvyzic",
-    "district": "Antalya merkez",
     "checked": false
   },
   "hane-family-resort": {
     "km": 61,
     "place": "ChIJvfIajjhZwxQR6kW50l91YB0",
-    "district": "Manavgat",
-    "checked": false
+    "checked": true
   },
   "hane-sun-elite-hotel": {
     "km": 57,
     "place": "ChIJdwBqziNfwxQRNWdEqOonpK4",
-    "district": "Çolaklı",
-    "checked": false
+    "checked": true
+  },
+  "hare-hotel": {
+    "km": 158,
+    "place": "ChIJ1b7kqguO3BQRXLF0tdUUMp4",
+    "checked": true
   },
   "hawaii-suite-beach-otel": {
     "km": 128,
     "place": "ChIJuW-aHl6Y3BQRm8cg6E5OeEk",
-    "district": "Alanya",
-    "checked": false
+    "checked": true
   },
   "hayal-residence-apart-otel": {
     "km": 17,
     "place": "ChIJj4_bXbKbwxQR1euogZyYUwo",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "hedef-beach-hotel": {
     "km": 114,
     "place": "ChIJsQb9-_Kk3BQRIq5eSdORfi4",
-    "district": "Alanya",
-    "checked": false
+    "checked": true
   },
   "hedef-resort-otel": {
     "km": 113,
     "place": "ChIJl2fJLACl3BQRRn0emyDWXpA",
-    "district": "Alanya",
-    "checked": false
+    "checked": true
   },
   "held-hotel": {
     "km": 16,
     "place": "ChIJIYVpVg-QwxQRFN_Wqj9g5iA",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "hilal-otel": {
     "km": 124,
     "place": "ChIJf0UNGY-i3BQRnxPQ7U5R8OA",
-    "district": "Alanya",
-    "checked": false
+    "checked": true
   },
   "holiday-box-club-otel": {
     "km": 51,
     "place": "ChIJgQXpGuW4wxQRz4lzJoaQYOI",
-    "district": "Kemer",
     "checked": false
   },
   "holiday-inn-antalya-lara-by-ihg": {
     "km": 13,
     "place": "ChIJh359luaPwxQRFRPSJCalBNg",
-    "district": "Lara",
-    "checked": false
+    "checked": true
   },
   "hostel-vague": {
     "km": 16,
     "place": "ChIJk0hv3pyRwxQRH5jrxWbV22Q",
-    "district": "Antalya merkez",
     "checked": false
   },
   "hotel-1207-special-class": {
     "km": 15,
     "place": "ChIJb4KL8AaQwxQRlZN_sAS6QSw",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "hotel-alyans": {
     "km": 17,
     "place": "ChIJu_-zx06PwxQR5VQUqxdRZfs",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "hotel-destill": {
     "km": 17,
     "place": "ChIJzw1N_eaPwxQRVuBYTCSMDFM",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "hotel-gold-stone": {
     "km": 44,
     "place": "ChIJfXmUBJe3wxQRnk8kkDbGUc8",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "hotel-golden-sun": {
     "km": 46,
     "place": "ChIJM6oDiBe_wxQR1BHumrwC-qE",
-    "district": "Kemer",
-    "checked": false
+    "checked": true
   },
   "hotel-guleryuz": {
     "km": 15,
     "place": "ChIJkeRXvYViwxQRxoS1Ny6O6R0",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "hotel-karyatit-kaleici": {
     "km": 16,
     "place": "ChIJO8ISSw-QwxQRUbErDYxIJ6M",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "hotel-lunay": {
     "km": 23,
     "place": "ChIJlfJGEqSRwxQRDR0-2oDp1dg",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "hotel-lykia-old-town": {
     "km": 16,
     "place": "ChIJ5ToOUGuRwxQRMV961GZQqxY",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "hotel-mandalin": {
     "km": 19,
     "place": "ChIJJeJjgtWRwxQRsGtHiCRa10c",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "hotel-ozkaymak": {
     "km": 126,
     "place": "ChIJGRrpPIWY3BQRCxOzOHfMWpo",
-    "district": "Alanya",
-    "checked": false
+    "checked": true
   },
   "hotel-reutlingen-hof": {
     "km": 16,
     "place": "ChIJNSl1pAWQwxQRd3RR43hpFfY",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "hotel-royal-hill": {
     "km": 23,
     "place": "ChIJRdwR2aWRwxQRit3rUqHJPzg",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "hotel-s-white": {
     "km": 23,
     "place": "ChIJnVOA46-RwxQRknOWajHhOK0",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "hotel-su-aqualand": {
     "km": 22,
     "place": "ChIJK_wWWxqQwxQR1p-TPCI47MI",
-    "district": "Konyaaltı",
-    "checked": false
+    "checked": true
   },
   "hotel-terrace-beach-resort": {
     "km": 61,
     "place": "ChIJlwXuqBqQwxQRABHwq3LEeQo",
-    "district": "Kumköy",
-    "checked": false
+    "checked": true
   },
   "hotel-twenty": {
     "km": 17,
     "place": "ChIJb91aVwGQwxQR01dXToZWj1w",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "hotel-villa-granada": {
     "km": 26,
     "place": "ChIJhUa-FmeRwxQRBlvi0IUftVM",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "house-of-good-things-otel": {
     "km": 16,
     "place": "ChIJIVHXSDyRwxQR3xoTqj6Prw8",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "huma-elite-hotel": {
     "km": 14,
     "place": "ChIJ2eCc43CDwxQRplGWpOFOM2s",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "iberotel-serra-palace-kizilot": {
     "km": 82,
-    "place": "ChIJCbfFB4NTwxQR4SXbEoBMLN0",
-    "district": "Kızılot",
-    "checked": false
+    "place": "ChIJB_GjMPNTwxQRk9ZF_kp0i2E",
+    "checked": true
   },
   "ic-hotels-airport": {
     "km": 3,
     "place": "ChIJs1zp2_CDwxQRRU-bBazfMP8",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "ic-hotels-green-palace": {
     "km": 20,
     "place": "ChIJMQT54biCwxQRwKMY6X42EZ4",
-    "district": "Kundu",
-    "checked": false
+    "checked": true
   },
   "ic-hotels-green-palace-kids-concept": {
     "km": 20,
     "place": "ChIJMQT54biCwxQRwKMY6X42EZ4",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "ic-hotels-green-palace-villas": {
     "km": 20,
     "place": "ChIJMQT54biCwxQRwKMY6X42EZ4",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "ic-hotels-residence": {
     "km": 20,
     "place": "ChIJMQT54biCwxQRwKMY6X42EZ4",
-    "district": "Kundu",
     "checked": false
   },
   "ic-hotels-santai-family-resort": {
     "km": 30,
     "place": "ChIJeU845l17wxQRaJp8eN-yMfU",
-    "district": "Belek",
-    "checked": false
+    "checked": true
   },
   "illusion-beach-club-hotel": {
     "km": 121,
     "place": "ChIJARtI_AKj3BQRGN70Yc2ggnI",
-    "district": "Alanya",
-    "checked": false
+    "checked": true
   },
   "imperial-sunland-resort": {
     "km": 49,
     "place": "ChIJjdQMUtS4wxQRBvmfe9cHIE8",
-    "district": "Göynük",
-    "checked": false
+    "checked": true
   },
   "imperial-turkiz-resort-hotel": {
     "km": 61,
     "place": "ChIJz7qVaFS3wxQRempM5t79x_I",
-    "district": "Kemer",
-    "checked": false
+    "checked": true
   },
   "in-the-middle": {
     "km": 16,
     "place": "ChIJ5f6lBamRwxQR0uxMvAHu3s8",
-    "district": "Muratpaşa",
-    "checked": false
+    "checked": true
   },
   "incekum-west-otel": {
     "km": 100,
     "place": "ChIJ6zs6zcW9vxQR6Fz19wPhmK4",
-    "district": "Alanya",
-    "checked": false
+    "checked": true
   },
   "inno-concept-hotel": {
     "km": 12,
     "place": "ChIJpf-UOU6FwxQRjJvWbjtC20I",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "innvista-hotel-belek": {
     "km": 28,
     "place": "ChIJufiiVe57wxQRbzZQ9tWb8zk",
-    "district": "Kadriye",
-    "checked": false
+    "checked": true
+  },
+  "insula-resort-spa": {
+    "km": 112,
+    "place": "ChIJuSnkgf6k3BQRL0yM6TQiZ2Q",
+    "checked": true
   },
   "irenic-hotel": {
     "km": 31,
     "place": "ChIJixa9LK2FwxQRUxKEMzeU9MQ",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "is-hotel": {
     "km": 15,
     "place": "ChIJMc_DYX6bwxQROEHdPBQfqAU",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "isinda-hotel": {
     "km": 25,
     "place": "ChIJJX-zr2-RwxQRWvFRIbsp5mc",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "isnova-hotel-airport": {
     "km": 8,
     "place": "ChIJzbYeHyyFwxQR5whtiW01pDI",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "iz-flower-side-beach-hotel": {
     "km": 61,
     "place": "ChIJrVDR5jVZwxQR6uAwz-7Zo6E",
-    "district": "Manavgat",
-    "checked": false
+    "checked": true
   },
   "juju-premier-palace": {
     "km": 44,
     "place": "ChIJAc1X766_wxQRztooRbhmN88",
-    "district": "Beldibi",
-    "checked": false
+    "checked": true
   },
   "jura-hotels-lara": {
     "km": 18,
     "place": "ChIJGW5Dr2SDwxQR1QaBY_NWP1Q",
-    "district": "Lara",
     "checked": false
   },
   "just-inn-city": {
     "km": 15,
     "place": "ChIJkY7nTSeRwxQR-5jUX6fdvII",
-    "district": "Antalya merkez",
     "checked": false
   },
   "justiniano-deluxe-resort": {
     "km": 94,
     "place": "ChIJY8D_s6qt3BQRAg5MeqbIMYk",
-    "district": "Okurcalar",
-    "checked": false
+    "checked": true
   },
   "justiniano-park-conti-otel": {
     "km": 93,
     "place": "ChIJ93obnf2s3BQRirZU6DCxJZ8",
-    "district": "Alanya",
-    "checked": false
+    "checked": true
   },
   "justiniano-theodora-otel": {
     "km": 94,
     "place": "ChIJ_zboDVWs3BQR3DzNt5a-hbE",
-    "district": "Alanya",
-    "checked": false
+    "checked": true
   },
   "kadeer-hotel": {
     "km": 127,
     "place": "ChIJtVCnTGOZ3BQRh7-PKhTajN4",
-    "district": "Alanya",
-    "checked": false
+    "checked": true
   },
   "kafkas-hotel": {
     "km": 23,
     "place": "ChIJa5dpOCORwxQR394GzMrMPsQ",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "kahya-otel": {
     "km": 109,
     "place": "ChIJu7f-jXOl3BQRk-v6WyP5rV8",
-    "district": "Alanya",
-    "checked": false
+    "checked": true
   },
   "kahya-resort-aqua-spa": {
     "km": 109,
     "place": "ChIJg1Qze3Sl3BQRqiDdHYu5Fww",
-    "district": "Konaklı",
-    "checked": false
+    "checked": true
   },
   "kaia-coracesium": {
     "km": 113,
     "place": "ChIJw6oJyE-l3BQRM9FtT9mr-6U",
-    "district": "Alanya",
-    "checked": false
+    "checked": true
   },
   "kaila-beach-hotel": {
     "km": 131,
     "place": "ChIJq6ouu62Z3BQRmBuOsH4aqqY",
-    "district": "Alanya",
-    "checked": false
+    "checked": true
   },
   "kaila-krizantem-otel": {
     "km": 130,
     "place": "ChIJM0S4plOY3BQRKXv2fiBeUao",
-    "district": "Alanya",
-    "checked": false
+    "checked": true
   },
   "kaleici-butik-otel": {
     "km": 16,
     "place": "ChIJ5br7-wOQwxQRD-IlIwWeGLo",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "kaleici-hotel": {
     "km": 16,
     "place": "ChIJc_8x9QWQwxQRVCarSHRaiH4",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "kaleici-ozkavak-hotel": {
     "km": 16,
     "place": "ChIJt46LxQaQwxQRD66EiPXcqFg",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "kaleici-pera-palace-hotel": {
     "km": 16,
     "place": "ChIJO6Jd9AWQwxQRz8WwxxVp39Q",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "kalispera-hotel": {
     "km": 16,
     "place": "ChIJ5XYc9_yPwxQRvQHqFk7RdkE",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "kaliye-aspendos-hotel": {
     "km": 25,
     "place": "ChIJNSpMlnGRwxQRgJr0YcL72gg",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "kandelor-otel": {
     "km": 125,
     "place": "ChIJMZDcp4eY3BQRx0j6UC4YRE8",
-    "district": "Alanya",
-    "checked": false
+    "checked": true
   },
   "karden-otel": {
     "km": 15,
     "place": "ChIJm-jab5ubwxQR9JQ1QXqlNcs",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "karmir-resort-spa-hotel": {
     "km": 52,
     "place": "ChIJ8wAAAPC4wxQR4VbkdcjqxUg",
-    "district": "Kemer",
-    "checked": false
+    "checked": true
   },
   "kartal-hotel": {
     "km": 23,
     "place": "ChIJx2JjPKSRwxQRrKoETnb-Nzc",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "kartalkaya-apart-otel": {
     "km": 20,
     "place": "ChIJqz3hl9yPwxQR1EMWE1yMwXk",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "karya-konaklama": {
     "km": 17,
     "place": "ChIJJW_XfxuQwxQR0H0wwNVczhM",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "kaucuk-hotel-adult-only": {
     "km": 17,
     "place": "ChIJjXDLJgSQwxQRiePiqf7XbZQ",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "kaya-belek-hotel": {
     "km": 29,
     "place": "ChIJ-c0ticR7wxQR3TLeb8y6kgs",
-    "district": "Belek",
-    "checked": false
+    "checked": true
   },
   "kaya-hotel": {
     "km": 17,
     "place": "ChIJ-3XgPwKQwxQRR6v2tLP9SF8",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "kaya-palazzo-golf-resort": {
     "km": 29,
     "place": "ChIJQajScMN7wxQR0g3jfOlCdoc",
-    "district": "Belek",
-    "checked": false
+    "checked": true
   },
   "kaya-side": {
     "km": 71,
     "place": "ChIJmWF_KK1QwxQRS9eJKBfTQwg",
-    "district": "Titreyengöl",
-    "checked": false
+    "checked": true
   },
   "kayalar-hotel": {
     "km": 16,
     "place": "ChIJ01ISP_2PwxQRsJ-D02Zroqw",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "kelebek-otel": {
     "km": 64,
     "place": "ChIJGee7Y7pZwxQRDWeyFy9QLt0",
-    "district": "Manavgat",
-    "checked": false
+    "checked": true
   },
   "kemer-barut-collection": {
     "km": 60,
     "place": "ChIJUdoW6ZG3wxQR6FP8u1k9aSM",
-    "district": "Kemer",
     "checked": false
   },
   "kemer-dream-otel": {
     "km": 60,
     "place": "ChIJQ08eWZC3wxQR1P7WcT6-aVg",
-    "district": "Kemer",
-    "checked": false
+    "checked": true
+  },
+  "kemer-hotel": {
+    "km": 62,
+    "place": "ChIJaxlmBJ-3wxQRw3dm4bBV_mI",
+    "checked": true
   },
   "kervan-hotel": {
     "km": 16,
     "place": "ChIJoSdg2AWQwxQRmdQm7w6UquM",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "kervansaray-kundu": {
     "km": 16,
     "place": "ChIJvS-Ff9qCwxQRyrLWIMOpbLU",
-    "district": "Kundu",
-    "checked": false
+    "checked": true
   },
   "kervansaray-lara-convention-center-spa": {
     "km": 16,
     "place": "ChIJvS-Ff9qCwxQRyrLWIMOpbLU",
-    "district": "Lara",
-    "checked": false
+    "checked": true
   },
   "kiana-kaleici-otel": {
     "km": 16,
     "place": "ChIJhRcFjgWQwxQR2XC816KZ46o",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "kirbiyik-resort-otel": {
     "km": 145,
     "place": "ChIJr5kQIHuQ3BQRuwInSiPTpBg",
-    "district": "Alanya",
-    "checked": false
+    "checked": true
   },
   "kirman-arycanda-de-luxe": {
     "km": 93,
     "place": "ChIJEZhcbMqZ3BQRMQF7mJ17-Po",
-    "district": "Konaklı",
-    "checked": false
+    "checked": true
   },
   "kirman-belazur-resort-spa": {
     "km": 43,
     "place": "ChIJ5Y7F-AxkwxQRR9PP9OvOW8c",
-    "district": "Boğazkent",
-    "checked": false
+    "checked": true
   },
   "kirman-leodikya-resort": {
     "km": 93,
     "place": "ChIJzent3Q2s3BQRAbymNnQ1D7A",
-    "district": "Okurcalar",
-    "checked": false
+    "checked": true
   },
   "kirman-sidemarin-beach-spa": {
     "km": 62,
     "place": "ChIJV61vJ0dZwxQR1-euSZdWaU4",
-    "district": "Çolaklı",
-    "checked": false
+    "checked": true
   },
   "kisla-pansiyon": {
     "km": 17,
     "place": "ChIJjzpYVAKQwxQRHeJa0aKIRrA",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "kivrak-hotel": {
     "km": 16,
     "place": "ChIJsbZ8Of2PwxQRHK3jRNfiIi4",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "klas-more-beach-hotel": {
     "km": 141,
     "place": "ChIJk5xnLQia3BQRnoD8OusrAjw",
-    "district": "Mahmutlar",
-    "checked": false
+    "checked": true
   },
   "kleopatra-ada-beach-otel": {
     "km": 124,
     "place": "ChIJYx7HNoyi3BQRmw8phqLQfs4",
-    "district": "Alanya",
-    "checked": false
+    "checked": true
   },
   "kleopatra-arsi-otel": {
     "km": 125,
     "place": "ChIJ9zj9UI6i3BQRVsRT1KMjI0M",
-    "district": "Alanya",
-    "checked": false
+    "checked": true
   },
   "kleopatra-beach-otel": {
     "km": 124,
     "place": "ChIJZ4-SjI6i3BQRCbOWThGjvTU",
-    "district": "Alanya",
-    "checked": false
+    "checked": true
   },
   "kleopatra-bebek-otel": {
     "km": 126,
     "place": "ChIJHzvvPJui3BQRwbUZNFCHq0g",
-    "district": "Alanya",
-    "checked": false
+    "checked": true
   },
   "kleopatra-carina-otel": {
     "km": 125,
     "place": "ChIJHRSqXZui3BQR33c_E7F_2to",
-    "district": "Alanya",
-    "checked": false
+    "checked": true
   },
   "kleopatra-life-otel": {
     "km": 124,
     "place": "ChIJR2bb19uj3BQRig8nxSdrAnk",
-    "district": "Alanya",
-    "checked": false
+    "checked": true
   },
   "kleopatra-micador": {
     "km": 125,
     "place": "ChIJCTkQHYWY3BQR6m17Pxmigo0",
-    "district": "Alanya",
-    "checked": false
+    "checked": true
   },
   "kleopatra-ramira-hotel": {
     "km": 125,
     "place": "ChIJHxrDsoCi3BQRUkPdgpnrmuc",
-    "district": "Alanya",
-    "checked": false
+    "checked": true
   },
   "kleopatra-royal-palm-otel": {
     "km": 124,
     "place": "ChIJHSfADYyi3BQRzenOqFtT4Lk",
-    "district": "Alanya",
-    "checked": false
+    "checked": true
   },
   "kleopatra-sahara-otel": {
     "km": 125,
     "place": "ChIJ0_wj_I6i3BQReWaUND8lLUY",
-    "district": "Alanya",
-    "checked": false
+    "checked": true
   },
   "kleopatra-smile-otel": {
     "km": 125,
     "place": "ChIJX8WLP3Gj3BQRfCO9VFordoE",
-    "district": "Alanya",
-    "checked": false
+    "checked": true
   },
   "koesk-boutique-hotel-old-town-city-center": {
     "km": 16,
     "place": "ChIJ5ToOUGuRwxQRMV961GZQqxY",
-    "district": "Antalya merkez",
     "checked": false
   },
   "kolibry-sv-hotel": {
     "km": 25,
     "place": "ChIJ9646lW-RwxQRIjpDtn44_2I",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "konak-hotel-kaleici": {
     "km": 16,
     "place": "ChIJedt3yPCRwxQRX8EZrMLG-zs",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "kont-pension": {
     "km": 16,
     "place": "ChIJwwzP7QaQwxQRXD5g7BetVIU",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "konya6-elit-hotel": {
     "km": 19,
     "place": "ChIJI_F78NaRwxQRjq__8Gdnqbs",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "konyaalti-butik-hotel": {
     "km": 24,
     "place": "ChIJ9d4QOKGRwxQRx5TytDLmX4c",
-    "district": "Konyaaltı",
-    "checked": false
+    "checked": true
   },
   "konyaalti-hotel": {
     "km": 24,
     "place": "ChIJ9d4QOKGRwxQRx5TytDLmX4c",
-    "district": "Konyaaltı",
-    "checked": false
+    "checked": true
   },
   "kosa-boutique-hotel": {
     "km": 16,
     "place": "ChIJJ5y9KguRwxQRl6L8QcAvH3U",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "kremlin-palace": {
     "km": 16,
     "place": "ChIJiUWlMml4wxQR6KSQRyD2ykw",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "kristal-beach-hotel": {
     "km": 23,
     "place": "ChIJk__Sbq-RwxQRUAvYgsYjZG4",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "kriti-hotel": {
     "km": 17,
     "place": "ChIJYekpnf6PwxQRmPkCct1dvk0",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "kuyu-beergarden-hostel": {
     "km": 16,
     "place": "ChIJwZoCjoSRwxQRA8OeJyRmjB4",
-    "district": "Antalya merkez",
     "checked": false
   },
   "kylo-garden-hotel": {
     "km": 23,
     "place": "ChIJq1i5Xa-RwxQRvBtFZ6kvPCw",
-    "district": "Antalya merkez",
     "checked": false
   },
   "l-ancora-beach-hotel": {
     "km": 61,
     "place": "ChIJTdEpbpm3wxQR45zLUktqBKw",
-    "district": "Kemer",
-    "checked": false
+    "checked": true
   },
   "l-oceanica-beach-resort": {
     "km": 67,
     "place": "ChIJf0rL32a2wxQRdrY1mhTn60k",
-    "district": "Kemer",
-    "checked": false
+    "checked": true
+  },
+  "la-benata-hotel": {
+    "km": 90,
+    "place": "ChIJWZK_Spet3BQRGfONqE3xEO4",
+    "checked": true
   },
   "la-brisa-hotel": {
     "km": 31,
     "place": "ChIJy4tU_eKTwxQR8isc29roOno",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "la-cactus-boutique-hotel": {
     "km": 25,
     "place": "ChIJnZAWOl-RwxQRMMN1cSpH3TE",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "la-casa-carina-otel": {
     "km": 16,
     "place": "ChIJaTRhozCRwxQRSAIkYFLtDiM",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "la-maja-hotel": {
     "km": 17,
     "place": "ChIJa7QkiQGbwxQR8fEGskJiWN0",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "la-paloma-hotel": {
     "km": 16,
     "place": "ChIJJUG6_QWQwxQR8kxkXCIE2EU",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "la-rezidans-hotel": {
     "km": 13,
     "place": "ChIJ_5HmzG2bwxQRGjtohGQO5QU",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "la-vita-es-bella": {
     "km": 24,
     "place": "ChIJdfP4eiWRwxQRAISXJ4nlUAQ",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "la-vita-hotels": {
     "km": 24,
     "place": "ChIJdfP4eiWRwxQRAISXJ4nlUAQ",
-    "district": "Titreyengöl",
     "checked": false
   },
   "lago-hotel": {
     "km": 71,
     "place": "ChIJF8lhXa1QwxQRwrSCFstZIlM",
-    "district": "Titreyengöl",
-    "checked": false
+    "checked": true
   },
   "laguna-beach-alya-resort-spa-hotel": {
     "km": 94,
     "place": "ChIJCTlMxKqt3BQRXLgf4V0cnSo",
-    "district": "Alanya",
-    "checked": false
+    "checked": true
+  },
+  "lake-river-side-hotel-spa": {
+    "km": 71,
+    "place": "ChIJYzq97FNXwxQRQkAYgZvYZg8",
+    "checked": true
   },
   "lara-barut-collection": {
     "km": 14,
     "place": "ChIJN37_D0JZwxQR8ti7kKij9js",
-    "district": "Lara",
-    "checked": false
+    "checked": true
   },
   "lara-beach-homes": {
     "km": 12,
     "place": "ChIJp1XgWQ6FwxQRMv-5NHUCmq8",
-    "district": "Lara",
-    "checked": false
+    "checked": true
   },
   "lara-boutique-hotel": {
     "km": 11,
     "place": "ChIJZ_4_-YaFwxQR1V6bIFvIJn4",
-    "district": "Lara",
-    "checked": false
+    "checked": true
   },
   "lara-diamond-hotel": {
     "km": 13,
     "place": "ChIJDRpvXVibwxQR_5W97YuMp-k",
-    "district": "Lara",
-    "checked": false
+    "checked": true
   },
   "lara-dinc-hotel": {
     "km": 13,
     "place": "ChIJRWYq8aecwxQRghR207-LYao",
-    "district": "Lara",
-    "checked": false
+    "checked": true
   },
   "lara-eyfel-hotel": {
     "km": 17,
     "place": "ChIJ6co0_-SawxQRI4sAenMmaUA",
-    "district": "Lara",
-    "checked": false
+    "checked": true
   },
   "lara-garden-hotel": {
     "km": 12,
     "place": "ChIJCddMBK2cwxQRmMZMoe0ScRA",
-    "district": "Lara",
-    "checked": false
+    "checked": true
   },
   "lara-hadrianus-hotel": {
     "km": 15,
     "place": "ChIJP5azcj6bwxQRGQakX7eo5P8",
-    "district": "Lara",
-    "checked": false
+    "checked": true
   },
   "lara-hotel": {
     "km": 14,
     "place": "ChIJyT_PFkGbwxQRKcsH4JBmQYU",
-    "district": "Lara",
-    "checked": false
+    "checked": true
   },
   "lara-kapris-hotel": {
     "km": 13,
     "place": "ChIJfQiQVlibwxQRMVDm-j80JFY",
-    "district": "Lara",
-    "checked": false
+    "checked": true
   },
   "lara-olympos-pansiyon": {
     "km": 13,
     "place": "ChIJJQ36blibwxQR10wwCCeK0hA",
-    "district": "Lara",
-    "checked": false
+    "checked": true
   },
   "lara-palace-hotel": {
     "km": 13,
     "place": "ChIJLwQS8V6bwxQRxQsTFckGHd0",
-    "district": "Lara",
-    "checked": false
+    "checked": true
   },
   "lara-park-hotel": {
     "km": 13,
     "place": "ChIJUaYN_1ebwxQRsks7GvCYIlE",
-    "district": "Lara",
-    "checked": false
+    "checked": true
   },
   "lara-suite-s-apart-hotel": {
     "km": 16,
     "place": "ChIJxYyIkWiDwxQRuBwF3f2Zpac",
-    "district": "Lara",
-    "checked": false
+    "checked": true
   },
   "lara-vista-hotel-suits-spa": {
     "km": 16,
     "place": "ChIJGeelMMGCwxQR35NX0cT9aCI",
-    "district": "Lara",
     "checked": false
   },
   "lara-world-hotel": {
     "km": 13,
     "place": "ChIJ1bOs-VibwxQR4kLAMNtrvqM",
-    "district": "Lara",
-    "checked": false
+    "checked": true
   },
   "laren-family-hotel-spa-boutique-class": {
     "km": 15,
     "place": "ChIJ8SVvZRebwxQRGrryp2udayY",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "laren-sea-side-hotel-spa": {
     "km": 14,
     "place": "ChIJR5oJ_XCbwxQRWoWI-xWex5g",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "larissa-sultan-s-beach": {
     "km": 67,
     "place": "ChIJ1YN27mW2wxQRk6vACHQiJqQ",
-    "district": "Beldibi",
-    "checked": false
+    "checked": true
   },
   "laristone-suite-spa-hotel": {
     "km": 15,
     "place": "ChIJvRiCkBmDwxQRs40xqrsup-Y",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "latanya-palm-spa-airport": {
     "km": 13,
     "place": "ChIJx_aRBzaFwxQRhzr5xoYa6zE",
-    "district": "Antalya merkez",
     "checked": false
   },
   "lavia-hotels-lara": {
     "km": 17,
     "place": "ChIJE8zcmbebwxQRDDRM5TS8z2s",
-    "district": "Lara",
-    "checked": false
+    "checked": true
   },
   "lavin-garden-hotel": {
     "km": 25,
     "place": "ChIJw_SpDXSRwxQR5j6PCO5QZe4",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "lavin-suites-hotel": {
     "km": 24,
     "place": "ChIJXZILL_SRwxQR8S6NoBgFXww",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "lazer-pansiyon": {
     "km": 16,
     "place": "ChIJ2aSpSiyRwxQRJfe10RMxJZY",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "le-marden-hotel-spa": {
     "km": 75,
     "place": "ChIJpcebxDfLwxQR2cka-yWF0BI",
-    "district": "Tekirova",
-    "checked": false
+    "checked": true
   },
   "leaf-port-hotel": {
     "km": 31,
     "place": "ChIJk0q8EvuTwxQRx3UibEsvwPI",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "leaf-river-suites": {
     "km": 15,
     "place": "ChIJXXh92SybwxQRlvimZRHtJQE",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "legend-tulip-hotel": {
     "km": 17,
     "place": "ChIJCw8Uw0iRwxQR11gH4-msMQw",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "leliko-suites": {
     "km": 15,
     "place": "ChIJOXOARaqRwxQRfZrjlOK6flk",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "lemon-hotel": {
     "km": 23,
     "place": "ChIJfViapqWRwxQR5EcmFhre8Dw",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "lemonpark-house-otel": {
     "km": 13,
     "place": "ChIJ_0eITQCDwxQR_I4ubEuAglU",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "leslion-luxury-hotel": {
     "km": 15,
     "place": "ChIJ__9eQwCQwxQRO252neUDExc",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "letstay-hotel-adults-only": {
     "km": 15,
     "place": "ChIJTSAfLhqbwxQRK0GjiQ6q8yQ",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "letstay-marine-homes": {
     "km": 12,
     "place": "ChIJo0PccYiFwxQRsqFNOB_2i3g",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "lexia-hotel-adult-only": {
     "km": 15,
     "place": "ChIJnzgvx7ObwxQRyY6FWHY2Aw4",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "liberty-hotels-lara": {
     "km": 17,
     "place": "ChIJfQRbJaKCwxQR9GamLR4V97U",
-    "district": "Lara",
-    "checked": false
+    "checked": true
   },
   "life-hotel": {
     "km": 25,
     "place": "ChIJGbUuD26RwxQRa_peosNTTHs",
-    "district": "Antalya merkez",
     "checked": false
   },
   "lilium-boutique-hotel": {
     "km": 13,
     "place": "ChIJF-XEAJubwxQRHCGydKEYbQU",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "lily-town-hotel": {
     "km": 16,
     "place": "ChIJc4lpEweQwxQRlgbH75kt9_0",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "limak-arcadia-sport-resort": {
     "km": 36,
     "place": "ChIJ8Yyq-Wl7wxQRkWb8BAj4zNU",
-    "district": "Belek",
-    "checked": false
+    "checked": true
   },
   "limak-atlantis-de-luxe-hotel": {
     "km": 39,
     "place": "ChIJJXhVZQZ5wxQRtEiPV1tqtIk",
-    "district": "Belek",
-    "checked": false
+    "checked": true
   },
   "limak-lara-de-luxe-hotel": {
     "km": 16,
     "place": "ChIJV_aferyCwxQRvJwQpD6RPPU",
-    "district": "Lara",
-    "checked": false
+    "checked": true
   },
   "limak-lara-deluxe-hotel-resort": {
     "km": 16,
     "place": "ChIJV_aferyCwxQRvJwQpD6RPPU",
-    "district": "Lara",
-    "checked": false
+    "checked": true
   },
   "limak-limra-hotel-resort": {
     "km": 67,
     "place": "ChIJz97vufm2wxQRCn7RqoImPKE",
-    "district": "Kiriş",
-    "checked": false
+    "checked": true
   },
   "lims-bona-dea-beach-hotel": {
     "km": 59,
     "place": "ChIJawopIbC3wxQRG6-iN4bir_I",
-    "district": "Kemer",
-    "checked": false
+    "checked": true
   },
   "linda-expo-hotel": {
     "km": 12,
     "place": "ChIJaaNL8RGFwxQRnA9gB8eax00",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "linda-otel": {
     "km": 70,
     "place": "ChIJK8dfD1RXwxQRa-efk99vqVA",
-    "district": "Manavgat",
-    "checked": false
+    "checked": true
   },
   "linda-star-palace-otel": {
     "km": 16,
     "place": "ChIJ_6HWMeOPwxQR9Pk2HTcF3uk",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "linda-sunny-beach-spa": {
     "km": 55,
     "place": "ChIJM9Zt7fFewxQR6kb6HymfaTk",
-    "district": "Manavgat",
     "checked": false
   },
   "litore-hotel": {
     "km": 94,
     "place": "ChIJSeI-PYWY3BQRYqFsEmS9dH4",
-    "district": "Alanya",
-    "checked": false
+    "checked": true
   },
   "liu-resorts": {
     "km": 55,
     "place": "ChIJieNOmnWR3BQR8a1SfQY_VH0",
-    "district": "Manavgat",
-    "checked": false
+    "checked": true
   },
   "loft-1502-apart-otel": {
     "km": 17,
     "place": "ChIJNcaOwuiawxQRESiedbijVaQ",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "loft-1502-otel": {
     "km": 17,
     "place": "ChIJNcaOwuiawxQRESiedbijVaQ",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "loft85-apart-otel": {
     "km": 24,
     "place": "ChIJxYTvCkiRwxQRlVr8KAR2xKg",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "london-otel": {
     "km": 25,
     "place": "ChIJx6Rv9bWRwxQRd_mr47IJSZs",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "long-beach-resort-hotel": {
     "km": 107,
     "place": "ChIJn-_WWY-v3BQRWh-lRMmbBLg",
-    "district": "Konaklı",
-    "checked": false
+    "checked": true
   },
   "lonicera-city-hotel": {
     "km": 124,
     "place": "ChIJ2bASvoWi3BQRvvXi18BjbVE",
-    "district": "Alanya",
-    "checked": false
+    "checked": true
   },
   "lonicera-premium": {
     "km": 105,
     "place": "ChIJv0voUCiZ3BQRm81DC9Ry-40",
-    "district": "Alanya",
-    "checked": false
+    "checked": true
   },
   "lonicera-world-resort-spa-hotel": {
     "km": 105,
     "place": "ChIJ9Y8NdwCv3BQRy5Pr6IJvs40",
-    "district": "Alanya",
-    "checked": false
+    "checked": true
   },
   "lorem-hotel": {
     "km": 15,
     "place": "ChIJGSRvNDibwxQR_ETSJO1TRRY",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "lrs-port-river-hotel-spa": {
     "km": 71,
     "place": "ChIJc_4bXABXwxQRnLNtNDVsnio",
-    "district": "Manavgat",
-    "checked": false
+    "checked": true
   },
   "lucida-beach-hotel": {
     "km": 67,
     "place": "ChIJtY5bima2wxQRudl40gjwpco",
-    "district": "Kemer",
-    "checked": false
+    "checked": true
   },
   "lucky-monkey-hotel": {
     "km": 17,
     "place": "ChIJ5b20Wr2awxQReyLSNcyqSS8",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "lumos-deluxe-resort-hotel": {
     "km": 143,
     "place": "ChIJ9bG3_4-Q3BQRlDqZ01FB1UQ",
-    "district": "Kargıcak",
-    "checked": false
+    "checked": true
   },
   "luna-hotel-kaleici": {
     "km": 16,
     "place": "ChIJqypfjQWQwxQRTVOVmPfvgpk",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "luna-lara-hotel": {
     "km": 13,
     "place": "ChIJeyky6VebwxQRYzXlHE0NNFE",
-    "district": "Lara",
-    "checked": false
+    "checked": true
   },
   "lupo-libero-hotel-spa": {
     "km": 17,
     "place": "ChIJsa_NFB2RwxQRX2n3zgLcQng",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "lusso-sorgun": {
     "km": 70,
     "place": "ChIJCYgnecpQwxQRDzNqgP_4BOo",
-    "district": "Manavgat",
-    "checked": false
+    "checked": true
   },
   "lycus-beach-otel": {
     "km": 93,
     "place": "ChIJtxCOQP6s3BQR4myydqz7h28",
-    "district": "Alanya",
-    "checked": false
+    "checked": true
   },
   "ma-biche-kemer-by-werde-hotels": {
     "km": 56,
     "place": "ChIJc1x31Oe5wxQRMMbk5hiJzQA",
-    "district": "Kemer",
-    "checked": false
+    "checked": true
   },
   "mad-inn-lara": {
     "km": 15,
     "place": "ChIJzWe4nuqbwxQRtsm6SOW6BU4",
-    "district": "Lara",
-    "checked": false
+    "checked": true
   },
   "magesa-terra-apart": {
     "km": 16,
-    "place": "ChIJtzWryeGawxQR_C2aPODL9pk",
-    "district": "Antalya merkez",
-    "checked": false
+    "place": "ChIJhz9UyOGawxQRPEzAd-GcxAk",
+    "checked": true
   },
   "magic-sun-otel": {
     "km": 45,
     "place": "ChIJsbD2wqW_wxQRpbcfWCY8KgM",
-    "district": "Kemer",
-    "checked": false
+    "checked": true
   },
   "mai-inci-hotel": {
     "km": 17,
     "place": "ChIJlRXUVRuQwxQRXCfQDGCM_WU",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "malibu-garden-resort": {
     "km": 68,
     "place": "ChIJq0U2cv62wxQRmEcFXTSPt7g",
-    "district": "Kemer",
-    "checked": false
+    "checked": true
   },
   "manavgat-kervan-otel": {
     "km": 68,
     "place": "ChIJUe2ablNXwxQRyfatw_gbJo4",
-    "district": "Manavgat",
-    "checked": false
+    "checked": true
   },
   "mardan-palace": {
     "km": 25,
     "place": "ChIJS0jEQBqbwxQRm1eiD-UR1Lk",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "maritim-pine-beach-resort": {
     "km": 39,
     "place": "ChIJic0AwLZkwxQRcB1-SEM0f_c",
-    "district": "Belek",
-    "checked": false
+    "checked": true
   },
   "marka-hotel": {
     "km": 17,
     "place": "ChIJv7-ujgKQwxQR3P82UQVhRkY",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "marti-myra": {
     "km": 76,
     "place": "ChIJ_2Rfr361wxQRN4tBuI_VA3g",
-    "district": "Tekirova",
-    "checked": false
+    "checked": true
   },
   "marvida-family-eco-side": {
     "km": 70,
     "place": "ChIJxSU3mnZZwxQRGYdz2yYy-_g",
-    "district": "Titreyengöl",
-    "checked": false
+    "checked": true
   },
   "mary-palace-resort-spa": {
     "km": 56,
     "place": "ChIJ9eWvIVlewxQRRS0oE5kIr4A",
-    "district": "Çolaklı",
-    "checked": false
+    "checked": true
   },
   "massimo-hotel-adults-only-ex-la-boutique-hotels": {
     "km": 17,
     "place": "ChIJT9n4e-WawxQRLbUPznyG0FA",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "maxx-royal-belek": {
     "km": 37,
     "place": "ChIJvXB1vkV7wxQRteRz3zuPn0U",
-    "district": "Belek",
-    "checked": false
+    "checked": true
   },
   "maxx-royal-kemer-resort": {
     "km": 68,
     "place": "ChIJ7eqmUgO3wxQRWdi1f02_Mk8",
-    "district": "Kiriş",
-    "checked": false
+    "checked": true
   },
   "maya-apart": {
     "km": 26,
     "place": "ChIJsQ65YraRwxQRCpfQwzsTZ2g",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "mc-arancia-resort-otel": {
     "km": 114,
     "place": "ChIJ3xRqxPOk3BQRp3gzUDeEHlA",
-    "district": "Alanya",
-    "checked": false
+    "checked": true
   },
   "mediterra-art-boutique-hotel": {
     "km": 16,
     "place": "ChIJxxWnfgaQwxQRKN16tku0BeI",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "mediterra-art-hotel": {
     "km": 16,
     "place": "ChIJxxWnfgaQwxQRKN16tku0BeI",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "medworld-cosmos-health-rehabilitation-center-otel": {
     "km": 14,
     "place": "ChIJeVc1mBqPwxQR7AjDrbMoJTs",
-    "district": "Antalya merkez",
     "checked": false
   },
   "megasaray-club-belek": {
     "km": 31,
     "place": "ChIJg8m3lmZ7wxQReZbzBxoXzgI",
-    "district": "Kadriye",
-    "checked": false
+    "checked": true
   },
   "megasaray-resort-side": {
     "km": 71,
     "place": "ChIJ0_CI8v9XwxQRb2bD-AVzMVQ",
-    "district": "Sorgun",
-    "checked": false
+    "checked": true
   },
   "megasaray-westbeach": {
     "km": 26,
     "place": "ChIJrSovfhaRwxQRasAuzlWCMAo",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "melas-lara-hotel": {
     "km": 17,
     "place": "ChIJMQT54biCwxQR5DZfHtIMX78",
-    "district": "Lara",
-    "checked": false
+    "checked": true
   },
   "melas-resort-hotel": {
     "km": 63,
     "place": "ChIJlxXVU2hZwxQRnhpWFZfyP8I",
-    "district": "Sorgun",
-    "checked": false
+    "checked": true
   },
   "melda-palace": {
     "km": 30,
     "place": "ChIJZ17AmN2TwxQRKvGzAg84IRE",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "melodi-hotel": {
     "km": 44,
     "place": "ChIJAdK37Ru_wxQRU73ARebWJbE",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "meltem-otel": {
     "km": 25,
     "place": "ChIJl32ff3GRwxQR_-51xfN9i1Y",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "mene-city-hotel": {
     "km": 16,
     "place": "ChIJd5cKPQiQwxQRv-BFFx7__SU",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "mene-suites": {
     "km": 30,
     "place": "ChIJBXUC9uyTwxQRTbJQPwpSlrs",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "mera-park-hotel": {
     "km": 15,
     "place": "ChIJyQAMRaiawxQRDC-7-mCyIUo",
-    "district": "Antalya merkez",
     "checked": false
   },
   "mercure-antalya-belek-otel": {
     "km": 28,
     "place": "ChIJMR3-ie17wxQRlD1TjW1Gwi0",
-    "district": "Serik",
-    "checked": false
+    "checked": true
   },
   "mercure-antalya-konyaalti": {
     "km": 24,
     "place": "ChIJawuhRUCRwxQRP367IdDcMPw",
-    "district": "Konyaaltı",
-    "checked": false
+    "checked": true
   },
   "merhaba-otel": {
     "km": 129,
     "place": "ChIJjSYMTmSY3BQRbQPrhAt-rdA",
-    "district": "Alanya",
-    "checked": false
+    "checked": true
   },
   "meryan-otel": {
     "km": 91,
     "place": "ChIJTc5KlIeY3BQRimW-WBB4rkM",
-    "district": "Alanya",
-    "checked": false
+    "checked": true
   },
   "mesut-otel": {
     "km": 130,
     "place": "ChIJyb-hD1OY3BQRen29vJoAtkA",
-    "district": "Alanya",
-    "checked": false
+    "checked": true
   },
   "mevre-hotel": {
     "km": 17,
     "place": "ChIJ53G4RgGQwxQRZ88WfIYUlho",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "meyde-boutique-suites": {
     "km": 25,
     "place": "ChIJMY8DzW-RwxQRWvy3A16rrBE",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "mia-hotel": {
     "km": 16,
     "place": "ChIJp_mfKASQwxQRwz7j7zu4RIA",
-    "district": "Antalya merkez",
     "checked": false
   },
   "miarosa-konakli-garden-otel": {
     "km": 115,
     "place": "ChIJbxo7K4ul3BQRJ962Ng3jy5o",
-    "district": "Alanya",
-    "checked": false
+    "checked": true
   },
   "michell-hotel": {
     "km": 134,
     "place": "ChIJKXk_kpWZ3BQRWatrnHfzFWw",
-    "district": "Alanya",
-    "checked": false
+    "checked": true
   },
   "microyal-hotel": {
     "km": 25,
     "place": "ChIJa95DlEeRwxQRC4uCh5ZgQ_U",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "midi-suites-otel": {
     "km": 128,
     "place": "ChIJzTgWSniZ3BQRyWrocb9b2T8",
-    "district": "Alanya",
-    "checked": false
+    "checked": true
   },
   "mielo-lara-hotel": {
     "km": 15,
     "place": "ChIJH7xAaBebwxQRTZDZpNLtezc",
-    "district": "Lara",
-    "checked": false
+    "checked": true
   },
   "mimoza-konyaalti-bed-breakfast": {
     "km": 25,
     "place": "ChIJhd-c2oSRwxQRur4Kec1YugI",
-    "district": "Konyaaltı",
-    "checked": false
+    "checked": true
   },
   "mimoza-pansiyon": {
     "km": 20,
     "place": "ChIJlVBIPiqOwxQRzIdpWoqyLpU",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "minyon-hotel": {
     "km": 16,
     "place": "ChIJ8W_GZg-QwxQRlQKihjhNsx0",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "mira-hotel": {
     "km": 23,
     "place": "ChIJZ7g0WVaRwxQRJNWKpEoJdHg",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "mira-meridia-beach-resort-hotel": {
     "km": 93,
     "place": "ChIJW5dS2FOj3BQR_wBWbL_kzC4",
-    "district": "Alanya",
-    "checked": false
+    "checked": true
   },
   "miracle-resort-hotel": {
     "km": 14,
     "place": "ChIJFcpBBkuDwxQRGXLqWErX5Ko",
-    "district": "Lara",
-    "checked": false
+    "checked": true
   },
   "mirada-del-mar-hotel": {
     "km": 51,
     "place": "ChIJ9zFH-ua4wxQRSkD0EIwgVlg",
-    "district": "Kemer",
-    "checked": false
+    "checked": true
   },
   "mirage-park-resort": {
     "km": 53,
     "place": "ChIJR0gkPfa4wxQRQCdWxxwPorw",
-    "district": "Göynük",
-    "checked": false
+    "checked": true
   },
   "miramare-beach-hotel": {
     "km": 60,
     "place": "ChIJZVu81MpewxQRT5VRKMVfGkU",
-    "district": "Manavgat",
-    "checked": false
+    "checked": true
   },
   "miramare-queen-resort": {
     "km": 60,
     "place": "ChIJYS3OLMtewxQR-oOmteKhg6M",
-    "district": "Evrenseki",
-    "checked": false
+    "checked": true
   },
   "miramor-hotel-spa": {
     "km": 67,
     "place": "ChIJtS6kvQO3wxQRMeuXufx1-A8",
-    "district": "Çamyuva",
-    "checked": false
+    "checked": true
   },
   "miray-otel": {
     "km": 125,
     "place": "ChIJX9VhHgCj3BQRreNAz_A2WP0",
-    "district": "Alanya",
-    "checked": false
+    "checked": true
   },
   "miss-cleopatra-hotel": {
     "km": 124,
     "place": "ChIJCYVFBo-i3BQRMx9MzV6CV6E",
-    "district": "Alanya",
     "checked": false
   },
   "moda-otel": {
     "km": 17,
     "place": "ChIJDZgLFByQwxQRdGp7cWjWyHE",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "moda-suit-camyuva": {
     "km": 66,
     "place": "ChIJMalb4i62wxQRrKXmJWENCD8",
-    "district": "Çamyuva",
-    "checked": false
+    "checked": true
   },
   "mola-otel": {
     "km": 126,
     "place": "ChIJy1Xjj5yi3BQRG30ybHKWA9U",
-    "district": "Alanya",
-    "checked": false
+    "checked": true
   },
   "monachus-hotel-spa": {
     "km": 70,
     "place": "ChIJM4jt4apQwxQRAycoO1kXYRU",
-    "district": "Titreyengöl",
-    "checked": false
+    "checked": true
   },
   "monart-city-otel": {
     "km": 129,
     "place": "ChIJEbeQUlmY3BQRLoyHlb5VpXg",
-    "district": "Alanya",
-    "checked": false
+    "checked": true
   },
   "monna-roza-family-suit": {
     "km": 60,
-    "place": "ChIJoZKI95K3wxQRxlwX9l4yFx4",
-    "district": "Antalya merkez",
-    "checked": false
+    "place": "ChIJ3_EA_JK3wxQRyREgNH27V4g",
+    "checked": true
   },
   "mono-hotel": {
     "km": 16,
     "place": "ChIJ-Xj1Yw-QwxQRyVmSV6prxj8",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "monte-carlo": {
     "km": 130,
     "place": "ChIJS9qannCY3BQRCWcOR-FQc8Y",
-    "district": "Alanya",
     "checked": false
   },
   "moon-suites": {
     "km": 15,
     "place": "ChIJx4anJN6bwxQRTU7SiKTnqD0",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "moonbow-beach-hotel": {
     "km": 129,
     "place": "ChIJM6tELquZ3BQRVVhIP9gbamg",
-    "district": "Alanya",
-    "checked": false
+    "checked": true
   },
   "more-otel": {
     "km": 44,
     "place": "ChIJe-02_gW_wxQRNE_7JY8yvso",
-    "district": "Kemer",
-    "checked": false
+    "checked": true
   },
   "mostar-hotel": {
     "km": 16,
     "place": "ChIJc5DvyG2RwxQRM4r3pCONmbo",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "movenpick-resort-tekirova": {
     "km": 77,
     "place": "ChIJ5Rf9ev7LwxQRnVb_LHxBunQ",
-    "district": "Tekirova",
-    "checked": false
+    "checked": true
   },
   "mrt-suites-lara": {
     "km": 13,
     "place": "ChIJm_I_KwaDwxQRqm4JvRM2HGU",
-    "district": "Lara",
-    "checked": false
+    "checked": true
   },
   "mutado-hotel": {
     "km": 15,
     "place": "ChIJTZZAV42PwxQR8HZb88888vo",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "muz-otel": {
     "km": 123,
     "place": "ChIJAQAAFRuj3BQRxdIz_2QIHt4",
-    "district": "Alanya",
-    "checked": false
+    "checked": true
   },
   "my-antalya-otel": {
     "km": 16,
     "place": "ChIJcQliFuCRwxQR78eZjJfPMDc",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "my-home-hotel-antalya-city-center": {
     "km": 17,
     "place": "ChIJ46aRsc-RwxQR-zbnIJO2gew",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "my-home-resort-otel": {
     "km": 104,
     "place": "ChIJV5h4faav3BQRzEDsq9HeljE",
-    "district": "Alanya",
-    "checked": false
+    "checked": true
   },
   "my-home-sky-otel": {
     "km": 104,
     "place": "ChIJxTQY6aWv3BQRzEVCX2wk4RA",
-    "district": "Alanya",
     "checked": false
   },
   "my-new-otel": {
     "km": 16,
     "place": "ChIJcQliFuCRwxQR78eZjJfPMDc",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "mylome-luxury-hotel-resort": {
     "km": 94,
     "place": "ChIJ4QtzUayt3BQRrJD5CRTzxzQ",
-    "district": "Alanya",
-    "checked": false
+    "checked": true
   },
   "narcia-resort-side": {
     "km": 61,
     "place": "ChIJFahkGDlZwxQR39wQ4ipCyrw",
-    "district": "Kumköy",
-    "checked": false
+    "checked": true
   },
   "nas-otel": {
-    "km": 17,
-    "place": "ChIJuaLn1WmRwxQREmisgGIeof4",
-    "district": "Antalya merkez",
-    "checked": false
+    "km": 16,
+    "place": "ChIJsTvaLq2PwxQRNRNHtUouSZY",
+    "checked": true
   },
   "nasa-flora-hotel": {
     "km": 17,
     "place": "ChIJTRNyV--awxQRWo3l3XTtq3Y",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "nashira-city-resort-hotel": {
     "km": 19,
     "place": "ChIJUZu0-aKRwxQR6wevnicIzcw",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "nazar-beach-hotel": {
     "km": 18,
     "place": "ChIJnUNOZR-QwxQRqa-IhAFW-JI",
-    "district": "Antalya merkez",
     "checked": false
   },
   "nebiluex-hotel": {
     "km": 15,
     "place": "ChIJ8dw-eeyawxQRPCZHApptuCE",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "nergiz-boutique-hotel": {
     "km": 16,
     "place": "ChIJ1Q1yT-aRwxQRTPnRoz3Gk7I",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "nergiz-hotel": {
     "km": 16,
     "place": "ChIJGzim22qPwxQRIaf58y37kxY",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "neuron-otel": {
     "km": 49,
     "place": "ChIJ9zn1HLK5wxQROeeET3X3rKM",
-    "district": "Kemer",
-    "checked": false
+    "checked": true
   },
   "nex-royal-beach": {
     "km": 44,
     "place": "ChIJtTsJ5we_wxQRz5C8UJikxFU",
-    "district": "Beldibi",
-    "checked": false
+    "checked": true
   },
   "nfk-the-house-hotel": {
     "km": 25,
     "place": "ChIJIwAAAADrwxQRCIFN4Wq5VhE",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "ng-phaselis-bay": {
     "km": 57,
     "place": "ChIJobI6a4PLwxQRD6Sz71MlqF0",
-    "district": "Kemer",
-    "checked": false
+    "checked": true
   },
   "ni-hotel-lara": {
     "km": 15,
     "place": "ChIJB4mL2RubwxQRtDkUxWqR0yI",
-    "district": "Lara",
-    "checked": false
+    "checked": true
   },
   "nirvana-cosmopolitan-hotel": {
     "km": 14,
     "place": "ChIJ24d1xgSDwxQRDzfnAxFgRl0",
-    "district": "Lara",
-    "checked": false
+    "checked": true
   },
   "nirvana-dolce-vita": {
     "km": 78,
     "place": "ChIJjaf6vqbKwxQRky_1mm60Gwk",
-    "district": "Tekirova",
-    "checked": false
+    "checked": true
   },
   "nirvana-mediterranean-excellence": {
     "km": 47,
     "place": "ChIJGRrhfSG_wxQRmil4xRdmFiI",
-    "district": "Beldibi",
-    "checked": false
+    "checked": true
   },
   "niss-lara-hotel": {
     "km": 15,
-    "place": "ChIJ_7iyTUqbwxQR1VTZSuZ_8kw",
-    "district": "Lara",
-    "checked": false
+    "place": "ChIJwWzIJYqbwxQR70Q4LxHry9c",
+    "checked": true
   },
   "noa-s-boutique-hotel": {
     "km": 16,
     "place": "ChIJefOFVwaQwxQRgkk5k3tTrbU",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "novia-dionis-resort-spa": {
     "km": 27,
     "place": "ChIJD75ZwwB9wxQReIUXH8zFiZ4",
-    "district": "Belek",
-    "checked": false
+    "checked": true
   },
   "novis-hotel-cleopatra": {
     "km": 125,
     "place": "ChIJT9StywGj3BQR-JVeyrq_MEk",
-    "district": "Alanya",
-    "checked": false
+    "checked": true
   },
   "novum-garden-side-hotel": {
     "km": 55,
     "place": "ChIJX-JRGEdHdkARLIVkg-IYYRk",
-    "district": "Gündoğdu",
-    "checked": false
+    "checked": true
   },
   "nox-suite-rezidans": {
     "km": 15,
     "place": "ChIJI45ZFQSbwxQRWQzcDnxSiOM",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "noxinn-club-hotels": {
     "km": 115,
     "place": "ChIJ636fC-Wl3BQROvJndwRu_OA",
-    "district": "Alanya",
-    "checked": false
+    "checked": true
   },
   "noxinn-deluxe-hotel": {
     "km": 116,
     "place": "ChIJby11WnKj3BQRFvJTIc5nuyc",
-    "district": "Alanya",
-    "checked": false
+    "checked": true
   },
   "numa-bay-exclusive": {
     "km": 105,
     "place": "ChIJq_bn-Lqv3BQRU3GZSPMEb4c",
-    "district": "Avsallar",
-    "checked": false
+    "checked": true
   },
   "numa-club-side": {
     "km": 57,
     "place": "ChIJX-JRGEdHdkAR8U_eIQibbcg",
-    "district": "Manavgat",
-    "checked": false
+    "checked": true
   },
   "numa-konaktepe-otel": {
     "km": 115,
     "place": "ChIJFS363vSk3BQRYv0rpT7I_L4",
-    "district": "Alanya",
-    "checked": false
+    "checked": true
   },
   "nun-hotel": {
-    "km": 15,
-    "place": "ChIJ1fibVBebwxQRMXRo_rzwZx4",
-    "district": "Antalya merkez",
-    "checked": false
+    "km": 17,
+    "place": "ChIJTRVlWO-awxQRB33r_fBhBpo",
+    "checked": true
   },
   "nurella-pansiyon": {
     "km": 15,
     "place": "ChIJR_21kxabwxQRXNNH2PiuXO0",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "oba-star-otel-spa": {
     "km": 130,
     "place": "ChIJsaaLblOY3BQRttAplmH1ySs",
-    "district": "Alanya",
-    "checked": false
+    "checked": true
   },
   "oez-mert-hotel": {
     "km": 23,
     "place": "ChIJW23m7neRwxQRFkxFKEmjioo",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "oezhan-hotel": {
     "km": 17,
     "place": "ChIJ7W_CGwOQwxQRNduBuqP5aUM",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "olbia-hotel": {
     "km": 23,
     "place": "ChIJUXZDUTeQwxQRNyCzlW7ge-Q",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "olbia-residence-hotel": {
     "km": 23,
     "place": "ChIJUXZDUTeQwxQRNyCzlW7ge-Q",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "old-house-hotel-pub": {
     "km": 16,
     "place": "ChIJFxL8fQaQwxQRVkFsP7oasfM",
-    "district": "Antalya merkez",
     "checked": false
   },
   "old-town-deluxe-flats-apart-otel": {
     "km": 16,
     "place": "ChIJ23EVVg-QwxQRy7ofjlUR2E8",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "old-town-point-hotel-spa": {
     "km": 17,
     "place": "ChIJETabBByQwxQRfIBQYLkVckA",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "oleander-otel": {
     "km": 61,
     "place": "ChIJvzj3P9dZwxQRWtiH-t_2UCA",
-    "district": "Manavgat",
-    "checked": false
+    "checked": true
   },
   "olsen-hotels": {
     "km": 18,
     "place": "ChIJl0EnSwCRwxQRnk7r5SKxkR0",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "olya-otel": {
     "km": 44,
     "place": "ChIJneNml35XwxQR2Av0c6foDYc",
-    "district": "Kemer",
-    "checked": false
+    "checked": true
   },
   "on-hotel": {
     "km": 15,
     "place": "ChIJyd4oIq-bwxQRZJvXVj02iWM",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "onkel-hotels-beldibi-resort": {
     "km": 50,
     "place": "ChIJqXIm-PO4wxQRSO6QC2R7zXg",
-    "district": "Kemer",
-    "checked": false
+    "checked": true
   },
   "onkel-rada-apart-hotel": {
     "km": 31,
     "place": "ChIJmUjATzqTwxQRpQXfS3JGD6Q",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "opera-hotel-antalya": {
     "km": 25,
     "place": "ChIJOR4X0geRwxQRonzsrQKuSA4",
-    "district": "Konyaaltı",
-    "checked": false
+    "checked": true
   },
   "opera-suites-apart-hotel": {
     "km": 25,
     "place": "ChIJ1YiQjnORwxQRL4RAcjQOav4",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "optimum-luxury-hotel-spa": {
     "km": 14,
     "place": "ChIJ0ROswUabwxQRVvgXcSzXdmg",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "orange-bungalow-evleri": {
     "km": 17,
     "place": "ChIJofGBMLJ4wxQRccPubU1AGoQ",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "orange-county-alanya": {
     "km": 94,
     "place": "ChIJtQE18VOs3BQRtE9MDZN3OR8",
-    "district": "Okurcalar",
-    "checked": false
+    "checked": true
   },
   "orange-county-resort-hotel-kemer": {
     "km": 60,
     "place": "ChIJM7R5v5G3wxQRQnz1GD2bT3s",
-    "district": "Beldibi",
-    "checked": false
+    "checked": true
   },
   "oranj-ranch-hotel": {
     "km": 68,
     "place": "ChIJvWc1gQu2wxQRtyFnQWddtCs",
-    "district": "Kemer",
-    "checked": false
+    "checked": true
   },
   "orfeus-queen-spa": {
     "km": 56,
     "place": "ChIJZcK-OllewxQR8Gp-w4mIqj4",
-    "district": "Manavgat",
-    "checked": false
+    "checked": true
   },
   "osay-magic-garden": {
     "km": 82,
     "place": "ChIJqyNScY9TwxQRdus7z9KXUMI",
-    "district": "Kızılot",
-    "checked": false
+    "checked": true
   },
   "oscar-boutique-hotel": {
     "km": 16,
     "place": "ChIJIX2JYTWOwxQRlb6T-0q_LLk",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "oscar-garden-otel": {
     "km": 16,
     "place": "ChIJK5j-8AG3wxQR4WNMSUJ6QxU",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "otel-durkaya": {
     "km": 67,
     "place": "ChIJA5quahNXwxQR5_7hucaoLS0",
-    "district": "Manavgat",
-    "checked": false
+    "checked": true
   },
   "otel-guenduez": {
     "km": 24,
     "place": "ChIJ25Plb6SRwxQRXFBDHhVtGfU",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "otel-incekum-su": {
     "km": 102,
     "place": "ChIJ0b1muP-u3BQR8VlbxHXLIfQ",
-    "district": "İncekum",
-    "checked": false
+    "checked": true
   },
   "otel-wood-house": {
     "km": 16,
     "place": "ChIJrU0nxQaQwxQROoSzXDXc87Y",
-    "district": "Antalya merkez",
     "checked": false
   },
   "otium-boutique-happy-suites": {
     "km": 15,
     "place": "ChIJfc9Xhb6bwxQR4gERRRXmCm0",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "otium-family-club-marine-beach-otel": {
     "km": 88,
     "place": "ChIJvzj3P9dZwxQRqvgQvr7bagg",
-    "district": "Manavgat",
-    "checked": false
+    "checked": true
   },
   "otium-family-eco-club": {
     "km": 70,
     "place": "ChIJxSU3mnZZwxQRGYdz2yYy-_g",
-    "district": "Sorgun",
-    "checked": false
+    "checked": true
   },
   "otium-hotel-seven-seas": {
     "km": 70,
     "place": "ChIJM4jt4apQwxQRAycoO1kXYRU",
-    "district": "Sorgun",
     "checked": false
   },
   "otium-park-club-akman-otel": {
     "km": 70,
     "place": "ChIJ8QFYA3a2wxQRG2wktrZGX88",
-    "district": "Çamyuva",
     "checked": false
   },
   "otto-lara-hotel": {
     "km": 14,
     "place": "ChIJyT_PFkGbwxQRKcsH4JBmQYU",
-    "district": "Lara",
     "checked": false
   },
   "oz-hotels-sui": {
     "km": 94,
     "place": "ChIJS6dSaFSs3BQR1F8RuQZLXVk",
-    "district": "Alanya",
-    "checked": false
+    "checked": true
   },
   "ozgur-hotel-isiklar": {
     "km": 16,
     "place": "ChIJO_U1-PyPwxQRNy88X7ApITY",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "ozgur-otel": {
     "km": 16,
     "place": "ChIJO_U1-PyPwxQRNy88X7ApITY",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "ozkaymak-falez-hotel": {
     "km": 19,
     "place": "ChIJ_ZXAKjGQwxQRu65ts4joehs",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "ozkaymak-marina-otel": {
     "km": 62,
     "place": "ChIJfRRzCZi3wxQRPXuJ8wsWeL4",
-    "district": "Kemer",
-    "checked": false
+    "checked": true
   },
   "ozkaymak-select-resort-otel": {
     "km": 102,
     "place": "ChIJ9XbBdJqv3BQRkfiW6OaNbhw",
-    "district": "Alanya",
-    "checked": false
+    "checked": true
   },
   "ozmen-hotel-old-town-kaleici": {
     "km": 16,
     "place": "ChIJ77aRhwWQwxQR8PxhSQ_kFUU",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "ozmert-otel": {
     "km": 23,
     "place": "ChIJW23m7neRwxQRFkxFKEmjioo",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "ozturk-hotel": {
     "km": 17,
     "place": "ChIJx4HqJ_qPwxQRcq8q-1DfseQ",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "palm-city-alanya-hotel": {
     "km": 128,
     "place": "ChIJB88n3ruZ3BQRHCm5mOFIhaU",
-    "district": "Alanya",
-    "checked": false
+    "checked": true
   },
   "palm-house-17-adult-only-otel": {
     "km": 16,
     "place": "ChIJBw2kUA-QwxQR0RXEjqYqb_A",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "palm-house-17-oriental-guesthouse": {
     "km": 16,
     "place": "ChIJBw2kUA-QwxQR0RXEjqYqb_A",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "palmenhaus-antalya-otel": {
     "km": 16,
     "place": "ChIJBw2kUA-QwxQR0RXEjqYqb_A",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "palmeras-beach-hotel": {
     "km": 113,
     "place": "ChIJ6Y0FyPuk3BQREtW596sXmX0",
-    "district": "Alanya",
-    "checked": false
+    "checked": true
   },
   "paloma-pasha-resort": {
     "km": 36,
     "place": "ChIJEX5LA0J7wxQR1gw3W_FKIoo",
-    "district": "Göynük",
     "checked": false
   },
   "paloma-sencia": {
     "km": 38,
     "place": "ChIJ0wWOGgBlwxQRywiDd3684QA",
-    "district": "Serik",
-    "checked": false
+    "checked": true
   },
   "palvan-house": {
     "km": 16,
     "place": "ChIJPUzfnpCPwxQRxi-Rrgv7T2o",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "papillon-ayscha-resort": {
     "km": 38,
     "place": "ChIJTWu5zLVkwxQRZa6Ay8gQngw",
-    "district": "Belek",
-    "checked": false
+    "checked": true
   },
   "papillon-belvil-resort": {
     "km": 31,
     "place": "ChIJUYtjzZmRwxQRciC62EKLEro",
-    "district": "Belek",
-    "checked": false
+    "checked": true
   },
   "papillon-zeugma-relaxury": {
     "km": 39,
     "place": "ChIJyfWgWbdkwxQR9sAEoKP-6Ts",
-    "district": "Belek",
-    "checked": false
+    "checked": true
   },
   "park-hotel-rooms-apart": {
     "km": 16,
     "place": "ChIJFx1rMAmQwxQRkXyZiyKNzSg",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "pascha-otel": {
     "km": 26,
     "place": "ChIJLzBJAfV9wxQRSlBb8y3pVU0",
-    "district": "Serik",
-    "checked": false
+    "checked": true
   },
   "patio-hotel": {
     "km": 16,
     "place": "ChIJR79wkgWQwxQRb4TqbhwSS4A",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "patron-hotel": {
     "km": 16,
     "place": "ChIJGfoYEASQwxQRytxeTfzYQ4A",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "pearly-hotel": {
     "km": 23,
     "place": "ChIJx-ri-GWRwxQRLeKk1tcS3sE",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "peker-otel": {
     "km": 52,
     "place": "ChIJVRe4m_O4wxQRy8qxCrKDmjQ",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "pera-aura": {
     "km": 67,
     "place": "ChIJqzYifpC3wxQRd7YQuAFlaIc",
-    "district": "Kemer",
-    "checked": false
+    "checked": true
   },
   "pera-boutique-hotel": {
     "km": 17,
     "place": "ChIJrfmNe-iRwxQRO1It_z3zv3s",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "peramis-hotel-spa": {
     "km": 13,
     "place": "ChIJz0CM4z2dwxQRy-fKQ2pPrrI",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "perast-city-hotel": {
     "km": 25,
     "place": "ChIJXVHwhG2RwxQRE3ckM2FA6Wo",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "perge-hotels-adult-only-16-plus": {
     "km": 16,
     "place": "ChIJac6hNwmQwxQRD0Yuk3b4mdQ",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "perre-delta-resort-spa": {
     "km": 91,
     "place": "ChIJl_QPEI2t3BQRzt-Z4gmVLto",
-    "district": "Alanya",
-    "checked": false
+    "checked": true
   },
   "piem-apart-apart-otel": {
     "km": 22,
     "place": "ChIJn_YxxZKTwxQR4iO8kZbtmts",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "pina-hotel-oldtown": {
     "km": 16,
     "place": "ChIJRbtwPQCRwxQRoIxmthY6rYU",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "pinus-otel": {
     "km": 17,
     "place": "ChIJI9KHVO-awxQRIJCBp3ejArM",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "piyes-otel": {
     "km": 17,
     "place": "ChIJMxQ79AKQwxQRIENy20Y0uWs",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "plt-lego-holiday-village": {
     "km": 7,
-    "place": "ChIJa19weKGFwxQRxXRUNu3U0Pk",
-    "district": "Antalya merkez",
-    "checked": false
+    "place": "ChIJ7XmjoD-EwxQRihUhROa3uZE",
+    "checked": true
   },
   "port-nature-luxury-resort": {
     "km": 44,
     "place": "ChIJ3fK_LQSQwxQRctvxQXWQXZo",
-    "district": "Belek",
-    "checked": false
+    "checked": true
   },
   "port-side-resort-hotel": {
     "km": 58,
     "place": "ChIJx4bG68hewxQR9WuzJbdX4B8",
-    "district": "Manavgat",
-    "checked": false
+    "checked": true
   },
   "porto-bello-hotel-resort-spa": {
     "km": 31,
     "place": "ChIJ0Q2JyFiRwxQR8Sta6uwl0XI",
-    "district": "Konyaaltı",
-    "checked": false
+    "checked": true
   },
   "premier-inn-city": {
     "km": 15,
     "place": "ChIJUYYLWF2bwxQRwelgYzw25t0",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
+  },
+  "prenses-sealine-beach-otel": {
+    "km": 41,
+    "place": "ChIJwRKbpeKPwxQRBqzaZz4Anb4",
+    "checked": true
   },
   "prima-hotel": {
     "km": 17,
     "place": "ChIJv0YKxe6awxQR2fqWQ_jfM_w",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "prime-boutique-hotel": {
     "km": 16,
     "place": "ChIJvX5j1KaawxQRtE5w3BIjk7o",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "privado-hotels": {
     "km": 15,
     "place": "ChIJGUbm7GKPwxQRXoTV02LYUBM",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "puding-hotel": {
     "km": 16,
     "place": "ChIJmbB_rQWQwxQRsEE08fggi5Y",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "pukka-hotel": {
     "km": 25,
     "place": "ChIJUWeb7XGRwxQRrw45VULNRVM",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "pure-blanche-hotel": {
     "km": 17,
     "place": "ChIJlbvFB-yawxQRoytKQI-7OD4",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "pure-diamond-hotel": {
     "km": 15,
     "place": "ChIJZV33uhmbwxQRuJUemjwH82Y",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "pusula-apart-otel": {
     "km": 30,
     "place": "ChIJrRnPkcyTwxQRvHVwJsfsKa0",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "q-premium-resort-hotel-alanya": {
     "km": 91,
     "place": "ChIJI_AXWuas3BQRLSDEKqNKzK0",
-    "district": "Konaklı",
     "checked": false
   },
   "q-spa-resort": {
     "km": 58,
     "place": "ChIJXWm1D9tewxQR1A2A3jYMTOs",
-    "district": "Evrenseki",
     "checked": false
   },
   "qinn-hotels": {
     "km": 17,
     "place": "ChIJjfJcfxWbwxQRP8NMFcadfqY",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "quality-gold-suite-hotel": {
     "km": 13,
     "place": "ChIJJc6aR0-bwxQR37CGiD4UcJE",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "quattro-beach-spa-resort": {
     "km": 115,
     "place": "ChIJSeI-PYWY3BQRobs-UEU6Rxg",
-    "district": "Alanya",
-    "checked": false
+    "checked": true
   },
   "queen-s-park-le-jardin": {
     "km": 67,
     "place": "ChIJL0wMTU4WzBQRfXDhwpgEOVw",
-    "district": "Göynük",
-    "checked": false
+    "checked": true
   },
   "queen-s-park-tekirova": {
     "km": 76,
     "place": "ChIJRfQacp7KwxQR6558tNji_yk",
-    "district": "Tekirova",
-    "checked": false
+    "checked": true
   },
   "radisson-blu-hotel-kas": {
     "km": 208,
     "place": "ChIJXTNseBPRwRQRKwD6q5klrfk",
-    "district": "Kaş",
-    "checked": false
+    "checked": true
   },
   "rai-foresta-tekirova-spa": {
     "km": 77,
     "place": "ChIJ33WX-Mq1wxQRGbqLv73lKCI",
-    "district": "Kemer",
-    "checked": false
+    "checked": true
   },
   "rai-premium-tekirova": {
     "km": 76,
     "place": "ChIJh-lnFp7KwxQRnxhZiFDEONA",
-    "district": "Tekirova",
     "checked": false
   },
   "ramada-plaza-antalya": {
     "km": 16,
     "place": "ChIJYeTybQmQwxQRMjKUGI230ko",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "ramada-resort-by-wyndham-lara": {
     "km": 15,
     "place": "ChIJeYndQMeCwxQR28i4CukufTs",
-    "district": "Lara",
-    "checked": false
+    "checked": true
   },
   "ramada-resort-side": {
     "km": 54,
     "place": "ChIJa50ODCRfwxQR04QbiH5YjPk",
-    "district": "Manavgat",
-    "checked": false
+    "checked": true
   },
   "ramira-beach-hotel": {
     "km": 103,
     "place": "ChIJBzh1oqqv3BQRvWHcVdwLrC8",
-    "district": "Alanya",
-    "checked": false
+    "checked": true
   },
   "ramira-joy-hotel": {
     "km": 126,
     "place": "ChIJB0ulN4Ki3BQR10ot_we9EbA",
-    "district": "Alanya",
-    "checked": false
+    "checked": true
   },
   "ramona-kale-hotel": {
     "km": 15,
     "place": "ChIJfV6Y2AeQwxQRRzQ8B6eGuds",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "ramona-lara-otel": {
     "km": 13,
     "place": "ChIJm8PW-AKbwxQReKwHcUK5fYw",
-    "district": "Lara",
-    "checked": false
+    "checked": true
   },
   "raw-beach-hotel": {
     "km": 14,
     "place": "ChIJW1flZz6dwxQROZ5oyW9-lDU",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "rega-otel": {
     "km": 25,
     "place": "ChIJD3vLRiqRwxQRpLI99j3Rs-w",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "regnum-carya": {
     "km": 29,
     "place": "ChIJVVVVlV17wxQRvKwc7vqFPU8",
-    "district": "Kadriye",
-    "checked": false
+    "checked": true
   },
   "relax-beach-hotel": {
     "km": 132,
     "place": "ChIJ7QV2YiGZ3BQR6TuzPka51vw",
-    "district": "Alanya",
-    "checked": false
+    "checked": true
   },
   "renex-hotels": {
     "km": 12,
     "place": "ChIJGzMZokiFwxQRx1UENVs3iM0",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "reo-hotel": {
     "km": 23,
     "place": "ChIJLRXGGY2RwxQR4Nm8KQswUkM",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "residence-inn-by-marriott": {
     "km": 15,
     "place": "ChIJfQi8YoWbwxQR1EC_Gb8iO8g",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "resitalya-otel": {
     "km": 128,
     "place": "ChIJ73L0XV6Y3BQRdxj49704DOM",
-    "district": "Alanya",
-    "checked": false
+    "checked": true
   },
   "retro-star-suites": {
     "km": 25,
     "place": "ChIJywEXGJqRwxQR1th1bBxXUYg",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "ring-beach-otel": {
     "km": 45,
     "place": "ChIJbb4GsRC_wxQRhTE_0iWHDLc",
-    "district": "Kemer",
-    "checked": false
+    "checked": true
   },
   "ring-downtown-hotel": {
     "km": 17,
     "place": "ChIJhe2CoB6QwxQRDvCy4X5onVw",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "riolavitas-resort-spa": {
     "km": 71,
     "place": "ChIJh9wijE1XwxQRiZmaLOomt1E",
-    "district": "Manavgat",
-    "checked": false
+    "checked": true
   },
   "rios-latte-beach-otel": {
     "km": 44,
     "place": "ChIJ-XRL5Qe_wxQRisIPg4Yuv1s",
-    "district": "Kemer",
-    "checked": false
+    "checked": true
+  },
+  "rivador-hotel-kemer": {
+    "km": 61,
+    "place": "ChIJgVp4U3u3wxQRtlzQZ5Ff3Q0",
+    "checked": true
   },
   "river-elite-hotel-spa": {
     "km": 17,
     "place": "ChIJUcbXjRuQwxQRjFYUPkXN1i4",
-    "district": "Antalya merkez",
     "checked": false
   },
   "river-park-residence-lara": {
     "km": 15,
     "place": "ChIJx1Ms8gGDwxQR2wMRmk_zwyU",
-    "district": "Lara",
-    "checked": false
+    "checked": true
   },
   "river-suite-otel": {
     "km": 68,
     "place": "ChIJezPGDNFXwxQRLOm6wClTf68",
-    "district": "Manavgat",
-    "checked": false
+    "checked": true
   },
   "riversea-suite-hotel": {
     "km": 14,
     "place": "ChIJL8jOScSCwxQRuSQbWFZpB3E",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "riviera-otel": {
     "km": 125,
     "place": "ChIJT7SmK5ui3BQRR3rVCS6e3L0",
-    "district": "Alanya",
-    "checked": false
+    "checked": true
   },
   "riviera-zen-otel": {
     "km": 125,
     "place": "ChIJEb0ygVKj3BQRqWYpAeCTljY",
-    "district": "Alanya",
-    "checked": false
+    "checked": true
   },
   "rixos-beldibi": {
     "km": 44,
     "place": "ChIJK9j0eQ-_wxQRRE5fZVl4d9M",
-    "district": "Beldibi",
-    "checked": false
+    "checked": true
   },
   "rixos-downtown-antalya": {
     "km": 22,
     "place": "ChIJbR4fTDSQwxQReVuq1-4SvK0",
-    "district": "Konyaaltı",
-    "checked": false
+    "checked": true
   },
   "rixos-downtown-antalya-the-land-of-legends-access-otel": {
     "km": 22,
     "place": "ChIJbR4fTDSQwxQReVuq1-4SvK0",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "rixos-park-belek": {
     "km": 38,
     "place": "ChIJTwaeW-NlwxQRFAmpwzMIHIg",
-    "district": "Belek",
-    "checked": false
+    "checked": true
   },
   "rixos-premium-belek": {
     "km": 39,
     "place": "ChIJ2yDtHI2FxBQRjxSAKH5bFjg",
-    "district": "Belek",
-    "checked": false
+    "checked": true
   },
   "rixos-premium-kemer": {
     "km": 77,
     "place": "ChIJ18C0nIK1wxQRdZ03gE6SJzo",
-    "district": "Göynük",
-    "checked": false
+    "checked": true
   },
   "rixos-premium-tekirova": {
     "km": 77,
     "place": "ChIJ18C0nIK1wxQRdZ03gE6SJzo",
-    "district": "Tekirova",
-    "checked": false
+    "checked": true
   },
   "rixos-sungate": {
     "km": 48,
     "place": "ChIJlwXuqBqQwxQRX0AIEZgK_Mo",
-    "district": "Beldibi",
-    "checked": false
+    "checked": true
   },
   "rk-magic-dream-hotel": {
     "km": 59,
     "place": "ChIJxU6WK4y3wxQR-SRtkfNOqYs",
-    "district": "Kemer",
-    "checked": false
+    "checked": true
   },
   "robinson-club-camyuva": {
     "km": 70,
     "place": "ChIJvWj609i1wxQRrUVrZR72PLY",
-    "district": "Kemer",
-    "checked": false
+    "checked": true
   },
   "robinson-club-nobilis": {
     "km": 42,
     "place": "ChIJS43b3oVkwxQRUE3KQT2D7fc",
-    "district": "Belek",
-    "checked": false
+    "checked": true
   },
   "robinson-club-side": {
     "km": 69,
     "place": "ChIJBdQi_3W2wxQRFyao9RznRqs",
-    "district": "Side",
-    "checked": false
+    "checked": true
   },
   "rodinn-park-hotel": {
     "km": 25,
     "place": "ChIJLZ16eoqRwxQR2r49hjnb5Ng",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "role-street-hostel": {
     "km": 16,
     "place": "ChIJN5Q0Tg-QwxQR1xSLLl8vx8w",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "roma-beach-resort-spa": {
     "km": 55,
     "place": "ChIJd896kidZwxQR0GiHr13JANk",
-    "district": "Manavgat",
-    "checked": false
+    "checked": true
   },
   "rose-garden-premium-hotel": {
     "km": 45,
     "place": "ChIJq3Qpop23wxQRhUMrGGBEbXk",
-    "district": "Kemer",
-    "checked": false
+    "checked": true
   },
   "rosella-hotel": {
     "km": 128,
     "place": "ChIJAb3MVHyZ3BQRLrkEJcIcm_M",
-    "district": "Alanya",
-    "checked": false
+    "checked": true
   },
   "route-hotel-kaleici-adult-only": {
     "km": 16,
     "place": "ChIJJxBmp5-RwxQRR-jibJowmtM",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "rox-resort-hotel": {
     "km": 60,
     "place": "ChIJecMZxKi3wxQR4UlL7S5jdiA",
-    "district": "Kemer",
-    "checked": false
+    "checked": true
   },
   "royal-alhambra-palace": {
     "km": 57,
     "place": "ChIJHcpz3l9ewxQReKwNsmv130w",
-    "district": "Çolaklı",
-    "checked": false
+    "checked": true
+  },
+  "royal-atlantis-spa-resort": {
+    "km": 55,
+    "place": "ChIJu6ojebhfwxQRk_6-JaF6dCY",
+    "checked": true
   },
   "royal-city-hotel": {
     "km": 17,
     "place": "ChIJJwijPJCbwxQRBM0RU7kqJtc",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "royal-dragon-hotel": {
     "km": 59,
     "place": "ChIJk7wjmnZZwxQRGXPpuO8t9lM",
-    "district": "Evrenseki",
-    "checked": false
+    "checked": true
   },
   "royal-ezel-hotel": {
     "km": 19,
     "place": "ChIJBYgUAm6RwxQRaYDfz4pn5i0",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "royal-garden-beach-otel": {
     "km": 113,
     "place": "ChIJVdk_zfak3BQRteDolPOsjnk",
-    "district": "Alanya",
-    "checked": false
+    "checked": true
   },
   "royal-holiday-palace": {
     "km": 17,
     "place": "ChIJkQ-SP1iDwxQR0lDURweCs8Y",
-    "district": "Kundu",
-    "checked": false
+    "checked": true
   },
   "royal-homes-704": {
     "km": 17,
     "place": "ChIJQ3eaGKiRwxQRCTuFCmSwThQ",
-    "district": "Antalya merkez",
     "checked": false
   },
   "royal-loft-suit": {
     "km": 26,
     "place": "ChIJZ8_wd5GRwxQRJVT8bKrrI-c",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "royal-otel": {
     "km": 124,
     "place": "ChIJfb0XpPai3BQRl2IByIMl4kk",
-    "district": "Alanya",
-    "checked": false
+    "checked": true
   },
   "royal-seginus": {
     "km": 17,
     "place": "ChIJ7a_BZ5-CwxQRz3frVQFXMSU",
-    "district": "Lara",
-    "checked": false
+    "checked": true
   },
   "royal-taj-mahal-hotel": {
     "km": 59,
     "place": "ChIJV0dEkMlewxQRMl9TPNDQlKo",
-    "district": "Evrenseki",
-    "checked": false
+    "checked": true
   },
   "royal-wings-hotel": {
     "km": 16,
     "place": "ChIJu7meXwiQwxQRf_D18DMeZIk",
-    "district": "Lara",
-    "checked": false
+    "checked": true
   },
   "rubi-hotel": {
     "km": 103,
     "place": "ChIJpXrwFKmv3BQRB7kMjzxIfiY",
-    "district": "Alanya",
-    "checked": false
+    "checked": true
   },
   "rubi-platinum-spa-resort": {
     "km": 102,
     "place": "ChIJa2Ct5P-u3BQR1mdkvSj3ysI",
-    "district": "Avsallar",
-    "checked": false
+    "checked": true
   },
   "ruinadalia-hotel-adults-only": {
     "km": 16,
     "place": "ChIJF_61kQaQwxQRrOooTLEJutQ",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "sabah-pansiyon": {
     "km": 16,
     "place": "ChIJKcwGZQ-QwxQRGTkvB7QC0Pc",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "safari-otel": {
     "km": 15,
     "place": "ChIJAZ--9_-PwxQRi9Dm2zfQohg",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "sailor-s-beach-club": {
     "km": 68,
     "place": "ChIJz26SQgK3wxQRfGjkrrlCK9Y",
-    "district": "Kemer",
-    "checked": false
+    "checked": true
   },
   "sam-hotel": {
     "km": 25,
     "place": "ChIJm4ihuTeRwxQRTetSFri2vtM",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
+  },
+  "sandy-beach-otel": {
+    "km": 64,
+    "place": "ChIJyZpwOHxZwxQRPuQg9roPGBk",
+    "checked": true
   },
   "santana-hotel": {
     "km": 44,
     "place": "ChIJZZBaKQm_wxQR4L_VGBD9yt8",
-    "district": "Kemer",
-    "checked": false
+    "checked": true
   },
   "saphir-resort-spa": {
     "km": 93,
     "place": "ChIJ25yaM_6s3BQRc5cBOF4ZO00",
-    "district": "Alanya",
-    "checked": false
+    "checked": true
   },
   "sarampol-hotel": {
     "km": 16,
     "place": "ChIJGybN8_yPwxQRUDUHMv4znpk",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "sare-beach-hotel": {
     "km": 18,
     "place": "ChIJexNZEoGPwxQR9vo-V3CQgSE",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "saritas-otel": {
     "km": 131,
     "place": "ChIJSeI-PYWY3BQR8k_f_9ykVI8",
-    "district": "Alanya",
-    "checked": false
+    "checked": true
   },
   "sarp-hotel-kadriye": {
     "km": 27,
     "place": "ChIJH1-dLwp8wxQRqBFTWh4tnNw",
-    "district": "Kadriye",
-    "checked": false
+    "checked": true
   },
   "sato-hotel": {
     "km": 15,
     "place": "ChIJSVMWhhmbwxQRAFPGDd4CwBQ",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "saturn-palace-resort": {
     "km": 17,
     "place": "ChIJG4eRIKCCwxQR1kLtdpxz0fw",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "sava-hotel": {
     "km": 25,
     "place": "ChIJ83Q5xHGRwxQREHoJ0tQDJoM",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "saye-konak-hotel-kaleici-oldtown": {
     "km": 16,
     "place": "ChIJq3EiQcmRwxQRGTB-8aZ0D0w",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
+  },
+  "scylax-hotels-family-club": {
+    "km": 142,
+    "place": "ChIJS-S2iZqQ3BQR-AT3YERkNdI",
+    "checked": true
   },
   "sea-city-devran-hotel-spa": {
     "km": 23,
     "place": "ChIJm8Dx4qWRwxQRaby7o02U8Uo",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "seaden-de-mar-resort-spa": {
     "km": 80,
     "place": "ChIJc2qCtMdTwxQRZMG2bADZtoU",
-    "district": "Kızılağaç",
-    "checked": false
+    "checked": true
   },
   "seaden-quality-resort-spa": {
     "km": 62,
     "place": "ChIJ42Omx-pZwxQRMETNR_dn-OE",
-    "district": "Kumköy",
-    "checked": false
+    "checked": true
   },
   "seaden-sea-planet-resort-spa": {
     "km": 82,
     "place": "ChIJi7AyJI5TwxQR13QrxLqEVLY",
-    "district": "Kızılot",
-    "checked": false
+    "checked": true
   },
   "seaden-sea-world-resort-spa": {
     "km": 80,
     "place": "ChIJyXqOB9BZwxQRnNAQPK7ix-c",
-    "district": "Kızılağaç",
-    "checked": false
+    "checked": true
   },
   "sealife-buket-resort-beach": {
     "km": 93,
     "place": "ChIJbeT1Sa-v3BQRUZXJ4q5239E",
-    "district": "Okurcalar",
-    "checked": false
+    "checked": true
   },
   "sealife-family-resort-hotel": {
     "km": 25,
     "place": "ChIJGbUuD26RwxQRa_peosNTTHs",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "sealife-kemer-resort-hotel": {
     "km": 59,
     "place": "ChIJxeRjcgm3wxQRFRHMndsaBm8",
-    "district": "Kemer",
-    "checked": false
+    "checked": true
   },
   "sealife-lounge-adult-only-otel": {
     "km": 23,
     "place": "ChIJH6YLbaWRwxQRbV1EvhjAAzQ",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
+  },
+  "seamelia-beach-resort-hotel-spa": {
+    "km": 59,
+    "place": "ChIJW6-c-zhZwxQRkCBU7PqVkOE",
+    "checked": true
   },
   "seashell-vega": {
     "km": 54,
     "place": "ChIJmSCa1q1ZwxQRlURQtG1J2Wc",
-    "district": "Manavgat",
-    "checked": false
+    "checked": true
   },
   "sedir-park-joy-otel": {
     "km": 151,
     "place": "ChIJrRj-YTCbwxQRq0blRTGTOD4",
-    "district": "Alanya",
-    "checked": false
+    "checked": true
   },
   "seher-resort-spa": {
     "km": 59,
     "place": "ChIJt-cbrNBbwxQRNMqjsrN4iKE",
-    "district": "Evrenseki",
-    "checked": false
+    "checked": true
   },
   "seher-sun-beach": {
     "km": 58,
     "place": "ChIJYe2y50FfwxQRSQrVk63HSbI",
-    "district": "Evrenseki",
-    "checked": false
+    "checked": true
   },
   "sehir-hotel": {
     "km": 32,
     "place": "ChIJ15dfauKTwxQRlPIp5OQcqNM",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "selcukhan-hotel": {
     "km": 44,
     "place": "ChIJ82hLF6i_wxQRVS7zXvFxyB8",
-    "district": "Kemer",
-    "checked": false
+    "checked": true
   },
   "selectum-family-comfort-side": {
     "km": 80,
     "place": "ChIJz-C9WfpTwxQRSSdKLkqtNR0",
-    "district": "Manavgat",
     "checked": false
   },
   "selectum-family-resort-belek": {
     "km": 40,
     "place": "ChIJiylWOZZkwxQR-7XSCwhEKJ0",
-    "district": "Belek",
-    "checked": false
+    "checked": true
   },
   "selectum-family-resort-side": {
     "km": 81,
     "place": "ChIJ-VceAeCsxBQRUgJ6YWpjC1k",
-    "district": "Manavgat",
-    "checked": false
+    "checked": true
   },
   "selectum-luxury-resort-belek": {
     "km": 32,
     "place": "ChIJa8Dm4Z57wxQRVM9rBJ8_680",
-    "district": "Belek",
-    "checked": false
+    "checked": true
   },
   "selectum-noa-belek": {
     "km": 40,
     "place": "ChIJuQv5mL1kwxQRdcA9MFF4ReQ",
-    "district": "Serik",
-    "checked": false
+    "checked": true
   },
   "selge-beach-resort-spa": {
     "km": 82,
     "place": "ChIJh_MxLlO2yhQRCOLKETYouWs",
-    "district": "Kızılağaç",
-    "checked": false
+    "checked": true
   },
   "selin-otel-belek": {
     "km": 36,
     "place": "ChIJU6WZKDF7wxQRbiRx-1EIQgU",
-    "district": "Belek",
-    "checked": false
+    "checked": true
   },
   "send-apart-otel": {
     "km": 23,
     "place": "ChIJ2V97QqSRwxQR-gvd-XwbKqM",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "sensitive-premium-resort": {
     "km": 41,
     "place": "ChIJ0y6GYnlkwxQRWWUVbasntOA",
-    "district": "Serik",
-    "checked": false
+    "checked": true
   },
   "sentido-flora-garden": {
     "km": 84,
     "place": "ChIJ3dqrTXJTwxQRLZcX-yI85yY",
-    "district": "Çolaklı",
-    "checked": false
+    "checked": true
   },
   "sentido-gold-island-hotel": {
     "km": 106,
     "place": "ChIJ4VfmhbCv3BQRVJWZMa8neog",
-    "district": "Alanya merkez",
-    "checked": false
+    "checked": true
   },
   "sentido-kamelya-fulya": {
     "km": 58,
     "place": "ChIJYbJIsMFewxQRDP0lhEHGBWQ",
-    "district": "Çolaklı",
-    "checked": false
+    "checked": true
   },
   "senza-garden-holiday-club-hotel": {
     "km": 117,
     "place": "ChIJK_jpf8il3BQRQ_GAmoFTk9Q",
-    "district": "Alanya",
-    "checked": false
+    "checked": true
   },
   "senza-grand-santana-otel": {
     "km": 141,
     "place": "ChIJHzb1Owia3BQRuprj6kxeB44",
-    "district": "Alanya",
-    "checked": false
+    "checked": true
   },
   "senza-sunset-beach-hotel": {
     "km": 133,
     "place": "ChIJoT9uAZmv3BQRjIDHhIiS_0I",
-    "district": "Alanya",
-    "checked": false
+    "checked": true
   },
   "senza-the-inn-resort-spa": {
     "km": 109,
     "place": "ChIJswA_o2Kl3BQRJeSSGC4a5gg",
-    "district": "Alanya",
-    "checked": false
+    "checked": true
   },
   "serenity-lara-hotel": {
-    "km": 17,
-    "place": "ChIJfQRbJaKCwxQR9GamLR4V97U",
-    "district": "Lara",
-    "checked": false
+    "km": 25,
+    "place": "ChIJs_W40tCRwxQRh8boF-1vVIA",
+    "checked": true
   },
   "serenity-queen-hotel": {
     "km": 114,
     "place": "ChIJbxxH-Xyj3BQRo7bw6Q_hvm4",
-    "district": "Alanya",
-    "checked": false
+    "checked": true
   },
   "serenity-suit-hotel": {
     "km": 25,
     "place": "ChIJs_W40tCRwxQRh8boF-1vVIA",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "serenity-suites-hotel": {
     "km": 25,
     "place": "ChIJs_W40tCRwxQRh8boF-1vVIA",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "sette-serenity-otel": {
     "km": 130,
     "place": "ChIJPW6Lg1OY3BQRLS49RLLFcfE",
-    "district": "Alanya",
-    "checked": false
+    "checked": true
   },
   "seven-seas-hotel-life-kemer": {
     "km": 51,
     "place": "ChIJC8-_S-W4wxQRxSHFfG-p7xw",
-    "district": "Kemer",
-    "checked": false
+    "checked": true
   },
   "seven-seas-palmeras-bay-hotel": {
     "km": 117,
     "place": "ChIJY8LGIV2l3BQReIdj34Pfg1o",
-    "district": "Alanya",
-    "checked": false
+    "checked": true
   },
   "sever-hotel": {
     "km": 13,
     "place": "ChIJWS7mnKKFwxQRR3EABe98o38",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "sever-suites-hotel": {
     "km": 13,
     "place": "ChIJWS7mnKKFwxQRR3EABe98o38",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "sey-beach-hotel-spa": {
     "km": 135,
     "place": "ChIJkXuJLXiY3BQR51IMnsbl38g",
-    "district": "Kestel",
-    "checked": false
+    "checked": true
   },
   "sherwood-dreams-resort": {
     "km": 43,
     "place": "ChIJ-xOdkg5kwxQRYQZFM3L7x3Y",
-    "district": "Boğazkent",
     "checked": false
   },
   "sherwood-exclusive-kemer": {
     "km": 53,
     "place": "ChIJbSoWaFy4wxQRDZ1KjjzjMm4",
-    "district": "Göynük",
-    "checked": false
+    "checked": true
   },
   "sherwood-exclusive-lara": {
     "km": 16,
     "place": "ChIJuzjBGteCwxQR0Ccc4DPjm7c",
-    "district": "Lara",
-    "checked": false
+    "checked": true
   },
   "sherwood-premio-hotel": {
     "km": 17,
     "place": "ChIJh1luuOiawxQRdH5IF14ht5M",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "siam-elegance-hotel-spa": {
     "km": 42,
     "place": "ChIJFWBF2QxkwxQRzOoGdQxqCBI",
-    "district": "Serik",
-    "checked": false
+    "checked": true
   },
   "sibel-hotel": {
     "km": 16,
     "place": "ChIJfXlt7gWQwxQRvhVmgghxVZQ",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "side-alegria-hotel-spa": {
     "km": 61,
     "place": "ChIJk0qHjzhZwxQRSWBUjaw9KDY",
-    "district": "Manavgat",
-    "checked": false
+    "checked": true
   },
   "side-breeze-otel": {
     "km": 59,
     "place": "ChIJbaC1DcZewxQRB1gdj1P-Gsw",
-    "district": "Manavgat",
-    "checked": false
+    "checked": true
   },
   "side-crown-palace": {
     "km": 59,
     "place": "ChIJIebav01fwxQRhKXcQUJoXXU",
-    "district": "Evrenseki",
-    "checked": false
+    "checked": true
   },
   "side-mare-resort-spa-otel": {
     "km": 61,
     "place": "ChIJLdtXyTlZwxQRIefolhI8UDA",
-    "district": "Manavgat",
-    "checked": false
+    "checked": true
   },
   "side-moon-palace-hotel": {
     "km": 69,
     "place": "ChIJAwLj9vJZwxQRodac43t2eIA",
-    "district": "Sorgun",
-    "checked": false
+    "checked": true
   },
   "side-orange-paradise-hotel": {
     "km": 59,
     "place": "ChIJH2oejMtewxQRAJ0VhJWue-g",
-    "district": "Gündoğdu",
-    "checked": false
+    "checked": true
   },
   "side-premium-hotel": {
     "km": 58,
     "place": "ChIJL4tFqMZewxQRt-j6lNcJq7o",
-    "district": "Evrenseki",
-    "checked": false
+    "checked": true
   },
   "side-prenses-resort": {
     "km": 64,
     "place": "ChIJL5l8XW5ZwxQRhTw06fJuCfc",
-    "district": "Titreyengöl",
-    "checked": false
+    "checked": true
   },
   "side-star-beach": {
     "km": 65,
     "place": "ChIJlaf3HnpZwxQRbJPTvcc7W9o",
-    "district": "Side",
-    "checked": false
+    "checked": true
   },
   "side-star-elegance": {
     "km": 64,
     "place": "ChIJbRMW9W5ZwxQRf57xFsxDa04",
-    "district": "Side",
-    "checked": false
+    "checked": true
   },
   "side-star-resort": {
     "km": 54,
     "place": "ChIJNTbXEBVewxQRnwqFw9zdvYM",
-    "district": "Gündoğdu",
-    "checked": false
+    "checked": true
   },
   "side-story-resort-spa": {
     "km": 59,
     "place": "ChIJIXHdm25ZwxQR-ZR8hDE3oz4",
-    "district": "Manavgat",
-    "checked": false
+    "checked": true
   },
   "side-sun-otel": {
     "km": 61,
     "place": "ChIJyZpwOHxZwxQRFfUUBWXfZPs",
-    "district": "Manavgat",
-    "checked": false
+    "checked": true
   },
   "side-sunport-hotel-spa": {
     "km": 58,
     "place": "ChIJj_LWqMZewxQRxUrpmN6GB08",
-    "district": "Evrenseki",
-    "checked": false
+    "checked": true
   },
   "side-village-hotel": {
     "km": 61,
     "place": "ChIJYWvIhDlZwxQR_N8sfcCngjQ",
-    "district": "Kumköy",
-    "checked": false
+    "checked": true
   },
   "side-west-park-otel": {
     "km": 59,
     "place": "ChIJVZf5XMRewxQRWohZ4qQUyS4",
-    "district": "Manavgat",
-    "checked": false
+    "checked": true
   },
   "sidekum-otel": {
     "km": 61,
     "place": "ChIJB5jG8DRZwxQRGiaXMi6eh5A",
-    "district": "Manavgat",
-    "checked": false
+    "checked": true
   },
   "sidelya-otel": {
     "km": 57,
     "place": "ChIJ5RDFYQBfwxQRaUm7Ek7APYs",
-    "district": "Manavgat",
-    "checked": false
+    "checked": true
   },
   "sidera-kirman-premium": {
     "km": 91,
     "place": "ChIJxUI-WgCt3BQRIGPK_Cj0tvU",
-    "district": "Okurcalar",
-    "checked": false
+    "checked": true
   },
   "sies-otel": {
     "km": 17,
     "place": "ChIJg2Yabg2RwxQRepEQ2K9ujZ0",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "siete-hotel": {
     "km": 17,
     "place": "ChIJcb8Q5ZmbwxQRs_32xr2pyDI",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "simply-fine-hotel-alize": {
     "km": 131,
     "place": "ChIJt5i7mCyZ3BQR-CvwkOb_gBs",
-    "district": "Alanya",
-    "checked": false
+    "checked": true
   },
   "simus-beach-hotel": {
     "km": 65,
     "place": "ChIJCxawGnxZwxQRI2XM3jiDt4Y",
-    "district": "Manavgat",
-    "checked": false
+    "checked": true
   },
   "sinemis-hotel": {
     "km": 108,
     "place": "ChIJhfDLsLg5whQRUqZdiq85eB8",
-    "district": "Adrasan",
-    "checked": false
+    "checked": true
   },
   "sirena-apart-spa": {
     "km": 24,
     "place": "ChIJm1WuyhWOwxQR59TEd11TkLM",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "sirene-belek-hotel": {
     "km": 30,
     "place": "ChIJibkijtt7wxQRqAexIBfl-Jk",
-    "district": "Belek",
-    "checked": false
+    "checked": true
   },
   "sirius-deluxe-hotel": {
     "km": 105,
     "place": "ChIJ7WxCwmG3yhQRyKPOOhD4jJA",
-    "district": "Türkler",
-    "checked": false
+    "checked": true
   },
   "sirius-otel": {
     "km": 76,
     "place": "ChIJybi8Ep7KwxQRq6cfATMhjX0",
-    "district": "Kemer",
-    "checked": false
+    "checked": true
   },
   "sirius-town-residence-and-spa": {
     "km": 16,
     "place": "ChIJ8f9LrcCCwxQRzcgBVy-ug14",
-    "district": "Antalya merkez",
     "checked": false
+  },
+  "sirma-otel": {
+    "km": 64,
+    "place": "ChIJFQ0l6W9ZwxQR3pHnp0T28Dc",
+    "checked": true
   },
   "sky-business-hotel": {
     "km": 13,
     "place": "ChIJk2MgDU2FwxQR_0M3gkJKjV4",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "sky-hotel-apartments": {
     "km": 25,
     "place": "ChIJdQM_PI-RwxQRpPn8gL3N-Ck",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "sky-kamer-hotel": {
     "km": 17,
     "place": "ChIJCUvXqwSQwxQRExTtPBMLibk",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "skys-hotel": {
     "km": 82,
     "place": "ChIJP4xMyo9TwxQRUNKQKxsO8rk",
-    "district": "Manavgat",
-    "checked": false
+    "checked": true
   },
   "sofa-hotels-kaleici": {
     "km": 16,
     "place": "ChIJ__xKgz6RwxQRYF8ZAmHz9Ww",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "solivia-hotel": {
     "km": 113,
     "place": "ChIJBWLJRzil3BQRKaMAcSUrfr4",
-    "district": "Alanya",
-    "checked": false
+    "checked": true
   },
   "solo-boutique-hotel": {
     "km": 16,
     "place": "ChIJQwJWGgSQwxQRBxmOVEjarjg",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "spice-hotel-spa": {
     "km": 37,
     "place": "ChIJncSot7Z7wxQRBwR4s439fno",
-    "district": "Belek",
-    "checked": false
+    "checked": true
   },
   "star-pension": {
     "km": 16,
     "place": "ChIJidq4fgaQwxQRcBvqwmNpUkQ",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "start-hotel": {
     "km": 15,
     "place": "ChIJMdFvBQCQwxQRcyFSs0yMsRY",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "stile-suite-family-hotel": {
     "km": 24,
     "place": "ChIJcVFwUa2RwxQRY42rSETwjdo",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "sueno-hotels": {
     "km": 32,
     "place": "ChIJX5257XV7wxQReYQn8-DzhcA",
-    "district": "Belek",
-    "checked": false
+    "checked": true
   },
   "sueno-hotels-beach-side": {
     "km": 68,
     "place": "ChIJk7wjmnZZwxQRQC_w7LKyaF8",
-    "district": "Manavgat",
-    "checked": false
+    "checked": true
   },
   "sueno-hotels-deluxe-belek": {
     "km": 32,
     "place": "ChIJX5257XV7wxQReYQn8-DzhcA",
-    "district": "Belek",
-    "checked": false
+    "checked": true
   },
   "sueno-hotels-golf-belek": {
     "km": 32,
     "place": "ChIJ2Q2IlJ57wxQR6Bp7ulrYoss",
-    "district": "Belek",
     "checked": false
   },
   "suite-laguna-otel": {
     "km": 18,
     "place": "ChIJyRHfYhiQwxQRxzLAk-OjtfM",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "sultan-of-dreams-hotel-spa": {
     "km": 82,
     "place": "ChIJN5YqB5JTwxQRcnYIjiSGqhU",
-    "district": "Kızılağaç",
-    "checked": false
+    "checked": true
   },
   "sultan-of-side": {
     "km": 59,
     "place": "ChIJXZG5ocZewxQRVznNKm7A1DQ",
-    "district": "Evrenseki",
-    "checked": false
+    "checked": true
   },
   "sultan-sipahi-resort-hotel": {
     "km": 125,
     "place": "ChIJ6w4BbJui3BQR8CTSZnHYCBQ",
-    "district": "Alanya",
-    "checked": false
+    "checked": true
   },
   "sun-heaven-otel": {
     "km": 111,
     "place": "ChIJY5EwYQ-l3BQRzObZ41jQs7Y",
-    "district": "Alanya",
-    "checked": false
+    "checked": true
   },
   "sun-heaven-queen": {
     "km": 111,
     "place": "ChIJm28dZUplwBQR5Svdem-mZH8",
-    "district": "Alanya",
-    "checked": false
+    "checked": true
   },
   "sun-shine-mir-hotel": {
     "km": 11,
     "place": "ChIJ-ZePsySDwxQR-EFXKM1Dvvo",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "sun-suites": {
     "km": 15,
     "place": "ChIJTZ0nxC-bwxQRCLH-6ndWU3s",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "sun-vera-otel": {
     "km": 124,
     "place": "ChIJ_QRhcaCj3BQRT2SH1s_AMhk",
-    "district": "Alanya",
-    "checked": false
+    "checked": true
   },
   "sunanatolia-otel": {
     "km": 17,
     "place": "ChIJNVBsRQGQwxQRUK6uuPCo21w",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "sunis-elita-beach-resort": {
     "km": 81,
     "place": "ChIJT6A3aq1WwxQReFh7m7qquUU",
-    "district": "Kumköy",
-    "checked": false
+    "checked": true
   },
   "sunis-evren-beach-resort": {
     "km": 59,
     "place": "ChIJJS6dKcZewxQRbsE5o2D8qx4",
-    "district": "Evrenseki",
-    "checked": false
+    "checked": true
   },
   "sunis-kumkoy-beach-resort": {
     "km": 61,
     "place": "ChIJ55SdrjdZwxQRsyLeww5-POU",
-    "district": "Kumköy",
-    "checked": false
+    "checked": true
   },
   "sunmelia-beach-resort-spa": {
     "km": 82,
     "place": "ChIJKY6XmkxRwxQRW9_wCFPufJ8",
-    "district": "Kızılot",
-    "checked": false
+    "checked": true
   },
   "sunny-hill-alya": {
     "km": 126,
     "place": "ChIJGyXBuZ2i3BQRH_6s_rljLoo",
-    "district": "Alanya",
-    "checked": false
+    "checked": true
   },
   "sunprime-c-lounge": {
     "km": 131,
     "place": "ChIJCyX__7GZ3BQRucfUPL-oL64",
-    "district": "Tosmur",
-    "checked": false
+    "checked": true
   },
   "sunrise-hotel": {
     "km": 16,
     "place": "ChIJh0wepgaQwxQRNFIIqpkOd64",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "sunthalia-hotels-and-resorts": {
     "km": 57,
     "place": "ChIJuYUUMR-PwxQRz0DE1f7TlFc",
-    "district": "Çolaklı",
-    "checked": false
+    "checked": true
   },
   "sural-garden-hotel": {
     "km": 57,
     "place": "ChIJ--7rR7NQwxQRo2imlKfCRCI",
-    "district": "Çolaklı",
-    "checked": false
+    "checked": true
   },
   "susesi-luxury-resort": {
     "km": 37,
     "place": "ChIJWZLXbN7vdEARIRRacXUBDdo",
-    "district": "Belek",
-    "checked": false
+    "checked": true
   },
   "sveo-resort-kemer": {
     "km": 70,
     "place": "ChIJ9T2C4Aa3wxQRGN1ox8-2Z5Q",
-    "district": "Kemer",
-    "checked": false
+    "checked": true
   },
   "swandor-hotels-resorts-kemer": {
     "km": 67,
     "place": "ChIJObboQ_m2wxQRsVzsrZwstcQ",
-    "district": "Kemer",
-    "checked": false
+    "checked": true
   },
   "swandor-hotels-resorts-topkapi-palace": {
     "km": 25,
     "place": "ChIJ0zvtrGl4wxQRQImlEPLg_rQ",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "sweet-home-boutique-hotel": {
     "km": 16,
     "place": "ChIJoariUYKbwxQRlpm3iD6lxSQ",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "sy-hotels-belek": {
     "km": 28,
     "place": "ChIJERi-_L17wxQRT0WLJXq0r-U",
-    "district": "Serik",
-    "checked": false
+    "checked": true
   },
   "tac-premier-hotel-spa": {
     "km": 125,
     "place": "ChIJL4Mk4Aqa3BQRP7g9M5NMOWY",
-    "district": "Alanya",
-    "checked": false
+    "checked": true
   },
   "taka-butik-otel": {
     "km": 16,
     "place": "ChIJf9Wq4I2RwxQRqcJVDpng2EM",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "tal-beach-hotel": {
     "km": 44,
     "place": "ChIJ4VUrSX25wxQRr_k5eYOj6SA",
-    "district": "Kemer",
-    "checked": false
+    "checked": true
   },
   "talya-otel": {
     "km": 16,
     "place": "ChIJuRlfBAKRwxQRT1KI20HpY-U",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "tamara-business-otel": {
     "km": 16,
     "place": "ChIJgR8mIrOPwxQRgVJhX08--1U",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "tekeli-konaklari": {
     "km": 16,
     "place": "ChIJEeAmXwSQwxQR8P0NjpHdGlM",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "telatiye-resort-otel": {
     "km": 113,
     "place": "ChIJ-YdjAHqk3BQR2KHzECCGO98",
-    "district": "Alanya",
-    "checked": false
+    "checked": true
   },
   "tema-242-hotel": {
     "km": 17,
     "place": "ChIJP92-DJebwxQRBKltg4NGEOA",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "temiz-otel": {
     "km": 127,
     "place": "ChIJJavJKHeY3BQRRoZMz3xwtso",
-    "district": "Alanya",
-    "checked": false
+    "checked": true
   },
   "teos-hotel": {
     "km": 15,
     "place": "ChIJj-GsehebwxQRl7k97E5BQOM",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "terra-rossa-apart-otel": {
     "km": 17,
     "place": "ChIJrwOVWbqPwxQR3O0hrbn8qFw",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "terrace-elite-resort": {
     "km": 56,
     "place": "ChIJOceMmT9ewxQRkoAEhEwZQMw",
-    "district": "Gündoğdu",
-    "checked": false
+    "checked": true
   },
   "thalia-unique": {
     "km": 62,
     "place": "ChIJyZpwOHxZwxQRVHZETHKuCOY",
-    "district": "Manavgat",
-    "checked": false
+    "checked": true
   },
   "the-antik-hotel": {
     "km": 106,
     "place": "ChIJcZ-Bsaiv3BQRvI6s9e6D4rk",
-    "district": "Konaklı",
-    "checked": false
+    "checked": true
   },
   "the-corner-park-hotel": {
     "km": 23,
     "place": "ChIJGblW6f2RwxQRryIw506vRvY",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "the-divan-resort-hotel-ant": {
     "km": 15,
     "place": "ChIJfdUt_-SawxQRi-LsgisBwjI",
-    "district": "Antalya merkez",
     "checked": false
   },
   "the-easy-rooms-terrace": {
     "km": 16,
     "place": "ChIJ1YkQqgiQwxQRn4sGjfcH5qo",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "the-grand-ring-hotel": {
     "km": 49,
     "place": "ChIJx0BsOQa_wxQRoQiUbY78WnI",
-    "district": "Beldibi",
-    "checked": false
+    "checked": true
   },
   "the-land-of-legends": {
-    "km": 29,
-    "place": "ChIJoVLWzRV7wxQRZq00wg1o-iA",
-    "district": "Kadriye",
-    "checked": false
+    "km": 27,
+    "place": "ChIJNwDmzfN7wxQR0xcO5dFlsJM",
+    "checked": true
   },
   "the-lifeco-antalya-well-being-detox-center-and-vegan-hotel": {
     "km": 17,
     "place": "ChIJv4bBO6KawxQRTxA7uFE1lbs",
-    "district": "Antalya merkez",
     "checked": false
   },
   "the-lifeco-antalya-well-being-detox-center-otel": {
     "km": 17,
     "place": "ChIJv4bBO6KawxQRTxA7uFE1lbs",
-    "district": "Antalya merkez",
     "checked": false
   },
   "the-little-prince-boutique-otel": {
     "km": 16,
     "place": "ChIJEekhEYORwxQRarof-L7hTj0",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "the-marilis-hill-resort-hotel-spa": {
     "km": 93,
     "place": "ChIJ9eE9xdKt3BQRV1K5hWubTV0",
-    "district": "Alanya",
-    "checked": false
+    "checked": true
   },
   "the-marmara-antalya-otel": {
     "km": 17,
     "place": "ChIJXWrNeoW1yhQRcfwCJjE6Gks",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "the-mori-club-hotel": {
     "km": 15,
     "place": "ChIJo8yAAxebwxQR9038Zu0cZuo",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "the-ninova-otel": {
     "km": 16,
     "place": "ChIJzVpGwAaQwxQRuBYc_eYesVk",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "the-norm-oriental-otel": {
     "km": 68,
     "place": "ChIJ2wWFC9u3wxQRpYR6dkMoKKA",
-    "district": "Kemer",
-    "checked": false
+    "checked": true
   },
   "the-room-hotel-apartments": {
     "km": 25,
     "place": "ChIJ9bbdAXqRwxQRhLyEng5Oots",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "the-sense-deluxe-hotel": {
     "km": 63,
     "place": "ChIJCdGqW8pewxQRWz3dvQg1nPE",
-    "district": "Kumköy",
-    "checked": false
+    "checked": true
   },
   "the-suite-apart-hotel": {
     "km": 16,
     "place": "ChIJbwj5AwaQwxQRSVd-fFLiEfE",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "the-suites": {
     "km": 30,
     "place": "ChIJ894KauSTwxQRBkSQ2aNRs2U",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "the-x-belek-otel": {
     "km": 29,
     "place": "ChIJU_8aZJZ9wxQRH9FU58Mnzw0",
-    "district": "Serik",
-    "checked": false
+    "checked": true
+  },
+  "throne-nilbahir-resort-spa": {
+    "km": 93,
+    "place": "ChIJg7P7dPWr3BQRbVKeGRzyp7g",
+    "checked": true
   },
   "time-beach-otel": {
     "km": 125,
     "place": "ChIJ9dG4HACj3BQRl3qUVC7pG0o",
-    "district": "Alanya",
-    "checked": false
+    "checked": true
   },
   "timo-deluxe-resort": {
     "km": 113,
     "place": "ChIJ00mjBv6k3BQRQPl1pHcgzSk",
-    "district": "Alanya",
-    "checked": false
+    "checked": true
   },
   "titanic-beach-lara": {
     "km": 14,
     "place": "ChIJASy63c-CwxQRlHBoXAKcF5k",
-    "district": "Kundu",
-    "checked": false
+    "checked": true
   },
   "titanic-deluxe-golf-belek": {
     "km": 29,
     "place": "ChIJ59vIH2Z5wxQRRgKoqiVZHKc",
-    "district": "Belek",
-    "checked": false
+    "checked": true
   },
   "titanic-deluxe-lara-otel": {
     "km": 14,
     "place": "ChIJASy63c-CwxQRlHBoXAKcF5k",
-    "district": "Lara",
-    "checked": false
+    "checked": true
   },
   "titanic-mardan-palace": {
     "km": 25,
     "place": "ChIJS0jEQBqbwxQRm1eiD-UR1Lk",
-    "district": "Kundu",
-    "checked": false
+    "checked": true
   },
   "tolenza-hotels": {
     "km": 124,
     "place": "ChIJf3KEAkmj3BQRFua5dPQwPQg",
-    "district": "Alanya",
-    "checked": false
+    "checked": true
   },
   "toprak-apart-otel": {
     "km": 14,
     "place": "ChIJ2zjecxuFwxQRiRs6Ix0OX5Y",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "tourist-hotel": {
     "km": 13,
     "place": "ChIJTXbd1libwxQRphKP7dB0MHk",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "transatlantik-hotel-spa": {
     "km": 52,
     "place": "ChIJXauaaPW4wxQR0L0XIQxMKk4",
-    "district": "Kemer",
-    "checked": false
+    "checked": true
   },
   "trend-park-hotel": {
     "km": 23,
     "place": "ChIJjXyXgaWRwxQRM4YSYjOYzzk",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "trend-suites": {
     "km": 25,
     "place": "ChIJmdcFqXGRwxQRSrGwFLNxmLo",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "trend-suites-cycle": {
     "km": 25,
     "place": "ChIJ4zmYl8KRwxQRVeaHDej5fnE",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "trendy-aspendos-beach": {
     "km": 55,
     "place": "ChIJe3uyFWpewxQRJINiiCMGtnc",
-    "district": "Gündoğdu",
-    "checked": false
+    "checked": true
   },
   "trendy-lara-hotel": {
     "km": 25,
     "place": "ChIJs1yAQ1x4wxQR2lAY2mxqxOA",
-    "district": "Lara",
-    "checked": false
+    "checked": true
   },
   "trendy-side-beach": {
     "km": 65,
     "place": "ChIJCaxQBXtZwxQRdFb063OkEKE",
-    "district": "Manavgat",
-    "checked": false
+    "checked": true
   },
   "trendy-verbena-beach-hotel": {
     "km": 59,
     "place": "ChIJ-wBSGMpewxQRUfpvLUi6JeU",
-    "district": "Kumköy",
-    "checked": false
+    "checked": true
   },
   "triana-hotel": {
     "km": 16,
     "place": "ChIJK6Hh3KaawxQRevtufk6zLRc",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
+  },
+  "tu-casa-gelidonya-hotel": {
+    "km": 59,
+    "place": "ChIJyTlBD463wxQRjJe1g9EZ9yA",
+    "checked": true
   },
   "tu-casa-linda-otel": {
     "km": 60,
     "place": "ChIJv8PY7IWRwxQRPJDVWQxVip0",
-    "district": "Antalya merkez",
     "checked": false
   },
   "tui-blue-palm-garden": {
     "km": 80,
     "place": "ChIJPQsgfFVRwxQRRu1m94sXmsQ",
-    "district": "Manavgat",
-    "checked": false
+    "checked": true
   },
   "tui-blue-sherwood-belek": {
     "km": 43,
     "place": "ChIJywcAQGd7wxQRega1IgpU0NQ",
-    "district": "Serik",
-    "checked": false
+    "checked": true
   },
   "tui-blue-side-family-resort": {
     "km": 59,
     "place": "ChIJISE2QcpewxQR2U9ymZPCbW0",
-    "district": "Titreyengöl",
-    "checked": false
+    "checked": true
   },
   "tui-magic-life-belek": {
     "km": 31,
     "place": "ChIJOS_-cHp5wxQRYsu6vPWjMeM",
-    "district": "Kadriye",
-    "checked": false
+    "checked": true
   },
   "tui-magic-life-jacaranda": {
     "km": 54,
     "place": "ChIJowB6whZewxQRoYo5SCuQAA8",
-    "district": "Gündoğdu",
-    "checked": false
+    "checked": true
   },
   "tumay-hotel": {
     "km": 24,
     "place": "ChIJiQM9vXaRwxQRKHHjp61WMXg",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "tunali-apart-hotel": {
     "km": 31,
     "place": "ChIJI7j1Ql-RwxQRBDcbnnW8L5s",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "tunc-apart-otel": {
     "km": 23,
     "place": "ChIJ_QAt46-RwxQRvabcbT3HxlY",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "turkay-hotel": {
     "km": 25,
     "place": "ChIJTx4xcjmRwxQRc1mJVUUcPfM",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "turquoise-resort-hotel-spa": {
     "km": 70,
     "place": "ChIJ50UBCwBbwxQR6oWY6vbJxPY",
-    "district": "Sorgun",
-    "checked": false
+    "checked": true
   },
   "turunc-hotel-antalya-ex-omur-hotel": {
     "km": 15,
     "place": "ChIJD6mU19SFwxQRuuYD-cK1Zug",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "tut-hotel": {
     "km": 30,
     "place": "ChIJNV8aBM6TwxQREzLywxucpBA",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "tuvana-hotel": {
     "km": 17,
     "place": "ChIJ331ONQGQwxQROTbc9Ak49J8",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "uemit-hotel": {
     "km": 18,
     "place": "ChIJnUNOZR-QwxQRqa-IhAFW-JI",
-    "district": "Antalya merkez",
     "checked": false
   },
   "ulusoy-kemer-holiday-club": {
     "km": 51,
     "place": "ChIJgQXpGuW4wxQRz4lzJoaQYOI",
-    "district": "Göynük",
-    "checked": false
+    "checked": true
   },
   "urcu-hotel": {
     "km": 16,
     "place": "ChIJQzhDvAaQwxQRN-v7fIUMIs8",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "utopia-world-hotel": {
     "km": 146,
     "place": "ChIJk8P8-ouQ3BQRGPyn8tDQ0gQ",
-    "district": "Konaklı",
-    "checked": false
+    "checked": true
   },
   "uyar-palace": {
     "km": 18,
     "place": "ChIJnUNOZR-QwxQRqa-IhAFW-JI",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "valeri-beach": {
     "km": 61,
     "place": "ChIJ2TNc0pu3wxQRQ1fJHSuUATA",
-    "district": "Kemer",
-    "checked": false
+    "checked": true
   },
   "vega-suites": {
     "km": 25,
     "place": "ChIJ11YazzuRwxQRKYJFbs0eJxo",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "venezia-palace-deluxe-resort": {
     "km": 15,
     "place": "ChIJCYIMLQCFwxQR7ypaxUptNg8",
-    "district": "Kundu",
-    "checked": false
+    "checked": true
   },
   "venus-hotel": {
     "km": 25,
     "place": "ChIJTdsC2G-RwxQRwTng_X55r6g",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "vera-park-premium-apart-hotel": {
     "km": 23,
     "place": "ChIJd9CNbZ6RwxQR3p9z5c-ASl8",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "veranda-suites": {
     "km": 12,
     "place": "ChIJacbUTzCDwxQRCI31JvesltQ",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "verde-mare-hotels": {
     "km": 17,
     "place": "ChIJDW9vNv2bwxQRKGI9Y5_rgHI",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "vesta-rooms": {
     "km": 25,
     "place": "ChIJWTyICeiRwxQRbtITFBhrmGg",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "victory-resort-hotel": {
     "km": 56,
     "place": "ChIJ8e7ru1hewxQRIrUbZP827zg",
-    "district": "Çolaklı",
-    "checked": false
+    "checked": true
   },
   "vienna-apart-otel": {
     "km": 25,
     "place": "ChIJf8mabJSRwxQRh852QUReYUE",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "viking-beach-otel": {
     "km": 61,
     "place": "ChIJH5jRgmK3wxQR-Gtj8busHkA",
-    "district": "Kemer",
-    "checked": false
+    "checked": true
   },
   "viking-park-otel": {
     "km": 67,
     "place": "ChIJQTL95fi2wxQRUlnd6UVrQok",
-    "district": "Kemer",
-    "checked": false
+    "checked": true
   },
   "viking-star-hotel": {
     "km": 60,
     "place": "ChIJdWnLQ6O3wxQRbGuDGkIqhyQ",
-    "district": "Kemer",
-    "checked": false
+    "checked": true
   },
   "vikingen-infinity-resort-spa": {
     "km": 107,
     "place": "ChIJ65OOuBWv3BQRgL8fUpyO86w",
-    "district": "Alanya",
-    "checked": false
+    "checked": true
   },
   "villa-citronella-boutique-hotel": {
     "km": 16,
     "place": "ChIJAYMufcaRwxQR4qPKiPyVWJ4",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "villa-emel": {
     "km": 16,
     "place": "ChIJR5q0kwWQwxQRaejhwVfqtNk",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "villa-italic": {
     "km": 16,
     "place": "ChIJUS5UaQGRwxQRH6kVfIcz8AE",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "villa-perla-hotel": {
     "km": 16,
     "place": "ChIJKcwGZQ-QwxQRK0i5ST73ARo",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "villa-sunflower-hotel": {
     "km": 126,
     "place": "ChIJcZb12X6Y3BQR1ggAs-ZaYuY",
-    "district": "Alanya",
-    "checked": false
+    "checked": true
   },
   "villa-tulipan": {
     "km": 16,
     "place": "ChIJu9gfyQWQwxQRY6iQYH929P4",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "vita-silva-otel": {
     "km": 87,
     "place": "ChIJTY_iS5pTwxQRgYP1dICP62E",
-    "district": "Manavgat",
-    "checked": false
+    "checked": true
   },
   "viva-beach-hotel": {
     "km": 141,
     "place": "ChIJp9HyP-KR3BQRh635RQRhgSI",
-    "district": "Alanya",
-    "checked": false
+    "checked": true
   },
   "volkii-butik-hotel": {
     "km": 25,
     "place": "ChIJbxCkq2-RwxQRvk6HULc_Qgk",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "volkii-hotel": {
     "km": 24,
     "place": "ChIJOWsNRqeRwxQRj0kmbLbPLuA",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "von-resort-golden-coast": {
     "km": 57,
     "place": "ChIJ25-_jV1ewxQR2M7aebrvigg",
-    "district": "Çolaklı",
-    "checked": false
+    "checked": true
   },
   "voyage-belek-golf-spa": {
     "km": 37,
     "place": "ChIJX8V5wU57wxQRkU__f7S9XFE",
-    "district": "Belek",
-    "checked": false
+    "checked": true
   },
   "voyage-kundu-otel": {
     "km": 19,
     "place": "ChIJMYObaAB5wxQR7oMM9UeHnxA",
-    "district": "Kundu",
-    "checked": false
+    "checked": true
   },
   "voyage-sorgun": {
     "km": 70,
     "place": "ChIJyZpwOHxZwxQReXKsD0LPiP4",
-    "district": "Sorgun",
-    "checked": false
+    "checked": true
   },
   "washington-resort-hotel-spa": {
     "km": 80,
     "place": "ChIJ1ZxMfvpTwxQR_04VRUHPw3g",
-    "district": "Manavgat",
     "checked": false
   },
   "water-side-resort-spa": {
     "km": 72,
     "place": "ChIJm3hNPzVXwxQRadHwxiDusy4",
-    "district": "Titreyengöl",
-    "checked": false
+    "checked": true
   },
   "white-city-pension": {
     "km": 16,
     "place": "ChIJ7_IN8gSQwxQR9uFdDmCpQnI",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "white-garden-hotel-adult-only": {
     "km": 16,
     "place": "ChIJ5VgC8wWQwxQRJ-IivBxxJ-I",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "white-gold": {
     "km": 131,
     "place": "ChIJaYZp0lKY3BQRH65Xcbe28K4",
-    "district": "Alanya",
     "checked": false
   },
   "wien-star-otel": {
     "km": 128,
     "place": "ChIJ8WT7G16Y3BQRkRE7q0_DlmE",
-    "district": "Alanya",
-    "checked": false
+    "checked": true
   },
   "wind-of-lara-hotel-spa": {
     "km": 16,
     "place": "ChIJGeelMMGCwxQR35NX0cT9aCI",
-    "district": "Lara",
-    "checked": false
+    "checked": true
   },
   "wise-hotel-spa-adults-only": {
     "km": 17,
     "place": "ChIJ_dQ4xe6awxQR0nG_5A13qb0",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "wome-deluxe-hotel": {
     "km": 101,
     "place": "ChIJSeI-PYWY3BQRVZfQ-ryV_bs",
-    "district": "Alanya",
-    "checked": false
+    "checked": true
   },
   "woo-town-otel": {
     "km": 17,
     "place": "ChIJETabBByQwxQRfIBQYLkVckA",
-    "district": "Antalya merkez",
     "checked": false
   },
   "wow-kremlin-palace": {
     "km": 25,
     "place": "ChIJw_62LGl4wxQReHBt6XTNUB4",
-    "district": "Kundu",
-    "checked": false
+    "checked": true
   },
   "wow-topkapi-palace": {
     "km": 25,
     "place": "ChIJ0zvtrGl4wxQRQImlEPLg_rQ",
-    "district": "Kundu",
-    "checked": false
+    "checked": true
   },
   "wyndham-garden-lara-otel": {
     "km": 15,
     "place": "ChIJR28XNseCwxQR5ebzI18i0CY",
-    "district": "Lara",
-    "checked": false
+    "checked": true
   },
   "xanadu-resort-hotel": {
     "km": 42,
     "place": "ChIJMZyYcY9kwxQRGZE0nY10Knc",
-    "district": "Belek",
-    "checked": false
+    "checked": true
   },
   "xeno-eftalia-resort-otel": {
     "km": 114,
     "place": "ChIJxYxuzpOl3BQRV6EmZzoZZrk",
-    "district": "Alanya",
-    "checked": false
+    "checked": true
   },
   "xoria-deluxe-hotel": {
     "km": 111,
     "place": "ChIJ18E-DAml3BQRWbicBRkBOjo",
-    "district": "Alanya",
-    "checked": false
+    "checked": true
   },
   "xperia-saray-beach-otel": {
     "km": 125,
     "place": "ChIJ_-bFV4Wi3BQR6b_en732VhA",
-    "district": "Alanya",
-    "checked": false
+    "checked": true
   },
   "yakamoz-pansiyon-2": {
     "km": 22,
     "place": "ChIJb3s2Z2WRwxQReZxEB1uXsjA",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "yalcin-otel": {
     "km": 15,
     "place": "ChIJtc6wZiL9wxQRBZXOCptmFfw",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "yalihan-aspendos-otel": {
     "km": 103,
     "place": "ChIJpRbgcamv3BQR7LKLomvg-os",
-    "district": "Alanya",
-    "checked": false
+    "checked": true
   },
   "yalihan-una": {
     "km": 103,
     "place": "ChIJWaJ8mKqv3BQRZI7PUYnCc6A",
-    "district": "Alanya",
-    "checked": false
+    "checked": true
   },
   "yaman-life-otel": {
     "km": 129,
     "place": "ChIJBZYVR1eY3BQRLolt-VKZjwo",
-    "district": "Alanya",
-    "checked": false
+    "checked": true
   },
   "yelken-apart-hotel": {
     "km": 23,
     "place": "ChIJqWIOfqaRwxQRps9SqfMjBns",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "yelken-butik-hotel": {
     "km": 13,
     "place": "ChIJEdXf_1ibwxQRAl3kiKUZXuc",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "yeniceri-ahmet-aga-konagi": {
     "km": 16,
     "place": "ChIJ55hVpQWQwxQR5FABQHrfKTo",
-    "district": "Antalya merkez",
     "checked": false
   },
   "yesilyurt-otel": {
     "km": 16,
     "place": "ChIJpdn2r5iPwxQR1MBB436B47s",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "yetkin-club-otel": {
     "km": 113,
     "place": "ChIJC6RH2AGl3BQRDppg8H8Pa5g",
-    "district": "Alanya",
-    "checked": false
+    "checked": true
   },
   "yildirimoglu": {
     "km": 127,
     "place": "ChIJLXTfuHyY3BQR3t7lefowmDo",
-    "district": "Alanya",
-    "checked": false
+    "checked": true
   },
   "yucemek-apart": {
     "km": 30,
     "place": "ChIJD_DAa66VwxQRHH6wmHnwRQA",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "z-suites": {
     "km": 16,
     "place": "ChIJpz_JcGCbwxQRPuPun2n8OYk",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "zel-hotel": {
     "km": 31,
     "place": "ChIJe2i57aePwxQR-LDSGXA-Zps",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "zemira-garden-hotel": {
     "km": 15,
     "place": "ChIJ-bExs1eRwxQRUNqIQfpOCRA",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "zena-resort-otel": {
     "km": 67,
     "place": "ChIJp62D9Mi3wxQRBUVLITZX25Q",
-    "district": "Kemer",
-    "checked": false
+    "checked": true
   },
   "zenia-hotel": {
     "km": 17,
     "place": "ChIJLy1PNx2QwxQRi1XENzB05WA",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   },
   "zeynel-boutique-hotel": {
     "km": 23,
     "place": "ChIJ_VZd96WRwxQRQ9tov83YRiU",
-    "district": "Antalya merkez",
-    "checked": false
+    "checked": true
   }
 });
 const roundUp5 = (value) => Math.ceil(value / 5) * 5;
@@ -16233,11 +15322,11 @@ function StaticPageHeader({
 }
 const germanLandingHotels = {
   belek: ["Rixos Premium Belek", "The Land of Legends", "Maxx Royal Belek", "Regnum Carya", "Gloria Golf Resort", "Cornelia Diamond Golf Resort & Spa", "IC Hotels Santai Family Resort"],
-  side: ["Arum Barut Collection", "Side Star Resort", "Royal Dragon Hotel", "Barut Hemera", "Voyage Sorgun", "Sentido Flora Garden", "Crystal Sunset Luxury Resort & Spa"],
-  kemer: ["Rixos Premium Kemer", "Maxx Royal Kemer Resort", "Orange County Resort Hotel Kemer", "Paloma Pasha Resort", "Club Hotel Phaselis Rose"],
-  alanya: ["Utopia World Hotel", "Sentido Gold Island Hotel", "Q Premium Resort Hotel Alanya", "Kirman Arycanda De Luxe", "Delphin Diva Premiere"],
-  kizilagac: ["Starlight Resort Hotel", "Sunrise Resort Hotel", "Crystal Admiral Resort", "Club Hotel Turan Prince", "Selectum Family Resort"],
-  tekirova: ["Rixos Premium Tekirova", "Amara Prestige Hotel", "Nirvana Dolce Vita", "Club Marco Polo", "Pirate’s Beach Club"]
+  side: ["Arum Barut Collection", "Side Star Resort", "Royal Dragon Hotel", "Barut Hemera", "Voyage Sorgun", "Crystal Sunset Luxury Resort & Spa"],
+  kemer: ["Maxx Royal Kemer Resort", "Orange County Resort Hotel Kemer", "Paloma Pasha Resort", "Amara Prestige Hotel"],
+  alanya: ["Utopia World Hotel", "Sentido Gold Island Hotel", "Q Premium Resort Hotel Alanya", "Kirman Arycanda De Luxe"],
+  kizilagac: ["Sentido Flora Garden", "Starlight Resort Hotel", "Sunrise Resort Hotel", "Crystal Admiral Resort", "Club Hotel Turan Prince", "Selectum Family Resort"],
+  tekirova: ["Rixos Premium Kemer", "Rixos Premium Tekirova", "Nirvana Dolce Vita", "Club Marco Polo", "Pirate’s Beach Club", "Club Hotel Phaselis Rose"]
 };
 const germanRegionCopy = {
   belek: { about: "Belek liegt östlich von Antalya und ist besonders für Golfplätze, große All-inclusive-Resorts und breite Sandstrände bekannt. Die Hotelanlagen verteilen sich zwischen Kadriye und der Küste bei Serik; deshalb ist die genaue Hoteladresse bei der Reservierung hilfreich.", routeDetails: "Die Fahrt führt vom Flughafen Antalya über die D400 in Richtung Serik und Belek. Für Familien, Golfer und Gäste mit spätem Flug ist der direkte Privattransfer praktisch, weil Sie ohne Sammelstopps oder Umstieg direkt an Ihrer Unterkunft ankommen." },
@@ -17227,13 +16316,13 @@ const route64 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.definePrope
   loader,
   meta
 }, Symbol.toStringTag, { value: "Module" }));
-const serverManifest = { "entry": { "module": "/assets/entry.client-BD2P1iGF.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/errorBoundaries-Y42zlZbV.js"], "css": [] }, "routes": { "root": { "id": "root", "parentId": void 0, "path": "", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/root-DFljqkek.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/errorBoundaries-Y42zlZbV.js", "/assets/Icon-mPLaSHxl.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "home-en": { "id": "home-en", "parentId": "root", "path": void 0, "index": true, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/home-B2DVJaoP.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-DawyCZ_q.js", "/assets/BookingForm-BRirnDzQ.js", "/assets/Header-D0HzLs5d.js", "/assets/Icon-mPLaSHxl.js"], "css": ["/assets/BookingForm-DpsRipQV.css#"], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "home-de": { "id": "home-de", "parentId": "root", "path": "de", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/home-B2DVJaoP.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-DawyCZ_q.js", "/assets/BookingForm-BRirnDzQ.js", "/assets/Header-D0HzLs5d.js", "/assets/Icon-mPLaSHxl.js"], "css": ["/assets/BookingForm-DpsRipQV.css#"], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "home-fr": { "id": "home-fr", "parentId": "root", "path": "fr", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/home-B2DVJaoP.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-DawyCZ_q.js", "/assets/BookingForm-BRirnDzQ.js", "/assets/Header-D0HzLs5d.js", "/assets/Icon-mPLaSHxl.js"], "css": ["/assets/BookingForm-DpsRipQV.css#"], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "home-tr": { "id": "home-tr", "parentId": "root", "path": "tr", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/home-B2DVJaoP.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-DawyCZ_q.js", "/assets/BookingForm-BRirnDzQ.js", "/assets/Header-D0HzLs5d.js", "/assets/Icon-mPLaSHxl.js"], "css": ["/assets/BookingForm-DpsRipQV.css#"], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "home-ru": { "id": "home-ru", "parentId": "root", "path": "ru", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/home-B2DVJaoP.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-DawyCZ_q.js", "/assets/BookingForm-BRirnDzQ.js", "/assets/Header-D0HzLs5d.js", "/assets/Icon-mPLaSHxl.js"], "css": ["/assets/BookingForm-DpsRipQV.css#"], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "home-cs": { "id": "home-cs", "parentId": "root", "path": "cs", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/home-B2DVJaoP.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-DawyCZ_q.js", "/assets/BookingForm-BRirnDzQ.js", "/assets/Header-D0HzLs5d.js", "/assets/Icon-mPLaSHxl.js"], "css": ["/assets/BookingForm-DpsRipQV.css#"], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "home-uk": { "id": "home-uk", "parentId": "root", "path": "uk", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/home-B2DVJaoP.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-DawyCZ_q.js", "/assets/BookingForm-BRirnDzQ.js", "/assets/Header-D0HzLs5d.js", "/assets/Icon-mPLaSHxl.js"], "css": ["/assets/BookingForm-DpsRipQV.css#"], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "home-ur": { "id": "home-ur", "parentId": "root", "path": "ur", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/home-B2DVJaoP.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-DawyCZ_q.js", "/assets/BookingForm-BRirnDzQ.js", "/assets/Header-D0HzLs5d.js", "/assets/Icon-mPLaSHxl.js"], "css": ["/assets/BookingForm-DpsRipQV.css#"], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "home-pl": { "id": "home-pl", "parentId": "root", "path": "pl", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/home-B2DVJaoP.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-DawyCZ_q.js", "/assets/BookingForm-BRirnDzQ.js", "/assets/Header-D0HzLs5d.js", "/assets/Icon-mPLaSHxl.js"], "css": ["/assets/BookingForm-DpsRipQV.css#"], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "home-nl": { "id": "home-nl", "parentId": "root", "path": "nl", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/home-B2DVJaoP.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-DawyCZ_q.js", "/assets/BookingForm-BRirnDzQ.js", "/assets/Header-D0HzLs5d.js", "/assets/Icon-mPLaSHxl.js"], "css": ["/assets/BookingForm-DpsRipQV.css#"], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "home-ar": { "id": "home-ar", "parentId": "root", "path": "ar", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/home-B2DVJaoP.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-DawyCZ_q.js", "/assets/BookingForm-BRirnDzQ.js", "/assets/Header-D0HzLs5d.js", "/assets/Icon-mPLaSHxl.js"], "css": ["/assets/BookingForm-DpsRipQV.css#"], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "home-sv": { "id": "home-sv", "parentId": "root", "path": "sv", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/home-B2DVJaoP.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-DawyCZ_q.js", "/assets/BookingForm-BRirnDzQ.js", "/assets/Header-D0HzLs5d.js", "/assets/Icon-mPLaSHxl.js"], "css": ["/assets/BookingForm-DpsRipQV.css#"], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "home-da": { "id": "home-da", "parentId": "root", "path": "da", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/home-B2DVJaoP.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-DawyCZ_q.js", "/assets/BookingForm-BRirnDzQ.js", "/assets/Header-D0HzLs5d.js", "/assets/Icon-mPLaSHxl.js"], "css": ["/assets/BookingForm-DpsRipQV.css#"], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "home-el": { "id": "home-el", "parentId": "root", "path": "el", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/home-B2DVJaoP.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-DawyCZ_q.js", "/assets/BookingForm-BRirnDzQ.js", "/assets/Header-D0HzLs5d.js", "/assets/Icon-mPLaSHxl.js"], "css": ["/assets/BookingForm-DpsRipQV.css#"], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "home-es": { "id": "home-es", "parentId": "root", "path": "es", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/home-B2DVJaoP.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-DawyCZ_q.js", "/assets/BookingForm-BRirnDzQ.js", "/assets/Header-D0HzLs5d.js", "/assets/Icon-mPLaSHxl.js"], "css": ["/assets/BookingForm-DpsRipQV.css#"], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "home-he": { "id": "home-he", "parentId": "root", "path": "he", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/home-B2DVJaoP.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-DawyCZ_q.js", "/assets/BookingForm-BRirnDzQ.js", "/assets/Header-D0HzLs5d.js", "/assets/Icon-mPLaSHxl.js"], "css": ["/assets/BookingForm-DpsRipQV.css#"], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "home-hu": { "id": "home-hu", "parentId": "root", "path": "hu", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/home-B2DVJaoP.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-DawyCZ_q.js", "/assets/BookingForm-BRirnDzQ.js", "/assets/Header-D0HzLs5d.js", "/assets/Icon-mPLaSHxl.js"], "css": ["/assets/BookingForm-DpsRipQV.css#"], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "home-it": { "id": "home-it", "parentId": "root", "path": "it", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/home-B2DVJaoP.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-DawyCZ_q.js", "/assets/BookingForm-BRirnDzQ.js", "/assets/Header-D0HzLs5d.js", "/assets/Icon-mPLaSHxl.js"], "css": ["/assets/BookingForm-DpsRipQV.css#"], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "home-ja": { "id": "home-ja", "parentId": "root", "path": "ja", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/home-B2DVJaoP.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-DawyCZ_q.js", "/assets/BookingForm-BRirnDzQ.js", "/assets/Header-D0HzLs5d.js", "/assets/Icon-mPLaSHxl.js"], "css": ["/assets/BookingForm-DpsRipQV.css#"], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "home-ko": { "id": "home-ko", "parentId": "root", "path": "ko", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/home-B2DVJaoP.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-DawyCZ_q.js", "/assets/BookingForm-BRirnDzQ.js", "/assets/Header-D0HzLs5d.js", "/assets/Icon-mPLaSHxl.js"], "css": ["/assets/BookingForm-DpsRipQV.css#"], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "home-pt": { "id": "home-pt", "parentId": "root", "path": "pt", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/home-B2DVJaoP.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-DawyCZ_q.js", "/assets/BookingForm-BRirnDzQ.js", "/assets/Header-D0HzLs5d.js", "/assets/Icon-mPLaSHxl.js"], "css": ["/assets/BookingForm-DpsRipQV.css#"], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "home-ro": { "id": "home-ro", "parentId": "root", "path": "ro", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/home-B2DVJaoP.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-DawyCZ_q.js", "/assets/BookingForm-BRirnDzQ.js", "/assets/Header-D0HzLs5d.js", "/assets/Icon-mPLaSHxl.js"], "css": ["/assets/BookingForm-DpsRipQV.css#"], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "home-zh": { "id": "home-zh", "parentId": "root", "path": "zh", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/home-B2DVJaoP.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-DawyCZ_q.js", "/assets/BookingForm-BRirnDzQ.js", "/assets/Header-D0HzLs5d.js", "/assets/Icon-mPLaSHxl.js"], "css": ["/assets/BookingForm-DpsRipQV.css#"], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "health-en": { "id": "health-en", "parentId": "root", "path": "health", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/health-CAZL5djA.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-DawyCZ_q.js", "/assets/Header-D0HzLs5d.js", "/assets/Icon-mPLaSHxl.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "health-de": { "id": "health-de", "parentId": "root", "path": "de/health", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/health-CAZL5djA.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-DawyCZ_q.js", "/assets/Header-D0HzLs5d.js", "/assets/Icon-mPLaSHxl.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "health-fr": { "id": "health-fr", "parentId": "root", "path": "fr/health", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/health-CAZL5djA.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-DawyCZ_q.js", "/assets/Header-D0HzLs5d.js", "/assets/Icon-mPLaSHxl.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "health-tr": { "id": "health-tr", "parentId": "root", "path": "tr/health", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/health-CAZL5djA.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-DawyCZ_q.js", "/assets/Header-D0HzLs5d.js", "/assets/Icon-mPLaSHxl.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "health-ru": { "id": "health-ru", "parentId": "root", "path": "ru/health", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/health-CAZL5djA.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-DawyCZ_q.js", "/assets/Header-D0HzLs5d.js", "/assets/Icon-mPLaSHxl.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "health-cs": { "id": "health-cs", "parentId": "root", "path": "cs/health", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/health-CAZL5djA.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-DawyCZ_q.js", "/assets/Header-D0HzLs5d.js", "/assets/Icon-mPLaSHxl.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "health-uk": { "id": "health-uk", "parentId": "root", "path": "uk/health", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/health-CAZL5djA.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-DawyCZ_q.js", "/assets/Header-D0HzLs5d.js", "/assets/Icon-mPLaSHxl.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "health-ur": { "id": "health-ur", "parentId": "root", "path": "ur/health", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/health-CAZL5djA.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-DawyCZ_q.js", "/assets/Header-D0HzLs5d.js", "/assets/Icon-mPLaSHxl.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "health-pl": { "id": "health-pl", "parentId": "root", "path": "pl/health", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/health-CAZL5djA.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-DawyCZ_q.js", "/assets/Header-D0HzLs5d.js", "/assets/Icon-mPLaSHxl.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "health-nl": { "id": "health-nl", "parentId": "root", "path": "nl/health", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/health-CAZL5djA.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-DawyCZ_q.js", "/assets/Header-D0HzLs5d.js", "/assets/Icon-mPLaSHxl.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "health-ar": { "id": "health-ar", "parentId": "root", "path": "ar/health", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/health-CAZL5djA.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-DawyCZ_q.js", "/assets/Header-D0HzLs5d.js", "/assets/Icon-mPLaSHxl.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "health-sv": { "id": "health-sv", "parentId": "root", "path": "sv/health", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/health-CAZL5djA.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-DawyCZ_q.js", "/assets/Header-D0HzLs5d.js", "/assets/Icon-mPLaSHxl.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "health-da": { "id": "health-da", "parentId": "root", "path": "da/health", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/health-CAZL5djA.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-DawyCZ_q.js", "/assets/Header-D0HzLs5d.js", "/assets/Icon-mPLaSHxl.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "health-el": { "id": "health-el", "parentId": "root", "path": "el/health", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/health-CAZL5djA.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-DawyCZ_q.js", "/assets/Header-D0HzLs5d.js", "/assets/Icon-mPLaSHxl.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "health-es": { "id": "health-es", "parentId": "root", "path": "es/health", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/health-CAZL5djA.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-DawyCZ_q.js", "/assets/Header-D0HzLs5d.js", "/assets/Icon-mPLaSHxl.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "health-he": { "id": "health-he", "parentId": "root", "path": "he/health", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/health-CAZL5djA.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-DawyCZ_q.js", "/assets/Header-D0HzLs5d.js", "/assets/Icon-mPLaSHxl.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "health-hu": { "id": "health-hu", "parentId": "root", "path": "hu/health", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/health-CAZL5djA.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-DawyCZ_q.js", "/assets/Header-D0HzLs5d.js", "/assets/Icon-mPLaSHxl.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "health-it": { "id": "health-it", "parentId": "root", "path": "it/health", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/health-CAZL5djA.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-DawyCZ_q.js", "/assets/Header-D0HzLs5d.js", "/assets/Icon-mPLaSHxl.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "health-ja": { "id": "health-ja", "parentId": "root", "path": "ja/health", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/health-CAZL5djA.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-DawyCZ_q.js", "/assets/Header-D0HzLs5d.js", "/assets/Icon-mPLaSHxl.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "health-ko": { "id": "health-ko", "parentId": "root", "path": "ko/health", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/health-CAZL5djA.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-DawyCZ_q.js", "/assets/Header-D0HzLs5d.js", "/assets/Icon-mPLaSHxl.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "health-pt": { "id": "health-pt", "parentId": "root", "path": "pt/health", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/health-CAZL5djA.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-DawyCZ_q.js", "/assets/Header-D0HzLs5d.js", "/assets/Icon-mPLaSHxl.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "health-ro": { "id": "health-ro", "parentId": "root", "path": "ro/health", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/health-CAZL5djA.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-DawyCZ_q.js", "/assets/Header-D0HzLs5d.js", "/assets/Icon-mPLaSHxl.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "health-zh": { "id": "health-zh", "parentId": "root", "path": "zh/health", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/health-CAZL5djA.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-DawyCZ_q.js", "/assets/Header-D0HzLs5d.js", "/assets/Icon-mPLaSHxl.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "clinic-tr": { "id": "clinic-tr", "parentId": "root", "path": "clinic", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/clinic-CANmldRq.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-DawyCZ_q.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "transfer-en": { "id": "transfer-en", "parentId": "root", "path": "transfers/:slug", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/transfer-BYHRQ_bX.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-DawyCZ_q.js", "/assets/BookingForm-BRirnDzQ.js", "/assets/StaticPageHeader-ClSSR3cA.js", "/assets/Icon-mPLaSHxl.js"], "css": ["/assets/BookingForm-DpsRipQV.css#"], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "transfer-localized": { "id": "transfer-localized", "parentId": "root", "path": ":language/transfers/:slug", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/transfer-BYHRQ_bX.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-DawyCZ_q.js", "/assets/BookingForm-BRirnDzQ.js", "/assets/StaticPageHeader-ClSSR3cA.js", "/assets/Icon-mPLaSHxl.js"], "css": ["/assets/BookingForm-DpsRipQV.css#"], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "hotel-de": { "id": "hotel-de", "parentId": "root", "path": "de/hotels/:hotelSlug", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/hotel-BA1Vze6e.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-DawyCZ_q.js", "/assets/BookingForm-BRirnDzQ.js", "/assets/StaticPageHeader-ClSSR3cA.js", "/assets/Icon-mPLaSHxl.js"], "css": ["/assets/BookingForm-DpsRipQV.css#"], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "legal-imprint-en": { "id": "legal-imprint-en", "parentId": "root", "path": "impressum.html", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/legal-CdPS-hM1.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-DawyCZ_q.js", "/assets/StaticPageHeader-ClSSR3cA.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "legal-privacy-en": { "id": "legal-privacy-en", "parentId": "root", "path": "privacy", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/legal-CdPS-hM1.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-DawyCZ_q.js", "/assets/StaticPageHeader-ClSSR3cA.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "legal-privacy-de": { "id": "legal-privacy-de", "parentId": "root", "path": "de/datenschutz", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/legal-CdPS-hM1.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-DawyCZ_q.js", "/assets/StaticPageHeader-ClSSR3cA.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "legal-imprint-de": { "id": "legal-imprint-de", "parentId": "root", "path": "de/impressum", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/legal-CdPS-hM1.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-DawyCZ_q.js", "/assets/StaticPageHeader-ClSSR3cA.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "legal-privacy-tr": { "id": "legal-privacy-tr", "parentId": "root", "path": "tr/gizlilik", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/legal-CdPS-hM1.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-DawyCZ_q.js", "/assets/StaticPageHeader-ClSSR3cA.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "legal-imprint-tr": { "id": "legal-imprint-tr", "parentId": "root", "path": "tr/kunye", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/legal-CdPS-hM1.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-DawyCZ_q.js", "/assets/StaticPageHeader-ClSSR3cA.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "legal-privacy-ru": { "id": "legal-privacy-ru", "parentId": "root", "path": "ru/privacy", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/legal-CdPS-hM1.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-DawyCZ_q.js", "/assets/StaticPageHeader-ClSSR3cA.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "legal-imprint-ru": { "id": "legal-imprint-ru", "parentId": "root", "path": "ru/impressum", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/legal-CdPS-hM1.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-DawyCZ_q.js", "/assets/StaticPageHeader-ClSSR3cA.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "legal-privacy-cs": { "id": "legal-privacy-cs", "parentId": "root", "path": "cs/privacy", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/legal-CdPS-hM1.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-DawyCZ_q.js", "/assets/StaticPageHeader-ClSSR3cA.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "legal-imprint-cs": { "id": "legal-imprint-cs", "parentId": "root", "path": "cs/impressum", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/legal-CdPS-hM1.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-DawyCZ_q.js", "/assets/StaticPageHeader-ClSSR3cA.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "legal-privacy-uk": { "id": "legal-privacy-uk", "parentId": "root", "path": "uk/privacy", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/legal-CdPS-hM1.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-DawyCZ_q.js", "/assets/StaticPageHeader-ClSSR3cA.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "legal-imprint-uk": { "id": "legal-imprint-uk", "parentId": "root", "path": "uk/impressum", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/legal-CdPS-hM1.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-DawyCZ_q.js", "/assets/StaticPageHeader-ClSSR3cA.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "legal-privacy-ur": { "id": "legal-privacy-ur", "parentId": "root", "path": "ur/privacy", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/legal-CdPS-hM1.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-DawyCZ_q.js", "/assets/StaticPageHeader-ClSSR3cA.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "legal-imprint-ur": { "id": "legal-imprint-ur", "parentId": "root", "path": "ur/impressum", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/legal-CdPS-hM1.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-DawyCZ_q.js", "/assets/StaticPageHeader-ClSSR3cA.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 } }, "url": "/assets/manifest-25c7ea14.js", "version": "25c7ea14", "sri": void 0 };
+const serverManifest = { "entry": { "module": "/assets/entry.client-BD2P1iGF.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/errorBoundaries-Y42zlZbV.js"], "css": [] }, "routes": { "root": { "id": "root", "parentId": void 0, "path": "", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/root-DFljqkek.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/errorBoundaries-Y42zlZbV.js", "/assets/Icon-mPLaSHxl.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "home-en": { "id": "home-en", "parentId": "root", "path": void 0, "index": true, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/home-DYV8ivhm.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BL5vzq5a.js", "/assets/BookingForm-X9hTrgrQ.js", "/assets/Header-CROQw1RU.js", "/assets/Icon-mPLaSHxl.js"], "css": ["/assets/BookingForm-DpsRipQV.css#"], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "home-de": { "id": "home-de", "parentId": "root", "path": "de", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/home-DYV8ivhm.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BL5vzq5a.js", "/assets/BookingForm-X9hTrgrQ.js", "/assets/Header-CROQw1RU.js", "/assets/Icon-mPLaSHxl.js"], "css": ["/assets/BookingForm-DpsRipQV.css#"], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "home-fr": { "id": "home-fr", "parentId": "root", "path": "fr", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/home-DYV8ivhm.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BL5vzq5a.js", "/assets/BookingForm-X9hTrgrQ.js", "/assets/Header-CROQw1RU.js", "/assets/Icon-mPLaSHxl.js"], "css": ["/assets/BookingForm-DpsRipQV.css#"], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "home-tr": { "id": "home-tr", "parentId": "root", "path": "tr", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/home-DYV8ivhm.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BL5vzq5a.js", "/assets/BookingForm-X9hTrgrQ.js", "/assets/Header-CROQw1RU.js", "/assets/Icon-mPLaSHxl.js"], "css": ["/assets/BookingForm-DpsRipQV.css#"], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "home-ru": { "id": "home-ru", "parentId": "root", "path": "ru", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/home-DYV8ivhm.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BL5vzq5a.js", "/assets/BookingForm-X9hTrgrQ.js", "/assets/Header-CROQw1RU.js", "/assets/Icon-mPLaSHxl.js"], "css": ["/assets/BookingForm-DpsRipQV.css#"], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "home-cs": { "id": "home-cs", "parentId": "root", "path": "cs", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/home-DYV8ivhm.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BL5vzq5a.js", "/assets/BookingForm-X9hTrgrQ.js", "/assets/Header-CROQw1RU.js", "/assets/Icon-mPLaSHxl.js"], "css": ["/assets/BookingForm-DpsRipQV.css#"], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "home-uk": { "id": "home-uk", "parentId": "root", "path": "uk", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/home-DYV8ivhm.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BL5vzq5a.js", "/assets/BookingForm-X9hTrgrQ.js", "/assets/Header-CROQw1RU.js", "/assets/Icon-mPLaSHxl.js"], "css": ["/assets/BookingForm-DpsRipQV.css#"], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "home-ur": { "id": "home-ur", "parentId": "root", "path": "ur", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/home-DYV8ivhm.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BL5vzq5a.js", "/assets/BookingForm-X9hTrgrQ.js", "/assets/Header-CROQw1RU.js", "/assets/Icon-mPLaSHxl.js"], "css": ["/assets/BookingForm-DpsRipQV.css#"], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "home-pl": { "id": "home-pl", "parentId": "root", "path": "pl", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/home-DYV8ivhm.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BL5vzq5a.js", "/assets/BookingForm-X9hTrgrQ.js", "/assets/Header-CROQw1RU.js", "/assets/Icon-mPLaSHxl.js"], "css": ["/assets/BookingForm-DpsRipQV.css#"], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "home-nl": { "id": "home-nl", "parentId": "root", "path": "nl", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/home-DYV8ivhm.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BL5vzq5a.js", "/assets/BookingForm-X9hTrgrQ.js", "/assets/Header-CROQw1RU.js", "/assets/Icon-mPLaSHxl.js"], "css": ["/assets/BookingForm-DpsRipQV.css#"], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "home-ar": { "id": "home-ar", "parentId": "root", "path": "ar", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/home-DYV8ivhm.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BL5vzq5a.js", "/assets/BookingForm-X9hTrgrQ.js", "/assets/Header-CROQw1RU.js", "/assets/Icon-mPLaSHxl.js"], "css": ["/assets/BookingForm-DpsRipQV.css#"], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "home-sv": { "id": "home-sv", "parentId": "root", "path": "sv", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/home-DYV8ivhm.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BL5vzq5a.js", "/assets/BookingForm-X9hTrgrQ.js", "/assets/Header-CROQw1RU.js", "/assets/Icon-mPLaSHxl.js"], "css": ["/assets/BookingForm-DpsRipQV.css#"], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "home-da": { "id": "home-da", "parentId": "root", "path": "da", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/home-DYV8ivhm.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BL5vzq5a.js", "/assets/BookingForm-X9hTrgrQ.js", "/assets/Header-CROQw1RU.js", "/assets/Icon-mPLaSHxl.js"], "css": ["/assets/BookingForm-DpsRipQV.css#"], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "home-el": { "id": "home-el", "parentId": "root", "path": "el", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/home-DYV8ivhm.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BL5vzq5a.js", "/assets/BookingForm-X9hTrgrQ.js", "/assets/Header-CROQw1RU.js", "/assets/Icon-mPLaSHxl.js"], "css": ["/assets/BookingForm-DpsRipQV.css#"], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "home-es": { "id": "home-es", "parentId": "root", "path": "es", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/home-DYV8ivhm.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BL5vzq5a.js", "/assets/BookingForm-X9hTrgrQ.js", "/assets/Header-CROQw1RU.js", "/assets/Icon-mPLaSHxl.js"], "css": ["/assets/BookingForm-DpsRipQV.css#"], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "home-he": { "id": "home-he", "parentId": "root", "path": "he", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/home-DYV8ivhm.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BL5vzq5a.js", "/assets/BookingForm-X9hTrgrQ.js", "/assets/Header-CROQw1RU.js", "/assets/Icon-mPLaSHxl.js"], "css": ["/assets/BookingForm-DpsRipQV.css#"], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "home-hu": { "id": "home-hu", "parentId": "root", "path": "hu", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/home-DYV8ivhm.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BL5vzq5a.js", "/assets/BookingForm-X9hTrgrQ.js", "/assets/Header-CROQw1RU.js", "/assets/Icon-mPLaSHxl.js"], "css": ["/assets/BookingForm-DpsRipQV.css#"], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "home-it": { "id": "home-it", "parentId": "root", "path": "it", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/home-DYV8ivhm.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BL5vzq5a.js", "/assets/BookingForm-X9hTrgrQ.js", "/assets/Header-CROQw1RU.js", "/assets/Icon-mPLaSHxl.js"], "css": ["/assets/BookingForm-DpsRipQV.css#"], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "home-ja": { "id": "home-ja", "parentId": "root", "path": "ja", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/home-DYV8ivhm.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BL5vzq5a.js", "/assets/BookingForm-X9hTrgrQ.js", "/assets/Header-CROQw1RU.js", "/assets/Icon-mPLaSHxl.js"], "css": ["/assets/BookingForm-DpsRipQV.css#"], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "home-ko": { "id": "home-ko", "parentId": "root", "path": "ko", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/home-DYV8ivhm.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BL5vzq5a.js", "/assets/BookingForm-X9hTrgrQ.js", "/assets/Header-CROQw1RU.js", "/assets/Icon-mPLaSHxl.js"], "css": ["/assets/BookingForm-DpsRipQV.css#"], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "home-pt": { "id": "home-pt", "parentId": "root", "path": "pt", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/home-DYV8ivhm.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BL5vzq5a.js", "/assets/BookingForm-X9hTrgrQ.js", "/assets/Header-CROQw1RU.js", "/assets/Icon-mPLaSHxl.js"], "css": ["/assets/BookingForm-DpsRipQV.css#"], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "home-ro": { "id": "home-ro", "parentId": "root", "path": "ro", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/home-DYV8ivhm.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BL5vzq5a.js", "/assets/BookingForm-X9hTrgrQ.js", "/assets/Header-CROQw1RU.js", "/assets/Icon-mPLaSHxl.js"], "css": ["/assets/BookingForm-DpsRipQV.css#"], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "home-zh": { "id": "home-zh", "parentId": "root", "path": "zh", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/home-DYV8ivhm.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BL5vzq5a.js", "/assets/BookingForm-X9hTrgrQ.js", "/assets/Header-CROQw1RU.js", "/assets/Icon-mPLaSHxl.js"], "css": ["/assets/BookingForm-DpsRipQV.css#"], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "health-en": { "id": "health-en", "parentId": "root", "path": "health", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/health-tX8Re8kT.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BL5vzq5a.js", "/assets/Header-CROQw1RU.js", "/assets/Icon-mPLaSHxl.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "health-de": { "id": "health-de", "parentId": "root", "path": "de/health", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/health-tX8Re8kT.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BL5vzq5a.js", "/assets/Header-CROQw1RU.js", "/assets/Icon-mPLaSHxl.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "health-fr": { "id": "health-fr", "parentId": "root", "path": "fr/health", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/health-tX8Re8kT.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BL5vzq5a.js", "/assets/Header-CROQw1RU.js", "/assets/Icon-mPLaSHxl.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "health-tr": { "id": "health-tr", "parentId": "root", "path": "tr/health", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/health-tX8Re8kT.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BL5vzq5a.js", "/assets/Header-CROQw1RU.js", "/assets/Icon-mPLaSHxl.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "health-ru": { "id": "health-ru", "parentId": "root", "path": "ru/health", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/health-tX8Re8kT.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BL5vzq5a.js", "/assets/Header-CROQw1RU.js", "/assets/Icon-mPLaSHxl.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "health-cs": { "id": "health-cs", "parentId": "root", "path": "cs/health", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/health-tX8Re8kT.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BL5vzq5a.js", "/assets/Header-CROQw1RU.js", "/assets/Icon-mPLaSHxl.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "health-uk": { "id": "health-uk", "parentId": "root", "path": "uk/health", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/health-tX8Re8kT.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BL5vzq5a.js", "/assets/Header-CROQw1RU.js", "/assets/Icon-mPLaSHxl.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "health-ur": { "id": "health-ur", "parentId": "root", "path": "ur/health", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/health-tX8Re8kT.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BL5vzq5a.js", "/assets/Header-CROQw1RU.js", "/assets/Icon-mPLaSHxl.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "health-pl": { "id": "health-pl", "parentId": "root", "path": "pl/health", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/health-tX8Re8kT.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BL5vzq5a.js", "/assets/Header-CROQw1RU.js", "/assets/Icon-mPLaSHxl.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "health-nl": { "id": "health-nl", "parentId": "root", "path": "nl/health", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/health-tX8Re8kT.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BL5vzq5a.js", "/assets/Header-CROQw1RU.js", "/assets/Icon-mPLaSHxl.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "health-ar": { "id": "health-ar", "parentId": "root", "path": "ar/health", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/health-tX8Re8kT.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BL5vzq5a.js", "/assets/Header-CROQw1RU.js", "/assets/Icon-mPLaSHxl.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "health-sv": { "id": "health-sv", "parentId": "root", "path": "sv/health", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/health-tX8Re8kT.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BL5vzq5a.js", "/assets/Header-CROQw1RU.js", "/assets/Icon-mPLaSHxl.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "health-da": { "id": "health-da", "parentId": "root", "path": "da/health", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/health-tX8Re8kT.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BL5vzq5a.js", "/assets/Header-CROQw1RU.js", "/assets/Icon-mPLaSHxl.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "health-el": { "id": "health-el", "parentId": "root", "path": "el/health", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/health-tX8Re8kT.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BL5vzq5a.js", "/assets/Header-CROQw1RU.js", "/assets/Icon-mPLaSHxl.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "health-es": { "id": "health-es", "parentId": "root", "path": "es/health", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/health-tX8Re8kT.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BL5vzq5a.js", "/assets/Header-CROQw1RU.js", "/assets/Icon-mPLaSHxl.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "health-he": { "id": "health-he", "parentId": "root", "path": "he/health", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/health-tX8Re8kT.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BL5vzq5a.js", "/assets/Header-CROQw1RU.js", "/assets/Icon-mPLaSHxl.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "health-hu": { "id": "health-hu", "parentId": "root", "path": "hu/health", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/health-tX8Re8kT.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BL5vzq5a.js", "/assets/Header-CROQw1RU.js", "/assets/Icon-mPLaSHxl.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "health-it": { "id": "health-it", "parentId": "root", "path": "it/health", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/health-tX8Re8kT.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BL5vzq5a.js", "/assets/Header-CROQw1RU.js", "/assets/Icon-mPLaSHxl.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "health-ja": { "id": "health-ja", "parentId": "root", "path": "ja/health", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/health-tX8Re8kT.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BL5vzq5a.js", "/assets/Header-CROQw1RU.js", "/assets/Icon-mPLaSHxl.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "health-ko": { "id": "health-ko", "parentId": "root", "path": "ko/health", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/health-tX8Re8kT.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BL5vzq5a.js", "/assets/Header-CROQw1RU.js", "/assets/Icon-mPLaSHxl.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "health-pt": { "id": "health-pt", "parentId": "root", "path": "pt/health", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/health-tX8Re8kT.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BL5vzq5a.js", "/assets/Header-CROQw1RU.js", "/assets/Icon-mPLaSHxl.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "health-ro": { "id": "health-ro", "parentId": "root", "path": "ro/health", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/health-tX8Re8kT.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BL5vzq5a.js", "/assets/Header-CROQw1RU.js", "/assets/Icon-mPLaSHxl.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "health-zh": { "id": "health-zh", "parentId": "root", "path": "zh/health", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/health-tX8Re8kT.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BL5vzq5a.js", "/assets/Header-CROQw1RU.js", "/assets/Icon-mPLaSHxl.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "clinic-tr": { "id": "clinic-tr", "parentId": "root", "path": "clinic", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/clinic-BX_ppIa3.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BL5vzq5a.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "transfer-en": { "id": "transfer-en", "parentId": "root", "path": "transfers/:slug", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/transfer-BK4cAE9A.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BL5vzq5a.js", "/assets/BookingForm-X9hTrgrQ.js", "/assets/StaticPageHeader-ClSSR3cA.js", "/assets/Icon-mPLaSHxl.js"], "css": ["/assets/BookingForm-DpsRipQV.css#"], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "transfer-localized": { "id": "transfer-localized", "parentId": "root", "path": ":language/transfers/:slug", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/transfer-BK4cAE9A.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BL5vzq5a.js", "/assets/BookingForm-X9hTrgrQ.js", "/assets/StaticPageHeader-ClSSR3cA.js", "/assets/Icon-mPLaSHxl.js"], "css": ["/assets/BookingForm-DpsRipQV.css#"], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "hotel-de": { "id": "hotel-de", "parentId": "root", "path": "de/hotels/:hotelSlug", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/hotel-DvRUBcI7.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BL5vzq5a.js", "/assets/BookingForm-X9hTrgrQ.js", "/assets/StaticPageHeader-ClSSR3cA.js", "/assets/Icon-mPLaSHxl.js"], "css": ["/assets/BookingForm-DpsRipQV.css#"], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "legal-imprint-en": { "id": "legal-imprint-en", "parentId": "root", "path": "impressum.html", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/legal-B3eilJ78.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BL5vzq5a.js", "/assets/StaticPageHeader-ClSSR3cA.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "legal-privacy-en": { "id": "legal-privacy-en", "parentId": "root", "path": "privacy", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/legal-B3eilJ78.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BL5vzq5a.js", "/assets/StaticPageHeader-ClSSR3cA.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "legal-privacy-de": { "id": "legal-privacy-de", "parentId": "root", "path": "de/datenschutz", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/legal-B3eilJ78.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BL5vzq5a.js", "/assets/StaticPageHeader-ClSSR3cA.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "legal-imprint-de": { "id": "legal-imprint-de", "parentId": "root", "path": "de/impressum", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/legal-B3eilJ78.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BL5vzq5a.js", "/assets/StaticPageHeader-ClSSR3cA.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "legal-privacy-tr": { "id": "legal-privacy-tr", "parentId": "root", "path": "tr/gizlilik", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/legal-B3eilJ78.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BL5vzq5a.js", "/assets/StaticPageHeader-ClSSR3cA.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "legal-imprint-tr": { "id": "legal-imprint-tr", "parentId": "root", "path": "tr/kunye", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/legal-B3eilJ78.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BL5vzq5a.js", "/assets/StaticPageHeader-ClSSR3cA.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "legal-privacy-ru": { "id": "legal-privacy-ru", "parentId": "root", "path": "ru/privacy", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/legal-B3eilJ78.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BL5vzq5a.js", "/assets/StaticPageHeader-ClSSR3cA.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "legal-imprint-ru": { "id": "legal-imprint-ru", "parentId": "root", "path": "ru/impressum", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/legal-B3eilJ78.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BL5vzq5a.js", "/assets/StaticPageHeader-ClSSR3cA.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "legal-privacy-cs": { "id": "legal-privacy-cs", "parentId": "root", "path": "cs/privacy", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/legal-B3eilJ78.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BL5vzq5a.js", "/assets/StaticPageHeader-ClSSR3cA.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "legal-imprint-cs": { "id": "legal-imprint-cs", "parentId": "root", "path": "cs/impressum", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/legal-B3eilJ78.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BL5vzq5a.js", "/assets/StaticPageHeader-ClSSR3cA.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "legal-privacy-uk": { "id": "legal-privacy-uk", "parentId": "root", "path": "uk/privacy", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/legal-B3eilJ78.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BL5vzq5a.js", "/assets/StaticPageHeader-ClSSR3cA.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "legal-imprint-uk": { "id": "legal-imprint-uk", "parentId": "root", "path": "uk/impressum", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/legal-B3eilJ78.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BL5vzq5a.js", "/assets/StaticPageHeader-ClSSR3cA.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "legal-privacy-ur": { "id": "legal-privacy-ur", "parentId": "root", "path": "ur/privacy", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/legal-B3eilJ78.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BL5vzq5a.js", "/assets/StaticPageHeader-ClSSR3cA.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "legal-imprint-ur": { "id": "legal-imprint-ur", "parentId": "root", "path": "ur/impressum", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/legal-B3eilJ78.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BL5vzq5a.js", "/assets/StaticPageHeader-ClSSR3cA.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 } }, "url": "/assets/manifest-93de8a85.js", "version": "93de8a85", "sri": void 0 };
 const assetsBuildDirectory = "build/public-react/client";
 const basename = "/";
 const future = { "unstable_enableNodeReadableStream": false, "unstable_optimizeDeps": false };
 const ssr = false;
 const isSpaMode = false;
-const prerender = ["/", "/de/", "/fr/", "/tr/", "/ru/", "/cs/", "/uk/", "/ur/", "/pl/", "/nl/", "/ar/", "/sv/", "/da/", "/el/", "/es/", "/he/", "/hu/", "/it/", "/ja/", "/ko/", "/pt/", "/ro/", "/zh/", "/health/", "/de/health/", "/fr/health/", "/tr/health/", "/ru/health/", "/cs/health/", "/uk/health/", "/ur/health/", "/pl/health/", "/nl/health/", "/ar/health/", "/sv/health/", "/da/health/", "/el/health/", "/es/health/", "/he/health/", "/hu/health/", "/it/health/", "/ja/health/", "/ko/health/", "/pt/health/", "/ro/health/", "/zh/health/", "/clinic/", "/transfers/antalya/", "/transfers/belek/", "/transfers/side/", "/transfers/kemer/", "/transfers/alanya/", "/transfers/bogazkent/", "/transfers/manavgat/", "/transfers/kizilagac/", "/transfers/tekirova/", "/transfers/bodrum/", "/transfers/dalaman/", "/transfers/fethiye/", "/transfers/pamukkale/", "/transfers/kapadokya/", "/de/transfers/antalya/", "/de/transfers/belek/", "/de/transfers/side/", "/de/transfers/kemer/", "/de/transfers/alanya/", "/de/transfers/bogazkent/", "/de/transfers/manavgat/", "/de/transfers/kizilagac/", "/de/transfers/tekirova/", "/de/transfers/bodrum/", "/de/transfers/dalaman/", "/de/transfers/fethiye/", "/de/transfers/pamukkale/", "/de/transfers/kapadokya/", "/fr/transfers/antalya/", "/fr/transfers/belek/", "/fr/transfers/side/", "/fr/transfers/kemer/", "/fr/transfers/alanya/", "/fr/transfers/bogazkent/", "/fr/transfers/manavgat/", "/fr/transfers/kizilagac/", "/fr/transfers/tekirova/", "/fr/transfers/bodrum/", "/fr/transfers/dalaman/", "/fr/transfers/fethiye/", "/fr/transfers/pamukkale/", "/fr/transfers/kapadokya/", "/tr/transfers/antalya/", "/tr/transfers/belek/", "/tr/transfers/side/", "/tr/transfers/kemer/", "/tr/transfers/alanya/", "/tr/transfers/bogazkent/", "/tr/transfers/manavgat/", "/tr/transfers/kizilagac/", "/tr/transfers/tekirova/", "/tr/transfers/bodrum/", "/tr/transfers/dalaman/", "/tr/transfers/fethiye/", "/tr/transfers/pamukkale/", "/tr/transfers/kapadokya/", "/ru/transfers/antalya/", "/ru/transfers/belek/", "/ru/transfers/side/", "/ru/transfers/kemer/", "/ru/transfers/alanya/", "/ru/transfers/bogazkent/", "/ru/transfers/manavgat/", "/ru/transfers/kizilagac/", "/ru/transfers/tekirova/", "/ru/transfers/bodrum/", "/ru/transfers/dalaman/", "/ru/transfers/fethiye/", "/ru/transfers/pamukkale/", "/ru/transfers/kapadokya/", "/cs/transfers/antalya/", "/cs/transfers/belek/", "/cs/transfers/side/", "/cs/transfers/kemer/", "/cs/transfers/alanya/", "/cs/transfers/bogazkent/", "/cs/transfers/manavgat/", "/cs/transfers/kizilagac/", "/cs/transfers/tekirova/", "/cs/transfers/bodrum/", "/cs/transfers/dalaman/", "/cs/transfers/fethiye/", "/cs/transfers/pamukkale/", "/cs/transfers/kapadokya/", "/uk/transfers/antalya/", "/uk/transfers/belek/", "/uk/transfers/side/", "/uk/transfers/kemer/", "/uk/transfers/alanya/", "/uk/transfers/bogazkent/", "/uk/transfers/manavgat/", "/uk/transfers/kizilagac/", "/uk/transfers/tekirova/", "/uk/transfers/bodrum/", "/uk/transfers/dalaman/", "/uk/transfers/fethiye/", "/uk/transfers/pamukkale/", "/uk/transfers/kapadokya/", "/ur/transfers/antalya/", "/ur/transfers/belek/", "/ur/transfers/side/", "/ur/transfers/kemer/", "/ur/transfers/alanya/", "/ur/transfers/bogazkent/", "/ur/transfers/manavgat/", "/ur/transfers/kizilagac/", "/ur/transfers/tekirova/", "/ur/transfers/bodrum/", "/ur/transfers/dalaman/", "/ur/transfers/fethiye/", "/ur/transfers/pamukkale/", "/ur/transfers/kapadokya/", "/pl/transfers/antalya/", "/pl/transfers/belek/", "/pl/transfers/side/", "/pl/transfers/kemer/", "/pl/transfers/alanya/", "/pl/transfers/bogazkent/", "/pl/transfers/manavgat/", "/pl/transfers/kizilagac/", "/pl/transfers/tekirova/", "/pl/transfers/bodrum/", "/pl/transfers/dalaman/", "/pl/transfers/fethiye/", "/pl/transfers/pamukkale/", "/pl/transfers/kapadokya/", "/nl/transfers/antalya/", "/nl/transfers/belek/", "/nl/transfers/side/", "/nl/transfers/kemer/", "/nl/transfers/alanya/", "/nl/transfers/bogazkent/", "/nl/transfers/manavgat/", "/nl/transfers/kizilagac/", "/nl/transfers/tekirova/", "/nl/transfers/bodrum/", "/nl/transfers/dalaman/", "/nl/transfers/fethiye/", "/nl/transfers/pamukkale/", "/nl/transfers/kapadokya/", "/ar/transfers/antalya/", "/ar/transfers/belek/", "/ar/transfers/side/", "/ar/transfers/kemer/", "/ar/transfers/alanya/", "/ar/transfers/bogazkent/", "/ar/transfers/manavgat/", "/ar/transfers/kizilagac/", "/ar/transfers/tekirova/", "/ar/transfers/bodrum/", "/ar/transfers/dalaman/", "/ar/transfers/fethiye/", "/ar/transfers/pamukkale/", "/ar/transfers/kapadokya/", "/sv/transfers/antalya/", "/sv/transfers/belek/", "/sv/transfers/side/", "/sv/transfers/kemer/", "/sv/transfers/alanya/", "/sv/transfers/bogazkent/", "/sv/transfers/manavgat/", "/sv/transfers/kizilagac/", "/sv/transfers/tekirova/", "/sv/transfers/bodrum/", "/sv/transfers/dalaman/", "/sv/transfers/fethiye/", "/sv/transfers/pamukkale/", "/sv/transfers/kapadokya/", "/da/transfers/antalya/", "/da/transfers/belek/", "/da/transfers/side/", "/da/transfers/kemer/", "/da/transfers/alanya/", "/da/transfers/bogazkent/", "/da/transfers/manavgat/", "/da/transfers/kizilagac/", "/da/transfers/tekirova/", "/da/transfers/bodrum/", "/da/transfers/dalaman/", "/da/transfers/fethiye/", "/da/transfers/pamukkale/", "/da/transfers/kapadokya/", "/el/transfers/antalya/", "/el/transfers/belek/", "/el/transfers/side/", "/el/transfers/kemer/", "/el/transfers/alanya/", "/el/transfers/bogazkent/", "/el/transfers/manavgat/", "/el/transfers/kizilagac/", "/el/transfers/tekirova/", "/el/transfers/bodrum/", "/el/transfers/dalaman/", "/el/transfers/fethiye/", "/el/transfers/pamukkale/", "/el/transfers/kapadokya/", "/es/transfers/antalya/", "/es/transfers/belek/", "/es/transfers/side/", "/es/transfers/kemer/", "/es/transfers/alanya/", "/es/transfers/bogazkent/", "/es/transfers/manavgat/", "/es/transfers/kizilagac/", "/es/transfers/tekirova/", "/es/transfers/bodrum/", "/es/transfers/dalaman/", "/es/transfers/fethiye/", "/es/transfers/pamukkale/", "/es/transfers/kapadokya/", "/he/transfers/antalya/", "/he/transfers/belek/", "/he/transfers/side/", "/he/transfers/kemer/", "/he/transfers/alanya/", "/he/transfers/bogazkent/", "/he/transfers/manavgat/", "/he/transfers/kizilagac/", "/he/transfers/tekirova/", "/he/transfers/bodrum/", "/he/transfers/dalaman/", "/he/transfers/fethiye/", "/he/transfers/pamukkale/", "/he/transfers/kapadokya/", "/hu/transfers/antalya/", "/hu/transfers/belek/", "/hu/transfers/side/", "/hu/transfers/kemer/", "/hu/transfers/alanya/", "/hu/transfers/bogazkent/", "/hu/transfers/manavgat/", "/hu/transfers/kizilagac/", "/hu/transfers/tekirova/", "/hu/transfers/bodrum/", "/hu/transfers/dalaman/", "/hu/transfers/fethiye/", "/hu/transfers/pamukkale/", "/hu/transfers/kapadokya/", "/it/transfers/antalya/", "/it/transfers/belek/", "/it/transfers/side/", "/it/transfers/kemer/", "/it/transfers/alanya/", "/it/transfers/bogazkent/", "/it/transfers/manavgat/", "/it/transfers/kizilagac/", "/it/transfers/tekirova/", "/it/transfers/bodrum/", "/it/transfers/dalaman/", "/it/transfers/fethiye/", "/it/transfers/pamukkale/", "/it/transfers/kapadokya/", "/ja/transfers/antalya/", "/ja/transfers/belek/", "/ja/transfers/side/", "/ja/transfers/kemer/", "/ja/transfers/alanya/", "/ja/transfers/bogazkent/", "/ja/transfers/manavgat/", "/ja/transfers/kizilagac/", "/ja/transfers/tekirova/", "/ja/transfers/bodrum/", "/ja/transfers/dalaman/", "/ja/transfers/fethiye/", "/ja/transfers/pamukkale/", "/ja/transfers/kapadokya/", "/ko/transfers/antalya/", "/ko/transfers/belek/", "/ko/transfers/side/", "/ko/transfers/kemer/", "/ko/transfers/alanya/", "/ko/transfers/bogazkent/", "/ko/transfers/manavgat/", "/ko/transfers/kizilagac/", "/ko/transfers/tekirova/", "/ko/transfers/bodrum/", "/ko/transfers/dalaman/", "/ko/transfers/fethiye/", "/ko/transfers/pamukkale/", "/ko/transfers/kapadokya/", "/pt/transfers/antalya/", "/pt/transfers/belek/", "/pt/transfers/side/", "/pt/transfers/kemer/", "/pt/transfers/alanya/", "/pt/transfers/bogazkent/", "/pt/transfers/manavgat/", "/pt/transfers/kizilagac/", "/pt/transfers/tekirova/", "/pt/transfers/bodrum/", "/pt/transfers/dalaman/", "/pt/transfers/fethiye/", "/pt/transfers/pamukkale/", "/pt/transfers/kapadokya/", "/ro/transfers/antalya/", "/ro/transfers/belek/", "/ro/transfers/side/", "/ro/transfers/kemer/", "/ro/transfers/alanya/", "/ro/transfers/bogazkent/", "/ro/transfers/manavgat/", "/ro/transfers/kizilagac/", "/ro/transfers/tekirova/", "/ro/transfers/bodrum/", "/ro/transfers/dalaman/", "/ro/transfers/fethiye/", "/ro/transfers/pamukkale/", "/ro/transfers/kapadokya/", "/zh/transfers/antalya/", "/zh/transfers/belek/", "/zh/transfers/side/", "/zh/transfers/kemer/", "/zh/transfers/alanya/", "/zh/transfers/bogazkent/", "/zh/transfers/manavgat/", "/zh/transfers/kizilagac/", "/zh/transfers/tekirova/", "/zh/transfers/bodrum/", "/zh/transfers/dalaman/", "/zh/transfers/fethiye/", "/zh/transfers/pamukkale/", "/zh/transfers/kapadokya/", "/de/hotels/rixos-premium-belek/", "/de/hotels/the-land-of-legends/", "/de/hotels/maxx-royal-belek/", "/de/hotels/regnum-carya/", "/de/hotels/gloria-golf-resort/", "/de/hotels/cornelia-diamond-golf-resort/", "/de/hotels/ic-hotels-santai/", "/de/hotels/arum-barut-collection/", "/de/hotels/side-star-resort/", "/de/hotels/royal-dragon-hotel/", "/de/hotels/barut-hemera/", "/de/hotels/voyage-sorgun/", "/de/hotels/sentido-flora-garden/", "/de/hotels/crystal-sunset-luxury-resort/", "/de/hotels/rixos-premium-kemer/", "/de/hotels/maxx-royal-kemer/", "/de/hotels/orange-county-resort-kemer/", "/de/hotels/paloma-pasha-resort/", "/de/hotels/club-hotel-phaselis-rose/", "/de/hotels/utopia-world-hotel/", "/de/hotels/sentido-gold-island/", "/de/hotels/q-premium-resort/", "/de/hotels/kirman-arycanda/", "/de/hotels/delphin-diva/", "/de/hotels/rixos-premium-tekirova/", "/de/hotels/amara-prestige/", "/impressum.html", "/privacy/", "/de/datenschutz/", "/de/impressum/", "/tr/gizlilik/", "/tr/kunye/", "/ru/privacy/", "/ru/impressum/", "/cs/privacy/", "/cs/impressum/", "/uk/privacy/", "/uk/impressum/", "/ur/privacy/", "/ur/impressum/"];
+const prerender = ["/", "/de/", "/fr/", "/tr/", "/ru/", "/cs/", "/uk/", "/ur/", "/pl/", "/nl/", "/ar/", "/sv/", "/da/", "/el/", "/es/", "/he/", "/hu/", "/it/", "/ja/", "/ko/", "/pt/", "/ro/", "/zh/", "/health/", "/de/health/", "/fr/health/", "/tr/health/", "/ru/health/", "/cs/health/", "/uk/health/", "/ur/health/", "/pl/health/", "/nl/health/", "/ar/health/", "/sv/health/", "/da/health/", "/el/health/", "/es/health/", "/he/health/", "/hu/health/", "/it/health/", "/ja/health/", "/ko/health/", "/pt/health/", "/ro/health/", "/zh/health/", "/clinic/", "/transfers/antalya/", "/transfers/belek/", "/transfers/side/", "/transfers/kemer/", "/transfers/alanya/", "/transfers/bogazkent/", "/transfers/manavgat/", "/transfers/kizilagac/", "/transfers/tekirova/", "/transfers/bodrum/", "/transfers/dalaman/", "/transfers/fethiye/", "/transfers/pamukkale/", "/transfers/kapadokya/", "/de/transfers/antalya/", "/de/transfers/belek/", "/de/transfers/side/", "/de/transfers/kemer/", "/de/transfers/alanya/", "/de/transfers/bogazkent/", "/de/transfers/manavgat/", "/de/transfers/kizilagac/", "/de/transfers/tekirova/", "/de/transfers/bodrum/", "/de/transfers/dalaman/", "/de/transfers/fethiye/", "/de/transfers/pamukkale/", "/de/transfers/kapadokya/", "/fr/transfers/antalya/", "/fr/transfers/belek/", "/fr/transfers/side/", "/fr/transfers/kemer/", "/fr/transfers/alanya/", "/fr/transfers/bogazkent/", "/fr/transfers/manavgat/", "/fr/transfers/kizilagac/", "/fr/transfers/tekirova/", "/fr/transfers/bodrum/", "/fr/transfers/dalaman/", "/fr/transfers/fethiye/", "/fr/transfers/pamukkale/", "/fr/transfers/kapadokya/", "/tr/transfers/antalya/", "/tr/transfers/belek/", "/tr/transfers/side/", "/tr/transfers/kemer/", "/tr/transfers/alanya/", "/tr/transfers/bogazkent/", "/tr/transfers/manavgat/", "/tr/transfers/kizilagac/", "/tr/transfers/tekirova/", "/tr/transfers/bodrum/", "/tr/transfers/dalaman/", "/tr/transfers/fethiye/", "/tr/transfers/pamukkale/", "/tr/transfers/kapadokya/", "/ru/transfers/antalya/", "/ru/transfers/belek/", "/ru/transfers/side/", "/ru/transfers/kemer/", "/ru/transfers/alanya/", "/ru/transfers/bogazkent/", "/ru/transfers/manavgat/", "/ru/transfers/kizilagac/", "/ru/transfers/tekirova/", "/ru/transfers/bodrum/", "/ru/transfers/dalaman/", "/ru/transfers/fethiye/", "/ru/transfers/pamukkale/", "/ru/transfers/kapadokya/", "/cs/transfers/antalya/", "/cs/transfers/belek/", "/cs/transfers/side/", "/cs/transfers/kemer/", "/cs/transfers/alanya/", "/cs/transfers/bogazkent/", "/cs/transfers/manavgat/", "/cs/transfers/kizilagac/", "/cs/transfers/tekirova/", "/cs/transfers/bodrum/", "/cs/transfers/dalaman/", "/cs/transfers/fethiye/", "/cs/transfers/pamukkale/", "/cs/transfers/kapadokya/", "/uk/transfers/antalya/", "/uk/transfers/belek/", "/uk/transfers/side/", "/uk/transfers/kemer/", "/uk/transfers/alanya/", "/uk/transfers/bogazkent/", "/uk/transfers/manavgat/", "/uk/transfers/kizilagac/", "/uk/transfers/tekirova/", "/uk/transfers/bodrum/", "/uk/transfers/dalaman/", "/uk/transfers/fethiye/", "/uk/transfers/pamukkale/", "/uk/transfers/kapadokya/", "/ur/transfers/antalya/", "/ur/transfers/belek/", "/ur/transfers/side/", "/ur/transfers/kemer/", "/ur/transfers/alanya/", "/ur/transfers/bogazkent/", "/ur/transfers/manavgat/", "/ur/transfers/kizilagac/", "/ur/transfers/tekirova/", "/ur/transfers/bodrum/", "/ur/transfers/dalaman/", "/ur/transfers/fethiye/", "/ur/transfers/pamukkale/", "/ur/transfers/kapadokya/", "/pl/transfers/antalya/", "/pl/transfers/belek/", "/pl/transfers/side/", "/pl/transfers/kemer/", "/pl/transfers/alanya/", "/pl/transfers/bogazkent/", "/pl/transfers/manavgat/", "/pl/transfers/kizilagac/", "/pl/transfers/tekirova/", "/pl/transfers/bodrum/", "/pl/transfers/dalaman/", "/pl/transfers/fethiye/", "/pl/transfers/pamukkale/", "/pl/transfers/kapadokya/", "/nl/transfers/antalya/", "/nl/transfers/belek/", "/nl/transfers/side/", "/nl/transfers/kemer/", "/nl/transfers/alanya/", "/nl/transfers/bogazkent/", "/nl/transfers/manavgat/", "/nl/transfers/kizilagac/", "/nl/transfers/tekirova/", "/nl/transfers/bodrum/", "/nl/transfers/dalaman/", "/nl/transfers/fethiye/", "/nl/transfers/pamukkale/", "/nl/transfers/kapadokya/", "/ar/transfers/antalya/", "/ar/transfers/belek/", "/ar/transfers/side/", "/ar/transfers/kemer/", "/ar/transfers/alanya/", "/ar/transfers/bogazkent/", "/ar/transfers/manavgat/", "/ar/transfers/kizilagac/", "/ar/transfers/tekirova/", "/ar/transfers/bodrum/", "/ar/transfers/dalaman/", "/ar/transfers/fethiye/", "/ar/transfers/pamukkale/", "/ar/transfers/kapadokya/", "/sv/transfers/antalya/", "/sv/transfers/belek/", "/sv/transfers/side/", "/sv/transfers/kemer/", "/sv/transfers/alanya/", "/sv/transfers/bogazkent/", "/sv/transfers/manavgat/", "/sv/transfers/kizilagac/", "/sv/transfers/tekirova/", "/sv/transfers/bodrum/", "/sv/transfers/dalaman/", "/sv/transfers/fethiye/", "/sv/transfers/pamukkale/", "/sv/transfers/kapadokya/", "/da/transfers/antalya/", "/da/transfers/belek/", "/da/transfers/side/", "/da/transfers/kemer/", "/da/transfers/alanya/", "/da/transfers/bogazkent/", "/da/transfers/manavgat/", "/da/transfers/kizilagac/", "/da/transfers/tekirova/", "/da/transfers/bodrum/", "/da/transfers/dalaman/", "/da/transfers/fethiye/", "/da/transfers/pamukkale/", "/da/transfers/kapadokya/", "/el/transfers/antalya/", "/el/transfers/belek/", "/el/transfers/side/", "/el/transfers/kemer/", "/el/transfers/alanya/", "/el/transfers/bogazkent/", "/el/transfers/manavgat/", "/el/transfers/kizilagac/", "/el/transfers/tekirova/", "/el/transfers/bodrum/", "/el/transfers/dalaman/", "/el/transfers/fethiye/", "/el/transfers/pamukkale/", "/el/transfers/kapadokya/", "/es/transfers/antalya/", "/es/transfers/belek/", "/es/transfers/side/", "/es/transfers/kemer/", "/es/transfers/alanya/", "/es/transfers/bogazkent/", "/es/transfers/manavgat/", "/es/transfers/kizilagac/", "/es/transfers/tekirova/", "/es/transfers/bodrum/", "/es/transfers/dalaman/", "/es/transfers/fethiye/", "/es/transfers/pamukkale/", "/es/transfers/kapadokya/", "/he/transfers/antalya/", "/he/transfers/belek/", "/he/transfers/side/", "/he/transfers/kemer/", "/he/transfers/alanya/", "/he/transfers/bogazkent/", "/he/transfers/manavgat/", "/he/transfers/kizilagac/", "/he/transfers/tekirova/", "/he/transfers/bodrum/", "/he/transfers/dalaman/", "/he/transfers/fethiye/", "/he/transfers/pamukkale/", "/he/transfers/kapadokya/", "/hu/transfers/antalya/", "/hu/transfers/belek/", "/hu/transfers/side/", "/hu/transfers/kemer/", "/hu/transfers/alanya/", "/hu/transfers/bogazkent/", "/hu/transfers/manavgat/", "/hu/transfers/kizilagac/", "/hu/transfers/tekirova/", "/hu/transfers/bodrum/", "/hu/transfers/dalaman/", "/hu/transfers/fethiye/", "/hu/transfers/pamukkale/", "/hu/transfers/kapadokya/", "/it/transfers/antalya/", "/it/transfers/belek/", "/it/transfers/side/", "/it/transfers/kemer/", "/it/transfers/alanya/", "/it/transfers/bogazkent/", "/it/transfers/manavgat/", "/it/transfers/kizilagac/", "/it/transfers/tekirova/", "/it/transfers/bodrum/", "/it/transfers/dalaman/", "/it/transfers/fethiye/", "/it/transfers/pamukkale/", "/it/transfers/kapadokya/", "/ja/transfers/antalya/", "/ja/transfers/belek/", "/ja/transfers/side/", "/ja/transfers/kemer/", "/ja/transfers/alanya/", "/ja/transfers/bogazkent/", "/ja/transfers/manavgat/", "/ja/transfers/kizilagac/", "/ja/transfers/tekirova/", "/ja/transfers/bodrum/", "/ja/transfers/dalaman/", "/ja/transfers/fethiye/", "/ja/transfers/pamukkale/", "/ja/transfers/kapadokya/", "/ko/transfers/antalya/", "/ko/transfers/belek/", "/ko/transfers/side/", "/ko/transfers/kemer/", "/ko/transfers/alanya/", "/ko/transfers/bogazkent/", "/ko/transfers/manavgat/", "/ko/transfers/kizilagac/", "/ko/transfers/tekirova/", "/ko/transfers/bodrum/", "/ko/transfers/dalaman/", "/ko/transfers/fethiye/", "/ko/transfers/pamukkale/", "/ko/transfers/kapadokya/", "/pt/transfers/antalya/", "/pt/transfers/belek/", "/pt/transfers/side/", "/pt/transfers/kemer/", "/pt/transfers/alanya/", "/pt/transfers/bogazkent/", "/pt/transfers/manavgat/", "/pt/transfers/kizilagac/", "/pt/transfers/tekirova/", "/pt/transfers/bodrum/", "/pt/transfers/dalaman/", "/pt/transfers/fethiye/", "/pt/transfers/pamukkale/", "/pt/transfers/kapadokya/", "/ro/transfers/antalya/", "/ro/transfers/belek/", "/ro/transfers/side/", "/ro/transfers/kemer/", "/ro/transfers/alanya/", "/ro/transfers/bogazkent/", "/ro/transfers/manavgat/", "/ro/transfers/kizilagac/", "/ro/transfers/tekirova/", "/ro/transfers/bodrum/", "/ro/transfers/dalaman/", "/ro/transfers/fethiye/", "/ro/transfers/pamukkale/", "/ro/transfers/kapadokya/", "/zh/transfers/antalya/", "/zh/transfers/belek/", "/zh/transfers/side/", "/zh/transfers/kemer/", "/zh/transfers/alanya/", "/zh/transfers/bogazkent/", "/zh/transfers/manavgat/", "/zh/transfers/kizilagac/", "/zh/transfers/tekirova/", "/zh/transfers/bodrum/", "/zh/transfers/dalaman/", "/zh/transfers/fethiye/", "/zh/transfers/pamukkale/", "/zh/transfers/kapadokya/", "/de/hotels/rixos-premium-belek/", "/de/hotels/the-land-of-legends/", "/de/hotels/maxx-royal-belek/", "/de/hotels/regnum-carya/", "/de/hotels/gloria-golf-resort/", "/de/hotels/cornelia-diamond-golf-resort/", "/de/hotels/ic-hotels-santai/", "/de/hotels/arum-barut-collection/", "/de/hotels/side-star-resort/", "/de/hotels/royal-dragon-hotel/", "/de/hotels/barut-hemera/", "/de/hotels/voyage-sorgun/", "/de/hotels/sentido-flora-garden/", "/de/hotels/crystal-sunset-luxury-resort/", "/de/hotels/amara-prestige/", "/de/hotels/rixos-premium-kemer/", "/de/hotels/maxx-royal-kemer/", "/de/hotels/orange-county-resort-kemer/", "/de/hotels/paloma-pasha-resort/", "/de/hotels/utopia-world-hotel/", "/de/hotels/sentido-gold-island/", "/de/hotels/q-premium-resort/", "/de/hotels/kirman-arycanda/", "/de/hotels/delphin-diva/", "/de/hotels/rixos-premium-tekirova/", "/de/hotels/club-hotel-phaselis-rose/", "/impressum.html", "/privacy/", "/de/datenschutz/", "/de/impressum/", "/tr/gizlilik/", "/tr/kunye/", "/ru/privacy/", "/ru/impressum/", "/cs/privacy/", "/cs/impressum/", "/uk/privacy/", "/uk/impressum/", "/ur/privacy/", "/ur/impressum/"];
 const routeDiscovery = { "mode": "initial" };
 const publicPath = "/";
 const entry = { module: entryServer };
