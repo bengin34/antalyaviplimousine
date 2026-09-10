@@ -172,9 +172,14 @@ export function ProfitLedgerGrid({
                 className={`is-${align}${header.column.id === 'passenger' ? ' ledger-col-sticky' : ''}`}
                 aria-sort={sorted === 'asc' ? 'ascending' : sorted === 'desc' ? 'descending' : 'none'}
               >
-                <button type="button" className="ledger-sort" onClick={header.column.getToggleSortingHandler()}>
+                <button
+                  type="button"
+                  className={`ledger-sort${sorted ? ' is-sorted' : ''}`}
+                  title={sorted === 'asc' ? 'Azalan sırala' : 'Artan sırala'}
+                  onClick={header.column.getToggleSortingHandler()}
+                >
                   {flexRender(header.column.columnDef.header, header.getContext())}
-                  {sorted === 'asc' ? ' ▲' : sorted === 'desc' ? ' ▼' : ''}
+                  <span className="ledger-sort-icon" aria-hidden="true">{sorted === 'asc' ? '▲' : sorted === 'desc' ? '▼' : '↕'}</span>
                 </button>
               </th>
             })}

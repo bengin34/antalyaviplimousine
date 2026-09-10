@@ -1571,7 +1571,11 @@ button.profit-leg-action.is-ghost:hover:not(:disabled) {
 .ledger-scroll { overflow-x: auto; border: 1px solid var(--border-soft); border-radius: 12px; }
 .ledger-table { min-width: 1180px; }
 .ledger-sort { all: unset; cursor: pointer; font: inherit; color: inherit; white-space: nowrap; }
-.ledger-sort:hover { color: var(--text); }
+.ledger-sort:hover,
+.ledger-sort.is-sorted { color: var(--text); }
+.ledger-sort-icon { margin-left: 4px; font-size: 9px; opacity: 0.35; }
+.ledger-sort:hover .ledger-sort-icon,
+.ledger-sort.is-sorted .ledger-sort-icon { opacity: 1; color: var(--blue); }
 .ledger-col-sticky { position: sticky; left: 0; z-index: 1; background: #161a22; }
 .ledger-table tbody tr:nth-child(even) td.ledger-col-sticky { background: #1a1f28; }
 
