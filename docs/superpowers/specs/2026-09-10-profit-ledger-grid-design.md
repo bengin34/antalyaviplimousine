@@ -34,9 +34,13 @@ Props (mevcut imza korunur + `periodLabel`; `ProfitLossPage` yalnız bu prop'u g
   today?: string
   onBookingSaved?: (booking: Booking) => void
   onSaveNoCost?: (leg: LedgerLeg) => Promise<void>
-  periodLabel: string            // CSV dosya adı için, örn. "2026-09" veya "tumu"
+  periodLabel: string            // CSV dosya adı için (aşağıya bak)
 }
 ```
+
+`periodLabel` `ProfitLossPage` tarafından sekmeye göre üretilir: Dağıtılmamış → `acik`, bir dağıtım → `{period_start}_{period_end}` (ISO), Tümü → `tumu`.
+
+`LedgerLeg`'e motorun zaten ürettiği `airportMeetCostEur?: number` ve `parkingCostEur?: number` alanları eklenir (maliyet ↔ kâr dönüşümü için kurdan yeniden hesaplama yapılmaz).
 
 Sorumluluk: `legs` dizisini TanStack `useReactTable`'a verir; kolon tanımlarını `ledger-columns.tsx`'ten alır; toolbar (filtre, kolon görünürlüğü, CSV indir), `<table>` ve mobil kart listesini render eder.
 
@@ -50,30 +54,33 @@ Varsayılan sıralama: tarih azalan, sonra yolcu adı artan.
 ```ts
 interface LedgerColumnMeta {
   align?: 'left' | 'right'
-  csv: (leg: LedgerLeg, booking?: Booking) => string | number | ''
+  csv: CsvColumn[]     // bir grid kolonu birden çok CSV kolonu üretebilir (kâr → € ve ₺)
   editable?: boolean   // hücre EditableCell ile render edilir
 }
 ```
+(`CsvColumn` §4'te tanımlı.) Grid, görünür kolonların `meta.csv` dizilerini sırayla düzleştirip `ledgerToCsv`'ye verir; CSV kolon sırası = grid kolon sırası.
 
 | id | Başlık | Değer | Düzenleme |
 |---|---|---|---|
 | `date` | Tarih | `fmtDetailDate(leg.date)` | — |
-| `passenger` | Yolcu | `leg.customerName ?? 'Kayıt'`; `navigate` varsa detay linki (`#detail/{bookingRef}?from=profit-loss[&leg=return]`) | — |
+| `passenger` | Yolcu | `leg.customerName ?? 'Kayıt'`; `navigate && leg.bookingRef` varsa detay linki (`#detail/{bookingRef}?from=profit-loss[&leg=return]`) | — |
 | `direction` | Yön | `legDirectionLabel(booking, leg.leg)` | — |
 | `route` | Rota | `profitLocationLabel(from) → profitLocationLabel(to)` | — |
 | `revenueEur` | Gelir € | `formatEuro` | — |
 | `costEur` | Maliyet € | `revenueEur − ownVehicleProfitEur − extraCostEur` (kâr girilmemişse `—`) | sayı; kaydedilen = türetilen kâr |
 | `profitEur` | Reklam öncesi kâr € / ₺ | `formatEuro · formatTry` | sayı (€) |
 | `supplierTry` | Tedarikçi ₺ | `formatTry` veya `—` | sayı; yalnız `sold_transfer` modunda |
-| `meetFee` | Karşılama | `airportMeetCostTry > 0 ? 'Evet' : 'Hayır'` | evet/hayır select |
-| `parkingHours` | Otopark saat | `booking.airport_meet_fee_parking_hours` | sayı 0.25–24 |
+| `meetFee` | Karşılama | `booking.airport_meet_fee_applies !== false ? 'Evet' : 'Hayır'` (motorun kendi kuralı; hesaplanan maliyetten değil DB alanından) — kalkış noktası havalimanı değilse `—` | evet/hayır select; yalnız kalkışı havalimanı olan ayakta |
+| `parkingHours` | Otopark saat | `booking.airport_meet_fee_parking_hours` (null ise `1` — motorun varsayılanı); kalkış havalimanı değilse `—` | sayı, `0 < x ≤ 24` (DB CHECK kısıtı, `20260910120000_*` migration) |
+
+`meetFee` ve `parkingHours` **rezervasyon** düzeyinde saklanır; dönüş satırından düzenlemek gidiş satırını da değiştirir (beklenen davranış).
 | `advertisingTry` | Reklam ₺ | `formatTry` | — |
 | `netProfitTry` | Net kâr ₺ | `formatTry`, `is-neg/is-pos` sınıfı | — |
 | `costMode` | Model | `COST_MODE_LABELS[legCostMode(booking, legKey)]` | select (`own_vehicle` / `sold_transfer` / `no_cost`) |
 
 Düzenlenebilirlik kuralları (hücre bazında, `canEdit(leg, booking)` yardımcı fonksiyonu):
 - `editable === false` veya `booking` yok veya `today` yok → tüm hücreler salt okunur.
-- Günlük hizmet (`isDailyChauffeur`) satırlarında hücreler salt okunur; `distanceSource === 'daily-missing'` ise `profitEur` hücresinde mevcut **"Maliyeti yok"** butonu (`onSaveNoCost`) gösterilir.
+- Günlük hizmet (`isDailyChauffeur`) satırlarında hücreler salt okunur; `costMode`, `supplierTry`, `meetFee`, `parkingHours` kolonları `—` gösterir (`toLegKey('day-N')` gidiş ayağına düştüğü için gidiş değerleri **gösterilmez**). `distanceSource === 'daily-missing'` ise `profitEur` hücresinde mevcut **"Maliyeti yok"** butonu (`onSaveNoCost`) gösterilir.
 - `costEur` ve `profitEur`: mod `own_vehicle` ise düzenlenebilir; `sold_transfer` veya `no_cost` ise `—` ve salt okunur.
 - `supplierTry`: mod `sold_transfer` ise düzenlenebilir; aksi halde `—`.
 - `meetFee`, `parkingHours`, `costMode`: gidiş/dönüş ayaklarında düzenlenebilir.
@@ -96,8 +103,11 @@ Genel hücre içi editör.
   validate?: (raw: string) => string | null   // hata mesajı ya da null
   muted?: boolean
   label: string                    // aria-label, örn. "Ali Veli gidiş kâr"
+  autoOpen?: boolean               // true olunca düzenleme moduna geçer (OwnVehicleProfitEditor ile aynı kalıp)
+  onEditEnd?: () => void           // kaydet/iptal sonrası; grid pendingOpen'ı temizler
 }
 ```
+Grid, `pendingOpen: { rowId: string; columnId: string } | null` state'i tutar; `costMode` → `sold_transfer` ertelemesinde `{ rowId, columnId: 'supplierTry' }` yazar, ilgili hücre `autoOpen` alır, `onEditEnd` ile temizlenir.
 Davranış:
 - Salt okunur halde `button.ledger-cell-edit` olarak render edilir (klavye erişilebilir), tıkla/Enter → düzenleme moduna geçer, `autoFocus`.
 - `number`: `Enter` → kaydet, `Escape` → iptal, `blur` → kaydet (değer değişmediyse sadece kapat).
@@ -114,16 +124,18 @@ Tüm yazımlar `lib/leg-cost-actions.ts`'teki mevcut fonksiyonlarla:
 
 | Hücre | Fonksiyon | Not |
 |---|---|---|
-| `profitEur` | `saveLegOwnVehicleProfit(booking, legKey, profitEur)` | aralık ±999.999,99 |
-| `costEur` | aynı fonksiyon; `profit = revenueEur − cost − extraCostEur` | `extraCostEur = (airportMeetCostTry + parkingCostTry) / eurTryRate` |
-| `supplierTry` | `saveLegSupplierCost` | 0 < x ≤ 9.999.999,99 |
-| `meetFee` | `saveLegMeetFee` | |
-| `parkingHours` | `saveParkingHours` | 0 < x ≤ 24 |
-| `costMode` | `saveLegCostMode`; `sold_transfer`'a geçerken tedarikçi bedeli yoksa mod kaydedilmez, `supplierTry` hücresi düzenleme moduna açılır; tedarikçi bedeli kaydedilince `saveLegSupplierCost` zaten modu `sold_transfer` yapar (mevcut `CostModeToggle.onNeedsCost` davranışı) | |
+| `profitEur` | `saveLegOwnVehicleProfit(leg.bookingId, legKey, profitEur)` | aralık ±999.999,99 |
+| `costEur` | aynı fonksiyon; `profit = revenueEur − cost − extraCostEur` | `extraCostEur = (leg.airportMeetCostEur ?? 0) + (leg.parkingCostEur ?? 0)` |
+| `supplierTry` | `saveLegSupplierCost(leg.bookingId, legKey, costTry)` | 0 < x ≤ 9.999.999,99 |
+| `meetFee` | `saveLegMeetFee(leg.bookingId, applies)` | |
+| `parkingHours` | `saveParkingHours(leg.bookingId, hours)` | 0 < x ≤ 24 |
+| `costMode` | `saveLegCostMode(leg.bookingId, legKey, nextMode)`; `sold_transfer`'a geçerken tedarikçi bedeli yoksa mod kaydedilmez, select mevcut moda geri döner ve `supplierTry` hücresi `pendingOpen` ile düzenleme moduna açılır; tedarikçi bedeli kaydedilince `saveLegSupplierCost` zaten modu `sold_transfer` yapar (mevcut `CostModeToggle.onNeedsCost` davranışı) | |
+
+(Tüm fonksiyonlar `leg-cost-actions.ts`'teki mevcut imzalarıyla, ilk argüman **booking id**.)
 
 Her fonksiyonun döndürdüğü `Partial<Booking>` yaması `{ ...booking, ...patch }` olarak `onBookingSaved`'a verilir; `ProfitLossPage` zaten state'i güncelleyip ledger'ı yeniden hesaplıyor. Optimistik güncelleme yok; hücre kaydedilene kadar kilitli kalır.
 
-`CostDialog` grid'den artık açılmaz. Plan aşamasında `grep -r CostDialog admin/` ile başka kullanıcı yoksa dosya ve testi silinir.
+`CostDialog` grid'den artık açılmaz; `BookingDetailPage.tsx` kullanmaya devam ettiği için dosya **kalır**, yalnız `ProfitLedgerGrid`'deki import ve `dialog` state'i kaldırılır.
 
 ### 3.5 Toolbar
 
@@ -141,14 +153,14 @@ Her fonksiyonun döndürdüğü `Partial<Booking>` yaması `{ ...booking, ...pat
 
 Saf fonksiyon:
 ```ts
-export interface CsvColumn { header: string; value: (leg: LedgerLeg, booking?: Booking) => string | number | '' }
+export interface CsvColumn { header: string; value: (leg: LedgerLeg, booking?: Booking) => string | number | ''; sum?: boolean }
 export function ledgerToCsv(rows: LedgerLeg[], columns: CsvColumn[], bookingsById: Map<string, Booking>): string
 ```
 - Ayırıcı `;`, satır sonu `\r\n`, başta UTF-8 BOM (`﻿`) — Türkçe Excel doğrudan açsın.
 - Metin alanları çift tırnak içinde, içteki `"` → `""`.
 - Sayılar ham (`1234.5`), para birimi simgesi yok; kâr kolonu CSV'de iki ayrı kolon olur: `Kâr €` ve `Kâr ₺`. Tarih ISO `YYYY-MM-DD`.
 - `undefined`/`null` → boş hücre.
-- Sıra ve kapsam: grid'in **o anki görünür ve filtrelenmiş** satırları, görünür kolonlar; en alta "Toplam" satırı (sayısal kolonlar toplanır, metin kolonları boş).
+- Sıra ve kapsam: grid'in **o anki görünür ve filtrelenmiş** satırları, görünür kolonlar; en alta "Toplam" satırı (yalnız `sum: true` olan para kolonları toplanır — `parkingHours` toplanmaz; diğer hücreler boş).
 
 İndirme (`ProfitLedgerGrid` içinde): `Blob` + `URL.createObjectURL` + geçici `<a download>`; dosya adı `kar-zarar-{periodLabel}.csv`.
 
@@ -161,7 +173,7 @@ export function ledgerToCsv(rows: LedgerLeg[], columns: CsvColumn[], bookingsByI
 - Supabase hatası → hücrede "Kaydedilemedi, tekrar deneyin."; düzenleme açık kalır, kullanıcı tekrar deneyebilir veya Esc ile iptal eder.
 - Doğrulama hatası → kaydetmez, mesaj gösterir.
 - `localStorage` erişilemezse kolon tercihi sessizce varsayılan olur.
-- `eurTryRate` yoksa (`null`) `costEur` düzenlenemez (`extraCostEur` hesaplanamaz) → hücre `—` ve `title="Kur yok"`.
+- `revenueEur` yoksa (`undefined`) `costEur` düzenlenemez → hücre `—`.
 
 ## 7. Test
 
