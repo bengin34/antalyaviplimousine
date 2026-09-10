@@ -1,9 +1,19 @@
 // @vitest-environment jsdom
 import '@testing-library/jest-dom/vitest'
 import { afterEach, describe, expect, test, vi } from 'vitest'
-import { cleanup, fireEvent, render, screen } from '@testing-library/react'
+import { cleanup, fireEvent, render, screen, waitFor } from '@testing-library/react'
 import CostDialog from './CostDialog'
 import type { Booking } from '../types'
+import type { LegKey } from './LegCostEditors'
+
+vi.mock('../lib/leg-cost-actions', () => ({
+  saveLegOwnVehicleProfit: vi.fn((_bookingId: string, leg: LegKey, profitEur: number) =>
+    Promise.resolve({ [leg === 'return' ? 'return_own_vehicle_profit_eur' : 'own_vehicle_profit_eur']: profitEur })),
+  saveLegSupplierCost: vi.fn(() => Promise.resolve({})),
+  saveLegCostMode: vi.fn(() => Promise.resolve({})),
+  saveLegMeetFee: vi.fn(() => Promise.resolve({})),
+  saveParkingHours: vi.fn(() => Promise.resolve({})),
+}))
 
 afterEach(cleanup)
 
@@ -56,7 +66,7 @@ test('own_vehicle kâr girilmemiş: eksik durum ve kâr kontrolü gösterir', ()
   const booking = bookingFixture()
   render(<CostDialog booking={booking} leg="outbound" today="2026-09-01" onClose={noop} onSaved={noop} />)
   expect(screen.getByText(/girilmedi/i)).toBeInTheDocument()
-  expect(screen.getByRole('button', { name: /Kâr gir/i })).toBeInTheDocument()
+  expect(screen.getByRole('button', { name: /Kâr\/maliyet gir/i })).toBeInTheDocument()
 })
 
 describe('karşılama ücreti görünürlüğü', () => {
@@ -70,6 +80,27 @@ describe('karşılama ücreti görünürlüğü', () => {
     const booking = bookingFixture({ pickup_location: 'private_address', dropoff_location: 'private_address' })
     render(<CostDialog booking={booking} leg="outbound" today="2026-09-01" onClose={noop} onSaved={noop} />)
     expect(screen.queryByText(/Karşılama ücreti/i)).toBeNull()
+  })
+})
+
+describe('maliyet ↔ kâr çift yönlü hesap', () => {
+  test('maliyet girilince kâr otomatik hesaplanır ve kaydedilen değer kârdır', async () => {
+    const booking = bookingFixture({ price_eur: 100 })
+    const onSaved = vi.fn()
+    render(<CostDialog booking={booking} leg="outbound" today="2026-09-01" onClose={noop} onSaved={onSaved} />)
+    fireEvent.click(screen.getByRole('button', { name: /Kâr\/maliyet gir/i }))
+    fireEvent.change(screen.getByLabelText('Maliyet (€)'), { target: { value: '30' } })
+    expect(screen.getByLabelText('Reklam öncesi kâr (€)')).toHaveValue(70)
+    fireEvent.click(screen.getByRole('button', { name: /Kaydet ve hesapla/i }))
+    await waitFor(() => expect(onSaved).toHaveBeenCalledWith(expect.objectContaining({ own_vehicle_profit_eur: 70 })))
+  })
+
+  test('kâr girilince maliyet otomatik hesaplanır', () => {
+    const booking = bookingFixture({ price_eur: 100 })
+    render(<CostDialog booking={booking} leg="outbound" today="2026-09-01" onClose={noop} onSaved={noop} />)
+    fireEvent.click(screen.getByRole('button', { name: /Kâr\/maliyet gir/i }))
+    fireEvent.change(screen.getByLabelText('Reklam öncesi kâr (€)'), { target: { value: '40' } })
+    expect(screen.getByLabelText('Maliyet (€)')).toHaveValue(60)
   })
 })
 

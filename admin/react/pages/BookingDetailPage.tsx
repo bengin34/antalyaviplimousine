@@ -8,7 +8,7 @@ import { isFutureIstanbulLeg, locationDisplay, navigationURLs, whatsappURL } fro
 import { buildConfirmMessage, buildReminderMessage, buildReceivedMessage, buildReviewMessage } from '../../whatsapp-templates.js'
 import { buildDriverTransferMessage, driverWhatsappURL } from '../../driver-message.js'
 import { COST_MODE_LABELS, legLabelFor, type CostMode } from '../components/LegCostEditors'
-import { legCostModel, bookingLegCostStatus } from '../../profit-loss-metrics.js'
+import { legCostModel, bookingLegCostStatus, dailyChauffeurRateEur } from '../../profit-loss-metrics.js'
 import CostDialog from '../components/CostDialog'
 import { LOCATION_OPTIONS, LANGUAGE_OPTIONS, VEHICLE_CAPACITY, validateBookingForm, type BookingFormState } from './NewBookingPage'
 import { ReturnPickupHint, returnPickupAdvice } from '../components/ReturnPickupHint'
@@ -203,23 +203,36 @@ function PriceEditor({ booking, onSaved }: { booking: Booking; onSaved: (booking
   return <><button className="btn-outline price-edit-btn" type="button" onClick={() => { setValue(String(legPrice)); setError(''); setEditing(true) }}>Düzenle</button>{editing && <div className="price-editor" style={{ gridColumn: '1 / -1' }}><div className="price-editor-row"><span style={{ color: 'var(--text-muted)' }}>€</span><input className="input price-input" type="number" min={dailyChauffeur ? 0.01 : 0} step={0.01} inputMode="decimal" aria-label="Yeni fiyat" value={value} onChange={e => setValue(e.target.value)} autoFocus /><button className="btn price-action" type="button" disabled={saving} onClick={() => void save()}>Kaydet</button><button className="btn-outline price-action" type="button" onClick={() => setEditing(false)}>İptal</button></div><div className="inline-error">{error}</div></div>}</>
 }
 
-function ChauffeurDayEditor({ day, onSaved }: { day: ChauffeurHireDay; onSaved: (day: ChauffeurHireDay) => void }) {
+function ChauffeurDayEditor({ day, dailyRateEur, onSaved }: { day: ChauffeurHireDay; dailyRateEur: number; onSaved: (day: ChauffeurHireDay) => void }) {
   const [driver, setDriver] = useState(day.driver_name ?? '')
   const [plate, setPlate] = useState(day.vehicle_plate ?? '')
   const [distance, setDistance] = useState(day.distance_km == null ? '' : String(day.distance_km))
   const [profit, setProfit] = useState(day.profit_before_ads_eur == null ? '' : String(day.profit_before_ads_eur))
+  const [cost, setCost] = useState(day.profit_before_ads_eur == null ? '' : String(dailyRateEur - Number(day.profit_before_ads_eur)))
   const [fuel, setFuel] = useState(day.fuel_amount_eur == null ? '' : String(day.fuel_amount_eur))
   const [fuelPaid, setFuelPaid] = useState(day.fuel_paid)
   const [status, setStatus] = useState(day.status)
   const [notes, setNotes] = useState(day.notes ?? '')
   const [saving, setSaving] = useState(false)
   const [message, setMessage] = useState('')
+  // Maliyet ve reklam öncesi kâr birbirinin türevidir (kâr = günlük ücret -
+  // maliyet); hangisi son girilirse diğeri ondan hesaplanır.
+  const onProfitChange = (raw: string) => {
+    setProfit(raw)
+    const value = raw.trim() === '' ? null : Number(raw.replace(',', '.'))
+    setCost(value === null || !Number.isFinite(value) ? '' : String(dailyRateEur - value))
+  }
+  const onCostChange = (raw: string) => {
+    setCost(raw)
+    const value = raw.trim() === '' ? null : Number(raw.replace(',', '.'))
+    setProfit(value === null || !Number.isFinite(value) ? '' : String(dailyRateEur - value))
+  }
   const save = async () => {
     const distanceKm = distance.trim() === '' ? null : Number(distance.replace(',', '.'))
     const profitBeforeAdsEur = profit.trim() === '' ? null : Number(profit.replace(',', '.'))
     const fuelAmount = fuel.trim() === '' ? null : Number(fuel.replace(',', '.'))
     if (distanceKm !== null && (!Number.isFinite(distanceKm) || distanceKm < 0 || distanceKm > 10000)) return setMessage('Geçerli bir kilometre girin.')
-    if (profitBeforeAdsEur !== null && (!Number.isFinite(profitBeforeAdsEur) || profitBeforeAdsEur < -999999.99 || profitBeforeAdsEur > 999999.99)) return setMessage('Geçerli bir reklam öncesi kâr tutarı girin.')
+    if (profitBeforeAdsEur !== null && (!Number.isFinite(profitBeforeAdsEur) || profitBeforeAdsEur < -999999.99 || profitBeforeAdsEur > 999999.99)) return setMessage('Geçerli bir kâr veya maliyet tutarı girin.')
     if (fuelAmount !== null && (!Number.isFinite(fuelAmount) || fuelAmount < 0 || fuelAmount > 999999.99)) return setMessage('Geçerli bir yakıt tutarı girin.')
     const payload = {
       driver_name: driver.trim() || null, vehicle_plate: plate.trim().toUpperCase() || null,
@@ -239,7 +252,10 @@ function ChauffeurDayEditor({ day, onSaved }: { day: ChauffeurHireDay; onSaved: 
     <div className="chauffeur-day-heading"><div><strong>{day.day_number}. Gün</strong><span>{fmtDetailDate(day.service_date)}</span></div><select className="input" value={status} onChange={e => setStatus(e.target.value as ChauffeurHireDay['status'])}><option value="scheduled">Planlandı</option><option value="in_progress">Devam ediyor</option><option value="completed">Tamamlandı</option></select></div>
     <div className="form-row"><Field label="Şoför"><input className="input" maxLength={60} value={driver} onChange={e => setDriver(e.target.value)} /></Field><Field label="Plaka"><input className="input" maxLength={15} value={plate} onChange={e => setPlate(e.target.value)} /></Field></div>
     <div className="form-row"><Field label="Gerçekleşen kilometre"><input className="input" type="number" min={0} max={10000} step={0.1} value={distance} onChange={e => setDistance(e.target.value)} /></Field><Field label="Yakıt tutarı (€)"><input className="input" type="number" min={0} step={0.01} value={fuel} onChange={e => setFuel(e.target.value)} /></Field></div>
-    <div className="form-row"><Field label="Reklam öncesi kâr (€)"><input className="input" type="number" min={-999999.99} max={999999.99} step={0.01} value={profit} onChange={e => setProfit(e.target.value)} /></Field></div>
+    <div className="form-row">
+      <Field label="Maliyet (€)"><input className="input" type="number" min={-999999.99} max={999999.99} step={0.01} value={cost} onChange={e => onCostChange(e.target.value)} /></Field>
+      <Field label="Reklam öncesi kâr (€)"><input className="input" type="number" min={-999999.99} max={999999.99} step={0.01} value={profit} onChange={e => onProfitChange(e.target.value)} /></Field>
+    </div>
     <label className="admin-fuel-paid"><input type="checkbox" checked={fuelPaid} onChange={e => setFuelPaid(e.target.checked)} /><span>Yakıt ücreti müşteri tarafından ödendi</span></label>
     <Field label="Günlük not"><textarea className="input" rows={2} maxLength={500} value={notes} onChange={e => setNotes(e.target.value)} /></Field>
     <div className="chauffeur-day-actions"><button className="btn" type="button" disabled={saving} onClick={() => void save()}>{saving ? 'Kaydediliyor…' : 'Günü Kaydet'}</button><span className={message === 'Kaydedildi.' ? 'inline-success' : 'inline-error'}>{message}</span></div>
@@ -504,7 +520,7 @@ export default function BookingDetailPage({ bookingRef, isReturn, sourceTab, pro
       </div>}
       {editing && <div className="section booking-edit-section"><BookingEditor booking={booking} onCancel={() => setEditing(false)} onSaved={next => { setEditing(false); updateBooking(next, 'Rezervasyon bilgileri güncellendi.') }} /></div>}
 
-      {dailyChauffeur && <div className="section chauffeur-days-section"><div className="section-label">Günlük Operasyon</div>{sortedHireDays.length ? sortedHireDays.map(day => <ChauffeurDayEditor key={day.id} day={day} onSaved={updateHireDay} />) : <div className="inline-error">Günlük operasyon kayıtları bulunamadı. Migration ve tetikleyici durumunu kontrol edin.</div>}</div>}
+      {dailyChauffeur && <div className="section chauffeur-days-section"><div className="section-label">Günlük Operasyon</div>{sortedHireDays.length ? sortedHireDays.map(day => <ChauffeurDayEditor key={day.id} day={day} dailyRateEur={dailyChauffeurRateEur(booking)} onSaved={updateHireDay} />) : <div className="inline-error">Günlük operasyon kayıtları bulunamadı. Migration ve tetikleyici durumunu kontrol edin.</div>}</div>}
 
       <div className="section"><div className="section-label">Müşteri</div><div style={{ fontWeight: 600, marginBottom: 4 }}>{booking.customer_name}</div><div style={{ marginBottom: 4 }}><a className="whatsapp-link" href={whatsappURL(booking.customer_phone)} target="_blank" rel="noopener noreferrer" aria-label="Müşterinin WhatsApp sohbetini aç"><span aria-hidden="true">💬</span><span>WhatsApp&apos;tan yaz: {booking.customer_phone}</span></a></div><div className="whatsapp-panel">
         <div className="whatsapp-panel-head"><span className="whatsapp-panel-title"><span aria-hidden="true">💬</span> WhatsApp mesajları</span><span className="whatsapp-panel-lang-chip">{languageChip(resolveLanguage())}</span></div>

@@ -144,7 +144,7 @@ describe('ProfitLossPage missing distance recovery', () => {
     expect(blocker).toHaveTextContent('Reklam öncesi kâr eksik.')
     expect(screen.getByRole('button', { name: 'Kârı dağıt' })).toBeDisabled()
 
-    fireEvent.click(within(blocker).getByRole('button', { name: 'Kâr gir' }))
+    fireEvent.click(within(blocker).getByRole('button', { name: 'Kâr/maliyet gir' }))
     fireEvent.change(within(blocker).getByLabelText('Reklam öncesi kâr (€)'), { target: { value: '380' } })
     fireEvent.click(within(blocker).getByRole('button', { name: 'Kaydet ve hesapla' }))
 

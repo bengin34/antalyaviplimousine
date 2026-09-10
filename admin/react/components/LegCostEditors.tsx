@@ -80,36 +80,77 @@ function EditorPanel({ title, children }: { title: string; children: ReactNode }
   </div>
 }
 
-export function OwnVehicleProfitEditor({ leg, onSave, currentProfitEur, triggerLabel, autoOpen = false, onSaved }: {
+const PROFIT_RANGE = { min: -999999.99, max: 999999.99 }
+
+function parseDecimal(raw: string): number | null {
+  if (raw.trim() === '') return null
+  const value = Number(raw.replace(',', '.'))
+  return Number.isFinite(value) ? value : null
+}
+
+function inRange(value: number) {
+  return value >= PROFIT_RANGE.min && value <= PROFIT_RANGE.max
+}
+
+/**
+ * Bir ayağın maliyeti ve reklam öncesi kârı birbirinin türevidir:
+ * kâr = gelir - maliyet - (karşılama/otopark). İkisinden hangisi son
+ * düzenlenense diğeri canlı olarak ondan hesaplanır; kaydedilen tek
+ * değer her zaman kârdır (motor maliyeti bundan geri türetir).
+ */
+export function OwnVehicleProfitEditor({ leg, onSave, currentProfitEur, revenueEur, extraCostEur = 0, triggerLabel, autoOpen = false, onSaved }: {
   leg: ProfitLegRef
   onSave: SaveOwnVehicleProfit
   currentProfitEur?: number | null
+  /** Ayağın avro geliri; maliyet ↔ kâr dönüşümü için gerekli. */
+  revenueEur: number
+  /** Karşılama ücreti veya otopark giderinin avro karşılığı (günlük hizmette hep 0). */
+  extraCostEur?: number
   triggerLabel?: string
   /** Uyarı listesindeki "Kâr gir" düğmesi satırı odaklarken düzenleyici kendiliğinden açılır. */
   autoOpen?: boolean
   onSaved?: () => void
 }) {
   const hasProfit = typeof currentProfitEur === 'number' && Number.isFinite(currentProfitEur)
-  const label = triggerLabel || (hasProfit ? 'Kâr düzenle' : 'Kâr gir')
+  const initialCost = hasProfit ? revenueEur - currentProfitEur! - extraCostEur : null
+  const label = triggerLabel || (hasProfit ? 'Kâr/maliyet düzenle' : 'Kâr/maliyet gir')
   const [editing, setEditing] = useState(false)
-  const [value, setValue] = useState(hasProfit ? String(currentProfitEur) : '')
+  const [profitValue, setProfitValue] = useState(hasProfit ? String(currentProfitEur) : '')
+  const [costValue, setCostValue] = useState(initialCost != null ? String(initialCost) : '')
   const [saving, setSaving] = useState(false)
   const [error, setError] = useState('')
 
+  const resetFields = () => {
+    setProfitValue(hasProfit ? String(currentProfitEur) : '')
+    setCostValue(initialCost != null ? String(initialCost) : '')
+  }
   const openEditor = () => {
-    setValue(hasProfit ? String(currentProfitEur) : '')
+    resetFields()
     setError('')
     setEditing(true)
   }
   useEffect(() => {
     if (autoOpen) setEditing(true)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [autoOpen])
+
+  const onProfitChange = (raw: string) => {
+    setProfitValue(raw)
+    const profit = parseDecimal(raw)
+    setCostValue(profit === null ? '' : String(revenueEur - profit - extraCostEur))
+  }
+  const onCostChange = (raw: string) => {
+    setCostValue(raw)
+    const cost = parseDecimal(raw)
+    setProfitValue(cost === null ? '' : String(revenueEur - cost - extraCostEur))
+  }
+
   const submit = async (event: FormEvent) => {
     event.preventDefault()
-    const profitEur = Number(value.replace(',', '.'))
+    const profitEur = parseDecimal(profitValue)
     setError('')
-    if (!Number.isFinite(profitEur) || profitEur < -999999.99 || profitEur > 999999.99) {
-      setError('Geçerli bir reklam öncesi kâr tutarı girin (kayıp seferler için negatif olabilir).')
+    if (profitEur === null || !inRange(profitEur)) {
+      setError('Geçerli bir kâr veya maliyet tutarı girin (kayıp seferler için negatif olabilir).')
       return
     }
     setSaving(true)
@@ -118,7 +159,7 @@ export function OwnVehicleProfitEditor({ leg, onSave, currentProfitEur, triggerL
       setEditing(false)
       onSaved?.()
     } catch {
-      setError('Kâr kaydedilemedi, tekrar deneyin.')
+      setError('Kaydedilemedi, tekrar deneyin.')
     } finally {
       setSaving(false)
     }
@@ -127,8 +168,9 @@ export function OwnVehicleProfitEditor({ leg, onSave, currentProfitEur, triggerL
   return <>
     {!editing && <button className="profit-leg-action is-primary" type="button" onClick={openEditor}>{label}</button>}
     {editing && <form className="profit-leg-form" onSubmit={submit} noValidate>
-      <EditorPanel title="Bu ayağın reklam öncesi kârını avro olarak girin (gelir - gerçek maliyet). Kayıp seferler için negatif değer girilebilir.">
-        <label><span>Reklam öncesi kâr (€)</span><input type="number" min="-999999.99" max="999999.99" step="0.01" inputMode="decimal" value={value} onChange={event => setValue(event.target.value)} autoFocus required /></label>
+      <EditorPanel title="Maliyeti veya reklam öncesi kârı avro olarak girin; diğeri otomatik hesaplanır (gelir - maliyet - karşılama/otopark = kâr). Kayıp seferler için negatif değer girilebilir.">
+        <label><span>Maliyet (€)</span><input type="number" min={PROFIT_RANGE.min} max={PROFIT_RANGE.max} step="0.01" inputMode="decimal" value={costValue} onChange={event => onCostChange(event.target.value)} autoFocus /></label>
+        <label><span>Reklam öncesi kâr (€)</span><input type="number" min={PROFIT_RANGE.min} max={PROFIT_RANGE.max} step="0.01" inputMode="decimal" value={profitValue} onChange={event => onProfitChange(event.target.value)} required /></label>
         <div className="profit-leg-form-actions">
           <button className="profit-leg-action is-primary" type="submit" disabled={saving}>{saving ? 'Kaydediliyor…' : 'Kaydet ve hesapla'}</button>
           <button className="profit-leg-action is-ghost" type="button" disabled={saving} onClick={() => { setEditing(false); setError('') }}>İptal</button>
@@ -241,7 +283,7 @@ export function CostModeToggle({ booking, leg, onSave, onNeedsCost }: {
  * kendisi. Model "satılan transfer"e çevrilirken bedel zorunlu olduğu için
  * düzenleyici aynı yerden açılır.
  */
-export function LegCostControls({ booking, legRef, leg, legLabel, currentCostTry, isSoldTransfer, ownVehicleProfitEur, autoOpenProfitEditor = false, onSaveOwnVehicleProfit, onSaveCostMode, onSaveSupplierCost }: {
+export function LegCostControls({ booking, legRef, leg, legLabel, currentCostTry, isSoldTransfer, ownVehicleProfitEur, revenueEur, extraCostEur, autoOpenProfitEditor = false, onSaveOwnVehicleProfit, onSaveCostMode, onSaveSupplierCost }: {
   booking: Booking
   legRef: ProfitLegRef
   leg: LegKey
@@ -249,6 +291,10 @@ export function LegCostControls({ booking, legRef, leg, legLabel, currentCostTry
   currentCostTry: number
   isSoldTransfer: boolean
   ownVehicleProfitEur?: number | null
+  /** Kendi aracımız kâr/maliyet düzenleyicisi için: ayağın avro geliri. */
+  revenueEur?: number
+  /** Kendi aracımız kâr/maliyet düzenleyicisi için: karşılama/otopark avro karşılığı. */
+  extraCostEur?: number
   autoOpenProfitEditor?: boolean
   onSaveOwnVehicleProfit: SaveOwnVehicleProfit
   onSaveCostMode: SaveCostMode
@@ -265,7 +311,10 @@ export function LegCostControls({ booking, legRef, leg, legLabel, currentCostTry
             booking={booking} leg={leg} legLabel={legLabel} currentCostTry={currentCostTry}
             editing={editingCost} setEditing={setEditingCost} onSave={onSaveSupplierCost}
           />
-        : <OwnVehicleProfitEditor leg={legRef} onSave={onSaveOwnVehicleProfit} currentProfitEur={ownVehicleProfitEur} autoOpen={autoOpenProfitEditor} />}
+        : <OwnVehicleProfitEditor
+            leg={legRef} onSave={onSaveOwnVehicleProfit} currentProfitEur={ownVehicleProfitEur}
+            revenueEur={revenueEur ?? 0} extraCostEur={extraCostEur ?? 0} autoOpen={autoOpenProfitEditor}
+          />}
     <CostModeToggle booking={booking} leg={leg} onSave={onSaveCostMode} onNeedsCost={() => setEditingCost(true)} />
   </>
 }

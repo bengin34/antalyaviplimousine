@@ -269,6 +269,8 @@ function BlockerCard({ blocker, booking, onSaveOwnVehicleProfit, onSaveSupplierC
   const ownVehicleProfitTry = details.ownVehicleProfitTry != null ? Number(details.ownVehicleProfitTry) : null
   const revenueEur = Number(details.revenueEur) || 0
   const eurTryRate = Number(details.eurTryRate)
+  const extraCostTry = (Number(details.airportMeetCostTry) || 0) + (Number(details.parkingCostTry) || 0)
+  const extraCostEur = eurTryRate > 0 ? extraCostTry / eurTryRate : 0
   const canEditLeg = Boolean(booking) && !isDailyChauffeur
   const hint = BLOCKER_HINTS[blocker.code]
 
@@ -314,6 +316,8 @@ function BlockerCard({ blocker, booking, onSaveOwnVehicleProfit, onSaveSupplierC
         currentCostTry={currentCostTry}
         isSoldTransfer={currentMode === 'sold_transfer'}
         ownVehicleProfitEur={ownVehicleProfitEur}
+        revenueEur={revenueEur}
+        extraCostEur={extraCostEur}
         onSaveOwnVehicleProfit={onSaveOwnVehicleProfit}
         onSaveCostMode={onSaveCostMode}
         onSaveSupplierCost={onSaveSupplierCost}

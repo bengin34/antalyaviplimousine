@@ -471,6 +471,21 @@ describe('bookingLegCostStatus', () => {
     expect(result.ownVehicleProfitTry).toBe(1200)
   })
 
+  test('derives cost from the manual profit, revenue and airport meet fee', () => {
+    const booking = {
+      ...baseBooking,
+      service_cost_mode: 'own_vehicle',
+      own_vehicle_profit_eur: 24,
+    }
+    const result = bookingLegCostStatus(booking, 'outbound', today, settings)
+
+    // baseBooking: price_eur 100, one_way -> revenueEur 100; meet fee applies
+    // by default (₺250 / 50 kur = €5): maliyet = 100 - 24 - 5 = 71.
+    expect(result.revenueEur).toBe(100)
+    expect(result.extraCostEur).toBe(5)
+    expect(result.ownVehicleCostEur).toBe(71)
+  })
+
   test('marks a sold transfer leg as complete', () => {
     const booking = {
       ...baseBooking,

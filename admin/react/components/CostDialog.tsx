@@ -28,6 +28,7 @@ export default function CostDialog({ booking: initial, leg, today, onClose, onSa
             booking={booking} legRef={legRef} leg={leg} legLabel={legLabel}
             currentCostTry={currentCostTry} isSoldTransfer={status.costMode === 'sold_transfer'}
             ownVehicleProfitEur={typeof ownVehicleProfitEur === 'number' ? ownVehicleProfitEur : (ownVehicleProfitEur != null ? Number(ownVehicleProfitEur) : null)}
+            revenueEur={status.revenueEur ?? 0} extraCostEur={status.extraCostEur ?? 0}
             onSaveOwnVehicleProfit={async (_l, profitEur) => { apply(await saveLegOwnVehicleProfit(booking.id, leg, profitEur)) }}
             onSaveCostMode={async (_b, l, mode: CostMode) => { apply(await saveLegCostMode(booking.id, l, mode)) }}
             onSaveSupplierCost={async (_b, l, cost) => { apply(await saveLegSupplierCost(booking.id, l, cost)) }}

@@ -89,12 +89,21 @@ export function legCostModel(booking, leg) {
   }
 }
 
+// Günlük şoförlü hizmette bir günün geliri: sabit günlük ücret varsa o,
+// yoksa toplam fiyatın gün sayısına bölünmüş hâli. UI, maliyet/kâr
+// editöründe aynı geliri kullanmak için bu fonksiyonu doğrudan çağırır.
+export function dailyChauffeurRateEur(booking) {
+  const priceEur = Number(booking?.price_eur) || 0
+  const days = booking?.chauffeur_hire_days || []
+  return Number(booking?.daily_rate_eur) || (days.length ? priceEur / days.length : priceEur)
+}
+
 function bookingLegs(booking) {
   const priceEur = Number(booking.price_eur) || 0
   const outboundCost = legCostModel(booking, 'outbound')
   if (booking.trip_type === 'daily_chauffeur') {
     const days = [...(booking.chauffeur_hire_days || [])].sort((left, right) => left.day_number - right.day_number)
-    const dailyRate = Number(booking.daily_rate_eur) || (days.length ? priceEur / days.length : priceEur)
+    const dailyRate = dailyChauffeurRateEur(booking)
     return days.map(day => ({
       leg: `day-${day.day_number}`,
       dayId: day.id,
@@ -678,12 +687,26 @@ export function bookingLegCostStatus(booking, leg, today, settingsByMonth = {}, 
   if (!match) return { applicable: false, complete: true }
   const complete = !unresolvedLegs.some(item => item.leg === leg)
   const { costMode } = legCostModel(booking, leg)
+  const ownVehicleProfitEur = match.ownVehicleProfitEur ?? null
+  const revenueEur = match.revenueEur ?? null
+  const eurTryRate = match.eurTryRate || 0
+  // Karşılama/otopark gideri TL cinsindendir; maliyet-kâr formülü avro
+  // üzerinden çalıştığı için o günün kuruyla avroya çevrilir.
+  const extraCostEur = eurTryRate > 0
+    ? ((match.airportMeetCostTry ?? 0) + (match.parkingCostTry ?? 0)) / eurTryRate
+    : 0
+  const ownVehicleCostEur = ownVehicleProfitEur != null && revenueEur != null
+    ? revenueEur - ownVehicleProfitEur - extraCostEur
+    : null
   return {
     applicable: true,
     complete,
     costMode,
-    ownVehicleProfitEur: match.ownVehicleProfitEur ?? null,
+    revenueEur,
+    extraCostEur,
+    ownVehicleProfitEur,
     ownVehicleProfitTry: match.ownVehicleProfitTry ?? null,
+    ownVehicleCostEur,
     supplierCostTry: match.supplierCostTry ?? null,
     meetFeeApplicable: startsFromAirport(match.from),
     meetFeeApplies: booking.airport_meet_fee_applies !== false,

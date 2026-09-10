@@ -428,7 +428,7 @@ describe('ProfitDistributionSection preview and confirmation', () => {
     })
 
     const blocker = screen.getByRole('alert')
-    fireEvent.click(within(blocker).getByRole('button', { name: 'Kâr gir' }))
+    fireEvent.click(within(blocker).getByRole('button', { name: 'Kâr/maliyet gir' }))
     fireEvent.change(within(blocker).getByLabelText('Reklam öncesi kâr (€)'), { target: { value: '425' } })
     fireEvent.click(within(blocker).getByRole('button', { name: 'Kaydet ve hesapla' }))
 
@@ -451,11 +451,11 @@ describe('ProfitDistributionSection preview and confirmation', () => {
     })
 
     const blocker = screen.getByRole('alert')
-    fireEvent.click(within(blocker).getByRole('button', { name: 'Kâr gir' }))
+    fireEvent.click(within(blocker).getByRole('button', { name: 'Kâr/maliyet gir' }))
     fireEvent.change(within(blocker).getByLabelText('Reklam öncesi kâr (€)'), { target: { value: '99999999' } })
     fireEvent.click(within(blocker).getByRole('button', { name: 'Kaydet ve hesapla' }))
 
-    await screen.findByText('Geçerli bir reklam öncesi kâr tutarı girin (kayıp seferler için negatif olabilir).')
+    await screen.findByText('Geçerli bir kâr veya maliyet tutarı girin (kayıp seferler için negatif olabilir).')
     expect(onSaveOwnVehicleProfit).not.toHaveBeenCalled()
   })
 
@@ -529,7 +529,7 @@ describe('ProfitDistributionSection preview and confirmation', () => {
 
     const blocker = screen.getByRole('alert')
     expect(blocker).toHaveTextContent('Günlük hizmette reklam öncesi kâr, rezervasyon detayındaki gün kartından girilir.')
-    expect(within(blocker).queryByRole('button', { name: 'Kâr gir' })).toBeNull()
+    expect(within(blocker).queryByRole('button', { name: 'Kâr/maliyet gir' })).toBeNull()
     expect(within(blocker).getByRole('button', { name: 'Seyahate git' })).toBeVisible()
   })
 
