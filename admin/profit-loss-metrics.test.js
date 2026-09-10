@@ -1,18 +1,20 @@
 import { describe, expect, test } from 'vitest'
 import {
   AIRPORT_MEET_COST_TRY,
+  PARKING_COST_TRY_PER_HOUR,
   allocatedAdvertisingForRange,
   bookingLegCostStatus,
   buildProfitDistributionSnapshot,
   calculateProfitDistribution,
   calculateProfitLossMetrics,
   DEFAULT_EUR_TRY_RATE,
-  DEFAULT_KM_COST_TRY,
-  fixedRouteDistanceKm,
   resolveRealizedLegs,
   splitProfit,
 } from './profit-loss-metrics.js'
 
+// own_vehicle_profit_try: 2800 is chosen so that with the default settings
+// (eur_try_rate 50, meet fee applying) the derived vehicleCostTry/netProfitTry
+// line up with this suite's historical numbers, minimizing incidental churn.
 const baseBooking = {
   id: 'booking-1',
   booking_ref: 'AVL-1',
@@ -25,62 +27,19 @@ const baseBooking = {
   price_eur: 100,
   service_cost_mode: 'own_vehicle',
   sold_transfer_cost_try: null,
+  own_vehicle_profit_try: 2800,
   status: 'completed',
 }
 
-describe('fixedRouteDistanceKm', () => {
-  test('uses the same fixed distance in either direction', () => {
-    expect(fixedRouteDistanceKm('airport', 'side')).toBe(65)
-    expect(fixedRouteDistanceKm('side', 'airport')).toBe(65)
-  })
-
-  test('finds a fixed path between non-airport admin locations', () => {
-    expect(fixedRouteDistanceKm('side', 'manavgat')).toBe(10)
-    expect(fixedRouteDistanceKm('kemer', 'side')).toBe(115)
-  })
-
-  test('does not invent a distance for a generic address', () => {
-    expect(fixedRouteDistanceKm('private_address', 'airport')).toBeNull()
-  })
-
-  test('treats a placeholder location on both ends as unresolved, not zero km', () => {
-    // İki farklı özel adres yüzlerce km uzakta olabilir; 0 km varsaymak seferi
-    // sıfır maliyetle (%100 marjla) geçirirdi.
-    expect(fixedRouteDistanceKm('private_address', 'private_address')).toBeNull()
-    expect(fixedRouteDistanceKm('hotel', 'hotel')).toBeNull()
-  })
-
-  test('keeps zero distance for a real region on both ends', () => {
-    expect(fixedRouteDistanceKm('belek', 'belek')).toBe(0)
-    expect(fixedRouteDistanceKm('airport', 'airport')).toBe(0)
-  })
-
-  test('covers every named route offered by the manual booking form', () => {
-    const namedLocations = [
-      'airport', 'antalya', 'belek', 'side', 'kemer', 'alanya', 'bogazkent',
-      'manavgat', 'kizilagac', 'tekirova', 'bodrum', 'dalaman', 'fethiye',
-      'pamukkale', 'kapadokya',
-    ]
-
-    for (const from of namedLocations) {
-      for (const to of namedLocations) {
-        expect(fixedRouteDistanceKm(from, to)).not.toBeNull()
-      }
-    }
-  })
-})
-
 describe('calculateProfitLossMetrics', () => {
-  test('counts the empty return in vehicle kilometres and applies default settings', () => {
+  test('uses the manually entered own-vehicle profit and default settings', () => {
     const result = calculateProfitLossMetrics([baseBooking], '2026-08', '2026-08-07')
 
     expect(result.incomeEur).toBe(100)
     expect(result.incomeTry).toBe(100 * DEFAULT_EUR_TRY_RATE)
     expect(result.airportMeetCostTry).toBe(AIRPORT_MEET_COST_TRY)
     expect(result.airportMeetCostEur).toBe(AIRPORT_MEET_COST_TRY / DEFAULT_EUR_TRY_RATE)
-    expect(result.passengerKm).toBe(65)
-    expect(result.vehicleKm).toBe(130)
-    expect(result.vehicleCostTry).toBe(130 * DEFAULT_KM_COST_TRY)
+    expect(result.vehicleCostTry).toBe(1950)
     expect(result.netProfitTry).toBe(2800)
   })
 
@@ -101,8 +60,6 @@ describe('calculateProfitLossMetrics', () => {
   })
 
   test('treats a "maliyeti yok" leg as realized with no expense at all', () => {
-    // Rota sabit tabloda olmasa bile ayak çözülmüş sayılır: KM sorulmaz,
-    // araç/tedarikçi/karşılama gideri sıfırdır, gelir hesaba girer.
     const booking = {
       ...baseBooking,
       pickup_location: 'private_address',
@@ -134,7 +91,7 @@ describe('calculateProfitLossMetrics', () => {
 
     const outbound = result.resolvedLegs.find(leg => leg.leg === 'outbound')
     const returnLeg = result.resolvedLegs.find(leg => leg.leg === 'return')
-    expect(outbound.vehicleCostTry).toBe(130 * DEFAULT_KM_COST_TRY)
+    expect(outbound.vehicleCostTry).toBe(1950)
     expect(returnLeg.vehicleCostTry).toBe(0)
     expect(returnLeg.airportMeetCostTry).toBe(0)
     expect(result.incomeEur).toBe(200)
@@ -166,14 +123,14 @@ describe('calculateProfitLossMetrics', () => {
     expect(result.resolvedLegs[0].airportMeetCostEur).toBe(0)
   })
 
-  test('exposes vehicle cost in euros with normalized resolved leg metadata', () => {
+  test('derives vehicle cost from revenue and manual profit with normalized resolved leg metadata', () => {
     const settings = {
-      '2026-08': { km_cost_try: 20, eur_try_rate: 40, advertising_expense_try: 500 },
+      '2026-08': { eur_try_rate: 40, advertising_expense_try: 500 },
     }
 
     const result = calculateProfitLossMetrics([baseBooking], '2026-08', '2026-08-07', settings)
 
-    expect(result.vehicleCostEur).toBe(65)
+    expect(result.vehicleCostEur).toBe(23.75)
     expect(result.supplierCostEur).toBe(0)
     expect(result.resolvedLegs).toHaveLength(1)
     expect(result.resolvedLegs[0]).toMatchObject({
@@ -183,7 +140,8 @@ describe('calculateProfitLossMetrics', () => {
       month: '2026-08',
       revenueEur: 100,
       revenueTry: 4000,
-      vehicleCostTry: 2600,
+      vehicleCostTry: 950,
+      ownVehicleProfitTry: 2800,
     })
   })
 
@@ -193,19 +151,19 @@ describe('calculateProfitLossMetrics', () => {
       trip_type: 'round_trip',
       price_eur: 200,
       return_date: '2026-08-05',
+      return_own_vehicle_profit_try: 2800,
     }
     const settings = {
-      '2026-08': { km_cost_try: 20, eur_try_rate: 40, advertising_expense_try: 500 },
+      '2026-08': { eur_try_rate: 40, advertising_expense_try: 500 },
     }
     const result = calculateProfitLossMetrics([booking], '2026-08', '2026-08-07', settings)
 
     expect(result.completedLegs).toBe(2)
     expect(result.incomeEur).toBe(200)
     expect(result.airportMeetCostTry).toBe(250)
-    expect(result.vehicleKm).toBe(260)
-    expect(result.vehicleCostTry).toBe(5200)
+    expect(result.vehicleCostTry).toBe(2150)
     expect(result.advertisingExpenseTry).toBe(500)
-    expect(result.netProfitTry).toBe(2050)
+    expect(result.netProfitTry).toBe(5100)
   })
 
   test('excludes cancelled, future, and out-of-period legs', () => {
@@ -218,12 +176,8 @@ describe('calculateProfitLossMetrics', () => {
     expect(result.incomeEur).toBe(0)
   })
 
-  test('reports routes with no fixed distance instead of understating their cost silently', () => {
-    const custom = {
-      ...baseBooking,
-      pickup_location: 'private_address',
-      dropoff_location: 'airport',
-    }
+  test('leaves an own-vehicle leg unresolved until a manual profit is entered', () => {
+    const custom = { ...baseBooking, own_vehicle_profit_try: null }
     const result = calculateProfitLossMetrics([custom], '2026-08', '2026-08-07')
 
     expect(result.completedLegs).toBe(1)
@@ -232,20 +186,19 @@ describe('calculateProfitLossMetrics', () => {
     expect(result.incomeEur).toBe(100)
   })
 
-  test('uses a manual one-way distance for an otherwise unresolved leg', () => {
-    const custom = {
-      ...baseBooking,
-      pickup_location: 'private_address',
-      dropoff_location: 'airport',
-      manual_outbound_distance_km: 42.5,
-    }
-    const result = calculateProfitLossMetrics([custom], '2026-08', '2026-08-07')
+  test('accepts a zero or negative manually entered profit (a loss trip)', () => {
+    const zeroProfit = { ...baseBooking, own_vehicle_profit_try: 0 }
+    const lossTrip = { ...baseBooking, own_vehicle_profit_try: -500 }
+    const zeroResult = calculateProfitLossMetrics([zeroProfit], '2026-08', '2026-08-07')
+    const lossResult = calculateProfitLossMetrics([lossTrip], '2026-08', '2026-08-07')
 
-    expect(result.unresolvedLegs).toHaveLength(0)
-    expect(result.passengerKm).toBe(42.5)
-    expect(result.vehicleKm).toBe(85)
-    expect(result.vehicleCostTry).toBe(85 * DEFAULT_KM_COST_TRY)
-    expect(result.resolvedLegs[0].distanceSource).toBe('manual')
+    expect(zeroResult.unresolvedLegs).toHaveLength(0)
+    expect(zeroResult.resolvedLegs[0].ownVehicleProfitTry).toBe(0)
+    expect(zeroResult.netProfitTry).toBe(0)
+
+    expect(lossResult.unresolvedLegs).toHaveLength(0)
+    expect(lossResult.resolvedLegs[0].ownVehicleProfitTry).toBe(-500)
+    expect(lossResult.netProfitTry).toBe(-500)
   })
 
   test('does not add airport meet cost when the trip does not start at the airport', () => {
@@ -261,54 +214,51 @@ describe('calculateProfitLossMetrics', () => {
     expect(result.airportMeetCostTry).toBe(0)
   })
 
-  test('keeps outbound and return manual distances separate', () => {
+  test('keeps outbound and return manual profits separate', () => {
     const custom = {
       ...baseBooking,
       trip_type: 'round_trip',
       return_date: '2026-08-05',
-      pickup_location: 'private_address',
-      dropoff_location: 'airport',
-      manual_outbound_distance_km: 40,
-      manual_return_distance_km: 45,
+      own_vehicle_profit_try: 1000,
+      return_own_vehicle_profit_try: -200,
     }
     const result = calculateProfitLossMetrics([custom], '2026-08', '2026-08-07')
 
     expect(result.unresolvedLegs).toHaveLength(0)
-    expect(result.resolvedLegs.map(leg => [leg.leg, leg.oneWayKm])).toEqual([
-      ['outbound', 40],
-      ['return', 45],
+    expect(result.resolvedLegs.map(leg => [leg.leg, leg.ownVehicleProfitTry])).toEqual([
+      ['outbound', 1000],
+      ['return', -200],
     ])
-    expect(result.vehicleKm).toBe(170)
   })
 
-  test('allocates daily chauffeur income by day and uses actual kilometres without adding an empty return', () => {
+  test('allocates daily chauffeur income by day and uses the manually entered daily profit', () => {
     const daily = {
       ...baseBooking,
       trip_type: 'daily_chauffeur', dropoff_location: null, pickup_date: '2026-08-01',
       service_end_date: '2026-08-02', daily_rate_eur: 150, price_eur: 300,
       chauffeur_hire_days: [
-        { day_number: 1, service_date: '2026-08-01', status: 'completed', distance_km: 120, fuel_amount_eur: 30 },
-        { day_number: 2, service_date: '2026-08-02', status: 'completed', distance_km: 80, fuel_amount_eur: 20 },
+        { day_number: 1, service_date: '2026-08-01', status: 'completed', distance_km: 120, fuel_amount_eur: 30, profit_before_ads_try: 4000 },
+        { day_number: 2, service_date: '2026-08-02', status: 'completed', distance_km: 80, fuel_amount_eur: 20, profit_before_ads_try: 3000 },
       ],
     }
     const result = calculateProfitLossMetrics([daily], '2026-08', '2026-08-07')
 
     expect(result.incomeEur).toBe(300)
-    expect(result.vehicleKm).toBe(200)
-    expect(result.vehicleCostTry).toBe(200 * DEFAULT_KM_COST_TRY)
     expect(result.missingDailyDistanceCount).toBe(0)
+    expect(result.resolvedLegs.map(leg => leg.ownVehicleProfitTry)).toEqual([4000, 3000])
+    expect(result.netProfitTry).toBe(7000)
   })
 
-  test('distinguishes missing daily chauffeur distance from an explicit zero', () => {
+  test('distinguishes a missing daily profit entry from an explicit zero', () => {
     const daily = {
       ...baseBooking,
       trip_type: 'daily_chauffeur',
       daily_rate_eur: 100,
       price_eur: 300,
       chauffeur_hire_days: [
-        { day_number: 1, service_date: '2026-08-01', status: 'completed', distance_km: null },
-        { day_number: 2, service_date: '2026-08-02', status: 'completed', distance_km: '' },
-        { day_number: 3, service_date: '2026-08-03', status: 'completed', distance_km: 0 },
+        { day_number: 1, service_date: '2026-08-01', status: 'completed', profit_before_ads_try: null },
+        { day_number: 2, service_date: '2026-08-02', status: 'completed', profit_before_ads_try: '' },
+        { day_number: 3, service_date: '2026-08-03', status: 'completed', profit_before_ads_try: 0 },
       ],
     }
 
@@ -364,13 +314,14 @@ describe('calculateProfitLossMetrics', () => {
       sold_transfer_cost_try: 2500,
       return_service_cost_mode: 'own_vehicle',
       return_sold_transfer_cost_try: null,
+      return_own_vehicle_profit_try: 500,
     }
     const result = calculateProfitLossMetrics([booking], '2026-08', '2026-08-07')
 
     expect(result.completedLegs).toBe(2)
     expect(result.supplierCostTry).toBe(2500)
     expect(result.resolvedLegs.map(leg => leg.supplierCostTry)).toEqual([2500, 0])
-    // Yalnızca dönüş ayağı kendi aracımızla yapıldığı için km maliyeti taşır.
+    // Yalnızca dönüş ayağı kendi aracımızla yapıldığı için maliyeti reklam-öncesi kârdan türer.
     expect(result.resolvedLegs.map(leg => leg.costMode)).toEqual(['sold_transfer', 'own_vehicle'])
     expect(result.resolvedLegs[0].vehicleCostTry).toBe(0)
     expect(result.resolvedLegs[1].vehicleCostTry).toBeGreaterThan(0)
@@ -393,11 +344,12 @@ describe('calculateProfitLossMetrics', () => {
     expect(result.resolvedLegs.map(leg => leg.supplierCostTry)).toEqual([1800, 2600])
   })
 
-  test('does not require route distance for sold transfers', () => {
+  test('does not require a manual profit entry for sold transfers', () => {
     const custom = {
       ...baseBooking,
       pickup_location: 'private_address',
       dropoff_location: 'airport',
+      own_vehicle_profit_try: null,
       service_cost_mode: 'sold_transfer',
       sold_transfer_cost_try: 1800,
     }
@@ -412,29 +364,68 @@ describe('calculateProfitLossMetrics', () => {
     const july = { ...baseBooking, id: 'july', pickup_date: '2026-07-20' }
     const august = { ...baseBooking, id: 'august', pickup_date: '2026-08-01' }
     const settings = {
-      '2026-07': { km_cost_try: 10, eur_try_rate: 40, advertising_expense_try: 100 },
-      '2026-08': { km_cost_try: 20, eur_try_rate: 50, advertising_expense_try: 200 },
+      '2026-07': { eur_try_rate: 40, advertising_expense_try: 100 },
+      '2026-08': { eur_try_rate: 50, advertising_expense_try: 200 },
     }
     const result = calculateProfitLossMetrics([july, august], 'all', '2026-08-07', settings)
 
     expect(result.incomeTry).toBe(9000)
-    expect(result.vehicleCostTry).toBe(3900)
+    expect(result.vehicleCostTry).toBe(2900)
     expect(result.advertisingExpenseTry).toBe(300)
     expect(result.airportMeetCostTry).toBe(500)
-    expect(result.netProfitTry).toBe(4300)
+    expect(result.netProfitTry).toBe(5300)
+  })
+})
+
+describe('airport parking cost equivalent', () => {
+  test('charges parking at the default 1 hour when meet fee is not paid', () => {
+    const booking = { ...baseBooking, airport_meet_fee_applies: false }
+    const result = calculateProfitLossMetrics([booking], '2026-08', '2026-08-07')
+
+    expect(result.resolvedLegs[0].parkingCostTry).toBe(PARKING_COST_TRY_PER_HOUR)
+    expect(result.resolvedLegs[0].airportMeetCostTry).toBe(0)
+    expect(result.resolvedLegs[0].vehicleCostTry).toBe(5000 - 2800 - PARKING_COST_TRY_PER_HOUR)
+    expect(result.parkingCostTry).toBe(PARKING_COST_TRY_PER_HOUR)
+  })
+
+  test('honors a custom parking hour count', () => {
+    const booking = { ...baseBooking, airport_meet_fee_applies: false, airport_meet_fee_parking_hours: 3 }
+    const result = calculateProfitLossMetrics([booking], '2026-08', '2026-08-07')
+
+    expect(result.resolvedLegs[0].parkingCostTry).toBe(3 * PARKING_COST_TRY_PER_HOUR)
+  })
+
+  test('never charges parking when the meet fee is paid', () => {
+    const result = calculateProfitLossMetrics([baseBooking], '2026-08', '2026-08-07')
+    expect(result.resolvedLegs[0].parkingCostTry).toBe(0)
+  })
+
+  test('never charges parking for a leg that does not start at the airport', () => {
+    const booking = { ...baseBooking, pickup_location: 'side', dropoff_location: 'airport', airport_meet_fee_applies: false }
+    const result = calculateProfitLossMetrics([booking], '2026-08', '2026-08-07')
+    expect(result.resolvedLegs[0].parkingCostTry).toBe(0)
+  })
+
+  test('does not charge parking or meet fee for sold_transfer or no_cost legs', () => {
+    const sold = { ...baseBooking, service_cost_mode: 'sold_transfer', sold_transfer_cost_try: 100, airport_meet_fee_applies: false }
+    const noCost = { ...baseBooking, service_cost_mode: 'no_cost', airport_meet_fee_applies: false }
+    const soldResult = calculateProfitLossMetrics([sold], '2026-08', '2026-08-07')
+    const noCostResult = calculateProfitLossMetrics([noCost], '2026-08', '2026-08-07')
+
+    expect(soldResult.resolvedLegs[0].parkingCostTry).toBe(0)
+    expect(noCostResult.resolvedLegs[0].parkingCostTry).toBe(0)
   })
 })
 
 describe('bookingLegCostStatus', () => {
-  const settings = { '2026-09': { eurTryRate: 50, kmCostTry: 15 } }
+  const settings = { '2026-09': { eur_try_rate: 50 } }
   const today = '2026-09-01'
 
-  test('marks an own-vehicle unknown route as applicable but incomplete', () => {
+  test('marks an own-vehicle leg without a manual profit entry as incomplete', () => {
     const booking = {
       ...baseBooking,
-      pickup_location: 'private_address',
-      dropoff_location: 'private_address',
       service_cost_mode: 'own_vehicle',
+      own_vehicle_profit_try: null,
     }
     const result = bookingLegCostStatus(booking, 'outbound', today, settings)
 
@@ -443,18 +434,18 @@ describe('bookingLegCostStatus', () => {
     expect(result.costMode).toBe('own_vehicle')
   })
 
-  test('marks an own-vehicle known route as complete', () => {
+  test('marks an own-vehicle leg with a manual profit entry as complete', () => {
     const booking = {
       ...baseBooking,
-      pickup_location: 'airport',
-      dropoff_location: 'belek',
       service_cost_mode: 'own_vehicle',
+      own_vehicle_profit_try: 1200,
     }
     const result = bookingLegCostStatus(booking, 'outbound', today, settings)
 
     expect(result.applicable).toBe(true)
     expect(result.complete).toBe(true)
     expect(result.costMode).toBe('own_vehicle')
+    expect(result.ownVehicleProfitTry).toBe(1200)
   })
 
   test('marks a sold transfer leg as complete', () => {
@@ -504,6 +495,22 @@ describe('bookingLegCostStatus', () => {
 
     expect(result.meetFeeApplicable).toBe(true)
     expect(result.meetFeeApplies).toBe(true)
+  })
+
+  test('exposes parking hours and cost when the meet fee is not paid', () => {
+    const booking = {
+      ...baseBooking,
+      pickup_location: 'airport',
+      dropoff_location: 'belek',
+      service_cost_mode: 'own_vehicle',
+      airport_meet_fee_applies: false,
+      airport_meet_fee_parking_hours: 2,
+    }
+    const result = bookingLegCostStatus(booking, 'outbound', today, settings)
+
+    expect(result.meetFeeApplies).toBe(false)
+    expect(result.parkingHours).toBe(2)
+    expect(result.parkingCostTry).toBe(2 * PARKING_COST_TRY_PER_HOUR)
   })
 })
 
@@ -681,7 +688,7 @@ describe('splitProfit', () => {
 
 describe('calculateProfitDistribution', () => {
   const settings = {
-    '2026-08': { km_cost_try: 15, eur_try_rate: 50, advertising_expense_try: 0 },
+    '2026-08': { eur_try_rate: 50, advertising_expense_try: 0 },
   }
   const validOptions = {
     startDate: '2026-08-01',
@@ -721,6 +728,8 @@ describe('calculateProfitDistribution', () => {
       supplierCostTry: 0,
       airportMeetCostEur: 5,
       airportMeetCostTry: 250,
+      parkingCostEur: 0,
+      parkingCostTry: 0,
       advertisingExpenseEur: 0,
       advertisingExpenseTry: 0,
       totalExpenseEur: 44,
@@ -738,7 +747,7 @@ describe('calculateProfitDistribution', () => {
     const result = calculateProfitDistribution([{ ...baseBooking, price_eur: 100.02 }], {
       ...validOptions,
       settingsByMonth: {
-        '2026-08': { km_cost_try: 15, eur_try_rate: 31.75, advertising_expense_try: 0 },
+        '2026-08': { eur_try_rate: 31.75, advertising_expense_try: 0 },
       },
     })
     const snapshot = buildProfitDistributionSnapshot(result)
@@ -749,22 +758,18 @@ describe('calculateProfitDistribution', () => {
     expect(snapshot.resolved_legs[0].revenue_try).toBe(3175.64)
   })
 
-  test('multiplies decimal vehicle kilometres and kilometre cost exactly', () => {
-    const booking = {
-      ...baseBooking,
-      pickup_location: 'private_address',
-      dropoff_location: 'airport',
-      manual_outbound_distance_km: 1.01,
-    }
+  test('derives vehicle cost from revenue and a decimal manual profit exactly', () => {
+    const booking = { ...baseBooking, own_vehicle_profit_try: 3.33, airport_meet_fee_applies: false }
     const result = calculateProfitDistribution([booking], {
       ...validOptions,
       settingsByMonth: {
-        '2026-08': { km_cost_try: 3.25, eur_try_rate: 10, advertising_expense_try: 0 },
+        '2026-08': { eur_try_rate: 10, advertising_expense_try: 0 },
       },
     })
 
-    expect(result.vehicleCostTry).toBe(6.57)
-    expect(result.resolvedLegs[0].vehicleCostTry).toBe(6.57)
+    // revenueTry = 100 * 10 = 1000; parking (meet fee off, airport start, default 1h) = 180
+    expect(result.vehicleCostTry).toBe(816.67)
+    expect(result.resolvedLegs[0].vehicleCostTry).toBe(816.67)
   })
 
   test('divides supplier TRY by a decimal EUR rate exactly', () => {
@@ -802,6 +807,7 @@ describe('calculateProfitDistribution', () => {
       price_eur: 200,
       pickup_date: '2026-08-01',
       return_date: '2026-08-05',
+      return_own_vehicle_profit_try: 2800,
     }
     const result = calculateProfitDistribution([roundTrip], {
       ...validOptions,
@@ -812,7 +818,7 @@ describe('calculateProfitDistribution', () => {
       'round-trip:return',
     ])
     expect(result.incomeEur).toBe(100)
-    expect(result.vehicleCostTry).toBe(1950)
+    expect(result.vehicleCostTry).toBe(2200)
     expect(result.airportMeetCostEur).toBe(0)
   })
 
@@ -931,7 +937,7 @@ describe('calculateProfitDistribution', () => {
     const result = calculateProfitDistribution([ownVehicle, supplier], {
       ...validOptions,
       settingsByMonth: {
-        '2026-08': { km_cost_try: 3.25, eur_try_rate: 31.75, advertising_expense_try: 0 },
+        '2026-08': { eur_try_rate: 31.75, advertising_expense_try: 0 },
       },
     })
     const snapshot = buildProfitDistributionSnapshot(result)
@@ -945,6 +951,8 @@ describe('calculateProfitDistribution', () => {
     expect(sum('supplier_cost_eur')).toBe(Math.round(snapshot.supplier_cost_eur * 100))
     expect(sum('airport_cost_try')).toBe(Math.round(snapshot.airport_cost_try * 100))
     expect(sum('airport_cost_eur')).toBe(Math.round(snapshot.airport_cost_eur * 100))
+    expect(sum('parking_cost_try')).toBe(Math.round(snapshot.parking_cost_try * 100))
+    expect(sum('parking_cost_eur')).toBe(Math.round(snapshot.parking_cost_eur * 100))
   })
 
   test('calculates daily chauffeur legs from each service date', () => {
@@ -955,15 +963,15 @@ describe('calculateProfitDistribution', () => {
       price_eur: 300,
       daily_rate_eur: 150,
       chauffeur_hire_days: [
-        { day_number: 1, service_date: '2026-08-01', status: 'completed', distance_km: 120 },
-        { day_number: 2, service_date: '2026-08-06', status: 'completed', distance_km: 80 },
+        { day_number: 1, service_date: '2026-08-01', status: 'completed', profit_before_ads_try: 4000 },
+        { day_number: 2, service_date: '2026-08-06', status: 'completed', profit_before_ads_try: 3000 },
       ],
     }
     const result = calculateProfitDistribution([daily], validOptions)
 
     expect(result.resolvedLegs.map(leg => leg.leg)).toEqual(['day-1'])
     expect(result.incomeEur).toBe(150)
-    expect(result.vehicleCostTry).toBe(1800)
+    expect(result.vehicleCostTry).toBe(3500)
   })
 
   test('excludes cancelled and future legs', () => {
@@ -975,12 +983,8 @@ describe('calculateProfitDistribution', () => {
     expect(result.incomeEur).toBe(0)
   })
 
-  test('keeps revenue visible while an own-vehicle route is unresolved', () => {
-    const unresolved = {
-      ...baseBooking,
-      pickup_location: 'private_address',
-      dropoff_location: 'airport',
-    }
+  test('keeps revenue visible while an own-vehicle leg profit is not yet entered', () => {
+    const unresolved = { ...baseBooking, own_vehicle_profit_try: null }
     const result = calculateProfitDistribution([unresolved], validOptions)
 
     expect(result.incomeEur).toBe(100)
@@ -989,15 +993,15 @@ describe('calculateProfitDistribution', () => {
     expect(result.canDistribute).toBe(false)
   })
 
-  test('blocks missing daily distance but accepts an explicit zero', () => {
+  test('blocks a missing daily profit but accepts an explicit zero', () => {
     const daily = {
       ...baseBooking,
       trip_type: 'daily_chauffeur',
       price_eur: 200,
       daily_rate_eur: 100,
       chauffeur_hire_days: [
-        { day_number: 1, service_date: '2026-08-01', status: 'completed', distance_km: null },
-        { day_number: 2, service_date: '2026-08-02', status: 'completed', distance_km: 0 },
+        { day_number: 1, service_date: '2026-08-01', status: 'completed', profit_before_ads_try: null },
+        { day_number: 2, service_date: '2026-08-02', status: 'completed', profit_before_ads_try: 0 },
       ],
     }
     const result = calculateProfitDistribution([daily], validOptions)
@@ -1043,8 +1047,8 @@ describe('calculateProfitDistribution', () => {
   })
 
   test('keeps a loss open until a later profitable leg makes the same start distributable', () => {
-    const loss = { ...baseBooking, id: 'loss', price_eur: 10, pickup_date: '2026-08-01' }
-    const profit = { ...baseBooking, id: 'profit', price_eur: 100, pickup_date: '2026-08-02' }
+    const loss = { ...baseBooking, id: 'loss', price_eur: 10, own_vehicle_profit_try: -50, pickup_date: '2026-08-01' }
+    const profit = { ...baseBooking, id: 'profit', price_eur: 100, own_vehicle_profit_try: 2800, pickup_date: '2026-08-02' }
 
     const firstDay = calculateProfitDistribution([loss, profit], {
       ...validOptions,
@@ -1145,53 +1149,10 @@ describe('buildProfitDistributionSnapshot', () => {
   })
 })
 
-describe('resolveRealizedLegs — hotel km tier', () => {
-  test("an airport→hotel leg is costed from the hotel's own km", () => {
-    const today = "2026-09-02";
-    const booking = {
-      id: "h1", booking_ref: "AVL-H1", status: "completed", trip_type: "one_way",
-      price_eur: 100, pickup_date: "2026-09-01",
-      pickup_location: "airport", dropoff_location: "hotel",
-      hotel_name: "Voyage Sorgun",
-    };
-    const { resolvedLegs } = resolveRealizedLegs([booking], today);
-    const leg = resolvedLegs.find((l) => l.bookingId === "h1");
-    expect(leg.oneWayKm).toBe(70);
-    expect(leg.distanceSource).toBe("hotel");
-  });
-
-  test("an unresolvable hotel name falls through to unresolved", () => {
-    const today = "2026-09-02";
-    const booking = {
-      id: "h2", booking_ref: "AVL-H2", status: "completed", trip_type: "one_way",
-      price_eur: 100, pickup_date: "2026-09-01",
-      pickup_location: "airport", dropoff_location: "hotel",
-      hotel_name: "zzzz not a real hotel zzzz",
-    };
-    const { resolvedLegs, unresolvedLegs } = resolveRealizedLegs([booking], today);
-    expect(resolvedLegs.find((l) => l.bookingId === "h2")?.distanceSource).not.toBe("hotel");
-    expect(unresolvedLegs.some((l) => l.bookingId === "h2")).toBe(true);
-  });
-
-  test("a manual km still overrides the hotel km", () => {
-    const today = "2026-09-02";
-    const booking = {
-      id: "h3", booking_ref: "AVL-H3", status: "completed", trip_type: "one_way",
-      price_eur: 100, pickup_date: "2026-09-01",
-      pickup_location: "airport", dropoff_location: "hotel",
-      hotel_name: "Voyage Sorgun", manual_outbound_distance_km: 12,
-    };
-    const { resolvedLegs } = resolveRealizedLegs([booking], today);
-    const leg = resolvedLegs.find((l) => l.bookingId === "h3");
-    expect(leg.oneWayKm).toBe(12);
-    expect(leg.distanceSource).toBe("manual");
-  });
-});
-
 describe('ratesByDate override', () => {
   test('uses per-date rate from ratesByDate instead of monthly setting', () => {
     const settings = {
-      '2026-08': { km_cost_try: 15, eur_try_rate: 40, advertising_expense_try: 0 },
+      '2026-08': { eur_try_rate: 40, advertising_expense_try: 0 },
     }
     const ratesByDate = new Map([['2026-08-01', 35]])
     const result = calculateProfitLossMetrics(
@@ -1210,7 +1171,7 @@ describe('ratesByDate override', () => {
 
   test('falls back to monthly setting when date not in ratesByDate', () => {
     const settings = {
-      '2026-08': { km_cost_try: 15, eur_try_rate: 40, advertising_expense_try: 0 },
+      '2026-08': { eur_try_rate: 40, advertising_expense_try: 0 },
     }
     const ratesByDate = new Map() // empty — plain JS, no TS generics in .js test file
     const result = calculateProfitLossMetrics(
@@ -1226,7 +1187,7 @@ describe('ratesByDate override', () => {
 
   test('omitting ratesByDate (default null) falls back to monthly setting', () => {
     const settings = {
-      '2026-08': { km_cost_try: 15, eur_try_rate: 40, advertising_expense_try: 0 },
+      '2026-08': { eur_try_rate: 40, advertising_expense_try: 0 },
     }
     // ratesByDate not passed — tests default param behavior
     const result = calculateProfitLossMetrics(

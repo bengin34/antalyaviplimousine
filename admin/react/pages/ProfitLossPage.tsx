@@ -19,7 +19,7 @@ import {
   saveProfitShareSettings,
 } from '../lib/profit-distributions'
 import { supabase } from '../lib/supabase'
-import { saveLegCostMode, saveLegDistance, saveLegSupplierCost } from '../lib/leg-cost-actions'
+import { saveLegCostMode, saveLegOwnVehicleProfit, saveLegSupplierCost } from '../lib/leg-cost-actions'
 import type {
   Booking,
   CreateProfitDistributionInput,
@@ -74,7 +74,7 @@ function openRangeStart(shareSettings: ProfitShareSettings | null, distributions
 
 // Supabase satır tiplerini çıkarabilsin diye tek bir düz metin: liste hem
 // hesaplama alanlarını hem de listede gösterilen yolcu bilgilerini içerir.
-const BOOKING_COLUMNS = 'id, booking_ref, customer_name, customer_phone, hotel_name, guests, luggage_count, child_seat_count, vehicle_type, pickup_location, pickup_address, dropoff_location, dropoff_address, pickup_date, pickup_time, flight_number, return_date, return_pickup_time, return_flight_number, service_end_date, trip_type, price_eur, daily_rate_eur, payment_method, service_cost_mode, sold_transfer_cost_try, return_service_cost_mode, return_sold_transfer_cost_try, airport_meet_fee_applies, status, created_at, manual_outbound_distance_km, manual_return_distance_km, manual_return_of_ref, chauffeur_hire_days(id, service_date, day_number, status, distance_km, fuel_amount_eur, fuel_paid)'
+const BOOKING_COLUMNS = 'id, booking_ref, customer_name, customer_phone, hotel_name, guests, luggage_count, child_seat_count, vehicle_type, pickup_location, pickup_address, dropoff_location, dropoff_address, pickup_date, pickup_time, flight_number, return_date, return_pickup_time, return_flight_number, service_end_date, trip_type, price_eur, daily_rate_eur, payment_method, service_cost_mode, sold_transfer_cost_try, return_service_cost_mode, return_sold_transfer_cost_try, own_vehicle_profit_try, return_own_vehicle_profit_try, airport_meet_fee_applies, airport_meet_fee_parking_hours, status, created_at, manual_outbound_distance_km, manual_return_distance_km, manual_return_of_ref, chauffeur_hire_days(id, service_date, day_number, status, distance_km, profit_before_ads_try, fuel_amount_eur, fuel_paid)'
 
 async function fetchAllBookings() {
   const bookings: Booking[] = []
@@ -111,7 +111,6 @@ function settingValues(setting: any = {}) {
 function SettingsForm({ period, settings, onSaved }: { period: string; settings: SettingsMap; onSaved: (month: string, value: any) => void }) {
   const setting = settings.get(period)
   const values = settingValues(setting)
-  const [kmCost, setKmCost] = useState(String(values.kmCostTry))
   const [rate, setRate] = useState(String(values.eurTryRate))
   const [advertising, setAdvertising] = useState(String(values.advertisingExpenseTry))
   const [saving, setSaving] = useState(false)
@@ -139,22 +138,23 @@ function SettingsForm({ period, settings, onSaved }: { period: string; settings:
 
   useEffect(() => {
     const next = settingValues(setting)
-    setKmCost(String(next.kmCostTry))
     setRate(String(next.eurTryRate))
     setAdvertising(String(next.advertisingExpenseTry))
   }, [setting])
 
   const submit = async (event: FormEvent) => {
     event.preventDefault()
-    const km = Number(kmCost.replace(',', '.'))
     const exchange = Number(rate.replace(',', '.'))
     const ads = Number(advertising.replace(',', '.'))
     setError(''); setSuccess('')
-    if (!Number.isFinite(km) || km <= 0 || km > 10000) return setError('Geçerli bir km maliyeti girin.')
     if (!Number.isFinite(exchange) || exchange <= 0 || exchange > 10000) return setError('Geçerli bir EUR/TL kuru girin.')
     if (!Number.isFinite(ads) || ads < 0 || ads > 1_000_000_000) return setError('Geçerli bir reklam gideri girin.')
     setSaving(true)
-    const payload = { period_month: `${period}-01`, km_cost_try: km, advertising_expense_try: ads, eur_try_rate: exchange, updated_at: new Date().toISOString() }
+    // km_cost_try artık kâr hesabında kullanılmıyor (kendi araç maliyeti manuel
+    // reklam öncesi kârdan türetiliyor); sütun geçmiş uyumluluk için tabloda
+    // kalıyor ama burada gönderilmiyor — mevcut satırda değeri değişmez, yeni
+    // satırda tablo varsayılanı (15) atanır.
+    const payload = { period_month: `${period}-01`, advertising_expense_try: ads, eur_try_rate: exchange, updated_at: new Date().toISOString() }
     const { data, error: saveError } = await supabase.from('profit_loss_settings').upsert(payload, { onConflict: 'period_month' }).select().single()
     setSaving(false)
     if (saveError) return setError('Ayarlar kaydedilemedi, tekrar deneyin.')
@@ -164,7 +164,6 @@ function SettingsForm({ period, settings, onSaved }: { period: string; settings:
   return <form className="profit-settings" noValidate onSubmit={submit}>
     <div className="profit-settings-heading"><div><span className="budget-section-kicker">HESAPLAMA AYARLARI</span><h2>{monthLabel(period)}</h2></div><span>Aylık</span></div>
     <div className="profit-input-grid">
-      <label className="profit-input-field"><span>KM başı maliyet</span><div><b>₺</b><input type="number" min="0.01" max="10000" step="0.01" inputMode="decimal" value={kmCost} onChange={e => setKmCost(e.target.value)} required /></div><small>Boşsa varsayılan 15 ₺/km</small></label>
       <label className="profit-input-field"><span>EUR/TL kuru</span><div><b>₺</b><input type="number" min="0.01" max="10000" step="0.0001" inputMode="decimal" value={rate} onChange={e => setRate(e.target.value)} required /><button type="button" className="fetch-rate-btn" onClick={() => void handleFetchRate()} disabled={fetchingRate}>{fetchingRate ? '…' : 'Kur al'}</button></div><small>1 € karşılığı{fetchRateError ? ` · ${fetchRateError}` : ''}</small></label>
       <label className="profit-input-field profit-input-wide"><span>Reklam gideri</span><div><b>₺</b><input type="number" min="0" max="1000000000" step="0.01" inputMode="decimal" value={advertising} onChange={e => setAdvertising(e.target.value)} required /></div><small>Bu aya ait toplam reklam harcaması · seferlere dağıtılır</small></label>
     </div>
@@ -338,12 +337,12 @@ export default function ProfitLossPage({ navigate, initialPeriod }: { navigate: 
     setBookings(current => current.map(item => item.id === next.id ? { ...item, ...next } : item))
     setStatus(`${next.booking_ref || 'Seyahat'} maliyeti güncellendi · Hesap güncellendi`)
   }
-  const saveDistance = async (leg: ProfitLegRef, distanceKm: number) => {
+  const saveOwnVehicleProfit = async (leg: ProfitLegRef, profitTry: number) => {
     const legKey: LegKey = leg.leg === 'return' ? 'return' : 'outbound'
-    const patch = await saveLegDistance(leg.bookingId, legKey, distanceKm)
-    const savedDistance = Number(patch.manual_return_distance_km ?? patch.manual_outbound_distance_km)
+    const patch = await saveLegOwnVehicleProfit(leg.bookingId, legKey, profitTry)
+    const savedProfit = Number(patch.return_own_vehicle_profit_try ?? patch.own_vehicle_profit_try)
     setBookings(current => current.map(booking => booking.id === leg.bookingId ? { ...booking, ...patch } : booking))
-    setStatus(`${leg.bookingRef || 'Seyahat'} için tek yön ${formatNumber(savedDistance, 2)} km kaydedildi · Hesap güncellendi`)
+    setStatus(`${leg.bookingRef || 'Seyahat'} için reklam öncesi kâr ${formatTry(savedProfit)} olarak kaydedildi · Hesap güncellendi`)
   }
   const saveSupplierCost = async (booking: Booking, leg: LegKey, costTry: number) => {
     const columns = legCostColumns(leg)
@@ -369,15 +368,15 @@ export default function ProfitLossPage({ navigate, initialPeriod }: { navigate: 
       const dayId = (leg as { dayId?: string | null }).dayId
       if (!dayId) throw new Error('Günlük hizmet kaydı bulunamadı')
       const { data, error: saveError } = await supabase.from('chauffeur_hire_days')
-        .update({ distance_km: 0 })
+        .update({ profit_before_ads_try: 0 })
         .eq('id', dayId)
-        .select('id, distance_km').single()
+        .select('id, profit_before_ads_try').single()
       if (saveError || !data) throw saveError ?? new Error('Günlük hizmet kaydı dönmedi')
       setBookings(current => current.map(booking => booking.id === leg.bookingId
         ? {
             ...booking,
             chauffeur_hire_days: (booking.chauffeur_hire_days ?? []).map(day => day.id === dayId
-              ? { ...day, distance_km: 0 }
+              ? { ...day, profit_before_ads_try: 0 }
               : day),
           }
         : booking))
@@ -455,7 +454,7 @@ export default function ProfitLossPage({ navigate, initialPeriod }: { navigate: 
             onRetry={() => void refreshDistributionLedger()}
             onSaveSettings={saveShareSettings}
             onCreateDistribution={confirmDistribution}
-            onSaveDistance={saveDistance}
+            onSaveOwnVehicleProfit={saveOwnVehicleProfit}
             onSaveSupplierCost={saveSupplierCost}
             onSaveCostMode={saveCostMode}
             onFocusLeg={focusLeg}

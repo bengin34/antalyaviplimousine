@@ -13,7 +13,7 @@ afterEach(cleanup)
 
 const today = '2026-08-21'
 const settingsByMonth = new Map([
-  ['2026-08', { km_cost_try: 15, eur_try_rate: 50, advertising_expense_try: 0 }],
+  ['2026-08', { eur_try_rate: 50, advertising_expense_try: 0 }],
 ])
 
 const shareSettings: ProfitShareSettings = {
@@ -72,6 +72,7 @@ function bookingFixture(overrides: Partial<Booking> = {}): Booking {
       driver_name: null,
       vehicle_plate: null,
       distance_km: 0,
+      profit_before_ads_try: 45000,
       fuel_amount_eur: null,
       fuel_paid: false,
       notes: null,
@@ -158,7 +159,7 @@ function renderSection(overrides: Partial<React.ComponentProps<typeof ProfitDist
     onRetry: vi.fn(),
     onSaveSettings: vi.fn().mockResolvedValue(undefined),
     onCreateDistribution: vi.fn().mockResolvedValue(undefined),
-    onSaveDistance: vi.fn().mockResolvedValue(undefined),
+    onSaveOwnVehicleProfit: vi.fn().mockResolvedValue(undefined),
     onSaveSupplierCost: vi.fn().mockResolvedValue(undefined),
     onSaveCostMode: vi.fn().mockResolvedValue(undefined),
     onFocusLeg: vi.fn(),
@@ -344,7 +345,16 @@ describe('ProfitDistributionSection preview and confirmation', () => {
   })
 
   test('blocks a nonpositive EUR result', () => {
-    renderSection({ bookings: [{ ...bookingFixture(), daily_rate_eur: 0, price_eur: 0 }] })
+    renderSection({
+      bookings: [bookingFixture({
+        daily_rate_eur: 0,
+        price_eur: 0,
+        chauffeur_hire_days: [{
+          ...(bookingFixture().chauffeur_hire_days?.[0]!),
+          profit_before_ads_try: 0,
+        }],
+      })],
+    })
 
     expect(screen.getByRole('alert')).toHaveTextContent('Net kâr oluşmadığı için bu dönem henüz dağıtılamaz.')
     expect(screen.getByRole('button', { name: 'Kârı dağıt' })).toBeDisabled()
@@ -356,13 +366,13 @@ describe('ProfitDistributionSection preview and confirmation', () => {
       pickup_location: 'private_address',
       dropoff_location: 'airport',
       chauffeur_hire_days: [],
-    }), 'Rota mesafesi eksik.'],
-    ['missing daily KM', bookingFixture({
+    }), 'Reklam öncesi kâr eksik.'],
+    ['missing daily profit', bookingFixture({
       chauffeur_hire_days: [{
         ...(bookingFixture().chauffeur_hire_days?.[0]!),
-        distance_km: null,
+        profit_before_ads_try: null,
       }],
-    }), 'Günlük hizmet KM bilgisi eksik.'],
+    }), 'Günlük hizmet reklam öncesi kârı eksik.'],
     ['invalid supplier source', bookingFixture({
       trip_type: 'one_way',
       pickup_location: 'airport',
@@ -401,12 +411,12 @@ describe('ProfitDistributionSection preview and confirmation', () => {
     expect(blocker).toHaveTextContent('€900,00')
     expect(blocker).toHaveTextContent('Maliyet modeli')
     expect(blocker).toHaveTextContent('Kendi aracımız')
-    expect(blocker).toHaveTextContent('Tek yön KM')
+    expect(blocker).toHaveTextContent('Reklam öncesi kâr')
     expect(blocker).toHaveTextContent('Girilmedi')
   })
 
-  test('saves a one-way distance straight from the blocker', async () => {
-    const onSaveDistance = vi.fn().mockResolvedValue(undefined)
+  test('saves a manual own-vehicle profit straight from the blocker', async () => {
+    const onSaveOwnVehicleProfit = vi.fn().mockResolvedValue(undefined)
     renderSection({
       bookings: [bookingFixture({
         trip_type: 'one_way',
@@ -414,22 +424,22 @@ describe('ProfitDistributionSection preview and confirmation', () => {
         dropoff_location: 'airport',
         chauffeur_hire_days: [],
       })],
-      onSaveDistance,
+      onSaveOwnVehicleProfit,
     })
 
     const blocker = screen.getByRole('alert')
-    fireEvent.click(within(blocker).getByRole('button', { name: 'KM gir' }))
-    fireEvent.change(within(blocker).getByLabelText('Tek yön KM'), { target: { value: '42.5' } })
+    fireEvent.click(within(blocker).getByRole('button', { name: 'Kâr gir' }))
+    fireEvent.change(within(blocker).getByLabelText('Reklam öncesi kâr (₺)'), { target: { value: '425' } })
     fireEvent.click(within(blocker).getByRole('button', { name: 'Kaydet ve hesapla' }))
 
-    await waitFor(() => expect(onSaveDistance).toHaveBeenCalledWith(
+    await waitFor(() => expect(onSaveOwnVehicleProfit).toHaveBeenCalledWith(
       expect.objectContaining({ bookingId: 'booking-1', bookingRef: 'AVL-101', leg: 'outbound' }),
-      42.5,
+      425,
     ))
   })
 
-  test('rejects an out-of-range distance without calling the writer', async () => {
-    const onSaveDistance = vi.fn().mockResolvedValue(undefined)
+  test('rejects an out-of-range profit without calling the writer', async () => {
+    const onSaveOwnVehicleProfit = vi.fn().mockResolvedValue(undefined)
     renderSection({
       bookings: [bookingFixture({
         trip_type: 'one_way',
@@ -437,16 +447,16 @@ describe('ProfitDistributionSection preview and confirmation', () => {
         dropoff_location: 'airport',
         chauffeur_hire_days: [],
       })],
-      onSaveDistance,
+      onSaveOwnVehicleProfit,
     })
 
     const blocker = screen.getByRole('alert')
-    fireEvent.click(within(blocker).getByRole('button', { name: 'KM gir' }))
-    fireEvent.change(within(blocker).getByLabelText('Tek yön KM'), { target: { value: '7000' } })
+    fireEvent.click(within(blocker).getByRole('button', { name: 'Kâr gir' }))
+    fireEvent.change(within(blocker).getByLabelText('Reklam öncesi kâr (₺)'), { target: { value: '99999999' } })
     fireEvent.click(within(blocker).getByRole('button', { name: 'Kaydet ve hesapla' }))
 
-    await screen.findByText('0 ile 5.000 arasında geçerli bir tek yön KM girin.')
-    expect(onSaveDistance).not.toHaveBeenCalled()
+    await screen.findByText('Geçerli bir reklam öncesi kâr tutarı girin (kayıp seferler için negatif olabilir).')
+    expect(onSaveOwnVehicleProfit).not.toHaveBeenCalled()
   })
 
   test('saves a missing supplier cost straight from the blocker', async () => {
@@ -507,19 +517,19 @@ describe('ProfitDistributionSection preview and confirmation', () => {
     }))
   })
 
-  test('keeps daily chauffeur KM on the booking detail screen', () => {
+  test('keeps daily chauffeur profit entry on the booking detail screen', () => {
     renderSection({
       bookings: [bookingFixture({
         chauffeur_hire_days: [{
           ...(bookingFixture().chauffeur_hire_days?.[0]!),
-          distance_km: null,
+          profit_before_ads_try: null,
         }],
       })],
     })
 
     const blocker = screen.getByRole('alert')
-    expect(blocker).toHaveTextContent('Günlük hizmette gerçekleşen KM, rezervasyon detayındaki gün kartından girilir.')
-    expect(within(blocker).queryByRole('button', { name: 'KM gir' })).toBeNull()
+    expect(blocker).toHaveTextContent('Günlük hizmette reklam öncesi kâr, rezervasyon detayındaki gün kartından girilir.')
+    expect(within(blocker).queryByRole('button', { name: 'Kâr gir' })).toBeNull()
     expect(within(blocker).getByRole('button', { name: 'Seyahate git' })).toBeVisible()
   })
 
@@ -531,6 +541,7 @@ describe('ProfitDistributionSection preview and confirmation', () => {
       chauffeur_hire_days: [],
       price_eur: 100,
       daily_rate_eur: null,
+      own_vehicle_profit_try: 50,
     })]
     renderSection({ bookings, ratesByDate: new Map([['2026-08-10', 40]]) })
 

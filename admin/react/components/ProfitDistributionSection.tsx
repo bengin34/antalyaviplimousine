@@ -11,7 +11,7 @@ import {
   type LegKey,
   type ProfitLegRef,
   type SaveCostMode,
-  type SaveDistance,
+  type SaveOwnVehicleProfit,
   type SaveSupplierCost,
 } from './LegCostEditors'
 import type {
@@ -37,7 +37,7 @@ export interface ProfitDistributionSectionProps {
   onRetry: () => void
   onSaveSettings: (input: SaveProfitShareSettingsInput) => Promise<void>
   onCreateDistribution: (input: CreateProfitDistributionInput) => Promise<void>
-  onSaveDistance: SaveDistance
+  onSaveOwnVehicleProfit: SaveOwnVehicleProfit
   onSaveSupplierCost: SaveSupplierCost
   onSaveCostMode: SaveCostMode
   /** Aşağıdaki seyahat listesinde ilgili satıra kaydırır. */
@@ -53,8 +53,8 @@ const BLOCKER_MESSAGES: Record<string, string> = {
   'end-date-not-closed': 'Dağıtım bitiş tarihi bugünden önce olmalıdır.',
   'invalid-share': 'Geçerli pay yüzdeleri girin.',
   'non-positive-profit': 'Net kâr oluşmadığı için bu dönem henüz dağıtılamaz.',
-  'unresolved-route': 'Rota mesafesi eksik.',
-  'daily-distance-missing': 'Günlük hizmet KM bilgisi eksik.',
+  'unresolved-route': 'Reklam öncesi kâr eksik.',
+  'daily-distance-missing': 'Günlük hizmet reklam öncesi kârı eksik.',
   'supplier-cost-invalid': 'Tedarikçi maliyeti geçersiz.',
 }
 
@@ -232,8 +232,8 @@ function FinancialBucket({ label, eur, tryAmount }: { label: string; eur: unknow
 }
 
 const BLOCKER_HINTS: Record<string, string> = {
-  'unresolved-route': 'Bu rota sabit mesafe tablosunda yok. Tek yön KM girin ya da ayağı satılan transfer olarak işaretleyip tedarikçi bedelini yazın.',
-  'daily-distance-missing': 'Günlük hizmette gerçekleşen KM, rezervasyon detayındaki gün kartından girilir.',
+  'unresolved-route': 'Bu ayak için reklam öncesi kâr henüz girilmemiş. Kârı girin ya da ayağı satılan transfer olarak işaretleyip tedarikçi bedelini yazın.',
+  'daily-distance-missing': 'Günlük hizmette reklam öncesi kâr, rezervasyon detayındaki gün kartından girilir.',
   'supplier-cost-invalid': 'Ayak satılan transfer olarak işaretli ama tedarikçi bedeli boş. Bedeli girin ya da ayağı kendi aracımıza çevirin.',
 }
 
@@ -242,10 +242,10 @@ const BLOCKER_HINTS: Record<string, string> = {
  * düzeltilir; rezervasyon detayına gitmek yalnızca günlük hizmet KM'si için
  * gerekir. Ayak başka bir aya aitse "Listede aç" seyahat listesini o döneme alır.
  */
-function BlockerCard({ blocker, booking, onSaveDistance, onSaveSupplierCost, onSaveCostMode, onFocusLeg, navigate }: {
+function BlockerCard({ blocker, booking, onSaveOwnVehicleProfit, onSaveSupplierCost, onSaveCostMode, onFocusLeg, navigate }: {
   blocker: DistributionBlocker
   booking: Booking | undefined
-  onSaveDistance: SaveDistance
+  onSaveOwnVehicleProfit: SaveOwnVehicleProfit
   onSaveSupplierCost: SaveSupplierCost
   onSaveCostMode: SaveCostMode
   onFocusLeg: (leg: ProfitLegRef & { date?: string | null }) => void
@@ -264,7 +264,8 @@ function BlockerCard({ blocker, booking, onSaveDistance, onSaveSupplierCost, onS
   }
   const currentMode: CostMode = legCostMode(booking, legKey)
   const currentCostTry = booking ? Number(booking[legCostColumns(legKey).cost]) || 0 : 0
-  const oneWayKm = Number(details.oneWayKm)
+  const dailyKm = Number(details.directVehicleKm)
+  const ownVehicleProfitTry = details.ownVehicleProfitTry != null ? Number(details.ownVehicleProfitTry) : null
   const revenueEur = Number(details.revenueEur) || 0
   const eurTryRate = Number(details.eurTryRate)
   const canEditLeg = Boolean(booking) && !isDailyChauffeur
@@ -290,9 +291,13 @@ function BlockerCard({ blocker, booking, onSaveDistance, onSaveSupplierCost, onS
         <dt>Tedarikçi gideri</dt>
         <dd>{currentCostTry > 0 ? formatTry(currentCostTry) : 'Girilmedi'}</dd>
       </div>}
-      {currentMode === 'own_vehicle' && <div>
-        <dt>{isDailyChauffeur ? 'Gerçekleşen KM' : 'Tek yön KM'}</dt>
-        <dd>{Number.isFinite(oneWayKm) && oneWayKm > 0 ? `${formatNumber(oneWayKm, 1)} km` : 'Girilmedi'}</dd>
+      {currentMode === 'own_vehicle' && isDailyChauffeur && <div>
+        <dt>Gerçekleşen KM</dt>
+        <dd>{Number.isFinite(dailyKm) && dailyKm > 0 ? `${formatNumber(dailyKm, 1)} km` : 'Girilmedi'}</dd>
+      </div>}
+      {currentMode === 'own_vehicle' && !isDailyChauffeur && <div>
+        <dt>Reklam öncesi kâr</dt>
+        <dd>{ownVehicleProfitTry != null ? formatTry(ownVehicleProfitTry) : 'Girilmedi'}</dd>
       </div>}
       {Number.isFinite(eurTryRate) && eurTryRate > 0 && <div>
         <dt>Kur</dt><dd>₺{eurTryRate.toFixed(2)}</dd>
@@ -307,8 +312,8 @@ function BlockerCard({ blocker, booking, onSaveDistance, onSaveSupplierCost, onS
         legLabel={legLabel}
         currentCostTry={currentCostTry}
         isSoldTransfer={currentMode === 'sold_transfer'}
-        oneWayKm={Number.isFinite(oneWayKm) && oneWayKm > 0 ? oneWayKm : undefined}
-        onSaveDistance={onSaveDistance}
+        ownVehicleProfitTry={ownVehicleProfitTry}
+        onSaveOwnVehicleProfit={onSaveOwnVehicleProfit}
         onSaveCostMode={onSaveCostMode}
         onSaveSupplierCost={onSaveSupplierCost}
       />}
@@ -326,11 +331,11 @@ function BlockerCard({ blocker, booking, onSaveDistance, onSaveSupplierCost, onS
   </div>
 }
 
-function BlockerList({ messages, blockers, bookingsById, onSaveDistance, onSaveSupplierCost, onSaveCostMode, onFocusLeg, navigate }: {
+function BlockerList({ messages, blockers, bookingsById, onSaveOwnVehicleProfit, onSaveSupplierCost, onSaveCostMode, onFocusLeg, navigate }: {
   messages: string[]
   blockers: DistributionBlocker[]
   bookingsById: Map<string, Booking>
-  onSaveDistance: SaveDistance
+  onSaveOwnVehicleProfit: SaveOwnVehicleProfit
   onSaveSupplierCost: SaveSupplierCost
   onSaveCostMode: SaveCostMode
   onFocusLeg: (leg: ProfitLegRef & { date?: string | null }) => void
@@ -346,7 +351,7 @@ function BlockerList({ messages, blockers, bookingsById, onSaveDistance, onSaveS
       key={`${blocker.code}:${blocker.bookingId ?? index}:${blocker.leg ?? index}`}
       blocker={blocker}
       booking={bookingsById.get(String(blocker.bookingId ?? ''))}
-      onSaveDistance={onSaveDistance}
+      onSaveOwnVehicleProfit={onSaveOwnVehicleProfit}
       onSaveSupplierCost={onSaveSupplierCost}
       onSaveCostMode={onSaveCostMode}
       onFocusLeg={onFocusLeg}
@@ -382,7 +387,7 @@ function OpenDistributionPreview({
   shareSettings,
   distributions,
   onCreateDistribution,
-  onSaveDistance,
+  onSaveOwnVehicleProfit,
   onSaveSupplierCost,
   onSaveCostMode,
   onFocusLeg,
@@ -390,7 +395,7 @@ function OpenDistributionPreview({
   openingEditor,
 }: Pick<ProfitDistributionSectionProps,
   'today' | 'bookings' | 'settingsByMonth' | 'ratesByDate' | 'shareSettings' | 'distributions'
-  | 'onCreateDistribution' | 'onSaveDistance' | 'onSaveSupplierCost' | 'onSaveCostMode' | 'onFocusLeg' | 'navigate'
+  | 'onCreateDistribution' | 'onSaveOwnVehicleProfit' | 'onSaveSupplierCost' | 'onSaveCostMode' | 'onFocusLeg' | 'navigate'
 > & { shareSettings: ProfitShareSettings; openingEditor?: ReactNode }) {
   const openStart = useMemo(
     () => latestOpenStart(shareSettings, distributions),
@@ -517,6 +522,7 @@ function OpenDistributionPreview({
         <FinancialBucket label="Araç maliyeti" eur={metrics.vehicleCostEur} tryAmount={metrics.vehicleCostTry} />
         <FinancialBucket label="Tedarikçi maliyeti" eur={metrics.supplierCostEur} tryAmount={metrics.supplierCostTry} />
         <FinancialBucket label="Havalimanı karşılama" eur={metrics.airportMeetCostEur} tryAmount={metrics.airportMeetCostTry} />
+        <FinancialBucket label="Otopark" eur={metrics.parkingCostEur} tryAmount={metrics.parkingCostTry} />
         <FinancialBucket label="Reklam" eur={metrics.advertisingExpenseEur} tryAmount={metrics.advertisingExpenseTry} />
         <FinancialBucket label="Toplam gider" eur={metrics.totalExpenseEur} tryAmount={metrics.totalExpenseTry} />
       </div>
@@ -544,7 +550,7 @@ function OpenDistributionPreview({
         messages={allMessages}
         blockers={detailBlockers}
         bookingsById={bookingsById}
-        onSaveDistance={onSaveDistance}
+        onSaveOwnVehicleProfit={onSaveOwnVehicleProfit}
         onSaveSupplierCost={onSaveSupplierCost}
         onSaveCostMode={onSaveCostMode}
         onFocusLeg={onFocusLeg}

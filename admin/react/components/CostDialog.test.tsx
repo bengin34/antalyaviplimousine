@@ -52,11 +52,11 @@ function bookingFixture(overrides: Partial<Booking> = {}): Booking {
 
 const noop = () => {}
 
-test('own_vehicle bilinmeyen rota: eksik durum ve KM kontrolü gösterir', () => {
+test('own_vehicle kâr girilmemiş: eksik durum ve kâr kontrolü gösterir', () => {
   const booking = bookingFixture()
   render(<CostDialog booking={booking} leg="outbound" today="2026-09-01" onClose={noop} onSaved={noop} />)
   expect(screen.getByText(/girilmedi/i)).toBeInTheDocument()
-  expect(screen.getByRole('button', { name: /KM gir/i })).toBeInTheDocument()
+  expect(screen.getByRole('button', { name: /Kâr gir/i })).toBeInTheDocument()
 })
 
 describe('karşılama ücreti görünürlüğü', () => {

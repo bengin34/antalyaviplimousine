@@ -2,14 +2,28 @@ import { supabase } from './supabase'
 import { legCostColumns, type CostMode, type LegKey } from '../components/LegCostEditors'
 import type { Booking } from '../types'
 
-export async function saveLegDistance(bookingId: string, leg: LegKey, distanceKm: number): Promise<Partial<Booking>> {
-  const column = leg === 'return' ? 'manual_return_distance_km' : 'manual_outbound_distance_km'
+/** Ayağın manuel reklam-öncesi kâr sütunu. */
+function legOwnVehicleProfitColumn(leg: LegKey) {
+  return leg === 'return' ? 'return_own_vehicle_profit_try' as const : 'own_vehicle_profit_try' as const
+}
+
+export async function saveLegOwnVehicleProfit(bookingId: string, leg: LegKey, profitTry: number): Promise<Partial<Booking>> {
+  const column = legOwnVehicleProfitColumn(leg)
   const { data, error } = await supabase.from('bookings')
-    .update({ [column]: distanceKm })
+    .update({ [column]: profitTry })
     .eq('id', bookingId)
     .select(`id, ${column}`).single()
-  if (error || !data) throw error ?? new Error('KM kaydı dönmedi')
+  if (error || !data) throw error ?? new Error('Kâr kaydı dönmedi')
   return { [column]: Number((data as Record<string, unknown>)[column]) } as Partial<Booking>
+}
+
+export async function saveParkingHours(bookingId: string, hours: number): Promise<Partial<Booking>> {
+  const { data, error } = await supabase.from('bookings')
+    .update({ airport_meet_fee_parking_hours: hours })
+    .eq('id', bookingId)
+    .select('id, airport_meet_fee_parking_hours').single()
+  if (error || !data) throw error ?? new Error('Otopark süresi kaydı dönmedi')
+  return { airport_meet_fee_parking_hours: Number((data as Record<string, unknown>).airport_meet_fee_parking_hours) } as Partial<Booking>
 }
 
 export async function saveLegSupplierCost(bookingId: string, leg: LegKey, costTry: number): Promise<Partial<Booking>> {

@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { LegCostControls, legDirectionLabel, type CostMode, type LegKey } from './LegCostEditors'
 import { bookingLegCostStatus } from '../../profit-loss-metrics.js'
-import { saveLegDistance, saveLegSupplierCost, saveLegCostMode, saveLegMeetFee } from '../lib/leg-cost-actions'
+import { saveLegOwnVehicleProfit, saveLegSupplierCost, saveLegCostMode, saveLegMeetFee, saveParkingHours } from '../lib/leg-cost-actions'
 import type { Booking } from '../types'
 
 export default function CostDialog({ booking: initial, leg, today, onClose, onSaved }: {
@@ -12,8 +12,9 @@ export default function CostDialog({ booking: initial, leg, today, onClose, onSa
   const status = bookingLegCostStatus(booking, leg, today)
   const legRef = { bookingId: booking.id, bookingRef: booking.booking_ref, leg }
   const legLabel = legDirectionLabel(booking, leg)
-  const oneWayKm = leg === 'return' ? booking.manual_return_distance_km : booking.manual_outbound_distance_km
+  const ownVehicleProfitTry = leg === 'return' ? booking.return_own_vehicle_profit_try : booking.own_vehicle_profit_try
   const currentCostTry = Number(leg === 'return' ? booking.return_sold_transfer_cost_try : booking.sold_transfer_cost_try) || 0
+  const parkingHours = Number(booking.airport_meet_fee_parking_hours) || 1
 
   return (
     <div className="cost-dialog-overlay" role="dialog" aria-modal="true">
@@ -26,8 +27,8 @@ export default function CostDialog({ booking: initial, leg, today, onClose, onSa
           <LegCostControls
             booking={booking} legRef={legRef} leg={leg} legLabel={legLabel}
             currentCostTry={currentCostTry} isSoldTransfer={status.costMode === 'sold_transfer'}
-            oneWayKm={typeof oneWayKm === 'number' ? oneWayKm : (oneWayKm != null ? Number(oneWayKm) || undefined : undefined)}
-            onSaveDistance={async (_l, km) => { apply(await saveLegDistance(booking.id, leg, km)) }}
+            ownVehicleProfitTry={typeof ownVehicleProfitTry === 'number' ? ownVehicleProfitTry : (ownVehicleProfitTry != null ? Number(ownVehicleProfitTry) : null)}
+            onSaveOwnVehicleProfit={async (_l, profitTry) => { apply(await saveLegOwnVehicleProfit(booking.id, leg, profitTry)) }}
             onSaveCostMode={async (_b, l, mode: CostMode) => { apply(await saveLegCostMode(booking.id, l, mode)) }}
             onSaveSupplierCost={async (_b, l, cost) => { apply(await saveLegSupplierCost(booking.id, l, cost)) }}
           />
@@ -36,6 +37,16 @@ export default function CostDialog({ booking: initial, leg, today, onClose, onSa
               <input type="checkbox" checked={status.meetFeeApplies}
                 onChange={async e => { apply(await saveLegMeetFee(booking.id, e.target.checked)) }} />
               <span><strong>Karşılama ücreti · 250 ₺</strong><small>Havalimanı karşılaması. Vermediyseniz kaldırın.</small></span>
+            </label>
+          )}
+          {status.meetFeeApplicable && !status.meetFeeApplies && (
+            <label className="meet-toggle">
+              <span><strong>Otopark saati · ₺{status.parkingCostTry ?? parkingHours * 180} eşdeğer</strong><small>Karşılama ücreti verilmediği için saat başı ₺180 otopark gideri uygulanır.</small></span>
+              <input type="number" min="0.5" max="24" step="0.5" value={parkingHours}
+                onChange={async e => {
+                  const hours = Number(e.target.value)
+                  if (Number.isFinite(hours) && hours > 0) apply(await saveParkingHours(booking.id, hours))
+                }} />
             </label>
           )}
         </div>

@@ -8,31 +8,53 @@ const update = vi.fn(() => ({ eq }))
 // SUT (leg-cost-actions.ts, same dir) imports './supabase' — mock that specifier.
 vi.mock('./supabase', () => ({ supabase: { from: () => ({ update }) } }))
 
-import { saveLegDistance, saveLegSupplierCost, saveLegCostMode, saveLegMeetFee } from './leg-cost-actions'
+import { saveLegOwnVehicleProfit, saveLegSupplierCost, saveLegCostMode, saveLegMeetFee, saveParkingHours } from './leg-cost-actions'
 
 beforeEach(() => {
   vi.clearAllMocks()
 })
 
-describe('saveLegDistance', () => {
+describe('saveLegOwnVehicleProfit', () => {
   test('updates the return column and returns the patch', async () => {
-    single.mockResolvedValue({ data: { id: 'b1', manual_return_distance_km: 42 }, error: null })
-    const patch = await saveLegDistance('b1', 'return', 42)
-    expect(update).toHaveBeenCalledWith({ manual_return_distance_km: 42 })
+    single.mockResolvedValue({ data: { id: 'b1', return_own_vehicle_profit_try: 42 }, error: null })
+    const patch = await saveLegOwnVehicleProfit('b1', 'return', 42)
+    expect(update).toHaveBeenCalledWith({ return_own_vehicle_profit_try: 42 })
     expect(eq).toHaveBeenCalledWith('id', 'b1')
-    expect(patch).toEqual({ manual_return_distance_km: 42 })
+    expect(patch).toEqual({ return_own_vehicle_profit_try: 42 })
   })
 
   test('updates the outbound column', async () => {
-    single.mockResolvedValue({ data: { id: 'b1', manual_outbound_distance_km: 10 }, error: null })
-    const patch = await saveLegDistance('b1', 'outbound', 10)
-    expect(update).toHaveBeenCalledWith({ manual_outbound_distance_km: 10 })
-    expect(patch).toEqual({ manual_outbound_distance_km: 10 })
+    single.mockResolvedValue({ data: { id: 'b1', own_vehicle_profit_try: 10 }, error: null })
+    const patch = await saveLegOwnVehicleProfit('b1', 'outbound', 10)
+    expect(update).toHaveBeenCalledWith({ own_vehicle_profit_try: 10 })
+    expect(patch).toEqual({ own_vehicle_profit_try: 10 })
+  })
+
+  test('accepts a negative profit (a loss trip)', async () => {
+    single.mockResolvedValue({ data: { id: 'b1', own_vehicle_profit_try: -50 }, error: null })
+    const patch = await saveLegOwnVehicleProfit('b1', 'outbound', -50)
+    expect(update).toHaveBeenCalledWith({ own_vehicle_profit_try: -50 })
+    expect(patch).toEqual({ own_vehicle_profit_try: -50 })
   })
 
   test('throws on error', async () => {
     single.mockResolvedValue({ data: null, error: new Error('boom') })
-    await expect(saveLegDistance('b1', 'return', 42)).rejects.toThrow('boom')
+    await expect(saveLegOwnVehicleProfit('b1', 'return', 42)).rejects.toThrow('boom')
+  })
+})
+
+describe('saveParkingHours', () => {
+  test('updates airport_meet_fee_parking_hours and returns the patch', async () => {
+    single.mockResolvedValue({ data: { id: 'b1', airport_meet_fee_parking_hours: 3 }, error: null })
+    const patch = await saveParkingHours('b1', 3)
+    expect(update).toHaveBeenCalledWith({ airport_meet_fee_parking_hours: 3 })
+    expect(eq).toHaveBeenCalledWith('id', 'b1')
+    expect(patch).toEqual({ airport_meet_fee_parking_hours: 3 })
+  })
+
+  test('throws on error', async () => {
+    single.mockResolvedValue({ data: null, error: new Error('parking fail') })
+    await expect(saveParkingHours('b1', 2)).rejects.toThrow('parking fail')
   })
 })
 

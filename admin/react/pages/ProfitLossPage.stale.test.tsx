@@ -61,6 +61,7 @@ const booking: Booking = {
   vehicle_type: 'vclass',
   service_cost_mode: 'own_vehicle',
   sold_transfer_cost_try: null,
+  own_vehicle_profit_try: 400,
   price_eur: 900,
   status: 'completed',
   payment_method: 'cash',

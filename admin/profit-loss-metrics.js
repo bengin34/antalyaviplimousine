@@ -1,24 +1,9 @@
-import { routeEdges } from '../src/routes.js'
-import { hotelDistanceKm } from '../src/hotel-distance-lookup.js'
-import { hotelDistances } from '../src/hotel-distances.js'
-
 export const DEFAULT_KM_COST_TRY = 15
 export const DEFAULT_EUR_TRY_RATE = 50
 export const AIRPORT_MEET_COST_TRY = 250
+export const PARKING_COST_TRY_PER_HOUR = 180
 
 const REALIZED_TODAY_STATUSES = new Set(['paid', 'in_transit', 'completed'])
-
-// Sabit yol mesafeleri. Havalimanı bağlantıları mevcut fiyat tablosundaki
-// yaklaşık mesafelerle aynıdır. Komşu bölgeler arasındaki bağlantılar, admin
-// panelinden havalimanı dışı bir rota girildiğinde en kısa sabit güzergâhın
-// hesaplanabilmesini sağlar; harita servisine istek yapılmaz.
-const ROUTE_GRAPH = routeEdges.reduce((graph, [from, to, distance]) => {
-  if (!graph.has(from)) graph.set(from, [])
-  if (!graph.has(to)) graph.set(to, [])
-  graph.get(from).push({ location: to, distance })
-  graph.get(to).push({ location: from, distance })
-  return graph
-}, new Map())
 
 function normalizeLocation(value) {
   return String(value ?? '').trim().toLocaleLowerCase('tr-TR')
@@ -26,46 +11,6 @@ function normalizeLocation(value) {
 
 export function startsFromAirport(location) {
   return normalizeLocation(location) === 'airport'
-}
-
-export function fixedRouteDistanceKm(fromValue, toValue) {
-  const from = normalizeLocation(fromValue)
-  const to = normalizeLocation(toValue)
-  if (!from || !to) return null
-  // `hotel` ve `private_address` bir koordinat değil, yer tutucudur: iki farklı
-  // özel adres yüzlerce km uzakta olabilir. Bunlar rota grafiğinde yer almaz ve
-  // aynı yer tutucu iki uçta da geçse bile mesafe bilinemez — ayak "çözülemedi"
-  // olarak işaretlenip manuel KM istenir. Gerçek bölgelerde from === to ise
-  // mesafe fiilen sıfırdır.
-  if (!ROUTE_GRAPH.has(from) || !ROUTE_GRAPH.has(to)) return null
-  if (from === to) return 0
-
-  const distances = new Map([[from, 0]])
-  const visited = new Set()
-
-  while (visited.size < ROUTE_GRAPH.size) {
-    let current = null
-    let currentDistance = Infinity
-    for (const [location, distance] of distances) {
-      if (!visited.has(location) && distance < currentDistance) {
-        current = location
-        currentDistance = distance
-      }
-    }
-
-    if (current === null) return null
-    if (current === to) return currentDistance
-    visited.add(current)
-
-    for (const edge of ROUTE_GRAPH.get(current) ?? []) {
-      const nextDistance = currentDistance + edge.distance
-      if (nextDistance < (distances.get(edge.location) ?? Infinity)) {
-        distances.set(edge.location, nextDistance)
-      }
-    }
-  }
-
-  return null
 }
 
 function isInPeriod(date, period) {
@@ -91,6 +36,14 @@ function normalizeDailyDistanceKm(value) {
   if (value === null || value === undefined || String(value).trim() === '') return null
   const distance = Number(value)
   return Number.isFinite(distance) && distance >= 0 ? distance : null
+}
+
+// Manuel reklam-öncesi kâr: kayıp seferler de mümkün olduğundan negatif ve
+// sıfır değerler de geçerlidir; yalnızca "girilmemiş" durumu ayrıştırılır.
+function normalizeManualProfitTry(value) {
+  if (value === null || value === undefined || String(value).trim() === '') return null
+  const profit = Number(value)
+  return Number.isFinite(profit) ? profit : null
 }
 
 // Ayak bazlı maliyet ayrımından önce kaydedilmiş gidiş-dönüşlerde tek bir
@@ -150,6 +103,7 @@ function bookingLegs(booking) {
       to: 'daily_chauffeur',
       revenueEur: dailyRate,
       directVehicleKm: normalizeDailyDistanceKm(day.distance_km),
+      directProfitBeforeAdsTry: normalizeManualProfitTry(day.profit_before_ads_try),
       legStatus: day.status === 'completed' ? 'completed' : day.status === 'in_progress' ? 'in_transit' : booking.status,
       isDailyChauffeur: true,
       costMode: 'own_vehicle',
@@ -490,23 +444,21 @@ export function splitProfit(netProfitEur, netProfitTry, operationsSharePct) {
   }
 }
 
-function manualDistanceForLeg(booking, leg) {
+// Ayağın manuel olarak girilmiş reklam-öncesi kâr değeri ("kendi aracımız"
+// modunda KM tabanlı maliyet hesabının yerini alır).
+function manualOwnVehicleProfitForLeg(booking, leg) {
   const value = leg === 'return'
-    ? booking.manual_return_distance_km
-    : booking.manual_outbound_distance_km
-  const distance = Number(value)
-  return Number.isFinite(distance) && distance > 0 ? distance : null
+    ? booking.return_own_vehicle_profit_try
+    : booking.own_vehicle_profit_try
+  return normalizeManualProfitTry(value)
 }
 
-// One-way km for an airport↔hotel leg, from the hotel the booking names. The
-// per-hotel distance is measured from AYT, so it only applies when the other
-// endpoint is the airport; any other pairing falls through to the region graph.
-function hotelDistanceForLeg(booking, leg) {
-  const from = normalizeLocation(leg.from)
-  const to = normalizeLocation(leg.to)
-  const hotelSide = from === 'hotel' ? to === 'airport' : to === 'hotel' && from === 'airport'
-  if (!hotelSide) return null
-  return hotelDistanceKm(booking.hotel_name, hotelDistances)
+// Havalimanından başlayan ve karşılama ücreti ödemediğimiz ayaklarda, bu
+// ücretin eşdeğeri olarak saat başı otopark gideri uygulanır. Saat sayısı
+// rezervasyon bazında seçilebilir; girilmemiş veya geçersizse 1 saat kabul edilir.
+function parkingHoursForBooking(booking) {
+  const hours = Number(booking.airport_meet_fee_parking_hours)
+  return Number.isFinite(hours) && hours > 0 ? hours : 1
 }
 
 export function resolveRealizedLegs(bookings, today, settingsByMonth = {}, ratesByDate = null) {
@@ -517,9 +469,6 @@ export function resolveRealizedLegs(bookings, today, settingsByMonth = {}, rates
     for (const leg of bookingLegs(booking)) {
       if (!isRealizedLeg(booking, leg.date, today, leg.legStatus)) continue
 
-      const manualDistanceKm = manualDistanceForLeg(booking, leg.leg)
-      const hotelDistanceKmValue = manualDistanceKm == null ? hotelDistanceForLeg(booking, leg) : null
-      const oneWayKm = manualDistanceKm ?? hotelDistanceKmValue ?? fixedRouteDistanceKm(leg.from, leg.to)
       const legDetails = {
         ...leg,
         bookingId: booking.id,
@@ -531,24 +480,40 @@ export function resolveRealizedLegs(bookings, today, settingsByMonth = {}, rates
       const eurTryRate = (ratesByDate instanceof Map ? ratesByDate.get(leg.date) : null) ?? settings.eurTryRate
       legDetails.eurTryRate = eurTryRate
       legDetails.revenueTry = leg.revenueEur * eurTryRate
-      legDetails.airportMeetCostTry = !leg.isDailyChauffeur && startsFromAirport(leg.from) && booking.airport_meet_fee_applies !== false
-        ? AIRPORT_MEET_COST_TRY
-        : 0
+
+      const startsAtAirport = !leg.isDailyChauffeur && startsFromAirport(leg.from)
+      const meetFeeApplies = booking.airport_meet_fee_applies !== false
+      legDetails.airportMeetCostTry = startsAtAirport && meetFeeApplies ? AIRPORT_MEET_COST_TRY : 0
       legDetails.airportMeetCostEur = eurTryRate > 0 ? legDetails.airportMeetCostTry / eurTryRate : 0
+      legDetails.parkingCostTry = startsAtAirport && !meetFeeApplies
+        ? parkingHoursForBooking(booking) * PARKING_COST_TRY_PER_HOUR
+        : 0
+      legDetails.parkingCostEur = eurTryRate > 0 ? legDetails.parkingCostTry / eurTryRate : 0
 
       if (leg.isDailyChauffeur) {
-        const vehicleKm = leg.directVehicleKm ?? 0
+        const dayProfitTry = leg.directProfitBeforeAdsTry
+        if (dayProfitTry === null) {
+          resolvedLegs.push({
+            ...legDetails,
+            oneWayKm: 0,
+            vehicleKm: 0,
+            vehicleCostTry: 0,
+            distanceSource: 'daily-missing',
+          })
+          continue
+        }
         resolvedLegs.push({
           ...legDetails,
-          oneWayKm: vehicleKm,
-          vehicleKm,
-          vehicleCostTry: vehicleKm * settings.kmCostTry,
-          distanceSource: leg.directVehicleKm === null ? 'daily-missing' : 'daily-actual',
+          oneWayKm: 0,
+          vehicleKm: 0,
+          vehicleCostTry: legDetails.revenueTry - dayProfitTry,
+          ownVehicleProfitTry: dayProfitTry,
+          distanceSource: 'daily-actual',
         })
         continue
       }
 
-      // "Maliyeti yok": gideri olmayan ayak. KM veya tedarikçi bedeli beklenmez,
+      // "Maliyeti yok": gideri olmayan ayak. Kâr veya tedarikçi bedeli beklenmez,
       // yalnızca geliri hesaba girer.
       if (leg.costMode === 'no_cost') {
         resolvedLegs.push({
@@ -560,6 +525,8 @@ export function resolveRealizedLegs(bookings, today, settingsByMonth = {}, rates
           distanceSource: 'no-cost',
           airportMeetCostEur: 0,
           airportMeetCostTry: 0,
+          parkingCostEur: 0,
+          parkingCostTry: 0,
         })
         continue
       }
@@ -574,23 +541,31 @@ export function resolveRealizedLegs(bookings, today, settingsByMonth = {}, rates
           distanceSource: 'sold-transfer',
           airportMeetCostEur: 0,
           airportMeetCostTry: 0,
+          parkingCostEur: 0,
+          parkingCostTry: 0,
         })
         continue
       }
 
-      if (oneWayKm === null) {
+      // "Kendi aracımız": KM tabanlı maliyet hesabı yerine, admin'in girdiği
+      // reklam-öncesi kâr kullanılır. `vehicleCostTry` bu kârı ve karşılama/
+      // otopark giderini geriye doğru üretecek şekilde türetilir; böylece
+      // netProfitTry = ownVehicleProfitTry - reklam payı eşitliği korunur.
+      const ownVehicleProfitTry = manualOwnVehicleProfitForLeg(booking, leg.leg)
+      if (ownVehicleProfitTry === null) {
         unresolvedLegs.push(legDetails)
         continue
       }
 
-      const vehicleKm = oneWayKm * 2
+      const extraCostTry = legDetails.airportMeetCostTry + legDetails.parkingCostTry
       resolvedLegs.push({
         ...legDetails,
-        oneWayKm,
-        vehicleKm,
-        vehicleCostTry: vehicleKm * settings.kmCostTry,
+        oneWayKm: 0,
+        vehicleKm: 0,
+        vehicleCostTry: legDetails.revenueTry - ownVehicleProfitTry - extraCostTry,
         supplierCostTry: 0,
-        distanceSource: manualDistanceKm != null ? 'manual' : hotelDistanceKmValue != null ? 'hotel' : 'fixed',
+        ownVehicleProfitTry,
+        distanceSource: 'manual-profit',
       })
     }
   }
@@ -604,6 +579,8 @@ function totalsForLegs(resolvedLegs, unresolvedLegs, settingsByMonth) {
     result.incomeTry += leg.revenueTry
     result.airportMeetCostEur += leg.airportMeetCostEur ?? 0
     result.airportMeetCostTry += leg.airportMeetCostTry ?? 0
+    result.parkingCostEur += leg.parkingCostEur ?? 0
+    result.parkingCostTry += leg.parkingCostTry ?? 0
     result.passengerKm += leg.oneWayKm ?? 0
     result.vehicleKm += leg.vehicleKm ?? 0
     result.vehicleCostTry += leg.vehicleCostTry ?? 0
@@ -614,6 +591,8 @@ function totalsForLegs(resolvedLegs, unresolvedLegs, settingsByMonth) {
     incomeTry: 0,
     airportMeetCostEur: 0,
     airportMeetCostTry: 0,
+    parkingCostEur: 0,
+    parkingCostTry: 0,
     passengerKm: 0,
     vehicleKm: 0,
     vehicleCostTry: 0,
@@ -638,9 +617,12 @@ function distributionFinancialLeg(leg, settingsByMonth, allocations) {
   const allocation = allocations.get(`${leg.bookingId}:${leg.leg}`)
   const revenueEur = roundMoney(allocation?.revenueEur ?? leg.revenueEur)
   const revenueTry = centsToNumber(multiplyDivideMoneyToCents(revenueEur, eurTryRate, 1))
+  // KM tabanlı maliyet kaldırıldı: "kendi aracımız" ve günlük şoförlü
+  // ayaklarda vehicleCostTry zaten resolveRealizedLegs içinde manuel
+  // reklam-öncesi kâra göre türetildi; burada yalnızca yuvarlanır.
   const vehicleCostTry = leg.costMode === 'sold_transfer'
     ? 0
-    : centsToNumber(multiplyDivideMoneyToCents(leg.vehicleKm ?? 0, settings.kmCostTry, 1))
+    : roundMoney(leg.vehicleCostTry ?? 0)
   const vehicleCostEur = centsToNumber(multiplyDivideMoneyToCents(vehicleCostTry, 1, eurTryRate))
   const supplierCostTry = leg.costMode === 'sold_transfer'
     ? roundMoney(allocation?.supplierCostTry ?? leg.supplierCostTry ?? 0)
@@ -648,6 +630,8 @@ function distributionFinancialLeg(leg, settingsByMonth, allocations) {
   const supplierCostEur = centsToNumber(multiplyDivideMoneyToCents(supplierCostTry, 1, eurTryRate))
   const airportMeetCostTry = roundMoney(leg.airportMeetCostTry ?? 0)
   const airportMeetCostEur = centsToNumber(multiplyDivideMoneyToCents(airportMeetCostTry, 1, eurTryRate))
+  const parkingCostTry = roundMoney(leg.parkingCostTry ?? 0)
+  const parkingCostEur = centsToNumber(multiplyDivideMoneyToCents(parkingCostTry, 1, eurTryRate))
 
   return {
     ...leg,
@@ -660,6 +644,8 @@ function distributionFinancialLeg(leg, settingsByMonth, allocations) {
     supplierCostIsValid: allocation?.supplierCostIsValid ?? false,
     airportMeetCostEur,
     airportMeetCostTry,
+    parkingCostEur,
+    parkingCostTry,
   }
 }
 
@@ -674,6 +660,8 @@ function distributionTotalsForLegs(resolvedLegs, unresolvedLegs) {
     supplierCostTry: sumMoney(legs.map(leg => leg.supplierCostTry)),
     airportMeetCostEur: sumMoney(legs.map(leg => leg.airportMeetCostEur)),
     airportMeetCostTry: sumMoney(legs.map(leg => leg.airportMeetCostTry)),
+    parkingCostEur: sumMoney(legs.map(leg => leg.parkingCostEur)),
+    parkingCostTry: sumMoney(legs.map(leg => leg.parkingCostTry)),
   }
 }
 
@@ -687,11 +675,13 @@ export function bookingLegCostStatus(booking, leg, today, settingsByMonth = {}, 
     applicable: true,
     complete,
     costMode,
-    oneWayKm: match.oneWayKm ?? null,
+    ownVehicleProfitTry: match.ownVehicleProfitTry ?? null,
     supplierCostTry: match.supplierCostTry ?? null,
     meetFeeApplicable: startsFromAirport(match.from),
     meetFeeApplies: booking.airport_meet_fee_applies !== false,
     meetCostTry: match.airportMeetCostTry ?? 0,
+    parkingHours: parkingHoursForBooking(booking),
+    parkingCostTry: match.parkingCostTry ?? 0,
   }
 }
 
@@ -719,9 +709,9 @@ export function calculateProfitLossMetrics(bookings, period, today, settingsByMo
   const totals = totalsForLegs(resolvedLegs, unresolvedLegs, settingsByMonth)
 
   totals.advertisingExpenseTry = advertisingExpenseTry
-  totals.totalExpenseTry = totals.vehicleCostTry + totals.supplierCostTry + totals.airportMeetCostTry + advertisingExpenseTry
+  totals.totalExpenseTry = totals.vehicleCostTry + totals.supplierCostTry + totals.airportMeetCostTry + totals.parkingCostTry + advertisingExpenseTry
   totals.netProfitTry = totals.incomeTry - totals.totalExpenseTry
-  totals.totalExpenseEur = totals.vehicleCostEur + totals.supplierCostEur + totals.airportMeetCostEur + advertisingExpenseEur
+  totals.totalExpenseEur = totals.vehicleCostEur + totals.supplierCostEur + totals.airportMeetCostEur + totals.parkingCostEur + advertisingExpenseEur
   totals.netProfitEur = totals.incomeEur - totals.totalExpenseEur
   totals.profitMargin = totals.incomeTry > 0 ? (totals.netProfitTry / totals.incomeTry) * 100 : 0
 
@@ -759,7 +749,7 @@ export function calculateProfitLossMetrics(bookings, period, today, settingsByMo
   )
   const withNet = legsWithAds.map(leg => {
     const expenseTry = (leg.vehicleCostTry ?? 0) + (leg.supplierCostTry ?? 0)
-      + (leg.airportMeetCostTry ?? 0) + (leg.advertisingPerLegTry ?? 0)
+      + (leg.airportMeetCostTry ?? 0) + (leg.parkingCostTry ?? 0) + (leg.advertisingPerLegTry ?? 0)
     const rate = leg.eurTryRate || 0
     const netProfitTry = (leg.revenueTry ?? 0) - expenseTry
     return { ...leg, netProfitTry, netProfitEur: rate ? netProfitTry / rate : (leg.revenueEur ?? 0) }
@@ -852,13 +842,15 @@ export function calculateProfitDistribution(bookings, options = {}) {
   const supplierCostTry = roundMoney(directTotals.supplierCostTry)
   const airportMeetCostEur = roundMoney(directTotals.airportMeetCostEur)
   const airportMeetCostTry = roundMoney(directTotals.airportMeetCostTry)
+  const parkingCostEur = roundMoney(directTotals.parkingCostEur)
+  const parkingCostTry = roundMoney(directTotals.parkingCostTry)
   const advertisingExpenseEur = roundMoney(advertising.advertisingExpenseEur)
   const advertisingExpenseTry = roundMoney(advertising.advertisingExpenseTry)
   const totalExpenseEur = sumMoney([
-    vehicleCostEur, supplierCostEur, airportMeetCostEur, advertisingExpenseEur,
+    vehicleCostEur, supplierCostEur, airportMeetCostEur, parkingCostEur, advertisingExpenseEur,
   ])
   const totalExpenseTry = sumMoney([
-    vehicleCostTry, supplierCostTry, airportMeetCostTry, advertisingExpenseTry,
+    vehicleCostTry, supplierCostTry, airportMeetCostTry, parkingCostTry, advertisingExpenseTry,
   ])
   const netProfitEur = sumMoney([incomeEur, -totalExpenseEur])
   const netProfitTry = sumMoney([incomeTry, -totalExpenseTry])
@@ -885,6 +877,8 @@ export function calculateProfitDistribution(bookings, options = {}) {
     supplierCostTry,
     airportMeetCostEur,
     airportMeetCostTry,
+    parkingCostEur,
+    parkingCostTry,
     advertisingExpenseEur,
     advertisingExpenseTry,
     totalExpenseEur,
@@ -915,6 +909,7 @@ function legSnapshot(leg) {
     distance_source: leg.distanceSource ?? null,
     one_way_km: roundMoney(leg.oneWayKm ?? 0),
     vehicle_km: roundMoney(leg.vehicleKm ?? 0),
+    own_vehicle_profit_try: leg.ownVehicleProfitTry != null ? roundMoney(leg.ownVehicleProfitTry) : null,
     revenue_eur: roundMoney(leg.revenueEur ?? 0),
     revenue_try: roundMoney(leg.revenueTry ?? 0),
     vehicle_cost_eur: roundMoney(leg.vehicleCostEur ?? 0),
@@ -923,6 +918,8 @@ function legSnapshot(leg) {
     supplier_cost_try: roundMoney(leg.supplierCostTry ?? 0),
     airport_cost_eur: roundMoney(leg.airportMeetCostEur ?? 0),
     airport_cost_try: roundMoney(leg.airportMeetCostTry ?? 0),
+    parking_cost_eur: roundMoney(leg.parkingCostEur ?? 0),
+    parking_cost_try: roundMoney(leg.parkingCostTry ?? 0),
   }
 }
 
@@ -953,6 +950,8 @@ export function buildProfitDistributionSnapshot(metrics = {}) {
     supplier_cost_try: roundMoney(metrics.supplierCostTry),
     airport_cost_eur: roundMoney(metrics.airportMeetCostEur),
     airport_cost_try: roundMoney(metrics.airportMeetCostTry),
+    parking_cost_eur: roundMoney(metrics.parkingCostEur),
+    parking_cost_try: roundMoney(metrics.parkingCostTry),
     advertising_cost_eur: roundMoney(metrics.advertisingExpenseEur),
     advertising_cost_try: roundMoney(metrics.advertisingExpenseTry),
     total_expense_eur: roundMoney(metrics.totalExpenseEur),
@@ -1006,7 +1005,7 @@ export function calculateLedgerForRange(bookings, options = {}) {
   )
   const withNet = withAds.map(leg => {
     const expenseTry = (leg.vehicleCostTry ?? 0) + (leg.supplierCostTry ?? 0)
-      + (leg.airportMeetCostTry ?? 0) + (leg.advertisingPerLegTry ?? 0)
+      + (leg.airportMeetCostTry ?? 0) + (leg.parkingCostTry ?? 0) + (leg.advertisingPerLegTry ?? 0)
     const rate = leg.eurTryRate || 0
     const netProfitTry = (leg.revenueTry ?? 0) - expenseTry
     return { ...leg, netProfitTry, netProfitEur: rate ? netProfitTry / rate : (leg.revenueEur ?? 0) }
@@ -1023,10 +1022,12 @@ export function calculateLedgerForRange(bookings, options = {}) {
   const supplierCostTry = roundMoney(directTotals.supplierCostTry)
   const airportMeetCostEur = roundMoney(directTotals.airportMeetCostEur)
   const airportMeetCostTry = roundMoney(directTotals.airportMeetCostTry)
+  const parkingCostEur = roundMoney(directTotals.parkingCostEur)
+  const parkingCostTry = roundMoney(directTotals.parkingCostTry)
   const advertisingExpenseEur = roundMoney(advertising.advertisingExpenseEur)
   const advertisingExpenseTry = roundMoney(advertising.advertisingExpenseTry)
-  const totalExpenseEur = sumMoney([vehicleCostEur, supplierCostEur, airportMeetCostEur, advertisingExpenseEur])
-  const totalExpenseTry = sumMoney([vehicleCostTry, supplierCostTry, airportMeetCostTry, advertisingExpenseTry])
+  const totalExpenseEur = sumMoney([vehicleCostEur, supplierCostEur, airportMeetCostEur, parkingCostEur, advertisingExpenseEur])
+  const totalExpenseTry = sumMoney([vehicleCostTry, supplierCostTry, airportMeetCostTry, parkingCostTry, advertisingExpenseTry])
   const netProfitEur = sumMoney([incomeEur, -totalExpenseEur])
   const netProfitTry = sumMoney([incomeTry, -totalExpenseTry])
   const profitMargin = incomeTry > 0 ? (netProfitTry / incomeTry) * 100 : 0
@@ -1044,6 +1045,8 @@ export function calculateLedgerForRange(bookings, options = {}) {
     supplierCostTry,
     airportMeetCostEur,
     airportMeetCostTry,
+    parkingCostEur,
+    parkingCostTry,
     advertisingExpenseEur,
     advertisingExpenseTry,
     totalExpenseEur,

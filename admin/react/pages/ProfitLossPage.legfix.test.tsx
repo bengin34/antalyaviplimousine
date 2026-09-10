@@ -26,7 +26,7 @@ vi.mock('../lib/exchange-rates', () => ({
 
 import ProfitLossPage from './ProfitLossPage'
 
-/** Sabit rota tablosunda karşılığı olmayan bir güzergâh; tek yön KM zorunlu olur. */
+/** own_vehicle modunda reklam öncesi kâr henüz girilmemiş bir kayıt. */
 function unresolvedBooking(overrides: Partial<Booking> = {}): Booking {
   return {
     id: 'booking-1',
@@ -136,20 +136,20 @@ afterEach(() => {
 })
 
 describe('ProfitLossPage missing distance recovery', () => {
-  test('clears the distribution blocker once the KM is entered on the blocker itself', async () => {
+  test('clears the distribution blocker once the profit is entered on the blocker itself', async () => {
     installQueries([unresolvedBooking()])
     render(<ProfitLossPage navigate={vi.fn()} initialPeriod="2026-08" />)
 
     const blocker = await screen.findByRole('alert')
-    expect(blocker).toHaveTextContent('Rota mesafesi eksik.')
+    expect(blocker).toHaveTextContent('Reklam öncesi kâr eksik.')
     expect(screen.getByRole('button', { name: 'Kârı dağıt' })).toBeDisabled()
 
-    fireEvent.click(within(blocker).getByRole('button', { name: 'KM gir' }))
-    fireEvent.change(within(blocker).getByLabelText('Tek yön KM'), { target: { value: '38' } })
+    fireEvent.click(within(blocker).getByRole('button', { name: 'Kâr gir' }))
+    fireEvent.change(within(blocker).getByLabelText('Reklam öncesi kâr (₺)'), { target: { value: '380' } })
     fireEvent.click(within(blocker).getByRole('button', { name: 'Kaydet ve hesapla' }))
 
-    await waitFor(() => expect(mocks.updateBooking).toHaveBeenCalledWith({ manual_outbound_distance_km: 38 }))
-    await waitFor(() => expect(screen.queryByText('Rota mesafesi eksik.')).toBeNull())
+    await waitFor(() => expect(mocks.updateBooking).toHaveBeenCalledWith({ own_vehicle_profit_try: 380 }))
+    await waitFor(() => expect(screen.queryByText('Reklam öncesi kâr eksik.')).toBeNull())
     expect(screen.getByRole('button', { name: 'Kârı dağıt' })).toBeEnabled()
   })
 

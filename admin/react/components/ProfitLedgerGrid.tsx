@@ -1,5 +1,5 @@
 import { useState, useMemo } from 'react'
-import { fmtDetailDate, formatEuro, formatNumber, formatTry, profitLocationLabel } from '../lib/format'
+import { fmtDetailDate, formatEuro, formatTry, profitLocationLabel } from '../lib/format'
 import type { Booking, Navigate } from '../types'
 import { legCostColumns, legCostMode, toLegKey, type LegKey } from './LegCostEditors'
 import CostDialog from './CostDialog'
@@ -8,7 +8,8 @@ export interface LedgerLeg {
   bookingId: string; bookingRef?: string | null; customerName?: string | null
   leg: string; date: string; from?: unknown; to?: unknown
   revenueEur?: number; revenueTry?: number; oneWayKm?: number | null
-  vehicleCostTry?: number; supplierCostTry?: number; airportMeetCostTry?: number
+  ownVehicleProfitTry?: number | null
+  vehicleCostTry?: number; supplierCostTry?: number; airportMeetCostTry?: number; parkingCostTry?: number
   advertisingPerLegEur?: number; advertisingPerLegTry?: number
   netProfitTry?: number; netProfitEur?: number; eurTryRate?: number | null
   isDailyChauffeur?: boolean; distanceSource?: string; dayId?: string | null
@@ -28,7 +29,8 @@ function groupByDate(legs: LedgerLeg[]) {
       date, legs: ls,
       revenueEur: sum(ls, 'revenueEur'), revenueTry: sum(ls, 'revenueTry'),
       vehicleCostTry: sum(ls, 'vehicleCostTry'), supplierCostTry: sum(ls, 'supplierCostTry'),
-      airportMeetCostTry: sum(ls, 'airportMeetCostTry'), advertisingPerLegTry: sum(ls, 'advertisingPerLegTry'),
+      airportMeetCostTry: sum(ls, 'airportMeetCostTry'), parkingCostTry: sum(ls, 'parkingCostTry'),
+      advertisingPerLegTry: sum(ls, 'advertisingPerLegTry'),
       netProfitTry: sum(ls, 'netProfitTry'),
     }))
 }
@@ -46,7 +48,7 @@ function computeNeedsAttention(leg: LedgerLeg, booking: Booking | undefined): bo
     const costTry = booking ? Number(booking[legCostColumns(legKey).cost]) || 0 : 0
     return costTry <= 0
   }
-  return leg.oneWayKm == null
+  return leg.ownVehicleProfitTry == null
 }
 
 /** Lightweight "Maliyeti yok" button — yalnız günlük hizmet ayaklarında (modal yok). */
@@ -117,8 +119,8 @@ export function ProfitLedgerGrid({ legs, bookingsById, editable, attentionSince,
       </header>
       <table className="ledger-table">
         <thead><tr>
-          <th>Sefer</th><th>Rota</th><th>Gelir</th><th>KM</th><th>Araç</th>
-          <th>Tedarikçi</th><th>Karşılama</th><th>Reklam</th><th>Kâr</th>
+          <th>Sefer</th><th>Rota</th><th>Gelir</th><th>Kâr (reklam öncesi)</th><th>Araç</th>
+          <th>Tedarikçi</th><th>Karşılama/Otopark</th><th>Reklam</th><th>Kâr</th>
         </tr></thead>
         <tbody>
           {group.legs.map(leg => {
@@ -136,7 +138,7 @@ export function ProfitLedgerGrid({ legs, bookingsById, editable, attentionSince,
               <td>{profitLocationLabel(leg.from)} → {profitLocationLabel(leg.to)}</td>
               <td>{formatEuro(leg.revenueEur ?? 0)}</td>
               <td className="ledger-edit-cell">
-                {leg.oneWayKm ? formatNumber(leg.oneWayKm, 1) : '—'}
+                {leg.ownVehicleProfitTry != null ? formatTry(leg.ownVehicleProfitTry) : '—'}
                 {editKm && booking && <EditIcon onClick={() => openDialog(leg, booking)} />}
                 {editable && dailyMissing && onSaveNoCost && <NoCostButton leg={leg} onSaveNoCost={onSaveNoCost} />}
               </td>
@@ -145,7 +147,9 @@ export function ProfitLedgerGrid({ legs, bookingsById, editable, attentionSince,
                 {(leg.supplierCostTry ?? 0) > 0 ? formatTry(leg.supplierCostTry) : '—'}
                 {editSupplier && booking && <EditIcon onClick={() => openDialog(leg, booking)} />}
               </td>
-              <td>{(leg.airportMeetCostTry ?? 0) > 0 ? formatTry(leg.airportMeetCostTry) : '—'}</td>
+              <td>{(leg.airportMeetCostTry ?? 0) > 0
+                ? formatTry(leg.airportMeetCostTry)
+                : (leg.parkingCostTry ?? 0) > 0 ? formatTry(leg.parkingCostTry) : '—'}</td>
               <td>{formatTry(leg.advertisingPerLegTry ?? 0)}</td>
               <td className={(leg.netProfitTry ?? 0) < 0 ? 'is-neg' : 'is-pos'}>{formatTry(leg.netProfitTry ?? 0)}</td>
             </tr>
@@ -156,7 +160,7 @@ export function ProfitLedgerGrid({ legs, bookingsById, editable, attentionSince,
           <td>{formatEuro(group.revenueEur)}</td><td></td>
           <td>{formatTry(group.vehicleCostTry)}</td>
           <td>{formatTry(group.supplierCostTry)}</td>
-          <td>{formatTry(group.airportMeetCostTry)}</td>
+          <td>{formatTry(group.airportMeetCostTry + group.parkingCostTry)}</td>
           <td>{formatTry(group.advertisingPerLegTry)}</td>
           <td className={group.netProfitTry < 0 ? 'is-neg' : 'is-pos'}>{formatTry(group.netProfitTry)}</td>
         </tr></tfoot>
@@ -183,9 +187,10 @@ export function ProfitLedgerGrid({ legs, bookingsById, editable, attentionSince,
               <div><dt>Gelir</dt><dd>{formatEuro(leg.revenueEur ?? 0)}</dd></div>
               {mode === 'sold_transfer'
                 ? <div><dt>Tedarikçi</dt><dd>{(leg.supplierCostTry ?? 0) > 0 ? formatTry(leg.supplierCostTry) : '—'}{editSupplier && booking && <EditIcon onClick={() => openDialog(leg, booking)} />}</dd></div>
-                : <><div><dt>KM</dt><dd>{leg.oneWayKm ? formatNumber(leg.oneWayKm, 1) : '—'}{editKm && booking && <EditIcon onClick={() => openDialog(leg, booking)} />}</dd></div>
+                : <><div><dt>Kâr (reklam öncesi)</dt><dd>{leg.ownVehicleProfitTry != null ? formatTry(leg.ownVehicleProfitTry) : '—'}{editKm && booking && <EditIcon onClick={() => openDialog(leg, booking)} />}</dd></div>
                    <div><dt>Araç</dt><dd>{formatTry(leg.vehicleCostTry ?? 0)}</dd></div></>}
               {(leg.airportMeetCostTry ?? 0) > 0 && <div><dt>Karşılama</dt><dd>{formatTry(leg.airportMeetCostTry)}</dd></div>}
+              {(leg.parkingCostTry ?? 0) > 0 && <div><dt>Otopark</dt><dd>{formatTry(leg.parkingCostTry)}</dd></div>}
               <div><dt>Reklam</dt><dd>{formatTry(leg.advertisingPerLegTry ?? 0)}</dd></div>
             </dl>
             {editable && dailyMissing && onSaveNoCost && <NoCostButton leg={leg} onSaveNoCost={onSaveNoCost} />}
