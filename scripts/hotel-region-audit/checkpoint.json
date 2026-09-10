@@ -4285,19 +4285,6 @@
       "euroDelta": 0,
       "priceEquivalent": false
     },
-    "magesa-terra-apart": {
-      "slug": "magesa-terra-apart",
-      "name": "Magesa Terra Apart",
-      "regionSource": "district",
-      "indexRegion": "antalya",
-      "derivedRegion": null,
-      "matchedTerm": null,
-      "identityVerified": false,
-      "bucket": "gone",
-      "euroDelta": 0,
-      "priceEquivalent": false,
-      "identityReason": "missing"
-    },
     "mai-inci-hotel": {
       "slug": "mai-inci-hotel",
       "name": "Mai Inci Hotel",
@@ -4478,19 +4465,6 @@
       "euroDelta": 0,
       "priceEquivalent": false
     },
-    "monna-roza-family-suit": {
-      "slug": "monna-roza-family-suit",
-      "name": "Monna Roza Family Suit",
-      "regionSource": "district",
-      "indexRegion": "antalya",
-      "derivedRegion": null,
-      "matchedTerm": null,
-      "identityVerified": false,
-      "bucket": "gone",
-      "euroDelta": 0,
-      "priceEquivalent": false,
-      "identityReason": "missing"
-    },
     "mono-hotel": {
       "slug": "mono-hotel",
       "name": "Mono Hotel",
@@ -4610,19 +4584,6 @@
       "bucket": "ok",
       "euroDelta": 0,
       "priceEquivalent": false
-    },
-    "niss-lara-hotel": {
-      "slug": "niss-lara-hotel",
-      "name": "Niss Lara Hotel",
-      "regionSource": "district",
-      "indexRegion": "antalya",
-      "derivedRegion": null,
-      "matchedTerm": null,
-      "identityVerified": false,
-      "bucket": "gone",
-      "euroDelta": 0,
-      "priceEquivalent": false,
-      "identityReason": "status"
     },
     "noa-s-boutique-hotel": {
       "slug": "noa-s-boutique-hotel",
@@ -10000,19 +9961,6 @@
       "priceEquivalent": false,
       "identityStrength": "loose"
     },
-    "cornelia-de-luxe-resort": {
-      "slug": "cornelia-de-luxe-resort",
-      "name": "Cornelia De Luxe Resort",
-      "regionSource": "district",
-      "indexRegion": "belek",
-      "derivedRegion": null,
-      "matchedTerm": null,
-      "identityVerified": false,
-      "bucket": "identity",
-      "euroDelta": 0,
-      "priceEquivalent": false,
-      "identityReason": "type"
-    },
     "kaya-palazzo-golf-resort": {
       "slug": "kaya-palazzo-golf-resort",
       "name": "Kaya Palazzo Golf Resort",
@@ -10065,19 +10013,6 @@
       "priceEquivalent": false,
       "identityStrength": "loose"
     },
-    "alva-donna-exclusive-hotel-spa": {
-      "slug": "alva-donna-exclusive-hotel-spa",
-      "name": "Alva Donna Exclusive Hotel & Spa",
-      "regionSource": "district",
-      "indexRegion": "belek",
-      "derivedRegion": null,
-      "matchedTerm": null,
-      "identityVerified": false,
-      "bucket": "identity",
-      "euroDelta": 0,
-      "priceEquivalent": false,
-      "identityReason": "name"
-    },
     "maritim-pine-beach-resort": {
       "slug": "maritim-pine-beach-resort",
       "name": "Maritim Pine Beach Resort",
@@ -10116,19 +10051,6 @@
       "euroDelta": 0,
       "priceEquivalent": false,
       "identityStrength": "loose"
-    },
-    "the-land-of-legends": {
-      "slug": "the-land-of-legends",
-      "name": "The Land of Legends",
-      "regionSource": "district",
-      "indexRegion": "belek",
-      "derivedRegion": null,
-      "matchedTerm": null,
-      "identityVerified": false,
-      "bucket": "identity",
-      "euroDelta": 0,
-      "priceEquivalent": false,
-      "identityReason": "type"
     },
     "belek-diamonds-hotel": {
       "slug": "belek-diamonds-hotel",
@@ -10351,19 +10273,6 @@
       "priceEquivalent": false,
       "identityReason": "name"
     },
-    "otium-family-eco-club": {
-      "slug": "otium-family-eco-club",
-      "name": "Otium Family Eco Club",
-      "regionSource": "district",
-      "indexRegion": "side",
-      "derivedRegion": null,
-      "matchedTerm": null,
-      "identityVerified": false,
-      "bucket": "identity",
-      "euroDelta": 0,
-      "priceEquivalent": false,
-      "identityReason": "name"
-    },
     "tui-blue-side-family-resort": {
       "slug": "tui-blue-side-family-resort",
       "name": "TUI Blue Side Family Resort",
@@ -10536,19 +10445,6 @@
       "priceEquivalent": false,
       "identityReason": "name"
     },
-    "grand-park-kemer": {
-      "slug": "grand-park-kemer",
-      "name": "Grand Park Kemer",
-      "regionSource": "district",
-      "indexRegion": "kemer",
-      "derivedRegion": null,
-      "matchedTerm": null,
-      "identityVerified": false,
-      "bucket": "identity",
-      "euroDelta": 0,
-      "priceEquivalent": false,
-      "identityReason": "name"
-    },
     "seven-seas-hotel-life-kemer": {
       "slug": "seven-seas-hotel-life-kemer",
       "name": "Seven Seas Hotel Life Kemer",
@@ -10614,19 +10510,6 @@
       "priceEquivalent": false,
       "identityStrength": "loose"
     },
-    "alva-donna-world-palace": {
-      "slug": "alva-donna-world-palace",
-      "name": "Alva Donna World Palace",
-      "regionSource": "district",
-      "indexRegion": "kemer",
-      "derivedRegion": null,
-      "matchedTerm": null,
-      "identityVerified": false,
-      "bucket": "identity",
-      "euroDelta": 0,
-      "priceEquivalent": false,
-      "identityReason": "name"
-    },
     "aydinbey-siu-collection": {
       "slug": "aydinbey-siu-collection",
       "name": "Aydinbey Siu Collection",
@@ -10665,19 +10548,6 @@
       "euroDelta": 0,
       "priceEquivalent": false,
       "identityStrength": "loose"
-    },
-    "amara-prestige-hotel": {
-      "slug": "amara-prestige-hotel",
-      "name": "Amara Prestige Hotel",
-      "regionSource": "district",
-      "indexRegion": "tekirova",
-      "derivedRegion": null,
-      "matchedTerm": null,
-      "identityVerified": false,
-      "bucket": "identity",
-      "euroDelta": 0,
-      "priceEquivalent": false,
-      "identityReason": "name"
     },
     "amara-dolce-vita-luxury": {
       "slug": "amara-dolce-vita-luxury",
@@ -10783,19 +10653,6 @@
       "priceEquivalent": false,
       "identityStrength": "loose"
     },
-    "the-antik-hotel": {
-      "slug": "the-antik-hotel",
-      "name": "The Antik Hotel",
-      "regionSource": "district",
-      "indexRegion": "alanya_bati",
-      "derivedRegion": null,
-      "matchedTerm": null,
-      "identityVerified": false,
-      "bucket": "identity",
-      "euroDelta": 0,
-      "priceEquivalent": false,
-      "identityReason": "name"
-    },
     "lumos-deluxe-resort-hotel": {
       "slug": "lumos-deluxe-resort-hotel",
       "name": "Lumos Deluxe Resort Hotel",
@@ -10900,19 +10757,6 @@
       "priceEquivalent": false,
       "identityStrength": "loose"
     },
-    "address-residence-suite-hotel": {
-      "slug": "address-residence-suite-hotel",
-      "name": "Address Residence Suite Hotel",
-      "regionSource": "district",
-      "indexRegion": "antalya",
-      "derivedRegion": null,
-      "matchedTerm": null,
-      "identityVerified": false,
-      "bucket": "identity",
-      "euroDelta": 0,
-      "priceEquivalent": false,
-      "identityReason": "name"
-    },
     "af-ra-hotel": {
       "slug": "af-ra-hotel",
       "name": "Af-Ra Hotel",
@@ -10978,37 +10822,11 @@
       "priceEquivalent": false,
       "identityStrength": "loose"
     },
-    "akin-apart-hotel": {
-      "slug": "akin-apart-hotel",
-      "name": "Akın Apart&Hotel",
-      "regionSource": "district",
-      "indexRegion": "antalya",
-      "derivedRegion": null,
-      "matchedTerm": null,
-      "identityVerified": false,
-      "bucket": "identity",
-      "euroDelta": 0,
-      "priceEquivalent": false,
-      "identityReason": "type"
-    },
     "alanya-divan-otel": {
       "slug": "alanya-divan-otel",
       "name": "Alanya Divan Otel",
       "regionSource": "district",
       "indexRegion": "alanya_merkez",
-      "derivedRegion": null,
-      "matchedTerm": null,
-      "identityVerified": false,
-      "bucket": "identity",
-      "euroDelta": 0,
-      "priceEquivalent": false,
-      "identityReason": "name"
-    },
-    "ale-apartments-hotel": {
-      "slug": "ale-apartments-hotel",
-      "name": "Ale Apartments Hotel",
-      "regionSource": "district",
-      "indexRegion": "antalya",
       "derivedRegion": null,
       "matchedTerm": null,
       "identityVerified": false,
@@ -11029,19 +10847,6 @@
       "euroDelta": 0,
       "priceEquivalent": false,
       "identityStrength": "loose"
-    },
-    "ales-park-hotel": {
-      "slug": "ales-park-hotel",
-      "name": "Ales Park Hotel",
-      "regionSource": "district",
-      "indexRegion": "antalya",
-      "derivedRegion": null,
-      "matchedTerm": null,
-      "identityVerified": false,
-      "bucket": "identity",
-      "euroDelta": 0,
-      "priceEquivalent": false,
-      "identityReason": "name"
     },
     "alice-hotel": {
       "slug": "alice-hotel",
@@ -11238,19 +11043,6 @@
       "priceEquivalent": false,
       "identityReason": "type"
     },
-    "arsi-sweet-suite-hotel": {
-      "slug": "arsi-sweet-suite-hotel",
-      "name": "Arsi Sweet Suite Hotel",
-      "regionSource": "district",
-      "indexRegion": "antalya",
-      "derivedRegion": null,
-      "matchedTerm": null,
-      "identityVerified": false,
-      "bucket": "identity",
-      "euroDelta": 0,
-      "priceEquivalent": false,
-      "identityReason": "name"
-    },
     "artemis-luxury-palace-hotel": {
       "slug": "artemis-luxury-palace-hotel",
       "name": "Artemis Luxury Palace Hotel",
@@ -11371,19 +11163,6 @@
     "avullar-palace-hotel": {
       "slug": "avullar-palace-hotel",
       "name": "Avullar Palace Hotel",
-      "regionSource": "district",
-      "indexRegion": "antalya",
-      "derivedRegion": null,
-      "matchedTerm": null,
-      "identityVerified": false,
-      "bucket": "identity",
-      "euroDelta": 0,
-      "priceEquivalent": false,
-      "identityReason": "name"
-    },
-    "ayka-life-nature-peace-all-inclusive": {
-      "slug": "ayka-life-nature-peace-all-inclusive",
-      "name": "Ayka Life Nature & Peace All Inclusive",
       "regionSource": "district",
       "indexRegion": "antalya",
       "derivedRegion": null,
@@ -11889,58 +11668,6 @@
       "priceEquivalent": false,
       "identityStrength": "loose"
     },
-    "dantel-pansiyon": {
-      "slug": "dantel-pansiyon",
-      "name": "Dantel Pansiyon",
-      "regionSource": "district",
-      "indexRegion": "antalya",
-      "derivedRegion": null,
-      "matchedTerm": null,
-      "identityVerified": false,
-      "bucket": "identity",
-      "euroDelta": 0,
-      "priceEquivalent": false,
-      "identityReason": "name"
-    },
-    "dea-del-hotel": {
-      "slug": "dea-del-hotel",
-      "name": "Dea Del Hotel",
-      "regionSource": "district",
-      "indexRegion": "antalya",
-      "derivedRegion": null,
-      "matchedTerm": null,
-      "identityVerified": false,
-      "bucket": "identity",
-      "euroDelta": 0,
-      "priceEquivalent": false,
-      "identityReason": "name"
-    },
-    "deja-vu-hotel": {
-      "slug": "deja-vu-hotel",
-      "name": "Deja Vu Hotel",
-      "regionSource": "district",
-      "indexRegion": "antalya",
-      "derivedRegion": null,
-      "matchedTerm": null,
-      "identityVerified": false,
-      "bucket": "identity",
-      "euroDelta": 0,
-      "priceEquivalent": false,
-      "identityReason": "name"
-    },
-    "delight-deluxe-hotel": {
-      "slug": "delight-deluxe-hotel",
-      "name": "Delight Deluxe Hotel",
-      "regionSource": "district",
-      "indexRegion": "antalya",
-      "derivedRegion": null,
-      "matchedTerm": null,
-      "identityVerified": false,
-      "bucket": "identity",
-      "euroDelta": 0,
-      "priceEquivalent": false,
-      "identityReason": "name"
-    },
     "delta-hotels-antalya-lara-adult-only-18-plus": {
       "slug": "delta-hotels-antalya-lara-adult-only-18-plus",
       "name": "Delta Hotels Antalya Lara - Adult Only 18 Plus",
@@ -12019,19 +11746,6 @@
       "priceEquivalent": false,
       "identityReason": "name"
     },
-    "dr-greens": {
-      "slug": "dr-greens",
-      "name": "Dr. Greens",
-      "regionSource": "district",
-      "indexRegion": "antalya",
-      "derivedRegion": null,
-      "matchedTerm": null,
-      "identityVerified": false,
-      "bucket": "identity",
-      "euroDelta": 0,
-      "priceEquivalent": false,
-      "identityReason": "name"
-    },
     "dumlupinar-royal-rooms": {
       "slug": "dumlupinar-royal-rooms",
       "name": "Dumlupınar Royal Rooms",
@@ -12044,19 +11758,6 @@
       "euroDelta": 0,
       "priceEquivalent": false,
       "identityReason": "type"
-    },
-    "durusu-suites": {
-      "slug": "durusu-suites",
-      "name": "Durusu Suites",
-      "regionSource": "district",
-      "indexRegion": "antalya",
-      "derivedRegion": null,
-      "matchedTerm": null,
-      "identityVerified": false,
-      "bucket": "identity",
-      "euroDelta": 0,
-      "priceEquivalent": false,
-      "identityReason": "name"
     },
     "efsali-hotel-kaleici": {
       "slug": "efsali-hotel-kaleici",
@@ -12474,19 +12175,6 @@
       "priceEquivalent": false,
       "identityStrength": "loose"
     },
-    "iberotel-serra-palace-kizilot": {
-      "slug": "iberotel-serra-palace-kizilot",
-      "name": "Iberotel Serra Palace Kızılot",
-      "regionSource": "district",
-      "indexRegion": "kizilagac",
-      "derivedRegion": null,
-      "matchedTerm": null,
-      "identityVerified": false,
-      "bucket": "identity",
-      "euroDelta": 0,
-      "priceEquivalent": false,
-      "identityReason": "name"
-    },
     "ic-hotels-green-palace-villas": {
       "slug": "ic-hotels-green-palace-villas",
       "name": "Ic Hotels Green Palace & Villas",
@@ -12656,19 +12344,6 @@
       "priceEquivalent": false,
       "identityStrength": "loose"
     },
-    "kisla-pansiyon": {
-      "slug": "kisla-pansiyon",
-      "name": "Kisla Pansiyon",
-      "regionSource": "district",
-      "indexRegion": "antalya",
-      "derivedRegion": null,
-      "matchedTerm": null,
-      "identityVerified": false,
-      "bucket": "identity",
-      "euroDelta": 0,
-      "priceEquivalent": false,
-      "identityReason": "name"
-    },
     "koesk-boutique-hotel-old-town-city-center": {
       "slug": "koesk-boutique-hotel-old-town-city-center",
       "name": "Koesk Boutique Hotel - Old Town & City Center",
@@ -12811,19 +12486,6 @@
       "euroDelta": 0,
       "priceEquivalent": false,
       "identityStrength": "loose"
-    },
-    "lara-suite-s-apart-hotel": {
-      "slug": "lara-suite-s-apart-hotel",
-      "name": "Lara Suite'S Apart Hotel",
-      "regionSource": "district",
-      "indexRegion": "antalya",
-      "derivedRegion": null,
-      "matchedTerm": null,
-      "identityVerified": false,
-      "bucket": "identity",
-      "euroDelta": 0,
-      "priceEquivalent": false,
-      "identityReason": "name"
     },
     "lara-vista-hotel-suits-spa": {
       "slug": "lara-vista-hotel-suits-spa",
@@ -13163,19 +12825,6 @@
       "priceEquivalent": false,
       "identityStrength": "loose"
     },
-    "moda-otel": {
-      "slug": "moda-otel",
-      "name": "Moda Otel",
-      "regionSource": "district",
-      "indexRegion": "antalya",
-      "derivedRegion": null,
-      "matchedTerm": null,
-      "identityVerified": false,
-      "bucket": "identity",
-      "euroDelta": 0,
-      "priceEquivalent": false,
-      "identityReason": "name"
-    },
     "moda-suit-camyuva": {
       "slug": "moda-suit-camyuva",
       "name": "Moda Suıt Çamyuva",
@@ -13201,19 +12850,6 @@
       "euroDelta": 0,
       "priceEquivalent": false,
       "identityStrength": "loose"
-    },
-    "nas-otel": {
-      "slug": "nas-otel",
-      "name": "Nas Otel",
-      "regionSource": "district",
-      "indexRegion": "antalya",
-      "derivedRegion": null,
-      "matchedTerm": null,
-      "identityVerified": false,
-      "bucket": "identity",
-      "euroDelta": 0,
-      "priceEquivalent": false,
-      "identityReason": "name"
     },
     "nazar-beach-hotel": {
       "slug": "nazar-beach-hotel",
@@ -13292,32 +12928,6 @@
       "euroDelta": 0,
       "priceEquivalent": false,
       "identityStrength": "loose"
-    },
-    "nox-suite-rezidans": {
-      "slug": "nox-suite-rezidans",
-      "name": "Nox Suite Rezidans",
-      "regionSource": "district",
-      "indexRegion": "antalya",
-      "derivedRegion": null,
-      "matchedTerm": null,
-      "identityVerified": false,
-      "bucket": "identity",
-      "euroDelta": 0,
-      "priceEquivalent": false,
-      "identityReason": "name"
-    },
-    "nun-hotel": {
-      "slug": "nun-hotel",
-      "name": "Nun Hotel",
-      "regionSource": "district",
-      "indexRegion": "antalya",
-      "derivedRegion": null,
-      "matchedTerm": null,
-      "identityVerified": false,
-      "bucket": "identity",
-      "euroDelta": 0,
-      "priceEquivalent": false,
-      "identityReason": "name"
     },
     "oez-mert-hotel": {
       "slug": "oez-mert-hotel",
@@ -13540,19 +13150,6 @@
       "priceEquivalent": false,
       "identityStrength": "loose"
     },
-    "palmenhaus-antalya-otel": {
-      "slug": "palmenhaus-antalya-otel",
-      "name": "Palmenhaus Antalya Otel",
-      "regionSource": "district",
-      "indexRegion": "antalya",
-      "derivedRegion": null,
-      "matchedTerm": null,
-      "identityVerified": false,
-      "bucket": "identity",
-      "euroDelta": 0,
-      "priceEquivalent": false,
-      "identityReason": "name"
-    },
     "palvan-house": {
       "slug": "palvan-house",
       "name": "Palvan House",
@@ -13565,19 +13162,6 @@
       "euroDelta": 0,
       "priceEquivalent": false,
       "identityStrength": "loose"
-    },
-    "patron-hotel": {
-      "slug": "patron-hotel",
-      "name": "Patron Hotel",
-      "regionSource": "district",
-      "indexRegion": "antalya",
-      "derivedRegion": null,
-      "matchedTerm": null,
-      "identityVerified": false,
-      "bucket": "identity",
-      "euroDelta": 0,
-      "priceEquivalent": false,
-      "identityReason": "name"
     },
     "perge-hotels-adult-only-16-plus": {
       "slug": "perge-hotels-adult-only-16-plus",
@@ -13630,19 +13214,6 @@
       "euroDelta": 0,
       "priceEquivalent": false,
       "identityStrength": "loose"
-    },
-    "plt-lego-holiday-village": {
-      "slug": "plt-lego-holiday-village",
-      "name": "Plt Lego Holiday Village",
-      "regionSource": "district",
-      "indexRegion": "antalya",
-      "derivedRegion": null,
-      "matchedTerm": null,
-      "identityVerified": false,
-      "bucket": "identity",
-      "euroDelta": 0,
-      "priceEquivalent": false,
-      "identityReason": "name"
     },
     "prime-boutique-hotel": {
       "slug": "prime-boutique-hotel",
@@ -13826,19 +13397,6 @@
       "priceEquivalent": false,
       "identityStrength": "loose"
     },
-    "sea-city-devran-hotel-spa": {
-      "slug": "sea-city-devran-hotel-spa",
-      "name": "Sea City Devran Hotel & Spa",
-      "regionSource": "district",
-      "indexRegion": "antalya",
-      "derivedRegion": null,
-      "matchedTerm": null,
-      "identityVerified": false,
-      "bucket": "identity",
-      "euroDelta": 0,
-      "priceEquivalent": false,
-      "identityReason": "name"
-    },
     "sealife-lounge-adult-only-otel": {
       "slug": "sealife-lounge-adult-only-otel",
       "name": "Sealife Lounge - Adult Only Otel",
@@ -13851,19 +13409,6 @@
       "euroDelta": 0,
       "priceEquivalent": false,
       "identityStrength": "loose"
-    },
-    "serenity-lara-hotel": {
-      "slug": "serenity-lara-hotel",
-      "name": "Serenity Lara Hotel",
-      "regionSource": "district",
-      "indexRegion": "antalya",
-      "derivedRegion": null,
-      "matchedTerm": null,
-      "identityVerified": false,
-      "bucket": "identity",
-      "euroDelta": 0,
-      "priceEquivalent": false,
-      "identityReason": "name"
     },
     "serenity-suites-hotel": {
       "slug": "serenity-suites-hotel",
@@ -14177,19 +13722,6 @@
       "priceEquivalent": false,
       "identityStrength": "loose"
     },
-    "the-suites": {
-      "slug": "the-suites",
-      "name": "The Suites",
-      "regionSource": "district",
-      "indexRegion": "antalya",
-      "derivedRegion": null,
-      "matchedTerm": null,
-      "identityVerified": false,
-      "bucket": "identity",
-      "euroDelta": 0,
-      "priceEquivalent": false,
-      "identityReason": "name"
-    },
     "toprak-apart-otel": {
       "slug": "toprak-apart-otel",
       "name": "Toprak Apart Otel",
@@ -14228,19 +13760,6 @@
       "euroDelta": 0,
       "priceEquivalent": false,
       "identityReason": "status"
-    },
-    "tumay-hotel": {
-      "slug": "tumay-hotel",
-      "name": "Tumay Hotel",
-      "regionSource": "district",
-      "indexRegion": "antalya",
-      "derivedRegion": null,
-      "matchedTerm": null,
-      "identityVerified": false,
-      "bucket": "identity",
-      "euroDelta": 0,
-      "priceEquivalent": false,
-      "identityReason": "name"
     },
     "turunc-hotel-antalya-ex-omur-hotel": {
       "slug": "turunc-hotel-antalya-ex-omur-hotel",
@@ -14670,32 +14189,6 @@
       "euroDelta": 0,
       "priceEquivalent": false,
       "identityStrength": "loose"
-    },
-    "oz-hotels-sui": {
-      "slug": "oz-hotels-sui",
-      "name": "OZ HOTELS SUİ",
-      "regionSource": "discovery",
-      "indexRegion": "alanya_bati",
-      "derivedRegion": null,
-      "matchedTerm": null,
-      "identityVerified": false,
-      "bucket": "identity",
-      "euroDelta": 0,
-      "priceEquivalent": false,
-      "identityReason": "name"
-    },
-    "royal-garden-beach-otel": {
-      "slug": "royal-garden-beach-otel",
-      "name": "ROYAL GARDEN BEACH OTEL",
-      "regionSource": "discovery",
-      "indexRegion": "alanya_bati",
-      "derivedRegion": null,
-      "matchedTerm": null,
-      "identityVerified": false,
-      "bucket": "identity",
-      "euroDelta": 0,
-      "priceEquivalent": false,
-      "identityReason": "name"
     },
     "scylax-hotels-family-club": {
       "slug": "scylax-hotels-family-club",
@@ -15372,8 +14865,515 @@
       "euroDelta": 0,
       "priceEquivalent": false,
       "identityStrength": "loose"
+    },
+    "alva-donna-world-palace": {
+      "slug": "alva-donna-world-palace",
+      "name": "Alva Donna World Palace",
+      "regionSource": "district",
+      "indexRegion": "kemer",
+      "derivedRegion": "kemer",
+      "matchedTerm": "kiris",
+      "identityVerified": true,
+      "bucket": "ok",
+      "euroDelta": 0,
+      "priceEquivalent": false,
+      "identityStrength": "strict"
+    },
+    "grand-park-kemer": {
+      "slug": "grand-park-kemer",
+      "name": "Grand Park Kemer",
+      "regionSource": "district",
+      "indexRegion": "kemer",
+      "derivedRegion": "kemer",
+      "matchedTerm": "beldibi",
+      "identityVerified": true,
+      "bucket": "ok",
+      "euroDelta": 0,
+      "priceEquivalent": false,
+      "identityStrength": "strict"
+    },
+    "otium-family-eco-club": {
+      "slug": "otium-family-eco-club",
+      "name": "Otium Family Eco Club",
+      "regionSource": "district",
+      "indexRegion": "side",
+      "derivedRegion": "side",
+      "matchedTerm": "titreyengol",
+      "identityVerified": true,
+      "bucket": "ok",
+      "euroDelta": 0,
+      "priceEquivalent": false,
+      "identityStrength": "strict"
+    },
+    "moda-otel": {
+      "slug": "moda-otel",
+      "name": "Moda Otel",
+      "regionSource": "district",
+      "indexRegion": "antalya",
+      "derivedRegion": "antalya",
+      "matchedTerm": "muratpasa",
+      "identityVerified": true,
+      "bucket": "ok",
+      "euroDelta": 0,
+      "priceEquivalent": false,
+      "identityStrength": "strict"
+    },
+    "kisla-pansiyon": {
+      "slug": "kisla-pansiyon",
+      "name": "Kisla Pansiyon",
+      "regionSource": "district",
+      "indexRegion": "antalya",
+      "derivedRegion": "antalya",
+      "matchedTerm": "muratpasa",
+      "identityVerified": true,
+      "bucket": "ok",
+      "euroDelta": 0,
+      "priceEquivalent": false,
+      "identityStrength": "strict"
+    },
+    "patron-hotel": {
+      "slug": "patron-hotel",
+      "name": "Patron Hotel",
+      "regionSource": "district",
+      "indexRegion": "antalya",
+      "derivedRegion": "antalya",
+      "matchedTerm": "muratpasa",
+      "identityVerified": true,
+      "bucket": "ok",
+      "euroDelta": 0,
+      "priceEquivalent": false,
+      "identityStrength": "strict"
+    },
+    "palmenhaus-antalya-otel": {
+      "slug": "palmenhaus-antalya-otel",
+      "name": "Palmenhaus Antalya Otel",
+      "regionSource": "district",
+      "indexRegion": "antalya",
+      "derivedRegion": "antalya",
+      "matchedTerm": "muratpasa",
+      "identityVerified": true,
+      "bucket": "ok",
+      "euroDelta": 0,
+      "priceEquivalent": false,
+      "identityStrength": "strict"
+    },
+    "the-suites": {
+      "slug": "the-suites",
+      "name": "The Suites",
+      "regionSource": "district",
+      "indexRegion": "antalya",
+      "derivedRegion": "antalya",
+      "matchedTerm": "konyaalti",
+      "identityVerified": true,
+      "bucket": "ok",
+      "euroDelta": 0,
+      "priceEquivalent": false,
+      "identityStrength": "strict"
+    },
+    "nox-suite-rezidans": {
+      "slug": "nox-suite-rezidans",
+      "name": "Nox Suite Rezidans",
+      "regionSource": "district",
+      "indexRegion": "antalya",
+      "derivedRegion": "antalya",
+      "matchedTerm": "muratpasa",
+      "identityVerified": true,
+      "bucket": "ok",
+      "euroDelta": 0,
+      "priceEquivalent": false,
+      "identityStrength": "strict"
+    },
+    "dr-greens": {
+      "slug": "dr-greens",
+      "name": "Dr. Greens",
+      "regionSource": "district",
+      "indexRegion": "antalya",
+      "derivedRegion": "antalya",
+      "matchedTerm": "kepez",
+      "identityVerified": true,
+      "bucket": "ok",
+      "euroDelta": 0,
+      "priceEquivalent": false,
+      "identityStrength": "strict"
+    },
+    "the-antik-hotel": {
+      "slug": "the-antik-hotel",
+      "name": "The Antik Hotel",
+      "regionSource": "district",
+      "indexRegion": "alanya_bati",
+      "derivedRegion": "alanya_bati",
+      "matchedTerm": "avsallar",
+      "identityVerified": true,
+      "bucket": "ok",
+      "euroDelta": 0,
+      "priceEquivalent": false,
+      "identityStrength": "strict"
+    },
+    "sea-city-devran-hotel-spa": {
+      "slug": "sea-city-devran-hotel-spa",
+      "name": "Sea City Devran Hotel & Spa",
+      "regionSource": "district",
+      "indexRegion": "antalya",
+      "derivedRegion": "antalya",
+      "matchedTerm": "konyaalti",
+      "identityVerified": true,
+      "bucket": "ok",
+      "euroDelta": 0,
+      "priceEquivalent": false,
+      "identityStrength": "strict"
+    },
+    "ale-apartments-hotel": {
+      "slug": "ale-apartments-hotel",
+      "name": "Ale Apartments Hotel",
+      "regionSource": "district",
+      "indexRegion": "antalya",
+      "derivedRegion": "antalya",
+      "matchedTerm": "konyaalti",
+      "identityVerified": true,
+      "bucket": "ok",
+      "euroDelta": 0,
+      "priceEquivalent": false,
+      "identityStrength": "strict"
+    },
+    "ales-park-hotel": {
+      "slug": "ales-park-hotel",
+      "name": "Ales Park Hotel",
+      "regionSource": "district",
+      "indexRegion": "antalya",
+      "derivedRegion": "antalya",
+      "matchedTerm": "konyaalti",
+      "identityVerified": true,
+      "bucket": "ok",
+      "euroDelta": 0,
+      "priceEquivalent": false,
+      "identityStrength": "strict"
+    },
+    "lara-suite-s-apart-hotel": {
+      "slug": "lara-suite-s-apart-hotel",
+      "name": "Lara Suite'S Apart Hotel",
+      "regionSource": "district",
+      "indexRegion": "antalya",
+      "derivedRegion": "antalya",
+      "matchedTerm": "aksu",
+      "identityVerified": true,
+      "bucket": "ok",
+      "euroDelta": 0,
+      "priceEquivalent": false,
+      "identityStrength": "strict"
+    },
+    "tumay-hotel": {
+      "slug": "tumay-hotel",
+      "name": "Tumay Hotel",
+      "regionSource": "district",
+      "indexRegion": "antalya",
+      "derivedRegion": "antalya",
+      "matchedTerm": "konyaalti",
+      "identityVerified": true,
+      "bucket": "ok",
+      "euroDelta": 0,
+      "priceEquivalent": false,
+      "identityStrength": "strict"
+    },
+    "oz-hotels-sui": {
+      "slug": "oz-hotels-sui",
+      "name": "OZ HOTELS SUİ",
+      "regionSource": "discovery",
+      "indexRegion": "alanya_bati",
+      "derivedRegion": "alanya_bati",
+      "matchedTerm": "okurcalar",
+      "identityVerified": true,
+      "bucket": "ok",
+      "euroDelta": 0,
+      "priceEquivalent": false,
+      "identityStrength": "strict"
+    },
+    "royal-garden-beach-otel": {
+      "slug": "royal-garden-beach-otel",
+      "name": "ROYAL GARDEN BEACH OTEL",
+      "regionSource": "discovery",
+      "indexRegion": "alanya_bati",
+      "derivedRegion": "alanya_bati",
+      "matchedTerm": "konakli",
+      "identityVerified": true,
+      "bucket": "ok",
+      "euroDelta": 0,
+      "priceEquivalent": false,
+      "identityStrength": "strict"
+    },
+    "address-residence-suite-hotel": {
+      "slug": "address-residence-suite-hotel",
+      "name": "Address Residence Suite Hotel",
+      "regionSource": "district",
+      "indexRegion": "antalya",
+      "derivedRegion": "antalya",
+      "matchedTerm": "muratpasa",
+      "identityVerified": true,
+      "bucket": "ok",
+      "euroDelta": 0,
+      "priceEquivalent": false,
+      "identityStrength": "loose"
+    },
+    "ayka-life-nature-peace-all-inclusive": {
+      "slug": "ayka-life-nature-peace-all-inclusive",
+      "name": "Ayka Life Nature & Peace All Inclusive",
+      "regionSource": "district",
+      "indexRegion": "antalya",
+      "derivedRegion": "antalya",
+      "matchedTerm": "kepez",
+      "identityVerified": true,
+      "bucket": "ok",
+      "euroDelta": 0,
+      "priceEquivalent": false,
+      "identityStrength": "strict"
+    },
+    "cornelia-de-luxe-resort": {
+      "slug": "cornelia-de-luxe-resort",
+      "name": "Cornelia De Luxe Resort",
+      "regionSource": "district",
+      "indexRegion": "belek",
+      "derivedRegion": "belek",
+      "matchedTerm": "iskele",
+      "identityVerified": true,
+      "bucket": "ok",
+      "euroDelta": 0,
+      "priceEquivalent": false,
+      "identityStrength": "loose"
+    },
+    "dea-del-hotel": {
+      "slug": "dea-del-hotel",
+      "name": "Dea Del Hotel",
+      "regionSource": "district",
+      "indexRegion": "antalya",
+      "derivedRegion": "antalya",
+      "matchedTerm": "muratpasa",
+      "identityVerified": true,
+      "bucket": "ok",
+      "euroDelta": 0,
+      "priceEquivalent": false,
+      "identityStrength": "loose"
+    },
+    "delight-deluxe-hotel": {
+      "slug": "delight-deluxe-hotel",
+      "name": "Delight Deluxe Hotel",
+      "regionSource": "district",
+      "indexRegion": "antalya",
+      "derivedRegion": "antalya",
+      "matchedTerm": "muratpasa",
+      "identityVerified": true,
+      "bucket": "ok",
+      "euroDelta": 0,
+      "priceEquivalent": false,
+      "identityStrength": "strict"
+    },
+    "durusu-suites": {
+      "slug": "durusu-suites",
+      "name": "Durusu Suites",
+      "regionSource": "district",
+      "indexRegion": "antalya",
+      "derivedRegion": "antalya",
+      "matchedTerm": "lara",
+      "identityVerified": true,
+      "bucket": "ok",
+      "euroDelta": 0,
+      "priceEquivalent": false,
+      "identityStrength": "loose"
+    },
+    "iberotel-serra-palace-kizilot": {
+      "slug": "iberotel-serra-palace-kizilot",
+      "name": "Iberotel Serra Palace Kızılot",
+      "regionSource": "district",
+      "indexRegion": "kizilagac",
+      "derivedRegion": "kizilagac",
+      "matchedTerm": "kizilot",
+      "identityVerified": true,
+      "bucket": "ok",
+      "euroDelta": 0,
+      "priceEquivalent": false,
+      "identityStrength": "loose"
+    },
+    "nas-otel": {
+      "slug": "nas-otel",
+      "name": "Nas Otel",
+      "regionSource": "district",
+      "indexRegion": "antalya",
+      "derivedRegion": "antalya",
+      "matchedTerm": "muratpasa",
+      "identityVerified": true,
+      "bucket": "ok",
+      "euroDelta": 0,
+      "priceEquivalent": false,
+      "identityStrength": "strict"
+    },
+    "nun-hotel": {
+      "slug": "nun-hotel",
+      "name": "Nun Hotel",
+      "regionSource": "district",
+      "indexRegion": "antalya",
+      "derivedRegion": "antalya",
+      "matchedTerm": "lara",
+      "identityVerified": true,
+      "bucket": "ok",
+      "euroDelta": 0,
+      "priceEquivalent": false,
+      "identityStrength": "strict"
+    },
+    "plt-lego-holiday-village": {
+      "slug": "plt-lego-holiday-village",
+      "name": "Plt Lego Holiday Village",
+      "regionSource": "district",
+      "indexRegion": "antalya",
+      "derivedRegion": "antalya",
+      "matchedTerm": "kepez",
+      "identityVerified": true,
+      "bucket": "ok",
+      "euroDelta": 0,
+      "priceEquivalent": false,
+      "identityStrength": "loose"
+    },
+    "serenity-lara-hotel": {
+      "slug": "serenity-lara-hotel",
+      "name": "Serenity Lara Hotel",
+      "regionSource": "district",
+      "indexRegion": "antalya",
+      "derivedRegion": "antalya",
+      "matchedTerm": "konyaalti",
+      "identityVerified": true,
+      "bucket": "ok",
+      "euroDelta": 0,
+      "priceEquivalent": false,
+      "identityStrength": "loose"
+    },
+    "the-land-of-legends": {
+      "slug": "the-land-of-legends",
+      "name": "The Land of Legends",
+      "regionSource": "district",
+      "indexRegion": "belek",
+      "derivedRegion": "belek",
+      "matchedTerm": "kadriye",
+      "identityVerified": true,
+      "bucket": "ok",
+      "euroDelta": 0,
+      "priceEquivalent": false,
+      "identityStrength": "strict"
+    },
+    "magesa-terra-apart": {
+      "slug": "magesa-terra-apart",
+      "name": "Magesa Terra Apart",
+      "regionSource": "district",
+      "indexRegion": "antalya",
+      "derivedRegion": "antalya",
+      "matchedTerm": "muratpasa",
+      "identityVerified": true,
+      "bucket": "ok",
+      "euroDelta": 0,
+      "priceEquivalent": false,
+      "identityStrength": "strict"
+    },
+    "niss-lara-hotel": {
+      "slug": "niss-lara-hotel",
+      "name": "Niss Lara Hotel",
+      "regionSource": "district",
+      "indexRegion": "antalya",
+      "derivedRegion": "antalya",
+      "matchedTerm": "muratpasa",
+      "identityVerified": true,
+      "bucket": "ok",
+      "euroDelta": 0,
+      "priceEquivalent": false,
+      "identityStrength": "loose"
+    },
+    "akin-apart-hotel": {
+      "slug": "akin-apart-hotel",
+      "name": "Akın Apart&Hotel",
+      "regionSource": "district",
+      "indexRegion": "kemer",
+      "derivedRegion": "kemer",
+      "matchedTerm": "camyuva",
+      "identityVerified": true,
+      "bucket": "ok",
+      "euroDelta": 0,
+      "priceEquivalent": false,
+      "identityStrength": "loose"
+    },
+    "arsi-sweet-suite-hotel": {
+      "slug": "arsi-sweet-suite-hotel",
+      "name": "Arsi Sweet Suite Hotel",
+      "regionSource": "district",
+      "indexRegion": "alanya_merkez",
+      "derivedRegion": "alanya_merkez",
+      "matchedTerm": "guller pinari",
+      "identityVerified": true,
+      "bucket": "ok",
+      "euroDelta": 0,
+      "priceEquivalent": false,
+      "identityStrength": "loose"
+    },
+    "dantel-pansiyon": {
+      "slug": "dantel-pansiyon",
+      "name": "Dantel Pansiyon",
+      "regionSource": "district",
+      "indexRegion": "kas",
+      "derivedRegion": "kas",
+      "matchedTerm": "kas",
+      "identityVerified": true,
+      "bucket": "ok",
+      "euroDelta": 0,
+      "priceEquivalent": false,
+      "identityStrength": "strict"
+    },
+    "deja-vu-hotel": {
+      "slug": "deja-vu-hotel",
+      "name": "Deja Vu Hotel",
+      "regionSource": "district",
+      "indexRegion": "kemer",
+      "derivedRegion": "kemer",
+      "matchedTerm": "kemer",
+      "identityVerified": true,
+      "bucket": "ok",
+      "euroDelta": 0,
+      "priceEquivalent": false,
+      "identityStrength": "strict"
+    },
+    "monna-roza-family-suit": {
+      "slug": "monna-roza-family-suit",
+      "name": "Monna Roza Family Suit",
+      "regionSource": "district",
+      "indexRegion": "kemer",
+      "derivedRegion": "kemer",
+      "matchedTerm": "kemer",
+      "identityVerified": true,
+      "bucket": "ok",
+      "euroDelta": 0,
+      "priceEquivalent": false,
+      "identityStrength": "strict"
+    },
+    "alva-donna-exclusive-hotel-spa": {
+      "slug": "alva-donna-exclusive-hotel-spa",
+      "name": "Alva Donna Exclusive Hotel & Spa",
+      "regionSource": "district",
+      "indexRegion": "bogazkent",
+      "derivedRegion": "bogazkent",
+      "matchedTerm": "bogazkent",
+      "identityVerified": true,
+      "bucket": "ok",
+      "euroDelta": 0,
+      "priceEquivalent": false,
+      "identityStrength": "strict"
+    },
+    "amara-prestige-hotel": {
+      "slug": "amara-prestige-hotel",
+      "name": "Amara Prestige Hotel",
+      "regionSource": "district",
+      "indexRegion": "kemer",
+      "derivedRegion": "kemer",
+      "matchedTerm": "goynuk",
+      "identityVerified": true,
+      "bucket": "ok",
+      "euroDelta": 0,
+      "priceEquivalent": false,
+      "identityStrength": "strict"
     }
   },
   "failures": {},
-  "calls": 1692
+  "calls": 1733
 }

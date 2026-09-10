@@ -1170,7 +1170,10 @@
       "sprinter": 105
     },
     "status": "ready",
-    "reviewReasons": []
+    "reviewReasons": [],
+    "aliases": [
+      "Sui Resort Hotel"
+    ]
   },
   {
     "proposedSlug": "ozkaymak-select-resort-otel",
@@ -1308,7 +1311,10 @@
       "sprinter": 105
     },
     "status": "ready",
-    "reviewReasons": []
+    "reviewReasons": [],
+    "aliases": [
+      "Royal Garden Select & Suite Hotel"
+    ]
   },
   {
     "proposedSlug": "rubi-hotel",

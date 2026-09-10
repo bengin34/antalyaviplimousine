@@ -20,6 +20,8 @@ export const hotelCatalog = Object.freeze({
   "sentido-flora-garden": { slug: "sentido-flora-garden", name: "Sentido Flora Garden", regionSlug: "kizilagac", locationCopy: "Das Hotel liegt in Kızılağaç, östlich von Side in Richtung Manavgat und Kızılot, direkt am Strand." },
   "crystal-sunset-luxury-resort": { slug: "crystal-sunset-luxury-resort", name: "Crystal Sunset Luxury Resort & Spa", regionSlug: "side", locationCopy: "Das Resort liegt in Gündoğdu, im westlichen Strandabschnitt des Side-Gebiets." },
   // Kemer
+  // Its own address is Göynük, Kemer (the former Amara Club Marine), not Tekirova; the 2026-09 region audit moved it (€75 → €55 Vito).
+  "amara-prestige": { slug: "amara-prestige", name: "Amara Prestige Hotel", regionSlug: "kemer", locationCopy: "Das Hotel liegt in Göynük, einem Strandort unmittelbar nordwestlich von Kemer, zwischen Pinienwäldern und dem Mittelmeer." },
   "rixos-premium-kemer": { slug: "rixos-premium-kemer", name: "Rixos Premium Kemer", regionSlug: "tekirova", locationCopy: "Das Resort liegt in Tekirova, südlich von Kemer, umgeben von Pinienwäldern und nahe der antiken Stätte Phaselis." },
   "maxx-royal-kemer": { slug: "maxx-royal-kemer", name: "Maxx Royal Kemer Resort", regionSlug: "kemer", locationCopy: "Das Resort befindet sich in Kiriş, einem Küstenabschnitt nördlich des Ortskerns von Kemer am Fuß des Taurus-Gebirges." },
   "orange-county-resort-kemer": { slug: "orange-county-resort-kemer", name: "Orange County Resort Hotel Kemer", regionSlug: "kemer", locationCopy: "Das Hotel liegt in Beldibi, am nördlichen Eingang der Kemerer Küste, nahe der Felsklippen am Mittelmeer." },
@@ -35,7 +37,6 @@ export const hotelCatalog = Object.freeze({
   "delphin-diva": { slug: "delphin-diva", name: "Delphin Diva Premiere", regionSlug: "antalya", locationCopy: "Das Hotel befindet sich in Lara (Kundu), östlich des Antalya-Zentrums und nur wenige Kilometer vom Flughafen entfernt, direkt am Sandstrand." },
   // Tekirova
   "rixos-premium-tekirova": { slug: "rixos-premium-tekirova", name: "Rixos Premium Tekirova", regionSlug: "tekirova", locationCopy: "Das Resort befindet sich in Tekirova, am Fuße des Taurus-Gebirges, umgeben von Pinienwäldern und dem türkisblauen Mittelmeer." },
-  "amara-prestige": { slug: "amara-prestige", name: "Amara Prestige Hotel", regionSlug: "tekirova", locationCopy: "Das Hotel liegt in Tekirova, direkt am Mittelmeer zwischen dem Naturschutzgebiet Olympos und der antiken Stätte Phaselis." },
   // Its own address is Tekirova, not Çamyuva; the 2026-09 region audit moved it (€55 → €75 Vito).
   "club-hotel-phaselis-rose": { slug: "club-hotel-phaselis-rose", name: "Club Hotel Phaselis Rose", regionSlug: "tekirova", locationCopy: "Das Hotel liegt in Tekirova, südlich von Çamyuva, zwischen der antiken Stätte Phaselis und dem Kemer-Küstenstreifen an einer ruhigen Bucht." },
 });

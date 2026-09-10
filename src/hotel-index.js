@@ -202,7 +202,7 @@ const seedRows = [
   ["Xanadu Resort Hotel", "Belek"],
   ["Bellis Deluxe Hotel", "Belek"],
   ["Sirene Belek Hotel", "Belek"],
-  ["Alva Donna Exclusive Hotel & Spa", "Belek"],
+  // Google lists it as "Dobedan Exclusive Hotel Belek" (rebrand or spelling; region audit 2026-09).
   ["Selectum Luxury Resort Belek", "Belek"],
   ["Selectum Family Resort Belek", "Belek"],
   ["Maritim Pine Beach Resort", "Belek"],
@@ -227,6 +227,8 @@ const seedRows = [
   ["Eden Nest Exclusive Hotel", "Belek"],
 
   // --- Boğazkent -----------------------------------------------------------
+  // Sold as Belek, but its own address is Boğazkent (audit 2026-09, €5/vehicle).
+  ["Alva Donna Exclusive Hotel & Spa", "Boğazkent", ["Dobedan Exclusive Hotel Belek"]],
   ["Crystal Waterworld Resort & Spa", "Boğazkent"],
   ["Aydinbey Famous Resort", "Boğazkent"],
   // Its own address reads Belek, TripAdvisor files it under Boğazkent. Split
@@ -287,7 +289,8 @@ const seedRows = [
   ["Turquoise Resort Hotel & Spa", "Sorgun"],
   ["Melas Resort Hotel", "Sorgun"],
   ["Otium Hotel Seven Seas", "Sorgun", ["Seven Seas Hotel Blue"]],
-  ["Otium Family Eco Club", "Sorgun"],
+  // Google lists it as "Marvida Family Eco" (rebrand or spelling; region audit 2026-09).
+  ["Otium Family Eco Club", "Sorgun", ["Marvida Family Eco"]],
   ["Side Moon Palace Hotel", "Sorgun"],
   ["AQI Pegasos World", "Sorgun"],
   ["Megasaray Resort Side", "Sorgun"],
@@ -341,19 +344,29 @@ const seedRows = [
   ["Sentido Flora Garden", "Kızılağaç"],
 
   // --- Kemer, Göynük, Beldibi, Kiriş, Çamyuva -----------------------------
+  // The former Amara Club Marine in Göynük, not the Tekirova Amara; its address is Kemer (audit 2026-09, €20/vehicle).
+  ["Amara Prestige Hotel", "Göynük", ["Crystal Prestige Elite Hotel"]],
+  // Monna Roza Family Suit is in Kemer, not Antalya city (audit 2026-09, €20/vehicle).
+  ["Monna Roza Family Suit", "Kemer"],
+  // Hotel Deja Vu is in Kemer, not Antalya city (audit 2026-09, €20/vehicle).
+  ["Deja Vu Hotel", "Kemer"],
+  // Google finds Akın Apart & Hotel in Çamyuva, not Antalya city (audit 2026-09, €20/vehicle).
+  ["Akın Apart&Hotel", "Çamyuva"],
   ["Club Med Palmiye", "Kemer"],
   ["Orange County Resort Hotel Kemer", "Beldibi"],
   ["Crystal Aura Beach Resort & Spa", "Kemer"],
   ["Crystal De Luxe Resort & Spa", "Kemer"],
   ["Kemer Barut Collection", "Kemer"],
-  ["Grand Park Kemer", "Kemer"],
+  // Google lists it as "Corendon Playa Kemer" (rebrand or spelling; region audit 2026-09).
+  ["Grand Park Kemer", "Kemer", ["Corendon Playa Kemer"]],
   ["Seven Seas Hotel Life Kemer", "Kemer"],
   ["Viking Star Hotel", "Kemer"],
   ["Rixos Sungate", "Beldibi"],
   ["Rixos Beldibi", "Beldibi"],
   ["Crystal Flora Beach Resort", "Beldibi"],
   ["Sealife Buket Resort & Beach", "Okurcalar"],
-  ["Alva Donna World Palace", "Beldibi"],
+  // Google lists it as "Dobedan World Palace Kemer" (rebrand or spelling; region audit 2026-09).
+  ["Alva Donna World Palace", "Beldibi", ["Dobedan World Palace Kemer"]],
   ["Juju Premier Palace", "Beldibi"],
   ["Nirvana Mediterranean Excellence", "Beldibi"],
   ["Corendon Playa Kemer", "Beldibi"],
@@ -380,7 +393,7 @@ const seedRows = [
 
   // --- Tekirova ------------------------------------------------------------
   ["Rixos Premium Tekirova", "Tekirova"],
-  ["Amara Prestige Hotel", "Tekirova"],
+  // Google lists it as "Crystal Prestige Elite Hotel" (rebrand or spelling; region audit 2026-09).
   ["Amara Dolce Vita Luxury", "Tekirova"],
   ["Nirvana Dolce Vita", "Tekirova"],
   ["Marti Myra", "Tekirova"],
@@ -398,6 +411,8 @@ const seedRows = [
   ["Rixos Premium Kemer", "Tekirova"],
 
   // --- Alanya and its western resort strip ---------------------------------
+  // Apart Arsi Sweet Suite sits in Güller Pınarı, Alanya, not Antalya city (audit 2026-09, €40/vehicle).
+  ["Arsi Sweet Suite Hotel", "Alanya merkez"],
   ["Kirman Leodikya Resort", "Okurcalar"],
   ["Aydinbey Gold Dreams", "Okurcalar"],
   ["Justiniano Deluxe Resort", "Okurcalar"],
@@ -420,7 +435,8 @@ const seedRows = [
   ["Kirman Arycanda De Luxe", "Konaklı"],
   ["Alan Xafira Deluxe Resort", "Konaklı"],
   ["Kahya Resort Aqua & Spa", "Konaklı"],
-  ["The Antik Hotel", "Konaklı"],
+  // Google lists it as "Antique Hotel" (rebrand or spelling; region audit 2026-09).
+  ["The Antik Hotel", "Konaklı", ["Antique Hotel"]],
   ["Asia Beach Resort & Spa", "Alanya merkez"],
   ["Klas More Beach Hotel", "Mahmutlar"],
   ["Sey Beach Hotel & Spa", "Kestel"],

@@ -1541,7 +1541,10 @@ export const discoveredHotelRows = Object.freeze([
     "name": "OZ HOTELS SUİ",
     "district": "Alanya",
     "region": "alanya_bati",
-    "placeId": "ChIJS6dSaFSs3BQR1F8RuQZLXVk"
+    "placeId": "ChIJS6dSaFSs3BQR1F8RuQZLXVk",
+    "aliases": [
+      "Sui Resort Hotel"
+    ]
   },
   {
     "name": "ÖZKAYMAK MARİNA OTEL",
@@ -1736,7 +1739,10 @@ export const discoveredHotelRows = Object.freeze([
     "name": "ROYAL GARDEN BEACH OTEL",
     "district": "Alanya",
     "region": "alanya_bati",
-    "placeId": "ChIJVdk_zfak3BQRteDolPOsjnk"
+    "placeId": "ChIJVdk_zfak3BQRteDolPOsjnk",
+    "aliases": [
+      "Royal Garden Select & Suite Hotel"
+    ]
   },
   {
     "name": "ROYAL OTEL",
