@@ -902,7 +902,7 @@ export const hotelDistances = Object.freeze({
   "belek-beach-resort-hotel": {
     "km": 44,
     "place": "ChIJe3XYEQZkwxQRVlJYpKTyIr8",
-    "checked": false
+    "checked": true
   },
   "belek-diamonds-hotel": {
     "km": 26,
@@ -1212,7 +1212,7 @@ export const hotelDistances = Object.freeze({
   "caner-mountain-hotel": {
     "km": 74,
     "place": "ChIJKfjPA9bIwxQRq5SqGaY5KuE",
-    "checked": false
+    "checked": true
   },
   "cap-dperge-otel": {
     "km": 16,
@@ -1397,7 +1397,7 @@ export const hotelDistances = Object.freeze({
   "club-hotel-phaselis-rose": {
     "km": 76,
     "place": "ChIJ-dA6EMe3wxQRa9OSc7t4_uo",
-    "checked": false
+    "checked": true
   },
   "club-hotel-sera": {
     "km": 13,
@@ -1577,7 +1577,7 @@ export const hotelDistances = Object.freeze({
   "crystal-family-resort-spa": {
     "km": 43,
     "place": "ChIJoQNdLA1kwxQRIaLubGvan-8",
-    "checked": false
+    "checked": true
   },
   "crystal-flora-beach-resort": {
     "km": 46,
@@ -1692,7 +1692,7 @@ export const hotelDistances = Object.freeze({
   "delphin-diva-premiere": {
     "km": 15,
     "place": "ChIJfdUt_-SawxQRi-LsgisBwjI",
-    "checked": false
+    "checked": true
   },
   "delphin-imperial-lara": {
     "km": 15,
@@ -1722,7 +1722,7 @@ export const hotelDistances = Object.freeze({
   "demirci-hotel": {
     "km": 27,
     "place": "ChIJdUhBJAp8wxQRQyb8PcW09Dg",
-    "checked": false
+    "checked": true
   },
   "deniz-boutique-hotel": {
     "km": 25,
@@ -1747,7 +1747,7 @@ export const hotelDistances = Object.freeze({
   "dg-hotels-rose-resort": {
     "km": 59,
     "place": "ChIJdcVn9b-3wxQRYlFXYi5qKHA",
-    "checked": false
+    "checked": true
   },
   "diamond-de-luxe-hotel-spa": {
     "km": 55,
@@ -1877,7 +1877,7 @@ export const hotelDistances = Object.freeze({
   "eden-nest-exclusive-hotel": {
     "km": 37,
     "place": "ChIJpdtLMFV7wxQR7oZ3SyRfHJk",
-    "checked": false
+    "checked": true
   },
   "efsali-hotel-kaleici": {
     "km": 16,
@@ -2227,7 +2227,7 @@ export const hotelDistances = Object.freeze({
   "fun-sun-smart-river-resort": {
     "km": 17,
     "place": "ChIJByJiOB2QwxQRjqM8siYeeX4",
-    "checked": false
+    "checked": true
   },
   "furkan-homes": {
     "km": 24,
@@ -2462,7 +2462,7 @@ export const hotelDistances = Object.freeze({
   "guler-butik-hotel": {
     "km": 44,
     "place": "ChIJIbI4-PO4wxQRg32udnBGa14",
-    "checked": false
+    "checked": true
   },
   "gulizar-hotel": {
     "km": 25,
@@ -2602,7 +2602,7 @@ export const hotelDistances = Object.freeze({
   "hotel-gold-stone": {
     "km": 44,
     "place": "ChIJfXmUBJe3wxQRnk8kkDbGUc8",
-    "checked": false
+    "checked": true
   },
   "hotel-golden-sun": {
     "km": 46,
@@ -3697,7 +3697,7 @@ export const hotelDistances = Object.freeze({
   "melodi-hotel": {
     "km": 44,
     "place": "ChIJAdK37Ru_wxQRU73ARebWJbE",
-    "checked": false
+    "checked": true
   },
   "meltem-otel": {
     "km": 25,
@@ -4407,7 +4407,7 @@ export const hotelDistances = Object.freeze({
   "peker-otel": {
     "km": 52,
     "place": "ChIJVRe4m_O4wxQRy8qxCrKDmjQ",
-    "checked": false
+    "checked": true
   },
   "pera-aura": {
     "km": 67,
@@ -4467,7 +4467,7 @@ export const hotelDistances = Object.freeze({
   "port-nature-luxury-resort": {
     "km": 44,
     "place": "ChIJ3fK_LQSQwxQRctvxQXWQXZo",
-    "checked": false
+    "checked": true
   },
   "port-side-resort-hotel": {
     "km": 58,
@@ -5027,7 +5027,7 @@ export const hotelDistances = Object.freeze({
   "sedir-park-joy-otel": {
     "km": 151,
     "place": "ChIJrRj-YTCbwxQRq0blRTGTOD4",
-    "checked": false
+    "checked": true
   },
   "seher-resort-spa": {
     "km": 59,
@@ -5487,7 +5487,7 @@ export const hotelDistances = Object.freeze({
   "sunis-elita-beach-resort": {
     "km": 81,
     "place": "ChIJT6A3aq1WwxQReFh7m7qquUU",
-    "checked": false
+    "checked": true
   },
   "sunis-evren-beach-resort": {
     "km": 59,
@@ -5907,7 +5907,7 @@ export const hotelDistances = Object.freeze({
   "utopia-world-hotel": {
     "km": 146,
     "place": "ChIJk8P8-ouQ3BQRGPyn8tDQ0gQ",
-    "checked": false
+    "checked": true
   },
   "uyar-palace": {
     "km": 18,

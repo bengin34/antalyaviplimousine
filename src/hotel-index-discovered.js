@@ -1807,7 +1807,7 @@ export const discoveredHotelRows = Object.freeze([
   {
     "name": "SEDİR PARK JOY OTEL",
     "district": "Alanya",
-    "region": "kargicak",
+    "region": "demirtas",
     "placeId": "ChIJrRj-YTCbwxQRq0blRTGTOD4"
   },
   {

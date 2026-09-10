@@ -164,6 +164,12 @@ const seedRows = [
   ["Kervansaray Kundu", "Kundu", ["Kervansaray Lara"]],
   ["Grand Park Lara", "Lara"],
   ["Trendy Lara Hotel", "Lara"],
+  // Seed said Avsallar; its own address is Aksu (audit 2026-09, €35/vehicle) —
+  // this is the Lara/Kundu Delphin Diva, not an Alanya hotel of the same name.
+  ["Delphin Diva Premiere", "Aksu"],
+  // Seed said Kadriye; its own address is Antalya merkez, in Muratpaşa
+  // (audit 2026-09, €5/vehicle).
+  ["Fun & Sun Smart River Resort", "Antalya merkez"],
 
   // --- Belek, Kadriye, Serik ----------------------------------------------
   ["Rixos Premium Belek", "Belek"],
@@ -201,13 +207,10 @@ const seedRows = [
   ["Selectum Family Resort Belek", "Belek"],
   ["Maritim Pine Beach Resort", "Belek"],
   ["Crystal Tat Beach Golf Resort & Spa", "Belek"],
-  ["Crystal Family Resort & Spa", "Belek"],
   ["Belconti Resort Hotel", "Belek"],
   ["Granada Luxury Belek", "Belek"],
   ["Ethno Belek Hotel", "Belek"],
-  ["Port Nature Luxury Resort", "Belek"],
   ["Novia Dionis Resort & Spa", "Belek"],
-  ["Belek Beach Resort Hotel", "Belek"],
   ["The Land of Legends", "Kadriye", ["The Land of Legends Kingdom Hotel", "Legends", "Land of Legends Nickelodeon"]],
   ["Megasaray Club Belek", "Kadriye"],
   ["Innvista Hotel Belek", "Kadriye"],
@@ -216,7 +219,12 @@ const seedRows = [
   ["Dionisus Hotel & Spa Belek", "Kadriye"],
   ["Sarp Hotel Kadriye", "Kadriye"],
   ["TUI Magic Life Belek", "Kadriye"],
-  ["Fun & Sun Smart River Resort", "Kadriye"],
+  // Seed said Antalya merkez; its own address is Kadriye (audit 2026-09,
+  // €5/vehicle).
+  ["Demirci Hotel", "Kadriye"],
+  // Seed said Antalya merkez; its own address is Belek (audit 2026-09,
+  // €5/vehicle).
+  ["Eden Nest Exclusive Hotel", "Belek"],
 
   // --- Boğazkent -----------------------------------------------------------
   ["Crystal Waterworld Resort & Spa", "Boğazkent"],
@@ -227,6 +235,11 @@ const seedRows = [
   // Sold as "Belek" by the booking sites the seed came from, but its own
   // address is Boğazkent, Serik — 8 km east of Belek, across the price line.
   ["Kirman Belazur Resort & Spa", "Boğazkent"],
+  // All three were seeded as Belek, but their own addresses are Boğazkent
+  // (audit 2026-09, €5/vehicle each).
+  ["Crystal Family Resort & Spa", "Boğazkent"],
+  ["Port Nature Luxury Resort", "Boğazkent"],
+  ["Belek Beach Resort Hotel", "Boğazkent"],
 
   // --- Side, Kumköy, Evrenseki, Gündoğdu ----------------------------------
   ["Barut Acanthus & Cennet", "Side"],
@@ -238,7 +251,6 @@ const seedRows = [
   ["Barut Hemera", "Kumköy"],
   ["Cesars Resort", "Kumköy", ["Sezar Resort", "Cesar Side", "Cesars Side", "Sezar Side"]],
   ["Sunis Kumköy Beach Resort", "Kumköy"],
-  ["Sunis Elita Beach Resort", "Kumköy"],
   ["Sunprime C-Lounge", "Tosmur"],
   ["Hotel Terrace Beach Resort", "Kumköy"],
   ["Narcia Resort Side", "Kumköy"],
@@ -318,10 +330,12 @@ const seedRows = [
   ["Seaden De Mar Resort & Spa", "Kızılağaç"],
   ["Asteria Bloom Side", "Kızılağaç"],
   ["Sultan of Dreams Hotel & Spa", "Kızılağaç"],
+  // Seed said Kumköy; its own address is Kızılağaç (audit 2026-09,
+  // €20/vehicle).
+  ["Sunis Elita Beach Resort", "Kızılağaç"],
 
   // --- Kemer, Göynük, Beldibi, Kiriş, Çamyuva -----------------------------
   ["Club Med Palmiye", "Kemer"],
-  ["Club Hotel Phaselis Rose", "Çamyuva", ["Phaselis Rose Hotel"]],
   ["Orange County Resort Hotel Kemer", "Beldibi"],
   ["Crystal Aura Beach Resort & Spa", "Kemer"],
   ["Crystal De Luxe Resort & Spa", "Kemer"],
@@ -350,6 +364,14 @@ const seedRows = [
   ["Maxx Royal Kemer Resort", "Kiriş"],
   ["Limak Limra Hotel & Resort", "Kiriş"],
   ["Aleria Belport Beach Hotel", "Çamyuva"],
+  // Seeded as Antalya merkez off the city listing, but their own addresses
+  // are in Kemer and its beldes (audit 2026-09, €20/vehicle each).
+  ["Caner Mountain Hotel", "Kemer"],
+  ["Dg Hotels Rose Resort", "Kemer"],
+  ["Güler Butık Hotel", "Beldibi"],
+  ["Hotel Gold Stone", "Beldibi"],
+  ["Melodi Hotel", "Beldibi"],
+  ["Peker Otel", "Göynük"],
 
   // --- Tekirova ------------------------------------------------------------
   ["Rixos Premium Tekirova", "Tekirova"],
@@ -362,6 +384,9 @@ const seedRows = [
   ["Güral Premier Tekirova", "Tekirova"],
   ["Rai Premium Tekirova", "Tekirova"],
   ["Le Marden Hotel Spa", "Tekirova"],
+  // Seed said Çamyuva; its own address is Tekirova (audit 2026-09,
+  // €20/vehicle).
+  ["Club Hotel Phaselis Rose", "Tekirova", ["Phaselis Rose Hotel"]],
 
   // --- Alanya and its western resort strip ---------------------------------
   ["Kirman Leodikya Resort", "Okurcalar"],
@@ -373,11 +398,9 @@ const seedRows = [
   ["Numa Bay Exclusive", "Avsallar"],
   ["Granada Luxury Beach", "Avsallar"],
   ["Bera Alanya Hotel", "Avsallar"],
-  ["Delphin Diva Premiere", "Avsallar"],
   ["Azura Deluxe Resort & Spa", "Avsallar"],
   ["Rubi Platinum Spa Resort", "Avsallar"],
   ["Otel İncekum Su", "İncekum"],
-  ["Utopia World Hotel", "Konaklı"],
   ["Delphin Botanik Platinum", "Türkler"],
   ["Sirius Deluxe Hotel", "Türkler"],
   ["Long Beach Resort Hotel", "Konaklı"],
@@ -392,6 +415,9 @@ const seedRows = [
   ["Sey Beach Hotel & Spa", "Kestel"],
   ["Goldcity Hotel", "Kargıcak"],
   ["Lumos Deluxe Resort Hotel", "Kargıcak"],
+  // Seed said Konaklı; its own address is Kargıcak, east of Alanya
+  // (audit 2026-09, €20/vehicle).
+  ["Utopia World Hotel", "Kargıcak"],
 ];
 
 /**

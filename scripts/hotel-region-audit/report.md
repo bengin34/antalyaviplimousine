@@ -1,29 +1,12 @@
 # Hotel region audit
 
-Generated 2026-09-10T19:42:07.178Z. Audited 1245 of 1245. ok: 797, fix: 20, unresolved: 39, identity: 386, gone: 3. 0 not yet audited, 0 failed fetches.
+Generated 2026-09-10T19:47:34.772Z. Audited 1245 of 1245. ok: 814, fix: 3, unresolved: 39, identity: 386, gone: 3. 0 not yet audited, 0 failed fetches.
 
 | slug | bucket | euroDelta | indexRegion | derivedRegion | matchedTerm | regionSource | identityReason |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| delphin-diva-premiere | fix | 35 | alanya_bati | antalya | aksu | district |  |
-| caner-mountain-hotel | fix | 20 | antalya | kemer | kemer | district |  |
-| club-hotel-phaselis-rose | fix | 20 | kemer | tekirova | tekirova | district |  |
-| dg-hotels-rose-resort | fix | 20 | antalya | kemer | kemer | district |  |
-| guler-butik-hotel | fix | 20 | antalya | kemer | beldibi | district |  |
-| hotel-gold-stone | fix | 20 | antalya | kemer | beldibi | district |  |
-| melodi-hotel | fix | 20 | antalya | kemer | beldibi | district |  |
-| peker-otel | fix | 20 | antalya | kemer | goynuk | district |  |
 | rai-premium-tekirova | fix | 20 | tekirova | kemer | kemer | district |  |
 | selectum-family-comfort-side | fix | 20 | kizilagac | side | manavgat | discovery |  |
-| sunis-elita-beach-resort | fix | 20 | side | kizilagac | kizilagac | district |  |
-| utopia-world-hotel | fix | 20 | alanya_bati | kargicak | kargicak | district |  |
 | washington-resort-hotel-spa | fix | 20 | kizilagac | side | manavgat | discovery |  |
-| sedir-park-joy-otel | fix | 10 | kargicak | demirtas | demirtas | discovery |  |
-| belek-beach-resort-hotel | fix | 5 | belek | bogazkent | bogazkent | district |  |
-| crystal-family-resort-spa | fix | 5 | belek | bogazkent | bogazkent | district |  |
-| demirci-hotel | fix | 5 | antalya | belek | kadriye | district |  |
-| eden-nest-exclusive-hotel | fix | 5 | antalya | belek | belek | district |  |
-| fun-sun-smart-river-resort | fix | 5 | belek | antalya | muratpasa | district |  |
-| port-nature-luxury-resort | fix | 5 | belek | bogazkent | bogazkent | district |  |
 | 7inn | identity | 0 | antalya |  |  | district | name |
 | acar-apart-otel | identity | 0 | antalya |  |  | district | name |
 | acar-apart-otel-3 | identity | 0 | antalya |  |  | district | name |

@@ -1,112 +1,16 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-10T19:42:07.178Z",
+  "generatedAt": "2026-09-10T19:47:34.772Z",
   "indexed": 1245,
   "audited": 1245,
   "counts": {
-    "ok": 797,
-    "fix": 20,
+    "ok": 814,
+    "fix": 3,
     "unresolved": 39,
     "identity": 386,
     "gone": 3
   },
   "rows": [
-    {
-      "slug": "delphin-diva-premiere",
-      "name": "Delphin Diva Premiere",
-      "regionSource": "district",
-      "indexRegion": "alanya_bati",
-      "derivedRegion": "antalya",
-      "matchedTerm": "aksu",
-      "identityVerified": true,
-      "bucket": "fix",
-      "euroDelta": 35,
-      "priceEquivalent": false
-    },
-    {
-      "slug": "caner-mountain-hotel",
-      "name": "Caner Mountain Hotel",
-      "regionSource": "district",
-      "indexRegion": "antalya",
-      "derivedRegion": "kemer",
-      "matchedTerm": "kemer",
-      "identityVerified": true,
-      "bucket": "fix",
-      "euroDelta": 20,
-      "priceEquivalent": false
-    },
-    {
-      "slug": "club-hotel-phaselis-rose",
-      "name": "Club Hotel Phaselis Rose",
-      "regionSource": "district",
-      "indexRegion": "kemer",
-      "derivedRegion": "tekirova",
-      "matchedTerm": "tekirova",
-      "identityVerified": true,
-      "bucket": "fix",
-      "euroDelta": 20,
-      "priceEquivalent": false
-    },
-    {
-      "slug": "dg-hotels-rose-resort",
-      "name": "Dg Hotels Rose Resort",
-      "regionSource": "district",
-      "indexRegion": "antalya",
-      "derivedRegion": "kemer",
-      "matchedTerm": "kemer",
-      "identityVerified": true,
-      "bucket": "fix",
-      "euroDelta": 20,
-      "priceEquivalent": false
-    },
-    {
-      "slug": "guler-butik-hotel",
-      "name": "Güler Butık Hotel",
-      "regionSource": "district",
-      "indexRegion": "antalya",
-      "derivedRegion": "kemer",
-      "matchedTerm": "beldibi",
-      "identityVerified": true,
-      "bucket": "fix",
-      "euroDelta": 20,
-      "priceEquivalent": false
-    },
-    {
-      "slug": "hotel-gold-stone",
-      "name": "Hotel Gold Stone",
-      "regionSource": "district",
-      "indexRegion": "antalya",
-      "derivedRegion": "kemer",
-      "matchedTerm": "beldibi",
-      "identityVerified": true,
-      "bucket": "fix",
-      "euroDelta": 20,
-      "priceEquivalent": false
-    },
-    {
-      "slug": "melodi-hotel",
-      "name": "Melodi Hotel",
-      "regionSource": "district",
-      "indexRegion": "antalya",
-      "derivedRegion": "kemer",
-      "matchedTerm": "beldibi",
-      "identityVerified": true,
-      "bucket": "fix",
-      "euroDelta": 20,
-      "priceEquivalent": false
-    },
-    {
-      "slug": "peker-otel",
-      "name": "Peker Otel",
-      "regionSource": "district",
-      "indexRegion": "antalya",
-      "derivedRegion": "kemer",
-      "matchedTerm": "goynuk",
-      "identityVerified": true,
-      "bucket": "fix",
-      "euroDelta": 20,
-      "priceEquivalent": false
-    },
     {
       "slug": "rai-premium-tekirova",
       "name": "Rai Premium Tekirova",
@@ -132,30 +36,6 @@
       "priceEquivalent": false
     },
     {
-      "slug": "sunis-elita-beach-resort",
-      "name": "Sunis Elita Beach Resort",
-      "regionSource": "district",
-      "indexRegion": "side",
-      "derivedRegion": "kizilagac",
-      "matchedTerm": "kizilagac",
-      "identityVerified": true,
-      "bucket": "fix",
-      "euroDelta": 20,
-      "priceEquivalent": false
-    },
-    {
-      "slug": "utopia-world-hotel",
-      "name": "Utopia World Hotel",
-      "regionSource": "district",
-      "indexRegion": "alanya_bati",
-      "derivedRegion": "kargicak",
-      "matchedTerm": "kargicak",
-      "identityVerified": true,
-      "bucket": "fix",
-      "euroDelta": 20,
-      "priceEquivalent": false
-    },
-    {
       "slug": "washington-resort-hotel-spa",
       "name": "WASHINGTON RESORT HOTEL&SPA",
       "regionSource": "discovery",
@@ -165,90 +45,6 @@
       "identityVerified": true,
       "bucket": "fix",
       "euroDelta": 20,
-      "priceEquivalent": false
-    },
-    {
-      "slug": "sedir-park-joy-otel",
-      "name": "SEDİR PARK JOY OTEL",
-      "regionSource": "discovery",
-      "indexRegion": "kargicak",
-      "derivedRegion": "demirtas",
-      "matchedTerm": "demirtas",
-      "identityVerified": true,
-      "bucket": "fix",
-      "euroDelta": 10,
-      "priceEquivalent": false
-    },
-    {
-      "slug": "belek-beach-resort-hotel",
-      "name": "Belek Beach Resort Hotel",
-      "regionSource": "district",
-      "indexRegion": "belek",
-      "derivedRegion": "bogazkent",
-      "matchedTerm": "bogazkent",
-      "identityVerified": true,
-      "bucket": "fix",
-      "euroDelta": 5,
-      "priceEquivalent": false
-    },
-    {
-      "slug": "crystal-family-resort-spa",
-      "name": "Crystal Family Resort & Spa",
-      "regionSource": "district",
-      "indexRegion": "belek",
-      "derivedRegion": "bogazkent",
-      "matchedTerm": "bogazkent",
-      "identityVerified": true,
-      "bucket": "fix",
-      "euroDelta": 5,
-      "priceEquivalent": false
-    },
-    {
-      "slug": "demirci-hotel",
-      "name": "Demirci Hotel",
-      "regionSource": "district",
-      "indexRegion": "antalya",
-      "derivedRegion": "belek",
-      "matchedTerm": "kadriye",
-      "identityVerified": true,
-      "bucket": "fix",
-      "euroDelta": 5,
-      "priceEquivalent": false
-    },
-    {
-      "slug": "eden-nest-exclusive-hotel",
-      "name": "Eden Nest Exclusive Hotel",
-      "regionSource": "district",
-      "indexRegion": "antalya",
-      "derivedRegion": "belek",
-      "matchedTerm": "belek",
-      "identityVerified": true,
-      "bucket": "fix",
-      "euroDelta": 5,
-      "priceEquivalent": false
-    },
-    {
-      "slug": "fun-sun-smart-river-resort",
-      "name": "Fun & Sun Smart River Resort",
-      "regionSource": "district",
-      "indexRegion": "belek",
-      "derivedRegion": "antalya",
-      "matchedTerm": "muratpasa",
-      "identityVerified": true,
-      "bucket": "fix",
-      "euroDelta": 5,
-      "priceEquivalent": false
-    },
-    {
-      "slug": "port-nature-luxury-resort",
-      "name": "Port Nature Luxury Resort",
-      "regionSource": "district",
-      "indexRegion": "belek",
-      "derivedRegion": "bogazkent",
-      "matchedTerm": "bogazkent",
-      "identityVerified": true,
-      "bucket": "fix",
-      "euroDelta": 5,
       "priceEquivalent": false
     },
     {
@@ -7061,6 +6857,18 @@
       "priceEquivalent": false
     },
     {
+      "slug": "belek-beach-resort-hotel",
+      "name": "Belek Beach Resort Hotel",
+      "regionSource": "district",
+      "indexRegion": "bogazkent",
+      "derivedRegion": "bogazkent",
+      "matchedTerm": "bogazkent",
+      "identityVerified": true,
+      "bucket": "ok",
+      "euroDelta": 0,
+      "priceEquivalent": false
+    },
+    {
       "slug": "bella-resort-spa",
       "name": "BELLA RESORT &SPA",
       "regionSource": "discovery",
@@ -7553,6 +7361,18 @@
       "priceEquivalent": false
     },
     {
+      "slug": "caner-mountain-hotel",
+      "name": "Caner Mountain Hotel",
+      "regionSource": "district",
+      "indexRegion": "kemer",
+      "derivedRegion": "kemer",
+      "matchedTerm": "kemer",
+      "identityVerified": true,
+      "bucket": "ok",
+      "euroDelta": 0,
+      "priceEquivalent": false
+    },
+    {
       "slug": "caretta-beach-otel",
       "name": "CARETTA BEACH OTEL",
       "regionSource": "discovery",
@@ -7829,6 +7649,18 @@
       "priceEquivalent": false
     },
     {
+      "slug": "club-hotel-phaselis-rose",
+      "name": "Club Hotel Phaselis Rose",
+      "regionSource": "district",
+      "indexRegion": "tekirova",
+      "derivedRegion": "tekirova",
+      "matchedTerm": "tekirova",
+      "identityVerified": true,
+      "bucket": "ok",
+      "euroDelta": 0,
+      "priceEquivalent": false
+    },
+    {
       "slug": "club-hotel-sera",
       "name": "Club Hotel Sera",
       "regionSource": "district",
@@ -8093,6 +7925,18 @@
       "priceEquivalent": false
     },
     {
+      "slug": "crystal-family-resort-spa",
+      "name": "Crystal Family Resort & Spa",
+      "regionSource": "district",
+      "indexRegion": "bogazkent",
+      "derivedRegion": "bogazkent",
+      "matchedTerm": "bogazkent",
+      "identityVerified": true,
+      "bucket": "ok",
+      "euroDelta": 0,
+      "priceEquivalent": false
+    },
+    {
       "slug": "crystal-waterworld-resort-spa",
       "name": "Crystal Waterworld Resort & Spa",
       "regionSource": "district",
@@ -8237,6 +8081,18 @@
       "priceEquivalent": false
     },
     {
+      "slug": "delphin-diva-premiere",
+      "name": "Delphin Diva Premiere",
+      "regionSource": "district",
+      "indexRegion": "antalya",
+      "derivedRegion": "antalya",
+      "matchedTerm": "aksu",
+      "identityVerified": true,
+      "bucket": "ok",
+      "euroDelta": 0,
+      "priceEquivalent": false
+    },
+    {
       "slug": "delphin-palace",
       "name": "Delphin Palace",
       "regionSource": "district",
@@ -8255,6 +8111,18 @@
       "indexRegion": "antalya",
       "derivedRegion": "antalya",
       "matchedTerm": "konyaalti",
+      "identityVerified": true,
+      "bucket": "ok",
+      "euroDelta": 0,
+      "priceEquivalent": false
+    },
+    {
+      "slug": "demirci-hotel",
+      "name": "Demirci Hotel",
+      "regionSource": "district",
+      "indexRegion": "belek",
+      "derivedRegion": "belek",
+      "matchedTerm": "kadriye",
       "identityVerified": true,
       "bucket": "ok",
       "euroDelta": 0,
@@ -8291,6 +8159,18 @@
       "indexRegion": "antalya",
       "derivedRegion": "antalya",
       "matchedTerm": "muratpasa",
+      "identityVerified": true,
+      "bucket": "ok",
+      "euroDelta": 0,
+      "priceEquivalent": false
+    },
+    {
+      "slug": "dg-hotels-rose-resort",
+      "name": "Dg Hotels Rose Resort",
+      "regionSource": "district",
+      "indexRegion": "kemer",
+      "derivedRegion": "kemer",
+      "matchedTerm": "kemer",
       "identityVerified": true,
       "bucket": "ok",
       "euroDelta": 0,
@@ -8519,6 +8399,18 @@
       "indexRegion": "kemer",
       "derivedRegion": "kemer",
       "matchedTerm": "camyuva",
+      "identityVerified": true,
+      "bucket": "ok",
+      "euroDelta": 0,
+      "priceEquivalent": false
+    },
+    {
+      "slug": "eden-nest-exclusive-hotel",
+      "name": "Eden Nest Exclusive Hotel",
+      "regionSource": "district",
+      "indexRegion": "belek",
+      "derivedRegion": "belek",
+      "matchedTerm": "belek",
       "identityVerified": true,
       "bucket": "ok",
       "euroDelta": 0,
@@ -9209,6 +9101,18 @@
       "priceEquivalent": false
     },
     {
+      "slug": "fun-sun-smart-river-resort",
+      "name": "Fun & Sun Smart River Resort",
+      "regionSource": "district",
+      "indexRegion": "antalya",
+      "derivedRegion": "antalya",
+      "matchedTerm": "muratpasa",
+      "identityVerified": true,
+      "bucket": "ok",
+      "euroDelta": 0,
+      "priceEquivalent": false
+    },
+    {
       "slug": "furkan-homes",
       "name": "Furkan-Homes",
       "regionSource": "district",
@@ -9605,6 +9509,18 @@
       "priceEquivalent": false
     },
     {
+      "slug": "guler-butik-hotel",
+      "name": "Güler Butık Hotel",
+      "regionSource": "district",
+      "indexRegion": "kemer",
+      "derivedRegion": "kemer",
+      "matchedTerm": "beldibi",
+      "identityVerified": true,
+      "bucket": "ok",
+      "euroDelta": 0,
+      "priceEquivalent": false
+    },
+    {
       "slug": "gural-premier-tekirova",
       "name": "Güral Premier Tekirova",
       "regionSource": "district",
@@ -9767,6 +9683,18 @@
       "indexRegion": "antalya",
       "derivedRegion": "antalya",
       "matchedTerm": "muratpasa",
+      "identityVerified": true,
+      "bucket": "ok",
+      "euroDelta": 0,
+      "priceEquivalent": false
+    },
+    {
+      "slug": "hotel-gold-stone",
+      "name": "Hotel Gold Stone",
+      "regionSource": "district",
+      "indexRegion": "kemer",
+      "derivedRegion": "kemer",
+      "matchedTerm": "beldibi",
       "identityVerified": true,
       "bucket": "ok",
       "euroDelta": 0,
@@ -11417,6 +11345,18 @@
       "priceEquivalent": false
     },
     {
+      "slug": "melodi-hotel",
+      "name": "Melodi Hotel",
+      "regionSource": "district",
+      "indexRegion": "kemer",
+      "derivedRegion": "kemer",
+      "matchedTerm": "beldibi",
+      "identityVerified": true,
+      "bucket": "ok",
+      "euroDelta": 0,
+      "priceEquivalent": false
+    },
+    {
       "slug": "meltem-otel",
       "name": "Meltem Otel",
       "regionSource": "district",
@@ -12401,6 +12341,18 @@
       "priceEquivalent": false
     },
     {
+      "slug": "peker-otel",
+      "name": "Peker Otel",
+      "regionSource": "district",
+      "indexRegion": "kemer",
+      "derivedRegion": "kemer",
+      "matchedTerm": "goynuk",
+      "identityVerified": true,
+      "bucket": "ok",
+      "euroDelta": 0,
+      "priceEquivalent": false
+    },
+    {
       "slug": "pera-aura",
       "name": "PERA AURA",
       "regionSource": "discovery",
@@ -12467,6 +12419,18 @@
       "indexRegion": "antalya",
       "derivedRegion": "antalya",
       "matchedTerm": "muratpasa",
+      "identityVerified": true,
+      "bucket": "ok",
+      "euroDelta": 0,
+      "priceEquivalent": false
+    },
+    {
+      "slug": "port-nature-luxury-resort",
+      "name": "Port Nature Luxury Resort",
+      "regionSource": "district",
+      "indexRegion": "bogazkent",
+      "derivedRegion": "bogazkent",
+      "matchedTerm": "bogazkent",
       "identityVerified": true,
       "bucket": "ok",
       "euroDelta": 0,
@@ -13385,6 +13349,18 @@
       "priceEquivalent": false
     },
     {
+      "slug": "sedir-park-joy-otel",
+      "name": "SEDİR PARK JOY OTEL",
+      "regionSource": "discovery",
+      "indexRegion": "demirtas",
+      "derivedRegion": "demirtas",
+      "matchedTerm": "demirtas",
+      "identityVerified": true,
+      "bucket": "ok",
+      "euroDelta": 0,
+      "priceEquivalent": false
+    },
+    {
       "slug": "seher-resort-spa",
       "name": "Seher Resort & Spa",
       "regionSource": "district",
@@ -14153,6 +14129,18 @@
       "priceEquivalent": false
     },
     {
+      "slug": "sunis-elita-beach-resort",
+      "name": "Sunis Elita Beach Resort",
+      "regionSource": "district",
+      "indexRegion": "kizilagac",
+      "derivedRegion": "kizilagac",
+      "matchedTerm": "kizilagac",
+      "identityVerified": true,
+      "bucket": "ok",
+      "euroDelta": 0,
+      "priceEquivalent": false
+    },
+    {
       "slug": "sunis-evren-beach-resort",
       "name": "Sunis Evren Beach Resort",
       "regionSource": "district",
@@ -14759,6 +14747,18 @@
       "indexRegion": "kemer",
       "derivedRegion": "kemer",
       "matchedTerm": "goynuk",
+      "identityVerified": true,
+      "bucket": "ok",
+      "euroDelta": 0,
+      "priceEquivalent": false
+    },
+    {
+      "slug": "utopia-world-hotel",
+      "name": "Utopia World Hotel",
+      "regionSource": "district",
+      "indexRegion": "kargicak",
+      "derivedRegion": "kargicak",
+      "matchedTerm": "kargicak",
       "identityVerified": true,
       "bucket": "ok",
       "euroDelta": 0,
