@@ -632,6 +632,12 @@ export const hotelDistances = Object.freeze({
     "district": "Lara",
     "checked": false
   },
+  "arsi-blue-beach-hotel": {
+    "km": 132,
+    "place": "ChIJ4Rbvw7qZ3BQRaC3pnfi1GZY",
+    "district": "Alanya",
+    "checked": false
+  },
   "arsi-enfi-city-beach-otel": {
     "km": 128,
     "place": "ChIJL_aIvmCY3BQRoLqCYisIwL0",
@@ -1202,6 +1208,12 @@ export const hotelDistances = Object.freeze({
     "district": "Antalya merkez",
     "checked": false
   },
+  "bieno-club-svs-hotel": {
+    "km": 142,
+    "place": "ChIJVVo-ze2R3BQRBq7_8DmzR1A",
+    "district": "Alanya",
+    "checked": false
+  },
   "bieno-venus-hotel": {
     "km": 70,
     "place": "ChIJzxcWzMlnwRQRV6BdjiiZDe4",
@@ -1382,6 +1394,12 @@ export const hotelDistances = Object.freeze({
     "district": "Antalya merkez",
     "checked": false
   },
+  "calido-maris": {
+    "km": 88,
+    "place": "ChIJOcRmqDlTwxQRHOPzlqucAKE",
+    "district": "Manavgat",
+    "checked": false
+  },
   "calido-sol-hotel": {
     "km": 91,
     "place": "ChIJi1AT6Oes3BQRzsyCZ2mnCeY",
@@ -1526,6 +1544,12 @@ export const hotelDistances = Object.freeze({
     "district": "Antalya merkez",
     "checked": false
   },
+  "cenger-beach-resort-otel": {
+    "km": 88,
+    "place": "ChIJU_peCp5XwxQRh6ps93LHuR0",
+    "district": "Manavgat",
+    "checked": false
+  },
   "cesars-resort": {
     "km": 61,
     "place": "ChIJh9yS3zRZwxQRikXnj24nAek",
@@ -1602,6 +1626,12 @@ export const hotelDistances = Object.freeze({
     "km": 16,
     "place": "ChIJaSJiceSRwxQRdU0aI2ra6OE",
     "district": "Antalya merkez",
+    "checked": false
+  },
+  "cleopatra-golden-beach-otel": {
+    "km": 124,
+    "place": "ChIJAzIapY-i3BQRviE9z2QJvj8",
+    "district": "Alanya",
     "checked": false
   },
   "clover-magic-seagate-belek": {
@@ -2372,6 +2402,12 @@ export const hotelDistances = Object.freeze({
     "district": "Antalya merkez",
     "checked": false
   },
+  "ergun-otel": {
+    "km": 127,
+    "place": "ChIJjc-bcH6Y3BQR_fxc1jnxst8",
+    "district": "Alanya",
+    "checked": false
+  },
   "erkal-pension": {
     "km": 16,
     "place": "ChIJseaj9QaQwxQRZRLSs4I5Syo",
@@ -2528,6 +2564,12 @@ export const hotelDistances = Object.freeze({
     "district": "Kemer",
     "checked": false
   },
+  "fame-otel": {
+    "km": 61,
+    "place": "ChIJl_AhB5m3wxQRr6yggHb4Tnk",
+    "district": "Kemer",
+    "checked": false
+  },
   "fame-residence-goynuk-otel": {
     "km": 52,
     "place": "ChIJ93La3_a4wxQRKeWDxVkSWhk",
@@ -2640,6 +2682,12 @@ export const hotelDistances = Object.freeze({
     "km": 16,
     "place": "ChIJD1uYDQaQwxQRVwOVM5AUpyg",
     "district": "Antalya merkez",
+    "checked": false
+  },
+  "galaxy-beach": {
+    "km": 143,
+    "place": "ChIJi4cWtqCQ3BQRbKUGCCG4Lu4",
+    "district": "Alanya",
     "checked": false
   },
   "galeri-resort-hotel": {
@@ -2990,6 +3038,12 @@ export const hotelDistances = Object.freeze({
     "district": "Çolaklı",
     "checked": false
   },
+  "hare-hotel": {
+    "km": 158,
+    "place": "ChIJ1b7kqguO3BQRXLF0tdUUMp4",
+    "district": "Alanya",
+    "checked": false
+  },
   "hawaii-suite-beach-otel": {
     "km": 128,
     "place": "ChIJuW-aHl6Y3BQRm8cg6E5OeEk",
@@ -3248,6 +3302,12 @@ export const hotelDistances = Object.freeze({
     "district": "Kadriye",
     "checked": false
   },
+  "insula-resort-spa": {
+    "km": 112,
+    "place": "ChIJuSnkgf6k3BQRL0yM6TQiZ2Q",
+    "district": "Alanya",
+    "checked": false
+  },
   "irenic-hotel": {
     "km": 31,
     "place": "ChIJixa9LK2FwxQRUxKEMzeU9MQ",
@@ -3482,6 +3542,12 @@ export const hotelDistances = Object.freeze({
     "district": "Kemer",
     "checked": false
   },
+  "kemer-hotel": {
+    "km": 62,
+    "place": "ChIJaxlmBJ-3wxQRw3dm4bBV_mI",
+    "district": "Kemer",
+    "checked": false
+  },
   "kervan-hotel": {
     "km": 16,
     "place": "ChIJoSdg2AWQwxQRmdQm7w6UquM",
@@ -3710,6 +3776,12 @@ export const hotelDistances = Object.freeze({
     "district": "Kemer",
     "checked": false
   },
+  "la-benata-hotel": {
+    "km": 90,
+    "place": "ChIJWZK_Spet3BQRGfONqE3xEO4",
+    "district": "Manavgat",
+    "checked": false
+  },
   "la-brisa-hotel": {
     "km": 31,
     "place": "ChIJy4tU_eKTwxQR8isc29roOno",
@@ -3768,6 +3840,12 @@ export const hotelDistances = Object.freeze({
     "km": 94,
     "place": "ChIJCTlMxKqt3BQRXLgf4V0cnSo",
     "district": "Alanya",
+    "checked": false
+  },
+  "lake-river-side-hotel-spa": {
+    "km": 71,
+    "place": "ChIJYzq97FNXwxQRQkAYgZvYZg8",
+    "district": "Manavgat",
     "checked": false
   },
   "lara-barut-collection": {
@@ -5300,6 +5378,12 @@ export const hotelDistances = Object.freeze({
     "district": "Antalya merkez",
     "checked": false
   },
+  "prenses-sealine-beach-otel": {
+    "km": 41,
+    "place": "ChIJwRKbpeKPwxQRBqzaZz4Anb4",
+    "district": "Serik",
+    "checked": false
+  },
   "prima-hotel": {
     "km": 17,
     "place": "ChIJv0YKxe6awxQR2fqWQ_jfM_w",
@@ -5528,6 +5612,12 @@ export const hotelDistances = Object.freeze({
     "district": "Kemer",
     "checked": false
   },
+  "rivador-hotel-kemer": {
+    "km": 61,
+    "place": "ChIJgVp4U3u3wxQRtlzQZ5Ff3Q0",
+    "district": "Kemer",
+    "checked": false
+  },
   "river-elite-hotel-spa": {
     "km": 17,
     "place": "ChIJUcbXjRuQwxQRjFYUPkXN1i4",
@@ -5684,6 +5774,12 @@ export const hotelDistances = Object.freeze({
     "district": "Çolaklı",
     "checked": false
   },
+  "royal-atlantis-spa-resort": {
+    "km": 55,
+    "place": "ChIJu6ojebhfwxQRk_6-JaF6dCY",
+    "district": "Manavgat",
+    "checked": false
+  },
   "royal-city-hotel": {
     "km": 17,
     "place": "ChIJJwijPJCbwxQRBM0RU7kqJtc",
@@ -5792,6 +5888,12 @@ export const hotelDistances = Object.freeze({
     "district": "Antalya merkez",
     "checked": false
   },
+  "sandy-beach-otel": {
+    "km": 64,
+    "place": "ChIJyZpwOHxZwxQRPuQg9roPGBk",
+    "district": "Manavgat",
+    "checked": false
+  },
   "santana-hotel": {
     "km": 44,
     "place": "ChIJZZBaKQm_wxQR4L_VGBD9yt8",
@@ -5852,6 +5954,12 @@ export const hotelDistances = Object.freeze({
     "district": "Antalya merkez",
     "checked": false
   },
+  "scylax-hotels-family-club": {
+    "km": 142,
+    "place": "ChIJS-S2iZqQ3BQR-AT3YERkNdI",
+    "district": "Alanya",
+    "checked": false
+  },
   "sea-city-devran-hotel-spa": {
     "km": 23,
     "place": "ChIJm8Dx4qWRwxQRaby7o02U8Uo",
@@ -5904,6 +6012,12 @@ export const hotelDistances = Object.freeze({
     "km": 23,
     "place": "ChIJH6YLbaWRwxQRbV1EvhjAAzQ",
     "district": "Antalya merkez",
+    "checked": false
+  },
+  "seamelia-beach-resort-hotel-spa": {
+    "km": 59,
+    "place": "ChIJW6-c-zhZwxQRkCBU7PqVkOE",
+    "district": "Manavgat",
     "checked": false
   },
   "seashell-vega": {
@@ -6306,6 +6420,12 @@ export const hotelDistances = Object.freeze({
     "km": 16,
     "place": "ChIJ8f9LrcCCwxQRzcgBVy-ug14",
     "district": "Antalya merkez",
+    "checked": false
+  },
+  "sirma-otel": {
+    "km": 64,
+    "place": "ChIJFQ0l6W9ZwxQR3pHnp0T28Dc",
+    "district": "Manavgat",
     "checked": false
   },
   "sky-business-hotel": {
@@ -6740,6 +6860,12 @@ export const hotelDistances = Object.freeze({
     "district": "Serik",
     "checked": false
   },
+  "throne-nilbahir-resort-spa": {
+    "km": 93,
+    "place": "ChIJg7P7dPWr3BQRbVKeGRzyp7g",
+    "district": "Manavgat",
+    "checked": false
+  },
   "time-beach-otel": {
     "km": 125,
     "place": "ChIJ9dG4HACj3BQRl3qUVC7pG0o",
@@ -6846,6 +6972,12 @@ export const hotelDistances = Object.freeze({
     "km": 16,
     "place": "ChIJK6Hh3KaawxQRevtufk6zLRc",
     "district": "Antalya merkez",
+    "checked": false
+  },
+  "tu-casa-gelidonya-hotel": {
+    "km": 59,
+    "place": "ChIJyTlBD463wxQRjJe1g9EZ9yA",
+    "district": "Kemer",
     "checked": false
   },
   "tu-casa-linda-otel": {

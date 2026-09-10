@@ -68,7 +68,7 @@ describe("static hotel index", () => {
 
   test("merges safe discovered hotels with explicit pricing regions", () => {
     const discovered = hotelIndex.filter((hotel) => hotel.regionSource === "discovery");
-    expect(discovered).toHaveLength(351);
+    expect(discovered).toHaveLength(373);
     expect(new Set(discovered.map((hotel) => hotel.placeId)).size).toBe(discovered.length);
     expect(indexedHotelBySlug("side-sun-otel")).toMatchObject({
       name: "SİDE SUN OTEL",
