@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "completed": {
+    "kirman-belazur-resort-spa": {
+      "slug": "kirman-belazur-resort-spa",
+      "name": "Kirman Belazur Resort & Spa",
+      "regionSource": "district",
+      "indexRegion": "bogazkent",
+      "derivedRegion": "bogazkent",
+      "matchedTerm": "bogazkent",
+      "identityVerified": true,
+      "bucket": "ok",
+      "euroDelta": 0,
+      "priceEquivalent": false
+    }
+  },
+  "failures": {},
+  "calls": 1
+}

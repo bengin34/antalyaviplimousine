@@ -26,6 +26,7 @@
     "generate:hotel-index-discovered": "node scripts/generate-hotel-index-discovered.mjs",
     "match:hotel-regions": "node scripts/match-hotel-regions.mjs",
     "review:hotel-regions": "node scripts/review-hotel-regions.mjs",
+    "audit:hotel-regions": "node scripts/audit-hotel-regions.mjs",
     "optimize:images": "node scripts/optimize-images.mjs",
     "preview": "vite preview --config vite.preview.config.ts",
     "test": "vitest run",
