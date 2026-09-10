@@ -500,7 +500,7 @@ This file has no dedicated test; it is exercised by Task 5's grid tests. It must
 `admin/react/components/ledger-columns.tsx`:
 
 ```tsx
-import { createColumnHelper, type FilterFn, type Row } from '@tanstack/react-table'
+import { createColumnHelper, type FilterFn, type Row, type RowData } from '@tanstack/react-table'
 import { startsFromAirport } from '../../profit-loss-metrics.js'
 import { fmtDetailDate, formatEuro, formatTry, profitLocationLabel } from '../lib/format'
 import type { CsvColumn } from '../lib/ledger-csv'
@@ -546,9 +546,9 @@ export interface LedgerTableMeta {
 
 declare module '@tanstack/react-table' {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  interface TableMeta<TData> { ledger: LedgerTableMeta }
+  interface TableMeta<TData extends RowData> { ledger: LedgerTableMeta }
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  interface ColumnMeta<TData, TValue> { align?: 'left' | 'right'; csv: CsvColumn<LedgerRow>[] }
+  interface ColumnMeta<TData extends RowData, TValue> { align?: 'left' | 'right'; csv: CsvColumn<LedgerRow>[] }
 }
 
 export function rowIdFor(leg: LedgerLeg) {
@@ -988,6 +988,7 @@ describe('ProfitLedgerGrid — görünüm', () => {
     expect(firstRow()).toHaveTextContent('Zeynep Kaya')
     fireEvent.click(screen.getByRole('columnheader', { name: /Tarih/ }).querySelector('button')!)
     expect(firstRow()).toHaveTextContent('Ali Veli')
+    expect(screen.getByRole('columnheader', { name: /Tarih/ })).toHaveAttribute('aria-sort', 'ascending')
   })
 
   test('metin filtresi yolcu ve rota üzerinde çalışır', () => {
@@ -1021,8 +1022,9 @@ describe('ProfitLedgerGrid — görünüm', () => {
 
 describe('ProfitLedgerGrid — düzenleme', () => {
   test('editable=false iken hiçbir düzenleme butonu yok', () => {
-    renderGrid({ editable: false })
-    expect(screen.queryByRole('button', { name: /kâr|maliyet|karşılama|otopark|model/i })).toBeNull()
+    const { container } = renderGrid({ editable: false })
+    // Başlık sıralama butonları kalır; hücre düzenleme butonları (.ledger-cell-edit) hiç olmamalı.
+    expect(container.querySelectorAll('.ledger-cell-edit')).toHaveLength(0)
   })
 
   test('kâr hücresinden kaydedince saveLegOwnVehicleProfit çağrılır ve booking yamalanır', async () => {
@@ -1050,9 +1052,9 @@ describe('ProfitLedgerGrid — düzenleme', () => {
   test('satılan transfer ayağında tedarikçi hücresi düzenlenir, kâr hücresi —', async () => {
     actions.saveLegSupplierCost.mockResolvedValue({ service_cost_mode: 'sold_transfer', sold_transfer_cost_try: 3000 })
     renderGrid()
-    expect(screen.queryByRole('button', { name: 'Zeynep Kaya gidiş kâr' })).toBeNull()
-    fireEvent.click(screen.getAllByRole('button', { name: 'Zeynep Kaya gidiş tedarikçi maliyeti' })[0])
-    const input = screen.getAllByRole('textbox', { name: 'Zeynep Kaya gidiş tedarikçi maliyeti' })[0]
+    expect(screen.queryByRole('button', { name: 'Zeynep Kaya dönüş kâr' })).toBeNull()
+    fireEvent.click(screen.getAllByRole('button', { name: 'Zeynep Kaya dönüş tedarikçi maliyeti' })[0])
+    const input = screen.getAllByRole('textbox', { name: 'Zeynep Kaya dönüş tedarikçi maliyeti' })[0]
     fireEvent.change(input, { target: { value: '3000' } })
     fireEvent.keyDown(input, { key: 'Enter' })
     await waitFor(() => expect(actions.saveLegSupplierCost).toHaveBeenCalledWith('2', 'outbound', 3000))
@@ -1090,8 +1092,8 @@ describe('ProfitLedgerGrid — düzenleme', () => {
 
   test('havalimanından başlamayan ayakta karşılama/otopark hücreleri —', () => {
     renderGrid()
-    expect(screen.queryByRole('button', { name: 'Zeynep Kaya gidiş karşılama' })).toBeNull()
-    expect(screen.queryByRole('button', { name: 'Zeynep Kaya gidiş otopark saati' })).toBeNull()
+    expect(screen.queryByRole('button', { name: 'Zeynep Kaya dönüş karşılama' })).toBeNull()
+    expect(screen.queryByRole('button', { name: 'Zeynep Kaya dönüş otopark saati' })).toBeNull()
   })
 
   test('kayıt hatası hücrede gösterilir', async () => {
@@ -1148,7 +1150,8 @@ describe('ProfitLedgerGrid — toolbar', () => {
 
   test('CSV indir filtrelenmiş satırları ve dosya adını kullanır', () => {
     renderGrid()
-    fireEvent.change(screen.getByRole('searchbox', { name: /Ara/ }), { target: { value: 'ali' } })
+    // 'ali' tek başına "Antalya Havalimanı" rotasını da yakalar; tam ad kullan.
+    fireEvent.change(screen.getByRole('searchbox', { name: /Ara/ }), { target: { value: 'ali veli' } })
     fireEvent.click(screen.getByRole('button', { name: 'CSV indir' }))
     expect(csv.downloadCsv).toHaveBeenCalledTimes(1)
     const [filename, content] = csv.downloadCsv.mock.calls[0]
@@ -1281,6 +1284,7 @@ export function ProfitLedgerGrid({
       return next
     }),
     getRowId: row => row.id,
+    enableSortingRemoval: false, // desc → asc → desc; üçüncü "sırasız" durum yok
     getCoreRowModel: getCoreRowModel(),
     getFilteredRowModel: getFilteredRowModel(),
     getSortedRowModel: getSortedRowModel(),
