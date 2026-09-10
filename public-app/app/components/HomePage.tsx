@@ -2,6 +2,7 @@ import { lazy, Suspense, useEffect, useRef, useState } from "react";
 const ReactPlayer = lazy(() => import("react-player"));
 import { publicRouteSlugs, routeCatalog } from "../../../src/routes.js";
 import { LineBreakText, useLanguage } from "../i18n";
+import { useCarousel } from "../lib/carousel";
 import { faqAnchor, homeFaqGroups, resolveFaqAnchor } from "../lib/faq";
 import { BookingForm } from "./BookingForm";
 import { Header } from "./Header";
@@ -271,18 +272,17 @@ const fleetPhotos = (() => {
 export function HomePage({ initialLanguage }: { initialLanguage: string }) {
   const { language, t } = useLanguage();
   const [fleet, setFleet] = useState<Vehicle>("sprinter");
-  const [fleetPhotoIndex, setFleetPhotoIndex] = useState(0);
+  // Both rails run on Embla: one pointer pipeline covers touch, pen and mouse,
+  // so phone, tablet and desktop share the same momentum and snapping.
+  const fleetCarousel = useCarousel({ loop: true, align: "center" });
+  const routeCarousel = useCarousel({ align: "start", slidesToScroll: 1 });
+  const fleetPhotoIndex = fleetCarousel.selectedIndex;
   const [selection, setSelection] = useState<{
     route: string;
     vehicle: Vehicle;
     nonce: number;
   }>();
   const [openFaq, setOpenFaq] = useState(0);
-  const [routeSliderEdges, setRouteSliderEdges] = useState({
-    atStart: true,
-    atEnd: false,
-  });
-  const routeSlider = useRef<HTMLDivElement>(null);
   const [videoOpen, setVideoOpen] = useState(false);
   const [reviewsPaused, setReviewsPaused] = useState(false);
   const videoDialog = useRef<HTMLDivElement>(null);
@@ -345,16 +345,19 @@ export function HomePage({ initialLanguage }: { initialLanguage: string }) {
     window.gtag?.("event", "route_selected", { route, vehicle, source: "home_page" });
     setSelection({ route, vehicle, nonce: Date.now() });
   };
-  const scrollRoutes = (direction: -1 | 1) => {
-    const card = routeSlider.current?.querySelector<HTMLElement>(".route-card");
-    routeSlider.current?.scrollBy({
-      left: direction * ((card?.offsetWidth ?? 340) + 15),
-      behavior: "smooth",
-    });
+  // The rail is not natively scrollable any more, so it earns its tab stop by
+  // answering the arrow keys the same way the visible buttons do.
+  const onRouteSliderKeyDown = (event: React.KeyboardEvent<HTMLDivElement>) => {
+    if (event.key === "ArrowRight") routeCarousel.scrollNext();
+    else if (event.key === "ArrowLeft") routeCarousel.scrollPrev();
+    else if (event.key === "Home") routeCarousel.scrollTo(0);
+    else if (event.key === "End") routeCarousel.scrollTo(routeOrder.length - 1);
+    else return;
+    event.preventDefault();
   };
   const changeFleet = (vehicle: Vehicle) => {
     setFleet(vehicle);
-    setFleetPhotoIndex(0);
+    fleetCarousel.scrollTo(0);
   };
   // The tablist is one tab stop; Arrow/Home/End move between tabs and
   // select as they go, which is the expected pattern for tabs whose
@@ -424,11 +427,6 @@ export function HomePage({ initialLanguage }: { initialLanguage: string }) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [videoOpen]);
 
-  const changeFleetPhoto = (direction: -1 | 1) =>
-    setFleetPhotoIndex(
-      (index) => (index + direction + fleetPhotos.length) % fleetPhotos.length,
-    );
-
   const faqItems = homeFaqGroups
     .flatMap((group) => group.items)
     .map(({ key, slug }) => [
@@ -460,25 +458,6 @@ export function HomePage({ initialLanguage }: { initialLanguage: string }) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-
-  useEffect(() => {
-    const slider = routeSlider.current;
-    if (!slider) return;
-    const update = () => {
-      const maxScroll = slider.scrollWidth - slider.clientWidth;
-      setRouteSliderEdges({
-        atStart: slider.scrollLeft <= 4,
-        atEnd: slider.scrollLeft >= maxScroll - 4,
-      });
-    };
-    update();
-    slider.addEventListener("scroll", update, { passive: true });
-    window.addEventListener("resize", update, { passive: true });
-    return () => {
-      slider.removeEventListener("scroll", update);
-      window.removeEventListener("resize", update);
-    };
-  }, []);
 
   useEffect(() => {
     if (typeof IntersectionObserver === "undefined") return;
@@ -715,20 +694,42 @@ export function HomePage({ initialLanguage }: { initialLanguage: string }) {
                 aria-roledescription="carousel"
                 aria-label="Our vehicle photos"
               >
+                <div className="fleet-carousel-viewport" ref={fleetCarousel.ref}>
+                  <div className="fleet-carousel-track">
+                    {fleetPhotos.map((photo, index) => {
+                      // The rail loops, so nearness wraps too; only the
+                      // neighbours load, keeping 19 photos off the critical path.
+                      const gap = Math.abs(index - fleetPhotoIndex);
+                      const near =
+                        Math.min(gap, fleetPhotos.length - gap) <= 1;
+                      return (
+                        <div
+                          className="fleet-carousel-slide"
+                          role="group"
+                          aria-roledescription="slide"
+                          aria-label={`${index + 1} of ${fleetPhotos.length}`}
+                          key={`${photo.src}-${index}`}
+                        >
+                          {near ? (
+                            <img
+                              src={photo.src}
+                              alt={photo.alt}
+                              width="1600"
+                              height="765"
+                              draggable={false}
+                              decoding="async"
+                              loading={index === 0 ? "eager" : "lazy"}
+                            />
+                          ) : null}
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
                 {/* Changing photo swaps the image and its caption with no
                     other visible cue, so the new slide is announced. */}
-                <div
-                  className="fleet-carousel-track"
-                  aria-live="polite"
-                  aria-atomic="true"
-                >
-                  <img
-                    src={fleetPhoto.src}
-                    alt={fleetPhoto.alt}
-                    width="1600"
-                    height="765"
-                    loading="lazy"
-                  />
+                <div className="sr-only" aria-live="polite" aria-atomic="true">
+                  {`${fleetPhoto.caption}, photo ${fleetPhotoIndex + 1} of ${fleetPhotos.length}`}
                 </div>
                 <div className="image-badge">
                   <span>{t("signatureFleet", "Signature fleet")}</span>
@@ -742,10 +743,15 @@ export function HomePage({ initialLanguage }: { initialLanguage: string }) {
                     className="fleet-carousel-button"
                     type="button"
                     aria-label="Previous vehicle photo"
-                    onClick={() => changeFleetPhoto(-1)}
+                    onClick={fleetCarousel.scrollPrev}
                   >
                     <Icon name="arrow-left" className="icon" />
                   </button>
+                  {/* Below tablet the dot strip is swapped for this counter;
+                      nineteen 24px tap targets do not fit a phone. */}
+                  <span className="fleet-carousel-counter" aria-hidden="true">
+                    {fleetPhotoIndex + 1} / {fleetPhotos.length}
+                  </span>
                   <div
                     className="fleet-carousel-dots"
                     role="group"
@@ -757,7 +763,7 @@ export function HomePage({ initialLanguage }: { initialLanguage: string }) {
                         type="button"
                         aria-label={`Show ${photo.caption.toLowerCase()} photo ${index + 1}`}
                         aria-current={index === fleetPhotoIndex}
-                        onClick={() => setFleetPhotoIndex(index)}
+                        onClick={() => fleetCarousel.scrollTo(index)}
                         key={`${photo.src}-${index}`}
                       />
                     ))}
@@ -766,7 +772,7 @@ export function HomePage({ initialLanguage }: { initialLanguage: string }) {
                     className="fleet-carousel-button"
                     type="button"
                     aria-label="Next vehicle photo"
-                    onClick={() => changeFleetPhoto(1)}
+                    onClick={fleetCarousel.scrollNext}
                   >
                     <Icon name="arrow-right" className="icon" />
                   </button>
@@ -965,8 +971,8 @@ export function HomePage({ initialLanguage }: { initialLanguage: string }) {
                 className="route-slider-button route-slider-prev"
                 type="button"
                 aria-label="Previous routes"
-                disabled={routeSliderEdges.atStart}
-                onClick={() => scrollRoutes(-1)}
+                disabled={!routeCarousel.canScrollPrev}
+                onClick={routeCarousel.scrollPrev}
               >
                 <Icon name="arrow-right" />
               </button>
@@ -974,79 +980,83 @@ export function HomePage({ initialLanguage }: { initialLanguage: string }) {
                 className="route-slider-button route-slider-next"
                 type="button"
                 aria-label="Next routes"
-                disabled={routeSliderEdges.atEnd}
-                onClick={() => scrollRoutes(1)}
+                disabled={!routeCarousel.canScrollNext}
+                onClick={routeCarousel.scrollNext}
               >
                 <Icon name="arrow-right" />
               </button>
             </div>
           </div>
           <div
-            className="route-slider"
-            ref={routeSlider}
+            className="route-slider-viewport"
+            ref={routeCarousel.ref}
             role="group"
+            aria-roledescription="carousel"
             aria-label="Antalya Airport transfer routes"
             tabIndex={0}
+            onKeyDown={onRouteSliderKeyDown}
           >
-            {routeOrder.map((slug, index) => {
-              const route = routeCatalog[slug];
-              const destination =
-                slug === "antalya"
-                  ? (route.names[language as keyof typeof route.names] ??
-                    route.names.en)
-                  : routeDisplayNames[slug];
-              const title = (
-                <>
-                  {routeAirportName} <span>→</span> {destination}
-                </>
-              );
-              return (
-                <article
-                  className={`route-card ${routeImageClasses[index]}`}
-                  data-route={slug}
-                  key={slug}
-                >
-                  <div className="route-card-top">
-                    <span className="route-number">
-                      {String(index + 1).padStart(2, "0")}
-                    </span>
-                    {slug === "belek" && (
-                      <span className="route-chip">
-                        {t("golfFavourite", "Golf favourite")}
+            <div className="route-slider">
+              {routeOrder.map((slug, index) => {
+                const route = routeCatalog[slug];
+                const destination =
+                  slug === "antalya"
+                    ? (route.names[language as keyof typeof route.names] ??
+                      route.names.en)
+                    : routeDisplayNames[slug];
+                const title = (
+                  <>
+                    {routeAirportName} <span>→</span> {destination}
+                  </>
+                );
+                return (
+                  <article
+                    className={`route-card ${routeImageClasses[index]}`}
+                    data-route={slug}
+                    key={slug}
+                  >
+                    <div className="route-card-top">
+                      <span className="route-number">
+                        {String(index + 1).padStart(2, "0")}
                       </span>
-                    )}
-                  </div>
-                  <div className="route-card-copy">
-                    <div className="route-line">
-                      <span>AYT</span>
-                      <i />
-                      <Icon name="arrow-right" />
-                      <i />
-                      <span>{slug.toUpperCase()}</span>
-                    </div>
-                    <h3>
-                      {index >= 9 ? (
-                        <a href={`${routePrefix}/transfers/${slug}/`}>
-                          {title}
-                        </a>
-                      ) : (
-                        title
+                      {slug === "belek" && (
+                        <span className="route-chip">
+                          {t("golfFavourite", "Golf favourite")}
+                        </span>
                       )}
-                    </h3>
-                    <div className="route-vehicle-prices">
-                      <button
-                        className="route-price-button"
-                        type="button"
-                        onClick={() => bookRoute(slug)}
-                      >
-                        <strong>€{route.prices.vito}</strong>
-                        <Icon name="arrow-up-right" />
-                      </button>
                     </div>
-                  </div>
-                </article>
-              );
-            })}
+                    <div className="route-card-copy">
+                      <div className="route-line">
+                        <span>AYT</span>
+                        <i />
+                        <Icon name="arrow-right" />
+                        <i />
+                        <span>{slug.toUpperCase()}</span>
+                      </div>
+                      <h3>
+                        {index >= 9 ? (
+                          <a href={`${routePrefix}/transfers/${slug}/`}>
+                            {title}
+                          </a>
+                        ) : (
+                          title
+                        )}
+                      </h3>
+                      <div className="route-vehicle-prices">
+                        <button
+                          className="route-price-button"
+                          type="button"
+                          onClick={() => bookRoute(slug)}
+                        >
+                          <strong>€{route.prices.vito}</strong>
+                          <Icon name="arrow-up-right" />
+                        </button>
+                      </div>
+                    </div>
+                  </article>
+                );
+              })}
+            </div>
           </div>
         </section>
 

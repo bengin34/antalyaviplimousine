@@ -55,6 +55,8 @@
     "@hookform/resolvers": "^5.7.1",
     "@supabase/supabase-js": "^2.108.1",
     "@tanstack/react-table": "^8.21.3",
+    "embla-carousel": "8.6.0",
+    "embla-carousel-react": "8.6.0",
     "i18next": "^26.3.6",
     "isbot": "^5",
     "libphonenumber-js": "^1.13.9",
