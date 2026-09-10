@@ -1326,11 +1326,19 @@ body {
   font-size: 11.5px;
   line-height: 1.45;
 }
+.whatsapp-template-group + .whatsapp-template-group { margin-top: 14px; }
+.whatsapp-template-group-label {
+  color: var(--text-muted);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
 .whatsapp-template-actions {
   display: grid;
   grid-template-columns: 1fr;
   gap: 8px;
-  margin-top: 12px;
+  margin-top: 8px;
 }
 @media (min-width: 720px) {
   .whatsapp-template-actions { grid-template-columns: 1fr 1fr; }

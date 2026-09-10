@@ -47,7 +47,7 @@ const LANG = {
     meetGreetGreeting: (name) =>
       `Dear ${name},\n\n✈️ Welcome to Antalya! Here are your Meet & Greet details:`,
     meetGreetClosing:
-      "Our team will meet you at meeting point J / 777 with a name board. Safe travels! 🌟",
+      "Our team will meet you at meeting point J / 777 with a name board. If you'd rather skip the wait inside, exit the terminal and meet us in front of Burger King — it's usually faster. Safe travels! 🌟",
     reviewGreeting: (name) =>
       `Dear ${name},\n\n🌟 Thank you for traveling with Antalya VIP Tourism. We hope everything went smoothly.`,
     reviewClosing:
@@ -102,7 +102,7 @@ const LANG = {
     meetGreetGreeting: (name) =>
       `Hallo ${name},\n\n✈️ Willkommen in Antalya! Hier Ihre Meet & Greet-Details:`,
     meetGreetClosing:
-      "Unser Team erwartet Sie am Treffpunkt J / 777 mit einem Namensschild. Gute Reise! 🌟",
+      "Unser Team erwartet Sie am Treffpunkt J / 777 mit einem Namensschild. Wenn Sie das Warten drinnen vermeiden möchten, verlassen Sie das Terminal und treffen Sie uns vor dem Burger King — meist geht es dort schneller. Gute Reise! 🌟",
     reviewGreeting: (name) =>
       `Hallo ${name},\n\n🌟 Danke, dass Sie mit Antalya VIP Tourism gefahren sind. Wir hoffen, alles ist gut verlaufen.`,
     reviewClosing:
@@ -148,7 +148,7 @@ const LANG = {
     meetGreetGreeting: (name) =>
       `Здравствуйте, ${name}!\n\n✈️ Добро пожаловать в Анталью! Детали встречи Meet & Greet:`,
     meetGreetClosing:
-      "Наша команда встретит вас в точке J / 777 с табличкой с вашим именем. Хорошей поездки! 🌟",
+      "Наша команда встретит вас в точке J / 777 с табличкой с вашим именем. Если не хотите ждать внутри, выходите из терминала и встретимся у Burger King — обычно так быстрее. Хорошей поездки! 🌟",
     reviewGreeting: (name) =>
       `Здравствуйте, ${name}!\n\n🌟 Спасибо, что выбрали Antalya VIP Tourism. Надеемся, всё прошло хорошо.`,
     reviewClosing:
@@ -194,7 +194,7 @@ const LANG = {
     meetGreetGreeting: (name) =>
       `Merhaba ${name},\n\n✈️ Antalya'ya hoş geldiniz! Karşılama (Meet & Greet) detaylarınız:`,
     meetGreetClosing:
-      "Ekibimiz J / 777 buluşma noktasında isim tabelasıyla sizi karşılayacak. İyi yolculuklar! 🌟",
+      "Ekibimiz J / 777 buluşma noktasında isim tabelasıyla sizi karşılayacak. İçeride beklemek istemezseniz terminalden çıkıp Burger King önünde buluşabiliriz — genelde daha hızlı oluyor. İyi yolculuklar! 🌟",
     reviewGreeting: (name) =>
       `Merhaba ${name},\n\n🌟 Antalya VIP Tourism ile seyahat ettiğiniz için teşekkürler. Umarız her şey yolunda gitmiştir.`,
     reviewClosing:
@@ -248,7 +248,7 @@ const LANG = {
     meetGreetGreeting: (name) =>
       `Bonjour ${name},\n\n✈️ Bienvenue à Antalya ! Voici les détails de votre accueil Meet & Greet :`,
     meetGreetClosing:
-      "Notre équipe vous attendra au point de rencontre J / 777 avec un panneau à votre nom. Bon voyage ! 🌟",
+      "Notre équipe vous attendra au point de rencontre J / 777 avec un panneau à votre nom. Si vous préférez ne pas attendre à l'intérieur, sortez du terminal et retrouvez-nous devant le Burger King — c'est généralement plus rapide. Bon voyage ! 🌟",
     reviewGreeting: (name) =>
       `Bonjour ${name},\n\n🌟 Merci d'avoir voyagé avec Antalya VIP Tourism. Nous espérons que tout s'est bien passé.`,
     reviewClosing:
@@ -294,7 +294,7 @@ const LANG = {
     meetGreetGreeting: (name) =>
       `مرحباً ${name}،\n\n✈️ أهلاً بك في أنطاليا! تفاصيل الاستقبال Meet & Greet:`,
     meetGreetClosing:
-      "سيستقبلك فريقنا عند نقطة اللقاء J / 777 بلافتة تحمل اسمك. رحلة موفقة! 🌟",
+      "سيستقبلك فريقنا عند نقطة اللقاء J / 777 بلافتة تحمل اسمك. إذا كنت تفضل عدم الانتظار بالداخل، يمكنك الخروج من الصالة ومقابلتنا أمام مطعم Burger King — عادةً ما يكون أسرع. رحلة موفقة! 🌟",
     reviewGreeting: (name) =>
       `مرحباً ${name}،\n\n🌟 شكراً لسفرك مع Antalya VIP Tourism. نأمل أن يكون كل شيء قد سار على ما يرام.`,
     reviewClosing:
