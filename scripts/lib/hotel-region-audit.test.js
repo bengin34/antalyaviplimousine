@@ -27,7 +27,7 @@ describe("classifyAuditRow", () => {
     expect(classifyAuditRow(belazur, { place: place() }, routeCatalog)).toEqual({
       slug: "kirman-belazur-resort-spa", name: "Kirman Belazur Resort & Spa",
       regionSource: "district", indexRegion: "belek", derivedRegion: "bogazkent",
-      matchedTerm: "bogazkent", identityVerified: true, bucket: "fix",
+      matchedTerm: "bogazkent", identityVerified: true, identityStrength: "strict", bucket: "fix",
       euroDelta: 5, priceEquivalent: false,
     });
   });
@@ -57,6 +57,17 @@ describe("classifyAuditRow", () => {
   test("identity: aliases are accepted", () => {
     const row = classifyAuditRow({ ...belazur, aliases: ["Some Other"] }, { place: place({ displayName: { text: "Some Other Resort" } }) }, routeCatalog);
     expect(row.bucket).toBe("fix");
+  });
+
+  test("loose name match: ok when the address agrees with the index", () => {
+    const row = classifyAuditRow({ ...belazur, region: "bogazkent" }, { place: place({ displayName: { text: "Belazur Kirman Premium" } }) }, routeCatalog);
+    expect(row).toMatchObject({ bucket: "ok", identityStrength: "loose", identityVerified: true });
+  });
+
+  test("loose name match: a region disagreement is residue, never an automatic fix", () => {
+    const orangeCounty = { slug: "orange-county-alanya", name: "Orange County Alanya", region: "alanya_bati", regionSource: "district", aliases: [] };
+    const row = classifyAuditRow(orangeCounty, { place: place({ displayName: { text: "Orange County Resort Hotel" }, addressComponents: components("Çamyuva", "Kemer", "Antalya") }) }, routeCatalog);
+    expect(row).toMatchObject({ bucket: "identity", identityReason: "loose-name-region-conflict", derivedRegion: "kemer", euroDelta: 15 });
   });
 
   test("identity: non-lodging type", () => {

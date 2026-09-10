@@ -24,16 +24,20 @@ export const hotelCatalog = Object.freeze({
   "maxx-royal-kemer": { slug: "maxx-royal-kemer", name: "Maxx Royal Kemer Resort", regionSlug: "kemer", locationCopy: "Das Resort befindet sich in Kiriş, einem Küstenabschnitt nördlich des Ortskerns von Kemer am Fuß des Taurus-Gebirges." },
   "orange-county-resort-kemer": { slug: "orange-county-resort-kemer", name: "Orange County Resort Hotel Kemer", regionSlug: "kemer", locationCopy: "Das Hotel liegt in Beldibi, am nördlichen Eingang der Kemerer Küste, nahe der Felsklippen am Mittelmeer." },
   "paloma-pasha-resort": { slug: "paloma-pasha-resort", name: "Paloma Pasha Resort", regionSlug: "kemer", locationCopy: "Das Resort befindet sich in Göynük, an der Küste zwischen der Strandpromenade und der Bucht westlich von Kemer." },
-  "club-hotel-phaselis-rose": { slug: "club-hotel-phaselis-rose", name: "Club Hotel Phaselis Rose", regionSlug: "kemer", locationCopy: "Das Hotel liegt in Çamyuva, zwischen dem Kemer-Stadtzentrum und der antiken Stätte Phaselis an einer ruhigen Küstenbucht." },
   // Alanya
-  "utopia-world-hotel": { slug: "utopia-world-hotel", name: "Utopia World Hotel", regionSlug: "alanya", locationCopy: "Das Hotel liegt in Konaklı, einem langen Sandstrandabschnitt westlich des Alanya-Zentrums." },
+  // Its own address is Kargıcak, east of Alanya, not Konaklı; the 2026-09 region audit moved it (€70 → €90 Vito).
+  "utopia-world-hotel": { slug: "utopia-world-hotel", name: "Utopia World Hotel", regionSlug: "alanya", locationCopy: "Das Hotel liegt in Kargıcak, einem Küstenabschnitt östlich des Alanya-Zentrums, am Hang über dem Mittelmeer." },
   "sentido-gold-island": { slug: "sentido-gold-island", name: "Sentido Gold Island Hotel", regionSlug: "alanya", locationCopy: "Das Resort liegt im Alanya-Zentrum, nahe dem Kleopatra-Strand und dem Alanya-Hafen." },
   "q-premium-resort": { slug: "q-premium-resort", name: "Q Premium Resort Hotel Alanya", regionSlug: "alanya", locationCopy: "Das Hotel befindet sich in Konaklı, westlich des Alanya-Zentrums, direkt am Sandstrand gelegen." },
   "kirman-arycanda": { slug: "kirman-arycanda", name: "Kirman Arycanda De Luxe", regionSlug: "alanya", locationCopy: "Das Resort liegt in Konaklı, einem Küstengebiet mit langen Stränden westlich des Alanya-Zentrums." },
-  "delphin-diva": { slug: "delphin-diva", name: "Delphin Diva Premiere", regionSlug: "alanya", locationCopy: "Das Hotel befindet sich in Avsallar, einem ruhigen Strandort westlich von Alanya inmitten von Pinien- und Eukalyptuswäldern." },
+  // Antalya (Lara)
+  // Its own address is Lara/Kundu in Aksu, not Avsallar; the 2026-09 region audit moved it (€70 → €35 Vito).
+  "delphin-diva": { slug: "delphin-diva", name: "Delphin Diva Premiere", regionSlug: "antalya", locationCopy: "Das Hotel befindet sich in Lara (Kundu), östlich des Antalya-Zentrums und nur wenige Kilometer vom Flughafen entfernt, direkt am Sandstrand." },
   // Tekirova
   "rixos-premium-tekirova": { slug: "rixos-premium-tekirova", name: "Rixos Premium Tekirova", regionSlug: "tekirova", locationCopy: "Das Resort befindet sich in Tekirova, am Fuße des Taurus-Gebirges, umgeben von Pinienwäldern und dem türkisblauen Mittelmeer." },
   "amara-prestige": { slug: "amara-prestige", name: "Amara Prestige Hotel", regionSlug: "tekirova", locationCopy: "Das Hotel liegt in Tekirova, direkt am Mittelmeer zwischen dem Naturschutzgebiet Olympos und der antiken Stätte Phaselis." },
+  // Its own address is Tekirova, not Çamyuva; the 2026-09 region audit moved it (€55 → €75 Vito).
+  "club-hotel-phaselis-rose": { slug: "club-hotel-phaselis-rose", name: "Club Hotel Phaselis Rose", regionSlug: "tekirova", locationCopy: "Das Hotel liegt in Tekirova, südlich von Çamyuva, zwischen der antiken Stätte Phaselis und dem Kemer-Küstenstreifen an einer ruhigen Bucht." },
 });
 
 export const hotelBySlug = (slug) => hotelCatalog[slug] ?? null;

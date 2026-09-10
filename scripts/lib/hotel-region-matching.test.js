@@ -9,6 +9,7 @@ import {
   resolvePricingRegion,
   selectOperationalHotelPlace,
   summarizeRegionMatches,
+  looseNameMatch,
 } from "./hotel-region-matching.mjs";
 
 describe("hotel region matching", () => {
@@ -323,5 +324,55 @@ describe("isOperationalHotelPlace", () => {
   test("selectOperationalHotelPlace still uses the strict hotel types", () => {
     expect(selectOperationalHotelPlace("Barut Hemera", [place({ primaryType: "lodging" })])).toBeNull();
     expect(selectOperationalHotelPlace("Barut Hemera", [place()])).toEqual(place());
+  });
+});
+
+describe("looseNameMatch", () => {
+  test.each([
+    ["AG Hotels", "AG Hotels Antalya"],
+    ["Amara Dolce Vita Luxury", "Nirvana Dolce Vita"],
+    ["Rixos Downtown Antalya", "Rixos Downtown Antalya - The Land Of Legends Erişimi"],
+    ["Novia Dionis Resort & Spa", "Dionisus Hotel Belek&SPA"],
+    ["Lara Garden Hotel", "Lara Garden Butik Hotel"],
+    ["Barut Acanthus & Cennet", "Acanthus Cennet Barut Collection"],
+    ["Oez Mert Hotel", "Öz Mert Otel"],
+    ["Nebiluex Hotel", "Nebilux Hotel"],
+    ["Antalya City Hotel & Spa (Adults Only)", "Antalya City Hotel & Spa"],
+    ["Grand Park Lara", "Corendon Grand Park Lara"],
+  ])("accepts %s ↔ %s", (index, google) => {
+    expect(looseNameMatch(index, google)).toBe(true);
+  });
+
+  test.each([
+    ["Avullar Palace Hotel", "Antalya Palace Premium Hotel"],
+    ["Kylo Garden Hotel", "Blue Garden Hotel"],
+    ["Han Hotel", "Ayhan Hotel"],
+    ["Blue Heaven Beach Apart", "Ramada Plaza by Wyndham Antalya"],
+    ["Hotel", "Otel"],
+    ["Otto Lara Hotel", "Lara Hotel"],
+    ["Nas Otel", "Nas Corner Hotel"],
+  ])("rejects %s ↔ %s", (index, google) => {
+    expect(looseNameMatch(index, google)).toBe(false);
+  });
+
+  test("accepts any alias", () => {
+    expect(looseNameMatch(["Old Name", "Sunway Hotel"], "ALANYA SUNWAY HOTEL")).toBe(true);
+  });
+});
+
+describe("ADDRESS_REGION_TERMS additions from the 2026-09 audit residue", () => {
+  const components = (...texts) => texts.map((longText) => ({ longText, shortText: longText }));
+  test.each([
+    [["Kızlar Pınarı", "Alanya"], "alanya_merkez", "kizlar pinari"],
+    [["Çarşı", "Alanya"], "alanya_merkez", "carsi"],
+    [["Dinek", "Alanya"], "alanya_merkez", "dinek"],
+    [["Obagöl Mevkii", "Alanya"], "alanya_merkez", "obagol"],
+    [["Karaburun Mevkii", "Alanya"], "alanya_bati", "karaburun"],
+    [["Gölcük Mevkii", "Alanya"], "alanya_bati", "golcuk"],
+    [["Yeşilöz", "Alanya"], "demirtas", "yesiloz"],
+    [["İskele Mevkii", "Serik"], "belek", "iskele"],
+    [["KARABURUN MEVKII OKURCALAR BELDESI Alanya", "region"], "alanya_bati", "karaburun"],
+  ])("%j → %s via %s", (parts, region, term) => {
+    expect(matchAddressRegionTerm(components(...parts))).toEqual({ region, term });
   });
 });

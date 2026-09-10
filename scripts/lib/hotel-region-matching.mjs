@@ -124,15 +124,15 @@ const ministryDistrictKey = (value) => String(value ?? "")
 // mahalle names (Cumhuriyet, Saray, Ilıca) exist in several ilçes, and
 // without the guard the first region in scan order would claim them.
 const ADDRESS_REGION_TERMS = Object.freeze([
-  ["demirtas", ["demirtas"], "alanya"],
+  ["demirtas", ["demirtas", "yesiloz"], "alanya"],
   ["kargicak", ["kargicak"], "alanya"],
   ["alanya_dogu", ["kestel", "mahmutlar"], "alanya"],
-  ["alanya_bati", ["okurcalar", "incekum", "avsallar", "turkler", "payallar", "konakli"], "alanya"],
-  ["alanya_merkez", ["oba", "tosmur", "saray", "guller pinari", "cumhuriyet"], "alanya"],
+  ["alanya_bati", ["okurcalar", "incekum", "avsallar", "turkler", "payallar", "konakli", "karaburun", "golcuk"], "alanya"],
+  ["alanya_merkez", ["oba", "obagol", "tosmur", "saray", "guller pinari", "cumhuriyet", "kizlar pinari", "hacet", "carsi", "kadipasa", "kucukhasbahce", "dinek", "sekerhane", "turktas"], "alanya"],
   ["kizilagac", ["kizilagac", "kizilot", "cenger"], "manavgat"],
   ["side", ["side", "kumkoy", "gundogdu", "evrenseki", "sorgun", "titreyengol", "colakli", "ilica", "manavgat"], "manavgat"],
   ["bogazkent", ["bogazkent"], "serik"],
-  ["belek", ["belek", "kadriye"], "serik"],
+  ["belek", ["belek", "kadriye", "iskele"], "serik"],
   ["tekirova", ["tekirova"], "kemer"],
   ["kumluca", ["kumluca", "adrasan", "olympos"], "kumluca"],
   ["kas", ["kas", "kalkan"], "kas"],
@@ -150,7 +150,9 @@ export function matchAddressRegionTerm(components) {
   // Within a region, walk the address parts first so the most specific
   // component (Adrasan) reports its own term rather than the ilçe's (Kumluca).
   for (const [region, terms, ilce] of ADDRESS_REGION_TERMS) {
-    if (ilce && !parts.includes(ilce)) continue;
+    // Word-boundary, not exact: some listings stuff the ilçe into a free-text
+    // component ("Karaburun Mevkii Okurcalar Beldesi Alanya").
+    if (ilce && !parts.some((part) => matches(part, ilce))) continue;
     for (const part of parts) {
       const term = terms.find((candidate) => matches(part, candidate));
       if (term) return { region, term };
@@ -174,6 +176,72 @@ export const LODGING_PLACE_TYPES = new Set([
   "hotel", "resort_hotel", "lodging", "extended_stay_hotel", "guest_house",
   "inn", "motel", "hostel", "bed_and_breakfast", "private_guest_room",
 ]);
+
+// Words that say what a place is or where it is, never which one it is.
+const NAME_NOISE_WORDS = new Set([
+  ...GENERIC_IDENTITY_WORDS, "resorts", "apart", "aparthotel", "apartments", "apartment",
+  "suites", "suite", "suit", "boutique", "butik", "pansiyon", "pension", "pansion", "hostel",
+  "antalya", "alanya", "side", "belek", "kemer", "lara", "kundu", "konyaalti", "kaleici",
+  "manavgat", "serik", "beach", "club", "family", "deluxe", "luxury", "luxe", "premium",
+  "collection", "wellness", "golf", "and", "by", "de", "la", "le", "el", "residence", "villas",
+  "villa", "adults", "adult", "only", "all", "inclusive", "kids", "concept", "airport", "city",
+  "old", "town", "special", "class", "ex", "plus", "exclusive", "palace", "park", "garden",
+  "royal", "grand", "star", "house", "homes", "home", "inn", "tower", "towers", "new", "holiday",
+  "village", "selected", "access", "erisimi", "cafe", "breakfast", "restaurant", "ve", "aparts",
+  "1", "2", "3", "4", "5", "12", "16", "18",
+]);
+const distinctiveTokens = (value) => new Set(
+  ministryNameKey(value).split(" ").filter((word) => word && !NAME_NOISE_WORDS.has(word)));
+// Words that only say what kind of lodging it is; a name made purely of
+// location words ("Lara Garden Hotel") keeps those for the fallback compare.
+const TYPE_WORDS = new Set([
+  ...GENERIC_IDENTITY_WORDS, "resorts", "apart", "aparthotel", "apartments", "apartment", "suites",
+  "suite", "suit", "boutique", "butik", "pansiyon", "pension", "pansion", "hostel", "and", "de", "la",
+  "adults", "adult", "only", "all", "inclusive", "plus", "ex", "class", "special", "concept", "kids",
+  "12", "16", "18",
+]);
+// German booking sites transliterate umlauts as oe/ue/ae ("Oezhan" for Özhan);
+// ministryNameKey already folds ö/ü/ä to o/u/a, so fold the digraphs the same way.
+const foldDigraphs = (value) => value.replace(/oe/g, "o").replace(/ue/g, "u").replace(/ae/g, "a");
+const typeStrippedKey = (value) => foldDigraphs(
+  ministryNameKey(value).split(" ").filter((word) => word && !TYPE_WORDS.has(word)).join(" "));
+// Spacing and hyphenation drift ("M-ODA" / "Moda", "Sun Anatolia" / "Sunanatolia").
+const compactKey = (value) => typeStrippedKey(value).replace(/ /g, "");
+const compactMatch = (a, b) => {
+  const [short, long] = a.length <= b.length ? [a, b] : [b, a];
+  return short.length >= 5 && long.includes(short);
+};
+const sameSet = (a, b) => a.size === b.size && [...a].every((token) => b.has(token));
+
+/**
+ * Loose identity for the audit's second pass: every distinctive token of the
+ * shorter name appears in the longer one (whole token, or a shared ≥5-char
+ * prefix for spelling drift), or the two share at least two distinctive
+ * tokens making up half of their union. Falls back to exact equality of the
+ * generic-stripped keys when a name has no distinctive token at all
+ * ("AG Hotels" / "AG Hotels Antalya"). Location words are noise here, so a
+ * loose match is only trusted when the address also agrees with the index —
+ * see classifyAuditRow.
+ */
+export function looseNameMatch(candidateNames, placeName) {
+  const wanted = typeStrippedKey(placeName);
+  return [].concat(candidateNames).some((candidate) => {
+    const a = distinctiveTokens(candidate);
+    const b = distinctiveTokens(placeName);
+    if (!a.size || !b.size) {
+      return wanted !== "" && (typeStrippedKey(candidate) === wanted || compactMatch(compactKey(candidate), compactKey(placeName)));
+    }
+    if (sameSet(a, b)) return true;
+    if (compactMatch(compactKey(candidate), compactKey(placeName))) return true;
+    const [small, large] = a.size <= b.size ? [a, b] : [b, a];
+    const has = (token) => large.has(token) || [...large].some((other) =>
+      token.length >= 5 && other.length >= 5 && (other.startsWith(token) || token.startsWith(other)));
+    if ([...small].every(has) && [...small].some((token) => token.length >= 4)) return true;
+    const shared = [...a].filter((token) => b.has(token)).length;
+    const union = new Set([...a, ...b]).size;
+    return shared >= 2 && shared / union >= 0.5;
+  });
+}
 
 /**
  * True when one Places result is an operating lodging business whose name

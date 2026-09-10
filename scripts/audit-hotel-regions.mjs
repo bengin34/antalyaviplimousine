@@ -12,6 +12,7 @@
  *   node scripts/audit-hotel-regions.mjs --max-calls 300
  *   node scripts/audit-hotel-regions.mjs --slug kirman-belazur-resort-spa
  *   node scripts/audit-hotel-regions.mjs --only-unchecked
+ *   node scripts/audit-hotel-regions.mjs --redo identity   # re-fetch one bucket after a rule change
  *
  * Writes scripts/hotel-region-audit/{checkpoint,report}.json, report.md and
  * src/hotel-distances.js (checked flags only). A --slug run prints its result
@@ -41,6 +42,10 @@ if (args.includes("--slug") && (!onlySlug || onlySlug.startsWith("--"))) {
 }
 const onlyUnchecked = flag("--only-unchecked");
 const fresh = flag("--fresh");
+const redoBucket = value("--redo", null);
+if (args.includes("--redo") && !["ok", "fix", "unresolved", "identity", "gone"].includes(redoBucket)) {
+  throw new Error("--redo needs one of: ok, fix, unresolved, identity, gone");
+}
 
 const outputRoot = fileURLToPath(new URL("./hotel-region-audit/", import.meta.url));
 await mkdir(outputRoot, { recursive: true });
@@ -59,6 +64,11 @@ async function atomicJson(path, valueToWrite) {
 let checkpoint = { schemaVersion: 1, completed: {}, failures: {}, calls: 0 };
 if (!fresh && existsSync(checkpointPath)) checkpoint = JSON.parse(await readFile(checkpointPath, "utf8"));
 if (onlySlug) delete checkpoint.completed[onlySlug]; // a --slug run always re-verifies
+if (redoBucket) {
+  for (const [slug, row] of Object.entries(checkpoint.completed)) {
+    if (row.bucket === redoBucket) delete checkpoint.completed[slug];
+  }
+}
 
 const targets = hotelIndex.filter((hotel) => {
   if (onlySlug) return hotel.slug === onlySlug;

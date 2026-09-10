@@ -4,7 +4,7 @@
  * Persistence rule: nothing returned here may contain Places text. The row
  * carries only derived values (region, matched term, booleans, bucket).
  */
-import { matchAddressRegionTerm, isOperationalHotelPlace, LODGING_PLACE_TYPES } from "./hotel-region-matching.mjs";
+import { matchAddressRegionTerm, isOperationalHotelPlace, looseNameMatch, LODGING_PLACE_TYPES } from "./hotel-region-matching.mjs";
 
 export const AUDIT_BUCKETS = Object.freeze(["ok", "fix", "unresolved", "identity", "gone"]);
 
@@ -21,12 +21,14 @@ const samePrices = (regionA, regionB, routeCatalog) => {
   return Boolean(a && b) && a.vito === b.vito && a.sprinter === b.sprinter;
 };
 
-function identityReason(names, place) {
-  if (!place?.id) return "missing";
-  if (place.businessStatus !== "OPERATIONAL") return "status";
-  if (!LODGING_PLACE_TYPES.has(place.primaryType)) return "type";
-  if (!isOperationalHotelPlace(names, place)) return "name";
-  return null;
+/** Returns { reason } when identity fails, else { strength: "strict" | "loose" }. */
+function identityCheck(names, place) {
+  if (!place?.id) return { reason: "missing" };
+  if (place.businessStatus !== "OPERATIONAL") return { reason: "status" };
+  if (!LODGING_PLACE_TYPES.has(place.primaryType)) return { reason: "type" };
+  if (isOperationalHotelPlace(names, place)) return { strength: "strict" };
+  if (looseNameMatch(names, place.displayName?.text)) return { strength: "loose" };
+  return { reason: "name" };
 }
 
 /**
@@ -51,19 +53,30 @@ export function classifyAuditRow(hotel, details, routeCatalog) {
   if (details?.notFound || !place || place.businessStatus === "CLOSED_PERMANENTLY") {
     return { ...base, bucket: "gone", identityReason: place ? "status" : "missing" };
   }
-  const reason = identityReason([hotel.name, ...(hotel.aliases ?? [])], place);
-  if (reason) return { ...base, bucket: "identity", identityReason: reason };
+  const identity = identityCheck([hotel.name, ...(hotel.aliases ?? [])], place);
+  if (identity.reason) return { ...base, bucket: "identity", identityReason: identity.reason };
 
   const match = matchAddressRegionTerm(place.addressComponents);
-  if (!match) return { ...base, identityVerified: true, bucket: "unresolved" };
+  if (!match) return { ...base, identityVerified: true, identityStrength: identity.strength, bucket: "unresolved" };
 
   const priceEquivalent = match.region !== hotel.region && samePrices(match.region, hotel.region, routeCatalog);
   const agrees = match.region === hotel.region || priceEquivalent;
+  // A loose name match is only trusted when the address corroborates the
+  // index: a similar name in a different region may be a sibling property
+  // (Orange County Alanya vs Kemer), so that disagreement is residue, not a fix.
+  if (!agrees && identity.strength === "loose") {
+    return {
+      ...base, derivedRegion: match.region, matchedTerm: match.term, identityStrength: "loose",
+      bucket: "identity", identityReason: "loose-name-region-conflict",
+      euroDelta: euroDelta(hotel.region, match.region, routeCatalog),
+    };
+  }
   return {
     ...base,
     derivedRegion: match.region,
     matchedTerm: match.term,
     identityVerified: true,
+    identityStrength: identity.strength,
     bucket: agrees ? "ok" : "fix",
     euroDelta: agrees ? 0 : euroDelta(hotel.region, match.region, routeCatalog),
     priceEquivalent,
@@ -84,7 +97,7 @@ export function buildAuditReport(rows, { generatedAt, indexed }) {
   return { schemaVersion: 1, generatedAt, indexed, audited: rows.length, counts, rows: ordered };
 }
 
-const COLUMNS = ["slug", "bucket", "euroDelta", "indexRegion", "derivedRegion", "matchedTerm", "regionSource", "identityReason"];
+const COLUMNS = ["slug", "bucket", "euroDelta", "indexRegion", "derivedRegion", "matchedTerm", "regionSource", "identityStrength", "identityReason"];
 
 export function renderAuditTable(report) {
   const head = `| ${COLUMNS.join(" | ")} |\n| ${COLUMNS.map(() => "---").join(" | ")} |`;
