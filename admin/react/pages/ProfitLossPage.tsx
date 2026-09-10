@@ -473,11 +473,6 @@ export default function ProfitLossPage({ navigate, initialPeriod }: { navigate: 
             onRetry={() => void refreshDistributionLedger()}
             onSaveSettings={saveShareSettings}
             onCreateDistribution={confirmDistribution}
-            onSaveOwnVehicleProfit={saveOwnVehicleProfit}
-            onSaveSupplierCost={saveSupplierCost}
-            onSaveCostMode={saveCostMode}
-            onFocusLeg={focusLeg}
-            navigate={navigate}
           />}
           {editable && <ExpandableSection title="Hesaplama ayarları" detail={settingsMonths.length > 1 ? `${settingsMonths.length} ay` : monthLabel(settingsMonths[0] ?? today.slice(0, 7))}>
             {settingsMonths.map(month => <SettingsForm key={month} period={month} settings={settings} onSaved={saveSetting} />)}

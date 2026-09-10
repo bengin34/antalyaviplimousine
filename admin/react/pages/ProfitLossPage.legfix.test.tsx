@@ -136,34 +136,34 @@ afterEach(() => {
 })
 
 describe('ProfitLossPage missing distance recovery', () => {
-  test('clears the distribution blocker once the profit is entered on the blocker itself', async () => {
+  test('clears the distribution blocker once the profit is entered in the grid', async () => {
     installQueries([unresolvedBooking()])
     render(<ProfitLossPage navigate={vi.fn()} initialPeriod="2026-08" />)
 
-    const blocker = await screen.findByRole('alert')
-    expect(blocker).toHaveTextContent('Reklam öncesi kâr eksik.')
-    expect(screen.getByRole('button', { name: 'Kârı dağıt' })).toBeDisabled()
+    expect(await screen.findByRole('button', { name: 'Kârı dağıt' })).toBeDisabled()
 
-    fireEvent.click(within(blocker).getByRole('button', { name: 'Kâr/maliyet gir' }))
-    fireEvent.change(within(blocker).getByLabelText('Reklam öncesi kâr (€)'), { target: { value: '380' } })
-    fireEvent.click(within(blocker).getByRole('button', { name: 'Kaydet ve hesapla' }))
+    // Eksik kâr, dağıtım kutusunda değil, seyahat listesindeki hücrede düzeltilir.
+    const profitCell = await screen.findAllByRole('button', { name: 'Test Yolcu gidiş kâr' })
+    fireEvent.click(profitCell[0])
+    fireEvent.change(screen.getAllByRole('textbox', { name: 'Test Yolcu gidiş kâr' })[0], { target: { value: '380' } })
+    fireEvent.keyDown(screen.getAllByRole('textbox', { name: 'Test Yolcu gidiş kâr' })[0], { key: 'Enter' })
 
     await waitFor(() => expect(mocks.updateBooking).toHaveBeenCalledWith({ own_vehicle_profit_eur: 380 }))
-    await waitFor(() => expect(screen.queryByText('Reklam öncesi kâr eksik.')).toBeNull())
-    expect(screen.getByRole('button', { name: 'Kârı dağıt' })).toBeEnabled()
+    await waitFor(() => expect(screen.getByRole('button', { name: 'Kârı dağıt' })).toBeEnabled())
   })
 
-  test('shows the unresolved leg in the grid so it can be fixed there too', async () => {
+  test('marks the unresolved leg in the grid instead of listing it in an alert', async () => {
     installQueries([unresolvedBooking()])
     render(<ProfitLossPage navigate={vi.fn()} initialPeriod="2026-08" />)
 
-    // Dağıtılmamış sekmesindeki grid, açık aralıktaki eksik ayağı doğrudan gösterir.
-    await waitFor(() => expect(screen.getAllByText('AVL-101').length).toBeGreaterThan(0))
-    expect(screen.getAllByText('Eksik bilgi').length).toBeGreaterThan(0)
+    // Eksik ayak yalnızca listede: vurgulu satır + mobil kartta "Eksik bilgi" rozeti.
+    await waitFor(() => expect(screen.getAllByText('Eksik bilgi').length).toBeGreaterThan(0))
+    const table = screen.getByRole('table')
+    expect(within(table).getAllByRole('row').filter(row => row.classList.contains('is-attention'))).toHaveLength(1)
 
-    // "Listede aç" dağıtılmamış sekmede kalır (ay taşıma yok).
-    const blocker = await screen.findByRole('alert')
-    fireEvent.click(within(blocker).getByRole('button', { name: 'Listede aç' }))
-    expect(screen.getByRole('button', { name: 'Dağıtılmamış' })).toHaveClass('active')
+    // Ayak kartları ve onların eylemleri artık dağıtım kutusunda yok.
+    expect(screen.queryByRole('button', { name: 'Listede aç' })).toBeNull()
+    expect(screen.queryByRole('button', { name: 'Kâr/maliyet gir' })).toBeNull()
+    expect(screen.getByRole('button', { name: 'Kârı dağıt' })).toBeDisabled()
   })
 })

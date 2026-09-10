@@ -699,13 +699,6 @@ button,
   line-height: 1.45;
 }
 
-.profit-distribution-alert > div {
-  display: grid;
-  gap: 7px;
-  padding-top: 9px;
-  border-top: 1px solid rgba(255, 173, 102, 0.22);
-}
-
 .profit-distribution-preview {
   grid-template-columns: minmax(0, 1fr);
   padding: 14px;
@@ -1268,24 +1261,6 @@ button.profit-leg-action.is-ghost:hover:not(:disabled) {
   flex: 1 1 140px;
 }
 
-.profit-leg-badge {
-  display: inline-flex;
-  align-items: center;
-  align-self: flex-start;
-  gap: 6px;
-  padding: 4px 10px;
-  border: 1px solid transparent;
-  border-radius: 999px;
-  font-size: 11px;
-  font-weight: 700;
-}
-
-.profit-leg-badge.is-warning {
-  border-color: rgba(255, 173, 102, 0.4);
-  background: var(--orange-bg);
-  color: var(--orange);
-}
-
 .profit-trip-history-row.is-incomplete {
   border-color: rgba(255, 173, 102, 0.4);
 }
@@ -1295,81 +1270,11 @@ button.profit-leg-action.is-ghost:hover:not(:disabled) {
   box-shadow: 0 0 0 3px rgba(115, 183, 255, 0.22);
 }
 
-.profit-trip-history-actions,
-.profit-blocker-actions {
+.profit-trip-history-actions {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
   align-items: stretch;
   gap: 8px;
-}
-
-/* Dağıtımı durduran ayakların kartı. */
-.profit-blocker-lead {
-  color: #ffc18c;
-  font-size: 12px;
-  font-weight: 700;
-  line-height: 1.45;
-}
-
-.profit-blocker-card {
-  display: grid;
-  gap: 9px;
-  padding: 13px;
-  border: 1px solid rgba(255, 173, 102, 0.3);
-  border-radius: 13px;
-  background: rgba(11, 16, 24, 0.66);
-}
-
-.profit-blocker-ref {
-  color: var(--text);
-  font-size: 13px;
-}
-
-.profit-blocker-ref strong {
-  font-size: 14px;
-}
-
-.profit-blocker-route {
-  color: #d7c1a8;
-  font-size: 13px;
-  font-weight: 600;
-}
-
-.profit-blocker-facts {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 7px;
-  margin: 2px 0;
-}
-
-.profit-blocker-facts > div {
-  min-width: 0;
-  padding: 8px 10px;
-  border-radius: 10px;
-  background: rgba(255, 255, 255, 0.03);
-}
-
-.profit-blocker-facts dt {
-  color: var(--text-muted);
-  font-size: 9px;
-  font-weight: 800;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-}
-
-.profit-blocker-facts dd {
-  margin-top: 3px;
-  color: var(--text);
-  font-size: 13px;
-  font-weight: 700;
-  font-variant-numeric: tabular-nums;
-  overflow-wrap: anywhere;
-}
-
-.profit-blocker-hint {
-  color: #c39774;
-  font-size: 12px;
-  line-height: 1.5;
 }
 
 .profit-action-list li {
@@ -1406,15 +1311,12 @@ button.profit-leg-action.is-ghost:hover:not(:disabled) {
 }
 
 @media (min-width: 600px) {
-  .profit-trip-history-actions,
-  .profit-blocker-actions {
+  .profit-trip-history-actions {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .profit-trip-history-actions > .profit-cost-toggle-field,
-  .profit-trip-history-actions > .profit-leg-form,
-  .profit-blocker-actions > .profit-cost-toggle-field,
-  .profit-blocker-actions > .profit-leg-form {
+  .profit-trip-history-actions > .profit-leg-form {
     grid-column: 1 / -1;
   }
 }
@@ -1578,6 +1480,15 @@ button.profit-leg-action.is-ghost:hover:not(:disabled) {
 .ledger-sort.is-sorted .ledger-sort-icon { opacity: 1; color: var(--blue); }
 .ledger-col-sticky { position: sticky; left: 0; z-index: 1; background: #161a22; }
 .ledger-table tbody tr:nth-child(even) td.ledger-col-sticky { background: #1a1f28; }
+/*
+ * Eksik bilgili satırın turuncu zemini sabit sütunda da sürsün (sabit sütunun
+ * kendi arka planı olmasa altındaki hücreler geçerken görünürdü) ve satır
+ * başında turuncu bir şerit dursun: dağıtımı durduran ayakların tek işareti bu.
+ */
+.ledger-table tbody tr.is-attention td.ledger-col-sticky {
+  background: var(--orange-bg);
+  box-shadow: inset 3px 0 0 var(--orange);
+}
 
 .ledger-cell-edit {
   all: unset; cursor: text; font: inherit; color: inherit;

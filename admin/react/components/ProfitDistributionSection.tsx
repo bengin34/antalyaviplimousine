@@ -1,23 +1,9 @@
 import { useEffect, useMemo, useState, type FormEvent, type ReactNode } from 'react'
 import { buildProfitDistributionSnapshot, calculateProfitDistribution } from '../../profit-loss-metrics.js'
-import { fmtLongDate, formatEuro, formatNumber, formatTry, profitLocationLabel } from '../lib/format'
-import {
-  LegCostControls,
-  legCostColumns,
-  legCostMode,
-  legDirectionLabel,
-  toLegKey,
-  type CostMode,
-  type LegKey,
-  type ProfitLegRef,
-  type SaveCostMode,
-  type SaveOwnVehicleProfit,
-  type SaveSupplierCost,
-} from './LegCostEditors'
+import { fmtLongDate, formatEuro, formatTry } from '../lib/format'
 import type {
   Booking,
   CreateProfitDistributionInput,
-  Navigate,
   ProfitDistribution,
   ProfitDistributionSnapshot,
   ProfitShareSettings,
@@ -37,12 +23,6 @@ export interface ProfitDistributionSectionProps {
   onRetry: () => void
   onSaveSettings: (input: SaveProfitShareSettingsInput) => Promise<void>
   onCreateDistribution: (input: CreateProfitDistributionInput) => Promise<void>
-  onSaveOwnVehicleProfit: SaveOwnVehicleProfit
-  onSaveSupplierCost: SaveSupplierCost
-  onSaveCostMode: SaveCostMode
-  /** Aşağıdaki seyahat listesinde ilgili satıra kaydırır. */
-  onFocusLeg: (leg: ProfitLegRef & { date?: string | null }) => void
-  navigate: Navigate
 }
 
 type DistributionMetrics = ReturnType<typeof calculateProfitDistribution>
@@ -231,140 +211,6 @@ function FinancialBucket({ label, eur, tryAmount }: { label: string; eur: unknow
   </div>
 }
 
-const BLOCKER_HINTS: Record<string, string> = {
-  'unresolved-route': 'Bu ayak için reklam öncesi kâr henüz girilmemiş. Kârı girin ya da ayağı satılan transfer olarak işaretleyip tedarikçi bedelini yazın.',
-  'daily-distance-missing': 'Günlük hizmette reklam öncesi kâr, rezervasyon detayındaki gün kartından girilir.',
-  'supplier-cost-invalid': 'Ayak satılan transfer olarak işaretli ama tedarikçi bedeli boş. Bedeli girin ya da ayağı kendi aracımıza çevirin.',
-}
-
-/**
- * Dağıtımı durduran bir seyahat ayağı. Eksik bilgi burada, kartın içinde
- * düzeltilir; rezervasyon detayına gitmek yalnızca günlük hizmet KM'si için
- * gerekir. Ayak başka bir aya aitse "Listede aç" seyahat listesini o döneme alır.
- */
-function BlockerCard({ blocker, booking, onSaveOwnVehicleProfit, onSaveSupplierCost, onSaveCostMode, onFocusLeg, navigate }: {
-  blocker: DistributionBlocker
-  booking: Booking | undefined
-  onSaveOwnVehicleProfit: SaveOwnVehicleProfit
-  onSaveSupplierCost: SaveSupplierCost
-  onSaveCostMode: SaveCostMode
-  onFocusLeg: (leg: ProfitLegRef & { date?: string | null }) => void
-  navigate: Navigate
-}) {
-  const details = (blocker.legDetails ?? {}) as Record<string, unknown>
-  const legKey: LegKey = toLegKey(blocker.leg)
-  const legLabel = legDirectionLabel(booking, blocker.leg)
-  const isDailyChauffeur = Boolean(details.isDailyChauffeur)
-  const bookingRef = String(blocker.bookingRef ?? '')
-  const legRef: ProfitLegRef & { date?: string | null } = {
-    bookingId: String(blocker.bookingId ?? ''),
-    bookingRef,
-    leg: String(blocker.leg ?? 'outbound'),
-    date: blocker.date ?? null,
-  }
-  const currentMode: CostMode = legCostMode(booking, legKey)
-  const currentCostTry = booking ? Number(booking[legCostColumns(legKey).cost]) || 0 : 0
-  const dailyKm = Number(details.directVehicleKm)
-  const ownVehicleProfitEur = details.ownVehicleProfitEur != null ? Number(details.ownVehicleProfitEur) : null
-  const ownVehicleProfitTry = details.ownVehicleProfitTry != null ? Number(details.ownVehicleProfitTry) : null
-  const revenueEur = Number(details.revenueEur) || 0
-  const eurTryRate = Number(details.eurTryRate)
-  const extraCostTry = (Number(details.airportMeetCostTry) || 0) + (Number(details.parkingCostTry) || 0)
-  const extraCostEur = eurTryRate > 0 ? extraCostTry / eurTryRate : 0
-  const canEditLeg = Boolean(booking) && !isDailyChauffeur
-  const hint = BLOCKER_HINTS[blocker.code]
-
-  return <div className="profit-blocker-card">
-    <p className="profit-leg-badge is-warning">{BLOCKER_MESSAGES[blocker.code] ?? 'Dağıtım için eksik bilgi var.'}</p>
-    <p className="profit-blocker-ref">
-      <strong>{bookingRef}</strong>
-      {' · '}{legLabel}
-      {blocker.date ? ` · ${fmtLongDate(blocker.date)}` : ''}
-    </p>
-    {details.from != null && <p className="profit-blocker-route">
-      {profitLocationLabel(details.from)} → {profitLocationLabel(details.to)}
-    </p>}
-    <dl className="profit-blocker-facts">
-      <div><dt>Gelir</dt><dd>{formatEuro(revenueEur)}</dd></div>
-      {!isDailyChauffeur && <div>
-        <dt>Maliyet modeli</dt>
-        <dd>{currentMode === 'sold_transfer' ? 'Satılan transfer' : 'Kendi aracımız'}</dd>
-      </div>}
-      {currentMode === 'sold_transfer' && !isDailyChauffeur && <div>
-        <dt>Tedarikçi gideri</dt>
-        <dd>{currentCostTry > 0 ? formatTry(currentCostTry) : 'Girilmedi'}</dd>
-      </div>}
-      {currentMode === 'own_vehicle' && isDailyChauffeur && <div>
-        <dt>Gerçekleşen KM</dt>
-        <dd>{Number.isFinite(dailyKm) && dailyKm > 0 ? `${formatNumber(dailyKm, 1)} km` : 'Girilmedi'}</dd>
-      </div>}
-      {currentMode === 'own_vehicle' && !isDailyChauffeur && <div>
-        <dt>Reklam öncesi kâr</dt>
-        <dd>{ownVehicleProfitEur != null && ownVehicleProfitTry != null ? <MoneyPair eur={ownVehicleProfitEur} tryAmount={ownVehicleProfitTry} /> : 'Girilmedi'}</dd>
-      </div>}
-      {Number.isFinite(eurTryRate) && eurTryRate > 0 && <div>
-        <dt>Kur</dt><dd>₺{eurTryRate.toFixed(2)}</dd>
-      </div>}
-    </dl>
-    {hint && <p className="profit-blocker-hint">{hint}</p>}
-    <div className="profit-blocker-actions">
-      {canEditLeg && booking && <LegCostControls
-        booking={booking}
-        legRef={legRef}
-        leg={legKey}
-        legLabel={legLabel}
-        currentCostTry={currentCostTry}
-        isSoldTransfer={currentMode === 'sold_transfer'}
-        ownVehicleProfitEur={ownVehicleProfitEur}
-        revenueEur={revenueEur}
-        extraCostEur={extraCostEur}
-        onSaveOwnVehicleProfit={onSaveOwnVehicleProfit}
-        onSaveCostMode={onSaveCostMode}
-        onSaveSupplierCost={onSaveSupplierCost}
-      />}
-      {legRef.bookingId && <button
-        className="profit-leg-action is-ghost"
-        type="button"
-        onClick={() => onFocusLeg(legRef)}
-      >Listede aç</button>}
-      <button
-        className="profit-leg-action is-ghost"
-        type="button"
-        onClick={() => navigate(`#detail/${encodeURIComponent(bookingRef)}?from=profit-loss`)}
-      >Seyahate git</button>
-    </div>
-  </div>
-}
-
-function BlockerList({ messages, blockers, bookingsById, onSaveOwnVehicleProfit, onSaveSupplierCost, onSaveCostMode, onFocusLeg, navigate }: {
-  messages: string[]
-  blockers: DistributionBlocker[]
-  bookingsById: Map<string, Booking>
-  onSaveOwnVehicleProfit: SaveOwnVehicleProfit
-  onSaveSupplierCost: SaveSupplierCost
-  onSaveCostMode: SaveCostMode
-  onFocusLeg: (leg: ProfitLegRef & { date?: string | null }) => void
-  navigate: Navigate
-}) {
-  if (!messages.length && !blockers.length) return null
-  return <div className="profit-distribution-alert" role="alert">
-    {messages.map(message => <p key={message}>{message}</p>)}
-    {blockers.length > 0 && <p className="profit-blocker-lead">
-      {blockers.length} seyahat ayağı dağıtımı durduruyor. Eksik bilgiyi buradan tamamlayabilirsiniz.
-    </p>}
-    {blockers.map((blocker, index) => <BlockerCard
-      key={`${blocker.code}:${blocker.bookingId ?? index}:${blocker.leg ?? index}`}
-      blocker={blocker}
-      booking={bookingsById.get(String(blocker.bookingId ?? ''))}
-      onSaveOwnVehicleProfit={onSaveOwnVehicleProfit}
-      onSaveSupplierCost={onSaveSupplierCost}
-      onSaveCostMode={onSaveCostMode}
-      onFocusLeg={onFocusLeg}
-      navigate={navigate}
-    />)}
-  </div>
-}
-
 function DistributionConfirmation({ metrics, saving, onCancel, onConfirm }: {
   metrics: DistributionMetrics
   saving: boolean
@@ -392,15 +238,9 @@ function OpenDistributionPreview({
   shareSettings,
   distributions,
   onCreateDistribution,
-  onSaveOwnVehicleProfit,
-  onSaveSupplierCost,
-  onSaveCostMode,
-  onFocusLeg,
-  navigate,
   openingEditor,
 }: Pick<ProfitDistributionSectionProps,
-  'today' | 'bookings' | 'settingsByMonth' | 'ratesByDate' | 'shareSettings' | 'distributions'
-  | 'onCreateDistribution' | 'onSaveOwnVehicleProfit' | 'onSaveSupplierCost' | 'onSaveCostMode' | 'onFocusLeg' | 'navigate'
+  'today' | 'bookings' | 'settingsByMonth' | 'ratesByDate' | 'shareSettings' | 'distributions' | 'onCreateDistribution'
 > & { shareSettings: ProfitShareSettings; openingEditor?: ReactNode }) {
   const openStart = useMemo(
     () => latestOpenStart(shareSettings, distributions),
@@ -449,8 +289,6 @@ function OpenDistributionPreview({
     ratesByDate,
   }), [bookings, openStart, endDate, today, settingsByMonth, operationsSharePct, ratesByDate])
 
-  const bookingsById = useMemo(() => new Map(bookings.map(booking => [booking.id, booking])), [bookings])
-
   const localMessages: string[] = []
   if (!operationsPrecise || !vehiclePrecise) {
     localMessages.push('Pay yüzdeleri en fazla iki ondalık basamak içermelidir.')
@@ -460,9 +298,8 @@ function OpenDistributionPreview({
     localMessages.push('Payların toplamı %100 olmalıdır.')
   }
 
-  const detailBlockers = metrics.blockers.filter((blocker: DistributionBlocker) => (
-    blocker.bookingRef && ['unresolved-route', 'daily-distance-missing', 'supplier-cost-invalid'].includes(blocker.code)
-  ))
+  // Ayak bazlı engeller burada listelenmez; eksik bilgi aşağıdaki seyahat
+  // listesinde vurgulu satır olarak görünür (bkz. needsAttention).
   const globalMetricMessages = metrics.blockers
     .filter((blocker: DistributionBlocker) => !blocker.bookingRef && blocker.code !== 'invalid-share')
     .map((blocker: DistributionBlocker) => BLOCKER_MESSAGES[blocker.code] ?? 'Dağıtım bu bilgilerle tamamlanamaz.')
@@ -551,16 +388,9 @@ function OpenDistributionPreview({
           <span>{formatTry(metrics.shares?.vehicleOwnerAmountTry)}</span>
         </article>
       </div>
-      <BlockerList
-        messages={allMessages}
-        blockers={detailBlockers}
-        bookingsById={bookingsById}
-        onSaveOwnVehicleProfit={onSaveOwnVehicleProfit}
-        onSaveSupplierCost={onSaveSupplierCost}
-        onSaveCostMode={onSaveCostMode}
-        onFocusLeg={onFocusLeg}
-        navigate={navigate}
-      />
+      {allMessages.length > 0 && <div className="profit-distribution-alert" role="alert">
+        {allMessages.map(message => <p key={message}>{message}</p>)}
+      </div>}
       {status && <div role="status">{status}</div>}
       <div className="profit-distribution-actions">
         {openingEditor}

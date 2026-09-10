@@ -147,6 +147,12 @@ afterEach(() => {
   vi.useRealTimers()
 })
 
+/** Gridin veri satırları: listede görünen ayakların tek kaynağı. */
+async function ledgerRows() {
+  const table = await screen.findByRole('table')
+  return Array.from(table.querySelectorAll<HTMLElement>('tbody tr'))
+}
+
 describe('ProfitLossPage ledger grid', () => {
   test('leaves cancelled bookings out of the report entirely', async () => {
     installQueries([
@@ -156,8 +162,8 @@ describe('ProfitLossPage ledger grid', () => {
     render(<ProfitLossPage navigate={vi.fn()} initialPeriod="2026-08" />)
 
     // Gerçekleşen ayak gridde görünür; iptal edilen kayıt hiçbir yere girmez.
-    await waitFor(() => expect(screen.getAllByText('AVL-101').length).toBeGreaterThan(0))
-    expect(screen.queryByText('AVL-IPTAL')).toBeNull()
+    await waitFor(async () => expect(await ledgerRows()).toHaveLength(1))
+    expect(within((await ledgerRows())[0]).getByText('Ayşe Yılmaz')).toBeVisible()
   })
 
   test('lists legs from every day in the open range', async () => {
@@ -168,8 +174,9 @@ describe('ProfitLossPage ledger grid', () => {
     render(<ProfitLossPage navigate={vi.fn()} initialPeriod="2026-08" />)
 
     // Grid tüm günleri açık gösterir (sonsuz accordion yok): iki ayak da görünür.
-    await waitFor(() => expect(screen.getAllByText('AVL-101').length).toBeGreaterThan(0))
-    expect(screen.getAllByText('AVL-102').length).toBeGreaterThan(0)
+    await waitFor(async () => expect(await ledgerRows()).toHaveLength(2))
+    expect((await ledgerRows()).map(row => within(row).getByText(/Ağustos/).textContent))
+      .toEqual(['2 Ağustos 2026 Pazar', '1 Ağustos 2026 Cumartesi'])
   })
 
   test('shows both legs of a round trip with per-leg revenue', async () => {
@@ -181,8 +188,10 @@ describe('ProfitLossPage ledger grid', () => {
     })])
     render(<ProfitLossPage navigate={vi.fn()} initialPeriod="2026-08" />)
 
-    // Gidiş + dönüş iki ayrı satır (aynı ref), her ayak 200 €'nun yarısı = 100 €.
-    await waitFor(() => expect(screen.getAllByText('AVL-101').length).toBeGreaterThanOrEqual(2))
+    // Gidiş + dönüş iki ayrı satır (aynı kayıt), her ayak 200 €'nun yarısı = 100 €.
+    await waitFor(async () => expect(await ledgerRows()).toHaveLength(2))
+    expect((await ledgerRows()).map(row => within(row).getByText(/Gidiş|Dönüş/).textContent))
+      .toEqual(['Gidiş', 'Dönüş'])
     expect(screen.getAllByText(formatEuro(100)).length).toBeGreaterThan(0)
   })
 
@@ -196,7 +205,8 @@ describe('ProfitLossPage ledger grid', () => {
     })])
     render(<ProfitLossPage navigate={vi.fn()} initialPeriod="2026-08" />)
 
-    await waitFor(() => expect(screen.getAllByText('AVL-109').length).toBeGreaterThan(0))
+    await waitFor(async () => expect(await ledgerRows()).toHaveLength(1))
+    expect(within((await ledgerRows())[0]).getByText('Side → Antalya Havalimanı')).toBeVisible()
   })
 
   test('marks a transfer leg as cost free from the model cell', async () => {
