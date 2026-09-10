@@ -1592,6 +1592,12 @@ button.profit-leg-action.is-ghost:hover:not(:disabled) {
   font-variant-numeric: tabular-nums;
 }
 select.ledger-cell-input { width: auto; text-align: left; }
+.ledger-cell-money { display: inline-flex; align-items: center; gap: 4px; }
+.ledger-cell-currency {
+  padding: 2px 4px; border-radius: 6px; border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.06); color: var(--text); font: inherit; cursor: pointer;
+}
+.ledger-cell-currency:disabled { opacity: 0.6; cursor: default; }
 .ledger-cell-input[aria-busy="true"] { opacity: 0.6; }
 .is-muted { opacity: 0.55; }
 .ledger-card-facts dd .ledger-cell-input { text-align: left; }

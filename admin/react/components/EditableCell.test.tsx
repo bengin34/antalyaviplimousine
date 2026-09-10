@@ -87,6 +87,56 @@ describe('EditableCell', () => {
     await waitFor(() => expect(screen.queryByRole('combobox')).toBeNull())
   })
 
+  test('money: para birimi seçilebilir, ₺ girdisi kur ile €ya çevrilip kaydedilir', async () => {
+    const onSave = vi.fn().mockResolvedValue(undefined)
+    render(<EditableCell
+      kind="money" storedCurrency="EUR" rate={50} value="€60,00 · ₺3.000,00" rawValue="60"
+      label="Ali gidiş maliyet" onSave={onSave}
+    />)
+    fireEvent.click(screen.getByRole('button', { name: 'Ali gidiş maliyet' }))
+    const input = screen.getByRole('textbox', { name: 'Ali gidiş maliyet' })
+    const currency = screen.getByRole('combobox', { name: 'Ali gidiş maliyet para birimi' })
+    // € → ₺ geçişinde görünen tutar da çevrilir (60 € = 3000 ₺).
+    fireEvent.change(currency, { target: { value: 'TRY' } })
+    expect(input).toHaveValue('3000')
+    // ₺1.500 girildi → 30 € olarak kaydedilir.
+    fireEvent.change(input, { target: { value: '1500' } })
+    fireEvent.keyDown(input, { key: 'Enter' })
+    await waitFor(() => expect(onSave).toHaveBeenCalledWith('30'))
+  })
+
+  test('money: ₺ saklanan hücrede € girdisi ₺ye çevrilir', async () => {
+    const onSave = vi.fn().mockResolvedValue(undefined)
+    render(<EditableCell
+      kind="money" storedCurrency="TRY" rate={50} value="₺2.750,00" rawValue="2750"
+      label="Zeynep dönüş tedarikçi maliyeti" onSave={onSave}
+    />)
+    fireEvent.click(screen.getByRole('button', { name: 'Zeynep dönüş tedarikçi maliyeti' }))
+    const input = screen.getByRole('textbox', { name: 'Zeynep dönüş tedarikçi maliyeti' })
+    fireEvent.change(screen.getByRole('combobox', { name: 'Zeynep dönüş tedarikçi maliyeti para birimi' }), { target: { value: 'EUR' } })
+    fireEvent.change(input, { target: { value: '40' } })
+    fireEvent.keyDown(input, { key: 'Enter' })
+    await waitFor(() => expect(onSave).toHaveBeenCalledWith('2000'))
+  })
+
+  test('money: kur yoksa para birimi seçici gösterilmez', () => {
+    render(<EditableCell kind="money" storedCurrency="EUR" rate={0} value="€60,00" rawValue="60" label="Kursuz" onSave={vi.fn()} />)
+    fireEvent.click(screen.getByRole('button', { name: 'Kursuz' }))
+    expect(screen.getByRole('textbox', { name: 'Kursuz' })).toBeInTheDocument()
+    expect(screen.queryByRole('combobox')).toBeNull()
+  })
+
+  test('money: para birimi değişse de tutar aynı kalırsa kaydetmez', async () => {
+    const onSave = vi.fn().mockResolvedValue(undefined)
+    render(<EditableCell
+      kind="money" storedCurrency="EUR" rate={50} value="€60,00" rawValue="60" label="Ali gidiş kâr" onSave={onSave}
+    />)
+    fireEvent.click(screen.getByRole('button', { name: 'Ali gidiş kâr' }))
+    fireEvent.change(screen.getByRole('combobox', { name: 'Ali gidiş kâr para birimi' }), { target: { value: 'TRY' } })
+    fireEvent.keyDown(screen.getByRole('textbox', { name: 'Ali gidiş kâr' }), { key: 'Enter' })
+    expect(onSave).not.toHaveBeenCalled()
+  })
+
   test('autoOpen düzenleme modunda başlar, kapanınca onEditEnd çağrılır', () => {
     const onEditEnd = vi.fn()
     renderNumber({ autoOpen: true, onEditEnd })

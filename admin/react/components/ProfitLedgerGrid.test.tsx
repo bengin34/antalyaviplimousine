@@ -170,6 +170,36 @@ describe('ProfitLedgerGrid — düzenleme', () => {
     await waitFor(() => expect(actions.saveParkingHours).toHaveBeenCalledWith('1', 2))
   })
 
+  test('tedarikçi maliyeti € olarak girilince gün kuruyla ₺ye çevrilir', async () => {
+    actions.saveLegSupplierCost.mockResolvedValue({ service_cost_mode: 'sold_transfer', sold_transfer_cost_try: 2000 })
+    renderGrid()
+    fireEvent.click(screen.getAllByRole('button', { name: 'Zeynep Kaya dönüş tedarikçi maliyeti' })[0])
+    fireEvent.change(screen.getAllByRole('combobox', { name: 'Zeynep Kaya dönüş tedarikçi maliyeti para birimi' })[0], { target: { value: 'EUR' } })
+    const input = screen.getAllByRole('textbox', { name: 'Zeynep Kaya dönüş tedarikçi maliyeti' })[0]
+    fireEvent.change(input, { target: { value: '40' } })
+    fireEvent.keyDown(input, { key: 'Enter' })
+    // 40 € × 50 (o günün kuru) = 2.000 ₺
+    await waitFor(() => expect(actions.saveLegSupplierCost).toHaveBeenCalledWith('2', 'outbound', 2000))
+  })
+
+  test('maliyet ₺ olarak girilince kâr €ya çevrilerek kaydedilir', async () => {
+    actions.saveLegOwnVehicleProfit.mockResolvedValue({ own_vehicle_profit_eur: 50 })
+    renderGrid()
+    fireEvent.click(screen.getAllByRole('button', { name: 'Ali Veli gidiş maliyet' })[0])
+    fireEvent.change(screen.getAllByRole('combobox', { name: 'Ali Veli gidiş maliyet para birimi' })[0], { target: { value: 'TRY' } })
+    const input = screen.getAllByRole('textbox', { name: 'Ali Veli gidiş maliyet' })[0]
+    fireEvent.change(input, { target: { value: '1500' } })
+    fireEvent.keyDown(input, { key: 'Enter' })
+    // ₺1.500 = 30 € maliyet → kâr 85 − 30 − 5 = 50 €
+    await waitFor(() => expect(actions.saveLegOwnVehicleProfit).toHaveBeenCalledWith('1', 'outbound', 50))
+  })
+
+  test('kur kolonu seferin gününe ait kuru gösterir', () => {
+    renderGrid()
+    expect(screen.getByRole('columnheader', { name: /Kur/ })).toBeInTheDocument()
+    expect(screen.getAllByText('50,00').length).toBeGreaterThan(0)
+  })
+
   test('havalimanından başlamayan ayakta karşılama/otopark hücreleri —', () => {
     renderGrid()
     expect(screen.queryByRole('button', { name: 'Zeynep Kaya dönüş karşılama' })).toBeNull()

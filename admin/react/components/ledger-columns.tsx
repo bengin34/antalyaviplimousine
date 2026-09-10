@@ -109,6 +109,26 @@ function profitDual(leg: LedgerLeg) {
   return `${formatEuro(leg.ownVehicleProfitEur)} · ${formatTry(leg.ownVehicleProfitTry)}`
 }
 
+/** Kur her zaman iki basamakla gösterilir (47,32 · 50,00). */
+const RATE_FORMAT = new Intl.NumberFormat('tr-TR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })
+
+function rateOf(leg: LedgerLeg) {
+  const rate = Number(leg.eurTryRate)
+  return Number.isFinite(rate) && rate > 0 ? rate : 0
+}
+
+/** Avro tutarı; kur varsa ₺ karşılığıyla birlikte. */
+function dualFromEur(eur: number | null | undefined, rate: number) {
+  if (eur == null) return '—'
+  return rate > 0 ? `${formatEuro(eur)} · ${formatTry(eur * rate)}` : formatEuro(eur)
+}
+
+/** ₺ tutarı; kur varsa € karşılığıyla birlikte. */
+function dualFromTry(tryAmount: number | null | undefined, rate: number) {
+  if (tryAmount == null) return '—'
+  return rate > 0 ? `${formatTry(tryAmount)} · ${formatEuro(tryAmount / rate)}` : formatTry(tryAmount)
+}
+
 function meetFeeApplies(booking: Booking | undefined) {
   return booking?.airport_meet_fee_applies !== false
 }
@@ -217,6 +237,15 @@ export const ledgerColumns = [
     id: 'route', header: 'Rota', enableGlobalFilter: false,
     meta: { align: 'left', csv: [{ header: 'Rota', value: row => row.route }] },
   }),
+  column.accessor(row => rateOf(row.leg), {
+    id: 'eurTryRate', header: 'Kur ₺/€', enableGlobalFilter: false,
+    cell: info => {
+      const rate = info.getValue()
+      if (!rate) return '—'
+      return <span title={`${fmtDetailDate(info.row.original.leg.date)} günü kuru`}>{RATE_FORMAT.format(rate)}</span>
+    },
+    meta: { align: 'right', csv: [{ header: 'Kur', value: row => rateOf(row.leg) || null }] },
+  }),
   column.accessor(row => row.leg.revenueEur ?? 0, {
     id: 'revenueEur', header: 'Gelir €', enableGlobalFilter: false,
     cell: info => formatEuro(info.getValue()),
@@ -230,8 +259,8 @@ export const ledgerColumns = [
       if (mode !== 'own_vehicle' || typeof leg.revenueEur !== 'number') return '—'
       const cost = info.getValue()
       return <EditableCell
-        kind="number" label={ctx.label('maliyet')} step="0.01"
-        value={cost == null ? '—' : formatEuro(cost)} rawValue={cost == null ? '' : String(cost)}
+        kind="money" storedCurrency="EUR" rate={rateOf(leg)} label={ctx.label('maliyet')} step="0.01"
+        value={dualFromEur(cost, rateOf(leg))} rawValue={cost == null ? '' : String(cost)}
         disabled={!canEdit} validate={validateProfitLike}
         onSave={async raw => {
           const costEur = parseDecimal(raw)!
@@ -255,7 +284,7 @@ export const ledgerColumns = [
       }
       if (mode !== 'own_vehicle') return '—'
       return <EditableCell
-        kind="number" label={ctx.label('kâr')} step="0.01"
+        kind="money" storedCurrency="EUR" rate={rateOf(leg)} label={ctx.label('kâr')} step="0.01"
         value={profitDual(leg)} rawValue={hasProfit(leg) ? String(leg.ownVehicleProfitEur) : ''}
         disabled={!canEdit} validate={validateProfitLike}
         onSave={raw => meta.actions.saveProfit(leg, parseDecimal(raw)!)}
@@ -280,8 +309,8 @@ export const ledgerColumns = [
       const cost = info.getValue()
       if (!enabled && mode !== 'sold_transfer') return '—'
       return <EditableCell
-        kind="number" label={ctx.label('tedarikçi maliyeti')} step="0.01"
-        value={cost > 0 ? formatTry(cost) : '—'} rawValue={cost > 0 ? String(cost) : ''}
+        kind="money" storedCurrency="TRY" rate={rateOf(leg)} label={ctx.label('tedarikçi maliyeti')} step="0.01"
+        value={cost > 0 ? dualFromTry(cost, rateOf(leg)) : '—'} rawValue={cost > 0 ? String(cost) : ''}
         disabled={!enabled} validate={validateSupplier}
         autoOpen={forced} onEditEnd={forced ? meta.clearPendingOpen : undefined}
         onSave={raw => meta.actions.saveSupplier(leg, parseDecimal(raw)!)}
