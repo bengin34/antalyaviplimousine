@@ -199,16 +199,14 @@ describe('ProfitLossPage ledger grid', () => {
     await waitFor(() => expect(screen.getAllByText('AVL-109').length).toBeGreaterThan(0))
   })
 
-  test('marks a transfer leg as cost free via the cost dialog', async () => {
+  test('marks a transfer leg as cost free from the model cell', async () => {
     installQueries([makeBooking({ pickup_location: 'private_address', dropoff_location: 'hotel' })])
     render(<ProfitLossPage navigate={vi.fn()} initialPeriod="2026-08" />)
 
-    // Eksik KM li ayak gridde uyarılı; KM hücresindeki ikon maliyet modalını açar.
-    const edit = await screen.findAllByRole('button', { name: 'Maliyet düzenle' })
-    fireEvent.click(edit[0])
-    // Modaldaki maliyet modelini "Maliyeti yok" yap → gidersiz kaydedilir.
-    const dialog = screen.getByRole('dialog')
-    fireEvent.change(within(dialog).getByRole('combobox'), { target: { value: 'no_cost' } })
+    // Eksik kârlı ayak gridde uyarılı; Model hücresinden "Maliyeti yok" seçilir → gidersiz kaydedilir.
+    const modelCell = await screen.findAllByRole('button', { name: 'Ayşe Yılmaz gidiş maliyet modeli' })
+    fireEvent.click(modelCell[0])
+    fireEvent.change(screen.getAllByRole('combobox', { name: 'Ayşe Yılmaz gidiş maliyet modeli' })[0], { target: { value: 'no_cost' } })
 
     await waitFor(() => expect(mocks.updateBooking).toHaveBeenCalledWith({
       service_cost_mode: 'no_cost',
@@ -242,8 +240,10 @@ describe('ProfitLossPage ledger grid', () => {
     })])
     render(<ProfitLossPage navigate={vi.fn()} initialPeriod="2026-08" />)
 
-    const noCost = await screen.findAllByRole('button', { name: 'Maliyeti yok' })
+    // Günlük hizmet ayağının kâr hücresindeki "Maliyeti yok" seçeneği.
+    const noCost = await screen.findAllByRole('button', { name: 'Ayşe Yılmaz maliyeti yok' })
     fireEvent.click(noCost[0])
+    fireEvent.change(screen.getAllByRole('combobox', { name: 'Ayşe Yılmaz maliyeti yok' })[0], { target: { value: 'no_cost' } })
 
     await waitFor(() => expect(mocks.updateHireDay).toHaveBeenCalledWith({ profit_before_ads_eur: 0 }))
     await waitFor(() => expect(screen.queryByText('Eksik bilgi')).toBeNull())

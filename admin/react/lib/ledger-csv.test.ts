@@ -51,7 +51,7 @@ describe('downloadCsv', () => {
     downloadCsv('kar-zarar-tumu.csv', 'a;b')
 
     expect(createObjectURL).toHaveBeenCalledTimes(1)
-    const anchor = click.mock.instances[0] as HTMLAnchorElement
+    const anchor = click.mock.instances[0] as unknown as HTMLAnchorElement
     expect(anchor.download).toBe('kar-zarar-tumu.csv')
     expect(revokeObjectURL).toHaveBeenCalledWith('blob:x')
     click.mockRestore()

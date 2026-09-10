@@ -1,4 +1,11 @@
-import { useEffect, useState } from 'react'
+import { createContext, useContext, useEffect, useState } from 'react'
+
+/**
+ * Aynı hücre masaüstü tabloda ve mobil kartta iki kez render edilir; `autoOpen`
+ * yalnız tablo yüzeyinde uygulanır ki iki otomatik odaklanan input birbirini
+ * blur'layıp düzenlemeyi kapatmasın.
+ */
+export const LedgerSurfaceContext = createContext<'table' | 'card'>('table')
 
 export interface EditableCellProps {
   /** Salt okunur halde gösterilen metin. */
@@ -35,6 +42,7 @@ export function EditableCell({
   const [draft, setDraft] = useState(rawValue)
   const [saving, setSaving] = useState(false)
   const [error, setError] = useState('')
+  const surface = useContext(LedgerSurfaceContext)
 
   const open = () => {
     setDraft(rawValue)
@@ -48,9 +56,9 @@ export function EditableCell({
   }
 
   useEffect(() => {
-    if (autoOpen && !disabled) open()
+    if (autoOpen && !disabled && surface === 'table') open()
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [autoOpen, disabled])
+  }, [autoOpen, disabled, surface])
 
   const commit = async (raw: string, { fromBlur = false } = {}) => {
     if (raw === rawValue) { close(); return }

@@ -420,6 +420,12 @@ export default function ProfitLossPage({ navigate, initialPeriod }: { navigate: 
 
   const bookingsById = useMemo(() => new Map(bookings.map(b => [b.id, b])), [bookings])
   const legs = ledgerLegs(ledger)
+  // CSV dosya adı için dönem etiketi.
+  const periodLabel = activeTab === 'all'
+    ? 'tumu'
+    : activeDistribution
+      ? `${activeDistribution.period_start}_${activeDistribution.period_end}`
+      : 'acik'
 
   return <><Topbar navigate={navigate} /><AdminTabs active="profit-loss" navigate={navigate} />
     <div className="budget-toolbar profit-toolbar">
@@ -470,6 +476,7 @@ export default function ProfitLossPage({ navigate, initialPeriod }: { navigate: 
             today={today}
             onBookingSaved={applyBookingPatch}
             onSaveNoCost={saveNoCost}
+            periodLabel={periodLabel}
           />
           {editable && <ExpandableSection title="Hesaplama ayarları" detail={settingsMonths.length > 1 ? `${settingsMonths.length} ay` : monthLabel(settingsMonths[0] ?? today.slice(0, 7))}>
             {settingsMonths.map(month => <SettingsForm key={month} period={month} settings={settings} onSaved={saveSetting} />)}

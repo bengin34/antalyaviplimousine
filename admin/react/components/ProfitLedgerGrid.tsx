@@ -1,215 +1,226 @@
-import { useState, useMemo } from 'react'
-import { fmtDetailDate, formatEuro, formatTry, profitLocationLabel } from '../lib/format'
+import { useMemo, useState } from 'react'
+import {
+  flexRender, getCoreRowModel, getFilteredRowModel, getSortedRowModel, useReactTable,
+  type SortingState, type VisibilityState,
+} from '@tanstack/react-table'
+import { formatTry } from '../lib/format'
+import { downloadCsv, ledgerToCsv } from '../lib/ledger-csv'
+import {
+  saveLegCostMode, saveLegMeetFee, saveLegOwnVehicleProfit, saveLegSupplierCost, saveParkingHours,
+} from '../lib/leg-cost-actions'
 import type { Booking, Navigate } from '../types'
-import { legCostColumns, legCostMode, toLegKey, type LegKey } from './LegCostEditors'
-import CostDialog from './CostDialog'
+import { LedgerSurfaceContext } from './EditableCell'
+import { legCostColumns, toLegKey, type CostMode } from './LegCostEditors'
+import {
+  footerFor, ledgerColumns, ledgerGlobalFilter, ledgerSums, rowIdFor, toLedgerRow,
+  type LedgerActions, type LedgerRow, type PendingOpen,
+} from './ledger-columns'
 
 export interface LedgerLeg {
   bookingId: string; bookingRef?: string | null; customerName?: string | null
   leg: string; date: string; from?: unknown; to?: unknown
   revenueEur?: number; revenueTry?: number; oneWayKm?: number | null
   ownVehicleProfitEur?: number | null; ownVehicleProfitTry?: number | null
-  vehicleCostTry?: number; supplierCostTry?: number; airportMeetCostTry?: number; parkingCostTry?: number
+  vehicleCostTry?: number; supplierCostTry?: number
+  airportMeetCostTry?: number; airportMeetCostEur?: number
+  parkingCostTry?: number; parkingCostEur?: number
   advertisingPerLegEur?: number; advertisingPerLegTry?: number
   netProfitTry?: number; netProfitEur?: number; eurTryRate?: number | null
   isDailyChauffeur?: boolean; distanceSource?: string; dayId?: string | null
 }
 
-/** Reklam öncesi kâr her zaman hem € hem ₺ olarak gösterilir. */
-function formatProfitDual(eur?: number | null, tryAmount?: number | null) {
-  if (eur == null || tryAmount == null) return '—'
-  return `${formatEuro(eur)} · ${formatTry(tryAmount)}`
+const COLUMNS_STORAGE_KEY = 'profit-ledger-columns'
+/** Mobil kartta başlık/rota olarak ayrıca gösterildiği için dl'den dışlanan kolonlar. */
+const CARD_HEAD_COLUMNS = new Set(['date', 'passenger', 'direction', 'route', 'netProfitTry'])
+
+function loadColumnVisibility(): VisibilityState {
+  try {
+    const raw = localStorage.getItem(COLUMNS_STORAGE_KEY)
+    return raw ? (JSON.parse(raw) as VisibilityState) : {}
+  } catch { return {} }
+}
+function storeColumnVisibility(state: VisibilityState) {
+  try { localStorage.setItem(COLUMNS_STORAGE_KEY, JSON.stringify(state)) } catch { /* yoksay */ }
 }
 
-function groupByDate(legs: LedgerLeg[]) {
-  const groups = new Map<string, LedgerLeg[]>()
-  for (const leg of legs) {
-    const d = String(leg.date ?? '')
-    const g = groups.get(d)
-    if (g) g.push(leg); else groups.set(d, [leg])
-  }
-  const sum = (ls: LedgerLeg[], k: keyof LedgerLeg) => ls.reduce((t, l) => t + (Number(l[k]) || 0), 0)
-  return [...groups.entries()]
-    .sort((a, b) => b[0].localeCompare(a[0]))
-    .map(([date, ls]) => ({
-      date, legs: ls,
-      revenueEur: sum(ls, 'revenueEur'), revenueTry: sum(ls, 'revenueTry'),
-      vehicleCostTry: sum(ls, 'vehicleCostTry'), supplierCostTry: sum(ls, 'supplierCostTry'),
-      airportMeetCostTry: sum(ls, 'airportMeetCostTry'), parkingCostTry: sum(ls, 'parkingCostTry'),
-      advertisingPerLegTry: sum(ls, 'advertisingPerLegTry'),
-      netProfitTry: sum(ls, 'netProfitTry'),
-    }))
-}
-
-/** Mirrors TripRow needsAttention logic from ProfitLossPage.tsx */
-function computeNeedsAttention(leg: LedgerLeg, booking: Booking | undefined): boolean {
-  const isDailyChauffeur = Boolean(leg.isDailyChauffeur)
-  if (isDailyChauffeur && leg.distanceSource !== 'daily-missing') return false
-  if (leg.distanceSource === 'daily-missing') return true
-  if (isDailyChauffeur) return false
-  const legKey = toLegKey(leg.leg)
-  const currentMode = legCostMode(booking, legKey)
-  if (currentMode === 'no_cost') return false
-  if (currentMode === 'sold_transfer') {
-    const costTry = booking ? Number(booking[legCostColumns(legKey).cost]) || 0 : 0
-    return costTry <= 0
-  }
-  return leg.ownVehicleProfitTry == null
-}
-
-/** Lightweight "Maliyeti yok" button — yalnız günlük hizmet ayaklarında (modal yok). */
-function NoCostButton({ leg, onSaveNoCost }: {
-  leg: LedgerLeg
-  onSaveNoCost: (leg: LedgerLeg) => Promise<void>
-}) {
-  const [saving, setSaving] = useState(false)
-  const [failed, setFailed] = useState(false)
-  const save = async () => {
-    setSaving(true); setFailed(false)
-    try { await onSaveNoCost(leg) } catch { setFailed(true) } finally { setSaving(false) }
-  }
-  return <>
-    <button className="profit-leg-action is-ghost" type="button" disabled={saving} onClick={() => void save()}>
-      {saving ? 'Kaydediliyor…' : 'Maliyeti yok'}
-    </button>
-    {failed && <span className="inline-error" role="alert">Kaydedilemedi, tekrar deneyin.</span>}
-  </>
-}
-
-/** İlgili hücredeki düzenleme ikonu; tıklayınca maliyet modalını açar. */
-function EditIcon({ onClick }: { onClick: () => void }) {
-  return <button type="button" className="cell-edit" aria-label="Maliyet düzenle" title="Maliyet düzenle" onClick={onClick}>✎</button>
-}
-
-export function ProfitLedgerGrid({ legs, bookingsById, editable, attentionSince, navigate, today, onBookingSaved, onSaveNoCost }: {
+export function ProfitLedgerGrid({
+  legs, bookingsById, editable, attentionSince, navigate, today, onBookingSaved, onSaveNoCost, periodLabel,
+}: {
   legs: LedgerLeg[]
   bookingsById: Map<string, Booking>
   editable: boolean
   /** Bu ISO tarihten önceki ayaklar eksik-bilgi uyarısı almaz (dağıtılmış dönem kapanmış sayılır). */
   attentionSince?: string
-  /** Verilirse sefer numarası tıklanabilir olur ve seyahat detayına gider. */
+  /** Verilirse yolcu adı tıklanabilir olur ve seyahat detayına gider. */
   navigate?: Navigate
-  /** Maliyet modalının maliyet durumunu hesaplaması için bugünün ISO tarihi. */
+  /** Hücre düzenlemesinin açılması için bugünün ISO tarihi. */
   today?: string
-  /** Modal bir maliyet kaydettiğinde güncel booking'i yukarı taşır. */
+  /** Bir hücre kaydettiğinde yamalı booking'i yukarı taşır. */
   onBookingSaved?: (booking: Booking) => void
-  /** Günlük hizmet ayağını maliyetsiz işaretler (modal kapsamı dışı). */
+  /** Günlük hizmet ayağını maliyetsiz işaretler. */
   onSaveNoCost?: (leg: LedgerLeg) => Promise<void>
+  /** CSV dosya adı için dönem etiketi (`acik`, `tumu` veya `başlangıç_bitiş`). */
+  periodLabel: string
 }) {
-  const [dialog, setDialog] = useState<{ booking: Booking; leg: LegKey } | null>(null)
-  const canEditLeg = (leg: LedgerLeg, booking: Booking | undefined): booking is Booking =>
-    Boolean(editable && booking && !leg.isDailyChauffeur && today)
-  const openDialog = (leg: LedgerLeg, booking: Booking) => setDialog({ booking, leg: toLegKey(leg.leg) })
+  const [sorting, setSorting] = useState<SortingState>([{ id: 'date', desc: true }])
+  const [globalFilter, setGlobalFilter] = useState('')
+  const [onlyAttention, setOnlyAttention] = useState(false)
+  const [columnVisibility, setColumnVisibility] = useState<VisibilityState>(loadColumnVisibility)
+  const [columnsOpen, setColumnsOpen] = useState(false)
+  const [pendingOpen, setPendingOpen] = useState<PendingOpen | null>(null)
 
-  const needsAttentionFor = (leg: LedgerLeg, booking: Booking | undefined) =>
-    computeNeedsAttention(leg, booking) && (!attentionSince || String(leg.date ?? '') >= attentionSince)
-  const detailHash = (leg: LedgerLeg) =>
-    `#detail/${encodeURIComponent(String(leg.bookingRef ?? ''))}?from=profit-loss${leg.leg === 'return' ? '&leg=return' : ''}`
-  const refLabel = (leg: LedgerLeg) => leg.bookingRef || leg.customerName || 'Kayıt'
-  const RefCell = ({ leg }: { leg: LedgerLeg }) => (navigate && leg.bookingRef)
-    ? <button type="button" className="ledger-ref-link" onClick={() => navigate(detailHash(leg))}>{refLabel(leg)}</button>
-    : <>{refLabel(leg)}</>
+  const rows = useMemo(() => legs
+    .map(leg => toLedgerRow(leg, bookingsById.get(leg.bookingId), attentionSince))
+    .filter(row => !onlyAttention || row.needsAttention),
+  [legs, bookingsById, attentionSince, onlyAttention])
 
-  const groups = useMemo(() => groupByDate([...legs].sort((a, b) =>
-    String(b.date).localeCompare(String(a.date)) || String(a.bookingRef ?? '').localeCompare(String(b.bookingRef ?? '')),
-  )), [legs])
+  const actions = useMemo<LedgerActions>(() => {
+    const apply = (leg: LedgerLeg, patch: Partial<Booking>) => {
+      const booking = bookingsById.get(leg.bookingId)
+      if (booking) onBookingSaved?.({ ...booking, ...patch })
+    }
+    return {
+      saveProfit: async (leg, profitEur) => apply(leg, await saveLegOwnVehicleProfit(leg.bookingId, toLegKey(leg.leg), profitEur)),
+      saveSupplier: async (leg, costTry) => apply(leg, await saveLegSupplierCost(leg.bookingId, toLegKey(leg.leg), costTry)),
+      saveMode: async (leg, mode: CostMode) => {
+        const legKey = toLegKey(leg.leg)
+        const booking = bookingsById.get(leg.bookingId)
+        const hasSupplierCost = Boolean(booking && Number(booking[legCostColumns(legKey).cost]) > 0)
+        // Satılan transfer için bedel zorunlu (sütun kısıtı): önce tedarikçi hücresini aç, modu kaydetme.
+        if (mode === 'sold_transfer' && !hasSupplierCost) {
+          setPendingOpen({ rowId: rowIdFor(leg), columnId: 'supplierTry' })
+          return
+        }
+        apply(leg, await saveLegCostMode(leg.bookingId, legKey, mode))
+      },
+      saveMeetFee: async (leg, applies) => apply(leg, await saveLegMeetFee(leg.bookingId, applies)),
+      saveParking: async (leg, hours) => apply(leg, await saveParkingHours(leg.bookingId, hours)),
+    }
+  }, [bookingsById, onBookingSaved])
 
-  if (!groups.length) return <div className="ledger-empty">Bu dönemde gerçekleşmiş sefer yok.</div>
+  const table = useReactTable<LedgerRow>({
+    data: rows,
+    columns: ledgerColumns,
+    state: { sorting, globalFilter, columnVisibility },
+    onSortingChange: setSorting,
+    onGlobalFilterChange: setGlobalFilter,
+    onColumnVisibilityChange: updater => setColumnVisibility(previous => {
+      const next = typeof updater === 'function' ? updater(previous) : updater
+      storeColumnVisibility(next)
+      return next
+    }),
+    getRowId: row => row.id,
+    enableSortingRemoval: false, // desc → asc → desc; üçüncü "sırasız" durum yok
+    getCoreRowModel: getCoreRowModel(),
+    getFilteredRowModel: getFilteredRowModel(),
+    getSortedRowModel: getSortedRowModel(),
+    globalFilterFn: ledgerGlobalFilter,
+    meta: {
+      ledger: {
+        editable, today, navigate, actions, onSaveNoCost,
+        pendingOpen, clearPendingOpen: () => setPendingOpen(null),
+      },
+    },
+  })
+
+  const visibleRows = table.getRowModel().rows
+  const sums = useMemo(() => ledgerSums(visibleRows.map(row => row.original)), [visibleRows])
+
+  const exportCsv = () => {
+    const columns = table.getVisibleLeafColumns().flatMap(column => column.columnDef.meta?.csv ?? [])
+    downloadCsv(`kar-zarar-${periodLabel}.csv`, ledgerToCsv(visibleRows.map(row => row.original), columns))
+  }
+
+  if (!legs.length) return <div className="ledger-empty">Bu dönemde gerçekleşmiş sefer yok.</div>
 
   return <div className="ledger">
-    {groups.map(group => <section className="ledger-day" key={group.date}>
-      <header className="ledger-day-head">
-        <span>{fmtDetailDate(group.date)}</span>
-        <span>{group.legs.length} sefer</span>
-        <b className={group.netProfitTry < 0 ? 'is-neg' : 'is-pos'}>{formatTry(group.netProfitTry)}</b>
-      </header>
-      <table className="ledger-table">
-        <thead><tr>
-          <th>Sefer</th><th>Rota</th><th>Gelir</th><th>Kâr (reklam öncesi)</th><th>Araç</th>
-          <th>Tedarikçi</th><th>Karşılama/Otopark</th><th>Reklam</th><th>Kâr</th>
-        </tr></thead>
-        <tbody>
-          {group.legs.map(leg => {
-            const booking = bookingsById.get(leg.bookingId)
-            const legKey = toLegKey(leg.leg)
-            const mode = legCostMode(booking, legKey)
-            const canEdit = canEditLeg(leg, booking)
-            const editKm = canEdit && mode !== 'sold_transfer'      // kendi araç / maliyeti yok
-            const editSupplier = canEdit && mode === 'sold_transfer' // satılan transfer
-            const dailyMissing = leg.isDailyChauffeur && leg.distanceSource === 'daily-missing'
-            const needsAttention = needsAttentionFor(leg, booking)
+    <div className="ledger-toolbar">
+      <input
+        type="search" className="ledger-search" aria-label="Ara (yolcu veya rota)" placeholder="Yolcu veya rota ara…"
+        value={globalFilter} onChange={event => setGlobalFilter(event.target.value)}
+      />
+      <label className="ledger-toolbar-check">
+        <input type="checkbox" checked={onlyAttention} onChange={event => setOnlyAttention(event.target.checked)} />
+        Sadece eksik bilgi
+      </label>
+      <div className="ledger-columns-menu">
+        <button type="button" className="profit-leg-action is-ghost" aria-expanded={columnsOpen} onClick={() => setColumnsOpen(open => !open)}>Kolonlar</button>
+        {columnsOpen && <ul className="ledger-columns-list">
+          {table.getAllLeafColumns().map(column => <li key={column.id}>
+            <label>
+              <input type="checkbox" checked={column.getIsVisible()} onChange={column.getToggleVisibilityHandler()} />
+              {String(column.columnDef.header)}
+            </label>
+          </li>)}
+        </ul>}
+      </div>
+      <button type="button" className="profit-leg-action is-primary" onClick={exportCsv}>CSV indir</button>
+      <span className="ledger-toolbar-summary">
+        {visibleRows.length} sefer · <b className={sums.netProfitTry < 0 ? 'is-neg' : 'is-pos'}>{formatTry(sums.netProfitTry)}</b>
+      </span>
+    </div>
 
-            return <tr key={`${leg.bookingId}:${leg.leg}`} className={needsAttention ? 'is-attention' : undefined}>
-              <td><RefCell leg={leg} /></td>
-              <td>{profitLocationLabel(leg.from)} → {profitLocationLabel(leg.to)}</td>
-              <td>{formatEuro(leg.revenueEur ?? 0)}</td>
-              <td className="ledger-edit-cell">
-                {formatProfitDual(leg.ownVehicleProfitEur, leg.ownVehicleProfitTry)}
-                {editKm && booking && <EditIcon onClick={() => openDialog(leg, booking)} />}
-                {editable && dailyMissing && onSaveNoCost && <NoCostButton leg={leg} onSaveNoCost={onSaveNoCost} />}
-              </td>
-              <td>{formatTry(leg.vehicleCostTry ?? 0)}</td>
-              <td className="ledger-edit-cell">
-                {(leg.supplierCostTry ?? 0) > 0 ? formatTry(leg.supplierCostTry) : '—'}
-                {editSupplier && booking && <EditIcon onClick={() => openDialog(leg, booking)} />}
-              </td>
-              <td>{(leg.airportMeetCostTry ?? 0) > 0
-                ? formatTry(leg.airportMeetCostTry)
-                : (leg.parkingCostTry ?? 0) > 0 ? formatTry(leg.parkingCostTry) : '—'}</td>
-              <td>{formatTry(leg.advertisingPerLegTry ?? 0)}</td>
-              <td className={(leg.netProfitTry ?? 0) < 0 ? 'is-neg' : 'is-pos'}>{formatTry(leg.netProfitTry ?? 0)}</td>
-            </tr>
-          })}
+    <div className="ledger-scroll">
+      <table className="ledger-table">
+        <thead>
+          {table.getHeaderGroups().map(group => <tr key={group.id}>
+            {group.headers.map(header => {
+              const sorted = header.column.getIsSorted()
+              const align = header.column.columnDef.meta?.align ?? 'right'
+              return <th
+                key={header.id}
+                className={`is-${align}${header.column.id === 'passenger' ? ' ledger-col-sticky' : ''}`}
+                aria-sort={sorted === 'asc' ? 'ascending' : sorted === 'desc' ? 'descending' : 'none'}
+              >
+                <button type="button" className="ledger-sort" onClick={header.column.getToggleSortingHandler()}>
+                  {flexRender(header.column.columnDef.header, header.getContext())}
+                  {sorted === 'asc' ? ' ▲' : sorted === 'desc' ? ' ▼' : ''}
+                </button>
+              </th>
+            })}
+          </tr>)}
+        </thead>
+        <tbody>
+          {visibleRows.map(row => <tr key={row.id} className={row.original.needsAttention ? 'is-attention' : undefined}>
+            {row.getVisibleCells().map(cell => <td
+              key={cell.id}
+              className={`is-${cell.column.columnDef.meta?.align ?? 'right'}${cell.column.id === 'passenger' ? ' ledger-col-sticky' : ''}`}
+            >
+              {flexRender(cell.column.columnDef.cell, cell.getContext())}
+            </td>)}
+          </tr>)}
         </tbody>
         <tfoot><tr className="ledger-subtotal">
-          <td colSpan={2}>Gün toplamı</td>
-          <td>{formatEuro(group.revenueEur)}</td><td></td>
-          <td>{formatTry(group.vehicleCostTry)}</td>
-          <td>{formatTry(group.supplierCostTry)}</td>
-          <td>{formatTry(group.airportMeetCostTry + group.parkingCostTry)}</td>
-          <td>{formatTry(group.advertisingPerLegTry)}</td>
-          <td className={group.netProfitTry < 0 ? 'is-neg' : 'is-pos'}>{formatTry(group.netProfitTry)}</td>
+          {table.getVisibleLeafColumns().map((column, index) => {
+            const text = footerFor(column.id, sums)
+            return <td key={column.id} className={`is-${column.columnDef.meta?.align ?? 'right'}${column.id === 'netProfitTry' ? (sums.netProfitTry < 0 ? ' is-neg' : ' is-pos') : ''}`}>
+              {text || (index === 0 ? 'Toplam' : '')}
+            </td>
+          })}
         </tr></tfoot>
       </table>
-      <ul className="ledger-cards">
-        {group.legs.map(leg => {
-          const booking = bookingsById.get(leg.bookingId)
-          const legKey = toLegKey(leg.leg)
-          const mode = legCostMode(booking, legKey)
-          const canEdit = canEditLeg(leg, booking)
-          const editKm = canEdit && mode !== 'sold_transfer'
-          const editSupplier = canEdit && mode === 'sold_transfer'
-          const dailyMissing = leg.isDailyChauffeur && leg.distanceSource === 'daily-missing'
-          const needsAttention = needsAttentionFor(leg, booking)
+    </div>
 
-          return <li className={`ledger-card${needsAttention ? ' is-attention' : ''}`} key={`${leg.bookingId}:${leg.leg}`}>
-            <div className="ledger-card-head">
-              <strong><RefCell leg={leg} /></strong>
-              <b className={(leg.netProfitTry ?? 0) < 0 ? 'is-neg' : 'is-pos'}>{formatTry(leg.netProfitTry ?? 0)}</b>
-            </div>
-            {needsAttention && <span className="ledger-attention">Eksik bilgi</span>}
-            <div className="ledger-card-route">{profitLocationLabel(leg.from)} → {profitLocationLabel(leg.to)}</div>
-            <dl className="ledger-card-facts">
-              <div><dt>Gelir</dt><dd>{formatEuro(leg.revenueEur ?? 0)}</dd></div>
-              {mode === 'sold_transfer'
-                ? <div><dt>Tedarikçi</dt><dd>{(leg.supplierCostTry ?? 0) > 0 ? formatTry(leg.supplierCostTry) : '—'}{editSupplier && booking && <EditIcon onClick={() => openDialog(leg, booking)} />}</dd></div>
-                : <><div><dt>Kâr (reklam öncesi)</dt><dd>{formatProfitDual(leg.ownVehicleProfitEur, leg.ownVehicleProfitTry)}{editKm && booking && <EditIcon onClick={() => openDialog(leg, booking)} />}</dd></div>
-                   <div><dt>Araç</dt><dd>{formatTry(leg.vehicleCostTry ?? 0)}</dd></div></>}
-              {(leg.airportMeetCostTry ?? 0) > 0 && <div><dt>Karşılama</dt><dd>{formatTry(leg.airportMeetCostTry)}</dd></div>}
-              {(leg.parkingCostTry ?? 0) > 0 && <div><dt>Otopark</dt><dd>{formatTry(leg.parkingCostTry)}</dd></div>}
-              <div><dt>Reklam</dt><dd>{formatTry(leg.advertisingPerLegTry ?? 0)}</dd></div>
-            </dl>
-            {editable && dailyMissing && onSaveNoCost && <NoCostButton leg={leg} onSaveNoCost={onSaveNoCost} />}
-          </li>
-        })}
-      </ul>
-    </section>)}
-    {dialog && today && <CostDialog
-      booking={dialog.booking}
-      leg={dialog.leg}
-      today={today}
-      onClose={() => setDialog(null)}
-      onSaved={next => onBookingSaved?.(next)}
-    />}
+    <LedgerSurfaceContext.Provider value="card"><ul className="ledger-cards">
+      {visibleRows.map(row => {
+        const { leg, passenger, direction, route, needsAttention } = row.original
+        const cells = row.getVisibleCells().filter(cell => !CARD_HEAD_COLUMNS.has(cell.column.id))
+        const passengerCell = row.getVisibleCells().find(cell => cell.column.id === 'passenger')
+        return <li className={`ledger-card${needsAttention ? ' is-attention' : ''}`} key={row.id}>
+          <div className="ledger-card-head">
+            <strong>{passengerCell ? flexRender(passengerCell.column.columnDef.cell, passengerCell.getContext()) : passenger}</strong>
+            <b className={(leg.netProfitTry ?? 0) < 0 ? 'is-neg' : 'is-pos'}>{formatTry(leg.netProfitTry ?? 0)}</b>
+          </div>
+          {needsAttention && <span className="ledger-attention">Eksik bilgi</span>}
+          <div className="ledger-card-route">{direction} · {route}</div>
+          <dl className="ledger-card-facts">
+            {cells.map(cell => <div key={cell.id}>
+              <dt>{String(cell.column.columnDef.header)}</dt>
+              <dd>{flexRender(cell.column.columnDef.cell, cell.getContext())}</dd>
+            </div>)}
+          </dl>
+        </li>
+      })}
+    </ul></LedgerSurfaceContext.Provider>
   </div>
 }
