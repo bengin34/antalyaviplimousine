@@ -8,6 +8,7 @@ import { StaticPageHeader } from "./StaticPageHeader";
 type LocalizedRoute = NonNullable<ReturnType<typeof localizedRoute>>;
 
 const germanLandingHotels: Partial<Record<string, readonly string[]>> = {
+  antalya: ["Delphin Diva Premiere", "Delphin Imperial Lara", "Delphin BE Grand Resort", "Royal Wings Hotel", "Akra Hotel"],
   belek: ["Rixos Premium Belek", "The Land of Legends", "Maxx Royal Belek", "Regnum Carya", "Gloria Golf Resort", "Cornelia Diamond Golf Resort & Spa", "IC Hotels Santai Family Resort"],
   side: ["Arum Barut Collection", "Side Star Resort", "Royal Dragon Hotel", "Barut Hemera", "Voyage Sorgun", "Crystal Sunset Luxury Resort & Spa"],
   kemer: ["Maxx Royal Kemer Resort", "Orange County Resort Hotel Kemer", "Paloma Pasha Resort", "Amara Prestige Hotel"],
@@ -17,6 +18,7 @@ const germanLandingHotels: Partial<Record<string, readonly string[]>> = {
 };
 
 const germanRegionCopy: Partial<Record<string, { about: string; routeDetails: string }>> = {
+  antalya: { about: "Antalya-Stadt mit den Strandzonen Lara und Kundu liegt nur wenige Kilometer vom Flughafen entfernt. Entlang der Lara-Küste reihen sich große Themenresorts und Stadthotels, während Konyaaltı im Westen mit Kiesstrand und Promenade punktet.", routeDetails: "Die kurze Fahrt vom Flughafen Antalya führt über die Lara-Küstenstraße oder direkt ins Stadtzentrum. Auch auf dieser kurzen Strecke lohnt sich ein privater Transfer: kein Warten auf andere Gäste, kein Umstieg, direkte Ankunft an Ihrem Hotel." },
   belek: { about: "Belek liegt östlich von Antalya und ist besonders für Golfplätze, große All-inclusive-Resorts und breite Sandstrände bekannt. Die Hotelanlagen verteilen sich zwischen Kadriye und der Küste bei Serik; deshalb ist die genaue Hoteladresse bei der Reservierung hilfreich.", routeDetails: "Die Fahrt führt vom Flughafen Antalya über die D400 in Richtung Serik und Belek. Für Familien, Golfer und Gäste mit spätem Flug ist der direkte Privattransfer praktisch, weil Sie ohne Sammelstopps oder Umstieg direkt an Ihrer Unterkunft ankommen." },
   side: { about: "Side verbindet eine historische Altstadt mit langen Sandstränden und weitläufigen Ferienanlagen. Zum Urlaubsort gehören neben Side auch die beliebten Hotelzonen Kumköy, Evrenseki, Çolaklı, Sorgun und Titreyengöl.", routeDetails: "Vom Flughafen Antalya führt die Strecke über die Küstenstraße in Richtung Manavgat und Side. Besonders bei einer späten Ankunft ist ein privates Fahrzeug angenehm: Ihre Reisegruppe fährt direkt zum gebuchten Resort, ohne auf andere Hotelgäste zu warten." },
   kemer: { about: "Kemer liegt westlich von Antalya zwischen dem Taurusgebirge und dem Mittelmeer. Die Region umfasst Kemer Zentrum sowie Beldibi, Göynük, Kiriş und Çamyuva – Orte mit Strandhotels, Jachthafen und Bergkulisse.", routeDetails: "Die direkte Fahrt folgt der Küste westlich von Antalya. Ihr Fahrer bringt Sie ohne Umstieg zu Ihrem Hotel; das ist besonders bequem, wenn Sie mit Kindern, Sportgepäck oder nach einer Abendlandung anreisen." },

@@ -17,10 +17,23 @@
  * one-line change instead of an edit per hotel.
  *
  * The seed was compiled from public hotel listings in August 2026. Listing
- * sites disagree about where one belde ends and the next begins, so a row's
- * district is a strong hint, not a land-registry fact. That only matters at a
- * price boundary — see `priceBoundaryDistricts` — because filing a hotel under
- * the wrong district inside one region quotes exactly the same price.
+ * sites disagree about where one belde ends and the next begins — and, as the
+ * September 2026 region audit showed, sometimes file a hotel in the wrong town
+ * altogether (Delphin Diva Premiere sold as Avsallar, its address in Lara;
+ * Dantel Pansiyon on the Antalya-city listing, its address in Kaş). A row's
+ * district is therefore a hint, not a land-registry fact, anywhere in the list.
+ *
+ * Every row is now verified against Google Places address data by
+ * `scripts/audit-hotel-regions.mjs`, which writes `checked: true` into
+ * `hotel-distances.js` once the Place ID names the hotel and its address agrees
+ * with the region here. `src/hotel-region-audit.test.js` fails for any row that
+ * is neither checked nor allowlisted with a reason, so a new hotel cannot enter
+ * unverified — see `.claude/skills/hotel-region-audit` for the correction loop.
+ *
+ * Not every row's region comes from its district: the seed rows below and in
+ * `hotel-index-antalya-city.js` derive it via `districtRegions`, while the
+ * generated `discoveredHotelRows` carry their own `region` and only a coarse
+ * ilçe as district.
  *
  * Where a district could defensibly belong to either of two regions and those
  * two prices differ sharply, it is filed under the dearer one. The quoted
@@ -30,11 +43,11 @@
  * away. The two are not symmetric, so the tie is broken towards the dearer
  * region and a corrected row can always bring the price down later.
  *
- * `status` records how much a row can be trusted. Rows marked `draft` are a
- * research seed and must be checked against the operator's own records before
- * they are treated as authoritative — see `scripts/hotel-index-review.mjs`.
- * The booking form therefore treats an index hit as a *pre-selection* the
- * guest can still change, never as a locked value.
+ * `status` records whether the operator's own German catalogue names the hotel
+ * (`verified`) or not (`draft`). It says nothing about the region: that trust
+ * lives in the audit's `checked` flag described above. The booking form treats
+ * an index hit as a *pre-selection* the guest can still change, never as a
+ * locked value.
  */
 import { antalyaCitySeedRows } from "./hotel-index-antalya-city.js";
 import { discoveredHotelRows } from "./hotel-index-discovered.js";
@@ -449,9 +462,12 @@ const seedRows = [
 
 /**
  * Districts that border a district sold as a different region. A hotel filed
- * in the wrong one of these is quoted the wrong price, so these are where
- * checking the list actually pays; everywhere else a district mix-up is
- * invisible in the quote.
+ * in the wrong one of these is quoted the wrong price with no other symptom,
+ * so `scripts/hotel-index-review.mjs` walks these first. It is a review
+ * priority list, not a bound on the risk: the 2026-09 audit moved hotels
+ * between regions that share no border here (Avsallar → Aksu, Konaklı →
+ * Kargıcak, Antalya merkez → Kaş), and the address audit above is what
+ * actually catches those.
  *
  * @type {readonly string[]}
  */
