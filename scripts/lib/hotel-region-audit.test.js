@@ -1,0 +1,112 @@
+import { describe, expect, test } from "vitest";
+import { routeCatalog } from "../../src/routes.js";
+import {
+  classifyAuditRow,
+  euroDelta,
+  buildAuditReport,
+  renderAuditTable,
+} from "./hotel-region-audit.mjs";
+
+const components = (...texts) => texts.map((longText) => ({ longText, shortText: longText }));
+const place = (overrides = {}) => ({
+  id: "ChIJ5Y7F-AxkwxQRR9PP9OvOW8c",
+  displayName: { text: "Kirman Belazur Resort & Spa" },
+  businessStatus: "OPERATIONAL",
+  primaryType: "resort_hotel",
+  addressComponents: components("Boğazkent", "Serik", "Antalya"),
+  ...overrides,
+});
+// Pre-fix state of the motivating row: indexed under Belek, address says Boğazkent.
+const belazur = {
+  slug: "kirman-belazur-resort-spa", name: "Kirman Belazur Resort & Spa",
+  region: "belek", regionSource: "district", aliases: [],
+};
+
+describe("classifyAuditRow", () => {
+  test("fix: identity verified and address region differs (Belazur regression)", () => {
+    expect(classifyAuditRow(belazur, { place: place() }, routeCatalog)).toEqual({
+      slug: "kirman-belazur-resort-spa", name: "Kirman Belazur Resort & Spa",
+      regionSource: "district", indexRegion: "belek", derivedRegion: "bogazkent",
+      matchedTerm: "bogazkent", identityVerified: true, bucket: "fix",
+      euroDelta: 5, priceEquivalent: false,
+    });
+  });
+
+  test("ok: identity verified and regions agree", () => {
+    const row = classifyAuditRow({ ...belazur, region: "bogazkent" }, { place: place() }, routeCatalog);
+    expect(row.bucket).toBe("ok");
+    expect(row.euroDelta).toBe(0);
+  });
+
+  test("ok: price-equivalent regions (manavgat address resolves to side)", () => {
+    const hotel = { slug: "x", name: "X", region: "manavgat", regionSource: "district", aliases: [] };
+    const row = classifyAuditRow(hotel, { place: place({ displayName: { text: "X Hotel" }, addressComponents: components("Manavgat") }) }, routeCatalog);
+    expect(row).toMatchObject({ bucket: "ok", derivedRegion: "side", priceEquivalent: true, euroDelta: 0 });
+  });
+
+  test("unresolved: identity verified but no known locality", () => {
+    const row = classifyAuditRow(belazur, { place: place({ addressComponents: components("Nowhere", "Antalya") }) }, routeCatalog);
+    expect(row).toMatchObject({ bucket: "unresolved", derivedRegion: null, matchedTerm: null, identityVerified: true });
+  });
+
+  test("identity: display name does not match", () => {
+    const row = classifyAuditRow(belazur, { place: place({ displayName: { text: "Some Other Resort" } }) }, routeCatalog);
+    expect(row).toMatchObject({ bucket: "identity", identityVerified: false, identityReason: "name" });
+  });
+
+  test("identity: aliases are accepted", () => {
+    const row = classifyAuditRow({ ...belazur, aliases: ["Some Other"] }, { place: place({ displayName: { text: "Some Other Resort" } }) }, routeCatalog);
+    expect(row.bucket).toBe("fix");
+  });
+
+  test("identity: non-lodging type", () => {
+    const row = classifyAuditRow(belazur, { place: place({ primaryType: "restaurant" }) }, routeCatalog);
+    expect(row).toMatchObject({ bucket: "identity", identityReason: "type" });
+  });
+
+  test("gone: closed permanently or not found", () => {
+    expect(classifyAuditRow(belazur, { place: place({ businessStatus: "CLOSED_PERMANENTLY" }) }, routeCatalog).bucket).toBe("gone");
+    expect(classifyAuditRow(belazur, { notFound: true }, routeCatalog)).toMatchObject({ bucket: "gone", identityVerified: false });
+  });
+
+  test("never leaks Places text into the row", () => {
+    const row = classifyAuditRow(belazur, { place: place() }, routeCatalog);
+    const json = JSON.stringify(row);
+    expect(json).not.toMatch(/Serik|displayName|formattedAddress|addressComponents|businessStatus/);
+  });
+});
+
+describe("euroDelta", () => {
+  test("is the absolute per-vehicle Vito difference between two regions", () => {
+    expect(euroDelta("belek", "bogazkent", routeCatalog)).toBe(5);
+    expect(euroDelta("kemer", "tekirova", routeCatalog)).toBe(20);
+    expect(euroDelta("side", null, routeCatalog)).toBe(0);
+  });
+
+  test("side and manavgat are price-equivalent in the catalog (the ok rule depends on it)", () => {
+    expect(routeCatalog.side.prices).toEqual(routeCatalog.manavgat.prices);
+  });
+});
+
+describe("buildAuditReport", () => {
+  const rows = [
+    { slug: "a", bucket: "fix", euroDelta: 5 },
+    { slug: "b", bucket: "fix", euroDelta: 20 },
+    { slug: "c", bucket: "ok", euroDelta: 0 },
+    { slug: "d", bucket: "identity", euroDelta: 0 },
+  ];
+
+  test("counts buckets and orders rows by money at risk, fixes first", () => {
+    const report = buildAuditReport(rows, { generatedAt: "2026-09-10T00:00:00.000Z", indexed: 4 });
+    expect(report.counts).toEqual({ ok: 1, fix: 2, unresolved: 0, identity: 1, gone: 0 });
+    expect(report.rows.map((row) => row.slug)).toEqual(["b", "a", "d", "c"]);
+    expect(report.audited).toBe(4);
+    expect(report.indexed).toBe(4);
+  });
+
+  test("renders a markdown table with the same order", () => {
+    const table = renderAuditTable(buildAuditReport(rows, { generatedAt: "x", indexed: 4 }));
+    expect(table.indexOf("| b |")).toBeLessThan(table.indexOf("| a |"));
+    expect(table).toContain("| slug |");
+  });
+});
