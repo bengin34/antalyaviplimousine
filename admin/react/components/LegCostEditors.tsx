@@ -82,7 +82,7 @@ function EditorPanel({ title, children }: { title: string; children: ReactNode }
 
 const PROFIT_RANGE = { min: -999999.99, max: 999999.99 }
 
-function parseDecimal(raw: string): number | null {
+export function parseDecimal(raw: string): number | null {
   if (raw.trim() === '') return null
   const value = Number(raw.replace(',', '.'))
   return Number.isFinite(value) ? value : null
