@@ -1,7 +1,7 @@
 # Hotel region audit
 
 **Date:** 2026-09-10
-**Status:** Approved design, pending implementation planning
+**Status:** Implemented 2026-09-10 — plan in `docs/superpowers/plans/2026-09-10-hotel-region-audit.md`; correction loop in `.claude/skills/hotel-region-audit/SKILL.md`
 
 ## Problem
 
@@ -365,3 +365,23 @@ Layer 3's guard is itself the regression test for the index.
 - **`ADDRESS_REGION_TERMS` coverage.** Beldes outside the table produce
   `unresolved` rather than a wrong answer. A large `unresolved` bucket is a
   signal to extend the table, and the report makes its size visible.
+
+## Decisions taken during implementation (2026-09-10)
+
+1. **The 22 hand-resolved review rows were adopted** (index 1223 → 1245) and
+   audited like every other row.
+2. **Price-equivalent regions classify as `ok`** — `side` and `manavgat` share
+   one tariff, and a test pins that equality so the rule cannot mask a gap.
+3. **Identity accepts any Google lodging `primaryType`** (`LODGING_PLACE_TYPES`);
+   `selectOperationalHotelPlace` keeps the strict discovery set.
+4. **A second, loose name match** (`looseNameMatch`: distinctive-token
+   containment, rebrand-safe) is trusted only when the address agrees with the
+   index; a loose match that disagrees is residue
+   (`loose-name-region-conflict`), never an automatic fix.
+5. **Address terms are scoped to their ilçe** so generic mahalle names
+   (Cumhuriyet, Saray, Ilıca) cannot cross a price boundary.
+6. **`gone` rows are allowlisted, never removed** from the index.
+7. Result: 1164 of 1245 rows `checked: true`; 81 allowlisted in
+   `src/hotel-region-audit.test.js` with reasons; 27 hotels moved to the region
+   their own address names (largest: Delphin Diva Premiere alanya_bati → antalya,
+   Dantel Pansiyon antalya → kas, Arsi Sweet Suite antalya → alanya_merkez).
