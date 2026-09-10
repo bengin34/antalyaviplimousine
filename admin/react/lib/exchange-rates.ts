@@ -4,17 +4,28 @@ const rateCache = new Map<string, number>() // date (YYYY-MM-DD) → EUR/TRY rat
 const inFlight = new Map<string, Promise<number | null>>()
 const ISO_DATE = /^\d{4}-\d{2}-\d{2}$/
 
+// jsdelivr Türkiye'den zaman zaman 404/erişim hatası veriyor; aynı verinin
+// resmi yedek aynası (pages.dev) devreye girer.
+function rateUrlsForDate(date: string) {
+  return [
+    `https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@${date}/v1/currencies/eur.json`,
+    `https://${date}.currency-api.pages.dev/v1/currencies/eur.json`,
+  ]
+}
+
 async function fetchRateForDate(date: string): Promise<number | null> {
-  const url = `https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@${date}/v1/currencies/eur.json`
-  try {
-    const response = await fetch(url)
-    if (!response.ok) throw new Error('HTTP ' + response.status)
-    const data = await response.json() as { eur?: { try?: unknown } }
-    const rate = data?.eur?.try
-    return typeof rate === 'number' && Number.isFinite(rate) && rate > 0 ? rate : null
-  } catch {
-    return null
+  for (const url of rateUrlsForDate(date)) {
+    try {
+      const response = await fetch(url)
+      if (!response.ok) continue
+      const data = await response.json() as { eur?: { try?: unknown } }
+      const rate = data?.eur?.try
+      if (typeof rate === 'number' && Number.isFinite(rate) && rate > 0) return rate
+    } catch {
+      // sıradaki aynayı dene
+    }
   }
+  return null
 }
 
 export async function fetchRatesForDates(dates: string[]): Promise<Map<string, number>> {
