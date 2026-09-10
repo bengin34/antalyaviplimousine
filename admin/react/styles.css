@@ -1544,28 +1544,53 @@ button.profit-leg-action.is-ghost:hover:not(:disabled) {
   line-height: 1.5;
 }
 
-/* Gün grupları + Excel tablo */
-.ledger { display: grid; gap: 16px; }
-.ledger-day {
-  border: 1px solid var(--border-soft);
-  border-radius: 14px;
-  overflow: hidden;
-  background: rgba(13, 19, 29, 0.5);
+/* Muhasebe grid'i (düz, sıralanabilir, hücre içi düzenlenebilir) */
+.ledger { display: grid; gap: 12px; }
+.ledger-toolbar {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px;
+  padding: 4px 0;
 }
-.ledger-day-head {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 10px;
-  padding: 11px 14px;
-  background: rgba(115, 183, 255, 0.08);
-  border-bottom: 1px solid var(--border-soft);
+.ledger-search {
+  flex: 1 1 220px; min-width: 160px;
+  padding: 6px 10px; border-radius: 8px; border: 1px solid var(--border-soft);
+  background: rgba(255, 255, 255, 0.04); color: var(--text); font: inherit;
 }
-.ledger-day-head > span:first-child { font-weight: 700; font-size: 14px; }
-.ledger-day-head > span { color: var(--text-muted); font-size: 12px; }
-.ledger-day-head > b { font-variant-numeric: tabular-nums; font-size: 14px; }
-.ledger-day-head > b.is-pos { color: var(--green); }
-.ledger-day-head > b.is-neg { color: var(--danger, #e5484d); }
+.ledger-toolbar-check { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; color: var(--text-muted); }
+.ledger-toolbar-summary { margin-left: auto; font-size: 13px; color: var(--text-muted); font-variant-numeric: tabular-nums; }
+.ledger-toolbar-summary > b.is-pos { color: var(--green); }
+.ledger-toolbar-summary > b.is-neg { color: var(--danger, #e5484d); }
+.ledger-columns-menu { position: relative; }
+.ledger-columns-list {
+  position: absolute; z-index: 5; top: calc(100% + 4px); left: 0;
+  list-style: none; margin: 0; padding: 8px 10px; min-width: 180px;
+  background: #161a22; border: 1px solid var(--border-soft); border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+}
+.ledger-columns-list label { display: flex; align-items: center; gap: 8px; padding: 3px 0; font-size: 13px; white-space: nowrap; }
+
+.ledger-scroll { overflow-x: auto; border: 1px solid var(--border-soft); border-radius: 12px; }
+.ledger-table { min-width: 1180px; }
+.ledger-sort { all: unset; cursor: pointer; font: inherit; color: inherit; white-space: nowrap; }
+.ledger-sort:hover { color: var(--text); }
+.ledger-col-sticky { position: sticky; left: 0; z-index: 1; background: #161a22; }
+.ledger-table tbody tr:nth-child(even) td.ledger-col-sticky { background: #1a1f28; }
+
+.ledger-cell-edit {
+  all: unset; cursor: text; font: inherit; color: inherit;
+  border-bottom: 1px dotted var(--text-muted); padding-bottom: 1px;
+}
+.ledger-cell-edit:hover,
+.ledger-cell-edit:focus-visible { background: rgba(115, 183, 255, 0.14); outline: none; }
+.ledger-cell-editor { display: inline-flex; flex-direction: column; gap: 2px; }
+.ledger-cell-input {
+  width: 9ch; padding: 2px 6px; border-radius: 6px; border: 1px solid var(--blue);
+  background: rgba(255, 255, 255, 0.06); color: var(--text); font: inherit; text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+select.ledger-cell-input { width: auto; text-align: left; }
+.ledger-cell-input[aria-busy="true"] { opacity: 0.6; }
+.is-muted { opacity: 0.55; }
+.ledger-card-facts dd .ledger-cell-input { text-align: left; }
 
 .ledger-table th,
 .ledger-table td {
@@ -1574,9 +1599,12 @@ button.profit-leg-action.is-ghost:hover:not(:disabled) {
   border: 1px solid var(--border-soft);
   font-size: 12px;
 }
-.ledger-table th:nth-child(-n+2),
-.ledger-table td:nth-child(-n+2) { text-align: left; }
+.ledger-table th.is-left,
+.ledger-table td.is-left { text-align: left; }
+.ledger-table th.is-right,
+.ledger-table td.is-right { text-align: right; }
 .ledger-table th {
+  white-space: nowrap;
   color: var(--text-muted);
   font-size: 9px;
   font-weight: 800;
@@ -1601,22 +1629,6 @@ button.profit-leg-action.is-ghost:hover:not(:disabled) {
   border: 1px dashed var(--border-soft);
   border-radius: 12px;
 }
-
-/* Hücre içi düzenleme ikonu (KM / tedarikçi) → maliyet modalı açar */
-.ledger-edit-cell { white-space: nowrap; }
-.cell-edit {
-  margin-left: 6px;
-  padding: 1px 5px;
-  border: 1px solid var(--border);
-  border-radius: 6px;
-  background: rgba(255, 255, 255, 0.05);
-  color: var(--blue);
-  font-size: 12px;
-  line-height: 1.4;
-  cursor: pointer;
-  vertical-align: middle;
-}
-.cell-edit:hover { background: rgba(115, 183, 255, 0.18); color: var(--text); }
 
 /* Tıklanabilir sefer numarası → seyahat detayı */
 .ledger-ref-link {
