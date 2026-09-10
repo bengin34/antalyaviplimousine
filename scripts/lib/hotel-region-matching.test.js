@@ -280,6 +280,23 @@ describe("matchAddressRegionTerm", () => {
     expect(matchAddressRegionTerm(components("Nowhere", "Antalya"))).toBeNull();
     expect(pricingRegionFromAddressComponents(components("Nowhere"))).toBeNull();
   });
+
+  test("generic mahalle names only count inside their own ilçe", () => {
+    expect(matchAddressRegionTerm(components("Cumhuriyet", "Manavgat", "Antalya")))
+      .toEqual({ region: "side", term: "manavgat" });
+    expect(matchAddressRegionTerm(components("Cumhuriyet", "Alanya", "Antalya")))
+      .toEqual({ region: "alanya_merkez", term: "cumhuriyet" });
+    expect(matchAddressRegionTerm(components("Saray", "Muratpaşa", "Antalya")))
+      .toEqual({ region: "antalya", term: "muratpasa" });
+    expect(matchAddressRegionTerm(components("Ilıca", "Kemer", "Antalya")))
+      .toEqual({ region: "kemer", term: "kemer" });
+  });
+
+  test("a belde name without its ilçe does not resolve", () => {
+    expect(matchAddressRegionTerm(components("Mahmutlar", "Antalya"))).toBeNull();
+    expect(matchAddressRegionTerm(components("Mahmutlar", "Alanya", "Antalya")))
+      .toEqual({ region: "alanya_dogu", term: "mahmutlar" });
+  });
 });
 
 describe("isOperationalHotelPlace", () => {

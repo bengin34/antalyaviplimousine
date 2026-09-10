@@ -119,20 +119,24 @@ const ministryDistrictKey = (value) => String(value ?? "")
   .replace(/ç/g, "c").replace(/ö/g, "o").replace(/ü/g, "u")
   .replace(/[^a-z0-9]+/g, "");
 
+// [region, terms, ilçe]: the terms only count when the ilçe key (normalised
+// with ministryNameKey) also appears as its own address component. Generic
+// mahalle names (Cumhuriyet, Saray, Ilıca) exist in several ilçes, and
+// without the guard the first region in scan order would claim them.
 const ADDRESS_REGION_TERMS = Object.freeze([
-  ["demirtas", ["demirtas"]],
-  ["kargicak", ["kargicak"]],
-  ["alanya_dogu", ["kestel", "mahmutlar"]],
-  ["alanya_bati", ["okurcalar", "incekum", "avsallar", "turkler", "payallar", "konakli"]],
-  ["alanya_merkez", ["oba", "tosmur", "saray", "guller pinari", "cumhuriyet"]],
-  ["kizilagac", ["kizilagac", "kizilot", "cenger"]],
-  ["side", ["side", "kumkoy", "gundogdu", "evrenseki", "sorgun", "titreyengol", "colakli", "ilica", "manavgat"]],
-  ["bogazkent", ["bogazkent"]],
-  ["belek", ["belek", "kadriye"]],
-  ["tekirova", ["tekirova"]],
-  ["kumluca", ["kumluca", "adrasan", "olympos"]],
-  ["kas", ["kas", "kalkan"]],
-  ["kemer", ["kemer", "beldibi", "goynuk", "kiris", "camyuva"]],
+  ["demirtas", ["demirtas"], "alanya"],
+  ["kargicak", ["kargicak"], "alanya"],
+  ["alanya_dogu", ["kestel", "mahmutlar"], "alanya"],
+  ["alanya_bati", ["okurcalar", "incekum", "avsallar", "turkler", "payallar", "konakli"], "alanya"],
+  ["alanya_merkez", ["oba", "tosmur", "saray", "guller pinari", "cumhuriyet"], "alanya"],
+  ["kizilagac", ["kizilagac", "kizilot", "cenger"], "manavgat"],
+  ["side", ["side", "kumkoy", "gundogdu", "evrenseki", "sorgun", "titreyengol", "colakli", "ilica", "manavgat"], "manavgat"],
+  ["bogazkent", ["bogazkent"], "serik"],
+  ["belek", ["belek", "kadriye"], "serik"],
+  ["tekirova", ["tekirova"], "kemer"],
+  ["kumluca", ["kumluca", "adrasan", "olympos"], "kumluca"],
+  ["kas", ["kas", "kalkan"], "kas"],
+  ["kemer", ["kemer", "beldibi", "goynuk", "kiris", "camyuva"], "kemer"],
   ["antalya", ["konyaalti", "lara", "kundu", "aksu", "muratpasa", "kepez"]],
 ]);
 
@@ -145,7 +149,8 @@ export function matchAddressRegionTerm(components) {
   // Region order is the price-boundary priority (bogazkent before belek).
   // Within a region, walk the address parts first so the most specific
   // component (Adrasan) reports its own term rather than the ilçe's (Kumluca).
-  for (const [region, terms] of ADDRESS_REGION_TERMS) {
+  for (const [region, terms, ilce] of ADDRESS_REGION_TERMS) {
+    if (ilce && !parts.includes(ilce)) continue;
     for (const part of parts) {
       const term = terms.find((candidate) => matches(part, candidate));
       if (term) return { region, term };
