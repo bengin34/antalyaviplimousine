@@ -17,17 +17,17 @@ export const hotelCatalog = Object.freeze({
   "royal-dragon-hotel": { slug: "royal-dragon-hotel", name: "Royal Dragon Hotel", regionSlug: "side", locationCopy: "Das Hotel liegt in Evrenseki, einem beliebten Strandviertel westlich der Altstadt von Side." },
   "barut-hemera": { slug: "barut-hemera", name: "Barut Hemera", regionSlug: "side", locationCopy: "Das Resort liegt im Bereich Kumköy, nahe der Strandpromenade von Side." },
   "voyage-sorgun": { slug: "voyage-sorgun", name: "Voyage Sorgun", regionSlug: "side", locationCopy: "Das Resort liegt in Sorgun, östlich von Side zwischen Pinienwald und Küste." },
-  "sentido-flora-garden": { slug: "sentido-flora-garden", name: "Sentido Flora Garden", regionSlug: "side", locationCopy: "Das Hotel befindet sich in Çolaklı, einem Küstenort westlich von Side mit langen Sandstränden." },
+  "sentido-flora-garden": { slug: "sentido-flora-garden", name: "Sentido Flora Garden", regionSlug: "kizilagac", locationCopy: "Das Hotel liegt in Kızılağaç, östlich von Side in Richtung Manavgat und Kızılot, direkt am Strand." },
   "crystal-sunset-luxury-resort": { slug: "crystal-sunset-luxury-resort", name: "Crystal Sunset Luxury Resort & Spa", regionSlug: "side", locationCopy: "Das Resort liegt in Gündoğdu, im westlichen Strandabschnitt des Side-Gebiets." },
   // Kemer
-  "rixos-premium-kemer": { slug: "rixos-premium-kemer", name: "Rixos Premium Kemer", regionSlug: "kemer", locationCopy: "Das Resort liegt in Göynük, einem Strandort unmittelbar westlich des Ortskerns von Kemer, umgeben von Pinienwäldern." },
+  "rixos-premium-kemer": { slug: "rixos-premium-kemer", name: "Rixos Premium Kemer", regionSlug: "tekirova", locationCopy: "Das Resort liegt in Tekirova, südlich von Kemer, umgeben von Pinienwäldern und nahe der antiken Stätte Phaselis." },
   "maxx-royal-kemer": { slug: "maxx-royal-kemer", name: "Maxx Royal Kemer Resort", regionSlug: "kemer", locationCopy: "Das Resort befindet sich in Kiriş, einem Küstenabschnitt nördlich des Ortskerns von Kemer am Fuß des Taurus-Gebirges." },
   "orange-county-resort-kemer": { slug: "orange-county-resort-kemer", name: "Orange County Resort Hotel Kemer", regionSlug: "kemer", locationCopy: "Das Hotel liegt in Beldibi, am nördlichen Eingang der Kemerer Küste, nahe der Felsklippen am Mittelmeer." },
   "paloma-pasha-resort": { slug: "paloma-pasha-resort", name: "Paloma Pasha Resort", regionSlug: "kemer", locationCopy: "Das Resort befindet sich in Göynük, an der Küste zwischen der Strandpromenade und der Bucht westlich von Kemer." },
   // Alanya
   // Its own address is Kargıcak, east of Alanya, not Konaklı; the 2026-09 region audit moved it (€70 → €90 Vito).
   "utopia-world-hotel": { slug: "utopia-world-hotel", name: "Utopia World Hotel", regionSlug: "alanya", locationCopy: "Das Hotel liegt in Kargıcak, einem Küstenabschnitt östlich des Alanya-Zentrums, am Hang über dem Mittelmeer." },
-  "sentido-gold-island": { slug: "sentido-gold-island", name: "Sentido Gold Island Hotel", regionSlug: "alanya", locationCopy: "Das Resort liegt im Alanya-Zentrum, nahe dem Kleopatra-Strand und dem Alanya-Hafen." },
+  "sentido-gold-island": { slug: "sentido-gold-island", name: "Sentido Gold Island Hotel", regionSlug: "alanya", locationCopy: "Das Resort liegt in Türkler, westlich des Zentrums von Alanya, an dem langen Sandstrandstreifen der Küste." },
   "q-premium-resort": { slug: "q-premium-resort", name: "Q Premium Resort Hotel Alanya", regionSlug: "alanya", locationCopy: "Das Hotel befindet sich in Konaklı, westlich des Alanya-Zentrums, direkt am Sandstrand gelegen." },
   "kirman-arycanda": { slug: "kirman-arycanda", name: "Kirman Arycanda De Luxe", regionSlug: "alanya", locationCopy: "Das Resort liegt in Konaklı, einem Küstengebiet mit langen Stränden westlich des Alanya-Zentrums." },
   // Antalya (Lara)

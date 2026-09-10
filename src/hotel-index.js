@@ -309,7 +309,6 @@ const seedRows = [
   ["Aydinbey King's Palace", "Çolaklı"],
   ["Kirman Sidemarin Beach & Spa", "Çolaklı"],
   ["Von Resort Golden Coast", "Çolaklı"],
-  ["Sentido Flora Garden", "Çolaklı"],
   ["Royal Alhambra Palace", "Çolaklı"],
   ["Mary Palace Resort & Spa", "Çolaklı"],
   ["Hane Sun Elite Hotel", "Çolaklı"],
@@ -333,6 +332,13 @@ const seedRows = [
   // Seed said Kumköy; its own address is Kızılağaç (audit 2026-09,
   // €20/vehicle).
   ["Sunis Elita Beach Resort", "Kızılağaç"],
+  // Came off the Antalya city listing filed under Manavgat; its own address is
+  // Kızılağaç, not Manavgat centre (audit 2026-09, €20/vehicle).
+  ["Otium Family Club Marine Beach Otel", "Kızılağaç"],
+  // Sold as Çolaklı, and Google names it "Flora Garden Beach Hotel" at a
+  // Kızılağaç address, east of Side across the price line (audit 2026-09,
+  // €20/vehicle).
+  ["Sentido Flora Garden", "Kızılağaç"],
 
   // --- Kemer, Göynük, Beldibi, Kiriş, Çamyuva -----------------------------
   ["Club Med Palmiye", "Kemer"],
@@ -354,7 +360,6 @@ const seedRows = [
   ["The Grand Ring Hotel", "Beldibi"],
   ["Champion Holiday Village", "Beldibi"],
   ["Aydinbey Siu Collection", "Beldibi"],
-  ["Rixos Premium Kemer", "Göynük"],
   ["Paloma Pasha Resort", "Göynük"],
   ["Sherwood Exclusive Kemer", "Göynük"],
   ["Queen's Park Le Jardin", "Göynük"],
@@ -387,6 +392,10 @@ const seedRows = [
   // Seed said Çamyuva; its own address is Tekirova (audit 2026-09,
   // €20/vehicle).
   ["Club Hotel Phaselis Rose", "Tekirova", ["Phaselis Rose Hotel"]],
+  // Named for Kemer and seeded in Göynük, but the only Rixos Premium on this
+  // coast is the Tekirova one, and Google resolves the name there
+  // (audit 2026-09, €20/vehicle).
+  ["Rixos Premium Kemer", "Tekirova"],
 
   // --- Alanya and its western resort strip ---------------------------------
   ["Kirman Leodikya Resort", "Okurcalar"],
@@ -403,6 +412,9 @@ const seedRows = [
   ["Otel İncekum Su", "İncekum"],
   ["Delphin Botanik Platinum", "Türkler"],
   ["Sirius Deluxe Hotel", "Türkler"],
+  // Seed said Alanya merkez; Google names it "Gold Island Selected" at a
+  // Türkler address, west of the centre (audit 2026-09, €5/vehicle).
+  ["Sentido Gold Island Hotel", "Türkler"],
   ["Long Beach Resort Hotel", "Konaklı"],
   ["Q Premium Resort Hotel Alanya", "Konaklı"],
   ["Kirman Arycanda De Luxe", "Konaklı"],
@@ -410,7 +422,6 @@ const seedRows = [
   ["Kahya Resort Aqua & Spa", "Konaklı"],
   ["The Antik Hotel", "Konaklı"],
   ["Asia Beach Resort & Spa", "Alanya merkez"],
-  ["Sentido Gold Island Hotel", "Alanya merkez"],
   ["Klas More Beach Hotel", "Mahmutlar"],
   ["Sey Beach Hotel & Spa", "Kestel"],
   ["Goldcity Hotel", "Kargıcak"],

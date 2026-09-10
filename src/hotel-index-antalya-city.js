@@ -466,7 +466,6 @@ export const antalyaCitySeedRows = [
   ["Otel Guenduez", "Antalya merkez"],
   ["Otel Wood House", "Antalya merkez"],
   ["Otium Boutique Happy Suites", "Antalya merkez"],
-  ["Otium Family Club Marine Beach Otel", "Manavgat"],
   ["Otium Park Club Akman Otel", "Çamyuva"],
   ["Otto Lara Hotel", "Lara"],
   ["Ozgur Otel", "Antalya merkez"],

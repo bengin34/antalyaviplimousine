@@ -9,11 +9,11 @@ type LocalizedRoute = NonNullable<ReturnType<typeof localizedRoute>>;
 
 const germanLandingHotels: Partial<Record<string, readonly string[]>> = {
   belek: ["Rixos Premium Belek", "The Land of Legends", "Maxx Royal Belek", "Regnum Carya", "Gloria Golf Resort", "Cornelia Diamond Golf Resort & Spa", "IC Hotels Santai Family Resort"],
-  side: ["Arum Barut Collection", "Side Star Resort", "Royal Dragon Hotel", "Barut Hemera", "Voyage Sorgun", "Sentido Flora Garden", "Crystal Sunset Luxury Resort & Spa"],
-  kemer: ["Rixos Premium Kemer", "Maxx Royal Kemer Resort", "Orange County Resort Hotel Kemer", "Paloma Pasha Resort"],
+  side: ["Arum Barut Collection", "Side Star Resort", "Royal Dragon Hotel", "Barut Hemera", "Voyage Sorgun", "Crystal Sunset Luxury Resort & Spa"],
+  kemer: ["Maxx Royal Kemer Resort", "Orange County Resort Hotel Kemer", "Paloma Pasha Resort"],
   alanya: ["Utopia World Hotel", "Sentido Gold Island Hotel", "Q Premium Resort Hotel Alanya", "Kirman Arycanda De Luxe"],
-  kizilagac: ["Starlight Resort Hotel", "Sunrise Resort Hotel", "Crystal Admiral Resort", "Club Hotel Turan Prince", "Selectum Family Resort"],
-  tekirova: ["Rixos Premium Tekirova", "Amara Prestige Hotel", "Nirvana Dolce Vita", "Club Marco Polo", "Pirate’s Beach Club", "Club Hotel Phaselis Rose"],
+  kizilagac: ["Sentido Flora Garden", "Starlight Resort Hotel", "Sunrise Resort Hotel", "Crystal Admiral Resort", "Club Hotel Turan Prince", "Selectum Family Resort"],
+  tekirova: ["Rixos Premium Kemer", "Rixos Premium Tekirova", "Amara Prestige Hotel", "Nirvana Dolce Vita", "Club Marco Polo", "Pirate’s Beach Club", "Club Hotel Phaselis Rose"],
 };
 
 const germanRegionCopy: Partial<Record<string, { about: string; routeDetails: string }>> = {

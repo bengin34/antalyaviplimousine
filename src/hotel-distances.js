@@ -7,7 +7,7 @@ export const hotelDistances = Object.freeze({
   "7inn": {
     "km": 23,
     "place": "ChIJswcoiEmRwxQRlM8vzp6E024",
-    "checked": false
+    "checked": true
   },
   "a-hotel-side": {
     "km": 63,
@@ -22,12 +22,12 @@ export const hotelDistances = Object.freeze({
   "acar-apart-otel": {
     "km": 18,
     "place": "ChIJQ6FDiL6PwxQR247A6wgf0KM",
-    "checked": false
+    "checked": true
   },
   "acar-apart-otel-3": {
     "km": 22,
     "place": "ChIJ2T4Ya96RwxQRCY5kptJRovo",
-    "checked": false
+    "checked": true
   },
   "acar-otel": {
     "km": 130,
@@ -47,7 +47,7 @@ export const hotelDistances = Object.freeze({
   "adalia-hotel": {
     "km": 16,
     "place": "ChIJF_61kQaQwxQRrOooTLEJutQ",
-    "checked": false
+    "checked": true
   },
   "adalin-resort-otel": {
     "km": 61,
@@ -62,7 +62,7 @@ export const hotelDistances = Object.freeze({
   "adalya-grand-art-side": {
     "km": 58,
     "place": "ChIJ2VKxlhxfwxQRdbKbQcSYyzs",
-    "checked": false
+    "checked": true
   },
   "adalya-ocean-deluxe": {
     "km": 59,
@@ -72,7 +72,7 @@ export const hotelDistances = Object.freeze({
   "adalya-ocean-hotel": {
     "km": 59,
     "place": "ChIJ5fd92MZewxQRD91Z4ncvVd4",
-    "checked": false
+    "checked": true
   },
   "adalya-port-hotel": {
     "km": 18,
@@ -82,12 +82,12 @@ export const hotelDistances = Object.freeze({
   "adalya-resort-spa": {
     "km": 59,
     "place": "ChIJ85WnKsFewxQRgYvwZWWnhPk",
-    "checked": false
+    "checked": true
   },
   "adam-apart-hotel": {
     "km": 18,
     "place": "ChIJ8dEvIL2PwxQRHZ0eNw_wS4s",
-    "checked": false
+    "checked": true
   },
   "adam-apart-hotel-2": {
     "km": 18,
@@ -127,7 +127,7 @@ export const hotelDistances = Object.freeze({
   "af-ra-hotel": {
     "km": 24,
     "place": "ChIJh6fINoKRwxQRxbm6GXtYtw4",
-    "checked": false
+    "checked": true
   },
   "afflon-hotels-loft-city": {
     "km": 18,
@@ -137,7 +137,7 @@ export const hotelDistances = Object.freeze({
   "afflon-hotels-sea-hill-concept-adult-only": {
     "km": 18,
     "place": "ChIJ_w4c7raRwxQRauCOUxrvq5I",
-    "checked": false
+    "checked": true
   },
   "afsin-hotel": {
     "km": 24,
@@ -147,7 +147,7 @@ export const hotelDistances = Object.freeze({
   "ag-hotels": {
     "km": 13,
     "place": "ChIJ21XrO0qFwxQR8t-LoW92e7g",
-    "checked": false
+    "checked": true
   },
   "ahsen-hotel": {
     "km": 16,
@@ -157,12 +157,12 @@ export const hotelDistances = Object.freeze({
   "akca-apart-otel": {
     "km": 19,
     "place": "ChIJXbMSf9aRwxQRyqGdqe7ksEc",
-    "checked": false
+    "checked": true
   },
   "akcahan-apart-hotel": {
     "km": 25,
     "place": "ChIJfWj1ZXSRwxQRj3pTBLBExlE",
-    "checked": false
+    "checked": true
   },
   "akin-apart-hotel": {
     "km": 18,
@@ -177,12 +177,12 @@ export const hotelDistances = Object.freeze({
   "akra-v-access-to-akra-antalya-otel": {
     "km": 15,
     "place": "ChIJqYvIITSDwxQRyuoO-Xpe5Wk",
-    "checked": false
+    "checked": true
   },
   "alaiye-kleopatra-otel": {
     "km": 125,
     "place": "ChIJJfo_QYWi3BQR19WayxMqxFs",
-    "checked": false
+    "checked": true
   },
   "alaiye-resort-spa": {
     "km": 104,
@@ -192,7 +192,7 @@ export const hotelDistances = Object.freeze({
   "alan-xafira-deluxe-resort": {
     "km": 109,
     "place": "ChIJx3p45a7euxQRyk3CbQHnH_4",
-    "checked": false
+    "checked": true
   },
   "alanya-beach": {
     "km": 128,
@@ -202,7 +202,7 @@ export const hotelDistances = Object.freeze({
   "alanya-buyuk-otel": {
     "km": 127,
     "place": "ChIJwSpey3CY3BQRaXqLcW0enP0",
-    "checked": false
+    "checked": true
   },
   "alanya-divan-otel": {
     "km": 124,
@@ -217,7 +217,7 @@ export const hotelDistances = Object.freeze({
   "alanya-sunway-hotel": {
     "km": 125,
     "place": "ChIJnwibj5yi3BQRgDjMHSxy-Yk",
-    "checked": false
+    "checked": true
   },
   "alarcha-hotels-resort": {
     "km": 90,
@@ -257,7 +257,7 @@ export const hotelDistances = Object.freeze({
   "ale-boutique-apartments": {
     "km": 24,
     "place": "ChIJySfbl3aRwxQRub4RYenzYns",
-    "checked": false
+    "checked": true
   },
   "ale-park-hotel-apartments": {
     "km": 25,
@@ -292,22 +292,22 @@ export const hotelDistances = Object.freeze({
   "alice-hotel": {
     "km": 17,
     "place": "ChIJialBxwKDwxQRXdebjYoUt-o",
-    "checked": false
+    "checked": true
   },
   "alin-otel": {
     "km": 126,
     "place": "ChIJ4-n3soeY3BQR-p1oqIOVIsg",
-    "checked": false
+    "checked": true
   },
   "alp-pasa-gazetta-special-class": {
     "km": 16,
     "place": "ChIJ8_vGF9qCwxQReGt-PAfdd9g",
-    "checked": false
+    "checked": true
   },
   "alp-pasa-hotel-special-class": {
     "km": 16,
     "place": "ChIJ8_vGF9qCwxQReGt-PAfdd9g",
-    "checked": false
+    "checked": true
   },
   "altes-hotel": {
     "km": 17,
@@ -332,12 +332,12 @@ export const hotelDistances = Object.freeze({
   "amara-dolce-vita-luxury": {
     "km": 78,
     "place": "ChIJjaf6vqbKwxQRky_1mm60Gwk",
-    "checked": false
+    "checked": true
   },
   "amara-luxury-resort-and-villas": {
     "km": 51,
     "place": "ChIJxYJVjOa4wxQRQMxAuzEPgwA",
-    "checked": false
+    "checked": true
   },
   "amara-prestige-hotel": {
     "km": 52,
@@ -352,7 +352,7 @@ export const hotelDistances = Object.freeze({
   "anadolu-pension": {
     "km": 17,
     "place": "ChIJkS_MMAmQwxQRy5uvtdUAuUg",
-    "checked": false
+    "checked": true
   },
   "anatolian-homes-apart": {
     "km": 25,
@@ -402,7 +402,7 @@ export const hotelDistances = Object.freeze({
   "antalya-city-hotel-spa-adults-only": {
     "km": 12,
     "place": "ChIJoVAnW9ObwxQRyJ_er7rGiSY",
-    "checked": false
+    "checked": true
   },
   "antalya-dream-hotel": {
     "km": 16,
@@ -412,7 +412,7 @@ export const hotelDistances = Object.freeze({
   "antalya-gul-apart": {
     "km": 16,
     "place": "ChIJtw8kRb-CwxQRxrFFqQ4ciUE",
-    "checked": false
+    "checked": true
   },
   "antalya-inn-hotel": {
     "km": 16,
@@ -427,7 +427,7 @@ export const hotelDistances = Object.freeze({
   "antey-aqua-city": {
     "km": 31,
     "place": "ChIJicdDcPCTwxQRRppTqbu0dtI",
-    "checked": false
+    "checked": true
   },
   "antique-house-otel": {
     "km": 16,
@@ -437,7 +437,7 @@ export const hotelDistances = Object.freeze({
   "antique-roman-palace": {
     "km": 131,
     "place": "ChIJgQl_hyu7yhQRJ_VreFWnank",
-    "checked": false
+    "checked": true
   },
   "antroyal-hotel": {
     "km": 17,
@@ -552,12 +552,12 @@ export const hotelDistances = Object.freeze({
   "arum-barut-collection": {
     "km": 63,
     "place": "ChIJ9zj7AGpZwxQRwezqiTF4Jck",
-    "checked": false
+    "checked": true
   },
   "arya-apart-kundu-hotel": {
     "km": 11,
     "place": "ChIJlexHJy6DwxQRXC1JXswu4Ns",
-    "checked": false
+    "checked": true
   },
   "asena-hotel": {
     "km": 19,
@@ -572,7 +572,7 @@ export const hotelDistances = Object.freeze({
   "asimado-hotel": {
     "km": 5,
     "place": "ChIJw7biOvi3wxQREgjYPIPdNjU",
-    "checked": false
+    "checked": true
   },
   "aska-just-in-beach-hotel": {
     "km": 104,
@@ -587,12 +587,12 @@ export const hotelDistances = Object.freeze({
   "aska-river-suites": {
     "km": 18,
     "place": "ChIJb8QXbXZ4wxQR_MDn_d3UkK8",
-    "checked": false
+    "checked": true
   },
   "aspen-hotel-kaleici": {
     "km": 16,
     "place": "ChIJy1S4pAWQwxQRIUE-j4KYwtM",
-    "checked": false
+    "checked": true
   },
   "aspendos-extra-apart-otel": {
     "km": 25,
@@ -602,12 +602,12 @@ export const hotelDistances = Object.freeze({
   "aspendos-seaside-apart-otel": {
     "km": 25,
     "place": "ChIJYXyI63GRwxQRR5hoq4qnPuA",
-    "checked": false
+    "checked": true
   },
   "aspendos-suites-konyaalti-apart": {
     "km": 25,
     "place": "ChIJNSpMlnGRwxQRgJr0YcL72gg",
-    "checked": false
+    "checked": true
   },
   "asteria-bloom-side": {
     "km": 80,
@@ -652,7 +652,7 @@ export const hotelDistances = Object.freeze({
   "avena-mountain-otel": {
     "km": 132,
     "place": "ChIJmTaNVzuh3BQRtDA_pRMuyOE",
-    "checked": false
+    "checked": true
   },
   "avion-suite-hotel": {
     "km": 14,
@@ -707,7 +707,7 @@ export const hotelDistances = Object.freeze({
   "aydinbey-siu-collection": {
     "km": 47,
     "place": "ChIJM5bj09-_wxQRUgjP91tY48U",
-    "checked": false
+    "checked": true
   },
   "ayhan-hotel": {
     "km": 17,
@@ -727,7 +727,7 @@ export const hotelDistances = Object.freeze({
   "ayka-vital-park-hotel-adults-only-duaci": {
     "km": 26,
     "place": "ChIJ6SlpsSuJwxQRyFbuOVOEEBE",
-    "checked": false
+    "checked": true
   },
   "aysev-otel": {
     "km": 125,
@@ -752,7 +752,7 @@ export const hotelDistances = Object.freeze({
   "aziz-otel": {
     "km": 17,
     "place": "ChIJeYrlAAOQwxQRyChHODkZd4A",
-    "checked": false
+    "checked": true
   },
   "aziz-pansiyon-2": {
     "km": 17,
@@ -777,7 +777,7 @@ export const hotelDistances = Object.freeze({
   "azuu-boutique-hotel": {
     "km": 15,
     "place": "ChIJC2LalxmbwxQR-mwjRpf_YpQ",
-    "checked": false
+    "checked": true
   },
   "b-business-hotel-spa": {
     "km": 21,
@@ -792,7 +792,7 @@ export const hotelDistances = Object.freeze({
   "bacchus-pension": {
     "km": 16,
     "place": "ChIJdRzPKA-QwxQRQjCHSWO-UpI",
-    "checked": false
+    "checked": true
   },
   "baia-lara-hotel": {
     "km": 17,
@@ -807,7 +807,7 @@ export const hotelDistances = Object.freeze({
   "balik-otel": {
     "km": 124,
     "place": "ChIJU1-2jYyi3BQRrenT-RkXW-k",
-    "checked": false
+    "checked": true
   },
   "balmy-beach-resort-kemer": {
     "km": 44,
@@ -832,7 +832,7 @@ export const hotelDistances = Object.freeze({
   "barut-acanthus-cennet": {
     "km": 64,
     "place": "ChIJTdvARGVZwxQRxwfO4fH-peU",
-    "checked": false
+    "checked": true
   },
   "barut-b-suites": {
     "km": 58,
@@ -852,7 +852,7 @@ export const hotelDistances = Object.freeze({
   "basel-hotel": {
     "km": 24,
     "place": "ChIJObLYXqGRwxQRBBDqWrxbr4I",
-    "checked": false
+    "checked": true
   },
   "bayindir-palme-hotel": {
     "km": 18,
@@ -877,7 +877,7 @@ export const hotelDistances = Object.freeze({
   "begonya-hotel-kemer-all-inclisuve": {
     "km": 43,
     "place": "ChIJYb1wIQm_wxQR5n3eNbopV2Y",
-    "checked": false
+    "checked": true
   },
   "begumhan-pansiyon": {
     "km": 17,
@@ -907,17 +907,17 @@ export const hotelDistances = Object.freeze({
   "belek-diamonds-hotel": {
     "km": 26,
     "place": "ChIJs7pUT1d9wxQRSs9O_fkZqeM",
-    "checked": false
+    "checked": true
   },
   "belenli-resort-hotel-belek": {
     "km": 34,
     "place": "ChIJORx1u2B7wxQRfzV3Qy7L0Lw",
-    "checked": false
+    "checked": true
   },
   "belkon-hotel": {
     "km": 28,
     "place": "ChIJo15LL-N7wxQRjUhUlFhzdYw",
-    "checked": false
+    "checked": true
   },
   "bella-resort-spa": {
     "km": 57,
@@ -932,7 +932,7 @@ export const hotelDistances = Object.freeze({
   "belmondo-suites-old-town": {
     "km": 16,
     "place": "ChIJsajL0eaRwxQRREubE23C1K8",
-    "checked": false
+    "checked": true
   },
   "belpoint-beach-hotel": {
     "km": 44,
@@ -967,7 +967,7 @@ export const hotelDistances = Object.freeze({
   "berrak-su-hotel": {
     "km": 19,
     "place": "ChIJXYsOjNaRwxQR3UbHAtFVmM8",
-    "checked": false
+    "checked": true
   },
   "berry-blue-hotel": {
     "km": 70,
@@ -977,7 +977,7 @@ export const hotelDistances = Object.freeze({
   "best-house-otel": {
     "km": 125,
     "place": "ChIJh0L7YISi3BQRPVumZqmi0Qw",
-    "checked": false
+    "checked": true
   },
   "best-western-plus-khan-hotel": {
     "km": 17,
@@ -992,7 +992,7 @@ export const hotelDistances = Object.freeze({
   "betas-guesthouse": {
     "km": 18,
     "place": "ChIJa0FgLi2RwxQReLAOWUp9lhI",
-    "checked": false
+    "checked": true
   },
   "beyaz-melek-hotel": {
     "km": 25,
@@ -1017,7 +1017,7 @@ export const hotelDistances = Object.freeze({
   "bieno-venus-hotel": {
     "km": 70,
     "place": "ChIJzxcWzMlnwRQRV6BdjiiZDe4",
-    "checked": false
+    "checked": true
   },
   "bilem-hotel": {
     "km": 14,
@@ -1027,7 +1027,7 @@ export const hotelDistances = Object.freeze({
   "bilem-hotel-beach-spa": {
     "km": 17,
     "place": "ChIJi-wFoQ2N2RQR3S99YrYjpFs",
-    "checked": false
+    "checked": true
   },
   "bilgehan-hotel": {
     "km": 16,
@@ -1037,7 +1037,7 @@ export const hotelDistances = Object.freeze({
   "bir-hotel": {
     "km": 13,
     "place": "ChIJscFHB3mdwxQRjGRscAqfs4w",
-    "checked": false
+    "checked": true
   },
   "birpa-kundu-otel": {
     "km": 12,
@@ -1097,12 +1097,12 @@ export const hotelDistances = Object.freeze({
   "blue-sea-garden-otel": {
     "km": 17,
     "place": "ChIJcVkxEQSQwxQRna3YO_5c2CU",
-    "checked": false
+    "checked": true
   },
   "blue-star-otel": {
     "km": 124,
     "place": "ChIJLxwW1oei3BQRaOOC-eJEN4k",
-    "checked": false
+    "checked": true
   },
   "bmk-apart-otel": {
     "km": 17,
@@ -1147,7 +1147,7 @@ export const hotelDistances = Object.freeze({
   "bulvar-hotel": {
     "km": 19,
     "place": "ChIJI8xw1jqQwxQRzUvOc0P694k",
-    "checked": false
+    "checked": true
   },
   "butunoglu-pansiyon": {
     "km": 16,
@@ -1182,12 +1182,12 @@ export const hotelDistances = Object.freeze({
   "camel-apartment": {
     "km": 16,
     "place": "ChIJ_5OGXQ-QwxQRXoxrhM3fyz0",
-    "checked": false
+    "checked": true
   },
   "camel-hotel-apart": {
     "km": 16,
     "place": "ChIJxxWnfgaQwxQRQpnshRsVfuo",
-    "checked": false
+    "checked": true
   },
   "campus-hill-otel": {
     "km": 136,
@@ -1217,7 +1217,7 @@ export const hotelDistances = Object.freeze({
   "cap-dperge-otel": {
     "km": 16,
     "place": "ChIJac6hNwmQwxQRD0Yuk3b4mdQ",
-    "checked": false
+    "checked": true
   },
   "caretta-beach-otel": {
     "km": 114,
@@ -1232,12 +1232,12 @@ export const hotelDistances = Object.freeze({
   "casa-franco-old-town-otel": {
     "km": 16,
     "place": "ChIJUwcl8wWQwxQRUQZFBztdS18",
-    "checked": false
+    "checked": true
   },
   "casa-maria-hotel": {
     "km": 15,
     "place": "ChIJvxahmi-RwxQRv5VRaF-piTE",
-    "checked": false
+    "checked": true
   },
   "casa-sur-antalya-otel": {
     "km": 16,
@@ -1247,17 +1247,17 @@ export const hotelDistances = Object.freeze({
   "casamax-suites": {
     "km": 23,
     "place": "ChIJJ3KoFOyRwxQRY6T-8lOlRRM",
-    "checked": false
+    "checked": true
   },
   "casativo-hotels-lara": {
     "km": 15,
     "place": "ChIJ9wS5xQybwxQRAXDg4EceCKI",
-    "checked": false
+    "checked": true
   },
   "castello-by-mediterra-hotel": {
     "km": 127,
     "place": "ChIJr0O9QQCZ3BQR9xjLEReEn0w",
-    "checked": false
+    "checked": true
   },
   "castival-hotel": {
     "km": 59,
@@ -1282,7 +1282,7 @@ export const hotelDistances = Object.freeze({
   "cedrus-hotel": {
     "km": 16,
     "place": "ChIJ6c0Kt6SRwxQRU0IqxTy5NGk",
-    "checked": false
+    "checked": true
   },
   "cender-hotel": {
     "km": 16,
@@ -1312,7 +1312,7 @@ export const hotelDistances = Object.freeze({
   "char-me-hotel": {
     "km": 16,
     "place": "ChIJ04IEZQaQwxQRFyMRiAat0Ls",
-    "checked": false
+    "checked": true
   },
   "cicerone-apart": {
     "km": 16,
@@ -1327,7 +1327,7 @@ export const hotelDistances = Object.freeze({
   "citrus-luna-suite-hotel": {
     "km": 23,
     "place": "ChIJEY2xeQuRwxQRtAcFNbiU3uo",
-    "checked": false
+    "checked": true
   },
   "citrus-park-hotel": {
     "km": 23,
@@ -1347,7 +1347,7 @@ export const hotelDistances = Object.freeze({
   "city-moonlight-apart-hotel": {
     "km": 16,
     "place": "ChIJDbyKxXOPwxQRdP6PrgLqDvo",
-    "checked": false
+    "checked": true
   },
   "city-otel-ambassador": {
     "km": 61,
@@ -1357,12 +1357,12 @@ export const hotelDistances = Object.freeze({
   "cityhub": {
     "km": 16,
     "place": "ChIJaSJiceSRwxQRdU0aI2ra6OE",
-    "checked": false
+    "checked": true
   },
   "cleopatra-golden-beach-otel": {
     "km": 124,
     "place": "ChIJAzIapY-i3BQRviE9z2QJvj8",
-    "checked": false
+    "checked": true
   },
   "clover-magic-seagate-belek": {
     "km": 44,
@@ -1422,7 +1422,7 @@ export const hotelDistances = Object.freeze({
   "club-kastalia": {
     "km": 114,
     "place": "ChIJ3cid1oyk3BQRsjP5JrR0WRA",
-    "checked": false
+    "checked": true
   },
   "club-marakesh-beach-hotel": {
     "km": 50,
@@ -1437,7 +1437,7 @@ export const hotelDistances = Object.freeze({
   "club-med-palmiye": {
     "km": 59,
     "place": "ChIJp62D9Mi3wxQRdqn-FzLnlZ8",
-    "checked": false
+    "checked": true
   },
   "club-nena": {
     "km": 80,
@@ -1502,7 +1502,7 @@ export const hotelDistances = Object.freeze({
   "concorde-de-luxe-resort-lara": {
     "km": 16,
     "place": "ChIJZ1ktgLmCwxQRY1YL02I4JVk",
-    "checked": false
+    "checked": true
   },
   "concordia-celes": {
     "km": 91,
@@ -1532,12 +1532,12 @@ export const hotelDistances = Object.freeze({
   "cornelia-diamond-golf-resort-spa": {
     "km": 37,
     "place": "ChIJtyF6-G17wxQRJwlH64uq-1U",
-    "checked": false
+    "checked": true
   },
   "crowne-plaza-antalya": {
     "km": 26,
     "place": "ChIJIVgyTqeRwxQRHZYRCCXVIDk",
-    "checked": false
+    "checked": true
   },
   "crowne-plaza-antalya-by-ihg-otel": {
     "km": 26,
@@ -1552,17 +1552,17 @@ export const hotelDistances = Object.freeze({
   "crystal-aura-beach-resort-spa": {
     "km": 60,
     "place": "ChIJY3vdEo63wxQRszUhQlsNodc",
-    "checked": false
+    "checked": true
   },
   "crystal-boutique-comfort-collection-adults-only": {
     "km": 16,
     "place": "ChIJt0l4Of2PwxQRp9lu9P1iCJI",
-    "checked": false
+    "checked": true
   },
   "crystal-centro-pearl-collection-otel": {
     "km": 17,
     "place": "ChIJJRncWmCDwxQRQL-8xqIV-AM",
-    "checked": false
+    "checked": true
   },
   "crystal-centro-resort": {
     "km": 17,
@@ -1582,7 +1582,7 @@ export const hotelDistances = Object.freeze({
   "crystal-flora-beach-resort": {
     "km": 46,
     "place": "ChIJqwbahCK_wxQR-RhNHF3kAUM",
-    "checked": false
+    "checked": true
   },
   "crystal-palace-luxury-resort": {
     "km": 56,
@@ -1597,7 +1597,7 @@ export const hotelDistances = Object.freeze({
   "crystal-tat-beach-golf-resort-spa": {
     "km": 30,
     "place": "ChIJOxEs02J5wxQRtS3LPIcXciY",
-    "checked": false
+    "checked": true
   },
   "crystal-waterworld-resort-spa": {
     "km": 44,
@@ -1612,7 +1612,7 @@ export const hotelDistances = Object.freeze({
   "dagtekin-apartments": {
     "km": 17,
     "place": "ChIJg3vhkeWawxQRLJca-aDPV70",
-    "checked": false
+    "checked": true
   },
   "daima-biz-hotel": {
     "km": 66,
@@ -1682,7 +1682,7 @@ export const hotelDistances = Object.freeze({
   "delphin-be-grand-resort": {
     "km": 16,
     "place": "ChIJH2uGg8-CwxQRhpdEjVwkMJA",
-    "checked": false
+    "checked": true
   },
   "delphin-botanik-platinum": {
     "km": 92,
@@ -1697,7 +1697,7 @@ export const hotelDistances = Object.freeze({
   "delphin-imperial-lara": {
     "km": 15,
     "place": "ChIJfxIHj7iCwxQRgVDYpdAbyFw",
-    "checked": false
+    "checked": true
   },
   "delphin-palace": {
     "km": 16,
@@ -1707,7 +1707,7 @@ export const hotelDistances = Object.freeze({
   "delta-hotels-antalya-lara-adult-only-18-plus": {
     "km": 17,
     "place": "ChIJK5r80CybwxQRZrc45UnFN_s",
-    "checked": false
+    "checked": true
   },
   "deluxe-ersoy-hotel": {
     "km": 18,
@@ -1717,7 +1717,7 @@ export const hotelDistances = Object.freeze({
   "demak-suit-homes": {
     "km": 31,
     "place": "ChIJy7nr7XCUwxQRJ_epuaxBIXs",
-    "checked": false
+    "checked": true
   },
   "demirci-hotel": {
     "km": 27,
@@ -1802,7 +1802,7 @@ export const hotelDistances = Object.freeze({
   "doganin-ruhu-otel-bungalow-restaurant": {
     "km": 206,
     "place": "ChIJn8oGsGDdwRQRKkwnLiWBEFc",
-    "checked": false
+    "checked": true
   },
   "dogus-hotel": {
     "km": 25,
@@ -1882,7 +1882,7 @@ export const hotelDistances = Object.freeze({
   "efsali-hotel-kaleici": {
     "km": 16,
     "place": "ChIJE-Wd_gWQwxQRvr7b7iITs8o",
-    "checked": false
+    "checked": true
   },
   "eftalia-blue-hotel": {
     "km": 110,
@@ -1942,7 +1942,7 @@ export const hotelDistances = Object.freeze({
   "eliz-hotel": {
     "km": 12,
     "place": "ChIJx5ZA3DaDwxQReQUgqY3U7aU",
-    "checked": false
+    "checked": true
   },
   "elysee-beach": {
     "km": 125,
@@ -1977,7 +1977,7 @@ export const hotelDistances = Object.freeze({
   "en-vie-beach-otel": {
     "km": 128,
     "place": "ChIJxWfVn3-i3BQRVZHWa601OFU",
-    "checked": false
+    "checked": true
   },
   "enda-lara-hotel": {
     "km": 13,
@@ -1987,7 +1987,7 @@ export const hotelDistances = Object.freeze({
   "ender-hotel": {
     "km": 16,
     "place": "ChIJlaHHWaeawxQRXvCThnrwpb0",
-    "checked": false
+    "checked": true
   },
   "eos-beach-hotel": {
     "km": 105,
@@ -2002,17 +2002,17 @@ export const hotelDistances = Object.freeze({
   "erdeniz-apart-otel": {
     "km": 15,
     "place": "ChIJv-5pyFeFwxQRPvuZNBzuAcU",
-    "checked": false
+    "checked": true
   },
   "ergun-otel": {
     "km": 127,
     "place": "ChIJjc-bcH6Y3BQR_fxc1jnxst8",
-    "checked": false
+    "checked": true
   },
   "erkal-pension": {
     "km": 16,
     "place": "ChIJseaj9QaQwxQRZRLSs4I5Syo",
-    "checked": false
+    "checked": true
   },
   "erkal-resort-hotel": {
     "km": 59,
@@ -2027,7 +2027,7 @@ export const hotelDistances = Object.freeze({
   "ersoy-aga-otel": {
     "km": 16,
     "place": "ChIJF1Ll-fyPwxQRQh_SechTfh0",
-    "checked": false
+    "checked": true
   },
   "ersoy-ak-pansiyon": {
     "km": 16,
@@ -2057,7 +2057,7 @@ export const hotelDistances = Object.freeze({
   "eski-masal-hotel-special-class-adults-only": {
     "km": 16,
     "place": "ChIJF3kmSQGQwxQRZ92lnl3UxLY",
-    "checked": false
+    "checked": true
   },
   "esma-clove-resort": {
     "km": 49,
@@ -2102,7 +2102,7 @@ export const hotelDistances = Object.freeze({
   "eva-boutique-hotel": {
     "km": 25,
     "place": "ChIJXVEO_8mRwxQRvBOxhhJf1nM",
-    "checked": false
+    "checked": true
   },
   "expo-park-hotel": {
     "km": 12,
@@ -2157,7 +2157,7 @@ export const hotelDistances = Object.freeze({
   "family-apart-hotel-2022-6": {
     "km": 24,
     "place": "ChIJTeVMwLWRwxQRC2k6FcaG-VU",
-    "checked": false
+    "checked": true
   },
   "far-life-hotel": {
     "km": 31,
@@ -2252,7 +2252,7 @@ export const hotelDistances = Object.freeze({
   "garden-bungalows-and-suites": {
     "km": 44,
     "place": "ChIJJ8Rl5fW_wxQRBug-n5na2jE",
-    "checked": false
+    "checked": true
   },
   "garden-park-beldibi-hotel": {
     "km": 44,
@@ -2267,17 +2267,17 @@ export const hotelDistances = Object.freeze({
   "gardenia-beach-otel": {
     "km": 93,
     "place": "ChIJgdpKYf6s3BQRhIs4jF8PluQ",
-    "checked": false
+    "checked": true
   },
   "gardenya-house-antalya-apart-otel": {
     "km": 12,
     "place": "ChIJQwaV002DwxQRT3pxBwLy0zM",
-    "checked": false
+    "checked": true
   },
   "gardenya-lara-suit-hotel": {
     "km": 12,
     "place": "ChIJQwaV002DwxQRT3pxBwLy0zM",
-    "checked": false
+    "checked": true
   },
   "giges-king-boutique-hotel": {
     "km": 16,
@@ -2327,7 +2327,7 @@ export const hotelDistances = Object.freeze({
   "golden-lux-hotel": {
     "km": 17,
     "place": "ChIJp_n-3naRwxQRckY7m-LFtic",
-    "checked": false
+    "checked": true
   },
   "golden-orange-hotel": {
     "km": 26,
@@ -2387,7 +2387,7 @@ export const hotelDistances = Object.freeze({
   "grand-friends-bed-breakfast": {
     "km": 16,
     "place": "ChIJ83sv4aORwxQRhclTSh8fPDI",
-    "checked": false
+    "checked": true
   },
   "grand-hotel-derin": {
     "km": 45,
@@ -2427,7 +2427,7 @@ export const hotelDistances = Object.freeze({
   "grand-park-lara": {
     "km": 17,
     "place": "ChIJryYFiq2cwxQRAT3EWXehqkw",
-    "checked": false
+    "checked": true
   },
   "grand-viking": {
     "km": 62,
@@ -2442,12 +2442,12 @@ export const hotelDistances = Object.freeze({
   "green-beyza-hotel": {
     "km": 15,
     "place": "ChIJZxB_GlmbwxQRh8jrOWJcJH0",
-    "checked": false
+    "checked": true
   },
   "green-valley-boutique-hotel-spa-restourant": {
     "km": 64,
     "place": "ChIJWaSW_zTJwxQRtomhVldHpbo",
-    "checked": false
+    "checked": true
   },
   "greenwood-suites-resort": {
     "km": 17,
@@ -2467,12 +2467,12 @@ export const hotelDistances = Object.freeze({
   "gulizar-hotel": {
     "km": 25,
     "place": "ChIJMXk8nPqRwxQRwj7rgQoay8Q",
-    "checked": false
+    "checked": true
   },
   "gunay-pansiyon": {
     "km": 18,
     "place": "ChIJz8N5ZdCPwxQRPJs5jFLAvC8",
-    "checked": false
+    "checked": true
   },
   "gural-premier-tekirova": {
     "km": 77,
@@ -2487,7 +2487,7 @@ export const hotelDistances = Object.freeze({
   "gvar-hotel": {
     "km": 17,
     "place": "ChIJmRl-pQOQwxQRW2rGITpDjCI",
-    "checked": false
+    "checked": true
   },
   "gypsophila-club-marine": {
     "km": 48,
@@ -2507,12 +2507,12 @@ export const hotelDistances = Object.freeze({
   "hadrians-tower-apart-otel": {
     "km": 15,
     "place": "ChIJnYLBL_6RwxQR5WBugdkV0zs",
-    "checked": false
+    "checked": true
   },
   "hadrianus-pansion-otel": {
     "km": 16,
     "place": "ChIJL766iQWQwxQRCj3JZHVK1fg",
-    "checked": false
+    "checked": true
   },
   "hampton-by-hilton-antalya-airport-otel": {
     "km": 9,
@@ -2537,7 +2537,7 @@ export const hotelDistances = Object.freeze({
   "hare-hotel": {
     "km": 158,
     "place": "ChIJ1b7kqguO3BQRXLF0tdUUMp4",
-    "checked": false
+    "checked": true
   },
   "hawaii-suite-beach-otel": {
     "km": 128,
@@ -2547,7 +2547,7 @@ export const hotelDistances = Object.freeze({
   "hayal-residence-apart-otel": {
     "km": 17,
     "place": "ChIJj4_bXbKbwxQR1euogZyYUwo",
-    "checked": false
+    "checked": true
   },
   "hedef-beach-hotel": {
     "km": 114,
@@ -2567,7 +2567,7 @@ export const hotelDistances = Object.freeze({
   "hilal-otel": {
     "km": 124,
     "place": "ChIJf0UNGY-i3BQRnxPQ7U5R8OA",
-    "checked": false
+    "checked": true
   },
   "holiday-box-club-otel": {
     "km": 51,
@@ -2587,7 +2587,7 @@ export const hotelDistances = Object.freeze({
   "hotel-1207-special-class": {
     "km": 15,
     "place": "ChIJb4KL8AaQwxQRlZN_sAS6QSw",
-    "checked": false
+    "checked": true
   },
   "hotel-alyans": {
     "km": 17,
@@ -2597,7 +2597,7 @@ export const hotelDistances = Object.freeze({
   "hotel-destill": {
     "km": 17,
     "place": "ChIJzw1N_eaPwxQRVuBYTCSMDFM",
-    "checked": false
+    "checked": true
   },
   "hotel-gold-stone": {
     "km": 44,
@@ -2627,7 +2627,7 @@ export const hotelDistances = Object.freeze({
   "hotel-lykia-old-town": {
     "km": 16,
     "place": "ChIJ5ToOUGuRwxQRMV961GZQqxY",
-    "checked": false
+    "checked": true
   },
   "hotel-mandalin": {
     "km": 19,
@@ -2637,7 +2637,7 @@ export const hotelDistances = Object.freeze({
   "hotel-ozkaymak": {
     "km": 126,
     "place": "ChIJGRrpPIWY3BQRCxOzOHfMWpo",
-    "checked": false
+    "checked": true
   },
   "hotel-reutlingen-hof": {
     "km": 16,
@@ -2702,12 +2702,12 @@ export const hotelDistances = Object.freeze({
   "ic-hotels-green-palace-kids-concept": {
     "km": 20,
     "place": "ChIJMQT54biCwxQRwKMY6X42EZ4",
-    "checked": false
+    "checked": true
   },
   "ic-hotels-green-palace-villas": {
     "km": 20,
     "place": "ChIJMQT54biCwxQRwKMY6X42EZ4",
-    "checked": false
+    "checked": true
   },
   "ic-hotels-residence": {
     "km": 20,
@@ -2722,7 +2722,7 @@ export const hotelDistances = Object.freeze({
   "illusion-beach-club-hotel": {
     "km": 121,
     "place": "ChIJARtI_AKj3BQRGN70Yc2ggnI",
-    "checked": false
+    "checked": true
   },
   "imperial-sunland-resort": {
     "km": 49,
@@ -2747,7 +2747,7 @@ export const hotelDistances = Object.freeze({
   "inno-concept-hotel": {
     "km": 12,
     "place": "ChIJpf-UOU6FwxQRjJvWbjtC20I",
-    "checked": false
+    "checked": true
   },
   "innvista-hotel-belek": {
     "km": 28,
@@ -2767,7 +2767,7 @@ export const hotelDistances = Object.freeze({
   "is-hotel": {
     "km": 15,
     "place": "ChIJMc_DYX6bwxQROEHdPBQfqAU",
-    "checked": false
+    "checked": true
   },
   "isinda-hotel": {
     "km": 25,
@@ -2777,7 +2777,7 @@ export const hotelDistances = Object.freeze({
   "isnova-hotel-airport": {
     "km": 8,
     "place": "ChIJzbYeHyyFwxQR5whtiW01pDI",
-    "checked": false
+    "checked": true
   },
   "iz-flower-side-beach-hotel": {
     "km": 61,
@@ -2822,7 +2822,7 @@ export const hotelDistances = Object.freeze({
   "kafkas-hotel": {
     "km": 23,
     "place": "ChIJa5dpOCORwxQR394GzMrMPsQ",
-    "checked": false
+    "checked": true
   },
   "kahya-otel": {
     "km": 109,
@@ -2832,7 +2832,7 @@ export const hotelDistances = Object.freeze({
   "kahya-resort-aqua-spa": {
     "km": 109,
     "place": "ChIJg1Qze3Sl3BQRqiDdHYu5Fww",
-    "checked": false
+    "checked": true
   },
   "kaia-coracesium": {
     "km": 113,
@@ -2857,7 +2857,7 @@ export const hotelDistances = Object.freeze({
   "kaleici-hotel": {
     "km": 16,
     "place": "ChIJc_8x9QWQwxQRVCarSHRaiH4",
-    "checked": false
+    "checked": true
   },
   "kaleici-ozkavak-hotel": {
     "km": 16,
@@ -2867,7 +2867,7 @@ export const hotelDistances = Object.freeze({
   "kaleici-pera-palace-hotel": {
     "km": 16,
     "place": "ChIJO6Jd9AWQwxQRz8WwxxVp39Q",
-    "checked": false
+    "checked": true
   },
   "kalispera-hotel": {
     "km": 16,
@@ -2877,7 +2877,7 @@ export const hotelDistances = Object.freeze({
   "kaliye-aspendos-hotel": {
     "km": 25,
     "place": "ChIJNSpMlnGRwxQRgJr0YcL72gg",
-    "checked": false
+    "checked": true
   },
   "kandelor-otel": {
     "km": 125,
@@ -2912,7 +2912,7 @@ export const hotelDistances = Object.freeze({
   "kaucuk-hotel-adult-only": {
     "km": 17,
     "place": "ChIJjXDLJgSQwxQRiePiqf7XbZQ",
-    "checked": false
+    "checked": true
   },
   "kaya-belek-hotel": {
     "km": 29,
@@ -2927,7 +2927,7 @@ export const hotelDistances = Object.freeze({
   "kaya-palazzo-golf-resort": {
     "km": 29,
     "place": "ChIJQajScMN7wxQR0g3jfOlCdoc",
-    "checked": false
+    "checked": true
   },
   "kaya-side": {
     "km": 71,
@@ -2972,7 +2972,7 @@ export const hotelDistances = Object.freeze({
   "kervansaray-lara-convention-center-spa": {
     "km": 16,
     "place": "ChIJvS-Ff9qCwxQRyrLWIMOpbLU",
-    "checked": false
+    "checked": true
   },
   "kiana-kaleici-otel": {
     "km": 16,
@@ -2997,12 +2997,12 @@ export const hotelDistances = Object.freeze({
   "kirman-leodikya-resort": {
     "km": 93,
     "place": "ChIJzent3Q2s3BQRAbymNnQ1D7A",
-    "checked": false
+    "checked": true
   },
   "kirman-sidemarin-beach-spa": {
     "km": 62,
     "place": "ChIJV61vJ0dZwxQR1-euSZdWaU4",
-    "checked": false
+    "checked": true
   },
   "kisla-pansiyon": {
     "km": 17,
@@ -3022,17 +3022,17 @@ export const hotelDistances = Object.freeze({
   "kleopatra-ada-beach-otel": {
     "km": 124,
     "place": "ChIJYx7HNoyi3BQRmw8phqLQfs4",
-    "checked": false
+    "checked": true
   },
   "kleopatra-arsi-otel": {
     "km": 125,
     "place": "ChIJ9zj9UI6i3BQRVsRT1KMjI0M",
-    "checked": false
+    "checked": true
   },
   "kleopatra-beach-otel": {
     "km": 124,
     "place": "ChIJZ4-SjI6i3BQRCbOWThGjvTU",
-    "checked": false
+    "checked": true
   },
   "kleopatra-bebek-otel": {
     "km": 126,
@@ -3047,27 +3047,27 @@ export const hotelDistances = Object.freeze({
   "kleopatra-life-otel": {
     "km": 124,
     "place": "ChIJR2bb19uj3BQRig8nxSdrAnk",
-    "checked": false
+    "checked": true
   },
   "kleopatra-micador": {
     "km": 125,
     "place": "ChIJCTkQHYWY3BQR6m17Pxmigo0",
-    "checked": false
+    "checked": true
   },
   "kleopatra-ramira-hotel": {
     "km": 125,
     "place": "ChIJHxrDsoCi3BQRUkPdgpnrmuc",
-    "checked": false
+    "checked": true
   },
   "kleopatra-royal-palm-otel": {
     "km": 124,
     "place": "ChIJHSfADYyi3BQRzenOqFtT4Lk",
-    "checked": false
+    "checked": true
   },
   "kleopatra-sahara-otel": {
     "km": 125,
     "place": "ChIJ0_wj_I6i3BQReWaUND8lLUY",
-    "checked": false
+    "checked": true
   },
   "kleopatra-smile-otel": {
     "km": 125,
@@ -3082,7 +3082,7 @@ export const hotelDistances = Object.freeze({
   "kolibry-sv-hotel": {
     "km": 25,
     "place": "ChIJ9646lW-RwxQRIjpDtn44_2I",
-    "checked": false
+    "checked": true
   },
   "konak-hotel-kaleici": {
     "km": 16,
@@ -3092,17 +3092,17 @@ export const hotelDistances = Object.freeze({
   "kont-pension": {
     "km": 16,
     "place": "ChIJwwzP7QaQwxQRXD5g7BetVIU",
-    "checked": false
+    "checked": true
   },
   "konya6-elit-hotel": {
     "km": 19,
     "place": "ChIJI_F78NaRwxQRjq__8Gdnqbs",
-    "checked": false
+    "checked": true
   },
   "konyaalti-butik-hotel": {
     "km": 24,
     "place": "ChIJ9d4QOKGRwxQRx5TytDLmX4c",
-    "checked": false
+    "checked": true
   },
   "konyaalti-hotel": {
     "km": 24,
@@ -3112,12 +3112,12 @@ export const hotelDistances = Object.freeze({
   "kosa-boutique-hotel": {
     "km": 16,
     "place": "ChIJJ5y9KguRwxQRl6L8QcAvH3U",
-    "checked": false
+    "checked": true
   },
   "kremlin-palace": {
     "km": 16,
     "place": "ChIJiUWlMml4wxQR6KSQRyD2ykw",
-    "checked": false
+    "checked": true
   },
   "kristal-beach-hotel": {
     "km": 23,
@@ -3142,7 +3142,7 @@ export const hotelDistances = Object.freeze({
   "l-ancora-beach-hotel": {
     "km": 61,
     "place": "ChIJTdEpbpm3wxQR45zLUktqBKw",
-    "checked": false
+    "checked": true
   },
   "l-oceanica-beach-resort": {
     "km": 67,
@@ -3202,7 +3202,7 @@ export const hotelDistances = Object.freeze({
   "laguna-beach-alya-resort-spa-hotel": {
     "km": 94,
     "place": "ChIJCTlMxKqt3BQRXLgf4V0cnSo",
-    "checked": false
+    "checked": true
   },
   "lake-river-side-hotel-spa": {
     "km": 71,
@@ -3237,12 +3237,12 @@ export const hotelDistances = Object.freeze({
   "lara-eyfel-hotel": {
     "km": 17,
     "place": "ChIJ6co0_-SawxQRI4sAenMmaUA",
-    "checked": false
+    "checked": true
   },
   "lara-garden-hotel": {
     "km": 12,
     "place": "ChIJCddMBK2cwxQRmMZMoe0ScRA",
-    "checked": false
+    "checked": true
   },
   "lara-hadrianus-hotel": {
     "km": 15,
@@ -3262,7 +3262,7 @@ export const hotelDistances = Object.freeze({
   "lara-olympos-pansiyon": {
     "km": 13,
     "place": "ChIJJQ36blibwxQR10wwCCeK0hA",
-    "checked": false
+    "checked": true
   },
   "lara-palace-hotel": {
     "km": 13,
@@ -3292,17 +3292,17 @@ export const hotelDistances = Object.freeze({
   "laren-family-hotel-spa-boutique-class": {
     "km": 15,
     "place": "ChIJ8SVvZRebwxQRGrryp2udayY",
-    "checked": false
+    "checked": true
   },
   "laren-sea-side-hotel-spa": {
     "km": 14,
     "place": "ChIJR5oJ_XCbwxQRWoWI-xWex5g",
-    "checked": false
+    "checked": true
   },
   "larissa-sultan-s-beach": {
     "km": 67,
     "place": "ChIJ1YN27mW2wxQRk6vACHQiJqQ",
-    "checked": false
+    "checked": true
   },
   "laristone-suite-spa-hotel": {
     "km": 15,
@@ -3322,12 +3322,12 @@ export const hotelDistances = Object.freeze({
   "lavin-garden-hotel": {
     "km": 25,
     "place": "ChIJw_SpDXSRwxQR5j6PCO5QZe4",
-    "checked": false
+    "checked": true
   },
   "lavin-suites-hotel": {
     "km": 24,
     "place": "ChIJXZILL_SRwxQR8S6NoBgFXww",
-    "checked": false
+    "checked": true
   },
   "lazer-pansiyon": {
     "km": 16,
@@ -3367,7 +3367,7 @@ export const hotelDistances = Object.freeze({
   "lemonpark-house-otel": {
     "km": 13,
     "place": "ChIJ_0eITQCDwxQR_I4ubEuAglU",
-    "checked": false
+    "checked": true
   },
   "leslion-luxury-hotel": {
     "km": 15,
@@ -3377,17 +3377,17 @@ export const hotelDistances = Object.freeze({
   "letstay-hotel-adults-only": {
     "km": 15,
     "place": "ChIJTSAfLhqbwxQRK0GjiQ6q8yQ",
-    "checked": false
+    "checked": true
   },
   "letstay-marine-homes": {
     "km": 12,
     "place": "ChIJo0PccYiFwxQRsqFNOB_2i3g",
-    "checked": false
+    "checked": true
   },
   "lexia-hotel-adult-only": {
     "km": 15,
     "place": "ChIJnzgvx7ObwxQRyY6FWHY2Aw4",
-    "checked": false
+    "checked": true
   },
   "liberty-hotels-lara": {
     "km": 17,
@@ -3417,7 +3417,7 @@ export const hotelDistances = Object.freeze({
   "limak-atlantis-de-luxe-hotel": {
     "km": 39,
     "place": "ChIJJXhVZQZ5wxQRtEiPV1tqtIk",
-    "checked": false
+    "checked": true
   },
   "limak-lara-de-luxe-hotel": {
     "km": 16,
@@ -3427,7 +3427,7 @@ export const hotelDistances = Object.freeze({
   "limak-lara-deluxe-hotel-resort": {
     "km": 16,
     "place": "ChIJV_aferyCwxQRvJwQpD6RPPU",
-    "checked": false
+    "checked": true
   },
   "limak-limra-hotel-resort": {
     "km": 67,
@@ -3442,7 +3442,7 @@ export const hotelDistances = Object.freeze({
   "linda-expo-hotel": {
     "km": 12,
     "place": "ChIJaaNL8RGFwxQRnA9gB8eax00",
-    "checked": false
+    "checked": true
   },
   "linda-otel": {
     "km": 70,
@@ -3472,7 +3472,7 @@ export const hotelDistances = Object.freeze({
   "loft-1502-apart-otel": {
     "km": 17,
     "place": "ChIJNcaOwuiawxQRESiedbijVaQ",
-    "checked": false
+    "checked": true
   },
   "loft-1502-otel": {
     "km": 17,
@@ -3492,7 +3492,7 @@ export const hotelDistances = Object.freeze({
   "long-beach-resort-hotel": {
     "km": 107,
     "place": "ChIJn-_WWY-v3BQRWh-lRMmbBLg",
-    "checked": false
+    "checked": true
   },
   "lonicera-city-hotel": {
     "km": 124,
@@ -3507,7 +3507,7 @@ export const hotelDistances = Object.freeze({
   "lonicera-world-resort-spa-hotel": {
     "km": 105,
     "place": "ChIJ9Y8NdwCv3BQRy5Pr6IJvs40",
-    "checked": false
+    "checked": true
   },
   "lorem-hotel": {
     "km": 15,
@@ -3532,17 +3532,17 @@ export const hotelDistances = Object.freeze({
   "lumos-deluxe-resort-hotel": {
     "km": 143,
     "place": "ChIJ9bG3_4-Q3BQRlDqZ01FB1UQ",
-    "checked": false
+    "checked": true
   },
   "luna-hotel-kaleici": {
     "km": 16,
     "place": "ChIJqypfjQWQwxQRTVOVmPfvgpk",
-    "checked": false
+    "checked": true
   },
   "luna-lara-hotel": {
     "km": 13,
     "place": "ChIJeyky6VebwxQRYzXlHE0NNFE",
-    "checked": false
+    "checked": true
   },
   "lupo-libero-hotel-spa": {
     "km": 17,
@@ -3557,7 +3557,7 @@ export const hotelDistances = Object.freeze({
   "lycus-beach-otel": {
     "km": 93,
     "place": "ChIJtxCOQP6s3BQR4myydqz7h28",
-    "checked": false
+    "checked": true
   },
   "ma-biche-kemer-by-werde-hotels": {
     "km": 56,
@@ -3587,7 +3587,7 @@ export const hotelDistances = Object.freeze({
   "malibu-garden-resort": {
     "km": 68,
     "place": "ChIJq0U2cv62wxQRmEcFXTSPt7g",
-    "checked": false
+    "checked": true
   },
   "manavgat-kervan-otel": {
     "km": 68,
@@ -3602,7 +3602,7 @@ export const hotelDistances = Object.freeze({
   "maritim-pine-beach-resort": {
     "km": 39,
     "place": "ChIJic0AwLZkwxQRcB1-SEM0f_c",
-    "checked": false
+    "checked": true
   },
   "marka-hotel": {
     "km": 17,
@@ -3612,12 +3612,12 @@ export const hotelDistances = Object.freeze({
   "marti-myra": {
     "km": 76,
     "place": "ChIJ_2Rfr361wxQRN4tBuI_VA3g",
-    "checked": false
+    "checked": true
   },
   "marvida-family-eco-side": {
     "km": 70,
     "place": "ChIJxSU3mnZZwxQRGYdz2yYy-_g",
-    "checked": false
+    "checked": true
   },
   "mary-palace-resort-spa": {
     "km": 56,
@@ -3627,7 +3627,7 @@ export const hotelDistances = Object.freeze({
   "massimo-hotel-adults-only-ex-la-boutique-hotels": {
     "km": 17,
     "place": "ChIJT9n4e-WawxQRLbUPznyG0FA",
-    "checked": false
+    "checked": true
   },
   "maxx-royal-belek": {
     "km": 37,
@@ -3642,7 +3642,7 @@ export const hotelDistances = Object.freeze({
   "maya-apart": {
     "km": 26,
     "place": "ChIJsQ65YraRwxQRCpfQwzsTZ2g",
-    "checked": false
+    "checked": true
   },
   "mc-arancia-resort-otel": {
     "km": 114,
@@ -3652,7 +3652,7 @@ export const hotelDistances = Object.freeze({
   "mediterra-art-boutique-hotel": {
     "km": 16,
     "place": "ChIJxxWnfgaQwxQRKN16tku0BeI",
-    "checked": false
+    "checked": true
   },
   "mediterra-art-hotel": {
     "km": 16,
@@ -3677,7 +3677,7 @@ export const hotelDistances = Object.freeze({
   "megasaray-westbeach": {
     "km": 26,
     "place": "ChIJrSovfhaRwxQRasAuzlWCMAo",
-    "checked": false
+    "checked": true
   },
   "melas-lara-hotel": {
     "km": 17,
@@ -3742,7 +3742,7 @@ export const hotelDistances = Object.freeze({
   "mesut-otel": {
     "km": 130,
     "place": "ChIJyb-hD1OY3BQRen29vJoAtkA",
-    "checked": false
+    "checked": true
   },
   "mevre-hotel": {
     "km": 17,
@@ -3777,17 +3777,17 @@ export const hotelDistances = Object.freeze({
   "midi-suites-otel": {
     "km": 128,
     "place": "ChIJzTgWSniZ3BQRyWrocb9b2T8",
-    "checked": false
+    "checked": true
   },
   "mielo-lara-hotel": {
     "km": 15,
     "place": "ChIJH7xAaBebwxQRTZDZpNLtezc",
-    "checked": false
+    "checked": true
   },
   "mimoza-konyaalti-bed-breakfast": {
     "km": 25,
     "place": "ChIJhd-c2oSRwxQRur4Kec1YugI",
-    "checked": false
+    "checked": true
   },
   "mimoza-pansiyon": {
     "km": 20,
@@ -3837,7 +3837,7 @@ export const hotelDistances = Object.freeze({
   "miramor-hotel-spa": {
     "km": 67,
     "place": "ChIJtS6kvQO3wxQRMeuXufx1-A8",
-    "checked": false
+    "checked": true
   },
   "miray-otel": {
     "km": 125,
@@ -3857,7 +3857,7 @@ export const hotelDistances = Object.freeze({
   "moda-suit-camyuva": {
     "km": 66,
     "place": "ChIJMalb4i62wxQRrKXmJWENCD8",
-    "checked": false
+    "checked": true
   },
   "mola-otel": {
     "km": 126,
@@ -3867,7 +3867,7 @@ export const hotelDistances = Object.freeze({
   "monachus-hotel-spa": {
     "km": 70,
     "place": "ChIJM4jt4apQwxQRAycoO1kXYRU",
-    "checked": false
+    "checked": true
   },
   "monart-city-otel": {
     "km": 129,
@@ -3927,7 +3927,7 @@ export const hotelDistances = Object.freeze({
   "muz-otel": {
     "km": 123,
     "place": "ChIJAQAAFRuj3BQRxdIz_2QIHt4",
-    "checked": false
+    "checked": true
   },
   "my-antalya-otel": {
     "km": 16,
@@ -3952,7 +3952,7 @@ export const hotelDistances = Object.freeze({
   "my-new-otel": {
     "km": 16,
     "place": "ChIJcQliFuCRwxQR78eZjJfPMDc",
-    "checked": false
+    "checked": true
   },
   "mylome-luxury-hotel-resort": {
     "km": 94,
@@ -3987,17 +3987,17 @@ export const hotelDistances = Object.freeze({
   "nebiluex-hotel": {
     "km": 15,
     "place": "ChIJ8dw-eeyawxQRPCZHApptuCE",
-    "checked": false
+    "checked": true
   },
   "nergiz-boutique-hotel": {
     "km": 16,
     "place": "ChIJ1Q1yT-aRwxQRTPnRoz3Gk7I",
-    "checked": false
+    "checked": true
   },
   "nergiz-hotel": {
     "km": 16,
     "place": "ChIJGzim22qPwxQRIaf58y37kxY",
-    "checked": false
+    "checked": true
   },
   "neuron-otel": {
     "km": 49,
@@ -4007,7 +4007,7 @@ export const hotelDistances = Object.freeze({
   "nex-royal-beach": {
     "km": 44,
     "place": "ChIJtTsJ5we_wxQRz5C8UJikxFU",
-    "checked": false
+    "checked": true
   },
   "nfk-the-house-hotel": {
     "km": 25,
@@ -4022,7 +4022,7 @@ export const hotelDistances = Object.freeze({
   "ni-hotel-lara": {
     "km": 15,
     "place": "ChIJB4mL2RubwxQRtDkUxWqR0yI",
-    "checked": false
+    "checked": true
   },
   "nirvana-cosmopolitan-hotel": {
     "km": 14,
@@ -4052,7 +4052,7 @@ export const hotelDistances = Object.freeze({
   "novia-dionis-resort-spa": {
     "km": 27,
     "place": "ChIJD75ZwwB9wxQReIUXH8zFiZ4",
-    "checked": false
+    "checked": true
   },
   "novis-hotel-cleopatra": {
     "km": 125,
@@ -4082,7 +4082,7 @@ export const hotelDistances = Object.freeze({
   "numa-bay-exclusive": {
     "km": 105,
     "place": "ChIJq_bn-Lqv3BQRU3GZSPMEb4c",
-    "checked": false
+    "checked": true
   },
   "numa-club-side": {
     "km": 57,
@@ -4107,17 +4107,17 @@ export const hotelDistances = Object.freeze({
   "oba-star-otel-spa": {
     "km": 130,
     "place": "ChIJsaaLblOY3BQRttAplmH1ySs",
-    "checked": false
+    "checked": true
   },
   "oez-mert-hotel": {
     "km": 23,
     "place": "ChIJW23m7neRwxQRFkxFKEmjioo",
-    "checked": false
+    "checked": true
   },
   "oezhan-hotel": {
     "km": 17,
     "place": "ChIJ7W_CGwOQwxQRNduBuqP5aUM",
-    "checked": false
+    "checked": true
   },
   "olbia-hotel": {
     "km": 23,
@@ -4127,7 +4127,7 @@ export const hotelDistances = Object.freeze({
   "olbia-residence-hotel": {
     "km": 23,
     "place": "ChIJUXZDUTeQwxQRNyCzlW7ge-Q",
-    "checked": false
+    "checked": true
   },
   "old-house-hotel-pub": {
     "km": 16,
@@ -4137,12 +4137,12 @@ export const hotelDistances = Object.freeze({
   "old-town-deluxe-flats-apart-otel": {
     "km": 16,
     "place": "ChIJ23EVVg-QwxQRy7ofjlUR2E8",
-    "checked": false
+    "checked": true
   },
   "old-town-point-hotel-spa": {
     "km": 17,
     "place": "ChIJETabBByQwxQRfIBQYLkVckA",
-    "checked": false
+    "checked": true
   },
   "oleander-otel": {
     "km": 61,
@@ -4157,12 +4157,12 @@ export const hotelDistances = Object.freeze({
   "olya-otel": {
     "km": 44,
     "place": "ChIJneNml35XwxQR2Av0c6foDYc",
-    "checked": false
+    "checked": true
   },
   "on-hotel": {
     "km": 15,
     "place": "ChIJyd4oIq-bwxQRZJvXVj02iWM",
-    "checked": false
+    "checked": true
   },
   "onkel-hotels-beldibi-resort": {
     "km": 50,
@@ -4182,7 +4182,7 @@ export const hotelDistances = Object.freeze({
   "opera-suites-apart-hotel": {
     "km": 25,
     "place": "ChIJ1YiQjnORwxQRL4RAcjQOav4",
-    "checked": false
+    "checked": true
   },
   "optimum-luxury-hotel-spa": {
     "km": 14,
@@ -4197,12 +4197,12 @@ export const hotelDistances = Object.freeze({
   "orange-county-alanya": {
     "km": 94,
     "place": "ChIJtQE18VOs3BQRtE9MDZN3OR8",
-    "checked": false
+    "checked": true
   },
   "orange-county-resort-hotel-kemer": {
     "km": 60,
     "place": "ChIJM7R5v5G3wxQRQnz1GD2bT3s",
-    "checked": false
+    "checked": true
   },
   "oranj-ranch-hotel": {
     "km": 68,
@@ -4227,7 +4227,7 @@ export const hotelDistances = Object.freeze({
   "oscar-garden-otel": {
     "km": 16,
     "place": "ChIJK5j-8AG3wxQR4WNMSUJ6QxU",
-    "checked": false
+    "checked": true
   },
   "otel-durkaya": {
     "km": 67,
@@ -4237,7 +4237,7 @@ export const hotelDistances = Object.freeze({
   "otel-guenduez": {
     "km": 24,
     "place": "ChIJ25Plb6SRwxQRXFBDHhVtGfU",
-    "checked": false
+    "checked": true
   },
   "otel-incekum-su": {
     "km": 102,
@@ -4252,12 +4252,12 @@ export const hotelDistances = Object.freeze({
   "otium-boutique-happy-suites": {
     "km": 15,
     "place": "ChIJfc9Xhb6bwxQR4gERRRXmCm0",
-    "checked": false
+    "checked": true
   },
   "otium-family-club-marine-beach-otel": {
     "km": 88,
     "place": "ChIJvzj3P9dZwxQRqvgQvr7bagg",
-    "checked": false
+    "checked": true
   },
   "otium-family-eco-club": {
     "km": 70,
@@ -4287,7 +4287,7 @@ export const hotelDistances = Object.freeze({
   "ozgur-hotel-isiklar": {
     "km": 16,
     "place": "ChIJO_U1-PyPwxQRNy88X7ApITY",
-    "checked": false
+    "checked": true
   },
   "ozgur-otel": {
     "km": 16,
@@ -4312,12 +4312,12 @@ export const hotelDistances = Object.freeze({
   "ozmen-hotel-old-town-kaleici": {
     "km": 16,
     "place": "ChIJ77aRhwWQwxQR8PxhSQ_kFUU",
-    "checked": false
+    "checked": true
   },
   "ozmert-otel": {
     "km": 23,
     "place": "ChIJW23m7neRwxQRFkxFKEmjioo",
-    "checked": false
+    "checked": true
   },
   "ozturk-hotel": {
     "km": 17,
@@ -4332,12 +4332,12 @@ export const hotelDistances = Object.freeze({
   "palm-house-17-adult-only-otel": {
     "km": 16,
     "place": "ChIJBw2kUA-QwxQR0RXEjqYqb_A",
-    "checked": false
+    "checked": true
   },
   "palm-house-17-oriental-guesthouse": {
     "km": 16,
     "place": "ChIJBw2kUA-QwxQR0RXEjqYqb_A",
-    "checked": false
+    "checked": true
   },
   "palmenhaus-antalya-otel": {
     "km": 16,
@@ -4362,7 +4362,7 @@ export const hotelDistances = Object.freeze({
   "palvan-house": {
     "km": 16,
     "place": "ChIJPUzfnpCPwxQRxi-Rrgv7T2o",
-    "checked": false
+    "checked": true
   },
   "papillon-ayscha-resort": {
     "km": 38,
@@ -4432,7 +4432,7 @@ export const hotelDistances = Object.freeze({
   "perge-hotels-adult-only-16-plus": {
     "km": 16,
     "place": "ChIJac6hNwmQwxQRD0Yuk3b4mdQ",
-    "checked": false
+    "checked": true
   },
   "perre-delta-resort-spa": {
     "km": 91,
@@ -4442,17 +4442,17 @@ export const hotelDistances = Object.freeze({
   "piem-apart-apart-otel": {
     "km": 22,
     "place": "ChIJn_YxxZKTwxQR4iO8kZbtmts",
-    "checked": false
+    "checked": true
   },
   "pina-hotel-oldtown": {
     "km": 16,
     "place": "ChIJRbtwPQCRwxQRoIxmthY6rYU",
-    "checked": false
+    "checked": true
   },
   "pinus-otel": {
     "km": 17,
     "place": "ChIJI9KHVO-awxQRIJCBp3ejArM",
-    "checked": false
+    "checked": true
   },
   "piyes-otel": {
     "km": 17,
@@ -4497,7 +4497,7 @@ export const hotelDistances = Object.freeze({
   "prime-boutique-hotel": {
     "km": 16,
     "place": "ChIJvX5j1KaawxQRtE5w3BIjk7o",
-    "checked": false
+    "checked": true
   },
   "privado-hotels": {
     "km": 15,
@@ -4507,12 +4507,12 @@ export const hotelDistances = Object.freeze({
   "puding-hotel": {
     "km": 16,
     "place": "ChIJmbB_rQWQwxQRsEE08fggi5Y",
-    "checked": false
+    "checked": true
   },
   "pukka-hotel": {
     "km": 25,
     "place": "ChIJUWeb7XGRwxQRrw45VULNRVM",
-    "checked": false
+    "checked": true
   },
   "pure-blanche-hotel": {
     "km": 17,
@@ -4547,7 +4547,7 @@ export const hotelDistances = Object.freeze({
   "quality-gold-suite-hotel": {
     "km": 13,
     "place": "ChIJJc6aR0-bwxQR37CGiD4UcJE",
-    "checked": false
+    "checked": true
   },
   "quattro-beach-spa-resort": {
     "km": 115,
@@ -4557,7 +4557,7 @@ export const hotelDistances = Object.freeze({
   "queen-s-park-le-jardin": {
     "km": 67,
     "place": "ChIJL0wMTU4WzBQRfXDhwpgEOVw",
-    "checked": false
+    "checked": true
   },
   "queen-s-park-tekirova": {
     "km": 76,
@@ -4582,7 +4582,7 @@ export const hotelDistances = Object.freeze({
   "ramada-plaza-antalya": {
     "km": 16,
     "place": "ChIJYeTybQmQwxQRMjKUGI230ko",
-    "checked": false
+    "checked": true
   },
   "ramada-resort-by-wyndham-lara": {
     "km": 15,
@@ -4627,7 +4627,7 @@ export const hotelDistances = Object.freeze({
   "regnum-carya": {
     "km": 29,
     "place": "ChIJVVVVlV17wxQRvKwc7vqFPU8",
-    "checked": false
+    "checked": true
   },
   "relax-beach-hotel": {
     "km": 132,
@@ -4647,7 +4647,7 @@ export const hotelDistances = Object.freeze({
   "residence-inn-by-marriott": {
     "km": 15,
     "place": "ChIJfQi8YoWbwxQR1EC_Gb8iO8g",
-    "checked": false
+    "checked": true
   },
   "resitalya-otel": {
     "km": 128,
@@ -4717,32 +4717,32 @@ export const hotelDistances = Object.freeze({
   "rixos-beldibi": {
     "km": 44,
     "place": "ChIJK9j0eQ-_wxQRRE5fZVl4d9M",
-    "checked": false
+    "checked": true
   },
   "rixos-downtown-antalya": {
     "km": 22,
     "place": "ChIJbR4fTDSQwxQReVuq1-4SvK0",
-    "checked": false
+    "checked": true
   },
   "rixos-downtown-antalya-the-land-of-legends-access-otel": {
     "km": 22,
     "place": "ChIJbR4fTDSQwxQReVuq1-4SvK0",
-    "checked": false
+    "checked": true
   },
   "rixos-park-belek": {
     "km": 38,
     "place": "ChIJTwaeW-NlwxQRFAmpwzMIHIg",
-    "checked": false
+    "checked": true
   },
   "rixos-premium-belek": {
     "km": 39,
     "place": "ChIJ2yDtHI2FxBQRjxSAKH5bFjg",
-    "checked": false
+    "checked": true
   },
   "rixos-premium-kemer": {
     "km": 77,
     "place": "ChIJ18C0nIK1wxQRdZ03gE6SJzo",
-    "checked": false
+    "checked": true
   },
   "rixos-premium-tekirova": {
     "km": 77,
@@ -4752,7 +4752,7 @@ export const hotelDistances = Object.freeze({
   "rixos-sungate": {
     "km": 48,
     "place": "ChIJlwXuqBqQwxQRX0AIEZgK_Mo",
-    "checked": false
+    "checked": true
   },
   "rk-magic-dream-hotel": {
     "km": 59,
@@ -4767,12 +4767,12 @@ export const hotelDistances = Object.freeze({
   "robinson-club-nobilis": {
     "km": 42,
     "place": "ChIJS43b3oVkwxQRUE3KQT2D7fc",
-    "checked": false
+    "checked": true
   },
   "robinson-club-side": {
     "km": 69,
     "place": "ChIJBdQi_3W2wxQRFyao9RznRqs",
-    "checked": false
+    "checked": true
   },
   "rodinn-park-hotel": {
     "km": 25,
@@ -4782,7 +4782,7 @@ export const hotelDistances = Object.freeze({
   "role-street-hostel": {
     "km": 16,
     "place": "ChIJN5Q0Tg-QwxQR1xSLLl8vx8w",
-    "checked": false
+    "checked": true
   },
   "roma-beach-resort-spa": {
     "km": 55,
@@ -4802,7 +4802,7 @@ export const hotelDistances = Object.freeze({
   "route-hotel-kaleici-adult-only": {
     "km": 16,
     "place": "ChIJJxBmp5-RwxQRR-jibJowmtM",
-    "checked": false
+    "checked": true
   },
   "rox-resort-hotel": {
     "km": 60,
@@ -4857,7 +4857,7 @@ export const hotelDistances = Object.freeze({
   "royal-otel": {
     "km": 124,
     "place": "ChIJfb0XpPai3BQRl2IByIMl4kk",
-    "checked": false
+    "checked": true
   },
   "royal-seginus": {
     "km": 17,
@@ -4882,12 +4882,12 @@ export const hotelDistances = Object.freeze({
   "rubi-platinum-spa-resort": {
     "km": 102,
     "place": "ChIJa2Ct5P-u3BQR1mdkvSj3ysI",
-    "checked": false
+    "checked": true
   },
   "ruinadalia-hotel-adults-only": {
     "km": 16,
     "place": "ChIJF_61kQaQwxQRrOooTLEJutQ",
-    "checked": false
+    "checked": true
   },
   "sabah-pansiyon": {
     "km": 16,
@@ -4932,7 +4932,7 @@ export const hotelDistances = Object.freeze({
   "sare-beach-hotel": {
     "km": 18,
     "place": "ChIJexNZEoGPwxQR9vo-V3CQgSE",
-    "checked": false
+    "checked": true
   },
   "saritas-otel": {
     "km": 131,
@@ -4947,7 +4947,7 @@ export const hotelDistances = Object.freeze({
   "sato-hotel": {
     "km": 15,
     "place": "ChIJSVMWhhmbwxQRAFPGDd4CwBQ",
-    "checked": false
+    "checked": true
   },
   "saturn-palace-resort": {
     "km": 17,
@@ -4962,12 +4962,12 @@ export const hotelDistances = Object.freeze({
   "saye-konak-hotel-kaleici-oldtown": {
     "km": 16,
     "place": "ChIJq3EiQcmRwxQRGTB-8aZ0D0w",
-    "checked": false
+    "checked": true
   },
   "scylax-hotels-family-club": {
     "km": 142,
     "place": "ChIJS-S2iZqQ3BQR-AT3YERkNdI",
-    "checked": false
+    "checked": true
   },
   "sea-city-devran-hotel-spa": {
     "km": 23,
@@ -4997,7 +4997,7 @@ export const hotelDistances = Object.freeze({
   "sealife-buket-resort-beach": {
     "km": 93,
     "place": "ChIJbeT1Sa-v3BQRUZXJ4q5239E",
-    "checked": false
+    "checked": true
   },
   "sealife-family-resort-hotel": {
     "km": 25,
@@ -5012,7 +5012,7 @@ export const hotelDistances = Object.freeze({
   "sealife-lounge-adult-only-otel": {
     "km": 23,
     "place": "ChIJH6YLbaWRwxQRbV1EvhjAAzQ",
-    "checked": false
+    "checked": true
   },
   "seamelia-beach-resort-hotel-spa": {
     "km": 59,
@@ -5037,7 +5037,7 @@ export const hotelDistances = Object.freeze({
   "seher-sun-beach": {
     "km": 58,
     "place": "ChIJYe2y50FfwxQRSQrVk63HSbI",
-    "checked": false
+    "checked": true
   },
   "sehir-hotel": {
     "km": 32,
@@ -5097,17 +5097,17 @@ export const hotelDistances = Object.freeze({
   "sentido-flora-garden": {
     "km": 84,
     "place": "ChIJ3dqrTXJTwxQRLZcX-yI85yY",
-    "checked": false
+    "checked": true
   },
   "sentido-gold-island-hotel": {
     "km": 106,
     "place": "ChIJ4VfmhbCv3BQRVJWZMa8neog",
-    "checked": false
+    "checked": true
   },
   "sentido-kamelya-fulya": {
     "km": 58,
     "place": "ChIJYbJIsMFewxQRDP0lhEHGBWQ",
-    "checked": false
+    "checked": true
   },
   "senza-garden-holiday-club-hotel": {
     "km": 117,
@@ -5122,7 +5122,7 @@ export const hotelDistances = Object.freeze({
   "senza-sunset-beach-hotel": {
     "km": 133,
     "place": "ChIJoT9uAZmv3BQRjIDHhIiS_0I",
-    "checked": false
+    "checked": true
   },
   "senza-the-inn-resort-spa": {
     "km": 109,
@@ -5147,7 +5147,7 @@ export const hotelDistances = Object.freeze({
   "serenity-suites-hotel": {
     "km": 25,
     "place": "ChIJs_W40tCRwxQRh8boF-1vVIA",
-    "checked": false
+    "checked": true
   },
   "sette-serenity-otel": {
     "km": 130,
@@ -5157,7 +5157,7 @@ export const hotelDistances = Object.freeze({
   "seven-seas-hotel-life-kemer": {
     "km": 51,
     "place": "ChIJC8-_S-W4wxQRxSHFfG-p7xw",
-    "checked": false
+    "checked": true
   },
   "seven-seas-palmeras-bay-hotel": {
     "km": 117,
@@ -5167,7 +5167,7 @@ export const hotelDistances = Object.freeze({
   "sever-hotel": {
     "km": 13,
     "place": "ChIJWS7mnKKFwxQRR3EABe98o38",
-    "checked": false
+    "checked": true
   },
   "sever-suites-hotel": {
     "km": 13,
@@ -5207,7 +5207,7 @@ export const hotelDistances = Object.freeze({
   "sibel-hotel": {
     "km": 16,
     "place": "ChIJfXlt7gWQwxQRvhVmgghxVZQ",
-    "checked": false
+    "checked": true
   },
   "side-alegria-hotel-spa": {
     "km": 61,
@@ -5237,12 +5237,12 @@ export const hotelDistances = Object.freeze({
   "side-orange-paradise-hotel": {
     "km": 59,
     "place": "ChIJH2oejMtewxQRAJ0VhJWue-g",
-    "checked": false
+    "checked": true
   },
   "side-premium-hotel": {
     "km": 58,
     "place": "ChIJL4tFqMZewxQRt-j6lNcJq7o",
-    "checked": false
+    "checked": true
   },
   "side-prenses-resort": {
     "km": 64,
@@ -5327,7 +5327,7 @@ export const hotelDistances = Object.freeze({
   "sinemis-hotel": {
     "km": 108,
     "place": "ChIJhfDLsLg5whQRUqZdiq85eB8",
-    "checked": false
+    "checked": true
   },
   "sirena-apart-spa": {
     "km": 24,
@@ -5367,12 +5367,12 @@ export const hotelDistances = Object.freeze({
   "sky-hotel-apartments": {
     "km": 25,
     "place": "ChIJdQM_PI-RwxQRpPn8gL3N-Ck",
-    "checked": false
+    "checked": true
   },
   "sky-kamer-hotel": {
     "km": 17,
     "place": "ChIJCUvXqwSQwxQRExTtPBMLibk",
-    "checked": false
+    "checked": true
   },
   "skys-hotel": {
     "km": 82,
@@ -5382,7 +5382,7 @@ export const hotelDistances = Object.freeze({
   "sofa-hotels-kaleici": {
     "km": 16,
     "place": "ChIJ__xKgz6RwxQRYF8ZAmHz9Ww",
-    "checked": false
+    "checked": true
   },
   "solivia-hotel": {
     "km": 113,
@@ -5412,12 +5412,12 @@ export const hotelDistances = Object.freeze({
   "stile-suite-family-hotel": {
     "km": 24,
     "place": "ChIJcVFwUa2RwxQRY42rSETwjdo",
-    "checked": false
+    "checked": true
   },
   "sueno-hotels": {
     "km": 32,
     "place": "ChIJX5257XV7wxQReYQn8-DzhcA",
-    "checked": false
+    "checked": true
   },
   "sueno-hotels-beach-side": {
     "km": 68,
@@ -5457,7 +5457,7 @@ export const hotelDistances = Object.freeze({
   "sun-heaven-otel": {
     "km": 111,
     "place": "ChIJY5EwYQ-l3BQRzObZ41jQs7Y",
-    "checked": false
+    "checked": true
   },
   "sun-heaven-queen": {
     "km": 111,
@@ -5467,22 +5467,22 @@ export const hotelDistances = Object.freeze({
   "sun-shine-mir-hotel": {
     "km": 11,
     "place": "ChIJ-ZePsySDwxQR-EFXKM1Dvvo",
-    "checked": false
+    "checked": true
   },
   "sun-suites": {
     "km": 15,
     "place": "ChIJTZ0nxC-bwxQRCLH-6ndWU3s",
-    "checked": false
+    "checked": true
   },
   "sun-vera-otel": {
     "km": 124,
     "place": "ChIJ_QRhcaCj3BQRT2SH1s_AMhk",
-    "checked": false
+    "checked": true
   },
   "sunanatolia-otel": {
     "km": 17,
     "place": "ChIJNVBsRQGQwxQRUK6uuPCo21w",
-    "checked": false
+    "checked": true
   },
   "sunis-elita-beach-resort": {
     "km": 81,
@@ -5507,7 +5507,7 @@ export const hotelDistances = Object.freeze({
   "sunny-hill-alya": {
     "km": 126,
     "place": "ChIJGyXBuZ2i3BQRH_6s_rljLoo",
-    "checked": false
+    "checked": true
   },
   "sunprime-c-lounge": {
     "km": 131,
@@ -5522,7 +5522,7 @@ export const hotelDistances = Object.freeze({
   "sunthalia-hotels-and-resorts": {
     "km": 57,
     "place": "ChIJuYUUMR-PwxQRz0DE1f7TlFc",
-    "checked": false
+    "checked": true
   },
   "sural-garden-hotel": {
     "km": 57,
@@ -5552,7 +5552,7 @@ export const hotelDistances = Object.freeze({
   "sweet-home-boutique-hotel": {
     "km": 16,
     "place": "ChIJoariUYKbwxQRlpm3iD6lxSQ",
-    "checked": false
+    "checked": true
   },
   "sy-hotels-belek": {
     "km": 28,
@@ -5567,7 +5567,7 @@ export const hotelDistances = Object.freeze({
   "taka-butik-otel": {
     "km": 16,
     "place": "ChIJf9Wq4I2RwxQRqcJVDpng2EM",
-    "checked": false
+    "checked": true
   },
   "tal-beach-hotel": {
     "km": 44,
@@ -5582,12 +5582,12 @@ export const hotelDistances = Object.freeze({
   "tamara-business-otel": {
     "km": 16,
     "place": "ChIJgR8mIrOPwxQRgVJhX08--1U",
-    "checked": false
+    "checked": true
   },
   "tekeli-konaklari": {
     "km": 16,
     "place": "ChIJEeAmXwSQwxQR8P0NjpHdGlM",
-    "checked": false
+    "checked": true
   },
   "telatiye-resort-otel": {
     "km": 113,
@@ -5602,7 +5602,7 @@ export const hotelDistances = Object.freeze({
   "temiz-otel": {
     "km": 127,
     "place": "ChIJJavJKHeY3BQRRoZMz3xwtso",
-    "checked": false
+    "checked": true
   },
   "teos-hotel": {
     "km": 15,
@@ -5612,7 +5612,7 @@ export const hotelDistances = Object.freeze({
   "terra-rossa-apart-otel": {
     "km": 17,
     "place": "ChIJrwOVWbqPwxQR3O0hrbn8qFw",
-    "checked": false
+    "checked": true
   },
   "terrace-elite-resort": {
     "km": 56,
@@ -5642,7 +5642,7 @@ export const hotelDistances = Object.freeze({
   "the-easy-rooms-terrace": {
     "km": 16,
     "place": "ChIJ1YkQqgiQwxQRn4sGjfcH5qo",
-    "checked": false
+    "checked": true
   },
   "the-grand-ring-hotel": {
     "km": 49,
@@ -5697,12 +5697,12 @@ export const hotelDistances = Object.freeze({
   "the-room-hotel-apartments": {
     "km": 25,
     "place": "ChIJ9bbdAXqRwxQRhLyEng5Oots",
-    "checked": false
+    "checked": true
   },
   "the-sense-deluxe-hotel": {
     "km": 63,
     "place": "ChIJCdGqW8pewxQRWz3dvQg1nPE",
-    "checked": false
+    "checked": true
   },
   "the-suite-apart-hotel": {
     "km": 16,
@@ -5732,12 +5732,12 @@ export const hotelDistances = Object.freeze({
   "timo-deluxe-resort": {
     "km": 113,
     "place": "ChIJ00mjBv6k3BQRQPl1pHcgzSk",
-    "checked": false
+    "checked": true
   },
   "titanic-beach-lara": {
     "km": 14,
     "place": "ChIJASy63c-CwxQRlHBoXAKcF5k",
-    "checked": false
+    "checked": true
   },
   "titanic-deluxe-golf-belek": {
     "km": 29,
@@ -5757,17 +5757,17 @@ export const hotelDistances = Object.freeze({
   "tolenza-hotels": {
     "km": 124,
     "place": "ChIJf3KEAkmj3BQRFua5dPQwPQg",
-    "checked": false
+    "checked": true
   },
   "toprak-apart-otel": {
     "km": 14,
     "place": "ChIJ2zjecxuFwxQRiRs6Ix0OX5Y",
-    "checked": false
+    "checked": true
   },
   "tourist-hotel": {
     "km": 13,
     "place": "ChIJTXbd1libwxQRphKP7dB0MHk",
-    "checked": false
+    "checked": true
   },
   "transatlantik-hotel-spa": {
     "km": 52,
@@ -5802,12 +5802,12 @@ export const hotelDistances = Object.freeze({
   "trendy-side-beach": {
     "km": 65,
     "place": "ChIJCaxQBXtZwxQRdFb063OkEKE",
-    "checked": false
+    "checked": true
   },
   "trendy-verbena-beach-hotel": {
     "km": 59,
     "place": "ChIJ-wBSGMpewxQRUfpvLUi6JeU",
-    "checked": false
+    "checked": true
   },
   "triana-hotel": {
     "km": 16,
@@ -5832,12 +5832,12 @@ export const hotelDistances = Object.freeze({
   "tui-blue-sherwood-belek": {
     "km": 43,
     "place": "ChIJywcAQGd7wxQRega1IgpU0NQ",
-    "checked": false
+    "checked": true
   },
   "tui-blue-side-family-resort": {
     "km": 59,
     "place": "ChIJISE2QcpewxQR2U9ymZPCbW0",
-    "checked": false
+    "checked": true
   },
   "tui-magic-life-belek": {
     "km": 31,
@@ -5872,12 +5872,12 @@ export const hotelDistances = Object.freeze({
   "turquoise-resort-hotel-spa": {
     "km": 70,
     "place": "ChIJ50UBCwBbwxQR6oWY6vbJxPY",
-    "checked": false
+    "checked": true
   },
   "turunc-hotel-antalya-ex-omur-hotel": {
     "km": 15,
     "place": "ChIJD6mU19SFwxQRuuYD-cK1Zug",
-    "checked": false
+    "checked": true
   },
   "tut-hotel": {
     "km": 30,
@@ -5902,7 +5902,7 @@ export const hotelDistances = Object.freeze({
   "urcu-hotel": {
     "km": 16,
     "place": "ChIJQzhDvAaQwxQRN-v7fIUMIs8",
-    "checked": false
+    "checked": true
   },
   "utopia-world-hotel": {
     "km": 146,
@@ -5937,7 +5937,7 @@ export const hotelDistances = Object.freeze({
   "vera-park-premium-apart-hotel": {
     "km": 23,
     "place": "ChIJd9CNbZ6RwxQR3p9z5c-ASl8",
-    "checked": false
+    "checked": true
   },
   "veranda-suites": {
     "km": 12,
@@ -6002,12 +6002,12 @@ export const hotelDistances = Object.freeze({
   "villa-perla-hotel": {
     "km": 16,
     "place": "ChIJKcwGZQ-QwxQRK0i5ST73ARo",
-    "checked": false
+    "checked": true
   },
   "villa-sunflower-hotel": {
     "km": 126,
     "place": "ChIJcZb12X6Y3BQR1ggAs-ZaYuY",
-    "checked": false
+    "checked": true
   },
   "villa-tulipan": {
     "km": 16,
@@ -6037,7 +6037,7 @@ export const hotelDistances = Object.freeze({
   "von-resort-golden-coast": {
     "km": 57,
     "place": "ChIJ25-_jV1ewxQR2M7aebrvigg",
-    "checked": false
+    "checked": true
   },
   "voyage-belek-golf-spa": {
     "km": 37,
@@ -6072,7 +6072,7 @@ export const hotelDistances = Object.freeze({
   "white-garden-hotel-adult-only": {
     "km": 16,
     "place": "ChIJ5VgC8wWQwxQRJ-IivBxxJ-I",
-    "checked": false
+    "checked": true
   },
   "white-gold": {
     "km": 131,
@@ -6092,7 +6092,7 @@ export const hotelDistances = Object.freeze({
   "wise-hotel-spa-adults-only": {
     "km": 17,
     "place": "ChIJ_dQ4xe6awxQR0nG_5A13qb0",
-    "checked": false
+    "checked": true
   },
   "wome-deluxe-hotel": {
     "km": 101,
@@ -6112,7 +6112,7 @@ export const hotelDistances = Object.freeze({
   "wow-topkapi-palace": {
     "km": 25,
     "place": "ChIJ0zvtrGl4wxQRQImlEPLg_rQ",
-    "checked": false
+    "checked": true
   },
   "wyndham-garden-lara-otel": {
     "km": 15,
@@ -6142,7 +6142,7 @@ export const hotelDistances = Object.freeze({
   "yakamoz-pansiyon-2": {
     "km": 22,
     "place": "ChIJb3s2Z2WRwxQReZxEB1uXsjA",
-    "checked": false
+    "checked": true
   },
   "yalcin-otel": {
     "km": 15,
@@ -6162,7 +6162,7 @@ export const hotelDistances = Object.freeze({
   "yaman-life-otel": {
     "km": 129,
     "place": "ChIJBZYVR1eY3BQRLolt-VKZjwo",
-    "checked": false
+    "checked": true
   },
   "yelken-apart-hotel": {
     "km": 23,
@@ -6182,7 +6182,7 @@ export const hotelDistances = Object.freeze({
   "yesilyurt-otel": {
     "km": 16,
     "place": "ChIJpdn2r5iPwxQR1MBB436B47s",
-    "checked": false
+    "checked": true
   },
   "yetkin-club-otel": {
     "km": 113,
@@ -6192,7 +6192,7 @@ export const hotelDistances = Object.freeze({
   "yildirimoglu": {
     "km": 127,
     "place": "ChIJLXTfuHyY3BQR3t7lefowmDo",
-    "checked": false
+    "checked": true
   },
   "yucemek-apart": {
     "km": 30,
@@ -6212,7 +6212,7 @@ export const hotelDistances = Object.freeze({
   "zemira-garden-hotel": {
     "km": 15,
     "place": "ChIJ-bExs1eRwxQRUNqIQfpOCRA",
-    "checked": false
+    "checked": true
   },
   "zena-resort-otel": {
     "km": 67,
