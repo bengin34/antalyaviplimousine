@@ -3,6 +3,8 @@ import {
   applyReviewedPlaceOverride,
   buildRegionMatch,
   groupCandidatesByPlace,
+  isOperationalHotelPlace,
+  matchAddressRegionTerm,
   pricingRegionFromAddressComponents,
   resolvePricingRegion,
   selectOperationalHotelPlace,
@@ -257,5 +259,52 @@ describe("hotel region matching", () => {
       status: "ready",
       reviewReasons: [],
     });
+  });
+});
+
+describe("matchAddressRegionTerm", () => {
+  const components = (...texts) => texts.map((longText) => ({ longText, shortText: longText }));
+
+  test("returns the region and the term that matched", () => {
+    expect(matchAddressRegionTerm(components("Boğazkent", "Serik", "Antalya")))
+      .toEqual({ region: "bogazkent", term: "bogazkent" });
+  });
+
+  test("resolves Kumluca, Kaş and Kepez addresses", () => {
+    expect(matchAddressRegionTerm(components("Adrasan", "Kumluca"))).toEqual({ region: "kumluca", term: "adrasan" });
+    expect(matchAddressRegionTerm(components("Kalkan", "Kaş"))).toEqual({ region: "kas", term: "kalkan" });
+    expect(matchAddressRegionTerm(components("Kepez", "Antalya"))).toEqual({ region: "antalya", term: "kepez" });
+  });
+
+  test("returns null for an unknown locality", () => {
+    expect(matchAddressRegionTerm(components("Nowhere", "Antalya"))).toBeNull();
+    expect(pricingRegionFromAddressComponents(components("Nowhere"))).toBeNull();
+  });
+});
+
+describe("isOperationalHotelPlace", () => {
+  const place = (overrides = {}) => ({
+    id: "p1", displayName: { text: "Barut Hemera Resort & Spa" },
+    businessStatus: "OPERATIONAL", primaryType: "resort_hotel", ...overrides,
+  });
+
+  test("accepts a matching, operating lodging place", () => {
+    expect(isOperationalHotelPlace("Barut Hemera", place())).toBe(true);
+    expect(isOperationalHotelPlace("Barut Hemera", place({ primaryType: "lodging" }))).toBe(true);
+  });
+
+  test("accepts any of several candidate names", () => {
+    expect(isOperationalHotelPlace(["Old Name", "Barut Hemera"], place())).toBe(true);
+  });
+
+  test("rejects on name, status, or type", () => {
+    expect(isOperationalHotelPlace("Rixos Premium", place())).toBe(false);
+    expect(isOperationalHotelPlace("Barut Hemera", place({ businessStatus: "CLOSED_PERMANENTLY" }))).toBe(false);
+    expect(isOperationalHotelPlace("Barut Hemera", place({ primaryType: "restaurant" }))).toBe(false);
+  });
+
+  test("selectOperationalHotelPlace still uses the strict hotel types", () => {
+    expect(selectOperationalHotelPlace("Barut Hemera", [place({ primaryType: "lodging" })])).toBeNull();
+    expect(selectOperationalHotelPlace("Barut Hemera", [place()])).toEqual(place());
   });
 });

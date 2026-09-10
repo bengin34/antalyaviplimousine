@@ -130,35 +130,62 @@ const ADDRESS_REGION_TERMS = Object.freeze([
   ["bogazkent", ["bogazkent"]],
   ["belek", ["belek", "kadriye"]],
   ["tekirova", ["tekirova"]],
+  ["kumluca", ["kumluca", "adrasan", "olympos"]],
+  ["kas", ["kas", "kalkan"]],
   ["kemer", ["kemer", "beldibi", "goynuk", "kiris", "camyuva"]],
-  ["antalya", ["konyaalti", "lara", "kundu", "aksu", "muratpasa"]],
+  ["antalya", ["konyaalti", "lara", "kundu", "aksu", "muratpasa", "kepez"]],
 ]);
 
-/** Resolves a specific known locality from ephemeral Places address parts. */
-export function pricingRegionFromAddressComponents(components) {
+/** Resolves a known locality from ephemeral Places address parts to its pricing region and the term that matched. */
+export function matchAddressRegionTerm(components) {
   const parts = (components ?? []).flatMap((component) =>
     [component?.longText, component?.shortText].filter(Boolean).map(ministryNameKey));
+  const matches = (part, candidate) =>
+    part === candidate || part.startsWith(`${candidate} `) || part.endsWith(` ${candidate}`);
+  // Region order is the price-boundary priority (bogazkent before belek).
+  // Within a region, walk the address parts first so the most specific
+  // component (Adrasan) reports its own term rather than the ilçe's (Kumluca).
   for (const [region, terms] of ADDRESS_REGION_TERMS) {
-    if (terms.some((term) => parts.some((part) =>
-      part === term || part.startsWith(`${term} `) || part.endsWith(` ${term}`)))) {
-      return region;
+    for (const part of parts) {
+      const term = terms.find((candidate) => matches(part, candidate));
+      if (term) return { region, term };
     }
   }
   return null;
+}
+
+/** Resolves a specific known locality from ephemeral Places address parts. */
+export function pricingRegionFromAddressComponents(components) {
+  return matchAddressRegionTerm(components)?.region ?? null;
 }
 
 const GENERIC_IDENTITY_WORDS = new Set(["hotel", "hotels", "resort", "spa", "the"]);
 const placeIdentityKey = (value) => ministryNameKey(value)
   .split(" ").filter((word) => word && !GENERIC_IDENTITY_WORDS.has(word)).join(" ");
 
+const STRICT_HOTEL_TYPES = new Set(["hotel", "resort_hotel"]);
+/** Google Places lodging types an audited index row may legitimately carry. */
+export const LODGING_PLACE_TYPES = new Set([
+  "hotel", "resort_hotel", "lodging", "extended_stay_hotel", "guest_house",
+  "inn", "motel", "hostel", "bed_and_breakfast", "private_guest_room",
+]);
+
+/**
+ * True when one Places result is an operating lodging business whose name
+ * matches any of the candidate names (generic words stripped).
+ */
+export function isOperationalHotelPlace(candidateNames, place, types = LODGING_PLACE_TYPES) {
+  const wanted = new Set([].concat(candidateNames).map(placeIdentityKey));
+  return Boolean(place?.id)
+    && types.has(place.primaryType)
+    && place.businessStatus === "OPERATIONAL"
+    && wanted.has(placeIdentityKey(place.displayName?.text));
+}
+
 /** Selects one unambiguous, currently operating classic hotel identity. */
 export function selectOperationalHotelPlace(candidateName, places) {
-  const wanted = placeIdentityKey(candidateName);
   const matches = (places ?? []).filter((place) =>
-    place?.id
-    && (place.primaryType === "hotel" || place.primaryType === "resort_hotel")
-    && place.businessStatus === "OPERATIONAL"
-    && placeIdentityKey(place.displayName?.text) === wanted);
+    isOperationalHotelPlace(candidateName, place, STRICT_HOTEL_TYPES));
   return matches.length === 1 ? matches[0] : null;
 }
 
