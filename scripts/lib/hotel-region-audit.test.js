@@ -110,3 +110,10 @@ describe("buildAuditReport", () => {
     expect(table).toContain("| slug |");
   });
 });
+
+describe("renderAuditTable header", () => {
+  test("shows remaining and failed counts so an operator sees an incomplete run", () => {
+    const report = { ...buildAuditReport([], { generatedAt: "x", indexed: 3 }), remaining: 2, failures: { a: "Places API 500" } };
+    expect(renderAuditTable(report)).toContain("2 not yet audited, 1 failed fetches.");
+  });
+});

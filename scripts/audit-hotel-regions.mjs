@@ -36,6 +36,9 @@ const value = (name, fallback) => (args.includes(name) ? args[args.indexOf(name)
 const maxCalls = Number(value("--max-calls", 2000));
 if (!Number.isInteger(maxCalls) || maxCalls < 1 || maxCalls > 2000) throw new Error("--max-calls must be 1..2000");
 const onlySlug = value("--slug", null);
+if (args.includes("--slug") && (!onlySlug || onlySlug.startsWith("--"))) {
+  throw new Error("--slug needs a hotel slug; a bare --slug would silently become a full paid pass");
+}
 const onlyUnchecked = flag("--only-unchecked");
 const fresh = flag("--fresh");
 
@@ -77,8 +80,11 @@ async function fetchDetails(placeId) {
   // this row, not about the run, so they classify as gone instead of aborting.
   if (response.status === 404 || response.status === 400) return { notFound: true };
   if (!response.ok) {
-    const error = new Error(`Places API ${response.status}: ${body.slice(0, 240)}`);
+    // Only the status is recorded: the body is raw Google text and the
+    // checkpoint must never carry any.
+    const error = new Error(`Places API ${response.status}`);
     error.fatal = [401, 403].includes(response.status);
+    if (error.fatal) console.error(body.slice(0, 240));
     throw error;
   }
   return { place: JSON.parse(body) };

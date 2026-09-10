@@ -92,5 +92,7 @@ export function renderAuditTable(report) {
     .filter((row) => row.bucket !== "ok")
     .map((row) => `| ${COLUMNS.map((column) => row[column] ?? "").join(" | ")} |`);
   const summary = AUDIT_BUCKETS.map((bucket) => `${bucket}: ${report.counts[bucket]}`).join(", ");
-  return `# Hotel region audit\n\nGenerated ${report.generatedAt}. Audited ${report.audited} of ${report.indexed}. ${summary}.\n\n${head}\n${lines.join("\n")}\n`;
+  const failed = Object.keys(report.failures ?? {}).length;
+  const pending = `${report.remaining ?? 0} not yet audited, ${failed} failed fetches.`;
+  return `# Hotel region audit\n\nGenerated ${report.generatedAt}. Audited ${report.audited} of ${report.indexed}. ${summary}. ${pending}\n\n${head}\n${lines.join("\n")}\n`;
 }
