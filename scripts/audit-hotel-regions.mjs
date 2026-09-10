@@ -27,6 +27,7 @@ import { hotelDistances } from "../src/hotel-distances.js";
 import { routeCatalog } from "../src/routes.js";
 import { renderHotelDistancesFile } from "./lib/hotel-distances-merge.mjs";
 import { classifyAuditRow, buildAuditReport, renderAuditTable } from "./lib/hotel-region-audit.mjs";
+import { auditInputHash, reconcileAuditFlags } from "./lib/hotel-audit-state.mjs";
 
 const key = process.env.GOOGLE_MAPS_API_KEY || process.env.GOOGLE_PLACES_API_KEY;
 if (!key) throw new Error("GOOGLE_MAPS_API_KEY or GOOGLE_PLACES_API_KEY is required");
@@ -63,6 +64,14 @@ async function atomicJson(path, valueToWrite) {
 
 let checkpoint = { schemaVersion: 1, completed: {}, failures: {}, calls: 0 };
 if (!fresh && existsSync(checkpointPath)) checkpoint = JSON.parse(await readFile(checkpointPath, "utf8"));
+const inputHashes = Object.fromEntries(hotelIndex.map(hotel => [hotel.slug,
+  auditInputHash(hotel, hotelDistances[hotel.slug]?.place, routeCatalog)]));
+for (const [slug, row] of Object.entries(checkpoint.completed)) {
+  if (!inputHashes[slug] || row.inputHash !== inputHashes[slug]) delete checkpoint.completed[slug];
+}
+for (const slug of Object.keys(checkpoint.failures)) {
+  if (!inputHashes[slug]) delete checkpoint.failures[slug];
+}
 if (onlySlug) delete checkpoint.completed[onlySlug]; // a --slug run always re-verifies
 if (redoBucket) {
   for (const [slug, row] of Object.entries(checkpoint.completed)) {
@@ -72,14 +81,19 @@ if (redoBucket) {
 
 const targets = hotelIndex.filter((hotel) => {
   if (onlySlug) return hotel.slug === onlySlug;
-  if (onlyUnchecked) return hotelDistances[hotel.slug]?.checked !== true;
+  if (onlyUnchecked) return checkpoint.completed[hotel.slug]?.bucket !== "ok";
   return true;
 });
 if (onlySlug && targets.length === 0) throw new Error(`No indexed hotel with slug ${onlySlug}`);
 
+// Revoke stale evidence before fetching, including when a run is interrupted.
+await atomicJson(checkpointPath, checkpoint);
+await writeFile(distancesPath, renderHotelDistancesFile(reconcileAuditFlags(hotelDistances, checkpoint.completed)));
+
 const wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 async function fetchDetails(placeId) {
   const response = await fetch(`https://places.googleapis.com/v1/places/${encodeURIComponent(placeId)}`, {
+    signal: AbortSignal.timeout(20000),
     headers: {
       "X-Goog-Api-Key": key,
       "X-Goog-FieldMask": "id,displayName,formattedAddress,addressComponents,businessStatus,primaryType",
@@ -109,7 +123,9 @@ for (const hotel of pending) {
   const placeId = hotelDistances[hotel.slug]?.place;
   try {
     const details = placeId ? await fetchDetails(placeId) : { notFound: true };
-    checkpoint.completed[hotel.slug] = classifyAuditRow(hotel, details, routeCatalog);
+    checkpoint.completed[hotel.slug] = {
+      ...classifyAuditRow(hotel, details, routeCatalog), inputHash: inputHashes[hotel.slug],
+    };
     delete checkpoint.failures[hotel.slug];
   } catch (error) {
     checkpoint.failures[hotel.slug] = String(error?.message ?? error).slice(0, 300);
@@ -121,17 +137,10 @@ for (const hotel of pending) {
   await wait(100);
 }
 
-// Write checked:true for ok rows. Only the checked field is touched.
-let next = { ...hotelDistances };
-let flipped = 0;
-for (const row of Object.values(checkpoint.completed)) {
-  const entry = next[row.slug];
-  if (row.bucket === "ok" && entry && entry.checked !== true) {
-    next = { ...next, [row.slug]: { ...entry, checked: true } };
-    flipped += 1;
-  }
-}
-if (flipped) await writeFile(distancesPath, renderHotelDistancesFile(next));
+// Both grant and revoke checked flags from the current evidence.
+const next = reconcileAuditFlags(hotelDistances, checkpoint.completed);
+const flipped = Object.keys(next).filter(slug => next[slug].checked !== hotelDistances[slug].checked).length;
+await writeFile(distancesPath, renderHotelDistancesFile(next));
 
 // A --slug run reports to stdout only, so it never replaces the full report
 // with a one-row file. Full and --only-unchecked runs rebuild both reports
@@ -145,5 +154,6 @@ if (!onlySlug) {
   await atomicJson(join(outputRoot, "report.json"), report);
   await writeFile(join(outputRoot, "report.md"), renderAuditTable(report));
 }
-console.error(`checked:true written for ${flipped} rows`);
+console.error(`checked flags changed for ${flipped} rows`);
 console.log(JSON.stringify({ counts: report.counts, audited: report.audited, remaining: report.remaining, failures: Object.keys(checkpoint.failures).length, rows: onlySlug ? report.rows : undefined }, null, 2));
+if (report.remaining || Object.keys(checkpoint.failures).length) process.exitCode = 1;

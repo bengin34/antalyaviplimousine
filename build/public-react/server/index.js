@@ -4480,8 +4480,7 @@ const hotelDistances = Object.freeze({
   },
   "adam-apart-hotel-2": {
     "km": 18,
-    "place": "ChIJtQvvKiWPwxQRHDDpu7BlSaY",
-    "checked": false
+    "place": "ChIJtQvvKiWPwxQRHDDpu7BlSaY"
   },
   "adam-eve-hotels": {
     "km": 37,
@@ -4595,8 +4594,7 @@ const hotelDistances = Object.freeze({
   },
   "alanya-divan-otel": {
     "km": 124,
-    "place": "ChIJDyhAWg-j3BQRSuIdrZOoKLc",
-    "checked": false
+    "place": "ChIJDyhAWg-j3BQRSuIdrZOoKLc"
   },
   "alanya-risus-park-otel": {
     "km": 129,
@@ -4610,8 +4608,7 @@ const hotelDistances = Object.freeze({
   },
   "alarcha-hotels-resort": {
     "km": 90,
-    "place": "ChIJs2m3mWSr3BQRbqawMoJ2MpM",
-    "checked": false
+    "place": "ChIJs2m3mWSr3BQRbqawMoJ2MpM"
   },
   "alba-queen-hotel": {
     "km": 57,
@@ -4700,8 +4697,7 @@ const hotelDistances = Object.freeze({
   },
   "altes-hotel": {
     "km": 17,
-    "place": "ChIJETabBByQwxQRfIBQYLkVckA",
-    "checked": false
+    "place": "ChIJETabBByQwxQRfIBQYLkVckA"
   },
   "altinay-hotel": {
     "km": 24,
@@ -4755,8 +4751,7 @@ const hotelDistances = Object.freeze({
   },
   "angelo-coffee-suites": {
     "km": 12,
-    "place": "ChIJpf-UOU6FwxQRjJvWbjtC20I",
-    "checked": false
+    "place": "ChIJpf-UOU6FwxQRjJvWbjtC20I"
   },
   "anita-dream-hotel": {
     "km": 68,
@@ -4820,8 +4815,7 @@ const hotelDistances = Object.freeze({
   },
   "antique-house-otel": {
     "km": 16,
-    "place": "ChIJFxL8fQaQwxQRVkFsP7oasfM",
-    "checked": false
+    "place": "ChIJFxL8fQaQwxQRVkFsP7oasfM"
   },
   "antique-roman-palace": {
     "km": 131,
@@ -4850,8 +4844,7 @@ const hotelDistances = Object.freeze({
   },
   "araucaria-pension": {
     "km": 16,
-    "place": "ChIJseaj9QaQwxQRZRLSs4I5Syo",
-    "checked": false
+    "place": "ChIJseaj9QaQwxQRZRLSs4I5Syo"
   },
   "arcanus-trendline-resort-side": {
     "km": 57,
@@ -4875,8 +4868,7 @@ const hotelDistances = Object.freeze({
   },
   "arinna-park-hotel": {
     "km": 25,
-    "place": "ChIJLZ16eoqRwxQR2r49hjnb5Ng",
-    "checked": false
+    "place": "ChIJLZ16eoqRwxQR2r49hjnb5Ng"
   },
   "arkk-homes": {
     "km": 15,
@@ -4885,8 +4877,7 @@ const hotelDistances = Object.freeze({
   },
   "arma-pansiyon": {
     "km": 20,
-    "place": "ChIJlaSGXtaRwxQRTE2LyhbM2yM",
-    "checked": false
+    "place": "ChIJlaSGXtaRwxQRTE2LyhbM2yM"
   },
   "armas-beach-hotel": {
     "km": 59,
@@ -4915,8 +4906,7 @@ const hotelDistances = Object.freeze({
   },
   "armas-sunrise-lara": {
     "km": 13,
-    "place": "ChIJZTiUeZWdwxQRhRDbW79UXVg",
-    "checked": false
+    "place": "ChIJZTiUeZWdwxQRhRDbW79UXVg"
   },
   "arsi-blue-beach-hotel": {
     "km": 132,
@@ -4935,8 +4925,7 @@ const hotelDistances = Object.freeze({
   },
   "artemis-luxury-palace-hotel": {
     "km": 25,
-    "place": "ChIJs1yAQ1x4wxQR2lAY2mxqxOA",
-    "checked": false
+    "place": "ChIJs1yAQ1x4wxQR2lAY2mxqxOA"
   },
   "arum-barut-collection": {
     "km": 63,
@@ -4985,8 +4974,7 @@ const hotelDistances = Object.freeze({
   },
   "aspendos-extra-apart-otel": {
     "km": 25,
-    "place": "ChIJc_ZSRfaRwxQRFdX4zaEZYmk",
-    "checked": false
+    "place": "ChIJc_ZSRfaRwxQRFdX4zaEZYmk"
   },
   "aspendos-seaside-apart-otel": {
     "km": 25,
@@ -5035,8 +5023,7 @@ const hotelDistances = Object.freeze({
   },
   "atlas-pansiyon": {
     "km": 17,
-    "place": "ChIJU2y4TxmQwxQRTL83BBaw9EQ",
-    "checked": false
+    "place": "ChIJU2y4TxmQwxQRTL83BBaw9EQ"
   },
   "avena-mountain-otel": {
     "km": 132,
@@ -5060,8 +5047,7 @@ const hotelDistances = Object.freeze({
   },
   "avullar-palace-hotel": {
     "km": 15,
-    "place": "ChIJlXpZSRebwxQR1xT1rZ_zW8E",
-    "checked": false
+    "place": "ChIJlXpZSRebwxQR1xT1rZ_zW8E"
   },
   "ay-otel-2": {
     "km": 17,
@@ -5080,8 +5066,7 @@ const hotelDistances = Object.freeze({
   },
   "aydinbey-famous-resort": {
     "km": 44,
-    "place": "ChIJQbURUlJ5wxQRsO9ic-VbZDg",
-    "checked": false
+    "place": "ChIJQbURUlJ5wxQRsO9ic-VbZDg"
   },
   "aydinbey-gold-dreams": {
     "km": 108,
@@ -5215,8 +5200,7 @@ const hotelDistances = Object.freeze({
   },
   "bariscan-otel": {
     "km": 140,
-    "place": "ChIJ5xhxNQOa3BQR1dIILgmUlKQ",
-    "checked": false
+    "place": "ChIJ5xhxNQOa3BQR1dIILgmUlKQ"
   },
   "barut-acanthus-cennet": {
     "km": 64,
@@ -5435,8 +5419,7 @@ const hotelDistances = Object.freeze({
   },
   "bisuites": {
     "km": 29,
-    "place": "ChIJI-3wX_KTwxQREqztriPoDYw",
-    "checked": false
+    "place": "ChIJI-3wX_KTwxQREqztriPoDYw"
   },
   "black-royal-belek": {
     "km": 43,
@@ -5470,8 +5453,7 @@ const hotelDistances = Object.freeze({
   },
   "blue-heaven-beach-apart": {
     "km": 16,
-    "place": "ChIJYeTybQmQwxQRMjKUGI230ko",
-    "checked": false
+    "place": "ChIJYeTybQmQwxQRMjKUGI230ko"
   },
   "blue-marina-hotel-spa": {
     "km": 17,
@@ -5500,8 +5482,7 @@ const hotelDistances = Object.freeze({
   },
   "bodensee-hotel": {
     "km": 22,
-    "place": "ChIJbR4fTDSQwxQReVuq1-4SvK0",
-    "checked": false
+    "place": "ChIJbR4fTDSQwxQReVuq1-4SvK0"
   },
   "bone-apart-otel": {
     "km": 17,
@@ -5525,13 +5506,11 @@ const hotelDistances = Object.freeze({
   },
   "boutique-house-mim-a-otel": {
     "km": 16,
-    "place": "ChIJgw1nlaaawxQRen2o3JOauk0",
-    "checked": false
+    "place": "ChIJgw1nlaaawxQRen2o3JOauk0"
   },
   "brandhill-apart-hotel": {
     "km": 16,
-    "place": "ChIJbwj5AwaQwxQRSVd-fFLiEfE",
-    "checked": false
+    "place": "ChIJbwj5AwaQwxQRSVd-fFLiEfE"
   },
   "bulvar-hotel": {
     "km": 19,
@@ -5710,8 +5689,7 @@ const hotelDistances = Object.freeze({
   },
   "cicerone-lodge-hotel": {
     "km": 16,
-    "place": "ChIJZZB-K_mRwxQRH3SWqvhv7es",
-    "checked": false
+    "place": "ChIJZZB-K_mRwxQRH3SWqvhv7es"
   },
   "citrus-luna-suite-hotel": {
     "km": 23,
@@ -5860,8 +5838,7 @@ const hotelDistances = Object.freeze({
   },
   "club-tropical-beach-hotel": {
     "km": 66,
-    "place": "ChIJt_m3JXxZwxQR09Y4IReijkE",
-    "checked": false
+    "place": "ChIJt_m3JXxZwxQR09Y4IReijkE"
   },
   "coastline-orange-hotel": {
     "km": 24,
@@ -5870,8 +5847,7 @@ const hotelDistances = Object.freeze({
   },
   "collesium-garden-apart-otel": {
     "km": 32,
-    "place": "ChIJCVDYmgePwxQR5d-Dme0sCak",
-    "checked": false
+    "place": "ChIJCVDYmgePwxQR5d-Dme0sCak"
   },
   "comfort-basaran-otel": {
     "km": 16,
@@ -5880,8 +5856,7 @@ const hotelDistances = Object.freeze({
   },
   "comfy-otel-antalya-lara": {
     "km": 15,
-    "place": "ChIJU3nol3-bwxQRKC8Uapd417o",
-    "checked": false
+    "place": "ChIJU3nol3-bwxQRKC8Uapd417o"
   },
   "concorde-de-luxe-resort": {
     "km": 16,
@@ -5935,8 +5910,7 @@ const hotelDistances = Object.freeze({
   },
   "crystal-admiral-resort-spa": {
     "km": 85,
-    "place": "ChIJmZu8MGxTwxQRMeBnmDbvvlw",
-    "checked": false
+    "place": "ChIJmZu8MGxTwxQRMeBnmDbvvlw"
   },
   "crystal-aura-beach-resort-spa": {
     "km": 60,
@@ -5975,8 +5949,7 @@ const hotelDistances = Object.freeze({
   },
   "crystal-palace-luxury-resort": {
     "km": 56,
-    "place": "ChIJIb9CrUJewxQRmImBZK_UWwU",
-    "checked": false
+    "place": "ChIJIb9CrUJewxQRmImBZK_UWwU"
   },
   "crystal-sunset-luxury-resort-spa": {
     "km": 63,
@@ -6125,8 +6098,7 @@ const hotelDistances = Object.freeze({
   },
   "der-inn-hotel-konyaalti": {
     "km": 23,
-    "place": "ChIJswcoiEmRwxQRlM8vzp6E024",
-    "checked": false
+    "place": "ChIJswcoiEmRwxQRlM8vzp6E024"
   },
   "der-inn-lara": {
     "km": 16,
@@ -6170,8 +6142,7 @@ const hotelDistances = Object.freeze({
   },
   "dimo-hotel": {
     "km": 16,
-    "place": "ChIJ55hVpQWQwxQR5FABQHrfKTo",
-    "checked": false
+    "place": "ChIJ55hVpQWQwxQR5FABQHrfKTo"
   },
   "dionisus-hotel-spa-belek": {
     "km": 27,
@@ -6195,8 +6166,7 @@ const hotelDistances = Object.freeze({
   },
   "dogus-hotel": {
     "km": 25,
-    "place": "ChIJt1GHeEmRwxQRH5qzVWwEfSo",
-    "checked": false
+    "place": "ChIJt1GHeEmRwxQRH5qzVWwEfSo"
   },
   "dosi-otel": {
     "km": 63,
@@ -6245,8 +6215,7 @@ const hotelDistances = Object.freeze({
   },
   "dumlupinar-royal-rooms": {
     "km": 20,
-    "place": "ChIJWUxWh2aPwxQRuEQegfMp0G8",
-    "checked": false
+    "place": "ChIJWUxWh2aPwxQRuEQegfMp0G8"
   },
   "durusu-suites": {
     "km": 17,
@@ -6475,8 +6444,7 @@ const hotelDistances = Object.freeze({
   },
   "estera-hotel-silent": {
     "km": 25,
-    "place": "ChIJGbUuD26RwxQRa_peosNTTHs",
-    "checked": false
+    "place": "ChIJGbUuD26RwxQRa_peosNTTHs"
   },
   "ethno-belek-hotel": {
     "km": 38,
@@ -6625,8 +6593,7 @@ const hotelDistances = Object.freeze({
   },
   "gagarin-pub-hotel": {
     "km": 16,
-    "place": "ChIJD1uYDQaQwxQRVwOVM5AUpyg",
-    "checked": false
+    "place": "ChIJD1uYDQaQwxQRVwOVM5AUpyg"
   },
   "galaxy-beach": {
     "km": 143,
@@ -6700,8 +6667,7 @@ const hotelDistances = Object.freeze({
   },
   "golda-hotel": {
     "km": 17,
-    "place": "ChIJp_n-3naRwxQRckY7m-LFtic",
-    "checked": false
+    "place": "ChIJp_n-3naRwxQRckY7m-LFtic"
   },
   "goldcity-hotel": {
     "km": 146,
@@ -6725,8 +6691,7 @@ const hotelDistances = Object.freeze({
   },
   "golden-spark-apart-otel": {
     "km": 17,
-    "place": "ChIJp_n-3naRwxQRckY7m-LFtic",
-    "checked": false
+    "place": "ChIJp_n-3naRwxQRckY7m-LFtic"
   },
   "golden-world-suite-hotel": {
     "km": 29,
@@ -6910,8 +6875,7 @@ const hotelDistances = Object.freeze({
   },
   "han-hotel": {
     "km": 17,
-    "place": "ChIJHa-HpByQwxQRG4CyLYvyzic",
-    "checked": false
+    "place": "ChIJHa-HpByQwxQRG4CyLYvyzic"
   },
   "hane-family-resort": {
     "km": 61,
@@ -6960,8 +6924,7 @@ const hotelDistances = Object.freeze({
   },
   "holiday-box-club-otel": {
     "km": 51,
-    "place": "ChIJgQXpGuW4wxQRz4lzJoaQYOI",
-    "checked": false
+    "place": "ChIJgQXpGuW4wxQRz4lzJoaQYOI"
   },
   "holiday-inn-antalya-lara-by-ihg": {
     "km": 13,
@@ -6970,8 +6933,7 @@ const hotelDistances = Object.freeze({
   },
   "hostel-vague": {
     "km": 16,
-    "place": "ChIJk0hv3pyRwxQRH5jrxWbV22Q",
-    "checked": false
+    "place": "ChIJk0hv3pyRwxQRH5jrxWbV22Q"
   },
   "hotel-1207-special-class": {
     "km": 15,
@@ -7100,8 +7062,7 @@ const hotelDistances = Object.freeze({
   },
   "ic-hotels-residence": {
     "km": 20,
-    "place": "ChIJMQT54biCwxQRwKMY6X42EZ4",
-    "checked": false
+    "place": "ChIJMQT54biCwxQRwKMY6X42EZ4"
   },
   "ic-hotels-santai-family-resort": {
     "km": 30,
@@ -7180,13 +7141,11 @@ const hotelDistances = Object.freeze({
   },
   "jura-hotels-lara": {
     "km": 18,
-    "place": "ChIJGW5Dr2SDwxQR1QaBY_NWP1Q",
-    "checked": false
+    "place": "ChIJGW5Dr2SDwxQR1QaBY_NWP1Q"
   },
   "just-inn-city": {
     "km": 15,
-    "place": "ChIJkY7nTSeRwxQR-5jUX6fdvII",
-    "checked": false
+    "place": "ChIJkY7nTSeRwxQR-5jUX6fdvII"
   },
   "justiniano-deluxe-resort": {
     "km": 94,
@@ -7335,8 +7294,7 @@ const hotelDistances = Object.freeze({
   },
   "kemer-barut-collection": {
     "km": 60,
-    "place": "ChIJUdoW6ZG3wxQR6FP8u1k9aSM",
-    "checked": false
+    "place": "ChIJUdoW6ZG3wxQR6FP8u1k9aSM"
   },
   "kemer-dream-otel": {
     "km": 60,
@@ -7465,8 +7423,7 @@ const hotelDistances = Object.freeze({
   },
   "koesk-boutique-hotel-old-town-city-center": {
     "km": 16,
-    "place": "ChIJ5ToOUGuRwxQRMV961GZQqxY",
-    "checked": false
+    "place": "ChIJ5ToOUGuRwxQRMV961GZQqxY"
   },
   "kolibry-sv-hotel": {
     "km": 25,
@@ -7520,13 +7477,11 @@ const hotelDistances = Object.freeze({
   },
   "kuyu-beergarden-hostel": {
     "km": 16,
-    "place": "ChIJwZoCjoSRwxQRA8OeJyRmjB4",
-    "checked": false
+    "place": "ChIJwZoCjoSRwxQRA8OeJyRmjB4"
   },
   "kylo-garden-hotel": {
     "km": 23,
-    "place": "ChIJq1i5Xa-RwxQRvBtFZ6kvPCw",
-    "checked": false
+    "place": "ChIJq1i5Xa-RwxQRvBtFZ6kvPCw"
   },
   "l-ancora-beach-hotel": {
     "km": 61,
@@ -7580,8 +7535,7 @@ const hotelDistances = Object.freeze({
   },
   "la-vita-hotels": {
     "km": 24,
-    "place": "ChIJdfP4eiWRwxQRAISXJ4nlUAQ",
-    "checked": false
+    "place": "ChIJdfP4eiWRwxQRAISXJ4nlUAQ"
   },
   "lago-hotel": {
     "km": 71,
@@ -7670,8 +7624,7 @@ const hotelDistances = Object.freeze({
   },
   "lara-vista-hotel-suits-spa": {
     "km": 16,
-    "place": "ChIJGeelMMGCwxQR35NX0cT9aCI",
-    "checked": false
+    "place": "ChIJGeelMMGCwxQR35NX0cT9aCI"
   },
   "lara-world-hotel": {
     "km": 13,
@@ -7700,8 +7653,7 @@ const hotelDistances = Object.freeze({
   },
   "latanya-palm-spa-airport": {
     "km": 13,
-    "place": "ChIJx_aRBzaFwxQRhzr5xoYa6zE",
-    "checked": false
+    "place": "ChIJx_aRBzaFwxQRhzr5xoYa6zE"
   },
   "lavia-hotels-lara": {
     "km": 17,
@@ -7785,8 +7737,7 @@ const hotelDistances = Object.freeze({
   },
   "life-hotel": {
     "km": 25,
-    "place": "ChIJGbUuD26RwxQRa_peosNTTHs",
-    "checked": false
+    "place": "ChIJGbUuD26RwxQRa_peosNTTHs"
   },
   "lilium-boutique-hotel": {
     "km": 13,
@@ -7845,8 +7796,7 @@ const hotelDistances = Object.freeze({
   },
   "linda-sunny-beach-spa": {
     "km": 55,
-    "place": "ChIJM9Zt7fFewxQR6kb6HymfaTk",
-    "checked": false
+    "place": "ChIJM9Zt7fFewxQR6kb6HymfaTk"
   },
   "litore-hotel": {
     "km": 94,
@@ -8050,8 +8000,7 @@ const hotelDistances = Object.freeze({
   },
   "medworld-cosmos-health-rehabilitation-center-otel": {
     "km": 14,
-    "place": "ChIJeVc1mBqPwxQR7AjDrbMoJTs",
-    "checked": false
+    "place": "ChIJeVc1mBqPwxQR7AjDrbMoJTs"
   },
   "megasaray-club-belek": {
     "km": 31,
@@ -8105,8 +8054,7 @@ const hotelDistances = Object.freeze({
   },
   "mera-park-hotel": {
     "km": 15,
-    "place": "ChIJyQAMRaiawxQRDC-7-mCyIUo",
-    "checked": false
+    "place": "ChIJyQAMRaiawxQRDC-7-mCyIUo"
   },
   "mercure-antalya-belek-otel": {
     "km": 28,
@@ -8145,8 +8093,7 @@ const hotelDistances = Object.freeze({
   },
   "mia-hotel": {
     "km": 16,
-    "place": "ChIJp_mfKASQwxQRwz7j7zu4RIA",
-    "checked": false
+    "place": "ChIJp_mfKASQwxQRwz7j7zu4RIA"
   },
   "miarosa-konakli-garden-otel": {
     "km": 115,
@@ -8235,8 +8182,7 @@ const hotelDistances = Object.freeze({
   },
   "miss-cleopatra-hotel": {
     "km": 124,
-    "place": "ChIJCYVFBo-i3BQRMx9MzV6CV6E",
-    "checked": false
+    "place": "ChIJCYVFBo-i3BQRMx9MzV6CV6E"
   },
   "moda-otel": {
     "km": 17,
@@ -8275,8 +8221,7 @@ const hotelDistances = Object.freeze({
   },
   "monte-carlo": {
     "km": 130,
-    "place": "ChIJS9qannCY3BQRCWcOR-FQc8Y",
-    "checked": false
+    "place": "ChIJS9qannCY3BQRCWcOR-FQc8Y"
   },
   "moon-suites": {
     "km": 15,
@@ -8335,8 +8280,7 @@ const hotelDistances = Object.freeze({
   },
   "my-home-sky-otel": {
     "km": 104,
-    "place": "ChIJxTQY6aWv3BQRzEVCX2wk4RA",
-    "checked": false
+    "place": "ChIJxTQY6aWv3BQRzEVCX2wk4RA"
   },
   "my-new-otel": {
     "km": 16,
@@ -8370,8 +8314,7 @@ const hotelDistances = Object.freeze({
   },
   "nazar-beach-hotel": {
     "km": 18,
-    "place": "ChIJnUNOZR-QwxQRqa-IhAFW-JI",
-    "checked": false
+    "place": "ChIJnUNOZR-QwxQRqa-IhAFW-JI"
   },
   "nebiluex-hotel": {
     "km": 15,
@@ -8520,8 +8463,7 @@ const hotelDistances = Object.freeze({
   },
   "old-house-hotel-pub": {
     "km": 16,
-    "place": "ChIJFxL8fQaQwxQRVkFsP7oasfM",
-    "checked": false
+    "place": "ChIJFxL8fQaQwxQRVkFsP7oasfM"
   },
   "old-town-deluxe-flats-apart-otel": {
     "km": 16,
@@ -8635,8 +8577,7 @@ const hotelDistances = Object.freeze({
   },
   "otel-wood-house": {
     "km": 16,
-    "place": "ChIJrU0nxQaQwxQROoSzXDXc87Y",
-    "checked": false
+    "place": "ChIJrU0nxQaQwxQROoSzXDXc87Y"
   },
   "otium-boutique-happy-suites": {
     "km": 15,
@@ -8655,18 +8596,15 @@ const hotelDistances = Object.freeze({
   },
   "otium-hotel-seven-seas": {
     "km": 70,
-    "place": "ChIJM4jt4apQwxQRAycoO1kXYRU",
-    "checked": false
+    "place": "ChIJM4jt4apQwxQRAycoO1kXYRU"
   },
   "otium-park-club-akman-otel": {
     "km": 70,
-    "place": "ChIJ8QFYA3a2wxQRG2wktrZGX88",
-    "checked": false
+    "place": "ChIJ8QFYA3a2wxQRG2wktrZGX88"
   },
   "otto-lara-hotel": {
     "km": 14,
-    "place": "ChIJyT_PFkGbwxQRKcsH4JBmQYU",
-    "checked": false
+    "place": "ChIJyT_PFkGbwxQRKcsH4JBmQYU"
   },
   "oz-hotels-sui": {
     "km": 94,
@@ -8740,8 +8678,7 @@ const hotelDistances = Object.freeze({
   },
   "paloma-pasha-resort": {
     "km": 36,
-    "place": "ChIJEX5LA0J7wxQR1gw3W_FKIoo",
-    "checked": false
+    "place": "ChIJEX5LA0J7wxQR1gw3W_FKIoo"
   },
   "paloma-sencia": {
     "km": 38,
@@ -8920,13 +8857,11 @@ const hotelDistances = Object.freeze({
   },
   "q-premium-resort-hotel-alanya": {
     "km": 91,
-    "place": "ChIJI_AXWuas3BQRLSDEKqNKzK0",
-    "checked": false
+    "place": "ChIJI_AXWuas3BQRLSDEKqNKzK0"
   },
   "q-spa-resort": {
     "km": 58,
-    "place": "ChIJXWm1D9tewxQR1A2A3jYMTOs",
-    "checked": false
+    "place": "ChIJXWm1D9tewxQR1A2A3jYMTOs"
   },
   "qinn-hotels": {
     "km": 17,
@@ -8965,8 +8900,7 @@ const hotelDistances = Object.freeze({
   },
   "rai-premium-tekirova": {
     "km": 76,
-    "place": "ChIJh-lnFp7KwxQRnxhZiFDEONA",
-    "checked": false
+    "place": "ChIJh-lnFp7KwxQRnxhZiFDEONA"
   },
   "ramada-plaza-antalya": {
     "km": 16,
@@ -9075,8 +9009,7 @@ const hotelDistances = Object.freeze({
   },
   "river-elite-hotel-spa": {
     "km": 17,
-    "place": "ChIJUcbXjRuQwxQRjFYUPkXN1i4",
-    "checked": false
+    "place": "ChIJUcbXjRuQwxQRjFYUPkXN1i4"
   },
   "river-park-residence-lara": {
     "km": 15,
@@ -9235,8 +9168,7 @@ const hotelDistances = Object.freeze({
   },
   "royal-homes-704": {
     "km": 17,
-    "place": "ChIJQ3eaGKiRwxQRCTuFCmSwThQ",
-    "checked": false
+    "place": "ChIJQ3eaGKiRwxQRCTuFCmSwThQ"
   },
   "royal-loft-suit": {
     "km": 26,
@@ -9440,8 +9372,7 @@ const hotelDistances = Object.freeze({
   },
   "selectum-family-comfort-side": {
     "km": 80,
-    "place": "ChIJz-C9WfpTwxQRSSdKLkqtNR0",
-    "checked": false
+    "place": "ChIJz-C9WfpTwxQRSSdKLkqtNR0"
   },
   "selectum-family-resort-belek": {
     "km": 40,
@@ -9570,8 +9501,7 @@ const hotelDistances = Object.freeze({
   },
   "sherwood-dreams-resort": {
     "km": 43,
-    "place": "ChIJ-xOdkg5kwxQRYQZFM3L7x3Y",
-    "checked": false
+    "place": "ChIJ-xOdkg5kwxQRYQZFM3L7x3Y"
   },
   "sherwood-exclusive-kemer": {
     "km": 53,
@@ -9740,8 +9670,7 @@ const hotelDistances = Object.freeze({
   },
   "sirius-town-residence-and-spa": {
     "km": 16,
-    "place": "ChIJ8f9LrcCCwxQRzcgBVy-ug14",
-    "checked": false
+    "place": "ChIJ8f9LrcCCwxQRzcgBVy-ug14"
   },
   "sirma-otel": {
     "km": 64,
@@ -9820,8 +9749,7 @@ const hotelDistances = Object.freeze({
   },
   "sueno-hotels-golf-belek": {
     "km": 32,
-    "place": "ChIJ2Q2IlJ57wxQR6Bp7ulrYoss",
-    "checked": false
+    "place": "ChIJ2Q2IlJ57wxQR6Bp7ulrYoss"
   },
   "suite-laguna-otel": {
     "km": 18,
@@ -10025,8 +9953,7 @@ const hotelDistances = Object.freeze({
   },
   "the-divan-resort-hotel-ant": {
     "km": 15,
-    "place": "ChIJfdUt_-SawxQRi-LsgisBwjI",
-    "checked": false
+    "place": "ChIJfdUt_-SawxQRi-LsgisBwjI"
   },
   "the-easy-rooms-terrace": {
     "km": 16,
@@ -10045,13 +9972,11 @@ const hotelDistances = Object.freeze({
   },
   "the-lifeco-antalya-well-being-detox-center-and-vegan-hotel": {
     "km": 17,
-    "place": "ChIJv4bBO6KawxQRTxA7uFE1lbs",
-    "checked": false
+    "place": "ChIJv4bBO6KawxQRTxA7uFE1lbs"
   },
   "the-lifeco-antalya-well-being-detox-center-otel": {
     "km": 17,
-    "place": "ChIJv4bBO6KawxQRTxA7uFE1lbs",
-    "checked": false
+    "place": "ChIJv4bBO6KawxQRTxA7uFE1lbs"
   },
   "the-little-prince-boutique-otel": {
     "km": 16,
@@ -10210,8 +10135,7 @@ const hotelDistances = Object.freeze({
   },
   "tu-casa-linda-otel": {
     "km": 60,
-    "place": "ChIJv8PY7IWRwxQRPJDVWQxVip0",
-    "checked": false
+    "place": "ChIJv8PY7IWRwxQRPJDVWQxVip0"
   },
   "tui-blue-palm-garden": {
     "km": 80,
@@ -10280,8 +10204,7 @@ const hotelDistances = Object.freeze({
   },
   "uemit-hotel": {
     "km": 18,
-    "place": "ChIJnUNOZR-QwxQRqa-IhAFW-JI",
-    "checked": false
+    "place": "ChIJnUNOZR-QwxQRqa-IhAFW-JI"
   },
   "ulusoy-kemer-holiday-club": {
     "km": 51,
@@ -10445,8 +10368,7 @@ const hotelDistances = Object.freeze({
   },
   "washington-resort-hotel-spa": {
     "km": 80,
-    "place": "ChIJ1ZxMfvpTwxQR_04VRUHPw3g",
-    "checked": false
+    "place": "ChIJ1ZxMfvpTwxQR_04VRUHPw3g"
   },
   "water-side-resort-spa": {
     "km": 72,
@@ -10465,8 +10387,7 @@ const hotelDistances = Object.freeze({
   },
   "white-gold": {
     "km": 131,
-    "place": "ChIJaYZp0lKY3BQRH65Xcbe28K4",
-    "checked": false
+    "place": "ChIJaYZp0lKY3BQRH65Xcbe28K4"
   },
   "wien-star-otel": {
     "km": 128,
@@ -10490,8 +10411,7 @@ const hotelDistances = Object.freeze({
   },
   "woo-town-otel": {
     "km": 17,
-    "place": "ChIJETabBByQwxQRfIBQYLkVckA",
-    "checked": false
+    "place": "ChIJETabBByQwxQRfIBQYLkVckA"
   },
   "wow-kremlin-palace": {
     "km": 25,
@@ -10565,8 +10485,7 @@ const hotelDistances = Object.freeze({
   },
   "yeniceri-ahmet-aga-konagi": {
     "km": 16,
-    "place": "ChIJ55hVpQWQwxQR5FABQHrfKTo",
-    "checked": false
+    "place": "ChIJ55hVpQWQwxQR5FABQHrfKTo"
   },
   "yesilyurt-otel": {
     "km": 16,
@@ -11259,14 +11178,15 @@ function hotelMeta(slug) {
   const hotel2 = hotelBySlug(slug);
   if (!hotel2) return [];
   const route = routeCatalog[hotel2.regionSlug];
+  const priced = routeCatalog[indexedHotelBySlug(hotelSlug(hotel2.name))?.region ?? hotel2.regionSlug] ?? route;
   const url = `${domain}/de/hotels/${hotel2.slug}/`;
   const transferUrl = `${domain}/de/transfers/${hotel2.regionSlug}/`;
   const title = `Flughafen Antalya → ${hotel2.name} Transfer | Privater Festpreis`;
-  const description = `Privater Transfer vom Flughafen Antalya zum ${hotel2.name} ab €${route.prices.vito} pro Fahrzeug. Flugverfolgung, Empfang und direkte Fahrt zum Hotel.`;
+  const description = `Privater Transfer vom Flughafen Antalya zum ${hotel2.name} ab €${priced.prices.vito} pro Fahrzeug. Flugverfolgung, Empfang und direkte Fahrt zum Hotel.`;
   const serviceName = `Privattransfer vom Flughafen Antalya zum ${hotel2.name}`;
   const faq = [
-    { "@type": "Question", name: `Wie lange dauert die Fahrt zum ${hotel2.name}?`, acceptedAnswer: { "@type": "Answer", text: `Bei normalem Verkehr ungefähr ${route.duration.de}.` } },
-    { "@type": "Question", name: "Was kostet der Transfer?", acceptedAnswer: { "@type": "Answer", text: `Der Mercedes Vito kostet ab €${route.prices.vito} pro Fahrzeug.` } },
+    { "@type": "Question", name: `Wie lange dauert die Fahrt zum ${hotel2.name}?`, acceptedAnswer: { "@type": "Answer", text: `Bei normalem Verkehr ungefähr ${priced.duration.de}.` } },
+    { "@type": "Question", name: "Was kostet der Transfer?", acceptedAnswer: { "@type": "Answer", text: `Der Mercedes Vito kostet ab €${priced.prices.vito} pro Fahrzeug.` } },
     { "@type": "Question", name: "Was passiert bei einer Flugverspätung?", acceptedAnswer: { "@type": "Answer", text: "Wir verfolgen Ihren Flug in Echtzeit und passen die Abholzeit ohne Aufpreis an." } },
     { "@type": "Question", name: "Wie lange wartet mein Chauffeur am Flughafen?", acceptedAnswer: { "@type": "Answer", text: "Die ersten 90 Minuten nach der Landung sind kostenfrei enthalten, und bei Flugverspätungen verschiebt sich dieses Zeitfenster automatisch." } },
     { "@type": "Question", name: "Wie bezahle ich den Transfer?", acceptedAnswer: { "@type": "Answer", text: "Bar an Ihren Chauffeur zu Beginn der Fahrt - zum Festpreis aus Ihrer Buchung, pro Fahrzeug." } }
@@ -11277,7 +11197,7 @@ function hotelMeta(slug) {
     { tagName: "link", rel: "canonical", href: url },
     ...socialDescriptors(title, description, url, homeSeo.de.locale),
     { "script:ld+json": { "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: [{ "@type": "ListItem", position: 1, name: "Antalya VIP Tourism", item: `${domain}/de/` }, { "@type": "ListItem", position: 2, name: `Transfer nach ${route.names.de}`, item: transferUrl }, { "@type": "ListItem", position: 3, name: hotel2.name, item: url }] } },
-    { "script:ld+json": { "@context": "https://schema.org", "@type": "Service", name: serviceName, description, url, provider: { "@type": "TravelAgency", name: "Antalya VIP Tourism", url: domain, telephone: "+90 530 265 57 90" }, areaServed: { "@type": "Hotel", name: hotel2.name }, offers: [{ "@type": "Offer", name: "Mercedes Vito", price: String(route.prices.vito), priceCurrency: "EUR" }, { "@type": "Offer", name: "Mercedes Sprinter", price: String(route.prices.sprinter), priceCurrency: "EUR" }] } },
+    { "script:ld+json": { "@context": "https://schema.org", "@type": "Service", name: serviceName, description, url, provider: { "@type": "TravelAgency", name: "Antalya VIP Tourism", url: domain, telephone: "+90 530 265 57 90" }, areaServed: { "@type": "Hotel", name: hotel2.name }, offers: [{ "@type": "Offer", name: "Mercedes Vito", price: String(priced.prices.vito), priceCurrency: "EUR" }, { "@type": "Offer", name: "Mercedes Sprinter", price: String(priced.prices.sprinter), priceCurrency: "EUR" }] } },
     { "script:ld+json": { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: faq } }
   ];
 }
@@ -16316,7 +16236,7 @@ const route64 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.definePrope
   loader,
   meta
 }, Symbol.toStringTag, { value: "Module" }));
-const serverManifest = { "entry": { "module": "/assets/entry.client-BD2P1iGF.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/errorBoundaries-Y42zlZbV.js"], "css": [] }, "routes": { "root": { "id": "root", "parentId": void 0, "path": "", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/root-DFljqkek.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/errorBoundaries-Y42zlZbV.js", "/assets/Icon-mPLaSHxl.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "home-en": { "id": "home-en", "parentId": "root", "path": void 0, "index": true, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/home-DYV8ivhm.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BL5vzq5a.js", "/assets/BookingForm-X9hTrgrQ.js", "/assets/Header-CROQw1RU.js", "/assets/Icon-mPLaSHxl.js"], "css": ["/assets/BookingForm-DpsRipQV.css#"], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "home-de": { "id": "home-de", "parentId": "root", "path": "de", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/home-DYV8ivhm.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BL5vzq5a.js", "/assets/BookingForm-X9hTrgrQ.js", "/assets/Header-CROQw1RU.js", "/assets/Icon-mPLaSHxl.js"], "css": ["/assets/BookingForm-DpsRipQV.css#"], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "home-fr": { "id": "home-fr", "parentId": "root", "path": "fr", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/home-DYV8ivhm.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BL5vzq5a.js", "/assets/BookingForm-X9hTrgrQ.js", "/assets/Header-CROQw1RU.js", "/assets/Icon-mPLaSHxl.js"], "css": ["/assets/BookingForm-DpsRipQV.css#"], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "home-tr": { "id": "home-tr", "parentId": "root", "path": "tr", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/home-DYV8ivhm.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BL5vzq5a.js", "/assets/BookingForm-X9hTrgrQ.js", "/assets/Header-CROQw1RU.js", "/assets/Icon-mPLaSHxl.js"], "css": ["/assets/BookingForm-DpsRipQV.css#"], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "home-ru": { "id": "home-ru", "parentId": "root", "path": "ru", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/home-DYV8ivhm.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BL5vzq5a.js", "/assets/BookingForm-X9hTrgrQ.js", "/assets/Header-CROQw1RU.js", "/assets/Icon-mPLaSHxl.js"], "css": ["/assets/BookingForm-DpsRipQV.css#"], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "home-cs": { "id": "home-cs", "parentId": "root", "path": "cs", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/home-DYV8ivhm.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BL5vzq5a.js", "/assets/BookingForm-X9hTrgrQ.js", "/assets/Header-CROQw1RU.js", "/assets/Icon-mPLaSHxl.js"], "css": ["/assets/BookingForm-DpsRipQV.css#"], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "home-uk": { "id": "home-uk", "parentId": "root", "path": "uk", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/home-DYV8ivhm.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BL5vzq5a.js", "/assets/BookingForm-X9hTrgrQ.js", "/assets/Header-CROQw1RU.js", "/assets/Icon-mPLaSHxl.js"], "css": ["/assets/BookingForm-DpsRipQV.css#"], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "home-ur": { "id": "home-ur", "parentId": "root", "path": "ur", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/home-DYV8ivhm.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BL5vzq5a.js", "/assets/BookingForm-X9hTrgrQ.js", "/assets/Header-CROQw1RU.js", "/assets/Icon-mPLaSHxl.js"], "css": ["/assets/BookingForm-DpsRipQV.css#"], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "home-pl": { "id": "home-pl", "parentId": "root", "path": "pl", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/home-DYV8ivhm.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BL5vzq5a.js", "/assets/BookingForm-X9hTrgrQ.js", "/assets/Header-CROQw1RU.js", "/assets/Icon-mPLaSHxl.js"], "css": ["/assets/BookingForm-DpsRipQV.css#"], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "home-nl": { "id": "home-nl", "parentId": "root", "path": "nl", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/home-DYV8ivhm.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BL5vzq5a.js", "/assets/BookingForm-X9hTrgrQ.js", "/assets/Header-CROQw1RU.js", "/assets/Icon-mPLaSHxl.js"], "css": ["/assets/BookingForm-DpsRipQV.css#"], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "home-ar": { "id": "home-ar", "parentId": "root", "path": "ar", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/home-DYV8ivhm.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BL5vzq5a.js", "/assets/BookingForm-X9hTrgrQ.js", "/assets/Header-CROQw1RU.js", "/assets/Icon-mPLaSHxl.js"], "css": ["/assets/BookingForm-DpsRipQV.css#"], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "home-sv": { "id": "home-sv", "parentId": "root", "path": "sv", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/home-DYV8ivhm.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BL5vzq5a.js", "/assets/BookingForm-X9hTrgrQ.js", "/assets/Header-CROQw1RU.js", "/assets/Icon-mPLaSHxl.js"], "css": ["/assets/BookingForm-DpsRipQV.css#"], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "home-da": { "id": "home-da", "parentId": "root", "path": "da", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/home-DYV8ivhm.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BL5vzq5a.js", "/assets/BookingForm-X9hTrgrQ.js", "/assets/Header-CROQw1RU.js", "/assets/Icon-mPLaSHxl.js"], "css": ["/assets/BookingForm-DpsRipQV.css#"], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "home-el": { "id": "home-el", "parentId": "root", "path": "el", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/home-DYV8ivhm.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BL5vzq5a.js", "/assets/BookingForm-X9hTrgrQ.js", "/assets/Header-CROQw1RU.js", "/assets/Icon-mPLaSHxl.js"], "css": ["/assets/BookingForm-DpsRipQV.css#"], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "home-es": { "id": "home-es", "parentId": "root", "path": "es", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/home-DYV8ivhm.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BL5vzq5a.js", "/assets/BookingForm-X9hTrgrQ.js", "/assets/Header-CROQw1RU.js", "/assets/Icon-mPLaSHxl.js"], "css": ["/assets/BookingForm-DpsRipQV.css#"], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "home-he": { "id": "home-he", "parentId": "root", "path": "he", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/home-DYV8ivhm.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BL5vzq5a.js", "/assets/BookingForm-X9hTrgrQ.js", "/assets/Header-CROQw1RU.js", "/assets/Icon-mPLaSHxl.js"], "css": ["/assets/BookingForm-DpsRipQV.css#"], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "home-hu": { "id": "home-hu", "parentId": "root", "path": "hu", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/home-DYV8ivhm.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BL5vzq5a.js", "/assets/BookingForm-X9hTrgrQ.js", "/assets/Header-CROQw1RU.js", "/assets/Icon-mPLaSHxl.js"], "css": ["/assets/BookingForm-DpsRipQV.css#"], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "home-it": { "id": "home-it", "parentId": "root", "path": "it", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/home-DYV8ivhm.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BL5vzq5a.js", "/assets/BookingForm-X9hTrgrQ.js", "/assets/Header-CROQw1RU.js", "/assets/Icon-mPLaSHxl.js"], "css": ["/assets/BookingForm-DpsRipQV.css#"], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "home-ja": { "id": "home-ja", "parentId": "root", "path": "ja", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/home-DYV8ivhm.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BL5vzq5a.js", "/assets/BookingForm-X9hTrgrQ.js", "/assets/Header-CROQw1RU.js", "/assets/Icon-mPLaSHxl.js"], "css": ["/assets/BookingForm-DpsRipQV.css#"], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "home-ko": { "id": "home-ko", "parentId": "root", "path": "ko", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/home-DYV8ivhm.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BL5vzq5a.js", "/assets/BookingForm-X9hTrgrQ.js", "/assets/Header-CROQw1RU.js", "/assets/Icon-mPLaSHxl.js"], "css": ["/assets/BookingForm-DpsRipQV.css#"], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "home-pt": { "id": "home-pt", "parentId": "root", "path": "pt", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/home-DYV8ivhm.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BL5vzq5a.js", "/assets/BookingForm-X9hTrgrQ.js", "/assets/Header-CROQw1RU.js", "/assets/Icon-mPLaSHxl.js"], "css": ["/assets/BookingForm-DpsRipQV.css#"], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "home-ro": { "id": "home-ro", "parentId": "root", "path": "ro", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/home-DYV8ivhm.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BL5vzq5a.js", "/assets/BookingForm-X9hTrgrQ.js", "/assets/Header-CROQw1RU.js", "/assets/Icon-mPLaSHxl.js"], "css": ["/assets/BookingForm-DpsRipQV.css#"], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "home-zh": { "id": "home-zh", "parentId": "root", "path": "zh", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/home-DYV8ivhm.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BL5vzq5a.js", "/assets/BookingForm-X9hTrgrQ.js", "/assets/Header-CROQw1RU.js", "/assets/Icon-mPLaSHxl.js"], "css": ["/assets/BookingForm-DpsRipQV.css#"], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "health-en": { "id": "health-en", "parentId": "root", "path": "health", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/health-tX8Re8kT.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BL5vzq5a.js", "/assets/Header-CROQw1RU.js", "/assets/Icon-mPLaSHxl.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "health-de": { "id": "health-de", "parentId": "root", "path": "de/health", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/health-tX8Re8kT.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BL5vzq5a.js", "/assets/Header-CROQw1RU.js", "/assets/Icon-mPLaSHxl.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "health-fr": { "id": "health-fr", "parentId": "root", "path": "fr/health", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/health-tX8Re8kT.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BL5vzq5a.js", "/assets/Header-CROQw1RU.js", "/assets/Icon-mPLaSHxl.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "health-tr": { "id": "health-tr", "parentId": "root", "path": "tr/health", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/health-tX8Re8kT.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BL5vzq5a.js", "/assets/Header-CROQw1RU.js", "/assets/Icon-mPLaSHxl.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "health-ru": { "id": "health-ru", "parentId": "root", "path": "ru/health", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/health-tX8Re8kT.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BL5vzq5a.js", "/assets/Header-CROQw1RU.js", "/assets/Icon-mPLaSHxl.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "health-cs": { "id": "health-cs", "parentId": "root", "path": "cs/health", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/health-tX8Re8kT.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BL5vzq5a.js", "/assets/Header-CROQw1RU.js", "/assets/Icon-mPLaSHxl.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "health-uk": { "id": "health-uk", "parentId": "root", "path": "uk/health", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/health-tX8Re8kT.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BL5vzq5a.js", "/assets/Header-CROQw1RU.js", "/assets/Icon-mPLaSHxl.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "health-ur": { "id": "health-ur", "parentId": "root", "path": "ur/health", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/health-tX8Re8kT.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BL5vzq5a.js", "/assets/Header-CROQw1RU.js", "/assets/Icon-mPLaSHxl.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "health-pl": { "id": "health-pl", "parentId": "root", "path": "pl/health", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/health-tX8Re8kT.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BL5vzq5a.js", "/assets/Header-CROQw1RU.js", "/assets/Icon-mPLaSHxl.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "health-nl": { "id": "health-nl", "parentId": "root", "path": "nl/health", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/health-tX8Re8kT.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BL5vzq5a.js", "/assets/Header-CROQw1RU.js", "/assets/Icon-mPLaSHxl.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "health-ar": { "id": "health-ar", "parentId": "root", "path": "ar/health", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/health-tX8Re8kT.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BL5vzq5a.js", "/assets/Header-CROQw1RU.js", "/assets/Icon-mPLaSHxl.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "health-sv": { "id": "health-sv", "parentId": "root", "path": "sv/health", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/health-tX8Re8kT.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BL5vzq5a.js", "/assets/Header-CROQw1RU.js", "/assets/Icon-mPLaSHxl.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "health-da": { "id": "health-da", "parentId": "root", "path": "da/health", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/health-tX8Re8kT.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BL5vzq5a.js", "/assets/Header-CROQw1RU.js", "/assets/Icon-mPLaSHxl.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "health-el": { "id": "health-el", "parentId": "root", "path": "el/health", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/health-tX8Re8kT.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BL5vzq5a.js", "/assets/Header-CROQw1RU.js", "/assets/Icon-mPLaSHxl.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "health-es": { "id": "health-es", "parentId": "root", "path": "es/health", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/health-tX8Re8kT.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BL5vzq5a.js", "/assets/Header-CROQw1RU.js", "/assets/Icon-mPLaSHxl.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "health-he": { "id": "health-he", "parentId": "root", "path": "he/health", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/health-tX8Re8kT.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BL5vzq5a.js", "/assets/Header-CROQw1RU.js", "/assets/Icon-mPLaSHxl.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "health-hu": { "id": "health-hu", "parentId": "root", "path": "hu/health", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/health-tX8Re8kT.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BL5vzq5a.js", "/assets/Header-CROQw1RU.js", "/assets/Icon-mPLaSHxl.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "health-it": { "id": "health-it", "parentId": "root", "path": "it/health", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/health-tX8Re8kT.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BL5vzq5a.js", "/assets/Header-CROQw1RU.js", "/assets/Icon-mPLaSHxl.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "health-ja": { "id": "health-ja", "parentId": "root", "path": "ja/health", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/health-tX8Re8kT.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BL5vzq5a.js", "/assets/Header-CROQw1RU.js", "/assets/Icon-mPLaSHxl.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "health-ko": { "id": "health-ko", "parentId": "root", "path": "ko/health", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/health-tX8Re8kT.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BL5vzq5a.js", "/assets/Header-CROQw1RU.js", "/assets/Icon-mPLaSHxl.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "health-pt": { "id": "health-pt", "parentId": "root", "path": "pt/health", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/health-tX8Re8kT.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BL5vzq5a.js", "/assets/Header-CROQw1RU.js", "/assets/Icon-mPLaSHxl.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "health-ro": { "id": "health-ro", "parentId": "root", "path": "ro/health", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/health-tX8Re8kT.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BL5vzq5a.js", "/assets/Header-CROQw1RU.js", "/assets/Icon-mPLaSHxl.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "health-zh": { "id": "health-zh", "parentId": "root", "path": "zh/health", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/health-tX8Re8kT.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BL5vzq5a.js", "/assets/Header-CROQw1RU.js", "/assets/Icon-mPLaSHxl.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "clinic-tr": { "id": "clinic-tr", "parentId": "root", "path": "clinic", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/clinic-BX_ppIa3.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BL5vzq5a.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "transfer-en": { "id": "transfer-en", "parentId": "root", "path": "transfers/:slug", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/transfer-BK4cAE9A.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BL5vzq5a.js", "/assets/BookingForm-X9hTrgrQ.js", "/assets/StaticPageHeader-ClSSR3cA.js", "/assets/Icon-mPLaSHxl.js"], "css": ["/assets/BookingForm-DpsRipQV.css#"], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "transfer-localized": { "id": "transfer-localized", "parentId": "root", "path": ":language/transfers/:slug", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/transfer-BK4cAE9A.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BL5vzq5a.js", "/assets/BookingForm-X9hTrgrQ.js", "/assets/StaticPageHeader-ClSSR3cA.js", "/assets/Icon-mPLaSHxl.js"], "css": ["/assets/BookingForm-DpsRipQV.css#"], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "hotel-de": { "id": "hotel-de", "parentId": "root", "path": "de/hotels/:hotelSlug", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/hotel-DvRUBcI7.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BL5vzq5a.js", "/assets/BookingForm-X9hTrgrQ.js", "/assets/StaticPageHeader-ClSSR3cA.js", "/assets/Icon-mPLaSHxl.js"], "css": ["/assets/BookingForm-DpsRipQV.css#"], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "legal-imprint-en": { "id": "legal-imprint-en", "parentId": "root", "path": "impressum.html", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/legal-B3eilJ78.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BL5vzq5a.js", "/assets/StaticPageHeader-ClSSR3cA.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "legal-privacy-en": { "id": "legal-privacy-en", "parentId": "root", "path": "privacy", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/legal-B3eilJ78.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BL5vzq5a.js", "/assets/StaticPageHeader-ClSSR3cA.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "legal-privacy-de": { "id": "legal-privacy-de", "parentId": "root", "path": "de/datenschutz", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/legal-B3eilJ78.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BL5vzq5a.js", "/assets/StaticPageHeader-ClSSR3cA.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "legal-imprint-de": { "id": "legal-imprint-de", "parentId": "root", "path": "de/impressum", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/legal-B3eilJ78.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BL5vzq5a.js", "/assets/StaticPageHeader-ClSSR3cA.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "legal-privacy-tr": { "id": "legal-privacy-tr", "parentId": "root", "path": "tr/gizlilik", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/legal-B3eilJ78.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BL5vzq5a.js", "/assets/StaticPageHeader-ClSSR3cA.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "legal-imprint-tr": { "id": "legal-imprint-tr", "parentId": "root", "path": "tr/kunye", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/legal-B3eilJ78.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BL5vzq5a.js", "/assets/StaticPageHeader-ClSSR3cA.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "legal-privacy-ru": { "id": "legal-privacy-ru", "parentId": "root", "path": "ru/privacy", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/legal-B3eilJ78.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BL5vzq5a.js", "/assets/StaticPageHeader-ClSSR3cA.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "legal-imprint-ru": { "id": "legal-imprint-ru", "parentId": "root", "path": "ru/impressum", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/legal-B3eilJ78.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BL5vzq5a.js", "/assets/StaticPageHeader-ClSSR3cA.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "legal-privacy-cs": { "id": "legal-privacy-cs", "parentId": "root", "path": "cs/privacy", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/legal-B3eilJ78.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BL5vzq5a.js", "/assets/StaticPageHeader-ClSSR3cA.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "legal-imprint-cs": { "id": "legal-imprint-cs", "parentId": "root", "path": "cs/impressum", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/legal-B3eilJ78.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BL5vzq5a.js", "/assets/StaticPageHeader-ClSSR3cA.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "legal-privacy-uk": { "id": "legal-privacy-uk", "parentId": "root", "path": "uk/privacy", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/legal-B3eilJ78.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BL5vzq5a.js", "/assets/StaticPageHeader-ClSSR3cA.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "legal-imprint-uk": { "id": "legal-imprint-uk", "parentId": "root", "path": "uk/impressum", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/legal-B3eilJ78.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BL5vzq5a.js", "/assets/StaticPageHeader-ClSSR3cA.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "legal-privacy-ur": { "id": "legal-privacy-ur", "parentId": "root", "path": "ur/privacy", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/legal-B3eilJ78.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BL5vzq5a.js", "/assets/StaticPageHeader-ClSSR3cA.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "legal-imprint-ur": { "id": "legal-imprint-ur", "parentId": "root", "path": "ur/impressum", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/legal-B3eilJ78.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BL5vzq5a.js", "/assets/StaticPageHeader-ClSSR3cA.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 } }, "url": "/assets/manifest-93de8a85.js", "version": "93de8a85", "sri": void 0 };
+const serverManifest = { "entry": { "module": "/assets/entry.client-BD2P1iGF.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/errorBoundaries-Y42zlZbV.js"], "css": [] }, "routes": { "root": { "id": "root", "parentId": void 0, "path": "", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/root-DFljqkek.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/errorBoundaries-Y42zlZbV.js", "/assets/Icon-mPLaSHxl.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "home-en": { "id": "home-en", "parentId": "root", "path": void 0, "index": true, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/home-A1h4DuHn.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BVSnlvIf.js", "/assets/BookingForm-CRtZ1rqH.js", "/assets/Header-D8VFLmRV.js", "/assets/Icon-mPLaSHxl.js"], "css": ["/assets/BookingForm-DpsRipQV.css#"], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "home-de": { "id": "home-de", "parentId": "root", "path": "de", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/home-A1h4DuHn.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BVSnlvIf.js", "/assets/BookingForm-CRtZ1rqH.js", "/assets/Header-D8VFLmRV.js", "/assets/Icon-mPLaSHxl.js"], "css": ["/assets/BookingForm-DpsRipQV.css#"], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "home-fr": { "id": "home-fr", "parentId": "root", "path": "fr", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/home-A1h4DuHn.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BVSnlvIf.js", "/assets/BookingForm-CRtZ1rqH.js", "/assets/Header-D8VFLmRV.js", "/assets/Icon-mPLaSHxl.js"], "css": ["/assets/BookingForm-DpsRipQV.css#"], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "home-tr": { "id": "home-tr", "parentId": "root", "path": "tr", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/home-A1h4DuHn.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BVSnlvIf.js", "/assets/BookingForm-CRtZ1rqH.js", "/assets/Header-D8VFLmRV.js", "/assets/Icon-mPLaSHxl.js"], "css": ["/assets/BookingForm-DpsRipQV.css#"], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "home-ru": { "id": "home-ru", "parentId": "root", "path": "ru", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/home-A1h4DuHn.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BVSnlvIf.js", "/assets/BookingForm-CRtZ1rqH.js", "/assets/Header-D8VFLmRV.js", "/assets/Icon-mPLaSHxl.js"], "css": ["/assets/BookingForm-DpsRipQV.css#"], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "home-cs": { "id": "home-cs", "parentId": "root", "path": "cs", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/home-A1h4DuHn.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BVSnlvIf.js", "/assets/BookingForm-CRtZ1rqH.js", "/assets/Header-D8VFLmRV.js", "/assets/Icon-mPLaSHxl.js"], "css": ["/assets/BookingForm-DpsRipQV.css#"], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "home-uk": { "id": "home-uk", "parentId": "root", "path": "uk", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/home-A1h4DuHn.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BVSnlvIf.js", "/assets/BookingForm-CRtZ1rqH.js", "/assets/Header-D8VFLmRV.js", "/assets/Icon-mPLaSHxl.js"], "css": ["/assets/BookingForm-DpsRipQV.css#"], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "home-ur": { "id": "home-ur", "parentId": "root", "path": "ur", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/home-A1h4DuHn.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BVSnlvIf.js", "/assets/BookingForm-CRtZ1rqH.js", "/assets/Header-D8VFLmRV.js", "/assets/Icon-mPLaSHxl.js"], "css": ["/assets/BookingForm-DpsRipQV.css#"], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "home-pl": { "id": "home-pl", "parentId": "root", "path": "pl", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/home-A1h4DuHn.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BVSnlvIf.js", "/assets/BookingForm-CRtZ1rqH.js", "/assets/Header-D8VFLmRV.js", "/assets/Icon-mPLaSHxl.js"], "css": ["/assets/BookingForm-DpsRipQV.css#"], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "home-nl": { "id": "home-nl", "parentId": "root", "path": "nl", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/home-A1h4DuHn.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BVSnlvIf.js", "/assets/BookingForm-CRtZ1rqH.js", "/assets/Header-D8VFLmRV.js", "/assets/Icon-mPLaSHxl.js"], "css": ["/assets/BookingForm-DpsRipQV.css#"], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "home-ar": { "id": "home-ar", "parentId": "root", "path": "ar", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/home-A1h4DuHn.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BVSnlvIf.js", "/assets/BookingForm-CRtZ1rqH.js", "/assets/Header-D8VFLmRV.js", "/assets/Icon-mPLaSHxl.js"], "css": ["/assets/BookingForm-DpsRipQV.css#"], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "home-sv": { "id": "home-sv", "parentId": "root", "path": "sv", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/home-A1h4DuHn.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BVSnlvIf.js", "/assets/BookingForm-CRtZ1rqH.js", "/assets/Header-D8VFLmRV.js", "/assets/Icon-mPLaSHxl.js"], "css": ["/assets/BookingForm-DpsRipQV.css#"], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "home-da": { "id": "home-da", "parentId": "root", "path": "da", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/home-A1h4DuHn.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BVSnlvIf.js", "/assets/BookingForm-CRtZ1rqH.js", "/assets/Header-D8VFLmRV.js", "/assets/Icon-mPLaSHxl.js"], "css": ["/assets/BookingForm-DpsRipQV.css#"], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "home-el": { "id": "home-el", "parentId": "root", "path": "el", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/home-A1h4DuHn.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BVSnlvIf.js", "/assets/BookingForm-CRtZ1rqH.js", "/assets/Header-D8VFLmRV.js", "/assets/Icon-mPLaSHxl.js"], "css": ["/assets/BookingForm-DpsRipQV.css#"], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "home-es": { "id": "home-es", "parentId": "root", "path": "es", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/home-A1h4DuHn.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BVSnlvIf.js", "/assets/BookingForm-CRtZ1rqH.js", "/assets/Header-D8VFLmRV.js", "/assets/Icon-mPLaSHxl.js"], "css": ["/assets/BookingForm-DpsRipQV.css#"], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "home-he": { "id": "home-he", "parentId": "root", "path": "he", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/home-A1h4DuHn.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BVSnlvIf.js", "/assets/BookingForm-CRtZ1rqH.js", "/assets/Header-D8VFLmRV.js", "/assets/Icon-mPLaSHxl.js"], "css": ["/assets/BookingForm-DpsRipQV.css#"], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "home-hu": { "id": "home-hu", "parentId": "root", "path": "hu", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/home-A1h4DuHn.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BVSnlvIf.js", "/assets/BookingForm-CRtZ1rqH.js", "/assets/Header-D8VFLmRV.js", "/assets/Icon-mPLaSHxl.js"], "css": ["/assets/BookingForm-DpsRipQV.css#"], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "home-it": { "id": "home-it", "parentId": "root", "path": "it", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/home-A1h4DuHn.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BVSnlvIf.js", "/assets/BookingForm-CRtZ1rqH.js", "/assets/Header-D8VFLmRV.js", "/assets/Icon-mPLaSHxl.js"], "css": ["/assets/BookingForm-DpsRipQV.css#"], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "home-ja": { "id": "home-ja", "parentId": "root", "path": "ja", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/home-A1h4DuHn.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BVSnlvIf.js", "/assets/BookingForm-CRtZ1rqH.js", "/assets/Header-D8VFLmRV.js", "/assets/Icon-mPLaSHxl.js"], "css": ["/assets/BookingForm-DpsRipQV.css#"], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "home-ko": { "id": "home-ko", "parentId": "root", "path": "ko", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/home-A1h4DuHn.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BVSnlvIf.js", "/assets/BookingForm-CRtZ1rqH.js", "/assets/Header-D8VFLmRV.js", "/assets/Icon-mPLaSHxl.js"], "css": ["/assets/BookingForm-DpsRipQV.css#"], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "home-pt": { "id": "home-pt", "parentId": "root", "path": "pt", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/home-A1h4DuHn.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BVSnlvIf.js", "/assets/BookingForm-CRtZ1rqH.js", "/assets/Header-D8VFLmRV.js", "/assets/Icon-mPLaSHxl.js"], "css": ["/assets/BookingForm-DpsRipQV.css#"], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "home-ro": { "id": "home-ro", "parentId": "root", "path": "ro", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/home-A1h4DuHn.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BVSnlvIf.js", "/assets/BookingForm-CRtZ1rqH.js", "/assets/Header-D8VFLmRV.js", "/assets/Icon-mPLaSHxl.js"], "css": ["/assets/BookingForm-DpsRipQV.css#"], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "home-zh": { "id": "home-zh", "parentId": "root", "path": "zh", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/home-A1h4DuHn.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BVSnlvIf.js", "/assets/BookingForm-CRtZ1rqH.js", "/assets/Header-D8VFLmRV.js", "/assets/Icon-mPLaSHxl.js"], "css": ["/assets/BookingForm-DpsRipQV.css#"], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "health-en": { "id": "health-en", "parentId": "root", "path": "health", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/health-BTifERAM.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BVSnlvIf.js", "/assets/Header-D8VFLmRV.js", "/assets/Icon-mPLaSHxl.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "health-de": { "id": "health-de", "parentId": "root", "path": "de/health", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/health-BTifERAM.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BVSnlvIf.js", "/assets/Header-D8VFLmRV.js", "/assets/Icon-mPLaSHxl.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "health-fr": { "id": "health-fr", "parentId": "root", "path": "fr/health", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/health-BTifERAM.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BVSnlvIf.js", "/assets/Header-D8VFLmRV.js", "/assets/Icon-mPLaSHxl.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "health-tr": { "id": "health-tr", "parentId": "root", "path": "tr/health", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/health-BTifERAM.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BVSnlvIf.js", "/assets/Header-D8VFLmRV.js", "/assets/Icon-mPLaSHxl.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "health-ru": { "id": "health-ru", "parentId": "root", "path": "ru/health", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/health-BTifERAM.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BVSnlvIf.js", "/assets/Header-D8VFLmRV.js", "/assets/Icon-mPLaSHxl.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "health-cs": { "id": "health-cs", "parentId": "root", "path": "cs/health", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/health-BTifERAM.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BVSnlvIf.js", "/assets/Header-D8VFLmRV.js", "/assets/Icon-mPLaSHxl.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "health-uk": { "id": "health-uk", "parentId": "root", "path": "uk/health", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/health-BTifERAM.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BVSnlvIf.js", "/assets/Header-D8VFLmRV.js", "/assets/Icon-mPLaSHxl.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "health-ur": { "id": "health-ur", "parentId": "root", "path": "ur/health", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/health-BTifERAM.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BVSnlvIf.js", "/assets/Header-D8VFLmRV.js", "/assets/Icon-mPLaSHxl.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "health-pl": { "id": "health-pl", "parentId": "root", "path": "pl/health", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/health-BTifERAM.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BVSnlvIf.js", "/assets/Header-D8VFLmRV.js", "/assets/Icon-mPLaSHxl.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "health-nl": { "id": "health-nl", "parentId": "root", "path": "nl/health", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/health-BTifERAM.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BVSnlvIf.js", "/assets/Header-D8VFLmRV.js", "/assets/Icon-mPLaSHxl.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "health-ar": { "id": "health-ar", "parentId": "root", "path": "ar/health", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/health-BTifERAM.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BVSnlvIf.js", "/assets/Header-D8VFLmRV.js", "/assets/Icon-mPLaSHxl.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "health-sv": { "id": "health-sv", "parentId": "root", "path": "sv/health", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/health-BTifERAM.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BVSnlvIf.js", "/assets/Header-D8VFLmRV.js", "/assets/Icon-mPLaSHxl.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "health-da": { "id": "health-da", "parentId": "root", "path": "da/health", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/health-BTifERAM.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BVSnlvIf.js", "/assets/Header-D8VFLmRV.js", "/assets/Icon-mPLaSHxl.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "health-el": { "id": "health-el", "parentId": "root", "path": "el/health", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/health-BTifERAM.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BVSnlvIf.js", "/assets/Header-D8VFLmRV.js", "/assets/Icon-mPLaSHxl.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "health-es": { "id": "health-es", "parentId": "root", "path": "es/health", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/health-BTifERAM.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BVSnlvIf.js", "/assets/Header-D8VFLmRV.js", "/assets/Icon-mPLaSHxl.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "health-he": { "id": "health-he", "parentId": "root", "path": "he/health", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/health-BTifERAM.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BVSnlvIf.js", "/assets/Header-D8VFLmRV.js", "/assets/Icon-mPLaSHxl.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "health-hu": { "id": "health-hu", "parentId": "root", "path": "hu/health", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/health-BTifERAM.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BVSnlvIf.js", "/assets/Header-D8VFLmRV.js", "/assets/Icon-mPLaSHxl.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "health-it": { "id": "health-it", "parentId": "root", "path": "it/health", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/health-BTifERAM.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BVSnlvIf.js", "/assets/Header-D8VFLmRV.js", "/assets/Icon-mPLaSHxl.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "health-ja": { "id": "health-ja", "parentId": "root", "path": "ja/health", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/health-BTifERAM.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BVSnlvIf.js", "/assets/Header-D8VFLmRV.js", "/assets/Icon-mPLaSHxl.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "health-ko": { "id": "health-ko", "parentId": "root", "path": "ko/health", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/health-BTifERAM.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BVSnlvIf.js", "/assets/Header-D8VFLmRV.js", "/assets/Icon-mPLaSHxl.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "health-pt": { "id": "health-pt", "parentId": "root", "path": "pt/health", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/health-BTifERAM.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BVSnlvIf.js", "/assets/Header-D8VFLmRV.js", "/assets/Icon-mPLaSHxl.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "health-ro": { "id": "health-ro", "parentId": "root", "path": "ro/health", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/health-BTifERAM.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BVSnlvIf.js", "/assets/Header-D8VFLmRV.js", "/assets/Icon-mPLaSHxl.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "health-zh": { "id": "health-zh", "parentId": "root", "path": "zh/health", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/health-BTifERAM.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BVSnlvIf.js", "/assets/Header-D8VFLmRV.js", "/assets/Icon-mPLaSHxl.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "clinic-tr": { "id": "clinic-tr", "parentId": "root", "path": "clinic", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/clinic-B03gW_yh.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BVSnlvIf.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "transfer-en": { "id": "transfer-en", "parentId": "root", "path": "transfers/:slug", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/transfer-CGH_SckB.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BVSnlvIf.js", "/assets/BookingForm-CRtZ1rqH.js", "/assets/StaticPageHeader-ClSSR3cA.js", "/assets/Icon-mPLaSHxl.js"], "css": ["/assets/BookingForm-DpsRipQV.css#"], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "transfer-localized": { "id": "transfer-localized", "parentId": "root", "path": ":language/transfers/:slug", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/transfer-CGH_SckB.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BVSnlvIf.js", "/assets/BookingForm-CRtZ1rqH.js", "/assets/StaticPageHeader-ClSSR3cA.js", "/assets/Icon-mPLaSHxl.js"], "css": ["/assets/BookingForm-DpsRipQV.css#"], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "hotel-de": { "id": "hotel-de", "parentId": "root", "path": "de/hotels/:hotelSlug", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/hotel-Broq88ko.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BVSnlvIf.js", "/assets/BookingForm-CRtZ1rqH.js", "/assets/StaticPageHeader-ClSSR3cA.js", "/assets/Icon-mPLaSHxl.js"], "css": ["/assets/BookingForm-DpsRipQV.css#"], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "legal-imprint-en": { "id": "legal-imprint-en", "parentId": "root", "path": "impressum.html", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/legal-BYYQUsf9.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BVSnlvIf.js", "/assets/StaticPageHeader-ClSSR3cA.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "legal-privacy-en": { "id": "legal-privacy-en", "parentId": "root", "path": "privacy", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/legal-BYYQUsf9.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BVSnlvIf.js", "/assets/StaticPageHeader-ClSSR3cA.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "legal-privacy-de": { "id": "legal-privacy-de", "parentId": "root", "path": "de/datenschutz", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/legal-BYYQUsf9.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BVSnlvIf.js", "/assets/StaticPageHeader-ClSSR3cA.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "legal-imprint-de": { "id": "legal-imprint-de", "parentId": "root", "path": "de/impressum", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/legal-BYYQUsf9.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BVSnlvIf.js", "/assets/StaticPageHeader-ClSSR3cA.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "legal-privacy-tr": { "id": "legal-privacy-tr", "parentId": "root", "path": "tr/gizlilik", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/legal-BYYQUsf9.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BVSnlvIf.js", "/assets/StaticPageHeader-ClSSR3cA.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "legal-imprint-tr": { "id": "legal-imprint-tr", "parentId": "root", "path": "tr/kunye", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/legal-BYYQUsf9.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BVSnlvIf.js", "/assets/StaticPageHeader-ClSSR3cA.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "legal-privacy-ru": { "id": "legal-privacy-ru", "parentId": "root", "path": "ru/privacy", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/legal-BYYQUsf9.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BVSnlvIf.js", "/assets/StaticPageHeader-ClSSR3cA.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "legal-imprint-ru": { "id": "legal-imprint-ru", "parentId": "root", "path": "ru/impressum", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/legal-BYYQUsf9.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BVSnlvIf.js", "/assets/StaticPageHeader-ClSSR3cA.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "legal-privacy-cs": { "id": "legal-privacy-cs", "parentId": "root", "path": "cs/privacy", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/legal-BYYQUsf9.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BVSnlvIf.js", "/assets/StaticPageHeader-ClSSR3cA.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "legal-imprint-cs": { "id": "legal-imprint-cs", "parentId": "root", "path": "cs/impressum", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/legal-BYYQUsf9.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BVSnlvIf.js", "/assets/StaticPageHeader-ClSSR3cA.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "legal-privacy-uk": { "id": "legal-privacy-uk", "parentId": "root", "path": "uk/privacy", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/legal-BYYQUsf9.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BVSnlvIf.js", "/assets/StaticPageHeader-ClSSR3cA.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "legal-imprint-uk": { "id": "legal-imprint-uk", "parentId": "root", "path": "uk/impressum", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/legal-BYYQUsf9.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BVSnlvIf.js", "/assets/StaticPageHeader-ClSSR3cA.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "legal-privacy-ur": { "id": "legal-privacy-ur", "parentId": "root", "path": "ur/privacy", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/legal-BYYQUsf9.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BVSnlvIf.js", "/assets/StaticPageHeader-ClSSR3cA.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 }, "legal-imprint-ur": { "id": "legal-imprint-ur", "parentId": "root", "path": "ur/impressum", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasClientMiddleware": false, "hasDefaultExport": true, "hasErrorBoundary": false, "module": "/assets/legal-BYYQUsf9.js", "imports": ["/assets/components-Du9Ywr_M.js", "/assets/seo-BVSnlvIf.js", "/assets/StaticPageHeader-ClSSR3cA.js"], "css": [], "clientActionModule": void 0, "clientLoaderModule": void 0, "clientMiddlewareModule": void 0, "hydrateFallbackModule": void 0 } }, "url": "/assets/manifest-a41637ff.js", "version": "a41637ff", "sri": void 0 };
 const assetsBuildDirectory = "build/public-react/client";
 const basename = "/";
 const future = { "unstable_enableNodeReadableStream": false, "unstable_optimizeDeps": false };

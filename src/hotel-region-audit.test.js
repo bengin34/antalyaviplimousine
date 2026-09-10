@@ -2,6 +2,9 @@
 import { describe, test, expect } from "vitest";
 import { hotelIndex } from "./hotel-index.js";
 import { hotelDistances } from "./hotel-distances.js";
+import { routeCatalog } from "./routes.js";
+import checkpoint from "../scripts/hotel-region-audit/checkpoint.json";
+import { auditInputHash } from "../scripts/lib/hotel-audit-state.mjs";
 
 // Layer 3 of the hotel region audit (docs/superpowers/specs/2026-09-10-hotel-region-audit-design.md).
 // Every indexed hotel must carry `checked: true` in hotel-distances — written only by
@@ -95,6 +98,15 @@ export const UNAUDITED_HOTEL_SLUGS = new Map([
 ]);
 
 describe("hotel region audit guard", () => {
+  test("checked hotels have current successful evidence for their identity, region and rules", () => {
+    for (const hotel of hotelIndex) {
+      if (hotelDistances[hotel.slug]?.checked !== true) continue;
+      const evidence = checkpoint.completed[hotel.slug];
+      expect(evidence?.bucket, hotel.slug).toBe("ok");
+      expect(evidence?.inputHash, hotel.slug).toBe(auditInputHash(hotel, hotelDistances[hotel.slug]?.place, routeCatalog));
+    }
+  });
+
   test("every indexed hotel is address-audited or explicitly allowlisted", () => {
     const unchecked = hotelIndex
       .filter((hotel) => !UNAUDITED_HOTEL_SLUGS.has(hotel.slug))

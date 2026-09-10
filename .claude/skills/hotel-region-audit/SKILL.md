@@ -15,10 +15,20 @@ set -a; . ./.env; set +a
 node scripts/audit-hotel-regions.mjs --only-unchecked   # after adding hotels
 node scripts/audit-hotel-regions.mjs                     # full pass, resumes from checkpoint
 node scripts/audit-hotel-regions.mjs --slug <slug>       # re-verify one row
+node scripts/audit-hotel-regions.mjs --redo ok           # explicitly re-fetch confirmed rows
 ```
 Read `scripts/hotel-region-audit/report.md` (non-ok rows, ordered by € at risk).
 Never print the API key. The checkpoint and reports may only hold derived
 values; the script refuses to persist raw Places text.
+
+Each completed row records a hash of the classifier and matching rules, hotel
+identity and region, Place ID, and route prices. A changed or missing hash
+invalidates that row automatically, including with `--only-unchecked`. Legacy
+checkpoints without hashes require a full pass. Stale, pending, failed and
+non-`ok` rows lose `checked: true`; only current successful evidence grants it.
+An incomplete run exits nonzero; run again without `--redo` to resume without
+discarding work. The guard test also checks hashes, so changing rules or hotel
+inputs cannot leave old checked flags silently valid.
 
 ## Correct `fix` rows by population
 

@@ -11,6 +11,16 @@ import { HotelPage } from "./HotelPage";
 afterEach(cleanup);
 
 describe("German hotel transfer landing pages", () => {
+  test("Utopia structured prices and FAQs agree with its Kargicak landing price", () => {
+    const hotel = hotelBySlug("utopia-world-hotel")!;
+    render(<LanguageProvider initialLanguage="de"><HotelPage hotel={hotel} /></LanguageProvider>);
+    expect(screen.getAllByText("€90").length).toBeGreaterThan(0);
+    const metas = hotelMeta(hotel.slug);
+    expect(metas).toContainEqual(expect.objectContaining({ name: "description", content: expect.stringContaining("€90") }));
+    expect(metas).toContainEqual({ "script:ld+json": expect.objectContaining({ "@type": "Service", offers: expect.arrayContaining([expect.objectContaining({ name: "Mercedes Vito", price: "90" })]) }) });
+    expect(metas).toContainEqual({ "script:ld+json": expect.objectContaining({ "@type": "FAQPage", mainEntity: expect.arrayContaining([expect.objectContaining({ name: "Was kostet der Transfer?", acceptedAnswer: expect.objectContaining({ text: expect.stringContaining("€90") }) })]) }) });
+  });
+
   test("uses its regional route facts instead of hotel-specific figures", () => {
     const hotel = hotelBySlug("rixos-premium-belek");
     if (!hotel) throw new Error("Missing hotel catalogue entry");

@@ -1,4 +1,5 @@
 import { publicRouteSlugs, routeCatalog } from "../../../src/routes.js";
+import { hotelSlug, indexedHotelBySlug } from "../../../src/hotel-index.js";
 import { hotelBySlug } from "../../../src/hotels.js";
 import translationData from "../generated/legacy-translations.json";
 import { homeFaqOrder } from "./faq";
@@ -453,14 +454,15 @@ export function hotelMeta(slug: string) {
   const hotel = hotelBySlug(slug);
   if (!hotel) return [];
   const route = routeCatalog[hotel.regionSlug];
+  const priced = routeCatalog[indexedHotelBySlug(hotelSlug(hotel.name))?.region ?? hotel.regionSlug] ?? route;
   const url = `${domain}/de/hotels/${hotel.slug}/`;
   const transferUrl = `${domain}/de/transfers/${hotel.regionSlug}/`;
   const title = `Flughafen Antalya → ${hotel.name} Transfer | Privater Festpreis`;
-  const description = `Privater Transfer vom Flughafen Antalya zum ${hotel.name} ab €${route.prices.vito} pro Fahrzeug. Flugverfolgung, Empfang und direkte Fahrt zum Hotel.`;
+  const description = `Privater Transfer vom Flughafen Antalya zum ${hotel.name} ab €${priced.prices.vito} pro Fahrzeug. Flugverfolgung, Empfang und direkte Fahrt zum Hotel.`;
   const serviceName = `Privattransfer vom Flughafen Antalya zum ${hotel.name}`;
   const faq = [
-    { "@type": "Question", name: `Wie lange dauert die Fahrt zum ${hotel.name}?`, acceptedAnswer: { "@type": "Answer", text: `Bei normalem Verkehr ungefähr ${route.duration.de}.` } },
-    { "@type": "Question", name: "Was kostet der Transfer?", acceptedAnswer: { "@type": "Answer", text: `Der Mercedes Vito kostet ab €${route.prices.vito} pro Fahrzeug.` } },
+    { "@type": "Question", name: `Wie lange dauert die Fahrt zum ${hotel.name}?`, acceptedAnswer: { "@type": "Answer", text: `Bei normalem Verkehr ungefähr ${priced.duration.de}.` } },
+    { "@type": "Question", name: "Was kostet der Transfer?", acceptedAnswer: { "@type": "Answer", text: `Der Mercedes Vito kostet ab €${priced.prices.vito} pro Fahrzeug.` } },
     { "@type": "Question", name: "Was passiert bei einer Flugverspätung?", acceptedAnswer: { "@type": "Answer", text: "Wir verfolgen Ihren Flug in Echtzeit und passen die Abholzeit ohne Aufpreis an." } },
     { "@type": "Question", name: "Wie lange wartet mein Chauffeur am Flughafen?", acceptedAnswer: { "@type": "Answer", text: "Die ersten 90 Minuten nach der Landung sind kostenfrei enthalten, und bei Flugverspätungen verschiebt sich dieses Zeitfenster automatisch." } },
     { "@type": "Question", name: "Wie bezahle ich den Transfer?", acceptedAnswer: { "@type": "Answer", text: "Bar an Ihren Chauffeur zu Beginn der Fahrt - zum Festpreis aus Ihrer Buchung, pro Fahrzeug." } },
@@ -470,7 +472,7 @@ export function hotelMeta(slug: string) {
     { tagName: "link", rel: "canonical", href: url },
     ...socialDescriptors(title, description, url, homeSeo.de.locale),
     { "script:ld+json": { "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: [{ "@type": "ListItem", position: 1, name: "Antalya VIP Tourism", item: `${domain}/de/` }, { "@type": "ListItem", position: 2, name: `Transfer nach ${route.names.de}`, item: transferUrl }, { "@type": "ListItem", position: 3, name: hotel.name, item: url }] } },
-    { "script:ld+json": { "@context": "https://schema.org", "@type": "Service", name: serviceName, description, url, provider: { "@type": "TravelAgency", name: "Antalya VIP Tourism", url: domain, telephone: "+90 530 265 57 90" }, areaServed: { "@type": "Hotel", name: hotel.name }, offers: [{ "@type": "Offer", name: "Mercedes Vito", price: String(route.prices.vito), priceCurrency: "EUR" }, { "@type": "Offer", name: "Mercedes Sprinter", price: String(route.prices.sprinter), priceCurrency: "EUR" }] } },
+    { "script:ld+json": { "@context": "https://schema.org", "@type": "Service", name: serviceName, description, url, provider: { "@type": "TravelAgency", name: "Antalya VIP Tourism", url: domain, telephone: "+90 530 265 57 90" }, areaServed: { "@type": "Hotel", name: hotel.name }, offers: [{ "@type": "Offer", name: "Mercedes Vito", price: String(priced.prices.vito), priceCurrency: "EUR" }, { "@type": "Offer", name: "Mercedes Sprinter", price: String(priced.prices.sprinter), priceCurrency: "EUR" }] } },
     { "script:ld+json": { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: faq } },
   ];
 }

@@ -1,12 +1,12 @@
 # Hotel region audit
 
-Generated 2026-09-10T19:59:16.173Z. Audited 1245 of 1245. ok: 1164, fix: 3, unresolved: 7, identity: 71, gone: 0. 0 not yet audited, 0 failed fetches.
+Generated 2026-09-10T20:19:11.795Z. Audited 1245 of 1245. ok: 1164, fix: 3, unresolved: 7, identity: 71, gone: 0. 0 not yet audited, 0 failed fetches.
 
 | slug | bucket | euroDelta | indexRegion | derivedRegion | matchedTerm | regionSource | identityStrength | identityReason |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| rai-premium-tekirova | fix | 20 | tekirova | kemer | kemer | district |  |  |
-| selectum-family-comfort-side | fix | 20 | kizilagac | side | manavgat | discovery |  |  |
-| washington-resort-hotel-spa | fix | 20 | kizilagac | side | manavgat | discovery |  |  |
+| rai-premium-tekirova | fix | 20 | tekirova | kemer | kemer | district | strict |  |
+| selectum-family-comfort-side | fix | 20 | kizilagac | side | manavgat | discovery | strict |  |
+| washington-resort-hotel-spa | fix | 20 | kizilagac | side | manavgat | discovery | strict |  |
 | alarcha-hotels-resort | identity | 20 | alanya_bati | side | manavgat | district | loose | loose-name-region-conflict |
 | club-tropical-beach-hotel | identity | 20 | alanya_bati | side | side | district | loose | loose-name-region-conflict |
 | crystal-admiral-resort-spa | identity | 20 | kizilagac | side | manavgat | district | loose | loose-name-region-conflict |

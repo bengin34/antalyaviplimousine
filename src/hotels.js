@@ -1,4 +1,4 @@
-/** @typedef {"belek" | "side" | "kemer" | "alanya" | "kizilagac" | "tekirova"} HotelRegionSlug */
+/** @typedef {"antalya" | "belek" | "side" | "kemer" | "alanya" | "kizilagac" | "tekirova"} HotelRegionSlug */
 /** @typedef {{ slug: string, name: string, regionSlug: HotelRegionSlug, locationCopy: string }} Hotel */
 
 /** @type {Record<string, Hotel>} */
