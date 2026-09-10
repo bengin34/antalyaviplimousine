@@ -22,7 +22,7 @@ export interface ProfitLegRef {
   leg: string
 }
 
-export type SaveOwnVehicleProfit = (leg: ProfitLegRef, profitTry: number) => Promise<void>
+export type SaveOwnVehicleProfit = (leg: ProfitLegRef, profitEur: number) => Promise<void>
 export type SaveSupplierCost = (booking: Booking, leg: LegKey, costTry: number) => Promise<void>
 export type SaveCostMode = (booking: Booking, leg: LegKey, nextMode: CostMode) => Promise<void>
 
@@ -80,24 +80,24 @@ function EditorPanel({ title, children }: { title: string; children: ReactNode }
   </div>
 }
 
-export function OwnVehicleProfitEditor({ leg, onSave, currentProfitTry, triggerLabel, autoOpen = false, onSaved }: {
+export function OwnVehicleProfitEditor({ leg, onSave, currentProfitEur, triggerLabel, autoOpen = false, onSaved }: {
   leg: ProfitLegRef
   onSave: SaveOwnVehicleProfit
-  currentProfitTry?: number | null
+  currentProfitEur?: number | null
   triggerLabel?: string
   /** Uyarı listesindeki "Kâr gir" düğmesi satırı odaklarken düzenleyici kendiliğinden açılır. */
   autoOpen?: boolean
   onSaved?: () => void
 }) {
-  const hasProfit = typeof currentProfitTry === 'number' && Number.isFinite(currentProfitTry)
+  const hasProfit = typeof currentProfitEur === 'number' && Number.isFinite(currentProfitEur)
   const label = triggerLabel || (hasProfit ? 'Kâr düzenle' : 'Kâr gir')
   const [editing, setEditing] = useState(false)
-  const [value, setValue] = useState(hasProfit ? String(currentProfitTry) : '')
+  const [value, setValue] = useState(hasProfit ? String(currentProfitEur) : '')
   const [saving, setSaving] = useState(false)
   const [error, setError] = useState('')
 
   const openEditor = () => {
-    setValue(hasProfit ? String(currentProfitTry) : '')
+    setValue(hasProfit ? String(currentProfitEur) : '')
     setError('')
     setEditing(true)
   }
@@ -106,15 +106,15 @@ export function OwnVehicleProfitEditor({ leg, onSave, currentProfitTry, triggerL
   }, [autoOpen])
   const submit = async (event: FormEvent) => {
     event.preventDefault()
-    const profitTry = Number(value.replace(',', '.'))
+    const profitEur = Number(value.replace(',', '.'))
     setError('')
-    if (!Number.isFinite(profitTry) || profitTry < -9999999.99 || profitTry > 9999999.99) {
+    if (!Number.isFinite(profitEur) || profitEur < -999999.99 || profitEur > 999999.99) {
       setError('Geçerli bir reklam öncesi kâr tutarı girin (kayıp seferler için negatif olabilir).')
       return
     }
     setSaving(true)
     try {
-      await onSave(leg, profitTry)
+      await onSave(leg, profitEur)
       setEditing(false)
       onSaved?.()
     } catch {
@@ -127,8 +127,8 @@ export function OwnVehicleProfitEditor({ leg, onSave, currentProfitTry, triggerL
   return <>
     {!editing && <button className="profit-leg-action is-primary" type="button" onClick={openEditor}>{label}</button>}
     {editing && <form className="profit-leg-form" onSubmit={submit} noValidate>
-      <EditorPanel title="Bu ayağın reklam öncesi kârını girin (gelir - gerçek maliyet). Kayıp seferler için negatif değer girilebilir.">
-        <label><span>Reklam öncesi kâr (₺)</span><input type="number" min="-9999999.99" max="9999999.99" step="0.01" inputMode="decimal" value={value} onChange={event => setValue(event.target.value)} autoFocus required /></label>
+      <EditorPanel title="Bu ayağın reklam öncesi kârını avro olarak girin (gelir - gerçek maliyet). Kayıp seferler için negatif değer girilebilir.">
+        <label><span>Reklam öncesi kâr (€)</span><input type="number" min="-999999.99" max="999999.99" step="0.01" inputMode="decimal" value={value} onChange={event => setValue(event.target.value)} autoFocus required /></label>
         <div className="profit-leg-form-actions">
           <button className="profit-leg-action is-primary" type="submit" disabled={saving}>{saving ? 'Kaydediliyor…' : 'Kaydet ve hesapla'}</button>
           <button className="profit-leg-action is-ghost" type="button" disabled={saving} onClick={() => { setEditing(false); setError('') }}>İptal</button>
@@ -241,14 +241,14 @@ export function CostModeToggle({ booking, leg, onSave, onNeedsCost }: {
  * kendisi. Model "satılan transfer"e çevrilirken bedel zorunlu olduğu için
  * düzenleyici aynı yerden açılır.
  */
-export function LegCostControls({ booking, legRef, leg, legLabel, currentCostTry, isSoldTransfer, ownVehicleProfitTry, autoOpenProfitEditor = false, onSaveOwnVehicleProfit, onSaveCostMode, onSaveSupplierCost }: {
+export function LegCostControls({ booking, legRef, leg, legLabel, currentCostTry, isSoldTransfer, ownVehicleProfitEur, autoOpenProfitEditor = false, onSaveOwnVehicleProfit, onSaveCostMode, onSaveSupplierCost }: {
   booking: Booking
   legRef: ProfitLegRef
   leg: LegKey
   legLabel: string
   currentCostTry: number
   isSoldTransfer: boolean
-  ownVehicleProfitTry?: number | null
+  ownVehicleProfitEur?: number | null
   autoOpenProfitEditor?: boolean
   onSaveOwnVehicleProfit: SaveOwnVehicleProfit
   onSaveCostMode: SaveCostMode
@@ -265,7 +265,7 @@ export function LegCostControls({ booking, legRef, leg, legLabel, currentCostTry
             booking={booking} leg={leg} legLabel={legLabel} currentCostTry={currentCostTry}
             editing={editingCost} setEditing={setEditingCost} onSave={onSaveSupplierCost}
           />
-        : <OwnVehicleProfitEditor leg={legRef} onSave={onSaveOwnVehicleProfit} currentProfitTry={ownVehicleProfitTry} autoOpen={autoOpenProfitEditor} />}
+        : <OwnVehicleProfitEditor leg={legRef} onSave={onSaveOwnVehicleProfit} currentProfitEur={ownVehicleProfitEur} autoOpen={autoOpenProfitEditor} />}
     <CostModeToggle booking={booking} leg={leg} onSave={onSaveCostMode} onNeedsCost={() => setEditingCost(true)} />
   </>
 }

@@ -207,7 +207,7 @@ function ChauffeurDayEditor({ day, onSaved }: { day: ChauffeurHireDay; onSaved: 
   const [driver, setDriver] = useState(day.driver_name ?? '')
   const [plate, setPlate] = useState(day.vehicle_plate ?? '')
   const [distance, setDistance] = useState(day.distance_km == null ? '' : String(day.distance_km))
-  const [profit, setProfit] = useState(day.profit_before_ads_try == null ? '' : String(day.profit_before_ads_try))
+  const [profit, setProfit] = useState(day.profit_before_ads_eur == null ? '' : String(day.profit_before_ads_eur))
   const [fuel, setFuel] = useState(day.fuel_amount_eur == null ? '' : String(day.fuel_amount_eur))
   const [fuelPaid, setFuelPaid] = useState(day.fuel_paid)
   const [status, setStatus] = useState(day.status)
@@ -216,14 +216,14 @@ function ChauffeurDayEditor({ day, onSaved }: { day: ChauffeurHireDay; onSaved: 
   const [message, setMessage] = useState('')
   const save = async () => {
     const distanceKm = distance.trim() === '' ? null : Number(distance.replace(',', '.'))
-    const profitBeforeAdsTry = profit.trim() === '' ? null : Number(profit.replace(',', '.'))
+    const profitBeforeAdsEur = profit.trim() === '' ? null : Number(profit.replace(',', '.'))
     const fuelAmount = fuel.trim() === '' ? null : Number(fuel.replace(',', '.'))
     if (distanceKm !== null && (!Number.isFinite(distanceKm) || distanceKm < 0 || distanceKm > 10000)) return setMessage('Geçerli bir kilometre girin.')
-    if (profitBeforeAdsTry !== null && (!Number.isFinite(profitBeforeAdsTry) || profitBeforeAdsTry < -9999999.99 || profitBeforeAdsTry > 9999999.99)) return setMessage('Geçerli bir reklam öncesi kâr tutarı girin.')
+    if (profitBeforeAdsEur !== null && (!Number.isFinite(profitBeforeAdsEur) || profitBeforeAdsEur < -999999.99 || profitBeforeAdsEur > 999999.99)) return setMessage('Geçerli bir reklam öncesi kâr tutarı girin.')
     if (fuelAmount !== null && (!Number.isFinite(fuelAmount) || fuelAmount < 0 || fuelAmount > 999999.99)) return setMessage('Geçerli bir yakıt tutarı girin.')
     const payload = {
       driver_name: driver.trim() || null, vehicle_plate: plate.trim().toUpperCase() || null,
-      distance_km: distanceKm, profit_before_ads_try: profitBeforeAdsTry, fuel_amount_eur: fuelAmount, fuel_paid: fuelPaid,
+      distance_km: distanceKm, profit_before_ads_eur: profitBeforeAdsEur, fuel_amount_eur: fuelAmount, fuel_paid: fuelPaid,
       status, notes: notes.trim() || null, updated_at: new Date().toISOString(),
     }
     setSaving(true); setMessage('')
@@ -239,17 +239,19 @@ function ChauffeurDayEditor({ day, onSaved }: { day: ChauffeurHireDay; onSaved: 
     <div className="chauffeur-day-heading"><div><strong>{day.day_number}. Gün</strong><span>{fmtDetailDate(day.service_date)}</span></div><select className="input" value={status} onChange={e => setStatus(e.target.value as ChauffeurHireDay['status'])}><option value="scheduled">Planlandı</option><option value="in_progress">Devam ediyor</option><option value="completed">Tamamlandı</option></select></div>
     <div className="form-row"><Field label="Şoför"><input className="input" maxLength={60} value={driver} onChange={e => setDriver(e.target.value)} /></Field><Field label="Plaka"><input className="input" maxLength={15} value={plate} onChange={e => setPlate(e.target.value)} /></Field></div>
     <div className="form-row"><Field label="Gerçekleşen kilometre"><input className="input" type="number" min={0} max={10000} step={0.1} value={distance} onChange={e => setDistance(e.target.value)} /></Field><Field label="Yakıt tutarı (€)"><input className="input" type="number" min={0} step={0.01} value={fuel} onChange={e => setFuel(e.target.value)} /></Field></div>
-    <div className="form-row"><Field label="Reklam öncesi kâr (₺)"><input className="input" type="number" min={-9999999.99} max={9999999.99} step={0.01} value={profit} onChange={e => setProfit(e.target.value)} /></Field></div>
+    <div className="form-row"><Field label="Reklam öncesi kâr (€)"><input className="input" type="number" min={-999999.99} max={999999.99} step={0.01} value={profit} onChange={e => setProfit(e.target.value)} /></Field></div>
     <label className="admin-fuel-paid"><input type="checkbox" checked={fuelPaid} onChange={e => setFuelPaid(e.target.checked)} /><span>Yakıt ücreti müşteri tarafından ödendi</span></label>
     <Field label="Günlük not"><textarea className="input" rows={2} maxLength={500} value={notes} onChange={e => setNotes(e.target.value)} /></Field>
     <div className="chauffeur-day-actions"><button className="btn" type="button" disabled={saving} onClick={() => void save()}>{saving ? 'Kaydediliyor…' : 'Günü Kaydet'}</button><span className={message === 'Kaydedildi.' ? 'inline-success' : 'inline-error'}>{message}</span></div>
   </div>
 }
 
-function costSummary(cs: { costMode?: string; ownVehicleProfitTry?: number | null; supplierCostTry?: number | null; meetFeeApplicable?: boolean; meetFeeApplies?: boolean; parkingHours?: number | null }) {
+function costSummary(cs: { costMode?: string; ownVehicleProfitEur?: number | null; ownVehicleProfitTry?: number | null; supplierCostTry?: number | null; meetFeeApplicable?: boolean; meetFeeApplies?: boolean; parkingHours?: number | null }) {
   if (cs.costMode === 'no_cost') return 'Maliyeti yok'
   if (cs.costMode === 'sold_transfer') return `Satılan transfer · ₺${Number(cs.supplierCostTry ?? 0).toLocaleString('tr-TR')}`
-  const profit = cs.ownVehicleProfitTry != null ? `Kâr ₺${Number(cs.ownVehicleProfitTry).toLocaleString('tr-TR')}` : 'Kâr girilmedi'
+  const profit = cs.ownVehicleProfitEur != null && cs.ownVehicleProfitTry != null
+    ? `Kâr €${Number(cs.ownVehicleProfitEur).toLocaleString('tr-TR')} (₺${Number(cs.ownVehicleProfitTry).toLocaleString('tr-TR')})`
+    : 'Kâr girilmedi'
   const extra = !cs.meetFeeApplicable
     ? ''
     : cs.meetFeeApplies

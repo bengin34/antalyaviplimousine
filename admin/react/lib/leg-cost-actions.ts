@@ -2,15 +2,15 @@ import { supabase } from './supabase'
 import { legCostColumns, type CostMode, type LegKey } from '../components/LegCostEditors'
 import type { Booking } from '../types'
 
-/** Ayağın manuel reklam-öncesi kâr sütunu. */
+/** Ayağın manuel reklam-öncesi kâr sütunu (avro). */
 function legOwnVehicleProfitColumn(leg: LegKey) {
-  return leg === 'return' ? 'return_own_vehicle_profit_try' as const : 'own_vehicle_profit_try' as const
+  return leg === 'return' ? 'return_own_vehicle_profit_eur' as const : 'own_vehicle_profit_eur' as const
 }
 
-export async function saveLegOwnVehicleProfit(bookingId: string, leg: LegKey, profitTry: number): Promise<Partial<Booking>> {
+export async function saveLegOwnVehicleProfit(bookingId: string, leg: LegKey, profitEur: number): Promise<Partial<Booking>> {
   const column = legOwnVehicleProfitColumn(leg)
   const { data, error } = await supabase.from('bookings')
-    .update({ [column]: profitTry })
+    .update({ [column]: profitEur })
     .eq('id', bookingId)
     .select(`id, ${column}`).single()
   if (error || !data) throw error ?? new Error('Kâr kaydı dönmedi')

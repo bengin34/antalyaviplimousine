@@ -8,11 +8,17 @@ export interface LedgerLeg {
   bookingId: string; bookingRef?: string | null; customerName?: string | null
   leg: string; date: string; from?: unknown; to?: unknown
   revenueEur?: number; revenueTry?: number; oneWayKm?: number | null
-  ownVehicleProfitTry?: number | null
+  ownVehicleProfitEur?: number | null; ownVehicleProfitTry?: number | null
   vehicleCostTry?: number; supplierCostTry?: number; airportMeetCostTry?: number; parkingCostTry?: number
   advertisingPerLegEur?: number; advertisingPerLegTry?: number
   netProfitTry?: number; netProfitEur?: number; eurTryRate?: number | null
   isDailyChauffeur?: boolean; distanceSource?: string; dayId?: string | null
+}
+
+/** Reklam öncesi kâr her zaman hem € hem ₺ olarak gösterilir. */
+function formatProfitDual(eur?: number | null, tryAmount?: number | null) {
+  if (eur == null || tryAmount == null) return '—'
+  return `${formatEuro(eur)} · ${formatTry(tryAmount)}`
 }
 
 function groupByDate(legs: LedgerLeg[]) {
@@ -138,7 +144,7 @@ export function ProfitLedgerGrid({ legs, bookingsById, editable, attentionSince,
               <td>{profitLocationLabel(leg.from)} → {profitLocationLabel(leg.to)}</td>
               <td>{formatEuro(leg.revenueEur ?? 0)}</td>
               <td className="ledger-edit-cell">
-                {leg.ownVehicleProfitTry != null ? formatTry(leg.ownVehicleProfitTry) : '—'}
+                {formatProfitDual(leg.ownVehicleProfitEur, leg.ownVehicleProfitTry)}
                 {editKm && booking && <EditIcon onClick={() => openDialog(leg, booking)} />}
                 {editable && dailyMissing && onSaveNoCost && <NoCostButton leg={leg} onSaveNoCost={onSaveNoCost} />}
               </td>
@@ -187,7 +193,7 @@ export function ProfitLedgerGrid({ legs, bookingsById, editable, attentionSince,
               <div><dt>Gelir</dt><dd>{formatEuro(leg.revenueEur ?? 0)}</dd></div>
               {mode === 'sold_transfer'
                 ? <div><dt>Tedarikçi</dt><dd>{(leg.supplierCostTry ?? 0) > 0 ? formatTry(leg.supplierCostTry) : '—'}{editSupplier && booking && <EditIcon onClick={() => openDialog(leg, booking)} />}</dd></div>
-                : <><div><dt>Kâr (reklam öncesi)</dt><dd>{leg.ownVehicleProfitTry != null ? formatTry(leg.ownVehicleProfitTry) : '—'}{editKm && booking && <EditIcon onClick={() => openDialog(leg, booking)} />}</dd></div>
+                : <><div><dt>Kâr (reklam öncesi)</dt><dd>{formatProfitDual(leg.ownVehicleProfitEur, leg.ownVehicleProfitTry)}{editKm && booking && <EditIcon onClick={() => openDialog(leg, booking)} />}</dd></div>
                    <div><dt>Araç</dt><dd>{formatTry(leg.vehicleCostTry ?? 0)}</dd></div></>}
               {(leg.airportMeetCostTry ?? 0) > 0 && <div><dt>Karşılama</dt><dd>{formatTry(leg.airportMeetCostTry)}</dd></div>}
               {(leg.parkingCostTry ?? 0) > 0 && <div><dt>Otopark</dt><dd>{formatTry(leg.parkingCostTry)}</dd></div>}

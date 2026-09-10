@@ -72,7 +72,7 @@ function bookingFixture(overrides: Partial<Booking> = {}): Booking {
       driver_name: null,
       vehicle_plate: null,
       distance_km: 0,
-      profit_before_ads_try: 45000,
+      profit_before_ads_eur: 900,
       fuel_amount_eur: null,
       fuel_paid: false,
       notes: null,
@@ -351,7 +351,7 @@ describe('ProfitDistributionSection preview and confirmation', () => {
         price_eur: 0,
         chauffeur_hire_days: [{
           ...(bookingFixture().chauffeur_hire_days?.[0]!),
-          profit_before_ads_try: 0,
+          profit_before_ads_eur: 0,
         }],
       })],
     })
@@ -370,7 +370,7 @@ describe('ProfitDistributionSection preview and confirmation', () => {
     ['missing daily profit', bookingFixture({
       chauffeur_hire_days: [{
         ...(bookingFixture().chauffeur_hire_days?.[0]!),
-        profit_before_ads_try: null,
+        profit_before_ads_eur: null,
       }],
     }), 'Günlük hizmet reklam öncesi kârı eksik.'],
     ['invalid supplier source', bookingFixture({
@@ -429,7 +429,7 @@ describe('ProfitDistributionSection preview and confirmation', () => {
 
     const blocker = screen.getByRole('alert')
     fireEvent.click(within(blocker).getByRole('button', { name: 'Kâr gir' }))
-    fireEvent.change(within(blocker).getByLabelText('Reklam öncesi kâr (₺)'), { target: { value: '425' } })
+    fireEvent.change(within(blocker).getByLabelText('Reklam öncesi kâr (€)'), { target: { value: '425' } })
     fireEvent.click(within(blocker).getByRole('button', { name: 'Kaydet ve hesapla' }))
 
     await waitFor(() => expect(onSaveOwnVehicleProfit).toHaveBeenCalledWith(
@@ -452,7 +452,7 @@ describe('ProfitDistributionSection preview and confirmation', () => {
 
     const blocker = screen.getByRole('alert')
     fireEvent.click(within(blocker).getByRole('button', { name: 'Kâr gir' }))
-    fireEvent.change(within(blocker).getByLabelText('Reklam öncesi kâr (₺)'), { target: { value: '99999999' } })
+    fireEvent.change(within(blocker).getByLabelText('Reklam öncesi kâr (€)'), { target: { value: '99999999' } })
     fireEvent.click(within(blocker).getByRole('button', { name: 'Kaydet ve hesapla' }))
 
     await screen.findByText('Geçerli bir reklam öncesi kâr tutarı girin (kayıp seferler için negatif olabilir).')
@@ -522,7 +522,7 @@ describe('ProfitDistributionSection preview and confirmation', () => {
       bookings: [bookingFixture({
         chauffeur_hire_days: [{
           ...(bookingFixture().chauffeur_hire_days?.[0]!),
-          profit_before_ads_try: null,
+          profit_before_ads_eur: null,
         }],
       })],
     })
@@ -541,7 +541,7 @@ describe('ProfitDistributionSection preview and confirmation', () => {
       chauffeur_hire_days: [],
       price_eur: 100,
       daily_rate_eur: null,
-      own_vehicle_profit_try: 50,
+      own_vehicle_profit_eur: 50,
     })]
     renderSection({ bookings, ratesByDate: new Map([['2026-08-10', 40]]) })
 

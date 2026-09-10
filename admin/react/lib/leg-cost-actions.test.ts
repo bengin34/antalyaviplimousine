@@ -16,25 +16,25 @@ beforeEach(() => {
 
 describe('saveLegOwnVehicleProfit', () => {
   test('updates the return column and returns the patch', async () => {
-    single.mockResolvedValue({ data: { id: 'b1', return_own_vehicle_profit_try: 42 }, error: null })
+    single.mockResolvedValue({ data: { id: 'b1', return_own_vehicle_profit_eur: 42 }, error: null })
     const patch = await saveLegOwnVehicleProfit('b1', 'return', 42)
-    expect(update).toHaveBeenCalledWith({ return_own_vehicle_profit_try: 42 })
+    expect(update).toHaveBeenCalledWith({ return_own_vehicle_profit_eur: 42 })
     expect(eq).toHaveBeenCalledWith('id', 'b1')
-    expect(patch).toEqual({ return_own_vehicle_profit_try: 42 })
+    expect(patch).toEqual({ return_own_vehicle_profit_eur: 42 })
   })
 
   test('updates the outbound column', async () => {
-    single.mockResolvedValue({ data: { id: 'b1', own_vehicle_profit_try: 10 }, error: null })
+    single.mockResolvedValue({ data: { id: 'b1', own_vehicle_profit_eur: 10 }, error: null })
     const patch = await saveLegOwnVehicleProfit('b1', 'outbound', 10)
-    expect(update).toHaveBeenCalledWith({ own_vehicle_profit_try: 10 })
-    expect(patch).toEqual({ own_vehicle_profit_try: 10 })
+    expect(update).toHaveBeenCalledWith({ own_vehicle_profit_eur: 10 })
+    expect(patch).toEqual({ own_vehicle_profit_eur: 10 })
   })
 
   test('accepts a negative profit (a loss trip)', async () => {
-    single.mockResolvedValue({ data: { id: 'b1', own_vehicle_profit_try: -50 }, error: null })
+    single.mockResolvedValue({ data: { id: 'b1', own_vehicle_profit_eur: -50 }, error: null })
     const patch = await saveLegOwnVehicleProfit('b1', 'outbound', -50)
-    expect(update).toHaveBeenCalledWith({ own_vehicle_profit_try: -50 })
-    expect(patch).toEqual({ own_vehicle_profit_try: -50 })
+    expect(update).toHaveBeenCalledWith({ own_vehicle_profit_eur: -50 })
+    expect(patch).toEqual({ own_vehicle_profit_eur: -50 })
   })
 
   test('throws on error', async () => {

@@ -74,7 +74,7 @@ function openRangeStart(shareSettings: ProfitShareSettings | null, distributions
 
 // Supabase satır tiplerini çıkarabilsin diye tek bir düz metin: liste hem
 // hesaplama alanlarını hem de listede gösterilen yolcu bilgilerini içerir.
-const BOOKING_COLUMNS = 'id, booking_ref, customer_name, customer_phone, hotel_name, guests, luggage_count, child_seat_count, vehicle_type, pickup_location, pickup_address, dropoff_location, dropoff_address, pickup_date, pickup_time, flight_number, return_date, return_pickup_time, return_flight_number, service_end_date, trip_type, price_eur, daily_rate_eur, payment_method, service_cost_mode, sold_transfer_cost_try, return_service_cost_mode, return_sold_transfer_cost_try, own_vehicle_profit_try, return_own_vehicle_profit_try, airport_meet_fee_applies, airport_meet_fee_parking_hours, status, created_at, manual_outbound_distance_km, manual_return_distance_km, manual_return_of_ref, chauffeur_hire_days(id, service_date, day_number, status, distance_km, profit_before_ads_try, fuel_amount_eur, fuel_paid)'
+const BOOKING_COLUMNS = 'id, booking_ref, customer_name, customer_phone, hotel_name, guests, luggage_count, child_seat_count, vehicle_type, pickup_location, pickup_address, dropoff_location, dropoff_address, pickup_date, pickup_time, flight_number, return_date, return_pickup_time, return_flight_number, service_end_date, trip_type, price_eur, daily_rate_eur, payment_method, service_cost_mode, sold_transfer_cost_try, return_service_cost_mode, return_sold_transfer_cost_try, own_vehicle_profit_eur, return_own_vehicle_profit_eur, airport_meet_fee_applies, airport_meet_fee_parking_hours, status, created_at, manual_outbound_distance_km, manual_return_distance_km, manual_return_of_ref, chauffeur_hire_days(id, service_date, day_number, status, distance_km, profit_before_ads_eur, fuel_amount_eur, fuel_paid)'
 
 async function fetchAllBookings() {
   const bookings: Booking[] = []
@@ -337,12 +337,12 @@ export default function ProfitLossPage({ navigate, initialPeriod }: { navigate: 
     setBookings(current => current.map(item => item.id === next.id ? { ...item, ...next } : item))
     setStatus(`${next.booking_ref || 'Seyahat'} maliyeti güncellendi · Hesap güncellendi`)
   }
-  const saveOwnVehicleProfit = async (leg: ProfitLegRef, profitTry: number) => {
+  const saveOwnVehicleProfit = async (leg: ProfitLegRef, profitEur: number) => {
     const legKey: LegKey = leg.leg === 'return' ? 'return' : 'outbound'
-    const patch = await saveLegOwnVehicleProfit(leg.bookingId, legKey, profitTry)
-    const savedProfit = Number(patch.return_own_vehicle_profit_try ?? patch.own_vehicle_profit_try)
+    const patch = await saveLegOwnVehicleProfit(leg.bookingId, legKey, profitEur)
+    const savedProfit = Number(patch.return_own_vehicle_profit_eur ?? patch.own_vehicle_profit_eur)
     setBookings(current => current.map(booking => booking.id === leg.bookingId ? { ...booking, ...patch } : booking))
-    setStatus(`${leg.bookingRef || 'Seyahat'} için reklam öncesi kâr ${formatTry(savedProfit)} olarak kaydedildi · Hesap güncellendi`)
+    setStatus(`${leg.bookingRef || 'Seyahat'} için reklam öncesi kâr ${formatEuro(savedProfit)} olarak kaydedildi · Hesap güncellendi`)
   }
   const saveSupplierCost = async (booking: Booking, leg: LegKey, costTry: number) => {
     const columns = legCostColumns(leg)
@@ -368,15 +368,15 @@ export default function ProfitLossPage({ navigate, initialPeriod }: { navigate: 
       const dayId = (leg as { dayId?: string | null }).dayId
       if (!dayId) throw new Error('Günlük hizmet kaydı bulunamadı')
       const { data, error: saveError } = await supabase.from('chauffeur_hire_days')
-        .update({ profit_before_ads_try: 0 })
+        .update({ profit_before_ads_eur: 0 })
         .eq('id', dayId)
-        .select('id, profit_before_ads_try').single()
+        .select('id, profit_before_ads_eur').single()
       if (saveError || !data) throw saveError ?? new Error('Günlük hizmet kaydı dönmedi')
       setBookings(current => current.map(booking => booking.id === leg.bookingId
         ? {
             ...booking,
             chauffeur_hire_days: (booking.chauffeur_hire_days ?? []).map(day => day.id === dayId
-              ? { ...day, profit_before_ads_try: 0 }
+              ? { ...day, profit_before_ads_eur: 0 }
               : day),
           }
         : booking))

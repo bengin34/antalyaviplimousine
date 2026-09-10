@@ -145,10 +145,10 @@ describe('ProfitLossPage missing distance recovery', () => {
     expect(screen.getByRole('button', { name: 'Kârı dağıt' })).toBeDisabled()
 
     fireEvent.click(within(blocker).getByRole('button', { name: 'Kâr gir' }))
-    fireEvent.change(within(blocker).getByLabelText('Reklam öncesi kâr (₺)'), { target: { value: '380' } })
+    fireEvent.change(within(blocker).getByLabelText('Reklam öncesi kâr (€)'), { target: { value: '380' } })
     fireEvent.click(within(blocker).getByRole('button', { name: 'Kaydet ve hesapla' }))
 
-    await waitFor(() => expect(mocks.updateBooking).toHaveBeenCalledWith({ own_vehicle_profit_try: 380 }))
+    await waitFor(() => expect(mocks.updateBooking).toHaveBeenCalledWith({ own_vehicle_profit_eur: 380 }))
     await waitFor(() => expect(screen.queryByText('Reklam öncesi kâr eksik.')).toBeNull())
     expect(screen.getByRole('button', { name: 'Kârı dağıt' })).toBeEnabled()
   })

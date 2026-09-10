@@ -15,7 +15,7 @@ export interface ChauffeurHireDay {
   driver_name: string | null
   vehicle_plate: string | null
   distance_km: number | string | null
-  profit_before_ads_try?: number | string | null
+  profit_before_ads_eur?: number | string | null
   fuel_amount_eur: number | string | null
   fuel_paid: boolean
   notes: string | null
@@ -57,8 +57,8 @@ export interface Booking {
   sold_transfer_cost_try: number | string | null
   return_service_cost_mode?: 'own_vehicle' | 'sold_transfer' | 'no_cost' | null
   return_sold_transfer_cost_try?: number | string | null
-  own_vehicle_profit_try?: number | string | null
-  return_own_vehicle_profit_try?: number | string | null
+  own_vehicle_profit_eur?: number | string | null
+  return_own_vehicle_profit_eur?: number | string | null
   airport_meet_fee_applies?: boolean | null
   airport_meet_fee_parking_hours?: number | string | null
   price_eur: number | string

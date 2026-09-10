@@ -38,9 +38,9 @@ function normalizeDailyDistanceKm(value) {
   return Number.isFinite(distance) && distance >= 0 ? distance : null
 }
 
-// Manuel reklam-öncesi kâr: kayıp seferler de mümkün olduğundan negatif ve
-// sıfır değerler de geçerlidir; yalnızca "girilmemiş" durumu ayrıştırılır.
-function normalizeManualProfitTry(value) {
+// Manuel reklam-öncesi kâr (avro): kayıp seferler de mümkün olduğundan negatif
+// ve sıfır değerler de geçerlidir; yalnızca "girilmemiş" durumu ayrıştırılır.
+function normalizeManualProfitAmount(value) {
   if (value === null || value === undefined || String(value).trim() === '') return null
   const profit = Number(value)
   return Number.isFinite(profit) ? profit : null
@@ -103,7 +103,7 @@ function bookingLegs(booking) {
       to: 'daily_chauffeur',
       revenueEur: dailyRate,
       directVehicleKm: normalizeDailyDistanceKm(day.distance_km),
-      directProfitBeforeAdsTry: normalizeManualProfitTry(day.profit_before_ads_try),
+      directProfitBeforeAdsEur: normalizeManualProfitAmount(day.profit_before_ads_eur),
       legStatus: day.status === 'completed' ? 'completed' : day.status === 'in_progress' ? 'in_transit' : booking.status,
       isDailyChauffeur: true,
       costMode: 'own_vehicle',
@@ -444,13 +444,14 @@ export function splitProfit(netProfitEur, netProfitTry, operationsSharePct) {
   }
 }
 
-// Ayağın manuel olarak girilmiş reklam-öncesi kâr değeri ("kendi aracımız"
-// modunda KM tabanlı maliyet hesabının yerini alır).
-function manualOwnVehicleProfitForLeg(booking, leg) {
+// Ayağın manuel olarak girilmiş reklam-öncesi kâr değeri, avro cinsinden
+// ("kendi aracımız" modunda KM tabanlı maliyet hesabının yerini alır).
+// Reklam ve karşılama/otopark giderini düşmek için TL'ye çevrim çağıran yerde yapılır.
+function manualOwnVehicleProfitEurForLeg(booking, leg) {
   const value = leg === 'return'
-    ? booking.return_own_vehicle_profit_try
-    : booking.own_vehicle_profit_try
-  return normalizeManualProfitTry(value)
+    ? booking.return_own_vehicle_profit_eur
+    : booking.own_vehicle_profit_eur
+  return normalizeManualProfitAmount(value)
 }
 
 // Havalimanından başlayan ve karşılama ücreti ödemediğimiz ayaklarda, bu
@@ -491,8 +492,8 @@ export function resolveRealizedLegs(bookings, today, settingsByMonth = {}, rates
       legDetails.parkingCostEur = eurTryRate > 0 ? legDetails.parkingCostTry / eurTryRate : 0
 
       if (leg.isDailyChauffeur) {
-        const dayProfitTry = leg.directProfitBeforeAdsTry
-        if (dayProfitTry === null) {
+        const dayProfitEur = leg.directProfitBeforeAdsEur
+        if (dayProfitEur === null) {
           resolvedLegs.push({
             ...legDetails,
             oneWayKm: 0,
@@ -502,11 +503,13 @@ export function resolveRealizedLegs(bookings, today, settingsByMonth = {}, rates
           })
           continue
         }
+        const dayProfitTry = dayProfitEur * eurTryRate
         resolvedLegs.push({
           ...legDetails,
           oneWayKm: 0,
           vehicleKm: 0,
           vehicleCostTry: legDetails.revenueTry - dayProfitTry,
+          ownVehicleProfitEur: dayProfitEur,
           ownVehicleProfitTry: dayProfitTry,
           distanceSource: 'daily-actual',
         })
@@ -547,16 +550,19 @@ export function resolveRealizedLegs(bookings, today, settingsByMonth = {}, rates
         continue
       }
 
-      // "Kendi aracımız": KM tabanlı maliyet hesabı yerine, admin'in girdiği
-      // reklam-öncesi kâr kullanılır. `vehicleCostTry` bu kârı ve karşılama/
-      // otopark giderini geriye doğru üretecek şekilde türetilir; böylece
-      // netProfitTry = ownVehicleProfitTry - reklam payı eşitliği korunur.
-      const ownVehicleProfitTry = manualOwnVehicleProfitForLeg(booking, leg.leg)
-      if (ownVehicleProfitTry === null) {
+      // "Kendi aracımız": KM tabanlı maliyet hesabı yerine, admin'in avro
+      // cinsinden girdiği reklam-öncesi kâr kullanılır. TL'ye çevrim yalnızca
+      // karşılama/otopark ve reklam giderini düşmek için burada yapılır.
+      // `vehicleCostTry` bu kârı ve karşılama/otopark giderini geriye doğru
+      // üretecek şekilde türetilir; böylece netProfitTry = ownVehicleProfitTry
+      // (TL karşılığı) - reklam payı eşitliği korunur.
+      const ownVehicleProfitEur = manualOwnVehicleProfitEurForLeg(booking, leg.leg)
+      if (ownVehicleProfitEur === null) {
         unresolvedLegs.push(legDetails)
         continue
       }
 
+      const ownVehicleProfitTry = ownVehicleProfitEur * eurTryRate
       const extraCostTry = legDetails.airportMeetCostTry + legDetails.parkingCostTry
       resolvedLegs.push({
         ...legDetails,
@@ -564,6 +570,7 @@ export function resolveRealizedLegs(bookings, today, settingsByMonth = {}, rates
         vehicleKm: 0,
         vehicleCostTry: legDetails.revenueTry - ownVehicleProfitTry - extraCostTry,
         supplierCostTry: 0,
+        ownVehicleProfitEur,
         ownVehicleProfitTry,
         distanceSource: 'manual-profit',
       })
@@ -675,6 +682,7 @@ export function bookingLegCostStatus(booking, leg, today, settingsByMonth = {}, 
     applicable: true,
     complete,
     costMode,
+    ownVehicleProfitEur: match.ownVehicleProfitEur ?? null,
     ownVehicleProfitTry: match.ownVehicleProfitTry ?? null,
     supplierCostTry: match.supplierCostTry ?? null,
     meetFeeApplicable: startsFromAirport(match.from),
@@ -909,6 +917,7 @@ function legSnapshot(leg) {
     distance_source: leg.distanceSource ?? null,
     one_way_km: roundMoney(leg.oneWayKm ?? 0),
     vehicle_km: roundMoney(leg.vehicleKm ?? 0),
+    own_vehicle_profit_eur: leg.ownVehicleProfitEur != null ? roundMoney(leg.ownVehicleProfitEur) : null,
     own_vehicle_profit_try: leg.ownVehicleProfitTry != null ? roundMoney(leg.ownVehicleProfitTry) : null,
     revenue_eur: roundMoney(leg.revenueEur ?? 0),
     revenue_try: roundMoney(leg.revenueTry ?? 0),

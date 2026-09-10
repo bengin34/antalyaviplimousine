@@ -245,7 +245,7 @@ describe('ProfitLossPage ledger grid', () => {
     const noCost = await screen.findAllByRole('button', { name: 'Maliyeti yok' })
     fireEvent.click(noCost[0])
 
-    await waitFor(() => expect(mocks.updateHireDay).toHaveBeenCalledWith({ profit_before_ads_try: 0 }))
+    await waitFor(() => expect(mocks.updateHireDay).toHaveBeenCalledWith({ profit_before_ads_eur: 0 }))
     await waitFor(() => expect(screen.queryByText('Eksik bilgi')).toBeNull())
   })
 })

@@ -265,6 +265,7 @@ function BlockerCard({ blocker, booking, onSaveOwnVehicleProfit, onSaveSupplierC
   const currentMode: CostMode = legCostMode(booking, legKey)
   const currentCostTry = booking ? Number(booking[legCostColumns(legKey).cost]) || 0 : 0
   const dailyKm = Number(details.directVehicleKm)
+  const ownVehicleProfitEur = details.ownVehicleProfitEur != null ? Number(details.ownVehicleProfitEur) : null
   const ownVehicleProfitTry = details.ownVehicleProfitTry != null ? Number(details.ownVehicleProfitTry) : null
   const revenueEur = Number(details.revenueEur) || 0
   const eurTryRate = Number(details.eurTryRate)
@@ -297,7 +298,7 @@ function BlockerCard({ blocker, booking, onSaveOwnVehicleProfit, onSaveSupplierC
       </div>}
       {currentMode === 'own_vehicle' && !isDailyChauffeur && <div>
         <dt>Reklam öncesi kâr</dt>
-        <dd>{ownVehicleProfitTry != null ? formatTry(ownVehicleProfitTry) : 'Girilmedi'}</dd>
+        <dd>{ownVehicleProfitEur != null && ownVehicleProfitTry != null ? <MoneyPair eur={ownVehicleProfitEur} tryAmount={ownVehicleProfitTry} /> : 'Girilmedi'}</dd>
       </div>}
       {Number.isFinite(eurTryRate) && eurTryRate > 0 && <div>
         <dt>Kur</dt><dd>₺{eurTryRate.toFixed(2)}</dd>
@@ -312,7 +313,7 @@ function BlockerCard({ blocker, booking, onSaveOwnVehicleProfit, onSaveSupplierC
         legLabel={legLabel}
         currentCostTry={currentCostTry}
         isSoldTransfer={currentMode === 'sold_transfer'}
-        ownVehicleProfitTry={ownVehicleProfitTry}
+        ownVehicleProfitEur={ownVehicleProfitEur}
         onSaveOwnVehicleProfit={onSaveOwnVehicleProfit}
         onSaveCostMode={onSaveCostMode}
         onSaveSupplierCost={onSaveSupplierCost}

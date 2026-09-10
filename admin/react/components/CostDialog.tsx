@@ -12,7 +12,7 @@ export default function CostDialog({ booking: initial, leg, today, onClose, onSa
   const status = bookingLegCostStatus(booking, leg, today)
   const legRef = { bookingId: booking.id, bookingRef: booking.booking_ref, leg }
   const legLabel = legDirectionLabel(booking, leg)
-  const ownVehicleProfitTry = leg === 'return' ? booking.return_own_vehicle_profit_try : booking.own_vehicle_profit_try
+  const ownVehicleProfitEur = leg === 'return' ? booking.return_own_vehicle_profit_eur : booking.own_vehicle_profit_eur
   const currentCostTry = Number(leg === 'return' ? booking.return_sold_transfer_cost_try : booking.sold_transfer_cost_try) || 0
   const parkingHours = Number(booking.airport_meet_fee_parking_hours) || 1
 
@@ -27,8 +27,8 @@ export default function CostDialog({ booking: initial, leg, today, onClose, onSa
           <LegCostControls
             booking={booking} legRef={legRef} leg={leg} legLabel={legLabel}
             currentCostTry={currentCostTry} isSoldTransfer={status.costMode === 'sold_transfer'}
-            ownVehicleProfitTry={typeof ownVehicleProfitTry === 'number' ? ownVehicleProfitTry : (ownVehicleProfitTry != null ? Number(ownVehicleProfitTry) : null)}
-            onSaveOwnVehicleProfit={async (_l, profitTry) => { apply(await saveLegOwnVehicleProfit(booking.id, leg, profitTry)) }}
+            ownVehicleProfitEur={typeof ownVehicleProfitEur === 'number' ? ownVehicleProfitEur : (ownVehicleProfitEur != null ? Number(ownVehicleProfitEur) : null)}
+            onSaveOwnVehicleProfit={async (_l, profitEur) => { apply(await saveLegOwnVehicleProfit(booking.id, leg, profitEur)) }}
             onSaveCostMode={async (_b, l, mode: CostMode) => { apply(await saveLegCostMode(booking.id, l, mode)) }}
             onSaveSupplierCost={async (_b, l, cost) => { apply(await saveLegSupplierCost(booking.id, l, cost)) }}
           />
