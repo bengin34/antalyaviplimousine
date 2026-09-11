@@ -29,7 +29,7 @@ describe("classifyAuditRow", () => {
       slug: "kirman-belazur-resort-spa", name: "Kirman Belazur Resort & Spa",
       regionSource: "district", indexRegion: "belek", derivedRegion: "bogazkent",
       matchedTerm: "bogazkent", identityVerified: true, identityStrength: "strict", bucket: "fix",
-      euroDelta: 5, priceEquivalent: false,
+      euroDelta: 5, priceEquivalent: false, identityNotes: [],
     });
   });
 
@@ -71,9 +71,12 @@ describe("classifyAuditRow", () => {
     expect(row).toMatchObject({ bucket: "identity", identityReason: "loose-name-region-conflict", derivedRegion: "kemer", euroDelta: 15 });
   });
 
-  test("identity: non-lodging type", () => {
+  // Reversed deliberately: how Google files a place says nothing about where it
+  // is, so an unusual type is a note on the row, not grounds to reject it.
+  test("a non-lodging type is recorded, not rejected", () => {
     const row = classifyAuditRow(belazur, { place: place({ primaryType: "restaurant" }) }, routeCatalog);
-    expect(row).toMatchObject({ bucket: "identity", identityReason: "type" });
+    expect(row.identityReason).toBeUndefined();
+    expect(row).toMatchObject({ identityStrength: "strict", identityNotes: ["type"], derivedRegion: "bogazkent" });
   });
 
   test("gone: closed permanently or not found", () => {
@@ -159,5 +162,33 @@ describe("isConclusiveTerm", () => {
     const flat = { ...routeCatalog, kizilagac: { ...routeCatalog.kizilagac, prices: { ...routeCatalog.side.prices } } };
     expect(isConclusiveTerm({ region: "side", term: "manavgat" }, routeCatalog)).toBe(false);
     expect(isConclusiveTerm({ region: "side", term: "manavgat" }, flat)).toBe(true);
+  });
+});
+
+describe("identity judged on the name", () => {
+  const bogazkent = { ...belazur, region: "bogazkent" };
+
+  test("an unusual place type no longer blocks verification", () => {
+    const row = classifyAuditRow(bogazkent, { place: place({ primaryType: "restaurant" }) }, routeCatalog);
+    expect(row.identityStrength).toBe("strict");
+    expect(row.identityNotes).toEqual(["type"]);
+    expect(row.identityReason).toBeUndefined();
+  });
+
+  test("a temporarily closed listing no longer blocks verification", () => {
+    const row = classifyAuditRow(bogazkent, { place: place({ businessStatus: "CLOSED_TEMPORARILY" }) }, routeCatalog);
+    expect(row.identityStrength).toBe("strict");
+    expect(row.identityNotes).toEqual(["status"]);
+  });
+
+  test("a different business still fails on the name", () => {
+    const row = classifyAuditRow(bogazkent, { place: place({ displayName: { text: "Bim Market" } }) }, routeCatalog);
+    expect(row.bucket).toBe("identity");
+    expect(row.identityReason).toBe("name");
+  });
+
+  test("permanently closed still reaches gone without consulting identity", () => {
+    const row = classifyAuditRow(bogazkent, { place: place({ businessStatus: "CLOSED_PERMANENTLY" }) }, routeCatalog);
+    expect(row.bucket).toBe("gone");
   });
 });

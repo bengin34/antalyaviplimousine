@@ -5,7 +5,7 @@
  * carries only derived values (region, matched term, booleans, bucket).
  */
 import {
-  ADDRESS_REGION_TERMS, matchAddressRegionTerm, isOperationalHotelPlace,
+  ADDRESS_REGION_TERMS, matchAddressRegionTerm, placeIdentityKey,
   looseNameMatch, LODGING_PLACE_TYPES,
 } from "./hotel-region-matching.mjs";
 
@@ -43,13 +43,23 @@ export function isConclusiveTerm(match, routeCatalog) {
   return regions.every((region) => samePrices(region, regions[0], routeCatalog));
 }
 
-/** Returns { reason } when identity fails, else { strength: "strict" | "loose" }. */
+/**
+ * Whether this Place names the hotel, ignoring what Google files it as.
+ * `isOperationalHotelPlace` cannot answer that: it re-tests type and status
+ * itself, so a pansiyon listed as a restaurant would never match strictly.
+ * Those two facts say nothing about where a place is, so they travel as notes.
+ */
+const nameMatchesPlace = (names, place) =>
+  new Set([].concat(names).map(placeIdentityKey)).has(placeIdentityKey(place?.displayName?.text));
+
+/** Returns { reason } when identity fails, else { strength, notes }. */
 function identityCheck(names, place) {
   if (!place?.id) return { reason: "missing" };
-  if (place.businessStatus !== "OPERATIONAL") return { reason: "status" };
-  if (!LODGING_PLACE_TYPES.has(place.primaryType)) return { reason: "type" };
-  if (isOperationalHotelPlace(names, place)) return { strength: "strict" };
-  if (looseNameMatch(names, place.displayName?.text)) return { strength: "loose" };
+  const notes = [];
+  if (place.businessStatus !== "OPERATIONAL") notes.push("status");
+  if (!LODGING_PLACE_TYPES.has(place.primaryType)) notes.push("type");
+  if (nameMatchesPlace(names, place)) return { strength: "strict", notes };
+  if (looseNameMatch(names, place.displayName?.text)) return { strength: "loose", notes };
   return { reason: "name" };
 }
 
@@ -70,6 +80,7 @@ export function classifyAuditRow(hotel, details, routeCatalog) {
     bucket: "gone",
     euroDelta: 0,
     priceEquivalent: false,
+    identityNotes: [],
   };
   const place = details?.place;
   if (details?.notFound || !place || place.businessStatus === "CLOSED_PERMANENTLY") {
@@ -79,7 +90,7 @@ export function classifyAuditRow(hotel, details, routeCatalog) {
   if (identity.reason) return { ...base, bucket: "identity", identityReason: identity.reason };
 
   const match = matchAddressRegionTerm(place.addressComponents);
-  if (!match) return { ...base, identityVerified: true, identityStrength: identity.strength, bucket: "unresolved" };
+  if (!match) return { ...base, identityVerified: true, identityStrength: identity.strength, identityNotes: identity.notes, bucket: "unresolved" };
 
   const priceEquivalent = match.region !== hotel.region && samePrices(match.region, hotel.region, routeCatalog);
   const agrees = match.region === hotel.region || priceEquivalent;
@@ -89,6 +100,7 @@ export function classifyAuditRow(hotel, details, routeCatalog) {
   if (!agrees && identity.strength === "loose") {
     return {
       ...base, derivedRegion: match.region, matchedTerm: match.term, identityStrength: "loose",
+      identityNotes: identity.notes,
       bucket: "identity", identityReason: "loose-name-region-conflict",
       euroDelta: euroDelta(hotel.region, match.region, routeCatalog),
     };
@@ -99,6 +111,7 @@ export function classifyAuditRow(hotel, details, routeCatalog) {
     matchedTerm: match.term,
     identityVerified: true,
     identityStrength: identity.strength,
+    identityNotes: identity.notes,
     bucket: agrees ? "ok" : "fix",
     euroDelta: agrees ? 0 : euroDelta(hotel.region, match.region, routeCatalog),
     priceEquivalent,

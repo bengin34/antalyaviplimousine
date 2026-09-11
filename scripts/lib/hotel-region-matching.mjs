@@ -167,7 +167,7 @@ export function pricingRegionFromAddressComponents(components) {
 }
 
 const GENERIC_IDENTITY_WORDS = new Set(["hotel", "hotels", "resort", "spa", "the"]);
-const placeIdentityKey = (value) => ministryNameKey(value)
+export const placeIdentityKey = (value) => ministryNameKey(value)
   .split(" ").filter((word) => word && !GENERIC_IDENTITY_WORDS.has(word)).join(" ");
 
 const STRICT_HOTEL_TYPES = new Set(["hotel", "resort_hotel"]);
