@@ -224,7 +224,21 @@ export function classifyFromEvidence(row, routeCatalog, options = {}) {
 
   const sources = [row.addressRegion, row.locationRegion, kmRegion].filter(Boolean);
   const candidates = [...new Set(sources)];
-  const agreed = agreedRegion(sources, row.indexRegion, routeCatalog);
+
+  // Google's own address naming the index region confirms on its own. The bug
+  // this rule was built for was never "one source decided" — it was "a term
+  // that cannot decide a price was allowed to decide". A conclusive term is one
+  // that can, so requiring corroboration adds no safety, and outside the
+  // coordinate corridor (Kaş, Kumluca) none could ever arrive. Two sources are
+  // still required wherever the address abstained or disagreed.
+  const addressConfirms = Boolean(row.addressRegion)
+    && (row.addressRegion === row.indexRegion
+      || samePrices(row.addressRegion, row.indexRegion, routeCatalog));
+
+  const agreed = addressConfirms
+    ? { region: row.addressRegion, count: Math.max(1, sources.filter((region) =>
+        region === row.addressRegion || samePrices(region, row.addressRegion, routeCatalog)).length) }
+    : agreedRegion(sources, row.indexRegion, routeCatalog);
   const proposed = agreed?.region ?? (candidates.length ? dearest(candidates, routeCatalog) : null);
 
   const priceEquivalent = Boolean(proposed) && proposed !== row.indexRegion

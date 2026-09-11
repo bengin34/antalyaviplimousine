@@ -57,7 +57,17 @@ Three sources, each resolving to a pricing region or to nothing.
 | 3 | AYT driving km, among the candidates in play | `src/hotel-distances.js` | Fewer than two candidates; km fits several of them |
 
 **A row is `ok` when at least two sources name the same region *and* that region
-is the hotel's index region or price-equivalent to it.** The second half is not
+is the hotel's index region or price-equivalent to it — or when source 1 alone,
+being conclusive, names the index region.**
+
+That exception is not a softening. The bug this design was built for was never
+"one source decided"; it was "a term that cannot decide a price was allowed to
+decide". A conclusive term is by definition one that can, and it is Google's own
+address agreeing with the index. Requiring corroboration there adds no safety
+and cannot always be met: outside `resolvePricingRegion`'s corridor — Kaş and
+Kumluca — no second source can ever arrive, so seven correct hotels would have
+been exempted in perpetuity. Two sources remain required wherever source 1
+abstained or disagreed, which is every row the original bug touched. The second half is not
 optional: two sources agreeing on `tekirova` while the index says `kemer` is a
 `fix`, not a pass. This preserves the existing `agrees` condition
 (`scripts/lib/hotel-region-audit.mjs:63`); what changes is how many sources must

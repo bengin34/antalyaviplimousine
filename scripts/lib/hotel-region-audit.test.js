@@ -273,8 +273,12 @@ describe("km ranges", () => {
 describe("two agreeing sources", () => {
   const ranges = { bogazkent: { min: 41, max: 44 }, belek: { min: 26, max: 40 } };
 
-  test("one source alone never confirms", () => {
-    const row = classifyAuditRow({ ...belazur, region: "bogazkent" }, { place: place() }, routeCatalog, { kmRanges: {}, km: null });
+  // Narrowed by the conclusive-term rule: a lone source confirms only when it is
+  // the address naming the index region. Everything else still needs corroboration.
+  test("a lone coordinate never confirms", () => {
+    const noAddress = place({ addressComponents: components("Nowhere", "Antalya"), location: { latitude: 36.85, longitude: 31.18 } });
+    const row = classifyAuditRow({ ...belazur, region: "bogazkent" }, { place: noAddress }, routeCatalog, { kmRanges: {}, km: null });
+    expect(row.addressRegion).toBe(null);
     expect(row.bucket).toBe("unresolved");
     expect(row.unresolvedReason).toBe("single-source");
     expect(row.agreeingSources).toBe(1);
@@ -421,5 +425,38 @@ describe("the three rows that motivated this work", () => {
     expect(row.kmRegion).toBe("kizilagac");
     expect(row.bucket).toBe("fix");
     expect(row.derivedRegion).toBe("kizilagac");
+  });
+});
+
+describe("a conclusive term confirms its own index region", () => {
+  const stored = (over = {}) => ({
+    slug: "x", name: "X", indexRegion: "kas", regionSource: "district",
+    addressRegion: "kas", matchedTerm: "kas", matchedIlce: "kas",
+    locationRegion: null, locationReview: "outside-pricing-corridor", kmRegion: null,
+    identityStrength: "strict", identityVerified: true, identityNotes: [],
+    bucket: null, terminal: false, derivedRegion: null,
+    agreeingSources: 0, candidateRegions: [], unresolvedReason: null,
+    euroDelta: 0, priceEquivalent: false, ...over,
+  });
+
+  test("Google's own address naming the index region is enough on its own", () => {
+    const row = classifyFromEvidence(stored(), routeCatalog, { kmRanges: {}, km: 202 });
+    expect(row.bucket).toBe("ok");
+    expect(row.agreeingSources).toBe(1);
+  });
+
+  test("but only when it agrees: a conclusive term elsewhere still needs a second source", () => {
+    const row = classifyFromEvidence(stored({ addressRegion: "kumluca", matchedTerm: "kumluca", matchedIlce: "kumluca" }), routeCatalog, { kmRanges: {}, km: 202 });
+    expect(row.bucket).toBe("unresolved");
+    expect(row.unresolvedReason).toBe("single-source");
+  });
+
+  test("an inconclusive term never confirms, however well it agrees", () => {
+    // The original bug: Manavgat ilçe holds Side and Kızılağaç, so an address
+    // matching only it must not be able to confirm Side on its own.
+    const row = classifyFromEvidence(stored({
+      indexRegion: "side", addressRegion: null, matchedTerm: "manavgat", matchedIlce: "manavgat",
+    }), routeCatalog, { kmRanges: {}, km: 60 });
+    expect(row.bucket).not.toBe("ok");
   });
 });

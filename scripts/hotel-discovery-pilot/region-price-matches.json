@@ -4477,15 +4477,15 @@
       "ALANYA"
     ],
     "placeId": "ChIJrRj-YTCbwxQRq0blRTGTOD4",
-    "pricingRegion": "demirtas",
-    "pricingName": "Demirtaş",
+    "pricingRegion": "kargicak",
+    "pricingName": "Kargıcak",
     "prices": {
-      "vito": 100,
-      "sprinter": 130
+      "vito": 90,
+      "sprinter": 115
     },
     "originalPrices": {
-      "vito": 115,
-      "sprinter": 150
+      "vito": 105,
+      "sprinter": 135
     },
     "status": "ready",
     "reviewReasons": []
