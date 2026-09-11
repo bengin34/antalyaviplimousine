@@ -2,6 +2,7 @@ import { describe, expect, test } from "vitest";
 import { routeCatalog } from "../../src/routes.js";
 import {
   classifyAuditRow,
+  classifyFromEvidence,
   euroDelta,
   isConclusiveTerm,
   kmRangesFromCompleted,
@@ -20,6 +21,12 @@ const place = (overrides = {}) => ({
   addressComponents: components("Boğazkent", "Serik", "Antalya"),
   ...overrides,
 });
+// A coordinate inside the Boğazkent longitude band, away from its edges. Kept a
+// per-call override, never a default on place(): several tests below rely on a
+// Place with no coordinate at all, which is how source 2 abstains.
+const withLocation = (overrides = {}) =>
+  place({ location: { latitude: 36.85, longitude: 31.18 }, ...overrides });
+
 // Pre-fix state of the motivating row: indexed under Belek, address says Boğazkent.
 const belazur = {
   slug: "kirman-belazur-resort-spa", name: "Kirman Belazur Resort & Spa",
@@ -28,24 +35,32 @@ const belazur = {
 
 describe("classifyAuditRow", () => {
   test("fix: identity verified and address region differs (Belazur regression)", () => {
-    expect(classifyAuditRow(belazur, { place: place() }, routeCatalog)).toEqual({
+    expect(classifyAuditRow(belazur, { place: withLocation() }, routeCatalog)).toEqual({
       slug: "kirman-belazur-resort-spa", name: "Kirman Belazur Resort & Spa",
       regionSource: "district", indexRegion: "belek", derivedRegion: "bogazkent",
-      matchedTerm: "bogazkent", identityVerified: true, identityStrength: "strict", bucket: "fix",
-      euroDelta: 5, priceEquivalent: false, identityNotes: [],
+      matchedTerm: "bogazkent", matchedIlce: "serik", addressRegion: "bogazkent",
+      locationRegion: "bogazkent", locationReview: null, kmRegion: null,
+      identityVerified: true, identityStrength: "strict", identityNotes: [],
+      agreeingSources: 2, candidateRegions: [], unresolvedReason: null,
+      bucket: "fix", terminal: false, euroDelta: 5, priceEquivalent: false,
     });
   });
 
   test("ok: identity verified and regions agree", () => {
-    const row = classifyAuditRow({ ...belazur, region: "bogazkent" }, { place: place() }, routeCatalog);
+    const row = classifyAuditRow({ ...belazur, region: "bogazkent" }, { place: withLocation() }, routeCatalog);
     expect(row.bucket).toBe("ok");
     expect(row.euroDelta).toBe(0);
+    expect(row.agreeingSources).toBe(2);
   });
 
-  test("ok: price-equivalent regions (manavgat address resolves to side)", () => {
+  // Inverted deliberately. Manavgat ilçe holds Side €50 and Kızılağaç €70, so an
+  // address that names only the ilçe can no longer resolve to Side by itself.
+  test("an address naming only Manavgat no longer decides a price", () => {
     const hotel = { slug: "x", name: "X", region: "manavgat", regionSource: "district", aliases: [] };
     const row = classifyAuditRow(hotel, { place: place({ displayName: { text: "X Hotel" }, addressComponents: components("Manavgat") }) }, routeCatalog);
-    expect(row).toMatchObject({ bucket: "ok", derivedRegion: "side", priceEquivalent: true, euroDelta: 0 });
+    expect(row.matchedTerm).toBe("manavgat");
+    expect(row.addressRegion).toBe(null);
+    expect(row.bucket).not.toBe("ok");
   });
 
   test("unresolved: identity verified but no known locality", () => {
@@ -59,12 +74,12 @@ describe("classifyAuditRow", () => {
   });
 
   test("identity: aliases are accepted", () => {
-    const row = classifyAuditRow({ ...belazur, aliases: ["Some Other"] }, { place: place({ displayName: { text: "Some Other Resort" } }) }, routeCatalog);
+    const row = classifyAuditRow({ ...belazur, aliases: ["Some Other"] }, { place: withLocation({ displayName: { text: "Some Other Resort" } }) }, routeCatalog);
     expect(row.bucket).toBe("fix");
   });
 
   test("loose name match: ok when the address agrees with the index", () => {
-    const row = classifyAuditRow({ ...belazur, region: "bogazkent" }, { place: place({ displayName: { text: "Belazur Kirman Premium" } }) }, routeCatalog);
+    const row = classifyAuditRow({ ...belazur, region: "bogazkent" }, { place: withLocation({ displayName: { text: "Belazur Kirman Premium" } }) }, routeCatalog);
     expect(row).toMatchObject({ bucket: "ok", identityStrength: "loose", identityVerified: true });
   });
 
@@ -252,5 +267,90 @@ describe("km ranges", () => {
     expect(regionsInIlce("kemer").sort()).toEqual(["kemer", "tekirova"]);
     expect(regionsInIlce("manavgat").sort()).toEqual(["kizilagac", "side"]);
     expect(regionsInIlce(undefined)).toEqual([]);
+  });
+});
+
+describe("two agreeing sources", () => {
+  const ranges = { bogazkent: { min: 41, max: 44 }, belek: { min: 26, max: 40 } };
+
+  test("one source alone never confirms", () => {
+    const row = classifyAuditRow({ ...belazur, region: "bogazkent" }, { place: place() }, routeCatalog, { kmRanges: {}, km: null });
+    expect(row.bucket).toBe("unresolved");
+    expect(row.unresolvedReason).toBe("single-source");
+    expect(row.agreeingSources).toBe(1);
+  });
+
+  test("a coordinate on a band edge abstains and is not counted", () => {
+    const onEdge = place({ location: { latitude: 36.85, longitude: 31.134 } });
+    const row = classifyAuditRow({ ...belazur, region: "bogazkent" }, { place: onEdge }, routeCatalog, { kmRanges: {}, km: null });
+    expect(row.locationRegion).toBe(null);
+    expect(row.locationReview).toBe("near-pricing-boundary");
+    expect(row.agreeingSources).toBe(1);
+  });
+
+  test("price-equivalent sources count as agreement, not conflict", () => {
+    // side and manavgat are both 50/85; agreedRegion must not read them as a
+    // conflict. Built directly, since no real address yields manavgat any more.
+    const stored = {
+      slug: "x", name: "X", indexRegion: "side", regionSource: "district",
+      addressRegion: "side", locationRegion: "manavgat", matchedIlce: null,
+      identityStrength: "strict", identityVerified: true, identityNotes: [],
+      bucket: null, terminal: false, derivedRegion: null, matchedTerm: "side",
+      agreeingSources: 0, candidateRegions: [], unresolvedReason: null,
+      euroDelta: 0, priceEquivalent: false, kmRegion: null,
+    };
+    const row = classifyFromEvidence(stored, routeCatalog, { kmRanges: {}, km: null });
+    expect(row.bucket).toBe("ok");
+    expect(row.agreeingSources).toBe(2);
+  });
+
+  test("conflicting sources report the dearest candidate", () => {
+    const stored = {
+      slug: "y", name: "Y", indexRegion: "side", regionSource: "district",
+      addressRegion: "kizilagac", locationRegion: "alanya_bati", matchedIlce: null,
+      identityStrength: "strict", identityVerified: true, identityNotes: [],
+      bucket: null, terminal: false, derivedRegion: null, matchedTerm: "kizilagac",
+      agreeingSources: 0, candidateRegions: [], unresolvedReason: null,
+      euroDelta: 0, priceEquivalent: false, kmRegion: null,
+    };
+    const row = classifyFromEvidence(stored, routeCatalog, { kmRanges: {}, km: null });
+    expect(row.bucket).toBe("unresolved");
+    expect(row.unresolvedReason).toBe("conflict");
+    expect(row.candidateRegions).toEqual(expect.arrayContaining(["kizilagac", "alanya_bati"]));
+    expect(row.derivedRegion).toBe("kizilagac"); // 70/115 beats alanya_bati 70/90 on Sprinter
+  });
+
+  test("no evidence at all names no candidate", () => {
+    const bare = place({ addressComponents: components("Türkiye") });
+    const row = classifyAuditRow({ ...belazur, region: "side" }, { place: bare }, routeCatalog, { kmRanges: {}, km: null });
+    expect(row.unresolvedReason).toBe("no-evidence");
+    expect(row.derivedRegion).toBe(null);
+  });
+
+  test("a loose name pointing at another region stays residue, even on one source", () => {
+    // A location word, not a generic one: placeIdentityKey strips "resort"/"spa"
+    // but keeps "kemer", so this is a loose match rather than a strict one.
+    const sibling = place({ displayName: { text: "Kirman Belazur Kemer" }, addressComponents: components("Çamyuva", "Kemer", "Antalya") });
+    const row = classifyAuditRow({ ...belazur, region: "alanya_bati" }, { place: sibling }, routeCatalog, { kmRanges: {}, km: null });
+    expect(row.identityStrength).toBe("loose");
+    expect(row.bucket).toBe("identity");
+    expect(row.identityReason).toBe("loose-name-region-conflict");
+  });
+
+  describe("classifyFromEvidence re-judges a stored row", () => {
+    test("the same evidence gains a source once a km range exists", () => {
+      const first = classifyAuditRow({ ...belazur, region: "bogazkent" }, { place: withLocation() }, routeCatalog, { kmRanges: {}, km: 43 });
+      expect(first.bucket).toBe("ok");
+      expect(first.agreeingSources).toBe(2);
+
+      const again = classifyFromEvidence(first, routeCatalog, { kmRanges: ranges, km: 43 });
+      expect(again.kmRegion).toBe("bogazkent");
+      expect(again.agreeingSources).toBe(3);
+    });
+
+    test("a terminal row is returned untouched", () => {
+      const gone = classifyAuditRow(belazur, { notFound: true }, routeCatalog, {});
+      expect(classifyFromEvidence(gone, routeCatalog, { kmRanges: ranges, km: 43 })).toEqual(gone);
+    });
   });
 });
