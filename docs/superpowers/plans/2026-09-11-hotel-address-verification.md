@@ -4,7 +4,11 @@
 
 **Goal:** Stop confirming a hotel's pricing region on a single piece of evidence, so a hotel whose address text cannot decide its price is caught instead of silently quoted on the cheap side.
 
-**Architecture:** The audit gains two evidence sources beside the address term it already uses — a coordinate, resolved by the `resolvePricingRegion` function that already exists, and the AYT driving km already stored per hotel. A row is confirmed only when two sources agree on the hotel's index region. The classifier stays pure; the script keeps writing exactly one field (`checked`) and never edits the index.
+**Architecture:** The audit gains two evidence sources beside the address term it already uses — a coordinate, resolved by the `resolvePricingRegion` function that already exists, and the AYT driving km already stored per hotel. A row is confirmed only when two sources agree on the hotel's index region.
+
+The classifier splits in two, and that split is what makes the km source possible at all. `extractEvidence` turns one Places response into persistable derived values. `classifyFromEvidence` turns those stored values plus the km ranges into a bucket. Only the first needs the network, so the second re-runs over the whole checkpoint for free after every run — which is required, because a region's km range is not known until every row's evidence exists.
+
+The script still writes exactly one field (`checked`) and never edits the index.
 
 **Tech Stack:** Node ESM (`.mjs` for scripts, `.js` for app source), Vitest, Google Places Details v1.
 
@@ -17,103 +21,99 @@
   `docs/superpowers/specs/2026-09-10-hotel-region-audit-design.md`
 - Operator workflow: `.claude/skills/hotel-region-audit/SKILL.md`
 
-## Two traps specific to this codebase
+## Three things that will bite you
 
 **1. New logic must live in one of two existing files.** `auditRulesHash`
 (`scripts/lib/hotel-audit-state.mjs:4`) hashes the full bytes of exactly
 `scripts/lib/hotel-region-audit.mjs` and `scripts/lib/hotel-region-matching.mjs`.
 That hash is what invalidates stale `checked` flags. **Logic placed in a new file
 would not be hashed**, so changing it later would leave every `checked: true`
-silently valid. Put pure classification in `hotel-region-audit.mjs` and
-address/coordinate matching in `hotel-region-matching.mjs`. Do not create a new
+silently valid. Put pure classification in `hotel-region-audit.mjs`, address and
+coordinate matching in `hotel-region-matching.mjs`. Do not add a new
 `scripts/lib/*.mjs` for this work.
 
-**2. Nothing from Places may reach disk except derived values.**
+**2. `npm test` goes red the moment you touch either lib file, and stays red
+until Task 9.** Changing them changes `auditRulesHash`, which changes every
+`auditInputHash`, which fails the committed-state guard at
+`src/hotel-region-audit.test.js:106` for ~1165 rows. This is the guard working as
+designed — it is telling you the stored evidence no longer matches the rules that
+produced it — and only a fresh audit run can clear it. **Do not weaken that test
+to get green.** While working through Tasks 1–8, verify with the unit files only:
+
+```bash
+npx vitest run scripts/lib/hotel-region-audit.test.js scripts/lib/hotel-region-matching.test.js
+```
+
+Run the full `npm test` at Task 9, after the audit has rewritten the checkpoint.
+Do not merge to `main` mid-plan.
+
+**3. Nothing from Places may reach disk except derived values.**
 `scripts/audit-hotel-regions.mjs:58` throws if the checkpoint JSON contains a
 `"location"`, `"displayName"`, `"formattedAddress"`, `"addressComponents"` or
-`"businessStatus"` key. Coordinates are read in memory and discarded;
-`resolvePricingRegion` is already written to return a region and never the
-coordinate. Never put a coordinate on a returned row.
+`"businessStatus"` key. The coordinate is read in memory and discarded;
+`resolvePricingRegion` is built to return a region and never the coordinate.
+Never put a coordinate on a returned row.
 
 ## File structure
 
 | File | Responsibility | Change |
 |---|---|---|
-| `scripts/lib/hotel-region-matching.mjs` | Address terms, coordinate bands, name matching | Export `ADDRESS_REGION_TERMS` and `placeIdentityKey`; return `ilce` from `matchAddressRegionTerm` |
-| `scripts/lib/hotel-region-audit.mjs` | Pure classifier, term conclusiveness, km ranges, report | Most of the work |
-| `scripts/audit-hotel-regions.mjs` | Network, checkpoint, file writes | Field mask, km ranges, pass km per hotel |
-| `scripts/lib/hotel-region-matching.test.js` | Matching unit tests | New cases |
-| `scripts/lib/hotel-region-audit.test.js` | Classifier unit tests | New cases |
-| `src/hotel-region-audit.test.js` | Guard test over committed state | One new assertion |
+| `scripts/lib/hotel-region-matching.mjs` | Address terms, coordinate bands, name matching | Export `ADDRESS_REGION_TERMS` and `placeIdentityKey`. Nothing else. |
+| `scripts/lib/hotel-region-audit.mjs` | Term conclusiveness, evidence extraction, classification, report | Most of the work |
+| `scripts/audit-hotel-regions.mjs` | Network, checkpoint, file writes | Field mask, plus a reclassification pass after the fetch loop |
+| `scripts/lib/hotel-region-matching.test.js` | Matching unit tests | One new case |
+| `scripts/lib/hotel-region-audit.test.js` | Classifier unit tests | New cases, plus rewrites of seven existing ones |
+| `src/hotel-region-audit.test.js` | Guard over committed state | One new assertion |
 | `.claude/skills/hotel-region-audit/SKILL.md` | Operator instructions | Residue and identity sections |
 
-Run one file with `npx vitest run <path>`, everything with `npm test`.
+`matchAddressRegionTerm` is deliberately **not** changed. An earlier draft had it
+return the ilçe it matched on; that breaks twelve existing whole-object
+assertions for no gain, since `isConclusiveTerm` can look the ilçe up itself.
 
 ---
 
-### Task 1: Report the ilçe a term was gated on
-
-`matchAddressRegionTerm` knows which ilçe gated the term it matched but throws
-that away. Conclusiveness cannot be decided without it.
+### Task 1: Expose the term table
 
 **Files:**
-- Modify: `scripts/lib/hotel-region-matching.mjs:126` (add `export`), `:144-162`
+- Modify: `scripts/lib/hotel-region-matching.mjs:126`
 - Test: `scripts/lib/hotel-region-matching.test.js`
 
 - [ ] **Step 1: Write the failing test**
 
+Add a case to the existing file. **Do not add a new `import` line** —
+`matchAddressRegionTerm` is already imported at `:7`; add `ADDRESS_REGION_TERMS`
+to that existing import list, or a duplicate binding is a hard `SyntaxError`.
+
 ```js
-import { ADDRESS_REGION_TERMS, matchAddressRegionTerm } from "./hotel-region-matching.mjs";
-
-const parts = (...texts) => texts.map((longText) => ({ longText, shortText: longText }));
-
-describe("matchAddressRegionTerm ilçe reporting", () => {
-  test("reports the ilçe that gated the matched term", () => {
-    expect(matchAddressRegionTerm(parts("Boğazkent", "Serik", "Antalya")))
-      .toEqual({ region: "bogazkent", term: "bogazkent", ilce: "serik" });
-  });
-
-  test("reports no ilçe for a region that has no ilçe gate", () => {
-    expect(matchAddressRegionTerm(parts("Lara", "Muratpaşa", "Antalya")))
-      .toEqual({ region: "antalya", term: "lara", ilce: undefined });
-  });
-
-  test("exposes the term table so conclusiveness can be derived from it", () => {
-    expect(ADDRESS_REGION_TERMS.some(([region]) => region === "kizilagac")).toBe(true);
-  });
+test("the term table is exported so conclusiveness can be derived from it", () => {
+  const kizilagac = ADDRESS_REGION_TERMS.find(([region]) => region === "kizilagac");
+  expect(kizilagac).toEqual(["kizilagac", ["kizilagac", "kizilot", "cenger"], "manavgat"]);
 });
 ```
 
 - [ ] **Step 2: Run it and watch it fail**
 
 Run: `npx vitest run scripts/lib/hotel-region-matching.test.js`
-Expected: FAIL — `ADDRESS_REGION_TERMS` is not exported, and the returned object has no `ilce`.
+Expected: FAIL — `ADDRESS_REGION_TERMS` is not exported.
 
 - [ ] **Step 3: Make it pass**
 
-In `scripts/lib/hotel-region-matching.mjs`, export the table:
+One word, at `scripts/lib/hotel-region-matching.mjs:126`:
 
 ```js
 export const ADDRESS_REGION_TERMS = Object.freeze([
 ```
 
-and return the ilçe from the match (around `:158`):
-
-```js
-      const term = terms.find((candidate) => matches(part, candidate));
-      if (term) return { region, term, ilce };
-```
-
 - [ ] **Step 4: Run tests**
 
-Run: `npx vitest run scripts/lib/hotel-region-matching.test.js scripts/lib/hotel-region-audit.test.js`
-Expected: PASS. The audit tests still pass because they assert on `region` and `term` only.
+Run: `npx vitest run scripts/lib/hotel-region-matching.test.js`
+Expected: PASS, all existing cases included. Nothing else changed.
 
 - [ ] **Step 5: Commit**
 
 ```bash
 git add scripts/lib/hotel-region-matching.mjs scripts/lib/hotel-region-matching.test.js
-git commit -m "Report the ilçe that gated a matched address term"
+git commit -m "Expose the address term table"
 ```
 
 ---
@@ -135,24 +135,30 @@ import { isConclusiveTerm } from "./hotel-region-audit.mjs";
 
 describe("isConclusiveTerm", () => {
   test("a belde term decides a price", () => {
-    expect(isConclusiveTerm({ region: "side", term: "kumkoy", ilce: "manavgat" }, routeCatalog)).toBe(true);
+    expect(isConclusiveTerm({ region: "side", term: "kumkoy" }, routeCatalog)).toBe(true);
   });
 
-  test("an ilçe spanning two prices cannot: Manavgat holds Side and Kızılağaç", () => {
-    expect(isConclusiveTerm({ region: "side", term: "manavgat", ilce: "manavgat" }, routeCatalog)).toBe(false);
+  test("Manavgat cannot: it holds Side €50 and Kızılağaç €70", () => {
+    expect(isConclusiveTerm({ region: "side", term: "manavgat" }, routeCatalog)).toBe(false);
   });
 
-  test("an ilçe spanning two prices cannot: Kemer holds Kemer and Tekirova", () => {
-    expect(isConclusiveTerm({ region: "kemer", term: "kemer", ilce: "kemer" }, routeCatalog)).toBe(false);
+  test("Kemer cannot: it holds Kemer €55 and Tekirova €75", () => {
+    expect(isConclusiveTerm({ region: "kemer", term: "kemer" }, routeCatalog)).toBe(false);
   });
 
   test("an ilçe holding one price region can, so Kaş and Kumluca keep their evidence", () => {
-    expect(isConclusiveTerm({ region: "kas", term: "kas", ilce: "kas" }, routeCatalog)).toBe(true);
-    expect(isConclusiveTerm({ region: "kumluca", term: "kumluca", ilce: "kumluca" }, routeCatalog)).toBe(true);
+    expect(isConclusiveTerm({ region: "kas", term: "kas" }, routeCatalog)).toBe(true);
+    expect(isConclusiveTerm({ region: "kumluca", term: "kumluca" }, routeCatalog)).toBe(true);
   });
 
   test("a region with no ilçe gate is conclusive", () => {
-    expect(isConclusiveTerm({ region: "antalya", term: "lara", ilce: undefined }, routeCatalog)).toBe(true);
+    expect(isConclusiveTerm({ region: "antalya", term: "lara" }, routeCatalog)).toBe(true);
+  });
+
+  test("adding a second price region to an ilçe demotes that ilçe's own term", () => {
+    const pricier = { ...routeCatalog, kas: { ...routeCatalog.kas, prices: { vito: 999, sprinter: 999 } } };
+    expect(isConclusiveTerm({ region: "kas", term: "kas" }, pricier)).toBe(true); // kas is still alone in its ilçe
+    expect(isConclusiveTerm({ region: "side", term: "manavgat" }, pricier)).toBe(false);
   });
 });
 ```
@@ -164,16 +170,8 @@ Expected: FAIL — `isConclusiveTerm is not a function`.
 
 - [ ] **Step 3: Make it pass**
 
-Extend the import at `scripts/lib/hotel-region-audit.mjs:7`:
-
-```js
-import {
-  ADDRESS_REGION_TERMS, matchAddressRegionTerm, isOperationalHotelPlace,
-  looseNameMatch, LODGING_PLACE_TYPES,
-} from "./hotel-region-matching.mjs";
-```
-
-Add after `samePrices` (`:22`):
+Extend the import at `scripts/lib/hotel-region-audit.mjs:7` with
+`ADDRESS_REGION_TERMS`, then add after `samePrices` (`:22`):
 
 ```js
 /**
@@ -182,11 +180,16 @@ Add after `samePrices` (`:22`):
  * when every region inside that ilçe costs the same — true of Kaş and Kumluca,
  * false of Manavgat (Side €50, Kızılağaç €70) and Kemer (Kemer €55, Tekirova
  * €75), which is how 72 hotels came to be confirmed on the cheap side.
+ *
+ * The ilçe is looked up here rather than reported by matchAddressRegionTerm,
+ * so that function's return shape — and its twelve existing assertions — stay
+ * as they are.
  */
 export function isConclusiveTerm(match, routeCatalog) {
-  if (!match?.ilce || match.term !== match.ilce) return true;
+  const ilce = ADDRESS_REGION_TERMS.find(([region]) => region === match?.region)?.[2];
+  if (!ilce || match.term !== ilce) return true;
   const regions = ADDRESS_REGION_TERMS
-    .filter(([, , ilce]) => ilce === match.ilce)
+    .filter(([, , gate]) => gate === ilce)
     .map(([region]) => region);
   return regions.every((region) => samePrices(region, regions[0], routeCatalog));
 }
@@ -214,36 +217,36 @@ git commit -m "Decide whether an address term can decide a price"
 place would silently degrade to a loose match.
 
 **Files:**
-- Modify: `scripts/lib/hotel-region-matching.mjs` (export `placeIdentityKey`), `scripts/lib/hotel-region-audit.mjs:24-32`
+- Modify: `scripts/lib/hotel-region-matching.mjs:170` (add `export`), `scripts/lib/hotel-region-audit.mjs:24-32`
 - Test: `scripts/lib/hotel-region-audit.test.js`
 
 - [ ] **Step 1: Write the failing test**
 
 ```js
 describe("identity judged on the name", () => {
-  const bogazkentBelazur = { ...belazur, region: "bogazkent" };
+  const bogazkent = { ...belazur, region: "bogazkent" };
 
   test("an unusual place type no longer blocks verification", () => {
-    const row = classifyAuditRow(bogazkentBelazur, { place: place({ primaryType: "restaurant" }) }, routeCatalog);
+    const row = classifyAuditRow(bogazkent, { place: place({ primaryType: "restaurant" }) }, routeCatalog);
     expect(row.identityStrength).toBe("strict");
     expect(row.identityNotes).toEqual(["type"]);
-    expect(row.bucket).not.toBe("identity");
+    expect(row.identityReason).toBeUndefined();
   });
 
   test("a temporarily closed listing no longer blocks verification", () => {
-    const row = classifyAuditRow(bogazkentBelazur, { place: place({ businessStatus: "CLOSED_TEMPORARILY" }) }, routeCatalog);
+    const row = classifyAuditRow(bogazkent, { place: place({ businessStatus: "CLOSED_TEMPORARILY" }) }, routeCatalog);
     expect(row.identityStrength).toBe("strict");
     expect(row.identityNotes).toEqual(["status"]);
   });
 
   test("a different business still fails on the name", () => {
-    const row = classifyAuditRow(bogazkentBelazur, { place: place({ displayName: { text: "Bim Market" } }) }, routeCatalog);
+    const row = classifyAuditRow(bogazkent, { place: place({ displayName: { text: "Bim Market" } }) }, routeCatalog);
     expect(row.bucket).toBe("identity");
     expect(row.identityReason).toBe("name");
   });
 
   test("permanently closed still reaches gone without consulting identity", () => {
-    const row = classifyAuditRow(bogazkentBelazur, { place: place({ businessStatus: "CLOSED_PERMANENTLY" }) }, routeCatalog);
+    const row = classifyAuditRow(bogazkent, { place: place({ businessStatus: "CLOSED_PERMANENTLY" }) }, routeCatalog);
     expect(row.bucket).toBe("gone");
   });
 });
@@ -256,15 +259,17 @@ Expected: FAIL — the first two land in `identity` with reason `type` / `status
 
 - [ ] **Step 3: Make it pass**
 
-Export the key helper from `scripts/lib/hotel-region-matching.mjs` (a
-module-local const around `:170`):
+Export the key helper. The real definition spans **two lines**
+(`scripts/lib/hotel-region-matching.mjs:170-171`) — add the keyword, keep the
+body exactly as it is, or you strip generic-word handling repo-wide:
 
 ```js
 export const placeIdentityKey = (value) => ministryNameKey(value)
+  .split(" ").filter((word) => word && !GENERIC_IDENTITY_WORDS.has(word)).join(" ");
 ```
 
-Add it to the import list in `hotel-region-audit.mjs`, then replace
-`identityCheck` (`:24-32`):
+Add `placeIdentityKey` to the import list in `hotel-region-audit.mjs`, then
+replace `identityCheck` (`:24-32`):
 
 ```js
 /**
@@ -288,20 +293,23 @@ function identityCheck(names, place) {
 }
 ```
 
-Carry `identityNotes` onto every row that has an identity: in each `return`
-after the identity check (`:60`, `:68-72`, `:74-83`), add
-`identityNotes: identity.notes,`.
-
 Leave `isOperationalHotelPlace` untouched — `selectOperationalHotelPlace`
-(`hotel-region-matching.mjs:257`) still needs its stricter question.
+(`hotel-region-matching.mjs:259`) still needs its stricter question.
 
-- [ ] **Step 4: Run tests**
+- [ ] **Step 4: Rewrite the one existing test this reverses**
+
+`scripts/lib/hotel-region-audit.test.js:73` currently asserts
+`identity: non-lodging type` → `{ bucket: "identity", identityReason: "type" }`.
+That behaviour is deliberately gone. Replace the assertion with the new
+contract — a non-lodging type is a note, not a rejection — rather than deleting
+the case.
+
+- [ ] **Step 5: Run tests**
 
 Run: `npx vitest run scripts/lib/hotel-region-audit.test.js`
-Expected: PASS. Existing whole-row `toEqual` assertions need `identityNotes: []`
-added — update them, do not weaken them to `toMatchObject`.
+Expected: PASS.
 
-- [ ] **Step 5: Commit**
+- [ ] **Step 6: Commit**
 
 ```bash
 git add scripts/lib/hotel-region-matching.mjs scripts/lib/hotel-region-audit.mjs scripts/lib/hotel-region-audit.test.js
@@ -311,11 +319,6 @@ git commit -m "Judge hotel identity on the name, not on how Google files it"
 ---
 
 ### Task 4: Derive km ranges from the checkpoint
-
-The range population is rows whose address term was conclusive and whose
-coordinate, if it spoke, agreed. Computing it from the checkpoint rather than
-from the current run is what keeps a `--slug` run from bucketing a hotel
-differently than a full run on identical evidence.
 
 **Files:**
 - Modify: `scripts/lib/hotel-region-audit.mjs`
@@ -374,14 +377,12 @@ Expected: FAIL — neither function exists.
 
 - [ ] **Step 3: Make it pass**
 
-Add to `scripts/lib/hotel-region-audit.mjs`:
-
 ```js
 /**
  * Observed km span per region, over rows whose address term was conclusive and
- * whose coordinate did not contradict it. Derived from the checkpoint, not from
- * the rows one run happens to fetch, so `--slug` and `--max-calls` runs cannot
- * bucket a hotel differently from a full run on the same evidence.
+ * whose coordinate did not contradict it. Derived from the whole checkpoint, so
+ * `--slug` and `--max-calls` runs cannot bucket a hotel differently from a full
+ * run on the same evidence.
  */
 export function kmRangesFromCompleted(completed, hotelDistances) {
   const ranges = {};
@@ -422,10 +423,11 @@ git commit -m "Derive per-region km ranges from the audit checkpoint"
 
 ---
 
-### Task 5: Confirm a region only when two sources agree
+### Task 5: Split the classifier so stored rows can be re-judged
 
-The centre of the change. `classifyAuditRow` gains the coordinate and the km,
-and stops confirming on the address alone.
+This is the centre of the change, and the split is not cosmetic: a region's km
+range is unknown until every row's evidence exists, so classification has to be
+able to run a second time over stored rows with no network.
 
 **Files:**
 - Modify: `scripts/lib/hotel-region-audit.mjs:39-84`
@@ -433,17 +435,13 @@ and stops confirming on the address alone.
 
 - [ ] **Step 1: Write the failing test**
 
-Add the helper beside the existing fixtures:
+Add these fixtures beside the existing ones:
 
 ```js
 const withLocation = (overrides = {}) =>
   place({ location: { latitude: 36.85, longitude: 31.18 }, ...overrides });
 const ranges = { bogazkent: { min: 41, max: 44 }, belek: { min: 26, max: 40 } };
 const opts = (km) => ({ kmRanges: ranges, km });
-const samePricesForTest = (a, b) => {
-  const x = routeCatalog[a].prices, y = routeCatalog[b].prices;
-  return x.vito === y.vito && x.sprinter === y.sprinter;
-};
 ```
 
 ```js
@@ -455,7 +453,7 @@ describe("two agreeing sources", () => {
     expect(row.derivedRegion).toBe("bogazkent");
   });
 
-  test("two sources agree on another region: fix, not ok", () => {
+  test("two sources agree on a region the index does not use: fix, not ok", () => {
     const row = classifyAuditRow(belazur, { place: withLocation() }, routeCatalog, opts(43));
     expect(row.bucket).toBe("fix");
     expect(row.derivedRegion).toBe("bogazkent");
@@ -469,6 +467,14 @@ describe("two agreeing sources", () => {
     expect(row.agreeingSources).toBe(1);
   });
 
+  test("a coordinate on a band edge abstains and is not counted", () => {
+    const onEdge = place({ location: { latitude: 36.85, longitude: 31.134 } });
+    const row = classifyAuditRow({ ...belazur, region: "bogazkent" }, { place: onEdge }, routeCatalog, { kmRanges: {}, km: null });
+    expect(row.locationRegion).toBe(null);
+    expect(row.locationReview).toBe("near-pricing-boundary");
+    expect(row.agreeingSources).toBe(1);
+  });
+
   test("an inconclusive term abstains, so it cannot confirm alone", () => {
     const manavgatOnly = place({ addressComponents: components("Manavgat", "Antalya") });
     const row = classifyAuditRow({ ...belazur, region: "side" }, { place: manavgatOnly }, routeCatalog, { kmRanges: {}, km: null });
@@ -477,25 +483,14 @@ describe("two agreeing sources", () => {
     expect(row.bucket).not.toBe("ok");
   });
 
-  test("a coordinate on a band edge abstains", () => {
-    const onEdge = place({ location: { latitude: 36.85, longitude: 31.134 } });
-    const row = classifyAuditRow({ ...belazur, region: "bogazkent" }, { place: onEdge }, routeCatalog, opts(43));
-    expect(row.locationRegion).toBe(null);
-    expect(row.locationReview).toBe("near-pricing-boundary");
-  });
-
-  test("side and manavgat are price-equivalent, so sources naming each agree", () => {
-    expect(samePricesForTest("side", "manavgat")).toBe(true);
-  });
-
   test("conflicting sources report the dearest candidate", () => {
     const kizilagac = place({ addressComponents: components("Kızılağaç", "Manavgat", "Antalya") });
     const row = classifyAuditRow({ ...belazur, region: "side" }, { place: kizilagac }, routeCatalog,
       { kmRanges: { alanya_bati: { min: 91, max: 118 } }, km: 100 });
     expect(row.bucket).toBe("unresolved");
     expect(row.unresolvedReason).toBe("conflict");
-    expect(row.candidateRegions).toContain("kizilagac");
-    expect(row.derivedRegion).toBe("kizilagac"); // dearer than alanya_bati on Sprinter
+    expect(row.candidateRegions).toEqual(expect.arrayContaining(["kizilagac", "alanya_bati"]));
+    expect(row.derivedRegion).toBe("kizilagac"); // 70/115 beats alanya_bati 70/90 on Sprinter
   });
 
   test("no evidence at all names no candidate", () => {
@@ -504,17 +499,40 @@ describe("two agreeing sources", () => {
     expect(row.unresolvedReason).toBe("no-evidence");
     expect(row.derivedRegion).toBe(null);
   });
+
+  test("a loose name pointing at another region stays residue, even on one source", () => {
+    const sibling = place({ displayName: { text: "Kirman Belazur Resort" }, addressComponents: components("Çamyuva", "Kemer", "Antalya") });
+    const row = classifyAuditRow({ ...belazur, region: "alanya_bati" }, { place: sibling }, routeCatalog, { kmRanges: {}, km: null });
+    expect(row.bucket).toBe("identity");
+    expect(row.identityReason).toBe("loose-name-region-conflict");
+  });
+});
+
+describe("classifyFromEvidence re-judges a stored row", () => {
+  test("the same evidence gains a source once a km range exists", () => {
+    const first = classifyAuditRow({ ...belazur, region: "bogazkent" }, { place: place() }, routeCatalog, { kmRanges: {}, km: 43 });
+    expect(first.bucket).toBe("unresolved");
+
+    const again = classifyFromEvidence(first, routeCatalog, { kmRanges: ranges, km: 43 });
+    expect(again.bucket).toBe("ok");
+    expect(again.agreeingSources).toBe(2);
+  });
+
+  test("a terminal row is returned untouched", () => {
+    const gone = classifyAuditRow(belazur, { notFound: true }, routeCatalog, {});
+    expect(classifyFromEvidence(gone, routeCatalog, { kmRanges: ranges, km: 43 })).toEqual(gone);
+  });
 });
 ```
 
 - [ ] **Step 2: Run it and watch it fail**
 
 Run: `npx vitest run scripts/lib/hotel-region-audit.test.js`
-Expected: FAIL — `classifyAuditRow` ignores a fourth argument and confirms on the address alone.
+Expected: FAIL — `classifyFromEvidence` does not exist and `classifyAuditRow` ignores its fourth argument.
 
 - [ ] **Step 3: Make it pass**
 
-Import `resolvePricingRegion` in `hotel-region-audit.mjs`, then add above
+Import `resolvePricingRegion` in `hotel-region-audit.mjs`. Add above
 `classifyAuditRow`:
 
 ```js
@@ -533,7 +551,7 @@ const dearest = (regions, routeCatalog) => [...regions].sort((a, b) => {
 /**
  * The region at least two sources name, preferring the index region so a row
  * that agrees with the index is never reported as a move. Price-equivalent
- * regions count as the same answer: side and manavgat are both 50/85.
+ * regions count as one answer: side and manavgat are both 50/85.
  */
 function agreedRegion(sources, indexRegion, routeCatalog) {
   const ordered = [...sources].sort((a, b) =>
@@ -547,93 +565,123 @@ function agreedRegion(sources, indexRegion, routeCatalog) {
 }
 ```
 
-Change the signature to accept the new inputs:
+Replace `classifyAuditRow` with the pair. `extractEvidence` keeps everything the
+network can tell us; `bucket: null` marks a row still awaiting judgement:
 
 ```js
-export function classifyAuditRow(hotel, details, routeCatalog, options = {}) {
-```
-
-Extend `base` so every row has one shape:
-
-```js
+/**
+ * Derives everything one Places response can say about a hotel. Rows that end
+ * here — gone, or an identity that names another business — carry a bucket.
+ * Everything else carries `bucket: null` and waits for classifyFromEvidence,
+ * because a region's km range is not known until every row has been extracted.
+ *
+ * The coordinate is read here and never returned: the checkpoint may not carry
+ * Places content, and resolvePricingRegion is built for that.
+ */
+export function extractEvidence(hotel, details, routeCatalog) {
+  const base = {
+    slug: hotel.slug, name: hotel.name, regionSource: hotel.regionSource,
+    indexRegion: hotel.region, derivedRegion: null, matchedTerm: null,
     addressRegion: null, locationRegion: null, locationReview: null, kmRegion: null,
-    agreeingSources: 0, candidateRegions: [], unresolvedReason: null, identityNotes: [],
-```
+    identityVerified: false, identityStrength: null, identityNotes: [],
+    agreeingSources: 0, candidateRegions: [], unresolvedReason: null,
+    bucket: null, euroDelta: 0, priceEquivalent: false,
+  };
+  const place = details?.place;
+  if (details?.notFound || !place || place.businessStatus === "CLOSED_PERMANENTLY") {
+    return { ...base, bucket: "gone", identityReason: place ? "status" : "missing" };
+  }
+  const identity = identityCheck([hotel.name, ...(hotel.aliases ?? [])], place);
+  if (identity.reason) return { ...base, bucket: "identity", identityReason: identity.reason };
 
-Then replace the body from the address match onward (`:59-83`):
-
-```js
   const match = matchAddressRegionTerm(place.addressComponents);
-  const addressRegion = match && isConclusiveTerm(match, routeCatalog) ? match.region : null;
-
-  // The coordinate is read here and never returned: the checkpoint may not
-  // carry Places content, and resolvePricingRegion is built for that.
   const located = resolvePricingRegion(place.location);
-  const locationRegion = located.review ? null : located.region;
-
-  const kmRegion = kmRegionFor(Number(options.km), options.kmRanges ?? {});
-
-  const evidence = {
-    addressRegion,
+  return {
+    ...base,
     matchedTerm: match?.term ?? null,
-    locationRegion,
+    addressRegion: match && isConclusiveTerm(match, routeCatalog) ? match.region : null,
+    locationRegion: located.review ? null : located.region,
     locationReview: located.review ? (located.reason ?? null) : null,
-    kmRegion,
     identityVerified: true,
     identityStrength: identity.strength,
     identityNotes: identity.notes,
   };
+}
 
-  const sources = [addressRegion, locationRegion, kmRegion].filter(Boolean);
-  const agreed = agreedRegion(sources, hotel.region, routeCatalog);
+/**
+ * Turns stored evidence into a verdict. Pure and network-free, so the script
+ * re-runs it over the whole checkpoint after every fetch loop, once the km
+ * ranges those rows imply are finally computable.
+ */
+export function classifyFromEvidence(row, routeCatalog, options = {}) {
+  if (row.bucket) return row;  // gone and identity failures are already final
 
-  if (!agreed) {
-    const candidates = [...new Set(sources)];
-    const proposed = candidates.length ? dearest(candidates, routeCatalog) : null;
+  const kmRegion = kmRegionFor(Number(options.km), options.kmRanges ?? {});
+  const sources = [row.addressRegion, row.locationRegion, kmRegion].filter(Boolean);
+  const candidates = [...new Set(sources)];
+  const agreed = agreedRegion(sources, row.indexRegion, routeCatalog);
+  const proposed = agreed?.region ?? (candidates.length ? dearest(candidates, routeCatalog) : null);
+
+  const priceEquivalent = Boolean(proposed) && proposed !== row.indexRegion
+    && samePrices(proposed, row.indexRegion, routeCatalog);
+  const agrees = proposed === row.indexRegion || priceEquivalent;
+
+  // Checked before the unresolved branch: a loose name match in another region
+  // may be a sibling property (Orange County Alanya vs Kemer), and that is
+  // residue however few sources spoke. Moving it would be the wrong call.
+  if (proposed && !agrees && row.identityStrength === "loose") {
     return {
-      ...base, ...evidence,
-      derivedRegion: proposed,
-      candidateRegions: candidates,
-      agreeingSources: candidates.length ? 1 : 0,
-      bucket: "unresolved",
-      unresolvedReason: sources.length === 0 ? "no-evidence"
-        : candidates.length === 1 ? "single-source" : "conflict",
-      euroDelta: proposed ? euroDelta(hotel.region, proposed, routeCatalog) : 0,
+      ...row, kmRegion, derivedRegion: proposed, agreeingSources: agreed?.count ?? 1,
+      bucket: "identity", identityReason: "loose-name-region-conflict",
+      euroDelta: euroDelta(row.indexRegion, proposed, routeCatalog),
     };
   }
 
-  const priceEquivalent = agreed.region !== hotel.region
-    && samePrices(agreed.region, hotel.region, routeCatalog);
-  const agrees = agreed.region === hotel.region || priceEquivalent;
-
-  // A loose name match is only trusted when the address or the coordinate
-  // corroborates the index: a similar name in a different region may be a
-  // sibling property (Orange County Alanya vs Kemer).
-  if (!agrees && identity.strength === "loose") {
+  if (!agreed) {
     return {
-      ...base, ...evidence,
-      derivedRegion: agreed.region, agreeingSources: agreed.count,
-      bucket: "identity", identityReason: "loose-name-region-conflict",
-      euroDelta: euroDelta(hotel.region, agreed.region, routeCatalog),
+      ...row, kmRegion, derivedRegion: proposed, candidateRegions: candidates,
+      agreeingSources: candidates.length ? 1 : 0, bucket: "unresolved",
+      unresolvedReason: sources.length === 0 ? "no-evidence"
+        : candidates.length === 1 ? "single-source" : "conflict",
+      euroDelta: proposed ? euroDelta(row.indexRegion, proposed, routeCatalog) : 0,
     };
   }
 
   return {
-    ...base, ...evidence,
-    derivedRegion: agreed.region,
-    agreeingSources: agreed.count,
+    ...row, kmRegion, derivedRegion: agreed.region, agreeingSources: agreed.count,
     bucket: agrees ? "ok" : "fix",
-    euroDelta: agrees ? 0 : euroDelta(hotel.region, agreed.region, routeCatalog),
+    euroDelta: agrees ? 0 : euroDelta(row.indexRegion, agreed.region, routeCatalog),
     priceEquivalent,
   };
+}
+
+/** Convenience for tests and one-shot use: extract, then judge. */
+export const classifyAuditRow = (hotel, details, routeCatalog, options = {}) =>
+  classifyFromEvidence(extractEvidence(hotel, details, routeCatalog), routeCatalog, options);
 ```
 
-- [ ] **Step 4: Run tests**
+- [ ] **Step 4: Rewrite the six existing tests whose outcome this changes**
+
+These call `classifyAuditRow` with three arguments, and the shared `place()`
+fixture (`scripts/lib/hotel-region-audit.test.js:11-18`) has **no `location`** —
+so `resolvePricingRegion(undefined)` abstains and each row now has one source.
+Decide each deliberately; do not paper over them by adding fields:
+
+| Line | Was | Do |
+|---|---|---|
+| `:26` Belazur regression | `fix` | Add `location` to the fixture so two sources agree; keep asserting `fix` — this is the motivating case |
+| `:35` ok, regions agree | `ok` | Add `location`; keep asserting `ok` |
+| `:41` price-equivalent manavgat→side | `ok` | **Invert.** `manavgat` is now inconclusive, so this asserts the opposite: `addressRegion` is null and the row cannot confirm on it |
+| `:57` aliases accepted | `fix` | Add `location`; keep asserting `fix` |
+| `:62` loose name ok | `ok` | Add `location`; keep asserting `ok` |
+| `:67` loose-name-region-conflict | `identity` | Unchanged outcome — the loose branch now runs before `unresolved`. Verify it still passes |
+
+- [ ] **Step 5: Run tests**
 
 Run: `npx vitest run scripts/lib/hotel-region-audit.test.js`
-Expected: PASS. Older whole-row `toEqual` assertions need the new fields; update them.
+Expected: PASS.
 
-- [ ] **Step 5: Commit**
+- [ ] **Step 6: Commit**
 
 ```bash
 git add scripts/lib/hotel-region-audit.mjs scripts/lib/hotel-region-audit.test.js
@@ -651,23 +699,23 @@ git commit -m "Confirm a hotel's region only when two sources agree"
 - [ ] **Step 1: Write the failing test**
 
 ```js
-test("the table shows which sources spoke", () => {
+test("the table shows why a row was not confirmed", () => {
   const report = buildAuditReport([{
     slug: "x", bucket: "unresolved", euroDelta: 20, indexRegion: "side",
     derivedRegion: "kizilagac", matchedTerm: "manavgat", regionSource: "district",
     addressRegion: null, locationRegion: null, kmRegion: "kizilagac",
     agreeingSources: 1, unresolvedReason: "single-source",
   }], { generatedAt: "2026-09-11T00:00:00.000Z", indexed: 1 });
-  const table = renderAuditTable(report);
-  expect(table).toContain("agreeingSources");
-  expect(table).toContain("single-source");
+  const row = renderAuditTable(report).split("\n").find((line) => line.startsWith("| x |"));
+  expect(row).toContain("single-source");
+  expect(row).toContain("kizilagac");
 });
 ```
 
 - [ ] **Step 2: Run it and watch it fail**
 
 Run: `npx vitest run scripts/lib/hotel-region-audit.test.js`
-Expected: FAIL — the columns are not rendered.
+Expected: FAIL — those columns are not rendered.
 
 - [ ] **Step 3: Make it pass**
 
@@ -676,6 +724,9 @@ const COLUMNS = ["slug", "bucket", "euroDelta", "indexRegion", "derivedRegion", 
   "addressRegion", "locationRegion", "kmRegion", "agreeingSources", "unresolvedReason",
   "regionSource", "identityStrength", "identityReason", "identityNotes"];
 ```
+
+`identityNotes` is an array and renders through `Array.prototype.toString` as
+`status,type`. That is fine inside a pipe table; do not add a join.
 
 - [ ] **Step 4: Run tests**
 
@@ -691,13 +742,16 @@ git commit -m "Report which evidence sources spoke for each hotel"
 
 ---
 
-### Task 7: Wire the audit script
+### Task 7: Wire the script, and re-judge every row after the loop
 
-No unit test drives this task — it is network and file plumbing. Step 4 and the
-full run in Task 9 verify it.
+The reclassification pass is not optional. On the first run after Tasks 1–6 the
+rules hash has changed, so `scripts/audit-hotel-regions.mjs:69-71` empties
+`checkpoint.completed` — meaning km ranges are empty while the loop runs, and
+every row would be judged without source 3. Re-judging after the loop, when all
+evidence exists, is what makes the km source work at all.
 
 **Files:**
-- Modify: `scripts/audit-hotel-regions.mjs:99`, before `:116`, `:124-126`
+- Modify: `scripts/audit-hotel-regions.mjs:99`, `:126-128`, after the fetch loop
 
 - [ ] **Step 1: Request the coordinate**
 
@@ -707,29 +761,36 @@ At `:99`:
       "X-Goog-FieldMask": "id,displayName,formattedAddress,addressComponents,businessStatus,primaryType,location",
 ```
 
-- [ ] **Step 2: Compute the ranges once, before the loop**
+- [ ] **Step 2: Store evidence, not a verdict, inside the loop**
 
-Immediately before `const pending = ...` (`:116`):
-
-```js
-// Ranges come from the whole checkpoint, not from this run's targets, so a
-// --slug or --max-calls run buckets a hotel exactly as a full run would.
-const kmRanges = kmRangesFromCompleted(checkpoint.completed, hotelDistances);
-```
-
-Add `kmRangesFromCompleted` to the import from `./lib/hotel-region-audit.mjs`.
-
-- [ ] **Step 3: Pass the evidence into the classifier**
-
-At `:124-126`:
+At `:126-128`, replace the `classifyAuditRow` call:
 
 ```js
     checkpoint.completed[hotel.slug] = {
-      ...classifyAuditRow(hotel, details, routeCatalog, {
-        kmRanges, km: Number(hotelDistances[hotel.slug]?.km),
-      }),
-      inputHash: inputHashes[hotel.slug],
+      ...extractEvidence(hotel, details, routeCatalog), inputHash: inputHashes[hotel.slug],
     };
+```
+
+Update the import from `./lib/hotel-region-audit.mjs` to bring in
+`extractEvidence`, `classifyFromEvidence` and `kmRangesFromCompleted`, and drop
+`classifyAuditRow` if it is no longer used.
+
+- [ ] **Step 3: Re-judge everything after the loop**
+
+Immediately after the `for (const hotel of pending)` loop closes and **before**
+`reconcileAuditFlags` is called at `:141`:
+
+```js
+// Every row is judged again here, not in the loop: a region's km range is not
+// known until all evidence exists, and a rules change empties the checkpoint so
+// the loop always starts with none. Costs no API calls and is idempotent.
+const kmRanges = kmRangesFromCompleted(checkpoint.completed, hotelDistances);
+for (const [slug, row] of Object.entries(checkpoint.completed)) {
+  checkpoint.completed[slug] = classifyFromEvidence(row, routeCatalog, {
+    kmRanges, km: Number(hotelDistances[slug]?.km),
+  });
+}
+await atomicJson(checkpointPath, checkpoint);
 ```
 
 - [ ] **Step 4: Verify the persistence guard still holds**
@@ -740,26 +801,113 @@ node scripts/audit-hotel-regions.mjs --slug kirman-belazur-resort-spa
 ```
 
 Expected: one Places call, a printed row carrying `locationRegion`, and **no
-throw** from the raw-data guard. A throw means a coordinate leaked onto the
-returned row — fix that before continuing.
+throw** from the raw-data guard at `:58`. A throw means a coordinate reached the
+row — fix that before continuing.
+
+Note that a `--slug` run now re-judges the whole checkpoint, which is correct:
+adding a row can widen a range, and every row should reflect the same ranges.
 
 - [ ] **Step 5: Commit**
 
 ```bash
 git add scripts/audit-hotel-regions.mjs
-git commit -m "Feed the coordinate and driving km into the region classifier"
+git commit -m "Judge every stored row again once the km ranges are known"
 ```
 
 ---
 
-### Task 8: Guard the two-source rule in CI
+### Task 8: Pin the three known cases as fixtures
+
+Required by the spec so the regression that started this work stays caught.
 
 **Files:**
-- Modify: `src/hotel-region-audit.test.js`
+- Modify: `scripts/lib/hotel-region-audit.test.js`
 
 - [ ] **Step 1: Write the failing test**
 
-Add beside the existing `checked`/hash test:
+```js
+describe("the three rows that motivated this work", () => {
+  const sideRanges = { side: { min: 54, max: 72 }, kizilagac: { min: 80, max: 88 } };
+  const kemerRanges = { kemer: { min: 43, max: 71 }, tekirova: { min: 75, max: 78 } };
+
+  test("Orange County Belek: named Belek, addressed Boğazkent, confirmed there", () => {
+    const hotel = { slug: "orange-county-resort-hotel-belek", name: "Orange County Resort Hotel Belek",
+      region: "bogazkent", regionSource: "district", aliases: ["Orange County Belek"] };
+    const details = { place: place({
+      displayName: { text: "Orange County Resort Hotel Belek" },
+      addressComponents: components("Boğazkent", "Serik", "Antalya"),
+      location: { latitude: 36.85, longitude: 31.18 },
+    }) };
+    const row = classifyAuditRow(hotel, details, routeCatalog,
+      { kmRanges: { bogazkent: { min: 41, max: 44 } }, km: 43 });
+    expect(row.bucket).toBe("ok");
+    expect(row.derivedRegion).toBe("bogazkent");
+  });
+
+  test("Caner Mountain: Kemer ilçe address cannot confirm it, km says Tekirova", () => {
+    const hotel = { slug: "caner-mountain-hotel", name: "Caner Mountain Hotel",
+      region: "kemer", regionSource: "district", aliases: [] };
+    const details = { place: place({
+      displayName: { text: "Caner Mountain Hotel" },
+      addressComponents: components("Kemer", "Antalya"),
+      location: { latitude: 36.50, longitude: 30.55 },
+    }) };
+    const row = classifyAuditRow(hotel, details, routeCatalog, { kmRanges: kemerRanges, km: 74 });
+    expect(row.addressRegion).toBe(null);
+    expect(row.bucket).not.toBe("ok");
+    expect(row.derivedRegion).toBe("tekirova");
+  });
+
+  test("La Benata: Manavgat ilçe address cannot confirm Side, km says Kızılağaç", () => {
+    const hotel = { slug: "la-benata-hotel", name: "LA BENATA HOTEL",
+      region: "side", regionSource: "discovery", aliases: [] };
+    const details = { place: place({
+      displayName: { text: "LA BENATA HOTEL" },
+      addressComponents: components("Manavgat", "Antalya"),
+      location: { latitude: 36.78, longitude: 31.60 },
+    }) };
+    const row = classifyAuditRow(hotel, details, routeCatalog, { kmRanges: sideRanges, km: 90 });
+    expect(row.addressRegion).toBe(null);
+    expect(row.bucket).not.toBe("ok");
+    expect(row.derivedRegion).toBe("kizilagac");
+  });
+});
+```
+
+- [ ] **Step 2: Run it and watch it fail, then adjust the fixtures**
+
+Run: `npx vitest run scripts/lib/hotel-region-audit.test.js`
+
+The coordinates above are approximations. If a case fails on `locationRegion`,
+check what `resolvePricingRegion` returns for that coordinate and move the
+fixture — **do not loosen the assertion**. These fixtures are synthetic; they do
+not have to be the hotels' real coordinates, only coordinates in the right band.
+
+- [ ] **Step 3: Commit**
+
+```bash
+git add scripts/lib/hotel-region-audit.test.js
+git commit -m "Pin the three hotels that motivated the evidence change"
+```
+
+---
+
+### Task 9: Guard the rule, run the audit, act on what it finds
+
+The guard test and the run belong together: the guard fails for every row until
+the audit rewrites the checkpoint, so committing it alone would leave an
+open-ended red that only a paid run and human research can clear.
+
+The run is a **full re-fetch of all 1246 hotels** — `auditRulesHash` hashes whole
+files, so every `inputHash` changed. Budget for it. The checkpoint resumes, so an
+interrupted run costs nothing extra.
+
+**Files:**
+- Modify: `src/hotel-region-audit.test.js`, `src/hotel-index.js`, `scripts/hotel-discovery-pilot/region-price-matches.json`
+
+- [ ] **Step 1: Add the guard test**
+
+Beside the existing `checked`/hash test:
 
 ```js
 test("every ok row rests on two agreeing sources naming its index region", () => {
@@ -775,32 +923,7 @@ test("every ok row rests on two agreeing sources naming its index region", () =>
 });
 ```
 
-- [ ] **Step 2: Run it and watch it fail**
-
-Run: `npx vitest run src/hotel-region-audit.test.js`
-Expected: FAIL for every row — the committed checkpoint predates this work and
-has no `agreeingSources`. **This is the expected state until Task 9 rewrites the
-checkpoint.** Do not weaken the test to make it pass.
-
-- [ ] **Step 3: Commit the test, red**
-
-```bash
-git add src/hotel-region-audit.test.js
-git commit -m "Guard that every confirmed hotel rests on two agreeing sources"
-```
-
----
-
-### Task 9: Run the audit and act on what it finds
-
-The first run is a **full paid re-fetch of all 1246 hotels**: `auditRulesHash`
-hashes whole files, so every row's `inputHash` changed in Tasks 1–5. Budget for
-it. The checkpoint resumes, so an interrupted run costs nothing extra.
-
-**Files:**
-- Modify: `src/hotel-index.js` (seed moves), `scripts/hotel-discovery-pilot/region-price-matches.json` (discovery moves), `src/hotel-region-audit.test.js` (allowlist)
-
-- [ ] **Step 1: Run the full audit**
+- [ ] **Step 2: Run the full audit**
 
 ```bash
 set -a; . ./.env; set +a
@@ -810,17 +933,17 @@ node scripts/audit-hotel-regions.mjs
 Expected: ~1246 calls, exit 0. On a nonzero exit, run it again with no arguments
 to resume — do not pass `--redo`.
 
-- [ ] **Step 2: Read the report**
+- [ ] **Step 3: Read the report**
 
 `scripts/hotel-region-audit/report.md`, ordered by € at risk.
 
-- [ ] **Step 3: Correct each `fix` row by its population**
+- [ ] **Step 4: Correct each `fix` row by its population**
 
 Follow `.claude/skills/hotel-region-audit/SKILL.md`. Two are expected:
 
 - `caner-mountain-hotel` — `regionSource: district`. Move the tuple at
-  `src/hotel-index.js:403` from the Kemer block into the Tekirova block with a
-  one-line reason saying why the seed was wrong.
+  `src/hotel-index.js:403` from the Kemer block into the Tekirova block, with a
+  one-line comment saying why the seed was wrong.
 - `la-benata-hotel` — `regionSource: discovery`. **Do not edit
   `src/hotel-index-discovered.js`; hand edits there are regenerated away.** Set
   `pricingRegion`, `pricingName`, `prices` and `originalPrices` in
@@ -833,35 +956,37 @@ Re-verify each through the same path, never by hand-editing `checked`:
 node scripts/audit-hotel-regions.mjs --slug caner-mountain-hotel
 ```
 
-- [ ] **Step 4: Research `throne-nilbahir-resort-spa`**
+- [ ] **Step 5: Research `throne-nilbahir-resort-spa`**
 
 93 km, priced `side`. Confirm its real location on the web and correct it as a
 discovery row. If the evidence splits across a price boundary, file it under the
 dearer region per `src/hotel-index.js:38`.
 
-- [ ] **Step 5: Rebuild the reports and run the suite**
+- [ ] **Step 6: Rebuild and run the full suite**
 
 ```bash
-node scripts/audit-hotel-regions.mjs   # 0 calls, rebuilds from the checkpoint
+node scripts/audit-hotel-regions.mjs   # 0 calls; re-judges and rebuilds the reports
 npm test
 ```
 
-Expected: the Task 8 guard passes. Any remaining non-`ok` row needs either a
+Expected: green, including both guards. Any remaining non-`ok` row needs either a
 correction or an `UNAUDITED_HOTEL_SLUGS` entry with a one-line reason and
 `— 2026-09`. Prefer correcting.
 
-- [ ] **Step 6: Commit**
+- [ ] **Step 7: Commit**
 
 ```bash
 git add -A
 git commit -m "Re-verify every hotel region against three sources of evidence"
 ```
 
-- [ ] **Step 7: Report the outcome**
+- [ ] **Step 8: Report the outcome**
 
 State the real bucket counts, every hotel that moved with its € delta, and how
 the allowlist changed. The spec's predictions were estimates; this run's numbers
-replace them.
+replace them. If many rows landed `unresolved` on `single-source`, say so plainly
+— that would mean the coordinate or km sources are contributing less than the
+spec assumed, and it is a result worth surfacing, not smoothing over.
 
 ---
 
@@ -883,8 +1008,8 @@ It currently describes one situation — an address naming a belde outside
 
 - [ ] **Step 2: Drop `type` and `status` from the `identity` entry**
 
-`identityReason` is now only `name` or `missing`; type and status travel in
-`identityNotes` and block nothing.
+`identityReason` is now `name`, `missing`, or `loose-name-region-conflict`; type
+and status travel in `identityNotes` and block nothing.
 
 - [ ] **Step 3: Point the Spec line at both specs**
 
@@ -902,7 +1027,7 @@ git commit -m "Document the three-source evidence model for operators"
 
 ## Done when
 
-- `npm test` passes, including the Task 8 guard over a rebuilt checkpoint
+- `npm test` passes, including both guards, over a rebuilt checkpoint
 - Every `ok` row records `agreeingSources >= 2`
 - Every hotel that moved is reported with its € delta
 - `UNAUDITED_HOTEL_SLUGS` holds only entries with a reason and a date
