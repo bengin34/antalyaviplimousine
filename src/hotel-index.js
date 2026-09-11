@@ -252,6 +252,9 @@ const seedRows = [
   ["Kirman Belazur Resort & Spa", "Boğazkent"],
   // All three were seeded as Belek, but their own addresses are Boğazkent
   // (audit 2026-09, €5/vehicle each).
+  // Its name says Belek and it was quoted as Belek, but its own address is
+  // Boğazkent, Serik — across the price line (audit 2026-09, €5/vehicle).
+  ["Orange County Resort Hotel Belek", "Boğazkent", ["Orange County Belek"]],
   ["Crystal Family Resort & Spa", "Boğazkent"],
   ["Port Nature Luxury Resort", "Boğazkent"],
   ["Belek Beach Resort Hotel", "Boğazkent"],

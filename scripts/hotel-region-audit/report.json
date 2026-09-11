@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-10T20:19:11.795Z",
-  "indexed": 1245,
-  "audited": 1245,
+  "generatedAt": "2026-09-11T09:15:08.382Z",
+  "indexed": 1246,
+  "audited": 1246,
   "counts": {
-    "ok": 1164,
+    "ok": 1165,
     "fix": 3,
     "unresolved": 7,
     "identity": 71,
@@ -12082,6 +12082,20 @@
       "priceEquivalent": false,
       "identityStrength": "loose",
       "inputHash": "2f6ae9c4bb9b178d57eab04aa08c8434fd0e061076a2b1a38c8c6effdf927509"
+    },
+    {
+      "slug": "orange-county-resort-hotel-belek",
+      "name": "Orange County Resort Hotel Belek",
+      "regionSource": "district",
+      "indexRegion": "bogazkent",
+      "derivedRegion": "bogazkent",
+      "matchedTerm": "bogazkent",
+      "identityVerified": true,
+      "bucket": "ok",
+      "euroDelta": 0,
+      "priceEquivalent": false,
+      "identityStrength": "loose",
+      "inputHash": "f6f17a484c096ee5c3705d7862cffae77e057f72507573db23d9642c9a1236be"
     },
     {
       "slug": "orange-county-resort-hotel-kemer",

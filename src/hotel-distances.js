@@ -4140,6 +4140,11 @@ export const hotelDistances = Object.freeze({
     "place": "ChIJtQE18VOs3BQRtE9MDZN3OR8",
     "checked": true
   },
+  "orange-county-resort-hotel-belek": {
+    "km": 43,
+    "place": "ChIJ0_YA5AxkwxQRt5vsjhhvIOw",
+    "checked": true
+  },
   "orange-county-resort-hotel-kemer": {
     "km": 60,
     "place": "ChIJM7R5v5G3wxQRQnz1GD2bT3s",

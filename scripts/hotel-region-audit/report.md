@@ -1,6 +1,6 @@
 # Hotel region audit
 
-Generated 2026-09-10T20:19:11.795Z. Audited 1245 of 1245. ok: 1164, fix: 3, unresolved: 7, identity: 71, gone: 0. 0 not yet audited, 0 failed fetches.
+Generated 2026-09-11T09:15:08.382Z. Audited 1246 of 1246. ok: 1165, fix: 3, unresolved: 7, identity: 71, gone: 0. 0 not yet audited, 0 failed fetches.
 
 | slug | bucket | euroDelta | indexRegion | derivedRegion | matchedTerm | regionSource | identityStrength | identityReason |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |

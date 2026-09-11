@@ -1219,20 +1219,6 @@
       "identityStrength": "strict",
       "inputHash": "415aca1f72c2315904e83df4e974951e9ae8ae43ce83c279970445c9903383df"
     },
-    "kirman-belazur-resort-spa": {
-      "slug": "kirman-belazur-resort-spa",
-      "name": "Kirman Belazur Resort & Spa",
-      "regionSource": "district",
-      "indexRegion": "bogazkent",
-      "derivedRegion": "bogazkent",
-      "matchedTerm": "bogazkent",
-      "identityVerified": true,
-      "bucket": "ok",
-      "euroDelta": 0,
-      "priceEquivalent": false,
-      "identityStrength": "strict",
-      "inputHash": "6323d3e27961b3dfb833ac3e7f4fb52af93ee934af716f4f0e148f7c7e3ecc82"
-    },
     "crystal-family-resort-spa": {
       "slug": "crystal-family-resort-spa",
       "name": "Crystal Family Resort & Spa",
@@ -17434,8 +17420,36 @@
       "priceEquivalent": false,
       "identityStrength": "strict",
       "inputHash": "5bae0942372f580caaf9a089f80103c0da87d58223ab556f41ab6e3e60823fd7"
+    },
+    "orange-county-resort-hotel-belek": {
+      "slug": "orange-county-resort-hotel-belek",
+      "name": "Orange County Resort Hotel Belek",
+      "regionSource": "district",
+      "indexRegion": "bogazkent",
+      "derivedRegion": "bogazkent",
+      "matchedTerm": "bogazkent",
+      "identityVerified": true,
+      "bucket": "ok",
+      "euroDelta": 0,
+      "priceEquivalent": false,
+      "identityStrength": "loose",
+      "inputHash": "f6f17a484c096ee5c3705d7862cffae77e057f72507573db23d9642c9a1236be"
+    },
+    "kirman-belazur-resort-spa": {
+      "slug": "kirman-belazur-resort-spa",
+      "name": "Kirman Belazur Resort & Spa",
+      "regionSource": "district",
+      "indexRegion": "bogazkent",
+      "derivedRegion": "bogazkent",
+      "matchedTerm": "bogazkent",
+      "identityVerified": true,
+      "bucket": "ok",
+      "euroDelta": 0,
+      "priceEquivalent": false,
+      "identityStrength": "strict",
+      "inputHash": "6323d3e27961b3dfb833ac3e7f4fb52af93ee934af716f4f0e148f7c7e3ecc82"
     }
   },
   "failures": {},
-  "calls": 2978
+  "calls": 2980
 }
