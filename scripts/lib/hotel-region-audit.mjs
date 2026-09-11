@@ -278,7 +278,9 @@ export function buildAuditReport(rows, { generatedAt, indexed }) {
   return { schemaVersion: 1, generatedAt, indexed, audited: rows.length, counts, rows: ordered };
 }
 
-const COLUMNS = ["slug", "bucket", "euroDelta", "indexRegion", "derivedRegion", "matchedTerm", "regionSource", "identityStrength", "identityReason"];
+const COLUMNS = ["slug", "bucket", "euroDelta", "indexRegion", "derivedRegion", "matchedTerm",
+  "addressRegion", "locationRegion", "kmRegion", "agreeingSources", "unresolvedReason",
+  "regionSource", "identityStrength", "identityReason", "identityNotes"];
 
 export function renderAuditTable(report) {
   const head = `| ${COLUMNS.join(" | ")} |\n| ${COLUMNS.map(() => "---").join(" | ")} |`;

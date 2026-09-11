@@ -354,3 +354,17 @@ describe("two agreeing sources", () => {
     });
   });
 });
+
+describe("report columns", () => {
+  test("the table shows why a row was not confirmed", () => {
+    const report = buildAuditReport([{
+      slug: "x", bucket: "unresolved", euroDelta: 20, indexRegion: "side",
+      derivedRegion: "kizilagac", matchedTerm: "manavgat", regionSource: "district",
+      addressRegion: null, locationRegion: null, kmRegion: "kizilagac",
+      agreeingSources: 1, unresolvedReason: "single-source",
+    }], { generatedAt: "2026-09-11T00:00:00.000Z", indexed: 1 });
+    const row = renderAuditTable(report).split("\n").find((line) => line.startsWith("| x |"));
+    expect(row).toContain("single-source");
+    expect(row).toContain("kizilagac");
+  });
+});
