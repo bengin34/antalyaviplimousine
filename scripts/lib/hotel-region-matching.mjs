@@ -123,7 +123,7 @@ const ministryDistrictKey = (value) => String(value ?? "")
 // with ministryNameKey) also appears as its own address component. Generic
 // mahalle names (Cumhuriyet, Saray, Ilıca) exist in several ilçes, and
 // without the guard the first region in scan order would claim them.
-const ADDRESS_REGION_TERMS = Object.freeze([
+export const ADDRESS_REGION_TERMS = Object.freeze([
   ["demirtas", ["demirtas", "yesiloz"], "alanya"],
   ["kargicak", ["kargicak"], "alanya"],
   ["alanya_dogu", ["kestel", "mahmutlar"], "alanya"],
