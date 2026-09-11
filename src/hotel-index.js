@@ -401,6 +401,11 @@ const seedRows = [
   // Seeded as Antalya merkez off the city listing, but their own addresses
   // are in Kemer and its beldes (audit 2026-09, €20/vehicle each).
   ["Caner Mountain Hotel", "Kemer"],
+  // Seeded as Antalya merkez; its coordinate and its 60 km from AYT both place
+  // it in Kemer, 20 km past the Antalya price line (audit 2026-09, €20/vehicle).
+  // Google lists it CLOSED_TEMPORARILY, which is why the old identity gate
+  // rejected it before ever reading its address.
+  ["Tu Casa Linda Otel", "Kemer"],
   ["Dg Hotels Rose Resort", "Kemer"],
   ["Güler Butık Hotel", "Beldibi"],
   ["Hotel Gold Stone", "Beldibi"],

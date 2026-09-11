@@ -1201,7 +1201,7 @@ export const discoveredHotelRows = Object.freeze([
   {
     "name": "LA BENATA HOTEL",
     "district": "Manavgat",
-    "region": "side",
+    "region": "alanya_bati",
     "placeId": "ChIJWZK_Spet3BQRGfONqE3xEO4"
   },
   {
@@ -1813,7 +1813,7 @@ export const discoveredHotelRows = Object.freeze([
   {
     "name": "SEDİR PARK JOY OTEL",
     "district": "Alanya",
-    "region": "demirtas",
+    "region": "kargicak",
     "placeId": "ChIJrRj-YTCbwxQRq0blRTGTOD4"
   },
   {
@@ -2083,7 +2083,7 @@ export const discoveredHotelRows = Object.freeze([
   {
     "name": "THRONE NİLBAHİR RESORT & SPA",
     "district": "Manavgat",
-    "region": "side",
+    "region": "alanya_bati",
     "placeId": "ChIJg7P7dPWr3BQRbVKeGRzyp7g"
   },
   {

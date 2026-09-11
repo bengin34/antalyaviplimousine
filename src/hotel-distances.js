@@ -90,7 +90,8 @@ export const hotelDistances = Object.freeze({
   },
   "adam-apart-hotel-2": {
     "km": 18,
-    "place": "ChIJtQvvKiWPwxQRHDDpu7BlSaY"
+    "place": "ChIJtQvvKiWPwxQRHDDpu7BlSaY",
+    "checked": true
   },
   "adam-eve-hotels": {
     "km": 37,
@@ -487,7 +488,8 @@ export const hotelDistances = Object.freeze({
   },
   "arma-pansiyon": {
     "km": 20,
-    "place": "ChIJlaSGXtaRwxQRTE2LyhbM2yM"
+    "place": "ChIJlaSGXtaRwxQRTE2LyhbM2yM",
+    "checked": true
   },
   "armas-beach-hotel": {
     "km": 59,
@@ -516,7 +518,8 @@ export const hotelDistances = Object.freeze({
   },
   "armas-sunrise-lara": {
     "km": 13,
-    "place": "ChIJZTiUeZWdwxQRhRDbW79UXVg"
+    "place": "ChIJZTiUeZWdwxQRhRDbW79UXVg",
+    "checked": true
   },
   "arsi-blue-beach-hotel": {
     "km": 132,
@@ -584,7 +587,8 @@ export const hotelDistances = Object.freeze({
   },
   "aspendos-extra-apart-otel": {
     "km": 25,
-    "place": "ChIJc_ZSRfaRwxQRFdX4zaEZYmk"
+    "place": "ChIJc_ZSRfaRwxQRFdX4zaEZYmk",
+    "checked": true
   },
   "aspendos-seaside-apart-otel": {
     "km": 25,
@@ -633,7 +637,8 @@ export const hotelDistances = Object.freeze({
   },
   "atlas-pansiyon": {
     "km": 17,
-    "place": "ChIJU2y4TxmQwxQRTL83BBaw9EQ"
+    "place": "ChIJU2y4TxmQwxQRTL83BBaw9EQ",
+    "checked": true
   },
   "avena-mountain-otel": {
     "km": 132,
@@ -1189,8 +1194,7 @@ export const hotelDistances = Object.freeze({
   },
   "caner-mountain-hotel": {
     "km": 74,
-    "place": "ChIJKfjPA9bIwxQRq5SqGaY5KuE",
-    "checked": true
+    "place": "ChIJKfjPA9bIwxQRq5SqGaY5KuE"
   },
   "cap-dperge-otel": {
     "km": 16,
@@ -1299,7 +1303,8 @@ export const hotelDistances = Object.freeze({
   },
   "cicerone-lodge-hotel": {
     "km": 16,
-    "place": "ChIJZZB-K_mRwxQRH3SWqvhv7es"
+    "place": "ChIJZZB-K_mRwxQRH3SWqvhv7es",
+    "checked": true
   },
   "citrus-luna-suite-hotel": {
     "km": 23,
@@ -1457,7 +1462,8 @@ export const hotelDistances = Object.freeze({
   },
   "collesium-garden-apart-otel": {
     "km": 32,
-    "place": "ChIJCVDYmgePwxQR5d-Dme0sCak"
+    "place": "ChIJCVDYmgePwxQR5d-Dme0sCak",
+    "checked": true
   },
   "comfort-basaran-otel": {
     "km": 16,
@@ -1520,7 +1526,8 @@ export const hotelDistances = Object.freeze({
   },
   "crystal-admiral-resort-spa": {
     "km": 85,
-    "place": "ChIJmZu8MGxTwxQRMeBnmDbvvlw"
+    "place": "ChIJmZu8MGxTwxQRMeBnmDbvvlw",
+    "checked": true
   },
   "crystal-aura-beach-resort-spa": {
     "km": 60,
@@ -2203,7 +2210,8 @@ export const hotelDistances = Object.freeze({
   },
   "gagarin-pub-hotel": {
     "km": 16,
-    "place": "ChIJD1uYDQaQwxQRVwOVM5AUpyg"
+    "place": "ChIJD1uYDQaQwxQRVwOVM5AUpyg",
+    "checked": true
   },
   "galaxy-beach": {
     "km": 143,
@@ -2755,7 +2763,8 @@ export const hotelDistances = Object.freeze({
   },
   "just-inn-city": {
     "km": 15,
-    "place": "ChIJkY7nTSeRwxQR-5jUX6fdvII"
+    "place": "ChIJkY7nTSeRwxQR-5jUX6fdvII",
+    "checked": true
   },
   "justiniano-deluxe-resort": {
     "km": 94,
@@ -3087,7 +3096,8 @@ export const hotelDistances = Object.freeze({
   },
   "kuyu-beergarden-hostel": {
     "km": 16,
-    "place": "ChIJwZoCjoSRwxQRA8OeJyRmjB4"
+    "place": "ChIJwZoCjoSRwxQRA8OeJyRmjB4",
+    "checked": true
   },
   "kylo-garden-hotel": {
     "km": 23,
@@ -3105,8 +3115,7 @@ export const hotelDistances = Object.freeze({
   },
   "la-benata-hotel": {
     "km": 90,
-    "place": "ChIJWZK_Spet3BQRGfONqE3xEO4",
-    "checked": true
+    "place": "ChIJWZK_Spet3BQRGfONqE3xEO4"
   },
   "la-brisa-hotel": {
     "km": 31,
@@ -3263,7 +3272,8 @@ export const hotelDistances = Object.freeze({
   },
   "latanya-palm-spa-airport": {
     "km": 13,
-    "place": "ChIJx_aRBzaFwxQRhzr5xoYa6zE"
+    "place": "ChIJx_aRBzaFwxQRhzr5xoYa6zE",
+    "checked": true
   },
   "lavia-hotels-lara": {
     "km": 17,
@@ -4073,7 +4083,8 @@ export const hotelDistances = Object.freeze({
   },
   "old-house-hotel-pub": {
     "km": 16,
-    "place": "ChIJFxL8fQaQwxQRVkFsP7oasfM"
+    "place": "ChIJFxL8fQaQwxQRVkFsP7oasfM",
+    "checked": true
   },
   "old-town-deluxe-flats-apart-otel": {
     "km": 16,
@@ -4515,7 +4526,8 @@ export const hotelDistances = Object.freeze({
   },
   "rai-premium-tekirova": {
     "km": 76,
-    "place": "ChIJh-lnFp7KwxQRnxhZiFDEONA"
+    "place": "ChIJh-lnFp7KwxQRnxhZiFDEONA",
+    "checked": true
   },
   "ramada-plaza-antalya": {
     "km": 16,
@@ -4783,7 +4795,8 @@ export const hotelDistances = Object.freeze({
   },
   "royal-homes-704": {
     "km": 17,
-    "place": "ChIJQ3eaGKiRwxQRCTuFCmSwThQ"
+    "place": "ChIJQ3eaGKiRwxQRCTuFCmSwThQ",
+    "checked": true
   },
   "royal-loft-suit": {
     "km": 26,
@@ -4987,7 +5000,8 @@ export const hotelDistances = Object.freeze({
   },
   "selectum-family-comfort-side": {
     "km": 80,
-    "place": "ChIJz-C9WfpTwxQRSSdKLkqtNR0"
+    "place": "ChIJz-C9WfpTwxQRSSdKLkqtNR0",
+    "checked": true
   },
   "selectum-family-resort-belek": {
     "km": 40,
@@ -5285,7 +5299,8 @@ export const hotelDistances = Object.freeze({
   },
   "sirius-town-residence-and-spa": {
     "km": 16,
-    "place": "ChIJ8f9LrcCCwxQRzcgBVy-ug14"
+    "place": "ChIJ8f9LrcCCwxQRzcgBVy-ug14",
+    "checked": true
   },
   "sirma-otel": {
     "km": 64,
@@ -5587,11 +5602,13 @@ export const hotelDistances = Object.freeze({
   },
   "the-lifeco-antalya-well-being-detox-center-and-vegan-hotel": {
     "km": 17,
-    "place": "ChIJv4bBO6KawxQRTxA7uFE1lbs"
+    "place": "ChIJv4bBO6KawxQRTxA7uFE1lbs",
+    "checked": true
   },
   "the-lifeco-antalya-well-being-detox-center-otel": {
     "km": 17,
-    "place": "ChIJv4bBO6KawxQRTxA7uFE1lbs"
+    "place": "ChIJv4bBO6KawxQRTxA7uFE1lbs",
+    "checked": true
   },
   "the-little-prince-boutique-otel": {
     "km": 16,
@@ -5750,7 +5767,8 @@ export const hotelDistances = Object.freeze({
   },
   "tu-casa-linda-otel": {
     "km": 60,
-    "place": "ChIJv8PY7IWRwxQRPJDVWQxVip0"
+    "place": "ChIJv8PY7IWRwxQRPJDVWQxVip0",
+    "checked": true
   },
   "tui-blue-palm-garden": {
     "km": 80,
@@ -5983,7 +6001,8 @@ export const hotelDistances = Object.freeze({
   },
   "washington-resort-hotel-spa": {
     "km": 80,
-    "place": "ChIJ1ZxMfvpTwxQR_04VRUHPw3g"
+    "place": "ChIJ1ZxMfvpTwxQR_04VRUHPw3g",
+    "checked": true
   },
   "water-side-resort-spa": {
     "km": 72,

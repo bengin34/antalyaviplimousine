@@ -1141,3 +1141,24 @@ git commit -m "Document the three-source evidence model for operators"
 - Every `ok` row records `agreeingSources >= 2`
 - Every hotel that moved is reported with its € delta
 - `UNAUDITED_HOTEL_SLUGS` holds only entries with a reason and a date
+
+---
+
+### Task 11: Let a conclusive address confirm its own region
+
+Added during execution. The first full run left seven correct hotels
+unconfirmable: their address names a real belde that matches the index, but no
+second source can reach them — five sit outside `resolvePricingRegion`'s
+corridor (Kaş, Kumluca), two fell on a band edge, and km cannot speak in a
+single-region ilçe. Exempting them would have been permanent.
+
+See the spec's Evidence model section for the reasoning. Implemented in
+`classifyFromEvidence` as `addressConfirms`, with the guard in
+`src/hotel-region-audit.test.js` widened to match, and unit tests covering:
+a conclusive term agreeing with the index confirms alone; a conclusive term
+naming somewhere else does not; an inconclusive term never does, however well it
+agrees.
+
+**Cost to know about:** this touched a hashed rules file, so it invalidated all
+1246 rows and required a second full paid Places run. Any future rule change
+does the same. Batch rule changes before running.

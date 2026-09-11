@@ -26,7 +26,10 @@ import { hotelIndex } from "../src/hotel-index.js";
 import { hotelDistances } from "../src/hotel-distances.js";
 import { routeCatalog } from "../src/routes.js";
 import { renderHotelDistancesFile } from "./lib/hotel-distances-merge.mjs";
-import { classifyAuditRow, buildAuditReport, renderAuditTable } from "./lib/hotel-region-audit.mjs";
+import {
+  extractEvidence, classifyFromEvidence, kmRangesFromCompleted,
+  buildAuditReport, renderAuditTable,
+} from "./lib/hotel-region-audit.mjs";
 import { auditInputHash, reconcileAuditFlags } from "./lib/hotel-audit-state.mjs";
 
 const key = process.env.GOOGLE_MAPS_API_KEY || process.env.GOOGLE_PLACES_API_KEY;
@@ -96,7 +99,7 @@ async function fetchDetails(placeId) {
     signal: AbortSignal.timeout(20000),
     headers: {
       "X-Goog-Api-Key": key,
-      "X-Goog-FieldMask": "id,displayName,formattedAddress,addressComponents,businessStatus,primaryType",
+      "X-Goog-FieldMask": "id,displayName,formattedAddress,addressComponents,businessStatus,primaryType,location",
     },
   });
   const body = await response.text();
@@ -124,7 +127,7 @@ for (const hotel of pending) {
   try {
     const details = placeId ? await fetchDetails(placeId) : { notFound: true };
     checkpoint.completed[hotel.slug] = {
-      ...classifyAuditRow(hotel, details, routeCatalog), inputHash: inputHashes[hotel.slug],
+      ...extractEvidence(hotel, details, routeCatalog), inputHash: inputHashes[hotel.slug],
     };
     delete checkpoint.failures[hotel.slug];
   } catch (error) {
@@ -136,6 +139,17 @@ for (const hotel of pending) {
   if (calls === 1 || calls % 50 === 0) console.error(`${calls}/${Math.min(pending.length, maxCalls)} Places Details calls`);
   await wait(100);
 }
+
+// Every row is judged again here, not in the loop: a region's km range is not
+// known until all evidence exists, and a rules change empties the checkpoint so
+// the loop always starts with none. Costs no API calls and is idempotent.
+const kmRanges = kmRangesFromCompleted(checkpoint.completed, hotelDistances);
+for (const [slug, row] of Object.entries(checkpoint.completed)) {
+  checkpoint.completed[slug] = classifyFromEvidence(row, routeCatalog, {
+    kmRanges, km: Number(hotelDistances[slug]?.km),
+  });
+}
+await atomicJson(checkpointPath, checkpoint);
 
 // Both grant and revoke checked flags from the current evidence.
 const next = reconcileAuditFlags(hotelDistances, checkpoint.completed);

@@ -357,15 +357,15 @@
       "MANAVGAT"
     ],
     "placeId": "ChIJWZK_Spet3BQRGfONqE3xEO4",
-    "pricingRegion": "side",
-    "pricingName": "Side",
+    "pricingRegion": "alanya_bati",
+    "pricingName": "Batı Alanya",
     "prices": {
-      "vito": 50,
-      "sprinter": 85
+      "vito": 70,
+      "sprinter": 90
     },
     "originalPrices": {
-      "vito": 60,
-      "sprinter": 100
+      "vito": 80,
+      "sprinter": 105
     },
     "status": "ready",
     "reviewReasons": []
@@ -499,15 +499,15 @@
       "MANAVGAT"
     ],
     "placeId": "ChIJg7P7dPWr3BQRbVKeGRzyp7g",
-    "pricingRegion": "side",
-    "pricingName": "Side",
+    "pricingRegion": "alanya_bati",
+    "pricingName": "Batı Alanya",
     "prices": {
-      "vito": 50,
-      "sprinter": 85
+      "vito": 70,
+      "sprinter": 90
     },
     "originalPrices": {
-      "vito": 60,
-      "sprinter": 100
+      "vito": 80,
+      "sprinter": 105
     },
     "status": "ready",
     "reviewReasons": []

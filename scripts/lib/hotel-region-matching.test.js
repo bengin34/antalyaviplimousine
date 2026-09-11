@@ -1,5 +1,6 @@
 import { describe, expect, test } from "vitest";
 import {
+  ADDRESS_REGION_TERMS,
   applyReviewedPlaceOverride,
   buildRegionMatch,
   groupCandidatesByPlace,
@@ -374,5 +375,12 @@ describe("ADDRESS_REGION_TERMS additions from the 2026-09 audit residue", () => 
     [["KARABURUN MEVKII OKURCALAR BELDESI Alanya", "region"], "alanya_bati", "karaburun"],
   ])("%j → %s via %s", (parts, region, term) => {
     expect(matchAddressRegionTerm(components(...parts))).toEqual({ region, term });
+  });
+});
+
+describe("ADDRESS_REGION_TERMS", () => {
+  test("the term table is exported so conclusiveness can be derived from it", () => {
+    const kizilagac = ADDRESS_REGION_TERMS.find(([region]) => region === "kizilagac");
+    expect(kizilagac).toEqual(["kizilagac", ["kizilagac", "kizilot", "cenger"], "manavgat"]);
   });
 });

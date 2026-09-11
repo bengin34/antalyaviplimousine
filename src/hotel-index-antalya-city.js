@@ -599,7 +599,6 @@ export const antalyaCitySeedRows = [
   ["Trend Suites", "Antalya merkez"],
   ["Trend Suites Cycle", "Antalya merkez"],
   ["Triana Hotel", "Antalya merkez"],
-  ["Tu Casa Linda Otel", "Antalya merkez"],
   // Google lists it as "Tuma Hotel" (rebrand or spelling; region audit 2026-09).
   ["Tumay Hotel", "Antalya merkez", ["Tuma Hotel"]],
   ["Tunali Apart Hotel", "Antalya merkez"],
