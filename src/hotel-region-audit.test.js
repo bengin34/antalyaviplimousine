@@ -107,6 +107,18 @@ describe("hotel region audit guard", () => {
     }
   });
 
+  test("every ok row rests on two agreeing sources naming its index region", () => {
+    const violations = [];
+    for (const [slug, row] of Object.entries(checkpoint.completed)) {
+      if (row?.bucket !== "ok") continue;
+      const agrees = row.derivedRegion === row.indexRegion || row.priceEquivalent === true;
+      if (!(row.agreeingSources >= 2) || !agrees) {
+        violations.push(`${slug}: sources=${row.agreeingSources} derived=${row.derivedRegion} index=${row.indexRegion}`);
+      }
+    }
+    expect(violations).toEqual([]);
+  });
+
   test("every indexed hotel is address-audited or explicitly allowlisted", () => {
     const unchecked = hotelIndex
       .filter((hotel) => !UNAUDITED_HOTEL_SLUGS.has(hotel.slug))
