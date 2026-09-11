@@ -368,3 +368,58 @@ describe("report columns", () => {
     expect(row).toContain("kizilagac");
   });
 });
+
+describe("the three rows that motivated this work", () => {
+  const sideRanges = { side: { min: 54, max: 72 }, kizilagac: { min: 80, max: 88 } };
+  const kemerRanges = { kemer: { min: 43, max: 71 }, tekirova: { min: 75, max: 78 } };
+
+  test("Orange County Belek: named Belek, addressed Boğazkent, confirmed there", () => {
+    const hotel = {
+      slug: "orange-county-resort-hotel-belek", name: "Orange County Resort Hotel Belek",
+      region: "bogazkent", regionSource: "district", aliases: ["Orange County Belek"],
+    };
+    const details = { place: place({
+      displayName: { text: "Orange County Resort Hotel Belek" },
+      addressComponents: components("Boğazkent", "Serik", "Antalya"),
+      location: { latitude: 36.85, longitude: 31.18 },
+    }) };
+    const row = classifyAuditRow(hotel, details, routeCatalog,
+      { kmRanges: { bogazkent: { min: 41, max: 44 }, belek: { min: 26, max: 42 } }, km: 43 });
+    expect(row.bucket).toBe("ok");
+    expect(row.derivedRegion).toBe("bogazkent");
+  });
+
+  test("Caner Mountain: Kemer ilçe cannot confirm it; coordinate and scoped km both say Tekirova", () => {
+    const hotel = {
+      slug: "caner-mountain-hotel", name: "Caner Mountain Hotel",
+      region: "kemer", regionSource: "district", aliases: [],
+    };
+    const details = { place: place({
+      displayName: { text: "Caner Mountain Hotel" },
+      addressComponents: components("Kemer", "Antalya"),
+      location: { latitude: 36.50, longitude: 30.55 },
+    }) };
+    const row = classifyAuditRow(hotel, details, routeCatalog, { kmRanges: kemerRanges, km: 74 });
+    expect(row.addressRegion).toBe(null);      // Kemer ilçe decides nothing
+    expect(row.kmRegion).toBe("tekirova");     // 74 is nearer tekirova's 75 than kemer's 71
+    expect(row.bucket).toBe("fix");            // coordinate + km, against an index of kemer
+    expect(row.derivedRegion).toBe("tekirova");
+  });
+
+  test("La Benata: Manavgat ilçe cannot confirm Side; coordinate and scoped km both say Kızılağaç", () => {
+    const hotel = {
+      slug: "la-benata-hotel", name: "LA BENATA HOTEL",
+      region: "side", regionSource: "discovery", aliases: [],
+    };
+    const details = { place: place({
+      displayName: { text: "LA BENATA HOTEL" },
+      addressComponents: components("Manavgat", "Antalya"),
+      location: { latitude: 36.78, longitude: 31.60 },
+    }) };
+    const row = classifyAuditRow(hotel, details, routeCatalog, { kmRanges: sideRanges, km: 90 });
+    expect(row.addressRegion).toBe(null);
+    expect(row.kmRegion).toBe("kizilagac");
+    expect(row.bucket).toBe("fix");
+    expect(row.derivedRegion).toBe("kizilagac");
+  });
+});
