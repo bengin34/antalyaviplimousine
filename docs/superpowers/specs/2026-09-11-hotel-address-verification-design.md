@@ -54,7 +54,7 @@ Three sources, each resolving to a pricing region or to nothing.
 |---|---|---|---|
 | 1 | Conclusive address term | `matchAddressRegionTerm` | Term's ilçe spans two price regions |
 | 2 | Coordinate → pricing region | `resolvePricingRegion` | Wrong Place ID; near a band edge; outside the corridor |
-| 3 | AYT driving km inside one region's range | `src/hotel-distances.js` | Ranges overlap (belek/bogazkent) or are wide (antalya) |
+| 3 | AYT driving km, among the candidates in play | `src/hotel-distances.js` | Fewer than two candidates; km fits several of them |
 
 **A row is `ok` when at least two sources name the same region *and* that region
 is the hotel's index region or price-equivalent to it.** The second half is not
@@ -138,29 +138,45 @@ Two properties matter to this design and neither is a defect to fix here:
 Kaş and Kumluca lie outside the corridor entirely and yield no source-2 region;
 they depend on sources 1 and 3, both of which speak there.
 
-### Source 3 — driving km
+### Source 3 — driving km, among the candidates in play
 
-Each region's range is the min and max stored km across rows whose **source 1 is
-conclusive and whose source 2, where it spoke, agreed** — never the whole index,
-so a misassigned hotel cannot widen the range that would have caught it. A hotel
-whose km falls inside exactly one region's range yields that region; inside
-several or none, nothing.
+Source 3 answers one narrow question: **which region, among those the other
+evidence has put in play, does this hotel's distance fit?** It is never asked to
+choose among all regions, and it never votes into an empty field.
 
-Ranges are computed **from the checkpoint at the start of a run**, across all
-completed rows, not from the rows this run happens to fetch. This is what keeps
-buckets deterministic under `--slug`, `--max-calls` and resume, where the current
-run's population may be a single row. On a checkpoint with no qualifying rows for
-a region, that region has no range and source 3 is silent there.
+The candidate set is the regions of the ilçe the address matched, plus the
+region the coordinate named. Fewer than two candidates and source 3 is silent —
+a single candidate would agree with itself and hand out a free second source.
 
-Ranges over today's data, for reference: kemer 43–71, tekirova 75–78, side 54–72,
-kizilagac 80–88, belek 26–42, bogazkent 41–44, antalya 3–43, kumluca 108–110,
-kas 202–208.
+That scoping is what makes the source work at all. Driving km from AYT is a
+one-dimensional projection of a two-dimensional coast, so regions in opposite
+directions sit at the same distance: Kemer spans 43–71 km and Side 54–72 km,
+almost entirely overlapping, though one is southwest of the airport and the
+other east. Compared globally, a Kemer hotel at 60 km falls inside both ranges
+and source 3 abstains — which is what happens to 67 of the 72 rows it exists to
+rescue. Compared within Kemer ilçe, where the only candidates are Kemer and
+Tekirova, the same 60 km is decisive.
 
-Its discriminating power is uneven and the design does not pretend otherwise.
-Kemer against Tekirova and Side against Kızılağaç separate cleanly — those are
-the two boundaries all 72 weak rows sit on, which is why source 3 earns its
-place. Belek and Boğazkent overlap at 41–42 and antalya spans 3–43, so source 3
-is silent there and source 2 carries those.
+Each region's range is the min and max stored km across rows whose address term
+was conclusive and whose coordinate, if it spoke, agreed. A km inside exactly
+one candidate's range names that region. Inside none, the nearest range boundary
+wins, provided it is at least 2 km nearer than the runner-up. Inside more than
+one, source 3 is silent.
+
+Ranges are computed **from the checkpoint**, across all completed rows, not from
+the rows a given run happens to fetch. This is what keeps buckets deterministic
+under `--slug`, `--max-calls` and resume, where the current run's population may
+be a single row.
+
+Measured over today's data, scoped comparison speaks for all 77 ilçe-evidence
+rows and proposes a different region for exactly four: `caner-mountain-hotel`
+(74 km, Kemer → Tekirova), `la-benata-hotel` (90 km, Side → Kızılağaç),
+`throne-nilbahir-resort-spa` (93 km, Side → Kızılağaç) and
+`alarcha-hotels-resort` (90 km, already residue for a loose-name conflict). The
+other 73 confirm in place.
+
+Ranges for reference: kemer 43–71, tekirova 75–78, side 54–72, kizilagac 80–88,
+belek 26–42, bogazkent 41–44, antalya 3–43, kumluca 108–110, kas 202–208.
 
 ## Identity
 
@@ -254,11 +270,13 @@ Its `identity` section must also drop `type` and `status` as failure reasons.
 Predictions from the current report, to be replaced by the real numbers from the
 first full pass:
 
-- **Caner Mountain Hotel** → tekirova and **La Benata Hotel** → kizilagac, +€20
-  per vehicle each, both currently `ok`.
-- **Throne Nilbahir Resort & Spa** flagged for research: 93 km, priced as side
-  (€50), past kizilagac's range.
-- The other 70 inconclusive-term rows should confirm in place on sources 2 and 3.
+- **Caner Mountain Hotel** → tekirova, **La Benata Hotel** → kizilagac and
+  **Throne Nilbahir Resort & Spa** → kizilagac, +€20 per vehicle each, all three
+  currently `ok`. Each should land `fix` rather than `unresolved`: the coordinate
+  and the scoped km agree, which is two sources.
+- **Alarcha Hotels Resort** (90 km, alanya_bati) is already residue for a
+  loose-name conflict and stays residue; the scoped km agrees with that doubt.
+- The other 73 inconclusive-term rows should confirm in place on sources 2 and 3.
   This is not a broad price rise.
 - Of the 23 rows failing on type or status, those whose names also match become
   verified. How many that is cannot be predicted, because their names have never
