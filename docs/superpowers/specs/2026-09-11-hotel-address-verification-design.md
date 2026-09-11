@@ -2,16 +2,17 @@
 
 An indexed hotel must be priced on the region it is actually in. Today that
 rests on a single piece of evidence — the text Google returns for its address —
-and where that text is thin or the hotel cannot be identified, nothing catches a
-wrong region. This design adds two independent sources of evidence and requires
-two of the three to agree before a region counts as verified.
+and where that text cannot distinguish a cheap belde from a dear one, nothing
+catches a wrong region. This design adds two independent sources of evidence and
+requires two of the three to agree before a region counts as verified.
 
 It changes the evidence model of
 `docs/superpowers/specs/2026-09-10-hotel-region-audit-design.md`. Everything
 else in that spec stands: the checkpoint, the bucket taxonomy, input hashes, the
-guard test, and — stated again here because this design depends on it — the rule
-that **the audit writes exactly one field, `checked`, and never edits the index.**
-Corrections stay a human step, following that spec's two-population procedure.
+guard test, and — restated here because this design depends on it — the rule that
+**the audit writes exactly one field, `checked`, and never edits the index**
+(`reconcileAuditFlags`, `scripts/lib/hotel-audit-state.mjs:17`). Corrections stay
+a human step, following that spec's two-population procedure.
 
 ## Why
 
@@ -19,28 +20,27 @@ Two hotels were quoted on the wrong region and found by hand, not by the audit.
 Tracing them exposed two holes, measured against the 2026-09-11 report (1246
 hotels: 1165 ok, 3 fix, 7 unresolved, 71 identity).
 
-**An ilçe name is accepted as belde evidence.** `ADDRESS_REGION_TERMS`
-(`scripts/lib/hotel-region-matching.mjs:126`) lists `manavgat` among `side`'s
-terms and `kemer` among `kemer`'s. Both ilçeler span two price regions — Manavgat
-holds Side (€50) and Kızılağaç (€70), Kemer holds Kemer (€55) and Tekirova (€75)
-— so an address naming only the ilçe cannot tell the cheap belde from the dear
-one. **72 rows are `ok` on exactly that evidence** (52 kemer, 20 manavgat), all
-on the cheap side. Two are demonstrably wrong: Caner Mountain Hotel is 74 km from
-AYT where Kemer's hotels sit at 44–68 km, and La Benata Hotel is 90 km where
-Side's sit at 55–71 km. The skill's own rule already forbids this — "Never add a
-term that spans two price regions" (`.claude/skills/hotel-region-audit/SKILL.md:56`)
-— but it was never enforced in code. `kas` and `kumluca` also appear as their own
-belde terms; each of those ilçeler holds a single price region, so they are safe
-and stay.
+**A term that cannot decide a price is treated as if it could.**
+`ADDRESS_REGION_TERMS` (`scripts/lib/hotel-region-matching.mjs:126`) lists
+`manavgat` among `side`'s terms and `kemer` among `kemer`'s. Both are ilçe names
+whose ilçe spans two price regions — Manavgat holds Side (€50) and Kızılağaç
+(€70), Kemer holds Kemer (€55) and Tekirova (€75) — so an address matching only
+that term cannot tell the cheap belde from the dear one. **72 rows are `ok` on
+exactly that evidence** (52 kemer, 20 manavgat), all on the cheap side, as are
+all 3 current `fix` rows. Two are demonstrably wrong: Caner Mountain Hotel is 74
+km from AYT where Kemer's hotels sit at 43–71 km, and La Benata Hotel is 90 km
+where Side's sit at 54–72 km. The skill already forbids this — "Never add a term
+that spans two price regions"
+(`.claude/skills/hotel-region-audit/SKILL.md:56`) — but it was never enforced in
+code.
 
 **One failed check discards every other kind of evidence.** 74 rows carry no
 address evidence: 67 failed identity (44 name, 18 type, 5 status) and 7 were
-identity-verified but matched no address term. `identityCheck`
+identity-verified but matched no term. `identityCheck`
 (`scripts/lib/hotel-region-audit.mjs:25`) tests status and type and returns
 before it ever compares the name, so those 23 type/status rows have never had
-their identity actually assessed — they were rejected for being listed under an
-unusual category or flagged temporarily closed, neither of which says anything
-about where a place is.
+their identity assessed. Being listed under an unusual category, or flagged
+temporarily closed, says nothing about where a place is.
 
 The ministry dataset (`scripts/hotel-discovery-pilot/unverified-ministry.json`,
 456 records) was considered as a second source and rejected: it carries ilçe
@@ -50,129 +50,180 @@ only, no belde and no address, so it reproduces the weakness it would have to fi
 
 Three sources, each resolving to a pricing region or to nothing.
 
-| # | Evidence | Source | Blind where |
+| # | Evidence | Source | Silent or wrong where |
 |---|---|---|---|
-| 1 | Belde name in address components | `matchAddressRegionTerm` | Address names only the ilçe |
-| 2 | Coordinate → pricing region | `resolvePricingRegion` | Place ID points at the wrong business; outside the corridor (Kaş, Kumluca) |
-| 3 | AYT driving km against the region's observed range | `src/hotel-distances.js` | Regions whose ranges overlap (belek/bogazkent) or are wide (antalya) |
+| 1 | Conclusive address term | `matchAddressRegionTerm` | Term's ilçe spans two price regions |
+| 2 | Coordinate → pricing region | `resolvePricingRegion` | Wrong Place ID; near a band edge; outside the corridor |
+| 3 | AYT driving km inside one region's range | `src/hotel-distances.js` | Ranges overlap (belek/bogazkent) or are wide (antalya) |
 
 **A row is `ok` when at least two sources name the same region *and* that region
-is the hotel's index region, or price-equivalent to it.** The second half is not
+is the hotel's index region or price-equivalent to it.** The second half is not
 optional: two sources agreeing on `tekirova` while the index says `kemer` is a
-`fix`, not a pass. This preserves the existing `agrees` condition at
-`scripts/lib/hotel-region-audit.mjs:73`; what changes is only how many sources
-must support the derived region.
+`fix`, not a pass. This preserves the existing `agrees` condition
+(`scripts/lib/hotel-region-audit.mjs:63`); what changes is how many sources must
+support the derived region. Two sources naming different but price-equivalent
+regions count as agreeing, using the existing `samePrices`
+(`scripts/lib/hotel-region-audit.mjs:18`) — `side` and `manavgat` are both 50/85
+and must not be treated as a conflict.
 
 When two sources agree on a region other than the index region, the row is `fix`
-and the report names that region. When no two sources agree — they conflict, or
-only one speaks — the row is `unresolved` and the report names **the dearest of
-the regions the evidence actually named**, which is the region the operator
-should write. Bounding the candidates to what the evidence named is what keeps
-this from proposing Kaş rates for an unidentifiable pension; a row with no
-evidence at all names no candidate and is reported as needing research.
+and the report names that region.
+
+When no two agree — they conflict, or only one spoke — the row is `unresolved`,
+`derivedRegion` holds **the dearest of the regions the evidence actually named**,
+and `candidateRegions` lists them all. That is the region the operator should
+write. Bounding candidates to what the evidence named keeps this from proposing
+Kaş rates for an unidentifiable pension; a row with no evidence names no
+candidate, leaves `derivedRegion` null, and is reported as needing research.
 
 "Dearest" compares Vito first and Sprinter as the tiebreaker, so kizilagac
-(70/115) is correctly dearer than alanya_bati (70/90). `euroDelta`
+(70/115) is dearer than alanya_bati (70/90). `euroDelta`
 (`scripts/lib/hotel-region-audit.mjs:12`) keeps reporting the Vito difference.
 
-This rule is the same principle as the price-boundary note in
-`src/hotel-index.js:38` and supersedes it for audited rows: the three `fix`
-entries in `UNAUDITED_HOTEL_SLUGS` that invoke it by hand
-(`src/hotel-region-audit.test.js:17-19`) are expected to resolve through the
-normal path and leave the allowlist.
+This is the same principle as the price-boundary note at `src/hotel-index.js:38`
+and supersedes it for audited rows; the three `fix` entries in
+`UNAUDITED_HOTEL_SLUGS` that invoke it by hand (`src/hotel-region-audit.test.js:17-19`)
+are expected to resolve through the normal path and leave the allowlist.
 
-### Source 1 — belde name
+### Source 1 — conclusive address term
 
-`manavgat` is removed from `side`'s term list and `kemer` from `kemer`'s. An
-address resolving only to an ilçe yields no source-1 region. The ilçe gate (the
-third tuple element) is unchanged and still scopes belde terms to their ilçe.
+A matched term is **conclusive when every region gated on that term's ilçe
+resolves to the same price**, and inconclusive otherwise. This is computed from
+`ADDRESS_REGION_TERMS` and `routeCatalog`, not hand-listed, so adding a region
+to an ilçe automatically demotes that ilçe's terms.
+
+Today exactly two terms are inconclusive: `manavgat` (Side / Kızılağaç) and
+`kemer` (Kemer / Tekirova). `kas` and `kumluca` are also ilçe names appearing as
+their own belde terms, but each of those ilçeler holds a single price region, so
+they stay conclusive and the five hotels relying on them are unaffected. Framing
+the rule as "an ilçe name is never evidence" would have deadlocked those five:
+source 2 is blind outside its corridor, leaving them one source and no path to
+`ok`.
+
+An inconclusive match still records its term, so the report can say why source 1
+abstained.
 
 ### Source 2 — coordinate
 
 **This is existing code, not new work.** `resolvePricingRegion`
-(`scripts/lib/hotel-region-matching.mjs:70`) already converts a Places
-coordinate into a pricing region through `EASTERN_BANDS` longitude bands plus a
-latitude split for the Kemer coast, already returns `{ review, reason }` for
-boundary and out-of-corridor cases, and already refuses to return the
-coordinate so callers can persist its verdict. It is in production use at
-`scripts/match-hotel-regions.mjs:119` and `scripts/review-hotel-regions.mjs:232`.
-Notably `EASTERN_BANDS` carries a dedicated `bogazkent` band (31.134–31.222),
-so source 2 separates exactly the Belek/Boğazkent boundary that motivated this
-work.
+(`scripts/lib/hotel-region-matching.mjs:70`) converts a Places coordinate into a
+pricing region through `EASTERN_BANDS` longitude bands plus a latitude split for
+the Kemer coast, returns `{ review, reason }` for boundary and out-of-corridor
+cases, and refuses to return the coordinate so callers may persist its verdict.
+It is in production use at `scripts/match-hotel-regions.mjs:119` and
+`scripts/review-hotel-regions.mjs:232`.
 
 The only change is wiring: the audit's field mask
-(`scripts/audit-hotel-regions.mjs:99`) gains `location`, and the classifier
-calls the function. A `review: true` result is recorded and does not count as an
+(`scripts/audit-hotel-regions.mjs:99`) gains `location`, and the classifier calls
+the function. A `review: true` result is recorded and does **not** count as an
 agreeing source.
 
-Kaş and Kumluca lie outside the corridor and yield no source-2 region. They
-depend on sources 1 and 3, and source 1 is reliable there because neither ilçe
-spans a price boundary.
+Two properties matter to this design and neither is a defect to fix here:
+
+- **It abstains near every band edge.** `LONGITUDE_REVIEW_MARGIN = 0.012`
+  (`scripts/lib/hotel-region-matching.mjs:1`) is roughly 1.1 km at this latitude,
+  so a hotel within about 1 km of the Belek/Boğazkent line returns `review: true`
+  and stays silent. Source 2 therefore does not *separate* that boundary; it
+  classifies confidently away from it and declines at it. A hotel that close to
+  the line reaches at most one agreeing source and takes the dearest-candidate
+  path — which is the outcome the price-boundary rule already asks for, so the
+  abstention produces the right answer rather than a gap.
+- **It can be confidently wrong on the Kemer coast.** The branch at
+  `scripts/lib/hotel-region-matching.mjs:81` requires both `longitude < 30.68`
+  and `latitude < 36.80`; a Kemer-area coordinate failing either test falls
+  through to the eastbound bands and returns `antalya` with `review: false`.
+  That is an actively voting wrong source, not a silent one. It is the reason
+  source 2 alone never confirms.
+
+Kaş and Kumluca lie outside the corridor entirely and yield no source-2 region;
+they depend on sources 1 and 3, both of which speak there.
 
 ### Source 3 — driving km
 
-Source 3 is a **tiebreaker and a report, never a gate.** Each region's observed
-range is the min and max stored km across hotels whose sources 1 and 2 agree. A
-hotel whose km falls inside exactly one region's range yields that region;
-inside several or none, it yields nothing.
+Each region's range is the min and max stored km across rows whose **source 1 is
+conclusive and whose source 2, where it spoke, agreed** — never the whole index,
+so a misassigned hotel cannot widen the range that would have caught it. A hotel
+whose km falls inside exactly one region's range yields that region; inside
+several or none, nothing.
 
-Ranges are computed after every row has been classified on sources 1 and 2, so
-there is no ordering or bootstrap dependency: source 3 never participates in the
-decision that produces the population it is derived from.
+Ranges are computed **from the checkpoint at the start of a run**, across all
+completed rows, not from the rows this run happens to fetch. This is what keeps
+buckets deterministic under `--slug`, `--max-calls` and resume, where the current
+run's population may be a single row. On a checkpoint with no qualifying rows for
+a region, that region has no range and source 3 is silent there.
+
+Ranges over today's data, for reference: kemer 43–71, tekirova 75–78, side 54–72,
+kizilagac 80–88, belek 26–42, bogazkent 41–44, antalya 3–43, kumluca 108–110,
+kas 202–208.
 
 Its discriminating power is uneven and the design does not pretend otherwise.
-Kemer (44–68) against Tekirova (75–78) and Side (55–71) against Kızılağaç
-(80–88) separate cleanly — those are the two boundaries the 72 weak rows sit on,
-which is why source 3 earns its place. Belek and Boğazkent overlap and antalya
-spans 3–43 km, so source 3 is silent there; source 2 covers both.
+Kemer against Tekirova and Side against Kızılağaç separate cleanly — those are
+the two boundaries all 72 weak rows sit on, which is why source 3 earns its
+place. Belek and Boğazkent overlap at 41–42 and antalya spans 3–43, so source 3
+is silent there and source 2 carries those.
 
-## Identity gate
+## Identity
 
-`identityCheck` is reordered to compare the name first. A `name` mismatch still
-invalidates sources 1 and 2, because there the Place may genuinely describe a
-different business; such a row falls to source 3 alone, cannot reach two
-agreeing sources, and so takes the report-the-dearest-candidate path.
+Reordering `identityCheck` to compare the name first is necessary but **not
+sufficient**, because `isOperationalHotelPlace`
+(`scripts/lib/hotel-region-matching.mjs:249`) independently re-tests
+`primaryType` and `businessStatus`. Left alone, a type- or status-mismatched
+place could never return `strength: "strict"`; it would silently degrade to a
+loose match and inherit the loose rule's demand for corroboration. So identity
+gains a name-only comparison — the existing `placeIdentityKey` equality with
+`isOperationalHotelPlace`'s type and status conditions dropped — and
+`isOperationalHotelPlace` itself is left untouched for its other callers,
+notably `selectOperationalHotelPlace` (`scripts/lib/hotel-region-matching.mjs:257`),
+where an operating classic hotel is genuinely the question.
 
-Once the name matches, `status` and `type` mismatches no longer invalidate
-anything. They are recorded on the row and surface in the report as notes.
-`LODGING_PLACE_TYPES` and `STRICT_HOTEL_TYPES` keep their definitions and now
-feed the report rather than the pass/fail decision.
+After that change: a `name` mismatch still invalidates sources 1 and 2, because
+the Place may describe a different business; such a row falls to source 3 alone,
+cannot reach two agreeing sources, and takes the dearest-candidate path. A
+`status` or `type` mismatch with a matching name no longer invalidates anything
+and is recorded as a note on the row.
 
-`CLOSED_PERMANENTLY` keeps its own `gone` bucket and stays an operator decision.
-Because `identityCheck` currently rejects every non-`OPERATIONAL` status before
-`classifyAuditRow` reaches its `CLOSED_PERMANENTLY` branch, this reordering is
-what makes the existing `gone` branch reachable as intended.
+`CLOSED_PERMANENTLY` is unaffected: `classifyAuditRow`
+(`scripts/lib/hotel-region-audit.mjs:53`) already returns `gone` before
+`identityCheck` is reached, and `gone` stays an operator decision.
 
-The loose-name rule at `scripts/lib/hotel-region-audit.mjs:69` — trust a loose
+The loose-name rule (`scripts/lib/hotel-region-audit.mjs:67`) — trust a loose
 name match only when the address corroborates the index — loses its corroborator
-on ilçe-only addresses. Source 2 substitutes: a loose name match is trusted when
-either source 1 or source 2 agrees with the index, and the existing
+on inconclusive terms. Source 2 substitutes: a loose match is trusted when either
+source 1 or source 2 agrees with the index, and the existing
 `loose-name-region-conflict` outcome applies when one of them disagrees.
 
 ## Persistence
 
 `scripts/audit-hotel-regions.mjs:58` refuses to write raw Places content to
 disk, `location` included. That guard stays exactly as it is, and
-`resolvePricingRegion` is built for it. Coordinates are fetched, resolved in
-memory, and discarded; the checkpoint gains only derived values alongside the
+`resolvePricingRegion` is built for it: coordinates are fetched, resolved in
+memory, and discarded. The checkpoint gains only derived values alongside the
 existing `derivedRegion` and `matchedTerm`:
 
-- `addressRegion` — source 1 result, or null
-- `locationRegion` — source 2 result, or null, plus `locationReview` when the
-  coordinate fell on a boundary or outside the corridor
+- `addressRegion` — source 1 result, or null when the term was inconclusive
+- `locationRegion` — source 2 result, or null; `locationReview` carries the
+  `reason` when it abstained
 - `kmRegion` — source 3 result, or null
 - `agreeingSources` — how many named `derivedRegion`
 - `candidateRegions` — the regions the evidence named, when no two agreed
+- `unresolvedReason` — `no-evidence`, `single-source`, or `conflict`
+
+`COLUMNS` (`scripts/lib/hotel-region-audit.mjs:100`) renders the new fields so
+the report shows which sources spoke.
 
 `checked: true` keeps its meaning — written only for an `ok` row, from a current
 successful fetch — and now additionally requires `agreeingSources >= 2`. Every
-other bucket continues to lose `checked`, and `--redo <bucket>` is unaffected.
+other bucket continues to lose `checked`; `--redo <bucket>` is unaffected.
 
-`inputHash` extends to cover the term table, `EASTERN_BANDS`, the identity
-ordering, and the classifier — **the rules, not the computed km ranges.** Hashing
-derived ranges would let one added hotel shift a percentile and invalidate every
-row in its region, forcing an unbounded paid re-fetch. Since source 3 cannot
-decide an `ok` on its own, leaving ranges out of the hash costs nothing.
+No hashing work is needed. `auditRulesHash`
+(`scripts/lib/hotel-audit-state.mjs:4`) already hashes the full bytes of both
+`hotel-region-audit.mjs` and `hotel-region-matching.mjs`, so the term table,
+`EASTERN_BANDS`, the identity ordering and the classifier are all covered
+automatically, and the derived km ranges are correctly *not* covered — hashing
+them would let one added hotel shift a range and invalidate every row in its
+region. The corollary is an operational cost to plan for: because whole files
+are hashed, this change invalidates all 1246 rows and the first run is a full
+paid re-fetch.
 
 ## Guard test
 
@@ -182,13 +233,21 @@ gains one more, running with no API calls:
 - every row marked `ok` records `agreeingSources >= 2` and a `derivedRegion`
   equal to the row's index region or price-equivalent to it
 
-A km-range assertion was considered as a guard and rejected: any range derived
-from a population necessarily excludes part of that population, so it would
-manufacture exemptions — roughly 38 hotels today — for hotels that are merely at
-the edge of their region. km outliers belong in the report, where a human reads
-them, and they are listed there ordered by € at risk.
+A km assertion was considered as a guard and rejected. The range is derived from
+conclusive-source-1 rows, so every other row — ilçe-only matches, identity
+failures, hotels legitimately at the edge of a region — sits outside it by
+construction and would need an exemption entry. km outliers belong in the report,
+ordered by € at risk, where a human reads them.
 
 `UNAUDITED_HOTEL_SLUGS` keeps its shape and its one-line-reason discipline.
+
+## Operator documentation
+
+`.claude/skills/hotel-region-audit/SKILL.md` changes with this work. Its Residue
+section currently reads `unresolved` as one thing — an address naming a belde
+outside `ADDRESS_REGION_TERMS`, fixed by adding a term — which is now only one of
+three `unresolvedReason` values, and its instruction is wrong for the other two.
+Its `identity` section must also drop `type` and `status` as failure reasons.
 
 ## Expected effect
 
@@ -198,8 +257,8 @@ first full pass:
 - **Caner Mountain Hotel** → tekirova and **La Benata Hotel** → kizilagac, +€20
   per vehicle each, both currently `ok`.
 - **Throne Nilbahir Resort & Spa** flagged for research: 93 km, priced as side
-  (€50) where its distance points past kizilagac.
-- The other 70 ilçe-evidence rows should confirm in place on sources 2 and 3.
+  (€50), past kizilagac's range.
+- The other 70 inconclusive-term rows should confirm in place on sources 2 and 3.
   This is not a broad price rise.
 - Of the 23 rows failing on type or status, those whose names also match become
   verified. How many that is cannot be predicted, because their names have never
@@ -210,34 +269,45 @@ first full pass:
 Verified rows do not expire — a checkpoint row carries no date, so a hotel that
 rebrands or moves keeps its verdict until the rules change — and nothing
 schedules the audit. Both are real gaps, neither caused the wrong prices found
-here, and both belong to their own piece of work.
+here, and both belong to their own work.
 
-Index coverage is also out of scope. Orange County Resort Hotel Belek was
-mispriced because it was absent from the index entirely, which no audit can
-detect; it was added by hand and is used below only as a fixture.
+Index coverage is out of scope. Orange County Resort Hotel Belek was mispriced
+because it was absent from the index entirely, which no audit can detect; it was
+added by hand and appears below only as a fixture.
 
-`src/hotel-index.js:481` describes kizilagac as €60 while `src/routes.js` prices
-it at €70. The comment is stale and sits in the block this work edits; correcting
-it is a one-line drive-by, not a design decision.
+Extending `EASTERN_BANDS` westward to bring Kaş and Kumluca inside source 2's
+corridor is deliberately deferred: five hotels, all currently confirming on
+sources 1 and 3.
+
+`src/hotel-index.js:481-482` describes kizilagac as €60 while `src/routes.js`
+prices it at €70. The comment is stale and sits in the block this work edits;
+correcting it is a drive-by, not a design decision.
 
 ## Testing
 
 Unit tests in `scripts/lib/hotel-region-matching.test.js` and
 `scripts/lib/hotel-region-audit.test.js` cover:
 
-- an ilçe-only address yields no source-1 region, while a belde address still does
-- `resolvePricingRegion`'s `review: true` results do not count as an agreeing source
-- km range membership yields a region only when exactly one range contains it
-- two agreeing sources on the index region give `ok`; two agreeing on another
-  region give `fix`; one source alone never gives `ok`
-- the dearest-candidate report picks kizilagac over alanya_bati on the Sprinter
-  tiebreaker
-- a `type` or `status` mismatch with a matching name no longer blocks
-  verification, while a `name` mismatch still does
-- `CLOSED_PERMANENTLY` still reaches `gone`
+- term conclusiveness derived from prices: `manavgat` and `kemer` inconclusive,
+  `kas`, `kumluca` and every belde term conclusive; adding a second price region
+  to an ilçe demotes its terms
+- a `review: true` coordinate result does not count as an agreeing source
+- km range membership yields a region only when exactly one range contains it,
+  and ranges come from the checkpoint rather than the current run
+- two agreeing sources on the index region give `ok`; two agreeing elsewhere give
+  `fix`; one source alone never gives `ok`
+- price-equivalent regions (`side` / `manavgat`) count as agreement between sources
+- the dearest-candidate rule picks kizilagac over alanya_bati on the Sprinter
+  tiebreaker, and each `unresolvedReason` is set correctly
+- a `type` or `status` mismatch with a matching name yields a strict identity,
+  while a `name` mismatch still fails
+- `CLOSED_PERMANENTLY` still reaches `gone` without consulting identity
 
-A fixture test replays the three known rows — `orange-county-resort-hotel-belek`
+A fixture test replays three rows — `orange-county-resort-hotel-belek`
 (bogazkent, the case that started this), `caner-mountain-hotel` (expected to move
 to tekirova) and `la-benata-hotel` (expected to move to kizilagac) — through the
-classifier with recorded synthetic Places responses, asserting the bucket and
-derived region each lands on, so this regression stays caught.
+classifier with synthetic Places responses, asserting the bucket and derived
+region each lands on, so this regression stays caught. The Boğazkent fixture is
+written with a coordinate away from the band edge; whether the real hotel sits
+inside `LONGITUDE_REVIEW_MARGIN` cannot be known without a live call, and the
+design does not depend on it.
