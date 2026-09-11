@@ -3,6 +3,7 @@ import { routeCatalog } from "../../src/routes.js";
 import {
   classifyAuditRow,
   euroDelta,
+  isConclusiveTerm,
   buildAuditReport,
   renderAuditTable,
 } from "./hotel-region-audit.mjs";
@@ -126,5 +127,37 @@ describe("renderAuditTable header", () => {
   test("shows remaining and failed counts so an operator sees an incomplete run", () => {
     const report = { ...buildAuditReport([], { generatedAt: "x", indexed: 3 }), remaining: 2, failures: { a: "Places API 500" } };
     expect(renderAuditTable(report)).toContain("2 not yet audited, 1 failed fetches.");
+  });
+});
+
+describe("isConclusiveTerm", () => {
+  test("a belde term decides a price", () => {
+    expect(isConclusiveTerm({ region: "side", term: "kumkoy" }, routeCatalog)).toBe(true);
+  });
+
+  test("Manavgat cannot: it holds Side €50 and Kızılağaç €70", () => {
+    expect(isConclusiveTerm({ region: "side", term: "manavgat" }, routeCatalog)).toBe(false);
+  });
+
+  test("Kemer cannot: it holds Kemer €55 and Tekirova €75", () => {
+    expect(isConclusiveTerm({ region: "kemer", term: "kemer" }, routeCatalog)).toBe(false);
+  });
+
+  test("an ilçe holding one price region can, so Kaş and Kumluca keep their evidence", () => {
+    expect(isConclusiveTerm({ region: "kas", term: "kas" }, routeCatalog)).toBe(true);
+    expect(isConclusiveTerm({ region: "kumluca", term: "kumluca" }, routeCatalog)).toBe(true);
+  });
+
+  test("a region with no ilçe gate is conclusive", () => {
+    expect(isConclusiveTerm({ region: "antalya", term: "lara" }, routeCatalog)).toBe(true);
+  });
+
+  test("conclusiveness follows the prices, not a hand-written list", () => {
+    // The demotion path is the samePrices loop. Exercise it by pricing
+    // Manavgat's two regions the same: the term that cannot decide today
+    // becomes able to, because there is no longer a price to decide between.
+    const flat = { ...routeCatalog, kizilagac: { ...routeCatalog.kizilagac, prices: { ...routeCatalog.side.prices } } };
+    expect(isConclusiveTerm({ region: "side", term: "manavgat" }, routeCatalog)).toBe(false);
+    expect(isConclusiveTerm({ region: "side", term: "manavgat" }, flat)).toBe(true);
   });
 });

@@ -4,7 +4,10 @@
  * Persistence rule: nothing returned here may contain Places text. The row
  * carries only derived values (region, matched term, booleans, bucket).
  */
-import { matchAddressRegionTerm, isOperationalHotelPlace, looseNameMatch, LODGING_PLACE_TYPES } from "./hotel-region-matching.mjs";
+import {
+  ADDRESS_REGION_TERMS, matchAddressRegionTerm, isOperationalHotelPlace,
+  looseNameMatch, LODGING_PLACE_TYPES,
+} from "./hotel-region-matching.mjs";
 
 export const AUDIT_BUCKETS = Object.freeze(["ok", "fix", "unresolved", "identity", "gone"]);
 
@@ -20,6 +23,25 @@ const samePrices = (regionA, regionB, routeCatalog) => {
   const b = routeCatalog[regionB]?.prices;
   return Boolean(a && b) && a.vito === b.vito && a.sprinter === b.sprinter;
 };
+
+/**
+ * An address term decides a price only when it cannot stand for two regions
+ * that cost different amounts. A belde term never can. An ilçe name can only
+ * when every region inside that ilçe costs the same — true of Kaş and Kumluca,
+ * false of Manavgat (Side €50, Kızılağaç €70) and Kemer (Kemer €55, Tekirova
+ * €75), which is how 72 hotels came to be confirmed on the cheap side.
+ *
+ * The ilçe is looked up here rather than reported by matchAddressRegionTerm, so
+ * that function's return shape — and its existing assertions — stay as they are.
+ */
+export function isConclusiveTerm(match, routeCatalog) {
+  const ilce = ADDRESS_REGION_TERMS.find(([region]) => region === match?.region)?.[2];
+  if (!ilce || match.term !== ilce) return true;
+  const regions = ADDRESS_REGION_TERMS
+    .filter(([, , gate]) => gate === ilce)
+    .map(([region]) => region);
+  return regions.every((region) => samePrices(region, regions[0], routeCatalog));
+}
 
 /** Returns { reason } when identity fails, else { strength: "strict" | "loose" }. */
 function identityCheck(names, place) {
