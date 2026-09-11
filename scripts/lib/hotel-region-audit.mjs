@@ -44,6 +44,59 @@ export function isConclusiveTerm(match, routeCatalog) {
 }
 
 /**
+ * Observed km span per region, over rows whose address term was conclusive and
+ * whose coordinate did not contradict it. Derived from the whole checkpoint, so
+ * `--slug` and `--max-calls` runs cannot bucket a hotel differently from a full
+ * run on the same evidence.
+ */
+export function kmRangesFromCompleted(completed, hotelDistances) {
+  const ranges = {};
+  for (const row of Object.values(completed ?? {})) {
+    if (!row?.addressRegion) continue;
+    if (row.locationRegion && row.locationRegion !== row.addressRegion) continue;
+    const km = Number(hotelDistances?.[row.slug]?.km);
+    if (!Number.isFinite(km) || km <= 0) continue;
+    const seen = ranges[row.addressRegion];
+    ranges[row.addressRegion] = seen
+      ? { min: Math.min(seen.min, km), max: Math.max(seen.max, km) }
+      : { min: km, max: km };
+  }
+  return ranges;
+}
+
+/** The regions an ilçe holds — the candidates an ilçe-level address leaves open. */
+export const regionsInIlce = (ilce) => (ilce
+  ? ADDRESS_REGION_TERMS.filter(([, , gate]) => gate === ilce).map(([region]) => region)
+  : []);
+
+/**
+ * Which of the candidate regions this distance fits. Never asked to choose among
+ * all regions: km from AYT is a one-dimensional projection of a two-dimensional
+ * coast, so Kemer (43-71, southwest) and Side (54-72, east) overlap almost
+ * entirely and a global comparison is silent for most of the rows this exists to
+ * rescue. Within one ilçe — Kemer against Tekirova — the same number decides.
+ *
+ * Fewer than two candidates and it stays silent: a lone candidate would agree
+ * with itself and hand out a free second source.
+ */
+export function kmRegionFor(km, ranges, candidates) {
+  if (!Number.isFinite(km) || km <= 0) return null;
+  const known = [...new Set(candidates ?? [])].filter((region) => ranges?.[region]);
+  if (known.length < 2) return null;
+
+  const inside = known.filter((region) => km >= ranges[region].min && km <= ranges[region].max);
+  if (inside.length === 1) return inside[0];
+  if (inside.length > 1) return null;
+
+  // Outside every candidate's span: the nearest boundary wins, but only when it
+  // is clearly nearer, so a hotel midway between two regions stays unspoken for.
+  const byGap = known
+    .map((region) => [region, km < ranges[region].min ? ranges[region].min - km : km - ranges[region].max])
+    .sort((a, b) => a[1] - b[1]);
+  return byGap[1][1] - byGap[0][1] >= 2 ? byGap[0][0] : null;
+}
+
+/**
  * Whether this Place names the hotel, ignoring what Google files it as.
  * `isOperationalHotelPlace` cannot answer that: it re-tests type and status
  * itself, so a pansiyon listed as a restaurant would never match strictly.

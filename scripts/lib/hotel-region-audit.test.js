@@ -4,6 +4,9 @@ import {
   classifyAuditRow,
   euroDelta,
   isConclusiveTerm,
+  kmRangesFromCompleted,
+  kmRegionFor,
+  regionsInIlce,
   buildAuditReport,
   renderAuditTable,
 } from "./hotel-region-audit.mjs";
@@ -190,5 +193,64 @@ describe("identity judged on the name", () => {
   test("permanently closed still reaches gone without consulting identity", () => {
     const row = classifyAuditRow(bogazkent, { place: place({ businessStatus: "CLOSED_PERMANENTLY" }) }, routeCatalog);
     expect(row.bucket).toBe("gone");
+  });
+});
+
+describe("km ranges", () => {
+  const completed = {
+    a: { slug: "a", addressRegion: "kemer", locationRegion: "kemer" },
+    b: { slug: "b", addressRegion: "kemer", locationRegion: null },
+    c: { slug: "c", addressRegion: "tekirova", locationRegion: "tekirova" },
+    d: { slug: "d", addressRegion: "tekirova", locationRegion: "tekirova" },
+    weak: { slug: "weak", addressRegion: null, locationRegion: "kemer" },
+    conflicted: { slug: "conflicted", addressRegion: "kemer", locationRegion: "tekirova" },
+  };
+  const distances = {
+    a: { km: 44 }, b: { km: 68 }, c: { km: 75 }, d: { km: 78 },
+    weak: { km: 5 }, conflicted: { km: 200 },
+  };
+  const kemerIlce = ["kemer", "tekirova"];
+
+  test("only conclusive, uncontradicted rows set a range", () => {
+    expect(kmRangesFromCompleted(completed, distances)).toEqual({
+      kemer: { min: 44, max: 68 },
+      tekirova: { min: 75, max: 78 },
+    });
+  });
+
+  test("a km inside exactly one candidate's range names it", () => {
+    const ranges = kmRangesFromCompleted(completed, distances);
+    expect(kmRegionFor(76, ranges, kemerIlce)).toBe("tekirova");
+    expect(kmRegionFor(50, ranges, kemerIlce)).toBe("kemer");
+  });
+
+  test("in the gap between candidates, the clearly nearer boundary wins", () => {
+    const ranges = kmRangesFromCompleted(completed, distances);
+    // 74: six past kemer's 68, one short of tekirova's 75 — Caner Mountain.
+    expect(kmRegionFor(74, ranges, kemerIlce)).toBe("tekirova");
+  });
+
+  test("midway between candidates it stays silent", () => {
+    const ranges = { kemer: { min: 44, max: 60 }, tekirova: { min: 80, max: 90 } };
+    expect(kmRegionFor(70, ranges, kemerIlce)).toBe(null);
+  });
+
+  test("a km inside two candidates' ranges names nothing", () => {
+    const ranges = { belek: { min: 26, max: 42 }, bogazkent: { min: 41, max: 44 } };
+    expect(kmRegionFor(41, ranges, ["belek", "bogazkent"])).toBe(null);
+    expect(kmRegionFor(43, ranges, ["belek", "bogazkent"])).toBe("bogazkent");
+  });
+
+  test("fewer than two known candidates is always silent", () => {
+    const ranges = kmRangesFromCompleted(completed, distances);
+    expect(kmRegionFor(50, ranges, ["kemer"])).toBe(null);
+    expect(kmRegionFor(50, ranges, [])).toBe(null);
+    expect(kmRegionFor(50, ranges, ["kemer", "atlantis"])).toBe(null);
+  });
+
+  test("regionsInIlce names the candidates an ilçe address leaves open", () => {
+    expect(regionsInIlce("kemer").sort()).toEqual(["kemer", "tekirova"]);
+    expect(regionsInIlce("manavgat").sort()).toEqual(["kizilagac", "side"]);
+    expect(regionsInIlce(undefined)).toEqual([]);
   });
 });
