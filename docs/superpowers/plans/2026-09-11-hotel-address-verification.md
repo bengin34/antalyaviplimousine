@@ -155,10 +155,13 @@ describe("isConclusiveTerm", () => {
     expect(isConclusiveTerm({ region: "antalya", term: "lara" }, routeCatalog)).toBe(true);
   });
 
-  test("adding a second price region to an ilçe demotes that ilçe's own term", () => {
-    const pricier = { ...routeCatalog, kas: { ...routeCatalog.kas, prices: { vito: 999, sprinter: 999 } } };
-    expect(isConclusiveTerm({ region: "kas", term: "kas" }, pricier)).toBe(true); // kas is still alone in its ilçe
-    expect(isConclusiveTerm({ region: "side", term: "manavgat" }, pricier)).toBe(false);
+  test("conclusiveness follows the prices, not a hand-written list", () => {
+    // The demotion path is the samePrices loop. Exercise it by pricing
+    // Manavgat's two regions the same: the term that cannot decide today
+    // becomes able to, because there is no longer a price to decide between.
+    const flat = { ...routeCatalog, kizilagac: { ...routeCatalog.kizilagac, prices: { ...routeCatalog.side.prices } } };
+    expect(isConclusiveTerm({ region: "side", term: "manavgat" }, routeCatalog)).toBe(false);
+    expect(isConclusiveTerm({ region: "side", term: "manavgat" }, flat)).toBe(true);
   });
 });
 ```
@@ -293,8 +296,15 @@ function identityCheck(names, place) {
 }
 ```
 
-Leave `isOperationalHotelPlace` untouched — `selectOperationalHotelPlace`
-(`hotel-region-matching.mjs:259`) still needs its stricter question.
+Thread the notes onto the rows this task still returns, or the two assertions
+above read `undefined`. `classifyAuditRow` is still the old single function at
+this point — add `identityNotes: identity.notes,` to each of its three returns
+after the identity check (`:60`, `:69`, `:74-83`), and `identityNotes: []` to
+`base`. Task 5 replaces all of it; this keeps Task 3 green on its own.
+
+Leave `isOperationalHotelPlace` itself untouched — `selectOperationalHotelPlace`
+(`hotel-region-matching.mjs:259`) still needs its stricter question — but drop it
+from `hotel-region-audit.mjs:7`'s import list, where it is now unused.
 
 - [ ] **Step 4: Rewrite the one existing test this reverses**
 
@@ -327,7 +337,7 @@ git commit -m "Judge hotel identity on the name, not on how Google files it"
 - [ ] **Step 1: Write the failing test**
 
 ```js
-import { kmRangesFromCompleted, kmRegionFor } from "./hotel-region-audit.mjs";
+import { kmRangesFromCompleted, kmRegionFor, regionsInIlce } from "./hotel-region-audit.mjs";
 
 describe("km ranges", () => {
   const completed = {
@@ -350,22 +360,42 @@ describe("km ranges", () => {
     });
   });
 
-  test("a km inside exactly one range names that region", () => {
+  const kemerIlce = ["kemer", "tekirova"];
+
+  test("a km inside exactly one candidate's range names it", () => {
     const ranges = kmRangesFromCompleted(completed, distances);
-    expect(kmRegionFor(76, ranges)).toBe("tekirova");
-    expect(kmRegionFor(50, ranges)).toBe("kemer");
+    expect(kmRegionFor(76, ranges, kemerIlce)).toBe("tekirova");
+    expect(kmRegionFor(50, ranges, kemerIlce)).toBe("kemer");
   });
 
-  test("a km inside no range names nothing", () => {
+  test("in the gap between candidates, the clearly nearer boundary wins", () => {
     const ranges = kmRangesFromCompleted(completed, distances);
-    expect(kmRegionFor(72, ranges)).toBe(null);
-    expect(kmRegionFor(300, ranges)).toBe(null);
+    // 74: three past kemer's 68, one short of tekirova's 75 — Caner Mountain.
+    expect(kmRegionFor(74, ranges, kemerIlce)).toBe("tekirova");
   });
 
-  test("a km inside two overlapping ranges names nothing", () => {
+  test("midway between candidates it stays silent", () => {
+    const ranges = { kemer: { min: 44, max: 60 }, tekirova: { min: 80, max: 90 } };
+    expect(kmRegionFor(70, ranges, kemerIlce)).toBe(null);
+  });
+
+  test("a km inside two candidates' ranges names nothing", () => {
     const ranges = { belek: { min: 26, max: 42 }, bogazkent: { min: 41, max: 44 } };
-    expect(kmRegionFor(41, ranges)).toBe(null);
-    expect(kmRegionFor(43, ranges)).toBe("bogazkent");
+    expect(kmRegionFor(41, ranges, ["belek", "bogazkent"])).toBe(null);
+    expect(kmRegionFor(43, ranges, ["belek", "bogazkent"])).toBe("bogazkent");
+  });
+
+  test("fewer than two known candidates is always silent", () => {
+    const ranges = kmRangesFromCompleted(completed, distances);
+    expect(kmRegionFor(50, ranges, ["kemer"])).toBe(null);
+    expect(kmRegionFor(50, ranges, [])).toBe(null);
+    expect(kmRegionFor(50, ranges, ["kemer", "atlantis"])).toBe(null);
+  });
+
+  test("regionsInIlce names the candidates an ilçe address leaves open", () => {
+    expect(regionsInIlce("kemer").sort()).toEqual(["kemer", "tekirova"]);
+    expect(regionsInIlce("manavgat").sort()).toEqual(["kizilagac", "side"]);
+    expect(regionsInIlce(undefined)).toEqual([]);
   });
 });
 ```
@@ -399,14 +429,37 @@ export function kmRangesFromCompleted(completed, hotelDistances) {
   return ranges;
 }
 
-/** The one region whose km span contains this distance, or null if none or several do. */
-export function kmRegionFor(km, ranges) {
+/**
+ * Which of the candidate regions this distance fits. Never asked to choose among
+ * all regions: km from AYT is a one-dimensional projection of a two-dimensional
+ * coast, so Kemer (43-71, southwest) and Side (54-72, east) overlap almost
+ * entirely and a global comparison is silent for most of the rows this exists to
+ * rescue. Within one ilçe — Kemer against Tekirova — the same number decides.
+ *
+ * Fewer than two candidates and it stays silent: a lone candidate would agree
+ * with itself and hand out a free second source.
+ */
+export function kmRegionFor(km, ranges, candidates) {
   if (!Number.isFinite(km) || km <= 0) return null;
-  const hits = Object.entries(ranges ?? {})
-    .filter(([, range]) => km >= range.min && km <= range.max)
-    .map(([region]) => region);
-  return hits.length === 1 ? hits[0] : null;
+  const known = [...new Set(candidates ?? [])].filter((region) => ranges?.[region]);
+  if (known.length < 2) return null;
+
+  const inside = known.filter((region) => km >= ranges[region].min && km <= ranges[region].max);
+  if (inside.length === 1) return inside[0];
+  if (inside.length > 1) return null;
+
+  // Outside every candidate's span: the nearest boundary wins, but only when it
+  // is clearly nearer, so a hotel midway between two regions stays unspoken for.
+  const byGap = known
+    .map((region) => [region, km < ranges[region].min ? ranges[region].min - km : km - ranges[region].max])
+    .sort((a, b) => a[1] - b[1]);
+  return byGap[1][1] - byGap[0][1] >= 2 ? byGap[0][0] : null;
 }
+
+/** The regions an ilçe holds — the candidate set an ilçe-level address leaves open. */
+export const regionsInIlce = (ilce) => ADDRESS_REGION_TERMS
+  .filter(([, , gate]) => gate === ilce && ilce)
+  .map(([region]) => region);
 ```
 
 - [ ] **Step 4: Run tests**
@@ -493,6 +546,22 @@ describe("two agreeing sources", () => {
     expect(row.derivedRegion).toBe("kizilagac"); // 70/115 beats alanya_bati 70/90 on Sprinter
   });
 
+  test("price-equivalent sources count as agreement, not conflict", () => {
+    // side and manavgat are both 50/85; agreedRegion must not read them as a
+    // conflict. Built directly, since no real address yields manavgat any more.
+    const stored = {
+      slug: "x", name: "X", indexRegion: "side", regionSource: "district",
+      addressRegion: "side", locationRegion: "manavgat", matchedIlce: null,
+      identityStrength: "strict", identityVerified: true, identityNotes: [],
+      bucket: null, terminal: false, derivedRegion: null, matchedTerm: "side",
+      agreeingSources: 0, candidateRegions: [], unresolvedReason: null,
+      euroDelta: 0, priceEquivalent: false, kmRegion: null,
+    };
+    const row = classifyFromEvidence(stored, routeCatalog, { kmRanges: {}, km: null });
+    expect(row.bucket).toBe("ok");
+    expect(row.agreeingSources).toBe(2);
+  });
+
   test("no evidence at all names no candidate", () => {
     const bare = place({ addressComponents: components("Türkiye") });
     const row = classifyAuditRow({ ...belazur, region: "side" }, { place: bare }, routeCatalog, { kmRanges: {}, km: null });
@@ -501,7 +570,9 @@ describe("two agreeing sources", () => {
   });
 
   test("a loose name pointing at another region stays residue, even on one source", () => {
-    const sibling = place({ displayName: { text: "Kirman Belazur Resort" }, addressComponents: components("Çamyuva", "Kemer", "Antalya") });
+    // A location word, not a generic one: placeIdentityKey strips "resort"/"spa"
+    // but keeps "kemer", so this is a loose match, not a strict one.
+    const sibling = place({ displayName: { text: "Kirman Belazur Kemer" }, addressComponents: components("Çamyuva", "Kemer", "Antalya") });
     const row = classifyAuditRow({ ...belazur, region: "alanya_bati" }, { place: sibling }, routeCatalog, { kmRanges: {}, km: null });
     expect(row.bucket).toBe("identity");
     expect(row.identityReason).toBe("loose-name-region-conflict");
@@ -581,24 +652,27 @@ network can tell us; `bucket: null` marks a row still awaiting judgement:
 export function extractEvidence(hotel, details, routeCatalog) {
   const base = {
     slug: hotel.slug, name: hotel.name, regionSource: hotel.regionSource,
-    indexRegion: hotel.region, derivedRegion: null, matchedTerm: null,
+    indexRegion: hotel.region, derivedRegion: null, matchedTerm: null, matchedIlce: null,
     addressRegion: null, locationRegion: null, locationReview: null, kmRegion: null,
     identityVerified: false, identityStrength: null, identityNotes: [],
     agreeingSources: 0, candidateRegions: [], unresolvedReason: null,
-    bucket: null, euroDelta: 0, priceEquivalent: false,
+    bucket: null, terminal: false, euroDelta: 0, priceEquivalent: false,
   };
   const place = details?.place;
   if (details?.notFound || !place || place.businessStatus === "CLOSED_PERMANENTLY") {
-    return { ...base, bucket: "gone", identityReason: place ? "status" : "missing" };
+    return { ...base, bucket: "gone", terminal: true, identityReason: place ? "status" : "missing" };
   }
   const identity = identityCheck([hotel.name, ...(hotel.aliases ?? [])], place);
-  if (identity.reason) return { ...base, bucket: "identity", identityReason: identity.reason };
+  if (identity.reason) return { ...base, bucket: "identity", terminal: true, identityReason: identity.reason };
 
   const match = matchAddressRegionTerm(place.addressComponents);
   const located = resolvePricingRegion(place.location);
   return {
     ...base,
     matchedTerm: match?.term ?? null,
+    // Persisted so classifyFromEvidence can rebuild the candidate set without
+    // the Places response, which is never stored.
+    matchedIlce: match ? (ADDRESS_REGION_TERMS.find(([region]) => region === match.region)?.[2] ?? null) : null,
     addressRegion: match && isConclusiveTerm(match, routeCatalog) ? match.region : null,
     locationRegion: located.review ? null : located.region,
     locationReview: located.review ? (located.reason ?? null) : null,
@@ -614,9 +688,15 @@ export function extractEvidence(hotel, details, routeCatalog) {
  * ranges those rows imply are finally computable.
  */
 export function classifyFromEvidence(row, routeCatalog, options = {}) {
-  if (row.bucket) return row;  // gone and identity failures are already final
+  // `terminal` and not `row.bucket`: after the first pass every row carries a
+  // bucket, and gating on that would freeze every verdict and make this pass a
+  // no-op from the second run onward — the exact opposite of why it exists.
+  if (row.terminal) return row;
 
-  const kmRegion = kmRegionFor(Number(options.km), options.kmRanges ?? {});
+  // km chooses among what the other evidence left open: the regions of the ilçe
+  // the address named, plus whatever the coordinate said.
+  const candidatesForKm = [...regionsInIlce(row.matchedIlce), row.locationRegion].filter(Boolean);
+  const kmRegion = kmRegionFor(Number(options.km), options.kmRanges ?? {}, candidatesForKm);
   const sources = [row.addressRegion, row.locationRegion, kmRegion].filter(Boolean);
   const candidates = [...new Set(sources)];
   const agreed = agreedRegion(sources, row.indexRegion, routeCatalog);
@@ -665,7 +745,15 @@ export const classifyAuditRow = (hotel, details, routeCatalog, options = {}) =>
 These call `classifyAuditRow` with three arguments, and the shared `place()`
 fixture (`scripts/lib/hotel-region-audit.test.js:11-18`) has **no `location`** —
 so `resolvePricingRegion(undefined)` abstains and each row now has one source.
-Decide each deliberately; do not paper over them by adding fields:
+Two ground rules before the table. **"Add `location`" means a per-call override
+via the `withLocation` helper, never a default on the shared `place()` factory**
+— a default there would break this task's own `:463` and `:478` cases, which
+depend on `place()` having no coordinate. And the whole-object `toEqual` literals
+genuinely must be rewritten to the new row shape; "do not paper over" means do
+not change an assertion's *outcome* to match the code, not that fields may not
+be added.
+
+Decide each deliberately:
 
 | Line | Was | Do |
 |---|---|---|
@@ -844,7 +932,7 @@ describe("the three rows that motivated this work", () => {
     expect(row.derivedRegion).toBe("bogazkent");
   });
 
-  test("Caner Mountain: Kemer ilçe address cannot confirm it, km says Tekirova", () => {
+  test("Caner Mountain: Kemer ilçe cannot confirm it; coordinate and scoped km both say Tekirova", () => {
     const hotel = { slug: "caner-mountain-hotel", name: "Caner Mountain Hotel",
       region: "kemer", regionSource: "district", aliases: [] };
     const details = { place: place({
@@ -853,12 +941,13 @@ describe("the three rows that motivated this work", () => {
       location: { latitude: 36.50, longitude: 30.55 },
     }) };
     const row = classifyAuditRow(hotel, details, routeCatalog, { kmRanges: kemerRanges, km: 74 });
-    expect(row.addressRegion).toBe(null);
-    expect(row.bucket).not.toBe("ok");
+    expect(row.addressRegion).toBe(null);       // Kemer ilçe decides nothing
+    expect(row.kmRegion).toBe("tekirova");      // 74 is nearer tekirova's 75 than kemer's 71
+    expect(row.bucket).toBe("fix");             // coordinate + km, against an index of kemer
     expect(row.derivedRegion).toBe("tekirova");
   });
 
-  test("La Benata: Manavgat ilçe address cannot confirm Side, km says Kızılağaç", () => {
+  test("La Benata: Manavgat ilçe cannot confirm Side; coordinate and scoped km both say Kızılağaç", () => {
     const hotel = { slug: "la-benata-hotel", name: "LA BENATA HOTEL",
       region: "side", regionSource: "discovery", aliases: [] };
     const details = { place: place({
@@ -868,7 +957,8 @@ describe("the three rows that motivated this work", () => {
     }) };
     const row = classifyAuditRow(hotel, details, routeCatalog, { kmRanges: sideRanges, km: 90 });
     expect(row.addressRegion).toBe(null);
-    expect(row.bucket).not.toBe("ok");
+    expect(row.kmRegion).toBe("kizilagac");
+    expect(row.bucket).toBe("fix");
     expect(row.derivedRegion).toBe("kizilagac");
   });
 });
@@ -903,7 +993,7 @@ files, so every `inputHash` changed. Budget for it. The checkpoint resumes, so a
 interrupted run costs nothing extra.
 
 **Files:**
-- Modify: `src/hotel-region-audit.test.js`, `src/hotel-index.js`, `scripts/hotel-discovery-pilot/region-price-matches.json`
+- Modify: `src/hotel-region-audit.test.js`, `src/hotel-index.js`, `scripts/hotel-discovery-pilot/region-review-resolved.json`
 
 - [ ] **Step 1: Add the guard test**
 
@@ -939,16 +1029,25 @@ to resume — do not pass `--redo`.
 
 - [ ] **Step 4: Correct each `fix` row by its population**
 
-Follow `.claude/skills/hotel-region-audit/SKILL.md`. Two are expected:
+Follow `.claude/skills/hotel-region-audit/SKILL.md`. Three are expected, each
+carrying two agreeing sources (coordinate and scoped km) against an index that
+disagrees, so each should arrive as `fix` rather than residue. After the
+correction the same two sources agree with the new index region, so the row
+earns `checked` on its `--slug` re-verification — if it does not, stop and say
+so rather than reaching for the allowlist.
 
-- `caner-mountain-hotel` — `regionSource: district`. Move the tuple at
-  `src/hotel-index.js:403` from the Kemer block into the Tekirova block, with a
-  one-line comment saying why the seed was wrong.
+- `caner-mountain-hotel` — `regionSource: district`. The row at
+  `src/hotel-index.js:403` is a flat tuple `["Caner Mountain Hotel", "Kemer"]`;
+  change the district to `"Tekirova"` (mapped at `src/hotel-index.js:118`) and
+  relocate it under the Tekirova heading, with a one-line comment saying why the
+  seed was wrong.
 - `la-benata-hotel` — `regionSource: discovery`. **Do not edit
-  `src/hotel-index-discovered.js`; hand edits there are regenerated away.** Set
-  `pricingRegion`, `pricingName`, `prices` and `originalPrices` in
-  `scripts/hotel-discovery-pilot/region-price-matches.json`, then
-  `npm run generate:hotel-index-discovered`.
+  `src/hotel-index-discovered.js`; hand edits there are regenerated away.** Its
+  row lives in `scripts/hotel-discovery-pilot/region-review-resolved.json`
+  (around `:351`), the second input `scripts/generate-hotel-index-discovered.mjs:7`
+  reads — **not** in `region-price-matches.json`, which has no Benata row. Grep
+  both for the slug before editing. Set `pricingRegion`, `pricingName`, `prices`
+  and `originalPrices`, then `npm run generate:hotel-index-discovered`.
 
 Re-verify each through the same path, never by hand-editing `checked`:
 
@@ -956,11 +1055,16 @@ Re-verify each through the same path, never by hand-editing `checked`:
 node scripts/audit-hotel-regions.mjs --slug caner-mountain-hotel
 ```
 
-- [ ] **Step 5: Research `throne-nilbahir-resort-spa`**
+- [ ] **Step 5: Correct `throne-nilbahir-resort-spa`**
 
-93 km, priced `side`. Confirm its real location on the web and correct it as a
-discovery row. If the evidence splits across a price boundary, file it under the
-dearer region per `src/hotel-index.js:38`.
+93 km, priced `side`, `regionSource: discovery`. The scoped km and the coordinate
+should both say `kizilagac`, so expect it as the third `fix` row and correct it
+the same way as La Benata. Confirm on the web before moving it — this one has no
+prior human review behind it. If the evidence splits across a price boundary,
+file it under the dearer region per `src/hotel-index.js:38`.
+
+Watch also for `alarcha-hotels-resort` (90 km, alanya_bati): it is existing
+residue for a loose-name conflict and should stay residue, not become a move.
 
 - [ ] **Step 6: Rebuild and run the full suite**
 
@@ -980,7 +1084,13 @@ git add -A
 git commit -m "Re-verify every hotel region against three sources of evidence"
 ```
 
-- [ ] **Step 8: Report the outcome**
+- [ ] **Step 8: Correct the stale price comment**
+
+`src/hotel-index.js:481-482` still describes kizilagac as €60; `src/routes.js`
+prices it at €70. The spec calls this a drive-by; it sits in the block Step 4
+edits.
+
+- [ ] **Step 9: Report the outcome**
 
 State the real bucket counts, every hotel that moved with its € delta, and how
 the allowlist changed. The spec's predictions were estimates; this run's numbers
