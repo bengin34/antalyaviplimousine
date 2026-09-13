@@ -738,6 +738,14 @@ body {
 }
 .card:active { transform: scale(0.992); border-color: #3a4a61; }
 .card.status-confirmed { --status-accent: var(--green); }
+/* Dönüş seyahatleri listede gidişten ayrılsın; renk dönüş rozetiyle aynı aileden. */
+.card.card-return-journey {
+  background:
+    linear-gradient(145deg, rgba(255, 173, 102, 0.1), rgba(255, 173, 102, 0.035) 55%),
+    var(--surface);
+  border-color: rgba(255, 173, 102, 0.22);
+}
+
 .card.status-pending { --status-accent: var(--orange); }
 .card.status-paid { --status-accent: var(--green); }
 .card.status-in_transit { --status-accent: var(--blue); }
@@ -1820,6 +1828,29 @@ button:focus-visible, a:focus-visible, .card:focus-visible, summary:focus-visibl
 }
 
 .driver-transfer-item:first-of-type { border-top: 0; }
+
+/* Şoför listesinde dönüş seyahatleri geliş transferleriyle karışmasın. */
+.driver-transfer-item-return {
+  background: rgba(255, 173, 102, 0.08);
+  border-radius: 10px;
+  padding-inline: 10px;
+  margin-inline: -10px;
+}
+
+.driver-return-tag {
+  display: inline-block;
+  margin-left: 8px;
+  padding: 1px 7px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 173, 102, 0.22);
+  background: var(--orange-bg);
+  color: var(--orange);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.4px;
+  vertical-align: middle;
+  white-space: nowrap;
+}
 
 .driver-transfer-time {
   font-size: 15px;

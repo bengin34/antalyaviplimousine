@@ -1,7 +1,9 @@
-import { locationLabel } from './turkish-formatters.js'
+import { isReturnJourney, locationLabel } from './turkish-formatters.js'
 import { recommendedAirportPickup } from '../src/airport-pickup.js'
 
 const DRIVER_PHONE = '905056565790'
+
+const RETURN_JOURNEY_LABEL = '🔁 *DÖNÜŞ SEYAHATİ*'
 
 export function driverWhatsappURL(message) {
   return `https://wa.me/${DRIVER_PHONE}?text=${encodeURIComponent(message)}`
@@ -45,6 +47,36 @@ function locationDisplay(loc, addr, hotelName) {
   return locationLabel(loc)
 }
 
+/**
+ * Ham rezervasyon kaydında konumlar gidiş yönünde saklanır; dönüş bacağında
+ * alış ve varış yer değiştirir.
+ */
+function legLocations(booking, isReturn = false) {
+  return isReturn
+    ? { pickup: booking.dropoff_location, dropoff: booking.pickup_location }
+    : { pickup: booking.pickup_location, dropoff: booking.dropoff_location }
+}
+
+/**
+ * Zaman çizelgesi kartlarında (`expandRoundTrips`) dönüş bacağı konum, adres
+ * ve uçuş alanları çevrilmiş hâlde taşınır. Mesaj blokları bu çevirmeyi kendisi
+ * yaptığı için kartın ham kaydı kullanılmazsa takas iki kez uygulanır ve dönüş
+ * bacağı geliş transferi gibi görünür.
+ */
+function sourceBooking(card) {
+  return card?._sourceBooking ?? card ?? {}
+}
+
+/** Kartın kendi bacağının başlangıç saati (dönüşte dönüş alışı, gidişte iniş/alış). */
+function legStartTime(card) {
+  if (card?._displayTime) return String(card._displayTime)
+  const booking = sourceBooking(card)
+  if (card?._isReturn === true) return String(booking.return_pickup_time ?? '')
+  return String((booking.pickup_location === 'airport'
+    ? (booking.flight_arrival_time || booking.pickup_time)
+    : booking.pickup_time) ?? '')
+}
+
 function pickupDisplay(booking, isReturn = false) {
   const loc = isReturn ? booking.dropoff_location : booking.pickup_location
   const addr = isReturn ? booking.dropoff_address : booking.pickup_address
@@ -66,12 +98,9 @@ function transferBlock(booking, leg = 'outbound') {
       : booking.pickup_time
   )
   const flightNo = isReturn ? booking.return_flight_number : booking.flight_number
-  const pickup = isReturn
-    ? locationLabel(booking.dropoff_location)
-    : locationLabel(booking.pickup_location)
-  const dropoff = isReturn
-    ? locationLabel(booking.pickup_location)
-    : locationLabel(booking.dropoff_location)
+  const route = legLocations(booking, isReturn)
+  const pickup = locationLabel(route.pickup)
+  const dropoff = locationLabel(route.dropoff)
 
   const price = booking.trip_type === 'round_trip'
     ? (Number(booking.price_eur) || 0) / 2
@@ -93,7 +122,7 @@ function transferBlock(booking, leg = 'outbound') {
   }
 
   if (isReturn) {
-    const advice = recommendedAirportPickup(booking.return_flight_departure_time, booking.dropoff_location)
+    const advice = recommendedAirportPickup(booking.return_flight_departure_time, route.pickup)
     if (advice) {
       const dayNote = advice.dayOffset < 0 ? ' (bir önceki gün)' : advice.dayOffset > 0 ? ' (ertesi gün)' : ''
       lines.push(`⏰ Tavsiye edilen otelden alınma: ${advice.time}${dayNote}`)
@@ -121,9 +150,11 @@ function transferBlock(booking, leg = 'outbound') {
 /**
  * Single transfer notification to driver.
  * For round trips includes both legs.
+ * Accepts a raw booking or a timeline card; a card is read through its source
+ * booking so the return leg is not flipped twice.
  */
 export function buildDriverTransferMessage(booking) {
-  const b = booking ?? {}
+  const b = sourceBooking(booking)
   const isRoundTrip = b.trip_type === 'round_trip'
 
   const header = `🚗 YENİ TRANSFER BİLDİRİMİ\n📋 Ref: ${b.booking_ref || '—'}`
@@ -132,14 +163,20 @@ export function buildDriverTransferMessage(booking) {
     return [
       header,
       '',
-      '*GİDİŞ*',
+      '*GİDİŞ SEYAHATİ*',
       transferBlock(b, 'outbound'),
       '',
       '━━━━━━━━━━━━━━',
       '',
-      '*DÖNÜŞ*',
+      RETURN_JOURNEY_LABEL,
       transferBlock(b, 'return'),
     ].join('\n')
+  }
+
+  // Ayrı kayıt olarak açılmış dönüşler tek bacaklıdır; şoför yine de bunun bir
+  // dönüş seyahati olduğunu görmeli.
+  if (isReturnJourney(b)) {
+    return [header, '', RETURN_JOURNEY_LABEL, transferBlock(b, 'outbound')].join('\n')
   }
 
   return [header, '', transferBlock(b, 'outbound')].join('\n')
@@ -147,19 +184,12 @@ export function buildDriverTransferMessage(booking) {
 
 /**
  * Full daily program for driver.
- * bookings: array of Booking objects active on the given date (already filtered).
+ * cards: timeline cards (see `expandRoundTrips`) active on the given date,
+ *        already filtered. Raw bookings are accepted as an outbound leg.
  * date: ISO string YYYY-MM-DD
  */
-export function buildDriverDailyProgram(bookings, date) {
-  const sorted = [...(bookings ?? [])].sort((a, b) => {
-    const ta = a.pickup_location === 'airport'
-      ? (a.flight_arrival_time || a.pickup_time || '')
-      : (a.pickup_time || '')
-    const tb = b.pickup_location === 'airport'
-      ? (b.flight_arrival_time || b.pickup_time || '')
-      : (b.pickup_time || '')
-    return ta.localeCompare(tb)
-  })
+export function buildDriverDailyProgram(cards, date) {
+  const sorted = [...(cards ?? [])].sort((a, b) => legStartTime(a).localeCompare(legStartTime(b)))
 
   const NUMBERS = ['1️⃣', '2️⃣', '3️⃣', '4️⃣', '5️⃣', '6️⃣', '7️⃣', '8️⃣', '9️⃣', '🔟']
 
@@ -169,21 +199,22 @@ export function buildDriverDailyProgram(bookings, date) {
     `Toplam: ${sorted.length} transfer`,
   ]
 
-  sorted.forEach((booking, index) => {
+  sorted.forEach((card, index) => {
     const num = NUMBERS[index] ?? `${index + 1}.`
-    const isReturn = booking._isReturn === true
-    const leg = isReturn ? 'return' : 'outbound'
-    const rawTime = isReturn
-      ? booking.return_pickup_time
-      : (booking.pickup_location === 'airport'
-        ? (booking.flight_arrival_time || booking.pickup_time)
-        : booking.pickup_time)
+    const isReturn = card._isReturn === true
+    const booking = sourceBooking(card)
+    // Günlük kiralamada her hizmet günü ayrı bir karttır; blok o günü göstermeli.
+    const legBooking = card._hireDayNumber && card._displayDate
+      ? { ...booking, pickup_date: card._displayDate }
+      : booking
+    const route = legLocations(booking, isReturn)
 
     lines.push('')
     lines.push('━━━━━━━━━━━━━━')
-    lines.push(`${num}  ${fmtTime(rawTime)} · ${locationLabel(isReturn ? booking.dropoff_location : booking.pickup_location)} → ${locationLabel(isReturn ? booking.pickup_location : booking.dropoff_location)}`)
+    lines.push(`${num}  ${fmtTime(legStartTime(card))} · ${locationLabel(route.pickup)} → ${locationLabel(route.dropoff)}`)
+    if (isReturnJourney(card)) lines.push(RETURN_JOURNEY_LABEL)
     lines.push('━━━━━━━━━━━━━━')
-    lines.push(transferBlock(booking, leg))
+    lines.push(transferBlock(legBooking, isReturn ? 'return' : 'outbound'))
   })
 
   return lines.join('\n')

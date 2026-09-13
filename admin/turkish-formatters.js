@@ -62,6 +62,17 @@ export function navigationURLs({
   }
 }
 
+/**
+ * Kayıt müşterinin dönüş seyahati mi? İki durum vardır: gidiş-dönüş
+ * rezervasyonunun dönüş bacağı (`_isReturn`, `expandRoundTrips` kartları) ve
+ * ayrı bir kayıt olarak açılmış dönüş (`manual_return_of_ref`). İkincisinin
+ * konumları kendi yönünde saklanır; bu yüzden bu yordam yalnızca etiketleme ve
+ * vurgu içindir, bacak yönü için `_isReturn` okunmalıdır.
+ */
+export function isReturnJourney(card) {
+  return card?._isReturn === true || Boolean(card?.manual_return_of_ref)
+}
+
 export function isFutureIstanbulLeg(date, time, now = new Date()) {
   const normalizedDate = String(date ?? '').trim()
   if (!/^\d{4}-\d{2}-\d{2}$/.test(normalizedDate)) return false
