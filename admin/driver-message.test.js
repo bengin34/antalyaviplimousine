@@ -1,5 +1,6 @@
 import { test, expect } from 'vitest'
-import { buildDriverTransferMessage } from './driver-message.js'
+import { buildDriverDailyProgram, buildDriverTransferMessage } from './driver-message.js'
+import { expandRoundTrips } from './react/pages/timeline-logic'
 
 const roundTrip = {
   booking_ref: 'VIP-2026-0042',
@@ -51,4 +52,52 @@ test('no recommendation is shown while the return departure time is missing', ()
   const { return_flight_departure_time: _omitted, ...withoutDeparture } = roundTrip
 
   expect(buildDriverTransferMessage(withoutDeparture)).not.toContain('Tavsiye edilen otelden alınma')
+})
+
+test('the daily program keeps a timeline return card pointing hotel → airport', () => {
+  const returnCard = expandRoundTrips([roundTrip]).find(card => card._isReturn)
+  const message = buildDriverDailyProgram([returnCard], roundTrip.return_date)
+
+  expect(message).toContain('🛣️ Güzergah: Belek → Antalya Havalimanı')
+  expect(message).toContain('✈️ Uçuş: XQ101 · Kalkış: 14:00')
+  expect(message).toContain('⏰ Tavsiye edilen otelden alınma: 10:40')
+  expect(message).toContain('📅 22 Ağustos 2026')
+  expect(message).not.toContain('İniş')
+})
+
+test('the daily program keeps a timeline outbound card pointing airport → hotel', () => {
+  const outboundCard = expandRoundTrips([roundTrip]).find(card => !card._isReturn)
+  const message = buildDriverDailyProgram([outboundCard], roundTrip.pickup_date)
+
+  expect(message).toContain('🛣️ Güzergah: Antalya Havalimanı → Belek')
+  expect(message).toContain('✈️ Uçuş: XQ100 · İniş: 10:30')
+  expect(message).toContain('📅 15 Ağustos 2026')
+})
+
+test('the daily program sorts each card by its own leg time', () => {
+  const sameDayOutbound = {
+    ...roundTrip,
+    booking_ref: 'VIP-2026-0043',
+    pickup_date: roundTrip.return_date,
+    trip_type: 'one_way',
+    return_date: null,
+    flight_arrival_time: '13:00:00',
+  }
+  const cards = expandRoundTrips([roundTrip, sameDayOutbound])
+    .filter(card => card._displayDate === roundTrip.return_date)
+  const message = buildDriverDailyProgram(cards, roundTrip.return_date)
+
+  // Dönüş 10:40'ta, aynı günkü geliş 13:00'te: dönüş önce gelmeli.
+  expect(message).toContain('1️⃣  10:40 · Belek → Antalya Havalimanı')
+  expect(message).toContain('2️⃣  13:00 · Antalya Havalimanı → Belek')
+})
+
+test('a driver notification built from a return card still describes both legs correctly', () => {
+  const returnCard = expandRoundTrips([roundTrip]).find(card => card._isReturn)
+  const [outbound, ret] = buildDriverTransferMessage(returnCard).split('━━━━━━━━━━━━━━')
+
+  expect(outbound).toContain('🛣️ Güzergah: Antalya Havalimanı → Belek')
+  expect(outbound).toContain('✈️ Uçuş: XQ100 · İniş: 10:30')
+  expect(ret).toContain('🛣️ Güzergah: Belek → Antalya Havalimanı')
+  expect(ret).toContain('✈️ Uçuş: XQ101 · Kalkış: 14:00')
 })

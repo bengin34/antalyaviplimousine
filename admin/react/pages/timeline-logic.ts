@@ -51,6 +51,7 @@ export function expandRoundTrips(bookings: Booking[], mode: 'timeline' | 'cancel
           const dailyStatus = day?.status === 'completed' ? 'completed' : day?.status === 'in_progress' ? 'in_transit' : booking.status
           cards.push({
             ...booking,
+            _sourceBooking: booking,
             status: dailyStatus,
             driver_name: day?.driver_name || booking.driver_name,
             vehicle_plate: day?.vehicle_plate || booking.vehicle_plate,
@@ -70,6 +71,7 @@ export function expandRoundTrips(bookings: Booking[], mode: 'timeline' | 'cancel
     }
     cards.push({
       ...booking,
+      _sourceBooking: booking,
       _displayDate: booking.pickup_date,
       _displayTime: transferStartTime(booking.pickup_location, booking.pickup_time, booking.flight_arrival_time),
       _isReturn: false,
@@ -80,6 +82,7 @@ export function expandRoundTrips(bookings: Booking[], mode: 'timeline' | 'cancel
       )
       cards.push({
         ...booking,
+        _sourceBooking: booking,
         status: needsReturnContact ? 'confirmed' : booking.status,
         _isReturn: true,
         _needsReturnContact: needsReturnContact,

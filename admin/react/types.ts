@@ -79,6 +79,12 @@ export interface Booking {
 }
 
 export interface TimelineCard extends Booking {
+  /**
+   * Kartın türetildiği ham rezervasyon. Dönüş kartlarında konum/adres/uçuş
+   * alanları dönüş yönüne çevrilmiş olduğu için, ham düzene ihtiyaç duyan
+   * tüketiciler (ör. şoför mesajları) bu kaydı okur.
+   */
+  _sourceBooking: Booking
   _displayDate: string
   _displayTime: string | null
   _isReturn: boolean
