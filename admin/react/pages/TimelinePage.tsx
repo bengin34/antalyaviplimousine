@@ -24,7 +24,7 @@ import { supabase } from '../lib/supabase'
 import type { Booking, Navigate, TimelineCard } from '../types'
 import { returnPickupAdvice } from '../components/ReturnPickupHint'
 import { comparePickupTime, formatDurationTr } from '../../../src/airport-pickup.js'
-import { locationDisplay, navigationURLs, whatsappURL } from '../../turkish-formatters.js'
+import { isReturnJourney, locationDisplay, navigationURLs, whatsappURL } from '../../turkish-formatters.js'
 import { buildDriverTransferMessage, driverWhatsappURL } from '../../driver-message.js'
 import { matchesBookingQuery } from '../../search-match.js'
 import { countFutureReservations, expandRoundTrips, TODAY_CACHE_KEY } from './timeline-logic'
@@ -154,6 +154,7 @@ function BookingCard({ card, now, isPast, isCancelled, navigate, confirmPast, co
     hotelName: card.hotel_name,
   }) : null
   const warnings = warningsFor(card)
+  const isReturn = isReturnJourney(card)
   const timing = liveTiming(card, now)
   const flightAlert = isPast ? null : flightLandingAlert(card, now)
   const showSeparateFlightArrival = card.flight_arrival_time && card.flight_arrival_time !== card._displayTime
@@ -179,7 +180,7 @@ function BookingCard({ card, now, isPast, isCancelled, navigate, confirmPast, co
     element?.scrollIntoView({ behavior: 'smooth', block: 'center' })
   }
 
-  return <div className={`card status-${card.status}${flightAlert ? ' flight-arrived' : ''}`} data-ref={card.booking_ref} data-return={String(card._isReturn)} onClick={open}>
+  return <div className={`card status-${card.status}${flightAlert ? ' flight-arrived' : ''}${isReturn ? ' card-return-journey' : ''}`} data-ref={card.booking_ref} data-return={String(card._isReturn)} onClick={open}>
     {card._needsReturnContact && <div className="return-contact-alert" role="status" onClick={event => event.stopPropagation()}>
       <span className="return-contact-icon" aria-hidden="true">☎</span>
       <span className="return-contact-copy"><strong>Gidiş seyahati için iletişime geç</strong><small>Geliş tamamlandı · Planlanan dönüş {card._displayDate} {fmtTime(card._displayTime)}</small></span>
@@ -188,7 +189,7 @@ function BookingCard({ card, now, isPast, isCancelled, navigate, confirmPast, co
     {flightAlert && <div className="flight-landed-alert" role="status"><span className="flight-landed-icon" aria-hidden="true">✈</span><span><strong>Uçak iniş saati geldi</strong><small>{flightAlert}</small></span></div>}
     <div className="card-header">
       <div className="card-time-block"><div className="card-time-row"><div className="card-schedule-item"><span className="card-time-label">Transfer tarihi</span><div className="card-date">{fmtShortDateWithWeekday(card._displayDate)}</div></div><div className="card-schedule-item"><span className="card-time-label">{isDailyChauffeur ? 'Hizmet başlangıcı' : 'Transfer saati'}</span><div className="card-time">{fmtTime(card._displayTime)}</div></div></div><div className={`card-live-time${timing.className ? ` ${timing.className}` : ''}`}>{timing.text}</div></div>
-      <div className="card-badges"><span className={`badge badge-${card.status}`}>{statusLabel(card.status, card.trip_type === 'round_trip')}</span>{isDailyChauffeur && <span className="badge badge-daily">GÜNLÜK KİRALAMA · {card._hireDayNumber}/{card._hireDayCount}</span>}{(card.trip_type === 'round_trip' || card.manual_return_of_ref) && <span className={`badge ${(card._isReturn || card.manual_return_of_ref) ? 'badge-return' : 'badge-outbound'}`}>{(card._isReturn || card.manual_return_of_ref) ? 'DÖNÜŞ' : 'GİDİŞ'}</span>}</div>
+      <div className="card-badges"><span className={`badge badge-${card.status}`}>{statusLabel(card.status, card.trip_type === 'round_trip')}</span>{isDailyChauffeur && <span className="badge badge-daily">GÜNLÜK KİRALAMA · {card._hireDayNumber}/{card._hireDayCount}</span>}{(card.trip_type === 'round_trip' || card.manual_return_of_ref) && <span className={`badge ${isReturn ? 'badge-return' : 'badge-outbound'}`}>{isReturn ? 'DÖNÜŞ' : 'GİDİŞ'}</span>}</div>
     </div>
     <div className="card-route" aria-label={`${pickup} konumundan ${dropoff} konumuna`}>
       <div className="route-point route-pickup"><span className="route-marker" aria-hidden="true" /><div><span className="route-label">Alış</span><strong>{pickup}</strong></div></div>

@@ -1,7 +1,9 @@
-import { locationLabel } from './turkish-formatters.js'
+import { isReturnJourney, locationLabel } from './turkish-formatters.js'
 import { recommendedAirportPickup } from '../src/airport-pickup.js'
 
 const DRIVER_PHONE = '905056565790'
+
+const RETURN_JOURNEY_LABEL = '🔁 *DÖNÜŞ SEYAHATİ*'
 
 export function driverWhatsappURL(message) {
   return `https://wa.me/${DRIVER_PHONE}?text=${encodeURIComponent(message)}`
@@ -161,14 +163,20 @@ export function buildDriverTransferMessage(booking) {
     return [
       header,
       '',
-      '*GİDİŞ*',
+      '*GİDİŞ SEYAHATİ*',
       transferBlock(b, 'outbound'),
       '',
       '━━━━━━━━━━━━━━',
       '',
-      '*DÖNÜŞ*',
+      RETURN_JOURNEY_LABEL,
       transferBlock(b, 'return'),
     ].join('\n')
+  }
+
+  // Ayrı kayıt olarak açılmış dönüşler tek bacaklıdır; şoför yine de bunun bir
+  // dönüş seyahati olduğunu görmeli.
+  if (isReturnJourney(b)) {
+    return [header, '', RETURN_JOURNEY_LABEL, transferBlock(b, 'outbound')].join('\n')
   }
 
   return [header, '', transferBlock(b, 'outbound')].join('\n')
@@ -204,6 +212,7 @@ export function buildDriverDailyProgram(cards, date) {
     lines.push('')
     lines.push('━━━━━━━━━━━━━━')
     lines.push(`${num}  ${fmtTime(legStartTime(card))} · ${locationLabel(route.pickup)} → ${locationLabel(route.dropoff)}`)
+    if (isReturnJourney(card)) lines.push(RETURN_JOURNEY_LABEL)
     lines.push('━━━━━━━━━━━━━━')
     lines.push(transferBlock(legBooking, isReturn ? 'return' : 'outbound'))
   })

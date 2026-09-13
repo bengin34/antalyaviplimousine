@@ -5,7 +5,7 @@ import { supabase } from '../lib/supabase'
 import type { Booking, Navigate } from '../types'
 import { expandRoundTrips } from './timeline-logic'
 import { buildDriverDailyProgram, driverWhatsappURL } from '../../driver-message.js'
-import { locationLabel } from '../../turkish-formatters.js'
+import { isReturnJourney, locationLabel } from '../../turkish-formatters.js'
 
 function transferDisplayTime(card: Booking & { _isReturn?: boolean; _displayTime?: string | null }) {
   return card._displayTime ? card._displayTime.slice(0, 5) : '—'
@@ -83,15 +83,20 @@ export default function DriverCommsPage({ navigate }: { navigate: Navigate }) {
           )}
 
           {cards.map((card, index) => (
-            <div className="driver-transfer-item" key={`${card.booking_ref}-${card._isReturn ? 'return' : 'out'}-${index}`}>
+            <div
+              className={`driver-transfer-item${isReturnJourney(card) ? ' driver-transfer-item-return' : ''}`}
+              key={`${card.booking_ref}-${card._isReturn ? 'return' : 'out'}-${index}`}
+            >
               <div className="driver-transfer-time">{transferDisplayTime(card)}</div>
               <div className="driver-transfer-info">
-                <div className="driver-transfer-route">{transferRoute(card)}</div>
+                <div className="driver-transfer-route">
+                  {transferRoute(card)}
+                  {isReturnJourney(card) && <span className="driver-return-tag">🔁 DÖNÜŞ SEYAHATİ</span>}
+                </div>
                 <div className="driver-transfer-meta">
                   {card.customer_name}
                   {card.flight_number ? ` · ✈️ ${card.flight_number}` : ''}
                   {` · ${card.guests ?? '?'} kişi`}
-                  {card._isReturn ? ' · DÖNÜŞ' : ''}
                 </div>
               </div>
             </div>

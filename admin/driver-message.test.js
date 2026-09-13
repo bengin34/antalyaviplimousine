@@ -101,3 +101,27 @@ test('a driver notification built from a return card still describes both legs c
   expect(ret).toContain('🛣️ Güzergah: Belek → Antalya Havalimanı')
   expect(ret).toContain('✈️ Uçuş: XQ101 · Kalkış: 14:00')
 })
+
+test('the daily program marks return journeys and leaves arrivals unmarked', () => {
+  const [outboundCard, returnCard] = expandRoundTrips([roundTrip])
+  const returnProgram = buildDriverDailyProgram([returnCard], roundTrip.return_date)
+  const outboundProgram = buildDriverDailyProgram([outboundCard], roundTrip.pickup_date)
+
+  expect(returnProgram).toContain('🔁 *DÖNÜŞ SEYAHATİ*')
+  expect(outboundProgram).not.toContain('DÖNÜŞ SEYAHATİ')
+})
+
+test('a separately booked return is marked as a return journey too', () => {
+  const manualReturn = {
+    ...roundTrip,
+    trip_type: 'one_way',
+    return_date: null,
+    pickup_location: 'belek',
+    dropoff_location: 'airport',
+    manual_return_of_ref: 'VIP-2026-0042',
+  }
+  const [card] = expandRoundTrips([manualReturn])
+
+  expect(buildDriverDailyProgram([card], manualReturn.pickup_date)).toContain('🔁 *DÖNÜŞ SEYAHATİ*')
+  expect(buildDriverTransferMessage(manualReturn)).toContain('🔁 *DÖNÜŞ SEYAHATİ*')
+})
