@@ -305,6 +305,15 @@ Deno.serve(async (req) => {
       child_ages: childAges,
       luggage_count: luggageCount,
       flight_number: normalizeWhitespace(payload.flight_number).toUpperCase() || null,
+      // Yalnızca operatöre bilgi. İstemciden geliyor, bu yüzden hiçbir iş kararı
+      // buna dayanmaz — tanınmış bir değer değilse null.
+      flight_verification_status: ['verified', 'not_found', 'wrong_airport', 'unavailable']
+        .includes(String(payload.flight_verification_status))
+        ? String(payload.flight_verification_status)
+        : null,
+      flight_scheduled_arrival: /^\d{2}:\d{2}$/.test(String(payload.flight_scheduled_arrival ?? ''))
+        ? String(payload.flight_scheduled_arrival)
+        : null,
       flight_arrival_time: payload.flight_arrival_time || null,
       notes: notes || null,
       pickup_location: pickupLocation,
