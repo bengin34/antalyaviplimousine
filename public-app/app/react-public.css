@@ -111,6 +111,9 @@
 }
 .booking-section .field-error-message { display: block; margin-top: 7px; color: #a93226; font-size: .74rem; line-height: 1.35; }
 .booking-section .booking-field.has-error .field-control { border-color: #a93226; }
+.flight-hint { display: block; margin-top: 4px; font-size: 13px; }
+.flight-hint-ok { color: #157347; }
+.flight-hint-warn { color: #a06000; }
 .booking-section .payment-error { display: block; }
 .booking-section .quote-submit:disabled { cursor: wait; opacity: .65; }
 

@@ -1,10 +1,16 @@
 // @vitest-environment jsdom
 
 import "@testing-library/jest-dom/vitest";
-import { cleanup, fireEvent, render } from "@testing-library/react";
-import { afterEach, describe, expect, test } from "vitest";
+import { cleanup, fireEvent, render, waitFor } from "@testing-library/react";
+import { afterEach, beforeEach, describe, expect, test, vi } from "vitest";
 import { LanguageProvider } from "../i18n";
+import { verifyFlightNumber } from "../lib/flight-verification";
 import { BookingForm } from "./BookingForm";
+
+vi.mock("../lib/flight-verification", async (importOriginal) => ({
+  ...(await importOriginal<typeof import("../lib/flight-verification")>()),
+  verifyFlightNumber: vi.fn(),
+}));
 
 afterEach(cleanup);
 
@@ -191,5 +197,109 @@ describe("BookingForm route summary", () => {
     // enough to quote it: Belek → airport is the Belek price.
     expect(container.querySelector(".price-display-amount")).toHaveTextContent("€40");
     expect(container.querySelector(".price-display-route")).toHaveTextContent("Belek → Antalya Havalimanı (AYT)");
+  });
+});
+
+describe("BookingForm flight verification", () => {
+  const flightFuture = `${new Date().getFullYear() + 1}-08-10`;
+
+  // verifyFlightNumber modul duzeyinde paylasilan bir vi.fn(); dosyanin
+  // afterEach(cleanup) cagrisi onu sifirlamaz. Sifirlanmazsa cagri sayilari ve
+  // mockResolvedValueOnce kuyrugu testler arasinda tasar.
+  beforeEach(() => { vi.mocked(verifyFlightNumber).mockReset(); });
+
+  const goToStep2 = () => {
+    const { container } = render(
+      <LanguageProvider initialLanguage="tr">
+        <BookingForm scrollOnSelect={false} />
+      </LanguageProvider>,
+    );
+    // advanceToStep2 also gates on trigger("hotelName"), and the schema requires
+    // a hotel name for any destination that is not a private address.
+    fireEvent.change(container.querySelector("#hotel-name")!, { target: { value: "Test Hotel" } });
+    fireEvent.change(container.querySelector("#destination")!, { target: { value: "side" } });
+    fireEvent.click(container.querySelector("#main-book-step1")!);
+    return container;
+  };
+
+  const enterFlight = async (container: HTMLElement, value: string) => {
+    await waitFor(() => expect(container.querySelector("#flight-number")).not.toBeNull());
+    fireEvent.change(container.querySelector("#travel-date")!, { target: { value: flightFuture } });
+    const field = container.querySelector<HTMLInputElement>("#flight-number")!;
+    fireEvent.change(field, { target: { value } });
+    fireEvent.blur(field);
+  };
+
+  const arrivalField = (container: HTMLElement) =>
+    container.querySelector<HTMLInputElement>("#flight-arrival-time")!;
+
+  test("a confirmed flight fills the arrival time the guest left empty", async () => {
+    vi.mocked(verifyFlightNumber).mockResolvedValue({ status: "verified", arrivalTime: "14:35" });
+    const container = goToStep2();
+    await enterFlight(container, "TK2412");
+    await waitFor(() => expect(arrivalField(container).value).toBe("14:35"));
+  });
+
+  test("the filled-in time stays editable", async () => {
+    vi.mocked(verifyFlightNumber).mockResolvedValue({ status: "verified", arrivalTime: "14:35" });
+    const container = goToStep2();
+    await enterFlight(container, "TK2412");
+    await waitFor(() => expect(arrivalField(container).value).toBe("14:35"));
+    expect(arrivalField(container)).not.toBeDisabled();
+    expect(arrivalField(container)).not.toHaveAttribute("readonly");
+    fireEvent.change(arrivalField(container), { target: { value: "16:00" } });
+    expect(arrivalField(container).value).toBe("16:00");
+  });
+
+  test("a time the guest typed is never overwritten", async () => {
+    vi.mocked(verifyFlightNumber).mockResolvedValue({ status: "verified", arrivalTime: "14:35" });
+    const container = goToStep2();
+    await waitFor(() => expect(container.querySelector("#flight-arrival-time")).not.toBeNull());
+    fireEvent.change(arrivalField(container), { target: { value: "09:15" } });
+    await enterFlight(container, "TK2412");
+    await waitFor(() => expect(verifyFlightNumber).toHaveBeenCalled());
+    expect(arrivalField(container).value).toBe("09:15");
+  });
+
+  test("a flight landing elsewhere says so", async () => {
+    vi.mocked(verifyFlightNumber).mockResolvedValue({ status: "wrong_airport", arrivalAirport: "IST" });
+    const container = goToStep2();
+    await enterFlight(container, "TK1");
+    await waitFor(() => expect(container.querySelector(".flight-hint")).toHaveTextContent("IST"));
+  });
+
+  test("a flight the schedule does not know stays silent", async () => {
+    for (const status of ["not_found", "unavailable"] as const) {
+      vi.mocked(verifyFlightNumber).mockReset().mockResolvedValue({ status });
+      const container = goToStep2();
+      await enterFlight(container, "ZZ9999");
+      await waitFor(() => expect(verifyFlightNumber).toHaveBeenCalled());
+      expect(container.querySelector(".flight-hint")).toBeNull();
+      expect(arrivalField(container).value).toBe("");
+      cleanup();
+    }
+  });
+
+  test("the same flight and date is never asked about twice", async () => {
+    vi.mocked(verifyFlightNumber).mockResolvedValue({ status: "verified", arrivalTime: "14:35" });
+    const container = goToStep2();
+    await enterFlight(container, "TK2412");
+    await waitFor(() => expect(verifyFlightNumber).toHaveBeenCalledTimes(1));
+    fireEvent.blur(container.querySelector("#flight-number")!);
+    fireEvent.blur(container.querySelector("#flight-number")!);
+    await waitFor(() => expect(verifyFlightNumber).toHaveBeenCalledTimes(1));
+  });
+
+  test("a late answer for a flight number the guest has moved on from is ignored", async () => {
+    let resolveFirst: (value: any) => void = () => {};
+    vi.mocked(verifyFlightNumber)
+      .mockImplementationOnce(() => new Promise(resolve => { resolveFirst = resolve; }))
+      .mockResolvedValueOnce({ status: "not_found" });
+    const container = goToStep2();
+    await enterFlight(container, "TK2412");
+    await enterFlight(container, "PC2148");
+    resolveFirst({ status: "verified", arrivalTime: "14:35" });
+    await waitFor(() => expect(verifyFlightNumber).toHaveBeenCalledTimes(2));
+    expect(arrivalField(container).value).toBe("");
   });
 });
