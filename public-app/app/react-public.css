@@ -118,6 +118,11 @@
 .flight-hint-marker { font-weight: 700; }
 .flight-hint-ok { color: #157347; }
 .flight-hint-warn { color: #a06000; }
+/* Dugme oldugu renkten degil, altindaki cizgiden ve cercevesinden anlasilir -
+   cevresindeki metinle ayni renkte bile ayirt edilebilir. WCAG 2.2 1.4.1. */
+.flight-hint-apply { display: inline; padding: 0 4px; border: 1px solid currentColor; border-radius: 4px; background: transparent; color: inherit; font: inherit; text-decoration: underline; cursor: pointer; }
+.flight-hint-apply:hover { background: rgba(255, 255, 255, .12); }
+.flight-hint-apply:focus-visible { outline: 2px solid currentColor; outline-offset: 2px; }
 .booking-section .payment-error { display: block; }
 .booking-section .quote-submit:disabled { cursor: wait; opacity: .65; }
 
