@@ -218,7 +218,7 @@ import { normalizeFlightNumber, resolveFlightStatus, verifyFlight, type FlightRe
 import aytArrival from "./fixtures/ayt-arrival.json";
 import notAyt from "./fixtures/not-ayt.json";
 
-const ok = (body: unknown) => ({ ok: true, status: 200, json: async () => body });
+const ok = (body: unknown) => ({ ok: true, status: 200, text: async () => JSON.stringify(body) });
 
 /** Bellekte duran sahte depo; cagri sayilari testlerde dogrudan okunur. */
 const fakeStore = (cap = 380) => {
@@ -272,13 +272,45 @@ describe("verifyFlight", () => {
 
   beforeEach(() => { store = fakeStore(); });
 
-  test("404 from upstream means not found", async () => {
-    const fetchImpl = vi.fn().mockResolvedValue({ ok: false, status: 404, json: async () => ({}) });
+  // Gercek API tanimadigi ucus icin 204 + bos govde donuyor - olculdu, uydurma degil.
+  // Bu yol yanlislikla unavailable olursa panelde "bulunamadi" rozeti hic cikmaz
+  // ve yanlis yazilmis her ucus numarasi kotadan tekrar tekrar hak yer.
+  test("the real not-found shape, 204 with an empty body, is not found", async () => {
+    const fetchImpl = vi.fn().mockResolvedValue({
+      ok: true, status: 204,
+      text: async () => "",
+      json: async () => { throw new SyntaxError("Unexpected end of JSON input"); },
+    });
     expect((await verifyFlight({ ...base(), fetchImpl })).status).toBe("not_found");
   });
 
+  test("a 200 with an empty body is also not found", async () => {
+    const fetchImpl = vi.fn().mockResolvedValue({ ok: true, status: 200, text: async () => "  " });
+    expect((await verifyFlight({ ...base(), fetchImpl })).status).toBe("not_found");
+  });
+
+  test("a not-found answer is cached so a typo cannot drain the quota", async () => {
+    const fetchImpl = vi.fn().mockResolvedValue({ ok: true, status: 204, text: async () => "" });
+    await verifyFlight({ ...base(), fetchImpl });
+    await verifyFlight({ ...base(), fetchImpl });
+    expect(fetchImpl).toHaveBeenCalledTimes(1);
+    expect(store.used).toBe(1);
+  });
+
+  // 404 olculmedi ama savunma amacli tutuluyor: RapidAPI ag gecidi, yukari akistan
+  // bagimsiz olarak bozuk bir yol icin 404 donebilir.
+  test("404 from upstream means not found", async () => {
+    const fetchImpl = vi.fn().mockResolvedValue({ ok: false, status: 404, text: async () => "" });
+    expect((await verifyFlight({ ...base(), fetchImpl })).status).toBe("not_found");
+  });
+
+  test("a body that is not JSON at all is unavailable, not not_found", async () => {
+    const fetchImpl = vi.fn().mockResolvedValue({ ok: true, status: 200, text: async () => "<html>502</html>" });
+    expect((await verifyFlight({ ...base(), fetchImpl })).status).toBe("unavailable");
+  });
+
   test("a server error is unavailable, not an exception", async () => {
-    const fetchImpl = vi.fn().mockResolvedValue({ ok: false, status: 500, json: async () => ({}) });
+    const fetchImpl = vi.fn().mockResolvedValue({ ok: false, status: 500, text: async () => "" });
     expect((await verifyFlight({ ...base(), fetchImpl })).status).toBe("unavailable");
   });
 
@@ -317,7 +349,7 @@ describe("verifyFlight", () => {
 
   test("an unavailable result is not cached", async () => {
     const fetchImpl = vi.fn()
-      .mockResolvedValueOnce({ ok: false, status: 500, json: async () => ({}) })
+      .mockResolvedValueOnce({ ok: false, status: 500, text: async () => "" })
       .mockResolvedValueOnce(ok(aytArrival));
     expect((await verifyFlight({ ...base(), fetchImpl })).status).toBe("unavailable");
     expect((await verifyFlight({ ...base(), fetchImpl })).status).toBe("verified");
@@ -458,9 +490,27 @@ export async function verifyFlight({
           signal: controller.signal,
         },
       );
-      if (response.status === 404) result = { status: "not_found" };
-      else if (!response.ok) result = UNAVAILABLE;
-      else result = resolveFlightStatus(await response.json());
+      // Tanimadigi ucus icin API 204 No Content ve BOS govde donuyor (olculdu,
+      // bkz. fixtures/README.md) - ne 404 ne de bos dizi. Bos govdede .json()
+      // istisna atar; onu yakalamayip disariya birakmak bunu unavailable yapardi
+      // ve iki sey bozulurdu: panelde "bulunamadi" rozeti hic cikmaz, ve
+      // unavailable onbellege girmedigi icin yanlis yazilmis her ucus numarasi
+      // her sorulusunda kotadan yeni bir hak yerdi.
+      if (response.status === 204 || response.status === 404) {
+        result = { status: "not_found" };
+      } else if (!response.ok) {
+        result = UNAVAILABLE;
+      } else {
+        const body = (await response.text()).trim();
+        if (!body) result = { status: "not_found" };
+        else {
+          try {
+            result = resolveFlightStatus(JSON.parse(body));
+          } catch {
+            result = UNAVAILABLE;   // bozuk JSON: bilgi yoklugu, bulunamadi degil
+          }
+        }
+      }
     } finally {
       clearTimeout(timer);
     }

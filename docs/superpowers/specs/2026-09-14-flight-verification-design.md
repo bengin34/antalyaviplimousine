@@ -98,7 +98,8 @@ aynı `jsonResponse` yardımcısı).
 |---|---|
 | Uçuş bulundu, varış AYT | `verified` (+ `arrivalTime`, `terminal`) |
 | Uçuş bulundu, varış AYT değil | `wrong_airport` (+ `arrivalAirport`) |
-| API 404 / boş liste | `not_found` |
+| API 204 + boş gövde (ölçüldü: gerçek "bulunamadı" biçimi) | `not_found` |
+| API 404 veya boş dizi (savunma amaçlı) | `not_found` |
 | Timeout, 5xx, kota aşımı, anahtar yok, geçersiz gövde | `unavailable` |
 
 AeroDataBox bir uçuş numarası + tarih sorgusuna **dizi** döner (aktarmalı bacaklar,
@@ -114,6 +115,11 @@ varış havalimanı bildirilir.
 - `RAPIDAPI_API_KEY` ortam değişkeni yoksa `unavailable` döner — özellik
   yapılandırılmamış bir ortamda formu bozmaz.
 - Uçuş numarası normalize edilir: boşluk/tire atılır, büyük harfe çevrilir.
+- Boş gövde `not_found` demektir, `unavailable` değil. AeroDataBox tanımadığı uçuş
+  için **204 No Content** dönüyor (ölçüldü). Bunu `unavailable`'a düşürmek iki şeyi
+  bozar: panelde `bulunamadı` rozeti hiç çıkmaz — oysa yanlış yazılmış uçuş numarası
+  bu özelliğin yakalamak için var olduğu tek durumdur — ve `unavailable` önbelleğe
+  girmediği için aynı hatalı numara her sorulduğunda kotadan yeni bir hak yer.
 
 **Önbellek ve kota, `LookupStore` arkasında.** Fonksiyon bir depoya bağımlıdır:
 `get` / `put` (önbellek) ve `consumeQuota` (aylık sayaç). Gerçeklemesi Postgres,
