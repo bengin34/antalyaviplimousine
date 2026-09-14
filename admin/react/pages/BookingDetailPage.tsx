@@ -35,6 +35,23 @@ function languageChip(code: string) {
   return `${LANGUAGE_FLAGS[code] ?? '🌐'} ${languageName(code)}`
 }
 
+// Yalnızca üç durum rozet alır. 'unavailable' ve null bilerek listede yok:
+// özellikten önceki her kayıt null, API anahtarı tanımlanana kadar her yeni
+// kayıt 'unavailable' olacağı için bunlara rozet basmak paneli ilk günden
+// sahte uyarıyla doldururdu. Eksik anahtar boş rozet değil, hiç rozet üretir.
+const FLIGHT_VERIFICATION_BADGES: Partial<Record<
+  NonNullable<Booking['flight_verification_status']>,
+  { tone: 'ok' | 'warn'; label: string }
+>> = {
+  verified: { tone: 'ok', label: 'doğrulandı' },
+  not_found: { tone: 'warn', label: 'bulunamadı' },
+  wrong_airport: { tone: 'warn', label: 'farklı havalimanı' },
+}
+
+export function flightVerificationBadge(status: Booking['flight_verification_status']) {
+  return status ? FLIGHT_VERIFICATION_BADGES[status] : undefined
+}
+
 function transferFor(booking: Booking, isReturn: boolean) {
   if (isReturn && booking.trip_type === 'round_trip' && booking.return_date) {
     return {
@@ -353,6 +370,14 @@ export default function BookingDetailPage({ bookingRef, isReturn, sourceTab, pro
   const flightTimeSuffix = transfer.flightDepartureTime
     ? ` kalkış ${fmtTime(transfer.flightDepartureTime)}`
     : showSeparateFlightArrival ? ` varış ${fmtTime(transfer.flightArrivalTime)}` : ''
+  // Doğrulama yalnızca geliş uçuşu için yapılır; dönüş ayağında ekrandaki
+  // uçuş numarası başka bir uçuştur, ona geliş rozetini basmak yanlış olur.
+  // Koşul transferFor'unkinin aynısı: hangi ayağın gösterildiğini o belirler.
+  // Aynı gerekçeyle günlük kiralamada rozet yalnızca '✈ Geliş' satırında:
+  // '✈ Dönüş' satırı departure_flight_number'ı gösterir, durum onun
+  // hakkında hiçbir şey söylemez.
+  const showingReturnLeg = isReturn && booking.trip_type === 'round_trip' && Boolean(booking.return_date)
+  const flightBadge = showingReturnLeg ? undefined : flightVerificationBadge(booking.flight_verification_status)
   const hireDays = dailyChauffeur && booking.service_end_date
     ? Math.floor((Date.parse(`${booking.service_end_date}T00:00:00Z`) - Date.parse(`${booking.pickup_date}T00:00:00Z`)) / 86_400_000) + 1
     : 0
@@ -521,7 +546,7 @@ export default function BookingDetailPage({ bookingRef, isReturn, sourceTab, pro
         : <>Bu rezervasyondan planlanan ayrı kayıt(lar): <strong>{linkedReturns.map(item => item.booking_ref).join(', ')}</strong>. Bunlar bağımsız kayıtlardır.</>}</div>}</div>
       <div className="section quick-actions-section"><button className="btn-outline blue" type="button" onClick={() => planTrip(false)}>🆕 Bu yolcudan yeni seyahat planla</button>{!dailyChauffeur && <button className="btn-outline blue" type="button" onClick={() => planTrip(true)}>↩ Dönüş yolculuğu planla</button>}</div>
       {needsReturnContact && <div className="return-contact-alert detail-return-contact" role="status"><span className="return-contact-icon" aria-hidden="true">☎</span><span className="return-contact-copy"><strong>Gidiş seyahati için iletişime geç</strong><small>Geliş transferi tamamlandı.</small></span><a href={whatsappURL(booking.customer_phone)} target="_blank" rel="noopener noreferrer">WhatsApp</a></div>}
-      <div className="section"><div className="editable-heading" style={{ marginBottom: 8 }}><div className="section-label" style={{ marginBottom: 0 }}>{dailyChauffeur ? 'Günlük Araç + Şoför' : 'Transfer'}</div><button className="inline-edit-button" type="button" hidden={editing} onClick={() => { setSuccess(''); setEditing(true) }}>Tümünü düzenle</button></div>{dailyChauffeur ? <><div className="daily-detail-title">{fmtDetailDate(booking.pickup_date)} – {fmtDetailDate(booking.service_end_date)} · {hireDays} gün</div><div className="daily-detail-summary"><span><small>Başlangıç</small><strong>{fmtTime(booking.pickup_time)} · {pickupDisplay}</strong></span><span><small>Hizmet</small><strong>Kilometre ve saat sınırı yok</strong></span><span><small>Ücret</small><strong>€{fmtPrice(Number(booking.daily_rate_eur) || 150)} × {hireDays} = €{fmtPrice(booking.price_eur)}</strong></span></div><div className={`fuel-acceptance-status${booking.fuel_terms_accepted_at ? ' accepted' : ' missing'}`}>{booking.fuel_terms_accepted_at ? `✓ Yakıt hariç koşulu müşteri tarafından onaylandı · ${new Date(booking.fuel_terms_accepted_at).toLocaleString('tr-TR')}` : '⚠ Yakıt hariç koşulu onaylanmamış'}</div>{booking.flight_number && <div className="daily-flight-line">✈ Geliş: {booking.pickup_date} · {booking.flight_number} · varış {fmtTime(booking.flight_arrival_time)}</div>}{booking.departure_flight_date && <div className="daily-flight-line">✈ Dönüş: {booking.departure_flight_date} · {booking.departure_flight_number || 'Uçuş no yok'} · kalkış {fmtTime(booking.departure_flight_time)}</div>}</> : <><div style={{ fontSize: 17, fontWeight: 700, marginBottom: 4 }}>{fmtTime(transfer.time)} &nbsp;{pickupDisplay} → {dropoffDisplay}</div><div style={{ color: 'var(--text-muted)', fontSize: 13 }}>{fmtDetailDate(transfer.date)}{transfer.flightNumber ? ` · ✈️ ${transfer.flightNumber}${flightTimeSuffix}` : ''}</div>{transfer.pickupAddress && <div style={{ color: 'var(--text-muted)', fontSize: 13, marginTop: 6 }}>📍 Alış: {transfer.pickupAddress}</div>}{transfer.dropoffAddress && <div style={{ color: 'var(--text-muted)', fontSize: 13, marginTop: 3 }}>📍 Varış: {transfer.dropoffAddress}</div>}{navigation && <><div className="detail-navigation-label">Transfer rotası</div><div className="detail-navigation" aria-label="Google Haritalar ile transfer rotası için yol tarifi"><a href={navigation.google} target="_blank" rel="noopener noreferrer"><span aria-hidden="true">↗</span> Adrese yol tarifi al</a></div></>}</>}<div className="inline-success" role="status">{success}</div></div>
+      <div className="section"><div className="editable-heading" style={{ marginBottom: 8 }}><div className="section-label" style={{ marginBottom: 0 }}>{dailyChauffeur ? 'Günlük Araç + Şoför' : 'Transfer'}</div><button className="inline-edit-button" type="button" hidden={editing} onClick={() => { setSuccess(''); setEditing(true) }}>Tümünü düzenle</button></div>{dailyChauffeur ? <><div className="daily-detail-title">{fmtDetailDate(booking.pickup_date)} – {fmtDetailDate(booking.service_end_date)} · {hireDays} gün</div><div className="daily-detail-summary"><span><small>Başlangıç</small><strong>{fmtTime(booking.pickup_time)} · {pickupDisplay}</strong></span><span><small>Hizmet</small><strong>Kilometre ve saat sınırı yok</strong></span><span><small>Ücret</small><strong>€{fmtPrice(Number(booking.daily_rate_eur) || 150)} × {hireDays} = €{fmtPrice(booking.price_eur)}</strong></span></div><div className={`fuel-acceptance-status${booking.fuel_terms_accepted_at ? ' accepted' : ' missing'}`}>{booking.fuel_terms_accepted_at ? `✓ Yakıt hariç koşulu müşteri tarafından onaylandı · ${new Date(booking.fuel_terms_accepted_at).toLocaleString('tr-TR')}` : '⚠ Yakıt hariç koşulu onaylanmamış'}</div>{booking.flight_number && <div className="daily-flight-line arrival">✈ Geliş: {booking.pickup_date} · {booking.flight_number} · varış {fmtTime(booking.flight_arrival_time)}{flightBadge && <span className={`flight-badge ${flightBadge.tone}`}>{flightBadge.label}</span>}</div>}{booking.departure_flight_date && <div className="daily-flight-line departure">✈ Dönüş: {booking.departure_flight_date} · {booking.departure_flight_number || 'Uçuş no yok'} · kalkış {fmtTime(booking.departure_flight_time)}</div>}</> : <><div style={{ fontSize: 17, fontWeight: 700, marginBottom: 4 }}>{fmtTime(transfer.time)} &nbsp;{pickupDisplay} → {dropoffDisplay}</div><div style={{ color: 'var(--text-muted)', fontSize: 13 }}>{fmtDetailDate(transfer.date)}{transfer.flightNumber ? ` · ✈️ ${transfer.flightNumber}${flightTimeSuffix}` : ''}{transfer.flightNumber && flightBadge && <span className={`flight-badge ${flightBadge.tone}`}>{flightBadge.label}</span>}</div>{transfer.pickupAddress && <div style={{ color: 'var(--text-muted)', fontSize: 13, marginTop: 6 }}>📍 Alış: {transfer.pickupAddress}</div>}{transfer.dropoffAddress && <div style={{ color: 'var(--text-muted)', fontSize: 13, marginTop: 3 }}>📍 Varış: {transfer.dropoffAddress}</div>}{navigation && <><div className="detail-navigation-label">Transfer rotası</div><div className="detail-navigation" aria-label="Google Haritalar ile transfer rotası için yol tarifi"><a href={navigation.google} target="_blank" rel="noopener noreferrer"><span aria-hidden="true">↗</span> Adrese yol tarifi al</a></div></>}</>}<div className="inline-success" role="status">{success}</div></div>
       {roundTrip && isReturn && !editing && <div className="section return-pickup-section"><div className="section-label">Dönüş Uçuşu & Otelden Alınma</div>
         <div className="detail-grid">
           <div><div className="detail-key">Dönüş uçuşu</div><div className="detail-val">{booking.return_flight_number ? `✈️ ${booking.return_flight_number}` : '—'}</div></div>

@@ -40,6 +40,12 @@ export interface Booking {
   pickup_time: string | null
   flight_number: string | null
   flight_arrival_time: string | null
+  // Geliş uçuşunun tarifeye karşı doğrulama sonucu. Opsiyonel ve nullable:
+  // özellikten önceki her kayıt null, API anahtarı tanımlanana kadar her
+  // yeni kayıt 'unavailable'. İkisi de bir sorun değil, bilgi eksikliği —
+  // panel bu iki durumda hiçbir şey göstermez.
+  flight_verification_status?: 'verified' | 'not_found' | 'wrong_airport' | 'unavailable' | null
+  flight_scheduled_arrival?: string | null
   trip_type: 'one_way' | 'round_trip' | 'daily_chauffeur'
   return_date: string | null
   return_pickup_time: string | null

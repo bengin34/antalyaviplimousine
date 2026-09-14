@@ -101,3 +101,20 @@ describe("original price never inverts below the floored live price", () => {
     expect(q.originalPrice).toBe(60);
   });
 });
+
+describe("flight verification on the payload", () => {
+  test("carries the verification through under the column names", () => {
+    const payload = buildPublicBookingPayload(
+      { ...base, flightVerificationStatus: "verified", flightScheduledArrival: "14:35" } as PublicBookingValues,
+      "tr",
+    );
+    expect(payload.flight_verification_status).toBe("verified");
+    expect(payload.flight_scheduled_arrival).toBe("14:35");
+  });
+
+  test("an unchecked flight sends null rather than a made-up status", () => {
+    const payload = buildPublicBookingPayload(base, "tr");
+    expect(payload.flight_verification_status).toBeNull();
+    expect(payload.flight_scheduled_arrival).toBeNull();
+  });
+});

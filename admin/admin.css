@@ -1166,6 +1166,47 @@ body {
 .badge-outbound { border-color: rgba(115, 183, 255, 0.22); background: var(--blue-bg); color: var(--blue); }
 .badge-return { border-color: rgba(255, 173, 102, 0.22); background: var(--orange-bg); color: var(--orange); }
 
+/* Uçuş doğrulama rozeti. Yalnızca 'verified' / 'not_found' / 'wrong_airport'
+   için basılır; 'unavailable' ve null hiç element üretmez. */
+.flight-badge {
+  display: inline-block;
+  margin-left: 6px;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  padding: 2px 7px;
+  font-size: 10px;
+  font-weight: 700;
+  vertical-align: middle;
+}
+.flight-badge.ok { border-color: rgba(88, 214, 141, 0.22); background: var(--green-bg); color: var(--green); }
+.flight-badge.warn { border-color: rgba(255, 173, 102, 0.22); background: var(--orange-bg); color: var(--orange); }
+
+/* Uçuş doğrulama kotası göstergesi. Kota bittiğinde özellik sessizce
+   kapanır: müşteriye hiçbir şey gösterilmez, rozet de çıkmaz. Operatörün
+   "kota bitti" ile "kimse uçuş numarası girmedi" arasını ayırabileceği
+   tek yer burasıdır. */
+.flight-quota-figure {
+  display: block;
+  font-size: 20px;
+  margin-bottom: 4px;
+}
+.flight-quota-note {
+  color: var(--text-muted);
+  font-size: 13px;
+  line-height: 1.5;
+  display: block;
+}
+.flight-quota-cycle {
+  color: var(--text-muted);
+  font-size: 11px;
+  display: block;
+  margin-top: 8px;
+}
+.flight-quota.low { border-color: var(--orange); }
+.flight-quota.low .flight-quota-figure { color: var(--orange); }
+.flight-quota.spent { border-color: var(--red); }
+.flight-quota.spent .flight-quota-figure { color: var(--red); }
+
 .card-row {
   color: var(--text-muted);
   font-size: 12px;
