@@ -1,0 +1,73 @@
+[
+    {
+        "greatCircleDistance": {
+            "meter": 517148.75,
+            "km": 517.15,
+            "mile": 321.34,
+            "nm": 279.24,
+            "feet": 1696682.25
+        },
+        "departure": {
+            "airport": {
+                "icao": "LTFM",
+                "iata": "IST",
+                "name": "Istanbul",
+                "shortName": "Istanbul",
+                "municipalityName": "Istanbul",
+                "location": {
+                    "lat": 41.275276,
+                    "lon": 28.751944
+                },
+                "countryCode": "TR",
+                "timeZone": "Europe/Istanbul"
+            },
+            "scheduledTime": {
+                "utc": "2026-09-16 06:45Z",
+                "local": "2026-09-16 09:45+03:00"
+            },
+            "quality": [
+                "Basic"
+            ]
+        },
+        "arrival": {
+            "airport": {
+                "icao": "LTAI",
+                "iata": "AYT",
+                "name": "Antalya",
+                "shortName": "Antalya",
+                "municipalityName": "Antalya",
+                "location": {
+                    "lat": 36.8987,
+                    "lon": 30.8005
+                },
+                "countryCode": "TR",
+                "timeZone": "Europe/Istanbul"
+            },
+            "scheduledTime": {
+                "utc": "2026-09-16 08:00Z",
+                "local": "2026-09-16 11:00+03:00"
+            },
+            "predictedTime": {
+                "utc": "2026-09-16 08:25Z",
+                "local": "2026-09-16 11:25+03:00"
+            },
+            "terminal": "D",
+            "quality": [
+                "Basic"
+            ]
+        },
+        "lastUpdatedUtc": "2026-08-02 22:28Z",
+        "number": "TK 2412",
+        "status": "Expected",
+        "codeshareStatus": "Unknown",
+        "isCargo": false,
+        "aircraft": {
+            "model": "Boeing 737-800"
+        },
+        "airline": {
+            "name": "Turkish Airlines",
+            "iata": "TK",
+            "icao": "THY"
+        }
+    }
+]

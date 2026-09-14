@@ -1,0 +1,73 @@
+[
+    {
+        "greatCircleDistance": {
+            "meter": 8047021.7,
+            "km": 8047.02,
+            "mile": 5000.19,
+            "nm": 4345.04,
+            "feet": 26400989.82
+        },
+        "departure": {
+            "airport": {
+                "icao": "LTFM",
+                "iata": "IST",
+                "name": "Istanbul",
+                "shortName": "Istanbul",
+                "municipalityName": "Istanbul",
+                "location": {
+                    "lat": 41.275276,
+                    "lon": 28.751944
+                },
+                "countryCode": "TR",
+                "timeZone": "Europe/Istanbul"
+            },
+            "scheduledTime": {
+                "utc": "2026-09-16 11:10Z",
+                "local": "2026-09-16 14:10+03:00"
+            },
+            "quality": [
+                "Basic"
+            ]
+        },
+        "arrival": {
+            "airport": {
+                "icao": "KJFK",
+                "iata": "JFK",
+                "name": "New York John F Kennedy",
+                "shortName": "John F Kennedy",
+                "municipalityName": "New York",
+                "location": {
+                    "lat": 40.6398,
+                    "lon": -73.7789
+                },
+                "countryCode": "US",
+                "timeZone": "America/New_York"
+            },
+            "scheduledTime": {
+                "utc": "2026-09-16 21:55Z",
+                "local": "2026-09-16 17:55-04:00"
+            },
+            "predictedTime": {
+                "utc": "2026-09-16 22:46Z",
+                "local": "2026-09-16 18:46-04:00"
+            },
+            "terminal": "1",
+            "quality": [
+                "Basic"
+            ]
+        },
+        "lastUpdatedUtc": "2026-05-03 08:02Z",
+        "number": "TK 1",
+        "status": "Expected",
+        "codeshareStatus": "Unknown",
+        "isCargo": false,
+        "aircraft": {
+            "model": "Airbus A330-300"
+        },
+        "airline": {
+            "name": "Turkish Airlines",
+            "iata": "TK",
+            "icao": "THY"
+        }
+    }
+]
