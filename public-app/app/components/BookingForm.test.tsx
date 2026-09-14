@@ -270,12 +270,15 @@ describe("BookingForm flight verification", () => {
     expect(arrivalField(container).value).toBe("09:15");
   });
 
-  // dirtyFields comes off a react-hook-form Proxy whose subscription is only
-  // established by a read during render. If that read is ever moved into the
-  // async callback, dirtyFields stays permanently empty, `touched` is always
-  // false, and the "never overwrite what the guest typed" rule silently dies.
-  // Asserting on `current` alone cannot see that, because a non-empty value
-  // short-circuits the rule before `touched` is consulted.
+  // The only test that asserts `touched` at all. Every other test here fills the
+  // arrival time first, so `current` is non-empty and the rule short-circuits
+  // before `touched` is ever consulted — meaning none of them can tell
+  // `touched: true` from `touched: false`. This one catches a wrong field name,
+  // a hardcoded false, or a future react-hook-form that gates the computation.
+  // (In 7.85.0 only `isDirty` is proxy-gated; `dirtyFields` is maintained
+  // unconditionally, so the render-time read below is correct-by-the-book rather
+  // than load-bearing today. Keep it anyway — it costs nothing and an upgrade
+  // should not have to rediscover it.)
   test("the rule is told the guest touched the arrival time", async () => {
     vi.mocked(verifyFlightNumber).mockResolvedValue({ status: "verified", arrivalTime: "14:35" });
     const container = goToStep2();

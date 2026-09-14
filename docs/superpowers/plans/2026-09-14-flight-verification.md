@@ -1075,11 +1075,12 @@ Satir 125-134'teki mevcut hali `formState: { errors }` - `getValues` yok,
 `formState` alanini butun olarak alma - JSX icinde ~40 yerde ciplak `errors.x`
 kullanimi var, hepsi bozulur.
 
-> **RHF tuzagi:** `formState` bir Proxy; abonelik **render sirasindaki okumayla**
-> kurulur. `dirtyFields` alanini yalnizca async callback icinde okursan abonelik hic
-> kurulmaz ve nesne kalici olarak bos kalir - "musterinin yazdiginin uzerine yazma"
-> kurali sessizce calismaz. Yukaridaki gibi bilesenin tepesinde destructure etmek
-> render sirasinda okuma sayilir ve bunu cozer.
+> **RHF notu:** `formState` bir Proxy ve abonelikler render sirasindaki okumayla
+> kurulur. Bu depodaki surumde (7.85.0) proxy ile kapilanan tek anahtar `isDirty`;
+> `dirtyFields` kosulsuz tutuluyor, yani okumayi callback'e tasimak bugun bir sey
+> bozmuyor - bu olculdu, varsayilmadi. Yine de bileseni tepesinde destructure et:
+> dokumante edilmis dogru bicim bu, bedava, ve bir RHF yukseltmesinin yeniden
+> kesfetmesi gereken bir sey olmamali.
 
 - [ ] **Step 4: `defaultValues` ve `reset` cagrisina iki alani ekle**
 
