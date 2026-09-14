@@ -2,7 +2,7 @@ import { describe, expect, test } from 'vitest'
 import {
   AIRPORT_MEET_COST_TRY,
   PARKING_COST_TRY_PER_HOUR,
-  allocatedAdvertisingForRange,
+  advertisingPerLegRate,
   bookingLegCostStatus,
   buildProfitDistributionSnapshot,
   calculateProfitDistribution,
@@ -552,79 +552,6 @@ describe('bookingLegCostStatus', () => {
   })
 })
 
-describe('allocatedAdvertisingForRange', () => {
-  test('uses UTC calendar days for leap-year February', () => {
-    const result = allocatedAdvertisingForRange('2028-02-10', '2028-02-20', {
-      '2028-02': { advertising_expense_try: 290, eur_try_rate: 10 },
-    })
-
-    expect(result).toEqual({
-      advertisingExpenseTry: 110,
-      advertisingExpenseEur: 11,
-      monthlyAllocations: {
-        '2028-02': {
-          startDate: '2028-02-10',
-          endDate: '2028-02-20',
-          advertisingExpenseTry: 110,
-          advertisingExpenseEur: 11,
-        },
-      },
-    })
-  })
-
-  test('allocates each intersected month independently', () => {
-    const result = allocatedAdvertisingForRange('2026-01-30', '2026-02-02', {
-      '2026-01': { advertising_expense_try: 310, eur_try_rate: 10 },
-      '2026-02': { advertising_expense_try: 280, eur_try_rate: 20 },
-    })
-
-    expect(result.advertisingExpenseTry).toBe(40)
-    expect(result.advertisingExpenseEur).toBe(3)
-    expect(result.monthlyAllocations).toMatchObject({
-      '2026-01': { advertisingExpenseTry: 20, advertisingExpenseEur: 2 },
-      '2026-02': { advertisingExpenseTry: 20, advertisingExpenseEur: 1 },
-    })
-  })
-
-  test('makes 31 one-day allocations reconcile exactly to August advertising', () => {
-    const settings = {
-      '2026-08': { advertising_expense_try: 100, eur_try_rate: 40 },
-    }
-    const total = Array.from({ length: 31 }, (_, index) => {
-      const date = `2026-08-${String(index + 1).padStart(2, '0')}`
-      return allocatedAdvertisingForRange(date, date, settings).advertisingExpenseTry
-    }).reduce((sum, amount) => sum + amount, 0)
-
-    expect(total).toBe(100)
-  })
-
-  test('excludes the cumulative allocation before a midmonth opening date', () => {
-    const result = allocatedAdvertisingForRange('2026-08-16', '2026-08-31', {
-      '2026-08': { advertising_expense_try: 310, eur_try_rate: 10 },
-    })
-
-    expect(result.advertisingExpenseTry).toBe(160)
-  })
-
-  test('rounds cumulative TRY and converted EUR half cents away from zero', () => {
-    const result = allocatedAdvertisingForRange('2026-02-01', '2026-02-21', {
-      '2026-02': { advertising_expense_try: 2.90, eur_try_rate: 4 },
-    })
-
-    expect(result.advertisingExpenseTry).toBe(2.18)
-    expect(result.advertisingExpenseEur).toBe(0.55)
-  })
-
-  test('rounds exact monthly rational allocations before converting to EUR', () => {
-    const result = allocatedAdvertisingForRange('2026-02-01', '2026-02-18', {
-      '2026-02': { advertising_expense_try: 100.03, eur_try_rate: 2 },
-    })
-
-    expect(result.advertisingExpenseTry).toBe(64.31)
-    expect(result.advertisingExpenseEur).toBe(32.16)
-  })
-})
-
 describe('splitProfit', () => {
   test('splits profit 50/50', () => {
     expect(splitProfit(100, 5000, 50)).toEqual({
@@ -828,13 +755,13 @@ describe('calculateProfitDistribution', () => {
     expect(result.resolvedLegs[0].supplierCostEur).toBe(0.03)
   })
 
-  test('divides rounded advertising TRY by a decimal EUR rate exactly', () => {
-    const result = allocatedAdvertisingForRange('2026-08-01', '2026-08-31', {
+  test('divides the advertising pool TRY by a decimal EUR rate exactly', () => {
+    const rate = advertisingPerLegRate({
       '2026-08': { advertising_expense_try: 0.04, eur_try_rate: 1.6 },
-    })
+    }, 1, '2026-09-01')
 
-    expect(result.advertisingExpenseTry).toBe(0.04)
-    expect(result.advertisingExpenseEur).toBe(0.03)
+    expect(rate.poolTry).toBe(0.04)
+    expect(rate.poolEur).toBe(0.03)
   })
 
   test('uses inclusive boundaries and includes only the in-range half of a round trip', () => {

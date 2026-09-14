@@ -39,6 +39,24 @@ import {
 
 const PAGE_SIZE = 1000
 const FIRST_PROFIT_MONTH = '2026-07'
+const INCLUDE_ADS_STORAGE_KEY = 'profit-loss:include-advertising'
+
+/** Reklam tercihi tarayıcıda kalır; özel sekmede storage erişimi patlayabilir. */
+function readIncludeAdvertising() {
+  try {
+    return window.localStorage.getItem(INCLUDE_ADS_STORAGE_KEY) !== 'false'
+  } catch {
+    return true
+  }
+}
+
+function persistIncludeAdvertising(include: boolean) {
+  try {
+    window.localStorage.setItem(INCLUDE_ADS_STORAGE_KEY, String(include))
+  } catch {
+    /* tercih kaydedilemedi; oturum içi seçim yine de geçerli */
+  }
+}
 
 type SettingsMap = Map<string, any>
 type LedgerResult = ReturnType<typeof calculateLedgerForRange>
@@ -224,6 +242,13 @@ export default function ProfitLossPage({ navigate, initialPeriod }: { navigate: 
   const [ratesLoading, setRatesLoading] = useState(false)
   // Aktif sekme: 'open' (dağıtılmamış), bir dağıtım id'si, ya da 'all'.
   const [activeTab, setActiveTab] = useState<string>(initialPeriod === 'all' ? 'all' : 'open')
+  // Reklam giderini hesaba katmak opsiyonel: kapalıyken hem ekrandaki kâr hem
+  // de ortaklara dağıtılacak net kâr reklamsız hesaplanır.
+  const [includeAdvertising, setIncludeAdvertising] = useState(readIncludeAdvertising)
+  const toggleAdvertising = (include: boolean) => {
+    setIncludeAdvertising(include)
+    persistIncludeAdvertising(include)
+  }
 
   const focusLeg = useCallback((_leg: ProfitLegRef & { date?: string | null }) => {
     // Eksik bilgi düzeltmesi dağıtılmamış dönemde yapılır; ilgili sekmeye getir.
@@ -296,8 +321,9 @@ export default function ProfitLossPage({ navigate, initialPeriod }: { navigate: 
       today,
       settingsByMonth: settings,
       ratesByDate,
+      includeAdvertising,
     }),
-    [bookings, activeRange.startDate, activeRange.endDate, today, settings, ratesByDate],
+    [bookings, activeRange.startDate, activeRange.endDate, today, settings, ratesByDate, includeAdvertising],
   )
 
   // KPI: dağıtılmış dönemde otoriter snapshot, diğerlerinde canlı hesap.
@@ -403,6 +429,7 @@ export default function ProfitLossPage({ navigate, initialPeriod }: { navigate: 
       settingsByMonth: settings,
       operationsSharePct: input.operationsSharePct,
       ratesByDate,
+      includeAdvertising,
     })
     if (currentMetrics.blockers.length > 0 || !currentMetrics.canDistribute || currentMetrics.netProfitEur <= 0) {
       throw new Error('Dağıtım bilgileri güncellendi. Lütfen hesaplamayı kontrol edip tekrar deneyin.')
@@ -439,6 +466,14 @@ export default function ProfitLossPage({ navigate, initialPeriod }: { navigate: 
         >{fmtLongDate(d.period_start)} – {fmtLongDate(d.period_end)}</button>)}
         <button type="button" className={activeTab === 'all' ? 'active' : ''} onClick={() => setActiveTab('all')}>Tümü</button>
       </div>
+      <label className="profit-ads-toggle">
+        <input
+          type="checkbox"
+          checked={includeAdvertising}
+          onChange={event => toggleAdvertising(event.target.checked)}
+        />
+        <span>Reklam giderini dahil et</span>
+      </label>
       {ratesLoading && <span className="rates-loading-hint">Kurlar yükleniyor…</span>}
       <button className="sync-button" type="button" aria-label="Kâr zarar verilerini yenile" disabled={loading} onClick={() => void refresh()}>↻</button>
     </div>
@@ -463,6 +498,7 @@ export default function ProfitLossPage({ navigate, initialPeriod }: { navigate: 
           />
           {activeTab === 'open' && <ProfitDistributionSection
             today={distributionToday}
+            includeAdvertising={includeAdvertising}
             bookings={bookings}
             settingsByMonth={settings}
             ratesByDate={ratesByDate}

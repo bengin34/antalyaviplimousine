@@ -102,6 +102,11 @@ export function profitDistributionErrorMessage(error: unknown): string {
   if (message.includes('settings must be configured first')) {
     return 'Önce kâr paylaşımı başlangıç ayarlarını kaydedin.'
   }
+  // PostgREST şema cache'i migration'dan sonra geç yenilendiğinde var olan
+  // fonksiyonu bulamaz ve 404 döner; bu geçicidir, yeniden denemek çözer.
+  if (code === 'pgrst202' || message.includes('schema cache')) {
+    return 'Sunucu bu işlemi henüz tanımıyor. Birkaç saniye sonra tekrar deneyin.'
+  }
   if (
     code === '42501'
     || code === 'pgrst301'

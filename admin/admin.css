@@ -369,6 +369,33 @@ body {
 
 /* Profit / loss dashboard */
 .profit-toolbar .budget-periods { min-width: 0; }
+.profit-ads-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  flex: 0 0 auto;
+  padding: 5px 10px;
+  border: 1px solid rgba(115, 183, 255, 0.22);
+  border-radius: 999px;
+  background: rgba(17, 23, 34, 0.9);
+  color: #9fb0c6;
+  font-size: 11px;
+  white-space: nowrap;
+  cursor: pointer;
+}
+.profit-ads-toggle input { accent-color: var(--blue); cursor: pointer; }
+.profit-ads-toggle:has(input:checked) { color: var(--text); border-color: rgba(115, 183, 255, 0.45); }
+.profit-ads-toggle:focus-within { outline: 2px solid var(--blue); outline-offset: 2px; }
+.profit-distribution-ads-warning {
+  margin: 9px 0 0;
+  padding: 9px 12px;
+  border: 1px solid rgba(255, 176, 32, 0.32);
+  border-radius: 11px;
+  background: rgba(255, 176, 32, 0.08);
+  color: var(--orange);
+  font-size: 11px;
+  line-height: 1.5;
+}
 .profit-content { display: flex; flex-direction: column; gap: 9px; }
 .profit-settings {
   padding: 17px 15px;
