@@ -27,7 +27,8 @@ describe("resolveFlightStatus", () => {
   test("an AYT leg verifies and reports its local landing time", () => {
     const result = resolveFlightStatus(aytArrival);
     expect(result.status).toBe("verified");
-    expect(result.arrivalTime).toMatch(/^\d{2}:\d{2}$/);
+    expect(result.arrivalTime).toBe("11:00");
+    expect(result.terminal).toBe("D");
   });
 
   test("a flight landing elsewhere names the airport it actually lands at", () => {
@@ -35,6 +36,7 @@ describe("resolveFlightStatus", () => {
     expect(result.status).toBe("wrong_airport");
     expect(result.arrivalAirport).toMatch(/^[A-Z]{3}$/);
     expect(result.arrivalAirport).not.toBe("AYT");
+    expect(result.arrivalAirport).toBe("JFK");
   });
 
   test("any leg landing at AYT verifies the whole query", () => {
@@ -65,6 +67,17 @@ describe("verifyFlight", () => {
       ok: true, status: 204,
       text: async () => "",
       json: async () => { throw new SyntaxError("Unexpected end of JSON input"); },
+    });
+    expect((await verifyFlight({ ...base(), fetchImpl })).status).toBe("not_found");
+  });
+
+  // Govde bos degilse "bos govde -> not_found" kestirmesi devreye girmez; bu test
+  // yalnizca status === 204 kontrolu sayesinde gecer. O kontrol kaldirilirsa govde
+  // JSON olarak parse edilip "verified" donerdi ve bu test kirmiziya duserdi.
+  test("a 204 with a non-empty body is still not found, via the status check itself", async () => {
+    const fetchImpl = vi.fn().mockResolvedValue({
+      ok: true, status: 204,
+      text: async () => '[{"arrival":{"airport":{"iata":"AYT"}}}]',
     });
     expect((await verifyFlight({ ...base(), fetchImpl })).status).toBe("not_found");
   });
@@ -123,6 +136,17 @@ describe("verifyFlight", () => {
     await verifyFlight({ ...base(), fetchImpl });
     expect(fetchImpl).toHaveBeenCalledTimes(1);
     expect(store.used).toBe(1);
+  });
+
+  test("the request carries the flight, date and RapidAPI auth header", async () => {
+    const fetchImpl = vi.fn().mockResolvedValue(ok(aytArrival));
+    await verifyFlight({ ...base(), fetchImpl });
+    expect(fetchImpl).toHaveBeenCalledWith(
+      expect.stringContaining("/TK2412/2026-09-20"),
+      expect.objectContaining({
+        headers: expect.objectContaining({ "X-RapidAPI-Key": "k" }),
+      }),
+    );
   });
 
   test("a different date is fetched again", async () => {

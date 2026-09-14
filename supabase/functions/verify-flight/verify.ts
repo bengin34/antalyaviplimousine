@@ -77,7 +77,7 @@ export async function verifyFlight({
 
     // Sayac cagridan ONCE artar. Istek sonra basarisiz olursa bir hak bosa gider;
     // tersi (sonra artirmak) es zamanli isteklerin kotayi asmasina izin verirdi.
-    // Eksik saymak guvenli, fazla saymak degil.
+    // Sayacimiz gercek cagri sayisinin altina DUSMEMELI; ustunde kalmasi zararsizdir.
     if (!(await store.consumeQuota())) return UNAVAILABLE;
 
     const controller = new AbortController();
