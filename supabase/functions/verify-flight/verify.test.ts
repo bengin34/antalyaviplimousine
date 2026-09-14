@@ -188,4 +188,19 @@ describe("verifyFlight", () => {
     const fetchImpl = vi.fn();
     await expect(verifyFlight({ ...base(), store: broken, fetchImpl })).resolves.toEqual({ status: "unavailable" });
   });
+
+  // Onbellek yazma islemi basarisiz olsa bile, kota harcanip elde edilmis
+  // gecerli bir sonuc kaybedilmemeli. put() gercek Postgres deposunda
+  // (aksine sahte bellek-ici depoda) reddedebilir; disaridaki try/catch bunu
+  // yutup "unavailable" donerse, zaten odenmis bir cevap bosa gitmis olur.
+  test("a cache write that rejects still returns the verified result it already paid for", async () => {
+    const brokenPut = {
+      get: vi.fn(async () => null),
+      put: vi.fn().mockRejectedValue(new Error("db down")),
+      consumeQuota: vi.fn(async () => true),
+    };
+    const fetchImpl = vi.fn().mockResolvedValue(ok(aytArrival));
+    const result = await verifyFlight({ ...base(), store: brokenPut, fetchImpl });
+    expect(result.status).toBe("verified");
+  });
 });

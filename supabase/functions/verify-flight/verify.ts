@@ -117,7 +117,13 @@ export async function verifyFlight({
     }
 
     // Gecici bir aksakligi kalici hale getirmemek icin yalnizca kesin sonuclar saklanir.
-    if (result.status !== "unavailable") await store.put(key, result);
+    // Onbellege yazma basarisiz olursa bile, kota harcanip elde edilmis bu sonuc
+    // musteriye dondurulmeli - onbellege yazamamak cevabi cope atmayi gerektirmez.
+    if (result.status !== "unavailable") {
+      try {
+        await store.put(key, result);
+      } catch { /* onbellege yazamamak cevabi cope atmayi gerektirmez */ }
+    }
     return result;
   } catch {
     return UNAVAILABLE;
