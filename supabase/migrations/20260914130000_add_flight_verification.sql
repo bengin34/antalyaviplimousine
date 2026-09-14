@@ -96,7 +96,12 @@ $$;
 
 -- Bu fonksiyon durumu değiştirir (sayacı artırır) ve anon anahtarıyla
 -- PostgREST üzerinden çağrılabilir olmamalı: PUBLIC'e verilen varsayılan
--- EXECUTE izni geri alınır. Edge Function service role ile çalışır ve
--- service role bu iznin dışındadır; admin panel yalnızca tabloyu okur,
--- fonksiyonu hiç çağırmaz.
+-- EXECUTE izni geri alınır. Admin panel yalnızca tabloyu okur, fonksiyonu
+-- hiç çağırmaz.
 revoke execute on function public.consume_flight_quota(text, integer) from public, anon, authenticated;
+
+-- Edge Function bu fonksiyonu service role ile çağırır. bypassrls yalnızca
+-- RLS politikalarını atlar, GRANT tabanlı EXECUTE iznini atlamaz — bu ayrı
+-- bir kontroldür. Bu yüzden izin platform varsayılanına bırakılmıyor,
+-- açıkça veriliyor.
+grant execute on function public.consume_flight_quota(text, integer) to service_role;
