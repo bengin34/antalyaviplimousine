@@ -7,7 +7,7 @@ export type FlightResult = {
   terminal?: string;
 };
 
-const UNAVAILABLE: FlightResult = { status: "unavailable" };
+const UNAVAILABLE: FlightResult = Object.freeze({ status: "unavailable" });
 const KNOWN: FlightStatus[] = ["verified", "not_found", "wrong_airport", "unavailable"];
 
 type Invoke = (name: string, options: { body: Record<string, unknown> }) => Promise<{ data: unknown; error: unknown }>;
@@ -19,7 +19,11 @@ export async function verifyFlightNumber(
   date: string,
   deps?: { invoke?: Invoke },
 ): Promise<FlightResult> {
-  if (!flightNumber?.trim() || !date?.trim()) return UNAVAILABLE;
+  // .trim() on a non-string throws; a bare optional-chain guard wouldn't
+  // catch that (only null/undefined skip the call), so check the type first.
+  const flight = typeof flightNumber === "string" ? flightNumber.trim() : "";
+  const day = typeof date === "string" ? date.trim() : "";
+  if (!flight || !day) return UNAVAILABLE;
 
   try {
     // invoke, this baglamina ihtiyac duyar (client.url / client.headers okur);
@@ -48,6 +52,9 @@ export function shouldApplyFlightArrival(
   field: { current: string; touched: boolean },
 ): string | null {
   if (result.status !== "verified" || !result.arrivalTime) return null;
+  // Proxy'den gelen degeri forma yazmadan once bicimini dogrula: bu alan
+  // create-booking'de denetimsiz olarak flight_arrival_time'a gidiyor.
+  if (!/^([01]\d|2[0-3]):[0-5]\d$/.test(result.arrivalTime)) return null;
   if (field.touched || field.current) return null;
   return result.arrivalTime;
 }

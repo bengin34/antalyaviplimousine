@@ -29,6 +29,27 @@ describe("shouldApplyFlightArrival", () => {
   test("does not fill when the API gave no time", () => {
     expect(shouldApplyFlightArrival({ status: "verified" }, { current: "", touched: false })).toBeNull();
   });
+
+  test("rejects an out-of-range time from the proxy", () => {
+    expect(
+      shouldApplyFlightArrival({ status: "verified", arrivalTime: "25:99" }, { current: "", touched: false }),
+    ).toBeNull();
+  });
+
+  test("rejects a malformed time from the proxy", () => {
+    expect(
+      shouldApplyFlightArrival({ status: "verified", arrivalTime: "7:5" }, { current: "", touched: false }),
+    ).toBeNull();
+  });
+
+  test("still fills well-formed times, including midnight", () => {
+    expect(
+      shouldApplyFlightArrival({ status: "verified", arrivalTime: "14:35" }, { current: "", touched: false }),
+    ).toBe("14:35");
+    expect(
+      shouldApplyFlightArrival({ status: "verified", arrivalTime: "00:00" }, { current: "", touched: false }),
+    ).toBe("00:00");
+  });
 });
 
 describe("verifyFlightNumber", () => {
@@ -58,6 +79,14 @@ describe("verifyFlightNumber", () => {
     const invoke = vi.fn();
     await expect(verifyFlightNumber("", "2026-09-20", { invoke })).resolves.toEqual({ status: "unavailable" });
     await expect(verifyFlightNumber("TK2412", "", { invoke })).resolves.toEqual({ status: "unavailable" });
+    expect(invoke).not.toHaveBeenCalled();
+  });
+
+  test("a non-string flight number never throws or calls out", async () => {
+    const invoke = vi.fn();
+    await expect(verifyFlightNumber(123 as never, "2026-09-20", { invoke })).resolves.toEqual({
+      status: "unavailable",
+    });
     expect(invoke).not.toHaveBeenCalled();
   });
 });
