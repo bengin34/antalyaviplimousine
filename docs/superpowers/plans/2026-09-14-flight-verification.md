@@ -1355,13 +1355,24 @@ Beklenen: `{"status":"unavailable"}`, HTTP 200. Formda hicbir degisiklik olmamal
 
 - [ ] **Step 4: Dagit**
 
+> **SIRA ONEMLI - bu satirlarin sirasi yer degistirirse rezervasyon alimi tamamen durur.**
+> Task 7'nin `create-booking` surumu, yalnizca migration uygulandiktan sonra var olan
+> iki kolona yaziyor. Fonksiyon migration'dan once dagitilirsa **her** insert
+> `column "flight_verification_status" does not exist` ile duser - sessiz bir kayip
+> degil, tam kesinti. Ters sira zararsizdir: eski fonksiyon fazladan payload
+> anahtarlarini isimle okudugu icin (spread degil) sessizce yok sayar.
+> Yani her zaman once `db push`, sonra `functions deploy`.
+
 ```bash
 set -a; . ./.env; set +a
 supabase secrets set RAPIDAPI_API_KEY="$RAPIDAPI_API_KEY"
-supabase db push
+
+supabase db push                        # ONCE: kolonlar olusmali
 supabase functions deploy verify-flight
-supabase functions deploy create-booking
+supabase functions deploy create-booking # SONRA: kolonlara yazan surum
 ```
+
+`db push` basarisiz olursa **dur** - `create-booking`'i dagitma.
 
 - [ ] **Step 5: Canlida tek bir gercek rezervasyonla dene**
 
