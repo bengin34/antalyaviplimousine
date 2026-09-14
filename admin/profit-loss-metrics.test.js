@@ -180,8 +180,9 @@ describe('calculateProfitLossMetrics', () => {
     expect(result.incomeEur).toBe(200)
     expect(result.airportMeetCostTry).toBe(250)
     expect(result.vehicleCostTry).toBe(3270)
-    expect(result.advertisingExpenseTry).toBe(500)
-    expect(result.netProfitTry).toBe(3980)
+    // Reklam 7 Ağustos'a kadar harcanan kısımdır: 500 × 7/31 = 112,90 ₺
+    expect(result.advertisingExpenseTry).toBe(112.9)
+    expect(result.netProfitTry).toBe(4367.1)
   })
 
   test('excludes cancelled, future, and out-of-period legs', () => {
@@ -393,9 +394,10 @@ describe('calculateProfitLossMetrics', () => {
     // august: ownVehicleProfitTry = 56 * 50 = 2800, vehicleCostTry = 5000 - 2800 - 250 = 1950
     expect(result.incomeTry).toBe(9000)
     expect(result.vehicleCostTry).toBe(3460)
-    expect(result.advertisingExpenseTry).toBe(300)
+    // Temmuz'un tamamı 100 ₺ + Ağustos'un 7 günü 200 × 7/31 = 45,16 ₺
+    expect(result.advertisingExpenseTry).toBe(145.16)
     expect(result.airportMeetCostTry).toBe(500)
-    expect(result.netProfitTry).toBe(4740)
+    expect(result.netProfitTry).toBe(4894.84)
   })
 })
 
@@ -758,7 +760,7 @@ describe('calculateProfitDistribution', () => {
   test('divides the advertising pool TRY by a decimal EUR rate exactly', () => {
     const rate = advertisingPerLegRate({
       '2026-08': { advertising_expense_try: 0.04, eur_try_rate: 1.6 },
-    }, 1, '2026-09-01')
+    }, 1, { startDate: '2026-08-01', endDate: '2026-08-31', today: '2026-09-01' })
 
     expect(rate.poolTry).toBe(0.04)
     expect(rate.poolEur).toBe(0.03)
