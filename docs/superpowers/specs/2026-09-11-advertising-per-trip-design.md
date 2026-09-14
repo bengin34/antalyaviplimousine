@@ -38,3 +38,24 @@ Kapalıyken `includeAdvertising: false` üç hesaplayıcıya da geçer (`calcula
 **Kapsam kararı: dağıtım da etkilenir.** Toggle kapalıyken ortaklara dağıtılacak net kâr da reklamsız hesaplanır ve snapshot bu haliyle kalıcı kaydedilir — yani reklam gideri o dönem için ortaklardan hiç tahsil edilmez. Riski görünür kılmak için dağıtım bölümünde toggle kapalıyken kalıcı bir uyarı gösterilir.
 
 Kaydedilmiş dağıtımların KPI'ı snapshot'tan okunmaya devam eder; toggle geçmiş kayıtları değiştirmez.
+
+## 4. Revizyon (2026-09-14): havuz aralığın kendisi
+
+Tüm-zamanlar havuzu sahadaki rakamı şişiriyordu: az seyahatli ilk ayların reklam
+parası bugünkü seyahatlerin üstüne yayılıyor, 18.08–13.09 aralığı bir aylık
+bütçeden fazlasını (₺10.781) taşıyordu.
+
+Havuz artık **aralığın kendi reklam bütçesi**: her ayın bütçesinden aralıkta
+kalan gün kadarı alınır (`monthOverlapDays`), bugünden sonrası harcanmadığı için
+havuza girmez. Bu havuz aralıkta gerçekleşen seyahatlere eşit bölünür.
+
+```
+havuz        = Σ ay bütçesi × (aralıktaki gün / aydaki gün), bugüne kadar
+seyahat payı = havuz / aralıktaki ayak sayısı
+dönem reklamı = seyahat payı × aralıktaki ayak sayısı  ≈ havuz
+```
+
+Korunan kararlar: seyahatsiz aralığa reklam yüklenmez (pay 0), artık kuruş
+serpiştirilmez, toggle davranışı aynı. `calculateProfitLossMetrics` için aralık
+dönemden türetilir (`periodDateRange`); `'all'` bütçe girilmiş en eski aydan
+bugüne uzanır.

@@ -362,6 +362,24 @@ function settingsSnapshotForMonths(months, settingsByMonth) {
   }))
 }
 
+/**
+ * Bir dönem seçiminin ([YYYY-MM] ya da 'all') kapsadığı takvim aralığı.
+ * 'all' için reklam bütçesi girilmiş en eski aydan bugüne kadar uzanır.
+ */
+function periodDateRange(period, today, settingsByMonth) {
+  if (period && period !== 'all' && /^\d{4}-\d{2}$/.test(period)) {
+    const year = Number(period.slice(0, 4))
+    const monthIndex = Number(period.slice(5, 7)) - 1
+    return {
+      startDate: `${period}-01`,
+      endDate: formatDateOnlyUtc(new Date(Date.UTC(year, monthIndex + 1, 0))),
+      today,
+    }
+  }
+  const months = settingsMonthKeys(settingsByMonth).sort()
+  return { startDate: months.length ? `${months[0]}-01` : today, endDate: today, today }
+}
+
 function settingsMonthKeys(settingsByMonth) {
   const keys = settingsByMonth instanceof Map
     ? [...settingsByMonth.keys()]
@@ -369,23 +387,53 @@ function settingsMonthKeys(settingsByMonth) {
   return keys.map(key => String(key).slice(0, 7)).filter(key => /^\d{4}-\d{2}$/.test(key))
 }
 
+const MS_PER_DAY = 86400000
+
 /**
- * Seyahat başına reklam payı. Reklam gideri güne değil seyahate bölünür:
- * bugüne kadar harcanan reklam gelecekteki seyahatleri de getirdiği için
- * takvim günü oranlaması kısa aralıklarda kârı yanıltıcı biçimde dalgalandırır.
- * Havuz = bugüne kadarki (içinde bulunulan ay dahil) tüm aylık reklam gideri;
- * bölen = bugüne kadar gerçekleşmiş tüm seyahat ayağı. Gelecek aylara önden
- * girilmiş bütçe henüz harcanmadığı için havuza alınmaz.
+ * Bir ayın verilen aralıkla kesişen gün sayısı ve ayın toplam gün sayısı.
  */
-export function advertisingPerLegRate(settingsByMonth = {}, legCount = 0, today = '') {
-  const currentMonth = String(today ?? '').slice(0, 7)
+function monthOverlapDays(month, start, end) {
+  const year = Number(month.slice(0, 4))
+  const monthIndex = Number(month.slice(5, 7)) - 1
+  const monthStart = Date.UTC(year, monthIndex, 1)
+  const monthEnd = Date.UTC(year, monthIndex + 1, 0)
+  const from = Math.max(monthStart, start.getTime())
+  const to = Math.min(monthEnd, end.getTime())
+  return {
+    days: to < from ? 0 : (to - from) / MS_PER_DAY + 1,
+    monthDays: (monthEnd - monthStart) / MS_PER_DAY + 1,
+  }
+}
+
+/**
+ * Aralığın reklam bütçesi ve seyahat başına payı. Bütçe aylık girilir; bir
+ * aralığa o ayların bütçesinden yalnızca aralıkta kalan gün kadarı düşer —
+ * havuz, geçmiş tüm ayların değil, aralığın kendi reklam harcamasıdır.
+ * Bugünden sonrası henüz harcanmadığı için havuza girmez.
+ *
+ * Havuz aralıkta gerçekleşen seyahatlere eşit bölünür: bir seyahatin taşıdığı
+ * reklam yükünü o aralığın kaç seyahate bölündüğü belirler — yoğun aralık ucuz,
+ * sakin aralık pahalı seyahat payı verir. Seyahat yoksa pay 0'dır; seyahatsiz
+ * aralığa reklam gideri yüklenmez.
+ */
+export function advertisingPerLegRate(settingsByMonth = {}, legCount = 0, range = {}) {
+  const start = dateOnlyUtc(range.startDate)
+  const requestedEnd = dateOnlyUtc(range.endDate)
+  const todayDate = dateOnlyUtc(range.today)
+  const end = requestedEnd && todayDate && requestedEnd > todayDate ? todayDate : requestedEnd
   let poolTryCents = 0n
   let poolEurCents = 0n
-  for (const month of settingsMonthKeys(settingsByMonth)) {
-    if (currentMonth && month > currentMonth) continue
-    const settings = settingForMonth(settingsByMonth, month)
-    poolTryCents += moneyToCents(settings.advertisingExpenseTry)
-    poolEurCents += multiplyDivideMoneyToCents(settings.advertisingExpenseTry, 1, settings.eurTryRate)
+  if (start && end && start <= end) {
+    for (const month of monthsForRange(formatDateOnlyUtc(start), formatDateOnlyUtc(end))) {
+      const { days, monthDays } = monthOverlapDays(month, start, end)
+      if (!days) continue
+      const settings = settingForMonth(settingsByMonth, month)
+      const shareTry = centsToNumber(
+        multiplyDivideMoneyToCents(settings.advertisingExpenseTry, days, monthDays),
+      )
+      poolTryCents += moneyToCents(shareTry)
+      poolEurCents += multiplyDivideMoneyToCents(shareTry, 1, settings.eurTryRate)
+    }
   }
   const poolTry = centsToNumber(poolTryCents)
   const poolEur = centsToNumber(poolEurCents)
@@ -708,16 +756,16 @@ export function calculateProfitLossMetrics(bookings, period, today, settingsByMo
   const resolvedLegs = realizedLegs.resolvedLegs.filter(leg => isInPeriod(leg.date, period))
   const unresolvedLegs = realizedLegs.unresolvedLegs.filter(leg => isInPeriod(leg.date, period))
 
-  // Reklam payı tüm zamanların havuzundan gelir; döneme yalnızca o dönemde
-  // gerçekleşen seyahat sayısı kadarı yüklenir.
+  // Reklam havuzu dönemin kendi bütçesidir; o dönemde gerçekleşen seyahatlere
+  // bölünür. Dönem toplamı havuza eşittir, aralıkta seyahat varsa.
+  const periodLegCount = resolvedLegs.length + unresolvedLegs.length
   const advertisingRate = includeAdvertising
     ? advertisingPerLegRate(
         settingsByMonth,
-        realizedLegs.resolvedLegs.length + realizedLegs.unresolvedLegs.length,
-        today,
+        periodLegCount,
+        periodDateRange(period, today, settingsByMonth),
       )
     : { perLegTry: 0, perLegEur: 0 }
-  const periodLegCount = resolvedLegs.length + unresolvedLegs.length
   const advertisingExpenseTry = roundMoney(advertisingRate.perLegTry * periodLegCount)
   const advertisingExpenseEur = roundMoney(advertisingRate.perLegEur * periodLegCount)
 
@@ -842,15 +890,11 @@ export function calculateProfitDistribution(bookings, options = {}) {
   }
 
   const directTotals = distributionTotalsForLegs(resolvedLegs, unresolvedLegs)
-  // Reklam seyahat başına yüklenir: tüm-zamanlar havuzu / tüm-zamanlar seyahati.
-  const advertisingRate = includeAdvertising && rangeIsValid
-    ? advertisingPerLegRate(
-        settingsByMonth,
-        realized.resolvedLegs.length + realized.unresolvedLegs.length,
-        today,
-      )
-    : { perLegTry: 0, perLegEur: 0 }
+  // Reklam seyahat başına yüklenir: aralığın gün oranlı bütçesi / aralıktaki seyahat.
   const rangeLegCount = resolvedLegs.length + unresolvedLegs.length
+  const advertisingRate = includeAdvertising && rangeIsValid
+    ? advertisingPerLegRate(settingsByMonth, rangeLegCount, { startDate, endDate, today })
+    : { perLegTry: 0, perLegEur: 0 }
   const advertising = {
     advertisingExpenseTry: roundMoney(advertisingRate.perLegTry * rangeLegCount),
     advertisingExpenseEur: roundMoney(advertisingRate.perLegEur * rangeLegCount),
@@ -1020,13 +1064,13 @@ export function calculateLedgerForRange(bookings, options = {}) {
     .filter(withinRange)
     .map(leg => distributionFinancialLeg(leg, settingsByMonth, allocations))
 
-  // Per-leg reklam: her bacak tüm-zamanlar havuzundan gelen sabit payı taşır;
-  // aralığın uzunluğu değil, içindeki seyahat sayısı reklam yükünü belirler.
+  // Per-leg reklam: aralığın gün oranlı reklam bütçesi aralıktaki seyahatlere
+  // eşit bölünür; her bacak aynı payı taşır.
   const advertisingRate = includeAdvertising && rangeIsValid
     ? advertisingPerLegRate(
         settingsByMonth,
-        realized.resolvedLegs.length + realized.unresolvedLegs.length,
-        today,
+        resolvedLegs.length + unresolvedLegs.length,
+        { startDate, endDate, today },
       )
     : { perLegTry: 0, perLegEur: 0 }
   const withAds = attachAdvertisingPerLeg([...resolvedLegs, ...unresolvedLegs], advertisingRate)
@@ -1087,7 +1131,7 @@ export function calculateLedgerForRange(bookings, options = {}) {
 
 /**
  * Her bacağa aynı seyahat-başı reklam payını yazar (advertisingPerLegRate).
- * Dönem reklam toplamı bu payların toplamıdır; aralığın gün sayısı etkilemez.
+ * Dönem reklam toplamı bu payların toplamıdır — yani aralığın kendi bütçesi.
  * Reklam yalnız gösterim/hesap katmanında; kayıtlı dağıtımları değiştirmez.
  */
 export function attachAdvertisingPerLeg(legs, { perLegEur = 0, perLegTry = 0 } = {}) {
