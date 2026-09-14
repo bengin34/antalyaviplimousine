@@ -1,8 +1,6 @@
 import { createClient } from 'https://esm.sh/@supabase/supabase-js@2'
 import type { FlightResult, LookupStore } from './verify.ts'
-import { cycleKey } from './cycle.ts'
-
-const MONTHLY_CAP = 380   // ucretsiz plan 400; 20'lik pay elle test icin
+import { cycleKey, DEFAULT_ANCHOR_DAY, MONTHLY_CAP } from './cycle.ts'
 
 // RapidAPI kotasi abonelik yildonumunde sifirlanir, ayin 1'inde degil.
 // Sayaci takvim ayina baglamak, iki pencere kaydiginda tek bir RapidAPI
@@ -10,7 +8,7 @@ const MONTHLY_CAP = 380   // ucretsiz plan 400; 20'lik pay elle test icin
 // sahibiyle dogrulandi (14); kod degistirmeden duzeltilebilsin diye env
 // degiskeni ile ayarlanabilir birakildi. Tarih aritmetigi cycle.ts'te -
 // Deno API'lerine bagimli olmadigi icin vitest altinda dogrudan test edilir.
-const CYCLE_ANCHOR_DAY = Number(Deno.env.get('RAPIDAPI_CYCLE_ANCHOR_DAY') ?? '14')
+const CYCLE_ANCHOR_DAY = Number(Deno.env.get('RAPIDAPI_CYCLE_ANCHOR_DAY') ?? String(DEFAULT_ANCHOR_DAY))
 
 export function createLookupStore(): LookupStore {
   // Istemci burada degil, her cagride kuruluyor: SUPABASE_URL /

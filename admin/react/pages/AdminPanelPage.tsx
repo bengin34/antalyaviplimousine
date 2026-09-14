@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Topbar } from '../components/AdminChrome'
+import { FlightQuotaCard } from '../components/FlightQuotaCard'
 import { supabase } from '../lib/supabase'
 import { todayISO } from '../lib/format'
 import { hotelIndex } from '../../../src/hotel-index.js'
@@ -97,6 +98,7 @@ export default function AdminPanelPage({ navigate }: { navigate: Navigate }) {
   return <>
     <Topbar navigate={navigate} title="Yönetici Paneli" back="#timeline" />
     <div className="scroll-area">
+      <FlightQuotaCard />
       <div className="section">
         <div className="section-label">Fiyatlandırma</div>
         <div style={{ fontWeight: 600, marginBottom: 4 }}>Fiyat Kontrol Merkezi</div>

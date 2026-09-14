@@ -1,4 +1,17 @@
-const DEFAULT_ANCHOR_DAY = 14;
+// Bu dosya, kota penceresi hakkinda bilinen her seyin tek kaynagi. Deno
+// API'lerine ve herhangi bir import'a bagimli degil: hem Edge Function
+// (store.ts) hem de admin paneli (FlightQuotaCard.tsx) buradan okur.
+// Bu iki taraf ayri sabitler tutsaydi, panel yanlis satiri okuyup kota
+// bittigi gun "bol bol hak var" derdi - gostergeyi degersiz kilan tam
+// olarak budur. Yeni bir import EKLEME: Deno tarafi uzanti-li ('./x.ts'),
+// admin tarafi uzanti-siz import ister; iki tarafi da memnun eden tek
+// hal, bu dosyanin hicbir seyi import etmemesidir.
+
+/** Ucretsiz plan ayda 400 cagri veriyor; 20'lik pay elle teste ayrildi. */
+export const MONTHLY_CAP = 380;
+
+/** Abonelik yildonumu gunu; hesap sahibiyle dogrulandi. */
+export const DEFAULT_ANCHOR_DAY = 14;
 
 const lastDayOfMonth = (year: number, month0: number) =>
   new Date(Date.UTC(year, month0 + 1, 0)).getUTCDate();
