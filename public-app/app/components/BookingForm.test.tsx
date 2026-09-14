@@ -4,13 +4,17 @@ import "@testing-library/jest-dom/vitest";
 import { cleanup, fireEvent, render, waitFor } from "@testing-library/react";
 import { afterEach, beforeEach, describe, expect, test, vi } from "vitest";
 import { LanguageProvider } from "../i18n";
-import { verifyFlightNumber } from "../lib/flight-verification";
+import { shouldApplyFlightArrival, verifyFlightNumber } from "../lib/flight-verification";
 import { BookingForm } from "./BookingForm";
 
-vi.mock("../lib/flight-verification", async (importOriginal) => ({
-  ...(await importOriginal<typeof import("../lib/flight-verification")>()),
-  verifyFlightNumber: vi.fn(),
-}));
+vi.mock("../lib/flight-verification", async (importOriginal) => {
+  const actual = await importOriginal<typeof import("../lib/flight-verification")>();
+  return {
+    ...actual,
+    verifyFlightNumber: vi.fn(),
+    shouldApplyFlightArrival: vi.fn(actual.shouldApplyFlightArrival),
+  };
+});
 
 afterEach(cleanup);
 
@@ -206,7 +210,12 @@ describe("BookingForm flight verification", () => {
   // verifyFlightNumber modul duzeyinde paylasilan bir vi.fn(); dosyanin
   // afterEach(cleanup) cagrisi onu sifirlamaz. Sifirlanmazsa cagri sayilari ve
   // mockResolvedValueOnce kuyrugu testler arasinda tasar.
-  beforeEach(() => { vi.mocked(verifyFlightNumber).mockReset(); });
+  // mockReset on a vi.fn(impl) restores that impl in Vitest 3, so
+  // shouldApplyFlightArrival keeps its real logic while losing its call log.
+  beforeEach(() => {
+    vi.mocked(verifyFlightNumber).mockReset();
+    vi.mocked(shouldApplyFlightArrival).mockReset();
+  });
 
   const goToStep2 = () => {
     const { container } = render(
@@ -259,6 +268,25 @@ describe("BookingForm flight verification", () => {
     await enterFlight(container, "TK2412");
     await waitFor(() => expect(verifyFlightNumber).toHaveBeenCalled());
     expect(arrivalField(container).value).toBe("09:15");
+  });
+
+  // dirtyFields comes off a react-hook-form Proxy whose subscription is only
+  // established by a read during render. If that read is ever moved into the
+  // async callback, dirtyFields stays permanently empty, `touched` is always
+  // false, and the "never overwrite what the guest typed" rule silently dies.
+  // Asserting on `current` alone cannot see that, because a non-empty value
+  // short-circuits the rule before `touched` is consulted.
+  test("the rule is told the guest touched the arrival time", async () => {
+    vi.mocked(verifyFlightNumber).mockResolvedValue({ status: "verified", arrivalTime: "14:35" });
+    const container = goToStep2();
+    await waitFor(() => expect(container.querySelector("#flight-arrival-time")).not.toBeNull());
+    fireEvent.change(arrivalField(container), { target: { value: "09:15" } });
+    await enterFlight(container, "TK2412");
+    await waitFor(() => expect(shouldApplyFlightArrival).toHaveBeenCalled());
+    expect(vi.mocked(shouldApplyFlightArrival).mock.calls[0][1]).toEqual({
+      current: "09:15",
+      touched: true,
+    });
   });
 
   test("a flight landing elsewhere says so", async () => {
