@@ -73,6 +73,26 @@ const renderWith = async (overrides: Partial<Booking>) => {
   return view
 }
 
+// Günlük kiralama kaydı ayrı bir dal çiziyor: uçuş numarası transfer
+// satırında değil, kendi '✈ Geliş' / '✈ Dönüş' satırlarında görünür.
+const renderDailyHire = async (overrides: Partial<Booking>) => {
+  const booking = {
+    ...baseBooking,
+    trip_type: 'daily_chauffeur',
+    service_end_date: '2026-09-23',
+    daily_rate_eur: 150,
+    departure_flight_date: '2026-09-23',
+    departure_flight_number: 'TK2413',
+    departure_flight_time: '18:00',
+    chauffeur_hire_days: [],
+    ...overrides,
+  } as unknown as Booking
+  installQueries(booking)
+  const view = render(<BookingDetailPage bookingRef="AVL-201" isReturn={false} sourceTab="future" navigate={vi.fn()} />)
+  await screen.findByText(/Günlük Araç \+ Şoför/)
+  return view
+}
+
 beforeEach(() => { vi.clearAllMocks() })
 afterEach(() => { cleanup(); vi.restoreAllMocks() })
 
@@ -123,6 +143,29 @@ describe('BookingDetailPage flight badge', () => {
   test('renders no badge element at all for a booking made before the feature', async () => {
     // Geçmişteki her kayıt bu durumda; boş bir span bile bırakmamalıyız.
     const { container } = await renderWith({ flight_verification_status: null })
+    expect(container.querySelector('.flight-badge')).toBeNull()
+  })
+
+  test('badges the arrival line of a daily hire, and leaves the departure line bare', async () => {
+    const { container } = await renderDailyHire({ flight_verification_status: 'verified' })
+    // Satıra göre sorgulanıyor: rozet yanlış satıra düşerse bu test kırılır.
+    const arrival = container.querySelector('.daily-flight-line.arrival')
+    const departure = container.querySelector('.daily-flight-line.departure')
+    expect(arrival?.textContent).toContain('TK2412')
+    expect(departure?.textContent).toContain('TK2413')
+    expect(arrival?.querySelector('.flight-badge')?.textContent).toBe('doğrulandı')
+    // '✈ Dönüş' satırı departure_flight_number'ı gösterir; durum onun
+    // hakkında hiçbir şey söylemediği için orada rozet olmamalı.
+    expect(departure?.querySelector('.flight-badge')).toBeNull()
+  })
+
+  test('renders no badge on a daily hire when the check could not run', async () => {
+    const { container } = await renderDailyHire({ flight_verification_status: 'unavailable' })
+    expect(container.querySelector('.flight-badge')).toBeNull()
+  })
+
+  test('renders no badge on a daily hire made before the feature', async () => {
+    const { container } = await renderDailyHire({ flight_verification_status: null })
     expect(container.querySelector('.flight-badge')).toBeNull()
   })
 
