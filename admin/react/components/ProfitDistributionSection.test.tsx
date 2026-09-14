@@ -427,3 +427,15 @@ describe('ProfitDistributionSection history and loading states', () => {
     expect(onRetry).toHaveBeenCalledTimes(1)
   })
 })
+
+describe('ProfitDistributionSection reklam uyarısı', () => {
+  test('reklam dahilken uyarı gösterilmez', () => {
+    renderSection()
+    expect(screen.queryByText(/reklam gideri dağıtıma katılmıyor/i)).not.toBeInTheDocument()
+  })
+
+  test('reklam hariçken dağıtılacak tutarın reklamsız olduğunu uyarır', () => {
+    renderSection({ includeAdvertising: false })
+    expect(screen.getByText(/reklam gideri dağıtıma katılmıyor/i)).toBeInTheDocument()
+  })
+})

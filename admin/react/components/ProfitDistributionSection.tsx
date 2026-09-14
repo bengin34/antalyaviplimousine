@@ -16,6 +16,8 @@ export interface ProfitDistributionSectionProps {
   settingsByMonth: Map<string, unknown>
   /** Tarihe özel EUR/TL kurları; önizleme ile kaydedilen dağıtım aynı kuru kullanmalıdır. */
   ratesByDate?: Map<string, number>
+  /** Kapalıyken dağıtılacak net kâr reklam gideri düşülmeden hesaplanır. */
+  includeAdvertising?: boolean
   shareSettings: ProfitShareSettings | null
   distributions: ProfitDistribution[]
   loading: boolean
@@ -235,12 +237,13 @@ function OpenDistributionPreview({
   bookings,
   settingsByMonth,
   ratesByDate,
+  includeAdvertising,
   shareSettings,
   distributions,
   onCreateDistribution,
   openingEditor,
 }: Pick<ProfitDistributionSectionProps,
-  'today' | 'bookings' | 'settingsByMonth' | 'ratesByDate' | 'shareSettings' | 'distributions' | 'onCreateDistribution'
+  'today' | 'bookings' | 'settingsByMonth' | 'ratesByDate' | 'includeAdvertising' | 'shareSettings' | 'distributions' | 'onCreateDistribution'
 > & { shareSettings: ProfitShareSettings; openingEditor?: ReactNode }) {
   const openStart = useMemo(
     () => latestOpenStart(shareSettings, distributions),
@@ -287,7 +290,8 @@ function OpenDistributionPreview({
     settingsByMonth,
     operationsSharePct,
     ratesByDate,
-  }), [bookings, openStart, endDate, today, settingsByMonth, operationsSharePct, ratesByDate])
+    includeAdvertising,
+  }), [bookings, openStart, endDate, today, settingsByMonth, operationsSharePct, ratesByDate, includeAdvertising])
 
   const localMessages: string[] = []
   if (!operationsPrecise || !vehiclePrecise) {
@@ -368,6 +372,9 @@ function OpenDistributionPreview({
         <FinancialBucket label="Reklam" eur={metrics.advertisingExpenseEur} tryAmount={metrics.advertisingExpenseTry} />
         <FinancialBucket label="Toplam gider" eur={metrics.totalExpenseEur} tryAmount={metrics.totalExpenseTry} />
       </div>
+      {includeAdvertising === false && <p className="profit-distribution-ads-warning" role="status">
+        Reklam gideri dağıtıma katılmıyor: aşağıdaki paylar reklam düşülmeden hesaplandı ve bu haliyle kaydedilir.
+      </p>}
       <div className="profit-distribution-partners">
         <article>
           <h3>Operasyon ortağı</h3>

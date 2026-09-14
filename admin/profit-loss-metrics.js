@@ -362,54 +362,40 @@ function settingsSnapshotForMonths(months, settingsByMonth) {
   }))
 }
 
-export function allocatedAdvertisingForRange(startDate, endDate, settingsByMonth = {}) {
-  const start = dateOnlyUtc(startDate)
-  const end = dateOnlyUtc(endDate)
-  if (!start || !end || start > end) {
-    throw new RangeError('Invalid advertising date range')
-  }
+function settingsMonthKeys(settingsByMonth) {
+  const keys = settingsByMonth instanceof Map
+    ? [...settingsByMonth.keys()]
+    : Object.keys(settingsByMonth ?? {})
+  return keys.map(key => String(key).slice(0, 7)).filter(key => /^\d{4}-\d{2}$/.test(key))
+}
 
-  const monthlyAllocations = {}
-  let advertisingExpenseTryCents = 0n
-  let advertisingExpenseEurCents = 0n
-
-  for (const month of monthsForRange(startDate, endDate)) {
-    const [year, monthNumber] = month.split('-').map(Number)
-    const daysInMonth = new Date(Date.UTC(year, monthNumber, 0)).getUTCDate()
-    const monthStart = new Date(Date.UTC(year, monthNumber - 1, 1))
-    const monthEnd = new Date(Date.UTC(year, monthNumber - 1, daysInMonth))
-    const allocationStart = start > monthStart ? start : monthStart
-    const allocationEnd = end < monthEnd ? end : monthEnd
+/**
+ * Seyahat başına reklam payı. Reklam gideri güne değil seyahate bölünür:
+ * bugüne kadar harcanan reklam gelecekteki seyahatleri de getirdiği için
+ * takvim günü oranlaması kısa aralıklarda kârı yanıltıcı biçimde dalgalandırır.
+ * Havuz = bugüne kadarki (içinde bulunulan ay dahil) tüm aylık reklam gideri;
+ * bölen = bugüne kadar gerçekleşmiş tüm seyahat ayağı. Gelecek aylara önden
+ * girilmiş bütçe henüz harcanmadığı için havuza alınmaz.
+ */
+export function advertisingPerLegRate(settingsByMonth = {}, legCount = 0, today = '') {
+  const currentMonth = String(today ?? '').slice(0, 7)
+  let poolTryCents = 0n
+  let poolEurCents = 0n
+  for (const month of settingsMonthKeys(settingsByMonth)) {
+    if (currentMonth && month > currentMonth) continue
     const settings = settingForMonth(settingsByMonth, month)
-    const throughEndCents = multiplyDivideMoneyToCents(
-      settings.advertisingExpenseTry,
-      allocationEnd.getUTCDate(),
-      daysInMonth,
-    )
-    const beforeStartCents = multiplyDivideMoneyToCents(
-      settings.advertisingExpenseTry,
-      allocationStart.getUTCDate() - 1,
-      daysInMonth,
-    )
-    const allocatedTryCents = throughEndCents - beforeStartCents
-    const allocatedTry = centsToNumber(allocatedTryCents)
-    const allocatedEurCents = multiplyDivideMoneyToCents(allocatedTry, 1, settings.eurTryRate)
-    const allocatedEur = centsToNumber(allocatedEurCents)
-
-    monthlyAllocations[month] = {
-      startDate: formatDateOnlyUtc(allocationStart),
-      endDate: formatDateOnlyUtc(allocationEnd),
-      advertisingExpenseTry: allocatedTry,
-      advertisingExpenseEur: allocatedEur,
-    }
-    advertisingExpenseTryCents += allocatedTryCents
-    advertisingExpenseEurCents += allocatedEurCents
+    poolTryCents += moneyToCents(settings.advertisingExpenseTry)
+    poolEurCents += multiplyDivideMoneyToCents(settings.advertisingExpenseTry, 1, settings.eurTryRate)
   }
-
+  const poolTry = centsToNumber(poolTryCents)
+  const poolEur = centsToNumber(poolEurCents)
+  const count = Number.isInteger(legCount) && legCount > 0 ? legCount : 0
   return {
-    advertisingExpenseTry: centsToNumber(advertisingExpenseTryCents),
-    advertisingExpenseEur: centsToNumber(advertisingExpenseEurCents),
-    monthlyAllocations,
+    poolTry,
+    poolEur,
+    legCount: count,
+    perLegTry: count ? centsToNumber(multiplyDivideMoneyToCents(poolTry, 1, count)) : 0,
+    perLegEur: count ? centsToNumber(multiplyDivideMoneyToCents(poolEur, 1, count)) : 0,
   }
 }
 
@@ -716,30 +702,29 @@ export function bookingLegCostStatus(booking, leg, today, settingsByMonth = {}, 
   }
 }
 
-export function calculateProfitLossMetrics(bookings, period, today, settingsByMonth = {}, ratesByDate = null) {
+export function calculateProfitLossMetrics(bookings, period, today, settingsByMonth = {}, ratesByDate = null, options = {}) {
+  const includeAdvertising = options.includeAdvertising !== false
   const realizedLegs = resolveRealizedLegs(bookings, today, settingsByMonth, ratesByDate)
   const resolvedLegs = realizedLegs.resolvedLegs.filter(leg => isInPeriod(leg.date, period))
   const unresolvedLegs = realizedLegs.unresolvedLegs.filter(leg => isInPeriod(leg.date, period))
 
-  const relevantMonths = period === 'all'
-    ? new Set([
-        ...resolvedLegs.map(leg => leg.month),
-        ...unresolvedLegs.map(leg => leg.month),
-        ...(settingsByMonth instanceof Map ? settingsByMonth.keys() : Object.keys(settingsByMonth ?? {})),
-      ])
-    : new Set([period])
-
-  const advertisingExpenseTry = [...relevantMonths].reduce((total, month) => {
-    return total + settingForMonth(settingsByMonth, month).advertisingExpenseTry
-  }, 0)
-  const advertisingExpenseEur = [...relevantMonths].reduce((total, month) => {
-    const settings = settingForMonth(settingsByMonth, month)
-    return total + (settings.advertisingExpenseTry / settings.eurTryRate)
-  }, 0)
+  // Reklam payı tüm zamanların havuzundan gelir; döneme yalnızca o dönemde
+  // gerçekleşen seyahat sayısı kadarı yüklenir.
+  const advertisingRate = includeAdvertising
+    ? advertisingPerLegRate(
+        settingsByMonth,
+        realizedLegs.resolvedLegs.length + realizedLegs.unresolvedLegs.length,
+        today,
+      )
+    : { perLegTry: 0, perLegEur: 0 }
+  const periodLegCount = resolvedLegs.length + unresolvedLegs.length
+  const advertisingExpenseTry = roundMoney(advertisingRate.perLegTry * periodLegCount)
+  const advertisingExpenseEur = roundMoney(advertisingRate.perLegEur * periodLegCount)
 
   const totals = totalsForLegs(resolvedLegs, unresolvedLegs, settingsByMonth)
 
   totals.advertisingExpenseTry = advertisingExpenseTry
+  totals.advertisingExpenseEur = advertisingExpenseEur
   totals.totalExpenseTry = totals.vehicleCostTry + totals.supplierCostTry + totals.airportMeetCostTry + totals.parkingCostTry + advertisingExpenseTry
   totals.netProfitTry = totals.incomeTry - totals.totalExpenseTry
   totals.totalExpenseEur = totals.vehicleCostEur + totals.supplierCostEur + totals.airportMeetCostEur + totals.parkingCostEur + advertisingExpenseEur
@@ -772,12 +757,9 @@ export function calculateProfitLossMetrics(bookings, period, today, settingsByMo
   const routes = [...routeMap.values()]
     .sort((a, b) => b.vehicleKm - a.vehicleKm || b.incomeEur - a.incomeEur)
 
-  // Sefer başına reklam: dönem reklamını (gün-payı toplamı) gerçekleşen tüm
-  // ayaklara eşit böl; bacak neti reklamı da düşer. Dönem toplamları değişmez.
-  const legsWithAds = attachAdvertisingPerLeg(
-    [...resolvedLegs, ...unresolvedLegs],
-    { advertisingExpenseEur, advertisingExpenseTry },
-  )
+  // Sefer başına reklam: her bacak tüm-zamanlar havuzundan hesaplanan sabit
+  // payı taşır; bacak neti reklamı da düşer. Dönem toplamı payların toplamıdır.
+  const legsWithAds = attachAdvertisingPerLeg([...resolvedLegs, ...unresolvedLegs], advertisingRate)
   const withNet = legsWithAds.map(leg => {
     const expenseTry = (leg.vehicleCostTry ?? 0) + (leg.supplierCostTry ?? 0)
       + (leg.airportMeetCostTry ?? 0) + (leg.parkingCostTry ?? 0) + (leg.advertisingPerLegTry ?? 0)
@@ -818,6 +800,7 @@ export function calculateProfitDistribution(bookings, options = {}) {
   const endDate = String(options.endDate ?? '')
   const today = String(options.today ?? '')
   const settingsByMonth = options.settingsByMonth ?? {}
+  const includeAdvertising = options.includeAdvertising !== false
   const start = dateOnlyUtc(startDate)
   const end = dateOnlyUtc(endDate)
   const todayDate = dateOnlyUtc(today)
@@ -859,9 +842,19 @@ export function calculateProfitDistribution(bookings, options = {}) {
   }
 
   const directTotals = distributionTotalsForLegs(resolvedLegs, unresolvedLegs)
-  const advertising = rangeIsValid
-    ? allocatedAdvertisingForRange(startDate, endDate, settingsByMonth)
-    : { advertisingExpenseTry: 0, advertisingExpenseEur: 0 }
+  // Reklam seyahat başına yüklenir: tüm-zamanlar havuzu / tüm-zamanlar seyahati.
+  const advertisingRate = includeAdvertising && rangeIsValid
+    ? advertisingPerLegRate(
+        settingsByMonth,
+        realized.resolvedLegs.length + realized.unresolvedLegs.length,
+        today,
+      )
+    : { perLegTry: 0, perLegEur: 0 }
+  const rangeLegCount = resolvedLegs.length + unresolvedLegs.length
+  const advertising = {
+    advertisingExpenseTry: roundMoney(advertisingRate.perLegTry * rangeLegCount),
+    advertisingExpenseEur: roundMoney(advertisingRate.perLegEur * rangeLegCount),
+  }
   const months = rangeIsValid ? monthsForRange(startDate, endDate) : []
   const monthlySettingsSnapshot = settingsSnapshotForMonths(months, settingsByMonth)
 
@@ -1010,6 +1003,7 @@ export function calculateLedgerForRange(bookings, options = {}) {
   const today = String(options.today ?? '')
   const settingsByMonth = options.settingsByMonth ?? {}
   const ratesByDate = options.ratesByDate ?? null
+  const includeAdvertising = options.includeAdvertising !== false
   const start = dateOnlyUtc(startDate)
   const end = dateOnlyUtc(endDate)
   const rangeIsValid = Boolean(start && end && start <= end)
@@ -1026,15 +1020,16 @@ export function calculateLedgerForRange(bookings, options = {}) {
     .filter(withinRange)
     .map(leg => distributionFinancialLeg(leg, settingsByMonth, allocations))
 
-  const advertising = rangeIsValid
-    ? allocatedAdvertisingForRange(startDate, endDate, settingsByMonth)
-    : { advertisingExpenseTry: 0, advertisingExpenseEur: 0 }
-
-  // Per-leg reklam: aralık reklamını tüm ayaklara böl
-  const withAds = attachAdvertisingPerLeg(
-    [...resolvedLegs, ...unresolvedLegs],
-    { advertisingExpenseEur: advertising.advertisingExpenseEur, advertisingExpenseTry: advertising.advertisingExpenseTry },
-  )
+  // Per-leg reklam: her bacak tüm-zamanlar havuzundan gelen sabit payı taşır;
+  // aralığın uzunluğu değil, içindeki seyahat sayısı reklam yükünü belirler.
+  const advertisingRate = includeAdvertising && rangeIsValid
+    ? advertisingPerLegRate(
+        settingsByMonth,
+        realized.resolvedLegs.length + realized.unresolvedLegs.length,
+        today,
+      )
+    : { perLegTry: 0, perLegEur: 0 }
+  const withAds = attachAdvertisingPerLeg([...resolvedLegs, ...unresolvedLegs], advertisingRate)
   const withNet = withAds.map(leg => {
     const expenseTry = (leg.vehicleCostTry ?? 0) + (leg.supplierCostTry ?? 0)
       + (leg.airportMeetCostTry ?? 0) + (leg.parkingCostTry ?? 0) + (leg.advertisingPerLegTry ?? 0)
@@ -1056,8 +1051,8 @@ export function calculateLedgerForRange(bookings, options = {}) {
   const airportMeetCostTry = roundMoney(directTotals.airportMeetCostTry)
   const parkingCostEur = roundMoney(directTotals.parkingCostEur)
   const parkingCostTry = roundMoney(directTotals.parkingCostTry)
-  const advertisingExpenseEur = roundMoney(advertising.advertisingExpenseEur)
-  const advertisingExpenseTry = roundMoney(advertising.advertisingExpenseTry)
+  const advertisingExpenseEur = sumMoney(withAds.map(leg => leg.advertisingPerLegEur ?? 0))
+  const advertisingExpenseTry = sumMoney(withAds.map(leg => leg.advertisingPerLegTry ?? 0))
   const totalExpenseEur = sumMoney([vehicleCostEur, supplierCostEur, airportMeetCostEur, parkingCostEur, advertisingExpenseEur])
   const totalExpenseTry = sumMoney([vehicleCostTry, supplierCostTry, airportMeetCostTry, parkingCostTry, advertisingExpenseTry])
   const netProfitEur = sumMoney([incomeEur, -totalExpenseEur])
@@ -1091,17 +1086,17 @@ export function calculateLedgerForRange(bookings, options = {}) {
 }
 
 /**
- * Aralığa düşen toplam reklamı (gün-payı) bacaklara kuruşu kuruşuna eşit böler.
- * Toplam korunur; artık kuruşlar ilk bacaklara gider (allocateMoneyAmounts).
+ * Her bacağa aynı seyahat-başı reklam payını yazar (advertisingPerLegRate).
+ * Dönem reklam toplamı bu payların toplamıdır; aralığın gün sayısı etkilemez.
  * Reklam yalnız gösterim/hesap katmanında; kayıtlı dağıtımları değiştirmez.
  */
-export function attachAdvertisingPerLeg(legs, { advertisingExpenseEur = 0, advertisingExpenseTry = 0 } = {}) {
+export function attachAdvertisingPerLeg(legs, { perLegEur = 0, perLegTry = 0 } = {}) {
   if (!Array.isArray(legs) || legs.length === 0) return []
-  const eurShares = allocateMoneyAmounts(advertisingExpenseEur, legs.length)
-  const tryShares = allocateMoneyAmounts(advertisingExpenseTry, legs.length)
-  return legs.map((leg, index) => ({
+  const eurShare = roundMoney(perLegEur)
+  const tryShare = roundMoney(perLegTry)
+  return legs.map(leg => ({
     ...leg,
-    advertisingPerLegEur: eurShares[index] ?? 0,
-    advertisingPerLegTry: tryShares[index] ?? 0,
+    advertisingPerLegEur: eurShare,
+    advertisingPerLegTry: tryShare,
   }))
 }
