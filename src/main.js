@@ -28,6 +28,7 @@ const translations = {
   zh: {
     flightConfirmed: "{time} 抵达安塔利亚",
     flightWrongAirport: "该航班降落在 {airport}",
+    flightApplyTime: "设为 {time}",
     navFleet: "车型",
     navService: "服务",
     navRoutes: "路线",
@@ -279,6 +280,7 @@ const translations = {
   da: {
     flightConfirmed: "Ankommer til Antalya kl. {time}",
     flightWrongAirport: "Dette fly lander i {airport}",
+    flightApplyTime: "Sæt til {time}",
     navFleet: "Køretøjer",
     navService: "Service",
     navRoutes: "Ruter",
@@ -530,6 +532,7 @@ const translations = {
   es: {
     flightConfirmed: "Llega a Antalya a las {time}",
     flightWrongAirport: "Este vuelo aterriza en {airport}",
+    flightApplyTime: "Poner a las {time}",
     navFleet: "Vehículos",
     navService: "Servicio",
     navRoutes: "Rutas",
@@ -781,6 +784,7 @@ const translations = {
   el: {
     flightConfirmed: "Φτάνει στην Αττάλεια στις {time}",
     flightWrongAirport: "Αυτή η πτήση προσγειώνεται στο {airport}",
+    flightApplyTime: "Ορισμός στις {time}",
     navFleet: "Οχήματα",
     navService: "Υπηρεσίες",
     navRoutes: "Διαδρομές",
@@ -1032,6 +1036,7 @@ const translations = {
   he: {
     flightConfirmed: "נוחתת באנטליה בשעה {time}",
     flightWrongAirport: "טיסה זו נוחתת ב-{airport}",
+    flightApplyTime: "עדכן ל-{time}",
     navFleet: "רכבים",
     navService: "שירות",
     navRoutes: "מסלולים",
@@ -1283,6 +1288,7 @@ const translations = {
   it: {
     flightConfirmed: "Arriva ad Antalya alle {time}",
     flightWrongAirport: "Questo volo atterra a {airport}",
+    flightApplyTime: "Imposta alle {time}",
     navFleet: "Veicoli",
     navService: "Servizi",
     navRoutes: "Tratte",
@@ -1534,6 +1540,7 @@ const translations = {
   hu: {
     flightConfirmed: "Antalyába érkezik: {time}",
     flightWrongAirport: "Ez a járat itt száll le: {airport}",
+    flightApplyTime: "Beállítás: {time}",
     navFleet: "Járművek",
     navService: "Szolgáltatás",
     navRoutes: "Útvonalak",
@@ -1785,6 +1792,7 @@ const translations = {
   pt: {
     flightConfirmed: "Chega a Antalya às {time}",
     flightWrongAirport: "Este voo aterra em {airport}",
+    flightApplyTime: "Definir para {time}",
     navFleet: "Veículos",
     navService: "Serviço",
     navRoutes: "Rotas",
@@ -2036,6 +2044,7 @@ const translations = {
   ro: {
     flightConfirmed: "Ajunge în Antalya la {time}",
     flightWrongAirport: "Acest zbor aterizează la {airport}",
+    flightApplyTime: "Setează la {time}",
     navFleet: "Vehicule",
     navService: "Servicii",
     navRoutes: "Rute",
@@ -2288,6 +2297,7 @@ const translations = {
   de: {
     flightConfirmed: "Landet um {time} in Antalya",
     flightWrongAirport: "Dieser Flug landet in {airport}",
+    flightApplyTime: "Auf {time} setzen",
     hotelSearchHint: "Geben Sie Ihren Hotelnamen ein und wählen Sie ihn aus der Liste – Zielregion und Preis tragen wir für Sie ein.",
     hotelNotListed: "Mein Hotel ist nicht in der Liste",
     hotelNotListedHint: "Kein Problem — nennen Sie uns den Hotelnamen und wählen Sie unten Ihre Region.",
@@ -2545,6 +2555,7 @@ const translations = {
     // → 'da. Sabit bir ek her tam saatte yanlış yazardı, o yüzden eksiz biçim.
     flightConfirmed: "Antalya'ya varış: {time}",
     flightWrongAirport: "Bu uçuş {airport} havalimanına iniyor",
+    flightApplyTime: "{time} olarak ayarla",
     hotelSearchHint: "Otelinizin adını yazıp listeden seçin; varış bölgesini ve fiyatı sizin için dolduralım.",
     hotelNotListed: "Otelim listede yok",
     hotelNotListedHint: "Sorun değil — otel adınızı yazın, bölgenizi siz seçin.",
@@ -2796,6 +2807,7 @@ const translations = {
   ru: {
     flightConfirmed: "Прибывает в Анталью в {time}",
     flightWrongAirport: "Этот рейс прилетает в {airport}",
+    flightApplyTime: "Установить {time}",
     hotelSearchHint: "Введите название отеля и выберите его из списка — регион и цену мы заполним за вас.",
     hotelNotListed: "Моего отеля нет в списке",
     hotelNotListedHint: "Ничего страшного — напишите название отеля и выберите регион ниже.",
@@ -3048,6 +3060,7 @@ const translations = {
   cs: {
     flightConfirmed: "Přilétá do Antalye v {time}",
     flightWrongAirport: "Tento let přistává v {airport}",
+    flightApplyTime: "Nastavit na {time}",
     hotelSearchHint: "Zadejte název hotelu a vyberte jej ze seznamu – cílovou oblast i cenu doplníme za vás.",
     hotelNotListed: "Můj hotel není v seznamu",
     hotelNotListedHint: "Žádný problém — napište název hotelu a vyberte oblast níže.",
@@ -3339,6 +3352,7 @@ const translations = {
   pl: {
     flightConfirmed: "Przylatuje do Antalyi o {time}",
     flightWrongAirport: "Ten lot ląduje w {airport}",
+    flightApplyTime: "Ustaw na {time}",
     navFleet: "Pojazdy",
     navService: "Usługi",
     navRoutes: "Trasy",
@@ -3564,6 +3578,7 @@ const translations = {
   nl: {
     flightConfirmed: "Komt om {time} aan in Antalya",
     flightWrongAirport: "Deze vlucht landt in {airport}",
+    flightApplyTime: "Zet op {time}",
     navFleet: "Voertuigen",
     navService: "Service",
     navRoutes: "Routes",
@@ -3792,6 +3807,7 @@ const translations = {
   uk: {
     flightConfirmed: "Прибуває до Анталії о {time}",
     flightWrongAirport: "Цей рейс приземляється в {airport}",
+    flightApplyTime: "Встановити {time}",
     hotelSearchHint: "Введіть назву готелю та оберіть її зі списку — регіон і ціну ми заповнимо за вас.",
     hotelNotListed: "Мого готелю немає у списку",
     hotelNotListedHint: "Не проблема — напишіть назву готелю та оберіть регіон нижче.",
@@ -4023,6 +4039,7 @@ const translations = {
   ur: {
     flightConfirmed: "انطالیہ {time} پر پہنچتی ہے",
     flightWrongAirport: "یہ پرواز {airport} پر اترتی ہے",
+    flightApplyTime: "{time} مقرر کریں",
     hotelSearchHint: "اپنے ہوٹل کا نام لکھیں اور فہرست میں سے منتخب کریں؛ منزل کا علاقہ اور قیمت ہم خود بھر دیں گے۔",
     hotelNotListed: "میرا ہوٹل فہرست میں نہیں ہے",
     hotelNotListedHint: "کوئی بات نہیں — ہوٹل کا نام لکھیں اور نیچے اپنا علاقہ منتخب کریں۔",
@@ -4352,6 +4369,7 @@ const translations = {
   fr: {
     flightConfirmed: "Arrive à Antalya à {time}",
     flightWrongAirport: "Ce vol atterrit à {airport}",
+    flightApplyTime: "Mettre à {time}",
     navFleet: "Véhicules",
     navService: "Service",
     navRoutes: "Itinéraires",
@@ -4581,6 +4599,7 @@ const translations = {
   sv: {
     flightConfirmed: "Landar i Antalya kl. {time}",
     flightWrongAirport: "Detta flyg landar i {airport}",
+    flightApplyTime: "Ställ in {time}",
     navFleet: "Fordon",
     navService: "Service",
     navRoutes: "Rutter",
@@ -4807,6 +4826,7 @@ const translations = {
   ja: {
     flightConfirmed: "{time} にアンタルヤに到着します",
     flightWrongAirport: "この便は {airport} に着陸します",
+    flightApplyTime: "{time} に設定",
     navFleet: "車両",
     navService: "サービス",
     navRoutes: "ルート",
@@ -5028,6 +5048,7 @@ const translations = {
   ko: {
     flightConfirmed: "{time}에 안탈리아 도착",
     flightWrongAirport: "이 항공편은 {airport}에 착륙합니다",
+    flightApplyTime: "{time} 적용",
     navFleet: "차량",
     navService: "서비스",
     navRoutes: "노선",
@@ -5248,6 +5269,7 @@ const translations = {
   ar: {
     flightConfirmed: "تصل إلى أنطاليا في {time}",
     flightWrongAirport: "هذه الرحلة تهبط في {airport}",
+    flightApplyTime: "ضبط على {time}",
     navFleet: "أسطولنا",
     navService: "الخدمات",
     navRoutes: "الوجهات",

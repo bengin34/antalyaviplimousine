@@ -404,4 +404,89 @@ describe("BookingForm flight verification", () => {
     await waitFor(() => expect(verifyFlightNumber).toHaveBeenCalledTimes(2));
     expect(arrivalField(container).value).toBe("");
   });
+
+  // iOS'ta saat alanina dokunmak tekerlek secicisini acar ve seciciden cikinca
+  // o anki saat alana yazilir. Saat alani ucus numarasindan once gelirse
+  // musteri sirayla doldururken alani kirletir, dogrulanan saat de artik
+  // yazilamaz. Bu yuzden sorulma sirasi: once ucus numarasi, sonra saat.
+  test("the flight number is asked for before the arrival time", async () => {
+    const container = goToStep2();
+    await waitFor(() => expect(container.querySelector("#flight-number")).not.toBeNull());
+    const flight = container.querySelector("#flight-number")!;
+    const time = container.querySelector("#flight-arrival-time")!;
+    expect(flight.compareDocumentPosition(time) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
+  });
+
+  const applyButton = (container: HTMLElement) =>
+    container.querySelector<HTMLButtonElement>(".flight-hint button");
+
+  test("an empty field is filled without asking, so no button is offered", async () => {
+    vi.mocked(verifyFlightNumber).mockResolvedValue({ status: "verified", arrivalTime: "14:35" });
+    const container = goToStep2();
+    await enterFlight(container, "TK2412");
+    await waitFor(() => expect(arrivalField(container).value).toBe("14:35"));
+    expect(applyButton(container)).toBeNull();
+  });
+
+  // Ipucu "11:00'de iniyor" derken alanda 21:22 yazmasi bir celiskiydi ve
+  // musterinin bunu cozecek bir yolu yoktu. Artik var - ama basana kadar
+  // onun degerine dokunulmaz.
+  test("a time that differs from the verified one can be replaced on request", async () => {
+    vi.mocked(verifyFlightNumber).mockResolvedValue({ status: "verified", arrivalTime: "14:35" });
+    const container = goToStep2();
+    await waitFor(() => expect(container.querySelector("#flight-arrival-time")).not.toBeNull());
+    fireEvent.change(arrivalField(container), { target: { value: "09:15" } });
+    await enterFlight(container, "TK2412");
+    await waitFor(() => expect(applyButton(container)).not.toBeNull());
+
+    const button = applyButton(container)!;
+    expect(button.tagName).toBe("BUTTON");
+    expect(button.type).toBe("button");
+    expect(button).toHaveTextContent("14:35");
+    // Hicbir sey sessizce yazilmaz: basilana kadar musterinin degeri durur.
+    expect(arrivalField(container).value).toBe("09:15");
+
+    fireEvent.click(button);
+    await waitFor(() => expect(arrivalField(container).value).toBe("14:35"));
+    // Artik alan dogrulanan saati tasiyor; onerilecek bir sey kalmadi.
+    await waitFor(() => expect(applyButton(container)).toBeNull());
+  });
+
+  // Dugme, ucus numarasi alanini saran <label>'in icinde duruyor. Label'a
+  // tiklamak odagi kendi alanina yollar; saati uygulayan musteri kendini ucus
+  // numarasi alaninda - mobilde klavye acilmis halde - bulmamali. Bu test
+  // sonucu bekliyor (odak kacmasin), yolu degil: jsdom etkilesimli bir torunun
+  // tiklamasini label'a hic tasimiyor, yani buradaki preventDefault'un kendisi
+  // bu testle KANITLANMIS degil.
+  test("pressing the hint does not throw focus into the flight number field", async () => {
+    vi.mocked(verifyFlightNumber).mockResolvedValue({ status: "verified", arrivalTime: "14:35" });
+    const container = goToStep2();
+    await waitFor(() => expect(container.querySelector("#flight-arrival-time")).not.toBeNull());
+    fireEvent.change(arrivalField(container), { target: { value: "09:15" } });
+    await enterFlight(container, "TK2412");
+    await waitFor(() => expect(applyButton(container)).not.toBeNull());
+
+    const flightNumber = container.querySelector<HTMLInputElement>("#flight-number")!;
+    flightNumber.blur();
+    fireEvent.click(applyButton(container)!);
+    await waitFor(() => expect(arrivalField(container).value).toBe("14:35"));
+    expect(document.activeElement).not.toBe(flightNumber);
+  });
+
+  test("a time applied from the hint is ours, so a new flight number still replaces it", async () => {
+    vi.mocked(verifyFlightNumber)
+      .mockResolvedValueOnce({ status: "verified", arrivalTime: "14:35" })
+      .mockResolvedValueOnce({ status: "verified", arrivalTime: "09:00" });
+    const container = goToStep2();
+    await waitFor(() => expect(container.querySelector("#flight-arrival-time")).not.toBeNull());
+    fireEvent.change(arrivalField(container), { target: { value: "21:22" } });
+    await enterFlight(container, "TK1");
+    await waitFor(() => expect(applyButton(container)).not.toBeNull());
+    fireEvent.click(applyButton(container)!);
+    await waitFor(() => expect(arrivalField(container).value).toBe("14:35"));
+
+    await enterFlight(container, "TK2");
+    await waitFor(() => expect(verifyFlightNumber).toHaveBeenCalledTimes(2));
+    await waitFor(() => expect(arrivalField(container).value).toBe("09:00"));
+  });
 });
