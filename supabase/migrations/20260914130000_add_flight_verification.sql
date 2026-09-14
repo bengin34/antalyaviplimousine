@@ -6,8 +6,9 @@
 -- `flight_verification_status` ve `flight_scheduled_arrival` nullable:
 -- geçmişteki her satır null'dur ve API anahtarı tanımlanana kadar (veya
 -- akış API'yi hiç çağırmadığında) her yeni satır da null kalır. null ve
--- 'unavailable' bir "bulgu" değil, bilgi eksikliğidir — admin panelinde
--- ikisi için de rozet gösterilmez.
+-- 'unavailable' bir "bulgu" değil, bilgi eksikliğidir. (Planlanan admin
+-- panel davranışı: ikisi için de rozet göstermeyecek — bu henüz yazılmadı,
+-- bu migration yalnızca şemayı hazırlar.)
 alter table public.bookings
   add column if not exists flight_verification_status text,
   add column if not exists flight_scheduled_arrival text;
@@ -45,8 +46,10 @@ comment on table public.flight_lookups is
   'bellek-içi önbelleği soğuk başlangıçta kaybolur; bu tablo aylık 400 '
   'çağrı kotasını korumak için kalıcıdır.';
 
--- Aylık sayaç ve sert tavan. 380'e ulaşıldığında fonksiyon upstream'i
--- hiç çağırmaz.
+-- Aylık sayaç ve sert tavan. Tavan (`p_cap`) çağıran tarafından
+-- `consume_flight_quota`'ya parametre olarak verilir; bu şema herhangi bir
+-- sabit sayı bilmez ve upstream'i kendisi hiç çağırmaz — o mantık ileride
+-- yazılacak Edge Function'da olacak.
 create table public.flight_api_usage (
   month text primary key, -- örn. '2026-09'
   calls integer not null default 0
@@ -75,18 +78,25 @@ create function public.consume_flight_quota(p_month text, p_cap integer)
 returns boolean
 language plpgsql
 security definer
-set search_path = public
+set search_path = ''
 as $$
 declare
   v_calls integer;
 begin
-  insert into flight_api_usage (month, calls)
+  insert into public.flight_api_usage (month, calls)
   values (p_month, 1)
   on conflict (month) do update
-    set calls = flight_api_usage.calls + 1
-    where flight_api_usage.calls < p_cap
-  returning calls into v_calls;
+    set calls = public.flight_api_usage.calls + 1
+    where public.flight_api_usage.calls < p_cap
+  returning public.flight_api_usage.calls into v_calls;
 
   return v_calls is not null;
 end;
 $$;
+
+-- Bu fonksiyon durumu değiştirir (sayacı artırır) ve anon anahtarıyla
+-- PostgREST üzerinden çağrılabilir olmamalı: PUBLIC'e verilen varsayılan
+-- EXECUTE izni geri alınır. Edge Function service role ile çalışır ve
+-- service role bu iznin dışındadır; admin panel yalnızca tabloyu okur,
+-- fonksiyonu hiç çağırmaz.
+revoke execute on function public.consume_flight_quota(text, integer) from public, anon, authenticated;
