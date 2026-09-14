@@ -469,10 +469,20 @@ export function BookingForm({
           {Boolean(values.arrivalTime) && values.arrivalTime !== flightCheck.arrivalTime && (
             <>
               {" "}
+              {/* preventDefault, dugmenin icinde durdugu <label>'in varsayilan
+                  davranisina karsi: label tiklaninca odagi kendi alanina
+                  (#flight-number) yollar, yani saati uygulayan musteri kendini
+                  ucus numarasi alaninda - mobilde klavye acik - bulurdu.
+                  HTML'e gore etkilesimli bir torundan gelen tiklamada label
+                  zaten hicbir sey yapmaz (jsdom da boyle davraniyor: asagidaki
+                  test odagin kacmadigini dogruluyor ama preventDefault'i
+                  kanitlamiyor), type="button" icin de iptal edilecek bir
+                  varsayilan yok. Yine de duruyor: bedeli yok, bir gun bu
+                  yapinin degismesi ihtimaline karsi. */}
               <button
                 type="button"
                 className="flight-hint-apply"
-                onClick={() => applyFlightArrival(flightCheck.arrivalTime!)}
+                onClick={(event) => { event.preventDefault(); applyFlightArrival(flightCheck.arrivalTime!); }}
               >
                 {t("flightApplyTime", "Set it to {time}").replace("{time}", flightCheck.arrivalTime)}
               </button>
