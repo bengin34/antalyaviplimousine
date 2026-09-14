@@ -48,7 +48,7 @@ müşteri kendisi düzeltebilir.
 BookingForm (tarayıcı)
    │  { flightNumber, date }
    ▼
-verify-flight (Supabase Edge Function)   ← AERODATABOX_API_KEY burada durur
+verify-flight (Supabase Edge Function)   ← RAPIDAPI_API_KEY burada durur
    │
    ▼
 AeroDataBox / RapidAPI
@@ -93,7 +93,7 @@ varış havalimanı bildirilir.
 - Fonksiyon asla 4xx/5xx dönmez. Çağıran taraf için tek bir başarısızlık biçimi var:
   `unavailable`. Böylece istemcide hata dalı tek.
 - Yukarı akış çağrısına **3 saniye timeout**. Süre dolarsa `unavailable`.
-- `AERODATABOX_API_KEY` ortam değişkeni yoksa `unavailable` döner — özellik
+- `RAPIDAPI_API_KEY` ortam değişkeni yoksa `unavailable` döner — özellik
   yapılandırılmamış bir ortamda formu bozmaz.
 - Uçuş numarası normalize edilir: boşluk/tire atılır, büyük harfe çevrilir.
 
@@ -192,6 +192,6 @@ doğrulama hatası olarak gösterilmez.
 ## Operatör görevi
 
 RapidAPI üzerinden AeroDataBox anahtarı alınıp Supabase secret olarak
-`AERODATABOX_API_KEY` adıyla tanımlanacak. Ücretsiz tier bu hacim için yeterli.
+`RAPIDAPI_API_KEY` adıyla tanımlanacak. Ücretsiz tier bu hacim için yeterli.
 Anahtar tanımlanana kadar özellik sessizce `unavailable` durumunda kalır ve mevcut
 davranış hiç değişmez.
