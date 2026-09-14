@@ -26,6 +26,8 @@ const customerPhotoModules = import.meta.glob(
 const translations = {
 
   zh: {
+    flightConfirmed: "{time} 抵达安塔利亚",
+    flightWrongAirport: "该航班降落在 {airport}",
     navFleet: "车型",
     navService: "服务",
     navRoutes: "路线",
@@ -275,6 +277,8 @@ const translations = {
     paymentError: "付款失败。请重试。",
   },
   da: {
+    flightConfirmed: "Ankommer til Antalya kl. {time}",
+    flightWrongAirport: "Dette fly lander i {airport}",
     navFleet: "Køretøjer",
     navService: "Service",
     navRoutes: "Ruter",
@@ -524,6 +528,8 @@ const translations = {
     paymentError: "Betalingen mislykkedes. Prøv venligst igen.",
   },
   es: {
+    flightConfirmed: "Llega a Antalya a las {time}",
+    flightWrongAirport: "Este vuelo aterriza en {airport}",
     navFleet: "Vehículos",
     navService: "Servicio",
     navRoutes: "Rutas",
@@ -773,6 +779,8 @@ const translations = {
     paymentError: "El pago ha fallado. Inténtelo de nuevo.",
   },
   el: {
+    flightConfirmed: "Φτάνει στην Αττάλεια στις {time}",
+    flightWrongAirport: "Αυτή η πτήση προσγειώνεται στο {airport}",
     navFleet: "Οχήματα",
     navService: "Υπηρεσίες",
     navRoutes: "Διαδρομές",
@@ -1022,6 +1030,8 @@ const translations = {
     paymentError: "Η πληρωμή απέτυχε. Παρακαλούμε δοκιμάστε ξανά.",
   },
   he: {
+    flightConfirmed: "נוחתת באנטליה בשעה {time}",
+    flightWrongAirport: "טיסה זו נוחתת ב-{airport}",
     navFleet: "רכבים",
     navService: "שירות",
     navRoutes: "מסלולים",
@@ -1271,6 +1281,8 @@ const translations = {
     paymentError: "התשלום נכשל. אנא נסו שוב.",
   },
   it: {
+    flightConfirmed: "Arriva ad Antalya alle {time}",
+    flightWrongAirport: "Questo volo atterra a {airport}",
     navFleet: "Veicoli",
     navService: "Servizi",
     navRoutes: "Tratte",
@@ -1520,6 +1532,8 @@ const translations = {
     paymentError: "Pagamento non riuscito. Vi preghiamo di riprovare.",
   },
   hu: {
+    flightConfirmed: "Antalyába érkezik: {time}",
+    flightWrongAirport: "Ez a járat itt száll le: {airport}",
     navFleet: "Járművek",
     navService: "Szolgáltatás",
     navRoutes: "Útvonalak",
@@ -1769,6 +1783,8 @@ const translations = {
     paymentError: "A fizetés sikertelen. Kérjük, próbálja újra.",
   },
   pt: {
+    flightConfirmed: "Chega a Antalya às {time}",
+    flightWrongAirport: "Este voo aterra em {airport}",
     navFleet: "Veículos",
     navService: "Serviço",
     navRoutes: "Rotas",
@@ -2018,6 +2034,8 @@ const translations = {
     paymentError: "O pagamento falhou. Tente novamente.",
   },
   ro: {
+    flightConfirmed: "Ajunge în Antalya la {time}",
+    flightWrongAirport: "Acest zbor aterizează la {airport}",
     navFleet: "Vehicule",
     navService: "Servicii",
     navRoutes: "Rute",
@@ -2268,6 +2286,8 @@ const translations = {
   },
 
   de: {
+    flightConfirmed: "Landet um {time} in Antalya",
+    flightWrongAirport: "Dieser Flug landet in {airport}",
     hotelSearchHint: "Geben Sie Ihren Hotelnamen ein und wählen Sie ihn aus der Liste – Zielregion und Preis tragen wir für Sie ein.",
     hotelNotListed: "Mein Hotel ist nicht in der Liste",
     hotelNotListedHint: "Kein Problem — nennen Sie uns den Hotelnamen und wählen Sie unten Ihre Region.",
@@ -2521,6 +2541,8 @@ const translations = {
     paymentError: "Zahlung fehlgeschlagen. Bitte erneut versuchen.",
   },
   tr: {
+    flightConfirmed: "Antalya'ya {time}'te varıyor",
+    flightWrongAirport: "Bu uçuş {airport} havalimanına iniyor",
     hotelSearchHint: "Otelinizin adını yazıp listeden seçin; varış bölgesini ve fiyatı sizin için dolduralım.",
     hotelNotListed: "Otelim listede yok",
     hotelNotListedHint: "Sorun değil — otel adınızı yazın, bölgenizi siz seçin.",
@@ -2770,6 +2792,8 @@ const translations = {
     paymentError: "Ödeme başarısız. Lütfen tekrar deneyin.",
   },
   ru: {
+    flightConfirmed: "Прибывает в Анталью в {time}",
+    flightWrongAirport: "Этот рейс прилетает в {airport}",
     hotelSearchHint: "Введите название отеля и выберите его из списка — регион и цену мы заполним за вас.",
     hotelNotListed: "Моего отеля нет в списке",
     hotelNotListedHint: "Ничего страшного — напишите название отеля и выберите регион ниже.",
@@ -3020,6 +3044,8 @@ const translations = {
     paymentError: "Оплата не прошла. Попробуйте ещё раз.",
   },
   cs: {
+    flightConfirmed: "Přilétá do Antalye v {time}",
+    flightWrongAirport: "Tento let přistává v {airport}",
     hotelSearchHint: "Zadejte název hotelu a vyberte jej ze seznamu – cílovou oblast i cenu doplníme za vás.",
     hotelNotListed: "Můj hotel není v seznamu",
     hotelNotListedHint: "Žádný problém — napište název hotelu a vyberte oblast níže.",
@@ -3309,6 +3335,8 @@ const translations = {
   },
 
   pl: {
+    flightConfirmed: "Przylatuje do Antalyi o {time}",
+    flightWrongAirport: "Ten lot ląduje w {airport}",
     navFleet: "Pojazdy",
     navService: "Usługi",
     navRoutes: "Trasy",
@@ -3532,6 +3560,8 @@ const translations = {
     paymentError: "Płatność nie powiodła się. Spróbuj ponownie.",
   },
   nl: {
+    flightConfirmed: "Komt om {time} aan in Antalya",
+    flightWrongAirport: "Deze vlucht landt in {airport}",
     navFleet: "Voertuigen",
     navService: "Service",
     navRoutes: "Routes",
@@ -3758,6 +3788,8 @@ const translations = {
     paymentError: "Betaling mislukt. Probeer het opnieuw.",
   },
   uk: {
+    flightConfirmed: "Прибуває до Анталії о {time}",
+    flightWrongAirport: "Цей рейс приземляється в {airport}",
     hotelSearchHint: "Введіть назву готелю та оберіть її зі списку — регіон і ціну ми заповнимо за вас.",
     hotelNotListed: "Мого готелю немає у списку",
     hotelNotListedHint: "Не проблема — напишіть назву готелю та оберіть регіон нижче.",
@@ -3987,6 +4019,8 @@ const translations = {
     paymentError: "Оплата не пройшла. Спробуйте ще раз.",
   },
   ur: {
+    flightConfirmed: "انطالیہ {time} پر پہنچتی ہے",
+    flightWrongAirport: "یہ پرواز {airport} پر اترتی ہے",
     hotelSearchHint: "اپنے ہوٹل کا نام لکھیں اور فہرست میں سے منتخب کریں؛ منزل کا علاقہ اور قیمت ہم خود بھر دیں گے۔",
     hotelNotListed: "میرا ہوٹل فہرست میں نہیں ہے",
     hotelNotListedHint: "کوئی بات نہیں — ہوٹل کا نام لکھیں اور نیچے اپنا علاقہ منتخب کریں۔",
@@ -4314,6 +4348,8 @@ const translations = {
     perVehicleNoteSprinter: "فی گاڑی — فی شخص نہیں · زیادہ سے زیادہ 12 مسافر",
   },
   fr: {
+    flightConfirmed: "Arrive à Antalya à {time}",
+    flightWrongAirport: "Ce vol atterrit à {airport}",
     navFleet: "Véhicules",
     navService: "Service",
     navRoutes: "Itinéraires",
@@ -4541,6 +4577,8 @@ const translations = {
     paymentError: "Paiement échoué. Veuillez réessayer.",
   },
   sv: {
+    flightConfirmed: "Landar i Antalya kl. {time}",
+    flightWrongAirport: "Detta flyg landar i {airport}",
     navFleet: "Fordon",
     navService: "Service",
     navRoutes: "Rutter",
@@ -4765,6 +4803,8 @@ const translations = {
     paymentError: "Betalning misslyckades. Försök igen.",
   },
   ja: {
+    flightConfirmed: "{time} にアンタルヤに到着します",
+    flightWrongAirport: "この便は {airport} に着陸します",
     navFleet: "車両",
     navService: "サービス",
     navRoutes: "ルート",
@@ -4984,6 +5024,8 @@ const translations = {
     paymentError: "お支払いに失敗しました。もう一度お試しください。",
   },
   ko: {
+    flightConfirmed: "{time}에 안탈리아 도착",
+    flightWrongAirport: "이 항공편은 {airport}에 착륙합니다",
     navFleet: "차량",
     navService: "서비스",
     navRoutes: "노선",
@@ -5202,6 +5244,8 @@ const translations = {
     paymentError: "결제에 실패했습니다. 다시 시도해 주세요.",
   },
   ar: {
+    flightConfirmed: "تصل إلى أنطاليا في {time}",
+    flightWrongAirport: "هذه الرحلة تهبط في {airport}",
     navFleet: "أسطولنا",
     navService: "الخدمات",
     navRoutes: "الوجهات",

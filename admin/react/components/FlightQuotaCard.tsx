@@ -9,9 +9,10 @@ import { cycleKey, DEFAULT_ANCHOR_DAY, MONTHLY_CAP } from '../../../supabase/fun
 // Edge Function tarafında yıldönümü günü RAPIDAPI_CYCLE_ANCHOR_DAY ile
 // ayarlanabiliyor. Panel o secret'ı göremez (Deno ortamı ayrı), bu yüzden
 // kendi build-time değişkenini okur ve tanımlı değilse ortak varsayılana
-// düşer. Operatör Edge Function tarafında günü değiştirirse burayı da
-// ayarlamalı; ayarlamazsa kart var olmayan bir satırı okur ve aşağıdaki
-// "kayıt yok" dalına düşer — yanlış bir sayı uydurmaz.
+// düşer. Operatör Edge Function tarafında günü değiştirip burayı ayarlamazsa
+// kart var olmayan bir satırı okur. Bu, gerçekten boş bir dönemden
+// ayırt edilemez — o yüzden ikisi de aynı "kayıt yok" dalına düşer ve o dal
+// bilerek hiçbir güvence vermez ("hak yeterli" demez).
 const configuredAnchorDay = Number(import.meta.env.VITE_RAPIDAPI_CYCLE_ANCHOR_DAY ?? DEFAULT_ANCHOR_DAY)
 // cycleKey saçma bir değeri zaten varsayılana indiriyor; ekranda da aynı
 // gün yazsın diye burada da aynı geçerlilik kontrolü yapılıyor.
@@ -39,6 +40,7 @@ const NOTES: Record<QuotaTone, string> = {
 type State =
   | { kind: 'loading' }
   | { kind: 'error' }
+  | { kind: 'empty' }
   | { kind: 'ready'; calls: number }
 
 export function FlightQuotaCard() {
@@ -60,9 +62,15 @@ export function FlightQuotaCard() {
       // politikası eksikse veya oturum düşmüşse data da null gelir;
       // bunu 0 diye göstermek kartı yalancı yapardı.
       if (error) return setState({ kind: 'error' })
-      // Satır yoksa sayaç gerçekten 0'dır: consume_flight_quota satırı ilk
-      // çağrıda oluşturur, yani "kayıt yok" = bu dönem hiç sorgu yapılmadı.
-      setState({ kind: 'ready', calls: (data as { calls: number } | null)?.calls ?? 0 })
+      // Satır yokluğu iki şeyi birden anlatabilir ve kart ikisini ayıramaz:
+      // bu dönem gerçekten hiç sorgu olmadı (sayaç 0), ya da yukarıda
+      // hesaplanan dönem anahtarı store.ts'in yazdığından farklı — yani kart
+      // kör. İkincisi sıradan bir operatör hareketiyle mümkün (yıldönümü günü
+      // bir tarafta Supabase secret'ı, diğerinde build-time değişkeni), bu
+      // yüzden "kayıt yok" ayrı bir durum: sayı verilir ama "hak yeterli"
+      // denmez.
+      const row = data as { calls: number } | null
+      setState(row ? { kind: 'ready', calls: row.calls } : { kind: 'empty' })
     })()
     return () => { mounted = false }
   }, [cycle])
@@ -75,6 +83,20 @@ export function FlightQuotaCard() {
       <strong className="flight-quota-figure">—</strong>
       <small className="flight-quota-note">Sayaç okunamadı. Kalan hakkı bilmediğimiz için burada bir sayı gösterilmiyor.</small>
       <small className="flight-quota-cycle">Dönem başlangıcı: {cycle}</small>
+    </div>
+  }
+
+  if (state.kind === 'empty') {
+    return <div className="section flight-quota">
+      <div className="section-label">Uçuş doğrulama kotası</div>
+      <strong className="flight-quota-figure">0 / {MONTHLY_CAP}</strong>
+      <small className="flight-quota-note">
+        Bu dönem için henüz kayıt yok. Sayaç satırını ilk uçuş sorgusu oluşturur; hiç sorgu
+        yapılmadıysa bu normaldir. Ama dönem ortasında, uçuş numarası girilmiş rezervasyonlar
+        varken hâlâ kayıt görünmüyorsa panel yanlış dönemi okuyor demektir — aşağıdaki dönem
+        başlangıcının Edge Function ayarıyla aynı olduğunu kontrol edin.
+      </small>
+      <small className="flight-quota-cycle">Dönem başlangıcı: {cycle} · hak her ayın {anchorDay}. günü yenilenir</small>
     </div>
   }
 

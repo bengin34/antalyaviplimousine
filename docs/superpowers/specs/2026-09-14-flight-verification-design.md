@@ -100,6 +100,8 @@ aynı `jsonResponse` yardımcısı).
 | Uçuş bulundu, varış AYT değil | `wrong_airport` (+ `arrivalAirport`) |
 | API 204 + boş gövde (ölçüldü: gerçek "bulunamadı" biçimi) | `not_found` |
 | API 404 veya boş dizi (savunma amaçlı) | `not_found` |
+| Dizi geldi ama hiçbir bacakta okunabilir varış havalimanı yok | `not_found` |
+| Üst düzey gövde dizi değil (API biçimi değişmiş) | `unavailable` |
 | Timeout, 5xx, kota aşımı, anahtar yok, geçersiz gövde | `unavailable` |
 
 AeroDataBox bir uçuş numarası + tarih sorgusuna **dizi** döner (aktarmalı bacaklar,
@@ -120,6 +122,14 @@ varış havalimanı bildirilir.
   bozar: panelde `bulunamadı` rozeti hiç çıkmaz — oysa yanlış yazılmış uçuş numarası
   bu özelliğin yakalamak için var olduğu tek durumdur — ve `unavailable` önbelleğe
   girmediği için aynı hatalı numara her sorulduğunda kotadan yeni bir hak yer.
+- **Aynı ayrım 200'ler için de geçerli.** Bir dizi geldiyse çağrı başarılı olmuş ve
+  kota harcanmıştır. Bacakların hiçbirinde okunabilir bir `arrival.airport.iata`
+  yoksa bu bir arıza değil, bir *cevaptır*: uçuşun Antalya'ya indiğini
+  doğrulayamadık → `not_found`, önbelleğe girer. Küçük ve charter'la beslenen
+  havalimanlarında en olası durum budur; `unavailable` bırakmak aynı cevabı her
+  sorulduğunda yeniden satın alırdı. Buna karşılık **üst düzey gövde dizi bile
+  değilse** bu API biçiminin değişmesidir — entegrasyon arızası, bir uçuş hakkında
+  veri değil — ve `unavailable` olarak, önbelleğe girmeden kalır.
 
 **Önbellek ve kota, `LookupStore` arkasında.** Fonksiyon bir depoya bağımlıdır:
 `get` / `put` (önbellek) ve `consumeQuota` (aylık sayaç). Gerçeklemesi Postgres,

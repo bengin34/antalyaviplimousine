@@ -51,7 +51,10 @@ comment on table public.flight_lookups is
 -- sabit sayı bilmez ve upstream'i kendisi hiç çağırmaz — o mantık ileride
 -- yazılacak Edge Function'da olacak.
 create table public.flight_api_usage (
-  month text primary key, -- örn. '2026-09'
+  -- Takvim ayı değil, abonelik dönemi: değer dönemin başladığı gündür
+  -- (ör. '2026-09-14'). Kolon adı tarihsel; fonksiyon, store ve panel kartı
+  -- bu adla okuduğu için değiştirilmedi.
+  month text primary key,
   calls integer not null default 0
 );
 

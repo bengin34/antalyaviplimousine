@@ -47,9 +47,22 @@ describe("resolveFlightStatus", () => {
     expect(resolveFlightStatus([]).status).toBe("not_found");
   });
 
-  test("a shape we do not recognise is unavailable, never a crash", () => {
-    expect(resolveFlightStatus([{ nonsense: true }]).status).toBe("unavailable");
+  // Bir dizi geldiyse API cevap vermistir; icindeki hicbir bacakta okunabilir bir
+  // AYT varisi yoksa bu bir arizanin degil, bir cevabin sonucudur: bu ucusun
+  // Antalya'ya indigini dogrulayamadik. Bu yuzden not_found - ve not_found
+  // onbellege girdigi icin ayni soru kotadan ikinci bir hak yemez.
+  test("legs with no readable arrival airport are not found, not unavailable", () => {
+    expect(resolveFlightStatus([{ nonsense: true }]).status).toBe("not_found");
+    expect(resolveFlightStatus([{ arrival: { airport: { iata: 42 } } }]).status).toBe("not_found");
+  });
+
+  // Ust duzey govde dizi degilse API'nin bicimi degismis demektir. Bu bir
+  // entegrasyon arizasi; bir ucus hakkinda bilgi degil, o yuzden onbellege
+  // "gercek" diye yazilmamali.
+  test("a payload that is not a list at all stays unavailable", () => {
     expect(resolveFlightStatus({ not: "an array" }).status).toBe("unavailable");
+    expect(resolveFlightStatus("nonsense").status).toBe("unavailable");
+    expect(resolveFlightStatus(null).status).toBe("unavailable");
   });
 });
 
@@ -159,6 +172,28 @@ describe("verifyFlight", () => {
   test("an unavailable result is not cached", async () => {
     const fetchImpl = vi.fn()
       .mockResolvedValueOnce({ ok: false, status: 500, text: async () => "" })
+      .mockResolvedValueOnce(ok(aytArrival));
+    expect((await verifyFlight({ ...base(), fetchImpl })).status).toBe("unavailable");
+    expect((await verifyFlight({ ...base(), fetchImpl })).status).toBe("verified");
+  });
+
+  // Kucuk ve charter'la beslenen havalimanlarinda en olasi durum: API 200 ve bir
+  // dizi doner ama hicbir bacakta okunabilir varis havalimani yoktur. Kota zaten
+  // harcandi; bunu onbellege yazmazsak ayni ucus her soruluşunda yeniden odenir.
+  test("a 200 whose legs name no airport is cached so it is paid for only once", async () => {
+    const fetchImpl = vi.fn().mockResolvedValue(ok([{ nonsense: true }]));
+    expect((await verifyFlight({ ...base(), fetchImpl })).status).toBe("not_found");
+    expect((await verifyFlight({ ...base(), fetchImpl })).status).toBe("not_found");
+    expect(fetchImpl).toHaveBeenCalledTimes(1);
+    expect(store.used).toBe(1);
+  });
+
+  // Dizi olmayan bir govde bir ucus hakkinda bilgi degil, API biciminin
+  // degistiginin isareti. Onbellege girmemeli ki bicim duzelince dogru cevap
+  // alinabilsin.
+  test("a 200 that is not a list is unavailable and is never cached", async () => {
+    const fetchImpl = vi.fn()
+      .mockResolvedValueOnce(ok({ message: "You are not subscribed to this API." }))
       .mockResolvedValueOnce(ok(aytArrival));
     expect((await verifyFlight({ ...base(), fetchImpl })).status).toBe("unavailable");
     expect((await verifyFlight({ ...base(), fetchImpl })).status).toBe("verified");

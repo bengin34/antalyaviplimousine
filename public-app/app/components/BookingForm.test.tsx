@@ -311,6 +311,29 @@ describe("BookingForm flight verification", () => {
     }
   });
 
+  // WCAG 1.4.1: onay ile uyari arasindaki fark yalnizca renk olamaz. Anlami
+  // metin tasiyor; isaret dekoratif, o yuzden aria-hidden.
+  test("the two hints are told apart by a marker, not only by colour", async () => {
+    const marker = (container: HTMLElement) =>
+      container.querySelector(".flight-hint [aria-hidden='true']")?.textContent?.trim();
+
+    vi.mocked(verifyFlightNumber).mockResolvedValue({ status: "verified", arrivalTime: "14:35" });
+    let container = goToStep2();
+    await enterFlight(container, "TK2412");
+    await waitFor(() => expect(container.querySelector(".flight-hint")).not.toBeNull());
+    const okMarker = marker(container);
+    expect(okMarker).toBeTruthy();
+    cleanup();
+
+    vi.mocked(verifyFlightNumber).mockReset().mockResolvedValue({ status: "wrong_airport", arrivalAirport: "IST" });
+    container = goToStep2();
+    await enterFlight(container, "TK1");
+    await waitFor(() => expect(container.querySelector(".flight-hint")).not.toBeNull());
+    const warnMarker = marker(container);
+    expect(warnMarker).toBeTruthy();
+    expect(warnMarker).not.toBe(okMarker);
+  });
+
   test("the same flight and date is never asked about twice", async () => {
     vi.mocked(verifyFlightNumber).mockResolvedValue({ status: "verified", arrivalTime: "14:35" });
     const container = goToStep2();
@@ -319,6 +342,54 @@ describe("BookingForm flight verification", () => {
     fireEvent.blur(container.querySelector("#flight-number")!);
     fireEvent.blur(container.querySelector("#flight-number")!);
     await waitFor(() => expect(verifyFlightNumber).toHaveBeenCalledTimes(1));
+  });
+
+  // Bu ozelligin var olma sebebi tam olarak bu hatayi onlemek. Once dolan saat
+  // "musterinin yazdigi saat" gibi korunursa, ikinci ucusun saati alana hic
+  // girmez: alanda 14:35 kalir, ustundeki ipucu 09:00 der ve rezervasyon
+  // ikisini birden tasir. Soforu yanlis saatte gonderen sey budur.
+  test("a second flight number replaces the time the first one filled in", async () => {
+    vi.mocked(verifyFlightNumber)
+      .mockResolvedValueOnce({ status: "verified", arrivalTime: "14:35" })
+      .mockResolvedValueOnce({ status: "verified", arrivalTime: "09:00" });
+    const container = goToStep2();
+    await enterFlight(container, "TK1");
+    await waitFor(() => expect(arrivalField(container).value).toBe("14:35"));
+    await enterFlight(container, "TK2");
+    await waitFor(() => expect(verifyFlightNumber).toHaveBeenCalledTimes(2));
+    await waitFor(() => expect(arrivalField(container).value).toBe("09:00"));
+  });
+
+  test("clearing the flight number clears the answer that belonged to it", async () => {
+    vi.mocked(verifyFlightNumber).mockResolvedValue({ status: "wrong_airport", arrivalAirport: "IST" });
+    const container = goToStep2();
+    await enterFlight(container, "TK1");
+    await waitFor(() => expect(container.querySelector(".flight-hint")).toHaveTextContent("IST"));
+
+    const field = container.querySelector<HTMLInputElement>("#flight-number")!;
+    fireEvent.change(field, { target: { value: "" } });
+    fireEvent.blur(field);
+    await waitFor(() => expect(container.querySelector(".flight-hint")).toBeNull());
+
+    // Tekrar sorma kaydi da temizlenmeli: bosaltilip yeniden yazilan ayni
+    // numara, artik cevabi olmayan yeni bir soru.
+    fireEvent.change(field, { target: { value: "TK1" } });
+    fireEvent.blur(field);
+    await waitFor(() => expect(verifyFlightNumber).toHaveBeenCalledTimes(2));
+  });
+
+  test("changing the travel date drops the old answer without buying a new one", async () => {
+    vi.mocked(verifyFlightNumber).mockResolvedValue({ status: "wrong_airport", arrivalAirport: "IST" });
+    const container = goToStep2();
+    await enterFlight(container, "TK1");
+    await waitFor(() => expect(container.querySelector(".flight-hint")).toHaveTextContent("IST"));
+
+    fireEvent.change(container.querySelector("#travel-date")!, {
+      target: { value: `${new Date().getFullYear() + 1}-08-11` },
+    });
+    await waitFor(() => expect(container.querySelector(".flight-hint")).toBeNull());
+    // Tarih alaninda her oynama kotadan hak yiyemez; yeni sorgu blur ile gelir.
+    expect(verifyFlightNumber).toHaveBeenCalledTimes(1);
   });
 
   test("a late answer for a flight number the guest has moved on from is ignored", async () => {

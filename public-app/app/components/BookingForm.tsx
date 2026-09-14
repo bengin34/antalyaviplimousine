@@ -125,6 +125,9 @@ export function BookingForm({
   const [flightCheck, setFlightCheck] = useState<FlightResult | null>(null);
   const flightRequestRef = useRef(0);
   const lastFlightQueryRef = useRef("");
+  // Bu ozelligin alana en son kendi yazdigi saat. Korunmasi gereken sey
+  // musterinin yazdigi saattir; kendi doldurdugumuz deger o degildir.
+  const autoFilledArrivalRef = useRef("");
   const {
     register,
     handleSubmit,
@@ -310,6 +313,7 @@ export function BookingForm({
       reset({ ...formValues, destination: "", tripType: "one_way", luggage: "", travelDate: minimumDate || todayISO(), returnDate: "", returnPickupTime: "", returnFlightNumber: "", serviceEndDate: minimumDate || todayISO(), pickupTime: "", departureFlightDate: "", departureFlightTime: "", departureFlightNumber: "", arrivalTime: "", flightNumber: "", customerName: "", customerPhone: "", customerEmail: "", flightVerificationStatus: "", flightScheduledArrival: "" });
       setFlightCheck(null);
       lastFlightQueryRef.current = "";
+      autoFilledArrivalRef.current = "";
       setStep(1);
     } catch (error) {
       console.error("Booking error", error);
@@ -339,10 +343,25 @@ export function BookingForm({
   /** Ucus numarasi alanindan cikinca arka planda sorar. Form beklemez,
    *  gonderim engellenmez. Ayni ucus+tarih icin ikinci kez aga cikmaz -
    *  ucretsiz kota ayda 400 cagri. */
+  /** Onceki ucusa ait cevabi dusurur. Otomatik yeni bir sorgu YAPMAZ - kota
+   *  ayda 400 cagri. Amac yalnizca eskimis bir "verified"in gonderime
+   *  sizmamasi. */
+  const forgetFlightCheck = () => {
+    lastFlightQueryRef.current = "";
+    // Yolda olan bir cevap da artik baska bir soruya ait; gelince yok sayilsin.
+    flightRequestRef.current += 1;
+    setFlightCheck(null);
+    setValue("flightVerificationStatus", "");
+    setValue("flightScheduledArrival", "");
+  };
+
   const runFlightCheck = async () => {
     const flightNumber = getValues("flightNumber")?.trim() ?? "";
     const date = getValues("travelDate") ?? "";
-    if (!flightNumber || !date) return;
+    // Ucus numarasi silindiyse ona ait durum da gitmeli: yoksa rezervasyon
+    // ucussuz gider ama icinde onceki ucusun "verified" kaydini tasir.
+    if (!flightNumber) return forgetFlightCheck();
+    if (!date) return;
 
     const query = `${flightNumber.toUpperCase()}:${date}`;
     if (query === lastFlightQueryRef.current) return;
@@ -355,14 +374,31 @@ export function BookingForm({
     if (requestId !== flightRequestRef.current) return;
 
     setFlightCheck(result);
+    const current = getValues("arrivalTime") ?? "";
     const arrival = shouldApplyFlightArrival(result, {
-      current: getValues("arrivalTime") ?? "",
+      // "Bosken doldur" kurali musterinin yazdigini korumak icin var. Alandaki
+      // deger bizim en son yazdigimizsa o kuralin korudugu sey degildir:
+      // bos saymazsak ucus numarasi duzeltildiginde alanda ESKI ucusun saati
+      // kalir, ustundeki ipucu yeni saati soyler ve sofor yanlis saatte gider.
+      // Musteri elle yazdiginda dirtyFields.arrivalTime doluyor; onu asagidaki
+      // touched yari koruyor.
+      current: current === autoFilledArrivalRef.current ? "" : current,
       touched: Boolean(dirtyFields.arrivalTime),
     });
-    if (arrival) setValue("arrivalTime", arrival);
+    if (arrival) {
+      autoFilledArrivalRef.current = arrival;
+      setValue("arrivalTime", arrival);
+    }
     setValue("flightVerificationStatus", result.status);
     setValue("flightScheduledArrival", result.arrivalTime ?? "");
   };
+
+  // Tarih degisince onceki dogrulama baska bir gune aittir. Yeni bir sorgu
+  // kendiliginden yapilmaz - tarih alaninda her oynama kotadan hak yerdi -
+  // ama eskisi de durmaz: yanlis gun icin "verified" gonderilmemeli.
+  // Yeni cevap, ucus numarasi alanindan cikilinca gelir.
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  useEffect(forgetFlightCheck, [values.travelDate]);
 
   const advanceToStep2 = async () => {
     if (!isDailyChauffeur && !values.destination) {
@@ -561,12 +597,14 @@ export function BookingForm({
                   <FieldErrorMessage name="flightNumber" error={errors.flightNumber} />
                   {flightCheck?.status === "verified" && flightCheck.arrivalTime && (
                     <span className="flight-hint flight-hint-ok" role="status">
-                      {t("flightConfirmed", "Antalya'ya {time} variyor").replace("{time}", flightCheck.arrivalTime)}
+                      <span aria-hidden="true" className="flight-hint-marker">✓</span>{" "}
+                      {t("flightConfirmed", "Arrives in Antalya at {time}").replace("{time}", flightCheck.arrivalTime)}
                     </span>
                   )}
                   {flightCheck?.status === "wrong_airport" && (
                     <span className="flight-hint flight-hint-warn" role="status">
-                      {t("flightWrongAirport", "Bu ucus {airport} havalimanina iniyor").replace("{airport}", flightCheck.arrivalAirport ?? "")}
+                      <span aria-hidden="true" className="flight-hint-marker">⚠</span>{" "}
+                      {t("flightWrongAirport", "This flight lands at {airport}").replace("{airport}", flightCheck.arrivalAirport ?? "")}
                     </span>
                   )}
                 </label>
@@ -660,7 +698,7 @@ export function BookingForm({
               </div>
               <div className="booking-row booking-outbound-row">
                 <label className={`${fieldClass(errors.arrivalTime)} time-booking-field`}><span>{t("arrivalFlightTimeOptional", "Arrival flight time (optional)")}</span><div className="field-control time-field-control" onClick={() => openTimePicker("flight-arrival-time")}><Icon name="clock" className="icon" /><span className="time-picker-value">{values.arrivalTime || t("chooseTime", "Choose time")}</span><input id="flight-arrival-time" type="time" {...register("arrivalTime")} {...fieldStatus("arrivalTime", errors.arrivalTime)} /></div><FieldErrorMessage name="arrivalTime" error={errors.arrivalTime} /></label>
-                <label className={fieldClass(errors.flightNumber)}><span>{t("arrivalFlightNumberOptional", "Arrival flight number (optional)")}</span><div className="field-control"><Icon name="plane" className="icon" /><input id="flight-number" maxLength={12} placeholder="TK1234" {...(() => { const f = register("flightNumber"); return { ...f, onBlur: (e: React.FocusEvent<HTMLInputElement>) => { void f.onBlur(e); void runFlightCheck(); } }; })()} {...fieldStatus("flightNumber", errors.flightNumber)} /></div><FieldErrorMessage name="flightNumber" error={errors.flightNumber} />{flightCheck?.status === "verified" && flightCheck.arrivalTime && <span className="flight-hint flight-hint-ok" role="status">{t("flightConfirmed", "Antalya'ya {time} variyor").replace("{time}", flightCheck.arrivalTime)}</span>}{flightCheck?.status === "wrong_airport" && <span className="flight-hint flight-hint-warn" role="status">{t("flightWrongAirport", "Bu ucus {airport} havalimanina iniyor").replace("{airport}", flightCheck.arrivalAirport ?? "")}</span>}</label>
+                <label className={fieldClass(errors.flightNumber)}><span>{t("arrivalFlightNumberOptional", "Arrival flight number (optional)")}</span><div className="field-control"><Icon name="plane" className="icon" /><input id="flight-number" maxLength={12} placeholder="TK1234" {...(() => { const f = register("flightNumber"); return { ...f, onBlur: (e: React.FocusEvent<HTMLInputElement>) => { void f.onBlur(e); void runFlightCheck(); } }; })()} {...fieldStatus("flightNumber", errors.flightNumber)} /></div><FieldErrorMessage name="flightNumber" error={errors.flightNumber} />{flightCheck?.status === "verified" && flightCheck.arrivalTime && <span className="flight-hint flight-hint-ok" role="status"><span aria-hidden="true" className="flight-hint-marker">✓</span>{" "}{t("flightConfirmed", "Arrives in Antalya at {time}").replace("{time}", flightCheck.arrivalTime)}</span>}{flightCheck?.status === "wrong_airport" && <span className="flight-hint flight-hint-warn" role="status"><span aria-hidden="true" className="flight-hint-marker">⚠</span>{" "}{t("flightWrongAirport", "This flight lands at {airport}").replace("{airport}", flightCheck.arrivalAirport ?? "")}</span>}</label>
                 <div className="daily-price-summary"><small>{t("servicePrice", "Service price")}</small><strong>€{dailyRateEur} × {hireDays || 0} = €{quote.price}</strong><span>{t("fuelExcludedDetail", "Fuel is not included and is paid separately according to use.")}</span></div>
               </div>
               <div className="booking-row booking-return-row daily-departure-row">

@@ -59,10 +59,25 @@ describe('FlightQuotaCard', () => {
     expect(requestedKey).not.toMatch(/^\d{4}-\d{2}$/)
   })
 
-  test('a missing row means nobody looked a flight up this cycle, so zero is honest', async () => {
+  // Satır yokluğunun iki sebebi var ve kart ikisini birbirinden ayıramaz:
+  // ya bu dönem gerçekten hiç sorgu olmadı, ya da kartın hesapladığı dönem
+  // anahtarı store.ts'in yazdığından farklı (yıldönümü günü iki tarafta ayrı
+  // ayarlanır). İkincisinde kart kör demektir. "0 / 380 · kalan hak yeterli"
+  // demek, dolmuş bir kotayı yeşil göstermek olurdu — kartın yapmaması
+  // gereken tek şey bu. Sayı dürüst kalır, ama söz vermez.
+  test('a missing row is reported as no record, never as plenty left', async () => {
     respond({ data: null, error: null })
-    render(<FlightQuotaCard />)
-    await waitFor(() => expect(screen.getByText(`0 / ${MONTHLY_CAP}`)).toBeInTheDocument())
+    const { container } = render(<FlightQuotaCard />)
+    await waitFor(() => expect(screen.getByText(/henüz kayıt yok/)).toBeInTheDocument())
+    expect(screen.queryByText(/kalan hak yeterli/)).not.toBeInTheDocument()
+    expect(container.querySelector('.flight-quota.ok')).toBeNull()
+  })
+
+  test('a cycle with lookups on record still reads as normal', async () => {
+    respond({ data: { calls: 50 }, error: null })
+    const { container } = render(<FlightQuotaCard />)
+    await waitFor(() => expect(screen.getByText(/kalan hak yeterli/)).toBeInTheDocument())
+    expect(container.querySelector('.flight-quota.ok')).not.toBeNull()
   })
 
   test('a read failure shows no number at all rather than a reassuring zero', async () => {

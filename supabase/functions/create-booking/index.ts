@@ -311,7 +311,9 @@ Deno.serve(async (req) => {
         .includes(String(payload.flight_verification_status))
         ? String(payload.flight_verification_status)
         : null,
-      flight_scheduled_arrival: /^\d{2}:\d{2}$/.test(String(payload.flight_scheduled_arrival ?? ''))
+      // İstemcinin kullandığı sıkı biçimin aynısı. Gevşek `\d{2}:\d{2}` "99:99"u
+      // da geçirirdi; bu alan operatörün gözüyle okuduğu bir saat.
+      flight_scheduled_arrival: /^([01]\d|2[0-3]):[0-5]\d$/.test(String(payload.flight_scheduled_arrival ?? ''))
         ? String(payload.flight_scheduled_arrival)
         : null,
       flight_arrival_time: payload.flight_arrival_time || null,

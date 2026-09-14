@@ -111,7 +111,11 @@
 }
 .booking-section .field-error-message { display: block; margin-top: 7px; color: #a93226; font-size: .74rem; line-height: 1.35; }
 .booking-section .booking-field.has-error .field-control { border-color: #a93226; }
+/* Onay ile uyariyi ayiran sey renk DEGIL: anlami cumlenin kendisi tasiyor ve
+   basindaki isaret (✓ / ⚠) onu renksiz de gorunur kiliyor. Isaret isaretlemede
+   duruyor, aria-hidden - ekran okuyucu metni zaten okuyor. WCAG 2.2 1.4.1. */
 .flight-hint { display: block; margin-top: 4px; font-size: 13px; }
+.flight-hint-marker { font-weight: 700; }
 .flight-hint-ok { color: #157347; }
 .flight-hint-warn { color: #a06000; }
 .booking-section .payment-error { display: block; }

@@ -36,11 +36,20 @@ const arrivalIata = (leg: any) => {
 };
 
 export function resolveFlightStatus(payload: unknown): FlightResult {
+  // Ust duzey govde dizi degilse API'nin bicimi degismistir: bu bir entegrasyon
+  // arizasi, bir ucus hakkinda bilgi degil. unavailable kalir ve onbellege
+  // girmez - yoksa bicim duzeldiginde bile eski "cevapsizlik" okunur.
   if (!Array.isArray(payload)) return UNAVAILABLE;
   if (payload.length === 0) return { status: "not_found" };
 
+  // Dizi geldiyse API cevap vermis ve kota harcanmistir. Bacaklardan hicbirinde
+  // okunabilir bir varis havalimani yoksa elimizde gercek bir cevap var:
+  // bu ucusun Antalya'ya indigini dogrulayamadik. Bunu unavailable yapmak iki
+  // seyi bozardi - panelde "bulunamadi" rozeti cikmaz, ve onbellege girmedigi
+  // icin ayni ucus her soruldugunda kotadan yeni bir hak yerdi. Kucuk ve
+  // charter'la beslenen havalimanlarinda en olasi durum tam olarak budur.
   const recognised = payload.filter(leg => arrivalIata(leg));
-  if (recognised.length === 0) return UNAVAILABLE;
+  if (recognised.length === 0) return { status: "not_found" };
 
   const target = recognised.find(leg => arrivalIata(leg) === TARGET_IATA);
   if (!target) return { status: "wrong_airport", arrivalAirport: arrivalIata(recognised[0]) };
