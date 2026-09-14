@@ -42,6 +42,24 @@ Bu yüzden müşteri olumsuz sonucu görmez. Tek istisna `wrong_airport`: uçuş
 kesin olarak başka bir havalimanına iniyor. Bu belirsizlik değil, gerçek bir hata ve
 müşteri kendisi düzeltebilir.
 
+## İkinci yön veren karar: kota asla aşılmaz
+
+Ücretsiz plan **ayda 400 çağrı**. Bu bir maliyet meselesi değil — para küçük — ama
+kotanın aşılması hesabın askıya alınması demek. Bu yüzden aşmak *mümkün olmamalı*,
+sadece *beklenmemeli* değil.
+
+Üç katman:
+
+1. **İstemci aynı şeyi iki kez sormaz.** Son sorulan `uçuş no + tarih` çifti
+   hatırlanır; blur birden çok kez tetiklense de ağa tek çağrı gider.
+2. **Önbellek kalıcıdır** (aşağıda).
+3. **Sert tavan 380.** Aylık sayaç 380'e ulaştığında fonksiyon yukarı akışa hiç
+   çıkmaz, doğrudan `unavailable` döner. Kalan 20, elle test payı.
+
+Kota dolduğunda ayrı bir "manuel mod" yoktur ve gerekmez: `unavailable` zaten
+müşteriye hiçbir şey göstermeyen, saat alanını sıradan elle doldurulan bir input
+olarak bırakan durumdur. Özellik kapanınca form bugünkü davranışına döner.
+
 ## Mimari
 
 ```
@@ -97,9 +115,21 @@ varış havalimanı bildirilir.
   yapılandırılmamış bir ortamda formu bozmaz.
 - Uçuş numarası normalize edilir: boşluk/tire atılır, büyük harfe çevrilir.
 
-**Önbellek:** Fonksiyon içi bellek `Map`, anahtar `FLIGHTNO:YYYY-MM-DD`, TTL 6 saat.
-Aynı uçuşa birden fazla rezervasyon geldiğinde tek istek yeter. Kalıcı depolama
-gereksiz — kota zaten bol.
+**Önbellek ve kota, `LookupStore` arkasında.** Fonksiyon bir depoya bağımlıdır:
+`get` / `put` (önbellek) ve `consumeQuota` (aylık sayaç). Gerçeklemesi Postgres,
+testlerde sahte.
+
+- **Önbellek kalıcı**, `flight_lookups` tablosunda, anahtar `FLIGHTNO:YYYY-MM-DD`.
+  Bellekte tutulamaz: Edge Function örneği soğuduğunda önbellek kaybolur ve aynı
+  uçuş yeniden sorulur. Ayda 400 çağrılık kotayla bu israfı göze alamayız. Aynı
+  uçaktan çıkan ikinci, üçüncü transfer bedavaya gelir.
+- **Yalnızca kesin sonuçlar önbelleğe girer.** `unavailable` saklanmaz — geçici bir
+  aksaklık kalıcı hale gelmemeli.
+- **Sayaç çağrıdan önce artar.** Sonra istek başarısız olursa bir hak boşa gider;
+  tersi (sonra artırmak) eşzamanlı isteklerin kotayı birlikte aşmasına izin verirdi.
+  Eksik saymak güvenli, fazla saymak değil.
+- **Sayaç okunamıyorsa çağrı yapılmaz.** Kotayı korumak, özelliği çalıştırmaktan
+  önceliklidir.
 
 ### Bileşen 2 — `BookingForm.tsx` davranışı
 
@@ -155,6 +185,18 @@ kayıtlar ile anahtar tanımlanmadan önceki tüm kayıtlar) **hiçbir rozet gö
 bunlar bir bulgu değil, bilgi yokluğudur. `bulunamadı` olanları operatör
 elle teyit eder — günde bir iki tane olması beklenir.
 
+### Bileşen 5 — Kota göstergesi
+
+Panelin özet sayfasında aylık kullanım kartı: `137 / 380`, kalan hak azaldığında
+amber, dolduğunda kırmızı ve "uçuş saatleri ay sonuna kadar elle girilecek" notu.
+
+Bu kart, sessizliğin bedelidir. Kota dolduğunda özellik tasarım gereği hiçbir şey
+söylemeden kapanır; göstergesi olmazsa operatör saatlerin neden dolmadığını
+anlayamaz ve olmayan bir arıza arar.
+
+`flight_api_usage` tablosu panele yalnızca **okuma** için açılır (giriş yapmış
+kullanıcılar). Sayacı yalnızca `consume_flight_quota` artırır.
+
 ## Hata yönetimi
 
 Tek ilke: **doğrulamanın başarısızlığı rezervasyonun başarısızlığı değildir.**
@@ -179,7 +221,10 @@ doğrulama hatası olarak gösterilmez.
 - Timeout → `unavailable`
 - 500 → `unavailable`
 - Anahtar tanımsız → `unavailable`
-- Aynı uçuş+tarih iki kez → yukarı akışa tek istek (önbellek)
+- Aynı uçuş+tarih iki kez → yukarı akışa tek istek, kotadan tek hak (önbellek)
+- Kota tükenmiş → yukarı akışa hiç çıkılmaz
+- Kota tükendikten sonra önbellekteki uçuş hâlâ cevaplanır
+- Depo erişilemiyor → `unavailable`, istisna değil
 
 **Form davranışı:**
 
@@ -188,6 +233,7 @@ doğrulama hatası olarak gösterilmez.
 - Otomatik dolan saat elle değiştirilebilir
 - `not_found` / `unavailable` → hiçbir görsel değişiklik, gönderim serbest
 - Uçuş numarası değişince eski cevap yok sayılır
+- Aynı uçuş+tarih için blur tekrarlansa da ikinci istek çıkmaz
 
 ## Operatör görevi
 
