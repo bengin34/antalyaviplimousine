@@ -83,6 +83,11 @@ aynı `jsonResponse` yardımcısı).
 | API 404 / boş liste | `not_found` |
 | Timeout, 5xx, kota aşımı, anahtar yok, geçersiz gövde | `unavailable` |
 
+AeroDataBox bir uçuş numarası + tarih sorgusuna **dizi** döner (aktarmalı bacaklar,
+codeshare kayıtları). Kural: bacaklardan **herhangi biri** AYT'ye iniyorsa `verified`
+ve o bacağın saati kullanılır. Hiçbiri inmiyorsa `wrong_airport` ve **ilk** kaydın
+varış havalimanı bildirilir.
+
 **Değişmezler:**
 
 - Fonksiyon asla 4xx/5xx dönmez. Çağıran taraf için tek bir başarısızlık biçimi var:
@@ -127,21 +132,27 @@ yok sayılır (istek sırası/AbortController).
 
 ### Bileşen 3 — Kalıcılık
 
-Yeni migration: `bookings` tablosuna iki kolon.
+Yeni migration (`supabase/migrations/YYYYMMDDHHMMSS_snake_case.sql` kalıbı):
+`bookings` tablosuna iki kolon.
 
 - `flight_verification_status text` — `verified` | `not_found` | `wrong_airport` | `unavailable`, nullable
 - `flight_scheduled_arrival text` — doğrulanan iniş saati (`HH:MM`), nullable
 
 Her ikisi de nullable; eski kayıtlar ve doğrulama çalışmayan akışlar `null` kalır.
 
-`booking.ts` içindeki payload kurucusu bu iki alanı taşır. `create-booking` Edge
+`booking.ts` içindeki `buildPublicBookingPayload` bu iki alanı kolon adlarıyla birebir
+aynı anahtarlarla üretir: `flight_verification_status`, `flight_scheduled_arrival`.
+`create-booking/index.ts` insert'ünü açık bir alan listesinden kurduğu için (spread
+değil) her iki anahtarın oraya da eklenmesi gerekir. `create-booking` Edge
 Function'ı alanları kabul eder — ama **istemciden gelen değere güvenerek iş kararı
 almaz**; bu alanlar yalnızca operatöre bilgi içindir.
 
 ### Bileşen 4 — Admin görünürlüğü
 
 `BookingDetailPage` rezervasyon detayında uçuş satırının yanında durum rozeti:
-`doğrulandı` / `bulunamadı` / `farklı havalimanı`. `bulunamadı` olanları operatör
+`doğrulandı` / `bulunamadı` / `farklı havalimanı`. `unavailable` ve `null` (eski
+kayıtlar ile anahtar tanımlanmadan önceki tüm kayıtlar) **hiçbir rozet göstermez** —
+bunlar bir bulgu değil, bilgi yokluğudur. `bulunamadı` olanları operatör
 elle teyit eder — günde bir iki tane olması beklenir.
 
 ## Hata yönetimi
