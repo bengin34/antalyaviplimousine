@@ -3213,7 +3213,7 @@
       "close": "Kapat",
       "understandAndConfirm": "Anladım ve onaylıyorum",
       "dailyCashConfirmation": "Günlük araç ve şoför rezervasyonunuz onaylandı. Hizmet bedeline yakıt dahil değildir; yakıt kullanıma göre ayrıca ödenir.",
-      "flightConfirmed": "Antalya'ya {time}'te varıyor",
+      "flightConfirmed": "Antalya'ya varış: {time}",
       "flightWrongAirport": "Bu uçuş {airport} havalimanına iniyor",
       "hotelSearchHint": "Otelinizin adını yazıp listeden seçin; varış bölgesini ve fiyatı sizin için dolduralım.",
       "hotelNotListed": "Otelim listede yok",

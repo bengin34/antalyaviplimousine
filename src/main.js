@@ -2541,7 +2541,9 @@ const translations = {
     paymentError: "Zahlung fehlgeschlagen. Bitte erneut versuchen.",
   },
   tr: {
-    flightConfirmed: "Antalya'ya {time}'te varıyor",
+    // Türkçe ek, saatin OKUNUŞUNA uyar: 14:35 "beşte" → 'te, ama 10:00 "onda"
+    // → 'da. Sabit bir ek her tam saatte yanlış yazardı, o yüzden eksiz biçim.
+    flightConfirmed: "Antalya'ya varış: {time}",
     flightWrongAirport: "Bu uçuş {airport} havalimanına iniyor",
     hotelSearchHint: "Otelinizin adını yazıp listeden seçin; varış bölgesini ve fiyatı sizin için dolduralım.",
     hotelNotListed: "Otelim listede yok",
