@@ -36,6 +36,8 @@ create function pg_temp.valid_snapshot(
     'supplier_cost_try', 500.00,
     'airport_cost_eur', 2.00,
     'airport_cost_try', 100.00,
+    'parking_cost_eur', 0.00,
+    'parking_cost_try', 0.00,
     'advertising_cost_eur', 3.00,
     'advertising_cost_try', 100.00,
     'total_expense_eur', 20.00,

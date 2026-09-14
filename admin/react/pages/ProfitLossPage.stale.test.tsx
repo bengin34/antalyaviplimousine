@@ -97,6 +97,8 @@ const refreshedDistribution = {
   supplier_cost_try: 0,
   airport_cost_eur: 5,
   airport_cost_try: 250,
+  parking_cost_eur: 0,
+  parking_cost_try: 0,
   advertising_cost_eur: 25,
   advertising_cost_try: 1250,
   total_expense_eur: 50,

@@ -122,6 +122,8 @@ export interface ProfitDistributionSnapshot {
   supplier_cost_try: number
   airport_cost_eur: number
   airport_cost_try: number
+  parking_cost_eur: number
+  parking_cost_try: number
   advertising_cost_eur: number
   advertising_cost_try: number
   total_expense_eur: number
@@ -152,6 +154,8 @@ export interface ProfitDistribution {
   supplier_cost_try: number | string
   airport_cost_eur: number | string
   airport_cost_try: number | string
+  parking_cost_eur: number | string
+  parking_cost_try: number | string
   advertising_cost_eur: number | string
   advertising_cost_try: number | string
   total_expense_eur: number | string
