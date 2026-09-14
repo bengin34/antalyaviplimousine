@@ -3,7 +3,7 @@
 // (store.ts) hem de admin paneli (FlightQuotaCard.tsx) buradan okur.
 // Bu iki taraf ayri sabitler tutsaydi, panel yanlis satiri okuyup kota
 // bittigi gun "bol bol hak var" derdi - gostergeyi degersiz kilan tam
-// olarak budur. Yeni bir import EKLEME: Deno tarafi uzanti-li ('./x.ts'),
+// olarak budur. Yeni bir import EKLEME: Deno tarafi uzantili yol ister,
 // admin tarafi uzanti-siz import ister; iki tarafi da memnun eden tek
 // hal, bu dosyanin hicbir seyi import etmemesidir.
 
