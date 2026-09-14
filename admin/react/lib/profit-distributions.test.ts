@@ -270,6 +270,17 @@ describe('profitDistributionErrorMessage', () => {
       { message: 'duplicate key value violates unique constraint internal_name', code: '23505' },
       'İşlem tamamlanamadı. Lütfen tekrar deneyin.',
     ],
+    [
+      {
+        message: 'Could not find the function public.create_profit_distribution in the schema cache',
+        code: 'PGRST202',
+      },
+      'Sunucu bu işlemi henüz tanımıyor. Birkaç saniye sonra tekrar deneyin.',
+    ],
+    [
+      { message: 'Could not find the table in the schema cache', code: 'pgrst202' },
+      'Sunucu bu işlemi henüz tanımıyor. Birkaç saniye sonra tekrar deneyin.',
+    ],
   ])('maps %# into safe Turkish copy', (error, expected) => {
     expect(profitDistributionErrorMessage(error)).toBe(expected)
   })
