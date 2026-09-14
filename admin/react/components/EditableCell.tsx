@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useState } from 'react'
+import { createContext, useContext, useEffect, useState, type ReactNode } from 'react'
 
 /**
  * Aynı hücre masaüstü tabloda ve mobil kartta iki kez render edilir; `autoOpen`
@@ -27,8 +27,8 @@ export function convertAmount(value: number, from: Currency, to: Currency, rate:
 }
 
 export interface EditableCellProps {
-  /** Salt okunur halde gösterilen metin. */
-  value: string
+  /** Salt okunur halde gösterilen içerik (₺/€ ayrı renklerde olabilir). */
+  value: ReactNode
   /** Düzenleyiciye konacak ham değer (sayı için "12.5", select için option value). */
   rawValue: string
   /** `money`: tutar + € / ₺ seçici; girilen değer kaydedilirken `storedCurrency`'ye çevrilir. */

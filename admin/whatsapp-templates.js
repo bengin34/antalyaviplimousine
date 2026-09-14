@@ -538,16 +538,28 @@ export function buildConfirmMessage(booking, { leg = "outbound", language } = {}
   const b = booking ?? {};
   const lang = language ?? b.language;
   const t = getLang(lang);
-  const transfer = transferDetails(b, leg);
+  // "both": gidiş-dönüş tek mesajda onaylanır — tek selam, tek kapanış, iki
+  // transfer bloğu. Dönüş ayağı olmayan rezervasyonda gidiş onayına eşittir.
+  const bothLegs =
+    leg === "both" && b.trip_type === "round_trip" && Boolean(b.return_date);
+  const transfers = bothLegs
+    ? [transferDetails(b, "outbound"), transferDetails(b, "return")]
+    : [transferDetails(b, leg === "both" ? "outbound" : leg)];
 
   const lines = [
     t.confirmGreeting(b.customer_name),
     "",
     `${t.labelRef}: ${b.booking_ref}`,
-    ...detailLines(b, transfer, t),
+    ...transfers.flatMap((transfer, index) =>
+      index === 0
+        ? detailLines(b, transfer, t)
+        : ["", ...detailLines(b, transfer, t)],
+    ),
     "",
     t.confirmClosing,
-    ...faqLines(t, lang, faqTopicFor(transfer)),
+    // Birleşik mesajda SSS bağlantısı gidiş ayağına göre seçilir: müşterinin
+    // önce karşılaşacağı yolculuk odur.
+    ...faqLines(t, lang, faqTopicFor(transfers[0])),
   ];
 
   return lines.join("\n");

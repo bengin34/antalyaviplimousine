@@ -8,6 +8,8 @@ const actions = vi.hoisted(() => ({
   saveLegSupplierCost: vi.fn(),
   saveLegCostMode: vi.fn(),
   saveLegMeetFee: vi.fn(),
+  saveLegMeetFeeOverride: vi.fn(),
+  saveLegRevenue: vi.fn(),
   saveParkingHours: vi.fn(),
 }))
 vi.mock('../lib/leg-cost-actions', () => actions)
@@ -54,11 +56,11 @@ describe('ProfitLedgerGrid — görünüm', () => {
     expect(screen.queryByText('A102')).toBeNull()
   })
 
-  test('yolcu adı tıklanınca detaya gider', () => {
-    const navigate = vi.fn()
-    renderGrid({ navigate })
-    fireEvent.click(screen.getAllByRole('button', { name: 'Ali Veli' })[0])
-    expect(navigate).toHaveBeenCalledWith('#detail/A102?from=profit-loss')
+  test('yolcu adı seyahati yeni sekmede açar', () => {
+    renderGrid({ navigate: vi.fn() })
+    const link = screen.getAllByRole('link', { name: 'Ali Veli' })[0]
+    expect(link).toHaveAttribute('href', '#detail/A102?from=profit-loss')
+    expect(link).toHaveAttribute('target', '_blank')
   })
 
   test('varsayılan sıralama tarih azalan; başlığa tıklayınca artan', () => {
@@ -129,10 +131,11 @@ describe('ProfitLedgerGrid — düzenleme', () => {
     await waitFor(() => expect(actions.saveLegOwnVehicleProfit).toHaveBeenCalledWith('1', 'outbound', 50))
   })
 
-  test('satılan transfer ayağında tedarikçi hücresi düzenlenir, kâr hücresi —', async () => {
+  test('satılan transfer ayağında hem tedarikçi hem kâr hücresi düzenlenebilir', async () => {
     actions.saveLegSupplierCost.mockResolvedValue({ service_cost_mode: 'sold_transfer', sold_transfer_cost_try: 3000 })
     renderGrid()
-    expect(screen.queryByRole('button', { name: 'Zeynep Kaya dönüş kâr' })).toBeNull()
+    // Model artık hücreyi kilitlemiyor: kâr yazmak ayağı kendi aracımıza çevirir.
+    expect(screen.getAllByRole('button', { name: 'Zeynep Kaya dönüş kâr' }).length).toBeGreaterThan(0)
     fireEvent.click(screen.getAllByRole('button', { name: 'Zeynep Kaya dönüş tedarikçi maliyeti' })[0])
     const input = screen.getAllByRole('textbox', { name: 'Zeynep Kaya dönüş tedarikçi maliyeti' })[0]
     fireEvent.change(input, { target: { value: '3000' } })
@@ -157,12 +160,12 @@ describe('ProfitLedgerGrid — düzenleme', () => {
   })
 
   test('karşılama select ve otopark saati kaydeder', async () => {
-    actions.saveLegMeetFee.mockResolvedValue({ airport_meet_fee_applies: false })
+    actions.saveLegMeetFeeOverride.mockResolvedValue({ meet_fee_override: false })
     actions.saveParkingHours.mockResolvedValue({ airport_meet_fee_parking_hours: 2 })
     renderGrid()
     fireEvent.click(screen.getAllByRole('button', { name: 'Ali Veli gidiş karşılama' })[0])
     fireEvent.change(screen.getAllByRole('combobox', { name: 'Ali Veli gidiş karşılama' })[0], { target: { value: 'no' } })
-    await waitFor(() => expect(actions.saveLegMeetFee).toHaveBeenCalledWith('1', false))
+    await waitFor(() => expect(actions.saveLegMeetFeeOverride).toHaveBeenCalledWith('1', 'outbound', false))
     fireEvent.click(screen.getAllByRole('button', { name: 'Ali Veli gidiş otopark saati' })[0])
     const input = screen.getAllByRole('textbox', { name: 'Ali Veli gidiş otopark saati' })[0]
     fireEvent.change(input, { target: { value: '2' } })
@@ -200,10 +203,25 @@ describe('ProfitLedgerGrid — düzenleme', () => {
     expect(screen.getAllByText('50,00').length).toBeGreaterThan(0)
   })
 
-  test('havalimanından başlamayan ayakta karşılama/otopark hücreleri —', () => {
+  test('havalimanından başlamayan ayakta da karşılama elle açılabilir', async () => {
+    actions.saveLegMeetFeeOverride.mockResolvedValue({ meet_fee_override: true })
     renderGrid()
-    expect(screen.queryByRole('button', { name: 'Zeynep Kaya dönüş karşılama' })).toBeNull()
-    expect(screen.queryByRole('button', { name: 'Zeynep Kaya dönüş otopark saati' })).toBeNull()
+    // Varsayılan "Hayır": konum kuralı gider doğurmuyor, ama hücre kilitli değil.
+    const cell = screen.getAllByRole('button', { name: 'Zeynep Kaya dönüş karşılama' })[0]
+    expect(cell).toHaveTextContent('Hayır')
+    fireEvent.click(cell)
+    fireEvent.change(screen.getAllByRole('combobox', { name: 'Zeynep Kaya dönüş karşılama' })[0], { target: { value: 'yes' } })
+    await waitFor(() => expect(actions.saveLegMeetFeeOverride).toHaveBeenCalledWith('2', 'outbound', true))
+  })
+
+  test('gelir hücresi tahsil edilen tutarı kaydeder', async () => {
+    actions.saveLegRevenue.mockResolvedValue({ revenue_eur: 70 })
+    renderGrid()
+    fireEvent.click(screen.getAllByRole('button', { name: 'Ali Veli gidiş gelir' })[0])
+    const input = screen.getAllByRole('textbox', { name: 'Ali Veli gidiş gelir' })[0]
+    fireEvent.change(input, { target: { value: '70' } })
+    fireEvent.keyDown(input, { key: 'Enter' })
+    await waitFor(() => expect(actions.saveLegRevenue).toHaveBeenCalledWith('1', 'outbound', 70))
   })
 
   test('kayıt hatası hücrede gösterilir', async () => {

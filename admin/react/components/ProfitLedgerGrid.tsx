@@ -6,7 +6,8 @@ import {
 import { formatTry } from '../lib/format'
 import { downloadCsv, ledgerToCsv } from '../lib/ledger-csv'
 import {
-  saveLegCostMode, saveLegMeetFee, saveLegOwnVehicleProfit, saveLegSupplierCost, saveParkingHours,
+  saveLegCostMode, saveLegMeetFeeOverride,
+  saveLegRevenue, saveLegOwnVehicleProfit, saveLegSupplierCost, saveParkingHours,
 } from '../lib/leg-cost-actions'
 import type { Booking, Navigate } from '../types'
 import { LedgerSurfaceContext } from './EditableCell'
@@ -93,8 +94,9 @@ export function ProfitLedgerGrid({
         }
         apply(leg, await saveLegCostMode(leg.bookingId, legKey, mode))
       },
-      saveMeetFee: async (leg, applies) => apply(leg, await saveLegMeetFee(leg.bookingId, applies)),
+      saveMeetFee: async (leg, applies) => apply(leg, await saveLegMeetFeeOverride(leg.bookingId, toLegKey(leg.leg), applies)),
       saveParking: async (leg, hours) => apply(leg, await saveParkingHours(leg.bookingId, hours)),
+      saveRevenue: async (leg, revenueEur) => apply(leg, await saveLegRevenue(leg.bookingId, toLegKey(leg.leg), revenueEur)),
     }
   }, [bookingsById, onBookingSaved])
 
@@ -166,10 +168,9 @@ export function ProfitLedgerGrid({
           {table.getHeaderGroups().map(group => <tr key={group.id}>
             {group.headers.map(header => {
               const sorted = header.column.getIsSorted()
-              const align = header.column.columnDef.meta?.align ?? 'right'
               return <th
                 key={header.id}
-                className={`is-${align}${header.column.id === 'passenger' ? ' ledger-col-sticky' : ''}`}
+                className={header.column.id === 'passenger' ? 'ledger-col-sticky' : undefined}
                 aria-sort={sorted === 'asc' ? 'ascending' : sorted === 'desc' ? 'descending' : 'none'}
               >
                 <button
@@ -189,7 +190,7 @@ export function ProfitLedgerGrid({
           {visibleRows.map(row => <tr key={row.id} className={row.original.needsAttention ? 'is-attention' : undefined}>
             {row.getVisibleCells().map(cell => <td
               key={cell.id}
-              className={`is-${cell.column.columnDef.meta?.align ?? 'right'}${cell.column.id === 'passenger' ? ' ledger-col-sticky' : ''}`}
+              className={cell.column.id === 'passenger' ? 'ledger-col-sticky' : undefined}
             >
               {flexRender(cell.column.columnDef.cell, cell.getContext())}
             </td>)}
@@ -198,7 +199,7 @@ export function ProfitLedgerGrid({
         <tfoot><tr className="ledger-subtotal">
           {table.getVisibleLeafColumns().map((column, index) => {
             const text = footerFor(column.id, sums)
-            return <td key={column.id} className={`is-${column.columnDef.meta?.align ?? 'right'}${column.id === 'netProfitTry' ? (sums.netProfitTry < 0 ? ' is-neg' : ' is-pos') : ''}`}>
+            return <td key={column.id} className={column.id === 'netProfitTry' ? (sums.netProfitTry < 0 ? 'is-neg' : 'is-pos') : undefined}>
               {text || (index === 0 ? 'Toplam' : '')}
             </td>
           })}

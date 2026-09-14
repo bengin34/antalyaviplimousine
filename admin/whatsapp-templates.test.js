@@ -436,3 +436,30 @@ test('FAQ anchors name their question rather than its position in the list', () 
     }
   }
 })
+
+test('a round trip can be confirmed with both legs in one message', () => {
+  const roundTrip = {
+    ...base,
+    trip_type: 'round_trip',
+    return_date: '2026-08-22',
+    return_pickup_time: '10:40',
+    price_eur: 110,
+  }
+  const msg = buildConfirmMessage(roundTrip, { leg: 'both' })
+
+  // Tek selam, tek kapanış, iki transfer bloğu.
+  expect(msg).toContain('Outbound transfer')
+  expect(msg).toContain('Return transfer')
+  expect(msg.match(/Reference:/g)).toHaveLength(1)
+  expect(msg).toContain('2026-08-15')
+  expect(msg).toContain('2026-08-22')
+  // Her ayak kendi fiyat payını taşır.
+  expect(msg.match(/Price: €55/g)).toHaveLength(2)
+})
+
+test('both-leg confirmation falls back to a single block for a one-way booking', () => {
+  const msg = buildConfirmMessage(base, { leg: 'both' })
+  expect(msg).toContain('Transfer')
+  expect(msg).not.toContain('Return transfer')
+  expect(bookingDetailsOf(msg)).toBe(bookingDetailsOf(buildConfirmMessage(base)))
+})

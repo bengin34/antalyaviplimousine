@@ -9,12 +9,20 @@ function legOwnVehicleProfitColumn(leg: LegKey) {
 
 export async function saveLegOwnVehicleProfit(bookingId: string, leg: LegKey, profitEur: number): Promise<Partial<Booking>> {
   const column = legOwnVehicleProfitColumn(leg)
+  const columns = legCostColumns(leg)
+  // Kâr girmek modeli de belirler: operatör tabloda önce modeli seçmek zorunda
+  // kalmasın diye maliyet/kâr yazılan ayak kendi aracımıza geçer.
   const { data, error } = await supabase.from('bookings')
-    .update({ [column]: profitEur })
+    .update({ [column]: profitEur, [columns.mode]: 'own_vehicle', [columns.cost]: null })
     .eq('id', bookingId)
-    .select(`id, ${column}`).single()
+    .select(`id, ${column}, ${columns.mode}, ${columns.cost}`).single()
   if (error || !data) throw error ?? new Error('Kâr kaydı dönmedi')
-  return { [column]: Number((data as Record<string, unknown>)[column]) } as Partial<Booking>
+  const saved = data as Record<string, unknown>
+  return {
+    [column]: Number(saved[column]),
+    [columns.mode]: saved[columns.mode],
+    [columns.cost]: saved[columns.cost],
+  } as Partial<Booking>
 }
 
 export async function saveParkingHours(bookingId: string, hours: number): Promise<Partial<Booking>> {
@@ -58,4 +66,35 @@ export async function saveLegMeetFee(bookingId: string, applies: boolean): Promi
     .select('id, airport_meet_fee_applies').single()
   if (error || !data) throw error ?? new Error('Karşılama ayarı dönmedi')
   return { airport_meet_fee_applies: (data as Record<string, unknown>).airport_meet_fee_applies as boolean } as Partial<Booking>
+}
+
+/** Ayağın tahsil edilen gelir sütunu (avro); boş bırakılırsa fiyat bölüşümüne dönülür. */
+function legRevenueColumn(leg: LegKey) {
+  return leg === 'return' ? 'return_revenue_eur' as const : 'revenue_eur' as const
+}
+
+export async function saveLegRevenue(bookingId: string, leg: LegKey, revenueEur: number | null): Promise<Partial<Booking>> {
+  const column = legRevenueColumn(leg)
+  const { data, error } = await supabase.from('bookings')
+    .update({ [column]: revenueEur })
+    .eq('id', bookingId)
+    .select(`id, ${column}`).single()
+  if (error || !data) throw error ?? new Error('Gelir kaydı dönmedi')
+  const saved = (data as Record<string, unknown>)[column]
+  return { [column]: saved === null ? null : Number(saved) } as Partial<Booking>
+}
+
+/** Ayağın karşılama/otopark kararı: true karşılama, false otopark, null konum kuralı. */
+function legMeetOverrideColumn(leg: LegKey) {
+  return leg === 'return' ? 'return_meet_fee_override' as const : 'meet_fee_override' as const
+}
+
+export async function saveLegMeetFeeOverride(bookingId: string, leg: LegKey, applies: boolean | null): Promise<Partial<Booking>> {
+  const column = legMeetOverrideColumn(leg)
+  const { data, error } = await supabase.from('bookings')
+    .update({ [column]: applies })
+    .eq('id', bookingId)
+    .select(`id, ${column}`).single()
+  if (error || !data) throw error ?? new Error('Karşılama kaydı dönmedi')
+  return { [column]: (data as Record<string, unknown>)[column] as boolean | null } as Partial<Booking>
 }

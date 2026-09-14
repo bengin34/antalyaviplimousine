@@ -121,13 +121,14 @@ function bookingLegs(booking) {
   }
   const hasReturn = booking.trip_type === 'round_trip' && Boolean(booking.return_date)
   const legRevenueEur = hasReturn ? priceEur / 2 : priceEur
+  const revenueForLeg = leg => legRevenueOverrideEur(booking, leg) ?? legRevenueEur
   const legs = booking.pickup_date
     ? [{
         leg: 'outbound',
         date: booking.pickup_date,
         from: booking.pickup_location,
         to: booking.dropoff_location,
-        revenueEur: legRevenueEur,
+        revenueEur: revenueForLeg('outbound'),
         costMode: outboundCost.costMode,
         legSupplierCostTry: outboundCost.legSupplierCostTry,
       }]
@@ -140,7 +141,7 @@ function bookingLegs(booking) {
       date: booking.return_date,
       from: booking.dropoff_location,
       to: booking.pickup_location,
-      revenueEur: legRevenueEur,
+      revenueEur: revenueForLeg('return'),
       costMode: returnCost.costMode,
       legSupplierCostTry: returnCost.legSupplierCostTry,
     })
@@ -500,6 +501,28 @@ function manualOwnVehicleProfitEurForLeg(booking, leg) {
 // Havalimanından başlayan ve karşılama ücreti ödemediğimiz ayaklarda, bu
 // ücretin eşdeğeri olarak saat başı otopark gideri uygulanır. Saat sayısı
 // rezervasyon bazında seçilebilir; girilmemiş veya geçersizse 1 saat kabul edilir.
+/**
+ * Karşılama/otopark için elle verilmiş karar: `true` karşılama, `false` otopark,
+ * `null` ise konum kuralı geçerli. Kolon varsayılanı olmadığı (nullable olduğu)
+ * için eski kayıtlar kuralı korur.
+ */
+export function meetFeeOverrideFor(booking, leg) {
+  const value = leg === 'return' ? booking?.return_meet_fee_override : booking?.meet_fee_override
+  return value === true || value === false ? value : null
+}
+
+/**
+ * Ayaktan tahsil edilen gelir elle girilmişse o, girilmemişse null. `price_eur`
+ * müşteriye söylenen fiyattır ve burada değişmez; az tahsilat yalnız defteri
+ * düzeltir.
+ */
+export function legRevenueOverrideEur(booking, leg) {
+  const raw = leg === 'return' ? booking?.return_revenue_eur : booking?.revenue_eur
+  if (raw === null || raw === undefined || String(raw).trim() === '') return null
+  const value = Number(raw)
+  return Number.isFinite(value) && value >= 0 ? value : null
+}
+
 function parkingHoursForBooking(booking) {
   const hours = Number(booking.airport_meet_fee_parking_hours)
   return Number.isFinite(hours) && hours > 0 ? hours : 1
@@ -527,9 +550,14 @@ export function resolveRealizedLegs(bookings, today, settingsByMonth = {}, rates
 
       const startsAtAirport = !leg.isDailyChauffeur && startsFromAirport(leg.from)
       const meetFeeApplies = booking.airport_meet_fee_applies !== false
-      legDetails.airportMeetCostTry = startsAtAirport && meetFeeApplies ? AIRPORT_MEET_COST_TRY : 0
+      // Elle verilmiş karar konum kuralını bastırır; verilmemişse (null) ayak
+      // havalimanından kalkıyorsa karşılama, kalkmıyorsa hiçbir gider doğmaz.
+      const override = meetFeeOverrideFor(booking, leg.leg)
+      const chargesMeetFee = override === null ? startsAtAirport && meetFeeApplies : override
+      const chargesParking = override === null ? startsAtAirport && !meetFeeApplies : !override
+      legDetails.airportMeetCostTry = chargesMeetFee ? AIRPORT_MEET_COST_TRY : 0
       legDetails.airportMeetCostEur = eurTryRate > 0 ? legDetails.airportMeetCostTry / eurTryRate : 0
-      legDetails.parkingCostTry = startsAtAirport && !meetFeeApplies
+      legDetails.parkingCostTry = chargesParking
         ? parkingHoursForBooking(booking) * PARKING_COST_TRY_PER_HOUR
         : 0
       legDetails.parkingCostEur = eurTryRate > 0 ? legDetails.parkingCostTry / eurTryRate : 0

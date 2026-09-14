@@ -148,7 +148,7 @@ describe('ProfitLossPage missing distance recovery', () => {
     fireEvent.change(screen.getAllByRole('textbox', { name: 'Test Yolcu gidiş kâr' })[0], { target: { value: '380' } })
     fireEvent.keyDown(screen.getAllByRole('textbox', { name: 'Test Yolcu gidiş kâr' })[0], { key: 'Enter' })
 
-    await waitFor(() => expect(mocks.updateBooking).toHaveBeenCalledWith({ own_vehicle_profit_eur: 380 }))
+    await waitFor(() => expect(mocks.updateBooking).toHaveBeenCalledWith({ own_vehicle_profit_eur: 380, service_cost_mode: 'own_vehicle', sold_transfer_cost_try: null }))
     await waitFor(() => expect(screen.getByRole('button', { name: 'Kârı dağıt' })).toBeEnabled())
   })
 

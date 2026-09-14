@@ -50,6 +50,7 @@ Toplamlar, net kâr ve dağıtım snapshot'ı bu değerlerden türemeye devam ed
 - **Gelir €** düzenlenebilir; ilgili ayağın gelir kolonuna yazar. Boşaltmak bugünkü bölüşüme döner.
 - **Maliyet €, Reklam öncesi kâr, Tedarikçi ₺** modelden bağımsız düzenlenebilir. Değer kaydedilirken maliyet modeli de hedefine çevrilir: maliyet/kâr → `own_vehicle`, tedarikçi → `sold_transfer`. Tek kaydetme, iki alan.
 - **Karşılama** ve **Otopark saat** her ayakta düzenlenebilir; override kolonuna yazar.
+  Karşılama seçeneği üç durumludur: *Otomatik* (konum kuralı), *Evet*, *Hayır*.
 - **Hücreye tıklama:** kapalı `EditableCell` butonu hücreyi tamamen kaplar (`display:block; width:100%`), böylece boş hücrede de tıklanacak bir alan olur.
 - **Hizalama:** tüm hücreler ortalanır; `ColumnMeta.align` kaldırılır.
 - **İki para birimi, iki renk:** `dualFromEur` / `dualFromTry` / `profitDual` metin yerine iki `<span>` döndürür (`money-eur`, `money-try`), CSS ayrı renk verir. CSV çıktısı değişmez.

@@ -375,7 +375,16 @@ export default function BookingDetailPage({ bookingRef, isReturn, sourceTab, pro
   const arrivalLeg = !dailyChauffeur && transfer.pickupLocation === 'airport'
   const templateCards: { kind: TemplateKind; icon: string; title: string; hint: string; group: string }[] = [
     { kind: 'received', icon: '📥', title: 'Talebinizi aldık', hint: 'Yeni talep geldiğinde ilk cevap', group: 'Talep' },
-    { kind: 'confirm', icon: '✅', title: roundTrip ? (isReturn ? 'Dönüş onayı' : 'Gidiş onayı') : 'Rezervasyon onayı', hint: 'Fiyat ve transfer detaylarıyla onay', group: 'Talep' },
+    // Gidiş görünümünde onay iki ayağı tek mesajda toplar: müşteri gidişi ve
+    // dönüşü ayrı ayrı değil, bir arada görür. Dönüş ayağındaysak yalnız dönüş
+    // onayı gönderilir.
+    {
+      kind: 'confirm',
+      icon: '✅',
+      title: roundTrip ? (isReturn ? 'Dönüş onayı' : 'Rezervasyon onayı (gidiş + dönüş)') : 'Rezervasyon onayı',
+      hint: roundTrip && !isReturn ? 'İki ayağın detayı tek mesajda' : 'Fiyat ve transfer detaylarıyla onay',
+      group: 'Talep',
+    },
     { kind: 'reminder', icon: '⏰', title: roundTrip ? (isReturn ? 'Dönüş hatırlatması' : 'Gidiş hatırlatması') : 'Transfer hatırlatması', hint: 'Transferden önce sürücü, plaka ve harita', group: 'Transfer günü' },
     ...(arrivalLeg ? [{ kind: 'meetGreet' as TemplateKind, icon: '🤝', title: 'Karşılama bilgisi', hint: 'Buluşma noktası ve alternatif hızlı seçenek', group: 'Transfer günü' }] : []),
     { kind: 'review', icon: '⭐', title: 'Yorum iste', hint: 'Transfer tamamlandıktan sonra', group: 'Transfer sonrası' },
@@ -390,7 +399,7 @@ export default function BookingDetailPage({ bookingRef, isReturn, sourceTab, pro
 
   const buildMessage = (source: Booking, kind: TemplateKind, language: string) => {
     const leg = isReturn ? 'return' : 'outbound'
-    if (kind === 'confirm') return buildConfirmMessage(source, { leg, language })
+    if (kind === 'confirm') return buildConfirmMessage(source, { leg: isReturn ? 'return' : 'both', language })
     if (kind === 'reminder') return buildReminderMessage(source, { leg, language })
     if (kind === 'received') return buildReceivedMessage(source, { language })
     if (kind === 'meetGreet') return buildMeetGreetMessage(source, { language })

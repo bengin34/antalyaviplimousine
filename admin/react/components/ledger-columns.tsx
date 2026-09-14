@@ -28,8 +28,9 @@ export interface LedgerActions {
   saveProfit: (leg: LedgerLeg, profitEur: number) => Promise<void>
   saveSupplier: (leg: LedgerLeg, costTry: number) => Promise<void>
   saveMode: (leg: LedgerLeg, mode: CostMode) => Promise<void>
-  saveMeetFee: (leg: LedgerLeg, applies: boolean) => Promise<void>
+  saveMeetFee: (leg: LedgerLeg, applies: boolean | null) => Promise<void>
   saveParking: (leg: LedgerLeg, hours: number) => Promise<void>
+  saveRevenue: (leg: LedgerLeg, revenueEur: number | null) => Promise<void>
 }
 
 export interface LedgerTableMeta {
@@ -46,7 +47,7 @@ declare module '@tanstack/react-table' {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   interface TableMeta<TData extends RowData> { ledger: LedgerTableMeta }
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  interface ColumnMeta<TData extends RowData, TValue> { align?: 'left' | 'right'; csv: CsvColumn<LedgerRow>[] }
+  interface ColumnMeta<TData extends RowData, TValue> { csv: CsvColumn<LedgerRow>[] }
 }
 
 export function rowIdFor(leg: LedgerLeg) {
@@ -104,9 +105,19 @@ function costEurOf(leg: LedgerLeg): number | null {
   return leg.revenueEur - leg.ownVehicleProfitEur - extraCostEur(leg)
 }
 
+/** € ve ₺ aynı hücrede, ama ayrı renklerde: göz hangi para biriminde olduğunu ayırsın. */
+function dualMoney(eur: number | null | undefined, tryAmount: number | null | undefined) {
+  if (eur == null && tryAmount == null) return '—'
+  return <span className="ledger-dual">
+    {eur != null && <span className="money-eur">{formatEuro(eur)}</span>}
+    {eur != null && tryAmount != null && <span className="ledger-dual-sep"> · </span>}
+    {tryAmount != null && <span className="money-try">{formatTry(tryAmount)}</span>}
+  </span>
+}
+
 function profitDual(leg: LedgerLeg) {
   if (leg.ownVehicleProfitEur == null || leg.ownVehicleProfitTry == null) return '—'
-  return `${formatEuro(leg.ownVehicleProfitEur)} · ${formatTry(leg.ownVehicleProfitTry)}`
+  return dualMoney(leg.ownVehicleProfitEur, leg.ownVehicleProfitTry)
 }
 
 /** Kur her zaman iki basamakla gösterilir (47,32 · 50,00). */
@@ -120,17 +131,36 @@ function rateOf(leg: LedgerLeg) {
 /** Avro tutarı; kur varsa ₺ karşılığıyla birlikte. */
 function dualFromEur(eur: number | null | undefined, rate: number) {
   if (eur == null) return '—'
-  return rate > 0 ? `${formatEuro(eur)} · ${formatTry(eur * rate)}` : formatEuro(eur)
+  return dualMoney(eur, rate > 0 ? eur * rate : null)
 }
 
 /** ₺ tutarı; kur varsa € karşılığıyla birlikte. */
 function dualFromTry(tryAmount: number | null | undefined, rate: number) {
   if (tryAmount == null) return '—'
-  return rate > 0 ? `${formatTry(tryAmount)} · ${formatEuro(tryAmount / rate)}` : formatTry(tryAmount)
+  return dualMoney(rate > 0 ? tryAmount / rate : null, tryAmount)
 }
 
 function meetFeeApplies(booking: Booking | undefined) {
   return booking?.airport_meet_fee_applies !== false
+}
+
+/** Ayağa özel karar: true karşılama, false otopark, null konum kuralı. */
+function meetOverrideOf(booking: Booking | undefined, leg: LegKey): boolean | null {
+  const value = leg === 'return' ? booking?.return_meet_fee_override : booking?.meet_fee_override
+  return value === true || value === false ? value : null
+}
+
+/** Ayağın o an geçerli karşılama kararı: elle verilmişse o, yoksa konum kuralı. */
+function meetFeeEffective(row: LedgerRow, airportLeg: boolean): boolean {
+  return meetOverrideOf(row.booking, row.legKey) ?? (airportLeg && meetFeeApplies(row.booking))
+}
+
+/** Ayaktan tahsil edilen gelir elle girilmişse o, girilmemişse null. */
+function revenueOverrideOf(booking: Booking | undefined, leg: LegKey): number | null {
+  const raw = leg === 'return' ? booking?.return_revenue_eur : booking?.revenue_eur
+  if (raw === null || raw === undefined || String(raw).trim() === '') return null
+  const value = Number(raw)
+  return Number.isFinite(value) ? value : null
 }
 
 function parkingHoursOf(booking: Booking | undefined) {
@@ -184,6 +214,14 @@ function validateSupplier(raw: string) {
   return null
 }
 
+function validateRevenue(raw: string) {
+  // Boş bırakmak geliri siler ve fiyat bölüşümüne döndürür.
+  if (raw.trim() === '') return null
+  const value = parseDecimal(raw)
+  if (value === null || value < 0 || value > 9_999_999.99) return '0 ile 9.999.999,99 arasında bir gelir girin.'
+  return null
+}
+
 function validateParking(raw: string) {
   const value = parseDecimal(raw)
   if (value === null || value <= 0 || value > 24) return '0 ile 24 saat arasında bir değer girin.'
@@ -191,7 +229,13 @@ function validateParking(raw: string) {
 }
 
 const MODE_OPTIONS = (Object.keys(COST_MODE_LABELS) as CostMode[]).map(value => ({ value, label: COST_MODE_LABELS[value] }))
-const YES_NO_OPTIONS = [{ value: 'yes', label: 'Evet' }, { value: 'no', label: 'Hayır' }]
+// "Otomatik" konum kuralına döner: havalimanından kalkan ayak karşılama alır,
+// diğerleri hiçbir gider doğurmaz. Evet/Hayır bu kuralı elle bastırır.
+const MEET_FEE_OPTIONS = [
+  { value: 'auto', label: 'Otomatik' },
+  { value: 'yes', label: 'Evet' },
+  { value: 'no', label: 'Hayır' },
+]
 
 /** Günlük hizmet ayaklarında eksik kâr için "Maliyeti yok" seçeneği (modal yok). */
 function NoCostButton({ leg, onSaveNoCost }: { leg: LedgerLeg; onSaveNoCost: (leg: LedgerLeg) => Promise<void> }) {
@@ -214,7 +258,7 @@ export const ledgerColumns = [
     sortingFn: (a, b) => String(a.original.leg.date).localeCompare(String(b.original.leg.date))
       || a.original.passenger.localeCompare(b.original.passenger, 'tr'),
     enableGlobalFilter: false,
-    meta: { align: 'left', csv: [{ header: 'Tarih', value: row => row.leg.date }] },
+    meta: { csv: [{ header: 'Tarih', value: row => row.leg.date }] },
   }),
   column.accessor(row => row.passenger, {
     id: 'passenger',
@@ -223,19 +267,21 @@ export const ledgerColumns = [
       const { leg, meta } = cellCtx(info.row, info.table.options.meta!.ledger)
       if (!meta.navigate || !leg.bookingRef) return info.getValue()
       const hash = `#detail/${encodeURIComponent(String(leg.bookingRef))}?from=profit-loss${leg.leg === 'return' ? '&leg=return' : ''}`
-      return <button type="button" className="ledger-ref-link" onClick={() => meta.navigate?.(hash)}>{info.getValue()}</button>
+      // Yeni sekmede açılır: operatör tablodaki yerini, filtresini ve
+      // kaydırma konumunu kaybetmeden seyahate bakabilsin.
+      return <a className="ledger-ref-link" href={hash} target="_blank" rel="noopener">{info.getValue()}</a>
     },
     sortingFn: (a, b) => a.original.passenger.localeCompare(b.original.passenger, 'tr'),
     enableGlobalFilter: true,
-    meta: { align: 'left', csv: [{ header: 'Yolcu', value: row => row.passenger }] },
+    meta: { csv: [{ header: 'Yolcu', value: row => row.passenger }] },
   }),
   column.accessor(row => row.direction, {
     id: 'direction', header: 'Yön', enableGlobalFilter: false,
-    meta: { align: 'left', csv: [{ header: 'Yön', value: row => row.direction }] },
+    meta: { csv: [{ header: 'Yön', value: row => row.direction }] },
   }),
   column.accessor(row => row.route, {
     id: 'route', header: 'Rota', enableGlobalFilter: false,
-    meta: { align: 'left', csv: [{ header: 'Rota', value: row => row.route }] },
+    meta: { csv: [{ header: 'Rota', value: row => row.route }] },
   }),
   column.accessor(row => rateOf(row.leg), {
     id: 'eurTryRate', header: 'Kur ₺/€', enableGlobalFilter: false,
@@ -244,19 +290,38 @@ export const ledgerColumns = [
       if (!rate) return '—'
       return <span title={`${fmtDetailDate(info.row.original.leg.date)} günü kuru`}>{RATE_FORMAT.format(rate)}</span>
     },
-    meta: { align: 'right', csv: [{ header: 'Kur', value: row => rateOf(row.leg) || null }] },
+    meta: { csv: [{ header: 'Kur', value: row => rateOf(row.leg) || null }] },
   }),
   column.accessor(row => row.leg.revenueEur ?? 0, {
     id: 'revenueEur', header: 'Gelir €', enableGlobalFilter: false,
-    cell: info => formatEuro(info.getValue()),
-    meta: { align: 'right', csv: [{ header: 'Gelir €', value: row => row.leg.revenueEur ?? 0, sum: true }] },
+    cell: info => {
+      const ctx = cellCtx(info.row, info.table.options.meta!.ledger)
+      const { row, leg, canEdit, meta } = ctx
+      if (leg.isDailyChauffeur) return dualFromEur(info.getValue(), rateOf(leg))
+      // Tahsil edilen tutar fiyattan farklı olabilir; hücre fiyatı değil geliri
+      // düzeltir. Boş bırakmak fiyat bölüşümüne döner.
+      const override = revenueOverrideOf(row.booking, row.legKey)
+      return <EditableCell
+        kind="money" storedCurrency="EUR" rate={rateOf(leg)} label={ctx.label('gelir')} step="0.01"
+        value={dualFromEur(info.getValue(), rateOf(leg))}
+        rawValue={override == null ? '' : String(override)}
+        disabled={!canEdit} validate={validateRevenue}
+        onSave={async raw => {
+          const value = raw.trim() === '' ? null : parseDecimal(raw)
+          await meta.actions.saveRevenue(leg, value)
+        }}
+      />
+    },
+    meta: { csv: [{ header: 'Gelir €', value: row => row.leg.revenueEur ?? 0, sum: true }] },
   }),
   column.accessor(row => costEurOf(row.leg), {
     id: 'costEur', header: 'Maliyet €', enableGlobalFilter: false,
     cell: info => {
       const ctx = cellCtx(info.row, info.table.options.meta!.ledger)
-      const { leg, mode, canEdit, meta } = ctx
-      if (mode !== 'own_vehicle' || typeof leg.revenueEur !== 'number') return '—'
+      const { leg, canEdit, meta } = ctx
+      if (leg.isDailyChauffeur || typeof leg.revenueEur !== 'number') return '—'
+      // Model ne olursa olsun yazılabilir: değer girmek ayağı kendi aracımıza
+      // çevirir, operatör önce model hücresine uğramak zorunda kalmaz.
       const cost = info.getValue()
       return <EditableCell
         kind="money" storedCurrency="EUR" rate={rateOf(leg)} label={ctx.label('maliyet')} step="0.01"
@@ -268,7 +333,7 @@ export const ledgerColumns = [
         }}
       />
     },
-    meta: { align: 'right', csv: [{ header: 'Maliyet €', value: row => costEurOf(row.leg), sum: true }] },
+    meta: { csv: [{ header: 'Maliyet €', value: row => costEurOf(row.leg), sum: true }] },
   }),
   column.accessor(row => row.leg.ownVehicleProfitEur ?? null, {
     id: 'profitEur', header: 'Reklam öncesi kâr', enableGlobalFilter: false,
@@ -282,7 +347,6 @@ export const ledgerColumns = [
           {meta.editable && dailyMissing && meta.onSaveNoCost && <NoCostButton leg={leg} onSaveNoCost={meta.onSaveNoCost} />}
         </>
       }
-      if (mode !== 'own_vehicle') return '—'
       return <EditableCell
         kind="money" storedCurrency="EUR" rate={rateOf(leg)} label={ctx.label('kâr')} step="0.01"
         value={profitDual(leg)} rawValue={hasProfit(leg) ? String(leg.ownVehicleProfitEur) : ''}
@@ -291,7 +355,6 @@ export const ledgerColumns = [
       />
     },
     meta: {
-      align: 'right',
       csv: [
         { header: 'Kâr €', value: row => row.leg.ownVehicleProfitEur ?? null, sum: true },
         { header: 'Kâr ₺', value: row => row.leg.ownVehicleProfitTry ?? null, sum: true },
@@ -305,9 +368,9 @@ export const ledgerColumns = [
       const { leg, mode, canEdit, meta } = ctx
       if (leg.isDailyChauffeur) return '—'
       const forced = ctx.isPending('supplierTry')
-      const enabled = canEdit && (mode === 'sold_transfer' || forced)
+      // Tedarikçi maliyeti girmek ayağı satılan transfere çevirir.
+      const enabled = canEdit
       const cost = info.getValue()
-      if (!enabled && mode !== 'sold_transfer') return '—'
       return <EditableCell
         kind="money" storedCurrency="TRY" rate={rateOf(leg)} label={ctx.label('tedarikçi maliyeti')} step="0.01"
         value={cost > 0 ? dualFromTry(cost, rateOf(leg)) : '—'} rawValue={cost > 0 ? String(cost) : ''}
@@ -316,42 +379,44 @@ export const ledgerColumns = [
         onSave={raw => meta.actions.saveSupplier(leg, parseDecimal(raw)!)}
       />
     },
-    meta: { align: 'right', csv: [{ header: 'Tedarikçi ₺', value: row => row.leg.supplierCostTry ?? 0, sum: true }] },
+    meta: { csv: [{ header: 'Tedarikçi ₺', value: row => row.leg.supplierCostTry ?? 0, sum: true }] },
   }),
-  column.accessor(row => meetFeeApplies(row.booking), {
+  column.accessor(row => row.leg.airportMeetCostTry ?? 0, {
     id: 'meetFee', header: 'Karşılama', enableGlobalFilter: false,
     cell: info => {
       const ctx = cellCtx(info.row, info.table.options.meta!.ledger)
-      const { leg, canEdit, airportLeg, meta } = ctx
-      if (!airportLeg) return '—'
-      const applies = info.getValue()
+      const { row, leg, canEdit, airportLeg, meta } = ctx
+      if (leg.isDailyChauffeur) return '—'
+      const override = meetOverrideOf(row.booking, row.legKey)
+      const applies = meetFeeEffective(row, airportLeg)
       return <EditableCell
-        kind="select" label={ctx.label('karşılama')} options={YES_NO_OPTIONS}
-        value={applies ? 'Evet' : 'Hayır'} rawValue={applies ? 'yes' : 'no'}
+        kind="select" label={ctx.label('karşılama')} options={MEET_FEE_OPTIONS}
+        value={applies ? 'Evet' : 'Hayır'} rawValue={override === null ? 'auto' : override ? 'yes' : 'no'}
         disabled={!canEdit}
-        onSave={raw => meta.actions.saveMeetFee(leg, raw === 'yes')}
+        onSave={raw => meta.actions.saveMeetFee(leg, raw === 'auto' ? null : raw === 'yes')}
       />
     },
-    meta: { align: 'right', csv: [{ header: 'Karşılama ₺', value: row => row.leg.airportMeetCostTry ?? 0, sum: true }] },
+    meta: { csv: [{ header: 'Karşılama ₺', value: row => row.leg.airportMeetCostTry ?? 0, sum: true }] },
   }),
   column.accessor(row => parkingHoursOf(row.booking), {
     id: 'parkingHours', header: 'Otopark saat', enableGlobalFilter: false,
     cell: info => {
       const ctx = cellCtx(info.row, info.table.options.meta!.ledger)
-      const { leg, booking, canEdit, airportLeg, meta } = ctx
-      if (!airportLeg) return '—'
+      const { row, leg, canEdit, airportLeg, meta } = ctx
+      if (leg.isDailyChauffeur) return '—'
       const hours = info.getValue()
+      // Karşılama ödenen ayakta otopark gideri doğmaz; saat yine düzenlenebilir
+      // ama soluk gösterilir.
       return <EditableCell
         kind="number" label={ctx.label('otopark saati')} step="0.25"
         value={String(hours)} rawValue={String(hours)}
-        disabled={!canEdit} muted={meetFeeApplies(booking)} validate={validateParking}
+        disabled={!canEdit} muted={meetFeeEffective(row, airportLeg)} validate={validateParking}
         onSave={raw => meta.actions.saveParking(leg, parseDecimal(raw)!)}
       />
     },
     meta: {
-      align: 'right',
       csv: [
-        { header: 'Otopark saat', value: row => startsFromAirport(row.leg.from) ? parkingHoursOf(row.booking) : null },
+        { header: 'Otopark saat', value: row => (row.leg.parkingCostTry ?? 0) > 0 ? parkingHoursOf(row.booking) : null },
         { header: 'Otopark ₺', value: row => row.leg.parkingCostTry ?? 0, sum: true },
       ],
     },
@@ -359,12 +424,12 @@ export const ledgerColumns = [
   column.accessor(row => row.leg.advertisingPerLegTry ?? 0, {
     id: 'advertisingTry', header: 'Reklam ₺', enableGlobalFilter: false,
     cell: info => formatTry(info.getValue()),
-    meta: { align: 'right', csv: [{ header: 'Reklam ₺', value: row => row.leg.advertisingPerLegTry ?? 0, sum: true }] },
+    meta: { csv: [{ header: 'Reklam ₺', value: row => row.leg.advertisingPerLegTry ?? 0, sum: true }] },
   }),
   column.accessor(row => row.leg.netProfitTry ?? 0, {
     id: 'netProfitTry', header: 'Net kâr ₺', enableGlobalFilter: false,
     cell: info => <span className={info.getValue() < 0 ? 'is-neg' : 'is-pos'}>{formatTry(info.getValue())}</span>,
-    meta: { align: 'right', csv: [{ header: 'Net kâr ₺', value: row => row.leg.netProfitTry ?? 0, sum: true }] },
+    meta: { csv: [{ header: 'Net kâr ₺', value: row => row.leg.netProfitTry ?? 0, sum: true }] },
   }),
   column.accessor(row => legCostMode(row.booking, row.legKey), {
     id: 'costMode', header: 'Model', enableGlobalFilter: false,
@@ -379,7 +444,7 @@ export const ledgerColumns = [
         onSave={raw => meta.actions.saveMode(leg, raw as CostMode)}
       />
     },
-    meta: { align: 'left', csv: [{ header: 'Model', value: row => COST_MODE_LABELS[legCostMode(row.booking, row.legKey)] }] },
+    meta: { csv: [{ header: 'Model', value: row => COST_MODE_LABELS[legCostMode(row.booking, row.legKey)] }] },
   }),
 ]
 

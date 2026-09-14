@@ -1500,7 +1500,7 @@ button.profit-leg-action.is-ghost:hover:not(:disabled) {
  * verilir. Alt çizgi affordance'ı yalnız metnin altında kalsın diye
  * border yerine text-decoration kullanılır.
  */
-.ledger-table td > .ledger-cell-edit:only-child {
+.ledger-table td > .ledger-cell-edit {
   display: block; box-sizing: border-box;
   margin: calc(-1 * var(--ledger-cell-pad-y)) calc(-1 * var(--ledger-cell-pad-x));
   padding: var(--ledger-cell-pad-y) var(--ledger-cell-pad-x);
@@ -1513,9 +1513,15 @@ button.profit-leg-action.is-ghost:hover:not(:disabled) {
 .ledger-cell-editor { display: inline-flex; flex-direction: column; gap: 2px; }
 .ledger-cell-input {
   width: 9ch; padding: 2px 6px; border-radius: 6px; border: 1px solid var(--blue);
-  background: rgba(255, 255, 255, 0.06); color: var(--text); font: inherit; text-align: right;
+  background: rgba(255, 255, 255, 0.06); color: var(--text); font: inherit; text-align: center;
   font-variant-numeric: tabular-nums;
 }
+
+/* Aynı hücrede iki para birimi: renk hangisine baktığını söyler. */
+.ledger-dual { font-variant-numeric: tabular-nums; white-space: nowrap; }
+.ledger-dual .money-eur { color: var(--text); }
+.ledger-dual .money-try { color: var(--blue); }
+.ledger-dual-sep { color: var(--text-muted); }
 select.ledger-cell-input { width: auto; text-align: left; }
 .ledger-cell-money { display: inline-flex; align-items: center; gap: 4px; }
 .ledger-cell-currency {
@@ -1537,14 +1543,11 @@ select.ledger-cell-input { width: auto; text-align: left; }
 .ledger-table th,
 .ledger-table td {
   padding: var(--ledger-cell-pad-y) var(--ledger-cell-pad-x);
-  text-align: right;
+  /* Tüm hücreler ortalanır: göz kolon kolon aynı eksende ilerler. */
+  text-align: center;
   border: 1px solid var(--border-soft);
   font-size: 12px;
 }
-.ledger-table th.is-left,
-.ledger-table td.is-left { text-align: left; }
-.ledger-table th.is-right,
-.ledger-table td.is-right { text-align: right; }
 .ledger-table th {
   white-space: nowrap;
   color: var(--text-muted);
@@ -1574,13 +1577,13 @@ select.ledger-cell-input { width: auto; text-align: left; }
 
 /* Tıklanabilir sefer numarası → seyahat detayı */
 .ledger-ref-link {
+  display: inline-block;
   padding: 0;
   border: 0;
   background: none;
   color: var(--blue);
   font: inherit;
   font-weight: 700;
-  text-align: left;
   cursor: pointer;
   text-decoration: underline;
   text-underline-offset: 2px;

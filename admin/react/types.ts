@@ -60,6 +60,12 @@ export interface Booking {
   own_vehicle_profit_eur?: number | string | null
   return_own_vehicle_profit_eur?: number | string | null
   airport_meet_fee_applies?: boolean | null
+  /** Ayağa özel karşılama kararı: true karşılama, false otopark, null/boş konum kuralı. */
+  meet_fee_override?: boolean | null
+  return_meet_fee_override?: boolean | null
+  /** Ayaktan tahsil edilen gelir; boşsa fiyat bölüşümü geçerli. */
+  revenue_eur?: number | string | null
+  return_revenue_eur?: number | string | null
   airport_meet_fee_parking_hours?: number | string | null
   price_eur: number | string
   status: BookingStatus
