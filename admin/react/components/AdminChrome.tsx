@@ -2,7 +2,7 @@ import { supabase } from '../lib/supabase'
 import type { Navigate } from '../types'
 import { clearTimelineCache } from '../pages/timeline-logic'
 
-type AdminView = 'timeline' | 'budget' | 'profit-loss' | 'driver-comms'
+type AdminView = 'timeline' | 'budget' | 'profit-loss' | 'funnel' | 'driver-comms'
 
 export function Topbar({ navigate, title = '🚗 VIP Yönetim', back, showAdmin = false }: {
   navigate: Navigate
@@ -44,12 +44,13 @@ export function AdminTabs({ active, navigate }: { active: AdminView; navigate: N
     if (view === active) return
     if (view === 'budget') navigate('#budget')
     else if (view === 'profit-loss') navigate('#profit-loss')
+    else if (view === 'funnel') navigate('#funnel')
     else if (view === 'driver-comms') navigate('#driver-comms')
     else navigate('#timeline')
   }
 
   const tabs: Array<[AdminView, string]> = [
-    ['timeline', 'Transferler'], ['budget', 'Bütçe'], ['profit-loss', 'Kâr/Zarar'], ['driver-comms', '📱 Şoför'],
+    ['timeline', 'Transferler'], ['budget', 'Bütçe'], ['profit-loss', 'Kâr/Zarar'], ['funnel', '📊 Huni'], ['driver-comms', '📱 Şoför'],
   ]
 
   return (
