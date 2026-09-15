@@ -52,17 +52,33 @@ satırlar çerez onayına tabi değildir; **yeni alan eklerken bu kuralı bozma.
 
 ### Admin paneli
 
-Panelde **📊 Huni** sekmesi (`#funnel`) bu verileri okur. Toplama tarayıcıda
+Panelde **📊 Data** sekmesi (`#funnel`) bu verileri okur. Toplama tarayıcıda
 değil, `site_funnel_summary(p_days)` RPC'sinde yapılır (migration
 `20260915130000`) — panel her açılışta binlerce satır indirmez.
 
-Sekmede dört blok var:
+Sekmede beş blok var:
 
-1. **Huni** — giriş → fiyat gördü → bilgi girdi → gönderdi, oturum bazında.
+1. **Üst kartlar** — WhatsApp/telefon tıklaması, uçuşu sorulacak kayıt sayısı
+2. **Uçuşu doğrulanamayanlar** — yapılacak iş listesi (aşağıda)
+3. **Huni** — giriş → fiyat gördü → bilgi girdi → gönderdi, oturum bazında.
    Aynı ziyaretçinin fiyatı iki kez görmesi oranı şişirmez.
-2. **Kayıplar** — hangi adımda bırakıldı, hangi rota fiyat döndüremedi
-3. **Kaynak → ciro** — bu blok `bookings`'ten okur, olaylardan değil
-4. **Üst kartlar** — WhatsApp/telefon tıklaması, uçuş doğrulama hataları
+4. **Kayıplar** — hangi adımda bırakıldı, hangi rota fiyat döndüremedi
+5. **Kaynak → ciro** — bu blok `bookings`'ten okur, olaylardan değil
+
+### Uçuşu doğrulanamayanlar
+
+`flight_verification_status` alanı `not_found` veya `wrong_airport` olan ve
+**bugünden sonraki** iptal edilmemiş transferler listelenir. Rapor dönemine
+(7/30/90 gün) bağlı değildir — bu bir istatistik değil, bugün yapılacak iş.
+
+Her satırda:
+- **WhatsApp'tan sor** — müşterinin dilinde hazır mesaj (`buildFlightCheckMessage`,
+  6 dil). İki hata türü ayrı metin kullanır: yanlış numara ile başka havalimanı
+  farklı cevap gerektirir. Gönderilmeden önce WhatsApp'ta düzenlenebilir.
+- **Detay** — kaydın detay sayfasına gider
+
+Telefon kayıtlı değilse bağlantı üretilmez; boş bir `wa.me` adresi açmak
+operatörü yanıltır.
 
 Paydası sıfır olan oran "%0" değil "—" gösterilir: bilinmiyor ile sıfır aynı
 şey değildir ve %0 yanlış karar verdirir.

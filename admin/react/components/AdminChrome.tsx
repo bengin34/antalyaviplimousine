@@ -50,7 +50,7 @@ export function AdminTabs({ active, navigate }: { active: AdminView; navigate: N
   }
 
   const tabs: Array<[AdminView, string]> = [
-    ['timeline', 'Transferler'], ['budget', 'Bütçe'], ['profit-loss', 'Kâr/Zarar'], ['funnel', '📊 Huni'], ['driver-comms', '📱 Şoför'],
+    ['timeline', 'Transferler'], ['budget', 'Bütçe'], ['profit-loss', 'Kâr/Zarar'], ['funnel', '📊 Data'], ['driver-comms', '📱 Şoför'],
   ]
 
   return (

@@ -9,7 +9,9 @@ import {
   sourceRevenue,
   type FunnelSummary,
 } from '../lib/funnel'
+import { flightCheckRows, type FlightCheckBooking, type FlightCheckRow } from '../lib/flight-check'
 import { supabase } from '../lib/supabase'
+import { fmtShortDateWithWeekday, todayISO } from '../lib/format'
 import type { Navigate } from '../types'
 
 const PERIODS: Array<[number, string]> = [[7, '7 gün'], [30, '30 gün'], [90, '90 gün']]
@@ -22,6 +24,22 @@ async function fetchSummary(days: number): Promise<FunnelSummary> {
   const { data, error } = await supabase.rpc('site_funnel_summary', { p_days: days })
   if (error) throw error
   return { ...EMPTY, ...(data as Partial<FunnelSummary> | null) }
+}
+
+/**
+ * Bilerek rapor dönemine bağlı değil: bu bir istatistik değil, yapılacak iş
+ * listesi. Geçmiş transferin uçuşunu sormanın anlamı yok, gelecekteki her
+ * doğrulanamamış uçuş ise bugün aranmalı.
+ */
+async function fetchFlightChecks(today: string): Promise<FlightCheckBooking[]> {
+  const { data, error } = await supabase.from('bookings')
+    .select('booking_ref, customer_name, customer_phone, language, flight_number, pickup_date, flight_verification_status')
+    .in('flight_verification_status', ['not_found', 'wrong_airport'])
+    .neq('status', 'cancelled')
+    .gte('pickup_date', today)
+    .order('pickup_date', { ascending: true })
+  if (error) throw error
+  return (data ?? []) as FlightCheckBooking[]
 }
 
 function FunnelSteps({ summary }: { summary: FunnelSummary }) {
@@ -116,10 +134,61 @@ function Leaks({ summary }: { summary: FunnelSummary }) {
           ))}
         </div>
       ) : <div className="travel-history-empty">Her seçilen rota fiyat döndürdü.</div>}
+      <div className="budget-status-grid">
+        <div className="budget-status-row">
+          <span>Formda uçuş doğrulanamadı</span>
+          <strong>{formatNumber(summary.flight_failures)}</strong>
+        </div>
+      </div>
       <p className="budget-footnote">
         Fiyat verilemeyen rota, müşterinin istediği ama sitenin karşılık veremediği transferdir —
         doğrudan kaçan taleptir. Listede tekrar eden bir rota varsa fiyat tablosuna eklenmeli.
+        Uçuş doğrulama sayısı bu dönemde formda kaç kez başarısız olduğunu gösterir — rezervasyona
+        dönmemiş denemeler dahil; yukarıdaki yapılacak listesi ise yalnızca gerçek rezervasyonları
+        kapsar.
       </p>
+    </section>
+  )
+}
+
+function FlightChecks({ rows, navigate }: { rows: FlightCheckRow[]; navigate: Navigate }) {
+  return (
+    <section className="budget-section">
+      <div className="budget-section-heading">
+        <div>
+          <span className="budget-section-kicker">YAPILACAK</span>
+          <h2>Uçuşu doğrulanamayanlar</h2>
+        </div>
+        <span>{rows.length} kayıt</span>
+      </div>
+      {rows.length ? <>
+        {rows.map(row => (
+          <div className="travel-history-row" key={`${row.booking_ref}-${row.pickup_date}`}>
+            <div className="travel-history-heading">
+              <span>{row.customer_name}</span>
+              <strong>{row.flight_number || 'Uçuş no yok'}</strong>
+            </div>
+            <div className="budget-payment-meta">
+              {fmtShortDateWithWeekday(row.pickup_date)} · {row.statusLabel} · {row.booking_ref}
+            </div>
+            <div className="budget-toolbar-actions">
+              {row.whatsappURL
+                ? <a className="whatsapp-link" href={row.whatsappURL} target="_blank" rel="noopener noreferrer"
+                     aria-label={`${row.customer_name} için uçuş sorusunu WhatsApp'tan gönder`}>
+                    <span aria-hidden="true">💬</span><span>WhatsApp&apos;tan sor</span>
+                  </a>
+                : <span className="budget-payment-meta">Telefon kayıtlı değil</span>}
+              <button className="btn-outline" type="button" onClick={() => navigate(row.detailHash)}>Detay</button>
+            </div>
+          </div>
+        ))}
+        <p className="budget-footnote">
+          Tarife sorgusu bu uçuşları bulamadı; iniş saatini tahmin etmek şoförü yanlış saatte
+          havalimanına göndermek olur. Mesaj müşterinin dilinde hazır gelir — göndermeden önce
+          WhatsApp&apos;ta düzenleyebilirsin. Liste rapor döneminden bağımsızdır: bugünden sonraki
+          tüm transferleri kapsar.
+        </p>
+      </> : <div className="travel-history-empty">Yaklaşan transferlerde doğrulanamamış uçuş yok.</div>}
     </section>
   )
 }
@@ -127,6 +196,7 @@ function Leaks({ summary }: { summary: FunnelSummary }) {
 export default function FunnelPage({ navigate }: { navigate: Navigate }) {
   const [days, setDays] = useState(30)
   const [summary, setSummary] = useState<FunnelSummary | null>(null)
+  const [flightChecks, setFlightChecks] = useState<FlightCheckBooking[]>([])
   const [loading, setLoading] = useState(true)
   const [status, setStatus] = useState('Yükleniyor…')
   const [error, setError] = useState(false)
@@ -134,13 +204,15 @@ export default function FunnelPage({ navigate }: { navigate: Navigate }) {
   const refresh = useCallback(async () => {
     setLoading(true); setStatus('Veriler yenileniyor…'); setError(false)
     try {
-      setSummary(await fetchSummary(days)); setStatus(`Son güncelleme: ${fmtSyncTime()}`)
+      const [nextSummary, nextChecks] = await Promise.all([fetchSummary(days), fetchFlightChecks(todayISO())])
+      setSummary(nextSummary); setFlightChecks(nextChecks); setStatus(`Son güncelleme: ${fmtSyncTime()}`)
     } catch { setError(true); setStatus('Bağlantı hatası') }
     finally { setLoading(false) }
   }, [days])
 
   useEffect(() => { void refresh() }, [refresh])
 
+  const checks = useMemo(() => flightCheckRows(flightChecks), [flightChecks])
   const contact = useMemo(
     () => summary?.contact.map(row => ({ ...row, label: CONTACT_LABELS[row.event] ?? row.event })) ?? [],
     [summary],
@@ -179,11 +251,12 @@ export default function FunnelPage({ navigate }: { navigate: Navigate }) {
           ))}
           <article className="budget-kpi">
             <span className="budget-kpi-icon" aria-hidden="true">✈</span>
-            <span className="budget-kpi-label">Uçuş doğrulanamadı</span>
-            <strong>{formatNumber(summary.flight_failures)}</strong>
-            <small>Girilen uçuş numarası tarifede bulunamadı</small>
+            <span className="budget-kpi-label">Uçuşu sorulacak</span>
+            <strong>{formatNumber(checks.length)}</strong>
+            <small>Yaklaşan transferlerde doğrulanamamış uçuş</small>
           </article>
         </section>
+        <FlightChecks rows={checks} navigate={navigate} />
         <FunnelSteps summary={summary} />
         <Leaks summary={summary} />
         <SourceTable summary={summary} />

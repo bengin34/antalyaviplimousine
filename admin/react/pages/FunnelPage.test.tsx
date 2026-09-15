@@ -4,9 +4,9 @@ import { afterEach, beforeEach, describe, expect, test, vi } from 'vitest'
 import { cleanup, fireEvent, render, screen, waitFor } from '@testing-library/react'
 import FunnelPage from './FunnelPage'
 
-const mocks = vi.hoisted(() => ({ rpc: vi.fn() }))
+const mocks = vi.hoisted(() => ({ rpc: vi.fn(), from: vi.fn() }))
 
-vi.mock('../lib/supabase', () => ({ supabase: { rpc: mocks.rpc, auth: { signOut: vi.fn() } } }))
+vi.mock('../lib/supabase', () => ({ supabase: { rpc: mocks.rpc, from: mocks.from, auth: { signOut: vi.fn() } } }))
 vi.mock('../pages/timeline-logic', () => ({ clearTimelineCache: vi.fn() }))
 
 const summary = {
@@ -27,9 +27,29 @@ const summary = {
   ],
 }
 
+const flightChecks = [{
+  booking_ref: 'AVL-1001',
+  customer_name: 'Anna Weber',
+  customer_phone: '+49 151 23456789',
+  language: 'de',
+  flight_number: 'XQ123',
+  pickup_date: '2026-10-04',
+  flight_verification_status: 'not_found',
+}]
+
+/** supabase-js zinciri: from().select().in().neq().gte().order() */
+function mockBookings(data: unknown[], error: unknown = null) {
+  const chain: Record<string, unknown> = {}
+  for (const method of ['select', 'in', 'neq', 'gte']) chain[method] = () => chain
+  chain.order = () => Promise.resolve({ data, error })
+  mocks.from.mockReturnValue(chain)
+}
+
 beforeEach(() => {
   mocks.rpc.mockReset()
+  mocks.from.mockReset()
   mocks.rpc.mockResolvedValue({ data: summary, error: null })
+  mockBookings(flightChecks)
 })
 afterEach(cleanup)
 
@@ -70,8 +90,39 @@ describe('huni sayfası', () => {
     await waitFor(() => expect(screen.getByText('Huni verileri yüklenemedi.')).toBeInTheDocument())
   })
 
+  test('uçuşu doğrulanamayanları hazır WhatsApp mesajıyla listeler', async () => {
+    render(<FunnelPage navigate={vi.fn()} />)
+
+    await waitFor(() => expect(screen.getByText('Uçuşu doğrulanamayanlar')).toBeInTheDocument())
+    expect(screen.getByText('Anna Weber')).toBeInTheDocument()
+    expect(screen.getByText('XQ123')).toBeInTheDocument()
+
+    const link = screen.getByRole('link', { name: /Anna Weber için uçuş sorusunu/ })
+    expect(link).toHaveAttribute('href', expect.stringContaining('wa.me/4915123456789'))
+    expect(decodeURIComponent(link.getAttribute('href') ?? '')).toContain('XQ123')
+  })
+
+  test('detay butonu kaydın sayfasına götürür', async () => {
+    const navigate = vi.fn()
+    render(<FunnelPage navigate={navigate} />)
+
+    await waitFor(() => expect(screen.getByText('Anna Weber')).toBeInTheDocument())
+    fireEvent.click(screen.getByRole('button', { name: 'Detay' }))
+
+    expect(navigate).toHaveBeenCalledWith('#detail/AVL-1001?from=future')
+  })
+
+  test('yaklaşan doğrulanamamış uçuş yoksa listeyi boş gösterir', async () => {
+    mockBookings([])
+
+    render(<FunnelPage navigate={vi.fn()} />)
+
+    await waitFor(() => expect(screen.getByText('Yaklaşan transferlerde doğrulanamamış uçuş yok.')).toBeInTheDocument())
+  })
+
   test('boş dönemde çökmez, sıfır gösterir', async () => {
     mocks.rpc.mockResolvedValue({ data: { days: 7, funnel: [], abandoned: [], unavailable: [], contact: [], flight_failures: 0, sources: [] }, error: null })
+    mockBookings([])
 
     render(<FunnelPage navigate={vi.fn()} />)
 

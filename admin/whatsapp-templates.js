@@ -52,6 +52,12 @@ const LANG = {
       `Dear ${name},\n\n🌟 Thank you for traveling with Antalya VIP Tourism. We hope everything went smoothly.`,
     reviewClosing:
       "If you have a moment, we'd appreciate a short review on Google — it really helps us. 👇\n\nhttps://g.page/r/CbJCg7BC63cBEBI/review",
+    flightCheckGreeting: (name) =>
+      `Dear ${name},\n\n✈️ A quick check about your transfer — we could not confirm your flight in the airline schedule:`,
+    flightCheckNotFound: "We could not find this flight number for your travel date. Could you double-check it and send us the correct one? Without it we cannot follow your landing time, and your driver may not be waiting when you arrive.",
+    flightCheckWrongAirport: "This flight does not appear to land at Antalya (AYT). If you are arriving at a different airport, or the flight number belongs to another leg of your journey, please let us know so we can plan the pick-up correctly.",
+    flightCheckClosing: "Just reply with the flight number and we will take care of the rest. 🙏",
+    flightCheckLabelDate: "Travel date",
     faqNote: "📖 Please read our FAQ before your trip:",
     faqTopicArrival: "Airport pickup — how it works",
     faqTopicReturn: "Return transfer — how we stay in touch",
@@ -107,6 +113,12 @@ const LANG = {
       `Hallo ${name},\n\n🌟 Danke, dass Sie mit Antalya VIP Tourism gefahren sind. Wir hoffen, alles ist gut verlaufen.`,
     reviewClosing:
       "Wenn Sie einen Moment haben, freuen wir uns über eine kurze Google-Bewertung — das hilft uns sehr. 👇\n\nhttps://g.page/r/CbJCg7BC63cBEBI/review",
+    flightCheckGreeting: (name) =>
+      `Guten Tag ${name},\n\n✈️ Eine kurze Rückfrage zu Ihrem Transfer — wir konnten Ihren Flug im Flugplan nicht bestätigen:`,
+    flightCheckNotFound: "Diese Flugnummer konnten wir für Ihr Reisedatum nicht finden. Könnten Sie sie bitte prüfen und uns die richtige senden? Ohne sie können wir Ihre Landezeit nicht verfolgen und Ihr Fahrer wartet möglicherweise nicht rechtzeitig.",
+    flightCheckWrongAirport: "Dieser Flug scheint nicht in Antalya (AYT) zu landen. Falls Sie an einem anderen Flughafen ankommen oder die Flugnummer zu einem anderen Reiseabschnitt gehört, sagen Sie uns bitte Bescheid, damit wir die Abholung richtig planen.",
+    flightCheckClosing: "Antworten Sie einfach mit der Flugnummer, um den Rest kümmern wir uns. 🙏",
+    flightCheckLabelDate: "Reisedatum",
     faqNote: "📖 Bitte lesen Sie vor Ihrer Reise unsere FAQ:",
     faqTopicArrival: "Flughafen-Abholung — so läuft es ab",
     faqTopicReturn: "Rücktransfer — so bleiben wir in Kontakt",
@@ -153,6 +165,12 @@ const LANG = {
       `Здравствуйте, ${name}!\n\n🌟 Спасибо, что выбрали Antalya VIP Tourism. Надеемся, всё прошло хорошо.`,
     reviewClosing:
       "Если найдётся минутка, будем благодарны за короткий отзыв на Google — это очень помогает нам. 👇\n\nhttps://g.page/r/CbJCg7BC63cBEBI/review",
+    flightCheckGreeting: (name) =>
+      `Здравствуйте, ${name}!\n\n✈️ Небольшой вопрос по вашему трансферу — мы не смогли подтвердить ваш рейс в расписании:`,
+    flightCheckNotFound: "Мы не нашли этот номер рейса на дату вашей поездки. Пожалуйста, проверьте его и пришлите правильный. Без него мы не сможем отслеживать время прилёта, и водитель может не успеть вас встретить.",
+    flightCheckWrongAirport: "Похоже, этот рейс прилетает не в Анталью (AYT). Если вы прилетаете в другой аэропорт или номер рейса относится к другому участку поездки, сообщите нам, чтобы мы правильно спланировали встречу.",
+    flightCheckClosing: "Просто ответьте номером рейса — остальное мы сделаем сами. 🙏",
+    flightCheckLabelDate: "Дата поездки",
     faqNote: "📖 Перед поездкой ознакомьтесь с нашими вопросами и ответами:",
     faqTopicArrival: "Встреча в аэропорту — как это происходит",
     faqTopicReturn: "Обратный трансфер — как мы остаёмся на связи",
@@ -199,6 +217,12 @@ const LANG = {
       `Merhaba ${name},\n\n🌟 Antalya VIP Tourism ile seyahat ettiğiniz için teşekkürler. Umarız her şey yolunda gitmiştir.`,
     reviewClosing:
       "Bir dakikanız olursa, Google'da bırakacağınız kısa bir değerlendirme bize çok yardımcı olur. 👇\n\nhttps://g.page/r/CbJCg7BC63cBEBI/review",
+    flightCheckGreeting: (name) =>
+      `Sayın ${name},\n\n✈️ Transferinizle ilgili küçük bir kontrol — uçuşunuzu tarifede doğrulayamadık:`,
+    flightCheckNotFound: "Bu uçuş numarasını seyahat tarihinizde bulamadık. Kontrol edip doğrusunu iletebilir misiniz? Aksi halde iniş saatinizi takip edemeyiz ve şoförünüz sizi zamanında karşılayamayabilir.",
+    flightCheckWrongAirport: "Bu uçuş Antalya'ya (AYT) inmiyor görünüyor. Farklı bir havalimanına iniyorsanız ya da uçuş numarası seyahatinizin başka bir bacağına aitse lütfen bize bildirin; karşılamayı ona göre planlayalım.",
+    flightCheckClosing: "Uçuş numarasını yazmanız yeterli, gerisini biz hallederiz. 🙏",
+    flightCheckLabelDate: "Seyahat tarihi",
     faqNote: "📖 Seyahatinizden önce lütfen SSS bölümümüzü okuyun:",
     faqTopicArrival: "Havalimanı karşılama — nasıl işliyor",
     faqTopicReturn: "Dönüş transferi — nasıl iletişimde kalıyoruz",
@@ -253,6 +277,12 @@ const LANG = {
       `Bonjour ${name},\n\n🌟 Merci d'avoir voyagé avec Antalya VIP Tourism. Nous espérons que tout s'est bien passé.`,
     reviewClosing:
       "Si vous avez un instant, un court avis sur Google nous aiderait beaucoup. 👇\n\nhttps://g.page/r/CbJCg7BC63cBEBI/review",
+    flightCheckGreeting: (name) =>
+      `Bonjour ${name},\n\n✈️ Une petite vérification concernant votre transfert — nous n'avons pas pu confirmer votre vol dans les horaires :`,
+    flightCheckNotFound: "Nous n'avons pas trouvé ce numéro de vol pour votre date de voyage. Pourriez-vous le vérifier et nous envoyer le bon ? Sans lui, nous ne pouvons pas suivre votre heure d'atterrissage et votre chauffeur risque de ne pas vous attendre.",
+    flightCheckWrongAirport: "Ce vol ne semble pas atterrir à Antalya (AYT). Si vous arrivez dans un autre aéroport, ou si le numéro de vol correspond à une autre étape de votre voyage, dites-le nous afin que nous organisions correctement la prise en charge.",
+    flightCheckClosing: "Répondez simplement avec le numéro de vol, nous nous occupons du reste. 🙏",
+    flightCheckLabelDate: "Date du voyage",
     faqNote: "📖 Avant votre voyage, veuillez lire notre FAQ :",
     faqTopicArrival: "Accueil à l'aéroport — comment ça se passe",
     faqTopicReturn: "Transfert retour — comment nous restons en contact",
@@ -299,6 +329,12 @@ const LANG = {
       `مرحباً ${name}،\n\n🌟 شكراً لسفرك مع Antalya VIP Tourism. نأمل أن يكون كل شيء قد سار على ما يرام.`,
     reviewClosing:
       "إن توفّرت لديك لحظة، سنكون ممتنين لتقييم قصير على Google — فهذا يساعدنا كثيراً. 👇\n\nhttps://g.page/r/CbJCg7BC63cBEBI/review",
+    flightCheckGreeting: (name) =>
+      `عزيزي ${name}،\n\n✈️ استفسار سريع بخصوص نقلك — لم نتمكن من تأكيد رحلتك في جدول الرحلات:`,
+    flightCheckNotFound: "لم نعثر على رقم الرحلة هذا في تاريخ سفرك. هل يمكنك التحقق منه وإرسال الرقم الصحيح؟ بدونه لا يمكننا متابعة وقت هبوطك وقد لا يكون السائق في انتظارك.",
+    flightCheckWrongAirport: "يبدو أن هذه الرحلة لا تهبط في أنطاليا (AYT). إذا كنت تصل إلى مطار آخر أو كان رقم الرحلة يخص جزءاً آخر من سفرك، فأخبرنا لنخطط لاستقبالك بشكل صحيح.",
+    flightCheckClosing: "فقط أرسل لنا رقم الرحلة وسنتكفل بالباقي. 🙏",
+    flightCheckLabelDate: "تاريخ السفر",
     faqNote: "📖 قبل رحلتك، يُرجى قراءة الأسئلة الشائعة لدينا:",
     faqTopicArrival: "الاستقبال في المطار — كيف تتم العملية",
     faqTopicReturn: "رحلة العودة — كيف نبقى على تواصل",
@@ -631,6 +667,44 @@ export function buildReviewMessage(booking, { language } = {}) {
   const t = getLang(language ?? b.language);
 
   const lines = [t.reviewGreeting(b.customer_name), "", t.reviewClosing];
+
+  return lines.join("\n");
+}
+
+/**
+ * Build a WhatsApp message asking the customer to confirm a flight number the
+ * schedule lookup could not verify.
+ *
+ * Only the customer can resolve this: the lookup already failed, and guessing
+ * a landing time would send a driver to the airport at the wrong hour. The
+ * two failure kinds get different wording because they need different answers
+ * — a wrong number versus a flight into another airport.
+ *
+ * @param {object} booking
+ * @returns {string}
+ */
+export function buildFlightCheckMessage(booking, { language } = {}) {
+  const b = booking ?? {};
+  const lang = language ?? b.language;
+  const t = getLang(lang);
+  const flightNumber = b.flight_number ? String(b.flight_number).toUpperCase() : null;
+
+  const details = [
+    flightNumber ? `${t.labelFlight}: ${flightNumber}` : null,
+    b.pickup_date ? `${t.flightCheckLabelDate}: ${b.pickup_date}` : null,
+  ].filter(Boolean);
+
+  const lines = [
+    t.flightCheckGreeting(b.customer_name),
+    "",
+    ...details,
+    "",
+    b.flight_verification_status === "wrong_airport"
+      ? t.flightCheckWrongAirport
+      : t.flightCheckNotFound,
+    "",
+    t.flightCheckClosing,
+  ];
 
   return lines.join("\n");
 }
