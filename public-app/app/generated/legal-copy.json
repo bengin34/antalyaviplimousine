@@ -62,7 +62,7 @@
       {
         "title": "4. Google Analytics and Google Ads",
         "paragraphs": [
-          "Google Analytics and Google Ads load only after you consent in the privacy dialog. Usage, device, interaction and conversion data may then be sent to Google. The provider is Google Ireland Limited and processing by affiliated companies outside the European Economic Area may occur. You may withdraw consent at any time through Privacy settings. Rejecting analytics does not affect booking functions."
+          "Google Analytics and Google Ads are loaded on every visit in a consent-limited mode: until you accept in the privacy dialog no cookies are set, no advertising identifiers are sent and the transmitted data cannot be linked to you. If you accept, cookies are set and usage, device, interaction and conversion data may be sent to Google. The provider is Google Ireland Limited and processing by affiliated companies outside the European Economic Area may occur. Independently of Google, we record anonymous usage events in our own database (page, booking step, route and price); they contain no name, e-mail address, telephone number or IP address and cannot be linked to you. You may withdraw consent at any time through Privacy settings. Rejecting analytics does not affect booking functions."
         ],
         "details": [],
         "privacySettings": true
@@ -273,7 +273,7 @@
       {
         "title": "4. Google Analytics und Google Ads",
         "paragraphs": [
-          "Google Analytics und Google Ads werden erst nach Ihrer Einwilligung geladen. Dabei können Nutzungs-, Geräte-, Interaktions- und Conversion-Daten an Google Ireland Limited übermittelt werden. Eine Verarbeitung außerhalb des Europäischen Wirtschaftsraums kann stattfinden. Sie können Ihre Einwilligung jederzeit über die Datenschutzeinstellungen widerrufen. Eine Ablehnung beeinträchtigt die Buchung nicht."
+          "Google Analytics und Google Ads werden bei jedem Besuch in einem eingeschränkten Modus geladen: Solange Sie im Datenschutzdialog nicht einwilligen, werden keine Cookies gesetzt, keine Werbe-Identifikatoren übermittelt und die übertragenen Daten lassen sich Ihnen nicht zuordnen. Mit Ihrer Einwilligung werden Cookies gesetzt und Nutzungs-, Geräte-, Interaktions- und Conversion-Daten können an Google Ireland Limited übermittelt werden. Eine Verarbeitung außerhalb des Europäischen Wirtschaftsraums kann stattfinden. Unabhängig von Google erfassen wir anonyme Nutzungsereignisse in unserer eigenen Datenbank (Seite, Buchungsschritt, Strecke und Preis); sie enthalten weder Namen, E-Mail-Adresse, Telefonnummer noch IP-Adresse und lassen sich Ihnen nicht zuordnen. Sie können Ihre Einwilligung jederzeit über die Datenschutzeinstellungen widerrufen. Eine Ablehnung beeinträchtigt die Buchung nicht."
         ],
         "details": [],
         "privacySettings": true
@@ -484,7 +484,7 @@
       {
         "title": "4. Google Analytics ve Google Ads",
         "paragraphs": [
-          "Google Analytics ve Google Ads yalnızca onayınızdan sonra yüklenir. Kullanım, cihaz, etkileşim ve dönüşüm verileri Google Ireland Limited şirketine iletilebilir ve Avrupa Ekonomik Alanı dışında işlenebilir. Onayınızı Gizlilik ayarlarından istediğiniz zaman geri çekebilirsiniz. Reddetmek rezervasyon işlevlerini etkilemez."
+          "Google Analytics ve Google Ads her ziyarette sınırlı bir modda yüklenir: gizlilik penceresinden onay vermediğiniz sürece çerez yerleştirilmez, reklam tanımlayıcısı gönderilmez ve iletilen veriler sizinle ilişkilendirilemez. Onay verirseniz çerezler yerleştirilir; kullanım, cihaz, etkileşim ve dönüşüm verileri Google Ireland Limited şirketine iletilebilir ve Avrupa Ekonomik Alanı dışında işlenebilir. Google'dan bağımsız olarak kendi veritabanımızda anonim kullanım olayları (sayfa, rezervasyon adımı, rota ve fiyat) kaydediyoruz; bunlar ad, e-posta, telefon veya IP adresi içermez ve sizinle ilişkilendirilemez. Onayınızı Gizlilik ayarlarından istediğiniz zaman geri çekebilirsiniz. Reddetmek rezervasyon işlevlerini etkilemez."
         ],
         "details": [],
         "privacySettings": true
@@ -695,7 +695,7 @@
       {
         "title": "4. Google Analytics и Google Ads",
         "paragraphs": [
-          "Google Analytics и Google Ads загружаются только после вашего согласия. Данные об использовании, устройстве, взаимодействиях и конверсиях могут передаваться Google Ireland Limited и обрабатываться за пределами Европейской экономической зоны. Согласие можно отозвать через настройки конфиденциальности. Отказ не влияет на бронирование."
+          "Google Analytics и Google Ads загружаются при каждом посещении в ограниченном режиме: пока вы не дали согласие в окне конфиденциальности, файлы cookie не устанавливаются, рекламные идентификаторы не передаются, а передаваемые данные нельзя связать с вами. После согласия устанавливаются файлы cookie, а данные об использовании, устройстве, взаимодействиях и конверсиях могут передаваться Google Ireland Limited и обрабатываться за пределами Европейской экономической зоны. Независимо от Google мы записываем анонимные события использования в собственную базу данных (страница, шаг бронирования, маршрут и цена); они не содержат имени, адреса электронной почты, номера телефона или IP-адреса и не могут быть связаны с вами. Согласие можно отозвать через настройки конфиденциальности. Отказ не влияет на бронирование."
         ],
         "details": [],
         "privacySettings": true
@@ -906,7 +906,7 @@
       {
         "title": "4. Google Analytics a Google Ads",
         "paragraphs": [
-          "Google Analytics a Google Ads se načítají pouze po vašem souhlasu v dialogu ochrany soukromí. Poté mohou být data o používání, zařízení, interakcích a konverzích zasílána společnosti Google Ireland Limited a přidružené společnosti mimo Evropský hospodářský prostor mohou zpracovávat data. Souhlas můžete kdykoli odvolat prostřednictvím Nastavení soukromí. Odmítnutí analytiky neovlivní funkce rezervace."
+          "Google Analytics a Google Ads se načítají při každé návštěvě v omezeném režimu: dokud v dialogu ochrany soukromí neudělíte souhlas, neukládají se žádné soubory cookie, nepředávají se reklamní identifikátory a přenášená data vás nemohou identifikovat. Po udělení souhlasu se ukládají soubory cookie a data o používání, zařízení, interakcích a konverzích mohou být zasílána společnosti Google Ireland Limited a zpracovávána mimo Evropský hospodářský prostor. Nezávisle na Googlu zaznamenáváme anonymní události používání ve vlastní databázi (stránka, krok rezervace, trasa a cena); neobsahují jméno, e-mailovou adresu, telefonní číslo ani IP adresu a nelze je s vámi spojit. Souhlas můžete kdykoli odvolat prostřednictvím Nastavení soukromí. Odmítnutí analytiky neovlivní funkce rezervace."
         ],
         "details": [],
         "privacySettings": true
@@ -1117,7 +1117,7 @@
       {
         "title": "4. Google Analytics and Google Ads",
         "paragraphs": [
-          "Google Analytics and Google Ads load only after you consent in the privacy dialog. Usage, device, interaction and conversion data may then be sent to Google. The provider is Google Ireland Limited and processing by affiliated companies outside the European Economic Area may occur. You may withdraw consent at any time through Privacy settings. Rejecting analytics does not affect booking functions."
+          "Google Analytics and Google Ads are loaded on every visit in a consent-limited mode: until you accept in the privacy dialog no cookies are set, no advertising identifiers are sent and the transmitted data cannot be linked to you. If you accept, cookies are set and usage, device, interaction and conversion data may be sent to Google. The provider is Google Ireland Limited and processing by affiliated companies outside the European Economic Area may occur. Independently of Google, we record anonymous usage events in our own database (page, booking step, route and price); they contain no name, e-mail address, telephone number or IP address and cannot be linked to you. You may withdraw consent at any time through Privacy settings. Rejecting analytics does not affect booking functions."
         ],
         "details": [],
         "privacySettings": true
@@ -1328,7 +1328,7 @@
       {
         "title": "4. Google Analytics and Google Ads",
         "paragraphs": [
-          "Google Analytics and Google Ads load only after you consent in the privacy dialog. Usage, device, interaction and conversion data may then be sent to Google. The provider is Google Ireland Limited and processing by affiliated companies outside the European Economic Area may occur. You may withdraw consent at any time through Privacy settings. Rejecting analytics does not affect booking functions."
+          "Google Analytics and Google Ads are loaded on every visit in a consent-limited mode: until you accept in the privacy dialog no cookies are set, no advertising identifiers are sent and the transmitted data cannot be linked to you. If you accept, cookies are set and usage, device, interaction and conversion data may be sent to Google. The provider is Google Ireland Limited and processing by affiliated companies outside the European Economic Area may occur. Independently of Google, we record anonymous usage events in our own database (page, booking step, route and price); they contain no name, e-mail address, telephone number or IP address and cannot be linked to you. You may withdraw consent at any time through Privacy settings. Rejecting analytics does not affect booking functions."
         ],
         "details": [],
         "privacySettings": true

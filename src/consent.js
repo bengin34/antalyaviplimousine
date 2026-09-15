@@ -1,6 +1,11 @@
-const CONSENT_KEY = "avl-analytics-consent";
-const GA_ID = "G-0VSR8E00FG";
-const ADS_ID = "AW-18248114753";
+import {
+  denyConsent,
+  grantConsent,
+  readConsent,
+  saveConsent,
+  startAnalytics,
+} from "./analytics-consent.js";
+
 const PRIVACY_URLS = {
   de: "/de/datenschutz/",
   en: "/privacy/",
@@ -9,13 +14,11 @@ const PRIVACY_URLS = {
   ar: "/privacy/",
 };
 
-window.gtag = window.gtag || function gtag() {};
-
 const copy = {
   de: {
     label: "Datenschutzeinstellungen",
     title: "Dürfen wir Analysedaten verwenden?",
-    body: "Wir verwenden optionale Google-Analyse- und Werbetechnologien, um Nutzung und Buchungen zu messen. Sie werden erst nach Ihrer Zustimmung geladen.",
+    body: "Wir verwenden Google-Analyse- und Werbetechnologien, um Nutzung und Buchungen zu messen. Ohne Ihre Zustimmung laufen sie ohne Cookies; mit Ihrer Zustimmung werden Cookies gesetzt und die Messung wird genauer.",
     privacy: "Datenschutzerklärung",
     reject: "Optionales ablehnen",
     accept: "Analyse akzeptieren",
@@ -23,7 +26,7 @@ const copy = {
   en: {
     label: "Privacy settings",
     title: "May we use analytics?",
-    body: "We use optional Google analytics and advertising technologies to measure visits and bookings. They load only after you consent.",
+    body: "We use Google analytics and advertising technologies to measure visits and bookings. Without your consent they run without cookies; accepting allows cookies and a more accurate measurement.",
     privacy: "Privacy policy",
     reject: "Reject optional",
     accept: "Accept analytics",
@@ -31,7 +34,7 @@ const copy = {
   tr: {
     label: "Gizlilik ayarları",
     title: "Analiz verilerini kullanabilir miyiz?",
-    body: "Ziyaretleri ve rezervasyonları ölçmek için isteğe bağlı Google analiz ve reklam teknolojilerini kullanıyoruz. Bunlar yalnızca onayınızdan sonra yüklenir.",
+    body: "Ziyaretleri ve rezervasyonları ölçmek için Google analiz ve reklam teknolojilerini kullanıyoruz. Onayınız olmadan çerezsiz çalışırlar; kabul ederseniz çerez kullanılır ve ölçüm daha kesin olur.",
     privacy: "Gizlilik politikası",
     reject: "İsteğe bağlıları reddet",
     accept: "Analizi kabul et",
@@ -39,7 +42,7 @@ const copy = {
   ru: {
     label: "Настройки конфиденциальности",
     title: "Разрешить аналитику?",
-    body: "Мы используем необязательные технологии Google для анализа посещений и бронирований. Они загружаются только после вашего согласия.",
+    body: "Мы используем технологии Google для анализа посещений и бронирований. Без вашего согласия они работают без файлов cookie; с согласием устанавливаются cookie и измерение становится точнее.",
     privacy: "Политика конфиденциальности",
     reject: "Отклонить необязательные",
     accept: "Разрешить аналитику",
@@ -47,49 +50,12 @@ const copy = {
   ar: {
     label: "إعدادات الخصوصية",
     title: "هل تسمح لنا باستخدام بيانات التحليلات؟",
-    body: "نستخدم تقنيات Google الاختيارية للتحليلات والإعلانات لقياس الزيارات والحجوزات. لا يتم تحميلها إلا بعد موافقتك.",
+    body: "نستخدم تقنيات Google للتحليلات والإعلانات لقياس الزيارات والحجوزات. بدون موافقتك تعمل دون ملفات تعريف الارتباط؛ وبالموافقة يتم استخدامها ويصبح القياس أدق.",
     privacy: "سياسة الخصوصية",
     reject: "رفض التقنيات الاختيارية",
     accept: "قبول التحليلات",
   },
 };
-
-let analyticsLoaded = false;
-
-function loadAnalytics() {
-  if (analyticsLoaded) return;
-  analyticsLoaded = true;
-
-  window.dataLayer = window.dataLayer || [];
-  window.gtag = function gtag() {
-    window.dataLayer.push(arguments);
-  };
-
-  const script = document.createElement("script");
-  script.async = true;
-  script.src = `https://www.googletagmanager.com/gtag/js?id=${GA_ID}`;
-  document.head.appendChild(script);
-
-  window.gtag("js", new Date());
-  window.gtag("config", GA_ID, { anonymize_ip: true });
-  window.gtag("config", ADS_ID);
-}
-
-function getConsent() {
-  try {
-    return localStorage.getItem(CONSENT_KEY);
-  } catch {
-    return null;
-  }
-}
-
-function saveConsent(value) {
-  try {
-    localStorage.setItem(CONSENT_KEY, value);
-  } catch {
-    // The choice still applies for the current page if storage is unavailable.
-  }
-}
 
 function removeDialog() {
   document.querySelector("#analytics-consent")?.remove();
@@ -124,7 +90,8 @@ function showDialog() {
     if (!button) return;
     const choice = button.dataset.consent;
     saveConsent(choice);
-    if (choice === "accepted") loadAnalytics();
+    if (choice === "accepted") grantConsent();
+    else denyConsent();
     removeDialog();
   });
 
@@ -139,9 +106,11 @@ document.addEventListener("click", (event) => {
   }
 });
 
-const savedConsent = getConsent();
-if (savedConsent === "accepted") loadAnalytics();
-else if (savedConsent !== "rejected") {
+// The tag always loads, with every signal denied until the visitor accepts;
+// the banner only decides whether those signals are upgraded.
+const savedConsent = readConsent();
+startAnalytics(savedConsent);
+if (savedConsent === "unknown") {
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", showDialog, { once: true });
   } else {
