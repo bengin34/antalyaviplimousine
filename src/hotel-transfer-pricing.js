@@ -22,9 +22,11 @@ export const VITO_BANDS = Object.freeze(
     .map((maxKm) => Object.freeze([maxKm, targetUnitPrice(maxKm)])),
 );
 
-// The Vito:Sprinter ratio (€35:€60 ≈ 1.71) preserved across the table. Cost is
-// per-km and vehicle-agnostic, so a Sprinter band always exceeds its Vito band
-// and therefore clears true cost too.
+// Roughly the Vito:Sprinter ratio, held across the whole table. The flat +€3
+// uplift on both vehicles nudged the headline pair to €38:€63 ≈ 1.66, so 1.7
+// now sits a little above it — which only lifts the floor, never lowers it.
+// Cost is per-km and vehicle-agnostic, so a Sprinter band always exceeds its
+// Vito band and therefore clears true cost too.
 const SPRINTER_MULTIPLIER = 1.7;
 
 export function bandUnitPrice(km, vehicle) {

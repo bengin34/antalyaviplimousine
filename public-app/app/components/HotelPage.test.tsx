@@ -14,11 +14,11 @@ describe("German hotel transfer landing pages", () => {
   test("Utopia structured prices and FAQs agree with its Kargicak landing price", () => {
     const hotel = hotelBySlug("utopia-world-hotel")!;
     render(<LanguageProvider initialLanguage="de"><HotelPage hotel={hotel} /></LanguageProvider>);
-    expect(screen.getAllByText("€90").length).toBeGreaterThan(0);
+    expect(screen.getAllByText("€93").length).toBeGreaterThan(0);
     const metas = hotelMeta(hotel.slug);
-    expect(metas).toContainEqual(expect.objectContaining({ name: "description", content: expect.stringContaining("€90") }));
-    expect(metas).toContainEqual({ "script:ld+json": expect.objectContaining({ "@type": "Service", offers: expect.arrayContaining([expect.objectContaining({ name: "Mercedes Vito", price: "90" })]) }) });
-    expect(metas).toContainEqual({ "script:ld+json": expect.objectContaining({ "@type": "FAQPage", mainEntity: expect.arrayContaining([expect.objectContaining({ name: "Was kostet der Transfer?", acceptedAnswer: expect.objectContaining({ text: expect.stringContaining("€90") }) })]) }) });
+    expect(metas).toContainEqual(expect.objectContaining({ name: "description", content: expect.stringContaining("€93") }));
+    expect(metas).toContainEqual({ "script:ld+json": expect.objectContaining({ "@type": "Service", offers: expect.arrayContaining([expect.objectContaining({ name: "Mercedes Vito", price: "93" })]) }) });
+    expect(metas).toContainEqual({ "script:ld+json": expect.objectContaining({ "@type": "FAQPage", mainEntity: expect.arrayContaining([expect.objectContaining({ name: "Was kostet der Transfer?", acceptedAnswer: expect.objectContaining({ text: expect.stringContaining("€93") }) })]) }) });
   });
 
   test("uses its regional route facts instead of hotel-specific figures", () => {
@@ -30,7 +30,7 @@ describe("German hotel transfer landing pages", () => {
     expect(screen.getByRole("heading", { level: 1, name: /Rixos Premium Belek/ })).toBeInTheDocument();
     expect(screen.getByText("35–40 Minuten")).toBeInTheDocument();
     expect(screen.getByText("45 km")).toBeInTheDocument();
-    expect(screen.getAllByText("€40")[0]).toBeInTheDocument();
+    expect(screen.getAllByText("€43")[0]).toBeInTheDocument();
     expect(screen.getByRole("link", { name: "Transfer nach Belek" })).toHaveAttribute("href", "/de/transfers/belek/");
   });
 
@@ -52,7 +52,7 @@ describe("German hotel transfer landing pages", () => {
     const faq = hotelMeta(hotel.slug).find((meta) => "script:ld+json" in meta && (meta["script:ld+json"] as { "@type": string })["@type"] === "FAQPage");
     expect(faq).toMatchObject({ "script:ld+json": { mainEntity: [
       { name: `Wie lange dauert die Fahrt zum ${hotel.name}?`, acceptedAnswer: { text: "Bei normalem Verkehr ungefähr 35–40 Minuten." } },
-      { name: "Was kostet der Transfer?", acceptedAnswer: { text: "Der Mercedes Vito kostet ab €40 pro Fahrzeug." } },
+      { name: "Was kostet der Transfer?", acceptedAnswer: { text: "Der Mercedes Vito kostet ab €43 pro Fahrzeug." } },
       { name: "Was passiert bei einer Flugverspätung?", acceptedAnswer: { text: "Wir verfolgen Ihren Flug in Echtzeit und passen die Abholzeit ohne Aufpreis an." } },
       { name: "Wie lange wartet mein Chauffeur am Flughafen?", acceptedAnswer: { text: "Die ersten 90 Minuten nach der Landung sind kostenfrei enthalten, und bei Flugverspätungen verschiebt sich dieses Zeitfenster automatisch." } },
       { name: "Wie bezahle ich den Transfer?", acceptedAnswer: { text: "Bar an Ihren Chauffeur zu Beginn der Fahrt - zum Festpreis aus Ihrer Buchung, pro Fahrzeug." } },

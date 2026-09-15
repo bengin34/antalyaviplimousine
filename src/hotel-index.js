@@ -83,19 +83,19 @@ export const hotelSlug = (name) =>
  * @type {Readonly<Record<string, IndexRegionSlug>>}
  */
 export const districtRegions = Object.freeze({
-  // Antalya — €35 Vito
+  // Antalya — €38 Vito
   "Antalya merkez": "antalya",
   "Konyaaltı": "antalya",
   "Lara": "antalya",
   "Kundu": "antalya",
   "Aksu": "antalya",
-  // Belek — €40 Vito
+  // Belek — €43 Vito
   "Belek": "belek",
   "Kadriye": "belek",
   "Serik": "belek",
-  // Boğazkent — €45 Vito
+  // Boğazkent — €48 Vito
   "Boğazkent": "bogazkent",
-  // Side — €50 Vito
+  // Side — €53 Vito
   "Side": "side",
   "Kumköy": "side",
   "Gündoğdu": "side",
@@ -103,41 +103,41 @@ export const districtRegions = Object.freeze({
   "Sorgun": "side",
   "Titreyengöl": "side",
   "Çolaklı": "side",
-  // Manavgat — €50 Vito
+  // Manavgat — €53 Vito
   "Manavgat": "manavgat",
-  // Manavgat/Kızılağaç — €60 Vito
+  // Manavgat/Kızılağaç — €73 Vito
   "Kızılağaç": "kizilagac",
   "Kızılot": "kizilagac",
-  // Kemer — €55 Vito
+  // Kemer — €58 Vito
   "Kemer": "kemer",
   "Beldibi": "kemer",
   "Göynük": "kemer",
   "Kiriş": "kemer",
   "Çamyuva": "kemer",
-  // Tekirova — €75 Vito
+  // Tekirova — €78 Vito
   "Tekirova": "tekirova",
-  // Kumluca/Adrasan — €120 Vito
+  // Kumluca/Adrasan — €123 Vito
   "Kumluca": "kumluca",
   "Adrasan": "kumluca",
-  // Kaş — €170 Vito
+  // Kaş — €173 Vito
   "Kaş": "kas",
-  // Batı Alanya — €70 Vito
+  // Batı Alanya — €73 Vito
   "Okurcalar": "alanya_bati",
   "İncekum": "alanya_bati",
   "Avsallar": "alanya_bati",
   "Türkler": "alanya_bati",
   "Payallar": "alanya_bati",
   "Konaklı": "alanya_bati",
-  // Alanya merkez — €75 Vito
+  // Alanya merkez — €78 Vito
   "Alanya merkez": "alanya_merkez",
   "Oba": "alanya_merkez",
   "Tosmur": "alanya_merkez",
-  // Doğu Alanya — €80 Vito
+  // Doğu Alanya — €83 Vito
   "Kestel": "alanya_dogu",
   "Mahmutlar": "alanya_dogu",
-  // Kargıcak — €90 Vito
+  // Kargıcak — €93 Vito
   "Kargıcak": "kargicak",
-  // Demirtaş — €100 Vito
+  // Demirtaş — €103 Vito
   "Demirtaş": "demirtas",
 });
 
@@ -480,11 +480,11 @@ const seedRows = [
  * @type {readonly string[]}
  */
 export const priceBoundaryDistricts = Object.freeze([
-  "Çamyuva", "Tekirova",     // kemer €55 ↔ tekirova €75 — the widest gap left
-  "Kundu", "Aksu",           // antalya €35 ↔ belek €40
-  "Belek", "Boğazkent",      // belek €40 ↔ bogazkent €45 ↔ side €50
-  "Çolaklı", "Kızılot",      // side €50 ↔ kizilagac €60
-  "Kızılağaç", "Okurcalar",  // kizilagac €60 ↔ alanya_bati €70
+  "Çamyuva", "Tekirova",     // kemer €58 ↔ tekirova €78 — the widest gap left
+  "Kundu", "Aksu",           // antalya €38 ↔ belek €43
+  "Belek", "Boğazkent",      // belek €43 ↔ bogazkent €48 ↔ side €53
+  "Çolaklı", "Kızılot",      // side €53 ↔ kizilagac €73
+  "Kızılağaç", "Okurcalar",  // kizilagac €73 = alanya_bati €73 — level, still worth reviewing for the Sprinter gap
 ]);
 
 /**
