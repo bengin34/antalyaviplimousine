@@ -20,6 +20,7 @@ import {
 } from "../lib/booking";
 import { shouldApplyFlightArrival, verifyFlightNumber, type FlightResult } from "../lib/flight-verification";
 import { domain } from "../lib/seo";
+import { track } from "../lib/track";
 
 const faqUrlForLanguage = (language: string) =>
   `${domain}${language === "en" ? "" : `/${language}`}/#faq`;
@@ -289,11 +290,22 @@ export function BookingForm({
     return () => document.body.classList.remove("modal-open");
   }, [confirmation, pendingDailyBooking]);
 
+  // Which step people give up on is the single most useful number the funnel
+  // produces. `pagehide` rather than `beforeunload`: it is the only leave
+  // event mobile Safari reliably fires, and it does not block the unload.
+  useEffect(() => {
+    if (step === 1 || confirmation) return;
+    const abandon = () => track("form_abandoned", { step, route: values.destination, vehicle: values.vehicle });
+    window.addEventListener("pagehide", abandon);
+    return () => window.removeEventListener("pagehide", abandon);
+  }, [step, confirmation, values.destination, values.vehicle]);
+
   const createValidatedBooking = async (formValues: PublicBookingValues, acceptedFuelTerms = false) => {
     setSubmitting(true);
     setSubmitError("");
     const currentQuote = quoteFor(formValues, liveOverrides);
     window.gtag?.("event", "begin_checkout", { currency: "EUR", value: currentQuote.price, trip_type: formValues.tripType });
+    track("begin_checkout", { price: currentQuote.price, trip_type: formValues.tripType, route: formValues.destination });
     try {
       const { createBooking } = await import("../../../src/lib/api.js");
       const booking = await createBooking(buildPublicBookingPayload(formValues, language, acceptedFuelTerms));
@@ -330,6 +342,7 @@ export function BookingForm({
       return;
     }
     window.gtag?.("event", "booking_submitted", { route: formValues.destination, price: quote.price });
+    track("booking_submitted", { route: formValues.destination, price: quote.price, vehicle: formValues.vehicle });
     void createValidatedBooking(formValues);
   };
 
@@ -393,6 +406,11 @@ export function BookingForm({
     }
     setValue("flightVerificationStatus", result.status);
     setValue("flightScheduledArrival", result.arrivalTime ?? "");
+    // How often the check fails to confirm decides whether the monthly API
+    // quota is buying anything. 'unavailable' means we never asked.
+    if (result.status !== "verified" && result.status !== "unavailable") {
+      track("flight_verification_failed", { status: result.status });
+    }
   };
 
   // Tarih degisince onceki dogrulama baska bir gune aittir. Yeni bir sorgu
@@ -409,6 +427,12 @@ export function BookingForm({
     }
     if (hotelNeeded && !(await trigger("hotelName"))) return;
     window.gtag?.("event", "price_shown", { route: values.destination, price: quote.price, vehicle: values.vehicle });
+    track("price_shown", { route: values.destination, price: quote.price, vehicle: values.vehicle });
+    // A selected destination that prices at zero is lost demand, not a bug:
+    // it means the route or the hotel band has no price yet.
+    if (!isDailyChauffeur && values.destination && quote.price <= 0) {
+      track("quote_unavailable", { route: values.destination, vehicle: values.vehicle });
+    }
     setStep(2);
     window.setTimeout(() => document.querySelector<HTMLElement>("#travel-date")?.focus(), 100);
   };
@@ -422,6 +446,7 @@ export function BookingForm({
     const valid = await trigger(step2Fields);
     if (!valid) return;
     window.gtag?.("event", "booking_started", { route: values.destination, price: quote.price });
+    track("booking_started", { route: values.destination, price: quote.price, vehicle: values.vehicle });
     setStep(3);
     window.setTimeout(() => document.querySelector<HTMLInputElement>("#customer-name")?.focus(), 100);
   };

@@ -4,6 +4,7 @@ import { publicRouteSlugs, routeCatalog } from "../../../src/routes.js";
 import { LineBreakText, useLanguage } from "../i18n";
 import { useCarousel } from "../lib/carousel";
 import { faqAnchor, homeFaqGroups, resolveFaqAnchor } from "../lib/faq";
+import { track } from "../lib/track";
 import { BookingForm } from "./BookingForm";
 import { Header } from "./Header";
 import { Icon } from "./Icon";
@@ -343,6 +344,7 @@ export function HomePage({ initialLanguage }: { initialLanguage: string }) {
 
   const bookRoute = (route: string, vehicle: Vehicle = "vito") => {
     window.gtag?.("event", "route_selected", { route, vehicle, source: "home_page" });
+    track("route_selected", { route, vehicle, source: "home_page" });
     setSelection({ route, vehicle, nonce: Date.now() });
   };
   // The rail is not natively scrollable any more, so it earns its tab stop by
@@ -1382,7 +1384,7 @@ export function HomePage({ initialLanguage }: { initialLanguage: string }) {
                 href="https://wa.me/905302655790"
                 target="_blank"
                 rel="noreferrer"
-                onClick={() => window.gtag?.("event", "whatsapp_clicked", { source: "contact_section" })}
+                onClick={() => { window.gtag?.("event", "whatsapp_clicked", { source: "contact_section" }); track("whatsapp_clicked", { source: "contact_section" }); }}
               >
                 <div className="contact-icon">
                   <Icon name="whatsapp" className="whatsapp-icon" />
@@ -1397,7 +1399,11 @@ export function HomePage({ initialLanguage }: { initialLanguage: string }) {
                 </div>
                 <Icon name="arrow-up-right" className="arrow" />
               </a>
-              <a className="contact-card" href="tel:+905302655790">
+              <a
+                className="contact-card"
+                href="tel:+905302655790"
+                onClick={() => { window.gtag?.("event", "phone_clicked", { source: "contact_section" }); track("phone_clicked", { source: "contact_section" }); }}
+              >
                 <div className="contact-icon">
                   <Icon name="phone" />
                 </div>
@@ -1487,7 +1493,7 @@ export function HomePage({ initialLanguage }: { initialLanguage: string }) {
         target="_blank"
         rel="noreferrer"
         aria-label={`Chat on WhatsApp. ${t("opensNewTab", "Opens in a new tab")}`}
-        onClick={() => window.gtag?.("event", "whatsapp_clicked", { source: "floating_button" })}
+        onClick={() => { window.gtag?.("event", "whatsapp_clicked", { source: "floating_button" }); track("whatsapp_clicked", { source: "floating_button" }); }}
       >
         <Icon name="whatsapp" className="whatsapp-icon" />
         <span>{t("chatWithUs", "Chat with us")}</span>
