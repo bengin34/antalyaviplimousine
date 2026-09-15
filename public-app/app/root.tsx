@@ -6,8 +6,10 @@ import {
   ScrollRestoration,
   useMatches,
 } from "react-router";
-import type { ReactNode } from "react";
+import { useEffect, type ReactNode } from "react";
 import { IconSprite } from "./components/Icon";
+import { captureAttribution } from "./lib/attribution";
+import { track } from "./lib/track";
 import siteStyles from "../../src/styles.css?url";
 import reactPublicStyles from "./react-public.css?url";
 
@@ -43,6 +45,15 @@ export function Layout({ children }: { children: ReactNode }) {
     return Boolean(data?.language);
   })?.loaderData as { language?: string } | undefined;
   const language = routeData?.language ?? "en";
+
+  // The ad click only puts its parameters on the landing URL, so record them
+  // once per page load before any in-app navigation drops the query string.
+  useEffect(() => {
+    captureAttribution();
+    // Denominator of every funnel rate below it, so it has to be recorded
+    // after attribution, never before.
+    track("landing_view", {});
+  }, []);
 
   return (
     <html lang={language} dir={["ar", "ur", "he"].includes(language) ? "rtl" : "ltr"}>

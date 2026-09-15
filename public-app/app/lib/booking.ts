@@ -2,6 +2,7 @@ import { parsePhoneNumberFromString } from "libphonenumber-js";
 import { z } from "zod";
 import { routeCatalog } from "../../../src/routes.js";
 import { hotelUnitPrice } from "../../../src/hotel-transfer-pricing.js";
+import { currentAttribution, type Attribution } from "./attribution";
 
 type Translate = (key: string, fallback?: string) => string;
 export const DAILY_CHAUFFEUR_RATE_EUR = 150;
@@ -195,10 +196,18 @@ export async function fetchLivePriceOverrides(): Promise<LivePriceOverrides> {
   }
 }
 
-export function buildPublicBookingPayload(values: PublicBookingValues, language: string, fuelTermsAccepted = false) {
+export function buildPublicBookingPayload(
+  values: PublicBookingValues,
+  language: string,
+  fuelTermsAccepted = false,
+  // Read at call time so a submit always carries the campaign that is in
+  // session storage, without every caller having to thread it through.
+  attribution: Attribution = currentAttribution(),
+) {
   const isDailyChauffeur = values.tripType === "daily_chauffeur";
   if (isDailyChauffeur && !fuelTermsAccepted) throw new Error("Fuel terms must be accepted before booking");
   return {
+    ...attribution,
     customer_name: normalize(values.customerName),
     customer_email: values.customerEmail.trim().toLowerCase(),
     customer_phone: normalize(values.customerPhone).replace(/^00/, "+"),

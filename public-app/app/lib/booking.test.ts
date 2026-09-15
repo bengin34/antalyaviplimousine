@@ -25,6 +25,20 @@ describe("public booking contract", () => {
     });
   });
 
+  test("carries the campaign that brought the visitor onto the booking", () => {
+    expect(
+      buildPublicBookingPayload(base, "de", false, {
+        utm_source: "google", utm_medium: "cpc", utm_campaign: "antalya-transfer",
+        utm_term: null, utm_content: null, gclid: "abc123",
+        landing_page: "/de/transfers/side/", referrer: "https://www.google.com/",
+      }),
+    ).toMatchObject({ utm_source: "google", utm_campaign: "antalya-transfer", gclid: "abc123", landing_page: "/de/transfers/side/" });
+  });
+
+  test("a direct visit still produces a valid payload", () => {
+    expect(buildPublicBookingPayload(base, "de")).toMatchObject({ utm_source: null, gclid: null });
+  });
+
   test("requires return details for a round trip", () => {
     const result = createPublicBookingSchema(t).safeParse({ ...base, tripType: "round_trip" });
     expect(result.success).toBe(false);
