@@ -7,7 +7,7 @@
     "node": ">=22.12.0 <23"
   },
   "scripts": {
-    "prebuild": "npm run check:prices && npm run generate:translations && npm run generate:legal-copy && npm run generate:sitemap && npm run typecheck && npm test",
+    "prebuild": "npm run check:prices && npm run generate:translations && npm run generate:legal-copy && npm run generate:sitemap && npm run generate:feeds && npm run typecheck && npm test",
     "check:prices": "node scripts/verify-prices.mjs",
     "dev": "react-router dev --config vite.public.config.ts --host 0.0.0.0",
     "dev:admin": "vite --config vite.admin.config.ts --host 0.0.0.0",
@@ -20,6 +20,7 @@
     "generate:privacy": "node scripts/build-privacy-pages.mjs",
     "generate:impressum": "node scripts/build-impressum-pages.mjs",
     "generate:sitemap": "node scripts/generate-sitemap.mjs",
+    "generate:feeds": "node scripts/generate-feeds.mjs",
     "generate:translations": "node scripts/extract-public-translations.mjs",
     "generate:legal-copy": "node scripts/extract-legal-copy.mjs",
     "generate:hotel-distances": "node scripts/build-hotel-distances.mjs",

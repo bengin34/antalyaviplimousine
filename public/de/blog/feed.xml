@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Transfer-Ratgeber für Antalya | Antalya VIP Tourism</title>
+    <link>https://antalyaviptourism.com/de/blog/</link>
+    <description>Praktische Ratgeber zur Ankunft in Antalya: Transfer statt Taxi, Treffpunkt am Flughafen, Reisen mit Kindern, Entfernungen an der Küste und die beste Reisezeit.</description>
+    <language>de</language>
+    <atom:link href="https://antalyaviptourism.com/de/blog/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Privattransfer, Taxi oder Sammeltransfer ab Flughafen Antalya?</title>
+      <link>https://antalyaviptourism.com/de/blog/antalya-flughafen-transfer-oder-taxi/</link>
+      <guid isPermaLink="true">https://antalyaviptourism.com/de/blog/antalya-flughafen-transfer-oder-taxi/</guid>
+      <description>Drei Wege aus dem Flughafen Antalya, drei sehr unterschiedliche Ankünfte. Was jede Variante kostet, wie lange sie dauert und für wen sie passt.</description>
+      <pubDate>Wed, 16 Sep 2026 09:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Ankunft am Flughafen Antalya: was nach der Landung passiert</title>
+      <link>https://antalyaviptourism.com/de/blog/flughafen-antalya-ankunft-guide/</link>
+      <guid isPermaLink="true">https://antalyaviptourism.com/de/blog/flughafen-antalya-ankunft-guide/</guid>
+      <description>Von der Landung bis zur Fahrzeugtür: Terminals, Passkontrolle, Treffpunkt und was bei einer Flugverspätung geschieht.</description>
+      <pubDate>Wed, 16 Sep 2026 09:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Flughafen Antalya nach Alanya: wie weit es wirklich ist</title>
+      <link>https://antalyaviptourism.com/de/blog/flughafen-antalya-nach-alanya-entfernung/</link>
+      <guid isPermaLink="true">https://antalyaviptourism.com/de/blog/flughafen-antalya-nach-alanya-entfernung/</guid>
+      <description>Alanya ist der längste der gängigen Antalya-Transfers. Die echte Entfernung, die echte Fahrzeit und was sich bei einer Nachtankunft ändert.</description>
+      <pubDate>Wed, 16 Sep 2026 09:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Mit Kindern zum Hotel reisen</title>
+      <link>https://antalyaviptourism.com/de/blog/antalya-transfer-mit-kindern/</link>
+      <guid isPermaLink="true">https://antalyaviptourism.com/de/blog/antalya-transfer-mit-kindern/</guid>
+      <description>Kindersitze sind auf Anfrage kostenfrei - aber nur, wenn wir vor der Landung davon wissen. Was Sie uns sagen sollten und was ins Fahrzeug passt.</description>
+      <pubDate>Wed, 16 Sep 2026 09:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Vom Flughafen Antalya nach Belek mit Golfgepäck</title>
+      <link>https://antalyaviptourism.com/de/blog/belek-golf-transfer-guide/</link>
+      <guid isPermaLink="true">https://antalyaviptourism.com/de/blog/belek-golf-transfer-guide/</guid>
+      <description>Belek ist zuerst Golfziel und dann Badeort. Was das für Gepäckraum, Fahrzeugwahl und die Fahrt ab AYT bedeutet.</description>
+      <pubDate>Wed, 16 Sep 2026 09:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Wann Sie nach Antalya reisen sollten - und wie die Saison Ihre Ankunft verändert</title>
+      <link>https://antalyaviptourism.com/de/blog/beste-reisezeit-antalya/</link>
+      <guid isPermaLink="true">https://antalyaviptourism.com/de/blog/beste-reisezeit-antalya/</guid>
+      <description>Jede Saison an der türkischen Riviera bringt eine andere Ankunft mit sich. Was sich zwischen April und Oktober ändert - und warum das auf der Straße zählt.</description>
+      <pubDate>Wed, 16 Sep 2026 09:00:00 GMT</pubDate>
+    </item>
+  </channel>
+</rss>

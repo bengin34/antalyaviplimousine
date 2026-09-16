@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Transferguider för Antalya | Antalya VIP Tourism</title>
+    <link>https://antalyaviptourism.com/sv/blog/</link>
+    <description>Praktiska guider om ankomsten till Antalya: privat transfer eller taxi, mötet med chauffören, resa med barn, avstånd längs kusten och när du bör åka.</description>
+    <language>sv</language>
+    <atom:link href="https://antalyaviptourism.com/sv/blog/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Privat transfer, taxi eller delad shuttle från Antalya flygplats?</title>
+      <link>https://antalyaviptourism.com/sv/blog/transfer-eller-taxi-antalya-flygplats/</link>
+      <guid isPermaLink="true">https://antalyaviptourism.com/sv/blog/transfer-eller-taxi-antalya-flygplats/</guid>
+      <description>Tre sätt att lämna Antalya flygplats och tre mycket olika starter på semestern. Vad varje alternativ kostar, hur lång tid det tar och vem det passar.</description>
+      <pubDate>Wed, 16 Sep 2026 09:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Ankomst till Antalya flygplats: vad som händer efter landning</title>
+      <link>https://antalyaviptourism.com/sv/blog/ankomst-antalya-flygplats-guide/</link>
+      <guid isPermaLink="true">https://antalyaviptourism.com/sv/blog/ankomst-antalya-flygplats-guide/</guid>
+      <description>Från hjulen i marken till bildörren: terminaler, passkontroll, mötesplatsen och vad som händer när flyget är sent.</description>
+      <pubDate>Wed, 16 Sep 2026 09:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Antalya flygplats till Alanya: hur långt det verkligen är</title>
+      <link>https://antalyaviptourism.com/sv/blog/antalya-flygplats-till-alanya-avstand/</link>
+      <guid isPermaLink="true">https://antalyaviptourism.com/sv/blog/antalya-flygplats-till-alanya-avstand/</guid>
+      <description>Alanya är den längsta av de vanliga transfersträckorna från Antalya. Det verkliga avståndet, den verkliga restiden och vad som ändras vid nattankomst.</description>
+      <pubDate>Wed, 16 Sep 2026 09:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Resa till hotellet med barn</title>
+      <link>https://antalyaviptourism.com/sv/blog/transfer-antalya-flygplats-med-barn/</link>
+      <guid isPermaLink="true">https://antalyaviptourism.com/sv/blog/transfer-antalya-flygplats-med-barn/</guid>
+      <description>Bilbarnstolar är kostnadsfria på begäran, men bara om vi vet om dem innan du landar. Vad du bör säga och vad som verkligen får plats i fordonet.</description>
+      <pubDate>Wed, 16 Sep 2026 09:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Från Antalya flygplats till Belek med golfbagar</title>
+      <link>https://antalyaviptourism.com/sv/blog/golftransfer-till-belek/</link>
+      <guid isPermaLink="true">https://antalyaviptourism.com/sv/blog/golftransfer-till-belek/</guid>
+      <description>Belek är först en golfdestination och därefter en badort. Vad det betyder för bagageutrymme, val av fordon och resan från AYT.</description>
+      <pubDate>Wed, 16 Sep 2026 09:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>När du bör besöka Antalya - och hur säsongen ändrar din ankomst</title>
+      <link>https://antalyaviptourism.com/sv/blog/basta-tiden-att-besoka-antalya/</link>
+      <guid isPermaLink="true">https://antalyaviptourism.com/sv/blog/basta-tiden-att-besoka-antalya/</guid>
+      <description>Varje säsong på turkiska rivieran ger en annan ankomst. Vad som ändras mellan april och oktober, och varför det spelar roll på vägen.</description>
+      <pubDate>Wed, 16 Sep 2026 09:00:00 GMT</pubDate>
+    </item>
+  </channel>
+</rss>

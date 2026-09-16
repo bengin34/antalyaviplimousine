@@ -5,6 +5,7 @@ import { LineBreakText, useLanguage } from "../i18n";
 import { useCarousel } from "../lib/carousel";
 import { faqAnchor, homeFaqGroups, resolveFaqAnchor } from "../lib/faq";
 import { track } from "../lib/track";
+import { blogPath, blogText, isArticleLanguage } from "../lib/articles";
 import { BookingForm } from "./BookingForm";
 import { Header } from "./Header";
 import { Icon } from "./Icon";
@@ -1469,6 +1470,9 @@ export function HomePage({ initialLanguage }: { initialLanguage: string }) {
               <span>{t("information", "Information")}</span>
               <a href="#faq">FAQ</a>
               <a href="#contact">{t("navContact", "Contact")}</a>
+              {isArticleLanguage(language) && (
+                <a href={blogPath(language)}>{blogText(language).blog}</a>
+              )}
               <a href={imprintHref}>Impressum</a>
               <a href={privacyHref}>Privacy</a>
             </div>

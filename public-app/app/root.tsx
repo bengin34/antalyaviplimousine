@@ -36,6 +36,15 @@ const skipLabels: Record<string, string> = {
   sv: "Hoppa till huvudinnehållet",
   ja: "本文へスキップ",
   ko: "본문으로 건너뛰기",
+  da: "Gå til hovedindholdet",
+  el: "Μετάβαση στο κύριο περιεχόμενο",
+  es: "Saltar al contenido principal",
+  he: "דלג לתוכן הראשי",
+  hu: "Ugrás a fő tartalomra",
+  it: "Vai al contenuto principale",
+  pt: "Ir para o conteúdo principal",
+  ro: "Sari la conținutul principal",
+  zh: "跳转到主要内容",
 };
 
 export function Layout({ children }: { children: ReactNode }) {

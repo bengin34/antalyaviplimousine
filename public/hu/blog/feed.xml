@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Antalyai transzfer útmutatók | Antalya VIP Tourism</title>
+    <link>https://antalyaviptourism.com/hu/blog/</link>
+    <description>Gyakorlatias útmutatók az antalyai érkezéshez: transzfer vagy taxi, a sofőrrel való találkozás, utazás gyerekekkel, parti távolságok és mikor érdemes menni.</description>
+    <language>hu</language>
+    <atom:link href="https://antalyaviptourism.com/hu/blog/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Magántranszfer, taxi vagy közös shuttle az antalyai repülőtérről?</title>
+      <link>https://antalyaviptourism.com/hu/blog/transzfer-vagy-taxi-antalya-repuloter/</link>
+      <guid isPermaLink="true">https://antalyaviptourism.com/hu/blog/transzfer-vagy-taxi-antalya-repuloter/</guid>
+      <description>Három út kifelé az antalyai repülőtérről, és három nagyon eltérő nyaraláskezdés. Mennyibe kerül, mennyi ideig tart, és kinek való.</description>
+      <pubDate>Wed, 16 Sep 2026 09:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Érkezés az antalyai repülőtérre: mi történik landolás után</title>
+      <link>https://antalyaviptourism.com/hu/blog/erkezes-antalya-repuloter-utmutato/</link>
+      <guid isPermaLink="true">https://antalyaviptourism.com/hu/blog/erkezes-antalya-repuloter-utmutato/</guid>
+      <description>A kerekek földet érésétől a jármű ajtajáig: terminálok, útlevélvizsgálat, a találkozási pont és mi történik késésnél.</description>
+      <pubDate>Wed, 16 Sep 2026 09:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Az antalyai repülőtértől Alanyáig: valójában milyen messze van</title>
+      <link>https://antalyaviptourism.com/hu/blog/antalya-repuloter-alanya-tavolsag/</link>
+      <guid isPermaLink="true">https://antalyaviptourism.com/hu/blog/antalya-repuloter-alanya-tavolsag/</guid>
+      <description>Alanya a legmesszebbi a gyakori antalyai transzferek közül. A valós távolság, a valós menetidő, és mi változik éjszakai érkezéskor.</description>
+      <pubDate>Wed, 16 Sep 2026 09:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Utazás a szállodáig gyerekekkel</title>
+      <link>https://antalyaviptourism.com/hu/blog/antalya-repuloteri-transzfer-gyerekekkel/</link>
+      <guid isPermaLink="true">https://antalyaviptourism.com/hu/blog/antalya-repuloteri-transzfer-gyerekekkel/</guid>
+      <description>A gyerekülés kérésre díjmentes, de csak ha landolás előtt tudunk róla. Mit mondjon el nekünk, és mi fér be valójában a járműbe.</description>
+      <pubDate>Wed, 16 Sep 2026 09:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Az antalyai repülőtérről Belekbe golfbagokkal</title>
+      <link>https://antalyaviptourism.com/hu/blog/golftranszfer-belekbe/</link>
+      <guid isPermaLink="true">https://antalyaviptourism.com/hu/blog/golftranszfer-belekbe/</guid>
+      <description>Belek először golfcélpont, és csak utána tengerparti üdülőhely. Mit jelent ez a csomagtérre, a járműválasztásra és az AYT-ről vezető útra.</description>
+      <pubDate>Wed, 16 Sep 2026 09:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Mikor látogasson Antalyába - és hogyan változtatja meg a szezon az érkezését</title>
+      <link>https://antalyaviptourism.com/hu/blog/mikor-erdemes-antalyaba-menni/</link>
+      <guid isPermaLink="true">https://antalyaviptourism.com/hu/blog/mikor-erdemes-antalyaba-menni/</guid>
+      <description>A Török Riviérán minden évszak más érkezést jelent. Mi változik április és október között, és miért számít ez az úton.</description>
+      <pubDate>Wed, 16 Sep 2026 09:00:00 GMT</pubDate>
+    </item>
+  </channel>
+</rss>

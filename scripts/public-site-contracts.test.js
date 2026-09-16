@@ -297,6 +297,40 @@ describe("public React migration baseline", () => {
     }
   }
 
+  test("annotates translated sitemap URLs with their hreflang alternates", () => {
+    const sitemap = readFileSync(path.join(root, "public", "sitemap.xml"), "utf8");
+    const entries = [...sitemap.matchAll(/<url>([\s\S]*?)<\/url>/g)].map(
+      (match) => match[1],
+    );
+
+    const entryFor = (urlPath) =>
+      entries.find((entry) => entry.includes(`<loc>${canonicalFor(urlPath)}</loc>`));
+
+    const alternatesIn = (entry) =>
+      [...entry.matchAll(/hreflang="([^"]+)" href="([^"]+)"/g)].map((match) => [
+        match[1],
+        match[2],
+      ]);
+
+    // A translated page carries one annotation per language plus x-default,
+    // and the set must include a self-reference or Google discards the group.
+    const home = alternatesIn(entryFor("/de/"));
+
+    expect(Object.fromEntries(home)).toMatchObject({
+      de: canonicalFor("/de/"),
+      en: canonicalFor("/"),
+      "x-default": canonicalFor("/"),
+    });
+
+    const belek = alternatesIn(entryFor("/ru/transfers/belek/"));
+
+    expect(Object.fromEntries(belek).ru).toBe(canonicalFor("/ru/transfers/belek/"));
+
+    // German hotel pages exist in one language only, so they must not claim
+    // alternates that do not exist.
+    expect(alternatesIn(entryFor("/de/hotels/rixos-premium-belek/"))).toEqual([]);
+  });
+
   for (const urlPath of legalPaths) {
     test(`${urlPath} keeps its canonical legal page`, () => {
       const { document } = parsePage(urlPath);

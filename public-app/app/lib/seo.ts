@@ -3,6 +3,16 @@ import { hotelSlug, indexedHotelBySlug } from "../../../src/hotel-index.js";
 import { hotelBySlug } from "../../../src/hotels.js";
 import translationData from "../generated/legacy-translations.json";
 import { homeFaqOrder } from "./faq";
+import {
+  articleAlternateLanguages,
+  articleLanguages,
+  articlePath,
+  articlesForLanguage,
+  blogLocale,
+  blogPath,
+  blogText,
+  type Article,
+} from "./articles";
 
 export const domain = "https://antalyaviptourism.com";
 export const indexableLanguages = ["en", "de", "fr", "tr", "ru", "cs", "uk", "ur", "pl", "nl", "ar", "sv", "da", "el", "es", "he", "hu", "it", "ja", "ko", "pt", "ro", "zh"] as const;
@@ -478,3 +488,138 @@ export function hotelMeta(slug: string) {
 }
 
 export const routeCopy = (language: IndexableLanguage) => routeText[language];
+// ─── BLOG ────────────────────────────────────────────────────────────────
+// Articles exist only in the languages we can write well, so their hreflang
+// set is per article rather than the site-wide `indexableLanguages`.
+
+const publisher = {
+  "@type": "Organization",
+  name: "Antalya VIP Tourism",
+  url: domain,
+  logo: { "@type": "ImageObject", url: `${domain}/assets/optimized/logo.png` },
+};
+
+const blogAlternates = (paths: Record<string, string>) => [
+  ...Object.entries(paths).map(([language, path]) => ({
+    tagName: "link", rel: "alternate", hrefLang: language, href: `${domain}${path}`,
+  })),
+  { tagName: "link", rel: "alternate", hrefLang: "x-default", href: `${domain}${paths.en}` },
+];
+
+const feedDescriptor = (language: string, title: string) => ({
+  tagName: "link",
+  rel: "alternate",
+  type: "application/rss+xml",
+  title,
+  href: `${domain}${blogPath(language)}feed.xml`,
+});
+
+export function blogMeta(language: string) {
+  const text = blogText(language);
+  const url = `${domain}${blogPath(language)}`;
+  const image = `${domain}/assets/optimized/og-antalya-transfer.jpg`;
+  const languages = articleLanguages.filter((code) => articlesForLanguage(code).length > 0);
+  const paths = Object.fromEntries(languages.map((code) => [code, blogPath(code)]));
+  const posts = articlesForLanguage(language);
+
+  return [
+    { title: text.indexTitle },
+    { name: "description", content: text.indexDescription },
+    { tagName: "link", rel: "canonical", href: url },
+    ...blogAlternates(paths),
+    feedDescriptor(language, text.heading),
+    ...socialDescriptors(text.indexTitle, text.indexDescription, url, blogLocale[language] ?? "en_GB", image),
+    {
+      "script:ld+json": {
+        "@context": "https://schema.org",
+        "@type": "Blog",
+        name: text.heading,
+        description: text.indexDescription,
+        url,
+        inLanguage: language,
+        publisher,
+        blogPost: posts.map((article) => {
+          const copy = article.content[language]!;
+          return {
+            "@type": "BlogPosting",
+            headline: copy.heading,
+            description: copy.excerpt,
+            url: `${domain}${articlePath(language, article)}`,
+            datePublished: article.published,
+            dateModified: article.updated,
+            inLanguage: language,
+          };
+        }),
+      },
+    },
+    {
+      "script:ld+json": {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Antalya VIP Tourism", item: `${domain}${localizedPath(language as IndexableLanguage)}` },
+          { "@type": "ListItem", position: 2, name: text.heading, item: url },
+        ],
+      },
+    },
+  ];
+}
+
+export function articleMeta(language: string, article: Article) {
+  const copy = article.content[language];
+  if (!copy) return [];
+  const text = blogText(language);
+  const url = `${domain}${articlePath(language, article)}`;
+  const image = `${domain}${article.image}`;
+  const paths = Object.fromEntries(
+    articleAlternateLanguages(article).map((code) => [code, articlePath(code, article) as string]),
+  );
+
+  return [
+    { title: copy.title },
+    { name: "description", content: copy.description },
+    { tagName: "link", rel: "canonical", href: url },
+    ...blogAlternates(paths),
+    feedDescriptor(language, text.heading),
+    ...socialDescriptors(copy.title, copy.description, url, blogLocale[language] ?? "en_GB", image),
+    { property: "article:published_time", content: article.published },
+    { property: "article:modified_time", content: article.updated },
+    {
+      "script:ld+json": {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        headline: copy.heading,
+        description: copy.description,
+        image,
+        datePublished: article.published,
+        dateModified: article.updated,
+        inLanguage: language,
+        mainEntityOfPage: { "@type": "WebPage", "@id": url },
+        author: publisher,
+        publisher,
+      },
+    },
+    {
+      "script:ld+json": {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Antalya VIP Tourism", item: `${domain}${localizedPath(language as IndexableLanguage)}` },
+          { "@type": "ListItem", position: 2, name: text.heading, item: `${domain}${blogPath(language)}` },
+          { "@type": "ListItem", position: 3, name: copy.heading, item: url },
+        ],
+      },
+    },
+    {
+      "script:ld+json": {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        mainEntity: copy.faq.map(([question, answer]) => ({
+          "@type": "Question",
+          name: question,
+          acceptedAnswer: { "@type": "Answer", text: answer },
+        })),
+      },
+    },
+  ];
+}

@@ -1,7 +1,8 @@
 import { readFile, stat } from "node:fs/promises";
 import path from "node:path";
 import { JSDOM } from "jsdom";
-import { clinicPaths, healthPaths, homePaths, hotelPaths, legalPaths, prerenderPaths, publicLanguages, sitemapPaths, transferPaths } from "../src/public-paths.js";
+import { articlePaths, blogPaths, clinicPaths, healthPaths, homePaths, hotelPaths, legalPaths, prerenderPaths, publicLanguages, sitemapPaths, transferPaths } from "../src/public-paths.js";
+import { articleLanguages, articlesForLanguage, blogPath } from "../src/articles/index.js";
 import { routeCatalog } from "../src/routes.js";
 
 const root = process.cwd();
@@ -13,6 +14,12 @@ const clinicSet = new Set(clinicPaths);
 const transferSet = new Set(transferPaths);
 const hotelSet = new Set(hotelPaths);
 const legalSet = new Set(legalPaths);
+const blogSet = new Set(blogPaths);
+const articleSet = new Set(articlePaths);
+// The blog is published in fewer languages than the rest of the site, so its
+// hreflang group is smaller on purpose - claiming the site-wide set would
+// point at pages that do not exist.
+const expectedBlogAlternates = articleLanguages.length + 1;
 // Derived from the language list rather than repeated here: the two drifted
 // apart once already, when the site grew to 23 languages and this file kept
 // checking for 11 of them.
@@ -56,6 +63,8 @@ for (const urlPath of prerenderPaths) {
     if (alternateCount !== 0) fail(`${urlPath}: noindex clinic route must not publish unavailable language alternates`);
   } else if (legalSet.has(urlPath)) {
     if (alternateCount < 5) fail(`${urlPath}: incomplete language alternates`);
+  } else if (blogSet.has(urlPath) || articleSet.has(urlPath)) {
+    if (alternateCount !== expectedBlogAlternates) fail(`${urlPath}: expected ${expectedBlogAlternates} blog language alternates, found ${alternateCount}`);
   } else if (alternateCount !== expectedAlternates) fail(`${urlPath}: expected ${expectedAlternates} language alternates, found ${alternateCount}`);
   if (!document.querySelector('script[type="module"]')) fail(`${urlPath}: React client entry is missing`);
   if (html.includes('/src/main.js') || html.includes('/src/consent.js')) fail(`${urlPath}: legacy runtime is still referenced`);
@@ -95,6 +104,20 @@ for (const urlPath of prerenderPaths) {
     const service = schemas.find((schema) => schema["@type"] === "Service");
     if (service?.provider?.["@type"] !== "TravelAgency") fail(`${urlPath}: health coordinator schema must identify a travel agency`);
     if (schemas.some((schema) => ["MedicalClinic", "Hospital"].includes(schema["@type"]))) fail(`${urlPath}: health route incorrectly claims a medical-provider schema`);
+  }
+
+  if (blogSet.has(urlPath) || articleSet.has(urlPath)) {
+    const language = urlPath.match(localisedPrefix)?.[1] || "en";
+    const schemas = [...document.querySelectorAll('script[type="application/ld+json"]')]
+      .map((script) => JSON.parse(script.textContent || "{}"));
+    const wanted = articleSet.has(urlPath) ? "BlogPosting" : "Blog";
+    if (!schemas.some((schema) => schema["@type"] === wanted)) fail(`${urlPath}: ${wanted} schema is missing`);
+    if (!schemas.some((schema) => schema["@type"] === "BreadcrumbList")) fail(`${urlPath}: blog breadcrumb schema is missing`);
+    if (document.querySelectorAll("h1").length !== 1) fail(`${urlPath}: a guide must have exactly one H1`);
+    const feed = document.querySelector('link[rel="alternate"][type="application/rss+xml"]')?.getAttribute("href");
+    if (feed !== `${domain}${blogPath(language)}feed.xml`) fail(`${urlPath}: feed link is missing or wrong`);
+    if (!(await exists(path.join(dist, `${blogPath(language)}feed.xml`.slice(1))))) fail(`${urlPath}: feed file is missing from the build`);
+    if (articlesForLanguage(language).length === 0) fail(`${urlPath}: blog route published for a language with no articles`);
   }
 
   if (clinicSet.has(urlPath)) {

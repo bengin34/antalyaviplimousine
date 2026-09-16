@@ -4,6 +4,7 @@ import type { IndexableLanguage } from "../lib/seo";
 import { routeCopy } from "../lib/seo";
 import { BookingForm } from "./BookingForm";
 import { StaticPageHeader } from "./StaticPageHeader";
+import { articlePath, articlesForRoute, blogPath, blogText, isArticleLanguage } from "../lib/articles";
 
 type LocalizedRoute = NonNullable<ReturnType<typeof localizedRoute>>;
 
@@ -96,6 +97,8 @@ export function TransferPage({ language, route }: { language: IndexableLanguage;
   const germanHotels = language === "de" ? germanLandingHotels[route.slug] : undefined;
   const cataloguedHotels = language === "de" ? hotelsForRegion(route.slug) : [];
   const germanRegion = language === "de" ? germanRegionCopy[route.slug] : undefined;
+  const guides = isArticleLanguage(language) ? articlesForRoute(language, route.slug) : [];
+  const guideText = blogText(language);
   const germanFaq = germanHotels ? [
     ...faq,
     ["Wo treffe ich das Transfer-Team am Flughafen Antalya?", "Nachdem Sie Ihr Gepäck abgeholt haben, gehen Sie bitte zum Meet & Greet Bereich J / 777. Unser Flughafen-Team findet Ihre Buchung und bringt Sie mit Ihrem Fahrer zusammen."],
@@ -112,6 +115,18 @@ export function TransferPage({ language, route }: { language: IndexableLanguage;
         {germanHotels && <section className="localized-hotels"><div><p className="eyebrow"><span />Für Ihre Unterkunft</p><h2>Beliebte Hotels in {route.name}</h2><p>Wir fahren direkt zu diesen und weiteren Hotels in der Region.</p></div><ul>{germanHotels.map((hotel) => { const catalogued = cataloguedHotels.find((entry) => entry.name === hotel); return <li key={hotel}>{catalogued ? <a href={`/de/hotels/${catalogued.slug}/`}>{hotel}</a> : hotel}</li>; })}</ul></section>}
         <section className="localized-faq"><h2>{text.faq}</h2>{germanFaq.map(([question, answer]) => <article key={question}><h3>{question}</h3><p>{answer}</p></article>)}</section>
         <section className="localized-links"><h2>{text.other}</h2><div>{publicRouteSlugs.filter((slug) => slug !== route.slug).map((slug) => <a href={`${prefix}/transfers/${slug}/`} key={slug}>{(routeCatalog[slug].names as Record<string, string>)[language] ?? routeCatalog[slug].names.en}</a>)}</div></section>
+        {guides.length > 0 && (
+          <section className="localized-links" aria-labelledby="route-guides-heading">
+            <h2 id="route-guides-heading">{guideText.routeGuidesHeading}</h2>
+            <div>
+              {guides.map((guide) => (
+                <a key={guide.id} href={articlePath(language, guide) ?? blogPath(language)}>
+                  {guide.content[language]!.heading}
+                </a>
+              ))}
+            </div>
+          </section>
+        )}
         <section className="localized-contact" id="contact"><h2>{text.book}</h2><p>{text.contact}</p><a className="button button-gold" href="https://wa.me/905302655790">WhatsApp</a></section>
       </main>
       <div hidden aria-hidden="true"><BookingForm selection={{ route: route.slug, vehicle: "vito", nonce: 1 }} scrollOnSelect={false} /></div>

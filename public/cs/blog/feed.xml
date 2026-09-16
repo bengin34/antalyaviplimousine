@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Průvodci transfery v Antalyi | Antalya VIP Tourism</title>
+    <link>https://antalyaviptourism.com/cs/blog/</link>
+    <description>Praktičtí průvodci příletem do Antalye: transfer versus taxi, setkání s řidičem, cestování s dětmi, vzdálenosti podél pobřeží a kdy jet.</description>
+    <language>cs</language>
+    <atom:link href="https://antalyaviptourism.com/cs/blog/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Soukromý transfer, taxi, nebo sdílený shuttle z letiště Antalya?</title>
+      <link>https://antalyaviptourism.com/cs/blog/transfer-nebo-taxi-letiste-antalya/</link>
+      <guid isPermaLink="true">https://antalyaviptourism.com/cs/blog/transfer-nebo-taxi-letiste-antalya/</guid>
+      <description>Tři způsoby, jak opustit letiště v Antalyi, a tři zcela odlišné začátky dovolené. Kolik co stojí, jak dlouho to trvá a komu se to hodí.</description>
+      <pubDate>Wed, 16 Sep 2026 09:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Přílet na letiště v Antalyi: co se děje po přistání</title>
+      <link>https://antalyaviptourism.com/cs/blog/prilet-letiste-antalya-pruvodce/</link>
+      <guid isPermaLink="true">https://antalyaviptourism.com/cs/blog/prilet-letiste-antalya-pruvodce/</guid>
+      <description>Od dosednutí po dveře vozidla: terminály, pasová kontrola, místo setkání a co se stane při zpoždění.</description>
+      <pubDate>Wed, 16 Sep 2026 09:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Z letiště v Antalyi do Alanye: jak daleko to opravdu je</title>
+      <link>https://antalyaviptourism.com/cs/blog/letiste-antalya-alanya-vzdalenost/</link>
+      <guid isPermaLink="true">https://antalyaviptourism.com/cs/blog/letiste-antalya-alanya-vzdalenost/</guid>
+      <description>Alanya je nejdelší z běžných transferů z Antalye. Skutečná vzdálenost, skutečná doba jízdy a co mění noční přílet.</description>
+      <pubDate>Wed, 16 Sep 2026 09:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Cesta do hotelu s dětmi</title>
+      <link>https://antalyaviptourism.com/cs/blog/transfer-letiste-antalya-s-detmi/</link>
+      <guid isPermaLink="true">https://antalyaviptourism.com/cs/blog/transfer-letiste-antalya-s-detmi/</guid>
+      <description>Dětské sedačky jsou na vyžádání zdarma, ale jen když o nich víme dřív, než přistanete. Co nám říct a co se do vozidla opravdu vejde.</description>
+      <pubDate>Wed, 16 Sep 2026 09:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Z letiště v Antalyi do Beleku s golfovými bagy</title>
+      <link>https://antalyaviptourism.com/cs/blog/golfovy-transfer-do-beleku/</link>
+      <guid isPermaLink="true">https://antalyaviptourism.com/cs/blog/golfovy-transfer-do-beleku/</guid>
+      <description>Belek je nejdřív golfová destinace a teprve pak plážové letovisko. Co to znamená pro zavazadlový prostor, volbu vozidla a jízdu z AYT.</description>
+      <pubDate>Wed, 16 Sep 2026 09:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Kdy jet do Antalye - a jak sezona mění váš přílet</title>
+      <link>https://antalyaviptourism.com/cs/blog/nejlepsi-doba-na-antalyu/</link>
+      <guid isPermaLink="true">https://antalyaviptourism.com/cs/blog/nejlepsi-doba-na-antalyu/</guid>
+      <description>Každá sezona na Turecké riviéře znamená jiný přílet. Co se mění mezi dubnem a říjnem a proč na tom na silnici záleží.</description>
+      <pubDate>Wed, 16 Sep 2026 09:00:00 GMT</pubDate>
+    </item>
+  </channel>
+</rss>
