@@ -17,6 +17,12 @@ const navigate = (hash: string) => { window.location.hash = hash }
 
 export default function App() {
   const [session, setSession] = useState<Session | null | undefined>(undefined)
+  // Oturum açmış olmak artık yöneticilik anlamına gelmiyor: yetki
+  // `admin_users` listesinden gelir (bkz. 20260916090000 migration'ı).
+  // Liste dışı bir hesap RLS yüzünden zaten boş ekranlar görürdü; burada
+  // sebebini söyleyip oturumu kapatıyoruz.
+  const [isAdmin, setIsAdmin] = useState<boolean | undefined>(undefined)
+  const [deniedNotice, setDeniedNotice] = useState('')
   const [hash, setHash] = useState(window.location.hash || '#timeline')
 
   useEffect(() => {
@@ -28,6 +34,7 @@ export default function App() {
       if (event === 'SIGNED_OUT') {
         clearTimelineCache()
         setSession(null)
+        setIsAdmin(undefined)
         navigate('#login')
       } else if (nextSession) {
         setSession(nextSession)
@@ -43,8 +50,27 @@ export default function App() {
     }
   }, [])
 
+  const userId = session?.user?.id
+  useEffect(() => {
+    if (!userId) return
+    let mounted = true
+    supabase.rpc('is_admin').then(({ data, error }: { data: boolean | null; error: unknown }) => {
+      if (!mounted) return
+      if (error || data !== true) {
+        setDeniedNotice('Bu hesabın yönetim paneline erişim yetkisi yok.')
+        setIsAdmin(false)
+        void supabase.auth.signOut()
+      } else {
+        setDeniedNotice('')
+        setIsAdmin(true)
+      }
+    })
+    return () => { mounted = false }
+  }, [userId])
+
   if (session === undefined) return <div className="react-route-loading">Yükleniyor…</div>
-  if (!session) return <LoginPage onSuccess={() => navigate('#timeline')} />
+  if (!session) return <LoginPage notice={deniedNotice} onSuccess={() => navigate('#timeline')} />
+  if (isAdmin !== true) return <div className="react-route-loading">Yükleniyor…</div>
 
   if (hash === '#login') {
     navigate('#timeline')

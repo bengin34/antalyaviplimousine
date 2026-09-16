@@ -1,5 +1,5 @@
 begin;
-select plan(68);
+select plan(70);
 
 create function pg_temp.error_code(p_statement text) returns text language plpgsql as $$
 begin
@@ -75,6 +75,21 @@ values (
   pg_catalog.now(), pg_catalog.now(), pg_catalog.now()
 );
 
+-- Yetki artık "oturum açmış olmak" değil, admin_users listesinde olmak
+-- (bkz. 20260916090000). Test kullanıcısı yönetici olarak kaydedilir.
+insert into public.admin_users (user_id, note)
+values ('11111111-1111-4111-8111-111111111111', 'pgtap');
+
+-- İkinci hesap bilerek listeye ALINMAZ: giriş yapmış ama yönetici olmayan
+-- bir kullanıcının RPC'leri çağıramadığını doğrulamak için.
+insert into auth.users (id, instance_id, aud, role, email, encrypted_password, email_confirmed_at, created_at, updated_at)
+values (
+  '22222222-2222-4222-8222-222222222222',
+  '00000000-0000-0000-0000-000000000000',
+  'authenticated', 'authenticated', 'not-an-admin@example.com', '',
+  pg_catalog.now(), pg_catalog.now(), pg_catalog.now()
+);
+
 set local role anon;
 select is(pg_temp.error_code('select count(*) from public.profit_share_settings'), '42501', 'anon cannot read settings');
 select is(pg_temp.error_code($$select public.set_profit_share_settings(date '2020-01-01', 50, 50)$$), '42501', 'anon cannot call settings RPC');
@@ -84,6 +99,10 @@ reset role;
 set local role authenticated;
 select is(pg_temp.error_code($$select public.set_profit_share_settings(date '2020-01-01', 50, 50)$$), 'P0001', 'settings RPC explicitly rejects a missing auth uid');
 select is(pg_temp.error_code($$select public.create_profit_distribution(date '2020-01-01', date '2020-01-01', 50, 50, '{}'::jsonb)$$), 'P0001', 'distribution RPC explicitly rejects a missing auth uid before other validation');
+select pg_catalog.set_config('request.jwt.claim.sub', '22222222-2222-4222-8222-222222222222', true);
+select is(pg_temp.error_code($$select public.set_profit_share_settings(date '2020-01-01', 50, 50)$$), 'P0001', 'signed-in non-admin cannot call settings RPC');
+select is(pg_temp.error_code($$select public.create_profit_distribution(date '2020-01-01', date '2020-01-01', 50, 50, '{}'::jsonb)$$), 'P0001', 'signed-in non-admin cannot call distribution RPC');
+
 select pg_catalog.set_config('request.jwt.claim.sub', '11111111-1111-4111-8111-111111111111', true);
 
 select lives_ok($$select count(*) from public.profit_share_settings$$, 'authenticated can read settings');

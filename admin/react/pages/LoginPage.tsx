@@ -1,10 +1,11 @@
 import { useState, type FormEvent } from 'react'
 import { supabase } from '../lib/supabase'
 
-export default function LoginPage({ onSuccess }: { onSuccess: () => void }) {
+export default function LoginPage({ onSuccess, notice = '' }: { onSuccess: () => void; notice?: string }) {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-  const [error, setError] = useState('')
+  // `notice`: yetkisiz bir hesabın oturumu kapatıldığında sebebi gösterir.
+  const [error, setError] = useState(notice)
   const [loading, setLoading] = useState(false)
 
   const submit = async (event: FormEvent) => {
