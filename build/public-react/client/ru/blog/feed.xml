@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Гиды по трансферам в Анталии | Antalya VIP Tourism</title>
+    <link>https://antalyaviptourism.com/ru/blog/</link>
+    <description>Практические материалы о прилёте в Анталию: трансфер или такси, встреча с водителем, поездка с детьми, расстояния вдоль побережья и когда лучше ехать.</description>
+    <language>ru</language>
+    <atom:link href="https://antalyaviptourism.com/ru/blog/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Трансфер, такси или групповой шаттл из аэропорта Анталии?</title>
+      <link>https://antalyaviptourism.com/ru/blog/transfer-ili-taksi-v-aeroportu-antalii/</link>
+      <guid isPermaLink="true">https://antalyaviptourism.com/ru/blog/transfer-ili-taksi-v-aeroportu-antalii/</guid>
+      <description>Три способа уехать из аэропорта Анталии и три совершенно разных начала отпуска. Разбираем цену, время и то, кому что подходит.</description>
+      <pubDate>Wed, 16 Sep 2026 09:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Прилёт в аэропорт Анталии: что происходит после посадки</title>
+      <link>https://antalyaviptourism.com/ru/blog/pribytie-v-aeroport-antalii/</link>
+      <guid isPermaLink="true">https://antalyaviptourism.com/ru/blog/pribytie-v-aeroport-antalii/</guid>
+      <description>От касания полосы до двери машины: терминалы, паспортный контроль, точка встречи и что бывает при задержке рейса.</description>
+      <pubDate>Wed, 16 Sep 2026 09:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>От аэропорта Анталии до Алании: сколько это на самом деле</title>
+      <link>https://antalyaviptourism.com/ru/blog/rasstoyanie-ot-aeroporta-antalii-do-alanii/</link>
+      <guid isPermaLink="true">https://antalyaviptourism.com/ru/blog/rasstoyanie-ot-aeroporta-antalii-do-alanii/</guid>
+      <description>Алания - самый длинный из популярных трансферов Анталии. Реальное расстояние, реальное время и что меняется при ночном прилёте.</description>
+      <pubDate>Wed, 16 Sep 2026 09:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Поездка в отель с детьми</title>
+      <link>https://antalyaviptourism.com/ru/blog/transfer-iz-aeroporta-antalii-s-detmi/</link>
+      <guid isPermaLink="true">https://antalyaviptourism.com/ru/blog/transfer-iz-aeroporta-antalii-s-detmi/</guid>
+      <description>Детские кресла бесплатны по запросу, но только если мы узнаем о них до вашей посадки. Что сообщить и что реально помещается в машину.</description>
+      <pubDate>Wed, 16 Sep 2026 09:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Из аэропорта Анталии в Белек с гольф-сумками</title>
+      <link>https://antalyaviptourism.com/ru/blog/transfer-v-belek-dlya-golfa/</link>
+      <guid isPermaLink="true">https://antalyaviptourism.com/ru/blog/transfer-v-belek-dlya-golfa/</guid>
+      <description>Белек - сначала гольф-направление и только потом пляжный курорт. Что это значит для багажника, выбора машины и дороги из AYT.</description>
+      <pubDate>Wed, 16 Sep 2026 09:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Когда ехать в Анталию - и как сезон меняет ваш прилёт</title>
+      <link>https://antalyaviptourism.com/ru/blog/kogda-luchshe-ehat-v-antaliyu/</link>
+      <guid isPermaLink="true">https://antalyaviptourism.com/ru/blog/kogda-luchshe-ehat-v-antaliyu/</guid>
+      <description>На Турецкой Ривьере каждый сезон - это разный прилёт. Что меняется с апреля по октябрь и почему это важно на дороге.</description>
+      <pubDate>Wed, 16 Sep 2026 09:00:00 GMT</pubDate>
+    </item>
+  </channel>
+</rss>

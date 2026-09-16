@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>安塔利亚接送指南 | Antalya VIP Tourism</title>
+    <link>https://antalyaviptourism.com/zh/blog/</link>
+    <description>关于抵达安塔利亚的实用指南：私人接送与出租车对比、与司机会合、带孩子出行、海岸沿线距离，以及什么季节最适合前往。</description>
+    <language>zh</language>
+    <atom:link href="https://antalyaviptourism.com/zh/blog/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>从安塔利亚机场出发：私人接送、出租车还是拼车巴士？</title>
+      <link>https://antalyaviptourism.com/zh/blog/antalya-jichang-jiesong-haishi-chuzuche/</link>
+      <guid isPermaLink="true">https://antalyaviptourism.com/zh/blog/antalya-jichang-jiesong-haishi-chuzuche/</guid>
+      <description>离开安塔利亚机场有三种方式，也意味着三种完全不同的假期开端。各自的价格、耗时和适合人群。</description>
+      <pubDate>Wed, 16 Sep 2026 09:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>抵达安塔利亚机场：落地之后会发生什么</title>
+      <link>https://antalyaviptourism.com/zh/blog/antalya-jichang-daoda-zhinan/</link>
+      <guid isPermaLink="true">https://antalyaviptourism.com/zh/blog/antalya-jichang-daoda-zhinan/</guid>
+      <description>从机轮触地到车门打开：航站楼、护照查验、会合点，以及航班延误时会怎样。</description>
+      <pubDate>Wed, 16 Sep 2026 09:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>从安塔利亚机场到阿拉尼亚：实际有多远</title>
+      <link>https://antalyaviptourism.com/zh/blog/antalya-jichang-dao-alaniya-juli/</link>
+      <guid isPermaLink="true">https://antalyaviptourism.com/zh/blog/antalya-jichang-dao-alaniya-juli/</guid>
+      <description>阿拉尼亚是安塔利亚常见接送中最长的一段。真实距离、真实车程，以及夜间抵达会带来哪些变化。</description>
+      <pubDate>Wed, 16 Sep 2026 09:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>带着孩子前往酒店</title>
+      <link>https://antalyaviptourism.com/zh/blog/antalya-jichang-jiesong-daixiaohai/</link>
+      <guid isPermaLink="true">https://antalyaviptourism.com/zh/blog/antalya-jichang-jiesong-daixiaohai/</guid>
+      <description>儿童座椅可免费提供，但前提是我们要在您落地之前知道。需要告诉我们什么，以及车里实际装得下多少东西。</description>
+      <pubDate>Wed, 16 Sep 2026 09:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>带着高尔夫球包从安塔利亚机场前往贝莱克</title>
+      <link>https://antalyaviptourism.com/zh/blog/beileike-gaoerfu-jiesong-zhinan/</link>
+      <guid isPermaLink="true">https://antalyaviptourism.com/zh/blog/beileike-gaoerfu-jiesong-zhinan/</guid>
+      <description>贝莱克首先是高尔夫目的地，其次才是海滨度假地。这对行李空间、车型选择和从机场出发的行程意味着什么。</description>
+      <pubDate>Wed, 16 Sep 2026 09:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>何时造访安塔利亚——以及季节如何改变您的抵达</title>
+      <link>https://antalyaviptourism.com/zh/blog/shenme-shihou-qu-antaliya-zuihao/</link>
+      <guid isPermaLink="true">https://antalyaviptourism.com/zh/blog/shenme-shihou-qu-antaliya-zuihao/</guid>
+      <description>土耳其里维埃拉的每个季节，都意味着一种不同的抵达体验。四月到十月之间会发生什么变化，以及为何这在路上很重要。</description>
+      <pubDate>Wed, 16 Sep 2026 09:00:00 GMT</pubDate>
+    </item>
+  </channel>
+</rss>

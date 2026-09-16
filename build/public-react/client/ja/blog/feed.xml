@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>アンタルヤ送迎ガイド | Antalya VIP Tourism</title>
+    <link>https://antalyaviptourism.com/ja/blog/</link>
+    <description>アンタルヤ到着のための実用ガイド。専用送迎とタクシーの比較、ドライバーとの合流、子ども連れの移動、海岸沿いの距離、そして訪れる時期について。</description>
+    <language>ja</language>
+    <atom:link href="https://antalyaviptourism.com/ja/blog/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>アンタルヤ空港からは専用送迎、タクシー、乗合シャトルのどれを選ぶか</title>
+      <link>https://antalyaviptourism.com/ja/blog/antarya-kuko-soge-taxi-hikaku/</link>
+      <guid isPermaLink="true">https://antalyaviptourism.com/ja/blog/antarya-kuko-soge-taxi-hikaku/</guid>
+      <description>アンタルヤ空港を出る方法は三つあり、休暇の始まり方も三通りに分かれます。費用と所要時間、そして向き不向きを整理しました。</description>
+      <pubDate>Wed, 16 Sep 2026 09:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>アンタルヤ空港に到着したら：着陸後の流れ</title>
+      <link>https://antalyaviptourism.com/ja/blog/antarya-kuko-tochaku-guide/</link>
+      <guid isPermaLink="true">https://antalyaviptourism.com/ja/blog/antarya-kuko-tochaku-guide/</guid>
+      <description>着陸から車のドアまで。ターミナル、入国審査、合流場所、そしてフライトが遅れたときに何が起きるか。</description>
+      <pubDate>Wed, 16 Sep 2026 09:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>アンタルヤ空港からアランヤまで：実際の距離</title>
+      <link>https://antalyaviptourism.com/ja/blog/antarya-kuko-kara-alanya-kyori/</link>
+      <guid isPermaLink="true">https://antalyaviptourism.com/ja/blog/antarya-kuko-kara-alanya-kyori/</guid>
+      <description>アランヤはアンタルヤ発の主要送迎の中で最も長い区間です。実際の距離と所要時間、そして夜間到着で変わること。</description>
+      <pubDate>Wed, 16 Sep 2026 09:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>子どもと一緒にホテルへ向かう</title>
+      <link>https://antalyaviptourism.com/ja/blog/antarya-kuko-soge-kodomo-zure/</link>
+      <guid isPermaLink="true">https://antalyaviptourism.com/ja/blog/antarya-kuko-soge-kodomo-zure/</guid>
+      <description>チャイルドシートはご希望があれば無料ですが、着陸前に把握できている場合に限ります。お伝えいただきたいことと、車に実際に積めるもの。</description>
+      <pubDate>Wed, 16 Sep 2026 09:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>ゴルフバッグを持ってアンタルヤ空港からベレクへ</title>
+      <link>https://antalyaviptourism.com/ja/blog/belek-golf-soge-guide/</link>
+      <guid isPermaLink="true">https://antalyaviptourism.com/ja/blog/belek-golf-soge-guide/</guid>
+      <description>ベレクはまずゴルフの目的地であり、ビーチリゾートはその次です。それが荷室、車両選び、空港からの移動に何を意味するか。</description>
+      <pubDate>Wed, 16 Sep 2026 09:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>アンタルヤをいつ訪れるか — そして季節が到着をどう変えるか</title>
+      <link>https://antalyaviptourism.com/ja/blog/antarya-ryoko-besuto-jiki/</link>
+      <guid isPermaLink="true">https://antalyaviptourism.com/ja/blog/antarya-ryoko-besuto-jiki/</guid>
+      <description>トルコ・リビエラでは季節ごとに到着の体験が変わります。4月から10月にかけて何が変わり、それが路上でなぜ効いてくるのか。</description>
+      <pubDate>Wed, 16 Sep 2026 09:00:00 GMT</pubDate>
+    </item>
+  </channel>
+</rss>

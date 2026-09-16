@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Poradniki transferowe Antalya | Antalya VIP Tourism</title>
+    <link>https://antalyaviptourism.com/pl/blog/</link>
+    <description>Praktyczne poradniki o przylocie do Antalyi: transfer czy taksówka, spotkanie z kierowcą, podróż z dziećmi, odległości wzdłuż wybrzeża i najlepszy czas na wyjazd.</description>
+    <language>pl</language>
+    <atom:link href="https://antalyaviptourism.com/pl/blog/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Transfer prywatny, taksówka czy shuttle z lotniska w Antalyi?</title>
+      <link>https://antalyaviptourism.com/pl/blog/transfer-czy-taksowka-lotnisko-antalya/</link>
+      <guid isPermaLink="true">https://antalyaviptourism.com/pl/blog/transfer-czy-taksowka-lotnisko-antalya/</guid>
+      <description>Trzy sposoby na wyjazd z lotniska w Antalyi i trzy zupełnie różne początki urlopu. Koszt, czas i to, komu który wariant odpowiada.</description>
+      <pubDate>Wed, 16 Sep 2026 09:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Przylot na lotnisko w Antalyi: co dzieje się po wylądowaniu</title>
+      <link>https://antalyaviptourism.com/pl/blog/przylot-lotnisko-antalya-przewodnik/</link>
+      <guid isPermaLink="true">https://antalyaviptourism.com/pl/blog/przylot-lotnisko-antalya-przewodnik/</guid>
+      <description>Od przyziemienia do drzwi pojazdu: terminale, kontrola paszportowa, miejsce spotkania i co się dzieje przy opóźnieniu.</description>
+      <pubDate>Wed, 16 Sep 2026 09:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Z lotniska w Antalyi do Alanyi: ile to naprawdę jest</title>
+      <link>https://antalyaviptourism.com/pl/blog/lotnisko-antalya-alanya-odleglosc/</link>
+      <guid isPermaLink="true">https://antalyaviptourism.com/pl/blog/lotnisko-antalya-alanya-odleglosc/</guid>
+      <description>Alanya to najdłuższy z popularnych transferów z Antalyi. Realna odległość, realny czas i to, co zmienia nocny przylot.</description>
+      <pubDate>Wed, 16 Sep 2026 09:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Podróż do hotelu z dziećmi</title>
+      <link>https://antalyaviptourism.com/pl/blog/transfer-lotnisko-antalya-z-dziecmi/</link>
+      <guid isPermaLink="true">https://antalyaviptourism.com/pl/blog/transfer-lotnisko-antalya-z-dziecmi/</guid>
+      <description>Foteliki są bezpłatne na życzenie, ale tylko gdy wiemy o nich przed lądowaniem. Co nam powiedzieć i co realnie mieści się w pojeździe.</description>
+      <pubDate>Wed, 16 Sep 2026 09:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Z lotniska w Antalyi do Belek z torbami golfowymi</title>
+      <link>https://antalyaviptourism.com/pl/blog/transfer-golfowy-do-belek/</link>
+      <guid isPermaLink="true">https://antalyaviptourism.com/pl/blog/transfer-golfowy-do-belek/</guid>
+      <description>Belek to najpierw kierunek golfowy, a dopiero potem kurort plażowy. Co to znaczy dla bagażnika, wyboru pojazdu i przejazdu z AYT.</description>
+      <pubDate>Wed, 16 Sep 2026 09:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Kiedy jechać do Antalyi - i jak sezon zmienia Twój przylot</title>
+      <link>https://antalyaviptourism.com/pl/blog/najlepszy-czas-na-antalye/</link>
+      <guid isPermaLink="true">https://antalyaviptourism.com/pl/blog/najlepszy-czas-na-antalye/</guid>
+      <description>Na Riwierze Tureckiej każdy sezon to inny przylot. Co zmienia się między kwietniem a październikiem i dlaczego liczy się to na drodze.</description>
+      <pubDate>Wed, 16 Sep 2026 09:00:00 GMT</pubDate>
+    </item>
+  </channel>
+</rss>
