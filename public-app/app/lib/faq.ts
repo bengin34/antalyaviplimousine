@@ -10,6 +10,9 @@ export const homeFaqGroups = [
     labelKey: "faqCatArrival",
     labelFallback: "Arrival & transfer",
     items: [
+      // First, and open by default: the only thing we need the traveller to
+      // do themselves is tell us they have landed.
+      { key: "Sixteen", slug: "contact-on-landing" },
       { key: "One", slug: "flight-delay" },
       { key: "Two", slug: "airport-pickup" },
       { key: "Six", slug: "domestic-arrival" },

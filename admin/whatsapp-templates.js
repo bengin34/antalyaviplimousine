@@ -64,6 +64,8 @@ const LANG = {
     faqTopicPayment: "Payment & price",
     faqTopicDaily: "Your journey & extra stops",
     faqTopicGeneral: "All frequently asked questions",
+    airportNote:
+      "⚠️ *Important:* The moment you land in Antalya, please connect to the internet — the airport's free Wi-Fi, roaming or an eSIM all work — and send us a short WhatsApp message to let us know you have arrived. It is the one thing we ask of you: with that message we brief your chauffeur straight away and can reach you immediately if anything comes up. Please keep your phone switched on and WhatsApp reachable until you are in the vehicle.",
     labelRef: "Reference",
     labelDate: "Date",
     labelPickupTime: "Pickup time",
@@ -125,6 +127,8 @@ const LANG = {
     faqTopicPayment: "Zahlung & Preis",
     faqTopicDaily: "Ihre Fahrt & Zwischenstopps",
     faqTopicGeneral: "Alle häufigen Fragen",
+    airportNote:
+      "⚠️ *Wichtig:* Sobald Sie in Antalya gelandet sind, gehen Sie bitte online — das kostenlose WLAN des Flughafens, Roaming oder eine eSIM genügen — und schreiben Sie uns eine kurze WhatsApp-Nachricht, dass Sie angekommen sind. Das ist das Einzige, worum wir Sie bitten: Mit dieser Nachricht informieren wir sofort Ihren Fahrer und können Sie umgehend erreichen, falls etwas dazwischenkommt. Bitte lassen Sie Ihr Telefon eingeschaltet und bleiben Sie über WhatsApp erreichbar, bis Sie im Fahrzeug sitzen.",
     labelRef: "Referenz",
     labelDate: "Datum",
     labelPickupTime: "Abholzeit",
@@ -177,6 +181,8 @@ const LANG = {
     faqTopicPayment: "Оплата и стоимость",
     faqTopicDaily: "Поездка и дополнительные остановки",
     faqTopicGeneral: "Все частые вопросы",
+    airportNote:
+      "⚠️ *Важно:* Сразу после посадки в Анталье, пожалуйста, подключитесь к интернету — подойдёт бесплатный Wi-Fi аэропорта, роуминг или eSIM — и отправьте нам короткое сообщение в WhatsApp о том, что вы прилетели. Это единственное, о чём мы вас просим: получив его, мы сразу предупредим вашего водителя и сможем немедленно связаться с вами, если что-то пойдёт не по плану. Пожалуйста, держите телефон включённым и оставайтесь на связи в WhatsApp, пока не сядете в автомобиль.",
     labelRef: "Номер брони",
     labelDate: "Дата",
     labelPickupTime: "Время подачи",
@@ -229,6 +235,8 @@ const LANG = {
     faqTopicPayment: "Ödeme ve fiyat",
     faqTopicDaily: "Yolculuk ve ara duraklar",
     faqTopicGeneral: "Tüm sık sorulan sorular",
+    airportNote:
+      "⚠️ *Önemli:* Antalya'ya iner inmez lütfen internete bağlanın — havalimanının ücretsiz Wi-Fi ağı, roaming ya da eSIM, hepsi işinizi görür — ve WhatsApp'tan kısa bir mesajla indiğinizi bize bildirin. Sizden tek ricamız bu: bu mesajla şoförünüzü hemen yönlendirir, bir aksilik olursa size anında ulaşırız. Lütfen aracınıza binene kadar telefonunuz açık ve WhatsApp'tan ulaşılabilir olsun.",
     labelRef: "Rezervasyon No",
     labelDate: "Tarih",
     labelPickupTime: "Alış saati",
@@ -289,6 +297,8 @@ const LANG = {
     faqTopicPayment: "Paiement et prix",
     faqTopicDaily: "Votre trajet et les arrêts",
     faqTopicGeneral: "Toutes les questions fréquentes",
+    airportNote:
+      "⚠️ *Important :* Dès votre atterrissage à Antalya, connectez-vous à internet — le Wi-Fi gratuit de l'aéroport, l'itinérance ou une eSIM conviennent — et envoyez-nous un court message WhatsApp pour nous signaler votre arrivée. C'est la seule chose que nous vous demandons : grâce à ce message, nous prévenons immédiatement votre chauffeur et pouvons vous joindre sans délai en cas d'imprévu. Merci de garder votre téléphone allumé et de rester joignable sur WhatsApp jusqu'à votre montée dans le véhicule.",
     labelRef: "Référence",
     labelDate: "Date",
     labelPickupTime: "Heure de prise en charge",
@@ -341,6 +351,8 @@ const LANG = {
     faqTopicPayment: "الدفع والسعر",
     faqTopicDaily: "رحلتك والتوقفات الإضافية",
     faqTopicGeneral: "كل الأسئلة الشائعة",
+    airportNote:
+      "⚠️ *مهم:* فور هبوطكم في أنطاليا، يُرجى الاتصال بالإنترنت — شبكة الواي فاي المجانية في المطار أو التجوال أو شريحة eSIM، جميعها تفي بالغرض — وإرسال رسالة قصيرة عبر واتساب تخبروننا فيها بوصولكم. هذا هو الشيء الوحيد الذي نطلبه منكم: بهذه الرسالة نُبلغ سائقكم على الفور، ويمكننا الوصول إليكم فورًا إذا استجدّ أي أمر. نرجو إبقاء هاتفكم مفتوحًا والبقاء متاحين على واتساب حتى ركوبكم السيارة.",
     labelRef: "رقم الحجز",
     labelDate: "التاريخ",
     labelPickupTime: "وقت الاستقبال",
@@ -422,6 +434,19 @@ function faqLines(t, language, topic) {
     t.faqNote ?? english.faqNote,
     `${t[label] ?? english[label]}: ${faqURL(language, topic)}`,
   ];
+}
+
+// The one thing a guest has to do themselves: get online after landing and
+// tell us. Only journeys that start at the airport carry it - a hotel pickup
+// has nothing to report, and repeating the note there would train guests to
+// skip past it on the message that does need acting on.
+function startsAtAirport(transfer) {
+  return Boolean(transfer) && transfer.pickupLocation === "airport";
+}
+
+// "Important" block, added to a pre-trip message about an airport pickup.
+function airportNoteLines(t) {
+  return ["", t.airportNote ?? LANG.en.airportNote];
 }
 
 function transferDetails(booking, requestedLeg = "outbound") {
@@ -593,6 +618,9 @@ export function buildConfirmMessage(booking, { leg = "outbound", language } = {}
     ),
     "",
     t.confirmClosing,
+    // Birleşik mesajda uyarı gidiş ayağına göre eklenir: havalimanından
+    // başlayan bacak odur.
+    ...(transfers.some(startsAtAirport) ? airportNoteLines(t) : []),
     // Birleşik mesajda SSS bağlantısı gidiş ayağına göre seçilir: müşterinin
     // önce karşılaşacağı yolculuk odur.
     ...faqLines(t, lang, faqTopicFor(transfers[0])),
@@ -630,6 +658,7 @@ export function buildReminderMessage(booking, { leg = "outbound", language } = {
 
   lines.push("");
   lines.push(t.reminderClosing);
+  if (startsAtAirport(transfer)) lines.push(...airportNoteLines(t));
   lines.push(...faqLines(t, lang, faqTopicFor(transfer)));
 
   return lines.join("\n");
@@ -723,6 +752,8 @@ export function buildMeetGreetMessage(booking, { language } = {}) {
     t.meetGreetGreeting(b.customer_name),
     "",
     t.meetGreetClosing,
+    // Bu mesaj zaten yalnızca havalimanı karşılaması için gönderilir.
+    ...airportNoteLines(t),
     ...faqLines(t, lang, "arrival"),
   ];
 

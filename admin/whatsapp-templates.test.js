@@ -2,11 +2,14 @@ import { test, expect } from 'vitest'
 import { buildConfirmMessage, buildReminderMessage, buildReceivedMessage, buildReviewMessage, buildMeetGreetMessage, faqURL } from './whatsapp-templates.js'
 import { faqAnchor, homeFaqGroups } from '../public-app/app/lib/faq'
 
-// The message minus its FAQ link, for assertions about the booking details.
+// The message minus its standing blocks - the FAQ link and the airport note -
+// for assertions about the booking details. Both are fixed copy with nothing
+// interpolated into them, and both talk about the airport in prose, so a slug
+// check over them would only ever match the word rather than a leak.
 const bookingDetailsOf = (msg) =>
   msg
     .split('\n')
-    .filter((line) => !line.includes('antalyaviptourism.com'))
+    .filter((line) => !line.includes('antalyaviptourism.com') && !line.startsWith('⚠️'))
     .join('\n')
 
 // Locations are SLUGS (as stored in the DB), not display names.
@@ -396,6 +399,61 @@ test('the FAQ note and topic label follow the requested language', () => {
 
   const ru = buildReminderMessage(base, { language: 'ru' })
   expect(ru).toContain('Встреча в аэропорту — как это происходит: https://antalyaviptourism.com/ru/#faq-airport-pickup')
+})
+
+test('a journey starting at the airport carries the note asking the guest to get online and message us', () => {
+  const confirm = buildConfirmMessage(base)
+  expect(confirm).toContain('⚠️ *Important:*')
+  expect(confirm).toContain('connect to the internet')
+  expect(confirm).toContain('send us a short WhatsApp message')
+  expect(buildReminderMessage(base)).toContain('⚠️ *Important:*')
+  // Meet & greet is only ever sent for an airport pickup.
+  expect(buildMeetGreetMessage(base)).toContain('⚠️ *Important:*')
+})
+
+test('the note is absent when the journey does not start at the airport', () => {
+  const toAirport = { ...base, pickup_location: 'belek', dropoff_location: 'airport' }
+  expect(buildConfirmMessage(toAirport)).not.toContain('⚠️')
+  expect(buildReminderMessage(toAirport)).not.toContain('⚠️')
+  expect(buildConfirmMessage({ ...base, pickup_location: 'belek', dropoff_location: 'kemer' })).not.toContain('⚠️')
+  expect(buildReceivedMessage(base)).not.toContain('⚠️')
+  expect(buildReviewMessage(base)).not.toContain('⚠️')
+})
+
+test('a round trip confirmed in one message notes the airport only for the leg that starts there', () => {
+  const roundTrip = {
+    ...base,
+    trip_type: 'round_trip',
+    return_date: '2026-08-22',
+    return_pickup_time: '10:40',
+    price_eur: 110,
+  }
+
+  // Outbound starts at the airport, so the combined message carries the note once.
+  const both = buildConfirmMessage(roundTrip, { leg: 'both' })
+  expect(both.split('⚠️').length - 1).toBe(1)
+  // The return leg drives to the airport; on its own it has nothing to report.
+  expect(buildConfirmMessage(roundTrip, { leg: 'return' })).not.toContain('⚠️')
+})
+
+test('a daily chauffeur booking picked up at the airport still gets the note', () => {
+  const msg = buildConfirmMessage({
+    ...base,
+    trip_type: 'daily_chauffeur',
+    dropoff_location: null,
+    service_end_date: '2026-08-18',
+    daily_rate_eur: 150,
+  })
+  expect(msg).toContain('⚠️ *Important:*')
+})
+
+test('the airport note follows the requested language', () => {
+  expect(buildConfirmMessage(base, { language: 'tr' })).toContain('⚠️ *Önemli:*')
+  expect(buildConfirmMessage(base, { language: 'de' })).toContain('⚠️ *Wichtig:*')
+  expect(buildConfirmMessage(base, { language: 'ru' })).toContain('⚠️ *Важно:*')
+  expect(buildConfirmMessage(base, { language: 'fr' })).toContain('⚠️ *Important :*')
+  // A language we do not translate falls back to the English wording.
+  expect(buildConfirmMessage(base, { language: 'zz' })).toContain('⚠️ *Important:*')
 })
 
 test('an explicit language overrides the language stored on the booking', () => {

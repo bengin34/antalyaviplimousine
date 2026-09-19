@@ -187,6 +187,9 @@ const translations = {
     faqIntro:
       "关于您在Antalya的私人机场接送，您需要了解的一切。",
     askQuestion: "提出问题",
+    faqSixteenQ: "落地后需要通知你们吗？",
+    faqSixteenA:
+      "需要——这是我们唯一的请求。抵达安塔利亚落地后，请先连接网络（机场免费 Wi-Fi、漫游或 eSIM 均可），并通过 WhatsApp 给我们发一条简短消息，告知您已到达。这只需片刻，却能让之后的一切都顺畅起来：我们会立即通知您的司机；若边检排队过久、行李延误，或您找不到我们的柜台，我们也能第一时间联系到您。在您上车之前，请保持手机开机并可通过 WhatsApp 联系。",
     faqOneQ: "航班延误怎么办？",
     faqOneA:
       "您无需做任何事情。我们会实时追踪您的航班，并自动调整您的接车时间。我们从不收取航空公司延误的费用——无论您何时落地，您的司机都会在场，落地后的前90分钟始终包含在内。",
@@ -439,6 +442,9 @@ const translations = {
     faqIntro:
       "Alt, hvad du har brug for at vide om din private lufthavnstransfer i Antalya.",
     askQuestion: "Stil et spørgsmål",
+    faqSixteenQ: "Skal jeg give besked, så snart jeg er landet?",
+    faqSixteenA:
+      "Ja — det er det eneste, vi beder dig om. Så snart du er landet i Antalya, så gå online — lufthavnens gratis Wi-Fi, roaming eller et eSIM fungerer lige godt — og send os en kort besked på WhatsApp om, at du er ankommet. Det tager et øjeblik og gør alt det følgende nemt: vi giver din chauffør besked med det samme og kan få fat i dig omgående, hvis paskontrollen trækker ud, en kuffert er forsinket, eller du ikke kan finde vores skranke. Hold venligst telefonen tændt, og vær tilgængelig på WhatsApp, indtil du sidder i bilen.",
     faqOneQ: "Hvad sker der ved en flyforsinkelse?",
     faqOneA:
       "Du behøver ikke foretage dig noget. Vi sporer dit fly i realtid og tilpasser dit afhentningstidspunkt automatisk. Vi opkræver aldrig for flyselskabets forsinkelser – din chauffør er der, uanset hvornår du lander, og de første 90 minutter efter landing er altid inkluderet.",
@@ -691,6 +697,9 @@ const translations = {
     faqIntro:
       "Todo lo que necesita saber sobre su traslado privado al aeropuerto de Antalya.",
     askQuestion: "Hacer una pregunta",
+    faqSixteenQ: "¿Tengo que avisarles cuando aterrice?",
+    faqSixteenA:
+      "Sí: es lo único que le pedimos. En cuanto aterrice en Antalya, conéctese a internet —el wifi gratuito del aeropuerto, la itinerancia o una eSIM sirven igual— y envíenos un mensaje breve por WhatsApp para decirnos que ha llegado. Es cuestión de un momento y simplifica todo lo demás: avisamos de inmediato a su chófer y podemos localizarle al instante si el control de pasaportes se alarga, una maleta se retrasa o no encuentra nuestro mostrador. Mantenga el teléfono encendido y disponible en WhatsApp hasta que esté en el vehículo.",
     faqOneQ: "¿Qué ocurre si mi vuelo se retrasa?",
     faqOneA:
       "No tiene que hacer nada. Seguimos su vuelo en tiempo real y ajustamos automáticamente su hora de recogida. Nunca cobramos los retrasos de la aerolínea: su chófer estará allí cuando quiera que aterrice, y los primeros 90 minutos tras el aterrizaje siempre están incluidos.",
@@ -943,6 +952,9 @@ const translations = {
     faqIntro:
       "Όλα όσα πρέπει να γνωρίζετε για την ιδιωτική σας μεταφορά από το αεροδρόμιο της Antalya.",
     askQuestion: "Κάντε μια ερώτηση",
+    faqSixteenQ: "Πρέπει να σας ενημερώσω μόλις προσγειωθώ;",
+    faqSixteenA:
+      "Ναι — είναι το μόνο που σας ζητάμε. Μόλις προσγειωθείτε στην Αττάλεια, συνδεθείτε στο internet — το δωρεάν Wi-Fi του αεροδρομίου, η περιαγωγή ή μια eSIM κάνουν εξίσου καλά τη δουλειά — και στείλτε μας ένα σύντομο μήνυμα στο WhatsApp ότι φτάσατε. Παίρνει μια στιγμή και απλοποιεί όλα τα υπόλοιπα: ενημερώνουμε αμέσως τον οδηγό σας και μπορούμε να επικοινωνήσουμε μαζί σας άμεσα αν ο έλεγχος διαβατηρίων καθυστερήσει, μια βαλίτσα αργήσει ή δεν βρίσκετε το γκισέ μας. Παρακαλούμε κρατήστε το κινητό σας ανοιχτό και διαθέσιμο στο WhatsApp μέχρι να μπείτε στο όχημα.",
     faqOneQ: "Τι γίνεται σε περίπτωση καθυστέρησης πτήσης;",
     faqOneA:
       "Δεν χρειάζεται να κάνετε τίποτα. Παρακολουθούμε την πτήση σας σε πραγματικό χρόνο και προσαρμόζουμε αυτόματα την ώρα παραλαβής σας. Ποτέ δεν χρεώνουμε καθυστερήσεις της αεροπορικής εταιρείας – ο σοφέρ σας είναι εκεί όποτε κι αν προσγειωθείτε, και τα πρώτα 90 λεπτά μετά την προσγείωση περιλαμβάνονται πάντα.",
@@ -1195,6 +1207,9 @@ const translations = {
     faqIntro:
       "כל מה שאתם צריכים לדעת על ההעברה הפרטית שלכם משדה התעופה ב-Antalya.",
     askQuestion: "שאלו שאלה",
+    faqSixteenQ: "האם עליי לעדכן אתכם מיד עם הנחיתה?",
+    faqSixteenA:
+      "כן — זו הבקשה היחידה שלנו מכם. מיד עם הנחיתה באנטליה, אנא התחברו לאינטרנט — ה-Wi-Fi החינמי של שדה התעופה, נדידה (roaming) או eSIM, כולם מתאימים — ושלחו לנו הודעה קצרה בוואטסאפ שהגעתם. זה לוקח רגע ומפשט את כל מה שבא אחר כך: אנחנו מעדכנים מיד את הנהג שלכם ויכולים ליצור אתכם קשר מיידית אם ביקורת הדרכונים מתארכת, מזוודה מתעכבת או שאינכם מוצאים את הדלפק שלנו. אנא השאירו את הטלפון דלוק וזמין בוואטסאפ עד שתיכנסו לרכב.",
     faqOneQ: "מה קורה במקרה של עיכוב טיסה?",
     faqOneA:
       "אינכם צריכים לעשות דבר. אנו עוקבים אחר טיסתכם בזמן אמת ומתאימים את שעת האיסוף שלכם אוטומטית. איננו גובים לעולם על עיכובים של חברת התעופה — השופר שלכם ימתין מתי שלא תנחתו, ו-90 הדקות הראשונות לאחר הנחיתה כלולות תמיד.",
@@ -1447,6 +1462,9 @@ const translations = {
     faqIntro:
       "Tutto ciò che dovete sapere sul vostro transfer aeroportuale privato ad Antalya.",
     askQuestion: "Fai una domanda",
+    faqSixteenQ: "Devo avvisarvi appena atterro?",
+    faqSixteenA:
+      "Sì: è l'unica cosa che le chiediamo. Subito dopo l'atterraggio ad Antalya si colleghi a internet — vanno bene il Wi-Fi gratuito dell'aeroporto, il roaming o una eSIM — e ci invii un breve messaggio su WhatsApp per avvisarci del suo arrivo. Richiede un attimo e semplifica tutto il resto: avvisiamo subito il suo autista e possiamo contattarla immediatamente se il controllo passaporti va per le lunghe, una valigia tarda o non trova il nostro banco. Tenga il telefono acceso e resti raggiungibile su WhatsApp finché non è a bordo.",
     faqOneQ: "Cosa succede in caso di ritardo del volo?",
     faqOneA:
       "Non dovete fare nulla. Monitoriamo il vostro volo in tempo reale e adattiamo automaticamente l'orario di ritiro. Non addebitiamo mai i ritardi della compagnia aerea: il vostro autista è presente ogni volta che atterrate, e i primi 90 minuti dopo l'atterraggio sono sempre inclusi.",
@@ -1699,6 +1717,9 @@ const translations = {
     faqIntro:
       "Minden, amit tudnia kell az antalyai privát reptéri transzferéről.",
     askQuestion: "Kérdés feltevése",
+    faqSixteenQ: "Jeleznem kell, amint leszálltam?",
+    faqSixteenA:
+      "Igen — ez az egyetlen, amit kérünk Öntől. Amint leszállt Antalyában, kérjük, csatlakozzon az internethez — a repülőtér ingyenes Wi-Fi-je, a roaming vagy egy eSIM is megfelel —, és küldjön nekünk egy rövid WhatsApp-üzenetet, hogy megérkezett. Egy pillanat az egész, és minden továbbit leegyszerűsít: azonnal értesítjük a sofőrjét, és rögtön el tudjuk érni Önt, ha az útlevél-ellenőrzés elhúzódik, egy bőrönd késik, vagy nem találja a pultunkat. Kérjük, tartsa bekapcsolva a telefonját, és maradjon elérhető WhatsAppon, amíg be nem száll a járműbe.",
     faqOneQ: "Mi történik járatkésés esetén?",
     faqOneA:
       "Önnek semmit sem kell tennie. Valós időben követjük járatát, és automatikusan hozzáigazítjuk a felvételi idejét. A légitársaság késéseit soha nem számítjuk fel – sofőrje ott van, bármikor is landol, és a landolás utáni első 90 perc mindig benne foglaltatik.",
@@ -1951,6 +1972,9 @@ const translations = {
     faqIntro:
       "Tudo o que precisa de saber sobre o seu transfere privado de aeroporto em Antalya.",
     askQuestion: "Fazer uma pergunta",
+    faqSixteenQ: "Tenho de avisar assim que aterrar?",
+    faqSixteenA:
+      "Sim — é a única coisa que lhe pedimos. Assim que aterrar em Antália, ligue-se à internet — o Wi-Fi gratuito do aeroporto, o roaming ou um eSIM servem — e envie-nos uma mensagem curta por WhatsApp a avisar da sua chegada. Demora um instante e simplifica tudo o resto: informamos de imediato o seu motorista e conseguimos contactá-lo sem demora se o controlo de passaportes demorar, uma mala atrasar ou não encontrar o nosso balcão. Mantenha o telemóvel ligado e contactável no WhatsApp até entrar na viatura.",
     faqOneQ: "O que acontece em caso de atraso do voo?",
     faqOneA:
       "Não precisa de fazer nada. Acompanhamos o seu voo em tempo real e ajustamos automaticamente a hora de recolha. Nunca cobramos os atrasos da companhia aérea — o seu motorista está lá sempre que aterrar, e os primeiros 90 minutos após a aterragem estão sempre incluídos.",
@@ -2203,6 +2227,9 @@ const translations = {
     faqIntro:
       "Tot ce trebuie să știți despre transferul dumneavoastră privat de la aeroportul Antalya.",
     askQuestion: "Pune o întrebare",
+    faqSixteenQ: "Trebuie să vă anunț imediat după aterizare?",
+    faqSixteenA:
+      "Da — este singurul lucru pe care vi-l cerem. Imediat ce ați aterizat în Antalya, vă rugăm să vă conectați la internet — rețeaua Wi-Fi gratuită a aeroportului, roamingul sau un eSIM sunt la fel de bune — și să ne trimiteți un scurt mesaj pe WhatsApp prin care ne anunțați că ați ajuns. Durează o clipă și simplifică tot ce urmează: îl informăm imediat pe șoferul dumneavoastră și vă putem contacta pe loc dacă se prelungește controlul pașapoartelor, întârzie un bagaj sau nu găsiți ghișeul nostru. Vă rugăm să țineți telefonul pornit și să rămâneți disponibil pe WhatsApp până urcați în mașină.",
     faqOneQ: "Ce se întâmplă în caz de întârziere a zborului?",
     faqOneA:
       "Nu trebuie să faceți nimic. Vă urmărim zborul în timp real și vă ajustăm automat ora de preluare. Nu percepem niciodată taxe pentru întârzierile companiei aeriene – șoferul dumneavoastră este acolo oricând aterizați, iar primele 90 de minute după aterizare sunt întotdeauna incluse.",
@@ -2460,6 +2487,9 @@ const translations = {
     faqIntro:
       "Alles, was Sie über Ihren privaten Flughafentransfer in Antalya wissen müssen.",
     askQuestion: "Frage stellen",
+    faqSixteenQ: "Muss ich mich melden, sobald ich gelandet bin?",
+    faqSixteenA:
+      "Ja — das ist das Einzige, worum wir Sie bitten. Sobald Sie in Antalya gelandet sind, gehen Sie bitte online — das kostenlose WLAN des Flughafens, Roaming oder eine eSIM genügen — und schreiben Sie uns eine kurze WhatsApp-Nachricht, dass Sie angekommen sind. Das dauert einen Augenblick und macht alles Weitere einfach: Wir informieren sofort Ihren Fahrer und können Sie umgehend erreichen, falls die Passkontrolle dauert, ein Koffer sich verspätet oder Sie unseren Schalter nicht finden. Bitte lassen Sie Ihr Telefon eingeschaltet und bleiben Sie über WhatsApp erreichbar, bis Sie im Fahrzeug sitzen.",
     faqOneQ: "Was passiert bei einer Flugverspätung?",
     faqOneA:
       "Sie müssen nichts unternehmen. Wir verfolgen Ihren Flug in Echtzeit und passen Ihre Abholzeit automatisch an. Verspätungen der Fluggesellschaft berechnen wir nie – Ihr Chauffeur ist da, wann immer Sie landen, und die ersten 90 Minuten nach der Landung sind immer inklusive.",
@@ -2718,6 +2748,9 @@ const translations = {
     faqIntro:
       "Antalya'daki özel havalimanı transferiniz hakkında bilmeniz gereken her şey.",
     askQuestion: "Bize sorun",
+    faqSixteenQ: "İndikten sonra size haber vermem gerekiyor mu?",
+    faqSixteenA:
+      "Evet — sizden tek ricamız bu. Antalya'ya iner inmez lütfen internete bağlanın (havalimanının ücretsiz Wi-Fi ağı, roaming ya da eSIM, hepsi işinizi görür) ve WhatsApp'tan kısa bir mesajla indiğinizi bize bildirin. Bir dakikanızı alır ama sonrasındaki her şeyi kolaylaştırır: şoförünüzü hemen yönlendiririz; pasaport kontrolü uzarsa, bagajınız gecikirse veya kontuarımızı bulamazsanız size anında ulaşabiliriz. Lütfen aracınıza binene kadar telefonunuz açık ve WhatsApp'tan ulaşılabilir olsun.",
     faqOneQ: "Uçuşum gecikirse ne olur?",
     faqOneA:
       "Sizin yapmanız gereken hiçbir şey yok. Uçuşunuzu canlı takip eder, alış saatinizi otomatik olarak güncelleriz. Uçuş kaynaklı gecikmeler için hiçbir ek ücret alınmaz; ne zaman inerseniz inin şoförünüz sizi bekliyor olur ve inişten sonraki ilk 90 dakika her zaman fiyata dahildir.",
@@ -2969,6 +3002,9 @@ const translations = {
     viewFaq: "Открыть FAQ",
     faqIntro: "Всё, что нужно знать о частном трансфере из аэропорта Антальи.",
     askQuestion: "Задать вопрос",
+    faqSixteenQ: "Нужно ли сообщать вам о том, что я приземлился?",
+    faqSixteenA:
+      "Да — это единственное, о чём мы вас просим. Сразу после посадки в Анталье, пожалуйста, подключитесь к интернету — подойдёт бесплатный Wi-Fi аэропорта, роуминг или eSIM — и отправьте нам короткое сообщение в WhatsApp о том, что вы прилетели. Это займёт минуту и упростит всё остальное: мы сразу предупредим вашего водителя и сможем немедленно связаться с вами, если паспортный контроль затянется, багаж задержится или вы не найдёте нашу стойку. Пожалуйста, держите телефон включённым и оставайтесь на связи в WhatsApp, пока не сядете в автомобиль.",
     faqOneQ: "Что произойдёт, если мой рейс задержится?",
     faqOneA:
       "От вас ничего не требуется. Мы отслеживаем ваш рейс в режиме реального времени и автоматически корректируем время подачи автомобиля. Задержки по вине авиакомпании никогда не оплачиваются дополнительно — водитель встретит вас в любое время прилёта, а первые 90 минут после посадки всегда включены в стоимость.",
@@ -3209,6 +3245,9 @@ const translations = {
     faqIntro:
       "Vše, co potřebujete vědět o svém soukromém transferu z letiště Antalya.",
     askQuestion: "Zeptejte se nás",
+    faqSixteenQ: "Mám se ozvat, jakmile přistanu?",
+    faqSixteenA:
+      "Ano — je to jediné, oč vás prosíme. Hned po přistání v Antalyi se prosím připojte k internetu — stačí bezplatná Wi-Fi letiště, roaming nebo eSIM — a pošlete nám krátkou zprávu na WhatsAppu, že jste dorazili. Zabere to chvilku a všechno další tím zjednodušíte: okamžitě informujeme vašeho řidiče a můžeme se vám hned ozvat, pokud se protáhne pasová kontrola, opozdí se kufr nebo nenajdete náš pult. Nechte si prosím telefon zapnutý a zůstaňte dostupní na WhatsAppu, dokud nebudete ve voze.",
     faqOneQ: "Co se stane, když má můj let zpoždění?",
     faqOneA:
       "Nemusíte dělat vůbec nic. Váš let sledujeme v reálném čase a čas vyzvednutí upravíme automaticky. Zpoždění způsobená leteckou společností nikdy neúčtujeme – řidič na vás počká, ať přistanete kdykoli, a prvních 90 minut po přistání je vždy v ceně.",
@@ -3489,6 +3528,9 @@ const translations = {
     faqIntro:
       "Wszystko, co musisz wiedzieć o prywatnym transferze z lotniska w Antalyi.",
     askQuestion: "Zadaj pytanie",
+    faqSixteenQ: "Czy muszę dać znać po wylądowaniu?",
+    faqSixteenA:
+      "Tak — to jedyne, o co Państwa prosimy. Zaraz po wylądowaniu w Antalyi prosimy połączyć się z internetem — wystarczy bezpłatne Wi-Fi lotniska, roaming lub eSIM — i wysłać nam krótką wiadomość na WhatsAppie z informacją, że są Państwo na miejscu. Zajmuje to chwilę, a ułatwia wszystko, co dalej: natychmiast informujemy kierowcę i możemy się z Państwem skontaktować, jeśli kontrola paszportowa się przeciąga, walizka się spóźnia albo nie mogą Państwo znaleźć naszego stanowiska. Prosimy trzymać telefon włączony i pozostać dostępnymi na WhatsAppie do chwili wsiadania do samochodu.",
     faqOneQ: "Co się stanie, jeśli mój lot się opóźni?",
     faqOneA:
       "Nie musisz nic robić. Śledzimy Twój lot na bieżąco i automatycznie dostosowujemy godzinę odbioru. Za opóźnienia linii lotniczych nigdy nie pobieramy dopłat – kierowca czeka bez względu na godzinę lądowania, a pierwsze 90 minut po wylądowaniu zawsze jest wliczone w cenę.",
@@ -3715,6 +3757,9 @@ const translations = {
     faqIntro:
       "Alles wat u moet weten over uw privétransfer van de luchthaven Antalya.",
     askQuestion: "Stel een vraag",
+    faqSixteenQ: "Moet ik iets laten weten zodra ik geland ben?",
+    faqSixteenA:
+      "Ja — dat is het enige wat we u vragen. Zodra u in Antalya geland bent, gaat u online — de gratis wifi van de luchthaven, roaming of een eSIM voldoen allemaal — en stuurt u ons een kort WhatsApp-bericht dat u is aangekomen. Het kost een moment en maakt al het volgende eenvoudig: we informeren uw chauffeur meteen en kunnen u direct bereiken als de paspoortcontrole lang duurt, een koffer uitblijft of u onze balie niet vindt. Houd uw telefoon aan en blijf bereikbaar op WhatsApp tot u in de wagen zit.",
     faqOneQ: "Wat gebeurt er bij een vluchtvertraging?",
     faqOneA:
       "U hoeft niets te doen. Wij volgen uw vlucht live en passen uw ophaaltijd automatisch aan. Vertragingen van de luchtvaartmaatschappij brengen wij nooit in rekening – uw chauffeur staat er, hoe laat u ook landt, en de eerste 90 minuten na de landing zijn altijd inbegrepen.",
@@ -3948,6 +3993,9 @@ const translations = {
     faqIntro:
       "Все, що потрібно знати про приватний трансфер з аеропорту Анталії.",
     askQuestion: "Поставити запитання",
+    faqSixteenQ: "Чи потрібно повідомити вас після приземлення?",
+    faqSixteenA:
+      "Так — це єдине, про що ми вас просимо. Щойно ви приземлитеся в Анталії, підключіться до інтернету — підійде безкоштовний Wi-Fi аеропорту, роумінг або eSIM — і надішліть нам коротке повідомлення у WhatsApp про те, що ви прилетіли. Це займе мить і спростить усе подальше: ми одразу повідомимо вашого водія та зможемо негайно зв'язатися з вами, якщо паспортний контроль затягнеться, валіза затримається або ви не знайдете нашу стійку. Будь ласка, тримайте телефон увімкненим і залишайтеся на зв'язку у WhatsApp, доки не сядете в автомобіль.",
     faqOneQ: "Що станеться, якщо мій рейс затримається?",
     faqOneA:
       "Від вас нічого не потрібно. Ми стежимо за вашим рейсом у реальному часі й автоматично коригуємо час подачі автомобіля. За затримки авіакомпанії ми ніколи не беремо доплат — водій зустріне вас о будь-якій годині, а перші 90 хвилин після посадки завжди включені у вартість.",
@@ -4187,6 +4235,9 @@ const translations = {
     faqIntro:
       "اپنے نجی انطالیہ ایئرپورٹ ٹرانسفر کے بارے میں آپ کو جو کچھ جاننا ضروری ہے۔",
     askQuestion: "ہم سے سوال پوچھیں",
+    faqSixteenQ: "لینڈنگ کے بعد کیا مجھے آپ کو اطلاع دینی ہوگی؟",
+    faqSixteenA:
+      "جی ہاں — ہماری آپ سے بس یہی ایک گزارش ہے۔ انطالیہ میں اترتے ہی براہِ کرم انٹرنیٹ سے منسلک ہو جائیں — ایئرپورٹ کا مفت وائی فائی، رومنگ یا ای سم، تینوں کام کر جاتے ہیں — اور واٹس ایپ پر ایک مختصر پیغام بھیج کر ہمیں اپنی آمد کی اطلاع دیں۔ اس میں ایک لمحہ لگتا ہے مگر اس کے بعد کا سارا مرحلہ آسان ہو جاتا ہے: ہم فوراً آپ کے ڈرائیور کو اطلاع دیتے ہیں اور اگر امیگریشن میں دیر ہو، سامان آنے میں تاخیر ہو یا آپ کو ہمارا کاؤنٹر نہ ملے تو ہم فوری طور پر آپ تک پہنچ سکتے ہیں۔ گاڑی میں بیٹھنے تک براہِ کرم اپنا فون آن اور واٹس ایپ پر دستیاب رکھیں۔",
     faqOneQ: "اگر میری پرواز میں تاخیر ہو جائے تو کیا ہوگا؟",
     faqOneA:
       "آپ کو کچھ کرنے کی ضرورت نہیں۔ ہم آپ کی پرواز کو حقیقی وقت میں ٹریک کرتے ہیں اور پک اپ کا وقت خودکار طور پر ایڈجسٹ کر دیتے ہیں۔ ایئر لائن کی وجہ سے ہونے والی تاخیر پر کبھی کوئی اضافی چارج نہیں لیا جاتا — آپ جب بھی لینڈ کریں، آپ کا ڈرائیور موجود ہوگا، اور لینڈنگ کے بعد پہلے 90 منٹ ہمیشہ قیمت میں شامل ہیں۔",
@@ -4506,6 +4557,9 @@ const translations = {
     faqIntro:
       "Tout ce que vous devez savoir sur votre transfert privé depuis l'aéroport d'Antalya.",
     askQuestion: "Poser une question",
+    faqSixteenQ: "Dois-je vous prévenir une fois que j'ai atterri ?",
+    faqSixteenA:
+      "Oui — c'est la seule chose que nous vous demandons. Dès votre atterrissage à Antalya, connectez-vous à internet — le Wi-Fi gratuit de l'aéroport, l'itinérance ou une eSIM conviennent — et envoyez-nous un court message WhatsApp pour nous signaler votre arrivée. Cela prend un instant et simplifie tout le reste : nous prévenons immédiatement votre chauffeur et pouvons vous joindre sans délai si le contrôle des passeports s'éternise, si une valise tarde ou si vous ne trouvez pas notre comptoir. Merci de garder votre téléphone allumé et de rester joignable sur WhatsApp jusqu'à votre montée dans le véhicule.",
     faqOneQ: "Que se passe-t-il en cas de retard de vol ?",
     faqOneA:
       "Vous n'avez rien à faire. Nous suivons votre vol en temps réel et ajustons automatiquement l'heure de prise en charge. Les retards imputables à la compagnie aérienne ne sont jamais facturés : votre chauffeur est présent quelle que soit l'heure d'atterrissage, et les 90 premières minutes après l'atterrissage sont toujours comprises.",
@@ -4736,6 +4790,9 @@ const translations = {
     faqIntro:
       "Allt du behöver veta om din privata transfer från Antalya flygplats.",
     askQuestion: "Ställ en fråga",
+    faqSixteenQ: "Måste jag höra av mig när jag har landat?",
+    faqSixteenA:
+      "Ja — det är det enda vi ber dig om. Så snart du har landat i Antalya, anslut till internet — flygplatsens kostnadsfria Wi-Fi, roaming eller ett eSIM fungerar lika bra — och skicka oss ett kort meddelande på WhatsApp om att du har kommit fram. Det tar ett ögonblick och gör allt därefter enkelt: vi informerar din chaufför direkt och kan nå dig omgående om passkontrollen drar ut på tiden, en väska dröjer eller du inte hittar vår disk. Ha gärna telefonen påslagen och var nåbar på WhatsApp tills du sitter i bilen.",
     faqOneQ: "Vad händer vid en flygförsening?",
     faqOneA:
       "Du behöver inte göra något. Vi följer ditt flyg i realtid och justerar upphämtningstiden automatiskt. Förseningar som beror på flygbolaget debiteras aldrig – din chaufför är på plats oavsett när du landar, och de första 90 minuterna efter landning ingår alltid.",
@@ -4961,6 +5018,9 @@ const translations = {
     faqIntro:
       "アンタルヤ空港からのプライベート送迎について知っておくべきこと。",
     askQuestion: "質問する",
+    faqSixteenQ: "着陸後に連絡は必要ですか？",
+    faqSixteenA:
+      "はい。お客様にお願いしたいのはこの一点だけです。アンタルヤに到着されましたら、まずインターネットに接続し（空港の無料Wi-Fi、ローミング、eSIMのいずれでも構いません）、到着された旨をWhatsAppで短くお知らせください。ほんの一瞬で済みますが、その後がすべてスムーズになります。すぐにドライバーへ連絡いたしますし、入国審査が長引いた場合、お荷物が出てこない場合、当社カウンターが見つからない場合にも、こちらからすぐにご連絡できます。お車にご乗車いただくまで、携帯電話の電源を入れ、WhatsAppで連絡が取れる状態にしておいてください。",
     faqOneQ: "フライトが遅延した場合はどうなりますか？",
     faqOneA:
       "お客様に必要な手続きはございません。フライトをリアルタイムで追跡し、お迎え時刻を自動的に調整いたします。航空会社都合の遅延に追加料金は一切かかりません。到着が何時になってもドライバーがお待ちしており、着陸後最初の90分は常に料金に含まれています。",
@@ -5182,6 +5242,9 @@ const translations = {
     viewFaq: "FAQ 보기",
     faqIntro: "안탈리아 공항 프라이빗 픽업에 대해 알아야 할 모든 것.",
     askQuestion: "질문하기",
+    faqSixteenQ: "착륙 후에 연락을 드려야 하나요?",
+    faqSixteenA:
+      "네. 저희가 부탁드리는 것은 이 한 가지뿐입니다. 안탈리아에 착륙하시면 먼저 인터넷에 연결해 주세요. 공항 무료 Wi-Fi, 로밍, eSIM 어느 것이든 괜찮습니다. 그리고 도착하셨다는 짧은 메시지를 WhatsApp으로 보내 주세요. 잠깐이면 되지만 이후 모든 과정이 수월해집니다. 저희가 기사에게 즉시 안내하고, 입국 심사가 지연되거나 수하물이 늦게 나오거나 저희 카운터를 찾지 못하실 때에도 바로 연락드릴 수 있습니다. 차량에 탑승하실 때까지 휴대전화를 켜 두시고 WhatsApp으로 연락이 닿도록 해 주세요.",
     faqOneQ: "항공편이 지연되면 어떻게 되나요?",
     faqOneA:
       "고객님께서 하실 일은 없습니다. 항공편을 실시간으로 추적해 픽업 시간을 자동으로 조정합니다. 항공사 사정으로 인한 지연에는 추가 요금이 전혀 없으며, 언제 도착하시든 기사가 대기하고 있습니다. 착륙 후 첫 90분은 언제나 요금에 포함됩니다.",
@@ -5423,6 +5486,9 @@ const translations = {
     viewFaq: "عرض الأسئلة الشائعة",
     faqIntro: "كل ما تحتاج إلى معرفته عن خدمة النقل الخاصة من مطار أنطاليا.",
     askQuestion: "اطرح سؤالاً",
+    faqSixteenQ: "هل عليّ إبلاغكم فور هبوط الطائرة؟",
+    faqSixteenA:
+      "نعم — هذا هو الشيء الوحيد الذي نطلبه منكم. فور هبوطكم في أنطاليا، يُرجى الاتصال بالإنترنت — شبكة الواي فاي المجانية في المطار أو التجوال أو شريحة eSIM، جميعها تفي بالغرض — وإرسال رسالة قصيرة عبر واتساب تخبروننا فيها بوصولكم. لا يستغرق الأمر سوى لحظة، لكنه يُسهّل كل ما يليه: نُبلغ سائقكم على الفور، ويمكننا الوصول إليكم فورًا إذا طال انتظار جوازات السفر أو تأخرت حقيبة أو لم تجدوا مكتبنا. نرجو إبقاء هاتفكم مفتوحًا والبقاء متاحين على واتساب حتى ركوبكم السيارة.",
     faqOneQ: "ماذا يحدث إذا تأخرت رحلتي؟",
     faqOneA:
       "لا يتطلب الأمر منك شيئًا. نتابع رحلتك لحظة بلحظة ونعدّل موعد الاستقبال تلقائيًا. لا نفرض أي رسوم إضافية على التأخيرات الناتجة عن شركة الطيران؛ سائقك في انتظارك مهما كان وقت الهبوط، وأول 90 دقيقة بعد الهبوط مشمولة دائمًا في السعر.",
