@@ -48,6 +48,7 @@ export default [
   route("ro/health", "./routes/health.tsx", { id: "health-ro" }),
   route("zh/health", "./routes/health.tsx", { id: "health-zh" }),
   route("clinic", "./routes/clinic.tsx", { id: "clinic-tr" }),
+  route("b2b", "./routes/b2b.tsx", { id: "b2b-en" }),
 route("transfers/:slug", "./routes/transfer.tsx", { id: "transfer-en" }),
   route(":language/transfers/:slug", "./routes/transfer.tsx", { id: "transfer-localized" }),
   route("de/hotels/:hotelSlug", "./routes/hotel.tsx", { id: "hotel-de" }),
