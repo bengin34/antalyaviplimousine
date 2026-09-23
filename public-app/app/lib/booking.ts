@@ -14,6 +14,15 @@ const validName = (value: string) => {
   return normalized.length >= 2 && normalized.length <= 80 && (normalized.match(/\p{L}/gu)?.length ?? 0) >= 2 && !/\d/u.test(normalized);
 };
 
+// A Vito seats 6, and every large bag takes boot space a passenger's seat would
+// otherwise free up: 6 guests + 5 bags is the limit (6 + 6 needs a Sprinter).
+export const VITO_MAX_GUESTS = 6;
+export const VITO_MAX_UNITS = 11;
+
+export function vitoFits(guests: number, luggage: number) {
+  return guests <= VITO_MAX_GUESTS && guests + luggage <= VITO_MAX_UNITS;
+}
+
 export function inclusiveDayCount(start: string, end: string) {
   const startAt = Date.parse(`${start}T00:00:00Z`);
   const endAt = Date.parse(`${end}T00:00:00Z`);
@@ -49,6 +58,7 @@ export function createPublicBookingSchema(t: Translate) {
 
     if (values.travelDate < localToday) context.addIssue({ code: "custom", path: ["travelDate"], message: t("dateInvalid", "Please select a future date.") });
     if (!Number.isInteger(guests) || guests < 1 || guests > capacity) context.addIssue({ code: "custom", path: ["guests"], message: t("capacityNoVehicle", "Please select a suitable vehicle.") });
+    if (values.vehicle === "vito" && !vitoFits(guests, Number.isFinite(luggage) ? luggage : 0)) context.addIssue({ code: "custom", path: ["vehicle"], message: t("capacitySwitchedSprinter", "We selected the Sprinter for this passenger and luggage count.") });
     if (values.luggage === "" || !Number.isInteger(luggage) || luggage < 0 || luggage > 12) context.addIssue({ code: "custom", path: ["luggage"], message: t("luggageRequired", "Please select the number of large bags.") });
     if (!Number.isInteger(childSeats) || childSeats < 0 || childSeats > 4) context.addIssue({ code: "custom", path: ["childSeats"], message: t("requiredField", "Please check this field.") });
     for (let i = 0; i < childSeats; i++) {

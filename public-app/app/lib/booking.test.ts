@@ -1,5 +1,5 @@
 import { describe, expect, test } from "vitest";
-import { buildPublicBookingPayload, createPublicBookingSchema, quoteFor, type PublicBookingValues } from "./booking";
+import { buildPublicBookingPayload, createPublicBookingSchema, quoteFor, vitoFits, type PublicBookingValues } from "./booking";
 
 const t = (_key: string, fallback = "Invalid") => fallback;
 const futureDate = `${new Date().getFullYear() + 1}-08-10`;
@@ -13,6 +13,19 @@ const base: PublicBookingValues = {
 };
 
 describe("public booking contract", () => {
+  test("Vito takes at most 6 guests and 11 guests + large bags combined", () => {
+    expect(vitoFits(6, 5)).toBe(true);
+    expect(vitoFits(5, 6)).toBe(true);
+    expect(vitoFits(6, 6)).toBe(false);
+    expect(vitoFits(7, 0)).toBe(false);
+    const schema = createPublicBookingSchema(t);
+    expect(schema.safeParse({ ...base, guests: "6", luggage: "5" }).success).toBe(true);
+    const rejected = schema.safeParse({ ...base, guests: "6", luggage: "6" });
+    expect(rejected.success).toBe(false);
+    expect(rejected.error?.issues.some((issue) => issue.path[0] === "vehicle")).toBe(true);
+    expect(schema.safeParse({ ...base, vehicle: "sprinter", guests: "6", luggage: "6" }).success).toBe(true);
+  });
+
   test("calculates one-way and round-trip prices from the canonical route", () => {
     expect(quoteFor(base)).toEqual({ price: 53, originalPrice: 63 });
     expect(quoteFor({ ...base, tripType: "round_trip" })).toEqual({ price: 106, originalPrice: 126 });

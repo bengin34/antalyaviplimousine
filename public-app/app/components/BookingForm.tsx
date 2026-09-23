@@ -14,6 +14,7 @@ import {
   inclusiveDayCount,
   pricedRouteSlug,
   quoteFor,
+  vitoFits as vitoFitsCapacity,
   DAILY_CHAUFFEUR_RATE_EUR,
   type LivePriceOverrides,
   type PublicBookingValues,
@@ -177,7 +178,7 @@ export function BookingForm({
       : selectedRouteName ?? values.destination;
   const pickupLabel = values.pickup === "hotel" && selectedRouteName ? selectedRouteName : pickupName;
   const isPrivateAddressQuote = !isDailyChauffeur && values.pickup === "private_address" && values.destination === "private_address";
-  const vitoFits = Number(values.guests) <= 6 && Number(values.luggage) <= 6 && Number(values.guests) + Number(values.luggage) <= 12;
+  const vitoFits = vitoFitsCapacity(Number(values.guests), Number(values.luggage) || 0);
   const hasPrice = !isDailyChauffeur && selectedRoute && quote.price > 0;
   const childSeatCount = Number(values.childSeats) || 0;
   // The hotel is the destination on an airport pickup, and that is the case
