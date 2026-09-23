@@ -70,6 +70,13 @@
   cursor: pointer;
 }
 .hotel-combobox-dismiss:hover { background: rgba(0, 0, 0, .06); }
+.bulky-luggage-hint {
+  margin: 4px 0 0;
+  font-size: 12px;
+  line-height: 1.4;
+  color: rgba(244, 230, 189, .75);
+}
+
 .hotel-region-hint {
   display: inline-flex;
   align-self: flex-start;

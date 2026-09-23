@@ -1,5 +1,5 @@
 import { describe, expect, test } from "vitest";
-import { buildPublicBookingPayload, createPublicBookingSchema, quoteFor, vitoFits, type PublicBookingValues } from "./booking";
+import { buildPublicBookingPayload, createPublicBookingSchema, quoteFor, sprinterFits, vitoFits, type PublicBookingValues } from "./booking";
 
 const t = (_key: string, fallback = "Invalid") => fallback;
 const futureDate = `${new Date().getFullYear() + 1}-08-10`;
@@ -24,6 +24,28 @@ describe("public booking contract", () => {
     expect(rejected.success).toBe(false);
     expect(rejected.error?.issues.some((issue) => issue.path[0] === "vehicle")).toBe(true);
     expect(schema.safeParse({ ...base, vehicle: "sprinter", guests: "6", luggage: "6" }).success).toBe(true);
+  });
+
+  test("golf bags count as two bag spaces and strollers as one", () => {
+    expect(vitoFits(4, 0, 3)).toBe(true);
+    expect(vitoFits(4, 1, 3)).toBe(true);
+    expect(vitoFits(4, 2, 3)).toBe(false);
+    expect(vitoFits(6, 4, 0, 1)).toBe(true);
+    expect(vitoFits(6, 5, 0, 1)).toBe(false);
+    expect(sprinterFits(12, 12, 0, 1)).toBe(true);
+    expect(sprinterFits(12, 12, 1)).toBe(false);
+    const schema = createPublicBookingSchema(t);
+    const golfOnVito = schema.safeParse({ ...base, guests: "4", luggage: "4", golfBags: "2" });
+    expect(golfOnVito.error?.issues.some((issue) => issue.path[0] === "vehicle")).toBe(true);
+    expect(schema.safeParse({ ...base, vehicle: "sprinter", guests: "4", luggage: "4", golfBags: "2" }).success).toBe(true);
+    const overflow = schema.safeParse({ ...base, vehicle: "sprinter", guests: "12", luggage: "12", golfBags: "4" });
+    expect(overflow.error?.issues.some((issue) => issue.path[0] === "golfBags")).toBe(true);
+    expect(schema.safeParse({ ...base, golfBags: "9" }).success).toBe(false);
+  });
+
+  test("sends golf bags and strollers with the booking, defaulting to none", () => {
+    expect(buildPublicBookingPayload(base, "en")).toMatchObject({ golf_bag_count: 0, stroller_count: 0 });
+    expect(buildPublicBookingPayload({ ...base, golfBags: "2", strollers: "1" }, "en")).toMatchObject({ golf_bag_count: 2, stroller_count: 1 });
   });
 
   test("calculates one-way and round-trip prices from the canonical route", () => {

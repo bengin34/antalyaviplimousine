@@ -14,13 +14,29 @@ const validName = (value: string) => {
   return normalized.length >= 2 && normalized.length <= 80 && (normalized.match(/\p{L}/gu)?.length ?? 0) >= 2 && !/\d/u.test(normalized);
 };
 
-// A Vito seats 6, and every large bag takes boot space a passenger's seat would
-// otherwise free up: 6 guests + 5 bags is the limit (6 + 6 needs a Sprinter).
+// Each vehicle has a seat cap and a combined cap on guests + boot space, the
+// same model as the legacy form's fleet data. A Vito takes 6 guests + 5 bags
+// (6 + 6 needs a Sprinter). Golf bags (~130 cm) and strollers are bulkier than
+// a suitcase, so they count as extra bag units.
 export const VITO_MAX_GUESTS = 6;
 export const VITO_MAX_UNITS = 11;
+export const SPRINTER_MAX_GUESTS = 12;
+export const SPRINTER_MAX_UNITS = 25;
+export const GOLF_BAG_UNITS = 2;
+export const STROLLER_UNITS = 1;
+export const MAX_GOLF_BAGS = 8;
+export const MAX_STROLLERS = 3;
 
-export function vitoFits(guests: number, luggage: number) {
-  return guests <= VITO_MAX_GUESTS && guests + luggage <= VITO_MAX_UNITS;
+export function luggageUnits(luggage: number, golfBags = 0, strollers = 0) {
+  return luggage + golfBags * GOLF_BAG_UNITS + strollers * STROLLER_UNITS;
+}
+
+export function vitoFits(guests: number, luggage: number, golfBags = 0, strollers = 0) {
+  return guests <= VITO_MAX_GUESTS && guests + luggageUnits(luggage, golfBags, strollers) <= VITO_MAX_UNITS;
+}
+
+export function sprinterFits(guests: number, luggage: number, golfBags = 0, strollers = 0) {
+  return guests <= SPRINTER_MAX_GUESTS && guests + luggageUnits(luggage, golfBags, strollers) <= SPRINTER_MAX_UNITS;
 }
 
 export function inclusiveDayCount(start: string, end: string) {
@@ -37,6 +53,7 @@ export function createPublicBookingSchema(t: Translate) {
     destination: z.string(),
     vehicle: z.enum(["vito", "sprinter"]),
     guests: z.string(), luggage: z.string(), childSeats: z.string(),
+    golfBags: z.string().default("0"), strollers: z.string().default("0"),
     childAges: z.array(z.string()).default([]),
     travelDate: z.string().regex(/^\d{4}-\d{2}-\d{2}$/, t("dateInvalid", "Please select a valid date.")),
     arrivalTime: z.string(), flightNumber: z.string(),
@@ -54,12 +71,18 @@ export function createPublicBookingSchema(t: Translate) {
     const guests = Number(values.guests);
     const luggage = Number(values.luggage);
     const childSeats = Number(values.childSeats);
+    const golfBags = Number(values.golfBags);
+    const strollers = Number(values.strollers);
+    const bagsForFit = Number.isFinite(luggage) ? luggage : 0;
     const capacity = values.vehicle === "sprinter" ? 12 : 6;
 
     if (values.travelDate < localToday) context.addIssue({ code: "custom", path: ["travelDate"], message: t("dateInvalid", "Please select a future date.") });
     if (!Number.isInteger(guests) || guests < 1 || guests > capacity) context.addIssue({ code: "custom", path: ["guests"], message: t("capacityNoVehicle", "Please select a suitable vehicle.") });
-    if (values.vehicle === "vito" && !vitoFits(guests, Number.isFinite(luggage) ? luggage : 0)) context.addIssue({ code: "custom", path: ["vehicle"], message: t("capacitySwitchedSprinter", "We selected the Sprinter for this passenger and luggage count.") });
+    if (values.vehicle === "vito" && !vitoFits(guests, bagsForFit, golfBags || 0, strollers || 0)) context.addIssue({ code: "custom", path: ["vehicle"], message: t("capacitySwitchedSprinter", "We selected the Sprinter for this passenger and luggage count.") });
     if (values.luggage === "" || !Number.isInteger(luggage) || luggage < 0 || luggage > 12) context.addIssue({ code: "custom", path: ["luggage"], message: t("luggageRequired", "Please select the number of large bags.") });
+    if (!Number.isInteger(golfBags) || golfBags < 0 || golfBags > MAX_GOLF_BAGS) context.addIssue({ code: "custom", path: ["golfBags"], message: t("requiredField", "Please check this field.") });
+    if (!Number.isInteger(strollers) || strollers < 0 || strollers > MAX_STROLLERS) context.addIssue({ code: "custom", path: ["strollers"], message: t("requiredField", "Please check this field.") });
+    else if (guests <= SPRINTER_MAX_GUESTS && Number.isInteger(golfBags) && !sprinterFits(guests, bagsForFit, golfBags, strollers)) context.addIssue({ code: "custom", path: ["golfBags"], message: t("capacityNoVehicle", "This many passengers and bags exceed our vehicles. Please contact us on WhatsApp.") });
     if (!Number.isInteger(childSeats) || childSeats < 0 || childSeats > 4) context.addIssue({ code: "custom", path: ["childSeats"], message: t("requiredField", "Please check this field.") });
     for (let i = 0; i < childSeats; i++) {
       const age = Number(values.childAges?.[i]);
@@ -225,6 +248,8 @@ export function buildPublicBookingPayload(
     child_seat_count: Number(values.childSeats),
     child_ages: Array.from({ length: Number(values.childSeats) }, (_, i) => Number(values.childAges?.[i] ?? 0)),
     luggage_count: Number(values.luggage),
+    golf_bag_count: Number(values.golfBags) || 0,
+    stroller_count: Number(values.strollers) || 0,
     flight_number: normalize(values.flightNumber).toUpperCase() || null,
     flight_arrival_time: values.arrivalTime || null,
     flight_verification_status: values.flightVerificationStatus || null,

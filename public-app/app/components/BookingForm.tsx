@@ -15,6 +15,8 @@ import {
   pricedRouteSlug,
   quoteFor,
   vitoFits as vitoFitsCapacity,
+  MAX_GOLF_BAGS,
+  MAX_STROLLERS,
   DAILY_CHAUFFEUR_RATE_EUR,
   type LivePriceOverrides,
   type PublicBookingValues,
@@ -75,6 +77,10 @@ function whatsappConfirmation(values: PublicBookingValues, bookingRef: string, p
   ];
   if (!isDailyChauffeur) lines.splice(7, 0, `🏁 Dropoff: ${values.destination === "private_address" ? values.dropoffAddress : routeName}`);
   if (values.hotelName) lines.push(`🏨 Hotel: ${values.hotelName}`);
+  const golfBagCount = Number(values.golfBags) || 0;
+  const strollerCount = Number(values.strollers) || 0;
+  if (golfBagCount > 0) lines.push(`🏌️ Golf bags: ${golfBagCount}`);
+  if (strollerCount > 0) lines.push(`👶 Strollers: ${strollerCount}`);
   const childSeatCount = Number(values.childSeats) || 0;
   if (childSeatCount > 0) {
     const ages = (values.childAges || []).slice(0, childSeatCount).map(age => Number(age));
@@ -146,7 +152,7 @@ export function BookingForm({
     mode: "onTouched",
     defaultValues: {
       tripType: "one_way", pickup: "airport", destination: "", vehicle: "vito", guests: "2",
-      luggage: "", childSeats: "0", childAges: [], travelDate: "", arrivalTime: "", flightNumber: "",
+      luggage: "", golfBags: "0", strollers: "0", childSeats: "0", childAges: [], travelDate: "", arrivalTime: "", flightNumber: "",
       returnDate: "", returnPickupTime: "", returnFlightNumber: "", pickupAddress: "",
       serviceEndDate: "", pickupTime: "", departureFlightDate: "", departureFlightTime: "", departureFlightNumber: "",
       dropoffAddress: "", hotelName: "", hotelRegion: "", customerName: "", customerPhone: "", customerEmail: "",
@@ -178,7 +184,7 @@ export function BookingForm({
       : selectedRouteName ?? values.destination;
   const pickupLabel = values.pickup === "hotel" && selectedRouteName ? selectedRouteName : pickupName;
   const isPrivateAddressQuote = !isDailyChauffeur && values.pickup === "private_address" && values.destination === "private_address";
-  const vitoFits = vitoFitsCapacity(Number(values.guests), Number(values.luggage) || 0);
+  const vitoFits = vitoFitsCapacity(Number(values.guests), Number(values.luggage) || 0, Number(values.golfBags) || 0, Number(values.strollers) || 0);
   const hasPrice = !isDailyChauffeur && selectedRoute && quote.price > 0;
   const childSeatCount = Number(values.childSeats) || 0;
   // The hotel is the destination on an airport pickup, and that is the case
@@ -323,7 +329,7 @@ export function BookingForm({
         window.gtag?.("event", "purchase", { transaction_id: booking.booking_ref, currency: "EUR", value: confirmedPrice, payment_type: "cash" });
         window.gtag?.("event", "conversion", { send_to: "AW-18248114753/IW8CCL7H38AcEMHEsP1D", transaction_id: booking.booking_ref, value: confirmedPrice, currency: "EUR" });
       }
-      reset({ ...formValues, destination: "", tripType: "one_way", luggage: "", travelDate: minimumDate || todayISO(), returnDate: "", returnPickupTime: "", returnFlightNumber: "", serviceEndDate: minimumDate || todayISO(), pickupTime: "", departureFlightDate: "", departureFlightTime: "", departureFlightNumber: "", arrivalTime: "", flightNumber: "", customerName: "", customerPhone: "", customerEmail: "", flightVerificationStatus: "", flightScheduledArrival: "" });
+      reset({ ...formValues, destination: "", tripType: "one_way", luggage: "", golfBags: "0", strollers: "0", travelDate: minimumDate || todayISO(), returnDate: "", returnPickupTime: "", returnFlightNumber: "", serviceEndDate: minimumDate || todayISO(), pickupTime: "", departureFlightDate: "", departureFlightTime: "", departureFlightNumber: "", arrivalTime: "", flightNumber: "", customerName: "", customerPhone: "", customerEmail: "", flightVerificationStatus: "", flightScheduledArrival: "" });
       setFlightCheck(null);
       lastFlightQueryRef.current = "";
       autoFilledArrivalRef.current = "";
@@ -439,7 +445,7 @@ export function BookingForm({
   };
 
   const advanceToStep3 = async () => {
-    const step2Fields: (keyof PublicBookingValues)[] = ["travelDate", "luggage", "childSeats", "childAges"];
+    const step2Fields: (keyof PublicBookingValues)[] = ["travelDate", "luggage", "golfBags", "strollers", "childSeats", "childAges"];
     if (values.tripType === "round_trip") step2Fields.push("returnDate", "returnPickupTime");
     if (values.pickup === "private_address") step2Fields.push("pickupAddress");
     if (values.destination === "private_address") step2Fields.push("dropoffAddress");
@@ -453,6 +459,26 @@ export function BookingForm({
   };
 
   const fieldClass = (error?: FieldError) => `booking-field${error ? " has-error" : ""}`;
+  // Golf bags and strollers take more boot space than a suitcase and can move
+  // the booking to a Sprinter, so they are asked for next to the luggage count.
+  const renderBulkyLuggageFields = () => (
+    <>
+      <div className="booking-row booking-options-row">
+        <label className={fieldClass(errors.golfBags)}>
+          <span>{t("golfBagsLabel", "Golf bags")}</span>
+          <div className="field-control"><Icon name="luggage" className="icon" /><select id="golf-bags" aria-describedby="bulky-luggage-hint" {...register("golfBags")} {...fieldStatus("golfBags", errors.golfBags)}>{Array.from({ length: MAX_GOLF_BAGS + 1 }, (_, index) => <option value={index} key={index}>{index}</option>)}</select></div>
+          <FieldErrorMessage name="golfBags" error={errors.golfBags} />
+        </label>
+        <label className={fieldClass(errors.strollers)}>
+          <span>{t("strollersLabel", "Baby strollers")}</span>
+          <div className="field-control"><Icon name="baby" className="icon" /><select id="strollers" aria-describedby="bulky-luggage-hint" {...register("strollers")} {...fieldStatus("strollers", errors.strollers)}>{Array.from({ length: MAX_STROLLERS + 1 }, (_, index) => <option value={index} key={index}>{index}</option>)}</select></div>
+          <FieldErrorMessage name="strollers" error={errors.strollers} />
+        </label>
+      </div>
+      <p id="bulky-luggage-hint" className="bulky-luggage-hint">{t("bulkyLuggageHint", "Golf bags and strollers take extra boot space and can change the vehicle we send.")}</p>
+    </>
+  );
+
   const renderHotelField = () => (
     <label className={fieldClass(errors.hotelName)} htmlFor="hotel-name">
       <span>{t("hotelNameLabel", "Hotel name")}</span>
@@ -734,6 +760,7 @@ export function BookingForm({
                   <FieldErrorMessage name="childSeats" error={errors.childSeats} />
                 </label>
               </div>
+              {renderBulkyLuggageFields()}
               {childSeatCount > 0 && (
                 <div className="booking-row booking-options-row">
                   {Array.from({ length: childSeatCount }, (_, i) => (
@@ -784,6 +811,7 @@ export function BookingForm({
                 {renderHotelField()}
                 <label className={fieldClass(errors.childSeats)}><span>{t("childSeatLabel", "Child seats")}</span><div className="field-control"><Icon name="baby" className="icon" /><select id="child-seats" {...register("childSeats")} {...fieldStatus("childSeats", errors.childSeats)}>{Array.from({ length: 5 }, (_, index) => <option value={index} key={index}>{index === 0 ? t("childSeatNone", "No child seat") : t(["", "oneChildSeat", "twoChildSeats", "threeChildSeats", "fourChildSeats"][index], `${index} child seat${index > 1 ? "s" : ""}`)}</option>)}</select></div><FieldErrorMessage name="childSeats" error={errors.childSeats} /></label>
               </div>
+              {renderBulkyLuggageFields()}
               {childSeatCount > 0 && (
                 <div className="booking-row booking-options-row">
                   {Array.from({ length: childSeatCount }, (_, i) => (
