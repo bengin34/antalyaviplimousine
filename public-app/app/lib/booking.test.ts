@@ -41,6 +41,8 @@ describe("public booking contract", () => {
     const overflow = schema.safeParse({ ...base, vehicle: "sprinter", guests: "12", luggage: "12", golfBags: "4" });
     expect(overflow.error?.issues.some((issue) => issue.path[0] === "golfBags")).toBe(true);
     expect(schema.safeParse({ ...base, golfBags: "9" }).success).toBe(false);
+    const strollerOverflow = schema.safeParse({ ...base, vehicle: "sprinter", guests: "12", luggage: "12", strollers: "2" });
+    expect(strollerOverflow.error?.issues.some((issue) => issue.path[0] === "strollers")).toBe(true);
   });
 
   test("sends golf bags and strollers with the booking, defaulting to none", () => {

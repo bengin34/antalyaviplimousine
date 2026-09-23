@@ -82,7 +82,7 @@ export function createPublicBookingSchema(t: Translate) {
     if (values.luggage === "" || !Number.isInteger(luggage) || luggage < 0 || luggage > 12) context.addIssue({ code: "custom", path: ["luggage"], message: t("luggageRequired", "Please select the number of large bags.") });
     if (!Number.isInteger(golfBags) || golfBags < 0 || golfBags > MAX_GOLF_BAGS) context.addIssue({ code: "custom", path: ["golfBags"], message: t("requiredField", "Please check this field.") });
     if (!Number.isInteger(strollers) || strollers < 0 || strollers > MAX_STROLLERS) context.addIssue({ code: "custom", path: ["strollers"], message: t("requiredField", "Please check this field.") });
-    else if (guests <= SPRINTER_MAX_GUESTS && Number.isInteger(golfBags) && !sprinterFits(guests, bagsForFit, golfBags, strollers)) context.addIssue({ code: "custom", path: ["golfBags"], message: t("capacityNoVehicle", "This many passengers and bags exceed our vehicles. Please contact us on WhatsApp.") });
+    else if (guests <= SPRINTER_MAX_GUESTS && Number.isInteger(golfBags) && !sprinterFits(guests, bagsForFit, golfBags, strollers)) context.addIssue({ code: "custom", path: [golfBags > 0 ? "golfBags" : "strollers"], message: t("capacityNoVehicle", "This many passengers and bags exceed our vehicles. Please contact us on WhatsApp.") });
     if (!Number.isInteger(childSeats) || childSeats < 0 || childSeats > 4) context.addIssue({ code: "custom", path: ["childSeats"], message: t("requiredField", "Please check this field.") });
     for (let i = 0; i < childSeats; i++) {
       const age = Number(values.childAges?.[i]);
