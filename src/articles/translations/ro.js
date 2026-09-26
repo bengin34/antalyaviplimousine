@@ -266,4 +266,575 @@ export const articles = {
       ["Merită Antalya iarna?", "Da, pentru oraș, munți și siturile arheologice, nu pentru plajă. Multe hoteluri de pe litoral sunt închise între noiembrie și martie."],
     ],
   },
+  "antalya-in-autumn": {
+    "slug": "ce-sa-faci-in-antalya-toamna",
+    "title": "Antalya toamna: ce să faci în octombrie și noiembrie",
+    "heading": "Antalya toamna: ce să faci în octombrie și noiembrie",
+    "description": "Ce să faci în Antalya toamna: mare caldă, plaje liniștite, situri antice, drumeții prin canioane și golf. Vremea, ce rămâne deschis și cum îți planifici sosirea.",
+    "excerpt": "Marea e încă caldă, aglomerația a plecat acasă, iar căldura s-a domolit. De ce octombrie și noiembrie sunt cel mai bine păstrat secret al Rivierei Turcești.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Antalya toamna este o alegere excelentă tocmai pentru că majoritatea turiștilor pleacă la sfârșitul lui septembrie. Marea păstrează căldura verii încă multe săptămâni, temperaturile de zi coboară la 20 și ceva de grade, iar locurile de nesuportat în august – ruinele, canioanele, orașul vechi – devin partea cea mai frumoasă a călătoriei."
+      },
+      {
+        "type": "h2",
+        "text": "Vremea în Antalya toamna"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Luna",
+          "Zi / noapte",
+          "Marea",
+          "Cum se simte"
+        ],
+        "rows": [
+          [
+            "Octombrie",
+            "aproximativ 27 °C / 16 °C",
+            "aproximativ 24 °C",
+            "Vară fără caniculă – zilele de plajă sunt încă ceva obișnuit"
+          ],
+          [
+            "Noiembrie",
+            "aproximativ 21 °C / 11 °C",
+            "aproximativ 21 °C",
+            "Dimineți însorite, primele averse, seri răcoroase"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Pregătește bagajul și pentru plajă, și pentru seară: în octombrie ajunge o jachetă subțire, în noiembrie e bine să ai un strat mai gros și o geacă de ploaie."
+      },
+      {
+        "type": "h2",
+        "text": "Tot vacanță la mare: octombrie pe coastă"
+      },
+      {
+        "type": "p",
+        "text": "În octombrie plajele din Konyaaltı, Lara, Belek, Side și Alanya sunt încă deschise, dimineața apa e adesea mai caldă decât aerul, iar pe șezlonguri nu mai e concurență. Majoritatea resorturilor mari din Belek, Side și Kemer rămân deschise până la sfârșitul lui octombrie; din noiembrie oferta se restrânge, așa că verifică sezonul hotelului înainte să rezervi zborul."
+      },
+      {
+        "type": "h2",
+        "text": "Situri antice fără caniculă"
+      },
+      {
+        "type": "p",
+        "text": "Toamna este sezonul ruinelor din regiune. Perge și Aspendos se află la un mic ocol de drumul spre Belek și Side, Templul lui Apollo din Side se înalță la marginea portului, iar Termessos, sus în munții din spatele orașului, este o plimbare pe care nimeni nu ar trebui s-o încerce vara. În noiembrie s-ar putea să ai străzi întregi cu colonade doar pentru tine."
+      },
+      {
+        "type": "h2",
+        "text": "Natură: canioane, cascade și Drumul Lician"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Cascadele Düden: cascada de jos cade direct în mare lângă Lara, cea de sus se află într-un parc din oraș.",
+          "Canionul Köprülü: sezonul de rafting ține de obicei până în octombrie, cu apă mai liniștită decât primăvara.",
+          "Drumul Lician: toamna și primăvara sunt cele două sezoane de drumeții – etapele din jurul Kemer, Olympos și Kaş sunt acum în cea mai bună formă.",
+          "Telecabina Tahtalı de lângă Kemer: aerul limpede de toamnă oferă cele mai frumoase priveliști de pe vârf."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Golf, viața orașului și festivaluri"
+      },
+      {
+        "type": "p",
+        "text": "Toamna este sezonul de vârf pentru golf în Belek: terenurile sunt verzi, temperaturile ideale, iar orele de start se ocupă cu grupuri din nordul Europei. În oraș, străduțele, cafenelele și micile muzee din Kaleiçi prind din nou viață după ce pleacă turiștii de pe vasele de croazieră și cei de vară, iar Festivalul de Film Portocala de Aur din Antalya are loc în mod tradițional toamna."
+      },
+      {
+        "type": "h2",
+        "text": "Sosirea toamna"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "În octombrie zborurile sunt încă dese; din noiembrie orarele se răresc și mai multe curse aterizează târziu în noapte.",
+          "Terminalul e mai liniștit decât vara, așa că timpii de drum spre Belek, Side și Alanya sunt apropiați de cei publicați.",
+          "Un transfer rezervat din timp urmărește numărul zborului tău, așa că o cursă de seară întârziată nu este o problemă.",
+          "Prețurile noastre sunt fixe pe vehicul și sunt aceleași în octombrie ca în august."
+        ]
+      }
+    ],
+    "faq": [
+      [
+        "Este destul de cald pentru înot în Antalya în octombrie?",
+        "Da. În octombrie marea are de obicei în jur de 24 °C, mai caldă decât multe mări europene vara, iar zilele de plajă sunt ceva obișnuit toată luna."
+      ],
+      [
+        "Sunt hotelurile din Antalya deschise în noiembrie?",
+        "Hotelurile din oraș și multe resorturi rămân deschise, dar o parte dintre resorturile mari de pe coastă se închid din noiembrie. Verifică perioada de funcționare a hotelului înainte să rezervi zborul."
+      ],
+      [
+        "Ce poți face în Antalya toamna, în afară de plajă?",
+        "Situri antice precum Perge, Aspendos și Termessos, cascadele Düden, Canionul Köprülü, drumeții pe Drumul Lician, golf în Belek și orașul vechi Kaleiçi."
+      ],
+      [
+        "Se schimbă prețul transferului după sezonul de vară?",
+        "Nu. Prețul este fix pe vehicul și nu se schimbă în funcție de sezon, trafic sau ora din zi."
+      ]
+    ]
+  },
+  "antalya-in-winter": {
+    "slug": "ce-sa-faci-in-antalya-iarna",
+    "title": "Antalya iarna: ce să faci din decembrie până în februarie",
+    "heading": "Antalya iarna: ce să faci între decembrie și februarie",
+    "description": "Ce să faci în Antalya iarna: orașul vechi, cascade, situri antice, schi la Saklıkent, golf și hoteluri cu spa. Vremea, ce e deschis și cum te deplasezi.",
+    "excerpt": "Zile blânde, zăpadă pe munți și un oraș care le aparține din nou localnicilor. Ce oferă Antalya între decembrie și februarie – și ce nu.",
+    "readingMinutes": 7,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Antalya iarna intră în sezonul liniștit, nu în cel închis. Resorturile de plajă se odihnesc, dar orașul, munții și siturile antice sunt deschise, lumina este limpede, iar zilele sunt adesea însorite și blânde. Este momentul să vezi regiunea așa cum o văd cei care locuiesc aici – și la prețuri pe care turiștii de vară nu le prind niciodată."
+      },
+      {
+        "type": "h2",
+        "text": "Vremea în Antalya iarna"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Luna",
+          "Zi / noapte",
+          "Marea",
+          "Bine de știut"
+        ],
+        "rows": [
+          [
+            "Decembrie",
+            "aproximativ 16 °C / 7 °C",
+            "aproximativ 19 °C",
+            "Cea mai ploioasă lună, dar ploaia vine în reprize, între zile însorite"
+          ],
+          [
+            "Ianuarie",
+            "aproximativ 15 °C / 6 °C",
+            "aproximativ 17 °C",
+            "Cea mai rece lună; zăpadă pe vârfurile Munților Taurus"
+          ],
+          [
+            "Februarie",
+            "aproximativ 16 °C / 6 °C",
+            "aproximativ 17 °C",
+            "Zile mai lungi, primii migdali înfloriți"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "O după-amiază însorită de iarnă seamănă cu primăvara din nordul Europei; serile sunt răcoroase, iar interioarele nu sunt întotdeauna încălzite ca în nord. Ia haine în straturi, o geacă impermeabilă și încălțăminte comodă pentru străzile pavate ude."
+      },
+      {
+        "type": "h2",
+        "text": "Orașul: Kaleiçi, muzee și cascade"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Kaleiçi, orașul vechi cu ziduri: Poarta lui Hadrian, Minaretul Canelat, portul vechi și străduțe cu case otomane transformate în cafenele și hoteluri boutique.",
+          "Muzeul Antalya: una dintre marile colecții arheologice ale Turciei, cu statuile de la Perge – vizita ideală într-o zi ploioasă.",
+          "Cascadele Düden și Kurşunlu: ploile de iarnă le fac cele mai bogate și mai impresionante.",
+          "Promenadele Konyaaltı și Lara: plimbări lungi, ciclism și priveliști spre mare fără căldura verii."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Situri antice fără cozi"
+      },
+      {
+        "type": "p",
+        "text": "Perge, Aspendos și Side sunt deschise tot anul, iar iarna le împarți cu câțiva vizitatori. Phaselis, lângă Kemer, are trei porturi într-o pădure de pini; Olympos și Çıralı sunt liniștite în afara sezonului. Termessos se află în munți și poate fi rece, ud sau chiar înzăpezit, așa că alege o zi uscată. Mai spre vest, Biserica Sfântului Nicolae din Demre este o vizită firească iarna, mai ales în preajma Crăciunului."
+      },
+      {
+        "type": "h2",
+        "text": "Schi și mare în aceeași zi"
+      },
+      {
+        "type": "p",
+        "text": "Stațiunea de schi Saklıkent, în munții Bakırlı, se află la aproximativ 50 km de oraș, cam o oră și jumătate de mers cu mașina. Când e destulă zăpadă, de obicei din ianuarie până în martie, poți schia dimineața și te poți plimba pe malul mării după-amiaza. Drumul de munte poate cere anvelope de iarnă sau lanțuri, așa că verifică starea drumului înainte să pleci și cere-ne din timp o ofertă pentru excursie."
+      },
+      {
+        "type": "h2",
+        "text": "Golf de iarnă, hoteluri cu spa și sejururi lungi"
+      },
+      {
+        "type": "p",
+        "text": "Terenurile de golf din Belek rămân deschise toată iarna, iar taxele de joc și tarifele hotelurilor sunt mult sub nivelul din toamnă și primăvară. Mai multe resorturi din Belek, Lara și Kemer își țin spa-ul și piscinele interioare deschise iarna, iar Alanya și Side atrag vizitatori din nordul Europei care vin pentru sejururi lungi, de săptămâni sau luni de vreme blândă."
+      },
+      {
+        "type": "h2",
+        "text": "Excursii mai departe"
+      },
+      {
+        "type": "p",
+        "text": "Iarna este un moment bun pentru excursiile lungi care vara te epuizează: travertinele de la Pamukkale și ruinele din Hierapolis sau Cappadocia sub zăpadă, pe care mulți vizitatori o consideră cea mai frumoasă perioadă a anului acolo. Ambele înseamnă zile lungi pe drum, iar un vehicul privat îți permite să oprești când și unde vrei."
+      },
+      {
+        "type": "h2",
+        "text": "Sosirea iarna"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Sunt mai puține zboruri directe și mai multe sosiri noaptea, adesea prin Istanbul.",
+          "Multe resorturi de pe coastă sunt închise, așa că verifică dacă hotelul tău este deschis în perioada ta.",
+          "Noaptea, stațiile de taxi sunt mai liniștite decât vara; un transfer rezervat din timp, care urmărește numărul zborului, este varianta mai relaxată.",
+          "Prețul fix pe vehicul este același iarna ca vara – fără supliment de noapte sau de sărbători."
+        ]
+      }
+    ],
+    "faq": [
+      [
+        "Merită să vizitezi Antalya iarna?",
+        "Da, dacă vii pentru oraș, situri antice, natură și golf, nu pentru plajă. Zilele sunt adesea însorite, cu temperaturi în jur de 15 °C, și nu e aglomerație."
+      ],
+      [
+        "Se poate înota în Antalya iarna?",
+        "Marea rămâne la aproximativ 17–19 °C, pe care unii vizitatori o găsesc revigorantă într-o zi însorită. Multe hoteluri deschise iarna au și piscine interioare încălzite."
+      ],
+      [
+        "Se poate schia lângă Antalya?",
+        "Da. Stațiunea de schi Saklıkent se află la aproximativ 50 km de oraș. Sezonul depinde de ninsori și ține de obicei din ianuarie până în martie."
+      ],
+      [
+        "Sunt hotelurile din Antalya deschise iarna?",
+        "Hotelurile din orașul Antalya și din Kaleiçi sunt deschise tot anul, la fel ca mai multe resorturi din Lara, Belek, Kemer, Side și Alanya. Multe resorturi mari sezoniere se închid din noiembrie până în martie."
+      ],
+      [
+        "Faceți transferuri de la Aeroportul Antalya iarna?",
+        "Da, tot anul, inclusiv pentru sosiri noaptea și de sărbători, la același preț fix pe vehicul."
+      ]
+    ]
+  },
+  "christmas-new-year-antalya": {
+    "slug": "craciun-si-revelion-in-antalya",
+    "title": "Crăciun și Revelion în Antalya: ghid practic",
+    "heading": "Crăciun și Revelion în Antalya",
+    "description": "Crăciun sau Revelion în Antalya: vremea, ce hoteluri sunt deschise, cine de gală, Sfântul Nicolae din Demre și drumul spre și dinspre aeroport în nopțile aglomerate.",
+    "excerpt": "Zile însorite, o gală de Revelion lângă mare și orașul Sfântului Nicolae la două ore și jumătate distanță. Cum îți planifici sărbătorile în Antalya și cum ajungi în noaptea cea mare.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Crăciunul și Revelionul în Antalya formează unul dintre puținele vârfuri de iarnă ale regiunii. Familii care fug de iarna nordică, grupuri care sărbătoresc Revelionul și vizitatori care combină sărbătorile cu câteva zile de soare blând ajung toți în aceleași două săptămâni – în timp ce restul coastei este în sezonul liniștit."
+      },
+      {
+        "type": "h2",
+        "text": "La ce să te aștepți la sfârșitul lui decembrie"
+      },
+      {
+        "type": "p",
+        "text": "Ziua, temperaturile ajung de obicei la 15–16 °C și e adesea soare, deși decembrie este și cea mai ploioasă lună a anului. Crăciunul nu este zi liberă legală în Turcia, așa că magazinele, restaurantele și obiectivele turistice funcționează normal pe 25 decembrie. Revelionul, în schimb, este sărbătorit pe scară largă, iar 1 ianuarie este zi liberă legală."
+      },
+      {
+        "type": "h2",
+        "text": "Ce hoteluri sunt deschise"
+      },
+      {
+        "type": "p",
+        "text": "Hotelurile din orașul Antalya și din Kaleiçi sunt deschise tot anul, iar mai multe resorturi din Lara, Belek, Kemer, Side și Alanya se deschid special pentru perioada sărbătorilor, cu cină de Crăciun și gală de Revelion. Programele, codul vestimentar și suplimentele pentru gală diferă mult, așa că întreabă hotelul ce este inclus înainte să rezervi. Camerele din resorturile deschise se vând repede pentru aceste date."
+      },
+      {
+        "type": "h2",
+        "text": "Crăciunul: orașul Sfântului Nicolae"
+      },
+      {
+        "type": "p",
+        "text": "Sfântul Nicolae istoric, episcopul din spatele legendei lui Moș Crăciun, a trăit la Myra – actualul Demre, la aproximativ două ore și jumătate spre vest de Antalya. Biserica Sfântului Nicolae și mormintele liciene săpate în stâncă de la Myra sunt o excursie de Crăciun memorabilă, care poate fi combinată cu o oprire la Kaş sau cu drumul de coastă din jurul Kumluca."
+      },
+      {
+        "type": "h2",
+        "text": "Revelionul în Antalya"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Gale la hotel: cină, muzică live și numărătoare inversă, de obicei cu meniu fix și supliment.",
+          "Orașul: restaurantele din Kaleiçi și din jurul portului de agrement sunt pline; rezervă masa din timp.",
+          "Lara și Konyaaltı: cluburile de plajă și restaurantele cu vedere la mare își organizează propriile petreceri.",
+          "Artificiile se pot vedea de pe faleză, deși programul se schimbă de la an la an."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Deplasarea în cele mai aglomerate nopți"
+      },
+      {
+        "type": "p",
+        "text": "În noaptea de Revelion și în primele ore din 1 ianuarie taxiurile sunt greu de găsit, iar aplicațiile și stațiile sunt copleșite exact când toată lumea vrea să plece. Dacă petreci în altă parte decât la hotel – în oraș, la un restaurant sau în vila unor prieteni – rezervă din timp drumul de întoarcere, cu o oră fixă de preluare."
+      },
+      {
+        "type": "h2",
+        "text": "Sosiri și plecări de sărbători"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Zborurile din jurul datelor de 20 decembrie și 2 ianuarie sunt cele mai aglomerate ale iernii; rezervă din timp.",
+          "Multe zboruri de sărbători aterizează seara sau noaptea – o preluare care urmărește numărul zborului te scutește de așteptat în terminal.",
+          "Familiile cu cadouri de Crăciun și bagaje de iarnă ar trebui să ne spună numărul de valize, ca să alocăm vehiculul potrivit.",
+          "Prețul nostru fix pe vehicul nu are supliment de sărbători sau de Revelion."
+        ]
+      }
+    ],
+    "faq": [
+      [
+        "Cum este vremea în Antalya de Crăciun?",
+        "Blândă: de obicei în jur de 15–16 °C ziua și 6–8 °C noaptea, cu perioade însorite între averse. Nu e vreme de plajă, dar este adesea plăcută pentru plimbări și vizitat."
+      ],
+      [
+        "Se sărbătorește Crăciunul în Antalya?",
+        "Crăciunul nu este zi liberă legală în Turcia, dar multe hoteluri cu oaspeți internaționali organizează o cină de Crăciun. Revelionul este sărbătorit pe scară largă, iar 1 ianuarie este zi liberă legală."
+      ],
+      [
+        "Unde se află biserica Sfântului Nicolae?",
+        "În Demre, antica Myra, la aproximativ două ore și jumătate de mers cu mașina spre vest de Antalya. Este deschisă vizitatorilor tot anul."
+      ],
+      [
+        "Pot rezerva un transfer pentru noaptea de Revelion?",
+        "Da. Îți recomandăm să rezervi drumul de întoarcere cu o oră fixă de preluare, pentru că după miezul nopții taxiurile sunt foarte greu de găsit. Prețul fix pe vehicul nu are supliment de sărbători."
+      ]
+    ]
+  },
+  "wintering-in-antalya": {
+    "slug": "iernat-in-antalya-si-alanya-sejur-lung",
+    "title": "Iernat în Antalya și Alanya: ghid pentru sejururi lungi",
+    "heading": "Iarna în Antalya: ghid pentru sejururi lungi",
+    "description": "Iernat pe Riviera Turcească: de ce Alanya, Side și Antalya atrag oaspeți pe termen lung și la ce să te aștepți de la vreme, cazare, servicii medicale și bagaje multe.",
+    "excerpt": "Săptămâni sau luni de vreme blândă în locul unei ierni nordice. Ce trebuie să știi înainte să petreci iarna în Alanya, Side sau Antalya.",
+    "readingMinutes": 7,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Iernatul în Antalya și Alanya atrage în fiecare an mii de vizitatori din Germania, Scandinavia, Țările de Jos, Rusia și Polonia, care schimbă cerul cenușiu pe Riviera Turcească pentru săptămâni sau luni întregi. Temperaturile blânde, promenadele lungi și costul vieții mai mic decât acasă fac din Antalya, Alanya și Side unele dintre cele mai populare destinații de iarnă din Mediterana."
+      },
+      {
+        "type": "h2",
+        "text": "De ce să petreci iarna aici"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Climă blândă: zile de iarnă în jur de 15–17 °C, frecvent însorite, rareori îngheț pe coastă.",
+          "Lumină: vizibil mai multe ore de soare decât în nordul și centrul Europei.",
+          "Spațiu: promenade, plaje și orașe vechi fără aglomerația verii.",
+          "Infrastructură: în orașele mai mari, magazinele, piețele, restaurantele și spitalele private sunt deschise tot anul."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Unde să stai"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Locul",
+          "Potrivit pentru",
+          "Distanța de la aeroport"
+        ],
+        "rows": [
+          [
+            "Orașul Antalya",
+            "Viață urbană, cultură, muzee, toate serviciile la îndemână",
+            "aproximativ 15–30 de minute"
+          ],
+          [
+            "Side / Manavgat",
+            "Un oraș vechi liniștit, plaje lungi, plimbări pe teren plat",
+            "aproximativ 1 oră"
+          ],
+          [
+            "Alanya",
+            "Cea mai mare comunitate de sejur lung, promenade, viață activă iarna",
+            "aproximativ 1 oră și 45 de minute"
+          ],
+          [
+            "Kemer",
+            "Munte și mare, drumeții, o stațiune mai mică",
+            "aproximativ 1 oră"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Alanya și localitățile învecinate, precum Mahmutlar și Oba, au cea mai mare comunitate de oaspeți care petrec aici iarna, cu cluburi, activități și restaurante animate toată iarna. Side este mai liniștit; Antalya li se potrivește celor care vor un oraș adevărat."
+      },
+      {
+        "type": "h2",
+        "text": "Cazare: hoteluri și apartamente"
+      },
+      {
+        "type": "p",
+        "text": "Unele hoteluri din Alanya, Side și Antalya oferă tarife speciale pentru sejururi de patru săptămâni sau mai mult, adesea cu demipensiune. Apartamentele închiriate oferă mai mult spațiu și independență; verifică dacă au încălzire sau aer condiționat cu funcție de încălzire, pentru că locuințele de pe coasta turcească sunt construite pentru vară și pot părea reci în serile de iarnă."
+      },
+      {
+        "type": "h2",
+        "text": "Viața de zi cu zi iarna"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Piețe săptămânale în fiecare cartier pentru fructe și legume proaspete – iarna este sezonul citricelor.",
+          "Plimbări și ciclism pe promenadele din Alanya, Side, Lara și Konyaaltı.",
+          "Drumeții pe dealurile de la poalele Munților Taurus și pe Drumul Lician în zilele uscate.",
+          "Excursii de o zi la situri antice, la cascada Manavgat sau în orașul vechi al Antalyei.",
+          "Spitale și clinici private în Antalya și Alanya, cu departamente pentru pacienți internaționali."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Acte și aspecte practice"
+      },
+      {
+        "type": "p",
+        "text": "Regulile de intrare și durata șederii permise fără permis de rezidență depind de cetățenie și se schimbă din când în când, așa că verifică regulile actuale la autoritățile oficiale turce înainte de călătorie. O asigurare de călătorie care acoperă un sejur lung în străinătate este puternic recomandată."
+      },
+      {
+        "type": "h2",
+        "text": "Sosirea cu bagaje pentru câteva luni"
+      },
+      {
+        "type": "p",
+        "text": "Oaspeții care stau mult călătoresc cu mai mult decât o valiză de vacanță. Spune-ne câte valize și obiecte în plus aduci – biciclete, cadre de mers sau cutii – și îți alocăm un Mercedes Vito sau, dacă e nevoie, un Sprinter. Prețul este fix pe vehicul, așa că bagajele suplimentare sunt luate în calcul la rezervare, nu taxate la bordură. Șoferul ajută la încărcare și descărcare la ușă."
+      }
+    ],
+    "faq": [
+      [
+        "Care este cel mai bun loc pentru a petrece iarna pe Riviera Turcească?",
+        "Alanya are cea mai mare comunitate de sejur lung și cea mai animată viață de iarnă; Side este mai liniștit; Antalya oferă toate serviciile unui oraș. Toate trei au ierni blânde."
+      ],
+      [
+        "Cât de cald este în Antalya iarna?",
+        "Din decembrie până în februarie, temperaturile de zi sunt de obicei în jur de 15–17 °C, iar nopțile în jur de 6–8 °C. Înghețul pe coastă este rar."
+      ],
+      [
+        "Există oferte de hotel pentru sejururi lungi iarna?",
+        "Da. Mai multe hoteluri din Alanya, Side și Antalya oferă iarna tarife lunare reduse sau tarife pentru sejururi lungi. Întreabă direct hotelul despre sejururile de patru săptămâni sau mai mult."
+      ],
+      [
+        "Pot lua multe bagaje la transferul de la aeroport?",
+        "Da. Spune-ne la rezervare numărul de valize și obiectele în plus și îți alocăm un vehicul cu spațiu suficient. Prețul este pe vehicul, fără taxă pe valiză."
+      ]
+    ]
+  },
+  "antalya-in-spring": {
+    "slug": "ce-sa-faci-in-antalya-primavara",
+    "title": "Antalya primăvara: ce să faci din martie până în mai",
+    "heading": "Antalya primăvara: ce să faci între martie și mai",
+    "description": "Ce să faci în Antalya primăvara: flori de portocal, drumeții pe Drumul Lician, rafting, vacanța de Paște și primele zile de plajă. Vremea pe luni și ce te așteaptă la sosire.",
+    "excerpt": "Flori de portocal pe străzi, zăpadă pe vârfuri și o mare care se încălzește de la o săptămână la alta. De ce primăvara este sezonul vacanțelor active în jurul Antalyei.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Antalya primăvara se trezește devreme: pe Riviera Turcească, în martie portocalii sunt deja în floare, Munții Taurus mai au zăpadă, iar zilele sunt destul de calde ca să stai afară. Este cel mai bun sezon pentru plimbări, ciclism și explorare, iar în mai încep primele zile de plajă ale anului."
+      },
+      {
+        "type": "h2",
+        "text": "Vremea în Antalya primăvara"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Luna",
+          "Zi / noapte",
+          "Marea",
+          "Ideal pentru"
+        ],
+        "rows": [
+          [
+            "Martie",
+            "aproximativ 19 °C / 8 °C",
+            "aproximativ 17 °C",
+            "Vizitat obiective, drumeții, pomi înfloriți"
+          ],
+          [
+            "Aprilie",
+            "aproximativ 22 °C / 11 °C",
+            "aproximativ 18 °C",
+            "Drumeții, rafting, vacanța de Paște"
+          ],
+          [
+            "Mai",
+            "aproximativ 26 °C / 15 °C",
+            "aproximativ 21 °C",
+            "Primele zile de plajă, toate activitățile"
+          ]
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Flori de portocal și orașul primăvara"
+      },
+      {
+        "type": "p",
+        "text": "Primăvara, Antalya miroase a flori de portocal. Orașul sărbătorește acest lucru cu Carnavalul Florii de Portocal, un festival de stradă organizat primăvara în jurul Kaleiçi și în centrul orașului. Este și cel mai bun moment să explorezi pe jos orașul vechi, Muzeul Antalya și falezele din Konyaaltı și Lara, înainte să vină căldura verii."
+      },
+      {
+        "type": "h2",
+        "text": "Vacanțe active: drumeții, rafting și ciclism"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Drumul Lician: primăvara este cel mai popular sezon de drumeții, cu flori sălbatice de-a lungul etapelor de lângă Kemer, Olympos și Kaş.",
+          "Canionul Köprülü: sezonul de rafting începe de obicei în aprilie, cu apă vioaie din topirea zăpezii.",
+          "Telecabina Tahtalı: zăpadă sus și pajiști înflorite jos, adesea în aceeași priveliște.",
+          "Ciclism: drumuri liniștite și temperaturi blânde în jurul Belek, Side și la poalele Munților Taurus.",
+          "Golf: primăvara este al doilea sezon de vârf pe terenurile din Belek."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Situri antice în sezonul verde"
+      },
+      {
+        "type": "p",
+        "text": "Perge, Aspendos, Side, Phaselis și Termessos sunt cele mai frumoase primăvara, când ruinele sunt înconjurate de iarbă verde și flori sălbatice. Merg bine și excursiile mai lungi: Pamukkale și Cappadocia au temperaturi plăcute, iar zborurile cu balonul cu aer cald deasupra Cappadociei sunt frecvente primăvara, când vremea este stabilă."
+      },
+      {
+        "type": "h2",
+        "text": "Paștele și vacanțele de primăvară"
+      },
+      {
+        "type": "p",
+        "text": "Paștele și vacanțele școlare de primăvară din Germania, Țările de Jos, Regatul Unit și Scandinavia aduc primul val de familii. Din aprilie se deschid mai multe hoteluri sezoniere, numărul zborurilor crește, iar în mai majoritatea resorturilor de pe coastă funcționează din plin. Pentru perioada Paștelui, rezervă din timp atât hotelul, cât și transferul."
+      },
+      {
+        "type": "h2",
+        "text": "Sosirea primăvara"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "În martie unele resorturi sunt încă închise; din aprilie oferta se lărgește rapid.",
+          "Terminalul și drumurile sunt liniștite, așa că timpii de drum publicați sunt realiști.",
+          "Echipamentul de drumeție și de golf, bicicletele și scaunele pentru copii trebuie menționate la rezervare.",
+          "Prețul este fix pe vehicul și nu se schimbă în funcție de sezon."
+        ]
+      }
+    ],
+    "faq": [
+      [
+        "Este destul de cald pentru plajă în Antalya primăvara?",
+        "Din mai, da: ziua temperaturile ajung la aproximativ 26 °C, iar marea la aproximativ 21 °C. În martie și aprilie e destul de cald să stai la soare, dar pentru majoritatea înotătorilor marea este încă rece."
+      ],
+      [
+        "Când are loc Carnavalul Florii de Portocal în Antalya?",
+        "Are loc primăvara, când înfloresc portocalii orașului. Datele se schimbă în fiecare an, așa că verifică anunțurile oficiale ale orașului înainte să-ți planifici călătoria în funcție de el."
+      ],
+      [
+        "Este primăvara un moment bun pentru drumeții pe Drumul Lician?",
+        "Da. Primăvara și toamna sunt cele mai bune două sezoane de drumeții; primăvara potecile sunt verzi și pline de flori sălbatice, iar temperaturile sunt plăcute."
+      ],
+      [
+        "Sunt hotelurile din Antalya deschise în martie?",
+        "Hotelurile din oraș și unele resorturi sunt deschise. Multe resorturi sezoniere se deschid în aprilie, iar până în mai cea mai mare parte a coastei funcționează din plin."
+      ]
+    ]
+  }
 };

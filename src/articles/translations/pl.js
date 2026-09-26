@@ -555,5 +555,576 @@ export const articles = {
         "Tak, dla miasta, gór i stanowisk archeologicznych, a nie dla plaży. Wiele nadmorskich hoteli jest zamkniętych od listopada do marca."
       ]
     ]
+  },
+  "antalya-in-autumn": {
+    "slug": "antalya-jesienia-co-robic",
+    "title": "Antalya jesienią: co robić w październiku i listopadzie",
+    "heading": "Antalya jesienią: atrakcje na październik i listopad",
+    "description": "Antalya jesienią: ciepłe morze, spokojne plaże, antyczne miasta, kaniony i golf. Pogoda w październiku i listopadzie, co jest otwarte i jak zaplanować przylot.",
+    "excerpt": "Morze wciąż ciepłe, tłumy wyjechały, upał odpuścił. Dlaczego październik i listopad to najlepiej strzeżony sekret Riwiery Tureckiej.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Większość turystów wyjeżdża z Antalyi pod koniec września – i właśnie dlatego Antalya jesienią sprawdza się tak dobrze. Morze jeszcze przez tygodnie trzyma letnie ciepło, w dzień robi się przyjemne dwadzieścia kilka stopni, a miejsca nie do zniesienia w sierpniu – ruiny, kaniony, stare miasto – stają się najlepszą częścią wyjazdu."
+      },
+      {
+        "type": "h2",
+        "text": "Pogoda w Antalyi jesienią"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Miesiąc",
+          "Dzień / noc",
+          "Morze",
+          "Jak to wygląda"
+        ],
+        "rows": [
+          [
+            "Październik",
+            "ok. 27 °C / 16 °C",
+            "ok. 24 °C",
+            "Lato bez upału – dni na plaży to wciąż norma"
+          ],
+          [
+            "Listopad",
+            "ok. 21 °C / 11 °C",
+            "ok. 21 °C",
+            "Słoneczne poranki, pierwsze przelotne deszcze, chłodne wieczory"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Spakuj się i na plażę, i na wieczór: w październiku wystarczy lekka kurtka, w listopadzie przyda się cieplejsza warstwa i kurtka przeciwdeszczowa."
+      },
+      {
+        "type": "h2",
+        "text": "Wciąż wakacje na plaży: październik na wybrzeżu"
+      },
+      {
+        "type": "p",
+        "text": "W październiku plaże Konyaaltı, Lary, Beleku, Side i Alanyi są nadal otwarte, rano woda bywa cieplejsza od powietrza, a o leżaki nie trzeba już walczyć. Większość dużych resortów w Beleku, Side i Kemerze działa do końca października; od listopada wybór się zawęża, więc sprawdź sezon swojego hotelu, zanim kupisz bilety lotnicze."
+      },
+      {
+        "type": "h2",
+        "text": "Antyczne miasta bez upału"
+      },
+      {
+        "type": "p",
+        "text": "Jesień to sezon na ruiny regionu. Perge i Aspendos leżą niedaleko drogi do Beleku i Side, świątynia Apollina w Side stoi na skraju portu, a Termessos, wysoko w górach za miastem, to wycieczka, której latem nikt nie powinien podejmować. W listopadzie całe kolumnady mogą być tylko dla ciebie."
+      },
+      {
+        "type": "h2",
+        "text": "Przyroda: kaniony, wodospady i Szlak Licyjski"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Wodospady Düden: dolny spada prosto do morza w pobliżu Lary, górny leży w parku w mieście.",
+          "Kanion Köprülü: sezon raftingowy trwa zwykle do października, a woda jest spokojniejsza niż wiosną.",
+          "Szlak Licyjski: jesień i wiosna to dwa sezony trekkingowe – odcinki koło Kemeru, Olimposu i Kaş są teraz w najlepszej formie.",
+          "Kolejka na Tahtalı koło Kemeru: przejrzyste jesienne powietrze daje najlepsze widoki ze szczytu."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Golf, życie miejskie i festiwale"
+      },
+      {
+        "type": "p",
+        "text": "Jesień to szczyt sezonu golfowego w Beleku: pola są zielone, temperatury idealne, a terminy gry zapełniają grupy z północnej Europy. W mieście uliczki, kawiarnie i małe muzea Kaleiçi ożywają, gdy znikają tłumy z wycieczkowców i letni turyści, a festiwal filmowy „Złota Pomarańcza” w Antalyi tradycyjnie odbywa się jesienią."
+      },
+      {
+        "type": "h2",
+        "text": "Przylot jesienią"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "W październiku lotów jest jeszcze dużo; od listopada siatka połączeń się przerzedza i więcej samolotów ląduje późno w nocy.",
+          "Na terminalu jest spokojniej niż latem, więc czas przejazdu do Beleku, Side i Alanyi jest zbliżony do podawanego.",
+          "Wcześniej zarezerwowany transfer śledzi numer lotu, więc opóźniony wieczorny lot nie stanowi problemu.",
+          "Nasze ceny są stałe za pojazd i w październiku są takie same jak w sierpniu."
+        ]
+      }
+    ],
+    "faq": [
+      [
+        "Czy w październiku w Antalyi jest na tyle ciepło, żeby się kąpać?",
+        "Tak. W październiku morze ma zwykle ok. 24 °C, czyli jest cieplejsze niż wiele europejskich mórz latem, a dni plażowe to norma przez cały miesiąc."
+      ],
+      [
+        "Czy hotele w Antalyi są otwarte w listopadzie?",
+        "Hotele miejskie i wiele resortów pozostaje otwartych, ale część dużych resortów na wybrzeżu zamyka się od listopada. Sprawdź daty sezonu swojego hotelu przed zakupem biletów lotniczych."
+      ],
+      [
+        "Co robić w Antalyi jesienią poza plażą?",
+        "Antyczne miasta, takie jak Perge, Aspendos i Termessos, wodospady Düden, kanion Köprülü, wędrówki Szlakiem Licyjskim, golf w Beleku i stare miasto Kaleiçi."
+      ],
+      [
+        "Czy cena transferu zmienia się po sezonie letnim?",
+        "Nie. Cena jest stała za pojazd i nie zależy od sezonu, ruchu ani pory dnia."
+      ]
+    ]
+  },
+  "antalya-in-winter": {
+    "slug": "antalya-zima-co-robic",
+    "title": "Antalya zimą: co robić od grudnia do lutego",
+    "heading": "Antalya zimą: atrakcje od grudnia do lutego",
+    "description": "Antalya zimą: stare miasto, wodospady, antyczne ruiny, narty w Saklıkent, zimowy golf i hotele ze spa. Pogoda, co jest otwarte i jak się poruszać.",
+    "excerpt": "Łagodne dni, śnieg w górach i miasto, które znów należy do mieszkańców. Co Antalya oferuje od grudnia do lutego – a czego nie.",
+    "readingMinutes": 7,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Antalya zimą to cichy sezon, a nie zamknięty. Kurorty plażowe odpoczywają, ale miasto, góry i antyczne zabytki są otwarte, światło jest przejrzyste, a dni często słoneczne i łagodne. To czas, by zobaczyć region tak, jak widzą go mieszkańcy – i w cenach, o jakich letni turyści mogą tylko pomarzyć."
+      },
+      {
+        "type": "h2",
+        "text": "Pogoda w Antalyi zimą"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Miesiąc",
+          "Dzień / noc",
+          "Morze",
+          "Warto wiedzieć"
+        ],
+        "rows": [
+          [
+            "Grudzień",
+            "ok. 16 °C / 7 °C",
+            "ok. 19 °C",
+            "Najbardziej deszczowy miesiąc, ale opady przeplatają się ze słonecznymi dniami"
+          ],
+          [
+            "Styczeń",
+            "ok. 15 °C / 6 °C",
+            "ok. 17 °C",
+            "Najchłodniejszy miesiąc; śnieg na szczytach Taurusu"
+          ],
+          [
+            "Luty",
+            "ok. 16 °C / 6 °C",
+            "ok. 17 °C",
+            "Dłuższe dni, pierwsze kwitnące migdałowce"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Słoneczne zimowe popołudnia przypominają wiosnę w północnej Europie; wieczory są chłodne, a wnętrza nie zawsze ogrzewa się według północnych standardów. Zabierz ubrania na cebulkę, kurtkę przeciwdeszczową i wygodne buty na mokre, kamienne uliczki."
+      },
+      {
+        "type": "h2",
+        "text": "Miasto: Kaleiçi, muzea i wodospady"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Kaleiçi, otoczone murami stare miasto: Brama Hadriana, minaret Yivli, stary port i uliczki osmańskich domów, dziś pełne kawiarni i butikowych hoteli.",
+          "Muzeum Antalyi: jedna z największych kolekcji archeologicznych w Turcji, z posągami z Perge – idealne na deszczowy dzień.",
+          "Wodospady Düden i Kurşunlu: dzięki zimowym deszczom są najbardziej obfite i robią największe wrażenie.",
+          "Promenady Konyaaltı i Lary: długie spacery, rower i widok na morze bez letniego upału."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Antyczne miasta bez kolejek"
+      },
+      {
+        "type": "p",
+        "text": "Perge, Aspendos i Side są otwarte przez cały rok, a zimą dzielisz je z garstką zwiedzających. Phaselis koło Kemeru to trzy porty w sosnowym lesie; Olympos i Çıralı poza sezonem są pełne spokoju. Termessos leży w górach, gdzie bywa zimno, mokro, a nawet śnieżnie, więc wybierz suchy dzień. Dalej na zachód, w Demre, stoi kościół św. Mikołaja – naturalny cel zimowej wycieczki, zwłaszcza w okolicach Bożego Narodzenia."
+      },
+      {
+        "type": "h2",
+        "text": "Narty i morze tego samego dnia"
+      },
+      {
+        "type": "p",
+        "text": "Ośrodek narciarski Saklıkent w górach Bakırlı leży ok. 50 km od miasta, czyli mniej więcej półtorej godziny jazdy. Gdy śniegu jest dość, zwykle od stycznia do marca, rano można jeździć na nartach, a po południu spacerować nad morzem. Na górskiej drodze mogą być wymagane opony zimowe lub łańcuchy, więc sprawdź warunki przed wyjazdem i poproś nas wcześniej o wycenę przejazdu."
+      },
+      {
+        "type": "h2",
+        "text": "Zimowy golf, hotele ze spa i długie pobyty"
+      },
+      {
+        "type": "p",
+        "text": "Pola golfowe w Beleku działają przez całą zimę, a opłaty za grę i ceny hoteli są wyraźnie niższe niż jesienią i wiosną. Kilka resortów w Beleku, Larze i Kemerze utrzymuje zimą otwarte spa i kryte baseny, a Alanya i Side przyciągają gości z północnej Europy, którzy przyjeżdżają na tygodnie lub miesiące łagodnej pogody."
+      },
+      {
+        "type": "h2",
+        "text": "Dalsze wycieczki"
+      },
+      {
+        "type": "p",
+        "text": "Zima to dobry czas na dłuższe wyprawy, które latem wyczerpują: trawertyny Pamukkale i ruiny Hierapolis albo zaśnieżona Kapadocja, którą wielu uważa za najpiękniejszą właśnie o tej porze roku. Obie trasy to długi dzień w drodze, a prywatny samochód pozwala zatrzymywać się, kiedy i gdzie chcesz."
+      },
+      {
+        "type": "h2",
+        "text": "Przylot zimą"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Bezpośrednich lotów jest mniej, a więcej przylotów w nocy, często przez Stambuł.",
+          "Wiele resortów na wybrzeżu jest zamkniętych, więc sprawdź, czy twój hotel działa w wybranym terminie.",
+          "Postoje taksówek w nocy są spokojniejsze niż latem; wcześniej zarezerwowany odbiór, który śledzi numer lotu, to spokojniejsza opcja.",
+          "Stała cena za pojazd jest zimą taka sama jak latem – bez dopłat nocnych i świątecznych."
+        ]
+      }
+    ],
+    "faq": [
+      [
+        "Czy warto jechać do Antalyi zimą?",
+        "Tak, jeśli przyjeżdżasz dla miasta, antycznych zabytków, przyrody i golfa, a nie dla opalania. Dni są często słoneczne, ok. 15 °C, i nie ma tłumów."
+      ],
+      [
+        "Czy można się kąpać w Antalyi zimą?",
+        "Morze utrzymuje ok. 17–19 °C, co niektórzy goście uważają w słoneczny dzień za orzeźwiające. Wiele hoteli otwartych zimą ma też podgrzewane kryte baseny."
+      ],
+      [
+        "Czy w pobliżu Antalyi można jeździć na nartach?",
+        "Tak. Ośrodek narciarski Saklıkent leży ok. 50 km od miasta. Sezon zależy od opadów śniegu i zwykle trwa od stycznia do marca."
+      ],
+      [
+        "Czy hotele w Antalyi są otwarte zimą?",
+        "Hotele miejskie w Antalyi i Kaleiçi są otwarte przez cały rok, podobnie jak kilka resortów w Larze, Beleku, Kemerze, Side i Alanyi. Wiele dużych sezonowych resortów jest zamkniętych od listopada do marca."
+      ],
+      [
+        "Czy realizujecie transfery z lotniska w Antalyi zimą?",
+        "Tak, przez cały rok, także przy nocnych przylotach i w święta, w tej samej stałej cenie za pojazd."
+      ]
+    ]
+  },
+  "christmas-new-year-antalya": {
+    "slug": "boze-narodzenie-i-sylwester-w-antalyi",
+    "title": "Boże Narodzenie i Sylwester w Antalyi: praktyczny przewodnik",
+    "heading": "Boże Narodzenie i Sylwester w Antalyi",
+    "description": "Święta i Sylwester w Antalyi: pogoda, które hotele są otwarte, kolacje galowe, kościół św. Mikołaja w Demre oraz dojazd z lotniska i na lotnisko w najgorętsze noce.",
+    "excerpt": "Słoneczne dni, sylwestrowa gala nad morzem i miasto św. Mikołaja dwie i pół godziny drogi stąd. Jak zaplanować święta w Antalyi i jak dotrzeć tam w sylwestrową noc.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Boże Narodzenie i Sylwester w Antalyi to jeden z nielicznych zimowych szczytów sezonu. Rodziny uciekające przed północną zimą, grupy świętujące Sylwestra i goście łączący święta z kilkoma dniami łagodnego słońca przyjeżdżają w tych samych dwóch tygodniach – podczas gdy większa część wybrzeża przeżywa swój cichy sezon."
+      },
+      {
+        "type": "h2",
+        "text": "Czego się spodziewać pod koniec grudnia"
+      },
+      {
+        "type": "p",
+        "text": "W dzień jest zwykle ok. 15–16 °C i często słonecznie, choć grudzień to także najbardziej deszczowy miesiąc roku. Boże Narodzenie nie jest w Turcji świętem państwowym, więc 25 grudnia sklepy, restauracje i atrakcje działają normalnie. Sylwester natomiast świętuje się hucznie, a 1 stycznia to dzień wolny od pracy."
+      },
+      {
+        "type": "h2",
+        "text": "Które hotele są otwarte"
+      },
+      {
+        "type": "p",
+        "text": "Hotele miejskie w Antalyi i Kaleiçi działają przez cały rok, a kilka resortów w Larze, Beleku, Kemerze, Side i Alanyi otwiera się specjalnie na okres świąteczny z wigilijną kolacją i sylwestrową galą. Programy, dress code i dopłaty za galę bardzo się różnią, więc przed rezerwacją zapytaj hotel, co jest w cenie. Pokoje w otwartych resortach na te terminy wyprzedają się wcześnie."
+      },
+      {
+        "type": "h2",
+        "text": "Boże Narodzenie: miasto św. Mikołaja"
+      },
+      {
+        "type": "p",
+        "text": "Historyczny św. Mikołaj, biskup, od którego wzięła się legenda o Świętym Mikołaju, żył w Myrze – dzisiejszym Demre, ok. dwóch i pół godziny jazdy na zachód od Antalyi. Kościół św. Mikołaja i wykute w skale licyjskie grobowce Myry to niezapomniana świąteczna wycieczka, którą można połączyć z postojem w Kaş lub przejazdem nadmorską drogą koło Kumluki."
+      },
+      {
+        "type": "h2",
+        "text": "Sylwester w Antalyi"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Gale hotelowe: kolacja, muzyka na żywo i odliczanie, zwykle ze stałym menu i dopłatą.",
+          "Miasto: restauracje w Kaleiçi i przy marinie są pełne; zarezerwuj stolik z wyprzedzeniem.",
+          "Lara i Konyaaltı: kluby plażowe i restauracje z widokiem na morze organizują własne imprezy.",
+          "Fajerwerki można oglądać wzdłuż nabrzeża, choć program zmienia się z roku na rok."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Jak się poruszać w najbardziej zatłoczone noce"
+      },
+      {
+        "type": "p",
+        "text": "W sylwestrową noc i nad ranem 1 stycznia trudno o taksówkę, a aplikacje i postoje są przeciążone dokładnie wtedy, gdy wszyscy chcą wracać. Jeśli świętujesz poza hotelem – w mieście, w restauracji lub w willi znajomych – zarezerwuj powrót z wyprzedzeniem, na konkretną godzinę odbioru."
+      },
+      {
+        "type": "h2",
+        "text": "Świąteczne przyloty i wyloty"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Loty w okolicach 20 grudnia i 2 stycznia są najbardziej oblegane w całej zimie; rezerwuj wcześnie.",
+          "Wiele świątecznych lotów ląduje wieczorem lub w nocy – odbiór, który śledzi numer lotu, oszczędza czekania na terminalu.",
+          "Rodziny z prezentami i zimowym bagażem powinny podać liczbę walizek, abyśmy przydzielili odpowiedni pojazd.",
+          "Nasza stała cena za pojazd nie ma dopłat świątecznych ani sylwestrowych."
+        ]
+      }
+    ],
+    "faq": [
+      [
+        "Jaka jest pogoda w Antalyi w Boże Narodzenie?",
+        "Łagodna: zwykle ok. 15–16 °C w dzień i 6–8 °C w nocy, ze słonecznymi przejaśnieniami między opadami. To nie jest pogoda na plażę, ale na spacery i zwiedzanie często jest bardzo przyjemnie."
+      ],
+      [
+        "Czy w Antalyi obchodzi się Boże Narodzenie?",
+        "Boże Narodzenie nie jest w Turcji świętem państwowym, ale wiele hoteli przyjmujących gości z zagranicy organizuje świąteczną kolację. Sylwestra świętuje się hucznie, a 1 stycznia jest dniem wolnym od pracy."
+      ],
+      [
+        "Gdzie znajduje się kościół św. Mikołaja?",
+        "W Demre, starożytnej Myrze, ok. dwóch i pół godziny jazdy na zachód od Antalyi. Jest otwarty dla zwiedzających przez cały rok."
+      ],
+      [
+        "Czy mogę zarezerwować transfer na noc sylwestrową?",
+        "Tak. Zalecamy zarezerwowanie powrotu na konkretną godzinę odbioru, bo po północy bardzo trudno o taksówkę. Stała cena za pojazd nie ma dopłaty świątecznej."
+      ]
+    ]
+  },
+  "wintering-in-antalya": {
+    "slug": "zimowanie-w-antalyi-i-alanyi",
+    "title": "Zimowanie w Antalyi i Alanyi: przewodnik po długich pobytach",
+    "heading": "Zima w Antalyi: przewodnik dla przyjeżdżających na dłużej",
+    "description": "Zimowanie na Riwierze Tureckiej: dlaczego Alanya, Side i Antalya przyciągają gości na długie pobyty – pogoda, zakwaterowanie, opieka medyczna i przylot z dużym bagażem.",
+    "excerpt": "Tygodnie lub miesiące łagodnej pogody zamiast północnej zimy. Co warto wiedzieć przed zimowaniem w Alanyi, Side lub Antalyi.",
+    "readingMinutes": 7,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Każdej zimy tysiące gości z Niemiec, Skandynawii, Holandii, Rosji i Polski zamienia szare niebo na Riwierę Turecką na całe tygodnie lub miesiące. Łagodne temperatury, długie promenady i niższe niż w domu koszty życia sprawiają, że zimowanie w Antalyi, Alanyi i Side należy do najpopularniejszych zimowych kierunków nad Morzem Śródziemnym."
+      },
+      {
+        "type": "h2",
+        "text": "Dlaczego warto spędzić tu zimę"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Łagodny klimat: zimą w dzień ok. 15–17 °C, często słonecznie, przymrozki na wybrzeżu zdarzają się rzadko.",
+          "Światło dzienne: wyraźnie więcej godzin słońca niż w Europie Północnej i Środkowej.",
+          "Przestrzeń: promenady, plaże i stare miasta bez letnich tłumów.",
+          "Infrastruktura: sklepy, targi, restauracje i prywatne szpitale w większych miastach działają przez cały rok."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Gdzie się zatrzymać"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Miejsce",
+          "Dla kogo",
+          "Odległość od lotniska"
+        ],
+        "rows": [
+          [
+            "Antalya (miasto)",
+            "Życie miejskie, kultura, muzea, wszystkie usługi pod ręką",
+            "ok. 15–30 minut"
+          ],
+          [
+            "Side / Manavgat",
+            "Spokojne stare miasto, długie plaże, płaskie trasy spacerowe",
+            "ok. 1 godziny"
+          ],
+          [
+            "Alanya",
+            "Największa społeczność długoterminowych gości, promenady, aktywne życie zimą",
+            "ok. 1 godziny 45 minut"
+          ],
+          [
+            "Kemer",
+            "Góry i morze, wędrówki, mniejszy kurort",
+            "ok. 1 godziny"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Alanya i sąsiednie dzielnice, takie jak Mahmutlar i Oba, mają największą zimową społeczność gości przyjeżdżających na dłużej – z klubami, zajęciami i restauracjami tętniącymi życiem przez całą zimę. Side jest spokojniejsze; Antalya pasuje tym, którzy chcą prawdziwego miasta."
+      },
+      {
+        "type": "h2",
+        "text": "Zakwaterowanie: hotele i apartamenty"
+      },
+      {
+        "type": "p",
+        "text": "Niektóre hotele w Alanyi, Side i Antalyi oferują specjalne stawki na pobyty od czterech tygodni, często z opcją HB. Wynajęte apartamenty dają więcej przestrzeni i niezależności; sprawdź, czy mają ogrzewanie lub klimatyzację z funkcją grzania, bo domy na tureckim wybrzeżu buduje się z myślą o lecie i w zimowe wieczory bywa w nich chłodno."
+      },
+      {
+        "type": "h2",
+        "text": "Codzienne życie zimą"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Cotygodniowe targi w każdej dzielnicy ze świeżymi owocami i warzywami – zima to sezon cytrusów.",
+          "Spacery i rower na promenadach Alanyi, Side, Lary i Konyaaltı.",
+          "Wędrówki po pogórzu Taurusu i Szlakiem Licyjskim w suche dni.",
+          "Jednodniowe wycieczki do antycznych zabytków, nad wodospad Manavgat lub na stare miasto w Antalyi.",
+          "Prywatne szpitale i kliniki w Antalyi i Alanyi z działami obsługi pacjentów zagranicznych."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Formalności i sprawy praktyczne"
+      },
+      {
+        "type": "p",
+        "text": "Zasady wjazdu i dopuszczalna długość pobytu bez zezwolenia na pobyt zależą od obywatelstwa i co jakiś czas się zmieniają, dlatego przed wyjazdem sprawdź aktualne przepisy u oficjalnych władz tureckich. Zdecydowanie zalecamy ubezpieczenie podróżne obejmujące długi pobyt za granicą."
+      },
+      {
+        "type": "h2",
+        "text": "Przylot z bagażem na kilka miesięcy"
+      },
+      {
+        "type": "p",
+        "text": "Goście przyjeżdżający na dłużej podróżują z czymś więcej niż wakacyjna walizka. Powiedz nam, ile walizek i dodatkowych rzeczy zabierasz – rowery, balkoniki czy kartony – a przydzielimy Mercedesa Vito lub w razie potrzeby Sprintera. Cena jest stała za pojazd, więc dodatkowy bagaż uwzględniamy przy rezerwacji, a nie doliczamy przy samochodzie. Kierowca pomaga przy załadunku i rozładunku pod drzwiami."
+      }
+    ],
+    "faq": [
+      [
+        "Gdzie najlepiej spędzić zimę na Riwierze Tureckiej?",
+        "Alanya ma największą społeczność długoterminowych gości i najbardziej aktywne życie zimą; Side jest spokojniejsze; Antalya oferuje pełne usługi miejskie. We wszystkich trzech miejscach zimy są łagodne."
+      ],
+      [
+        "Jak ciepło jest w Antalyi zimą?",
+        "Od grudnia do lutego w dzień jest zwykle ok. 15–17 °C, a w nocy ok. 6–8 °C. Przymrozki na wybrzeżu zdarzają się rzadko."
+      ],
+      [
+        "Czy zimą są oferty hoteli na długie pobyty?",
+        "Tak. Kilka hoteli w Alanyi, Side i Antalyi oferuje zimą obniżone stawki miesięczne lub na długie pobyty. O pobyty od czterech tygodni pytaj bezpośrednio w hotelu."
+      ],
+      [
+        "Czy na transfer z lotniska można zabrać dużo bagażu?",
+        "Tak. Przy rezerwacji podaj liczbę walizek i dodatkowych rzeczy, a przydzielimy pojazd z wystarczającą ilością miejsca. Cena jest za pojazd, bez opłat za walizkę."
+      ]
+    ]
+  },
+  "antalya-in-spring": {
+    "slug": "antalya-wiosna-co-robic",
+    "title": "Antalya wiosną: co robić od marca do maja",
+    "heading": "Antalya wiosną: atrakcje od marca do maja",
+    "description": "Antalya wiosną: kwitnące pomarańcze, Szlak Licyjski, rafting, wyjazdy na Wielkanoc i pierwsze dni na plaży. Pogoda w poszczególnych miesiącach i czego się spodziewać po przylocie.",
+    "excerpt": "Kwiat pomarańczy na ulicach, śnieg na szczytach i morze cieplejsze z tygodnia na tydzień. Dlaczego wiosna to sezon na aktywny wypoczynek wokół Antalyi.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Wiosna przychodzi na Riwierę Turecką wcześnie, a Antalya wiosną ma wyjątkowy urok. Już w marcu kwitną drzewa pomarańczowe, w górach Taurus wciąż leży śnieg, a dni są na tyle ciepłe, że można siedzieć na zewnątrz. To najlepszy sezon na spacery, rower i zwiedzanie, a w maju zaczynają się pierwsze dni plażowe w roku."
+      },
+      {
+        "type": "h2",
+        "text": "Pogoda w Antalyi wiosną"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Miesiąc",
+          "Dzień / noc",
+          "Morze",
+          "Najlepsze na"
+        ],
+        "rows": [
+          [
+            "Marzec",
+            "ok. 19 °C / 8 °C",
+            "ok. 17 °C",
+            "Zwiedzanie, wędrówki, kwitnienie"
+          ],
+          [
+            "Kwiecień",
+            "ok. 22 °C / 11 °C",
+            "ok. 18 °C",
+            "Wędrówki, rafting, wyjazdy wielkanocne"
+          ],
+          [
+            "Maj",
+            "ok. 26 °C / 15 °C",
+            "ok. 21 °C",
+            "Pierwsze dni na plaży, wszystkie aktywności"
+          ]
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Kwiat pomarańczy i wiosenne miasto"
+      },
+      {
+        "type": "p",
+        "text": "Wiosną Antalya pachnie kwiatem pomarańczy. Miasto świętuje to Karnawałem Kwiatu Pomarańczy – ulicznym festiwalem odbywającym się wiosną w Kaleiçi i centrum miasta. To również najlepszy czas, by pieszo odkrywać stare miasto, Muzeum Antalyi oraz klify Konyaaltı i Lary, zanim nadejdzie letni upał."
+      },
+      {
+        "type": "h2",
+        "text": "Aktywny wypoczynek: wędrówki, rafting i rower"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Szlak Licyjski: wiosna to najpopularniejszy sezon trekkingowy, z dzikimi kwiatami na odcinkach koło Kemeru, Olimposu i Kaş.",
+          "Kanion Köprülü: sezon raftingowy zaczyna się zwykle w kwietniu, a woda jest żywa od roztopów.",
+          "Kolejka na Tahtalı: śnieg na szczycie i kwitnące łąki w dole, często w jednym kadrze.",
+          "Rower: spokojne drogi i łagodne temperatury wokół Beleku, Side i na pogórzu Taurusu.",
+          "Golf: wiosna to drugi szczyt sezonu na polach Beleku."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Antyczne miasta w zielonym sezonie"
+      },
+      {
+        "type": "p",
+        "text": "Perge, Aspendos, Side, Phaselis i Termessos są najpiękniejsze wiosną, gdy ruiny otacza zielona trawa i dzikie kwiaty. Dobrze sprawdzają się też dłuższe wyprawy: w Pamukkale i Kapadocji panują przyjemne temperatury, a loty balonem nad Kapadocją odbywają się wiosną często, gdy pogoda jest stabilna."
+      },
+      {
+        "type": "h2",
+        "text": "Wielkanoc i wiosenne ferie"
+      },
+      {
+        "type": "p",
+        "text": "Wielkanoc i wiosenne ferie szkolne w Niemczech, Holandii, Wielkiej Brytanii i Skandynawii przynoszą pierwszą falę rodzin. Od kwietnia otwiera się coraz więcej sezonowych hoteli, przybywa lotów, a w maju większość resortów na wybrzeżu działa już pełną parą. Na terminy wielkanocne rezerwuj hotele i transfery wcześnie."
+      },
+      {
+        "type": "h2",
+        "text": "Przylot wiosną"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "W marcu część resortów jest jeszcze zamknięta; od kwietnia wybór szybko rośnie.",
+          "Na terminalu i drogach jest spokojnie, więc podawane czasy przejazdu są realne.",
+          "Sprzęt trekkingowy i golfowy, rowery oraz foteliki dziecięce zgłoś przy rezerwacji.",
+          "Cena jest stała za pojazd i nie zmienia się w zależności od sezonu."
+        ]
+      }
+    ],
+    "faq": [
+      [
+        "Czy wiosną w Antalyi jest na tyle ciepło, by plażować?",
+        "Od maja tak: w dzień ok. 26 °C, a morze ok. 21 °C. W marcu i kwietniu jest na tyle ciepło, by posiedzieć na słońcu, ale dla większości pływaków morze jest jeszcze chłodne."
+      ],
+      [
+        "Kiedy odbywa się Karnawał Kwiatu Pomarańczy w Antalyi?",
+        "Wiosną, gdy w mieście kwitną drzewa pomarańczowe. Daty zmieniają się co roku, więc przed zaplanowaniem wyjazdu pod to wydarzenie sprawdź oficjalne komunikaty miasta."
+      ],
+      [
+        "Czy wiosna to dobry czas na Szlak Licyjski?",
+        "Tak. Wiosna i jesień to dwa najlepsze sezony na wędrówki; wiosną ścieżki są zielone i pełne dzikich kwiatów, a temperatury komfortowe."
+      ],
+      [
+        "Czy hotele w Antalyi są otwarte w marcu?",
+        "Hotele miejskie i część resortów są otwarte. Wiele sezonowych resortów otwiera się w ciągu kwietnia, a w maju większa część wybrzeża działa już pełną parą."
+      ]
+    ]
   }
 };

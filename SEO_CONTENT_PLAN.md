@@ -155,3 +155,37 @@ düzenlemek değil.
    ekleme ve 23 çeviri dosyasına `<id>` bloğu. Testler eksik dili yakalar.
 4. Yeni dil eklemek: `translations/<dil>.js`, `languageOrder` girdisi ve
    `routes.ts` içinde iki satır. Geri kalanı otomatik.
+
+---
+
+## Faz 2 - Mevsimsel içerik (26 Eylül 2026)
+
+Amaç: yaz dışı sezonda müşteri kazanmak. Öncelik **önümüzdeki 6 ay (Ekim -
+Mart)**; ilkbahar makalesi Nisan-Mayıs rezervasyonlarını erken yakalamak için
+şimdiden yayında. Yaz bilerek atlandı - yaz talebi zaten var.
+
+| id | Arama niyeti | Pencere | İlgili rotalar |
+| --- | --- | --- | --- |
+| `antalya-in-autumn` | "Antalya'da ekim/kasımda yapılacaklar" | Ekim - Kasım | antalya, belek, side, kemer, alanya, kas |
+| `antalya-in-winter` | "Antalya'da kışın yapılacaklar", kayak + deniz, kış golfü | Aralık - Şubat | antalya, belek, kemer, alanya, kas, pamukkale, kapadokya |
+| `christmas-new-year-antalya` | "Antalya'da yılbaşı / Noel", Demre - Aziz Nikolaos | Aralık | antalya, belek, kemer, side, alanya, kumluca, kas |
+| `wintering-in-antalya` | "Alanya'da kışlamak" (de: Überwintern, sv/da/nl/ru pazarları) | Kasım - Mart | alanya, alanya_merkez, side, manavgat, kemer, antalya |
+| `antalya-in-spring` | "Antalya'da ilkbahar", Likya Yolu, rafting, Paskalya | Mart - Mayıs | antalya, kemer, kas, belek, side, pamukkale, kapadokya |
+
+5 makale × 23 dil = **115 yeni makale sayfası**. Katalogda en üstte duruyorlar;
+böylece blog dizininde, RSS beslemelerinde ve her makalenin "Diğer rehberler"
+bölümünde ilk görünenler mevsimsel makaleler oluyor.
+
+İçerik kuralları: sıcaklıklar yaklaşık aylık ortalamalar; tarih değişen
+etkinlikler (Portakal Çiçeği Karnavalı, Altın Portakal) tarih verilmeden
+anılıyor; oturma izni/vize kuralları için resmi kaynağa yönlendiriliyor.
+Hiçbir makale fiyat vaadi eklemiyor - sadece "araç başı sabit fiyat, sezon ve
+gece farkı yok" mesajını tekrarlıyor.
+
+### Takip
+
+1. Yayından sonra Search Console'da yeni `/blog/` URL'lerini inspect et.
+2. Kasım başında `antalya-in-winter` ve `christmas-new-year-antalya` için
+   gösterimleri kontrol et; Aralık başında `updated` tarihini tazele.
+3. Mart'ta `antalya-in-spring` öne alınabilir (katalog sırası).
+4. Sonraki adaylar: Kapadokya kış turu, Belek kış golfü, Saklıkent kayak transferi.

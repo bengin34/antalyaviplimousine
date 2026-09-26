@@ -555,5 +555,576 @@ export const articles = {
         "Evet; plaj için değil ama şehir, dağlar ve antik kentler için. Sahil otellerinin çoğu kasım ile mart arasında kapalıdır."
       ]
     ]
+  },
+  "antalya-in-autumn": {
+    "slug": "antalyada-sonbaharda-yapilacaklar",
+    "title": "Antalya'da Sonbaharda Yapılacaklar: Ekim ve Kasım Rehberi",
+    "heading": "Antalya'da sonbahar: ekim ve kasımda neler yapılır?",
+    "description": "Antalya'da sonbaharda yapılacaklar: ılık deniz, sakin plajlar, antik kentler, kanyon yürüyüşleri ve golf. Ekim-kasım havası, açık kalan yerler ve varış planı.",
+    "excerpt": "Deniz hâlâ ılık, kalabalık evine dönmüş, sıcaklar kırılmış. Ekim ve kasımın Türk Rivierası'nın en iyi saklanan sırrı olmasının nedenleri.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Antalya'da sonbaharda yapılacaklar listesi uzun; çünkü ziyaretçilerin çoğu eylül sonunda şehirden ayrılır ve sonbaharı bu kadar keyifli kılan da tam olarak budur. Deniz yazın sıcaklığını haftalarca korur, gündüz sıcaklıkları rahat 20'li derecelere iner ve ağustosta dayanılmaz olan yerler – antik kentler, kanyonlar, eski şehir – gezinin en güzel kısmına dönüşür."
+      },
+      {
+        "type": "h2",
+        "text": "Antalya'da sonbahar havası"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Ay",
+          "Gündüz / gece",
+          "Deniz",
+          "Nasıl hissettirir?"
+        ],
+        "rows": [
+          [
+            "Ekim",
+            "yaklaşık 27 °C / 16 °C",
+            "yaklaşık 24 °C",
+            "Sıcağı olmayan bir yaz – plaj günleri hâlâ olağan"
+          ],
+          [
+            "Kasım",
+            "yaklaşık 21 °C / 11 °C",
+            "yaklaşık 21 °C",
+            "Güneşli sabahlar, ilk sağanaklar, serin akşamlar"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Valizinizi hem plaj hem akşam için hazırlayın: ekimde ince bir ceket yeterli, kasımda daha kalın bir katman ve bir yağmurluk almak mantıklı."
+      },
+      {
+        "type": "h2",
+        "text": "Hâlâ deniz tatili: kıyıda ekim ayı"
+      },
+      {
+        "type": "p",
+        "text": "Ekimde Konyaaltı, Lara, Belek, Side ve Alanya plajları hâlâ açıktır, sabahları su çoğu zaman havadan sıcaktır ve şezlong kapma yarışı sona ermiştir. Belek, Side ve Kemer'deki büyük otellerin çoğu ekim sonuna kadar açık kalır; kasımdan itibaren seçenekler azalır, bu yüzden uçak bileti almadan önce otelinizin sezon tarihlerini teyit edin."
+      },
+      {
+        "type": "h2",
+        "text": "Sıcak olmadan antik kentler"
+      },
+      {
+        "type": "p",
+        "text": "Sonbahar, bölgedeki antik kentlerin mevsimidir. Perge ve Aspendos, Belek ve Side yolundan kısa bir sapmayla ulaşılır; Side'deki Apollon Tapınağı limanın kıyısında yükselir; şehrin arkasındaki dağlarda yer alan Termessos ise kimsenin yazın denememesi gereken bir yürüyüştür. Kasımda sütunlu caddeleri bütünüyle kendinize ayırabilirsiniz."
+      },
+      {
+        "type": "h2",
+        "text": "Doğa: kanyonlar, şelaleler ve Likya Yolu"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Düden Şelaleleri: Aşağı Düden, Lara yakınında doğrudan denize dökülür; Yukarı Düden ise şehir içinde bir parktadır.",
+          "Köprülü Kanyon: rafting sezonu genellikle ekime kadar sürer ve su ilkbahara göre daha sakindir.",
+          "Likya Yolu: sonbahar ve ilkbahar iki yürüyüş mevsimidir – Kemer, Olimpos ve Kaş çevresindeki etaplar şimdi en güzel hâlindedir.",
+          "Kemer yakınındaki Tahtalı Teleferiği: berrak sonbahar havası zirvede en iyi manzarayı sunar."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Golf, şehir hayatı ve festivaller"
+      },
+      {
+        "type": "p",
+        "text": "Sonbahar, Belek'te golfün en yoğun sezonudur: sahalar yemyeşil, sıcaklıklar ideal ve başlama saatleri Kuzey Avrupa'dan gelen gruplarla dolar. Şehirde ise kruvaziyer ve yaz kalabalıkları gidince Kaleiçi'nin sokakları, kafeleri ve küçük müzeleri yeniden canlanır; Antalya Altın Portakal Film Festivali de geleneksel olarak sonbaharda düzenlenir."
+      },
+      {
+        "type": "h2",
+        "text": "Sonbaharda varış"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Ekimde uçuşlar hâlâ sıktır; kasımdan itibaren seferler seyrekleşir ve daha fazla uçak gece geç saatte iner.",
+          "Terminal yaza göre daha sakindir, bu yüzden Belek, Side ve Alanya'ya yolculuk süreleri belirtilen sürelere yakındır.",
+          "Önceden rezerve edilen transfer uçuş numaranızı takip eder; akşam uçuşunuz rötar yapsa da sorun olmaz.",
+          "Fiyatlarımız araç başına sabittir; ekimde de ağustostaki ile aynıdır."
+        ]
+      }
+    ],
+    "faq": [
+      [
+        "Antalya'da ekimde denize girilir mi?",
+        "Evet. Ekimde deniz genellikle 24 °C civarındadır – Avrupa'daki birçok denizin yaz sıcaklığından bile fazla – ve ay boyunca plaj günleri olağandır."
+      ],
+      [
+        "Antalya'da oteller kasımda açık mı?",
+        "Şehir otelleri ve pek çok tatil oteli açık kalır, ancak kıyıdaki büyük otellerin bir kısmı kasımdan itibaren kapanır. Uçak bileti almadan önce otelinizin sezon tarihlerini kontrol edin."
+      ],
+      [
+        "Antalya'da sonbaharda denizden başka ne yapılır?",
+        "Perge, Aspendos ve Termessos gibi antik kentler, Düden Şelaleleri, Köprülü Kanyon, Likya Yolu'nda yürüyüş, Belek'te golf ve tarihi Kaleiçi."
+      ],
+      [
+        "Yaz sezonundan sonra transfer fiyatı değişiyor mu?",
+        "Hayır. Fiyat araç başına sabittir; mevsime, trafiğe veya günün saatine göre değişmez."
+      ]
+    ]
+  },
+  "antalya-in-winter": {
+    "slug": "antalyada-kisin-yapilacaklar",
+    "title": "Antalya'da Kışın Yapılacaklar: Aralık–Şubat Rehberi",
+    "heading": "Antalya'da kış: aralık ile şubat arasında neler yapılır?",
+    "description": "Antalya'da kışın yapılacaklar: Kaleiçi, şelaleler, antik kentler, Saklıkent'te kayak, kış golfü ve spa otelleri. Hava durumu, açık yerler ve ulaşım.",
+    "excerpt": "Ilık günler, dağlarda kar ve yeniden yerlilerine kalan bir şehir. Antalya aralık ile şubat arasında neler sunar – ve neler sunmaz.",
+    "readingMinutes": 7,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Antalya'da kış, kapalı sezon değil sakin sezondur ve kışın yapılacaklar sandığınızdan fazladır. Sahil otelleri dinlenir, ama şehir, dağlar ve antik kentler açıktır; ışık berraktır, günler çoğu zaman güneşli ve ılıktır. Bölgeyi burada yaşayanların gördüğü gibi görmenin tam zamanı – üstelik yaz ziyaretçilerinin asla yakalayamadığı fiyatlarla."
+      },
+      {
+        "type": "h2",
+        "text": "Antalya'da kış havası"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Ay",
+          "Gündüz / gece",
+          "Deniz",
+          "Bilmekte fayda var"
+        ],
+        "rows": [
+          [
+            "Aralık",
+            "yaklaşık 16 °C / 7 °C",
+            "yaklaşık 19 °C",
+            "En yağışlı ay, ama yağmur güneşli günlerin arasında sağanaklar hâlinde gelir"
+          ],
+          [
+            "Ocak",
+            "yaklaşık 15 °C / 6 °C",
+            "yaklaşık 17 °C",
+            "En serin ay; Toros zirvelerinde kar"
+          ],
+          [
+            "Şubat",
+            "yaklaşık 16 °C / 6 °C",
+            "yaklaşık 17 °C",
+            "Uzayan günler, ilk badem çiçekleri"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Güneşli kış öğleden sonraları Kuzey Avrupa'daki bahar gibidir; akşamlar serindir ve kapalı mekânlar her zaman kuzey standartlarında ısıtılmaz. Katmanlı giysiler, su geçirmez bir mont ve ıslak taş sokaklar için rahat ayakkabılar getirin."
+      },
+      {
+        "type": "h2",
+        "text": "Şehir: Kaleiçi, müzeler ve şelaleler"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Surlarla çevrili tarihi Kaleiçi: Hadrianus Kapısı, Yivli Minare, eski liman ve bugün kafe ve butik otele dönüşmüş Osmanlı evleriyle dolu sokaklar.",
+          "Antalya Müzesi: Perge heykelleriyle Türkiye'nin en önemli arkeoloji koleksiyonlarından biri – yağmurlu bir gün için ideal.",
+          "Düden ve Kurşunlu şelaleleri: kış yağmurlarıyla en gür ve en etkileyici hâllerine ulaşır.",
+          "Konyaaltı ve Lara sahil yolları: yaz sıcağı olmadan uzun yürüyüşler, bisiklet ve deniz manzarası."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Kuyruksuz antik kentler"
+      },
+      {
+        "type": "p",
+        "text": "Perge, Aspendos ve Side yıl boyu açıktır ve kışın buraları bir avuç ziyaretçiyle paylaşırsınız. Kemer yakınındaki Phaselis'in çam ormanı içinde üç limanı vardır; Olimpos ve Çıralı sezon dışında huzur doludur. Termessos dağlardadır ve soğuk, ıslak, hatta karlı olabilir; kuru bir gün seçin. Daha batıda, Demre'deki Aziz Nikolaos Kilisesi özellikle Noel döneminde kışa yakışan bir ziyarettir."
+      },
+      {
+        "type": "h2",
+        "text": "Aynı gün kayak ve deniz"
+      },
+      {
+        "type": "p",
+        "text": "Bakırlı Dağı'ndaki Saklıkent Kayak Merkezi şehre yaklaşık 50 km uzaklıktadır; karayoluyla aşağı yukarı bir buçuk saat sürer. Kar yeterli olduğunda, genellikle ocaktan marta kadar, sabah kayak yapıp öğleden sonra deniz kenarında yürüyebilirsiniz. Dağ yolunda kış lastiği veya zincir gerekebilir; yola çıkmadan önce koşulları kontrol edin ve gezi için fiyatı önceden bizden alın."
+      },
+      {
+        "type": "h2",
+        "text": "Kış golfü, spa otelleri ve uzun konaklamalar"
+      },
+      {
+        "type": "p",
+        "text": "Belek'teki golf sahaları kış boyunca açık kalır; saha ücretleri ve otel fiyatları sonbahar ve ilkbahar seviyelerinin epey altındadır. Belek, Lara ve Kemer'deki birçok otel spa ve kapalı havuzunu kışın da açık tutar; Alanya ve Side ise haftalarca ya da aylarca ılık havanın tadını çıkarmak için gelen Kuzey Avrupalı uzun süreli konukları çeker."
+      },
+      {
+        "type": "h2",
+        "text": "Daha uzak geziler"
+      },
+      {
+        "type": "p",
+        "text": "Kış, yazın yorucu olan uzun geziler için iyi bir zamandır: Pamukkale travertenleri ve Hierapolis kalıntıları ya da pek çok ziyaretçinin yılın en güzel dönemi saydığı karlı Kapadokya. İkisi de yolda geçen uzun günler demektir; özel bir araçla istediğiniz yerde ve istediğiniz zaman durabilirsiniz."
+      },
+      {
+        "type": "h2",
+        "text": "Kışın varış"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Direkt uçuşlar daha az, gece varışları daha fazladır; bağlantılar çoğunlukla İstanbul üzerindendir.",
+          "Sahildeki birçok otel kapalıdır; otelinizin tarihlerinizde açık olduğundan emin olun.",
+          "Taksi durakları gece yaza göre daha sakindir; uçuş numaranızı takip eden önceden rezerve edilmiş bir karşılama daha rahat bir seçenektir.",
+          "Araç başına sabit fiyat kışın da yazın da aynıdır – gece veya bayram farkı yoktur."
+        ]
+      }
+    ],
+    "faq": [
+      [
+        "Antalya kışın gezilir mi?",
+        "Evet; güneşlenmek yerine şehir, antik kentler, doğa ve golf için geliyorsanız kesinlikle. Günler çoğu zaman güneşli ve 15 °C civarındadır, kalabalık da yoktur."
+      ],
+      [
+        "Antalya'da kışın denize girilir mi?",
+        "Deniz 17-19 °C civarında kalır; bazı ziyaretçiler güneşli bir günde bunu ferahlatıcı bulur. Kışın açık kalan birçok otelde ayrıca ısıtmalı kapalı havuz bulunur."
+      ],
+      [
+        "Antalya yakınında kayak yapılır mı?",
+        "Evet. Saklıkent Kayak Merkezi şehre yaklaşık 50 km uzaklıktadır. Sezon kar yağışına bağlıdır ve genellikle ocaktan marta kadar sürer."
+      ],
+      [
+        "Antalya'da oteller kışın açık mı?",
+        "Antalya şehir merkezindeki ve Kaleiçi'ndeki oteller yıl boyu açıktır; Lara, Belek, Kemer, Side ve Alanya'daki bazı tatil otelleri de öyle. Büyük sezonluk otellerin çoğu kasımdan marta kadar kapalıdır."
+      ],
+      [
+        "Kışın Antalya Havalimanı'ndan transfer yapıyor musunuz?",
+        "Evet, gece varışları ve bayramlar dahil yıl boyunca, araç başına aynı sabit fiyatla."
+      ]
+    ]
+  },
+  "christmas-new-year-antalya": {
+    "slug": "antalyada-yilbasi-ve-noel",
+    "title": "Antalya'da Yılbaşı ve Noel: Pratik Rehber",
+    "heading": "Antalya'da Noel ve yılbaşı",
+    "description": "Antalya'da yılbaşı ve Noel: hava durumu, açık oteller, yılbaşı galaları, Demre'deki Aziz Nikolaos ve en yoğun gecelerde havalimanına gidiş-dönüş transferi.",
+    "excerpt": "Güneşli günler, deniz kenarında yılbaşı galası ve iki buçuk saat ötede Noel Baba'nın şehri. Antalya'da tatili nasıl planlarsınız ve o gece oraya nasıl ulaşırsınız?",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Yılbaşı ve Noel, Antalya'da kışın yaşanan birkaç yoğun dönemden biridir. Kuzeyin kışından kaçan aileler, yılbaşını kutlayan gruplar ve tatili birkaç günlük ılık güneşle birleştiren ziyaretçiler aynı iki haftada gelir – kıyının geri kalanı ise sakin sezonunu yaşarken."
+      },
+      {
+        "type": "h2",
+        "text": "Aralık sonunda sizi neler bekler?"
+      },
+      {
+        "type": "p",
+        "text": "Gündüz sıcaklıkları genellikle 15-16 °C civarındadır ve çoğu gün güneşlidir; yine de aralık yılın en yağışlı ayıdır. Noel Türkiye'de resmî tatil değildir; bu yüzden 25 Aralık'ta dükkânlar, restoranlar ve gezilecek yerler normal şekilde çalışır. Yılbaşı gecesi ise yaygın biçimde kutlanır ve 1 Ocak resmî tatildir."
+      },
+      {
+        "type": "h2",
+        "text": "Hangi oteller açık?"
+      },
+      {
+        "type": "p",
+        "text": "Antalya şehir merkezindeki ve Kaleiçi'ndeki oteller yıl boyu açıktır; Lara, Belek, Kemer, Side ve Alanya'daki bazı tatil otelleri ise özellikle bayram dönemi için Noel yemeği ve yılbaşı galasıyla açılır. Programlar, kıyafet kuralları ve gala ücretleri büyük farklılık gösterir; rezervasyondan önce otelinize nelerin dahil olduğunu sorun. Açık otellerde bu tarihler için odalar erkenden dolar."
+      },
+      {
+        "type": "h2",
+        "text": "Noel: Aziz Nikolaos'un şehri"
+      },
+      {
+        "type": "p",
+        "text": "Noel Baba efsanesinin ardındaki piskopos, tarihî Aziz Nikolaos, Myra'da – bugünkü Demre'de, Antalya'nın yaklaşık iki buçuk saat batısında – yaşadı. Aziz Nikolaos Kilisesi ve Myra'nın kayaya oyulmuş Likya mezarları unutulmaz bir Noel gezisi sunar; bu gezi Kaş'ta bir mola ya da Kumluca çevresindeki sahil yoluyla birleştirilebilir."
+      },
+      {
+        "type": "h2",
+        "text": "Antalya'da yılbaşı gecesi"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Otel galaları: akşam yemeği, canlı müzik ve geri sayım; genellikle sabit menü ve ek ücretle.",
+          "Şehir: Kaleiçi'ndeki ve marina çevresindeki restoranlar dolu olur; masanızı önceden ayırtın.",
+          "Lara ve Konyaaltı: beach club'lar ve deniz manzaralı restoranlar kendi partilerini düzenler.",
+          "Havai fişekler sahil boyunca izlenebilir, ancak program yıldan yıla değişir."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "En yoğun gecelerde ulaşım"
+      },
+      {
+        "type": "p",
+        "text": "Yılbaşı gecesi ve 1 Ocak'ın ilk saatlerinde taksi bulmak zordur; uygulamalar ve duraklar tam da herkes aynı anda dönmek istediğinde tıkanır. Yılbaşını otelinizin dışında – şehirde, bir restoranda ya da arkadaşlarınızın villasında – kutlayacaksanız dönüş yolculuğunuzu sabit bir alış saatiyle önceden ayırtın."
+      },
+      {
+        "type": "h2",
+        "text": "Tatil döneminde varış ve dönüş"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "20 Aralık ve 2 Ocak civarındaki uçuşlar kışın en yoğun uçuşlarıdır; erken rezervasyon yapın.",
+          "Tatil uçuşlarının çoğu akşam veya gece iner – uçuş numaranızı takip eden bir karşılama terminalde beklemenizi önler.",
+          "Noel hediyeleri ve kış bagajıyla gelen aileler bavul sayısını belirtmeli; böylece doğru aracı ayarlarız.",
+          "Araç başına sabit fiyatımızda bayram veya yılbaşı gecesi farkı yoktur."
+        ]
+      }
+    ],
+    "faq": [
+      [
+        "Noel döneminde Antalya'da hava nasıl?",
+        "Ilık: gündüzleri genellikle 15-16 °C, geceleri 6-8 °C civarındadır; sağanakların arasında güneşli aralar olur. Plaj havası değildir, ama yürüyüş ve gezi için çoğu zaman keyiflidir."
+      ],
+      [
+        "Antalya'da Noel kutlanıyor mu?",
+        "Noel Türkiye'de resmî tatil değildir, ancak yabancı konuk ağırlayan birçok otel Noel yemeği düzenler. Yılbaşı gecesi yaygın olarak kutlanır ve 1 Ocak resmî tatildir."
+      ],
+      [
+        "Aziz Nikolaos Kilisesi nerede?",
+        "Antik Myra, yani Demre'de; Antalya'nın batısında, araçla yaklaşık iki buçuk saat uzaklıktadır. Yıl boyu ziyarete açıktır."
+      ],
+      [
+        "Yılbaşı gecesi için transfer ayırtabilir miyim?",
+        "Evet. Gece yarısından sonra taksi bulmak çok zor olduğu için dönüş yolculuğunuzu sabit bir alış saatiyle ayırtmanızı öneririz. Araç başına sabit fiyatta bayram farkı yoktur."
+      ]
+    ]
+  },
+  "wintering-in-antalya": {
+    "slug": "antalya-ve-alanyada-kislamak-uzun-konaklama-rehberi",
+    "title": "Antalya ve Alanya'da Kışı Geçirmek: Uzun Konaklama Rehberi",
+    "heading": "Kışı Antalya'da geçirmek: uzun konaklama rehberi",
+    "description": "Türk Rivierası'nda kışlamak: Alanya, Side ve Antalya neden uzun süreli konukları çeker; hava, konaklama, sağlık hizmetleri ve bol bagajla varış hakkında bilgiler.",
+    "excerpt": "Kuzeyin kışı yerine haftalarca ya da aylarca ılık hava. Kışı Alanya, Side veya Antalya'da geçirmeden önce uzun süreli konukların bilmesi gerekenler.",
+    "readingMinutes": 7,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Kışı Antalya ve Alanya'da geçirmek her yıl binlerce kişinin tercihi: Almanya, İskandinavya, Hollanda, Rusya ve Polonya'dan gelen ziyaretçiler gri gökyüzünü haftalar ya da aylar boyunca Türk Rivierası'yla değiştirir. Ilık sıcaklıklar, uzun sahil yolları ve kendi ülkelerine göre daha düşük yaşam maliyeti, Antalya, Alanya ve Side'yi Akdeniz'in en popüler kış destinasyonları arasına sokar."
+      },
+      {
+        "type": "h2",
+        "text": "Kışı neden burada geçirmeli?"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Ilık iklim: kış günleri 15-17 °C civarında, sık sık güneşli; kıyıda don nadirdir.",
+          "Gün ışığı: Kuzey ve Orta Avrupa'ya göre belirgin şekilde daha fazla güneşli saat.",
+          "Ferahlık: yaz kalabalığı olmadan sahil yolları, plajlar ve tarihi merkezler.",
+          "Altyapı: büyük ilçelerde mağazalar, pazarlar, restoranlar ve özel hastaneler yıl boyu açıktır."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Nerede kalmalı?"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Yer",
+          "Kimlere uygun?",
+          "Havalimanına uzaklık"
+        ],
+        "rows": [
+          [
+            "Antalya şehir merkezi",
+            "Şehir hayatı, kültür, müzeler, tüm hizmetler kapınızın önünde",
+            "yaklaşık 15-30 dakika"
+          ],
+          [
+            "Side / Manavgat",
+            "Sakin bir tarihi merkez, uzun plajlar, düz yürüyüş yolları",
+            "yaklaşık 1 saat"
+          ],
+          [
+            "Alanya",
+            "En büyük uzun süreli konuk topluluğu, sahil yolları, hareketli kış hayatı",
+            "yaklaşık 1 saat 45 dakika"
+          ],
+          [
+            "Kemer",
+            "Dağ ve deniz, doğa yürüyüşleri, daha küçük bir tatil beldesi",
+            "yaklaşık 1 saat"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Alanya ve Mahmutlar, Oba gibi komşu mahalleleri, kışı burada geçiren uzun süreli konukların en büyük topluluğuna ev sahipliği yapar; kulüpler, etkinlikler ve restoranlar bütün kış hareketlidir. Side daha sakindir; Antalya ise gerçek bir şehir isteyenlere uygundur."
+      },
+      {
+        "type": "h2",
+        "text": "Konaklama: oteller ve daireler"
+      },
+      {
+        "type": "p",
+        "text": "Alanya, Side ve Antalya'daki bazı oteller dört hafta ve üzeri konaklamalar için, çoğu zaman yarım pansiyon, özel uzun konaklama fiyatları sunar. Kiralık daireler daha fazla alan ve bağımsızlık sağlar; ısıtma ya da ısıtma fonksiyonlu klima olup olmadığını kontrol edin, çünkü Türkiye'nin kıyı evleri yaz için inşa edilir ve kış akşamlarında soğuk olabilir."
+      },
+      {
+        "type": "h2",
+        "text": "Kışın günlük hayat"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Her mahallede taze meyve ve sebze için haftalık pazarlar – kış narenciye mevsimidir.",
+          "Alanya, Side, Lara ve Konyaaltı sahil yollarında yürüyüş ve bisiklet.",
+          "Kuru günlerde Toros eteklerinde ve Likya Yolu'nda doğa yürüyüşü.",
+          "Antik kentlere, Manavgat Şelalesi'ne veya Antalya'nın tarihi Kaleiçi'ne günübirlik geziler.",
+          "Antalya ve Alanya'da uluslararası hasta birimleri bulunan özel hastaneler ve klinikler."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Resmî işlemler ve pratik bilgiler"
+      },
+      {
+        "type": "p",
+        "text": "Giriş kuralları ve ikamet izni olmadan kalınabilecek süre uyruğunuza bağlıdır ve zaman zaman değişir; seyahatten önce güncel kuralları resmî Türk makamlarından kontrol edin. Yurt dışında uzun konaklamayı kapsayan bir seyahat sigortası şiddetle tavsiye edilir."
+      },
+      {
+        "type": "h2",
+        "text": "Aylar yetecek bagajla varış"
+      },
+      {
+        "type": "p",
+        "text": "Uzun süreli konuklar bir tatil valizinden fazlasıyla seyahat eder. Kaç bavul ve ekstra eşya getirdiğinizi – bisiklet, yürüteç ya da koli – bize bildirin; size bir Mercedes Vito, gerekirse bir Sprinter ayarlayalım. Fiyat araç başına sabittir; ekstra bagaj kaldırım kenarında ücretlendirilmez, rezervasyon sırasında hesaba katılır. Şoför, kapıda yükleme ve boşaltmaya yardım eder."
+      }
+    ],
+    "faq": [
+      [
+        "Türk Rivierası'nda kışı geçirmek için en iyi yer neresi?",
+        "Alanya en büyük uzun süreli konuk topluluğuna ve en hareketli kış hayatına sahiptir; Side daha sakindir; Antalya ise eksiksiz şehir hizmetleri sunar. Üçünde de kışlar ılıktır."
+      ],
+      [
+        "Antalya kışın ne kadar sıcak?",
+        "Aralıktan şubata kadar gündüz sıcaklıkları genellikle 15-17 °C, gece sıcaklıkları 6-8 °C civarındadır. Kıyıda don nadirdir."
+      ],
+      [
+        "Kışın uzun konaklama otel fırsatları var mı?",
+        "Evet. Alanya, Side ve Antalya'daki birçok otel kışın indirimli aylık ya da uzun konaklama fiyatları sunar. Dört hafta ve üzeri konaklamalar için doğrudan otele sorun."
+      ],
+      [
+        "Havalimanı transferinde çok bagaj taşıyabilir miyim?",
+        "Evet. Rezervasyonda bavul ve ekstra eşya sayısını belirtin, yeterli alanı olan bir araç ayarlayalım. Fiyat araç başınadır; bavul başına ücret alınmaz."
+      ]
+    ]
+  },
+  "antalya-in-spring": {
+    "slug": "antalyada-ilkbaharda-yapilacaklar",
+    "title": "Antalya'da İlkbaharda Yapılacaklar: Mart–Mayıs Rehberi",
+    "heading": "Antalya'da ilkbahar: mart ile mayıs arasında neler yapılır?",
+    "description": "Antalya'da ilkbaharda yapılacaklar: portakal çiçekleri, Likya Yolu yürüyüşleri, rafting, Paskalya tatili ve ilk plaj günleri. Aylara göre hava ve varışta sizi bekleyenler.",
+    "excerpt": "Sokaklarda portakal çiçeği, zirvelerde kar ve haftadan haftaya ısınan deniz. İlkbahar neden Antalya çevresinde aktif tatilin mevsimi?",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Antalya'da ilkbahar erken gelir ve ilkbaharda yapılacaklar da erken başlar. Mart ayında portakal ağaçları çiçek açar, Toros Dağları hâlâ karlıdır ve günler dışarıda oturacak kadar ılıktır. Yürüyüş, bisiklet ve keşif için en iyi mevsimdir; mayısta ise yılın ilk plaj günleri başlar."
+      },
+      {
+        "type": "h2",
+        "text": "Antalya'da ilkbahar havası"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Ay",
+          "Gündüz / gece",
+          "Deniz",
+          "En uygun olduğu"
+        ],
+        "rows": [
+          [
+            "Mart",
+            "yaklaşık 19 °C / 8 °C",
+            "yaklaşık 17 °C",
+            "Gezi, doğa yürüyüşü, çiçek açan ağaçlar"
+          ],
+          [
+            "Nisan",
+            "yaklaşık 22 °C / 11 °C",
+            "yaklaşık 18 °C",
+            "Doğa yürüyüşü, rafting, Paskalya tatili"
+          ],
+          [
+            "Mayıs",
+            "yaklaşık 26 °C / 15 °C",
+            "yaklaşık 21 °C",
+            "İlk plaj günleri, tüm aktiviteler"
+          ]
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Portakal çiçekleri ve baharda şehir"
+      },
+      {
+        "type": "p",
+        "text": "İlkbaharda Antalya portakal çiçeği kokar. Şehir bunu, baharda Kaleiçi ve şehir merkezinde düzenlenen bir sokak festivali olan Portakal Çiçeği Karnavalı ile kutlar. Yaz sıcakları gelmeden önce eski şehri, Antalya Müzesi'ni ve Konyaaltı ile Lara falezlerini yürüyerek keşfetmek için de en iyi zamandır."
+      },
+      {
+        "type": "h2",
+        "text": "Aktif tatil: doğa yürüyüşü, rafting ve bisiklet"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Likya Yolu: ilkbahar en popüler yürüyüş mevsimidir; Kemer, Olimpos ve Kaş yakınındaki etaplar boyunca kır çiçekleri açar.",
+          "Köprülü Kanyon: rafting sezonu genellikle nisanda başlar ve kar sularıyla coşkulu bir akıntı sunar.",
+          "Tahtalı Teleferiği: zirvede kar, aşağıda çiçekli çayırlar – çoğu zaman aynı manzarada.",
+          "Bisiklet: Belek, Side ve Toros eteklerinde sakin yollar ve ılık sıcaklıklar.",
+          "Golf: ilkbahar, Belek sahalarının ikinci yoğun sezonudur."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Yeşil mevsimde antik kentler"
+      },
+      {
+        "type": "p",
+        "text": "Perge, Aspendos, Side, Phaselis ve Termessos, kalıntıların yeşil çimen ve kır çiçekleriyle çevrildiği ilkbaharda en güzel hâlindedir. Uzun geziler de keyiflidir: Pamukkale ve Kapadokya'da sıcaklıklar hoştur, hava istikrarlı olduğunda ise Kapadokya üzerinde sıcak hava balonu uçuşları ilkbaharda sıkça yapılır."
+      },
+      {
+        "type": "h2",
+        "text": "Paskalya ve bahar tatilleri"
+      },
+      {
+        "type": "p",
+        "text": "Paskalya ile Almanya, Hollanda, Birleşik Krallık ve İskandinavya'daki bahar okul tatilleri ilk aile dalgasını getirir. Nisandan itibaren daha fazla sezonluk otel açılır, uçuşlar artar ve mayısa gelindiğinde kıyıdaki otellerin çoğu tam kapasite çalışır. Paskalya tarihleri için hem otelinizi hem transferinizi erkenden ayırtın."
+      },
+      {
+        "type": "h2",
+        "text": "İlkbaharda varış"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Martta bazı oteller hâlâ kapalıdır; nisandan itibaren seçenekler hızla artar.",
+          "Terminal ve yollar sakindir, bu yüzden belirtilen yolculuk süreleri gerçekçidir.",
+          "Doğa yürüyüşü ve golf ekipmanı, bisiklet ve çocuk koltuğu rezervasyon sırasında belirtilmelidir.",
+          "Fiyat araç başına sabittir ve mevsime göre değişmez."
+        ]
+      }
+    ],
+    "faq": [
+      [
+        "Antalya'da ilkbaharda denize girilir mi?",
+        "Mayıstan itibaren evet: gündüz sıcaklıkları 26 °C, deniz ise 21 °C civarına ulaşır. Mart ve nisanda güneşte oturmak için yeterince sıcaktır, ancak deniz çoğu kişi için hâlâ serindir."
+      ],
+      [
+        "Antalya Portakal Çiçeği Karnavalı ne zaman?",
+        "Şehrin portakal ağaçlarının çiçek açtığı ilkbaharda düzenlenir. Tarihler her yıl değişir; gezinizi karnavala göre planlamadan önce belediyenin resmî duyurularını kontrol edin."
+      ],
+      [
+        "İlkbahar Likya Yolu yürüyüşü için iyi bir zaman mı?",
+        "Evet. İlkbahar ve sonbahar en iyi iki yürüyüş mevsimidir; ilkbaharda patikalar yemyeşil ve kır çiçekleriyle doludur, sıcaklıklar da rahattır."
+      ],
+      [
+        "Antalya'da oteller martta açık mı?",
+        "Şehir otelleri ve bazı tatil otelleri açıktır. Sezonluk otellerin çoğu nisan içinde açılır ve mayısa gelindiğinde kıyının büyük bölümü tam kapasite çalışır."
+      ]
+    ]
   }
 };

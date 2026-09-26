@@ -266,4 +266,575 @@ export const articles = {
       ["Är Antalya värt ett besök på vintern?", "Ja, för staden, bergen och de arkeologiska platserna snarare än för stranden. Många kusthotell stänger mellan november och mars."],
     ],
   },
+  "antalya-in-autumn": {
+    "slug": "antalya-pa-hosten-saker-att-gora",
+    "title": "Antalya i oktober och november: saker att göra på hösten",
+    "heading": "Antalya på hösten: vad kan man göra i oktober och november?",
+    "description": "Antalya på hösten: varmt hav, lugna stränder, antika ruiner, kanjonvandringar och golf i oktober och november. Väder, vad som har öppet och hur du planerar ankomsten.",
+    "excerpt": "Havet är fortfarande varmt, folkmassorna har åkt hem och hettan har gett med sig. Därför är oktober och november Turkiska rivierans bäst bevarade hemlighet.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "De flesta turister lämnar Antalya i slutet av september – och det är precis därför Antalya på hösten fungerar så bra. Havet håller kvar sommarvärmen i flera veckor, dagstemperaturen sjunker till behagliga 20 grader och platserna som är outhärdliga i augusti – ruinerna, kanjonerna, gamla stan – blir resans höjdpunkt."
+      },
+      {
+        "type": "h2",
+        "text": "Höstväder i Antalya"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Månad",
+          "Dag / natt",
+          "Hav",
+          "Hur det känns"
+        ],
+        "rows": [
+          [
+            "Oktober",
+            "cirka 27 °C / 16 °C",
+            "cirka 24 °C",
+            "Sommar utan hetta – stranddagar är fortfarande det normala"
+          ],
+          [
+            "November",
+            "cirka 21 °C / 11 °C",
+            "cirka 21 °C",
+            "Soliga förmiddagar, de första regnskurarna, svala kvällar"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Packa för både stranden och kvällen: en lätt jacka räcker i oktober, i november är ett varmare lager och en regnjacka klokt."
+      },
+      {
+        "type": "h2",
+        "text": "Fortfarande badsemester: oktober vid kusten"
+      },
+      {
+        "type": "p",
+        "text": "I oktober har stränderna i Konyaaltı, Lara, Belek, Side och Alanya fortfarande öppet, vattnet är ofta varmare än luften på morgonen och det är ingen kamp om solstolarna längre. De flesta stora resorthotellen i Belek, Side och Kemer har öppet till slutet av oktober; från november minskar utbudet, så kontrollera hotellets säsong innan du bokar flyg."
+      },
+      {
+        "type": "h2",
+        "text": "Antika platser utan hetta"
+      },
+      {
+        "type": "p",
+        "text": "Hösten är säsongen för regionens ruiner. Perge och Aspendos ligger en kort avstickare från vägen till Belek och Side, Apollontemplet i Side står vid hamnens kant, och Termessos, högt uppe i bergen bakom staden, är en vandring som ingen bör ge sig på under sommaren. I november kan du ha hela kolonnadgator för dig själv."
+      },
+      {
+        "type": "h2",
+        "text": "Natur: kanjoner, vattenfall och Lykiska leden"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Düdenvattenfallen: de nedre fallen störtar rakt ut i havet nära Lara, de övre ligger i en park inne i staden.",
+          "Köprülükanjonen: forsränningssäsongen pågår oftast in i oktober, med lugnare vatten än på våren.",
+          "Lykiska leden: hösten och våren är de två vandringssäsongerna – etapperna kring Kemer, Olympos och Kaş är som bäst nu.",
+          "Linbanan till Tahtalı nära Kemer: den klara höstluften ger den bästa utsikten från toppen."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Golf, stadsliv och festivaler"
+      },
+      {
+        "type": "p",
+        "text": "Hösten är högsäsong för golf i Belek: banorna är gröna, temperaturen är perfekt och starttiderna fylls av grupper från norra Europa. Inne i staden vaknar Kaleiçis gränder, kaféer och små museer till liv igen när kryssnings- och sommarturisterna har åkt, och Antalyas filmfestival Golden Orange har traditionellt hållits på hösten."
+      },
+      {
+        "type": "h2",
+        "text": "Ankomst på hösten"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Flygen går fortfarande ofta i oktober; från november glesas tidtabellerna ut och fler plan landar sent på kvällen.",
+          "Terminalen är lugnare än på sommaren, så körtiderna till Belek, Side och Alanya ligger nära de angivna.",
+          "En förbokad transfer följer ditt flightnummer, så ett försenat kvällsflyg är inget problem.",
+          "Våra priser är fasta per fordon och är desamma i oktober som i augusti."
+        ]
+      }
+    ],
+    "faq": [
+      [
+        "Är det tillräckligt varmt för att bada i Antalya i oktober?",
+        "Ja. Havet håller oftast runt 24 °C i oktober, varmare än många europeiska hav på sommaren, och stranddagar är det normala hela månaden."
+      ],
+      [
+        "Har hotellen i Antalya öppet i november?",
+        "Stadshotell och många resorthotell har öppet, men en del stora kusthotell stänger från november. Kontrollera hotellets säsongsdatum innan du bokar flyg."
+      ],
+      [
+        "Vad kan man göra i Antalya på hösten förutom att ligga på stranden?",
+        "Antika platser som Perge, Aspendos och Termessos, Düdenvattenfallen, Köprülükanjonen, vandring på Lykiska leden, golf i Belek och gamla stan Kaleiçi."
+      ],
+      [
+        "Ändras priset för transfern efter sommarsäsongen?",
+        "Nej. Priset är fast per fordon och ändras inte med säsong, trafik eller tid på dygnet."
+      ]
+    ]
+  },
+  "antalya-in-winter": {
+    "slug": "antalya-pa-vintern-saker-att-gora",
+    "title": "Antalya på vintern: saker att göra december–februari",
+    "heading": "Antalya på vintern: vad kan man göra mellan december och februari?",
+    "description": "Antalya på vintern: gamla stan, vattenfall, antika ruiner, skidåkning i Saklıkent, vintergolf och spahotell. Väder, vad som har öppet och hur du tar dig runt.",
+    "excerpt": "Milda dagar, snö på bergen och en stad som åter tillhör sina invånare. Vad Antalya har att erbjuda mellan december och februari – och vad det inte har.",
+    "readingMinutes": 7,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Antalya på vintern är lågsäsong, inte stängt. Badorterna vilar, men staden, bergen och de antika platserna har öppet, ljuset är klart och dagarna är ofta soliga och milda. Det är tiden att se regionen som de som bor här ser den – och till priser som sommarturisterna aldrig får."
+      },
+      {
+        "type": "h2",
+        "text": "Vinterväder i Antalya"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Månad",
+          "Dag / natt",
+          "Hav",
+          "Bra att veta"
+        ],
+        "rows": [
+          [
+            "December",
+            "cirka 16 °C / 7 °C",
+            "cirka 19 °C",
+            "Årets regnigaste månad, men regnet kommer i skurar mellan soliga dagar"
+          ],
+          [
+            "Januari",
+            "cirka 15 °C / 6 °C",
+            "cirka 17 °C",
+            "Kallaste månaden; snö på Taurusbergens toppar"
+          ],
+          [
+            "Februari",
+            "cirka 16 °C / 6 °C",
+            "cirka 17 °C",
+            "Längre dagar, de första mandelblommorna"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Soliga vintereftermiddagar känns som vår i Norden; kvällarna är svala och inomhus är det inte alltid uppvärmt efter nordisk standard. Ta med lager på lager, en vattentät jacka och bekväma skor för blöta stengator."
+      },
+      {
+        "type": "h2",
+        "text": "Staden: Kaleiçi, museer och vattenfall"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Kaleiçi, den muromgärdade gamla stan: Hadrianus port, den räfflade minareten Yivli, gamla hamnen och gränder med osmanska hus som i dag är kaféer och boutiquehotell.",
+          "Antalyas arkeologiska museum: en av Turkiets främsta arkeologiska samlingar, med statyerna från Perge – ett perfekt besök en regnig dag.",
+          "Düden- och Kurşunluvattenfallen: vinterregnen gör dem som mäktigast och mest imponerande.",
+          "Strandpromenaderna i Konyaaltı och Lara: långa promenader, cykling och havsutsikt utan sommarhettan."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Antika platser utan köer"
+      },
+      {
+        "type": "p",
+        "text": "Perge, Aspendos och Side har öppet året runt, och på vintern delar du dem med en handfull besökare. Phaselis nära Kemer har tre hamnar i en tallskog; Olympos och Çıralı är fridfulla utanför säsong. Termessos ligger i bergen och kan vara kallt, blött eller till och med snöigt, så välj en torr dag. Längre västerut är Sankt Nikolauskyrkan i Demre ett självklart vinterbesök, särskilt runt jul."
+      },
+      {
+        "type": "h2",
+        "text": "Skidåkning och hav samma dag"
+      },
+      {
+        "type": "p",
+        "text": "Skidorten Saklıkent i Bakırlıbergen ligger cirka 50 km från staden, ungefär en och en halv timme med bil. När det finns tillräckligt med snö, oftast från januari till mars, kan du åka skidor på förmiddagen och promenera längs havet på eftermiddagen. Bergsvägen kan kräva vinterdäck eller snökedjor, så kolla förhållandena innan du åker och be oss om en offert för resan i förväg."
+      },
+      {
+        "type": "h2",
+        "text": "Vintergolf, spahotell och långa vistelser"
+      },
+      {
+        "type": "p",
+        "text": "Golfbanorna i Belek har öppet hela vintern, och greenfee och hotellpriser ligger klart under nivåerna på hösten och våren. Flera resorthotell i Belek, Lara och Kemer håller spa och inomhuspooler öppna under vintern, och Alanya och Side lockar långliggare från norra Europa som stannar i veckor eller månader för det milda vädret."
+      },
+      {
+        "type": "h2",
+        "text": "Längre utflykter"
+      },
+      {
+        "type": "p",
+        "text": "Vintern passar bra för de längre utflykterna som är utmattande på sommaren: travertinterrasserna i Pamukkale och ruinerna av Hierapolis, eller Kappadokien i snö, som många besökare anser är den vackraste årstiden där. Båda är långa dagar på vägen, och med ett privat fordon kan du stanna när och var du vill."
+      },
+      {
+        "type": "h2",
+        "text": "Ankomst på vintern"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Det finns färre direktflyg och fler nattankomster, ofta via Istanbul.",
+          "Många kusthotell är stängda, så kontrollera att ditt hotell har öppet de datum du reser.",
+          "Taxikön är glesare på natten än på sommaren; en förbokad upphämtning som följer ditt flightnummer är det lugnare alternativet.",
+          "Det fasta priset per fordon är detsamma på vintern som på sommaren – inget natt- eller helgdagstillägg."
+        ]
+      }
+    ],
+    "faq": [
+      [
+        "Är Antalya värt att besöka på vintern?",
+        "Ja, om du kommer för staden, de antika platserna, naturen och golfen snarare än för att sola. Dagarna är ofta soliga med temperaturer runt 15 °C, och det är inga folkmassor."
+      ],
+      [
+        "Kan man bada i Antalya på vintern?",
+        "Havet håller runt 17–19 °C, vilket en del besökare tycker är uppfriskande en solig dag. Många hotell som har öppet på vintern har också uppvärmda inomhuspooler."
+      ],
+      [
+        "Kan man åka skidor nära Antalya?",
+        "Ja. Skidorten Saklıkent ligger cirka 50 km från staden. Säsongen beror på snömängden och pågår oftast från januari till mars."
+      ],
+      [
+        "Har hotellen i Antalya öppet på vintern?",
+        "Stadshotellen i Antalya och Kaleiçi har öppet året runt, liksom flera resorthotell i Lara, Belek, Kemer, Side och Alanya. Många stora säsongshotell stänger från november till mars."
+      ],
+      [
+        "Kör ni transfer från Antalyas flygplats på vintern?",
+        "Ja, året runt, även vid nattankomster och helgdagar, till samma fasta pris per fordon."
+      ]
+    ]
+  },
+  "christmas-new-year-antalya": {
+    "slug": "jul-och-nyar-i-antalya",
+    "title": "Jul och nyårsafton i Antalya: en praktisk guide",
+    "heading": "Jul och nyår i Antalya",
+    "description": "Fira jul eller nyår i Antalya: väder, vilka hotell som har öppet, galamiddagar, Sankt Nikolaus i Demre och resan till och från flygplatsen de mest hektiska nätterna.",
+    "excerpt": "Soliga dagar, nyårsgala vid havet och Sankt Nikolaus stad två och en halv timme bort. Så planerar du helgerna i Antalya – och så tar du dig fram på nyårsnatten.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Jul och nyår i Antalya är en av få vintertoppar i regionen. Familjer som flyr den nordiska vintern, sällskap som firar nyårsafton och besökare som kombinerar helgerna med några dagar i mild sol anländer alla under samma två veckor – medan stora delar av kusten annars har lågsäsong."
+      },
+      {
+        "type": "h2",
+        "text": "Vad kan man vänta sig i slutet av december?"
+      },
+      {
+        "type": "p",
+        "text": "Dagarna når oftast runt 15–16 °C och är ofta soliga, även om december också är årets regnigaste månad. Julen är ingen allmän helgdag i Turkiet, så affärer, restauranger och sevärdheter har öppet som vanligt den 25 december. Nyårsafton firas däremot flitigt, och den 1 januari är allmän helgdag."
+      },
+      {
+        "type": "h2",
+        "text": "Vilka hotell har öppet?"
+      },
+      {
+        "type": "p",
+        "text": "Stadshotellen i Antalya och Kaleiçi har öppet året runt, och flera resorthotell i Lara, Belek, Kemer, Side och Alanya öppnar särskilt för helgerna med julmiddag och nyårsgala. Program, klädkod och galatillägg varierar mycket, så fråga hotellet vad som ingår innan du bokar. Rummen på de öppna resorthotellen tar slut tidigt för de här datumen."
+      },
+      {
+        "type": "h2",
+        "text": "Jul: Sankt Nikolaus stad"
+      },
+      {
+        "type": "p",
+        "text": "Den historiske Sankt Nikolaus, biskopen bakom legenden om jultomten, levde i Myra – dagens Demre, ungefär två och en halv timme väster om Antalya. Sankt Nikolauskyrkan och Myras klipphuggna lykiska gravar blir en minnesvärd utflykt i juletid, som kan kombineras med ett stopp i Kaş eller kustvägen kring Kumluca."
+      },
+      {
+        "type": "h2",
+        "text": "Nyårsafton i Antalya"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Hotellgalor: middag, livemusik och nedräkning, oftast med fast meny och tillägg.",
+          "Staden: restaurangerna i Kaleiçi och runt marinan är fullsatta; boka bord i förväg.",
+          "Lara och Konyaaltı: beachklubbar och restauranger med havsutsikt ordnar egna fester.",
+          "Fyrverkerier syns längs strandpromenaden, men programmet ändras från år till år."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Att ta sig runt de mest hektiska nätterna"
+      },
+      {
+        "type": "p",
+        "text": "På nyårsafton och de tidiga timmarna den 1 januari är det svårt att få tag på taxi, och appar och taxiköer är överbelastade precis när alla vill hem. Om du firar någon annanstans än på hotellet – i staden, på en restaurang eller i en väns villa – boka hemresan i förväg med en fast upphämtningstid."
+      },
+      {
+        "type": "h2",
+        "text": "Ankomst och avresa under helgerna"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Flygen runt den 20 december och den 2 januari är vinterns mest belagda; boka tidigt.",
+          "Många flyg under helgerna landar på kvällen eller natten – en upphämtning som följer ditt flightnummer gör att du slipper vänta i terminalen.",
+          "Familjer med julklappar och vinterbagage bör ange antalet resväskor, så att vi skickar rätt fordon.",
+          "Vårt fasta pris per fordon har inget helgdags- eller nyårstillägg."
+        ]
+      }
+    ],
+    "faq": [
+      [
+        "Hur är vädret i Antalya i juletid?",
+        "Milt: oftast runt 15–16 °C på dagen och 6–8 °C på natten, med soliga perioder mellan skurarna. Det är inget strandväder, men ofta behagligt för promenader och sightseeing."
+      ],
+      [
+        "Firas jul i Antalya?",
+        "Julen är ingen allmän helgdag i Turkiet, men många hotell med internationella gäster ordnar julmiddag. Nyårsafton firas flitigt och den 1 januari är allmän helgdag."
+      ],
+      [
+        "Var ligger Sankt Nikolauskyrkan?",
+        "I Demre, antikens Myra, ungefär två och en halv timmes bilresa väster om Antalya. Den har öppet för besökare året runt."
+      ],
+      [
+        "Kan jag boka transfer på nyårsnatten?",
+        "Ja. Vi rekommenderar att du bokar hemresan med en fast upphämtningstid, eftersom det är mycket svårt att få tag på taxi efter midnatt. Det fasta priset per fordon har inget helgdagstillägg."
+      ]
+    ]
+  },
+  "wintering-in-antalya": {
+    "slug": "overvintra-i-alanya-och-antalya",
+    "title": "Övervintra i Antalya och Alanya: guide för långliggare",
+    "heading": "Övervintra i Antalya: en guide för långa vistelser",
+    "description": "Övervintra i Alanya, Side eller Antalya på Turkiska rivieran: väder, boende, sjukvård och hur du anländer med mycket bagage – det här behöver långliggare veta.",
+    "excerpt": "Veckor eller månader av milt väder i stället för en nordisk vinter. Det här bör långliggare veta innan de övervintrar i Alanya, Side eller Antalya.",
+    "readingMinutes": 7,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Varje vinter byter tusentals besökare från Tyskland, Skandinavien, Nederländerna, Ryssland och Polen grå himmel mot Turkiska rivieran i veckor eller månader. Att övervintra i Alanya, Side eller Antalya lockar med milda temperaturer, långa strandpromenader och lägre levnadskostnader än hemma – orterna hör till Medelhavets populäraste vintermål."
+      },
+      {
+        "type": "h2",
+        "text": "Därför ska du övervintra här"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Milt klimat: vinterdagar runt 15–17 °C, ofta soligt, sällan frost vid kusten.",
+          "Dagsljus: märkbart fler soltimmar än i norra och centrala Europa.",
+          "Utrymme: strandpromenader, stränder och gamla stadskärnor utan sommarens folkmassor.",
+          "Infrastruktur: affärer, marknader, restauranger och privata sjukhus har öppet året runt i de större orterna."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Välj var du ska bo"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Ort",
+          "Passar för",
+          "Avstånd från flygplatsen"
+        ],
+        "rows": [
+          [
+            "Antalya stad",
+            "Stadsliv, kultur, museer, all service runt hörnet",
+            "cirka 15–30 minuter"
+          ],
+          [
+            "Side / Manavgat",
+            "En lugn gammal stadskärna, långa stränder, platta promenader",
+            "cirka 1 timme"
+          ],
+          [
+            "Alanya",
+            "Den största kolonin av långliggare, strandpromenader, aktivt vinterliv",
+            "cirka 1 timme 45 minuter"
+          ],
+          [
+            "Kemer",
+            "Berg och hav, vandring, en mindre semesterort",
+            "cirka 1 timme"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Alanya och grannområden som Mahmutlar och Oba har den största vinterkolonin av långliggare, med klubbar, aktiviteter och restauranger som är livliga hela vintern. Side är lugnare; Antalya passar dig som vill bo i en riktig stad."
+      },
+      {
+        "type": "h2",
+        "text": "Boende: hotell och lägenheter"
+      },
+      {
+        "type": "p",
+        "text": "En del hotell i Alanya, Side och Antalya erbjuder särskilda långtidspriser för vistelser på fyra veckor eller mer, ofta med halvpension. En hyrd lägenhet ger mer utrymme och frihet; kontrollera att den har värme eller luftkonditionering med värmefunktion, eftersom turkiska kusthus är byggda för sommaren och kan kännas kalla på vinterkvällarna."
+      },
+      {
+        "type": "h2",
+        "text": "Vardagsliv på vintern"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Veckomarknader i varje stadsdel med färsk frukt och grönsaker – vintern är citrussäsong.",
+          "Promenader och cykling längs strandpromenaderna i Alanya, Side, Lara och Konyaaltı.",
+          "Vandring vid foten av Taurusbergen och på Lykiska leden under torra dagar.",
+          "Dagsutflykter till antika platser, Manavgatvattenfallet eller Antalyas gamla stad.",
+          "Privata sjukhus och kliniker i Antalya och Alanya med avdelningar för internationella patienter."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Papper och praktiska frågor"
+      },
+      {
+        "type": "p",
+        "text": "Inreseregler och hur länge du får stanna utan uppehållstillstånd beror på ditt medborgarskap och ändras då och då, så kontrollera gällande regler hos officiella turkiska myndigheter innan du reser. En reseförsäkring som täcker en lång vistelse utomlands rekommenderas starkt."
+      },
+      {
+        "type": "h2",
+        "text": "Ankomst med bagage för flera månader"
+      },
+      {
+        "type": "p",
+        "text": "Långliggare reser med mer än en semesterresväska. Berätta hur många resväskor och extra saker du tar med – cyklar, rollatorer eller kartonger – så skickar vi en Mercedes Vito eller vid behov en Sprinter. Priset är fast per fordon, så extra bagage räknas in när du bokar i stället för att debiteras vid trottoarkanten. Chauffören hjälper till med i- och urlastning vid dörren."
+      }
+    ],
+    "faq": [
+      [
+        "Var är det bäst att övervintra på Turkiska rivieran?",
+        "Alanya har den största kolonin av långliggare och det livligaste vinterlivet; Side är lugnare; Antalya har all service som en storstad erbjuder. Alla tre har milda vintrar."
+      ],
+      [
+        "Hur varmt är det i Antalya på vintern?",
+        "Dagstemperaturen ligger oftast runt 15–17 °C från december till februari, med nätter runt 6–8 °C. Frost vid kusten är sällsynt."
+      ],
+      [
+        "Finns det hotellerbjudanden för långa vistelser på vintern?",
+        "Ja. Flera hotell i Alanya, Side och Antalya erbjuder rabatterade månads- eller långtidspriser på vintern. Fråga hotellet direkt om vistelser på fyra veckor eller mer."
+      ],
+      [
+        "Kan man ta med mycket bagage på flygplatstransfern?",
+        "Ja. Ange antalet resväskor och extra saker när du bokar, så skickar vi ett fordon med tillräckligt med plats. Priset gäller per fordon, utan avgift per resväska."
+      ]
+    ]
+  },
+  "antalya-in-spring": {
+    "slug": "antalya-pa-varen-saker-att-gora",
+    "title": "Antalya på våren: saker att göra mars–maj",
+    "heading": "Antalya på våren: vad kan man göra mellan mars och maj?",
+    "description": "Antalya på våren: apelsinblom, vandring på Lykiska leden, forsränning, påsklov och årets första stranddagar. Väder månad för månad och vad du kan vänta dig vid ankomst.",
+    "excerpt": "Apelsinblom på gatorna, snö på topparna och ett hav som blir varmare vecka för vecka. Därför är våren säsongen för aktiv semester kring Antalya.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Våren kommer tidigt till Turkiska rivieran, och Antalya på våren är något alldeles särskilt. Redan i mars blommar apelsinträden, Taurusbergen har fortfarande snö och dagarna är tillräckligt varma för att sitta ute. Det är den bästa säsongen för vandring, cykling och upptäcktsfärder, och i maj börjar årets första stranddagar."
+      },
+      {
+        "type": "h2",
+        "text": "Vårväder i Antalya"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Månad",
+          "Dag / natt",
+          "Hav",
+          "Bäst för"
+        ],
+        "rows": [
+          [
+            "Mars",
+            "cirka 19 °C / 8 °C",
+            "cirka 17 °C",
+            "Sightseeing, vandring, blomning"
+          ],
+          [
+            "April",
+            "cirka 22 °C / 11 °C",
+            "cirka 18 °C",
+            "Vandring, forsränning, påsklov"
+          ],
+          [
+            "Maj",
+            "cirka 26 °C / 15 °C",
+            "cirka 21 °C",
+            "Årets första stranddagar, alla aktiviteter"
+          ]
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Apelsinblom och staden på våren"
+      },
+      {
+        "type": "p",
+        "text": "På våren doftar Antalya apelsinblom. Staden firar det med apelsinblomskarnevalen, en gatufestival som hålls på våren kring Kaleiçi och centrum. Det är också den bästa tiden att utforska gamla stan, Antalyas arkeologiska museum och klipporna vid Konyaaltı och Lara till fots innan sommarhettan kommer."
+      },
+      {
+        "type": "h2",
+        "text": "Aktiv semester: vandring, forsränning och cykling"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Lykiska leden: våren är den populäraste vandringssäsongen, med vilda blommor längs etapperna nära Kemer, Olympos och Kaş.",
+          "Köprülükanjonen: forsränningssäsongen startar oftast i april, med livligt vatten från snösmältningen.",
+          "Linbanan till Tahtalı: snö på toppen och blommande ängar nedanför, ofta i samma vy.",
+          "Cykling: lugna vägar och milda temperaturer kring Belek, Side och Taurusbergens utlöpare.",
+          "Golf: våren är den andra högsäsongen på banorna i Belek."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Antika platser i den gröna säsongen"
+      },
+      {
+        "type": "p",
+        "text": "Perge, Aspendos, Side, Phaselis och Termessos är som vackrast på våren, när ruinerna omges av grönt gräs och vilda blommor. Längre utflykter fungerar också bra: Pamukkale och Kappadokien har behagliga temperaturer, och ballongturer över Kappadokien går ofta på våren när vädret är stabilt."
+      },
+      {
+        "type": "h2",
+        "text": "Påsk och vårlov"
+      },
+      {
+        "type": "p",
+        "text": "Påsken och vårloven i Tyskland, Nederländerna, Storbritannien och Skandinavien för med sig den första vågen av barnfamiljer. Fler säsongshotell öppnar från april, antalet flyg ökar och i maj är de flesta kusthotell i full drift. Boka både hotell och transfer tidigt om du reser under påsken."
+      },
+      {
+        "type": "h2",
+        "text": "Ankomst på våren"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "I mars är en del resorthotell fortfarande stängda; från april växer utbudet snabbt.",
+          "Terminalen och vägarna är lugna, så de angivna körtiderna är realistiska.",
+          "Vandrings- och golfutrustning, cyklar och bilbarnstolar bör anges när du bokar.",
+          "Priset är fast per fordon och ändras inte med säsongen."
+        ]
+      }
+    ],
+    "faq": [
+      [
+        "Är det tillräckligt varmt för stranden i Antalya på våren?",
+        "Från maj, ja: dagarna når runt 26 °C och havet runt 21 °C. I mars och april är det tillräckligt varmt för att sitta i solen, men havet är fortfarande svalt för de flesta badare."
+      ],
+      [
+        "När är apelsinblomskarnevalen i Antalya?",
+        "Den hålls på våren, när stadens apelsinträd blommar. Datumen ändras varje år, så kolla stadens officiella besked innan du planerar resan efter den."
+      ],
+      [
+        "Är våren en bra tid att vandra Lykiska leden?",
+        "Ja. Våren och hösten är de två bästa vandringssäsongerna; på våren är stigarna gröna och fulla av vilda blommor, och temperaturerna är behagliga."
+      ],
+      [
+        "Har hotellen i Antalya öppet i mars?",
+        "Stadshotell och en del resorthotell har öppet. Många säsongshotell öppnar under april, och i maj är större delen av kusten i full drift."
+      ]
+    ]
+  }
 };

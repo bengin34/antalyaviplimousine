@@ -266,4 +266,575 @@ export const articles = {
       ["Megéri télen Antalyába menni?", "Igen, a városért, a hegyekért és a régészeti helyszínekért, nem a strandért. Sok tengerparti szálloda november és március között zárva tart."],
     ],
   },
+  "antalya-in-autumn": {
+    "slug": "antalya-osszel-programok",
+    "title": "Antalya ősszel: programok októberben és novemberben",
+    "heading": "Antalya ősszel: mit csináljunk októberben és novemberben?",
+    "description": "Antalya ősszel: meleg tenger, csendes strandok, ókori romok, kanyontúrák és golf. Időjárás októberben és novemberben, mi marad nyitva, és hogyan tervezd az érkezést.",
+    "excerpt": "A tenger még meleg, a tömeg hazament, a hőség megtört. Miért október és november a Török Riviéra legjobban őrzött titka?",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Antalya ősszel azért olyan jó választás, mert a legtöbb látogató szeptember végén hazautazik. A tenger még hetekig őrzi a nyár melegét, a nappali hőmérséklet kellemes 20 fok körülire csökken, és azok a helyek, amelyek augusztusban elviselhetetlenek – a romok, a kanyonok, az óváros –, az utazás legszebb részévé válnak."
+      },
+      {
+        "type": "h2",
+        "text": "Őszi időjárás Antalyában"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Hónap",
+          "Nappal / éjjel",
+          "Tenger",
+          "Milyen érzés?"
+        ],
+        "rows": [
+          [
+            "Október",
+            "kb. 27 °C / 16 °C",
+            "kb. 24 °C",
+            "Nyár hőség nélkül – a strandnapok még teljesen megszokottak"
+          ],
+          [
+            "November",
+            "kb. 21 °C / 11 °C",
+            "kb. 21 °C",
+            "Napos reggelek, az első záporok, hűvös esték"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Csomagolj strandra és estére is: októberben elég egy könnyű kabát, novemberben érdemes egy melegebb réteget és egy esőkabátot is vinni."
+      },
+      {
+        "type": "h2",
+        "text": "Még mindig tengerparti nyaralás: október a parton"
+      },
+      {
+        "type": "p",
+        "text": "Októberben Konyaaltı, Lara, Belek, Side és Alanya strandjai még nyitva vannak, reggelente a víz gyakran melegebb a levegőnél, és a napozóágyakért sem kell már versenyezni. Belek, Side és Kemer nagy üdülőszállodáinak többsége október végéig nyitva tart; novembertől szűkül a választék, ezért a repülőjegy lefoglalása előtt ellenőrizd a szállodád szezonját."
+      },
+      {
+        "type": "h2",
+        "text": "Ókori romok hőség nélkül"
+      },
+      {
+        "type": "p",
+        "text": "Az ősz a környék romjainak évszaka. Perge és Aszpendosz csak egy rövid kitérőre van a Belek és Side felé vezető úttól, Side Apollón-temploma a kikötő szélén áll, a város mögötti hegyekben magasan fekvő Termesszosz pedig olyan túra, amelyet nyáron senkinek sem kellene megpróbálnia. Novemberben akár egész oszlopsoros utcák is csak a tieid lehetnek."
+      },
+      {
+        "type": "h2",
+        "text": "Természet: kanyonok, vízesések és a Likiai út"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Düden-vízesések: az alsó vízesés Lara közelében egyenesen a tengerbe zuhan, a felső egy városi parkban található.",
+          "Köprülü-kanyon: a raftingszezon általában októberig tart, a víz nyugodtabb, mint tavasszal.",
+          "Likiai út: az ősz és a tavasz a két túraszezon – a Kemer, Olümposz és Kaş környéki szakaszok most a legszebbek.",
+          "Tahtalı-kötélpálya Kemer mellett: a tiszta őszi levegőben nyílik a legszebb kilátás a csúcsról."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Golf, városi élet és fesztiválok"
+      },
+      {
+        "type": "p",
+        "text": "Ősszel van Beleken a golf főszezonja: a pályák zöldek, a hőmérséklet ideális, a kezdési időpontokat pedig észak-európai csoportok foglalják le. A városban a hajós és nyári tömegek távoztával Kaleiçi sikátorai, kávézói és kis múzeumai újra megélénkülnek, és az antalyai Arany Narancs Filmfesztivált is hagyományosan ősszel rendezik."
+      },
+      {
+        "type": "h2",
+        "text": "Érkezés ősszel"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Októberben még sűrűn vannak járatok; novembertől ritkulnak, és több gép érkezik késő éjjel.",
+          "A terminál csendesebb, mint nyáron, így a Belekre, Sidébe és Alanyába tartó menetidők közel vannak a megadottakhoz.",
+          "Az előre foglalt transzfer követi a járatszámodat, így egy késő esti késés sem gond.",
+          "Áraink járművenként fixek, és októberben ugyanannyiba kerülnek, mint augusztusban."
+        ]
+      }
+    ],
+    "faq": [
+      [
+        "Elég meleg van októberben a fürdéshez Antalyában?",
+        "Igen. Októberben a tenger általában 24 °C körüli – melegebb, mint nyáron sok európai tenger –, és a strandnapok egész hónapban megszokottak."
+      ],
+      [
+        "Nyitva vannak a szállodák Antalyában novemberben?",
+        "A városi szállodák és sok üdülőszálloda nyitva marad, de a nagy tengerparti üdülők egy része novembertől bezár. A repülőjegy foglalása előtt nézd meg a szállodád szezonjának dátumait."
+      ],
+      [
+        "Mit lehet csinálni Antalyában ősszel a strandon kívül?",
+        "Ókori helyszínek, például Perge, Aszpendosz és Termesszosz, a Düden-vízesések, a Köprülü-kanyon, túrázás a Likiai úton, golf Beleken és Kaleiçi óvárosa."
+      ],
+      [
+        "Változik a transzfer ára a nyári szezon után?",
+        "Nem. Az ár járművenként fix, és nem függ az évszaktól, a forgalomtól vagy a napszaktól."
+      ]
+    ]
+  },
+  "antalya-in-winter": {
+    "slug": "antalya-telen-programok",
+    "title": "Antalya télen: programok decembertől februárig",
+    "heading": "Antalya télen: mit csináljunk december és február között?",
+    "description": "Antalya télen: óváros, vízesések, ókori romok, síelés Saklıkentben, téli golf és wellness-szállodák. Időjárás, mi van nyitva, és hogyan közlekedj.",
+    "excerpt": "Enyhe napok, hó a hegyeken és egy város, amely újra a helyieké. Mit kínál Antalya december és február között – és mit nem.",
+    "readingMinutes": 7,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Antalya télen a csendes, nem a zárt szezonját éli. A tengerparti üdülők pihennek, de a város, a hegyek és az ókori helyszínek nyitva vannak, a fény tiszta, a napok pedig gyakran naposak és enyhék. Ilyenkor úgy láthatod a vidéket, ahogy az itt élők – és olyan árakon, amilyeneket a nyári látogatók sosem kapnak."
+      },
+      {
+        "type": "h2",
+        "text": "Téli időjárás Antalyában"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Hónap",
+          "Nappal / éjjel",
+          "Tenger",
+          "Jó tudni"
+        ],
+        "rows": [
+          [
+            "December",
+            "kb. 16 °C / 7 °C",
+            "kb. 19 °C",
+            "A legcsapadékosabb hónap, de az eső napos napok között, rohamokban érkezik"
+          ],
+          [
+            "Január",
+            "kb. 15 °C / 6 °C",
+            "kb. 17 °C",
+            "A leghűvösebb hónap; hó a Taurus csúcsain"
+          ],
+          [
+            "Február",
+            "kb. 16 °C / 6 °C",
+            "kb. 17 °C",
+            "Hosszabbodó napok, az első mandulavirágzás"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "A napos téli délutánok olyanok, mint Észak-Európában a tavasz; az esték hűvösek, és a beltereket nem mindig fűtik északi mércével. Hozz rétegezhető ruhát, vízálló kabátot és kényelmes cipőt a nedves kőutcákhoz."
+      },
+      {
+        "type": "h2",
+        "text": "A város: Kaleiçi, múzeumok és vízesések"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Kaleiçi, a falakkal körülvett óváros: a Hadrianus-kapu, a Bordázott minaret, a régi kikötő és oszmán házakkal szegélyezett sikátorok, ma kávézók és butikhotelek.",
+          "Antalyai Múzeum: Törökország egyik legnagyobb régészeti gyűjteménye a pergéi szobrokkal – ideális program esős napra.",
+          "Düden- és Kurşunlu-vízesések: a téli esőktől a legbővizűbbek és leglátványosabbak.",
+          "Konyaaltı és Lara sétányai: hosszú séták, kerékpározás és tengeri kilátás nyári hőség nélkül."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Ókori helyszínek sorban állás nélkül"
+      },
+      {
+        "type": "p",
+        "text": "Perge, Aszpendosz és Side egész évben nyitva van, télen pedig csak maroknyi látogatóval kell osztozni rajtuk. A Kemer melletti Phaszélisznek három kikötője van egy fenyőerdőben; Olümposz és Çıralı szezonon kívül békés. Termesszosz a hegyekben fekszik, és hideg, nedves, sőt havas is lehet, ezért válassz száraz napot. Nyugatabbra a demrei Szent Miklós-templom kézenfekvő téli úti cél, különösen karácsony táján."
+      },
+      {
+        "type": "h2",
+        "text": "Síelés és tenger egy napon"
+      },
+      {
+        "type": "p",
+        "text": "A Bakırlı-hegységben fekvő Saklıkent síközpont körülbelül 50 km-re van a várostól, autóval nagyjából másfél óra. Ha van elég hó – általában januártól márciusig –, délelőtt síelhetsz, délután pedig a tengerparton sétálhatsz. A hegyi úton téli gumi vagy hólánc lehet szükséges, ezért indulás előtt nézd meg az útviszonyokat, és kérj tőlünk előre árajánlatot a kirándulásra."
+      },
+      {
+        "type": "h2",
+        "text": "Téli golf, wellness-szállodák és hosszú tartózkodás"
+      },
+      {
+        "type": "p",
+        "text": "Belek golfpályái egész télen nyitva vannak, a pályadíjak és a szállodai árak pedig jóval az őszi és tavaszi szint alatt maradnak. Több beleki, larai és kemeri üdülő télen is nyitva tartja wellnessrészlegét és fedett medencéit, Alanya és Side pedig észak-európai vendégeket vonz, akik hetekre vagy hónapokra jönnek az enyhe idő miatt."
+      },
+      {
+        "type": "h2",
+        "text": "Távolabbi kirándulások"
+      },
+      {
+        "type": "p",
+        "text": "A tél jó alkalom a hosszabb utakra, amelyek nyáron kimerítőek: Pamukkale mésztufateraszai és Hierapolisz romjai, vagy a havas Kappadókia, amelyet sok látogató az év legszebb időszakának tart ott. Mindkettő hosszú nap az úton, egy saját járművel pedig ott és akkor állsz meg, ahol és amikor szeretnél."
+      },
+      {
+        "type": "h2",
+        "text": "Érkezés télen"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Kevesebb a közvetlen járat és több az éjszakai érkezés, gyakran isztambuli átszállással.",
+          "Sok tengerparti üdülő zárva van, ezért ellenőrizd, hogy a szállodád nyitva lesz-e az utazásod idején.",
+          "Éjjel a taxiállomások csendesebbek, mint nyáron; a járatszámodat követő, előre foglalt transzfer a nyugodtabb megoldás.",
+          "A járművenkénti fix ár télen ugyanannyi, mint nyáron – nincs éjszakai vagy ünnepnapi felár."
+        ]
+      }
+    ],
+    "faq": [
+      [
+        "Megéri télen Antalyába utazni?",
+        "Igen, ha a város, az ókori helyszínek, a természet és a golf miatt jössz, nem napozni. A napok gyakran naposak, 15 °C körüli hőmérséklettel, és nincs tömeg."
+      ],
+      [
+        "Lehet télen fürdeni Antalyában?",
+        "A tenger 17–19 °C körül marad, amit napos időben néhány látogató frissítőnek talál. Sok, télen is nyitva tartó szállodában fűtött fedett medence is van."
+      ],
+      [
+        "Lehet síelni Antalya közelében?",
+        "Igen. A Saklıkent síközpont körülbelül 50 km-re van a várostól. A szezon a havazástól függ, és általában januártól márciusig tart."
+      ],
+      [
+        "Nyitva vannak a szállodák Antalyában télen?",
+        "Antalya városi és kaleiçi szállodái egész évben nyitva vannak, ahogy több Lara, Belek, Kemer, Side és Alanya környéki üdülő is. Sok nagy szezonális üdülő novembertől márciusig zárva tart."
+      ],
+      [
+        "Van transzfer az antalyai repülőtérről télen is?",
+        "Igen, egész évben, éjszakai érkezéskor és ünnepnapokon is, ugyanazon a járművenkénti fix áron."
+      ]
+    ]
+  },
+  "christmas-new-year-antalya": {
+    "slug": "karacsony-es-szilveszter-antalyaban",
+    "title": "Karácsony és szilveszter Antalyában: gyakorlati útmutató",
+    "heading": "Karácsony és szilveszter Antalyában",
+    "description": "Karácsony vagy szilveszter Antalyában: időjárás, nyitva tartó szállodák, gálavacsorák, Szent Miklós Demrében és reptéri transzfer a legforgalmasabb éjszakákon.",
+    "excerpt": "Napos napok, szilveszteri gála a tengerparton és Szent Miklós városa két és fél órányira. Így tervezd meg az ünnepeket Antalyában, és így juss oda a nagy éjszakán.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "A karácsony és a szilveszter Antalyában a kevés téli csúcsidőszak egyike. Az északi tél elől menekülő családok, szilvesztert ünneplő társaságok és az ünnepeket néhány nap enyhe napsütéssel összekötő látogatók mind ugyanabban a két hétben érkeznek – miközben a part nagy része egyébként csendes szezonját éli."
+      },
+      {
+        "type": "h2",
+        "text": "Mire számíts december végén?"
+      },
+      {
+        "type": "p",
+        "text": "Nappal általában 15–16 °C körül van, és gyakran süt a nap, bár a december egyben az év legcsapadékosabb hónapja. A karácsony Törökországban nem munkaszüneti nap, így december 25-én az üzletek, éttermek és látnivalók a szokásos módon működnek. A szilvesztert viszont széles körben ünneplik, január 1. pedig munkaszüneti nap."
+      },
+      {
+        "type": "h2",
+        "text": "Mely szállodák vannak nyitva?"
+      },
+      {
+        "type": "p",
+        "text": "Antalya városi és kaleiçi szállodái egész évben nyitva vannak, és több Lara, Belek, Kemer, Side és Alanya környéki üdülő kifejezetten az ünnepi időszakra nyit ki karácsonyi vacsorával és szilveszteri gálával. A programok, az öltözködési elvárások és a gála felára nagyon eltérő, ezért foglalás előtt kérdezd meg a szállodát, mi van benne az árban. A nyitva tartó üdülők szobái ezekre a napokra hamar elkelnek."
+      },
+      {
+        "type": "h2",
+        "text": "Karácsony: Szent Miklós városa"
+      },
+      {
+        "type": "p",
+        "text": "A történelmi Szent Miklós, a Mikulás-legenda mögött álló püspök Mirában élt – a mai Demrében, Antalyától nagyjából két és fél órára nyugatra. A Szent Miklós-templom és Mira sziklába vájt líkiai sírjai emlékezetes karácsonyi kirándulást kínálnak, amely összeköthető egy kaşi megállóval vagy a Kumluca körüli parti úttal."
+      },
+      {
+        "type": "h2",
+        "text": "Szilveszter Antalyában"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Szállodai gálák: vacsora, élő zene és visszaszámlálás, általában fix menüvel és felárral.",
+          "A város: Kaleiçi és a jachtkikötő környékének éttermei zsúfoltak; foglalj asztalt előre.",
+          "Lara és Konyaaltı: a strandklubok és tengerre néző éttermek saját bulit rendeznek.",
+          "Tűzijáték a tengerparton látható, bár a program évről évre változik."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Közlekedés a legforgalmasabb éjszakákon"
+      },
+      {
+        "type": "p",
+        "text": "Szilveszter éjjel és január 1. hajnalán nehéz taxit találni, az alkalmazások és a taxiállomások pont akkor telnek meg, amikor mindenki indulna. Ha nem a szállodádban ünnepelsz – hanem a városban, egy étteremben vagy barátok villájában –, a visszautat foglald le előre, fix indulási időponttal."
+      },
+      {
+        "type": "h2",
+        "text": "Ünnepi érkezések és indulások"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "A december 20. és január 2. körüli járatok a tél legzsúfoltabbjai; foglalj korán.",
+          "Sok ünnepi járat este vagy éjjel landol – a járatszámodat követő transzferrel nem kell a terminálban várnod.",
+          "A karácsonyi ajándékokkal és téli csomaggal utazó családok jelezzék a bőröndök számát, hogy a megfelelő járművet biztosítsuk.",
+          "Járművenkénti fix árunkban nincs ünnepi vagy szilveszteri felár."
+        ]
+      }
+    ],
+    "faq": [
+      [
+        "Milyen az időjárás Antalyában karácsonykor?",
+        "Enyhe: nappal jellemzően 15–16 °C, éjjel 6–8 °C körül, a záporok között napos időszakokkal. Nem strandidő, de sétához és városnézéshez gyakran kellemes."
+      ],
+      [
+        "Ünneplik a karácsonyt Antalyában?",
+        "A karácsony Törökországban nem munkaszüneti nap, de sok, nemzetközi vendégeket fogadó szálloda karácsonyi vacsorát szervez. A szilvesztert széles körben ünneplik, január 1. pedig munkaszüneti nap."
+      ],
+      [
+        "Hol található a Szent Miklós-templom?",
+        "Demrében, az ókori Mirában, Antalyától nyugatra, körülbelül két és fél óra autóútra. Egész évben látogatható."
+      ],
+      [
+        "Foglalhatok transzfert szilveszter éjszakára?",
+        "Igen. Javasoljuk, hogy a visszautat fix indulási időponttal foglald le, mert éjfél után nagyon nehéz taxit találni. A járművenkénti fix árban nincs ünnepi felár."
+      ]
+    ]
+  },
+  "wintering-in-antalya": {
+    "slug": "teleles-antalyaban-es-alanyaban",
+    "title": "Telelés Antalyában és Alanyában: útmutató hosszú tartózkodáshoz",
+    "heading": "Telelés Antalyában: útmutató hosszú tartózkodáshoz",
+    "description": "Telelés a Török Riviérán: miért vonzza Alanya, Side és Antalya a hosszú távra érkezőket, milyen az időjárás, a szállás, az egészségügy, és hogyan érkezz sok csomaggal.",
+    "excerpt": "Hetek vagy hónapok enyhe időben az északi tél helyett. Amit a hosszú távra érkezőknek tudniuk kell, mielőtt Alanyában, Sidében vagy Antalyában töltik a telet.",
+    "readingMinutes": 7,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "A telelés Antalyában és Alanyában évről évre népszerűbb: minden télen több ezer látogató érkezik Németországból, Skandináviából, Hollandiából, Oroszországból és Lengyelországból, hogy hetekre vagy hónapokra a Török Riviérára cserélje a szürke eget. Az enyhe hőmérséklet, a hosszú sétányok és az otthoninál alacsonyabb megélhetési költségek miatt Antalya, Alanya és Side a Földközi-tenger legnépszerűbb téli úti céljai közé tartozik."
+      },
+      {
+        "type": "h2",
+        "text": "Miért érdemes itt tölteni a telet?"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Enyhe éghajlat: téli napokon 15–17 °C körül, gyakran napos idő, a parton ritka a fagy.",
+          "Napfény: érezhetően több napsütéses óra, mint Észak- és Közép-Európában.",
+          "Tér: sétányok, strandok és óvárosok nyári tömeg nélkül.",
+          "Infrastruktúra: a nagyobb városokban az üzletek, piacok, éttermek és magánkórházak egész évben nyitva vannak."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Hol szállj meg?"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Hely",
+          "Kinek ideális?",
+          "Távolság a repülőtértől"
+        ],
+        "rows": [
+          [
+            "Antalya város",
+            "Városi élet, kultúra, múzeumok, minden szolgáltatás kéznél",
+            "kb. 15–30 perc"
+          ],
+          [
+            "Side / Manavgat",
+            "Csendes óváros, hosszú strandok, sík sétautak",
+            "kb. 1 óra"
+          ],
+          [
+            "Alanya",
+            "A legnagyobb hosszú távú közösség, sétányok, pezsgő téli élet",
+            "kb. 1 óra 45 perc"
+          ],
+          [
+            "Kemer",
+            "Hegyek és tenger, túrázás, kisebb üdülőhely",
+            "kb. 1 óra"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Alanyában és a szomszédos településrészeken, például Mahmutlarban és Obában él a legnagyobb telelő közösség, klubokkal, programokkal és egész télen nyüzsgő éttermekkel. Side nyugodtabb; Antalya azoknak való, akik igazi városra vágynak."
+      },
+      {
+        "type": "h2",
+        "text": "Szállás: szállodák és apartmanok"
+      },
+      {
+        "type": "p",
+        "text": "Néhány alanyai, sidei és antalyai szálloda négyhetes vagy hosszabb tartózkodásra külön kedvezményes árat kínál, gyakran félpanzióval. A bérelt apartmanok több helyet és függetlenséget adnak; ellenőrizd, van-e fűtés vagy fűtési funkcióval rendelkező légkondicionáló, mert a török tengerparti házak nyárra épülnek, és a téli estéken hidegnek tűnhetnek."
+      },
+      {
+        "type": "h2",
+        "text": "Hétköznapok télen"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Heti piacok minden kerületben friss gyümölccsel és zöldséggel – a tél a citrusfélék szezonja.",
+          "Séta és kerékpározás Alanya, Side, Lara és Konyaaltı sétányain.",
+          "Túrázás a Taurus-hegység előhegyeiben és száraz napokon a Likiai úton.",
+          "Egynapos kirándulások ókori helyszínekre, a manavgati vízeséshez vagy Antalya óvárosába.",
+          "Magánkórházak és klinikák Antalyában és Alanyában, nemzetközi betegosztállyal."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Papírmunka és gyakorlati tudnivalók"
+      },
+      {
+        "type": "p",
+        "text": "A beutazási szabályok és a tartózkodási engedély nélkül eltölthető idő hossza az állampolgárságodtól függ, és időről időre változik, ezért utazás előtt ellenőrizd az aktuális szabályokat a hivatalos török hatóságoknál. Erősen ajánlott egy hosszú külföldi tartózkodásra is kiterjedő utasbiztosítás."
+      },
+      {
+        "type": "h2",
+        "text": "Érkezés hónapokra elegendő csomaggal"
+      },
+      {
+        "type": "p",
+        "text": "A hosszú távra érkezők többel utaznak, mint egy nyaralós bőrönd. Mondd meg, hány bőröndöt és milyen extra tárgyakat hozol – kerékpárt, járókeretet vagy dobozokat –, és egy Mercedes Vitót vagy szükség esetén egy Sprintert biztosítunk. Az ár járművenként fix, így a többletpoggyászt a foglaláskor vesszük figyelembe, nem a járdaszélen számoljuk fel. A sofőr az ajtónál segít a be- és kipakolásban."
+      }
+    ],
+    "faq": [
+      [
+        "Hol a legjobb telelni a Török Riviérán?",
+        "Alanyában van a legnagyobb hosszú távú közösség és a legpezsgőbb téli élet; Side csendesebb; Antalya teljes körű városi szolgáltatásokat kínál. Mindhárom helyen enyhe a tél."
+      ],
+      [
+        "Milyen meleg van Antalyában télen?",
+        "Decembertől februárig a nappali hőmérséklet általában 15–17 °C körüli, éjjel 6–8 °C körül. A parton ritka a fagy."
+      ],
+      [
+        "Vannak téli szállodai ajánlatok hosszú tartózkodásra?",
+        "Igen. Több alanyai, sidei és antalyai szálloda kínál télen kedvezményes havi vagy hosszú tartózkodásra szóló árakat. A négyhetes vagy hosszabb tartózkodásról érdeklődj közvetlenül a szállodánál."
+      ],
+      [
+        "Vihetek sok csomagot a reptéri transzferre?",
+        "Igen. Foglaláskor add meg a bőröndök és az extra tárgyak számát, és elegendő hellyel rendelkező járművet biztosítunk. Az ár járművenként értendő, bőröndönként nincs díj."
+      ]
+    ]
+  },
+  "antalya-in-spring": {
+    "slug": "antalya-tavasszal-programok",
+    "title": "Antalya tavasszal: programok márciustól májusig",
+    "heading": "Antalya tavasszal: mit csináljunk március és május között?",
+    "description": "Antalya tavasszal: narancsvirágzás, túrázás a Likiai úton, rafting, húsvéti kiruccanások és az első strandnapok. Időjárás hónapról hónapra és tudnivalók érkezéskor.",
+    "excerpt": "Narancsvirág az utcákon, hó a csúcsokon és hétről hétre melegedő tenger. Miért a tavasz az aktív nyaralás évszaka Antalya környékén?",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Antalya tavasszal korán virágba borul: a Török Riviérán márciusra már virágoznak a narancsfák, a Taurus-hegységben még hó van, a napok pedig elég melegek ahhoz, hogy a szabadban üljünk. Ez a legjobb évszak a gyalogláshoz, kerékpározáshoz és felfedezéshez, májusban pedig elkezdődnek az év első strandnapjai."
+      },
+      {
+        "type": "h2",
+        "text": "Tavaszi időjárás Antalyában"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Hónap",
+          "Nappal / éjjel",
+          "Tenger",
+          "Mire ideális?"
+        ],
+        "rows": [
+          [
+            "Március",
+            "kb. 19 °C / 8 °C",
+            "kb. 17 °C",
+            "Városnézés, túrázás, virágzás"
+          ],
+          [
+            "Április",
+            "kb. 22 °C / 11 °C",
+            "kb. 18 °C",
+            "Túrázás, rafting, húsvéti kiruccanás"
+          ],
+          [
+            "Május",
+            "kb. 26 °C / 15 °C",
+            "kb. 21 °C",
+            "Az első strandnapok, minden program"
+          ]
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Narancsvirág és a város tavasszal"
+      },
+      {
+        "type": "p",
+        "text": "Tavasszal Antalya narancsvirágillatú. A város ezt a Narancsvirág Karnevállal ünnepli, egy tavasszal Kaleiçi környékén és a belvárosban tartott utcai fesztivállal. Ez a legjobb időszak arra is, hogy a nyári hőség előtt gyalog fedezd fel az óvárost, az Antalyai Múzeumot, valamint Konyaaltı és Lara sziklafalait."
+      },
+      {
+        "type": "h2",
+        "text": "Aktív nyaralás: túrázás, rafting és kerékpározás"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Likiai út: a tavasz a legnépszerűbb túraszezon, vadvirágokkal a Kemer, Olümposz és Kaş környéki szakaszok mentén.",
+          "Köprülü-kanyon: a raftingszezon általában áprilisban kezdődik, a hóolvadás élénk vizével.",
+          "Tahtalı-kötélpálya: fent hó, lent virágzó rétek, gyakran egyetlen látképben.",
+          "Kerékpározás: csendes utak és enyhe hőmérséklet Belek, Side és a Taurus előhegyei környékén.",
+          "Golf: a tavasz a második főszezon Belek pályáin."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Ókori helyszínek a zöld évszakban"
+      },
+      {
+        "type": "p",
+        "text": "Perge, Aszpendosz, Side, Phaszélisz és Termesszosz tavasszal a legszebb, amikor a romokat zöld fű és vadvirágok veszik körül. A hosszabb kirándulások is jól működnek: Pamukkaléban és Kappadókiában kellemes a hőmérséklet, és stabil időjárás esetén tavasszal gyakoriak a hőlégballonos repülések Kappadókia felett."
+      },
+      {
+        "type": "h2",
+        "text": "Húsvét és tavaszi szünet"
+      },
+      {
+        "type": "p",
+        "text": "A húsvét és a németországi, hollandiai, egyesült királyságbeli és skandináv tavaszi iskolai szünetek hozzák a családok első hullámát. Áprilistól egyre több szezonális szálloda nyit ki, nő a járatok száma, májusra pedig a legtöbb tengerparti üdülő teljes gőzzel működik. Húsvéti időpontokra a szállodát és a transzfert is foglald le korán."
+      },
+      {
+        "type": "h2",
+        "text": "Érkezés tavasszal"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Márciusban néhány üdülő még zárva van; áprilistól gyorsan bővül a választék.",
+          "A terminál és az utak csendesek, így a megadott menetidők reálisak.",
+          "A túra- és golffelszerelést, a kerékpárokat és a gyerekülést foglaláskor jelezd.",
+          "Az ár járművenként fix, és nem változik az évszakkal."
+        ]
+      }
+    ],
+    "faq": [
+      [
+        "Van már strandidő Antalyában tavasszal?",
+        "Májustól igen: nappal 26 °C körül van, a tenger pedig 21 °C körüli. Márciusban és áprilisban elég meleg van ahhoz, hogy a napon üldögélj, de a tenger a legtöbb fürdőzőnek még hűvös."
+      ],
+      [
+        "Mikor van az antalyai Narancsvirág Karnevál?",
+        "Tavasszal rendezik, amikor a város narancsfái virágoznak. Az időpont évről évre változik, ezért ha az utazásodat hozzá igazítanád, előbb nézd meg a város hivatalos közleményeit."
+      ],
+      [
+        "Jó időszak a tavasz a Likiai út bejárására?",
+        "Igen. A tavasz és az ősz a két legjobb túraszezon; tavasszal az ösvények zöldek és tele vannak vadvirággal, a hőmérséklet pedig kellemes."
+      ],
+      [
+        "Nyitva vannak a szállodák Antalyában márciusban?",
+        "A városi szállodák és néhány üdülő nyitva van. Sok szezonális üdülő áprilisban nyit ki, és májusra a part nagy része teljes gőzzel működik."
+      ]
+    ]
+  }
 };
