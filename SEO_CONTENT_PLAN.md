@@ -180,8 +180,17 @@ Mart)**; ilkbahar makalesi Nisan-Mayıs rezervasyonlarını erken yakalamak içi
 | `demre-myra-st-nicholas` | "Demre Aziz Nikolaos Kilisesi", Myra, Kekova | Aralık (6 Aralık, Noel) | kumluca, kas, kemer, antalya |
 | `lycian-way-spring-hiking` | "Likya Yolu yürüyüşü", Antalya yakını etaplar | Mart - Mayıs, Eylül - Kasım | kemer, kas, kumluca, fethiye, antalya |
 
-11 makale × 23 dil = **253 yeni makale sayfası** (ilk 5 makale 26 Eylül, kalan 6
-makale 27 Eylül). Saklıkent listelenmiş bir rota değil; makale sabit fiyatlı
+| `kas-kalkan-autumn` | "Kaş / Kalkan sonbahar", dalış, Kaputaş, Patara | Ekim - Kasım | kas, kumluca, dalaman, fethiye, antalya |
+| `medical-travel-antalya-winter` | "Antalya diş / saç tedavisi kış" - genel bilgi | Kasım - Mart | antalya, alanya, side, kemer |
+| `side-ancient-city-guide` | "Side antik kent", Apollon Tapınağı, tiyatro | tüm yıl, özellikle sezon dışı | side, manavgat, kizilagac, belek, alanya |
+| `koprulu-canyon-rafting` | "Köprülü Kanyon rafting" | Nisan - Ekim | side, manavgat, belek, alanya, antalya |
+
+15 makale × 23 dil = **345 yeni makale sayfası** (ilk 5 makale 26 Eylül, kalan 10
+makale 27 Eylül).
+
+Sağlık turizmi makalesi bilinçli olarak genel bilgi: `/health` sayfası henüz
+canlı değil (mock), bu yüzden makale ona link vermiyor ve koordinasyon hizmeti
+vaat etmiyor - sadece havalimanı - otel/klinik transferi. Saklıkent listelenmiş bir rota değil; makale sabit fiyatlı
 teklif istemeye yönlendiriyor. Katalogda en üstte duruyorlar;
 böylece blog dizininde, RSS beslemelerinde ve her makalenin "Diğer rehberler"
 bölümünde ilk görünenler mevsimsel makaleler oluyor.
@@ -198,5 +207,5 @@ gece farkı yok" mesajını tekrarlıyor.
 2. Kasım başında `antalya-in-winter` ve `christmas-new-year-antalya` için
    gösterimleri kontrol et; Aralık başında `updated` tarihini tazele.
 3. Mart'ta `antalya-in-spring` öne alınabilir (katalog sırası).
-4. Sonraki adaylar: Köprülü Kanyon rafting, Kaş-Kalkan sonbahar, Antalya'da
-   sağlık turizmi kış sezonu, Side antik kent rehberi.
+4. Sonraki adaylar: Alanya kış rehberi (şehir odaklı), Kemer - Olympos teleferik,
+   Aspendos - Perge yarım günlük gezi, Antalya'da Ramazan / bayram dönemi seyahati.

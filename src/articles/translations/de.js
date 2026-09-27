@@ -1753,5 +1753,421 @@ export const articles = {
         "Ja. Senden Sie uns Start- und Zielpunkt sowie das Datum, und wir erstellen Ihnen ein Angebot für einen privaten Transfer zum Festpreis pro Fahrzeug, inklusive Abholung am Ende Ihrer Wanderung."
       ]
     ]
+  },
+  "koprulu-canyon-rafting": {
+    "slug": "rafting-koprulu-canyon-ab-antalya",
+    "title": "Rafting im Köprülü Canyon: Praktischer Guide ab Antalya und Side",
+    "heading": "Rafting im Köprülü Canyon",
+    "description": "Rafting im Köprülü Canyon bei Antalya: Saison, Fluss, für wen es passt, was Sie mitnehmen sollten und wie weit es von Side, Belek, Alanya und Antalya ist.",
+    "excerpt": "Kaltes grünes Wasser, eine Römerbrücke und eine Schlucht voller Pinien. Was Sie beim Rafting im Köprülü Canyon erwartet und wie Sie den Tag von der Küste aus planen.",
+    "readingMinutes": 5,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Rafting im Köprülü Canyon ist der bekannteste Ausflug dieser Art an der Türkischen Riviera. Der Canyon ist ein Nationalpark im Taurusgebirge nördlich von Side und Manavgat, und der Fluss, der ihn durchfließt, bietet eher ein entspanntes als ein extremes Abenteuer: Die meisten Stromschnellen sind sanft, die Landschaft ist spektakulär, und Einsteiger und Familien sind an jedem Tag der Saison dabei."
+      },
+      {
+        "type": "h2",
+        "text": "So läuft die Rafting-Tour ab"
+      },
+      {
+        "type": "p",
+        "text": "Die meisten Touren führen über einen etwa zwölf Kilometer langen Abschnitt des Flusses Köprüçay und dauern zwei bis drei Stunden auf dem Wasser, mit Pausen zum Schwimmen, zum Springen von Felsen oder einfach zum Treibenlassen. Die Stromschnellen sind überwiegend leicht bis mittel, das Wasser ist klar und grün und das ganze Jahr über kalt, weil der Fluss von Bergquellen gespeist wird. Die Guides geben vorab eine Sicherheitseinweisung, Helme und Schwimmwesten werden gestellt."
+      },
+      {
+        "type": "h2",
+        "text": "Die beste Zeit"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Zeitraum",
+          "Fluss und Wetter",
+          "Ideal für"
+        ],
+        "rows": [
+          [
+            "April – Mai",
+            "Mehr Wasser durch die Schneeschmelze, lebhaftere Stromschnellen, milde Luft",
+            "Aktive Gruppen, weniger Andrang"
+          ],
+          [
+            "Juni – August",
+            "Heiße Luft, kaltes Wasser, die vollsten Monate",
+            "Abkühlung an einem heißen Tag"
+          ],
+          [
+            "September – Oktober",
+            "Ruhigeres Wasser, warme Tage, weniger Menschen",
+            "Familien und Einsteiger"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Die Saison läuft meist von etwa April bis Oktober, je nach Fluss und Anbieter. Außerhalb dieser Zeit finden Touren selten oder gar nicht statt."
+      },
+      {
+        "type": "h2",
+        "text": "Für wen es passt"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Einsteiger: Erfahrung ist nicht nötig, der Guide steuert das Schlauchboot.",
+          "Familien: Die Anbieter legen ein Mindestalter für Kinder fest – fragen Sie bei der Buchung danach.",
+          "Freundeskreise und Kollegen: Ein Boot teilen sich meist sechs bis acht Personen.",
+          "Weniger geeignet für Nichtschwimmer, die im Wasser ängstlich sind, und in der Schwangerschaft."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Was Sie mitnehmen sollten"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Badekleidung unter der Kleidung und ein Handtuch.",
+          "Schuhe, die nass werden dürfen und fest am Fuß sitzen – keine Flip-Flops.",
+          "Sonnencreme und trockene Wechselkleidung für die Rückfahrt.",
+          "Eine wasserdichte Tasche oder Hülle fürs Handy; Wertsachen bleiben im Hotel."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Mehr als Rafting: der Nationalpark"
+      },
+      {
+        "type": "p",
+        "text": "Über den Canyon führt die Oluk-Brücke, eine einbogige Römerbrücke, die der Gegend ihren Namen gibt – köprü bedeutet auf Türkisch Brücke. Weiter oben am Berg liegen die Ruinen der antiken Stadt Selge, umgeben von Felsformationen und Dörfern. Mit eigenem Fahrzeug lässt sich das Rafting mit einem Halt an der Brücke und einer Fahrt hinauf Richtung Selge verbinden."
+      },
+      {
+        "type": "h2",
+        "text": "Anreise von der Küste"
+      },
+      {
+        "type": "p",
+        "text": "Viele Rafting-Anbieter verkaufen Touren mit Sammelabholung an den Hotels, was einen langen Vormittag mit dem Einsammeln anderer Gäste bedeuten kann. Ein privates Fahrzeug ab Side, Manavgat, Belek, Alanya oder Antalya fährt los, wann Sie möchten, und hält unterwegs an der Brücke oder in den Bergen. Der Canyon liegt etwa eine Stunde von Side und Manavgat entfernt, von Antalya und Alanya aus länger; nennen Sie uns Hotel und Datum, und wir nennen Ihnen einen Festpreis pro Fahrzeug."
+      }
+    ],
+    "faq": [
+      [
+        "Ist Rafting im Köprülü Canyon für Anfänger geeignet?",
+        "Ja. Die Stromschnellen sind überwiegend leicht bis mittel, Erfahrung ist nicht nötig, und nach einer Sicherheitseinweisung steuert ein Guide jedes Boot."
+      ],
+      [
+        "Wann ist Rafting-Saison im Köprülü Canyon?",
+        "Meist von etwa April bis Oktober. Im Frühling ist das Wasser durch die Schneeschmelze lebhafter, im September und Oktober ruhiger und weniger besucht."
+      ],
+      [
+        "Wie kalt ist das Wasser?",
+        "Das ganze Jahr über kalt, weil der Fluss von Bergquellen gespeist wird. An einem heißen Sommertag ist genau das der Reiz."
+      ],
+      [
+        "Wie weit ist der Köprülü Canyon von Side entfernt?",
+        "Etwa eine Stunde Fahrt von Side und Manavgat, von Antalya, Belek oder Alanya je nach Hotel länger."
+      ]
+    ]
+  },
+  "kas-kalkan-autumn": {
+    "slug": "kas-und-kalkan-im-herbst",
+    "title": "Kaş und Kalkan im Herbst: Tauchen, Strände und stille Buchten",
+    "heading": "Kaş und Kalkan im Herbst",
+    "description": "Kaş im Herbst und Kalkan zeigen sich von ihrer besten Seite: warmes Meer, Tauchen, Kaputaş und Patara, Kekova per Kajak und Boot und die Anreise ab Flughafen Antalya.",
+    "excerpt": "Das wärmste Meer des Jahres, leere Strände und zwei kleine Hafenorte am Fuß der Berge. Warum der äußerste Westen der Küste von Antalya im Oktober glänzt.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Kaş und Kalkan im Herbst – das ist die wilde Westspitze der Küste von Antalya, wo die Berge direkt ins Meer abfallen. Große Resorts gibt es in keinem der beiden Orte, dafür kleine Häfen, weiß getünchte Gassen und einige der klarsten Gewässer des Mittelmeers. Im Herbst, wenn die Sommergäste abgereist sind und das Meer noch warm ist, zeigen sie sich von ihrer besten Seite."
+      },
+      {
+        "type": "h2",
+        "text": "Warum der Herbst hier die beste Saison ist"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Das Meer bleibt bis in den Oktober warm, oft wärmer als im Juni.",
+          "Die Sicht unter Wasser ist ausgezeichnet – gute Nachrichten für Taucher und Schnorchler.",
+          "Spaziergänge und Wanderungen werden nach der Sommerhitze wieder angenehm.",
+          "Restaurants und Bootstouren sind noch in Betrieb, aber ohne den Sommertrubel."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Kaş: Tauchen, Kajak und der Hafen"
+      },
+      {
+        "type": "p",
+        "text": "Kaş ist eines der bekanntesten Tauchzentren der Türkei, mit Tauchplätzen für Anfänger und Erfahrene, darunter Wracks, Steilwände und Unterwasserhöhlen. Ein Höhepunkt ist eine Seekajak-Tour über die versunkenen Ruinen von Kekova, und der Hafen, das antike Theater mit Blick aufs Meer und die lykischen Gräber im Ort machen die Abende leicht. An klaren Tagen ist die griechische Insel Meis direkt vor der Küste zu sehen."
+      },
+      {
+        "type": "h2",
+        "text": "Kalkan: Terrassen und ruhige Abende"
+      },
+      {
+        "type": "p",
+        "text": "Kalkan, etwa eine halbe Stunde westlich von Kaş, ist kleiner und ruhiger und liegt an einem Hang rund um einen kleinen Hafen. Bekannt ist der Ort für seine Villen mit Meerblick-Terrassen und seine Dachterrassen-Restaurants. Er passt zu Paaren und Familien, die einen ruhigen Standort mit gutem Essen statt Nachtleben suchen."
+      },
+      {
+        "type": "h2",
+        "text": "Strände zwischen und außerhalb der Orte"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Kaputaş: eine kleine türkisfarbene Bucht am Ende einer Schlucht zwischen Kaş und Kalkan.",
+          "Patara: einer der längsten Sandstrände der Türkei, neben den Ruinen des antiken Patara und einem Schutzgebiet.",
+          "Die Halbinsel von Kaş und die Badeplattformen im Ort: Felsküste und Leitern direkt ins tiefe, klare Wasser.",
+          "Kekova und Üçağız: Bootstouren zu geschützten Buchten und zum Burgdorf Kaleköy."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Was sich im November ändert"
+      },
+      {
+        "type": "p",
+        "text": "Ab November klingt die Saison aus: Manche Hotels, Restaurants und Bootstouren schließen, der erste Regen kommt und die Abende werden kühl. Kaş bleibt das ganze Jahr lebendig, weil viele Menschen dauerhaft dort wohnen, Kalkan dagegen wird sehr ruhig. Prüfen Sie die Öffnungszeiten, wenn Sie spät in der Saison reisen."
+      },
+      {
+        "type": "h2",
+        "text": "Anreise ab Flughafen Antalya"
+      },
+      {
+        "type": "p",
+        "text": "Kaş liegt etwa 185 km vom Flughafen Antalya entfernt, rund zweieinhalb bis drei Stunden über die Küstenstraße via Kemer, Kumluca und Demre; Kalkan liegt etwa eine halbe Stunde weiter. Je nach Flugverbindung landen manche Reisende stattdessen in Dalaman. Wir fahren private Transfers von beiden Flughäfen zum Festpreis pro Fahrzeug, mit Fotostopps an einer der schönsten Straßen des Landes."
+      }
+    ],
+    "faq": [
+      [
+        "Ist das Meer in Kaş im Oktober warm?",
+        "Ja. Das Meer bleibt meist bis weit in den Oktober warm, oft wärmer als im Frühsommer, und die Sicht zum Tauchen und Schnorcheln ist ausgezeichnet."
+      ],
+      [
+        "Wie weit ist Kaş vom Flughafen Antalya entfernt?",
+        "Etwa 185 km, rund zweieinhalb bis drei Stunden mit dem Auto. Kalkan liegt etwa eine halbe Stunde weiter westlich."
+      ],
+      [
+        "Kaş oder Kalkan: Was ist besser?",
+        "Kaş ist lebhafter, mit Tauchen, Kajakfahren und ganzjährigem Ortsleben. Kalkan ist kleiner und ruhiger, mit Villen und Restaurants mit Meerblick."
+      ],
+      [
+        "Haben Kaş und Kalkan im November geöffnet?",
+        "Kaş ist das ganze Jahr aktiv. In Kalkan sowie bei manchen Hotels und Bootsanbietern endet die Saison Ende Oktober oder im November – prüfen Sie daher die Öffnungszeiten."
+      ]
+    ]
+  },
+  "medical-travel-antalya-winter": {
+    "slug": "zahnbehandlung-antalya-im-winter",
+    "title": "Zahnbehandlung und Medizinreisen nach Antalya im Winter: Was Sie wissen sollten",
+    "heading": "Zahnbehandlung und medizinische Reisen nach Antalya im Winter",
+    "description": "Zahnbehandlung in Antalya, Haartransplantation oder Schönheits-OP im Winter: warum viele die Nebensaison wählen, wie Sie Anbieter prüfen, Ruhetage und Flughafentransfer.",
+    "excerpt": "Kühleres Wetter, ruhigere Hotels und einfachere Terminplanung. Was Reisende, die im Winter zur Behandlung nach Antalya kommen, vor der Buchung prüfen und planen sollten.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Für Zahnbehandlung in Antalya und andere medizinische Reisen ist die Stadt neben Istanbul zu einem der Zentren der Türkei geworden. Immer mehr Besucher planen Zahnbehandlungen, Haartransplantationen oder kosmetische Eingriffe für die Wintermonate, wenn es an der Küste ruhig und das Wetter mild ist. Dieser Ratgeber behandelt die praktische Seite einer solchen Reise – er ist keine medizinische Beratung, und jede ärztliche Entscheidung gehört in die Hände einer qualifizierten Ärztin oder eines qualifizierten Arztes."
+      },
+      {
+        "type": "h2",
+        "text": "Warum viele Reisende den Winter wählen"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Mildes, kühleres Wetter: Viele Patienten empfinden die Erholung fern von Sommerhitze und starker Sonne als angenehmer.",
+          "Hotels und Apartments sind ruhiger und oft günstiger als im Sommer.",
+          "Termine lassen sich außerhalb der Hauptferienzeit oft leichter planen.",
+          "Die Reise lässt sich mit der Stadt, Museen und leichten Spaziergängen statt mit Strandtagen verbinden."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Anbieter auswählen und prüfen"
+      },
+      {
+        "type": "p",
+        "text": "Die wichtigste Entscheidung ist der Anbieter, nicht der Preis. Prüfen Sie, ob die Klinik oder das Krankenhaus vom türkischen Gesundheitsministerium zugelassen ist, finden Sie heraus, wer die behandelnde Ärztin oder der behandelnde Arzt ist und welche Qualifikationen vorliegen, und lassen Sie sich einen schriftlichen Plan geben, der festhält, was enthalten ist, was nicht und wie mit Komplikationen und Nachsorge umgegangen wird. Seien Sie vorsichtig bei Angeboten, die ein Endergebnis oder einen Festpreis vor jeder Untersuchung versprechen."
+      },
+      {
+        "type": "h2",
+        "text": "Die Tage planen"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Art der Behandlung",
+          "Typischer Planungspunkt",
+          "Fragen Sie Ihren Anbieter"
+        ],
+        "rows": [
+          [
+            "Zahnbehandlung",
+            "Oft mehr als ein Besuch, manchmal mit Wochen oder Monaten dazwischen",
+            "Wie viele Reisen und wie viele Tage jeweils?"
+          ],
+          [
+            "Haartransplantation",
+            "Kurzer Aufenthalt, mit Pflegehinweisen für die ersten Tage",
+            "Wann darf ich fliegen, die Haare waschen und eine Mütze tragen?"
+          ],
+          [
+            "Schönheitsoperation",
+            "Längerer Aufenthalt und Erholungstage vor dem Rückflug",
+            "Wie viele Nächte vor dem Flug sind nötig?"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Planen Sie Ruhetage ein, legen Sie keine Behandlung auf den Ankunftstag und halten Sie sich an den ärztlichen Rat, ab wann Fliegen unbedenklich ist. Bei operativen Eingriffen wird oft eine Begleitperson empfohlen."
+      },
+      {
+        "type": "h2",
+        "text": "Versicherung, Unterlagen und Nachsorge"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Prüfen Sie, ob Ihre Reiseversicherung geplante Behandlungen im Ausland abdeckt – viele Policen tun das nicht.",
+          "Bewahren Sie Kopien aller Arztberichte, Rezepte und des Behandlungsplans auf.",
+          "Fragen Sie, wie die Nachsorge nach der Rückkehr funktioniert und ob Ihr Arzt zu Hause einbezogen werden kann.",
+          "Geben Sie medizinische Daten nur an den Anbieter weiter, und zwar über den von ihm genannten Kanal."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Vom Flughafen ins Hotel oder in die Klinik"
+      },
+      {
+        "type": "p",
+        "text": "Nach einem Flug und vor oder nach einer Behandlung ist eine Schlange am Taxistand oder ein Sammelshuttle mit einem Dutzend Hotelstopps das Letzte, was Sie brauchen. Ein privater Transfer bringt Sie direkt vom Flughafen Antalya zu Ihrem Hotel oder Ihrer Klinik; der Fahrer wartet auf Ihren Flug und hilft mit dem Gepäck. Rückfahrten lassen sich auf Termine und Ihren Heimflug abstimmen. Der Preis gilt fest pro Fahrzeug, eine Begleitperson fährt also ohne Aufpreis mit."
+      }
+    ],
+    "faq": [
+      [
+        "Warum im Winter zur Behandlung nach Antalya reisen?",
+        "Viele Reisende schätzen das mildere Wetter für die Erholung, ruhigere Hotels und die einfachere Terminplanung außerhalb der Sommerferien."
+      ],
+      [
+        "Wie prüfe ich eine Klinik in Antalya?",
+        "Prüfen Sie, ob sie vom türkischen Gesundheitsministerium zugelassen ist, finden Sie heraus, wer behandelt, und verlangen Sie einen schriftlichen Plan zu Leistungen, Ausschlüssen, Komplikationen und Nachsorge."
+      ],
+      [
+        "Wie lange sollte ich nach einem Eingriff bleiben?",
+        "Das hängt ganz von der Behandlung und dem Rat Ihres Arztes ab. Fragen Sie Ihren Anbieter, wie viele Nächte Sie vor dem Rückflug brauchen, und planen Sie Ruhetage ein."
+      ],
+      [
+        "Können Sie mich vom Flughafen zu meiner Klinik bringen?",
+        "Ja. Wir bieten private Transfers vom Flughafen Antalya zu Hotels und Kliniken und zurück, zum Festpreis pro Fahrzeug."
+      ]
+    ]
+  },
+  "side-ancient-city-guide": {
+    "slug": "side-antike-stadt-reisefuehrer",
+    "title": "Side Antike Stadt: Apollontempel, Theater und Altstadt im Überblick",
+    "heading": "Side: Guide zur antiken Stadt",
+    "description": "Die antike Stadt Side besuchen: Apollontempel, großes Theater, Museum, Stadtmauern und Altstadt, die beste Reisezeit und Ausflüge nach Aspendos und zum Manavgat-Wasserfall.",
+    "excerpt": "Ein römisches Theater, Tempelsäulen direkt am Wasser und ein Hafenort innerhalb der antiken Mauern. So erleben Sie Side am schönsten – außerhalb der Saison.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Die antike Stadt Side ist einer der wenigen Orte an der Türkischen Riviera, an denen ein moderner Ort mitten in einer antiken Stadt lebt. Die Altstadt füllt eine kleine Halbinsel, umgeben von römischen und hellenistischen Ruinen: Man geht an Säulen vorbei ins Restaurant, und den Sonnenuntergang rahmt ein Tempel ein. Am schönsten ist Side außerhalb des Sommers, wenn es ruhig genug ist, um die Geschichte zu spüren."
+      },
+      {
+        "type": "h2",
+        "text": "Die wichtigsten Sehenswürdigkeiten"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Apollontempel: Die Säulen stehen an der Spitze der Halbinsel direkt am Meer – der klassische Ort für den Sonnenuntergang.",
+          "Das große Theater: eines der größten antiken Theater der Region, in den Hang am Eingang der Altstadt gebaut.",
+          "Museum Side: untergebracht in einem restaurierten römischen Bad, mit Statuen und Reliefs aus der Stadt.",
+          "Säulenstraße und Agora: die antike Hauptachse vom Stadttor Richtung Hafen.",
+          "Stadtmauern und monumentales Tor: der Eingangsweg, den Besucher seit zweitausend Jahren nehmen."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Die Altstadt heute"
+      },
+      {
+        "type": "p",
+        "text": "Innerhalb der Mauern führen Gassen mit Restaurants, Cafés und kleinen Läden hinunter zum Hafen, von dem Boote zu Touren entlang der Küste ablegen. Autos bleiben aus dem größten Teil der Altstadt draußen, sodass man sie angenehm zu Fuß erkunden kann. Östlich und westlich der Halbinsel erstrecken sich breite Sandstrände."
+      },
+      {
+        "type": "h2",
+        "text": "Die beste Reisezeit"
+      },
+      {
+        "type": "p",
+        "text": "Frühling und Herbst sind ideal: warm genug für den Strand, kühl genug, um mittags durch die Ruinen zu gehen. Im Winter schließen viele Saisonhotels, doch Altstadt, Ruinen und Museum bleiben geöffnet, und an sonnigen Tagen sind Tempel und Hafen fast menschenleer. Im Juli und August besuchen Sie die Ruinen am besten früh am Morgen oder zum Sonnenuntergang."
+      },
+      {
+        "type": "h2",
+        "text": "Ausflüge ab Side"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Ziel",
+          "Warum hin",
+          "Ungefähre Fahrzeit ab Side"
+        ],
+        "rows": [
+          [
+            "Aspendos",
+            "Eines der besterhaltenen römischen Theater der Welt",
+            "etwa 40 Minuten"
+          ],
+          [
+            "Manavgat-Wasserfall",
+            "Ein breiter, niedriger Wasserfall in einem grünen Park",
+            "etwa 15 Minuten"
+          ],
+          [
+            "Perge",
+            "Eine große antike Stadt mit Stadion und Säulenstraßen",
+            "etwa 1 Stunde"
+          ],
+          [
+            "Köprülü Canyon",
+            "Rafting und eine Römerbrücke in einem Nationalpark",
+            "etwa 1 Stunde"
+          ]
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Vom Flughafen Antalya nach Side"
+      },
+      {
+        "type": "p",
+        "text": "Side liegt etwa 65 km vom Flughafen Antalya entfernt, rund 55 bis 65 Minuten mit dem Auto. Ein privater Transfer bringt Sie direkt zu Ihrem Hotel oder an den Rand der Fußgängerzone der Altstadt, zu einem Festpreis pro Fahrzeug, der sich weder mit der Saison noch mit Ihrer Flugzeit ändert. Dasselbe Fahrzeug können Sie auch für Ausflüge nach Aspendos, Perge oder zum Canyon buchen."
+      }
+    ],
+    "faq": [
+      [
+        "Was gibt es im antiken Side zu sehen?",
+        "Den Apollontempel am Meer, das große Theater, das Museum in einem römischen Bad, die Säulenstraße, die Agora und die Stadtmauern – alles zu Fuß von der Altstadt erreichbar."
+      ],
+      [
+        "Lohnt sich Side im Winter?",
+        "Ja, wegen der Ruinen und der Altstadt. Viele Saisonhotels schließen, aber die Sehenswürdigkeiten bleiben geöffnet und sind viel ruhiger als im Sommer."
+      ],
+      [
+        "Wie weit ist Side vom Flughafen Antalya entfernt?",
+        "Etwa 65 km, rund 55 bis 65 Minuten mit dem Auto."
+      ],
+      [
+        "Kann ich Aspendos von Side aus besuchen?",
+        "Ja. Aspendos liegt etwa 40 Minuten von Side entfernt und ist ein einfacher Halbtagesausflug, oft kombiniert mit Perge oder dem Manavgat-Wasserfall."
+      ]
+    ]
   }
 };

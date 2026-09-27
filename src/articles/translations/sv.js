@@ -1463,5 +1463,421 @@ export const articles = {
         "Ja. Skicka oss start- och slutpunkt och datum, så lämnar vi prisuppgift på en privat transfer till fast pris per fordon, inklusive upphämtning när vandringen är slut."
       ]
     ]
+  },
+  "koprulu-canyon-rafting": {
+    "slug": "rafting-koprulu-kanjon-fran-antalya",
+    "title": "Rafting i Köprülükanjonen: praktisk guide från Antalya och Side",
+    "heading": "Rafting i Köprülükanjonen",
+    "description": "Rafting i Köprülükanjonen nära Antalya: när säsongen pågår, hur floden är, vem det passar, vad du ska packa och hur långt det är från Side, Belek, Alanya och Antalya.",
+    "excerpt": "Kallt grönt vatten, en romersk bro och en tallklädd kanjon. Vad du kan vänta dig av en raftingdag i Köprülükanjonen och hur du planerar den från kusten.",
+    "readingMinutes": 5,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Rafting i Köprülükanjonen (Köprülü Kanyon) är den mest kända raftingturen på Turkiska rivieran. Kanjonen är en nationalpark i Taurusbergen norr om Side och Manavgat, och floden som rinner genom den bjuder på ett lugnt snarare än extremt äventyr: de flesta forsarna är milda, landskapet är storslaget och nybörjare och barnfamiljer är med varje dag under säsongen."
+      },
+      {
+        "type": "h2",
+        "text": "Så går raftingturen till"
+      },
+      {
+        "type": "p",
+        "text": "De flesta turer följer en sträcka på ungefär tolv kilometer av floden Köprüçay och tillbringar två till tre timmar på vattnet, med stopp för att bada, hoppa från klippor eller bara flyta med. Forsarna är mestadels lätta till medelsvåra, vattnet är klart och grönt, och det är kallt året runt eftersom floden får sitt vatten från bergskällor. Guiderna håller en säkerhetsgenomgång, och hjälm och flytväst ingår."
+      },
+      {
+        "type": "h2",
+        "text": "När ska man åka?"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Period",
+          "Flod och väder",
+          "Passar för"
+        ],
+        "rows": [
+          [
+            "April – maj",
+            "Mer vatten från snösmältningen, livligare forsar, mild luft",
+            "Aktiva grupper, mindre trängsel"
+          ],
+          [
+            "Juni – augusti",
+            "Het luft, kallt vatten, de mest besökta månaderna",
+            "Att svalka sig en varm dag"
+          ],
+          [
+            "September – oktober",
+            "Lugnare vatten, varma dagar, färre människor",
+            "Barnfamiljer och nybörjare"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Säsongen pågår oftast från ungefär april till oktober, beroende på floden och arrangörerna. Utanför den perioden är turer sällsynta eller erbjuds inte alls."
+      },
+      {
+        "type": "h2",
+        "text": "Vem passar det för?"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Nybörjare: ingen erfarenhet behövs och guiden styr flotten.",
+          "Barnfamiljer: arrangörerna har en lägsta ålder för barn, så kontrollera den när du bokar.",
+          "Vänner och kollegor: en flotte delas oftast av sex till åtta personer.",
+          "Mindre lämpligt för den som inte kan simma och känner sig osäker i vatten, eller under graviditet."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Vad ska man ta med?"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Badkläder under kläderna och en handduk.",
+          "Skor som tål att bli blöta och sitter kvar på fötterna – inte flip-flops.",
+          "Solkräm och ett ombyte torra kläder till hemvägen.",
+          "En vattentät påse eller ett fodral till mobilen; lämna värdesaker på hotellet."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Mer än rafting: nationalparken"
+      },
+      {
+        "type": "p",
+        "text": "Över kanjonen går Olukbron, en romersk bro med ett enda valv som har gett området dess namn – köprü betyder bro på turkiska. Högre upp på berget ligger ruinerna av den antika staden Selge, bland klippformationer och byar. Med eget fordon kan du kombinera raftingen med ett stopp vid bron och en tur upp mot Selge."
+      },
+      {
+        "type": "h2",
+        "text": "Så tar du dig dit från kusten"
+      },
+      {
+        "type": "p",
+        "text": "Många raftingföretag säljer turer med gemensam upphämtning på hotellen, vilket kan innebära en lång förmiddag med att hämta upp andra gäster. Ett privat fordon från Side, Manavgat, Belek, Alanya eller Antalya åker när du vill och kan stanna vid bron eller i bergen på vägen. Kanjonen ligger ungefär en timme från Side och Manavgat och längre från Antalya och Alanya; skicka oss ditt hotell och datum så ger vi dig ett fast pris per fordon."
+      }
+    ],
+    "faq": [
+      [
+        "Passar rafting i Köprülükanjonen för nybörjare?",
+        "Ja. Forsarna är mestadels lätta till medelsvåra, ingen erfarenhet behövs och en guide styr varje flotte efter en säkerhetsgenomgång."
+      ],
+      [
+        "När är raftingsäsongen i Köprülükanjonen?",
+        "Oftast från ungefär april till oktober. På våren är vattnet livligare tack vare snösmältningen; september och oktober är lugnare och mindre besökta."
+      ],
+      [
+        "Hur kallt är vattnet?",
+        "Kallt året runt, eftersom floden får sitt vatten från bergskällor. En het sommardag är det en del av charmen."
+      ],
+      [
+        "Hur långt är det från Side till Köprülükanjonen?",
+        "Ungefär en timme med bil från Side och Manavgat, och längre från Antalya, Belek eller Alanya beroende på hotell."
+      ]
+    ]
+  },
+  "kas-kalkan-autumn": {
+    "slug": "kas-och-kalkan-pa-hosten",
+    "title": "Kaş och Kalkan på hösten: dykning, stränder och lugna vikar",
+    "heading": "Kaş och Kalkan på hösten",
+    "description": "Därför är Kaş och Kalkan som bäst på hösten: varmt hav, dykning, stränderna Kaputaş och Patara, Kekova med kajak och båt och hur du tar dig dit från Antalyas flygplats.",
+    "excerpt": "Årets varmaste hav, tomma stränder och två små hamnstäder vid bergens fot. Därför glänser den yttersta västra delen av Antalyakusten i oktober.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Kaş och Kalkan ligger på den vilda västra delen av Antalyakusten, där bergen stupar rakt ner i havet. Ingen av orterna har stora resorter; båda har små hamnar, vitkalkade gränder och något av det klaraste vattnet i Medelhavet. På hösten, när sommarturisterna har åkt hem och havet fortfarande är varmt, är Kaş och Kalkan som allra bäst."
+      },
+      {
+        "type": "h2",
+        "text": "Därför är hösten säsongen här"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Havet håller sig varmt in i oktober, ofta varmare än i juni.",
+          "Sikten under vattnet är utmärkt – goda nyheter för dykare och snorklare.",
+          "Promenader och vandringar blir behagliga igen efter sommarvärmen.",
+          "Restauranger och båtturer är fortfarande igång, men utan sommarens trängsel."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Kaş: dykning, kajak och hamnen"
+      },
+      {
+        "type": "p",
+        "text": "Kaş är ett av Turkiets mest kända dykcentrum, med dykplatser för både nybörjare och erfarna dykare, bland annat vrak, väggar och undervattensgrottor. Havskajak över Kekovas sjunkna ruiner är en höjdpunkt, och hamnen, den antika teatern med utsikt över havet och de lykiska gravarna i staden gör kvällarna enkla. En klar dag syns den grekiska ön Meis strax utanför kusten."
+      },
+      {
+        "type": "h2",
+        "text": "Kalkan: terrasser och lugna kvällar"
+      },
+      {
+        "type": "p",
+        "text": "Kalkan, ungefär en halvtimme väster om Kaş, är mindre och lugnare och byggt på en sluttning runt en liten hamn. Orten är känd för sina villor med terrasser mot havet och sina takrestauranger. Den passar par och familjer som vill ha en lugn bas med god mat snarare än nattliv."
+      },
+      {
+        "type": "h2",
+        "text": "Stränder mellan och runt orterna"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Kaputaş: en liten turkos vik vid foten av en ravin, mellan Kaş och Kalkan.",
+          "Patara: en av Turkiets längsta sandstränder, intill ruinerna av antika Patara och ett skyddat område.",
+          "Kaşhalvön och stadens badplattformar: klippstränder och stegar rakt ner i djupt, klart vatten.",
+          "Kekova och Üçağız: båtturer till skyddade vikar och borgbyn Kaleköy."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Vad händer i november?"
+      },
+      {
+        "type": "p",
+        "text": "Från november går säsongen mot sitt slut: en del hotell, restauranger och båtturer stänger, det första regnet kommer och kvällarna blir svala. Kaş är livligt året runt eftersom många bor där permanent, medan Kalkan blir mycket stilla. Kontrollera öppettider om du reser sent på säsongen."
+      },
+      {
+        "type": "h2",
+        "text": "Från Antalyas flygplats till Kaş och Kalkan"
+      },
+      {
+        "type": "p",
+        "text": "Kaş ligger cirka 185 km från Antalyas flygplats, ungefär två och en halv till tre timmar längs kustvägen via Kemer, Kumluca och Demre, och Kalkan ligger ungefär en halvtimme längre bort. Beroende på flyg landar en del resenärer i Dalaman i stället. Vi kör privata transfers från båda flygplatserna till fast pris per fordon, med fotostopp längs en av landets vackraste vägar."
+      }
+    ],
+    "faq": [
+      [
+        "Är havet varmt i Kaş i oktober?",
+        "Ja. Havet håller sig oftast varmt långt in i oktober, ofta varmare än på försommaren, och sikten för dykning och snorkling är utmärkt."
+      ],
+      [
+        "Hur långt är det från Antalyas flygplats till Kaş?",
+        "Cirka 185 km, ungefär två och en halv till tre timmar med bil. Kalkan ligger ungefär en halvtimme längre västerut."
+      ],
+      [
+        "Kaş eller Kalkan: vilket är bäst?",
+        "Kaş är livligare, med dykning, kajak och stadsliv året runt. Kalkan är mindre och lugnare, med villor och restauranger med havsutsikt."
+      ],
+      [
+        "Har Kaş och Kalkan öppet i november?",
+        "Kaş är aktivt året runt. I Kalkan och hos en del hotell och båtföretag slutar säsongen i slutet av oktober eller i november, så kontrollera öppettiderna."
+      ]
+    ]
+  },
+  "medical-travel-antalya-winter": {
+    "slug": "tandvard-i-antalya-pa-vintern",
+    "title": "Tandvård och medicinska resor till Antalya på vintern: det här bör du veta",
+    "heading": "Tandvård och medicinska resor till Antalya på vintern",
+    "description": "Tandvård i Antalya, hårtransplantation eller kosmetisk behandling på vintern: varför många väljer lågsäsong, hur du granskar en klinik, vilodagar och flygplatstransfer.",
+    "excerpt": "Svalare väder, lugnare hotell och enklare att boka tider. Vad du som reser till Antalya för behandling på vintern bör kontrollera och planera innan du bokar.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "För tandvård i Antalya och andra medicinska resor har staden, vid sidan av Istanbul, blivit ett av Turkiets centrum. Allt fler besökare planerar tandbehandlingar, hårtransplantationer eller kosmetiska ingrepp till vintermånaderna, när kusten är lugn och vädret milt. Den här guiden handlar om de praktiska delarna av en sådan resa – den är inte medicinsk rådgivning, och varje medicinskt beslut ska fattas av en behörig läkare."
+      },
+      {
+        "type": "h2",
+        "text": "Därför väljer många resenärer vintern"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Milt, svalare väder: många patienter tycker att återhämtningen blir behagligare utan sommarhetta och stark sol.",
+          "Hotell och lägenheter är lugnare och ofta billigare än på sommaren.",
+          "Det kan vara lättare att få tider utanför de mest populära semestermånaderna.",
+          "Resan kan kombineras med staden, museer och lugna promenader i stället för stranddagar."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Välja och granska en vårdgivare"
+      },
+      {
+        "type": "p",
+        "text": "Det viktigaste beslutet är vårdgivaren, inte priset. Kontrollera att kliniken eller sjukhuset har tillstånd från det turkiska hälsoministeriet, ta reda på vem den behandlande läkaren är och vilka kvalifikationer hen har, och be om en skriftlig plan som anger vad som ingår, vad som inte ingår och hur komplikationer och uppföljning hanteras. Var försiktig med erbjudanden som utlovar ett slutresultat eller ett fast pris innan någon undersökning har gjorts."
+      },
+      {
+        "type": "h2",
+        "text": "Planera dina dagar"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Typ av behandling",
+          "Typisk planeringsfråga",
+          "Fråga din vårdgivare"
+        ],
+        "rows": [
+          [
+            "Tandbehandling",
+            "Ofta mer än ett besök, ibland med veckor eller månader emellan",
+            "Hur många resor och hur många dagar varje gång?"
+          ],
+          [
+            "Hårtransplantation",
+            "Kort vistelse, med skötselråd för de första dagarna",
+            "När får du flyga, tvätta håret och bära mössa?"
+          ],
+          [
+            "Kosmetisk kirurgi",
+            "Längre vistelse och återhämtningsdagar före hemresan",
+            "Hur många nätter innan du får flyga?"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Planera in vilodagar, lägg inte behandlingen samma dag som du landar och följ läkarens råd om när det är säkert att flyga. Vid kirurgiska ingrepp rekommenderas ofta att man reser med sällskap."
+      },
+      {
+        "type": "h2",
+        "text": "Försäkring, dokument och uppföljning"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Kontrollera om din reseförsäkring täcker planerad behandling utomlands – många försäkringar gör det inte.",
+          "Spara kopior av alla läkarintyg, recept och behandlingsplanen.",
+          "Fråga hur uppföljningen fungerar när du är hemma igen och om din egen läkare kan involveras.",
+          "Dela medicinsk information bara med vårdgivaren, via den kanal de anger."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Från flygplatsen till hotellet eller kliniken"
+      },
+      {
+        "type": "p",
+        "text": "Efter en flygresa och före eller efter en behandling vill du inte stå i taxikö eller åka en delad buss som stannar vid ett dussin hotell. En privat transfer tar dig direkt från Antalyas flygplats till ditt hotell eller din klinik, och föraren väntar in ditt flyg och hjälper till med bagaget. Returresor kan anpassas efter dina tider och ditt hemflyg. Priset är fast per fordon, så ett sällskap åker med utan extra kostnad."
+      }
+    ],
+    "faq": [
+      [
+        "Varför resa till Antalya för behandling på vintern?",
+        "Många resenärer föredrar det mildare vädret för återhämtningen, lugnare hotell och att det är enklare att boka tider utanför sommarsäsongen."
+      ],
+      [
+        "Hur granskar jag en klinik i Antalya?",
+        "Kontrollera att den har tillstånd från det turkiska hälsoministeriet, ta reda på vem den behandlande läkaren är och be om en skriftlig plan över vad som ingår och inte ingår, komplikationer och uppföljning."
+      ],
+      [
+        "Hur länge bör jag stanna efter ett ingrepp?",
+        "Det beror helt på behandlingen och din läkares råd. Fråga din vårdgivare hur många nätter du behöver innan hemresan och planera in vilodagar."
+      ],
+      [
+        "Kan ni köra mig från flygplatsen till min klinik?",
+        "Ja. Vi erbjuder privata transfers från Antalyas flygplats till hotell och kliniker, och tillbaka, till fast pris per fordon."
+      ]
+    ]
+  },
+  "side-ancient-city-guide": {
+    "slug": "side-antika-staden-guide",
+    "title": "Side antika staden: guide till Apollontemplet, teatern och gamla stan",
+    "heading": "Side: guide till den antika staden",
+    "description": "Besök antika Side: Apollontemplet, den stora teatern, museet, stadsmurarna och gamla stan, bästa tiden att åka och dagsutflykter till Aspendos och Manavgatvattenfallet.",
+    "excerpt": "En romersk teater, tempelpelare vid vattenbrynet och en hamnstad byggd innanför de antika murarna. Så ser du Side när det är som bäst – utanför säsongen.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Den antika staden Side är en av få platser på Turkiska rivieran där en modern ort lever mitt i en antik stad. Gamla stan fyller en liten halvö omgiven av romerska och hellenistiska ruiner: du går förbi pelare på väg till restaurangen, och solnedgången ramas in av ett tempel. Side är som bäst utanför sommaren, när det är lugnt nog att känna historiens vingslag."
+      },
+      {
+        "type": "h2",
+        "text": "De viktigaste sevärdheterna"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Apollontemplet: pelarna står längst ut på halvön, precis vid havet – den klassiska platsen för solnedgången.",
+          "Den stora teatern: en av regionens största antika teatrar, byggd in i sluttningen vid entrén till gamla stan.",
+          "Sides museum: inrymt i ett restaurerat romerskt bad, med statyer och reliefer som hittats i staden.",
+          "Pelargatan och agoran: den antika huvudaxeln från stadsporten mot hamnen.",
+          "Stadsmurarna och den monumentala porten: entrévägen som besökare har använt i två tusen år."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Gamla stan i dag"
+      },
+      {
+        "type": "p",
+        "text": "Innanför murarna leder gränder med restauranger, kaféer och små butiker ner till hamnen, där båtar avgår på turer längs kusten. Bilar hålls borta från större delen av gamla stan, så den är trevlig att utforska till fots. Breda sandstränder sträcker sig öster och väster om halvön."
+      },
+      {
+        "type": "h2",
+        "text": "När ska man åka?"
+      },
+      {
+        "type": "p",
+        "text": "Våren och hösten är perfekta: tillräckligt varmt för stranden, tillräckligt svalt för att gå runt bland ruinerna mitt på dagen. På vintern stänger många säsongshotell, men gamla stan, ruinerna och museet är öppna, och en solig dag är templet och hamnen nästan tomma. I juli och augusti besöker du ruinerna bäst tidigt på morgonen eller vid solnedgången."
+      },
+      {
+        "type": "h2",
+        "text": "Dagsutflykter från Side"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Resmål",
+          "Varför åka dit",
+          "Ungefärlig restid från Side"
+        ],
+        "rows": [
+          [
+            "Aspendos",
+            "En av världens bäst bevarade romerska teatrar",
+            "cirka 40 minuter"
+          ],
+          [
+            "Manavgatvattenfallet",
+            "Ett brett, lågt vattenfall i en grön park",
+            "cirka 15 minuter"
+          ],
+          [
+            "Perge",
+            "En stor antik stad med stadion och pelargator",
+            "cirka 1 timme"
+          ],
+          [
+            "Köprülükanjonen",
+            "Rafting och en romersk bro i en nationalpark",
+            "cirka 1 timme"
+          ]
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Från Antalyas flygplats till Side"
+      },
+      {
+        "type": "p",
+        "text": "Side ligger cirka 65 km från Antalyas flygplats, ungefär 55 till 65 minuter med bil. En privat transfer tar dig direkt till ditt hotell eller till kanten av den bilfria gamla stan, till ett fast pris per fordon som inte ändras med säsongen eller tiden för ditt flyg. Samma fordon kan bokas för dagsutflykter till Aspendos, Perge eller kanjonen."
+      }
+    ],
+    "faq": [
+      [
+        "Vad finns att se i antika Side?",
+        "Apollontemplet vid havet, den stora teatern, museet i ett romerskt bad, pelargatan, agoran och stadsmurarna – allt på gångavstånd från gamla stan."
+      ],
+      [
+        "Är Side värt att besöka på vintern?",
+        "Ja, för ruinerna och gamla stan. Många säsongshotell stänger, men sevärdheterna är öppna och mycket lugnare än på sommaren."
+      ],
+      [
+        "Hur långt är det från Antalyas flygplats till Side?",
+        "Cirka 65 km, ungefär 55 till 65 minuter med bil."
+      ],
+      [
+        "Kan jag besöka Aspendos från Side?",
+        "Ja. Aspendos ligger cirka 40 minuter från Side med bil och är en enkel halvdagsutflykt, ofta i kombination med Perge eller Manavgatvattenfallet."
+      ]
+    ]
   }
 };

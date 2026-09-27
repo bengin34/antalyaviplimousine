@@ -1463,5 +1463,421 @@ export const articles = {
         "Da. Trimite-ne punctele de start și de final și data, iar noi îți facem o ofertă pentru un transfer privat la preț fix pe vehicul, inclusiv preluarea de la finalul drumeției."
       ]
     ]
+  },
+  "koprulu-canyon-rafting": {
+    "slug": "rafting-canionul-koprulu-antalya",
+    "title": "Rafting în Canionul Köprülü: ghid practic din Antalya și Side",
+    "heading": "Rafting în Canionul Köprülü",
+    "description": "Rafting în Canionul Köprülü lângă Antalya: când ține sezonul, cum e râul, cui i se potrivește, ce să iei cu tine și cât de departe e de Side, Belek, Alanya și Antalya.",
+    "excerpt": "Apă verde și rece, un pod roman și un canion acoperit de pini. La ce să te aștepți la o zi de rafting în Canionul Köprülü și cum o planifici de pe litoral.",
+    "readingMinutes": 5,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Rafting-ul în Canionul Köprülü este cea mai cunoscută excursie de acest fel din zona Antalya. Canionul este un parc național în Munții Taurus, la nord de Side și Manavgat, iar râul care îl străbate oferă o aventură relaxată, nu una extremă: majoritatea rapidurilor sunt blânde, peisajul este spectaculos, iar începătorii și familiile participă în fiecare zi a sezonului."
+      },
+      {
+        "type": "h2",
+        "text": "Cum arată o tură de rafting"
+      },
+      {
+        "type": "p",
+        "text": "Majoritatea turelor parcurg o porțiune de aproximativ o duzină de kilometri din râul Köprüçay și petrec două-trei ore pe apă, cu opriri pentru înot, sărituri de pe stânci sau pur și simplu plutit. Rapidurile sunt în mare parte ușoare spre moderate, apa este limpede și verde și rece tot anul, pentru că râul este alimentat de izvoare de munte. Ghizii țin un instructaj de siguranță, iar căștile și vestele de salvare sunt asigurate."
+      },
+      {
+        "type": "h2",
+        "text": "Când să mergi"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Perioadă",
+          "Râul și vremea",
+          "Potrivit pentru"
+        ],
+        "rows": [
+          [
+            "Aprilie - mai",
+            "Mai multă apă din topirea zăpezii, rapiduri mai vii, aer blând",
+            "Grupuri active, mai puțină aglomerație"
+          ],
+          [
+            "Iunie - august",
+            "Aer fierbinte, apă rece, cele mai aglomerate luni",
+            "Răcorire într-o zi toridă"
+          ],
+          [
+            "Septembrie - octombrie",
+            "Apă mai liniștită, zile calde, mai puțini oameni",
+            "Familii și începători"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Sezonul ține de obicei cam din aprilie până în octombrie, în funcție de râu și de operatori. În afara acestei perioade, turele sunt rare sau nu se organizează deloc."
+      },
+      {
+        "type": "h2",
+        "text": "Cui i se potrivește"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Începătorilor: nu e nevoie de experiență, iar ghidul conduce barca.",
+          "Familiilor: operatorii stabilesc o vârstă minimă pentru copii, așa că verifică-o la rezervare.",
+          "Grupurilor de prieteni și colegi: o barcă este de obicei împărțită de șase până la opt persoane.",
+          "Nu e ideal pentru cei care nu știu să înoate și se tem de apă sau în timpul sarcinii."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Ce să iei cu tine"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Costum de baie purtat pe sub haine și un prosop.",
+          "Încălțăminte care se poate uda și rămâne bine pe picior - nu șlapi.",
+          "Cremă de protecție solară și un set de haine uscate de schimb pentru drumul înapoi.",
+          "O pungă sau o husă impermeabilă pentru telefon; lasă obiectele de valoare la hotel."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Mai mult decât rafting: parcul național"
+      },
+      {
+        "type": "p",
+        "text": "Canionul este traversat de Podul Oluk, un pod roman cu o singură arcadă care dă numele zonei - köprü înseamnă „pod” în turcă. Mai sus pe munte se află ruinele orașului antic Selge, printre formațiuni stâncoase și sate. Cu un vehicul propriu poți combina rafting-ul cu o oprire la pod și un drum în sus, spre Selge."
+      },
+      {
+        "type": "h2",
+        "text": "Cum ajungi de pe litoral"
+      },
+      {
+        "type": "p",
+        "text": "Multe firme de rafting vând ture cu preluare comună de la hoteluri, ceea ce poate însemna o dimineață lungă în care se adună ceilalți turiști. Un vehicul privat din Side, Manavgat, Belek, Alanya sau Antalya pleacă atunci când vrei tu și îți permite să te oprești la pod sau în munți pe drum. Canionul este la aproximativ o oră de Side și Manavgat și mai departe de Antalya și Alanya; trimite-ne hotelul și data, iar noi îți oferim un preț fix pe vehicul."
+      }
+    ],
+    "faq": [
+      [
+        "Este rafting-ul în Canionul Köprülü potrivit pentru începători?",
+        "Da. Rapidurile sunt în mare parte ușoare spre moderate, nu e nevoie de experiență, iar un ghid conduce fiecare barcă după un instructaj de siguranță."
+      ],
+      [
+        "Când este sezonul de rafting în Canionul Köprülü?",
+        "De obicei cam din aprilie până în octombrie. Primăvara apa e mai vie din cauza topirii zăpezii; septembrie și octombrie sunt mai liniștite și mai puțin aglomerate."
+      ],
+      [
+        "Cât de rece este apa?",
+        "Rece tot anul, pentru că râul este alimentat de izvoare de munte. Într-o zi fierbinte de vară, tocmai asta face parte din farmec."
+      ],
+      [
+        "Cât de departe este Canionul Köprülü de Side?",
+        "Aproximativ o oră cu mașina din Side și Manavgat și mai mult din Antalya, Belek sau Alanya, în funcție de hotel."
+      ]
+    ]
+  },
+  "kas-kalkan-autumn": {
+    "slug": "kas-si-kalkan-toamna",
+    "title": "Kaş și Kalkan toamna: scufundări, plaje și golfuri liniștite",
+    "heading": "Kaş și Kalkan toamna",
+    "description": "De ce Kaş și Kalkan arată cel mai bine toamna: mare caldă, scufundări, plajele Kaputaş și Patara, Kekova cu caiacul și cu barca și cum ajungi din Aeroportul Antalya.",
+    "excerpt": "Cea mai caldă mare a anului, plaje goale și două mici orașe-port la poalele munților. De ce extremitatea vestică a coastei Antalya strălucește în octombrie.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Kaş și Kalkan toamna sunt la apogeu. Cele două orașe se află la capătul vestic, sălbatic, al coastei Antalya, unde munții coboară direct în mare. Niciunul nu are stațiuni mari; ambele au porturi mici, străduțe văruite și una dintre cele mai limpezi ape din Mediterana. Toamna, după plecarea turiștilor de vară și cu marea încă caldă, își arată cea mai bună față."
+      },
+      {
+        "type": "h2",
+        "text": "De ce toamna este sezonul aici"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Marea rămâne caldă până în octombrie, adesea mai caldă decât în iunie.",
+          "Vizibilitatea sub apă este excelentă - o veste bună pentru scafandri și amatorii de snorkeling.",
+          "Plimbările și drumețiile devin din nou plăcute după căldura verii.",
+          "Restaurantele și excursiile cu barca funcționează în continuare, dar fără aglomerația verii."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Kaş: scufundări, caiac și portul"
+      },
+      {
+        "type": "p",
+        "text": "Kaş este unul dintre cele mai cunoscute centre de scufundări din Türkiye, cu locuri pentru începători și scafandri experimentați, inclusiv epave, pereți și peșteri subacvatice. Caiacul pe mare deasupra ruinelor scufundate de la Kekova este un punct culminant, iar portul, teatrul antic cu fața spre mare și mormintele liciene din oraș fac serile ușoare. Într-o zi senină, insula grecească Meis se vede chiar în largul coastei."
+      },
+      {
+        "type": "h2",
+        "text": "Kalkan: terase și seri liniștite"
+      },
+      {
+        "type": "p",
+        "text": "Kalkan, la aproximativ o jumătate de oră vest de Kaş, este mai mic și mai liniștit, construit pe un deal în jurul unui port mic. Este cunoscut pentru vilele cu terase cu vedere la mare și pentru restaurantele de pe acoperișuri. Se potrivește cuplurilor și familiilor care vor o bază liniștită, cu mâncare bună, mai degrabă decât viață de noapte."
+      },
+      {
+        "type": "h2",
+        "text": "Plaje între orașe și dincolo de ele"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Kaputaş: un mic golf turcoaz la poalele unui defileu, între Kaş și Kalkan.",
+          "Patara: una dintre cele mai lungi plaje cu nisip din Türkiye, lângă ruinele anticei Patara și o zonă protejată.",
+          "Peninsula Kaş și platformele de înot ale orașului: țărmuri stâncoase și scări direct în apă adâncă și limpede.",
+          "Kekova și Üçağız: excursii cu barca spre golfuri adăpostite și satul cu castel Kaleköy."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Ce se schimbă în noiembrie"
+      },
+      {
+        "type": "p",
+        "text": "Din noiembrie sezonul se încheie treptat: unele hoteluri, restaurante și excursii cu barca se închid, vin primele ploi, iar serile devin răcoroase. Kaş rămâne animat tot anul, pentru că mulți oameni locuiesc acolo permanent, în timp ce Kalkan devine foarte liniștit. Verifică datele de funcționare dacă mergi la sfârșitul sezonului."
+      },
+      {
+        "type": "h2",
+        "text": "Cum ajungi din Aeroportul Antalya"
+      },
+      {
+        "type": "p",
+        "text": "Kaş se află la aproximativ 185 km de Aeroportul Antalya, cam două ore și jumătate - trei ore pe drumul de coastă prin Kemer, Kumluca și Demre, iar Kalkan este cu aproximativ o jumătate de oră mai departe. Unii călători aterizează în schimb la Dalaman, în funcție de zboruri. Oferim transferuri private din ambele aeroporturi la un preț fix pe vehicul, cu opriri pentru fotografii pe unul dintre cele mai pitorești drumuri din țară."
+      }
+    ],
+    "faq": [
+      [
+        "Este marea caldă în Kaş în octombrie?",
+        "Da. Marea rămâne de obicei caldă până târziu în octombrie, adesea mai caldă decât la începutul verii, iar vizibilitatea pentru scufundări și snorkeling este excelentă."
+      ],
+      [
+        "Cât de departe este Kaş de Aeroportul Antalya?",
+        "Aproximativ 185 km, cam două ore și jumătate - trei ore cu mașina. Kalkan este cu aproximativ o jumătate de oră mai spre vest."
+      ],
+      [
+        "Kaş sau Kalkan: care e mai bun?",
+        "Kaş este mai animat, cu scufundări, caiac și viață de oraș tot anul. Kalkan este mai mic și mai liniștit, cu vile și restaurante cu vedere la mare."
+      ],
+      [
+        "Sunt deschise Kaş și Kalkan în noiembrie?",
+        "Kaş rămâne activ tot anul. În Kalkan și la unele hoteluri și firme de excursii cu barca, sezonul se încheie la sfârșitul lui octombrie sau în noiembrie, așa că verifică datele de funcționare."
+      ]
+    ]
+  },
+  "medical-travel-antalya-winter": {
+    "slug": "turism-medical-antalya-iarna",
+    "title": "Turism medical în Antalya iarna: ce trebuie să știi înainte de plecare",
+    "heading": "Turism medical și stomatologic în Antalya iarna",
+    "description": "Planifici un tratament stomatologic, un transplant de păr sau o procedură estetică în Antalya iarna? De ce mulți aleg extrasezonul, cum verifici clinica, zilele de recuperare și transferul.",
+    "excerpt": "Vreme mai răcoroasă, hoteluri mai liniștite și programări mai ușoare. Ce trebuie să verifice și să planifice cei care vin iarna în Antalya pentru tratament.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Turismul medical în Antalya iarna câștigă tot mai mult teren: alături de Istanbul, Antalya a devenit unul dintre centrele Türkiye pentru turism medical și tratamente dentare. Tot mai mulți vizitatori își planifică lucrări stomatologice, transplant de păr sau proceduri estetice în lunile de iarnă, când litoralul este liniștit și vremea blândă. Acest ghid acoperă partea practică a unei astfel de călătorii - nu reprezintă un sfat medical, iar orice decizie clinică aparține unui medic calificat."
+      },
+      {
+        "type": "h2",
+        "text": "De ce mulți călători aleg iarna"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Vreme blândă și mai răcoroasă: mulți pacienți consideră recuperarea mai confortabilă departe de căldura verii și de soarele puternic.",
+          "Hotelurile și apartamentele sunt mai liniștite și adesea mai ieftine decât vara.",
+          "Programările pot fi mai ușor de obținut în afara lunilor de vârf ale vacanțelor.",
+          "Călătoria poate fi combinată cu orașul, muzeele și plimbări ușoare, în loc de zile la plajă."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Alegerea și verificarea clinicii"
+      },
+      {
+        "type": "p",
+        "text": "Cea mai importantă decizie este furnizorul, nu prețul. Verifică dacă clinica sau spitalul este autorizat de Ministerul Sănătății din Turcia, află cine este medicul care te tratează și ce calificări are și cere un plan scris care să precizeze ce este inclus, ce nu este inclus și cum sunt gestionate complicațiile și controalele ulterioare. Fii atent la ofertele care promit un rezultat final sau un preț fix înainte de orice examinare."
+      },
+      {
+        "type": "h2",
+        "text": "Planificarea zilelor"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Tip de tratament",
+          "Aspect tipic de planificare",
+          "Întreabă furnizorul"
+        ],
+        "rows": [
+          [
+            "Tratament stomatologic",
+            "Adesea mai multe vizite, uneori la distanță de săptămâni sau luni",
+            "Câte călătorii și câte zile fiecare?"
+          ],
+          [
+            "Transplant de păr",
+            "Ședere scurtă, cu instrucțiuni de îngrijire pentru primele zile",
+            "Când poți zbura, te poți spăla pe cap și purta o căciulă?"
+          ],
+          [
+            "Chirurgie estetică",
+            "Ședere mai lungă și zile de recuperare înainte de zborul spre casă",
+            "Câte nopți trebuie să treacă înainte de a avea voie să zbori?"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Include zile de odihnă în plan, evită să programezi tratamentul în ziua sosirii și urmează sfatul medicului privind momentul în care poți zbura în siguranță. Pentru intervențiile chirurgicale se recomandă adesea să călătorești cu un însoțitor."
+      },
+      {
+        "type": "h2",
+        "text": "Asigurare, documente și controale"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Verifică dacă asigurarea de călătorie acoperă un tratament planificat în străinătate - multe polițe nu îl acoperă.",
+          "Păstrează copii după toate rapoartele medicale, rețetele și planul de tratament.",
+          "Întreabă cum se desfășoară controalele după ce ajungi acasă și dacă medicul tău de acasă poate fi implicat.",
+          "Împărtășește informațiile medicale doar cu furnizorul, prin canalul indicat de acesta."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "De la aeroport la hotel sau la clinică"
+      },
+      {
+        "type": "p",
+        "text": "După un zbor și înainte sau după tratament, ultimul lucru de care ai nevoie este o coadă la taxi sau un microbuz comun care oprește la o duzină de hoteluri. Un transfer privat te duce direct de la Aeroportul Antalya la hotel sau la clinică, cu șoferul care îți urmărește zborul și te ajută cu bagajele. Drumurile de întoarcere pot fi programate în funcție de programări și de zborul spre casă. Prețul este fix pe vehicul, așa că un însoțitor călătorește fără cost suplimentar."
+      }
+    ],
+    "faq": [
+      [
+        "De ce să mergi iarna în Antalya pentru tratament?",
+        "Mulți călători preferă vremea mai blândă pentru recuperare, hotelurile mai liniștite și programările mai ușoare în afara sezonului de vacanță de vară."
+      ],
+      [
+        "Cum verific o clinică din Antalya?",
+        "Verifică dacă este autorizată de Ministerul Sănătății din Turcia, află cine este medicul care te tratează și cere un plan scris care acoperă ce este inclus, ce nu, complicațiile și controalele ulterioare."
+      ],
+      [
+        "Cât timp ar trebui să rămân după o procedură?",
+        "Depinde în întregime de tratament și de sfatul medicului. Întreabă furnizorul de câte nopți ai nevoie înainte de zborul spre casă și planifică zile de odihnă."
+      ],
+      [
+        "Mă puteți duce de la aeroport la clinică?",
+        "Da. Oferim transferuri private de la Aeroportul Antalya la hoteluri și clinici și înapoi, la un preț fix pe vehicul."
+      ]
+    ]
+  },
+  "side-ancient-city-guide": {
+    "slug": "side-orasul-antic-ghid",
+    "title": "Orașul antic Side: ghid pentru Templul lui Apollo, teatru și orașul vechi",
+    "heading": "Side: ghid al orașului antic",
+    "description": "Vizită în orașul antic Side: Templul lui Apollo, marele teatru, muzeul, zidurile și orașul vechi, când să mergi și excursii de o zi la Aspendos și cascada Manavgat.",
+    "excerpt": "Un teatru roman, coloane de templu pe malul apei și un oraș-port construit între zidurile antice. Cum vezi Side în cea mai bună formă - în afara sezonului.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Orașul antic Side este unul dintre puținele locuri de pe Riviera Turcească unde un oraș modern trăiește în interiorul unuia antic. Orașul vechi ocupă o mică peninsulă înconjurată de ruine romane și elenistice: treci pe lângă coloane ca să ajungi la un restaurant, iar apusul este încadrat de un templu. Side arată cel mai bine în afara verii, când e suficient de liniștit ca să simți istoria."
+      },
+      {
+        "type": "h2",
+        "text": "Principalele obiective"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Templul lui Apollo: coloanele se înalță în vârful peninsulei, chiar lângă mare - locul clasic pentru apus.",
+          "Marele teatru: unul dintre cele mai mari teatre antice din regiune, construit în pantă la intrarea în orașul vechi.",
+          "Muzeul Side: găzduit într-o baie romană restaurată, cu statui și reliefuri descoperite în oraș.",
+          "Strada cu colonade și agora: axa principală antică, ce duce de la poarta orașului spre port.",
+          "Zidurile orașului și poarta monumentală: drumul de intrare folosit de vizitatori de două mii de ani."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Orașul vechi astăzi"
+      },
+      {
+        "type": "p",
+        "text": "În interiorul zidurilor, străduțe cu restaurante, cafenele și magazine mici coboară spre port, de unde pleacă bărci în excursii de-a lungul coastei. Mașinile nu au acces în cea mai mare parte a orașului vechi, așa că este plăcut de explorat pe jos. Plaje largi cu nisip se întind la est și la vest de peninsulă."
+      },
+      {
+        "type": "h2",
+        "text": "Când să vizitezi"
+      },
+      {
+        "type": "p",
+        "text": "Primăvara și toamna sunt ideale: suficient de cald pentru plajă, suficient de răcoros ca să te plimbi printre ruine la mijlocul zilei. Iarna multe hoteluri sezoniere se închid, dar orașul vechi, ruinele și muzeul rămân deschise, iar într-o zi însorită templul și portul sunt aproape goale. În iulie și august vizitează ruinele dimineața devreme sau la apus."
+      },
+      {
+        "type": "h2",
+        "text": "Excursii de o zi din Side"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Destinație",
+          "De ce merită",
+          "Timp aproximativ din Side"
+        ],
+        "rows": [
+          [
+            "Aspendos",
+            "Unul dintre cele mai bine păstrate teatre romane din lume",
+            "aproximativ 40 de minute"
+          ],
+          [
+            "Cascada Manavgat",
+            "O cascadă lată și joasă într-un parc verde",
+            "aproximativ 15 minute"
+          ],
+          [
+            "Perge",
+            "Un mare oraș antic cu stadion și străzi cu colonade",
+            "aproximativ 1 oră"
+          ],
+          [
+            "Canionul Köprülü",
+            "Rafting și un pod roman într-un parc național",
+            "aproximativ 1 oră"
+          ]
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Cum ajungi la Side din Aeroportul Antalya"
+      },
+      {
+        "type": "p",
+        "text": "Side se află la aproximativ 65 km de Aeroportul Antalya, cam 55-65 de minute cu mașina. Un transfer privat te duce direct la hotel sau la marginea orașului vechi pietonal, la un preț fix pe vehicul care nu se schimbă în funcție de sezon sau de ora zborului. Același vehicul poate fi rezervat pentru excursii de o zi la Aspendos, Perge sau canion."
+      }
+    ],
+    "faq": [
+      [
+        "Ce poți vedea în orașul antic Side?",
+        "Templul lui Apollo de lângă mare, marele teatru, muzeul dintr-o baie romană, strada cu colonade, agora și zidurile orașului - toate la distanță de mers pe jos de orașul vechi."
+      ],
+      [
+        "Merită vizitat Side iarna?",
+        "Da, pentru ruine și orașul vechi. Multe hoteluri sezoniere se închid, dar obiectivele rămân deschise și sunt mult mai liniștite decât vara."
+      ],
+      [
+        "Cât de departe este Side de Aeroportul Antalya?",
+        "Aproximativ 65 km, cam 55-65 de minute cu mașina."
+      ],
+      [
+        "Pot vizita Aspendos din Side?",
+        "Da. Aspendos este la aproximativ 40 de minute de Side cu mașina și se pretează la o excursie ușoară de jumătate de zi, adesea combinată cu Perge sau cascada Manavgat."
+      ]
+    ]
   }
 };

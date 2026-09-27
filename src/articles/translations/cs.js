@@ -1463,5 +1463,421 @@ export const articles = {
         "Ano. Pošlete nám místo startu a cíle a datum a my vám nabídneme soukromý transfer za pevnou cenu za vůz, včetně vyzvednutí na konci túry."
       ]
     ]
+  },
+  "koprulu-canyon-rafting": {
+    "slug": "rafting-kanon-koprulu",
+    "title": "Rafting v kaňonu Köprülü: praktický průvodce z Antalye a Side",
+    "heading": "Rafting v kaňonu Köprülü",
+    "description": "Rafting v kaňonu Köprülü u Antalye: kdy je sezona, jaká je řeka, pro koho se hodí, co si vzít s sebou a jak daleko je to ze Side, Beleku, Alanye a Antalye.",
+    "excerpt": "Studená zelená voda, římský most a kaňon porostlý borovicemi. Co čekat od dne na raftu v kaňonu Köprülü a jak ho naplánovat z pobřeží.",
+    "readingMinutes": 5,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Kaňon Köprülü je národní park v pohoří Taurus severně od Side a Manavgatu a rafting na řece, která jím protéká, je nejznámější vodní výlet v regionu. Jde spíš o pohodové dobrodružství než o extrém: většina peřejí je mírná, scenérie je úchvatná a začátečníci i rodiny s dětmi tu jezdí každý den sezony."
+      },
+      {
+        "type": "h2",
+        "text": "Jak rafting probíhá"
+      },
+      {
+        "type": "p",
+        "text": "Většina výletů vede úsekem řeky Köprüçay dlouhým zhruba tucet kilometrů a na vodě strávíte dvě až tři hodiny, se zastávkami na koupání, skoky ze skal nebo prosté plutí po proudu. Peřeje jsou převážně lehké až středně těžké, voda je čistá a zelená a po celý rok studená, protože řeku napájejí horské prameny. Průvodci vás poučí o bezpečnosti, přilby a záchranné vesty jsou k dispozici."
+      },
+      {
+        "type": "h2",
+        "text": "Kdy jet"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Období",
+          "Řeka a počasí",
+          "Vhodné pro"
+        ],
+        "rows": [
+          [
+            "Duben - květen",
+            "Více vody z tajícího sněhu, živější peřeje, mírný vzduch",
+            "Aktivní skupiny, méně lidí"
+          ],
+          [
+            "Červen - srpen",
+            "Horký vzduch, studená voda, nejrušnější měsíce",
+            "Osvěžení v horkém dni"
+          ],
+          [
+            "Září - říjen",
+            "Klidnější voda, teplé dny, méně lidí",
+            "Rodiny a začátečníky"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Sezona obvykle trvá zhruba od dubna do října, podle řeky a provozovatelů. Mimo toto období se výlety konají jen výjimečně, nebo vůbec."
+      },
+      {
+        "type": "h2",
+        "text": "Pro koho se hodí"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Začátečníci: zkušenosti nejsou potřeba, raft řídí průvodce.",
+          "Rodiny: provozovatelé stanovují minimální věk dětí, proto si ho ověřte při rezervaci.",
+          "Party přátel a kolegů: raft obvykle sdílí šest až osm lidí.",
+          "Není ideální pro neplavce, kteří mají z vody strach, ani v těhotenství."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Co si vzít s sebou"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Plavky pod oblečením a ručník.",
+          "Boty, které mohou namoknout a drží na noze - ne žabky.",
+          "Opalovací krém a náhradní suché oblečení na cestu zpět.",
+          "Vodotěsný vak nebo pouzdro na telefon; cennosti nechte v hotelu."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Víc než rafting: národní park"
+      },
+      {
+        "type": "p",
+        "text": "Kaňon překlenuje most Oluk, jednoobloukový římský most, podle kterého má oblast jméno - köprü znamená turecky „most“. Výš v horách leží mezi skalními útvary a vesnicemi ruiny antického města Selge. S vlastním vozem můžete rafting spojit se zastávkou u mostu a výjezdem nahoru k Selge."
+      },
+      {
+        "type": "h2",
+        "text": "Jak se tam dostat z pobřeží"
+      },
+      {
+        "type": "p",
+        "text": "Mnoho raftingových společností prodává výlety se společným svozem z hotelů, což může znamenat dlouhé dopoledne sbírání dalších hostů. Soukromý vůz ze Side, Manavgatu, Beleku, Alanye nebo Antalye vyjede, kdy chcete vy, a cestou může zastavit u mostu nebo v horách. Kaňon je zhruba hodinu jízdy ze Side a Manavgatu a dál z Antalye a Alanye; pošlete nám hotel a datum a nabídneme vám pevnou cenu za vůz."
+      }
+    ],
+    "faq": [
+      [
+        "Je rafting v kaňonu Köprülü vhodný pro začátečníky?",
+        "Ano. Peřeje jsou převážně lehké až středně těžké, zkušenosti nejsou potřeba a každý raft po bezpečnostní instruktáži řídí průvodce."
+      ],
+      [
+        "Kdy je raftingová sezona v kaňonu Köprülü?",
+        "Obvykle zhruba od dubna do října. Na jaře je voda díky tání sněhu živější, v září a říjnu je klidnější a méně lidí."
+      ],
+      [
+        "Jak studená je voda?",
+        "Studená po celý rok, protože řeku napájejí horské prameny. V horkém letním dni je to součást kouzla."
+      ],
+      [
+        "Jak daleko je kaňon Köprülü od Side?",
+        "Zhruba hodinu jízdy ze Side a Manavgatu a déle z Antalye, Beleku nebo Alanye, podle vašeho hotelu."
+      ]
+    ]
+  },
+  "kas-kalkan-autumn": {
+    "slug": "kas-a-kalkan-na-podzim",
+    "title": "Kaş a Kalkan na podzim: potápění, pláže a klidné zátoky",
+    "heading": "Kaş a Kalkan na podzim",
+    "description": "Proč jsou Kaş a Kalkan nejhezčí na podzim: teplé moře, potápění, pláže Kaputaş a Patara, Kekova na kajaku a lodí a jak se tam dostat z letiště Antalya.",
+    "excerpt": "Nejteplejší moře roku, prázdné pláže a dvě malá přístavní městečka pod horami. Proč daleký západ pobřeží Antalye v říjnu září.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Kaş a Kalkan leží na divokém západním konci pobřeží Antalye, kde hory spadají přímo do moře. Velké resorty tu nenajdete - zato malé přístavy, bílé uličky a jednu z nejčistších vod ve Středomoří. Na podzim, když letní návštěvníci odjedou a moře je stále teplé, jsou Kaş a Kalkan v nejlepší formě."
+      },
+      {
+        "type": "h2",
+        "text": "Proč je tady sezona na podzim"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Moře zůstává teplé až do října, často teplejší než v červnu.",
+          "Viditelnost pod vodou je vynikající - dobrá zpráva pro potápěče i šnorchlaře.",
+          "Po letních vedrech jsou procházky a túry zase příjemné.",
+          "Restaurace a výlety lodí stále fungují, ale bez letních davů."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Kaş: potápění, kajaky a přístav"
+      },
+      {
+        "type": "p",
+        "text": "Kaş patří k nejznámějším potápěčským centrům Turecka, s lokalitami pro začátečníky i zkušené potápěče včetně vraků, stěn a podvodních jeskyní. Vrcholem je jízda na mořském kajaku nad potopenými ruinami Kekovy a přístav, antické divadlo s výhledem na moře a lýkijské hrobky přímo ve městě dělají večery pohodovými. Za jasného dne je kousek od břehu vidět řecký ostrov Meis."
+      },
+      {
+        "type": "h2",
+        "text": "Kalkan: terasy a klidné večery"
+      },
+      {
+        "type": "p",
+        "text": "Kalkan, asi půl hodiny západně od Kaşe, je menší a klidnější, postavený na svahu kolem malého přístavu. Je známý vilami s terasami s výhledem na moře a restauracemi na střechách. Hodí se pro páry a rodiny, které chtějí klidnou základnu s dobrým jídlem spíš než noční život."
+      },
+      {
+        "type": "h2",
+        "text": "Pláže mezi městy i za nimi"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Kaputaş: malá tyrkysová zátoka na konci soutěsky mezi Kaşem a Kalkanem.",
+          "Patara: jedna z nejdelších písečných pláží v Turecku, vedle ruin antické Patary a chráněného území.",
+          "Poloostrov Kaş a městské koupací plošiny: skalnaté břehy a žebříky přímo do hluboké, čisté vody.",
+          "Kekova a Üçağız: výlety lodí do chráněných zátok a do vesnice s hradem Kaleköy."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Co se mění v listopadu"
+      },
+      {
+        "type": "p",
+        "text": "Od listopadu sezona utichá: některé hotely, restaurace a výlety lodí končí, přicházejí první deště a večery se ochlazují. Kaş žije celý rok, protože tu mnoho lidí bydlí natrvalo, zatímco Kalkan se velmi ztiší. Pokud cestujete na konci sezony, ověřte si otevírací termíny."
+      },
+      {
+        "type": "h2",
+        "text": "Jak se dostat z letiště Antalya"
+      },
+      {
+        "type": "p",
+        "text": "Kaş je asi 185 km od letiště Antalya, zhruba dvě a půl až tři hodiny po pobřežní silnici přes Kemer, Kumlucu a Demre, a Kalkan je asi o půl hodiny dál. Někteří cestovatelé podle letů přilétají místo toho do Dalamanu. Soukromé transfery zajišťujeme z obou letišť za pevnou cenu za vůz, se zastávkami na fotky na jedné z nejmalebnějších silnic v zemi."
+      }
+    ],
+    "faq": [
+      [
+        "Je moře v Kaşi v říjnu teplé?",
+        "Ano. Moře obvykle zůstává teplé po většinu října, často teplejší než na začátku léta, a viditelnost pro potápění a šnorchlování je vynikající."
+      ],
+      [
+        "Jak daleko je Kaş od letiště Antalya?",
+        "Asi 185 km, zhruba dvě a půl až tři hodiny jízdy. Kalkan je asi o půl hodiny dál na západ."
+      ],
+      [
+        "Kaş, nebo Kalkan: co je lepší?",
+        "Kaş je živější, s potápěním, kajaky a městským životem po celý rok. Kalkan je menší a klidnější, s vilami a restauracemi s výhledem na moře."
+      ],
+      [
+        "Jsou Kaş a Kalkan otevřené v listopadu?",
+        "Kaş žije celý rok. V Kalkanu a v některých hotelech a lodních firmách končí sezona koncem října nebo v listopadu, takže si ověřte otevírací termíny."
+      ]
+    ]
+  },
+  "medical-travel-antalya-winter": {
+    "slug": "zubni-osetreni-antalya-v-zime",
+    "title": "Zubní ošetření a zdravotní turistika v Antalyi v zimě: co vědět předem",
+    "heading": "Zubní ošetření a zdravotní cesty do Antalye v zimě",
+    "description": "Zubní ošetření, transplantace vlasů nebo estetický zákrok v Antalyi v zimě: proč mnoho lidí volí mimosezonu, jak prověřit kliniku, dny rekonvalescence a transfer.",
+    "excerpt": "Chladnější počasí, klidnější hotely a snazší termíny. Co si prověřit a naplánovat před rezervací, pokud jedete do Antalye za léčbou v zimě.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Antalya se vedle Istanbulu stala jedním z tureckých center zdravotní a zubní turistiky. Stále více lidí plánuje zubní ošetření v Antalyi, transplantaci vlasů nebo estetické zákroky na zimní měsíce, kdy je na pobřeží klid a počasí je mírné. Tento průvodce se věnuje praktické stránce takové cesty - nejde o lékařskou radu a každé klinické rozhodnutí patří kvalifikovanému lékaři."
+      },
+      {
+        "type": "h2",
+        "text": "Proč mnoho cestovatelů volí zimu"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Mírné, chladnější počasí: mnoha pacientům je rekonvalescence příjemnější bez letního horka a ostrého slunce.",
+          "Hotely a apartmány jsou klidnější a často levnější než v létě.",
+          "Mimo hlavní prázdninové měsíce může být snazší sehnat termín.",
+          "Cestu lze spojit s městem, muzei a nenáročnými procházkami místo dnů na pláži."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Výběr a prověření kliniky"
+      },
+      {
+        "type": "p",
+        "text": "Nejdůležitějším rozhodnutím je výběr zařízení, ne cena. Ověřte si, že klinika nebo nemocnice má licenci tureckého ministerstva zdravotnictví, zjistěte, kdo bude ošetřujícím lékařem a jakou má kvalifikaci, a požádejte o písemný plán, který uvádí, co je zahrnuto, co ne a jak se řeší komplikace a následná péče. Buďte opatrní u nabídek, které slibují konečný výsledek nebo pevnou cenu ještě před jakýmkoli vyšetřením."
+      },
+      {
+        "type": "h2",
+        "text": "Plánování dnů"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Typ léčby",
+          "Na co se obvykle myslí při plánování",
+          "Na co se zeptat kliniky"
+        ],
+        "rows": [
+          [
+            "Zubní ošetření",
+            "Často více než jedna návštěva, někdy s odstupem týdnů nebo měsíců",
+            "Kolik cest a kolik dní každá?"
+          ],
+          [
+            "Transplantace vlasů",
+            "Krátký pobyt s pokyny k péči na první dny",
+            "Kdy můžete letět, umýt si vlasy a nosit čepici?"
+          ],
+          [
+            "Plastická chirurgie",
+            "Delší pobyt a dny rekonvalescence před odletem domů",
+            "Po kolika nocích je let povolen?"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Počítejte s dny odpočinku, neplánujte zákrok na den příletu a řiďte se radou lékaře, kdy je bezpečné letět. U chirurgických zákroků se často doporučuje cestovat s doprovodem."
+      },
+      {
+        "type": "h2",
+        "text": "Pojištění, dokumenty a následná péče"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Ověřte si, zda vaše cestovní pojištění kryje plánovanou léčbu v zahraničí - mnoho pojistek ji nekryje.",
+          "Uschovejte si kopie všech lékařských zpráv, receptů a plánu léčby.",
+          "Zeptejte se, jak funguje následná péče po návratu domů a zda se do ní může zapojit váš lékař doma.",
+          "Zdravotní údaje sdílejte jen se zařízením, a to kanálem, který určí."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Z letiště do hotelu nebo na kliniku"
+      },
+      {
+        "type": "p",
+        "text": "Po letu a před zákrokem či po něm nechcete stát ve frontě na taxi ani jet sdíleným shuttlem, který staví u tuctu hotelů. Soukromý transfer vás odveze přímo z letiště Antalya do hotelu nebo na kliniku - řidič čeká na váš let a pomůže se zavazadly. Zpáteční jízdy lze načasovat podle termínů u lékaře a letu domů. Cena je pevná za vůz, takže doprovod jede bez příplatku."
+      }
+    ],
+    "faq": [
+      [
+        "Proč jet za léčbou do Antalye v zimě?",
+        "Mnoho cestovatelů dává přednost mírnějšímu počasí pro rekonvalescenci, klidnějším hotelům a snazším termínům mimo letní prázdninovou sezonu."
+      ],
+      [
+        "Jak prověřit kliniku v Antalyi?",
+        "Ověřte si, že má licenci tureckého ministerstva zdravotnictví, zjistěte, kdo je ošetřující lékař, a požádejte o písemný plán, který pokrývá, co je a není zahrnuto, komplikace a následnou péči."
+      ],
+      [
+        "Jak dlouho zůstat po zákroku?",
+        "To zcela závisí na typu léčby a radě lékaře. Zeptejte se kliniky, kolik nocí potřebujete před odletem domů, a naplánujte si dny odpočinku."
+      ],
+      [
+        "Můžete mě odvézt z letiště na kliniku?",
+        "Ano. Zajišťujeme soukromé transfery z letiště Antalya do hotelů a na kliniky a zpět za pevnou cenu za vůz."
+      ]
+    ]
+  },
+  "side-ancient-city-guide": {
+    "slug": "side-anticke-mesto-pruvodce",
+    "title": "Antické město Side: průvodce Apollónovým chrámem, divadlem a starým městem",
+    "heading": "Side: průvodce antickým městem",
+    "description": "Antické město Side: Apollónův chrám, velké divadlo, muzeum, hradby a staré město, kdy jet a jednodenní výlety do Aspendu a k vodopádu Manavgat.",
+    "excerpt": "Římské divadlo, sloupy chrámu na břehu moře a přístavní městečko uvnitř antických hradeb. Jak zažít Side v nejlepším světle - mimo sezonu.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Antické město Side je jedním z mála míst na Turecké riviéře, kde moderní městečko žije uvnitř starověkého. Staré město zaplňuje malý poloostrov obklopený římskými a helénistickými ruinami: do restaurace jdete kolem sloupů a západ slunce rámuje chrám. Nejlepší je Side mimo léto, kdy je dost klidu na to, abyste historii opravdu vnímali."
+      },
+      {
+        "type": "h2",
+        "text": "Hlavní památky"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Apollónův chrám: sloupy stojí na špičce poloostrova hned u moře - klasické místo pro západ slunce.",
+          "Velké divadlo: jedno z největších antických divadel v regionu, zasazené do svahu u vstupu do starého města.",
+          "Muzeum Side: sídlí v obnovených římských lázních a vystavuje sochy a reliéfy nalezené ve městě.",
+          "Kolonáda a agora: antická hlavní osa vedoucí od městské brány k přístavu.",
+          "Hradby a monumentální brána: vstupní cesta, kterou návštěvníci přicházejí už dva tisíce let."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Staré město dnes"
+      },
+      {
+        "type": "p",
+        "text": "Uvnitř hradeb vedou k přístavu uličky plné restaurací, kaváren a malých obchodů a z přístavu vyplouvají lodě na výlety podél pobřeží. Do většiny starého města auta nesmějí, takže se příjemně prochází pěšky. Na východ i na západ od poloostrova se táhnou široké písečné pláže."
+      },
+      {
+        "type": "h2",
+        "text": "Kdy jet"
+      },
+      {
+        "type": "p",
+        "text": "Ideální je jaro a podzim: dost teplo na pláž a dost chladno na procházku ruinami i v poledne. V zimě mnoho sezonních hotelů zavírá, ale staré město, ruiny a muzeum zůstávají otevřené a za slunečného dne je u chrámu a v přístavu téměř prázdno. V červenci a srpnu navštivte ruiny brzy ráno nebo při západu slunce."
+      },
+      {
+        "type": "h2",
+        "text": "Jednodenní výlety ze Side"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Cíl",
+          "Proč jet",
+          "Přibližná doba ze Side"
+        ],
+        "rows": [
+          [
+            "Aspendos",
+            "Jedno z nejzachovalejších římských divadel na světě",
+            "asi 40 minut"
+          ],
+          [
+            "Vodopád Manavgat",
+            "Široký, nízký vodopád v zeleném parku",
+            "asi 15 minut"
+          ],
+          [
+            "Perge",
+            "Velké antické město se stadionem a kolonádami",
+            "asi 1 hodina"
+          ],
+          [
+            "Kaňon Köprülü",
+            "Rafting a římský most v národním parku",
+            "asi 1 hodina"
+          ]
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Jak se dostat do Side z letiště Antalya"
+      },
+      {
+        "type": "p",
+        "text": "Side je asi 65 km od letiště Antalya, zhruba 55 až 65 minut jízdy. Soukromý transfer vás odveze přímo do hotelu nebo na okraj pěší zóny starého města za pevnou cenu za vůz, která se nemění podle sezony ani času vašeho letu. Stejný vůz si můžete objednat i na jednodenní výlety do Aspendu, Perge nebo ke kaňonu."
+      }
+    ],
+    "faq": [
+      [
+        "Co vidět v antickém Side?",
+        "Apollónův chrám u moře, velké divadlo, muzeum v římských lázních, kolonádu, agoru a hradby - vše v pěší vzdálenosti od starého města."
+      ],
+      [
+        "Vyplatí se Side v zimě?",
+        "Ano, kvůli ruinám a starému městu. Mnoho sezonních hotelů zavírá, ale památky zůstávají otevřené a je tam mnohem klidněji než v létě."
+      ],
+      [
+        "Jak daleko je Side od letiště Antalya?",
+        "Asi 65 km, zhruba 55 až 65 minut jízdy."
+      ],
+      [
+        "Mohu ze Side navštívit Aspendos?",
+        "Ano. Aspendos je asi 40 minut jízdy ze Side a je to snadný půldenní výlet, často v kombinaci s Perge nebo vodopádem Manavgat."
+      ]
+    ]
   }
 };

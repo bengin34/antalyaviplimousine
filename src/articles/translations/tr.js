@@ -1753,5 +1753,421 @@ export const articles = {
         "Evet. Başlangıç ve bitiş noktalarınızı ve tarihi gönderin; yürüyüşün sonunda alınmanız da dahil olmak üzere araç başına sabit fiyatlı bir özel transfer teklifi hazırlayalım."
       ]
     ]
+  },
+  "koprulu-canyon-rafting": {
+    "slug": "koprulu-kanyon-rafting-rehberi",
+    "title": "Köprülü Kanyon Rafting: Antalya ve Side'den Pratik Rehber",
+    "heading": "Köprülü Kanyon'da rafting",
+    "description": "Antalya yakınında Köprülü Kanyon rafting: sezon ne zaman, nehir nasıl, kimlere uygun, yanınıza ne almalısınız ve Side, Belek, Alanya ve Antalya'dan ne kadar uzak.",
+    "excerpt": "Soğuk yeşil su, bir Roma köprüsü ve çam ormanlarıyla kaplı bir kanyon. Köprülü Kanyon'da bir rafting gününden neler beklemeli ve sahilden nasıl planlanır?",
+    "readingMinutes": 5,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Köprülü Kanyon rafting, bölgenin en bilinen rafting turudur. Kanyon, Side ve Manavgat'ın kuzeyinde, Toros Dağları'nda bir milli parktır ve içinden geçen nehir ekstrem değil, keyifli bir macera sunar: akıntıların çoğu yumuşaktır, manzara muhteşemdir ve sezon boyunca her gün ilk kez deneyenler ve aileler turlara katılır."
+      },
+      {
+        "type": "h2",
+        "text": "Rafting turu nasıl geçiyor?"
+      },
+      {
+        "type": "p",
+        "text": "Turların çoğu Köprüçay'ın yaklaşık on iki kilometrelik bir bölümünü kapsar ve suda iki ila üç saat geçer; arada yüzmek, kayalardan atlamak ya da sadece akıntıyla süzülmek için molalar verilir. Akıntılar çoğunlukla kolay ile orta arasıdır, su berrak ve yeşildir ve nehir dağ kaynaklarından beslendiği için yıl boyunca soğuktur. Rehberler güvenlik brifingi verir; kask ve can yeleği sağlanır."
+      },
+      {
+        "type": "h2",
+        "text": "Ne zaman gidilir?"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Dönem",
+          "Nehir ve hava",
+          "Kimler için ideal"
+        ],
+        "rows": [
+          [
+            "Nisan - Mayıs",
+            "Kar erimesiyle daha çok su, daha hareketli akıntılar, ılık hava",
+            "Aktif gruplar, daha az kalabalık"
+          ],
+          [
+            "Haziran - Ağustos",
+            "Sıcak hava, soğuk su, en yoğun aylar",
+            "Sıcak bir günde serinlemek"
+          ],
+          [
+            "Eylül - Ekim",
+            "Daha sakin su, ılık günler, daha az insan",
+            "Aileler ve ilk kez deneyenler"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Sezon, nehrin durumuna ve işletmelere bağlı olarak genellikle nisandan ekime kadar sürer. Bu dönemin dışında turlar nadirdir ya da hiç düzenlenmez."
+      },
+      {
+        "type": "h2",
+        "text": "Kimlere uygun?"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "İlk kez deneyenler: deneyim gerekmez, botu rehber yönlendirir.",
+          "Aileler: işletmeler çocuklar için alt yaş sınırı belirler, rezervasyon yaparken mutlaka sorun.",
+          "Arkadaş ve iş arkadaşı grupları: botlar genellikle altı ila sekiz kişi tarafından paylaşılır.",
+          "Yüzme bilmeyen ve sudan çekinenler ile hamileler için ideal değildir."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Yanınıza ne almalısınız?"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Kıyafetlerinizin altına giyeceğiniz mayo ve bir havlu.",
+          "Islanabilen ve ayağınızdan çıkmayan ayakkabılar - terlik değil.",
+          "Güneş kremi ve dönüş yolu için yedek kuru kıyafet.",
+          "Telefonunuz için su geçirmez bir çanta veya kılıf; değerli eşyalarınızı otelde bırakın."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Rafting'den fazlası: milli park"
+      },
+      {
+        "type": "p",
+        "text": "Kanyonun üzerinden, bölgeye adını veren tek kemerli bir Roma köprüsü olan Oluk Köprüsü geçer. Dağın daha yukarısında, kaya oluşumları ve köyler arasında antik Selge kentinin kalıntıları yer alır. Kendi aracınızla rafting'i köprüde bir molayla ve Selge'ye doğru bir yolculukla birleştirebilirsiniz."
+      },
+      {
+        "type": "h2",
+        "text": "Sahilden ulaşım"
+      },
+      {
+        "type": "p",
+        "text": "Birçok rafting firması otellerden ortak servisli turlar satar; bu da diğer misafirlerin toplanmasıyla geçen uzun bir sabah anlamına gelebilir. Side, Manavgat, Belek, Alanya veya Antalya'dan özel bir araç istediğiniz saatte yola çıkar ve yolda köprüde ya da dağlarda durmanıza olanak tanır. Kanyon, Side ve Manavgat'tan yaklaşık bir saat, Antalya ve Alanya'dan ise daha uzaktır; otelinizi ve tarihinizi gönderin, size araç başı sabit bir fiyat verelim."
+      }
+    ],
+    "faq": [
+      [
+        "Köprülü Kanyon rafting yeni başlayanlar için uygun mu?",
+        "Evet. Akıntılar çoğunlukla kolay ile orta arasıdır, deneyim gerekmez ve güvenlik brifinginden sonra her botu bir rehber yönlendirir."
+      ],
+      [
+        "Köprülü Kanyon'da rafting sezonu ne zaman?",
+        "Genellikle nisandan ekime kadar. İlkbaharda kar erimesiyle su daha hareketlidir; eylül ve ekim daha sakin ve daha sessizdir."
+      ],
+      [
+        "Su ne kadar soğuk?",
+        "Nehir dağ kaynaklarından beslendiği için yıl boyunca soğuktur. Sıcak bir yaz gününde bu, işin keyfinin bir parçasıdır."
+      ],
+      [
+        "Köprülü Kanyon Side'ye ne kadar uzak?",
+        "Side ve Manavgat'tan karayoluyla yaklaşık bir saat; Antalya, Belek veya Alanya'dan ise otelinize bağlı olarak daha uzun sürer."
+      ]
+    ]
+  },
+  "kas-kalkan-autumn": {
+    "slug": "sonbaharda-kas-ve-kalkan",
+    "title": "Sonbaharda Kaş ve Kalkan: Dalış, Plajlar ve Sakin Koylar",
+    "heading": "Sonbaharda Kaş ve Kalkan",
+    "description": "Kaş ve Kalkan neden en güzel sonbaharda: ılık deniz, dalış, Kaputaş ve Patara plajları, kano ve tekneyle Kekova ve Antalya Havalimanı'ndan nasıl gidilir.",
+    "excerpt": "Yılın en sıcak denizi, boş plajlar ve dağların eteğinde iki küçük liman kasabası. Antalya kıyısının en batısı neden ekimde parlıyor?",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Sonbaharda Kaş ve Kalkan en güzel hâlindedir. İki kasaba, dağların doğrudan denize indiği Antalya kıyısının vahşi batı ucunda yer alır. İkisinde de büyük tatil köyleri yoktur; ikisinde de küçük limanlar, beyaz badanalı sokaklar ve Akdeniz'in en berrak sularından bazıları vardır. Yaz ziyaretçileri gittiğinde ve deniz hâlâ sıcakken, en iyi dönemlerini yaşarlar."
+      },
+      {
+        "type": "h2",
+        "text": "Neden burada sezon sonbahar?"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Deniz ekime kadar ılık kalır, çoğu zaman hazirandakinden daha sıcaktır.",
+          "Su altında görüş mükemmeldir - dalgıçlar ve şnorkelciler için iyi haber.",
+          "Yaz sıcağından sonra yürüyüş ve doğa yürüyüşleri yeniden keyifli hâle gelir.",
+          "Restoranlar ve tekne turları hâlâ çalışır, ama yaz kalabalığı olmadan."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Kaş: dalış, kano ve liman"
+      },
+      {
+        "type": "p",
+        "text": "Kaş, Türkiye'nin en bilinen dalış merkezlerinden biridir; yeni başlayanlar ve deneyimli dalgıçlar için batıklar, duvarlar ve su altı mağaraları dahil pek çok dalış noktası vardır. Kekova'nın batık kalıntıları üzerinde deniz kanosu öne çıkan deneyimlerden biridir; liman, denize bakan antik tiyatro ve kasabadaki Likya kaya mezarları ise akşamları keyifli kılar. Açık bir günde Yunan adası Meis hemen karşıda görünür."
+      },
+      {
+        "type": "h2",
+        "text": "Kalkan: teraslar ve sakin akşamlar"
+      },
+      {
+        "type": "p",
+        "text": "Kaş'ın yaklaşık yarım saat batısındaki Kalkan daha küçük ve daha sakindir; küçük bir limanın çevresinde yamaca kurulmuştur. Deniz manzaralı teraslı villaları ve çatı restoranlarıyla bilinir. Gece hayatı yerine iyi yemekle sakin bir üs arayan çiftlere ve ailelere uygundur."
+      },
+      {
+        "type": "h2",
+        "text": "Kasabalar arasında ve ötesinde plajlar"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Kaputaş: Kaş ile Kalkan arasında, bir kanyonun eteğinde küçük turkuaz bir koy.",
+          "Patara: antik Patara kalıntılarının ve koruma alanının yanında, Türkiye'nin en uzun kum plajlarından biri.",
+          "Kaş yarımadası ve kasabanın yüzme platformları: kayalık kıyılar ve doğrudan derin, berrak suya inen merdivenler.",
+          "Kekova ve Üçağız: korunaklı koylara ve kaleli köy Kaleköy'e tekne turları."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Kasımda neler değişir?"
+      },
+      {
+        "type": "p",
+        "text": "Kasımdan itibaren sezon yavaşlar: bazı oteller, restoranlar ve tekne turları kapanır, ilk yağmurlar gelir ve akşamlar serinler. Birçok kişi burada kalıcı olarak yaşadığı için Kaş yıl boyunca canlı kalır, Kalkan ise çok sakinleşir. Sezon sonunda seyahat ediyorsanız açılış tarihlerini kontrol edin."
+      },
+      {
+        "type": "h2",
+        "text": "Antalya Havalimanı'ndan ulaşım"
+      },
+      {
+        "type": "p",
+        "text": "Kaş, Antalya Havalimanı'na yaklaşık 185 km uzaklıktadır; Kemer, Kumluca ve Demre üzerinden sahil yoluyla yaklaşık iki buçuk ila üç saat sürer, Kalkan ise yaklaşık yarım saat daha ileridedir. Bazı yolcular uçuşlara göre bunun yerine Dalaman'a iner. Her iki havalimanından da araç başı sabit fiyatla özel transfer yapıyoruz; ülkenin en manzaralı yollarından birinde fotoğraf molaları da cabası."
+      }
+    ],
+    "faq": [
+      [
+        "Ekimde Kaş'ta deniz sıcak mı?",
+        "Evet. Deniz genellikle ekimin sonlarına kadar ılık kalır, çoğu zaman yaz başındakinden daha sıcaktır ve dalış ile şnorkel için görüş mükemmeldir."
+      ],
+      [
+        "Kaş, Antalya Havalimanı'na ne kadar uzak?",
+        "Yaklaşık 185 km, karayoluyla yaklaşık iki buçuk ila üç saat. Kalkan yaklaşık yarım saat daha batıdadır."
+      ],
+      [
+        "Kaş mı Kalkan mı: hangisi daha iyi?",
+        "Kaş dalış, kano ve yıl boyu süren kasaba hayatıyla daha canlıdır. Kalkan ise villaları ve deniz manzaralı restoranlarıyla daha küçük ve daha sakindir."
+      ],
+      [
+        "Kaş ve Kalkan kasımda açık mı?",
+        "Kaş yıl boyunca hareketlidir. Kalkan'da ve bazı otel ve tekne işletmelerinde sezon ekim sonunda veya kasımda biter, bu yüzden açılış tarihlerini kontrol edin."
+      ]
+    ]
+  },
+  "medical-travel-antalya-winter": {
+    "slug": "kisin-antalyada-saglik-turizmi",
+    "title": "Kışın Antalya'da Sağlık Turizmi: Yola Çıkmadan Önce Bilmeniz Gerekenler",
+    "heading": "Kışın Antalya'da sağlık ve diş tedavisi seyahati",
+    "description": "Kış aylarında Antalya'da diş tedavisi, saç ekimi veya estetik işlem mi planlıyorsunuz? Neden sezon dışı tercih ediliyor, klinik nasıl kontrol edilir, dinlenme günleri ve transfer.",
+    "excerpt": "Daha serin hava, daha sakin oteller ve daha kolay randevu. Kışın tedavi için Antalya'ya gidenlerin rezervasyondan önce kontrol etmesi ve planlaması gerekenler.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Kışın Antalya'da sağlık turizmi giderek yaygınlaşıyor: Antalya, İstanbul ile birlikte Türkiye'nin sağlık ve diş tedavisi turizmi merkezlerinden biri hâline geldi. Giderek daha fazla ziyaretçi diş tedavisi, saç ekimi veya estetik işlemlerini kıyının sakin, havanın ılıman olduğu kış aylarına planlıyor. Bu rehber böyle bir seyahatin pratik yönünü ele alır - tıbbi tavsiye değildir ve her klinik karar yetkin bir hekime aittir."
+      },
+      {
+        "type": "h2",
+        "text": "Neden birçok kişi kışı seçiyor?"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Ilıman, daha serin hava: birçok hasta iyileşme sürecini yaz sıcağından ve güçlü güneşten uzakta daha rahat buluyor.",
+          "Oteller ve apartlar yaza göre daha sakin ve çoğu zaman daha uygun fiyatlı.",
+          "Tatil sezonunun yoğun ayları dışında randevu almak daha kolay olabilir.",
+          "Seyahat, plaj günleri yerine şehir, müzeler ve hafif yürüyüşlerle birleştirilebilir."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Sağlık kuruluşunu seçmek ve kontrol etmek"
+      },
+      {
+        "type": "p",
+        "text": "En önemli karar fiyat değil, sağlık kuruluşudur. Klinik veya hastanenin T.C. Sağlık Bakanlığı tarafından ruhsatlandırıldığını kontrol edin, sizi tedavi edecek hekimin kim olduğunu ve niteliklerini öğrenin; neyin dahil olduğunu, neyin olmadığını ve komplikasyonlar ile kontrollerin nasıl yürütüleceğini belirten yazılı bir plan isteyin. Herhangi bir muayeneden önce kesin sonuç veya sabit fiyat vaat eden tekliflere karşı dikkatli olun."
+      },
+      {
+        "type": "h2",
+        "text": "Günlerinizi planlamak"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Tedavi türü",
+          "Tipik planlama noktası",
+          "Sağlık kuruluşuna sorun"
+        ],
+        "rows": [
+          [
+            "Diş tedavisi",
+            "Çoğu zaman birden fazla ziyaret, bazen arada haftalar veya aylar",
+            "Kaç seyahat ve her biri kaç gün?"
+          ],
+          [
+            "Saç ekimi",
+            "Kısa konaklama, ilk günler için bakım talimatlarıyla",
+            "Ne zaman uçabilir, saçınızı yıkayabilir ve şapka takabilirsiniz?"
+          ],
+          [
+            "Estetik cerrahi",
+            "Daha uzun konaklama ve eve dönmeden önce dinlenme günleri",
+            "Uçuşa izin verilmeden önce kaç gece geçmeli?"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Plana dinlenme günleri ekleyin, tedaviyi indiğiniz güne koymaktan kaçının ve ne zaman güvenle uçabileceğiniz konusunda hekiminizin tavsiyesine uyun. Cerrahi işlemler için çoğu zaman bir refakatçiyle seyahat etmek önerilir."
+      },
+      {
+        "type": "h2",
+        "text": "Sigorta, belgeler ve kontroller"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Seyahat sigortanızın yurt dışında planlı tedaviyi kapsayıp kapsamadığını kontrol edin - birçok poliçe kapsamaz.",
+          "Tüm tıbbi raporların, reçetelerin ve tedavi planının kopyalarını saklayın.",
+          "Eve döndükten sonra kontrollerin nasıl yapılacağını ve kendi hekiminizin sürece dahil olup olamayacağını sorun.",
+          "Tıbbi bilgilerinizi yalnızca sağlık kuruluşuyla, onların belirttiği kanal üzerinden paylaşın."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Havalimanından otelinize veya kliniğinize"
+      },
+      {
+        "type": "p",
+        "text": "Bir uçuşun ardından, tedaviden önce veya sonra en son isteyeceğiniz şey taksi durağında kuyruk ya da bir düzine otele uğrayan ortak bir servistir. Özel transfer sizi Antalya Havalimanı'ndan doğrudan otelinize veya kliniğinize götürür; şoför uçuşunuzu takip ederek bekler ve bagajlarınıza yardım eder. Dönüş yolculukları randevularınıza ve eve dönüş uçuşunuza göre ayarlanabilir. Fiyat araç başı sabittir, yani refakatçiniz ek ücret ödemeden yolculuk eder."
+      }
+    ],
+    "faq": [
+      [
+        "Tedavi için neden kışın Antalya'ya gidilir?",
+        "Birçok kişi iyileşme için daha ılıman havayı, daha sakin otelleri ve yaz tatil sezonu dışında daha kolay randevu almayı tercih ediyor."
+      ],
+      [
+        "Antalya'da bir kliniği nasıl kontrol ederim?",
+        "T.C. Sağlık Bakanlığı tarafından ruhsatlandırıldığını kontrol edin, sizi tedavi edecek hekimin kim olduğunu öğrenin ve dahil olanları, olmayanları, komplikasyonları ve kontrolleri kapsayan yazılı bir plan isteyin."
+      ],
+      [
+        "Bir işlemden sonra ne kadar kalmalıyım?",
+        "Bu tamamen tedaviye ve hekiminizin tavsiyesine bağlıdır. Eve dönmeden önce kaç gece kalmanız gerektiğini sağlık kuruluşunuza sorun ve dinlenme günleri planlayın."
+      ],
+      [
+        "Beni havalimanından kliniğime götürebilir misiniz?",
+        "Evet. Antalya Havalimanı'ndan otellere ve kliniklere, dönüşte de geri, araç başı sabit fiyatla özel transfer sağlıyoruz."
+      ]
+    ]
+  },
+  "side-ancient-city-guide": {
+    "slug": "side-antik-kenti-gezi-rehberi",
+    "title": "Side Antik Kenti: Apollon Tapınağı, Tiyatro ve Eski Şehir Rehberi",
+    "heading": "Side antik kenti rehberi",
+    "description": "Side antik kentini gezmek: Apollon Tapınağı, büyük tiyatro, müze, surlar ve eski şehir, ne zaman gidilir, Aspendos ve Manavgat Şelalesi'ne günübirlik geziler.",
+    "excerpt": "Bir Roma tiyatrosu, deniz kenarında tapınak sütunları ve antik surların içine kurulmuş bir liman kasabası. Side'yi en güzel hâliyle - sezon dışında - görmek.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Side antik kenti, Türk Rivierası'nda modern bir kasabanın antik bir şehrin içinde yaşadığı nadir yerlerden biridir. Eski şehir, Roma ve Helenistik dönem kalıntılarıyla çevrili küçük bir yarımadayı doldurur: bir restorana gitmek için sütunların yanından geçersiniz, gün batımı manzarasını ise bir tapınak çerçeveler. Side en güzel hâlini yaz dışında, tarihi hissedecek kadar sakin olduğunda gösterir."
+      },
+      {
+        "type": "h2",
+        "text": "Başlıca görülecek yerler"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Apollon Tapınağı: sütunlar yarımadanın ucunda, denizin hemen kenarında yükselir - gün batımının klasik adresi.",
+          "Büyük tiyatro: bölgenin en büyük antik tiyatrolarından biri, eski şehrin girişinde yamaca inşa edilmiş.",
+          "Side Müzesi: restore edilmiş bir Roma hamamında; kentte bulunan heykeller ve kabartmalar sergileniyor.",
+          "Sütunlu cadde ve agora: kent kapısından limana doğru uzanan antik ana aks.",
+          "Surlar ve anıtsal kapı: ziyaretçilerin iki bin yıldır kullandığı giriş yolu."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Bugün eski şehir"
+      },
+      {
+        "type": "p",
+        "text": "Surların içinde restoranlar, kafeler ve küçük dükkânlarla dolu sokaklar, kıyı boyunca turlara teknelerin kalktığı limana iner. Eski şehrin büyük bölümüne araç girmediği için yürüyerek keşfetmek keyiflidir. Yarımadanın doğusunda ve batısında geniş kum plajlar uzanır."
+      },
+      {
+        "type": "h2",
+        "text": "Ne zaman gidilir?"
+      },
+      {
+        "type": "p",
+        "text": "İlkbahar ve sonbahar idealdir: plaj için yeterince sıcak, öğle saatlerinde kalıntılar arasında yürümek için yeterince serin. Kışın birçok sezonluk otel kapanır, ancak eski şehir, kalıntılar ve müze açık kalır; güneşli bir günde tapınak ve liman neredeyse bomboştur. Temmuz ve ağustosta kalıntıları sabah erken saatlerde veya gün batımında gezin."
+      },
+      {
+        "type": "h2",
+        "text": "Side'den günübirlik geziler"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Yer",
+          "Neden gidilir",
+          "Side'den yaklaşık süre"
+        ],
+        "rows": [
+          [
+            "Aspendos",
+            "Dünyanın en iyi korunmuş Roma tiyatrolarından biri",
+            "yaklaşık 40 dakika"
+          ],
+          [
+            "Manavgat Şelalesi",
+            "Yeşil bir park içinde geniş, alçak bir şelale",
+            "yaklaşık 15 dakika"
+          ],
+          [
+            "Perge",
+            "Stadyumu ve sütunlu caddeleriyle büyük bir antik kent",
+            "yaklaşık 1 saat"
+          ],
+          [
+            "Köprülü Kanyon",
+            "Bir milli parkta rafting ve Roma köprüsü",
+            "yaklaşık 1 saat"
+          ]
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Antalya Havalimanı'ndan Side'ye ulaşım"
+      },
+      {
+        "type": "p",
+        "text": "Side, Antalya Havalimanı'na yaklaşık 65 km uzaklıktadır; karayoluyla yaklaşık 55 ila 65 dakika sürer. Özel transfer sizi doğrudan otelinize veya yayalaştırılmış eski şehrin girişine götürür; araç başı sabit fiyat sezona veya uçuş saatinize göre değişmez. Aynı araç Aspendos, Perge veya kanyona günübirlik geziler için de ayırtılabilir."
+      }
+    ],
+    "faq": [
+      [
+        "Side antik kentinde neler görülür?",
+        "Deniz kenarındaki Apollon Tapınağı, büyük tiyatro, Roma hamamındaki müze, sütunlu cadde, agora ve surlar - hepsi eski şehirden yürüme mesafesinde."
+      ],
+      [
+        "Side kışın gezmeye değer mi?",
+        "Evet, kalıntılar ve eski şehir için. Birçok sezonluk otel kapanır, ama görülecek yerler açık kalır ve yaza göre çok daha sakindir."
+      ],
+      [
+        "Side, Antalya Havalimanı'na ne kadar uzak?",
+        "Yaklaşık 65 km, karayoluyla yaklaşık 55 ila 65 dakika."
+      ],
+      [
+        "Side'den Aspendos'a gidebilir miyim?",
+        "Evet. Aspendos, Side'den karayoluyla yaklaşık 40 dakikadır ve genellikle Perge veya Manavgat Şelalesi ile birleştirilen kolay bir yarım günlük gezidir."
+      ]
+    ]
   }
 };

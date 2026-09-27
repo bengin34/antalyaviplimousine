@@ -1753,5 +1753,421 @@ export const articles = {
         "Tak. Prześlij nam punkt startowy i końcowy oraz datę, a przygotujemy wycenę prywatnego transferu w stałej cenie za pojazd, z odbiorem na końcu wędrówki."
       ]
     ]
+  },
+  "koprulu-canyon-rafting": {
+    "slug": "rafting-koprulu-kanion",
+    "title": "Rafting w kanionie Köprülü: praktyczny przewodnik z Antalyi i Side",
+    "heading": "Rafting w kanionie Köprülü",
+    "description": "Rafting Köprülü koło Antalyi: kiedy trwa sezon, jaka jest rzeka, dla kogo to atrakcja, co zabrać i ile jedzie się z Side, Belek, Alanyi i Antalyi.",
+    "excerpt": "Zimna zielona woda, rzymski most i kanion porośnięty sosnami. Czego spodziewać się po dniu raftingu w kanionie Köprülü i jak zaplanować go z wybrzeża.",
+    "readingMinutes": 5,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Kanion Köprülü to park narodowy w górach Taurus na północ od Side i Manavgatu, a rafting na płynącej przez niego rzece to najbardziej znana wodna wycieczka w regionie. To łagodna przygoda, a nie sport ekstremalny: większość bystrzy jest spokojna, widoki są spektakularne, a debiutanci i rodziny z dziećmi płyną tu każdego dnia sezonu."
+      },
+      {
+        "type": "h2",
+        "text": "Jak wygląda spływ"
+      },
+      {
+        "type": "p",
+        "text": "Większość wycieczek obejmuje odcinek rzeki Köprüçay o długości około kilkunastu kilometrów i dwie-trzy godziny na wodzie, z przerwami na kąpiel, skoki ze skał albo po prostu dryfowanie. Bystrza są w większości łatwe lub umiarkowane, woda jest czysta i zielona, a przez cały rok zimna, bo rzekę zasilają górskie źródła. Przewodnicy prowadzą instruktaż bezpieczeństwa, a kaski i kamizelki ratunkowe są zapewnione."
+      },
+      {
+        "type": "h2",
+        "text": "Kiedy jechać"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Okres",
+          "Rzeka i pogoda",
+          "Dla kogo"
+        ],
+        "rows": [
+          [
+            "Kwiecień - maj",
+            "Więcej wody z topniejącego śniegu, żywsze bystrza, łagodne powietrze",
+            "Aktywne grupy, mniej ludzi"
+          ],
+          [
+            "Czerwiec - sierpień",
+            "Gorące powietrze, zimna woda, najbardziej oblegane miesiące",
+            "Ochłoda w upalny dzień"
+          ],
+          [
+            "Wrzesień - październik",
+            "Spokojniejsza woda, ciepłe dni, mniej ludzi",
+            "Rodziny i debiutanci"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Sezon trwa zwykle mniej więcej od kwietnia do października, w zależności od rzeki i organizatorów. Poza tym okresem spływy odbywają się rzadko albo wcale."
+      },
+      {
+        "type": "h2",
+        "text": "Dla kogo to atrakcja"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Dla debiutantów: doświadczenie nie jest potrzebne, pontonem steruje przewodnik.",
+          "Dla rodzin: organizatorzy ustalają minimalny wiek dzieci, więc sprawdź go przy rezerwacji.",
+          "Dla grup przyjaciół i współpracowników: jeden ponton mieści zwykle od sześciu do ośmiu osób.",
+          "Niezbyt dobry wybór dla osób, które nie umieją pływać i boją się wody, oraz w czasie ciąży."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Co zabrać"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Strój kąpielowy założony pod ubranie i ręcznik.",
+          "Buty, które mogą się zmoczyć i trzymają się na stopie - nie japonki.",
+          "Krem z filtrem i zapasowy komplet suchych ubrań na drogę powrotną.",
+          "Wodoodporny worek lub etui na telefon; wartościowe rzeczy zostaw w hotelu."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Nie tylko rafting: park narodowy"
+      },
+      {
+        "type": "p",
+        "text": "Nad kanionem przerzucony jest most Oluk, jednołukowy most rzymski, od którego okolica wzięła nazwę - köprü po turecku znaczy „most”. Wyżej w górach, wśród formacji skalnych i wiosek, leżą ruiny starożytnego miasta Selge. Mając własny transport, można połączyć rafting z postojem przy moście i przejazdem w stronę Selge."
+      },
+      {
+        "type": "h2",
+        "text": "Dojazd z wybrzeża"
+      },
+      {
+        "type": "p",
+        "text": "Wiele firm raftingowych sprzedaje wycieczki ze wspólnym odbiorem z hoteli, co może oznaczać długi poranek zbierania innych gości. Prywatny samochód z Side, Manavgatu, Belek, Alanyi lub Antalyi rusza wtedy, kiedy chcesz, i pozwala zatrzymać się po drodze przy moście albo w górach. Do kanionu jedzie się mniej więcej godzinę z Side i Manavgatu, a dłużej z Antalyi i Alanyi; podaj nam hotel i datę, a podamy stałą cenę za pojazd."
+      }
+    ],
+    "faq": [
+      [
+        "Czy rafting w kanionie Köprülü nadaje się dla początkujących?",
+        "Tak. Bystrza są w większości łatwe lub umiarkowane, doświadczenie nie jest potrzebne, a każdym pontonem po instruktażu bezpieczeństwa steruje przewodnik."
+      ],
+      [
+        "Kiedy trwa sezon raftingowy w kanionie Köprülü?",
+        "Zwykle mniej więcej od kwietnia do października. Wiosną woda jest żywsza dzięki topniejącemu śniegowi, we wrześniu i październiku spokojniejsza i ciszej."
+      ],
+      [
+        "Jak zimna jest woda?",
+        "Zimna przez cały rok, bo rzekę zasilają górskie źródła. W upalny letni dzień to część uroku."
+      ],
+      [
+        "Jak daleko jest z Side do kanionu Köprülü?",
+        "Mniej więcej godzina jazdy z Side i Manavgatu, a dłużej z Antalyi, Belek czy Alanyi, zależnie od hotelu."
+      ]
+    ]
+  },
+  "kas-kalkan-autumn": {
+    "slug": "kas-i-kalkan-jesienia",
+    "title": "Kaş i Kalkan jesienią: nurkowanie, plaże i ciche zatoczki",
+    "heading": "Kaş i Kalkan jesienią",
+    "description": "Dlaczego Kaş i Kalkan są najpiękniejsze jesienią: ciepłe morze, nurkowanie, plaże Kaputaş i Patara, Kekova z kajaka i łodzi oraz dojazd z lotniska Antalya.",
+    "excerpt": "Najcieplejsze morze w roku, puste plaże i dwa małe portowe miasteczka u stóp gór. Dlaczego zachodni kraniec wybrzeża Antalyi błyszczy w październiku.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Kaş i Kalkan leżą na dzikim zachodnim krańcu wybrzeża Antalyi, gdzie góry opadają prosto do morza. Nie ma tu wielkich kurortów - są za to małe porty, bielone uliczki i jedna z najczystszych wód Morza Śródziemnego. Jesienią, gdy letni goście wyjechali, a morze jest wciąż ciepłe, Kaş i Kalkan pokazują się z najlepszej strony."
+      },
+      {
+        "type": "h2",
+        "text": "Dlaczego jesień to tu najlepszy sezon"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Morze pozostaje ciepłe aż do października, często cieplejsze niż w czerwcu.",
+          "Widoczność pod wodą jest znakomita - dobra wiadomość dla nurków i miłośników snorkelingu.",
+          "Po letnich upałach spacery i wędrówki znów stają się przyjemne.",
+          "Restauracje i rejsy łodzią wciąż działają, ale bez letnich tłumów."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Kaş: nurkowanie, kajaki i port"
+      },
+      {
+        "type": "p",
+        "text": "Kaş to jedno z najbardziej znanych centrów nurkowych w Turcji, z miejscami dla początkujących i doświadczonych nurków, w tym wrakami, ścianami i podwodnymi jaskiniami. Hitem jest spływ kajakiem morskim nad zatopionymi ruinami Kekovy, a port, antyczny teatr z widokiem na morze i licyjskie grobowce w samym mieście sprawiają, że wieczory płyną spokojnie. Przy dobrej pogodzie tuż przy brzegu widać grecką wyspę Meis."
+      },
+      {
+        "type": "h2",
+        "text": "Kalkan: tarasy i spokojne wieczory"
+      },
+      {
+        "type": "p",
+        "text": "Kalkan, około pół godziny na zachód od Kaş, jest mniejszy i spokojniejszy, zbudowany na zboczu wokół małego portu. Słynie z willi z tarasami z widokiem na morze i restauracji na dachach. To dobra baza dla par i rodzin, które wolą spokój i dobre jedzenie niż życie nocne."
+      },
+      {
+        "type": "h2",
+        "text": "Plaże między miasteczkami i dalej"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Kaputaş: mała turkusowa zatoczka u wylotu wąwozu, między Kaş a Kalkanem.",
+          "Patara: jedna z najdłuższych piaszczystych plaż w Turcji, obok ruin starożytnej Patary i obszaru chronionego.",
+          "Półwysep Kaş i miejskie platformy kąpielowe: skaliste brzegi i drabinki prosto do głębokiej, czystej wody.",
+          "Kekova i Üçağız: rejsy do osłoniętych zatok i do wioski z zamkiem Kaleköy."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Co zmienia się w listopadzie"
+      },
+      {
+        "type": "p",
+        "text": "Od listopada sezon wygasa: część hoteli, restauracji i rejsów zamyka się, przychodzą pierwsze deszcze, a wieczory robią się chłodne. Kaş tętni życiem przez cały rok, bo wiele osób mieszka tu na stałe, natomiast Kalkan bardzo cichnie. Jeśli podróżujesz pod koniec sezonu, sprawdź terminy otwarcia."
+      },
+      {
+        "type": "h2",
+        "text": "Dojazd z lotniska Antalya"
+      },
+      {
+        "type": "p",
+        "text": "Kaş leży około 185 km od lotniska Antalya, czyli mniej więcej dwie i pół do trzech godzin jazdy nadmorską drogą przez Kemer, Kumlucę i Demre, a Kalkan jest około pół godziny dalej. Niektórzy podróżni, w zależności od lotów, wybierają zamiast tego Dalaman. Realizujemy prywatne transfery z obu lotnisk w stałej cenie za pojazd, z postojami na zdjęcia na jednej z najbardziej malowniczych tras w kraju."
+      }
+    ],
+    "faq": [
+      [
+        "Czy morze w Kaş jest ciepłe w październiku?",
+        "Tak. Morze zwykle pozostaje ciepłe przez większą część października, często cieplejsze niż na początku lata, a widoczność do nurkowania i snorkelingu jest znakomita."
+      ],
+      [
+        "Jak daleko jest z lotniska Antalya do Kaş?",
+        "Około 185 km, czyli mniej więcej dwie i pół do trzech godzin jazdy. Kalkan leży około pół godziny dalej na zachód."
+      ],
+      [
+        "Kaş czy Kalkan: co wybrać?",
+        "Kaş jest bardziej żywy, z nurkowaniem, kajakami i życiem miasta przez cały rok. Kalkan jest mniejszy i spokojniejszy, z willami i restauracjami z widokiem na morze."
+      ],
+      [
+        "Czy Kaş i Kalkan działają w listopadzie?",
+        "Kaş żyje przez cały rok. W Kalkanie oraz w części hoteli i firm rejsowych sezon kończy się pod koniec października lub w listopadzie, więc sprawdź terminy otwarcia."
+      ]
+    ]
+  },
+  "medical-travel-antalya-winter": {
+    "slug": "leczenie-zebow-antalya-zima",
+    "title": "Leczenie zębów i turystyka medyczna w Antalyi zimą: co warto wiedzieć",
+    "heading": "Leczenie zębów i wyjazdy medyczne do Antalyi zimą",
+    "description": "Leczenie zębów Antalya, przeszczep włosów czy zabieg kosmetyczny zimą: dlaczego wiele osób wybiera poza sezonem, jak sprawdzić placówkę, dni rekonwalescencji i transfer.",
+    "excerpt": "Chłodniejsza pogoda, spokojniejsze hotele i łatwiejsze terminy. Co sprawdzić i zaplanować przed rezerwacją, jadąc zimą do Antalyi na leczenie.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Antalya, obok Stambułu, stała się jednym z tureckich ośrodków turystyki medycznej i stomatologicznej. Coraz więcej osób planuje leczenie zębów w Antalyi, przeszczep włosów lub zabiegi kosmetyczne na miesiące zimowe, gdy na wybrzeżu jest spokojnie, a pogoda łagodna. Ten przewodnik omawia praktyczną stronę takiej podróży - nie jest poradą medyczną, a każda decyzja kliniczna należy do wykwalifikowanego lekarza."
+      },
+      {
+        "type": "h2",
+        "text": "Dlaczego wiele osób wybiera zimę"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Łagodna, chłodniejsza pogoda: wielu pacjentom wygodniej dochodzić do siebie bez letnich upałów i mocnego słońca.",
+          "W hotelach i apartamentach jest ciszej, a często taniej niż latem.",
+          "Poza szczytem sezonu urlopowego łatwiej bywa o dogodne terminy.",
+          "Wyjazd można połączyć ze zwiedzaniem miasta, muzeami i spokojnymi spacerami zamiast plażowania."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Wybór i weryfikacja placówki"
+      },
+      {
+        "type": "p",
+        "text": "Najważniejszą decyzją jest wybór placówki, a nie cena. Sprawdź, czy klinika lub szpital ma licencję tureckiego Ministerstwa Zdrowia, dowiedz się, kto będzie lekarzem prowadzącym i jakie ma kwalifikacje, i poproś o pisemny plan, który określa, co jest wliczone, co nie, oraz jak postępuje się w razie powikłań i przy dalszej opiece. Uważaj na oferty, które obiecują ostateczny efekt albo stałą cenę jeszcze przed jakimkolwiek badaniem."
+      },
+      {
+        "type": "h2",
+        "text": "Planowanie dni"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Rodzaj leczenia",
+          "Typowa kwestia przy planowaniu",
+          "O co zapytać placówkę"
+        ],
+        "rows": [
+          [
+            "Leczenie stomatologiczne",
+            "Często więcej niż jedna wizyta, czasem z przerwą tygodni lub miesięcy",
+            "Ile wyjazdów i ile dni każdy?"
+          ],
+          [
+            "Przeszczep włosów",
+            "Krótki pobyt i zalecenia pielęgnacyjne na pierwsze dni",
+            "Kiedy można lecieć, myć głowę i nosić czapkę?"
+          ],
+          [
+            "Chirurgia plastyczna",
+            "Dłuższy pobyt i dni rekonwalescencji przed lotem do domu",
+            "Po ilu nocach lot jest dozwolony?"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Zaplanuj dni odpoczynku, nie umawiaj zabiegu na dzień przylotu i stosuj się do zaleceń lekarza co do tego, kiedy lot jest bezpieczny. Przy zabiegach chirurgicznych często zaleca się podróż z osobą towarzyszącą."
+      },
+      {
+        "type": "h2",
+        "text": "Ubezpieczenie, dokumenty i dalsza opieka"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Sprawdź, czy twoje ubezpieczenie podróżne obejmuje planowane leczenie za granicą - wiele polis tego nie obejmuje.",
+          "Zachowaj kopie wszystkich wyników, recept i planu leczenia.",
+          "Zapytaj, jak wygląda dalsza opieka po powrocie do domu i czy może się w nią włączyć twój lekarz w kraju.",
+          "Przekazuj dane medyczne wyłącznie placówce, kanałem, który sama wskaże."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Z lotniska do hotelu lub kliniki"
+      },
+      {
+        "type": "p",
+        "text": "Po locie, przed zabiegiem czy po nim, ostatnie, czego chcesz, to kolejka na postoju taksówek albo wspólny shuttle zatrzymujący się przy kilkunastu hotelach. Prywatny transfer zawiezie cię prosto z lotniska Antalya do hotelu lub kliniki - kierowca czeka na twój lot i pomaga z bagażem. Przejazdy powrotne można dopasować do wizyt i lotu do domu. Cena jest stała za pojazd, więc osoba towarzysząca jedzie bez dopłaty."
+      }
+    ],
+    "faq": [
+      [
+        "Dlaczego jechać na leczenie do Antalyi zimą?",
+        "Wiele osób woli łagodniejszą pogodę na czas rekonwalescencji, spokojniejsze hotele i łatwiejsze terminy poza letnim sezonem urlopowym."
+      ],
+      [
+        "Jak sprawdzić klinikę w Antalyi?",
+        "Sprawdź, czy ma licencję tureckiego Ministerstwa Zdrowia, dowiedz się, kto jest lekarzem prowadzącym, i poproś o pisemny plan obejmujący to, co wliczone i niewliczone, powikłania oraz dalszą opiekę."
+      ],
+      [
+        "Jak długo zostać po zabiegu?",
+        "To zależy wyłącznie od rodzaju leczenia i zaleceń lekarza. Zapytaj placówkę, ile nocy potrzebujesz przed lotem do domu, i zaplanuj dni odpoczynku."
+      ],
+      [
+        "Czy możecie zawieźć mnie z lotniska do kliniki?",
+        "Tak. Realizujemy prywatne transfery z lotniska Antalya do hoteli i klinik oraz z powrotem, w stałej cenie za pojazd."
+      ]
+    ]
+  },
+  "side-ancient-city-guide": {
+    "slug": "side-starozytne-miasto-przewodnik",
+    "title": "Starożytne miasto Side: przewodnik po świątyni Apollina, teatrze i starówce",
+    "heading": "Side: przewodnik po starożytnym mieście",
+    "description": "Starożytne Side: świątynia Apollina, wielki teatr, muzeum, mury miejskie i starówka, kiedy jechać oraz jednodniowe wycieczki do Aspendos i wodospadu Manavgat.",
+    "excerpt": "Rzymski teatr, kolumny świątyni tuż nad wodą i portowe miasteczko w obrębie antycznych murów. Jak zobaczyć Side w najlepszym wydaniu - poza sezonem.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Starożytne miasto Side to jedno z nielicznych miejsc na Riwierze Tureckiej, gdzie współczesne miasteczko żyje wewnątrz antycznego. Starówka zajmuje mały półwysep otoczony ruinami rzymskimi i hellenistycznymi: do restauracji idzie się obok kolumn, a zachód słońca oprawia świątynia. Side najlepiej smakuje poza latem, gdy jest na tyle cicho, by poczuć historię."
+      },
+      {
+        "type": "h2",
+        "text": "Najważniejsze zabytki"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Świątynia Apollina: kolumny stoją na samym cyplu półwyspu, tuż nad morzem - klasyczne miejsce na zachód słońca.",
+          "Wielki teatr: jeden z największych antycznych teatrów w regionie, wbudowany w zbocze przy wejściu na starówkę.",
+          "Muzeum w Side: mieści się w odrestaurowanej rzymskiej łaźni i prezentuje posągi oraz reliefy znalezione w mieście.",
+          "Ulica kolumnowa i agora: antyczna główna oś prowadząca od bramy miejskiej w stronę portu.",
+          "Mury miejskie i monumentalna brama: droga, którą odwiedzający wchodzą do miasta od dwóch tysięcy lat."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Starówka dziś"
+      },
+      {
+        "type": "p",
+        "text": "W obrębie murów uliczki pełne restauracji, kawiarni i sklepików schodzą do portu, skąd wypływają łodzie na rejsy wzdłuż wybrzeża. Do większej części starówki samochody nie wjeżdżają, więc przyjemnie zwiedza się ją pieszo. Na wschód i zachód od półwyspu ciągną się szerokie piaszczyste plaże."
+      },
+      {
+        "type": "h2",
+        "text": "Kiedy jechać"
+      },
+      {
+        "type": "p",
+        "text": "Idealne są wiosna i jesień: wystarczająco ciepło na plażę i wystarczająco chłodno, by w środku dnia chodzić po ruinach. Zimą wiele sezonowych hoteli jest zamkniętych, ale starówka, ruiny i muzeum pozostają otwarte, a w słoneczny dzień przy świątyni i w porcie prawie nikogo nie ma. W lipcu i sierpniu odwiedzaj ruiny wcześnie rano albo o zachodzie słońca."
+      },
+      {
+        "type": "h2",
+        "text": "Jednodniowe wycieczki z Side"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Cel",
+          "Dlaczego warto",
+          "Przybliżony czas z Side"
+        ],
+        "rows": [
+          [
+            "Aspendos",
+            "Jeden z najlepiej zachowanych teatrów rzymskich na świecie",
+            "około 40 minut"
+          ],
+          [
+            "Wodospad Manavgat",
+            "Szeroki, niski wodospad w zielonym parku",
+            "około 15 minut"
+          ],
+          [
+            "Perge",
+            "Duże starożytne miasto ze stadionem i ulicami kolumnowymi",
+            "około 1 godziny"
+          ],
+          [
+            "Kanion Köprülü",
+            "Rafting i rzymski most w parku narodowym",
+            "około 1 godziny"
+          ]
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Dojazd do Side z lotniska Antalya"
+      },
+      {
+        "type": "p",
+        "text": "Side leży około 65 km od lotniska Antalya, czyli mniej więcej 55-65 minut jazdy. Prywatny transfer zawiezie cię prosto do hotelu lub na skraj pieszej starówki, w stałej cenie za pojazd, która nie zmienia się w zależności od sezonu ani godziny lotu. Ten sam pojazd można zarezerwować na jednodniowe wycieczki do Aspendos, Perge lub do kanionu."
+      }
+    ],
+    "faq": [
+      [
+        "Co zobaczyć w starożytnym Side?",
+        "Świątynię Apollina nad morzem, wielki teatr, muzeum w rzymskiej łaźni, ulicę kolumnową, agorę i mury miejskie - wszystko w zasięgu spaceru od starówki."
+      ],
+      [
+        "Czy warto jechać do Side zimą?",
+        "Tak, dla ruin i starówki. Wiele sezonowych hoteli jest zamkniętych, ale zabytki pozostają otwarte i jest tam znacznie spokojniej niż latem."
+      ],
+      [
+        "Jak daleko jest z lotniska Antalya do Side?",
+        "Około 65 km, czyli mniej więcej 55-65 minut jazdy."
+      ],
+      [
+        "Czy z Side można pojechać do Aspendos?",
+        "Tak. Aspendos leży około 40 minut jazdy od Side i to łatwa półdniowa wycieczka, często łączona z Perge lub wodospadem Manavgat."
+      ]
+    ]
   }
 };

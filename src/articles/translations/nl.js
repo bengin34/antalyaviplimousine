@@ -1753,5 +1753,421 @@ export const articles = {
         "Ja. Stuur ons je start- en eindpunt en de datum, dan sturen we een prijsopgave voor een privétransfer tegen een vaste prijs per voertuig, inclusief ophalen aan het eind van je wandeling."
       ]
     ]
+  },
+  "koprulu-canyon-rafting": {
+    "slug": "raften-koprulu-canyon-vanuit-antalya",
+    "title": "Raften in de Köprülü Canyon: praktische gids vanuit Antalya en Side",
+    "heading": "Raften in de Köprülü Canyon",
+    "description": "Raften in de Köprülü Canyon bij Antalya: wanneer het seizoen loopt, hoe de rivier is, voor wie het geschikt is, wat je meeneemt en de afstand vanaf Side, Belek, Alanya en Antalya.",
+    "excerpt": "Koud groen water, een Romeinse brug en een kloof vol pijnbomen. Wat je kunt verwachten van een dag raften in de Köprülü Canyon en hoe je die vanaf de kust plant.",
+    "readingMinutes": 5,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Raften in de Köprülü Canyon is de bekendste raftingtocht van de Turkse Rivièra. De canyon is een nationaal park in het Taurusgebergte ten noorden van Side en Manavgat, en de rivier die erdoorheen stroomt biedt eerder een ontspannen dan een extreem avontuur: de meeste stroomversnellingen zijn rustig, het landschap is spectaculair en elke dag van het seizoen gaan beginners en gezinnen mee."
+      },
+      {
+        "type": "h2",
+        "text": "Hoe de raftingtocht verloopt"
+      },
+      {
+        "type": "p",
+        "text": "De meeste tochten volgen een stuk van zo'n twaalf kilometer van de rivier de Köprüçay en duren twee tot drie uur op het water, met stops om te zwemmen, van rotsen te springen of gewoon te dobberen. De stroomversnellingen zijn meestal licht tot gemiddeld, het water is helder en groen en het hele jaar koud, omdat de rivier wordt gevoed door bergbronnen. De gidsen geven vooraf een veiligheidsinstructie; helmen en zwemvesten worden verstrekt."
+      },
+      {
+        "type": "h2",
+        "text": "Wanneer ga je?"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Periode",
+          "Rivier en weer",
+          "Geschikt voor"
+        ],
+        "rows": [
+          [
+            "April – mei",
+            "Meer water door smeltende sneeuw, levendigere stroomversnellingen, zachte lucht",
+            "Actieve groepen, minder drukte"
+          ],
+          [
+            "Juni – augustus",
+            "Hete lucht, koud water, de drukste maanden",
+            "Afkoelen op een warme dag"
+          ],
+          [
+            "September – oktober",
+            "Rustiger water, warme dagen, minder mensen",
+            "Gezinnen en beginners"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Het seizoen loopt meestal van ongeveer april tot oktober, afhankelijk van de rivier en de aanbieders. Buiten deze periode zijn tochten zeldzaam of worden ze helemaal niet aangeboden."
+      },
+      {
+        "type": "h2",
+        "text": "Voor wie is het geschikt?"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Beginners: ervaring is niet nodig en de gids stuurt het vlot.",
+          "Gezinnen: aanbieders hanteren een minimumleeftijd voor kinderen, dus vraag daarnaar bij het boeken.",
+          "Vriendengroepen en collega's: een vlot wordt meestal gedeeld door zes tot acht personen.",
+          "Minder geschikt voor niet-zwemmers die angstig zijn in het water, en tijdens de zwangerschap."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Wat neem je mee?"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Zwemkleding onder je kleren en een handdoek.",
+          "Schoenen die nat mogen worden en aan je voeten blijven zitten – geen slippers.",
+          "Zonnebrand en een set droge kleren voor de terugweg.",
+          "Een waterdichte tas of hoes voor je telefoon; laat waardevolle spullen in het hotel."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Meer dan raften: het nationale park"
+      },
+      {
+        "type": "p",
+        "text": "Over de canyon loopt de Olukbrug, een Romeinse brug met één boog die het gebied zijn naam geeft – köprü betekent brug in het Turks. Hoger op de berg liggen de ruïnes van de antieke stad Selge, tussen rotsformaties en dorpen. Met een eigen voertuig combineer je het raften met een stop bij de brug en een rit omhoog richting Selge."
+      },
+      {
+        "type": "h2",
+        "text": "Vanaf de kust naar de canyon"
+      },
+      {
+        "type": "p",
+        "text": "Veel raftingbedrijven verkopen tochten met gedeeld ophalen bij de hotels, wat een lange ochtend van andere gasten oppikken kan betekenen. Een privévoertuig vanuit Side, Manavgat, Belek, Alanya of Antalya vertrekt wanneer jij wilt en stopt onderweg bij de brug of in de bergen. De canyon ligt ongeveer een uur van Side en Manavgat en verder vanaf Antalya en Alanya; stuur ons je hotel en datum en we geven een vaste prijs per voertuig."
+      }
+    ],
+    "faq": [
+      [
+        "Is raften in de Köprülü Canyon geschikt voor beginners?",
+        "Ja. De stroomversnellingen zijn meestal licht tot gemiddeld, ervaring is niet nodig en na een veiligheidsinstructie stuurt een gids elk vlot."
+      ],
+      [
+        "Wanneer is het raftingseizoen in de Köprülü Canyon?",
+        "Meestal van ongeveer april tot oktober. In het voorjaar is het water levendiger door smeltende sneeuw; september en oktober zijn rustiger en minder druk."
+      ],
+      [
+        "Hoe koud is het water?",
+        "Het hele jaar koud, omdat de rivier wordt gevoed door bergbronnen. Op een hete zomerdag is dat juist een deel van de charme."
+      ],
+      [
+        "Hoe ver is de Köprülü Canyon van Side?",
+        "Ongeveer een uur rijden vanaf Side en Manavgat, en langer vanaf Antalya, Belek of Alanya, afhankelijk van je hotel."
+      ]
+    ]
+  },
+  "kas-kalkan-autumn": {
+    "slug": "kas-en-kalkan-in-de-herfst",
+    "title": "Kaş en Kalkan in de herfst: duiken, stranden en stille baaien",
+    "heading": "Kaş en Kalkan in de herfst",
+    "description": "Waarom Kaş en Kalkan in de herfst op hun mooist zijn: warme zee, duiken, de stranden Kaputaş en Patara, Kekova per kajak en boot, en hoe je er komt vanaf de luchthaven Antalya.",
+    "excerpt": "De warmste zee van het jaar, lege stranden en twee kleine havenstadjes aan de voet van de bergen. Waarom het uiterste westen van de kust van Antalya in oktober schittert.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Kaş en Kalkan liggen aan het ruige westelijke uiteinde van de kust van Antalya, waar de bergen recht in zee duiken. In de herfst, als de zomergasten vertrokken zijn en de zee nog warm is, zijn ze op hun mooist. Grote resorts vind je in geen van beide; wel kleine havens, witgekalkte straatjes en een van de helderste wateren van de Middellandse Zee."
+      },
+      {
+        "type": "h2",
+        "text": "Waarom de herfst hier hét seizoen is"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "De zee blijft warm tot in oktober, vaak warmer dan in juni.",
+          "Het zicht onder water is uitstekend – goed nieuws voor duikers en snorkelaars.",
+          "Wandelen en hiken worden na de zomerhitte weer aangenaam.",
+          "Restaurants en boottochten draaien nog, maar zonder de zomerdrukte."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Kaş: duiken, kajakken en de haven"
+      },
+      {
+        "type": "p",
+        "text": "Kaş is een van de bekendste duikcentra van Turkije, met duikstekken voor beginners en ervaren duikers, waaronder wrakken, steile wanden en onderwatergrotten. Zeekajakken boven de verzonken ruïnes van Kekova is een hoogtepunt, en de haven, het antieke theater met uitzicht op zee en de Lycische graven in het stadje maken de avonden ontspannen. Op een heldere dag zie je het Griekse eiland Meis vlak voor de kust."
+      },
+      {
+        "type": "h2",
+        "text": "Kalkan: terrassen en rustige avonden"
+      },
+      {
+        "type": "p",
+        "text": "Kalkan, ongeveer een halfuur ten westen van Kaş, is kleiner en rustiger en ligt tegen een heuvel rond een klein haventje. Het staat bekend om zijn villa's met terrassen op zee en zijn dakterrasrestaurants. Het past bij stellen en gezinnen die een rustige uitvalsbasis met goed eten zoeken in plaats van nachtleven."
+      },
+      {
+        "type": "h2",
+        "text": "Stranden tussen en rond de stadjes"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Kaputaş: een kleine turquoise baai aan de voet van een kloof, tussen Kaş en Kalkan.",
+          "Patara: een van de langste zandstranden van Turkije, naast de ruïnes van het antieke Patara en een beschermd gebied.",
+          "Het schiereiland van Kaş en de zwemplatforms in het stadje: rotskust en trapjes direct het diepe, heldere water in.",
+          "Kekova en Üçağız: boottochten naar beschutte baaien en het kasteeldorp Kaleköy."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Wat verandert er in november?"
+      },
+      {
+        "type": "p",
+        "text": "Vanaf november loopt het seizoen af: sommige hotels, restaurants en boottochten sluiten, de eerste regen valt en de avonden worden koel. Kaş blijft het hele jaar levendig omdat veel mensen er permanent wonen, terwijl Kalkan erg stil wordt. Controleer de openingsdata als je laat in het seizoen reist."
+      },
+      {
+        "type": "h2",
+        "text": "Vanaf de luchthaven Antalya naar Kaş en Kalkan"
+      },
+      {
+        "type": "p",
+        "text": "Kaş ligt ongeveer 185 km van de luchthaven Antalya, zo'n tweeënhalf tot drie uur over de kustweg via Kemer, Kumluca en Demre, en Kalkan ligt ongeveer een halfuur verder. Afhankelijk van de vluchten vliegen sommige reizigers in plaats daarvan naar Dalaman. Wij verzorgen privétransfers vanaf beide luchthavens tegen een vaste prijs per voertuig, met fotostops langs een van de mooiste wegen van het land."
+      }
+    ],
+    "faq": [
+      [
+        "Is de zee in Kaş in oktober warm?",
+        "Ja. De zee blijft meestal tot ver in oktober warm, vaak warmer dan in de vroege zomer, en het zicht voor duiken en snorkelen is uitstekend."
+      ],
+      [
+        "Hoe ver is Kaş van de luchthaven Antalya?",
+        "Ongeveer 185 km, zo'n tweeënhalf tot drie uur over de weg. Kalkan ligt ongeveer een halfuur verder naar het westen."
+      ],
+      [
+        "Kaş of Kalkan: wat is beter?",
+        "Kaş is levendiger, met duiken, kajakken en het hele jaar door leven in het stadje. Kalkan is kleiner en rustiger, met villa's en restaurants met zeezicht."
+      ],
+      [
+        "Zijn Kaş en Kalkan in november open?",
+        "Kaş blijft het hele jaar actief. In Kalkan en bij sommige hotels en bootbedrijven eindigt het seizoen eind oktober of in november, dus controleer de openingsdata."
+      ]
+    ]
+  },
+  "medical-travel-antalya-winter": {
+    "slug": "tandarts-en-medische-reis-antalya-winter",
+    "title": "Tandarts en medische reis naar Antalya in de winter: wat je vooraf moet weten",
+    "heading": "Tandarts- en medische reizen naar Antalya in de winter",
+    "description": "Een tandarts in Antalya, haartransplantatie of cosmetische behandeling in de winter: waarom velen het laagseizoen kiezen, hoe je een aanbieder controleert, rustdagen en transfer.",
+    "excerpt": "Koeler weer, rustigere hotels en makkelijker plannen. Wat je moet controleren en regelen als je in de winter voor een behandeling naar Antalya reist, nog voordat je boekt.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Voor een tandarts in Antalya en andere medische reizen is de stad naast Istanbul uitgegroeid tot een van de centra van Turkije. Steeds meer bezoekers plannen tandheelkundige behandelingen, haartransplantaties of cosmetische ingrepen in de wintermaanden, als het rustig is aan de kust en het weer zacht. Deze gids gaat over de praktische kant van zo'n reis – het is geen medisch advies, en elke medische beslissing hoort bij een gekwalificeerde arts."
+      },
+      {
+        "type": "h2",
+        "text": "Waarom veel reizigers voor de winter kiezen"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Zacht, koeler weer: veel patiënten vinden het herstel prettiger zonder zomerhitte en felle zon.",
+          "Hotels en appartementen zijn rustiger en vaak goedkoper dan in de zomer.",
+          "Afspraken plannen kan makkelijker zijn buiten de drukste vakantiemaanden.",
+          "De reis is te combineren met de stad, musea en rustige wandelingen in plaats van stranddagen."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Een aanbieder kiezen en controleren"
+      },
+      {
+        "type": "p",
+        "text": "De belangrijkste beslissing is de aanbieder, niet de prijs. Controleer of de kliniek of het ziekenhuis een vergunning heeft van het Turkse ministerie van Volksgezondheid, zoek uit wie de behandelend arts is en welke kwalificaties die heeft, en vraag om een schriftelijk plan waarin staat wat wel en niet inbegrepen is en hoe complicaties en nazorg worden geregeld. Wees voorzichtig met aanbiedingen die een eindresultaat of een vaste prijs beloven vóór enig onderzoek."
+      },
+      {
+        "type": "h2",
+        "text": "Je dagen plannen"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Soort behandeling",
+          "Typisch planningspunt",
+          "Vraag je aanbieder"
+        ],
+        "rows": [
+          [
+            "Tandheelkundige behandeling",
+            "Vaak meer dan één bezoek, soms met weken of maanden ertussen",
+            "Hoeveel reizen en hoeveel dagen per keer?"
+          ],
+          [
+            "Haartransplantatie",
+            "Kort verblijf, met verzorgingsinstructies voor de eerste dagen",
+            "Wanneer mag je vliegen, je haar wassen en een pet dragen?"
+          ],
+          [
+            "Cosmetische chirurgie",
+            "Langer verblijf en hersteldagen voor de terugvlucht",
+            "Hoeveel nachten voordat vliegen mag?"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Plan rustdagen in, laat een behandeling niet op je aankomstdag vallen en volg het advies van de arts over wanneer je veilig kunt vliegen. Bij chirurgische ingrepen wordt vaak aangeraden om met iemand samen te reizen."
+      },
+      {
+        "type": "h2",
+        "text": "Verzekering, documenten en nazorg"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Controleer of je reisverzekering geplande behandelingen in het buitenland dekt – veel polissen doen dat niet.",
+          "Bewaar kopieën van alle medische verslagen, recepten en het behandelplan.",
+          "Vraag hoe de nazorg werkt als je weer thuis bent, en of je eigen arts erbij betrokken kan worden.",
+          "Deel medische gegevens alleen met de aanbieder, via het kanaal dat die aangeeft."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Van de luchthaven naar je hotel of kliniek"
+      },
+      {
+        "type": "p",
+        "text": "Na een vlucht en voor of na een behandeling wil je geen rij bij de taxistandplaats of een gedeelde shuttle die bij een dozijn hotels stopt. Een privétransfer brengt je rechtstreeks van de luchthaven Antalya naar je hotel of kliniek; de chauffeur wacht op je vlucht en helpt met de bagage. Terugritten kunnen worden afgestemd op afspraken en je vlucht naar huis. De prijs is vast per voertuig, dus een reisgenoot reist zonder extra kosten mee."
+      }
+    ],
+    "faq": [
+      [
+        "Waarom in de winter voor een behandeling naar Antalya?",
+        "Veel reizigers geven voor het herstel de voorkeur aan het zachtere weer, rustigere hotels en makkelijker plannen buiten het zomervakantieseizoen."
+      ],
+      [
+        "Hoe controleer ik een kliniek in Antalya?",
+        "Controleer of die een vergunning heeft van het Turkse ministerie van Volksgezondheid, zoek uit wie de behandelend arts is en vraag om een schriftelijk plan over wat inbegrepen en uitgesloten is, complicaties en nazorg."
+      ],
+      [
+        "Hoe lang moet ik na een ingreep blijven?",
+        "Dat hangt volledig af van de behandeling en het advies van je arts. Vraag je aanbieder hoeveel nachten je nodig hebt voor de terugvlucht en plan rustdagen in."
+      ],
+      [
+        "Kunnen jullie me van de luchthaven naar mijn kliniek brengen?",
+        "Ja. We verzorgen privétransfers van de luchthaven Antalya naar hotels en klinieken en weer terug, tegen een vaste prijs per voertuig."
+      ]
+    ]
+  },
+  "side-ancient-city-guide": {
+    "slug": "side-antieke-stad-gids",
+    "title": "Side antieke stad: gids voor de Apollotempel, het theater en de oude stad",
+    "heading": "Side: gids voor de antieke stad",
+    "description": "De antieke stad Side bezoeken: de Apollotempel, het grote theater, het museum, de stadsmuren en de oude stad, de beste reistijd en uitstapjes naar Aspendos en de Manavgat-waterval.",
+    "excerpt": "Een Romeins theater, tempelzuilen aan de waterkant en een havenstadje binnen de antieke muren. Zo zie je Side op zijn mooist – buiten het seizoen.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "De antieke stad Side is een van de weinige plekken aan de Turkse Rivièra waar een modern stadje binnen een antieke stad leeft. De oude stad vult een klein schiereiland, omringd door Romeinse en Hellenistische ruïnes: je loopt langs zuilen naar een restaurant, en een tempel omlijst de zonsondergang. Side is op zijn mooist buiten de zomer, wanneer het rustig genoeg is om de geschiedenis te voelen."
+      },
+      {
+        "type": "h2",
+        "text": "De belangrijkste bezienswaardigheden"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Apollotempel: de zuilen staan op de punt van het schiereiland, pal aan zee – dé plek voor de zonsondergang.",
+          "Het grote theater: een van de grootste antieke theaters van de regio, gebouwd in de helling bij de ingang van de oude stad.",
+          "Museum van Side: gevestigd in een gerestaureerd Romeins badhuis, met beelden en reliëfs die in de stad zijn gevonden.",
+          "De zuilenstraat en de agora: de antieke hoofdas van de stadspoort naar de haven.",
+          "Stadsmuren en de monumentale poort: de toegangsroute die bezoekers al tweeduizend jaar nemen."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "De oude stad nu"
+      },
+      {
+        "type": "p",
+        "text": "Binnen de muren lopen straatjes met restaurants, cafés en winkeltjes naar de haven, waar boten vertrekken voor tochten langs de kust. Auto's worden uit het grootste deel van de oude stad geweerd, dus je verkent haar prettig te voet. Ten oosten en westen van het schiereiland strekken zich brede zandstranden uit."
+      },
+      {
+        "type": "h2",
+        "text": "Wanneer ga je?"
+      },
+      {
+        "type": "p",
+        "text": "Voorjaar en herfst zijn ideaal: warm genoeg voor het strand, koel genoeg om midden op de dag tussen de ruïnes te lopen. In de winter sluiten veel seizoenshotels, maar de oude stad, de ruïnes en het museum blijven open, en op een zonnige dag zijn de tempel en de haven bijna verlaten. Bezoek de ruïnes in juli en augustus vroeg in de ochtend of bij zonsondergang."
+      },
+      {
+        "type": "h2",
+        "text": "Dagtochten vanuit Side"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Bestemming",
+          "Waarom erheen",
+          "Reistijd vanaf Side (ongeveer)"
+        ],
+        "rows": [
+          [
+            "Aspendos",
+            "Een van de best bewaarde Romeinse theaters ter wereld",
+            "ongeveer 40 minuten"
+          ],
+          [
+            "Manavgat-waterval",
+            "Een brede, lage waterval in een groen park",
+            "ongeveer 15 minuten"
+          ],
+          [
+            "Perge",
+            "Een grote antieke stad met een stadion en zuilenstraten",
+            "ongeveer 1 uur"
+          ],
+          [
+            "Köprülü Canyon",
+            "Raften en een Romeinse brug in een nationaal park",
+            "ongeveer 1 uur"
+          ]
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Van de luchthaven Antalya naar Side"
+      },
+      {
+        "type": "p",
+        "text": "Side ligt ongeveer 65 km van de luchthaven Antalya, zo'n 55 tot 65 minuten over de weg. Een privétransfer brengt je rechtstreeks naar je hotel of naar de rand van de autovrije oude stad, tegen een vaste prijs per voertuig die niet verandert met het seizoen of het tijdstip van je vlucht. Hetzelfde voertuig kun je boeken voor dagtochten naar Aspendos, Perge of de canyon."
+      }
+    ],
+    "faq": [
+      [
+        "Wat is er te zien in het antieke Side?",
+        "De Apollotempel aan zee, het grote theater, het museum in een Romeins badhuis, de zuilenstraat, de agora en de stadsmuren – allemaal op loopafstand van de oude stad."
+      ],
+      [
+        "Is Side de moeite waard in de winter?",
+        "Ja, voor de ruïnes en de oude stad. Veel seizoenshotels sluiten, maar de bezienswaardigheden blijven open en zijn veel rustiger dan in de zomer."
+      ],
+      [
+        "Hoe ver is Side van de luchthaven Antalya?",
+        "Ongeveer 65 km, zo'n 55 tot 65 minuten over de weg."
+      ],
+      [
+        "Kan ik Aspendos bezoeken vanuit Side?",
+        "Ja. Aspendos ligt ongeveer 40 minuten van Side over de weg en is een makkelijke halvedagtocht, vaak gecombineerd met Perge of de Manavgat-waterval."
+      ]
+    ]
   }
 };

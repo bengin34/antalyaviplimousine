@@ -1463,5 +1463,421 @@ export const articles = {
         "Igen. Küldd el a kiinduló- és végpontot, valamint a dátumot, és járművenként fix áras ajánlatot adunk privát transzferre, a túra végén történő felvétellel együtt."
       ]
     ]
+  },
+  "koprulu-canyon-rafting": {
+    "slug": "rafting-koprulu-kanyon-antalya",
+    "title": "Rafting a Köprülü-kanyonban: gyakorlati útmutató Antalyából és Side-ból",
+    "heading": "Rafting a Köprülü-kanyonban",
+    "description": "Rafting a Köprülü-kanyonban Antalya mellett: mikor tart a szezon, milyen a folyó, kinek való, mit vigyél, és milyen messze van Side-tól, Belektől, Alanyától és Antalyától.",
+    "excerpt": "Hideg, zöld víz, egy római híd és fenyőerdős kanyon. Mire számíts egy raftingos napon a Köprülü-kanyonban, és hogyan tervezd meg a tengerpartról.",
+    "readingMinutes": 5,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "A rafting a Köprülü-kanyonban a környék legismertebb vadvízi túrája. A kanyon nemzeti park a Taurus-hegységben, Side és Manavgat északi részén, a rajta átfolyó folyó pedig inkább kellemes kaland, mint extrém sport: a zúgók többsége szelíd, a táj látványos, és a szezon minden napján kezdők és családok is részt vesznek."
+      },
+      {
+        "type": "h2",
+        "text": "Milyen egy raftingtúra?"
+      },
+      {
+        "type": "p",
+        "text": "A legtöbb túra a Köprüçay folyó nagyjából tucatnyi kilométeres szakaszát járja be, két-három órát töltve a vízen, megállókkal úszásra, sziklaugrásra vagy egyszerű sodródásra. A zúgók többnyire könnyűek vagy közepesek, a víz tiszta és zöld, és egész évben hideg, mert a folyót hegyi források táplálják. A vezetők biztonsági eligazítást tartanak, sisakot és mentőmellényt biztosítanak."
+      },
+      {
+        "type": "h2",
+        "text": "Mikor érdemes menni?"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Időszak",
+          "Folyó és időjárás",
+          "Kinek ideális"
+        ],
+        "rows": [
+          [
+            "Április - május",
+            "Több víz a hóolvadásból, élénkebb zúgók, enyhe levegő",
+            "Aktív csoportok, kisebb tömeg"
+          ],
+          [
+            "Június - augusztus",
+            "Forró levegő, hideg víz, a legzsúfoltabb hónapok",
+            "Felfrissülés egy forró napon"
+          ],
+          [
+            "Szeptember - október",
+            "Nyugodtabb víz, meleg napok, kevesebb ember",
+            "Családok és kezdők"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "A szezon általában nagyjából áprilistól októberig tart, a folyótól és a szervezőktől függően. Ezen kívül túrák ritkán vannak, vagy egyáltalán nem indulnak."
+      },
+      {
+        "type": "h2",
+        "text": "Kinek való?"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Kezdőknek: nincs szükség tapasztalatra, a csónakot a vezető irányítja.",
+          "Családoknak: a szervezők alsó korhatárt szabnak a gyerekeknek, ezt foglaláskor érdemes ellenőrizni.",
+          "Baráti és munkahelyi csoportoknak: egy csónakon általában hat-nyolc ember osztozik.",
+          "Nem ideális azoknak, akik nem tudnak úszni és félnek a víztől, illetve terhesség alatt."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Mit vigyél magaddal?"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Fürdőruhát a ruhád alatt és egy törölközőt.",
+          "Olyan cipőt, amely ázhat és nem esik le a lábadról - ne papucsot.",
+          "Naptejet és egy váltás száraz ruhát a hazaútra.",
+          "Vízálló zacskót vagy tokot a telefonnak; az értékeket hagyd a szállodában."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Több mint rafting: a nemzeti park"
+      },
+      {
+        "type": "p",
+        "text": "A kanyont az Oluk-híd íveli át, egy egyívű római híd, amelyről a környék a nevét kapta - a köprü törökül hidat jelent. Feljebb a hegyen, sziklaalakzatok és falvak között fekszenek az ókori Selge romjai. Saját járművel a raftingot összekötheted egy megállóval a hídnál és egy kirándulással Selge felé."
+      },
+      {
+        "type": "h2",
+        "text": "Hogyan jutsz el a tengerpartról?"
+      },
+      {
+        "type": "p",
+        "text": "Sok raftingcég közös szállodai felvétellel árulja a túrákat, ami hosszú délelőttöt jelenthet, amíg a többi vendéget összeszedik. Egy privát jármű Side-ból, Manavgatból, Belekből, Alanyából vagy Antalyából akkor indul, amikor te szeretnéd, és útközben megállhatsz a hídnál vagy a hegyekben. A kanyon Side-tól és Manavgattól nagyjából egy órára van, Antalyából és Alanyából messzebb; küldd el a szállodád nevét és a dátumot, és járművenkénti fix árat adunk."
+      }
+    ],
+    "faq": [
+      [
+        "Alkalmas a Köprülü-kanyon rafting kezdőknek?",
+        "Igen. A zúgók többnyire könnyűek vagy közepesek, nincs szükség tapasztalatra, és a biztonsági eligazítás után minden csónakot vezető irányít."
+      ],
+      [
+        "Mikor van a raftingszezon a Köprülü-kanyonban?",
+        "Általában nagyjából áprilistól októberig. Tavasszal a hóolvadás miatt élénkebb a víz; szeptember és október nyugodtabb és csendesebb."
+      ],
+      [
+        "Mennyire hideg a víz?",
+        "Egész évben hideg, mert a folyót hegyi források táplálják. Egy forró nyári napon épp ez a varázsa egy része."
+      ],
+      [
+        "Milyen messze van a Köprülü-kanyon Side-tól?",
+        "Side-tól és Manavgattól közúton nagyjából egy óra, Antalyából, Belekből vagy Alanyából a szállodától függően hosszabb."
+      ]
+    ]
+  },
+  "kas-kalkan-autumn": {
+    "slug": "kas-es-kalkan-osszel",
+    "title": "Kaş és Kalkan ősszel: búvárkodás, strandok és csendes öblök",
+    "heading": "Kaş és Kalkan ősszel",
+    "description": "Miért ősszel a legszebb Kaş és Kalkan: meleg tenger, búvárkodás, a Kaputaş és a Patara strand, Kekova kajakkal és hajóval, és hogyan jutsz el az antalyai repülőtérről.",
+    "excerpt": "Az év legmelegebb tengere, üres strandok és két kis kikötőváros a hegyek lábánál. Miért ragyog októberben az antalyai partvidék legnyugatibb része.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Kaş és Kalkan ősszel a legszebb. A két város az antalyai partvidék vad nyugati végén fekszik, ahol a hegyek egyenesen a tengerbe szakadnak. Egyikben sincsenek nagy üdülőkomplexumok; mindkettőben kis kikötő, fehérre meszelt utcák és a Földközi-tenger egyik legtisztább vize vár. Ősszel, amikor a nyári vendégek már elmentek, de a tenger még meleg, élik a fénykorukat."
+      },
+      {
+        "type": "h2",
+        "text": "Miért ősszel van itt a szezon?"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "A tenger októberig meleg marad, gyakran melegebb, mint júniusban.",
+          "A víz alatti látótávolság kiváló - jó hír a búvároknak és a sznorkelezőknek.",
+          "A nyári hőség után újra kellemes a séta és a túrázás.",
+          "Az éttermek és a hajókirándulások még működnek, de a nyári tömeg nélkül."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Kaş: búvárkodás, kajak és a kikötő"
+      },
+      {
+        "type": "p",
+        "text": "Kaş Türkiye egyik legismertebb búvárközpontja, kezdőknek és tapasztalt búvároknak való merülőhelyekkel, köztük roncsokkal, falakkal és víz alatti barlangokkal. Kiemelkedő élmény a tengeri kajakozás Kekova elsüllyedt romjai felett, az estéket pedig a kikötő, a tengerre néző ókori színház és a városban álló lükiai sírok teszik könnyeddé. Tiszta időben a görög Meis-sziget a part közelében is jól látszik."
+      },
+      {
+        "type": "h2",
+        "text": "Kalkan: teraszok és csendes esték"
+      },
+      {
+        "type": "p",
+        "text": "Kalkan, Kaştól nagyjából fél órára nyugatra, kisebb és csendesebb, egy domboldalra épült egy kis kikötő köré. Tengerre néző teraszos villáiról és tetőtéri éttermeiről ismert. Olyan pároknak és családoknak való, akik éjszakai élet helyett nyugodt bázist és jó ételeket keresnek."
+      },
+      {
+        "type": "h2",
+        "text": "Strandok a városok között és azokon túl"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Kaputaş: kis türkizkék öböl egy szurdok lábánál, Kaş és Kalkan között.",
+          "Patara: Türkiye egyik leghosszabb homokos strandja, az ókori Patara romjai és egy védett terület mellett.",
+          "A Kaş-félsziget és a város fürdőstégei: sziklás partok és létrák egyenesen a mély, tiszta vízbe.",
+          "Kekova és Üçağız: hajókirándulások védett öblökbe és Kaleköy várfaluba."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Mi változik novemberben?"
+      },
+      {
+        "type": "p",
+        "text": "Novembertől a szezon lecseng: egyes szállodák, éttermek és hajókirándulások bezárnak, megérkeznek az első esők, és hűvösebbek lesznek az esték. Kaş egész évben élénk marad, mert sokan élnek ott állandóan, Kalkan viszont nagyon elcsendesedik. Ha a szezon végén utazol, ellenőrizd a nyitvatartási dátumokat."
+      },
+      {
+        "type": "h2",
+        "text": "Hogyan jutsz el az antalyai repülőtérről?"
+      },
+      {
+        "type": "p",
+        "text": "Kaş nagyjából 185 km-re van az antalyai repülőtértől, ez a parti úton Kemeren, Kumlucán és Demrén át nagyjából két és fél-három óra, Kalkan pedig további nagyjából fél óra. Egyes utazók a járatoktól függően inkább Dalamanba repülnek. Mindkét repülőtérről járművenkénti fix áron indítunk privát transzfert, fotómegállókkal az ország egyik legfestőibb útján."
+      }
+    ],
+    "faq": [
+      [
+        "Meleg a tenger Kaşban októberben?",
+        "Igen. A tenger általában október végéig meleg marad, gyakran melegebb, mint kora nyáron, a látótávolság pedig kiváló búvárkodáshoz és sznorkelezéshez."
+      ],
+      [
+        "Milyen messze van Kaş az antalyai repülőtértől?",
+        "Nagyjából 185 km, közúton nagyjából két és fél-három óra. Kalkan további nagyjából fél órára van nyugatra."
+      ],
+      [
+        "Kaş vagy Kalkan: melyik a jobb?",
+        "Kaş élénkebb, búvárkodással, kajakozással és egész éves városi élettel. Kalkan kisebb és csendesebb, villákkal és tengerre néző éttermekkel."
+      ],
+      [
+        "Nyitva van Kaş és Kalkan novemberben?",
+        "Kaş egész évben aktív. Kalkanban és egyes szállodáknál, hajós cégeknél a szezon október végén vagy novemberben ér véget, ezért ellenőrizd a nyitvatartást."
+      ]
+    ]
+  },
+  "medical-travel-antalya-winter": {
+    "slug": "egeszsegturizmus-antalya-telen",
+    "title": "Egészségturizmus Antalyában télen: amit indulás előtt tudni érdemes",
+    "heading": "Egészség- és fogászati turizmus Antalyában télen",
+    "description": "Fogászati kezelést, hajbeültetést vagy esztétikai beavatkozást tervezel télen Antalyában? Miért a szezonon kívüli időszak, a klinika ellenőrzése, pihenőnapok és transzfer.",
+    "excerpt": "Hűvösebb idő, csendesebb szállodák és könnyebb időpontfoglalás. Mit ellenőrizzenek és tervezzenek meg foglalás előtt azok, akik télen kezelésre utaznak Antalyába.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Az egészségturizmus Antalyában télen egyre népszerűbb: Isztambul mellett Antalya lett Türkiye egyik egészség- és fogászati turisztikai központja. Egyre több látogató tervez fogászati kezelést, hajbeültetést vagy esztétikai beavatkozást a téli hónapokra, amikor a part csendes és az időjárás enyhe. Ez az útmutató egy ilyen utazás gyakorlati oldalát tárgyalja - nem orvosi tanács, és minden klinikai döntés szakképzett orvosra tartozik."
+      },
+      {
+        "type": "h2",
+        "text": "Miért választják sokan a telet?"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Enyhe, hűvösebb idő: sok páciens kényelmesebbnek érzi a felépülést a nyári hőségtől és az erős naptól távol.",
+          "A szállodák és apartmanok csendesebbek, és gyakran olcsóbbak, mint nyáron.",
+          "A főszezonon kívül könnyebb lehet időpontot kapni.",
+          "Az utazás strandnapok helyett összeköthető a várossal, múzeumokkal és könnyű sétákkal."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "A szolgáltató kiválasztása és ellenőrzése"
+      },
+      {
+        "type": "p",
+        "text": "A legfontosabb döntés a szolgáltató, nem az ár. Ellenőrizd, hogy a klinika vagy kórház rendelkezik-e a török egészségügyi minisztérium engedélyével, tudd meg, ki a kezelőorvos és milyen képesítése van, és kérj írásos tervet, amely rögzíti, mi van benne az árban, mi nincs, és hogyan kezelik a szövődményeket és a kontrollokat. Légy óvatos azokkal az ajánlatokkal, amelyek bármilyen vizsgálat előtt végeredményt vagy fix árat ígérnek."
+      },
+      {
+        "type": "h2",
+        "text": "A napok megtervezése"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Kezelés típusa",
+          "Tipikus tervezési szempont",
+          "Kérdezd meg a szolgáltatót"
+        ],
+        "rows": [
+          [
+            "Fogászati kezelés",
+            "Gyakran több alkalom, néha hetek vagy hónapok különbséggel",
+            "Hány utazás, és mindegyik hány napos?"
+          ],
+          [
+            "Hajbeültetés",
+            "Rövid tartózkodás, ápolási utasításokkal az első napokra",
+            "Mikor repülhetsz, moshatsz hajat és hordhatsz sapkát?"
+          ],
+          [
+            "Esztétikai sebészet",
+            "Hosszabb tartózkodás és pihenőnapok a hazarepülés előtt",
+            "Hány éjszaka után szabad repülni?"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Tervezz be pihenőnapokat, ne tedd a kezelést az érkezés napjára, és kövesd az orvos tanácsát arról, mikor biztonságos repülni. Sebészeti beavatkozásoknál gyakran javasolt kísérővel utazni."
+      },
+      {
+        "type": "h2",
+        "text": "Biztosítás, dokumentumok és kontroll"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Ellenőrizd, hogy utasbiztosításod fedezi-e a külföldön tervezett kezelést - sok kötvény nem.",
+          "Őrizd meg az összes orvosi lelet, recept és a kezelési terv másolatát.",
+          "Kérdezd meg, hogyan zajlik a kontroll hazaérkezés után, és bevonható-e a saját orvosod.",
+          "Egészségügyi adataidat csak a szolgáltatóval oszd meg, az általa megadott csatornán."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "A repülőtérről a szállodába vagy a klinikára"
+      },
+      {
+        "type": "p",
+        "text": "Egy repülőút után, a kezelés előtt vagy után a legkevésbé egy taxiállomási sorra vagy egy tucatnyi szállodánál megálló közös transzferbuszra vágysz. A privát transzfer egyenesen az antalyai repülőtérről visz a szállodádba vagy a klinikára; a sofőr a járatodat figyelve vár, és segít a csomagokkal. A visszautak az időpontjaidhoz és a hazautazásodhoz igazíthatók. Az ár járművenként fix, így a kísérőd felár nélkül utazik."
+      }
+    ],
+    "faq": [
+      [
+        "Miért érdemes télen Antalyába utazni kezelésre?",
+        "Sok utazó a felépüléshez az enyhébb időt, a csendesebb szállodákat és a nyári főszezonon kívüli könnyebb időpontfoglalást részesíti előnyben."
+      ],
+      [
+        "Hogyan ellenőrizhetek egy antalyai klinikát?",
+        "Nézd meg, hogy rendelkezik-e a török egészségügyi minisztérium engedélyével, tudd meg, ki a kezelőorvos, és kérj írásos tervet, amely kitér a benne foglaltakra, a kizárásokra, a szövődményekre és a kontrollra."
+      ],
+      [
+        "Mennyi ideig maradjak egy beavatkozás után?",
+        "Ez teljes mértékben a kezeléstől és az orvos tanácsától függ. Kérdezd meg a szolgáltatót, hány éjszakára van szükség a hazarepülés előtt, és tervezz pihenőnapokat."
+      ],
+      [
+        "El tudtok vinni a repülőtérről a klinikára?",
+        "Igen. Privát transzfert biztosítunk az antalyai repülőtérről szállodákba és klinikákra, majd vissza, járművenkénti fix áron."
+      ]
+    ]
+  },
+  "side-ancient-city-guide": {
+    "slug": "side-okori-varos-utmutato",
+    "title": "Side ókori városa: útmutató az Apollón-templomhoz, a színházhoz és az óvároshoz",
+    "heading": "Side: útmutató az ókori városhoz",
+    "description": "Látogatás Side ókori városában: az Apollón-templom, a nagy színház, a múzeum, a városfalak és az óváros, mikor érdemes menni, és egynapos kirándulások Aszpendoszba és a Manavgat-vízeséshez.",
+    "excerpt": "Római színház, templomoszlopok a víz szélén és egy kikötőváros az ókori falak között. Így láthatod Side-ot a legszebb arcát mutatva - szezonon kívül.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Side ókori városa a Török Riviéra azon kevés helyeinek egyike, ahol egy modern város egy ókori város belsejében él. Az óváros egy kis félszigetet tölt ki, amelyet római és hellenisztikus romok vesznek körül: oszlopok mellett sétálsz el egy étteremig, a naplementét pedig egy templom keretezi. Side a nyáron kívül a legszebb, amikor elég csendes ahhoz, hogy érezd a történelmet."
+      },
+      {
+        "type": "h2",
+        "text": "A fő látnivalók"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Apollón-templom: az oszlopok a félsziget csúcsán, közvetlenül a tenger mellett állnak - a naplemente klasszikus helyszíne.",
+          "A nagy színház: a régió egyik legnagyobb ókori színháza, az óváros bejáratánál a lejtőbe építve.",
+          "Side Múzeum: egy felújított római fürdőben, a városban talált szobrokkal és domborművekkel.",
+          "Az oszlopos utca és az agora: az ókori főtengely, amely a városkaputól a kikötő felé vezet.",
+          "A városfalak és a monumentális kapu: a bejárati útvonal, amelyet a látogatók kétezer éve használnak."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Az óváros ma"
+      },
+      {
+        "type": "p",
+        "text": "A falakon belül éttermekkel, kávézókkal és kis üzletekkel teli utcák vezetnek le a kikötőbe, ahonnan hajók indulnak a part menti kirándulásokra. Az óváros nagy részére autók nem hajthatnak be, így kellemes gyalog felfedezni. A félszigettől keletre és nyugatra széles homokos strandok húzódnak."
+      },
+      {
+        "type": "h2",
+        "text": "Mikor érdemes menni?"
+      },
+      {
+        "type": "p",
+        "text": "A tavasz és az ősz ideális: elég meleg van a strandhoz, és elég hűvös ahhoz, hogy délben is a romok között sétálj. Télen sok szezonális szálloda bezár, de az óváros, a romok és a múzeum nyitva marad, egy napos napon pedig a templom és a kikötő szinte üres. Júliusban és augusztusban kora reggel vagy naplementekor nézd meg a romokat."
+      },
+      {
+        "type": "h2",
+        "text": "Egynapos kirándulások Side-ból"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Úti cél",
+          "Miért érdemes",
+          "Hozzávetőleges idő Side-tól"
+        ],
+        "rows": [
+          [
+            "Aszpendosz",
+            "A világ egyik legjobb állapotban fennmaradt római színháza",
+            "nagyjából 40 perc"
+          ],
+          [
+            "Manavgat-vízesés",
+            "Széles, alacsony vízesés egy zöld parkban",
+            "nagyjából 15 perc"
+          ],
+          [
+            "Perge",
+            "Nagy ókori város stadionnal és oszlopos utcákkal",
+            "nagyjából 1 óra"
+          ],
+          [
+            "Köprülü-kanyon",
+            "Rafting és római híd egy nemzeti parkban",
+            "nagyjából 1 óra"
+          ]
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Hogyan jutsz el Side-ba az antalyai repülőtérről?"
+      },
+      {
+        "type": "p",
+        "text": "Side nagyjából 65 km-re van az antalyai repülőtértől, közúton nagyjából 55-65 perc. A privát transzfer egyenesen a szállodádhoz vagy a gyalogos óváros széléig visz, járművenkénti fix áron, amely nem változik a szezonnal vagy a járatod időpontjával. Ugyanez a jármű lefoglalható egynapos kirándulásokra is Aszpendoszba, Pergébe vagy a kanyonhoz."
+      }
+    ],
+    "faq": [
+      [
+        "Mit lehet látni Side ókori városában?",
+        "A tenger melletti Apollón-templomot, a nagy színházat, a római fürdőben működő múzeumot, az oszlopos utcát, az agorát és a városfalakat - mind gyalogtávolságra az óvárostól."
+      ],
+      [
+        "Megéri télen ellátogatni Side-ba?",
+        "Igen, a romok és az óváros miatt. Sok szezonális szálloda bezár, de a látnivalók nyitva maradnak, és sokkal csendesebbek, mint nyáron."
+      ],
+      [
+        "Milyen messze van Side az antalyai repülőtértől?",
+        "Nagyjából 65 km, közúton nagyjából 55-65 perc."
+      ],
+      [
+        "Meglátogathatom Aszpendoszt Side-ból?",
+        "Igen. Aszpendosz közúton nagyjából 40 percre van Side-tól, és könnyű félnapos kirándulás, gyakran Pergével vagy a Manavgat-vízeséssel kombinálva."
+      ]
+    ]
   }
 };

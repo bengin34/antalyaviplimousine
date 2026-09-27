@@ -1463,5 +1463,421 @@ export const articles = {
         "Oui. Envoyez-nous vos points de départ et d'arrivée ainsi que la date, et nous vous proposerons un transfert privé à prix fixe par véhicule, avec reprise à la fin de votre randonnée."
       ]
     ]
+  },
+  "koprulu-canyon-rafting": {
+    "slug": "rafting-canyon-de-koprulu-depuis-antalya",
+    "title": "Rafting dans le canyon de Köprülü : guide pratique depuis Antalya et Side",
+    "heading": "Rafting dans le canyon de Köprülü",
+    "description": "Rafting dans le canyon de Köprülü près d'Antalya : saison, rivière, à qui il convient, quoi emporter et distance depuis Side, Belek, Alanya et Antalya.",
+    "excerpt": "Une eau verte et froide, un pont romain et un canyon couvert de pins. Ce qui vous attend lors d'une journée de rafting à Köprülü, et comment l'organiser depuis la côte.",
+    "readingMinutes": 5,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Le canyon de Köprülü est un parc national situé dans les monts Taurus, au nord de Side et de Manavgat, et la rivière qui le traverse offre la sortie rafting la plus connue de la région. C'est une aventure accessible plutôt qu'extrême : la plupart des rapides sont faciles, le paysage est spectaculaire, et des débutants comme des familles y participent chaque jour de la saison."
+      },
+      {
+        "type": "h2",
+        "text": "À quoi ressemble la descente en rafting"
+      },
+      {
+        "type": "p",
+        "text": "La plupart des sorties parcourent une douzaine de kilomètres sur la rivière Köprüçay et durent deux à trois heures sur l'eau, avec des arrêts pour se baigner, sauter des rochers ou simplement se laisser flotter. Les rapides sont surtout faciles à modérés, l'eau est claire et verte, et elle reste froide toute l'année car la rivière est alimentée par des sources de montagne. Les guides font un briefing de sécurité, et casques et gilets de sauvetage sont fournis."
+      },
+      {
+        "type": "h2",
+        "text": "Quand partir"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Période",
+          "Rivière et météo",
+          "Idéal pour"
+        ],
+        "rows": [
+          [
+            "Avril - mai",
+            "Plus d'eau grâce à la fonte des neiges, rapides plus vifs, air doux",
+            "Groupes sportifs, moins de monde"
+          ],
+          [
+            "Juin - août",
+            "Air chaud, eau froide, les mois les plus fréquentés",
+            "Se rafraîchir par une journée chaude"
+          ],
+          [
+            "Septembre - octobre",
+            "Eau plus calme, journées chaudes, moins de monde",
+            "Familles et débutants"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "La saison s'étend généralement d'avril à octobre environ, selon la rivière et les prestataires. En dehors de cette période, les sorties sont rares, voire inexistantes."
+      },
+      {
+        "type": "h2",
+        "text": "À qui s'adresse le rafting à Köprülü"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Débutants : aucune expérience n'est nécessaire et le guide dirige le raft.",
+          "Familles : les prestataires fixent un âge minimum pour les enfants, vérifiez-le à la réservation.",
+          "Groupes d'amis et de collègues : un raft est généralement partagé par six à huit personnes.",
+          "Peu adapté aux personnes qui ne savent pas nager et sont anxieuses dans l'eau, ni pendant la grossesse."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Quoi emporter"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Un maillot de bain porté sous vos vêtements et une serviette.",
+          "Des chaussures qui peuvent être mouillées et tiennent bien au pied - pas de tongs.",
+          "De la crème solaire et des vêtements secs de rechange pour le retour.",
+          "Une pochette ou un sac étanche pour votre téléphone ; laissez les objets de valeur à l'hôtel."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Plus que du rafting : le parc national"
+      },
+      {
+        "type": "p",
+        "text": "Le canyon est enjambé par le pont d'Oluk, un pont romain à arche unique qui a donné son nom au site - köprü signifie « pont » en turc. Plus haut dans la montagne se trouvent les ruines de la cité antique de Selge, au milieu de formations rocheuses et de villages. Avec votre propre véhicule, vous pouvez combiner le rafting avec un arrêt au pont et une montée en direction de Selge."
+      },
+      {
+        "type": "h2",
+        "text": "Y aller depuis la côte"
+      },
+      {
+        "type": "p",
+        "text": "Beaucoup d'agences de rafting vendent des sorties avec un ramassage collectif dans les hôtels, ce qui peut signifier une longue matinée à attendre les autres participants. Un véhicule privé depuis Side, Manavgat, Belek, Alanya ou Antalya part quand vous le souhaitez et vous permet de vous arrêter au pont ou dans la montagne en chemin. Le canyon se trouve à environ une heure de Side et de Manavgat, et plus loin depuis Antalya et Alanya ; envoyez-nous votre hôtel et votre date, et nous vous indiquerons un prix fixe par véhicule."
+      }
+    ],
+    "faq": [
+      [
+        "Le rafting dans le canyon de Köprülü convient-il aux débutants ?",
+        "Oui. Les rapides sont surtout faciles à modérés, aucune expérience n'est nécessaire, et un guide dirige chaque raft après un briefing de sécurité."
+      ],
+      [
+        "Quand a lieu la saison de rafting à Köprülü ?",
+        "En général d'avril à octobre environ. Au printemps, la fonte des neiges rend l'eau plus vive ; en septembre et octobre, elle est plus calme et il y a moins de monde."
+      ],
+      [
+        "L'eau est-elle froide ?",
+        "Froide toute l'année, car la rivière est alimentée par des sources de montagne. Par une chaude journée d'été, c'est justement ce qui fait son charme."
+      ],
+      [
+        "À quelle distance de Side se trouve le canyon de Köprülü ?",
+        "À environ une heure de route de Side et de Manavgat, et plus loin depuis Antalya, Belek ou Alanya selon votre hôtel."
+      ]
+    ]
+  },
+  "kas-kalkan-autumn": {
+    "slug": "kas-et-kalkan-en-automne",
+    "title": "Kaş et Kalkan en automne : plongée, plages et criques tranquilles",
+    "heading": "Kaş et Kalkan en automne",
+    "description": "Pourquoi Kaş et Kalkan sont à leur meilleur en automne : mer chaude, plongée, plages de Kaputaş et Patara, Kekova en kayak et en bateau, accès depuis l'aéroport d'Antalya.",
+    "excerpt": "La mer la plus chaude de l'année, des plages désertes et deux petits ports au pied des montagnes. Pourquoi l'extrême ouest de la côte d'Antalya brille en octobre.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Kaş et Kalkan se trouvent à l'extrémité ouest, sauvage, de la côte d'Antalya, là où les montagnes plongent directement dans la mer. Aucune des deux n'a de grands complexes hôteliers ; toutes deux ont de petits ports, des ruelles blanchies à la chaux et certaines des eaux les plus claires de la Méditerranée. En automne, quand les vacanciers d'été sont partis et que la mer est encore chaude, Kaş et Kalkan sont à leur meilleur."
+      },
+      {
+        "type": "h2",
+        "text": "Pourquoi l'automne est la bonne saison ici"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "La mer reste chaude jusqu'en octobre, souvent plus qu'en juin.",
+          "La visibilité sous l'eau est excellente - une bonne nouvelle pour les plongeurs et les amateurs de snorkeling.",
+          "Marcher et randonner redevient agréable après la chaleur de l'été.",
+          "Restaurants et excursions en bateau fonctionnent encore, mais sans la foule estivale."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Kaş : plongée, kayak et port"
+      },
+      {
+        "type": "p",
+        "text": "Kaş est l'un des centres de plongée les plus connus de Türkiye, avec des sites pour débutants et plongeurs confirmés, dont des épaves, des tombants et des grottes sous-marines. Le kayak de mer au-dessus des ruines englouties de Kekova est un temps fort, et le port, le théâtre antique face à la mer et les tombeaux lyciens en pleine ville rendent les soirées faciles. Par temps clair, l'île grecque de Meis est visible juste au large."
+      },
+      {
+        "type": "h2",
+        "text": "Kalkan : terrasses et soirées paisibles"
+      },
+      {
+        "type": "p",
+        "text": "Kalkan, à environ une demi-heure à l'ouest de Kaş, est plus petite et plus calme, bâtie à flanc de colline autour d'un petit port. Elle est connue pour ses villas avec terrasse vue mer et ses restaurants sur les toits. Elle convient aux couples et aux familles qui cherchent une base tranquille et une bonne table plutôt que la vie nocturne."
+      },
+      {
+        "type": "h2",
+        "text": "Les plages entre les deux villes et au-delà"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Kaputaş : une petite crique turquoise au pied d'une gorge, entre Kaş et Kalkan.",
+          "Patara : l'une des plus longues plages de sable de Türkiye, à côté des ruines de la Patara antique et d'une zone protégée.",
+          "La péninsule de Kaş et les plateformes de baignade de la ville : côtes rocheuses et échelles menant directement dans une eau profonde et claire.",
+          "Kekova et Üçağız : excursions en bateau vers des baies abritées et le village-château de Kaleköy."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Ce qui change en novembre"
+      },
+      {
+        "type": "p",
+        "text": "À partir de novembre, la saison touche à sa fin : certains hôtels, restaurants et excursions en bateau ferment, les premières pluies arrivent et les soirées se rafraîchissent. Kaş reste animée toute l'année car beaucoup de gens y vivent en permanence, tandis que Kalkan devient très calme. Vérifiez les dates d'ouverture si vous voyagez en fin de saison."
+      },
+      {
+        "type": "h2",
+        "text": "Y aller depuis l'aéroport d'Antalya"
+      },
+      {
+        "type": "p",
+        "text": "Kaş se trouve à environ 185 km de l'aéroport d'Antalya, soit deux heures et demie à trois heures par la route côtière via Kemer, Kumluca et Demre, et Kalkan est à environ une demi-heure de plus. Certains voyageurs atterrissent plutôt à Dalaman, selon les vols. Nous assurons des transferts privés depuis les deux aéroports à prix fixe par véhicule, avec des arrêts photo sur l'une des routes les plus pittoresques du pays."
+      }
+    ],
+    "faq": [
+      [
+        "La mer est-elle chaude à Kaş en octobre ?",
+        "Oui. La mer reste généralement chaude jusque tard en octobre, souvent plus qu'au début de l'été, et la visibilité pour la plongée et le snorkeling est excellente."
+      ],
+      [
+        "À quelle distance de l'aéroport d'Antalya se trouve Kaş ?",
+        "À environ 185 km, soit deux heures et demie à trois heures de route. Kalkan est à environ une demi-heure de plus vers l'ouest."
+      ],
+      [
+        "Kaş ou Kalkan : laquelle choisir ?",
+        "Kaş est plus animée, avec la plongée, le kayak et une vie locale toute l'année. Kalkan est plus petite et plus calme, avec ses villas et ses restaurants vue mer."
+      ],
+      [
+        "Kaş et Kalkan sont-elles ouvertes en novembre ?",
+        "Kaş reste active toute l'année. À Kalkan, ainsi que dans certains hôtels et chez certains loueurs de bateaux, la saison se termine fin octobre ou en novembre ; vérifiez donc les dates d'ouverture."
+      ]
+    ]
+  },
+  "medical-travel-antalya-winter": {
+    "slug": "tourisme-medical-et-soins-dentaires-a-antalya-en-hiver",
+    "title": "Tourisme médical à Antalya en hiver : ce qu'il faut savoir avant de partir",
+    "heading": "Tourisme médical et soins dentaires à Antalya en hiver",
+    "description": "Soins dentaires, greffe de cheveux ou chirurgie esthétique à Antalya en hiver : pourquoi la basse saison, comment vérifier une clinique, jours de repos et transfert aéroport.",
+    "excerpt": "Un climat plus frais, des hôtels plus calmes et des rendez-vous plus faciles. Ce qu'il faut vérifier et prévoir avant de réserver un séjour de soins à Antalya en hiver.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Antalya est devenue, avec Istanbul, l'un des centres du tourisme médical et des soins dentaires en Türkiye. De plus en plus de visiteurs planifient des soins dentaires, une greffe de cheveux ou une intervention esthétique pendant les mois d'hiver, quand la côte est calme et le climat doux. Ce guide traite du côté pratique d'un tel voyage - il ne s'agit pas d'un avis médical, et toute décision clinique revient à un médecin qualifié."
+      },
+      {
+        "type": "h2",
+        "text": "Pourquoi beaucoup de voyageurs choisissent l'hiver"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Un climat doux et plus frais : de nombreux patients trouvent la convalescence plus confortable loin de la chaleur et du soleil intense de l'été.",
+          "Les hôtels et appartements sont plus calmes et souvent moins chers qu'en été.",
+          "Les rendez-vous peuvent être plus faciles à obtenir en dehors des grands mois de vacances.",
+          "Le séjour peut se combiner avec la ville, les musées et des promenades tranquilles plutôt qu'avec la plage."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Choisir et vérifier un prestataire"
+      },
+      {
+        "type": "p",
+        "text": "La décision la plus importante porte sur le prestataire, pas sur le prix. Vérifiez que la clinique ou l'hôpital est agréé par le ministère turc de la Santé, renseignez-vous sur le médecin qui vous traitera et sur ses qualifications, et demandez un plan écrit précisant ce qui est inclus, ce qui ne l'est pas, et comment les complications et le suivi sont pris en charge. Méfiez-vous des offres qui promettent un résultat final ou un prix fixe avant tout examen."
+      },
+      {
+        "type": "h2",
+        "text": "Organiser vos journées"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Type de traitement",
+          "Point de planification typique",
+          "À demander au prestataire"
+        ],
+        "rows": [
+          [
+            "Soins dentaires",
+            "Souvent plus d'une visite, parfois à plusieurs semaines ou mois d'intervalle",
+            "Combien de voyages, et combien de jours chacun ?"
+          ],
+          [
+            "Greffe de cheveux",
+            "Court séjour, avec des consignes de soins pour les premiers jours",
+            "Quand peut-on prendre l'avion, se laver les cheveux et porter un chapeau ?"
+          ],
+          [
+            "Chirurgie esthétique",
+            "Séjour plus long et jours de convalescence avant le vol retour",
+            "Combien de nuits avant d'être autorisé à prendre l'avion ?"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Prévoyez des jours de repos, évitez de programmer un traitement le jour de votre arrivée, et suivez l'avis du médecin sur le moment où vous pourrez prendre l'avion en toute sécurité. Voyager accompagné est souvent recommandé pour les interventions chirurgicales."
+      },
+      {
+        "type": "h2",
+        "text": "Assurance, documents et suivi"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Vérifiez si votre assurance voyage couvre un traitement programmé à l'étranger - beaucoup de contrats ne le font pas.",
+          "Conservez des copies de tous les comptes rendus médicaux, ordonnances et du plan de traitement.",
+          "Demandez comment se déroule le suivi une fois rentré chez vous, et si votre médecin traitant peut y être associé.",
+          "Ne transmettez vos informations médicales qu'au prestataire, par le canal qu'il indique."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "De l'aéroport à votre hôtel ou à la clinique"
+      },
+      {
+        "type": "p",
+        "text": "Après un vol, avant ou après un traitement, la dernière chose dont vous avez envie est une file d'attente à la station de taxis ou une navette partagée qui s'arrête dans une douzaine d'hôtels. Un transfert privé vous conduit directement de l'aéroport d'Antalya à votre hôtel ou à la clinique, avec un chauffeur qui suit votre vol et vous aide avec les bagages. Les trajets retour peuvent être calés sur vos rendez-vous et votre vol de retour. Le prix est fixe par véhicule : un accompagnant voyage donc sans supplément."
+      }
+    ],
+    "faq": [
+      [
+        "Pourquoi partir se faire soigner à Antalya en hiver ?",
+        "Beaucoup de voyageurs préfèrent le climat plus doux pour la convalescence, des hôtels plus calmes et des rendez-vous plus faciles en dehors des vacances d'été."
+      ],
+      [
+        "Comment vérifier une clinique à Antalya ?",
+        "Vérifiez qu'elle est agréée par le ministère turc de la Santé, renseignez-vous sur le médecin traitant et demandez un plan écrit précisant ce qui est inclus et exclu, la gestion des complications et le suivi."
+      ],
+      [
+        "Combien de temps rester après une intervention ?",
+        "Cela dépend entièrement du traitement et de l'avis de votre médecin. Demandez à votre prestataire combien de nuits sont nécessaires avant le vol retour, et prévoyez des jours de repos."
+      ],
+      [
+        "Pouvez-vous me conduire de l'aéroport à ma clinique ?",
+        "Oui. Nous assurons des transferts privés de l'aéroport d'Antalya vers les hôtels et les cliniques, et retour, à prix fixe par véhicule."
+      ]
+    ]
+  },
+  "side-ancient-city-guide": {
+    "slug": "side-cite-antique-guide-de-visite",
+    "title": "Side, cité antique : guide du temple d'Apollon, du théâtre et de la vieille ville",
+    "heading": "Side : guide de la cité antique",
+    "description": "Visiter la cité antique de Side : temple d'Apollon, grand théâtre, musée, remparts et vieille ville, quand y aller, et excursions à Aspendos et à la cascade de Manavgat.",
+    "excerpt": "Un théâtre romain, des colonnes de temple au bord de l'eau et un port bâti à l'intérieur des remparts antiques. Comment découvrir Side au mieux - hors saison.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Side est l'un des rares endroits de la Riviera turque où une ville moderne vit à l'intérieur d'une cité antique. La vieille ville occupe une petite péninsule entourée de ruines romaines et hellénistiques : on passe devant des colonnes pour rejoindre un restaurant, et le coucher de soleil se contemple encadré par un temple. La cité antique de Side est à son meilleur en dehors de l'été, quand elle est assez calme pour qu'on y ressente l'histoire."
+      },
+      {
+        "type": "h2",
+        "text": "Les principaux sites"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Temple d'Apollon : ses colonnes se dressent à la pointe de la péninsule, au bord de la mer - le lieu classique pour le coucher de soleil.",
+          "Le grand théâtre : l'un des plus grands théâtres antiques de la région, adossé à la pente à l'entrée de la vieille ville.",
+          "Musée de Side : installé dans des thermes romains restaurés, avec des statues et des reliefs découverts dans la cité.",
+          "La rue à colonnades et l'agora : l'ancien axe principal qui mène de la porte de la ville vers le port.",
+          "Les remparts et la porte monumentale : l'entrée empruntée par les visiteurs depuis deux mille ans."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "La vieille ville aujourd'hui"
+      },
+      {
+        "type": "p",
+        "text": "À l'intérieur des remparts, des ruelles bordées de restaurants, de cafés et de petites boutiques descendent vers le port, d'où partent des bateaux pour des excursions le long de la côte. Les voitures sont interdites dans la majeure partie de la vieille ville, ce qui la rend agréable à explorer à pied. De larges plages de sable s'étendent à l'est et à l'ouest de la péninsule."
+      },
+      {
+        "type": "h2",
+        "text": "Quand visiter"
+      },
+      {
+        "type": "p",
+        "text": "Le printemps et l'automne sont idéaux : assez chauds pour la plage, assez frais pour se promener dans les ruines en milieu de journée. En hiver, beaucoup d'hôtels saisonniers ferment, mais la vieille ville, les ruines et le musée restent ouverts, et par une journée ensoleillée le temple et le port sont presque déserts. En juillet et en août, visitez les ruines tôt le matin ou au coucher du soleil."
+      },
+      {
+        "type": "h2",
+        "text": "Excursions depuis Side"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Destination",
+          "Pourquoi y aller",
+          "Temps approximatif depuis Side"
+        ],
+        "rows": [
+          [
+            "Aspendos",
+            "L'un des théâtres romains les mieux conservés au monde",
+            "environ 40 minutes"
+          ],
+          [
+            "Cascade de Manavgat",
+            "Une chute d'eau large et basse dans un parc verdoyant",
+            "environ 15 minutes"
+          ],
+          [
+            "Pergé",
+            "Une grande cité antique avec un stade et des rues à colonnades",
+            "environ 1 heure"
+          ],
+          [
+            "Canyon de Köprülü",
+            "Rafting et pont romain dans un parc national",
+            "environ 1 heure"
+          ]
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Rejoindre Side depuis l'aéroport d'Antalya"
+      },
+      {
+        "type": "p",
+        "text": "Side se trouve à environ 65 km de l'aéroport d'Antalya, soit 55 à 65 minutes de route. Un transfert privé vous conduit directement à votre hôtel ou à l'entrée de la vieille ville piétonne, à un prix fixe par véhicule qui ne change ni avec la saison ni avec l'heure de votre vol. Le même véhicule peut être réservé pour des excursions à Aspendos, à Pergé ou au canyon."
+      }
+    ],
+    "faq": [
+      [
+        "Que voir dans la cité antique de Side ?",
+        "Le temple d'Apollon au bord de la mer, le grand théâtre, le musée installé dans des thermes romains, la rue à colonnades, l'agora et les remparts - le tout à distance de marche de la vieille ville."
+      ],
+      [
+        "Side vaut-elle le détour en hiver ?",
+        "Oui, pour les ruines et la vieille ville. Beaucoup d'hôtels saisonniers ferment, mais les sites restent ouverts et sont bien plus calmes qu'en été."
+      ],
+      [
+        "À quelle distance de l'aéroport d'Antalya se trouve Side ?",
+        "À environ 65 km, soit 55 à 65 minutes de route."
+      ],
+      [
+        "Peut-on visiter Aspendos depuis Side ?",
+        "Oui. Aspendos est à environ 40 minutes de route de Side et se prête facilement à une excursion d'une demi-journée, souvent combinée avec Pergé ou la cascade de Manavgat."
+      ]
+    ]
   }
 };
