@@ -1444,5 +1444,314 @@ export const articles = {
         "Düzenli toplu taşıma yoktur. Otelinizden kayak merkezine gidiş-dönüş özel transfer için araç başına sabit fiyat teklifi verebiliriz."
       ]
     ]
+  },
+  "pamukkale-trip-from-antalya": {
+    "slug": "antalyadan-pamukkale-gezisi",
+    "title": "Antalya'dan Pamukkale Gezisi: Günübirlik mi Konaklamalı mı, Ne Zaman Gidilir?",
+    "heading": "Antalya'dan Pamukkale gezisi nasıl planlanır?",
+    "description": "Antalya'dan Pamukkale gezisi: mesafe ve yol süresi, günübirlik mi konaklamalı mı, travertenler, Hierapolis, Antik Havuz ve Pamukkale'ye gitmek için en iyi mevsim.",
+    "excerpt": "Bembeyaz traverten terasları, tepede bir Roma kenti ve antik sütunlar arasında bir havuz. Bütün günü otobüste geçirmeden Antalya'dan Pamukkale'ye nasıl gidilir?",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Antalya'dan Pamukkale gezisi, Türkiye'nin en ünlü yerlerinden birine götürür sizi: sıcak ve mineral açısından zengin suyla dolu bembeyaz traverten terasları ve hemen üstlerinde Roma kenti Hierapolis'in kalıntıları. Antalya'dan karayoluyla yaklaşık 245 km, tek yön aşağı yukarı üç ila üç buçuk saat sürer - günübirlik gidilecek kadar yakın, ama bir gece konaklamanın ziyareti çok daha rahat hale getireceği kadar da uzak."
+      },
+      {
+        "type": "h2",
+        "text": "Pamukkale'de görülecek yerler"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Travertenler: sığ ve ılık suyun içinden teraslar boyunca yalınayak yürüyün - beyaz yüzeyde ayakkabıyla yürümek yasaktır.",
+          "Hierapolis: tiyatrosu, anıtsal caddesi ve Anadolu'nun en büyük antik mezarlıklarından biriyle geniş bir Roma kenti.",
+          "Antik Havuz: devrilmiş antik sütunların arasında sıcak termal suda yüzün (ayrı bilet).",
+          "Hierapolis Arkeoloji Müzesi: ören yerinden çıkan buluntular, eski Roma hamamı binasında sergileniyor.",
+          "Laodikeia: kısa bir araç mesafesinde, çok daha az ziyaretçisi olan bir başka büyük antik kent."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Günübirlik mi, konaklamalı mı?"
+      },
+      {
+        "type": "table",
+        "head": [
+          "",
+          "Günübirlik",
+          "Bir gece konaklamalı"
+        ],
+        "rows": [
+          [
+            "Yolda geçen süre",
+            "Tek günde 6-7 saat",
+            "İki güne bölünür"
+          ],
+          [
+            "Ören yerinde geçen süre",
+            "3-4 saat, genellikle öğle saatlerinde",
+            "Öğleden sonranın geç saatleri ve sabah erken"
+          ],
+          [
+            "Kalabalık",
+            "Tur otobüsleriyle aynı anda varırsınız",
+            "Gün batımı ve sabah, çok daha az insanla"
+          ],
+          [
+            "Kimler için uygun",
+            "Vakti kısıtlı gezginler",
+            "Aileler, fotoğrafçılar, yüzmek isteyen herkes"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Grup turlarının çoğu öğle saatlerinde gelir; bu saatlerde teraslar en kalabalık halindedir ve yazın beyaz yüzey göz kamaştırıcı ve sıcaktır. Pamukkale'de ya da termal köy Karahayıt'ta bir gece kalırsanız travertenleri gün batımında ve sabahın sessizliğinde yeniden görebilirsiniz."
+      },
+      {
+        "type": "h2",
+        "text": "Pamukkale için en iyi mevsim"
+      },
+      {
+        "type": "p",
+        "text": "İlkbahar ve sonbahar en rahat mevsimlerdir: Hierapolis'te dolaşmak için ılıman sıcaklıklar, teraslarda da hoş bir su. Kışın hava serin, zaman zaman ayazlıdır; ama ılık su soğuk havada buhar çıkarır ve ören yeri en sakin halindedir. Temmuz ve ağustosta öğle sıcağı ve beyaz teraslardaki parlama çok yoğun olabilir - sabah erken ya da günün geç saatlerinde gidin."
+      },
+      {
+        "type": "h2",
+        "text": "Yol üstünde: Salda Gölü ve Toroslar"
+      },
+      {
+        "type": "p",
+        "text": "Yol, kıyıdan Toros Dağları'nı aşarak tırmanır ve Göller Bölgesi'nden geçer. Beyaz kıyıları ve turkuaz suyuyla Salda Gölü kısa bir sapma mesafesindedir ve sevilen bir fotoğraf molasıdır. Özel araçla nerede ve ne kadar duracağınıza siz karar verirsiniz - tur otobüsünün sunamayacağı bir özgürlük."
+      },
+      {
+        "type": "h2",
+        "text": "Pamukkale'ye özel transfer"
+      },
+      {
+        "type": "p",
+        "text": "Antalya Havalimanı'ndan ve sahildeki otellerden Pamukkale'ye tek yön ya da daha sonraki bir tarihte dönüşlü özel transfer yapıyoruz. Fiyat araç başına sabittir; bu yüzden bir aile ya da küçük bir grup için çoğu zaman birkaç tur otobüsü biletine yakın bir tutar çıkar - otel otel dolaşan servisler, sabit program ve alışveriş molaları olmadan."
+      }
+    ],
+    "faq": [
+      [
+        "Pamukkale Antalya'ya ne kadar uzaklıkta?",
+        "Karayoluyla yaklaşık 245 km. Yolculuk genellikle tek yön üç ila üç buçuk saat sürer."
+      ],
+      [
+        "Antalya'dan Pamukkale'ye günübirlik gidilir mi?",
+        "Evet, ama bu tek günde 6-7 saat yolda olmak demektir. Pamukkale'de ya da Karahayıt'ta bir gece konaklamak ziyareti daha rahat hale getirir ve terasları kalabalık olmadan görmenizi sağlar."
+      ],
+      [
+        "Pamukkale'de yüzülür mü?",
+        "Travertenlerdeki sığ havuzlarda yalınayak yürüyebilirsiniz. Yüzmek ise sıcak termal suyu olan ve ayrı bilet gerektiren Antik Havuz'da mümkündür."
+      ],
+      [
+        "Pamukkale'ye gitmek için yılın en iyi zamanı hangisi?",
+        "İlkbahar ve sonbahar en rahat dönemlerdir. Kış sakin ve atmosferiktir; yazın ise sabah erken ya da öğleden sonra geç saatlerde gitmek en iyisidir."
+      ]
+    ]
+  },
+  "demre-myra-st-nicholas": {
+    "slug": "demre-myra-noel-baba-kilisesi",
+    "title": "Demre ve Myra: Antalya'dan Aziz Nikolaos (Noel Baba) Kilisesi Gezisi",
+    "heading": "Demre, Myra ve Aziz Nikolaos Kilisesi",
+    "description": "Antalya'dan antik Myra, yani Demre'ye gezi: Noel Baba (Aziz Nikolaos) Kilisesi, Likya kaya mezarları, Andriake ve Kekova; yol süreleri, kış ve Noel ziyareti için ipuçları.",
+    "excerpt": "Gerçek Noel Baba'nın şehri Antalya'ya iki buçuk saat uzaklıkta. Demre ve Myra'da neler görülür, sahil boyunca bu gezi nasıl dolu dolu bir güne dönüşür?",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Noel Baba olmadan çok önce Aziz Nikolaos, Antalya'nın batısındaki kıyıda yer alan Likya kenti Myra'nın piskoposuydu. Bugün kasabanın adı Demre; görev yaptığı Aziz Nikolaos (Noel Baba) Kilisesi, Likya kaya mezarları ve antik liman, burayı Antalya'dan yapılabilecek en doyurucu günübirlik gezilerden biri yapıyor - özellikle aralıkta."
+      },
+      {
+        "type": "h2",
+        "text": "Myralı Aziz Nikolaos kimdi?"
+      },
+      {
+        "type": "p",
+        "text": "Nikolaos 4. yüzyılda yaşadı ve özellikle çocuklara ve yoksullara gizlice yaptığı iyiliklerle ün kazandı. Yortu günü olan 6 Aralık bugün hâlâ Avrupa'nın dört bir yanında kutlanıyor; hakkındaki efsaneler yüzyıllar içinde büyüyerek Noel Baba figürüne dönüştü. Piskoposluk yaptığı Myra önemli bir hac merkezi haline geldi."
+      },
+      {
+        "type": "h2",
+        "text": "Demre'de görülecek yerler"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Aziz Nikolaos Kilisesi: freskleri, mozaik zeminleri ve geleneksel olarak azizle ilişkilendirilen lahdiyle bir Bizans kilisesi.",
+          "Myra kaya mezarları: büyük bir Roma tiyatrosunun üzerindeki kayalığa oyulmuş, ev biçimli Likya mezarları.",
+          "Andriake: Myra'nın antik limanı; restore edilen tahıl ambarında Likya Uygarlıkları Müzesi yer alıyor.",
+          "Kekova: yakındaki Üçağız'dan kalkan tekne turları kısmen batık antik kentin ve kaleli Kaleköy'ün önünden geçer (kışın daha az tekne çalışır)."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Nasıl gidilir: batıya uzanan sahil yolu"
+      },
+      {
+        "type": "p",
+        "text": "Demre, Antalya'dan yaklaşık iki buçuk saat uzaklıkta; yol, Türkiye'nin en güzel sahil yollarından biri boyunca Kemer'den, Olimpos çevresindeki dağlardan, Kumluca ve Finike'den geçer. Yol yıl boyunca iyidir ama dağların arasında kıvrılır; molalar için zaman ayırın ve geziyi aceleye getirmeyin."
+      },
+      {
+        "type": "h2",
+        "text": "Sahil boyunca bir gün"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Sabah: Antalya'dan erken çıkın ve Olimpos yakınlarında sahil manzarası için mola verin.",
+          "Öğleye doğru: tur grupları gelmeden Aziz Nikolaos Kilisesi.",
+          "Öğle: Myra'nın kaya mezarları ve tiyatrosu, ardından Demre'de ya da Andriake'de öğle yemeği.",
+          "Öğleden sonra: sezonda Kekova'ya tekne turu ya da Kaş'a devam edip geceyi orada geçirmek.",
+          "Akşam: Antalya'ya dönüş ya da geziyi Kaş'ta birkaç günle birleştirmek."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Kışın ve Noel'de ziyaret"
+      },
+      {
+        "type": "p",
+        "text": "Aralık, ziyaret için özellikle atmosferik bir dönemdir: 6 Aralık Aziz Nikolaos Günü'dür ve Noel döneminde pek çok ziyaretçi Antalya tatilini azizin şehrine bir geziyle birleştirir. Kış günleri ılıman ama kısadır; erken yola çıkın. Ören yerleri yıl boyunca açıktır, Kekova tekne turları ise havaya ve mevsime bağlıdır."
+      },
+      {
+        "type": "h2",
+        "text": "Demre'ye özel transfer"
+      },
+      {
+        "type": "p",
+        "text": "Antalya'dan ve batı sahilindeki tatil beldelerinden Kumluca, Demre ve Kaş'a özel transfer yapıyoruz. Özel araçla molaları ve temposu siz belirlersiniz; fiyat kişi başı değil, araç başına sabittir. Rezervasyon sırasında otelinizi, tarihi ve aynı gün dönüş isteyip istemediğinizi bize iletin."
+      }
+    ],
+    "faq": [
+      [
+        "Demre Antalya'ya ne kadar uzaklıkta?",
+        "Antik Myra, yani Demre, Antalya'dan Kemer, Kumluca ve Finike üzerinden sahil yoluyla yaklaşık iki buçuk saat uzaklıktadır."
+      ],
+      [
+        "Aziz Nikolaos Kilisesi yıl boyunca açık mı?",
+        "Evet. Aziz Nikolaos Kilisesi ve Myra antik kenti yıl boyunca ziyarete açıktır."
+      ],
+      [
+        "Aziz Nikolaos Günü ne zaman?",
+        "Aziz Nikolaos yortusu 6 Aralık'tadır. Noel dönemi de dahil olmak üzere aralık, Demre'yi ziyaret etmek için sevilen bir zamandır."
+      ],
+      [
+        "Demre ve Kekova bir günde gezilir mi?",
+        "Evet, tekne sezonunda erken yola çıkarsanız mümkündür. Kışın daha az tekne çalıştığı için havayı ve sefer saatlerini yerinde kontrol edin."
+      ]
+    ]
+  },
+  "lycian-way-spring-hiking": {
+    "slug": "antalya-yakininda-likya-yolu-yuruyusu",
+    "title": "Antalya Yakınında Likya Yolu Yürüyüşü: En Güzel Etaplar için İlkbahar Rehberi",
+    "heading": "Antalya'dan Likya Yolu yürüyüşü",
+    "description": "Antalya yakınında Likya Yolu yürüyüşü: en iyi mevsim, Kemer, Olimpos, Adrasan ve Kaş çevresindeki etaplar, çantaya ne konur ve yürüyüşün başlangıcına nasıl gidilir.",
+    "excerpt": "Antik kalıntılar, çam ormanları ve deniz manzaraları: dünyanın en güzel uzun mesafe yürüyüş rotalarından biri. Antalya'dan hangi etaplar yürünür, ne zaman gidilir?",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Likya Yolu, Fethiye ile Antalya arasında 500 km'den uzun, işaretli bir uzun mesafe yürüyüş rotasıdır; antik Likya'nın kıyıları ve dağları boyunca eski patikaları, katır yollarını ve Roma yollarını izler. Tadını çıkarmak için haftalara gerek yok: Likya Yolu yürüyüşünün en güzel etaplarının çoğu Antalya'ya kolayca ulaşılabilecek mesafededir ve harika günübirlik yürüyüşler ya da kısa yürüyüş tatilleri sunar."
+      },
+      {
+        "type": "h2",
+        "text": "Ne zaman yürünür: ilkbahar ve sonbahar"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Mevsim",
+          "Koşullar",
+          "Değerlendirme"
+        ],
+        "rows": [
+          [
+            "Mart - mayıs",
+            "Ilıman günler, yeşil tepeler, kır çiçekleri, suyla dolu pınarlar",
+            "En iyi mevsim"
+          ],
+          [
+            "Haziran - ağustos",
+            "Çok sıcak, birçok etapta az gölge, kurumuş pınarlar",
+            "Yalnızca sabah erken ya da kısa yürüyüşler"
+          ],
+          [
+            "Eylül - kasım",
+            "Ilık deniz, istikrarlı hava, ekim sonundan itibaren daha serin",
+            "İkinci en iyi mevsim"
+          ],
+          [
+            "Aralık - şubat",
+            "Kıyıda ılıman, yağışlı dönemler, yüksek geçitlerde kar",
+            "Alçak kıyı etaplarında mümkün"
+          ]
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Antalya yakınındaki etaplar"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Göynük - Kemer çevresi: Kemer'deki tatil köylerine yakın orman patikaları ve kanyon manzaraları.",
+          "Çıralı ve Olimpos: Olimpos kalıntıları ile Yanartaş'ın (Khimaira) sönmeyen alevleri arasında bir kıyı etabı.",
+          "Adrasan - Olimpos: falezleri, koyları ve denize uzanan geniş manzaralarıyla en etkileyici bölümlerden biri.",
+          "Kaş çevresi: Likya mezarları, küçük koylar ve açıkta Yunan adası Meis ile kıyı patikaları.",
+          "Phaselis: antik kent ve üç limanı çevresinde daha kısa yürüyüşler; ilk deneyim için ideal."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Yürüyüşünüzü planlamak"
+      },
+      {
+        "type": "p",
+        "text": "Rota kırmızı-beyaz işaretlidir, ancak bazı bölümler engebeli, kayalık ve diktir, işaretler de yer yer eksik olabilir. İyi bir harita ya da GPS izi kullanın, mümkünse en az iki kişi yürüyün ve rotanızı birine haber verin. Birçok etapta köyler arasında ne market ne de su vardır; erken başlayın ve ihtiyacınız olduğunu düşündüğünüzden daha fazla su taşıyın."
+      },
+      {
+        "type": "h2",
+        "text": "Çantaya neler konur?"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Yürüyüş botu ya da sağlam patika ayakkabısı - kireçtaşı yer yer keskin ve gevşektir.",
+          "Kişi başı en az iki litre su ve atıştırmalıklar.",
+          "Şapka, güneş kremi ve ilkbaharda bile hafif, uzun kollu bir katman.",
+          "Dağ bölümleri ve değişken bahar havası için rüzgârlık ya da yağmurluk.",
+          "Küçük bir ilk yardım çantası ve çevrimdışı haritası olan, şarjı dolu bir telefon."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Rotaya ulaşım ve dönüş"
+      },
+      {
+        "type": "p",
+        "text": "Etapların çoğu toplu taşımayla ulaşılması zor köylerde başlar ve biter; tek yönlü bir yürüyüş de başladığınız yerden farklı bir noktada bitirmeniz demektir. Özel transfer sizi Antalya Havalimanı'ndan ya da otelinizden etabın başlangıcına götürür ve bitişte alabilir. Fiyat araç başına sabit olduğu için yürüyüş grupları için çok uygundur; başlangıç ve bitiş noktalarınızı, tarihi ve kişi sayısını bize iletin, fiyatı önceden bildirelim."
+      }
+    ],
+    "faq": [
+      [
+        "Likya Yolu kaç km?",
+        "İşaretli rota Fethiye ile Antalya arasında 500 km'den uzundur. Ziyaretçilerin çoğu rotanın tamamı yerine seçtiği etapları yürür."
+      ],
+      [
+        "Likya Yolu yürüyüşü için en iyi zaman ne zaman?",
+        "Marttan mayısa ilkbahar en iyi mevsimdir, onu eylülden kasıma sonbahar izler. Yaz çok sıcaktır ve birçok pınar kurur."
+      ],
+      [
+        "Antalya'ya en yakın Likya Yolu etapları hangileri?",
+        "Göynük ve Kemer, Çıralı ve Olimpos, Adrasan ve Phaselis çevresindeki bölümlerin hepsi Antalya'ya yaklaşık bir ila iki saat mesafededir. Kaş çevresindeki etaplar daha batıdadır."
+      ],
+      [
+        "Likya Yolu etabının başlangıcına transfer ayarlayabilir misiniz?",
+        "Evet. Başlangıç ve bitiş noktalarınızı ve tarihi gönderin; yürüyüşün sonunda alınmanız da dahil olmak üzere araç başına sabit fiyatlı bir özel transfer teklifi hazırlayalım."
+      ]
+    ]
   }
 };

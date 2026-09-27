@@ -1154,5 +1154,314 @@ export const articles = {
         "Não há transporte público regular. Podemos indicar um preço para um transfer privado do seu hotel para a estação de esqui e de volta, a preço fixo por veículo."
       ]
     ]
+  },
+  "pamukkale-trip-from-antalya": {
+    "slug": "passeio-pamukkale-a-partir-de-antalya",
+    "title": "Pamukkale a partir de Antalya: passeio de um dia ou com pernoite, e quando ir",
+    "heading": "Pamukkale a partir de Antalya: como planear o passeio",
+    "description": "Passeio a Pamukkale a partir de Antalya: distância e tempo de viagem, ida e volta no mesmo dia ou com pernoite, os travertinos, Hierápolis, a Piscina Antiga e a melhor época para ir.",
+    "excerpt": "Terraços de travertino branco, uma cidade romana na colina e uma piscina entre colunas antigas. Como visitar Pamukkale a partir de Antalya sem passar o dia inteiro numa excursão de grupo.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Um passeio a Pamukkale a partir de Antalya leva-o a uma das atrações mais famosas da Türkiye: terraços de travertino branco cheios de água morna e rica em minerais e, acima deles, as ruínas da cidade romana de Hierápolis. De Antalya são cerca de 245 km por estrada, entre três e três horas e meia em cada sentido - perto o suficiente para ir e voltar no mesmo dia, mas longe o suficiente para que uma noite no local torne a visita muito mais tranquila."
+      },
+      {
+        "type": "h2",
+        "text": "O que ver em Pamukkale"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Os travertinos: caminhe descalço pelos terraços, em água morna e pouco funda - não é permitido calçado na superfície branca.",
+          "Hierápolis: uma grande cidade romana com teatro, uma rua monumental e uma das maiores necrópoles antigas da Anatólia.",
+          "A Piscina Antiga: nade em água termal quente entre colunas antigas tombadas (bilhete à parte).",
+          "Museu Arqueológico de Hierápolis: achados do sítio, instalados nas antigas termas romanas.",
+          "Laodiceia: a pouca distância de carro, outra grande cidade antiga com muito menos visitantes."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Um dia ou com pernoite?"
+      },
+      {
+        "type": "table",
+        "head": [
+          "",
+          "Ida e volta no mesmo dia",
+          "Com uma noite no local"
+        ],
+        "rows": [
+          [
+            "Tempo na estrada",
+            "6-7 horas num só dia",
+            "Dividido por dois dias"
+          ],
+          [
+            "Tempo no local",
+            "3-4 horas, normalmente ao meio-dia",
+            "Fim da tarde e início da manhã"
+          ],
+          [
+            "Movimento",
+            "Chega ao mesmo tempo que as excursões de grupo",
+            "Pôr do sol e manhã com muito menos gente"
+          ],
+          [
+            "Ideal para",
+            "Quem tem pouco tempo",
+            "Famílias, fotógrafos e quem quer nadar"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "A maioria das excursões de grupo chega por volta do meio-dia, quando os terraços estão mais cheios e, no verão, a superfície branca ofusca e escalda. Passar a noite em Pamukkale ou na vila termal de Karahayıt permite ver os travertinos ao pôr do sol e de novo no sossego da manhã."
+      },
+      {
+        "type": "h2",
+        "text": "A melhor época para ir a Pamukkale"
+      },
+      {
+        "type": "p",
+        "text": "A primavera e o outono são as estações mais agradáveis: temperaturas amenas para percorrer Hierápolis e água agradável nos terraços. No inverno faz frio e por vezes geia, mas a água quente fumega no ar frio e o local está no seu momento mais calmo. Em julho e agosto, o calor do meio-dia e o reflexo nos terraços brancos podem ser intensos - vá cedo ou ao fim do dia."
+      },
+      {
+        "type": "h2",
+        "text": "Pelo caminho: o lago Salda e os montes Tauro"
+      },
+      {
+        "type": "p",
+        "text": "A estrada sobe desde a costa, atravessa os montes Tauro e cruza a região dos lagos. O lago Salda, com as suas margens brancas e água turquesa, fica a um pequeno desvio e é uma paragem muito procurada para fotografias. Com um veículo privado é você quem decide onde parar e durante quanto tempo - algo que uma excursão de grupo não consegue oferecer."
+      },
+      {
+        "type": "h2",
+        "text": "Transfer privado para Pamukkale"
+      },
+      {
+        "type": "p",
+        "text": "Fazemos transfers privados para Pamukkale a partir do aeroporto de Antalya e dos hotéis da costa, só de ida ou com regresso numa data posterior. O preço é fixo por veículo, por isso, para uma família ou um grupo pequeno, fica muitas vezes ao nível de vários bilhetes de excursão de grupo - sem as recolhas pelos hotéis, o horário fixo ou as paragens para compras."
+      }
+    ],
+    "faq": [
+      [
+        "A que distância fica Pamukkale de Antalya?",
+        "Cerca de 245 km por estrada. A viagem demora normalmente entre três e três horas e meia em cada sentido."
+      ],
+      [
+        "É possível visitar Pamukkale num dia a partir de Antalya?",
+        "Sim, mas implica 6-7 horas de estrada num só dia. Uma noite em Pamukkale ou em Karahayıt torna a visita mais tranquila e permite ver os terraços sem multidões."
+      ],
+      [
+        "É possível nadar em Pamukkale?",
+        "Pode caminhar descalço pelas piscinas pouco fundas dos travertinos. Para nadar existe a Piscina Antiga, com água termal quente, que exige um bilhete à parte."
+      ],
+      [
+        "Qual é a melhor época do ano para visitar Pamukkale?",
+        "A primavera e o outono são as mais agradáveis. O inverno é calmo e cheio de ambiente; no verão, o melhor é ir de manhã cedo ou ao fim da tarde."
+      ]
+    ]
+  },
+  "demre-myra-st-nicholas": {
+    "slug": "demre-myra-igreja-sao-nicolau",
+    "title": "Demre e Myra: visitar a Igreja de São Nicolau a partir de Antalya",
+    "heading": "Demre, Myra e a Igreja de São Nicolau",
+    "description": "Passeio de Antalya a Demre, a antiga Myra: a Igreja de São Nicolau, os túmulos lícios escavados na rocha, Andriake e Kekova, com tempos de viagem e dicas para o inverno ou o Natal.",
+    "excerpt": "A terra do verdadeiro Pai Natal fica a duas horas e meia de Antalya. O que ver em Demre e Myra, e como aproveitar um dia inteiro ao longo da costa.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Muito antes de se tornar o Pai Natal (o Papai Noel), São Nicolau foi bispo de Myra, uma cidade lícia na costa a oeste de Antalya. Hoje a cidade chama-se Demre, e a Igreja de São Nicolau onde ele exerceu, os túmulos lícios escavados na rocha e o antigo porto fazem dela um dos passeios de um dia mais compensadores a partir de Antalya - sobretudo em dezembro."
+      },
+      {
+        "type": "h2",
+        "text": "Quem foi São Nicolau de Myra?"
+      },
+      {
+        "type": "p",
+        "text": "Nicolau viveu no século IV e ficou famoso por atos secretos de generosidade, sobretudo para com as crianças e os pobres. A sua festa, a 6 de dezembro, ainda é celebrada por toda a Europa, e as lendas à sua volta deram origem, ao longo dos séculos, à figura do Pai Natal. Myra, onde foi bispo, tornou-se um importante local de peregrinação."
+      },
+      {
+        "type": "h2",
+        "text": "O que ver em Demre"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Igreja de São Nicolau: uma igreja bizantina com frescos, pavimentos de mosaico e o sarcófago que a tradição associa ao santo.",
+          "Túmulos rupestres de Myra: túmulos lícios em forma de casa, escavados na falésia acima de um grande teatro romano.",
+          "Andriake: o antigo porto de Myra, com um celeiro restaurado que acolhe o Museu das Civilizações Lícias.",
+          "Kekova: os barcos que saem da vizinha Üçağız passam pela cidade antiga parcialmente submersa e pela aldeia-castelo de Kaleköy (no inverno há menos barcos)."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Como chegar: a estrada costeira para oeste"
+      },
+      {
+        "type": "p",
+        "text": "Demre fica a cerca de duas horas e meia de Antalya por uma das estradas costeiras mais bonitas do país, passando por Kemer, pelas montanhas em redor de Olympos, por Kumluca e por Finike. A estrada está em bom estado todo o ano, mas tem muitas curvas pelas montanhas, por isso reserve tempo para paragens e não a faça à pressa."
+      },
+      {
+        "type": "h2",
+        "text": "Um dia ao longo da costa"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Manhã: saída cedo de Antalya e paragem num miradouro sobre a costa perto de Olympos.",
+          "Fim da manhã: a Igreja de São Nicolau antes da chegada dos grupos.",
+          "Meio-dia: os túmulos rupestres e o teatro de Myra, seguidos de almoço em Demre ou em Andriake.",
+          "Tarde: passeio de barco a Kekova na época, ou seguir até Kaş e passar lá a noite.",
+          "Noite: regresso a Antalya, ou combinar o passeio com alguns dias em Kaş."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Visitar no inverno e no Natal"
+      },
+      {
+        "type": "p",
+        "text": "Dezembro é uma altura com um ambiente especial: 6 de dezembro é o Dia de São Nicolau e, em torno do Natal, muitos visitantes combinam uma estadia em Antalya com uma ida à cidade do santo. Os dias de inverno são amenos mas curtos, por isso saia cedo. Os locais estão abertos todo o ano, enquanto os passeios de barco a Kekova dependem do tempo e da época."
+      },
+      {
+        "type": "h2",
+        "text": "Transfer privado para Demre"
+      },
+      {
+        "type": "p",
+        "text": "Fazemos transfers privados de Antalya e das estâncias da costa oeste até Kumluca, Demre e Kaş. Com um veículo privado escolhe as paragens e o ritmo, e o preço é fixo por veículo, não por pessoa. Ao reservar, indique-nos o hotel, a data e se pretende regressar no mesmo dia."
+      }
+    ],
+    "faq": [
+      [
+        "A que distância fica Demre de Antalya?",
+        "Demre, a antiga Myra, fica a cerca de duas horas e meia de Antalya pela estrada costeira, passando por Kemer, Kumluca e Finike."
+      ],
+      [
+        "A Igreja de São Nicolau está aberta todo o ano?",
+        "Sim. A Igreja de São Nicolau e o sítio antigo de Myra estão abertos aos visitantes durante todo o ano."
+      ],
+      [
+        "Quando é o Dia de São Nicolau?",
+        "A festa de São Nicolau é a 6 de dezembro. Dezembro, incluindo a época do Natal, é uma altura muito procurada para visitar Demre."
+      ],
+      [
+        "É possível visitar Demre e Kekova no mesmo dia?",
+        "Sim, na época dos barcos é possível saindo cedo. No inverno há menos barcos, por isso confirme no local o tempo e os horários."
+      ]
+    ]
+  },
+  "lycian-way-spring-hiking": {
+    "slug": "caminho-licio-caminhadas-antalya",
+    "title": "Caminhadas no Caminho Lício perto de Antalya: guia de primavera e melhores etapas",
+    "heading": "Caminhadas no Caminho Lício a partir de Antalya",
+    "description": "Caminhadas no Caminho Lício perto de Antalya: a melhor época, etapas em redor de Kemer, Olympos, Adrasan e Kaş, o que levar na mochila e como chegar ao início do percurso.",
+    "excerpt": "Ruínas antigas, pinhais e vistas sobre o mar num dos grandes percursos de longa distância do mundo. Que etapas fazer a partir de Antalya e quando ir.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "O Caminho Lício (Lycian Way) é um percurso pedestre de longa distância sinalizado, com mais de 500 km entre Fethiye e Antalya, que segue caminhos antigos, trilhos de mulas e estradas romanas ao longo da costa e pelas montanhas da antiga Lícia. Não precisa de semanas para fazer caminhadas no Caminho Lício: muitas das suas melhores etapas ficam a pouca distância de Antalya e são ótimas para passeios de um dia ou pequenas férias a pé."
+      },
+      {
+        "type": "h2",
+        "text": "Quando caminhar: primavera e outono"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Época",
+          "Condições",
+          "Avaliação"
+        ],
+        "rows": [
+          [
+            "Março - maio",
+            "Dias amenos, colinas verdes, flores silvestres, nascentes com muita água",
+            "A melhor época"
+          ],
+          [
+            "Junho - agosto",
+            "Muito calor, pouca sombra em muitas etapas, nascentes secas",
+            "Só de manhã cedo ou caminhadas curtas"
+          ],
+          [
+            "Setembro - novembro",
+            "Mar quente, tempo estável, mais fresco a partir do fim de outubro",
+            "A segunda melhor época"
+          ],
+          [
+            "Dezembro - fevereiro",
+            "Ameno na costa, períodos de chuva, neve nos passos altos",
+            "Possível nas etapas costeiras baixas"
+          ]
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Etapas perto de Antalya"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Göynük - zona de Kemer: trilhos pela floresta e vistas sobre o desfiladeiro, perto dos resorts de Kemer.",
+          "Çıralı e Olympos: uma etapa costeira entre as ruínas de Olympos e as chamas eternas da Quimera.",
+          "Adrasan - Olympos: um dos troços mais impressionantes, com falésias, enseadas e longas vistas sobre o mar.",
+          "Arredores de Kaş: trilhos costeiros com túmulos lícios, pequenas baías e a ilha grega de Meis ao largo.",
+          "Phaselis: caminhadas mais curtas em redor da cidade antiga e dos seus três portos, ideais para uma primeira experiência."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Planear a caminhada"
+      },
+      {
+        "type": "p",
+        "text": "O percurso está marcado a vermelho e branco, mas alguns troços são acidentados, pedregosos e íngremes, e a sinalização pode ser irregular. Use um bom mapa ou um trilho GPS, caminhe acompanhado sempre que possível e diga a alguém qual é o seu percurso. Muitas etapas não têm lojas nem água entre aldeias, por isso comece cedo e leve mais água do que pensa precisar."
+      },
+      {
+        "type": "h2",
+        "text": "O que levar na mochila"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Botas de caminhada ou calçado de trail resistente - o calcário é cortante e solto em alguns pontos.",
+          "Pelo menos dois litros de água por pessoa, mais alguns snacks.",
+          "Chapéu, protetor solar e uma camada leve de manga comprida, mesmo na primavera.",
+          "Um corta-vento ou casaco impermeável para os troços de montanha e o tempo instável da primavera.",
+          "Um pequeno kit de primeiros socorros e o telemóvel (celular) carregado com um mapa offline."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Como chegar ao percurso e regressar"
+      },
+      {
+        "type": "p",
+        "text": "A maioria das etapas começa e termina em aldeias difíceis de alcançar de transportes públicos, e uma caminhada só de ida significa terminar num sítio diferente daquele onde começou. Um transfer privado leva-o do aeroporto de Antalya ou do seu hotel até ao início da etapa e pode ir buscá-lo no fim. O preço é fixo por veículo, por isso funciona bem para grupos de caminhantes; indique-nos os pontos de partida e de chegada, a data e o número de pessoas e enviamos-lhe o preço com antecedência."
+      }
+    ],
+    "faq": [
+      [
+        "Qual é a extensão do Caminho Lício?",
+        "O percurso sinalizado tem mais de 500 km entre Fethiye e Antalya. A maioria dos visitantes faz algumas etapas escolhidas em vez do percurso completo."
+      ],
+      [
+        "Qual é a melhor época para fazer o Caminho Lício?",
+        "A primavera, de março a maio, é a melhor época, seguida do outono, de setembro a novembro. O verão é muito quente e muitas nascentes secam."
+      ],
+      [
+        "Que etapas do Caminho Lício ficam mais perto de Antalya?",
+        "Os troços em redor de Göynük e Kemer, Çıralı e Olympos, Adrasan e Phaselis ficam todos a cerca de uma a duas horas de Antalya. As etapas em redor de Kaş ficam mais a oeste."
+      ],
+      [
+        "É possível organizar um transfer até ao início de uma etapa do Caminho Lício?",
+        "Sim. Envie-nos os pontos de partida e de chegada e a data, e fazemos-lhe um orçamento para um transfer privado a preço fixo por veículo, incluindo a recolha no fim da caminhada."
+      ]
+    ]
   }
 };

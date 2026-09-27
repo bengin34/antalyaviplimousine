@@ -1444,5 +1444,314 @@ export const articles = {
         "Es gibt keine regelmäßigen öffentlichen Verkehrsmittel. Wir erstellen Ihnen gern ein Angebot für einen privaten Transfer von Ihrem Hotel zum Skigebiet und zurück, zum Festpreis pro Fahrzeug."
       ]
     ]
+  },
+  "pamukkale-trip-from-antalya": {
+    "slug": "pamukkale-ausflug-von-antalya",
+    "title": "Pamukkale Ausflug von Antalya: Tagestour oder mit Übernachtung?",
+    "heading": "Pamukkale-Ausflug von Antalya: So planen Sie die Reise",
+    "description": "Pamukkale Ausflug von Antalya planen: Entfernung und Fahrzeit, Tagestour oder Übernachtung, Kalksinterterrassen, Hierapolis, Antikes Becken und die beste Reisezeit.",
+    "excerpt": "Weiße Sinterterrassen, eine römische Stadt auf dem Hügel und ein Becken zwischen antiken Säulen. So besuchen Sie Pamukkale von Antalya aus, ohne den ganzen Tag im Reisebus zu sitzen.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Pamukkale gehört zu den berühmtesten Sehenswürdigkeiten der Türkei: weiße Kalksinterterrassen voller warmem, mineralreichem Wasser und darüber die Ruinen der römischen Stadt Hierapolis. Für einen Pamukkale-Ausflug von Antalya sind es etwa 245 km auf der Straße, rund drei bis dreieinhalb Stunden pro Strecke – nah genug für eine Tagestour, aber weit genug, dass eine Übernachtung den Besuch deutlich entspannter macht."
+      },
+      {
+        "type": "h2",
+        "text": "Sehenswürdigkeiten in Pamukkale"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Die Sinterterrassen: barfuß durch flaches, warmes Wasser über die Terrassen laufen – Schuhe sind auf der weißen Oberfläche nicht erlaubt.",
+          "Hierapolis: eine große römische Stadt mit Theater, Prachtstraße und einer der größten antiken Nekropolen Anatoliens.",
+          "Das Antike Becken: im warmen Thermalwasser zwischen umgestürzten antiken Säulen schwimmen (eigenes Ticket).",
+          "Archäologisches Museum Hierapolis: Funde aus der Stätte, untergebracht in den ehemaligen römischen Thermen.",
+          "Laodikeia: nur eine kurze Fahrt entfernt, eine weitere große antike Stadt mit weit weniger Besuchern."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Tagestour oder Übernachtung?"
+      },
+      {
+        "type": "table",
+        "head": [
+          "",
+          "Tagestour",
+          "Mit Übernachtung"
+        ],
+        "rows": [
+          [
+            "Fahrzeit",
+            "6–7 Stunden an einem Tag",
+            "Auf zwei Tage verteilt"
+          ],
+          [
+            "Zeit vor Ort",
+            "3–4 Stunden, meist mittags",
+            "Später Nachmittag und früher Morgen"
+          ],
+          [
+            "Andrang",
+            "Ankunft mit den Reisebussen",
+            "Sonnenuntergang und Morgen mit viel weniger Menschen"
+          ],
+          [
+            "Ideal für",
+            "Reisende mit wenig Zeit",
+            "Familien, Fotografen und alle, die baden möchten"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Die meisten Gruppentouren kommen um die Mittagszeit an, wenn auf den Terrassen am meisten los ist und die weiße Oberfläche im Sommer grell und heiß ist. Wer in Pamukkale oder im Thermaldorf Karahayıt übernachtet, erlebt die Sinterterrassen im Licht des Sonnenuntergangs und noch einmal in der Ruhe des Morgens."
+      },
+      {
+        "type": "h2",
+        "text": "Die beste Reisezeit für Pamukkale"
+      },
+      {
+        "type": "p",
+        "text": "Frühling und Herbst sind am angenehmsten: milde Temperaturen für einen Rundgang durch Hierapolis und angenehmes Wasser auf den Terrassen. Im Winter ist es kühl und gelegentlich frostig, doch das warme Wasser dampft in der kalten Luft, und die Stätte ist am ruhigsten. Im Juli und August können Mittagshitze und Blendung auf den weißen Terrassen sehr intensiv sein – kommen Sie früh oder spät am Tag."
+      },
+      {
+        "type": "h2",
+        "text": "Unterwegs: Salda-See und Taurusgebirge"
+      },
+      {
+        "type": "p",
+        "text": "Die Straße steigt von der Küste über das Taurusgebirge an und führt durch die Seenregion. Der Salda-See mit seinen weißen Ufern und dem türkisfarbenen Wasser ist ein kurzer Abstecher und ein beliebter Fotostopp. Mit einem privaten Fahrzeug entscheiden Sie selbst, wo und wie lange Sie anhalten – das kann keine Bustour bieten."
+      },
+      {
+        "type": "h2",
+        "text": "Privater Transfer nach Pamukkale"
+      },
+      {
+        "type": "p",
+        "text": "Wir bieten private Transfers vom Flughafen Antalya und von Hotels an der Küste nach Pamukkale an, als einfache Fahrt oder mit Rückfahrt an einem späteren Tag. Der Preis gilt fest pro Fahrzeug – für eine Familie oder kleine Gruppe ist er daher oft vergleichbar mit mehreren Tickets für eine Bustour, nur ohne Hotelabholungen, festen Zeitplan und Verkaufsstopps."
+      }
+    ],
+    "faq": [
+      [
+        "Wie weit ist Pamukkale von Antalya entfernt?",
+        "Etwa 245 km auf der Straße. Die Fahrt dauert in der Regel drei bis dreieinhalb Stunden pro Strecke."
+      ],
+      [
+        "Kann man Pamukkale als Tagesausflug von Antalya besuchen?",
+        "Ja, allerdings bedeutet das 6–7 Stunden Fahrt an einem Tag. Eine Übernachtung in Pamukkale oder Karahayıt macht den Besuch entspannter, und Sie sehen die Terrassen ohne die Menschenmassen."
+      ],
+      [
+        "Kann man in Pamukkale baden?",
+        "Auf den Sinterterrassen können Sie barfuß durch die flachen Becken laufen. Schwimmen ist im Antiken Becken möglich, das warmes Thermalwasser hat und ein eigenes Ticket erfordert."
+      ],
+      [
+        "Wann ist die beste Reisezeit für Pamukkale?",
+        "Frühling und Herbst sind am angenehmsten. Der Winter ist ruhig und stimmungsvoll; im Sommer besuchen Sie die Stätte am besten früh morgens oder am späten Nachmittag."
+      ]
+    ]
+  },
+  "demre-myra-st-nicholas": {
+    "slug": "demre-myra-nikolauskirche",
+    "title": "Demre und Myra: Die Nikolauskirche ab Antalya besuchen",
+    "heading": "Demre, Myra und die Nikolauskirche",
+    "description": "Ausflug von Antalya nach Demre, dem antiken Myra: Nikolauskirche, lykische Felsgräber, Andriake und Kekova, mit Fahrzeiten und Tipps für einen Besuch im Winter oder zu Weihnachten.",
+    "excerpt": "Die Heimat des echten Nikolaus liegt zweieinhalb Stunden von Antalya entfernt. Was Sie in Demre und Myra sehen sollten und wie daraus ein schöner Tag an der Küste wird.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Lange bevor er zum Weihnachtsmann wurde, war der heilige Nikolaus Bischof von Myra, einer lykischen Stadt an der Küste westlich von Antalya. Heute heißt der Ort Demre – und die Nikolauskirche, in der er wirkte, die lykischen Felsgräber und der antike Hafen machen ihn zu einem der lohnendsten Tagesausflüge von Antalya, besonders im Dezember."
+      },
+      {
+        "type": "h2",
+        "text": "Wer war der heilige Nikolaus von Myra?"
+      },
+      {
+        "type": "p",
+        "text": "Nikolaus lebte im 4. Jahrhundert und wurde für seine heimliche Großzügigkeit berühmt, vor allem gegenüber Kindern und Armen. Sein Gedenktag, der 6. Dezember, wird bis heute in ganz Europa gefeiert, und aus den Legenden um ihn entstand über die Jahrhunderte die Figur des Weihnachtsmanns. Myra, wo er Bischof war, wurde zu einem wichtigen Wallfahrtsort."
+      },
+      {
+        "type": "h2",
+        "text": "Sehenswürdigkeiten in Demre"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Nikolauskirche: eine byzantinische Kirche mit Fresken, Mosaikböden und dem Sarkophag, der traditionell mit dem Heiligen in Verbindung gebracht wird.",
+          "Felsgräber von Myra: lykische Gräber in Hausform, in die Felswand über einem großen römischen Theater gehauen.",
+          "Andriake: der antike Hafen von Myra mit einem restaurierten Getreidespeicher, in dem das Museum der Lykischen Zivilisationen untergebracht ist.",
+          "Kekova: Bootstouren vom nahen Üçağız führen an der teilweise versunkenen antiken Stadt und am Burgdorf Kaleköy vorbei (im Winter fahren weniger Boote)."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Anreise: die Küstenstraße nach Westen"
+      },
+      {
+        "type": "p",
+        "text": "Demre liegt etwa zweieinhalb Stunden von Antalya entfernt, an einer der schönsten Küstenstraßen des Landes, vorbei an Kemer, den Bergen rund um Olympos, Kumluca und Finike. Die Straße ist das ganze Jahr über gut, windet sich aber durch die Berge – planen Sie Zeit für Pausen ein und machen Sie keine Hetzfahrt daraus."
+      },
+      {
+        "type": "h2",
+        "text": "Ein Tag an der Küste"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Morgens: früh in Antalya losfahren und bei Olympos für den Blick über die Küste anhalten.",
+          "Später Vormittag: die Nikolauskirche, bevor die Reisegruppen eintreffen.",
+          "Mittags: Felsgräber und Theater von Myra, danach Mittagessen in Demre oder in Andriake.",
+          "Nachmittags: in der Saison eine Bootstour nach Kekova oder weiter nach Kaş und dort übernachten.",
+          "Abends: Rückfahrt nach Antalya oder den Ausflug mit ein paar Tagen in Kaş verbinden."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Besuch im Winter und zu Weihnachten"
+      },
+      {
+        "type": "p",
+        "text": "Der Dezember ist eine besonders stimmungsvolle Reisezeit: Am 6. Dezember ist Nikolaustag, und rund um Weihnachten verbinden viele Gäste ihren Aufenthalt in Antalya mit einem Ausflug in die Stadt des Heiligen. Die Wintertage sind mild, aber kurz, also brechen Sie früh auf. Die Stätten sind ganzjährig geöffnet, während die Bootstouren nach Kekova von Wetter und Saison abhängen."
+      },
+      {
+        "type": "h2",
+        "text": "Privater Transfer nach Demre"
+      },
+      {
+        "type": "p",
+        "text": "Wir bieten private Transfers von Antalya und den Urlaubsorten entlang der Westküste nach Kumluca, Demre und Kaş an. Mit einem privaten Fahrzeug bestimmen Sie Stopps und Tempo selbst, und der Preis gilt fest pro Fahrzeug, nicht pro Person. Nennen Sie uns bei der Buchung Ihr Hotel, das Datum und ob Sie am selben Tag zurückfahren möchten."
+      }
+    ],
+    "faq": [
+      [
+        "Wie weit ist Demre von Antalya entfernt?",
+        "Demre, das antike Myra, liegt etwa zweieinhalb Stunden Fahrt von Antalya entfernt, über die Küstenstraße via Kemer, Kumluca und Finike."
+      ],
+      [
+        "Ist die Nikolauskirche das ganze Jahr geöffnet?",
+        "Ja. Die Nikolauskirche und die antike Stätte Myra sind ganzjährig für Besucher geöffnet."
+      ],
+      [
+        "Wann ist Nikolaustag?",
+        "Der Gedenktag des heiligen Nikolaus ist am 6. Dezember. Der Dezember, einschließlich der Weihnachtszeit, ist eine beliebte Zeit für einen Besuch in Demre."
+      ],
+      [
+        "Kann ich Demre und Kekova an einem Tag besuchen?",
+        "Ja, in der Bootssaison ist das mit einem frühen Start möglich. Im Winter fahren weniger Boote, prüfen Sie daher Wetter und Fahrpläne vor Ort."
+      ]
+    ]
+  },
+  "lycian-way-spring-hiking": {
+    "slug": "lykischer-weg-wandern-bei-antalya",
+    "title": "Lykischer Weg wandern bei Antalya: Die schönsten Etappen im Frühling",
+    "heading": "Den Lykischen Weg ab Antalya wandern",
+    "description": "Auf dem Lykischen Weg wandern bei Antalya: beste Reisezeit, Etappen rund um Kemer, Olympos, Adrasan und Kaş, Packliste und wie Sie zum Startpunkt Ihrer Wanderung kommen.",
+    "excerpt": "Antike Ruinen, Pinienwälder und Meerblick auf einem der großen Fernwanderwege der Welt. Welche Etappen Sie von Antalya aus wandern können und wann die beste Zeit dafür ist.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Der Lykische Weg ist ein markierter Fernwanderweg von mehr als 500 km zwischen Fethiye und Antalya. Er folgt alten Pfaden, Maultierwegen und Römerstraßen entlang der Küste und durch die Berge des antiken Lykien. Um den Lykischen Weg zu wandern, brauchen Sie keine Wochen: Viele seiner schönsten Etappen liegen nicht weit von Antalya und eignen sich hervorragend für Tageswanderungen oder einen kurzen Wanderurlaub."
+      },
+      {
+        "type": "h2",
+        "text": "Beste Wanderzeit: Frühling und Herbst"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Jahreszeit",
+          "Bedingungen",
+          "Fazit"
+        ],
+        "rows": [
+          [
+            "März – Mai",
+            "Milde Tage, grüne Hügel, Wildblumen, Quellen voller Wasser",
+            "Die beste Zeit"
+          ],
+          [
+            "Juni – August",
+            "Sehr heiß, auf vielen Etappen wenig Schatten, versiegte Quellen",
+            "Nur frühmorgens oder kurze Touren"
+          ],
+          [
+            "September – November",
+            "Warmes Meer, stabiles Wetter, ab Ende Oktober kühler",
+            "Die zweitbeste Zeit"
+          ],
+          [
+            "Dezember – Februar",
+            "Mild an der Küste, Regenphasen, Schnee auf den hohen Pässen",
+            "Auf niedrigen Küstenetappen möglich"
+          ]
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Etappen in der Nähe von Antalya"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Göynük – Region Kemer: Waldwege und Blicke in die Schlucht, ganz nah an den Ferienorten von Kemer.",
+          "Çıralı und Olympos: eine Küstenetappe zwischen den Ruinen von Olympos und den ewigen Flammen der Chimaira.",
+          "Adrasan – Olympos: einer der spektakulärsten Abschnitte mit Klippen, Buchten und weiten Blicken über das Meer.",
+          "Rund um Kaş: Küstenpfade mit lykischen Gräbern, kleinen Buchten und der griechischen Insel Meis vor der Küste.",
+          "Phaselis: kürzere Wanderungen rund um die antike Stadt und ihre drei Häfen, ideal zum Reinschnuppern."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Ihre Wanderung planen"
+      },
+      {
+        "type": "p",
+        "text": "Der Weg ist rot-weiß markiert, doch einige Abschnitte sind rau, felsig und steil, und die Beschilderung kann lückenhaft sein. Nutzen Sie eine gute Karte oder einen GPS-Track, wandern Sie möglichst zu zweit und sagen Sie jemandem Bescheid, welche Route Sie gehen. Auf vielen Etappen gibt es zwischen den Dörfern weder Läden noch Wasser – starten Sie also früh und nehmen Sie mehr Wasser mit, als Sie zu brauchen glauben."
+      },
+      {
+        "type": "h2",
+        "text": "Packliste"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Wanderstiefel oder feste Trailschuhe – der Kalkstein ist stellenweise scharfkantig und lose.",
+          "Mindestens zwei Liter Wasser pro Person, dazu Snacks.",
+          "Sonnenhut, Sonnencreme und eine leichte langärmelige Schicht, auch im Frühling.",
+          "Eine winddichte Jacke oder Regenjacke für Bergabschnitte und wechselhaftes Frühlingswetter.",
+          "Ein kleines Erste-Hilfe-Set und ein geladenes Handy mit Offline-Karte."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "An- und Abreise zum Wanderweg"
+      },
+      {
+        "type": "p",
+        "text": "Die meisten Etappen beginnen und enden in Dörfern, die mit öffentlichen Verkehrsmitteln schwer zu erreichen sind, und bei einer Streckenwanderung kommen Sie woanders an, als Sie gestartet sind. Ein privater Transfer bringt Sie vom Flughafen Antalya oder Ihrem Hotel zum Start Ihrer Etappe und kann Sie am Ende wieder abholen. Der Preis gilt fest pro Fahrzeug und lohnt sich daher gut für Wandergruppen; nennen Sie uns Start- und Zielpunkt, Datum und Personenzahl, und wir erstellen Ihnen vorab ein Angebot."
+      }
+    ],
+    "faq": [
+      [
+        "Wie lang ist der Lykische Weg?",
+        "Der markierte Wanderweg ist mehr als 500 km lang und verläuft zwischen Fethiye und Antalya. Die meisten Besucher wandern ausgewählte Etappen statt der gesamten Route."
+      ],
+      [
+        "Wann ist die beste Zeit, um den Lykischen Weg zu wandern?",
+        "Der Frühling von März bis Mai ist die beste Zeit, gefolgt vom Herbst von September bis November. Der Sommer ist sehr heiß, und viele Quellen versiegen."
+      ],
+      [
+        "Welche Etappen des Lykischen Wegs liegen am nächsten an Antalya?",
+        "Die Abschnitte um Göynük und Kemer, Çıralı und Olympos, Adrasan und Phaselis liegen alle etwa ein bis zwei Stunden von Antalya entfernt. Die Etappen rund um Kaş liegen weiter westlich."
+      ],
+      [
+        "Kann man einen Transfer zum Start einer Etappe des Lykischen Wegs buchen?",
+        "Ja. Senden Sie uns Start- und Zielpunkt sowie das Datum, und wir erstellen Ihnen ein Angebot für einen privaten Transfer zum Festpreis pro Fahrzeug, inklusive Abholung am Ende Ihrer Wanderung."
+      ]
+    ]
   }
 };

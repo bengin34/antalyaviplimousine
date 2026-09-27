@@ -1154,5 +1154,314 @@ export const articles = {
         "No hay transporte público regular. Podemos darte precio para un traslado privado desde tu hotel hasta la estación y de vuelta, a precio fijo por vehículo."
       ]
     ]
+  },
+  "pamukkale-trip-from-antalya": {
+    "slug": "excursion-pamukkale-desde-antalya",
+    "title": "Excursión a Pamukkale desde Antalya: en un día o con noche, y cuándo ir",
+    "heading": "Pamukkale desde Antalya: cómo organizar la excursión",
+    "description": "Excursión a Pamukkale desde Antalya: distancia y tiempo de viaje, ida y vuelta en un día o con noche, los travertinos, Hierápolis, la Piscina Antigua y la mejor época para ir.",
+    "excerpt": "Terrazas de travertino blanco, una ciudad romana en la colina y una piscina entre columnas antiguas. Cómo visitar Pamukkale desde Antalya sin pasar el día entero en un autobús.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Una excursión a Pamukkale desde Antalya lleva a uno de los lugares más famosos de Türkiye: terrazas de travertino blanco llenas de agua templada y rica en minerales y, por encima, las ruinas de la ciudad romana de Hierápolis. Desde Antalya hay unos 245 km por carretera, entre tres y tres horas y media en cada sentido: lo bastante cerca para ir y volver en un día, pero lo bastante lejos como para que pasar una noche allí haga la visita mucho más tranquila."
+      },
+      {
+        "type": "h2",
+        "text": "Qué ver en Pamukkale"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Los travertinos: se recorren descalzo por las terrazas, entre agua templada y poco profunda; no se permite el calzado sobre la superficie blanca.",
+          "Hierápolis: una gran ciudad romana con teatro, una calle monumental y una de las necrópolis antiguas más grandes de Anatolia.",
+          "La Piscina Antigua: baño en agua termal caliente entre columnas antiguas caídas (entrada aparte).",
+          "El Museo Arqueológico de Hierápolis: hallazgos del yacimiento, expuestos en las antiguas termas romanas.",
+          "Laodicea: a poca distancia en coche, otra gran ciudad antigua con muchos menos visitantes."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "¿En un día o con noche?"
+      },
+      {
+        "type": "table",
+        "head": [
+          "",
+          "Ida y vuelta en un día",
+          "Con una noche allí"
+        ],
+        "rows": [
+          [
+            "Tiempo en carretera",
+            "6-7 horas en un solo día",
+            "Repartido en dos días"
+          ],
+          [
+            "Tiempo en el yacimiento",
+            "3-4 horas, normalmente a mediodía",
+            "Última hora de la tarde y primera de la mañana"
+          ],
+          [
+            "Afluencia",
+            "Llegada a la vez que los autobuses de excursión",
+            "Atardecer y mañana con mucha menos gente"
+          ],
+          [
+            "Ideal para",
+            "Viajeros con poco tiempo",
+            "Familias, fotógrafos y quien quiera bañarse"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "La mayoría de las excursiones en grupo llegan hacia mediodía, cuando las terrazas están más concurridas y, en verano, la superficie blanca deslumbra y quema. Pasar la noche en Pamukkale o en el pueblo termal de Karahayıt permite ver los travertinos al atardecer y de nuevo en la calma de la mañana."
+      },
+      {
+        "type": "h2",
+        "text": "La mejor época para visitar Pamukkale"
+      },
+      {
+        "type": "p",
+        "text": "La primavera y el otoño son las estaciones más agradables: temperaturas suaves para recorrer Hierápolis y agua agradable en las terrazas. En invierno hace fresco y a veces hiela, pero el agua caliente humea en el aire frío y el lugar está en su momento más tranquilo. En julio y agosto, el calor del mediodía y el reflejo del sol en las terrazas blancas pueden ser muy intensos: conviene ir a primera o a última hora del día."
+      },
+      {
+        "type": "h2",
+        "text": "Por el camino: el lago Salda y los montes Tauro"
+      },
+      {
+        "type": "p",
+        "text": "La carretera sube desde la costa, cruza los montes Tauro y atraviesa la región de los lagos. El lago Salda, con sus orillas blancas y su agua turquesa, queda a un pequeño desvío y es una parada muy popular para hacer fotos. Con un vehículo privado usted decide dónde parar y cuánto tiempo, algo que una excursión en autobús no puede ofrecer."
+      },
+      {
+        "type": "h2",
+        "text": "Traslado privado a Pamukkale"
+      },
+      {
+        "type": "p",
+        "text": "Ofrecemos traslados privados a Pamukkale desde el aeropuerto de Antalya y desde los hoteles de la costa, solo ida o con regreso en otra fecha. El precio es fijo por vehículo, así que para una familia o un grupo pequeño suele ser comparable a varias entradas de excursión en autobús, sin recogidas por los hoteles, sin horario fijo y sin paradas de compras."
+      }
+    ],
+    "faq": [
+      [
+        "¿A qué distancia está Pamukkale de Antalya?",
+        "A unos 245 km por carretera. El trayecto suele durar entre tres y tres horas y media en cada sentido."
+      ],
+      [
+        "¿Se puede visitar Pamukkale en un día desde Antalya?",
+        "Sí, pero supone 6-7 horas de carretera en un solo día. Pasar una noche en Pamukkale o en Karahayıt hace la visita más tranquila y permite ver las terrazas sin aglomeraciones."
+      ],
+      [
+        "¿Se puede nadar en Pamukkale?",
+        "Se puede caminar descalzo por las pozas poco profundas de los travertinos. Para nadar está la Piscina Antigua, con agua termal caliente, que requiere una entrada aparte."
+      ],
+      [
+        "¿Cuál es la mejor época del año para visitar Pamukkale?",
+        "La primavera y el otoño son las más agradables. El invierno es tranquilo y tiene mucho encanto; en verano es mejor ir a primera hora de la mañana o a última hora de la tarde."
+      ]
+    ]
+  },
+  "demre-myra-st-nicholas": {
+    "slug": "demre-myra-iglesia-san-nicolas",
+    "title": "Demre y Myra: visitar la iglesia de San Nicolás desde Antalya",
+    "heading": "Demre, Myra y la iglesia de San Nicolás",
+    "description": "Excursión de Antalya a Demre, la antigua Myra: la iglesia de San Nicolás, las tumbas licias excavadas en la roca, Andriake y Kekova, con tiempos de viaje y consejos para invierno y Navidad.",
+    "excerpt": "La ciudad del verdadero Papá Noel está a dos horas y media de Antalya. Qué ver en Demre y Myra, y cómo aprovechar el día recorriendo la costa.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Mucho antes de convertirse en Papá Noel, San Nicolás fue obispo de Myra, una ciudad licia en la costa al oeste de Antalya. Hoy la localidad se llama Demre, y la iglesia de San Nicolás donde ejerció, las tumbas licias excavadas en la roca y el puerto antiguo la convierten en una de las excursiones más gratificantes desde Antalya, sobre todo en diciembre."
+      },
+      {
+        "type": "h2",
+        "text": "¿Quién fue San Nicolás de Myra?"
+      },
+      {
+        "type": "p",
+        "text": "Nicolás vivió en el siglo IV y se hizo famoso por sus actos de generosidad en secreto, sobre todo con los niños y los pobres. Su festividad, el 6 de diciembre, se sigue celebrando en toda Europa, y las leyendas en torno a él dieron forma con los siglos a la figura de Papá Noel. Myra, donde fue obispo, se convirtió en un importante lugar de peregrinación."
+      },
+      {
+        "type": "h2",
+        "text": "Qué ver en Demre"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Iglesia de San Nicolás: una iglesia bizantina con frescos, suelos de mosaico y el sarcófago que la tradición asocia al santo.",
+          "Tumbas rupestres de Myra: tumbas licias con forma de casa, talladas en el acantilado sobre un gran teatro romano.",
+          "Andriake: el puerto antiguo de Myra, con un granero restaurado que alberga el Museo de las Civilizaciones Licias.",
+          "Kekova: los barcos que salen de la cercana Üçağız pasan junto a la ciudad antigua parcialmente sumergida y el pueblo-castillo de Kaleköy (en invierno salen menos barcos)."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Cómo llegar: la carretera de la costa hacia el oeste"
+      },
+      {
+        "type": "p",
+        "text": "Demre está a unas dos horas y media de Antalya por una de las carreteras costeras más bonitas del país, pasando por Kemer, las montañas de los alrededores de Olympos, Kumluca y Finike. La carretera está en buen estado todo el año, pero tiene muchas curvas entre las montañas, así que conviene reservar tiempo para las paradas y no plantearlo con prisas."
+      },
+      {
+        "type": "h2",
+        "text": "Un día por la costa"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Mañana: salida temprano de Antalya y parada en un mirador sobre la costa cerca de Olympos.",
+          "Media mañana: la iglesia de San Nicolás antes de que lleguen los grupos.",
+          "Mediodía: las tumbas rupestres y el teatro de Myra, y después comida en Demre o en Andriake.",
+          "Tarde: paseo en barco a Kekova en temporada, o seguir hasta Kaş y hacer noche allí.",
+          "Noche: regreso a Antalya, o combinar la excursión con unos días en Kaş."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Visitar Demre en invierno y en Navidad"
+      },
+      {
+        "type": "p",
+        "text": "Diciembre es una época con un ambiente especial: el 6 de diciembre es el día de San Nicolás y, en torno a Navidad, muchos viajeros combinan una estancia en Antalya con una visita a la ciudad del santo. Los días de invierno son suaves pero cortos, así que conviene salir temprano. Los lugares de interés abren todo el año, mientras que los paseos en barco a Kekova dependen del tiempo y de la temporada."
+      },
+      {
+        "type": "h2",
+        "text": "Traslado privado a Demre"
+      },
+      {
+        "type": "p",
+        "text": "Ofrecemos traslados privados desde Antalya y los centros turísticos de la costa occidental hasta Kumluca, Demre y Kaş. Con un vehículo privado usted elige las paradas y el ritmo, y el precio es fijo por vehículo, no por persona. Al reservar, indíquenos su hotel, la fecha y si desea volver el mismo día."
+      }
+    ],
+    "faq": [
+      [
+        "¿A qué distancia está Demre de Antalya?",
+        "Demre, la antigua Myra, está a unas dos horas y media por carretera desde Antalya, por la carretera de la costa que pasa por Kemer, Kumluca y Finike."
+      ],
+      [
+        "¿La iglesia de San Nicolás abre todo el año?",
+        "Sí. La iglesia de San Nicolás y el yacimiento antiguo de Myra se pueden visitar durante todo el año."
+      ],
+      [
+        "¿Cuándo es el día de San Nicolás?",
+        "La festividad de San Nicolás es el 6 de diciembre. Diciembre, incluidas las fechas de Navidad, es una época muy popular para visitar Demre."
+      ],
+      [
+        "¿Se pueden visitar Demre y Kekova en un mismo día?",
+        "Sí, en temporada de barcos es posible si se sale temprano. En invierno salen menos barcos, así que consulte allí el tiempo y los horarios."
+      ]
+    ]
+  },
+  "lycian-way-spring-hiking": {
+    "slug": "ruta-licia-senderismo-antalya",
+    "title": "Senderismo por la Ruta Licia cerca de Antalya: guía de primavera y mejores etapas",
+    "heading": "Senderismo por la Ruta Licia desde Antalya",
+    "description": "Senderismo por la Ruta Licia cerca de Antalya: la mejor época, etapas en torno a Kemer, Olympos, Adrasan y Kaş, qué llevar en la mochila y cómo llegar al inicio de la ruta.",
+    "excerpt": "Ruinas antiguas, pinares y vistas al mar en uno de los grandes senderos de larga distancia del mundo. Qué etapas hacer desde Antalya y cuándo ir.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "La Ruta Licia es un sendero de gran recorrido señalizado de más de 500 km entre Fethiye y Antalya, que sigue caminos antiguos, sendas de mulas y calzadas romanas por la costa y las montañas de la antigua Licia. No hacen falta semanas para disfrutar del senderismo en la Ruta Licia: muchas de sus mejores etapas quedan a poca distancia de Antalya y son perfectas para excursiones de un día o para unas vacaciones cortas de senderismo."
+      },
+      {
+        "type": "h2",
+        "text": "Cuándo caminar: primavera y otoño"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Época",
+          "Condiciones",
+          "Valoración"
+        ],
+        "rows": [
+          [
+            "Marzo - mayo",
+            "Días suaves, colinas verdes, flores silvestres, fuentes con mucha agua",
+            "La mejor época"
+          ],
+          [
+            "Junio - agosto",
+            "Mucho calor, poca sombra en muchas etapas, fuentes secas",
+            "Solo a primera hora o rutas cortas"
+          ],
+          [
+            "Septiembre - noviembre",
+            "Mar cálido, tiempo estable, más fresco desde finales de octubre",
+            "La segunda mejor época"
+          ],
+          [
+            "Diciembre - febrero",
+            "Suave en la costa, rachas de lluvia, nieve en los pasos altos",
+            "Posible en las etapas costeras bajas"
+          ]
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Etapas cerca de Antalya"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Göynük - zona de Kemer: caminos entre bosques y vistas al cañón, muy cerca de los complejos turísticos de Kemer.",
+          "Çıralı y Olympos: una etapa costera entre las ruinas de Olympos y las llamas eternas de la Quimera.",
+          "Adrasan - Olympos: uno de los tramos más espectaculares, con acantilados, calas y amplias vistas al mar.",
+          "Alrededores de Kaş: senderos costeros con tumbas licias, pequeñas bahías y la isla griega de Meis frente a la costa.",
+          "Phaselis: paseos más cortos alrededor de la ciudad antigua y sus tres puertos, ideales para un primer contacto."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Cómo planificar la caminata"
+      },
+      {
+        "type": "p",
+        "text": "El sendero está señalizado con marcas rojas y blancas, pero algunos tramos son abruptos, pedregosos y empinados, y la señalización puede ser irregular. Lleve un buen mapa o un track GPS, camine en pareja siempre que pueda y cuente a alguien su recorrido. Muchas etapas no tienen tiendas ni agua entre pueblos, así que salga temprano y lleve más agua de la que crea necesitar."
+      },
+      {
+        "type": "h2",
+        "text": "Qué llevar en la mochila"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Botas de montaña o zapatillas de trail resistentes: la caliza es cortante y en algunos puntos está suelta.",
+          "Al menos dos litros de agua por persona, además de algo para picar.",
+          "Gorra o sombrero, protector solar y una capa ligera de manga larga, incluso en primavera.",
+          "Un cortavientos o chubasquero para los tramos de montaña y el tiempo cambiante de la primavera.",
+          "Un pequeño botiquín y el móvil cargado con un mapa sin conexión."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Cómo llegar al sendero y volver"
+      },
+      {
+        "type": "p",
+        "text": "La mayoría de las etapas empiezan y terminan en pueblos a los que es difícil llegar en transporte público, y una caminata solo de ida significa terminar en un lugar distinto del de salida. Un traslado privado le lleva desde el aeropuerto de Antalya o su hotel hasta el inicio de la etapa y puede recogerle al final. El precio es fijo por vehículo, por lo que resulta práctico para grupos de senderistas; indíquenos el punto de inicio y de llegada, la fecha y el número de personas, y le daremos el precio por adelantado."
+      }
+    ],
+    "faq": [
+      [
+        "¿Cuánto mide la Ruta Licia?",
+        "El sendero señalizado tiene más de 500 km entre Fethiye y Antalya. La mayoría de los visitantes recorre algunas etapas escogidas en lugar de la ruta completa."
+      ],
+      [
+        "¿Cuál es la mejor época para hacer la Ruta Licia?",
+        "La primavera, de marzo a mayo, es la mejor época, seguida del otoño, de septiembre a noviembre. El verano es muy caluroso y muchas fuentes se secan."
+      ],
+      [
+        "¿Qué etapas de la Ruta Licia están más cerca de Antalya?",
+        "Los tramos de Göynük y Kemer, Çıralı y Olympos, Adrasan y Phaselis están todos a entre una y dos horas aproximadamente de Antalya. Las etapas de los alrededores de Kaş quedan más al oeste."
+      ],
+      [
+        "¿Se puede organizar un traslado hasta el inicio de una etapa de la Ruta Licia?",
+        "Sí. Envíenos el punto de inicio y de llegada y la fecha, y le presupuestaremos un traslado privado a precio fijo por vehículo, con recogida incluida al final de la caminata."
+      ]
+    ]
   }
 };

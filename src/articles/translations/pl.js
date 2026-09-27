@@ -1444,5 +1444,314 @@ export const articles = {
         "Nie ma regularnej komunikacji publicznej. Możemy wycenić prywatny transfer z twojego hotelu do ośrodka narciarskiego i z powrotem w stałej cenie za pojazd."
       ]
     ]
+  },
+  "pamukkale-trip-from-antalya": {
+    "slug": "pamukkale-z-antalyi",
+    "title": "Pamukkale z Antalyi: wycieczka jednodniowa czy z noclegiem i kiedy jechać",
+    "heading": "Pamukkale z Antalyi: jak zaplanować wycieczkę",
+    "description": "Pamukkale z Antalyi: odległość i czas jazdy, wycieczka jednodniowa czy z noclegiem, trawertyny, Hierapolis, Basen Antyczny i najlepsza pora na wyjazd.",
+    "excerpt": "Białe tarasy trawertynowe, rzymskie miasto na wzgórzu i basen wśród antycznych kolumn. Jak zobaczyć Pamukkale z Antalyi bez spędzania całego dnia w autokarze.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Wycieczka do Pamukkale z Antalyi to jedna z najsłynniejszych atrakcji Turcji: białe tarasy trawertynowe wypełnione ciepłą, bogatą w minerały wodą, a nad nimi ruiny rzymskiego miasta Hierapolis. Z Antalyi to około 245 km drogą, czyli mniej więcej trzy do trzech i pół godziny w jedną stronę – wystarczająco blisko na wycieczkę jednodniową, ale na tyle daleko, że nocleg sprawia, iż zwiedzanie jest o wiele spokojniejsze."
+      },
+      {
+        "type": "h2",
+        "text": "Co zobaczyć w Pamukkale"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Trawertyny: spacer boso po tarasach przez płytką, ciepłą wodę – na białą powierzchnię nie wolno wchodzić w butach.",
+          "Hierapolis: duże rzymskie miasto z teatrem, reprezentacyjną ulicą i jedną z największych antycznych nekropolii w Anatolii.",
+          "Basen Antyczny (Basen Kleopatry): kąpiel w ciepłej wodzie termalnej wśród powalonych antycznych kolumn (osobny bilet).",
+          "Muzeum Archeologiczne Hierapolis: znaleziska z wykopalisk w budynku dawnych rzymskich łaźni.",
+          "Laodycea: niedaleko stąd, kolejne duże antyczne miasto, które odwiedza znacznie mniej turystów."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Jednodniowa wycieczka czy z noclegiem?"
+      },
+      {
+        "type": "table",
+        "head": [
+          "",
+          "Wycieczka jednodniowa",
+          "Z noclegiem"
+        ],
+        "rows": [
+          [
+            "Czas w drodze",
+            "6–7 godzin w jeden dzień",
+            "Rozłożony na dwa dni"
+          ],
+          [
+            "Czas na miejscu",
+            "3–4 godziny, zwykle w południe",
+            "Późne popołudnie i wczesny ranek"
+          ],
+          [
+            "Tłumy",
+            "Przyjazd razem z autokarami wycieczkowymi",
+            "Zachód słońca i poranek przy znacznie mniejszej liczbie osób"
+          ],
+          [
+            "Dla kogo",
+            "Dla podróżnych z małą ilością czasu",
+            "Dla rodzin, fotografów i wszystkich, którzy chcą się wykąpać"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Większość wycieczek grupowych przyjeżdża około południa, kiedy na tarasach jest najtłoczniej, a latem biała powierzchnia oślepia i mocno się nagrzewa. Nocleg w Pamukkale lub w termalnej wiosce Karahayıt pozwala zobaczyć trawertyny o zachodzie słońca i jeszcze raz w porannej ciszy."
+      },
+      {
+        "type": "h2",
+        "text": "Najlepsza pora na Pamukkale"
+      },
+      {
+        "type": "p",
+        "text": "Wiosna i jesień to najwygodniejsze pory roku: łagodne temperatury do zwiedzania Hierapolis i przyjemna woda na tarasach. Zimą jest chłodno, czasem zdarzają się przymrozki, ale ciepła woda paruje w zimnym powietrzu, a na miejscu jest najspokojniej. W lipcu i sierpniu południowy upał i blask białych tarasów bywają bardzo intensywne – przyjedź wcześnie rano lub późnym popołudniem."
+      },
+      {
+        "type": "h2",
+        "text": "Po drodze: jezioro Salda i góry Taurus"
+      },
+      {
+        "type": "p",
+        "text": "Droga wspina się od wybrzeża przez góry Taurus i biegnie przez Krainę Jezior. Jezioro Salda z białymi brzegami i turkusową wodą to krótki objazd i popularny przystanek na zdjęcia. Prywatnym samochodem sam decydujesz, gdzie i na jak długo się zatrzymać – tego wycieczka autokarowa nie zaoferuje."
+      },
+      {
+        "type": "h2",
+        "text": "Prywatny transfer do Pamukkale"
+      },
+      {
+        "type": "p",
+        "text": "Organizujemy prywatne transfery do Pamukkale z lotniska w Antalyi i z hoteli na wybrzeżu – w jedną stronę lub z powrotem w innym terminie. Cena jest stała za pojazd, więc dla rodziny lub małej grupy często jest porównywalna z kilkoma biletami na wycieczkę autokarową – bez zbierania gości po hotelach, sztywnego harmonogramu i przystanków w sklepach."
+      }
+    ],
+    "faq": [
+      [
+        "Jak daleko jest z Antalyi do Pamukkale?",
+        "Około 245 km drogą. Jazda trwa zwykle trzy do trzech i pół godziny w jedną stronę."
+      ],
+      [
+        "Czy można zwiedzić Pamukkale w jeden dzień z Antalyi?",
+        "Tak, ale oznacza to 6–7 godzin w drodze w ciągu jednego dnia. Nocleg w Pamukkale lub Karahayıt sprawia, że zwiedzanie jest spokojniejsze i można zobaczyć tarasy bez tłumów."
+      ],
+      [
+        "Czy w Pamukkale można się kąpać?",
+        "Po płytkich basenach na trawertynach można chodzić boso. Pływać można w Basenie Antycznym z ciepłą wodą termalną – wymaga on osobnego biletu."
+      ],
+      [
+        "Kiedy najlepiej jechać do Pamukkale?",
+        "Najwygodniej jest wiosną i jesienią. Zimą jest spokojnie i klimatycznie, a latem najlepiej przyjechać wcześnie rano lub późnym popołudniem."
+      ]
+    ]
+  },
+  "demre-myra-st-nicholas": {
+    "slug": "demre-myra-kosciol-sw-mikolaja",
+    "title": "Demre i Myra: kościół św. Mikołaja – wycieczka z Antalyi",
+    "heading": "Demre, Myra i kościół św. Mikołaja",
+    "description": "Wycieczka z Antalyi do Demre, antycznej Myry: kościół św. Mikołaja, licyjskie grobowce skalne, Andriake i Kekova, czas jazdy oraz porady na zimę i Boże Narodzenie.",
+    "excerpt": "Rodzinne miasto prawdziwego Świętego Mikołaja leży dwie i pół godziny od Antalyi. Co zobaczyć w Demre i Myrze i jak spędzić dzień na wybrzeżu.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Na długo zanim stał się Świętym Mikołajem z reklam, św. Mikołaj był biskupem Myry – licyjskiego miasta na wybrzeżu na zachód od Antalyi. Dziś miasto nazywa się Demre, a kościół św. Mikołaja, w którym posługiwał, licyjskie grobowce skalne i antyczny port sprawiają, że to jedna z najciekawszych jednodniowych wycieczek z Antalyi – zwłaszcza w grudniu."
+      },
+      {
+        "type": "h2",
+        "text": "Kim był św. Mikołaj z Miry?"
+      },
+      {
+        "type": "p",
+        "text": "Mikołaj żył w IV wieku i zasłynął z potajemnej hojności, zwłaszcza wobec dzieci i ubogich. Jego wspomnienie, 6 grudnia, wciąż obchodzi się w całej Europie, a legendy o nim przez stulecia przerodziły się w postać Świętego Mikołaja, jakiego znamy dziś. Myra, gdzie był biskupem, stała się ważnym miejscem pielgrzymek."
+      },
+      {
+        "type": "h2",
+        "text": "Co zobaczyć w Demre"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Kościół św. Mikołaja: bizantyjska świątynia z freskami, mozaikowymi posadzkami i sarkofagiem tradycyjnie łączonym ze świętym.",
+          "Grobowce skalne Myry: licyjskie grobowce w kształcie domów wykute w skale nad dużym rzymskim teatrem.",
+          "Andriake: antyczny port Myry z odrestaurowanym spichlerzem, w którym mieści się Muzeum Cywilizacji Licyjskich.",
+          "Kekova: rejsy z pobliskiego Üçağız przepływają obok częściowo zatopionego antycznego miasta i wioski z zamkiem Kaleköy (zimą pływa mniej łodzi)."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Dojazd: nadmorską drogą na zachód"
+      },
+      {
+        "type": "p",
+        "text": "Demre leży około dwóch i pół godziny od Antalyi, przy jednej z najpiękniejszych nadmorskich dróg w kraju, przez Kemer, góry wokół Olimposu, Kumlucę i Finike. Droga jest dobra przez cały rok, ale wije się przez góry, więc zarezerwuj czas na postoje i nie planuj tej trasy w pośpiechu."
+      },
+      {
+        "type": "h2",
+        "text": "Dzień na wybrzeżu"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Rano: wczesny wyjazd z Antalyi i postój z widokiem na wybrzeże koło Olimposu.",
+          "Przed południem: kościół św. Mikołaja, zanim przyjadą grupy wycieczkowe.",
+          "Południe: grobowce skalne i teatr w Myrze, potem obiad w Demre lub w Andriake.",
+          "Popołudnie: w sezonie rejs na Kekovę albo dalsza jazda do Kaş i nocleg.",
+          "Wieczór: powrót do Antalyi albo połączenie wycieczki z kilkoma dniami w Kaş."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Wizyta zimą i w Boże Narodzenie"
+      },
+      {
+        "type": "p",
+        "text": "Grudzień to wyjątkowo klimatyczny czas na wizytę: 6 grudnia przypadają mikołajki, a w okresie świąt wielu gości łączy pobyt w Antalyi z wycieczką do miasta świętego. Zimowe dni są łagodne, ale krótkie, więc wyjedź wcześnie. Zabytki są otwarte przez cały rok, a rejsy na Kekovę zależą od pogody i sezonu."
+      },
+      {
+        "type": "h2",
+        "text": "Prywatny transfer do Demre"
+      },
+      {
+        "type": "p",
+        "text": "Organizujemy prywatne transfery z Antalyi i kurortów zachodniego wybrzeża do Kumluki, Demre i Kaş. Prywatnym samochodem sam wybierasz postoje i tempo, a cena jest stała za pojazd, nie za osobę. Przy rezerwacji podaj hotel, datę i informację, czy chcesz wrócić tego samego dnia."
+      }
+    ],
+    "faq": [
+      [
+        "Jak daleko jest z Antalyi do Demre?",
+        "Demre, antyczna Myra, leży około dwóch i pół godziny jazdy od Antalyi nadmorską drogą przez Kemer, Kumlucę i Finike."
+      ],
+      [
+        "Czy kościół św. Mikołaja jest otwarty przez cały rok?",
+        "Tak. Kościół św. Mikołaja i stanowisko archeologiczne Myra są otwarte dla zwiedzających przez cały rok."
+      ],
+      [
+        "Kiedy przypada dzień św. Mikołaja?",
+        "Wspomnienie św. Mikołaja przypada 6 grudnia. Grudzień, w tym okres świąteczny, to popularny czas na wizytę w Demre."
+      ],
+      [
+        "Czy można zwiedzić Demre i Kekovę w jeden dzień?",
+        "Tak, w sezonie rejsów jest to możliwe przy wczesnym wyjeździe. Zimą pływa mniej łodzi, więc sprawdź pogodę i rozkład na miejscu."
+      ]
+    ]
+  },
+  "lycian-way-spring-hiking": {
+    "slug": "droga-licyjska-kolo-antalyi",
+    "title": "Droga Licyjska koło Antalyi: wiosenny przewodnik po najlepszych odcinkach",
+    "heading": "Droga Licyjska: trekking z Antalyi",
+    "description": "Droga Licyjska koło Antalyi: najlepsza pora, odcinki w okolicach Kemeru, Olimposu, Adrasan i Kaş, co spakować i jak dojechać na start wędrówki.",
+    "excerpt": "Antyczne ruiny, lasy sosnowe i widoki na morze na jednym z wielkich szlaków długodystansowych świata. Które odcinki przejść z Antalyi i kiedy jechać.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Droga Licyjska (Szlak Licyjski) to oznakowany szlak długodystansowy o długości ponad 500 km między Fethiye a Antalyą. Prowadzi starymi ścieżkami, szlakami dla mułów i rzymskimi drogami wzdłuż wybrzeża i przez góry starożytnej Licji. Nie potrzeba tygodni, by się nią cieszyć: wiele najpiękniejszych odcinków leży niedaleko Antalyi i świetnie nadaje się na jednodniowe wędrówki lub krótkie wyjazdy trekkingowe."
+      },
+      {
+        "type": "h2",
+        "text": "Kiedy wędrować: wiosna i jesień"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Pora roku",
+          "Warunki",
+          "Ocena"
+        ],
+        "rows": [
+          [
+            "Marzec – maj",
+            "Łagodne dni, zielone wzgórza, dzikie kwiaty, źródła pełne wody",
+            "Najlepsza pora"
+          ],
+          [
+            "Czerwiec – sierpień",
+            "Bardzo gorąco, mało cienia na wielu odcinkach, wyschnięte źródła",
+            "Tylko wczesnym rankiem lub krótkie trasy"
+          ],
+          [
+            "Wrzesień – listopad",
+            "Ciepłe morze, stabilna pogoda, chłodniej od końca października",
+            "Druga najlepsza pora"
+          ],
+          [
+            "Grudzień – luty",
+            "Łagodnie na wybrzeżu, okresy deszczu, śnieg na wysokich przełęczach",
+            "Możliwe na niskich odcinkach nadmorskich"
+          ]
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Odcinki koło Antalyi"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Göynük – okolice Kemeru: leśne ścieżki i widoki na kanion blisko kurortów Kemeru.",
+          "Çıralı i Olympos: nadmorski odcinek między ruinami Olimposu a wiecznymi ogniami Chimery.",
+          "Adrasan – Olympos: jeden z najbardziej spektakularnych fragmentów, z klifami, zatoczkami i rozległymi widokami na morze.",
+          "Okolice Kaş: nadmorskie ścieżki z licyjskimi grobowcami, małymi zatokami i grecką wyspą Meis tuż przy brzegu.",
+          "Phaselis: krótsze spacery wokół antycznego miasta i jego trzech portów, idealne na pierwsze zetknięcie ze szlakiem."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Planowanie wędrówki"
+      },
+      {
+        "type": "p",
+        "text": "Szlak jest oznakowany na czerwono-biało, ale niektóre odcinki są nierówne, kamieniste i strome, a oznakowanie bywa niepełne. Korzystaj z dobrej mapy lub śladu GPS, w miarę możliwości wędruj we dwoje i poinformuj kogoś o swojej trasie. Na wielu odcinkach między wioskami nie ma sklepów ani wody, więc wyruszaj wcześnie i zabierz więcej wody, niż ci się wydaje, że potrzebujesz."
+      },
+      {
+        "type": "h2",
+        "text": "Co spakować"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Buty trekkingowe lub solidne buty trailowe – wapień jest miejscami ostry i sypki.",
+          "Co najmniej dwa litry wody na osobę oraz przekąski.",
+          "Kapelusz, krem z filtrem i lekką warstwę z długim rękawem, nawet wiosną.",
+          "Kurtkę wiatroszczelną lub przeciwdeszczową na odcinki górskie i zmienną wiosenną pogodę.",
+          "Małą apteczkę i naładowany telefon z mapą offline."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Dojazd na szlak i powrót"
+      },
+      {
+        "type": "p",
+        "text": "Większość odcinków zaczyna się i kończy w wioskach, do których trudno dojechać komunikacją publiczną, a przy wędrówce w jedną stronę kończysz w innym miejscu, niż zacząłeś. Prywatny transfer zawiezie cię z lotniska w Antalyi lub z hotelu na początek odcinka i może odebrać cię na końcu. Cena jest stała za pojazd, więc to dobre rozwiązanie dla grup wędrowców; podaj punkt startowy i końcowy, datę oraz liczbę osób, a z wyprzedzeniem przygotujemy wycenę."
+      }
+    ],
+    "faq": [
+      [
+        "Jak długa jest Droga Licyjska?",
+        "Oznakowany szlak ma ponad 500 km i biegnie między Fethiye a Antalyą. Większość turystów przechodzi wybrane odcinki, a nie całą trasę."
+      ],
+      [
+        "Kiedy najlepiej wędrować Drogą Licyjską?",
+        "Najlepszą porą jest wiosna, od marca do maja, a zaraz po niej jesień, od września do listopada. Latem jest bardzo gorąco i wiele źródeł wysycha."
+      ],
+      [
+        "Które odcinki Drogi Licyjskiej są najbliżej Antalyi?",
+        "Fragmenty w okolicach Göynük i Kemeru, Çıralı i Olimposu, Adrasan i Phaselis leżą w odległości około jednej do dwóch godzin od Antalyi. Odcinki wokół Kaş znajdują się dalej na zachód."
+      ],
+      [
+        "Czy można zorganizować transfer na początek odcinka Drogi Licyjskiej?",
+        "Tak. Prześlij nam punkt startowy i końcowy oraz datę, a przygotujemy wycenę prywatnego transferu w stałej cenie za pojazd, z odbiorem na końcu wędrówki."
+      ]
+    ]
   }
 };

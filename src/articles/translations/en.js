@@ -1444,5 +1444,314 @@ export const articles = {
         "There is no regular public transport. We can quote a private transfer from your hotel to the ski centre and back at a fixed price per vehicle."
       ]
     ]
+  },
+  "pamukkale-trip-from-antalya": {
+    "slug": "pamukkale-trip-from-antalya",
+    "title": "Pamukkale from Antalya: Day Trip or Overnight, and When to Go",
+    "heading": "Pamukkale from Antalya: how to plan the trip",
+    "description": "Planning a trip from Antalya to Pamukkale: distance and driving time, day trip or overnight, the travertines, Hierapolis and the Antique Pool, and the best season to go.",
+    "excerpt": "White travertine terraces, a Roman city on the hill and a pool among ancient columns. How to visit Pamukkale from Antalya without spending the whole day in a coach.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Pamukkale is one of the most famous sights in Türkiye: white travertine terraces filled with warm, mineral-rich water, and above them the ruins of the Roman city of Hierapolis. From Antalya it is about 245 km by road, roughly three to three and a half hours each way - close enough for a day trip, but far enough that an overnight stay makes the visit much more relaxed."
+      },
+      {
+        "type": "h2",
+        "text": "What to see in Pamukkale"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "The travertines: walk barefoot along the terraces through shallow, warm water - shoes are not allowed on the white surface.",
+          "Hierapolis: a large Roman city with a theatre, a monumental street and one of the largest ancient cemeteries in Anatolia.",
+          "The Antique Pool: swim in warm thermal water between fallen ancient columns (separate ticket).",
+          "Hierapolis Archaeology Museum: finds from the site, housed in the former Roman baths.",
+          "Laodicea: a short drive away, another large ancient city with far fewer visitors."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Day trip or overnight?"
+      },
+      {
+        "type": "table",
+        "head": [
+          "",
+          "Day trip",
+          "With an overnight stay"
+        ],
+        "rows": [
+          [
+            "Time on the road",
+            "6-7 hours in one day",
+            "Split over two days"
+          ],
+          [
+            "Time at the site",
+            "3-4 hours, usually at midday",
+            "Late afternoon and early morning"
+          ],
+          [
+            "Crowds",
+            "Arrives with the tour coaches",
+            "Sunset and morning with far fewer people"
+          ],
+          [
+            "Suits",
+            "Travellers with little time",
+            "Families, photographers, anyone who wants to swim"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Most group tours arrive around the middle of the day, when the terraces are busiest and, in summer, the white surface is dazzling and hot. Staying overnight in Pamukkale or the thermal village of Karahayıt lets you see the travertines at sunset and again in the quiet of the morning."
+      },
+      {
+        "type": "h2",
+        "text": "The best season for Pamukkale"
+      },
+      {
+        "type": "p",
+        "text": "Spring and autumn are the most comfortable seasons: mild temperatures for walking around Hierapolis and pleasant water on the terraces. In winter it is cool and occasionally frosty, but the warm water steams in the cold air and the site is at its quietest. In July and August the midday heat and glare on the white terraces can be intense - go early or late in the day."
+      },
+      {
+        "type": "h2",
+        "text": "On the way: Lake Salda and the Taurus"
+      },
+      {
+        "type": "p",
+        "text": "The road climbs from the coast over the Taurus mountains and across the lake district. Lake Salda, with its white shores and turquoise water, is a short detour and a popular photo stop. With a private vehicle you decide where and how long to stop - something a coach tour cannot offer."
+      },
+      {
+        "type": "h2",
+        "text": "Private transfer to Pamukkale"
+      },
+      {
+        "type": "p",
+        "text": "We run private transfers from Antalya Airport and from hotels on the coast to Pamukkale, one way or with a return on a later date. The price is fixed per vehicle, so for a family or a small group it is often comparable to several coach tour tickets - without the hotel pickups, the fixed schedule or the shopping stops."
+      }
+    ],
+    "faq": [
+      [
+        "How far is Pamukkale from Antalya?",
+        "About 245 km by road. The drive usually takes three to three and a half hours each way."
+      ],
+      [
+        "Can you visit Pamukkale as a day trip from Antalya?",
+        "Yes, but it means 6-7 hours on the road in one day. An overnight stay in Pamukkale or Karahayıt makes the visit more relaxed and lets you see the terraces without the crowds."
+      ],
+      [
+        "Can you swim in Pamukkale?",
+        "You can walk barefoot through the shallow pools on the travertines. Swimming is possible in the Antique Pool, which has warm thermal water and requires a separate ticket."
+      ],
+      [
+        "What is the best time of year to visit Pamukkale?",
+        "Spring and autumn are the most comfortable. Winter is quiet and atmospheric; in summer it is best to visit early in the morning or late in the afternoon."
+      ]
+    ]
+  },
+  "demre-myra-st-nicholas": {
+    "slug": "demre-myra-st-nicholas-church",
+    "title": "Demre and Myra: Visiting the Church of St Nicholas from Antalya",
+    "heading": "Demre, Myra and the Church of St Nicholas",
+    "description": "A trip from Antalya to Demre, the ancient Myra: the Church of St Nicholas, the Lycian rock tombs, Andriake and Kekova, with driving times and tips for a winter or Christmas visit.",
+    "excerpt": "The home town of the real Santa Claus is two and a half hours from Antalya. What to see in Demre and Myra, and how to make a day of it along the coast.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Long before he became Santa Claus, St Nicholas was the bishop of Myra, a Lycian city on the coast west of Antalya. Today the town is called Demre, and the church where he served, the Lycian rock tombs and the ancient harbour make it one of the most rewarding day trips from Antalya - especially in December."
+      },
+      {
+        "type": "h2",
+        "text": "Who was St Nicholas of Myra?"
+      },
+      {
+        "type": "p",
+        "text": "Nicholas lived in the 4th century and became famous for secret acts of generosity, especially towards children and the poor. His feast day, 6 December, is still celebrated across Europe, and the legends around him grew over the centuries into the figure of Santa Claus. Myra, where he was bishop, became an important place of pilgrimage."
+      },
+      {
+        "type": "h2",
+        "text": "What to see in Demre"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Church of St Nicholas: a Byzantine church with frescoes, mosaic floors and the sarcophagus traditionally associated with the saint.",
+          "Myra rock tombs: Lycian house-shaped tombs carved into the cliff above a large Roman theatre.",
+          "Andriake: the ancient harbour of Myra, with a restored granary that houses the Museum of Lycian Civilisations.",
+          "Kekova: boat trips from nearby Üçağız pass the partly submerged ancient city and the castle village of Kaleköy (fewer boats run in winter)."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Getting there: the coast road west"
+      },
+      {
+        "type": "p",
+        "text": "Demre is about two and a half hours from Antalya along one of the most beautiful coast roads in the country, passing Kemer, the mountains around Olympos, Kumluca and Finike. The road is good all year, but it winds through the mountains, so allow time for stops and do not plan it as a rush."
+      },
+      {
+        "type": "h2",
+        "text": "A day along the coast"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Morning: leave Antalya early and stop for a view over the coast near Olympos.",
+          "Late morning: the Church of St Nicholas before the tour groups arrive.",
+          "Midday: the rock tombs and theatre of Myra, then lunch in Demre or at Andriake.",
+          "Afternoon: a boat trip to Kekova in season, or continue to Kaş and stay the night.",
+          "Evening: return to Antalya, or combine the trip with a few days in Kaş."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Visiting in winter and at Christmas"
+      },
+      {
+        "type": "p",
+        "text": "December is a particularly atmospheric time to visit: 6 December is St Nicholas Day, and around Christmas many visitors combine a stay in Antalya with a trip to the saint's town. Winter days are mild but short, so leave early. The sites are open all year, while Kekova boat trips depend on the weather and the season."
+      },
+      {
+        "type": "h2",
+        "text": "Private transfer to Demre"
+      },
+      {
+        "type": "p",
+        "text": "We run private transfers from Antalya and the coastal resorts along the western coast to Kumluca, Demre and Kaş. With a private vehicle you choose the stops and the pace, and the price is fixed per vehicle, not per person. Tell us your hotel, date and whether you want a return on the same day when you book."
+      }
+    ],
+    "faq": [
+      [
+        "How far is Demre from Antalya?",
+        "Demre, the ancient Myra, is about two and a half hours by road from Antalya along the coast road via Kemer, Kumluca and Finike."
+      ],
+      [
+        "Is the Church of St Nicholas open all year?",
+        "Yes. The Church of St Nicholas and the ancient site of Myra are open to visitors all year round."
+      ],
+      [
+        "When is St Nicholas Day?",
+        "The feast of St Nicholas is on 6 December. December, including the Christmas period, is a popular time to visit Demre."
+      ],
+      [
+        "Can I visit Demre and Kekova in one day?",
+        "Yes, in the boat season it is possible with an early start. In winter fewer boats run, so check the weather and schedules locally."
+      ]
+    ]
+  },
+  "lycian-way-spring-hiking": {
+    "slug": "lycian-way-hiking-near-antalya",
+    "title": "Hiking the Lycian Way near Antalya: Spring Guide to the Best Stages",
+    "heading": "Hiking the Lycian Way from Antalya",
+    "description": "Hiking the Lycian Way near Antalya: the best season, stages around Kemer, Olympos, Adrasan and Kaş, what to pack, and how to get to the start of your walk.",
+    "excerpt": "Ancient ruins, pine forests and views over the sea along one of the world's great long-distance paths. Which stages to walk from Antalya and when to go.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "The Lycian Way is a waymarked long-distance trail of more than 500 km between Fethiye and Antalya, following old paths, mule tracks and Roman roads along the coast and through the mountains of ancient Lycia. You do not need weeks to enjoy it: many of its finest stages lie within easy reach of Antalya and make excellent day walks or short hiking holidays."
+      },
+      {
+        "type": "h2",
+        "text": "When to hike: spring and autumn"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Season",
+          "Conditions",
+          "Verdict"
+        ],
+        "rows": [
+          [
+            "March - May",
+            "Mild days, green hills, wild flowers, springs full of water",
+            "The best season"
+          ],
+          [
+            "June - August",
+            "Very hot, little shade on many stages, dry springs",
+            "Only early mornings or short walks"
+          ],
+          [
+            "September - November",
+            "Warm sea, stable weather, cooler from late October",
+            "The second best season"
+          ],
+          [
+            "December - February",
+            "Mild on the coast, rain spells, snow on the high passes",
+            "Possible on low coastal stages"
+          ]
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Stages near Antalya"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Göynük - Kemer area: forest paths and canyon views close to the Kemer resorts.",
+          "Çıralı and Olympos: a coastal stage between the ruins of Olympos and the eternal flames of the Chimaera.",
+          "Adrasan - Olympos: one of the most dramatic sections, with cliffs, coves and long views over the sea.",
+          "Around Kaş: coastal paths with Lycian tombs, small bays and the Greek island of Meis offshore.",
+          "Phaselis: shorter walks around the ancient city and its three harbours, ideal for a first taste."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Planning your walk"
+      },
+      {
+        "type": "p",
+        "text": "The trail is waymarked in red and white, but some sections are rough, rocky and steep, and signage can be patchy. Use a good map or a GPS track, walk in pairs where possible and tell someone your route. Many stages have no shops or water between villages, so start early and carry more water than you think you need."
+      },
+      {
+        "type": "h2",
+        "text": "What to pack"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Hiking boots or sturdy trail shoes - the limestone is sharp and loose in places.",
+          "At least two litres of water per person, plus snacks.",
+          "Sun hat, sunscreen and a light long-sleeved layer, even in spring.",
+          "A windproof or rain jacket for mountain sections and changeable spring weather.",
+          "A small first-aid kit and a charged phone with an offline map."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Getting to and from the trail"
+      },
+      {
+        "type": "p",
+        "text": "Most stages begin and end in villages that are hard to reach by public transport, and a one-way walk means you finish somewhere other than where you started. A private transfer takes you from Antalya Airport or your hotel to the start of your stage and can collect you at the end. The price is fixed per vehicle, so it works well for groups of walkers; tell us your start and end points, the date and the number of people and we will quote it in advance."
+      }
+    ],
+    "faq": [
+      [
+        "How long is the Lycian Way?",
+        "The waymarked trail runs for more than 500 km between Fethiye and Antalya. Most visitors walk selected stages rather than the whole route."
+      ],
+      [
+        "When is the best time to hike the Lycian Way?",
+        "Spring, from March to May, is the best season, followed by autumn from September to November. Summer is very hot and many springs dry up."
+      ],
+      [
+        "Which Lycian Way stages are closest to Antalya?",
+        "The sections around Göynük and Kemer, Çıralı and Olympos, Adrasan and Phaselis are all within about one to two hours of Antalya. The stages around Kaş are further west."
+      ],
+      [
+        "Can you arrange a transfer to the start of a Lycian Way stage?",
+        "Yes. Send us your start and end points and the date, and we will quote a private transfer at a fixed price per vehicle, including a pickup at the end of your walk."
+      ]
+    ]
   }
 };

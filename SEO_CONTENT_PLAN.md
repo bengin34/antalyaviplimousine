@@ -176,7 +176,11 @@ Mart)**; ilkbahar makalesi Nisan-Mayıs rezervasyonlarını erken yakalamak içi
 | `belek-winter-golf` | "Belek kış golfü" (kapanan kuzey sahaları) | Kasım - Mart | belek, bogazkent, side, antalya |
 | `saklikent-ski-antalya` | "Antalya yakınında kayak", Saklıkent, kayak + deniz | Ocak - Mart | antalya, kemer, belek, side |
 
-8 makale × 23 dil = **184 yeni makale sayfası** (ilk 5 makale 26 Eylül, son 3
+| `pamukkale-trip-from-antalya` | "Antalya'dan Pamukkale", günübirlik mi konaklamalı mı | tüm yıl, özellikle ilkbahar/sonbahar | pamukkale, antalya, side, alanya, belek, kemer |
+| `demre-myra-st-nicholas` | "Demre Aziz Nikolaos Kilisesi", Myra, Kekova | Aralık (6 Aralık, Noel) | kumluca, kas, kemer, antalya |
+| `lycian-way-spring-hiking` | "Likya Yolu yürüyüşü", Antalya yakını etaplar | Mart - Mayıs, Eylül - Kasım | kemer, kas, kumluca, fethiye, antalya |
+
+11 makale × 23 dil = **253 yeni makale sayfası** (ilk 5 makale 26 Eylül, kalan 6
 makale 27 Eylül). Saklıkent listelenmiş bir rota değil; makale sabit fiyatlı
 teklif istemeye yönlendiriyor. Katalogda en üstte duruyorlar;
 böylece blog dizininde, RSS beslemelerinde ve her makalenin "Diğer rehberler"
@@ -194,5 +198,5 @@ gece farkı yok" mesajını tekrarlıyor.
 2. Kasım başında `antalya-in-winter` ve `christmas-new-year-antalya` için
    gösterimleri kontrol et; Aralık başında `updated` tarihini tazele.
 3. Mart'ta `antalya-in-spring` öne alınabilir (katalog sırası).
-4. Sonraki adaylar: Pamukkale günübirlik/konaklamalı gezi, Demre-Myra Noel gezisi,
-   ilkbaharda Likya Yolu yürüyüşü için transfer.
+4. Sonraki adaylar: Köprülü Kanyon rafting, Kaş-Kalkan sonbahar, Antalya'da
+   sağlık turizmi kış sezonu, Side antik kent rehberi.

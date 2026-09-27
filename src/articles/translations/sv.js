@@ -1154,5 +1154,314 @@ export const articles = {
         "Det finns ingen reguljär kollektivtrafik. Vi kan ge dig ett pris på en privat transfer från ditt hotell till skidorten och tillbaka, till fast pris per fordon."
       ]
     ]
+  },
+  "pamukkale-trip-from-antalya": {
+    "slug": "pamukkale-fran-antalya-dagsutflykt",
+    "title": "Pamukkale från Antalya: dagsutflykt eller övernattning, och när du ska åka",
+    "heading": "Pamukkale från Antalya: så planerar du resan",
+    "description": "Planera en utflykt från Antalya till Pamukkale: avstånd och restid, dagsutflykt eller övernattning, travertinerna, Hierapolis, Antika poolen och bästa säsongen.",
+    "excerpt": "Vita travertinterrasser, en romersk stad på kullen och en pool bland antika kolonner. Så besöker du Pamukkale från Antalya utan att sitta hela dagen på en turistbuss.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Pamukkale är en av Turkiets mest kända sevärdheter: vita travertinterrasser fyllda med varmt, mineralrikt vatten och ovanför dem ruinerna av den romerska staden Hierapolis. Från Antalya till Pamukkale är det cirka 245 km med bil, ungefär tre till tre och en halv timme i vardera riktningen – nära nog för en dagsutflykt, men så långt att en övernattning gör besöket betydligt mer avslappnat."
+      },
+      {
+        "type": "h2",
+        "text": "Att se i Pamukkale"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Travertinerna: gå barfota längs terrasserna genom grunt, varmt vatten – skor är inte tillåtna på den vita ytan.",
+          "Hierapolis: en stor romersk stad med teater, en monumental huvudgata och en av Anatoliens största antika begravningsplatser.",
+          "Antika poolen: bada i varmt termalvatten bland nedfallna antika kolonner (separat biljett).",
+          "Hierapolis arkeologiska museum: fynd från platsen, inrymt i de forna romerska baden.",
+          "Laodikeia: en kort bilresa bort, ännu en stor antik stad med betydligt färre besökare."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Dagsutflykt eller övernattning?"
+      },
+      {
+        "type": "table",
+        "head": [
+          "",
+          "Dagsutflykt",
+          "Med övernattning"
+        ],
+        "rows": [
+          [
+            "Restid",
+            "6–7 timmar på en dag",
+            "Uppdelat på två dagar"
+          ],
+          [
+            "Tid på plats",
+            "3–4 timmar, oftast mitt på dagen",
+            "Sen eftermiddag och tidig morgon"
+          ],
+          [
+            "Trängsel",
+            "Kommer samtidigt som turistbussarna",
+            "Solnedgång och morgon med betydligt färre människor"
+          ],
+          [
+            "Passar",
+            "Resenärer med ont om tid",
+            "Familjer, fotografer och alla som vill bada"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "De flesta gruppturer kommer fram mitt på dagen, när terrasserna är som mest välbesökta och den vita ytan på sommaren är bländande och het. Om du övernattar i Pamukkale eller i kurorten Karahayıt ser du travertinerna i solnedgången och igen i morgonens lugn."
+      },
+      {
+        "type": "h2",
+        "text": "Bästa säsongen för Pamukkale"
+      },
+      {
+        "type": "p",
+        "text": "Vår och höst är de behagligaste årstiderna: milda temperaturer för att vandra runt i Hierapolis och skönt vatten på terrasserna. På vintern är det svalt och ibland frost, men det varma vattnet ångar i den kalla luften och platsen är som lugnast. I juli och augusti kan middagshettan och bländningen från de vita terrasserna vara intensiv – åk tidigt eller sent på dagen."
+      },
+      {
+        "type": "h2",
+        "text": "På vägen: Saldasjön och Taurusbergen"
+      },
+      {
+        "type": "p",
+        "text": "Vägen klättrar från kusten över Taurusbergen och genom sjödistriktet. Saldasjön, med sina vita stränder och turkosa vatten, är en kort avstickare och ett populärt fotostopp. Med ett privat fordon bestämmer du själv var och hur länge ni stannar – något en bussutflykt inte kan erbjuda."
+      },
+      {
+        "type": "h2",
+        "text": "Privat transfer till Pamukkale"
+      },
+      {
+        "type": "p",
+        "text": "Vi kör privata transfers från Antalyas flygplats och från hotell längs kusten till Pamukkale, enkel resa eller med återresa ett senare datum. Priset är fast per fordon, så för en familj eller ett litet sällskap är det ofta jämförbart med flera biljetter till en bussutflykt – utan hotellupphämtningar, fast schema eller shoppingstopp."
+      }
+    ],
+    "faq": [
+      [
+        "Hur långt är det från Antalya till Pamukkale?",
+        "Cirka 245 km med bil. Resan tar oftast tre till tre och en halv timme i vardera riktningen."
+      ],
+      [
+        "Kan man besöka Pamukkale på en dagsutflykt från Antalya?",
+        "Ja, men det innebär 6–7 timmar på vägen på en dag. En övernattning i Pamukkale eller Karahayıt gör besöket mer avslappnat och låter dig se terrasserna utan folkmassorna."
+      ],
+      [
+        "Kan man bada i Pamukkale?",
+        "Du kan gå barfota genom de grunda bassängerna på travertinerna. Att simma går bra i Antika poolen, som har varmt termalvatten och kräver separat biljett."
+      ],
+      [
+        "Vilken tid på året är bäst för att besöka Pamukkale?",
+        "Vår och höst är behagligast. Vintern är lugn och stämningsfull; på sommaren är det bäst att besöka platsen tidigt på morgonen eller sent på eftermiddagen."
+      ]
+    ]
+  },
+  "demre-myra-st-nicholas": {
+    "slug": "demre-myra-sankt-nikolaus-kyrka",
+    "title": "Demre och Myra: besök Sankt Nikolaus kyrka från Antalya",
+    "heading": "Demre, Myra och Sankt Nikolaus kyrka",
+    "description": "En utflykt från Antalya till Demre, antikens Myra: Sankt Nikolaus kyrka, lykiska klippgravar, Andriake och Kekova, med restider och tips för ett besök på vintern eller i jul.",
+    "excerpt": "Den riktiga jultomtens hemstad ligger två och en halv timme från Antalya. Vad du ska se i Demre och Myra, och hur du gör en heldag av det längs kusten.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Långt innan han blev jultomten var Sankt Nikolaus biskop i Myra, en lykisk stad vid kusten väster om Antalya. I dag heter orten Demre, och Sankt Nikolaus kyrka där han verkade, de lykiska klippgravarna och den antika hamnen gör den till en av de mest givande dagsutflykterna från Antalya – särskilt i december."
+      },
+      {
+        "type": "h2",
+        "text": "Vem var Sankt Nikolaus av Myra?"
+      },
+      {
+        "type": "p",
+        "text": "Nikolaus levde på 300-talet och blev känd för sin hemliga generositet, särskilt mot barn och fattiga. Hans festdag, den 6 december, firas fortfarande runt om i Europa, och legenderna om honom växte under århundradena till figuren Santa Claus, jultomten. Myra, där han var biskop, blev en viktig pilgrimsort."
+      },
+      {
+        "type": "h2",
+        "text": "Att se i Demre"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Sankt Nikolaus kyrka: en bysantinsk kyrka med fresker, mosaikgolv och den sarkofag som traditionellt förknippas med helgonet.",
+          "Klippgravarna i Myra: lykiska gravar formade som hus, uthuggna i klippväggen ovanför en stor romersk teater.",
+          "Andriake: Myras antika hamn, med ett restaurerat spannmålsmagasin som rymmer Museet för lykiska civilisationer.",
+          "Kekova: båtturer från närliggande Üçağız passerar den delvis sjunkna antika staden och borgbyn Kaleköy (färre båtar går på vintern)."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Dit: kustvägen västerut"
+      },
+      {
+        "type": "p",
+        "text": "Demre ligger cirka två och en halv timme från Antalya längs en av landets vackraste kustvägar, förbi Kemer, bergen runt Olympos, Kumluca och Finike. Vägen är bra året runt men slingrar sig genom bergen, så räkna med tid för stopp och planera inte in den som en stressad körning."
+      },
+      {
+        "type": "h2",
+        "text": "En dag längs kusten"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Morgon: åk tidigt från Antalya och stanna för utsikten över kusten nära Olympos.",
+          "Förmiddag: Sankt Nikolaus kyrka innan turistgrupperna kommer.",
+          "Mitt på dagen: klippgravarna och teatern i Myra, sedan lunch i Demre eller vid Andriake.",
+          "Eftermiddag: en båttur till Kekova under säsong, eller fortsätt till Kaş och övernatta där.",
+          "Kväll: tillbaka till Antalya, eller kombinera utflykten med några dagar i Kaş."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Besök på vintern och i jul"
+      },
+      {
+        "type": "p",
+        "text": "December är en särskilt stämningsfull tid för ett besök: den 6 december är Sankt Nikolaus dag, och runt jul kombinerar många besökare en vistelse i Antalya med en utflykt till helgonets stad. Vinterdagarna är milda men korta, så åk tidigt. Sevärdheterna är öppna året runt, medan båtturerna till Kekova beror på vädret och säsongen."
+      },
+      {
+        "type": "h2",
+        "text": "Privat transfer till Demre"
+      },
+      {
+        "type": "p",
+        "text": "Vi kör privata transfers från Antalya och semesterorterna längs västkusten till Kumluca, Demre och Kaş. Med ett privat fordon väljer du själv stopp och tempo, och priset är fast per fordon, inte per person. Berätta vilket hotell och datum det gäller och om du vill ha återresa samma dag när du bokar."
+      }
+    ],
+    "faq": [
+      [
+        "Hur långt är det från Antalya till Demre?",
+        "Demre, antikens Myra, ligger cirka två och en halv timmes bilresa från Antalya längs kustvägen via Kemer, Kumluca och Finike."
+      ],
+      [
+        "Är Sankt Nikolaus kyrka öppen året runt?",
+        "Ja. Sankt Nikolaus kyrka och den antika platsen Myra är öppna för besökare året runt."
+      ],
+      [
+        "När är Sankt Nikolaus dag?",
+        "Sankt Nikolaus festdag infaller den 6 december. December, inklusive julperioden, är en populär tid att besöka Demre."
+      ],
+      [
+        "Kan jag besöka Demre och Kekova på samma dag?",
+        "Ja, under båtsäsongen går det med en tidig start. På vintern går färre båtar, så kontrollera vädret och tidtabellerna på plats."
+      ]
+    ]
+  },
+  "lycian-way-spring-hiking": {
+    "slug": "lykiska-leden-vandring-nara-antalya",
+    "title": "Vandra Lykiska leden nära Antalya: vårguide till de bästa etapperna",
+    "heading": "Vandra Lykiska leden från Antalya",
+    "description": "Vandra Lykiska leden nära Antalya: bästa säsongen, etapper runt Kemer, Olympos, Adrasan och Kaş, packlista och hur du tar dig till startpunkten för din vandring.",
+    "excerpt": "Antika ruiner, tallskogar och havsutsikt längs en av världens stora vandringsleder. Vilka etapper du kan vandra från Antalya och när du ska åka.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Lykiska leden (Lycian Way) är en markerad långdistansled på mer än 500 km mellan Fethiye och Antalya som följer gamla stigar, åsnestigar och romerska vägar längs kusten och genom bergen i det antika Lykien. Du behöver inte veckor för att vandra Lykiska leden: många av de finaste etapperna ligger nära Antalya och passar perfekt för dagsvandringar eller en kort vandringssemester."
+      },
+      {
+        "type": "h2",
+        "text": "När ska man vandra: vår och höst"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Säsong",
+          "Förhållanden",
+          "Omdöme"
+        ],
+        "rows": [
+          [
+            "Mars – maj",
+            "Milda dagar, gröna kullar, vilda blommor, källor fulla av vatten",
+            "Bästa säsongen"
+          ],
+          [
+            "Juni – augusti",
+            "Mycket varmt, lite skugga på många etapper, uttorkade källor",
+            "Bara tidiga morgnar eller korta turer"
+          ],
+          [
+            "September – november",
+            "Varmt hav, stabilt väder, svalare från slutet av oktober",
+            "Näst bästa säsongen"
+          ],
+          [
+            "December – februari",
+            "Milt vid kusten, regnperioder, snö på de höga passen",
+            "Möjligt på låga kustetapper"
+          ]
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Etapper nära Antalya"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Göynük – Kemerområdet: skogsstigar och utsikt över kanjonen, nära semesterorterna i Kemer.",
+          "Çıralı och Olympos: en kustetapp mellan ruinerna av Olympos och Chimairas eviga lågor.",
+          "Adrasan – Olympos: en av de mest dramatiska sträckorna, med klippor, vikar och vida vyer över havet.",
+          "Runt Kaş: kuststigar med lykiska gravar, små vikar och den grekiska ön Meis utanför kusten.",
+          "Phaselis: kortare vandringar runt den antika staden och dess tre hamnar, perfekt som en första smakbit."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Planera din vandring"
+      },
+      {
+        "type": "p",
+        "text": "Leden är rödvitt markerad, men vissa sträckor är oländiga, steniga och branta, och skyltningen kan vara bristfällig. Använd en bra karta eller ett GPS-spår, vandra helst två och två och berätta för någon vilken rutt du tar. På många etapper finns varken affärer eller vatten mellan byarna, så starta tidigt och bär mer vatten än du tror att du behöver."
+      },
+      {
+        "type": "h2",
+        "text": "Packlista"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Vandringskängor eller stadiga terrängskor – kalkstenen är vass och lös på sina ställen.",
+          "Minst två liter vatten per person, plus snacks.",
+          "Solhatt, solskydd och ett lätt långärmat plagg, även på våren.",
+          "En vindtät jacka eller regnjacka för bergssträckor och växlande vårväder.",
+          "Ett litet första hjälpen-kit och en laddad mobil med offlinekarta."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Till och från leden"
+      },
+      {
+        "type": "p",
+        "text": "De flesta etapper börjar och slutar i byar som är svåra att nå med kollektivtrafik, och vandrar du i en riktning slutar du någon annanstans än där du började. En privat transfer tar dig från Antalyas flygplats eller ditt hotell till starten av din etapp och kan hämta dig vid målet. Priset är fast per fordon, så det passar bra för vandringsgrupper; berätta start- och slutpunkt, datum och antal personer så lämnar vi prisuppgift i förväg."
+      }
+    ],
+    "faq": [
+      [
+        "Hur lång är Lykiska leden?",
+        "Den markerade leden är mer än 500 km lång och går mellan Fethiye och Antalya. De flesta besökare vandrar utvalda etapper snarare än hela sträckan."
+      ],
+      [
+        "När är bästa tiden att vandra Lykiska leden?",
+        "Våren, från mars till maj, är bästa säsongen, följd av hösten från september till november. Sommaren är mycket varm och många källor torkar ut."
+      ],
+      [
+        "Vilka etapper av Lykiska leden ligger närmast Antalya?",
+        "Sträckorna runt Göynük och Kemer, Çıralı och Olympos, Adrasan och Phaselis ligger alla ungefär en till två timmar från Antalya. Etapperna runt Kaş ligger längre västerut."
+      ],
+      [
+        "Kan man ordna transfer till starten av en etapp på Lykiska leden?",
+        "Ja. Skicka oss start- och slutpunkt och datum, så lämnar vi prisuppgift på en privat transfer till fast pris per fordon, inklusive upphämtning när vandringen är slut."
+      ]
+    ]
   }
 };

@@ -1444,5 +1444,314 @@ export const articles = {
         "Er is geen geregeld openbaar vervoer. We maken graag een offerte voor een privétransfer van je hotel naar het skigebied en terug, tegen een vaste prijs per voertuig."
       ]
     ]
+  },
+  "pamukkale-trip-from-antalya": {
+    "slug": "pamukkale-vanuit-antalya",
+    "title": "Pamukkale vanuit Antalya: dagtrip of overnachten, en wanneer gaan?",
+    "heading": "Pamukkale vanuit Antalya: zo plan je de reis",
+    "description": "Pamukkale vanuit Antalya plannen: afstand en reistijd, dagtrip of overnachting, de travertijnterrassen, Hierapolis en het Antieke Bad, en het beste seizoen om te gaan.",
+    "excerpt": "Witte travertijnterrassen, een Romeinse stad op de heuvel en een zwembad tussen antieke zuilen. Zo bezoek je Pamukkale vanuit Antalya zonder de hele dag in een touringcar te zitten.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Pamukkale is een van de bekendste bezienswaardigheden van Turkije: witte travertijnterrassen gevuld met warm, mineraalrijk water, en daarboven de ruïnes van de Romeinse stad Hierapolis. Van Antalya naar Pamukkale is het ongeveer 245 km over de weg, zo'n drie tot drieënhalf uur per richting – dichtbij genoeg voor een dagtrip, maar ver genoeg om met een overnachting het bezoek een stuk ontspannener te maken."
+      },
+      {
+        "type": "h2",
+        "text": "Wat te zien in Pamukkale"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "De travertijnen: loop op blote voeten over de terrassen door ondiep, warm water – schoenen zijn op het witte oppervlak niet toegestaan.",
+          "Hierapolis: een grote Romeinse stad met een theater, een monumentale straat en een van de grootste antieke begraafplaatsen van Anatolië.",
+          "Het Antieke Bad: zwem in warm thermaalwater tussen omgevallen antieke zuilen (apart ticket).",
+          "Archeologisch Museum van Hierapolis: vondsten uit de opgraving, ondergebracht in de voormalige Romeinse baden.",
+          "Laodicea: op korte rijafstand, nog een grote antieke stad met veel minder bezoekers."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Dagtrip of overnachten?"
+      },
+      {
+        "type": "table",
+        "head": [
+          "",
+          "Dagtrip",
+          "Met overnachting"
+        ],
+        "rows": [
+          [
+            "Reistijd",
+            "6-7 uur op één dag",
+            "Verdeeld over twee dagen"
+          ],
+          [
+            "Tijd ter plaatse",
+            "3-4 uur, meestal rond het middaguur",
+            "Late middag en vroege ochtend"
+          ],
+          [
+            "Drukte",
+            "Aankomst samen met de touringcars",
+            "Zonsondergang en ochtend met veel minder mensen"
+          ],
+          [
+            "Geschikt voor",
+            "Reizigers met weinig tijd",
+            "Gezinnen, fotografen en iedereen die wil zwemmen"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "De meeste groepsreizen komen rond het middaguur aan, wanneer het op de terrassen het drukst is en het witte oppervlak in de zomer verblindend en heet is. Wie overnacht in Pamukkale of in het kuurdorp Karahayıt, ziet de travertijnen bij zonsondergang en nog een keer in de rust van de ochtend."
+      },
+      {
+        "type": "h2",
+        "text": "Het beste seizoen voor Pamukkale"
+      },
+      {
+        "type": "p",
+        "text": "Voorjaar en herfst zijn het aangenaamst: milde temperaturen om door Hierapolis te wandelen en prettig water op de terrassen. In de winter is het koel en soms vriest het, maar het warme water dampt in de koude lucht en het is er dan het rustigst. In juli en augustus kunnen de middaghitte en de schittering op de witte terrassen heel intens zijn – ga vroeg of laat op de dag."
+      },
+      {
+        "type": "h2",
+        "text": "Onderweg: het Saldameer en het Taurusgebergte"
+      },
+      {
+        "type": "p",
+        "text": "De weg klimt vanaf de kust over het Taurusgebergte en door het merengebied. Het Saldameer, met witte oevers en turquoise water, is een korte omweg en een populaire fotostop. Met een privévoertuig bepaal je zelf waar en hoe lang je stopt – iets wat een bustour niet kan bieden."
+      },
+      {
+        "type": "h2",
+        "text": "Privétransfer naar Pamukkale"
+      },
+      {
+        "type": "p",
+        "text": "Wij verzorgen privétransfers van de luchthaven van Antalya en van hotels aan de kust naar Pamukkale, enkele reis of met een terugrit op een latere datum. De prijs is vast per voertuig, dus voor een gezin of kleine groep is die vaak vergelijkbaar met meerdere tickets voor een bustour – zonder het ophalen bij andere hotels, het vaste schema of de winkelstops."
+      }
+    ],
+    "faq": [
+      [
+        "Hoe ver is Pamukkale van Antalya?",
+        "Ongeveer 245 km over de weg. De rit duurt meestal drie tot drieënhalf uur per richting."
+      ],
+      [
+        "Kun je Pamukkale als dagtrip vanuit Antalya bezoeken?",
+        "Ja, maar dat betekent 6-7 uur onderweg op één dag. Een overnachting in Pamukkale of Karahayıt maakt het bezoek ontspannener en je ziet de terrassen zonder de drukte."
+      ],
+      [
+        "Kun je zwemmen in Pamukkale?",
+        "Op de travertijnen kun je op blote voeten door de ondiepe baden lopen. Zwemmen kan in het Antieke Bad, met warm thermaalwater en een apart ticket."
+      ],
+      [
+        "Wat is de beste tijd van het jaar voor Pamukkale?",
+        "Voorjaar en herfst zijn het aangenaamst. De winter is rustig en sfeervol; in de zomer ga je het best vroeg in de ochtend of laat in de middag."
+      ]
+    ]
+  },
+  "demre-myra-st-nicholas": {
+    "slug": "demre-myra-sint-nicolaaskerk",
+    "title": "Demre en Myra: de Sint-Nicolaaskerk bezoeken vanuit Antalya",
+    "heading": "Demre, Myra en de Sint-Nicolaaskerk",
+    "description": "Een uitstapje van Antalya naar Demre, het antieke Myra: de Sint-Nicolaaskerk, Lycische rotsgraven, Andriake en Kekova, met reistijden en tips voor een bezoek in de winter of met kerst.",
+    "excerpt": "De woonplaats van de echte Sinterklaas ligt op tweeënhalf uur van Antalya. Wat je in Demre en Myra kunt zien en hoe je er een mooie dag langs de kust van maakt.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Lang voordat hij Sinterklaas en de Kerstman werd, was Sint-Nicolaas bisschop van Myra, een Lycische stad aan de kust ten westen van Antalya. Tegenwoordig heet de plaats Demre, en de Sint-Nicolaaskerk waar hij diende, de Lycische rotsgraven en de antieke haven maken het tot een van de mooiste dagtrips vanuit Antalya – vooral in december."
+      },
+      {
+        "type": "h2",
+        "text": "Wie was Sint-Nicolaas van Myra?"
+      },
+      {
+        "type": "p",
+        "text": "Nicolaas leefde in de 4e eeuw en werd beroemd om zijn geheime vrijgevigheid, vooral tegenover kinderen en armen. Zijn feestdag, 6 december, wordt nog altijd in heel Europa gevierd, en de legenden rond hem groeiden in de loop van de eeuwen uit tot de figuur van de Kerstman. Myra, waar hij bisschop was, werd een belangrijk bedevaartsoord."
+      },
+      {
+        "type": "h2",
+        "text": "Wat te zien in Demre"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Sint-Nicolaaskerk: een Byzantijnse kerk met fresco's, mozaïekvloeren en de sarcofaag die traditioneel met de heilige in verband wordt gebracht.",
+          "Rotsgraven van Myra: Lycische graven in de vorm van huizen, uitgehouwen in de rotswand boven een groot Romeins theater.",
+          "Andriake: de antieke haven van Myra, met een gerestaureerde graanschuur waarin het Museum van Lycische Beschavingen is gevestigd.",
+          "Kekova: boottochten vanuit het nabijgelegen Üçağız varen langs de deels verzonken antieke stad en het burchtdorp Kaleköy (in de winter varen er minder boten)."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "De reis: de kustweg naar het westen"
+      },
+      {
+        "type": "p",
+        "text": "Demre ligt op ongeveer tweeënhalf uur van Antalya, langs een van de mooiste kustwegen van het land, via Kemer, de bergen rond Olympos, Kumluca en Finike. De weg is het hele jaar goed, maar slingert door de bergen, dus neem de tijd voor stops en maak er geen haastklus van."
+      },
+      {
+        "type": "h2",
+        "text": "Een dag langs de kust"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Ochtend: vertrek vroeg uit Antalya en stop bij Olympos voor het uitzicht over de kust.",
+          "Late ochtend: de Sint-Nicolaaskerk, voordat de reisgroepen aankomen.",
+          "Middag: de rotsgraven en het theater van Myra, daarna lunch in Demre of in Andriake.",
+          "Namiddag: in het seizoen een boottocht naar Kekova, of doorrijden naar Kaş en daar overnachten.",
+          "Avond: terug naar Antalya, of combineer de trip met een paar dagen in Kaş."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Een bezoek in de winter en met kerst"
+      },
+      {
+        "type": "p",
+        "text": "December is een bijzonder sfeervolle tijd voor een bezoek: 6 december is de feestdag van Sint-Nicolaas, en rond kerst combineren veel bezoekers een verblijf in Antalya met een uitstapje naar de stad van de heilige. De winterdagen zijn mild maar kort, dus vertrek op tijd. De bezienswaardigheden zijn het hele jaar open; boottochten naar Kekova hangen af van het weer en het seizoen."
+      },
+      {
+        "type": "h2",
+        "text": "Privétransfer naar Demre"
+      },
+      {
+        "type": "p",
+        "text": "Wij verzorgen privétransfers vanuit Antalya en de badplaatsen langs de westkust naar Kumluca, Demre en Kaş. Met een privévoertuig kies je zelf de stops en het tempo, en de prijs is vast per voertuig, niet per persoon. Laat ons bij het boeken je hotel en datum weten, en of je dezelfde dag terug wilt."
+      }
+    ],
+    "faq": [
+      [
+        "Hoe ver is Demre van Antalya?",
+        "Demre, het antieke Myra, ligt op ongeveer tweeënhalf uur rijden van Antalya, over de kustweg via Kemer, Kumluca en Finike."
+      ],
+      [
+        "Is de Sint-Nicolaaskerk het hele jaar open?",
+        "Ja. De Sint-Nicolaaskerk en de antieke stad Myra zijn het hele jaar door open voor bezoekers."
+      ],
+      [
+        "Wanneer is de feestdag van Sint-Nicolaas?",
+        "De feestdag van Sint-Nicolaas valt op 6 december. December, inclusief de kerstperiode, is een populaire tijd om Demre te bezoeken."
+      ],
+      [
+        "Kan ik Demre en Kekova op één dag bezoeken?",
+        "Ja, in het bootseizoen kan dat als je vroeg vertrekt. In de winter varen er minder boten, dus check ter plaatse het weer en de vaartijden."
+      ]
+    ]
+  },
+  "lycian-way-spring-hiking": {
+    "slug": "lycische-weg-wandelen-bij-antalya",
+    "title": "Wandelen op de Lycische Weg bij Antalya: de mooiste etappes in het voorjaar",
+    "heading": "Wandelen op de Lycische Weg vanuit Antalya",
+    "description": "Wandelen op de Lycische Weg bij Antalya: het beste seizoen, etappes rond Kemer, Olympos, Adrasan en Kaş, wat je meeneemt en hoe je bij het startpunt van je wandeling komt.",
+    "excerpt": "Antieke ruïnes, pijnbossen en uitzicht over zee langs een van de grote langeafstandsroutes ter wereld. Welke etappes je vanuit Antalya kunt lopen en wanneer je het best gaat.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "De Lycische Weg (Lycian Way) is een gemarkeerde langeafstandsroute van meer dan 500 km tussen Fethiye en Antalya, over oude paden, ezelspaden en Romeinse wegen langs de kust en door de bergen van het antieke Lycië. Voor wandelen op de Lycische Weg heb je geen weken nodig: veel van de mooiste etappes liggen vlak bij Antalya en zijn uitstekend als dagwandeling of korte wandelvakantie."
+      },
+      {
+        "type": "h2",
+        "text": "Wanneer wandelen: voorjaar en herfst"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Seizoen",
+          "Omstandigheden",
+          "Oordeel"
+        ],
+        "rows": [
+          [
+            "Maart - mei",
+            "Milde dagen, groene heuvels, wilde bloemen, bronnen vol water",
+            "Het beste seizoen"
+          ],
+          [
+            "Juni - augustus",
+            "Erg heet, weinig schaduw op veel etappes, droge bronnen",
+            "Alleen vroeg in de ochtend of korte wandelingen"
+          ],
+          [
+            "September - november",
+            "Warme zee, stabiel weer, koeler vanaf eind oktober",
+            "Het op één na beste seizoen"
+          ],
+          [
+            "December - februari",
+            "Mild aan de kust, regenperiodes, sneeuw op de hoge passen",
+            "Mogelijk op lage kustetappes"
+          ]
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Etappes bij Antalya"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Göynük – omgeving Kemer: bospaden en uitzicht op de kloof, vlak bij de badplaatsen van Kemer.",
+          "Çıralı en Olympos: een kustetappe tussen de ruïnes van Olympos en de eeuwige vlammen van de Chimaera.",
+          "Adrasan – Olympos: een van de spectaculairste delen, met kliffen, baaien en weidse uitzichten over zee.",
+          "Rond Kaş: kustpaden met Lycische graven, kleine baaien en het Griekse eiland Meis voor de kust.",
+          "Phaselis: kortere wandelingen rond de antieke stad en haar drie havens, ideaal om eens te proeven."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Je wandeling plannen"
+      },
+      {
+        "type": "p",
+        "text": "De route is rood-wit gemarkeerd, maar sommige delen zijn ruig, rotsachtig en steil, en de bewegwijzering kan gebrekkig zijn. Gebruik een goede kaart of een gps-track, loop waar mogelijk met z'n tweeën en laat iemand weten welke route je loopt. Op veel etappes zijn er tussen de dorpen geen winkels of water, dus start vroeg en neem meer water mee dan je denkt nodig te hebben."
+      },
+      {
+        "type": "h2",
+        "text": "Wat neem je mee?"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Wandelschoenen of stevige trailschoenen – de kalksteen is op sommige plekken scherp en los.",
+          "Minstens twee liter water per persoon, plus snacks.",
+          "Zonnehoed, zonnebrand en een lichte laag met lange mouwen, ook in het voorjaar.",
+          "Een winddicht jack of regenjas voor berggedeelten en wisselvallig voorjaarsweer.",
+          "Een kleine EHBO-set en een opgeladen telefoon met een offline kaart."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Van en naar de route"
+      },
+      {
+        "type": "p",
+        "text": "De meeste etappes beginnen en eindigen in dorpen die met het openbaar vervoer lastig te bereiken zijn, en bij een wandeling in één richting eindig je ergens anders dan waar je begon. Een privétransfer brengt je van de luchthaven van Antalya of je hotel naar het begin van je etappe en kan je aan het eind weer ophalen. De prijs is vast per voertuig, dus het werkt goed voor groepen wandelaars; geef ons je start- en eindpunt, de datum en het aantal personen door en we sturen je vooraf een prijsopgave."
+      }
+    ],
+    "faq": [
+      [
+        "Hoe lang is de Lycische Weg?",
+        "De gemarkeerde route is meer dan 500 km lang en loopt tussen Fethiye en Antalya. De meeste bezoekers lopen geselecteerde etappes in plaats van de hele route."
+      ],
+      [
+        "Wat is de beste tijd om de Lycische Weg te lopen?",
+        "Het voorjaar, van maart tot mei, is het beste seizoen, gevolgd door de herfst van september tot november. De zomer is erg heet en veel bronnen drogen op."
+      ],
+      [
+        "Welke etappes van de Lycische Weg liggen het dichtst bij Antalya?",
+        "De delen rond Göynük en Kemer, Çıralı en Olympos, Adrasan en Phaselis liggen allemaal op ongeveer een tot twee uur van Antalya. De etappes rond Kaş liggen verder naar het westen."
+      ],
+      [
+        "Kun je een transfer regelen naar het begin van een etappe van de Lycische Weg?",
+        "Ja. Stuur ons je start- en eindpunt en de datum, dan sturen we een prijsopgave voor een privétransfer tegen een vaste prijs per voertuig, inclusief ophalen aan het eind van je wandeling."
+      ]
+    ]
   }
 };

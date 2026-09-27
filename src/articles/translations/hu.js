@@ -1154,5 +1154,314 @@ export const articles = {
         "Nincs rendszeres tömegközlekedés. Adhatunk ajánlatot privát transzferre a szállodádtól a síközpontig és vissza, járművenként fix áron."
       ]
     ]
+  },
+  "pamukkale-trip-from-antalya": {
+    "slug": "pamukkale-kirandulas-antalyabol",
+    "title": "Pamukkale Antalyából: egynapos kirándulás vagy éjszakázással, és mikor menjünk",
+    "heading": "Pamukkale kirándulás Antalyából: így tervezd meg",
+    "description": "Pamukkale kirándulás Antalyából: távolság és menetidő, egy nap vagy éjszakázással, a mésztufateraszok, Hierapolisz és az Antik medence, valamint a legjobb évszak.",
+    "excerpt": "Fehér mésztufateraszok, római város a dombon és medence ókori oszlopok között. Így látogathatod meg Pamukkalét Antalyából anélkül, hogy az egész napot buszon töltenéd.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Egy Pamukkale kirándulás Antalyából Törökország egyik leghíresebb látnivalójához visz: meleg, ásványokban gazdag vízzel teli fehér mésztufateraszokhoz, fölöttük pedig Hierapolisz római város romjaihoz. Antalyából közúton körülbelül 245 km, irányonként nagyjából három-három és fél óra - elég közel egy egynapos kiránduláshoz, de elég messze ahhoz, hogy egy éjszaka ott alvás sokkal nyugodtabbá tegye a látogatást."
+      },
+      {
+        "type": "h2",
+        "text": "Mit érdemes megnézni Pamukkaléban?"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "A mésztufateraszok: sétálj mezítláb a teraszokon a sekély, meleg vízben - a fehér felületen cipőben járni tilos.",
+          "Hierapolisz: kiterjedt római város színházzal, monumentális utcával és Anatólia egyik legnagyobb ókori temetőjével.",
+          "Az Antik medence: ússz meleg termálvízben ledőlt ókori oszlopok között (külön jegy).",
+          "A Hierapoliszi Régészeti Múzeum: a lelőhely leletei az egykori római fürdő épületében.",
+          "Laodikeia: rövid autóútra egy másik nagy ókori város, sokkal kevesebb látogatóval."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Egynapos kirándulás vagy éjszakázással?"
+      },
+      {
+        "type": "table",
+        "head": [
+          "",
+          "Egynapos kirándulás",
+          "Egy éjszaka ott alvással"
+        ],
+        "rows": [
+          [
+            "Úton töltött idő",
+            "6-7 óra egyetlen nap alatt",
+            "Két napra elosztva"
+          ],
+          [
+            "Idő a helyszínen",
+            "3-4 óra, általában délben",
+            "Késő délután és kora reggel"
+          ],
+          [
+            "Tömeg",
+            "A turistabuszokkal együtt érkezel",
+            "Naplemente és reggel sokkal kevesebb emberrel"
+          ],
+          [
+            "Kinek ajánlott",
+            "Kevés idővel rendelkező utazóknak",
+            "Családoknak, fotósoknak, bárkinek, aki fürdeni szeretne"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "A csoportos túrák többsége a nap közepén érkezik, amikor a teraszok a legzsúfoltabbak, nyáron pedig a fehér felület vakító és forró. Ha Pamukkaléban vagy a termálfaluként ismert Karahayıtban töltesz egy éjszakát, a mésztufateraszokat naplementekor és a reggeli csendben is láthatod."
+      },
+      {
+        "type": "h2",
+        "text": "A legjobb évszak Pamukkaléhoz"
+      },
+      {
+        "type": "p",
+        "text": "A tavasz és az ősz a legkellemesebb: enyhe hőmérséklet a hierapoliszi sétához és kellemes víz a teraszokon. Télen hűvös van, olykor fagy is, de a meleg víz gőzölög a hideg levegőben, és a helyszín ilyenkor a legcsendesebb. Júliusban és augusztusban a déli hőség és a fehér teraszok vakító fénye nagyon erős lehet - menj korán reggel vagy késő délután."
+      },
+      {
+        "type": "h2",
+        "text": "Útközben: a Salda-tó és a Taurus-hegység"
+      },
+      {
+        "type": "p",
+        "text": "Az út a tengerpartról a Taurus-hegységen át kapaszkodik fel, majd a tóvidéken halad keresztül. A fehér partú, türkizkék vizű Salda-tó csak rövid kitérő, és népszerű fotós megálló. Saját autóval te döntöd el, hol és mennyi ideig állsz meg - ezt egy buszos túra nem tudja megadni."
+      },
+      {
+        "type": "h2",
+        "text": "Privát transzfer Pamukkaléba"
+      },
+      {
+        "type": "p",
+        "text": "Privát transzfert biztosítunk az antalyai repülőtérről és a tengerparti szállodákból Pamukkaléba, egy irányba vagy későbbi időpontban történő visszaúttal. Az ár járművenként fix, így egy család vagy kisebb csoport számára gyakran több buszos túrajegy árával vethető össze - szállodáról szállodára gyűjtés, kötött menetrend és vásárlási megállók nélkül."
+      }
+    ],
+    "faq": [
+      [
+        "Milyen messze van Pamukkale Antalyától?",
+        "Közúton körülbelül 245 km. Az út általában irányonként három-három és fél órát vesz igénybe."
+      ],
+      [
+        "Meg lehet nézni Pamukkalét egynapos kirándulással Antalyából?",
+        "Igen, de ez egyetlen nap alatt 6-7 óra utazást jelent. Egy éjszaka Pamukkaléban vagy Karahayıtban nyugodtabbá teszi a látogatást, és tömeg nélkül láthatod a teraszokat."
+      ],
+      [
+        "Lehet fürdeni Pamukkaléban?",
+        "A mésztufateraszok sekély medencéiben mezítláb sétálhatsz. Úszni az Antik medencében lehet, amelynek meleg termálvize van, és külön jegy kell hozzá."
+      ],
+      [
+        "Melyik évszakban a legjobb Pamukkaléba menni?",
+        "A tavasz és az ősz a legkellemesebb. A tél csendes és hangulatos; nyáron kora reggel vagy késő délután érdemes menni."
+      ]
+    ]
+  },
+  "demre-myra-st-nicholas": {
+    "slug": "demre-mira-szent-miklos-templom",
+    "title": "Demre és Mira: a Szent Miklós-templom meglátogatása Antalyából",
+    "heading": "Demre, Mira és a Szent Miklós-templom",
+    "description": "Kirándulás Antalyából Demrébe, az ókori Mirába: a Szent Miklós-templom, a líkiai sziklasírok, Andriaké és Kekova, menetidőkkel és tippekkel téli vagy karácsonyi látogatáshoz.",
+    "excerpt": "Az igazi Mikulás városa két és fél órára van Antalyától. Mit érdemes megnézni Demrében és Mirában, és hogyan lesz belőle egy egész napos út a part mentén.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Jóval azelőtt, hogy Mikulás lett volna belőle, Szent Miklós Mira püspöke volt - egy líkiai városé Antalyától nyugatra, a tengerparton. A várost ma Demrének hívják, és a demrei Szent Miklós-templom, ahol szolgált, a sziklába vájt líkiai sírok és az ókori kikötő Antalya egyik legérdekesebb egynapos kirándulásává teszik - különösen decemberben."
+      },
+      {
+        "type": "h2",
+        "text": "Ki volt Myrai Szent Miklós?"
+      },
+      {
+        "type": "p",
+        "text": "Miklós a 4. században élt, és titokban gyakorolt jótetteiről vált híressé, különösen a gyermekek és a szegények iránt. Ünnepét, december 6-át ma is egész Európában megülik, a körülötte szövődött legendákból pedig az évszázadok során a Mikulás alakja született. Mira, ahol püspök volt, fontos zarándokhellyé vált."
+      },
+      {
+        "type": "h2",
+        "text": "Mit érdemes megnézni Demrében?"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Szent Miklós-templom: bizánci templom freskókkal, mozaikpadlóval és a hagyomány szerint a szenthez kötött szarkofággal.",
+          "Mira sziklasírjai: házat formázó líkiai sírok a sziklafalba vájva, egy nagy római színház fölött.",
+          "Andriaké: Mira ókori kikötője, felújított gabonaraktárral, amelyben a Líkiai Civilizációk Múzeuma működik.",
+          "Kekova: a közeli Üçağızból induló hajótúrák elhaladnak a részben víz alá süllyedt ókori város és a várral koronázott Kaleköy falu mellett (télen kevesebb hajó jár)."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Odajutás: a parti út nyugat felé"
+      },
+      {
+        "type": "p",
+        "text": "Demre körülbelül két és fél órára van Antalyától, az ország egyik legszebb parti útján, amely Kemeren, az Olympos körüli hegyeken, Kumlucán és Finikén halad át. Az út egész évben jó, de kanyarog a hegyek között, ezért hagyj időt a megállókra, és ne kapkodva tervezd."
+      },
+      {
+        "type": "h2",
+        "text": "Egy nap a part mentén"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Reggel: indulj korán Antalyából, és állj meg egy kilátásért a partra Olympos közelében.",
+          "Délelőtt: a Szent Miklós-templom, még a turistacsoportok érkezése előtt.",
+          "Délben: Mira sziklasírjai és színháza, utána ebéd Demrében vagy Andriakéban.",
+          "Délután: szezonban hajókirándulás Kekovához, vagy továbbutazás Kaşba és ottalvás.",
+          "Este: visszaút Antalyába, vagy a kirándulás összekötése néhány kaşi nappal."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Látogatás télen és karácsonykor"
+      },
+      {
+        "type": "p",
+        "text": "December különösen hangulatos időszak a látogatásra: december 6. Szent Miklós napja, karácsony táján pedig sok látogató köti össze antalyai tartózkodását egy kirándulással a szent városába. A téli napok enyhék, de rövidek, ezért indulj korán. A látnivalók egész évben nyitva vannak, a kekovai hajótúrák viszont az időjárástól és a szezontól függnek."
+      },
+      {
+        "type": "h2",
+        "text": "Privát transzfer Demrébe"
+      },
+      {
+        "type": "p",
+        "text": "Privát transzfert biztosítunk Antalyából és a nyugati part üdülőhelyeiről Kumlucába, Demrébe és Kaşba. Saját járművel te választod meg a megállókat és a tempót, az ár pedig járművenként fix, nem személyenként. Foglaláskor add meg a szállodádat, a dátumot, és hogy kérsz-e aznapi visszautat."
+      }
+    ],
+    "faq": [
+      [
+        "Milyen messze van Demre Antalyától?",
+        "Demre, az ókori Mira, közúton körülbelül két és fél órára van Antalyától a Kemeren, Kumlucán és Finikén át vezető parti úton."
+      ],
+      [
+        "Egész évben nyitva van a Szent Miklós-templom?",
+        "Igen. A Szent Miklós-templom és Mira ókori romjai egész évben látogathatók."
+      ],
+      [
+        "Mikor van Szent Miklós napja?",
+        "Szent Miklós ünnepe december 6-án van. December, a karácsonyi időszakot is beleértve, népszerű időpont Demre meglátogatására."
+      ],
+      [
+        "Meg lehet nézni Demrét és Kekovát egy nap alatt?",
+        "Igen, hajószezonban korai indulással ez megoldható. Télen kevesebb hajó jár, ezért a helyszínen érdeklődj az időjárásról és a menetrendről."
+      ]
+    ]
+  },
+  "lycian-way-spring-hiking": {
+    "slug": "likiai-ut-turazas-antalya-kozeleben",
+    "title": "Túrázás a Likiai úton Antalya közelében: tavaszi útmutató a legszebb szakaszokhoz",
+    "heading": "Túrázás a Likiai úton Antalyából",
+    "description": "Túrázás a Likiai úton Antalya közelében: a legjobb évszak, szakaszok Kemer, Olympos, Adrasan és Kaş környékén, mit pakolj, és hogyan juthatsz el a túra kiindulópontjához.",
+    "excerpt": "Ókori romok, fenyőerdők és kilátás a tengerre a világ egyik nagy távolsági túraútvonalán. Mely szakaszokat érdemes Antalyából bejárni, és mikor menj.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "A Likiai út (Likya Yolu) több mint 500 km hosszú, jelzett távolsági túraútvonal Fethiye és Antalya között, amely régi ösvényeket, öszvérutakat és római utakat követ a tengerparton és az ókori Líkia hegyei között. Nem kell hozzá hetekig menetelni: a Likiai út számos legszebb szakasza könnyen elérhető Antalyából, és kiváló egynapos túrákat vagy rövid túrázós nyaralást kínál."
+      },
+      {
+        "type": "h2",
+        "text": "Mikor érdemes menni: tavasszal és ősszel"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Évszak",
+          "Körülmények",
+          "Értékelés"
+        ],
+        "rows": [
+          [
+            "Március - május",
+            "Enyhe napok, zöld dombok, vadvirágok, bővizű források",
+            "A legjobb évszak"
+          ],
+          [
+            "Június - augusztus",
+            "Nagyon meleg, sok szakaszon kevés árnyék, kiszáradt források",
+            "Csak kora reggel vagy rövid túrák"
+          ],
+          [
+            "Szeptember - november",
+            "Meleg tenger, stabil időjárás, október végétől hűvösebb",
+            "A második legjobb évszak"
+          ],
+          [
+            "December - február",
+            "Enyhe a parton, esős időszakok, hó a magas hágókon",
+            "Az alacsony parti szakaszokon lehetséges"
+          ]
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Szakaszok Antalya közelében"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Göynük - Kemer környéke: erdei ösvények és kanyonkilátás a kemeri üdülőhelyek közelében.",
+          "Çıralı és Olympos: parti szakasz Olympos romjai és a Khimaira örök lángjai között.",
+          "Adrasan - Olympos: az egyik leglátványosabb szakasz sziklafalakkal, öblökkel és messzire nyúló tengeri kilátással.",
+          "Kaş környéke: parti ösvények líkiai sírokkal, kis öblökkel és a partok előtt a görög Meis (Kasztellorizo) szigettel.",
+          "Phaselis: rövidebb séták az ókori város és három kikötője körül, ideálisak az első ízelítőhöz."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "A túra megtervezése"
+      },
+      {
+        "type": "p",
+        "text": "Az útvonal piros-fehér jelzésű, de egyes szakaszai egyenetlenek, kövesek és meredekek, a jelzések pedig helyenként hiányosak lehetnek. Használj jó térképet vagy GPS-nyomvonalat, lehetőleg ne egyedül menj, és szólj valakinek az útvonaladról. Sok szakaszon a falvak között nincs sem bolt, sem víz, ezért indulj korán, és vigyél több vizet, mint amennyire szerinted szükséged lesz."
+      },
+      {
+        "type": "h2",
+        "text": "Mit pakolj?"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Túrabakancs vagy strapabíró terepfutó cipő - a mészkő helyenként éles és laza.",
+          "Fejenként legalább két liter víz, plusz nassolnivaló.",
+          "Napkalap, naptej és egy vékony, hosszú ujjú réteg, még tavasszal is.",
+          "Szél- vagy esőkabát a hegyi szakaszokra és a változékony tavaszi időre.",
+          "Kis elsősegélycsomag és feltöltött telefon offline térképpel."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Eljutás a túraútvonalra és vissza"
+      },
+      {
+        "type": "p",
+        "text": "A legtöbb szakasz olyan falvakban kezdődik és végződik, amelyek tömegközlekedéssel nehezen érhetők el, egy egyirányú túra pedig azt jelenti, hogy máshol érsz célba, mint ahonnan elindultál. Egy privát transzfer az antalyai repülőtérről vagy a szállodádból elvisz a szakasz kezdetéhez, és a végén érted is tud menni. Az ár járművenként fix, így túracsoportoknak is jól működik; add meg a kiinduló- és a végpontot, a dátumot és a létszámot, és előre megküldjük az árajánlatot."
+      }
+    ],
+    "faq": [
+      [
+        "Milyen hosszú a Likiai út?",
+        "A jelzett útvonal több mint 500 km hosszú Fethiye és Antalya között. A legtöbb látogató nem a teljes utat, hanem kiválasztott szakaszokat jár be."
+      ],
+      [
+        "Mikor a legjobb túrázni a Likiai úton?",
+        "A tavasz, márciustól májusig, a legjobb évszak, ezt követi az ősz szeptembertől novemberig. Nyáron nagyon meleg van, és sok forrás kiszárad."
+      ],
+      [
+        "A Likiai út mely szakaszai vannak legközelebb Antalyához?",
+        "A Göynük és Kemer, Çıralı és Olympos, Adrasan és Phaselis környéki szakaszok mind körülbelül egy-két órára vannak Antalyától. A Kaş környéki szakaszok nyugatabbra esnek."
+      ],
+      [
+        "Lehet transzfert kérni a Likiai út egy szakaszának kezdőpontjához?",
+        "Igen. Küldd el a kiinduló- és végpontot, valamint a dátumot, és járművenként fix áras ajánlatot adunk privát transzferre, a túra végén történő felvétellel együtt."
+      ]
+    ]
   }
 };

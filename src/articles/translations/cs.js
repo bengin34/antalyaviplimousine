@@ -1154,5 +1154,314 @@ export const articles = {
         "Pravidelná veřejná doprava tam nejezdí. Připravíme vám nabídku soukromého transferu z hotelu do lyžařského střediska a zpět za pevnou cenu za vozidlo."
       ]
     ]
+  },
+  "pamukkale-trip-from-antalya": {
+    "slug": "pamukkale-z-antalye",
+    "title": "Pamukkale z Antalye: jednodenní výlet, nebo s přespáním, a kdy jet",
+    "heading": "Pamukkale z Antalye: jak naplánovat výlet",
+    "description": "Výlet z Antalye do Pamukkale: vzdálenost a doba jízdy, jednodenní výlet, nebo s přespáním, travertiny, Hierapolis, Antický bazén a nejlepší roční období.",
+    "excerpt": "Bílé travertinové terasy, římské město na kopci a bazén mezi antickými sloupy. Jak navštívit Pamukkale z Antalye a nestrávit celý den v autobuse.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Výlet do Pamukkale z Antalye patří k nejslavnějším zážitkům v Turecku: bílé travertinové terasy plné teplé vody bohaté na minerály a nad nimi ruiny římského města Hierapolis. Z Antalye je to po silnici asi 245 km, zhruba tři až tři a půl hodiny jízdy jedním směrem – dost blízko na jednodenní výlet, ale dost daleko na to, aby přespání udělalo návštěvu mnohem pohodovější."
+      },
+      {
+        "type": "h2",
+        "text": "Co vidět v Pamukkale"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Travertiny: projděte se bosí po terasách mělkou teplou vodou – v botách se na bílý povrch nesmí.",
+          "Hierapolis: velké římské město s divadlem, monumentální ulicí a jedním z největších antických pohřebišť v Anatolii.",
+          "Antický bazén (Kleopatřin bazén): koupání v teplé termální vodě mezi spadlými antickými sloupy (samostatná vstupenka).",
+          "Archeologické muzeum Hierapolis: nálezy z lokality v budově bývalých římských lázní.",
+          "Laodikeia: kousek odsud další velké antické město s mnohem menším počtem návštěvníků."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Jednodenní výlet, nebo s přespáním?"
+      },
+      {
+        "type": "table",
+        "head": [
+          "",
+          "Jednodenní výlet",
+          "S přespáním"
+        ],
+        "rows": [
+          [
+            "Čas na cestě",
+            "6–7 hodin v jednom dni",
+            "Rozloženo do dvou dnů"
+          ],
+          [
+            "Čas na místě",
+            "3–4 hodiny, obvykle v poledne",
+            "Pozdní odpoledne a brzké ráno"
+          ],
+          [
+            "Davy",
+            "Příjezd spolu se zájezdovými autobusy",
+            "Západ slunce a ráno s mnohem menším počtem lidí"
+          ],
+          [
+            "Pro koho",
+            "Pro cestovatele s málem času",
+            "Pro rodiny, fotografy a všechny, kdo se chtějí koupat"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Většina skupinových zájezdů přijíždí kolem poledne, kdy je na terasách nejrušněji a v létě bílý povrch oslňuje a pálí. Přespání v Pamukkale nebo v termální vesnici Karahayıt vám umožní vidět travertiny při západu slunce a znovu v ranním klidu."
+      },
+      {
+        "type": "h2",
+        "text": "Nejlepší roční období pro Pamukkale"
+      },
+      {
+        "type": "p",
+        "text": "Jaro a podzim jsou nejpříjemnější: mírné teploty na procházku po Hierapolis a příjemná voda na terasách. V zimě je chladno a občas mrzne, ale teplá voda v chladném vzduchu paří a lokalita je nejklidnější. V červenci a srpnu může být polední vedro a odlesky na bílých terasách velmi intenzivní – přijeďte brzy ráno nebo pozdě odpoledne."
+      },
+      {
+        "type": "h2",
+        "text": "Po cestě: jezero Salda a pohoří Taurus"
+      },
+      {
+        "type": "p",
+        "text": "Silnice stoupá od pobřeží přes pohoří Taurus a vede krajem jezer. Jezero Salda s bílými břehy a tyrkysovou vodou je krátká odbočka a oblíbená zastávka na fotky. Se soukromým vozem sami rozhodujete, kde a jak dlouho zastavíte – to zájezdový autobus nenabídne."
+      },
+      {
+        "type": "h2",
+        "text": "Soukromý transfer do Pamukkale"
+      },
+      {
+        "type": "p",
+        "text": "Zajišťujeme soukromé transfery do Pamukkale z letiště Antalya a z hotelů na pobřeží, jedním směrem nebo se zpáteční cestou v jiný den. Cena je pevná za vůz, takže pro rodinu nebo malou skupinu je často srovnatelná s několika vstupenkami na autobusový zájezd – bez svážení z hotelů, pevného programu a zastávek v obchodech."
+      }
+    ],
+    "faq": [
+      [
+        "Jak daleko je Pamukkale od Antalye?",
+        "Po silnici asi 245 km. Cesta obvykle trvá tři až tři a půl hodiny jedním směrem."
+      ],
+      [
+        "Dá se Pamukkale navštívit jako jednodenní výlet z Antalye?",
+        "Ano, ale znamená to 6–7 hodin na cestě v jednom dni. Přespání v Pamukkale nebo Karahayıtu udělá návštěvu pohodovější a terasy uvidíte bez davů."
+      ],
+      [
+        "Dá se v Pamukkale koupat?",
+        "Po mělkých jezírkách na travertinech se dá chodit bosky. Plavat můžete v Antickém bazénu s teplou termální vodou, na který je potřeba samostatná vstupenka."
+      ],
+      [
+        "Kdy je nejlepší jet do Pamukkale?",
+        "Nejpříjemnější je jaro a podzim. Zima je klidná a atmosférická, v létě je nejlepší přijet brzy ráno nebo pozdě odpoledne."
+      ]
+    ]
+  },
+  "demre-myra-st-nicholas": {
+    "slug": "demre-myra-kostel-sv-mikulase",
+    "title": "Demre a Myra: kostel svatého Mikuláše – výlet z Antalye",
+    "heading": "Demre, Myra a kostel svatého Mikuláše",
+    "description": "Výlet z Antalye do Demre, antické Myry: kostel svatého Mikuláše, lýkijské skalní hrobky, Andriake a Kekova, doba jízdy a tipy na zimní či vánoční návštěvu.",
+    "excerpt": "Rodné město skutečného Santa Clause leží dvě a půl hodiny od Antalye. Co vidět v Demre a Myře a jak strávit den na pobřeží.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Dávno předtím, než se z něj stal Santa Claus, byl svatý Mikuláš biskupem v Myře, lýkijském městě na pobřeží západně od Antalye. Dnes se město jmenuje Demre a kostel svatého Mikuláše, kde působil, lýkijské skalní hrobky a antický přístav z něj dělají jeden z nejzajímavějších jednodenních výletů z Antalye – zvlášť v prosinci."
+      },
+      {
+        "type": "h2",
+        "text": "Kdo byl svatý Mikuláš z Myry?"
+      },
+      {
+        "type": "p",
+        "text": "Mikuláš žil ve 4. století a proslavil se tajnou štědrostí, zejména vůči dětem a chudým. Jeho svátek, 6. prosince, se dodnes slaví po celé Evropě a legendy o něm se v průběhu staletí proměnily v postavu Santa Clause. Myra, kde byl biskupem, se stala významným poutním místem."
+      },
+      {
+        "type": "h2",
+        "text": "Co vidět v Demre"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Kostel svatého Mikuláše: byzantský kostel s freskami, mozaikovými podlahami a sarkofágem, který se tradičně spojuje se světcem.",
+          "Skalní hrobky v Myře: lýkijské hrobky ve tvaru domů vytesané do útesu nad velkým římským divadlem.",
+          "Andriake: antický přístav Myry s obnovenou sýpkou, v níž sídlí Muzeum lýkijských civilizací.",
+          "Kekova: výlety lodí z nedalekého Üçağızu míjejí částečně zatopené antické město a vesnici s hradem Kaleköy (v zimě jezdí méně lodí)."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Cesta: po pobřežní silnici na západ"
+      },
+      {
+        "type": "p",
+        "text": "Demre je asi dvě a půl hodiny od Antalye po jedné z nejkrásnějších pobřežních silnic v zemi, přes Kemer, hory kolem Olympu, Kumlucu a Finike. Silnice je dobrá po celý rok, ale vine se horami, takže počítejte s časem na zastávky a neplánujte cestu ve spěchu."
+      },
+      {
+        "type": "h2",
+        "text": "Den na pobřeží"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Ráno: brzký odjezd z Antalye a zastávka s výhledem na pobřeží u Olympu.",
+          "Dopoledne: kostel svatého Mikuláše dřív, než dorazí zájezdové skupiny.",
+          "Poledne: skalní hrobky a divadlo v Myře, pak oběd v Demre nebo v Andriake.",
+          "Odpoledne: v sezoně výlet lodí na Kekovu, nebo pokračování do Kaşe s přespáním.",
+          "Večer: návrat do Antalye, nebo spojení výletu s několika dny v Kaşi."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Návštěva v zimě a o Vánocích"
+      },
+      {
+        "type": "p",
+        "text": "Prosinec je obzvlášť atmosférickou dobou k návštěvě: 6. prosince je svátek svatého Mikuláše a kolem Vánoc mnoho návštěvníků spojuje pobyt v Antalyi s výletem do světcova města. Zimní dny jsou mírné, ale krátké, proto vyrazte brzy. Památky jsou otevřené celý rok, výlety lodí na Kekovu závisí na počasí a sezoně."
+      },
+      {
+        "type": "h2",
+        "text": "Soukromý transfer do Demre"
+      },
+      {
+        "type": "p",
+        "text": "Zajišťujeme soukromé transfery z Antalye a letovisek na západním pobřeží do Kumlucy, Demre a Kaşe. Se soukromým vozem si sami volíte zastávky i tempo a cena je pevná za vůz, ne za osobu. Při rezervaci nám napište hotel, datum a zda chcete zpáteční cestu ve stejný den."
+      }
+    ],
+    "faq": [
+      [
+        "Jak daleko je Demre od Antalye?",
+        "Demre, antická Myra, je asi dvě a půl hodiny jízdy od Antalye po pobřežní silnici přes Kemer, Kumlucu a Finike."
+      ],
+      [
+        "Je kostel svatého Mikuláše otevřený celý rok?",
+        "Ano. Kostel svatého Mikuláše i antická lokalita Myra jsou pro návštěvníky otevřené po celý rok."
+      ],
+      [
+        "Kdy je svátek svatého Mikuláše?",
+        "Svátek svatého Mikuláše připadá na 6. prosince. Prosinec, včetně vánočního období, je oblíbenou dobou k návštěvě Demre."
+      ],
+      [
+        "Dá se Demre a Kekova stihnout za jeden den?",
+        "Ano, v sezoně lodních výletů je to možné s brzkým odjezdem. V zimě jezdí méně lodí, proto si počasí a jízdní řády ověřte na místě."
+      ]
+    ]
+  },
+  "lycian-way-spring-hiking": {
+    "slug": "lykijska-stezka-u-antalye",
+    "title": "Lýkijská stezka u Antalye: jarní průvodce nejlepšími úseky",
+    "heading": "Lýkijská stezka: pěší turistika z Antalye",
+    "description": "Lýkijská stezka u Antalye: nejlepší roční období, úseky kolem Kemeru, Olympu, Adrasanu a Kaşe, co si zabalit a jak se dostat na začátek trasy.",
+    "excerpt": "Antické ruiny, borové lesy a výhledy na moře na jedné z velkých dálkových tras světa. Které úseky projít z Antalye a kdy jet.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Lýkijská stezka je značená dálková trasa dlouhá více než 500 km mezi Fethiye a Antalyí. Vede po starých cestách, soumarských stezkách a římských silnicích podél pobřeží a horami antické Lýkie. Abyste si ji užili, nepotřebujete týdny: mnoho jejích nejkrásnějších úseků leží kousek od Antalye a skvěle se hodí na jednodenní túry nebo krátkou turistickou dovolenou."
+      },
+      {
+        "type": "h2",
+        "text": "Kdy vyrazit: jaro a podzim"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Období",
+          "Podmínky",
+          "Hodnocení"
+        ],
+        "rows": [
+          [
+            "Březen – květen",
+            "Mírné dny, zelené kopce, divoké květiny, prameny plné vody",
+            "Nejlepší období"
+          ],
+          [
+            "Červen – srpen",
+            "Velké horko, na mnoha úsecích málo stínu, vyschlé prameny",
+            "Jen brzy ráno nebo krátké túry"
+          ],
+          [
+            "Září – listopad",
+            "Teplé moře, stabilní počasí, od konce října chladněji",
+            "Druhé nejlepší období"
+          ],
+          [
+            "Prosinec – únor",
+            "Na pobřeží mírno, deštivá období, sníh ve vysokých průsmycích",
+            "Možné na nízkých pobřežních úsecích"
+          ]
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Úseky u Antalye"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Göynük – okolí Kemeru: lesní stezky a výhledy do kaňonu kousek od letovisek u Kemeru.",
+          "Çıralı a Olympos: pobřežní úsek mezi ruinami Olympu a věčnými plameny Chiméry.",
+          "Adrasan – Olympos: jeden z nejdramatičtějších úseků s útesy, zátokami a dalekými výhledy na moře.",
+          "Okolí Kaşe: pobřežní stezky s lýkijskými hrobkami, malými zátokami a řeckým ostrovem Meis nedaleko od břehu.",
+          "Phaselis: kratší procházky kolem antického města a jeho tří přístavů, ideální na první ochutnávku."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Plánování túry"
+      },
+      {
+        "type": "p",
+        "text": "Stezka je značená červeno-bíle, ale některé úseky jsou nerovné, kamenité a strmé a značení místy chybí. Používejte dobrou mapu nebo GPS stopu, pokud možno choďte ve dvou a řekněte někomu svou trasu. Na mnoha úsecích nejsou mezi vesnicemi obchody ani voda, proto vyrážejte brzy a noste víc vody, než si myslíte, že budete potřebovat."
+      },
+      {
+        "type": "h2",
+        "text": "Co si zabalit"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Turistické boty nebo pevné trailové boty – vápenec je místy ostrý a sypký.",
+          "Alespoň dva litry vody na osobu a něco k jídlu.",
+          "Klobouk, opalovací krém a lehkou vrstvu s dlouhým rukávem, i na jaře.",
+          "Větrovku nebo nepromokavou bundu na horské úseky a proměnlivé jarní počasí.",
+          "Malou lékárničku a nabitý telefon s offline mapou."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Cesta na stezku a zpět"
+      },
+      {
+        "type": "p",
+        "text": "Většina úseků začíná a končí ve vesnicích, kam se veřejnou dopravou dostanete jen těžko, a při túře jedním směrem skončíte jinde, než jste začali. Soukromý transfer vás doveze z letiště Antalya nebo z hotelu na začátek úseku a na konci vás může vyzvednout. Cena je pevná za vůz, takže se to vyplatí skupinám turistů; napište nám místo startu a cíle, datum a počet osob a cenu vám sdělíme předem."
+      }
+    ],
+    "faq": [
+      [
+        "Jak dlouhá je Lýkijská stezka?",
+        "Značená trasa měří více než 500 km a vede mezi Fethiye a Antalyí. Většina návštěvníků prochází vybrané úseky, ne celou trasu."
+      ],
+      [
+        "Kdy je nejlepší jít po Lýkijské stezce?",
+        "Nejlepší je jaro, od března do května, a po něm podzim, od září do listopadu. Léto je velmi horké a mnoho pramenů vysychá."
+      ],
+      [
+        "Které úseky Lýkijské stezky jsou nejblíž Antalyi?",
+        "Úseky kolem Göynüku a Kemeru, Çıralı a Olympu, Adrasanu a Phaselis jsou všechny zhruba jednu až dvě hodiny od Antalye. Úseky kolem Kaşe leží dál na západ."
+      ],
+      [
+        "Dá se zajistit transfer na začátek úseku Lýkijské stezky?",
+        "Ano. Pošlete nám místo startu a cíle a datum a my vám nabídneme soukromý transfer za pevnou cenu za vůz, včetně vyzvednutí na konci túry."
+      ]
+    ]
   }
 };

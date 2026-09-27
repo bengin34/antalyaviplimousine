@@ -1154,5 +1154,314 @@ export const articles = {
         "Nu există transport public regulat. Îți putem oferi un transfer privat de la hotel până la stațiune și înapoi, la preț fix per vehicul."
       ]
     ]
+  },
+  "pamukkale-trip-from-antalya": {
+    "slug": "excursie-pamukkale-din-antalya",
+    "title": "Pamukkale din Antalya: excursie de o zi sau cu cazare și când să mergi",
+    "heading": "Excursie la Pamukkale din Antalya: cum să planifici drumul",
+    "description": "Excursie la Pamukkale din Antalya: distanța și durata drumului, o zi sau cu cazare, travertinele, Hierapolis și Piscina Antică, plus cel mai bun sezon.",
+    "excerpt": "Terase albe de travertin, un oraș roman pe deal și o piscină printre coloane antice. Cum vizitezi Pamukkale din Antalya fără să petreci toată ziua în autocar.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "O excursie la Pamukkale din Antalya te duce la unul dintre cele mai cunoscute obiective din Turcia: terase albe de travertin pline cu apă caldă, bogată în minerale, iar deasupra lor ruinele orașului roman Hierapolis. Din Antalya sunt aproximativ 245 km pe șosea, cam trei - trei ore și jumătate pe sens - destul de aproape pentru o excursie de o zi, dar destul de departe încât o noapte de cazare să facă vizita mult mai relaxată."
+      },
+      {
+        "type": "h2",
+        "text": "Ce să vezi la Pamukkale"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Travertinele: mergi desculț pe terase, prin apă caldă și puțin adâncă - încălțămintea nu este permisă pe suprafața albă.",
+          "Hierapolis: un oraș roman întins, cu teatru, o stradă monumentală și una dintre cele mai mari necropole antice din Anatolia.",
+          "Piscina Antică: înoți în apă termală caldă printre coloane antice prăbușite (bilet separat).",
+          "Muzeul de Arheologie din Hierapolis: descoperiri din situl antic, expuse în fostele terme romane.",
+          "Laodiceea: la mică distanță cu mașina, un alt mare oraș antic, cu mult mai puțini vizitatori."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Excursie de o zi sau cu cazare?"
+      },
+      {
+        "type": "table",
+        "head": [
+          "",
+          "Excursie de o zi",
+          "Cu o noapte de cazare"
+        ],
+        "rows": [
+          [
+            "Timp pe drum",
+            "6-7 ore într-o singură zi",
+            "Împărțit pe două zile"
+          ],
+          [
+            "Timp la obiectiv",
+            "3-4 ore, de obicei la prânz",
+            "După-amiaza târziu și dimineața devreme"
+          ],
+          [
+            "Aglomerație",
+            "Ajungi odată cu autocarele de tur",
+            "Apus și dimineață cu mult mai puțini oameni"
+          ],
+          [
+            "Potrivit pentru",
+            "Călători cu puțin timp",
+            "Familii, fotografi, oricine vrea să înoate"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Majoritatea tururilor de grup ajung pe la mijlocul zilei, când terasele sunt cele mai aglomerate, iar vara suprafața albă este orbitoare și fierbinte. O noapte petrecută în Pamukkale sau în satul termal Karahayıt îți permite să vezi travertinele la apus și din nou în liniștea dimineții."
+      },
+      {
+        "type": "h2",
+        "text": "Cel mai bun sezon pentru Pamukkale"
+      },
+      {
+        "type": "p",
+        "text": "Primăvara și toamna sunt cele mai confortabile anotimpuri: temperaturi blânde pentru plimbarea prin Hierapolis și apă plăcută pe terase. Iarna este răcoare și uneori îngheață, dar apa caldă aburește în aerul rece, iar situl este cel mai liniștit. În iulie și august, căldura de la prânz și strălucirea teraselor albe pot fi foarte intense - mergi devreme sau spre seară."
+      },
+      {
+        "type": "h2",
+        "text": "Pe drum: lacul Salda și Munții Taurus"
+      },
+      {
+        "type": "p",
+        "text": "Drumul urcă de pe coastă peste Munții Taurus și traversează regiunea lacurilor. Lacul Salda, cu malurile lui albe și apa turcoaz, este un ocol scurt și o oprire foto foarte populară. Cu un vehicul privat decizi tu unde și cât timp te oprești - ceva ce un tur cu autocarul nu îți poate oferi."
+      },
+      {
+        "type": "h2",
+        "text": "Transfer privat la Pamukkale"
+      },
+      {
+        "type": "p",
+        "text": "Oferim transferuri private de la Aeroportul Antalya și de la hotelurile de pe coastă la Pamukkale, dus sau cu întoarcere la o dată ulterioară. Prețul este fix pe vehicul, așa că pentru o familie sau un grup mic este adesea comparabil cu mai multe bilete de tur cu autocarul - fără preluări de la hoteluri, fără program fix și fără opriri la magazine."
+      }
+    ],
+    "faq": [
+      [
+        "Cât de departe este Pamukkale de Antalya?",
+        "Aproximativ 245 km pe șosea. Drumul durează de obicei trei - trei ore și jumătate pe sens."
+      ],
+      [
+        "Se poate vizita Pamukkale într-o excursie de o zi din Antalya?",
+        "Da, dar înseamnă 6-7 ore pe drum într-o singură zi. O noapte de cazare în Pamukkale sau Karahayıt face vizita mai relaxată și îți permite să vezi terasele fără aglomerație."
+      ],
+      [
+        "Se poate înota la Pamukkale?",
+        "Poți merge desculț prin bazinele puțin adânci de pe travertine. Înotul este posibil în Piscina Antică, cu apă termală caldă, pentru care este nevoie de bilet separat."
+      ],
+      [
+        "Care este cea mai bună perioadă a anului pentru Pamukkale?",
+        "Primăvara și toamna sunt cele mai confortabile. Iarna este liniștită și plină de atmosferă; vara e bine să mergi dimineața devreme sau după-amiaza târziu."
+      ]
+    ]
+  },
+  "demre-myra-st-nicholas": {
+    "slug": "demre-myra-biserica-sfantul-nicolae",
+    "title": "Demre și Myra: vizită la Biserica Sfântului Nicolae din Antalya",
+    "heading": "Demre, Myra și Biserica Sfântului Nicolae",
+    "description": "Excursie din Antalya la Demre, vechea Myra: Biserica Sfântului Nicolae, mormintele liciene în stâncă, Andriake și Kekova, cu durata drumului și sfaturi pentru iarnă și Crăciun.",
+    "excerpt": "Orașul adevăratului Moș Crăciun este la două ore și jumătate de Antalya. Ce să vezi în Demre și Myra și cum să transformi drumul într-o zi pe coastă.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Cu mult înainte să devină Moș Crăciun, Sfântul Nicolae a fost episcop al Myrei, un oraș lician de pe coasta de la vest de Antalya. Astăzi orașul se numește Demre, iar Biserica Sfântului Nicolae, unde a slujit, mormintele liciene săpate în stâncă și portul antic fac din el una dintre cele mai frumoase excursii de o zi din Antalya - mai ales în decembrie."
+      },
+      {
+        "type": "h2",
+        "text": "Cine a fost Sfântul Nicolae din Myra?"
+      },
+      {
+        "type": "p",
+        "text": "Nicolae a trăit în secolul al IV-lea și a devenit cunoscut pentru faptele sale de generozitate făcute în taină, mai ales față de copii și săraci. Ziua lui, 6 decembrie, este sărbătorită și astăzi în toată Europa, iar legendele despre el au crescut de-a lungul secolelor până la figura lui Moș Crăciun. Myra, unde a fost episcop, a devenit un important loc de pelerinaj."
+      },
+      {
+        "type": "h2",
+        "text": "Ce să vezi în Demre"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Biserica Sfântului Nicolae: o biserică bizantină cu fresce, pardoseli din mozaic și sarcofagul asociat prin tradiție cu sfântul.",
+          "Mormintele în stâncă de la Myra: morminte liciene în formă de casă, săpate în faleză deasupra unui mare teatru roman.",
+          "Andriake: portul antic al Myrei, cu un grânar restaurat care găzduiește Muzeul Civilizațiilor Liciene.",
+          "Kekova: excursiile cu barca din apropiatul Üçağız trec pe lângă orașul antic parțial scufundat și satul cu cetate Kaleköy (iarna circulă mai puține bărci)."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Cum ajungi: drumul de coastă spre vest"
+      },
+      {
+        "type": "p",
+        "text": "Demre este la aproximativ două ore și jumătate de Antalya, pe unul dintre cele mai frumoase drumuri de coastă din țară, trecând prin Kemer, pe lângă munții din jurul Olympos, prin Kumluca și Finike. Drumul este bun tot anul, dar șerpuiește prin munți, așa că lasă-ți timp pentru opriri și nu planifica excursia în grabă."
+      },
+      {
+        "type": "h2",
+        "text": "O zi pe coastă"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Dimineața: pleci devreme din Antalya și te oprești pentru o priveliște asupra coastei lângă Olympos.",
+          "Spre prânz: Biserica Sfântului Nicolae, înainte să sosească grupurile de turiști.",
+          "La prânz: mormintele în stâncă și teatrul din Myra, apoi masa în Demre sau la Andriake.",
+          "După-amiaza: o excursie cu barca la Kekova în sezon sau continui spre Kaş și rămâi peste noapte.",
+          "Seara: întoarcere în Antalya sau combini excursia cu câteva zile în Kaş."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Vizita iarna și de Crăciun"
+      },
+      {
+        "type": "p",
+        "text": "Decembrie este o perioadă cu o atmosferă deosebită: pe 6 decembrie este ziua Sfântului Nicolae, iar în preajma Crăciunului mulți vizitatori combină un sejur în Antalya cu o excursie în orașul sfântului. Zilele de iarnă sunt blânde, dar scurte, așa că pleacă devreme. Obiectivele sunt deschise tot anul, în timp ce excursiile cu barca la Kekova depind de vreme și de sezon."
+      },
+      {
+        "type": "h2",
+        "text": "Transfer privat la Demre"
+      },
+      {
+        "type": "p",
+        "text": "Oferim transferuri private din Antalya și din stațiunile de pe coasta de vest spre Kumluca, Demre și Kaş. Cu un vehicul privat alegi tu opririle și ritmul, iar prețul este fix pe vehicul, nu pe persoană. La rezervare spune-ne hotelul, data și dacă vrei întoarcerea în aceeași zi."
+      }
+    ],
+    "faq": [
+      [
+        "Cât de departe este Demre de Antalya?",
+        "Demre, vechea Myra, se află la aproximativ două ore și jumătate de Antalya pe drumul de coastă, prin Kemer, Kumluca și Finike."
+      ],
+      [
+        "Biserica Sfântului Nicolae este deschisă tot anul?",
+        "Da. Biserica Sfântului Nicolae și situl antic Myra sunt deschise vizitatorilor pe tot parcursul anului."
+      ],
+      [
+        "Când este ziua Sfântului Nicolae?",
+        "Sărbătoarea Sfântului Nicolae este pe 6 decembrie. Decembrie, inclusiv perioada Crăciunului, este o perioadă populară pentru a vizita Demre."
+      ],
+      [
+        "Pot vizita Demre și Kekova într-o singură zi?",
+        "Da, în sezonul bărcilor este posibil dacă pleci devreme. Iarna circulă mai puține bărci, așa că verifică vremea și programul la fața locului."
+      ]
+    ]
+  },
+  "lycian-way-spring-hiking": {
+    "slug": "drumul-lician-drumetii-langa-antalya",
+    "title": "Drumul Lician lângă Antalya: ghid de primăvară pentru cele mai frumoase etape",
+    "heading": "Drumeții pe Drumul Lician din Antalya",
+    "description": "Drumeții pe Drumul Lician lângă Antalya: cel mai bun sezon, etapele din jurul Kemer, Olympos, Adrasan și Kaş, ce să iei în rucsac și cum ajungi la începutul traseului.",
+    "excerpt": "Ruine antice, păduri de pin și priveliști spre mare pe unul dintre marile trasee lungi ale lumii. Ce etape să parcurgi din Antalya și când să mergi.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Drumul Lician (Likya Yolu) este un traseu marcat de peste 500 km între Fethiye și Antalya, care urmează poteci vechi, drumuri de catâri și drumuri romane de-a lungul coastei și prin munții vechii Licii. Nu ai nevoie de săptămâni ca să te bucuri de el: multe dintre cele mai frumoase etape sunt la îndemână din Antalya și sunt excelente pentru drumeții de o zi sau vacanțe scurte de drumeție."
+      },
+      {
+        "type": "h2",
+        "text": "Când să mergi: primăvara și toamna"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Sezon",
+          "Condiții",
+          "Verdict"
+        ],
+        "rows": [
+          [
+            "Martie - mai",
+            "Zile blânde, dealuri verzi, flori sălbatice, izvoare pline de apă",
+            "Cel mai bun sezon"
+          ],
+          [
+            "Iunie - august",
+            "Foarte cald, puțină umbră pe multe etape, izvoare secate",
+            "Doar dimineața devreme sau trasee scurte"
+          ],
+          [
+            "Septembrie - noiembrie",
+            "Mare caldă, vreme stabilă, mai răcoare de la sfârșitul lui octombrie",
+            "Al doilea cel mai bun sezon"
+          ],
+          [
+            "Decembrie - februarie",
+            "Blând pe coastă, perioade ploioase, zăpadă pe trecătorile înalte",
+            "Posibil pe etapele joase de coastă"
+          ]
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Etape lângă Antalya"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Göynük - zona Kemer: poteci prin pădure și priveliști spre canion, aproape de stațiunile din Kemer.",
+          "Çıralı și Olympos: o etapă de coastă între ruinele din Olympos și flăcările veșnice ale Chimerei.",
+          "Adrasan - Olympos: una dintre cele mai spectaculoase porțiuni, cu faleze, golfulețe și priveliști largi asupra mării.",
+          "În jurul Kaş: poteci de coastă cu morminte liciene, golfuri mici și insula grecească Meis (Kastellorizo) în larg.",
+          "Phaselis: plimbări mai scurte în jurul orașului antic și al celor trei porturi ale sale, ideale pentru un prim contact."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Cum îți planifici drumeția"
+      },
+      {
+        "type": "p",
+        "text": "Traseul este marcat cu roșu și alb, dar unele porțiuni sunt accidentate, stâncoase și abrupte, iar marcajele pot lipsi pe alocuri. Folosește o hartă bună sau un track GPS, mergi în doi când se poate și spune cuiva traseul tău. Pe multe etape nu există magazine sau apă între sate, așa că pornește devreme și ia mai multă apă decât crezi că îți trebuie."
+      },
+      {
+        "type": "h2",
+        "text": "Ce să iei în rucsac"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Bocanci sau pantofi de trail solizi - calcarul este ascuțit și instabil pe alocuri.",
+          "Cel puțin doi litri de apă de persoană, plus gustări.",
+          "Pălărie de soare, cremă de protecție solară și un strat subțire cu mânecă lungă, chiar și primăvara.",
+          "O geacă de vânt sau de ploaie pentru porțiunile montane și vremea schimbătoare de primăvară.",
+          "O trusă mică de prim ajutor și un telefon încărcat cu o hartă offline."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Cum ajungi la traseu și înapoi"
+      },
+      {
+        "type": "p",
+        "text": "Majoritatea etapelor încep și se termină în sate greu accesibile cu transportul public, iar un traseu liniar înseamnă că ajungi în alt loc decât cel din care ai plecat. Un transfer privat te duce de la Aeroportul Antalya sau de la hotel la începutul etapei și te poate prelua la final. Prețul este fix pe vehicul, așa că funcționează bine pentru grupuri de drumeți; spune-ne punctele de start și de final, data și numărul de persoane, iar noi îți trimitem oferta în avans."
+      }
+    ],
+    "faq": [
+      [
+        "Cât de lung este Drumul Lician?",
+        "Traseul marcat are peste 500 km între Fethiye și Antalya. Majoritatea vizitatorilor parcurg doar anumite etape, nu întregul traseu."
+      ],
+      [
+        "Care este cea mai bună perioadă pentru drumeții pe Drumul Lician?",
+        "Primăvara, din martie până în mai, este cel mai bun sezon, urmată de toamnă, din septembrie până în noiembrie. Vara este foarte cald și multe izvoare seacă."
+      ],
+      [
+        "Ce etape ale Drumului Lician sunt cele mai apropiate de Antalya?",
+        "Porțiunile din jurul Göynük și Kemer, Çıralı și Olympos, Adrasan și Phaselis sunt toate la aproximativ una - două ore de Antalya. Etapele din jurul Kaş sunt mai spre vest."
+      ],
+      [
+        "Puteți organiza un transfer până la începutul unei etape a Drumului Lician?",
+        "Da. Trimite-ne punctele de start și de final și data, iar noi îți facem o ofertă pentru un transfer privat la preț fix pe vehicul, inclusiv preluarea de la finalul drumeției."
+      ]
+    ]
   }
 };

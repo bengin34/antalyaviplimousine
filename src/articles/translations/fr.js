@@ -1154,5 +1154,314 @@ export const articles = {
         "Il n'y a pas de transports en commun réguliers. Nous pouvons vous proposer un transfert privé aller-retour entre votre hôtel et la station, à prix fixe par véhicule."
       ]
     ]
+  },
+  "pamukkale-trip-from-antalya": {
+    "slug": "excursion-pamukkale-depuis-antalya",
+    "title": "Excursion à Pamukkale depuis Antalya : à la journée ou avec une nuit sur place",
+    "heading": "Pamukkale depuis Antalya : bien préparer l'excursion",
+    "description": "Excursion à Pamukkale depuis Antalya : distance et temps de route, aller-retour dans la journée ou nuit sur place, travertins, Hiérapolis, piscine antique et meilleure saison.",
+    "excerpt": "Des terrasses de travertin blanc, une cité romaine sur la colline et une piscine parmi les colonnes antiques. Comment visiter Pamukkale depuis Antalya sans passer la journée dans un car.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Une excursion à Pamukkale depuis Antalya mène à l'un des sites les plus célèbres de Türkiye : des terrasses de travertin blanc remplies d'une eau tiède et riche en minéraux, dominées par les ruines de la cité romaine de Hiérapolis. Depuis Antalya, comptez environ 245 km de route, soit trois heures à trois heures et demie dans chaque sens – assez proche pour un aller-retour dans la journée, mais assez loin pour qu'une nuit sur place rende la visite bien plus détendue."
+      },
+      {
+        "type": "h2",
+        "text": "Que voir à Pamukkale ?"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Les travertins : on marche pieds nus sur les terrasses, dans une eau tiède et peu profonde – les chaussures sont interdites sur la surface blanche.",
+          "Hiérapolis : une grande cité romaine avec un théâtre, une rue monumentale et l'une des plus vastes nécropoles antiques d'Anatolie.",
+          "La piscine antique : baignade dans une eau thermale chaude, entre des colonnes antiques effondrées (billet séparé).",
+          "Le musée archéologique de Hiérapolis : les trouvailles du site, installées dans les anciens thermes romains.",
+          "Laodicée : à peu de distance en voiture, une autre grande cité antique, beaucoup moins fréquentée."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "À la journée ou avec une nuit sur place ?"
+      },
+      {
+        "type": "table",
+        "head": [
+          "",
+          "Aller-retour dans la journée",
+          "Avec une nuit sur place"
+        ],
+        "rows": [
+          [
+            "Temps de route",
+            "6-7 heures dans la même journée",
+            "Réparti sur deux jours"
+          ],
+          [
+            "Temps sur le site",
+            "3-4 heures, généralement en milieu de journée",
+            "Fin d'après-midi et tôt le matin"
+          ],
+          [
+            "Affluence",
+            "Arrivée en même temps que les cars d'excursion",
+            "Coucher de soleil et matinée avec beaucoup moins de monde"
+          ],
+          [
+            "Pour qui ?",
+            "Voyageurs pressés",
+            "Familles, photographes, tous ceux qui veulent se baigner"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "La plupart des excursions en groupe arrivent vers midi, quand les terrasses sont les plus fréquentées et qu'en été la surface blanche est éblouissante et brûlante. Une nuit à Pamukkale ou dans le village thermal de Karahayıt permet de voir les travertins au coucher du soleil, puis de nouveau dans le calme du matin."
+      },
+      {
+        "type": "h2",
+        "text": "Quand partir à Pamukkale ?"
+      },
+      {
+        "type": "p",
+        "text": "Le printemps et l'automne sont les saisons les plus agréables : températures douces pour arpenter Hiérapolis et eau plaisante sur les terrasses. L'hiver est frais, parfois avec du gel, mais l'eau chaude fume dans l'air froid et le site est au plus calme. En juillet et en août, la chaleur de midi et la réverbération sur les terrasses blanches peuvent être intenses – venez tôt le matin ou en fin de journée."
+      },
+      {
+        "type": "h2",
+        "text": "En chemin : le lac de Salda et le Taurus"
+      },
+      {
+        "type": "p",
+        "text": "La route quitte la côte, franchit les monts Taurus puis traverse la région des lacs. Le lac de Salda, avec ses rives blanches et son eau turquoise, ne demande qu'un petit détour et c'est un arrêt photo très apprécié. Avec un véhicule privé, vous décidez où vous arrêter et combien de temps – ce qu'aucune excursion en car ne peut offrir."
+      },
+      {
+        "type": "h2",
+        "text": "Transfert privé vers Pamukkale"
+      },
+      {
+        "type": "p",
+        "text": "Nous assurons des transferts privés vers Pamukkale depuis l'aéroport d'Antalya et les hôtels de la côte, en aller simple ou avec un retour à une date ultérieure. Le prix est fixe par véhicule : pour une famille ou un petit groupe, il revient souvent à peu près au même que plusieurs billets d'excursion en car – sans les ramassages dans les hôtels, l'horaire imposé ni les arrêts shopping."
+      }
+    ],
+    "faq": [
+      [
+        "Quelle distance entre Antalya et Pamukkale ?",
+        "Environ 245 km par la route. Le trajet dure en général trois heures à trois heures et demie dans chaque sens."
+      ],
+      [
+        "Peut-on faire Pamukkale dans la journée depuis Antalya ?",
+        "Oui, mais cela représente 6-7 heures de route dans la même journée. Une nuit à Pamukkale ou à Karahayıt rend la visite plus détendue et permet de voir les terrasses sans la foule."
+      ],
+      [
+        "Peut-on se baigner à Pamukkale ?",
+        "On peut marcher pieds nus dans les bassins peu profonds des travertins. La baignade est possible dans la piscine antique, alimentée en eau thermale chaude, avec un billet séparé."
+      ],
+      [
+        "Quelle est la meilleure période pour visiter Pamukkale ?",
+        "Le printemps et l'automne sont les plus agréables. L'hiver est calme et plein d'atmosphère ; en été, mieux vaut venir tôt le matin ou en fin d'après-midi."
+      ]
+    ]
+  },
+  "demre-myra-st-nicholas": {
+    "slug": "demre-myra-eglise-saint-nicolas",
+    "title": "Demre et Myra : visiter l'église Saint-Nicolas depuis Antalya",
+    "heading": "Demre, Myra et l'église Saint-Nicolas",
+    "description": "Excursion d'Antalya à Demre, l'antique Myra : l'église Saint-Nicolas, les tombeaux lyciens rupestres, Andriake et Kekova, temps de route et conseils pour l'hiver ou Noël.",
+    "excerpt": "La ville du vrai Père Noël se trouve à deux heures et demie d'Antalya. Que voir à Demre et à Myra, et comment en faire une belle journée le long de la côte.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Bien avant de devenir le Père Noël, saint Nicolas fut évêque de Myra, une cité lycienne sur la côte à l'ouest d'Antalya. La ville s'appelle aujourd'hui Demre, et l'église Saint-Nicolas où il officia, les tombeaux lyciens taillés dans la roche et le port antique en font l'une des plus belles excursions au départ d'Antalya – surtout en décembre."
+      },
+      {
+        "type": "h2",
+        "text": "Qui était saint Nicolas de Myre ?"
+      },
+      {
+        "type": "p",
+        "text": "Nicolas vécut au IVe siècle et devint célèbre pour ses gestes de générosité discrets, en particulier envers les enfants et les pauvres. Sa fête, le 6 décembre, est encore célébrée dans toute l'Europe, et les légendes qui l'entourent ont donné naissance, au fil des siècles, au personnage du Père Noël. Myra, dont il était l'évêque, devint un important lieu de pèlerinage."
+      },
+      {
+        "type": "h2",
+        "text": "Que voir à Demre ?"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "L'église Saint-Nicolas : une église byzantine avec des fresques, des sols en mosaïque et le sarcophage traditionnellement attribué au saint.",
+          "Les tombeaux rupestres de Myra : des tombes lyciennes en forme de maison, taillées dans la falaise au-dessus d'un grand théâtre romain.",
+          "Andriake : le port antique de Myra, avec un grenier restauré qui abrite le musée des Civilisations lyciennes.",
+          "Kekova : depuis le village voisin d'Üçağız, les bateaux longent la cité antique en partie engloutie et le village fortifié de Kaleköy (moins de départs en hiver)."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Y aller : la route côtière vers l'ouest"
+      },
+      {
+        "type": "p",
+        "text": "Demre se trouve à environ deux heures et demie d'Antalya par l'une des plus belles routes côtières du pays, via Kemer, les montagnes autour d'Olympos, Kumluca et Finike. La route est bonne toute l'année, mais elle serpente dans la montagne : prévoyez du temps pour les arrêts et ne partez pas au pas de course."
+      },
+      {
+        "type": "h2",
+        "text": "Une journée le long de la côte"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Matin : départ tôt d'Antalya et pause panorama sur la côte près d'Olympos.",
+          "Fin de matinée : l'église Saint-Nicolas avant l'arrivée des groupes.",
+          "Midi : les tombeaux rupestres et le théâtre de Myra, puis déjeuner à Demre ou à Andriake.",
+          "Après-midi : sortie en bateau à Kekova en saison, ou route vers Kaş pour y passer la nuit.",
+          "Soir : retour à Antalya, ou prolongation par quelques jours à Kaş."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Visiter en hiver et à Noël"
+      },
+      {
+        "type": "p",
+        "text": "Décembre est une période particulièrement chargée d'atmosphère : le 6 décembre, c'est la Saint-Nicolas, et autour de Noël de nombreux voyageurs combinent un séjour à Antalya avec une visite de la ville du saint. Les journées d'hiver sont douces mais courtes, alors partez tôt. Les sites sont ouverts toute l'année, tandis que les sorties en bateau à Kekova dépendent de la météo et de la saison."
+      },
+      {
+        "type": "h2",
+        "text": "Transfert privé vers Demre"
+      },
+      {
+        "type": "p",
+        "text": "Nous assurons des transferts privés depuis Antalya et les stations balnéaires de la côte ouest vers Kumluca, Demre et Kaş. Avec un véhicule privé, vous choisissez les arrêts et le rythme, et le prix est fixe par véhicule, pas par personne. À la réservation, indiquez-nous votre hôtel, la date et si vous souhaitez un retour le jour même."
+      }
+    ],
+    "faq": [
+      [
+        "Quelle distance entre Antalya et Demre ?",
+        "Demre, l'antique Myra, se trouve à environ deux heures et demie de route d'Antalya par la route côtière, via Kemer, Kumluca et Finike."
+      ],
+      [
+        "L'église Saint-Nicolas est-elle ouverte toute l'année ?",
+        "Oui. L'église Saint-Nicolas et le site antique de Myra sont ouverts aux visiteurs toute l'année."
+      ],
+      [
+        "Quand fête-t-on la Saint-Nicolas ?",
+        "La Saint-Nicolas est fêtée le 6 décembre. Décembre, période de Noël comprise, est un moment prisé pour visiter Demre."
+      ],
+      [
+        "Peut-on visiter Demre et Kekova dans la même journée ?",
+        "Oui, pendant la saison des bateaux, à condition de partir tôt. En hiver, les bateaux sont moins nombreux : renseignez-vous sur place sur la météo et les horaires."
+      ]
+    ]
+  },
+  "lycian-way-spring-hiking": {
+    "slug": "randonnee-voie-lycienne-antalya",
+    "title": "Randonnée sur la Voie lycienne près d'Antalya : les plus belles étapes au printemps",
+    "heading": "Randonnée sur la Voie lycienne au départ d'Antalya",
+    "description": "Randonnée sur la Voie lycienne près d'Antalya : meilleure saison, étapes autour de Kemer, Olympos, Adrasan et Kaş, que mettre dans son sac et comment rejoindre le départ.",
+    "excerpt": "Ruines antiques, forêts de pins et vues sur la mer le long de l'un des grands sentiers de randonnée au monde. Quelles étapes faire depuis Antalya, et à quelle saison.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "La Voie lycienne est un sentier de grande randonnée balisé de plus de 500 km entre Fethiye et Antalya, qui suit d'anciens chemins, des sentiers muletiers et des voies romaines le long de la côte et à travers les montagnes de l'antique Lycie. Pas besoin de plusieurs semaines pour faire de la randonnée sur la Voie lycienne : beaucoup de ses plus belles étapes sont faciles d'accès depuis Antalya et se prêtent parfaitement à des sorties à la journée ou à de courts séjours de randonnée."
+      },
+      {
+        "type": "h2",
+        "text": "Quand randonner : printemps et automne"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Saison",
+          "Conditions",
+          "Verdict"
+        ],
+        "rows": [
+          [
+            "Mars - mai",
+            "Journées douces, collines vertes, fleurs sauvages, sources bien remplies",
+            "La meilleure saison"
+          ],
+          [
+            "Juin - août",
+            "Très chaud, peu d'ombre sur de nombreuses étapes, sources à sec",
+            "Seulement tôt le matin ou pour de courtes marches"
+          ],
+          [
+            "Septembre - novembre",
+            "Mer chaude, temps stable, plus frais à partir de fin octobre",
+            "La deuxième meilleure saison"
+          ],
+          [
+            "Décembre - février",
+            "Doux sur la côte, épisodes pluvieux, neige sur les cols élevés",
+            "Possible sur les étapes côtières basses"
+          ]
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Les étapes près d'Antalya"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Göynük - secteur de Kemer : chemins forestiers et vues sur le canyon, tout près des stations de Kemer.",
+          "Çıralı et Olympos : une étape côtière entre les ruines d'Olympos et les flammes éternelles de la Chimère.",
+          "Adrasan - Olympos : l'un des tronçons les plus spectaculaires, avec falaises, criques et larges panoramas sur la mer.",
+          "Autour de Kaş : sentiers côtiers avec tombeaux lyciens, petites baies et l'île grecque de Meis (Kastellorizo) au large.",
+          "Phaselis : balades plus courtes autour de la cité antique et de ses trois ports, idéales pour une première découverte."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Préparer sa randonnée"
+      },
+      {
+        "type": "p",
+        "text": "Le sentier est balisé en rouge et blanc, mais certains tronçons sont accidentés, rocailleux et raides, et le balisage peut être irrégulier. Munissez-vous d'une bonne carte ou d'une trace GPS, marchez à deux si possible et indiquez votre itinéraire à quelqu'un. Sur de nombreuses étapes, il n'y a ni commerce ni point d'eau entre les villages : partez tôt et emportez plus d'eau que vous ne le pensez nécessaire."
+      },
+      {
+        "type": "h2",
+        "text": "Que mettre dans son sac ?"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Chaussures de randonnée ou chaussures de trail robustes – le calcaire est coupant et instable par endroits.",
+          "Au moins deux litres d'eau par personne, plus des en-cas.",
+          "Chapeau, crème solaire et une couche légère à manches longues, même au printemps.",
+          "Un coupe-vent ou une veste de pluie pour les passages en montagne et la météo changeante du printemps.",
+          "Une petite trousse de premiers secours et un téléphone chargé avec une carte hors ligne."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Rejoindre le sentier et en revenir"
+      },
+      {
+        "type": "p",
+        "text": "La plupart des étapes commencent et se terminent dans des villages difficiles d'accès en transports en commun, et une randonnée en aller simple vous fait arriver ailleurs qu'au point de départ. Un transfert privé vous conduit de l'aéroport d'Antalya ou de votre hôtel jusqu'au début de votre étape et peut venir vous chercher à l'arrivée. Le prix est fixe par véhicule, ce qui convient bien aux groupes de randonneurs ; indiquez-nous vos points de départ et d'arrivée, la date et le nombre de personnes, et nous vous communiquerons le tarif à l'avance."
+      }
+    ],
+    "faq": [
+      [
+        "Quelle est la longueur de la Voie lycienne ?",
+        "Le sentier balisé s'étend sur plus de 500 km entre Fethiye et Antalya. La plupart des visiteurs en parcourent quelques étapes choisies plutôt que l'itinéraire complet."
+      ],
+      [
+        "Quelle est la meilleure période pour randonner sur la Voie lycienne ?",
+        "Le printemps, de mars à mai, est la meilleure saison, suivi de l'automne, de septembre à novembre. L'été est très chaud et de nombreuses sources s'assèchent."
+      ],
+      [
+        "Quelles étapes de la Voie lycienne sont les plus proches d'Antalya ?",
+        "Les tronçons autour de Göynük et Kemer, de Çıralı et Olympos, d'Adrasan et de Phaselis sont tous à environ une à deux heures d'Antalya. Les étapes autour de Kaş sont plus à l'ouest."
+      ],
+      [
+        "Peut-on organiser un transfert jusqu'au départ d'une étape de la Voie lycienne ?",
+        "Oui. Envoyez-nous vos points de départ et d'arrivée ainsi que la date, et nous vous proposerons un transfert privé à prix fixe par véhicule, avec reprise à la fin de votre randonnée."
+      ]
+    ]
   }
 };
