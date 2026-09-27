@@ -555,5 +555,1619 @@ export const articles = {
         "Ja, voor de stad, de bergen en de archeologische sites, minder voor het strand. Veel kusthotels sluiten tussen november en maart."
       ]
     ]
+  },
+  "antalya-in-autumn": {
+    "slug": "antalya-in-de-herfst",
+    "title": "Antalya in oktober en november: wat te doen in de herfst",
+    "heading": "Antalya in de herfst: wat te doen in oktober en november",
+    "description": "Antalya in de herfst: wat te doen in oktober en november? Warme zee, rustige stranden, antieke plaatsen, kloofwandelingen en golf. Weer, wat open is en tips voor je aankomst.",
+    "excerpt": "De zee is nog warm, de drukte is naar huis en de hitte is voorbij. Waarom oktober en november het best bewaarde geheim van de Turkse Rivièra zijn.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "De meeste bezoekers verlaten Antalya eind september, en juist daarom is Antalya in de herfst zo aantrekkelijk. De zee houdt de zomerwarmte nog wekenlang vast, de temperatuur overdag zakt naar aangename waarden net boven de twintig graden, en de plekken die in augustus ondraaglijk zijn – ruïnes, kloven, de oude stad – worden het hoogtepunt van de reis."
+      },
+      {
+        "type": "h2",
+        "text": "Het herfstweer in Antalya"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Maand",
+          "Dag / nacht",
+          "Zee",
+          "Hoe het voelt"
+        ],
+        "rows": [
+          [
+            "Oktober",
+            "ca. 27 °C / 16 °C",
+            "ca. 24 °C",
+            "Zomer zonder hitte – stranddagen zijn nog heel gewoon"
+          ],
+          [
+            "November",
+            "ca. 21 °C / 11 °C",
+            "ca. 21 °C",
+            "Zonnige ochtenden, de eerste regenbuien, koele avonden"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Pak in voor het strand én voor de avond: in oktober volstaat een lichte jas, in november zijn een warmere laag en een regenjas verstandig."
+      },
+      {
+        "type": "h2",
+        "text": "Nog steeds strandvakantie: oktober aan de kust"
+      },
+      {
+        "type": "p",
+        "text": "In oktober zijn de stranden van Konyaaltı, Lara, Belek, Side en Alanya nog open, is het water 's ochtends vaak warmer dan de lucht en hoef je niet meer te vechten om een ligbed. De meeste grote resorts in Belek, Side en Kemer blijven open tot eind oktober; vanaf november wordt de keuze kleiner, dus controleer de seizoensdata van je hotel voordat je vliegtickets boekt."
+      },
+      {
+        "type": "h2",
+        "text": "Antieke plaatsen zonder hitte"
+      },
+      {
+        "type": "p",
+        "text": "De herfst is het seizoen voor de ruïnes van de regio. Perge en Aspendos liggen op een korte omweg van de weg naar Belek en Side, de Tempel van Apollo in Side staat aan de rand van de haven, en Termessos, hoog in de bergen achter de stad, is een wandeling die niemand in de zomer zou moeten wagen. In november heb je soms hele zuilenstraten voor jezelf."
+      },
+      {
+        "type": "h2",
+        "text": "Natuur: kloven, watervallen en de Lycische Weg"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Düden-watervallen: de lagere waterval stort bij Lara direct in zee, de hogere ligt in een park in de stad.",
+          "Köprülü-kloof: het raftingseizoen loopt meestal door tot in oktober, met rustiger water dan in het voorjaar.",
+          "Lycische Weg: herfst en voorjaar zijn de twee wandelseizoenen – de etappes rond Kemer, Olympos en Kaş zijn nu op hun mooist.",
+          "Tahtalı-kabelbaan bij Kemer: de heldere herfstlucht geeft het beste uitzicht vanaf de top."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Golf, stadsleven en festivals"
+      },
+      {
+        "type": "p",
+        "text": "De herfst is het hoogseizoen voor golf in Belek: de banen zijn groen, de temperaturen ideaal en de starttijden raken vol met groepen uit Noord-Europa. In de stad komen de straatjes, cafés en kleine musea van Kaleiçi weer tot leven zodra de cruise- en zomergasten vertrokken zijn, en het filmfestival Gouden Sinaasappel van Antalya vindt traditioneel in de herfst plaats."
+      },
+      {
+        "type": "h2",
+        "text": "Aankomen in de herfst"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "In oktober zijn er nog veel vluchten; vanaf november wordt het schema dunner en landen meer vluchten laat in de nacht.",
+          "De terminal is rustiger dan in de zomer, dus de rijtijden naar Belek, Side en Alanya liggen dicht bij de opgegeven tijden.",
+          "Een vooraf geboekte transfer volgt je vluchtnummer, dus een vertraagde avondvlucht is geen probleem.",
+          "Onze prijzen zijn vast per voertuig en in oktober hetzelfde als in augustus."
+        ]
+      }
+    ],
+    "faq": [
+      [
+        "Is het in oktober warm genoeg om te zwemmen in Antalya?",
+        "Ja. De zee is in oktober meestal rond de 24 °C, warmer dan veel Europese zeeën in de zomer, en stranddagen zijn de hele maand normaal."
+      ],
+      [
+        "Zijn hotels in Antalya in november open?",
+        "Stadshotels en veel resorts blijven open, maar een aantal grote kustresorts sluit vanaf november. Controleer de seizoensdata van je hotel voordat je vliegtickets boekt."
+      ],
+      [
+        "Wat kun je in de herfst in Antalya doen behalve naar het strand gaan?",
+        "Antieke plaatsen zoals Perge, Aspendos en Termessos, de Düden-watervallen, de Köprülü-kloof, wandelen over de Lycische Weg, golfen in Belek en de oude stad Kaleiçi."
+      ],
+      [
+        "Verandert de transferprijs na het zomerseizoen?",
+        "Nee. De prijs is vast per voertuig en verandert niet met het seizoen, het verkeer of het tijdstip."
+      ]
+    ]
+  },
+  "antalya-in-winter": {
+    "slug": "antalya-in-de-winter",
+    "title": "Antalya in de winter: wat te doen van december tot februari",
+    "heading": "Antalya in de winter: wat te doen tussen december en februari",
+    "description": "Antalya in de winter: de oude stad, watervallen, antieke plaatsen, skiën in Saklıkent, wintergolf en spahotels. Het weer, wat er open is en hoe je je verplaatst.",
+    "excerpt": "Zachte dagen, sneeuw op de bergen en een stad die weer van haar bewoners is. Wat Antalya te bieden heeft tussen december en februari – en wat niet.",
+    "readingMinutes": 7,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Antalya in de winter is rustig, niet gesloten. De badplaatsen rusten, maar de stad, de bergen en de antieke plaatsen zijn open, het licht is helder en de dagen zijn vaak zonnig en zacht. Dit is het moment om de regio te zien zoals de mensen die er wonen haar zien – en tegen prijzen die zomergasten nooit krijgen."
+      },
+      {
+        "type": "h2",
+        "text": "Het winterweer in Antalya"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Maand",
+          "Dag / nacht",
+          "Zee",
+          "Goed om te weten"
+        ],
+        "rows": [
+          [
+            "December",
+            "ca. 16 °C / 7 °C",
+            "ca. 19 °C",
+            "De natste maand, maar de regen valt in buien tussen zonnige dagen"
+          ],
+          [
+            "Januari",
+            "ca. 15 °C / 6 °C",
+            "ca. 17 °C",
+            "Koudste maand; sneeuw op de toppen van het Taurusgebergte"
+          ],
+          [
+            "Februari",
+            "ca. 16 °C / 6 °C",
+            "ca. 17 °C",
+            "Langere dagen, eerste amandelbloesem"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Zonnige wintermiddagen voelen als het voorjaar in Noord-Europa; de avonden zijn koel en binnenruimtes zijn niet altijd verwarmd zoals je dat in het noorden gewend bent. Neem laagjes mee, een waterdichte jas en comfortabele schoenen voor natte keienstraatjes."
+      },
+      {
+        "type": "h2",
+        "text": "De stad: Kaleiçi, musea en watervallen"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Kaleiçi, de ommuurde oude stad: de Poort van Hadrianus, de Yivli-minaret, de oude haven en straatjes met Ottomaanse huizen, nu cafés en boetiekhotels.",
+          "Antalya Museum: een van de grote archeologische collecties van Turkije, met de beelden uit Perge – ideaal voor een regenachtige dag.",
+          "Düden- en Kurşunlu-watervallen: door de winterregen zijn ze op hun volst en het indrukwekkendst.",
+          "Boulevards van Konyaaltı en Lara: lange wandelingen, fietsen en zeezicht zonder zomerhitte."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Antieke plaatsen zonder rijen"
+      },
+      {
+        "type": "p",
+        "text": "Perge, Aspendos en Side zijn het hele jaar open en in de winter deel je ze met een handvol bezoekers. Phaselis, bij Kemer, heeft drie havens in een dennenbos; Olympos en Çıralı zijn buiten het seizoen heerlijk rustig. Termessos ligt in de bergen en kan koud, nat of zelfs besneeuwd zijn, dus kies een droge dag. Verder naar het westen is de Sint-Nicolaaskerk in Demre een logisch winteruitje, vooral rond Kerstmis."
+      },
+      {
+        "type": "h2",
+        "text": "Skiën en de zee op dezelfde dag"
+      },
+      {
+        "type": "p",
+        "text": "Skigebied Saklıkent in het Bakırlı-gebergte ligt op ongeveer 50 km van de stad, zo'n anderhalf uur rijden. Als er genoeg sneeuw ligt, meestal van januari tot maart, kun je 's ochtends skiën en 's middags langs de zee wandelen. Op de bergweg kunnen winterbanden of sneeuwkettingen nodig zijn, dus controleer de omstandigheden voordat je gaat en vraag ons vooraf een offerte voor de rit."
+      },
+      {
+        "type": "h2",
+        "text": "Wintergolf, spahotels en lange verblijven"
+      },
+      {
+        "type": "p",
+        "text": "De golfbanen van Belek blijven de hele winter open, en greenfees en hotelprijzen liggen ruim onder het niveau van de herfst en het voorjaar. Verschillende resorts in Belek, Lara en Kemer houden hun spa en binnenzwembad in de winter open, en Alanya en Side trekken langblijvers uit Noord-Europa die wekenlang of maandenlang van het zachte weer komen genieten."
+      },
+      {
+        "type": "h2",
+        "text": "Uitstapjes verder weg"
+      },
+      {
+        "type": "p",
+        "text": "De winter is een goede tijd voor de langere tochten die in de zomer uitputtend zijn: de travertijnterrassen van Pamukkale en de ruïnes van Hiërapolis, of Cappadocië onder de sneeuw, volgens veel bezoekers de mooiste tijd van het jaar daar. Beide zijn lange dagen op de weg, en met een privévoertuig stop je waar en wanneer je wilt."
+      },
+      {
+        "type": "h2",
+        "text": "Aankomen in de winter"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Er zijn minder directe vluchten en meer nachtelijke aankomsten, vaak via Istanbul.",
+          "Veel kustresorts zijn gesloten, dus controleer of je hotel open is op jouw data.",
+          "Bij de taxistandplaatsen is het 's nachts rustiger dan in de zomer; een vooraf geboekte ophaalservice die je vluchtnummer volgt, is de rustigere keuze.",
+          "De vaste prijs per voertuig is in de winter hetzelfde als in de zomer – zonder nacht- of feestdagtoeslag."
+        ]
+      }
+    ],
+    "faq": [
+      [
+        "Is Antalya de moeite waard in de winter?",
+        "Ja, als je komt voor de stad, de antieke plaatsen, de natuur en golf in plaats van om te zonnebaden. De dagen zijn vaak zonnig met temperaturen rond de 15 °C, en het is er niet druk."
+      ],
+      [
+        "Kun je in de winter zwemmen in Antalya?",
+        "De zee blijft rond de 17-19 °C, wat sommige bezoekers op een zonnige dag verfrissend vinden. Veel hotels die in de winter open zijn, hebben ook een verwarmd binnenzwembad."
+      ],
+      [
+        "Kun je skiën in de buurt van Antalya?",
+        "Ja. Skigebied Saklıkent ligt op ongeveer 50 km van de stad. Het seizoen hangt af van de sneeuwval en loopt meestal van januari tot maart."
+      ],
+      [
+        "Zijn hotels in Antalya in de winter open?",
+        "Stadshotels in Antalya en Kaleiçi zijn het hele jaar open, net als verschillende resorts in Lara, Belek, Kemer, Side en Alanya. Veel grote seizoensresorts sluiten van november tot maart."
+      ],
+      [
+        "Rijden jullie in de winter transfers vanaf Antalya Airport?",
+        "Ja, het hele jaar door, ook bij nachtelijke aankomsten en op feestdagen, voor dezelfde vaste prijs per voertuig."
+      ]
+    ]
+  },
+  "christmas-new-year-antalya": {
+    "slug": "kerst-en-oud-en-nieuw-in-antalya",
+    "title": "Kerst en oud en nieuw in Antalya: een praktische gids",
+    "heading": "Kerst en oud en nieuw in Antalya",
+    "description": "Kerst of oud en nieuw vieren in Antalya: het weer, welke hotels open zijn, galadiners, Sinterklaas in Demre en van en naar de luchthaven op de drukste avonden.",
+    "excerpt": "Zonnige dagen, een oudejaarsgala aan zee en de stad van Sint-Nicolaas op tweeënhalf uur rijden. Zo plan je de feestdagen in Antalya, en zo kom je er die avond.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Kerst en oud en nieuw in Antalya vormen een van de weinige winterpieken. Gezinnen die de noordelijke winter ontvluchten, groepen die oudjaar vieren en bezoekers die de feestdagen combineren met een paar dagen zachte zon komen allemaal in dezelfde twee weken aan – terwijl een groot deel van de kust verder in het rustige seizoen zit."
+      },
+      {
+        "type": "h2",
+        "text": "Wat je eind december kunt verwachten"
+      },
+      {
+        "type": "p",
+        "text": "Overdag wordt het meestal zo'n 15-16 °C en vaak zonnig, al is december ook de natste maand van het jaar. Kerstmis is in Turkije geen officiële feestdag, dus winkels, restaurants en bezienswaardigheden zijn op 25 december gewoon open. Oudejaarsavond wordt daarentegen overal gevierd, en 1 januari is een officiële feestdag."
+      },
+      {
+        "type": "h2",
+        "text": "Welke hotels open zijn"
+      },
+      {
+        "type": "p",
+        "text": "Stadshotels in Antalya en Kaleiçi zijn het hele jaar open, en verschillende resorts in Lara, Belek, Kemer, Side en Alanya gaan speciaal voor de feestdagen open met een kerstdiner en een oudejaarsgala. Programma's, dresscodes en galatoeslagen verschillen sterk, dus vraag je hotel vóór het boeken wat er is inbegrepen. Kamers in de geopende resorts zijn voor deze data snel uitverkocht."
+      },
+      {
+        "type": "h2",
+        "text": "Kerst: de stad van Sint-Nicolaas"
+      },
+      {
+        "type": "p",
+        "text": "De historische Sint-Nicolaas, de bisschop achter de legende van Sinterklaas en de kerstman, woonde in Myra – het huidige Demre, ongeveer tweeënhalf uur ten westen van Antalya. De Sint-Nicolaaskerk en de in de rotsen uitgehouwen Lycische graven van Myra zijn een gedenkwaardig kerstuitje, te combineren met een stop in Kaş of de kustweg rond Kumluca."
+      },
+      {
+        "type": "h2",
+        "text": "Oudejaarsavond in Antalya"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Hotelgala's: diner, livemuziek en aftellen, meestal met een vast menu en een toeslag.",
+          "In de stad: restaurants in Kaleiçi en rond de jachthaven zijn druk; reserveer vooraf een tafel.",
+          "Lara en Konyaaltı: beachclubs en restaurants met zeezicht organiseren hun eigen feesten.",
+          "Vuurwerk is te zien langs de boulevard, al verandert het programma van jaar tot jaar."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Onderweg op de drukste avonden"
+      },
+      {
+        "type": "p",
+        "text": "Op oudejaarsavond en in de vroege uren van 1 januari zijn taxi's moeilijk te vinden, en apps en standplaatsen raken overbelast precies wanneer iedereen naar huis wil. Vier je het buiten je hotel – in de stad, in een restaurant of in de villa van vrienden – boek dan de terugrit vooraf met een vaste ophaaltijd."
+      },
+      {
+        "type": "h2",
+        "text": "Aankomst en vertrek rond de feestdagen"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "De vluchten rond 20 december en 2 januari zijn de drukste van de winter; boek op tijd.",
+          "Veel vluchten rond de feestdagen landen 's avonds of 's nachts – een ophaalservice die je vluchtnummer volgt, voorkomt wachten in de terminal.",
+          "Gezinnen met kerstcadeaus en winterbagage geven het aantal koffers het best door, zodat we het juiste voertuig inzetten.",
+          "Onze vaste prijs per voertuig kent geen toeslag voor feestdagen of oudejaarsavond."
+        ]
+      }
+    ],
+    "faq": [
+      [
+        "Wat voor weer is het in Antalya met kerst?",
+        "Zacht: overdag meestal zo'n 15-16 °C en 's nachts 6-8 °C, met zonnige perioden tussen de buien. Het is geen strandweer, maar vaak wel prettig om te wandelen en bezienswaardigheden te bekijken."
+      ],
+      [
+        "Wordt Kerstmis gevierd in Antalya?",
+        "Kerstmis is in Turkije geen officiële feestdag, maar veel hotels met internationale gasten organiseren een kerstdiner. Oudejaarsavond wordt overal gevierd en 1 januari is een officiële feestdag."
+      ],
+      [
+        "Waar staat de Sint-Nicolaaskerk?",
+        "In Demre, het antieke Myra, ongeveer tweeënhalf uur rijden ten westen van Antalya. De kerk is het hele jaar open voor bezoekers."
+      ],
+      [
+        "Kan ik een transfer boeken voor oudejaarsnacht?",
+        "Ja. We raden aan de terugrit te boeken met een vaste ophaaltijd, omdat taxi's na middernacht heel moeilijk te vinden zijn. De vaste prijs per voertuig kent geen feestdagtoeslag."
+      ]
+    ]
+  },
+  "wintering-in-antalya": {
+    "slug": "overwinteren-in-antalya-en-alanya",
+    "title": "Overwinteren in Antalya en Alanya: gids voor lange verblijven",
+    "heading": "Overwinteren in Antalya: een gids voor lange verblijven",
+    "description": "Overwinteren in Alanya, Side of Antalya: waarom langblijvers voor de Turkse Rivièra kiezen, en wat je kunt verwachten van het weer, verblijf, zorg en aankomst met veel bagage.",
+    "excerpt": "Weken of maanden zacht weer in plaats van een noordelijke winter. Wat langblijvers moeten weten voordat ze gaan overwinteren in Alanya, Side of Antalya.",
+    "readingMinutes": 7,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Elke winter ruilen duizenden bezoekers uit Duitsland, Scandinavië, Nederland, Rusland en Polen de grijze luchten wekenlang of maandenlang in voor de Turkse Rivièra. Zachte temperaturen, lange boulevards en lagere kosten van levensonderhoud dan thuis maken overwinteren in Antalya, Alanya en Side zo populair: het zijn enkele van de meest gewilde winterbestemmingen aan de Middellandse Zee."
+      },
+      {
+        "type": "h2",
+        "text": "Waarom hier overwinteren"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Zacht klimaat: winterdagen rond 15-17 °C, vaak zonnig, zelden vorst aan de kust.",
+          "Daglicht: merkbaar meer zonuren dan in Noord- en Midden-Europa.",
+          "Ruimte: boulevards, stranden en oude stadjes zonder de zomerdrukte.",
+          "Voorzieningen: winkels, markten, restaurants en privéziekenhuizen zijn in de grotere plaatsen het hele jaar open."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Kiezen waar je verblijft"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Plaats",
+          "Geschikt voor",
+          "Afstand tot de luchthaven"
+        ],
+        "rows": [
+          [
+            "Antalya stad",
+            "Stadsleven, cultuur, musea, alle voorzieningen om de hoek",
+            "ca. 15-30 minuten"
+          ],
+          [
+            "Side / Manavgat",
+            "Een rustig oud centrum, lange stranden, vlakke wandelingen",
+            "ca. 1 uur"
+          ],
+          [
+            "Alanya",
+            "De grootste gemeenschap van langblijvers, boulevards, een actief winterleven",
+            "ca. 1 uur en 45 minuten"
+          ],
+          [
+            "Kemer",
+            "Bergen en zee, wandelen, een kleinere badplaats",
+            "ca. 1 uur"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Alanya en naburige wijken zoals Mahmutlar en Oba hebben de grootste wintergemeenschap van langblijvers, met clubs, activiteiten en restaurants die de hele winter druk bezocht worden. Side is rustiger; Antalya past bij wie een echte stad wil."
+      },
+      {
+        "type": "h2",
+        "text": "Verblijf: hotels en appartementen"
+      },
+      {
+        "type": "p",
+        "text": "Sommige hotels in Alanya, Side en Antalya bieden speciale tarieven voor lange verblijven van vier weken of langer, vaak met halfpension. Een huurappartement geeft meer ruimte en vrijheid; controleer of er verwarming is of airco met verwarmingsfunctie, want Turkse kusthuizen zijn gebouwd voor de zomer en kunnen op winteravonden koud aanvoelen."
+      },
+      {
+        "type": "h2",
+        "text": "Het dagelijks leven in de winter"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Weekmarkten in elke wijk voor vers fruit en groente – de winter is citrusseizoen.",
+          "Wandelen en fietsen over de boulevards van Alanya, Side, Lara en Konyaaltı.",
+          "Wandelen in de uitlopers van het Taurusgebergte en over de Lycische Weg op droge dagen.",
+          "Dagtochten naar antieke plaatsen, de Manavgat-waterval of de oude stad van Antalya.",
+          "Privéziekenhuizen en klinieken in Antalya en Alanya met afdelingen voor internationale patiënten."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Papierwerk en praktische zaken"
+      },
+      {
+        "type": "p",
+        "text": "De inreisregels en hoe lang je zonder verblijfsvergunning mag blijven, hangen af van je nationaliteit en veranderen van tijd tot tijd. Controleer daarom vóór vertrek de actuele regels bij de officiële Turkse autoriteiten. Een reisverzekering die een lang verblijf in het buitenland dekt, wordt sterk aangeraden."
+      },
+      {
+        "type": "h2",
+        "text": "Aankomen met bagage voor maanden"
+      },
+      {
+        "type": "p",
+        "text": "Langblijvers reizen met meer dan een vakantiekoffer. Laat ons weten hoeveel koffers en extra spullen je meeneemt – fietsen, rollators of dozen – en we zetten een Mercedes Vito in of, als het nodig is, een Sprinter. De prijs is vast per voertuig, dus extra bagage wordt bij het boeken meegenomen en niet pas langs de stoeprand in rekening gebracht. De chauffeur helpt bij het in- en uitladen aan de deur."
+      }
+    ],
+    "faq": [
+      [
+        "Waar kun je het best overwinteren aan de Turkse Rivièra?",
+        "Alanya heeft de grootste gemeenschap van langblijvers en het drukste winterleven; Side is rustiger; Antalya biedt alle voorzieningen van een stad. Alle drie hebben zachte winters."
+      ],
+      [
+        "Hoe warm is het in Antalya in de winter?",
+        "Van december tot februari is het overdag meestal rond 15-17 °C, 's nachts rond 6-8 °C. Vorst aan de kust is zeldzaam."
+      ],
+      [
+        "Zijn er in de winter hotelaanbiedingen voor lange verblijven?",
+        "Ja. Verschillende hotels in Alanya, Side en Antalya bieden in de winter voordelige maand- of langverblijftarieven. Vraag het hotel rechtstreeks naar verblijven van vier weken of langer."
+      ],
+      [
+        "Kun je veel bagage meenemen tijdens de luchthaventransfer?",
+        "Ja. Geef bij het boeken het aantal koffers en extra spullen door, dan zetten we een voertuig met genoeg ruimte in. De prijs is per voertuig, zonder kosten per koffer."
+      ]
+    ]
+  },
+  "antalya-in-spring": {
+    "slug": "antalya-in-het-voorjaar",
+    "title": "Antalya in het voorjaar: wat te doen van maart tot mei",
+    "heading": "Antalya in het voorjaar: wat te doen tussen maart en mei",
+    "description": "Antalya in het voorjaar: sinaasappelbloesem, wandelen over de Lycische Weg, raften, paasvakanties en de eerste stranddagen. Het weer per maand en wat je bij aankomst kunt verwachten.",
+    "excerpt": "Sinaasappelbloesem in de straten, sneeuw op de toppen en een zee die week na week warmer wordt. Waarom het voorjaar hét seizoen is voor een actieve vakantie rond Antalya.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Het voorjaar begint vroeg aan de Turkse Rivièra. In maart staan de sinaasappelbomen al in bloei, ligt er nog sneeuw op het Taurusgebergte en zijn de dagen warm genoeg om buiten te zitten. Antalya in het voorjaar is de beste tijd om te wandelen, te fietsen en op ontdekking te gaan, en in mei beginnen de eerste stranddagen van het jaar."
+      },
+      {
+        "type": "h2",
+        "text": "Het voorjaarsweer in Antalya"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Maand",
+          "Dag / nacht",
+          "Zee",
+          "Ideaal voor"
+        ],
+        "rows": [
+          [
+            "Maart",
+            "ca. 19 °C / 8 °C",
+            "ca. 17 °C",
+            "Bezienswaardigheden, wandelen, bloesem"
+          ],
+          [
+            "April",
+            "ca. 22 °C / 11 °C",
+            "ca. 18 °C",
+            "Wandelen, raften, paasvakanties"
+          ],
+          [
+            "Mei",
+            "ca. 26 °C / 15 °C",
+            "ca. 21 °C",
+            "De eerste stranddagen, alle activiteiten"
+          ]
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Sinaasappelbloesem en de stad in het voorjaar"
+      },
+      {
+        "type": "p",
+        "text": "In het voorjaar ruikt Antalya naar sinaasappelbloesem. De stad viert dat met het Sinaasappelbloesemcarnaval, een straatfeest dat in het voorjaar rond Kaleiçi en het centrum wordt gehouden. Het is ook de beste tijd om de oude stad, het Antalya Museum en de kliffen van Konyaaltı en Lara te voet te verkennen, voordat de zomerhitte komt."
+      },
+      {
+        "type": "h2",
+        "text": "Actieve vakantie: wandelen, raften en fietsen"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Lycische Weg: het voorjaar is het populairste wandelseizoen, met wilde bloemen langs de etappes bij Kemer, Olympos en Kaş.",
+          "Köprülü-kloof: het raftingseizoen begint meestal in april, met levendig water door de smeltende sneeuw.",
+          "Tahtalı-kabelbaan: sneeuw op de top en bloeiende weiden eronder, vaak in één blik.",
+          "Fietsen: rustige wegen en zachte temperaturen rond Belek, Side en de uitlopers van het Taurusgebergte.",
+          "Golf: het voorjaar is het tweede hoogseizoen op de banen van Belek."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Antieke plaatsen in het groene seizoen"
+      },
+      {
+        "type": "p",
+        "text": "Perge, Aspendos, Side, Phaselis en Termessos zijn in het voorjaar op hun mooist, wanneer de ruïnes omringd zijn door groen gras en wilde bloemen. Ook langere tochten zijn dan een goed idee: Pamukkale en Cappadocië hebben aangename temperaturen, en ballonvaarten boven Cappadocië gaan in het voorjaar bij stabiel weer vaak door."
+      },
+      {
+        "type": "h2",
+        "text": "Pasen en de voorjaarsvakantie"
+      },
+      {
+        "type": "p",
+        "text": "Pasen en de voorjaarsvakanties in Duitsland, Nederland, het Verenigd Koninkrijk en Scandinavië brengen de eerste golf gezinnen. Vanaf april gaan meer seizoenshotels open, komen er meer vluchten bij en in mei zijn de meeste kustresorts volledig in bedrijf. Boek rond Pasen zowel je hotel als je transfer op tijd."
+      },
+      {
+        "type": "h2",
+        "text": "Aankomen in het voorjaar"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "In maart zijn sommige resorts nog dicht; vanaf april wordt de keuze snel groter.",
+          "De terminal en de wegen zijn rustig, dus de opgegeven rijtijden zijn realistisch.",
+          "Wandel- en golfuitrusting, fietsen en kinderzitjes geef je het best door bij het boeken.",
+          "De prijs is vast per voertuig en verandert niet met het seizoen."
+        ]
+      }
+    ],
+    "faq": [
+      [
+        "Is het in het voorjaar warm genoeg voor het strand in Antalya?",
+        "Vanaf mei wel: overdag wordt het zo'n 26 °C en de zee ongeveer 21 °C. In maart en april is het warm genoeg om in de zon te zitten, maar voor de meeste zwemmers is de zee dan nog fris."
+      ],
+      [
+        "Wanneer is het Sinaasappelbloesemcarnaval in Antalya?",
+        "Het wordt in het voorjaar gehouden, als de sinaasappelbomen van de stad bloeien. De data veranderen elk jaar, dus bekijk de officiële aankondigingen van de stad voordat je je reis erop afstemt."
+      ],
+      [
+        "Is het voorjaar een goede tijd om de Lycische Weg te lopen?",
+        "Ja. Voorjaar en herfst zijn de twee beste wandelseizoenen; in het voorjaar zijn de paden groen en vol wilde bloemen, en de temperaturen zijn aangenaam."
+      ],
+      [
+        "Zijn hotels in Antalya in maart open?",
+        "Stadshotels en sommige resorts zijn open. Veel seizoensresorts gaan in de loop van april open, en in mei is het grootste deel van de kust volledig in bedrijf."
+      ]
+    ]
+  },
+  "cappadocia-winter-trip": {
+    "slug": "cappadocie-in-de-winter-vanuit-antalya",
+    "title": "Cappadocië in de winter vanuit Antalya: sneeuw, ballonnen en de reis erheen",
+    "heading": "Cappadocië in de winter: een trip vanuit Antalya",
+    "description": "Cappadocië in de winter vanuit Antalya: sneeuw, weer, luchtballonnen, grothotels, wat je moet zien en hoe de rit van 540 km via Konya in de winter verloopt.",
+    "excerpt": "Feeënschoorstenen onder de sneeuw en ballonnen boven een witte vallei. Zo combineer je een winterverblijf in Antalya met Cappadocië, en zo is de weg in de winter.",
+    "readingMinutes": 7,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Cappadocië in de winter is een van de meest gefotografeerde landschappen van Turkije: feeënschoorstenen en valleien onder de sneeuw, grothotels met een knapperend haardvuur en op heldere ochtenden ballonnen die opstijgen boven een wit landschap. Vanuit Antalya is het een lange maar prachtige rit – en een logische aanvulling op een winterverblijf aan de kust."
+      },
+      {
+        "type": "h2",
+        "text": "Het winterweer: een heel ander klimaat dan aan de kust"
+      },
+      {
+        "type": "p",
+        "text": "Cappadocië ligt op een hoogvlakte op zo'n 1.000 meter of hoger, dus de winter is daar een echte winter. Overdag schommelt de temperatuur vaak rond het vriespunt, 's nachts vriest het flink en van december tot februari valt er regelmatig sneeuw. Neem een goede winterjas, handschoenen, een muts en waterdichte schoenen mee – kleding die in januari prima is voor Antalya, is hier niet genoeg."
+      },
+      {
+        "type": "table",
+        "head": [
+          "",
+          "Kust van Antalya",
+          "Cappadocië"
+        ],
+        "rows": [
+          [
+            "Gemiddelde winterdag",
+            "ongeveer 15 °C",
+            "rond 0-5 °C"
+          ],
+          [
+            "Winternachten",
+            "ongeveer 6-8 °C",
+            "vaak onder het vriespunt"
+          ],
+          [
+            "Sneeuw",
+            "alleen op de bergtoppen",
+            "regelmatig van december tot februari"
+          ]
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Luchtballonnen in de winter"
+      },
+      {
+        "type": "p",
+        "text": "De ballonnen vliegen het hele jaar door als het weer het toelaat, en een vlucht bij zonsopgang boven besneeuwde valleien is het beeld waarvoor veel mensen komen. In de winter worden vluchten wel vaker geannuleerd door wind, mist of sneeuw; de autoriteiten beslissen daar elke ochtend vroeg over. Plan minstens twee nachten in Cappadocië, zodat één geannuleerde vlucht niet betekent dat je het helemaal misloopt."
+      },
+      {
+        "type": "h2",
+        "text": "Wat je in de winter kunt zien"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Openluchtmuseum Göreme: in de rots uitgehouwen kerken met fresco's, in de winter rustiger dan in elk ander seizoen.",
+          "Ondergrondse steden zoals Derinkuyu en Kaymaklı: meerdere verdiepingen diep en met een aangename, constante temperatuur, wat het weer buiten ook doet.",
+          "Het kasteel van Uçhisar en de uitkijkpunten boven Göreme: de beste plekken voor besneeuwde panorama's.",
+          "Korte wandelingen in de Rozenvallei, de Rode Vallei en de Liefdesvallei op droge, heldere dagen – na sneeuwval kunnen de paden glad zijn.",
+          "Grothotels: veel zijn verwarmd en hebben een open haard, en juist in de winter voelen ze het meest bijzonder."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "De weg vanuit Antalya"
+      },
+      {
+        "type": "p",
+        "text": "De rit is ongeveer 540 km en duurt meestal 7 tot 8 uur: over het Taurusgebergte en dan verder over de hoogvlakte via Konya. Konya, met het Mevlanamuseum, is een logische tussenstop. In de winter kan het berggedeelte besneeuwd en glad zijn; de wegen worden vrijgemaakt, maar een voertuig met winteruitrusting en een chauffeur die de route kent, maken het verschil tussen een lange en een stressvolle dag."
+      },
+      {
+        "type": "h2",
+        "text": "Zo plan je de reis"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Reken op minstens twee nachten, liever drie, om ruimte te houden voor geannuleerde ballonvaarten en de korte winterdagen.",
+          "Vertrek 's ochtends uit Antalya, zodat je de bergen bij daglicht oversteekt.",
+          "Combineer de trip met een verblijf aan de kust: een paar dagen Antalya of Side en daarna Cappadocië, of andersom.",
+          "Boek het grothotel en een eventuele ballonvaart rond kerst en oud en nieuw ruim op tijd."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Transfer tussen Antalya en Cappadocië"
+      },
+      {
+        "type": "p",
+        "text": "Wij verzorgen privétransfers vanaf de luchthaven van Antalya en vanaf hotels aan de kust naar Cappadocië, enkele reis of met een terugrit op een latere datum. De prijs is vast per voertuig, je kunt stoppen voor foto's, maaltijden en een bezoek aan Konya, en er zijn geen andere passagiers op wie je moet wachten. Geef bij het boeken je hotel en reisdata door."
+      }
+    ],
+    "faq": [
+      [
+        "Hoe ver is Cappadocië van Antalya?",
+        "Ongeveer 540 km over de weg. De rit via Konya duurt meestal 7 tot 8 uur, iets langer met stops of bij sneeuw."
+      ],
+      [
+        "Is Cappadocië in de winter de moeite waard?",
+        "Ja. Sneeuw op de feeënschoorstenen, rustige bezienswaardigheden en knusse grothotels maken de winter tot een van de mooiste periodes. Neem warme kleding mee: het is er veel kouder dan aan de kust."
+      ],
+      [
+        "Vliegen de luchtballonnen in Cappadocië ook in de winter?",
+        "Ja, zolang het weer het toelaat. In de winter worden vluchten vaker geannuleerd, dus plan minstens twee nachten voor een tweede kans."
+      ],
+      [
+        "Kan ik met een privétransfer van Antalya naar Cappadocië?",
+        "Ja. Wij bieden privétransfers vanaf de luchthaven van Antalya en hotels aan de kust naar Cappadocië, enkele reis of retour, tegen een vaste prijs per voertuig."
+      ]
+    ]
+  },
+  "belek-winter-golf": {
+    "slug": "wintergolf-in-belek",
+    "title": "Wintergolf in Belek: golfen aan de Turkse Rivièra van november tot maart",
+    "heading": "Wintergolf in Belek",
+    "description": "Waarom Belek dé bestemming is voor wintergolf: het weer van november tot maart, de baanconditie, lagere greenfees, wat je inpakt en hoe je met golftassen in Belek komt.",
+    "excerpt": "Zachte dagen, groene fairways en rustigere starttijden. Wat golfers moeten weten over spelen in Belek tussen november en maart, als de banen thuis dicht zijn.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Als de banen in Noord-Europa bevroren, doorweekt of gesloten zijn, wordt er in Belek gewoon doorgespeeld. Het cluster kampioenschapsbanen 45 km ten oosten van de luchthaven van Antalya blijft de hele winter open, en de maanden november tot en met maart zijn uitgegroeid tot een eigen wintergolfseizoen voor golfers die tussen oktober en april niet willen stilzitten."
+      },
+      {
+        "type": "h2",
+        "text": "Zo is het weer op de baan"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Maand",
+          "Gemiddelde dag",
+          "Op de baan"
+        ],
+        "rows": [
+          [
+            "November",
+            "ongeveer 21 °C",
+            "Uitstekende omstandigheden, nog najaarshoogseizoen"
+          ],
+          [
+            "December - januari",
+            "ongeveer 15-16 °C",
+            "Zacht en vaak zonnig, met wat regendagen"
+          ],
+          [
+            "Februari",
+            "ongeveer 16 °C",
+            "Dagen worden langer, minder regendagen"
+          ],
+          [
+            "Maart",
+            "ongeveer 19 °C",
+            "Begin van het voorjaarshoogseizoen"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Op de meeste winterdagen speel je in een dunne trui. Regen valt meestal in korte buien en niet wekenlang, en de banen zijn aangelegd om snel te draineren. 's Ochtends kan het fris zijn en laat in de middag wordt het vroeg donker, dus starttijden liggen meestal vroeger dan in de zomer."
+      },
+      {
+        "type": "h2",
+        "text": "Waarom de winter loont"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Greenfees en hotelprijzen liggen in december, januari en februari doorgaans lager dan in het najaar en het voorjaar.",
+          "De startlijsten zijn minder vol, dus rondes gaan sneller en je favoriete tijden zijn makkelijker te krijgen.",
+          "Verschillende golfhotels blijven de hele winter open, vaak met binnenzwembad en spa voor de middag.",
+          "Korte vluchten vanuit het grootste deel van Europa maken een lang weekend net zo haalbaar als een hele week."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Banen en hotels in de winter"
+      },
+      {
+        "type": "p",
+        "text": "Niet elke baan en elk hotel in Belek draait in de winter hetzelfde schema, en onderhoud zoals holpipen of doorzaaien wordt soms in de rustige maanden gepland. Vraag bij het boeken welke banen in jouw periode open zijn en of er onderhoud gepland staat. Golfhotels regelen meestal starttijden en shuttles naar hun partnerbanen."
+      },
+      {
+        "type": "h2",
+        "text": "Wat pak je in voor wintergolf?"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Laagjes: een thermoshirt, een trui en een winddicht jack voor frisse ochtenden.",
+          "Regenjas en regenbroek voor een enkele bui.",
+          "Winterhandschoenen of wanten tussen de slagen door, plus gewone golfhandschoenen.",
+          "Zonbescherming: de winterzon is op heldere dagen nog steeds sterk."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Met golftassen naar Belek"
+      },
+      {
+        "type": "p",
+        "text": "Van de luchthaven van Antalya naar Belek is het 35 tot 40 minuten rijden, en in de winter is het rustig in de terminal, dus een middagronde op de aankomstdag is vaak haalbaar. De prijs is vast per voertuig, niet per tas: in de regel vervoert een Mercedes Vito vier spelers met vier golftassen en hun bagage, en grotere groepen reizen in een Sprinter. Geef bij het boeken het aantal golftassen door."
+      }
+    ],
+    "faq": [
+      [
+        "Kun je in de winter golfen in Belek?",
+        "Ja. De banen in Belek blijven de hele winter open, met in december en januari gemiddelde dagtemperaturen rond 15-16 °C, en op de meeste dagen is er goed te spelen."
+      ],
+      [
+        "Is golfen in Belek goedkoper in de winter?",
+        "Greenfees en hotelprijzen liggen in december, januari en februari doorgaans lager dan in het hoogseizoen in het najaar en voorjaar. De exacte prijzen hangen af van de baan en het hotel."
+      ],
+      [
+        "Wat is de beste maand om te golfen in Belek?",
+        "Oktober-november en maart-april zijn de topmaanden voor golf. De winter is rustiger en goedkoper, met iets koelere dagen."
+      ],
+      [
+        "Kosten golftassen extra bij de transfer?",
+        "Nee. De prijs is vast per voertuig. Voor meer tassen zetten we een groter voertuig in, en die prijs zie je bij het boeken."
+      ]
+    ]
+  },
+  "saklikent-ski-antalya": {
+    "slug": "skien-bij-antalya-saklikent",
+    "title": "Skiën bij Antalya: gids voor skigebied Saklıkent",
+    "heading": "Skiën bij Antalya: skigebied Saklıkent",
+    "description": "Skiën bij Antalya in Saklıkent: waar het ligt, hoe lang de rit duurt, wanneer het seizoen loopt, wat je op de piste verwacht en hoe je skiën en zee op één dag combineert.",
+    "excerpt": "'s Ochtends skiën, 's middags wandelen langs de zee. Een praktische gids over Saklıkent, het eigen skigebied van Antalya, en hoe je er vanaf de kust komt.",
+    "readingMinutes": 5,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Weinig vakantiegebieden laten je op dezelfde dag skiën en langs de zee wandelen. Antalya wel: skigebied Saklıkent ligt in het Bakırlıgebergte, ongeveer 50 km van de stad, en op een goede winterdag sta je 's ochtends op de piste en ben je voor zonsondergang terug op de boulevard."
+      },
+      {
+        "type": "h2",
+        "text": "Waar ligt Saklıkent?"
+      },
+      {
+        "type": "p",
+        "text": "Het skigebied ligt op zo'n 1.900 meter hoogte op de hellingen van het Bakırlıgebergte, ten westen van Antalya. De rit vanuit de stad duurt ongeveer anderhalf uur en klimt van sinaasappelboomgaarden via dennenbossen naar de sneeuw. Op heldere dagen reikt het uitzicht vanaf de top tot aan de kust en de zee."
+      },
+      {
+        "type": "h2",
+        "text": "Wanneer loopt het seizoen?"
+      },
+      {
+        "type": "p",
+        "text": "Het skiseizoen hangt volledig af van de sneeuwval en loopt meestal van januari tot maart. In sommige winters begint het eerder of stopt het vroeger, dus check de actuele sneeuw- en liftcondities voordat je er een dag omheen plant."
+      },
+      {
+        "type": "h2",
+        "text": "Wat je op de piste kunt verwachten"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Een klein, relaxt skigebied – ideaal voor beginners, gezinnen en een dagje skiën tijdens een strandvakantie, minder voor een volledige skiweek.",
+          "Ski- en snowboarduitrusting kun je meestal ter plekke huren; check vooraf de openingstijden.",
+          "Sleeën en spelen in de sneeuw zijn populair bij gezinnen, vooral in het weekend.",
+          "In het weekend is het druk met lokale bezoekers; doordeweeks is het veel rustiger."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Skiën en zee op één dag"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Vertrek vroeg in de ochtend vanaf de kust, zodat je er bent als de liften opengaan.",
+          "Skiën of spelen in de sneeuw tot het begin van de middag.",
+          "Rij terug naar beneden voor een late lunch in Kaleiçi of een wandeling langs het strand van Konyaaltı.",
+          "Neem schone kleren mee: het temperatuurverschil tussen de piste en de kust kan 15 graden of meer zijn."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Erheen: de bergweg in de winter"
+      },
+      {
+        "type": "p",
+        "text": "Er is geen geregeld openbaar vervoer naar het skigebied, en op het laatste stuk van de bergweg kunnen sneeuw en ijs liggen. Winterbanden of sneeuwkettingen kunnen verplicht zijn. Een privétransfer brengt je van je hotel in Antalya, Kemer, Belek of Side naar de piste en terug, en jij bepaalt hoe lang je op de berg blijft. Dit is geen van onze standaardroutes, dus stuur ons je hotel, datum en groepsgrootte en we geven je een vaste prijs per voertuig."
+      },
+      {
+        "type": "h2",
+        "text": "Andere skimogelijkheden vanuit Antalya"
+      },
+      {
+        "type": "p",
+        "text": "Voor een langere skitrip is Davraz bij Isparta een groter skigebied met meer pistes, ongeveer tweeënhalf tot drie uur rijden van Antalya. Saklıkent blijft de makkelijkste keuze voor één dag sneeuw tijdens een verblijf aan de kust."
+      }
+    ],
+    "faq": [
+      [
+        "Kun je skiën in de buurt van Antalya?",
+        "Ja. Skigebied Saklıkent ligt ongeveer 50 km van de stad Antalya, zo'n anderhalf uur rijden, in het Bakırlıgebergte."
+      ],
+      [
+        "Wanneer is het skiseizoen in Saklıkent?",
+        "Dat hangt af van de sneeuwval. Het seizoen loopt meestal van januari tot maart; check de actuele omstandigheden voordat je gaat."
+      ],
+      [
+        "Kun je in Antalya op één dag skiën en zwemmen?",
+        "Je kunt 's ochtends skiën en 's middags aan zee zijn. Zwemmen in de winter is voor de durvers: het zeewater is rond de 17 °C."
+      ],
+      [
+        "Hoe kom ik vanaf mijn hotel in Saklıkent?",
+        "Er is geen geregeld openbaar vervoer. We maken graag een offerte voor een privétransfer van je hotel naar het skigebied en terug, tegen een vaste prijs per voertuig."
+      ]
+    ]
+  },
+  "pamukkale-trip-from-antalya": {
+    "slug": "pamukkale-vanuit-antalya",
+    "title": "Pamukkale vanuit Antalya: dagtrip of overnachten, en wanneer gaan?",
+    "heading": "Pamukkale vanuit Antalya: zo plan je de reis",
+    "description": "Pamukkale vanuit Antalya plannen: afstand en reistijd, dagtrip of overnachting, de travertijnterrassen, Hierapolis en het Antieke Bad, en het beste seizoen om te gaan.",
+    "excerpt": "Witte travertijnterrassen, een Romeinse stad op de heuvel en een zwembad tussen antieke zuilen. Zo bezoek je Pamukkale vanuit Antalya zonder de hele dag in een touringcar te zitten.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Pamukkale is een van de bekendste bezienswaardigheden van Turkije: witte travertijnterrassen gevuld met warm, mineraalrijk water, en daarboven de ruïnes van de Romeinse stad Hierapolis. Van Antalya naar Pamukkale is het ongeveer 245 km over de weg, zo'n drie tot drieënhalf uur per richting – dichtbij genoeg voor een dagtrip, maar ver genoeg om met een overnachting het bezoek een stuk ontspannener te maken."
+      },
+      {
+        "type": "h2",
+        "text": "Wat te zien in Pamukkale"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "De travertijnen: loop op blote voeten over de terrassen door ondiep, warm water – schoenen zijn op het witte oppervlak niet toegestaan.",
+          "Hierapolis: een grote Romeinse stad met een theater, een monumentale straat en een van de grootste antieke begraafplaatsen van Anatolië.",
+          "Het Antieke Bad: zwem in warm thermaalwater tussen omgevallen antieke zuilen (apart ticket).",
+          "Archeologisch Museum van Hierapolis: vondsten uit de opgraving, ondergebracht in de voormalige Romeinse baden.",
+          "Laodicea: op korte rijafstand, nog een grote antieke stad met veel minder bezoekers."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Dagtrip of overnachten?"
+      },
+      {
+        "type": "table",
+        "head": [
+          "",
+          "Dagtrip",
+          "Met overnachting"
+        ],
+        "rows": [
+          [
+            "Reistijd",
+            "6-7 uur op één dag",
+            "Verdeeld over twee dagen"
+          ],
+          [
+            "Tijd ter plaatse",
+            "3-4 uur, meestal rond het middaguur",
+            "Late middag en vroege ochtend"
+          ],
+          [
+            "Drukte",
+            "Aankomst samen met de touringcars",
+            "Zonsondergang en ochtend met veel minder mensen"
+          ],
+          [
+            "Geschikt voor",
+            "Reizigers met weinig tijd",
+            "Gezinnen, fotografen en iedereen die wil zwemmen"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "De meeste groepsreizen komen rond het middaguur aan, wanneer het op de terrassen het drukst is en het witte oppervlak in de zomer verblindend en heet is. Wie overnacht in Pamukkale of in het kuurdorp Karahayıt, ziet de travertijnen bij zonsondergang en nog een keer in de rust van de ochtend."
+      },
+      {
+        "type": "h2",
+        "text": "Het beste seizoen voor Pamukkale"
+      },
+      {
+        "type": "p",
+        "text": "Voorjaar en herfst zijn het aangenaamst: milde temperaturen om door Hierapolis te wandelen en prettig water op de terrassen. In de winter is het koel en soms vriest het, maar het warme water dampt in de koude lucht en het is er dan het rustigst. In juli en augustus kunnen de middaghitte en de schittering op de witte terrassen heel intens zijn – ga vroeg of laat op de dag."
+      },
+      {
+        "type": "h2",
+        "text": "Onderweg: het Saldameer en het Taurusgebergte"
+      },
+      {
+        "type": "p",
+        "text": "De weg klimt vanaf de kust over het Taurusgebergte en door het merengebied. Het Saldameer, met witte oevers en turquoise water, is een korte omweg en een populaire fotostop. Met een privévoertuig bepaal je zelf waar en hoe lang je stopt – iets wat een bustour niet kan bieden."
+      },
+      {
+        "type": "h2",
+        "text": "Privétransfer naar Pamukkale"
+      },
+      {
+        "type": "p",
+        "text": "Wij verzorgen privétransfers van de luchthaven van Antalya en van hotels aan de kust naar Pamukkale, enkele reis of met een terugrit op een latere datum. De prijs is vast per voertuig, dus voor een gezin of kleine groep is die vaak vergelijkbaar met meerdere tickets voor een bustour – zonder het ophalen bij andere hotels, het vaste schema of de winkelstops."
+      }
+    ],
+    "faq": [
+      [
+        "Hoe ver is Pamukkale van Antalya?",
+        "Ongeveer 245 km over de weg. De rit duurt meestal drie tot drieënhalf uur per richting."
+      ],
+      [
+        "Kun je Pamukkale als dagtrip vanuit Antalya bezoeken?",
+        "Ja, maar dat betekent 6-7 uur onderweg op één dag. Een overnachting in Pamukkale of Karahayıt maakt het bezoek ontspannener en je ziet de terrassen zonder de drukte."
+      ],
+      [
+        "Kun je zwemmen in Pamukkale?",
+        "Op de travertijnen kun je op blote voeten door de ondiepe baden lopen. Zwemmen kan in het Antieke Bad, met warm thermaalwater en een apart ticket."
+      ],
+      [
+        "Wat is de beste tijd van het jaar voor Pamukkale?",
+        "Voorjaar en herfst zijn het aangenaamst. De winter is rustig en sfeervol; in de zomer ga je het best vroeg in de ochtend of laat in de middag."
+      ]
+    ]
+  },
+  "demre-myra-st-nicholas": {
+    "slug": "demre-myra-sint-nicolaaskerk",
+    "title": "Demre en Myra: de Sint-Nicolaaskerk bezoeken vanuit Antalya",
+    "heading": "Demre, Myra en de Sint-Nicolaaskerk",
+    "description": "Een uitstapje van Antalya naar Demre, het antieke Myra: de Sint-Nicolaaskerk, Lycische rotsgraven, Andriake en Kekova, met reistijden en tips voor een bezoek in de winter of met kerst.",
+    "excerpt": "De woonplaats van de echte Sinterklaas ligt op tweeënhalf uur van Antalya. Wat je in Demre en Myra kunt zien en hoe je er een mooie dag langs de kust van maakt.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Lang voordat hij Sinterklaas en de Kerstman werd, was Sint-Nicolaas bisschop van Myra, een Lycische stad aan de kust ten westen van Antalya. Tegenwoordig heet de plaats Demre, en de Sint-Nicolaaskerk waar hij diende, de Lycische rotsgraven en de antieke haven maken het tot een van de mooiste dagtrips vanuit Antalya – vooral in december."
+      },
+      {
+        "type": "h2",
+        "text": "Wie was Sint-Nicolaas van Myra?"
+      },
+      {
+        "type": "p",
+        "text": "Nicolaas leefde in de 4e eeuw en werd beroemd om zijn geheime vrijgevigheid, vooral tegenover kinderen en armen. Zijn feestdag, 6 december, wordt nog altijd in heel Europa gevierd, en de legenden rond hem groeiden in de loop van de eeuwen uit tot de figuur van de Kerstman. Myra, waar hij bisschop was, werd een belangrijk bedevaartsoord."
+      },
+      {
+        "type": "h2",
+        "text": "Wat te zien in Demre"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Sint-Nicolaaskerk: een Byzantijnse kerk met fresco's, mozaïekvloeren en de sarcofaag die traditioneel met de heilige in verband wordt gebracht.",
+          "Rotsgraven van Myra: Lycische graven in de vorm van huizen, uitgehouwen in de rotswand boven een groot Romeins theater.",
+          "Andriake: de antieke haven van Myra, met een gerestaureerde graanschuur waarin het Museum van Lycische Beschavingen is gevestigd.",
+          "Kekova: boottochten vanuit het nabijgelegen Üçağız varen langs de deels verzonken antieke stad en het burchtdorp Kaleköy (in de winter varen er minder boten)."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "De reis: de kustweg naar het westen"
+      },
+      {
+        "type": "p",
+        "text": "Demre ligt op ongeveer tweeënhalf uur van Antalya, langs een van de mooiste kustwegen van het land, via Kemer, de bergen rond Olympos, Kumluca en Finike. De weg is het hele jaar goed, maar slingert door de bergen, dus neem de tijd voor stops en maak er geen haastklus van."
+      },
+      {
+        "type": "h2",
+        "text": "Een dag langs de kust"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Ochtend: vertrek vroeg uit Antalya en stop bij Olympos voor het uitzicht over de kust.",
+          "Late ochtend: de Sint-Nicolaaskerk, voordat de reisgroepen aankomen.",
+          "Middag: de rotsgraven en het theater van Myra, daarna lunch in Demre of in Andriake.",
+          "Namiddag: in het seizoen een boottocht naar Kekova, of doorrijden naar Kaş en daar overnachten.",
+          "Avond: terug naar Antalya, of combineer de trip met een paar dagen in Kaş."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Een bezoek in de winter en met kerst"
+      },
+      {
+        "type": "p",
+        "text": "December is een bijzonder sfeervolle tijd voor een bezoek: 6 december is de feestdag van Sint-Nicolaas, en rond kerst combineren veel bezoekers een verblijf in Antalya met een uitstapje naar de stad van de heilige. De winterdagen zijn mild maar kort, dus vertrek op tijd. De bezienswaardigheden zijn het hele jaar open; boottochten naar Kekova hangen af van het weer en het seizoen."
+      },
+      {
+        "type": "h2",
+        "text": "Privétransfer naar Demre"
+      },
+      {
+        "type": "p",
+        "text": "Wij verzorgen privétransfers vanuit Antalya en de badplaatsen langs de westkust naar Kumluca, Demre en Kaş. Met een privévoertuig kies je zelf de stops en het tempo, en de prijs is vast per voertuig, niet per persoon. Laat ons bij het boeken je hotel en datum weten, en of je dezelfde dag terug wilt."
+      }
+    ],
+    "faq": [
+      [
+        "Hoe ver is Demre van Antalya?",
+        "Demre, het antieke Myra, ligt op ongeveer tweeënhalf uur rijden van Antalya, over de kustweg via Kemer, Kumluca en Finike."
+      ],
+      [
+        "Is de Sint-Nicolaaskerk het hele jaar open?",
+        "Ja. De Sint-Nicolaaskerk en de antieke stad Myra zijn het hele jaar door open voor bezoekers."
+      ],
+      [
+        "Wanneer is de feestdag van Sint-Nicolaas?",
+        "De feestdag van Sint-Nicolaas valt op 6 december. December, inclusief de kerstperiode, is een populaire tijd om Demre te bezoeken."
+      ],
+      [
+        "Kan ik Demre en Kekova op één dag bezoeken?",
+        "Ja, in het bootseizoen kan dat als je vroeg vertrekt. In de winter varen er minder boten, dus check ter plaatse het weer en de vaartijden."
+      ]
+    ]
+  },
+  "lycian-way-spring-hiking": {
+    "slug": "lycische-weg-wandelen-bij-antalya",
+    "title": "Wandelen op de Lycische Weg bij Antalya: de mooiste etappes in het voorjaar",
+    "heading": "Wandelen op de Lycische Weg vanuit Antalya",
+    "description": "Wandelen op de Lycische Weg bij Antalya: het beste seizoen, etappes rond Kemer, Olympos, Adrasan en Kaş, wat je meeneemt en hoe je bij het startpunt van je wandeling komt.",
+    "excerpt": "Antieke ruïnes, pijnbossen en uitzicht over zee langs een van de grote langeafstandsroutes ter wereld. Welke etappes je vanuit Antalya kunt lopen en wanneer je het best gaat.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "De Lycische Weg (Lycian Way) is een gemarkeerde langeafstandsroute van meer dan 500 km tussen Fethiye en Antalya, over oude paden, ezelspaden en Romeinse wegen langs de kust en door de bergen van het antieke Lycië. Voor wandelen op de Lycische Weg heb je geen weken nodig: veel van de mooiste etappes liggen vlak bij Antalya en zijn uitstekend als dagwandeling of korte wandelvakantie."
+      },
+      {
+        "type": "h2",
+        "text": "Wanneer wandelen: voorjaar en herfst"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Seizoen",
+          "Omstandigheden",
+          "Oordeel"
+        ],
+        "rows": [
+          [
+            "Maart - mei",
+            "Milde dagen, groene heuvels, wilde bloemen, bronnen vol water",
+            "Het beste seizoen"
+          ],
+          [
+            "Juni - augustus",
+            "Erg heet, weinig schaduw op veel etappes, droge bronnen",
+            "Alleen vroeg in de ochtend of korte wandelingen"
+          ],
+          [
+            "September - november",
+            "Warme zee, stabiel weer, koeler vanaf eind oktober",
+            "Het op één na beste seizoen"
+          ],
+          [
+            "December - februari",
+            "Mild aan de kust, regenperiodes, sneeuw op de hoge passen",
+            "Mogelijk op lage kustetappes"
+          ]
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Etappes bij Antalya"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Göynük – omgeving Kemer: bospaden en uitzicht op de kloof, vlak bij de badplaatsen van Kemer.",
+          "Çıralı en Olympos: een kustetappe tussen de ruïnes van Olympos en de eeuwige vlammen van de Chimaera.",
+          "Adrasan – Olympos: een van de spectaculairste delen, met kliffen, baaien en weidse uitzichten over zee.",
+          "Rond Kaş: kustpaden met Lycische graven, kleine baaien en het Griekse eiland Meis voor de kust.",
+          "Phaselis: kortere wandelingen rond de antieke stad en haar drie havens, ideaal om eens te proeven."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Je wandeling plannen"
+      },
+      {
+        "type": "p",
+        "text": "De route is rood-wit gemarkeerd, maar sommige delen zijn ruig, rotsachtig en steil, en de bewegwijzering kan gebrekkig zijn. Gebruik een goede kaart of een gps-track, loop waar mogelijk met z'n tweeën en laat iemand weten welke route je loopt. Op veel etappes zijn er tussen de dorpen geen winkels of water, dus start vroeg en neem meer water mee dan je denkt nodig te hebben."
+      },
+      {
+        "type": "h2",
+        "text": "Wat neem je mee?"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Wandelschoenen of stevige trailschoenen – de kalksteen is op sommige plekken scherp en los.",
+          "Minstens twee liter water per persoon, plus snacks.",
+          "Zonnehoed, zonnebrand en een lichte laag met lange mouwen, ook in het voorjaar.",
+          "Een winddicht jack of regenjas voor berggedeelten en wisselvallig voorjaarsweer.",
+          "Een kleine EHBO-set en een opgeladen telefoon met een offline kaart."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Van en naar de route"
+      },
+      {
+        "type": "p",
+        "text": "De meeste etappes beginnen en eindigen in dorpen die met het openbaar vervoer lastig te bereiken zijn, en bij een wandeling in één richting eindig je ergens anders dan waar je begon. Een privétransfer brengt je van de luchthaven van Antalya of je hotel naar het begin van je etappe en kan je aan het eind weer ophalen. De prijs is vast per voertuig, dus het werkt goed voor groepen wandelaars; geef ons je start- en eindpunt, de datum en het aantal personen door en we sturen je vooraf een prijsopgave."
+      }
+    ],
+    "faq": [
+      [
+        "Hoe lang is de Lycische Weg?",
+        "De gemarkeerde route is meer dan 500 km lang en loopt tussen Fethiye en Antalya. De meeste bezoekers lopen geselecteerde etappes in plaats van de hele route."
+      ],
+      [
+        "Wat is de beste tijd om de Lycische Weg te lopen?",
+        "Het voorjaar, van maart tot mei, is het beste seizoen, gevolgd door de herfst van september tot november. De zomer is erg heet en veel bronnen drogen op."
+      ],
+      [
+        "Welke etappes van de Lycische Weg liggen het dichtst bij Antalya?",
+        "De delen rond Göynük en Kemer, Çıralı en Olympos, Adrasan en Phaselis liggen allemaal op ongeveer een tot twee uur van Antalya. De etappes rond Kaş liggen verder naar het westen."
+      ],
+      [
+        "Kun je een transfer regelen naar het begin van een etappe van de Lycische Weg?",
+        "Ja. Stuur ons je start- en eindpunt en de datum, dan sturen we een prijsopgave voor een privétransfer tegen een vaste prijs per voertuig, inclusief ophalen aan het eind van je wandeling."
+      ]
+    ]
+  },
+  "koprulu-canyon-rafting": {
+    "slug": "raften-koprulu-canyon-vanuit-antalya",
+    "title": "Raften in de Köprülü Canyon: praktische gids vanuit Antalya en Side",
+    "heading": "Raften in de Köprülü Canyon",
+    "description": "Raften in de Köprülü Canyon bij Antalya: wanneer het seizoen loopt, hoe de rivier is, voor wie het geschikt is, wat je meeneemt en de afstand vanaf Side, Belek, Alanya en Antalya.",
+    "excerpt": "Koud groen water, een Romeinse brug en een kloof vol pijnbomen. Wat je kunt verwachten van een dag raften in de Köprülü Canyon en hoe je die vanaf de kust plant.",
+    "readingMinutes": 5,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Raften in de Köprülü Canyon is de bekendste raftingtocht van de Turkse Rivièra. De canyon is een nationaal park in het Taurusgebergte ten noorden van Side en Manavgat, en de rivier die erdoorheen stroomt biedt eerder een ontspannen dan een extreem avontuur: de meeste stroomversnellingen zijn rustig, het landschap is spectaculair en elke dag van het seizoen gaan beginners en gezinnen mee."
+      },
+      {
+        "type": "h2",
+        "text": "Hoe de raftingtocht verloopt"
+      },
+      {
+        "type": "p",
+        "text": "De meeste tochten volgen een stuk van zo'n twaalf kilometer van de rivier de Köprüçay en duren twee tot drie uur op het water, met stops om te zwemmen, van rotsen te springen of gewoon te dobberen. De stroomversnellingen zijn meestal licht tot gemiddeld, het water is helder en groen en het hele jaar koud, omdat de rivier wordt gevoed door bergbronnen. De gidsen geven vooraf een veiligheidsinstructie; helmen en zwemvesten worden verstrekt."
+      },
+      {
+        "type": "h2",
+        "text": "Wanneer ga je?"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Periode",
+          "Rivier en weer",
+          "Geschikt voor"
+        ],
+        "rows": [
+          [
+            "April – mei",
+            "Meer water door smeltende sneeuw, levendigere stroomversnellingen, zachte lucht",
+            "Actieve groepen, minder drukte"
+          ],
+          [
+            "Juni – augustus",
+            "Hete lucht, koud water, de drukste maanden",
+            "Afkoelen op een warme dag"
+          ],
+          [
+            "September – oktober",
+            "Rustiger water, warme dagen, minder mensen",
+            "Gezinnen en beginners"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Het seizoen loopt meestal van ongeveer april tot oktober, afhankelijk van de rivier en de aanbieders. Buiten deze periode zijn tochten zeldzaam of worden ze helemaal niet aangeboden."
+      },
+      {
+        "type": "h2",
+        "text": "Voor wie is het geschikt?"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Beginners: ervaring is niet nodig en de gids stuurt het vlot.",
+          "Gezinnen: aanbieders hanteren een minimumleeftijd voor kinderen, dus vraag daarnaar bij het boeken.",
+          "Vriendengroepen en collega's: een vlot wordt meestal gedeeld door zes tot acht personen.",
+          "Minder geschikt voor niet-zwemmers die angstig zijn in het water, en tijdens de zwangerschap."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Wat neem je mee?"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Zwemkleding onder je kleren en een handdoek.",
+          "Schoenen die nat mogen worden en aan je voeten blijven zitten – geen slippers.",
+          "Zonnebrand en een set droge kleren voor de terugweg.",
+          "Een waterdichte tas of hoes voor je telefoon; laat waardevolle spullen in het hotel."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Meer dan raften: het nationale park"
+      },
+      {
+        "type": "p",
+        "text": "Over de canyon loopt de Olukbrug, een Romeinse brug met één boog die het gebied zijn naam geeft – köprü betekent brug in het Turks. Hoger op de berg liggen de ruïnes van de antieke stad Selge, tussen rotsformaties en dorpen. Met een eigen voertuig combineer je het raften met een stop bij de brug en een rit omhoog richting Selge."
+      },
+      {
+        "type": "h2",
+        "text": "Vanaf de kust naar de canyon"
+      },
+      {
+        "type": "p",
+        "text": "Veel raftingbedrijven verkopen tochten met gedeeld ophalen bij de hotels, wat een lange ochtend van andere gasten oppikken kan betekenen. Een privévoertuig vanuit Side, Manavgat, Belek, Alanya of Antalya vertrekt wanneer jij wilt en stopt onderweg bij de brug of in de bergen. De canyon ligt ongeveer een uur van Side en Manavgat en verder vanaf Antalya en Alanya; stuur ons je hotel en datum en we geven een vaste prijs per voertuig."
+      }
+    ],
+    "faq": [
+      [
+        "Is raften in de Köprülü Canyon geschikt voor beginners?",
+        "Ja. De stroomversnellingen zijn meestal licht tot gemiddeld, ervaring is niet nodig en na een veiligheidsinstructie stuurt een gids elk vlot."
+      ],
+      [
+        "Wanneer is het raftingseizoen in de Köprülü Canyon?",
+        "Meestal van ongeveer april tot oktober. In het voorjaar is het water levendiger door smeltende sneeuw; september en oktober zijn rustiger en minder druk."
+      ],
+      [
+        "Hoe koud is het water?",
+        "Het hele jaar koud, omdat de rivier wordt gevoed door bergbronnen. Op een hete zomerdag is dat juist een deel van de charme."
+      ],
+      [
+        "Hoe ver is de Köprülü Canyon van Side?",
+        "Ongeveer een uur rijden vanaf Side en Manavgat, en langer vanaf Antalya, Belek of Alanya, afhankelijk van je hotel."
+      ]
+    ]
+  },
+  "kas-kalkan-autumn": {
+    "slug": "kas-en-kalkan-in-de-herfst",
+    "title": "Kaş en Kalkan in de herfst: duiken, stranden en stille baaien",
+    "heading": "Kaş en Kalkan in de herfst",
+    "description": "Waarom Kaş en Kalkan in de herfst op hun mooist zijn: warme zee, duiken, de stranden Kaputaş en Patara, Kekova per kajak en boot, en hoe je er komt vanaf de luchthaven Antalya.",
+    "excerpt": "De warmste zee van het jaar, lege stranden en twee kleine havenstadjes aan de voet van de bergen. Waarom het uiterste westen van de kust van Antalya in oktober schittert.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Kaş en Kalkan liggen aan het ruige westelijke uiteinde van de kust van Antalya, waar de bergen recht in zee duiken. In de herfst, als de zomergasten vertrokken zijn en de zee nog warm is, zijn ze op hun mooist. Grote resorts vind je in geen van beide; wel kleine havens, witgekalkte straatjes en een van de helderste wateren van de Middellandse Zee."
+      },
+      {
+        "type": "h2",
+        "text": "Waarom de herfst hier hét seizoen is"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "De zee blijft warm tot in oktober, vaak warmer dan in juni.",
+          "Het zicht onder water is uitstekend – goed nieuws voor duikers en snorkelaars.",
+          "Wandelen en hiken worden na de zomerhitte weer aangenaam.",
+          "Restaurants en boottochten draaien nog, maar zonder de zomerdrukte."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Kaş: duiken, kajakken en de haven"
+      },
+      {
+        "type": "p",
+        "text": "Kaş is een van de bekendste duikcentra van Turkije, met duikstekken voor beginners en ervaren duikers, waaronder wrakken, steile wanden en onderwatergrotten. Zeekajakken boven de verzonken ruïnes van Kekova is een hoogtepunt, en de haven, het antieke theater met uitzicht op zee en de Lycische graven in het stadje maken de avonden ontspannen. Op een heldere dag zie je het Griekse eiland Meis vlak voor de kust."
+      },
+      {
+        "type": "h2",
+        "text": "Kalkan: terrassen en rustige avonden"
+      },
+      {
+        "type": "p",
+        "text": "Kalkan, ongeveer een halfuur ten westen van Kaş, is kleiner en rustiger en ligt tegen een heuvel rond een klein haventje. Het staat bekend om zijn villa's met terrassen op zee en zijn dakterrasrestaurants. Het past bij stellen en gezinnen die een rustige uitvalsbasis met goed eten zoeken in plaats van nachtleven."
+      },
+      {
+        "type": "h2",
+        "text": "Stranden tussen en rond de stadjes"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Kaputaş: een kleine turquoise baai aan de voet van een kloof, tussen Kaş en Kalkan.",
+          "Patara: een van de langste zandstranden van Turkije, naast de ruïnes van het antieke Patara en een beschermd gebied.",
+          "Het schiereiland van Kaş en de zwemplatforms in het stadje: rotskust en trapjes direct het diepe, heldere water in.",
+          "Kekova en Üçağız: boottochten naar beschutte baaien en het kasteeldorp Kaleköy."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Wat verandert er in november?"
+      },
+      {
+        "type": "p",
+        "text": "Vanaf november loopt het seizoen af: sommige hotels, restaurants en boottochten sluiten, de eerste regen valt en de avonden worden koel. Kaş blijft het hele jaar levendig omdat veel mensen er permanent wonen, terwijl Kalkan erg stil wordt. Controleer de openingsdata als je laat in het seizoen reist."
+      },
+      {
+        "type": "h2",
+        "text": "Vanaf de luchthaven Antalya naar Kaş en Kalkan"
+      },
+      {
+        "type": "p",
+        "text": "Kaş ligt ongeveer 185 km van de luchthaven Antalya, zo'n tweeënhalf tot drie uur over de kustweg via Kemer, Kumluca en Demre, en Kalkan ligt ongeveer een halfuur verder. Afhankelijk van de vluchten vliegen sommige reizigers in plaats daarvan naar Dalaman. Wij verzorgen privétransfers vanaf beide luchthavens tegen een vaste prijs per voertuig, met fotostops langs een van de mooiste wegen van het land."
+      }
+    ],
+    "faq": [
+      [
+        "Is de zee in Kaş in oktober warm?",
+        "Ja. De zee blijft meestal tot ver in oktober warm, vaak warmer dan in de vroege zomer, en het zicht voor duiken en snorkelen is uitstekend."
+      ],
+      [
+        "Hoe ver is Kaş van de luchthaven Antalya?",
+        "Ongeveer 185 km, zo'n tweeënhalf tot drie uur over de weg. Kalkan ligt ongeveer een halfuur verder naar het westen."
+      ],
+      [
+        "Kaş of Kalkan: wat is beter?",
+        "Kaş is levendiger, met duiken, kajakken en het hele jaar door leven in het stadje. Kalkan is kleiner en rustiger, met villa's en restaurants met zeezicht."
+      ],
+      [
+        "Zijn Kaş en Kalkan in november open?",
+        "Kaş blijft het hele jaar actief. In Kalkan en bij sommige hotels en bootbedrijven eindigt het seizoen eind oktober of in november, dus controleer de openingsdata."
+      ]
+    ]
+  },
+  "medical-travel-antalya-winter": {
+    "slug": "tandarts-en-medische-reis-antalya-winter",
+    "title": "Tandarts en medische reis naar Antalya in de winter: wat je vooraf moet weten",
+    "heading": "Tandarts- en medische reizen naar Antalya in de winter",
+    "description": "Een tandarts in Antalya, haartransplantatie of cosmetische behandeling in de winter: waarom velen het laagseizoen kiezen, hoe je een aanbieder controleert, rustdagen en transfer.",
+    "excerpt": "Koeler weer, rustigere hotels en makkelijker plannen. Wat je moet controleren en regelen als je in de winter voor een behandeling naar Antalya reist, nog voordat je boekt.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Voor een tandarts in Antalya en andere medische reizen is de stad naast Istanbul uitgegroeid tot een van de centra van Turkije. Steeds meer bezoekers plannen tandheelkundige behandelingen, haartransplantaties of cosmetische ingrepen in de wintermaanden, als het rustig is aan de kust en het weer zacht. Deze gids gaat over de praktische kant van zo'n reis – het is geen medisch advies, en elke medische beslissing hoort bij een gekwalificeerde arts."
+      },
+      {
+        "type": "h2",
+        "text": "Waarom veel reizigers voor de winter kiezen"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Zacht, koeler weer: veel patiënten vinden het herstel prettiger zonder zomerhitte en felle zon.",
+          "Hotels en appartementen zijn rustiger en vaak goedkoper dan in de zomer.",
+          "Afspraken plannen kan makkelijker zijn buiten de drukste vakantiemaanden.",
+          "De reis is te combineren met de stad, musea en rustige wandelingen in plaats van stranddagen."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Een aanbieder kiezen en controleren"
+      },
+      {
+        "type": "p",
+        "text": "De belangrijkste beslissing is de aanbieder, niet de prijs. Controleer of de kliniek of het ziekenhuis een vergunning heeft van het Turkse ministerie van Volksgezondheid, zoek uit wie de behandelend arts is en welke kwalificaties die heeft, en vraag om een schriftelijk plan waarin staat wat wel en niet inbegrepen is en hoe complicaties en nazorg worden geregeld. Wees voorzichtig met aanbiedingen die een eindresultaat of een vaste prijs beloven vóór enig onderzoek."
+      },
+      {
+        "type": "h2",
+        "text": "Je dagen plannen"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Soort behandeling",
+          "Typisch planningspunt",
+          "Vraag je aanbieder"
+        ],
+        "rows": [
+          [
+            "Tandheelkundige behandeling",
+            "Vaak meer dan één bezoek, soms met weken of maanden ertussen",
+            "Hoeveel reizen en hoeveel dagen per keer?"
+          ],
+          [
+            "Haartransplantatie",
+            "Kort verblijf, met verzorgingsinstructies voor de eerste dagen",
+            "Wanneer mag je vliegen, je haar wassen en een pet dragen?"
+          ],
+          [
+            "Cosmetische chirurgie",
+            "Langer verblijf en hersteldagen voor de terugvlucht",
+            "Hoeveel nachten voordat vliegen mag?"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Plan rustdagen in, laat een behandeling niet op je aankomstdag vallen en volg het advies van de arts over wanneer je veilig kunt vliegen. Bij chirurgische ingrepen wordt vaak aangeraden om met iemand samen te reizen."
+      },
+      {
+        "type": "h2",
+        "text": "Verzekering, documenten en nazorg"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Controleer of je reisverzekering geplande behandelingen in het buitenland dekt – veel polissen doen dat niet.",
+          "Bewaar kopieën van alle medische verslagen, recepten en het behandelplan.",
+          "Vraag hoe de nazorg werkt als je weer thuis bent, en of je eigen arts erbij betrokken kan worden.",
+          "Deel medische gegevens alleen met de aanbieder, via het kanaal dat die aangeeft."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Van de luchthaven naar je hotel of kliniek"
+      },
+      {
+        "type": "p",
+        "text": "Na een vlucht en voor of na een behandeling wil je geen rij bij de taxistandplaats of een gedeelde shuttle die bij een dozijn hotels stopt. Een privétransfer brengt je rechtstreeks van de luchthaven Antalya naar je hotel of kliniek; de chauffeur wacht op je vlucht en helpt met de bagage. Terugritten kunnen worden afgestemd op afspraken en je vlucht naar huis. De prijs is vast per voertuig, dus een reisgenoot reist zonder extra kosten mee."
+      }
+    ],
+    "faq": [
+      [
+        "Waarom in de winter voor een behandeling naar Antalya?",
+        "Veel reizigers geven voor het herstel de voorkeur aan het zachtere weer, rustigere hotels en makkelijker plannen buiten het zomervakantieseizoen."
+      ],
+      [
+        "Hoe controleer ik een kliniek in Antalya?",
+        "Controleer of die een vergunning heeft van het Turkse ministerie van Volksgezondheid, zoek uit wie de behandelend arts is en vraag om een schriftelijk plan over wat inbegrepen en uitgesloten is, complicaties en nazorg."
+      ],
+      [
+        "Hoe lang moet ik na een ingreep blijven?",
+        "Dat hangt volledig af van de behandeling en het advies van je arts. Vraag je aanbieder hoeveel nachten je nodig hebt voor de terugvlucht en plan rustdagen in."
+      ],
+      [
+        "Kunnen jullie me van de luchthaven naar mijn kliniek brengen?",
+        "Ja. We verzorgen privétransfers van de luchthaven Antalya naar hotels en klinieken en weer terug, tegen een vaste prijs per voertuig."
+      ]
+    ]
+  },
+  "side-ancient-city-guide": {
+    "slug": "side-antieke-stad-gids",
+    "title": "Side antieke stad: gids voor de Apollotempel, het theater en de oude stad",
+    "heading": "Side: gids voor de antieke stad",
+    "description": "De antieke stad Side bezoeken: de Apollotempel, het grote theater, het museum, de stadsmuren en de oude stad, de beste reistijd en uitstapjes naar Aspendos en de Manavgat-waterval.",
+    "excerpt": "Een Romeins theater, tempelzuilen aan de waterkant en een havenstadje binnen de antieke muren. Zo zie je Side op zijn mooist – buiten het seizoen.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "De antieke stad Side is een van de weinige plekken aan de Turkse Rivièra waar een modern stadje binnen een antieke stad leeft. De oude stad vult een klein schiereiland, omringd door Romeinse en Hellenistische ruïnes: je loopt langs zuilen naar een restaurant, en een tempel omlijst de zonsondergang. Side is op zijn mooist buiten de zomer, wanneer het rustig genoeg is om de geschiedenis te voelen."
+      },
+      {
+        "type": "h2",
+        "text": "De belangrijkste bezienswaardigheden"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Apollotempel: de zuilen staan op de punt van het schiereiland, pal aan zee – dé plek voor de zonsondergang.",
+          "Het grote theater: een van de grootste antieke theaters van de regio, gebouwd in de helling bij de ingang van de oude stad.",
+          "Museum van Side: gevestigd in een gerestaureerd Romeins badhuis, met beelden en reliëfs die in de stad zijn gevonden.",
+          "De zuilenstraat en de agora: de antieke hoofdas van de stadspoort naar de haven.",
+          "Stadsmuren en de monumentale poort: de toegangsroute die bezoekers al tweeduizend jaar nemen."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "De oude stad nu"
+      },
+      {
+        "type": "p",
+        "text": "Binnen de muren lopen straatjes met restaurants, cafés en winkeltjes naar de haven, waar boten vertrekken voor tochten langs de kust. Auto's worden uit het grootste deel van de oude stad geweerd, dus je verkent haar prettig te voet. Ten oosten en westen van het schiereiland strekken zich brede zandstranden uit."
+      },
+      {
+        "type": "h2",
+        "text": "Wanneer ga je?"
+      },
+      {
+        "type": "p",
+        "text": "Voorjaar en herfst zijn ideaal: warm genoeg voor het strand, koel genoeg om midden op de dag tussen de ruïnes te lopen. In de winter sluiten veel seizoenshotels, maar de oude stad, de ruïnes en het museum blijven open, en op een zonnige dag zijn de tempel en de haven bijna verlaten. Bezoek de ruïnes in juli en augustus vroeg in de ochtend of bij zonsondergang."
+      },
+      {
+        "type": "h2",
+        "text": "Dagtochten vanuit Side"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Bestemming",
+          "Waarom erheen",
+          "Reistijd vanaf Side (ongeveer)"
+        ],
+        "rows": [
+          [
+            "Aspendos",
+            "Een van de best bewaarde Romeinse theaters ter wereld",
+            "ongeveer 40 minuten"
+          ],
+          [
+            "Manavgat-waterval",
+            "Een brede, lage waterval in een groen park",
+            "ongeveer 15 minuten"
+          ],
+          [
+            "Perge",
+            "Een grote antieke stad met een stadion en zuilenstraten",
+            "ongeveer 1 uur"
+          ],
+          [
+            "Köprülü Canyon",
+            "Raften en een Romeinse brug in een nationaal park",
+            "ongeveer 1 uur"
+          ]
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Van de luchthaven Antalya naar Side"
+      },
+      {
+        "type": "p",
+        "text": "Side ligt ongeveer 65 km van de luchthaven Antalya, zo'n 55 tot 65 minuten over de weg. Een privétransfer brengt je rechtstreeks naar je hotel of naar de rand van de autovrije oude stad, tegen een vaste prijs per voertuig die niet verandert met het seizoen of het tijdstip van je vlucht. Hetzelfde voertuig kun je boeken voor dagtochten naar Aspendos, Perge of de canyon."
+      }
+    ],
+    "faq": [
+      [
+        "Wat is er te zien in het antieke Side?",
+        "De Apollotempel aan zee, het grote theater, het museum in een Romeins badhuis, de zuilenstraat, de agora en de stadsmuren – allemaal op loopafstand van de oude stad."
+      ],
+      [
+        "Is Side de moeite waard in de winter?",
+        "Ja, voor de ruïnes en de oude stad. Veel seizoenshotels sluiten, maar de bezienswaardigheden blijven open en zijn veel rustiger dan in de zomer."
+      ],
+      [
+        "Hoe ver is Side van de luchthaven Antalya?",
+        "Ongeveer 65 km, zo'n 55 tot 65 minuten over de weg."
+      ],
+      [
+        "Kan ik Aspendos bezoeken vanuit Side?",
+        "Ja. Aspendos ligt ongeveer 40 minuten van Side over de weg en is een makkelijke halvedagtocht, vaak gecombineerd met Perge of de Manavgat-waterval."
+      ]
+    ]
   }
 };

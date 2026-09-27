@@ -4,7 +4,7 @@ import "@testing-library/jest-dom/vitest";
 import { cleanup, render, screen, within } from "@testing-library/react";
 import { afterEach, describe, expect, test } from "vitest";
 import { LanguageProvider } from "../i18n";
-import { articleBySlug, articleLanguages } from "../lib/articles";
+import { articleBySlug, articleLanguages, articlesForLanguage } from "../lib/articles";
 import { articleMeta, blogMeta, domain } from "../lib/seo";
 import { ArticlePage } from "./ArticlePage";
 import { BlogIndexPage } from "./BlogIndexPage";
@@ -135,6 +135,6 @@ describe("blog index", () => {
 
     const blog = schemaOf(metas, "Blog") as { blogPost: unknown[] };
 
-    expect(blog.blogPost).toHaveLength(6);
+    expect(blog.blogPost).toHaveLength(articlesForLanguage("nl").length);
   });
 });

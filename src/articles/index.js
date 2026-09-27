@@ -16,6 +16,21 @@ import familyChildSeats from "./family-child-seats.js";
 import belekGolfTransfer from "./belek-golf-transfer.js";
 import alanyaDistanceGuide from "./alanya-distance-guide.js";
 import whenToVisitAntalya from "./when-to-visit-antalya.js";
+import antalyaInAutumn from "./antalya-in-autumn.js";
+import antalyaInWinter from "./antalya-in-winter.js";
+import christmasNewYearAntalya from "./christmas-new-year-antalya.js";
+import winteringInAntalya from "./wintering-in-antalya.js";
+import antalyaInSpring from "./antalya-in-spring.js";
+import cappadociaWinterTrip from "./cappadocia-winter-trip.js";
+import belekWinterGolf from "./belek-winter-golf.js";
+import saklikentSkiAntalya from "./saklikent-ski-antalya.js";
+import pamukkaleTripFromAntalya from "./pamukkale-trip-from-antalya.js";
+import demreMyraStNicholas from "./demre-myra-st-nicholas.js";
+import lycianWaySpringHiking from "./lycian-way-spring-hiking.js";
+import kopruluCanyonRafting from "./koprulu-canyon-rafting.js";
+import kasKalkanAutumn from "./kas-kalkan-autumn.js";
+import medicalTravelAntalyaWinter from "./medical-travel-antalya-winter.js";
+import sideAncientCityGuide from "./side-ancient-city-guide.js";
 import { languageOrder, translations } from "./translations/index.js";
 
 /** Languages the blog is published in, largest source market first. */
@@ -23,6 +38,21 @@ export const articleLanguages = languageOrder;
 
 /** Newest first: the blog index and the feeds both read this order. */
 const catalogue = [
+  antalyaInAutumn,
+  kasKalkanAutumn,
+  antalyaInWinter,
+  christmasNewYearAntalya,
+  demreMyraStNicholas,
+  winteringInAntalya,
+  medicalTravelAntalyaWinter,
+  cappadociaWinterTrip,
+  belekWinterGolf,
+  saklikentSkiAntalya,
+  pamukkaleTripFromAntalya,
+  sideAncientCityGuide,
+  antalyaInSpring,
+  lycianWaySpringHiking,
+  kopruluCanyonRafting,
   transferVsTaxi,
   airportArrivalGuide,
   alanyaDistanceGuide,

@@ -155,3 +155,57 @@ düzenlemek değil.
    ekleme ve 23 çeviri dosyasına `<id>` bloğu. Testler eksik dili yakalar.
 4. Yeni dil eklemek: `translations/<dil>.js`, `languageOrder` girdisi ve
    `routes.ts` içinde iki satır. Geri kalanı otomatik.
+
+---
+
+## Faz 2 - Mevsimsel içerik (26 Eylül 2026)
+
+Amaç: yaz dışı sezonda müşteri kazanmak. Öncelik **önümüzdeki 6 ay (Ekim -
+Mart)**; ilkbahar makalesi Nisan-Mayıs rezervasyonlarını erken yakalamak için
+şimdiden yayında. Yaz bilerek atlandı - yaz talebi zaten var.
+
+| id | Arama niyeti | Pencere | İlgili rotalar |
+| --- | --- | --- | --- |
+| `antalya-in-autumn` | "Antalya'da ekim/kasımda yapılacaklar" | Ekim - Kasım | antalya, belek, side, kemer, alanya, kas |
+| `antalya-in-winter` | "Antalya'da kışın yapılacaklar", kayak + deniz, kış golfü | Aralık - Şubat | antalya, belek, kemer, alanya, kas, pamukkale, kapadokya |
+| `christmas-new-year-antalya` | "Antalya'da yılbaşı / Noel", Demre - Aziz Nikolaos | Aralık | antalya, belek, kemer, side, alanya, kumluca, kas |
+| `wintering-in-antalya` | "Alanya'da kışlamak" (de: Überwintern, sv/da/nl/ru pazarları) | Kasım - Mart | alanya, alanya_merkez, side, manavgat, kemer, antalya |
+| `antalya-in-spring` | "Antalya'da ilkbahar", Likya Yolu, rafting, Paskalya | Mart - Mayıs | antalya, kemer, kas, belek, side, pamukkale, kapadokya |
+
+| `cappadocia-winter-trip` | "Kapadokya kışın", Antalya'dan Kapadokya'ya yol | Aralık - Şubat | kapadokya, antalya, side, alanya, belek |
+| `belek-winter-golf` | "Belek kış golfü" (kapanan kuzey sahaları) | Kasım - Mart | belek, bogazkent, side, antalya |
+| `saklikent-ski-antalya` | "Antalya yakınında kayak", Saklıkent, kayak + deniz | Ocak - Mart | antalya, kemer, belek, side |
+
+| `pamukkale-trip-from-antalya` | "Antalya'dan Pamukkale", günübirlik mi konaklamalı mı | tüm yıl, özellikle ilkbahar/sonbahar | pamukkale, antalya, side, alanya, belek, kemer |
+| `demre-myra-st-nicholas` | "Demre Aziz Nikolaos Kilisesi", Myra, Kekova | Aralık (6 Aralık, Noel) | kumluca, kas, kemer, antalya |
+| `lycian-way-spring-hiking` | "Likya Yolu yürüyüşü", Antalya yakını etaplar | Mart - Mayıs, Eylül - Kasım | kemer, kas, kumluca, fethiye, antalya |
+
+| `kas-kalkan-autumn` | "Kaş / Kalkan sonbahar", dalış, Kaputaş, Patara | Ekim - Kasım | kas, kumluca, dalaman, fethiye, antalya |
+| `medical-travel-antalya-winter` | "Antalya diş / saç tedavisi kış" - genel bilgi | Kasım - Mart | antalya, alanya, side, kemer |
+| `side-ancient-city-guide` | "Side antik kent", Apollon Tapınağı, tiyatro | tüm yıl, özellikle sezon dışı | side, manavgat, kizilagac, belek, alanya |
+| `koprulu-canyon-rafting` | "Köprülü Kanyon rafting" | Nisan - Ekim | side, manavgat, belek, alanya, antalya |
+
+15 makale × 23 dil = **345 yeni makale sayfası** (ilk 5 makale 26 Eylül, kalan 10
+makale 27 Eylül).
+
+Sağlık turizmi makalesi bilinçli olarak genel bilgi: `/health` sayfası henüz
+canlı değil (mock), bu yüzden makale ona link vermiyor ve koordinasyon hizmeti
+vaat etmiyor - sadece havalimanı - otel/klinik transferi. Saklıkent listelenmiş bir rota değil; makale sabit fiyatlı
+teklif istemeye yönlendiriyor. Katalogda en üstte duruyorlar;
+böylece blog dizininde, RSS beslemelerinde ve her makalenin "Diğer rehberler"
+bölümünde ilk görünenler mevsimsel makaleler oluyor.
+
+İçerik kuralları: sıcaklıklar yaklaşık aylık ortalamalar; tarih değişen
+etkinlikler (Portakal Çiçeği Karnavalı, Altın Portakal) tarih verilmeden
+anılıyor; oturma izni/vize kuralları için resmi kaynağa yönlendiriliyor.
+Hiçbir makale fiyat vaadi eklemiyor - sadece "araç başı sabit fiyat, sezon ve
+gece farkı yok" mesajını tekrarlıyor.
+
+### Takip
+
+1. Yayından sonra Search Console'da yeni `/blog/` URL'lerini inspect et.
+2. Kasım başında `antalya-in-winter` ve `christmas-new-year-antalya` için
+   gösterimleri kontrol et; Aralık başında `updated` tarihini tazele.
+3. Mart'ta `antalya-in-spring` öne alınabilir (katalog sırası).
+4. Sonraki adaylar: Alanya kış rehberi (şehir odaklı), Kemer - Olympos teleferik,
+   Aspendos - Perge yarım günlük gezi, Antalya'da Ramazan / bayram dönemi seyahati.

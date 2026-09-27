@@ -555,5 +555,1619 @@ export const articles = {
         "Ja - für Stadt, Berge und antike Stätten, weniger für den Strand. Viele Küstenhotels schließen zwischen November und März."
       ]
     ]
+  },
+  "antalya-in-autumn": {
+    "slug": "antalya-im-herbst",
+    "title": "Antalya im Oktober und November: Tipps für den Herbst",
+    "heading": "Antalya im Herbst: Was man im Oktober und November unternehmen kann",
+    "description": "Antalya im Herbst: Was tun im Oktober und November? Warmes Meer, ruhige Strände, antike Stätten, Canyon-Wanderungen und Golf. Wetter, was geöffnet hat und Tipps zur Anreise.",
+    "excerpt": "Das Meer ist noch warm, die Massen sind abgereist und die Hitze ist vorbei. Warum Oktober und November der Geheimtipp an der Türkischen Riviera sind.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Die meisten Urlauber verlassen Antalya Ende September – und genau deshalb ist Antalya im Herbst so reizvoll. Das Meer speichert die Sommerwärme noch wochenlang, die Tagestemperaturen sinken auf angenehme Werte knapp über 20 Grad, und Orte, die im August unerträglich heiß sind – Ruinen, Schluchten, die Altstadt –, werden zum Höhepunkt der Reise."
+      },
+      {
+        "type": "h2",
+        "text": "Das Herbstwetter in Antalya"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Monat",
+          "Tag / Nacht",
+          "Meer",
+          "Wie es sich anfühlt"
+        ],
+        "rows": [
+          [
+            "Oktober",
+            "ca. 27 °C / 16 °C",
+            "ca. 24 °C",
+            "Sommer ohne Hitze – Strandtage sind noch ganz normal"
+          ],
+          [
+            "November",
+            "ca. 21 °C / 11 °C",
+            "ca. 21 °C",
+            "Sonnige Vormittage, erste Regenschauer, kühle Abende"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Packen Sie für den Strand und für den Abend: Im Oktober reicht eine leichte Jacke, im November sind eine wärmere Schicht und eine Regenjacke sinnvoll."
+      },
+      {
+        "type": "h2",
+        "text": "Immer noch Badeurlaub: der Oktober an der Küste"
+      },
+      {
+        "type": "p",
+        "text": "Im Oktober sind die Strände von Konyaaltı, Lara, Belek, Side und Alanya noch geöffnet, das Wasser ist morgens oft wärmer als die Luft, und um die Liegen muss niemand mehr kämpfen. Die meisten großen Resorts in Belek, Side und Kemer haben bis Ende Oktober geöffnet; ab November wird die Auswahl kleiner, prüfen Sie daher die Saisonzeiten Ihres Hotels, bevor Sie Flüge buchen."
+      },
+      {
+        "type": "h2",
+        "text": "Antike Stätten ohne Hitze"
+      },
+      {
+        "type": "p",
+        "text": "Der Herbst ist die Saison für die Ruinen der Region. Perge und Aspendos liegen nur einen kurzen Abstecher von der Straße nach Belek und Side entfernt, der Apollontempel von Side steht direkt am Hafen, und Termessos hoch in den Bergen hinter der Stadt ist eine Wanderung, die im Sommer niemand wagen sollte. Im November haben Sie ganze Säulenstraßen oft für sich allein."
+      },
+      {
+        "type": "h2",
+        "text": "Natur: Schluchten, Wasserfälle und der Lykische Weg"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Düden-Wasserfälle: Die unteren Fälle stürzen bei Lara direkt ins Meer, die oberen liegen in einem Park in der Stadt.",
+          "Köprülü-Canyon: Die Rafting-Saison dauert meist bis in den Oktober, mit ruhigerem Wasser als im Frühjahr.",
+          "Lykischer Weg: Herbst und Frühling sind die beiden Wandersaisons – die Etappen um Kemer, Olympos und Kaş sind jetzt am schönsten.",
+          "Tahtalı-Seilbahn bei Kemer: Die klare Herbstluft bietet die beste Aussicht vom Gipfel."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Golf, Stadtleben und Festivals"
+      },
+      {
+        "type": "p",
+        "text": "Der Herbst ist Hochsaison für Golf in Belek: Die Plätze sind grün, die Temperaturen ideal und die Startzeiten füllen sich mit Gruppen aus Nordeuropa. In der Stadt erwachen die Gassen, Cafés und kleinen Museen von Kaleiçi wieder zum Leben, sobald Kreuzfahrt- und Sommergäste abgereist sind, und Antalyas Filmfestival „Goldene Orange“ findet traditionell im Herbst statt."
+      },
+      {
+        "type": "h2",
+        "text": "Anreise im Herbst"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Im Oktober gibt es noch viele Flüge; ab November wird der Flugplan dünner und mehr Maschinen landen spät in der Nacht.",
+          "Das Terminal ist ruhiger als im Sommer, die Fahrzeiten nach Belek, Side und Alanya entsprechen daher weitgehend den angegebenen Werten.",
+          "Ein vorab gebuchter Transfer richtet sich nach Ihrer Flugnummer – ein verspäteter Abendflug ist also kein Problem.",
+          "Unsere Preise gelten als Festpreis pro Fahrzeug und sind im Oktober dieselben wie im August."
+        ]
+      }
+    ],
+    "faq": [
+      [
+        "Kann man im Oktober in Antalya noch baden?",
+        "Ja. Das Meer hat im Oktober meist rund 24 °C, mehr als viele europäische Meere im Sommer, und Strandtage sind den ganzen Monat über normal."
+      ],
+      [
+        "Haben die Hotels in Antalya im November geöffnet?",
+        "Stadthotels und viele Resorts bleiben geöffnet, einige große Küstenresorts schließen jedoch ab November. Prüfen Sie die Saisonzeiten Ihres Hotels, bevor Sie Flüge buchen."
+      ],
+      [
+        "Was kann man in Antalya im Herbst außer Baden unternehmen?",
+        "Antike Stätten wie Perge, Aspendos und Termessos, die Düden-Wasserfälle, den Köprülü-Canyon, Wandern auf dem Lykischen Weg, Golf in Belek und die Altstadt Kaleiçi."
+      ],
+      [
+        "Ändert sich der Transferpreis nach der Sommersaison?",
+        "Nein. Der Preis ist ein Festpreis pro Fahrzeug und ändert sich weder mit der Saison noch mit dem Verkehr oder der Uhrzeit."
+      ]
+    ]
+  },
+  "antalya-in-winter": {
+    "slug": "antalya-im-winter",
+    "title": "Antalya im Winter: Was tun von Dezember bis Februar?",
+    "heading": "Antalya im Winter: Was man zwischen Dezember und Februar unternehmen kann",
+    "description": "Antalya im Winter: Altstadt, Wasserfälle, antike Stätten, Skifahren in Saklıkent, Wintergolf und Spa-Hotels. Wetter, was geöffnet hat und wie Sie sich fortbewegen.",
+    "excerpt": "Milde Tage, Schnee auf den Gipfeln und eine Stadt, die wieder ihren Bewohnern gehört. Was Antalya zwischen Dezember und Februar bietet – und was nicht.",
+    "readingMinutes": 7,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Antalya im Winter bedeutet Nebensaison, nicht geschlossene Saison. Die Badeorte ruhen, doch die Stadt, die Berge und die antiken Stätten sind geöffnet, das Licht ist klar und die Tage sind oft sonnig und mild. Jetzt erleben Sie die Region so, wie die Einheimischen sie kennen – und zu Preisen, die Sommergäste nie bekommen."
+      },
+      {
+        "type": "h2",
+        "text": "Das Winterwetter in Antalya"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Monat",
+          "Tag / Nacht",
+          "Meer",
+          "Gut zu wissen"
+        ],
+        "rows": [
+          [
+            "Dezember",
+            "ca. 16 °C / 7 °C",
+            "ca. 19 °C",
+            "Der regenreichste Monat, doch der Regen kommt in Schüben zwischen sonnigen Tagen"
+          ],
+          [
+            "Januar",
+            "ca. 15 °C / 6 °C",
+            "ca. 17 °C",
+            "Kühlster Monat; Schnee auf den Gipfeln des Taurus"
+          ],
+          [
+            "Februar",
+            "ca. 16 °C / 6 °C",
+            "ca. 17 °C",
+            "Längere Tage, erste Mandelblüte"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Sonnige Winternachmittage fühlen sich an wie Frühling in Nordeuropa; die Abende sind kühl, und Innenräume sind nicht immer so geheizt wie im Norden gewohnt. Nehmen Sie Kleidung zum Schichten, eine wasserdichte Jacke und bequeme Schuhe für nasse Pflastergassen mit."
+      },
+      {
+        "type": "h2",
+        "text": "Die Stadt: Kaleiçi, Museen und Wasserfälle"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Kaleiçi, die ummauerte Altstadt: Hadrianstor, das Yivli-Minarett, der alte Hafen und Gassen mit osmanischen Häusern, heute Cafés und Boutique-Hotels.",
+          "Antalya-Museum: eine der großen archäologischen Sammlungen der Türkei mit den Statuen aus Perge – ideal für einen Regentag.",
+          "Düden- und Kurşunlu-Wasserfälle: Durch den Winterregen führen sie am meisten Wasser und sind am eindrucksvollsten.",
+          "Promenaden von Konyaaltı und Lara: lange Spaziergänge, Radfahren und Meerblick ohne Sommerhitze."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Antike Stätten ohne Warteschlangen"
+      },
+      {
+        "type": "p",
+        "text": "Perge, Aspendos und Side sind ganzjährig geöffnet, und im Winter teilen Sie sie mit nur einer Handvoll Besuchern. Phaselis bei Kemer hat drei Häfen in einem Pinienwald; Olympos und Çıralı sind außerhalb der Saison herrlich ruhig. Termessos liegt in den Bergen und kann kalt, nass oder sogar verschneit sein – wählen Sie also einen trockenen Tag. Weiter westlich ist die Nikolauskirche in Demre ein naheliegender Winterausflug, besonders um Weihnachten."
+      },
+      {
+        "type": "h2",
+        "text": "Skifahren und Meer am selben Tag"
+      },
+      {
+        "type": "p",
+        "text": "Das Skigebiet Saklıkent in den Bakırlı-Bergen liegt etwa 50 km von der Stadt entfernt, rund anderthalb Stunden mit dem Auto. Bei ausreichend Schnee, meist von Januar bis März, können Sie morgens Ski fahren und nachmittags am Meer spazieren gehen. Auf der Bergstraße können Winterreifen oder Schneeketten nötig sein; prüfen Sie daher vorher die Bedingungen und lassen Sie sich die Fahrt vorab von uns anbieten."
+      },
+      {
+        "type": "h2",
+        "text": "Wintergolf, Spa-Hotels und Langzeitaufenthalte"
+      },
+      {
+        "type": "p",
+        "text": "Die Golfplätze in Belek bleiben den ganzen Winter geöffnet, und Greenfees sowie Hotelpreise liegen deutlich unter dem Niveau von Herbst und Frühling. Mehrere Resorts in Belek, Lara und Kemer halten Spa und Hallenbad im Winter geöffnet, und Alanya und Side ziehen Langzeiturlauber aus Nordeuropa an, die für Wochen oder Monate das milde Wetter genießen."
+      },
+      {
+        "type": "h2",
+        "text": "Weitere Ausflüge"
+      },
+      {
+        "type": "p",
+        "text": "Der Winter eignet sich gut für längere Touren, die im Sommer anstrengend sind: die Sinterterrassen von Pamukkale und die Ruinen von Hierapolis oder Kappadokien im Schnee, für viele Besucher die schönste Jahreszeit dort. Beides bedeutet lange Tage auf der Straße, und mit einem privaten Fahrzeug halten Sie an, wann und wo Sie möchten."
+      },
+      {
+        "type": "h2",
+        "text": "Anreise im Winter"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Es gibt weniger Direktflüge und mehr nächtliche Ankünfte, oft über Istanbul.",
+          "Viele Küstenresorts sind geschlossen – prüfen Sie, ob Ihr Hotel zu Ihren Reisedaten geöffnet hat.",
+          "An den Taxiständen ist nachts weniger los als im Sommer; eine vorab gebuchte Abholung, die Ihre Flugnummer verfolgt, ist die entspanntere Wahl.",
+          "Der Festpreis pro Fahrzeug ist im Winter derselbe wie im Sommer – ohne Nacht- oder Feiertagszuschlag."
+        ]
+      }
+    ],
+    "faq": [
+      [
+        "Lohnt sich Antalya im Winter?",
+        "Ja, wenn Sie für die Stadt, die antiken Stätten, die Natur und Golf kommen und nicht zum Sonnenbaden. Die Tage sind oft sonnig bei rund 15 °C, und es gibt keine Menschenmassen."
+      ],
+      [
+        "Kann man in Antalya im Winter baden?",
+        "Das Meer bleibt bei etwa 17–19 °C, was manche Besucher an einem sonnigen Tag erfrischend finden. Viele im Winter geöffnete Hotels haben zudem beheizte Hallenbäder."
+      ],
+      [
+        "Kann man in der Nähe von Antalya Ski fahren?",
+        "Ja. Das Skigebiet Saklıkent liegt etwa 50 km von der Stadt entfernt. Die Saison hängt vom Schneefall ab und dauert meist von Januar bis März."
+      ],
+      [
+        "Haben die Hotels in Antalya im Winter geöffnet?",
+        "Stadthotels in Antalya und Kaleiçi sind ganzjährig geöffnet, ebenso mehrere Resorts in Lara, Belek, Kemer, Side und Alanya. Viele große Saisonresorts schließen von November bis März."
+      ],
+      [
+        "Bieten Sie im Winter Transfers vom Flughafen Antalya an?",
+        "Ja, das ganze Jahr über, auch bei nächtlichen Ankünften und an Feiertagen, zum selben Festpreis pro Fahrzeug."
+      ]
+    ]
+  },
+  "christmas-new-year-antalya": {
+    "slug": "weihnachten-und-silvester-in-antalya",
+    "title": "Weihnachten und Silvester in Antalya: Ein praktischer Ratgeber",
+    "heading": "Weihnachten und Silvester in Antalya",
+    "description": "Weihnachten oder Silvester in Antalya: Wetter, welche Hotels geöffnet haben, Galadinner, St. Nikolaus in Demre und der Weg vom und zum Flughafen in den vollsten Nächten.",
+    "excerpt": "Sonnige Tage, eine Silvestergala am Meer und die Stadt des heiligen Nikolaus zweieinhalb Stunden entfernt. So planen Sie die Feiertage in Antalya – und kommen in der Nacht sicher an.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Weihnachten und Silvester in Antalya sind einer der wenigen Höhepunkte im Winter. Familien auf der Flucht vor dem nördlichen Winter, Gruppen, die Silvester feiern, und Gäste, die die Feiertage mit ein paar Tagen milder Sonne verbinden, reisen alle in denselben zwei Wochen an – während sich ein Großteil der Küste sonst in der Nebensaison befindet."
+      },
+      {
+        "type": "h2",
+        "text": "Was Sie Ende Dezember erwartet"
+      },
+      {
+        "type": "p",
+        "text": "Tagsüber werden meist rund 15–16 °C erreicht, oft bei Sonnenschein, auch wenn der Dezember zugleich der regenreichste Monat des Jahres ist. Weihnachten ist in der Türkei kein gesetzlicher Feiertag, Geschäfte, Restaurants und Sehenswürdigkeiten haben am 25. Dezember also ganz normal geöffnet. Silvester wird dagegen überall gefeiert, und der 1. Januar ist ein gesetzlicher Feiertag."
+      },
+      {
+        "type": "h2",
+        "text": "Welche Hotels geöffnet haben"
+      },
+      {
+        "type": "p",
+        "text": "Stadthotels in Antalya und Kaleiçi sind ganzjährig geöffnet, und mehrere Resorts in Lara, Belek, Kemer, Side und Alanya öffnen eigens für die Feiertage mit Weihnachtsdinner und Silvestergala. Programme, Dresscodes und Gala-Zuschläge unterscheiden sich stark – fragen Sie Ihr Hotel vor der Buchung, was inbegriffen ist. Die Zimmer in den geöffneten Resorts sind für diese Termine früh ausgebucht."
+      },
+      {
+        "type": "h2",
+        "text": "Weihnachten: die Stadt des heiligen Nikolaus"
+      },
+      {
+        "type": "p",
+        "text": "Der historische heilige Nikolaus, der Bischof hinter der Legende vom Weihnachtsmann, lebte in Myra – dem heutigen Demre, etwa zweieinhalb Stunden westlich von Antalya. Die Nikolauskirche und die in den Fels gehauenen lykischen Gräber von Myra sind ein unvergesslicher Weihnachtsausflug, der sich mit einem Halt in Kaş oder der Küstenstraße bei Kumluca verbinden lässt."
+      },
+      {
+        "type": "h2",
+        "text": "Silvester in Antalya"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Hotelgalas: Dinner, Livemusik und Countdown, meist mit festem Menü und Zuschlag.",
+          "In der Stadt: Restaurants in Kaleiçi und rund um den Jachthafen sind voll – reservieren Sie rechtzeitig einen Tisch.",
+          "Lara und Konyaaltı: Beachclubs und Restaurants mit Meerblick veranstalten eigene Partys.",
+          "Feuerwerk ist entlang der Uferpromenade zu sehen, das Programm ändert sich jedoch von Jahr zu Jahr."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Unterwegs in den vollsten Nächten"
+      },
+      {
+        "type": "p",
+        "text": "In der Silvesternacht und in den frühen Stunden des 1. Januar sind Taxis kaum zu bekommen, und Apps und Taxistände sind genau dann überlastet, wenn alle nach Hause wollen. Wenn Sie außerhalb Ihres Hotels feiern – in der Stadt, im Restaurant oder in der Villa von Freunden –, buchen Sie die Rückfahrt vorab mit fester Abholzeit."
+      },
+      {
+        "type": "h2",
+        "text": "An- und Abreise an den Feiertagen"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Die Flüge um den 20. Dezember und den 2. Januar sind die vollsten des Winters – buchen Sie früh.",
+          "Viele Feiertagsflüge landen abends oder nachts – eine Abholung, die Ihre Flugnummer verfolgt, erspart das Warten im Terminal.",
+          "Familien mit Weihnachtsgeschenken und Wintergepäck sollten die Zahl der Koffer angeben, damit wir das passende Fahrzeug einplanen.",
+          "Unser Festpreis pro Fahrzeug hat keinen Feiertags- oder Silvesterzuschlag."
+        ]
+      }
+    ],
+    "faq": [
+      [
+        "Wie ist das Wetter in Antalya an Weihnachten?",
+        "Mild: tagsüber meist rund 15–16 °C und nachts 6–8 °C, mit sonnigen Abschnitten zwischen den Schauern. Badewetter ist es nicht, für Spaziergänge und Besichtigungen aber oft angenehm."
+      ],
+      [
+        "Wird in Antalya Weihnachten gefeiert?",
+        "Weihnachten ist in der Türkei kein gesetzlicher Feiertag, doch viele Hotels mit internationalen Gästen organisieren ein Weihnachtsdinner. Silvester wird überall gefeiert, und der 1. Januar ist ein gesetzlicher Feiertag."
+      ],
+      [
+        "Wo liegt die Nikolauskirche?",
+        "In Demre, dem antiken Myra, etwa zweieinhalb Autostunden westlich von Antalya. Sie ist ganzjährig für Besucher geöffnet."
+      ],
+      [
+        "Kann ich einen Transfer für die Silvesternacht buchen?",
+        "Ja. Wir empfehlen, die Rückfahrt mit fester Abholzeit zu buchen, da Taxis nach Mitternacht kaum zu finden sind. Der Festpreis pro Fahrzeug hat keinen Feiertagszuschlag."
+      ]
+    ]
+  },
+  "wintering-in-antalya": {
+    "slug": "ueberwintern-in-antalya-und-alanya",
+    "title": "Überwintern in Antalya und Alanya: Ratgeber für Langzeiturlauber",
+    "heading": "Überwintern in Antalya: ein Ratgeber für lange Aufenthalte",
+    "description": "Überwintern in Alanya, Side und Antalya: Warum Langzeiturlauber die Türkische Riviera lieben – Wetter, Unterkunft, medizinische Versorgung und Anreise mit viel Gepäck.",
+    "excerpt": "Wochen oder Monate mildes Wetter statt nördlichem Winter. Was Langzeiturlauber wissen sollten, bevor sie in Alanya, Side oder Antalya überwintern.",
+    "readingMinutes": 7,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Jeden Winter tauschen Tausende Gäste aus Deutschland, Skandinavien, den Niederlanden, Russland und Polen den grauen Himmel für Wochen oder Monate gegen die Türkische Riviera. Milde Temperaturen, lange Promenaden und niedrigere Lebenshaltungskosten als zu Hause machen das Überwintern in Antalya, Alanya und Side so beliebt – sie zählen zu den gefragtesten Winterzielen am Mittelmeer."
+      },
+      {
+        "type": "h2",
+        "text": "Warum hier überwintern?"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Mildes Klima: Wintertage um 15–17 °C, häufig sonnig, an der Küste nur selten Frost.",
+          "Tageslicht: spürbar mehr Sonnenstunden als in Nord- und Mitteleuropa.",
+          "Platz: Promenaden, Strände und Altstädte ohne die Sommermassen.",
+          "Infrastruktur: Geschäfte, Märkte, Restaurants und Privatkliniken sind in den größeren Orten ganzjährig geöffnet."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Der richtige Ort"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Ort",
+          "Passt zu",
+          "Entfernung vom Flughafen"
+        ],
+        "rows": [
+          [
+            "Antalya Stadt",
+            "Stadtleben, Kultur, Museen, alle Dienstleistungen vor der Tür",
+            "ca. 15–30 Minuten"
+          ],
+          [
+            "Side / Manavgat",
+            "Eine ruhige Altstadt, lange Strände, ebene Spazierwege",
+            "ca. 1 Stunde"
+          ],
+          [
+            "Alanya",
+            "Die größte Gemeinschaft von Langzeiturlaubern, Promenaden, lebendiges Winterleben",
+            "ca. 1 Stunde 45 Minuten"
+          ],
+          [
+            "Kemer",
+            "Berge und Meer, Wandern, ein kleinerer Ferienort",
+            "ca. 1 Stunde"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Alanya und seine Nachbarorte wie Mahmutlar und Oba haben die größte Wintergemeinschaft von Langzeiturlaubern, mit Vereinen, Aktivitäten und Restaurants, die den ganzen Winter über gut besucht sind. Side ist ruhiger; Antalya passt zu allen, die eine echte Stadt suchen."
+      },
+      {
+        "type": "h2",
+        "text": "Unterkunft: Hotels und Apartments"
+      },
+      {
+        "type": "p",
+        "text": "Einige Hotels in Alanya, Side und Antalya bieten spezielle Langzeitpreise für Aufenthalte ab vier Wochen, oft mit Halbpension. Mietwohnungen bieten mehr Platz und Unabhängigkeit; prüfen Sie, ob es eine Heizung oder eine Klimaanlage mit Heizfunktion gibt, denn türkische Küstenhäuser sind für den Sommer gebaut und können an Winterabenden kalt wirken."
+      },
+      {
+        "type": "h2",
+        "text": "Alltag im Winter"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Wochenmärkte in jedem Viertel mit frischem Obst und Gemüse – der Winter ist Zitrussaison.",
+          "Spazierengehen und Radfahren auf den Promenaden von Alanya, Side, Lara und Konyaaltı.",
+          "Wandern in den Ausläufern des Taurus und auf dem Lykischen Weg an trockenen Tagen.",
+          "Tagesausflüge zu antiken Stätten, zum Manavgat-Wasserfall oder in die Altstadt von Antalya.",
+          "Privatkliniken und Arztpraxen in Antalya und Alanya mit Abteilungen für internationale Patienten."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Formalitäten und Praktisches"
+      },
+      {
+        "type": "p",
+        "text": "Die Einreisebestimmungen und die erlaubte Aufenthaltsdauer ohne Aufenthaltserlaubnis hängen von Ihrer Staatsangehörigkeit ab und ändern sich von Zeit zu Zeit – prüfen Sie daher vor der Reise die aktuellen Regeln bei den offiziellen türkischen Behörden. Eine Reiseversicherung, die einen langen Auslandsaufenthalt abdeckt, wird dringend empfohlen."
+      },
+      {
+        "type": "h2",
+        "text": "Anreise mit Gepäck für Monate"
+      },
+      {
+        "type": "p",
+        "text": "Langzeitgäste reisen mit mehr als einem Urlaubskoffer. Nennen Sie uns die Zahl der Koffer und zusätzlichen Gepäckstücke – Fahrräder, Rollatoren oder Kartons –, und wir setzen einen Mercedes Vito oder bei Bedarf einen Sprinter ein. Der Preis ist ein Festpreis pro Fahrzeug, zusätzliches Gepäck wird also bei der Buchung berücksichtigt und nicht erst am Straßenrand berechnet. Der Fahrer hilft an der Tür beim Ein- und Ausladen."
+      }
+    ],
+    "faq": [
+      [
+        "Wo überwintert man an der Türkischen Riviera am besten?",
+        "Alanya hat die größte Gemeinschaft von Langzeiturlaubern und das lebhafteste Winterleben; Side ist ruhiger; Antalya bietet alle Vorzüge einer Stadt. Alle drei haben milde Winter."
+      ],
+      [
+        "Wie warm ist es in Antalya im Winter?",
+        "Von Dezember bis Februar liegen die Tagestemperaturen meist bei rund 15–17 °C, nachts bei etwa 6–8 °C. Frost an der Küste ist selten."
+      ],
+      [
+        "Gibt es im Winter Langzeitangebote in Hotels?",
+        "Ja. Mehrere Hotels in Alanya, Side und Antalya bieten im Winter ermäßigte Monats- oder Langzeitpreise. Fragen Sie direkt beim Hotel nach Aufenthalten ab vier Wochen."
+      ],
+      [
+        "Kann man beim Flughafentransfer viel Gepäck mitnehmen?",
+        "Ja. Nennen Sie uns bei der Buchung die Zahl der Koffer und zusätzlichen Gepäckstücke, und wir setzen ein Fahrzeug mit genügend Platz ein. Der Preis gilt pro Fahrzeug, ohne Gebühr pro Koffer."
+      ]
+    ]
+  },
+  "antalya-in-spring": {
+    "slug": "antalya-im-fruehling",
+    "title": "Antalya im Frühling: Was tun von März bis Mai?",
+    "heading": "Antalya im Frühling: Was man zwischen März und Mai unternehmen kann",
+    "description": "Antalya im Frühling: Orangenblüte, Wandern auf dem Lykischen Weg, Rafting, Osterurlaub und die ersten Strandtage. Das Wetter nach Monaten und Tipps für die Anreise.",
+    "excerpt": "Orangenblüten in den Straßen, Schnee auf den Gipfeln und ein Meer, das Woche für Woche wärmer wird. Warum der Frühling die Saison für Aktivurlaub rund um Antalya ist.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Der Frühling kommt früh an die Türkische Riviera. Schon im März blühen die Orangenbäume, auf dem Taurus liegt noch Schnee und die Tage sind warm genug, um draußen zu sitzen. Antalya im Frühling ist die beste Zeit zum Wandern, Radfahren und Entdecken, und im Mai beginnen die ersten Strandtage des Jahres."
+      },
+      {
+        "type": "h2",
+        "text": "Das Frühlingswetter in Antalya"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Monat",
+          "Tag / Nacht",
+          "Meer",
+          "Ideal für"
+        ],
+        "rows": [
+          [
+            "März",
+            "ca. 19 °C / 8 °C",
+            "ca. 17 °C",
+            "Sightseeing, Wandern, Blütezeit"
+          ],
+          [
+            "April",
+            "ca. 22 °C / 11 °C",
+            "ca. 18 °C",
+            "Wandern, Rafting, Osterurlaub"
+          ],
+          [
+            "Mai",
+            "ca. 26 °C / 15 °C",
+            "ca. 21 °C",
+            "Die ersten Strandtage, alle Aktivitäten"
+          ]
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Orangenblüte und die Stadt im Frühling"
+      },
+      {
+        "type": "p",
+        "text": "Im Frühling duftet Antalya nach Orangenblüten. Die Stadt feiert sie mit dem Orangenblütenkarneval, einem Straßenfest, das im Frühling rund um Kaleiçi und die Innenstadt stattfindet. Es ist auch die beste Zeit, die Altstadt, das Antalya-Museum und die Steilküsten von Konyaaltı und Lara zu Fuß zu erkunden, bevor die Sommerhitze kommt."
+      },
+      {
+        "type": "h2",
+        "text": "Aktivurlaub: Wandern, Rafting und Radfahren"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Lykischer Weg: Der Frühling ist die beliebteste Wandersaison, mit Wildblumen entlang der Etappen bei Kemer, Olympos und Kaş.",
+          "Köprülü-Canyon: Die Rafting-Saison beginnt meist im April, mit lebhaftem Wasser aus der Schneeschmelze.",
+          "Tahtalı-Seilbahn: Schnee auf dem Gipfel und blühende Wiesen darunter, oft im selben Blick.",
+          "Radfahren: ruhige Straßen und milde Temperaturen rund um Belek, Side und die Ausläufer des Taurus.",
+          "Golf: Der Frühling ist die zweite Hochsaison auf den Plätzen von Belek."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Antike Stätten in der grünen Jahreszeit"
+      },
+      {
+        "type": "p",
+        "text": "Perge, Aspendos, Side, Phaselis und Termessos sind im Frühling am schönsten, wenn die Ruinen von grünem Gras und Wildblumen umgeben sind. Auch längere Ausflüge lohnen sich: In Pamukkale und Kappadokien herrschen angenehme Temperaturen, und Heißluftballonfahrten über Kappadokien finden im Frühling bei stabilem Wetter häufig statt."
+      },
+      {
+        "type": "h2",
+        "text": "Ostern und Frühjahrsferien"
+      },
+      {
+        "type": "p",
+        "text": "Ostern und die Frühjahrsferien in Deutschland, den Niederlanden, Großbritannien und Skandinavien bringen die erste Welle von Familien. Ab April öffnen mehr Saisonhotels, das Flugangebot wächst, und im Mai ist der Großteil der Küstenresorts voll in Betrieb. Für die Ostertermine sollten Sie Hotels und Transfers früh buchen."
+      },
+      {
+        "type": "h2",
+        "text": "Anreise im Frühling"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Im März sind einige Resorts noch geschlossen; ab April wächst die Auswahl schnell.",
+          "Terminal und Straßen sind ruhig, die angegebenen Fahrzeiten sind daher realistisch.",
+          "Wander- und Golfausrüstung, Fahrräder und Kindersitze sollten Sie bei der Buchung angeben.",
+          "Der Preis ist ein Festpreis pro Fahrzeug und ändert sich nicht mit der Saison."
+        ]
+      }
+    ],
+    "faq": [
+      [
+        "Ist es in Antalya im Frühling warm genug für den Strand?",
+        "Ab Mai ja: Tagsüber werden rund 26 °C erreicht, das Meer hat rund 21 °C. Im März und April ist es warm genug, um in der Sonne zu sitzen, doch für die meisten ist das Meer noch zu kühl zum Baden."
+      ],
+      [
+        "Wann findet der Orangenblütenkarneval in Antalya statt?",
+        "Er findet im Frühling statt, wenn die Orangenbäume der Stadt blühen. Die Termine ändern sich jedes Jahr – prüfen Sie daher die offiziellen Ankündigungen der Stadt, bevor Sie Ihre Reise danach planen."
+      ],
+      [
+        "Ist der Frühling eine gute Zeit für den Lykischen Weg?",
+        "Ja. Frühling und Herbst sind die beiden besten Wandersaisons; im Frühling sind die Wege grün und voller Wildblumen, und die Temperaturen sind angenehm."
+      ],
+      [
+        "Haben die Hotels in Antalya im März geöffnet?",
+        "Stadthotels und einige Resorts sind geöffnet. Viele Saisonresorts öffnen im Laufe des Aprils, und im Mai ist der Großteil der Küste voll in Betrieb."
+      ]
+    ]
+  },
+  "cappadocia-winter-trip": {
+    "slug": "kappadokien-im-winter-ab-antalya",
+    "title": "Kappadokien im Winter ab Antalya: Schnee, Ballons und die Anreise",
+    "heading": "Kappadokien im Winter: ein Ausflug ab Antalya",
+    "description": "Kappadokien im Winter ab Antalya: Schnee, Wetter, Heißluftballons, Höhlenhotels, Sehenswertes und wie die 540 km lange Fahrt über Konya im Winter abläuft.",
+    "excerpt": "Feenkamine unter Schnee und Ballons über einem weißen Tal. So verbinden Sie einen Winteraufenthalt in Antalya mit Kappadokien – und so ist die Straße im Winter.",
+    "readingMinutes": 7,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Kappadokien im Winter gehört zu den meistfotografierten Landschaften der Türkei: Feenkamine und Täler unter Schnee, Höhlenhotels mit Kaminfeuer und an klaren Morgen Ballons, die über einer weißen Landschaft aufsteigen. Von Antalya aus ist es eine lange, aber wunderschöne Fahrt – und eine ideale Ergänzung zu einem Winteraufenthalt an der Küste."
+      },
+      {
+        "type": "h2",
+        "text": "Das Winterwetter: ein ganz anderes Klima als an der Küste"
+      },
+      {
+        "type": "p",
+        "text": "Kappadokien liegt auf einer Hochebene auf rund 1.000 Metern oder höher, deshalb ist der Winter dort ein echter Winter. Tagsüber liegen die Temperaturen oft um den Gefrierpunkt, nachts deutlich darunter, und von Dezember bis Februar ist Schnee häufig. Packen Sie eine richtige Winterjacke, Handschuhe, Mütze und wasserdichte Schuhe ein – Kleidung, die für Antalya im Januar passt, reicht hier nicht aus."
+      },
+      {
+        "type": "table",
+        "head": [
+          "",
+          "Küste von Antalya",
+          "Kappadokien"
+        ],
+        "rows": [
+          [
+            "Typischer Wintertag",
+            "etwa 15 °C",
+            "rund 0–5 °C"
+          ],
+          [
+            "Winternächte",
+            "etwa 6–8 °C",
+            "oft unter dem Gefrierpunkt"
+          ],
+          [
+            "Schnee",
+            "nur auf den Berggipfeln",
+            "häufig von Dezember bis Februar"
+          ]
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Heißluftballons im Winter"
+      },
+      {
+        "type": "p",
+        "text": "Die Ballons fahren das ganze Jahr, wenn das Wetter es zulässt, und eine Fahrt bei Sonnenaufgang über verschneite Täler ist das Bild, für das viele anreisen. Im Winter fallen Fahrten allerdings häufiger wegen Wind, Nebel oder Schnee aus; die Behörden entscheiden jeden Morgen in der Früh. Planen Sie mindestens zwei Nächte in Kappadokien ein, damit ein abgesagter Start nicht bedeutet, dass Sie ganz darauf verzichten müssen."
+      },
+      {
+        "type": "h2",
+        "text": "Sehenswertes im Winter"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Freilichtmuseum Göreme: in den Fels gehauene Kirchen mit Fresken, im Winter ruhiger als zu jeder anderen Jahreszeit.",
+          "Unterirdische Städte wie Derinkuyu und Kaymaklı: mehrere Ebenen tief und mit einer angenehmen, gleichbleibenden Temperatur, egal wie das Wetter draußen ist.",
+          "Die Burg von Uçhisar und die Aussichtspunkte oberhalb von Göreme: die besten Orte für verschneite Panoramen.",
+          "Kurze Wanderungen im Rosental, im Roten Tal und im Liebestal an trockenen, klaren Tagen – nach Schneefall können die Wege vereist sein.",
+          "Höhlenhotels: Viele sind beheizt und haben Kamine, und im Winter entfalten sie ihren ganz besonderen Reiz."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Die Fahrt ab Antalya"
+      },
+      {
+        "type": "p",
+        "text": "Die Strecke ist etwa 540 km lang und dauert meist 7 bis 8 Stunden: über das Taurusgebirge und dann weiter über die Hochebene via Konya. Konya mit dem Mevlana-Museum bietet sich als Zwischenstopp an. Im Winter kann auf dem Gebirgsabschnitt Schnee und Eis liegen; die Straßen werden geräumt, doch ein Fahrzeug mit Winterausrüstung und ein Fahrer, der die Strecke kennt, machen den Unterschied zwischen einem langen und einem stressigen Tag."
+      },
+      {
+        "type": "h2",
+        "text": "So planen Sie die Reise"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Planen Sie mindestens zwei, besser drei Nächte ein – als Puffer für abgesagte Ballonfahrten und die kurzen Wintertage.",
+          "Fahren Sie morgens in Antalya los, um die Berge bei Tageslicht zu überqueren.",
+          "Kombinieren Sie den Ausflug mit einem Aufenthalt an der Küste: ein paar Tage in Antalya oder Side, dann Kappadokien – oder umgekehrt.",
+          "Buchen Sie das Höhlenhotel und eine Ballonfahrt für Weihnachten und Silvester frühzeitig."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Transfer zwischen Antalya und Kappadokien"
+      },
+      {
+        "type": "p",
+        "text": "Wir bieten private Transfers vom Flughafen Antalya und von Hotels an der Küste nach Kappadokien an, einfach oder mit Rückfahrt an einem späteren Datum. Der Preis gilt fest pro Fahrzeug, Sie können für Fotos, Mahlzeiten und einen Besuch in Konya anhalten, und es gibt keine anderen Fahrgäste, auf die Sie warten müssen. Nennen Sie uns bei der Buchung Ihr Hotel und Ihre Reisedaten."
+      }
+    ],
+    "faq": [
+      [
+        "Wie weit ist Kappadokien von Antalya entfernt?",
+        "Etwa 540 km auf der Straße. Die Fahrt über Konya dauert meist 7 bis 8 Stunden, mit Pausen oder bei Schnee etwas länger."
+      ],
+      [
+        "Lohnt sich Kappadokien im Winter?",
+        "Ja. Schnee auf den Feenkaminen, ruhige Sehenswürdigkeiten und gemütliche Höhlenhotels machen den Winter zu einer der schönsten Reisezeiten. Nehmen Sie warme Kleidung mit: Es ist viel kälter als an der Küste."
+      ],
+      [
+        "Fahren die Heißluftballons in Kappadokien auch im Winter?",
+        "Ja, wann immer das Wetter es zulässt. Absagen sind im Winter häufiger, planen Sie daher mindestens zwei Nächte ein, um eine zweite Chance zu haben."
+      ],
+      [
+        "Kann ich mit einem privaten Transfer von Antalya nach Kappadokien fahren?",
+        "Ja. Wir bieten private Transfers vom Flughafen Antalya und von Küstenhotels nach Kappadokien an, einfach oder mit Rückfahrt, zum Festpreis pro Fahrzeug."
+      ]
+    ]
+  },
+  "belek-winter-golf": {
+    "slug": "wintergolf-in-belek",
+    "title": "Wintergolf in Belek: Golfen an der Türkischen Riviera von November bis März",
+    "heading": "Wintergolf in Belek",
+    "description": "Warum Belek ein Ziel für Wintergolf ist: Wetter von November bis März, Platzzustand, günstigere Greenfees, was ins Gepäck gehört und wie Sie mit Golfbags nach Belek kommen.",
+    "excerpt": "Milde Tage, grüne Fairways und freiere Startzeiten. Was Golfer über Belek zwischen November und März wissen sollten, wenn die Plätze zu Hause geschlossen sind.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Wenn die Plätze in Nordeuropa gefroren, durchnässt oder geschlossen sind, wird in Belek weitergespielt. Die Gruppe von Meisterschaftsplätzen 45 km östlich des Flughafens Antalya bleibt den ganzen Winter geöffnet, und die Monate von November bis März sind zu einer eigenen Wintergolf-Saison geworden – für alle, die zwischen Oktober und April nicht pausieren möchten."
+      },
+      {
+        "type": "h2",
+        "text": "So ist das Wetter auf dem Platz"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Monat",
+          "Typischer Tag",
+          "Auf dem Platz"
+        ],
+        "rows": [
+          [
+            "November",
+            "etwa 21 °C",
+            "Ausgezeichnete Bedingungen, noch Herbst-Hochsaison"
+          ],
+          [
+            "Dezember – Januar",
+            "etwa 15–16 °C",
+            "Mild und oft sonnig, mit einigen Regentagen"
+          ],
+          [
+            "Februar",
+            "etwa 16 °C",
+            "Die Tage werden länger, weniger Regentage"
+          ],
+          [
+            "März",
+            "etwa 19 °C",
+            "Beginn der Frühjahrs-Hochsaison"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "An den meisten Wintertagen spielt man im leichten Pullover. Regen kommt eher in kurzen Schauern als wochenlang, und die Plätze sind so angelegt, dass sie schnell abtrocknen. Morgens kann es kühl sein und am späten Nachmittag wird es früh dunkel, deshalb liegen die Startzeiten meist früher als im Sommer."
+      },
+      {
+        "type": "h2",
+        "text": "Warum sich der Winter lohnt"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Greenfees und Hotelpreise sind im Dezember, Januar und Februar in der Regel niedriger als im Herbst und Frühjahr.",
+          "Die Startlisten sind weniger voll, die Runden gehen schneller und Wunschzeiten sind leichter zu bekommen.",
+          "Mehrere Golfhotels haben den ganzen Winter geöffnet, viele mit Hallenbad und Spa für den Nachmittag.",
+          "Kurze Flüge aus den meisten Ländern Europas machen ein verlängertes Wochenende ebenso realistisch wie eine ganze Woche."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Plätze und Hotels im Winter"
+      },
+      {
+        "type": "p",
+        "text": "Nicht alle Plätze und Hotels in Belek haben im Winter die gleichen Betriebszeiten, und Pflegearbeiten wie Aerifizieren oder Nachsäen werden manchmal in die ruhigen Monate gelegt. Fragen Sie bei der Buchung, welche Plätze in Ihrem Reisezeitraum geöffnet sind und ob Pflegearbeiten geplant sind. Golfhotels organisieren meist Startzeiten und Shuttles zu ihren Partnerplätzen."
+      },
+      {
+        "type": "h2",
+        "text": "Was ins Gepäck gehört"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Schichten: eine Funktionsunterwäsche, ein Pullover und eine winddichte Jacke für kühle Morgen.",
+          "Regenjacke und Regenhose für den gelegentlichen Schauer.",
+          "Winterhandschuhe oder Fäustlinge zwischen den Schlägen, dazu normale Golfhandschuhe.",
+          "Sonnenschutz: Die Wintersonne ist an klaren Tagen immer noch kräftig."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Mit Golfbags nach Belek"
+      },
+      {
+        "type": "p",
+        "text": "Vom Flughafen Antalya nach Belek sind es 35 bis 40 Minuten Fahrt, und im Winter ist das Terminal ruhig – eine Runde am Nachmittag des Anreisetags ist daher oft realistisch. Der Preis gilt fest pro Fahrzeug, nicht pro Bag: In der Regel fasst ein Mercedes Vito vier Spieler mit vier Golfbags und Gepäck, größere Gruppen fahren im Sprinter. Nennen Sie uns bei der Buchung die Anzahl der Golfbags."
+      }
+    ],
+    "faq": [
+      [
+        "Kann man in Belek im Winter Golf spielen?",
+        "Ja. Die Plätze in Belek sind den ganzen Winter geöffnet, im Dezember und Januar mit typischen Tagestemperaturen von rund 15–16 °C, und an den meisten Tagen ist Golf gut spielbar."
+      ],
+      [
+        "Ist Golf in Belek im Winter günstiger?",
+        "Greenfees und Hotelpreise sind im Dezember, Januar und Februar in der Regel niedriger als in der Hochsaison im Herbst und Frühjahr. Die genauen Preise hängen vom Platz und vom Hotel ab."
+      ],
+      [
+        "Welcher Monat ist der beste für Golf in Belek?",
+        "Oktober–November und März–April sind die Hauptmonate für Golf. Der Winter ist ruhiger und günstiger, mit etwas kühleren Tagen."
+      ],
+      [
+        "Kosten Golfbags beim Transfer extra?",
+        "Nein. Der Preis gilt fest pro Fahrzeug. Für mehr Bags setzen wir ein größeres Fahrzeug ein, und diesen Preis sehen Sie bei der Buchung."
+      ]
+    ]
+  },
+  "saklikent-ski-antalya": {
+    "slug": "skifahren-bei-antalya-saklikent",
+    "title": "Skifahren bei Antalya: Skigebiet Saklıkent im Überblick",
+    "heading": "Skifahren bei Antalya: das Skigebiet Saklıkent",
+    "description": "Skifahren bei Antalya in Saklıkent: Lage, Fahrzeit, Saison, was Sie auf der Piste erwartet und wie Sie Skifahren und Meer an einem Tag verbinden.",
+    "excerpt": "Morgens Ski fahren, nachmittags am Meer spazieren. Ein praktischer Ratgeber zu Saklıkent, dem Skigebiet von Antalya, und zur Anfahrt von der Küste.",
+    "readingMinutes": 5,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Nur wenige Urlaubsregionen erlauben Skifahren und einen Spaziergang am Meer am selben Tag. Antalya schon: Das Skigebiet Saklıkent liegt im Bakırlı-Gebirge, etwa 50 km von der Stadt entfernt, und an einem guten Wintertag stehen Sie morgens auf der Piste und sind zum Sonnenuntergang zurück an der Strandpromenade."
+      },
+      {
+        "type": "h2",
+        "text": "Wo Saklıkent liegt"
+      },
+      {
+        "type": "p",
+        "text": "Das Skigebiet liegt auf rund 1.900 Metern an den Hängen des Bakırlı-Gebirges westlich von Antalya. Die Fahrt aus der Stadt dauert ungefähr anderthalb Stunden und führt von Orangenhainen durch Pinienwälder bis in den Schnee. An klaren Tagen reicht der Blick von oben bis hinunter zur Küste und zum Meer."
+      },
+      {
+        "type": "h2",
+        "text": "Wann die Saison läuft"
+      },
+      {
+        "type": "p",
+        "text": "Die Skisaison hängt ganz vom Schneefall ab und dauert meist von Januar bis März. In manchen Wintern beginnt sie früher oder endet eher – prüfen Sie daher die aktuelle Schneelage und den Liftbetrieb, bevor Sie einen Tag dafür einplanen."
+      },
+      {
+        "type": "h2",
+        "text": "Was Sie auf der Piste erwartet"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Ein kleines, entspanntes Skigebiet – ideal für Anfänger, Familien und einen Skitag während eines Badeurlaubs, weniger für eine ganze Skiwoche.",
+          "Ski- und Snowboardausrüstung kann man meist vor Ort leihen; prüfen Sie vorher die Öffnungszeiten.",
+          "Rodeln und Spielen im Schnee sind bei Familien beliebt, besonders am Wochenende.",
+          "Am Wochenende kommen viele Einheimische; unter der Woche ist es deutlich ruhiger."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Skifahren und Meer an einem Tag"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Früh am Morgen an der Küste losfahren, um zur Öffnung der Lifte anzukommen.",
+          "Bis zum frühen Nachmittag Ski fahren oder im Schnee spielen.",
+          "Zurück ins Tal fahren – zu einem späten Mittagessen in Kaleiçi oder einem Spaziergang am Strand von Konyaaltı.",
+          "Wechselkleidung mitnehmen: Zwischen Piste und Küste können 15 Grad oder mehr Unterschied liegen."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Anfahrt: die Bergstraße im Winter"
+      },
+      {
+        "type": "p",
+        "text": "Es gibt keine regelmäßigen öffentlichen Verkehrsmittel zum Skigebiet, und auf dem letzten Stück der Bergstraße können Schnee und Eis liegen. Winterreifen oder Schneeketten können vorgeschrieben sein. Ein privater Transfer bringt Sie von Ihrem Hotel in Antalya, Kemer, Belek oder Side auf die Piste und zurück – wie lange Sie am Berg bleiben, entscheiden Sie. Dies ist keine unserer Standardstrecken; schicken Sie uns daher Hotel, Datum und Gruppengröße, und wir nennen Ihnen einen Festpreis pro Fahrzeug."
+      },
+      {
+        "type": "h2",
+        "text": "Weitere Skigebiete ab Antalya"
+      },
+      {
+        "type": "p",
+        "text": "Für einen längeren Skiurlaub ist Davraz bei Isparta ein größeres Skigebiet mit mehr Pisten, etwa zweieinhalb bis drei Stunden Fahrt von Antalya entfernt. Saklıkent bleibt die einfachste Wahl für einen einzelnen Schneetag während eines Aufenthalts an der Küste."
+      }
+    ],
+    "faq": [
+      [
+        "Kann man bei Antalya Ski fahren?",
+        "Ja. Das Skigebiet Saklıkent liegt im Bakırlı-Gebirge, etwa 50 km von der Stadt Antalya entfernt, rund anderthalb Stunden Fahrt."
+      ],
+      [
+        "Wann ist Skisaison in Saklıkent?",
+        "Das hängt vom Schneefall ab. Die Saison dauert meist von Januar bis März; prüfen Sie vor der Fahrt die aktuellen Bedingungen."
+      ],
+      [
+        "Kann man in Antalya am selben Tag Ski fahren und baden?",
+        "Sie können morgens Ski fahren und nachmittags am Meer sein. Baden im Winter ist etwas für Mutige: Das Meer hat rund 17 °C."
+      ],
+      [
+        "Wie komme ich von meinem Hotel nach Saklıkent?",
+        "Es gibt keine regelmäßigen öffentlichen Verkehrsmittel. Wir erstellen Ihnen gern ein Angebot für einen privaten Transfer von Ihrem Hotel zum Skigebiet und zurück, zum Festpreis pro Fahrzeug."
+      ]
+    ]
+  },
+  "pamukkale-trip-from-antalya": {
+    "slug": "pamukkale-ausflug-von-antalya",
+    "title": "Pamukkale Ausflug von Antalya: Tagestour oder mit Übernachtung?",
+    "heading": "Pamukkale-Ausflug von Antalya: So planen Sie die Reise",
+    "description": "Pamukkale Ausflug von Antalya planen: Entfernung und Fahrzeit, Tagestour oder Übernachtung, Kalksinterterrassen, Hierapolis, Antikes Becken und die beste Reisezeit.",
+    "excerpt": "Weiße Sinterterrassen, eine römische Stadt auf dem Hügel und ein Becken zwischen antiken Säulen. So besuchen Sie Pamukkale von Antalya aus, ohne den ganzen Tag im Reisebus zu sitzen.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Pamukkale gehört zu den berühmtesten Sehenswürdigkeiten der Türkei: weiße Kalksinterterrassen voller warmem, mineralreichem Wasser und darüber die Ruinen der römischen Stadt Hierapolis. Für einen Pamukkale-Ausflug von Antalya sind es etwa 245 km auf der Straße, rund drei bis dreieinhalb Stunden pro Strecke – nah genug für eine Tagestour, aber weit genug, dass eine Übernachtung den Besuch deutlich entspannter macht."
+      },
+      {
+        "type": "h2",
+        "text": "Sehenswürdigkeiten in Pamukkale"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Die Sinterterrassen: barfuß durch flaches, warmes Wasser über die Terrassen laufen – Schuhe sind auf der weißen Oberfläche nicht erlaubt.",
+          "Hierapolis: eine große römische Stadt mit Theater, Prachtstraße und einer der größten antiken Nekropolen Anatoliens.",
+          "Das Antike Becken: im warmen Thermalwasser zwischen umgestürzten antiken Säulen schwimmen (eigenes Ticket).",
+          "Archäologisches Museum Hierapolis: Funde aus der Stätte, untergebracht in den ehemaligen römischen Thermen.",
+          "Laodikeia: nur eine kurze Fahrt entfernt, eine weitere große antike Stadt mit weit weniger Besuchern."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Tagestour oder Übernachtung?"
+      },
+      {
+        "type": "table",
+        "head": [
+          "",
+          "Tagestour",
+          "Mit Übernachtung"
+        ],
+        "rows": [
+          [
+            "Fahrzeit",
+            "6–7 Stunden an einem Tag",
+            "Auf zwei Tage verteilt"
+          ],
+          [
+            "Zeit vor Ort",
+            "3–4 Stunden, meist mittags",
+            "Später Nachmittag und früher Morgen"
+          ],
+          [
+            "Andrang",
+            "Ankunft mit den Reisebussen",
+            "Sonnenuntergang und Morgen mit viel weniger Menschen"
+          ],
+          [
+            "Ideal für",
+            "Reisende mit wenig Zeit",
+            "Familien, Fotografen und alle, die baden möchten"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Die meisten Gruppentouren kommen um die Mittagszeit an, wenn auf den Terrassen am meisten los ist und die weiße Oberfläche im Sommer grell und heiß ist. Wer in Pamukkale oder im Thermaldorf Karahayıt übernachtet, erlebt die Sinterterrassen im Licht des Sonnenuntergangs und noch einmal in der Ruhe des Morgens."
+      },
+      {
+        "type": "h2",
+        "text": "Die beste Reisezeit für Pamukkale"
+      },
+      {
+        "type": "p",
+        "text": "Frühling und Herbst sind am angenehmsten: milde Temperaturen für einen Rundgang durch Hierapolis und angenehmes Wasser auf den Terrassen. Im Winter ist es kühl und gelegentlich frostig, doch das warme Wasser dampft in der kalten Luft, und die Stätte ist am ruhigsten. Im Juli und August können Mittagshitze und Blendung auf den weißen Terrassen sehr intensiv sein – kommen Sie früh oder spät am Tag."
+      },
+      {
+        "type": "h2",
+        "text": "Unterwegs: Salda-See und Taurusgebirge"
+      },
+      {
+        "type": "p",
+        "text": "Die Straße steigt von der Küste über das Taurusgebirge an und führt durch die Seenregion. Der Salda-See mit seinen weißen Ufern und dem türkisfarbenen Wasser ist ein kurzer Abstecher und ein beliebter Fotostopp. Mit einem privaten Fahrzeug entscheiden Sie selbst, wo und wie lange Sie anhalten – das kann keine Bustour bieten."
+      },
+      {
+        "type": "h2",
+        "text": "Privater Transfer nach Pamukkale"
+      },
+      {
+        "type": "p",
+        "text": "Wir bieten private Transfers vom Flughafen Antalya und von Hotels an der Küste nach Pamukkale an, als einfache Fahrt oder mit Rückfahrt an einem späteren Tag. Der Preis gilt fest pro Fahrzeug – für eine Familie oder kleine Gruppe ist er daher oft vergleichbar mit mehreren Tickets für eine Bustour, nur ohne Hotelabholungen, festen Zeitplan und Verkaufsstopps."
+      }
+    ],
+    "faq": [
+      [
+        "Wie weit ist Pamukkale von Antalya entfernt?",
+        "Etwa 245 km auf der Straße. Die Fahrt dauert in der Regel drei bis dreieinhalb Stunden pro Strecke."
+      ],
+      [
+        "Kann man Pamukkale als Tagesausflug von Antalya besuchen?",
+        "Ja, allerdings bedeutet das 6–7 Stunden Fahrt an einem Tag. Eine Übernachtung in Pamukkale oder Karahayıt macht den Besuch entspannter, und Sie sehen die Terrassen ohne die Menschenmassen."
+      ],
+      [
+        "Kann man in Pamukkale baden?",
+        "Auf den Sinterterrassen können Sie barfuß durch die flachen Becken laufen. Schwimmen ist im Antiken Becken möglich, das warmes Thermalwasser hat und ein eigenes Ticket erfordert."
+      ],
+      [
+        "Wann ist die beste Reisezeit für Pamukkale?",
+        "Frühling und Herbst sind am angenehmsten. Der Winter ist ruhig und stimmungsvoll; im Sommer besuchen Sie die Stätte am besten früh morgens oder am späten Nachmittag."
+      ]
+    ]
+  },
+  "demre-myra-st-nicholas": {
+    "slug": "demre-myra-nikolauskirche",
+    "title": "Demre und Myra: Die Nikolauskirche ab Antalya besuchen",
+    "heading": "Demre, Myra und die Nikolauskirche",
+    "description": "Ausflug von Antalya nach Demre, dem antiken Myra: Nikolauskirche, lykische Felsgräber, Andriake und Kekova, mit Fahrzeiten und Tipps für einen Besuch im Winter oder zu Weihnachten.",
+    "excerpt": "Die Heimat des echten Nikolaus liegt zweieinhalb Stunden von Antalya entfernt. Was Sie in Demre und Myra sehen sollten und wie daraus ein schöner Tag an der Küste wird.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Lange bevor er zum Weihnachtsmann wurde, war der heilige Nikolaus Bischof von Myra, einer lykischen Stadt an der Küste westlich von Antalya. Heute heißt der Ort Demre – und die Nikolauskirche, in der er wirkte, die lykischen Felsgräber und der antike Hafen machen ihn zu einem der lohnendsten Tagesausflüge von Antalya, besonders im Dezember."
+      },
+      {
+        "type": "h2",
+        "text": "Wer war der heilige Nikolaus von Myra?"
+      },
+      {
+        "type": "p",
+        "text": "Nikolaus lebte im 4. Jahrhundert und wurde für seine heimliche Großzügigkeit berühmt, vor allem gegenüber Kindern und Armen. Sein Gedenktag, der 6. Dezember, wird bis heute in ganz Europa gefeiert, und aus den Legenden um ihn entstand über die Jahrhunderte die Figur des Weihnachtsmanns. Myra, wo er Bischof war, wurde zu einem wichtigen Wallfahrtsort."
+      },
+      {
+        "type": "h2",
+        "text": "Sehenswürdigkeiten in Demre"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Nikolauskirche: eine byzantinische Kirche mit Fresken, Mosaikböden und dem Sarkophag, der traditionell mit dem Heiligen in Verbindung gebracht wird.",
+          "Felsgräber von Myra: lykische Gräber in Hausform, in die Felswand über einem großen römischen Theater gehauen.",
+          "Andriake: der antike Hafen von Myra mit einem restaurierten Getreidespeicher, in dem das Museum der Lykischen Zivilisationen untergebracht ist.",
+          "Kekova: Bootstouren vom nahen Üçağız führen an der teilweise versunkenen antiken Stadt und am Burgdorf Kaleköy vorbei (im Winter fahren weniger Boote)."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Anreise: die Küstenstraße nach Westen"
+      },
+      {
+        "type": "p",
+        "text": "Demre liegt etwa zweieinhalb Stunden von Antalya entfernt, an einer der schönsten Küstenstraßen des Landes, vorbei an Kemer, den Bergen rund um Olympos, Kumluca und Finike. Die Straße ist das ganze Jahr über gut, windet sich aber durch die Berge – planen Sie Zeit für Pausen ein und machen Sie keine Hetzfahrt daraus."
+      },
+      {
+        "type": "h2",
+        "text": "Ein Tag an der Küste"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Morgens: früh in Antalya losfahren und bei Olympos für den Blick über die Küste anhalten.",
+          "Später Vormittag: die Nikolauskirche, bevor die Reisegruppen eintreffen.",
+          "Mittags: Felsgräber und Theater von Myra, danach Mittagessen in Demre oder in Andriake.",
+          "Nachmittags: in der Saison eine Bootstour nach Kekova oder weiter nach Kaş und dort übernachten.",
+          "Abends: Rückfahrt nach Antalya oder den Ausflug mit ein paar Tagen in Kaş verbinden."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Besuch im Winter und zu Weihnachten"
+      },
+      {
+        "type": "p",
+        "text": "Der Dezember ist eine besonders stimmungsvolle Reisezeit: Am 6. Dezember ist Nikolaustag, und rund um Weihnachten verbinden viele Gäste ihren Aufenthalt in Antalya mit einem Ausflug in die Stadt des Heiligen. Die Wintertage sind mild, aber kurz, also brechen Sie früh auf. Die Stätten sind ganzjährig geöffnet, während die Bootstouren nach Kekova von Wetter und Saison abhängen."
+      },
+      {
+        "type": "h2",
+        "text": "Privater Transfer nach Demre"
+      },
+      {
+        "type": "p",
+        "text": "Wir bieten private Transfers von Antalya und den Urlaubsorten entlang der Westküste nach Kumluca, Demre und Kaş an. Mit einem privaten Fahrzeug bestimmen Sie Stopps und Tempo selbst, und der Preis gilt fest pro Fahrzeug, nicht pro Person. Nennen Sie uns bei der Buchung Ihr Hotel, das Datum und ob Sie am selben Tag zurückfahren möchten."
+      }
+    ],
+    "faq": [
+      [
+        "Wie weit ist Demre von Antalya entfernt?",
+        "Demre, das antike Myra, liegt etwa zweieinhalb Stunden Fahrt von Antalya entfernt, über die Küstenstraße via Kemer, Kumluca und Finike."
+      ],
+      [
+        "Ist die Nikolauskirche das ganze Jahr geöffnet?",
+        "Ja. Die Nikolauskirche und die antike Stätte Myra sind ganzjährig für Besucher geöffnet."
+      ],
+      [
+        "Wann ist Nikolaustag?",
+        "Der Gedenktag des heiligen Nikolaus ist am 6. Dezember. Der Dezember, einschließlich der Weihnachtszeit, ist eine beliebte Zeit für einen Besuch in Demre."
+      ],
+      [
+        "Kann ich Demre und Kekova an einem Tag besuchen?",
+        "Ja, in der Bootssaison ist das mit einem frühen Start möglich. Im Winter fahren weniger Boote, prüfen Sie daher Wetter und Fahrpläne vor Ort."
+      ]
+    ]
+  },
+  "lycian-way-spring-hiking": {
+    "slug": "lykischer-weg-wandern-bei-antalya",
+    "title": "Lykischer Weg wandern bei Antalya: Die schönsten Etappen im Frühling",
+    "heading": "Den Lykischen Weg ab Antalya wandern",
+    "description": "Auf dem Lykischen Weg wandern bei Antalya: beste Reisezeit, Etappen rund um Kemer, Olympos, Adrasan und Kaş, Packliste und wie Sie zum Startpunkt Ihrer Wanderung kommen.",
+    "excerpt": "Antike Ruinen, Pinienwälder und Meerblick auf einem der großen Fernwanderwege der Welt. Welche Etappen Sie von Antalya aus wandern können und wann die beste Zeit dafür ist.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Der Lykische Weg ist ein markierter Fernwanderweg von mehr als 500 km zwischen Fethiye und Antalya. Er folgt alten Pfaden, Maultierwegen und Römerstraßen entlang der Küste und durch die Berge des antiken Lykien. Um den Lykischen Weg zu wandern, brauchen Sie keine Wochen: Viele seiner schönsten Etappen liegen nicht weit von Antalya und eignen sich hervorragend für Tageswanderungen oder einen kurzen Wanderurlaub."
+      },
+      {
+        "type": "h2",
+        "text": "Beste Wanderzeit: Frühling und Herbst"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Jahreszeit",
+          "Bedingungen",
+          "Fazit"
+        ],
+        "rows": [
+          [
+            "März – Mai",
+            "Milde Tage, grüne Hügel, Wildblumen, Quellen voller Wasser",
+            "Die beste Zeit"
+          ],
+          [
+            "Juni – August",
+            "Sehr heiß, auf vielen Etappen wenig Schatten, versiegte Quellen",
+            "Nur frühmorgens oder kurze Touren"
+          ],
+          [
+            "September – November",
+            "Warmes Meer, stabiles Wetter, ab Ende Oktober kühler",
+            "Die zweitbeste Zeit"
+          ],
+          [
+            "Dezember – Februar",
+            "Mild an der Küste, Regenphasen, Schnee auf den hohen Pässen",
+            "Auf niedrigen Küstenetappen möglich"
+          ]
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Etappen in der Nähe von Antalya"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Göynük – Region Kemer: Waldwege und Blicke in die Schlucht, ganz nah an den Ferienorten von Kemer.",
+          "Çıralı und Olympos: eine Küstenetappe zwischen den Ruinen von Olympos und den ewigen Flammen der Chimaira.",
+          "Adrasan – Olympos: einer der spektakulärsten Abschnitte mit Klippen, Buchten und weiten Blicken über das Meer.",
+          "Rund um Kaş: Küstenpfade mit lykischen Gräbern, kleinen Buchten und der griechischen Insel Meis vor der Küste.",
+          "Phaselis: kürzere Wanderungen rund um die antike Stadt und ihre drei Häfen, ideal zum Reinschnuppern."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Ihre Wanderung planen"
+      },
+      {
+        "type": "p",
+        "text": "Der Weg ist rot-weiß markiert, doch einige Abschnitte sind rau, felsig und steil, und die Beschilderung kann lückenhaft sein. Nutzen Sie eine gute Karte oder einen GPS-Track, wandern Sie möglichst zu zweit und sagen Sie jemandem Bescheid, welche Route Sie gehen. Auf vielen Etappen gibt es zwischen den Dörfern weder Läden noch Wasser – starten Sie also früh und nehmen Sie mehr Wasser mit, als Sie zu brauchen glauben."
+      },
+      {
+        "type": "h2",
+        "text": "Packliste"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Wanderstiefel oder feste Trailschuhe – der Kalkstein ist stellenweise scharfkantig und lose.",
+          "Mindestens zwei Liter Wasser pro Person, dazu Snacks.",
+          "Sonnenhut, Sonnencreme und eine leichte langärmelige Schicht, auch im Frühling.",
+          "Eine winddichte Jacke oder Regenjacke für Bergabschnitte und wechselhaftes Frühlingswetter.",
+          "Ein kleines Erste-Hilfe-Set und ein geladenes Handy mit Offline-Karte."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "An- und Abreise zum Wanderweg"
+      },
+      {
+        "type": "p",
+        "text": "Die meisten Etappen beginnen und enden in Dörfern, die mit öffentlichen Verkehrsmitteln schwer zu erreichen sind, und bei einer Streckenwanderung kommen Sie woanders an, als Sie gestartet sind. Ein privater Transfer bringt Sie vom Flughafen Antalya oder Ihrem Hotel zum Start Ihrer Etappe und kann Sie am Ende wieder abholen. Der Preis gilt fest pro Fahrzeug und lohnt sich daher gut für Wandergruppen; nennen Sie uns Start- und Zielpunkt, Datum und Personenzahl, und wir erstellen Ihnen vorab ein Angebot."
+      }
+    ],
+    "faq": [
+      [
+        "Wie lang ist der Lykische Weg?",
+        "Der markierte Wanderweg ist mehr als 500 km lang und verläuft zwischen Fethiye und Antalya. Die meisten Besucher wandern ausgewählte Etappen statt der gesamten Route."
+      ],
+      [
+        "Wann ist die beste Zeit, um den Lykischen Weg zu wandern?",
+        "Der Frühling von März bis Mai ist die beste Zeit, gefolgt vom Herbst von September bis November. Der Sommer ist sehr heiß, und viele Quellen versiegen."
+      ],
+      [
+        "Welche Etappen des Lykischen Wegs liegen am nächsten an Antalya?",
+        "Die Abschnitte um Göynük und Kemer, Çıralı und Olympos, Adrasan und Phaselis liegen alle etwa ein bis zwei Stunden von Antalya entfernt. Die Etappen rund um Kaş liegen weiter westlich."
+      ],
+      [
+        "Kann man einen Transfer zum Start einer Etappe des Lykischen Wegs buchen?",
+        "Ja. Senden Sie uns Start- und Zielpunkt sowie das Datum, und wir erstellen Ihnen ein Angebot für einen privaten Transfer zum Festpreis pro Fahrzeug, inklusive Abholung am Ende Ihrer Wanderung."
+      ]
+    ]
+  },
+  "koprulu-canyon-rafting": {
+    "slug": "rafting-koprulu-canyon-ab-antalya",
+    "title": "Rafting im Köprülü Canyon: Praktischer Guide ab Antalya und Side",
+    "heading": "Rafting im Köprülü Canyon",
+    "description": "Rafting im Köprülü Canyon bei Antalya: Saison, Fluss, für wen es passt, was Sie mitnehmen sollten und wie weit es von Side, Belek, Alanya und Antalya ist.",
+    "excerpt": "Kaltes grünes Wasser, eine Römerbrücke und eine Schlucht voller Pinien. Was Sie beim Rafting im Köprülü Canyon erwartet und wie Sie den Tag von der Küste aus planen.",
+    "readingMinutes": 5,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Rafting im Köprülü Canyon ist der bekannteste Ausflug dieser Art an der Türkischen Riviera. Der Canyon ist ein Nationalpark im Taurusgebirge nördlich von Side und Manavgat, und der Fluss, der ihn durchfließt, bietet eher ein entspanntes als ein extremes Abenteuer: Die meisten Stromschnellen sind sanft, die Landschaft ist spektakulär, und Einsteiger und Familien sind an jedem Tag der Saison dabei."
+      },
+      {
+        "type": "h2",
+        "text": "So läuft die Rafting-Tour ab"
+      },
+      {
+        "type": "p",
+        "text": "Die meisten Touren führen über einen etwa zwölf Kilometer langen Abschnitt des Flusses Köprüçay und dauern zwei bis drei Stunden auf dem Wasser, mit Pausen zum Schwimmen, zum Springen von Felsen oder einfach zum Treibenlassen. Die Stromschnellen sind überwiegend leicht bis mittel, das Wasser ist klar und grün und das ganze Jahr über kalt, weil der Fluss von Bergquellen gespeist wird. Die Guides geben vorab eine Sicherheitseinweisung, Helme und Schwimmwesten werden gestellt."
+      },
+      {
+        "type": "h2",
+        "text": "Die beste Zeit"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Zeitraum",
+          "Fluss und Wetter",
+          "Ideal für"
+        ],
+        "rows": [
+          [
+            "April – Mai",
+            "Mehr Wasser durch die Schneeschmelze, lebhaftere Stromschnellen, milde Luft",
+            "Aktive Gruppen, weniger Andrang"
+          ],
+          [
+            "Juni – August",
+            "Heiße Luft, kaltes Wasser, die vollsten Monate",
+            "Abkühlung an einem heißen Tag"
+          ],
+          [
+            "September – Oktober",
+            "Ruhigeres Wasser, warme Tage, weniger Menschen",
+            "Familien und Einsteiger"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Die Saison läuft meist von etwa April bis Oktober, je nach Fluss und Anbieter. Außerhalb dieser Zeit finden Touren selten oder gar nicht statt."
+      },
+      {
+        "type": "h2",
+        "text": "Für wen es passt"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Einsteiger: Erfahrung ist nicht nötig, der Guide steuert das Schlauchboot.",
+          "Familien: Die Anbieter legen ein Mindestalter für Kinder fest – fragen Sie bei der Buchung danach.",
+          "Freundeskreise und Kollegen: Ein Boot teilen sich meist sechs bis acht Personen.",
+          "Weniger geeignet für Nichtschwimmer, die im Wasser ängstlich sind, und in der Schwangerschaft."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Was Sie mitnehmen sollten"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Badekleidung unter der Kleidung und ein Handtuch.",
+          "Schuhe, die nass werden dürfen und fest am Fuß sitzen – keine Flip-Flops.",
+          "Sonnencreme und trockene Wechselkleidung für die Rückfahrt.",
+          "Eine wasserdichte Tasche oder Hülle fürs Handy; Wertsachen bleiben im Hotel."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Mehr als Rafting: der Nationalpark"
+      },
+      {
+        "type": "p",
+        "text": "Über den Canyon führt die Oluk-Brücke, eine einbogige Römerbrücke, die der Gegend ihren Namen gibt – köprü bedeutet auf Türkisch Brücke. Weiter oben am Berg liegen die Ruinen der antiken Stadt Selge, umgeben von Felsformationen und Dörfern. Mit eigenem Fahrzeug lässt sich das Rafting mit einem Halt an der Brücke und einer Fahrt hinauf Richtung Selge verbinden."
+      },
+      {
+        "type": "h2",
+        "text": "Anreise von der Küste"
+      },
+      {
+        "type": "p",
+        "text": "Viele Rafting-Anbieter verkaufen Touren mit Sammelabholung an den Hotels, was einen langen Vormittag mit dem Einsammeln anderer Gäste bedeuten kann. Ein privates Fahrzeug ab Side, Manavgat, Belek, Alanya oder Antalya fährt los, wann Sie möchten, und hält unterwegs an der Brücke oder in den Bergen. Der Canyon liegt etwa eine Stunde von Side und Manavgat entfernt, von Antalya und Alanya aus länger; nennen Sie uns Hotel und Datum, und wir nennen Ihnen einen Festpreis pro Fahrzeug."
+      }
+    ],
+    "faq": [
+      [
+        "Ist Rafting im Köprülü Canyon für Anfänger geeignet?",
+        "Ja. Die Stromschnellen sind überwiegend leicht bis mittel, Erfahrung ist nicht nötig, und nach einer Sicherheitseinweisung steuert ein Guide jedes Boot."
+      ],
+      [
+        "Wann ist Rafting-Saison im Köprülü Canyon?",
+        "Meist von etwa April bis Oktober. Im Frühling ist das Wasser durch die Schneeschmelze lebhafter, im September und Oktober ruhiger und weniger besucht."
+      ],
+      [
+        "Wie kalt ist das Wasser?",
+        "Das ganze Jahr über kalt, weil der Fluss von Bergquellen gespeist wird. An einem heißen Sommertag ist genau das der Reiz."
+      ],
+      [
+        "Wie weit ist der Köprülü Canyon von Side entfernt?",
+        "Etwa eine Stunde Fahrt von Side und Manavgat, von Antalya, Belek oder Alanya je nach Hotel länger."
+      ]
+    ]
+  },
+  "kas-kalkan-autumn": {
+    "slug": "kas-und-kalkan-im-herbst",
+    "title": "Kaş und Kalkan im Herbst: Tauchen, Strände und stille Buchten",
+    "heading": "Kaş und Kalkan im Herbst",
+    "description": "Kaş im Herbst und Kalkan zeigen sich von ihrer besten Seite: warmes Meer, Tauchen, Kaputaş und Patara, Kekova per Kajak und Boot und die Anreise ab Flughafen Antalya.",
+    "excerpt": "Das wärmste Meer des Jahres, leere Strände und zwei kleine Hafenorte am Fuß der Berge. Warum der äußerste Westen der Küste von Antalya im Oktober glänzt.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Kaş und Kalkan im Herbst – das ist die wilde Westspitze der Küste von Antalya, wo die Berge direkt ins Meer abfallen. Große Resorts gibt es in keinem der beiden Orte, dafür kleine Häfen, weiß getünchte Gassen und einige der klarsten Gewässer des Mittelmeers. Im Herbst, wenn die Sommergäste abgereist sind und das Meer noch warm ist, zeigen sie sich von ihrer besten Seite."
+      },
+      {
+        "type": "h2",
+        "text": "Warum der Herbst hier die beste Saison ist"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Das Meer bleibt bis in den Oktober warm, oft wärmer als im Juni.",
+          "Die Sicht unter Wasser ist ausgezeichnet – gute Nachrichten für Taucher und Schnorchler.",
+          "Spaziergänge und Wanderungen werden nach der Sommerhitze wieder angenehm.",
+          "Restaurants und Bootstouren sind noch in Betrieb, aber ohne den Sommertrubel."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Kaş: Tauchen, Kajak und der Hafen"
+      },
+      {
+        "type": "p",
+        "text": "Kaş ist eines der bekanntesten Tauchzentren der Türkei, mit Tauchplätzen für Anfänger und Erfahrene, darunter Wracks, Steilwände und Unterwasserhöhlen. Ein Höhepunkt ist eine Seekajak-Tour über die versunkenen Ruinen von Kekova, und der Hafen, das antike Theater mit Blick aufs Meer und die lykischen Gräber im Ort machen die Abende leicht. An klaren Tagen ist die griechische Insel Meis direkt vor der Küste zu sehen."
+      },
+      {
+        "type": "h2",
+        "text": "Kalkan: Terrassen und ruhige Abende"
+      },
+      {
+        "type": "p",
+        "text": "Kalkan, etwa eine halbe Stunde westlich von Kaş, ist kleiner und ruhiger und liegt an einem Hang rund um einen kleinen Hafen. Bekannt ist der Ort für seine Villen mit Meerblick-Terrassen und seine Dachterrassen-Restaurants. Er passt zu Paaren und Familien, die einen ruhigen Standort mit gutem Essen statt Nachtleben suchen."
+      },
+      {
+        "type": "h2",
+        "text": "Strände zwischen und außerhalb der Orte"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Kaputaş: eine kleine türkisfarbene Bucht am Ende einer Schlucht zwischen Kaş und Kalkan.",
+          "Patara: einer der längsten Sandstrände der Türkei, neben den Ruinen des antiken Patara und einem Schutzgebiet.",
+          "Die Halbinsel von Kaş und die Badeplattformen im Ort: Felsküste und Leitern direkt ins tiefe, klare Wasser.",
+          "Kekova und Üçağız: Bootstouren zu geschützten Buchten und zum Burgdorf Kaleköy."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Was sich im November ändert"
+      },
+      {
+        "type": "p",
+        "text": "Ab November klingt die Saison aus: Manche Hotels, Restaurants und Bootstouren schließen, der erste Regen kommt und die Abende werden kühl. Kaş bleibt das ganze Jahr lebendig, weil viele Menschen dauerhaft dort wohnen, Kalkan dagegen wird sehr ruhig. Prüfen Sie die Öffnungszeiten, wenn Sie spät in der Saison reisen."
+      },
+      {
+        "type": "h2",
+        "text": "Anreise ab Flughafen Antalya"
+      },
+      {
+        "type": "p",
+        "text": "Kaş liegt etwa 185 km vom Flughafen Antalya entfernt, rund zweieinhalb bis drei Stunden über die Küstenstraße via Kemer, Kumluca und Demre; Kalkan liegt etwa eine halbe Stunde weiter. Je nach Flugverbindung landen manche Reisende stattdessen in Dalaman. Wir fahren private Transfers von beiden Flughäfen zum Festpreis pro Fahrzeug, mit Fotostopps an einer der schönsten Straßen des Landes."
+      }
+    ],
+    "faq": [
+      [
+        "Ist das Meer in Kaş im Oktober warm?",
+        "Ja. Das Meer bleibt meist bis weit in den Oktober warm, oft wärmer als im Frühsommer, und die Sicht zum Tauchen und Schnorcheln ist ausgezeichnet."
+      ],
+      [
+        "Wie weit ist Kaş vom Flughafen Antalya entfernt?",
+        "Etwa 185 km, rund zweieinhalb bis drei Stunden mit dem Auto. Kalkan liegt etwa eine halbe Stunde weiter westlich."
+      ],
+      [
+        "Kaş oder Kalkan: Was ist besser?",
+        "Kaş ist lebhafter, mit Tauchen, Kajakfahren und ganzjährigem Ortsleben. Kalkan ist kleiner und ruhiger, mit Villen und Restaurants mit Meerblick."
+      ],
+      [
+        "Haben Kaş und Kalkan im November geöffnet?",
+        "Kaş ist das ganze Jahr aktiv. In Kalkan sowie bei manchen Hotels und Bootsanbietern endet die Saison Ende Oktober oder im November – prüfen Sie daher die Öffnungszeiten."
+      ]
+    ]
+  },
+  "medical-travel-antalya-winter": {
+    "slug": "zahnbehandlung-antalya-im-winter",
+    "title": "Zahnbehandlung und Medizinreisen nach Antalya im Winter: Was Sie wissen sollten",
+    "heading": "Zahnbehandlung und medizinische Reisen nach Antalya im Winter",
+    "description": "Zahnbehandlung in Antalya, Haartransplantation oder Schönheits-OP im Winter: warum viele die Nebensaison wählen, wie Sie Anbieter prüfen, Ruhetage und Flughafentransfer.",
+    "excerpt": "Kühleres Wetter, ruhigere Hotels und einfachere Terminplanung. Was Reisende, die im Winter zur Behandlung nach Antalya kommen, vor der Buchung prüfen und planen sollten.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Für Zahnbehandlung in Antalya und andere medizinische Reisen ist die Stadt neben Istanbul zu einem der Zentren der Türkei geworden. Immer mehr Besucher planen Zahnbehandlungen, Haartransplantationen oder kosmetische Eingriffe für die Wintermonate, wenn es an der Küste ruhig und das Wetter mild ist. Dieser Ratgeber behandelt die praktische Seite einer solchen Reise – er ist keine medizinische Beratung, und jede ärztliche Entscheidung gehört in die Hände einer qualifizierten Ärztin oder eines qualifizierten Arztes."
+      },
+      {
+        "type": "h2",
+        "text": "Warum viele Reisende den Winter wählen"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Mildes, kühleres Wetter: Viele Patienten empfinden die Erholung fern von Sommerhitze und starker Sonne als angenehmer.",
+          "Hotels und Apartments sind ruhiger und oft günstiger als im Sommer.",
+          "Termine lassen sich außerhalb der Hauptferienzeit oft leichter planen.",
+          "Die Reise lässt sich mit der Stadt, Museen und leichten Spaziergängen statt mit Strandtagen verbinden."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Anbieter auswählen und prüfen"
+      },
+      {
+        "type": "p",
+        "text": "Die wichtigste Entscheidung ist der Anbieter, nicht der Preis. Prüfen Sie, ob die Klinik oder das Krankenhaus vom türkischen Gesundheitsministerium zugelassen ist, finden Sie heraus, wer die behandelnde Ärztin oder der behandelnde Arzt ist und welche Qualifikationen vorliegen, und lassen Sie sich einen schriftlichen Plan geben, der festhält, was enthalten ist, was nicht und wie mit Komplikationen und Nachsorge umgegangen wird. Seien Sie vorsichtig bei Angeboten, die ein Endergebnis oder einen Festpreis vor jeder Untersuchung versprechen."
+      },
+      {
+        "type": "h2",
+        "text": "Die Tage planen"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Art der Behandlung",
+          "Typischer Planungspunkt",
+          "Fragen Sie Ihren Anbieter"
+        ],
+        "rows": [
+          [
+            "Zahnbehandlung",
+            "Oft mehr als ein Besuch, manchmal mit Wochen oder Monaten dazwischen",
+            "Wie viele Reisen und wie viele Tage jeweils?"
+          ],
+          [
+            "Haartransplantation",
+            "Kurzer Aufenthalt, mit Pflegehinweisen für die ersten Tage",
+            "Wann darf ich fliegen, die Haare waschen und eine Mütze tragen?"
+          ],
+          [
+            "Schönheitsoperation",
+            "Längerer Aufenthalt und Erholungstage vor dem Rückflug",
+            "Wie viele Nächte vor dem Flug sind nötig?"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Planen Sie Ruhetage ein, legen Sie keine Behandlung auf den Ankunftstag und halten Sie sich an den ärztlichen Rat, ab wann Fliegen unbedenklich ist. Bei operativen Eingriffen wird oft eine Begleitperson empfohlen."
+      },
+      {
+        "type": "h2",
+        "text": "Versicherung, Unterlagen und Nachsorge"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Prüfen Sie, ob Ihre Reiseversicherung geplante Behandlungen im Ausland abdeckt – viele Policen tun das nicht.",
+          "Bewahren Sie Kopien aller Arztberichte, Rezepte und des Behandlungsplans auf.",
+          "Fragen Sie, wie die Nachsorge nach der Rückkehr funktioniert und ob Ihr Arzt zu Hause einbezogen werden kann.",
+          "Geben Sie medizinische Daten nur an den Anbieter weiter, und zwar über den von ihm genannten Kanal."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Vom Flughafen ins Hotel oder in die Klinik"
+      },
+      {
+        "type": "p",
+        "text": "Nach einem Flug und vor oder nach einer Behandlung ist eine Schlange am Taxistand oder ein Sammelshuttle mit einem Dutzend Hotelstopps das Letzte, was Sie brauchen. Ein privater Transfer bringt Sie direkt vom Flughafen Antalya zu Ihrem Hotel oder Ihrer Klinik; der Fahrer wartet auf Ihren Flug und hilft mit dem Gepäck. Rückfahrten lassen sich auf Termine und Ihren Heimflug abstimmen. Der Preis gilt fest pro Fahrzeug, eine Begleitperson fährt also ohne Aufpreis mit."
+      }
+    ],
+    "faq": [
+      [
+        "Warum im Winter zur Behandlung nach Antalya reisen?",
+        "Viele Reisende schätzen das mildere Wetter für die Erholung, ruhigere Hotels und die einfachere Terminplanung außerhalb der Sommerferien."
+      ],
+      [
+        "Wie prüfe ich eine Klinik in Antalya?",
+        "Prüfen Sie, ob sie vom türkischen Gesundheitsministerium zugelassen ist, finden Sie heraus, wer behandelt, und verlangen Sie einen schriftlichen Plan zu Leistungen, Ausschlüssen, Komplikationen und Nachsorge."
+      ],
+      [
+        "Wie lange sollte ich nach einem Eingriff bleiben?",
+        "Das hängt ganz von der Behandlung und dem Rat Ihres Arztes ab. Fragen Sie Ihren Anbieter, wie viele Nächte Sie vor dem Rückflug brauchen, und planen Sie Ruhetage ein."
+      ],
+      [
+        "Können Sie mich vom Flughafen zu meiner Klinik bringen?",
+        "Ja. Wir bieten private Transfers vom Flughafen Antalya zu Hotels und Kliniken und zurück, zum Festpreis pro Fahrzeug."
+      ]
+    ]
+  },
+  "side-ancient-city-guide": {
+    "slug": "side-antike-stadt-reisefuehrer",
+    "title": "Side Antike Stadt: Apollontempel, Theater und Altstadt im Überblick",
+    "heading": "Side: Guide zur antiken Stadt",
+    "description": "Die antike Stadt Side besuchen: Apollontempel, großes Theater, Museum, Stadtmauern und Altstadt, die beste Reisezeit und Ausflüge nach Aspendos und zum Manavgat-Wasserfall.",
+    "excerpt": "Ein römisches Theater, Tempelsäulen direkt am Wasser und ein Hafenort innerhalb der antiken Mauern. So erleben Sie Side am schönsten – außerhalb der Saison.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Die antike Stadt Side ist einer der wenigen Orte an der Türkischen Riviera, an denen ein moderner Ort mitten in einer antiken Stadt lebt. Die Altstadt füllt eine kleine Halbinsel, umgeben von römischen und hellenistischen Ruinen: Man geht an Säulen vorbei ins Restaurant, und den Sonnenuntergang rahmt ein Tempel ein. Am schönsten ist Side außerhalb des Sommers, wenn es ruhig genug ist, um die Geschichte zu spüren."
+      },
+      {
+        "type": "h2",
+        "text": "Die wichtigsten Sehenswürdigkeiten"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Apollontempel: Die Säulen stehen an der Spitze der Halbinsel direkt am Meer – der klassische Ort für den Sonnenuntergang.",
+          "Das große Theater: eines der größten antiken Theater der Region, in den Hang am Eingang der Altstadt gebaut.",
+          "Museum Side: untergebracht in einem restaurierten römischen Bad, mit Statuen und Reliefs aus der Stadt.",
+          "Säulenstraße und Agora: die antike Hauptachse vom Stadttor Richtung Hafen.",
+          "Stadtmauern und monumentales Tor: der Eingangsweg, den Besucher seit zweitausend Jahren nehmen."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Die Altstadt heute"
+      },
+      {
+        "type": "p",
+        "text": "Innerhalb der Mauern führen Gassen mit Restaurants, Cafés und kleinen Läden hinunter zum Hafen, von dem Boote zu Touren entlang der Küste ablegen. Autos bleiben aus dem größten Teil der Altstadt draußen, sodass man sie angenehm zu Fuß erkunden kann. Östlich und westlich der Halbinsel erstrecken sich breite Sandstrände."
+      },
+      {
+        "type": "h2",
+        "text": "Die beste Reisezeit"
+      },
+      {
+        "type": "p",
+        "text": "Frühling und Herbst sind ideal: warm genug für den Strand, kühl genug, um mittags durch die Ruinen zu gehen. Im Winter schließen viele Saisonhotels, doch Altstadt, Ruinen und Museum bleiben geöffnet, und an sonnigen Tagen sind Tempel und Hafen fast menschenleer. Im Juli und August besuchen Sie die Ruinen am besten früh am Morgen oder zum Sonnenuntergang."
+      },
+      {
+        "type": "h2",
+        "text": "Ausflüge ab Side"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Ziel",
+          "Warum hin",
+          "Ungefähre Fahrzeit ab Side"
+        ],
+        "rows": [
+          [
+            "Aspendos",
+            "Eines der besterhaltenen römischen Theater der Welt",
+            "etwa 40 Minuten"
+          ],
+          [
+            "Manavgat-Wasserfall",
+            "Ein breiter, niedriger Wasserfall in einem grünen Park",
+            "etwa 15 Minuten"
+          ],
+          [
+            "Perge",
+            "Eine große antike Stadt mit Stadion und Säulenstraßen",
+            "etwa 1 Stunde"
+          ],
+          [
+            "Köprülü Canyon",
+            "Rafting und eine Römerbrücke in einem Nationalpark",
+            "etwa 1 Stunde"
+          ]
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Vom Flughafen Antalya nach Side"
+      },
+      {
+        "type": "p",
+        "text": "Side liegt etwa 65 km vom Flughafen Antalya entfernt, rund 55 bis 65 Minuten mit dem Auto. Ein privater Transfer bringt Sie direkt zu Ihrem Hotel oder an den Rand der Fußgängerzone der Altstadt, zu einem Festpreis pro Fahrzeug, der sich weder mit der Saison noch mit Ihrer Flugzeit ändert. Dasselbe Fahrzeug können Sie auch für Ausflüge nach Aspendos, Perge oder zum Canyon buchen."
+      }
+    ],
+    "faq": [
+      [
+        "Was gibt es im antiken Side zu sehen?",
+        "Den Apollontempel am Meer, das große Theater, das Museum in einem römischen Bad, die Säulenstraße, die Agora und die Stadtmauern – alles zu Fuß von der Altstadt erreichbar."
+      ],
+      [
+        "Lohnt sich Side im Winter?",
+        "Ja, wegen der Ruinen und der Altstadt. Viele Saisonhotels schließen, aber die Sehenswürdigkeiten bleiben geöffnet und sind viel ruhiger als im Sommer."
+      ],
+      [
+        "Wie weit ist Side vom Flughafen Antalya entfernt?",
+        "Etwa 65 km, rund 55 bis 65 Minuten mit dem Auto."
+      ],
+      [
+        "Kann ich Aspendos von Side aus besuchen?",
+        "Ja. Aspendos liegt etwa 40 Minuten von Side entfernt und ist ein einfacher Halbtagesausflug, oft kombiniert mit Perge oder dem Manavgat-Wasserfall."
+      ]
+    ]
   }
 };

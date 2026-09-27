@@ -266,4 +266,1618 @@ export const articles = {
       ["Vyplatí se Antalya v zimě?", "Ano, kvůli městu, horám a archeologickým lokalitám, ne kvůli pláži. Mnoho pobřežních hotelů je od listopadu do března zavřených."],
     ],
   },
+  "antalya-in-autumn": {
+    "slug": "antalya-na-podzim",
+    "title": "Antalya v říjnu a listopadu: co dělat na podzim",
+    "heading": "Antalya na podzim: co dělat v říjnu a listopadu",
+    "description": "Antalya na podzim: co dělat v říjnu a listopadu? Teplé moře, klidné pláže, antické památky, túry kaňony a golf. Počasí, co má otevřeno a jak naplánovat přílet.",
+    "excerpt": "Moře je stále teplé, davy odjely domů a vedra polevila. Proč jsou říjen a listopad nejlépe střeženým tajemstvím Turecké riviéry.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Většina turistů opouští Antalyu koncem září – a právě proto je Antalya na podzim tak příjemná. Moře si letní teplo drží ještě celé týdny, denní teploty klesají na příjemných dvacet a něco stupňů a místa, která jsou v srpnu k nevydržení – ruiny, kaňony, staré město –, se stávají tím nejlepším z celé cesty."
+      },
+      {
+        "type": "h2",
+        "text": "Podzimní počasí v Antalyi"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Měsíc",
+          "Den / noc",
+          "Moře",
+          "Jaké to je"
+        ],
+        "rows": [
+          [
+            "Říjen",
+            "asi 27 °C / 16 °C",
+            "asi 24 °C",
+            "Léto bez veder – dny na pláži jsou stále běžné"
+          ],
+          [
+            "Listopad",
+            "asi 21 °C / 11 °C",
+            "asi 21 °C",
+            "Slunečná dopoledne, první přeháňky, chladné večery"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Balte se na pláž i na večer: v říjnu stačí lehká bunda, v listopadu se hodí teplejší vrstva a nepromokavá bunda."
+      },
+      {
+        "type": "h2",
+        "text": "Stále dovolená u moře: říjen na pobřeží"
+      },
+      {
+        "type": "p",
+        "text": "V říjnu jsou pláže v Konyaaltı, Laře, Beleku, Side a Alanyi stále otevřené, voda bývá ráno teplejší než vzduch a o lehátka už se nikdo nepere. Většina velkých resortů v Beleku, Side a Kemeru má otevřeno do konce října; od listopadu se nabídka zužuje, proto si před koupí letenek ověřte, do kdy trvá sezona vašeho hotelu."
+      },
+      {
+        "type": "h2",
+        "text": "Antické památky bez veder"
+      },
+      {
+        "type": "p",
+        "text": "Podzim je sezonou zdejších ruin. Perge a Aspendos leží jen kousek od silnice do Beleku a Side, Apollónův chrám v Side stojí na okraji přístavu a Termessos vysoko v horách za městem je túra, do které by se v létě nikdo pouštět neměl. V listopadu můžete mít celé kolonády jen pro sebe."
+      },
+      {
+        "type": "h2",
+        "text": "Příroda: kaňony, vodopády a Lýkijská stezka"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Vodopády Düden: dolní vodopád padá u Lary přímo do moře, horní leží v parku ve městě.",
+          "Kaňon Köprülü: raftingová sezona obvykle trvá až do října, s klidnější vodou než na jaře.",
+          "Lýkijská stezka: podzim a jaro jsou dvě turistické sezony – úseky kolem Kemeru, Olympu a Kaşe jsou teď nejkrásnější.",
+          "Lanovka na Tahtalı u Kemeru: čistý podzimní vzduch nabízí z vrcholu nejlepší výhledy."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Golf, život ve městě a festivaly"
+      },
+      {
+        "type": "p",
+        "text": "Podzim je v Beleku hlavní golfovou sezonou: hřiště jsou zelená, teploty ideální a startovní časy zaplňují skupiny ze severní Evropy. Ve městě ožívají uličky, kavárny a malá muzea Kaleiçi, jakmile odjedou pasažéři výletních lodí a letní turisté, a antalyjský filmový festival Zlatý pomeranč se tradičně koná na podzim."
+      },
+      {
+        "type": "h2",
+        "text": "Přílet na podzim"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "V říjnu je letů stále hodně; od listopadu jich ubývá a víc letadel přistává pozdě v noci.",
+          "Terminál je klidnější než v létě, takže doba jízdy do Beleku, Side a Alanye odpovídá uváděným časům.",
+          "Předem rezervovaný transfer sleduje číslo vašeho letu, takže zpožděný večerní let není problém.",
+          "Naše ceny jsou pevné za vozidlo a v říjnu jsou stejné jako v srpnu."
+        ]
+      }
+    ],
+    "faq": [
+      [
+        "Dá se v Antalyi v říjnu ještě koupat?",
+        "Ano. Moře má v říjnu obvykle kolem 24 °C, víc než mnohá evropská moře v létě, a dny na pláži jsou po celý měsíc běžné."
+      ],
+      [
+        "Mají hotely v Antalyi v listopadu otevřeno?",
+        "Městské hotely a mnoho resortů zůstává otevřených, ale řada velkých přímořských resortů od listopadu zavírá. Před koupí letenek si ověřte termíny sezony svého hotelu."
+      ],
+      [
+        "Co dělat v Antalyi na podzim kromě pláže?",
+        "Antické památky jako Perge, Aspendos a Termessos, vodopády Düden, kaňon Köprülü, turistika po Lýkijské stezce, golf v Beleku a staré město Kaleiçi."
+      ],
+      [
+        "Mění se cena transferu po letní sezoně?",
+        "Ne. Cena je pevná za vozidlo a nemění se podle sezony, provozu ani denní doby."
+      ]
+    ]
+  },
+  "antalya-in-winter": {
+    "slug": "antalya-v-zime",
+    "title": "Antalya v zimě: co dělat od prosince do února",
+    "heading": "Antalya v zimě: co dělat mezi prosincem a únorem",
+    "description": "Antalya v zimě: staré město, vodopády, antické památky, lyžování v Saklıkentu, zimní golf a hotely se spa. Počasí, co má otevřeno a jak se pohybovat po okolí.",
+    "excerpt": "Mírné dny, sníh na horách a město, které opět patří svým obyvatelům. Co Antalya nabízí mezi prosincem a únorem – a co ne.",
+    "readingMinutes": 7,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Antalya v zimě je v klidné sezoně, ne zavřená. Přímořská letoviska odpočívají, ale město, hory i antické památky jsou otevřené, světlo je čisté a dny bývají často slunečné a mírné. Je to čas poznat region tak, jak ho vidí místní – a za ceny, na které letní turisté nikdy nedosáhnou."
+      },
+      {
+        "type": "h2",
+        "text": "Zimní počasí v Antalyi"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Měsíc",
+          "Den / noc",
+          "Moře",
+          "Dobré vědět"
+        ],
+        "rows": [
+          [
+            "Prosinec",
+            "asi 16 °C / 7 °C",
+            "asi 19 °C",
+            "Nejdeštivější měsíc, ale déšť přichází v nárazech mezi slunečnými dny"
+          ],
+          [
+            "Leden",
+            "asi 15 °C / 6 °C",
+            "asi 17 °C",
+            "Nejchladnější měsíc; sníh na vrcholcích pohoří Taurus"
+          ],
+          [
+            "Únor",
+            "asi 16 °C / 6 °C",
+            "asi 17 °C",
+            "Delší dny, první kvetoucí mandloně"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Slunečná zimní odpoledne působí jako jaro v severní Evropě; večery jsou chladné a interiéry nejsou vždy vytápěné tak, jak jsme zvyklí ze severu. Vezměte si oblečení do vrstev, nepromokavou bundu a pohodlné boty na mokré dlážděné uličky."
+      },
+      {
+        "type": "h2",
+        "text": "Město: Kaleiçi, muzea a vodopády"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Kaleiçi, staré město v hradbách: Hadriánova brána, minaret Yivli, starý přístav a uličky s osmanskými domy, dnes kavárnami a butikovými hotely.",
+          "Antalyjské muzeum: jedna z největších archeologických sbírek v Turecku se sochami z Perge – ideální na deštivý den.",
+          "Vodopády Düden a Kurşunlu: díky zimním dešťům jsou nejmohutnější a nejpůsobivější.",
+          "Promenády v Konyaaltı a Laře: dlouhé procházky, cyklistika a výhled na moře bez letního horka."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Antické památky bez front"
+      },
+      {
+        "type": "p",
+        "text": "Perge, Aspendos a Side jsou otevřené celý rok a v zimě je sdílíte jen s hrstkou návštěvníků. Phaselis u Kemeru má tři přístavy v borovém lese; Olympos a Çıralı jsou mimo sezonu poklidné. Termessos leží v horách a může tam být chladno, mokro, nebo dokonce sníh, proto si vyberte suchý den. Dál na západě je přirozeným zimním výletem kostel svatého Mikuláše v Demre, zvlášť v době Vánoc."
+      },
+      {
+        "type": "h2",
+        "text": "Lyžování a moře v jeden den"
+      },
+      {
+        "type": "p",
+        "text": "Lyžařské středisko Saklıkent v pohoří Bakırlı leží asi 50 km od města, zhruba hodinu a půl jízdy autem. Když je dost sněhu, obvykle od ledna do března, můžete dopoledne lyžovat a odpoledne se procházet u moře. Na horské silnici mohou být nutné zimní pneumatiky nebo sněhové řetězy, proto si předem ověřte podmínky a nechte si od nás cestu nacenit dopředu."
+      },
+      {
+        "type": "h2",
+        "text": "Zimní golf, hotely se spa a dlouhé pobyty"
+      },
+      {
+        "type": "p",
+        "text": "Golfová hřiště v Beleku jsou otevřená celou zimu a green fee i ceny hotelů jsou výrazně nižší než na podzim a na jaře. Několik resortů v Beleku, Laře a Kemeru nechává v zimě otevřené spa a kryté bazény a Alanya a Side lákají dlouhodobé hosty ze severní Evropy, kteří sem přijíždějí na týdny či měsíce mírného počasí."
+      },
+      {
+        "type": "h2",
+        "text": "Výlety do vzdálenějšího okolí"
+      },
+      {
+        "type": "p",
+        "text": "Zima je vhodná pro delší výlety, které jsou v létě vyčerpávající: travertinové terasy Pamukkale a ruiny Hierapole nebo Kappadokie pod sněhem, kterou mnoho návštěvníků považuje za nejkrásnější v tomto ročním období. Obojí znamená dlouhý den na cestě a se soukromým vozidlem zastavíte, kdy a kde chcete."
+      },
+      {
+        "type": "h2",
+        "text": "Přílet v zimě"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Přímých letů je méně a víc příletů je v noci, často přes Istanbul.",
+          "Mnoho přímořských resortů je zavřených, proto si ověřte, že váš hotel má ve vašem termínu otevřeno.",
+          "Stanoviště taxi jsou v noci klidnější než v létě; předem rezervované vyzvednutí, které sleduje číslo vašeho letu, je pohodlnější volba.",
+          "Pevná cena za vozidlo je v zimě stejná jako v létě – bez nočních či svátečních příplatků."
+        ]
+      }
+    ],
+    "faq": [
+      [
+        "Vyplatí se Antalya v zimě?",
+        "Ano, pokud přijedete kvůli městu, antickým památkám, přírodě a golfu, a ne kvůli opalování. Dny bývají často slunečné s teplotami kolem 15 °C a nejsou tu davy."
+      ],
+      [
+        "Dá se v Antalyi v zimě koupat?",
+        "Moře má kolem 17–19 °C, což někteří návštěvníci za slunečného dne považují za osvěžující. Mnoho hotelů otevřených v zimě má také vyhřívané kryté bazény."
+      ],
+      [
+        "Dá se u Antalye lyžovat?",
+        "Ano. Lyžařské středisko Saklıkent leží asi 50 km od města. Sezona závisí na sněhu a obvykle trvá od ledna do března."
+      ],
+      [
+        "Mají hotely v Antalyi v zimě otevřeno?",
+        "Městské hotely v Antalyi a Kaleiçi jsou otevřené celý rok, stejně jako několik resortů v Laře, Beleku, Kemeru, Side a Alanyi. Mnoho velkých sezonních resortů zavírá od listopadu do března."
+      ],
+      [
+        "Jezdíte v zimě transfery z letiště Antalya?",
+        "Ano, po celý rok, včetně nočních příletů a svátků, za stejnou pevnou cenu za vozidlo."
+      ]
+    ]
+  },
+  "christmas-new-year-antalya": {
+    "slug": "vanoce-a-silvestr-v-antalyi",
+    "title": "Vánoce a Silvestr v Antalyi: praktický průvodce",
+    "heading": "Vánoce a Silvestr v Antalyi",
+    "description": "Vánoce nebo Silvestr v Antalyi: počasí, které hotely mají otevřeno, galavečeře, svatý Mikuláš v Demre a cesta na letiště a z letiště v nejrušnějších nocích.",
+    "excerpt": "Slunečné dny, silvestrovská gala u moře a město svatého Mikuláše dvě a půl hodiny cesty. Jak naplánovat svátky v Antalyi – a jak se tu noc dostat tam, kam potřebujete.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Vánoce a Silvestr v Antalyi patří k několika málo zimním vrcholům sezony. Rodiny prchající před severskou zimou, skupiny slavící Silvestr i návštěvníci, kteří spojují svátky s pár dny mírného slunce, přijíždějí ve stejných dvou týdnech – zatímco velká část pobřeží je jinak v klidné sezoně."
+      },
+      {
+        "type": "h2",
+        "text": "Co čekat koncem prosince"
+      },
+      {
+        "type": "p",
+        "text": "Přes den bývá obvykle kolem 15–16 °C a často svítí slunce, i když prosinec je zároveň nejdeštivějším měsícem roku. Vánoce nejsou v Turecku státním svátkem, takže obchody, restaurace a památky mají 25. prosince normálně otevřeno. Silvestr se naopak slaví všude a 1. leden je státní svátek."
+      },
+      {
+        "type": "h2",
+        "text": "Které hotely mají otevřeno"
+      },
+      {
+        "type": "p",
+        "text": "Městské hotely v Antalyi a Kaleiçi jsou otevřené celý rok a několik resortů v Laře, Beleku, Kemeru, Side a Alanyi otevírá speciálně na svátky s vánoční večeří a silvestrovskou galou. Programy, dress code i příplatky za galavečer se hodně liší, proto se před rezervací zeptejte hotelu, co je v ceně. Pokoje v otevřených resortech bývají na tyto termíny brzy vyprodané."
+      },
+      {
+        "type": "h2",
+        "text": "Vánoce: město svatého Mikuláše"
+      },
+      {
+        "type": "p",
+        "text": "Historický svatý Mikuláš, biskup, z jehož legendy vzešla postava Santa Clause, žil v Myře – dnešním Demre, asi dvě a půl hodiny západně od Antalye. Kostel svatého Mikuláše a do skály tesané lýkijské hrobky v Myře jsou nezapomenutelným vánočním výletem, který lze spojit se zastávkou v Kaşi nebo s pobřežní silnicí kolem Kumlucy."
+      },
+      {
+        "type": "h2",
+        "text": "Silvestr v Antalyi"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Hotelové galavečery: večeře, živá hudba a odpočítávání, obvykle s pevným menu a příplatkem.",
+          "Ve městě: restaurace v Kaleiçi a kolem přístavu jsou plné, stůl si rezervujte předem.",
+          "Lara a Konyaaltı: plážové kluby a restaurace s výhledem na moře pořádají vlastní večírky.",
+          "Ohňostroje je vidět podél nábřeží, program se však rok od roku mění."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Jak se dopravit v nejrušnějších nocích"
+      },
+      {
+        "type": "p",
+        "text": "Na Silvestra a v časných ranních hodinách 1. ledna se taxi shání jen těžko a aplikace i stanoviště jsou přetížené přesně ve chvíli, kdy chce každý odjet. Pokud slavíte mimo hotel – ve městě, v restauraci nebo ve vile u přátel –, zarezervujte si zpáteční cestu předem s pevným časem vyzvednutí."
+      },
+      {
+        "type": "h2",
+        "text": "Přílety a odlety o svátcích"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Lety kolem 20. prosince a 2. ledna jsou nejvytíženější za celou zimu; rezervujte včas.",
+          "Mnoho svátečních letů přistává večer nebo v noci – vyzvednutí, které sleduje číslo letu, vám ušetří čekání v terminálu.",
+          "Rodiny s vánočními dárky a zimními zavazadly by měly uvést počet kufrů, abychom přidělili správné vozidlo.",
+          "Naše pevná cena za vozidlo nemá žádný sváteční ani silvestrovský příplatek."
+        ]
+      }
+    ],
+    "faq": [
+      [
+        "Jaké je v Antalyi počasí o Vánocích?",
+        "Mírné: přes den obvykle kolem 15–16 °C a v noci 6–8 °C, se slunečnými chvílemi mezi přeháňkami. Na pláž to není, ale na procházky a prohlídky bývá často příjemně."
+      ],
+      [
+        "Slaví se v Antalyi Vánoce?",
+        "Vánoce nejsou v Turecku státním svátkem, ale mnoho hotelů s mezinárodní klientelou pořádá vánoční večeři. Silvestr se slaví všude a 1. leden je státní svátek."
+      ],
+      [
+        "Kde je kostel svatého Mikuláše?",
+        "V Demre, antické Myře, asi dvě a půl hodiny jízdy západně od Antalye. Pro návštěvníky je otevřený celý rok."
+      ],
+      [
+        "Mohu si zarezervovat transfer na silvestrovskou noc?",
+        "Ano. Doporučujeme zarezervovat zpáteční cestu s pevným časem vyzvednutí, protože po půlnoci se taxi shání velmi těžko. Pevná cena za vozidlo nemá žádný sváteční příplatek."
+      ]
+    ]
+  },
+  "wintering-in-antalya": {
+    "slug": "prezimovani-v-antalyi-a-alanyi",
+    "title": "Přezimování v Antalyi a Alanyi: průvodce dlouhým pobytem",
+    "heading": "Zima v Antalyi: průvodce pro dlouhodobé pobyty",
+    "description": "Přezimování na Turecké riviéře: proč Alanya, Side a Antalya lákají dlouhodobé hosty a co čekat od počasí, ubytování, zdravotní péče i příletu s velkým množstvím zavazadel.",
+    "excerpt": "Týdny či měsíce mírného počasí místo severské zimy. Co by měli dlouhodobí hosté vědět, než se vydají přezimovat do Alanye, Side nebo Antalye.",
+    "readingMinutes": 7,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Každou zimu tisíce návštěvníků z Německa, Skandinávie, Nizozemska, Ruska a Polska vymění šedou oblohu za Tureckou riviéru, a to na celé týdny či měsíce. Mírné teploty, dlouhé promenády a nižší životní náklady než doma dělají z přezimování v Antalyi, Alanyi a Side jednu z nejoblíbenějších zimních voleb ve Středomoří."
+      },
+      {
+        "type": "h2",
+        "text": "Proč přezimovat právě tady"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Mírné klima: zimní dny kolem 15–17 °C, často slunečno, na pobřeží jen výjimečně mráz.",
+          "Denní světlo: znatelně víc slunečních hodin než v severní a střední Evropě.",
+          "Prostor: promenády, pláže a stará města bez letních davů.",
+          "Infrastruktura: obchody, trhy, restaurace a soukromé nemocnice jsou ve větších městech otevřené celý rok."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Kde se ubytovat"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Místo",
+          "Hodí se pro",
+          "Vzdálenost od letiště"
+        ],
+        "rows": [
+          [
+            "Město Antalya",
+            "Městský život, kultura, muzea, všechny služby hned za dveřmi",
+            "asi 15–30 minut"
+          ],
+          [
+            "Side / Manavgat",
+            "Klidné staré město, dlouhé pláže, procházky po rovině",
+            "asi 1 hodina"
+          ],
+          [
+            "Alanya",
+            "Největší komunita dlouhodobých hostů, promenády, čilý zimní život",
+            "asi 1 hodina 45 minut"
+          ],
+          [
+            "Kemer",
+            "Hory a moře, turistika, menší letovisko",
+            "asi 1 hodina"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Alanya a sousední čtvrti jako Mahmutlar a Oba mají největší zimní komunitu dlouhodobých hostů, s kluby, aktivitami a restauracemi, které jsou plné celou zimu. Side je klidnější; Antalya se hodí pro ty, kdo chtějí skutečné město."
+      },
+      {
+        "type": "h2",
+        "text": "Ubytování: hotely a apartmány"
+      },
+      {
+        "type": "p",
+        "text": "Některé hotely v Alanyi, Side a Antalyi nabízejí zvláštní ceny pro pobyty na čtyři týdny a déle, často s polopenzí. Pronajatý apartmán dává víc prostoru a nezávislosti; ověřte si, zda má topení nebo klimatizaci s funkcí vytápění, protože turecké domy na pobřeží jsou stavěné na léto a za zimních večerů v nich může být chladno."
+      },
+      {
+        "type": "h2",
+        "text": "Všední den v zimě"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Týdenní trhy v každé čtvrti s čerstvým ovocem a zeleninou – zima je sezonou citrusů.",
+          "Procházky a jízda na kole po promenádách v Alanyi, Side, Laře a Konyaaltı.",
+          "Turistika v podhůří pohoří Taurus a po Lýkijské stezce za suchých dnů.",
+          "Jednodenní výlety k antickým památkám, k vodopádu Manavgat nebo do starého města Antalye.",
+          "Soukromé nemocnice a kliniky v Antalyi a Alanyi s odděleními pro zahraniční pacienty."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Úřední záležitosti a praktické tipy"
+      },
+      {
+        "type": "p",
+        "text": "Podmínky vstupu a délka pobytu povolená bez povolení k pobytu závisí na vaší státní příslušnosti a čas od času se mění, proto si před cestou ověřte aktuální pravidla u oficiálních tureckých úřadů. Důrazně doporučujeme cestovní pojištění, které kryje dlouhý pobyt v zahraničí."
+      },
+      {
+        "type": "h2",
+        "text": "Přílet se zavazadly na několik měsíců"
+      },
+      {
+        "type": "p",
+        "text": "Dlouhodobí hosté cestují s víc než jedním dovolenkovým kufrem. Dejte nám vědět, kolik kufrů a dalších věcí vezete – jízdní kola, chodítka nebo krabice –, a my přidělíme Mercedes Vito, případně Sprinter. Cena je pevná za vozidlo, takže se další zavazadla zohlední už při rezervaci a neúčtují se až u obrubníku. Řidič vám u dveří pomůže s nakládáním i vykládáním."
+      }
+    ],
+    "faq": [
+      [
+        "Kde je nejlepší přezimovat na Turecké riviéře?",
+        "Alanya má největší komunitu dlouhodobých hostů a nejživější zimní život; Side je klidnější; Antalya nabízí veškeré služby velkého města. Všechna tři místa mají mírné zimy."
+      ],
+      [
+        "Jak teplo je v Antalyi v zimě?",
+        "Od prosince do února bývá přes den obvykle kolem 15–17 °C, v noci kolem 6–8 °C. Mráz na pobřeží je vzácný."
+      ],
+      [
+        "Existují v zimě hotelové nabídky pro dlouhodobé pobyty?",
+        "Ano. Několik hotelů v Alanyi, Side a Antalyi nabízí v zimě zvýhodněné měsíční nebo dlouhodobé ceny. Na pobyty od čtyř týdnů se ptejte přímo v hotelu."
+      ],
+      [
+        "Mohu si na letištní transfer vzít hodně zavazadel?",
+        "Ano. Při rezervaci nám uveďte počet kufrů a dalších věcí a my přidělíme vozidlo s dostatkem místa. Cena je za vozidlo, bez poplatku za kufr."
+      ]
+    ]
+  },
+  "antalya-in-spring": {
+    "slug": "antalya-na-jare",
+    "title": "Antalya na jaře: co dělat od března do května",
+    "heading": "Antalya na jaře: co dělat mezi březnem a květnem",
+    "description": "Antalya na jaře: kvetoucí pomerančovníky, túry po Lýkijské stezce, rafting, velikonoční dovolená a první dny na pláži. Počasí po měsících a co čekat po příletu.",
+    "excerpt": "Pomerančové květy v ulicích, sníh na vrcholcích a moře, které se týden od týdne otepluje. Proč je jaro sezonou aktivní dovolené v okolí Antalye.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Jaro přichází na Tureckou riviéru brzy. Už v březnu kvetou pomerančovníky, na pohoří Taurus ještě leží sníh a dny jsou dost teplé na posezení venku. Antalya na jaře nabízí nejlepší sezonu pro pěší turistiku, cyklistiku a objevování a v květnu začínají první dny na pláži."
+      },
+      {
+        "type": "h2",
+        "text": "Jarní počasí v Antalyi"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Měsíc",
+          "Den / noc",
+          "Moře",
+          "Nejlepší na"
+        ],
+        "rows": [
+          [
+            "Březen",
+            "asi 19 °C / 8 °C",
+            "asi 17 °C",
+            "Památky, turistiku, květy"
+          ],
+          [
+            "Duben",
+            "asi 22 °C / 11 °C",
+            "asi 18 °C",
+            "Turistiku, rafting, velikonoční dovolenou"
+          ],
+          [
+            "Květen",
+            "asi 26 °C / 15 °C",
+            "asi 21 °C",
+            "První dny na pláži, všechny aktivity"
+          ]
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Pomerančové květy a město na jaře"
+      },
+      {
+        "type": "p",
+        "text": "Na jaře Antalya voní pomerančovými květy. Město je oslavuje Karnevalem pomerančových květů, pouličním festivalem, který se na jaře koná v okolí Kaleiçi a v centru města. Je to také nejlepší doba prozkoumat pěšky staré město, Antalyjské muzeum a útesy v Konyaaltı a Laře, než přijdou letní vedra."
+      },
+      {
+        "type": "h2",
+        "text": "Aktivní dovolená: turistika, rafting a cyklistika"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Lýkijská stezka: jaro je nejoblíbenější turistickou sezonou, s divokými květinami podél úseků u Kemeru, Olympu a Kaşe.",
+          "Kaňon Köprülü: raftingová sezona obvykle začíná v dubnu, s živou vodou z tajícího sněhu.",
+          "Lanovka na Tahtalı: sníh na vrcholu a pod ním rozkvetlé louky, často v jediném pohledu.",
+          "Cyklistika: klidné silnice a mírné teploty kolem Beleku, Side a v podhůří pohoří Taurus.",
+          "Golf: jaro je druhou hlavní sezonou na hřištích v Beleku."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Antické památky v zelené sezoně"
+      },
+      {
+        "type": "p",
+        "text": "Perge, Aspendos, Side, Phaselis a Termessos jsou nejkrásnější na jaře, kdy ruiny obklopuje zelená tráva a divoké květiny. Dobře se hodí i delší výlety: v Pamukkale a Kappadokii jsou příjemné teploty a lety horkovzdušným balonem nad Kappadokií se na jaře při stabilním počasí konají často."
+      },
+      {
+        "type": "h2",
+        "text": "Velikonoce a jarní prázdniny"
+      },
+      {
+        "type": "p",
+        "text": "Velikonoce a jarní školní prázdniny v Německu, Nizozemsku, Velké Británii a Skandinávii přivádějí první vlnu rodin. Od dubna otevírá víc sezonních hotelů, přibývá letů a v květnu je většina přímořských resortů v plném provozu. Na velikonoční termíny si hotel i transfer rezervujte včas."
+      },
+      {
+        "type": "h2",
+        "text": "Přílet na jaře"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "V březnu jsou některé resorty ještě zavřené; od dubna se nabídka rychle rozšiřuje.",
+          "Terminál i silnice jsou klidné, takže uváděné doby jízdy jsou realistické.",
+          "Turistické a golfové vybavení, jízdní kola a dětské sedačky uveďte při rezervaci.",
+          "Cena je pevná za vozidlo a nemění se podle sezony."
+        ]
+      }
+    ],
+    "faq": [
+      [
+        "Je v Antalyi na jaře dost teplo na pláž?",
+        "Od května ano: přes den bývá kolem 26 °C a moře má kolem 21 °C. V březnu a dubnu je dost teplo na sezení na slunci, ale moře je pro většinu plavců ještě studené."
+      ],
+      [
+        "Kdy se v Antalyi koná Karneval pomerančových květů?",
+        "Koná se na jaře, když kvetou městské pomerančovníky. Termíny se každý rok mění, proto si před plánováním cesty ověřte oficiální oznámení města."
+      ],
+      [
+        "Je jaro vhodnou dobou pro Lýkijskou stezku?",
+        "Ano. Jaro a podzim jsou dvě nejlepší turistické sezony; na jaře jsou stezky zelené a plné divokých květin a teploty jsou příjemné."
+      ],
+      [
+        "Mají hotely v Antalyi v březnu otevřeno?",
+        "Městské hotely a některé resorty mají otevřeno. Mnoho sezonních resortů otevírá během dubna a v květnu je většina pobřeží v plném provozu."
+      ]
+    ]
+  },
+  "cappadocia-winter-trip": {
+    "slug": "kappadokie-v-zime-z-antalye",
+    "title": "Kappadokie v zimě z Antalye: sníh, balony a cesta tam",
+    "heading": "Kappadokie v zimě: výlet z Antalye",
+    "description": "Kappadokie v zimě z Antalye: sníh, počasí, lety balonem, jeskynní hotely, co vidět a jak v zimě probíhá 540 km dlouhá cesta autem přes Konyu.",
+    "excerpt": "Pohádkové komíny pod sněhem a balony nad bílým údolím. Jak spojit zimní pobyt v Antalyi s Kappadokií a jaká je cesta v zimě.",
+    "readingMinutes": 7,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Kappadokie v zimě patří k nejfotografovanějším krajinám Turecka: pohádkové komíny a údolí pod sněhem, jeskynní hotely s krbem a za jasných rán balony stoupající nad bílou krajinou. Z Antalye je to dlouhá, ale krásná cesta autem – a přirozený doplněk zimního pobytu na pobřeží."
+      },
+      {
+        "type": "h2",
+        "text": "Zimní počasí: úplně jiné klima než na pobřeží"
+      },
+      {
+        "type": "p",
+        "text": "Kappadokie leží na vysoké náhorní plošině, zhruba v 1 000 metrech nad mořem i výš, takže zima je tu opravdová. Přes den se teploty často drží kolem nuly, noci jsou hluboko pod nulou a od prosince do února je sníh běžný. Sbalte si pořádnou zimní bundu, rukavice, čepici a nepromokavé boty – oblečení, které v lednu stačí v Antalyi, tu nestačí."
+      },
+      {
+        "type": "table",
+        "head": [
+          "",
+          "Pobřeží Antalye",
+          "Kappadokie"
+        ],
+        "rows": [
+          [
+            "Běžný zimní den",
+            "asi 15 °C",
+            "zhruba 0–5 °C"
+          ],
+          [
+            "Zimní noci",
+            "asi 6–8 °C",
+            "často pod bodem mrazu"
+          ],
+          [
+            "Sníh",
+            "jen na horských vrcholech",
+            "běžný od prosince do února"
+          ]
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Lety balonem v zimě"
+      },
+      {
+        "type": "p",
+        "text": "Balony létají celoročně, když to počasí dovolí, a let při východu slunce nad zasněženými údolími je obraz, kvůli kterému sem mnoho lidí jezdí. V zimě se ale lety častěji ruší kvůli větru, mlze nebo sněhu a rozhodují o nich úřady každé ráno. Naplánujte si v Kappadokii alespoň dvě noci, aby jeden zrušený let neznamenal, že o zážitek přijdete úplně."
+      },
+      {
+        "type": "h2",
+        "text": "Co vidět v Kappadokii v zimě"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Skanzen Göreme: do skály vytesané kostely s freskami, v zimě klidnější než v kteroukoli jinou roční dobu.",
+          "Podzemní města jako Derinkuyu a Kaymaklı: několik pater do hloubky a příjemná stálá teplota bez ohledu na počasí venku.",
+          "Hrad Uçhisar a vyhlídky nad Göreme: nejlepší místa pro zasněžená panoramata.",
+          "Krátké procházky Růžovým, Červeným a Údolím lásky za suchých a jasných dnů – po sněžení bývají cesty namrzlé.",
+          "Jeskynní hotely: mnohé jsou vytápěné a mají krb a právě v zimě mají největší kouzlo."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Cesta z Antalye"
+      },
+      {
+        "type": "p",
+        "text": "Cesta měří asi 540 km a obvykle trvá 7 až 8 hodin – přes pohoří Taurus a dál po náhorní plošině přes Konyu. Konya s muzeem Mevlány je přirozenou zastávkou, kde si cestu rozdělit. V zimě může být na horském úseku sníh a led; silnice se udržují, ale vozidlo se zimní výbavou a řidič, který trasu zná, rozhodují o tom, zda to bude jen dlouhý den, nebo stresující."
+      },
+      {
+        "type": "h2",
+        "text": "Jak výlet naplánovat"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Počítejte alespoň se dvěma nocemi, lépe se třemi, kvůli rezervě na zrušené lety a krátké zimní dny.",
+          "Z Antalye vyjeďte ráno, abyste hory projeli za světla.",
+          "Spojte výlet s pobytem na pobřeží: pár dní v Antalyi nebo Side, pak Kappadokie – nebo obráceně.",
+          "Na Vánoce a Silvestra si jeskynní hotel i případný let balonem rezervujte s předstihem."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Transfer mezi Antalyí a Kappadokií"
+      },
+      {
+        "type": "p",
+        "text": "Zajišťujeme soukromé transfery z letiště Antalya a z hotelů na pobřeží do Kappadokie – jednosměrně nebo se zpáteční cestou v pozdějším termínu. Cena je pevná za vozidlo, můžete zastavit na fotky, jídlo i prohlídku Konyi a nečekáte na žádné další cestující. Při rezervaci uveďte hotel a termíny."
+      }
+    ],
+    "faq": [
+      [
+        "Jak daleko je Kappadokie od Antalye?",
+        "Po silnici asi 540 km. Cesta přes Konyu obvykle trvá 7 až 8 hodin, se zastávkami nebo za sněhu o něco déle."
+      ],
+      [
+        "Vyplatí se jet do Kappadokie v zimě?",
+        "Ano. Sníh na pohádkových komínech, klidné památky a útulné jeskynní hotely dělají ze zimy jedno z nejkrásnějších období. Vezměte si teplé oblečení: je tam mnohem chladněji než na pobřeží."
+      ],
+      [
+        "Létají balony v Kappadokii i v zimě?",
+        "Ano, kdykoli to počasí dovolí. V zimě se lety ruší častěji, proto si naplánujte alespoň dvě noci, abyste měli druhou šanci."
+      ],
+      [
+        "Dá se z Antalye do Kappadokie jet soukromým transferem?",
+        "Ano. Nabízíme soukromé transfery z letiště Antalya a hotelů na pobřeží do Kappadokie, jednosměrně nebo tam i zpět, za pevnou cenu za vozidlo."
+      ]
+    ]
+  },
+  "belek-winter-golf": {
+    "slug": "zimni-golf-v-beleku",
+    "title": "Zimní golf v Beleku: hra na Turecké riviéře od listopadu do března",
+    "heading": "Zimní golf v Beleku",
+    "description": "Proč je Belek cílem zimního golfu: počasí od listopadu do března, stav hřišť, nižší green fee, co si sbalit a jak se dostat do Beleku s golfovými bagy.",
+    "excerpt": "Mírné dny, zelené fairwaye a volnější startovní časy. Co by golfisté měli vědět o hře v Beleku od listopadu do března, kdy jsou hřiště doma zavřená.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Když jsou hřiště v severní Evropě zamrzlá, podmáčená nebo zavřená, v Beleku se hraje dál. Skupina mistrovských hřišť 45 km východně od letiště Antalya je otevřená celou zimu a zimní golf v Beleku od listopadu do března se stal samostatnou sezonou pro golfisty, kteří nechtějí mezi říjnem a dubnem přestat hrát."
+      },
+      {
+        "type": "h2",
+        "text": "Jaké je počasí na hřišti"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Měsíc",
+          "Běžný den",
+          "Na hřišti"
+        ],
+        "rows": [
+          [
+            "Listopad",
+            "asi 21 °C",
+            "Výborné podmínky, stále podzimní vrchol sezony"
+          ],
+          [
+            "Prosinec – leden",
+            "asi 15–16 °C",
+            "Mírně a často slunečno, občas deštivé dny"
+          ],
+          [
+            "Únor",
+            "asi 16 °C",
+            "Dny se prodlužují, méně deštivých dnů"
+          ],
+          [
+            "Březen",
+            "asi 19 °C",
+            "Začátek jarního vrcholu sezony"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Většinu zimních dnů se dá hrát v lehkém svetru. Déšť přichází spíš v krátkých přeháňkách než na celé týdny a hřiště jsou postavená tak, aby rychle odvodňovala. Rána bývají chladná a pozdě odpoledne se rychle stmívá, takže tee time bývá dřív než v létě."
+      },
+      {
+        "type": "h2",
+        "text": "Proč se zima vyplatí"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Green fee a ceny hotelů jsou v prosinci, lednu a únoru obvykle nižší než na podzim a na jaře.",
+          "Startovní listiny jsou méně plné, takže kola jsou rychlejší a oblíbené časy se snáz získávají.",
+          "Několik golfových hotelů je otevřeno celou zimu, mnohé s krytými bazény a spa na odpoledne.",
+          "Krátké lety z většiny Evropy dělají z prodlouženého víkendu stejně reálnou možnost jako týdenní pobyt."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Hřiště a hotely v zimě"
+      },
+      {
+        "type": "p",
+        "text": "Ne všechna hřiště a hotely v Beleku fungují v zimě podle stejného harmonogramu a údržba, jako je aerifikace nebo dosévání, se někdy plánuje na klidné měsíce. Při rezervaci se zeptejte, která hřiště jsou ve vašem termínu otevřená a zda není naplánovaná údržba. Golfové hotely obvykle zajišťují tee time i kyvadlovou dopravu na partnerská hřiště."
+      },
+      {
+        "type": "h2",
+        "text": "Co si sbalit na zimní golf"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Vrstvy: funkční prádlo, svetr a větruodolnou vrchní vrstvu na chladná rána.",
+          "Nepromokavou bundu a kalhoty na občasnou přeháňku.",
+          "Zimní rukavice nebo palčáky mezi údery a k tomu běžné golfové rukavice.",
+          "Ochranu před sluncem: za jasných dnů je zimní slunce stále silné."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Do Beleku s golfovými bagy"
+      },
+      {
+        "type": "p",
+        "text": "Z letiště Antalya do Beleku trvá cesta 35 až 40 minut a v zimě je terminál klidný, takže odpolední kolo v den příletu je často reálné. Cena je pevná za vozidlo, ne za bag: Mercedes Vito zpravidla pojme čtyři hráče se čtyřmi golfovými bagy a zavazadly, větší skupiny jedou Sprinterem. Při rezervaci uveďte počet bagů."
+      }
+    ],
+    "faq": [
+      [
+        "Dá se v Beleku hrát golf i v zimě?",
+        "Ano. Hřiště v Beleku jsou otevřená celou zimu, v prosinci a lednu bývá přes den kolem 15–16 °C a hrát se dá většinu dnů."
+      ],
+      [
+        "Je golf v Beleku v zimě levnější?",
+        "Green fee a ceny hotelů jsou v prosinci, lednu a únoru obvykle nižší než v podzimní a jarní hlavní sezoně. Přesné ceny závisí na hřišti a hotelu."
+      ],
+      [
+        "Který měsíc je pro golf v Beleku nejlepší?",
+        "Vrcholem golfové sezony jsou říjen–listopad a březen–duben. Zima je klidnější a levnější, s o něco chladnějšími dny."
+      ],
+      [
+        "Platí se za golfové bagy při transferu příplatek?",
+        "Ne. Cena je pevná za vozidlo. Pro více bagů přidělíme větší vozidlo a jeho cenu uvidíte při rezervaci."
+      ]
+    ]
+  },
+  "saklikent-ski-antalya": {
+    "slug": "lyzovani-u-antalye-saklikent",
+    "title": "Lyžování u Antalye: průvodce lyžařským střediskem Saklıkent",
+    "heading": "Lyžování u Antalye: lyžařské středisko Saklıkent",
+    "description": "Lyžování u Antalye v Saklıkentu: kde středisko leží, jak dlouho trvá cesta, kdy je sezona, co čekat na sjezdovkách a jak spojit lyže a moře v jednom dni.",
+    "excerpt": "Ráno lyže, odpoledne procházka u moře. Praktický průvodce Saklıkentem, lyžařským střediskem Antalye, a cestou na něj z pobřeží.",
+    "readingMinutes": 5,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Jen málo prázdninových oblastí nabízí lyžování i procházku u moře v jednom dni. Antalya ano: lyžařské středisko Saklıkent leží v pohoří Bakırlı, asi 50 km od města, a za pěkného zimního dne můžete být ráno na sjezdovce a na západ slunce zpět na nábřeží."
+      },
+      {
+        "type": "h2",
+        "text": "Kde Saklıkent leží"
+      },
+      {
+        "type": "p",
+        "text": "Lyžařské středisko se nachází ve výšce zhruba 1 900 metrů na svazích pohoří Bakırlı, západně od Antalye. Cesta z města trvá přibližně hodinu a půl a stoupá od pomerančových sadů přes borovicové lesy až ke sněhu. Za jasných dnů je z vrcholu vidět až na pobřeží a moře."
+      },
+      {
+        "type": "h2",
+        "text": "Kdy je sezona"
+      },
+      {
+        "type": "p",
+        "text": "Lyžařská sezona závisí zcela na sněhu a obvykle trvá od ledna do března. Některé zimy začíná dřív nebo končí dřív, proto si před plánováním výletu ověřte aktuální stav sněhu a vleků."
+      },
+      {
+        "type": "h2",
+        "text": "Co čekat na sjezdovkách"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Malé, pohodové středisko – ideální pro začátečníky, rodiny a jeden lyžařský den během dovolené u moře, ne na celý lyžařský týden.",
+          "Lyžařské a snowboardové vybavení si obvykle můžete půjčit přímo ve středisku; předem si ověřte otevírací dobu.",
+          "Sáňkování a hraní ve sněhu je oblíbené u rodin, zejména o víkendech.",
+          "O víkendech je rušno kvůli místním návštěvníkům, ve všední dny je mnohem klidněji."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Lyže a moře v jednom dni"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Vyjeďte z pobřeží brzy ráno, abyste dorazili k otevření vleků.",
+          "Lyžujte nebo si hrajte ve sněhu do časného odpoledne.",
+          "Sjeďte dolů na pozdní oběd v Kaleiçi nebo na procházku po pláži Konyaaltı.",
+          "Vezměte si oblečení na převlečení: teplotní rozdíl mezi sjezdovkou a pobřežím může být 15 stupňů i víc."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Cesta tam: horská silnice v zimě"
+      },
+      {
+        "type": "p",
+        "text": "Do střediska nejezdí pravidelná veřejná doprava a na posledním úseku horské silnice může být sníh a led. Mohou být vyžadovány zimní pneumatiky nebo řetězy. Soukromý transfer vás odveze z hotelu v Antalyi, Kemeru, Beleku nebo Side na sjezdovky a zpět a čas strávený na horách si určujete sami. Nejde o jednu z našich standardních tras, pošlete nám proto hotel, datum a počet osob a my vám připravíme pevnou cenu za vozidlo."
+      },
+      {
+        "type": "h2",
+        "text": "Další možnosti lyžování z Antalye"
+      },
+      {
+        "type": "p",
+        "text": "Na delší lyžařský výlet je tu Davraz u Isparty – větší středisko s více sjezdovkami, zhruba dvě a půl až tři hodiny jízdy od Antalye. Saklıkent zůstává nejsnazší volbou pro jeden sněhový den během pobytu na pobřeží."
+      }
+    ],
+    "faq": [
+      [
+        "Dá se u Antalye lyžovat?",
+        "Ano. Lyžařské středisko Saklıkent leží asi 50 km od Antalye, zhruba hodinu a půl jízdy, v pohoří Bakırlı."
+      ],
+      [
+        "Kdy je lyžařská sezona v Saklıkentu?",
+        "Záleží na sněhu. Sezona obvykle trvá od ledna do března; před cestou si ověřte aktuální podmínky."
+      ],
+      [
+        "Dá se v Antalyi v jeden den lyžovat i koupat?",
+        "Ráno můžete lyžovat a odpoledne být u moře. Koupání v zimě je pro odvážné: moře má kolem 17 °C."
+      ],
+      [
+        "Jak se dostanu do Saklıkentu z hotelu?",
+        "Pravidelná veřejná doprava tam nejezdí. Připravíme vám nabídku soukromého transferu z hotelu do lyžařského střediska a zpět za pevnou cenu za vozidlo."
+      ]
+    ]
+  },
+  "pamukkale-trip-from-antalya": {
+    "slug": "pamukkale-z-antalye",
+    "title": "Pamukkale z Antalye: jednodenní výlet, nebo s přespáním, a kdy jet",
+    "heading": "Pamukkale z Antalye: jak naplánovat výlet",
+    "description": "Výlet z Antalye do Pamukkale: vzdálenost a doba jízdy, jednodenní výlet, nebo s přespáním, travertiny, Hierapolis, Antický bazén a nejlepší roční období.",
+    "excerpt": "Bílé travertinové terasy, římské město na kopci a bazén mezi antickými sloupy. Jak navštívit Pamukkale z Antalye a nestrávit celý den v autobuse.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Výlet do Pamukkale z Antalye patří k nejslavnějším zážitkům v Turecku: bílé travertinové terasy plné teplé vody bohaté na minerály a nad nimi ruiny římského města Hierapolis. Z Antalye je to po silnici asi 245 km, zhruba tři až tři a půl hodiny jízdy jedním směrem – dost blízko na jednodenní výlet, ale dost daleko na to, aby přespání udělalo návštěvu mnohem pohodovější."
+      },
+      {
+        "type": "h2",
+        "text": "Co vidět v Pamukkale"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Travertiny: projděte se bosí po terasách mělkou teplou vodou – v botách se na bílý povrch nesmí.",
+          "Hierapolis: velké římské město s divadlem, monumentální ulicí a jedním z největších antických pohřebišť v Anatolii.",
+          "Antický bazén (Kleopatřin bazén): koupání v teplé termální vodě mezi spadlými antickými sloupy (samostatná vstupenka).",
+          "Archeologické muzeum Hierapolis: nálezy z lokality v budově bývalých římských lázní.",
+          "Laodikeia: kousek odsud další velké antické město s mnohem menším počtem návštěvníků."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Jednodenní výlet, nebo s přespáním?"
+      },
+      {
+        "type": "table",
+        "head": [
+          "",
+          "Jednodenní výlet",
+          "S přespáním"
+        ],
+        "rows": [
+          [
+            "Čas na cestě",
+            "6–7 hodin v jednom dni",
+            "Rozloženo do dvou dnů"
+          ],
+          [
+            "Čas na místě",
+            "3–4 hodiny, obvykle v poledne",
+            "Pozdní odpoledne a brzké ráno"
+          ],
+          [
+            "Davy",
+            "Příjezd spolu se zájezdovými autobusy",
+            "Západ slunce a ráno s mnohem menším počtem lidí"
+          ],
+          [
+            "Pro koho",
+            "Pro cestovatele s málem času",
+            "Pro rodiny, fotografy a všechny, kdo se chtějí koupat"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Většina skupinových zájezdů přijíždí kolem poledne, kdy je na terasách nejrušněji a v létě bílý povrch oslňuje a pálí. Přespání v Pamukkale nebo v termální vesnici Karahayıt vám umožní vidět travertiny při západu slunce a znovu v ranním klidu."
+      },
+      {
+        "type": "h2",
+        "text": "Nejlepší roční období pro Pamukkale"
+      },
+      {
+        "type": "p",
+        "text": "Jaro a podzim jsou nejpříjemnější: mírné teploty na procházku po Hierapolis a příjemná voda na terasách. V zimě je chladno a občas mrzne, ale teplá voda v chladném vzduchu paří a lokalita je nejklidnější. V červenci a srpnu může být polední vedro a odlesky na bílých terasách velmi intenzivní – přijeďte brzy ráno nebo pozdě odpoledne."
+      },
+      {
+        "type": "h2",
+        "text": "Po cestě: jezero Salda a pohoří Taurus"
+      },
+      {
+        "type": "p",
+        "text": "Silnice stoupá od pobřeží přes pohoří Taurus a vede krajem jezer. Jezero Salda s bílými břehy a tyrkysovou vodou je krátká odbočka a oblíbená zastávka na fotky. Se soukromým vozem sami rozhodujete, kde a jak dlouho zastavíte – to zájezdový autobus nenabídne."
+      },
+      {
+        "type": "h2",
+        "text": "Soukromý transfer do Pamukkale"
+      },
+      {
+        "type": "p",
+        "text": "Zajišťujeme soukromé transfery do Pamukkale z letiště Antalya a z hotelů na pobřeží, jedním směrem nebo se zpáteční cestou v jiný den. Cena je pevná za vůz, takže pro rodinu nebo malou skupinu je často srovnatelná s několika vstupenkami na autobusový zájezd – bez svážení z hotelů, pevného programu a zastávek v obchodech."
+      }
+    ],
+    "faq": [
+      [
+        "Jak daleko je Pamukkale od Antalye?",
+        "Po silnici asi 245 km. Cesta obvykle trvá tři až tři a půl hodiny jedním směrem."
+      ],
+      [
+        "Dá se Pamukkale navštívit jako jednodenní výlet z Antalye?",
+        "Ano, ale znamená to 6–7 hodin na cestě v jednom dni. Přespání v Pamukkale nebo Karahayıtu udělá návštěvu pohodovější a terasy uvidíte bez davů."
+      ],
+      [
+        "Dá se v Pamukkale koupat?",
+        "Po mělkých jezírkách na travertinech se dá chodit bosky. Plavat můžete v Antickém bazénu s teplou termální vodou, na který je potřeba samostatná vstupenka."
+      ],
+      [
+        "Kdy je nejlepší jet do Pamukkale?",
+        "Nejpříjemnější je jaro a podzim. Zima je klidná a atmosférická, v létě je nejlepší přijet brzy ráno nebo pozdě odpoledne."
+      ]
+    ]
+  },
+  "demre-myra-st-nicholas": {
+    "slug": "demre-myra-kostel-sv-mikulase",
+    "title": "Demre a Myra: kostel svatého Mikuláše – výlet z Antalye",
+    "heading": "Demre, Myra a kostel svatého Mikuláše",
+    "description": "Výlet z Antalye do Demre, antické Myry: kostel svatého Mikuláše, lýkijské skalní hrobky, Andriake a Kekova, doba jízdy a tipy na zimní či vánoční návštěvu.",
+    "excerpt": "Rodné město skutečného Santa Clause leží dvě a půl hodiny od Antalye. Co vidět v Demre a Myře a jak strávit den na pobřeží.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Dávno předtím, než se z něj stal Santa Claus, byl svatý Mikuláš biskupem v Myře, lýkijském městě na pobřeží západně od Antalye. Dnes se město jmenuje Demre a kostel svatého Mikuláše, kde působil, lýkijské skalní hrobky a antický přístav z něj dělají jeden z nejzajímavějších jednodenních výletů z Antalye – zvlášť v prosinci."
+      },
+      {
+        "type": "h2",
+        "text": "Kdo byl svatý Mikuláš z Myry?"
+      },
+      {
+        "type": "p",
+        "text": "Mikuláš žil ve 4. století a proslavil se tajnou štědrostí, zejména vůči dětem a chudým. Jeho svátek, 6. prosince, se dodnes slaví po celé Evropě a legendy o něm se v průběhu staletí proměnily v postavu Santa Clause. Myra, kde byl biskupem, se stala významným poutním místem."
+      },
+      {
+        "type": "h2",
+        "text": "Co vidět v Demre"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Kostel svatého Mikuláše: byzantský kostel s freskami, mozaikovými podlahami a sarkofágem, který se tradičně spojuje se světcem.",
+          "Skalní hrobky v Myře: lýkijské hrobky ve tvaru domů vytesané do útesu nad velkým římským divadlem.",
+          "Andriake: antický přístav Myry s obnovenou sýpkou, v níž sídlí Muzeum lýkijských civilizací.",
+          "Kekova: výlety lodí z nedalekého Üçağızu míjejí částečně zatopené antické město a vesnici s hradem Kaleköy (v zimě jezdí méně lodí)."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Cesta: po pobřežní silnici na západ"
+      },
+      {
+        "type": "p",
+        "text": "Demre je asi dvě a půl hodiny od Antalye po jedné z nejkrásnějších pobřežních silnic v zemi, přes Kemer, hory kolem Olympu, Kumlucu a Finike. Silnice je dobrá po celý rok, ale vine se horami, takže počítejte s časem na zastávky a neplánujte cestu ve spěchu."
+      },
+      {
+        "type": "h2",
+        "text": "Den na pobřeží"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Ráno: brzký odjezd z Antalye a zastávka s výhledem na pobřeží u Olympu.",
+          "Dopoledne: kostel svatého Mikuláše dřív, než dorazí zájezdové skupiny.",
+          "Poledne: skalní hrobky a divadlo v Myře, pak oběd v Demre nebo v Andriake.",
+          "Odpoledne: v sezoně výlet lodí na Kekovu, nebo pokračování do Kaşe s přespáním.",
+          "Večer: návrat do Antalye, nebo spojení výletu s několika dny v Kaşi."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Návštěva v zimě a o Vánocích"
+      },
+      {
+        "type": "p",
+        "text": "Prosinec je obzvlášť atmosférickou dobou k návštěvě: 6. prosince je svátek svatého Mikuláše a kolem Vánoc mnoho návštěvníků spojuje pobyt v Antalyi s výletem do světcova města. Zimní dny jsou mírné, ale krátké, proto vyrazte brzy. Památky jsou otevřené celý rok, výlety lodí na Kekovu závisí na počasí a sezoně."
+      },
+      {
+        "type": "h2",
+        "text": "Soukromý transfer do Demre"
+      },
+      {
+        "type": "p",
+        "text": "Zajišťujeme soukromé transfery z Antalye a letovisek na západním pobřeží do Kumlucy, Demre a Kaşe. Se soukromým vozem si sami volíte zastávky i tempo a cena je pevná za vůz, ne za osobu. Při rezervaci nám napište hotel, datum a zda chcete zpáteční cestu ve stejný den."
+      }
+    ],
+    "faq": [
+      [
+        "Jak daleko je Demre od Antalye?",
+        "Demre, antická Myra, je asi dvě a půl hodiny jízdy od Antalye po pobřežní silnici přes Kemer, Kumlucu a Finike."
+      ],
+      [
+        "Je kostel svatého Mikuláše otevřený celý rok?",
+        "Ano. Kostel svatého Mikuláše i antická lokalita Myra jsou pro návštěvníky otevřené po celý rok."
+      ],
+      [
+        "Kdy je svátek svatého Mikuláše?",
+        "Svátek svatého Mikuláše připadá na 6. prosince. Prosinec, včetně vánočního období, je oblíbenou dobou k návštěvě Demre."
+      ],
+      [
+        "Dá se Demre a Kekova stihnout za jeden den?",
+        "Ano, v sezoně lodních výletů je to možné s brzkým odjezdem. V zimě jezdí méně lodí, proto si počasí a jízdní řády ověřte na místě."
+      ]
+    ]
+  },
+  "lycian-way-spring-hiking": {
+    "slug": "lykijska-stezka-u-antalye",
+    "title": "Lýkijská stezka u Antalye: jarní průvodce nejlepšími úseky",
+    "heading": "Lýkijská stezka: pěší turistika z Antalye",
+    "description": "Lýkijská stezka u Antalye: nejlepší roční období, úseky kolem Kemeru, Olympu, Adrasanu a Kaşe, co si zabalit a jak se dostat na začátek trasy.",
+    "excerpt": "Antické ruiny, borové lesy a výhledy na moře na jedné z velkých dálkových tras světa. Které úseky projít z Antalye a kdy jet.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Lýkijská stezka je značená dálková trasa dlouhá více než 500 km mezi Fethiye a Antalyí. Vede po starých cestách, soumarských stezkách a římských silnicích podél pobřeží a horami antické Lýkie. Abyste si ji užili, nepotřebujete týdny: mnoho jejích nejkrásnějších úseků leží kousek od Antalye a skvěle se hodí na jednodenní túry nebo krátkou turistickou dovolenou."
+      },
+      {
+        "type": "h2",
+        "text": "Kdy vyrazit: jaro a podzim"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Období",
+          "Podmínky",
+          "Hodnocení"
+        ],
+        "rows": [
+          [
+            "Březen – květen",
+            "Mírné dny, zelené kopce, divoké květiny, prameny plné vody",
+            "Nejlepší období"
+          ],
+          [
+            "Červen – srpen",
+            "Velké horko, na mnoha úsecích málo stínu, vyschlé prameny",
+            "Jen brzy ráno nebo krátké túry"
+          ],
+          [
+            "Září – listopad",
+            "Teplé moře, stabilní počasí, od konce října chladněji",
+            "Druhé nejlepší období"
+          ],
+          [
+            "Prosinec – únor",
+            "Na pobřeží mírno, deštivá období, sníh ve vysokých průsmycích",
+            "Možné na nízkých pobřežních úsecích"
+          ]
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Úseky u Antalye"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Göynük – okolí Kemeru: lesní stezky a výhledy do kaňonu kousek od letovisek u Kemeru.",
+          "Çıralı a Olympos: pobřežní úsek mezi ruinami Olympu a věčnými plameny Chiméry.",
+          "Adrasan – Olympos: jeden z nejdramatičtějších úseků s útesy, zátokami a dalekými výhledy na moře.",
+          "Okolí Kaşe: pobřežní stezky s lýkijskými hrobkami, malými zátokami a řeckým ostrovem Meis nedaleko od břehu.",
+          "Phaselis: kratší procházky kolem antického města a jeho tří přístavů, ideální na první ochutnávku."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Plánování túry"
+      },
+      {
+        "type": "p",
+        "text": "Stezka je značená červeno-bíle, ale některé úseky jsou nerovné, kamenité a strmé a značení místy chybí. Používejte dobrou mapu nebo GPS stopu, pokud možno choďte ve dvou a řekněte někomu svou trasu. Na mnoha úsecích nejsou mezi vesnicemi obchody ani voda, proto vyrážejte brzy a noste víc vody, než si myslíte, že budete potřebovat."
+      },
+      {
+        "type": "h2",
+        "text": "Co si zabalit"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Turistické boty nebo pevné trailové boty – vápenec je místy ostrý a sypký.",
+          "Alespoň dva litry vody na osobu a něco k jídlu.",
+          "Klobouk, opalovací krém a lehkou vrstvu s dlouhým rukávem, i na jaře.",
+          "Větrovku nebo nepromokavou bundu na horské úseky a proměnlivé jarní počasí.",
+          "Malou lékárničku a nabitý telefon s offline mapou."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Cesta na stezku a zpět"
+      },
+      {
+        "type": "p",
+        "text": "Většina úseků začíná a končí ve vesnicích, kam se veřejnou dopravou dostanete jen těžko, a při túře jedním směrem skončíte jinde, než jste začali. Soukromý transfer vás doveze z letiště Antalya nebo z hotelu na začátek úseku a na konci vás může vyzvednout. Cena je pevná za vůz, takže se to vyplatí skupinám turistů; napište nám místo startu a cíle, datum a počet osob a cenu vám sdělíme předem."
+      }
+    ],
+    "faq": [
+      [
+        "Jak dlouhá je Lýkijská stezka?",
+        "Značená trasa měří více než 500 km a vede mezi Fethiye a Antalyí. Většina návštěvníků prochází vybrané úseky, ne celou trasu."
+      ],
+      [
+        "Kdy je nejlepší jít po Lýkijské stezce?",
+        "Nejlepší je jaro, od března do května, a po něm podzim, od září do listopadu. Léto je velmi horké a mnoho pramenů vysychá."
+      ],
+      [
+        "Které úseky Lýkijské stezky jsou nejblíž Antalyi?",
+        "Úseky kolem Göynüku a Kemeru, Çıralı a Olympu, Adrasanu a Phaselis jsou všechny zhruba jednu až dvě hodiny od Antalye. Úseky kolem Kaşe leží dál na západ."
+      ],
+      [
+        "Dá se zajistit transfer na začátek úseku Lýkijské stezky?",
+        "Ano. Pošlete nám místo startu a cíle a datum a my vám nabídneme soukromý transfer za pevnou cenu za vůz, včetně vyzvednutí na konci túry."
+      ]
+    ]
+  },
+  "koprulu-canyon-rafting": {
+    "slug": "rafting-kanon-koprulu",
+    "title": "Rafting v kaňonu Köprülü: praktický průvodce z Antalye a Side",
+    "heading": "Rafting v kaňonu Köprülü",
+    "description": "Rafting v kaňonu Köprülü u Antalye: kdy je sezona, jaká je řeka, pro koho se hodí, co si vzít s sebou a jak daleko je to ze Side, Beleku, Alanye a Antalye.",
+    "excerpt": "Studená zelená voda, římský most a kaňon porostlý borovicemi. Co čekat od dne na raftu v kaňonu Köprülü a jak ho naplánovat z pobřeží.",
+    "readingMinutes": 5,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Kaňon Köprülü je národní park v pohoří Taurus severně od Side a Manavgatu a rafting na řece, která jím protéká, je nejznámější vodní výlet v regionu. Jde spíš o pohodové dobrodružství než o extrém: většina peřejí je mírná, scenérie je úchvatná a začátečníci i rodiny s dětmi tu jezdí každý den sezony."
+      },
+      {
+        "type": "h2",
+        "text": "Jak rafting probíhá"
+      },
+      {
+        "type": "p",
+        "text": "Většina výletů vede úsekem řeky Köprüçay dlouhým zhruba tucet kilometrů a na vodě strávíte dvě až tři hodiny, se zastávkami na koupání, skoky ze skal nebo prosté plutí po proudu. Peřeje jsou převážně lehké až středně těžké, voda je čistá a zelená a po celý rok studená, protože řeku napájejí horské prameny. Průvodci vás poučí o bezpečnosti, přilby a záchranné vesty jsou k dispozici."
+      },
+      {
+        "type": "h2",
+        "text": "Kdy jet"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Období",
+          "Řeka a počasí",
+          "Vhodné pro"
+        ],
+        "rows": [
+          [
+            "Duben - květen",
+            "Více vody z tajícího sněhu, živější peřeje, mírný vzduch",
+            "Aktivní skupiny, méně lidí"
+          ],
+          [
+            "Červen - srpen",
+            "Horký vzduch, studená voda, nejrušnější měsíce",
+            "Osvěžení v horkém dni"
+          ],
+          [
+            "Září - říjen",
+            "Klidnější voda, teplé dny, méně lidí",
+            "Rodiny a začátečníky"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Sezona obvykle trvá zhruba od dubna do října, podle řeky a provozovatelů. Mimo toto období se výlety konají jen výjimečně, nebo vůbec."
+      },
+      {
+        "type": "h2",
+        "text": "Pro koho se hodí"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Začátečníci: zkušenosti nejsou potřeba, raft řídí průvodce.",
+          "Rodiny: provozovatelé stanovují minimální věk dětí, proto si ho ověřte při rezervaci.",
+          "Party přátel a kolegů: raft obvykle sdílí šest až osm lidí.",
+          "Není ideální pro neplavce, kteří mají z vody strach, ani v těhotenství."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Co si vzít s sebou"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Plavky pod oblečením a ručník.",
+          "Boty, které mohou namoknout a drží na noze - ne žabky.",
+          "Opalovací krém a náhradní suché oblečení na cestu zpět.",
+          "Vodotěsný vak nebo pouzdro na telefon; cennosti nechte v hotelu."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Víc než rafting: národní park"
+      },
+      {
+        "type": "p",
+        "text": "Kaňon překlenuje most Oluk, jednoobloukový římský most, podle kterého má oblast jméno - köprü znamená turecky „most“. Výš v horách leží mezi skalními útvary a vesnicemi ruiny antického města Selge. S vlastním vozem můžete rafting spojit se zastávkou u mostu a výjezdem nahoru k Selge."
+      },
+      {
+        "type": "h2",
+        "text": "Jak se tam dostat z pobřeží"
+      },
+      {
+        "type": "p",
+        "text": "Mnoho raftingových společností prodává výlety se společným svozem z hotelů, což může znamenat dlouhé dopoledne sbírání dalších hostů. Soukromý vůz ze Side, Manavgatu, Beleku, Alanye nebo Antalye vyjede, kdy chcete vy, a cestou může zastavit u mostu nebo v horách. Kaňon je zhruba hodinu jízdy ze Side a Manavgatu a dál z Antalye a Alanye; pošlete nám hotel a datum a nabídneme vám pevnou cenu za vůz."
+      }
+    ],
+    "faq": [
+      [
+        "Je rafting v kaňonu Köprülü vhodný pro začátečníky?",
+        "Ano. Peřeje jsou převážně lehké až středně těžké, zkušenosti nejsou potřeba a každý raft po bezpečnostní instruktáži řídí průvodce."
+      ],
+      [
+        "Kdy je raftingová sezona v kaňonu Köprülü?",
+        "Obvykle zhruba od dubna do října. Na jaře je voda díky tání sněhu živější, v září a říjnu je klidnější a méně lidí."
+      ],
+      [
+        "Jak studená je voda?",
+        "Studená po celý rok, protože řeku napájejí horské prameny. V horkém letním dni je to součást kouzla."
+      ],
+      [
+        "Jak daleko je kaňon Köprülü od Side?",
+        "Zhruba hodinu jízdy ze Side a Manavgatu a déle z Antalye, Beleku nebo Alanye, podle vašeho hotelu."
+      ]
+    ]
+  },
+  "kas-kalkan-autumn": {
+    "slug": "kas-a-kalkan-na-podzim",
+    "title": "Kaş a Kalkan na podzim: potápění, pláže a klidné zátoky",
+    "heading": "Kaş a Kalkan na podzim",
+    "description": "Proč jsou Kaş a Kalkan nejhezčí na podzim: teplé moře, potápění, pláže Kaputaş a Patara, Kekova na kajaku a lodí a jak se tam dostat z letiště Antalya.",
+    "excerpt": "Nejteplejší moře roku, prázdné pláže a dvě malá přístavní městečka pod horami. Proč daleký západ pobřeží Antalye v říjnu září.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Kaş a Kalkan leží na divokém západním konci pobřeží Antalye, kde hory spadají přímo do moře. Velké resorty tu nenajdete - zato malé přístavy, bílé uličky a jednu z nejčistších vod ve Středomoří. Na podzim, když letní návštěvníci odjedou a moře je stále teplé, jsou Kaş a Kalkan v nejlepší formě."
+      },
+      {
+        "type": "h2",
+        "text": "Proč je tady sezona na podzim"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Moře zůstává teplé až do října, často teplejší než v červnu.",
+          "Viditelnost pod vodou je vynikající - dobrá zpráva pro potápěče i šnorchlaře.",
+          "Po letních vedrech jsou procházky a túry zase příjemné.",
+          "Restaurace a výlety lodí stále fungují, ale bez letních davů."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Kaş: potápění, kajaky a přístav"
+      },
+      {
+        "type": "p",
+        "text": "Kaş patří k nejznámějším potápěčským centrům Turecka, s lokalitami pro začátečníky i zkušené potápěče včetně vraků, stěn a podvodních jeskyní. Vrcholem je jízda na mořském kajaku nad potopenými ruinami Kekovy a přístav, antické divadlo s výhledem na moře a lýkijské hrobky přímo ve městě dělají večery pohodovými. Za jasného dne je kousek od břehu vidět řecký ostrov Meis."
+      },
+      {
+        "type": "h2",
+        "text": "Kalkan: terasy a klidné večery"
+      },
+      {
+        "type": "p",
+        "text": "Kalkan, asi půl hodiny západně od Kaşe, je menší a klidnější, postavený na svahu kolem malého přístavu. Je známý vilami s terasami s výhledem na moře a restauracemi na střechách. Hodí se pro páry a rodiny, které chtějí klidnou základnu s dobrým jídlem spíš než noční život."
+      },
+      {
+        "type": "h2",
+        "text": "Pláže mezi městy i za nimi"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Kaputaş: malá tyrkysová zátoka na konci soutěsky mezi Kaşem a Kalkanem.",
+          "Patara: jedna z nejdelších písečných pláží v Turecku, vedle ruin antické Patary a chráněného území.",
+          "Poloostrov Kaş a městské koupací plošiny: skalnaté břehy a žebříky přímo do hluboké, čisté vody.",
+          "Kekova a Üçağız: výlety lodí do chráněných zátok a do vesnice s hradem Kaleköy."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Co se mění v listopadu"
+      },
+      {
+        "type": "p",
+        "text": "Od listopadu sezona utichá: některé hotely, restaurace a výlety lodí končí, přicházejí první deště a večery se ochlazují. Kaş žije celý rok, protože tu mnoho lidí bydlí natrvalo, zatímco Kalkan se velmi ztiší. Pokud cestujete na konci sezony, ověřte si otevírací termíny."
+      },
+      {
+        "type": "h2",
+        "text": "Jak se dostat z letiště Antalya"
+      },
+      {
+        "type": "p",
+        "text": "Kaş je asi 185 km od letiště Antalya, zhruba dvě a půl až tři hodiny po pobřežní silnici přes Kemer, Kumlucu a Demre, a Kalkan je asi o půl hodiny dál. Někteří cestovatelé podle letů přilétají místo toho do Dalamanu. Soukromé transfery zajišťujeme z obou letišť za pevnou cenu za vůz, se zastávkami na fotky na jedné z nejmalebnějších silnic v zemi."
+      }
+    ],
+    "faq": [
+      [
+        "Je moře v Kaşi v říjnu teplé?",
+        "Ano. Moře obvykle zůstává teplé po většinu října, často teplejší než na začátku léta, a viditelnost pro potápění a šnorchlování je vynikající."
+      ],
+      [
+        "Jak daleko je Kaş od letiště Antalya?",
+        "Asi 185 km, zhruba dvě a půl až tři hodiny jízdy. Kalkan je asi o půl hodiny dál na západ."
+      ],
+      [
+        "Kaş, nebo Kalkan: co je lepší?",
+        "Kaş je živější, s potápěním, kajaky a městským životem po celý rok. Kalkan je menší a klidnější, s vilami a restauracemi s výhledem na moře."
+      ],
+      [
+        "Jsou Kaş a Kalkan otevřené v listopadu?",
+        "Kaş žije celý rok. V Kalkanu a v některých hotelech a lodních firmách končí sezona koncem října nebo v listopadu, takže si ověřte otevírací termíny."
+      ]
+    ]
+  },
+  "medical-travel-antalya-winter": {
+    "slug": "zubni-osetreni-antalya-v-zime",
+    "title": "Zubní ošetření a zdravotní turistika v Antalyi v zimě: co vědět předem",
+    "heading": "Zubní ošetření a zdravotní cesty do Antalye v zimě",
+    "description": "Zubní ošetření, transplantace vlasů nebo estetický zákrok v Antalyi v zimě: proč mnoho lidí volí mimosezonu, jak prověřit kliniku, dny rekonvalescence a transfer.",
+    "excerpt": "Chladnější počasí, klidnější hotely a snazší termíny. Co si prověřit a naplánovat před rezervací, pokud jedete do Antalye za léčbou v zimě.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Antalya se vedle Istanbulu stala jedním z tureckých center zdravotní a zubní turistiky. Stále více lidí plánuje zubní ošetření v Antalyi, transplantaci vlasů nebo estetické zákroky na zimní měsíce, kdy je na pobřeží klid a počasí je mírné. Tento průvodce se věnuje praktické stránce takové cesty - nejde o lékařskou radu a každé klinické rozhodnutí patří kvalifikovanému lékaři."
+      },
+      {
+        "type": "h2",
+        "text": "Proč mnoho cestovatelů volí zimu"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Mírné, chladnější počasí: mnoha pacientům je rekonvalescence příjemnější bez letního horka a ostrého slunce.",
+          "Hotely a apartmány jsou klidnější a často levnější než v létě.",
+          "Mimo hlavní prázdninové měsíce může být snazší sehnat termín.",
+          "Cestu lze spojit s městem, muzei a nenáročnými procházkami místo dnů na pláži."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Výběr a prověření kliniky"
+      },
+      {
+        "type": "p",
+        "text": "Nejdůležitějším rozhodnutím je výběr zařízení, ne cena. Ověřte si, že klinika nebo nemocnice má licenci tureckého ministerstva zdravotnictví, zjistěte, kdo bude ošetřujícím lékařem a jakou má kvalifikaci, a požádejte o písemný plán, který uvádí, co je zahrnuto, co ne a jak se řeší komplikace a následná péče. Buďte opatrní u nabídek, které slibují konečný výsledek nebo pevnou cenu ještě před jakýmkoli vyšetřením."
+      },
+      {
+        "type": "h2",
+        "text": "Plánování dnů"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Typ léčby",
+          "Na co se obvykle myslí při plánování",
+          "Na co se zeptat kliniky"
+        ],
+        "rows": [
+          [
+            "Zubní ošetření",
+            "Často více než jedna návštěva, někdy s odstupem týdnů nebo měsíců",
+            "Kolik cest a kolik dní každá?"
+          ],
+          [
+            "Transplantace vlasů",
+            "Krátký pobyt s pokyny k péči na první dny",
+            "Kdy můžete letět, umýt si vlasy a nosit čepici?"
+          ],
+          [
+            "Plastická chirurgie",
+            "Delší pobyt a dny rekonvalescence před odletem domů",
+            "Po kolika nocích je let povolen?"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Počítejte s dny odpočinku, neplánujte zákrok na den příletu a řiďte se radou lékaře, kdy je bezpečné letět. U chirurgických zákroků se často doporučuje cestovat s doprovodem."
+      },
+      {
+        "type": "h2",
+        "text": "Pojištění, dokumenty a následná péče"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Ověřte si, zda vaše cestovní pojištění kryje plánovanou léčbu v zahraničí - mnoho pojistek ji nekryje.",
+          "Uschovejte si kopie všech lékařských zpráv, receptů a plánu léčby.",
+          "Zeptejte se, jak funguje následná péče po návratu domů a zda se do ní může zapojit váš lékař doma.",
+          "Zdravotní údaje sdílejte jen se zařízením, a to kanálem, který určí."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Z letiště do hotelu nebo na kliniku"
+      },
+      {
+        "type": "p",
+        "text": "Po letu a před zákrokem či po něm nechcete stát ve frontě na taxi ani jet sdíleným shuttlem, který staví u tuctu hotelů. Soukromý transfer vás odveze přímo z letiště Antalya do hotelu nebo na kliniku - řidič čeká na váš let a pomůže se zavazadly. Zpáteční jízdy lze načasovat podle termínů u lékaře a letu domů. Cena je pevná za vůz, takže doprovod jede bez příplatku."
+      }
+    ],
+    "faq": [
+      [
+        "Proč jet za léčbou do Antalye v zimě?",
+        "Mnoho cestovatelů dává přednost mírnějšímu počasí pro rekonvalescenci, klidnějším hotelům a snazším termínům mimo letní prázdninovou sezonu."
+      ],
+      [
+        "Jak prověřit kliniku v Antalyi?",
+        "Ověřte si, že má licenci tureckého ministerstva zdravotnictví, zjistěte, kdo je ošetřující lékař, a požádejte o písemný plán, který pokrývá, co je a není zahrnuto, komplikace a následnou péči."
+      ],
+      [
+        "Jak dlouho zůstat po zákroku?",
+        "To zcela závisí na typu léčby a radě lékaře. Zeptejte se kliniky, kolik nocí potřebujete před odletem domů, a naplánujte si dny odpočinku."
+      ],
+      [
+        "Můžete mě odvézt z letiště na kliniku?",
+        "Ano. Zajišťujeme soukromé transfery z letiště Antalya do hotelů a na kliniky a zpět za pevnou cenu za vůz."
+      ]
+    ]
+  },
+  "side-ancient-city-guide": {
+    "slug": "side-anticke-mesto-pruvodce",
+    "title": "Antické město Side: průvodce Apollónovým chrámem, divadlem a starým městem",
+    "heading": "Side: průvodce antickým městem",
+    "description": "Antické město Side: Apollónův chrám, velké divadlo, muzeum, hradby a staré město, kdy jet a jednodenní výlety do Aspendu a k vodopádu Manavgat.",
+    "excerpt": "Římské divadlo, sloupy chrámu na břehu moře a přístavní městečko uvnitř antických hradeb. Jak zažít Side v nejlepším světle - mimo sezonu.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Antické město Side je jedním z mála míst na Turecké riviéře, kde moderní městečko žije uvnitř starověkého. Staré město zaplňuje malý poloostrov obklopený římskými a helénistickými ruinami: do restaurace jdete kolem sloupů a západ slunce rámuje chrám. Nejlepší je Side mimo léto, kdy je dost klidu na to, abyste historii opravdu vnímali."
+      },
+      {
+        "type": "h2",
+        "text": "Hlavní památky"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Apollónův chrám: sloupy stojí na špičce poloostrova hned u moře - klasické místo pro západ slunce.",
+          "Velké divadlo: jedno z největších antických divadel v regionu, zasazené do svahu u vstupu do starého města.",
+          "Muzeum Side: sídlí v obnovených římských lázních a vystavuje sochy a reliéfy nalezené ve městě.",
+          "Kolonáda a agora: antická hlavní osa vedoucí od městské brány k přístavu.",
+          "Hradby a monumentální brána: vstupní cesta, kterou návštěvníci přicházejí už dva tisíce let."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Staré město dnes"
+      },
+      {
+        "type": "p",
+        "text": "Uvnitř hradeb vedou k přístavu uličky plné restaurací, kaváren a malých obchodů a z přístavu vyplouvají lodě na výlety podél pobřeží. Do většiny starého města auta nesmějí, takže se příjemně prochází pěšky. Na východ i na západ od poloostrova se táhnou široké písečné pláže."
+      },
+      {
+        "type": "h2",
+        "text": "Kdy jet"
+      },
+      {
+        "type": "p",
+        "text": "Ideální je jaro a podzim: dost teplo na pláž a dost chladno na procházku ruinami i v poledne. V zimě mnoho sezonních hotelů zavírá, ale staré město, ruiny a muzeum zůstávají otevřené a za slunečného dne je u chrámu a v přístavu téměř prázdno. V červenci a srpnu navštivte ruiny brzy ráno nebo při západu slunce."
+      },
+      {
+        "type": "h2",
+        "text": "Jednodenní výlety ze Side"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Cíl",
+          "Proč jet",
+          "Přibližná doba ze Side"
+        ],
+        "rows": [
+          [
+            "Aspendos",
+            "Jedno z nejzachovalejších římských divadel na světě",
+            "asi 40 minut"
+          ],
+          [
+            "Vodopád Manavgat",
+            "Široký, nízký vodopád v zeleném parku",
+            "asi 15 minut"
+          ],
+          [
+            "Perge",
+            "Velké antické město se stadionem a kolonádami",
+            "asi 1 hodina"
+          ],
+          [
+            "Kaňon Köprülü",
+            "Rafting a římský most v národním parku",
+            "asi 1 hodina"
+          ]
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Jak se dostat do Side z letiště Antalya"
+      },
+      {
+        "type": "p",
+        "text": "Side je asi 65 km od letiště Antalya, zhruba 55 až 65 minut jízdy. Soukromý transfer vás odveze přímo do hotelu nebo na okraj pěší zóny starého města za pevnou cenu za vůz, která se nemění podle sezony ani času vašeho letu. Stejný vůz si můžete objednat i na jednodenní výlety do Aspendu, Perge nebo ke kaňonu."
+      }
+    ],
+    "faq": [
+      [
+        "Co vidět v antickém Side?",
+        "Apollónův chrám u moře, velké divadlo, muzeum v římských lázních, kolonádu, agoru a hradby - vše v pěší vzdálenosti od starého města."
+      ],
+      [
+        "Vyplatí se Side v zimě?",
+        "Ano, kvůli ruinám a starému městu. Mnoho sezonních hotelů zavírá, ale památky zůstávají otevřené a je tam mnohem klidněji než v létě."
+      ],
+      [
+        "Jak daleko je Side od letiště Antalya?",
+        "Asi 65 km, zhruba 55 až 65 minut jízdy."
+      ],
+      [
+        "Mohu ze Side navštívit Aspendos?",
+        "Ano. Aspendos je asi 40 minut jízdy ze Side a je to snadný půldenní výlet, často v kombinaci s Perge nebo vodopádem Manavgat."
+      ]
+    ]
+  }
 };
