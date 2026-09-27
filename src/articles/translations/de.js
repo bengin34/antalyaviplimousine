@@ -1126,5 +1126,323 @@ export const articles = {
         "Stadthotels und einige Resorts sind geöffnet. Viele Saisonresorts öffnen im Laufe des Aprils, und im Mai ist der Großteil der Küste voll in Betrieb."
       ]
     ]
+  },
+  "cappadocia-winter-trip": {
+    "slug": "kappadokien-im-winter-ab-antalya",
+    "title": "Kappadokien im Winter ab Antalya: Schnee, Ballons und die Anreise",
+    "heading": "Kappadokien im Winter: ein Ausflug ab Antalya",
+    "description": "Kappadokien im Winter ab Antalya: Schnee, Wetter, Heißluftballons, Höhlenhotels, Sehenswertes und wie die 540 km lange Fahrt über Konya im Winter abläuft.",
+    "excerpt": "Feenkamine unter Schnee und Ballons über einem weißen Tal. So verbinden Sie einen Winteraufenthalt in Antalya mit Kappadokien – und so ist die Straße im Winter.",
+    "readingMinutes": 7,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Kappadokien im Winter gehört zu den meistfotografierten Landschaften der Türkei: Feenkamine und Täler unter Schnee, Höhlenhotels mit Kaminfeuer und an klaren Morgen Ballons, die über einer weißen Landschaft aufsteigen. Von Antalya aus ist es eine lange, aber wunderschöne Fahrt – und eine ideale Ergänzung zu einem Winteraufenthalt an der Küste."
+      },
+      {
+        "type": "h2",
+        "text": "Das Winterwetter: ein ganz anderes Klima als an der Küste"
+      },
+      {
+        "type": "p",
+        "text": "Kappadokien liegt auf einer Hochebene auf rund 1.000 Metern oder höher, deshalb ist der Winter dort ein echter Winter. Tagsüber liegen die Temperaturen oft um den Gefrierpunkt, nachts deutlich darunter, und von Dezember bis Februar ist Schnee häufig. Packen Sie eine richtige Winterjacke, Handschuhe, Mütze und wasserdichte Schuhe ein – Kleidung, die für Antalya im Januar passt, reicht hier nicht aus."
+      },
+      {
+        "type": "table",
+        "head": [
+          "",
+          "Küste von Antalya",
+          "Kappadokien"
+        ],
+        "rows": [
+          [
+            "Typischer Wintertag",
+            "etwa 15 °C",
+            "rund 0–5 °C"
+          ],
+          [
+            "Winternächte",
+            "etwa 6–8 °C",
+            "oft unter dem Gefrierpunkt"
+          ],
+          [
+            "Schnee",
+            "nur auf den Berggipfeln",
+            "häufig von Dezember bis Februar"
+          ]
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Heißluftballons im Winter"
+      },
+      {
+        "type": "p",
+        "text": "Die Ballons fahren das ganze Jahr, wenn das Wetter es zulässt, und eine Fahrt bei Sonnenaufgang über verschneite Täler ist das Bild, für das viele anreisen. Im Winter fallen Fahrten allerdings häufiger wegen Wind, Nebel oder Schnee aus; die Behörden entscheiden jeden Morgen in der Früh. Planen Sie mindestens zwei Nächte in Kappadokien ein, damit ein abgesagter Start nicht bedeutet, dass Sie ganz darauf verzichten müssen."
+      },
+      {
+        "type": "h2",
+        "text": "Sehenswertes im Winter"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Freilichtmuseum Göreme: in den Fels gehauene Kirchen mit Fresken, im Winter ruhiger als zu jeder anderen Jahreszeit.",
+          "Unterirdische Städte wie Derinkuyu und Kaymaklı: mehrere Ebenen tief und mit einer angenehmen, gleichbleibenden Temperatur, egal wie das Wetter draußen ist.",
+          "Die Burg von Uçhisar und die Aussichtspunkte oberhalb von Göreme: die besten Orte für verschneite Panoramen.",
+          "Kurze Wanderungen im Rosental, im Roten Tal und im Liebestal an trockenen, klaren Tagen – nach Schneefall können die Wege vereist sein.",
+          "Höhlenhotels: Viele sind beheizt und haben Kamine, und im Winter entfalten sie ihren ganz besonderen Reiz."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Die Fahrt ab Antalya"
+      },
+      {
+        "type": "p",
+        "text": "Die Strecke ist etwa 540 km lang und dauert meist 7 bis 8 Stunden: über das Taurusgebirge und dann weiter über die Hochebene via Konya. Konya mit dem Mevlana-Museum bietet sich als Zwischenstopp an. Im Winter kann auf dem Gebirgsabschnitt Schnee und Eis liegen; die Straßen werden geräumt, doch ein Fahrzeug mit Winterausrüstung und ein Fahrer, der die Strecke kennt, machen den Unterschied zwischen einem langen und einem stressigen Tag."
+      },
+      {
+        "type": "h2",
+        "text": "So planen Sie die Reise"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Planen Sie mindestens zwei, besser drei Nächte ein – als Puffer für abgesagte Ballonfahrten und die kurzen Wintertage.",
+          "Fahren Sie morgens in Antalya los, um die Berge bei Tageslicht zu überqueren.",
+          "Kombinieren Sie den Ausflug mit einem Aufenthalt an der Küste: ein paar Tage in Antalya oder Side, dann Kappadokien – oder umgekehrt.",
+          "Buchen Sie das Höhlenhotel und eine Ballonfahrt für Weihnachten und Silvester frühzeitig."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Transfer zwischen Antalya und Kappadokien"
+      },
+      {
+        "type": "p",
+        "text": "Wir bieten private Transfers vom Flughafen Antalya und von Hotels an der Küste nach Kappadokien an, einfach oder mit Rückfahrt an einem späteren Datum. Der Preis gilt fest pro Fahrzeug, Sie können für Fotos, Mahlzeiten und einen Besuch in Konya anhalten, und es gibt keine anderen Fahrgäste, auf die Sie warten müssen. Nennen Sie uns bei der Buchung Ihr Hotel und Ihre Reisedaten."
+      }
+    ],
+    "faq": [
+      [
+        "Wie weit ist Kappadokien von Antalya entfernt?",
+        "Etwa 540 km auf der Straße. Die Fahrt über Konya dauert meist 7 bis 8 Stunden, mit Pausen oder bei Schnee etwas länger."
+      ],
+      [
+        "Lohnt sich Kappadokien im Winter?",
+        "Ja. Schnee auf den Feenkaminen, ruhige Sehenswürdigkeiten und gemütliche Höhlenhotels machen den Winter zu einer der schönsten Reisezeiten. Nehmen Sie warme Kleidung mit: Es ist viel kälter als an der Küste."
+      ],
+      [
+        "Fahren die Heißluftballons in Kappadokien auch im Winter?",
+        "Ja, wann immer das Wetter es zulässt. Absagen sind im Winter häufiger, planen Sie daher mindestens zwei Nächte ein, um eine zweite Chance zu haben."
+      ],
+      [
+        "Kann ich mit einem privaten Transfer von Antalya nach Kappadokien fahren?",
+        "Ja. Wir bieten private Transfers vom Flughafen Antalya und von Küstenhotels nach Kappadokien an, einfach oder mit Rückfahrt, zum Festpreis pro Fahrzeug."
+      ]
+    ]
+  },
+  "belek-winter-golf": {
+    "slug": "wintergolf-in-belek",
+    "title": "Wintergolf in Belek: Golfen an der Türkischen Riviera von November bis März",
+    "heading": "Wintergolf in Belek",
+    "description": "Warum Belek ein Ziel für Wintergolf ist: Wetter von November bis März, Platzzustand, günstigere Greenfees, was ins Gepäck gehört und wie Sie mit Golfbags nach Belek kommen.",
+    "excerpt": "Milde Tage, grüne Fairways und freiere Startzeiten. Was Golfer über Belek zwischen November und März wissen sollten, wenn die Plätze zu Hause geschlossen sind.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Wenn die Plätze in Nordeuropa gefroren, durchnässt oder geschlossen sind, wird in Belek weitergespielt. Die Gruppe von Meisterschaftsplätzen 45 km östlich des Flughafens Antalya bleibt den ganzen Winter geöffnet, und die Monate von November bis März sind zu einer eigenen Wintergolf-Saison geworden – für alle, die zwischen Oktober und April nicht pausieren möchten."
+      },
+      {
+        "type": "h2",
+        "text": "So ist das Wetter auf dem Platz"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Monat",
+          "Typischer Tag",
+          "Auf dem Platz"
+        ],
+        "rows": [
+          [
+            "November",
+            "etwa 21 °C",
+            "Ausgezeichnete Bedingungen, noch Herbst-Hochsaison"
+          ],
+          [
+            "Dezember – Januar",
+            "etwa 15–16 °C",
+            "Mild und oft sonnig, mit einigen Regentagen"
+          ],
+          [
+            "Februar",
+            "etwa 16 °C",
+            "Die Tage werden länger, weniger Regentage"
+          ],
+          [
+            "März",
+            "etwa 19 °C",
+            "Beginn der Frühjahrs-Hochsaison"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "An den meisten Wintertagen spielt man im leichten Pullover. Regen kommt eher in kurzen Schauern als wochenlang, und die Plätze sind so angelegt, dass sie schnell abtrocknen. Morgens kann es kühl sein und am späten Nachmittag wird es früh dunkel, deshalb liegen die Startzeiten meist früher als im Sommer."
+      },
+      {
+        "type": "h2",
+        "text": "Warum sich der Winter lohnt"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Greenfees und Hotelpreise sind im Dezember, Januar und Februar in der Regel niedriger als im Herbst und Frühjahr.",
+          "Die Startlisten sind weniger voll, die Runden gehen schneller und Wunschzeiten sind leichter zu bekommen.",
+          "Mehrere Golfhotels haben den ganzen Winter geöffnet, viele mit Hallenbad und Spa für den Nachmittag.",
+          "Kurze Flüge aus den meisten Ländern Europas machen ein verlängertes Wochenende ebenso realistisch wie eine ganze Woche."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Plätze und Hotels im Winter"
+      },
+      {
+        "type": "p",
+        "text": "Nicht alle Plätze und Hotels in Belek haben im Winter die gleichen Betriebszeiten, und Pflegearbeiten wie Aerifizieren oder Nachsäen werden manchmal in die ruhigen Monate gelegt. Fragen Sie bei der Buchung, welche Plätze in Ihrem Reisezeitraum geöffnet sind und ob Pflegearbeiten geplant sind. Golfhotels organisieren meist Startzeiten und Shuttles zu ihren Partnerplätzen."
+      },
+      {
+        "type": "h2",
+        "text": "Was ins Gepäck gehört"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Schichten: eine Funktionsunterwäsche, ein Pullover und eine winddichte Jacke für kühle Morgen.",
+          "Regenjacke und Regenhose für den gelegentlichen Schauer.",
+          "Winterhandschuhe oder Fäustlinge zwischen den Schlägen, dazu normale Golfhandschuhe.",
+          "Sonnenschutz: Die Wintersonne ist an klaren Tagen immer noch kräftig."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Mit Golfbags nach Belek"
+      },
+      {
+        "type": "p",
+        "text": "Vom Flughafen Antalya nach Belek sind es 35 bis 40 Minuten Fahrt, und im Winter ist das Terminal ruhig – eine Runde am Nachmittag des Anreisetags ist daher oft realistisch. Der Preis gilt fest pro Fahrzeug, nicht pro Bag: In der Regel fasst ein Mercedes Vito vier Spieler mit vier Golfbags und Gepäck, größere Gruppen fahren im Sprinter. Nennen Sie uns bei der Buchung die Anzahl der Golfbags."
+      }
+    ],
+    "faq": [
+      [
+        "Kann man in Belek im Winter Golf spielen?",
+        "Ja. Die Plätze in Belek sind den ganzen Winter geöffnet, im Dezember und Januar mit typischen Tagestemperaturen von rund 15–16 °C, und an den meisten Tagen ist Golf gut spielbar."
+      ],
+      [
+        "Ist Golf in Belek im Winter günstiger?",
+        "Greenfees und Hotelpreise sind im Dezember, Januar und Februar in der Regel niedriger als in der Hochsaison im Herbst und Frühjahr. Die genauen Preise hängen vom Platz und vom Hotel ab."
+      ],
+      [
+        "Welcher Monat ist der beste für Golf in Belek?",
+        "Oktober–November und März–April sind die Hauptmonate für Golf. Der Winter ist ruhiger und günstiger, mit etwas kühleren Tagen."
+      ],
+      [
+        "Kosten Golfbags beim Transfer extra?",
+        "Nein. Der Preis gilt fest pro Fahrzeug. Für mehr Bags setzen wir ein größeres Fahrzeug ein, und diesen Preis sehen Sie bei der Buchung."
+      ]
+    ]
+  },
+  "saklikent-ski-antalya": {
+    "slug": "skifahren-bei-antalya-saklikent",
+    "title": "Skifahren bei Antalya: Skigebiet Saklıkent im Überblick",
+    "heading": "Skifahren bei Antalya: das Skigebiet Saklıkent",
+    "description": "Skifahren bei Antalya in Saklıkent: Lage, Fahrzeit, Saison, was Sie auf der Piste erwartet und wie Sie Skifahren und Meer an einem Tag verbinden.",
+    "excerpt": "Morgens Ski fahren, nachmittags am Meer spazieren. Ein praktischer Ratgeber zu Saklıkent, dem Skigebiet von Antalya, und zur Anfahrt von der Küste.",
+    "readingMinutes": 5,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Nur wenige Urlaubsregionen erlauben Skifahren und einen Spaziergang am Meer am selben Tag. Antalya schon: Das Skigebiet Saklıkent liegt im Bakırlı-Gebirge, etwa 50 km von der Stadt entfernt, und an einem guten Wintertag stehen Sie morgens auf der Piste und sind zum Sonnenuntergang zurück an der Strandpromenade."
+      },
+      {
+        "type": "h2",
+        "text": "Wo Saklıkent liegt"
+      },
+      {
+        "type": "p",
+        "text": "Das Skigebiet liegt auf rund 1.900 Metern an den Hängen des Bakırlı-Gebirges westlich von Antalya. Die Fahrt aus der Stadt dauert ungefähr anderthalb Stunden und führt von Orangenhainen durch Pinienwälder bis in den Schnee. An klaren Tagen reicht der Blick von oben bis hinunter zur Küste und zum Meer."
+      },
+      {
+        "type": "h2",
+        "text": "Wann die Saison läuft"
+      },
+      {
+        "type": "p",
+        "text": "Die Skisaison hängt ganz vom Schneefall ab und dauert meist von Januar bis März. In manchen Wintern beginnt sie früher oder endet eher – prüfen Sie daher die aktuelle Schneelage und den Liftbetrieb, bevor Sie einen Tag dafür einplanen."
+      },
+      {
+        "type": "h2",
+        "text": "Was Sie auf der Piste erwartet"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Ein kleines, entspanntes Skigebiet – ideal für Anfänger, Familien und einen Skitag während eines Badeurlaubs, weniger für eine ganze Skiwoche.",
+          "Ski- und Snowboardausrüstung kann man meist vor Ort leihen; prüfen Sie vorher die Öffnungszeiten.",
+          "Rodeln und Spielen im Schnee sind bei Familien beliebt, besonders am Wochenende.",
+          "Am Wochenende kommen viele Einheimische; unter der Woche ist es deutlich ruhiger."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Skifahren und Meer an einem Tag"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Früh am Morgen an der Küste losfahren, um zur Öffnung der Lifte anzukommen.",
+          "Bis zum frühen Nachmittag Ski fahren oder im Schnee spielen.",
+          "Zurück ins Tal fahren – zu einem späten Mittagessen in Kaleiçi oder einem Spaziergang am Strand von Konyaaltı.",
+          "Wechselkleidung mitnehmen: Zwischen Piste und Küste können 15 Grad oder mehr Unterschied liegen."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Anfahrt: die Bergstraße im Winter"
+      },
+      {
+        "type": "p",
+        "text": "Es gibt keine regelmäßigen öffentlichen Verkehrsmittel zum Skigebiet, und auf dem letzten Stück der Bergstraße können Schnee und Eis liegen. Winterreifen oder Schneeketten können vorgeschrieben sein. Ein privater Transfer bringt Sie von Ihrem Hotel in Antalya, Kemer, Belek oder Side auf die Piste und zurück – wie lange Sie am Berg bleiben, entscheiden Sie. Dies ist keine unserer Standardstrecken; schicken Sie uns daher Hotel, Datum und Gruppengröße, und wir nennen Ihnen einen Festpreis pro Fahrzeug."
+      },
+      {
+        "type": "h2",
+        "text": "Weitere Skigebiete ab Antalya"
+      },
+      {
+        "type": "p",
+        "text": "Für einen längeren Skiurlaub ist Davraz bei Isparta ein größeres Skigebiet mit mehr Pisten, etwa zweieinhalb bis drei Stunden Fahrt von Antalya entfernt. Saklıkent bleibt die einfachste Wahl für einen einzelnen Schneetag während eines Aufenthalts an der Küste."
+      }
+    ],
+    "faq": [
+      [
+        "Kann man bei Antalya Ski fahren?",
+        "Ja. Das Skigebiet Saklıkent liegt im Bakırlı-Gebirge, etwa 50 km von der Stadt Antalya entfernt, rund anderthalb Stunden Fahrt."
+      ],
+      [
+        "Wann ist Skisaison in Saklıkent?",
+        "Das hängt vom Schneefall ab. Die Saison dauert meist von Januar bis März; prüfen Sie vor der Fahrt die aktuellen Bedingungen."
+      ],
+      [
+        "Kann man in Antalya am selben Tag Ski fahren und baden?",
+        "Sie können morgens Ski fahren und nachmittags am Meer sein. Baden im Winter ist etwas für Mutige: Das Meer hat rund 17 °C."
+      ],
+      [
+        "Wie komme ich von meinem Hotel nach Saklıkent?",
+        "Es gibt keine regelmäßigen öffentlichen Verkehrsmittel. Wir erstellen Ihnen gern ein Angebot für einen privaten Transfer von Ihrem Hotel zum Skigebiet und zurück, zum Festpreis pro Fahrzeug."
+      ]
+    ]
   }
 };

@@ -21,6 +21,9 @@ import antalyaInWinter from "./antalya-in-winter.js";
 import christmasNewYearAntalya from "./christmas-new-year-antalya.js";
 import winteringInAntalya from "./wintering-in-antalya.js";
 import antalyaInSpring from "./antalya-in-spring.js";
+import cappadociaWinterTrip from "./cappadocia-winter-trip.js";
+import belekWinterGolf from "./belek-winter-golf.js";
+import saklikentSkiAntalya from "./saklikent-ski-antalya.js";
 import { languageOrder, translations } from "./translations/index.js";
 
 /** Languages the blog is published in, largest source market first. */
@@ -32,6 +35,9 @@ const catalogue = [
   antalyaInWinter,
   christmasNewYearAntalya,
   winteringInAntalya,
+  cappadociaWinterTrip,
+  belekWinterGolf,
+  saklikentSkiAntalya,
   antalyaInSpring,
   transferVsTaxi,
   airportArrivalGuide,

@@ -1126,5 +1126,323 @@ export const articles = {
         "Şehir otelleri ve bazı tatil otelleri açıktır. Sezonluk otellerin çoğu nisan içinde açılır ve mayısa gelindiğinde kıyının büyük bölümü tam kapasite çalışır."
       ]
     ]
+  },
+  "cappadocia-winter-trip": {
+    "slug": "antalyadan-kisin-kapadokya",
+    "title": "Antalya'dan Kışın Kapadokya: Kar, Balonlar ve Yol Rehberi",
+    "heading": "Kışın Kapadokya: Antalya'dan bir gezi",
+    "description": "Antalya'dan kışın Kapadokya gezisi: kar, hava durumu, balon turları, mağara otelleri, görülecek yerler ve Konya üzerinden 540 km'lik yolun kışın nasıl olduğu.",
+    "excerpt": "Karla kaplı peri bacaları ve beyaz vadinin üzerinde balonlar. Antalya'daki kış tatilinizi Kapadokya ile nasıl birleştirirsiniz, kışın yol nasıldır?",
+    "readingMinutes": 7,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Kışın Kapadokya, Türkiye'nin en çok fotoğraflanan manzaralarından biridir: karla örtülü peri bacaları ve vadiler, şöminesi yanan mağara otelleri ve açık sabahlarda beyaz bir manzaranın üzerinde yükselen balonlar. Antalya'dan kışın Kapadokya'ya gitmek uzun ama güzel bir yolculuktur - ve sahildeki bir kış tatilinin doğal bir tamamlayıcısıdır."
+      },
+      {
+        "type": "h2",
+        "text": "Kış havası: sahilden bambaşka bir iklim"
+      },
+      {
+        "type": "p",
+        "text": "Kapadokya yaklaşık 1.000 metre ve üzeri yükseklikte bir platoda yer alır, bu yüzden oradaki kış gerçek bir kıştır. Gündüz sıcaklıkları çoğu zaman sıfıra yakındır, geceler sıfırın epey altına iner ve aralıktan şubata kadar kar sık görülür. Sağlam bir kış montu, eldiven, bere ve su geçirmez ayakkabı alın - ocakta Antalya için yeterli olan kıyafetler burada yetmez."
+      },
+      {
+        "type": "table",
+        "head": [
+          "",
+          "Antalya sahili",
+          "Kapadokya"
+        ],
+        "rows": [
+          [
+            "Tipik bir kış günü",
+            "yaklaşık 15 °C",
+            "0-5 °C civarı"
+          ],
+          [
+            "Kış geceleri",
+            "yaklaşık 6-8 °C",
+            "çoğu zaman sıfırın altında"
+          ],
+          [
+            "Kar",
+            "yalnızca dağ zirvelerinde",
+            "aralıktan şubata kadar sık"
+          ]
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Kışın balon turları"
+      },
+      {
+        "type": "p",
+        "text": "Balonlar hava izin verdiğinde yılın her döneminde uçar ve karla kaplı vadilerin üzerinde gün doğumu uçuşu, pek çok kişinin tam da görmeye geldiği manzaradır. Ancak kışın rüzgâr, sis ya da kar nedeniyle iptaller daha sık yaşanır ve karar her sabah erken saatte yetkililer tarafından verilir. Kapadokya'da en az iki gece planlayın; böylece bir uçuşun iptal olması deneyimi tamamen kaçırmanız anlamına gelmez."
+      },
+      {
+        "type": "h2",
+        "text": "Kışın görülecek yerler"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Göreme Açık Hava Müzesi: freskli kaya kiliseleri; kışın yılın diğer tüm zamanlarından daha sakindir.",
+          "Derinkuyu ve Kaymaklı gibi yeraltı şehirleri: birkaç kat derinlikte, dışarıdaki hava ne olursa olsun sabit ve rahat bir sıcaklık.",
+          "Uçhisar Kalesi ve Göreme'nin üzerindeki seyir noktaları: karlı panoramalar için en iyi yerler.",
+          "Kuru ve açık günlerde Güllüdere, Kızılçukur ve Aşıklar vadilerinde kısa yürüyüşler - kar sonrası patikalar buzlu olabilir.",
+          "Mağara otelleri: birçoğu ısıtmalı ve şömineli; en özel hissettirdikleri mevsim kıştır."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Antalya'dan yol"
+      },
+      {
+        "type": "p",
+        "text": "Yol yaklaşık 540 km'dir ve genellikle 7-8 saat sürer; Toros Dağları aşıldıktan sonra Konya üzerinden plato boyunca devam edilir. Mevlana Müzesi ile Konya, yolculuğu bölmek için doğal bir moladır. Kışın dağ kesiminde kar ve buz olabilir; yollar temizlenir, ancak kış donanımlı bir araç ve güzergâhı bilen bir şoför, uzun bir gün ile stresli bir gün arasındaki farkı yaratır."
+      },
+      {
+        "type": "h2",
+        "text": "Geziyi nasıl planlamalı"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Balon iptallerine ve kısa kış günlerine pay bırakmak için en az iki, tercihen üç gece ayırın.",
+          "Dağları gün ışığında geçmek için Antalya'dan sabah yola çıkın.",
+          "Geziyi sahil tatiliyle birleştirin: önce birkaç gün Antalya ya da Side, sonra Kapadokya - veya tam tersi.",
+          "Yılbaşı ve Noel dönemi için mağara otelini ve varsa balon uçuşunu erkenden ayırtın."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Antalya - Kapadokya transferi"
+      },
+      {
+        "type": "p",
+        "text": "Antalya Havalimanı'ndan ve sahildeki otellerden Kapadokya'ya tek yön ya da ileri bir tarihte dönüşlü özel transfer yapıyoruz. Fiyat araç başına sabittir; fotoğraf, yemek ve Konya ziyareti için mola verebilirsiniz, beklemeniz gereken başka yolcu yoktur. Rezervasyon yaparken otelinizi ve tarihlerinizi bize bildirin."
+      }
+    ],
+    "faq": [
+      [
+        "Kapadokya Antalya'ya ne kadar uzaklıkta?",
+        "Karayoluyla yaklaşık 540 km. Konya üzerinden yolculuk genellikle 7-8 saat sürer; molalarla ya da karlı havada biraz daha uzun."
+      ],
+      [
+        "Kışın Kapadokya'ya gitmeye değer mi?",
+        "Evet. Peri bacalarının üzerindeki kar, sakin ören yerleri ve sıcacık mağara otelleri kışı oradaki en güzel dönemlerden biri yapar. Kalın giysiler alın: sahilden çok daha soğuktur."
+      ],
+      [
+        "Kapadokya'da kışın balonlar uçuyor mu?",
+        "Evet, hava izin verdiği her gün. Kışın iptaller daha sık olduğundan ikinci bir şansınız olsun diye en az iki gece planlayın."
+      ],
+      [
+        "Antalya'dan Kapadokya'ya özel transferle gidebilir miyim?",
+        "Evet. Antalya Havalimanı'ndan ve sahil otellerinden Kapadokya'ya, tek yön ya da gidiş-dönüş, araç başına sabit fiyatla özel transfer sunuyoruz."
+      ]
+    ]
+  },
+  "belek-winter-golf": {
+    "slug": "belekte-kis-golfu",
+    "title": "Belek'te Kış Golfü: Kasımdan Marta Türk Rivierası'nda Golf",
+    "heading": "Belek'te kış golfü",
+    "description": "Belek neden bir kış golfü destinasyonu: kasımdan marta hava durumu, saha koşulları, daha düşük green fee, ne götürmeli ve golf çantalarıyla Belek'e nasıl gidilir.",
+    "excerpt": "Ilık günler, yeşil fairway'ler ve daha sakin tee saatleri. Kasım ile mart arasında Belek'te golf oynamak isteyenlerin bilmesi gerekenler.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Kuzey Avrupa'daki sahalar donmuş, su basmış ya da kapalıyken Belek'te oyun devam eder. Antalya Havalimanı'nın 45 km doğusundaki şampiyona sahaları kış boyunca açık kalır; Belek'te kış golfü, yani kasımdan marta uzanan aylar, ekimle nisan arasında ara vermek istemeyen golfçüler için başlı başına bir sezon hâline geldi."
+      },
+      {
+        "type": "h2",
+        "text": "Sahada hava nasıl"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Ay",
+          "Tipik gün",
+          "Sahada"
+        ],
+        "rows": [
+          [
+            "Kasım",
+            "yaklaşık 21 °C",
+            "Mükemmel koşullar, hâlâ sonbahar yoğun sezonu"
+          ],
+          [
+            "Aralık - ocak",
+            "yaklaşık 15-16 °C",
+            "Ilık ve çoğu zaman güneşli, birkaç yağmurlu gün"
+          ],
+          [
+            "Şubat",
+            "yaklaşık 16 °C",
+            "Günler uzuyor, yağmurlu gün sayısı azalıyor"
+          ],
+          [
+            "Mart",
+            "yaklaşık 19 °C",
+            "İlkbahar yoğun sezonunun başlangıcı"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Kış günlerinin çoğunda ince bir kazakla oynanabilir. Yağmur genellikle haftalarca değil, kısa sağanaklar hâlinde gelir ve sahalar suyu hızlı drene edecek şekilde inşa edilmiştir. Sabahlar serin olabilir ve ışık öğleden sonranın sonlarına doğru azalır; bu yüzden tee saatleri genellikle yaza göre daha erkendir."
+      },
+      {
+        "type": "h2",
+        "text": "Kış neden avantajlı"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Green fee'ler ve otel fiyatları aralık, ocak ve şubatta genellikle sonbahar ve ilkbahara göre daha düşüktür.",
+          "Tee sheet'ler daha az kalabalıktır; turlar daha hızlı geçer, istenen saatleri almak daha kolaydır.",
+          "Birçok golf oteli kış boyunca açık kalır, çoğunda öğleden sonrası için kapalı havuz ve spa bulunur.",
+          "Avrupa'nın büyük bölümünden kısa uçuşlar sayesinde uzun hafta sonları da bir haftalık tatiller kadar gerçekçidir."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Kışın sahalar ve oteller"
+      },
+      {
+        "type": "p",
+        "text": "Belek'teki her saha ve otel kışın aynı takvimle çalışmaz; havalandırma (hollow-tining) ya da overseeding gibi bakım çalışmaları bazen sakin aylara planlanır. Rezervasyon yaparken tarihlerinizde hangi sahaların açık olduğunu ve planlı bir bakım olup olmadığını sorun. Golf otelleri genellikle anlaşmalı sahalarında tee saatlerini ve servisleri ayarlar."
+      },
+      {
+        "type": "h2",
+        "text": "Kış golfü için ne götürmeli"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Katmanlar: serin sabahlar için bir içlik, bir kazak ve rüzgâr geçirmez bir üst.",
+          "Ara sıra gelen sağanaklar için su geçirmez ceket ve pantolon.",
+          "Vuruşlar arasında kışlık eldiven veya parmaksız eldiven, ayrıca normal golf eldivenleri.",
+          "Güneş koruması: açık günlerde kış güneşi hâlâ güçlüdür."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Golf çantalarıyla Belek'e ulaşım"
+      },
+      {
+        "type": "p",
+        "text": "Antalya Havalimanı'ndan Belek'e karayoluyla 35-40 dakika sürer; kışın terminal sakin olduğundan varış günü öğleden sonra bir tur atmak çoğu zaman mümkündür. Fiyat çanta başına değil, araç başına sabittir: kural olarak bir Mercedes Vito dört oyuncuyu dört golf çantası ve bagajlarıyla taşır, daha büyük gruplar Sprinter ile seyahat eder. Rezervasyon yaparken çanta sayısını bize bildirin."
+      }
+    ],
+    "faq": [
+      [
+        "Belek'te kışın golf oynanabilir mi?",
+        "Evet. Belek'teki sahalar kış boyunca açık kalır; aralık ve ocakta tipik gündüz sıcaklıkları 15-16 °C civarındadır ve günlerin çoğu oynamaya uygundur."
+      ],
+      [
+        "Belek'te golf kışın daha mı ucuz?",
+        "Green fee'ler ve otel fiyatları aralık, ocak ve şubatta genellikle sonbahar ve ilkbahar yoğun sezonlarına göre daha düşüktür. Kesin fiyatlar sahaya ve otele göre değişir."
+      ],
+      [
+        "Belek'te golf için en iyi ay hangisi?",
+        "Ekim-kasım ve mart-nisan golfün yoğun aylarıdır. Kış daha sakin ve daha uygun fiyatlıdır, günler biraz daha serindir."
+      ],
+      [
+        "Transferde golf çantaları için ek ücret var mı?",
+        "Hayır. Fiyat araç başına sabittir. Daha fazla çanta için daha büyük bir araç atarız ve bu fiyatı rezervasyon sırasında görürsünüz."
+      ]
+    ]
+  },
+  "saklikent-ski-antalya": {
+    "slug": "antalya-kayak-merkezi-saklikent",
+    "title": "Antalya'da Kayak: Saklıkent Kayak Merkezi Rehberi",
+    "heading": "Antalya'da kayak: Saklıkent Kayak Merkezi",
+    "description": "Antalya'da kayak için Saklıkent: nerede, yol ne kadar sürer, sezon ne zaman, pistlerde neler var ve kayakla denizi aynı günde nasıl birleştirirsiniz.",
+    "excerpt": "Sabah kayak, öğleden sonra deniz kenarında yürüyüş. Antalya'nın kendi kayak merkezi Saklıkent ve sahilden oraya nasıl gidileceğine dair pratik bir rehber.",
+    "readingMinutes": 5,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Aynı gün hem kayak yapıp hem deniz kenarında yürüyebileceğiniz tatil bölgesi azdır. Antalya bunlardan biri: Antalya'da kayak için Saklıkent Kayak Merkezi, şehre yaklaşık 50 km uzaklıkta, Bakırlı Dağı'nda yer alır ve güzel bir kış gününde sabah pistte, gün batımında ise yeniden sahil şeridinde olabilirsiniz."
+      },
+      {
+        "type": "h2",
+        "text": "Saklıkent nerede"
+      },
+      {
+        "type": "p",
+        "text": "Kayak merkezi, Antalya'nın batısında, Bakırlı Dağı'nın yamaçlarında yaklaşık 1.900 metre yükseklikte bulunur. Şehirden yolculuk yaklaşık bir buçuk saat sürer; portakal bahçelerinden çam ormanlarına, oradan da kara tırmanırsınız. Açık günlerde zirveden manzara sahile ve denize kadar uzanır."
+      },
+      {
+        "type": "h2",
+        "text": "Sezon ne zaman"
+      },
+      {
+        "type": "p",
+        "text": "Kayak sezonu tamamen kar yağışına bağlıdır ve genellikle ocaktan marta kadar sürer. Bazı kışlarda daha erken başlar ya da daha erken biter; bu yüzden gününüzü planlamadan önce güncel kar ve lift durumunu kontrol edin."
+      },
+      {
+        "type": "h2",
+        "text": "Pistlerde sizi neler bekliyor"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Küçük ve rahat bir kayak merkezi - tam bir kayak haftasından çok yeni başlayanlar, aileler ve sahil tatili sırasında bir günlük kayak için ideal.",
+          "Kayak ve snowboard ekipmanı genellikle merkezde kiralanabilir; gitmeden önce çalışma saatlerini kontrol edin.",
+          "Kızak ve kar oyunları, özellikle hafta sonları ailelerin gözdesidir.",
+          "Hafta sonları yerli ziyaretçilerle kalabalıktır; hafta içi çok daha sakindir."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Aynı günde kayak ve deniz"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Liftler açılırken orada olmak için sahilden sabah erkenden yola çıkın.",
+          "Öğleden sonranın başına kadar kayak yapın ya da karda eğlenin.",
+          "Aşağı inip Kaleiçi'nde geç bir öğle yemeği yiyin ya da Konyaaltı plajında yürüyün.",
+          "Yedek kıyafet alın: pistle sahil arasındaki sıcaklık farkı 15 derece veya daha fazla olabilir."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Ulaşım: kışın dağ yolu"
+      },
+      {
+        "type": "p",
+        "text": "Kayak merkezine düzenli toplu taşıma yoktur ve dağ yolunun son bölümünde kar ve buz olabilir. Kış lastiği veya zincir zorunlu olabilir. Özel transfer sizi Antalya, Kemer, Belek ya da Side'deki otelinizden pistlere götürüp geri getirir; dağda ne kadar kalacağınıza siz karar verirsiniz. Bu, standart güzergâhlarımızdan biri değildir; otelinizi, tarihinizi ve kişi sayısını bize gönderin, size araç başına sabit bir fiyat verelim."
+      },
+      {
+        "type": "h2",
+        "text": "Antalya'dan diğer kayak seçenekleri"
+      },
+      {
+        "type": "p",
+        "text": "Daha uzun bir kayak tatili için Isparta yakınlarındaki Davraz, daha fazla pisti olan daha büyük bir kayak merkezidir ve Antalya'dan karayoluyla yaklaşık iki buçuk ila üç saat uzaklıktadır. Sahildeki bir tatil sırasında tek günlük bir kar keyfi için en kolay seçenek yine Saklıkent'tir."
+      }
+    ],
+    "faq": [
+      [
+        "Antalya yakınlarında kayak yapılabilir mi?",
+        "Evet. Saklıkent Kayak Merkezi, Bakırlı Dağı'nda, Antalya şehir merkezine yaklaşık 50 km, karayoluyla yaklaşık bir buçuk saat uzaklıktadır."
+      ],
+      [
+        "Saklıkent'te kayak sezonu ne zaman?",
+        "Kar yağışına bağlıdır. Sezon genellikle ocaktan marta kadar sürer; gitmeden önce güncel koşulları kontrol edin."
+      ],
+      [
+        "Antalya'da aynı gün kayak yapıp denize girilebilir mi?",
+        "Sabah kayak yapıp öğleden sonra deniz kenarında olabilirsiniz. Kışın denize girmek cesurlara göre: deniz 17 °C civarındadır."
+      ],
+      [
+        "Otelimden Saklıkent'e nasıl giderim?",
+        "Düzenli toplu taşıma yoktur. Otelinizden kayak merkezine gidiş-dönüş özel transfer için araç başına sabit fiyat teklifi verebiliriz."
+      ]
+    ]
   }
 };

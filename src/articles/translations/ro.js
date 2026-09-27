@@ -836,5 +836,323 @@ export const articles = {
         "Hotelurile din oraș și unele resorturi sunt deschise. Multe resorturi sezoniere se deschid în aprilie, iar până în mai cea mai mare parte a coastei funcționează din plin."
       ]
     ]
+  },
+  "cappadocia-winter-trip": {
+    "slug": "capadocia-iarna-din-antalya",
+    "title": "Capadocia iarna, din Antalya: zăpadă, baloane și drumul până acolo",
+    "heading": "Capadocia iarna: o excursie din Antalya",
+    "description": "Capadocia iarna, din Antalya: zăpadă, vreme, zboruri cu balonul, hoteluri-peșteră, ce să vezi și cum arată iarna drumul de 540 km prin Konya.",
+    "excerpt": "Coșuri ale zânelor acoperite de zăpadă și baloane deasupra unei văi albe. Cum combini un sejur de iarnă în Antalya cu Capadocia și cum e drumul iarna.",
+    "readingMinutes": 7,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Capadocia iarna este unul dintre cele mai fotografiate peisaje din Türkiye: coșurile zânelor și văile sub zăpadă, hoteluri-peșteră cu foc în șemineu și, în diminețile senine, baloane care se ridică deasupra unui peisaj alb. Din Antalya este un drum lung, dar frumos - și o completare firească pentru un sejur de iarnă pe litoral."
+      },
+      {
+        "type": "h2",
+        "text": "Vremea iarna: altă climă decât pe coastă"
+      },
+      {
+        "type": "p",
+        "text": "Capadocia se află pe un platou înalt, la aproximativ 1.000 de metri sau mai mult, așa că iarna de acolo este o iarnă adevărată. Ziua temperaturile sunt adesea în jurul punctului de îngheț, nopțile sunt mult sub zero, iar zăpada este frecventă din decembrie până în februarie. Ia o geacă de iarnă serioasă, mănuși, căciulă și încălțăminte impermeabilă - hainele potrivite pentru Antalya în ianuarie nu ajung aici."
+      },
+      {
+        "type": "table",
+        "head": [
+          "",
+          "Coasta Antalyei",
+          "Capadocia"
+        ],
+        "rows": [
+          [
+            "Zi obișnuită de iarnă",
+            "în jur de 15 °C",
+            "aproximativ 0-5 °C"
+          ],
+          [
+            "Nopți de iarnă",
+            "în jur de 6-8 °C",
+            "adesea sub zero"
+          ],
+          [
+            "Zăpadă",
+            "doar pe vârfurile munților",
+            "frecventă din decembrie până în februarie"
+          ]
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Zboruri cu balonul iarna"
+      },
+      {
+        "type": "p",
+        "text": "Baloanele zboară tot anul, când vremea permite, iar un zbor la răsărit deasupra văilor înzăpezite este imaginea pentru care vin mulți. Iarna aduce însă și mai multe anulări din cauza vântului, a ceții sau a zăpezii, iar decizia o iau autoritățile devreme, în fiecare dimineață. Plănuiește cel puțin două nopți în Capadocia, ca un zbor anulat să nu însemne că ratezi experiența complet."
+      },
+      {
+        "type": "h2",
+        "text": "Ce să vezi iarna"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Muzeul în aer liber Göreme: biserici săpate în stâncă, cu fresce, mai liniștit iarna decât în orice altă perioadă a anului.",
+          "Orașe subterane precum Derinkuyu și Kaymaklı: mai multe niveluri în adâncime și o temperatură confortabilă, constantă, indiferent de vremea de afară.",
+          "Cetatea Uçhisar și punctele de belvedere de deasupra Göreme: cele mai bune locuri pentru panorame cu zăpadă.",
+          "Plimbări scurte în Valea Trandafirilor, Valea Roșie și Valea Iubirii în zilele uscate și senine - potecile pot fi înghețate după ninsoare.",
+          "Hoteluri-peșteră: multe sunt încălzite și au șemineu, iar iarna este sezonul în care par cele mai speciale."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Drumul din Antalya"
+      },
+      {
+        "type": "p",
+        "text": "Distanța este de aproximativ 540 km, iar drumul durează de obicei 7-8 ore: traversează munții Taurus și continuă pe platou prin Konya. Konya, cu Muzeul Mevlana, este o oprire firească pentru a împărți călătoria. Iarna, porțiunea de munte poate avea zăpadă și gheață; drumurile sunt curățate, dar un vehicul echipat de iarnă și un șofer care cunoaște ruta fac diferența dintre o zi lungă și una stresantă."
+      },
+      {
+        "type": "h2",
+        "text": "Cum să planifici excursia"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Rezervă cel puțin două nopți, ideal trei, ca să ai loc pentru anulări ale zborurilor cu balonul și pentru zilele scurte de iarnă.",
+          "Pleacă din Antalya dimineața, ca să traversezi munții pe lumină.",
+          "Combină excursia cu un sejur pe litoral: câteva zile în Antalya sau Side, apoi Capadocia, sau invers.",
+          "Pentru perioada Crăciunului și a Revelionului, rezervă din timp hotelul-peșteră și eventualul zbor cu balonul."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Transfer între Antalya și Capadocia"
+      },
+      {
+        "type": "p",
+        "text": "Oferim transferuri private din Aeroportul Antalya și de la hotelurile de pe litoral până în Capadocia, doar dus sau cu întoarcere la o dată ulterioară. Prețul este fix per vehicul, poți opri pentru fotografii, masă și o vizită în Konya și nu aștepți alți pasageri. Spune-ne hotelul și datele când rezervi."
+      }
+    ],
+    "faq": [
+      [
+        "Cât de departe este Capadocia de Antalya?",
+        "Aproximativ 540 km pe șosea. Drumul durează de obicei 7-8 ore prin Konya, ceva mai mult cu opriri sau pe zăpadă."
+      ],
+      [
+        "Merită să vizitezi Capadocia iarna?",
+        "Da. Zăpada pe coșurile zânelor, obiectivele liniștite și hotelurile-peșteră primitoare fac din iarnă una dintre cele mai frumoase perioade acolo. Ia haine groase: este mult mai frig decât pe coastă."
+      ],
+      [
+        "Zboară baloanele în Capadocia iarna?",
+        "Da, ori de câte ori vremea permite. Anulările sunt mai frecvente iarna, așa că plănuiește cel puțin două nopți, ca să ai o a doua șansă."
+      ],
+      [
+        "Pot merge din Antalya în Capadocia cu un transfer privat?",
+        "Da. Oferim transferuri private din Aeroportul Antalya și de la hotelurile de pe litoral până în Capadocia, doar dus sau dus-întors, la preț fix per vehicul."
+      ]
+    ]
+  },
+  "belek-winter-golf": {
+    "slug": "golf-iarna-in-belek",
+    "title": "Golf iarna în Belek: Riviera Turcească din noiembrie până în martie",
+    "heading": "Golf iarna în Belek",
+    "description": "De ce Belek e o destinație de golf iarna: vremea din noiembrie până în martie, starea terenurilor, green fee mai mic, ce să iei și cum ajungi cu sacii de golf.",
+    "excerpt": "Zile blânde, fairway-uri verzi și tee time-uri mai libere. Ce trebuie să știe jucătorii de golf despre Belek între noiembrie și martie, când terenurile de acasă sunt închise.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Când terenurile din nordul Europei sunt înghețate, îmbibate de apă sau închise, în Belek se joacă mai departe. Golf iarna în Belek este posibil pentru că grupul de terenuri de campionat aflat la 45 km est de Aeroportul Antalya rămâne deschis toată iarna, iar lunile noiembrie-martie au devenit un sezon de sine stătător pentru jucătorii care nu vor să facă pauză între octombrie și aprilie."
+      },
+      {
+        "type": "h2",
+        "text": "Cum e vremea pe teren"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Luna",
+          "Zi obișnuită",
+          "Pe teren"
+        ],
+        "rows": [
+          [
+            "Noiembrie",
+            "în jur de 21 °C",
+            "Condiții excelente, încă sezonul de vârf de toamnă"
+          ],
+          [
+            "Decembrie - ianuarie",
+            "în jur de 15-16 °C",
+            "Blând și adesea însorit, cu câteva zile ploioase"
+          ],
+          [
+            "Februarie",
+            "în jur de 16 °C",
+            "Zilele se lungesc, mai puține zile ploioase"
+          ],
+          [
+            "Martie",
+            "în jur de 19 °C",
+            "Începutul sezonului de vârf de primăvară"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "În majoritatea zilelor de iarnă se poate juca într-un pulover subțire. Ploaia vine de obicei în reprize scurte, nu săptămâni întregi, iar terenurile sunt construite să dreneze repede. Diminețile pot fi răcoroase, iar lumina scade spre sfârșitul după-amiezii, așa că tee time-urile sunt de regulă mai devreme decât vara."
+      },
+      {
+        "type": "h2",
+        "text": "De ce merită iarna"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Green fee-urile și tarifele hotelurilor sunt în general mai mici în decembrie, ianuarie și februarie decât toamna și primăvara.",
+          "Tee sheet-urile sunt mai puțin aglomerate, deci rundele merg mai repede și orele preferate se obțin mai ușor.",
+          "Mai multe hoteluri de golf rămân deschise toată iarna, multe cu piscine interioare și spa pentru după-amiază.",
+          "Zborurile scurte din mare parte a Europei fac weekendurile prelungite la fel de realiste ca excursiile de o săptămână."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Terenuri și hoteluri iarna"
+      },
+      {
+        "type": "p",
+        "text": "Nu toate terenurile și hotelurile din Belek funcționează după același program iarna, iar lucrări de întreținere precum aerarea sau supraînsămânțarea sunt uneori planificate în lunile liniștite. Când rezervi, întreabă ce terenuri sunt deschise în perioada ta și dacă sunt programate lucrări. Hotelurile de golf organizează de obicei tee time-urile și transportul spre terenurile partenere."
+      },
+      {
+        "type": "h2",
+        "text": "Ce să iei pentru golf iarna"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Straturi: un strat de bază, un pulover și o geacă rezistentă la vânt pentru diminețile răcoroase.",
+          "Geacă și pantaloni impermeabili pentru averse ocazionale.",
+          "Mănuși de iarnă între lovituri, plus mănușile obișnuite de golf.",
+          "Protecție solară: soarele de iarnă este tot puternic în zilele senine."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Cum ajungi în Belek cu sacii de golf"
+      },
+      {
+        "type": "p",
+        "text": "De la Aeroportul Antalya până în Belek sunt 35-40 de minute pe șosea, iar iarna terminalul este liniștit, așa că o rundă în după-amiaza sosirii este adesea realistă. Prețul este fix per vehicul, nu per sac: de regulă, un Mercedes Vito ia patru jucători cu patru saci de golf și bagajele lor, iar grupurile mai mari călătoresc cu un Sprinter. Spune-ne numărul de saci când rezervi."
+      }
+    ],
+    "faq": [
+      [
+        "Se poate juca golf în Belek iarna?",
+        "Da. Terenurile din Belek rămân deschise toată iarna, cu temperaturi obișnuite ziua de aproximativ 15-16 °C în decembrie și ianuarie, iar în majoritatea zilelor se poate juca."
+      ],
+      [
+        "Este golful mai ieftin în Belek iarna?",
+        "Green fee-urile și tarifele hotelurilor sunt în general mai mici în decembrie, ianuarie și februarie decât în sezoanele de vârf de toamnă și primăvară. Prețurile exacte depind de teren și de hotel."
+      ],
+      [
+        "Care este cea mai bună lună pentru golf în Belek?",
+        "Octombrie-noiembrie și martie-aprilie sunt lunile de vârf pentru golf. Iarna este mai liniștită și mai ieftină, cu zile puțin mai răcoroase."
+      ],
+      [
+        "Sacii de golf costă în plus la transfer?",
+        "Nu. Prețul este fix per vehicul. Pentru mai mulți saci alocăm un vehicul mai mare, iar prețul îl vezi când rezervi."
+      ]
+    ]
+  },
+  "saklikent-ski-antalya": {
+    "slug": "schi-langa-antalya-saklikent",
+    "title": "Schi lângă Antalya: ghidul stațiunii Saklıkent",
+    "heading": "Schi lângă Antalya: stațiunea de schi Saklıkent",
+    "description": "Schi lângă Antalya, la Saklıkent: unde se află, cât durează drumul, când e sezonul, la ce să te aștepți pe pârtii și cum combini schiul și marea în aceeași zi.",
+    "excerpt": "Dimineața la schi, după-amiaza la plimbare pe malul mării. Ghid practic pentru Saklıkent, stațiunea de schi a Antalyei, și cum ajungi acolo de pe litoral.",
+    "readingMinutes": 5,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Puține regiuni de vacanță îți permit să schiezi și să te plimbi pe malul mării în aceeași zi. Antalya poate: pentru schi lângă Antalya există stațiunea Saklıkent, în munții Bakırlı, la aproximativ 50 km de oraș, iar într-o zi bună de iarnă poți fi pe pârtie dimineața și înapoi pe faleză la apus."
+      },
+      {
+        "type": "h2",
+        "text": "Unde se află Saklıkent"
+      },
+      {
+        "type": "p",
+        "text": "Stațiunea se află la aproximativ 1.900 de metri, pe versanții munților Bakırlı, la vest de Antalya. Drumul din oraș durează cam o oră și jumătate și urcă din livezile de portocali prin pădure de pin până la zăpadă. În zilele senine, priveliștea de sus ajunge până la coastă și la mare."
+      },
+      {
+        "type": "h2",
+        "text": "Când e sezonul"
+      },
+      {
+        "type": "p",
+        "text": "Sezonul de schi depinde în întregime de ninsori și durează de obicei din ianuarie până în martie. În unele ierni începe mai devreme sau se termină mai repede, așa că verifică stratul de zăpadă și starea teleschiurilor înainte să-ți planifici ziua."
+      },
+      {
+        "type": "h2",
+        "text": "La ce să te aștepți pe pârtii"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "O stațiune mică și relaxată - ideală pentru începători, familii și o zi de schi în timpul unei vacanțe pe litoral, nu pentru o săptămână întreagă de schi.",
+          "Echipamentul de schi și snowboard se poate închiria de obicei în stațiune; verifică programul înainte să pleci.",
+          "Săniușul și joaca în zăpadă sunt populare printre familii, mai ales în weekend.",
+          "În weekend e aglomerat cu vizitatori locali; în cursul săptămânii e mult mai liniștit."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Schi și mare în aceeași zi"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Pleacă de pe litoral dis-de-dimineață, ca să ajungi la deschiderea teleschiurilor.",
+          "Schiază sau joacă-te în zăpadă până la începutul după-amiezii.",
+          "Coboară pentru un prânz târziu în Kaleiçi sau o plimbare pe plaja Konyaaltı.",
+          "Ia haine de schimb: diferența de temperatură dintre pârtie și coastă poate fi de 15 grade sau mai mult."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Cum ajungi: drumul de munte iarna"
+      },
+      {
+        "type": "p",
+        "text": "Nu există transport public regulat până la stațiune, iar ultima porțiune a drumului de munte poate avea zăpadă și gheață. Pot fi obligatorii anvelopele de iarnă sau lanțurile. Un transfer privat te duce de la hotelul tău din Antalya, Kemer, Belek sau Side până la pârtie și înapoi, iar timpul petrecut pe munte îl decizi tu. Aceasta nu este una dintre rutele noastre standard, așa că trimite-ne hotelul, data și numărul de persoane și îți oferim un preț fix per vehicul."
+      },
+      {
+        "type": "h2",
+        "text": "Alte opțiuni de schi din Antalya"
+      },
+      {
+        "type": "p",
+        "text": "Pentru o excursie de schi mai lungă, Davraz, lângă Isparta, este o stațiune mai mare, cu mai multe pârtii, la aproximativ două ore și jumătate - trei ore de Antalya pe șosea. Saklıkent rămâne cea mai simplă alegere pentru o singură zi pe zăpadă în timpul unui sejur pe litoral."
+      }
+    ],
+    "faq": [
+      [
+        "Se poate schia lângă Antalya?",
+        "Da. Stațiunea de schi Saklıkent se află la aproximativ 50 km de orașul Antalya, cam o oră și jumătate pe șosea, în munții Bakırlı."
+      ],
+      [
+        "Când este sezonul de schi la Saklıkent?",
+        "Depinde de ninsori. Sezonul durează de obicei din ianuarie până în martie; verifică condițiile actuale înainte să pleci."
+      ],
+      [
+        "Poți schia și înota în aceeași zi în Antalya?",
+        "Poți schia dimineața și să fii la mare după-amiaza. Înotul iarna este pentru curajoși: marea are în jur de 17 °C."
+      ],
+      [
+        "Cum ajung la Saklıkent de la hotel?",
+        "Nu există transport public regulat. Îți putem oferi un transfer privat de la hotel până la stațiune și înapoi, la preț fix per vehicul."
+      ]
+    ]
   }
 };

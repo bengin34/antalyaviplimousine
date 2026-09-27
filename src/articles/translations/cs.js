@@ -836,5 +836,323 @@ export const articles = {
         "Městské hotely a některé resorty mají otevřeno. Mnoho sezonních resortů otevírá během dubna a v květnu je většina pobřeží v plném provozu."
       ]
     ]
+  },
+  "cappadocia-winter-trip": {
+    "slug": "kappadokie-v-zime-z-antalye",
+    "title": "Kappadokie v zimě z Antalye: sníh, balony a cesta tam",
+    "heading": "Kappadokie v zimě: výlet z Antalye",
+    "description": "Kappadokie v zimě z Antalye: sníh, počasí, lety balonem, jeskynní hotely, co vidět a jak v zimě probíhá 540 km dlouhá cesta autem přes Konyu.",
+    "excerpt": "Pohádkové komíny pod sněhem a balony nad bílým údolím. Jak spojit zimní pobyt v Antalyi s Kappadokií a jaká je cesta v zimě.",
+    "readingMinutes": 7,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Kappadokie v zimě patří k nejfotografovanějším krajinám Turecka: pohádkové komíny a údolí pod sněhem, jeskynní hotely s krbem a za jasných rán balony stoupající nad bílou krajinou. Z Antalye je to dlouhá, ale krásná cesta autem – a přirozený doplněk zimního pobytu na pobřeží."
+      },
+      {
+        "type": "h2",
+        "text": "Zimní počasí: úplně jiné klima než na pobřeží"
+      },
+      {
+        "type": "p",
+        "text": "Kappadokie leží na vysoké náhorní plošině, zhruba v 1 000 metrech nad mořem i výš, takže zima je tu opravdová. Přes den se teploty často drží kolem nuly, noci jsou hluboko pod nulou a od prosince do února je sníh běžný. Sbalte si pořádnou zimní bundu, rukavice, čepici a nepromokavé boty – oblečení, které v lednu stačí v Antalyi, tu nestačí."
+      },
+      {
+        "type": "table",
+        "head": [
+          "",
+          "Pobřeží Antalye",
+          "Kappadokie"
+        ],
+        "rows": [
+          [
+            "Běžný zimní den",
+            "asi 15 °C",
+            "zhruba 0–5 °C"
+          ],
+          [
+            "Zimní noci",
+            "asi 6–8 °C",
+            "často pod bodem mrazu"
+          ],
+          [
+            "Sníh",
+            "jen na horských vrcholech",
+            "běžný od prosince do února"
+          ]
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Lety balonem v zimě"
+      },
+      {
+        "type": "p",
+        "text": "Balony létají celoročně, když to počasí dovolí, a let při východu slunce nad zasněženými údolími je obraz, kvůli kterému sem mnoho lidí jezdí. V zimě se ale lety častěji ruší kvůli větru, mlze nebo sněhu a rozhodují o nich úřady každé ráno. Naplánujte si v Kappadokii alespoň dvě noci, aby jeden zrušený let neznamenal, že o zážitek přijdete úplně."
+      },
+      {
+        "type": "h2",
+        "text": "Co vidět v Kappadokii v zimě"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Skanzen Göreme: do skály vytesané kostely s freskami, v zimě klidnější než v kteroukoli jinou roční dobu.",
+          "Podzemní města jako Derinkuyu a Kaymaklı: několik pater do hloubky a příjemná stálá teplota bez ohledu na počasí venku.",
+          "Hrad Uçhisar a vyhlídky nad Göreme: nejlepší místa pro zasněžená panoramata.",
+          "Krátké procházky Růžovým, Červeným a Údolím lásky za suchých a jasných dnů – po sněžení bývají cesty namrzlé.",
+          "Jeskynní hotely: mnohé jsou vytápěné a mají krb a právě v zimě mají největší kouzlo."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Cesta z Antalye"
+      },
+      {
+        "type": "p",
+        "text": "Cesta měří asi 540 km a obvykle trvá 7 až 8 hodin – přes pohoří Taurus a dál po náhorní plošině přes Konyu. Konya s muzeem Mevlány je přirozenou zastávkou, kde si cestu rozdělit. V zimě může být na horském úseku sníh a led; silnice se udržují, ale vozidlo se zimní výbavou a řidič, který trasu zná, rozhodují o tom, zda to bude jen dlouhý den, nebo stresující."
+      },
+      {
+        "type": "h2",
+        "text": "Jak výlet naplánovat"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Počítejte alespoň se dvěma nocemi, lépe se třemi, kvůli rezervě na zrušené lety a krátké zimní dny.",
+          "Z Antalye vyjeďte ráno, abyste hory projeli za světla.",
+          "Spojte výlet s pobytem na pobřeží: pár dní v Antalyi nebo Side, pak Kappadokie – nebo obráceně.",
+          "Na Vánoce a Silvestra si jeskynní hotel i případný let balonem rezervujte s předstihem."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Transfer mezi Antalyí a Kappadokií"
+      },
+      {
+        "type": "p",
+        "text": "Zajišťujeme soukromé transfery z letiště Antalya a z hotelů na pobřeží do Kappadokie – jednosměrně nebo se zpáteční cestou v pozdějším termínu. Cena je pevná za vozidlo, můžete zastavit na fotky, jídlo i prohlídku Konyi a nečekáte na žádné další cestující. Při rezervaci uveďte hotel a termíny."
+      }
+    ],
+    "faq": [
+      [
+        "Jak daleko je Kappadokie od Antalye?",
+        "Po silnici asi 540 km. Cesta přes Konyu obvykle trvá 7 až 8 hodin, se zastávkami nebo za sněhu o něco déle."
+      ],
+      [
+        "Vyplatí se jet do Kappadokie v zimě?",
+        "Ano. Sníh na pohádkových komínech, klidné památky a útulné jeskynní hotely dělají ze zimy jedno z nejkrásnějších období. Vezměte si teplé oblečení: je tam mnohem chladněji než na pobřeží."
+      ],
+      [
+        "Létají balony v Kappadokii i v zimě?",
+        "Ano, kdykoli to počasí dovolí. V zimě se lety ruší častěji, proto si naplánujte alespoň dvě noci, abyste měli druhou šanci."
+      ],
+      [
+        "Dá se z Antalye do Kappadokie jet soukromým transferem?",
+        "Ano. Nabízíme soukromé transfery z letiště Antalya a hotelů na pobřeží do Kappadokie, jednosměrně nebo tam i zpět, za pevnou cenu za vozidlo."
+      ]
+    ]
+  },
+  "belek-winter-golf": {
+    "slug": "zimni-golf-v-beleku",
+    "title": "Zimní golf v Beleku: hra na Turecké riviéře od listopadu do března",
+    "heading": "Zimní golf v Beleku",
+    "description": "Proč je Belek cílem zimního golfu: počasí od listopadu do března, stav hřišť, nižší green fee, co si sbalit a jak se dostat do Beleku s golfovými bagy.",
+    "excerpt": "Mírné dny, zelené fairwaye a volnější startovní časy. Co by golfisté měli vědět o hře v Beleku od listopadu do března, kdy jsou hřiště doma zavřená.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Když jsou hřiště v severní Evropě zamrzlá, podmáčená nebo zavřená, v Beleku se hraje dál. Skupina mistrovských hřišť 45 km východně od letiště Antalya je otevřená celou zimu a zimní golf v Beleku od listopadu do března se stal samostatnou sezonou pro golfisty, kteří nechtějí mezi říjnem a dubnem přestat hrát."
+      },
+      {
+        "type": "h2",
+        "text": "Jaké je počasí na hřišti"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Měsíc",
+          "Běžný den",
+          "Na hřišti"
+        ],
+        "rows": [
+          [
+            "Listopad",
+            "asi 21 °C",
+            "Výborné podmínky, stále podzimní vrchol sezony"
+          ],
+          [
+            "Prosinec – leden",
+            "asi 15–16 °C",
+            "Mírně a často slunečno, občas deštivé dny"
+          ],
+          [
+            "Únor",
+            "asi 16 °C",
+            "Dny se prodlužují, méně deštivých dnů"
+          ],
+          [
+            "Březen",
+            "asi 19 °C",
+            "Začátek jarního vrcholu sezony"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Většinu zimních dnů se dá hrát v lehkém svetru. Déšť přichází spíš v krátkých přeháňkách než na celé týdny a hřiště jsou postavená tak, aby rychle odvodňovala. Rána bývají chladná a pozdě odpoledne se rychle stmívá, takže tee time bývá dřív než v létě."
+      },
+      {
+        "type": "h2",
+        "text": "Proč se zima vyplatí"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Green fee a ceny hotelů jsou v prosinci, lednu a únoru obvykle nižší než na podzim a na jaře.",
+          "Startovní listiny jsou méně plné, takže kola jsou rychlejší a oblíbené časy se snáz získávají.",
+          "Několik golfových hotelů je otevřeno celou zimu, mnohé s krytými bazény a spa na odpoledne.",
+          "Krátké lety z většiny Evropy dělají z prodlouženého víkendu stejně reálnou možnost jako týdenní pobyt."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Hřiště a hotely v zimě"
+      },
+      {
+        "type": "p",
+        "text": "Ne všechna hřiště a hotely v Beleku fungují v zimě podle stejného harmonogramu a údržba, jako je aerifikace nebo dosévání, se někdy plánuje na klidné měsíce. Při rezervaci se zeptejte, která hřiště jsou ve vašem termínu otevřená a zda není naplánovaná údržba. Golfové hotely obvykle zajišťují tee time i kyvadlovou dopravu na partnerská hřiště."
+      },
+      {
+        "type": "h2",
+        "text": "Co si sbalit na zimní golf"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Vrstvy: funkční prádlo, svetr a větruodolnou vrchní vrstvu na chladná rána.",
+          "Nepromokavou bundu a kalhoty na občasnou přeháňku.",
+          "Zimní rukavice nebo palčáky mezi údery a k tomu běžné golfové rukavice.",
+          "Ochranu před sluncem: za jasných dnů je zimní slunce stále silné."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Do Beleku s golfovými bagy"
+      },
+      {
+        "type": "p",
+        "text": "Z letiště Antalya do Beleku trvá cesta 35 až 40 minut a v zimě je terminál klidný, takže odpolední kolo v den příletu je často reálné. Cena je pevná za vozidlo, ne za bag: Mercedes Vito zpravidla pojme čtyři hráče se čtyřmi golfovými bagy a zavazadly, větší skupiny jedou Sprinterem. Při rezervaci uveďte počet bagů."
+      }
+    ],
+    "faq": [
+      [
+        "Dá se v Beleku hrát golf i v zimě?",
+        "Ano. Hřiště v Beleku jsou otevřená celou zimu, v prosinci a lednu bývá přes den kolem 15–16 °C a hrát se dá většinu dnů."
+      ],
+      [
+        "Je golf v Beleku v zimě levnější?",
+        "Green fee a ceny hotelů jsou v prosinci, lednu a únoru obvykle nižší než v podzimní a jarní hlavní sezoně. Přesné ceny závisí na hřišti a hotelu."
+      ],
+      [
+        "Který měsíc je pro golf v Beleku nejlepší?",
+        "Vrcholem golfové sezony jsou říjen–listopad a březen–duben. Zima je klidnější a levnější, s o něco chladnějšími dny."
+      ],
+      [
+        "Platí se za golfové bagy při transferu příplatek?",
+        "Ne. Cena je pevná za vozidlo. Pro více bagů přidělíme větší vozidlo a jeho cenu uvidíte při rezervaci."
+      ]
+    ]
+  },
+  "saklikent-ski-antalya": {
+    "slug": "lyzovani-u-antalye-saklikent",
+    "title": "Lyžování u Antalye: průvodce lyžařským střediskem Saklıkent",
+    "heading": "Lyžování u Antalye: lyžařské středisko Saklıkent",
+    "description": "Lyžování u Antalye v Saklıkentu: kde středisko leží, jak dlouho trvá cesta, kdy je sezona, co čekat na sjezdovkách a jak spojit lyže a moře v jednom dni.",
+    "excerpt": "Ráno lyže, odpoledne procházka u moře. Praktický průvodce Saklıkentem, lyžařským střediskem Antalye, a cestou na něj z pobřeží.",
+    "readingMinutes": 5,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Jen málo prázdninových oblastí nabízí lyžování i procházku u moře v jednom dni. Antalya ano: lyžařské středisko Saklıkent leží v pohoří Bakırlı, asi 50 km od města, a za pěkného zimního dne můžete být ráno na sjezdovce a na západ slunce zpět na nábřeží."
+      },
+      {
+        "type": "h2",
+        "text": "Kde Saklıkent leží"
+      },
+      {
+        "type": "p",
+        "text": "Lyžařské středisko se nachází ve výšce zhruba 1 900 metrů na svazích pohoří Bakırlı, západně od Antalye. Cesta z města trvá přibližně hodinu a půl a stoupá od pomerančových sadů přes borovicové lesy až ke sněhu. Za jasných dnů je z vrcholu vidět až na pobřeží a moře."
+      },
+      {
+        "type": "h2",
+        "text": "Kdy je sezona"
+      },
+      {
+        "type": "p",
+        "text": "Lyžařská sezona závisí zcela na sněhu a obvykle trvá od ledna do března. Některé zimy začíná dřív nebo končí dřív, proto si před plánováním výletu ověřte aktuální stav sněhu a vleků."
+      },
+      {
+        "type": "h2",
+        "text": "Co čekat na sjezdovkách"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Malé, pohodové středisko – ideální pro začátečníky, rodiny a jeden lyžařský den během dovolené u moře, ne na celý lyžařský týden.",
+          "Lyžařské a snowboardové vybavení si obvykle můžete půjčit přímo ve středisku; předem si ověřte otevírací dobu.",
+          "Sáňkování a hraní ve sněhu je oblíbené u rodin, zejména o víkendech.",
+          "O víkendech je rušno kvůli místním návštěvníkům, ve všední dny je mnohem klidněji."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Lyže a moře v jednom dni"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Vyjeďte z pobřeží brzy ráno, abyste dorazili k otevření vleků.",
+          "Lyžujte nebo si hrajte ve sněhu do časného odpoledne.",
+          "Sjeďte dolů na pozdní oběd v Kaleiçi nebo na procházku po pláži Konyaaltı.",
+          "Vezměte si oblečení na převlečení: teplotní rozdíl mezi sjezdovkou a pobřežím může být 15 stupňů i víc."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Cesta tam: horská silnice v zimě"
+      },
+      {
+        "type": "p",
+        "text": "Do střediska nejezdí pravidelná veřejná doprava a na posledním úseku horské silnice může být sníh a led. Mohou být vyžadovány zimní pneumatiky nebo řetězy. Soukromý transfer vás odveze z hotelu v Antalyi, Kemeru, Beleku nebo Side na sjezdovky a zpět a čas strávený na horách si určujete sami. Nejde o jednu z našich standardních tras, pošlete nám proto hotel, datum a počet osob a my vám připravíme pevnou cenu za vozidlo."
+      },
+      {
+        "type": "h2",
+        "text": "Další možnosti lyžování z Antalye"
+      },
+      {
+        "type": "p",
+        "text": "Na delší lyžařský výlet je tu Davraz u Isparty – větší středisko s více sjezdovkami, zhruba dvě a půl až tři hodiny jízdy od Antalye. Saklıkent zůstává nejsnazší volbou pro jeden sněhový den během pobytu na pobřeží."
+      }
+    ],
+    "faq": [
+      [
+        "Dá se u Antalye lyžovat?",
+        "Ano. Lyžařské středisko Saklıkent leží asi 50 km od Antalye, zhruba hodinu a půl jízdy, v pohoří Bakırlı."
+      ],
+      [
+        "Kdy je lyžařská sezona v Saklıkentu?",
+        "Záleží na sněhu. Sezona obvykle trvá od ledna do března; před cestou si ověřte aktuální podmínky."
+      ],
+      [
+        "Dá se v Antalyi v jeden den lyžovat i koupat?",
+        "Ráno můžete lyžovat a odpoledne být u moře. Koupání v zimě je pro odvážné: moře má kolem 17 °C."
+      ],
+      [
+        "Jak se dostanu do Saklıkentu z hotelu?",
+        "Pravidelná veřejná doprava tam nejezdí. Připravíme vám nabídku soukromého transferu z hotelu do lyžařského střediska a zpět za pevnou cenu za vozidlo."
+      ]
+    ]
   }
 };

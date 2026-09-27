@@ -836,5 +836,323 @@ export const articles = {
         "Los hoteles de la ciudad y algunos resorts están abiertos. Muchos resorts de temporada abren a lo largo de abril, y en mayo casi toda la costa funciona a pleno rendimiento."
       ]
     ]
+  },
+  "cappadocia-winter-trip": {
+    "slug": "capadocia-en-invierno-desde-antalya",
+    "title": "Capadocia en invierno desde Antalya: nieve, globos y la carretera",
+    "heading": "Capadocia en invierno: un viaje desde Antalya",
+    "description": "Capadocia en invierno desde Antalya: nieve, clima, globos aerostáticos, hoteles cueva, qué ver y cómo es en invierno el viaje de 540 km por carretera vía Konya.",
+    "excerpt": "Chimeneas de hadas bajo la nieve y globos sobre un valle blanco. Cómo combinar una estancia de invierno en Antalya con Capadocia y cómo es la carretera en invierno.",
+    "readingMinutes": 7,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Capadocia en invierno es uno de los paisajes más fotografiados de Turquía: chimeneas de hadas y valles bajo la nieve, hoteles cueva con chimenea encendida y, en las mañanas despejadas, globos que se elevan sobre un paisaje blanco. Desde Antalya es un viaje por carretera largo pero precioso, y el complemento natural de una estancia de invierno en la costa."
+      },
+      {
+        "type": "h2",
+        "text": "El clima en invierno: nada que ver con la costa"
+      },
+      {
+        "type": "p",
+        "text": "Capadocia está en una meseta elevada, a unos 1000 metros de altitud o más, así que allí el invierno es un invierno de verdad. Durante el día las temperaturas rondan a menudo los cero grados, por la noche bajan muy por debajo y la nieve es habitual de diciembre a febrero. Lleva un buen abrigo de invierno, guantes, gorro y calzado impermeable: la ropa adecuada para Antalya en enero no basta aquí."
+      },
+      {
+        "type": "table",
+        "head": [
+          "",
+          "Costa de Antalya",
+          "Capadocia"
+        ],
+        "rows": [
+          [
+            "Día típico de invierno",
+            "unos 15 °C",
+            "entre 0 y 5 °C"
+          ],
+          [
+            "Noches de invierno",
+            "unos 6-8 °C",
+            "a menudo bajo cero"
+          ],
+          [
+            "Nieve",
+            "solo en las cumbres",
+            "habitual de diciembre a febrero"
+          ]
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Globos aerostáticos en invierno"
+      },
+      {
+        "type": "p",
+        "text": "Los globos vuelan todo el año cuando el tiempo lo permite, y un vuelo al amanecer sobre valles nevados es la imagen que muchos vienen a buscar. El invierno también trae más cancelaciones por viento, niebla o nieve, y la decisión la toman las autoridades cada mañana a primera hora. Reserva al menos dos noches en Capadocia para que un vuelo cancelado no signifique perdértelo del todo."
+      },
+      {
+        "type": "h2",
+        "text": "Qué ver en invierno"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Museo al Aire Libre de Göreme: iglesias excavadas en la roca con frescos, más tranquilas en invierno que en cualquier otra época del año.",
+          "Ciudades subterráneas como Derinkuyu y Kaymaklı: varios niveles de profundidad y una temperatura agradable y constante haga el tiempo que haga fuera.",
+          "El castillo de Uçhisar y los miradores sobre Göreme: los mejores lugares para panorámicas nevadas.",
+          "Paseos cortos por los valles Rosa, Rojo y del Amor en días secos y despejados; los senderos pueden estar helados después de nevar.",
+          "Hoteles cueva: muchos tienen calefacción y chimenea, y el invierno es la temporada en que resultan más especiales."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "La carretera desde Antalya"
+      },
+      {
+        "type": "p",
+        "text": "El trayecto es de unos 540 km y suele durar de 7 a 8 horas: se cruzan los montes Tauro y se continúa por la meseta vía Konya. Konya, con el Museo Mevlana, es la parada natural para partir el viaje. En invierno el tramo de montaña puede tener nieve y hielo; las carreteras se limpian, pero un vehículo con equipamiento de invierno y un conductor que conozca la ruta marcan la diferencia entre un día largo y un día estresante."
+      },
+      {
+        "type": "h2",
+        "text": "Cómo planificar el viaje"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Calcula al menos dos noches, mejor tres, para tener margen ante cancelaciones de globos y los días cortos de invierno.",
+          "Sal de Antalya por la mañana para cruzar las montañas con luz de día.",
+          "Combina el viaje con una estancia en la costa: unos días en Antalya o Side y luego Capadocia, o al revés.",
+          "Reserva con antelación el hotel cueva y el vuelo en globo para Navidad y Año Nuevo."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Traslado entre Antalya y Capadocia"
+      },
+      {
+        "type": "p",
+        "text": "Ofrecemos traslados privados desde el aeropuerto de Antalya y desde hoteles de la costa hasta Capadocia, solo ida o con regreso en una fecha posterior. El precio es fijo por vehículo, puedes parar para hacer fotos, comer y visitar Konya, y no hay otros pasajeros a los que esperar. Indícanos tu hotel y tus fechas al reservar."
+      }
+    ],
+    "faq": [
+      [
+        "¿A qué distancia está Capadocia de Antalya?",
+        "A unos 540 km por carretera. El trayecto suele durar de 7 a 8 horas vía Konya, algo más con paradas o con nieve."
+      ],
+      [
+        "¿Merece la pena visitar Capadocia en invierno?",
+        "Sí. La nieve sobre las chimeneas de hadas, los lugares tranquilos y los acogedores hoteles cueva hacen del invierno una de las épocas más bonitas allí. Lleva ropa de abrigo: hace mucho más frío que en la costa."
+      ],
+      [
+        "¿Vuelan los globos en Capadocia en invierno?",
+        "Sí, siempre que el tiempo lo permita. En invierno las cancelaciones son más frecuentes, así que calcula al menos dos noches para tener una segunda oportunidad."
+      ],
+      [
+        "¿Puedo ir de Antalya a Capadocia en traslado privado?",
+        "Sí. Ofrecemos traslados privados desde el aeropuerto de Antalya y hoteles de la costa hasta Capadocia, solo ida o ida y vuelta, a precio fijo por vehículo."
+      ]
+    ]
+  },
+  "belek-winter-golf": {
+    "slug": "golf-en-invierno-en-belek",
+    "title": "Golf en invierno en Belek: jugar en la Riviera turca de noviembre a marzo",
+    "heading": "Golf en invierno en Belek",
+    "description": "Por qué Belek es un destino de golf en invierno: clima de noviembre a marzo, estado de los campos, green fees más bajos, qué llevar y cómo llegar a Belek con las bolsas de golf.",
+    "excerpt": "Días templados, calles verdes y salidas menos concurridas. Lo que debe saber un golfista para jugar en Belek entre noviembre y marzo, cuando los campos de casa están cerrados.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Cuando los campos del norte de Europa están helados, encharcados o cerrados, el golf en invierno sigue en Belek. El conjunto de campos de campeonato situado a 45 km al este del aeropuerto de Antalya permanece abierto todo el invierno, y los meses de noviembre a marzo se han convertido en una temporada propia para los golfistas que no quieren parar entre octubre y abril."
+      },
+      {
+        "type": "h2",
+        "text": "Qué tiempo hace en el campo"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Mes",
+          "Día típico",
+          "En el campo"
+        ],
+        "rows": [
+          [
+            "Noviembre",
+            "unos 21 °C",
+            "Condiciones excelentes, todavía temporada alta de otoño"
+          ],
+          [
+            "Diciembre - enero",
+            "unos 15-16 °C",
+            "Templado y a menudo soleado, con algunos días de lluvia"
+          ],
+          [
+            "Febrero",
+            "unos 16 °C",
+            "Los días se alargan, menos días de lluvia"
+          ],
+          [
+            "Marzo",
+            "unos 19 °C",
+            "El comienzo de la temporada alta de primavera"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "La mayoría de los días de invierno se puede jugar con un jersey ligero. La lluvia suele llegar en chubascos cortos más que durante semanas enteras, y los campos están diseñados para drenar rápido. Las mañanas pueden ser frescas y la luz se va a última hora de la tarde, así que las salidas suelen ser más temprano que en verano."
+      },
+      {
+        "type": "h2",
+        "text": "Por qué el invierno sale a cuenta"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Los green fees y las tarifas de hotel suelen ser más bajos en diciembre, enero y febrero que en otoño y primavera.",
+          "Las hojas de salida están menos llenas, así que las vueltas son más rápidas y es más fácil conseguir los horarios preferidos.",
+          "Varios hoteles de golf abren todo el invierno, muchos con piscina cubierta y spa para la tarde.",
+          "Los vuelos cortos desde la mayor parte de Europa hacen que un puente largo sea tan viable como un viaje de una semana."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Campos y hoteles en invierno"
+      },
+      {
+        "type": "p",
+        "text": "No todos los campos y hoteles de Belek siguen el mismo calendario en invierno, y a veces se programan trabajos de mantenimiento como el pinchado o la resiembra en los meses tranquilos. Al reservar, pregunta qué campos están abiertos en tus fechas y si hay algún mantenimiento previsto. Los hoteles de golf suelen gestionar los horarios de salida y los traslados a sus campos asociados."
+      },
+      {
+        "type": "h2",
+        "text": "Qué llevar para jugar al golf en invierno"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Capas: una primera capa térmica, un jersey y una prenda cortavientos para las mañanas frescas.",
+          "Chaqueta y pantalón impermeables para algún chubasco ocasional.",
+          "Guantes o manoplas de invierno entre golpe y golpe, además de los guantes de golf normales.",
+          "Protección solar: el sol de invierno sigue siendo fuerte en los días despejados."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Cómo llegar a Belek con las bolsas de golf"
+      },
+      {
+        "type": "p",
+        "text": "Del aeropuerto de Antalya a Belek hay de 35 a 40 minutos por carretera, y en invierno la terminal está tranquila, así que jugar una vuelta la misma tarde de la llegada suele ser realista. El precio es fijo por vehículo, no por bolsa: por norma general, una Mercedes Vito lleva a cuatro jugadores con cuatro bolsas de golf y su equipaje, y los grupos más grandes viajan en una Sprinter. Indícanos el número de bolsas al reservar."
+      }
+    ],
+    "faq": [
+      [
+        "¿Se puede jugar al golf en Belek en invierno?",
+        "Sí. Los campos de Belek permanecen abiertos todo el invierno, con temperaturas diurnas típicas de unos 15-16 °C en diciembre y enero, y la mayoría de los días se puede jugar."
+      ],
+      [
+        "¿Es más barato el golf en Belek en invierno?",
+        "Los green fees y las tarifas de hotel suelen ser más bajos en diciembre, enero y febrero que en las temporadas altas de otoño y primavera. Los precios exactos dependen del campo y del hotel."
+      ],
+      [
+        "¿Cuál es el mejor mes para jugar al golf en Belek?",
+        "Octubre-noviembre y marzo-abril son los meses de temporada alta de golf. El invierno es más tranquilo y más barato, con días algo más frescos."
+      ],
+      [
+        "¿Las bolsas de golf cuestan extra en el traslado?",
+        "No. El precio es fijo por vehículo. Si hay más bolsas, asignamos un vehículo más grande y ves ese precio al reservar."
+      ]
+    ]
+  },
+  "saklikent-ski-antalya": {
+    "slug": "esquiar-cerca-de-antalya-saklikent",
+    "title": "Esquiar cerca de Antalya: guía de la estación de esquí de Saklıkent",
+    "heading": "Esquiar cerca de Antalya: la estación de esquí de Saklıkent",
+    "description": "Esquiar cerca de Antalya en Saklıkent: dónde está, cuánto se tarda en llegar, cuándo es la temporada, qué esperar en las pistas y cómo combinar esquí y mar en un solo día.",
+    "excerpt": "Esquí por la mañana, paseo junto al mar por la tarde. Una guía práctica de Saklıkent, la estación de esquí de Antalya, y de cómo llegar desde la costa.",
+    "readingMinutes": 5,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Pocas regiones de vacaciones permiten esquiar y pasear junto al mar el mismo día. Antalya sí: la estación de esquí de Saklıkent está en los montes Bakırlı, a unos 50 km de la ciudad, y en un buen día de invierno puedes estar en las pistas por la mañana y de vuelta en el paseo marítimo para ver la puesta de sol."
+      },
+      {
+        "type": "h2",
+        "text": "Dónde está Saklıkent"
+      },
+      {
+        "type": "p",
+        "text": "La estación se encuentra a unos 1900 metros de altitud, en las laderas de los montes Bakırlı, al oeste de Antalya. Desde la ciudad se tarda aproximadamente una hora y media, subiendo de los naranjales al pinar y luego a la nieve. En los días despejados, la vista desde arriba llega hasta la costa y el mar."
+      },
+      {
+        "type": "h2",
+        "text": "Cuándo es la temporada"
+      },
+      {
+        "type": "p",
+        "text": "La temporada de esquí depende por completo de la nieve y suele ir de enero a marzo. Algunos inviernos empieza antes o termina antes, así que consulta el estado de la nieve y de los remontes antes de planificar un día allí."
+      },
+      {
+        "type": "h2",
+        "text": "Qué esperar en las pistas"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Una estación pequeña y tranquila, ideal para principiantes, familias y un día de esquí durante unas vacaciones en la costa más que para una semana entera de esquí.",
+          "Normalmente se puede alquilar equipo de esquí y snowboard en la estación; consulta los horarios antes de ir.",
+          "Los trineos y los juegos en la nieve son muy populares entre las familias, sobre todo los fines de semana.",
+          "Los fines de semana hay mucho visitante local; entre semana está mucho más tranquilo."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Esquí y mar en un solo día"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Sal de la costa temprano por la mañana para llegar cuando abran los remontes.",
+          "Esquía o juega en la nieve hasta primera hora de la tarde.",
+          "Baja de nuevo para comer tarde en Kaleiçi o pasear por la playa de Konyaaltı.",
+          "Lleva ropa de recambio: la diferencia de temperatura entre las pistas y la costa puede ser de 15 grados o más."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Cómo llegar: la carretera de montaña en invierno"
+      },
+      {
+        "type": "p",
+        "text": "No hay transporte público regular hasta la estación, y el último tramo de la carretera de montaña puede tener nieve y hielo. Pueden exigirse neumáticos de invierno o cadenas. Un traslado privado te lleva desde tu hotel en Antalya, Kemer, Belek o Side hasta las pistas y de vuelta, y el tiempo en la montaña lo decides tú. No es una de nuestras rutas estándar, así que envíanos tu hotel, la fecha y el número de personas y te daremos un precio fijo por vehículo."
+      },
+      {
+        "type": "h2",
+        "text": "Otras opciones de esquí desde Antalya"
+      },
+      {
+        "type": "p",
+        "text": "Para un viaje de esquí más largo, Davraz, cerca de Isparta, es una estación más grande con más pistas, a unas dos horas y media o tres horas de Antalya por carretera. Saklıkent sigue siendo la opción más sencilla para un día de nieve durante una estancia en la costa."
+      }
+    ],
+    "faq": [
+      [
+        "¿Se puede esquiar cerca de Antalya?",
+        "Sí. La estación de esquí de Saklıkent está a unos 50 km de la ciudad de Antalya, aproximadamente una hora y media por carretera, en los montes Bakırlı."
+      ],
+      [
+        "¿Cuándo es la temporada de esquí en Saklıkent?",
+        "Depende de la nieve. La temporada suele ir de enero a marzo; consulta las condiciones actuales antes de ir."
+      ],
+      [
+        "¿Se puede esquiar y bañarse el mismo día en Antalya?",
+        "Puedes esquiar por la mañana y estar junto al mar por la tarde. Bañarse en invierno es para valientes: el mar está a unos 17 °C."
+      ],
+      [
+        "¿Cómo llego a Saklıkent desde mi hotel?",
+        "No hay transporte público regular. Podemos darte precio para un traslado privado desde tu hotel hasta la estación y de vuelta, a precio fijo por vehículo."
+      ]
+    ]
   }
 };

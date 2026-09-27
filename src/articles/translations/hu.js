@@ -836,5 +836,323 @@ export const articles = {
         "A városi szállodák és néhány üdülő nyitva van. Sok szezonális üdülő áprilisban nyit ki, és májusra a part nagy része teljes gőzzel működik."
       ]
     ]
+  },
+  "cappadocia-winter-trip": {
+    "slug": "kappadokia-telen-antalyabol",
+    "title": "Kappadókia télen Antalyából: hó, hőlégballonok és az odavezető út",
+    "heading": "Kappadókia télen: kirándulás Antalyából",
+    "description": "Kappadókia télen, Antalyából: hó, időjárás, hőlégballonok, barlangszállodák, látnivalók, és milyen télen a Konyán át vezető 540 km-es út.",
+    "excerpt": "Hóval borított tündérkémények és ballonok a fehér völgy felett. Hogyan kösd össze az antalyai téli pihenést Kappadókiával, és milyen télen az út.",
+    "readingMinutes": 7,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Kappadókia télen Türkiye egyik legtöbbet fotózott tája: hó alatt álló tündérkémények és völgyek, kandallós barlangszállodák, derült reggeleken pedig a fehér táj fölé emelkedő hőlégballonok. Antalyából hosszú, de gyönyörű az út - és a tengerparti téli nyaralás természetes kiegészítése."
+      },
+      {
+        "type": "h2",
+        "text": "Téli időjárás: egészen más éghajlat, mint a parton"
+      },
+      {
+        "type": "p",
+        "text": "Kappadókia egy magas fennsíkon fekszik, nagyjából 1000 méteren vagy még magasabban, így ott a tél igazi tél. Nappal a hőmérséklet gyakran fagypont körüli, éjszaka jóval fagypont alatti, és decembertől februárig gyakori a hó. Vigyél rendes télikabátot, kesztyűt, sapkát és vízálló cipőt - ami januárban Antalyában elég, az itt nem lesz elég."
+      },
+      {
+        "type": "table",
+        "head": [
+          "",
+          "Antalyai part",
+          "Kappadókia"
+        ],
+        "rows": [
+          [
+            "Átlagos téli nap",
+            "kb. 15 °C",
+            "nagyjából 0-5 °C"
+          ],
+          [
+            "Téli éjszakák",
+            "kb. 6-8 °C",
+            "gyakran fagypont alatt"
+          ],
+          [
+            "Hó",
+            "csak a hegycsúcsokon",
+            "decembertől februárig gyakori"
+          ]
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Hőlégballonozás télen"
+      },
+      {
+        "type": "p",
+        "text": "A ballonok egész évben repülnek, amikor az időjárás engedi, és a hóval borított völgyek feletti napfelkeltés repülés az a kép, amiért sokan jönnek. A tél azonban több lemondást is hoz szél, köd vagy hó miatt, és a döntést a hatóságok minden reggel korán hozzák meg. Tervezz legalább két éjszakát Kappadókiában, hogy egy elmaradt repülés ne jelentse azt, hogy teljesen lemaradsz róla."
+      },
+      {
+        "type": "h2",
+        "text": "Mit érdemes megnézni télen"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Göremei Szabadtéri Múzeum: sziklába vájt, freskós templomok, télen csendesebb, mint az év bármely más szakában.",
+          "Földalatti városok, például Derinkuyu és Kaymaklı: több szint mélyen, kellemes, állandó hőmérséklettel, bármilyen is az idő odakint.",
+          "Uçhisar vára és a Göreme feletti kilátópontok: a legjobb helyek a havas panorámához.",
+          "Rövid séták a Rózsa-, a Vörös- és a Szerelmesek völgyében száraz, derült napokon - hóesés után az ösvények jegesek lehetnek.",
+          "Barlangszállodák: sok fűtött és kandallós, és télen érződnek a legkülönlegesebbnek."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Az út Antalyából"
+      },
+      {
+        "type": "p",
+        "text": "A táv kb. 540 km, az út általában 7-8 óra: átkel a Taurus-hegységen, majd Konyán át halad tovább a fennsíkon. Konya a Mevlana Múzeummal természetes megálló az út megszakítására. Télen a hegyi szakaszon hó és jég lehet; az utakat takarítják, de egy téli felszereltségű jármű és egy útvonalat ismerő sofőr jelenti a különbséget egy hosszú és egy stresszes nap között."
+      },
+      {
+        "type": "h2",
+        "text": "Hogyan tervezd meg az utat"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Számolj legalább két, inkább három éjszakával, hogy legyen tartalék a ballonos lemondásokra és a rövid téli nappalokra.",
+          "Reggel indulj Antalyából, hogy világosban kelj át a hegyeken.",
+          "Kösd össze a kirándulást egy tengerparti pihenéssel: néhány nap Antalyában vagy Side-ban, aztán Kappadókia, vagy fordítva.",
+          "Karácsonyra és szilveszterre időben foglald le a barlangszállodát és az esetleges ballonos repülést."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Transzfer Antalya és Kappadókia között"
+      },
+      {
+        "type": "p",
+        "text": "Privát transzfert kínálunk az antalyai repülőtérről és a tengerparti szállodákból Kappadókiába, csak oda vagy egy későbbi időpontra szóló visszaúttal. Az ár járművenként fix, megállhatsz fotózni, enni és megnézni Konyát, és nem kell más utasokra várnod. Foglaláskor add meg a szállodád és az időpontokat."
+      }
+    ],
+    "faq": [
+      [
+        "Milyen messze van Kappadókia Antalyától?",
+        "Közúton kb. 540 km. Az út Konyán át általában 7-8 óra, megállókkal vagy havas időben valamivel több."
+      ],
+      [
+        "Érdemes télen Kappadókiába utazni?",
+        "Igen. A hó a tündérkéményeken, a csendes látnivalók és a hangulatos barlangszállodák miatt a tél az egyik legszebb időszak ott. Vigyél meleg ruhát: sokkal hidegebb van, mint a parton."
+      ],
+      [
+        "Repülnek télen a hőlégballonok Kappadókiában?",
+        "Igen, amikor az időjárás engedi. Télen gyakoribbak a lemondások, ezért tervezz legalább két éjszakát, hogy legyen második esélyed."
+      ],
+      [
+        "Eljuthatok Antalyából Kappadókiába privát transzferrel?",
+        "Igen. Privát transzfert kínálunk az antalyai repülőtérről és a tengerparti szállodákból Kappadókiába, csak oda vagy oda-vissza, járművenként fix áron."
+      ]
+    ]
+  },
+  "belek-winter-golf": {
+    "slug": "teli-golf-belekben",
+    "title": "Téli golf Belekben: golfozás a Török Riviérán novembertől márciusig",
+    "heading": "Téli golf Belekben",
+    "description": "Miért jó téli golf célpont Belek: időjárás novembertől márciusig, a pályák állapota, olcsóbb green fee, mit csomagolj, és hogyan jutsz el Belekbe golfzsákokkal.",
+    "excerpt": "Enyhe napok, zöld fairwayek és kevésbé zsúfolt tee time-ok. Amit a golfozóknak tudniuk kell Belekről novembertől márciusig, amikor otthon zárva vannak a pályák.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Amikor Észak-Európában a pályák fagyottak, beáztak vagy zárva vannak, Belekben tovább megy a játék. A téli golf Belekben azért működik, mert az antalyai repülőtértől 45 km-re keletre fekvő bajnoki pályák egész télen nyitva tartanak, és a novembertől márciusig tartó hónapok önálló szezonná váltak azoknak a golfozóknak, akik nem akarnak októbertől áprilisig szünetet tartani."
+      },
+      {
+        "type": "h2",
+        "text": "Milyen az idő a pályán"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Hónap",
+          "Átlagos nap",
+          "A pályán"
+        ],
+        "rows": [
+          [
+            "November",
+            "kb. 21 °C",
+            "Kiváló körülmények, még az őszi főszezon"
+          ],
+          [
+            "December - január",
+            "kb. 15-16 °C",
+            "Enyhe és gyakran napos, néhány esős nappal"
+          ],
+          [
+            "Február",
+            "kb. 16 °C",
+            "Hosszabbodó nappalok, kevesebb esős nap"
+          ],
+          [
+            "Március",
+            "kb. 19 °C",
+            "A tavaszi főszezon kezdete"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "A legtöbb téli napon egy vékony pulóverben is lehet játszani. Az eső általában rövid hullámokban jön, nem hetekig, és a pályákat gyors vízelvezetésre építették. A reggelek hűvösek lehetnek, késő délutánra pedig fogy a fény, ezért a tee time-ok általában korábban vannak, mint nyáron."
+      },
+      {
+        "type": "h2",
+        "text": "Miért éri meg télen"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "A green fee-k és a szállodai árak decemberben, januárban és februárban általában alacsonyabbak, mint ősszel és tavasszal.",
+          "Kevésbé zsúfoltak a tee sheetek, így gyorsabbak a körök, és könnyebb megkapni a kívánt időpontokat.",
+          "Több golfszálloda egész télen nyitva tart, sokban fedett medence és wellness is van a délutánokra.",
+          "Európa nagy részéről rövid a repülőút, így egy hosszú hétvége ugyanolyan reális, mint egy egyhetes út."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Pályák és szállodák télen"
+      },
+      {
+        "type": "p",
+        "text": "Belekben nem minden pálya és szálloda működik télen ugyanazzal a menetrenddel, és az olyan karbantartási munkákat, mint a lyukasztásos levegőztetés vagy a felülvetés, néha a csendes hónapokra ütemezik. Foglaláskor kérdezd meg, mely pályák lesznek nyitva az időpontjaidban, és van-e tervezett karbantartás. A golfszállodák általában megszervezik a tee time-okat és a transzfert a partnerpályákra."
+      },
+      {
+        "type": "h2",
+        "text": "Mit csomagolj a téli golfhoz"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Rétegek: aláöltözet, pulóver és szélálló felső a hűvös reggelekre.",
+          "Vízálló dzseki és nadrág az alkalmi záporokra.",
+          "Téli kesztyű vagy ujjatlan kesztyű az ütések között, plusz a szokásos golfkesztyű.",
+          "Napvédelem: derült napokon a téli nap is erős."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Eljutás Belekbe golfzsákokkal"
+      },
+      {
+        "type": "p",
+        "text": "Az antalyai repülőtérről Belekbe közúton 35-40 perc az út, télen pedig csendes a terminál, így az érkezés napján délután gyakran belefér egy kör. Az ár járművenként fix, nem zsákonként: egy Mercedes Vito általában négy játékost visz négy golfzsákkal és a csomagjaikkal, a nagyobb csoportok Sprinterrel utaznak. Foglaláskor add meg a zsákok számát."
+      }
+    ],
+    "faq": [
+      [
+        "Lehet télen golfozni Belekben?",
+        "Igen. A beleki pályák egész télen nyitva vannak, decemberben és januárban a nappali hőmérséklet általában 15-16 °C körüli, és a legtöbb nap játszható."
+      ],
+      [
+        "Olcsóbb télen a golf Belekben?",
+        "A green fee-k és a szállodai árak decemberben, januárban és februárban általában alacsonyabbak, mint az őszi és tavaszi főszezonban. A pontos árak a pályától és a szállodától függnek."
+      ],
+      [
+        "Melyik a legjobb hónap a golfhoz Belekben?",
+        "Október-november és március-április a golf főszezonja. A tél csendesebb és olcsóbb, kicsit hűvösebb napokkal."
+      ],
+      [
+        "Kell külön fizetni a golfzsákokért a transzfernél?",
+        "Nem. Az ár járművenként fix. Több zsákhoz nagyobb járművet biztosítunk, és ezt az árat foglaláskor látod."
+      ]
+    ]
+  },
+  "saklikent-ski-antalya": {
+    "slug": "sieles-antalya-kozeleben-saklikent",
+    "title": "Síelés Antalya közelében: útmutató a Saklıkent síközponthoz",
+    "heading": "Síelés Antalya közelében: a Saklıkent síközpont",
+    "description": "Síelés Antalya közelében, Saklıkentben: hol van, mennyi az út, mikor tart a szezon, mire számíts a pályákon, és hogyan fér bele egy napba a síelés és a tenger.",
+    "excerpt": "Délelőtt síelés, délután séta a tengerparton. Gyakorlati útmutató Saklıkenthez, Antalya saját síközpontjához, és ahhoz, hogyan jutsz fel oda a partról.",
+    "readingMinutes": 5,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Kevés nyaralóhely kínálja, hogy ugyanazon a napon síelj és a tengerparton sétálj. Antalya igen: síelés Antalya közelében a Saklıkent síközpontban lehetséges, amely a Bakırlı-hegységben, a várostól kb. 50 km-re fekszik, és egy jó téli napon délelőtt a sípályán, naplementére pedig már újra a tengerparti sétányon lehetsz."
+      },
+      {
+        "type": "h2",
+        "text": "Hol van Saklıkent"
+      },
+      {
+        "type": "p",
+        "text": "A síközpont nagyjából 1900 méteres magasságban fekszik a Bakırlı-hegység lejtőin, Antalyától nyugatra. A városból körülbelül másfél óra az út, amely a narancsligetekből fenyőerdőn át egészen a hóig kapaszkodik. Derült napokon a csúcsról a kilátás egészen a partig és a tengerig ér."
+      },
+      {
+        "type": "h2",
+        "text": "Mikor tart a szezon"
+      },
+      {
+        "type": "p",
+        "text": "A síszezon teljes mértékben a havazástól függ, és általában januártól márciusig tart. Egyes teleken korábban kezdődik vagy hamarabb véget ér, ezért mielőtt egy napot erre tervezel, nézd meg az aktuális hó- és felvonóhelyzetet."
+      },
+      {
+        "type": "h2",
+        "text": "Mire számíts a pályákon"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Kicsi, nyugodt síközpont - ideális kezdőknek, családoknak és egy tengerparti nyaralás közbeni síelős napra, nem pedig egy teljes sihétre.",
+          "Sí- és snowboardfelszerelés általában bérelhető a központban; indulás előtt ellenőrizd a nyitvatartást.",
+          "A szánkózás és a hóban játszás népszerű a családok körében, főleg hétvégén.",
+          "Hétvégén sok a helyi látogató; hétköznap sokkal csendesebb."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Síelés és tenger egy napon"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Kora reggel indulj el a partról, hogy a felvonók nyitására odaérj.",
+          "Síelj vagy játssz a hóban kora délutánig.",
+          "Aztán vissza le egy késői ebédre Kaleiçiben vagy egy sétára a Konyaaltı strandon.",
+          "Vigyél váltóruhát: a sípálya és a part között 15 fok vagy még nagyobb is lehet a hőmérséklet-különbség."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Odajutás: a hegyi út télen"
+      },
+      {
+        "type": "p",
+        "text": "A síközpontba nincs rendszeres tömegközlekedés, és a hegyi út utolsó szakaszán hó és jég lehet. Téli gumi vagy hólánc kötelező lehet. Egy privát transzfer elvisz az antalyai, kemeri, beleki vagy side-i szállodádból a pályákig és vissza, a hegyen töltött időről pedig te döntesz. Ez nem tartozik a szokásos útvonalaink közé, ezért küldd el a szállodád, a dátumot és a létszámot, és járművenként fix árat adunk."
+      },
+      {
+        "type": "h2",
+        "text": "További síelési lehetőségek Antalyából"
+      },
+      {
+        "type": "p",
+        "text": "Hosszabb síútra az Isparta melletti Davraz nagyobb síközpont több pályával, Antalyától közúton nagyjából két és fél - három órára. Saklıkent marad a legegyszerűbb választás egyetlen havas napra egy tengerparti nyaralás alatt."
+      }
+    ],
+    "faq": [
+      [
+        "Lehet síelni Antalya közelében?",
+        "Igen. A Saklıkent síközpont Antalya városától kb. 50 km-re, közúton körülbelül másfél órára fekszik a Bakırlı-hegységben."
+      ],
+      [
+        "Mikor van a síszezon Saklıkentben?",
+        "A havazástól függ. A szezon általában januártól márciusig tart; indulás előtt nézd meg az aktuális viszonyokat."
+      ],
+      [
+        "Lehet Antalyában egy napon síelni és úszni?",
+        "Délelőtt síelhetsz, délután pedig a tengernél lehetsz. Télen úszni a bátraknak való: a tenger kb. 17 °C-os."
+      ],
+      [
+        "Hogyan jutok el a szállodámból Saklıkentbe?",
+        "Nincs rendszeres tömegközlekedés. Adhatunk ajánlatot privát transzferre a szállodádtól a síközpontig és vissza, járművenként fix áron."
+      ]
+    ]
   }
 };

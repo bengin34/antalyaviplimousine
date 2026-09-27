@@ -836,5 +836,323 @@ export const articles = {
         "Byhoteller og nogle resorts har åbent. Mange sæsonresorts åbner i løbet af april, og i maj er størstedelen af kysten i fuld drift."
       ]
     ]
+  },
+  "cappadocia-winter-trip": {
+    "slug": "kappadokien-om-vinteren-fra-antalya",
+    "title": "Kappadokien om vinteren fra Antalya: sne, balloner og vejen derhen",
+    "heading": "Kappadokien om vinteren: en tur fra Antalya",
+    "description": "Kappadokien om vinteren fra Antalya: sne, vejr, luftballoner, hulehoteller, hvad du skal se, og hvordan den 540 km lange køretur via Konya foregår om vinteren.",
+    "excerpt": "Eventyrskorstene under sne og balloner over en hvid dal. Sådan kombinerer du et vinterophold i Antalya med Kappadokien – og sådan er vejen om vinteren.",
+    "readingMinutes": 7,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Kappadokien om vinteren er et af de mest fotograferede landskaber i Tyrkiet: eventyrskorstene og dale under sne, hulehoteller med knitrende pejs og, på klare morgener, balloner der stiger op over et hvidt landskab. Fra Antalya er det en lang, men smuk køretur – og en naturlig tilføjelse til et vinterophold ved kysten."
+      },
+      {
+        "type": "h2",
+        "text": "Vintervejret: et helt andet klima end ved kysten"
+      },
+      {
+        "type": "p",
+        "text": "Kappadokien ligger på en højslette i omkring 1.000 meters højde eller mere, så vinteren er en rigtig vinter. Om dagen ligger temperaturen ofte omkring frysepunktet, om natten et godt stykke under, og sne er almindeligt fra december til februar. Pak en ordentlig vinterjakke, handsker, hue og vandtætte sko – tøj, der passer til Antalya i januar, er ikke nok her."
+      },
+      {
+        "type": "table",
+        "head": [
+          "",
+          "Antalya-kysten",
+          "Kappadokien"
+        ],
+        "rows": [
+          [
+            "Typisk vinterdag",
+            "omkring 15 °C",
+            "omkring 0-5 °C"
+          ],
+          [
+            "Vinternætter",
+            "omkring 6-8 °C",
+            "ofte frost"
+          ],
+          [
+            "Sne",
+            "kun på bjergtoppene",
+            "almindeligt fra december til februar"
+          ]
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Luftballoner om vinteren"
+      },
+      {
+        "type": "p",
+        "text": "Ballonerne flyver hele året, når vejret tillader det, og en solopgangstur over snedækkede dale er det billede, mange kommer for. Om vinteren bliver flere ture dog aflyst på grund af vind, tåge eller sne, og myndighederne træffer beslutningen tidligt hver morgen. Planlæg mindst to nætter i Kappadokien, så én aflyst tur ikke betyder, at du går helt glip af oplevelsen."
+      },
+      {
+        "type": "h2",
+        "text": "Hvad du kan se om vinteren"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Göreme frilandsmuseum: klippehuggede kirker med kalkmalerier, roligere om vinteren end på noget andet tidspunkt af året.",
+          "Underjordiske byer som Derinkuyu og Kaymaklı: flere etager dybe og med en behagelig, konstant temperatur uanset vejret udenfor.",
+          "Uçhisar-borgen og udsigtspunkterne over Göreme: de bedste steder til snedækkede panoramaer.",
+          "Korte gåture i Rosendalen, Den Røde Dal og Kærlighedsdalen på tørre, klare dage – stierne kan være glatte efter snefald.",
+          "Hulehoteller: mange er opvarmede og har pejs, og det er om vinteren, de føles allermest specielle."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Vejen fra Antalya"
+      },
+      {
+        "type": "p",
+        "text": "Turen er omkring 540 km og tager som regel 7 til 8 timer: over Taurusbjergene og videre over højsletten via Konya. Konya med Mevlana-museet er et naturligt stop undervejs. Om vinteren kan der være sne og is på bjergstrækningen; vejene bliver ryddet, men et køretøj med vinterudstyr og en chauffør, der kender ruten, gør forskellen mellem en lang dag og en stressende dag."
+      },
+      {
+        "type": "h2",
+        "text": "Sådan planlægger du turen"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Sæt mindst to nætter af, gerne tre, så der er plads til aflyste ballonture og korte vinterdage.",
+          "Kør fra Antalya om morgenen, så du krydser bjergene i dagslys.",
+          "Kombiner turen med et ophold ved kysten: et par dage i Antalya eller Side og derefter Kappadokien – eller omvendt.",
+          "Book hulehotellet og en eventuel ballontur i god tid til jul og nytår."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Transfer mellem Antalya og Kappadokien"
+      },
+      {
+        "type": "p",
+        "text": "Vi kører private transfers fra Antalya Lufthavn og fra hoteller langs kysten til Kappadokien, enkeltvis eller med retur på en senere dato. Prisen er fast pr. køretøj, du kan stoppe for billeder, måltider og et besøg i Konya, og der er ingen andre passagerer at vente på. Oplys dit hotel og dine datoer, når du booker."
+      }
+    ],
+    "faq": [
+      [
+        "Hvor langt er der fra Antalya til Kappadokien?",
+        "Omkring 540 km ad landevejen. Turen via Konya tager som regel 7 til 8 timer, lidt længere med pauser eller ved sne."
+      ],
+      [
+        "Er det værd at besøge Kappadokien om vinteren?",
+        "Ja. Sne på eventyrskorstenene, rolige seværdigheder og hyggelige hulehoteller gør vinteren til en af de smukkeste tider at besøge egnen. Tag varmt tøj med: det er meget koldere end ved kysten."
+      ],
+      [
+        "Flyver luftballonerne i Kappadokien om vinteren?",
+        "Ja, når vejret tillader det. Aflysninger er hyppigere om vinteren, så planlæg mindst to nætter for at få en ekstra chance."
+      ],
+      [
+        "Kan jeg tage en privat transfer fra Antalya til Kappadokien?",
+        "Ja. Vi tilbyder private transfers fra Antalya Lufthavn og hoteller ved kysten til Kappadokien, enkeltvis eller tur-retur, til fast pris pr. køretøj."
+      ]
+    ]
+  },
+  "belek-winter-golf": {
+    "slug": "vintergolf-i-belek",
+    "title": "Vintergolf i Belek: golf på Den Tyrkiske Riviera fra november til marts",
+    "heading": "Vintergolf i Belek",
+    "description": "Derfor er Belek et mål for vintergolf: vejret fra november til marts, banernes stand, lavere greenfee, hvad du skal pakke, og hvordan du kommer til Belek med golfbags.",
+    "excerpt": "Milde dage, grønne fairways og roligere starttider. Det bør golfspillere vide om at spille i Belek mellem november og marts, når banerne derhjemme er lukket.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Når banerne i Nordeuropa er frosne, vandlidende eller lukkede, spiller man videre i Belek. Samlingen af mesterskabsbaner 45 km øst for Antalya Lufthavn holder åbent hele vinteren, og månederne fra november til marts er blevet en sæson for sig for golfspillere, der ikke vil holde pause mellem oktober og april."
+      },
+      {
+        "type": "h2",
+        "text": "Sådan er vejret på banen"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Måned",
+          "Typisk dag",
+          "På banen"
+        ],
+        "rows": [
+          [
+            "November",
+            "omkring 21 °C",
+            "Fremragende forhold, stadig højsæson om efteråret"
+          ],
+          [
+            "December - januar",
+            "omkring 15-16 °C",
+            "Mildt og ofte solrigt, med enkelte regnvejrsdage"
+          ],
+          [
+            "Februar",
+            "omkring 16 °C",
+            "Dagene bliver længere, færre regnvejrsdage"
+          ],
+          [
+            "Marts",
+            "omkring 19 °C",
+            "Starten på forårets højsæson"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "De fleste vinterdage kan man spille i en tynd trøje. Regnen kommer typisk i korte byger frem for hele uger, og banerne er anlagt til at dræne hurtigt. Morgenerne kan være kølige, og lyset forsvinder sidst på eftermiddagen, så starttiderne ligger som regel tidligere end om sommeren."
+      },
+      {
+        "type": "h2",
+        "text": "Derfor kan vinteren betale sig"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Greenfee og hotelpriser er generelt lavere i december, januar og februar end om efteråret og foråret.",
+          "Startlisterne er mindre fyldte, så runderne går hurtigere, og ønsketider er nemmere at få.",
+          "Flere golfhoteller holder åbent hele vinteren, mange med indendørs pool og spa til eftermiddagen.",
+          "Korte flyrejser fra det meste af Europa gør en forlænget weekend lige så realistisk som en hel uge."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Baner og hoteller om vinteren"
+      },
+      {
+        "type": "p",
+        "text": "Ikke alle baner og hoteller i Belek kører efter samme plan om vinteren, og vedligeholdelse som prikning eller eftersåning bliver nogle gange lagt i de rolige måneder. Spørg, når du booker, hvilke baner der er åbne i din periode, og om der er planlagt vedligeholdelse. Golfhotellerne arrangerer som regel starttider og shuttle til deres partnerbaner."
+      },
+      {
+        "type": "h2",
+        "text": "Hvad du skal pakke til vintergolf"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Lag på lag: et skiundertøj, en trøje og en vindtæt jakke til kølige morgener.",
+          "Regnjakke og regnbukser til den lejlighedsvise byge.",
+          "Vinterhandsker eller luffer mellem slagene, plus almindelige golfhandsker.",
+          "Solbeskyttelse: vintersolen er stadig stærk på klare dage."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Til Belek med golfbags"
+      },
+      {
+        "type": "p",
+        "text": "Fra Antalya Lufthavn til Belek tager det 35 til 40 minutter i bil, og om vinteren er terminalen rolig, så en eftermiddagsrunde på ankomstdagen er ofte realistisk. Prisen er fast pr. køretøj, ikke pr. bag: som hovedregel kan en Mercedes Vito tage fire spillere med fire golfbags og deres bagage, og større grupper kører i en Sprinter. Oplys antallet af golfbags, når du booker."
+      }
+    ],
+    "faq": [
+      [
+        "Kan man spille golf i Belek om vinteren?",
+        "Ja. Banerne i Belek holder åbent hele vinteren, med typiske dagtemperaturer omkring 15-16 °C i december og januar, og de fleste dage kan man sagtens spille."
+      ],
+      [
+        "Er golf billigere i Belek om vinteren?",
+        "Greenfee og hotelpriser er generelt lavere i december, januar og februar end i højsæsonerne om efteråret og foråret. De præcise priser afhænger af bane og hotel."
+      ],
+      [
+        "Hvilken måned er bedst til golf i Belek?",
+        "Oktober-november og marts-april er de store golfmåneder. Vinteren er roligere og billigere, med lidt køligere dage."
+      ],
+      [
+        "Koster golfbags ekstra på transferen?",
+        "Nej. Prisen er fast pr. køretøj. Til flere bags sætter vi et større køretøj ind, og den pris ser du, når du booker."
+      ]
+    ]
+  },
+  "saklikent-ski-antalya": {
+    "slug": "skiloeb-ved-antalya-saklikent",
+    "title": "Skiløb ved Antalya: guide til skisportsstedet Saklıkent",
+    "heading": "Skiløb ved Antalya: skisportsstedet Saklıkent",
+    "description": "Skiløb ved Antalya i Saklıkent: hvor det ligger, hvor lang køreturen er, hvornår sæsonen er, hvad der venter på pisterne, og hvordan du kombinerer ski og hav på én dag.",
+    "excerpt": "Stå på ski om formiddagen, gå tur ved havet om eftermiddagen. En praktisk guide til Saklıkent, Antalyas eget skisportssted, og hvordan du kommer dertil fra kysten.",
+    "readingMinutes": 5,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Få feriesteder lader dig stå på ski og gå tur ved havet samme dag. Det gør Antalya: skisportsstedet Saklıkent ligger i Bakırlı-bjergene, omkring 50 km fra byen, og på en god vinterdag kan du være på pisten om morgenen og tilbage på strandpromenaden til solnedgang."
+      },
+      {
+        "type": "h2",
+        "text": "Hvor Saklıkent ligger"
+      },
+      {
+        "type": "p",
+        "text": "Skisportsstedet ligger i omkring 1.900 meters højde på skråningerne af Bakırlı-bjergene, vest for Antalya. Køreturen fra byen tager cirka halvanden time og stiger fra appelsinlunde gennem fyrreskov og op til sneen. På klare dage rækker udsigten fra toppen helt ned til kysten og havet."
+      },
+      {
+        "type": "h2",
+        "text": "Hvornår sæsonen er"
+      },
+      {
+        "type": "p",
+        "text": "Skisæsonen afhænger helt af snefaldet og løber som regel fra januar til marts. Nogle vintre starter den tidligere eller slutter før, så tjek det aktuelle snedække og liftforholdene, før du planlægger en dag omkring det."
+      },
+      {
+        "type": "h2",
+        "text": "Hvad der venter på pisterne"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Et lille, afslappet skisportssted – ideelt til begyndere, familier og en skidag under en badeferie frem for en hel skiuge.",
+          "Ski- og snowboardudstyr kan som regel lejes på stedet; tjek åbningstiderne, før du tager af sted.",
+          "Kælkning og leg i sneen er populært hos familier, især i weekenden.",
+          "I weekenderne er der mange lokale besøgende; på hverdage er der langt mere roligt."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Ski og hav på én dag"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Kør fra kysten tidligt om morgenen, så du er fremme, når liftene åbner.",
+          "Stå på ski eller leg i sneen til først på eftermiddagen.",
+          "Kør ned igen til en sen frokost i Kaleiçi eller en gåtur langs Konyaaltı-stranden.",
+          "Tag skiftetøj med: temperaturforskellen mellem pisten og kysten kan være 15 grader eller mere."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Sådan kommer du derop: bjergvejen om vinteren"
+      },
+      {
+        "type": "p",
+        "text": "Der er ingen fast offentlig transport til skisportsstedet, og på det sidste stykke af bjergvejen kan der være sne og is. Vinterdæk eller snekæder kan være påkrævet. En privat transfer kører dig fra dit hotel i Antalya, Kemer, Belek eller Side til pisterne og tilbage, og du bestemmer selv, hvor længe du bliver på bjerget. Det er ikke en af vores standardruter, så send os hotel, dato og gruppestørrelse, så giver vi dig en fast pris pr. køretøj."
+      },
+      {
+        "type": "h2",
+        "text": "Andre skimuligheder fra Antalya"
+      },
+      {
+        "type": "p",
+        "text": "Til en længere skitur er Davraz ved Isparta et større skisportssted med flere pister, cirka to en halv til tre timers kørsel fra Antalya. Saklıkent er stadig det nemmeste valg til en enkelt dag i sneen under et ophold ved kysten."
+      }
+    ],
+    "faq": [
+      [
+        "Kan man stå på ski ved Antalya?",
+        "Ja. Skisportsstedet Saklıkent ligger i Bakırlı-bjergene, omkring 50 km fra Antalya by, cirka halvanden times kørsel."
+      ],
+      [
+        "Hvornår er skisæsonen i Saklıkent?",
+        "Det afhænger af snefaldet. Sæsonen løber som regel fra januar til marts; tjek de aktuelle forhold, før du tager af sted."
+      ],
+      [
+        "Kan man stå på ski og bade samme dag i Antalya?",
+        "Du kan stå på ski om formiddagen og være ved havet om eftermiddagen. Vinterbadning er for de modige: havet er omkring 17 °C."
+      ],
+      [
+        "Hvordan kommer jeg til Saklıkent fra mit hotel?",
+        "Der er ingen fast offentlig transport. Vi giver gerne et tilbud på en privat transfer fra dit hotel til skisportsstedet og tilbage, til fast pris pr. køretøj."
+      ]
+    ]
   }
 };

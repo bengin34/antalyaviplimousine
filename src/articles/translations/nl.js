@@ -1126,5 +1126,323 @@ export const articles = {
         "Stadshotels en sommige resorts zijn open. Veel seizoensresorts gaan in de loop van april open, en in mei is het grootste deel van de kust volledig in bedrijf."
       ]
     ]
+  },
+  "cappadocia-winter-trip": {
+    "slug": "cappadocie-in-de-winter-vanuit-antalya",
+    "title": "Cappadocië in de winter vanuit Antalya: sneeuw, ballonnen en de reis erheen",
+    "heading": "Cappadocië in de winter: een trip vanuit Antalya",
+    "description": "Cappadocië in de winter vanuit Antalya: sneeuw, weer, luchtballonnen, grothotels, wat je moet zien en hoe de rit van 540 km via Konya in de winter verloopt.",
+    "excerpt": "Feeënschoorstenen onder de sneeuw en ballonnen boven een witte vallei. Zo combineer je een winterverblijf in Antalya met Cappadocië, en zo is de weg in de winter.",
+    "readingMinutes": 7,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Cappadocië in de winter is een van de meest gefotografeerde landschappen van Turkije: feeënschoorstenen en valleien onder de sneeuw, grothotels met een knapperend haardvuur en op heldere ochtenden ballonnen die opstijgen boven een wit landschap. Vanuit Antalya is het een lange maar prachtige rit – en een logische aanvulling op een winterverblijf aan de kust."
+      },
+      {
+        "type": "h2",
+        "text": "Het winterweer: een heel ander klimaat dan aan de kust"
+      },
+      {
+        "type": "p",
+        "text": "Cappadocië ligt op een hoogvlakte op zo'n 1.000 meter of hoger, dus de winter is daar een echte winter. Overdag schommelt de temperatuur vaak rond het vriespunt, 's nachts vriest het flink en van december tot februari valt er regelmatig sneeuw. Neem een goede winterjas, handschoenen, een muts en waterdichte schoenen mee – kleding die in januari prima is voor Antalya, is hier niet genoeg."
+      },
+      {
+        "type": "table",
+        "head": [
+          "",
+          "Kust van Antalya",
+          "Cappadocië"
+        ],
+        "rows": [
+          [
+            "Gemiddelde winterdag",
+            "ongeveer 15 °C",
+            "rond 0-5 °C"
+          ],
+          [
+            "Winternachten",
+            "ongeveer 6-8 °C",
+            "vaak onder het vriespunt"
+          ],
+          [
+            "Sneeuw",
+            "alleen op de bergtoppen",
+            "regelmatig van december tot februari"
+          ]
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Luchtballonnen in de winter"
+      },
+      {
+        "type": "p",
+        "text": "De ballonnen vliegen het hele jaar door als het weer het toelaat, en een vlucht bij zonsopgang boven besneeuwde valleien is het beeld waarvoor veel mensen komen. In de winter worden vluchten wel vaker geannuleerd door wind, mist of sneeuw; de autoriteiten beslissen daar elke ochtend vroeg over. Plan minstens twee nachten in Cappadocië, zodat één geannuleerde vlucht niet betekent dat je het helemaal misloopt."
+      },
+      {
+        "type": "h2",
+        "text": "Wat je in de winter kunt zien"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Openluchtmuseum Göreme: in de rots uitgehouwen kerken met fresco's, in de winter rustiger dan in elk ander seizoen.",
+          "Ondergrondse steden zoals Derinkuyu en Kaymaklı: meerdere verdiepingen diep en met een aangename, constante temperatuur, wat het weer buiten ook doet.",
+          "Het kasteel van Uçhisar en de uitkijkpunten boven Göreme: de beste plekken voor besneeuwde panorama's.",
+          "Korte wandelingen in de Rozenvallei, de Rode Vallei en de Liefdesvallei op droge, heldere dagen – na sneeuwval kunnen de paden glad zijn.",
+          "Grothotels: veel zijn verwarmd en hebben een open haard, en juist in de winter voelen ze het meest bijzonder."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "De weg vanuit Antalya"
+      },
+      {
+        "type": "p",
+        "text": "De rit is ongeveer 540 km en duurt meestal 7 tot 8 uur: over het Taurusgebergte en dan verder over de hoogvlakte via Konya. Konya, met het Mevlanamuseum, is een logische tussenstop. In de winter kan het berggedeelte besneeuwd en glad zijn; de wegen worden vrijgemaakt, maar een voertuig met winteruitrusting en een chauffeur die de route kent, maken het verschil tussen een lange en een stressvolle dag."
+      },
+      {
+        "type": "h2",
+        "text": "Zo plan je de reis"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Reken op minstens twee nachten, liever drie, om ruimte te houden voor geannuleerde ballonvaarten en de korte winterdagen.",
+          "Vertrek 's ochtends uit Antalya, zodat je de bergen bij daglicht oversteekt.",
+          "Combineer de trip met een verblijf aan de kust: een paar dagen Antalya of Side en daarna Cappadocië, of andersom.",
+          "Boek het grothotel en een eventuele ballonvaart rond kerst en oud en nieuw ruim op tijd."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Transfer tussen Antalya en Cappadocië"
+      },
+      {
+        "type": "p",
+        "text": "Wij verzorgen privétransfers vanaf de luchthaven van Antalya en vanaf hotels aan de kust naar Cappadocië, enkele reis of met een terugrit op een latere datum. De prijs is vast per voertuig, je kunt stoppen voor foto's, maaltijden en een bezoek aan Konya, en er zijn geen andere passagiers op wie je moet wachten. Geef bij het boeken je hotel en reisdata door."
+      }
+    ],
+    "faq": [
+      [
+        "Hoe ver is Cappadocië van Antalya?",
+        "Ongeveer 540 km over de weg. De rit via Konya duurt meestal 7 tot 8 uur, iets langer met stops of bij sneeuw."
+      ],
+      [
+        "Is Cappadocië in de winter de moeite waard?",
+        "Ja. Sneeuw op de feeënschoorstenen, rustige bezienswaardigheden en knusse grothotels maken de winter tot een van de mooiste periodes. Neem warme kleding mee: het is er veel kouder dan aan de kust."
+      ],
+      [
+        "Vliegen de luchtballonnen in Cappadocië ook in de winter?",
+        "Ja, zolang het weer het toelaat. In de winter worden vluchten vaker geannuleerd, dus plan minstens twee nachten voor een tweede kans."
+      ],
+      [
+        "Kan ik met een privétransfer van Antalya naar Cappadocië?",
+        "Ja. Wij bieden privétransfers vanaf de luchthaven van Antalya en hotels aan de kust naar Cappadocië, enkele reis of retour, tegen een vaste prijs per voertuig."
+      ]
+    ]
+  },
+  "belek-winter-golf": {
+    "slug": "wintergolf-in-belek",
+    "title": "Wintergolf in Belek: golfen aan de Turkse Rivièra van november tot maart",
+    "heading": "Wintergolf in Belek",
+    "description": "Waarom Belek dé bestemming is voor wintergolf: het weer van november tot maart, de baanconditie, lagere greenfees, wat je inpakt en hoe je met golftassen in Belek komt.",
+    "excerpt": "Zachte dagen, groene fairways en rustigere starttijden. Wat golfers moeten weten over spelen in Belek tussen november en maart, als de banen thuis dicht zijn.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Als de banen in Noord-Europa bevroren, doorweekt of gesloten zijn, wordt er in Belek gewoon doorgespeeld. Het cluster kampioenschapsbanen 45 km ten oosten van de luchthaven van Antalya blijft de hele winter open, en de maanden november tot en met maart zijn uitgegroeid tot een eigen wintergolfseizoen voor golfers die tussen oktober en april niet willen stilzitten."
+      },
+      {
+        "type": "h2",
+        "text": "Zo is het weer op de baan"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Maand",
+          "Gemiddelde dag",
+          "Op de baan"
+        ],
+        "rows": [
+          [
+            "November",
+            "ongeveer 21 °C",
+            "Uitstekende omstandigheden, nog najaarshoogseizoen"
+          ],
+          [
+            "December - januari",
+            "ongeveer 15-16 °C",
+            "Zacht en vaak zonnig, met wat regendagen"
+          ],
+          [
+            "Februari",
+            "ongeveer 16 °C",
+            "Dagen worden langer, minder regendagen"
+          ],
+          [
+            "Maart",
+            "ongeveer 19 °C",
+            "Begin van het voorjaarshoogseizoen"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Op de meeste winterdagen speel je in een dunne trui. Regen valt meestal in korte buien en niet wekenlang, en de banen zijn aangelegd om snel te draineren. 's Ochtends kan het fris zijn en laat in de middag wordt het vroeg donker, dus starttijden liggen meestal vroeger dan in de zomer."
+      },
+      {
+        "type": "h2",
+        "text": "Waarom de winter loont"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Greenfees en hotelprijzen liggen in december, januari en februari doorgaans lager dan in het najaar en het voorjaar.",
+          "De startlijsten zijn minder vol, dus rondes gaan sneller en je favoriete tijden zijn makkelijker te krijgen.",
+          "Verschillende golfhotels blijven de hele winter open, vaak met binnenzwembad en spa voor de middag.",
+          "Korte vluchten vanuit het grootste deel van Europa maken een lang weekend net zo haalbaar als een hele week."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Banen en hotels in de winter"
+      },
+      {
+        "type": "p",
+        "text": "Niet elke baan en elk hotel in Belek draait in de winter hetzelfde schema, en onderhoud zoals holpipen of doorzaaien wordt soms in de rustige maanden gepland. Vraag bij het boeken welke banen in jouw periode open zijn en of er onderhoud gepland staat. Golfhotels regelen meestal starttijden en shuttles naar hun partnerbanen."
+      },
+      {
+        "type": "h2",
+        "text": "Wat pak je in voor wintergolf?"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Laagjes: een thermoshirt, een trui en een winddicht jack voor frisse ochtenden.",
+          "Regenjas en regenbroek voor een enkele bui.",
+          "Winterhandschoenen of wanten tussen de slagen door, plus gewone golfhandschoenen.",
+          "Zonbescherming: de winterzon is op heldere dagen nog steeds sterk."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Met golftassen naar Belek"
+      },
+      {
+        "type": "p",
+        "text": "Van de luchthaven van Antalya naar Belek is het 35 tot 40 minuten rijden, en in de winter is het rustig in de terminal, dus een middagronde op de aankomstdag is vaak haalbaar. De prijs is vast per voertuig, niet per tas: in de regel vervoert een Mercedes Vito vier spelers met vier golftassen en hun bagage, en grotere groepen reizen in een Sprinter. Geef bij het boeken het aantal golftassen door."
+      }
+    ],
+    "faq": [
+      [
+        "Kun je in de winter golfen in Belek?",
+        "Ja. De banen in Belek blijven de hele winter open, met in december en januari gemiddelde dagtemperaturen rond 15-16 °C, en op de meeste dagen is er goed te spelen."
+      ],
+      [
+        "Is golfen in Belek goedkoper in de winter?",
+        "Greenfees en hotelprijzen liggen in december, januari en februari doorgaans lager dan in het hoogseizoen in het najaar en voorjaar. De exacte prijzen hangen af van de baan en het hotel."
+      ],
+      [
+        "Wat is de beste maand om te golfen in Belek?",
+        "Oktober-november en maart-april zijn de topmaanden voor golf. De winter is rustiger en goedkoper, met iets koelere dagen."
+      ],
+      [
+        "Kosten golftassen extra bij de transfer?",
+        "Nee. De prijs is vast per voertuig. Voor meer tassen zetten we een groter voertuig in, en die prijs zie je bij het boeken."
+      ]
+    ]
+  },
+  "saklikent-ski-antalya": {
+    "slug": "skien-bij-antalya-saklikent",
+    "title": "Skiën bij Antalya: gids voor skigebied Saklıkent",
+    "heading": "Skiën bij Antalya: skigebied Saklıkent",
+    "description": "Skiën bij Antalya in Saklıkent: waar het ligt, hoe lang de rit duurt, wanneer het seizoen loopt, wat je op de piste verwacht en hoe je skiën en zee op één dag combineert.",
+    "excerpt": "'s Ochtends skiën, 's middags wandelen langs de zee. Een praktische gids over Saklıkent, het eigen skigebied van Antalya, en hoe je er vanaf de kust komt.",
+    "readingMinutes": 5,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Weinig vakantiegebieden laten je op dezelfde dag skiën en langs de zee wandelen. Antalya wel: skigebied Saklıkent ligt in het Bakırlıgebergte, ongeveer 50 km van de stad, en op een goede winterdag sta je 's ochtends op de piste en ben je voor zonsondergang terug op de boulevard."
+      },
+      {
+        "type": "h2",
+        "text": "Waar ligt Saklıkent?"
+      },
+      {
+        "type": "p",
+        "text": "Het skigebied ligt op zo'n 1.900 meter hoogte op de hellingen van het Bakırlıgebergte, ten westen van Antalya. De rit vanuit de stad duurt ongeveer anderhalf uur en klimt van sinaasappelboomgaarden via dennenbossen naar de sneeuw. Op heldere dagen reikt het uitzicht vanaf de top tot aan de kust en de zee."
+      },
+      {
+        "type": "h2",
+        "text": "Wanneer loopt het seizoen?"
+      },
+      {
+        "type": "p",
+        "text": "Het skiseizoen hangt volledig af van de sneeuwval en loopt meestal van januari tot maart. In sommige winters begint het eerder of stopt het vroeger, dus check de actuele sneeuw- en liftcondities voordat je er een dag omheen plant."
+      },
+      {
+        "type": "h2",
+        "text": "Wat je op de piste kunt verwachten"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Een klein, relaxt skigebied – ideaal voor beginners, gezinnen en een dagje skiën tijdens een strandvakantie, minder voor een volledige skiweek.",
+          "Ski- en snowboarduitrusting kun je meestal ter plekke huren; check vooraf de openingstijden.",
+          "Sleeën en spelen in de sneeuw zijn populair bij gezinnen, vooral in het weekend.",
+          "In het weekend is het druk met lokale bezoekers; doordeweeks is het veel rustiger."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Skiën en zee op één dag"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Vertrek vroeg in de ochtend vanaf de kust, zodat je er bent als de liften opengaan.",
+          "Skiën of spelen in de sneeuw tot het begin van de middag.",
+          "Rij terug naar beneden voor een late lunch in Kaleiçi of een wandeling langs het strand van Konyaaltı.",
+          "Neem schone kleren mee: het temperatuurverschil tussen de piste en de kust kan 15 graden of meer zijn."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Erheen: de bergweg in de winter"
+      },
+      {
+        "type": "p",
+        "text": "Er is geen geregeld openbaar vervoer naar het skigebied, en op het laatste stuk van de bergweg kunnen sneeuw en ijs liggen. Winterbanden of sneeuwkettingen kunnen verplicht zijn. Een privétransfer brengt je van je hotel in Antalya, Kemer, Belek of Side naar de piste en terug, en jij bepaalt hoe lang je op de berg blijft. Dit is geen van onze standaardroutes, dus stuur ons je hotel, datum en groepsgrootte en we geven je een vaste prijs per voertuig."
+      },
+      {
+        "type": "h2",
+        "text": "Andere skimogelijkheden vanuit Antalya"
+      },
+      {
+        "type": "p",
+        "text": "Voor een langere skitrip is Davraz bij Isparta een groter skigebied met meer pistes, ongeveer tweeënhalf tot drie uur rijden van Antalya. Saklıkent blijft de makkelijkste keuze voor één dag sneeuw tijdens een verblijf aan de kust."
+      }
+    ],
+    "faq": [
+      [
+        "Kun je skiën in de buurt van Antalya?",
+        "Ja. Skigebied Saklıkent ligt ongeveer 50 km van de stad Antalya, zo'n anderhalf uur rijden, in het Bakırlıgebergte."
+      ],
+      [
+        "Wanneer is het skiseizoen in Saklıkent?",
+        "Dat hangt af van de sneeuwval. Het seizoen loopt meestal van januari tot maart; check de actuele omstandigheden voordat je gaat."
+      ],
+      [
+        "Kun je in Antalya op één dag skiën en zwemmen?",
+        "Je kunt 's ochtends skiën en 's middags aan zee zijn. Zwemmen in de winter is voor de durvers: het zeewater is rond de 17 °C."
+      ],
+      [
+        "Hoe kom ik vanaf mijn hotel in Saklıkent?",
+        "Er is geen geregeld openbaar vervoer. We maken graag een offerte voor een privétransfer van je hotel naar het skigebied en terug, tegen een vaste prijs per voertuig."
+      ]
+    ]
   }
 };

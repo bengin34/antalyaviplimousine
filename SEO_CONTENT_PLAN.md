@@ -172,7 +172,13 @@ Mart)**; ilkbahar makalesi Nisan-Mayıs rezervasyonlarını erken yakalamak içi
 | `wintering-in-antalya` | "Alanya'da kışlamak" (de: Überwintern, sv/da/nl/ru pazarları) | Kasım - Mart | alanya, alanya_merkez, side, manavgat, kemer, antalya |
 | `antalya-in-spring` | "Antalya'da ilkbahar", Likya Yolu, rafting, Paskalya | Mart - Mayıs | antalya, kemer, kas, belek, side, pamukkale, kapadokya |
 
-5 makale × 23 dil = **115 yeni makale sayfası**. Katalogda en üstte duruyorlar;
+| `cappadocia-winter-trip` | "Kapadokya kışın", Antalya'dan Kapadokya'ya yol | Aralık - Şubat | kapadokya, antalya, side, alanya, belek |
+| `belek-winter-golf` | "Belek kış golfü" (kapanan kuzey sahaları) | Kasım - Mart | belek, bogazkent, side, antalya |
+| `saklikent-ski-antalya` | "Antalya yakınında kayak", Saklıkent, kayak + deniz | Ocak - Mart | antalya, kemer, belek, side |
+
+8 makale × 23 dil = **184 yeni makale sayfası** (ilk 5 makale 26 Eylül, son 3
+makale 27 Eylül). Saklıkent listelenmiş bir rota değil; makale sabit fiyatlı
+teklif istemeye yönlendiriyor. Katalogda en üstte duruyorlar;
 böylece blog dizininde, RSS beslemelerinde ve her makalenin "Diğer rehberler"
 bölümünde ilk görünenler mevsimsel makaleler oluyor.
 
@@ -188,4 +194,5 @@ gece farkı yok" mesajını tekrarlıyor.
 2. Kasım başında `antalya-in-winter` ve `christmas-new-year-antalya` için
    gösterimleri kontrol et; Aralık başında `updated` tarihini tazele.
 3. Mart'ta `antalya-in-spring` öne alınabilir (katalog sırası).
-4. Sonraki adaylar: Kapadokya kış turu, Belek kış golfü, Saklıkent kayak transferi.
+4. Sonraki adaylar: Pamukkale günübirlik/konaklamalı gezi, Demre-Myra Noel gezisi,
+   ilkbaharda Likya Yolu yürüyüşü için transfer.

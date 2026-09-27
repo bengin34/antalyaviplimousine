@@ -1126,5 +1126,323 @@ export const articles = {
         "Hotele miejskie i część resortów są otwarte. Wiele sezonowych resortów otwiera się w ciągu kwietnia, a w maju większa część wybrzeża działa już pełną parą."
       ]
     ]
+  },
+  "cappadocia-winter-trip": {
+    "slug": "kapadocja-zima-z-antalyi",
+    "title": "Kapadocja zimą z Antalyi: śnieg, balony i droga na miejsce",
+    "heading": "Kapadocja zimą: wycieczka z Antalyi",
+    "description": "Kapadocja zimą z Antalyi: śnieg, pogoda, loty balonem, hotele w jaskiniach, co zobaczyć i jak wygląda zimą 540-kilometrowa podróż przez Konyę.",
+    "excerpt": "Kominy wróżek pod śniegiem i balony nad białą doliną. Jak połączyć zimowy pobyt w Antalyi z Kapadocją i jak wygląda droga zimą.",
+    "readingMinutes": 7,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Kapadocja zimą to jeden z najczęściej fotografowanych krajobrazów Turcji: kominy wróżek i doliny pod śniegiem, hotele w jaskiniach z kominkiem, a w pogodne poranki balony wznoszące się nad białą równiną. Z Antalyi to długa, ale piękna podróż samochodem i naturalne uzupełnienie zimowego pobytu na wybrzeżu."
+      },
+      {
+        "type": "h2",
+        "text": "Pogoda zimą: zupełnie inny klimat niż na wybrzeżu"
+      },
+      {
+        "type": "p",
+        "text": "Kapadocja leży na wysokim płaskowyżu, na wysokości około 1000 metrów i więcej, więc zima jest tam prawdziwa. W ciągu dnia temperatura często oscyluje wokół zera, noce są wyraźnie mroźne, a od grudnia do lutego śnieg to norma. Spakuj porządną zimową kurtkę, rękawiczki, czapkę i nieprzemakalne buty – ubrania wystarczające w Antalyi w styczniu tu nie wystarczą."
+      },
+      {
+        "type": "table",
+        "head": [
+          "",
+          "Wybrzeże Antalyi",
+          "Kapadocja"
+        ],
+        "rows": [
+          [
+            "Typowy zimowy dzień",
+            "ok. 15 °C",
+            "ok. 0–5 °C"
+          ],
+          [
+            "Zimowe noce",
+            "ok. 6–8 °C",
+            "często poniżej zera"
+          ],
+          [
+            "Śnieg",
+            "tylko na szczytach gór",
+            "częsty od grudnia do lutego"
+          ]
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Loty balonem zimą"
+      },
+      {
+        "type": "p",
+        "text": "Balony latają przez cały rok, gdy pozwala na to pogoda, a lot o wschodzie słońca nad zaśnieżonymi dolinami to widok, dla którego wiele osób tu przyjeżdża. Zimą loty są jednak częściej odwoływane z powodu wiatru, mgły lub śniegu, a decyzję podejmują władze każdego ranka. Zaplanuj co najmniej dwie noce w Kapadocji, aby jeden odwołany lot nie oznaczał, że ominie cię to całkowicie."
+      },
+      {
+        "type": "h2",
+        "text": "Co zobaczyć w Kapadocji zimą"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Muzeum na wolnym powietrzu w Göreme: wykute w skale kościoły z freskami, zimą spokojniejsze niż o jakiejkolwiek innej porze roku.",
+          "Podziemne miasta, takie jak Derinkuyu i Kaymaklı: kilka poziomów w głąb i przyjemna, stała temperatura bez względu na pogodę na zewnątrz.",
+          "Zamek Uçhisar i punkty widokowe nad Göreme: najlepsze miejsca na śnieżne panoramy.",
+          "Krótkie spacery po Dolinie Różanej, Czerwonej i Dolinie Miłości w suche, pogodne dni – po opadach śniegu ścieżki bywają oblodzone.",
+          "Hotele w jaskiniach: wiele z nich jest ogrzewanych i ma kominki, a zimą mają najwięcej uroku."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Droga z Antalyi"
+      },
+      {
+        "type": "p",
+        "text": "Trasa ma około 540 km i zwykle zajmuje 7 do 8 godzin – przez góry Taurus, a dalej przez płaskowyż i Konyę. Konya z Muzeum Mevlany to naturalny przystanek, by przerwać podróż. Zimą na odcinku górskim może leżeć śnieg i lód; drogi są odśnieżane, ale pojazd z zimowym wyposażeniem i kierowca znający trasę sprawiają, że to po prostu długi dzień, a nie stresujący."
+      },
+      {
+        "type": "h2",
+        "text": "Jak zaplanować wyjazd"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Przeznacz co najmniej dwie noce, lepiej trzy, z zapasem na odwołane loty i krótkie zimowe dni.",
+          "Wyjedź z Antalyi rano, aby przejechać przez góry za dnia.",
+          "Połącz wycieczkę z pobytem na wybrzeżu: kilka dni w Antalyi lub Side, potem Kapadocja – albo odwrotnie.",
+          "Na Boże Narodzenie i Sylwestra zarezerwuj hotel w jaskini i ewentualny lot balonem z wyprzedzeniem."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Transfer Antalya – Kapadocja"
+      },
+      {
+        "type": "p",
+        "text": "Organizujemy prywatne transfery z lotniska w Antalyi i z hoteli na wybrzeżu do Kapadocji – w jedną stronę lub z powrotem w późniejszym terminie. Cena jest stała za pojazd, można zatrzymać się na zdjęcia, posiłek i zwiedzanie Konyi, i nie trzeba czekać na innych pasażerów. Przy rezerwacji podaj hotel i daty."
+      }
+    ],
+    "faq": [
+      [
+        "Jak daleko jest z Antalyi do Kapadocji?",
+        "Około 540 km drogą. Przejazd przez Konyę zwykle zajmuje 7 do 8 godzin, z postojami lub przy śniegu nieco dłużej."
+      ],
+      [
+        "Czy warto jechać do Kapadocji zimą?",
+        "Tak. Śnieg na kominach wróżek, spokojne zabytki i przytulne hotele w jaskiniach sprawiają, że zima to jedna z najpiękniejszych pór roku. Weź ciepłe ubrania: jest tam dużo zimniej niż na wybrzeżu."
+      ],
+      [
+        "Czy balony latają w Kapadocji zimą?",
+        "Tak, gdy tylko pozwala pogoda. Zimą loty częściej są odwoływane, więc zaplanuj co najmniej dwie noce, by mieć drugą szansę."
+      ],
+      [
+        "Czy z Antalyi do Kapadocji można pojechać prywatnym transferem?",
+        "Tak. Oferujemy prywatne transfery z lotniska w Antalyi i hoteli na wybrzeżu do Kapadocji, w jedną stronę lub w obie, w stałej cenie za pojazd."
+      ]
+    ]
+  },
+  "belek-winter-golf": {
+    "slug": "zimowy-golf-w-beleku",
+    "title": "Zimowy golf w Beleku: gra na Riwierze Tureckiej od listopada do marca",
+    "heading": "Zimowy golf w Beleku",
+    "description": "Dlaczego Belek to cel zimowego golfa: pogoda od listopada do marca, stan pól, niższe green fee, co spakować i jak dojechać do Beleku z torbami golfowymi.",
+    "excerpt": "Łagodne dni, zielone fairwaye i luźniejsze grafiki startów. Co golfiści powinni wiedzieć o grze w Beleku od listopada do marca, gdy pola w kraju są zamknięte.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Gdy pola w północnej Europie są zamarznięte, podmokłe lub zamknięte, w Beleku gra się dalej. Skupisko mistrzowskich pól 45 km na wschód od lotniska w Antalyi działa przez całą zimę, a zimowy golf w Beleku od listopada do marca stał się osobnym sezonem dla golfistów, którzy nie chcą robić przerwy od października do kwietnia."
+      },
+      {
+        "type": "h2",
+        "text": "Jaka jest pogoda na polu"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Miesiąc",
+          "Typowy dzień",
+          "Na polu"
+        ],
+        "rows": [
+          [
+            "Listopad",
+            "ok. 21 °C",
+            "Doskonałe warunki, wciąż jesienny szczyt sezonu"
+          ],
+          [
+            "Grudzień – styczeń",
+            "ok. 15–16 °C",
+            "Łagodnie i często słonecznie, zdarzają się deszczowe dni"
+          ],
+          [
+            "Luty",
+            "ok. 16 °C",
+            "Dni coraz dłuższe, mniej deszczowych dni"
+          ],
+          [
+            "Marzec",
+            "ok. 19 °C",
+            "Początek wiosennego szczytu sezonu"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "W większość zimowych dni można grać w lekkim swetrze. Deszcz pada raczej krótko niż przez całe tygodnie, a pola są zbudowane tak, by szybko odprowadzać wodę. Poranki bywają chłodne, a późnym popołudniem szybko robi się ciemno, więc tee time’y są zwykle wcześniej niż latem."
+      },
+      {
+        "type": "h2",
+        "text": "Dlaczego zima się opłaca"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Green fee i ceny hoteli są w grudniu, styczniu i lutym zazwyczaj niższe niż jesienią i wiosną.",
+          "Grafiki startów są mniej zapełnione, więc rundy idą szybciej, a preferowane godziny łatwiej dostać.",
+          "Kilka hoteli golfowych działa całą zimę, wiele z krytymi basenami i spa na popołudnie.",
+          "Krótkie loty z większości Europy sprawiają, że długi weekend jest równie realny jak tygodniowy wyjazd."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Pola i hotele zimą"
+      },
+      {
+        "type": "p",
+        "text": "Nie wszystkie pola i hotele w Beleku działają zimą według tego samego harmonogramu, a prace pielęgnacyjne, takie jak aeracja czy dosiewanie trawy, bywają planowane na spokojne miesiące. Przy rezerwacji zapytaj, które pola są otwarte w twoim terminie i czy zaplanowano jakieś prace. Hotele golfowe zwykle rezerwują tee time’y i organizują dowóz na pola partnerskie."
+      },
+      {
+        "type": "h2",
+        "text": "Co spakować na zimowy golf"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Warstwy: bielizna termiczna, sweter i wiatroszczelna bluza na chłodne poranki.",
+          "Nieprzemakalna kurtka i spodnie na przelotny deszcz.",
+          "Zimowe rękawiczki lub łapawice między uderzeniami oraz zwykłe rękawiczki golfowe.",
+          "Ochrona przed słońcem: w pogodne dni zimowe słońce wciąż mocno świeci."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Dojazd do Beleku z torbami golfowymi"
+      },
+      {
+        "type": "p",
+        "text": "Z lotniska w Antalyi do Beleku jedzie się 35 do 40 minut, a zimą w terminalu jest spokojnie, więc runda w dniu przylotu jest często realna. Cena jest stała za pojazd, nie za torbę: z reguły Mercedes Vito zabiera czterech graczy z czterema torbami golfowymi i bagażem, a większe grupy jadą Sprinterem. Przy rezerwacji podaj liczbę toreb."
+      }
+    ],
+    "faq": [
+      [
+        "Czy w Beleku można grać w golfa zimą?",
+        "Tak. Pola w Beleku są otwarte przez całą zimę, w grudniu i styczniu w dzień jest zwykle ok. 15–16 °C, a grać można w większość dni."
+      ],
+      [
+        "Czy golf w Beleku jest zimą tańszy?",
+        "Green fee i ceny hoteli są w grudniu, styczniu i lutym zazwyczaj niższe niż w jesiennym i wiosennym szczycie. Dokładne ceny zależą od pola i hotelu."
+      ],
+      [
+        "Jaki miesiąc jest najlepszy na golfa w Beleku?",
+        "Szczyt sezonu golfowego to październik–listopad i marzec–kwiecień. Zimą jest spokojniej i taniej, a dni są nieco chłodniejsze."
+      ],
+      [
+        "Czy za torby golfowe płaci się dodatkowo przy transferze?",
+        "Nie. Cena jest stała za pojazd. Przy większej liczbie toreb przydzielamy większy pojazd, a jego cenę widzisz przy rezerwacji."
+      ]
+    ]
+  },
+  "saklikent-ski-antalya": {
+    "slug": "narty-w-antalyi-saklikent",
+    "title": "Narty w Antalyi: przewodnik po ośrodku narciarskim Saklıkent",
+    "heading": "Narty koło Antalyi: ośrodek narciarski Saklıkent",
+    "description": "Narty koło Antalyi w Saklıkent: gdzie leży ośrodek, ile trwa dojazd, kiedy jest sezon, czego spodziewać się na stokach i jak połączyć narty i morze w jeden dzień.",
+    "excerpt": "Rano narty, po południu spacer nad morzem. Praktyczny przewodnik po Saklıkent, ośrodku narciarskim Antalyi, i o tym, jak dojechać tam z wybrzeża.",
+    "readingMinutes": 5,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Niewiele regionów wakacyjnych pozwala jednego dnia jeździć na nartach i spacerować nad morzem. Antalya tak: ośrodek narciarski Saklıkent leży w górach Bakırlı, około 50 km od miasta, i w dobry zimowy dzień rano można być na stoku, a na zachód słońca wrócić na nadmorską promenadę."
+      },
+      {
+        "type": "h2",
+        "text": "Gdzie leży Saklıkent"
+      },
+      {
+        "type": "p",
+        "text": "Ośrodek narciarski położony jest na wysokości około 1900 metrów na zboczach gór Bakırlı, na zachód od Antalyi. Dojazd z miasta trwa mniej więcej półtorej godziny – od gajów pomarańczowych przez las sosnowy aż po śnieg. W pogodne dni widok ze szczytu sięga aż do wybrzeża i morza."
+      },
+      {
+        "type": "h2",
+        "text": "Kiedy trwa sezon"
+      },
+      {
+        "type": "p",
+        "text": "Sezon narciarski zależy wyłącznie od opadów śniegu i zwykle trwa od stycznia do marca. Niektórych zim zaczyna się wcześniej lub kończy szybciej, więc przed zaplanowaniem wyjazdu sprawdź aktualne warunki śniegowe i stan wyciągów."
+      },
+      {
+        "type": "h2",
+        "text": "Czego spodziewać się na stokach"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Mały, spokojny ośrodek – idealny dla początkujących, rodzin i na jeden dzień nart podczas wakacji na wybrzeżu, a nie na pełny tydzień narciarski.",
+          "Sprzęt narciarski i snowboardowy zwykle można wypożyczyć na miejscu; przed wyjazdem sprawdź godziny otwarcia.",
+          "Zjazdy na sankach i zabawy na śniegu są popularne wśród rodzin, zwłaszcza w weekendy.",
+          "W weekendy jest tłoczno od lokalnych gości, w dni powszednie znacznie spokojniej."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Narty i morze w jeden dzień"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Wyjedź z wybrzeża wcześnie rano, aby dotrzeć na otwarcie wyciągów.",
+          "Jeźdź na nartach lub baw się na śniegu do wczesnego popołudnia.",
+          "Zjedź na późny obiad w Kaleiçi lub spacer wzdłuż plaży Konyaaltı.",
+          "Weź ubrania na zmianę: różnica temperatur między stokiem a wybrzeżem może wynosić 15 stopni lub więcej."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Dojazd: górska droga zimą"
+      },
+      {
+        "type": "p",
+        "text": "Do ośrodka nie kursuje regularna komunikacja publiczna, a na ostatnim odcinku górskiej drogi może leżeć śnieg i lód. Mogą być wymagane opony zimowe lub łańcuchy. Prywatny transfer zawiezie cię z hotelu w Antalyi, Kemerze, Beleku lub Side na stok i z powrotem, a czas spędzony w górach ustalasz sam. To nie jest jedna z naszych standardowych tras, więc podaj nam hotel, datę i liczbę osób, a przygotujemy stałą cenę za pojazd."
+      },
+      {
+        "type": "h2",
+        "text": "Inne opcje narciarskie z Antalyi"
+      },
+      {
+        "type": "p",
+        "text": "Na dłuższy wyjazd narciarski jest Davraz koło Isparty – większy ośrodek z większą liczbą tras, oddalony od Antalyi o mniej więcej dwie i pół do trzech godzin jazdy. Saklıkent pozostaje najprostszym wyborem na jeden śnieżny dzień podczas pobytu na wybrzeżu."
+      }
+    ],
+    "faq": [
+      [
+        "Czy koło Antalyi można jeździć na nartach?",
+        "Tak. Ośrodek narciarski Saklıkent leży około 50 km od Antalyi, mniej więcej półtorej godziny jazdy, w górach Bakırlı."
+      ],
+      [
+        "Kiedy trwa sezon narciarski w Saklıkent?",
+        "Zależy od opadów śniegu. Sezon zwykle trwa od stycznia do marca; przed wyjazdem sprawdź aktualne warunki."
+      ],
+      [
+        "Czy w Antalyi można jednego dnia jeździć na nartach i pływać?",
+        "Rano można jeździć na nartach, a po południu być nad morzem. Kąpiel zimą jest dla odważnych: morze ma około 17 °C."
+      ],
+      [
+        "Jak dojechać do Saklıkent z hotelu?",
+        "Nie ma regularnej komunikacji publicznej. Możemy wycenić prywatny transfer z twojego hotelu do ośrodka narciarskiego i z powrotem w stałej cenie za pojazd."
+      ]
+    ]
   }
 };

@@ -1126,5 +1126,323 @@ export const articles = {
         "City hotels and some resorts are open. Many seasonal resorts open during April, and by May most of the coast is fully operating."
       ]
     ]
+  },
+  "cappadocia-winter-trip": {
+    "slug": "cappadocia-in-winter-from-antalya",
+    "title": "Cappadocia in Winter from Antalya: Snow, Balloons and the Road There",
+    "heading": "Cappadocia in winter: a trip from Antalya",
+    "description": "Planning a winter trip from Antalya to Cappadocia: snow, weather, hot-air balloons, cave hotels, what to see and how the 540 km road trip via Konya works in winter.",
+    "excerpt": "Fairy chimneys under snow and balloons over a white valley. How to combine a winter stay in Antalya with Cappadocia, and what the road is like in winter.",
+    "readingMinutes": 7,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Cappadocia in winter is one of the most photographed landscapes in Türkiye: the fairy chimneys and valleys under snow, cave hotels with open fires and, on clear mornings, balloons rising over a white landscape. From Antalya it is a long but beautiful road trip - and a natural addition to a winter stay on the coast."
+      },
+      {
+        "type": "h2",
+        "text": "Winter weather: a different climate from the coast"
+      },
+      {
+        "type": "p",
+        "text": "Cappadocia sits on a high plateau at around 1,000 metres or more, so winter there is a real winter. Daytime temperatures are often close to freezing, nights are well below zero, and snow is common from December to February. Pack a proper winter coat, gloves, a hat and waterproof shoes - clothes that are right for Antalya in January are not enough here."
+      },
+      {
+        "type": "table",
+        "head": [
+          "",
+          "Antalya coast",
+          "Cappadocia"
+        ],
+        "rows": [
+          [
+            "Typical winter day",
+            "about 15 °C",
+            "around 0-5 °C"
+          ],
+          [
+            "Winter nights",
+            "about 6-8 °C",
+            "often below freezing"
+          ],
+          [
+            "Snow",
+            "on the mountain peaks only",
+            "common from December to February"
+          ]
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Hot-air balloons in winter"
+      },
+      {
+        "type": "p",
+        "text": "Balloons fly all year when the weather allows, and a sunrise flight over snow-covered valleys is the image many people come for. Winter also brings more cancellations because of wind, fog or snow, and the decision is made by the authorities early each morning. Plan at least two nights in Cappadocia, so that one cancelled flight does not mean missing it altogether."
+      },
+      {
+        "type": "h2",
+        "text": "What to see in winter"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Göreme Open-Air Museum: rock-cut churches with frescoes, quieter in winter than at any other time of year.",
+          "Underground cities such as Derinkuyu and Kaymaklı: several levels deep and a comfortable, constant temperature whatever the weather outside.",
+          "Uçhisar Castle and the viewpoints above Göreme: the best places for snowy panoramas.",
+          "Short walks in the Rose, Red and Love valleys on dry, clear days - the paths can be icy after snow.",
+          "Cave hotels: many are heated and have fireplaces, and winter is the season when they feel most special."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "The road from Antalya"
+      },
+      {
+        "type": "p",
+        "text": "The drive is about 540 km and usually takes 7 to 8 hours, crossing the Taurus mountains and continuing across the plateau via Konya. Konya, with the Mevlana Museum, is a natural stop to break the journey. In winter the mountain section can have snow and ice; roads are cleared, but a vehicle with winter equipment and a driver who knows the route make the difference between a long day and a stressful one."
+      },
+      {
+        "type": "h2",
+        "text": "How to plan the trip"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Allow at least two nights, better three, to leave room for balloon cancellations and short winter days.",
+          "Leave Antalya in the morning to cross the mountains in daylight.",
+          "Combine the trip with a stay on the coast: a few days in Antalya or Side, then Cappadocia, or the other way round.",
+          "Book the cave hotel and any balloon flight early for the Christmas and New Year period."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Transfer between Antalya and Cappadocia"
+      },
+      {
+        "type": "p",
+        "text": "We run private transfers from Antalya Airport and from hotels on the coast to Cappadocia, one way or with a return on a later date. The price is fixed per vehicle, you can stop for photos, meals and a visit to Konya, and there are no other passengers to wait for. Tell us your hotel and dates when you book."
+      }
+    ],
+    "faq": [
+      [
+        "How far is Cappadocia from Antalya?",
+        "About 540 km by road. The drive usually takes 7 to 8 hours via Konya, a little more with stops or in snowy conditions."
+      ],
+      [
+        "Is it worth visiting Cappadocia in winter?",
+        "Yes. Snow on the fairy chimneys, quiet sights and cosy cave hotels make winter one of the most beautiful times there. Bring warm clothes: it is much colder than the coast."
+      ],
+      [
+        "Do hot-air balloons fly in Cappadocia in winter?",
+        "Yes, whenever the weather allows. Cancellations are more frequent in winter, so plan at least two nights to have a second chance."
+      ],
+      [
+        "Can I go from Antalya to Cappadocia by private transfer?",
+        "Yes. We offer private transfers from Antalya Airport and coastal hotels to Cappadocia, one way or with a return, at a fixed price per vehicle."
+      ]
+    ]
+  },
+  "belek-winter-golf": {
+    "slug": "winter-golf-in-belek",
+    "title": "Winter Golf in Belek: Playing the Turkish Riviera from November to March",
+    "heading": "Winter golf in Belek",
+    "description": "Why Belek is a winter golf destination: weather from November to March, course conditions, lower green fees, what to pack and how to get to Belek with golf bags.",
+    "excerpt": "Mild days, green fairways and quieter tee sheets. What golfers should know about playing Belek between November and March, when home courses are closed.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "When courses in northern Europe are frozen, waterlogged or closed, Belek keeps playing. The cluster of championship courses 45 km east of Antalya Airport stays open through the winter, and the months from November to March have become a season of their own for golfers who do not want to stop between October and April."
+      },
+      {
+        "type": "h2",
+        "text": "What the weather is like on the course"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Month",
+          "Typical day",
+          "On the course"
+        ],
+        "rows": [
+          [
+            "November",
+            "about 21 °C",
+            "Excellent conditions, still autumn peak season"
+          ],
+          [
+            "December - January",
+            "about 15-16 °C",
+            "Mild and often sunny, with some rain days"
+          ],
+          [
+            "February",
+            "about 16 °C",
+            "Days getting longer, fewer rain days"
+          ],
+          [
+            "March",
+            "about 19 °C",
+            "The start of the spring peak season"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Most winter days are playable in a light jumper. Rain tends to come in short spells rather than for whole weeks, and the courses are built to drain quickly. Mornings can be cool and the light fades by late afternoon, so tee times are usually earlier than in summer."
+      },
+      {
+        "type": "h2",
+        "text": "Why winter pays off"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Green fees and hotel rates are generally lower in December, January and February than in autumn and spring.",
+          "Tee sheets are less crowded, so rounds are quicker and preferred times are easier to get.",
+          "Several golf hotels stay open all winter, many with indoor pools and spa facilities for the afternoon.",
+          "Short flights from most of Europe make long weekends as realistic as week-long trips."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Courses and hotels in winter"
+      },
+      {
+        "type": "p",
+        "text": "Not every course and hotel in Belek operates on the same schedule in winter, and maintenance work such as hollow-tining or overseeding is sometimes planned for the quiet months. When you book, ask which courses are open during your dates and whether any maintenance is scheduled. Golf hotels usually arrange tee times and shuttles to their partner courses."
+      },
+      {
+        "type": "h2",
+        "text": "What to pack for winter golf"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Layers: a base layer, a jumper and a windproof top for cool mornings.",
+          "Waterproof jacket and trousers for the occasional shower.",
+          "Winter gloves or mittens between shots, plus normal golf gloves.",
+          "Sun protection: the winter sun is still strong on clear days."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Getting to Belek with golf bags"
+      },
+      {
+        "type": "p",
+        "text": "From Antalya Airport to Belek takes 35 to 40 minutes by road, and in winter the terminal is quiet, so an arrival-day afternoon round is often realistic. The price is fixed per vehicle, not per bag: as a rule, a Mercedes Vito takes four players with four golf bags and their luggage, and larger groups travel in a Sprinter. Tell us the number of bags when you book."
+      }
+    ],
+    "faq": [
+      [
+        "Can you play golf in Belek in winter?",
+        "Yes. The courses in Belek stay open through the winter, with typical daytime temperatures of around 15-16 °C in December and January and most days playable."
+      ],
+      [
+        "Is golf cheaper in Belek in winter?",
+        "Green fees and hotel rates are generally lower in December, January and February than in the autumn and spring peak seasons. Exact prices depend on the course and the hotel."
+      ],
+      [
+        "What is the best month for golf in Belek?",
+        "October-November and March-April are the peak golf months. Winter is quieter and cheaper, with slightly cooler days."
+      ],
+      [
+        "Do golf bags cost extra on the transfer?",
+        "No. The price is fixed per vehicle. For more bags we assign a larger vehicle, and you see that price when you book."
+      ]
+    ]
+  },
+  "saklikent-ski-antalya": {
+    "slug": "skiing-near-antalya-saklikent",
+    "title": "Skiing near Antalya: Saklıkent Ski Centre Guide",
+    "heading": "Skiing near Antalya: the Saklıkent ski centre",
+    "description": "Skiing near Antalya at Saklıkent: where it is, how long the drive takes, when the season runs, what to expect on the slopes and how to combine skiing and the sea in one day.",
+    "excerpt": "Ski in the morning, walk by the sea in the afternoon. A practical guide to Saklıkent, Antalya's own ski centre, and how to get there from the coast.",
+    "readingMinutes": 5,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Few holiday regions let you ski and walk by the sea on the same day. Antalya does: Saklıkent ski centre lies in the Bakırlı mountains, about 50 km from the city, and on a good winter day you can be on the slopes in the morning and back on the seafront for sunset."
+      },
+      {
+        "type": "h2",
+        "text": "Where Saklıkent is"
+      },
+      {
+        "type": "p",
+        "text": "The ski centre sits at around 1,900 metres on the slopes of the Bakırlı mountains, west of Antalya. The drive from the city takes roughly an hour and a half, climbing from orange groves to pine forest and then snow. On clear days the view from the top reaches down to the coast and the sea."
+      },
+      {
+        "type": "h2",
+        "text": "When the season runs"
+      },
+      {
+        "type": "p",
+        "text": "The ski season depends entirely on snowfall and usually runs from January to March. In some winters it starts earlier or ends sooner, so check current snow and lift conditions before you plan a day around it."
+      },
+      {
+        "type": "h2",
+        "text": "What to expect on the slopes"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "A small, relaxed ski centre - ideal for beginners, families and a day of skiing during a coastal holiday rather than a full ski week.",
+          "Ski and snowboard equipment can usually be rented at the centre; check opening hours before you go.",
+          "Sledging and snow play are popular with families, especially at weekends.",
+          "Weekends are busy with local visitors; weekdays are much quieter."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Skiing and the sea in one day"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Leave the coast early in the morning to arrive when the lifts open.",
+          "Ski or play in the snow until early afternoon.",
+          "Drive back down for a late lunch in Kaleiçi or a walk along Konyaaltı beach.",
+          "Bring a change of clothes: the temperature difference between the slopes and the coast can be 15 degrees or more."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Getting there: the mountain road in winter"
+      },
+      {
+        "type": "p",
+        "text": "There is no regular public transport to the ski centre, and the last part of the mountain road can have snow and ice. Winter tyres or chains may be required. A private transfer takes you from your hotel in Antalya, Kemer, Belek or Side to the slopes and back, with the time on the mountain decided by you. This is not one of our standard routes, so send us your hotel, date and group size and we will quote a fixed price per vehicle."
+      },
+      {
+        "type": "h2",
+        "text": "Other ski options from Antalya"
+      },
+      {
+        "type": "p",
+        "text": "For a longer ski trip, Davraz near Isparta is a larger ski centre with more runs, roughly two and a half to three hours from Antalya by road. Saklıkent remains the easiest choice for a single day of snow during a stay on the coast."
+      }
+    ],
+    "faq": [
+      [
+        "Is there skiing near Antalya?",
+        "Yes. Saklıkent ski centre is about 50 km from Antalya city, roughly an hour and a half by road, in the Bakırlı mountains."
+      ],
+      [
+        "When is the ski season at Saklıkent?",
+        "It depends on snowfall. The season usually runs from January to March; check current conditions before you go."
+      ],
+      [
+        "Can you ski and swim on the same day in Antalya?",
+        "You can ski in the morning and be by the sea in the afternoon. Swimming in winter is for the brave: the sea is around 17 °C."
+      ],
+      [
+        "How do I get to Saklıkent from my hotel?",
+        "There is no regular public transport. We can quote a private transfer from your hotel to the ski centre and back at a fixed price per vehicle."
+      ]
+    ]
   }
 };
