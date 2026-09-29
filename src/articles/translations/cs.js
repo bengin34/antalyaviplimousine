@@ -1879,5 +1879,560 @@ export const articles = {
         "Ano. Aspendos je asi 40 minut jízdy ze Side a je to snadný půldenní výlet, často v kombinaci s Perge nebo vodopádem Manavgat."
       ]
     ]
+  },
+  "alanya-in-winter": {
+    "slug": "alanya-v-zime",
+    "title": "Alanya v zimě: počasí, co dělat a jednodenní výlety",
+    "heading": "Alanya v zimě",
+    "description": "Alanya od listopadu do března: zimní počasí a teplota moře, hrad a lanovka, jeskyně Damlataş a Dim, procházky, trhy a cesta z letiště Antalya.",
+    "excerpt": "Mírné dny, prázdný hradní kopec a město, které žije dál, i když letní davy odjedou. Jaká je Alanya doopravdy mezi listopadem a březnem.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Alanya patří k mála místům na tureckém pobřeží, která se v zimě nevypínají. Celoročně tu žijí desítky tisíc lidí, mezi nimi mnoho Skandinávců, Němců, Nizozemců a Rusů, takže obchody, kavárny, trhy i restaurace zůstávají otevřené. Na krátkou zimní dovolenou nabízí něco, co je v Evropě vzácné: slunce, promenádu u moře, po které se dá chodit pěšky, a středověký hrad nad městem - a to s mnohem menším počtem lidí než v létě."
+      },
+      {
+        "type": "h2",
+        "text": "Počasí v Alanyi v zimě"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Měsíc",
+          "Běžně ve dne",
+          "Běžně v noci",
+          "Moře"
+        ],
+        "rows": [
+          [
+            "Listopad",
+            "20-22 °C",
+            "11-13 °C",
+            "asi 21 °C"
+          ],
+          [
+            "Prosinec",
+            "17-19 °C",
+            "8-10 °C",
+            "asi 19 °C"
+          ],
+          [
+            "Leden",
+            "16-17 °C",
+            "7-9 °C",
+            "asi 17 °C"
+          ],
+          [
+            "Únor",
+            "16-18 °C",
+            "7-9 °C",
+            "asi 17 °C"
+          ],
+          [
+            "Březen",
+            "18-20 °C",
+            "9-11 °C",
+            "asi 17 °C"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Jde o přibližné průměry. V zimě prší v obdobích - často den nebo dva vydatných přeháněk a pak jasné, slunečné dny. Alanyu chrání pohoří Taurus, díky kterému je tu o něco mírněji než na velké části pobřeží. Večery jsou chladné a domy i některé hotelové pokoje bývají studené, takže si přibalte něco teplého."
+      },
+      {
+        "type": "h2",
+        "text": "Hrad, lanovka a Červená věž"
+      },
+      {
+        "type": "p",
+        "text": "Hrad Alanya korunuje skalnatý poloostrov nad městem - najdete tu hradby, cisterny, byzantský kostel a výhledy podél pobřeží na obě strany. V létě je výstup dřina, v zimě příjemná procházka. Pokud chcete, vyveze vás nahoru za pár minut lanovka od pláže Damlataş. Dole u přístavu jsou jen kousek od sebe Červená věž (Kızıl Kule) ze 13. století a stará loděnice."
+      },
+      {
+        "type": "h2",
+        "text": "Jeskyně, řeky a procházky"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Jeskyně Damlataş: malá kapníková jeskyně na konci pláže Damlataş, známá vlhkým vzduchem se stálou teplotou.",
+          "Jeskyně Dim: větší jeskyně v kopcích na východ od města, s chodníkem a malým jezírkem uvnitř.",
+          "Řeka Dim (Dim Çayı): restaurace na plošinách nad vodou, v zimě klidnější, některé otevřené celý rok.",
+          "Promenáda u moře: kilometry rovné cesty pro chůzi i kolo podél pláží Keykubat a Kleopatra.",
+          "Banánové plantáže a vesnice na svazích za městem, kde v mírné zimě roste tropické ovoce."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Koupání, trhy a každodenní život"
+      },
+      {
+        "type": "p",
+        "text": "Za slunečných dnů v listopadu, a dokonce i v zimě, uvidíte lidi plavat u pláže Kleopatra - moře je chladnější, než napovídá vzduch, ale mnoha návštěvníkům ze severu to nevadí. Na týdenních trzích se prodávají citrusy, granátová jablka, olivy a zelenina a centrum města žije spíš místními než zájezdy. Mnoho hotelů nabízí zimní ceny pro dlouhé pobyty a řada plážových resortů zůstává otevřená s krytými bazény."
+      },
+      {
+        "type": "h2",
+        "text": "Výlety z Alanye v zimě"
+      },
+      {
+        "type": "p",
+        "text": "Side a vodopád Manavgat jsou asi hodinu cesty na západ, Aspendos a Perge jsou delší, ale nenáročný celodenní výlet. Ve vnitrozemí padá v nejchladnějších týdnech ve vesnicích pohoří Taurus sníh, zatímco pobřeží zůstává zelené. Pokud tu zůstáváte spíš týdny než dny, dlouhým pobytům se podrobněji věnuje náš samostatný průvodce přezimováním na pobřeží Antalye."
+      },
+      {
+        "type": "h2",
+        "text": "Jak se dostat do Alanye z letiště Antalya"
+      },
+      {
+        "type": "p",
+        "text": "Alanya je asi 125 km od letiště Antalya, zhruba dvě hodiny jízdy po pobřeží přes Side a Manavgat. Letiště Gazipaşa-Alanya je blíž, ale má méně letů, zejména v zimě, a proto většina návštěvníků přistává v Antalyi. Soukromý transfer vás doveze až ke dveřím hotelu nebo apartmánu za pevnou cenu za vůz, bez příplatku za zimu, víkend nebo noc - to se hodí, když let přistává pozdě večer."
+      }
+    ],
+    "faq": [
+      [
+        "Vyplatí se Alanya v zimě?",
+        "Ano, pokud chcete mírné počasí, procházky a živé město místo plážového života. Dny bývají často slunečné, kolem 16-19 °C, a hrad i jeskyně jsou příjemné bez letního horka."
+      ],
+      [
+        "Dá se v Alanyi v zimě koupat v moři?",
+        "Někteří lidé se koupou. Moře má uprostřed zimy asi 17-19 °C, v listopadu je teplejší. Spíš osvěží, než zahřeje, a mnoho hotelů má vyhřívané kryté bazény."
+      ],
+      [
+        "Jsou v Alanyi v zimě otevřené hotely a restaurace?",
+        "Mnohé ano. Alanya má velký počet stálých obyvatel, takže centrum, trhy a mnoho restaurací zůstává otevřených. Některé velké sezonní resorty od listopadu do března zavírají."
+      ],
+      [
+        "Jak daleko je Alanya od letiště Antalya?",
+        "Asi 125 km, zhruba dvě hodiny jízdy. Soukromý transfer vás doveze přímo do hotelu za pevnou cenu za vůz."
+      ],
+      [
+        "Prší v Alanyi v zimě hodně?",
+        "Nejdeštivější měsíce jsou prosinec až únor, ale déšť obvykle přichází v obdobích jednoho až dvou dnů a mezi nimi jsou slunečné dny."
+      ]
+    ]
+  },
+  "tahtali-cable-car-olympos": {
+    "slug": "lanovka-tahtali-olympos-chimera",
+    "title": "Lanovka na Tahtalı, Olympos a plameny Chiméry z Kemeru",
+    "heading": "Lanovka na Tahtalı, Olympos a Chiméra",
+    "description": "Den u Kemeru: lanovka na Tahtalı do výšky 2 365 m, ruiny Olympu, pláž Çıralı a plameny Chiméry za soumraku - nejlepší období, co si obléct a jak se tam dostat.",
+    "excerpt": "Horský vrchol, lýkijské město v říčním údolí a plameny, které šlehají ze skály už tisíce let - to vše do hodiny cesty z Kemeru.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Jižně od Kemeru se pohoří Taurus zvedá přímo z moře. Za jediný den můžete stát na vrcholu hory Tahtalı, projít ruinami Olympu až na pláž a za soumraku sledovat, jak na úbočí plápolají plameny Chiméry. Nejlepší je podzim a jaro: čistý vzduch pro výhledy, příjemné teploty na chůzi a žádné letní fronty."
+      },
+      {
+        "type": "h2",
+        "text": "Lanovka na Tahtalı: od moře do výšky 2 365 m"
+      },
+      {
+        "type": "p",
+        "text": "Lanovka Olympos začíná v borovém lese nad Tekirovou a zhruba za deset minut vyjede na vrchol Tahtalı, vysoký asi 2 365 m. Shora se díváte na celé pobřeží od Antalye po Kemer a Phaselis a za jasných dnů daleko do vnitrozemí. Na vrcholu je kavárna a vyhlídkové terasy. Jízdenky se kupují v dolní stanici nebo online, provozní doba a ceny se mění podle sezony."
+      },
+      {
+        "type": "h2",
+        "text": "Kdy jet a co si obléct"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Říjen a listopad: čistý vzduch a nejlepší viditelnost v roce, u moře mírné počasí.",
+          "Prosinec až březen: na vrcholu často leží sníh - úchvatný pohled na zelené pobřeží, ale nahoře se oblékněte jako v zimě.",
+          "Duben a květen: sníh na vrcholu a květiny na nižších svazích, často v jediném pohledu.",
+          "V kteroukoli roční dobu je nahoře o 10-15 °C chladněji než na pláži. Vezměte si bundu, i v říjnu.",
+          "Při silném větru nebo bouřce lanovka nejezdí, takže si den nechte volný a před odjezdem si provoz ověřte."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Olympos: ruiny v říčním údolí"
+      },
+      {
+        "type": "p",
+        "text": "Antické lýkijské město Olympos leží v úzkém zalesněném údolí, které končí oblázkovou pláží. Hrobky, divadlo, lázně a byzantský kostel jsou roztroušené mezi vavříny a fíkovníky podél potoka. Cesta od vstupu na pláž trvá asi dvacet minut. Areál je součástí chráněného území a platí se vstupné, držitelé karty Museum Pass mají vstup zdarma."
+      },
+      {
+        "type": "h2",
+        "text": "Çıralı a plameny Chiméry"
+      },
+      {
+        "type": "p",
+        "text": "Na druhé straně pláže od Olympu leží Çıralı, klidná vesnice sadů a malých penzionů podél dlouhé pláže, kde hnízdí karety obecné. Nad ní, na svahu Yanartaş, uniká ze skály zemní plyn, který hoří už tisíce let - je to antická Chiméra z řecké legendy. K plamenům vede schodovitá stezka, výstup trvá asi 20-30 minut. Nejpůsobivější jsou za soumraku, takže si na cestu dolů vezměte baterku."
+      },
+      {
+        "type": "h2",
+        "text": "Jak si den naplánovat"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Zastávka",
+          "Z Kemeru",
+          "Počítejte s"
+        ],
+        "rows": [
+          [
+            "Lanovka na Tahtalı (dolní stanice)",
+            "asi 30 minut",
+            "1,5-2 hodiny"
+          ],
+          [
+            "Ruiny Olympu a pláž",
+            "asi 50 minut",
+            "2 hodiny"
+          ],
+          [
+            "Çıralı a Chiméra",
+            "asi 50 minut",
+            "1,5 hodiny, ideálně za soumraku"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Časy jízdy jsou přibližné. Osvědčené pořadí je lanovka ráno, kdy je vzduch nejčistší, odpoledne Olympos a oběd v Çıralı a Chiméra při západu slunce. Z Antalye připočítejte asi hodinu na každou cestu."
+      },
+      {
+        "type": "h2",
+        "text": "Jak se tam dostat"
+      },
+      {
+        "type": "p",
+        "text": "Kemer je asi 50 km od letiště Antalya a Tekirova asi 75 km, po pobřežní silnici. Veřejné autobusy k dolní stanici lanovky ani k Chiméře snadno nedojedou, a proto mnoho návštěvníků jede s řidičem. Zajišťujeme soukromé transfery z letiště do Kemeru, Tekirovy a Kumlucy za pevnou cenu za vůz a na požádání vám připravíme nabídku na celý den s řidičem na lanovku, do Olympu a Çıralı."
+      }
+    ],
+    "faq": [
+      [
+        "Jak vysoko vede lanovka na Tahtalı?",
+        "Vyjíždí na vrchol hory Tahtalı ve výšce asi 2 365 m, z dolní stanice v lese nad Tekirovou. Jízda trvá zhruba deset minut."
+      ],
+      [
+        "Leží na Tahtalı v zimě sníh?",
+        "Často ano - zhruba od prosince do března, někdy i v dubnu. Nahoře je vždy mnohem chladněji než na pobřeží, takže si vezměte teplou bundu."
+      ],
+      [
+        "Kdy je nejlepší vidět plameny Chiméry?",
+        "Za soumraku nebo po setmění, kdy plameny vyniknou na pozadí skály. Výstup trvá asi 20-30 minut, na cestu dolů si vezměte baterku."
+      ],
+      [
+        "Dá se lanovka a Olympos stihnout za jeden den?",
+        "Ano. Většina lidí jede lanovkou ráno, odpoledne navštíví Olympos a Çıralı a Chiméru vidí při západu slunce."
+      ],
+      [
+        "Jak daleko je Kemer od letiště Antalya?",
+        "Asi 50 km, zhruba 40-50 minut jízdy. Tekirova u lanovky je asi 75 km."
+      ]
+    ]
+  },
+  "perge-aspendos-day-trip": {
+    "slug": "perge-a-aspendos-vylet-z-antalye",
+    "title": "Perge a Aspendos: půldenní výlet za antickými památkami Antalye",
+    "heading": "Perge a Aspendos z Antalye",
+    "description": "Výlet do Perge a Aspendu z Antalye, Beleku nebo Side: co vidět, nejlepší období, kolik času počítat a jak obě antická místa spojit za půl dne.",
+    "excerpt": "Římská ulice lemovaná sloupy, stadion pro 12 000 diváků a jedno z nejzachovalejších divadel antického světa - vše do hodiny od letiště.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Dvě z nejkrásnějších antických památek Turecka leží kousek od hlavní silnice mezi Antalyí a Side. Perge bylo velké řecko-římské město na pamfýlské nížině, Aspendos má římské divadlo tak zachovalé, že se v něm dodnes hraje. Spolu tvoří nenáročný půldenní výlet a nejlepší jsou mezi říjnem a dubnem, kdy slunce nepálí."
+      },
+      {
+        "type": "h2",
+        "text": "Perge: město sloupů"
+      },
+      {
+        "type": "p",
+        "text": "Perge je jen asi 15 minut od letiště Antalya. Vstoupíte helénistickou branou se dvěma kulatými věžemi a projdete dlouhou kolonádou s vodním kanálem uprostřed až k agoře, lázním a akropolskému pahorku. Hned za hradbami stojí velké divadlo a jeden z nejzachovalejších stadionů starověku. Mnoho soch z Perge je vystaveno v Antalyjském muzeu. Počítejte zhruba s hodinou a půl až dvěma hodinami."
+      },
+      {
+        "type": "h2",
+        "text": "Aspendos: divadlo, které přežilo"
+      },
+      {
+        "type": "p",
+        "text": "Aspendos nedaleko Seriku je proslulý římským divadlem z 2. století n. l., které pojalo mnoho tisíc diváků a dodnes má zachovanou scénickou budovu, galerie i vynikající akustiku. Za ním stoupá stezka k hornímu městu a k obloukům římského akvaduktu, který se táhne přes nížinu. Kousek autem odtud stojí za zastávku seldžucký most přes řeku Köprüçay. Počítejte zhruba s hodinou až hodinou a půl."
+      },
+      {
+        "type": "h2",
+        "text": "Nejlepší období na návštěvu ruin"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Říjen a listopad: teplé, suché dny a měkké světlo na fotografování.",
+          "Prosinec až únor: klidné památky a mírné počasí mezi deštivými dny - přibalte si nepromokavou vrstvu.",
+          "Březen a duben: zelená tráva a divoké květiny mezi kameny, možná nejkrásnější období.",
+          "Červen až září: obě místa mají málo stínu a polední horko je silné, v létě jeďte brzy ráno."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Jak obě místa spojit za půl dne"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Výchozí místo",
+          "Do Perge",
+          "Z Perge do Aspendu",
+          "Z Aspendu zpět"
+        ],
+        "rows": [
+          [
+            "Antalya / Lara",
+            "asi 25 minut",
+            "asi 35 minut",
+            "asi 45 minut"
+          ],
+          [
+            "Belek",
+            "asi 30 minut",
+            "asi 35 minut",
+            "asi 20 minut"
+          ],
+          [
+            "Side / Manavgat",
+            "asi 55 minut",
+            "asi 35 minut",
+            "asi 35 minut"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Časy jízdy jsou přibližné. Začít ráno v Perge a skončit v Aspendu se hodí z kteréhokoli z těchto míst. Na obou místech se platí vstupné a platí tu karta Museum Pass. Vezměte si pevné boty: povrch tvoří nerovný mramor a kámen a schody jsou všude."
+      },
+      {
+        "type": "h2",
+        "text": "Cestou z letiště nebo na letiště"
+      },
+      {
+        "type": "p",
+        "text": "Protože je Perge tak blízko letiště Antalya a Aspendos leží u silnice do Beleku a Side, obě místa se dobře vejdou do dne příletu nebo odletu s pozdním letem. Soukromý transfer může cestou zastavit u jednoho nebo obou, zavazadla přitom zůstanou bezpečně ve voze. Při rezervaci si řekněte o nabídku se zastávkami: cena zůstává pevná za vůz."
+      }
+    ],
+    "faq": [
+      [
+        "Jak daleko je Perge od letiště Antalya?",
+        "Jen asi 15 minut jízdy. Je to jedno z nejsnáze dostupných antických míst na den příletu nebo odletu."
+      ],
+      [
+        "Dají se Perge a Aspendos stihnout za jeden den?",
+        "Snadno - na obě stačí půl dne. Počítejte asi se dvěma hodinami v Perge, zhruba hodinou v Aspendu a asi 35 minutami jízdy mezi nimi."
+      ],
+      [
+        "Používá se divadlo v Aspendu dodnes?",
+        "Ano. Římské divadlo je tak zachovalé, že se v něm některé večery stále konají koncerty a představení, většinou v teplejších měsících."
+      ],
+      [
+        "Kdy je nejlepší doba na návštěvu Perge a Aspendu?",
+        "Od října do dubna. Na žádném z obou míst není moc stínu, takže v létě jeďte brzy ráno."
+      ],
+      [
+        "Může transfer se zavazadly zastavit u ruin?",
+        "Ano. Zastávky si objednejte při rezervaci, zavazadla zůstanou ve voze a cena zůstává pevná za vůz."
+      ]
+    ]
+  },
+  "ramadan-bayram-antalya": {
+    "slug": "ramadan-a-bajram-v-antalyi",
+    "title": "Ramadán a bajram v Antalyi: co by měli cestovatelé vědět",
+    "heading": "Cesta do Antalye během ramadánu a bajramu",
+    "description": "Co se v Antalyi mění během ramadánu a svátků bajram: restaurace, večery s iftarem, plné silnice o svátcích, hotely a jak naplánovat transfer z letiště.",
+    "excerpt": "V letoviscích se běžný život během ramadánu téměř nemění. Svátky, které po něm následují, jsou jiná kapitola - co čekat a jak je zohlednit v plánech.",
+    "readingMinutes": 5,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Ramadán a dva svátky bajram se v kalendáři posouvají, každý rok asi o 11 dní dříve. V nejbližších sezonách připadnou na konec zimy a jaro: ramadán a svátek konce ramadánu (Ramazan Bayramı) zhruba na únor a březen, Svátek oběti (Kurban Bayramı) zhruba na květen. Přesná data si ověřte v oficiálním kalendáři. Pro návštěvníky se na pobřeží během samotného postního měsíce mění jen málo - plánovat je potřeba hlavně kolem svátků."
+      },
+      {
+        "type": "h2",
+        "text": "Mění ramadán dovolenou v Antalyi?"
+      },
+      {
+        "type": "p",
+        "text": "Jen velmi málo. Hotely, restaurace, kavárny a obchody v Antalyi, Beleku, Side, Kemeru a Alanyi mají přes den otevřeno jako obvykle a alkohol se podává tam, kde se podává běžně. Mnoho lidí v Turecku se postí, mnoho ne, a od návštěvníků to nikdo neočekává. Je jen zdvořilé nejíst a nepít okázale před někým, kdo se zjevně postí, zvlášť v tradičních čtvrtích a vesnicích."
+      },
+      {
+        "type": "h2",
+        "text": "Iftar: ramadánové večery"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Při západu slunce se půst přerušuje iftarem, často společným jídlem s polévkou, datlemi, olivami a zvláštním kulatým ramadánovým chlebem pide, který se prodává jen v tomto měsíci.",
+          "Mnoho restaurací nabízí iftarové menu, stoly se zaplní těsně před západem slunce, takže pokud se chcete přidat, rezervujte si.",
+          "Ve starém městě a u velkých mešit panuje večer sváteční atmosféra a rodiny zůstávají venku dlouho.",
+          "Před úsvitem v některých čtvrtích prochází ulicemi bubeník a budí lidi k poslednímu jídlu (sahur) - i to patří k tradici."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Svátky bajram: kdy cestuje celé Turecko"
+      },
+      {
+        "type": "p",
+        "text": "Svátek konce ramadánu trvá tři dny a Svátek oběti čtyři, vláda je často prodlužuje na delší volno. Miliony lidí cestují za rodinou nebo k moři, takže vnitrostátní lety, dálkové autobusy i hotely se plní a silnice do Antalye jsou první a poslední den rušné. Banky a úřady zavírají, ale obchody, restaurace, muzea a turistická místa v letoviscích obvykle zůstávají otevřené."
+      },
+      {
+        "type": "h2",
+        "text": "Jak naplánovat transfer kolem svátků"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Pokud přilétáte na začátku bajramu, rezervujte včas: po vozech a řidičích je velká poptávka.",
+          "Na odlet v poslední den svátků si nechte časovou rezervu, letiště i silnice jsou tehdy nejvytíženější.",
+          "Během ramadánu je hodinu před západem slunce hustý provoz a během samotného iftaru neobvykle klid.",
+          "Sdělte nám číslo letu: sledujeme ho, takže vás zpožděný let v rušný den nepřipraví o vyzvednutí."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Dobré vědět"
+      },
+      {
+        "type": "p",
+        "text": "Během svátků se lidé zdraví „İyi bayramlar“ (šťastné svátky) a všude se rozdávají sladkosti - je to vlídné období pro pobyt v zemi. Naše ceny se kvůli ramadánu ani bajramu nemění: jedna pevná cena za vůz, bez příplatku za svátky, noc nebo sezonu."
+      }
+    ],
+    "faq": [
+      [
+        "Jsou restaurace v Antalyi během ramadánu otevřené?",
+        "Ano. V letoviscích i ve městě Antalya mají restaurace a kavárny přes den normálně otevřeno. Večer k tomu přibývají iftarová menu."
+      ],
+      [
+        "Mohou turisté během ramadánu v Antalyi pít alkohol?",
+        "Ano. Hotely, bary a restaurace, které alkohol běžně podávají, ho podávají i během ramadánu."
+      ],
+      [
+        "Je v Antalyi během bajramu rušno?",
+        "Ano. Mnoho tureckých rodin o bajramu cestuje, takže hotely, lety a silnice jsou vytíženější než obvykle, hlavně první a poslední den."
+      ],
+      [
+        "Kdy je ramadán a bajram příští rok?",
+        "Data se každý rok posouvají asi o 11 dní dříve. V nejbližších sezonách připadne ramadán a svátek konce ramadánu zhruba na únor-březen a Svátek oběti zhruba na květen, přesná data si ověřte v oficiálním kalendáři."
+      ],
+      [
+        "Zdražují se transfery během bajramu?",
+        "U nás ne. Cena je pevná za vůz, bez příplatku za svátky, noc nebo sezonu. Na sváteční termíny doporučujeme rezervovat včas."
+      ]
+    ]
+  },
+  "kaleici-old-town-guide": {
+    "slug": "kaleici-stare-mesto-antalye-pruvodce",
+    "title": "Kaleiçi, staré město Antalye: průvodce na procházku mimo sezonu",
+    "heading": "Kaleiçi: staré město Antalye",
+    "description": "Průvodce po Kaleiçi, opevněném starém městě Antalye: Hadriánova brána, Žlábkovaný minaret, starý přístav, butikové hotely a proč jet od podzimu do jara.",
+    "excerpt": "Římské brány, osmanské domy a přístav pod útesy. Staré srdce Antalye se nejlépe poznává pomalu, v měsících, kdy město patří svým obyvatelům.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Kaleiçi - doslova „uvnitř hradu“ - je historické centrum Antalye, obehnané starými hradbami nad malým přístavem. Uličky lemují obnovené osmanské domy, v mnoha z nich dnes sídlí butikové hotely, kavárny a malé restaurace. V létě je tu horko a plno, od října do dubna je Kaleiçi v nejlepší formě: mírné dny, otevřené terasy na slunci a čas se toulat."
+      },
+      {
+        "type": "h2",
+        "text": "Procházka po Kaleiçi"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Hadriánova brána: římská brána se třemi oblouky, postavená k návštěvě císaře ve 2. století n. l., tradiční vstup do starého města.",
+          "Hodinová věž a náměstí Kalekapısı: místo, kde se staré město potkává s moderním.",
+          "Žlábkovaný minaret (Yivli Minare): seldžucký symbol Antalye, viditelný z celého centra.",
+          "Věž Hıdırlık: kulatá římská věž na jižním okraji s výhledem na západ slunce nad zálivem a horami.",
+          "Zlomený minaret (Kesik Minare): stavba, která byla v průběhu staletí chrámem, kostelem i mešitou.",
+          "Starý přístav: rybářské a výletní lodě pod útesy, dostanete se k nim uličkami nebo výtahem shora."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Za hradbami"
+      },
+      {
+        "type": "p",
+        "text": "Park Karaalioğlu se táhne podél útesů od věže Hıdırlık s výhledy přes záliv. Antalyjské muzeum, jedna z nejbohatších archeologických sbírek v Turecku, leží na začátku pláže Konyaaltı a je ideální na deštivý den, otevírací dobu si ověřte předem. Na východ od města padají vodopády Düden přímo z útesů do moře a horní vodopády leží ve stinném parku."
+      },
+      {
+        "type": "h2",
+        "text": "Proč jet od podzimu do jara"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Období",
+          "Běžně ve dne",
+          "V Kaleiçi"
+        ],
+        "rows": [
+          [
+            "Říjen - listopad",
+            "22-27 °C",
+            "Teplé večery, otevřené terasy, méně lidí"
+          ],
+          [
+            "Prosinec - únor",
+            "15-18 °C",
+            "Klidné uličky, kavárny na slunci, občas deštivý den"
+          ],
+          [
+            "Březen - duben",
+            "18-22 °C",
+            "Kvetoucí pomerančovníky, zelené parky, festivaly ve městě"
+          ],
+          [
+            "Červen - srpen",
+            "33-35 °C",
+            "Velké horko a plno - nejlépe brzy ráno a večer"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Teploty jsou přibližné průměry. Většina restaurací, kaváren a butikových hotelů v Kaleiçi má otevřeno celý rok, protože staré město žije z návštěvníků města a místních obyvatel, nejen z plážové turistiky."
+      },
+      {
+        "type": "h2",
+        "text": "Ubytování ve starém městě"
+      },
+      {
+        "type": "p",
+        "text": "Hotely v Kaleiçi bývají malé, v přestavěných sídlech kolem nádvoří nebo malého bazénu. Mnoho uliček je pěších nebo příliš úzkých pro velká auta, takže vůz často zastaví u nejbližší brány nebo na náměstí a posledních pár metrů se jde pěšky. Při rezervaci nám napište název hotelu: naši řidiči vědí, který vstup je nejblíž, a pomohou vám se zavazadly."
+      },
+      {
+        "type": "h2",
+        "text": "Jak se dostat do Kaleiçi z letiště Antalya"
+      },
+      {
+        "type": "p",
+        "text": "Kaleiçi je asi 15 km od letiště Antalya, zhruba 20 až 30 minut jízdy. Letiště s centrem spojuje i tramvaj, ale s kufry je jednodušší soukromý transfer do hotelu, zvlášť pozdě v noci. Cena je pevná za vůz, bez nočního příplatku."
+      }
+    ],
+    "faq": [
+      [
+        "Co je Kaleiçi v Antalyi?",
+        "Kaleiçi je historické staré město Antalye, obehnané hradbami nad starým přístavem, s osmanskými domy, Hadriánovou branou, Žlábkovaným minaretem a mnoha butikovými hotely a kavárnami."
+      ],
+      [
+        "Jak daleko je Kaleiçi od letiště Antalya?",
+        "Asi 15 km, zhruba 20-30 minut jízdy."
+      ],
+      [
+        "Dá se do Kaleiçi vjet autem?",
+        "Jen částečně. Mnoho uliček je pěších nebo velmi úzkých, takže vozy často zastavují u nejbližší brány nebo na náměstí. Naši řidiči znají nejbližší příjezd ke každému hotelu."
+      ],
+      [
+        "Vyplatí se Kaleiçi v zimě?",
+        "Ano. Většina kaváren, restaurací a hotelů má otevřeno, uličky jsou klidné a dny bývají mírné a slunečné."
+      ],
+      [
+        "Kolik času potřebuji na Kaleiçi?",
+        "Na první procházku stačí půl dne. S muzeem, parkem Karaalioğlu a vodopády Düden je ideální celý den nebo dva."
+      ]
+    ]
   }
 };

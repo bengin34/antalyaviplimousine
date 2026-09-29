@@ -1879,5 +1879,560 @@ export const articles = {
         "Ja. Aspendos ligger omkring 40 minutter fra Side i bil og er en nem halvdagstur, ofte kombineret med Perge eller Manavgat-vandfaldet."
       ]
     ]
+  },
+  "alanya-in-winter": {
+    "slug": "alanya-om-vinteren",
+    "title": "Alanya om vinteren: vejret, oplevelser og udflugter",
+    "heading": "Alanya om vinteren",
+    "description": "Alanya fra november til marts: vintervejret og havtemperaturen, borgen og svævebanen, Damlataş- og Dim-grotten, gåture, markeder og turen fra Antalya Lufthavn.",
+    "excerpt": "Milde dage, en tom borgklippe og en by, der bliver ved med at leve, når sommergæsterne er rejst hjem. Sådan er Alanya i virkeligheden fra november til marts.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Alanya er et af de få steder på den tyrkiske kyst, der ikke lukker ned om vinteren. Titusindvis af mennesker bor her hele året, mange af dem fra Skandinavien, Tyskland, Holland og Rusland, så butikker, caféer, markeder og restauranter holder åbent. Til en kort vinterferie byder Alanya på noget, der er sjældent i Europa: solskin, en strandpromenade til gåture og en middelalderborg over byen – med langt færre mennesker end om sommeren."
+      },
+      {
+        "type": "h2",
+        "text": "Vejret i Alanya om vinteren"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Måned",
+          "Typisk dag",
+          "Typisk nat",
+          "Havet"
+        ],
+        "rows": [
+          [
+            "November",
+            "20-22 °C",
+            "11-13 °C",
+            "omkring 21 °C"
+          ],
+          [
+            "December",
+            "17-19 °C",
+            "8-10 °C",
+            "omkring 19 °C"
+          ],
+          [
+            "Januar",
+            "16-17 °C",
+            "7-9 °C",
+            "omkring 17 °C"
+          ],
+          [
+            "Februar",
+            "16-18 °C",
+            "7-9 °C",
+            "omkring 17 °C"
+          ],
+          [
+            "Marts",
+            "18-20 °C",
+            "9-11 °C",
+            "omkring 17 °C"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Tallene er omtrentlige gennemsnit. Vinteren bringer regn i perioder – ofte en dag eller to med kraftige byger efterfulgt af klare, solrige dage. Alanya ligger i læ af Taurusbjergene, som gør byen lidt mildere end store dele af kysten. Aftenerne er kølige, og boliger og nogle hotelværelser føles kolde, så pak et varmt lag tøj."
+      },
+      {
+        "type": "h2",
+        "text": "Borgen, svævebanen og Det Røde Tårn"
+      },
+      {
+        "type": "p",
+        "text": "Alanya-borgen kroner den klippefyldte halvø over byen, med mure, cisterner, en byzantinsk kirke og udsigt langs kysten i begge retninger. Om sommeren er turen op hårdt arbejde; om vinteren er det en behagelig gåtur. Foretrækker du det, bringer svævebanen fra Damlataş-stranden dig op på få minutter. Nede ved havnen ligger Det Røde Tårn (Kızıl Kule) fra 1200-tallet og det gamle skibsværft med kort gåafstand imellem."
+      },
+      {
+        "type": "h2",
+        "text": "Grotter, floder og gåture"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Damlataş-grotten: en lille drypstensgrotte yderst på Damlataş-stranden, kendt for sin fugtige luft med konstant temperatur.",
+          "Dim-grotten: en større grotte i bakkerne øst for byen, med gangsti og en lille sø indeni.",
+          "Dim-floden (Dim Çayı): flodrestauranter med platforme over vandet, roligere om vinteren og nogle åbne hele året.",
+          "Strandpromenaden: kilometervis af flad strækning til gåture og cykling langs Keykubat- og Kleopatra-stranden.",
+          "Bananplantager og landsbyer på skråningerne bag byen, hvor tropiske frugter gror i den milde vinter."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Badning, markeder og hverdagsliv"
+      },
+      {
+        "type": "p",
+        "text": "På solrige dage i november, og endda midt om vinteren, ser du folk bade fra Kleopatra-stranden – havet er koldere, end luften føles, men mange nordiske gæster synes, det går fint. På ugemarkederne sælges citrusfrugter, granatæbler, oliven og grøntsager, og bymidten summer af fastboende frem for turistgrupper. Mange hoteller har vinterpriser for længere ophold, og en række strandhoteller holder åbent med indendørs pool."
+      },
+      {
+        "type": "h2",
+        "text": "Udflugter fra Alanya om vinteren"
+      },
+      {
+        "type": "p",
+        "text": "Side og Manavgat-vandfaldet ligger omkring en time mod vest; Aspendos og Perge giver en længere, men nem heldagstur. Inde i landet får landsbyerne i Taurusbjergene sne i de koldeste uger, mens kysten forbliver grøn. Bliver du i uger frem for dage, gennemgår vores separate guide om at overvintre på Antalya-kysten lange ophold mere detaljeret."
+      },
+      {
+        "type": "h2",
+        "text": "Fra Antalya Lufthavn til Alanya"
+      },
+      {
+        "type": "p",
+        "text": "Alanya ligger omkring 125 km fra Antalya Lufthavn, cirka to timer ad vejen langs kysten via Side og Manavgat. Gazipaşa-Alanya Lufthavn ligger tættere på, men har færre fly, især om vinteren, så de fleste lander i Antalya. En privat transfer kører dig helt til døren ved hotellet eller lejligheden til en fast pris pr. køretøj, uden tillæg for vinter, weekend eller nat – praktisk, når flyet lander sent om aftenen."
+      }
+    ],
+    "faq": [
+      [
+        "Er Alanya et besøg værd om vinteren?",
+        "Ja, hvis du søger mildt vejr, gåture og en levende by frem for strandliv. Dagene er ofte solrige og omkring 16-19 °C, og borgen og grotterne er behagelige uden sommervarmen."
+      ],
+      [
+        "Kan man bade i Alanya om vinteren?",
+        "Nogle gør. Havet er omkring 17-19 °C midt om vinteren og varmere i november. Det er forfriskende snarere end varmt, og mange hoteller har opvarmede indendørs pools."
+      ],
+      [
+        "Har hoteller og restauranter åbent i Alanya om vinteren?",
+        "Mange har. Alanya har en stor helårsbefolkning, så bymidten, markederne og mange restauranter holder åbent. Nogle store sæsonresorts lukker fra november til marts."
+      ],
+      [
+        "Hvor langt er der fra Antalya Lufthavn til Alanya?",
+        "Omkring 125 km, cirka to timer i bil. En privat transfer bringer dig direkte til hotellet til en fast pris pr. køretøj."
+      ],
+      [
+        "Regner det meget i Alanya om vinteren?",
+        "December til februar er de vådeste måneder, men regnen kommer som regel i perioder på en dag eller to med solrige dage imellem."
+      ]
+    ]
+  },
+  "tahtali-cable-car-olympos": {
+    "slug": "tahtali-svaevebanen-olympos-chimaira",
+    "title": "Tahtalı-svævebanen, Olympos og Chimairas flammer – en dag fra Kemer",
+    "heading": "Tahtalı-svævebanen, Olympos og Chimaira",
+    "description": "En dag nær Kemer: Tahtalı-svævebanen til 2.365 m, ruinerne i Olympos, Çıralı-stranden og Chimairas flammer i skumringen – bedste sæson, påklædning og transport.",
+    "excerpt": "En bjergtop, en lykisk by i en floddal og flammer, der har brændt ud af klippen i tusinder af år – alt sammen inden for en time fra Kemer.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Syd for Kemer rejser Taurusbjergene sig lige op af havet. På én dag kan du stå på toppen af bjerget Tahtalı, gå gennem ruinerne i Olympos ned til stranden og se Chimairas flammer blafre på en skråning i skumringen. Efterår og forår er de bedste sæsoner: klar luft til udsigten, behagelige temperaturer til gåture og ingen sommerkøer."
+      },
+      {
+        "type": "h2",
+        "text": "Tahtalı-svævebanen: fra havet til 2.365 m"
+      },
+      {
+        "type": "p",
+        "text": "Olympos-svævebanen starter i fyrreskoven over Tekirova og kører på cirka ti minutter op til toppen af Tahtalı, omkring 2.365 m over havet. Deroppefra ser du ud over hele kysten fra Antalya til Kemer og Phaselis og på klare dage langt ind i landet. På toppen er der en café og udsigtsterrasser. Billetter købes ved dalstationen eller online; åbningstider og priser skifter med sæsonen."
+      },
+      {
+        "type": "h2",
+        "text": "Hvornår skal man tage af sted, og hvad skal man have på?"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Oktober og november: klar luft og årets bedste sigtbarhed, med mildt vejr ved havniveau.",
+          "December til marts: sne på toppen er almindeligt – en slående udsigt over en grøn kyst, men klæd dig på til vinter deroppe.",
+          "April og maj: sne på toppen og blomster på de lavere skråninger, ofte i samme udsigt.",
+          "Uanset årstid er det 10-15 °C koldere på toppen end på stranden. Tag en jakke med, også i oktober.",
+          "Svævebanen standser ved kraftig vind eller uvejr, så hold dagen fleksibel og tjek, før du tager af sted."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Olympos: ruiner i en floddal"
+      },
+      {
+        "type": "p",
+        "text": "Den antikke lykiske by Olympos ligger i en smal, skovklædt dal, der ender ved en stenstrand. Grave, et teater, et badehus og en byzantinsk kirke ligger spredt mellem laurbær- og figentræer langs en bæk. Gåturen fra indgangen til stranden tager cirka tyve minutter. Stedet ligger i et beskyttet område og koster entré; med Museum Pass kommer du gratis ind."
+      },
+      {
+        "type": "h2",
+        "text": "Çıralı og Chimairas flammer"
+      },
+      {
+        "type": "p",
+        "text": "På den anden side af stranden fra Olympos ligger Çıralı, en stille landsby med frugtplantager og små pensionater langs en lang strand, hvor uægte karetteskildpadder lægger æg. Ovenover, på skråningen ved Yanartaş, siver naturgas ud af klippen og har brændt i tusinder af år – den antikke Chimaira fra den græske myte. En sti med trapper på omkring 20-30 minutter fører op til flammerne. De er mest imponerende i skumringen, så tag en lommelygte med til turen ned."
+      },
+      {
+        "type": "h2",
+        "text": "Sådan planlægger du dagen"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Stop",
+          "Fra Kemer",
+          "Beregn"
+        ],
+        "rows": [
+          [
+            "Tahtalı-svævebanen (dalstationen)",
+            "omkring 30 minutter",
+            "1,5-2 timer"
+          ],
+          [
+            "Olympos-ruinerne og stranden",
+            "omkring 50 minutter",
+            "2 timer"
+          ],
+          [
+            "Çıralı og Chimaira",
+            "omkring 50 minutter",
+            "1,5 time, helst i skumringen"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Køretiderne er omtrentlige. En god rækkefølge er svævebanen om formiddagen, når luften er klarest, Olympos og frokost i Çıralı om eftermiddagen og Chimaira ved solnedgang. Fra Antalya by skal du lægge cirka en time til hver vej."
+      },
+      {
+        "type": "h2",
+        "text": "Sådan kommer du derhen"
+      },
+      {
+        "type": "p",
+        "text": "Kemer ligger omkring 50 km fra Antalya Lufthavn og Tekirova omkring 75 km, ad kystvejen. Offentlige busser kommer ikke let frem til svævebanens station eller Chimaira, og derfor tager mange besøgende af sted med chauffør. Vi kører private transfers fra lufthavnen til Kemer, Tekirova og Kumluca til en fast pris pr. køretøj og kan på forespørgsel give et tilbud på en dag med chauffør til svævebanen, Olympos og Çıralı."
+      }
+    ],
+    "faq": [
+      [
+        "Hvor højt kører Tahtalı-svævebanen?",
+        "Den kører op til toppen af bjerget Tahtalı i omkring 2.365 m fra en dalstation i skoven over Tekirova. Turen tager cirka ti minutter."
+      ],
+      [
+        "Er der sne på Tahtalı om vinteren?",
+        "Ofte, ja – fra cirka december til marts og nogle gange ind i april. Det er altid meget koldere på toppen end ved kysten, så tag en varm jakke med."
+      ],
+      [
+        "Hvornår er det bedste tidspunkt at se Chimairas flammer?",
+        "I skumringen eller efter mørkets frembrud, når flammerne står tydeligt frem mod klippen. Stien op tager omkring 20-30 minutter; tag en lommelygte med til turen ned."
+      ],
+      [
+        "Kan man nå Olympos og svævebanen på én dag?",
+        "Ja. De fleste tager svævebanen om formiddagen, besøger Olympos og Çıralı om eftermiddagen og ser Chimaira ved solnedgang."
+      ],
+      [
+        "Hvor langt er der fra Antalya Lufthavn til Kemer?",
+        "Omkring 50 km, cirka 40-50 minutter i bil. Tekirova, tæt på svævebanen, ligger omkring 75 km væk."
+      ]
+    ]
+  },
+  "perge-aspendos-day-trip": {
+    "slug": "perge-og-aspendos-udflugt",
+    "title": "Perge og Aspendos: en halvdagstur blandt Antalyas ruiner",
+    "heading": "Perge og Aspendos fra Antalya",
+    "description": "Besøg Perge og Aspendos fra Antalya, Belek eller Side: hvad du skal se, den bedste sæson, hvor lang tid du skal bruge, og hvordan du kombinerer de to antikke steder på en halv dag.",
+    "excerpt": "En romersk søjlegade, et stadion til 12.000 tilskuere og et af antikkens bedst bevarede teatre – alt sammen inden for en time fra lufthavnen.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "To af Tyrkiets fineste antikke steder ligger lige ved hovedvejen mellem Antalya og Side. Perge var en stor græsk-romersk by på den pamfyliske slette; Aspendos har et romersk teater, der er så velbevaret, at det stadig bruges til forestillinger. Sammen giver de en nem halv dag, og fra oktober til april, når solen er mild, er de på deres bedste."
+      },
+      {
+        "type": "h2",
+        "text": "Perge: søjlernes by"
+      },
+      {
+        "type": "p",
+        "text": "Perge ligger kun omkring 15 minutter fra Antalya Lufthavn. Du går ind gennem den hellenistiske port med de to runde tårne og videre ad en lang søjlegade med en vandkanal ned gennem midten til agoraen, badene og akropolis-højen. Lige uden for murene ligger et stort teater og et af antikkens bedst bevarede stadioner. Mange af Perges statuer er udstillet på Antalya Museum. Beregn cirka halvanden til to timer."
+      },
+      {
+        "type": "h2",
+        "text": "Aspendos: teatret, der overlevede"
+      },
+      {
+        "type": "p",
+        "text": "Aspendos nær Serik er berømt for sit romerske teater fra 100-tallet e.Kr., der rummede mange tusinde tilskuere og stadig har sin scenebygning, sine gallerier og en fremragende akustik. Bag teatret fører en sti op til den øvre by og til buerne på en romersk akvædukt, der strækker sig hen over sletten. Et kort stykke derfra er den seldsjukiske bro over floden Köprüçay et stop værd. Beregn cirka en til halvanden time."
+      },
+      {
+        "type": "h2",
+        "text": "Den bedste sæson for ruinerne"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Oktober og november: varme, tørre dage og blødt lys til fotografering.",
+          "December til februar: stille steder og mildt vejr mellem regnvejrsdagene – tag et vandtæt lag med.",
+          "Marts og april: grønt græs og vilde blomster mellem stenene, formentlig den smukkeste tid.",
+          "Juni til september: begge steder har kun lidt skygge, og middagsheden er intens; tag af sted tidligt om morgenen, hvis du besøger dem om sommeren."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Begge steder på en halv dag"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Udgangspunkt",
+          "Til Perge",
+          "Perge til Aspendos",
+          "Aspendos tilbage"
+        ],
+        "rows": [
+          [
+            "Antalya by / Lara",
+            "omkring 25 minutter",
+            "omkring 35 minutter",
+            "omkring 45 minutter"
+          ],
+          [
+            "Belek",
+            "omkring 30 minutter",
+            "omkring 35 minutter",
+            "omkring 20 minutter"
+          ],
+          [
+            "Side / Manavgat",
+            "omkring 55 minutter",
+            "omkring 35 minutter",
+            "omkring 35 minutter"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Køretiderne er omtrentlige. At starte i Perge om morgenen og slutte i Aspendos fungerer fra alle disse udgangspunkter. Begge steder koster entré og accepterer Museum Pass. Tag gode sko på: underlaget er ujævn marmor og sten, og der er trapper overalt."
+      },
+      {
+        "type": "h2",
+        "text": "På vej til eller fra lufthavnen"
+      },
+      {
+        "type": "p",
+        "text": "Fordi Perge ligger så tæt på Antalya Lufthavn, og Aspendos ligger nær vejen mod Belek og Side, passer de to steder godt ind på en ankomst- eller afrejsedag med et sent fly. En privat transfer kan stoppe ved det ene eller begge steder undervejs, med bagagen sikkert i køretøjet. Bed om et tilbud med stop, når du booker: prisen forbliver fast pr. køretøj."
+      }
+    ],
+    "faq": [
+      [
+        "Hvor langt er der fra Antalya Lufthavn til Perge?",
+        "Kun omkring 15 minutter i bil. Det er et af de nemmeste antikke steder at besøge på en ankomst- eller afrejsedag."
+      ],
+      [
+        "Kan man besøge Perge og Aspendos på én dag?",
+        "Sagtens – en halv dag er nok til begge. Beregn cirka to timer i Perge, en times tid i Aspendos og omkring 35 minutters kørsel imellem dem."
+      ],
+      [
+        "Bruges teatret i Aspendos stadig?",
+        "Ja. Det romerske teater er så velbevaret, at der stadig er koncerter og forestillinger nogle aftener, mest i de varmere måneder."
+      ],
+      [
+        "Hvornår er det bedst at besøge Perge og Aspendos?",
+        "Fra oktober til april. Der er kun lidt skygge begge steder, så om sommeren bør du tage af sted tidligt om morgenen."
+      ],
+      [
+        "Kan en transfer stoppe ved ruinerne med min bagage?",
+        "Ja. Bed om stop, når du booker; bagagen bliver i køretøjet, og prisen forbliver fast pr. køretøj."
+      ]
+    ]
+  },
+  "ramadan-bayram-antalya": {
+    "slug": "ramadan-og-eid-i-antalya",
+    "title": "Ramadan og eid i Antalya: det skal du vide som rejsende",
+    "heading": "Rejs til Antalya under ramadan og eid",
+    "description": "Hvad ændrer sig i Antalya under ramadanen og eid-helligdagene? Restauranter, iftar-aftener, travle veje, hoteller og hvordan du planlægger din lufthavnstransfer.",
+    "excerpt": "På feriestederne ændrer hverdagen sig næsten ikke under ramadanen. Helligdagene bagefter er en anden sag – her er, hvad du kan forvente, og hvordan du planlægger.",
+    "readingMinutes": 5,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Ramadanen og de to eid-højtider flytter sig i kalenderen, omkring 11 dage tidligere hvert år. I de kommende sæsoner falder de i senvinteren og foråret: ramadanen og eid al-fitr (Ramazan Bayramı) omkring februar og marts og offerfesten eid al-adha (Kurban Bayramı) omkring maj. Tjek den officielle kalender for de præcise datoer. For besøgende ændrer selve fastemåneden ikke meget ved kysten; det er helligdagene, du skal planlægge efter."
+      },
+      {
+        "type": "h2",
+        "text": "Ændrer ramadanen en ferie i Antalya?"
+      },
+      {
+        "type": "p",
+        "text": "Meget lidt. Hoteller, restauranter, caféer og butikker i Antalya, Belek, Side, Kemer og Alanya har åbent som normalt om dagen, og der serveres alkohol de steder, der normalt gør det. Mange i Tyrkiet faster, mange gør ikke, og ingen forventer, at turister gør det. Det er blot høfligt ikke at spise eller drikke demonstrativt foran nogen, der tydeligvis faster, især i traditionelle kvarterer og landsbyer."
+      },
+      {
+        "type": "h2",
+        "text": "Iftar: ramadanens aftener"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Ved solnedgang brydes fasten med iftar, ofte et fælles måltid med suppe, dadler, oliven og det særlige runde ramadan-pidebrød, der kun sælges i denne måned.",
+          "Mange restauranter har en iftar-menu; bordene fyldes lige før solnedgang, så reservér, hvis du vil være med.",
+          "I den gamle bydel og omkring de store moskeer er der feststemning om aftenen med familier ude til sent.",
+          "Før daggry går en trommeslager i nogle kvarterer rundt i gaderne og vækker folk til det sidste måltid (sahur) – en del af traditionen."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Eid-helligdagene: når hele Tyrkiet rejser"
+      },
+      {
+        "type": "p",
+        "text": "Eid al-fitr varer tre dage og offerfesten fire; regeringen forlænger dem ofte til en længere ferie. Millioner af mennesker rejser til familien eller til kysten, så indenrigsfly, langdistancebusser og hoteller bliver fyldt op, og vejene ind til Antalya er travle på første og sidste dag. Banker og offentlige kontorer lukker, men butikker, restauranter, museer og seværdigheder på feriestederne holder som regel åbent."
+      },
+      {
+        "type": "h2",
+        "text": "Planlæg din transfer omkring helligdagene"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Book tidligt, hvis du lander i starten af en eid-helligdag: efterspørgslen på køretøjer og chauffører er stor.",
+          "Beregn ekstra tid ved afrejse på sidste dag af en helligdag, hvor lufthavnen og vejene er mest belastede.",
+          "Under ramadanen er trafikken tæt i timen før solnedgang og usædvanligt stille under selve iftar.",
+          "Oplys dit flynummer: vi følger flyet, så en forsinkelse på en travl dag ikke koster dig din afhentning."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Godt at vide"
+      },
+      {
+        "type": "p",
+        "text": "Under helligdagene hilser man på hinanden med „İyi bayramlar“ (god helligdag), og der deles slik ud overalt – det er en varm tid at være i landet. Vores priser ændrer sig ikke under ramadan eller eid: én fast pris pr. køretøj, uden tillæg for helligdag, nat eller sæson."
+      }
+    ],
+    "faq": [
+      [
+        "Har restauranterne åbent i Antalya under ramadanen?",
+        "Ja. På feriestederne og i Antalya by har restauranter og caféer åbent som normalt om dagen. Om aftenen kommer der iftar-menuer til."
+      ],
+      [
+        "Må turister drikke alkohol under ramadanen i Antalya?",
+        "Ja. Hoteller, barer og restauranter, der normalt serverer alkohol, fortsætter med det under ramadanen."
+      ],
+      [
+        "Er der travlt i Antalya under eid-helligdagene?",
+        "Ja. Mange tyrkiske familier rejser under eid, så hoteller, fly og veje er mere travle end normalt, især på første og sidste dag."
+      ],
+      [
+        "Hvornår er ramadan og eid næste år?",
+        "Datoerne rykker sig omkring 11 dage tidligere hvert år. I de kommende sæsoner falder ramadanen og eid al-fitr omkring februar-marts og offerfesten omkring maj; tjek den officielle kalender for de præcise datoer."
+      ],
+      [
+        "Stiger transferpriserne under eid?",
+        "Ikke hos os. Prisen er fast pr. køretøj, uden tillæg for helligdag, nat eller sæson. Vi anbefaler at booke tidligt til helligdage."
+      ]
+    ]
+  },
+  "kaleici-old-town-guide": {
+    "slug": "kaleici-antalya-gamle-bydel-guide",
+    "title": "Kaleiçi, Antalyas gamle bydel: en gåtursguide til lavsæsonen",
+    "heading": "Kaleiçi: Antalyas gamle bydel",
+    "description": "Gåtursguide til Kaleiçi, Antalyas befæstede gamle bydel: Hadrians Port, den riflede minaret, den gamle havn, boutiquehoteller og hvorfor efterår til forår er bedst.",
+    "excerpt": "Romerske porte, osmanniske huse og en havn under klipperne. Antalyas gamle hjerte opleves bedst i roligt tempo, i de måneder hvor byen tilhører sine beboere.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Kaleiçi – direkte oversat „inden for borgen“ – er Antalyas historiske centrum, omgivet af gamle bymure over en lille havn. Gaderne er omkranset af restaurerede osmanniske huse, mange af dem i dag boutiquehoteller, caféer og små restauranter. Om sommeren er her varmt og overfyldt; fra oktober til april er den gamle bydel på sit bedste, med milde dage, åbne terrasser i solen og tid til at slentre."
+      },
+      {
+        "type": "h2",
+        "text": "En gåtur gennem Kaleiçi"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Hadrians Port: den romerske port med tre buer, bygget til kejserens besøg i 100-tallet e.Kr., den traditionelle indgang til den gamle bydel.",
+          "Klokketårnet og pladsen Kalekapısı: mødestedet mellem den gamle bydel og den moderne by.",
+          "Den riflede minaret (Yivli Minare): Antalyas seldsjukiske vartegn, synlig fra hele centrum.",
+          "Hıdırlık-tårnet: et rundt romersk tårn i den sydlige kant, med solnedgangsudsigt over bugten og bjergene.",
+          "Den knækkede minaret (Kesik Minare): en bygning, der gennem århundrederne har været tempel, kirke og moské.",
+          "Den gamle havn: fiskerbåde og udflugtsbåde under klipperne, som du når via gaderne eller med elevator fra toppen."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Uden for murene"
+      },
+      {
+        "type": "p",
+        "text": "Karaalioğlu-parken strækker sig langs klipperne fra Hıdırlık-tårnet med udsigt over bugten. Antalya Museum, en af Tyrkiets rigeste arkæologiske samlinger, ligger, hvor Konyaaltı-stranden begynder, og er ideelt på en regnvejrsdag; tjek åbningstiderne, før du tager af sted. Øst for byen styrter Düden-vandfaldene direkte ud over klipperne i havet, og de øverste fald ligger i en skyggefuld park."
+      },
+      {
+        "type": "h2",
+        "text": "Hvorfor efterår til forår?"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Sæson",
+          "Typisk dag",
+          "I Kaleiçi"
+        ],
+        "rows": [
+          [
+            "Oktober – november",
+            "22-27 °C",
+            "Varme aftener, åbne terrasser, færre mennesker"
+          ],
+          [
+            "December – februar",
+            "15-18 °C",
+            "Stille gader, solrige caféer, en enkelt regnvejrsdag"
+          ],
+          [
+            "Marts – april",
+            "18-22 °C",
+            "Appelsinblomster, grønne parker, festivaler i byen"
+          ],
+          [
+            "Juni – august",
+            "33-35 °C",
+            "Meget varmt og travlt – bedst tidligt og sent på dagen"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Temperaturerne er omtrentlige gennemsnit. De fleste restauranter, caféer og boutiquehoteller i Kaleiçi har åbent hele året, fordi den gamle bydel lever af byturister og beboere, ikke kun af strandturisme."
+      },
+      {
+        "type": "h2",
+        "text": "At bo i den gamle bydel"
+      },
+      {
+        "type": "p",
+        "text": "Hotellerne i Kaleiçi er som regel små og indrettet i ombyggede palæer omkring en gårdhave eller en lille pool. Mange gader er gågader eller for smalle til større køretøjer, så bilen stopper ofte ved den nærmeste port eller plads, og de sidste meter går du til fods. Fortæl os navnet på dit hotel, når du booker; vores chauffører ved, hvilken indgang der er nærmest, og hjælper med bagagen."
+      },
+      {
+        "type": "h2",
+        "text": "Fra Antalya Lufthavn til Kaleiçi"
+      },
+      {
+        "type": "p",
+        "text": "Kaleiçi ligger omkring 15 km fra Antalya Lufthavn, cirka 20 til 30 minutter i bil. Sporvognen forbinder også lufthavnen med centrum, men med kufferter er en privat transfer til hotellet nemmere, især sent om natten. Prisen er fast pr. køretøj, uden nattillæg."
+      }
+    ],
+    "faq": [
+      [
+        "Hvad er Kaleiçi i Antalya?",
+        "Kaleiçi er Antalyas historiske gamle bydel, omgivet af bymure over den gamle havn, med osmanniske huse, Hadrians Port, den riflede minaret og mange boutiquehoteller og caféer."
+      ],
+      [
+        "Hvor langt er der fra Antalya Lufthavn til Kaleiçi?",
+        "Omkring 15 km, cirka 20-30 minutter i bil."
+      ],
+      [
+        "Kan man køre bil ind i Kaleiçi?",
+        "Kun delvist. Mange gader er gågader eller meget smalle, så køretøjer stopper ofte ved den nærmeste port eller plads. Vores chauffører kender den nærmeste adgang til hvert hotel."
+      ],
+      [
+        "Er Kaleiçi et besøg værd om vinteren?",
+        "Ja. De fleste caféer, restauranter og hoteller holder åbent, gaderne er stille, og dagene er som regel milde og solrige."
+      ],
+      [
+        "Hvor meget tid skal man bruge i Kaleiçi?",
+        "En halv dag er nok til en første gåtur. Med museet, Karaalioğlu-parken og Düden-vandfaldene er en hel dag eller to ideelt."
+      ]
+    ]
   }
 };

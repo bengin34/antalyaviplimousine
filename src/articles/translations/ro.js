@@ -1879,5 +1879,560 @@ export const articles = {
         "Da. Aspendos este la aproximativ 40 de minute de Side cu mașina și se pretează la o excursie ușoară de jumătate de zi, adesea combinată cu Perge sau cascada Manavgat."
       ]
     ]
+  },
+  "alanya-in-winter": {
+    "slug": "alanya-iarna",
+    "title": "Alanya iarna: vremea, ce să faci și excursii de o zi",
+    "heading": "Alanya iarna",
+    "description": "Alanya din noiembrie până în martie: vremea și temperatura mării iarna, cetatea și telecabina, peșterile Damlataş și Dim, plimbări, piețe și drumul de la Aeroportul Antalya.",
+    "excerpt": "Zile blânde, un deal al cetății aproape pustiu și un oraș care trăiește mai departe după ce pleacă mulțimile de vară. Cum e cu adevărat Alanya între noiembrie și martie.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Alanya este unul dintre puținele locuri de pe coasta Türkiye care nu se închid iarna. Zeci de mii de oameni locuiesc aici tot anul, mulți dintre ei din Scandinavia, Germania, Țările de Jos și Rusia, așa că magazinele, cafenelele, piețele și restaurantele rămân deschise. Pentru o scurtă vacanță de iarnă oferă ceva rar în Europa: soare, o faleză pe care o poți parcurge pe jos și o cetate medievală deasupra orașului, cu mult mai puțini oameni decât vara."
+      },
+      {
+        "type": "h2",
+        "text": "Vremea în Alanya iarna"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Luna",
+          "Ziua, de obicei",
+          "Noaptea, de obicei",
+          "Marea"
+        ],
+        "rows": [
+          [
+            "Noiembrie",
+            "20-22 °C",
+            "11-13 °C",
+            "aproximativ 21 °C"
+          ],
+          [
+            "Decembrie",
+            "17-19 °C",
+            "8-10 °C",
+            "aproximativ 19 °C"
+          ],
+          [
+            "Ianuarie",
+            "16-17 °C",
+            "7-9 °C",
+            "aproximativ 17 °C"
+          ],
+          [
+            "Februarie",
+            "16-18 °C",
+            "7-9 °C",
+            "aproximativ 17 °C"
+          ],
+          [
+            "Martie",
+            "18-20 °C",
+            "9-11 °C",
+            "aproximativ 17 °C"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Acestea sunt medii aproximative. Iarna ploaia vine în reprize - adesea o zi sau două de averse puternice, urmate de zile senine și însorite. Alanya este adăpostită de munții Taurus, care o fac puțin mai blândă decât o mare parte a coastei. Serile sunt răcoroase, iar casele și unele camere de hotel sunt reci, așa că ia cu tine un strat călduros."
+      },
+      {
+        "type": "h2",
+        "text": "Cetatea, telecabina și Turnul Roșu"
+      },
+      {
+        "type": "p",
+        "text": "Cetatea Alanya încoronează peninsula stâncoasă de deasupra orașului, cu ziduri, cisterne, o biserică bizantină și priveliști de-a lungul coastei în ambele direcții. Vara urcușul e greu; iarna e o plimbare plăcută. Dacă preferi, telecabina de lângă plaja Damlataş te duce sus în câteva minute. Jos, în port, Turnul Roșu (Kızıl Kule) din secolul al XIII-lea și vechiul șantier naval sunt la câțiva pași unul de altul."
+      },
+      {
+        "type": "h2",
+        "text": "Peșteri, râuri și plimbări"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Peștera Damlataş: o peșteră mică cu stalactite la capătul plajei Damlataş, cunoscută pentru aerul umed și constant.",
+          "Peștera Dim: o peșteră mai mare pe dealurile de la est de oraș, cu o pasarelă și un mic lac în interior.",
+          "Râul Dim (Dim Çayı): restaurante cu platforme deasupra apei, mai liniștite iarna, unele deschise tot anul.",
+          "Faleza: kilometri de traseu plat pentru mers pe jos și pe bicicletă de-a lungul plajelor Keykubat și Cleopatra.",
+          "Plantații de banane și sate pe pantele din spatele orașului, unde fructele tropicale cresc în iarna blândă."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Înot, piețe și viața de zi cu zi"
+      },
+      {
+        "type": "p",
+        "text": "În zilele însorite din noiembrie, și chiar iarna, vei vedea oameni înotând pe plaja Cleopatra - marea e mai rece decât pare aerul, dar mulți vizitatori din nord o găsesc în regulă. Piețele săptămânale vând citrice, rodii, măsline și legume, iar centrul orașului e animat de localnici, nu de grupuri de turiști. Multe hoteluri au prețuri de iarnă pentru șederi lungi, iar o parte dintre resorturile de pe plajă rămân deschise, cu piscine interioare."
+      },
+      {
+        "type": "h2",
+        "text": "Excursii de o zi din Alanya iarna"
+      },
+      {
+        "type": "p",
+        "text": "Side și cascada Manavgat sunt la aproximativ o oră spre vest; Aspendos și Perge înseamnă o zi de excursie mai lungă, dar ușoară. În interior, satele din munții Taurus văd zăpadă în cele mai reci săptămâni, în timp ce coasta rămâne verde. Dacă stai săptămâni, nu zile, ghidul nostru separat despre iernatul pe coasta Antalyei tratează mai în detaliu șederile lungi."
+      },
+      {
+        "type": "h2",
+        "text": "Cum ajungi în Alanya de la Aeroportul Antalya"
+      },
+      {
+        "type": "p",
+        "text": "Alanya se află la aproximativ 125 km de Aeroportul Antalya, cam două ore de mers pe drumul de coastă, prin Side și Manavgat. Aeroportul Gazipaşa-Alanya este mai aproape, dar are mai puține zboruri, mai ales iarna, așa că majoritatea vizitatorilor aterizează în Antalya. Un transfer privat te duce până la ușa hotelului sau a apartamentului, la un preț fix pe vehicul, fără suprataxă de iarnă, de weekend sau de noapte - util când zborul aterizează seara târziu."
+      }
+    ],
+    "faq": [
+      [
+        "Merită să vizitezi Alanya iarna?",
+        "Da, dacă vrei vreme blândă, plimbări și un oraș viu, nu viață de plajă. Zilele sunt adesea însorite, în jur de 16-19 °C, iar cetatea și peșterile sunt plăcute fără căldura verii."
+      ],
+      [
+        "Se poate înota în Alanya iarna?",
+        "Unii o fac. Marea are aproximativ 17-19 °C în mijlocul iernii și e mai caldă în noiembrie. Mai degrabă te înviorează decât te încălzește, iar multe hoteluri au piscine interioare încălzite."
+      ],
+      [
+        "Sunt deschise hotelurile și restaurantele din Alanya iarna?",
+        "Multe, da. Alanya are o populație mare care locuiește aici tot anul, așa că centrul, piețele și multe restaurante rămân deschise. Unele resorturi mari sezoniere se închid din noiembrie până în martie."
+      ],
+      [
+        "Cât de departe este Alanya de Aeroportul Antalya?",
+        "Aproximativ 125 km, cam două ore cu mașina. Un transfer privat te duce direct la hotel, la un preț fix pe vehicul."
+      ],
+      [
+        "Plouă mult în Alanya iarna?",
+        "Decembrie-februarie sunt lunile cele mai ploioase, dar ploaia vine de obicei în reprize de o zi sau două, cu zile însorite între ele."
+      ]
+    ]
+  },
+  "tahtali-cable-car-olympos": {
+    "slug": "telecabina-tahtali-olympos-chimera",
+    "title": "Telecabina Tahtalı, Olympos și flăcările Chimerei din Kemer",
+    "heading": "Telecabina Tahtalı, Olympos și Chimera",
+    "description": "O zi lângă Kemer: telecabina Tahtalı până la 2.365 m, ruinele din Olympos, plaja Çıralı și flăcările Chimerei la apus - sezonul potrivit, ce să porți și cum ajungi.",
+    "excerpt": "Un vârf de munte, un oraș lician într-o vale de râu și flăcări care ard din stâncă de mii de ani - totul la mai puțin de o oră de Kemer.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "La sud de Kemer, munții Taurus se ridică direct din mare. Într-o singură zi poți sta pe vârful muntelui Tahtalı, poți străbate ruinele din Olympos până la plajă și poți privi la apus flăcările Chimerei pâlpâind pe un versant. Toamna și primăvara sunt cele mai bune sezoane: aer limpede pentru priveliști, temperaturi plăcute pentru mers și fără cozile de vară."
+      },
+      {
+        "type": "h2",
+        "text": "Telecabina Tahtalı: de la mare la 2.365 m"
+      },
+      {
+        "type": "p",
+        "text": "Telecabina Olympos pornește din pădurea de pini de deasupra localității Tekirova și urcă pe vârful Tahtalı, înalt de aproximativ 2.365 m, în cam zece minute. De sus vezi toată coasta, de la Antalya la Kemer și Phaselis, iar în zilele senine mult spre interior. Pe vârf există o cafenea și terase panoramice. Biletele se cumpără de la stația de jos sau online; programul și prețurile se schimbă în funcție de sezon."
+      },
+      {
+        "type": "h2",
+        "text": "Când să mergi și ce să porți"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Octombrie și noiembrie: aer limpede și cea mai bună vizibilitate din an, cu vreme blândă la nivelul mării.",
+          "Decembrie-martie: zăpada pe vârf e frecventă - o priveliște impresionantă peste o coastă verde, dar sus îmbracă-te ca de iarnă.",
+          "Aprilie și mai: zăpadă pe vârf și flori pe versanții de jos, adesea în aceeași priveliște.",
+          "În orice anotimp, sus este cu 10-15 °C mai rece decât pe plajă. Ia o geacă, chiar și în octombrie.",
+          "Telecabina se oprește pe vânt puternic sau furtună, așa că păstrează ziua flexibilă și verifică înainte de plecare."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Olympos: ruine într-o vale de râu"
+      },
+      {
+        "type": "p",
+        "text": "Orașul antic lician Olympos se află într-o vale îngustă și împădurită care se termină la o plajă cu pietriș. Morminte, un teatru, o baie și o biserică bizantină sunt risipite printre dafini și smochini, de-a lungul unui pârâu. Drumul pe jos de la intrare până la plajă durează aproximativ douăzeci de minute. Situl face parte dintr-o zonă protejată și are taxă de intrare; posesorii Museum Pass intră gratuit."
+      },
+      {
+        "type": "h2",
+        "text": "Çıralı și flăcările Chimerei"
+      },
+      {
+        "type": "p",
+        "text": "De cealaltă parte a plajei de la Olympos se află Çıralı, un sat liniștit cu livezi și mici pensiuni de-a lungul unei plaje lungi unde își depun ouăle țestoasele Caretta caretta. Deasupra, pe versantul Yanartaş, gazul natural iese din stâncă și arde de mii de ani - este Chimera antică din legenda greacă. O potecă cu trepte urcă în aproximativ 20-30 de minute până la flăcări. Sunt cele mai impresionante la apus, așa că ia o lanternă pentru coborâre."
+      },
+      {
+        "type": "h2",
+        "text": "Cum îți planifici ziua"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Oprire",
+          "Din Kemer",
+          "Timp necesar"
+        ],
+        "rows": [
+          [
+            "Telecabina Tahtalı (stația de jos)",
+            "aproximativ 30 de minute",
+            "1,5-2 ore"
+          ],
+          [
+            "Ruinele și plaja din Olympos",
+            "aproximativ 50 de minute",
+            "2 ore"
+          ],
+          [
+            "Çıralı și Chimera",
+            "aproximativ 50 de minute",
+            "1,5 ore, ideal la apus"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Duratele de drum sunt aproximative. O ordine bună: telecabina dimineața, când aerul e cel mai limpede, Olympos și prânzul în Çıralı după-amiaza, iar Chimera la apus. Din orașul Antalya adaugă cam o oră pe fiecare sens."
+      },
+      {
+        "type": "h2",
+        "text": "Cum ajungi acolo"
+      },
+      {
+        "type": "p",
+        "text": "Kemer se află la aproximativ 50 km de Aeroportul Antalya, iar Tekirova la aproximativ 75 km, pe drumul de coastă. Autobuzele publice nu ajung ușor la stația telecabinei sau la Chimera, de aceea mulți vizitatori merg cu șofer. Oferim transferuri private de la aeroport la Kemer, Tekirova și Kumluca la un preț fix pe vehicul și, la cerere, îți facem o ofertă pentru o zi cu șofer la telecabină, Olympos și Çıralı."
+      }
+    ],
+    "faq": [
+      [
+        "Cât de sus urcă telecabina Tahtalı?",
+        "Urcă pe vârful muntelui Tahtalı, la aproximativ 2.365 m, pornind de la stația de jos din pădurea de deasupra localității Tekirova. Urcarea durează în jur de zece minute."
+      ],
+      [
+        "Este zăpadă pe Tahtalı iarna?",
+        "Adesea, da - aproximativ din decembrie până în martie, uneori și în aprilie. Sus este întotdeauna mult mai frig decât pe coastă, așa că ia o geacă groasă."
+      ],
+      [
+        "Când e cel mai bine să vezi flăcările Chimerei?",
+        "La apus sau după lăsarea întunericului, când flăcările ies în evidență pe stâncă. Urcarea durează aproximativ 20-30 de minute; ia o lanternă pentru coborâre."
+      ],
+      [
+        "Pot vizita Olympos și telecabina în aceeași zi?",
+        "Da. Majoritatea urcă cu telecabina dimineața, vizitează Olympos și Çıralı după-amiaza și văd Chimera la apus."
+      ],
+      [
+        "Cât de departe este Kemer de Aeroportul Antalya?",
+        "Aproximativ 50 km, cam 40-50 de minute cu mașina. Tekirova, lângă telecabină, este la aproximativ 75 km."
+      ]
+    ]
+  },
+  "perge-aspendos-day-trip": {
+    "slug": "perge-si-aspendos-excursie-din-antalya",
+    "title": "Perge și Aspendos: excursie de jumătate de zi printre ruinele Antalyei",
+    "heading": "Perge și Aspendos din Antalya",
+    "description": "Vizită la Perge și Aspendos din Antalya, Belek sau Side: ce să vezi, sezonul potrivit, cât timp să aloci și cum combini cele două situri antice în jumătate de zi.",
+    "excerpt": "O stradă romană cu colonade, un stadion pentru 12.000 de oameni și unul dintre cele mai bine păstrate teatre ale lumii antice, toate la mai puțin de o oră de aeroport.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Două dintre cele mai frumoase situri antice din Türkiye se află chiar lângă drumul principal dintre Antalya și Side. Perge a fost un mare oraș greco-roman pe câmpia Pamfiliei; Aspendos are un teatru roman atât de complet încât încă se țin spectacole în el. Împreună fac o excursie ușoară de jumătate de zi, iar între octombrie și aprilie, când soarele e blând, arată cel mai bine."
+      },
+      {
+        "type": "h2",
+        "text": "Perge: orașul coloanelor"
+      },
+      {
+        "type": "p",
+        "text": "Perge este la doar aproximativ 15 minute de Aeroportul Antalya. Intri prin poarta elenistică cu cele două turnuri rotunde și cobori pe o stradă lungă cu colonade, cu un canal de apă pe mijloc, până la agora, băi și dealul acropolei. Chiar în afara zidurilor se află un teatru mare și unul dintre cele mai bine păstrate stadioane ale Antichității. Multe dintre statuile din Perge sunt expuse la Muzeul din Antalya. Alocă aproximativ o oră și jumătate până la două ore."
+      },
+      {
+        "type": "h2",
+        "text": "Aspendos: teatrul care a supraviețuit"
+      },
+      {
+        "type": "p",
+        "text": "Aspendos, lângă Serik, este faimos pentru teatrul roman din secolul al II-lea d.Hr., care primea multe mii de spectatori și își păstrează încă clădirea scenei, galeriile și o acustică excelentă. În spatele lui, o potecă urcă spre orașul de sus și spre arcadele unui apeduct roman care traversează câmpia. La scurtă distanță cu mașina, podul selgiucid peste râul Köprüçay merită o oprire. Alocă aproximativ o oră până la o oră și jumătate."
+      },
+      {
+        "type": "h2",
+        "text": "Cel mai bun sezon pentru ruine"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Octombrie și noiembrie: zile calde și uscate și o lumină blândă pentru fotografii.",
+          "Decembrie-februarie: situri liniștite și vreme blândă între zilele ploioase - ia un strat impermeabil.",
+          "Martie și aprilie: iarbă verde și flori sălbatice printre pietre, poate cea mai frumoasă perioadă.",
+          "Iunie-septembrie: ambele situri au foarte puțină umbră, iar căldura de la prânz e intensă; vara mergi dimineața devreme."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Cum le combini în jumătate de zi"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Punct de plecare",
+          "Până la Perge",
+          "Perge - Aspendos",
+          "Aspendos - înapoi"
+        ],
+        "rows": [
+          [
+            "Orașul Antalya / Lara",
+            "aproximativ 25 de minute",
+            "aproximativ 35 de minute",
+            "aproximativ 45 de minute"
+          ],
+          [
+            "Belek",
+            "aproximativ 30 de minute",
+            "aproximativ 35 de minute",
+            "aproximativ 20 de minute"
+          ],
+          [
+            "Side / Manavgat",
+            "aproximativ 55 de minute",
+            "aproximativ 35 de minute",
+            "aproximativ 35 de minute"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Duratele de drum sunt aproximative. Să începi dimineața la Perge și să închei la Aspendos funcționează din oricare dintre aceste locuri. Ambele situri au taxă de intrare și acceptă Museum Pass. Poartă încălțăminte bună: terenul e din marmură și piatră denivelată, iar trepte sunt peste tot."
+      },
+      {
+        "type": "h2",
+        "text": "În drum spre sau de la aeroport"
+      },
+      {
+        "type": "p",
+        "text": "Pentru că Perge este atât de aproape de Aeroportul Antalya, iar Aspendos se află lângă drumul spre Belek și Side, cele două situri se potrivesc bine într-o zi de sosire sau de plecare cu zbor târziu. Un transfer privat poate opri la unul sau la ambele pe drum, cu bagajele în siguranță în vehicul. Cere o ofertă cu opriri când rezervi: prețul rămâne fix pe vehicul."
+      }
+    ],
+    "faq": [
+      [
+        "Cât de departe este Perge de Aeroportul Antalya?",
+        "Doar aproximativ 15 minute cu mașina. Este unul dintre cele mai ușor de vizitat situri antice într-o zi de sosire sau de plecare."
+      ],
+      [
+        "Pot vizita Perge și Aspendos în aceeași zi?",
+        "Ușor - jumătate de zi ajunge pentru amândouă. Alocă aproximativ două ore la Perge, cam o oră la Aspendos și în jur de 35 de minute pentru drumul dintre ele."
+      ],
+      [
+        "Se mai folosește teatrul din Aspendos?",
+        "Da. Teatrul roman este atât de bine păstrat încât în unele seri încă găzduiește concerte și spectacole, mai ales în lunile calde."
+      ],
+      [
+        "Care este cea mai bună perioadă pentru Perge și Aspendos?",
+        "Din octombrie până în aprilie. Niciunul dintre situri nu are multă umbră, așa că vara mergi dimineața devreme."
+      ],
+      [
+        "Poate transferul să oprească la ruine cu bagajele mele?",
+        "Da. Cere opririle când rezervi; bagajele rămân în vehicul, iar prețul rămâne fix pe vehicul."
+      ]
+    ]
+  },
+  "ramadan-bayram-antalya": {
+    "slug": "ramadan-si-bayram-in-antalya",
+    "title": "Ramadan și Bayram în Antalya: ce trebuie să știi ca turist",
+    "heading": "Călătoria în Antalya în timpul Ramadanului și al Bayramului",
+    "description": "Ce se schimbă în Antalya în Ramadan și în sărbătorile de Bayram: restaurante, serile de iftar, drumuri aglomerate, hoteluri și cum îți planifici transferul de la aeroport.",
+    "excerpt": "În stațiuni, viața de zi cu zi aproape că nu se schimbă în Ramadan. Sărbătorile care urmează sunt altă poveste - iată la ce să te aștepți și cum să planifici.",
+    "readingMinutes": 5,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Ramadanul și cele două sărbători de Bayram se mută prin calendar, cu aproximativ 11 zile mai devreme în fiecare an. În următoarele sezoane cad la sfârșitul iernii și primăvara: Ramadanul și Bayramul de la sfârșitul lui (Ramazan Bayramı) în jurul lunilor februarie și martie, iar Sărbătoarea Sacrificiului (Kurban Bayramı) în jurul lunii mai. Verifică datele exacte în calendarul oficial. Pentru vizitatori, luna de post în sine schimbă puțin pe coastă; sărbătorile sunt cele pe care trebuie să le iei în calcul."
+      },
+      {
+        "type": "h2",
+        "text": "Schimbă Ramadanul o vacanță în Antalya?"
+      },
+      {
+        "type": "p",
+        "text": "Foarte puțin. Hotelurile, restaurantele, cafenelele și magazinele din Antalya, Belek, Side, Kemer și Alanya sunt deschise ca de obicei în timpul zilei, iar alcool se servește în locurile care îl servesc în mod normal. Mulți oameni din Türkiye țin post, mulți nu, și nimeni nu se așteaptă ca vizitatorii să o facă. E doar politicos să nu mănânci sau să bei ostentativ în fața cuiva care ține vizibil post, mai ales în cartierele tradiționale și în sate."
+      },
+      {
+        "type": "h2",
+        "text": "Iftar: serile de Ramadan"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "La apus, postul se întrerupe cu iftarul, adesea o masă în comun cu supă, curmale, măsline și pâinea rotundă specială de Ramadan (pide), vândută doar în această lună.",
+          "Multe restaurante au un meniu de iftar; mesele se umplu chiar înainte de apus, așa că rezervă dacă vrei să participi.",
+          "În orașul vechi și în jurul moscheilor mari e seara o atmosferă de sărbătoare, cu familii care stau afară până târziu.",
+          "Înainte de zori, în unele cartiere, un toboșar trece pe străzi ca să trezească oamenii pentru ultima masă (sahur) - parte din tradiție."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Sărbătorile de Bayram: când călătorește toată Türkiye"
+      },
+      {
+        "type": "p",
+        "text": "Ramazan Bayramı durează trei zile, iar Kurban Bayramı patru; guvernul le prelungește adesea într-o vacanță mai lungă. Milioane de oameni pleacă la familie sau pe litoral, așa că zborurile interne, autobuzele interurbane și hotelurile se umplu, iar drumurile spre Antalya sunt aglomerate în prima și în ultima zi. Băncile și instituțiile publice se închid, dar magazinele, restaurantele, muzeele și obiectivele turistice din stațiuni rămân de obicei deschise."
+      },
+      {
+        "type": "h2",
+        "text": "Cum îți planifici transferul în jurul sărbătorilor"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Rezervă din timp dacă aterizezi la începutul unui Bayram: vehiculele și șoferii sunt foarte căutați.",
+          "Lasă timp în plus pentru plecările din ultima zi a sărbătorii, când aeroportul și drumurile sunt cele mai aglomerate.",
+          "În Ramadan, traficul e intens în ora dinaintea apusului și neobișnuit de liniștit în timpul iftarului.",
+          "Trimite-ne numărul zborului: îl urmărim, așa că un zbor întârziat într-o zi aglomerată nu te lasă fără preluare."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Bine de știut"
+      },
+      {
+        "type": "p",
+        "text": "De sărbători, oamenii se salută cu „İyi bayramlar” (sărbători fericite), iar dulciurile se împart peste tot - e o perioadă caldă să fii în țară. Prețurile noastre nu se schimbă în Ramadan sau de Bayram: un singur preț fix pe vehicul, fără suprataxă de sărbătoare, de noapte sau de sezon."
+      }
+    ],
+    "faq": [
+      [
+        "Sunt deschise restaurantele din Antalya în Ramadan?",
+        "Da. În stațiuni și în orașul Antalya, restaurantele și cafenelele sunt deschise normal în timpul zilei. Seara se adaugă meniurile de iftar."
+      ],
+      [
+        "Pot turiștii să bea alcool în Ramadan în Antalya?",
+        "Da. Hotelurile, barurile și restaurantele care servesc în mod normal alcool continuă să îl servească și în Ramadan."
+      ],
+      [
+        "Este aglomerat în Antalya de Bayram?",
+        "Da. Multe familii turce călătoresc de Bayram, așa că hotelurile, zborurile și drumurile sunt mai aglomerate decât de obicei, mai ales în prima și în ultima zi."
+      ],
+      [
+        "Când sunt Ramadanul și Bayramul anul viitor?",
+        "Datele se mută cu aproximativ 11 zile mai devreme în fiecare an. În următoarele sezoane, Ramadanul și Ramazan Bayramı cad în jurul lunilor februarie-martie, iar Kurban Bayramı în jurul lunii mai; verifică datele exacte în calendarul oficial."
+      ],
+      [
+        "Cresc prețurile transferurilor de Bayram?",
+        "Nu la noi. Prețul este fix pe vehicul, fără suprataxă de sărbătoare, de noapte sau de sezon. Pentru datele de sărbătoare îți recomandăm să rezervi din timp."
+      ]
+    ]
+  },
+  "kaleici-old-town-guide": {
+    "slug": "kaleici-orasul-vechi-antalya-ghid",
+    "title": "Kaleiçi, orașul vechi din Antalya: ghid de plimbare în extrasezon",
+    "heading": "Kaleiçi: orașul vechi din Antalya",
+    "description": "Ghid de plimbare prin Kaleiçi, orașul vechi fortificat din Antalya: Poarta lui Hadrian, Minaretul Canelat, portul vechi, hoteluri boutique și de ce toamna-primăvara e ideal.",
+    "excerpt": "Porți romane, case otomane și un port sub faleze. Inima veche a Antalyei se descoperă cel mai bine încet, în lunile în care orașul aparține locuitorilor săi.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Kaleiçi - literal „în interiorul cetății” - este centrul istoric al Antalyei, înconjurat de vechile ziduri ale orașului, deasupra unui port mic. Străduțele sunt mărginite de case otomane restaurate, multe devenite hoteluri boutique, cafenele și mici restaurante. Vara e cald și aglomerat; din octombrie până în aprilie arată cel mai bine, cu zile blânde, terase deschise în soare și timp să hoinărești."
+      },
+      {
+        "type": "h2",
+        "text": "O plimbare prin Kaleiçi"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Poarta lui Hadrian: poarta romană cu trei arcade, construită pentru vizita împăratului în secolul al II-lea d.Hr., intrarea tradițională în orașul vechi.",
+          "Turnul cu Ceas și piața Kalekapısı: punctul de întâlnire dintre orașul vechi și cel modern.",
+          "Minaretul Canelat (Yivli Minare): simbolul selgiucid al Antalyei, vizibil din tot centrul.",
+          "Turnul Hıdırlık: un turn roman rotund la marginea de sud, cu priveliști la apus peste golf și munți.",
+          "Minaretul Frânt (Kesik Minare): o clădire care a fost de-a lungul secolelor templu, biserică și moschee.",
+          "Portul vechi: bărci de pescari și de excursie sub faleze, la care ajungi pe străduțe sau cu un lift de sus."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Dincolo de ziduri"
+      },
+      {
+        "type": "p",
+        "text": "Parcul Karaalioğlu se întinde de-a lungul falezelor de la Turnul Hıdırlık, cu priveliști peste golf. Muzeul din Antalya, una dintre cele mai bogate colecții arheologice din Türkiye, se află la începutul plajei Konyaaltı și e ideal într-o zi ploioasă; verifică programul înainte să mergi. La est de oraș, cascadele Düden cad direct de pe faleze în mare, iar cascadele de sus se află într-un parc umbros."
+      },
+      {
+        "type": "h2",
+        "text": "De ce toamna până primăvara"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Sezon",
+          "Ziua, de obicei",
+          "În Kaleiçi"
+        ],
+        "rows": [
+          [
+            "Octombrie - noiembrie",
+            "22-27 °C",
+            "Seri calde, terase deschise, mai puțină lume"
+          ],
+          [
+            "Decembrie - februarie",
+            "15-18 °C",
+            "Străduțe liniștite, cafenele în soare, câte o zi ploioasă"
+          ],
+          [
+            "Martie - aprilie",
+            "18-22 °C",
+            "Portocali în floare, parcuri verzi, festivaluri în oraș"
+          ],
+          [
+            "Iunie - august",
+            "33-35 °C",
+            "Foarte cald și aglomerat - cel mai bine dimineața devreme și seara"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Temperaturile sunt medii aproximative. Majoritatea restaurantelor, cafenelelor și hotelurilor boutique din Kaleiçi sunt deschise tot anul, pentru că orașul vechi trăiește din vizitatorii orașului și din localnici, nu doar din turismul de plajă."
+      },
+      {
+        "type": "h2",
+        "text": "Cazare în orașul vechi"
+      },
+      {
+        "type": "p",
+        "text": "Hotelurile din Kaleiçi sunt de obicei mici, amenajate în conace transformate, în jurul unei curți interioare sau al unei piscine mici. Multe străduțe sunt pietonale sau prea înguste pentru vehicule mari, așa că mașina oprește adesea la cea mai apropiată poartă sau piață, iar ultimii metri se fac pe jos. Spune-ne hotelul când rezervi; șoferii noștri știu care intrare e cea mai apropiată și te ajută cu bagajele."
+      },
+      {
+        "type": "h2",
+        "text": "Cum ajungi în Kaleiçi de la Aeroportul Antalya"
+      },
+      {
+        "type": "p",
+        "text": "Kaleiçi se află la aproximativ 15 km de Aeroportul Antalya, cam 20-30 de minute cu mașina. Și tramvaiul leagă aeroportul de centrul orașului, dar cu valize un transfer privat până la hotel e mai simplu, mai ales noaptea târziu. Prețul este fix pe vehicul, fără suprataxă de noapte."
+      }
+    ],
+    "faq": [
+      [
+        "Ce este Kaleiçi în Antalya?",
+        "Kaleiçi este orașul vechi istoric al Antalyei, înconjurat de ziduri deasupra portului vechi, cu case otomane, Poarta lui Hadrian, Minaretul Canelat și multe hoteluri boutique și cafenele."
+      ],
+      [
+        "Cât de departe este Kaleiçi de Aeroportul Antalya?",
+        "Aproximativ 15 km, cam 20-30 de minute cu mașina."
+      ],
+      [
+        "Se poate intra cu mașina în Kaleiçi?",
+        "Doar parțial. Multe străduțe sunt pietonale sau foarte înguste, așa că vehiculele opresc adesea la cea mai apropiată poartă sau piață. Șoferii noștri știu punctul de acces cel mai apropiat de fiecare hotel."
+      ],
+      [
+        "Merită vizitat Kaleiçi iarna?",
+        "Da. Majoritatea cafenelelor, restaurantelor și hotelurilor rămân deschise, străduțele sunt liniștite, iar zilele sunt de obicei blânde și însorite."
+      ],
+      [
+        "Cât timp îmi trebuie pentru Kaleiçi?",
+        "Jumătate de zi ajunge pentru o primă plimbare. Cu muzeul, Parcul Karaalioğlu și cascadele Düden, ideal e o zi sau două."
+      ]
+    ]
   }
 };

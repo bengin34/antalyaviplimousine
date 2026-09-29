@@ -185,8 +185,14 @@ Mart)**; ilkbahar makalesi Nisan-Mayıs rezervasyonlarını erken yakalamak içi
 | `side-ancient-city-guide` | "Side antik kent", Apollon Tapınağı, tiyatro | tüm yıl, özellikle sezon dışı | side, manavgat, kizilagac, belek, alanya |
 | `koprulu-canyon-rafting` | "Köprülü Kanyon rafting" | Nisan - Ekim | side, manavgat, belek, alanya, antalya |
 
-15 makale × 23 dil = **345 yeni makale sayfası** (ilk 5 makale 26 Eylül, kalan 10
-makale 27 Eylül).
+| `tahtali-cable-car-olympos` | "Tahtalı teleferik", Olympos, Çıralı - Yanartaş | Ekim - Kasım, Mart - Mayıs | kemer, tekirova, kumluca, antalya |
+| `perge-aspendos-day-trip` | "Perge ve Aspendos gezisi", havalimanı yolunda mola | Ekim - Nisan | antalya, belek, bogazkent, side, manavgat |
+| `kaleici-old-town-guide` | "Kaleiçi gezi rehberi", şehir tatili, yaya sokaklara transfer | Ekim - Nisan | antalya, belek, kemer |
+| `alanya-in-winter` | "Alanya kışın" - kısa kış tatili (uzun konaklama `wintering-in-antalya`'da) | Kasım - Mart | alanya, alanya_merkez, alanya_bati, alanya_dogu, side, manavgat |
+| `ramadan-bayram-antalya` | "Ramazan'da / bayramda Antalya", bayram trafiği ve erken rezervasyon | Şubat - Mayıs | antalya, belek, side, kemer, alanya |
+
+20 makale × 23 dil = **460 yeni makale sayfası** (ilk 5 makale 26 Eylül, sonraki 10
+makale 27 Eylül, son 5 makale 29 Eylül).
 
 Sağlık turizmi makalesi bilinçli olarak genel bilgi: `/health` sayfası henüz
 canlı değil (mock), bu yüzden makale ona link vermiyor ve koordinasyon hizmeti
@@ -207,5 +213,7 @@ gece farkı yok" mesajını tekrarlıyor.
 2. Kasım başında `antalya-in-winter` ve `christmas-new-year-antalya` için
    gösterimleri kontrol et; Aralık başında `updated` tarihini tazele.
 3. Mart'ta `antalya-in-spring` öne alınabilir (katalog sırası).
-4. Sonraki adaylar: Alanya kış rehberi (şehir odaklı), Kemer - Olympos teleferik,
-   Aspendos - Perge yarım günlük gezi, Antalya'da Ramazan / bayram dönemi seyahati.
+4. Ramazan makalesi kesin tarih vermiyor ("resmi takvime bakın"); Ocak'ta
+   2027 tarihleri netleşince `updated` tarihini tazele.
+5. Sonraki adaylar: Termessos, Düden - Kurşunlu şelaleleri, Antalya'da kış
+   festivalleri (tarihsiz), Gazipaşa havalimanından Alanya'ya transfer.

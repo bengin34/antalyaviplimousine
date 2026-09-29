@@ -2169,5 +2169,560 @@ export const articles = {
         "Evet. Aspendos, Side'den karayoluyla yaklaşık 40 dakikadır ve genellikle Perge veya Manavgat Şelalesi ile birleştirilen kolay bir yarım günlük gezidir."
       ]
     ]
+  },
+  "alanya-in-winter": {
+    "slug": "kisin-alanya",
+    "title": "Kışın Alanya: Hava Durumu, Gezilecek Yerler ve Günübirlik Turlar",
+    "heading": "Kışın Alanya",
+    "description": "Kasımdan marta Alanya: kış havası ve deniz suyu sıcaklığı, kale ve teleferik, Damlataş ve Dim mağaraları, yürüyüşler, pazarlar ve Antalya Havalimanı'ndan ulaşım.",
+    "excerpt": "Ilık günler, boşalmış bir kale tepesi ve yaz kalabalığı gittikten sonra da yaşamaya devam eden bir şehir. Kasım ile mart arasında Alanya gerçekte nasıl?",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Alanya, Türkiye kıyılarında kışın kepenk indirmeyen az sayıdaki yerden biridir. Aralarında İskandinavya, Almanya, Hollanda ve Rusya'dan gelen pek çok kişinin de bulunduğu on binlerce kişi burada yıl boyu yaşar; bu yüzden dükkânlar, kafeler, pazarlar ve restoranlar açık kalır. Kısa bir kış kaçamağı için Avrupa'da nadir bulunan bir şey sunar: güneş, yürünebilir bir sahil ve şehrin üzerinde yükselen bir Orta Çağ kalesi - üstelik yazdan çok daha az insanla."
+      },
+      {
+        "type": "h2",
+        "text": "Alanya'da kış havası"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Ay",
+          "Gündüz (ortalama)",
+          "Gece (ortalama)",
+          "Deniz"
+        ],
+        "rows": [
+          [
+            "Kasım",
+            "20-22 °C",
+            "11-13 °C",
+            "yaklaşık 21 °C"
+          ],
+          [
+            "Aralık",
+            "17-19 °C",
+            "8-10 °C",
+            "yaklaşık 19 °C"
+          ],
+          [
+            "Ocak",
+            "16-17 °C",
+            "7-9 °C",
+            "yaklaşık 17 °C"
+          ],
+          [
+            "Şubat",
+            "16-18 °C",
+            "7-9 °C",
+            "yaklaşık 17 °C"
+          ],
+          [
+            "Mart",
+            "18-20 °C",
+            "9-11 °C",
+            "yaklaşık 17 °C"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Bunlar yaklaşık ortalamalardır. Kışın yağmur dönem dönem gelir - çoğu zaman bir iki gün süren sağanakların ardından açık, güneşli günler başlar. Toros Dağları'nın koruması sayesinde Alanya, kıyının büyük bölümünden biraz daha ılıktır. Akşamlar serin geçer, evler ve bazı otel odaları soğuk olabilir; yanınıza kalın bir kat giysi alın."
+      },
+      {
+        "type": "h2",
+        "text": "Alanya Kalesi, teleferik ve Kızıl Kule"
+      },
+      {
+        "type": "p",
+        "text": "Alanya Kalesi, şehrin üzerindeki kayalık yarımadanın tepesinde surları, sarnıçları, Bizans kilisesi ve kıyı boyunca iki yöne uzanan manzarasıyla yükselir. Yazın tırmanış zorludur; kışın ise keyifli bir yürüyüştür. İsterseniz Damlataş plajından kalkan teleferik sizi birkaç dakikada yukarı çıkarır. Aşağıda, limanda 13. yüzyıldan kalma Kızıl Kule ile eski tersane birbirine kısa bir yürüyüş mesafesindedir."
+      },
+      {
+        "type": "h2",
+        "text": "Mağaralar, dereler ve yürüyüşler"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Damlataş Mağarası: Damlataş plajının ucundaki küçük damlataş mağarası; nemli ve sabit sıcaklıktaki havasıyla bilinir.",
+          "Dim Mağarası: şehrin doğusundaki tepelerde, içinde yürüyüş yolu ve küçük bir göl bulunan daha büyük bir mağara.",
+          "Dim Çayı: suyun üzerine kurulmuş platformlarıyla dere kenarı restoranları; kışın daha sakin, bazıları yıl boyu açık.",
+          "Sahil yürüyüş yolu: Keykubat ve Kleopatra plajları boyunca kilometrelerce düz yürüyüş ve bisiklet yolu.",
+          "Şehrin arkasındaki yamaçlarda muz bahçeleri ve köyler; ılık kışta burada tropik meyveler yetişir."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Deniz, pazarlar ve günlük hayat"
+      },
+      {
+        "type": "p",
+        "text": "Kasımın güneşli günlerinde, hatta kışın bile Kleopatra plajında denize girenleri görürsünüz - deniz, havanın hissettirdiğinden serindir ama kuzeyli ziyaretçilerin çoğu bunu sorun etmez. Haftalık pazarlarda narenciye, nar, zeytin ve sebze satılır; şehir merkezi tur gruplarıyla değil, burada yaşayanlarla canlıdır. Pek çok otel uzun konaklamaya yönelik kış fiyatları sunar ve bazı sahil otelleri kapalı havuzlarıyla açık kalır."
+      },
+      {
+        "type": "h2",
+        "text": "Kışın Alanya'dan günübirlik geziler"
+      },
+      {
+        "type": "p",
+        "text": "Side ve Manavgat Şelalesi batıya yaklaşık bir saat uzaklıktadır; Aspendos ve Perge daha uzun ama kolay bir gün gezisi olur. İç kesimlerde Toros köyleri en soğuk haftalarda kar görürken kıyı yeşil kalır. Birkaç gün değil de haftalarca kalacaksanız, Antalya kıyısında kışlamaya dair ayrı rehberimiz uzun konaklamaları daha ayrıntılı anlatıyor."
+      },
+      {
+        "type": "h2",
+        "text": "Antalya Havalimanı'ndan Alanya'ya ulaşım"
+      },
+      {
+        "type": "p",
+        "text": "Alanya, Antalya Havalimanı'na yaklaşık 125 km uzaklıktadır; Side ve Manavgat üzerinden sahil yolu boyunca karayoluyla yaklaşık iki saat sürer. Gazipaşa-Alanya Havalimanı daha yakındır ancak özellikle kışın daha az uçuş vardır; bu yüzden ziyaretçilerin çoğu Antalya'ya iner. Özel transfer sizi araç başına sabit fiyatla otelinizin ya da dairenizin kapısına bırakır; kış, hafta sonu veya gece farkı yoktur - uçuşunuz akşam geç saatte indiğinde özellikle işe yarar."
+      }
+    ],
+    "faq": [
+      [
+        "Alanya kışın gezmeye değer mi?",
+        "Plaj hayatından çok ılık hava, yürüyüşler ve yaşayan bir şehir arıyorsanız evet. Günler çoğunlukla güneşli ve 16-19 °C civarındadır; kale ve mağaralar yaz sıcağı olmadan çok daha keyiflidir."
+      ],
+      [
+        "Kışın Alanya'da denize girilir mi?",
+        "Girenler var. Deniz kış ortasında yaklaşık 17-19 °C, kasımda daha sıcaktır. Ilık değil, serinletici bir sudur; birçok otelde ısıtmalı kapalı havuz bulunur."
+      ],
+      [
+        "Kışın Alanya'da oteller ve restoranlar açık mı?",
+        "Çoğu açık. Alanya'nın yıl boyu yaşayan kalabalık bir nüfusu olduğundan şehir merkezi, pazarlar ve pek çok restoran açık kalır. Bazı büyük sezonluk tatil köyleri kasımdan marta kadar kapanır."
+      ],
+      [
+        "Alanya, Antalya Havalimanı'na ne kadar uzak?",
+        "Yaklaşık 125 km, karayoluyla yaklaşık iki saat. Özel transfer sizi araç başına sabit fiyatla doğrudan otelinize götürür."
+      ],
+      [
+        "Alanya'da kışın çok yağmur yağar mı?",
+        "En yağışlı aylar aralıktan şubata kadardır, ancak yağmur genellikle bir iki gün sürer ve arada güneşli günler olur."
+      ]
+    ]
+  },
+  "tahtali-cable-car-olympos": {
+    "slug": "tahtali-teleferik-olimpos-yanartas",
+    "title": "Kemer'den Tahtalı Teleferik, Olimpos ve Yanartaş (Kimera) Gezisi",
+    "heading": "Tahtalı Teleferik, Olimpos ve Yanartaş",
+    "description": "Kemer yakınında bir gün: 2.365 m'ye çıkan Tahtalı teleferiği, Olimpos antik kenti, Çıralı plajı ve gün batımında Yanartaş alevleri - en iyi mevsim, kıyafet ve ulaşım.",
+    "excerpt": "Bir dağ zirvesi, dere vadisinde bir Likya kenti ve binlerce yıldır kayadan yükselen alevler - hepsi Kemer'e bir saat mesafede.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Kemer'in güneyinde Toros Dağları doğrudan denizden yükselir. Tek bir günde Tahtalı Dağı'nın zirvesinde durabilir, Olimpos kalıntılarının arasından plaja yürüyebilir ve gün batımında bir yamaçta titreşen Yanartaş alevlerini izleyebilirsiniz. En iyi mevsimler sonbahar ve ilkbahardır: manzara için berrak hava, yürüyüş için rahat sıcaklıklar ve yaz kuyrukları yok."
+      },
+      {
+        "type": "h2",
+        "text": "Tahtalı teleferiği: denizden 2.365 metreye"
+      },
+      {
+        "type": "p",
+        "text": "Olympos Teleferik, Tekirova'nın üzerindeki çam ormanından kalkar ve yaklaşık 2.365 m yükseklikteki Tahtalı zirvesine yaklaşık on dakikada çıkar. Tepeden Antalya'dan Kemer'e ve Phaselis'e kadar tüm kıyı şeridini, açık günlerde de iç kesimlerin çok uzaklarını görürsünüz. Zirvede bir kafe ve seyir terasları var. Biletler alt istasyondan veya internetten alınır; çalışma saatleri ve fiyatlar mevsime göre değişir."
+      },
+      {
+        "type": "h2",
+        "text": "Ne zaman gidilir, ne giyilir?"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Ekim ve kasım: yılın en berrak havası ve en iyi görüş mesafesi, deniz seviyesinde ılık hava.",
+          "Aralıktan marta: zirvede kar sık görülür - yemyeşil kıyının üzerinde çarpıcı bir manzara, ama tepede kış kıyafeti gerekir.",
+          "Nisan ve mayıs: zirvede kar, alt yamaçlarda çiçekler; çoğu zaman aynı karede.",
+          "Yılın her döneminde tepe, plajdan 10-15 °C daha soğuktur. Ekimde bile yanınıza bir mont alın.",
+          "Teleferik kuvvetli rüzgârda ve fırtınada çalışmaz; gününüzü esnek tutun ve yola çıkmadan önce kontrol edin."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Olimpos: dere vadisinde bir antik kent"
+      },
+      {
+        "type": "p",
+        "text": "Likya kenti Olimpos, çakıl bir plajda sona eren dar ve ağaçlık bir vadide yer alır. Mezarlar, bir tiyatro, bir hamam ve bir Bizans kilisesi, dere boyunca defne ve incir ağaçlarının arasına dağılmıştır. Girişten plaja yürüyüş yaklaşık yirmi dakika sürer. Ören yeri koruma alanı içindedir ve girişi ücretlidir; Müzekart/Museum Pass sahipleri ücretsiz girer."
+      },
+      {
+        "type": "h2",
+        "text": "Çıralı ve Yanartaş alevleri"
+      },
+      {
+        "type": "p",
+        "text": "Olimpos'tan plaj boyunca karşıya geçince Çıralı'ya varırsınız: caretta carettaların yumurtladığı uzun bir kumsal boyunca meyve bahçeleri ve küçük pansiyonlardan oluşan sakin bir köy. Yukarıdaki Yanartaş yamacında kayalardan doğal gaz sızar ve binlerce yıldır yanar - Yunan efsanesindeki antik Kimera. Alevlere yaklaşık 20-30 dakikalık basamaklı bir patika çıkar. En etkileyici görüntü gün batımındadır; dönüş için yanınıza bir el feneri alın."
+      },
+      {
+        "type": "h2",
+        "text": "Günü planlamak"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Durak",
+          "Kemer'den",
+          "Ayrılacak süre"
+        ],
+        "rows": [
+          [
+            "Tahtalı teleferiği (alt istasyon)",
+            "yaklaşık 30 dakika",
+            "1,5-2 saat"
+          ],
+          [
+            "Olimpos kalıntıları ve plajı",
+            "yaklaşık 50 dakika",
+            "2 saat"
+          ],
+          [
+            "Çıralı ve Yanartaş",
+            "yaklaşık 50 dakika",
+            "1,5 saat, ideal olarak gün batımında"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Sürüş süreleri yaklaşıktır. İyi bir sıralama şöyle: hava en berrakken sabah teleferik, öğleden sonra Olimpos ve Çıralı'da öğle yemeği, gün batımında Yanartaş. Antalya şehir merkezinden gidiyorsanız her yöne yaklaşık bir saat ekleyin."
+      },
+      {
+        "type": "h2",
+        "text": "Ulaşım"
+      },
+      {
+        "type": "p",
+        "text": "Kemer, sahil yolu üzerinden Antalya Havalimanı'na yaklaşık 50 km, Tekirova ise yaklaşık 75 km uzaklıktadır. Toplu taşımayla teleferik istasyonuna veya Yanartaş'a ulaşmak kolay değildir; bu yüzden birçok ziyaretçi şoförlü araçla gider. Havalimanından Kemer, Tekirova ve Kumluca'ya araç başına sabit fiyatla özel transfer yapıyoruz; teleferik, Olimpos ve Çıralı için şoförlü bir gün de talep üzerine fiyatlandırabiliriz."
+      }
+    ],
+    "faq": [
+      [
+        "Tahtalı teleferiği kaç metreye çıkıyor?",
+        "Tekirova'nın üzerindeki ormandaki alt istasyondan kalkar ve yaklaşık 2.365 m yükseklikteki Tahtalı Dağı zirvesine çıkar. Yolculuk yaklaşık on dakika sürer."
+      ],
+      [
+        "Kışın Tahtalı'da kar olur mu?",
+        "Çoğu zaman evet - yaklaşık aralıktan marta kadar, bazen nisana kadar. Tepe her zaman kıyıdan çok daha soğuktur; yanınıza kalın bir mont alın."
+      ],
+      [
+        "Yanartaş alevlerini görmek için en iyi zaman ne?",
+        "Alevlerin kayanın üzerinde belirginleştiği gün batımı veya karanlık çöktükten sonrası. Patikadan çıkış yaklaşık 20-30 dakika sürer; dönüş için el feneri alın."
+      ],
+      [
+        "Olimpos ve teleferik aynı günde gezilebilir mi?",
+        "Evet. Çoğu kişi sabah teleferiğe biner, öğleden sonra Olimpos ve Çıralı'yı gezer ve gün batımında Yanartaş'ı görür."
+      ],
+      [
+        "Kemer, Antalya Havalimanı'na ne kadar uzak?",
+        "Yaklaşık 50 km, karayoluyla yaklaşık 40-50 dakika. Teleferiğe yakın Tekirova ise yaklaşık 75 km uzaklıktadır."
+      ]
+    ]
+  },
+  "perge-aspendos-day-trip": {
+    "slug": "perge-ve-aspendos-gezisi",
+    "title": "Perge ve Aspendos Gezisi: Antalya'da Yarım Günde İki Antik Kent",
+    "heading": "Antalya'dan Perge ve Aspendos",
+    "description": "Antalya, Belek veya Side'den Perge ve Aspendos gezisi: neler görülür, en iyi mevsim, ne kadar zaman ayrılmalı ve iki antik kent yarım günde nasıl birleştirilir.",
+    "excerpt": "Sütunlu bir Roma caddesi, 12.000 kişilik bir stadyum ve antik dünyanın en iyi korunmuş tiyatrolarından biri - hepsi havalimanına bir saat mesafede.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Türkiye'nin en etkileyici antik kentlerinden ikisi, Antalya-Side ana yolunun hemen kenarındadır. Perge, Pamfilya ovasında büyük bir Greko-Romen kentiydi; Aspendos'un Roma tiyatrosu ise hâlâ gösterilere ev sahipliği yapacak kadar sağlamdır. İkisi birlikte rahat bir yarım gün eder ve güneşin yumuşadığı ekim-nisan arasında en güzel hâllerindedir."
+      },
+      {
+        "type": "h2",
+        "text": "Perge: sütunlar kenti"
+      },
+      {
+        "type": "p",
+        "text": "Perge, Antalya Havalimanı'na yalnızca yaklaşık 15 dakika uzaklıktadır. İki yuvarlak kuleli Helenistik kapıdan girer, ortasından su kanalı geçen uzun sütunlu caddeden agoraya, hamamlara ve akropol tepesine yürürsünüz. Surların hemen dışında büyük bir tiyatro ve antik çağın en iyi korunmuş stadyumlarından biri bulunur. Perge heykellerinin çoğu Antalya Müzesi'nde sergilenir. Yaklaşık bir buçuk ila iki saat ayırın."
+      },
+      {
+        "type": "h2",
+        "text": "Aspendos: ayakta kalan tiyatro"
+      },
+      {
+        "type": "p",
+        "text": "Serik yakınındaki Aspendos, MS 2. yüzyıldan kalma Roma tiyatrosuyla ünlüdür; binlerce seyirci alan tiyatronun sahne binası, galerileri ve mükemmel akustiği hâlâ yerindedir. Arkasından bir patika yukarı kente ve ovayı boydan boya geçen Roma su kemerinin kemerlerine tırmanır. Kısa bir sürüş mesafesindeki Köprüçay üzerindeki Selçuklu köprüsü de uğramaya değer. Yaklaşık bir ila bir buçuk saat ayırın."
+      },
+      {
+        "type": "h2",
+        "text": "Antik kentler için en iyi mevsim"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Ekim ve kasım: ılık, kuru günler ve fotoğraf için yumuşak ışık.",
+          "Aralıktan şubata: sakin ören yerleri ve yağmurlu günlerin arasında ılık hava - yanınıza yağmurluk alın.",
+          "Mart ve nisan: taşların arasında yeşil çimen ve kır çiçekleri; belki de en güzel dönem.",
+          "Hazirandan eylüle: iki alanda da gölge azdır ve öğle sıcağı çok yoğundur; yazın gidiyorsanız sabah erken saatleri seçin."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "İkisini yarım günde birleştirmek"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Çıkış noktası",
+          "Perge'ye",
+          "Perge'den Aspendos'a",
+          "Aspendos'tan dönüş"
+        ],
+        "rows": [
+          [
+            "Antalya merkez / Lara",
+            "yaklaşık 25 dakika",
+            "yaklaşık 35 dakika",
+            "yaklaşık 45 dakika"
+          ],
+          [
+            "Belek",
+            "yaklaşık 30 dakika",
+            "yaklaşık 35 dakika",
+            "yaklaşık 20 dakika"
+          ],
+          [
+            "Side / Manavgat",
+            "yaklaşık 55 dakika",
+            "yaklaşık 35 dakika",
+            "yaklaşık 35 dakika"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Sürüş süreleri yaklaşıktır. Sabah Perge'den başlayıp Aspendos'ta bitirmek bu noktaların hepsinden işe yarar. İki ören yeri de ücretlidir ve Müzekart/Museum Pass geçerlidir. Rahat ayakkabı giyin: zemin engebeli mermer ve taştır, her yerde basamak vardır."
+      },
+      {
+        "type": "h2",
+        "text": "Havalimanı yolunda bir mola"
+      },
+      {
+        "type": "p",
+        "text": "Perge, Antalya Havalimanı'na çok yakın, Aspendos da Belek ve Side yolunun kenarında olduğu için iki kent, geç saatte uçuşu olan bir varış veya dönüş gününe rahatça sığar. Özel transfer yolda birinde ya da ikisinde durabilir; bavullarınız araçta güvende kalır. Rezervasyon yaparken molalı fiyat isteyin: fiyat araç başına sabit kalır."
+      }
+    ],
+    "faq": [
+      [
+        "Perge, Antalya Havalimanı'na ne kadar uzak?",
+        "Karayoluyla yalnızca yaklaşık 15 dakika. Varış veya dönüş gününde gezilebilecek en kolay antik kentlerden biridir."
+      ],
+      [
+        "Perge ve Aspendos aynı günde gezilebilir mi?",
+        "Rahatlıkla - ikisi için yarım gün yeterli. Perge'ye yaklaşık iki saat, Aspendos'a bir saat kadar ve aradaki yola yaklaşık 35 dakika ayırın."
+      ],
+      [
+        "Aspendos tiyatrosu hâlâ kullanılıyor mu?",
+        "Evet. Roma tiyatrosu o kadar iyi korunmuştur ki bazı akşamlar, çoğunlukla sıcak aylarda, hâlâ konser ve gösterilere ev sahipliği yapar."
+      ],
+      [
+        "Perge ve Aspendos'u gezmek için en iyi zaman ne?",
+        "Ekimden nisana. İki alanda da gölge az olduğundan yazın sabah erken gidin."
+      ],
+      [
+        "Transfer, bavullarımla antik kentlerde durabilir mi?",
+        "Evet. Rezervasyon sırasında mola isteyin; bavullarınız araçta kalır ve fiyat araç başına sabit kalır."
+      ]
+    ]
+  },
+  "ramadan-bayram-antalya": {
+    "slug": "ramazan-ve-bayramda-antalya",
+    "title": "Ramazan ve Bayramda Antalya: Tatil ve Transfer Planlama Rehberi",
+    "heading": "Ramazan ve bayramda Antalya'ya seyahat",
+    "description": "Ramazan ve bayram tatillerinde Antalya: restoranlar, iftar akşamları, bayram yollarındaki yoğunluk, oteller ve havalimanı transferinizi nasıl planlamalısınız.",
+    "excerpt": "Tatil bölgelerinde Ramazan'da gündelik hayat pek değişmez. Asıl planlama gerektiren, ardından gelen bayram tatilleri - nelere hazırlıklı olmalı?",
+    "readingMinutes": 5,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Ramazan ve iki bayram her yıl yaklaşık 11 gün öne kayar. Önümüzdeki sezonlarda kış sonuna ve ilkbahara denk geliyor: Ramazan ve Ramazan Bayramı şubat-mart civarına, Kurban Bayramı ise mayıs civarına. Kesin tarihler için resmî takvime bakın. Kıyıda tatil yapacaklar için oruç ayı pek bir şey değiştirmez; asıl plan yapılması gereken bayram tatilleridir."
+      },
+      {
+        "type": "h2",
+        "text": "Ramazan, Antalya'daki tatili etkiler mi?"
+      },
+      {
+        "type": "p",
+        "text": "Çok az. Antalya, Belek, Side, Kemer ve Alanya'da oteller, restoranlar, kafeler ve dükkânlar gündüz her zamanki gibi açıktır; normalde alkol servisi yapan yerler yapmaya devam eder. Yabancı misafirlerden de oruç tutması beklenmez. Özellikle geleneksel mahallelerde ve köylerde, oruçlu olduğu belli birinin önünde gösterişle yiyip içmemek her zamanki nezaket kuralıdır."
+      },
+      {
+        "type": "h2",
+        "text": "İftar: Ramazan akşamları"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Gün batımında iftar vakti; çorba, hurma, zeytin ve yalnızca bu ay satılan Ramazan pidesiyle kurulan sofralar.",
+          "Birçok restoran iftar menüsü sunar; masalar iftardan hemen önce dolar, bu yüzden rezervasyon yaptırın.",
+          "Kaleiçi'nde ve büyük camilerin çevresinde akşamları bayram havası vardır; aileler geç saatlere kadar dışarıdadır.",
+          "Bazı mahallelerde sahurdan önce davulcu sokakları dolaşır - geleneğin bir parçası."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Bayram tatilleri: Türkiye yollarda"
+      },
+      {
+        "type": "p",
+        "text": "Ramazan Bayramı üç, Kurban Bayramı dört gün sürer; hükümet çoğu zaman bunları daha uzun bir tatile uzatır. Milyonlarca kişi ailesinin yanına ya da sahile gider; iç hat uçuşları, şehirlerarası otobüsler ve oteller dolar, Antalya'ya giden yollar bayramın ilk ve son günlerinde yoğunlaşır. Bankalar ve resmî daireler kapanır, ancak tatil bölgelerindeki dükkânlar, restoranlar, müzeler ve turistik yerler genellikle açık kalır."
+      },
+      {
+        "type": "h2",
+        "text": "Transferinizi bayrama göre planlayın"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Bayramın başında iniyorsanız erken rezervasyon yapın: araç ve şoför talebi çok yüksektir.",
+          "Bayramın son günü havalimanı ve yollar en yoğun hâlindedir; dönüş için ekstra zaman ayırın.",
+          "Ramazan'da iftardan önceki bir saatte trafik ağırdır, iftar sırasında ise alışılmadık derecede sakindir.",
+          "Uçuş numaranızı paylaşın: uçuşunuzu takip ediyoruz, yoğun bir günde rötar olsa bile sizi karşılarız."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Bilmekte fayda var"
+      },
+      {
+        "type": "p",
+        "text": "Bayramda Antalya'da da her yerde \"İyi bayramlar\" dilekleri ve şeker ikramı sizi karşılar - tatil için sıcak bir dönemdir. Fiyatlarımız Ramazan'da ya da bayramda değişmez: araç başına tek bir sabit fiyat; bayram, gece veya sezon farkı yoktur."
+      }
+    ],
+    "faq": [
+      [
+        "Ramazan'da Antalya'da restoranlar açık mı?",
+        "Evet. Tatil bölgelerinde ve Antalya şehir merkezinde restoranlar ve kafeler gündüz normal şekilde açıktır. Akşamları iftar menüleri eklenir."
+      ],
+      [
+        "Ramazan'da Antalya'da alkol servisi yapılıyor mu?",
+        "Evet. Normalde alkol servisi yapan oteller, barlar ve restoranlar Ramazan boyunca da yapmaya devam eder."
+      ],
+      [
+        "Bayramda Antalya kalabalık olur mu?",
+        "Evet. Pek çok aile bayramda seyahat ettiğinden oteller, uçuşlar ve yollar her zamankinden yoğundur; özellikle ilk ve son günlerde."
+      ],
+      [
+        "Gelecek yıl Ramazan ve bayramlar ne zaman?",
+        "Tarihler her yıl yaklaşık 11 gün öne kayar. Önümüzdeki sezonlarda Ramazan ve Ramazan Bayramı şubat-mart civarına, Kurban Bayramı ise mayıs civarına denk geliyor; kesin tarihler için resmî takvime bakın."
+      ],
+      [
+        "Bayramda transfer fiyatları artıyor mu?",
+        "Bizde artmaz. Fiyat araç başına sabittir; bayram, gece veya sezon farkı yoktur. Bayram tarihleri için erken rezervasyon yapmanızı öneririz."
+      ]
+    ]
+  },
+  "kaleici-old-town-guide": {
+    "slug": "kaleici-gezi-rehberi",
+    "title": "Kaleiçi Gezi Rehberi: Sakin Mevsimde Antalya'nın Tarihi Merkezi",
+    "heading": "Kaleiçi: Antalya'nın eski şehri",
+    "description": "Antalya'nın surlarla çevrili tarihi merkezi Kaleiçi gezi rehberi: Hadrian Kapısı, Yivli Minare, eski liman, butik oteller ve neden sonbahardan ilkbahara kadar gitmeli.",
+    "excerpt": "Roma kapıları, Osmanlı evleri ve falezlerin dibinde bir liman. Antalya'nın eski kalbi, şehrin yeniden sakinlerine kaldığı aylarda, acele etmeden gezilir.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Kaleiçi, küçük bir limanın üzerinde eski surlarla çevrili Antalya'nın tarihi merkezidir. Sokakları, çoğu artık butik otel, kafe ve küçük restoran olan restore edilmiş Osmanlı evleriyle doludur. Yazın sıcak ve kalabalıktır; ekimden nisana ise ılık günleri, güneşe açılan terasları ve acele etmeden dolaşmaya vakit bırakan havasıyla en güzel hâlindedir."
+      },
+      {
+        "type": "h2",
+        "text": "Kaleiçi'nde bir yürüyüş rotası"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Hadrian Kapısı (Üçkapılar): imparatorun MS 2. yüzyıldaki ziyareti için yapılan üç kemerli Roma kapısı, eski şehrin geleneksel girişi.",
+          "Saat Kulesi ve Kalekapısı meydanı: eski şehirle modern kentin buluşma noktası.",
+          "Yivli Minare: Antalya'nın Selçuklu simgesi, merkezin her yerinden görünür.",
+          "Hıdırlık Kulesi: güney ucundaki yuvarlak Roma kulesi; körfez ve dağlar üzerinde gün batımı manzarası.",
+          "Kesik Minare: yüzyıllar içinde tapınak, kilise ve cami olarak kullanılmış bir yapı.",
+          "Eski liman (Yat Limanı): falezlerin dibinde balıkçı ve gezi tekneleri; sokaklardan veya yukarıdaki asansörle inilir."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Surların dışında"
+      },
+      {
+        "type": "p",
+        "text": "Karaalioğlu Parkı, Hıdırlık Kulesi'nden başlayarak falezler boyunca körfez manzarasıyla uzanır. Türkiye'nin en zengin arkeoloji koleksiyonlarından birine sahip Antalya Müzesi, Konyaaltı plajının başındadır ve yağmurlu bir gün için idealdir; gitmeden önce ziyaret saatlerini kontrol edin. Şehrin doğusunda Düden Şelalesi falezlerden doğrudan denize dökülür, Yukarı Düden ise gölgeli bir parkın içindedir."
+      },
+      {
+        "type": "h2",
+        "text": "Neden sonbahardan ilkbahara?"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Mevsim",
+          "Gündüz (ortalama)",
+          "Kaleiçi'nde"
+        ],
+        "rows": [
+          [
+            "Ekim - Kasım",
+            "22-27 °C",
+            "Ilık akşamlar, açık teraslar, daha az kalabalık"
+          ],
+          [
+            "Aralık - Şubat",
+            "15-18 °C",
+            "Sakin sokaklar, güneşli kafeler, arada bir yağmurlu gün"
+          ],
+          [
+            "Mart - Nisan",
+            "18-22 °C",
+            "Portakal çiçeği, yeşil parklar, şehirde festivaller"
+          ],
+          [
+            "Haziran - Ağustos",
+            "33-35 °C",
+            "Çok sıcak ve kalabalık - en iyisi sabah erken ve akşam"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Sıcaklıklar yaklaşık ortalamalardır. Kaleiçi'ndeki restoranların, kafelerin ve butik otellerin çoğu yıl boyu açıktır; çünkü eski şehir yalnızca deniz turizmiyle değil, şehir ziyaretçileri ve Antalyalılarla yaşar."
+      },
+      {
+        "type": "h2",
+        "text": "Kaleiçi'nde konaklama"
+      },
+      {
+        "type": "p",
+        "text": "Kaleiçi otelleri genellikle küçüktür; bir avlunun veya küçük bir havuzun çevresinde, dönüştürülmüş konaklarda yer alır. Birçok sokak yayalara ayrılmıştır ya da büyük araçlar için fazla dardır; bu yüzden araç çoğu zaman en yakın kapıda veya meydanda durur ve son birkaç metre yürünür. Rezervasyonda otelinizi bildirin; şoförlerimiz hangi girişin en yakın olduğunu bilir ve bavullarınıza yardım eder."
+      },
+      {
+        "type": "h2",
+        "text": "Antalya Havalimanı'ndan Kaleiçi'ne ulaşım"
+      },
+      {
+        "type": "p",
+        "text": "Kaleiçi, Antalya Havalimanı'na yaklaşık 15 km uzaklıktadır; karayoluyla yaklaşık 20-30 dakika sürer. Tramvay da havalimanını şehir merkezine bağlar, ancak bavullarla otelinize özel transfer, özellikle gece geç saatte, çok daha kolaydır. Fiyat araç başına sabittir, gece farkı yoktur."
+      }
+    ],
+    "faq": [
+      [
+        "Antalya Kaleiçi neresi?",
+        "Kaleiçi, eski limanın üzerinde surlarla çevrili Antalya'nın tarihi merkezidir; Osmanlı evleri, Hadrian Kapısı, Yivli Minare ve pek çok butik otel ve kafeyle doludur."
+      ],
+      [
+        "Kaleiçi, Antalya Havalimanı'na ne kadar uzak?",
+        "Yaklaşık 15 km, karayoluyla yaklaşık 20-30 dakika."
+      ],
+      [
+        "Kaleiçi'ne araçla girilebilir mi?",
+        "Kısmen. Birçok sokak yaya yolu ya da çok dar olduğundan araçlar genellikle en yakın kapıda veya meydanda durur. Şoförlerimiz her otel için en yakın giriş noktasını bilir."
+      ],
+      [
+        "Kaleiçi kışın gezmeye değer mi?",
+        "Evet. Kafelerin, restoranların ve otellerin çoğu açık kalır, sokaklar sakindir ve günler genellikle ılık ve güneşlidir."
+      ],
+      [
+        "Kaleiçi için ne kadar zaman gerekir?",
+        "İlk tur için yarım gün yeterli. Müze, Karaalioğlu Parkı ve Düden Şelalesi'yle birlikte bir ya da iki tam gün idealdir."
+      ]
+    ]
   }
 };

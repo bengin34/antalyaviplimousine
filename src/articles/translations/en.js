@@ -2169,5 +2169,560 @@ export const articles = {
         "Yes. Aspendos is about 40 minutes from Side by road and makes an easy half-day trip, often combined with Perge or the Manavgat waterfall."
       ]
     ]
+  },
+  "alanya-in-winter": {
+    "slug": "alanya-in-winter",
+    "title": "Alanya in Winter: Weather, Things to Do and Day Trips",
+    "heading": "Alanya in winter",
+    "description": "Alanya from November to March: winter weather and sea temperature, the castle and cable car, Damlataş and Dim caves, walks, markets and getting there from Antalya Airport.",
+    "excerpt": "Mild days, an empty castle hill and a town that keeps living after the summer crowds leave. What Alanya is really like between November and March.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Alanya is one of the few places on the Turkish coast that does not switch off in winter. Tens of thousands of residents live here all year, among them many from Scandinavia, Germany, the Netherlands and Russia, so shops, cafés, markets and restaurants stay open. For a short winter break it offers something rare in Europe: sunshine, a walkable seafront and a medieval castle above the town, with far fewer people than in summer."
+      },
+      {
+        "type": "h2",
+        "text": "Winter weather in Alanya"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Month",
+          "Typical day",
+          "Typical night",
+          "Sea"
+        ],
+        "rows": [
+          [
+            "November",
+            "20-22 °C",
+            "11-13 °C",
+            "about 21 °C"
+          ],
+          [
+            "December",
+            "17-19 °C",
+            "8-10 °C",
+            "about 19 °C"
+          ],
+          [
+            "January",
+            "16-17 °C",
+            "7-9 °C",
+            "about 17 °C"
+          ],
+          [
+            "February",
+            "16-18 °C",
+            "7-9 °C",
+            "about 17 °C"
+          ],
+          [
+            "March",
+            "18-20 °C",
+            "9-11 °C",
+            "about 17 °C"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "These are approximate averages. Winter brings rain in spells - often a day or two of heavy showers followed by clear, sunny days. Alanya is sheltered by the Taurus mountains, which keep it a little milder than much of the coast. Evenings are cool, and houses and some hotel rooms feel cold, so pack a warm layer."
+      },
+      {
+        "type": "h2",
+        "text": "The castle, the cable car and the Red Tower"
+      },
+      {
+        "type": "p",
+        "text": "Alanya Castle crowns the rocky peninsula above the town, with walls, cisterns, a Byzantine church and views along the coast in both directions. In summer the climb is hard work; in winter it is a pleasant walk. The cable car from Damlataş beach carries you up in a few minutes if you prefer. Down at the harbour, the 13th-century Red Tower (Kızıl Kule) and the old shipyard are a short stroll apart."
+      },
+      {
+        "type": "h2",
+        "text": "Caves, rivers and walks"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Damlataş Cave: a small dripstone cave at the far end of Damlataş beach, known for its humid, constant air.",
+          "Dim Cave: a larger cave in the hills east of town, with a walkway and a small lake inside.",
+          "Dim River (Dim Çayı): riverside restaurants with platforms over the water, quieter in winter, some open all year.",
+          "The seafront promenade: kilometres of flat walking and cycling along Keykubat and Cleopatra beaches.",
+          "Banana plantations and villages on the slopes behind the town, where tropical fruit grows in the mild winter."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Swimming, markets and daily life"
+      },
+      {
+        "type": "p",
+        "text": "On sunny days in November, and even in winter, you will see people swimming from Cleopatra beach - the sea is cooler than the air feels, but many northern visitors find it fine. Weekly markets sell citrus, pomegranates, olives and vegetables, and the town centre is lively with residents rather than tour groups. Many hotels offer long-stay winter prices, and a number of beach resorts stay open with indoor pools."
+      },
+      {
+        "type": "h2",
+        "text": "Day trips from Alanya in winter"
+      },
+      {
+        "type": "p",
+        "text": "Side and the Manavgat waterfall are about an hour west; Aspendos and Perge make a longer but easy day out. Inland, the villages of the Taurus mountains see snow in the coldest weeks while the coast stays green. If you are staying for weeks rather than days, our separate guide to wintering on the Antalya coast covers long stays in more detail."
+      },
+      {
+        "type": "h2",
+        "text": "Getting to Alanya from Antalya Airport"
+      },
+      {
+        "type": "p",
+        "text": "Alanya is about 125 km from Antalya Airport, roughly two hours by road along the coast via Side and Manavgat. Gazipaşa-Alanya Airport is closer but has fewer flights, especially in winter, so most visitors land in Antalya. A private transfer takes you to your hotel or apartment door at a fixed price per vehicle, with no winter, weekend or night surcharge - useful when flights arrive late in the evening."
+      }
+    ],
+    "faq": [
+      [
+        "Is Alanya worth visiting in winter?",
+        "Yes, if you want mild weather, walks and a lived-in town rather than beach life. Days are often sunny and around 16-19 °C, and the castle and caves are pleasant without the summer heat."
+      ],
+      [
+        "Can you swim in Alanya in winter?",
+        "Some people do. The sea is about 17-19 °C in mid-winter and warmer in November. It is refreshing rather than warm, and many hotels have heated indoor pools."
+      ],
+      [
+        "Are hotels and restaurants open in Alanya in winter?",
+        "Many are. Alanya has a large year-round population, so the town centre, markets and many restaurants stay open. Some large seasonal resorts close from November to March."
+      ],
+      [
+        "How far is Alanya from Antalya Airport?",
+        "About 125 km, roughly two hours by road. A private transfer takes you straight to your hotel at a fixed price per vehicle."
+      ],
+      [
+        "Does it rain a lot in Alanya in winter?",
+        "December to February are the wettest months, but rain usually comes in spells of a day or two, with sunny days in between."
+      ]
+    ]
+  },
+  "tahtali-cable-car-olympos": {
+    "slug": "tahtali-cable-car-olympos-chimaera",
+    "title": "Tahtalı Cable Car, Olympos and the Chimaera Flames from Kemer",
+    "heading": "Tahtalı cable car, Olympos and the Chimaera",
+    "description": "A day near Kemer: the Tahtalı cable car to 2,365 m, the ruins of Olympos, Çıralı beach and the Chimaera flames at dusk - best seasons, what to wear and how to get there.",
+    "excerpt": "A mountain summit, a Lycian city in a river valley and flames that have burned out of the rock for thousands of years - all within an hour of Kemer.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "South of Kemer, the Taurus mountains rise straight out of the sea. In one day you can stand on the summit of Mount Tahtalı, walk through the ruins of Olympos to the beach and watch the Chimaera flames flicker on a hillside at dusk. Autumn and spring are the best seasons: clear air for the views, comfortable temperatures for walking, and no summer queues."
+      },
+      {
+        "type": "h2",
+        "text": "Tahtalı cable car: from the sea to 2,365 m"
+      },
+      {
+        "type": "p",
+        "text": "The Olympos cable car starts in the pine forest above Tekirova and climbs to the summit of Tahtalı, about 2,365 m high, in roughly ten minutes. From the top you look down on the whole coastline from Antalya to Kemer and Phaselis, and on clear days far inland. The summit has a café and viewing terraces. Tickets are bought at the lower station or online; operating hours and prices change with the season."
+      },
+      {
+        "type": "h2",
+        "text": "When to go and what to wear"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "October and November: clear air and the best visibility of the year, with mild weather at sea level.",
+          "December to March: snow on the summit is common - a striking view over a green coast, but dress for winter at the top.",
+          "April and May: snow on the peak and flowers on the lower slopes, often in the same view.",
+          "At any time of year it is 10-15 °C colder at the top than at the beach. Bring a jacket, even in October.",
+          "The cable car stops in strong wind or storms, so keep the day flexible and check before you set off."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Olympos: ruins in a river valley"
+      },
+      {
+        "type": "p",
+        "text": "The ancient Lycian city of Olympos lies in a narrow, wooded valley that ends at a pebble beach. Tombs, a theatre, a bath house and a Byzantine church are scattered among laurel and fig trees along a stream. The walk from the entrance to the beach takes about twenty minutes. The site is part of a protected area and charges an entrance fee; Museum Pass holders enter free."
+      },
+      {
+        "type": "h2",
+        "text": "Çıralı and the Chimaera flames"
+      },
+      {
+        "type": "p",
+        "text": "Across the beach from Olympos is Çıralı, a quiet village of orchards and small guesthouses along a long beach where loggerhead turtles nest. Above it, on the slope of Yanartaş, natural gas seeps from the rock and has burned for thousands of years - the ancient Chimaera of Greek legend. A stepped path of about 20-30 minutes leads up to the flames. They are most impressive at dusk, so bring a torch for the way down."
+      },
+      {
+        "type": "h2",
+        "text": "Planning the day"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Stop",
+          "From Kemer",
+          "Allow"
+        ],
+        "rows": [
+          [
+            "Tahtalı cable car (lower station)",
+            "about 30 minutes",
+            "1.5-2 hours"
+          ],
+          [
+            "Olympos ruins and beach",
+            "about 50 minutes",
+            "2 hours"
+          ],
+          [
+            "Çıralı and the Chimaera",
+            "about 50 minutes",
+            "1.5 hours, ideally at dusk"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Drive times are approximate. A good order is the cable car in the morning when the air is clearest, Olympos and lunch in Çıralı in the afternoon, and the Chimaera at sunset. From Antalya city, add about an hour each way."
+      },
+      {
+        "type": "h2",
+        "text": "Getting there"
+      },
+      {
+        "type": "p",
+        "text": "Kemer is about 50 km from Antalya Airport and Tekirova about 75 km, along the coast road. Public buses do not reach the cable car station or the Chimaera easily, which is why many visitors go with a driver. We run private transfers from the airport to Kemer, Tekirova and Kumluca at a fixed price per vehicle, and can quote a day with a driver for the cable car, Olympos and Çıralı on request."
+      }
+    ],
+    "faq": [
+      [
+        "How high is the Tahtalı cable car?",
+        "It climbs to the summit of Mount Tahtalı at about 2,365 m, starting from a lower station in the forest above Tekirova. The ride takes around ten minutes."
+      ],
+      [
+        "Is there snow on Tahtalı in winter?",
+        "Often, yes - from about December to March, and sometimes into April. It is always much colder at the top than on the coast, so bring a warm jacket."
+      ],
+      [
+        "When is the best time to see the Chimaera flames?",
+        "At dusk or after dark, when the flames stand out against the rock. The path up takes about 20-30 minutes; bring a torch for the way down."
+      ],
+      [
+        "Can I visit Olympos and the cable car in one day?",
+        "Yes. Most people take the cable car in the morning, visit Olympos and Çıralı in the afternoon and see the Chimaera at sunset."
+      ],
+      [
+        "How far is Kemer from Antalya Airport?",
+        "About 50 km, roughly 40-50 minutes by road. Tekirova, near the cable car, is about 75 km."
+      ]
+    ]
+  },
+  "perge-aspendos-day-trip": {
+    "slug": "perge-and-aspendos-day-trip",
+    "title": "Perge and Aspendos: A Half-Day Trip Through Antalya's Ruins",
+    "heading": "Perge and Aspendos from Antalya",
+    "description": "Visiting Perge and Aspendos from Antalya, Belek or Side: what to see, the best season, how long to allow and how to combine the two ancient sites in half a day.",
+    "excerpt": "A colonnaded Roman street, a stadium for 12,000 and one of the best-preserved theatres of the ancient world, all within an hour of the airport.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Two of the finest ancient sites in Türkiye lie just off the main road between Antalya and Side. Perge was a great Greco-Roman city on the Pamphylian plain; Aspendos has a Roman theatre so complete that it is still used for performances. Together they make an easy half day, and between October and April, when the sun is gentle, they are at their best."
+      },
+      {
+        "type": "h2",
+        "text": "Perge: a city of columns"
+      },
+      {
+        "type": "p",
+        "text": "Perge is only about 15 minutes from Antalya Airport. You enter through the Hellenistic gate with its two round towers and walk down a long colonnaded street, with a water channel running down its centre, to the agora, baths and the acropolis hill. Just outside the walls are a large theatre and one of the best-preserved stadiums of antiquity. Many of Perge's statues are displayed in the Antalya Museum. Allow about one and a half to two hours."
+      },
+      {
+        "type": "h2",
+        "text": "Aspendos: the theatre that survived"
+      },
+      {
+        "type": "p",
+        "text": "Aspendos, near Serik, is famous for its Roman theatre from the 2nd century AD, which held many thousands of spectators and still has its stage building, galleries and excellent acoustics. Behind it, a path climbs to the upper city and to the arches of a Roman aqueduct stretching across the plain. A short drive away, the Seljuk bridge over the Köprüçay river is worth a stop. Allow about one to one and a half hours."
+      },
+      {
+        "type": "h2",
+        "text": "The best season for the ruins"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "October and November: warm, dry days and soft light for photographs.",
+          "December to February: quiet sites and mild weather between rainy days - bring a waterproof layer.",
+          "March and April: green grass and wild flowers between the stones, arguably the most beautiful time.",
+          "June to September: both sites have little shade and the midday heat is intense; go early in the morning if you visit in summer."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Combining the two in half a day"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Starting point",
+          "To Perge",
+          "Perge to Aspendos",
+          "Aspendos to base"
+        ],
+        "rows": [
+          [
+            "Antalya city / Lara",
+            "about 25 minutes",
+            "about 35 minutes",
+            "about 45 minutes"
+          ],
+          [
+            "Belek",
+            "about 30 minutes",
+            "about 35 minutes",
+            "about 20 minutes"
+          ],
+          [
+            "Side / Manavgat",
+            "about 55 minutes",
+            "about 35 minutes",
+            "about 35 minutes"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Drive times are approximate. Starting at Perge in the morning and ending at Aspendos works from any of these bases. Both sites charge an entrance fee and accept the Museum Pass. Wear good shoes: the ground is uneven marble and stone, and there are steps everywhere."
+      },
+      {
+        "type": "h2",
+        "text": "On the way to or from the airport"
+      },
+      {
+        "type": "p",
+        "text": "Because Perge is so close to Antalya Airport and Aspendos lies near the road to Belek and Side, the two sites fit well into an arrival or departure day with a late flight. A private transfer can stop at one or both on the way, with your luggage safely in the vehicle. Ask for a quote with stops when you book: the price stays fixed per vehicle."
+      }
+    ],
+    "faq": [
+      [
+        "How far is Perge from Antalya Airport?",
+        "Only about 15 minutes by road. It is one of the easiest ancient sites to visit on an arrival or departure day."
+      ],
+      [
+        "Can I visit Perge and Aspendos in one day?",
+        "Easily - half a day is enough for both. Allow about two hours at Perge, an hour or so at Aspendos and around 35 minutes for the drive between them."
+      ],
+      [
+        "Is the theatre of Aspendos still used?",
+        "Yes. The Roman theatre is so well preserved that it still hosts concerts and performances on some evenings, mostly in the warmer months."
+      ],
+      [
+        "What is the best time to visit Perge and Aspendos?",
+        "October to April. There is little shade at either site, so in summer go early in the morning."
+      ],
+      [
+        "Can a transfer stop at the ruins with my luggage?",
+        "Yes. Ask for stops when you book; your luggage stays in the vehicle and the price remains fixed per vehicle."
+      ]
+    ]
+  },
+  "ramadan-bayram-antalya": {
+    "slug": "ramadan-and-eid-in-antalya",
+    "title": "Ramadan and Eid in Antalya: What Travellers Should Know",
+    "heading": "Travelling to Antalya during Ramadan and Eid",
+    "description": "What changes in Antalya during Ramadan and the Eid holidays: restaurants, iftar evenings, busy holiday roads, hotels and how to plan your airport transfer.",
+    "excerpt": "In the resorts, daily life hardly changes during Ramadan. The holidays that follow are another story - here is what to expect and how to plan around them.",
+    "readingMinutes": 5,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Ramadan and the two Eid holidays move through the calendar, about 11 days earlier every year. In the coming seasons they fall in late winter and spring: Ramadan and the Ramadan Feast (Ramazan Bayramı) around February and March, and the Feast of Sacrifice (Kurban Bayramı) around May. Check the official calendar for exact dates. For visitors, the fasting month itself changes little on the coast; the holidays are what you need to plan for."
+      },
+      {
+        "type": "h2",
+        "text": "Does Ramadan change a holiday in Antalya?"
+      },
+      {
+        "type": "p",
+        "text": "Very little. Hotels, restaurants, cafés and shops in Antalya, Belek, Side, Kemer and Alanya open as usual during the day, and alcohol is served in the places that normally serve it. Many people in Türkiye fast, many do not, and nobody expects visitors to. It is simply polite not to eat or drink ostentatiously in front of someone who is clearly fasting, especially in traditional neighbourhoods and villages."
+      },
+      {
+        "type": "h2",
+        "text": "Iftar: the evenings of Ramadan"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "At sunset the fast is broken with iftar, often a shared meal with soup, dates, olives and the special round Ramadan pide bread sold only this month.",
+          "Many restaurants offer an iftar menu; tables fill up just before sunset, so reserve if you want to join in.",
+          "In the old town and around the big mosques there is a festive atmosphere in the evening, with families out late.",
+          "Before dawn, in some neighbourhoods, a drummer walks the streets to wake people for the last meal (sahur) - part of the tradition."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "The Eid holidays: when Türkiye travels"
+      },
+      {
+        "type": "p",
+        "text": "The Ramadan Feast lasts three days and the Feast of Sacrifice four; the government often extends them into a longer break. Millions of people travel to their families or the coast, so domestic flights, intercity buses and hotels fill up and the roads into Antalya are busy on the first and last days. Banks and government offices close, but shops, restaurants, museums and tourist sites in the resorts usually stay open."
+      },
+      {
+        "type": "h2",
+        "text": "Planning your transfer around the holidays"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Book early if you land at the start of an Eid holiday: vehicles and drivers are in high demand.",
+          "Allow extra time for departures on the last day of a holiday, when the airport and the roads are at their busiest.",
+          "During Ramadan, traffic is heavy in the hour before sunset and unusually quiet during iftar itself.",
+          "Share your flight number: we track it, so a delayed flight on a busy day does not cost you your pickup."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Good to know"
+      },
+      {
+        "type": "p",
+        "text": "During the holidays people greet each other with \"İyi bayramlar\" (happy holidays), and sweets are handed out everywhere - it is a warm time to be in the country. Our prices do not change for Ramadan or Eid: one fixed price per vehicle, with no holiday, night or season surcharge."
+      }
+    ],
+    "faq": [
+      [
+        "Are restaurants open in Antalya during Ramadan?",
+        "Yes. In the resorts and in Antalya city, restaurants and cafés open normally during the day. Iftar menus are added in the evening."
+      ],
+      [
+        "Can tourists drink alcohol during Ramadan in Antalya?",
+        "Yes. Hotels, bars and restaurants that normally serve alcohol continue to do so during Ramadan."
+      ],
+      [
+        "Is it busy in Antalya during the Eid holidays?",
+        "Yes. Many Turkish families travel during Eid, so hotels, flights and roads are busier than usual, especially on the first and last days."
+      ],
+      [
+        "When are Ramadan and Eid next year?",
+        "The dates move about 11 days earlier each year. In the coming seasons Ramadan and the Ramadan Feast fall around February-March and the Feast of Sacrifice around May; check the official calendar for exact dates."
+      ],
+      [
+        "Do transfer prices go up during Eid?",
+        "Not with us. The price is fixed per vehicle, with no holiday, night or season surcharge. We recommend booking early for holiday dates."
+      ]
+    ]
+  },
+  "kaleici-old-town-guide": {
+    "slug": "kaleici-antalya-old-town-guide",
+    "title": "Kaleiçi, Antalya's Old Town: A Walking Guide for the Quiet Season",
+    "heading": "Kaleiçi: Antalya's old town",
+    "description": "A walking guide to Kaleiçi, Antalya's walled old town: Hadrian's Gate, the Fluted Minaret, the old harbour, boutique hotels and why autumn to spring is the best time to go.",
+    "excerpt": "Roman gates, Ottoman houses and a harbour under the cliffs. The old heart of Antalya is best explored slowly, in the months when the city belongs to its residents.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Kaleiçi - literally \"inside the castle\" - is the historic centre of Antalya, enclosed by old city walls above a small harbour. Its lanes are lined with restored Ottoman houses, many now boutique hotels, cafés and small restaurants. In summer it is hot and crowded; from October to April it is at its best, with mild days, open terraces in the sun and time to wander."
+      },
+      {
+        "type": "h2",
+        "text": "A walk through Kaleiçi"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Hadrian's Gate: the triple-arched Roman gate built for the emperor's visit in the 2nd century AD, the traditional entrance to the old town.",
+          "The Clock Tower and Kalekapısı square: the meeting point between the old town and the modern city.",
+          "The Fluted Minaret (Yivli Minare): the Seljuk symbol of Antalya, visible from all over the centre.",
+          "Hıdırlık Tower: a round Roman tower at the southern edge, with sunset views over the bay and the mountains.",
+          "The Broken Minaret (Kesik Minare): a building that has been a temple, a church and a mosque over the centuries.",
+          "The old harbour: fishing boats and excursion boats under the cliffs, reached by lanes or a lift from the top."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Beyond the walls"
+      },
+      {
+        "type": "p",
+        "text": "Karaalioğlu Park runs along the cliffs from Hıdırlık Tower with views across the bay. The Antalya Museum, one of the richest archaeological collections in Türkiye, lies at the start of Konyaaltı beach and is ideal on a rainy day; check opening hours before you go. East of the city, the Düden waterfalls drop straight off the cliffs into the sea, and the upper falls sit in a shaded park."
+      },
+      {
+        "type": "h2",
+        "text": "Why autumn to spring"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Season",
+          "Typical day",
+          "In Kaleiçi"
+        ],
+        "rows": [
+          [
+            "October - November",
+            "22-27 °C",
+            "Warm evenings, terraces open, fewer crowds"
+          ],
+          [
+            "December - February",
+            "15-18 °C",
+            "Quiet lanes, sunny cafés, the odd rainy day"
+          ],
+          [
+            "March - April",
+            "18-22 °C",
+            "Orange blossom, green parks, festivals in the city"
+          ],
+          [
+            "June - August",
+            "33-35 °C",
+            "Very hot and busy - best early and late in the day"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Temperatures are approximate averages. Most restaurants, cafés and boutique hotels in Kaleiçi stay open all year, because the old town lives from city visitors and residents, not only from beach tourism."
+      },
+      {
+        "type": "h2",
+        "text": "Staying in the old town"
+      },
+      {
+        "type": "p",
+        "text": "Kaleiçi hotels are usually small, set in converted mansions around a courtyard or a small pool. Many lanes are pedestrian-only or too narrow for large vehicles, so a car often stops at the nearest gate or square and the last few metres are on foot. Tell us your hotel when you book; our drivers know which entrance is closest and help with your luggage."
+      },
+      {
+        "type": "h2",
+        "text": "Getting there from Antalya Airport"
+      },
+      {
+        "type": "p",
+        "text": "Kaleiçi is about 15 km from Antalya Airport, roughly 20 to 30 minutes by road. The tram also links the airport with the city centre, but with suitcases a private transfer to your hotel is simpler, especially late at night. The price is fixed per vehicle, with no night surcharge."
+      }
+    ],
+    "faq": [
+      [
+        "What is Kaleiçi in Antalya?",
+        "Kaleiçi is Antalya's historic old town, enclosed by city walls above the old harbour, with Ottoman houses, Hadrian's Gate, the Fluted Minaret and many boutique hotels and cafés."
+      ],
+      [
+        "How far is Kaleiçi from Antalya Airport?",
+        "About 15 km, roughly 20-30 minutes by road."
+      ],
+      [
+        "Can cars drive into Kaleiçi?",
+        "Only partly. Many lanes are pedestrian or very narrow, so vehicles often stop at the nearest gate or square. Our drivers know the closest access point for each hotel."
+      ],
+      [
+        "Is Kaleiçi worth visiting in winter?",
+        "Yes. Most cafés, restaurants and hotels stay open, the lanes are quiet and days are usually mild and sunny."
+      ],
+      [
+        "How much time do I need for Kaleiçi?",
+        "Half a day is enough for a first walk. With the museum, Karaalioğlu Park and the Düden waterfalls, a full day or two is ideal."
+      ]
+    ]
   }
 };
