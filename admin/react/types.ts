@@ -84,6 +84,10 @@ export interface Booking {
   manual_outbound_distance_km?: number | string | null
   manual_return_distance_km?: number | string | null
   manual_return_of_ref?: string | null
+  /** Kontrol ("talebinizi aldık") mesajının ilk gönderildiği an. */
+  check_message_sent_at?: string | null
+  /** Onay mesajının ilk gönderildiği an; boşsa rezervasyon "Yeni" sekmesindedir. */
+  confirm_message_sent_at?: string | null
   created_at: string
   booking_notes?: BookingNote[]
   chauffeur_hire_days?: ChauffeurHireDay[]
