@@ -83,6 +83,25 @@ describe("article catalogue", () => {
     }
   });
 
+  test("only embeds route links and WhatsApp requests that resolve", () => {
+    for (const article of articles) {
+      for (const language of articleLanguages) {
+        for (const block of article.content[language].blocks) {
+          if (block.type === "routelinks") {
+            for (const slug of [...block.routes, block.buttonRoute].filter(Boolean)) {
+              expect(routeCatalog[slug], `Unknown route ${slug} in ${article.id}/${language}`).toBeTruthy();
+            }
+            expect(block.button).toBeTruthy();
+          }
+          if (block.type === "whatsapp") {
+            expect(block.fields.length).toBeGreaterThanOrEqual(3);
+            expect(block.message).toBeTruthy();
+          }
+        }
+      }
+    }
+  });
+
   test("finds the guides that belong to a marketed route", () => {
     const belek = articlesForRoute("de", "belek").map((article) => article.id);
 

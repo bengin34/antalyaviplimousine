@@ -210,6 +210,20 @@ export const articles = {
       },
       {
         "type": "h2",
+        "text": "Wie komme ich zum Hotel?"
+      },
+      {
+        "type": "p",
+        "text": "Vom Flughafen Antalya aus dauert die Fahrt je nach Küstenabschnitt zwischen 35 Minuten und knapp zwei Stunden. Die Festpreise, Fahrzeiten und Hotelgebiete für die gefragtesten Ziele finden Sie auf den jeweiligen Streckenseiten."
+      },
+      {
+        "type": "routelinks",
+        "text": "Festpreis pro Fahrzeug für Ihre Strecke ansehen:",
+        "routes": ["belek", "side", "alanya"],
+        "button": "Festpreis prüfen"
+      },
+      {
+        "type": "h2",
         "text": "Vor der Reise"
       },
       {
@@ -856,6 +870,18 @@ export const articles = {
       {
         "type": "p",
         "text": "In der Silvesternacht und in den frühen Stunden des 1. Januar sind Taxis kaum zu bekommen, und Apps und Taxistände sind genau dann überlastet, wenn alle nach Hause wollen. Wenn Sie außerhalb Ihres Hotels feiern – in der Stadt, im Restaurant oder in der Villa von Freunden –, buchen Sie die Rückfahrt vorab mit fester Abholzeit."
+      },
+      {
+        "type": "whatsapp",
+        "heading": "Silvesternacht: Hin- und Rückfahrt vorab sichern",
+        "text": "Schreiben Sie uns per WhatsApp, und wir bestätigen Ihnen Festpreis und Abholzeit für die Silvesternacht. Bitte nennen Sie uns:",
+        "fields": [
+          "Datum und Uhrzeit der Hinfahrt und der Rückfahrt (z. B. Rückfahrt gegen 01:30 Uhr)",
+          "Anzahl der Personen und Gepäck oder Kindersitze",
+          "Abholort und Ziel – Hotel, Restaurant oder Adresse"
+        ],
+        "button": "Silvester-Transfer per WhatsApp anfragen",
+        "message": "Hallo, ich möchte einen Hin- und Rückfahrt-Transfer für die Silvesternacht anfragen.\n\nDatum und Uhrzeit Hinfahrt: \nDatum und Uhrzeit Rückfahrt: \nAnzahl Personen: \nAbholort / Hotel: \nZiel (Restaurant / Adresse): "
       },
       {
         "type": "h2",

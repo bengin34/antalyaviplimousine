@@ -236,6 +236,29 @@
   color: #fff;
 }
 
+.article-callout {
+  margin: 32px 0;
+  padding: 24px 26px;
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--gold-dark);
+  border-radius: 10px;
+  background: #faf8f4;
+}
+
+.article-callout h3 {
+  margin-top: 0;
+}
+
+.article-callout > p:last-child {
+  margin-bottom: 0;
+}
+
+.article-route-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 18px;
+}
+
 .article-index {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
