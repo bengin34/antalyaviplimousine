@@ -20,7 +20,24 @@ import { blogCopy as rawBlogCopy, blogLocale as rawBlogLocale } from "../../../s
 export type ArticleBlock =
   | { type: "p" | "h2" | "h3"; text: string }
   | { type: "ul"; items: readonly string[] }
-  | { type: "table"; head: readonly string[]; rows: readonly (readonly string[])[] };
+  | { type: "table"; head: readonly string[]; rows: readonly (readonly string[])[] }
+  | {
+      type: "routelinks";
+      text: string;
+      routes: readonly string[];
+      button: string;
+      /** Route page the button opens; the home page booking form when absent. */
+      buttonRoute?: string;
+    }
+  | {
+      type: "whatsapp";
+      heading: string;
+      text: string;
+      fields: readonly string[];
+      button: string;
+      /** Pre-filled WhatsApp message, in the article's language. */
+      message: string;
+    };
 
 export type ArticleCopy = {
   slug: string;

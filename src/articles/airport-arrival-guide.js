@@ -8,7 +8,7 @@
 export default {
   id: "airport-arrival-guide",
   published: "2026-09-16",
-  updated: "2026-09-16",
+  updated: "2026-10-05",
   image: "/assets/optimized/og-antalya-transfer.jpg",
   relatedRoutes: ["antalya","belek","side","kemer"],
 };

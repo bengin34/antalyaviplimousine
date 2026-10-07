@@ -7,7 +7,7 @@
 export default {
   id: "christmas-new-year-antalya",
   published: "2026-09-26",
-  updated: "2026-09-26",
+  updated: "2026-10-05",
   image: "/assets/optimized/chauffeur-arrival.jpg",
   relatedRoutes: ["antalya","belek","kemer","side","alanya","kumluca","kas"],
 };

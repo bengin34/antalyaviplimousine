@@ -16,7 +16,57 @@ const routeName = (slug: string, language: string) => {
   return names[language] ?? names.en;
 };
 
-function Block({ block }: { block: ArticleBlock }) {
+const WHATSAPP_URL = "https://wa.me/905302655790";
+
+function Block({
+  block,
+  language,
+  prefix,
+}: {
+  block: ArticleBlock;
+  language: string;
+  prefix: string;
+}) {
+  if (block.type === "routelinks") {
+    const links = block.routes
+      .map((slug) => ({ slug, name: routeName(slug, language) }))
+      .filter((route): route is { slug: string; name: string } => Boolean(route.name));
+    const buttonHref = block.buttonRoute
+      ? `${prefix}/transfers/${block.buttonRoute}/`
+      : `${prefix}/#booking`;
+    return (
+      <aside className="article-callout">
+        <p>{block.text}</p>
+        <p className="article-route-links">
+          {links.map(({ slug, name }) => (
+            <a key={slug} className="text-link" href={`${prefix}/transfers/${slug}/`}>{name}</a>
+          ))}
+        </p>
+        <p><a className="button button-gold" href={buttonHref}>{block.button}</a></p>
+      </aside>
+    );
+  }
+  if (block.type === "whatsapp") {
+    return (
+      <aside className="article-callout">
+        <h3>{block.heading}</h3>
+        <p>{block.text}</p>
+        <ul>
+          {block.fields.map((field) => (
+            <li key={field}>{field}</li>
+          ))}
+        </ul>
+        <p>
+          <a
+            className="button button-gold"
+            href={`${WHATSAPP_URL}?text=${encodeURIComponent(block.message)}`}
+          >
+            {block.button}
+          </a>
+        </p>
+      </aside>
+    );
+  }
   if (block.type === "h2") return <h2>{block.text}</h2>;
   if (block.type === "h3") return <h3>{block.text}</h3>;
   if (block.type === "ul") {
@@ -108,7 +158,7 @@ export function ArticlePage({ language, article }: { language: string; article: 
 
         <article className="article-body">
           {copy.blocks.map((block, index) => (
-            <Block key={`${block.type}-${index}`} block={block} />
+            <Block key={`${block.type}-${index}`} block={block} language={language} prefix={prefix} />
           ))}
         </article>
 
