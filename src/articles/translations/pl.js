@@ -2169,5 +2169,560 @@ export const articles = {
         "Tak. Aspendos leży około 40 minut jazdy od Side i to łatwa półdniowa wycieczka, często łączona z Perge lub wodospadem Manavgat."
       ]
     ]
+  },
+  "alanya-in-winter": {
+    "slug": "alanya-zima",
+    "title": "Alanya zimą: pogoda, co robić i wycieczki jednodniowe",
+    "heading": "Alanya zimą",
+    "description": "Alanya od listopada do marca: pogoda zimą i temperatura morza, twierdza i kolejka linowa, jaskinie Damlataş i Dim, spacery, targi oraz dojazd z lotniska Antalya.",
+    "excerpt": "Łagodne dni, puste wzgórze zamkowe i miasto, które żyje dalej, gdy letnie tłumy wyjadą. Jaka naprawdę jest Alanya między listopadem a marcem.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Alanya to jedno z niewielu miejsc na tureckim wybrzeżu, które zimą nie zamiera. Przez cały rok mieszkają tu dziesiątki tysięcy osób, w tym wielu przybyszów ze Skandynawii, Niemiec, Holandii i Rosji, więc sklepy, kawiarnie, targi i restauracje działają dalej. Na krótki zimowy wypad Alanya oferuje coś, co w Europie jest rzadkością: słońce, promenadę, po której przyjemnie się spaceruje, i średniowieczną twierdzę nad miastem - a do tego znacznie mniej ludzi niż latem."
+      },
+      {
+        "type": "h2",
+        "text": "Pogoda w Alanyi zimą"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Miesiąc",
+          "Typowo w dzień",
+          "Typowo w nocy",
+          "Morze"
+        ],
+        "rows": [
+          [
+            "Listopad",
+            "20-22 °C",
+            "11-13 °C",
+            "około 21 °C"
+          ],
+          [
+            "Grudzień",
+            "17-19 °C",
+            "8-10 °C",
+            "około 19 °C"
+          ],
+          [
+            "Styczeń",
+            "16-17 °C",
+            "7-9 °C",
+            "około 17 °C"
+          ],
+          [
+            "Luty",
+            "16-18 °C",
+            "7-9 °C",
+            "około 17 °C"
+          ],
+          [
+            "Marzec",
+            "18-20 °C",
+            "9-11 °C",
+            "około 17 °C"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "To przybliżone średnie. Zimą deszcz przychodzi falami - zwykle dzień lub dwa ulewnych opadów, a potem pogodne, słoneczne dni. Alanyę osłaniają góry Taurus, dzięki czemu jest tu nieco łagodniej niż na dużej części wybrzeża. Wieczory są chłodne, a domy i niektóre pokoje hotelowe bywają zimne, więc zabierz ciepłą warstwę."
+      },
+      {
+        "type": "h2",
+        "text": "Twierdza, kolejka linowa i Czerwona Wieża"
+      },
+      {
+        "type": "p",
+        "text": "Twierdza w Alanyi wieńczy skalisty półwysep nad miastem: mury, cysterny, bizantyjski kościół i widoki na wybrzeże w obu kierunkach. Latem podejście to wysiłek, zimą - przyjemny spacer. Jeśli wolisz, kolejka linowa od plaży Damlataş wywiezie cię na górę w kilka minut. Na dole, przy porcie, XIII-wieczna Czerwona Wieża (Kızıl Kule) i stara stocznia leżą o krótki spacer od siebie."
+      },
+      {
+        "type": "h2",
+        "text": "Jaskinie, rzeki i spacery"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Jaskinia Damlataş: mała jaskinia naciekowa na końcu plaży Damlataş, znana z wilgotnego powietrza o stałej temperaturze.",
+          "Jaskinia Dim: większa jaskinia na wzgórzach na wschód od miasta, z kładką i małym jeziorkiem w środku.",
+          "Rzeka Dim (Dim Çayı): restauracje nad rzeką z podestami nad wodą, zimą spokojniejsze, niektóre otwarte cały rok.",
+          "Promenada nadmorska: kilometry płaskiej trasy spacerowej i rowerowej wzdłuż plaż Keykubat i Kleopatry.",
+          "Plantacje bananów i wioski na zboczach za miastem, gdzie w łagodnej zimie dojrzewają owoce tropikalne."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Kąpiele, targi i codzienne życie"
+      },
+      {
+        "type": "p",
+        "text": "W słoneczne dni listopada, a nawet zimą, zobaczysz ludzi kąpiących się przy plaży Kleopatry - morze jest chłodniejsze, niż sugeruje temperatura powietrza, ale wielu gościom z północy to nie przeszkadza. Na cotygodniowych targach kupisz cytrusy, granaty, oliwki i warzywa, a centrum miasta ożywiają mieszkańcy, nie wycieczki. Wiele hoteli ma zimowe ceny na długie pobyty, a część hoteli przy plaży działa dalej z krytymi basenami."
+      },
+      {
+        "type": "h2",
+        "text": "Wycieczki z Alanyi zimą"
+      },
+      {
+        "type": "p",
+        "text": "Side i wodospad Manavgat leżą około godziny drogi na zachód; Aspendos i Perge to dłuższy, ale łatwy wypad na cały dzień. W głębi lądu wioski w górach Taurus w najzimniejszych tygodniach pokrywa śnieg, podczas gdy wybrzeże pozostaje zielone. Jeśli zostajesz na tygodnie, a nie na kilka dni, nasz osobny przewodnik o zimowaniu na wybrzeżu Antalyi opisuje długie pobyty dokładniej."
+      },
+      {
+        "type": "h2",
+        "text": "Dojazd do Alanyi z lotniska Antalya"
+      },
+      {
+        "type": "p",
+        "text": "Alanya leży około 125 km od lotniska Antalya, czyli mniej więcej dwie godziny jazdy wzdłuż wybrzeża przez Side i Manavgat. Lotnisko Gazipaşa-Alanya jest bliżej, ale ma mniej lotów, zwłaszcza zimą, więc większość gości ląduje w Antalyi. Transfer prywatny dowiezie cię pod drzwi hotelu lub apartamentu w stałej cenie za pojazd, bez dopłat za zimę, weekend czy noc - to przydatne, gdy samolot ląduje późnym wieczorem."
+      }
+    ],
+    "faq": [
+      [
+        "Czy warto jechać do Alanyi zimą?",
+        "Tak, jeśli zamiast plażowania szukasz łagodnej pogody, spacerów i miasta, które naprawdę żyje. Dni są często słoneczne, około 16-19 °C, a twierdza i jaskinie bez letniego upału są dużo przyjemniejsze."
+      ],
+      [
+        "Czy w Alanyi można się kąpać zimą?",
+        "Niektórzy się kąpią. W środku zimy morze ma około 17-19 °C, w listopadzie jest cieplejsze. Woda raczej orzeźwia, niż grzeje, a wiele hoteli ma podgrzewane kryte baseny."
+      ],
+      [
+        "Czy hotele i restauracje w Alanyi są zimą otwarte?",
+        "Wiele tak. Alanya ma dużą liczbę stałych mieszkańców, więc centrum, targi i wiele restauracji działa dalej. Część dużych sezonowych resortów jest zamknięta od listopada do marca."
+      ],
+      [
+        "Jak daleko jest z lotniska Antalya do Alanyi?",
+        "Około 125 km, mniej więcej dwie godziny jazdy. Transfer prywatny zawiezie cię prosto do hotelu w stałej cenie za pojazd."
+      ],
+      [
+        "Czy w Alanyi zimą dużo pada?",
+        "Najbardziej deszczowe są miesiące od grudnia do lutego, ale deszcz zwykle trwa dzień lub dwa, a między opadami są słoneczne dni."
+      ]
+    ]
+  },
+  "tahtali-cable-car-olympos": {
+    "slug": "kolejka-tahtali-olimpos-chimera",
+    "title": "Kolejka na Tahtalı, Olimpos i płomienie Chimery - wycieczka z Kemeru",
+    "heading": "Kolejka na Tahtalı, Olimpos i Chimera",
+    "description": "Dzień w okolicy Kemeru: kolejka linowa na Tahtalı (2365 m), ruiny Olimposu, plaża w Çıralı i płomienie Chimery o zmierzchu - najlepsza pora, co ubrać i jak dojechać.",
+    "excerpt": "Górski szczyt, licyjskie miasto w dolinie rzeki i płomienie, które od tysięcy lat wydobywają się ze skały - wszystko w zasięgu godziny od Kemeru.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Na południe od Kemeru góry Taurus wyrastają prosto z morza. W jeden dzień możesz stanąć na szczycie Tahtalı, przejść przez ruiny Olimposu na plażę i o zmierzchu oglądać płomienie Chimery migoczące na zboczu. Najlepsze pory to jesień i wiosna: przejrzyste powietrze do podziwiania widoków, komfortowe temperatury do chodzenia i brak letnich kolejek."
+      },
+      {
+        "type": "h2",
+        "text": "Kolejka linowa na Tahtalı: z poziomu morza na 2365 m"
+      },
+      {
+        "type": "p",
+        "text": "Kolejka Olympos Teleferik rusza z lasu sosnowego nad Tekirovą i w mniej więcej dziesięć minut wjeżdża na szczyt Tahtalı, na wysokość około 2365 m. Z góry widać całe wybrzeże od Antalyi po Kemer i Phaselis, a w pogodne dni także daleko w głąb lądu. Na szczycie jest kawiarnia i tarasy widokowe. Bilety kupuje się w dolnej stacji lub online; godziny kursowania i ceny zmieniają się w zależności od sezonu."
+      },
+      {
+        "type": "h2",
+        "text": "Kiedy jechać i co ubrać"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Październik i listopad: przejrzyste powietrze i najlepsza widoczność w roku, przy łagodnej pogodzie na poziomie morza.",
+          "Od grudnia do marca: na szczycie często leży śnieg - efektowny widok nad zielonym wybrzeżem, ale na górze trzeba ubrać się po zimowemu.",
+          "Kwiecień i maj: śnieg na szczycie i kwiaty na niższych zboczach, często w jednym kadrze.",
+          "O każdej porze roku na górze jest o 10-15 °C zimniej niż na plaży. Weź kurtkę, nawet w październiku.",
+          "Przy silnym wietrze lub burzy kolejka nie kursuje, więc zaplanuj dzień elastycznie i sprawdź przed wyjazdem."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Olimpos: ruiny w dolinie rzeki"
+      },
+      {
+        "type": "p",
+        "text": "Starożytne licyjskie miasto Olimpos leży w wąskiej, zalesionej dolinie, która kończy się kamienistą plażą. Grobowce, teatr, łaźnia i bizantyjski kościół są rozrzucone wśród drzew laurowych i figowych wzdłuż strumienia. Spacer od wejścia do plaży zajmuje około dwudziestu minut. Stanowisko leży na obszarze chronionym i wstęp jest płatny; posiadacze Museum Pass wchodzą bezpłatnie."
+      },
+      {
+        "type": "h2",
+        "text": "Çıralı i płomienie Chimery"
+      },
+      {
+        "type": "p",
+        "text": "Po drugiej stronie plaży od Olimposu leży Çıralı, spokojna wioska sadów i małych pensjonatów przy długiej plaży, na której gniazdują żółwie karetta. Nad nią, na zboczu Yanartaş, ze skały wydobywa się gaz ziemny, który płonie od tysięcy lat - to starożytna Chimera z greckiego mitu. Do płomieni prowadzi schodkowa ścieżka, około 20-30 minut marszu. Najbardziej robią wrażenie o zmierzchu, więc weź latarkę na drogę powrotną."
+      },
+      {
+        "type": "h2",
+        "text": "Jak zaplanować dzień"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Punkt",
+          "Z Kemeru",
+          "Ile czasu"
+        ],
+        "rows": [
+          [
+            "Kolejka na Tahtalı (dolna stacja)",
+            "około 30 minut",
+            "1,5-2 godziny"
+          ],
+          [
+            "Ruiny Olimposu i plaża",
+            "około 50 minut",
+            "2 godziny"
+          ],
+          [
+            "Çıralı i Chimera",
+            "około 50 minut",
+            "1,5 godziny, najlepiej o zmierzchu"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Czasy przejazdu są przybliżone. Dobra kolejność: kolejka rano, gdy powietrze jest najczystsze, po południu Olimpos i obiad w Çıralı, a Chimera o zachodzie słońca. Z centrum Antalyi doliczyć trzeba około godziny w każdą stronę."
+      },
+      {
+        "type": "h2",
+        "text": "Dojazd"
+      },
+      {
+        "type": "p",
+        "text": "Kemer leży około 50 km od lotniska Antalya, a Tekirova około 75 km, drogą wzdłuż wybrzeża. Autobusy publiczne niełatwo docierają do stacji kolejki i do Chimery, dlatego wielu turystów jedzie z kierowcą. Organizujemy transfery prywatne z lotniska do Kemeru, Tekirovej i Kumluki w stałej cenie za pojazd, a na życzenie przygotujemy wycenę dnia z kierowcą na kolejkę, Olimpos i Çıralı."
+      }
+    ],
+    "faq": [
+      [
+        "Na jaką wysokość wjeżdża kolejka na Tahtalı?",
+        "Na szczyt góry Tahtalı, około 2365 m, z dolnej stacji w lesie nad Tekirovą. Przejazd trwa około dziesięciu minut."
+      ],
+      [
+        "Czy zimą na Tahtalı leży śnieg?",
+        "Często tak - mniej więcej od grudnia do marca, czasem jeszcze w kwietniu. Na górze zawsze jest dużo zimniej niż na wybrzeżu, więc weź ciepłą kurtkę."
+      ],
+      [
+        "Kiedy najlepiej oglądać płomienie Chimery?",
+        "O zmierzchu lub po zmroku, gdy płomienie wyraźnie odcinają się od skały. Podejście zajmuje około 20-30 minut; weź latarkę na zejście."
+      ],
+      [
+        "Czy da się zwiedzić Olimpos i wjechać kolejką w jeden dzień?",
+        "Tak. Większość osób rano jedzie kolejką, po południu zwiedza Olimpos i Çıralı, a o zachodzie słońca ogląda Chimerę."
+      ],
+      [
+        "Jak daleko jest z lotniska Antalya do Kemeru?",
+        "Około 50 km, mniej więcej 40-50 minut jazdy. Tekirova, blisko kolejki, leży około 75 km od lotniska."
+      ]
+    ]
+  },
+  "perge-aspendos-day-trip": {
+    "slug": "perge-i-aspendos-wycieczka",
+    "title": "Perge i Aspendos: półdniowa wycieczka po ruinach w okolicy Antalyi",
+    "heading": "Perge i Aspendos z Antalyi",
+    "description": "Perge i Aspendos z Antalyi, Beleku lub Side: co zobaczyć, najlepsza pora roku, ile czasu zarezerwować i jak połączyć oba antyczne miasta w pół dnia.",
+    "excerpt": "Rzymska ulica kolumnowa, stadion na 12 000 widzów i jeden z najlepiej zachowanych teatrów antycznego świata - wszystko w zasięgu godziny od lotniska.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Dwa z najwspanialszych antycznych stanowisk w Turcji leżą tuż przy głównej drodze między Antalyą a Side. Perge było wielkim grecko-rzymskim miastem na równinie Pamfilii; Aspendos ma rzymski teatr tak kompletny, że wciąż odbywają się w nim przedstawienia. Razem to łatwe pół dnia, a najpiękniej jest tu od października do kwietnia, gdy słońce jest łagodne."
+      },
+      {
+        "type": "h2",
+        "text": "Perge: miasto kolumn"
+      },
+      {
+        "type": "p",
+        "text": "Perge leży zaledwie około 15 minut od lotniska Antalya. Wchodzi się przez hellenistyczną bramę z dwiema okrągłymi wieżami i idzie długą ulicą kolumnową, środkiem której biegnie kanał wodny, do agory, łaźni i na wzgórze akropolu. Tuż za murami stoją duży teatr i jeden z najlepiej zachowanych stadionów starożytności. Wiele posągów z Perge można oglądać w Muzeum Antalyi. Zarezerwuj około półtorej do dwóch godzin."
+      },
+      {
+        "type": "h2",
+        "text": "Aspendos: teatr, który przetrwał"
+      },
+      {
+        "type": "p",
+        "text": "Aspendos koło Serik słynie z rzymskiego teatru z II wieku n.e., który mieścił wiele tysięcy widzów i nadal ma budynek sceny, galerie oraz znakomitą akustykę. Za nim ścieżka prowadzi do górnego miasta i łuków rzymskiego akweduktu biegnącego przez równinę. Kawałek dalej warto zatrzymać się przy seldżuckim moście na rzece Köprüçay. Zarezerwuj około godziny do półtorej."
+      },
+      {
+        "type": "h2",
+        "text": "Najlepsza pora na zwiedzanie ruin"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Październik i listopad: ciepłe, suche dni i miękkie światło do zdjęć.",
+          "Od grudnia do lutego: spokojne stanowiska i łagodna pogoda między deszczowymi dniami - weź coś przeciwdeszczowego.",
+          "Marzec i kwiecień: zielona trawa i dzikie kwiaty między kamieniami, chyba najpiękniejszy czas.",
+          "Od czerwca do września: na obu stanowiskach jest mało cienia, a południowy upał jest ogromny; latem jedź wcześnie rano."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Jak połączyć oba miejsca w pół dnia"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Punkt startu",
+          "Do Perge",
+          "Z Perge do Aspendos",
+          "Z Aspendos z powrotem"
+        ],
+        "rows": [
+          [
+            "Antalya centrum / Lara",
+            "około 25 minut",
+            "około 35 minut",
+            "około 45 minut"
+          ],
+          [
+            "Belek",
+            "około 30 minut",
+            "około 35 minut",
+            "około 20 minut"
+          ],
+          [
+            "Side / Manavgat",
+            "około 55 minut",
+            "około 35 minut",
+            "około 35 minut"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Czasy przejazdu są przybliżone. Z każdego z tych miejsc dobrze sprawdza się plan: rano Perge, na koniec Aspendos. Wstęp na oba stanowiska jest płatny i honorowany jest Museum Pass. Załóż wygodne buty: podłoże to nierówny marmur i kamień, a schody są wszędzie."
+      },
+      {
+        "type": "h2",
+        "text": "Po drodze na lotnisko lub z lotniska"
+      },
+      {
+        "type": "p",
+        "text": "Ponieważ Perge leży tak blisko lotniska Antalya, a Aspendos przy drodze do Beleku i Side, oba stanowiska świetnie pasują do dnia przylotu lub wylotu z późnym lotem. Transfer prywatny może zatrzymać się przy jednym lub obu po drodze, a bagaż bezpiecznie zostaje w pojeździe. Przy rezerwacji poproś o wycenę z przystankami: cena pozostaje stała za pojazd."
+      }
+    ],
+    "faq": [
+      [
+        "Jak daleko jest z lotniska Antalya do Perge?",
+        "Zaledwie około 15 minut jazdy. To jedno z najłatwiejszych antycznych stanowisk do odwiedzenia w dniu przylotu lub wylotu."
+      ],
+      [
+        "Czy da się zwiedzić Perge i Aspendos w jeden dzień?",
+        "Bez problemu - na oba wystarczy pół dnia. Zarezerwuj około dwóch godzin na Perge, mniej więcej godzinę na Aspendos i około 35 minut na przejazd między nimi."
+      ],
+      [
+        "Czy teatr w Aspendos jest nadal używany?",
+        "Tak. Rzymski teatr jest tak dobrze zachowany, że w niektóre wieczory, głównie w cieplejszych miesiącach, wciąż odbywają się w nim koncerty i przedstawienia."
+      ],
+      [
+        "Kiedy najlepiej zwiedzać Perge i Aspendos?",
+        "Od października do kwietnia. Na obu stanowiskach jest mało cienia, więc latem jedź wcześnie rano."
+      ],
+      [
+        "Czy transfer może zatrzymać się przy ruinach z moim bagażem?",
+        "Tak. Poproś o przystanki przy rezerwacji; bagaż zostaje w pojeździe, a cena pozostaje stała za pojazd."
+      ]
+    ]
+  },
+  "ramadan-bayram-antalya": {
+    "slug": "ramadan-i-bajram-w-antalyi",
+    "title": "Ramadan i bajram w Antalyi: co warto wiedzieć przed wyjazdem",
+    "heading": "Podróż do Antalyi w czasie ramadanu i bajramu",
+    "description": "Co zmienia się w Antalyi w czasie ramadanu i świąt bajramu: restauracje, wieczory iftaru, zatłoczone drogi, hotele i jak zaplanować transfer z lotniska.",
+    "excerpt": "W kurortach ramadan niewiele zmienia w codziennym życiu. Święta, które po nim następują, to już inna historia - czego się spodziewać i jak je zaplanować.",
+    "readingMinutes": 5,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Ramadan i dwa święta bajramu przesuwają się w kalendarzu - co roku o około 11 dni wcześniej. W najbliższych sezonach przypadają na późną zimę i wiosnę: ramadan i Święto Przerwania Postu (Ramazan Bayramı) około lutego i marca, a Święto Ofiarowania (Kurban Bayramı) około maja. Dokładne daty sprawdź w oficjalnym kalendarzu. Dla turystów sam miesiąc postu niewiele zmienia na wybrzeżu; to święta wymagają planowania."
+      },
+      {
+        "type": "h2",
+        "text": "Czy ramadan zmienia wakacje w Antalyi?"
+      },
+      {
+        "type": "p",
+        "text": "Bardzo niewiele. Hotele, restauracje, kawiarnie i sklepy w Antalyi, Beleku, Side, Kemerze i Alanyi działają w ciągu dnia normalnie, a alkohol serwuje się tam, gdzie zwykle. Wielu ludzi w Turcji pości, wielu nie, i nikt nie oczekuje tego od turystów. Po prostu wypada nie jeść i nie pić ostentacyjnie przy kimś, kto wyraźnie pości, zwłaszcza w tradycyjnych dzielnicach i na wsiach."
+      },
+      {
+        "type": "h2",
+        "text": "Iftar: wieczory ramadanu"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "O zachodzie słońca post przerywa się iftarem, często wspólnym posiłkiem z zupą, daktylami, oliwkami i specjalnym okrągłym chlebem ramadanowym (pide), sprzedawanym tylko w tym miesiącu.",
+          "Wiele restauracji ma menu iftarowe; stoliki zapełniają się tuż przed zachodem słońca, więc zarezerwuj, jeśli chcesz dołączyć.",
+          "Na starówce i wokół dużych meczetów wieczorem panuje świąteczna atmosfera, a rodziny spacerują do późna.",
+          "Przed świtem w niektórych dzielnicach po ulicach chodzi dobosz, który budzi ludzi na ostatni posiłek (sahur) - to część tradycji."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Bajram: gdy cała Turcja podróżuje"
+      },
+      {
+        "type": "p",
+        "text": "Święto Przerwania Postu trwa trzy dni, Święto Ofiarowania cztery; rząd często wydłuża je do dłuższej przerwy. Miliony ludzi jadą do rodzin lub nad morze, więc loty krajowe, autobusy międzymiastowe i hotele się zapełniają, a drogi do Antalyi są zatłoczone w pierwszy i ostatni dzień. Banki i urzędy są zamknięte, ale sklepy, restauracje, muzea i atrakcje w kurortach zwykle działają."
+      },
+      {
+        "type": "h2",
+        "text": "Jak zaplanować transfer w czasie świąt"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Zarezerwuj wcześnie, jeśli lądujesz na początku bajramu: popyt na pojazdy i kierowców jest wtedy duży.",
+          "Na wyjazd w ostatni dzień świąt zaplanuj dodatkowy czas - lotnisko i drogi są wtedy najbardziej zatłoczone.",
+          "W czasie ramadanu ruch jest duży w godzinie przed zachodem słońca i wyjątkowo mały podczas samego iftaru.",
+          "Podaj numer lotu: śledzimy go, więc opóźniony samolot w ruchliwy dzień nie oznacza utraty odbioru."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Warto wiedzieć"
+      },
+      {
+        "type": "p",
+        "text": "W czasie świąt ludzie pozdrawiają się słowami „İyi bayramlar” (wesołych świąt), a słodycze rozdaje się wszędzie - to serdeczny czas na pobyt w Turcji. Nasze ceny nie zmieniają się w ramadan ani w bajram: jedna stała cena za pojazd, bez dopłat za święta, noc czy sezon."
+      }
+    ],
+    "faq": [
+      [
+        "Czy w czasie ramadanu restauracje w Antalyi są otwarte?",
+        "Tak. W kurortach i w samej Antalyi restauracje i kawiarnie działają w ciągu dnia normalnie. Wieczorem dochodzą menu iftarowe."
+      ],
+      [
+        "Czy turyści mogą pić alkohol w Antalyi w czasie ramadanu?",
+        "Tak. Hotele, bary i restauracje, które zwykle serwują alkohol, robią to również w czasie ramadanu."
+      ],
+      [
+        "Czy w Antalyi jest tłoczno w czasie bajramu?",
+        "Tak. Wiele tureckich rodzin podróżuje w święta, więc hotele, loty i drogi są bardziej zatłoczone niż zwykle, zwłaszcza w pierwszy i ostatni dzień."
+      ],
+      [
+        "Kiedy wypadają ramadan i bajram w przyszłym roku?",
+        "Daty przesuwają się co roku o około 11 dni wcześniej. W najbliższych sezonach ramadan i Święto Przerwania Postu przypadają około lutego-marca, a Święto Ofiarowania około maja; dokładne daty sprawdź w oficjalnym kalendarzu."
+      ],
+      [
+        "Czy ceny transferów rosną w czasie bajramu?",
+        "Nie u nas. Cena jest stała za pojazd, bez dopłat za święta, noc czy sezon. Na terminy świąteczne zalecamy wczesną rezerwację."
+      ]
+    ]
+  },
+  "kaleici-old-town-guide": {
+    "slug": "kaleici-stare-miasto-antalya-przewodnik",
+    "title": "Kaleiçi, stare miasto w Antalyi: spacerownik na spokojny sezon",
+    "heading": "Kaleiçi: stare miasto Antalyi",
+    "description": "Spacerownik po Kaleiçi, otoczonym murami starym mieście Antalyi: Brama Hadriana, Żłobkowany Minaret, stary port, butikowe hotele i dlaczego warto jechać od jesieni do wiosny.",
+    "excerpt": "Rzymskie bramy, osmańskie domy i port pod klifami. Stare serce Antalyi najlepiej poznawać powoli, w miesiącach, gdy miasto należy do mieszkańców.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Kaleiçi - dosłownie „wnętrze twierdzy” - to historyczne centrum Antalyi, otoczone starymi murami miejskimi nad małym portem. Uliczki wypełniają odrestaurowane domy osmańskie, w wielu z nich działają dziś butikowe hotele, kawiarnie i małe restauracje. Latem jest tu gorąco i tłoczno; od października do kwietnia Kaleiçi pokazuje się z najlepszej strony: łagodne dni, otwarte tarasy w słońcu i czas na niespieszne błądzenie."
+      },
+      {
+        "type": "h2",
+        "text": "Spacer po Kaleiçi"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Brama Hadriana: rzymska brama o trzech łukach, zbudowana na wizytę cesarza w II wieku n.e., tradycyjne wejście na starówkę.",
+          "Wieża Zegarowa i plac Kalekapısı: miejsce, gdzie stare miasto spotyka się z nowoczesnym.",
+          "Żłobkowany Minaret (Yivli Minare): seldżucki symbol Antalyi, widoczny z całego centrum.",
+          "Wieża Hıdırlık: okrągła rzymska wieża na południowym skraju, z widokiem na zachód słońca nad zatoką i górami.",
+          "Ścięty Minaret (Kesik Minare): budowla, która przez wieki była świątynią, kościołem i meczetem.",
+          "Stary port: łodzie rybackie i wycieczkowe pod klifami, dostępne uliczkami lub windą z góry."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Za murami"
+      },
+      {
+        "type": "p",
+        "text": "Park Karaalioğlu ciągnie się wzdłuż klifów od wieży Hıdırlık, z widokami na zatokę. Muzeum Antalyi, jedna z najbogatszych kolekcji archeologicznych w Turcji, leży na początku plaży Konyaaltı i jest idealne na deszczowy dzień; przed wizytą sprawdź godziny otwarcia. Na wschód od miasta wodospady Düden spadają z klifów prosto do morza, a górne kaskady leżą w cienistym parku."
+      },
+      {
+        "type": "h2",
+        "text": "Dlaczego od jesieni do wiosny"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Pora roku",
+          "Typowo w dzień",
+          "W Kaleiçi"
+        ],
+        "rows": [
+          [
+            "Październik - listopad",
+            "22-27 °C",
+            "Ciepłe wieczory, otwarte tarasy, mniej tłumów"
+          ],
+          [
+            "Grudzień - luty",
+            "15-18 °C",
+            "Ciche uliczki, kawiarnie w słońcu, czasem deszczowy dzień"
+          ],
+          [
+            "Marzec - kwiecień",
+            "18-22 °C",
+            "Kwitnące pomarańcze, zielone parki, festiwale w mieście"
+          ],
+          [
+            "Czerwiec - sierpień",
+            "33-35 °C",
+            "Bardzo gorąco i tłoczno - najlepiej wcześnie rano i wieczorem"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Temperatury to przybliżone średnie. Większość restauracji, kawiarni i butikowych hoteli w Kaleiçi działa przez cały rok, bo stare miasto żyje z gości miejskich i mieszkańców, a nie tylko z turystyki plażowej."
+      },
+      {
+        "type": "h2",
+        "text": "Nocleg na starym mieście"
+      },
+      {
+        "type": "p",
+        "text": "Hotele w Kaleiçi są zwykle małe, urządzone w przebudowanych rezydencjach wokół dziedzińca lub niewielkiego basenu. Wiele uliczek jest wyłącznie dla pieszych lub zbyt wąskich dla dużych pojazdów, więc samochód często zatrzymuje się przy najbliższej bramie lub placu, a ostatnie metry pokonuje się pieszo. Podaj nazwę hotelu przy rezerwacji; nasi kierowcy wiedzą, które wejście jest najbliżej, i pomagają z bagażem."
+      },
+      {
+        "type": "h2",
+        "text": "Dojazd z lotniska Antalya do Kaleiçi"
+      },
+      {
+        "type": "p",
+        "text": "Kaleiçi leży około 15 km od lotniska Antalya, czyli mniej więcej 20-30 minut jazdy. Lotnisko z centrum łączy też tramwaj, ale z walizkami transfer prywatny pod hotel jest prostszy, zwłaszcza późną nocą. Cena jest stała za pojazd, bez dopłaty nocnej."
+      }
+    ],
+    "faq": [
+      [
+        "Czym jest Kaleiçi w Antalyi?",
+        "Kaleiçi to historyczne stare miasto Antalyi, otoczone murami nad starym portem, z osmańskimi domami, Bramą Hadriana, Żłobkowanym Minaretem oraz wieloma butikowymi hotelami i kawiarniami."
+      ],
+      [
+        "Jak daleko jest z lotniska Antalya do Kaleiçi?",
+        "Około 15 km, mniej więcej 20-30 minut jazdy."
+      ],
+      [
+        "Czy do Kaleiçi można wjechać samochodem?",
+        "Tylko częściowo. Wiele uliczek jest dla pieszych lub bardzo wąskich, więc pojazdy zwykle zatrzymują się przy najbliższej bramie lub placu. Nasi kierowcy znają najbliższy dojazd do każdego hotelu."
+      ],
+      [
+        "Czy warto odwiedzić Kaleiçi zimą?",
+        "Tak. Większość kawiarni, restauracji i hoteli jest otwarta, uliczki są spokojne, a dni zwykle łagodne i słoneczne."
+      ],
+      [
+        "Ile czasu potrzeba na Kaleiçi?",
+        "Na pierwszy spacer wystarczy pół dnia. Z muzeum, parkiem Karaalioğlu i wodospadami Düden idealne są jeden lub dwa pełne dni."
+      ]
+    ]
   }
 };

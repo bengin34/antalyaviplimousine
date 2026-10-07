@@ -1879,5 +1879,560 @@ export const articles = {
         "Igen. Aszpendosz közúton nagyjából 40 percre van Side-tól, és könnyű félnapos kirándulás, gyakran Pergével vagy a Manavgat-vízeséssel kombinálva."
       ]
     ]
+  },
+  "alanya-in-winter": {
+    "slug": "alanya-telen",
+    "title": "Alanya télen: időjárás, programok és egynapos kirándulások",
+    "heading": "Alanya télen",
+    "description": "Alanya novembertől márciusig: téli időjárás és tengervíz-hőmérséklet, a vár és a kötélpálya, a Damlataş- és a Dim-barlang, séták, piacok és út az antalyai repülőtérről.",
+    "excerpt": "Enyhe napok, üres várhegy és egy város, amely a nyári tömeg távozása után is tovább él. Milyen valójában Alanya november és március között.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Alanya azon kevés hely egyike a török tengerparton, amely télen sem kapcsol ki. Több tízezer ember él itt egész évben, köztük sok skandináv, német, holland és orosz, így az üzletek, kávézók, piacok és éttermek nyitva maradnak. Egy rövid téli kiruccanáshoz olyasmit kínál, ami Európában ritka: napsütést, gyalog bejárható tengerparti sétányt és egy középkori várat a város felett - mindezt sokkal kevesebb emberrel, mint nyáron."
+      },
+      {
+        "type": "h2",
+        "text": "Az időjárás Alanyában télen"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Hónap",
+          "Nappal jellemzően",
+          "Éjjel jellemzően",
+          "Tenger"
+        ],
+        "rows": [
+          [
+            "November",
+            "20-22 °C",
+            "11-13 °C",
+            "nagyjából 21 °C"
+          ],
+          [
+            "December",
+            "17-19 °C",
+            "8-10 °C",
+            "nagyjából 19 °C"
+          ],
+          [
+            "Január",
+            "16-17 °C",
+            "7-9 °C",
+            "nagyjából 17 °C"
+          ],
+          [
+            "Február",
+            "16-18 °C",
+            "7-9 °C",
+            "nagyjából 17 °C"
+          ],
+          [
+            "Március",
+            "18-20 °C",
+            "9-11 °C",
+            "nagyjából 17 °C"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Ezek hozzávetőleges átlagok. Télen az eső hullámokban érkezik - gyakran egy-két nap erős zápor, majd tiszta, napos napok. Alanyát a Taurus-hegység védi, ezért valamivel enyhébb, mint a part nagy része. Az esték hűvösek, a házak és egyes szállodai szobák pedig hidegek lehetnek, ezért csomagolj egy meleg réteget is."
+      },
+      {
+        "type": "h2",
+        "text": "A vár, a kötélpálya és a Vörös torony"
+      },
+      {
+        "type": "p",
+        "text": "Az alanyai vár a város feletti sziklás félszigetet koronázza: falak, ciszternák, egy bizánci templom és kilátás a partra mindkét irányban. Nyáron a felfelé út megerőltető, télen kellemes séta. Ha inkább nem gyalogolnál, a Damlataş-strandtól induló kötélpálya néhány perc alatt felvisz. Lent a kikötőben a 13. századi Vörös torony (Kızıl Kule) és a régi hajógyár csak rövid sétára van egymástól."
+      },
+      {
+        "type": "h2",
+        "text": "Barlangok, folyók és séták"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Damlataş-barlang: kis cseppkőbarlang a Damlataş-strand végén, párás, állandó levegőjéről ismert.",
+          "Dim-barlang: nagyobb barlang a várostól keletre fekvő dombokon, járdával és egy kis tóval a belsejében.",
+          "Dim-patak (Dim Çayı): éttermek a víz fölé épített teraszokkal, télen csendesebb, néhány egész évben nyitva van.",
+          "A tengerparti sétány: kilométernyi sík út gyalogláshoz és kerékpározáshoz a Keykubat és a Kleopátra strand mentén.",
+          "Banánültetvények és falvak a város mögötti lejtőkön, ahol az enyhe télben trópusi gyümölcs terem."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Fürdés, piacok és hétköznapok"
+      },
+      {
+        "type": "p",
+        "text": "Napos novemberi napokon, sőt télen is látni embereket úszni a Kleopátra strandon - a tenger hűvösebb, mint amilyennek a levegő tűnik, de sok északi látogatónak így is megfelel. A heti piacokon citrusféléket, gránátalmát, olajbogyót és zöldséget árulnak, a városközpontot pedig inkább a helyiek töltik meg, mint a turistacsoportok. Sok szálloda kínál téli árakat hosszabb tartózkodásra, és számos tengerparti üdülő fedett medencével nyitva marad."
+      },
+      {
+        "type": "h2",
+        "text": "Egynapos kirándulások Alanyából télen"
+      },
+      {
+        "type": "p",
+        "text": "Side és a Manavgat-vízesés nagyjából egy órára van nyugatra; Aszpendosz és Perge hosszabb, de könnyű egynapos program. A szárazföld belsejében a Taurus-hegység falvaiban a leghidegebb hetekben havazik, miközben a part zöld marad. Ha napok helyett hetekre maradsz, külön útmutatónk az antalyai parton való telelésről részletesebben foglalkozik a hosszú tartózkodással."
+      },
+      {
+        "type": "h2",
+        "text": "Hogyan jutsz el Alanyába az antalyai repülőtérről?"
+      },
+      {
+        "type": "p",
+        "text": "Alanya nagyjából 125 km-re van az antalyai repülőtértől, a parti úton Side és Manavgat érintésével nagyjából két óra. A Gazipaşa-Alanya repülőtér közelebb van, de kevesebb járata van, főleg télen, ezért a legtöbb látogató Antalyában száll le. A privát transzfer a szállodád vagy apartmanod ajtajáig visz, járművenkénti fix áron, téli, hétvégi vagy éjszakai felár nélkül - ez különösen jól jön, ha a járatod késő este érkezik."
+      }
+    ],
+    "faq": [
+      [
+        "Megéri télen Alanyába utazni?",
+        "Igen, ha enyhe időt, sétákat és egy élő várost keresel a strandélet helyett. A napok gyakran naposak, 16-19 °C körüliek, a vár és a barlangok pedig kellemesek a nyári hőség nélkül."
+      ],
+      [
+        "Lehet télen fürdeni Alanyában?",
+        "Van, aki fürdik. A tenger a tél közepén nagyjából 17-19 °C, novemberben melegebb. Inkább frissítő, mint meleg, és sok szállodában fűtött fedett medence van."
+      ],
+      [
+        "Nyitva vannak télen a szállodák és éttermek Alanyában?",
+        "Sok igen. Alanyának nagy az egész évben itt élő lakossága, így a városközpont, a piacok és sok étterem nyitva marad. Néhány nagy szezonális üdülő novembertől márciusig bezár."
+      ],
+      [
+        "Milyen messze van Alanya az antalyai repülőtértől?",
+        "Nagyjából 125 km, közúton nagyjából két óra. A privát transzfer egyenesen a szállodádhoz visz, járművenkénti fix áron."
+      ],
+      [
+        "Sokat esik télen Alanyában?",
+        "December és február között a legcsapadékosabb, de az eső általában egy-két napos hullámokban jön, köztük napos napokkal."
+      ]
+    ]
+  },
+  "tahtali-cable-car-olympos": {
+    "slug": "tahtali-kotelpalya-olympos-khimaira",
+    "title": "Tahtalı-kötélpálya, Olympos és a Khimaira lángjai Kemerből",
+    "heading": "Tahtalı-kötélpálya, Olympos és a Khimaira",
+    "description": "Egy nap Kemer környékén: a Tahtalı-kötélpálya 2365 m-re, Olympos romjai, a Çıralı-strand és a Khimaira lángjai alkonyatkor - legjobb évszak, öltözet, megközelítés.",
+    "excerpt": "Egy hegycsúcs, egy likiai város egy folyóvölgyben és lángok, amelyek évezredek óta törnek elő a sziklából - mind egy órán belül Kemertől.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Kemertől délre a Taurus-hegység egyenesen a tengerből emelkedik ki. Egyetlen nap alatt állhatsz a Tahtalı-hegy csúcsán, végigsétálhatsz Olympos romjain egészen a strandig, alkonyatkor pedig nézheted, ahogy a Khimaira lángjai lobognak egy domboldalon. Az ősz és a tavasz a legjobb: tiszta levegő a kilátáshoz, kellemes hőmérséklet a gyalogláshoz és nincsenek nyári sorok."
+      },
+      {
+        "type": "h2",
+        "text": "Tahtalı-kötélpálya: a tengertől 2365 méterig"
+      },
+      {
+        "type": "p",
+        "text": "Az Olympos kötélpálya a Tekirova feletti fenyőerdőből indul, és nagyjából tíz perc alatt ér fel a mintegy 2365 m magas Tahtalı csúcsára. Fentről az egész partvidékre rálátsz Antalyától Kemerig és Phaszéliszig, tiszta napokon pedig messze a szárazföld belsejébe. A csúcson kávézó és kilátóteraszok vannak. Jegyet az alsó állomáson vagy online vehetsz; a nyitvatartás és az árak évszakonként változnak."
+      },
+      {
+        "type": "h2",
+        "text": "Mikor menj és mit vegyél fel?"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Október és november: tiszta levegő és az év legjobb látási viszonyai, a tengerszinten enyhe idővel.",
+          "Decembertől márciusig: a csúcson gyakori a hó - lenyűgöző látvány a zöld part felett, de fent öltözz úgy, mint télen.",
+          "Április és május: hó a csúcson és virágok az alsó lejtőkön, gyakran egyetlen látképben.",
+          "Az év bármely szakában 10-15 °C-kal hidegebb van fent, mint a strandon. Hozz kabátot, októberben is.",
+          "Erős szélben vagy viharban a kötélpálya leáll, ezért tartsd rugalmasan a napot, és indulás előtt tájékozódj."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Olympos: romok egy folyóvölgyben"
+      },
+      {
+        "type": "p",
+        "text": "Olympos ókori likiai városa egy keskeny, erdős völgyben fekszik, amely egy kavicsos strandnál ér véget. Sírok, egy színház, egy fürdő és egy bizánci templom szóródnak szét babérfák és fügefák között egy patak mentén. A bejárattól a strandig nagyjából húsz perc a séta. A terület egy védett övezet része, és belépődíjas; a Museum Pass kártyával ingyenes a belépés."
+      },
+      {
+        "type": "h2",
+        "text": "Çıralı és a Khimaira lángjai"
+      },
+      {
+        "type": "p",
+        "text": "Olymposszal szemben, a strand túloldalán fekszik Çıralı, gyümölcsösök és kis vendégházak csendes faluja egy hosszú strand mentén, ahol álcserepes teknősök fészkelnek. Felette, a Yanartaş lejtőjén földgáz szivárog a sziklából, és évezredek óta ég - ez a görög mondák ókori Khimairája. Egy lépcsős ösvényen nagyjából 20-30 perc alatt jutsz fel a lángokig. Alkonyatkor a leglátványosabbak, ezért a lefelé úthoz hozz zseblámpát."
+      },
+      {
+        "type": "h2",
+        "text": "A nap megtervezése"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Megálló",
+          "Kemerből",
+          "Szánj rá"
+        ],
+        "rows": [
+          [
+            "Tahtalı-kötélpálya (alsó állomás)",
+            "nagyjából 30 perc",
+            "1,5-2 órát"
+          ],
+          [
+            "Olympos romjai és strandja",
+            "nagyjából 50 perc",
+            "2 órát"
+          ],
+          [
+            "Çıralı és a Khimaira",
+            "nagyjából 50 perc",
+            "1,5 órát, ideális esetben alkonyatkor"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "A menetidők hozzávetőlegesek. Jó sorrend: reggel a kötélpálya, amikor a legtisztább a levegő, délután Olympos és ebéd Çıralıban, napnyugtakor pedig a Khimaira. Antalya városából számolj irányonként nagyjából plusz egy órával."
+      },
+      {
+        "type": "h2",
+        "text": "Hogyan jutsz el oda?"
+      },
+      {
+        "type": "p",
+        "text": "Kemer nagyjából 50 km-re, Tekirova nagyjából 75 km-re van az antalyai repülőtértől a parti úton. A helyi buszokkal nehézkes eljutni a kötélpálya állomásához vagy a Khimairához, ezért sok látogató sofőrrel megy. Privát transzfert biztosítunk a repülőtérről Kemerbe, Tekirovába és Kumlucába járművenkénti fix áron, és kérésre ajánlatot adunk egy sofőrös napra a kötélpályához, Olymposba és Çıralıba."
+      }
+    ],
+    "faq": [
+      [
+        "Milyen magasra visz a Tahtalı-kötélpálya?",
+        "A Tahtalı-hegy nagyjából 2365 m magas csúcsára, a Tekirova feletti erdőben lévő alsó állomásról indulva. Az út nagyjából tíz perc."
+      ],
+      [
+        "Van hó télen a Tahtalın?",
+        "Gyakran igen - nagyjából decembertől márciusig, néha áprilisban is. Fent mindig sokkal hidegebb van, mint a parton, ezért hozz meleg kabátot."
+      ],
+      [
+        "Mikor a legszebbek a Khimaira lángjai?",
+        "Alkonyatkor vagy sötétedés után, amikor a lángok kiemelkednek a sziklából. Az ösvény nagyjából 20-30 perc; a lefelé úthoz hozz zseblámpát."
+      ],
+      [
+        "Megnézhetem Olympost és a kötélpályát egy nap alatt?",
+        "Igen. A legtöbben reggel mennek fel a kötélpályával, délután megnézik Olympost és Çıralıt, napnyugtakor pedig a Khimairát."
+      ],
+      [
+        "Milyen messze van Kemer az antalyai repülőtértől?",
+        "Nagyjából 50 km, közúton nagyjából 40-50 perc. A kötélpálya melletti Tekirova nagyjából 75 km."
+      ]
+    ]
+  },
+  "perge-aspendos-day-trip": {
+    "slug": "perge-es-aszpendosz-kirandulas-antalyabol",
+    "title": "Perge és Aszpendosz: félnapos kirándulás Antalya romjai között",
+    "heading": "Perge és Aszpendosz Antalyából",
+    "description": "Perge és Aszpendosz Antalyából, Belekből vagy Side-ból: mit érdemes megnézni, melyik a legjobb évszak, mennyi időt szánj rá, és hogyan fér bele mindkettő fél napba.",
+    "excerpt": "Oszlopsoros római utca, 12 000 fős stadion és az ókori világ egyik legépebb színháza - mind egy órán belül a repülőtértől.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Törökország két legszebb ókori helyszíne közvetlenül az Antalya és Side közötti főút mellett fekszik. Perge a pamphüliai síkság nagy görög-római városa volt; Aszpendosz római színháza olyan ép, hogy ma is tartanak benne előadásokat. A kettő együtt könnyű félnapos program, és október és április között, amikor a nap szelíd, a legszebb."
+      },
+      {
+        "type": "h2",
+        "text": "Perge: az oszlopok városa"
+      },
+      {
+        "type": "p",
+        "text": "Perge csak nagyjából 15 percre van az antalyai repülőtértől. A két kerek tornyos hellenisztikus kapun lépsz be, majd egy hosszú oszlopsoros utcán sétálsz végig - a közepén vízcsatorna fut - az agoráig, a fürdőkig és az akropolisz dombjáig. Közvetlenül a falakon kívül egy nagy színház és az ókor egyik legjobb állapotban fennmaradt stadionja áll. Perge szobrai közül sokat az Antalyai Múzeumban állítottak ki. Szánj rá nagyjából másfél-két órát."
+      },
+      {
+        "type": "h2",
+        "text": "Aszpendosz: a színház, amely túlélt"
+      },
+      {
+        "type": "p",
+        "text": "A Serik melletti Aszpendosz a Kr. u. 2. századi római színházáról híres, amely sok ezer nézőt fogadott, és ma is megvan a színpadépülete, a galériái és kiváló az akusztikája. Mögötte ösvény vezet fel a felsővároshoz és egy római vízvezeték íveihez, amely átszeli a síkságot. Rövid autóútra a Köprüçay folyó feletti szeldzsuk híd is megér egy megállót. Szánj rá nagyjából egy-másfél órát."
+      },
+      {
+        "type": "h2",
+        "text": "A legjobb évszak a romokhoz"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Október és november: meleg, száraz napok és lágy fények a fotókhoz.",
+          "Decembertől februárig: csendes helyszínek és enyhe idő az esős napok között - hozz egy vízálló réteget.",
+          "Március és április: zöld fű és vadvirágok a kövek között, talán a legszebb időszak.",
+          "Júniustól szeptemberig: egyik helyszínen sincs sok árnyék, a déli hőség pedig erős; nyáron menj kora reggel."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "A kettő egy fél napban"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Kiindulópont",
+          "Pergéig",
+          "Pergéből Aszpendoszba",
+          "Aszpendoszból vissza"
+        ],
+        "rows": [
+          [
+            "Antalya / Lara",
+            "nagyjából 25 perc",
+            "nagyjából 35 perc",
+            "nagyjából 45 perc"
+          ],
+          [
+            "Belek",
+            "nagyjából 30 perc",
+            "nagyjából 35 perc",
+            "nagyjából 20 perc"
+          ],
+          [
+            "Side / Manavgat",
+            "nagyjából 55 perc",
+            "nagyjából 35 perc",
+            "nagyjából 35 perc"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "A menetidők hozzávetőlegesek. Bármelyik kiindulópontról jól működik, ha reggel Pergénél kezdesz, és Aszpendosznál zárod a napot. Mindkét helyszín belépődíjas, és elfogadják a Museum Pass kártyát. Vegyél kényelmes, erős cipőt: a talaj egyenetlen márvány és kő, és mindenhol lépcsők vannak."
+      },
+      {
+        "type": "h2",
+        "text": "Útban a repülőtérre vagy onnan"
+      },
+      {
+        "type": "p",
+        "text": "Mivel Perge nagyon közel van az antalyai repülőtérhez, Aszpendosz pedig a Belek és Side felé vezető út mellett fekszik, a két helyszín jól belefér egy érkezési vagy indulási napba, ha késői a járatod. A privát transzfer útközben megállhat az egyiknél vagy mindkettőnél, a csomagjaid közben biztonságban maradnak a járműben. Foglaláskor kérj ajánlatot megállókkal: az ár járművenként fix marad."
+      }
+    ],
+    "faq": [
+      [
+        "Milyen messze van Perge az antalyai repülőtértől?",
+        "Csak nagyjából 15 perc közúton. Ez az egyik legkönnyebben megközelíthető ókori helyszín érkezési vagy indulási napon."
+      ],
+      [
+        "Megnézhető Perge és Aszpendosz egy nap alatt?",
+        "Könnyedén - mindkettőhöz elég fél nap. Pergénél számolj nagyjából két órával, Aszpendosznál nagyjából eggyel, a kettő közötti útra pedig nagyjából 35 perccel."
+      ],
+      [
+        "Használják még ma is az aszpendoszi színházat?",
+        "Igen. A római színház olyan jó állapotban maradt fenn, hogy egyes estéken ma is koncerteket és előadásokat tartanak benne, főleg a melegebb hónapokban."
+      ],
+      [
+        "Mikor a legjobb meglátogatni Pergét és Aszpendoszt?",
+        "Októbertől áprilisig. Egyik helyszínen sincs sok árnyék, ezért nyáron menj kora reggel."
+      ],
+      [
+        "Megállhat a transzfer a romoknál a csomagjaimmal?",
+        "Igen. Foglaláskor kérd a megállókat; a csomagjaid a járműben maradnak, az ár pedig járművenként fix marad."
+      ]
+    ]
+  },
+  "ramadan-bayram-antalya": {
+    "slug": "ramadan-es-bajram-antalyaban",
+    "title": "Ramadán és bajrám Antalyában: amit utazóként tudnod kell",
+    "heading": "Utazás Antalyába ramadán és bajrám idején",
+    "description": "Mi változik Antalyában ramadán és a bajrám ünnepek alatt: éttermek, iftáresték, zsúfolt utak az ünnepeken, szállodák és hogyan tervezd meg a repülőtéri transzfert.",
+    "excerpt": "Az üdülőhelyeken a hétköznapok ramadán alatt alig változnak. Az utána következő ünnepek viszont más kérdés - mire számíts, és hogyan tervezz körülöttük.",
+    "readingMinutes": 5,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "A ramadán és a két bajrám ünnep vándorol a naptárban, minden évben nagyjából 11 nappal korábbra esik. A következő szezonokban a tél végére és tavaszra kerülnek: a ramadán és a ramadán végi ünnep (Ramazan Bayramı) nagyjából februárra és márciusra, az áldozati ünnep (Kurban Bayramı) pedig nagyjából májusra. A pontos dátumokat nézd meg a hivatalos naptárban. A látogatók számára maga a böjti hónap kevés változást hoz a parton; az ünnepekkel kell számolnod."
+      },
+      {
+        "type": "h2",
+        "text": "Megváltoztatja a ramadán az antalyai nyaralást?"
+      },
+      {
+        "type": "p",
+        "text": "Nagyon kevéssé. Antalyában, Belekben, Side-ban, Kemerben és Alanyában a szállodák, éttermek, kávézók és üzletek napközben a szokásos módon nyitva vannak, és ahol egyébként szolgálnak fel alkoholt, ott ilyenkor is. Törökországban sokan böjtölnek, sokan nem, és a látogatóktól senki sem várja el. Egyszerűen udvarias dolog nem hivalkodóan enni vagy inni valaki előtt, aki láthatóan böjtöl, főleg a hagyományos városnegyedekben és falvakban."
+      },
+      {
+        "type": "h2",
+        "text": "Iftár: a ramadán estéi"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Napnyugtakor az iftárral törik meg a böjtöt, ami gyakran közös étkezés levessel, datolyával, olajbogyóval és a különleges, kerek ramadáni pide kenyérrel, amelyet csak ebben a hónapban árulnak.",
+          "Sok étterem kínál iftármenüt; az asztalok közvetlenül napnyugta előtt telnek meg, ezért foglalj, ha csatlakoznál.",
+          "Az óvárosban és a nagy mecsetek körül esténként ünnepi a hangulat, a családok késő estig kint vannak.",
+          "Hajnal előtt néhány városrészben egy dobos járja az utcákat, hogy felébressze az embereket az utolsó étkezéshez (sahur) - ez is a hagyomány része."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "A bajrám ünnepek: amikor egész Törökország utazik"
+      },
+      {
+        "type": "p",
+        "text": "A ramadán végi ünnep három, az áldozati ünnep négy napig tart; a kormány gyakran hosszabb szünetté bővíti őket. Emberek milliói utaznak a családjukhoz vagy a tengerpartra, így a belföldi járatok, a távolsági buszok és a szállodák megtelnek, az Antalyába vezető utak pedig az első és az utolsó napon zsúfoltak. A bankok és a hivatalok bezárnak, de az üdülőhelyeken az üzletek, éttermek, múzeumok és látnivalók általában nyitva maradnak."
+      },
+      {
+        "type": "h2",
+        "text": "A transzfer megtervezése az ünnepek körül"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Foglalj korán, ha egy bajrám elején érkezel: a járművek és a sofőrök iránt nagy a kereslet.",
+          "Az ünnep utolsó napján induló járatokhoz hagyj több időt, mert ilyenkor a legforgalmasabb a repülőtér és az utak.",
+          "Ramadán idején a napnyugta előtti órában nagy a forgalom, magának az iftárnak az idején pedig szokatlanul csendes.",
+          "Add meg a járatszámodat: követjük, így egy zsúfolt napon egy késő járat miatt sem maradsz le a felvételről."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Jó tudni"
+      },
+      {
+        "type": "p",
+        "text": "Az ünnepek alatt az emberek „İyi bayramlar” (boldog ünnepeket) köszöntéssel üdvözlik egymást, és mindenhol édességet osztanak - barátságos időszak ilyenkor az országban lenni. Áraink ramadán és bajrám idején sem változnak: egy fix ár járművenként, ünnepi, éjszakai vagy szezonális felár nélkül."
+      }
+    ],
+    "faq": [
+      [
+        "Nyitva vannak az éttermek Antalyában ramadán alatt?",
+        "Igen. Az üdülőhelyeken és Antalya városában az éttermek és kávézók napközben a szokásos módon nyitva vannak. Este iftármenüvel bővül a kínálat."
+      ],
+      [
+        "Ihatnak alkoholt a turisták ramadán alatt Antalyában?",
+        "Igen. Azok a szállodák, bárok és éttermek, amelyek egyébként szolgálnak fel alkoholt, ramadán alatt is ezt teszik."
+      ],
+      [
+        "Zsúfolt Antalya a bajrám idején?",
+        "Igen. Sok török család utazik bajrámkor, így a szállodák, a járatok és az utak a szokásosnál zsúfoltabbak, főleg az első és az utolsó napon."
+      ],
+      [
+        "Mikor lesz jövőre a ramadán és a bajrám?",
+        "A dátumok minden évben nagyjából 11 nappal korábbra kerülnek. A következő szezonokban a ramadán és a ramadán végi ünnep nagyjából február-márciusra, az áldozati ünnep nagyjából májusra esik; a pontos dátumokat nézd meg a hivatalos naptárban."
+      ],
+      [
+        "Drágulnak a transzferek bajrámkor?",
+        "Nálunk nem. Az ár járművenként fix, ünnepi, éjszakai vagy szezonális felár nélkül. Ünnepi időpontokra javasoljuk, hogy foglalj korán."
+      ]
+    ]
+  },
+  "kaleici-old-town-guide": {
+    "slug": "kaleici-antalya-ovaros-utmutato",
+    "title": "Kaleiçi, Antalya óvárosa: sétaútmutató a csendes évszakra",
+    "heading": "Kaleiçi: Antalya óvárosa",
+    "description": "Sétaútmutató Kaleiçihez, Antalya fallal körülvett óvárosához: Hadrianus kapuja, a Rovátkolt minaret, a régi kikötő, butikhotelek, és miért ősztől tavaszig a legjobb.",
+    "excerpt": "Római kapuk, oszmán házak és egy kikötő a sziklák alatt. Antalya régi szívét érdemes lassan felfedezni, azokban a hónapokban, amikor a város a lakóié.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Kaleiçi - szó szerint „a váron belül” - Antalya történelmi központja, amelyet a régi városfalak vesznek körül egy kis kikötő felett. Sikátorait felújított oszmán házak szegélyezik, sokukban ma butikhotel, kávézó vagy kis étterem működik. Nyáron forró és zsúfolt; októbertől áprilisig a legszebb, enyhe napokkal, napsütötte teraszokkal és bőven jut idő a kóborlásra."
+      },
+      {
+        "type": "h2",
+        "text": "Séta Kaleiçiben"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Hadrianus kapuja: háromívű római kapu, amelyet a császár látogatására építettek a Kr. u. 2. században, az óváros hagyományos bejárata.",
+          "Az óratorony és a Kalekapısı tér: az óváros és a modern város találkozási pontja.",
+          "A Rovátkolt minaret (Yivli Minare): Antalya szeldzsuk jelképe, a központ minden pontjáról látható.",
+          "Hıdırlık-torony: kerek római torony a déli szélen, naplementés kilátással az öbölre és a hegyekre.",
+          "A Csonka minaret (Kesik Minare): épület, amely az évszázadok során volt templom, keresztény templom és mecset is.",
+          "A régi kikötő: halászhajók és kirándulóhajók a sziklák alatt, sikátorokon vagy fentről lifttel érhető el."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "A falakon túl"
+      },
+      {
+        "type": "p",
+        "text": "A Karaalioğlu park a Hıdırlık-toronytól a sziklák mentén húzódik, kilátással az öbölre. Az Antalyai Múzeum, Törökország egyik leggazdagabb régészeti gyűjteménye, a Konyaaltı strand elején található, és esős napra ideális; indulás előtt nézd meg a nyitvatartást. A várostól keletre a Düden-vízesések egyenesen a sziklákról zuhannak a tengerbe, a felső vízesések pedig egy árnyas parkban vannak."
+      },
+      {
+        "type": "h2",
+        "text": "Miért ősztől tavaszig?"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Évszak",
+          "Nappal jellemzően",
+          "Kaleiçiben"
+        ],
+        "rows": [
+          [
+            "Október - november",
+            "22-27 °C",
+            "Meleg esték, nyitott teraszok, kevesebb tömeg"
+          ],
+          [
+            "December - február",
+            "15-18 °C",
+            "Csendes sikátorok, napos kávézók, néha egy esős nap"
+          ],
+          [
+            "Március - április",
+            "18-22 °C",
+            "Narancsvirágzás, zöld parkok, fesztiválok a városban"
+          ],
+          [
+            "Június - augusztus",
+            "33-35 °C",
+            "Nagyon meleg és zsúfolt - a legjobb kora reggel és este"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "A hőmérsékletek hozzávetőleges átlagok. Kaleiçiben a legtöbb étterem, kávézó és butikhotel egész évben nyitva van, mert az óváros a városba látogatókból és a helyiekből él, nem csak a strandturizmusból."
+      },
+      {
+        "type": "h2",
+        "text": "Szállás az óvárosban"
+      },
+      {
+        "type": "p",
+        "text": "A kaleiçi szállodák általában kicsik, átalakított kúriákban működnek egy belső udvar vagy egy kis medence körül. Sok sikátor gyalogos övezet, vagy túl keskeny a nagyobb járműveknek, ezért az autó gyakran a legközelebbi kapunál vagy térnél áll meg, és az utolsó néhány métert gyalog kell megtenni. Foglaláskor add meg a szállodád nevét; sofőrjeink tudják, melyik bejárat a legközelebbi, és segítenek a csomagokkal."
+      },
+      {
+        "type": "h2",
+        "text": "Hogyan jutsz el Kaleiçibe az antalyai repülőtérről?"
+      },
+      {
+        "type": "p",
+        "text": "Kaleiçi nagyjából 15 km-re van az antalyai repülőtértől, közúton nagyjából 20-30 perc. A villamos is összeköti a repülőteret a belvárossal, de bőröndökkel egyszerűbb a privát transzfer a szállodáig, különösen késő éjjel. Az ár járművenként fix, éjszakai felár nélkül."
+      }
+    ],
+    "faq": [
+      [
+        "Mi az a Kaleiçi Antalyában?",
+        "Kaleiçi Antalya történelmi óvárosa, amelyet városfalak vesznek körül a régi kikötő felett; oszmán házak, Hadrianus kapuja, a Rovátkolt minaret és sok butikhotel és kávézó található itt."
+      ],
+      [
+        "Milyen messze van Kaleiçi az antalyai repülőtértől?",
+        "Nagyjából 15 km, közúton nagyjából 20-30 perc."
+      ],
+      [
+        "Be lehet hajtani autóval Kaleiçibe?",
+        "Csak részben. Sok sikátor gyalogos vagy nagyon keskeny, ezért a járművek gyakran a legközelebbi kapunál vagy térnél állnak meg. Sofőrjeink minden szállodához ismerik a legközelebbi behajtási pontot."
+      ],
+      [
+        "Megéri télen Kaleiçibe menni?",
+        "Igen. A legtöbb kávézó, étterem és szálloda nyitva marad, a sikátorok csendesek, a napok pedig általában enyhék és naposak."
+      ],
+      [
+        "Mennyi idő kell Kaleiçihez?",
+        "Egy első sétához elég fél nap. A múzeummal, a Karaalioğlu parkkal és a Düden-vízesésekkel egy-két teljes nap az ideális."
+      ]
+    ]
   }
 };

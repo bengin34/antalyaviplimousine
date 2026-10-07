@@ -31,6 +31,11 @@ import kopruluCanyonRafting from "./koprulu-canyon-rafting.js";
 import kasKalkanAutumn from "./kas-kalkan-autumn.js";
 import medicalTravelAntalyaWinter from "./medical-travel-antalya-winter.js";
 import sideAncientCityGuide from "./side-ancient-city-guide.js";
+import alanyaInWinter from "./alanya-in-winter.js";
+import tahtaliCableCarOlympos from "./tahtali-cable-car-olympos.js";
+import pergeAspendosDayTrip from "./perge-aspendos-day-trip.js";
+import ramadanBayramAntalya from "./ramadan-bayram-antalya.js";
+import kaleiciOldTownGuide from "./kaleici-old-town-guide.js";
 import { languageOrder, translations } from "./translations/index.js";
 
 /** Languages the blog is published in, largest source market first. */
@@ -40,9 +45,13 @@ export const articleLanguages = languageOrder;
 const catalogue = [
   antalyaInAutumn,
   kasKalkanAutumn,
+  tahtaliCableCarOlympos,
+  pergeAspendosDayTrip,
+  kaleiciOldTownGuide,
   antalyaInWinter,
   christmasNewYearAntalya,
   demreMyraStNicholas,
+  alanyaInWinter,
   winteringInAntalya,
   medicalTravelAntalyaWinter,
   cappadociaWinterTrip,
@@ -50,6 +59,7 @@ const catalogue = [
   saklikentSkiAntalya,
   pamukkaleTripFromAntalya,
   sideAncientCityGuide,
+  ramadanBayramAntalya,
   antalyaInSpring,
   lycianWaySpringHiking,
   kopruluCanyonRafting,

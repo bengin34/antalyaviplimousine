@@ -1879,5 +1879,560 @@ export const articles = {
         "Sì. Aspendos dista circa 40 minuti da Side in auto ed è una facile gita di mezza giornata, spesso abbinata a Perge o alla cascata di Manavgat."
       ]
     ]
+  },
+  "alanya-in-winter": {
+    "slug": "alanya-in-inverno",
+    "title": "Alanya in inverno: meteo, cosa fare e gite di un giorno",
+    "heading": "Alanya in inverno",
+    "description": "Alanya da novembre a marzo: meteo e temperatura del mare in inverno, castello e funivia, grotte di Damlataş e Dim, passeggiate, mercati e come arrivare dall'aeroporto di Antalya.",
+    "excerpt": "Giornate miti, la collina del castello quasi deserta e una città che continua a vivere quando la folla estiva se ne va. Com'è davvero Alanya tra novembre e marzo.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Alanya è uno dei pochi luoghi della costa turca che d'inverno non si spegne. Decine di migliaia di residenti vivono qui tutto l'anno, molti dei quali provenienti da Scandinavia, Germania, Paesi Bassi e Russia, quindi negozi, caffè, mercati e ristoranti restano aperti. Per una breve fuga invernale offre qualcosa di raro in Europa: sole, un lungomare da percorrere a piedi e un castello medievale che domina la città, con molta meno gente che in estate."
+      },
+      {
+        "type": "h2",
+        "text": "Il meteo ad Alanya in inverno"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Mese",
+          "Di giorno",
+          "Di notte",
+          "Mare"
+        ],
+        "rows": [
+          [
+            "Novembre",
+            "20-22 °C",
+            "11-13 °C",
+            "circa 21 °C"
+          ],
+          [
+            "Dicembre",
+            "17-19 °C",
+            "8-10 °C",
+            "circa 19 °C"
+          ],
+          [
+            "Gennaio",
+            "16-17 °C",
+            "7-9 °C",
+            "circa 17 °C"
+          ],
+          [
+            "Febbraio",
+            "16-18 °C",
+            "7-9 °C",
+            "circa 17 °C"
+          ],
+          [
+            "Marzo",
+            "18-20 °C",
+            "9-11 °C",
+            "circa 17 °C"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Sono medie indicative. L'inverno porta pioggia a ondate: spesso uno o due giorni di forti rovesci seguiti da giornate limpide e soleggiate. Alanya è riparata dai monti del Tauro, che la rendono un po' più mite di gran parte della costa. Le serate sono fresche, e le case e alcune camere d'albergo risultano fredde, quindi mettete in valigia uno strato caldo."
+      },
+      {
+        "type": "h2",
+        "text": "Il castello, la funivia e la Torre Rossa"
+      },
+      {
+        "type": "p",
+        "text": "Il castello di Alanya corona il promontorio roccioso sopra la città, con mura, cisterne, una chiesa bizantina e viste sulla costa in entrambe le direzioni. D'estate la salita è faticosa; d'inverno è una piacevole passeggiata. Se preferite, la funivia dalla spiaggia di Damlataş vi porta in cima in pochi minuti. Giù al porto, la Torre Rossa (Kızıl Kule) del XIII secolo e l'antico cantiere navale distano pochi passi l'una dall'altro."
+      },
+      {
+        "type": "h2",
+        "text": "Grotte, fiumi e passeggiate"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Grotta di Damlataş: una piccola grotta di stalattiti in fondo alla spiaggia di Damlataş, nota per la sua aria umida e costante.",
+          "Grotta di Dim: una grotta più grande sulle colline a est della città, con una passerella e un piccolo lago all'interno.",
+          "Fiume Dim (Dim Çayı): ristoranti lungo il fiume con piattaforme sull'acqua, più tranquilli in inverno, alcuni aperti tutto l'anno.",
+          "Il lungomare: chilometri di percorso pianeggiante a piedi o in bicicletta lungo le spiagge di Keykubat e Cleopatra.",
+          "Piantagioni di banane e villaggi sui pendii alle spalle della città, dove la frutta tropicale cresce grazie all'inverno mite."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Bagni, mercati e vita quotidiana"
+      },
+      {
+        "type": "p",
+        "text": "Nelle giornate di sole a novembre, e persino in inverno, si vede gente che fa il bagno dalla spiaggia di Cleopatra: il mare è più fresco di quanto faccia pensare l'aria, ma molti visitatori del nord lo trovano piacevole. I mercati settimanali vendono agrumi, melograni, olive e verdure, e il centro è animato più dai residenti che dai gruppi turistici. Molti hotel offrono tariffe invernali per soggiorni lunghi, e diversi resort sul mare restano aperti con piscina coperta."
+      },
+      {
+        "type": "h2",
+        "text": "Escursioni da Alanya in inverno"
+      },
+      {
+        "type": "p",
+        "text": "Side e la cascata di Manavgat sono a circa un'ora verso ovest; Aspendos e Perge sono una gita più lunga ma facile. Nell'entroterra, i villaggi dei monti del Tauro vedono la neve nelle settimane più fredde mentre la costa resta verde. Se vi fermate per settimane anziché giorni, la nostra guida dedicata allo svernare sulla costa di Antalya approfondisce i soggiorni lunghi."
+      },
+      {
+        "type": "h2",
+        "text": "Come arrivare ad Alanya dall'aeroporto di Antalya"
+      },
+      {
+        "type": "p",
+        "text": "Alanya dista circa 125 km dall'aeroporto di Antalya, all'incirca due ore di strada lungo la costa passando per Side e Manavgat. L'aeroporto di Gazipaşa-Alanya è più vicino ma ha meno voli, soprattutto in inverno, perciò la maggior parte dei visitatori atterra ad Antalya. Un transfer privato vi porta fino alla porta dell'hotel o dell'appartamento a prezzo fisso per veicolo, senza supplementi per inverno, fine settimana o orario notturno: comodo quando i voli arrivano in tarda serata."
+      }
+    ],
+    "faq": [
+      [
+        "Vale la pena visitare Alanya in inverno?",
+        "Sì, se cercate un clima mite, passeggiate e una città vissuta più che la vita da spiaggia. Le giornate sono spesso soleggiate, intorno ai 16-19 °C, e il castello e le grotte si godono senza il caldo estivo."
+      ],
+      [
+        "Si può fare il bagno ad Alanya in inverno?",
+        "C'è chi lo fa. In pieno inverno il mare è a circa 17-19 °C, a novembre è più caldo. È rinfrescante più che caldo, e molti hotel hanno piscine coperte riscaldate."
+      ],
+      [
+        "Hotel e ristoranti sono aperti ad Alanya in inverno?",
+        "Molti sì. Alanya ha una numerosa popolazione residente tutto l'anno, quindi il centro, i mercati e molti ristoranti restano aperti. Alcuni grandi resort stagionali chiudono da novembre a marzo."
+      ],
+      [
+        "Quanto dista Alanya dall'aeroporto di Antalya?",
+        "Circa 125 km, all'incirca due ore di strada. Un transfer privato vi porta direttamente in hotel a prezzo fisso per veicolo."
+      ],
+      [
+        "Piove molto ad Alanya in inverno?",
+        "Da dicembre a febbraio sono i mesi più piovosi, ma di solito la pioggia arriva a ondate di uno o due giorni, con giornate di sole nel mezzo."
+      ]
+    ]
+  },
+  "tahtali-cable-car-olympos": {
+    "slug": "funivia-tahtali-olympos-chimera",
+    "title": "Funivia del Tahtalı, Olympos e le fiamme della Chimera da Kemer",
+    "heading": "Funivia del Tahtalı, Olympos e la Chimera",
+    "description": "Una giornata vicino a Kemer: la funivia del Tahtalı a 2.365 m, le rovine di Olympos, la spiaggia di Çıralı e le fiamme della Chimera al tramonto; stagioni, abbigliamento e come arrivare.",
+    "excerpt": "La vetta di una montagna, una città licia in una valle fluviale e fiamme che escono dalla roccia da migliaia di anni: tutto a meno di un'ora da Kemer.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "A sud di Kemer i monti del Tauro si alzano direttamente dal mare. In un solo giorno potete stare in cima al monte Tahtalı, attraversare le rovine di Olympos fino alla spiaggia e guardare le fiamme della Chimera tremolare su un pendio al tramonto. Autunno e primavera sono le stagioni migliori: aria limpida per il panorama, temperature piacevoli per camminare e niente code estive."
+      },
+      {
+        "type": "h2",
+        "text": "Funivia del Tahtalı: dal mare a 2.365 m"
+      },
+      {
+        "type": "p",
+        "text": "La funivia di Olympos parte dalla pineta sopra Tekirova e sale in circa dieci minuti fino alla vetta del Tahtalı, a circa 2.365 m di altitudine. Dall'alto lo sguardo abbraccia tutta la costa da Antalya a Kemer e Phaselis e, nelle giornate limpide, arriva lontano nell'entroterra. In cima ci sono un bar e terrazze panoramiche. I biglietti si acquistano alla stazione a valle o online; orari e prezzi cambiano con la stagione."
+      },
+      {
+        "type": "h2",
+        "text": "Quando andare e come vestirsi"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Ottobre e novembre: aria limpida e la migliore visibilità dell'anno, con clima mite al livello del mare.",
+          "Da dicembre a marzo: la neve in vetta è frequente; una vista spettacolare su una costa verde, ma lassù vestitevi da inverno.",
+          "Aprile e maggio: neve sulla cima e fiori sui pendii più bassi, spesso nello stesso colpo d'occhio.",
+          "In qualsiasi periodo dell'anno in vetta fa 10-15 °C più freddo che in spiaggia. Portate una giacca, anche a ottobre.",
+          "La funivia si ferma con vento forte o temporali, quindi tenete la giornata flessibile e informatevi prima di partire."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Olympos: rovine in una valle fluviale"
+      },
+      {
+        "type": "p",
+        "text": "L'antica città licia di Olympos si trova in una valle stretta e boscosa che termina su una spiaggia di ciottoli. Tombe, un teatro, un impianto termale e una chiesa bizantina sono sparsi tra allori e fichi lungo un torrente. Dall'ingresso alla spiaggia si cammina per una ventina di minuti. Il sito fa parte di un'area protetta e l'ingresso è a pagamento; chi ha il Museum Pass entra gratis."
+      },
+      {
+        "type": "h2",
+        "text": "Çıralı e le fiamme della Chimera"
+      },
+      {
+        "type": "p",
+        "text": "Dall'altra parte della spiaggia di Olympos c'è Çıralı, un villaggio tranquillo di frutteti e piccole pensioni lungo una lunga spiaggia dove nidificano le tartarughe Caretta caretta. Più in alto, sul pendio di Yanartaş, il gas naturale fuoriesce dalla roccia e brucia da migliaia di anni: è l'antica Chimera della leggenda greca. Un sentiero a gradini di circa 20-30 minuti sale fino alle fiamme. Sono più suggestive al crepuscolo, quindi portate una torcia per la discesa."
+      },
+      {
+        "type": "h2",
+        "text": "Organizzare la giornata"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Tappa",
+          "Da Kemer",
+          "Tempo da dedicare"
+        ],
+        "rows": [
+          [
+            "Funivia del Tahtalı (stazione a valle)",
+            "circa 30 minuti",
+            "1,5-2 ore"
+          ],
+          [
+            "Rovine e spiaggia di Olympos",
+            "circa 50 minuti",
+            "2 ore"
+          ],
+          [
+            "Çıralı e la Chimera",
+            "circa 50 minuti",
+            "1,5 ore, idealmente al crepuscolo"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "I tempi di percorrenza sono indicativi. Un buon ordine è la funivia al mattino, quando l'aria è più limpida, Olympos e pranzo a Çıralı nel pomeriggio e la Chimera al tramonto. Da Antalya città aggiungete circa un'ora per tratta."
+      },
+      {
+        "type": "h2",
+        "text": "Come arrivare"
+      },
+      {
+        "type": "p",
+        "text": "Kemer dista circa 50 km dall'aeroporto di Antalya e Tekirova circa 75 km, lungo la strada costiera. Gli autobus pubblici raggiungono con difficoltà la stazione della funivia e la Chimera, ed è per questo che molti visitatori ci vanno con un autista. Effettuiamo transfer privati dall'aeroporto a Kemer, Tekirova e Kumluca a prezzo fisso per veicolo e, su richiesta, possiamo preparare un preventivo per una giornata con autista tra funivia, Olympos e Çıralı."
+      }
+    ],
+    "faq": [
+      [
+        "Quanto è alta la funivia del Tahtalı?",
+        "Sale fino alla vetta del monte Tahtalı, a circa 2.365 m, partendo da una stazione a valle nel bosco sopra Tekirova. La corsa dura circa dieci minuti."
+      ],
+      [
+        "C'è neve sul Tahtalı in inverno?",
+        "Spesso sì, più o meno da dicembre a marzo e a volte fino ad aprile. In cima fa sempre molto più freddo che sulla costa, quindi portate una giacca pesante."
+      ],
+      [
+        "Qual è il momento migliore per vedere le fiamme della Chimera?",
+        "Al crepuscolo o dopo il buio, quando le fiamme risaltano sulla roccia. La salita richiede circa 20-30 minuti; portate una torcia per scendere."
+      ],
+      [
+        "Si possono visitare Olympos e la funivia in un giorno?",
+        "Sì. La maggior parte delle persone prende la funivia al mattino, visita Olympos e Çıralı nel pomeriggio e vede la Chimera al tramonto."
+      ],
+      [
+        "Quanto dista Kemer dall'aeroporto di Antalya?",
+        "Circa 50 km, all'incirca 40-50 minuti di strada. Tekirova, vicino alla funivia, dista circa 75 km."
+      ]
+    ]
+  },
+  "perge-aspendos-day-trip": {
+    "slug": "perge-e-aspendos-escursione-da-antalya",
+    "title": "Perge e Aspendos: mezza giornata tra le rovine di Antalya",
+    "heading": "Perge e Aspendos da Antalya",
+    "description": "Visitare Perge e Aspendos da Antalya, Belek o Side: cosa vedere, la stagione migliore, quanto tempo dedicare e come abbinare i due siti antichi in mezza giornata.",
+    "excerpt": "Una strada romana colonnata, uno stadio da 12.000 posti e uno dei teatri meglio conservati del mondo antico, tutto a meno di un'ora dall'aeroporto.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Due dei più bei siti antichi della Türkiye si trovano a pochi passi dalla strada principale tra Antalya e Side. Perge era una grande città greco-romana della pianura della Panfilia; Aspendos ha un teatro romano così completo da essere ancora usato per gli spettacoli. Insieme sono una facile mezza giornata, e tra ottobre e aprile, quando il sole è gentile, danno il meglio di sé."
+      },
+      {
+        "type": "h2",
+        "text": "Perge: una città di colonne"
+      },
+      {
+        "type": "p",
+        "text": "Perge è a soli 15 minuti circa dall'aeroporto di Antalya. Si entra dalla porta ellenistica con le sue due torri rotonde e si percorre una lunga strada colonnata, con un canale d'acqua al centro, fino all'agorà, alle terme e alla collina dell'acropoli. Appena fuori dalle mura si trovano un grande teatro e uno degli stadi meglio conservati dell'antichità. Molte statue di Perge sono esposte al Museo di Antalya. Calcolate da un'ora e mezza a due ore."
+      },
+      {
+        "type": "h2",
+        "text": "Aspendos: il teatro sopravvissuto"
+      },
+      {
+        "type": "p",
+        "text": "Aspendos, vicino a Serik, è famosa per il suo teatro romano del II secolo d.C., che ospitava molte migliaia di spettatori e conserva ancora l'edificio scenico, le gallerie e un'acustica eccellente. Alle sue spalle un sentiero sale alla città alta e agli archi di un acquedotto romano che attraversa la pianura. A breve distanza in auto, il ponte selgiuchide sul fiume Köprüçay merita una sosta. Calcolate da un'ora a un'ora e mezza."
+      },
+      {
+        "type": "h2",
+        "text": "La stagione migliore per le rovine"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Ottobre e novembre: giornate calde e asciutte e luce morbida per le foto.",
+          "Da dicembre a febbraio: siti tranquilli e clima mite tra un giorno di pioggia e l'altro; portate uno strato impermeabile.",
+          "Marzo e aprile: erba verde e fiori selvatici tra le pietre, probabilmente il periodo più bello.",
+          "Da giugno a settembre: entrambi i siti hanno poca ombra e il caldo di mezzogiorno è intenso; d'estate andateci di primo mattino."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Abbinare i due siti in mezza giornata"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Punto di partenza",
+          "Fino a Perge",
+          "Da Perge ad Aspendos",
+          "Da Aspendos al rientro"
+        ],
+        "rows": [
+          [
+            "Antalya città / Lara",
+            "circa 25 minuti",
+            "circa 35 minuti",
+            "circa 45 minuti"
+          ],
+          [
+            "Belek",
+            "circa 30 minuti",
+            "circa 35 minuti",
+            "circa 20 minuti"
+          ],
+          [
+            "Side / Manavgat",
+            "circa 55 minuti",
+            "circa 35 minuti",
+            "circa 35 minuti"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "I tempi di percorrenza sono indicativi. Iniziare da Perge al mattino e finire ad Aspendos funziona da ognuna di queste basi. Entrambi i siti hanno un biglietto d'ingresso e accettano il Museum Pass. Indossate scarpe comode: il terreno è di marmo e pietra irregolari e ci sono gradini ovunque."
+      },
+      {
+        "type": "h2",
+        "text": "Lungo il tragitto da o per l'aeroporto"
+      },
+      {
+        "type": "p",
+        "text": "Poiché Perge è vicinissima all'aeroporto di Antalya e Aspendos si trova vicino alla strada per Belek e Side, i due siti si inseriscono bene in un giorno di arrivo o di partenza con un volo serale. Un transfer privato può fermarsi a uno o a entrambi lungo il percorso, con i bagagli al sicuro nel veicolo. Chiedete un preventivo con soste al momento della prenotazione: il prezzo resta fisso per veicolo."
+      }
+    ],
+    "faq": [
+      [
+        "Quanto dista Perge dall'aeroporto di Antalya?",
+        "Solo 15 minuti circa di strada. È uno dei siti antichi più facili da visitare nel giorno di arrivo o di partenza."
+      ],
+      [
+        "Si possono visitare Perge e Aspendos in un giorno?",
+        "Senza problemi: mezza giornata basta per entrambi. Calcolate circa due ore a Perge, un'ora circa ad Aspendos e circa 35 minuti di strada tra i due."
+      ],
+      [
+        "Il teatro di Aspendos è ancora in uso?",
+        "Sì. Il teatro romano è così ben conservato che in alcune serate ospita ancora concerti e spettacoli, soprattutto nei mesi più caldi."
+      ],
+      [
+        "Qual è il periodo migliore per visitare Perge e Aspendos?",
+        "Da ottobre ad aprile. In entrambi i siti c'è poca ombra, quindi d'estate andateci di primo mattino."
+      ],
+      [
+        "Un transfer può fermarsi alle rovine con i miei bagagli?",
+        "Sì. Chiedete le soste al momento della prenotazione; i bagagli restano nel veicolo e il prezzo resta fisso per veicolo."
+      ]
+    ]
+  },
+  "ramadan-bayram-antalya": {
+    "slug": "ramadan-e-bayram-ad-antalya",
+    "title": "Ramadan e Bayram ad Antalya: cosa devono sapere i viaggiatori",
+    "heading": "Viaggiare ad Antalya durante il Ramadan e le feste",
+    "description": "Cosa cambia ad Antalya durante il Ramadan e le feste di fine Ramadan e del Sacrificio: ristoranti, serate di iftar, strade trafficate, hotel e come organizzare il transfer.",
+    "excerpt": "Nelle località turistiche la vita quotidiana cambia appena durante il Ramadan. Le feste che seguono sono un'altra storia: ecco cosa aspettarsi e come organizzarsi.",
+    "readingMinutes": 5,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Il Ramadan e le due grandi feste islamiche si spostano nel calendario, anticipando di circa 11 giorni ogni anno. Nelle prossime stagioni cadono tra fine inverno e primavera: il Ramadan e la Festa di fine Ramadan (Ramazan Bayramı) verso febbraio e marzo, la Festa del Sacrificio (Kurban Bayramı) verso maggio. Consultate il calendario ufficiale per le date esatte. Per chi viaggia, il mese di digiuno in sé cambia poco sulla costa; sono le feste che vanno pianificate."
+      },
+      {
+        "type": "h2",
+        "text": "Il Ramadan cambia una vacanza ad Antalya?"
+      },
+      {
+        "type": "p",
+        "text": "Molto poco. Hotel, ristoranti, caffè e negozi di Antalya, Belek, Side, Kemer e Alanya aprono normalmente durante il giorno, e l'alcol viene servito nei locali che lo servono di solito. In Türkiye molte persone digiunano, molte no, e nessuno si aspetta che lo facciano i visitatori. È semplicemente educato non mangiare o bere in modo ostentato davanti a chi sta chiaramente digiunando, soprattutto nei quartieri tradizionali e nei villaggi."
+      },
+      {
+        "type": "h2",
+        "text": "L'iftar: le serate del Ramadan"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Al tramonto il digiuno si rompe con l'iftar, spesso un pasto condiviso con zuppa, datteri, olive e lo speciale pane pide rotondo del Ramadan, venduto solo in questo mese.",
+          "Molti ristoranti propongono un menu iftar; i tavoli si riempiono poco prima del tramonto, quindi prenotate se volete partecipare.",
+          "Nella città vecchia e intorno alle grandi moschee la sera c'è un'atmosfera di festa, con famiglie in giro fino a tardi.",
+          "Prima dell'alba, in alcuni quartieri, un tamburino percorre le strade per svegliare la gente per l'ultimo pasto (sahur): fa parte della tradizione."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Le feste del Bayram: quando la Türkiye si mette in viaggio"
+      },
+      {
+        "type": "p",
+        "text": "La Festa di fine Ramadan dura tre giorni e la Festa del Sacrificio quattro; spesso il governo le allunga in un ponte più lungo. Milioni di persone si spostano verso le famiglie o la costa, così voli nazionali, autobus interurbani e hotel si riempiono e le strade verso Antalya sono trafficate il primo e l'ultimo giorno. Banche e uffici pubblici chiudono, ma negozi, ristoranti, musei e siti turistici delle località di mare di solito restano aperti."
+      },
+      {
+        "type": "h2",
+        "text": "Organizzare il transfer durante le feste"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Prenotate in anticipo se atterrate all'inizio di una festa: veicoli e autisti sono molto richiesti.",
+          "Prevedete più tempo per le partenze nell'ultimo giorno di festa, quando aeroporto e strade sono più affollati.",
+          "Durante il Ramadan il traffico è intenso nell'ora prima del tramonto e insolitamente tranquillo durante l'iftar.",
+          "Comunicateci il numero del volo: lo monitoriamo, così un ritardo in una giornata di punta non vi fa perdere il ritiro."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Buono a sapersi"
+      },
+      {
+        "type": "p",
+        "text": "Durante le feste ci si saluta con «İyi bayramlar» (buone feste) e ovunque vengono offerti dolci: è un periodo caloroso per trovarsi nel Paese. I nostri prezzi non cambiano per il Ramadan o il Bayram: un prezzo fisso per veicolo, senza supplementi festivi, notturni o stagionali."
+      }
+    ],
+    "faq": [
+      [
+        "I ristoranti sono aperti ad Antalya durante il Ramadan?",
+        "Sì. Nelle località turistiche e ad Antalya città, ristoranti e caffè aprono normalmente durante il giorno. La sera si aggiungono i menu iftar."
+      ],
+      [
+        "I turisti possono bere alcolici durante il Ramadan ad Antalya?",
+        "Sì. Hotel, bar e ristoranti che servono normalmente alcolici continuano a farlo durante il Ramadan."
+      ],
+      [
+        "Antalya è affollata durante le feste del Bayram?",
+        "Sì. Molte famiglie turche viaggiano durante le feste, quindi hotel, voli e strade sono più affollati del solito, soprattutto il primo e l'ultimo giorno."
+      ],
+      [
+        "Quando cadono il Ramadan e le feste il prossimo anno?",
+        "Le date si anticipano di circa 11 giorni ogni anno. Nelle prossime stagioni il Ramadan e la Festa di fine Ramadan cadono verso febbraio-marzo e la Festa del Sacrificio verso maggio; consultate il calendario ufficiale per le date esatte."
+      ],
+      [
+        "I prezzi dei transfer aumentano durante il Bayram?",
+        "Con noi no. Il prezzo è fisso per veicolo, senza supplementi festivi, notturni o stagionali. Consigliamo di prenotare in anticipo per le date festive."
+      ]
+    ]
+  },
+  "kaleici-old-town-guide": {
+    "slug": "kaleici-citta-vecchia-antalya-guida",
+    "title": "Kaleiçi, la città vecchia di Antalya: guida a piedi per la bassa stagione",
+    "heading": "Kaleiçi: la città vecchia di Antalya",
+    "description": "Guida a piedi a Kaleiçi, il centro storico murato di Antalya: Porta di Adriano, Minareto Scanalato, porto vecchio, hotel boutique e perché andarci dall'autunno alla primavera.",
+    "excerpt": "Porte romane, case ottomane e un porto sotto le scogliere. Il cuore antico di Antalya si scopre meglio con calma, nei mesi in cui la città appartiene ai suoi abitanti.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Kaleiçi, letteralmente «dentro il castello», è il centro storico di Antalya, racchiuso dalle antiche mura sopra un piccolo porto. I suoi vicoli sono fiancheggiati da case ottomane restaurate, molte delle quali oggi ospitano hotel boutique, caffè e piccoli ristoranti. D'estate fa caldo ed è affollato; da ottobre ad aprile dà il meglio di sé, con giornate miti, terrazze aperte al sole e tempo per passeggiare."
+      },
+      {
+        "type": "h2",
+        "text": "Una passeggiata a Kaleiçi"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Porta di Adriano: la porta romana a tre archi costruita per la visita dell'imperatore nel II secolo d.C., ingresso tradizionale della città vecchia.",
+          "La Torre dell'Orologio e piazza Kalekapısı: il punto d'incontro tra la città vecchia e quella moderna.",
+          "Il Minareto Scanalato (Yivli Minare): il simbolo selgiuchide di Antalya, visibile da tutto il centro.",
+          "Torre di Hıdırlık: una torre romana rotonda sul margine meridionale, con vista al tramonto sulla baia e sulle montagne.",
+          "Il Minareto Mozzo (Kesik Minare): un edificio che nei secoli è stato tempio, chiesa e moschea.",
+          "Il porto vecchio: barche da pesca e da escursione sotto le scogliere, raggiungibile dai vicoli o con un ascensore dall'alto."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Oltre le mura"
+      },
+      {
+        "type": "p",
+        "text": "Il parco Karaalioğlu corre lungo le scogliere a partire dalla Torre di Hıdırlık, con vista sulla baia. Il Museo di Antalya, una delle collezioni archeologiche più ricche della Türkiye, si trova all'inizio della spiaggia di Konyaaltı ed è ideale in una giornata di pioggia; verificate gli orari di apertura prima di andare. A est della città, le cascate di Düden precipitano direttamente dalle scogliere nel mare, mentre le cascate superiori si trovano in un parco ombreggiato."
+      },
+      {
+        "type": "h2",
+        "text": "Perché dall'autunno alla primavera"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Stagione",
+          "Di giorno",
+          "A Kaleiçi"
+        ],
+        "rows": [
+          [
+            "Ottobre - novembre",
+            "22-27 °C",
+            "Serate tiepide, terrazze aperte, meno folla"
+          ],
+          [
+            "Dicembre - febbraio",
+            "15-18 °C",
+            "Vicoli tranquilli, caffè al sole, qualche giorno di pioggia"
+          ],
+          [
+            "Marzo - aprile",
+            "18-22 °C",
+            "Zagara, parchi verdi, festival in città"
+          ],
+          [
+            "Giugno - agosto",
+            "33-35 °C",
+            "Molto caldo e affollato: meglio al mattino presto e a sera"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Le temperature sono medie indicative. La maggior parte di ristoranti, caffè e hotel boutique di Kaleiçi resta aperta tutto l'anno, perché la città vecchia vive dei visitatori della città e dei residenti, non solo del turismo balneare."
+      },
+      {
+        "type": "h2",
+        "text": "Dormire nella città vecchia"
+      },
+      {
+        "type": "p",
+        "text": "Gli hotel di Kaleiçi sono di solito piccoli, ricavati in antiche dimore attorno a un cortile o a una piccola piscina. Molti vicoli sono pedonali o troppo stretti per i veicoli grandi, quindi l'auto spesso si ferma alla porta o alla piazza più vicina e gli ultimi metri si fanno a piedi. Indicateci l'hotel al momento della prenotazione; i nostri autisti sanno qual è l'accesso più vicino e vi aiutano con i bagagli."
+      },
+      {
+        "type": "h2",
+        "text": "Come arrivare dall'aeroporto di Antalya"
+      },
+      {
+        "type": "p",
+        "text": "Kaleiçi dista circa 15 km dall'aeroporto di Antalya, all'incirca 20-30 minuti di strada. Il tram collega anche l'aeroporto al centro, ma con le valigie un transfer privato fino all'hotel è più semplice, soprattutto a tarda notte. Il prezzo è fisso per veicolo, senza supplemento notturno."
+      }
+    ],
+    "faq": [
+      [
+        "Che cos'è Kaleiçi ad Antalya?",
+        "Kaleiçi è la città vecchia storica di Antalya, racchiusa dalle mura sopra il porto vecchio, con case ottomane, la Porta di Adriano, il Minareto Scanalato e tanti hotel boutique e caffè."
+      ],
+      [
+        "Quanto dista Kaleiçi dall'aeroporto di Antalya?",
+        "Circa 15 km, all'incirca 20-30 minuti di strada."
+      ],
+      [
+        "Si può entrare in auto a Kaleiçi?",
+        "Solo in parte. Molti vicoli sono pedonali o molto stretti, quindi i veicoli spesso si fermano alla porta o alla piazza più vicina. I nostri autisti conoscono l'accesso più vicino per ogni hotel."
+      ],
+      [
+        "Vale la pena visitare Kaleiçi in inverno?",
+        "Sì. La maggior parte di caffè, ristoranti e hotel resta aperta, i vicoli sono tranquilli e le giornate di solito miti e soleggiate."
+      ],
+      [
+        "Quanto tempo serve per Kaleiçi?",
+        "Mezza giornata basta per una prima passeggiata. Con il museo, il parco Karaalioğlu e le cascate di Düden, l'ideale è una giornata intera o due."
+      ]
+    ]
   }
 };
