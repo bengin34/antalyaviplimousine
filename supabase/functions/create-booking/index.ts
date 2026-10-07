@@ -177,6 +177,15 @@ Deno.serve(async (req) => {
         ? legacyLuggageCount || 0
         : payload.luggage_count
     const luggageCount = Number(rawLuggageCount)
+    // Golf bags and strollers arrived later than luggage_count; a client that
+    // does not send them means "none", not an invalid booking.
+    const optionalCount = (value: unknown) =>
+      value === undefined || value === null || value === '' ? 0 : Number(value)
+    const golfBagCount = optionalCount(payload.golf_bag_count)
+    const strollerCount = optionalCount(payload.stroller_count)
+    // Same boot-space model as the public form: a golf bag takes two bag
+    // spaces, a stroller one, and a Vito holds guests + bags up to 11.
+    const vitoUnits = guestCount + luggageCount + golfBagCount * 2 + strollerCount
     const vehicleCapacity = vehicleType === 'vclass' ? 13 : 7
 
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(customerEmail) || customerEmail.length > 120) {
@@ -226,6 +235,15 @@ Deno.serve(async (req) => {
     }
     if (!Number.isInteger(luggageCount) || luggageCount < 0 || luggageCount > 12) {
       return jsonResponse({ error: 'luggage_count is invalid' }, 400)
+    }
+    if (!Number.isInteger(golfBagCount) || golfBagCount < 0 || golfBagCount > 8) {
+      return jsonResponse({ error: 'golf_bag_count is invalid' }, 400)
+    }
+    if (!Number.isInteger(strollerCount) || strollerCount < 0 || strollerCount > 3) {
+      return jsonResponse({ error: 'stroller_count is invalid' }, 400)
+    }
+    if (vehicleType === 'vito' && vitoUnits > 11) {
+      return jsonResponse({ error: 'luggage exceeds the selected vehicle capacity' }, 400)
     }
     if (!isValidDate(pickupDate)) {
       return jsonResponse({ error: 'pickup_date is invalid' }, 400)
@@ -304,6 +322,8 @@ Deno.serve(async (req) => {
       child_seat_count: childSeatCount,
       child_ages: childAges,
       luggage_count: luggageCount,
+      golf_bag_count: golfBagCount,
+      stroller_count: strollerCount,
       flight_number: normalizeWhitespace(payload.flight_number).toUpperCase() || null,
       // Yalnızca operatöre bilgi. İstemciden geliyor, bu yüzden hiçbir iş kararı
       // buna dayanmaz — tanınmış bir değer değilse null.
@@ -410,6 +430,8 @@ Deno.serve(async (req) => {
                 <tr><td style="padding:6px 12px;color:#777">Phone / WhatsApp</td><td style="padding:6px 12px">${escapeHtml(booking.customer_phone)}</td></tr>
                 <tr><td style="padding:6px 12px;color:#777">Hotel / accommodation</td><td style="padding:6px 12px"><strong>${escapeHtml(booking.hotel_name)}</strong></td></tr>
                 <tr><td style="padding:6px 12px;color:#777">Large luggage</td><td style="padding:6px 12px"><strong>${escapeHtml(booking.luggage_count ?? luggageCount)}</strong></td></tr>
+                ${golfBagCount > 0 ? `<tr><td style="padding:6px 12px;color:#777">Golf bags</td><td style="padding:6px 12px"><strong>${escapeHtml(golfBagCount)}</strong></td></tr>` : ''}
+                ${strollerCount > 0 ? `<tr><td style="padding:6px 12px;color:#777">Strollers</td><td style="padding:6px 12px"><strong>${escapeHtml(strollerCount)}</strong></td></tr>` : ''}
                 <tr><td style="padding:6px 12px;color:#777">Child seats</td><td style="padding:6px 12px">${escapeHtml(booking.child_seat_count || 0)}</td></tr>
                 ${childAges.length > 0 ? `<tr><td style="padding:6px 12px;color:#777">Child ages</td><td style="padding:6px 12px">${escapeHtml(childAges.map((age, i) => `Child ${i + 1}: ${age === 0 ? 'under 1' : age + ' yr'}`).join(', '))}</td></tr>` : ''}
                 <tr><td style="padding:6px 12px;color:#777">Pick-up type</td><td style="padding:6px 12px">${escapeHtml(pickupLabel)}</td></tr>

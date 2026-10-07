@@ -32,6 +32,8 @@ export interface Booking {
   child_seat_count: number
   child_ages: number[]
   luggage_count: number
+  golf_bag_count?: number
+  stroller_count?: number
   pickup_location: string
   pickup_address: string | null
   dropoff_location: string | null

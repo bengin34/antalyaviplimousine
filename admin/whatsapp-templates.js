@@ -82,6 +82,8 @@ const LANG = {
     labelFlightDeparture: "Departure",
     labelLuggage: "Luggage",
     labelChildSeats: "Child seats",
+    labelGolfBags: "Golf bags",
+    labelStrollers: "Strollers",
     labelDriver: "Driver",
     labelPlate: "Plate",
     labelDailyHire: "Daily vehicle + chauffeur",
@@ -145,6 +147,8 @@ const LANG = {
     labelFlightDeparture: "Abflug",
     labelLuggage: "Gepäck",
     labelChildSeats: "Kindersitze",
+    labelGolfBags: "Golftaschen",
+    labelStrollers: "Kinderwagen",
     labelDriver: "Fahrer",
     labelPlate: "Kennzeichen",
   },
@@ -199,6 +203,8 @@ const LANG = {
     labelFlightDeparture: "Вылет",
     labelLuggage: "Багаж",
     labelChildSeats: "Детские кресла",
+    labelGolfBags: "Сумки для гольфа",
+    labelStrollers: "Детские коляски",
     labelDriver: "Водитель",
     labelPlate: "Номер машины",
   },
@@ -253,6 +259,8 @@ const LANG = {
     labelFlightDeparture: "Kalkış",
     labelLuggage: "Bagaj",
     labelChildSeats: "Çocuk koltuğu",
+    labelGolfBags: "Golf çantası",
+    labelStrollers: "Bebek arabası",
     labelDriver: "Sürücü",
     labelPlate: "Plaka",
     labelDailyHire: "Günlük araç + şoför",
@@ -315,6 +323,8 @@ const LANG = {
     labelFlightDeparture: "Décollage",
     labelLuggage: "Bagages",
     labelChildSeats: "Sièges enfant",
+    labelGolfBags: "Sacs de golf",
+    labelStrollers: "Poussettes",
     labelDriver: "Conducteur",
     labelPlate: "Plaque",
   },
@@ -369,6 +379,8 @@ const LANG = {
     labelFlightDeparture: "الإقلاع",
     labelLuggage: "الأمتعة",
     labelChildSeats: "مقاعد الأطفال",
+    labelGolfBags: "حقائب الغولف",
+    labelStrollers: "عربات الأطفال",
     labelDriver: "السائق",
     labelPlate: "لوحة السيارة",
   },
@@ -545,6 +557,10 @@ function detailLines(booking, transfer, t) {
       );
     if (Number(b.luggage_count) > 0)
       lines.push(`${t.labelLuggage}: ${b.luggage_count}`);
+    if (Number(b.golf_bag_count) > 0)
+      lines.push(`${t.labelGolfBags}: ${b.golf_bag_count}`);
+    if (Number(b.stroller_count) > 0)
+      lines.push(`${t.labelStrollers}: ${b.stroller_count}`);
     if (Number(b.child_seat_count) > 0) {
       lines.push(`${t.labelChildSeats}: ${b.child_seat_count}`);
       if (Array.isArray(b.child_ages) && b.child_ages.length > 0)
@@ -579,6 +595,10 @@ function detailLines(booking, transfer, t) {
 
   if (Number(b.luggage_count) > 0)
     lines.push(`${t.labelLuggage}: ${b.luggage_count}`);
+  if (Number(b.golf_bag_count) > 0)
+    lines.push(`${t.labelGolfBags}: ${b.golf_bag_count}`);
+  if (Number(b.stroller_count) > 0)
+    lines.push(`${t.labelStrollers}: ${b.stroller_count}`);
   if (Number(b.child_seat_count) > 0) {
     lines.push(`${t.labelChildSeats}: ${b.child_seat_count}`);
     if (Array.isArray(b.child_ages) && b.child_ages.length > 0)

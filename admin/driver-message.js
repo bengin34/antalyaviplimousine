@@ -134,6 +134,10 @@ function transferBlock(booking, leg = 'outbound') {
   const luggage = Number(booking.luggage_count) || 0
   const childSeats = Number(booking.child_seat_count) || 0
   if (luggage > 0) lines.push(`🧳 Bagaj: ${luggage} adet`)
+  const golfBags = Number(booking.golf_bag_count) || 0
+  const strollers = Number(booking.stroller_count) || 0
+  if (golfBags > 0) lines.push(`🏌️ Golf çantası: ${golfBags} adet`)
+  if (strollers > 0) lines.push(`👶 Bebek arabası: ${strollers} adet`)
   if (childSeats > 0) lines.push(`🪑 Çocuk koltuğu: ${childSeats} adet`)
 
   lines.push(`💳 ${paymentLabel(booking.payment_method)} · €${fmtPrice(price)}`)

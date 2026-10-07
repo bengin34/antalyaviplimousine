@@ -123,6 +123,9 @@ const translations = {
     passengers: "乘客",
     suitcases: "行李箱",
     luggageLabel: "大件行李",
+    golfBagsLabel: "高尔夫球包",
+    strollersLabel: "婴儿车",
+    bulkyLuggageHint: "高尔夫球包和婴儿车会占用额外的行李空间，可能影响我们安排的车型。",
     capacitySwitchedSprinter:
       "乘客与行李数量超出Vito的承载能力 — 已改为Mercedes Sprinter。",
     capacityNoVehicle:
@@ -378,6 +381,9 @@ const translations = {
     passengers: "Passagerer",
     suitcases: "Kufferter",
     luggageLabel: "Stor bagage",
+    golfBagsLabel: "Golftasker",
+    strollersLabel: "Barnevogne",
+    bulkyLuggageHint: "Golftasker og barnevogne fylder ekstra i bagagerummet og kan ændre, hvilken bil vi sender.",
     capacitySwitchedSprinter:
       "Passagerer og bagage overstiger Vito — skiftet til Mercedes Sprinter.",
     capacityNoVehicle:
@@ -633,6 +639,9 @@ const translations = {
     passengers: "Pasajeros",
     suitcases: "Maletas",
     luggageLabel: "Equipaje grande",
+    golfBagsLabel: "Bolsas de golf",
+    strollersLabel: "Cochecitos de bebé",
+    bulkyLuggageHint: "Las bolsas de golf y los cochecitos ocupan más espacio en el maletero y pueden cambiar el vehículo que enviamos.",
     capacitySwitchedSprinter:
       "Los pasajeros y el equipaje superan la capacidad del Vito — cambiado a Mercedes Sprinter.",
     capacityNoVehicle:
@@ -888,6 +897,9 @@ const translations = {
     passengers: "Επιβάτες",
     suitcases: "Βαλίτσες",
     luggageLabel: "Μεγάλες αποσκευές",
+    golfBagsLabel: "Σάκοι γκολφ",
+    strollersLabel: "Καρότσια μωρού",
+    bulkyLuggageHint: "Οι σάκοι γκολφ και τα καρότσια πιάνουν επιπλέον χώρο στο πορτμπαγκάζ και μπορεί να αλλάξουν το όχημα που θα στείλουμε.",
     capacitySwitchedSprinter:
       "Οι επιβάτες και οι αποσκευές υπερβαίνουν το Vito — έγινε αλλαγή σε Mercedes Sprinter.",
     capacityNoVehicle:
@@ -1143,6 +1155,9 @@ const translations = {
     passengers: "נוסעים",
     suitcases: "מזוודות",
     luggageLabel: "מטען גדול",
+    golfBagsLabel: "תיקי גולף",
+    strollersLabel: "עגלות תינוק",
+    bulkyLuggageHint: "תיקי גולף ועגלות תינוק תופסים מקום נוסף בתא המטען ועשויים לשנות את הרכב שנשלח.",
     capacitySwitchedSprinter:
       "מספר הנוסעים והמטען חורגים מקיבולת ה-Vito — הוסב ל-Mercedes Sprinter.",
     capacityNoVehicle:
@@ -1398,6 +1413,9 @@ const translations = {
     passengers: "Passeggeri",
     suitcases: "Valigie",
     luggageLabel: "Bagagli grandi",
+    golfBagsLabel: "Sacche da golf",
+    strollersLabel: "Passeggini",
+    bulkyLuggageHint: "Sacche da golf e passeggini occupano spazio extra nel bagagliaio e possono cambiare il veicolo che inviamo.",
     capacitySwitchedSprinter:
       "Passeggeri e bagagli superano la capacità del Vito — passaggio al Mercedes Sprinter.",
     capacityNoVehicle:
@@ -1653,6 +1671,9 @@ const translations = {
     passengers: "Utasok",
     suitcases: "Bőröndök",
     luggageLabel: "Nagy poggyász",
+    golfBagsLabel: "Golftáskák",
+    strollersLabel: "Babakocsik",
+    bulkyLuggageHint: "A golftáskák és a babakocsik extra helyet foglalnak a csomagtartóban, és befolyásolhatják, milyen autót küldünk.",
     capacitySwitchedSprinter:
       "Az utasok és a poggyász meghaladja a Vito kapacitását — átváltottunk Mercedes Sprinterre.",
     capacityNoVehicle:
@@ -1908,6 +1929,9 @@ const translations = {
     passengers: "Passageiros",
     suitcases: "Malas",
     luggageLabel: "Bagagem volumosa",
+    golfBagsLabel: "Sacos de golfe",
+    strollersLabel: "Carrinhos de bebé",
+    bulkyLuggageHint: "Sacos de golfe e carrinhos de bebé ocupam espaço extra na bagageira e podem alterar o veículo que enviamos.",
     capacitySwitchedSprinter:
       "Os passageiros e a bagagem excedem a capacidade do Vito — alterado para Mercedes Sprinter.",
     capacityNoVehicle:
@@ -2163,6 +2187,9 @@ const translations = {
     passengers: "Pasageri",
     suitcases: "Valize",
     luggageLabel: "Bagaje voluminoase",
+    golfBagsLabel: "Genți de golf",
+    strollersLabel: "Cărucioare",
+    bulkyLuggageHint: "Gențile de golf și cărucioarele ocupă spațiu suplimentar în portbagaj și pot schimba vehiculul pe care îl trimitem.",
     capacitySwitchedSprinter:
       "Numărul de pasageri și bagaje depășește capacitatea Vito — s-a comutat pe Mercedes Sprinter.",
     capacityNoVehicle:
@@ -2423,6 +2450,9 @@ const translations = {
     passengers: "Passagiere",
     suitcases: "Koffer",
     luggageLabel: "Großes Gepäck",
+    golfBagsLabel: "Golftaschen",
+    strollersLabel: "Kinderwagen",
+    bulkyLuggageHint: "Golftaschen und Kinderwagen brauchen zusätzlichen Platz im Kofferraum und können das Fahrzeug ändern, das wir schicken.",
     capacitySwitchedSprinter:
       "Passagiere und Gepäck übersteigen den Vito — auf Mercedes Sprinter umgestellt.",
     capacityNoVehicle:
@@ -2683,6 +2713,9 @@ const translations = {
     passengers: "yolcu",
     suitcases: "bavul",
     luggageLabel: "Büyük bavul",
+    golfBagsLabel: "Golf çantası",
+    strollersLabel: "Bebek arabası",
+    bulkyLuggageHint: "Golf çantası ve bebek arabası bagajda ekstra yer kaplar; göndereceğimiz aracı değiştirebilir.",
     capacitySwitchedSprinter:
       "Yolcu ve bagajınız Vito kapasitesini aşıyor — Mercedes Sprinter'a geçildi.",
     capacityNoVehicle:
@@ -2939,6 +2972,9 @@ const translations = {
     passengers: "пассажиров",
     suitcases: "чемоданов",
     luggageLabel: "Крупный багаж",
+    golfBagsLabel: "Сумки для гольфа",
+    strollersLabel: "Детские коляски",
+    bulkyLuggageHint: "Сумки для гольфа и детские коляски занимают дополнительное место в багажнике и могут повлиять на выбор автомобиля.",
     capacitySwitchedSprinter:
       "Пассажиры и багаж превышают вместимость Vito — выбран Mercedes Sprinter.",
     capacityNoVehicle:
@@ -3149,6 +3185,9 @@ const translations = {
     pickupAddress: "Úplná adresa vyzvednutí",
     dropoffAddress: "Úplná adresa vysazení",
     luggageLabel: "Velká zavazadla",
+    golfBagsLabel: "Golfové bagy",
+    strollersLabel: "Kočárky",
+    bulkyLuggageHint: "Golfové bagy a kočárky zabírají v kufru více místa a mohou změnit vůz, který pošleme.",
     hotelNameLabel: "Název hotelu",
     childSeatLabel: "Dětské sedačky",
     childSeatNone: "Bez dětské sedačky",
@@ -3464,6 +3503,9 @@ const translations = {
     passengers: "pasażerów",
     suitcases: "walizek",
     luggageLabel: "Duży bagaż",
+    golfBagsLabel: "Torby golfowe",
+    strollersLabel: "Wózki dziecięce",
+    bulkyLuggageHint: "Torby golfowe i wózki dziecięce zajmują dodatkowe miejsce w bagażniku i mogą zmienić pojazd, który wyślemy.",
     capacitySwitchedSprinter:
       "Pasażerowie i bagaż przekraczają Vito — przełączono na Mercedes Sprinter.",
     capacityNoVehicle:
@@ -3693,6 +3735,9 @@ const translations = {
     passengers: "passagiers",
     suitcases: "koffers",
     luggageLabel: "Grote bagage",
+    golfBagsLabel: "Golftassen",
+    strollersLabel: "Kinderwagens",
+    bulkyLuggageHint: "Golftassen en kinderwagens nemen extra ruimte in de kofferbak in en kunnen bepalen welk voertuig we sturen.",
     capacitySwitchedSprinter:
       "Passagiers en bagage overschrijden de Vito — overgeschakeld naar Mercedes Sprinter.",
     capacityNoVehicle:
@@ -3929,6 +3974,9 @@ const translations = {
     passengers: "пасажирів",
     suitcases: "валіз",
     luggageLabel: "Великий багаж",
+    golfBagsLabel: "Сумки для гольфу",
+    strollersLabel: "Дитячі візки",
+    bulkyLuggageHint: "Сумки для гольфу та дитячі візки займають додаткове місце в багажнику й можуть змінити автомобіль, який ми надішлемо.",
     capacitySwitchedSprinter:
       "Пасажири та багаж перевищують Vito — обрано Mercedes Sprinter.",
     capacityNoVehicle:
@@ -4139,6 +4187,9 @@ const translations = {
     pickupAddress: "پک اپ کا مکمل پتہ",
     dropoffAddress: "ڈراپ آف کا مکمل پتہ",
     luggageLabel: "بڑا سامان",
+    golfBagsLabel: "گالف بیگ",
+    strollersLabel: "بچوں کی گاڑی",
+    bulkyLuggageHint: "گالف بیگ اور بچوں کی گاڑیاں ڈگی میں اضافی جگہ لیتی ہیں اور ہماری بھیجی جانے والی گاڑی بدل سکتی ہیں۔",
     hotelNameLabel: "ہوٹل کا نام",
     childSeatLabel: "بچوں کی نشستیں",
     childSeatNone: "کوئی بچوں کی نشست نہیں",
@@ -4493,6 +4544,9 @@ const translations = {
     passengers: "passagers",
     suitcases: "valises",
     luggageLabel: "Gros bagages",
+    golfBagsLabel: "Sacs de golf",
+    strollersLabel: "Poussettes",
+    bulkyLuggageHint: "Les sacs de golf et les poussettes prennent plus de place dans le coffre et peuvent changer le véhicule que nous envoyons.",
     capacitySwitchedSprinter:
       "Passagers et bagages dépassent le Vito — passage au Mercedes Sprinter.",
     capacityNoVehicle:
@@ -4726,6 +4780,9 @@ const translations = {
     passengers: "passagerare",
     suitcases: "resväskor",
     luggageLabel: "Stort bagage",
+    golfBagsLabel: "Golfbagar",
+    strollersLabel: "Barnvagnar",
+    bulkyLuggageHint: "Golfbagar och barnvagnar tar extra plats i bagageutrymmet och kan ändra vilket fordon vi skickar.",
     capacitySwitchedSprinter:
       "Passagerare och bagage överstiger Vito — bytte till Mercedes Sprinter.",
     capacityNoVehicle:
@@ -4956,6 +5013,9 @@ const translations = {
     passengers: "名",
     suitcases: "個のスーツケース",
     luggageLabel: "大型荷物",
+    golfBagsLabel: "ゴルフバッグ",
+    strollersLabel: "ベビーカー",
+    bulkyLuggageHint: "ゴルフバッグやベビーカーはトランクの場所を多く取るため、お送りする車両が変わる場合があります。",
     capacitySwitchedSprinter:
       "乗客と荷物がVitoの容量を超えています — メルセデス・スプリンターに変更しました。",
     capacityNoVehicle:
@@ -5181,6 +5241,9 @@ const translations = {
     passengers: "명",
     suitcases: "개의 캐리어",
     luggageLabel: "대형 수하물",
+    golfBagsLabel: "골프백",
+    strollersLabel: "유모차",
+    bulkyLuggageHint: "골프백과 유모차는 트렁크 공간을 더 차지하므로 배차 차량이 바뀔 수 있습니다.",
     capacitySwitchedSprinter:
       "승객과 수하물이 비토 용량을 초과합니다 — 메르세데스 스프린터로 변경되었습니다.",
     capacityNoVehicle:
@@ -5423,6 +5486,9 @@ const translations = {
     passengers: "ركاب",
     suitcases: "حقائب",
     luggageLabel: "أمتعة كبيرة",
+    golfBagsLabel: "حقائب الغولف",
+    strollersLabel: "عربات الأطفال",
+    bulkyLuggageHint: "تشغل حقائب الغولف وعربات الأطفال مساحة إضافية في صندوق السيارة وقد تغيّر المركبة التي نرسلها.",
     capacitySwitchedSprinter:
       "عدد الركاب والأمتعة يتجاوز سعة Vito — تم التبديل إلى Mercedes Sprinter.",
     capacityNoVehicle:

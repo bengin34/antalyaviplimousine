@@ -114,6 +114,10 @@ function warningsFor(card: TimelineCard) {
   const luggage = Number(card.luggage_count) || 0
   const guests = Number(card.guests) || 0
   if (luggage >= 5 || luggage > guests) warnings.push({ kind: 'prep', text: `Fazla bagaj: ${luggage} adet` })
+  const golfBags = Number(card.golf_bag_count) || 0
+  const strollers = Number(card.stroller_count) || 0
+  if (golfBags > 0) warnings.push({ kind: 'prep', text: `${golfBags} golf çantası · bagaj yerini kontrol et` })
+  if (strollers > 0) warnings.push({ kind: 'prep', text: `${strollers} bebek arabası · bagaj yerini kontrol et` })
   const notes: string[] = []
   const bookingNote = String(card.notes ?? '').trim()
   if (bookingNote) notes.push(bookingNote)
@@ -201,7 +205,7 @@ function BookingCard({ card, now, isPast, isCancelled, navigate, confirmPast, co
       {card.flight_number && <div className="card-info-item"><span className="card-info-label">Uçuş</span><div className="card-info-value">✈ {card.flight_number}{flightTimeText}</div></div>}
       {hasUsefulHotel(card.hotel_name) && <div className={`card-info-item${card.flight_number ? '' : ' full'}`}><span className="card-info-label">Otel / Konaklama</span><div className="card-info-value">{card.hotel_name}</div></div>}
       <div className="card-info-item"><span className="card-info-label">Yolcu & Araç</span><div className="card-info-value">{card.guests} kişi · {card.vehicle_type === 'vclass' ? 'V-Class' : 'Vito'}</div></div>
-      <div className="card-info-item"><span className="card-info-label">Bagaj & Koltuk</span><div className="card-info-value">{Number(card.luggage_count) || 0} bagaj · {Number(card.child_seat_count) ? `${card.child_seat_count} koltuk` : 'Koltuk yok'}</div></div>
+      <div className="card-info-item"><span className="card-info-label">Bagaj & Koltuk</span><div className="card-info-value">{Number(card.luggage_count) || 0} bagaj{Number(card.golf_bag_count) ? ` · ${card.golf_bag_count} golf` : ''}{Number(card.stroller_count) ? ` · ${card.stroller_count} bebek arabası` : ''} · {Number(card.child_seat_count) ? `${card.child_seat_count} koltuk` : 'Koltuk yok'}</div></div>
       {isDailyChauffeur && <div className="card-info-item full"><span className="card-info-label">Şoför & Plaka</span><div className="card-info-value">{card.driver_name || 'Şoför atanmadı'} · {card.vehicle_plate || 'Plaka yok'}</div></div>}
       <PaymentInfo card={card} />
       {isDailyChauffeur && <div className="card-info-item full daily-fuel-info"><span className="card-info-label">Yakıt koşulu</span><div className="card-info-value">⛽ Yakıt hariç · müşteri kullanıma göre ayrıca öder</div></div>}

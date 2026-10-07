@@ -43,6 +43,25 @@ describe("BookingForm route summary", () => {
     expect(container.querySelector("#main-book-step1")).toBeInTheDocument();
   });
 
+  test("asks for golf bags and strollers and moves a Vito that no longer fits to the Sprinter", async () => {
+    const { container, getByText } = render(
+      <LanguageProvider initialLanguage="tr">
+        <BookingForm scrollOnSelect={false} />
+      </LanguageProvider>,
+    );
+
+    fireEvent.click(container.querySelector('input[value="daily_chauffeur"]')!);
+    expect(getByText("Golf çantası ve bebek arabası bagajda ekstra yer kaplar; göndereceğimiz aracı değiştirebilir.")).toBeInTheDocument();
+
+    fireEvent.change(container.querySelector("#guests")!, { target: { value: "4" } });
+    fireEvent.change(container.querySelector("#luggage")!, { target: { value: "4" } });
+    expect(container.querySelector<HTMLSelectElement>("#vehicle-type")!.value).toBe("vito");
+
+    fireEvent.change(container.querySelector("#golf-bags")!, { target: { value: "2" } });
+    await waitFor(() => expect(container.querySelector<HTMLSelectElement>("#vehicle-type")!.value).toBe("sprinter"));
+    expect(container.querySelector<HTMLOptionElement>('#vehicle-type option[value="vito"]')!.disabled).toBe(true);
+  });
+
   test("requires the fuel acknowledgement before a daily chauffeur booking can continue", async () => {
     const { container, findByRole } = render(
       <LanguageProvider initialLanguage="tr">
