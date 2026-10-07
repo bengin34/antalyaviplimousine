@@ -1,9 +1,10 @@
 import { readFile, stat } from "node:fs/promises";
 import path from "node:path";
 import { JSDOM } from "jsdom";
-import { articlePaths, blogPaths, clinicPaths, healthPaths, homePaths, hotelPaths, legalPaths, prerenderPaths, publicLanguages, sitemapPaths, transferPaths } from "../src/public-paths.js";
+import { articlePaths, b2bPaths, blogPaths, clinicPaths, healthPaths, homePaths, hotelPaths, legalPaths, prerenderPaths, publicLanguages, sitemapPaths, transferPaths } from "../src/public-paths.js";
 import { articleLanguages, articlesForLanguage, blogPath } from "../src/articles/index.js";
-import { routeCatalog } from "../src/routes.js";
+import { publicRouteSlugs, routeCatalog } from "../src/routes.js";
+import { AGENCY_DISCOUNT_EUR, agencyPrice } from "../src/b2b-pricing.js";
 
 const root = process.cwd();
 const dist = path.join(root, "dist");
@@ -11,6 +12,7 @@ const domain = "https://antalyaviptourism.com";
 const homeSet = new Set(homePaths);
 const healthSet = new Set(healthPaths);
 const clinicSet = new Set(clinicPaths);
+const b2bSet = new Set(b2bPaths);
 const transferSet = new Set(transferPaths);
 const hotelSet = new Set(hotelPaths);
 const legalSet = new Set(legalPaths);
@@ -61,6 +63,10 @@ for (const urlPath of prerenderPaths) {
   const alternateCount = document.querySelectorAll('link[rel="alternate"][hreflang]').length;
   if (clinicSet.has(urlPath) || hotelSet.has(urlPath)) {
     if (alternateCount !== 0) fail(`${urlPath}: noindex clinic route must not publish unavailable language alternates`);
+  } else if (b2bSet.has(urlPath)) {
+    // Indexed, but published in English alone — an hreflang set here would
+    // point at translations that do not exist.
+    if (alternateCount !== 0) fail(`${urlPath}: English-only partner page must not publish language alternates`);
   } else if (legalSet.has(urlPath)) {
     if (alternateCount < 5) fail(`${urlPath}: incomplete language alternates`);
   } else if (blogSet.has(urlPath) || articleSet.has(urlPath)) {
@@ -118,6 +124,32 @@ for (const urlPath of prerenderPaths) {
     if (feed !== `${domain}${blogPath(language)}feed.xml`) fail(`${urlPath}: feed link is missing or wrong`);
     if (!(await exists(path.join(dist, `${blogPath(language)}feed.xml`.slice(1))))) fail(`${urlPath}: feed file is missing from the build`);
     if (articlesForLanguage(language).length === 0) fail(`${urlPath}: blog route published for a language with no articles`);
+  }
+
+  if (b2bSet.has(urlPath)) {
+    if (document.querySelectorAll('input[name="b2b-rate-mode"]').length !== 2) {
+      fail(`${urlPath}: both partner rate options must be offered`);
+    }
+    if (!document.querySelector("#b2b-prices")) fail(`${urlPath}: partner rate table is missing`);
+    if (document.querySelector("#quote-form")) fail(`${urlPath}: guest booking form leaked into the partner page`);
+    if (!document.body.textContent?.includes(`€${AGENCY_DISCOUNT_EUR}`)) {
+      fail(`${urlPath}: the agency reduction is never stated`);
+    }
+
+    // The page prerenders in its default mode, so the published fares are the
+    // ones in the markup. Agency rates are derived from them in the browser,
+    // which is the whole point of deriving rather than storing them.
+    const quoted = [...document.querySelectorAll(".b2b-price-table td.price")]
+      .map((cell) => cell.textContent?.trim());
+    for (const slug of publicRouteSlugs) {
+      const published = routeCatalog[slug].prices.vito;
+      if (!quoted.includes(`€${published}`)) {
+        fail(`${urlPath}: published Vito fare €${published} for ${slug} is missing`);
+      }
+      if (agencyPrice(published) <= 0) {
+        fail(`${urlPath}: ${slug} would be sold to agencies for €${agencyPrice(published)}`);
+      }
+    }
   }
 
   if (clinicSet.has(urlPath)) {

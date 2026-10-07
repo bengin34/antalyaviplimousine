@@ -438,6 +438,23 @@ export function clinicMeta() {
   ];
 }
 
+/**
+ * The partner page is published in English only — the trade language of the
+ * agencies and operators it addresses — so it claims no hreflang alternates.
+ */
+export function b2bMeta() {
+  const title = "B2B Transfer Partners | Antalya VIP Tourism";
+  const description = "B2B airport transfers in Antalya for travel agencies, tour operators and hotels. Published rates when your guest rides with us, or an agency net rate when you buy and resell the transfer.";
+  const url = `${domain}/b2b/`;
+
+  return [
+    { title },
+    { name: "description", content: description },
+    { tagName: "link", rel: "canonical", href: url },
+    ...socialDescriptors(title, description, url, "en_GB"),
+  ];
+}
+
 export function routeMeta(language: IndexableLanguage, slug: string) {
   const route = routeCatalog[slug as keyof typeof routeCatalog];
   if (!route) return [];

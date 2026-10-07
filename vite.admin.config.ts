@@ -11,9 +11,11 @@ export default defineConfig({
     outDir: "dist",
     emptyOutDir: false,
     rollupOptions: {
+      // The partner page used to be built here, as a hand-written static page
+      // with its own copy of the tariff. It is a prerendered React route now,
+      // so this build must not emit over dist/b2b/index.html.
       input: {
         admin: resolve(import.meta.dirname, "admin/index.html"),
-        b2b: resolve(import.meta.dirname, "b2b/index.html"),
       },
     },
   },

@@ -34,6 +34,9 @@ export const healthPaths = Object.freeze(
 
 export const clinicPaths = Object.freeze(["/clinic/"]);
 
+/** English only: the partner page addresses agencies, who trade in English. */
+export const b2bPaths = Object.freeze(["/b2b/"]);
+
 export const transferPaths = Object.freeze(
   publicLanguages.flatMap((language) =>
     publicRouteSlugs.map((slug) => `${languagePrefix(language)}/transfers/${slug}/`),
@@ -44,6 +47,7 @@ export const prerenderPaths = Object.freeze([
   ...homePaths,
   ...healthPaths,
   ...clinicPaths,
+  ...b2bPaths,
   ...transferPaths,
   ...hotelPaths,
   ...blogPaths,
@@ -54,6 +58,7 @@ export const prerenderPaths = Object.freeze([
 export const sitemapPaths = Object.freeze([
   ...homePaths,
   ...healthPaths,
+  ...b2bPaths,
   ...transferPaths,
   ...hotelPaths,
   ...blogPaths,
