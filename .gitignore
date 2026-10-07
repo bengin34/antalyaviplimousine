@@ -8,6 +8,10 @@ build/
 .env.local
 .worktrees/
 
+# Supabase CLI scratch state: local version and project caches, rewritten
+# on every CLI run. Nothing in the repo or CI reads them.
+supabase/.temp/
+
 # TLS certificates and private keys
 *.pem
 *.key
