@@ -21,6 +21,20 @@ describe('AdminTabs', () => {
     ])
   })
 
+  test('opens the Yeni inbox and shows how many bookings wait for a message', () => {
+    const navigate = vi.fn()
+    render(<AdminTabs active="timeline" navigate={navigate} inboxCount={3} />)
+    const inbox = screen.getByRole('tab', { name: /Yeni/ })
+    expect(inbox.textContent).toContain('3')
+    fireEvent.click(inbox)
+    expect(navigate).toHaveBeenCalledWith('#inbox')
+  })
+
+  test('hides the inbox badge when nothing is waiting', () => {
+    render(<AdminTabs active="timeline" navigate={vi.fn()} inboxCount={0} />)
+    expect(screen.getByRole('tab', { name: '🆕 Yeni' }).textContent).toBe('🆕 Yeni')
+  })
+
   test('no longer renders removed past/future/cancelled tabs', () => {
     render(<AdminTabs active="timeline" navigate={vi.fn()} />)
     expect(screen.queryByRole('tab', { name: 'Gelecek' })).toBeNull()

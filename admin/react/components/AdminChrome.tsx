@@ -2,7 +2,7 @@ import { supabase } from '../lib/supabase'
 import type { Navigate } from '../types'
 import { clearTimelineCache } from '../pages/timeline-logic'
 
-type AdminView = 'timeline' | 'budget' | 'profit-loss' | 'funnel' | 'driver-comms'
+type AdminView = 'timeline' | 'inbox' | 'budget' | 'profit-loss' | 'funnel' | 'driver-comms'
 
 export function Topbar({ navigate, title = '🚗 VIP Yönetim', back, showAdmin = false }: {
   navigate: Navigate
@@ -39,10 +39,16 @@ export function Topbar({ navigate, title = '🚗 VIP Yönetim', back, showAdmin 
   )
 }
 
-export function AdminTabs({ active, navigate }: { active: AdminView; navigate: Navigate }) {
+export function AdminTabs({ active, navigate, inboxCount }: {
+  active: AdminView
+  navigate: Navigate
+  /** Onay mesajı bekleyen rezervasyon sayısı; bilinmiyorsa rozet gösterilmez. */
+  inboxCount?: number
+}) {
   const open = (view: AdminView) => {
     if (view === active) return
-    if (view === 'budget') navigate('#budget')
+    if (view === 'inbox') navigate('#inbox')
+    else if (view === 'budget') navigate('#budget')
     else if (view === 'profit-loss') navigate('#profit-loss')
     else if (view === 'funnel') navigate('#funnel')
     else if (view === 'driver-comms') navigate('#driver-comms')
@@ -50,7 +56,7 @@ export function AdminTabs({ active, navigate }: { active: AdminView; navigate: N
   }
 
   const tabs: Array<[AdminView, string]> = [
-    ['timeline', 'Transferler'], ['budget', 'Bütçe'], ['profit-loss', 'Kâr/Zarar'], ['funnel', '📊 Data'], ['driver-comms', '📱 Şoför'],
+    ['timeline', 'Transferler'], ['inbox', '🆕 Yeni'], ['budget', 'Bütçe'], ['profit-loss', 'Kâr/Zarar'], ['funnel', '📊 Data'], ['driver-comms', '📱 Şoför'],
   ]
 
   return (
@@ -63,7 +69,7 @@ export function AdminTabs({ active, navigate }: { active: AdminView; navigate: N
           role="tab"
           aria-selected={active === view}
           onClick={() => open(view)}
-        >{label}</button>
+        >{label}{view === 'inbox' && inboxCount ? <span className="timeline-tab-count" aria-label={`${inboxCount} bekleyen`}>{inboxCount}</span> : null}</button>
       ))}
     </div>
   )

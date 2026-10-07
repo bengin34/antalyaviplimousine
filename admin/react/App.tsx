@@ -11,6 +11,7 @@ import ProfitLossPage from './pages/ProfitLossPage'
 import PriceControlPage from './pages/PriceControlPage'
 import DriverCommsPage from './pages/DriverCommsPage'
 import FunnelPage from './pages/FunnelPage'
+import InboxPage from './pages/InboxPage'
 import { clearTimelineCache } from './pages/timeline-logic'
 
 const navigate = (hash: string) => { window.location.hash = hash }
@@ -83,6 +84,7 @@ export default function App() {
     return <ProfitLossPage key={hash} navigate={navigate} initialPeriod={new URLSearchParams(profitQuery).get('period')} />
   }
   if (hash === '#admin') return <AdminPanelPage navigate={navigate} />
+  if (hash === '#inbox') return <InboxPage navigate={navigate} />
   if (hash === '#funnel') return <FunnelPage navigate={navigate} />
   if (hash === '#driver-comms') return <DriverCommsPage navigate={navigate} />
   if (hash === '#prices') return <PriceControlPage navigate={navigate} />
@@ -94,7 +96,7 @@ export default function App() {
       key={hash}
       bookingRef={decodeURIComponent(encodedRef)}
       isReturn={params.get('leg') === 'return'}
-      sourceTab={params.get('from') === 'profit-loss' ? 'profit-loss' : params.get('from') === 'past' ? 'past' : params.get('from') === 'cancelled' ? 'cancelled' : 'future'}
+      sourceTab={params.get('from') === 'profit-loss' ? 'profit-loss' : params.get('from') === 'past' ? 'past' : params.get('from') === 'cancelled' ? 'cancelled' : params.get('from') === 'inbox' ? 'inbox' : 'future'}
       profitPeriod={params.get('profitPeriod')}
       navigate={navigate}
     />

@@ -28,6 +28,7 @@ import { isReturnJourney, locationDisplay, navigationURLs, whatsappURL } from '.
 import { buildDriverTransferMessage, driverWhatsappURL } from '../../driver-message.js'
 import { matchesBookingQuery } from '../../search-match.js'
 import { countFutureReservations, expandRoundTrips, TODAY_CACHE_KEY } from './timeline-logic'
+import { countAwaitingConfirmation, isAwaitingConfirmation } from '../lib/customer-messages'
 
 const AUTO_REFRESH_MS = 60_000
 const OPERATIONAL_STATUSES = ['pending', 'paid', 'confirmed', 'in_transit']
@@ -145,8 +146,8 @@ function PaymentInfo({ card }: { card: TimelineCard }) {
   return <div className="card-info-item full payment-info payment-info-collect"><span className="card-info-label">Gidiş ücreti</span><div className="card-info-value"><strong>€{fmtPrice(half)}</strong><small>{paymentMethod}</small></div></div>
 }
 
-function BookingCard({ card, now, isPast, isCancelled, navigate, confirmPast, confirming, confirmFailed }: {
-  card: TimelineCard; now: Date; isPast: boolean; isCancelled: boolean; navigate: Navigate
+function BookingCard({ card, now, isPast, isCancelled, isNew, navigate, confirmPast, confirming, confirmFailed }: {
+  card: TimelineCard; now: Date; isPast: boolean; isCancelled: boolean; isNew: boolean; navigate: Navigate
   confirmPast: (ref: string) => Promise<void>; confirming: string | null; confirmFailed: string | null
 }) {
   const isDailyChauffeur = card.trip_type === 'daily_chauffeur'
@@ -193,7 +194,7 @@ function BookingCard({ card, now, isPast, isCancelled, navigate, confirmPast, co
     {flightAlert && <div className="flight-landed-alert" role="status"><span className="flight-landed-icon" aria-hidden="true">✈</span><span><strong>Uçak iniş saati geldi</strong><small>{flightAlert}</small></span></div>}
     <div className="card-header">
       <div className="card-time-block"><div className="card-time-row"><div className="card-schedule-item"><span className="card-time-label">Transfer tarihi</span><div className="card-date">{fmtShortDateWithWeekday(card._displayDate)}</div></div><div className="card-schedule-item"><span className="card-time-label">{isDailyChauffeur ? 'Hizmet başlangıcı' : 'Transfer saati'}</span><div className="card-time">{fmtTime(card._displayTime)}</div></div></div><div className={`card-live-time${timing.className ? ` ${timing.className}` : ''}`}>{timing.text}</div></div>
-      <div className="card-badges"><span className={`badge badge-${card.status}`}>{statusLabel(card.status, card.trip_type === 'round_trip')}</span>{isDailyChauffeur && <span className="badge badge-daily">GÜNLÜK KİRALAMA · {card._hireDayNumber}/{card._hireDayCount}</span>}{(card.trip_type === 'round_trip' || card.manual_return_of_ref) && <span className={`badge ${isReturn ? 'badge-return' : 'badge-outbound'}`}>{isReturn ? 'DÖNÜŞ' : 'GİDİŞ'}</span>}</div>
+      <div className="card-badges">{isNew && <span className="badge badge-new" title="Onay mesajı henüz gönderilmedi">🆕 YENİ</span>}<span className={`badge badge-${card.status}`}>{statusLabel(card.status, card.trip_type === 'round_trip')}</span>{isDailyChauffeur && <span className="badge badge-daily">GÜNLÜK KİRALAMA · {card._hireDayNumber}/{card._hireDayCount}</span>}{(card.trip_type === 'round_trip' || card.manual_return_of_ref) && <span className={`badge ${isReturn ? 'badge-return' : 'badge-outbound'}`}>{isReturn ? 'DÖNÜŞ' : 'GİDİŞ'}</span>}</div>
     </div>
     <div className="card-route" aria-label={`${pickup} konumundan ${dropoff} konumuna`}>
       <div className="route-point route-pickup"><span className="route-marker" aria-hidden="true" /><div><span className="route-label">Alış</span><strong>{pickup}</strong></div></div>
@@ -440,8 +441,9 @@ export default function TimelinePage({ navigate, initialDate }: { navigate: Navi
     return map
   }, [visibleCards])
   const hasBookings = [...groups.values()].some(group => group.length)
+  const inboxCount = bookings && !cachedOnly ? countAwaitingConfirmation(bookings, today) : undefined
 
-  const renderCard = (card: TimelineCard) => <BookingCard key={`${card.booking_ref}-${card._isReturn ? 'return' : 'outbound'}`} card={card} now={now} isPast={isCardPast(card, today)} isCancelled={card.status === 'cancelled'} navigate={navigate} confirmPast={confirmPast} confirming={confirming} confirmFailed={confirmFailed} />
+  const renderCard = (card: TimelineCard) => <BookingCard key={`${card.booking_ref}-${card._isReturn ? 'return' : 'outbound'}`} card={card} now={now} isPast={isCardPast(card, today)} isCancelled={card.status === 'cancelled'} isNew={isAwaitingConfirmation(card._sourceBooking, today)} navigate={navigate} confirmPast={confirmPast} confirming={confirming} confirmFailed={confirmFailed} />
 
   const selectCalendarDate = (date: string) => {
     setSelectedCalendarDate(date)
@@ -457,13 +459,14 @@ export default function TimelinePage({ navigate, initialDate }: { navigate: Navi
 
   return <>
     <Topbar navigate={navigate} showAdmin />
-    <AdminTabs active="timeline" navigate={navigate} />
+    <AdminTabs active="timeline" navigate={navigate} inboxCount={inboxCount} />
     <div className="stats">
       <div className="stat stat-bugün"><div className="stat-number">{bookings ? allFutureCards.filter(card => card._displayDate === today && OPERATIONAL_STATUSES.includes(card.status)).length : '…'}</div><div className="stat-label">Bugün</div></div>
       <div className="stat stat-yarın"><div className="stat-number">{bookings ? allFutureCards.filter(card => card._displayDate === tomorrow && OPERATIONAL_STATUSES.includes(card.status)).length : '…'}</div><div className="stat-label">Yarın</div></div>
       <div className="stat stat-gelecek-rez"><div className="stat-number">{futureCount ?? '…'}</div><div className="stat-label">Gelecek Rez.</div></div>
     </div>
     <div className="timeline-statusbar"><div className="live-clock-wrap"><span>{fmtLiveDate(now)}</span><strong>{fmtSyncTime(now)}</strong></div><div className="sync-wrap"><span>{syncStatus}</span><button className="sync-button" type="button" aria-label="Transferleri yenile" disabled={refreshing} onClick={() => void refresh()}>↻</button></div></div>
+    {inboxCount ? <button className="inbox-banner" type="button" onClick={() => navigate('#inbox')}><span aria-hidden="true">🆕</span><span><strong>{inboxCount} yeni rezervasyon</strong> onay mesajı bekliyor</span><span className="inbox-banner-go" aria-hidden="true">›</span></button> : null}
     <div className="search-bar"><input className="search-input" type="search" placeholder="İsim, telefon, kod veya güzergah ara… (tüm tarihler)" autoComplete="off" value={search} onChange={event => setSearch(event.target.value)} /></div>
     {offlineMessage && <div className="offline-banner">{offlineMessage}</div>}
     <div className="scroll-area timeline-scroll-area">

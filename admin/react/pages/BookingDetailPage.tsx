@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useRef, useState, type FormEvent, type ReactNode } from 'react'
 import { Topbar } from '../components/AdminChrome'
-import { fmtDetailDate, fmtPrice, fmtTime, statusLabel, todayISO, transferStartTime } from '../lib/format'
+import { fmtDetailDate, fmtPrice, fmtTime, ISTANBUL_TIME_ZONE, statusLabel, todayISO, transferStartTime } from '../lib/format'
 import { queueBookingPrefill } from '../lib/prefill'
 import { supabase } from '../lib/supabase'
 import type { Booking, BookingStatus, ChauffeurHireDay, Navigate } from '../types'
@@ -13,6 +13,7 @@ import CostDialog from '../components/CostDialog'
 import { LOCATION_OPTIONS, LANGUAGE_OPTIONS, VEHICLE_CAPACITY, validateBookingForm, type BookingFormState } from './NewBookingPage'
 import { ReturnPickupHint, returnPickupAdvice } from '../components/ReturnPickupHint'
 import { languageFromPhone } from '../../turkish-formatters.js'
+import { markCustomerMessageSent } from '../lib/customer-messages'
 
 const STATUS_TRANSITIONS: Record<string, BookingStatus[]> = {
   pending: ['confirmed', 'cancelled'], paid: ['in_transit'], confirmed: ['in_transit', 'cancelled'],
@@ -26,6 +27,10 @@ type TemplateKind = 'confirm' | 'reminder' | 'received' | 'meetGreet' | 'review'
 // picker and the booking form can never drift apart.
 const LANGUAGE_FLAGS: Record<string, string> = { tr: '🇹🇷', en: '🇬🇧', de: '🇩🇪', ru: '🇷🇺', fr: '🇫🇷', ar: '🇸🇦' }
 const MESSAGE_LANGUAGES = LANGUAGE_OPTIONS.filter(([value]) => value !== '')
+
+function fmtSentAt(value: string) {
+  return new Date(value).toLocaleString('tr-TR', { timeZone: ISTANBUL_TIME_ZONE, day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit' })
+}
 
 function languageName(code: string) {
   return LANGUAGE_OPTIONS.find(([value]) => value === code)?.[1] ?? 'İngilizce'
@@ -293,7 +298,7 @@ function costSummary(cs: { costMode?: string; ownVehicleProfitEur?: number | nul
   return `Kendi aracımız · ${profit}${extra}`
 }
 
-export default function BookingDetailPage({ bookingRef, isReturn, sourceTab, profitPeriod, navigate }: { bookingRef: string; isReturn: boolean; sourceTab: 'future' | 'past' | 'cancelled' | 'profit-loss'; profitPeriod?: string | null; navigate: Navigate }) {
+export default function BookingDetailPage({ bookingRef, isReturn, sourceTab, profitPeriod, navigate }: { bookingRef: string; isReturn: boolean; sourceTab: 'future' | 'past' | 'cancelled' | 'profit-loss' | 'inbox'; profitPeriod?: string | null; navigate: Navigate }) {
   const [booking, setBooking] = useState<Booking | null>(null)
   const [loading, setLoading] = useState(true)
   const [notFound, setNotFound] = useState(false)
@@ -345,7 +350,7 @@ export default function BookingDetailPage({ bookingRef, isReturn, sourceTab, pro
 
   const backHash = sourceTab === 'profit-loss'
     ? `#profit-loss${profitPeriod ? `?period=${encodeURIComponent(profitPeriod)}` : ''}`
-    : '#timeline'
+    : sourceTab === 'inbox' ? '#inbox' : '#timeline'
   if (loading) return <><Topbar navigate={navigate} title="Transfer Detayı" back={backHash} /><div className="scroll-area"><div className="empty"><div>Yükleniyor…</div></div></div></>
   if (notFound || !booking) return <><Topbar navigate={navigate} title="Transfer Detayı" back={backHash} /><div className="scroll-area"><div className="empty"><div>Rezervasyon bulunamadı</div><div className="empty-hint">{bookingRef} kaydı silinmiş olabilir. Geldiğiniz listeyi yenileyin; silinen kayıtlar kâr/zarar hesabına girmez.</div></div></div></>
 
@@ -399,7 +404,7 @@ export default function BookingDetailPage({ bookingRef, isReturn, sourceTab, pro
   // to bottom in the order these messages actually get sent.
   const arrivalLeg = !dailyChauffeur && transfer.pickupLocation === 'airport'
   const templateCards: { kind: TemplateKind; icon: string; title: string; hint: string; group: string }[] = [
-    { kind: 'received', icon: '📥', title: 'Talebinizi aldık', hint: 'Yeni talep geldiğinde ilk cevap', group: 'Talep' },
+    { kind: 'received', icon: '📥', title: 'Talebinizi aldık', hint: booking.check_message_sent_at ? `✓ Gönderildi · ${fmtSentAt(booking.check_message_sent_at)}` : 'Yeni talep geldiğinde ilk cevap', group: 'Talep' },
     // Gidiş görünümünde onay iki ayağı tek mesajda toplar: müşteri gidişi ve
     // dönüşü ayrı ayrı değil, bir arada görür. Dönüş ayağındaysak yalnız dönüş
     // onayı gönderilir.
@@ -407,7 +412,7 @@ export default function BookingDetailPage({ bookingRef, isReturn, sourceTab, pro
       kind: 'confirm',
       icon: '✅',
       title: roundTrip ? (isReturn ? 'Dönüş onayı' : 'Rezervasyon onayı (gidiş + dönüş)') : 'Rezervasyon onayı',
-      hint: roundTrip && !isReturn ? 'İki ayağın detayı tek mesajda' : 'Fiyat ve transfer detaylarıyla onay',
+      hint: booking.confirm_message_sent_at ? `✓ Gönderildi · ${fmtSentAt(booking.confirm_message_sent_at)}` : roundTrip && !isReturn ? 'İki ayağın detayı tek mesajda' : 'Fiyat ve transfer detaylarıyla onay',
       group: 'Talep',
     },
     { kind: 'reminder', icon: '⏰', title: roundTrip ? (isReturn ? 'Dönüş hatırlatması' : 'Gidiş hatırlatması') : 'Transfer hatırlatması', hint: 'Transferden önce sürücü, plaka ve harita', group: 'Transfer günü' },
@@ -465,6 +470,14 @@ export default function BookingDetailPage({ bookingRef, isReturn, sourceTab, pro
     if (popup.closed) return setTemplateState({ loading: '', success: '', error: 'WhatsApp sekmesi kapatıldı.' })
     popup.location.replace(whatsappURL(latest.customer_phone, message))
     setTemplateState({ loading: '', success: `Mesaj ${languageName(resolveLanguage(latest))} dilinde, en güncel transfer ve adres bilgileriyle hazırlandı.`, error: '' })
+    // Kontrol ve onay mesajları "Yeni" sekmesini besler: gönderim anı kaydedilir.
+    const trackedKind = kind === 'received' ? 'check' : kind === 'confirm' ? 'confirm' : null
+    if (trackedKind) {
+      const { sentAt, error: trackError } = await markCustomerMessageSent(latest, trackedKind)
+      const column = trackedKind === 'check' ? 'check_message_sent_at' : 'confirm_message_sent_at'
+      if (sentAt) setBooking(current => current ? { ...current, [column]: sentAt } : current)
+      if (trackError) setTemplateState(current => ({ ...current, error: 'Mesaj açıldı ama gönderim kaydedilemedi; rezervasyon Yeni sekmesinde kalabilir.' }))
+    }
   }
 
   const updateStatus = async (next: BookingStatus) => {
