@@ -152,6 +152,9 @@ type Pages = {
   "/clinic": {
     params: {};
   };
+  "/b2b": {
+    params: {};
+  };
   "/transfers/:slug": {
     params: {
       "slug": string;
@@ -399,7 +402,7 @@ type Pages = {
 type RouteFiles = {
   "root.tsx": {
     id: "root";
-    page: "/" | "/de" | "/fr" | "/tr" | "/ru" | "/cs" | "/uk" | "/ur" | "/pl" | "/nl" | "/ar" | "/sv" | "/da" | "/el" | "/es" | "/he" | "/hu" | "/it" | "/ja" | "/ko" | "/pt" | "/ro" | "/zh" | "/health" | "/de/health" | "/fr/health" | "/tr/health" | "/ru/health" | "/cs/health" | "/uk/health" | "/ur/health" | "/pl/health" | "/nl/health" | "/ar/health" | "/sv/health" | "/da/health" | "/el/health" | "/es/health" | "/he/health" | "/hu/health" | "/it/health" | "/ja/health" | "/ko/health" | "/pt/health" | "/ro/health" | "/zh/health" | "/clinic" | "/transfers/:slug" | "/:language/transfers/:slug" | "/de/hotels/:hotelSlug" | "/impressum.html" | "/privacy" | "/de/datenschutz" | "/de/impressum" | "/tr/gizlilik" | "/tr/kunye" | "/ru/privacy" | "/ru/impressum" | "/cs/privacy" | "/cs/impressum" | "/uk/privacy" | "/uk/impressum" | "/ur/privacy" | "/ur/impressum" | "/ru/blog" | "/de/blog" | "/blog" | "/pl/blog" | "/uk/blog" | "/nl/blog" | "/cs/blog" | "/ro/blog" | "/tr/blog" | "/he/blog" | "/fr/blog" | "/sv/blog" | "/da/blog" | "/ar/blog" | "/hu/blog" | "/es/blog" | "/it/blog" | "/pt/blog" | "/el/blog" | "/zh/blog" | "/ko/blog" | "/ja/blog" | "/ur/blog" | "/ru/blog/:slug" | "/de/blog/:slug" | "/blog/:slug" | "/pl/blog/:slug" | "/uk/blog/:slug" | "/nl/blog/:slug" | "/cs/blog/:slug" | "/ro/blog/:slug" | "/tr/blog/:slug" | "/he/blog/:slug" | "/fr/blog/:slug" | "/sv/blog/:slug" | "/da/blog/:slug" | "/ar/blog/:slug" | "/hu/blog/:slug" | "/es/blog/:slug" | "/it/blog/:slug" | "/pt/blog/:slug" | "/el/blog/:slug" | "/zh/blog/:slug" | "/ko/blog/:slug" | "/ja/blog/:slug" | "/ur/blog/:slug";
+    page: "/" | "/de" | "/fr" | "/tr" | "/ru" | "/cs" | "/uk" | "/ur" | "/pl" | "/nl" | "/ar" | "/sv" | "/da" | "/el" | "/es" | "/he" | "/hu" | "/it" | "/ja" | "/ko" | "/pt" | "/ro" | "/zh" | "/health" | "/de/health" | "/fr/health" | "/tr/health" | "/ru/health" | "/cs/health" | "/uk/health" | "/ur/health" | "/pl/health" | "/nl/health" | "/ar/health" | "/sv/health" | "/da/health" | "/el/health" | "/es/health" | "/he/health" | "/hu/health" | "/it/health" | "/ja/health" | "/ko/health" | "/pt/health" | "/ro/health" | "/zh/health" | "/clinic" | "/b2b" | "/transfers/:slug" | "/:language/transfers/:slug" | "/de/hotels/:hotelSlug" | "/impressum.html" | "/privacy" | "/de/datenschutz" | "/de/impressum" | "/tr/gizlilik" | "/tr/kunye" | "/ru/privacy" | "/ru/impressum" | "/cs/privacy" | "/cs/impressum" | "/uk/privacy" | "/uk/impressum" | "/ur/privacy" | "/ur/impressum" | "/ru/blog" | "/de/blog" | "/blog" | "/pl/blog" | "/uk/blog" | "/nl/blog" | "/cs/blog" | "/ro/blog" | "/tr/blog" | "/he/blog" | "/fr/blog" | "/sv/blog" | "/da/blog" | "/ar/blog" | "/hu/blog" | "/es/blog" | "/it/blog" | "/pt/blog" | "/el/blog" | "/zh/blog" | "/ko/blog" | "/ja/blog" | "/ur/blog" | "/ru/blog/:slug" | "/de/blog/:slug" | "/blog/:slug" | "/pl/blog/:slug" | "/uk/blog/:slug" | "/nl/blog/:slug" | "/cs/blog/:slug" | "/ro/blog/:slug" | "/tr/blog/:slug" | "/he/blog/:slug" | "/fr/blog/:slug" | "/sv/blog/:slug" | "/da/blog/:slug" | "/ar/blog/:slug" | "/hu/blog/:slug" | "/es/blog/:slug" | "/it/blog/:slug" | "/pt/blog/:slug" | "/el/blog/:slug" | "/zh/blog/:slug" | "/ko/blog/:slug" | "/ja/blog/:slug" | "/ur/blog/:slug";
   };
   "./routes/home.tsx": {
     id: "home-en";
@@ -544,6 +547,10 @@ type RouteFiles = {
   "./routes/clinic.tsx": {
     id: "clinic-tr";
     page: "/clinic";
+  };
+  "./routes/b2b.tsx": {
+    id: "b2b-en";
+    page: "/b2b";
   };
   "./routes/transfer.tsx": {
     id: "transfer-en";
@@ -790,6 +797,7 @@ type RouteModules = {
   "health-ro": typeof import("./public-app/app/./routes/health.tsx");
   "health-zh": typeof import("./public-app/app/./routes/health.tsx");
   "clinic-tr": typeof import("./public-app/app/./routes/clinic.tsx");
+  "b2b-en": typeof import("./public-app/app/./routes/b2b.tsx");
   "transfer-en": typeof import("./public-app/app/./routes/transfer.tsx");
   "transfer-localized": typeof import("./public-app/app/./routes/transfer.tsx");
   "hotel-de": typeof import("./public-app/app/./routes/hotel.tsx");
