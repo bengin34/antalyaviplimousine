@@ -82,6 +82,20 @@ describe('BookingDetailPage per-leg confirmations', () => {
     await waitFor(() => expect(mocks.updates).toEqual([{ confirm_message_sent_at: expect.any(String) }]))
   })
 
+  test('the return view adds only the outbound confirmation and its own card does not clear the inbox', async () => {
+    installQueries(roundTrip)
+    const popup = { closed: false, opener: {}, document: { title: '', body: { textContent: '' } }, location: { replace: vi.fn() }, close: vi.fn() }
+    vi.spyOn(window, 'open').mockReturnValue(popup as unknown as Window)
+    render(<BookingDetailPage bookingRef="AVL-301" isReturn sourceTab="future" navigate={vi.fn()} />)
+    await screen.findByText(/Gidiş onayı gönder/)
+    expect(confirmButton(/Dönüş onayı gönder/)).toBeUndefined()
+    fireEvent.click(confirmButton(/^.?Dönüş onayı/)!)
+
+    await waitFor(() => expect(popup.location.replace).toHaveBeenCalledTimes(1))
+    await screen.findByText(/en güncel transfer/)
+    expect(mocks.updates).toEqual([])
+  })
+
   test('one-way bookings keep a single confirmation', async () => {
     installQueries({ ...roundTrip, trip_type: 'one_way', return_date: null } as Booking)
     render(<BookingDetailPage bookingRef="AVL-301" isReturn={false} sourceTab="future" navigate={vi.fn()} />)

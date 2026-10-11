@@ -416,14 +416,11 @@ export default function BookingDetailPage({ bookingRef, isReturn, sourceTab, pro
       group: 'Talep',
     },
     // Gidiş-dönüşte her ayak ayrıca onaylanabilir: örneğin dönüş saati sonradan
-    // netleşince yalnız o ayağın onayı gönderilir. Dönüş görünümünde birleşik
+    // netleşince yalnız o ayağın onayı gönderilir. Dönüş görünümünde yukarıdaki
     // kart zaten dönüş onayı olduğu için yalnız gidiş eklenir.
-    ...(roundTrip && booking.return_date && !isReturn ? [
+    ...(roundTrip && booking.return_date ? [
       { kind: 'confirmOutbound' as TemplateKind, icon: '🛫', title: 'Gidiş onayı gönder', hint: 'Yalnız gidiş transferinin detayları', group: 'Talep' },
-      { kind: 'confirmReturn' as TemplateKind, icon: '🛬', title: 'Dönüş onayı gönder', hint: 'Yalnız dönüş transferinin detayları', group: 'Talep' },
-    ] : []),
-    ...(roundTrip && isReturn ? [
-      { kind: 'confirmOutbound' as TemplateKind, icon: '🛫', title: 'Gidiş onayı gönder', hint: 'Yalnız gidiş transferinin detayları', group: 'Talep' },
+      ...(isReturn ? [] : [{ kind: 'confirmReturn' as TemplateKind, icon: '🛬', title: 'Dönüş onayı gönder', hint: 'Yalnız dönüş transferinin detayları', group: 'Talep' }]),
     ] : []),
     { kind: 'reminder', icon: '⏰', title: roundTrip ? (isReturn ? 'Dönüş hatırlatması' : 'Gidiş hatırlatması') : 'Transfer hatırlatması', hint: 'Transferden önce sürücü, plaka ve harita', group: 'Transfer günü' },
     ...(arrivalLeg ? [{ kind: 'meetGreet' as TemplateKind, icon: '🤝', title: 'Karşılama bilgisi', hint: 'Buluşma noktası ve alternatif hızlı seçenek', group: 'Transfer günü' }] : []),
