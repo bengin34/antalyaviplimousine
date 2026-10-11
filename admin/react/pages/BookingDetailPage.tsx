@@ -21,7 +21,7 @@ const STATUS_TRANSITIONS: Record<string, BookingStatus[]> = {
 }
 const STATUS_COLORS: Record<string, string> = { pending: 'orange', paid: 'green', confirmed: 'green', in_transit: 'blue', completed: '', cancelled: 'red' }
 
-type TemplateKind = 'confirm' | 'reminder' | 'received' | 'meetGreet' | 'review'
+type TemplateKind = 'confirm' | 'confirmOutbound' | 'confirmReturn' | 'reminder' | 'received' | 'meetGreet' | 'review'
 
 // Flags for the WhatsApp language picker. Names stay in LANGUAGE_OPTIONS so the
 // picker and the booking form can never drift apart.
@@ -415,6 +415,13 @@ export default function BookingDetailPage({ bookingRef, isReturn, sourceTab, pro
       hint: booking.confirm_message_sent_at ? `✓ Gönderildi · ${fmtSentAt(booking.confirm_message_sent_at)}` : roundTrip && !isReturn ? 'İki ayağın detayı tek mesajda' : 'Fiyat ve transfer detaylarıyla onay',
       group: 'Talep',
     },
+    // Gidiş-dönüşte her ayak ayrıca onaylanabilir: örneğin dönüş saati sonradan
+    // netleşince yalnız o ayağın onayı gönderilir. Dönüş görünümünde yukarıdaki
+    // kart zaten dönüş onayı olduğu için yalnız gidiş eklenir.
+    ...(roundTrip && booking.return_date ? [
+      { kind: 'confirmOutbound' as TemplateKind, icon: '🛫', title: 'Gidiş onayı gönder', hint: 'Yalnız gidiş transferinin detayları', group: 'Talep' },
+      ...(isReturn ? [] : [{ kind: 'confirmReturn' as TemplateKind, icon: '🛬', title: 'Dönüş onayı gönder', hint: 'Yalnız dönüş transferinin detayları', group: 'Talep' }]),
+    ] : []),
     { kind: 'reminder', icon: '⏰', title: roundTrip ? (isReturn ? 'Dönüş hatırlatması' : 'Gidiş hatırlatması') : 'Transfer hatırlatması', hint: 'Transferden önce sürücü, plaka ve harita', group: 'Transfer günü' },
     ...(arrivalLeg ? [{ kind: 'meetGreet' as TemplateKind, icon: '🤝', title: 'Karşılama bilgisi', hint: 'Buluşma noktası ve alternatif hızlı seçenek', group: 'Transfer günü' }] : []),
     { kind: 'review', icon: '⭐', title: 'Yorum iste', hint: 'Transfer tamamlandıktan sonra', group: 'Transfer sonrası' },
@@ -430,6 +437,8 @@ export default function BookingDetailPage({ bookingRef, isReturn, sourceTab, pro
   const buildMessage = (source: Booking, kind: TemplateKind, language: string) => {
     const leg = isReturn ? 'return' : 'outbound'
     if (kind === 'confirm') return buildConfirmMessage(source, { leg: isReturn ? 'return' : 'both', language })
+    if (kind === 'confirmOutbound') return buildConfirmMessage(source, { leg: 'outbound', language })
+    if (kind === 'confirmReturn') return buildConfirmMessage(source, { leg: 'return', language })
     if (kind === 'reminder') return buildReminderMessage(source, { leg, language })
     if (kind === 'received') return buildReceivedMessage(source, { language })
     if (kind === 'meetGreet') return buildMeetGreetMessage(source, { language })
@@ -471,7 +480,10 @@ export default function BookingDetailPage({ bookingRef, isReturn, sourceTab, pro
     popup.location.replace(whatsappURL(latest.customer_phone, message))
     setTemplateState({ loading: '', success: `Mesaj ${languageName(resolveLanguage(latest))} dilinde, en güncel transfer ve adres bilgileriyle hazırlandı.`, error: '' })
     // Kontrol ve onay mesajları "Yeni" sekmesini besler: gönderim anı kaydedilir.
-    const trackedKind = kind === 'received' ? 'check' : kind === 'confirm' ? 'confirm' : null
+    // Yalnız dönüş ayağının onayı rezervasyonu Yeni'den çıkarmaz: gidiş hâlâ
+    // onaylanmamış olabilir. Dönüş görünümündeki 'confirm' de yalnız dönüştür.
+    const returnOnlyConfirm = kind === 'confirmReturn' || (kind === 'confirm' && roundTrip && isReturn)
+    const trackedKind = kind === 'received' ? 'check' : (kind === 'confirm' || kind === 'confirmOutbound') && !returnOnlyConfirm ? 'confirm' : null
     if (trackedKind) {
       const { sentAt, error: trackError } = await markCustomerMessageSent(latest, trackedKind)
       const column = trackedKind === 'check' ? 'check_message_sent_at' : 'confirm_message_sent_at'
