@@ -96,7 +96,7 @@ describe("LandOfLegendsPage", () => {
       dropoff_location: "land_of_legends",
       hotel_name: "Delphin Imperial Lara",
       excursion_region: "antalya",
-      pickup_time: "09:30",
+      pickup_time: "08:45", // suggested from the ~54 min drive from Antalya
       return_pickup_time: "22:30",
       vehicle_type: "vito",
       guests: 2,
@@ -104,6 +104,10 @@ describe("LandOfLegendsPage", () => {
     });
     expect(payload.return_date).toBe(payload.pickup_date);
     expect(container.querySelector(".lol-confirmation")).toHaveTextContent("Your Land of Legends transfer is booked");
+    expect(container.querySelector(".lol-summary-list")).toHaveTextContent("€105");
+    expect(container.querySelector(".lol-summary-list")).toHaveTextContent("Main entrance car park");
+    expect(container.querySelector(".lol-confirmation")).toHaveTextContent("Park tickets not included");
+    expect(document.activeElement?.tagName).toBe("H3");
   });
 
   test("still books an unplaced hotel and promises a WhatsApp quote", async () => {
@@ -117,4 +121,46 @@ describe("LandOfLegendsPage", () => {
     await waitFor(() => expect(createBooking.mock.calls[0][0].excursion_region).toBeNull());
     expect(container.querySelector(".lol-confirmation")).toHaveTextContent("WhatsApp'tan onaylayacağız");
   });
+
+  test("prices a hotel typed in full without tapping a suggestion", () => {
+    const { container } = renderPage();
+    fireEvent.change(container.querySelector("#lol-hotel")!, { target: { value: "barut acanthus & cennet" } });
+    expect(container.querySelector(".lol-summary strong")).toHaveTextContent("€115");
+  });
+
+  test("suggests an earlier pick-up for a far-away hotel and shows the drive time", () => {
+    const { container } = renderPage();
+    pickHotel(container, "Barut Acanthus & Cennet");
+    expect(container.querySelector<HTMLInputElement>("#lol-departure")!.value).toBe("08:45");
+    expect(container.querySelector("#lol-departure")!.closest("label")).toHaveTextContent("About 60 min drive from Side");
+  });
+
+  test("keeps a pick-up time the guest set themselves", () => {
+    const { container } = renderPage();
+    fireEvent.change(container.querySelector("#lol-departure")!, { target: { value: "11:00" } });
+    pickHotel(container, "Barut Acanthus & Cennet");
+    expect(container.querySelector<HTMLInputElement>("#lol-departure")!.value).toBe("11:00");
+  });
+
+  test("an area without a fixed rate says so instead of claiming the hotel is unknown", () => {
+    const { container } = renderPage();
+    pickHotel(container, "Dantel Pansiyon");
+    expect(container.querySelector("#lol-hotel-status")).toHaveTextContent("priced on request");
+    expect(container.querySelector(".lol-summary strong")).toHaveTextContent("Price confirmed on WhatsApp");
+  });
+
+  test("goes back to the Vito when the group shrinks again, and says why it upgraded", () => {
+    const { container } = renderPage();
+    fireEvent.change(container.querySelector("#lol-guests")!, { target: { value: "8" } });
+    expect(container.querySelector("#lol-vehicle")!.closest("label")).toHaveTextContent("We selected the Sprinter for 8 guests.");
+    fireEvent.change(container.querySelector("#lol-guests")!, { target: { value: "4" } });
+    expect(container.querySelector<HTMLSelectElement>("#lol-vehicle")!.value).toBe("vito");
+  });
+
+  test("names tickets and the meeting point before the guest books", () => {
+    const { container } = renderPage("de");
+    expect(container.querySelector(".lol-summary")).toHaveTextContent("Parktickets nicht enthalten");
+    expect(container.querySelector(".lol-summary")).toHaveTextContent("Parkplatz am Haupteingang");
+  });
+
 });

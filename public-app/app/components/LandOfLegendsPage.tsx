@@ -13,7 +13,7 @@ import {
   landOfLegendsQuote,
   type LandOfLegendsLiveRates,
 } from "../lib/land-of-legends";
-import { landOfLegendsCopy, type LandOfLegendsLanguage } from "../lib/land-of-legends-copy";
+import { landOfLegendsCopy, landOfLegendsRegionName, type LandOfLegendsLanguage } from "../lib/land-of-legends-copy";
 import { track } from "../lib/track";
 
 /**
@@ -34,11 +34,7 @@ export function LandOfLegendsPage({ language }: { language: LandOfLegendsLanguag
     track("landing_view", { route: "land_of_legends" });
   }, []);
 
-  const regionName = (region: string) => {
-    const route = routeCatalog[region as keyof typeof routeCatalog];
-    if (!route) return region;
-    return (route.names as Record<string, string>)[language] ?? route.names.en;
-  };
+  const regionName = (slug: string) => landOfLegendsRegionName(slug, language, routeCatalog as unknown as Parameters<typeof landOfLegendsRegionName>[2]);
   const rateFor = (region: string, vehicle: "vito" | "sprinter") =>
     landOfLegendsQuote(region, vehicle, liveRates);
 
@@ -63,7 +59,12 @@ export function LandOfLegendsPage({ language }: { language: LandOfLegendsLanguag
           <ul className="lol-highlights">
             {copy.highlights.map((item) => <li key={item}><Icon name="check" className="icon" />{item}</li>)}
           </ul>
-          <a className="quote-submit lol-hero-cta" href="#lol-booking"><span>{copy.bookNow}</span><Icon name="arrow-right" className="icon" /></a>
+          <div className="lol-hero-actions">
+            <a className="quote-submit lol-hero-cta" href="#lol-booking"><span>{copy.bookNow}</span><Icon name="arrow-right" className="icon" /></a>
+            <a className="lol-hero-whatsapp" href={`https://wa.me/905302655790?text=${encodeURIComponent("The Land of Legends transfer — question")}`} target="_blank" rel="noreferrer" onClick={() => track("whatsapp_clicked", { route: "land_of_legends", source: "hero" })}>
+              <Icon name="whatsapp" className="icon" /><span>{copy.askWhatsapp}</span>
+            </a>
+          </div>
         </section>
 
         <div className="lol-content">

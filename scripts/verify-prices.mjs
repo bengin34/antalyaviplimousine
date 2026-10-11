@@ -60,10 +60,12 @@ for (const [label, matrix] of Object.entries(matrices)) {
 // booking differently from the quote the guest accepted.
 const landOfLegendsRowPattern =
   /\('(\w+)',\s*'(vito|vclass)',\s*(\d+(?:\.\d+)?)\)/g;
-const landOfLegendsMigrations = migrationFiles.filter((file) => /land_of_legends/.test(path.basename(file)));
+// Every migration that writes the table counts, whatever it is named, in
+// order — so a later price change migration supersedes the seed.
 const landOfLegendsDatabase = new Map();
-for (const file of landOfLegendsMigrations) {
+for (const file of migrationFiles) {
   const sql = await readFile(file, "utf8");
+  if (!/land_of_legends_rates/.test(sql)) continue;
   for (const [, region, databaseVehicle, price] of sql.matchAll(landOfLegendsRowPattern)) {
     landOfLegendsDatabase.set(`${region}:${databaseVehicle === "vclass" ? "sprinter" : "vito"}`, Number(price));
   }

@@ -87,5 +87,8 @@ Ambiguous across a price boundary → file under the dearer region (rule in
 
 ## Finish
 
-`npm test`, then report what changed and the € impact per hotel (`euroDelta`
+Any index change also moves server-side Land of Legends pricing: run
+`npm run generate:hotel-regions` and commit
+`supabase/functions/_shared/hotel-regions.generated.ts` (redeploy
+`create-booking` for it to take effect). Then `npm test`, then report what changed and the € impact per hotel (`euroDelta`
 in `report.json`).

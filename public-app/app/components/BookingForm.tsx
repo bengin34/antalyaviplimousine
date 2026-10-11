@@ -883,7 +883,7 @@ export function BookingForm({
         </form>
         {excursion && (
           <div className="booking-card lol-inline-card">
-            <LandOfLegendsForm language={excursionLanguage} />
+            <LandOfLegendsForm language={excursionLanguage} phoneCountry={DEFAULT_PHONE_COUNTRY[language as LanguageCode]} />
           </div>
         )}
       </div>

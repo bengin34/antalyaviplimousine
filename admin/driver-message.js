@@ -1,9 +1,11 @@
 import { isReturnJourney, locationLabel } from './turkish-formatters.js'
 import { recommendedAirportPickup } from '../src/airport-pickup.js'
+import { landOfLegendsMeetingPoint } from '../src/land-of-legends.js'
 
 const DRIVER_PHONE = '905056565790'
 
 const RETURN_JOURNEY_LABEL = '🔁 *DÖNÜŞ SEYAHATİ*'
+const LAND_OF_LEGENDS_RETURN_LABEL = '🎢 *LAND OF LEGENDS DÖNÜŞÜ — misafirleri parktan al*'
 
 export function driverWhatsappURL(message) {
   return `https://wa.me/${DRIVER_PHONE}?text=${encodeURIComponent(message)}`
@@ -39,6 +41,9 @@ function paymentLabel(method) {
 }
 
 function locationDisplay(loc, addr, hotelName) {
+  if (String(loc ?? '').trim() === 'land_of_legends') {
+    return `The Land of Legends — buluşma: ${landOfLegendsMeetingPoint.tr}`
+  }
   if (addr && String(addr).trim()) return String(addr).trim()
   const normalizedLoc = String(loc ?? '').trim().toLocaleLowerCase('tr-TR')
   if (normalizedLoc !== 'airport' && hotelName && String(hotelName).trim().toLocaleLowerCase('tr-TR') !== 'belirtilmedi') {
@@ -102,6 +107,7 @@ function transferBlock(booking, leg = 'outbound') {
   const pickup = locationLabel(route.pickup)
   const dropoff = locationLabel(route.dropoff)
 
+  const isLandOfLegends = booking.trip_type === 'land_of_legends'
   const price = booking.trip_type === 'round_trip'
     ? (Number(booking.price_eur) || 0) / 2
     : Number(booking.price_eur) || 0
@@ -140,7 +146,13 @@ function transferBlock(booking, leg = 'outbound') {
   if (strollers > 0) lines.push(`👶 Bebek arabası: ${strollers} adet`)
   if (childSeats > 0) lines.push(`🪑 Çocuk koltuğu: ${childSeats} adet`)
 
-  lines.push(`💳 ${paymentLabel(booking.payment_method)} · €${fmtPrice(price)}`)
+  if (isLandOfLegends && !isReturn) {
+    lines.push(`🎢 Parktan dönüş alışı: ${fmtTime(booking.return_pickup_time)} · şoför parkta bekler`)
+  }
+  // The excursion is one fare for the whole day; the ride back carries none of its own.
+  lines.push(isLandOfLegends && isReturn
+    ? `💳 Ücret sabah gidişte tahsil edilir (toplam €${fmtPrice(price)})`
+    : `💳 ${paymentLabel(booking.payment_method)} · €${fmtPrice(price)}`)
   lines.push(`📍 Alış: ${pickupDisplay(booking, isReturn)}`)
   lines.push(`📍 Varış: ${dropoffDisplay(booking, isReturn)}`)
 
@@ -170,7 +182,11 @@ export function buildDriverTransferMessage(booking) {
       '',
       '*THE LAND OF LEGENDS — GİDİŞ + BEKLEME + DÖNÜŞ*',
       transferBlock(b, 'outbound'),
-      `🎢 Parktan dönüş alışı: ${fmtTime(b.return_pickup_time)} · şoför parkta bekler`,
+      '',
+      '━━━━━━━━━━━━━━',
+      '',
+      LAND_OF_LEGENDS_RETURN_LABEL,
+      transferBlock(b, 'return'),
     ].join('\n')
   }
 
@@ -227,7 +243,8 @@ export function buildDriverDailyProgram(cards, date) {
     lines.push('')
     lines.push('━━━━━━━━━━━━━━')
     lines.push(`${num}  ${fmtTime(legStartTime(card))} · ${locationLabel(route.pickup)} → ${locationLabel(route.dropoff)}`)
-    if (isReturnJourney(card)) lines.push(RETURN_JOURNEY_LABEL)
+    if (isReturn && booking.trip_type === 'land_of_legends') lines.push(LAND_OF_LEGENDS_RETURN_LABEL)
+    else if (isReturnJourney(card)) lines.push(RETURN_JOURNEY_LABEL)
     lines.push('━━━━━━━━━━━━━━')
     lines.push(transferBlock(legBooking, isReturn ? 'return' : 'outbound'))
   })

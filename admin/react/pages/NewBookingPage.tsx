@@ -117,7 +117,9 @@ export function validateBookingForm(form: BookingFormState) {
     if (!/^([01]\d|2[0-3]):[0-5]\d$/.test(form.returnTime)) return fail('Geçerli bir dönüş saati girin.')
     if (form.returnFlightTime && !/^([01]\d|2[0-3]):[0-5]\d$/.test(form.returnFlightTime)) return fail('Geçerli bir dönüş uçuşu kalkış saati girin.')
   }
+  if (!isDailyChauffeur && !dropoff) return fail('Varış noktasını seçin.')
   if (isLandOfLegends) {
+    if (form.pickup !== 'hotel') return fail('Land of Legends gezisinde alış noktası otel olmalı.')
     if (isSoldTransfer) return fail('Land of Legends gezisi satılan transfer olarak işaretlenemez.')
     if (!/^([01]\d|2[0-3]):[0-5]\d$/.test(form.pickupTime)) return fail('Otelden alış saatini girin.')
     if (!/^([01]\d|2[0-3]):[0-5]\d$/.test(form.returnTime) || form.returnTime <= form.pickupTime) return fail('Parktan dönüş saati otelden alış saatinden sonra olmalı.')
@@ -183,12 +185,16 @@ export default function NewBookingPage({ navigate }: { navigate: Navigate }) {
   const onTripTypeChange = (tripType: string) => setForm(current => ({
     ...current,
     tripType,
-    costMode: tripType === 'daily_chauffeur' ? 'own_vehicle' : current.costMode,
     soldTransferCostTry: tripType === 'daily_chauffeur' ? '' : current.soldTransferCostTry,
     returnCostMode: tripType === 'round_trip' ? current.returnCostMode : 'own_vehicle',
     returnSoldTransferCostTry: tripType === 'round_trip' ? current.returnSoldTransferCostTry : '',
     price: tripType === 'daily_chauffeur' && !current.price ? '150' : current.price,
     serviceEndDate: tripType === 'daily_chauffeur' && current.serviceEndDate < current.pickupDate ? current.pickupDate : current.serviceEndDate,
+    // The excursion always starts at the guest's hotel and cannot be sold on.
+    pickup: tripType === 'land_of_legends' ? 'hotel' : current.pickup,
+    costMode: tripType === 'land_of_legends' && current.costMode === 'sold_transfer' ? 'own_vehicle' : tripType === 'daily_chauffeur' ? 'own_vehicle' : current.costMode,
+    // Leaving the excursion must not leave its fixed drop-off behind.
+    dropoff: tripType !== 'land_of_legends' && current.dropoff === 'land_of_legends' ? '' : current.dropoff,
   }))
 
   const submit = async (event: FormEvent) => {
@@ -223,7 +229,7 @@ export default function NewBookingPage({ navigate }: { navigate: Navigate }) {
           <Field label="Sefer türü"><select className="input" value={form.tripType} onChange={e => onTripTypeChange(e.target.value)}><option value="one_way">Tek yön</option><option value="round_trip">Gidiş-dönüş</option><option value="daily_chauffeur">Günlük araç + şoför</option><option value="land_of_legends">The Land of Legends (bekleme dahil)</option></select></Field>
           <div className="form-row">
             <Field label="Alış *"><select className="input" value={form.pickup} onChange={e => set('pickup', e.target.value)}>{optionList}</select></Field>
-            {!isDailyChauffeur && !isLandOfLegends && <Field label="Varış *"><select className="input" value={form.dropoff} onChange={e => set('dropoff', e.target.value)}>{optionList}</select></Field>}
+            {!isDailyChauffeur && !isLandOfLegends && <Field label="Varış *"><select className="input" value={form.dropoff} onChange={e => set('dropoff', e.target.value)}><option value="" disabled>Seçin</option>{optionList}</select></Field>}
           </div>
           {(form.pickup === 'private_address' || (!isDailyChauffeur && form.dropoff === 'private_address')) && <div className="form-row">
             {form.pickup === 'private_address' && <Field label="Alış özel adresi *"><input className="input" maxLength={160} autoComplete="street-address" placeholder="Açık adresi girin" value={form.pickupAddress} onChange={e => set('pickupAddress', e.target.value)} required /></Field>}

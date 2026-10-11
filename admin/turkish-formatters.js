@@ -1,4 +1,5 @@
 import { turkishLocationNames as LOCATION_LABELS } from '../src/routes.js'
+import { LAND_OF_LEGENDS_PARK_ADDRESS } from '../src/land-of-legends.js'
 
 const ISTANBUL_TIME_ZONE = 'Europe/Istanbul'
 
@@ -22,6 +23,9 @@ export function locationDisplay(value, address) {
 }
 
 export function navigationPoint(value, address, hotelName = '') {
+  // The park is a fixed place: never the guest's hotel name in front of it.
+  if (String(value ?? '').trim().toLocaleLowerCase('tr-TR') === 'land_of_legends') return LAND_OF_LEGENDS_PARK_ADDRESS
+
   const normalizedAddress = String(address ?? '').trim().replace(/\s+/g, ' ')
   if (normalizedAddress) return normalizedAddress
 

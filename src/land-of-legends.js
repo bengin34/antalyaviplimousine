@@ -26,10 +26,16 @@ export const LAND_OF_LEGENDS_FIXED_EUR = 50;
 export const LAND_OF_LEGENDS_EUR_PER_KM = 0.7;
 export const LAND_OF_LEGENDS_SPRINTER_UPLIFT = 1.4;
 
-/** Latest pick-up at the park for the ride back; covers the evening show. */
-export const LAND_OF_LEGENDS_LATEST_RETURN = "23:30";
-/** A visit shorter than this is not worth the trip and is almost always a typo. */
-export const LAND_OF_LEGENDS_MIN_VISIT_HOURS = 2;
+// Time and notice rules live with the edge function so both sides share them.
+export {
+  LAND_OF_LEGENDS_CONFIRM_NOTICE_HOURS,
+  LAND_OF_LEGENDS_LATEST_RETURN,
+  LAND_OF_LEGENDS_MIN_NOTICE_HOURS,
+  LAND_OF_LEGENDS_MIN_VISIT_HOURS,
+  isValidLandOfLegendsVisit,
+  landOfLegendsNotice,
+  turkeyToday,
+} from "../supabase/functions/_shared/land-of-legends-rules.js";
 
 /**
  * One-way km from each pricing region to The Land of Legends. Where a region
@@ -92,20 +98,22 @@ export const landOfLegendsFromPrice = Math.min(
   ...Object.values(landOfLegendsRates).map((rate) => rate.vito),
 );
 
-const toMinutes = (time) => {
-  const match = /^([01]\d|2[0-3]):([0-5]\d)$/.exec(String(time ?? ""));
-  return match ? Number(match[1]) * 60 + Number(match[2]) : null;
-};
+/** Rough driving minutes from a region to the park (≈ 1 min/km plus town traffic). */
+export function landOfLegendsDriveMinutes(region) {
+  const km = landOfLegendsZoneKm[/** @type {keyof typeof landOfLegendsZoneKm} */ (region)];
+  return km ? Math.round(km * 1.1 + 10) : null;
+}
+
+/** Where drivers navigate to; never prefixed with the guest's hotel. */
+export const LAND_OF_LEGENDS_PARK_ADDRESS = "The Land of Legends, Kadriye, Serik, Antalya, Türkiye";
 
 /**
- * Whether a hotel departure and park pick-up form a valid same-day visit:
- * the return at least {@link LAND_OF_LEGENDS_MIN_VISIT_HOURS} after leaving,
- * and no later than {@link LAND_OF_LEGENDS_LATEST_RETURN}.
+ * Where the driver waits for the ride back. One place to change it: the
+ * booking page, confirmation, guest WhatsApp and driver messages all read it.
  */
-export function isValidLandOfLegendsVisit(departureTime, returnTime) {
-  const departure = toMinutes(departureTime);
-  const back = toMinutes(returnTime);
-  const latest = /** @type {number} */ (toMinutes(LAND_OF_LEGENDS_LATEST_RETURN));
-  if (departure == null || back == null) return false;
-  return back - departure >= LAND_OF_LEGENDS_MIN_VISIT_HOURS * 60 && back <= latest;
-}
+export const landOfLegendsMeetingPoint = Object.freeze({
+  tr: "Ana giriş otoparkı",
+  en: "Main entrance car park",
+  de: "Parkplatz am Haupteingang",
+  ru: "Парковка у главного входа",
+});

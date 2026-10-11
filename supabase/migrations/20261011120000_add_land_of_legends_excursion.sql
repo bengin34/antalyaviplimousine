@@ -9,7 +9,10 @@
 -- `npm run check:prices` ile eşleştirilir. Bölge, misafirin seçtiği otelin
 -- fiyat bölgesidir (hotel-index). Tabloda olmayan bölge (Kaş vb.) elle fiyatlanır.
 --
--- Salt eklemeli; create-booking fonksiyonunun yeni sürümünden ÖNCE uygulanmalı.
+-- Salt eklemeli ve tekrar çalıştırılabilir. Yayın sırası:
+--   1) bu migration, 2) create-booking fonksiyonu, 3) site (main'e merge).
+-- Site önce yayına girerse yeni formdan gelen rezervasyonlar eski fonksiyonda
+-- "trip_type is invalid" hatası alır.
 
 CREATE TABLE IF NOT EXISTS land_of_legends_rates (
   region_slug  TEXT NOT NULL,
@@ -54,9 +57,11 @@ ON CONFLICT (region_slug, vehicle_type) DO UPDATE SET price_eur = EXCLUDED.price
 
 ALTER TABLE land_of_legends_rates ENABLE ROW LEVEL SECURITY;
 GRANT SELECT ON land_of_legends_rates TO anon, authenticated, service_role;
+DROP POLICY IF EXISTS "public_read_land_of_legends_rates" ON land_of_legends_rates;
 CREATE POLICY "public_read_land_of_legends_rates" ON land_of_legends_rates
   FOR SELECT TO anon, authenticated USING (true);
 GRANT UPDATE (price_eur, updated_at) ON land_of_legends_rates TO authenticated;
+DROP POLICY IF EXISTS "admin_update_land_of_legends_rates" ON land_of_legends_rates;
 CREATE POLICY "admin_update_land_of_legends_rates" ON land_of_legends_rates
   FOR UPDATE TO authenticated USING (public.is_admin()) WITH CHECK (public.is_admin());
 

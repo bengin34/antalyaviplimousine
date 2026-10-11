@@ -2,7 +2,9 @@ import { parsePhoneNumberFromString } from "libphonenumber-js";
 import { z } from "zod";
 import {
   isValidLandOfLegendsVisit,
+  landOfLegendsNotice,
   landOfLegendsPrice,
+  turkeyToday,
 } from "../../../src/land-of-legends.js";
 import { currentAttribution, type Attribution } from "./attribution";
 import { sprinterFits, vitoFits, VITO_MAX_GUESTS, SPRINTER_MAX_GUESTS } from "./booking";
@@ -23,6 +25,7 @@ export type LandOfLegendsErrors = {
   date: string;
   time: string;
   visit: string;
+  tooSoon: string;
   guests: string;
   childAge: string;
   name: string;
@@ -47,8 +50,8 @@ export function createLandOfLegendsSchema(errors: LandOfLegendsErrors) {
     customerEmail: z.string(),
     notes: z.string().default(""),
   }).superRefine((values, context) => {
-    const today = new Date();
-    const localToday = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, "0")}-${String(today.getDate()).padStart(2, "0")}`;
+    // Turkey's date and clock decide, not the visitor's: the trip happens there.
+    const localToday = turkeyToday();
     const hotel = normalize(values.hotelName);
     if (hotel.length < 2 || hotel.length > 120) context.addIssue({ code: "custom", path: ["hotelName"], message: errors.hotel });
     if (!/^\d{4}-\d{2}-\d{2}$/.test(values.travelDate) || values.travelDate < localToday) {
@@ -59,6 +62,9 @@ export function createLandOfLegendsSchema(errors: LandOfLegendsErrors) {
     else if (values.departureTime && !isValidLandOfLegendsVisit(values.departureTime, values.returnTime)) {
       context.addIssue({ code: "custom", path: ["returnTime"], message: errors.visit });
     }
+    if (values.travelDate >= localToday && values.departureTime && landOfLegendsNotice(values.travelDate, values.departureTime) === "too_soon") {
+      context.addIssue({ code: "custom", path: ["departureTime"], message: errors.tooSoon });
+    }
 
     const guests = Number(values.guests);
     const strollers = Number(values.strollers) || 0;
@@ -68,6 +74,7 @@ export function createLandOfLegendsSchema(errors: LandOfLegendsErrors) {
     if (!Number.isInteger(guests) || guests < 1 || !fits) context.addIssue({ code: "custom", path: ["guests"], message: errors.guests });
 
     const childSeats = Number(values.childSeats);
+    if (childSeats > guests) context.addIssue({ code: "custom", path: ["childSeats"], message: errors.guests });
     for (let i = 0; i < childSeats; i++) {
       const raw = values.childAges?.[i];
       const age = Number(raw);
@@ -96,16 +103,16 @@ export type LandOfLegendsValues = z.input<ReturnType<typeof createLandOfLegendsS
 /**
  * Fixed price for the guest's hotel region, or null when the region has no
  * fixed rate (or the guest typed a hotel we could not place) and the operator
- * quotes it. A live admin price wins over the built-in tariff.
+ * quotes it. A live admin price wins over the built-in tariff — including for
+ * a region the built-in tariff does not price, since the server charges it.
  */
 export function landOfLegendsQuote(
   region: string,
   vehicle: LandOfLegendsVehicle,
   live: LandOfLegendsLiveRates = {},
 ): number | null {
-  const builtIn = landOfLegendsPrice(region, vehicle);
-  if (builtIn == null) return null;
-  return live[`${region}:${vehicle}`] ?? builtIn;
+  if (!region) return null;
+  return live[`${region}:${vehicle}`] ?? landOfLegendsPrice(region, vehicle) ?? null;
 }
 
 /** The smallest vehicle that carries the party; null when neither does. */
@@ -163,4 +170,26 @@ export function buildLandOfLegendsPayload(
     payment_method: "cash",
     language,
   };
+}
+
+/** `YYYY-MM-DD` shifted by whole days; calendar arithmetic, no time zone involved. */
+export function addDays(date: string, days: number) {
+  const at = Date.parse(`${date}T12:00:00Z`);
+  return Number.isFinite(at) ? new Date(at + days * 86_400_000).toISOString().slice(0, 10) : date;
+}
+
+/**
+ * Hotel pick-up that reaches the park about 15 minutes before it opens at
+ * 10:00, given the drive from the guest's area; rounded down to 15 minutes and
+ * never earlier than 07:00. Null when the drive is unknown.
+ */
+export function suggestedDeparture(driveMinutes: number | null) {
+  if (driveMinutes == null) return null;
+  const minutes = Math.max(7 * 60, Math.floor((10 * 60 - 15 - driveMinutes) / 15) * 15);
+  return `${String(Math.floor(minutes / 60)).padStart(2, "0")}:${String(minutes % 60).padStart(2, "0")}`;
+}
+
+/** The message for a failed submit: the server's notice refusal gets its own explanation. */
+export function submitErrorMessage(error: unknown, messages: { tooSoon: string; generic: string }) {
+  return error instanceof Error && error.message.includes("pickup_too_soon") ? messages.tooSoon : messages.generic;
 }

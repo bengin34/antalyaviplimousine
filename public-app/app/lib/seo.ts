@@ -484,6 +484,11 @@ export function landOfLegendsMeta(language: LandOfLegendsLanguage) {
       areaServed: { "@type": "Place", name: "Antalya" },
       offers: { "@type": "AggregateOffer", priceCurrency: "EUR", lowPrice: String(Math.min(...prices)), highPrice: String(Math.max(...prices)) },
     } },
+    { "script:ld+json": {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: copy.faq.map(([question, answer]) => ({ "@type": "Question", name: question, acceptedAnswer: { "@type": "Answer", text: answer } })),
+    } },
   ];
 }
 

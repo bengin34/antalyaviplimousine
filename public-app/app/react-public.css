@@ -612,7 +612,7 @@ summary:focus-visible,
 
 
 /* Inside the dark main booking shell. */
-.lol-inline-card .lol-hint { color: rgba(255, 255, 255, 0.45); }
+
 .lol-inline-card .lol-hotel-status { color: var(--gold-light); }
 .lol-inline-card .lol-summary { background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(200, 169, 106, 0.25); }
 .lol-inline-card .lol-summary small,
@@ -622,3 +622,25 @@ summary:focus-visible,
 .lol-inline-card .lol-confirmation h3,
 .lol-inline-card .lol-reference strong { color: var(--white); }
 .lol-inline-card .lol-confirmation p { color: rgba(255, 255, 255, 0.7); }
+
+.lol-summary-notes { margin: 0; padding: 0 0 0 18px; color: var(--muted); font-size: 0.88rem; line-height: 1.6; }
+.lol-short-notice { color: var(--gold-dark); font-weight: 600; }
+.lol-form-footer { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 20px; }
+.lol-ask-link { display: inline-flex; align-items: center; gap: 6px; color: var(--gold-dark); font-size: 0.9rem; text-decoration: underline; }
+.lol-ask-link .icon { width: 16px; height: 16px; }
+.lol-summary-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 10px 20px; margin: 16px 0; }
+.lol-summary-list div { display: flex; flex-direction: column; gap: 2px; }
+.lol-summary-list dt { color: var(--muted); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.05em; }
+.lol-summary-list dd { margin: 0; color: var(--ink); font-weight: 600; }
+.lol-tickets-note { font-weight: 600; }
+.lol-confirmation h3:focus { outline: none; }
+@media (min-width: 900px) {
+  .lol-form .lol-options-row { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+.lol-inline-card .lol-hint { color: rgba(255, 255, 255, 0.62); }
+.lol-inline-card .lol-summary-notes { color: rgba(255, 255, 255, 0.65); }
+.lol-inline-card .lol-short-notice,
+.lol-inline-card .lol-ask-link { color: var(--gold-light); }
+.lol-inline-card .lol-summary-list dt { color: rgba(255, 255, 255, 0.55); }
+.lol-inline-card .lol-summary-list dd,
+.lol-inline-card .lol-tickets-note { color: var(--white); }

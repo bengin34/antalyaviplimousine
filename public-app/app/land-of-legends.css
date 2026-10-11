@@ -40,6 +40,9 @@
 .lol-highlights li { display: inline-flex; align-items: center; gap: 8px; }
 .lol-highlights .icon { width: 16px; height: 16px; color: var(--gold); }
 .lol-hero-cta { display: inline-flex; width: auto; }
+.lol-hero-actions { display: flex; flex-wrap: wrap; gap: 14px 22px; align-items: center; justify-content: center; }
+.lol-hero-whatsapp { display: inline-flex; align-items: center; gap: 8px; color: var(--gold-light); text-decoration: underline; }
+.lol-hero-whatsapp .icon { width: 18px; height: 18px; }
 
 .lol-content {
   max-width: 960px;
