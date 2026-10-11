@@ -69,6 +69,7 @@ const LANG = {
     labelRef: "Reference",
     labelDate: "Date",
     labelPickupTime: "Pickup time",
+    labelLandingTime: "Flight landing time",
     labelRoute: "Route",
     labelVehicle: "Vehicle",
     labelGuests: "Guests",
@@ -134,6 +135,7 @@ const LANG = {
     labelRef: "Referenz",
     labelDate: "Datum",
     labelPickupTime: "Abholzeit",
+    labelLandingTime: "Landezeit des Flugs",
     labelRoute: "Strecke",
     labelVehicle: "Fahrzeug",
     labelGuests: "Gäste",
@@ -190,6 +192,7 @@ const LANG = {
     labelRef: "Номер брони",
     labelDate: "Дата",
     labelPickupTime: "Время подачи",
+    labelLandingTime: "Время прилёта рейса",
     labelRoute: "Маршрут",
     labelVehicle: "Автомобиль",
     labelGuests: "Гостей",
@@ -246,6 +249,7 @@ const LANG = {
     labelRef: "Rezervasyon No",
     labelDate: "Tarih",
     labelPickupTime: "Alış saati",
+    labelLandingTime: "Uçuş iniş saati",
     labelRoute: "Güzergah",
     labelVehicle: "Araç",
     labelGuests: "Misafir",
@@ -310,6 +314,7 @@ const LANG = {
     labelRef: "Référence",
     labelDate: "Date",
     labelPickupTime: "Heure de prise en charge",
+    labelLandingTime: "Heure d'atterrissage du vol",
     labelRoute: "Itinéraire",
     labelVehicle: "Véhicule",
     labelGuests: "Passagers",
@@ -366,6 +371,7 @@ const LANG = {
     labelRef: "رقم الحجز",
     labelDate: "التاريخ",
     labelPickupTime: "وقت الاستقبال",
+    labelLandingTime: "وقت هبوط الرحلة",
     labelRoute: "المسار",
     labelVehicle: "السيارة",
     labelGuests: "الركاب",
@@ -505,6 +511,10 @@ function transferDetails(booking, requestedLeg = "outbound") {
           b.flight_arrival_time,
         ),
         flightNumber: b.flight_number,
+        // Havalimanından alışta saat uçuşun iniş saatidir; müşteriye alış
+        // saati diye yazılırsa uçağın inişinden önce dışarıda beklenir sanılır.
+        timeIsLanding:
+          b.pickup_location === "airport" && Boolean(b.flight_arrival_time),
         pickupLocation: b.pickup_location,
         pickupAddress: b.pickup_address,
         dropoffLocation: b.dropoff_location,
@@ -572,7 +582,7 @@ function detailLines(booking, transfer, t) {
     `*${transfer.isRoundTrip ? (transfer.leg === "return" ? t.labelReturn : t.labelOutbound) : t.labelTransfer}*`,
     `${t.labelRoute}: ${transfer.route}`,
     `${t.labelDate}: ${transfer.date || "—"}`,
-    `${t.labelPickupTime}: ${fmtTime(transfer.time)}`,
+    `${transfer.timeIsLanding ? (t.labelLandingTime ?? LANG.en.labelLandingTime) : t.labelPickupTime}: ${fmtTime(transfer.time)}`,
   ];
 
   if (transfer.flightNumber) {

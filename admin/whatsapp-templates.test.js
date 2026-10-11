@@ -521,3 +521,24 @@ test('both-leg confirmation falls back to a single block for a one-way booking',
   expect(msg).not.toContain('Return transfer')
   expect(bookingDetailsOf(msg)).toBe(bookingDetailsOf(buildConfirmMessage(base)))
 })
+
+test('airport arrivals show the flight landing time instead of a pickup time', () => {
+  const arrival = {
+    customer_name: 'Anna', booking_ref: 'AVL-9', trip_type: 'round_trip',
+    pickup_location: 'airport', dropoff_location: 'belek', pickup_date: '2026-08-15',
+    pickup_time: '09:15', flight_arrival_time: '10:30', flight_number: 'XQ100',
+    return_date: '2026-08-22', return_pickup_time: '14:40', return_flight_number: 'XQ101',
+    guests: 2, vehicle_type: 'vito', price_eur: 110,
+  }
+  const en = buildConfirmMessage(arrival, { leg: 'both', language: 'en' })
+  expect(en).toContain('Flight landing time: 10:30')
+  expect(en).toContain('Pickup time: 14:40')
+  expect(en).not.toContain('Pickup time: 10:30')
+  expect(buildConfirmMessage(arrival, { leg: 'outbound', language: 'tr' })).toContain('Uçuş iniş saati: 10:30')
+  expect(buildConfirmMessage(arrival, { leg: 'outbound', language: 'de' })).toContain('Landezeit des Flugs: 10:30')
+
+  const noLanding = buildConfirmMessage({ ...arrival, flight_arrival_time: null }, { leg: 'outbound', language: 'en' })
+  expect(noLanding).toContain('Pickup time: 09:15')
+  const hotelPickup = buildConfirmMessage({ ...arrival, trip_type: 'one_way', pickup_location: 'belek', dropoff_location: 'airport' }, { language: 'en' })
+  expect(hotelPickup).toContain('Pickup time: 09:15')
+})
