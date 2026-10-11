@@ -64,44 +64,6 @@
   font-size: 1.6rem;
   font-weight: 400;
 }
-.lol-form .booking-row { margin-bottom: 16px; }
-.lol-hint {
-  display: block;
-  margin-top: 6px;
-  color: var(--muted);
-  font-size: 0.8rem;
-}
-.lol-hotel-status {
-  display: block;
-  min-height: 1.2em;
-  margin-top: 6px;
-  color: var(--gold-dark);
-  font-size: 0.85rem;
-}
-
-.lol-summary {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px 24px;
-  margin: 8px 0 18px;
-  padding: 18px 20px;
-  border-radius: 14px;
-  background: var(--cream);
-}
-.lol-summary div { display: flex; flex-direction: column; gap: 2px; }
-.lol-summary small { color: var(--muted); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.06em; }
-.lol-summary strong { color: var(--ink); font-size: 1.6rem; }
-.lol-summary span,
-.lol-summary p { margin: 0; color: var(--muted); font-size: 0.9rem; }
-
-.lol-confirmation h3 { margin: 0 0 10px; color: var(--ink); font-size: 1.3rem; }
-.lol-confirmation p { color: var(--muted); line-height: 1.6; }
-.lol-reference strong { color: var(--ink); letter-spacing: 0.04em; }
-.lol-confirmation-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 18px; }
-.lol-confirmation-actions .quote-submit { width: auto; display: inline-flex; }
-
 .lol-section { margin-bottom: 48px; }
 .lol-section > p { margin: 0 0 18px; color: var(--muted); line-height: 1.7; }
 .lol-table-wrap { overflow-x: auto; }

@@ -509,3 +509,36 @@ describe("BookingForm flight verification", () => {
     await waitFor(() => expect(arrivalField(container).value).toBe("09:00"));
   });
 });
+
+describe("BookingForm Land of Legends day trip", () => {
+  test("offers the day trip as a journey type and swaps in its own form", () => {
+    const { container, getByLabelText } = render(
+      <LanguageProvider initialLanguage="de">
+        <BookingForm scrollOnSelect={false} />
+      </LanguageProvider>,
+    );
+
+    expect(container.querySelector("#lol-hotel")).toBeNull();
+    fireEvent.click(getByLabelText("The Land of Legends"));
+
+    expect(container.querySelector("#quote-form")).toHaveClass("is-excursion");
+    expect(container.querySelector("#lol-hotel")).toBeInTheDocument();
+    expect(container.querySelector(".trip-type-hint a")).toHaveAttribute("href", "/de/land-of-legends/");
+    expect(container.querySelector(".booking-steps")).toBeNull();
+
+    fireEvent.click(container.querySelector('input[value="round_trip"]')!);
+    expect(container.querySelector("#lol-hotel")).toBeNull();
+    expect(container.querySelector("#quote-form")).not.toHaveClass("is-excursion");
+  });
+
+  test("falls back to the English excursion copy for other site languages", () => {
+    const { getByLabelText, container } = render(
+      <LanguageProvider initialLanguage="pl">
+        <BookingForm scrollOnSelect={false} />
+      </LanguageProvider>,
+    );
+    fireEvent.click(getByLabelText("The Land of Legends"));
+    expect(container.querySelector(".trip-type-hint a")).toHaveAttribute("href", "/land-of-legends/");
+    expect(container.querySelector(".lol-summary")).toHaveTextContent("Price confirmed on WhatsApp");
+  });
+});

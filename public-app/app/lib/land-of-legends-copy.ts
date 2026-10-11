@@ -25,6 +25,10 @@ export type LandOfLegendsCopy = {
   regionColumn: string;
   onRequest: string;
   formTitle: string;
+  /** Journey-type option and hint inside the main airport booking form. */
+  tripOption: string;
+  tripHint: string;
+  detailsLink: string;
   hotelLabel: string;
   hotelPlaceholder: string;
   hotelNotListed: string;
@@ -91,6 +95,9 @@ const en: LandOfLegendsCopy = {
   regionColumn: "Hotel area",
   onRequest: "On request",
   formTitle: "Book your Land of Legends transfer",
+  tripOption: "The Land of Legends",
+  tripHint: "Day trip from your hotel: we take you to the park, the driver waits — evening show included — and brings you back. Fixed price per vehicle.",
+  detailsLink: "Prices by area and details",
   hotelLabel: "Your hotel",
   hotelPlaceholder: "Start typing your hotel name",
   hotelNotListed: "My hotel is not in the list",
@@ -173,6 +180,9 @@ const de: LandOfLegendsCopy = {
   regionColumn: "Hotelregion",
   onRequest: "Auf Anfrage",
   formTitle: "Land-of-Legends-Transfer buchen",
+  tripOption: "The Land of Legends",
+  tripHint: "Tagesausflug ab Ihrem Hotel: Wir bringen Sie zum Park, der Fahrer wartet — inklusive Abendshow — und bringt Sie zurück. Festpreis pro Fahrzeug.",
+  detailsLink: "Preise nach Region und Details",
   hotelLabel: "Ihr Hotel",
   hotelPlaceholder: "Hotelnamen eingeben",
   hotelNotListed: "Mein Hotel ist nicht in der Liste",
@@ -255,6 +265,9 @@ const tr: LandOfLegendsCopy = {
   regionColumn: "Otel bölgesi",
   onRequest: "Fiyat sorunuz",
   formTitle: "Land of Legends transferinizi ayırtın",
+  tripOption: "The Land of Legends",
+  tripHint: "Otelinizden günübirlik: sizi parka götürür, şoför akşam gösterisi dahil bekler ve geri getirir. Araç başı sabit fiyat.",
+  detailsLink: "Bölgelere göre fiyatlar ve detaylar",
   hotelLabel: "Oteliniz",
   hotelPlaceholder: "Otel adını yazmaya başlayın",
   hotelNotListed: "Otelim listede yok",
@@ -337,6 +350,9 @@ const ru: LandOfLegendsCopy = {
   regionColumn: "Район отеля",
   onRequest: "По запросу",
   formTitle: "Забронировать трансфер в The Land of Legends",
+  tripOption: "The Land of Legends",
+  tripHint: "Поездка на день из отеля: отвезём в парк, водитель подождёт — включая вечернее шоу — и вернёт обратно. Фиксированная цена за автомобиль.",
+  detailsLink: "Цены по районам и подробности",
   hotelLabel: "Ваш отель",
   hotelPlaceholder: "Начните вводить название отеля",
   hotelNotListed: "Моего отеля нет в списке",
