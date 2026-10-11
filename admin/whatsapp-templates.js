@@ -298,6 +298,12 @@ const LANG = {
     labelDepartureFlight: "Dönüş uçuşu",
   },
   fr: {
+    labelExcursion: "The Land of Legends — excursion d'une journée",
+    labelHotelPickup: "Prise en charge à votre hôtel",
+    labelParkPickup: "Prise en charge à The Land of Legends",
+    labelMeetingPoint: "Point de rendez-vous pour le retour",
+    excursionWaits: "Votre chauffeur vous attend au parc et vous ramène à votre hôtel — le prix couvre toute la journée.",
+    excursionTickets: "Les billets du parc ne sont pas inclus.",
     confirmGreeting: (name) =>
       `Bonjour ${name},\n\n✅ Votre transfert Antalya VIP est confirmé. Voici les détails :`,
     confirmClosing:
@@ -354,6 +360,12 @@ const LANG = {
     labelPlate: "Plaque",
   },
   ar: {
+    labelExcursion: "The Land of Legends — رحلة ليوم واحد",
+    labelHotelPickup: "الاستلام من فندقك",
+    labelParkPickup: "الاستلام من The Land of Legends",
+    labelMeetingPoint: "نقطة اللقاء لرحلة العودة",
+    excursionWaits: "ينتظرك السائق في المنتزه ويعيدك إلى فندقك — السعر يشمل اليوم كاملاً.",
+    excursionTickets: "تذاكر المنتزه غير مشمولة.",
     confirmGreeting: (name) =>
       `مرحباً ${name}،\n\n✅ تم تأكيد خدمة النقل Antalya VIP الخاصة بك. التفاصيل أدناه:`,
     confirmClosing:

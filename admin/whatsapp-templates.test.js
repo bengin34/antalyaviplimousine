@@ -541,8 +541,22 @@ describe("Land of Legends excursion messages", () => {
   });
 
   test("languages without excursion copy fall back to English for it", () => {
-    const message = buildReminderMessage(excursion, { language: "fr" });
+    const message = buildReminderMessage(excursion, { language: "pl" });
     expect(message).toContain("Pick-up at The Land of Legends: 22:30");
     expect(message).toContain("Park tickets are not included.");
   });
+});
+
+test("French and Arabic excursion messages are translated, with the meeting point in that language", () => {
+  const booking = {
+    booking_ref: "AVL-1", customer_name: "Anna", trip_type: "land_of_legends", pickup_date: "2026-10-20",
+    pickup_time: "09:30:00", pickup_location: "hotel", dropoff_location: "land_of_legends",
+    return_date: "2026-10-20", return_pickup_time: "22:30:00", hotel_name: "Sueno", vehicle_type: "vito", guests: 2, price_eur: 115,
+  };
+  const fr = buildConfirmMessage(booking, { language: "fr" });
+  expect(fr).toContain("Prise en charge à The Land of Legends: 22:30");
+  expect(fr).toContain("Parking de l'entrée principale");
+  const ar = buildConfirmMessage(booking, { language: "ar" });
+  expect(ar).toContain("تذاكر المنتزه غير مشمولة.");
+  expect(ar).toContain("موقف السيارات عند المدخل الرئيسي");
 });

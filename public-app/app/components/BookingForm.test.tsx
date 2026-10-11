@@ -531,14 +531,14 @@ describe("BookingForm Land of Legends day trip", () => {
     expect(container.querySelector("#quote-form")).not.toHaveClass("is-excursion");
   });
 
-  test("falls back to the English excursion copy for other site languages", () => {
+  test("speaks the visitor's own language, Polish included", () => {
     const { getByLabelText, container } = render(
       <LanguageProvider initialLanguage="pl">
         <BookingForm scrollOnSelect={false} />
       </LanguageProvider>,
     );
     fireEvent.click(getByLabelText("The Land of Legends"));
-    expect(container.querySelector(".trip-type-hint a")).toHaveAttribute("href", "/land-of-legends/");
-    expect(container.querySelector(".lol-summary")).toHaveTextContent("Price confirmed on WhatsApp");
+    expect(container.querySelector(".trip-type-hint a")).toHaveAttribute("href", "/pl/land-of-legends/");
+    expect(container.querySelector(".lol-summary")).not.toHaveTextContent("Price confirmed on WhatsApp");
   });
 });

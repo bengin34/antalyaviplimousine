@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { routeCatalog } from "../../../src/routes.js";
 import {
   landOfLegendsFromPrice,
   landOfLegendsRates,
@@ -34,7 +33,7 @@ export function LandOfLegendsPage({ language }: { language: LandOfLegendsLanguag
     track("landing_view", { route: "land_of_legends" });
   }, []);
 
-  const regionName = (slug: string) => landOfLegendsRegionName(slug, language, routeCatalog as unknown as Parameters<typeof landOfLegendsRegionName>[2]);
+  const regionName = (slug: string) => landOfLegendsRegionName(slug, language);
   const rateFor = (region: string, vehicle: "vito" | "sprinter") =>
     landOfLegendsQuote(region, vehicle, liveRates);
 
@@ -87,7 +86,7 @@ export function LandOfLegendsPage({ language }: { language: LandOfLegendsLanguag
                       <td>€{rateFor(region, "sprinter")}</td>
                     </tr>
                   ))}
-                  <tr><th scope="row">Kaş, Fethiye…</th><td colSpan={2}>{copy.onRequest}</td></tr>
+                  <tr><th scope="row">{copy.otherAreas}</th><td colSpan={2}>{copy.onRequest}</td></tr>
                 </tbody>
               </table>
             </div>

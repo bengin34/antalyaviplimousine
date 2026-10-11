@@ -4,7 +4,7 @@ import type { IndexableLanguage } from "../lib/seo";
 import { routeCopy } from "../lib/seo";
 import { BookingForm } from "./BookingForm";
 import { landOfLegendsRates } from "../../../src/land-of-legends.js";
-import { landOfLegendsCopy, landOfLegendsLanguages, landOfLegendsPath, type LandOfLegendsLanguage } from "../lib/land-of-legends-copy";
+import { landOfLegendsCopy, landOfLegendsLanguageFor, landOfLegendsPath } from "../lib/land-of-legends-copy";
 import { StaticPageHeader } from "./StaticPageHeader";
 import { articlePath, articlesForRoute, blogPath, blogText, isArticleLanguage } from "../lib/articles";
 
@@ -117,7 +117,7 @@ export function TransferPage({ language, route }: { language: IndexableLanguage;
         {germanHotels && <section className="localized-hotels"><div><p className="eyebrow"><span />Für Ihre Unterkunft</p><h2>Beliebte Hotels in {route.name}</h2><p>Wir fahren direkt zu diesen und weiteren Hotels in der Region.</p></div><ul>{germanHotels.map((hotel) => { const catalogued = cataloguedHotels.find((entry) => entry.name === hotel); return <li key={hotel}>{catalogued ? <a href={`/de/hotels/${catalogued.slug}/`}>{hotel}</a> : hotel}</li>; })}</ul></section>}
         {route.slug in landOfLegendsRates && (() => {
           // Guests staying here can do the theme-park day trip; point them at it.
-          const excursionLanguage: LandOfLegendsLanguage = (landOfLegendsLanguages as readonly string[]).includes(language) ? language as LandOfLegendsLanguage : "en";
+          const excursionLanguage = landOfLegendsLanguageFor(language);
           const excursion = landOfLegendsCopy[excursionLanguage];
           const price = landOfLegendsRates[route.slug as keyof typeof landOfLegendsRates].vito;
           return <section className="localized-links lol-route-promo"><h2>{excursion.tripOption}</h2><p>{excursion.tripHint}</p><div><a href={landOfLegendsPath(excursionLanguage)}>{excursion.fromLabel(price)} →</a></div></section>;

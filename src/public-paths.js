@@ -37,8 +37,8 @@ export const clinicPaths = Object.freeze(["/clinic/"]);
 /** English only: the partner page addresses agencies, who trade in English. */
 export const b2bPaths = Object.freeze(["/b2b/"]);
 
-/** The Land of Legends excursion page — published in its four copy languages. */
-export const landOfLegendsLanguages = Object.freeze(["en", "de", "tr", "ru"]);
+/** The Land of Legends excursion page — published in every site language. */
+export const landOfLegendsLanguages = publicLanguages;
 export const landOfLegendsPaths = Object.freeze(
   landOfLegendsLanguages.map((language) => `${languagePrefix(language)}/land-of-legends/`),
 );

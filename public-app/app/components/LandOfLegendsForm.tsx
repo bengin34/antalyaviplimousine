@@ -3,7 +3,6 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { Controller, useForm, type FieldError, type FieldErrors } from "react-hook-form";
 import PhoneInput, { type Country } from "react-phone-number-input";
 import "react-phone-number-input/style.css";
-import { routeCatalog } from "../../../src/routes.js";
 import { hotelIndex, hotelSlug } from "../../../src/hotel-index.js";
 import {
   landOfLegendsDriveMinutes,
@@ -33,7 +32,9 @@ import { track } from "../lib/track";
 const WHATSAPP_NUMBER = "905302655790";
 
 const DEFAULT_PHONE_COUNTRY: Record<LandOfLegendsLanguage, Country> = {
-  en: "GB", de: "DE", tr: "TR", ru: "RU",
+  en: "GB", de: "DE", fr: "FR", tr: "TR", ru: "RU", cs: "CZ", uk: "UA", ur: "PK", pl: "PL", nl: "NL",
+  ar: "SA", sv: "SE", da: "DK", el: "GR", es: "ES", he: "IL", hu: "HU", it: "IT", ja: "JP", ko: "KR",
+  pt: "PT", ro: "RO", zh: "CN",
 };
 
 /** Exact (slugged) hotel names and aliases, so a guest who types the full name gets the price without tapping a suggestion. */
@@ -138,7 +139,7 @@ export function LandOfLegendsForm({ language, liveRates: sharedRates, phoneCount
   const quote = landOfLegendsQuote(region, values.vehicle, liveRates);
   const driveMinutes = matchedHotel ? landOfLegendsDriveMinutes(matchedHotel.region) : null;
   const notice = values.travelDate && values.departureTime ? landOfLegendsNotice(values.travelDate, values.departureTime) : "ok";
-  const regionName = (slug: string) => landOfLegendsRegionName(slug, language, routeCatalog as unknown as Parameters<typeof landOfLegendsRegionName>[2]);
+  const regionName = (slug: string) => landOfLegendsRegionName(slug, language);
 
   // One price_shown per region + vehicle + price, not one per re-render or live-rate arrival.
   useEffect(() => {

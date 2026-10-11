@@ -66,3 +66,11 @@ describe("isValidLandOfLegendsVisit", () => {
     expect(isValidLandOfLegendsVisit("", "22:00")).toBe(false);
   });
 });
+
+describe("Land of Legends meeting point", () => {
+  test("is written in every site language", async () => {
+    const { publicLanguages } = await import("./public-paths.js");
+    const { landOfLegendsMeetingPoint } = await import("./land-of-legends.js");
+    for (const language of publicLanguages) expect(landOfLegendsMeetingPoint[language]).toBeTruthy();
+  });
+});

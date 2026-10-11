@@ -7,7 +7,7 @@ import { bookableRouteSlugs, routeCatalog } from "../../../src/routes.js";
 import { useLanguage, type LanguageCode } from "../i18n";
 import { HotelCombobox, type IndexedHotel } from "./HotelCombobox";
 import { LandOfLegendsForm } from "./LandOfLegendsForm";
-import { landOfLegendsCopy, landOfLegendsLanguages, landOfLegendsPath, type LandOfLegendsLanguage } from "../lib/land-of-legends-copy";
+import { landOfLegendsCopy, landOfLegendsLanguageFor, landOfLegendsPath } from "../lib/land-of-legends-copy";
 import { Icon } from "./Icon";
 import {
   buildPublicBookingPayload,
@@ -127,9 +127,7 @@ export function BookingForm({
   // included) with its own form, so it is a mode beside the airport journey
   // types rather than another `tripType` value of this form.
   const [excursion, setExcursion] = useState(false);
-  const excursionLanguage: LandOfLegendsLanguage = (landOfLegendsLanguages as readonly string[]).includes(language)
-    ? language as LandOfLegendsLanguage
-    : "en";
+  const excursionLanguage = landOfLegendsLanguageFor(language);
   const excursionCopy = landOfLegendsCopy[excursionLanguage];
   const [minimumDate, setMinimumDate] = useState("");
   const [submitting, setSubmitting] = useState(false);
@@ -883,7 +881,7 @@ export function BookingForm({
         </form>
         {excursion && (
           <div className="booking-card lol-inline-card">
-            <LandOfLegendsForm language={excursionLanguage} phoneCountry={DEFAULT_PHONE_COUNTRY[language as LanguageCode]} />
+            <LandOfLegendsForm language={excursionLanguage} />
           </div>
         )}
       </div>

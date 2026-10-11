@@ -161,10 +161,67 @@ type Pages = {
   "/de/land-of-legends": {
     params: {};
   };
+  "/fr/land-of-legends": {
+    params: {};
+  };
   "/tr/land-of-legends": {
     params: {};
   };
   "/ru/land-of-legends": {
+    params: {};
+  };
+  "/cs/land-of-legends": {
+    params: {};
+  };
+  "/uk/land-of-legends": {
+    params: {};
+  };
+  "/ur/land-of-legends": {
+    params: {};
+  };
+  "/pl/land-of-legends": {
+    params: {};
+  };
+  "/nl/land-of-legends": {
+    params: {};
+  };
+  "/ar/land-of-legends": {
+    params: {};
+  };
+  "/sv/land-of-legends": {
+    params: {};
+  };
+  "/da/land-of-legends": {
+    params: {};
+  };
+  "/el/land-of-legends": {
+    params: {};
+  };
+  "/es/land-of-legends": {
+    params: {};
+  };
+  "/he/land-of-legends": {
+    params: {};
+  };
+  "/hu/land-of-legends": {
+    params: {};
+  };
+  "/it/land-of-legends": {
+    params: {};
+  };
+  "/ja/land-of-legends": {
+    params: {};
+  };
+  "/ko/land-of-legends": {
+    params: {};
+  };
+  "/pt/land-of-legends": {
+    params: {};
+  };
+  "/ro/land-of-legends": {
+    params: {};
+  };
+  "/zh/land-of-legends": {
     params: {};
   };
   "/transfers/:slug": {
@@ -414,7 +471,7 @@ type Pages = {
 type RouteFiles = {
   "root.tsx": {
     id: "root";
-    page: "/" | "/de" | "/fr" | "/tr" | "/ru" | "/cs" | "/uk" | "/ur" | "/pl" | "/nl" | "/ar" | "/sv" | "/da" | "/el" | "/es" | "/he" | "/hu" | "/it" | "/ja" | "/ko" | "/pt" | "/ro" | "/zh" | "/health" | "/de/health" | "/fr/health" | "/tr/health" | "/ru/health" | "/cs/health" | "/uk/health" | "/ur/health" | "/pl/health" | "/nl/health" | "/ar/health" | "/sv/health" | "/da/health" | "/el/health" | "/es/health" | "/he/health" | "/hu/health" | "/it/health" | "/ja/health" | "/ko/health" | "/pt/health" | "/ro/health" | "/zh/health" | "/clinic" | "/b2b" | "/land-of-legends" | "/de/land-of-legends" | "/tr/land-of-legends" | "/ru/land-of-legends" | "/transfers/:slug" | "/:language/transfers/:slug" | "/de/hotels/:hotelSlug" | "/impressum.html" | "/privacy" | "/de/datenschutz" | "/de/impressum" | "/tr/gizlilik" | "/tr/kunye" | "/ru/privacy" | "/ru/impressum" | "/cs/privacy" | "/cs/impressum" | "/uk/privacy" | "/uk/impressum" | "/ur/privacy" | "/ur/impressum" | "/ru/blog" | "/de/blog" | "/blog" | "/pl/blog" | "/uk/blog" | "/nl/blog" | "/cs/blog" | "/ro/blog" | "/tr/blog" | "/he/blog" | "/fr/blog" | "/sv/blog" | "/da/blog" | "/ar/blog" | "/hu/blog" | "/es/blog" | "/it/blog" | "/pt/blog" | "/el/blog" | "/zh/blog" | "/ko/blog" | "/ja/blog" | "/ur/blog" | "/ru/blog/:slug" | "/de/blog/:slug" | "/blog/:slug" | "/pl/blog/:slug" | "/uk/blog/:slug" | "/nl/blog/:slug" | "/cs/blog/:slug" | "/ro/blog/:slug" | "/tr/blog/:slug" | "/he/blog/:slug" | "/fr/blog/:slug" | "/sv/blog/:slug" | "/da/blog/:slug" | "/ar/blog/:slug" | "/hu/blog/:slug" | "/es/blog/:slug" | "/it/blog/:slug" | "/pt/blog/:slug" | "/el/blog/:slug" | "/zh/blog/:slug" | "/ko/blog/:slug" | "/ja/blog/:slug" | "/ur/blog/:slug";
+    page: "/" | "/de" | "/fr" | "/tr" | "/ru" | "/cs" | "/uk" | "/ur" | "/pl" | "/nl" | "/ar" | "/sv" | "/da" | "/el" | "/es" | "/he" | "/hu" | "/it" | "/ja" | "/ko" | "/pt" | "/ro" | "/zh" | "/health" | "/de/health" | "/fr/health" | "/tr/health" | "/ru/health" | "/cs/health" | "/uk/health" | "/ur/health" | "/pl/health" | "/nl/health" | "/ar/health" | "/sv/health" | "/da/health" | "/el/health" | "/es/health" | "/he/health" | "/hu/health" | "/it/health" | "/ja/health" | "/ko/health" | "/pt/health" | "/ro/health" | "/zh/health" | "/clinic" | "/b2b" | "/land-of-legends" | "/de/land-of-legends" | "/fr/land-of-legends" | "/tr/land-of-legends" | "/ru/land-of-legends" | "/cs/land-of-legends" | "/uk/land-of-legends" | "/ur/land-of-legends" | "/pl/land-of-legends" | "/nl/land-of-legends" | "/ar/land-of-legends" | "/sv/land-of-legends" | "/da/land-of-legends" | "/el/land-of-legends" | "/es/land-of-legends" | "/he/land-of-legends" | "/hu/land-of-legends" | "/it/land-of-legends" | "/ja/land-of-legends" | "/ko/land-of-legends" | "/pt/land-of-legends" | "/ro/land-of-legends" | "/zh/land-of-legends" | "/transfers/:slug" | "/:language/transfers/:slug" | "/de/hotels/:hotelSlug" | "/impressum.html" | "/privacy" | "/de/datenschutz" | "/de/impressum" | "/tr/gizlilik" | "/tr/kunye" | "/ru/privacy" | "/ru/impressum" | "/cs/privacy" | "/cs/impressum" | "/uk/privacy" | "/uk/impressum" | "/ur/privacy" | "/ur/impressum" | "/ru/blog" | "/de/blog" | "/blog" | "/pl/blog" | "/uk/blog" | "/nl/blog" | "/cs/blog" | "/ro/blog" | "/tr/blog" | "/he/blog" | "/fr/blog" | "/sv/blog" | "/da/blog" | "/ar/blog" | "/hu/blog" | "/es/blog" | "/it/blog" | "/pt/blog" | "/el/blog" | "/zh/blog" | "/ko/blog" | "/ja/blog" | "/ur/blog" | "/ru/blog/:slug" | "/de/blog/:slug" | "/blog/:slug" | "/pl/blog/:slug" | "/uk/blog/:slug" | "/nl/blog/:slug" | "/cs/blog/:slug" | "/ro/blog/:slug" | "/tr/blog/:slug" | "/he/blog/:slug" | "/fr/blog/:slug" | "/sv/blog/:slug" | "/da/blog/:slug" | "/ar/blog/:slug" | "/hu/blog/:slug" | "/es/blog/:slug" | "/it/blog/:slug" | "/pt/blog/:slug" | "/el/blog/:slug" | "/zh/blog/:slug" | "/ko/blog/:slug" | "/ja/blog/:slug" | "/ur/blog/:slug";
   };
   "./routes/home.tsx": {
     id: "home-en";
@@ -571,11 +628,68 @@ type RouteFiles = {
     id: "land-of-legends-de";
     page: "/de/land-of-legends";
   } | {
+    id: "land-of-legends-fr";
+    page: "/fr/land-of-legends";
+  } | {
     id: "land-of-legends-tr";
     page: "/tr/land-of-legends";
   } | {
     id: "land-of-legends-ru";
     page: "/ru/land-of-legends";
+  } | {
+    id: "land-of-legends-cs";
+    page: "/cs/land-of-legends";
+  } | {
+    id: "land-of-legends-uk";
+    page: "/uk/land-of-legends";
+  } | {
+    id: "land-of-legends-ur";
+    page: "/ur/land-of-legends";
+  } | {
+    id: "land-of-legends-pl";
+    page: "/pl/land-of-legends";
+  } | {
+    id: "land-of-legends-nl";
+    page: "/nl/land-of-legends";
+  } | {
+    id: "land-of-legends-ar";
+    page: "/ar/land-of-legends";
+  } | {
+    id: "land-of-legends-sv";
+    page: "/sv/land-of-legends";
+  } | {
+    id: "land-of-legends-da";
+    page: "/da/land-of-legends";
+  } | {
+    id: "land-of-legends-el";
+    page: "/el/land-of-legends";
+  } | {
+    id: "land-of-legends-es";
+    page: "/es/land-of-legends";
+  } | {
+    id: "land-of-legends-he";
+    page: "/he/land-of-legends";
+  } | {
+    id: "land-of-legends-hu";
+    page: "/hu/land-of-legends";
+  } | {
+    id: "land-of-legends-it";
+    page: "/it/land-of-legends";
+  } | {
+    id: "land-of-legends-ja";
+    page: "/ja/land-of-legends";
+  } | {
+    id: "land-of-legends-ko";
+    page: "/ko/land-of-legends";
+  } | {
+    id: "land-of-legends-pt";
+    page: "/pt/land-of-legends";
+  } | {
+    id: "land-of-legends-ro";
+    page: "/ro/land-of-legends";
+  } | {
+    id: "land-of-legends-zh";
+    page: "/zh/land-of-legends";
   };
   "./routes/transfer.tsx": {
     id: "transfer-en";
@@ -825,8 +939,27 @@ type RouteModules = {
   "b2b-en": typeof import("./public-app/app/./routes/b2b.tsx");
   "land-of-legends-en": typeof import("./public-app/app/./routes/land-of-legends.tsx");
   "land-of-legends-de": typeof import("./public-app/app/./routes/land-of-legends.tsx");
+  "land-of-legends-fr": typeof import("./public-app/app/./routes/land-of-legends.tsx");
   "land-of-legends-tr": typeof import("./public-app/app/./routes/land-of-legends.tsx");
   "land-of-legends-ru": typeof import("./public-app/app/./routes/land-of-legends.tsx");
+  "land-of-legends-cs": typeof import("./public-app/app/./routes/land-of-legends.tsx");
+  "land-of-legends-uk": typeof import("./public-app/app/./routes/land-of-legends.tsx");
+  "land-of-legends-ur": typeof import("./public-app/app/./routes/land-of-legends.tsx");
+  "land-of-legends-pl": typeof import("./public-app/app/./routes/land-of-legends.tsx");
+  "land-of-legends-nl": typeof import("./public-app/app/./routes/land-of-legends.tsx");
+  "land-of-legends-ar": typeof import("./public-app/app/./routes/land-of-legends.tsx");
+  "land-of-legends-sv": typeof import("./public-app/app/./routes/land-of-legends.tsx");
+  "land-of-legends-da": typeof import("./public-app/app/./routes/land-of-legends.tsx");
+  "land-of-legends-el": typeof import("./public-app/app/./routes/land-of-legends.tsx");
+  "land-of-legends-es": typeof import("./public-app/app/./routes/land-of-legends.tsx");
+  "land-of-legends-he": typeof import("./public-app/app/./routes/land-of-legends.tsx");
+  "land-of-legends-hu": typeof import("./public-app/app/./routes/land-of-legends.tsx");
+  "land-of-legends-it": typeof import("./public-app/app/./routes/land-of-legends.tsx");
+  "land-of-legends-ja": typeof import("./public-app/app/./routes/land-of-legends.tsx");
+  "land-of-legends-ko": typeof import("./public-app/app/./routes/land-of-legends.tsx");
+  "land-of-legends-pt": typeof import("./public-app/app/./routes/land-of-legends.tsx");
+  "land-of-legends-ro": typeof import("./public-app/app/./routes/land-of-legends.tsx");
+  "land-of-legends-zh": typeof import("./public-app/app/./routes/land-of-legends.tsx");
   "transfer-en": typeof import("./public-app/app/./routes/transfer.tsx");
   "transfer-localized": typeof import("./public-app/app/./routes/transfer.tsx");
   "hotel-de": typeof import("./public-app/app/./routes/hotel.tsx");
