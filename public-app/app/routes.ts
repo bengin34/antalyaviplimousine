@@ -49,6 +49,11 @@ export default [
   route("zh/health", "./routes/health.tsx", { id: "health-zh" }),
   route("clinic", "./routes/clinic.tsx", { id: "clinic-tr" }),
   route("b2b", "./routes/b2b.tsx", { id: "b2b-en" }),
+  // The Land of Legends excursion page, published in its four copy languages.
+  route("land-of-legends", "./routes/land-of-legends.tsx", { id: "land-of-legends-en" }),
+  route("de/land-of-legends", "./routes/land-of-legends.tsx", { id: "land-of-legends-de" }),
+  route("tr/land-of-legends", "./routes/land-of-legends.tsx", { id: "land-of-legends-tr" }),
+  route("ru/land-of-legends", "./routes/land-of-legends.tsx", { id: "land-of-legends-ru" }),
 route("transfers/:slug", "./routes/transfer.tsx", { id: "transfer-en" }),
   route(":language/transfers/:slug", "./routes/transfer.tsx", { id: "transfer-localized" }),
   route("de/hotels/:hotelSlug", "./routes/hotel.tsx", { id: "hotel-de" }),

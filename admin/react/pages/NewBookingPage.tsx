@@ -81,6 +81,10 @@ export function validateBookingForm(form: BookingFormState) {
   const fail = (error: string) => ({ error, payload: null })
   const isRoundTrip = form.tripType === 'round_trip'
   const isDailyChauffeur = form.tripType === 'daily_chauffeur'
+  // Land of Legends: otelden parka, şoför bekler, aynı gün otele dönüş. Varış
+  // her zaman park; dönüş tarihi gidiş tarihiyle aynıdır.
+  const isLandOfLegends = form.tripType === 'land_of_legends'
+  const dropoff = isLandOfLegends ? 'land_of_legends' : form.dropoff
   const isSoldTransfer = form.costMode === 'sold_transfer'
   // Dönüş ayağı yalnızca gidiş-dönüş seyahatlerde kendi maliyet modelini taşır.
   const isReturnSoldTransfer = isRoundTrip && !isDailyChauffeur && form.returnCostMode === 'sold_transfer'
@@ -91,9 +95,9 @@ export function validateBookingForm(form: BookingFormState) {
   if (email && (email.length > 120 || !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email))) return fail('Geçerli bir e-posta girin.')
   if (hotel.length < 2 || hotel.length > 120) return fail('Otel adı 2-120 karakter olmalı.')
   if (form.pickup === 'private_address' && (pickupAddress.length < 6 || pickupAddress.length > 160)) return fail('Alış adresi 6-160 karakter olmalı.')
-  if (!isDailyChauffeur && form.dropoff === 'private_address' && (dropoffAddress.length < 6 || dropoffAddress.length > 160)) return fail('Varış adresi 6-160 karakter olmalı.')
-  if (!isDailyChauffeur && form.pickup === form.dropoff && form.pickup !== 'private_address') return fail('Alış ve varış aynı olamaz.')
-  if (!isDailyChauffeur && form.pickup === 'private_address' && form.dropoff === 'private_address' && pickupAddress === dropoffAddress) return fail('Alış ve varış adresleri aynı olamaz.')
+  if (!isDailyChauffeur && dropoff === 'private_address' && (dropoffAddress.length < 6 || dropoffAddress.length > 160)) return fail('Varış adresi 6-160 karakter olmalı.')
+  if (!isDailyChauffeur && form.pickup === dropoff && form.pickup !== 'private_address') return fail('Alış ve varış aynı olamaz.')
+  if (!isDailyChauffeur && form.pickup === 'private_address' && dropoff === 'private_address' && pickupAddress === dropoffAddress) return fail('Alış ve varış adresleri aynı olamaz.')
   if (!/^\d{4}-\d{2}-\d{2}$/.test(form.pickupDate)) return fail('Geçerli bir tarih seçin.')
   const capacity = VEHICLE_CAPACITY[form.vehicle] ?? 8
   if (!Number.isInteger(guests) || guests < 1 || guests > capacity) return fail(`Yolcu sayısı 1-${capacity} arasında olmalı.`)
@@ -113,6 +117,11 @@ export function validateBookingForm(form: BookingFormState) {
     if (!/^([01]\d|2[0-3]):[0-5]\d$/.test(form.returnTime)) return fail('Geçerli bir dönüş saati girin.')
     if (form.returnFlightTime && !/^([01]\d|2[0-3]):[0-5]\d$/.test(form.returnFlightTime)) return fail('Geçerli bir dönüş uçuşu kalkış saati girin.')
   }
+  if (isLandOfLegends) {
+    if (isSoldTransfer) return fail('Land of Legends gezisi satılan transfer olarak işaretlenemez.')
+    if (!/^([01]\d|2[0-3]):[0-5]\d$/.test(form.pickupTime)) return fail('Otelden alış saatini girin.')
+    if (!/^([01]\d|2[0-3]):[0-5]\d$/.test(form.returnTime) || form.returnTime <= form.pickupTime) return fail('Parktan dönüş saati otelden alış saatinden sonra olmalı.')
+  }
   let hireDays = 0
   if (isDailyChauffeur) {
     if (!/^([01]\d|2[0-3]):[0-5]\d$/.test(form.pickupTime)) return fail('Günlük hizmet başlangıç saatini girin.')
@@ -130,11 +139,11 @@ export function validateBookingForm(form: BookingFormState) {
     customer_name: name, customer_email: email, customer_phone: phone, hotel_name: hotel,
     child_seat_count: childSeats, luggage_count: luggage, pickup_location: form.pickup,
     pickup_address: form.pickup === 'private_address' ? pickupAddress : null,
-    dropoff_location: isDailyChauffeur ? null : form.dropoff, dropoff_address: !isDailyChauffeur && form.dropoff === 'private_address' ? dropoffAddress : null,
+    dropoff_location: isDailyChauffeur ? null : dropoff, dropoff_address: !isDailyChauffeur && dropoff === 'private_address' ? dropoffAddress : null,
     pickup_date: form.pickupDate, pickup_time: form.pickupTime || null,
     flight_number: flightNumber || null, flight_arrival_time: form.flightTime || null,
-    trip_type: form.tripType, return_date: isRoundTrip ? form.returnDate : null,
-    return_pickup_time: isRoundTrip ? form.returnTime : null,
+    trip_type: form.tripType, return_date: isRoundTrip ? form.returnDate : isLandOfLegends ? form.pickupDate : null,
+    return_pickup_time: isRoundTrip || isLandOfLegends ? form.returnTime : null,
     return_flight_number: isRoundTrip ? (returnFlight || null) : null,
     return_flight_departure_time: isRoundTrip ? (form.returnFlightTime || null) : null,
     service_end_date: isDailyChauffeur ? form.serviceEndDate : null,
@@ -170,6 +179,7 @@ export default function NewBookingPage({ navigate }: { navigate: Navigate }) {
   const optionList = LOCATION_OPTIONS.map(([value, label]) => <option key={value} value={value}>{label}</option>)
   const isRoundTrip = form.tripType === 'round_trip'
   const isDailyChauffeur = form.tripType === 'daily_chauffeur'
+  const isLandOfLegends = form.tripType === 'land_of_legends'
   const onTripTypeChange = (tripType: string) => setForm(current => ({
     ...current,
     tripType,
@@ -210,10 +220,10 @@ export default function NewBookingPage({ navigate }: { navigate: Navigate }) {
 
         <div className="section">
           <div className="section-label">Transfer</div>
-          <Field label="Sefer türü"><select className="input" value={form.tripType} onChange={e => onTripTypeChange(e.target.value)}><option value="one_way">Tek yön</option><option value="round_trip">Gidiş-dönüş</option><option value="daily_chauffeur">Günlük araç + şoför</option></select></Field>
+          <Field label="Sefer türü"><select className="input" value={form.tripType} onChange={e => onTripTypeChange(e.target.value)}><option value="one_way">Tek yön</option><option value="round_trip">Gidiş-dönüş</option><option value="daily_chauffeur">Günlük araç + şoför</option><option value="land_of_legends">The Land of Legends (bekleme dahil)</option></select></Field>
           <div className="form-row">
             <Field label="Alış *"><select className="input" value={form.pickup} onChange={e => set('pickup', e.target.value)}>{optionList}</select></Field>
-            {!isDailyChauffeur && <Field label="Varış *"><select className="input" value={form.dropoff} onChange={e => set('dropoff', e.target.value)}>{optionList}</select></Field>}
+            {!isDailyChauffeur && !isLandOfLegends && <Field label="Varış *"><select className="input" value={form.dropoff} onChange={e => set('dropoff', e.target.value)}>{optionList}</select></Field>}
           </div>
           {(form.pickup === 'private_address' || (!isDailyChauffeur && form.dropoff === 'private_address')) && <div className="form-row">
             {form.pickup === 'private_address' && <Field label="Alış özel adresi *"><input className="input" maxLength={160} autoComplete="street-address" placeholder="Açık adresi girin" value={form.pickupAddress} onChange={e => set('pickupAddress', e.target.value)} required /></Field>}
@@ -235,6 +245,15 @@ export default function NewBookingPage({ navigate }: { navigate: Navigate }) {
           <div className="form-row"><Field label="Dönüş uçuş tarihi"><input className="input" type="date" min={form.pickupDate} value={form.departureFlightDate} onChange={e => set('departureFlightDate', e.target.value)} /></Field><Field label="Dönüş uçuş saati"><input className="input" type="time" value={form.departureFlightTime} onChange={e => set('departureFlightTime', e.target.value)} /></Field></div>
           <Field label="Dönüş uçuş numarası"><input className="input" type="text" maxLength={12} autoComplete="off" value={form.departureFlight} onChange={e => set('departureFlight', e.target.value)} /></Field>
           <label className="admin-fuel-acceptance"><input type="checkbox" checked={form.fuelAccepted} onChange={e => set('fuelAccepted', e.target.checked)} /><span><strong>Yakıt hariç koşulu kabul edildi</strong><small>Müşteri, yakıt masrafını kullanıma göre ayrıca ödeyeceğini kabul etti.</small></span></label>
+        </div>}
+
+        {isLandOfLegends && <div className="section">
+          <div className="section-label">The Land of Legends</div>
+          <div className="form-row">
+            <Field label="Otelden alış saati *"><input className="input" type="time" value={form.pickupTime} onChange={e => set('pickupTime', e.target.value)} required /></Field>
+            <Field label="Parktan dönüş alışı *"><input className="input" type="time" value={form.returnTime} onChange={e => set('returnTime', e.target.value)} required /></Field>
+          </div>
+          <div className="form-hint">Şoför parkta bekler; fiyat gidiş + bekleme + dönüş toplamıdır.</div>
         </div>}
 
         {isRoundTrip && <div className="section">

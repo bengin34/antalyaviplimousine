@@ -125,3 +125,30 @@ test('a separately booked return is marked as a return journey too', () => {
   expect(buildDriverDailyProgram([card], manualReturn.pickup_date)).toContain('🔁 *DÖNÜŞ SEYAHATİ*')
   expect(buildDriverTransferMessage(manualReturn)).toContain('🔁 *DÖNÜŞ SEYAHATİ*')
 })
+
+test('a Land of Legends excursion is one job: hotel pick-up, wait at the park, ride back', () => {
+  const message = buildDriverTransferMessage({
+    booking_ref: 'AVL-2026-LOL00001',
+    customer_name: 'Anna Schmidt',
+    customer_phone: '+4915123456789',
+    trip_type: 'land_of_legends',
+    pickup_date: '2026-10-20',
+    pickup_time: '09:30:00',
+    pickup_location: 'hotel',
+    dropoff_location: 'land_of_legends',
+    return_date: '2026-10-20',
+    return_pickup_time: '22:30:00',
+    hotel_name: 'Delphin Imperial Lara',
+    vehicle_type: 'vito',
+    guests: 4,
+    price_eur: 105,
+    payment_method: 'cash',
+  })
+
+  expect(message).toContain('THE LAND OF LEGENDS')
+  expect(message).toContain('🕐 Saat: 09:30')
+  expect(message).toContain('→ The Land of Legends')
+  expect(message).toContain('€105')
+  expect(message).toContain('🎢 Parktan dönüş alışı: 22:30')
+  expect(message).not.toContain('━━━━━━━━━━━━━━')
+})

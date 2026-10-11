@@ -3,6 +3,8 @@ import { hotelSlug, indexedHotelBySlug } from "../../../src/hotel-index.js";
 import { hotelBySlug } from "../../../src/hotels.js";
 import translationData from "../generated/legacy-translations.json";
 import { homeFaqOrder } from "./faq";
+import { landOfLegendsFromPrice, landOfLegendsRates } from "../../../src/land-of-legends.js";
+import { landOfLegendsCopy, landOfLegendsLanguages, landOfLegendsPath, type LandOfLegendsLanguage } from "./land-of-legends-copy";
 import {
   articleAlternateLanguages,
   articleLanguages,
@@ -452,6 +454,36 @@ export function b2bMeta() {
     { name: "description", content: description },
     { tagName: "link", rel: "canonical", href: url },
     ...socialDescriptors(title, description, url, "en_GB"),
+  ];
+}
+
+/**
+ * The Land of Legends excursion page. Its hreflang set names only the four
+ * languages the page exists in, so no alternate points at a missing page.
+ */
+export function landOfLegendsMeta(language: LandOfLegendsLanguage) {
+  const copy = landOfLegendsCopy[language];
+  const title = copy.metaTitle;
+  const description = copy.metaDescription(landOfLegendsFromPrice);
+  const url = `${domain}${landOfLegendsPath(language)}`;
+  const prices = Object.values(landOfLegendsRates).flatMap((rate) => [rate.vito, rate.sprinter]);
+  return [
+    { title },
+    { name: "description", content: description },
+    { tagName: "link", rel: "canonical", href: url },
+    ...landOfLegendsLanguages.map((alternate) => ({ tagName: "link", rel: "alternate", hrefLang: alternate, href: `${domain}${landOfLegendsPath(alternate)}` })),
+    { tagName: "link", rel: "alternate", hrefLang: "x-default", href: `${domain}${landOfLegendsPath("en")}` },
+    ...socialDescriptors(title, description, url, copy.locale),
+    { "script:ld+json": {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      name: copy.heading,
+      url,
+      serviceType: "Private transfer with waiting",
+      provider: { "@type": "TravelAgency", name: "Antalya VIP Tourism", url: domain, telephone: "+90 530 265 57 90" },
+      areaServed: { "@type": "Place", name: "Antalya" },
+      offers: { "@type": "AggregateOffer", priceCurrency: "EUR", lowPrice: String(Math.min(...prices)), highPrice: String(Math.max(...prices)) },
+    } },
   ];
 }
 

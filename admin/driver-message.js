@@ -163,6 +163,17 @@ export function buildDriverTransferMessage(booking) {
 
   const header = `🚗 YENİ TRANSFER BİLDİRİMİ\n📋 Ref: ${b.booking_ref || '—'}`
 
+  // Land of Legends: tek araç; şoför otelden alır, parkta bekler, otele döner.
+  if (b.trip_type === 'land_of_legends') {
+    return [
+      header,
+      '',
+      '*THE LAND OF LEGENDS — GİDİŞ + BEKLEME + DÖNÜŞ*',
+      transferBlock(b, 'outbound'),
+      `🎢 Parktan dönüş alışı: ${fmtTime(b.return_pickup_time)} · şoför parkta bekler`,
+    ].join('\n')
+  }
+
   if (isRoundTrip) {
     return [
       header,

@@ -5,6 +5,7 @@ import {
   articlePaths,
   blogPaths,
   homePaths,
+  landOfLegendsLanguages,
   languagePrefix,
   legalPaths,
   publicLanguages,
@@ -41,6 +42,9 @@ const addGroup = (paths) => {
 
 addGroup(Object.fromEntries(publicLanguages.map((language) => [language, `${languagePrefix(language)}/`])));
 addGroup(Object.fromEntries(publicLanguages.map((language) => [language, `${languagePrefix(language)}/health/`])));
+addGroup(Object.fromEntries(
+  landOfLegendsLanguages.map((language) => [language, `${languagePrefix(language)}/land-of-legends/`]),
+));
 for (const slug of publicRouteSlugs) {
   addGroup(Object.fromEntries(
     publicLanguages.map((language) => [language, `${languagePrefix(language)}/transfers/${slug}/`]),

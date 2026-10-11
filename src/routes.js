@@ -223,6 +223,8 @@ export const turkishLocationNames = Object.freeze({
   ),
   antalya: "Antalya",
   kizilagac: "Kızılağaç",
+  // Not a route: the fixed drop-off of the Land of Legends excursion.
+  land_of_legends: "The Land of Legends",
 });
 
 /**
