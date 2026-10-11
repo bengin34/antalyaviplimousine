@@ -4,6 +4,7 @@ import { fmtPrice, fmtShortDateWithWeekday, fmtSyncTime, fmtTime, statusLabel, t
 import { supabase } from '../lib/supabase'
 import type { Booking, Navigate } from '../types'
 import { locationDisplay } from '../../turkish-formatters.js'
+import { buildDriverTransferMessage, driverWhatsappURL } from '../../driver-message.js'
 import {
   customerMessageLanguage, inboxStage, INBOX_STATUSES, isAwaitingConfirmation, markCustomerMessageSent,
   sendCustomerMessage, waitingSince, type CustomerMessageKind,
@@ -61,6 +62,7 @@ function InboxCard({ booking, now, busy, onSend, onDismiss, navigate }: {
         ? <button className="inbox-send primary" type="button" disabled={anyBusy} onClick={() => onSend(booking, 'check')}>{isBusy('check') ? 'Hazırlanıyor…' : '📥 Kontrol mesajı gönder'}</button>
         : <button className="inbox-send primary confirm" type="button" disabled={anyBusy} onClick={() => onSend(booking, 'confirm')}>{isBusy('confirm') ? 'Hazırlanıyor…' : '✅ Onay mesajı gönder'}</button>}
       {stage === 'check' && <button className="inbox-send" type="button" disabled={anyBusy} onClick={() => onSend(booking, 'confirm')}>{isBusy('confirm') ? '…' : '✅ Direkt onayla'}</button>}
+      <a className="inbox-send driver" href={driverWhatsappURL(buildDriverTransferMessage(booking))} target="_blank" rel="noopener noreferrer">🚗 Şoföre bildir</a>
       <button className="inbox-send" type="button" onClick={open}>Detay ›</button>
     </div>
     <div className="inbox-footer">

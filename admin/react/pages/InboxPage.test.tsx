@@ -99,6 +99,15 @@ describe('InboxPage', () => {
     expect(mocks.updates[0]).toMatchObject({ id: 'b-1', values: { confirm_message_sent_at: expect.any(String) } })
   })
 
+  test('each card can notify the driver on WhatsApp', async () => {
+    render(<InboxPage navigate={vi.fn()} />)
+    const card = (await screen.findByText('Anna Schmidt')).closest('.inbox-card') as HTMLElement
+    const link = within(card).getByRole('link', { name: /Şoföre bildir/ })
+    expect(link).toHaveAttribute('target', '_blank')
+    expect(link.getAttribute('href')).toMatch(/^https:\/\/wa\.me\/905056565790\?text=/)
+    expect(decodeURIComponent(link.getAttribute('href')!)).toContain('AVL-1')
+  })
+
   test('shows an empty state when nothing is waiting', async () => {
     rows = []
     render(<InboxPage navigate={vi.fn()} />)
