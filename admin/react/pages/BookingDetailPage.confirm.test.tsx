@@ -51,7 +51,7 @@ describe('BookingDetailPage per-leg confirmations', () => {
     expect(confirmButton(/Dönüş onayı gönder/)).toBeTruthy()
   })
 
-  test('the return confirmation sends only the return leg and is tracked', async () => {
+  test('the return confirmation sends only the return leg and keeps the booking in the inbox', async () => {
     installQueries(roundTrip)
     const popup = { closed: false, opener: {}, document: { title: '', body: { textContent: '' } }, location: { replace: vi.fn() }, close: vi.fn() }
     vi.spyOn(window, 'open').mockReturnValue(popup as unknown as Window)
@@ -63,7 +63,8 @@ describe('BookingDetailPage per-leg confirmations', () => {
     const text = decodeURIComponent(String(popup.location.replace.mock.calls[0][0]))
     expect(text).toContain('TK124')
     expect(text).not.toContain('TK123')
-    await waitFor(() => expect(mocks.updates).toEqual([{ confirm_message_sent_at: expect.any(String) }]))
+    await screen.findByText(/en güncel transfer/)
+    expect(mocks.updates).toEqual([])
   })
 
   test('the outbound confirmation sends only the outbound leg', async () => {
@@ -78,6 +79,7 @@ describe('BookingDetailPage per-leg confirmations', () => {
     const text = decodeURIComponent(String(popup.location.replace.mock.calls[0][0]))
     expect(text).toContain('TK123')
     expect(text).not.toContain('TK124')
+    await waitFor(() => expect(mocks.updates).toEqual([{ confirm_message_sent_at: expect.any(String) }]))
   })
 
   test('one-way bookings keep a single confirmation', async () => {

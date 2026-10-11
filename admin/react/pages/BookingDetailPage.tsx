@@ -483,7 +483,10 @@ export default function BookingDetailPage({ bookingRef, isReturn, sourceTab, pro
     popup.location.replace(whatsappURL(latest.customer_phone, message))
     setTemplateState({ loading: '', success: `Mesaj ${languageName(resolveLanguage(latest))} dilinde, en güncel transfer ve adres bilgileriyle hazırlandı.`, error: '' })
     // Kontrol ve onay mesajları "Yeni" sekmesini besler: gönderim anı kaydedilir.
-    const trackedKind = kind === 'received' ? 'check' : kind === 'confirm' || kind === 'confirmOutbound' || kind === 'confirmReturn' ? 'confirm' : null
+    // Yalnız dönüş ayağının onayı rezervasyonu Yeni'den çıkarmaz: gidiş hâlâ
+    // onaylanmamış olabilir. Dönüş görünümündeki 'confirm' de yalnız dönüştür.
+    const returnOnlyConfirm = kind === 'confirmReturn' || (kind === 'confirm' && roundTrip && isReturn)
+    const trackedKind = kind === 'received' ? 'check' : (kind === 'confirm' || kind === 'confirmOutbound') && !returnOnlyConfirm ? 'confirm' : null
     if (trackedKind) {
       const { sentAt, error: trackError } = await markCustomerMessageSent(latest, trackedKind)
       const column = trackedKind === 'check' ? 'check_message_sent_at' : 'confirm_message_sent_at'
