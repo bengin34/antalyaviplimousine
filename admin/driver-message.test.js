@@ -125,3 +125,53 @@ test('a separately booked return is marked as a return journey too', () => {
   expect(buildDriverDailyProgram([card], manualReturn.pickup_date)).toContain('🔁 *DÖNÜŞ SEYAHATİ*')
   expect(buildDriverTransferMessage(manualReturn)).toContain('🔁 *DÖNÜŞ SEYAHATİ*')
 })
+
+const landOfLegends = {
+  id: 'lol-1',
+  booking_ref: 'AVL-2026-LOL00001',
+  customer_name: 'Anna Schmidt',
+  customer_phone: '+4915123456789',
+  trip_type: 'land_of_legends',
+  status: 'confirmed',
+  pickup_date: '2026-10-20',
+  pickup_time: '09:30:00',
+  pickup_location: 'hotel',
+  dropoff_location: 'land_of_legends',
+  return_date: '2026-10-20',
+  return_pickup_time: '22:30:00',
+  hotel_name: 'Delphin Imperial Lara',
+  vehicle_type: 'vito',
+  guests: 4,
+  price_eur: 105,
+  payment_method: 'cash',
+}
+
+test('a Land of Legends booking sends the driver both the morning drop and the park pick-up', () => {
+  const [outbound, back] = buildDriverTransferMessage(landOfLegends).split('━━━━━━━━━━━━━━')
+
+  expect(outbound).toContain('THE LAND OF LEGENDS')
+  expect(outbound).toContain('🕐 Saat: 09:30')
+  expect(outbound).toContain('🎢 Parktan dönüş alışı: 22:30')
+  expect(outbound).toContain('Nakit · €105')
+  expect(outbound).toContain('📍 Varış: The Land of Legends — buluşma: Ana giriş otoparkı')
+  expect(outbound).not.toContain('Delphin Imperial Lara (The Land of Legends)')
+
+  expect(back).toContain('LAND OF LEGENDS DÖNÜŞÜ')
+  expect(back).toContain('🕐 Saat: 22:30')
+  expect(back).toContain('📍 Alış: The Land of Legends — buluşma: Ana giriş otoparkı')
+  expect(back).toContain('📍 Varış: Delphin Imperial Lara')
+  // One fare for the whole day: the ride back must not ask for it again.
+  expect(back).toContain('Ücret sabah gidişte tahsil edilir')
+})
+
+test('the driver day plan lists the evening park pick-up as its own job', () => {
+  const cards = expandRoundTrips([landOfLegends])
+  expect(cards).toHaveLength(2)
+  expect(cards[1]).toMatchObject({ _isReturn: true, _displayTime: '22:30:00', pickup_location: 'land_of_legends' })
+
+  const program = buildDriverDailyProgram(cards, '2026-10-20')
+  expect(program).toContain('Toplam: 2 transfer')
+  expect(program).toContain('09:30 · Otel → The Land of Legends')
+  expect(program).toContain('22:30 · The Land of Legends → Otel')
+  expect(program).toContain('LAND OF LEGENDS DÖNÜŞÜ')
+})

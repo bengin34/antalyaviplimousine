@@ -34,7 +34,8 @@
     "test:public": "vitest run scripts/public-site-contracts.test.js",
     "test:responsive": "node scripts/responsive-audit.mjs",
     "test:watch": "vitest",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "generate:hotel-regions": "node scripts/generate-hotel-regions.mjs"
   },
   "devDependencies": {
     "@react-router/dev": "^8.3.0",

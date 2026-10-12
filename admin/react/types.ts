@@ -48,7 +48,9 @@ export interface Booking {
   // panel bu iki durumda hiçbir şey göstermez.
   flight_verification_status?: 'verified' | 'not_found' | 'wrong_airport' | 'unavailable' | null
   flight_scheduled_arrival?: string | null
-  trip_type: 'one_way' | 'round_trip' | 'daily_chauffeur'
+  trip_type: 'one_way' | 'round_trip' | 'daily_chauffeur' | 'land_of_legends'
+  /** Land of Legends gezisinde fiyatın hesaplandığı otel bölgesi. */
+  excursion_region?: string | null
   return_date: string | null
   return_pickup_time: string | null
   return_flight_number: string | null

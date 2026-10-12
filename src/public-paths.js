@@ -37,6 +37,12 @@ export const clinicPaths = Object.freeze(["/clinic/"]);
 /** English only: the partner page addresses agencies, who trade in English. */
 export const b2bPaths = Object.freeze(["/b2b/"]);
 
+/** The Land of Legends excursion page — published in every site language. */
+export const landOfLegendsLanguages = publicLanguages;
+export const landOfLegendsPaths = Object.freeze(
+  landOfLegendsLanguages.map((language) => `${languagePrefix(language)}/land-of-legends/`),
+);
+
 export const transferPaths = Object.freeze(
   publicLanguages.flatMap((language) =>
     publicRouteSlugs.map((slug) => `${languagePrefix(language)}/transfers/${slug}/`),
@@ -48,6 +54,7 @@ export const prerenderPaths = Object.freeze([
   ...healthPaths,
   ...clinicPaths,
   ...b2bPaths,
+  ...landOfLegendsPaths,
   ...transferPaths,
   ...hotelPaths,
   ...blogPaths,
@@ -59,6 +66,7 @@ export const sitemapPaths = Object.freeze([
   ...homePaths,
   ...healthPaths,
   ...b2bPaths,
+  ...landOfLegendsPaths,
   ...transferPaths,
   ...hotelPaths,
   ...blogPaths,

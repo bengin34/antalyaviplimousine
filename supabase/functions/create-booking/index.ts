@@ -1,5 +1,12 @@
 import { createClient } from 'https://esm.sh/@supabase/supabase-js@2'
 import { parsePhoneNumberFromString } from 'npm:libphonenumber-js@1.13.9/max'
+import { hotelRegionBySlug } from '../_shared/hotel-regions.generated.ts'
+import {
+  isValidLandOfLegendsVisit,
+  landOfLegendsNotice,
+  resolveHotelRegion,
+  turkeyToday,
+} from '../_shared/land-of-legends-rules.js'
 
 const corsHeaders = {
   'Access-Control-Allow-Origin': '*',
@@ -101,9 +108,12 @@ Deno.serve(async (req) => {
     const tripType = String(payload.trip_type || 'one_way')
     const isRoundTrip = tripType === 'round_trip'
     const isDailyChauffeur = tripType === 'daily_chauffeur'
+    const isLandOfLegends = tripType === 'land_of_legends'
     const requiredForTrip = isDailyChauffeur
       ? [...requiredFields, 'pickup_time', 'service_end_date', 'fuel_terms_accepted']
-      : [...requiredFields, 'dropoff_location']
+      : isLandOfLegends
+        ? [...requiredFields, 'pickup_time', 'return_pickup_time', 'hotel_name']
+        : [...requiredFields, 'dropoff_location']
     const missingField = requiredForTrip.find((field) => {
       const value = payload[field]
       return value === undefined || value === null || value === '' || (field === 'fuel_terms_accepted' && value !== true)
@@ -113,17 +123,21 @@ Deno.serve(async (req) => {
       return jsonResponse({ error: `${missingField} is required` }, 400)
     }
 
-    const pickupAddress = normalizeWhitespace(payload.pickup_address)
+    // The excursion is always hotel → park → hotel: no free-text addresses,
+    // or a client could put any text where the driver reads the destination.
+    const pickupAddress = tripType === 'land_of_legends' ? '' : normalizeWhitespace(payload.pickup_address)
     if (payload.pickup_location === 'private_address' && (pickupAddress.length < 6 || pickupAddress.length > 160)) {
       return jsonResponse({ error: 'pickup_address must be between 6 and 160 characters' }, 400)
     }
-    const dropoffAddress = isDailyChauffeur ? '' : normalizeWhitespace(payload.dropoff_address)
+    const dropoffAddress = isDailyChauffeur || isLandOfLegends ? '' : normalizeWhitespace(payload.dropoff_address)
     if (!isDailyChauffeur && payload.dropoff_location === 'private_address' && (dropoffAddress.length < 6 || dropoffAddress.length > 160)) {
       return jsonResponse({ error: 'dropoff_address must be between 6 and 160 characters' }, 400)
     }
 
     const pickupLocation = String(payload.pickup_location)
-    const dropoffLocation = isDailyChauffeur ? null : String(payload.dropoff_location)
+    // The excursion always ends at the park; the client does not get to choose.
+    const dropoffLocation = isDailyChauffeur ? null : isLandOfLegends ? 'land_of_legends' : String(payload.dropoff_location)
+
     if (
       pickupLocation === 'private_address' &&
       dropoffLocation === 'private_address' &&
@@ -136,6 +150,10 @@ Deno.serve(async (req) => {
     const customerName = normalizeWhitespace(payload.customer_name)
     const customerPhone = normalizeWhitespace(payload.customer_phone)
     const rawHotelName = normalizeWhitespace(payload.hotel_name)
+    // The price region comes from the hotel name, never from the client: a
+    // posted region could simply be a cheaper one. An unindexed hotel has no
+    // region and is quoted by hand.
+    const excursionRegion = isLandOfLegends ? resolveHotelRegion(rawHotelName, hotelRegionBySlug) ?? '' : ''
     const requiresHotelName = isDailyChauffeur || pickupLocation === 'hotel' || dropoffLocation !== 'private_address'
     const hotelName = rawHotelName || 'Not specified'
     const notes = normalizeWhitespace(payload.notes)
@@ -146,8 +164,9 @@ Deno.serve(async (req) => {
     const requiresManualPricing = !isDailyChauffeur && (isAirportReturn || isPrivateDestination)
     const pickupDate = String(payload.pickup_date)
     const pickupTime = String(payload.pickup_time || '')
-    const returnDate = isRoundTrip ? String(payload.return_date || '') : ''
-    const returnPickupTime = isRoundTrip ? String(payload.return_pickup_time || '') : ''
+    // The excursion comes back the same day, so its return date is the pick-up date.
+    const returnDate = isRoundTrip ? String(payload.return_date || '') : isLandOfLegends ? pickupDate : ''
+    const returnPickupTime = isRoundTrip || isLandOfLegends ? String(payload.return_pickup_time || '') : ''
     const returnFlightNumber = isRoundTrip
       ? normalizeWhitespace(payload.return_flight_number).toUpperCase()
       : ''
@@ -203,7 +222,7 @@ Deno.serve(async (req) => {
     if (!isValidFlightNumber(payload.flight_number)) {
       return jsonResponse({ error: 'flight_number is invalid' }, 400)
     }
-    if (!['one_way', 'round_trip', 'daily_chauffeur'].includes(tripType)) {
+    if (!['one_way', 'round_trip', 'daily_chauffeur', 'land_of_legends'].includes(tripType)) {
       return jsonResponse({ error: 'trip_type is invalid' }, 400)
     }
     if (isRoundTrip && !isValidFlightNumber(returnFlightNumber)) {
@@ -220,6 +239,16 @@ Deno.serve(async (req) => {
     }
     if (paymentMethod !== 'cash') {
       return jsonResponse({ error: 'payment_method is invalid' }, 400)
+    }
+    if (isLandOfLegends && pickupLocation !== 'hotel') {
+      return jsonResponse({ error: 'land_of_legends pickup_location must be hotel' }, 400)
+    }
+    if (isLandOfLegends && !isValidLandOfLegendsVisit(pickupTime, returnPickupTime)) {
+      return jsonResponse({ error: 'return_pickup_time must be 2 or more hours after pickup_time and no later than 23:30' }, 400)
+    }
+    const landOfLegendsNoticeLevel = isLandOfLegends ? landOfLegendsNotice(pickupDate, pickupTime) : 'ok'
+    if (landOfLegendsNoticeLevel === 'too_soon') {
+      return jsonResponse({ error: 'pickup_too_soon', code: 'pickup_too_soon' }, 400)
     }
     if (!isDailyChauffeur && dropoffLocation === 'airport' && pickupLocation === 'airport') {
       return jsonResponse({ error: 'pickup and destination cannot both be the airport' }, 400)
@@ -248,7 +277,8 @@ Deno.serve(async (req) => {
     if (!isValidDate(pickupDate)) {
       return jsonResponse({ error: 'pickup_date is invalid' }, 400)
     }
-    if (pickupDate < new Date().toISOString().split('T')[0]) {
+    // Turkey's calendar date: a guest in Berlin at 23:30 is already on tomorrow in Antalya.
+    if (pickupDate < turkeyToday()) {
       return jsonResponse({ error: 'pickup_date cannot be in the past' }, 400)
     }
     if (isRoundTrip) {
@@ -286,7 +316,20 @@ Deno.serve(async (req) => {
 
     let priceEur = 0
     let dailyRateEur: number | null = null
-    if (isDailyChauffeur) {
+    // A hotel outside the fixed-price regions still books; the operator quotes it.
+    let landOfLegendsNeedsQuote = false
+    if (isLandOfLegends) {
+      const { data: rate } = excursionRegion
+        ? await supabase
+          .from('land_of_legends_rates')
+          .select('price_eur')
+          .eq('region_slug', excursionRegion)
+          .eq('vehicle_type', vehicleType)
+          .maybeSingle()
+        : { data: null }
+      if (rate) priceEur = Number(rate.price_eur)
+      else landOfLegendsNeedsQuote = true
+    } else if (isDailyChauffeur) {
       const { data: rate, error: rateError } = await supabase
         .from('chauffeur_service_rates')
         .select('daily_rate_eur')
@@ -351,6 +394,7 @@ Deno.serve(async (req) => {
       // Gidiş ve dönüş ayakları ayrı maliyetlenir; genel talepler kendi
       // aracımızla başlar, satılan transfer admin panelinden işaretlenir.
       return_service_cost_mode: isRoundTrip ? 'own_vehicle' : null,
+      excursion_region: isLandOfLegends ? excursionRegion || null : null,
       service_end_date: serviceEndDate || null,
       daily_rate_eur: dailyRateEur,
       departure_flight_date: departureFlightDate || null,
@@ -360,7 +404,8 @@ Deno.serve(async (req) => {
       guests: guestCount,
       vehicle_type: vehicleType,
       price_eur: priceEur,
-      status: requiresManualPricing ? 'pending' : 'confirmed',
+      // Short-notice excursions are taken but confirmed by the operator.
+      status: requiresManualPricing || landOfLegendsNeedsQuote || landOfLegendsNoticeLevel === 'short' ? 'pending' : 'confirmed',
       payment_method: paymentMethod,
       language: String(payload.language || 'en'),
       utm_source: payload.utm_source ? String(payload.utm_source).slice(0, 100) : null,
@@ -393,7 +438,11 @@ Deno.serve(async (req) => {
         : 'Antalya Airport (AYT)'
     )
     const dropoffAddressDisplay = booking.dropoff_address || booking.dropoff_location
-    const bookingPriceDisplay = isDailyChauffeur
+    const bookingPriceDisplay = isLandOfLegends
+      ? landOfLegendsNeedsQuote
+        ? `To be quoted — ${excursionRegion ? `region "${excursionRegion}" has no fixed Land of Legends rate` : 'hotel is not in the index'}`
+        : `EUR ${booking.price_eur} (round trip, waiting included)`
+      : isDailyChauffeur
       ? `EUR ${booking.price_eur} (${hireDayCount} days x EUR ${booking.daily_rate_eur}; fuel excluded)`
       : isPrivateDestination
       ? 'To be confirmed after checking the drop-off address'
@@ -419,7 +468,9 @@ Deno.serve(async (req) => {
         body: JSON.stringify({
           from: fromEmail,
           to: [notificationEmail],
-          subject: `New ${isDailyChauffeur ? 'daily chauffeur hire ' : isRoundTrip ? 'round-trip ' : ''}booking ${booking.booking_ref}: ${pickupLabel}${isDailyChauffeur ? '' : ` to ${booking.dropoff_location}`}`,
+          subject: isLandOfLegends
+            ? `${booking.status === 'pending' ? '[CHECK] ' : ''}Land of Legends ${booking.booking_ref}: ${booking.pickup_date} hotel ${String(booking.pickup_time).slice(0, 5)} → park pick-up ${String(booking.return_pickup_time).slice(0, 5)}`
+            : `New ${isDailyChauffeur ? 'daily chauffeur hire ' : isRoundTrip ? 'round-trip ' : ''}booking ${booking.booking_ref}: ${pickupLabel}${isDailyChauffeur ? '' : ` to ${booking.dropoff_location}`}`,
           html: `
             <div style="font-family:Arial,sans-serif;color:#161616">
               <h2>New booking request</h2>
@@ -429,19 +480,21 @@ Deno.serve(async (req) => {
                 <tr><td style="padding:6px 12px;color:#777">Email</td><td style="padding:6px 12px">${escapeHtml(booking.customer_email)}</td></tr>
                 <tr><td style="padding:6px 12px;color:#777">Phone / WhatsApp</td><td style="padding:6px 12px">${escapeHtml(booking.customer_phone)}</td></tr>
                 <tr><td style="padding:6px 12px;color:#777">Hotel / accommodation</td><td style="padding:6px 12px"><strong>${escapeHtml(booking.hotel_name)}</strong></td></tr>
-                <tr><td style="padding:6px 12px;color:#777">Large luggage</td><td style="padding:6px 12px"><strong>${escapeHtml(booking.luggage_count ?? luggageCount)}</strong></td></tr>
+                ${!isLandOfLegends ? `<tr><td style="padding:6px 12px;color:#777">Large luggage</td><td style="padding:6px 12px"><strong>${escapeHtml(booking.luggage_count ?? luggageCount)}</strong></td></tr>` : ''}
                 ${golfBagCount > 0 ? `<tr><td style="padding:6px 12px;color:#777">Golf bags</td><td style="padding:6px 12px"><strong>${escapeHtml(golfBagCount)}</strong></td></tr>` : ''}
                 ${strollerCount > 0 ? `<tr><td style="padding:6px 12px;color:#777">Strollers</td><td style="padding:6px 12px"><strong>${escapeHtml(strollerCount)}</strong></td></tr>` : ''}
                 <tr><td style="padding:6px 12px;color:#777">Child seats</td><td style="padding:6px 12px">${escapeHtml(booking.child_seat_count || 0)}</td></tr>
                 ${childAges.length > 0 ? `<tr><td style="padding:6px 12px;color:#777">Child ages</td><td style="padding:6px 12px">${escapeHtml(childAges.map((age, i) => `Child ${i + 1}: ${age === 0 ? 'under 1' : age + ' yr'}`).join(', '))}</td></tr>` : ''}
                 <tr><td style="padding:6px 12px;color:#777">Pick-up type</td><td style="padding:6px 12px">${escapeHtml(pickupLabel)}</td></tr>
                 <tr><td style="padding:6px 12px;color:#777">Pick-up address</td><td style="padding:6px 12px"><strong>${escapeHtml(pickupAddressDisplay)}</strong></td></tr>
-                ${!isDailyChauffeur ? `<tr><td style="padding:6px 12px;color:#777">Destination</td><td style="padding:6px 12px">${escapeHtml(booking.dropoff_location)}</td></tr>` : ''}
+                ${!isDailyChauffeur ? `<tr><td style="padding:6px 12px;color:#777">Destination</td><td style="padding:6px 12px">${escapeHtml(isLandOfLegends ? 'The Land of Legends (Kadriye) — then back to the hotel' : booking.dropoff_location)}</td></tr>` : ''}
                 ${!isDailyChauffeur && booking.dropoff_address ? `<tr><td style="padding:6px 12px;color:#777">Drop-off address</td><td style="padding:6px 12px"><strong>${escapeHtml(dropoffAddressDisplay)}</strong></td></tr>` : ''}
-                <tr><td style="padding:6px 12px;color:#777">Journey type</td><td style="padding:6px 12px"><strong>${escapeHtml(isDailyChauffeur ? 'Daily vehicle + chauffeur' : isRoundTrip ? 'Round trip' : 'One way')}</strong></td></tr>
-                <tr><td style="padding:6px 12px;color:#777">Date / arrival</td><td style="padding:6px 12px">${escapeHtml(booking.pickup_date)} ${escapeHtml(isDailyChauffeur ? booking.pickup_time : booking.flight_arrival_time || '')}</td></tr>
-                <tr><td style="padding:6px 12px;color:#777">Flight</td><td style="padding:6px 12px">${escapeHtml(booking.flight_number || 'Not provided')}</td></tr>
-                ${isRoundTrip ? `<tr><td style="padding:6px 12px;color:#777">Return date / pick-up</td><td style="padding:6px 12px"><strong>${escapeHtml(booking.return_date)} ${escapeHtml(booking.return_pickup_time)}</strong></td></tr>
+                <tr><td style="padding:6px 12px;color:#777">Journey type</td><td style="padding:6px 12px"><strong>${escapeHtml(isLandOfLegends ? 'The Land of Legends — hotel → park → hotel, driver waits' : isDailyChauffeur ? 'Daily vehicle + chauffeur' : isRoundTrip ? 'Round trip' : 'One way')}</strong></td></tr>
+                ${isLandOfLegends ? `<tr><td style="padding:6px 12px;color:#777">Hotel departure / park pick-up</td><td style="padding:6px 12px"><strong>${escapeHtml(booking.pickup_date)} · ${escapeHtml(booking.pickup_time)} → ${escapeHtml(booking.return_pickup_time)}</strong></td></tr>
+                <tr><td style="padding:6px 12px;color:#777">Hotel region</td><td style="padding:6px 12px">${escapeHtml(booking.excursion_region || 'Not matched')}</td></tr>` : ''}
+                ${!isLandOfLegends ? `<tr><td style="padding:6px 12px;color:#777">Date / arrival</td><td style="padding:6px 12px">${escapeHtml(booking.pickup_date)} ${escapeHtml(isDailyChauffeur ? booking.pickup_time : booking.flight_arrival_time || '')}</td></tr>` : ''}
+                ${!isLandOfLegends ? `<tr><td style="padding:6px 12px;color:#777">Flight</td><td style="padding:6px 12px">${escapeHtml(booking.flight_number || 'Not provided')}</td></tr>` : ''}
+                ${isRoundTrip && !isLandOfLegends ? `<tr><td style="padding:6px 12px;color:#777">Return date / pick-up</td><td style="padding:6px 12px"><strong>${escapeHtml(booking.return_date)} ${escapeHtml(booking.return_pickup_time)}</strong></td></tr>
                 <tr><td style="padding:6px 12px;color:#777">Return flight</td><td style="padding:6px 12px">${escapeHtml(booking.return_flight_number || 'Not provided')}</td></tr>` : ''}
                 ${isDailyChauffeur ? `<tr><td style="padding:6px 12px;color:#777">Hire period</td><td style="padding:6px 12px"><strong>${escapeHtml(booking.pickup_date)} – ${escapeHtml(booking.service_end_date)} (${escapeHtml(hireDayCount)} days)</strong></td></tr>
                 <tr><td style="padding:6px 12px;color:#777">Departure flight</td><td style="padding:6px 12px">${escapeHtml(booking.departure_flight_date || 'Not provided')} ${escapeHtml(booking.departure_flight_time || '')} ${escapeHtml(booking.departure_flight_number || '')}</td></tr>

@@ -565,3 +565,82 @@ summary:focus-visible,
   outline: 3px solid var(--gold-dark, #9d7a3d);
   outline-offset: 2px;
 }
+
+/* The Land of Legends booking form — used on its own page and inside the
+   main booking form, so its styles load site-wide. */
+/* While the excursion is chosen, the airport form keeps only its journey-type picker. */
+.booking-card.is-excursion > :not(.trip-type-selector) { display: none; }
+.lol-inline-card { margin-top: 12px; }
+.trip-type-hint a { color: var(--gold-dark); text-decoration: underline; }
+.lol-form .booking-row { margin-bottom: 16px; }
+.lol-hint {
+  display: block;
+  margin-top: 6px;
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+.lol-hotel-status {
+  display: block;
+  min-height: 1.2em;
+  margin-top: 6px;
+  color: var(--gold-dark);
+  font-size: 0.85rem;
+}
+
+.lol-summary {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px 24px;
+  margin: 8px 0 18px;
+  padding: 18px 20px;
+  border-radius: 14px;
+  background: var(--cream);
+}
+.lol-summary div { display: flex; flex-direction: column; gap: 2px; }
+.lol-summary small { color: var(--muted); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.06em; }
+.lol-summary strong { color: var(--ink); font-size: 1.6rem; }
+.lol-summary span,
+.lol-summary p { margin: 0; color: var(--muted); font-size: 0.9rem; }
+
+.lol-confirmation h3 { margin: 0 0 10px; color: var(--ink); font-size: 1.3rem; }
+.lol-confirmation p { color: var(--muted); line-height: 1.6; }
+.lol-reference strong { color: var(--ink); letter-spacing: 0.04em; }
+.lol-confirmation-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 18px; }
+.lol-confirmation-actions .quote-submit { width: auto; display: inline-flex; }
+
+
+/* Inside the dark main booking shell. */
+
+.lol-inline-card .lol-hotel-status { color: var(--gold-light); }
+.lol-inline-card .lol-summary { background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(200, 169, 106, 0.25); }
+.lol-inline-card .lol-summary small,
+.lol-inline-card .lol-summary span,
+.lol-inline-card .lol-summary p { color: rgba(255, 255, 255, 0.6); }
+.lol-inline-card .lol-summary strong { color: var(--gold-light); }
+.lol-inline-card .lol-confirmation h3,
+.lol-inline-card .lol-reference strong { color: var(--white); }
+.lol-inline-card .lol-confirmation p { color: rgba(255, 255, 255, 0.7); }
+
+.lol-summary-notes { margin: 0; padding: 0 0 0 18px; color: var(--muted); font-size: 0.88rem; line-height: 1.6; }
+.lol-short-notice { color: var(--gold-dark); font-weight: 600; }
+.lol-form-footer { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 20px; }
+.lol-ask-link { display: inline-flex; align-items: center; gap: 6px; color: var(--gold-dark); font-size: 0.9rem; text-decoration: underline; }
+.lol-ask-link .icon { width: 16px; height: 16px; }
+.lol-summary-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 10px 20px; margin: 16px 0; }
+.lol-summary-list div { display: flex; flex-direction: column; gap: 2px; }
+.lol-summary-list dt { color: var(--muted); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.05em; }
+.lol-summary-list dd { margin: 0; color: var(--ink); font-weight: 600; }
+.lol-tickets-note { font-weight: 600; }
+.lol-confirmation h3:focus { outline: none; }
+@media (min-width: 900px) {
+  .lol-form .lol-options-row { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+.lol-inline-card .lol-hint { color: rgba(255, 255, 255, 0.62); }
+.lol-inline-card .lol-summary-notes { color: rgba(255, 255, 255, 0.65); }
+.lol-inline-card .lol-short-notice,
+.lol-inline-card .lol-ask-link { color: var(--gold-light); }
+.lol-inline-card .lol-summary-list dt { color: rgba(255, 255, 255, 0.55); }
+.lol-inline-card .lol-summary-list dd,
+.lol-inline-card .lol-tickets-note { color: var(--white); }

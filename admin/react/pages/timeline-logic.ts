@@ -76,6 +76,24 @@ export function expandRoundTrips(bookings: Booking[], mode: 'timeline' | 'cancel
       _displayTime: transferStartTime(booking.pickup_location, booking.pickup_time, booking.flight_arrival_time),
       _isReturn: false,
     })
+    // The Land of Legends evening pick-up is its own job on the timeline and in
+    // the driver's day plan, at the park, even though it is one booking.
+    if (booking.trip_type === 'land_of_legends' && booking.return_date && booking.return_pickup_time) {
+      cards.push({
+        ...booking,
+        _sourceBooking: booking,
+        _isReturn: true,
+        _displayDate: booking.return_date,
+        _displayTime: booking.return_pickup_time,
+        pickup_location: 'land_of_legends',
+        dropoff_location: booking.pickup_location,
+        pickup_address: null,
+        dropoff_address: booking.pickup_address,
+        flight_number: null,
+        flight_arrival_time: null,
+        _flightDepartureTime: null,
+      })
+    }
     if (booking.trip_type === 'round_trip' && booking.return_date) {
       const needsReturnContact = booking.status === 'completed' && isFutureIstanbulLeg(
         booking.return_date, booking.return_pickup_time,

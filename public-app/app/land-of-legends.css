@@ -1,0 +1,87 @@
+.lol-hero {
+  background: linear-gradient(160deg, #0b0b0b 0%, #1d1309 100%);
+  padding: 110px 24px 64px;
+  text-align: center;
+}
+.lol-hero .eyebrow { margin-bottom: 18px; }
+.lol-hero h1 {
+  max-width: 820px;
+  margin: 0 auto 20px;
+  color: #fff;
+  font-family: var(--serif);
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  font-weight: 400;
+  line-height: 1.15;
+}
+.lol-hero p {
+  max-width: 660px;
+  margin: 0 auto 20px;
+  color: rgba(255, 255, 255, 0.68);
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+.lol-hero .lol-from strong {
+  color: var(--gold-light);
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+.lol-highlights {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 22px;
+  justify-content: center;
+  max-width: 760px;
+  margin: 8px auto 32px;
+  padding: 0;
+  list-style: none;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.95rem;
+}
+.lol-highlights li { display: inline-flex; align-items: center; gap: 8px; }
+.lol-highlights .icon { width: 16px; height: 16px; color: var(--gold); }
+.lol-hero-cta { display: inline-flex; width: auto; }
+.lol-hero-actions { display: flex; flex-wrap: wrap; gap: 14px 22px; align-items: center; justify-content: center; }
+.lol-hero-whatsapp { display: inline-flex; align-items: center; gap: 8px; color: var(--gold-light); text-decoration: underline; }
+.lol-hero-whatsapp .icon { width: 18px; height: 18px; }
+
+.lol-content {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 48px 16px 80px;
+}
+
+.lol-booking {
+  margin-bottom: 56px;
+  padding: clamp(20px, 4vw, 36px);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: var(--paper);
+  box-shadow: var(--shadow);
+  scroll-margin-top: 90px;
+}
+.lol-booking h2,
+.lol-section h2 {
+  margin: 0 0 22px;
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: 1.6rem;
+  font-weight: 400;
+}
+.lol-section { margin-bottom: 48px; }
+.lol-section > p { margin: 0 0 18px; color: var(--muted); line-height: 1.7; }
+.lol-table-wrap { overflow-x: auto; }
+.lol-table { width: 100%; border-collapse: collapse; font-size: 0.95rem; }
+.lol-table th,
+.lol-table td { padding: 12px 14px; border-bottom: 1px solid var(--line); text-align: left; }
+.lol-table thead th { color: var(--muted); font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; }
+.lol-table tbody th { color: var(--ink); font-weight: 500; }
+.lol-table td { color: var(--ink); font-weight: 600; white-space: nowrap; }
+
+.lol-faq { border-bottom: 1px solid var(--line); padding: 14px 0; }
+.lol-faq summary { cursor: pointer; color: var(--ink); font-weight: 600; }
+.lol-faq p { margin: 10px 0 0; color: var(--muted); line-height: 1.7; }
+
+@media (max-width: 640px) {
+  .lol-hero { padding: 96px 16px 48px; }
+  .lol-highlights { flex-direction: column; align-items: flex-start; width: fit-content; }
+}

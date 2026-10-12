@@ -1,10 +1,11 @@
 import { readFile, stat } from "node:fs/promises";
 import path from "node:path";
 import { JSDOM } from "jsdom";
-import { articlePaths, b2bPaths, blogPaths, clinicPaths, healthPaths, homePaths, hotelPaths, legalPaths, prerenderPaths, publicLanguages, sitemapPaths, transferPaths } from "../src/public-paths.js";
+import { articlePaths, b2bPaths, landOfLegendsLanguages, landOfLegendsPaths, blogPaths, clinicPaths, healthPaths, homePaths, hotelPaths, legalPaths, prerenderPaths, publicLanguages, sitemapPaths, transferPaths } from "../src/public-paths.js";
 import { articleLanguages, articlesForLanguage, blogPath } from "../src/articles/index.js";
 import { publicRouteSlugs, routeCatalog } from "../src/routes.js";
 import { AGENCY_DISCOUNT_EUR, agencyPrice } from "../src/b2b-pricing.js";
+import { landOfLegendsRates } from "../src/land-of-legends.js";
 
 const root = process.cwd();
 const dist = path.join(root, "dist");
@@ -13,6 +14,7 @@ const homeSet = new Set(homePaths);
 const healthSet = new Set(healthPaths);
 const clinicSet = new Set(clinicPaths);
 const b2bSet = new Set(b2bPaths);
+const landOfLegendsSet = new Set(landOfLegendsPaths);
 const transferSet = new Set(transferPaths);
 const hotelSet = new Set(hotelPaths);
 const legalSet = new Set(legalPaths);
@@ -67,6 +69,9 @@ for (const urlPath of prerenderPaths) {
     // Indexed, but published in English alone — an hreflang set here would
     // point at translations that do not exist.
     if (alternateCount !== 0) fail(`${urlPath}: English-only partner page must not publish language alternates`);
+  } else if (landOfLegendsSet.has(urlPath)) {
+    // Published in four languages; its hreflang set names exactly those + x-default.
+    if (alternateCount !== landOfLegendsLanguages.length + 1) fail(`${urlPath}: expected ${landOfLegendsLanguages.length + 1} Land of Legends language alternates, found ${alternateCount}`);
   } else if (legalSet.has(urlPath)) {
     if (alternateCount < 5) fail(`${urlPath}: incomplete language alternates`);
   } else if (blogSet.has(urlPath) || articleSet.has(urlPath)) {
@@ -149,6 +154,17 @@ for (const urlPath of prerenderPaths) {
       if (agencyPrice(published) <= 0) {
         fail(`${urlPath}: ${slug} would be sold to agencies for €${agencyPrice(published)}`);
       }
+    }
+  }
+
+  if (landOfLegendsSet.has(urlPath)) {
+    if (!document.querySelector("#lol-booking form")) fail(`${urlPath}: Land of Legends booking form is missing`);
+    if (document.querySelector("#quote-form")) fail(`${urlPath}: airport booking form leaked into the Land of Legends page`);
+    if (document.querySelector("#lol-date")?.hasAttribute("min")) fail(`${urlPath}: build-time date leaked into prerendered HTML`);
+    const quoted = [...document.querySelectorAll(".lol-table td")].map((cell) => cell.textContent?.trim());
+    for (const [region, rate] of Object.entries(landOfLegendsRates)) {
+      if (region === "alanya") continue; // catch-all; its sub-regions carry the Alanya prices
+      if (!quoted.includes(`€${rate.vito}`) || !quoted.includes(`€${rate.sprinter}`)) fail(`${urlPath}: ${region} Land of Legends price is missing`);
     }
   }
 

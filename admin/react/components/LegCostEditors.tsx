@@ -270,7 +270,10 @@ export function CostModeToggle({ booking, leg, onSave, onNeedsCost }: {
       disabled={Boolean(savingMode) || locked}
       onChange={event => void toggle(event.target.value as CostMode)}
     >
-      {(Object.keys(COST_MODE_LABELS) as CostMode[]).map(mode => <option key={mode} value={mode}>
+      {(Object.keys(COST_MODE_LABELS) as CostMode[])
+        // The database allows "sold transfer" only on one-way and round-trip bookings.
+        .filter(mode => mode !== 'sold_transfer' || booking.trip_type !== 'land_of_legends' || current === mode)
+        .map(mode => <option key={mode} value={mode}>
         {COST_MODE_LABELS[mode]}
       </option>)}
     </select>

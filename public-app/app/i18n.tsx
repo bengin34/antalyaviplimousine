@@ -120,7 +120,7 @@ export function LanguageProvider({
 
   useEffect(() => {
     document.documentElement.lang = language;
-    document.documentElement.dir = ["ar", "ur"].includes(language) ? "rtl" : "ltr";
+    document.documentElement.dir = ["ar", "ur", "he"].includes(language) ? "rtl" : "ltr";
   }, [language]);
 
   const selectLanguage = useCallback((nextLanguage: LanguageCode) => {

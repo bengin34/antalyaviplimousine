@@ -6,6 +6,8 @@ import "react-phone-number-input/style.css";
 import { bookableRouteSlugs, routeCatalog } from "../../../src/routes.js";
 import { useLanguage, type LanguageCode } from "../i18n";
 import { HotelCombobox, type IndexedHotel } from "./HotelCombobox";
+import { LandOfLegendsForm } from "./LandOfLegendsForm";
+import { landOfLegendsCopy, landOfLegendsLanguageFor, landOfLegendsPath } from "../lib/land-of-legends-copy";
 import { Icon } from "./Icon";
 import {
   buildPublicBookingPayload,
@@ -121,6 +123,12 @@ export function BookingForm({
     return [...bookableRouteSlugs].sort((a, b) => nameFor(a).localeCompare(nameFor(b), language));
   }, [language]);
   const [step, setStep] = useState<1 | 2 | 3>(1);
+  // The Land of Legends day trip is its own product (one vehicle, waiting
+  // included) with its own form, so it is a mode beside the airport journey
+  // types rather than another `tripType` value of this form.
+  const [excursion, setExcursion] = useState(false);
+  const excursionLanguage = landOfLegendsLanguageFor(language);
+  const excursionCopy = landOfLegendsCopy[excursionLanguage];
   const [minimumDate, setMinimumDate] = useState("");
   const [submitting, setSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState("");
@@ -567,7 +575,7 @@ export function BookingForm({
           </div>
           <div
             id="booking-price-display"
-            className={`booking-price-display${isDailyChauffeur || values.destination ? " visible" : ""}`}
+            className={`booking-price-display${!excursion && (isDailyChauffeur || values.destination) ? " visible" : ""}`}
             role="status"
             aria-live="polite"
             aria-atomic="true"
@@ -582,7 +590,7 @@ export function BookingForm({
           </div>
         </div>
 
-        {!isDailyChauffeur && (
+        {!isDailyChauffeur && !excursion && (
           <div className="booking-steps" aria-label="Booking steps">
             <span className={`booking-step${step === 1 ? " active" : step > 1 ? " done" : ""}`}>
               <span className="booking-step-num">{step > 1 ? "✓" : "1"}</span>
@@ -601,19 +609,21 @@ export function BookingForm({
           </div>
         )}
 
-        <form className="booking-card" id="quote-form" noValidate onSubmit={handleSubmit(submit)}>
+        <form className={`booking-card${excursion ? " is-excursion" : ""}`} id="quote-form" noValidate onSubmit={handleSubmit(submit)}>
 
           {/* ── Step 1: Route + instant price ─────────────────────── */}
           {(isDailyChauffeur || step === 1) && (
             <>
               <fieldset className="trip-type-selector">
                 <legend>{t("tripType", "Journey type")}</legend>
-                <div className="trip-type-options">
+                <div className="trip-type-options" onChange={(event) => setExcursion((event.target as HTMLInputElement).value === "land_of_legends")}>
                   <label className="trip-type-option"><input type="radio" value="one_way" {...register("tripType")} {...fieldStatus("tripType", errors.tripType)} /><span>{t("oneWay", "One way")}</span></label>
                   <label className="trip-type-option"><input type="radio" value="round_trip" {...register("tripType")} {...fieldStatus("tripType", errors.tripType)} /><span>{t("roundTrip", "Round trip")}</span></label>
                   <label className="trip-type-option"><input type="radio" value="daily_chauffeur" {...register("tripType")} {...fieldStatus("tripType", errors.tripType)} /><span>{t("dailyChauffeur", "Daily vehicle + chauffeur")}</span></label>
+                  {/* Same radio group, not registered: picking it swaps in the excursion form below. */}
+                  <label className="trip-type-option"><input type="radio" name="tripType" value="land_of_legends" checked={excursion} onChange={() => setExcursion(true)} /><span>{excursionCopy.tripOption}</span></label>
                 </div>
-                <p className="trip-type-hint">{isDailyChauffeur ? t("dailyChauffeurHint", "Hire a private vehicle and chauffeur by the day with no kilometre or hour limit. Fuel is paid separately.") : t("roundTripHint", "For a round trip, the return follows the same route in reverse.")}</p>
+                <p className="trip-type-hint">{excursion ? <>{excursionCopy.tripHint} <a href={landOfLegendsPath(excursionLanguage)}>{excursionCopy.detailsLink}</a></> : isDailyChauffeur ? t("dailyChauffeurHint", "Hire a private vehicle and chauffeur by the day with no kilometre or hour limit. Fuel is paid separately.") : t("roundTripHint", "For a round trip, the return follows the same route in reverse.")}</p>
               </fieldset>
 
               {!isDailyChauffeur && (
@@ -869,6 +879,11 @@ export function BookingForm({
           )}
 
         </form>
+        {excursion && (
+          <div className="booking-card lol-inline-card">
+            <LandOfLegendsForm language={excursionLanguage} />
+          </div>
+        )}
       </div>
 
       {pendingDailyBooking && <div className="quote-modal open fuel-terms-modal" id="fuel-terms-modal" role="dialog" aria-modal="true" aria-labelledby="fuel-terms-title"><button className="modal-backdrop" aria-label={t("close", "Close")} onClick={() => setPendingDailyBooking(null)} /><div className="modal-card"><button className="modal-close" type="button" aria-label={t("close", "Close")} onClick={() => setPendingDailyBooking(null)}><Icon name="close" /></button><div className="fuel-terms-content"><span className="fuel-terms-icon" aria-hidden="true">⛽</span><h2 id="fuel-terms-title">{t("fuelTermsTitle", "Important information about fuel")}</h2><p>{t("fuelTermsBody", "The daily €150 service fee includes the vehicle and chauffeur. Fuel is not included. You will pay the actual fuel cost separately according to use.")}</p><label className="fuel-terms-check"><input type="checkbox" autoFocus checked={fuelAcknowledged} onChange={event => setFuelAcknowledged(event.target.checked)} /><span>{t("fuelTermsCheckbox", "I understand that fuel is excluded and will be paid separately based on use.")}</span></label><div className="fuel-terms-actions"><button className="fuel-terms-cancel" type="button" onClick={() => setPendingDailyBooking(null)}>{t("cancel", "Cancel")}</button><button className="button button-gold" type="button" disabled={!fuelAcknowledged || submitting} onClick={confirmDailyBooking}>{submitting ? "…" : t("understandAndConfirm", "I understand and confirm")}</button></div></div></div></div>}

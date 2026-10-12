@@ -1,4 +1,4 @@
-import { test, expect } from 'vitest'
+import { describe, test, expect } from 'vitest'
 import { buildConfirmMessage, buildReminderMessage, buildReceivedMessage, buildReviewMessage, buildMeetGreetMessage, faqURL } from './whatsapp-templates.js'
 import { faqAnchor, homeFaqGroups } from '../public-app/app/lib/faq'
 
@@ -542,3 +542,41 @@ test('airport arrivals show the flight landing time instead of a pickup time', (
   const hotelPickup = buildConfirmMessage({ ...arrival, trip_type: 'one_way', pickup_location: 'belek', dropoff_location: 'airport' }, { language: 'en' })
   expect(hotelPickup).toContain('Pickup time: 09:15')
 })
+describe("Land of Legends excursion messages", () => {
+  const excursion = {
+    booking_ref: "AVL-2026-LOL00001", customer_name: "Anna", trip_type: "land_of_legends",
+    pickup_date: "2026-10-20", pickup_time: "09:30:00", pickup_location: "hotel",
+    dropoff_location: "land_of_legends", return_date: "2026-10-20", return_pickup_time: "22:30:00",
+    hotel_name: "Sueno Hotels Side", vehicle_type: "vito", guests: 4, price_eur: 115,
+  };
+
+  test("the confirmation names both pick-ups, the meeting point, the wait and that tickets are extra", () => {
+    const message = buildConfirmMessage(excursion, { language: "de" });
+    expect(message).toContain("Abholung am Hotel: 09:30 · Sueno Hotels Side");
+    expect(message).toContain("Abholung am The Land of Legends: 22:30");
+    expect(message).toContain("Treffpunkt für die Rückfahrt: Parkplatz am Haupteingang");
+    expect(message).toContain("Preis: €115");
+    expect(message).toContain("Parktickets sind nicht enthalten.");
+    expect(message).not.toContain("Otel");
+  });
+
+  test("languages without excursion copy fall back to English for it", () => {
+    const message = buildReminderMessage(excursion, { language: "pl" });
+    expect(message).toContain("Pick-up at The Land of Legends: 22:30");
+    expect(message).toContain("Park tickets are not included.");
+  });
+});
+
+test("French and Arabic excursion messages are translated, with the meeting point in that language", () => {
+  const booking = {
+    booking_ref: "AVL-1", customer_name: "Anna", trip_type: "land_of_legends", pickup_date: "2026-10-20",
+    pickup_time: "09:30:00", pickup_location: "hotel", dropoff_location: "land_of_legends",
+    return_date: "2026-10-20", return_pickup_time: "22:30:00", hotel_name: "Sueno", vehicle_type: "vito", guests: 2, price_eur: 115,
+  };
+  const fr = buildConfirmMessage(booking, { language: "fr" });
+  expect(fr).toContain("Prise en charge à The Land of Legends: 22:30");
+  expect(fr).toContain("Parking de l'entrée principale");
+  const ar = buildConfirmMessage(booking, { language: "ar" });
+  expect(ar).toContain("تذاكر المنتزه غير مشمولة.");
+  expect(ar).toContain("موقف السيارات عند المدخل الرئيسي");
+});

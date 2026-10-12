@@ -1,4 +1,5 @@
 import { locationLabel, navigationURLs } from "./turkish-formatters.js";
+import { landOfLegendsMeetingPoint } from "../src/land-of-legends.js";
 
 // Shared transfer start-time rule used by the React timeline and detail views.
 function transferStartTime(pickupLocation, pickupTime, flightArrivalTime) {
@@ -32,6 +33,12 @@ function vehicleLabel(type) {
 // Values: labels and natural sentences for a VIP airport transfer service in Antalya.
 const LANG = {
   en: {
+    labelExcursion: "The Land of Legends — day trip",
+    labelHotelPickup: "Pick-up at your hotel",
+    labelParkPickup: "Pick-up at The Land of Legends",
+    labelMeetingPoint: "Meeting point for the ride back",
+    excursionWaits: "Your driver waits for you at the park and brings you back to your hotel — the price covers the whole day.",
+    excursionTickets: "Park tickets are not included.",
     confirmGreeting: (name) =>
       `Dear ${name},\n\n✅ Your Antalya VIP transfer is confirmed. Here are the details:`,
     confirmClosing:
@@ -98,6 +105,12 @@ const LANG = {
     labelDepartureFlight: "Departure flight",
   },
   de: {
+    labelExcursion: "The Land of Legends — Tagesausflug",
+    labelHotelPickup: "Abholung am Hotel",
+    labelParkPickup: "Abholung am The Land of Legends",
+    labelMeetingPoint: "Treffpunkt für die Rückfahrt",
+    excursionWaits: "Ihr Fahrer wartet am Park und bringt Sie zurück ins Hotel — der Preis gilt für den ganzen Tag.",
+    excursionTickets: "Parktickets sind nicht enthalten.",
     confirmGreeting: (name) =>
       `Hallo ${name},\n\n✅ Ihr Antalya VIP-Transfer ist bestätigt. Hier die Details:`,
     confirmClosing:
@@ -155,6 +168,12 @@ const LANG = {
     labelPlate: "Kennzeichen",
   },
   ru: {
+    labelExcursion: "The Land of Legends — поездка на день",
+    labelHotelPickup: "Подача к отелю",
+    labelParkPickup: "Подача у The Land of Legends",
+    labelMeetingPoint: "Место встречи для обратной дороги",
+    excursionWaits: "Водитель ждёт вас у парка и отвезёт обратно в отель — цена за весь день.",
+    excursionTickets: "Билеты в парк не включены.",
     confirmGreeting: (name) =>
       `Здравствуйте, ${name}!\n\n✅ Ваш трансфер Antalya VIP подтверждён. Детали ниже:`,
     confirmClosing:
@@ -212,6 +231,12 @@ const LANG = {
     labelPlate: "Номер машины",
   },
   tr: {
+    labelExcursion: "The Land of Legends — günübirlik",
+    labelHotelPickup: "Otelden alış",
+    labelParkPickup: "The Land of Legends'tan alış",
+    labelMeetingPoint: "Dönüş için buluşma noktası",
+    excursionWaits: "Şoförünüz parkta bekler ve sizi otelinize geri getirir — fiyat tüm günü kapsar.",
+    excursionTickets: "Park biletleri dahil değildir.",
     confirmGreeting: (name) =>
       `Merhaba ${name},\n\n✅ Antalya VIP transferiniz onaylandı. Detaylar aşağıda:`,
     confirmClosing:
@@ -277,6 +302,12 @@ const LANG = {
     labelDepartureFlight: "Dönüş uçuşu",
   },
   fr: {
+    labelExcursion: "The Land of Legends — excursion d'une journée",
+    labelHotelPickup: "Prise en charge à votre hôtel",
+    labelParkPickup: "Prise en charge à The Land of Legends",
+    labelMeetingPoint: "Point de rendez-vous pour le retour",
+    excursionWaits: "Votre chauffeur vous attend au parc et vous ramène à votre hôtel — le prix couvre toute la journée.",
+    excursionTickets: "Les billets du parc ne sont pas inclus.",
     confirmGreeting: (name) =>
       `Bonjour ${name},\n\n✅ Votre transfert Antalya VIP est confirmé. Voici les détails :`,
     confirmClosing:
@@ -334,6 +365,12 @@ const LANG = {
     labelPlate: "Plaque",
   },
   ar: {
+    labelExcursion: "The Land of Legends — رحلة ليوم واحد",
+    labelHotelPickup: "الاستلام من فندقك",
+    labelParkPickup: "الاستلام من The Land of Legends",
+    labelMeetingPoint: "نقطة اللقاء لرحلة العودة",
+    excursionWaits: "ينتظرك السائق في المنتزه ويعيدك إلى فندقك — السعر يشمل اليوم كاملاً.",
+    excursionTickets: "تذاكر المنتزه غير مشمولة.",
     confirmGreeting: (name) =>
       `مرحباً ${name}،\n\n✅ تم تأكيد خدمة النقل Antalya VIP الخاصة بك. التفاصيل أدناه:`,
     confirmClosing:
@@ -543,6 +580,29 @@ function transferDetails(booking, requestedLeg = "outbound") {
 
 function detailLines(booking, transfer, t) {
   const b = booking ?? {};
+  if (b.trip_type === "land_of_legends") {
+    const english = LANG.en;
+    const text = (key) => t[key] ?? english[key];
+    const meeting = landOfLegendsMeetingPoint[t === LANG.en ? "en" : Object.keys(LANG).find((code) => LANG[code] === t)] ?? landOfLegendsMeetingPoint.en;
+    const lines = [
+      `*${text("labelExcursion")}*`,
+      `${t.labelDate}: ${b.pickup_date || "—"}`,
+      `${text("labelHotelPickup")}: ${fmtTime(b.pickup_time)} · ${b.hotel_name || "—"}`,
+      `${text("labelParkPickup")}: ${fmtTime(b.return_pickup_time)}`,
+      `${text("labelMeetingPoint")}: ${meeting}`,
+      `${t.labelVehicle}: ${vehicleLabel(b.vehicle_type)}`,
+      `${t.labelGuests}: ${b.guests ?? "—"}`,
+    ];
+    if (Number(b.child_seat_count) > 0) lines.push(`${t.labelChildSeats}: ${b.child_seat_count}`);
+    if (Number(b.stroller_count) > 0) lines.push(`${t.labelStrollers}: ${b.stroller_count}`);
+    lines.push(
+      `${t.labelPrice}: €${fmtPrice(b.price_eur)}`,
+      "",
+      text("excursionWaits"),
+      text("excursionTickets"),
+    );
+    return lines;
+  }
   if (transfer.isDailyChauffeur) {
     const english = LANG.en;
     const text = (key) => t[key] ?? english[key];
