@@ -29,7 +29,6 @@ export const cs: LandOfLegendsCopy = {
   driveTime: (minutes, area) => `Cesta z oblasti ${area} trvá asi ${minutes} min — vyjeďte včas, ať jste tam k otevření.`,
   regionOnRequest: "Cena pro tuto oblast je na dotaz — rezervujte hned a cenu vám potvrdíme přes WhatsApp.",
   sprinterNote: (guests) => `Počet osob: ${guests} — vybrali jsme pro vás Sprinter.`,
-  bigGroup: "Je vás 13 nebo více? Pošleme dvě vozidla — napište nám přes WhatsApp.",
   askWhatsapp: "Máte dotaz? Napište nám na WhatsApp",
   confirmedPriceLabel: "Cena za vůz, platba v hotovosti v autě",
   tripOption: "The Land of Legends",

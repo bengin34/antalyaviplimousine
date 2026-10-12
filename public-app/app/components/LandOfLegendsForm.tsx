@@ -327,8 +327,7 @@ export function LandOfLegendsForm({ language, liveRates: sharedRates, phoneCount
       <div className="booking-row booking-options-row lol-options-row">
         <label className={fieldClass(errors.guests)}>
           <span>{copy.guestsLabel}</span>
-          <div className="field-control"><Icon name="users" className="icon" /><select id="lol-guests" aria-describedby="lol-group-hint" {...register("guests")} {...fieldStatus("guests", errors.guests)}>{Array.from({ length: 12 }, (_, i) => <option key={i + 1} value={i + 1}>{i + 1}</option>)}</select></div>
-          <small className="lol-hint" id="lol-group-hint">{copy.bigGroup}</small>
+          <div className="field-control"><Icon name="users" className="icon" /><select id="lol-guests" {...register("guests")} {...fieldStatus("guests", errors.guests)}>{Array.from({ length: 12 }, (_, i) => <option key={i + 1} value={i + 1}>{i + 1}</option>)}</select></div>
           <ErrorText name="guests" error={errors.guests} />
         </label>
         <label className={fieldClass(errors.vehicle)}>

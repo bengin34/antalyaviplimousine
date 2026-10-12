@@ -29,7 +29,6 @@ export const nl: LandOfLegendsCopy = {
   driveTime: (minutes, area) => `Ongeveer ${minutes} min rijden vanaf ${area} — vertrek op tijd voor de opening.`,
   regionOnRequest: "Voor deze regio geldt een prijs op aanvraag — boek nu, dan bevestigen we de prijs via WhatsApp.",
   sprinterNote: (guests) => `Voor ${guests} gasten hebben we de Sprinter gekozen.`,
-  bigGroup: "13 gasten of meer? We sturen twee voertuigen — stuur ons een bericht via WhatsApp.",
   askWhatsapp: "Vragen? App ons via WhatsApp",
   confirmedPriceLabel: "Prijs per voertuig, contant in de auto",
   tripOption: "The Land of Legends",

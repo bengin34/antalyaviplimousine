@@ -29,7 +29,6 @@ export const zh: LandOfLegendsCopy = {
   driveTime: (minutes, area) => `从${area}出发车程约${minutes}分钟——请及时出发，赶上开园。`,
   regionOnRequest: "该区域价格需询价——现在预订，我们将通过 WhatsApp 为您确认价格。",
   sprinterNote: (guests) => `${guests}位乘客，已为您选择 Sprinter。`,
-  bigGroup: "13人或以上？我们将安排两辆车——请通过 WhatsApp 联系我们。",
   askWhatsapp: "有疑问？WhatsApp 联系我们",
   confirmedPriceLabel: "每车价格，上车现金支付",
   tripOption: "The Land of Legends",

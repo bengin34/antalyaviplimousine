@@ -29,7 +29,6 @@ export const ur: LandOfLegendsCopy = {
   driveTime: (minutes, area) => `${area} سے تقریباً ${minutes} منٹ کی ڈرائیو — پارک کھلنے تک پہنچنے کے لیے بروقت روانہ ہوں۔`,
   regionOnRequest: "اس علاقے کا کرایہ درخواست پر ہے — ابھی بک کریں، ہم WhatsApp پر کرایے کی تصدیق کریں گے۔",
   sprinterNote: (guests) => `${guests} مسافروں کے لیے ہم نے Sprinter منتخب کی ہے۔`,
-  bigGroup: "13 یا اس سے زیادہ مسافر؟ ہم دو گاڑیاں بھیجتے ہیں — ہمیں WhatsApp پر پیغام بھیجیں۔",
   askWhatsapp: "کوئی سوال؟ WhatsApp پر رابطہ کریں",
   confirmedPriceLabel: "فی گاڑی کرایہ، گاڑی میں نقد",
   tripOption: "The Land of Legends",

@@ -29,7 +29,6 @@ export const ko: LandOfLegendsCopy = {
   driveTime: (minutes, area) => `${area}에서 차로 약 ${minutes}분 — 개장 시간에 맞춰 여유 있게 출발하세요.`,
   regionOnRequest: "이 지역은 별도 문의 요금입니다. 지금 예약하시면 WhatsApp으로 요금을 확정해 드립니다.",
   sprinterNote: (guests) => `${guests}명이시라 Sprinter를 선택했습니다.`,
-  bigGroup: "13명 이상이신가요? 차량 2대를 보내 드립니다 — WhatsApp으로 메시지 주세요.",
   askWhatsapp: "궁금한 점은 WhatsApp으로",
   confirmedPriceLabel: "차량당 요금, 차 안에서 현금 결제",
   tripOption: "The Land of Legends",

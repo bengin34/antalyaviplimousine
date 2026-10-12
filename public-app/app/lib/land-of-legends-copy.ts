@@ -57,7 +57,6 @@ export type LandOfLegendsCopy = {
   driveTime: (minutes: number, area: string) => string;
   regionOnRequest: string;
   sprinterNote: (guests: number) => string;
-  bigGroup: string;
   askWhatsapp: string;
   confirmedPriceLabel: string;
   /** Journey-type option and hint inside the main airport booking form. */

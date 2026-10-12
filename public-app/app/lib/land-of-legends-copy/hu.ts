@@ -29,7 +29,6 @@ export const hu: LandOfLegendsCopy = {
   driveTime: (minutes, area) => `Kb. ${minutes} perc autóút (${area}) — induljon időben, hogy nyitásra odaérjen.`,
   regionOnRequest: "Erre a környékre egyedi árat adunk — foglaljon most, és az árat WhatsAppon visszaigazoljuk.",
   sprinterNote: (guests) => `Utasok száma: ${guests} — a Sprintert választottuk.`,
-  bigGroup: "13 vagy több fő? Két autót küldünk — írjon nekünk WhatsAppon.",
   askWhatsapp: "Kérdése van? Írjon WhatsAppon",
   confirmedPriceLabel: "Ár autónként, készpénzben az autóban",
   tripOption: "The Land of Legends",

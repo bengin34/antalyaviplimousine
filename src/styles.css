@@ -961,9 +961,14 @@ html[dir="rtl"] a[href^="tel:"] {
 .trip-type-options {
   display: inline-flex;
   flex-wrap: wrap;
-  padding: 3px;
+  gap: 4px;
+  padding: 4px;
   border: 1px solid rgba(200, 169, 106, 0.35);
-  border-radius: 999px;
+  /* A fourth journey type stopped fitting on one line at most widths, and a
+     999px capsule reads as a mistake the moment it wraps: the end caps keep
+     their full radius while the middle grows square. A soft rectangle holds
+     its shape at one row or two, and the options stay capsules inside it. */
+  border-radius: 20px;
   background: rgba(255, 255, 255, 0.03);
 }
 
@@ -3978,7 +3983,6 @@ footer {
 
   .trip-type-options {
     width: 100%;
-    border-radius: 18px;
   }
 
   .trip-type-option {

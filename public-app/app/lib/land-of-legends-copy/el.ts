@@ -29,7 +29,6 @@ export const el: LandOfLegendsCopy = {
   driveTime: (minutes, area) => `Περίπου ${minutes} λεπτά διαδρομή (${area}) — ξεκινήστε έγκαιρα για να φτάσετε με το άνοιγμα.`,
   regionOnRequest: "Για αυτή την περιοχή η τιμή δίνεται κατόπιν αιτήματος — κάντε κράτηση τώρα και θα σας επιβεβαιώσουμε την τιμή μέσω WhatsApp.",
   sprinterNote: (guests) => `Αριθμός επιβατών: ${guests} — επιλέξαμε το Sprinter.`,
-  bigGroup: "Είστε 13 άτομα ή περισσότεροι; Στέλνουμε δύο οχήματα — στείλτε μας μήνυμα στο WhatsApp.",
   askWhatsapp: "Απορίες; Γράψτε μας στο WhatsApp",
   confirmedPriceLabel: "Τιμή ανά όχημα, μετρητά στο αυτοκίνητο",
   tripOption: "The Land of Legends",

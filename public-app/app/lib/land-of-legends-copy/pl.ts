@@ -29,7 +29,6 @@ export const pl: LandOfLegendsCopy = {
   driveTime: (minutes, area) => `Dojazd z rejonu ${area}: ok. ${minutes} min — wyjedź tak, by zdążyć na otwarcie.`,
   regionOnRequest: "Cena dla tego rejonu jest ustalana indywidualnie — zarezerwuj teraz, a potwierdzimy ją przez WhatsApp.",
   sprinterNote: (guests) => `Liczba osób: ${guests} — wybraliśmy dla Was Sprintera.`,
-  bigGroup: "13 osób lub więcej? Wyślemy dwa pojazdy — napisz do nas na WhatsAppie.",
   askWhatsapp: "Pytania? Napisz na WhatsAppie",
   confirmedPriceLabel: "Cena za pojazd, gotówką w aucie",
   tripOption: "The Land of Legends",

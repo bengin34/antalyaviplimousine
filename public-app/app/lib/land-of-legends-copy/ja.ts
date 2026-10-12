@@ -29,7 +29,6 @@ export const ja: LandOfLegendsCopy = {
   driveTime: (minutes, area) => `${area}から車で約${minutes}分 — 開園時刻に間に合うようご出発ください。`,
   regionOnRequest: "このエリアの料金はお問い合わせとなります。今すぐご予約いただければ、WhatsApp で料金をご案内します。",
   sprinterNote: (guests) => `${guests}名様のため Sprinter を選択しました。`,
-  bigGroup: "13名以上のグループは車2台で対応します — WhatsApp でご連絡ください。",
   askWhatsapp: "ご質問は WhatsApp で",
   confirmedPriceLabel: "1台あたりの料金、車内で現金払い",
   tripOption: "The Land of Legends",

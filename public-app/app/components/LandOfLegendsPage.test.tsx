@@ -157,6 +157,24 @@ describe("LandOfLegendsPage", () => {
     expect(container.querySelector<HTMLSelectElement>("#lol-vehicle")!.value).toBe("vito");
   });
 
+  // The form used to carry a line telling groups of 13+ to use WhatsApp. It is
+  // gone, so the guest learns the vehicle rule only by the field acting on it:
+  // the Vito carries six, and the seventh guest has to move the booking up.
+  test("upgrades on the seventh guest and stops offering the Vito", () => {
+    const { container } = renderPage();
+    const guests = container.querySelector("#lol-guests")!;
+    const vehicle = () => container.querySelector<HTMLSelectElement>("#lol-vehicle")!;
+    const vitoOption = () => container.querySelector<HTMLOptionElement>('#lol-vehicle option[value="vito"]')!;
+
+    fireEvent.change(guests, { target: { value: "6" } });
+    expect(vehicle().value).toBe("vito");
+    expect(vitoOption().disabled).toBe(false);
+
+    fireEvent.change(guests, { target: { value: "7" } });
+    expect(vehicle().value).toBe("sprinter");
+    expect(vitoOption().disabled).toBe(true);
+  });
+
   test("names tickets and the meeting point before the guest books", () => {
     const { container } = renderPage("de");
     expect(container.querySelector(".lol-summary")).toHaveTextContent("Parktickets nicht enthalten");
