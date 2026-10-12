@@ -4,6 +4,7 @@ import "@testing-library/jest-dom/vitest";
 import { cleanup, render, screen } from "@testing-library/react";
 import { afterEach, describe, expect, test } from "vitest";
 import { hotelBySlug } from "../../../src/hotels.js";
+import { routeCatalog } from "../../../src/routes.js";
 import { LanguageProvider } from "../i18n";
 import { hotelMeta } from "../lib/seo";
 import { HotelPage } from "./HotelPage";
@@ -14,11 +15,15 @@ describe("German hotel transfer landing pages", () => {
   test("Utopia structured prices and FAQs agree with its Kargicak landing price", () => {
     const hotel = hotelBySlug("utopia-world-hotel")!;
     render(<LanguageProvider initialLanguage="de"><HotelPage hotel={hotel} /></LanguageProvider>);
-    expect(screen.getAllByText("€93").length).toBeGreaterThan(0);
+    // Utopia sits in Kargıcak, so it is quoted at that sub-region's tariff
+    // rather than the Alanya page's own — read it from the catalogue so a
+    // tariff change moves the page and this test together.
+    const vito = routeCatalog.kargicak.prices.vito;
+    expect(screen.getAllByText(`€${vito}`).length).toBeGreaterThan(0);
     const metas = hotelMeta(hotel.slug);
-    expect(metas).toContainEqual(expect.objectContaining({ name: "description", content: expect.stringContaining("€93") }));
-    expect(metas).toContainEqual({ "script:ld+json": expect.objectContaining({ "@type": "Service", offers: expect.arrayContaining([expect.objectContaining({ name: "Mercedes Vito", price: "93" })]) }) });
-    expect(metas).toContainEqual({ "script:ld+json": expect.objectContaining({ "@type": "FAQPage", mainEntity: expect.arrayContaining([expect.objectContaining({ name: "Was kostet der Transfer?", acceptedAnswer: expect.objectContaining({ text: expect.stringContaining("€93") }) })]) }) });
+    expect(metas).toContainEqual(expect.objectContaining({ name: "description", content: expect.stringContaining(`€${vito}`) }));
+    expect(metas).toContainEqual({ "script:ld+json": expect.objectContaining({ "@type": "Service", offers: expect.arrayContaining([expect.objectContaining({ name: "Mercedes Vito", price: String(vito) })]) }) });
+    expect(metas).toContainEqual({ "script:ld+json": expect.objectContaining({ "@type": "FAQPage", mainEntity: expect.arrayContaining([expect.objectContaining({ name: "Was kostet der Transfer?", acceptedAnswer: expect.objectContaining({ text: expect.stringContaining(`€${vito}`) }) })]) }) });
   });
 
   test("uses its regional route facts instead of hotel-specific figures", () => {

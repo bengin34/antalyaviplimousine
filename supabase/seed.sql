@@ -15,13 +15,13 @@ INSERT INTO routes (from_location, to_location, vehicle_type, price_eur, duratio
   ('airport', 'alanya',     'vclass', 148.00, 120, 125),
   ('airport', 'alanya_bati', 'vito', 73.00, 100, 105),
   ('airport', 'alanya_bati', 'vclass', 93.00, 100, 105),
-  ('airport', 'alanya_merkez', 'vito', 78.00, 120, 125),
+  ('airport', 'alanya_merkez', 'vito', 93.00, 120, 125),
   ('airport', 'alanya_merkez', 'vclass', 98.00, 120, 125),
-  ('airport', 'alanya_dogu', 'vito', 83.00, 130, 138),
+  ('airport', 'alanya_dogu', 'vito', 98.00, 130, 138),
   ('airport', 'alanya_dogu', 'vclass', 108.00, 130, 138),
-  ('airport', 'kargicak', 'vito', 93.00, 145, 150),
+  ('airport', 'kargicak', 'vito', 108.00, 145, 150),
   ('airport', 'kargicak', 'vclass', 118.00, 145, 150),
-  ('airport', 'demirtas', 'vito', 103.00, 165, 170),
+  ('airport', 'demirtas', 'vito', 123.00, 165, 170),
   ('airport', 'demirtas', 'vclass', 133.00, 165, 170),
   ('airport', 'tekirova',   'vito',    78.00,  75,  75),
   ('airport', 'tekirova',   'vclass', 118.00,  75,  75),
@@ -45,7 +45,7 @@ INSERT INTO routes (from_location, to_location, vehicle_type, price_eur, duratio
   ('airport', 'fethiye',    'vclass', 268.00, 180, 205),
   ('airport', 'pamukkale',  'vito',   253.00, 180, 245),
   ('airport', 'pamukkale',  'vclass', 303.00, 180, 245),
-  ('airport', 'kapadokya',  'vito',   303.00, 480, 540),
+  ('airport', 'kapadokya',  'vito',   333.00, 480, 540),
   ('airport', 'kapadokya',  'vclass', 353.00, 480, 540)
 ON CONFLICT (from_location, to_location, vehicle_type)
 DO UPDATE SET

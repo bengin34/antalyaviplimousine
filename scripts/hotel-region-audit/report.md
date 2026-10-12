@@ -1,6 +1,6 @@
 # Hotel region audit
 
-Generated 2026-09-11T14:09:39.764Z. Audited 1246 of 1246. ok: 1184, fix: 0, unresolved: 11, identity: 51, gone: 0. 0 not yet audited, 0 failed fetches.
+Generated 2026-10-12T09:48:19.849Z. Audited 1246 of 1246. ok: 1180, fix: 0, unresolved: 11, identity: 51, gone: 4. 0 not yet audited, 0 failed fetches.
 
 | slug | bucket | euroDelta | indexRegion | derivedRegion | matchedTerm | addressRegion | locationRegion | kmRegion | agreeingSources | unresolvedReason | regionSource | identityStrength | identityReason | identityNotes |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -39,7 +39,6 @@ Generated 2026-09-11T14:09:39.764Z. Audited 1246 of 1246. ok: 1184, fix: 0, unre
 | kylo-garden-hotel | identity | 0 | antalya |  |  |  |  |  | 0 |  | district |  | name |  |
 | lara-vista-hotel-suits-spa | identity | 0 | antalya |  |  |  |  |  | 0 |  | district |  | name |  |
 | life-hotel | identity | 0 | antalya |  |  |  |  |  | 0 |  | district |  | name |  |
-| linda-sunny-beach-spa | identity | 0 | side |  |  |  |  |  | 0 |  | discovery |  | name |  |
 | medworld-cosmos-health-rehabilitation-center-otel | identity | 0 | antalya |  |  |  |  |  | 0 |  | district |  | name |  |
 | mia-hotel | identity | 0 | antalya |  |  |  |  |  | 0 |  | district |  | name |  |
 | miss-cleopatra-hotel | identity | 0 | alanya_merkez |  |  |  |  |  | 0 |  | discovery |  | name |  |
@@ -52,6 +51,7 @@ Generated 2026-09-11T14:09:39.764Z. Audited 1246 of 1246. ok: 1184, fix: 0, unre
 | paloma-pasha-resort | identity | 0 | kemer |  |  |  |  |  | 0 |  | district |  | name |  |
 | q-spa-resort | identity | 0 | side |  |  |  |  |  | 0 |  | district |  | name |  |
 | river-elite-hotel-spa | identity | 0 | antalya |  |  |  |  |  | 0 |  | district |  | name |  |
+| sirius-deluxe-hotel | identity | 0 | alanya_bati |  |  |  |  |  | 0 |  | district |  | name |  |
 | the-divan-resort-hotel-ant | identity | 0 | antalya |  |  |  |  |  | 0 |  | district |  | name |  |
 | uemit-hotel | identity | 0 | antalya |  |  |  |  |  | 0 |  | district |  | name |  |
 | woo-town-otel | identity | 0 | antalya |  |  |  |  |  | 0 |  | district |  | name |  |
@@ -66,3 +66,7 @@ Generated 2026-09-11T14:09:39.764Z. Audited 1246 of 1246. ok: 1184, fix: 0, unre
 | sherwood-dreams-resort | unresolved | 0 | bogazkent | bogazkent |  |  | bogazkent |  | 1 | single-source | district | strict |  |  |
 | sueno-hotels-golf-belek | unresolved | 0 | belek | belek |  |  | belek |  | 1 | single-source | district | strict |  | type |
 | white-gold | unresolved | 0 | alanya_merkez | alanya_merkez |  |  | alanya_merkez |  | 1 | single-source | discovery | strict |  |  |
+| beyond-otel | gone | 0 | antalya |  |  |  |  |  | 0 |  | district |  | status |  |
+| diamond-hill-resort | gone | 0 | alanya_merkez |  |  |  |  |  | 0 |  | discovery |  | status |  |
+| ozturk-hotel | gone | 0 | antalya |  |  |  |  |  | 0 |  | district |  | status |  |
+| zemira-garden-hotel | gone | 0 | antalya |  |  |  |  |  | 0 |  | district |  | status |  |

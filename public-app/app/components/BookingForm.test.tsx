@@ -3,6 +3,7 @@
 import "@testing-library/jest-dom/vitest";
 import { cleanup, fireEvent, render, waitFor } from "@testing-library/react";
 import { afterEach, beforeEach, describe, expect, test, vi } from "vitest";
+import { routeCatalog } from "../../../src/routes.js";
 import { LanguageProvider } from "../i18n";
 import { shouldApplyFlightArrival, verifyFlightNumber } from "../lib/flight-verification";
 import { BookingForm } from "./BookingForm";
@@ -167,7 +168,8 @@ describe("BookingForm route summary", () => {
     expect(container.querySelector<HTMLSelectElement>("#destination")!.value).toBe("alanya_bati");
     expect(container.querySelector(".hotel-region-hint"))
       .toHaveTextContent("Kirman Leodikya Resort · Okurcalar — Batı Alanya");
-    expect(container.querySelector(".price-display-amount")).toHaveTextContent("€73");
+    expect(container.querySelector(".price-display-amount"))
+      .toHaveTextContent(`€${routeCatalog.alanya_bati.prices.vito}`);
     expect(container.querySelectorAll('[role="option"]')).toHaveLength(0);
   });
 

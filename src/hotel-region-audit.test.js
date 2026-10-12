@@ -51,7 +51,6 @@ export const UNAUDITED_HOTEL_SLUGS = new Map([
   ["la-vita-hotels", "identity: similar-name Place in antalya; likely a sibling property, index keeps side — 2026-09"],
   ["lara-vista-hotel-suits-spa", "identity: stored Place names a different business; re-discovery found no unique match — 2026-09"],
   ["life-hotel", "identity: stored Place names a different business; re-discovery found no unique match — 2026-09"],
-  ["linda-sunny-beach-spa", "identity: stored Place names a different business; re-discovery found no unique match — 2026-09"],
   ["medworld-cosmos-health-rehabilitation-center-otel", "identity: stored Place is not a lodging business; re-discovery found no unique match — 2026-09"],
   ["mia-hotel", "identity: stored Place names a different business; re-discovery found no unique match — 2026-09"],
   ["miss-cleopatra-hotel", "identity: stored Place names a different business; re-discovery found no unique match — 2026-09"],
@@ -64,6 +63,7 @@ export const UNAUDITED_HOTEL_SLUGS = new Map([
   ["paloma-pasha-resort", "identity: stored Place names a different business; re-discovery found no unique match — 2026-09"],
   ["q-spa-resort", "identity: stored Place is not a lodging business; re-discovery found no unique match — 2026-09"],
   ["river-elite-hotel-spa", "identity: stored Place names a different business; re-discovery found no unique match — 2026-09"],
+  ["sirius-deluxe-hotel", "identity: stored Place names a different business; re-discovery found no unique match — 2026-10"],
   ["sueno-hotels-golf-belek", "identity: stored Place is not a lodging business; re-discovery found no unique match — 2026-09"],
   ["the-divan-resort-hotel-ant", "identity: stored Place names a different business; re-discovery found no unique match — 2026-09"],
   ["uemit-hotel", "identity: stored Place names a different business; re-discovery found no unique match — 2026-09"],
@@ -76,6 +76,14 @@ export const UNAUDITED_HOTEL_SLUGS = new Map([
   ["q-premium-resort-hotel-alanya", "unresolved: address locality not in ADDRESS_REGION_TERMS (generic mahalle); region unchanged — 2026-09"],
   ["sherwood-dreams-resort", "unresolved: address locality not in ADDRESS_REGION_TERMS (generic mahalle); region unchanged — 2026-09"],
   ["white-gold", "unresolved: address locality not in ADDRESS_REGION_TERMS (generic mahalle); region unchanged — 2026-09"],
+  // Google reports these four CLOSED_PERMANENTLY, so no address evidence can
+  // be collected for them. They stay indexed and keep their region price until
+  // the operator confirms the closure — dropping a hotel from the index is
+  // their call, not the audit's.
+  ["beyond-otel", "gone: Google reports the Place CLOSED_PERMANENTLY; awaiting operator confirmation — 2026-10"],
+  ["diamond-hill-resort", "gone: Google reports the Place CLOSED_PERMANENTLY; awaiting operator confirmation — 2026-10"],
+  ["ozturk-hotel", "gone: Google reports the Place CLOSED_PERMANENTLY; awaiting operator confirmation — 2026-10"],
+  ["zemira-garden-hotel", "gone: Google reports the Place CLOSED_PERMANENTLY; awaiting operator confirmation — 2026-10"],
 ]);
 
 describe("hotel region audit guard", () => {

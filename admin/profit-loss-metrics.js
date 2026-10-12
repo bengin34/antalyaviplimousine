@@ -3,6 +3,21 @@ export const DEFAULT_EUR_TRY_RATE = 50
 export const AIRPORT_MEET_COST_TRY = 250
 export const PARKING_COST_TRY_PER_HOUR = 180
 
+/**
+ * Bir havalimanı transferinin varsayılan maliyeti (EUR).
+ *
+ * Araç misafiri bırakıp boş döndüğü için tek yön mesafenin iki katı üzerinden
+ * hesaplanır; havalimanı karşılama ücreti de eklenir. Şoför ücreti, otoyol ve
+ * reklam bu rakamın dışındadır — yani bu, tarifenin altına inemeyeceği taban,
+ * hedeflenen kâr değil. `resolveRealizedLegs` gerçek bacakları aylık ayarlarla
+ * ücretlendirir; bu yardımcı aynı formülü fiyat listesini denetleyen testler
+ * için varsayılanlarla sabitler.
+ */
+export function transferCostEur(oneWayKm) {
+  const vehicleKm = oneWayKm * 2
+  return (vehicleKm * DEFAULT_KM_COST_TRY + AIRPORT_MEET_COST_TRY) / DEFAULT_EUR_TRY_RATE
+}
+
 const REALIZED_TODAY_STATUSES = new Set(['paid', 'in_transit', 'completed'])
 
 function normalizeLocation(value) {

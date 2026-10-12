@@ -994,8 +994,7 @@ export const hotelDistances = Object.freeze({
   },
   "beyond-otel": {
     "km": 24,
-    "place": "ChIJ1cz3zWmRwxQRsJ42LoFmwOo",
-    "checked": true
+    "place": "ChIJ1cz3zWmRwxQRsJ42LoFmwOo"
   },
   "bieno-club-svs-hotel": {
     "km": 142,
@@ -1734,8 +1733,7 @@ export const hotelDistances = Object.freeze({
   },
   "diamond-hill-resort": {
     "km": 129,
-    "place": "ChIJo8IlGQCZ3BQRJnU0-hC1RKc",
-    "checked": true
+    "place": "ChIJo8IlGQCZ3BQRJnU0-hC1RKc"
   },
   "diamond-luxury-hotel": {
     "km": 17,
@@ -3416,7 +3414,8 @@ export const hotelDistances = Object.freeze({
   },
   "linda-sunny-beach-spa": {
     "km": 55,
-    "place": "ChIJM9Zt7fFewxQR6kb6HymfaTk"
+    "place": "ChIJM9Zt7fFewxQR6kb6HymfaTk",
+    "checked": true
   },
   "litore-hotel": {
     "km": 94,
@@ -4274,8 +4273,7 @@ export const hotelDistances = Object.freeze({
   },
   "ozturk-hotel": {
     "km": 17,
-    "place": "ChIJx4HqJ_qPwxQRcq8q-1DfseQ",
-    "checked": true
+    "place": "ChIJx4HqJ_qPwxQRcq8q-1DfseQ"
   },
   "palm-city-alanya-hotel": {
     "km": 128,
@@ -5289,8 +5287,7 @@ export const hotelDistances = Object.freeze({
   },
   "sirius-deluxe-hotel": {
     "km": 105,
-    "place": "ChIJ7WxCwmG3yhQRyKPOOhD4jJA",
-    "checked": true
+    "place": "ChIJ7WxCwmG3yhQRyKPOOhD4jJA"
   },
   "sirius-otel": {
     "km": 76,
@@ -6153,8 +6150,7 @@ export const hotelDistances = Object.freeze({
   },
   "zemira-garden-hotel": {
     "km": 15,
-    "place": "ChIJ-bExs1eRwxQRUNqIQfpOCRA",
-    "checked": true
+    "place": "ChIJ-bExs1eRwxQRUNqIQfpOCRA"
   },
   "zena-resort-otel": {
     "km": 67,
