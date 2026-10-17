@@ -7,6 +7,7 @@ const sourceDir = path.join(root, "assets");
 const optimizedDir = path.join(sourceDir, "optimized");
 const optimizedImagesDir = path.join(optimizedDir, "images");
 const optimizedClinicDir = path.join(optimizedDir, "clinic");
+const optimizedCustomersDir = path.join(optimizedDir, "customers");
 const publicOptimizedDir = path.join(root, "public", "assets", "optimized");
 
 const imageExtensions = new Set([".jpg", ".jpeg", ".png"]);
@@ -120,6 +121,39 @@ async function optimizeFleetImages() {
   );
 }
 
+// Smaller WebP widths for srcset and for the CSS route-card backgrounds,
+// which render at roughly 360-800px and were pulling the full 1400-1672px JPEGs.
+async function optimizeResponsiveVariants() {
+  const variants = [
+    ["antalya-coastline-hero", [800, 1080]],
+    ["chauffeur-arrival", [800]],
+    ["executive-interior", [800]],
+  ];
+
+  await Promise.all(
+    variants.flatMap(([name, widths]) => widths.map((width) => sharp(path.join(sourceDir, `${name}.jpg`))
+      .rotate()
+      .resize({ width, withoutEnlargement: true })
+      .webp({ quality: 72, effort: 5 })
+      .toFile(path.join(optimizedDir, `${name}-${width}.webp`)))),
+  );
+}
+
+// The customer JPEGs in assets/optimized/customers are hand-picked originals
+// (they are not generated from assets/images); add a WebP next to each one.
+async function optimizeCustomerPhotos() {
+  const files = (await readdir(optimizedCustomersDir))
+    .filter((file) => path.extname(file).toLowerCase() === ".jpg");
+
+  await Promise.all(
+    files.map((file) => sharp(path.join(optimizedCustomersDir, file))
+      .rotate()
+      .resize({ width: 1280, height: 1280, fit: "inside", withoutEnlargement: true })
+      .webp({ quality: 72, effort: 5 })
+      .toFile(path.join(optimizedCustomersDir, `${path.basename(file, ".jpg")}.webp`))),
+  );
+}
+
 async function optimizeClinicAssets() {
   const clinicDir = path.join(sourceDir, "clinic");
   const assets = [
@@ -166,10 +200,25 @@ async function publishStableSeoAssets() {
   );
 }
 
+const steps = {
+  core: optimizeCoreAssets,
+  variants: optimizeResponsiveVariants,
+  fleet: optimizeFleetImages,
+  customers: optimizeCustomerPhotos,
+  clinic: optimizeClinicAssets,
+  seo: publishStableSeoAssets,
+};
+
+// `node scripts/optimize-images.mjs variants customers` runs only those steps.
+const requested = process.argv.slice(2);
+const unknown = requested.filter((name) => !(name in steps));
+if (unknown.length) {
+  throw new Error(`Unknown step(s): ${unknown.join(", ")}. Known: ${Object.keys(steps).join(", ")}`);
+}
+
 await ensureOutputDirs();
-await optimizeCoreAssets();
-await optimizeFleetImages();
-await optimizeClinicAssets();
-await publishStableSeoAssets();
+for (const [name, step] of Object.entries(steps)) {
+  if (requested.length === 0 || requested.includes(name)) await step();
+}
 
 console.log("Optimized images written to assets/optimized");

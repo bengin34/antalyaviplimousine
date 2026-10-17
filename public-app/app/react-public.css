@@ -316,7 +316,7 @@
 
 .localized-route {
   padding: 160px var(--section-x) 90px;
-  background: linear-gradient(115deg, rgba(5, 5, 5, .94), rgba(5, 5, 5, .55)), url('/assets/optimized/antalya-coastline-hero.jpg') center / cover;
+  background: linear-gradient(115deg, rgba(5, 5, 5, .94), rgba(5, 5, 5, .55)), image-set(url("/assets/optimized/antalya-coastline-hero-1080.webp") type("image/webp"), url("/assets/optimized/antalya-coastline-hero.jpg") type("image/jpeg")) center / cover;
   color: #fff;
 }
 .localized-route h1 { max-width: 900px; font-family: var(--serif); font-size: clamp(2.5rem, 6vw, 5.5rem); font-weight: 400; line-height: 1.03; }

@@ -12,8 +12,18 @@ import { captureAttribution } from "./lib/attribution";
 import { track } from "./lib/track";
 import siteStyles from "../../src/styles.css?url";
 import reactPublicStyles from "./react-public.css?url";
+import dmSansLatin from "../../assets/fonts/dm-sans-latin.woff2?url";
+import italianaLatin from "../../assets/fonts/italiana-latin.woff2?url";
+
+const supabaseOrigin = import.meta.env.VITE_SUPABASE_URL;
 
 export const links = () => [
+  // Both faces render above the fold (body text and headings); without a
+  // preload they are only discovered after the stylesheet has parsed.
+  { rel: "preload", href: dmSansLatin, as: "font", type: "font/woff2", crossOrigin: "anonymous" },
+  { rel: "preload", href: italianaLatin, as: "font", type: "font/woff2", crossOrigin: "anonymous" },
+  ...(supabaseOrigin ? [{ rel: "preconnect", href: supabaseOrigin, crossOrigin: "anonymous" }] : []),
+  { rel: "dns-prefetch", href: "https://www.googletagmanager.com" },
   { rel: "stylesheet", href: siteStyles },
   { rel: "stylesheet", href: reactPublicStyles },
   { rel: "icon", href: "/assets/favicon.svg", type: "image/svg+xml" },

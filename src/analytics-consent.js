@@ -97,7 +97,14 @@ export function startAnalytics(consent = readConsent()) {
   const script = document.createElement("script");
   script.async = true;
   script.src = `https://www.googletagmanager.com/gtag/js?id=${GA_ID}`;
-  document.head.appendChild(script);
+  // The tag reads the commands queued in dataLayer whenever it arrives, so
+  // holding it until the page has loaded loses nothing and keeps it from
+  // competing with the hero image and hydration.
+  if (document.readyState === "complete") {
+    document.head.appendChild(script);
+  } else {
+    window.addEventListener("load", () => document.head.appendChild(script), { once: true });
+  }
 
   window.gtag("js", new Date());
   window.gtag("config", GA_ID, { anonymize_ip: true });
