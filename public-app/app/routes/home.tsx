@@ -2,8 +2,10 @@ import { useLoaderData } from "react-router";
 import { CookieConsent } from "../components/CookieConsent";
 import { HomePage } from "../components/HomePage";
 import { LanguageProvider } from "../i18n";
-import { domain, homeMeta, languageFromPath } from "../lib/seo";
-import type { IndexableLanguage } from "../lib/seo";
+import { LandOfLegendsBookingCopyProvider } from "../lib/land-of-legends-booking-copy";
+import { landOfLegendsBookingCopy, pageMessages } from "../lib/page-data.server";
+import { homeMeta } from "../lib/seo";
+import { domain, languageFromPath } from "../lib/site";
 
 const routeCanonical = (matches: Array<{ id: string }>, prefix: string): string => {
   const id = matches.find((m) => m.id.startsWith(prefix))?.id ?? "";
@@ -11,12 +13,20 @@ const routeCanonical = (matches: Array<{ id: string }>, prefix: string): string 
   return lang === "en" ? `${domain}/` : `${domain}/${lang}/`;
 };
 
+// Loader-only imports (seo, page-data) never reach the browser: the meta tags
+// are computed here at prerender time and travel as loader data.
 export function loader({ request }: { request: Request }) {
-  return { language: languageFromPath(new URL(request.url).pathname) };
+  const language = languageFromPath(new URL(request.url).pathname);
+  return {
+    language,
+    meta: homeMeta(language),
+    messages: pageMessages(language),
+    landOfLegendsBooking: landOfLegendsBookingCopy(language),
+  };
 }
 
 export const meta = ({ loaderData, matches }: { loaderData?: ReturnType<typeof loader>; matches?: Array<{ id: string }> }) => {
-  const metas = homeMeta(loaderData?.language ?? "en");
+  const metas = loaderData?.meta ?? [];
   if (!matches) return metas;
   const canonical = routeCanonical(matches, "home-");
   return metas.map((m) =>
@@ -27,6 +37,13 @@ export const meta = ({ loaderData, matches }: { loaderData?: ReturnType<typeof l
 };
 
 export default function HomeRoute() {
-  const { language } = useLoaderData<typeof loader>();
-  return <LanguageProvider initialLanguage={language as IndexableLanguage}><HomePage initialLanguage={language as IndexableLanguage} /><CookieConsent /></LanguageProvider>;
+  const { language, messages, landOfLegendsBooking } = useLoaderData<typeof loader>();
+  return (
+    <LanguageProvider initialLanguage={language} messages={messages}>
+      <LandOfLegendsBookingCopyProvider copy={landOfLegendsBooking}>
+        <HomePage initialLanguage={language} />
+      </LandOfLegendsBookingCopyProvider>
+      <CookieConsent />
+    </LanguageProvider>
+  );
 }

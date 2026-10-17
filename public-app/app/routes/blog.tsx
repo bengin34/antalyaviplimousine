@@ -4,25 +4,32 @@ import { BlogIndexPage } from "../components/BlogIndexPage";
 import { CookieConsent } from "../components/CookieConsent";
 import blogStyles from "../blog.css?url";
 import { LanguageProvider } from "../i18n";
-import { blogLanguageFromPath } from "../lib/articles";
+import { articleSummaries } from "../lib/articles";
+import { blogLanguageFromPath } from "../lib/blog-paths";
+import { pageMessages } from "../lib/page-data.server";
 import { blogMeta } from "../lib/seo";
-import type { IndexableLanguage } from "../lib/seo";
 
 export const links: LinksFunction = () => [{ rel: "stylesheet", href: blogStyles }];
 
+/** The index needs each article's heading and excerpt, never its body. */
 export function loader({ request }: { request: Request }) {
-  return { language: blogLanguageFromPath(new URL(request.url).pathname) };
+  const language = blogLanguageFromPath(new URL(request.url).pathname);
+  return {
+    language,
+    posts: articleSummaries(language),
+    meta: blogMeta(language),
+    messages: pageMessages(language),
+  };
 }
 
-export const meta = ({ loaderData }: { loaderData?: ReturnType<typeof loader> }) =>
-  blogMeta(loaderData?.language ?? "en");
+export const meta = ({ loaderData }: { loaderData?: ReturnType<typeof loader> }) => loaderData?.meta ?? [];
 
 export default function BlogRoute() {
-  const { language } = useLoaderData<typeof loader>();
+  const { language, posts, messages } = useLoaderData<typeof loader>();
 
   return (
-    <LanguageProvider initialLanguage={language as IndexableLanguage}>
-      <BlogIndexPage language={language} />
+    <LanguageProvider initialLanguage={language} messages={messages}>
+      <BlogIndexPage language={language} posts={posts} />
       <CookieConsent />
     </LanguageProvider>
   );

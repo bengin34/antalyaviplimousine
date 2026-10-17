@@ -1,13 +1,12 @@
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { lazy, Suspense, useEffect, useMemo, useRef, useState } from "react";
 import { Controller, useForm, type FieldError } from "react-hook-form";
-import PhoneInput, { type Country } from "react-phone-number-input";
-import "react-phone-number-input/style.css";
+import { LazyPhoneInput, preloadPhoneInput, type Country } from "./LazyPhoneInput";
 import { bookableRouteSlugs, routeCatalog } from "../../../src/routes.js";
 import { useLanguage, type LanguageCode } from "../i18n";
 import { HotelCombobox, type IndexedHotel } from "./HotelCombobox";
-import { LandOfLegendsForm } from "./LandOfLegendsForm";
-import { landOfLegendsCopy, landOfLegendsLanguageFor, landOfLegendsPath } from "../lib/land-of-legends-copy";
+import { landOfLegendsLanguageFor, landOfLegendsPath } from "../lib/land-of-legends-languages";
+import { useLandOfLegendsBookingCopy } from "../lib/land-of-legends-booking-copy";
 import { Icon } from "./Icon";
 import {
   buildPublicBookingPayload,
@@ -24,8 +23,24 @@ import {
   type PublicBookingValues,
 } from "../lib/booking";
 import { shouldApplyFlightArrival, verifyFlightNumber, type FlightResult } from "../lib/flight-verification";
-import { domain } from "../lib/seo";
+import { domain } from "../lib/site";
 import { track } from "../lib/track";
+
+/**
+ * The Land of Legends form (its schema, hotel distances and pricing) is only
+ * needed once a visitor picks the day trip, so it is fetched then - or a
+ * moment earlier, when the pointer or focus reaches that option.
+ */
+const loadLandOfLegendsForm = () => import("./LandOfLegendsForm");
+const LandOfLegendsForm = lazy(() => loadLandOfLegendsForm().then((module) => ({ default: module.LandOfLegendsForm })));
+const preloadLandOfLegendsForm = () => {
+  void loadLandOfLegendsForm();
+};
+
+/** Holds the form's place while its chunk arrives, so the card does not jump. */
+function LandOfLegendsFormPlaceholder() {
+  return <div className="lol-form" aria-busy="true" style={{ minHeight: "40rem" }} />;
+}
 
 const faqUrlForLanguage = (language: string) =>
   `${domain}${language === "en" ? "" : `/${language}`}/#faq`;
@@ -128,7 +143,7 @@ export function BookingForm({
   // types rather than another `tripType` value of this form.
   const [excursion, setExcursion] = useState(false);
   const excursionLanguage = landOfLegendsLanguageFor(language);
-  const excursionCopy = landOfLegendsCopy[excursionLanguage];
+  const excursionCopy = useLandOfLegendsBookingCopy(excursionLanguage);
   const [minimumDate, setMinimumDate] = useState("");
   const [submitting, setSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState("");
@@ -304,6 +319,12 @@ export function BookingForm({
     document.body.classList.toggle("modal-open", Boolean(confirmation || pendingDailyBooking));
     return () => document.body.classList.remove("modal-open");
   }, [confirmation, pendingDailyBooking]);
+
+  // The phone field is on the contact step (or on the first one for the
+  // daily chauffeur); fetch its library one step ahead so it is ready.
+  useEffect(() => {
+    if (step >= 2 || isDailyChauffeur) void preloadPhoneInput();
+  }, [step, isDailyChauffeur]);
 
   // Which step people give up on is the single most useful number the funnel
   // produces. `pagehide` rather than `beforeunload`: it is the only leave
@@ -621,9 +642,9 @@ export function BookingForm({
                   <label className="trip-type-option"><input type="radio" value="round_trip" {...register("tripType")} {...fieldStatus("tripType", errors.tripType)} /><span>{t("roundTrip", "Round trip")}</span></label>
                   <label className="trip-type-option"><input type="radio" value="daily_chauffeur" {...register("tripType")} {...fieldStatus("tripType", errors.tripType)} /><span>{t("dailyChauffeur", "Daily vehicle + chauffeur")}</span></label>
                   {/* Same radio group, not registered: picking it swaps in the excursion form below. */}
-                  <label className="trip-type-option"><input type="radio" name="tripType" value="land_of_legends" checked={excursion} onChange={() => setExcursion(true)} /><span>{excursionCopy.tripOption}</span></label>
+                  <label className="trip-type-option" onPointerEnter={preloadLandOfLegendsForm} onFocus={preloadLandOfLegendsForm} onTouchStart={preloadLandOfLegendsForm}><input type="radio" name="tripType" value="land_of_legends" checked={excursion} onChange={() => setExcursion(true)} /><span>{excursionCopy?.tripOption}</span></label>
                 </div>
-                <p className="trip-type-hint">{excursion ? <>{excursionCopy.tripHint} <a href={landOfLegendsPath(excursionLanguage)}>{excursionCopy.detailsLink}</a></> : isDailyChauffeur ? t("dailyChauffeurHint", "Hire a private vehicle and chauffeur by the day with no kilometre or hour limit. Fuel is paid separately.") : t("roundTripHint", "For a round trip, the return follows the same route in reverse.")}</p>
+                <p className="trip-type-hint">{excursion ? <>{excursionCopy?.tripHint} <a href={landOfLegendsPath(excursionLanguage)}>{excursionCopy?.detailsLink}</a></> : isDailyChauffeur ? t("dailyChauffeurHint", "Hire a private vehicle and chauffeur by the day with no kilometre or hour limit. Fuel is paid separately.") : t("roundTripHint", "For a round trip, the return follows the same route in reverse.")}</p>
               </fieldset>
 
               {!isDailyChauffeur && (
@@ -841,7 +862,7 @@ export function BookingForm({
             <>
               <div className="booking-row booking-row-personal">
                 <label className={fieldClass(errors.customerName)}><span>{t("fullName", "Full name")}</span><div className="field-control"><input id="customer-name" autoComplete="name" maxLength={80} placeholder="John Smith" {...register("customerName")} {...fieldStatus("customerName", errors.customerName)} /></div><FieldErrorMessage name="customerName" error={errors.customerName} /></label>
-                <label className={fieldClass(errors.customerPhone)}><span>{t("phoneLabel", "Phone / WhatsApp")}</span><div className="field-control phone-field-control"><Controller control={control} name="customerPhone" render={({ field }) => <PhoneInput id="customer-phone" {...fieldStatus("customerPhone", errors.customerPhone)} international defaultCountry={DEFAULT_PHONE_COUNTRY[language as LanguageCode] ?? "TR"} autoComplete="tel" placeholder="+44 7400 123456" value={field.value || undefined} onChange={value => field.onChange(value ?? "")} onBlur={field.onBlur} />} /></div><FieldErrorMessage name="customerPhone" error={errors.customerPhone} /></label>
+                <label className={fieldClass(errors.customerPhone)}><span>{t("phoneLabel", "Phone / WhatsApp")}</span><div className="field-control phone-field-control"><Controller control={control} name="customerPhone" render={({ field }) => <LazyPhoneInput id="customer-phone" {...fieldStatus("customerPhone", errors.customerPhone)} international defaultCountry={DEFAULT_PHONE_COUNTRY[language as LanguageCode] ?? "TR"} autoComplete="tel" placeholder="+44 7400 123456" value={field.value || undefined} onChange={value => field.onChange(value ?? "")} onBlur={field.onBlur} />} /></div><FieldErrorMessage name="customerPhone" error={errors.customerPhone} /></label>
                 <label className={fieldClass(errors.customerEmail)}><span>{t("emailLabel", "Email")}</span><div className="field-control"><input id="customer-email" type="email" autoComplete="email" maxLength={120} placeholder="john@example.com" {...register("customerEmail")} {...fieldStatus("customerEmail", errors.customerEmail)} /></div><FieldErrorMessage name="customerEmail" error={errors.customerEmail} /></label>
               </div>
 
@@ -881,7 +902,9 @@ export function BookingForm({
         </form>
         {excursion && (
           <div className="booking-card lol-inline-card">
-            <LandOfLegendsForm language={excursionLanguage} />
+            <Suspense fallback={<LandOfLegendsFormPlaceholder />}>
+              <LandOfLegendsForm language={excursionLanguage} />
+            </Suspense>
           </div>
         )}
       </div>

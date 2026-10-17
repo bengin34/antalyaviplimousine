@@ -34,14 +34,5 @@ export const translations = {
   da, ar, hu, es, it, pt, el, zh, ko, ja, ur,
 };
 
-/**
- * Ordered by visitors arriving at Antalya Airport from each market rather
- * than alphabetically: Russia, Germany, the UK, Poland and Ukraine lead, and
- * the tail is where a guide earns the least. Arabic covers the Gulf and
- * Egypt, which book late and land at night - the two things these guides
- * answer. Every language the public site serves is now covered.
- */
-export const languageOrder = Object.freeze([
-  "ru", "de", "en", "pl", "uk", "nl", "cs", "ro", "tr", "he", "fr", "sv",
-  "da", "ar", "hu", "es", "it", "pt", "el", "zh", "ko", "ja", "ur",
-]);
+/** Lives in ../languages.js so it can be imported without the article text. */
+export { languageOrder } from "../languages.js";

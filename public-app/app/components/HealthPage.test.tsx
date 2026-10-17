@@ -4,6 +4,7 @@ import "@testing-library/jest-dom/vitest";
 import { cleanup, fireEvent, render, screen } from "@testing-library/react";
 import { afterEach, describe, expect, test } from "vitest";
 import { LanguageProvider } from "../i18n";
+import { pageMessages } from "../lib/page-data.server";
 import { HealthPage } from "./HealthPage";
 
 afterEach(cleanup);
@@ -11,7 +12,7 @@ afterEach(cleanup);
 describe("HealthPage", () => {
   test("states the coordinator and healthcare-provider roles explicitly", () => {
     render(
-      <LanguageProvider initialLanguage="tr">
+      <LanguageProvider initialLanguage="tr" messages={pageMessages("tr")}>
         <HealthPage />
       </LanguageProvider>,
     );
@@ -28,7 +29,7 @@ describe("HealthPage", () => {
 
   test("builds a prefilled consultation link without requesting medical records", () => {
     const { container } = render(
-      <LanguageProvider initialLanguage="en">
+      <LanguageProvider initialLanguage="en" messages={pageMessages("en")}>
         <HealthPage />
       </LanguageProvider>,
     );
@@ -45,7 +46,7 @@ describe("HealthPage", () => {
 
   test("expands and collapses the health FAQ", () => {
     render(
-      <LanguageProvider initialLanguage="en">
+      <LanguageProvider initialLanguage="en" messages={pageMessages("en")}>
         <HealthPage />
       </LanguageProvider>,
     );

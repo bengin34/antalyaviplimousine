@@ -1,8 +1,7 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { Controller, useForm, type FieldError, type FieldErrors } from "react-hook-form";
-import PhoneInput, { type Country } from "react-phone-number-input";
-import "react-phone-number-input/style.css";
+import { LazyPhoneInput, preloadPhoneInput, type Country } from "./LazyPhoneInput";
 import { hotelIndex, hotelSlug } from "../../../src/hotel-index.js";
 import {
   landOfLegendsDriveMinutes,
@@ -113,6 +112,11 @@ export function LandOfLegendsForm({ language, liveRates: sharedRates, phoneCount
     },
   });
   const values = watch();
+
+  // This form shows the phone field from the start; fetch its library now.
+  useEffect(() => {
+    void preloadPhoneInput();
+  }, []);
 
   // Dates follow Turkey's calendar and are set after hydration rather than
   // baked into the prerendered HTML.
@@ -369,7 +373,7 @@ export function LandOfLegendsForm({ language, liveRates: sharedRates, phoneCount
         </label>
         <label className={fieldClass(errors.customerPhone)}>
           <span>{copy.phoneLabel}</span>
-          <div className="field-control phone-field-control"><Controller control={control} name="customerPhone" render={({ field }) => <PhoneInput id="lol-phone" ref={field.ref} {...fieldStatus("customerPhone", errors.customerPhone)} international defaultCountry={phoneCountry ?? DEFAULT_PHONE_COUNTRY[language]} autoComplete="tel" value={field.value || undefined} onChange={(value) => field.onChange(value ?? "")} onBlur={field.onBlur} />} /></div>
+          <div className="field-control phone-field-control"><Controller control={control} name="customerPhone" render={({ field }) => <LazyPhoneInput id="lol-phone" ref={field.ref} {...fieldStatus("customerPhone", errors.customerPhone)} international defaultCountry={phoneCountry ?? DEFAULT_PHONE_COUNTRY[language]} autoComplete="tel" value={field.value || undefined} onChange={(value) => field.onChange(value ?? "")} onBlur={field.onBlur} />} /></div>
           <ErrorText name="customerPhone" error={errors.customerPhone} />
         </label>
         <label className={fieldClass(errors.customerEmail)}>

@@ -4,18 +4,21 @@
  * The catalogue is JS so the sitemap and feed scripts can read it without a
  * build step; this module is the single place where those values get their
  * types, so no component has to cast.
+ *
+ * It imports every article in every language, so only route loaders (which
+ * run at prerender time and never ship to the browser) may import it.
+ * Components receive what they need as loader data; client code that only
+ * needs blog URLs or chrome uses ./blog-paths.
  */
 import {
   articleAlternateLanguages as rawAlternateLanguages,
   articleBySlug as rawArticleBySlug,
-  articleLanguages as rawArticleLanguages,
   articlePath as rawArticlePath,
   articles as rawArticles,
   articlesForLanguage as rawArticlesForLanguage,
   articlesForRoute as rawArticlesForRoute,
-  blogPath,
 } from "../../../src/articles/index.js";
-import { blogCopy as rawBlogCopy, blogLocale as rawBlogLocale } from "../../../src/articles/copy.js";
+import { articleLanguages, blogPath } from "./blog-paths";
 
 export type ArticleBlock =
   | { type: "p" | "h2" | "h3"; text: string }
@@ -59,37 +62,8 @@ export type Article = {
   content: Record<string, ArticleCopy | undefined>;
 };
 
-export type BlogCopy = {
-  indexTitle: string;
-  indexDescription: string;
-  heading: string;
-  intro: string;
-  blog: string;
-  readMore: string;
-  minRead: (minutes: number) => string;
-  updated: string;
-  contents: string;
-  faqHeading: string;
-  relatedHeading: string;
-  routeGuidesHeading: string;
-  moreHeading: string;
-  ctaHeading: string;
-  ctaText: string;
-  ctaButton: string;
-  backToBlog: string;
-  home: string;
-  routes: string;
-  book: string;
-  imprint: string;
-  privacy: string;
-  imprintUrl: string;
-  privacyUrl: string;
-};
 
-export const articleLanguages = rawArticleLanguages as readonly string[];
 export const articles = rawArticles as unknown as readonly Article[];
-export const blogCopy = rawBlogCopy as unknown as Record<string, BlogCopy>;
-export const blogLocale = rawBlogLocale as unknown as Record<string, string>;
 
 export const articlesForLanguage = (language: string) =>
   rawArticlesForLanguage(language) as unknown as readonly Article[];
@@ -106,15 +80,59 @@ export const articleAlternateLanguages = (article: Article) =>
 export const articlePath = (language: string, article: Article) =>
   rawArticlePath(language, article as unknown as never) as string | null;
 
-export { blogPath };
+export {
+  articleLanguages,
+  blogCopy,
+  blogLanguageFromPath,
+  blogLocale,
+  blogPath,
+  blogText,
+  isArticleLanguage,
+  type BlogCopy,
+} from "./blog-paths";
 
-/** Falls back to English so a missing translation never renders undefined. */
-export const blogText = (language: string): BlogCopy => blogCopy[language] ?? blogCopy.en;
-
-export const isArticleLanguage = (language: string) => articleLanguages.includes(language);
-
-/** First path segment, when it names a language the blog is published in. */
-export const blogLanguageFromPath = (pathname: string) => {
-  const candidate = pathname.split("/").filter(Boolean)[0] ?? "";
-  return articleLanguages.includes(candidate) ? candidate : "en";
+/** What a link to an article needs: enough for a list entry, no body text. */
+export type ArticleSummary = {
+  id: string;
+  updated: string;
+  href: string;
+  heading: string;
+  excerpt: string;
+  readingMinutes: number;
 };
+
+export const articleSummary = (language: string, article: Article): ArticleSummary => {
+  const copy = article.content[language];
+  if (!copy) throw new Error(`Article ${article.id} is not published in ${language}`);
+  return {
+    id: article.id,
+    updated: article.updated,
+    href: articlePath(language, article) ?? blogPath(language),
+    heading: copy.heading,
+    excerpt: copy.excerpt,
+    readingMinutes: copy.readingMinutes,
+  };
+};
+
+/** Every article of a language, in catalogue order, as blog index entries. */
+export const articleSummaries = (language: string) =>
+  articlesForLanguage(language).map((article) => articleSummary(language, article));
+
+/** Guides that cover a marketed route, for its landing page. */
+export const routeArticleSummaries = (language: string, slug: string) =>
+  articleLanguages.includes(language)
+    ? articlesForRoute(language, slug).map((article) => articleSummary(language, article))
+    : [];
+
+/** The next articles after this one in its language, for "more guides". */
+export const moreArticleSummaries = (language: string, article: Article, count = 3) =>
+  articlesForLanguage(language)
+    .filter((entry) => entry.id !== article.id)
+    .slice(0, count)
+    .map((entry) => articleSummary(language, entry));
+
+/** The article with only one language's text, for a page's loader data. */
+export const articleInLanguage = (language: string, article: Article): Article => ({
+  ...article,
+  content: { [language]: article.content[language] },
+});

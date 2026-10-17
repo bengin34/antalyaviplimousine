@@ -1,4 +1,4 @@
-import { mkdir, readFile, writeFile } from "node:fs/promises";
+import { mkdir, readFile, rm, writeFile } from "node:fs/promises";
 import path from "node:path";
 import vm from "node:vm";
 import { JSDOM } from "jsdom";
@@ -74,4 +74,16 @@ const output = path.join(root, "public-app", "app", "generated", "legacy-transla
 
 await mkdir(path.dirname(output), { recursive: true });
 await writeFile(output, `${JSON.stringify({ resources }, null, 2)}\n`);
+
+// One dictionary per language for the browser: a page ships only its own
+// language (passed in loader data) and fetches another one on demand when the
+// visitor switches. The all-language file above stays for loaders and tests.
+const perLanguageDirectory = path.join(path.dirname(output), "translations");
+await rm(perLanguageDirectory, { recursive: true, force: true });
+await mkdir(perLanguageDirectory, { recursive: true });
+await Promise.all(
+  Object.entries(resources).map(([language, dictionary]) =>
+    writeFile(path.join(perLanguageDirectory, `${language}.json`), `${JSON.stringify(dictionary, null, 2)}\n`),
+  ),
+);
 console.log(`Extracted ${Object.keys(resources).length} public languages`);

@@ -4,7 +4,14 @@ import "@testing-library/jest-dom/vitest";
 import { cleanup, render, screen, within } from "@testing-library/react";
 import { afterEach, describe, expect, test } from "vitest";
 import { LanguageProvider } from "../i18n";
-import { articleBySlug, articleLanguages, articlesForLanguage } from "../lib/articles";
+import { pageMessages } from "../lib/page-data.server";
+import {
+  articleBySlug,
+  articleLanguages,
+  articleSummaries,
+  articlesForLanguage,
+  moreArticleSummaries,
+} from "../lib/articles";
 import { articleMeta, blogMeta, domain } from "../lib/seo";
 import { ArticlePage } from "./ArticlePage";
 import { BlogIndexPage } from "./BlogIndexPage";
@@ -22,8 +29,8 @@ const schemaOf = (metas: unknown[], type: string) =>
 describe("article pages", () => {
   test("renders the heading, comparison table and FAQ a reader can open", () => {
     render(
-      <LanguageProvider initialLanguage="en">
-        <ArticlePage language="en" article={comparison} />
+      <LanguageProvider initialLanguage="en" messages={pageMessages("en")}>
+        <ArticlePage language="en" article={comparison} moreArticles={moreArticleSummaries("en", comparison)} />
       </LanguageProvider>,
     );
 
@@ -39,8 +46,8 @@ describe("article pages", () => {
 
   test("links every related route to its own language's landing page", () => {
     render(
-      <LanguageProvider initialLanguage="de">
-        <ArticlePage language="de" article={golf} />
+      <LanguageProvider initialLanguage="de" messages={pageMessages("de")}>
+        <ArticlePage language="de" article={golf} moreArticles={moreArticleSummaries("de", golf)} />
       </LanguageProvider>,
     );
 
@@ -56,8 +63,8 @@ describe("article pages", () => {
 
   test("keeps the breadcrumb pointing back at the language's own blog", () => {
     render(
-      <LanguageProvider initialLanguage="tr">
-        <ArticlePage language="tr" article={comparison} />
+      <LanguageProvider initialLanguage="tr" messages={pageMessages("tr")}>
+        <ArticlePage language="tr" article={comparison} moreArticles={moreArticleSummaries("tr", comparison)} />
       </LanguageProvider>,
     );
 
@@ -114,8 +121,8 @@ describe("article metadata", () => {
 describe("blog index", () => {
   test("lists every article of its language with a link to the localized slug", () => {
     render(
-      <LanguageProvider initialLanguage="pl">
-        <BlogIndexPage language="pl" />
+      <LanguageProvider initialLanguage="pl" messages={pageMessages("pl")}>
+        <BlogIndexPage language="pl" posts={articleSummaries("pl")} />
       </LanguageProvider>,
     );
 

@@ -4,6 +4,7 @@ import "@testing-library/jest-dom/vitest";
 import { cleanup, fireEvent, render, waitFor, within } from "@testing-library/react";
 import { afterEach, beforeEach, describe, expect, test, vi } from "vitest";
 import { LanguageProvider } from "../i18n";
+import { pageMessages } from "../lib/page-data.server";
 import { LandOfLegendsPage } from "./LandOfLegendsPage";
 import type { LandOfLegendsLanguage } from "../lib/land-of-legends-copy";
 
@@ -16,7 +17,7 @@ beforeEach(() => createBooking.mockReset());
 
 const renderPage = (language: LandOfLegendsLanguage = "en") =>
   render(
-    <LanguageProvider initialLanguage={language}>
+    <LanguageProvider initialLanguage={language} messages={pageMessages(language)}>
       <LandOfLegendsPage language={language} />
     </LanguageProvider>,
   );
@@ -29,8 +30,10 @@ const pickHotel = (container: HTMLElement, name: string) => {
   fireEvent.click(option);
 };
 
-const fillContact = (container: HTMLElement) => {
+const fillContact = async (container: HTMLElement) => {
   fireEvent.change(container.querySelector("#lol-name")!, { target: { value: "Anna Schmidt" } });
+  // The phone input library is loaded on demand.
+  await waitFor(() => expect(container.querySelector("#lol-phone")).not.toBeNull());
   fireEvent.change(container.querySelector("#lol-phone")!, { target: { value: "+49 151 23456789" } });
   fireEvent.change(container.querySelector("#lol-email")!, { target: { value: "anna@example.com" } });
 };
@@ -75,7 +78,7 @@ describe("LandOfLegendsPage", () => {
     const { container, findByText } = renderPage();
     pickHotel(container, "Delphin Imperial Lara");
     fireEvent.change(container.querySelector("#lol-return")!, { target: { value: "23:45" } });
-    fillContact(container);
+    await fillContact(container);
     fireEvent.submit(container.querySelector(".lol-form")!);
     expect(await findByText(/no later than 23:30/)).toBeInTheDocument();
     expect(createBooking).not.toHaveBeenCalled();
@@ -85,7 +88,7 @@ describe("LandOfLegendsPage", () => {
     createBooking.mockResolvedValue({ booking_ref: "AVL-2026-ABCD1234", price_eur: 105 });
     const { container, findByText } = renderPage();
     pickHotel(container, "Delphin Imperial Lara");
-    fillContact(container);
+    await fillContact(container);
     fireEvent.submit(container.querySelector(".lol-form")!);
 
     expect(await findByText("AVL-2026-ABCD1234")).toBeInTheDocument();
@@ -114,7 +117,7 @@ describe("LandOfLegendsPage", () => {
     createBooking.mockResolvedValue({ booking_ref: "AVL-2026-QUOTE001", price_eur: 0 });
     const { container, findByText } = renderPage("tr");
     fireEvent.change(container.querySelector("#lol-hotel")!, { target: { value: "Küçük Pansiyon Kaleiçi" } });
-    fillContact(container);
+    await fillContact(container);
     fireEvent.submit(container.querySelector(".lol-form")!);
 
     expect(await findByText("AVL-2026-QUOTE001")).toBeInTheDocument();

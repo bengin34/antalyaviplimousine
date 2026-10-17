@@ -4,18 +4,21 @@ import { CookieConsent } from "../components/CookieConsent";
 import { HealthPage } from "../components/HealthPage";
 import healthStyles from "../health.css?url";
 import { LanguageProvider } from "../i18n";
-import { domain, healthMeta, languageFromPath } from "../lib/seo";
+import { pageMessages } from "../lib/page-data.server";
+import { healthMeta } from "../lib/seo";
+import { domain, languageFromPath } from "../lib/site";
 
 export const links: LinksFunction = () => [
   { rel: "stylesheet", href: healthStyles },
 ];
 
 export function loader({ request }: { request: Request }) {
-  return { language: languageFromPath(new URL(request.url).pathname) };
+  const language = languageFromPath(new URL(request.url).pathname);
+  return { language, meta: healthMeta(language), messages: pageMessages(language) };
 }
 
 export const meta = ({ loaderData, matches }: { loaderData?: ReturnType<typeof loader>; matches?: Array<{ id: string }> }) => {
-  const metas = healthMeta(loaderData?.language ?? "en");
+  const metas = loaderData?.meta ?? [];
   if (!matches) return metas;
   const id = matches.find((m) => m.id.startsWith("health-"))?.id ?? "";
   const lang = id.replace("health-", "") || "en";
@@ -28,10 +31,10 @@ export const meta = ({ loaderData, matches }: { loaderData?: ReturnType<typeof l
 };
 
 export default function HealthRoute() {
-  const { language } = useLoaderData<typeof loader>();
+  const { language, messages } = useLoaderData<typeof loader>();
 
   return (
-    <LanguageProvider initialLanguage={language}>
+    <LanguageProvider initialLanguage={language} messages={messages}>
       <HealthPage />
       <CookieConsent />
     </LanguageProvider>

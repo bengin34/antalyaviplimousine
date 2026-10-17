@@ -37,6 +37,7 @@ import pergeAspendosDayTrip from "./perge-aspendos-day-trip.js";
 import ramadanBayramAntalya from "./ramadan-bayram-antalya.js";
 import kaleiciOldTownGuide from "./kaleici-old-town-guide.js";
 import { languageOrder, translations } from "./translations/index.js";
+import { blogPath, languagePrefix } from "./paths.js";
 
 /** Languages the blog is published in, largest source market first. */
 export const articleLanguages = languageOrder;
@@ -88,10 +89,9 @@ export const articleById = Object.freeze(
   Object.fromEntries(articles.map((article) => [article.id, article])),
 );
 
-/** The language prefix used everywhere in the public site. */
-const prefix = (language) => (language === "en" ? "" : `/${language}`);
+const prefix = languagePrefix;
 
-export const blogPath = (language) => `${prefix(language)}/blog/`;
+export { blogPath };
 
 export const articlePath = (language, article) => {
   const copy = article.content[language];

@@ -1,12 +1,6 @@
 import { routeCatalog } from "../../../src/routes.js";
-import {
-  articlePath,
-  articlesForLanguage,
-  blogPath,
-  blogText,
-  type Article,
-  type ArticleBlock,
-} from "../lib/articles";
+import type { Article, ArticleBlock, ArticleSummary } from "../lib/articles";
+import { blogPath, blogText } from "../lib/blog-paths";
 import { StaticPageHeader } from "./StaticPageHeader";
 
 const routeName = (slug: string, language: string) => {
@@ -109,7 +103,17 @@ function Block({
   return <p>{block.text}</p>;
 }
 
-export function ArticlePage({ language, article }: { language: string; article: Article }) {
+export function ArticlePage({
+  language,
+  article,
+  moreArticles,
+}: {
+  language: string;
+  /** The article as the loader sends it: only this language's text. */
+  article: Article;
+  /** "More guides" entries, chosen by the loader. */
+  moreArticles: readonly ArticleSummary[];
+}) {
   const copy = article.content[language];
   const text = blogText(language);
   const prefix = language === "en" ? "" : `/${language}`;
@@ -120,10 +124,6 @@ export function ArticlePage({ language, article }: { language: string; article: 
   const related = article.relatedRoutes
     .map((slug) => ({ slug, name: routeName(slug, language) }))
     .filter((route): route is { slug: string; name: string } => Boolean(route.name));
-
-  const others = articlesForLanguage(language)
-    .filter((entry) => entry.id !== article.id)
-    .slice(0, 3);
 
   return (
     <>
@@ -192,19 +192,16 @@ export function ArticlePage({ language, article }: { language: string; article: 
           </p>
         </section>
 
-        {others.length > 0 && (
+        {moreArticles.length > 0 && (
           <section className="article-more" aria-labelledby="article-more-heading">
             <h2 id="article-more-heading">{text.moreHeading}</h2>
             <ul>
-              {others.map((entry) => {
-                const entryCopy = entry.content[language]!;
-                return (
-                  <li key={entry.id}>
-                    <a href={articlePath(language, entry) ?? blogHref}>{entryCopy.heading}</a>
-                    <p>{entryCopy.excerpt}</p>
-                  </li>
-                );
-              })}
+              {moreArticles.map((entry) => (
+                <li key={entry.id}>
+                  <a href={entry.href}>{entry.heading}</a>
+                  <p>{entry.excerpt}</p>
+                </li>
+              ))}
             </ul>
             <p><a className="text-link" href={blogHref}>{text.backToBlog}</a></p>
           </section>

@@ -4,6 +4,8 @@ import "@testing-library/jest-dom/vitest";
 import { cleanup, fireEvent, render, screen, within } from "@testing-library/react";
 import { afterEach, beforeAll, describe, expect, test } from "vitest";
 import { LanguageProvider } from "../i18n";
+import { LandOfLegendsBookingCopyProvider } from "../lib/land-of-legends-booking-copy";
+import { landOfLegendsBookingCopy, pageMessages } from "../lib/page-data.server";
 import { HomePage } from "./HomePage";
 
 /**
@@ -97,8 +99,10 @@ afterEach(cleanup);
 
 const renderHome = () =>
   render(
-    <LanguageProvider initialLanguage="en">
-      <HomePage initialLanguage="en" />
+    <LanguageProvider initialLanguage="en" messages={pageMessages("en")}>
+      <LandOfLegendsBookingCopyProvider copy={landOfLegendsBookingCopy("en")}>
+        <HomePage initialLanguage="en" />
+      </LandOfLegendsBookingCopyProvider>
     </LanguageProvider>,
   );
 

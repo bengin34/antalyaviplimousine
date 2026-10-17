@@ -6,6 +6,8 @@ import { afterEach, describe, expect, test } from "vitest";
 import { hotelBySlug } from "../../../src/hotels.js";
 import { routeCatalog } from "../../../src/routes.js";
 import { LanguageProvider } from "../i18n";
+import { LandOfLegendsBookingCopyProvider } from "../lib/land-of-legends-booking-copy";
+import { landOfLegendsBookingCopy, pageMessages } from "../lib/page-data.server";
 import { hotelMeta } from "../lib/seo";
 import { HotelPage } from "./HotelPage";
 
@@ -14,7 +16,7 @@ afterEach(cleanup);
 describe("German hotel transfer landing pages", () => {
   test("Utopia structured prices and FAQs agree with its Kargicak landing price", () => {
     const hotel = hotelBySlug("utopia-world-hotel")!;
-    render(<LanguageProvider initialLanguage="de"><HotelPage hotel={hotel} /></LanguageProvider>);
+    render(<LanguageProvider initialLanguage="de" messages={pageMessages("de")}><LandOfLegendsBookingCopyProvider copy={landOfLegendsBookingCopy("de")}><HotelPage hotel={hotel} /></LandOfLegendsBookingCopyProvider></LanguageProvider>);
     // Utopia sits in Kargıcak, so it is quoted at that sub-region's tariff
     // rather than the Alanya page's own — read it from the catalogue so a
     // tariff change moves the page and this test together.
@@ -30,7 +32,7 @@ describe("German hotel transfer landing pages", () => {
     const hotel = hotelBySlug("rixos-premium-belek");
     if (!hotel) throw new Error("Missing hotel catalogue entry");
 
-    render(<LanguageProvider initialLanguage="de"><HotelPage hotel={hotel} /></LanguageProvider>);
+    render(<LanguageProvider initialLanguage="de" messages={pageMessages("de")}><LandOfLegendsBookingCopyProvider copy={landOfLegendsBookingCopy("de")}><HotelPage hotel={hotel} /></LandOfLegendsBookingCopyProvider></LanguageProvider>);
 
     expect(screen.getByRole("heading", { level: 1, name: /Rixos Premium Belek/ })).toBeInTheDocument();
     expect(screen.getByText("35–40 Minuten")).toBeInTheDocument();
@@ -51,7 +53,7 @@ describe("German hotel transfer landing pages", () => {
     const hotel = hotelBySlug("rixos-premium-belek");
     if (!hotel) throw new Error("Missing hotel catalogue entry");
 
-    render(<LanguageProvider initialLanguage="de"><HotelPage hotel={hotel} /></LanguageProvider>);
+    render(<LanguageProvider initialLanguage="de" messages={pageMessages("de")}><LandOfLegendsBookingCopyProvider copy={landOfLegendsBookingCopy("de")}><HotelPage hotel={hotel} /></LandOfLegendsBookingCopyProvider></LanguageProvider>);
 
     expect(screen.getByText(/Kadriye und dem Belek Beach Park/)).toBeInTheDocument();
     const faq = hotelMeta(hotel.slug).find((meta) => "script:ld+json" in meta && (meta["script:ld+json"] as { "@type": string })["@type"] === "FAQPage");

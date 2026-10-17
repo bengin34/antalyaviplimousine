@@ -5,6 +5,8 @@ import { cleanup, render, screen } from "@testing-library/react";
 import { afterEach, describe, expect, test } from "vitest";
 import { localizedRoute } from "../../../src/routes.js";
 import { LanguageProvider } from "../i18n";
+import { LandOfLegendsBookingCopyProvider } from "../lib/land-of-legends-booking-copy";
+import { landOfLegendsBookingCopy, pageMessages, transferPageData } from "../lib/page-data.server";
 import { TransferPage } from "./TransferPage";
 
 afterEach(cleanup);
@@ -14,8 +16,10 @@ const renderGermanRoute = (slug: string) => {
   if (!route) throw new Error(`Missing route ${slug}`);
 
   return render(
-    <LanguageProvider initialLanguage="de">
-      <TransferPage language="de" route={route} />
+    <LanguageProvider initialLanguage="de" messages={pageMessages("de")}>
+      <LandOfLegendsBookingCopyProvider copy={landOfLegendsBookingCopy("de")}>
+        <TransferPage language="de" route={route} data={transferPageData("de", route)} />
+      </LandOfLegendsBookingCopyProvider>
     </LanguageProvider>,
   );
 };

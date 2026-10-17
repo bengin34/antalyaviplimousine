@@ -4,12 +4,13 @@ import "@testing-library/jest-dom/vitest";
 import { cleanup, fireEvent, render, screen } from "@testing-library/react";
 import { afterEach, describe, expect, test } from "vitest";
 import { LanguageProvider } from "../i18n";
+import { pageMessages } from "../lib/page-data.server";
 import { ClinicPage } from "./ClinicPage";
 
 afterEach(cleanup);
 
 const renderClinic = () => render(
-  <LanguageProvider initialLanguage="tr">
+  <LanguageProvider initialLanguage="tr" messages={pageMessages("tr")}>
     <ClinicPage />
   </LanguageProvider>,
 );

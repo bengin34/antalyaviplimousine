@@ -4,38 +4,38 @@ import { ArticlePage } from "../components/ArticlePage";
 import { CookieConsent } from "../components/CookieConsent";
 import blogStyles from "../blog.css?url";
 import { LanguageProvider } from "../i18n";
-import { articleBySlug, blogLanguageFromPath } from "../lib/articles";
+import { articleBySlug, articleInLanguage, moreArticleSummaries } from "../lib/articles";
+import { blogLanguageFromPath } from "../lib/blog-paths";
+import { pageMessages } from "../lib/page-data.server";
 import { articleMeta } from "../lib/seo";
-import type { IndexableLanguage } from "../lib/seo";
 
 export const links: LinksFunction = () => [{ rel: "stylesheet", href: blogStyles }];
 
 /**
- * Only the language and the slug travel in the loader payload; the article
- * itself is looked up from the bundled catalogue so its text is not shipped
- * twice - once as HTML and once as serialized loader data.
+ * The article travels as loader data with only this language's text, so the
+ * browser bundle never carries the article catalogue.
  */
 export function loader({ params, request }: { params: Record<string, string | undefined>; request: Request }) {
   const language = blogLanguageFromPath(new URL(request.url).pathname);
-  const slug = params.slug ?? "";
-  if (!articleBySlug(language, slug)) throw new Response("Not found", { status: 404 });
-  return { language, slug };
+  const article = articleBySlug(language, params.slug ?? "");
+  if (!article) throw new Response("Not found", { status: 404 });
+  return {
+    language,
+    article: articleInLanguage(language, article),
+    moreArticles: moreArticleSummaries(language, article),
+    meta: articleMeta(language, article),
+    messages: pageMessages(language),
+  };
 }
 
-export const meta = ({ loaderData }: { loaderData?: ReturnType<typeof loader> }) => {
-  if (!loaderData) return [];
-  const article = articleBySlug(loaderData.language, loaderData.slug);
-  return article ? articleMeta(loaderData.language, article) : [];
-};
+export const meta = ({ loaderData }: { loaderData?: ReturnType<typeof loader> }) => loaderData?.meta ?? [];
 
 export default function ArticleRoute() {
-  const { language, slug } = useLoaderData<typeof loader>();
-  const article = articleBySlug(language, slug);
-  if (!article) return null;
+  const { language, article, moreArticles, messages } = useLoaderData<typeof loader>();
 
   return (
-    <LanguageProvider initialLanguage={language as IndexableLanguage}>
-      <ArticlePage language={language} article={article} />
+    <LanguageProvider initialLanguage={language} messages={messages}>
+      <ArticlePage language={language} article={article} moreArticles={moreArticles} />
       <CookieConsent />
     </LanguageProvider>
   );

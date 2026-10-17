@@ -1,11 +1,11 @@
-import { articlePath, articlesForLanguage, blogPath, blogText } from "../lib/articles";
+import type { ArticleSummary } from "../lib/articles";
+import { blogPath, blogText } from "../lib/blog-paths";
 import { StaticPageHeader } from "./StaticPageHeader";
 
-export function BlogIndexPage({ language }: { language: string }) {
+export function BlogIndexPage({ language, posts }: { language: string; posts: readonly ArticleSummary[] }) {
   const text = blogText(language);
   const prefix = language === "en" ? "" : `/${language}`;
   const homeHref = `${prefix}/`;
-  const posts = articlesForLanguage(language);
 
   return (
     <>
@@ -33,24 +33,20 @@ export function BlogIndexPage({ language }: { language: string }) {
         </header>
 
         <ul className="article-index">
-          {posts.map((article) => {
-            const copy = article.content[language]!;
-            const href = articlePath(language, article) ?? blogPath(language);
-            return (
-              <li key={article.id}>
-                <article>
-                  <h2><a href={href}>{copy.heading}</a></h2>
-                  <p>{copy.excerpt}</p>
-                  <p className="article-meta">
-                    <time dateTime={article.updated}>{text.updated} {article.updated}</time>
-                    <span aria-hidden="true">·</span>
-                    <span>{text.minRead(copy.readingMinutes)}</span>
-                  </p>
-                  <a className="text-link" href={href}>{text.readMore}</a>
-                </article>
-              </li>
-            );
-          })}
+          {posts.map((post) => (
+            <li key={post.id}>
+              <article>
+                <h2><a href={post.href}>{post.heading}</a></h2>
+                <p>{post.excerpt}</p>
+                <p className="article-meta">
+                  <time dateTime={post.updated}>{text.updated} {post.updated}</time>
+                  <span aria-hidden="true">·</span>
+                  <span>{text.minRead(post.readingMinutes)}</span>
+                </p>
+                <a className="text-link" href={post.href}>{text.readMore}</a>
+              </article>
+            </li>
+          ))}
         </ul>
 
         <section className="article-cta">

@@ -1,5 +1,11 @@
 import type { LandOfLegendsErrors } from "./land-of-legends";
 import type { landOfLegendsZoneKm } from "../../../src/land-of-legends.js";
+import {
+  landOfLegendsLanguageFor,
+  landOfLegendsLanguages,
+  landOfLegendsPath,
+  type LandOfLegendsLanguage,
+} from "./land-of-legends-languages";
 import { en } from "./land-of-legends-copy/en";
 import { de } from "./land-of-legends-copy/de";
 import { fr } from "./land-of-legends-copy/fr";
@@ -30,8 +36,7 @@ import { zh } from "./land-of-legends-copy/zh";
  * its own full copy: the type has no optional keys, so a language missing a
  * string fails the typecheck instead of silently showing English.
  */
-export const landOfLegendsLanguages = ["en", "de", "fr", "tr", "ru", "cs", "uk", "ur", "pl", "nl", "ar", "sv", "da", "el", "es", "he", "hu", "it", "ja", "ko", "pt", "ro", "zh"] as const;
-export type LandOfLegendsLanguage = (typeof landOfLegendsLanguages)[number];
+export { landOfLegendsLanguageFor, landOfLegendsLanguages, landOfLegendsPath, type LandOfLegendsLanguage };
 export type LandOfLegendsRegion = keyof typeof landOfLegendsZoneKm;
 
 export type LandOfLegendsCopy = {
@@ -117,14 +122,7 @@ export type LandOfLegendsCopy = {
 
 export const landOfLegendsCopy: Record<LandOfLegendsLanguage, LandOfLegendsCopy> = { en, de, fr, tr, ru, cs, uk, ur, pl, nl, ar, sv, da, el, es, he, hu, it, ja, ko, pt, ro, zh };
 
-/** Narrows any site language to one with excursion copy, English otherwise. */
-export const landOfLegendsLanguageFor = (language: string): LandOfLegendsLanguage =>
-  (landOfLegendsLanguages as readonly string[]).includes(language) ? language as LandOfLegendsLanguage : "en";
-
 /** A pricing region's name in this page's language. */
 export function landOfLegendsRegionName(region: string, language: LandOfLegendsLanguage) {
   return landOfLegendsCopy[language].regionNames[region as LandOfLegendsRegion] ?? region;
 }
-
-export const landOfLegendsPath = (language: LandOfLegendsLanguage) =>
-  `${language === "en" ? "" : `/${language}`}/land-of-legends/`;

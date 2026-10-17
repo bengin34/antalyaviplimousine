@@ -1,5 +1,5 @@
 import legalData from "../generated/legal-copy.json";
-import type { IndexableLanguage } from "../lib/seo";
+import type { IndexableLanguage } from "../lib/site";
 import { StaticPageHeader } from "./StaticPageHeader";
 
 type LegalRecord = (typeof legalData)[keyof typeof legalData];

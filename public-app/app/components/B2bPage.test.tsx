@@ -6,12 +6,13 @@ import { afterEach, describe, expect, test } from "vitest";
 import { publicRouteSlugs, routeCatalog } from "../../../src/routes.js";
 import { AGENCY_DISCOUNT_EUR, b2bRates } from "../lib/b2b";
 import { LanguageProvider } from "../i18n";
+import { pageMessages } from "../lib/page-data.server";
 import { B2bPage } from "./B2bPage";
 
 afterEach(cleanup);
 
 const renderB2b = () => render(
-  <LanguageProvider initialLanguage="en">
+  <LanguageProvider initialLanguage="en" messages={pageMessages("en")}>
     <B2bPage />
   </LanguageProvider>,
 );

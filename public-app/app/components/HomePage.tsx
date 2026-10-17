@@ -5,7 +5,7 @@ import { LineBreakText, useLanguage } from "../i18n";
 import { useCarousel } from "../lib/carousel";
 import { faqAnchor, homeFaqGroups, resolveFaqAnchor } from "../lib/faq";
 import { track } from "../lib/track";
-import { blogPath, blogText, isArticleLanguage } from "../lib/articles";
+import { blogPath, blogText, isArticleLanguage } from "../lib/blog-paths";
 import { BookingForm } from "./BookingForm";
 import { Header } from "./Header";
 import { Icon } from "./Icon";
@@ -223,7 +223,7 @@ const vehiclePhotoModules = import.meta.glob(
   { eager: true, import: "default", query: "?url" },
 ) as Record<string, string>;
 const customerPhotoModules = import.meta.glob(
-  "../../../assets/optimized/customers/*.jpg",
+  "../../../assets/optimized/customers/*.webp",
   { eager: true, import: "default", query: "?url" },
 ) as Record<string, string>;
 
@@ -488,19 +488,19 @@ export function HomePage({ initialLanguage }: { initialLanguage: string }) {
       <Header />
       <main id="main-content" tabIndex={-1}>
         <section className="hero" id="top">
-          <picture className="hero-media">
-            <source
-              srcSet="/assets/optimized/antalya-coastline-hero.webp"
-              type="image/webp"
-            />
+          {/* A bare <img> (not <picture>) so React hoists a high-priority
+              preload for the LCP image into the prerendered <head>. */}
+          <div className="hero-media">
             <img
-              src="/assets/optimized/antalya-coastline-hero.jpg"
+              src="/assets/optimized/antalya-coastline-hero.webp"
+              srcSet="/assets/optimized/antalya-coastline-hero-800.webp 800w, /assets/optimized/antalya-coastline-hero-1080.webp 1080w, /assets/optimized/antalya-coastline-hero.webp 1672w"
+              sizes="100vw"
               alt="Luxury black executive van driving along Antalya's coastline"
               width="1672"
               height="941"
               fetchPriority="high"
             />
-          </picture>
+          </div>
           <div className="hero-shade" />
           <div className="hero-grain" />
           <div className="hero-content">
@@ -717,11 +717,11 @@ export function HomePage({ initialLanguage }: { initialLanguage: string }) {
                             <img
                               src={photo.src}
                               alt={photo.alt}
-                              width="1600"
-                              height="765"
+                              width="960"
+                              height="1280"
                               draggable={false}
                               decoding="async"
-                              loading={index === 0 ? "eager" : "lazy"}
+                              loading="lazy"
                             />
                           ) : null}
                         </div>
@@ -1195,6 +1195,8 @@ export function HomePage({ initialLanguage }: { initialLanguage: string }) {
             <div className="video-thumb">
               <img
                 src={`https://img.youtube.com/vi/${VIDEO_ID}/maxresdefault.jpg`}
+                loading="lazy"
+                decoding="async"
                 alt={t(
                   "videoThumbnailAlt",
                   "Antalya Airport meet and greet area",

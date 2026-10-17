@@ -5,6 +5,8 @@ import { cleanup, fireEvent, render, waitFor } from "@testing-library/react";
 import { afterEach, beforeEach, describe, expect, test, vi } from "vitest";
 import { routeCatalog } from "../../../src/routes.js";
 import { LanguageProvider } from "../i18n";
+import { LandOfLegendsBookingCopyProvider } from "../lib/land-of-legends-booking-copy";
+import { landOfLegendsBookingCopy, pageMessages } from "../lib/page-data.server";
 import { shouldApplyFlightArrival, verifyFlightNumber } from "../lib/flight-verification";
 import { BookingForm } from "./BookingForm";
 
@@ -22,8 +24,10 @@ afterEach(cleanup);
 describe("BookingForm route summary", () => {
   test("shows localized labels instead of internal private-address values", () => {
     const { container } = render(
-      <LanguageProvider initialLanguage="tr">
-        <BookingForm scrollOnSelect={false} />
+      <LanguageProvider initialLanguage="tr" messages={pageMessages("tr")}>
+        <LandOfLegendsBookingCopyProvider copy={landOfLegendsBookingCopy("tr")}>
+          <BookingForm scrollOnSelect={false} />
+        </LandOfLegendsBookingCopyProvider>
       </LanguageProvider>,
     );
 
@@ -46,8 +50,10 @@ describe("BookingForm route summary", () => {
 
   test("asks for golf bags and strollers and moves a Vito that no longer fits to the Sprinter", async () => {
     const { container, getByText } = render(
-      <LanguageProvider initialLanguage="tr">
-        <BookingForm scrollOnSelect={false} />
+      <LanguageProvider initialLanguage="tr" messages={pageMessages("tr")}>
+        <LandOfLegendsBookingCopyProvider copy={landOfLegendsBookingCopy("tr")}>
+          <BookingForm scrollOnSelect={false} />
+        </LandOfLegendsBookingCopyProvider>
       </LanguageProvider>,
     );
 
@@ -65,8 +71,10 @@ describe("BookingForm route summary", () => {
 
   test("requires the fuel acknowledgement before a daily chauffeur booking can continue", async () => {
     const { container, findByRole } = render(
-      <LanguageProvider initialLanguage="tr">
-        <BookingForm scrollOnSelect={false} />
+      <LanguageProvider initialLanguage="tr" messages={pageMessages("tr")}>
+        <LandOfLegendsBookingCopyProvider copy={landOfLegendsBookingCopy("tr")}>
+          <BookingForm scrollOnSelect={false} />
+        </LandOfLegendsBookingCopyProvider>
       </LanguageProvider>,
     );
 
@@ -101,6 +109,8 @@ describe("BookingForm route summary", () => {
       target: { value: "Test Guest" },
     });
 
+    // The phone input library is loaded on demand.
+    await waitFor(() => expect(container.querySelector("#customer-phone")).not.toBeNull());
     fireEvent.change(container.querySelector("#customer-phone")!, {
       target: { value: "+49 151 23456789" },
     });
@@ -129,8 +139,10 @@ describe("BookingForm route summary", () => {
 
   test("picking a hotel from the suggestions fills in the region and its price", () => {
     const { container } = render(
-      <LanguageProvider initialLanguage="tr">
-        <BookingForm scrollOnSelect={false} />
+      <LanguageProvider initialLanguage="tr" messages={pageMessages("tr")}>
+        <LandOfLegendsBookingCopyProvider copy={landOfLegendsBookingCopy("tr")}>
+          <BookingForm scrollOnSelect={false} />
+        </LandOfLegendsBookingCopyProvider>
       </LanguageProvider>,
     );
 
@@ -155,8 +167,10 @@ describe("BookingForm route summary", () => {
 
   test("names the belde when the hotel is priced under a neighbouring region", () => {
     const { container } = render(
-      <LanguageProvider initialLanguage="tr">
-        <BookingForm scrollOnSelect={false} />
+      <LanguageProvider initialLanguage="tr" messages={pageMessages("tr")}>
+        <LandOfLegendsBookingCopyProvider copy={landOfLegendsBookingCopy("tr")}>
+          <BookingForm scrollOnSelect={false} />
+        </LandOfLegendsBookingCopyProvider>
       </LanguageProvider>,
     );
 
@@ -175,8 +189,10 @@ describe("BookingForm route summary", () => {
 
   test("a guest whose hotel is not indexed keeps their text and chooses the region", () => {
     const { container } = render(
-      <LanguageProvider initialLanguage="tr">
-        <BookingForm scrollOnSelect={false} />
+      <LanguageProvider initialLanguage="tr" messages={pageMessages("tr")}>
+        <LandOfLegendsBookingCopyProvider copy={landOfLegendsBookingCopy("tr")}>
+          <BookingForm scrollOnSelect={false} />
+        </LandOfLegendsBookingCopyProvider>
       </LanguageProvider>,
     );
 
@@ -198,8 +214,10 @@ describe("BookingForm route summary", () => {
 
   test("does not change the destination when the guest is leaving their hotel", () => {
     const { container } = render(
-      <LanguageProvider initialLanguage="tr">
-        <BookingForm scrollOnSelect={false} />
+      <LanguageProvider initialLanguage="tr" messages={pageMessages("tr")}>
+        <LandOfLegendsBookingCopyProvider copy={landOfLegendsBookingCopy("tr")}>
+          <BookingForm scrollOnSelect={false} />
+        </LandOfLegendsBookingCopyProvider>
       </LanguageProvider>,
     );
 
@@ -240,8 +258,10 @@ describe("BookingForm flight verification", () => {
 
   const goToStep2 = () => {
     const { container } = render(
-      <LanguageProvider initialLanguage="tr">
-        <BookingForm scrollOnSelect={false} />
+      <LanguageProvider initialLanguage="tr" messages={pageMessages("tr")}>
+        <LandOfLegendsBookingCopyProvider copy={landOfLegendsBookingCopy("tr")}>
+          <BookingForm scrollOnSelect={false} />
+        </LandOfLegendsBookingCopyProvider>
       </LanguageProvider>,
     );
     // advanceToStep2 also gates on trigger("hotelName"), and the schema requires
@@ -513,10 +533,12 @@ describe("BookingForm flight verification", () => {
 });
 
 describe("BookingForm Land of Legends day trip", () => {
-  test("offers the day trip as a journey type and swaps in its own form", () => {
+  test("offers the day trip as a journey type and swaps in its own form", async () => {
     const { container, getByLabelText } = render(
-      <LanguageProvider initialLanguage="de">
-        <BookingForm scrollOnSelect={false} />
+      <LanguageProvider initialLanguage="de" messages={pageMessages("de")}>
+        <LandOfLegendsBookingCopyProvider copy={landOfLegendsBookingCopy("de")}>
+          <BookingForm scrollOnSelect={false} />
+        </LandOfLegendsBookingCopyProvider>
       </LanguageProvider>,
     );
 
@@ -524,7 +546,8 @@ describe("BookingForm Land of Legends day trip", () => {
     fireEvent.click(getByLabelText("The Land of Legends"));
 
     expect(container.querySelector("#quote-form")).toHaveClass("is-excursion");
-    expect(container.querySelector("#lol-hotel")).toBeInTheDocument();
+    // The excursion form is loaded on demand.
+    await waitFor(() => expect(container.querySelector("#lol-hotel")).toBeInTheDocument());
     expect(container.querySelector(".trip-type-hint a")).toHaveAttribute("href", "/de/land-of-legends/");
     expect(container.querySelector(".booking-steps")).toBeNull();
 
@@ -533,14 +556,17 @@ describe("BookingForm Land of Legends day trip", () => {
     expect(container.querySelector("#quote-form")).not.toHaveClass("is-excursion");
   });
 
-  test("speaks the visitor's own language, Polish included", () => {
+  test("speaks the visitor's own language, Polish included", async () => {
     const { getByLabelText, container } = render(
-      <LanguageProvider initialLanguage="pl">
-        <BookingForm scrollOnSelect={false} />
+      <LanguageProvider initialLanguage="pl" messages={pageMessages("pl")}>
+        <LandOfLegendsBookingCopyProvider copy={landOfLegendsBookingCopy("pl")}>
+          <BookingForm scrollOnSelect={false} />
+        </LandOfLegendsBookingCopyProvider>
       </LanguageProvider>,
     );
     fireEvent.click(getByLabelText("The Land of Legends"));
     expect(container.querySelector(".trip-type-hint a")).toHaveAttribute("href", "/pl/land-of-legends/");
+    await waitFor(() => expect(container.querySelector(".lol-summary")).toBeInTheDocument());
     expect(container.querySelector(".lol-summary")).not.toHaveTextContent("Price confirmed on WhatsApp");
   });
 });

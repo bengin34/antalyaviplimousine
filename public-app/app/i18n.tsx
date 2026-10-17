@@ -6,10 +6,10 @@ import {
   useContext,
   useEffect,
   useMemo,
+  useRef,
   useState,
   type ReactNode,
 } from "react";
-import translationData from "./generated/legacy-translations.json";
 import videoTranslationData from "./video-translations.json";
 import { resolvePriceTokens } from "../../src/prices.js";
 
@@ -43,14 +43,17 @@ export type LanguageCode = (typeof languageOptions)[number]["code"];
 
 const supportedLanguages = new Set(languageOptions.map(({ code }) => code));
 const indexableLanguages = new Set(["en", "de", "tr", "ru", "cs", "uk", "ur", "fr", "pl", "nl", "ar", "sv", "da", "el", "es", "he", "hu", "it", "ja", "ko", "pt", "ro", "zh"]);
-const legacyResources = translationData.resources as Record<string, Record<string, string>>;
 const videoResources = videoTranslationData.resources as Record<string, Record<string, string>>;
-const rawResources = Object.fromEntries(
-  Object.entries(legacyResources).map(([language, translation]) => [
-    language,
-    { ...translation, ...(videoResources[language] || {}) },
-  ]),
-);
+
+/** One language's UI strings, as generated into ./generated/translations/. */
+export type Messages = Record<string, string>;
+
+/**
+ * Every language's dictionary as a lazy chunk. A page renders with the one
+ * dictionary its loader passed in; the others are fetched only when the
+ * visitor switches language without leaving the page.
+ */
+const dictionaryLoaders = import.meta.glob<Messages>("./generated/translations/*.json", { import: "default" });
 
 const i18n = i18next.createInstance();
 void i18n.init({
@@ -58,10 +61,30 @@ void i18n.init({
   initAsync: false,
   interpolation: { escapeValue: false },
   lng: "en",
-  resources: Object.fromEntries(
-    Object.entries(rawResources).map(([language, translation]) => [language, { translation }]),
-  ),
+  resources: {},
 });
+
+/**
+ * Each generated dictionary already contains every English key, so English
+ * is only needed as a fallback for the video strings, which are translated
+ * into fewer languages; they are merged here, with the language's own video
+ * strings on top as before.
+ */
+function addDictionary(language: string, messages: Messages) {
+  if (i18n.hasResourceBundle(language, "translation")) return;
+  i18n.addResourceBundle(language, "translation", {
+    ...(videoResources.en || {}),
+    ...messages,
+    ...(videoResources[language] || {}),
+  });
+}
+
+async function loadDictionary(language: LanguageCode) {
+  if (i18n.hasResourceBundle(language, "translation")) return;
+  const load = dictionaryLoaders[`./generated/translations/${language}.json`];
+  if (!load) throw new Error(`No dictionary for ${language}`);
+  addDictionary(language, await load());
+}
 
 type LanguageContextValue = {
   language: LanguageCode;
@@ -102,21 +125,44 @@ function localizedPath(pathname: string, language: LanguageCode) {
 export function LanguageProvider({
   children,
   initialLanguage,
+  messages,
 }: {
   children: ReactNode;
   initialLanguage: string;
+  /** The route language's dictionary, from the route loader (pageMessages). */
+  messages: Messages;
 }) {
   const routeLanguage = normalizeLanguage(initialLanguage);
+  // Synchronous, so the prerendered HTML and the hydrating client render the
+  // same text from the very first pass.
+  addDictionary(routeLanguage, messages);
   const [language, setLanguage] = useState<LanguageCode>(routeLanguage);
+  const latestRequest = useRef(0);
+
+  /** Switches once the dictionary is in, so no text flashes in English. */
+  const switchLanguage = useCallback((nextLanguage: LanguageCode) => {
+    const request = ++latestRequest.current;
+    loadDictionary(nextLanguage).then(
+      () => {
+        if (request === latestRequest.current) setLanguage(nextLanguage);
+      },
+      () => {
+        // The chunk could not be fetched (offline, or a deploy replaced it):
+        // keep the page in the language it is already showing.
+      },
+    );
+  }, []);
 
   useEffect(() => {
     if (indexableLanguages.has(routeLanguage) && routeLanguage !== "en") return;
+    let detected: LanguageCode;
     try {
-      setLanguage(normalizeLanguage(localStorage.getItem("avl-language") || browserLanguage()));
+      detected = normalizeLanguage(localStorage.getItem("avl-language") || browserLanguage());
     } catch {
-      setLanguage(browserLanguage());
+      detected = browserLanguage();
     }
-  }, [routeLanguage]);
+    switchLanguage(detected);
+  }, [routeLanguage, switchLanguage]);
 
   useEffect(() => {
     document.documentElement.lang = language;
@@ -137,8 +183,8 @@ export function LanguageProvider({
       window.location.assign(`${target}${window.location.hash}`);
       return;
     }
-    setLanguage(nextLanguage);
-  }, []);
+    switchLanguage(nextLanguage);
+  }, [switchLanguage]);
 
   const t = useCallback((key: string, fallback = key) => {
     const value = i18n.getFixedT(language)(key, { defaultValue: fallback });

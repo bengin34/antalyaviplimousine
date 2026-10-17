@@ -29,6 +29,10 @@ deployed to **GitHub Pages** (no server functions, no custom cache headers —
 skip region/ISR/edge-cache items, report them as N/A). Build needs
 `VITE_SUPABASE_URL` / `VITE_SUPABASE_ANON_KEY`; placeholders are fine for a
 measurement build. Serve with `npx --yes serve@14 dist -l 4173`.
+`build/public-react/` and `public/sitemap.xml` are tracked and get rewritten
+by every local build (with the placeholder Supabase URL) — `git checkout --
+build public/sitemap.xml && git clean -fd build` before committing; CI
+rebuilds them on deploy.
 
 ## 1. Baseline (before touching anything)
 

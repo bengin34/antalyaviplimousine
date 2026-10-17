@@ -16,9 +16,9 @@ import {
   type Article,
 } from "./articles";
 
-export const domain = "https://antalyaviptourism.com";
-export const indexableLanguages = ["en", "de", "fr", "tr", "ru", "cs", "uk", "ur", "pl", "nl", "ar", "sv", "da", "el", "es", "he", "hu", "it", "ja", "ko", "pt", "ro", "zh"] as const;
-export type IndexableLanguage = (typeof indexableLanguages)[number];
+import { domain, indexableLanguages, languageFromPath, type IndexableLanguage } from "./site";
+
+export { domain, indexableLanguages, languageFromPath, type IndexableLanguage };
 
 const homeSeo = {
   zh: { locale: "zh_CN", title: "安塔利亚机场接送 | 私人VIP旅游服务", description: "从安塔利亚机场到土耳其各度假区的私人固定价格接送服务。" },
@@ -331,12 +331,6 @@ const routeText = {
   },
 } as const;
 
-export const languageFromPath = (pathname: string): IndexableLanguage => {
-  const candidate = pathname.split("/").filter(Boolean)[0];
-  return (indexableLanguages as readonly string[]).includes(candidate ?? "")
-    ? (candidate as IndexableLanguage)
-    : "en";
-};
 
 export const localizedPath = (language: IndexableLanguage, suffix = "") =>
   `/${language === "en" ? "" : `${language}/`}${suffix}`;

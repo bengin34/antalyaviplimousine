@@ -1,12 +1,10 @@
 import { localizedRoute, publicRouteSlugs, routeCatalog } from "../../../src/routes.js";
 import { hotelsForRegion } from "../../../src/hotels.js";
-import type { IndexableLanguage } from "../lib/seo";
-import { routeCopy } from "../lib/seo";
+import type { IndexableLanguage } from "../lib/site";
+import type { TransferPageData } from "../lib/page-data.server";
 import { BookingForm } from "./BookingForm";
-import { landOfLegendsRates } from "../../../src/land-of-legends.js";
-import { landOfLegendsCopy, landOfLegendsLanguageFor, landOfLegendsPath } from "../lib/land-of-legends-copy";
 import { StaticPageHeader } from "./StaticPageHeader";
-import { articlePath, articlesForRoute, blogPath, blogText, isArticleLanguage } from "../lib/articles";
+import { blogText } from "../lib/blog-paths";
 
 type LocalizedRoute = NonNullable<ReturnType<typeof localizedRoute>>;
 
@@ -89,17 +87,24 @@ const copy = {
   },
 } as const;
 
-export function TransferPage({ language, route }: { language: IndexableLanguage; route: LocalizedRoute }) {
+export function TransferPage({
+  language,
+  route,
+  data,
+}: {
+  language: IndexableLanguage;
+  route: LocalizedRoute;
+  /** SEO copy, related guides and excursion teaser, from the route loader. */
+  data: TransferPageData;
+}) {
   const text = copy[language];
-  const seo = routeCopy(language);
   const prefix = language === "en" ? "" : `/${language}`;
   const homeHref = `${prefix}/`;
-  const heading = seo.heading(route.name);
+  const { heading, guides, landOfLegendsPromo } = data;
   const faq = text.faqItems(route.name, route.prices.vito, route.durationLabel);
   const germanHotels = language === "de" ? germanLandingHotels[route.slug] : undefined;
   const cataloguedHotels = language === "de" ? hotelsForRegion(route.slug) : [];
   const germanRegion = language === "de" ? germanRegionCopy[route.slug] : undefined;
-  const guides = isArticleLanguage(language) ? articlesForRoute(language, route.slug) : [];
   const guideText = blogText(language);
   const germanFaq = germanHotels ? [
     ...faq,
@@ -112,16 +117,11 @@ export function TransferPage({ language, route }: { language: IndexableLanguage;
     <>
       <StaticPageHeader homeHref={homeHref} homeLabel={text.home} secondaryHref="#details" secondaryLabel={text.routes} tertiaryHref="#contact" tertiaryLabel="WhatsApp" ctaHref={`${homeHref}#booking`} ctaLabel={text.book} />
       <main id="main-content" tabIndex={-1}>
-        <section className="localized-route"><div className="eyebrow light"><span /><p>Antalya VIP Tourism</p></div><h1>{germanHotels ? `Flughafen Antalya → ${route.name} Privattransfer` : heading}</h1><p>{seo.description(route.name, route.prices.vito)}</p>{germanHotels ? <><a className="button button-gold" href={`${homeHref}#booking`}>Jetzt Transfer buchen</a><ul className="localized-trust"><li>Bis zu 7 Personen</li><li>Keine Vorauszahlung erforderlich</li><li>Zahlung direkt beim Fahrer</li><li>Fester Gesamtpreis ohne versteckte Gebühren</li><li>Kostenloser Kindersitz auf Anfrage</li><li>Flugüberwachung inklusive</li></ul></> : <p className="localized-campaign">{text.campaign}</p>}<div className="localized-stats"><div><strong>{route.durationLabel}</strong><span>{text.duration}</span></div><div><strong>{route.distance}</strong><span>{text.distance}</span></div><div><strong>€{route.prices.vito}</strong><span>{text.from}</span></div></div></section>
+        <section className="localized-route"><div className="eyebrow light"><span /><p>Antalya VIP Tourism</p></div><h1>{germanHotels ? `Flughafen Antalya → ${route.name} Privattransfer` : heading}</h1><p>{data.description}</p>{germanHotels ? <><a className="button button-gold" href={`${homeHref}#booking`}>Jetzt Transfer buchen</a><ul className="localized-trust"><li>Bis zu 7 Personen</li><li>Keine Vorauszahlung erforderlich</li><li>Zahlung direkt beim Fahrer</li><li>Fester Gesamtpreis ohne versteckte Gebühren</li><li>Kostenloser Kindersitz auf Anfrage</li><li>Flugüberwachung inklusive</li></ul></> : <p className="localized-campaign">{text.campaign}</p>}<div className="localized-stats"><div><strong>{route.durationLabel}</strong><span>{text.duration}</span></div><div><strong>{route.distance}</strong><span>{text.distance}</span></div><div><strong>€{route.prices.vito}</strong><span>{text.from}</span></div></div></section>
         <section className="localized-content" id="details"><div className="localized-grid"><div><h2>{germanHotels ? `Ihr privater Transfer nach ${route.name}` : heading}</h2><p>{text.intro(route.name, route.durationLabel, route.distance)}</p>{germanRegion && <><h3>Über {route.name}</h3><p>{germanRegion.about}</p><p>{germanRegion.routeDetails}</p></>}{germanHotels && <><p>Sie reisen ausschließlich mit Ihrer eigenen Gruppe direkt zu Ihrem Hotel in {route.name}. Kein Shuttle, keine fremden Fahrgäste und keine unnötigen Zwischenstopps – der feste Preis gilt für das gesamte Fahrzeug.</p><h3>Ihre Ankunft am Flughafen Antalya</h3><p>Nachdem Sie Ihr Gepäck abgeholt haben, gehen Sie bitte zum Meet & Greet Bereich J / 777. Unser Flughafen-Team findet Ihre Buchung und bringt Sie mit Ihrem Fahrer zusammen. Dank Flugüberwachung passen wir die Abholung bei einer Verspätung ohne Aufpreis an.</p><h3>Hin- und Rücktransfer</h3><p>Gern organisieren wir auch Ihren Rücktransfer von {route.name} zum Flughafen Antalya. Teilen Sie uns bei der Buchung Ihre Flugnummer und gewünschte Abholzeit mit.</p><h3>Privat statt Sammeltransfer</h3><p>Bei diesem Transfer reisen nur Sie und Ihre Mitreisenden im Fahrzeug. Nach der Reservierung erhalten Sie eine klare Bestätigung mit Reisedaten und Kontaktmöglichkeit. Am Ankunftstag verfolgt unser Team Ihren Flug; bei einer früheren oder späteren Landung stimmen wir die Übergabe entsprechend ab. Der Fahrer bringt Sie mit Gepäck direkt zur Rezeption oder zur angegebenen Privatadresse in {route.name}.</p><p>Der ausgewiesene Betrag ist ein fester Gesamtpreis für das Fahrzeug, nicht pro Person. Es gibt keine versteckten Zuschläge für die Flugüberwachung, die übliche Wartezeit oder Kindersitze auf Anfrage. Bezahlt wird bar direkt beim Fahrer, zu Beginn der Fahrt. Damit kennen Sie die Kosten schon vor der Anreise und können entspannt starten.</p><h3>Fahrzeug, Gepäck und Kinder</h3><p>Der Mercedes Vito eignet sich für bis zu sechs Personen mit normalem Reisegepäck; für größere Gruppen steht ein Mercedes Sprinter mit bis zu 12 Plätzen zur Verfügung. Teilen Sie uns Sondergepäck, einen Kinderwagen oder die benötigten Kindersitze bitte bei der Buchung mit. So planen wir Ihr Fahrzeug passend zu Ihrer Reisegruppe.</p></>}<h3>{text.included}</h3><ul>{text.items.map((item) => <li key={item}>{item}</li>)}</ul></div><div className="localized-aside"><h2>{text.priceHeading}</h2><div className="localized-price"><p>{text.vito}</p><strong>€{route.prices.vito}</strong>{germanHotels && <span>Preis für das gesamte Fahrzeug</span>}</div><div className="localized-price"><p>{text.sprinter}</p><strong>€{route.prices.sprinter}</strong>{germanHotels && <span>Preis für das gesamte Fahrzeug</span>}</div>{germanHotels && <ul className="localized-price-trust"><li>Keine Vorauszahlung erforderlich</li><li>Zahlung direkt beim Fahrer</li><li>Keine versteckten Gebühren</li></ul>}<p><a className="button button-gold" href={`${homeHref}#booking`}>{text.book}</a></p></div></div></section>
         {germanHotels && <section className="localized-hotels"><div><p className="eyebrow"><span />Für Ihre Unterkunft</p><h2>Beliebte Hotels in {route.name}</h2><p>Wir fahren direkt zu diesen und weiteren Hotels in der Region.</p></div><ul>{germanHotels.map((hotel) => { const catalogued = cataloguedHotels.find((entry) => entry.name === hotel); return <li key={hotel}>{catalogued ? <a href={`/de/hotels/${catalogued.slug}/`}>{hotel}</a> : hotel}</li>; })}</ul></section>}
-        {route.slug in landOfLegendsRates && (() => {
-          // Guests staying here can do the theme-park day trip; point them at it.
-          const excursionLanguage = landOfLegendsLanguageFor(language);
-          const excursion = landOfLegendsCopy[excursionLanguage];
-          const price = landOfLegendsRates[route.slug as keyof typeof landOfLegendsRates].vito;
-          return <section className="localized-links lol-route-promo"><h2>{excursion.tripOption}</h2><p>{excursion.tripHint}</p><div><a href={landOfLegendsPath(excursionLanguage)}>{excursion.fromLabel(price)} →</a></div></section>;
-        })()}
+        {/* Guests staying here can do the theme-park day trip; point them at it. */}
+        {landOfLegendsPromo && <section className="localized-links lol-route-promo"><h2>{landOfLegendsPromo.heading}</h2><p>{landOfLegendsPromo.hint}</p><div><a href={landOfLegendsPromo.href}>{landOfLegendsPromo.label} →</a></div></section>}
         <section className="localized-faq"><h2>{text.faq}</h2>{germanFaq.map(([question, answer]) => <article key={question}><h3>{question}</h3><p>{answer}</p></article>)}</section>
         <section className="localized-links"><h2>{text.other}</h2><div>{publicRouteSlugs.filter((slug) => slug !== route.slug).map((slug) => <a href={`${prefix}/transfers/${slug}/`} key={slug}>{(routeCatalog[slug].names as Record<string, string>)[language] ?? routeCatalog[slug].names.en}</a>)}</div></section>
         {guides.length > 0 && (
@@ -129,8 +129,8 @@ export function TransferPage({ language, route }: { language: IndexableLanguage;
             <h2 id="route-guides-heading">{guideText.routeGuidesHeading}</h2>
             <div>
               {guides.map((guide) => (
-                <a key={guide.id} href={articlePath(language, guide) ?? blogPath(language)}>
-                  {guide.content[language]!.heading}
+                <a key={guide.id} href={guide.href}>
+                  {guide.heading}
                 </a>
               ))}
             </div>
