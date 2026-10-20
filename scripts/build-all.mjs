@@ -20,7 +20,14 @@ runNode(path.join(root, "node_modules", "@react-router", "dev", "bin.cjs"), [
 
 await mkdir(dist, { recursive: true });
 await cp(publicClient, dist, { recursive: true });
-await cp(path.join(root, "assets"), path.join(dist, "assets"), { recursive: true });
+// Only what pages link to by its plain path. The originals in assets/
+// (assets/images, clinic, health, the full-size JPEGs and logo.png, ~42MB)
+// are inputs to scripts/optimize-images.mjs; fonts are bundled by Vite with
+// hashed names. Shipping them only bloated the Pages artifact and left the
+// raw photos reachable by URL.
+for (const entry of ["optimized", "favicons", "favicon.svg"]) {
+  await cp(path.join(root, "assets", entry), path.join(dist, "assets", entry), { recursive: true });
+}
 
 const imprintDirectory = path.join(dist, "impressum.html");
 const imprintHtml = await readFile(path.join(imprintDirectory, "index.html"), "utf8");

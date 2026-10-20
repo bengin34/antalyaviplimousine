@@ -1,22 +1,4 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
-
-function buildCalendarCounts(rows: Array<{ pickup_date: string; return_date?: string | null; trip_type?: string | null; service_end_date?: string | null }>): Map<string, number> {
-  const counts = new Map<string, number>()
-  const inc = (date: string | null | undefined) => { if (date) counts.set(date, (counts.get(date) ?? 0) + 1) }
-  for (const row of rows) {
-    inc(row.pickup_date)
-    if (row.trip_type === 'round_trip' && row.return_date) inc(row.return_date)
-    if (row.trip_type === 'daily_chauffeur' && row.service_end_date && row.pickup_date) {
-      const start = Date.parse(`${row.pickup_date}T00:00:00Z`)
-      const end = Date.parse(`${row.service_end_date}T00:00:00Z`)
-      const dayCount = Math.floor((end - start) / 86_400_000) + 1
-      for (let index = 1; index < dayCount; index++) {
-        inc(new Date(start + index * 86_400_000).toISOString().slice(0, 10))
-      }
-    }
-  }
-  return counts
-}
 import { AdminTabs, Topbar } from '../components/AdminChrome'
 import { MonthCalendar } from '../components/MonthCalendar'
 import { fmtLiveDate, fmtPrice, fmtShortDateWithWeekday, fmtSyncTime, fmtTime, ISTANBUL_TIME_ZONE, offsetISO, statusLabel, todayISO } from '../lib/format'
@@ -365,12 +347,20 @@ export default function TimelinePage({ navigate, initialDate }: { navigate: Navi
     }
   }, [])
 
+  // Counts for the month on screen only, aggregated in the database
+  // (booking_calendar_counts: pickup day, round-trip return day, every hire day).
   useEffect(() => {
-    supabase.from('bookings')
-      .select('pickup_date, return_date, trip_type, service_end_date')
-      .in('status', ['pending', 'paid', 'confirmed', 'in_transit', 'completed'])
-      .then(({ data }) => { if (data) setAllCalendarCounts(buildCalendarCounts(data)) })
-  }, [])
+    let current = true
+    const [year, monthIndex] = calendarMonth.split('-').map(Number)
+    const lastDay = new Date(Date.UTC(year, monthIndex, 0)).getUTCDate()
+    supabase.rpc('booking_calendar_counts', { p_from: `${calendarMonth}-01`, p_to: `${calendarMonth}-${String(lastDay).padStart(2, '0')}` })
+      .then(({ data, error }) => {
+        if (!current) return
+        if (error) { console.error('Takvim sayıları yüklenemedi:', error.message); return }
+        setAllCalendarCounts(new Map((data as Array<{ day: string; bookings: number }>).map(row => [row.day, row.bookings])))
+      })
+    return () => { current = false }
+  }, [calendarMonth])
 
   // Global customer search — queries the whole table (all dates, cancelled excluded).
   useEffect(() => {

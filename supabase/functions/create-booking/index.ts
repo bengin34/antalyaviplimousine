@@ -459,61 +459,81 @@ Deno.serve(async (req) => {
         booking_ref: booking.booking_ref,
       })
     } else {
-      const emailResponse = await fetch('https://api.resend.com/emails', {
-        method: 'POST',
-        headers: {
-          Authorization: `Bearer ${resendApiKey}`,
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          from: fromEmail,
-          to: [notificationEmail],
-          subject: isLandOfLegends
-            ? `${booking.status === 'pending' ? '[CHECK] ' : ''}Land of Legends ${booking.booking_ref}: ${booking.pickup_date} hotel ${String(booking.pickup_time).slice(0, 5)} → park pick-up ${String(booking.return_pickup_time).slice(0, 5)}`
-            : `New ${isDailyChauffeur ? 'daily chauffeur hire ' : isRoundTrip ? 'round-trip ' : ''}booking ${booking.booking_ref}: ${pickupLabel}${isDailyChauffeur ? '' : ` to ${booking.dropoff_location}`}`,
-          html: `
-            <div style="font-family:Arial,sans-serif;color:#161616">
-              <h2>New booking request</h2>
-              <table style="border-collapse:collapse">
-                <tr><td style="padding:6px 12px;color:#777">Reference</td><td style="padding:6px 12px"><strong>${escapeHtml(booking.booking_ref)}</strong></td></tr>
-                <tr><td style="padding:6px 12px;color:#777">Customer</td><td style="padding:6px 12px">${escapeHtml(booking.customer_name)}</td></tr>
-                <tr><td style="padding:6px 12px;color:#777">Email</td><td style="padding:6px 12px">${escapeHtml(booking.customer_email)}</td></tr>
-                <tr><td style="padding:6px 12px;color:#777">Phone / WhatsApp</td><td style="padding:6px 12px">${escapeHtml(booking.customer_phone)}</td></tr>
-                <tr><td style="padding:6px 12px;color:#777">Hotel / accommodation</td><td style="padding:6px 12px"><strong>${escapeHtml(booking.hotel_name)}</strong></td></tr>
-                ${!isLandOfLegends ? `<tr><td style="padding:6px 12px;color:#777">Large luggage</td><td style="padding:6px 12px"><strong>${escapeHtml(booking.luggage_count ?? luggageCount)}</strong></td></tr>` : ''}
-                ${golfBagCount > 0 ? `<tr><td style="padding:6px 12px;color:#777">Golf bags</td><td style="padding:6px 12px"><strong>${escapeHtml(golfBagCount)}</strong></td></tr>` : ''}
-                ${strollerCount > 0 ? `<tr><td style="padding:6px 12px;color:#777">Strollers</td><td style="padding:6px 12px"><strong>${escapeHtml(strollerCount)}</strong></td></tr>` : ''}
-                <tr><td style="padding:6px 12px;color:#777">Child seats</td><td style="padding:6px 12px">${escapeHtml(booking.child_seat_count || 0)}</td></tr>
-                ${childAges.length > 0 ? `<tr><td style="padding:6px 12px;color:#777">Child ages</td><td style="padding:6px 12px">${escapeHtml(childAges.map((age, i) => `Child ${i + 1}: ${age === 0 ? 'under 1' : age + ' yr'}`).join(', '))}</td></tr>` : ''}
-                <tr><td style="padding:6px 12px;color:#777">Pick-up type</td><td style="padding:6px 12px">${escapeHtml(pickupLabel)}</td></tr>
-                <tr><td style="padding:6px 12px;color:#777">Pick-up address</td><td style="padding:6px 12px"><strong>${escapeHtml(pickupAddressDisplay)}</strong></td></tr>
-                ${!isDailyChauffeur ? `<tr><td style="padding:6px 12px;color:#777">Destination</td><td style="padding:6px 12px">${escapeHtml(isLandOfLegends ? 'The Land of Legends (Kadriye) — then back to the hotel' : booking.dropoff_location)}</td></tr>` : ''}
-                ${!isDailyChauffeur && booking.dropoff_address ? `<tr><td style="padding:6px 12px;color:#777">Drop-off address</td><td style="padding:6px 12px"><strong>${escapeHtml(dropoffAddressDisplay)}</strong></td></tr>` : ''}
-                <tr><td style="padding:6px 12px;color:#777">Journey type</td><td style="padding:6px 12px"><strong>${escapeHtml(isLandOfLegends ? 'The Land of Legends — hotel → park → hotel, driver waits' : isDailyChauffeur ? 'Daily vehicle + chauffeur' : isRoundTrip ? 'Round trip' : 'One way')}</strong></td></tr>
-                ${isLandOfLegends ? `<tr><td style="padding:6px 12px;color:#777">Hotel departure / park pick-up</td><td style="padding:6px 12px"><strong>${escapeHtml(booking.pickup_date)} · ${escapeHtml(booking.pickup_time)} → ${escapeHtml(booking.return_pickup_time)}</strong></td></tr>
-                <tr><td style="padding:6px 12px;color:#777">Hotel region</td><td style="padding:6px 12px">${escapeHtml(booking.excursion_region || 'Not matched')}</td></tr>` : ''}
-                ${!isLandOfLegends ? `<tr><td style="padding:6px 12px;color:#777">Date / arrival</td><td style="padding:6px 12px">${escapeHtml(booking.pickup_date)} ${escapeHtml(isDailyChauffeur ? booking.pickup_time : booking.flight_arrival_time || '')}</td></tr>` : ''}
-                ${!isLandOfLegends ? `<tr><td style="padding:6px 12px;color:#777">Flight</td><td style="padding:6px 12px">${escapeHtml(booking.flight_number || 'Not provided')}</td></tr>` : ''}
-                ${isRoundTrip && !isLandOfLegends ? `<tr><td style="padding:6px 12px;color:#777">Return date / pick-up</td><td style="padding:6px 12px"><strong>${escapeHtml(booking.return_date)} ${escapeHtml(booking.return_pickup_time)}</strong></td></tr>
-                <tr><td style="padding:6px 12px;color:#777">Return flight</td><td style="padding:6px 12px">${escapeHtml(booking.return_flight_number || 'Not provided')}</td></tr>` : ''}
-                ${isDailyChauffeur ? `<tr><td style="padding:6px 12px;color:#777">Hire period</td><td style="padding:6px 12px"><strong>${escapeHtml(booking.pickup_date)} – ${escapeHtml(booking.service_end_date)} (${escapeHtml(hireDayCount)} days)</strong></td></tr>
-                <tr><td style="padding:6px 12px;color:#777">Departure flight</td><td style="padding:6px 12px">${escapeHtml(booking.departure_flight_date || 'Not provided')} ${escapeHtml(booking.departure_flight_time || '')} ${escapeHtml(booking.departure_flight_number || '')}</td></tr>
-                <tr><td style="padding:6px 12px;color:#777">Fuel terms</td><td style="padding:6px 12px"><strong>Accepted — fuel is excluded and paid separately by the customer</strong></td></tr>` : ''}
-                <tr><td style="padding:6px 12px;color:#777">Guests / vehicle</td><td style="padding:6px 12px">${escapeHtml(booking.guests)} / ${escapeHtml(booking.vehicle_type)}</td></tr>
-                <tr><td style="padding:6px 12px;color:#777">Price</td><td style="padding:6px 12px"><strong>${escapeHtml(bookingPriceDisplay)}</strong></td></tr>
-                <tr><td style="padding:6px 12px;color:#777">Payment</td><td style="padding:6px 12px"><strong>Cash in vehicle</strong></td></tr>
-              </table>
-            </div>
-          `,
-        }),
-      })
+      // The booking is already saved, so the customer gets their answer now
+      // and the notification goes out in the background. Before, the reply
+      // waited on Resend with no timeout, and a network error there turned a
+      // saved booking into a 500 — inviting the customer to book twice.
+      const sendNotification = async () => {
+        try {
+          const emailResponse = await fetch('https://api.resend.com/emails', {
+            signal: AbortSignal.timeout(10_000),
+            method: 'POST',
+            headers: {
+              Authorization: `Bearer ${resendApiKey}`,
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              from: fromEmail,
+              to: [notificationEmail],
+              subject: isLandOfLegends
+                ? `${booking.status === 'pending' ? '[CHECK] ' : ''}Land of Legends ${booking.booking_ref}: ${booking.pickup_date} hotel ${String(booking.pickup_time).slice(0, 5)} → park pick-up ${String(booking.return_pickup_time).slice(0, 5)}`
+                : `New ${isDailyChauffeur ? 'daily chauffeur hire ' : isRoundTrip ? 'round-trip ' : ''}booking ${booking.booking_ref}: ${pickupLabel}${isDailyChauffeur ? '' : ` to ${booking.dropoff_location}`}`,
+              html: `
+                <div style="font-family:Arial,sans-serif;color:#161616">
+                  <h2>New booking request</h2>
+                  <table style="border-collapse:collapse">
+                    <tr><td style="padding:6px 12px;color:#777">Reference</td><td style="padding:6px 12px"><strong>${escapeHtml(booking.booking_ref)}</strong></td></tr>
+                    <tr><td style="padding:6px 12px;color:#777">Customer</td><td style="padding:6px 12px">${escapeHtml(booking.customer_name)}</td></tr>
+                    <tr><td style="padding:6px 12px;color:#777">Email</td><td style="padding:6px 12px">${escapeHtml(booking.customer_email)}</td></tr>
+                    <tr><td style="padding:6px 12px;color:#777">Phone / WhatsApp</td><td style="padding:6px 12px">${escapeHtml(booking.customer_phone)}</td></tr>
+                    <tr><td style="padding:6px 12px;color:#777">Hotel / accommodation</td><td style="padding:6px 12px"><strong>${escapeHtml(booking.hotel_name)}</strong></td></tr>
+                    ${!isLandOfLegends ? `<tr><td style="padding:6px 12px;color:#777">Large luggage</td><td style="padding:6px 12px"><strong>${escapeHtml(booking.luggage_count ?? luggageCount)}</strong></td></tr>` : ''}
+                    ${golfBagCount > 0 ? `<tr><td style="padding:6px 12px;color:#777">Golf bags</td><td style="padding:6px 12px"><strong>${escapeHtml(golfBagCount)}</strong></td></tr>` : ''}
+                    ${strollerCount > 0 ? `<tr><td style="padding:6px 12px;color:#777">Strollers</td><td style="padding:6px 12px"><strong>${escapeHtml(strollerCount)}</strong></td></tr>` : ''}
+                    <tr><td style="padding:6px 12px;color:#777">Child seats</td><td style="padding:6px 12px">${escapeHtml(booking.child_seat_count || 0)}</td></tr>
+                    ${childAges.length > 0 ? `<tr><td style="padding:6px 12px;color:#777">Child ages</td><td style="padding:6px 12px">${escapeHtml(childAges.map((age, i) => `Child ${i + 1}: ${age === 0 ? 'under 1' : age + ' yr'}`).join(', '))}</td></tr>` : ''}
+                    <tr><td style="padding:6px 12px;color:#777">Pick-up type</td><td style="padding:6px 12px">${escapeHtml(pickupLabel)}</td></tr>
+                    <tr><td style="padding:6px 12px;color:#777">Pick-up address</td><td style="padding:6px 12px"><strong>${escapeHtml(pickupAddressDisplay)}</strong></td></tr>
+                    ${!isDailyChauffeur ? `<tr><td style="padding:6px 12px;color:#777">Destination</td><td style="padding:6px 12px">${escapeHtml(isLandOfLegends ? 'The Land of Legends (Kadriye) — then back to the hotel' : booking.dropoff_location)}</td></tr>` : ''}
+                    ${!isDailyChauffeur && booking.dropoff_address ? `<tr><td style="padding:6px 12px;color:#777">Drop-off address</td><td style="padding:6px 12px"><strong>${escapeHtml(dropoffAddressDisplay)}</strong></td></tr>` : ''}
+                    <tr><td style="padding:6px 12px;color:#777">Journey type</td><td style="padding:6px 12px"><strong>${escapeHtml(isLandOfLegends ? 'The Land of Legends — hotel → park → hotel, driver waits' : isDailyChauffeur ? 'Daily vehicle + chauffeur' : isRoundTrip ? 'Round trip' : 'One way')}</strong></td></tr>
+                    ${isLandOfLegends ? `<tr><td style="padding:6px 12px;color:#777">Hotel departure / park pick-up</td><td style="padding:6px 12px"><strong>${escapeHtml(booking.pickup_date)} · ${escapeHtml(booking.pickup_time)} → ${escapeHtml(booking.return_pickup_time)}</strong></td></tr>
+                    <tr><td style="padding:6px 12px;color:#777">Hotel region</td><td style="padding:6px 12px">${escapeHtml(booking.excursion_region || 'Not matched')}</td></tr>` : ''}
+                    ${!isLandOfLegends ? `<tr><td style="padding:6px 12px;color:#777">Date / arrival</td><td style="padding:6px 12px">${escapeHtml(booking.pickup_date)} ${escapeHtml(isDailyChauffeur ? booking.pickup_time : booking.flight_arrival_time || '')}</td></tr>` : ''}
+                    ${!isLandOfLegends ? `<tr><td style="padding:6px 12px;color:#777">Flight</td><td style="padding:6px 12px">${escapeHtml(booking.flight_number || 'Not provided')}</td></tr>` : ''}
+                    ${isRoundTrip && !isLandOfLegends ? `<tr><td style="padding:6px 12px;color:#777">Return date / pick-up</td><td style="padding:6px 12px"><strong>${escapeHtml(booking.return_date)} ${escapeHtml(booking.return_pickup_time)}</strong></td></tr>
+                    <tr><td style="padding:6px 12px;color:#777">Return flight</td><td style="padding:6px 12px">${escapeHtml(booking.return_flight_number || 'Not provided')}</td></tr>` : ''}
+                    ${isDailyChauffeur ? `<tr><td style="padding:6px 12px;color:#777">Hire period</td><td style="padding:6px 12px"><strong>${escapeHtml(booking.pickup_date)} – ${escapeHtml(booking.service_end_date)} (${escapeHtml(hireDayCount)} days)</strong></td></tr>
+                    <tr><td style="padding:6px 12px;color:#777">Departure flight</td><td style="padding:6px 12px">${escapeHtml(booking.departure_flight_date || 'Not provided')} ${escapeHtml(booking.departure_flight_time || '')} ${escapeHtml(booking.departure_flight_number || '')}</td></tr>
+                    <tr><td style="padding:6px 12px;color:#777">Fuel terms</td><td style="padding:6px 12px"><strong>Accepted — fuel is excluded and paid separately by the customer</strong></td></tr>` : ''}
+                    <tr><td style="padding:6px 12px;color:#777">Guests / vehicle</td><td style="padding:6px 12px">${escapeHtml(booking.guests)} / ${escapeHtml(booking.vehicle_type)}</td></tr>
+                    <tr><td style="padding:6px 12px;color:#777">Price</td><td style="padding:6px 12px"><strong>${escapeHtml(bookingPriceDisplay)}</strong></td></tr>
+                    <tr><td style="padding:6px 12px;color:#777">Payment</td><td style="padding:6px 12px"><strong>Cash in vehicle</strong></td></tr>
+                  </table>
+                </div>
+              `,
+            }),
+          })
 
-      if (!emailResponse.ok) {
-        console.error('Booking notification email failed', {
-          booking_ref: booking.booking_ref,
-          error: await emailResponse.text(),
-        })
+          if (!emailResponse.ok) {
+            console.error('Booking notification email failed', {
+              booking_ref: booking.booking_ref,
+              error: await emailResponse.text(),
+            })
+          }
+        } catch (error) {
+          console.error('Booking notification email error', {
+            booking_ref: booking.booking_ref,
+            error: error instanceof Error ? error.message : String(error),
+          })
+        }
       }
+
+      // Supabase's runtime keeps the worker alive for promises handed to
+      // waitUntil; anywhere without it (local serve), finish before replying.
+      const edgeRuntime = (globalThis as { EdgeRuntime?: { waitUntil(promise: Promise<unknown>): void } }).EdgeRuntime
+      if (edgeRuntime) edgeRuntime.waitUntil(sendNotification())
+      else await sendNotification()
     }
 
     return jsonResponse({ booking })
