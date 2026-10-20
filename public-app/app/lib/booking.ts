@@ -207,11 +207,18 @@ export function quoteFor(
  */
 export async function fetchLivePriceOverrides(): Promise<LivePriceOverrides> {
   try {
-    const { supabase } = await import("../../../src/lib/supabase.js");
-    if (!supabase) return {};
+    const { selectRows, supabaseConfig } = await import("../../../src/lib/supabase-rest");
+    if (!supabaseConfig()) return {};
     const [{ data: routeRows }, { data: rateRows }] = await Promise.all([
-      supabase.from("routes").select("to_location, vehicle_type, price_eur").eq("from_location", "airport"),
-      supabase.from("chauffeur_service_rates").select("vehicle_type, daily_rate_eur"),
+      selectRows<{ to_location: string; vehicle_type: string; price_eur: number | string }>(
+        "routes",
+        "to_location, vehicle_type, price_eur",
+        { eq: { from_location: "airport" } },
+      ),
+      selectRows<{ vehicle_type: string; daily_rate_eur: number | string }>(
+        "chauffeur_service_rates",
+        "vehicle_type, daily_rate_eur",
+      ),
     ]);
     const routePrices: Record<string, number> = {};
     for (const row of routeRows ?? []) {

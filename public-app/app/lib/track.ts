@@ -162,8 +162,8 @@ export function track(event: TrackedEvent, props: Props = {}): void {
 
   void (async () => {
     try {
-      const { supabase } = await import("../../../src/lib/supabase.js");
-      await supabase?.from("site_events").insert(row);
+      const { insertRow } = await import("../../../src/lib/supabase-rest");
+      await insertRow("site_events", row, { keepalive: true });
     } catch {
       // Blocked network, missing configuration, RLS change — all silent.
     }

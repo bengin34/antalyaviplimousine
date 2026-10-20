@@ -1,4 +1,4 @@
-import { supabase } from './supabase.js'
+import { invokeFunction, supabaseConfig } from './supabase-rest'
 
 export async function getFunctionErrorMessage(error) {
   const fallback = error?.message || 'Booking could not be created'
@@ -16,11 +16,11 @@ export async function getFunctionErrorMessage(error) {
 }
 
 export async function createBooking(data) {
-  if (!supabase) {
+  if (!supabaseConfig()) {
     throw new Error('Supabase is not configured')
   }
 
-  const { data: response, error } = await supabase.functions.invoke('create-booking', {
+  const { data: response, error } = await invokeFunction('create-booking', {
     body: data,
   })
 

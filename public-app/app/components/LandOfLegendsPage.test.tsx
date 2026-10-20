@@ -10,7 +10,11 @@ import type { LandOfLegendsLanguage } from "../lib/land-of-legends-copy";
 
 const createBooking = vi.fn();
 vi.mock("../../../src/lib/api.js", () => ({ createBooking: (data: unknown) => createBooking(data) }));
-vi.mock("../../../src/lib/supabase.js", () => ({ supabase: null }));
+// No Supabase in tests: live rates resolve empty and the built-in tariff applies.
+vi.mock("../../../src/lib/supabase-rest", async (importOriginal) => ({
+  ...(await importOriginal<typeof import("../../../src/lib/supabase-rest")>()),
+  supabaseConfig: () => null,
+}));
 
 afterEach(cleanup);
 beforeEach(() => createBooking.mockReset());

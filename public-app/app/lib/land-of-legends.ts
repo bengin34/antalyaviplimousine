@@ -125,9 +125,12 @@ export function vehicleFor(guests: number, strollers = 0): LandOfLegendsVehicle 
 /** Reads admin-edited rates; an empty set on any failure keeps the built-in tariff. */
 export async function fetchLandOfLegendsLiveRates(): Promise<LandOfLegendsLiveRates> {
   try {
-    const { supabase } = await import("../../../src/lib/supabase.js");
-    if (!supabase) return {};
-    const { data } = await supabase.from("land_of_legends_rates").select("region_slug, vehicle_type, price_eur");
+    const { selectRows, supabaseConfig } = await import("../../../src/lib/supabase-rest");
+    if (!supabaseConfig()) return {};
+    const { data } = await selectRows<{ region_slug: string; vehicle_type: string; price_eur: number | string }>(
+      "land_of_legends_rates",
+      "region_slug, vehicle_type, price_eur",
+    );
     const rates: LandOfLegendsLiveRates = {};
     for (const row of data ?? []) {
       rates[`${row.region_slug}:${row.vehicle_type === "vclass" ? "sprinter" : "vito"}`] = Number(row.price_eur);

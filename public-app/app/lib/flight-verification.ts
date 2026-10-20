@@ -26,12 +26,12 @@ export async function verifyFlightNumber(
   if (!flight || !day) return UNAVAILABLE;
 
   try {
-    // invoke, this baglamina ihtiyac duyar (client.url / client.headers okur);
-    // metodu nesnesinden koparip gecmek onu sessizce bozar. Bu yuzden sarmalayici.
+    // Plain-fetch Edge Function call (src/lib/supabase-rest), so the public
+    // bundle does not carry supabase-js. Missing env: no call, "unavailable".
     const invoke = deps?.invoke ?? await (async () => {
-      const { supabase } = await import("../../../src/lib/supabase.js");
-      if (!supabase) return null;
-      return ((name, options) => supabase.functions.invoke(name, options)) as Invoke;
+      const { invokeFunction, supabaseConfig } = await import("../../../src/lib/supabase-rest");
+      if (!supabaseConfig()) return null;
+      return ((name, options) => invokeFunction(name, options)) as Invoke;
     })();
     if (!invoke) return UNAVAILABLE;
 
