@@ -2434,5 +2434,502 @@ export const articles = {
         "Egy első sétához elég fél nap. A múzeummal, a Karaalioğlu parkkal és a Düden-vízesésekkel egy-két teljes nap az ideális."
       ]
     ]
+  },
+  "antalya-airport-terminals": {
+    "slug": "antalya-repuloter-terminal-1-terminal-2",
+    "title": "Antalya repülőtér: 1-es, 2-es és belföldi terminál",
+    "heading": "1-es, 2-es vagy belföldi terminál: melyik a tiéd?",
+    "description": "Melyik terminált használja a géped az antalyai repülőtéren, hogyan jutsz át az 1-es és a 2-es között, és mit változtat a terminál a transzferen.",
+    "excerpt": "Az AYT-nek három terminálja van egyazon repülőtéri út mentén. Így tudod meg, melyik a tiéd, így jutsz át közöttük, és ezért kell a sofőrnek a járatszám.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Az antalyai repülőtér egy repülőtér három érkezési és indulási épülettel, és a transzfer előtti kérdések szinte mindig ugyanoda vezetnek: melyik terminálban vagyok? A válasz dönti el, hol parkol a sofőr, mennyit kell gyalogolni a járműig, és hazautazás napján mikor kell elindulni a hotelből."
+      },
+      {
+        "type": "h2",
+        "text": "A három terminál"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Terminál",
+          "Főleg",
+          "Jó tudni"
+        ],
+        "rows": [
+          [
+            "1-es terminál",
+            "Menetrend szerinti nemzetközi járatok",
+            "A régebbi nemzetközi épület, a belföldi terminál nyugati oldalán"
+          ],
+          [
+            "2-es terminál",
+            "Charter- és szezonális járatok",
+            "Nyáron a legforgalmasabb épület, különösen hétvégén"
+          ],
+          [
+            "Belföldi terminál",
+            "Isztambuli, ankarai, izmiri járatok",
+            "A két nemzetközi terminál között fekszik"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Mindhárom ugyanazon bekötőút mentén áll, néhány száz méterre egymástól, így a terminálok összekeverése kellemetlenség, nem elvesztett nap. A terminált a légitársaság osztja ki, és szezononként változhat - ezért soha nem tippeljük meg az úti cél alapján."
+      },
+      {
+        "type": "h2",
+        "text": "Így tudod meg az érkezési terminált"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Először a visszaigazolást vagy a beszállókártyát nézd meg - a terminál általában a járatszám mellett van.",
+          "A légitársaság járatinformációs oldala a legfrissebb forrás, ha változott a menetrend.",
+          "A charter- és csomagjáratok gyakrabban a 2-es terminálra érkeznek, a nagy társaságok menetrend szerinti járatai inkább az 1-esre.",
+          "Az Isztambulon át vezető átszállás a belföldi terminálon ér véget, még ha az út külföldön kezdődött is.",
+          "Ha nem vagy biztos, küldd el a járatszámot - a járatot magát követjük, és a sofőrt abba a csarnokba küldjük, ahová valóban leszáll."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Átjutás az 1-es és a 2-es között"
+      },
+      {
+        "type": "p",
+        "text": "Ritkán van rá szükség, de előfordul: egy család két különböző társasággal utazik, vagy egy belföldi átszállás más épületbe érkezik, mint a társaság többi tagja. A terminálokat a repülőtéri út köti össze, közöttük rövid shuttle-út vagy néhány perc séta van. Több bőrönddel és gyerekekkel egyszerűbb egy csarnokban várni, és a sofőrrel egy járműben felvenni az egész társaságot."
+      },
+      {
+        "type": "h2",
+        "text": "Hol vár a sofőr"
+      },
+      {
+        "type": "p",
+        "text": "Vedd fel a csomagokat, menj ki az érkezési csarnokba, és tarts a J / 777 találkozási pont felé. Reptéri csapatunknál ott van a foglalási számod, és elvezet a sofőrhöz - nem kell névtáblákat böngészni a tömegben. A tényleges leszállás utáni első 90 perc benne van az árban, és késés esetén a várakozási ablak automatikusan csúszik: a késői leszállás nem változtatja meg az árat."
+      },
+      {
+        "type": "routelinks",
+        "text": "Fix ár járműre, bármelyik terminálról a szállásodig:",
+        "routes": [
+          "antalya",
+          "belek",
+          "side",
+          "alanya"
+        ],
+        "button": "Nézd meg a fix árat"
+      },
+      {
+        "type": "h2",
+        "text": "Hazautazás napján a terminál többet nyom"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Az indulási terminált előző este ellenőrizd - nem mindig az, ahová megérkeztél.",
+          "Júliusban és augusztusban nemzetközi indulás előtt kb. három órával érdemes a terminálon lenni, szezonon kívül kettő-két és fél órával.",
+          "Add hozzá a menetidőt: Belekből kb. 35-40 perc, Kemerből 40-50, Side-ból 55-65, Alanyából körülbelül két óra.",
+          "A visszaútra is add meg a járatszámot, hogy a felvétel ideje a valódi induláshoz igazodjon.",
+          "A terminálba csak jeggyel rendelkező utas léphet be, ezért az elköszönés az ajtóban történik."
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Egy ár fedezi a teljes járművet, bármelyik terminál is legyen, éjszakai felár nélkül, készpénzben a sofőrnek. A terminál a mi logisztikai gondunk, nem a tiéd."
+      }
+    ],
+    "faq": [
+      [
+        "Hány terminálja van az antalyai repülőtérnek?",
+        "Három: az 1-es és a 2-es terminál a nemzetközi járatoknak, közöttük pedig egy belföldi terminál az isztambuli, ankarai és izmiri gépeknek."
+      ],
+      [
+        "Melyik terminálra érkezik a gépem?",
+        "A légitársaság dönti el, és szezononként változhat. A beszállókártya vagy a járatinformációs oldal a hiteles forrás: a charterek inkább a 2-esre, a menetrend szerinti járatok az 1-esre."
+      ],
+      [
+        "Milyen messze van az 1-es és a 2-es terminál?",
+        "Néhány száz méterre ugyanazon repülőtéri út mentén - rövid shuttle-út vagy pár perc séta, közöttük a belföldi terminállal."
+      ],
+      [
+        "Változtat a terminál a transzfer árán?",
+        "Nem. Az ár járműre és úti célra fix, nem terminálra, és nincs éjszakai felár."
+      ],
+      [
+        "Mi van, ha más terminálra érkezik a gép?",
+        "Számodra semmi nem változik. A járatszámot követjük, így a sofőr abba a csarnokba megy, ahová a gép valóban leszállt."
+      ]
+    ]
+  },
+  "antalya-in-summer": {
+    "slug": "antalya-nyaron-julius-augusztus",
+    "title": "Antalya nyáron: júliusi-augusztusi hőség, tenger, transzfer",
+    "heading": "Antalya nyáron: milyen valójában július és augusztus",
+    "description": "Hőmérséklet, vízhőfok, tömeg és az érkezési csarnok a főszezonban - így tervezd a nyaralást és a transzfert a 35 fokos délutánok körül.",
+    "excerpt": "Harmincöt fokos délutánok, huszonnyolc fokos tenger és az év legzsúfoltabb érkezési csarnoka. Milyen a főszezon, és hogyan érkezz meg az első nap elvesztése nélkül.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Július és augusztus az a két hónap, amely körül Antalya felépült. A strandok tele, a hotelek kapacitáson, a repülőtér az év legsűrűbb forgalmát mozgatja. Ez a nyár legmelegebb és legfülledtebb szakasza is, így a kellemes és a kimerítő nap között főként az időzítés dönt."
+      },
+      {
+        "type": "h2",
+        "text": "Mekkora a hőség valójában"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Hónap",
+          "Napközben",
+          "Tenger",
+          "Jellege"
+        ],
+        "rows": [
+          [
+            "Június",
+            "30-33 °C",
+            "25-26 °C",
+            "Meleg, de kellemes, hosszú esték"
+          ],
+          [
+            "Július",
+            "33-36 °C",
+            "27-28 °C",
+            "A hőség és a telítettség csúcsa"
+          ],
+          [
+            "Augusztus",
+            "33-36 °C",
+            "28-29 °C",
+            "A legmelegebb tenger, fülledt éjszakák"
+          ],
+          [
+            "Szeptember",
+            "30-33 °C",
+            "27-28 °C",
+            "Nyár tolongás nélkül"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Ezek hozzávetőleges átlagok; 40 fok fölötti napok a legtöbb nyáron előfordulnak. A tengerparton az éjszaka 23-26 fok körül marad - ezért számít itt többet a légkondicionálás, mint az árnyék. Eső júliusban és augusztusban annyira ritka, hogy nem érdemes számolni vele."
+      },
+      {
+        "type": "h2",
+        "text": "A napot a hőség körül tervezd"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "A strand és a medence a reggelé és a késő délutáné; 13 és 16 óra között árnyék, ebéd vagy alvás.",
+          "Az ókori városokat korán járd be - Perge, Aspendos és Side alig ad árnyékot, a kő délre visszasugározza a hőt.",
+          "A hajókirándulás és a Köprülü-kanyon a hűvösebb választás: a víz és a magasság is segít.",
+          "Az óvárost, Kaleiçit hagyd estére, amikor a sikátorok langyosak, nem tűzforróak.",
+          "Igyál több vizet, mint amennyit szükségesnek gondolsz, és legyen nálad egy üveg az autóban is."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Az érkezési csarnok főszezonban"
+      },
+      {
+        "type": "p",
+        "text": "Nyáron tart a legtovább kijutni az antalyai repülőtérről. Számolj 20-45 perccel a leszállástól a kijáratig, néha többel, ha több nagy charter egyszerre érkezik. Ez normális - és épp ezért számít a várakozási ablak: a tényleges leszállás utáni első 90 perc benne van az árban, és a felvétel a járattal együtt csúszik."
+      },
+      {
+        "type": "h2",
+        "text": "Kényelmes megérkezés a hőségben"
+      },
+      {
+        "type": "p",
+        "text": "Egy augusztusi transzfer más feladat, mint egy márciusi. Járműveink légkondicionáltak, és a felvétel előtt hűtjük le őket, nem utána; a sofőrök viszik a csomagot, a parkoló pedig pár lépésre van a J / 777 találkozási ponttól. Kisgyerekes családoknál ez a különbség a kipihent és a túlhevült nyaraláskezdés között. A gyerekülés ingyenes, de a foglaláskor kérni kell."
+      },
+      {
+        "type": "routelinks",
+        "text": "Fix nyári árak járműre, éjszakai és szezonális felár nélkül:",
+        "routes": [
+          "belek",
+          "side",
+          "kemer",
+          "alanya"
+        ],
+        "button": "Nézd meg a fix árat"
+      },
+      {
+        "type": "h2",
+        "text": "Neked jó-e a nyár?"
+      },
+      {
+        "type": "p",
+        "text": "Ha a legmelegebb tengerre, minden hotelszolgáltatás nyitva tartására és teljes animációs programra vágysz, július és augusztus pontosan ezt adja. Ha inkább sorban állás nélkül nézted volna meg a romokat és még meleg tengerben úsznál, június első fele és az egész szeptember ugyanazt a partot adja lassabb tempóban - és jóval üresebb repülőtéri úttal."
+      }
+    ],
+    "faq": [
+      [
+        "Mennyire meleg Antalya júliusban és augusztusban?",
+        "Napközben jellemzően 33-36 °C, éjjel 23-26 °C; 40 fok fölötti napok a legtöbb nyáron előfordulnak."
+      ],
+      [
+        "Milyen meleg a tenger Antalyában nyáron?",
+        "Júliusban körülbelül 27-28 °C, augusztusban 28-29 °C - ezért tart a fürdőszezon kényelmesen októberig."
+      ],
+      [
+        "Túl meleg van az ókori városok megtekintéséhez?",
+        "Nem, ha korán indulsz. Perge, Aspendos és Side szinte árnyék nélküli; 10 előtt vagy 17 után sokkal kellemesebb, mint délben."
+      ],
+      [
+        "Esik-e eső nyáron Antalyában?",
+        "Nagyon ritkán. A parton július és augusztus gyakorlatilag száraz, a hegyekben néha rövid zápor fordul elő."
+      ],
+      [
+        "Meddig tart a repülőtér főszezonban?",
+        "Jellemzően 20-45 perc a leszállástól az érkezési csarnok kijáratáig. A valódi leszállás utáni első 90 perc sofőrvárakozás díjmentes."
+      ]
+    ]
+  },
+  "belek-side-kemer-compare": {
+    "slug": "belek-side-vagy-kemer-melyik-udulohely",
+    "title": "Belek, Side vagy Kemer: melyik antalyai üdülőhely való neked",
+    "heading": "Belek, Side vagy Kemer: válaszd ki a partszakaszod",
+    "description": "Golf és ötcsillagos resortok, ókori városka a tengernél vagy fenyves hegyek a vízben - miben különbözik Belek, Side és Kemer, és mennyi a menetidő.",
+    "excerpt": "Három üdülőterület, egy repülőtér, három nagyon különböző nyaralás. Táj, hotelek, kinek melyik való, és mennyi idő valójában az út az AYT-ről.",
+    "readingMinutes": 7,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Aki először tervez antalyai nyaralást, többnyire Belek, Side és Kemer között válogat, és a katalógusban mind a három egyformának tűnik. Ugyanaz a part, mind két órán belül ugyanarról a repülőtérről, mindenhol nagy hotelek. A különbségek mégis valósak: a táj, az, hogy mi van gyalogos közelben, és hogy milyen messze vagy a repülőtértől."
+      },
+      {
+        "type": "h2",
+        "text": "A három egymás mellett"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Terület",
+          "AYT-ről",
+          "Menetidő",
+          "Amiről ismert"
+        ],
+        "rows": [
+          [
+            "Belek",
+            "45 km",
+            "35-40 perc",
+            "Golfpályák, ötcsillagos all inclusive, fenyő és homok"
+          ],
+          [
+            "Side",
+            "65 km",
+            "55-65 perc",
+            "Római romok a városkában, hosszú családi strandok"
+          ],
+          [
+            "Kemer",
+            "50 km",
+            "40-50 perc",
+            "Tengerre futó hegyek, kavicsos öblök, fenyves"
+          ],
+          [
+            "Antalya város",
+            "15 km",
+            "20-30 perc",
+            "Óváros, múzeumok, egész éves városi élet"
+          ]
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Belek: resortok, golf és lapos homok"
+      },
+      {
+        "type": "p",
+        "text": "Belek a legújabb a három közül, és a legtervezettebb: fenyves és lapos homokos part sávja nagy ötcsillagos resortokkal, több bajnoki golfpályával és a szomszédban a Land of Legends élményparkkal. Nincs óváros, ahová be lehet sétálni - a hotel maga az úti cél, és a vendégek többsége csak golfozni, a parkba vagy egy kirándulásra indul el. Ha önmagában elegendő luxushetet szeretnél 35 perc autózással, ez a part legegyszerűbb válasza."
+      },
+      {
+        "type": "h2",
+        "text": "Side: romok gyalogos közelben"
+      },
+      {
+        "type": "p",
+        "text": "Side kis félszigeti városka egy római lelőhely belsejében: színház, oszlopos utca és az Apolló-templom a víz szélén, az oszlopok között éttermekkel és üzletekkel. A hotelek kelet és nyugat felé, Çolaklı és Kumköy irányába húzódnak, így a strand hosszú és családbarát, a városka pedig ad hová kimenni este. Ennek ára a távolság - bő egy óra a repülőtértől."
+      },
+      {
+        "type": "h2",
+        "text": "Kemer: hegyek és fenyőárnyék"
+      },
+      {
+        "type": "p",
+        "text": "Antalyától nyugatra a Taurus egészen a tengerig fut, és Kemer ebben a tájban fekszik: fenyves, kavicsos és durva homokos öblök, drámai kilátás és hűvösebb érzet, mint a lapos keleti parton. Tekirova, Göynük és Beldibi ugyanehhez a szakaszhoz tartozik, közel van Olympos, a Tahtalı-felvonó és a Lükiai út. Túrázóknak és búvároknak való, kevésbé annak, aki finom homokhoz köti magát."
+      },
+      {
+        "type": "h2",
+        "text": "Kinek melyik való"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Golf, nagy resortok, rövid transzfer: Belek.",
+          "Ókor az ajtó előtt és városka az esti sétához: Side.",
+          "Hegyek, fenyőárnyék és túrázás: Kemer.",
+          "Kisgyerek és lapos, sekély homok: Belek vagy a Side-Çolaklı sáv.",
+          "Múzeumok és városnézés: szállj meg magában Antalyában.",
+          "A leghosszabb tengerparti sétány és eleven központ, ha a két óra autózás belefér: Alanya."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Mit jelent a menetidő a gyakorlatban"
+      },
+      {
+        "type": "p",
+        "text": "A menetidő a nyaralás elején és végén számít a legtöbbet. 35 perc Belekbe egy elcsigázott kisgyerekkel nem ugyanaz, mint két óra Alanyába egy éjszakai repülés után. Minden árunk fix járműre az egész útra, járatkövetéssel, kérésre ingyenes gyereküléssel és éjszakai felár nélkül - a késői érkezés ugyanannyi, mint a déli. A rövidebb út viszont rövidebb út marad."
+      },
+      {
+        "type": "routelinks",
+        "text": "Hasonlítsd össze a fix árat és a menetidőt területenként:",
+        "routes": [
+          "belek",
+          "side",
+          "kemer",
+          "alanya"
+        ],
+        "button": "Nézd meg a fix árat"
+      }
+    ],
+    "faq": [
+      [
+        "Belek vagy Side jobb a családoknak?",
+        "Mindkettő működik. Belekben laposabb a homok és újabbak a resortok nagy vízi parkokkal; Side egy bejárható városkát és ókori romokat ad, körülbelül 20 perc plusz menetidő árán."
+      ],
+      [
+        "Melyik üdülőhely van legközelebb az antalyai repülőtérhez?",
+        "Antalya város 15 km-re, aztán Belek 45 km (35-40 perc), Kemer 50 km (40-50 perc) és Side 65 km (55-65 perc)."
+      ],
+      [
+        "Van Kemerben homokos strand?",
+        "Jellemzően kavics és durva homok, fenyőárnyékkal és hegyi kilátással. Ha a finom homok a lényeg, Belek vagy a Side környéki strandok illenek jobban."
+      ],
+      [
+        "Melyik terület a legjobb golfozni?",
+        "Kétségtelenül Belek - több bajnoki pálya néhány kilométerre fekszik egymástól, jellemzően 10-15 percre a hotelektől."
+      ],
+      [
+        "Meglátogathatom a többi üdülőhelyet az ottlétem alatt?",
+        "Igen. Side, Belek és Kemer körülbelül egy órára van egymástól, és egy napra bérelt privát jármű a legegyszerűbb módja kettő összekapcsolásának."
+      ]
+    ]
+  },
+  "arrival-essentials-turkey": {
+    "slug": "megerkezes-torokorszagba-vizum-penz-sim",
+    "title": "Megérkezés Törökországba: belépés, pénz, SIM-kártya, borravaló",
+    "heading": "A gyakorlati első óra: belépés, líra, internet, borravaló",
+    "description": "Belépési és útlevélszabályok, mennyi készpénz kell, hol válts pénzt, török SIM vagy eSIM, és hogyan működik valójában a borravaló Antalyában.",
+    "excerpt": "Amit leszállás előtt és az első órában elintézhetsz: belépés, líra a zsebben, működő mobilinternet és realista kép a borravalóról.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Minden apróság ebben az útmutatóban, és mindegyiket könnyebb leszállás előtt elintézni, mint hajnali egykor az érkezési csarnokban. Egyik sem bonyolult, ha már ismered a kereteit."
+      },
+      {
+        "type": "h2",
+        "text": "Belépési szabályok és az útlevél"
+      },
+      {
+        "type": "p",
+        "text": "Sok ország állampolgára, köztük a magyarok és az uniós utazók többsége, vízum nélkül léphet be Törökországba rövid turistatartózkodásra; másoknak e-vízum kell, amit online, percek alatt kiállítanak. Két dolog buktat gyakrabban, mint maga a vízum: az útlevélnek jellemzően a tartózkodás végén túl is érvényesnek kell lennie, és minden gyereknek saját úti okmány kell. Az indulás előtt nem sokkal ellenőrizd a saját állampolgárságodat a hivatalos török e-vízum oldalon - a szabályok változnak, és csak a hivatalos forrás friss."
+      },
+      {
+        "type": "h2",
+        "text": "Pénz: líra, kártya és készpénz"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "A fizetőeszköz a török líra (TRY). Turistahelyeken gyakran euróban is mondanak árat, de a visszajáró lírában jön.",
+          "A kártya szinte mindenhol működik - hotel, szupermarket, étterem, gyógyszertár. Az érintéses fizetés általános.",
+          "Legyen némi készpénz az apróra: piaci pult, falusi kávézó, parkolás, borravaló, dolmuş-jegy.",
+          "A repülőtéri árfolyam a legrosszabb az úton: ott csak annyit válts, amennyi azonnal kell, a többit a városban vagy banki ATM-ből.",
+          "Ha egy ATM vagy terminál a saját valutádban akar terhelni, utasítsd el, és fizess lírában - az átváltás ritkán a te javad."
+        ]
+      },
+      {
+        "type": "p",
+        "text": "A transzfereinket megérkezéskor készpénzben fizeted a sofőrnek, euróban vagy lírában, előre fixált áron - így nem kell bankautomatát keresni a hotelig tartó út előtt."
+      },
+      {
+        "type": "h2",
+        "text": "Elérhetőség: SIM vagy eSIM"
+      },
+      {
+        "type": "p",
+        "text": "A török turista SIM-kártyákat az érkezési csarnokokban és a városban adják, a regisztrációhoz útlevél kell. Az indulás előtt vásárolt eSIM általában kedvezőbb, és a leszállás pillanatától működik - ez a gyakorlati előnye: írhatsz a sofőrnek, nyithatsz térképet vagy hívhatod a hotelt, mielőtt bárhol sorba álltál. A hotelek wifije elterjedt és általában rendben van, így egy hétre a helyi szám inkább kényelem, mint szükség."
+      },
+      {
+        "type": "h2",
+        "text": "Borravaló, őszintén"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Étterem: 5-10 % körül, ha elégedett voltál, elegánsabb helyen több; nézd meg, nincs-e már a számlán a szervizdíj.",
+          "Szobalány és hordár a hotelben: egy kisebb bankjegy a szobában vagy kézbe adva szokásos és jólesik.",
+          "Transzfersofőr: soha nem elvárt, és soha nincs az árban. Néhány euró a nehéz csomagért vagy az éjszakai útért kedvesség, nem elvárás.",
+          "Idegenvezető egész napos kiránduláson: szokás egy kis összeg fejenként a nap végén.",
+          "Taxi: elég felfelé kerekíteni."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Az első órád sorrendben"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Útlevél-ellenőrzés, aztán a csomagok - főszezonban számolj 20-45 perccel.",
+          "Kapcsold be az eSIM-et, vagy vegyél SIM-et, ha helyi szám kell.",
+          "Csak annyi készpénzt válts, amennyi lírában azonnal szükséges.",
+          "Menj ki az érkezési csarnokba a J / 777 találkozási ponthoz, ahol csapatunknál ott van a foglalásod, és elvezet a sofőrhöz.",
+          "Víz, légkondi, indulás - 35-40 perc Belekbe, körülbelül két óra Alanyába."
+        ]
+      },
+      {
+        "type": "routelinks",
+        "text": "Fix ár járműre, járatkövetéssel, fizetés megérkezéskor:",
+        "routes": [
+          "antalya",
+          "belek",
+          "alanya"
+        ],
+        "button": "Nézd meg a fix árat"
+      }
+    ],
+    "faq": [
+      [
+        "Kell-e vízum Törökországba?",
+        "Állampolgárságtól függ. Sok utazónak, köztük a magyaroknak és az uniós állampolgárok többségének nem kell rövid turistatartózkodáshoz; mások online e-vízumot kérnek. Indulás előtt ellenőrizd a hivatalos oldalon."
+      ],
+      [
+        "Eurót vagy török lírát vigyek?",
+        "Vigyél eurót vagy használd a kártyát, a lírát pedig helyben szerezd be. A repülőtéri árfolyam gyenge: ott csak a szükségeset váltsd, a többit banki ATM-ből vagy városi pénzváltóból."
+      ],
+      [
+        "Lehet mindenhol kártyával fizetni Antalyában?",
+        "Hotelben, étteremben, szupermarketben és gyógyszertárban igen. Piacra, kis kávézókba, borravalóra és helyi közlekedésre legyen készpénz."
+      ],
+      [
+        "Török SIM vagy eSIM a jobb?",
+        "Az indulás előtt vásárolt eSIM általában kedvezőbb, és a leszállás után azonnal működik. A fizikai turista SIM-et útlevélre regisztrálják, és az érkezési csarnokban vagy a városban kapható."
+      ],
+      [
+        "Kell borravalót adni a transzfersofőrnek?",
+        "Nem. Az ár fix és teljes. Néhány euró a nehéz csomagért vagy egy éjszakai érkezésért jólesik, de senki nem várja el."
+      ]
+    ]
   }
 };

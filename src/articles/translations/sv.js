@@ -2434,5 +2434,502 @@ export const articles = {
         "En halvdag räcker för en första promenad. Med museet, Karaalioğluparken och Düdenvattenfallen är en hel dag eller två idealiskt."
       ]
     ]
+  },
+  "antalya-airport-terminals": {
+    "slug": "antalya-flygplats-terminal-1-terminal-2",
+    "title": "Antalya flygplats: terminal 1, terminal 2 och inrikes",
+    "heading": "Terminal 1, terminal 2 eller inrikes - vilken är din?",
+    "description": "Vilken terminal ditt flyg använder på Antalya flygplats, hur du tar dig mellan terminal 1 och 2 och vad terminalen betyder för upphämtning och hemresa.",
+    "excerpt": "AYT har tre terminaler längs samma flygplatsväg. Så vet du vilken som är din, så tar du dig mellan dem och därför vill föraren ha flightnumret.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Antalya flygplats är en flygplats med tre ankomst- och avgångsbyggnader, och nästan varje fråga före en transfer landar i samma sak: vilken terminal är jag i? Svaret avgör var föraren parkerar, hur lång promenaden till bilen blir och när du behöver lämna hotellet på hemresedagen."
+      },
+      {
+        "type": "h2",
+        "text": "De tre terminalerna"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Terminal",
+          "Mest",
+          "Bra att veta"
+        ],
+        "rows": [
+          [
+            "Terminal 1",
+            "Internationella linjeflyg",
+            "Den äldre internationella byggnaden, väster om inrikesterminalen"
+          ],
+          [
+            "Terminal 2",
+            "Charter och säsongsflyg",
+            "Sommarens mest belastade byggnad, särskilt på helgerna"
+          ],
+          [
+            "Inrikesterminalen",
+            "Flyg från Istanbul, Ankara, Izmir",
+            "Ligger mellan de två internationella terminalerna"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Alla tre ligger längs samma tillfartsväg, några hundra meter från varandra, så en förväxlad terminal är besvärlig men inte en förlorad dag. Flygbolaget bestämmer terminalen och den kan skifta mellan säsongerna - därför gissar vi den aldrig utifrån resmålet."
+      },
+      {
+        "type": "h2",
+        "text": "Så tar du reda på din ankomstterminal"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Börja med bokningsbekräftelsen eller boardingkortet - terminalen står oftast intill flightnumret.",
+          "Flygbolagets sida för flygstatus är den mest aktuella källan om tidtabellen har ändrats.",
+          "Charter- och paketflyg landar oftare på terminal 2, linjeflyg med stora bolag oftare på terminal 1.",
+          "En anslutning via Istanbul slutar på inrikesterminalen, även om resan började utomlands.",
+          "Är du osäker: skicka flightnumret till oss - vi följer själva flyget och skickar föraren till den hall där det faktiskt landar."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Att ta sig mellan terminal 1 och 2"
+      },
+      {
+        "type": "p",
+        "text": "Det behövs sällan, men det händer: en familj som flyger med två olika bolag, eller en inrikesanslutning som landar i en annan byggnad än resten av sällskapet. Terminalerna binds samman av flygplatsvägen, med en kort shuttletur eller några minuters gång emellan. Med flera resväskor och barn är det enklare att vänta i en hall och låta föraren hämta hela sällskapet i ett fordon."
+      },
+      {
+        "type": "h2",
+        "text": "Var föraren väntar"
+      },
+      {
+        "type": "p",
+        "text": "Hämta bagaget, gå ut i ankomsthallen och sök dig till mötesplatsen J / 777. Vårt flygplatsteam har din bokningsreferens och tar dig till föraren - du behöver inte leta namnskyltar i en folkmassa. De första 90 minuterna efter faktisk landning ingår, och väntefönstret flyttas automatiskt vid försening: en sen landning ändrar inte priset."
+      },
+      {
+        "type": "routelinks",
+        "text": "Fast pris per fordon från vilken terminal som helst till hotellet:",
+        "routes": [
+          "antalya",
+          "belek",
+          "side",
+          "alanya"
+        ],
+        "button": "Se ditt fasta pris"
+      },
+      {
+        "type": "h2",
+        "text": "På hemresedagen väger terminalen tyngre"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Kontrollera avgångsterminalen kvällen före - det är inte alltid den du landade på.",
+          "I juli och augusti bör du vara på terminalen cirka tre timmar före en internationell avgång, två till två och en halv utanför högsäsong.",
+          "Lägg till restiden: ungefär 35-40 minuter från Belek, 40-50 från Kemer, 55-65 från Side och omkring två timmar från Alanya.",
+          "Ge oss flightnumret även för hemresan, så att hämtningstiden räknas från den verkliga avgången.",
+          "Bara passagerare med biljett släpps in i terminalen, så ta farväl vid dörren och inte innanför."
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Ett pris gäller hela fordonet oavsett terminal, utan nattillägg och betalas kontant till föraren. Terminalen är vårt logistikproblem, inte ditt."
+      }
+    ],
+    "faq": [
+      [
+        "Hur många terminaler har Antalya flygplats?",
+        "Tre: terminal 1 och terminal 2 för internationella flyg, och mellan dem en inrikesterminal för flyg från Istanbul, Ankara och Izmir."
+      ],
+      [
+        "Vilken terminal landar mitt flyg på?",
+        "Flygbolaget bestämmer och det kan skifta per säsong. Boardingkortet eller sidan för flygstatus gäller: charter oftare terminal 2, linjeflyg terminal 1."
+      ],
+      [
+        "Hur långt är det mellan terminal 1 och 2?",
+        "Några hundra meter längs samma flygplatsväg - en kort shuttletur eller en kort promenad, med inrikesterminalen emellan."
+      ],
+      [
+        "Påverkar terminalen transferpriset?",
+        "Nej. Priset är fast per fordon och utgår från destinationen, inte terminalen, och det finns inget nattillägg."
+      ],
+      [
+        "Vad händer om flyget landar på en annan terminal?",
+        "För dig ändras ingenting. Vi följer flightnumret, så föraren skickas till den hall där planet verkligen landar."
+      ]
+    ]
+  },
+  "antalya-in-summer": {
+    "slug": "antalya-pa-sommaren-juli-augusti",
+    "title": "Antalya på sommaren: hettan i juli och augusti, havet och transfern",
+    "heading": "Antalya på sommaren: hur juli och augusti verkligen känns",
+    "description": "Temperaturer, havstemperatur, trängsel och ankomsthallen i högsäsong - så planerar du semestern och transfern kring eftermiddagar på 35 grader.",
+    "excerpt": "Eftermiddagar på trettiofem grader, ett hav på tjugoåtta och årets mest belastade ankomsthall. Så är högsäsongen - och så kommer du fram utan att tappa första dagen.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Juli och augusti är de två månader Antalya är byggd kring. Stränderna är fulla, hotellen fullbelagda och flygplatsen hanterar årets tätaste trafik. Det är också sommarens hetaste och fuktigaste del, så skillnaden mellan en fin och en utmattande dag är mest en fråga om klockslag."
+      },
+      {
+        "type": "h2",
+        "text": "Hur varmt det faktiskt blir"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Månad",
+          "Dagtid",
+          "Havet",
+          "Karaktär"
+        ],
+        "rows": [
+          [
+            "Juni",
+            "30-33 °C",
+            "25-26 °C",
+            "Varmt men behagligt, långa kvällar"
+          ],
+          [
+            "Juli",
+            "33-36 °C",
+            "27-28 °C",
+            "Toppen av hetta och beläggning"
+          ],
+          [
+            "Augusti",
+            "33-36 °C",
+            "28-29 °C",
+            "Varmaste havet, fuktiga nätter"
+          ],
+          [
+            "September",
+            "30-33 °C",
+            "27-28 °C",
+            "Sommar utan trängsel"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Det här är ungefärliga medelvärden; enstaka dagar över 40 °C förekommer de flesta somrar. Vid kusten ligger natten på 23-26 °C - därför betyder luftkonditionering mer här än skugga. Regn i juli och augusti är så sällsynt att det inte är värt att planera för."
+      },
+      {
+        "type": "h2",
+        "text": "Att lägga dagen kring hettan"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Spara strand och pool till morgonen och sena eftermiddagen; 13-16 är för skugga, lunch eller en tupplur.",
+          "Besök de antika platserna tidigt - Perge, Aspendos och Side har nästan ingen skugga, och stenen strålar värme vid middagstid.",
+          "Båtturer och Köprülükanjonen är de svalare alternativen: både vatten och höjd hjälper.",
+          "Spara gamla stan, Kaleiçi, till kvällen när gränderna är varma snarare än brännande.",
+          "Drick mer vatten än du tror att du behöver och ha en flaska med i bilen."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Ankomsthallen i högsäsong"
+      },
+      {
+        "type": "p",
+        "text": "På sommaren tar det som längst att komma ut från Antalya flygplats. Räkna med 20 till 45 minuter från landning till utgång, ibland mer när flera stora charterplan landar samtidigt. Det är normalt - och just därför betyder väntefönstret något: de första 90 minuterna efter faktisk landningstid ingår, och hämtningen flyttas med flyget."
+      },
+      {
+        "type": "h2",
+        "text": "Att komma fram bekvämt i hettan"
+      },
+      {
+        "type": "p",
+        "text": "En transfer i augusti är ett annat jobb än en i mars. Våra bilar har luftkonditionering och kyls ned före hämtningen, inte efter, förarna bär bagaget och parkeringen ligger några steg från mötesplatsen J / 777. För familjer med små barn är det skillnaden mellan att börja semestern utvilad eller överhettad. Barnstolar är gratis men måste begäras vid bokningen."
+      },
+      {
+        "type": "routelinks",
+        "text": "Fasta sommarpriser per fordon, utan natt- eller säsongstillägg:",
+        "routes": [
+          "belek",
+          "side",
+          "kemer",
+          "alanya"
+        ],
+        "button": "Se ditt fasta pris"
+      },
+      {
+        "type": "h2",
+        "text": "Är sommaren rätt tid för dig?"
+      },
+      {
+        "type": "p",
+        "text": "Vill du ha det varmaste havet, alla hotellets anläggningar öppna och ett fullt aktivitetsprogram ger juli och augusti precis det. Vill du hellre se ruinerna utan kö och bada i ett hav som fortfarande är varmt ger första halvan av juni och hela september samma kust i ett lugnare tempo - och en märkbart tommare flygplatsväg."
+      }
+    ],
+    "faq": [
+      [
+        "Hur varmt är det i Antalya i juli och augusti?",
+        "Dagtid oftast 33-36 °C och nattetid 23-26 °C; enstaka dagar över 40 °C förekommer de flesta somrar."
+      ],
+      [
+        "Hur varmt är havet i Antalya på sommaren?",
+        "Cirka 27-28 °C i juli och 28-29 °C i augusti - därför håller badsäsongen bekvämt in i oktober."
+      ],
+      [
+        "Är det för varmt för de antika platserna?",
+        "Inte om du går tidigt. Perge, Aspendos och Side är i stort sett utan skugga; före 10 eller efter 17 är betydligt behagligare än middagstid."
+      ],
+      [
+        "Regnar det i Antalya på sommaren?",
+        "Mycket sällan. Juli och augusti är praktiskt taget torra på den här kusten, med enstaka korta bergsskurar inåt landet."
+      ],
+      [
+        "Hur lång tid tar flygplatsen i högsäsong?",
+        "Vanligen 20 till 45 minuter från landning till utgången ur ankomsthallen. De första 90 minuterna av förarens väntetid efter faktisk landning är gratis."
+      ]
+    ]
+  },
+  "belek-side-kemer-compare": {
+    "slug": "belek-side-eller-kemer-vilken-ort",
+    "title": "Belek, Side eller Kemer: vilken ort i Antalya passar dig",
+    "heading": "Belek, Side eller Kemer: att välja sin bit av kusten",
+    "description": "Golf och femstjärniga resorter, en antik småstad vid havet eller tallklädda berg som stupar i vattnet - så skiljer sig Belek, Side och Kemer.",
+    "excerpt": "Tre semesterområden, en flygplats, tre mycket olika semestrar. Landskap, hotell, vem varje ort passar och hur lång resan från AYT verkligen är.",
+    "readingMinutes": 7,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "De flesta som bokar Antalya för första gången väljer mellan Belek, Side och Kemer, och i en katalog ser alla tre likadana ut. Samma kust, allt inom två timmar från samma flygplats, stora hotell överallt. Skillnaderna är ändå verkliga: landskapet, vad som finns inom gångavstånd och hur långt du sitter från flygplatsen."
+      },
+      {
+        "type": "h2",
+        "text": "De tre sida vid sida"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Område",
+          "Från AYT",
+          "Resa",
+          "Känt för"
+        ],
+        "rows": [
+          [
+            "Belek",
+            "45 km",
+            "35-40 min",
+            "Golfbanor, femstjärnigt all inclusive, tallskog och sand"
+          ],
+          [
+            "Side",
+            "65 km",
+            "55-65 min",
+            "Romerska ruiner i själva staden, långa familjestränder"
+          ],
+          [
+            "Kemer",
+            "50 km",
+            "40-50 min",
+            "Berg mot havet, klappersten, tallskog"
+          ],
+          [
+            "Antalya stad",
+            "15 km",
+            "20-30 min",
+            "Gamla stan, museer, stadsliv året om"
+          ]
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Belek: resorter, golf och flack sand"
+      },
+      {
+        "type": "p",
+        "text": "Belek är den nyaste av de tre och den mest planerade: ett band av tallskog och flack sandstrand kantat av stora femstjärniga resorter, flera mästerskapsbanor för golf och nöjesparken Land of Legends intill. Det finns ingen gammal stadskärna att vandra in i - hotellet är resmålet, och de flesta gäster lämnar det bara för golf, parken eller en utflykt. Vill du ha en självförsörjande lyxvecka med 35 minuters resa är detta kustens enklaste svar."
+      },
+      {
+        "type": "h2",
+        "text": "Side: ruiner på gångavstånd"
+      },
+      {
+        "type": "p",
+        "text": "Side är en liten halvöstad byggd inuti en romersk fornlämning: teater, kolonnadgata och Apollontemplet vid vattenbrynet, med restauranger och butiker mellan pelarna. Hotellen sprider sig öster- och västerut mot Çolaklı och Kumköy, så stranden är lång och familjevänlig, och själva staden ger dig någonstans att gå på kvällen. Priset är avståndet - drygt en timme från flygplatsen."
+      },
+      {
+        "type": "h2",
+        "text": "Kemer: berg och tallskugga"
+      },
+      {
+        "type": "p",
+        "text": "Väster om Antalya går Taurusbergen ända ner i havet, och Kemer ligger i det landskapet: tallskog, vikar med klappersten och grov sand, dramatiska vyer och en svalare känsla än den flacka östkusten. Tekirova, Göynük och Beldibi hör till samma sträcka, med Olympos, linbanan upp till Tahtalı och Lykiska leden nära. Passar vandrare och dykare, mindre den som kräver finkornig sand."
+      },
+      {
+        "type": "h2",
+        "text": "Vem passar var"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Golf, stora resorter, kort transfer: Belek.",
+          "Antiken runt hörnet och en stad att strosa i: Side.",
+          "Berg, tallskugga och vandring: Kemer.",
+          "Små barn och flack, grund sand: Belek eller sträckan Side-Çolaklı.",
+          "Museer och stadsbesök: bo i Antalya självt.",
+          "Längsta strandpromenaden och ett livligt centrum, om två timmars resa är okej: Alanya."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Vad restiden betyder i praktiken"
+      },
+      {
+        "type": "p",
+        "text": "Restiden väger tyngst i början och slutet av semestern. 35 minuter till Belek med ett trött småbarn är inte samma sak som två timmar till Alanya efter ett nattflyg. Alla våra priser är fasta per fordon för hela resan, med flygbevakning, gratis barnstolar på begäran och utan nattillägg - en sen ankomst kostar lika mycket som en vid lunchtid. Men kortare är fortfarande kortare."
+      },
+      {
+        "type": "routelinks",
+        "text": "Jämför fast pris och restid för varje område:",
+        "routes": [
+          "belek",
+          "side",
+          "kemer",
+          "alanya"
+        ],
+        "button": "Se ditt fasta pris"
+      }
+    ],
+    "faq": [
+      [
+        "Är Belek eller Side bäst för familjer?",
+        "Båda fungerar väl. Belek har flackare sand och nyare resorter med stora vattenparker; Side lägger till en stad att gå i och antika ruiner, till priset av cirka 20 minuter längre resa."
+      ],
+      [
+        "Vilken ort ligger närmast Antalya flygplats?",
+        "Antalya stad på 15 km, sedan Belek på 45 km (35-40 minuter), Kemer på 50 km (40-50 minuter) och Side på 65 km (55-65 minuter)."
+      ],
+      [
+        "Har Kemer sandstränder?",
+        "Mest klappersten och grov sand, med tallskugga och bergsutsikt. Är finkornig sand viktigast passar Belek eller stränderna kring Side bättre."
+      ],
+      [
+        "Vilket område är bäst för golf?",
+        "Belek, utan tvekan - flera mästerskapsbanor ligger några kilometer från varandra, oftast 10-15 minuter från hotellen."
+      ],
+      [
+        "Kan jag besöka de andra orterna under vistelsen?",
+        "Ja. Side, Belek och Kemer ligger ungefär en timme från varandra, och en privat bil för dagen är det enklaste sättet att kombinera två av dem."
+      ]
+    ]
+  },
+  "arrival-essentials-turkey": {
+    "slug": "ankomst-till-turkiet-visum-pengar-sim",
+    "title": "Ankomst till Türkiye: inresa, pengar, SIM-kort och dricks",
+    "heading": "Den praktiska första timmen: inresa, lira, data och dricks",
+    "description": "Inrese- och passregler, hur mycket kontanter du bör ha, var du växlar, turkiskt SIM eller eSIM och hur dricks faktiskt fungerar i Antalya.",
+    "excerpt": "Vad du ordnar före landning och under den första timmen efter: inresa, lira i fickan, mobildata som fungerar och en realistisk bild av dricks.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Allt i den här guiden är smått, och allt är enklare att ordna innan du landar än klockan ett på natten i en ankomsthall. Inget av det är komplicerat när du känner formen på det."
+      },
+      {
+        "type": "h2",
+        "text": "Inreseregler och passet"
+      },
+      {
+        "type": "p",
+        "text": "Många nationaliteter, däribland de flesta EU-medborgare, reser in i Türkiye utan visum för kortare turistvistelser; andra behöver ett e-visum som utfärdas online på några minuter. Två saker ställer till det oftare än visumet självt: passet behöver normalt vara giltigt efter vistelsens slut, och varje barn behöver eget resedokument. Kontrollera din egen nationalitet på Türkiyes officiella e-visumsida strax före resan - reglerna ändras och bara den officiella källan är aktuell."
+      },
+      {
+        "type": "h2",
+        "text": "Pengar: lira, kort och kontanter"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Valutan är turkiska lira (TRY). I turistområden anges priser ofta även i euro, men växeln kommer i lira.",
+          "Kort fungerar nästan överallt - hotell, mataffärer, restauranger, apotek. Kontaktlöst är standard.",
+          "Ha lite kontanter för det lilla: ett marknadsstånd, ett bykafé, parkering, dricks, en resa med dolmuş.",
+          "Växelkurserna på flygplatsen är resans sämsta: växla bara det du behöver direkt där och resten i stan, eller ta ut från en bankautomat.",
+          "Om en automat eller terminal erbjuder att debitera i din egen valuta: tacka nej och betala i lira - omväxlingen är sällan till din fördel."
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Våra transferresor betalas kontant till föraren vid ankomst, i euro eller lira, med priset satt i förväg - du behöver alltså inte leta bankomat före resan till hotellet."
+      },
+      {
+        "type": "h2",
+        "text": "Uppkopplad: SIM eller eSIM"
+      },
+      {
+        "type": "p",
+        "text": "Turkiska turist-SIM säljs i ankomsthallarna och i stan, och registreringen kräver ditt pass. Ett eSIM som köps före avresan är oftast billigare och aktivt i samma stund du landar - det är den praktiska fördelen: du kan messa föraren, öppna en karta eller ringa hotellet innan du köat för något. Hotellwifi är vanligt och oftast hyggligt, så ett lokalt nummer är en bekvämlighet snarare än ett måste för en vecka."
+      },
+      {
+        "type": "h2",
+        "text": "Dricks, rakt på sak"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Restaurang: omkring 5-10 % om du var nöjd, mer på finare ställen; kolla om service redan ligger på notan.",
+          "Städ och bärhjälp på hotellet: en liten sedel i rummet eller i handen är normalt och uppskattat.",
+          "Transferförare: aldrig krav och aldrig inbakat i priset. Några euro för tungt bagage eller en nattresa är en vänlighet, inte en förväntan.",
+          "Guider på en dagsutflykt: vanligt är ett litet belopp per person i slutet av dagen.",
+          "Taxi: att runda uppåt räcker."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Din första timme, i ordning"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Passkontroll, sedan bagaget - räkna med 20 till 45 minuter i högsäsong.",
+          "Slå på ditt eSIM eller köp ett SIM om du vill ha ett lokalt nummer.",
+          "Växla bara så mycket kontanter du behöver i lira direkt.",
+          "Gå ut i ankomsthallen till mötesplatsen J / 777, där vårt team har din bokning och tar dig till föraren.",
+          "Vatten, luftkonditionering och iväg - 35 till 40 minuter till Belek, omkring två timmar till Alanya."
+        ]
+      },
+      {
+        "type": "routelinks",
+        "text": "Fast pris per fordon, flygbevakning inkluderad, betalning vid ankomst:",
+        "routes": [
+          "antalya",
+          "belek",
+          "alanya"
+        ],
+        "button": "Se ditt fasta pris"
+      }
+    ],
+    "faq": [
+      [
+        "Behöver jag visum till Türkiye?",
+        "Det beror på nationalitet. Många resenärer, däribland de flesta EU-medborgare, behöver inget för en kort turistvistelse; andra ansöker om e-visum online. Kontrollera på den officiella sidan före resan."
+      ],
+      [
+        "Ska jag ta med euro eller turkiska lira?",
+        "Ta med euro eller använd kort, och skaffa lira på plats. Flygplatsens kurser är dåliga: växla bara det nödvändiga där och använd bankautomater eller växlingskontor i stan."
+      ],
+      [
+        "Kan jag betala med kort överallt i Antalya?",
+        "På hotell, restauranger, mataffärer och apotek, ja. Ha kontanter för marknader, små kaféer, dricks och lokal transport."
+      ],
+      [
+        "Är turkiskt SIM eller eSIM bäst?",
+        "Ett eSIM köpt före avresan är oftast billigare och fungerar direkt efter landning. Ett fysiskt turist-SIM registreras på passet och säljs i ankomsthallen och i stan."
+      ],
+      [
+        "Måste jag ge dricks till transferföraren?",
+        "Nej. Priset är fast och komplett. Några euro för tungt bagage eller en nattankomst uppskattas men förväntas aldrig."
+      ]
+    ]
   }
 };

@@ -2443,5 +2443,502 @@ export const articles = {
         "Na první procházku stačí půl dne. S muzeem, parkem Karaalioğlu a vodopády Düden je ideální celý den nebo dva."
       ]
     ]
+  },
+  "antalya-airport-terminals": {
+    "slug": "letiste-antalya-terminal-1-terminal-2",
+    "title": "Letiště Antalya: Terminál 1, Terminál 2 a vnitrostátní",
+    "heading": "Terminál 1, Terminál 2 nebo vnitrostátní: který je váš?",
+    "description": "Který terminál na letišti v Antalyi váš let používá, jak přejít mezi Terminálem 1 a 2 a co terminál mění při vyzvednutí i v den odletu.",
+    "excerpt": "AYT má tři terminály u jedné letištní komunikace. Jak poznáte svůj, jak mezi nimi přejít a proč řidič potřebuje číslo letu, ne jen čas příletu.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Letiště Antalya je jedno letiště se třemi příletovými a odletovými budovami a téměř každá otázka před transferem končí u téže věci: v jakém terminálu jsem? Odpověď rozhoduje o tom, kde zaparkuje řidič, jak dlouhá je cesta k vozu a kdy v den odletu vyjet z hotelu."
+      },
+      {
+        "type": "h2",
+        "text": "Tři terminály"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Terminál",
+          "Převážně",
+          "Dobré vědět"
+        ],
+        "rows": [
+          [
+            "Terminál 1",
+            "Pravidelné mezinárodní lety",
+            "Starší mezinárodní budova, západně od vnitrostátního terminálu"
+          ],
+          [
+            "Terminál 2",
+            "Charterové a sezónní lety",
+            "V létě nejvytíženější budova, zejména o víkendech"
+          ],
+          [
+            "Vnitrostátní terminál",
+            "Lety z Istanbulu, Ankary, Izmiru",
+            "Leží mezi oběma mezinárodními terminály"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Všechny tři stojí u stejné příjezdové cesty, několik set metrů od sebe, takže záměna terminálu znamená nepohodlí, ne ztracený den. Terminál určuje letecká společnost a může se měnit podle sezóny - proto jej nikdy neodhadujeme podle destinace."
+      },
+      {
+        "type": "h2",
+        "text": "Jak zjistíte svůj příletový terminál"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Nejdřív potvrzení rezervace nebo palubní vstupenka - terminál bývá uveden vedle čísla letu.",
+          "Stránka se stavem letu u přepravce je nejaktuálnější zdroj, pokud se letový plán změnil.",
+          "Charterové a zájezdové lety častěji přistávají na Terminálu 2, pravidelné lety velkých společností na Terminálu 1.",
+          "Přestup v Istanbulu končí na vnitrostátním terminálu, i když cesta začala v zahraničí.",
+          "Pokud si nejste jistí, pošlete nám číslo letu - sledujeme samotný let a řidiče posíláme do haly, kam skutečně přistanete."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Přechod mezi Terminálem 1 a 2"
+      },
+      {
+        "type": "p",
+        "text": "Je to potřeba jen zřídka, ale stává se to: rodina letí dvěma různými společnostmi nebo vnitrostátní přípoj přistane v jiné budově než zbytek skupiny. Terminály spojuje letištní komunikace, mezi nimi je krátká jízda shuttlem nebo pár minut chůze. S několika kufry a dětmi je jednodušší počkat v jedné hale a nechat řidiče naložit celou skupinu do jednoho vozu."
+      },
+      {
+        "type": "h2",
+        "text": "Kde čeká řidič"
+      },
+      {
+        "type": "p",
+        "text": "Vyzvedněte zavazadla, projděte do příletové haly a zamiřte k místu setkání J / 777. Náš tým na letišti má vaši rezervaci a dovede vás k řidiči - nemusíte hledat ceduli se jménem v davu. Prvních 90 minut po skutečném přistání je v ceně a okno čekání se při zpoždění automaticky posouvá: pozdní přistání cenu nemění."
+      },
+      {
+        "type": "routelinks",
+        "text": "Fixní cena za vozidlo z kteréhokoli terminálu do vašeho hotelu:",
+        "routes": [
+          "antalya",
+          "belek",
+          "side",
+          "alanya"
+        ],
+        "button": "Zjistit fixní cenu"
+      },
+      {
+        "type": "h2",
+        "text": "V den odletu je terminál důležitější"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Odletový terminál si zkontrolujte večer předem - nemusí to být ten, kam jste přiletěli.",
+          "V červenci a srpnu plánujte být na terminálu asi tři hodiny před mezinárodním odletem, mimo sezónu dvě až dvě a půl.",
+          "Připočtěte jízdu: přibližně 35-40 minut z Beleku, 40-50 z Kemeru, 55-65 ze Side a okolo dvou hodin z Alanye.",
+          "Číslo letu nám pošlete i na cestu zpět, aby se čas vyzvednutí počítal od skutečného odletu.",
+          "Do terminálu vstupují jen cestující s letenkou, takže se rozlučte u dveří, ne vevnitř."
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Jedna cena platí pro celé vozidlo bez ohledu na terminál, bez nočního příplatku a hradí se v hotovosti řidiči. Terminál je náš logistický problém, ne váš."
+      }
+    ],
+    "faq": [
+      [
+        "Kolik terminálů má letiště v Antalyi?",
+        "Tři: Terminál 1 a Terminál 2 pro mezinárodní lety a mezi nimi vnitrostátní terminál pro lety z Istanbulu, Ankary a Izmiru."
+      ],
+      [
+        "Na který terminál přiletí můj let?",
+        "Rozhoduje letecká společnost a terminál se může podle sezóny měnit. Rozhodující je palubní vstupenka nebo stránka se stavem letu: chartery častěji Terminál 2, pravidelné lety Terminál 1."
+      ],
+      [
+        "Jak daleko je Terminál 1 od Terminálu 2?",
+        "Několik set metrů po téže letištní komunikaci - krátká jízda shuttlem nebo chvilka chůze, mezi nimi vnitrostátní terminál."
+      ],
+      [
+        "Mění terminál cenu transferu?",
+        "Ne. Cena je fixní za vozidlo podle destinace, nikoli podle terminálu, a noční příplatek neexistuje."
+      ],
+      [
+        "Co když let přistane na jiném terminálu?",
+        "Pro vás se nic nemění. Sledujeme číslo letu, takže řidič jede do haly, kde letadlo skutečně přistane."
+      ]
+    ]
+  },
+  "antalya-in-summer": {
+    "slug": "antalya-v-lete-cervenec-srpen",
+    "title": "Antalya v létě: horko v červenci a srpnu, moře a transfery",
+    "heading": "Antalya v létě: jaký je červenec a srpen ve skutečnosti",
+    "description": "Teploty, teplota moře, nápor turistů a příletová hala v hlavní sezóně - jak naplánovat dovolenou a transfer kolem odpolední pětatřicítky.",
+    "excerpt": "Pětatřicet stupňů odpoledne, moře o osmadvaceti a nejvytíženější příletová hala roku. Jaká je hlavní sezóna a jak přijet, aniž přijdete o první den.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Červenec a srpen jsou dva měsíce, kolem nichž je Antalya postavená. Pláže jsou plné, hotely na kapacitě a letiště zvládá nejhustší provoz roku. Je to také nejteplejší a nejvlhčí část léta, takže rozdíl mezi příjemným a vyčerpávajícím dnem je hlavně otázkou času."
+      },
+      {
+        "type": "h2",
+        "text": "Jak velké je horko"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Měsíc",
+          "Ve dne",
+          "Moře",
+          "Charakter"
+        ],
+        "rows": [
+          [
+            "Červen",
+            "30-33 °C",
+            "25-26 °C",
+            "Teplo, ale snesitelně, dlouhé večery"
+          ],
+          [
+            "Červenec",
+            "33-36 °C",
+            "27-28 °C",
+            "Vrchol horka i obsazenosti"
+          ],
+          [
+            "Srpen",
+            "33-36 °C",
+            "28-29 °C",
+            "Nejteplejší moře, vlhké noci"
+          ],
+          [
+            "Září",
+            "30-33 °C",
+            "27-28 °C",
+            "Léto bez tlačenice"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Jde o přibližné průměry; jednotlivé dny nad 40 °C se objeví téměř každé léto. Na pobřeží zůstává v noci 23-26 °C - proto tu klimatizace znamená víc než stín. Déšť je v červenci a srpnu tak vzácný, že se s ním nemusíte počítat."
+      },
+      {
+        "type": "h2",
+        "text": "Jak naplánovat den kolem horka"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Pláž a bazén nechte na dopoledne a pozdní odpoledne; 13.00-16.00 patří stínu, obědu nebo spánku.",
+          "Antická města projděte ráno - v Perge, Aspendu a Side není téměř žádný stín a kámen v poledne vyzařuje žár.",
+          "Lodní výlety a kaňon Köprülü jsou chladnější varianty: pomáhá voda i výška.",
+          "Staré město Kaleiçi si nechte na večer, kdy jsou uličky teplé, a ne rozpálené.",
+          "Pijte víc vody, než se vám zdá nutné, a mějte flašku i ve vozidle."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Příletová hala v hlavní sezóně"
+      },
+      {
+        "type": "p",
+        "text": "V létě trvá odchod z letiště nejdéle. Počítejte s 20 až 45 minutami od přistání k výstupu, občas déle, když přistane několik širokotrupých charterů současně. Je to normální - a právě proto je důležité okno čekání: prvních 90 minut po skutečném přistání je v ceně a vyzvednutí se posouvá s letem."
+      },
+      {
+        "type": "h2",
+        "text": "Jak v horku dorazit pohodlně"
+      },
+      {
+        "type": "p",
+        "text": "Transfer v srpnu je jiná práce než v březnu. Naše vozy mají klimatizaci a chladíme je před vyzvednutím, ne po něm, řidiči nesou zavazadla a parkoviště je pár kroků od místa setkání J / 777. Pro rodiny s malými dětmi je to rozdíl mezi odpočatým a přehřátým začátkem dovolené. Dětské sedačky jsou zdarma, ale musíte si je vyžádat při rezervaci."
+      },
+      {
+        "type": "routelinks",
+        "text": "Fixní letní ceny za vozidlo, bez nočního a sezónního příplatku:",
+        "routes": [
+          "belek",
+          "side",
+          "kemer",
+          "alanya"
+        ],
+        "button": "Zjistit fixní cenu"
+      },
+      {
+        "type": "h2",
+        "text": "Je léto ta správná doba pro vás?"
+      },
+      {
+        "type": "p",
+        "text": "Pokud chcete nejteplejší moře, všechna hotelová zařízení v provozu a plný animační program, červenec a srpen přesně to dávají. Pokud chcete vidět ruiny bez front a plavat v moři, které je ještě teplé, první polovina června a celé září nabídnou totéž pobřeží v klidnějším tempu - a výrazně prázdnější letištní cestu."
+      }
+    ],
+    "faq": [
+      [
+        "Jak teplo je v Antalyi v červenci a srpnu?",
+        "Ve dne obvykle 33-36 °C, v noci 23-26 °C; jednotlivé dny nad 40 °C se objeví téměř každé léto."
+      ],
+      [
+        "Jakou teplotu má moře v Antalyi v létě?",
+        "Asi 27-28 °C v červenci a 28-29 °C v srpnu - proto se koupací sezóna pohodlně táhne do října."
+      ],
+      [
+        "Není na antická města příliš horko?",
+        "Ne, pokud vyrazíte ráno. Perge, Aspendos a Side jsou téměř bez stínu; před 10.00 nebo po 17.00 je to mnohem příjemnější než v poledne."
+      ],
+      [
+        "Prší v Antalyi v létě?",
+        "Velmi zřídka. Červenec a srpen jsou na tomto pobřeží prakticky suché, krátké přeháňky se objeví v horách."
+      ],
+      [
+        "Jak dlouho trvá letiště v hlavní sezóně?",
+        "Obvykle 20 až 45 minut od přistání k východu z příletové haly. Prvních 90 minut čekání řidiče po skutečném přistání je zdarma."
+      ]
+    ]
+  },
+  "belek-side-kemer-compare": {
+    "slug": "belek-side-nebo-kemer-ktere-stredisko",
+    "title": "Belek, Side nebo Kemer: které středisko v Antalyi vybrat",
+    "heading": "Belek, Side nebo Kemer: vybíráme svůj úsek pobřeží",
+    "description": "Golf a pětihvězdičkové resorty, antické město u moře, nebo borové hory padající do vody - čím se Belek, Side a Kemer liší a kolik stojí jízdou z letiště.",
+    "excerpt": "Tři střediska, jedno letiště, tři velmi odlišné dovolené. Krajina, hotely, komu co sedí a jak dlouho jízda z AYT skutečně trvá.",
+    "readingMinutes": 7,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Většina lidí, kteří plánují Antalyu poprvé, vybírá mezi Belekem, Side a Kemerem a v katalogu vypadají všechny tři stejně. Stejné pobřeží, vše do dvou hodin od jednoho letiště, všude velké hotely. Rozdíly jsou ale skutečné a jde v nich hlavně o krajinu, o to, co máte v dosahu chůze, a o vzdálenost od letiště."
+      },
+      {
+        "type": "h2",
+        "text": "Tři vedle sebe"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Oblast",
+          "Z AYT",
+          "Jízda",
+          "Známá pro"
+        ],
+        "rows": [
+          [
+            "Belek",
+            "45 km",
+            "35-40 min",
+            "Golfová hřiště, pětihvězdičkové all inclusive, bory a písek"
+          ],
+          [
+            "Side",
+            "65 km",
+            "55-65 min",
+            "Římské ruiny přímo ve městě, dlouhé rodinné pláže"
+          ],
+          [
+            "Kemer",
+            "50 km",
+            "40-50 min",
+            "Hory u moře, oblázkové zátoky, borový les"
+          ],
+          [
+            "Centrum Antalye",
+            "15 km",
+            "20-30 min",
+            "Staré město, muzea, městský život po celý rok"
+          ]
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Belek: resorty, golf a plochý písek"
+      },
+      {
+        "type": "p",
+        "text": "Belek je nejnovější z trojice a nejvíc naplánovaný: pás borového lesa a plochá písečná pláž s velkými pětihvězdičkovými resorty, několik šampionátových golfových hřišť a vedle zábavní park Land of Legends. Staré město k procházkám tu není - cílem je hotel a většina hostů z něj vyráží jen na golf, do parku nebo na výlet. Chcete-li samostatný luxusní týden a 35 minut jízdy, je to nejjednodušší odpověď na tomto pobřeží."
+      },
+      {
+        "type": "h2",
+        "text": "Side: ruiny na dosah pěšky"
+      },
+      {
+        "type": "p",
+        "text": "Side je městečko na poloostrově vybudované uvnitř římské lokality: divadlo, kolonádová ulice a Apollónův chrám u samé vody, mezi sloupy restaurace a obchody. Hotely se táhnou na východ i na západ k Çolaklı a Kumköy, takže pláž je dlouhá a vhodná pro rodiny, a samotné město vám dává kam vyjít večer. Daní je vzdálenost - něco přes hodinu od letiště."
+      },
+      {
+        "type": "h2",
+        "text": "Kemer: hory a borový stín"
+      },
+      {
+        "type": "p",
+        "text": "Západně od Antalye spadá Taurus k moři a Kemer leží přímo v té krajině: borový les, oblázkové a hrubopísčité zátoky, výrazné výhledy a chladnější dojem než na plochém východním pobřeží. Tekirova, Göynük a Beldibi patří ke stejnému úseku, blízko jsou Olympos, lanovka Tahtalı a Lýkijská stezka. Sedne turistům a potápěčům, méně těm, kdo trvá na jemném písku."
+      },
+      {
+        "type": "h2",
+        "text": "Komu co sedí"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Golf, velké resorty, krátký transfer: Belek.",
+          "Antika za dveřmi a městečko na večerní chůzi: Side.",
+          "Hory, borový stín a pěší trasy: Kemer.",
+          "Malé děti a plochý mělký písek: Belek nebo pás Side-Çolaklı.",
+          "Muzea a městské prohlídky: zůstaňte přímo v Antalyi.",
+          "Nejdelší promenáda a živé centrum, pokud vám nevadí dvě hodiny jízdy: Alanya."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Co jízdní čas znamená v praxi"
+      },
+      {
+        "type": "p",
+        "text": "Jízdní čas má největší váhu na začátku a na konci dovolené. 35 minut do Beleku s unaveným dítětem je něco jiného než dvě hodiny do Alanye po nočním letu. Všechny naše ceny jsou fixní za vozidlo na celou jízdu, se sledováním letu, bezplatnými sedačkami na vyžádání a bez nočního příplatku - pozdní přílet stojí stejně jako ten v poledne. Krátká cesta ale zůstává krátkou cestou."
+      },
+      {
+        "type": "routelinks",
+        "text": "Porovnejte fixní cenu a jízdní čas pro jednotlivé oblasti:",
+        "routes": [
+          "belek",
+          "side",
+          "kemer",
+          "alanya"
+        ],
+        "button": "Zjistit fixní cenu"
+      }
+    ],
+    "faq": [
+      [
+        "Je pro rodiny lepší Belek, nebo Side?",
+        "Fungují obě. Belek má plošší písek a novější resorty s velkými aquaparky; Side přidává městečko k procházkám a antické ruiny, za cenu asi 20 minut delší jízdy."
+      ],
+      [
+        "Které středisko je nejblíž letišti v Antalyi?",
+        "Centrum Antalye na 15 km, pak Belek na 45 km (35-40 minut), Kemer na 50 km (40-50 minut) a Side na 65 km (55-65 minut)."
+      ],
+      [
+        "Má Kemer písečné pláže?",
+        "Většinou oblázky a hrubý písek, zato borový stín a výhled do hor. Je-li prioritou jemný písek, hodí se spíš Belek nebo pláže okolo Side."
+      ],
+      [
+        "Která oblast je nejlepší na golf?",
+        "Bezpochyby Belek - několik šampionátových hřišť leží pár kilometrů od sebe, obvykle 10-15 minut od hotelů."
+      ],
+      [
+        "Můžu během pobytu navštívit ostatní střediska?",
+        "Ano. Side, Belek a Kemer jsou asi hodinu od sebe a soukromé vozidlo na den je nejjednodušší způsob, jak dvě z nich spojit."
+      ]
+    ]
+  },
+  "arrival-essentials-turkey": {
+    "slug": "prijezd-do-turecka-vizum-penize-sim",
+    "title": "Přílet do Turecka: vstup, peníze, SIM karta a spropitné",
+    "heading": "Praktická první hodina: vstup, liry, data a spropitné",
+    "description": "Pravidla vstupu a pasu, kolik hotovosti vzít, kde měnit peníze, turecká SIM nebo eSIM a jak spropitné v Antalyi ve skutečnosti funguje.",
+    "excerpt": "Co vyřešit před přistáním a v první hodině po něm: vstupní pravidla, liry v kapse, funkční mobilní data a realistický pohled na spropitné.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Všechno v tomhle průvodci je malé a všechno se řeší snáz před přistáním než v jednu ráno v příletové hale. A nic z toho není složité, jakmile znáte obrysy."
+      },
+      {
+        "type": "h2",
+        "text": "Vstupní pravidla a pas"
+      },
+      {
+        "type": "p",
+        "text": "Občané mnoha zemí, včetně Česka a většiny států EU, vstupují do Turecka na krátký turistický pobyt bez víza; ostatní potřebují e-vízum, které se vydá online za několik minut. Dvě věci lidi zaskočí častěji než vízum samo: pas musí být obvykle platný i po konci pobytu a dítě potřebuje vlastní cestovní doklad. Krátce před cestou si svou zemi ověřte na oficiálních stránkách tureckého e-víza - pravidla se mění a aktuální je jen oficiální zdroj."
+      },
+      {
+        "type": "h2",
+        "text": "Peníze: liry, karty a hotovost"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Platí se tureckou lirou (TRY). V turistických místech se ceny často uvádějí i v eurech, ale zpátky dostanete liry.",
+          "Karty fungují téměř všude - hotely, supermarkety, restaurace, lékárny. Bezkontaktní platba je standard.",
+          "Nějakou hotovost mějte na drobnosti: stánek na trhu, venkovská kavárna, parkování, spropitné, jízda dolmuşem.",
+          "Kurzy na letišti jsou nejhorší z celé cesty; vyměňte tam jen to, co potřebujete hned, zbytek ve městě nebo v bankomatu banky.",
+          "Pokud bankomat nebo terminál nabídne platbu ve vaší domácí valutě, odmítněte a plaťte v lirách - přepočet je zřídka ve váš prospěch."
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Naše transfery se platí v hotovosti řidiči při příjezdu, v eurech nebo lirách, s cenou pevně danou předem - před jízdou do hotelu tedy nemusíte hledat bankomat."
+      },
+      {
+        "type": "h2",
+        "text": "Připojení: SIM nebo eSIM"
+      },
+      {
+        "type": "p",
+        "text": "Turecké turistické SIM karty se prodávají v příletových halách i ve městě a k registraci potřebujete pas. eSIM koupená před odletem je obvykle levnější a funguje od okamžiku přistání - v tom je praktická výhoda: můžete napsat řidiči, otevřít mapu nebo zavolat hotelu ještě před jakoukoli frontou. Hotelová wifi je rozšířená a většinou dobrá, takže místní číslo je na týden spíš pohodlí než nutnost."
+      },
+      {
+        "type": "h2",
+        "text": "Spropitné bez mýtů"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Restaurace: asi 5-10 %, pokud jste byli spokojeni, v lepších podnicích víc; zkontrolujte, zda není servis už na účtu.",
+          "Úklid a nosiči v hotelu: malá bankovka v pokoji nebo do ruky je běžná a oceňovaná.",
+          "Řidiči transferu: nikdy není povinné a nikdy není v ceně. Pár eur za těžká zavazadla nebo noční jízdu je laskavost, ne očekávání.",
+          "Průvodce na celodenním výletu: zvykem je malá částka na osobu na konci dne.",
+          "Taxi: zaokrouhlení nahoru stačí."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Vaše první hodina po krocích"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Pasová kontrola, pak zavazadla - v hlavní sezóně počítejte s 20 až 45 minutami.",
+          "Zapněte eSIM nebo kupte SIM, pokud chcete místní číslo.",
+          "Vyměňte jen tolik hotovosti, kolik v lirách potřebujete hned.",
+          "Projděte do příletové haly k místu setkání J / 777 - náš tým má vaši rezervaci a dovede vás k řidiči.",
+          "Voda, klimatizace a jízda - 35 až 40 minut do Beleku, asi dvě hodiny do Alanye."
+        ]
+      },
+      {
+        "type": "routelinks",
+        "text": "Fixní cena za vozidlo, sledování letu v ceně, platba při příjezdu:",
+        "routes": [
+          "antalya",
+          "belek",
+          "alanya"
+        ],
+        "button": "Zjistit fixní cenu"
+      }
+    ],
+    "faq": [
+      [
+        "Potřebuji do Turecka vízum?",
+        "Záleží na státní příslušnosti. Mnoho turistů, včetně občanů Česka a většiny zemí EU, vízum na krátký pobyt nepotřebuje; ostatní žádají online o e-vízum. Před cestou si to ověřte na oficiálních stránkách."
+      ],
+      [
+        "Mám vzít eura, nebo turecké liry?",
+        "Vezměte eura nebo kartu a liry si obstarejte na místě. Kurzy na letišti jsou slabé: vyměňte tam jen nutné, zbytek v bankomatech nebo směnárnách ve městě."
+      ],
+      [
+        "Můžu v Antalyi platit kartou všude?",
+        "V hotelech, restauracích, supermarketech a lékárnách ano. Na trhy, malé kavárny, spropitné a místní dopravu mějte hotovost."
+      ],
+      [
+        "Je lepší turecká SIM, nebo eSIM?",
+        "eSIM koupená před odletem je obvykle levnější a funguje hned po přistání. Fyzická turistická SIM se registruje na pas a prodává se v příletové hale i ve městě."
+      ],
+      [
+        "Musím dát řidiči transferu spropitné?",
+        "Ne. Cena je fixní a konečná. Pár eur za těžká zavazadla nebo noční přílet potěší, ale nikdo je nečeká."
+      ]
+    ]
   }
 };

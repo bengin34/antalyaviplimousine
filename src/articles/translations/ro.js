@@ -2434,5 +2434,502 @@ export const articles = {
         "Jumătate de zi ajunge pentru o primă plimbare. Cu muzeul, Parcul Karaalioğlu și cascadele Düden, ideal e o zi sau două."
       ]
     ]
+  },
+  "antalya-airport-terminals": {
+    "slug": "aeroportul-antalya-terminal-1-terminal-2",
+    "title": "Aeroportul Antalya: Terminal 1, Terminal 2 și cel intern",
+    "heading": "Terminal 1, Terminal 2 sau intern: care este al tău?",
+    "description": "Ce terminal folosește zborul tău pe aeroportul din Antalya, cum treci între Terminal 1 și 2 și ce schimbă terminalul la preluare și în ziua plecării.",
+    "excerpt": "AYT are trei terminale pe același drum de acces. Cum afli care este al tău, cum treci între ele și de ce șoferul are nevoie de numărul zborului.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Aeroportul din Antalya este un singur aeroport cu trei clădiri de sosiri și plecări, iar aproape toate întrebările de dinaintea unui transfer ajung în același loc: în ce terminal sunt? Răspunsul decide unde parchează șoferul, cât de lung este drumul până la mașină și la ce oră pleci din hotel în ziua întoarcerii."
+      },
+      {
+        "type": "h2",
+        "text": "Cele trei terminale"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Terminal",
+          "În principal",
+          "Bine de știut"
+        ],
+        "rows": [
+          [
+            "Terminal 1",
+            "Zboruri internaționale regulate",
+            "Clădirea internațională mai veche, la vest de terminalul intern"
+          ],
+          [
+            "Terminal 2",
+            "Zboruri charter și sezoniere",
+            "Cea mai aglomerată clădire vara, mai ales în weekend"
+          ],
+          [
+            "Terminalul intern",
+            "Zboruri din Istanbul, Ankara, Izmir",
+            "Se află între cele două terminale internaționale"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Toate trei se află pe același drum de acces, la câteva sute de metri unul de altul, așa că o confuzie de terminal este un inconvenient, nu o zi pierdută. Terminalul este stabilit de companie aeriană și se poate schimba de la un sezon la altul - de aceea nu îl ghicim niciodată după destinație."
+      },
+      {
+        "type": "h2",
+        "text": "Cum afli terminalul de sosire"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Prima sursă este confirmarea rezervării sau tichetul de îmbarcare - terminalul apare de obicei lângă numărul zborului.",
+          "Pagina de status a zborului de la companie este cea mai actuală, dacă programul s-a schimbat.",
+          "Zborurile charter și de pachet aterizează mai des pe Terminal 2, cele regulate ale companiilor mari pe Terminal 1.",
+          "O escală prin Istanbul se încheie la terminalul intern, chiar dacă drumul a început în altă țară.",
+          "Dacă nu ești sigur, trimite-ne numărul zborului - urmărim zborul în sine și trimitem șoferul în sala în care aterizează efectiv."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Trecerea între Terminal 1 și Terminal 2"
+      },
+      {
+        "type": "p",
+        "text": "Rar este nevoie, dar se întâmplă: o familie care zboară cu două companii diferite sau o escală internă care aterizează în altă clădire decât restul grupului. Terminalele sunt legate prin drumul aeroportului, cu o scurtă cursă de navetă sau câteva minute de mers pe jos între ele. Cu mai multe valize și copii, e mai simplu să aștepți într-o singură sală și să lași șoferul să ia tot grupul cu o singură mașină."
+      },
+      {
+        "type": "h2",
+        "text": "Unde te așteaptă șoferul"
+      },
+      {
+        "type": "p",
+        "text": "Îți iei bagajele, treci în sala de sosiri și mergi la punctul de întâlnire J / 777. Echipa noastră de pe aeroport are numărul rezervării și te duce la șofer - nu trebuie să cauți o pancartă cu numele tău. Primele 90 de minute după aterizarea reală sunt incluse, iar intervalul de așteptare se mută automat în caz de întârziere: o aterizare târzie nu schimbă prețul."
+      },
+      {
+        "type": "routelinks",
+        "text": "Preț fix pe vehicul, din orice terminal până la hotel:",
+        "routes": [
+          "antalya",
+          "belek",
+          "side",
+          "alanya"
+        ],
+        "button": "Vezi prețul fix"
+      },
+      {
+        "type": "h2",
+        "text": "În ziua plecării terminalul contează mai mult"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Verifică terminalul de plecare în seara dinainte - nu e mereu cel în care ai aterizat.",
+          "În iulie și august planifică să fii la terminal cu aproximativ trei ore înainte de un zbor internațional, în extrasezon cu două - două ore și jumătate.",
+          "Adaugă timpul de drum: circa 35-40 de minute din Belek, 40-50 din Kemer, 55-65 din Side și aproximativ două ore din Alanya.",
+          "Trimite numărul zborului și pentru întoarcere, ca ora de preluare să fie calculată din plecarea reală.",
+          "În terminal intră doar pasagerii cu bilet, așa că rămas-bunul se ia la ușă, nu înăuntru."
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Un singur preț acoperă tot vehiculul, indiferent de terminal, fără supliment de noapte, plata în numerar la șofer. Terminalul este problema noastră de logistică, nu a ta."
+      }
+    ],
+    "faq": [
+      [
+        "Câte terminale are aeroportul din Antalya?",
+        "Trei: Terminal 1 și Terminal 2 pentru zboruri internaționale, plus un terminal intern între ele pentru zboruri din Istanbul, Ankara și Izmir."
+      ],
+      [
+        "În ce terminal va ateriza zborul meu?",
+        "Decide compania aeriană și se poate schimba sezonier. Sursa corectă este tichetul de îmbarcare sau pagina de status a zborului: charterele mai des pe Terminal 2, zborurile regulate pe Terminal 1."
+      ],
+      [
+        "Cât de departe sunt Terminal 1 și Terminal 2?",
+        "La câteva sute de metri pe același drum al aeroportului - o scurtă navetă sau o plimbare scurtă, cu terminalul intern între ele."
+      ],
+      [
+        "Terminalul schimbă prețul transferului?",
+        "Nu. Prețul este fix pe vehicul și în funcție de destinație, nu de terminal, și nu există supliment de noapte."
+      ],
+      [
+        "Ce se întâmplă dacă zborul aterizează în alt terminal?",
+        "Pentru tine nu se schimbă nimic. Urmărim numărul zborului, deci șoferul este trimis în sala unde aterizează cu adevărat."
+      ]
+    ]
+  },
+  "antalya-in-summer": {
+    "slug": "antalya-vara-iulie-august",
+    "title": "Antalya vara: căldura din iulie și august, marea și transferul",
+    "heading": "Antalya vara: cum sunt de fapt iulie și august",
+    "description": "Temperaturi, apa mării, aglomerația și sala de sosiri în vârf de sezon - cum planifici vacanța și transferul în jurul amiezelor de 35 de grade.",
+    "excerpt": "Treizeci și cinci de grade după-amiaza, o mare de douăzeci și opt și cea mai aglomerată sală de sosiri a anului. Cum e vârful de sezon și cum ajungi fără să pierzi prima zi.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Iulie și august sunt cele două luni în jurul cărora este construită Antalya. Plajele sunt pline, hotelurile la capacitate, iar aeroportul duce cel mai dens trafic al anului. Este și partea cea mai caldă și umedă a verii, așa că diferența dintre o zi bună și una epuizantă ține mai ales de ora la care faci lucrurile."
+      },
+      {
+        "type": "h2",
+        "text": "Cât de cald este de fapt"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Luna",
+          "Ziua",
+          "Marea",
+          "Caracter"
+        ],
+        "rows": [
+          [
+            "Iunie",
+            "30-33 °C",
+            "25-26 °C",
+            "Cald, dar suportabil, seri lungi"
+          ],
+          [
+            "Iulie",
+            "33-36 °C",
+            "27-28 °C",
+            "Vârf de căldură și de ocupare"
+          ],
+          [
+            "August",
+            "33-36 °C",
+            "28-29 °C",
+            "Cea mai caldă mare, nopți umede"
+          ],
+          [
+            "Septembrie",
+            "30-33 °C",
+            "27-28 °C",
+            "Vară fără înghesuială"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Sunt medii aproximative; zile izolate peste 40 °C apar în majoritatea verilor. Noaptea, pe litoral, rămân 23-26 °C - de aceea aerul condiționat contează aici mai mult decât umbra. Ploaia în iulie și august este atât de rară încât nu merită inclusă în plan."
+      },
+      {
+        "type": "h2",
+        "text": "Cum îți construiești ziua în jurul căldurii"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Plaja și piscina dimineața și spre seară; între 13:00 și 16:00 rămân umbra, masa sau somnul.",
+          "Vizitează siturile antice dimineață - Perge, Aspendos și Side aproape nu au umbră, iar piatra radiază căldură la amiază.",
+          "Plimbările cu barca și canionul Köprülü sunt variantele mai răcoroase: ajută și apa și altitudinea.",
+          "Lasă orașul vechi Kaleiçi pentru seară, când străduțele sunt calde, nu fierbinți.",
+          "Bea mai multă apă decât crezi că ai nevoie și ține o sticlă cu tine în mașină."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Sala de sosiri în vârf de sezon"
+      },
+      {
+        "type": "p",
+        "text": "Vara, ieșirea din aeroportul Antalya durează cel mai mult. Socotește 20-45 de minute de la aterizare până la ieșire, uneori mai mult când aterizează mai multe charter-uri mari odată. Este normal - și exact de aceea contează intervalul de așteptare: primele 90 de minute după aterizarea reală sunt incluse, iar preluarea se mută împreună cu zborul."
+      },
+      {
+        "type": "h2",
+        "text": "Cum ajungi confortabil pe caniculă"
+      },
+      {
+        "type": "p",
+        "text": "Un transfer în august este altă treabă decât unul în martie. Mașinile noastre au aer condiționat și sunt răcite înainte de preluare, nu după, șoferii duc bagajele, iar parcarea e la câțiva pași de punctul de întâlnire J / 777. Pentru familiile cu copii mici, asta e diferența dintre un început de vacanță odihnit și unul supraîncălzit. Scaunele pentru copii sunt gratuite, dar trebuie cerute la rezervare."
+      },
+      {
+        "type": "routelinks",
+        "text": "Prețuri fixe de vară pe vehicul, fără supliment de noapte sau de sezon:",
+        "routes": [
+          "belek",
+          "side",
+          "kemer",
+          "alanya"
+        ],
+        "button": "Vezi prețul fix"
+      },
+      {
+        "type": "h2",
+        "text": "Este vara perioada potrivită pentru tine?"
+      },
+      {
+        "type": "p",
+        "text": "Dacă vrei cea mai caldă mare, toate facilitățile hotelului deschise și program complet de animație, iulie și august îți dau exact asta. Dacă preferi să vezi ruinele fără coadă și să înoți într-o mare încă caldă, prima jumătate a lunii iunie și tot septembrie îți dau același litoral într-un ritm mai lent - și un drum spre aeroport vizibil mai liber."
+      }
+    ],
+    "faq": [
+      [
+        "Cât de cald este în Antalya în iulie și august?",
+        "Ziua, de obicei 33-36 °C, iar noaptea 23-26 °C; zile izolate peste 40 °C apar în majoritatea verilor."
+      ],
+      [
+        "Cât de caldă este marea la Antalya vara?",
+        "Aproximativ 27-28 °C în iulie și 28-29 °C în august - de aceea sezonul de plajă ține confortabil până în octombrie."
+      ],
+      [
+        "Este prea cald pentru siturile antice?",
+        "Nu, dacă mergi dimineață. Perge, Aspendos și Side sunt aproape fără umbră; înainte de 10:00 sau după 17:00 e mult mai plăcut decât la amiază."
+      ],
+      [
+        "Plouă vara la Antalya?",
+        "Foarte rar. Iulie și august sunt practic uscate pe acest litoral, cu scurte averse ocazionale în zona montană."
+      ],
+      [
+        "Cât durează aeroportul în vârf de sezon?",
+        "De regulă 20-45 de minute de la aterizare până la ieșirea din sala de sosiri. Primele 90 de minute de așteptare a șoferului după aterizarea reală sunt gratuite."
+      ]
+    ]
+  },
+  "belek-side-kemer-compare": {
+    "slug": "belek-side-sau-kemer-ce-statiune",
+    "title": "Belek, Side sau Kemer: ce stațiune din Antalya ți se potrivește",
+    "heading": "Belek, Side sau Kemer: cum îți alegi bucata de litoral",
+    "description": "Golf și resorturi de cinci stele, un orășel antic la mare sau munți de pini care coboară în apă - prin ce diferă Belek, Side și Kemer și cât durează drumul.",
+    "excerpt": "Trei zone de vacanță, un aeroport, trei concedii foarte diferite. Peisaj, hoteluri, cui i se potrivește fiecare și cât durează cu adevărat drumul din AYT.",
+    "readingMinutes": 7,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Cei mai mulți oameni care își plănuiesc prima vacanță în Antalya aleg între Belek, Side și Kemer, iar în broșuri toate trei arată la fel. Același litoral, totul la cel mult două ore de același aeroport, hoteluri mari peste tot. Diferențele sunt însă reale și țin mai ales de peisaj, de ce ai la distanță de mers pe jos și de cât de departe ești de aeroport."
+      },
+      {
+        "type": "h2",
+        "text": "Cele trei, una lângă alta"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Zona",
+          "Din AYT",
+          "Drum",
+          "Cunoscută pentru"
+        ],
+        "rows": [
+          [
+            "Belek",
+            "45 km",
+            "35-40 min",
+            "Terenuri de golf, all inclusive de cinci stele, pini și nisip"
+          ],
+          [
+            "Side",
+            "65 km",
+            "55-65 min",
+            "Ruine romane în oraș, plaje lungi pentru familii"
+          ],
+          [
+            "Kemer",
+            "50 km",
+            "40-50 min",
+            "Munți la mare, golfuri cu pietriș, pădure de pini"
+          ],
+          [
+            "Orașul Antalya",
+            "15 km",
+            "20-30 min",
+            "Orașul vechi, muzee, viață urbană tot anul"
+          ]
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Belek: resorturi, golf și nisip plat"
+      },
+      {
+        "type": "p",
+        "text": "Belek este cea mai nouă dintre cele trei și cea mai planificată: o bandă de pădure de pini și plajă plată de nisip, mărginită de resorturi mari de cinci stele, câteva terenuri de golf de nivel de campionat și parcul Land of Legends alături. Nu există un orășel vechi de hoinărit - hotelul este destinația, iar majoritatea oaspeților ies doar pentru golf, parc sau o excursie. Dacă vrei o săptămână de lux autosuficientă și 35 de minute de drum, este cel mai simplu răspuns de pe litoral."
+      },
+      {
+        "type": "h2",
+        "text": "Side: ruine la distanță de plimbare"
+      },
+      {
+        "type": "p",
+        "text": "Side este un orășel pe o peninsulă, construit în interiorul unui sit roman: teatru, stradă cu colonade și templul lui Apollo la marginea apei, cu restaurante și magazine între coloane. Hotelurile se întind spre est și vest către Çolaklı și Kumköy, deci plaja este lungă și bună pentru familii, iar orașul în sine îți dă unde să te plimbi seara. Costul este distanța - puțin peste o oră de la aeroport."
+      },
+      {
+        "type": "h2",
+        "text": "Kemer: munți și umbră de pin"
+      },
+      {
+        "type": "p",
+        "text": "La vest de Antalya, munții Taurus coboară până în mare, iar Kemer stă exact în acel peisaj: pădure de pini, golfuri cu pietriș și nisip grosier, priveliști spectaculoase și o senzație mai răcoroasă decât pe litoralul plat din est. Tekirova, Göynük și Beldibi fac parte din aceeași bandă, iar Olympos, telecabina Tahtalı și Drumul Lician sunt aproape. Se potrivește drumeților și scafandrilor, mai puțin celor care vor doar nisip fin."
+      },
+      {
+        "type": "h2",
+        "text": "Cui i se potrivește fiecare"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Golf, resorturi mari, transfer scurt: Belek.",
+          "Antichitate la ușă și un orășel de plimbat seara: Side.",
+          "Munte, umbră de pin și drumeții: Kemer.",
+          "Copii mici și intrare plată în apă: Belek sau banda Side-Çolaklı.",
+          "Muzee și vizite urbane: stai direct în Antalya.",
+          "Cea mai lungă promenadă și un centru animat, dacă două ore de drum nu te deranjează: Alanya."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Ce înseamnă în practică timpul de drum"
+      },
+      {
+        "type": "p",
+        "text": "Timpul de drum contează cel mai mult la începutul și la sfârșitul vacanței. 35 de minute până la Belek cu un copil obosit nu este același lucru cu două ore până la Alanya după un zbor de noapte. Toate prețurile noastre sunt fixe pe vehicul pentru întreg traseul, cu urmărirea zborului, scaune pentru copii gratuite la cerere și fără supliment de noapte - o sosire târzie costă la fel ca una la amiază. Dar un drum mai scurt rămâne un drum mai scurt."
+      },
+      {
+        "type": "routelinks",
+        "text": "Compară prețul fix și timpul de drum pentru fiecare zonă:",
+        "routes": [
+          "belek",
+          "side",
+          "kemer",
+          "alanya"
+        ],
+        "button": "Vezi prețul fix"
+      }
+    ],
+    "faq": [
+      [
+        "Belek sau Side pentru familii?",
+        "Ambele merg bine. Belek are nisip mai plat și resorturi mai noi cu parcuri acvatice mari; Side adaugă un orășel de plimbat și ruine antice, cu aproximativ 20 de minute mai mult de drum."
+      ],
+      [
+        "Care stațiune este cea mai apropiată de aeroportul Antalya?",
+        "Orașul Antalya la 15 km, apoi Belek la 45 km (35-40 de minute), Kemer la 50 km (40-50 de minute) și Side la 65 km (55-65 de minute)."
+      ],
+      [
+        "Kemer are plaje cu nisip?",
+        "În general pietriș și nisip grosier, cu umbră de pini și priveliște montană. Dacă nisipul fin e prioritar, Belek sau plajele din zona Side se potrivesc mai bine."
+      ],
+      [
+        "Care zonă este cea mai bună pentru golf?",
+        "Belek, fără îndoială - mai multe terenuri de campionat se află la câțiva kilometri unul de altul, de obicei la 10-15 minute de hoteluri."
+      ],
+      [
+        "Pot vizita celelalte stațiuni în timpul sejurului?",
+        "Da. Side, Belek și Kemer sunt la aproximativ o oră una de alta, iar o mașină privată pentru o zi este cel mai simplu mod de a combina două dintre ele."
+      ]
+    ]
+  },
+  "arrival-essentials-turkey": {
+    "slug": "sosire-in-turcia-viza-bani-cartela-sim",
+    "title": "Sosirea în Türkiye: intrare, bani, cartelă SIM și bacșiș",
+    "heading": "Prima oră practică: intrare, lire, internet și bacșiș",
+    "description": "Reguli de intrare și pașaport, cât numerar să iei, unde schimbi bani, cartelă SIM turcească sau eSIM și cum arată de fapt bacșișul în Antalya.",
+    "excerpt": "Ce rezolvi înainte de aterizare și în prima oră de după: reguli de intrare, lire în buzunar, internet mobil funcțional și o privire realistă asupra bacșișului.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Tot ce e în acest ghid este mărunt și tot se rezolvă mai ușor înainte de aterizare decât la ora unu noaptea, în sala de sosiri. Nimic nu e complicat odată ce știi forma lucrurilor."
+      },
+      {
+        "type": "h2",
+        "text": "Reguli de intrare și pașaportul"
+      },
+      {
+        "type": "p",
+        "text": "Multe naționalități, inclusiv cetățenii români și majoritatea cetățenilor UE, intră în Türkiye fără viză pentru șederi turistice scurte; alții au nevoie de e-viză, emisă online în câteva minute. Două lucruri încurcă oamenii mai des decât viza: pașaportul trebuie de regulă să fie valabil și după încheierea șederii, iar fiecare copil are nevoie de document propriu. Verifică-ți naționalitatea pe site-ul oficial de e-viză al Turciei cu puțin timp înainte de plecare - regulile se schimbă și doar sursa oficială este actuală."
+      },
+      {
+        "type": "h2",
+        "text": "Bani: lire, carduri și numerar"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Moneda este lira turcească (TRY). În zonele turistice prețurile se spun și în euro, dar restul vine în lire.",
+          "Cardurile funcționează aproape oriunde - hoteluri, supermarketuri, restaurante, farmacii. Contactless este standard.",
+          "Ține puțin numerar pentru lucruri mici: o tarabă, o cafenea de sat, parcare, bacșiș, o cursă cu dolmuş.",
+          "Cursurile de pe aeroport sunt cele mai slabe din călătorie: schimbă acolo doar cât ai nevoie imediat, restul în oraș sau de la un bancomat de bancă.",
+          "Dacă un bancomat sau un POS îți propune plata în moneda ta, refuză și plătește în lire - conversia e rar în favoarea ta."
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Transferurile noastre se plătesc în numerar șoferului la sosire, în euro sau lire, cu prețul fixat din timp - deci nu trebuie să cauți un bancomat înainte de drumul spre hotel."
+      },
+      {
+        "type": "h2",
+        "text": "Conectat: SIM sau eSIM"
+      },
+      {
+        "type": "p",
+        "text": "Cartelele SIM turistice se vând în sălile de sosiri și în oraș, iar pentru înregistrare ai nevoie de pașaport. Un eSIM cumpărat înainte de plecare este de obicei mai ieftin și este activ din clipa aterizării - acesta e avantajul practic: poți scrie șoferului, deschide harta sau suna hotelul înainte de a sta la vreo coadă. Wi-Fi-ul din hoteluri este răspândit și de regulă decent, deci un număr local e mai mult comoditate decât necesitate pentru o săptămână."
+      },
+      {
+        "type": "h2",
+        "text": "Bacșișul, sincer"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Restaurante: cam 5-10 % dacă ți-a plăcut, mai mult în locuri mai pretențioase; verifică dacă serviciul e deja pe notă.",
+          "Camerista și bagajistul la hotel: o bancnotă mică lăsată în cameră sau dată în mână este normală și apreciată.",
+          "Șoferii de transfer: niciodată obligatoriu și niciodată adăugat la preț. Câțiva euro pentru bagaje grele sau un drum de noapte sunt un gest, nu o așteptare.",
+          "Ghizii la o excursie de o zi: de obicei o sumă mică pe persoană la finalul zilei.",
+          "Taxi: rotunjirea în sus e suficientă."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Prima oră, în ordine"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Control pașapoarte, apoi bagajele - în vârf de sezon socotește 20-45 de minute.",
+          "Activează eSIM-ul sau cumpără o cartelă dacă vrei număr local.",
+          "Schimbă numerar doar cât îți trebuie imediat în lire.",
+          "Treci în sala de sosiri, la punctul de întâlnire J / 777, unde echipa noastră are rezervarea și te duce la șofer.",
+          "Apă, aer condiționat și la drum - 35-40 de minute până la Belek, cam două ore până la Alanya."
+        ]
+      },
+      {
+        "type": "routelinks",
+        "text": "Preț fix pe vehicul, urmărirea zborului inclusă, plata la sosire:",
+        "routes": [
+          "antalya",
+          "belek",
+          "alanya"
+        ],
+        "button": "Vezi prețul fix"
+      }
+    ],
+    "faq": [
+      [
+        "Am nevoie de viză pentru Türkiye?",
+        "Depinde de cetățenie. Mulți turiști, inclusiv cetățenii români și majoritatea cetățenilor UE, nu au nevoie pentru o ședere turistică scurtă; alții solicită e-viză online. Verifică pe site-ul oficial înainte de plecare."
+      ],
+      [
+        "Să iau euro sau lire turcești?",
+        "Ia euro sau folosește cardul, iar lirele le obții la fața locului. Cursurile de pe aeroport sunt slabe: schimbă acolo doar necesarul, restul la bancomate sau case de schimb din oraș."
+      ],
+      [
+        "Pot plăti cu cardul oriunde în Antalya?",
+        "În hoteluri, restaurante, supermarketuri și farmacii, da. Ține numerar pentru piețe, cafenele mici, bacșiș și transport local."
+      ],
+      [
+        "Este mai bună o cartelă SIM turcească sau un eSIM?",
+        "Un eSIM cumpărat înainte de plecare este de obicei mai ieftin și funcționează imediat după aterizare. Cartela fizică se înregistrează pe pașaport și se vinde în sala de sosiri și în oraș."
+      ],
+      [
+        "Trebuie să dau bacșiș șoferului de transfer?",
+        "Nu. Prețul este fix și complet. Câțiva euro pentru bagaje grele sau o sosire de noapte sunt apreciați, dar nu se așteaptă nimeni la ei."
+      ]
+    ]
   }
 };

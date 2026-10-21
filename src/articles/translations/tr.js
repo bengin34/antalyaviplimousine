@@ -2724,5 +2724,502 @@ export const articles = {
         "İlk tur için yarım gün yeterli. Müze, Karaalioğlu Parkı ve Düden Şelalesi'yle birlikte bir ya da iki tam gün idealdir."
       ]
     ]
+  },
+  "antalya-airport-terminals": {
+    "slug": "antalya-havalimani-terminal-1-terminal-2",
+    "title": "Antalya Havalimanı Terminalleri: Terminal 1, Terminal 2 ve İç Hatlar",
+    "heading": "Terminal 1, Terminal 2 ya da iç hatlar: hangisi sizin?",
+    "description": "Uçuşunuz Antalya Havalimanı'nda hangi terminali kullanıyor, Terminal 1 ile 2 arasında nasıl geçilir ve terminal karşılama ile dönüş için ne değiştirir.",
+    "excerpt": "AYT tek bir havalimanı yolu üzerinde üç terminalden oluşuyor. Hangisinde olduğunuzu nasıl anlarsınız, aralarında nasıl geçilir ve şoför neden uçuş numarasını ister.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Antalya Havalimanı, üç ayrı geliş ve gidiş binası olan tek bir havalimanı. Transferden önce gelen soruların neredeyse tamamı aynı yere çıkıyor: ben hangi terminaldeyim? Cevap şoförün nereye park edeceğini, araca yürüme mesafesini ve dönüş günü otelden kaçta çıkmanız gerektiğini belirliyor."
+      },
+      {
+        "type": "h2",
+        "text": "Üç terminal"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Terminal",
+          "Ağırlıklı olarak",
+          "Bilmekte fayda var"
+        ],
+        "rows": [
+          [
+            "Terminal 1",
+            "Tarifeli dış hat uçuşları",
+            "Daha eski dış hat binası, iç hatlar terminalinin batısında"
+          ],
+          [
+            "Terminal 2",
+            "Charter ve sezonluk tatil uçuşları",
+            "Yazın en yoğun bina, özellikle hafta sonu rotasyonlarında"
+          ],
+          [
+            "İç hatlar terminali",
+            "İstanbul, Ankara, İzmir uçuşları",
+            "İki dış hat terminalinin arasında"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Üçü de aynı havalimanı bağlantı yolu üzerinde, birkaç yüz metre arayla duruyor; yani terminali karıştırmak günü kaybetmek değil, sadece zahmet demek. Terminali havayolu belirler ve sezona göre değişebilir - bu yüzden terminali asla varış noktasından tahmin etmiyoruz."
+      },
+      {
+        "type": "h2",
+        "text": "Hangi terminale indiğinizi nasıl anlarsınız"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "İlk bakacağınız yer rezervasyon onayı ya da biniş kartı: terminal genelde uçuş numarasının yanında yazar.",
+          "Tarife değiştiyse en güncel kaynak havayolunun kendi uçuş durumu sayfasıdır.",
+          "Charter ve paket tur uçuşları daha sık Terminal 2'ye, büyük havayollarının tarifeli uçuşları daha sık Terminal 1'e iner.",
+          "İstanbul aktarmalı bir yolculuk, yurt dışında başlamış olsa da iç hatlar terminaline varır.",
+          "Emin değilseniz bize uçuş numarasını gönderin: uçuşu takip ediyoruz ve şoförü gerçekten indiği salona yönlendiriyoruz."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Terminal 1 ile Terminal 2 arasında geçiş"
+      },
+      {
+        "type": "p",
+        "text": "Buna nadiren ihtiyaç olur ama olur: iki farklı havayoluyla gelen bir aile ya da grubun geri kalanı başka binadayken iç hat aktarmasıyla inen biri. Terminaller havalimanı yoluyla bağlı; aralarında kısa bir servis yolculuğu veya birkaç dakikalık yürüyüş var. Birkaç valiz ve çocukla, tek salonda bekleyip tüm grubu tek araçla aldırmak bavulları bina bina taşımaktan kolaydır."
+      },
+      {
+        "type": "h2",
+        "text": "Şoför nerede bekler"
+      },
+      {
+        "type": "p",
+        "text": "Bagajınızı alın, geliş salonuna geçin ve J / 777 karşılama noktasına ilerleyin. Havalimanı ekibimiz rezervasyon numaranızı biliyor ve sizi şoförünüze götürüyor; kalabalıkta isim tabelası aramanız gerekmiyor. Gerçek iniş saatinden sonraki ilk 90 dakika ücrete dahil ve rötar olursa bekleme penceresi kendiliğinden kayıyor - geç iniş fiyatı değiştirmiyor."
+      },
+      {
+        "type": "routelinks",
+        "text": "Hangi terminalden olursa olsun, otelinize araç başına sabit fiyat:",
+        "routes": [
+          "antalya",
+          "belek",
+          "side",
+          "alanya"
+        ],
+        "button": "Sabit fiyatı görün"
+      },
+      {
+        "type": "h2",
+        "text": "Dönüş gününde terminal daha da önemli"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Kalkış terminalini bir gece önce kontrol edin; her zaman indiğiniz terminal olmuyor.",
+          "Temmuz ve ağustosta dış hat kalkışından yaklaşık üç saat önce, sezon dışında iki-iki buçuk saat önce terminalde olmayı planlayın.",
+          "Üstüne yol süresini ekleyin: Belek'ten 35-40 dakika, Kemer'den 40-50, Side'den 55-65 ve Alanya'dan yaklaşık iki saat.",
+          "Dönüş için de uçuş numarasını verin; alış saati tahminle değil gerçek kalkışa göre hesaplanır.",
+          "Terminal girişinden yalnızca bileti olan yolcular geçer; vedayı kapıda yapın, içeride değil."
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Hangi terminali kullanırsanız kullanın tek fiyat tüm aracı kapsıyor, gece zammı yok ve ödeme şoföre nakit. Terminal bizim lojistik sorunumuz, sizin değil."
+      }
+    ],
+    "faq": [
+      [
+        "Antalya Havalimanı'nda kaç terminal var?",
+        "Üç: dış hatlar için Terminal 1 ve Terminal 2, aralarında da İstanbul, Ankara ve İzmir uçuşlarına hizmet veren iç hatlar terminali."
+      ],
+      [
+        "Uçuşum hangi terminale inecek?",
+        "Buna havayolu karar verir ve sezona göre değişebilir. Doğru kaynak biniş kartınız veya havayolunun uçuş durumu sayfasıdır: charter uçuşları daha çok Terminal 2, tarifeli uçuşlar Terminal 1."
+      ],
+      [
+        "Terminal 1 ile Terminal 2 arası ne kadar?",
+        "Aynı havalimanı yolu üzerinde birkaç yüz metre; kısa bir servis yolculuğu ya da kısa bir yürüyüş, arada iç hatlar terminali var."
+      ],
+      [
+        "Terminal transfer fiyatını değiştirir mi?",
+        "Hayır. Fiyat araç başına ve varış noktasına göre sabittir, terminale göre değişmez; gece zammı da yoktur."
+      ],
+      [
+        "Uçuşum rezervasyondakinden başka terminale inerse?",
+        "Sizin için hiçbir şey değişmez. Uçuş numarasını takip ettiğimiz için şoför uçağın gerçekten indiği salona gönderilir."
+      ]
+    ]
+  },
+  "antalya-in-summer": {
+    "slug": "yazin-antalya-temmuz-agustos",
+    "title": "Yazın Antalya: Temmuz-Ağustos Sıcağı, Deniz ve Transfer",
+    "heading": "Yazın Antalya: temmuz ve ağustos gerçekte nasıl",
+    "description": "Hava ve deniz sıcaklığı, kalabalık ve yüksek sezonda geliş salonu: 35 derecelik öğleden sonralara göre tatil ve transfer nasıl planlanır.",
+    "excerpt": "Otuz beş derecelik öğleden sonralar, yirmi sekiz derecelik deniz ve yılın en yoğun geliş salonu. Yüksek sezon nasıldır ve ilk günü kaybetmeden nasıl varılır.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Temmuz ve ağustos, Antalya'nın üzerine kurulduğu iki ay. Plajlar dolu, oteller kapasitede, havalimanı yılın en sıkışık trafiğini karşılıyor. Aynı zamanda yazın en sıcak ve en nemli bölümü; yani keyifli bir günle yorucu bir gün arasındaki fark büyük ölçüde saat meselesi."
+      },
+      {
+        "type": "h2",
+        "text": "Gerçekte ne kadar sıcak"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Ay",
+          "Gündüz",
+          "Deniz",
+          "Karakter"
+        ],
+        "rows": [
+          [
+            "Haziran",
+            "30-33 °C",
+            "25-26 °C",
+            "Sıcak ama taşınabilir, akşamlar uzun"
+          ],
+          [
+            "Temmuz",
+            "33-36 °C",
+            "27-28 °C",
+            "Sıcağın ve doluluğun zirvesi"
+          ],
+          [
+            "Ağustos",
+            "33-36 °C",
+            "28-29 °C",
+            "En sıcak deniz, nemli geceler"
+          ],
+          [
+            "Eylül",
+            "30-33 °C",
+            "27-28 °C",
+            "Kalabalık olmadan yaz"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Bunlar yaklaşık ortalamalar; çoğu yaz 40 °C'yi aşan tek tük günler oluyor. Kıyıda geceler 23-26 °C civarında kalıyor - bu yüzden burada gölgeden çok klima önemli. Temmuz ve ağustosta yağmur, plan yapmaya değmeyecek kadar seyrek."
+      },
+      {
+        "type": "h2",
+        "text": "Günü sıcağa göre kurmak"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Plaj ve havuzu sabaha ve ikindiye bırakın; 13.00-16.00 arası gölge, yemek ya da uyku saatidir.",
+          "Antik kentleri erken gezin: Perge, Aspendos ve Side'de neredeyse hiç gölge yok, taş öğlene doğru sıcağı geri veriyor.",
+          "Tekne turları ve Köprülü Kanyon daha serin seçenekler; su da yükseklik de işe yarıyor.",
+          "Kaleiçi'ni akşama saklayın; sokaklar sıcak değil, ılık oluyor.",
+          "Gereksinmeden fazla su için ve araçta da bir şişe bulundurun."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Yüksek sezonda geliş salonu"
+      },
+      {
+        "type": "p",
+        "text": "Yaz, Antalya Havalimanı'ndan çıkmanın en uzun sürdüğü dönem. İnişten çıkışa 20-45 dakika hesaplayın; birkaç geniş gövdeli charter birlikte indiğinde daha uzun olabiliyor. Bu normaldir ve bekleme penceresi tam bu yüzden önemli: gerçek iniş saatinden sonraki ilk 90 dakika dahil ve alış saati uçuşla birlikte kayıyor."
+      },
+      {
+        "type": "h2",
+        "text": "Sıcakta rahat varmak"
+      },
+      {
+        "type": "p",
+        "text": "Ağustostaki bir transfer, marttaki bir transferle aynı iş değil. Araçlarımız klimalı ve karşılamadan önce soğutuluyor, sonra değil; şoförler bagajı taşıyor ve otopark J / 777 karşılama noktasına yürüme mesafesinde. Küçük çocuklu aileler için bu, tatile dinlenmiş ya da bunalmış başlamak arasındaki fark. Çocuk koltuğu ücretsiz ama rezervasyonda istenmesi gerekiyor."
+      },
+      {
+        "type": "routelinks",
+        "text": "Araç başına sabit yaz fiyatı; gece ve sezon zammı yok:",
+        "routes": [
+          "belek",
+          "side",
+          "kemer",
+          "alanya"
+        ],
+        "button": "Sabit fiyatı görün"
+      },
+      {
+        "type": "h2",
+        "text": "Yaz size uygun mu?"
+      },
+      {
+        "type": "p",
+        "text": "En sıcak denizi, otelin tüm tesislerinin açık olmasını ve dolu bir animasyon programını istiyorsanız temmuz ve ağustos tam bunu veriyor. Antik kentleri sıra beklemeden görmek ve hâlâ ılık bir denizde yüzmek istiyorsanız haziranın ilk yarısı ve eylülün tamamı aynı kıyıyı daha yavaş bir tempoda sunuyor - havalimanı yolu da belirgin biçimde sakin."
+      }
+    ],
+    "faq": [
+      [
+        "Antalya'da temmuz ve ağustosta hava ne kadar sıcak?",
+        "Gündüz genelde 33-36 °C, geceler 23-26 °C; çoğu yaz 40 °C'yi aşan tek tük günler de görülüyor."
+      ],
+      [
+        "Yazın Antalya'da deniz kaç derece?",
+        "Temmuzda yaklaşık 27-28 °C, ağustosta 28-29 °C; bu yüzden yüzme sezonu rahatça ekime kadar sürüyor."
+      ],
+      [
+        "Antik kentleri gezmek için çok mu sıcak?",
+        "Erken giderseniz değil. Perge, Aspendos ve Side büyük ölçüde gölgesiz; saat 10.00'dan önce ya da 17.00'den sonra öğleye göre çok daha rahat."
+      ],
+      [
+        "Antalya'da yazın yağmur yağar mı?",
+        "Çok seyrek. Bu kıyıda temmuz ve ağustos fiilen kurudur; iç kesimlerde kısa dağ sağanakları olabilir."
+      ],
+      [
+        "Yüksek sezonda havalimanı ne kadar sürer?",
+        "Genelde inişten geliş salonu çıkışına 20-45 dakika. Gerçek iniş saatinden sonraki ilk 90 dakika şoför beklemesi ücretsiz."
+      ]
+    ]
+  },
+  "belek-side-kemer-compare": {
+    "slug": "belek-side-kemer-hangisi",
+    "title": "Belek, Side mi Kemer mi: Hangi Antalya Bölgesi Size Uygun",
+    "heading": "Belek, Side ya da Kemer: kıyınızı seçmek",
+    "description": "Golf ve beş yıldızlı tatil köyleri, denizin kıyısında antik bir kasaba ya da suya inen çam dağları: Belek, Side ve Kemer farkı ve yol süreleri.",
+    "excerpt": "Üç tatil bölgesi, tek havalimanı, birbirinden çok farklı üç tatil. Manzara, oteller, kime hangisi uyar ve AYT'den yol gerçekte ne kadar sürer.",
+    "readingMinutes": 7,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Antalya'yı ilk kez planlayanların çoğu Belek, Side ve Kemer arasında seçim yapıyor ve kataloglarda üçü de birbirine benziyor. Aynı kıyı, aynı havalimanından iki saat içinde, her yerde büyük oteller. Ama farklar gerçek: mesele büyük ölçüde manzara, yürüme mesafesinde ne olduğu ve havalimanına uzaklık."
+      },
+      {
+        "type": "h2",
+        "text": "Üçü yan yana"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Bölge",
+          "AYT'den",
+          "Yol",
+          "Öne çıkanı"
+        ],
+        "rows": [
+          [
+            "Belek",
+            "45 km",
+            "35-40 dk",
+            "Golf sahaları, beş yıldızlı her şey dahil, çam ve kum"
+          ],
+          [
+            "Side",
+            "65 km",
+            "55-65 dk",
+            "Kasabanın içinde Roma kalıntıları, uzun aile plajları"
+          ],
+          [
+            "Kemer",
+            "50 km",
+            "40-50 dk",
+            "Denize inen dağlar, çakıl koylar, çam ormanı"
+          ],
+          [
+            "Antalya şehir merkezi",
+            "15 km",
+            "20-30 dk",
+            "Kaleiçi, müzeler, yıl boyu şehir hayatı"
+          ]
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Belek: tatil köyleri, golf ve düz kum"
+      },
+      {
+        "type": "p",
+        "text": "Belek üçünün en yenisi ve en planlı olanı: çam ormanı ve düz kumsal şeridi boyunca büyük beş yıldızlı tesisler, birkaç şampiyona golf sahası ve hemen yanında Land of Legends. Gezilecek bir eski kasaba yok; otelin kendisi varış noktası ve konukların çoğu dışarı sadece golf, park ya da günübirlik tur için çıkıyor. Kendi içinde tamam bir lüks hafta ve 35 dakikalık yol istiyorsanız kıyının en kolay cevabı burası."
+      },
+      {
+        "type": "h2",
+        "text": "Side: yürüyerek gidilen antik kent"
+      },
+      {
+        "type": "p",
+        "text": "Side, bir Roma kentinin içine kurulmuş küçük bir yarımada kasabası: tiyatro, sütunlu cadde ve suyun kıyısındaki Apollon Tapınağı, sütunların arasında restoranlar ve dükkânlar. Oteller doğuya ve batıya, Çolaklı ve Kumköy yönüne yayılıyor; yani plaj uzun ve aileye uygun, kasabanın kendisi de akşam yürüyecek bir yer veriyor. Bedeli mesafe: havalimanından bir saatin biraz üzeri."
+      },
+      {
+        "type": "h2",
+        "text": "Kemer: dağlar ve çam gölgesi"
+      },
+      {
+        "type": "p",
+        "text": "Antalya'nın batısında Toroslar denize iniyor ve Kemer tam o manzarada: çam ormanı, çakıl ve iri kumlu koylar, etkileyici manzaralar ve düz doğu kıyısına göre daha serin bir hava. Tekirova, Göynük ve Beldibi aynı şeride ait; Olympos, Tahtalı teleferiği ve Likya Yolu yakın. Yürüyüşçüye ve dalgıca uyar, ince kumda ısrarcı olana daha az."
+      },
+      {
+        "type": "h2",
+        "text": "Kime hangisi"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Golf, büyük tesisler, kısa transfer: Belek.",
+          "Kapı önünde antik kent ve akşam yürünecek bir kasaba: Side.",
+          "Dağ, çam gölgesi ve yürüyüş: Kemer.",
+          "Küçük çocuk ve sığ düz kum: Belek ya da Side-Çolaklı şeridi.",
+          "Müze ve şehir gezisi: doğrudan Antalya'da kalın.",
+          "En uzun sahil yolu ve hareketli merkez, iki saatlik yol sorun değilse: Alanya."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Yol süresi pratikte ne demek"
+      },
+      {
+        "type": "p",
+        "text": "Yol süresi en çok tatilin başında ve sonunda önemli. Yorgun bir bebekle Belek'e 35 dakika, gece uçuşundan sonra Alanya'ya iki saatle aynı şey değil. Tüm fiyatlarımız yolculuğun tamamı için araç başına sabit; uçuş takibi dahil, talep edilirse çocuk koltuğu ücretsiz ve gece zammı yok - yani geç varış, öğlen varışla aynı fiyat. Yine de kısa yol kısa yoldur."
+      },
+      {
+        "type": "routelinks",
+        "text": "Bölgelerin sabit fiyatını ve yol süresini karşılaştırın:",
+        "routes": [
+          "belek",
+          "side",
+          "kemer",
+          "alanya"
+        ],
+        "button": "Sabit fiyatı görün"
+      }
+    ],
+    "faq": [
+      [
+        "Aileler için Belek mi Side mi daha iyi?",
+        "İkisi de işe yarar. Belek'in kumu daha düz ve tesisleri daha yeni, büyük su parkları var; Side yürünecek bir kasaba ve antik kalıntılar ekliyor, karşılığında havalimanından yaklaşık 20 dakika daha uzak."
+      ],
+      [
+        "Antalya Havalimanı'na en yakın bölge hangisi?",
+        "15 km ile Antalya şehir merkezi, ardından 45 km Belek (35-40 dakika), 50 km Kemer (40-50 dakika) ve 65 km Side (55-65 dakika)."
+      ],
+      [
+        "Kemer'de kum plaj var mı?",
+        "Ağırlıklı olarak çakıl ve iri kum, yanında çam gölgesi ve dağ manzarası. İnce kum öncelikliyse Belek ya da Side çevresindeki plajlar daha uygun."
+      ],
+      [
+        "Golf için en iyi bölge hangisi?",
+        "Tartışmasız Belek: birkaç şampiyona sahası birbirinden birkaç kilometre uzakta ve genelde otellerden 10-15 dakika."
+      ],
+      [
+        "Tatilim sırasında diğer bölgeleri gezebilir miyim?",
+        "Evet. Side, Belek ve Kemer birbirine yaklaşık bir saat uzaklıkta; günlük özel araç, ikisini birleştirmenin en kolay yolu."
+      ]
+    ]
+  },
+  "arrival-essentials-turkey": {
+    "slug": "turkiye-varis-rehberi-vize-para-sim",
+    "title": "Türkiye'ye Varış: Giriş Kuralları, Para, SIM Kart ve Bahşiş",
+    "heading": "Pratik ilk saat: giriş, lira, internet ve bahşiş",
+    "description": "Pasaport ve e-vize kuralları, ne kadar nakit taşımalı, para nerede değiştirilir, Türk SIM mi eSIM mi ve Antalya'da bahşiş gerçekte nasıl işler.",
+    "excerpt": "İnmeden önce ve indikten sonraki ilk saatte halledilecekler: giriş kuralları, cepte lira, çalışan mobil internet ve bahşişe dair gerçekçi bir bakış.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Bu rehberdeki her şey küçük işler ve hepsi, gece birde geliş salonunda uğraşmaktan çok inmeden önce halledilmeye uygun. Şeklini bir kez öğrendiğinizde hiçbiri karmaşık değil."
+      },
+      {
+        "type": "h2",
+        "text": "Giriş kuralları ve pasaport"
+      },
+      {
+        "type": "p",
+        "text": "AB ülkelerinin çoğu dahil birçok ülke vatandaşı kısa turistik kalışlar için Türkiye'ye vizesiz giriyor; diğerleri dakikalar içinde çevrim içi verilen e-vizeyi alıyor. İnsanları vizenin kendisinden daha sık zorlayan iki şey var: pasaportun genelde kalış sonrasını da kapsayacak geçerliliği olması gerekir ve her çocuğun kendi seyahat belgesi olmalıdır. Yolculuktan kısa süre önce kendi ülkenizin durumunu resmî e-vize sitesinden kontrol edin; kurallar değişir ve yalnızca resmî kaynak güncel kalır."
+      },
+      {
+        "type": "h2",
+        "text": "Para: lira, kart ve nakit"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Para birimi Türk lirası (TRY). Turistik yerlerde fiyatlar euro olarak da söylenir ama para üstü lira gelir.",
+          "Kart neredeyse her yerde çalışır: otel, market, restoran, eczane. Temassız ödeme standart.",
+          "Küçük harcamalar için nakit bulundurun: pazar tezgâhı, köy kahvesi, otopark, bahşiş, dolmuş ücreti.",
+          "Havalimanı kuru yolculuğun en kötüsüdür; orada sadece hemen gerekeni değiştirin, kalanını şehirde veya banka ATM'sinden çekin.",
+          "ATM ya da POS size kendi para biriminizde işlem teklif ederse reddedin ve lira olarak ödeyin; çevrim nadiren sizin lehinize olur."
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Transferlerimiz varışta şoföre nakit ödenir, euro ya da lira olarak ve fiyat yolculuktan önce sabitlenmiş olur; yani otele gitmeden önce ATM aramanız gerekmez."
+      },
+      {
+        "type": "h2",
+        "text": "Bağlantıda kalmak: SIM mi eSIM mi"
+      },
+      {
+        "type": "p",
+        "text": "Turist SIM kartları geliş salonlarında ve şehirde satılıyor; kayıt için pasaportunuz gerekiyor. Yolculuktan önce alınan bir eSIM genelde daha ucuz ve iner inmez aktif oluyor - pratik avantajı da bu: hiçbir kuyruğa girmeden şoföre yazabilir, harita açabilir ya da oteli arayabilirsiniz. Otel wifi'si yaygın ve genelde iyi, bu yüzden bir haftalık tatilde yerel numara kolaylıktır, zorunluluk değil."
+      },
+      {
+        "type": "h2",
+        "text": "Bahşiş, dürüst haliyle"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Restoran: memnun kaldıysanız %5-10, daha iyi mekânlarda biraz fazlası; servisin hesaba eklenip eklenmediğine bakın.",
+          "Kat görevlisi ve bellboy: odaya bırakılan ya da elden verilen küçük bir miktar olağan ve makbule geçer.",
+          "Transfer şoförü: hiçbir zaman zorunlu değil ve fiyata eklenmiyor. Ağır bagaj ya da gece yolculuğu için birkaç euro nezakettir, beklenti değil.",
+          "Günübirlik turda rehber: günün sonunda kişi başı küçük bir miktar yaygın pratiktir.",
+          "Taksi: üste yuvarlamak yeterli."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "İlk saatiniz, sırayla"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Pasaport kontrolü, ardından bagaj: yüksek sezonda 20-45 dakika hesaplayın.",
+          "Yerel numara istiyorsanız eSIM'i açın ya da SIM alın.",
+          "Yalnızca hemen lira gerekiyorsa küçük bir miktar bozdurun.",
+          "Geliş salonuna, J / 777 karşılama noktasına geçin; ekibimiz rezervasyonunuzu biliyor ve sizi şoföre götürüyor.",
+          "Su, klima ve yol: Belek'e 35-40 dakika, Alanya'ya yaklaşık iki saat."
+        ]
+      },
+      {
+        "type": "routelinks",
+        "text": "Araç başına sabit fiyat, uçuş takibi dahil, varışta ödeme:",
+        "routes": [
+          "antalya",
+          "belek",
+          "alanya"
+        ],
+        "button": "Sabit fiyatı görün"
+      }
+    ],
+    "faq": [
+      [
+        "Türkiye'ye vize gerekiyor mu?",
+        "Vatandaşlığınıza bağlı. AB ülkelerinin çoğu dahil birçok ziyaretçi kısa turistik kalış için vizesiz giriyor; diğerleri çevrim içi e-vize alıyor. Yolculuktan önce resmî e-vize sitesinden kontrol edin."
+      ],
+      [
+        "Euro mu Türk lirası mı getirmeliyim?",
+        "Euro getirin ya da kart kullanın, lirayı burada edinin. Havalimanı kuru kötüdür; orada sadece gerekeni bozdurun, kalanı şehirdeki banka ATM'si veya döviz bürosundan."
+      ],
+      [
+        "Antalya'da her yerde kartla ödenir mi?",
+        "Otel, restoran, market ve eczanede evet. Pazar, küçük kahve, bahşiş ve toplu taşıma için nakit bulundurun."
+      ],
+      [
+        "Türk SIM kartı mı eSIM mi daha iyi?",
+        "Yolculuktan önce alınan eSIM genelde daha ucuz ve iner inmez çalışır. Fiziksel turist SIM kartı pasaportla kaydedilir ve geliş salonunda veya şehirde satılır."
+      ],
+      [
+        "Transfer şoförüne bahşiş vermek zorunda mıyım?",
+        "Hayır. Fiyat sabit ve eksiksizdir. Ağır bagaj ya da gece varışı için birkaç euro memnuniyetle karşılanır ama asla beklenmez."
+      ]
+    ]
   }
 };

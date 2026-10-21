@@ -217,3 +217,28 @@ gece farkı yok" mesajını tekrarlıyor.
    2027 tarihleri netleşince `updated` tarihini tazele.
 5. Sonraki adaylar: Termessos, Düden - Kurşunlu şelaleleri, Antalya'da kış
    festivalleri (tarihsiz), Gazipaşa havalimanından Alanya'ya transfer.
+
+---
+
+## Ekleme (21 Ekim 2026) - huni boşluklarını kapatan 4 makale
+
+Mevcut 26 makale mevsim ve gezi niyetini kapsıyordu; eksik olan dört boşluk
+kapatıldı. Her biri 23 dilde yayında (4 × 23 = 92 yeni sayfa, sitemap 1145
+URL).
+
+| id | Niyet | Beslediği rotalar |
+| --- | --- | --- |
+| `antalya-airport-terminals` | "AYT terminal 1 / terminal 2" - varış lojistiği | antalya, belek, side, alanya |
+| `antalya-in-summer` | Mevsim setindeki yaz boşluğu (temmuz-ağustos) | belek, side, kemer, alanya |
+| `belek-side-kemer-compare` | Karar aşamasındaki turist, rota sayfalarını besler | belek, side, kemer, alanya, antalya |
+| `arrival-essentials-turkey` | e-vize, lira, SIM/eSIM, bahşiş - güven içeriği | antalya, belek, alanya |
+
+Terminal makalesi `airport-arrival-guide` ile yarışmasın diye farklı niyete
+oturuyor: hangi terminal, terminaller arası geçiş, iç hat aktarması ve dönüş
+günü terminal kontrolü. Varış rehberi ise pasaport-bagaj-karşılama akışında
+kalıyor.
+
+İçerik kuralları aynı: sıcaklıklar yaklaşık ortalama, terminal ataması
+"havayolu belirler, sezona göre değişir" olarak hedge'li, vize için resmi
+e-vize sitesine yönlendirme, fiyat vaadi yok (sadece araç başı sabit fiyat,
+gece zammı yok, uçuş takibi, 90 dakika ücretsiz bekleme).

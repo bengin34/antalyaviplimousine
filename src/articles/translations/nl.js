@@ -2724,5 +2724,502 @@ export const articles = {
         "Een halve dag is genoeg voor een eerste wandeling. Met het museum, het Karaalioğlu-park en de Düden-watervallen is een hele dag of twee ideaal."
       ]
     ]
+  },
+  "antalya-airport-terminals": {
+    "slug": "vliegveld-antalya-terminal-1-terminal-2",
+    "title": "Vliegveld Antalya: terminal 1, terminal 2 en binnenland",
+    "heading": "Terminal 1, terminal 2 of binnenland: welke is de uwe?",
+    "description": "Welke terminal uw vlucht op het vliegveld van Antalya gebruikt, hoe u tussen terminal 1 en 2 komt en wat de terminal verandert voor ophalen en vertrek.",
+    "excerpt": "AYT heeft drie terminals aan dezelfde luchthavenweg. Zo weet u welke de uwe is, zo steekt u over en daarom wil uw chauffeur het vluchtnummer hebben.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Het vliegveld van Antalya is één luchthaven met drie aankomst- en vertrekgebouwen, en bijna elke vraag vóór een transfer komt op hetzelfde neer: in welke terminal zit ik? Het antwoord bepaalt waar uw chauffeur parkeert, hoe lang de loop naar de auto is en hoe vroeg u op de dag van vertrek uit het hotel moet."
+      },
+      {
+        "type": "h2",
+        "text": "De drie terminals"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Terminal",
+          "Vooral",
+          "Goed om te weten"
+        ],
+        "rows": [
+          [
+            "Terminal 1",
+            "Internationale lijnvluchten",
+            "Het oudere internationale gebouw, westelijk van het binnenlandgebouw"
+          ],
+          [
+            "Terminal 2",
+            "Charters en seizoensvluchten",
+            "In de zomer het drukste gebouw, vooral in het weekend"
+          ],
+          [
+            "Binnenlandterminal",
+            "Vluchten uit Istanbul, Ankara, Izmir",
+            "Ligt tussen de twee internationale terminals"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Alle drie liggen aan dezelfde toegangsweg, op een paar honderd meter van elkaar, dus een verkeerde terminal kost ongemak en geen vakantiedag. De luchtvaartmaatschappij bepaalt de terminal en die kan per seizoen wisselen - daarom raden wij hem nooit op basis van de bestemming."
+      },
+      {
+        "type": "h2",
+        "text": "Zo weet u uw aankomstterminal"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Kijk eerst op uw boekingsbevestiging of instapkaart - de terminal staat meestal naast het vluchtnummer.",
+          "De vluchtstatuspagina van de maatschappij is de meest actuele bron als het schema is gewijzigd.",
+          "Charter- en pakketvluchten landen vaker op terminal 2, lijnvluchten van grote maatschappijen vaker op terminal 1.",
+          "Een overstap via Istanbul eindigt op de binnenlandterminal, ook als de reis in het buitenland begon.",
+          "Twijfelt u? Stuur ons het vluchtnummer - wij volgen de vlucht zelf en sturen de chauffeur naar de hal waar hij werkelijk landt."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Van terminal 1 naar terminal 2"
+      },
+      {
+        "type": "p",
+        "text": "Het is zelden nodig, maar het gebeurt: een gezin dat met twee maatschappijen vliegt, of een binnenlandse overstap die in een ander gebouw landt dan de rest van het gezelschap. De terminals zijn verbonden door de luchthavenweg, met een korte shuttlerit of een paar minuten lopen ertussen. Met meerdere koffers en kinderen is het eenvoudiger om in één hal te wachten en de chauffeur het hele gezelschap in één voertuig te laten ophalen."
+      },
+      {
+        "type": "h2",
+        "text": "Waar de chauffeur wacht"
+      },
+      {
+        "type": "p",
+        "text": "Haal uw bagage, loop door naar de aankomsthal en ga naar het meet & greet-punt J / 777. Ons luchthaventeam heeft uw boekingsnummer en brengt u naar uw chauffeur - u hoeft geen naambordjes af te zoeken. De eerste 90 minuten na de werkelijke landing zijn inbegrepen en het wachtvenster schuift automatisch mee bij vertraging: later landen verandert de prijs niet."
+      },
+      {
+        "type": "routelinks",
+        "text": "Vaste prijs per voertuig, van elke terminal naar uw hotel:",
+        "routes": [
+          "antalya",
+          "belek",
+          "side",
+          "alanya"
+        ],
+        "button": "Bekijk uw vaste prijs"
+      },
+      {
+        "type": "h2",
+        "text": "Op de dag van vertrek telt de terminal zwaarder"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Controleer de vertrekterminal de avond ervoor - dat is niet altijd de terminal waar u aankwam.",
+          "In juli en augustus kunt u beter ongeveer drie uur voor een internationale vlucht op de terminal zijn, buiten het hoogseizoen twee tot tweeënhalf uur.",
+          "Tel de rijtijd erbij op: ongeveer 35-40 minuten uit Belek, 40-50 uit Kemer, 55-65 uit Side en zo'n twee uur uit Alanya.",
+          "Geef ook voor de terugreis het vluchtnummer, zodat de ophaaltijd op de echte vertrektijd is gebaseerd.",
+          "Alleen passagiers met een ticket komen de terminal binnen, dus neem bij de deur afscheid en niet daarbinnen."
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Eén prijs geldt voor het hele voertuig, welke terminal het ook is, zonder nachttoeslag en contant af te rekenen met uw chauffeur. De terminal is ons logistieke probleem, niet het uwe."
+      }
+    ],
+    "faq": [
+      [
+        "Hoeveel terminals heeft het vliegveld van Antalya?",
+        "Drie: terminal 1 en terminal 2 voor internationale vluchten en daartussen een binnenlandterminal voor vluchten uit Istanbul, Ankara en Izmir."
+      ],
+      [
+        "Op welke terminal landt mijn vlucht?",
+        "Dat bepaalt de maatschappij en het kan per seizoen wisselen. Uw instapkaart of de vluchtstatuspagina is maatgevend: charters vaker terminal 2, lijnvluchten terminal 1."
+      ],
+      [
+        "Hoe ver liggen terminal 1 en 2 van elkaar?",
+        "Een paar honderd meter aan dezelfde luchthavenweg, een korte shuttlerit of een klein stukje lopen, met de binnenlandterminal ertussen."
+      ],
+      [
+        "Verandert de terminal de transferprijs?",
+        "Nee. De prijs staat vast per voertuig en per bestemming, niet per terminal, en er is geen nachttoeslag."
+      ],
+      [
+        "En als mijn vlucht op een andere terminal landt?",
+        "Voor u verandert niets. Wij volgen het vluchtnummer, dus de chauffeur gaat naar de hal waar het vliegtuig echt landt."
+      ]
+    ]
+  },
+  "antalya-in-summer": {
+    "slug": "antalya-in-de-zomer-juli-augustus",
+    "title": "Antalya in de zomer: hitte in juli en augustus, zee en transfers",
+    "heading": "Antalya in de zomer: hoe juli en augustus echt zijn",
+    "description": "Temperaturen, zeewater, drukte en de aankomsthal in het hoogseizoen - zo plant u een zomervakantie en een transfer rond middagen van 35 graden.",
+    "excerpt": "Middagen van vijfendertig graden, een zee van achtentwintig en de drukste aankomsthal van het jaar. Hoe het hoogseizoen aanvoelt en hoe u aankomt zonder dag te verliezen.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Juli en augustus zijn de twee maanden waar Antalya om gebouwd is. De stranden zijn vol, de hotels zitten op capaciteit en de luchthaven verwerkt het drukste verkeer van het jaar. Het is ook het heetste en vochtigste deel van de zomer, dus het verschil tussen een mooie en een slopende dag zit vooral in het tijdstip."
+      },
+      {
+        "type": "h2",
+        "text": "Hoe warm het werkelijk wordt"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Maand",
+          "Overdag",
+          "Zee",
+          "Karakter"
+        ],
+        "rows": [
+          [
+            "Juni",
+            "30-33 °C",
+            "25-26 °C",
+            "Warm maar aangenaam, lange avonden"
+          ],
+          [
+            "Juli",
+            "33-36 °C",
+            "27-28 °C",
+            "Piek van hitte en bezetting"
+          ],
+          [
+            "Augustus",
+            "33-36 °C",
+            "28-29 °C",
+            "Warmste zee, vochtige nachten"
+          ],
+          [
+            "September",
+            "30-33 °C",
+            "27-28 °C",
+            "Zomer zonder gedrang"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Dit zijn gemiddelden; losse dagen boven 40 °C komen bijna elke zomer voor. Aan de kust blijft het 's nachts 23-26 °C - daarom telt airconditioning hier zwaarder dan schaduw. Regen is in juli en augustus zo zeldzaam dat u er niet op hoeft te rekenen."
+      },
+      {
+        "type": "h2",
+        "text": "De dag om de hitte heen plannen"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Houd strand en zwembad voor de ochtend en de late middag; 13.00 tot 16.00 uur is voor schaduw, lunch of een siësta.",
+          "Bezoek de antieke steden vroeg - Perge, Aspendos en Side hebben vrijwel geen schaduw en de steen straalt rond het middaguur hitte af.",
+          "Boottochten en de Köprülü-kloof zijn de koelere keuzes: water en hoogte helpen beide.",
+          "Bewaar de oude stad Kaleiçi voor de avond, als de steegjes warm zijn in plaats van heet.",
+          "Drink meer water dan u denkt nodig te hebben en houd een fles bij u in de auto."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "De aankomsthal in het hoogseizoen"
+      },
+      {
+        "type": "p",
+        "text": "In de zomer duurt het uitlopen van de luchthaven het langst. Reken op 20 tot 45 minuten van landing tot buiten, soms langer als meerdere widebody-charters tegelijk landen. Dat is normaal - en precies daarom telt het wachtvenster: de eerste 90 minuten na de werkelijke landingstijd zijn inbegrepen en het ophalen schuift mee met de vlucht."
+      },
+      {
+        "type": "h2",
+        "text": "Comfortabel aankomen in de hitte"
+      },
+      {
+        "type": "p",
+        "text": "Een transfer in augustus is een ander karwei dan in maart. Onze voertuigen hebben airco en worden vóór het ophalen gekoeld, niet erna, chauffeurs dragen de bagage en de parkeerplaats ligt op een paar stappen van meet & greet-punt J / 777. Voor gezinnen met kleine kinderen is dat het verschil tussen uitgerust of overhit beginnen. Kinderzitjes zijn gratis, maar moeten bij de boeking worden aangevraagd."
+      },
+      {
+        "type": "routelinks",
+        "text": "Vaste zomerprijzen per voertuig, zonder nacht- of seizoenstoeslag:",
+        "routes": [
+          "belek",
+          "side",
+          "kemer",
+          "alanya"
+        ],
+        "button": "Bekijk uw vaste prijs"
+      },
+      {
+        "type": "h2",
+        "text": "Is de zomer uw seizoen?"
+      },
+      {
+        "type": "p",
+        "text": "Wilt u de warmste zee, alle hotelvoorzieningen open en een vol animatieprogramma, dan geven juli en augustus precies dat. Wilt u de ruïnes zonder rij zien en zwemmen in een zee die nog warm is, dan geven de eerste helft van juni en heel september dezelfde kust in een rustiger tempo - en een merkbaar legere luchthavenweg."
+      }
+    ],
+    "faq": [
+      [
+        "Hoe warm is het in Antalya in juli en augustus?",
+        "Overdag meestal 33-36 °C en 's nachts 23-26 °C; losse dagen boven 40 °C komen bijna elke zomer voor."
+      ],
+      [
+        "Hoe warm is de zee in Antalya in de zomer?",
+        "Ongeveer 27-28 °C in juli en 28-29 °C in augustus - daarom loopt het zwemseizoen comfortabel door tot in oktober."
+      ],
+      [
+        "Is het te heet voor de antieke steden?",
+        "Niet als u vroeg gaat. Perge, Aspendos en Side liggen vrijwel onbeschaduwd; vóór 10.00 of na 17.00 uur is veel prettiger dan het middaguur."
+      ],
+      [
+        "Regent het in de zomer in Antalya?",
+        "Zeer zelden. Juli en augustus zijn aan deze kust praktisch droog, met soms een korte bergbui in het binnenland."
+      ],
+      [
+        "Hoe lang duurt de luchthaven in het hoogseizoen?",
+        "Doorgaans 20 tot 45 minuten van landing tot buiten de aankomsthal. De eerste 90 minuten wachttijd na de echte landing zijn gratis."
+      ]
+    ]
+  },
+  "belek-side-kemer-compare": {
+    "slug": "belek-side-of-kemer-welke-badplaats",
+    "title": "Belek, Side of Kemer: welke badplaats bij Antalya past bij u",
+    "heading": "Belek, Side of Kemer: uw stuk kust kiezen",
+    "description": "Golf en vijfsterrenresorts, een antiek stadje aan zee of pijnbomenbergen die in het water duiken - hoe Belek, Side en Kemer verschillen, en in rijtijd.",
+    "excerpt": "Drie vakantiegebieden, één luchthaven, drie heel verschillende vakanties. Landschap, hotels, voor wie elk gebied werkt en hoe lang de rit van AYT echt duurt.",
+    "readingMinutes": 7,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Wie voor het eerst een vakantie bij Antalya boekt, kiest meestal tussen Belek, Side en Kemer, en in een brochure lijken ze alle drie hetzelfde. Dezelfde kust, alles binnen twee uur van dezelfde luchthaven, overal grote hotels. De verschillen zijn echter reëel: landschap, wat er op loopafstand ligt en hoe ver u van de luchthaven zit."
+      },
+      {
+        "type": "h2",
+        "text": "De drie naast elkaar"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Gebied",
+          "Van AYT",
+          "Rijtijd",
+          "Bekend om"
+        ],
+        "rows": [
+          [
+            "Belek",
+            "45 km",
+            "35-40 min",
+            "Golfbanen, vijfsterren all-inclusive, pijnbos en zand"
+          ],
+          [
+            "Side",
+            "65 km",
+            "55-65 min",
+            "Romeinse ruïnes in het stadje zelf, lange gezinsstranden"
+          ],
+          [
+            "Kemer",
+            "50 km",
+            "40-50 min",
+            "Bergen aan de zee, kiezelbaaien, pijnbos"
+          ],
+          [
+            "Antalya stad",
+            "15 km",
+            "20-30 min",
+            "Oude stad, musea, stadsleven het hele jaar"
+          ]
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Belek: resorts, golf en vlak zand"
+      },
+      {
+        "type": "p",
+        "text": "Belek is de jongste van de drie en de meest geplande: een strook pijnbos en vlak zandstrand met grote vijfsterrenresorts, meerdere championship-golfbanen en het themapark Land of Legends ernaast. Er is geen oude kern om in te dwalen - het hotel is de bestemming, en de meeste gasten gaan er alleen uit voor golf, het park of een dagtrip. Wilt u een zelfvoorzienende luxeweek met 35 minuten rijden, dan is dit het eenvoudigste antwoord aan deze kust."
+      },
+      {
+        "type": "h2",
+        "text": "Side: ruïnes op loopafstand"
+      },
+      {
+        "type": "p",
+        "text": "Side is een klein stadje op een landtong, gebouwd binnen een Romeinse site: een theater, een zuilenstraat en de Apollotempel aan het water, met restaurants en winkels tussen de zuilen. De hotels strekken zich oost- en westwaarts uit naar Çolaklı en Kumköy, dus het strand is lang en gezinsvriendelijk, en het stadje geeft u ergens om 's avonds te lopen. De prijs is de afstand - ruim een uur van de luchthaven."
+      },
+      {
+        "type": "h2",
+        "text": "Kemer: bergen en schaduw van pijnbomen"
+      },
+      {
+        "type": "p",
+        "text": "Westelijk van Antalya komt het Taurusgebergte tot aan de zee, en Kemer ligt in dat landschap: pijnbos, baaien met kiezel en grof zand, weidse uitzichten en een koelere sfeer dan de vlakke oostkust. Tekirova, Göynük en Beldibi horen bij dezelfde strook, met Olympos, de Tahtalı-kabelbaan en de Lycische Weg vlakbij. Ideaal voor wandelaars en duikers, minder voor wie fijn zand eist."
+      },
+      {
+        "type": "h2",
+        "text": "Wat bij wie past"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Golf, grote resorts, korte transfer: Belek.",
+          "Oudheid op de stoep en een stadje om te slenteren: Side.",
+          "Bergen, pijnboomschaduw en wandelen: Kemer.",
+          "Kleine kinderen en vlak, ondiep zand: Belek of de strook Side-Çolaklı.",
+          "Musea en de stad bekijken: blijf in Antalya zelf.",
+          "De langste boulevard en een levendig centrum, als twee uur rijden mag: Alanya."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Wat de rijtijd in de praktijk betekent"
+      },
+      {
+        "type": "p",
+        "text": "Rijtijd weegt het zwaarst aan het begin en het einde van de vakantie. 35 minuten naar Belek met een vermoeide kleuter is iets anders dan twee uur naar Alanya na een nachtvlucht. Al onze prijzen staan vast per voertuig voor de hele rit, met vluchtmonitoring, gratis kinderzitjes op aanvraag en zonder nachttoeslag - laat aankomen kost hetzelfde als midden op de dag. Maar korter blijft korter."
+      },
+      {
+        "type": "routelinks",
+        "text": "Vergelijk de vaste prijs en de rijtijd per gebied:",
+        "routes": [
+          "belek",
+          "side",
+          "kemer",
+          "alanya"
+        ],
+        "button": "Bekijk uw vaste prijs"
+      }
+    ],
+    "faq": [
+      [
+        "Is Belek of Side beter voor gezinnen?",
+        "Beide werken goed. Belek heeft vlakker zand en nieuwere resorts met grote waterparken; Side voegt een stadje om te wandelen en antieke ruïnes toe, met ongeveer 20 minuten extra rijtijd."
+      ],
+      [
+        "Welke badplaats ligt het dichtst bij het vliegveld van Antalya?",
+        "Antalya stad op 15 km, dan Belek op 45 km (35-40 minuten), Kemer op 50 km (40-50 minuten) en Side op 65 km (55-65 minuten)."
+      ],
+      [
+        "Heeft Kemer zandstranden?",
+        "Vooral kiezel en grof zand, met schaduw van pijnbomen en bergzicht. Is fijn zand de prioriteit, dan passen Belek of de stranden rond Side beter."
+      ],
+      [
+        "Welk gebied is het beste voor golf?",
+        "Belek, zonder twijfel - meerdere championship-banen liggen een paar kilometer van elkaar, meestal 10-15 minuten van de hotels."
+      ],
+      [
+        "Kan ik de andere badplaatsen tijdens mijn verblijf bezoeken?",
+        "Ja. Side, Belek en Kemer liggen ongeveer een uur van elkaar, en een privéauto voor de dag is de eenvoudigste manier om er twee te combineren."
+      ]
+    ]
+  },
+  "arrival-essentials-turkey": {
+    "slug": "aankomst-turkije-visum-geld-simkaart",
+    "title": "Aankomst in Türkiye: toegang, geld, simkaart en tippen",
+    "heading": "Het praktische eerste uur: toegang, lira, data en tips",
+    "description": "Paspoort- en e-visumregels, hoeveel cash u meeneemt, waar u geld wisselt, een Turkse simkaart of eSIM en hoe tippen in Antalya er werkelijk uitziet.",
+    "excerpt": "Wat u vóór de landing en in het eerste uur erna regelt: toegangsregels, lira op zak, werkende mobiele data en een realistische blik op tippen.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Alles in deze gids is klein, en alles is makkelijker te regelen voordat u landt dan om één uur 's nachts in een aankomsthal. Niets ervan is ingewikkeld als u de vorm ervan kent."
+      },
+      {
+        "type": "h2",
+        "text": "Toegangsregels en uw paspoort"
+      },
+      {
+        "type": "p",
+        "text": "Veel nationaliteiten, waaronder de meeste EU-burgers, reizen zonder visum naar Türkiye voor een korte vakantie; anderen hebben een e-visum nodig, dat online in minuten wordt afgegeven. Twee dingen gaan vaker mis dan het visum zelf: een paspoort moet doorgaans geldig blijven tot na het einde van uw verblijf, en elk kind heeft een eigen reisdocument nodig. Controleer uw eigen nationaliteit kort voor vertrek op de officiële Turkse e-visumsite - regels veranderen en alleen de officiële bron is actueel."
+      },
+      {
+        "type": "h2",
+        "text": "Geld: lira, kaarten en cash"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "De munt is de Turkse lira (TRY). In toeristische plaatsen worden prijzen vaak ook in euro genoemd, maar wisselgeld komt in lira.",
+          "Kaarten werken bijna overal - hotels, supermarkten, restaurants, apotheken. Contactloos is standaard.",
+          "Houd wat cash bij u voor het kleine werk: een marktkraam, een dorpscafé, parkeren, tips, een dolmuş-rit.",
+          "De koersen op de luchthaven zijn de slechtste van de reis; wissel daar alleen wat u direct nodig hebt en de rest in de stad of bij een bankautomaat.",
+          "Biedt een automaat of betaalterminal aan om in uw eigen valuta af te rekenen: weiger en betaal in lira - de omrekening valt zelden in uw voordeel."
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Onze transfers worden bij aankomst contant aan de chauffeur betaald, in euro of lira, met een prijs die vooraf vaststaat - u hoeft dus geen geldautomaat te zoeken voor de rit naar het hotel."
+      },
+      {
+        "type": "h2",
+        "text": "Verbonden blijven: simkaart of eSIM"
+      },
+      {
+        "type": "p",
+        "text": "Turkse toeristensimkaarten worden verkocht in de aankomsthallen en in de stad; voor registratie hebt u uw paspoort nodig. Een eSIM die u voor vertrek koopt is meestal goedkoper en werkt zodra u landt - dat is het praktische voordeel: u kunt de chauffeur berichten, een kaart openen of het hotel bellen voordat u ergens in de rij hebt gestaan. Hotelwifi is wijdverbreid en doorgaans prima, dus een lokaal nummer is voor een week gemak, geen noodzaak."
+      },
+      {
+        "type": "h2",
+        "text": "Tippen, eerlijk gezegd"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Restaurants: ongeveer 5-10 % als het goed was, in betere zaken meer; kijk of service al op de rekening staat.",
+          "Huishouding en kruiers in het hotel: een klein bankbiljet op de kamer of in de hand is normaal en wordt gewaardeerd.",
+          "Transferchauffeurs: nooit verplicht en nooit in de prijs verwerkt. Een paar euro voor zware bagage of een late rit is vriendelijkheid, geen verwachting.",
+          "Gidsen op een dagtrip: gebruikelijk is een klein bedrag per persoon aan het eind van de dag.",
+          "Taxi's: afronden is genoeg."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Uw eerste uur, op volgorde"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Paspoortcontrole, dan bagage - reken in het hoogseizoen op 20 tot 45 minuten.",
+          "Zet uw eSIM aan of koop een simkaart als u een lokaal nummer wilt.",
+          "Wissel alleen zoveel cash als u direct in lira nodig hebt.",
+          "Loop door naar de aankomsthal en meet & greet-punt J / 777, waar ons team uw boeking heeft en u naar de chauffeur brengt.",
+          "Water, airco en rijden - 35 tot 40 minuten naar Belek, ongeveer twee uur naar Alanya."
+        ]
+      },
+      {
+        "type": "routelinks",
+        "text": "Vaste prijs per voertuig, vluchtmonitoring inbegrepen, betalen bij aankomst:",
+        "routes": [
+          "antalya",
+          "belek",
+          "alanya"
+        ],
+        "button": "Bekijk uw vaste prijs"
+      }
+    ],
+    "faq": [
+      [
+        "Heb ik een visum nodig voor Türkiye?",
+        "Dat hangt af van uw nationaliteit. Veel reizigers, waaronder de meeste EU-burgers, hebben er geen nodig voor een korte vakantie; anderen vragen online een e-visum aan. Controleer het vóór vertrek op de officiële Turkse e-visumsite."
+      ],
+      [
+        "Moet ik euro's of Turkse lira meenemen?",
+        "Neem euro's of gebruik uw kaart en haal lira ter plaatse. De koersen op de luchthaven zijn slecht: wissel daar alleen het nodige en gebruik verder bankautomaten of wisselkantoren in de stad."
+      ],
+      [
+        "Kan ik in Antalya overal met kaart betalen?",
+        "In hotels, restaurants, supermarkten en apotheken wel. Houd cash bij u voor markten, kleine cafés, tips en lokaal vervoer."
+      ],
+      [
+        "Is een Turkse simkaart of een eSIM beter?",
+        "Een eSIM die u voor vertrek koopt is meestal goedkoper en werkt direct na de landing. Een fysieke toeristensim wordt op uw paspoort geregistreerd en is te koop in de aankomsthal en in de stad."
+      ],
+      [
+        "Moet ik de transferchauffeur tippen?",
+        "Nee. De prijs staat vast en is volledig. Een paar euro voor zware bagage of een nachtaankomst wordt gewaardeerd maar nooit verwacht."
+      ]
+    ]
   }
 };

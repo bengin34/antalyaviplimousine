@@ -2724,5 +2724,502 @@ export const articles = {
         "Na pierwszy spacer wystarczy pół dnia. Z muzeum, parkiem Karaalioğlu i wodospadami Düden idealne są jeden lub dwa pełne dni."
       ]
     ]
+  },
+  "antalya-airport-terminals": {
+    "slug": "lotnisko-antalya-terminal-1-terminal-2",
+    "title": "Lotnisko Antalya: Terminal 1, Terminal 2 i terminal krajowy",
+    "heading": "Terminal 1, Terminal 2 czy krajowy - który jest twój?",
+    "description": "Z którego terminalu w Antalyi korzysta twój lot, jak przejść między Terminalem 1 i 2 oraz co terminal zmienia przy odbiorze z lotniska i w dniu wylotu.",
+    "excerpt": "AYT to trzy terminale przy jednej drodze lotniskowej. Jak rozpoznać swój, jak przejść między nimi i dlaczego kierowca potrzebuje numeru lotu.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Lotnisko w Antalyi to jedno lotnisko z trzema budynkami przylotów i odlotów, a niemal każde pytanie przed transferem sprowadza się do tego samego: w którym terminalu jestem? Od odpowiedzi zależy, gdzie zaparkuje kierowca, jak długie jest przejście do samochodu i o której w dniu wylotu trzeba opuścić hotel."
+      },
+      {
+        "type": "h2",
+        "text": "Trzy terminale"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Terminal",
+          "Głównie",
+          "Warto wiedzieć"
+        ],
+        "rows": [
+          [
+            "Terminal 1",
+            "Rejsowe loty międzynarodowe",
+            "Starszy budynek międzynarodowy, na zachód od terminalu krajowego"
+          ],
+          [
+            "Terminal 2",
+            "Loty czarterowe i sezonowe",
+            "Najbardziej obłożony budynek latem, zwłaszcza w weekendy"
+          ],
+          [
+            "Terminal krajowy",
+            "Loty z Istambułu, Ankary, Izmiru",
+            "Leży pomiędzy dwoma terminalami międzynarodowymi"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Wszystkie trzy stoją przy tej samej drodze dojazdowej, kilkaset metrów od siebie, więc pomyłka terminalu to niewygoda, a nie stracony dzień. Terminal wyznacza linia lotnicza i może się zmieniać z sezonu na sezon - dlatego nigdy nie zgadujemy go po kierunku podróży."
+      },
+      {
+        "type": "h2",
+        "text": "Jak sprawdzić swój terminal przylotu"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Najpierw potwierdzenie rezerwacji lub karta pokładowa - terminal zwykle jest obok numeru lotu.",
+          "Strona statusu lotu przewoźnika to najbardziej aktualne źródło, jeśli rozkład się zmienił.",
+          "Loty czarterowe i pakietowe częściej lądują w Terminalu 2, rejsowe dużych linii w Terminalu 1.",
+          "Przesiadka w Istambule kończy się w terminalu krajowym, nawet jeśli podróż zaczęła się za granicą.",
+          "W razie wątpliwości wyślij nam numer lotu - śledzimy sam lot i kierujemy kierowcę do hali, w której faktycznie wylądował."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Przejście między Terminalem 1 i 2"
+      },
+      {
+        "type": "p",
+        "text": "Rzadko jest potrzebne, ale się zdarza: rodzina lecąca dwiema liniami albo krajowa przesiadka lądująca w innym budynku niż reszta grupy. Terminale łączy droga lotniskowa, między nimi jest krótki przejazd shuttle'em albo kilka minut spacerem. Z kilkoma walizkami i dziećmi prościej poczekać w jednej hali i pozwolić kierowcy zabrać całą grupę jednym samochodem."
+      },
+      {
+        "type": "h2",
+        "text": "Gdzie czeka kierowca"
+      },
+      {
+        "type": "p",
+        "text": "Odbierz bagaż, przejdź do hali przylotów i skieruj się do punktu spotkań J / 777. Nasz zespół na lotnisku ma twój numer rezerwacji i prowadzi cię do kierowcy - nie musisz szukać tabliczki z nazwiskiem w tłumie. Pierwsze 90 minut po faktycznym wylądowaniu jest w cenie, a okno oczekiwania przesuwa się automatycznie przy opóźnieniu: późne lądowanie nie zmienia ceny."
+      },
+      {
+        "type": "routelinks",
+        "text": "Stała cena za samochód z każdego terminalu do hotelu:",
+        "routes": [
+          "antalya",
+          "belek",
+          "side",
+          "alanya"
+        ],
+        "button": "Sprawdź stałą cenę"
+      },
+      {
+        "type": "h2",
+        "text": "W dniu wylotu terminal liczy się bardziej"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Sprawdź terminal odlotu wieczorem wcześniej - nie zawsze jest nim ten, do którego przyleciałeś.",
+          "W lipcu i sierpniu planuj być na terminalu około trzech godzin przed odlotem międzynarodowym, poza szczytem dwie do dwóch i pół.",
+          "Dodaj czas jazdy: około 35-40 minut z Beleku, 40-50 z Kemeru, 55-65 z Side i około dwóch godzin z Alanyi.",
+          "Podaj numer lotu także na powrót, aby godzina odbioru liczyła się od prawdziwego odlotu.",
+          "Do terminalu wchodzą tylko pasażerowie z biletem, więc pożegnania załatw przy drzwiach."
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Jedna cena obejmuje cały samochód niezależnie od terminalu, bez dopłaty nocnej, płatność gotówką u kierowcy. Terminal to nasz problem logistyczny, nie twój."
+      }
+    ],
+    "faq": [
+      [
+        "Ile terminali ma lotnisko w Antalyi?",
+        "Trzy: Terminal 1 i Terminal 2 dla lotów międzynarodowych oraz terminal krajowy pomiędzy nimi, obsługujący loty z Istambułu, Ankary i Izmiru."
+      ],
+      [
+        "Do którego terminalu przyleci mój samolot?",
+        "Decyduje linia lotnicza, a terminal może zmieniać się sezonowo. Źródłem prawdy jest karta pokładowa lub strona statusu lotu: czartery częściej Terminal 2, rejsowe Terminal 1."
+      ],
+      [
+        "Jak daleko jest z Terminalu 1 do Terminalu 2?",
+        "Kilkaset metrów przy tej samej drodze lotniskowej - krótki przejazd shuttle'em albo spacer, a pomiędzy nimi terminal krajowy."
+      ],
+      [
+        "Czy terminal zmienia cenę transferu?",
+        "Nie. Cena jest stała za samochód i zależy od kierunku, nie od terminalu; nie ma dopłaty nocnej."
+      ],
+      [
+        "A jeśli lot wyląduje w innym terminalu?",
+        "Dla ciebie nic się nie zmienia. Śledzimy numer lotu, więc kierowca jedzie do hali, w której samolot faktycznie wylądował."
+      ]
+    ]
+  },
+  "antalya-in-summer": {
+    "slug": "antalya-latem-lipiec-sierpien",
+    "title": "Antalya latem: upał lipca i sierpnia, morze i transfery",
+    "heading": "Antalya latem: jak naprawdę wygląda lipiec i sierpień",
+    "description": "Temperatury powietrza i wody, tłumy i hala przylotów w szczycie sezonu - jak zaplanować urlop i transfer przy 35 stopniach po południu w Antalyi.",
+    "excerpt": "Trzydzieści pięć stopni po południu, morze dwadzieścia osiem i najbardziej zatłoczona hala przylotów w roku. Jak wygląda szczyt sezonu i jak nie stracić pierwszego dnia.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Lipiec i sierpień to dwa miesiące, wokół których zbudowana jest Antalya. Plaże pełne, hotele obłożone, lotnisko obsługuje najgęstszy ruch w roku. To także najgorętsza i najbardziej parna część lata, więc różnica między udanym a wyczerpującym dniem to głównie kwestia godziny."
+      },
+      {
+        "type": "h2",
+        "text": "Jak gorąco jest naprawdę"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Miesiąc",
+          "W dzień",
+          "Morze",
+          "Charakter"
+        ],
+        "rows": [
+          [
+            "Czerwiec",
+            "30-33 °C",
+            "25-26 °C",
+            "Gorąco, ale znośnie, długie wieczory"
+          ],
+          [
+            "Lipiec",
+            "33-36 °C",
+            "27-28 °C",
+            "Szczyt upału i obłożenia"
+          ],
+          [
+            "Sierpień",
+            "33-36 °C",
+            "28-29 °C",
+            "Najcieplejsze morze, parne noce"
+          ],
+          [
+            "Wrzesień",
+            "30-33 °C",
+            "27-28 °C",
+            "Lato bez tłoku"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "To przybliżone średnie; pojedyncze dni powyżej 40 °C zdarzają się niemal każdego lata. Noce na wybrzeżu to 23-26 °C - dlatego klimatyzacja liczy się tu bardziej niż cień. Deszcz w lipcu i sierpniu jest na tyle rzadki, że nie trzeba go wpisywać w plany."
+      },
+      {
+        "type": "h2",
+        "text": "Jak ułożyć dzień wokół upału"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Plaża i basen rano oraz późnym popołudniem; 13:00-16:00 to cień, obiad albo sen.",
+          "Antyczne miasta zwiedzaj wcześnie - w Perge, Aspendos i Side prawie nie ma cienia, a kamień w południe oddaje żar.",
+          "Rejsy łodzią i kanion Köprülü są chłodniejszą opcją: pomaga i woda, i wysokość.",
+          "Starówkę Kaleiçi zostaw na wieczór, gdy uliczki są ciepłe, a nie gorące.",
+          "Pij więcej wody, niż ci się wydaje potrzebne, i miej butelkę w samochodzie."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Hala przylotów w szczycie sezonu"
+      },
+      {
+        "type": "p",
+        "text": "Latem wyjście z lotniska w Antalyi trwa najdłużej. Licz na 20-45 minut od wylądowania do wyjścia, czasem więcej, gdy kilka szerokokadłubowych czarterów ląduje jednocześnie. To normalne - i właśnie dlatego liczy się okno oczekiwania: pierwsze 90 minut po faktycznym lądowaniu jest w cenie, a odbiór przesuwa się razem z lotem."
+      },
+      {
+        "type": "h2",
+        "text": "Jak dojechać wygodnie w upale"
+      },
+      {
+        "type": "p",
+        "text": "Transfer w sierpniu to inne zadanie niż w marcu. Nasze samochody mają klimatyzację i są wychładzane przed odbiorem, a nie po nim, kierowcy noszą bagaże, a parking jest kilka kroków od punktu spotkań J / 777. Dla rodzin z małymi dziećmi to różnica między wypoczętym a przegrzanym początkiem urlopu. Foteliki dziecięce są bezpłatne, ale trzeba je zamówić przy rezerwacji."
+      },
+      {
+        "type": "routelinks",
+        "text": "Stałe letnie ceny za samochód, bez dopłat nocnych i sezonowych:",
+        "routes": [
+          "belek",
+          "side",
+          "kemer",
+          "alanya"
+        ],
+        "button": "Sprawdź stałą cenę"
+      },
+      {
+        "type": "h2",
+        "text": "Czy lato jest dla ciebie?"
+      },
+      {
+        "type": "p",
+        "text": "Jeśli chcesz najcieplejszego morza, wszystkich hotelowych atrakcji w pełnym biegu i pełnego programu animacji - lipiec i sierpień dają dokładnie to. Jeśli wolisz zobaczyć ruiny bez kolejki i popływać w wciąż ciepłym morzu, pierwsza połowa czerwca i cały wrzesień dają to samo wybrzeże w spokojniejszym tempie, a droga z lotniska jest wyraźnie pustsza."
+      }
+    ],
+    "faq": [
+      [
+        "Jak gorąco jest w Antalyi w lipcu i sierpniu?",
+        "W dzień zwykle 33-36 °C, w nocy 23-26 °C; pojedyncze dni powyżej 40 °C zdarzają się niemal każdego lata."
+      ],
+      [
+        "Jaka jest temperatura morza w Antalyi latem?",
+        "Około 27-28 °C w lipcu i 28-29 °C w sierpniu - dlatego sezon kąpielowy spokojnie sięga października."
+      ],
+      [
+        "Czy nie jest za gorąco na zwiedzanie ruin?",
+        "Nie, jeśli wyruszysz wcześnie. Perge, Aspendos i Side są niemal bez cienia; przed 10:00 lub po 17:00 jest znacznie przyjemniej niż w południe."
+      ],
+      [
+        "Czy latem w Antalyi pada?",
+        "Bardzo rzadko. Lipiec i sierpień są na tym wybrzeżu praktycznie bezdeszczowe, krótkie opady zdarzają się w górach."
+      ],
+      [
+        "Ile czasu zajmuje lotnisko w szczycie sezonu?",
+        "Zwykle 20-45 minut od lądowania do wyjścia z hali. Pierwsze 90 minut oczekiwania kierowcy po faktycznym lądowaniu jest bezpłatne."
+      ]
+    ]
+  },
+  "belek-side-kemer-compare": {
+    "slug": "belek-side-czy-kemer-ktory-kurort",
+    "title": "Belek, Side czy Kemer: który kurort Antalyi wybrać",
+    "heading": "Belek, Side czy Kemer: wybór własnego odcinka wybrzeża",
+    "description": "Golf i pięciogwiazdkowe resorty, antyczne miasteczko nad morzem albo sosnowe góry schodzące do wody - czym różnią się Belek, Side i Kemer i ile zajmuje dojazd.",
+    "excerpt": "Trzy regiony wypoczynkowe, jedno lotnisko, trzy bardzo różne urlopy. Krajobraz, hotele, dla kogo który i ile naprawdę trwa jazda z AYT.",
+    "readingMinutes": 7,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Większość osób, które pierwszy raz planują Antalyę, wybiera między Belekiem, Side i Kemerem, a w katalogu wszystkie trzy wyglądają tak samo. To samo wybrzeże, wszystko w dwóch godzinach od tego samego lotniska, wszędzie duże hotele. Różnice są jednak realne i dotyczą głównie krajobrazu, tego, co jest w zasięgu spaceru, i odległości od lotniska."
+      },
+      {
+        "type": "h2",
+        "text": "Trzy regiony obok siebie"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Region",
+          "Z AYT",
+          "Jazda",
+          "Znany z"
+        ],
+        "rows": [
+          [
+            "Belek",
+            "45 km",
+            "35-40 min",
+            "Pola golfowe, pięciogwiazdkowe all inclusive, sosny i piasek"
+          ],
+          [
+            "Side",
+            "65 km",
+            "55-65 min",
+            "Rzymskie ruiny w samym miasteczku, długie plaże dla rodzin"
+          ],
+          [
+            "Kemer",
+            "50 km",
+            "40-50 min",
+            "Góry nad morzem, kamieniste zatoki, sosnowy las"
+          ],
+          [
+            "Centrum Antalyi",
+            "15 km",
+            "20-30 min",
+            "Starówka, muzea, życie miasta przez cały rok"
+          ]
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Belek: resorty, golf i płaski piasek"
+      },
+      {
+        "type": "p",
+        "text": "Belek jest najnowszy z trzech i najbardziej zaplanowany: pas sosnowego lasu i płaskiej piaszczystej plaży z dużymi pięciogwiazdkowymi resortami, kilka mistrzowskich pól golfowych i park Land of Legends obok. Nie ma starego miasteczka na spacer - celem jest hotel, a goście wychodzą głównie na golfa, do parku albo na wycieczkę. Jeśli chcesz samowystarczalnego luksusowego tygodnia i 35 minut jazdy, to najprostsza odpowiedź na tym wybrzeżu."
+      },
+      {
+        "type": "h2",
+        "text": "Side: ruiny w zasięgu spaceru"
+      },
+      {
+        "type": "p",
+        "text": "Side to małe miasteczko na półwyspie zbudowane wewnątrz rzymskiego stanowiska: teatr, ulica kolumnowa i świątynia Apollina nad samą wodą, a między kolumnami restauracje i sklepy. Hotele rozciągają się na wschód i zachód w stronę Çolaklı i Kumköy, więc plaża jest długa i przyjazna rodzinom, a samo miasteczko daje cel na wieczór. Ceną jest odległość - niewiele ponad godzinę od lotniska."
+      },
+      {
+        "type": "h2",
+        "text": "Kemer: góry i sosnowy cień"
+      },
+      {
+        "type": "p",
+        "text": "Na zachód od Antalyi góry Taurus schodzą do morza i właśnie tam leży Kemer: sosnowy las, kamieniste i gruboziarniste zatoki, widoki i wrażenie chłodu, którego nie ma na płaskim wschodnim wybrzeżu. Tekirova, Göynük i Beldibi należą do tego samego odcinka, a Olympos, kolejka Tahtalı i Droga Likijska są blisko. Pasuje wędrowcom i nurkom, mniej tym, którzy upierają się przy drobnym piasku."
+      },
+      {
+        "type": "h2",
+        "text": "Co dla kogo"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Golf, duże resorty, krótki transfer: Belek.",
+          "Antyk pod drzwiami i miasteczko na wieczorny spacer: Side.",
+          "Góry, sosnowy cień i wędrówki: Kemer.",
+          "Małe dzieci i płaskie piaszczyste wejście do wody: Belek albo pas Side-Çolaklı.",
+          "Muzea i miejskie zwiedzanie: zamieszkaj w samej Antalyi.",
+          "Najdłuższa promenada i żywe centrum, jeśli dwie godziny jazdy nie przeszkadzają: Alanya."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Co czas jazdy znaczy w praktyce"
+      },
+      {
+        "type": "p",
+        "text": "Czas jazdy liczy się najbardziej na początku i na końcu urlopu. 35 minut do Beleku ze zmęczonym malcem to nie to samo co dwie godziny do Alanyi po nocnym locie. Wszystkie nasze ceny są stałe za samochód na całą trasę, ze śledzeniem lotu, bezpłatnymi fotelikami na życzenie i bez dopłaty nocnej - późny przylot kosztuje tyle samo co południowy. Krótsza droga pozostaje jednak krótszą drogą."
+      },
+      {
+        "type": "routelinks",
+        "text": "Porównaj stałą cenę i czas jazdy dla każdego regionu:",
+        "routes": [
+          "belek",
+          "side",
+          "kemer",
+          "alanya"
+        ],
+        "button": "Sprawdź stałą cenę"
+      }
+    ],
+    "faq": [
+      [
+        "Belek czy Side dla rodzin?",
+        "Oba się sprawdzają. Belek ma bardziej płaski piasek i nowsze resorty z dużymi parkami wodnymi; Side dodaje miasteczko na spacer i antyczne ruiny, kosztem około 20 minut dłuższej jazdy."
+      ],
+      [
+        "Który kurort jest najbliżej lotniska w Antalyi?",
+        "Centrum Antalyi - 15 km, potem Belek 45 km (35-40 minut), Kemer 50 km (40-50 minut) i Side 65 km (55-65 minut)."
+      ],
+      [
+        "Czy Kemer ma piaszczyste plaże?",
+        "Głównie kamieniste i gruboziarniste, z sosnowym cieniem i widokiem na góry. Jeśli priorytetem jest drobny piasek, lepszy będzie Belek albo plaże wokół Side."
+      ],
+      [
+        "Który region jest najlepszy na golfa?",
+        "Bez wątpienia Belek - kilka mistrzowskich pól leży w odległości paru kilometrów od siebie, zwykle 10-15 minut od hoteli."
+      ],
+      [
+        "Czy mogę odwiedzić inne kurorty w trakcie pobytu?",
+        "Tak. Side, Belek i Kemer są w odległości około godziny od siebie, a prywatny samochód na dzień to najprostszy sposób, by połączyć dwa z nich."
+      ]
+    ]
+  },
+  "arrival-essentials-turkey": {
+    "slug": "przylot-do-turcji-wiza-pieniadze-sim",
+    "title": "Przylot do Turcji: wjazd, pieniądze, karta SIM i napiwki",
+    "heading": "Praktyczna pierwsza godzina: wjazd, liry, internet, napiwki",
+    "description": "Zasady wjazdu i paszportu, ile gotówki zabrać, gdzie wymieniać pieniądze, turecka karta SIM czy eSIM i jak naprawdę wyglądają napiwki w Antalyi.",
+    "excerpt": "Co załatwić przed lądowaniem i w pierwszej godzinie po nim: wjazd, liry w kieszeni, działający internet i realistyczne spojrzenie na napiwki.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Wszystko w tym poradniku jest drobne i wszystko łatwiej załatwić przed lądowaniem niż o pierwszej w nocy w hali przylotów. Nic z tego nie jest skomplikowane, gdy raz się to ułoży."
+      },
+      {
+        "type": "h2",
+        "text": "Zasady wjazdu i paszport"
+      },
+      {
+        "type": "p",
+        "text": "Obywatele wielu krajów, w tym Polski i większości państw UE, wjeżdżają do Turcji bez wizy na krótki pobyt turystyczny; inni potrzebują e-wizy, wydawanej online w kilka minut. Dwie rzeczy zaskakują częściej niż sama wiza: paszport zwykle musi być ważny dłużej niż koniec pobytu, a dziecko potrzebuje własnego dokumentu. Sprawdź swoje obywatelstwo na oficjalnej stronie tureckiej e-wizy krótko przed wyjazdem - przepisy się zmieniają i tylko oficjalne źródło jest aktualne."
+      },
+      {
+        "type": "h2",
+        "text": "Pieniądze: liry, karty i gotówka"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Waluta to lira turecka (TRY). W miejscowościach turystycznych ceny podaje się też w euro, ale reszta wraca w lirach.",
+          "Karty działają prawie wszędzie - hotele, supermarkety, restauracje, apteki. Zbliżeniowo to standard.",
+          "Trzymaj trochę gotówki na drobne: stragan, wiejska kawiarnia, parking, napiwek, przejazd dolmuşem.",
+          "Kursy na lotnisku są najgorsze z całej podróży: wymień tam tylko to, co potrzebne od razu, resztę w mieście albo wypłać z bankomatu banku.",
+          "Jeśli bankomat albo terminal proponuje rozliczenie w twojej walucie - odmów i płać w lirach; przewalutowanie rzadko jest korzystne."
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Nasze transfery opłaca się gotówką u kierowcy po przyjeździe, w euro albo lirach, a cena jest ustalona wcześniej - nie musisz więc szukać bankomatu przed jazdą do hotelu."
+      },
+      {
+        "type": "h2",
+        "text": "Internet: SIM czy eSIM"
+      },
+      {
+        "type": "p",
+        "text": "Tureckie turystyczne karty SIM sprzedaje się w halach przylotów i w mieście; do rejestracji potrzebny jest paszport. eSIM kupiony przed wyjazdem jest zwykle tańszy i działa od chwili lądowania - w tym jego praktyczna zaleta: możesz napisać do kierowcy, otworzyć mapę albo zadzwonić do hotelu, zanim staniesz w jakiejkolwiek kolejce. Hotelowe wifi jest powszechne i zazwyczaj przyzwoite, więc lokalny numer na tydzień to wygoda, nie konieczność."
+      },
+      {
+        "type": "h2",
+        "text": "Napiwki bez mitów"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Restauracje: około 5-10 %, jeśli było dobrze, w lepszych lokalach więcej; sprawdź, czy serwis nie jest już na rachunku.",
+          "Obsługa pokoi i bagażowi: mały banknot zostawiony w pokoju albo wręczony jest normą i jest doceniany.",
+          "Kierowcy transferu: nigdy nie są wymagane i nigdy nie są doliczane. Kilka euro za ciężki bagaż albo nocny przejazd to uprzejmość, nie oczekiwanie.",
+          "Przewodnik na wycieczce: zwykle niewielka kwota od osoby na koniec dnia.",
+          "Taksówki: zaokrąglenie w górę wystarcza."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Twoja pierwsza godzina, po kolei"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Kontrola paszportowa, potem odbiór bagażu - w szczycie sezonu licz na 20-45 minut.",
+          "Włącz eSIM albo kup SIM, jeśli chcesz lokalny numer.",
+          "Wymień tylko tyle gotówki, ile potrzebujesz w lirach od razu.",
+          "Przejdź do hali przylotów, do punktu spotkań J / 777 - nasz zespół ma twoją rezerwację i prowadzi do kierowcy.",
+          "Woda, klimatyzacja i w drogę - 35-40 minut do Beleku, około dwóch godzin do Alanyi."
+        ]
+      },
+      {
+        "type": "routelinks",
+        "text": "Stała cena za samochód, śledzenie lotu w cenie, płatność po przyjeździe:",
+        "routes": [
+          "antalya",
+          "belek",
+          "alanya"
+        ],
+        "button": "Sprawdź stałą cenę"
+      }
+    ],
+    "faq": [
+      [
+        "Czy potrzebuję wizy do Turcji?",
+        "To zależy od obywatelstwa. Wielu podróżnych, w tym obywatele Polski i większości krajów UE, nie potrzebuje wizy na krótki pobyt turystyczny; inni składają wniosek o e-wizę online. Sprawdź to na oficjalnej stronie przed wyjazdem."
+      ],
+      [
+        "Zabrać euro czy liry tureckie?",
+        "Weź euro albo kartę, a liry zdobądź na miejscu. Kursy na lotnisku są słabe: wymień tam tylko to, co konieczne, resztę w bankomatach lub kantorach w mieście."
+      ],
+      [
+        "Czy w Antalyi wszędzie zapłacę kartą?",
+        "W hotelach, restauracjach, supermarketach i aptekach tak. Na bazary, małe kawiarnie, napiwki i lokalny transport przyda się gotówka."
+      ],
+      [
+        "Lepsza turecka karta SIM czy eSIM?",
+        "eSIM kupiony przed wyjazdem jest zwykle tańszy i działa od razu po lądowaniu. Fizyczną kartę turystyczną rejestruje się na paszport, sprzedają ją w hali przylotów i w mieście."
+      ],
+      [
+        "Czy muszę dać napiwek kierowcy transferu?",
+        "Nie. Cena jest stała i kompletna. Kilka euro za ciężki bagaż albo nocny przylot jest miłe, ale nigdy nie jest oczekiwane."
+      ]
+    ]
   }
 };

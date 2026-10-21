@@ -2750,5 +2750,502 @@ export const articles = {
         "Für einen ersten Rundgang reicht ein halber Tag. Mit Museum, Karaalioğlu-Park und Düden-Wasserfällen sind ein bis zwei volle Tage ideal."
       ]
     ]
+  },
+  "antalya-airport-terminals": {
+    "slug": "antalya-flughafen-terminal-1-terminal-2",
+    "title": "Flughafen Antalya: Terminal 1, Terminal 2 und Inlandsterminal",
+    "heading": "Terminal 1, Terminal 2 oder Inland: welches ist Ihres?",
+    "description": "Welches Terminal Ihr Flug am Flughafen Antalya nutzt, wie Sie zwischen Terminal 1 und 2 wechseln und was das Terminal für Abholung und Rückflug bedeutet.",
+    "excerpt": "AYT hat drei Terminals an einer Flughafenstraße. So erkennen Sie Ihr Terminal, so wechseln Sie zwischen ihnen - und deshalb braucht der Fahrer Ihre Flugnummer.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Der Flughafen Antalya ist ein Flughafen mit drei Ankunfts- und Abfluggebäuden, und fast jede Frage vor einem Transfer läuft auf dieselbe hinaus: In welchem Terminal bin ich? Die Antwort entscheidet darüber, wo Ihr Fahrer parkt, wie weit der Weg zum Fahrzeug ist und wann Sie am Abreisetag das Hotel verlassen sollten."
+      },
+      {
+        "type": "h2",
+        "text": "Die drei Terminals"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Terminal",
+          "Überwiegend",
+          "Gut zu wissen"
+        ],
+        "rows": [
+          [
+            "Terminal 1",
+            "Internationale Linienflüge",
+            "Das ältere internationale Gebäude, westlich des Inlandsterminals"
+          ],
+          [
+            "Terminal 2",
+            "Charter- und Urlaubsflüge",
+            "Im Sommer das vollste Gebäude, besonders an Wochenenden"
+          ],
+          [
+            "Inlandsterminal",
+            "Flüge aus Istanbul, Ankara, Izmir",
+            "Liegt zwischen den beiden internationalen Terminals"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Alle drei liegen an derselben Zufahrtsstraße, nur wenige Hundert Meter voneinander entfernt - eine Verwechslung kostet also Nerven, aber nicht den Tag. Welches Terminal ein Flug nutzt, entscheidet die Airline, und es kann sich von Saison zu Saison ändern. Deshalb raten wir es nie aus dem Zielort."
+      },
+      {
+        "type": "h2",
+        "text": "So finden Sie Ihr Ankunftsterminal"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Buchungsbestätigung oder Bordkarte zuerst prüfen - das Terminal steht meist neben der Flugnummer.",
+          "Die Flugstatus-Seite der Airline ist die aktuellste Quelle, wenn sich der Flugplan geändert hat.",
+          "Charter- und Pauschalflüge landen häufiger in Terminal 2, Linienflüge großer Airlines häufiger in Terminal 1.",
+          "Ein Umstieg in Istanbul endet am Inlandsterminal, auch wenn die Reise im Ausland begonnen hat.",
+          "Im Zweifel senden Sie uns einfach die Flugnummer - wir verfolgen den Flug und schicken den Fahrer in die Halle, in der er tatsächlich landet."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Zwischen Terminal 1 und Terminal 2 wechseln"
+      },
+      {
+        "type": "p",
+        "text": "Nötig ist das selten, aber es kommt vor: eine Familie mit zwei verschiedenen Airlines oder ein Inlandsanschluss, der in einem anderen Gebäude landet als der Rest der Gruppe. Die Terminals sind über die Flughafenstraße verbunden, dazwischen liegen eine kurze Shuttlefahrt oder wenige Gehminuten. Mit mehreren Koffern und Kindern ist es einfacher, in einer Halle zu warten und die ganze Gruppe in einem Fahrzeug einsammeln zu lassen."
+      },
+      {
+        "type": "h2",
+        "text": "Wo der Fahrer wartet"
+      },
+      {
+        "type": "p",
+        "text": "Gepäck abholen, in die Ankunftshalle gehen und zum Meet & Greet Bereich J / 777. Unser Flughafenteam hat Ihre Buchungsnummer und bringt Sie zum Fahrer - Sie müssen keine Namensschilder durchsuchen. Die ersten 90 Minuten nach der tatsächlichen Landung sind kostenfrei enthalten, und das Zeitfenster verschiebt sich bei Verspätung automatisch. Eine späte Landung ändert den Preis nicht."
+      },
+      {
+        "type": "routelinks",
+        "text": "Festpreis pro Fahrzeug von jedem Terminal zu Ihrem Hotel:",
+        "routes": [
+          "antalya",
+          "belek",
+          "side",
+          "alanya"
+        ],
+        "button": "Festpreis prüfen"
+      },
+      {
+        "type": "h2",
+        "text": "Am Abreisetag zählt das Terminal mehr"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Prüfen Sie das Abflugterminal am Abend davor - es ist nicht immer das Ankunftsterminal.",
+          "Im Juli und August sollten Sie rund drei Stunden vor einem internationalen Abflug am Terminal sein, außerhalb der Hochsaison zwei bis zweieinhalb.",
+          "Fahrzeit dazurechnen: etwa 35-40 Minuten aus Belek, 40-50 aus Kemer, 55-65 aus Side und rund zwei Stunden aus Alanya.",
+          "Geben Sie uns auch für den Rückweg die Flugnummer, damit die Abholzeit aus dem echten Abflug berechnet wird.",
+          "Ins Terminal kommen nur Passagiere mit Ticket - verabschieden Sie sich also an der Tür, nicht drinnen."
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Ein Preis gilt für das ganze Fahrzeug, unabhängig vom Terminal, ohne Nachtzuschlag und in Bar beim Fahrer zu zahlen. Das Terminal ist unser logistisches Problem, nicht Ihres."
+      }
+    ],
+    "faq": [
+      [
+        "Wie viele Terminals hat der Flughafen Antalya?",
+        "Drei: Terminal 1 und Terminal 2 für internationale Flüge sowie ein Inlandsterminal dazwischen für Flüge aus Istanbul, Ankara und Izmir."
+      ],
+      [
+        "In welchem Terminal landet mein Flug?",
+        "Das entscheidet die Airline und kann je Saison wechseln. Maßgeblich sind Ihre Bordkarte oder die Flugstatus-Seite der Airline - Charterflüge nutzen häufiger Terminal 2, Linienflüge Terminal 1."
+      ],
+      [
+        "Wie weit sind Terminal 1 und Terminal 2 voneinander entfernt?",
+        "Wenige Hundert Meter an derselben Flughafenstraße, eine kurze Shuttlefahrt oder ein kurzer Weg zu Fuß, mit dem Inlandsterminal dazwischen."
+      ],
+      [
+        "Ändert das Terminal den Transferpreis?",
+        "Nein. Der Preis ist pro Fahrzeug und Zielort fest, nicht pro Terminal, und es gibt keinen Nachtzuschlag."
+      ],
+      [
+        "Was passiert, wenn mein Flug an einem anderen Terminal landet?",
+        "Für Sie ändert sich nichts. Wir verfolgen die Flugnummer, der Fahrer wird in die tatsächliche Ankunftshalle geschickt."
+      ]
+    ]
+  },
+  "antalya-in-summer": {
+    "slug": "antalya-im-sommer-juli-august",
+    "title": "Antalya im Sommer: Hitze, Meer und Transfer im Juli und August",
+    "heading": "Antalya im Sommer: wie sich Juli und August anfühlen",
+    "description": "Temperaturen, Wassertemperatur, Andrang und Ankunftshalle in der Hochsaison - so planen Sie Urlaub und Transfer rund um 35-Grad-Nachmittage in Antalya.",
+    "excerpt": "35 Grad am Nachmittag, ein Meer mit 28 Grad und die vollste Ankunftshalle des Jahres. Wie Hochsaison wirklich ist - und wie Sie ohne verlorenen ersten Tag ankommen.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Juli und August sind die zwei Monate, um die Antalya gebaut ist. Die Strände sind voll, die Hotels ausgelastet, und der Flughafen bewältigt den dichtesten Verkehr des Jahres. Es ist auch der heißeste und feuchteste Teil des Sommers - der Unterschied zwischen einem schönen und einem anstrengenden Tag ist vor allem eine Frage der Uhrzeit."
+      },
+      {
+        "type": "h2",
+        "text": "Wie heiß es wirklich wird"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Monat",
+          "Tagsüber",
+          "Meer",
+          "Charakter"
+        ],
+        "rows": [
+          [
+            "Juni",
+            "30-33 °C",
+            "25-26 °C",
+            "Heiß, aber angenehm, lange Abende"
+          ],
+          [
+            "Juli",
+            "33-36 °C",
+            "27-28 °C",
+            "Höchste Hitze und höchste Belegung"
+          ],
+          [
+            "August",
+            "33-36 °C",
+            "28-29 °C",
+            "Wärmstes Meer, feuchte Nächte"
+          ],
+          [
+            "September",
+            "30-33 °C",
+            "27-28 °C",
+            "Sommer ohne Gedränge"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Das sind Durchschnittswerte; einzelne Tage über 40 °C gibt es in den meisten Sommern. Nachts bleibt es an der Küste bei 23-26 °C - deshalb ist Klimaanlage hier wichtiger als Schatten. Regen ist im Juli und August so selten, dass man ihn nicht einplanen muss."
+      },
+      {
+        "type": "h2",
+        "text": "Den Sommertag um die Hitze planen"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Strand und Pool am Morgen und am späten Nachmittag; 13 bis 16 Uhr gehören dem Schatten, dem Essen oder dem Mittagsschlaf.",
+          "Antike Stätten früh besuchen - Perge, Aspendos und Side haben kaum Schatten, und der Stein strahlt mittags Hitze ab.",
+          "Bootstouren und der Köprülü-Canyon sind die kühleren Alternativen: Wasser und Höhe helfen beide.",
+          "Die Altstadt Kaleiçi am Abend ansehen, wenn die Gassen warm statt heiß sind.",
+          "Mehr Wasser trinken als Sie glauben zu brauchen - eine Flasche gehört auch ins Fahrzeug."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Die Ankunftshalle in der Hochsaison"
+      },
+      {
+        "type": "p",
+        "text": "Im Sommer dauert der Weg aus dem Flughafen am längsten. Rechnen Sie mit 20 bis 45 Minuten von der Landung bis zum Ausgang, gelegentlich länger, wenn mehrere Großraumflieger gleichzeitig landen. Das ist normal - und genau deshalb zählt das Wartefenster: Die ersten 90 Minuten nach der tatsächlichen Landung sind inklusive, und die Abholung verschiebt sich mit dem Flug."
+      },
+      {
+        "type": "h2",
+        "text": "Bei Hitze bequem ankommen"
+      },
+      {
+        "type": "p",
+        "text": "Ein Transfer im August ist eine andere Aufgabe als einer im März. Unsere Fahrzeuge sind klimatisiert und werden vor der Abholung gekühlt, nicht danach, die Fahrer tragen das Gepäck, und der Parkplatz liegt nur wenige Schritte vom Meet & Greet Bereich J / 777. Für Familien mit kleinen Kindern ist das der Unterschied zwischen einem erholten und einem überhitzten Urlaubsbeginn. Kindersitze sind kostenlos, müssen aber bei der Buchung angefragt werden."
+      },
+      {
+        "type": "routelinks",
+        "text": "Feste Sommerpreise pro Fahrzeug, ohne Nacht- oder Saisonzuschlag:",
+        "routes": [
+          "belek",
+          "side",
+          "kemer",
+          "alanya"
+        ],
+        "button": "Festpreis prüfen"
+      },
+      {
+        "type": "h2",
+        "text": "Ist der Sommer die richtige Zeit für Sie?"
+      },
+      {
+        "type": "p",
+        "text": "Wer das wärmste Meer, alle Hotelanlagen in Betrieb und das volle Animationsprogramm will, bekommt im Juli und August genau das. Wer die Ruinen ohne Schlange sehen und in einem noch warmen Meer schwimmen möchte, findet in der ersten Junihälfte und im ganzen September dieselbe Küste in ruhigerem Tempo - und eine deutlich leerere Flughafenstraße."
+      }
+    ],
+    "faq": [
+      [
+        "Wie heiß ist es in Antalya im Juli und August?",
+        "Tagsüber meist 33-36 °C, nachts 23-26 °C; einzelne Tage über 40 °C kommen in den meisten Sommern vor."
+      ],
+      [
+        "Wie warm ist das Meer in Antalya im Sommer?",
+        "Rund 27-28 °C im Juli und 28-29 °C im August - deshalb reicht die Badesaison bequem bis in den Oktober."
+      ],
+      [
+        "Ist es zu heiß für die antiken Stätten?",
+        "Nicht, wenn Sie früh gehen. Perge, Aspendos und Side sind kaum beschattet; vor 10 oder nach 17 Uhr ist es deutlich angenehmer als mittags."
+      ],
+      [
+        "Regnet es im Sommer in Antalya?",
+        "Sehr selten. Juli und August sind an dieser Küste praktisch trocken, im Bergland gibt es gelegentlich kurze Schauer."
+      ],
+      [
+        "Wie lange dauert der Flughafen in der Hochsaison?",
+        "Üblich sind 20 bis 45 Minuten von der Landung bis zum Ausgang. Die ersten 90 Minuten Wartezeit nach der echten Landung sind kostenfrei."
+      ]
+    ]
+  },
+  "belek-side-kemer-compare": {
+    "slug": "belek-side-oder-kemer-welcher-urlaubsort",
+    "title": "Belek, Side oder Kemer: welcher Urlaubsort passt zu Ihnen?",
+    "heading": "Belek, Side oder Kemer: Ihren Küstenabschnitt wählen",
+    "description": "Golf und Fünf-Sterne-Resorts, eine antike Stadt am Meer oder Pinienberge im Wasser - wie sich Belek, Side und Kemer unterscheiden und was die Fahrzeit kostet.",
+    "excerpt": "Drei Urlaubsregionen, ein Flughafen, drei sehr unterschiedliche Urlaube. Landschaft, Hotels, für wen sich welcher Ort eignet und wie lang die Fahrt von AYT dauert.",
+    "readingMinutes": 7,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Wer zum ersten Mal Antalya bucht, wählt meist zwischen Belek, Side und Kemer - und im Katalog sehen alle drei gleich aus. Sie liegen an derselben Küste, alle innerhalb von zwei Stunden ab demselben Flughafen, und überall stehen große Hotels. Die Unterschiede sind trotzdem real: Landschaft, was zu Fuß erreichbar ist, und die Entfernung zum Flughafen."
+      },
+      {
+        "type": "h2",
+        "text": "Die drei im Vergleich"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Region",
+          "Ab AYT",
+          "Fahrzeit",
+          "Bekannt für"
+        ],
+        "rows": [
+          [
+            "Belek",
+            "45 km",
+            "35-40 Min.",
+            "Golfplätze, Fünf-Sterne-All-inclusive, Pinien und Sand"
+          ],
+          [
+            "Side",
+            "65 km",
+            "55-65 Min.",
+            "Römische Ruinen im Ort, lange Familienstrände"
+          ],
+          [
+            "Kemer",
+            "50 km",
+            "40-50 Min.",
+            "Berge am Meer, Kiesbuchten, Pinienwald"
+          ],
+          [
+            "Antalya Stadt",
+            "15 km",
+            "20-30 Min.",
+            "Altstadt, Museen, Stadtleben das ganze Jahr"
+          ]
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Belek: Resorts, Golf und flacher Sand"
+      },
+      {
+        "type": "p",
+        "text": "Belek ist der jüngste der drei Orte und der planmäßigste: ein Streifen Pinienwald und flacher Sandstrand, gesäumt von großen Fünf-Sterne-Resorts, dazu mehrere Championship-Golfplätze und der Freizeitpark Land of Legends gleich daneben. Eine Altstadt zum Bummeln gibt es nicht - das Hotel ist das Ziel, und die meisten Gäste verlassen es nur für Golf, den Park oder einen Tagesausflug. Wer eine in sich geschlossene Luxuswoche mit 35 Minuten Fahrzeit will, ist hier richtig."
+      },
+      {
+        "type": "h2",
+        "text": "Side: Ruinen zu Fuß erreichbar"
+      },
+      {
+        "type": "p",
+        "text": "Side ist eine kleine Halbinselstadt, gebaut in einer römischen Ausgrabung: Theater, Säulenstraße und der Apollon-Tempel direkt am Wasser, dazwischen Restaurants und Läden. Die Hotels ziehen sich nach Osten und Westen Richtung Çolaklı und Kumköy, der Strand ist also lang und familienfreundlich, und der Ort selbst gibt Ihnen abends ein Ziel. Der Preis dafür ist die Entfernung: gut eine Stunde ab Flughafen."
+      },
+      {
+        "type": "h2",
+        "text": "Kemer: Berge und Pinienschatten"
+      },
+      {
+        "type": "p",
+        "text": "Westlich von Antalya fällt das Taurusgebirge ins Meer, und genau dort liegt Kemer: Pinienwald, Kies- und Grobsandbuchten, spektakuläre Blicke und ein kühleres Gefühl als an der flachen Ostküste. Tekirova, Göynük und Beldibi gehören zum gleichen Abschnitt, Olympos, die Tahtalı-Seilbahn und der Lykische Weg sind nahe. Ideal für Wanderer und Taucher - weniger für Gäste, die auf feinen Sand bestehen."
+      },
+      {
+        "type": "h2",
+        "text": "Was zu wem passt"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Golf, große Resorts, kurze Fahrzeit: Belek.",
+          "Antike direkt vor der Tür und ein Ort zum Flanieren: Side.",
+          "Berge, Pinienschatten und Wandern: Kemer.",
+          "Kleine Kinder und flaches Sandwasser: Belek oder der Streifen Side-Çolaklı.",
+          "Sightseeing und Museen in der Stadt: in Antalya selbst wohnen.",
+          "Längste Strandpromenade und lebhaftes Zentrum, wenn zwei Stunden Fahrt in Ordnung sind: Alanya."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Was die Fahrzeit praktisch bedeutet"
+      },
+      {
+        "type": "p",
+        "text": "Fahrzeit zählt am Anfang und am Ende des Urlaubs am meisten. 35 Minuten nach Belek mit einem müden Kleinkind sind etwas anderes als zwei Stunden nach Alanya nach einem Nachtflug. Unsere Preise sind pro Fahrzeug und Strecke fest, mit Flugverfolgung, kostenlosen Kindersitzen auf Anfrage und ohne Nachtzuschlag - eine späte Ankunft kostet dasselbe wie eine mittags. Kürzer bleibt aber kürzer."
+      },
+      {
+        "type": "routelinks",
+        "text": "Festpreis und Fahrzeit je Region vergleichen:",
+        "routes": [
+          "belek",
+          "side",
+          "kemer",
+          "alanya"
+        ],
+        "button": "Festpreis prüfen"
+      }
+    ],
+    "faq": [
+      [
+        "Belek oder Side - was ist besser für Familien?",
+        "Beides funktioniert. Belek hat flacheren Sand und neuere Resorts mit großen Wasserparks; Side bietet zusätzlich einen Ort zum Spazieren und antike Ruinen, dafür etwa 20 Minuten mehr Fahrzeit."
+      ],
+      [
+        "Welcher Urlaubsort liegt am nächsten am Flughafen Antalya?",
+        "Antalya Stadt mit 15 km, dann Belek mit 45 km (35-40 Minuten), Kemer mit 50 km (40-50 Minuten) und Side mit 65 km (55-65 Minuten)."
+      ],
+      [
+        "Hat Kemer Sandstrände?",
+        "Überwiegend Kies und Grobsand, dazu Pinienschatten und Bergblick. Wer feinen Sand will, ist in Belek oder an den Stränden um Side besser aufgehoben."
+      ],
+      [
+        "Welche Region ist die beste zum Golfen?",
+        "Belek, ohne Frage - mehrere Championship-Plätze liegen wenige Kilometer voneinander entfernt, meist 10-15 Minuten von den Hotels."
+      ],
+      [
+        "Kann ich die anderen Orte während des Urlaubs besuchen?",
+        "Ja. Side, Belek und Kemer liegen etwa eine Stunde voneinander entfernt; ein Fahrzeug für den Tag ist der einfachste Weg, zwei davon zu verbinden."
+      ]
+    ]
+  },
+  "arrival-essentials-turkey": {
+    "slug": "ankunft-tuerkei-visum-geld-sim-trinkgeld",
+    "title": "Ankunft in der Türkei: Einreise, Geld, SIM-Karte und Trinkgeld",
+    "heading": "Die praktische erste Stunde: Einreise, Lira, Daten, Trinkgeld",
+    "description": "Pass- und E-Visum-Regeln, wie viel Bargeld sinnvoll ist, wo man Geld wechselt, türkische SIM oder eSIM und wie Trinkgeld in Antalya wirklich aussieht.",
+    "excerpt": "Was Sie vor der Landung und in der ersten Stunde danach regeln: Einreise, Lira in der Tasche, funktionierendes mobiles Internet und ein realistischer Blick auf Trinkgeld.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Alles in diesem Leitfaden ist klein - und alles ist vor der Landung leichter zu erledigen als um ein Uhr nachts in der Ankunftshalle. Kompliziert ist nichts davon, sobald man die Form kennt."
+      },
+      {
+        "type": "h2",
+        "text": "Einreise und Reisepass"
+      },
+      {
+        "type": "p",
+        "text": "Viele Nationalitäten, darunter die meisten EU-Bürger, reisen für kurze Touristenaufenthalte ohne Visum in die Türkei ein; andere brauchen ein E-Visum, das online in Minuten ausgestellt wird. Zwei Dinge werden häufiger zum Problem als das Visum selbst: Der Pass muss in der Regel über das Reiseende hinaus gültig sein, und jedes Kind braucht ein eigenes Reisedokument. Prüfen Sie Ihre Nationalität kurz vor der Reise auf der offiziellen türkischen E-Visum-Seite - Regeln ändern sich, und nur die offizielle Quelle ist aktuell."
+      },
+      {
+        "type": "h2",
+        "text": "Geld: Lira, Karte und Bargeld"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Währung ist die türkische Lira (TRY). In Urlaubsorten werden Preise oft auch in Euro genannt, Wechselgeld kommt aber in Lira.",
+          "Karten funktionieren fast überall - Hotels, Supermärkte, Restaurants, Apotheken. Kontaktlos ist Standard.",
+          "Etwas Bargeld für Kleines mitnehmen: Marktstand, Dorfcafé, Parken, Trinkgeld, Dolmuş-Fahrt.",
+          "Die Wechselkurse am Flughafen sind die schlechtesten der Reise: dort nur wechseln, was Sie sofort brauchen, den Rest in der Stadt oder am Bankautomaten.",
+          "Wenn ein Automat oder Terminal in Ihrer Heimatwährung abrechnen will: ablehnen und in Lira zahlen - die Umrechnung ist selten zu Ihren Gunsten."
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Unsere Transfers werden bei Ankunft in Bar beim Fahrer bezahlt, in Euro oder Lira, mit vorher festem Preis - Sie müssen vor der Fahrt zum Hotel also keinen Geldautomaten suchen."
+      },
+      {
+        "type": "h2",
+        "text": "Verbunden bleiben: SIM oder eSIM"
+      },
+      {
+        "type": "p",
+        "text": "Türkische Touristen-SIM-Karten gibt es in den Ankunftshallen und in der Stadt; zur Registrierung brauchen Sie Ihren Pass. Eine vor dem Abflug gekaufte eSIM ist meist günstiger und ab der Landung aktiv - das ist der praktische Vorteil: Sie können dem Fahrer schreiben, eine Karte öffnen oder das Hotel anrufen, bevor Sie irgendwo angestanden haben. WLAN im Hotel ist verbreitet und meist brauchbar, eine lokale Nummer ist für eine Urlaubswoche also Komfort, keine Notwendigkeit."
+      },
+      {
+        "type": "h2",
+        "text": "Trinkgeld, ehrlich betrachtet"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Restaurants: etwa 5-10 %, wenn es gut war, in gehobenen Häusern mehr; prüfen Sie, ob Service schon auf der Rechnung steht.",
+          "Zimmerreinigung und Gepäckträger im Hotel: ein kleiner Schein im Zimmer oder in die Hand ist üblich und wird geschätzt.",
+          "Transferfahrer: nie Pflicht und nie im Preis versteckt. Ein paar Euro für schweres Gepäck oder eine Nachtfahrt sind eine Freundlichkeit, keine Erwartung.",
+          "Reiseleiter beim Tagesausflug: üblich ist ein kleiner Betrag pro Person am Ende des Tages.",
+          "Taxi: Aufrunden genügt."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Ihre erste Stunde, in Reihenfolge"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Passkontrolle, dann Gepäckausgabe - in der Hochsaison 20 bis 45 Minuten einplanen.",
+          "eSIM aktivieren oder SIM kaufen, wenn Sie eine lokale Nummer wollen.",
+          "Nur so viel Bargeld wechseln, wie Sie sofort in Lira brauchen.",
+          "In die Ankunftshalle zum Meet & Greet Bereich J / 777 gehen - unser Team hat Ihre Buchung und bringt Sie zum Fahrer.",
+          "Wasser, Klimaanlage und losfahren - 35 bis 40 Minuten nach Belek, rund zwei Stunden nach Alanya."
+        ]
+      },
+      {
+        "type": "routelinks",
+        "text": "Festpreis pro Fahrzeug, Flugverfolgung inklusive, Zahlung bei Ankunft:",
+        "routes": [
+          "antalya",
+          "belek",
+          "alanya"
+        ],
+        "button": "Festpreis prüfen"
+      }
+    ],
+    "faq": [
+      [
+        "Brauche ich ein Visum für die Türkei?",
+        "Das hängt von Ihrer Staatsangehörigkeit ab. Viele Reisende, darunter die meisten EU-Bürger, brauchen für einen kurzen Urlaub keines; andere beantragen online ein E-Visum. Prüfen Sie es vor der Reise auf der offiziellen türkischen E-Visum-Seite."
+      ],
+      [
+        "Soll ich Euro oder türkische Lira mitbringen?",
+        "Nehmen Sie Euro oder Ihre Karte und besorgen Sie Lira vor Ort. Die Kurse am Flughafen sind schlecht - dort nur das Nötige wechseln, den Rest am Bankautomaten oder in Wechselstuben in der Stadt."
+      ],
+      [
+        "Kann ich in Antalya überall mit Karte zahlen?",
+        "In Hotels, Restaurants, Supermärkten und Apotheken ja. Für Märkte, kleine Cafés, Trinkgeld und lokale Verkehrsmittel sollten Sie Bargeld dabeihaben."
+      ],
+      [
+        "Türkische SIM-Karte oder eSIM - was ist besser?",
+        "Eine vor dem Abflug gekaufte eSIM ist meist günstiger und funktioniert sofort nach der Landung. Eine physische Touristen-SIM wird mit Ihrem Pass registriert und ist in der Ankunftshalle und in der Stadt erhältlich."
+      ],
+      [
+        "Muss ich dem Transferfahrer Trinkgeld geben?",
+        "Nein. Der Preis ist fest und vollständig. Ein paar Euro für schweres Gepäck oder eine Nachtankunft freuen den Fahrer, erwartet wird es nicht."
+      ]
+    ]
   }
 };
