@@ -1,5 +1,6 @@
 import { resolve } from "node:path";
 import { defineConfig } from "vite";
+import { configDefaults } from "vitest/config";
 import react from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
 import { resolvePriceTokens } from "./src/prices.js";
@@ -94,5 +95,12 @@ export default defineConfig({
         admin: resolve(__dirname, "admin/index.html"),
       },
     },
+  },
+  test: {
+    // Keep vitest out of git worktrees under .worktrees/: their copy of the
+    // suite is not the working tree's, and scanning it reports failures that
+    // belong to another checkout. prebuild runs `npm test`, so without this a
+    // stale worktree also fails `npm run build`.
+    exclude: [...configDefaults.exclude, "**/.worktrees/**"],
   },
 });
