@@ -60,7 +60,7 @@ const booking = {
   chauffeur_hire_days: [],
 } as unknown as Booking
 
-function installQueries({ updatedCount = 1 } = {}) {
+function installQueries({ updatedCount = 1, status = 'confirmed' } = {}) {
   mocks.from.mockImplementation((table: string) => {
     if (table === 'booking_notes') {
       return { insert: (row: unknown) => { mocks.notes(row); return Promise.resolve({ error: null }) } }
@@ -69,7 +69,7 @@ function installQueries({ updatedCount = 1 } = {}) {
     return {
       select: (columns: string) => columns.startsWith('id, booking_ref')
         ? { eq: () => Promise.resolve({ data: [], error: null }) }
-        : { eq: () => ({ limit: () => Promise.resolve({ data: [booking], error: null }) }) },
+        : { eq: () => ({ limit: () => Promise.resolve({ data: [{ ...booking, status }], error: null }) }) },
       update: (payload: Record<string, unknown>) => ({
         eq: (_idColumn: string, id: string) => ({
           eq: (column: string, value: string) => {
@@ -132,12 +132,38 @@ describe('BookingDetailPage remove return leg', () => {
     expect(navigate).not.toHaveBeenCalled()
   })
 
-  test('is not offered on the outbound leg', async () => {
+  test('removes the outbound and keeps the return as a one-way trip', async () => {
     installQueries()
+    const navigate = vi.fn()
+    render(<BookingDetailPage bookingRef="AVL-101" isReturn={false} sourceTab="future" navigate={navigate} />)
+
+    expect(screen.queryByRole('button', { name: 'Sadece dönüşü kaldır' })).not.toBeInTheDocument()
+    fireEvent.click(await screen.findByRole('button', { name: 'Sadece gidişi kaldır' }))
+
+    await waitFor(() => expect(navigate).toHaveBeenCalledWith('#detail/AVL-101?from=future'))
+    const [{ payload, guard }] = mocks.updated.mock.calls[0]
+    expect(guard).toEqual(['trip_type', 'round_trip'])
+    expect(payload).toMatchObject({
+      trip_type: 'one_way',
+      price_eur: 450,
+      pickup_location: 'pamukkale',
+      dropoff_location: 'airport',
+      pickup_date: '2026-08-09',
+      pickup_time: '14:00',
+      flight_number: 'TK2412',
+      service_cost_mode: 'sold_transfer',
+      sold_transfer_cost_try: 1600,
+      return_date: null,
+    })
+    expect(mocks.notes).toHaveBeenCalledWith(expect.objectContaining({ note: expect.stringContaining('Gidiş transferi kaldırıldı') }))
+  })
+
+  test('does not offer removing an outbound that has already been driven', async () => {
+    installQueries({ status: 'completed' })
     render(<BookingDetailPage bookingRef="AVL-101" isReturn={false} sourceTab="future" navigate={vi.fn()} />)
 
     await screen.findByText('Durum Güncelle')
-    expect(screen.queryByRole('button', { name: 'Sadece dönüşü kaldır' })).not.toBeInTheDocument()
+    expect(screen.queryByRole('button', { name: 'Sadece gidişi kaldır' })).not.toBeInTheDocument()
   })
 
   test('warns that cancelling from the return leg cancels both legs', async () => {

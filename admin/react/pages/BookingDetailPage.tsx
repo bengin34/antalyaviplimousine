@@ -15,6 +15,7 @@ import { LOCATION_OPTIONS, LANGUAGE_OPTIONS, VEHICLE_CAPACITY, validateBookingFo
 import { ReturnPickupHint, returnPickupAdvice } from '../components/ReturnPickupHint'
 import { languageFromPhone } from '../../turkish-formatters.js'
 import { markCustomerMessageSent } from '../lib/customer-messages'
+import { removeRoundTripLegPayload } from '../../round-trip-legs.js'
 
 const STATUS_TRANSITIONS: Record<string, BookingStatus[]> = {
   pending: ['confirmed', 'cancelled'], paid: ['in_transit'], confirmed: ['in_transit', 'cancelled'],
@@ -319,8 +320,8 @@ export default function BookingDetailPage({ bookingRef, isReturn, sourceTab, pro
   const [messageLang, setMessageLang] = useState('')
   const [preview, setPreview] = useState<{ kind: TemplateKind; text: string } | null>(null)
   const [deleting, setDeleting] = useState(false)
-  const [removingReturn, setRemovingReturn] = useState(false)
-  const [removeReturnError, setRemoveReturnError] = useState('')
+  const [removingLeg, setRemovingLeg] = useState<'outbound' | 'return' | null>(null)
+  const [removeLegError, setRemoveLegError] = useState('')
   const [deleteError, setDeleteError] = useState('')
   // "Dönüş yolculuğu planla" / "yeni seyahat planla" kısayolları ayrı bir
   // rezervasyon satırı oluşturur. Bu kayıt silinince bağlı satır yerinde kalır
@@ -366,6 +367,14 @@ export default function BookingDetailPage({ bookingRef, isReturn, sourceTab, pro
   const isExcursion = booking.trip_type === 'land_of_legends'
   const needsReturnContact = Boolean(isReturn && roundTrip && booking.status === 'completed' && isFutureIstanbulLeg(booking.return_date, booking.return_pickup_time))
   const displayStatus = (needsReturnContact ? 'confirmed' : booking.status) as BookingStatus
+  // Dönüş, henüz yapılmamışsa (gidiş tamamlanmış olsa bile) kaldırılabilir.
+  // Gidiş yalnızca yola çıkılmadan kaldırılabilir; yapılmış bir ayak
+  // kâr/zarar defterinde kalmalıdır.
+  const removableLeg: 'outbound' | 'return' | null = !roundTrip || !booking.return_date || booking.status === 'cancelled'
+    ? null
+    : isReturn
+      ? (booking.status !== 'completed' || needsReturnContact ? 'return' : null)
+      : (['pending', 'paid', 'confirmed'].includes(booking.status) ? 'outbound' : null)
   const transfer = transferFor(booking, isReturn)
   const pickupDisplay = locationDisplay(transfer.pickupLocation, transfer.pickupAddress)
   const dropoffDisplay = dailyChauffeur ? 'Esnek güzergâh' : locationDisplay(transfer.dropoffLocation, transfer.dropoffAddress)
@@ -503,7 +512,9 @@ export default function BookingDetailPage({ bookingRef, isReturn, sourceTab, pro
   const updateStatus = async (next: BookingStatus) => {
     const cancelConfirmation = isReturn && roundTrip
       ? 'Bu işlem rezervasyonun tamamını (gidiş ve dönüş) iptal eder. Yalnızca dönüşü iptal etmek için "Sadece dönüşü kaldır" seçeneğini kullanın. Devam edilsin mi?'
-      : 'Bu transferi iptal etmek istediğinize emin misiniz?'
+      : roundTrip
+        ? 'Bu işlem rezervasyonun tamamını (gidiş ve dönüş) iptal eder. Yalnızca gidişi iptal etmek için "Sadece gidişi kaldır" seçeneğini kullanın. Devam edilsin mi?'
+        : 'Bu transferi iptal etmek istediğinize emin misiniz?'
     if (next === 'cancelled' && !window.confirm(cancelConfirmation)) return
     const previousStatus = booking.status
     setBooking({ ...booking, status: next })
@@ -519,42 +530,37 @@ export default function BookingDetailPage({ bookingRef, isReturn, sourceTab, pro
     if (next === 'completed' && !dailyChauffeur) setCostDialogOpen(true)
   }
 
-  // Gidiş-dönüş tek kayıttır; dönüşü kaldırmak kaydı tek yöne çevirir ve
-  // gidişe dokunmaz. İptal/silme ise iki bacağı birlikte götürür.
-  const removeReturnLeg = async () => {
-    const legPrice = (Number(booking.price_eur) || 0) / 2
-    const returnSummary = [fmtDetailDate(booking.return_date), fmtTime(booking.return_pickup_time), booking.return_flight_number ? `uçuş ${booking.return_flight_number}` : null]
+  // Gidiş-dönüş tek kayıttır. Bir ayağı kaldırmak kaydı kalan ayağın tek
+  // yönlü hâline çevirir; diğer ayağa dokunmaz. İptal/silme ise iki ayağı
+  // birlikte götürür.
+  const removeLeg = async (leg: 'outbound' | 'return') => {
+    const payload = removeRoundTripLegPayload(booking, leg)
+    const removedDate = leg === 'return' ? booking.return_date : booking.pickup_date
+    const removedTime = leg === 'return' ? booking.return_pickup_time : transferStartTime(booking.pickup_location, booking.pickup_time, booking.flight_arrival_time)
+    const removedFlight = leg === 'return' ? booking.return_flight_number : booking.flight_number
+    const removedSummary = [fmtDetailDate(removedDate), fmtTime(removedTime), removedFlight ? `uçuş ${removedFlight}` : null]
       .filter(part => part && part !== '—').join(' · ')
-    if (!window.confirm(`Dönüş transferi (${returnSummary}) kaldırılacak. Gidiş olduğu gibi kalır, rezervasyon tek yöne çevrilir ve fiyat €${fmtPrice(booking.price_eur)} → €${fmtPrice(legPrice)} olur. Devam edilsin mi?`)) return
-    setRemovingReturn(true); setRemoveReturnError('')
-    const { count, error } = await supabase.from('bookings').update({
-      trip_type: 'one_way',
-      price_eur: legPrice,
-      return_date: null,
-      return_pickup_time: null,
-      return_flight_number: null,
-      return_flight_departure_time: null,
-      return_service_cost_mode: null,
-      return_sold_transfer_cost_try: null,
-      return_own_vehicle_profit_eur: null,
-      return_revenue_eur: null,
-      return_meet_fee_override: null,
-      manual_return_distance_km: null,
-    }, { count: 'exact' }).eq('id', booking.id).eq('trip_type', 'round_trip')
+    const legName = leg === 'return' ? 'Dönüş' : 'Gidiş'
+    const keptName = leg === 'return' ? 'gidiş' : 'dönüş'
+    const priceChange = `€${fmtPrice(booking.price_eur)} → €${fmtPrice(payload.price_eur)}`
+    if (!window.confirm(`${legName} transferi (${removedSummary}) kaldırılacak. ${keptName[0].toLocaleUpperCase('tr-TR')}${keptName.slice(1)} olduğu gibi kalır, rezervasyon tek yöne çevrilir ve fiyat ${priceChange} olur. Devam edilsin mi?`)) return
+    setRemovingLeg(leg); setRemoveLegError('')
+    const { count, error } = await supabase.from('bookings').update(payload, { count: 'exact' }).eq('id', booking.id).eq('trip_type', 'round_trip')
     if (error || count === 0) {
-      if (error) console.error('Dönüş kaldırma hatası:', error.message, error.details, error.hint, error.code)
-      setRemovingReturn(false)
-      setRemoveReturnError('Dönüş kaldırılamadı, rezervasyon değişmedi. Sayfayı yenileyip tekrar deneyin.')
+      if (error) console.error(`${legName} kaldırma hatası:`, error.message, error.details, error.hint, error.code)
+      setRemovingLeg(null)
+      setRemoveLegError(`${legName} kaldırılamadı, rezervasyon değişmedi. Sayfayı yenileyip tekrar deneyin.`)
       return
     }
-    // Kaldırılan dönüşün izi notlarda kalsın; not yazılamazsa dönüş yine de
+    // Kaldırılan ayağın izi notlarda kalsın; not yazılamazsa ayak yine de
     // kaldırılmıştır, bu yüzden akışı durdurmaz.
+    const departure = leg === 'return' && booking.return_flight_departure_time ? `, uçak kalkışı ${fmtTime(booking.return_flight_departure_time)}` : ''
     const { error: noteError } = await supabase.from('booking_notes').insert({
       booking_id: booking.id,
-      note: `Dönüş transferi kaldırıldı (${returnSummary}). Rezervasyon tek yöne çevrildi; fiyat €${fmtPrice(booking.price_eur)} → €${fmtPrice(legPrice)}.`,
+      note: `${legName} transferi kaldırıldı (${removedSummary}${departure}). Rezervasyon tek yöne çevrildi; fiyat ${priceChange}.`,
     })
-    if (noteError) console.error('Dönüş kaldırma notu eklenemedi:', noteError.message)
-    setRemovingReturn(false)
+    if (noteError) console.error(`${legName} kaldırma notu eklenemedi:`, noteError.message)
+    setRemovingLeg(null)
     navigate(`#detail/${encodeURIComponent(booking.booking_ref)}?from=${sourceTab}${profitPeriod ? `&profitPeriod=${encodeURIComponent(profitPeriod)}` : ''}`)
   }
 
@@ -686,8 +692,10 @@ export default function BookingDetailPage({ bookingRef, isReturn, sourceTab, pro
       })()}
       {costDialogOpen && <CostDialog booking={booking} leg={isReturn && roundTrip ? 'return' : 'outbound'} today={todayISO()} onClose={() => setCostDialogOpen(false)} onSaved={updated => setBooking(updated)} />}
       <div className="section"><div className="section-label">Durum Güncelle</div><div className="status-buttons">{(STATUS_TRANSITIONS[displayStatus] ?? []).length ? STATUS_TRANSITIONS[displayStatus].map(next => <button className={`btn-outline ${STATUS_COLORS[next]}`} type="button" key={next} disabled={statusSaving} onClick={() => void updateStatus(next)}>{statusLabel(next, roundTrip)}</button>) : <div style={{ color: 'var(--text-muted)', fontSize: 13, gridColumn: '1/-1' }}>Bu transfer için başka durum seçeneği yok.</div>}</div><div className="inline-error">{statusError}</div></div>
-      {isReturn && roundTrip && (booking.status !== 'cancelled' && (booking.status !== 'completed' || needsReturnContact)) && <div className="section"><div className="section-label">Dönüşü Kaldır</div><div style={{ color: 'var(--text-muted)', fontSize: 13, marginBottom: 8 }}>Yalnızca dönüş transferini iptal eder. Gidiş olduğu gibi kalır; rezervasyon tek yöne çevrilir, fiyat yarıya iner ve kaldırılan dönüş notlara yazılır.</div>
-        <button className="btn-outline red" type="button" disabled={removingReturn} onClick={() => void removeReturnLeg()}>{removingReturn ? 'Kaldırılıyor…' : 'Sadece dönüşü kaldır'}</button><div className="inline-error">{removeReturnError}</div></div>}
+      {removableLeg && <div className="section"><div className="section-label">{removableLeg === 'return' ? 'Dönüşü Kaldır' : 'Gidişi Kaldır'}</div><div style={{ color: 'var(--text-muted)', fontSize: 13, marginBottom: 8 }}>{removableLeg === 'return'
+          ? 'Yalnızca dönüş transferini iptal eder. Gidiş olduğu gibi kalır; rezervasyon tek yöne çevrilir, fiyat yarıya iner ve kaldırılan dönüş notlara yazılır.'
+          : 'Yalnızca gidiş transferini iptal eder. Dönüş, kendi tarihi, saati, uçuşu ve maliyetiyle tek yönlü transfer olarak kalır; fiyat yarıya iner ve kaldırılan gidiş notlara yazılır.'}</div>
+        <button className="btn-outline red" type="button" disabled={removingLeg !== null} onClick={() => void removeLeg(removableLeg)}>{removingLeg ? 'Kaldırılıyor…' : removableLeg === 'return' ? 'Sadece dönüşü kaldır' : 'Sadece gidişi kaldır'}</button><div className="inline-error">{removeLegError}</div></div>}
       {booking.status === 'cancelled' && <div className="section"><div className="section-label">Kalıcı Silme</div><div style={{ color: 'var(--text-muted)', fontSize: 13, marginBottom: 8 }}>İptal edilen bu rezervasyonu kalıcı olarak silebilirsiniz. Bu işlem geri alınamaz; test rezervasyonlarını temizlemek için kullanabilirsiniz.</div>
         {linkedReturns.length > 0 && <label className="admin-fuel-acceptance linked-return-choice"><input type="checkbox" checked={deleteLinkedReturns} onChange={e => setDeleteLinkedReturns(e.target.checked)} /><span><strong>Bağlı kayıtlar da silinsin</strong><small>Bu rezervasyondan planlanan {linkedReturns.length} ayrı kayıt var: {linkedReturns.map(item => `${item.booking_ref} · ${fmtDetailDate(item.pickup_date)}`).join(' · ')}. İşaretlenmezse bu kayıtlar durur ve kâr/zarar ekranında görünmeye devam eder.</small></span></label>}
         <button className="btn-outline red" type="button" disabled={deleting} onClick={() => void deleteBooking()}>🗑 {deleting ? 'Siliniyor…' : 'Kalıcı olarak sil'}</button><div className="inline-error">{deleteError}</div></div>}

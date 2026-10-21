@@ -259,7 +259,7 @@ function moneyToCents(value) {
   return roundFractionToCents(fraction.numerator, fraction.denominator)
 }
 
-function allocateMoneyAmounts(total, count) {
+export function allocateMoneyAmounts(total, count) {
   if (!Number.isInteger(count) || count <= 0) return []
   let totalCents
   try {

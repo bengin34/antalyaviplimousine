@@ -1,0 +1,12 @@
+-- Let admins reset a booking's flight-verification result.
+--
+-- The result belongs to the booking's outbound arrival flight and is written
+-- by the verify-flight path. When an admin removes the outbound leg of a
+-- round trip, the return becomes the booking's only (one-way) trip with a
+-- different flight, so the old result has to be cleared with it - otherwise
+-- the detail badge and the funnel's "flight not found" list would keep
+-- reporting on a flight that is no longer booked.
+--
+-- Column-level and additive, like every other bookings grant; the RLS update
+-- policy still limits it to admins.
+grant update (flight_verification_status, flight_scheduled_arrival) on public.bookings to authenticated;
