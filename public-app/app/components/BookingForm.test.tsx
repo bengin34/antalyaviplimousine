@@ -334,6 +334,74 @@ describe("BookingForm route summary", () => {
     expect(airport.container.querySelector("#flight-number")).toBeInTheDocument();
   });
 
+  test("a journey that does not start at the airport asks when to collect the guest", async () => {
+    const { container, getByText } = render(
+      <LanguageProvider initialLanguage="tr" messages={pageMessages("tr")}>
+        <LandOfLegendsBookingCopyProvider copy={landOfLegendsBookingCopy("tr")}>
+          <BookingForm scrollOnSelect={false} />
+        </LandOfLegendsBookingCopyProvider>
+      </LanguageProvider>,
+    );
+
+    fireEvent.change(container.querySelector("#pickup")!, { target: { value: "hotel" } });
+    fireEvent.change(container.querySelector("#destination")!, { target: { value: "bodrum" } });
+    fireEvent.change(container.querySelector("#hotel-name")!, { target: { value: "Lara Barut Collection" } });
+    fireEvent.change(container.querySelector("#dropoff-hotel-name")!, { target: { value: "Mandarin Oriental Bodrum" } });
+    fireEvent.click(container.querySelector("#main-book-step1")!);
+
+    await waitFor(() => expect(container.querySelector("#transfer-pickup-time")).toBeInTheDocument());
+    // Two hotels have no flight to arrive on, so the date is not an arrival.
+    expect(getByText("Alış tarihi")).toBeInTheDocument();
+    expect(getByText("Alış saati")).toBeInTheDocument();
+
+    cleanup();
+
+    // An airport pick-up is timed by the landing we track, so it is not asked.
+    const arrival = render(
+      <LanguageProvider initialLanguage="tr" messages={pageMessages("tr")}>
+        <LandOfLegendsBookingCopyProvider copy={landOfLegendsBookingCopy("tr")}>
+          <BookingForm scrollOnSelect={false} />
+        </LandOfLegendsBookingCopyProvider>
+      </LanguageProvider>,
+    );
+    fireEvent.change(arrival.container.querySelector("#destination")!, { target: { value: "belek" } });
+    fireEvent.change(arrival.container.querySelector("#hotel-name")!, { target: { value: "Rixos Premium Belek" } });
+    fireEvent.click(arrival.container.querySelector("#main-book-step1")!);
+
+    await waitFor(() => expect(arrival.container.querySelector("#travel-date")).toBeInTheDocument());
+    expect(arrival.container.querySelector("#transfer-pickup-time")).not.toBeInTheDocument();
+  });
+
+  test("a journey to the airport asks about the flight the guest leaves on, and never checks arrivals for it", async () => {
+    vi.mocked(verifyFlightNumber).mockResolvedValue({ status: "verified", arrivalTime: "23:59", arrivalAirport: "AYT" });
+    const { container, getByText } = render(
+      <LanguageProvider initialLanguage="tr" messages={pageMessages("tr")}>
+        <LandOfLegendsBookingCopyProvider copy={landOfLegendsBookingCopy("tr")}>
+          <BookingForm scrollOnSelect={false} />
+        </LandOfLegendsBookingCopyProvider>
+      </LanguageProvider>,
+    );
+
+    fireEvent.change(container.querySelector("#pickup")!, { target: { value: "hotel" } });
+    fireEvent.change(container.querySelector("#destination")!, { target: { value: "airport" } });
+    fireEvent.change(container.querySelector("#hotel-name")!, { target: { value: "Rixos Premium Belek" } });
+    fireEvent.click(container.querySelector("#main-book-step1")!);
+
+    await waitFor(() => expect(container.querySelector("#flight-number")).toBeInTheDocument());
+    expect(getByText("Kalkış tarihi")).toBeInTheDocument();
+    expect(getByText("Kalkış uçuş numarası")).toBeInTheDocument();
+    expect(getByText("Kalkış uçuş saati")).toBeInTheDocument();
+    // The driver still needs an hour: a departure has no landing to wait for.
+    expect(container.querySelector("#transfer-pickup-time")).toBeInTheDocument();
+
+    fireEvent.change(container.querySelector("#flight-number")!, { target: { value: "TK2403" } });
+    fireEvent.blur(container.querySelector("#flight-number")!);
+    // The lookup only knows landings at AYT; asked about an outbound flight it
+    // answers about another aircraft, so it is never asked.
+    await waitFor(() => expect(container.querySelector<HTMLInputElement>("#flight-number")!.value).toBe("TK2403"));
+    expect(verifyFlightNumber).not.toHaveBeenCalled();
+  });
+
   test("the destination hotel is required before the price step", async () => {
     const { container } = render(
       <LanguageProvider initialLanguage="tr" messages={pageMessages("tr")}>

@@ -167,7 +167,9 @@ describe('ProfitLossPage stale distribution recovery', () => {
     await screen.findByRole('button', { name: 'Kârı dağıt' })
 
     fireEvent.click(screen.getByRole('button', { name: 'Kârı dağıt' }))
-    fireEvent.click(screen.getByRole('button', { name: 'Dağıtımı onayla' }))
+    // Onay düğmesi dağıtım paneliyle birlikte geliyor; yüklü bir CI
+    // koşucusunda o render bir tik gecikince senkron sorgu patlıyordu.
+    fireEvent.click(await screen.findByRole('button', { name: 'Dağıtımı onayla' }))
 
     await waitFor(() => expect(mocks.fetchLedger).toHaveBeenCalledTimes(2))
     await act(async () => resolveRefreshedLedger({ settings: shareSettings, distributions: [refreshedDistribution] }))

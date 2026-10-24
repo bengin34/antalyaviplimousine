@@ -14,8 +14,10 @@ import {
   createPublicBookingSchema,
   fetchLivePriceOverrides,
   inclusiveDayCount,
+  isDepartureJourney,
   journeyTouchesAirport,
   needsDropoffHotel,
+  needsPickupTime,
   pricedRouteSlug,
   quoteFor,
   vitoFits as vitoFitsCapacity,
@@ -108,8 +110,12 @@ function whatsappConfirmation(values: PublicBookingValues, bookingRef: string, p
     const agesText = ages.length ? ` (${ages.map((age, i) => `Child ${i + 1}: ${age === 0 ? "under 1" : `${age} yr`}`).join(", ")})` : "";
     lines.push(`👶 Child seats: ${childSeatCount}${agesText}`);
   }
+  if (needsPickupTime(values) && values.pickupTime) lines.push(`🕐 Pickup: ${values.pickupTime}`);
   if (values.flightNumber) lines.push(`✈️ Flight: ${values.flightNumber}`);
-  if (values.arrivalTime) lines.push(`🕐 Arrival: ${values.arrivalTime}`);
+  // One field holds the hour of whichever flight the journey has, so the line
+  // has to name which one: a driver reading "Arrival 09:00" for a guest who
+  // takes off at 09:00 sets out hours too late.
+  if (values.arrivalTime) lines.push(`🕐 ${isDepartureJourney(values) ? "Flight departure" : "Arrival"}: ${values.arrivalTime}`);
   if (values.tripType === "round_trip") {
     lines.push(`📅 Return: ${values.returnDate}`, `🕐 Return pickup: ${values.returnPickupTime}`);
     if (values.returnFlightNumber) lines.push(`✈️ Return flight: ${values.returnFlightNumber}`);
@@ -235,6 +241,11 @@ export function BookingForm({
   // Only an airport end has a flight. Asking a guest moving between two hotels
   // for an arrival flight number made them invent one to get past the step.
   const hasFlight = journeyTouchesAirport(values);
+  // Flying out, not in: the date, the flight and its hour are all departures,
+  // and the arrivals board has nothing to say about them.
+  const departing = isDepartureJourney(values);
+  // No landing to wait for, so the hour has to come from the guest.
+  const pickupTimeNeeded = needsPickupTime(values);
 
   // Naming the belde alongside the region reassures a guest whose hotel is
   // priced under a neighbouring region's name — an Okurcalar hotel quoted at
@@ -455,6 +466,10 @@ export function BookingForm({
   };
 
   const runFlightCheck = async () => {
+    // The lookup only knows landings at AYT. On a journey to the airport the
+    // number in the field is the guest's outbound flight, so there is nothing
+    // to confirm and any verdict would be about a different aircraft.
+    if (isDepartureJourney(getValues())) return forgetFlightCheck();
     const flightNumber = getValues("flightNumber")?.trim() ?? "";
     const date = getValues("travelDate") ?? "";
     // Ucus numarasi silindiyse ona ait durum da gitmeli: yoksa rezervasyon
@@ -530,6 +545,7 @@ export function BookingForm({
     if (values.pickup === "private_address") step2Fields.push("pickupAddress");
     if (values.destination === "private_address") step2Fields.push("dropoffAddress");
     if (hasFlight) step2Fields.push("flightNumber");
+    if (pickupTimeNeeded) step2Fields.push("pickupTime");
     const valid = await trigger(step2Fields);
     if (!valid) return;
     window.gtag?.("event", "booking_started", { route: values.destination, price: quote.price });
@@ -597,9 +613,9 @@ export function BookingForm({
 
   const renderGuestHotelField = () => renderHotelField("hotelName", {
     id: "hotel-name",
-    label: dropoffHotelNeeded ? t("pickupHotelNameLabel", "Pick-up hotel name") : t("hotelNameLabel", "Hotel name"),
+    label: values.pickup === "hotel" ? t("pickupHotelNameLabel", "Pick-up hotel name") : t("hotelNameLabel", "Hotel name"),
     placeholder: t("hotelNamePlaceholder", "Hotel or accommodation name"),
-    hintId: hotelSetsDestination ? "hotel-region-hint" : undefined,
+    hintId: "hotel-region-hint",
     onChange: handleHotelInput,
     onSelect: handleHotelSelect,
     onNotListed: handleHotelNotListed,
@@ -724,12 +740,16 @@ export function BookingForm({
               {!isDailyChauffeur && (
                 <div className="booking-row booking-hotel-row">
                   {renderGuestHotelField()}
-                  <p className={`hotel-region-hint${hotelMatch && hotelSetsDestination ? " is-matched" : ""}`} id="hotel-region-hint">
-                    {hotelMatch && hotelSetsDestination
+                  {/* Recognising the hotel is worth saying whichever end of
+                      the journey it is: it is how the guest knows we placed
+                      them, and leaving a matched pick-up hotel under "type it
+                      and pick it from the list" reads as though nothing took. */}
+                  <p className={`hotel-region-hint${hotelMatch ? " is-matched" : ""}`} id="hotel-region-hint">
+                    {hotelMatch
                       ? hotelMatchLabel
                       : hotelNotListed
                         ? t("hotelNotListedHint", "No problem — just tell us your hotel name and pick your region below.")
-                        : dropoffHotelNeeded
+                        : values.pickup === "hotel"
                           ? t("pickupHotelSearchHint", "Type the hotel we collect you from and pick it from the list.")
                           : t("hotelSearchHint", "Type your hotel name and pick it from the list; we fill in the destination region and price for you.")}
                   </p>
@@ -814,10 +834,20 @@ export function BookingForm({
             <>
               <div className="booking-row booking-outbound-row">
                 <label className={fieldClass(errors.travelDate)}>
-                  <span>{t("arrivalDate", "Arrival date")}</span>
+                  {/* The one date this journey has is named after its own
+                      direction: a guest flying out is not arriving, and two
+                      hotels have no flight to arrive on at all. */}
+                  <span>{departing ? t("departureDate", "Departure date") : pickupTimeNeeded ? t("pickupDateLabel", "Pick-up date") : t("arrivalDate", "Arrival date")}</span>
                   <div className="field-control"><Icon name="calendar" className="icon" /><input id="travel-date" type="date" min={minimumDate || undefined} {...register("travelDate")} {...fieldStatus("travelDate", errors.travelDate)} /></div>
                   <FieldErrorMessage name="travelDate" error={errors.travelDate} />
                 </label>
+                {pickupTimeNeeded && (
+                <label className={`${fieldClass(errors.pickupTime)} time-booking-field`}>
+                  <span>{t("pickupTimeLabel", "Pick-up time")}</span>
+                  <div className="field-control time-field-control" onClick={() => openTimePicker("transfer-pickup-time")}><Icon name="clock" className="icon" /><span className="time-picker-value">{values.pickupTime || t("chooseTime", "Choose time")}</span><input id="transfer-pickup-time" type="time" {...register("pickupTime")} {...fieldStatus("pickupTime", errors.pickupTime)} /></div>
+                  <FieldErrorMessage name="pickupTime" error={errors.pickupTime} />
+                </label>
+                )}
                 {/* Ucus numarasi saatten ONCE sorulur. iOS'ta saat alanina
                     dokunmak tekerlek secicisini acar ve seciciden cikinca o
                     anki saat alana yazilir; alan artik dolu ve kirli olur,
@@ -825,13 +855,17 @@ export function BookingForm({
                     yaz, saat kendiliginden dolsun, saate hic dokunma. */}
                 {hasFlight && (<>
                 <label className={fieldClass(errors.flightNumber)}>
-                  <span>{t("arrivalFlightNumber", "Arrival flight number")}</span>
-                  <div className="field-control"><Icon name="plane" className="icon" /><input id="flight-number" maxLength={12} placeholder="TK1234" {...(() => { const f = register("flightNumber"); return { ...f, onBlur: (e: React.FocusEvent<HTMLInputElement>) => { void f.onBlur(e); void runFlightCheck(); } }; })()} {...fieldStatus("flightNumber", errors.flightNumber)} /></div>
+                  <span>{departing ? t("departureFlightNumber", "Departure flight number") : t("arrivalFlightNumber", "Arrival flight number")}</span>
+                  {/* Only an arrival is looked up: the schedule we query is
+                      the one for landings at AYT, and asking it about the
+                      guest's outbound flight answered about another
+                      aircraft - or called their own flight wrong-airport. */}
+                  <div className="field-control"><Icon name="plane" className="icon" /><input id="flight-number" maxLength={12} placeholder="TK1234" {...(() => { const f = register("flightNumber"); return { ...f, onBlur: (e: React.FocusEvent<HTMLInputElement>) => { void f.onBlur(e); if (!departing) void runFlightCheck(); } }; })()} {...fieldStatus("flightNumber", errors.flightNumber)} /></div>
                   <FieldErrorMessage name="flightNumber" error={errors.flightNumber} />
-                  {renderFlightHints()}
+                  {!departing && renderFlightHints()}
                 </label>
                 <label className={`${fieldClass(errors.arrivalTime)} time-booking-field`}>
-                  <span>{t("arrivalFlightTime", "Flight arrival time")}</span>
+                  <span>{departing ? t("departureFlightTime", "Departure flight time") : t("arrivalFlightTime", "Flight arrival time")}</span>
                   <div className="field-control time-field-control" onClick={() => openTimePicker("flight-arrival-time")}><Icon name="clock" className="icon" /><span className="time-picker-value">{values.arrivalTime || t("chooseTime", "Choose time")}</span><input id="flight-arrival-time" type="time" {...register("arrivalTime")} {...fieldStatus("arrivalTime", errors.arrivalTime)} /></div>
                   <FieldErrorMessage name="arrivalTime" error={errors.arrivalTime} />
                 </label>

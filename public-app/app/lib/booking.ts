@@ -72,6 +72,27 @@ export function journeyTouchesAirport(values: Pick<PublicBookingValues, "tripTyp
     && (values.pickup === "airport" || values.destination === "airport");
 }
 
+/**
+ * Whether the flight on this journey is the one the guest leaves on rather
+ * than the one they land from. It changes every question around it: the date
+ * is the day they fly out, the time is the departure off the board, and the
+ * arrivals lookup has nothing to say about it - asked anyway it answered
+ * about another aircraft, or called the guest's own flight wrong-airport.
+ */
+export function isDepartureJourney(values: Pick<PublicBookingValues, "tripType" | "pickup" | "destination">) {
+  return journeyTouchesAirport(values) && values.pickup !== "airport";
+}
+
+/**
+ * Whether the guest has to tell us when to collect them. An airport pick-up
+ * is timed by the landing we track; every other journey has nothing to derive
+ * an hour from, and without this question the booking reaches the operator
+ * with no pick-up time at all - the driver's own line reads "—".
+ */
+export function needsPickupTime(values: Pick<PublicBookingValues, "tripType" | "pickup" | "destination">) {
+  return values.tripType !== "daily_chauffeur" && values.pickup !== "airport";
+}
+
 export function createPublicBookingSchema(t: Translate) {
   return z.object({
     tripType: z.enum(["one_way", "round_trip", "daily_chauffeur"]),
@@ -136,6 +157,12 @@ export function createPublicBookingSchema(t: Translate) {
       context.addIssue({ code: "custom", path: ["destination"], message: t("destinationRequired", "Please select a destination.") });
     }
 
+    // Nothing else on a hotel or address pick-up says when to come: there is
+    // no landing to wait for, so the hour has to be asked outright.
+    if (needsPickupTime(values) && !values.pickupTime) {
+      context.addIssue({ code: "custom", path: ["pickupTime"], message: t("pickupTimeRequired", "Please choose the pick-up time.") });
+    }
+
     if (values.pickup === "private_address" && (normalize(values.pickupAddress).length < 6 || normalize(values.pickupAddress).length > 160)) {
       context.addIssue({ code: "custom", path: ["pickupAddress"], message: t("pickupAddressRequired", "Please enter the full pick-up address.") });
     }
@@ -171,7 +198,9 @@ export function createPublicBookingSchema(t: Translate) {
       context.addIssue({ code: "custom", path: ["customerEmail"], message: t("emailInvalid", "Please enter a valid email address.") });
     }
     if (journeyTouchesAirport(values) && !normalize(values.flightNumber)) {
-      context.addIssue({ code: "custom", path: ["flightNumber"], message: t("arrivalFlightNumberRequired", "Please enter the arrival flight number.") });
+      context.addIssue({ code: "custom", path: ["flightNumber"], message: isDepartureJourney(values)
+        ? t("departureFlightNumberRequired", "Please enter the departure flight number.")
+        : t("arrivalFlightNumberRequired", "Please enter the arrival flight number.") });
     }
     for (const field of ["flightNumber", "returnFlightNumber", "departureFlightNumber"] as const) {
       const flight = normalize(values[field]);
@@ -345,6 +374,7 @@ export function buildPublicBookingPayload(
 ) {
   const isDailyChauffeur = values.tripType === "daily_chauffeur";
   const hasFlight = journeyTouchesAirport(values);
+  const departing = isDepartureJourney(values);
   if (isDailyChauffeur && !fuelTermsAccepted) throw new Error("Fuel terms must be accepted before booking");
   return {
     ...attribution,
@@ -362,11 +392,13 @@ export function buildPublicBookingPayload(
     // landing that has nothing to do with the pick-up.
     flight_number: hasFlight ? normalize(values.flightNumber).toUpperCase() || null : null,
     flight_arrival_time: hasFlight ? values.arrivalTime || null : null,
-    flight_verification_status: hasFlight ? values.flightVerificationStatus || null : null,
-    flight_scheduled_arrival: hasFlight ? values.flightScheduledArrival || null : null,
+    // Only an arrival is checked against the schedule. A departure carries no
+    // verdict rather than one borrowed from whatever landed under that number.
+    flight_verification_status: hasFlight && !departing ? values.flightVerificationStatus || null : null,
+    flight_scheduled_arrival: hasFlight && !departing ? values.flightScheduledArrival || null : null,
     pickup_location: values.pickup,
     pickup_address: values.pickup === "private_address" ? normalize(values.pickupAddress) : null,
-    pickup_time: isDailyChauffeur ? values.pickupTime : null,
+    pickup_time: isDailyChauffeur || needsPickupTime(values) ? values.pickupTime || null : null,
     dropoff_location: isDailyChauffeur ? null : values.destination,
     dropoff_address: !isDailyChauffeur && values.destination === "private_address" ? normalize(values.dropoffAddress) : null,
     dropoff_hotel_name: needsDropoffHotel(values) ? normalize(values.dropoffHotelName ?? "") || null : null,

@@ -70,13 +70,17 @@ function transferFor(booking: Booking, isReturn: boolean) {
       flightDepartureTime: booking.return_flight_departure_time,
     }
   }
+  // Havalimanına giden tek yön transferde alandaki uçuş müşterinin bindiği
+  // uçaktır: saati iniş değil kalkıştır. Aynı sütunda durur, etiketi farklı.
+  const leavingForAirport = booking.pickup_location !== 'airport' && booking.dropoff_location === 'airport'
   return {
     date: booking.pickup_date,
     time: transferStartTime(booking.pickup_location, booking.pickup_time, booking.flight_arrival_time),
-    flightDepartureTime: null,
+    flightDepartureTime: leavingForAirport ? booking.flight_arrival_time : null,
     pickupLocation: booking.pickup_location, dropoffLocation: booking.dropoff_location,
     pickupAddress: booking.pickup_address, dropoffAddress: booking.dropoff_address,
-    flightNumber: booking.flight_number, flightArrivalTime: booking.flight_arrival_time,
+    flightNumber: booking.flight_number,
+    flightArrivalTime: leavingForAirport ? null : booking.flight_arrival_time,
   }
 }
 

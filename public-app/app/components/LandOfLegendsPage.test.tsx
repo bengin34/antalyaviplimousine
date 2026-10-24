@@ -114,7 +114,10 @@ describe("LandOfLegendsPage", () => {
     expect(container.querySelector(".lol-summary-list")).toHaveTextContent("€105");
     expect(container.querySelector(".lol-summary-list")).toHaveTextContent("Main entrance car park");
     expect(container.querySelector(".lol-confirmation")).toHaveTextContent("Park tickets not included");
-    expect(document.activeElement?.tagName).toBe("H3");
+    // The heading takes focus from an effect, which React may flush a tick
+    // after the confirmation text itself appears; asserting it straight after
+    // findByText passed locally and failed on a loaded CI runner.
+    await waitFor(() => expect(document.activeElement?.tagName).toBe("H3"));
   });
 
   test("still books an unplaced hotel and promises a WhatsApp quote", async () => {

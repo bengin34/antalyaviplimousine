@@ -31,6 +31,26 @@ test('outbound leg shows the landing time and the return leg shows the departure
   expect(ret).not.toContain('İniş')
 })
 
+test('a one-way run to the airport is a departure, so its flight time is a take-off', () => {
+  const message = buildDriverTransferMessage({
+    ...roundTrip,
+    trip_type: 'one_way',
+    pickup_location: 'hotel',
+    dropoff_location: 'airport',
+    pickup_time: '09:00:00',
+    flight_number: 'TK2403',
+    flight_arrival_time: '12:40:00',
+    return_date: null,
+    return_pickup_time: null,
+    return_flight_number: null,
+    return_flight_departure_time: null,
+  })
+
+  expect(message).toContain('🕐 Saat: 09:00')
+  expect(message).toContain('✈️ Uçuş: TK2403 · Kalkış: 12:40')
+  expect(message).not.toContain('İniş')
+})
+
 test('return leg carries the region-based recommended hotel pickup time', () => {
   // Belek: 14:00 kalkış − (150 dk havalimanı + 35 dk yol + 15 dk trafik) = 10:40
   const message = buildDriverTransferMessage(roundTrip)

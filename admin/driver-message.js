@@ -122,10 +122,17 @@ function transferBlock(booking, leg = 'outbound') {
   lines.push(`📞 Telefon: ${internationalPhone(booking.customer_phone) || '—'}`)
 
   if (flightNo) {
-    // Gidişte uçağın inişi, dönüşte kalkışı şoför için belirleyicidir.
+    // Gidişte uçağın inişi, dönüşte kalkışı şoför için belirleyicidir. Tek
+    // yön havalimanına giden transfer de bir kalkıştır: misafir o uçağa
+    // biner, saat "iniş" diye yazılırsa şoför saatlerce geç yola çıkar.
+    const leavingForAirport = !isReturn
+      && booking.pickup_location !== 'airport'
+      && booking.dropoff_location === 'airport'
     const flightTime = isReturn
       ? (booking.return_flight_departure_time ? ` · Kalkış: ${fmtTime(booking.return_flight_departure_time)}` : '')
-      : (booking.flight_arrival_time ? ` · İniş: ${fmtTime(booking.flight_arrival_time)}` : '')
+      : booking.flight_arrival_time
+        ? ` · ${leavingForAirport ? 'Kalkış' : 'İniş'}: ${fmtTime(booking.flight_arrival_time)}`
+        : ''
     lines.push(`✈️ Uçuş: ${flightNo}${flightTime}`)
   }
 

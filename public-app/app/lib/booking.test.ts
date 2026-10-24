@@ -268,6 +268,7 @@ describe("hotel to hotel", () => {
   const hotelToHotel: PublicBookingValues = {
     ...base, pickup: "hotel", destination: "bodrum",
     hotelName: "Lara Barut Collection", dropoffHotelName: "Mandarin Oriental Bodrum",
+    pickupTime: "09:00",
   };
 
   test("a hotel pick-up bound for a region needs the destination hotel named", () => {
@@ -312,11 +313,11 @@ describe("the arrival flight belongs to airport journeys", () => {
 
   test("a journey with no airport end is not asked for one", () => {
     expect(schema().safeParse({
-      ...base, pickup: "hotel", destination: "bodrum",
+      ...base, pickup: "hotel", destination: "bodrum", pickupTime: "09:00",
       hotelName: "Lara Barut Collection", dropoffHotelName: "Mandarin Oriental Bodrum", flightNumber: "",
     }).success).toBe(true);
     expect(schema().safeParse({
-      ...base, pickup: "private_address", pickupAddress: "Konyaaltı, 123. sokak 4", destination: "side", flightNumber: "",
+      ...base, pickup: "private_address", pickupAddress: "Konyaaltı, 123. sokak 4", destination: "side", flightNumber: "", pickupTime: "09:00",
     }).success).toBe(true);
   });
 
@@ -331,5 +332,44 @@ describe("the arrival flight belongs to airport journeys", () => {
       flight_verification_status: null, flight_scheduled_arrival: null,
     });
     expect(buildPublicBookingPayload(base, "en")).toMatchObject({ flight_number: "TK123" });
+  });
+
+  test("the flight the guest leaves on carries no arrival verdict", () => {
+    const payload = buildPublicBookingPayload({
+      ...base, pickup: "hotel", destination: "airport", pickupTime: "09:00",
+      hotelName: "Lara Barut Collection",
+      flightNumber: "TK123", arrivalTime: "12:30",
+      flightVerificationStatus: "verified", flightScheduledArrival: "12:35",
+    }, "en");
+    expect(payload).toMatchObject({
+      flight_number: "TK123",
+      flight_arrival_time: "12:30",
+      flight_verification_status: null,
+      flight_scheduled_arrival: null,
+    });
+  });
+})
+
+describe("the pick-up hour of a journey that starts away from the airport", () => {
+  const schema = () => createPublicBookingSchema(t);
+  const leavingHotel: PublicBookingValues = {
+    ...base, pickup: "hotel", destination: "airport", hotelName: "Lara Barut Collection",
+  };
+
+  test("is asked for, because no landing sets it", () => {
+    const missing = schema().safeParse({ ...leavingHotel, pickupTime: "" });
+    expect(missing.success).toBe(false);
+    expect(missing.error?.issues.some((issue) => issue.path[0] === "pickupTime")).toBe(true);
+    expect(schema().safeParse({ ...leavingHotel, pickupTime: "09:00" }).success).toBe(true);
+  });
+
+  test("is not asked of an airport pick-up, which the flight times", () => {
+    expect(schema().safeParse({ ...base, pickupTime: "" }).success).toBe(true);
+  });
+
+  test("reaches the operator instead of leaving the driver with no hour", () => {
+    expect(buildPublicBookingPayload({ ...leavingHotel, pickupTime: "09:00" }, "en"))
+      .toMatchObject({ pickup_time: "09:00" });
+    expect(buildPublicBookingPayload(base, "en")).toMatchObject({ pickup_time: null });
   });
 })

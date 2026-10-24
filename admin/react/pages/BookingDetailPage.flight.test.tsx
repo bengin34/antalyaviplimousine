@@ -159,6 +159,19 @@ describe('BookingDetailPage flight badge', () => {
     expect(departure?.querySelector('.flight-badge')).toBeNull()
   })
 
+  test('a one-way run to the airport reads its flight time as a take-off, not a landing', async () => {
+    const { container } = await renderWith({
+      pickup_location: 'hotel',
+      dropoff_location: 'airport',
+      hotel_name: 'Rixos Premium Belek',
+      pickup_time: '09:00',
+      flight_arrival_time: '12:40',
+    })
+    const page = container.textContent ?? ''
+    expect(page).toContain('kalkış 12:40')
+    expect(page).not.toContain('varış 12:40')
+  })
+
   test('renders no badge on a daily hire when the check could not run', async () => {
     const { container } = await renderDailyHire({ flight_verification_status: 'unavailable' })
     expect(container.querySelector('.flight-badge')).toBeNull()
