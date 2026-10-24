@@ -580,3 +580,34 @@ test("French and Arabic excursion messages are translated, with the meeting poin
   expect(ar).toContain("تذاكر المنتزه غير مشمولة.");
   expect(ar).toContain("موقف السيارات عند المدخل الرئيسي");
 });
+
+describe('hotel to hotel', () => {
+  const hotelToHotel = {
+    ...base,
+    pickup_location: 'hotel',
+    dropoff_location: 'bodrum',
+    hotel_name: 'Lara Barut Collection',
+    dropoff_hotel_name: 'Mandarin Oriental Bodrum',
+  }
+
+  test('each end is named by its own hotel', () => {
+    const details = bookingDetailsOf(buildReminderMessage(hotelToHotel, { language: 'en' }))
+    expect(details).toContain('Pickup location: Lara Barut Collection, Otel, Antalya, Türkiye')
+    expect(details).toContain('Drop-off location: Mandarin Oriental Bodrum, Bodrum, Muğla, Türkiye')
+  })
+
+  test('the pick-up hotel is never shown as the destination', () => {
+    const details = bookingDetailsOf(buildReminderMessage({ ...hotelToHotel, dropoff_hotel_name: null }, { language: 'en' }))
+    expect(details).toContain('Pickup location: Lara Barut Collection, Otel, Antalya, Türkiye')
+    expect(details).toContain('Drop-off location: Bodrum, Muğla, Türkiye')
+  })
+
+  test('the return leg swaps the two hotels', () => {
+    const details = bookingDetailsOf(buildReminderMessage(
+      { ...hotelToHotel, trip_type: 'round_trip', return_date: '2026-08-22', return_pickup_time: '11:00' },
+      { leg: 'return', language: 'en' },
+    ))
+    expect(details).toContain('Pickup location: Mandarin Oriental Bodrum, Bodrum, Muğla, Türkiye')
+    expect(details).toContain('Drop-off location: Lara Barut Collection, Otel, Antalya, Türkiye')
+  })
+})

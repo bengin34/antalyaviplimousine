@@ -241,6 +241,81 @@ describe("BookingForm route summary", () => {
     expect(container.querySelector(".price-display-amount")).toHaveTextContent("€43");
     expect(container.querySelector(".price-display-route")).toHaveTextContent("Belek → Antalya Havalimanı (AYT)");
   });
+
+  test("a hotel-to-hotel transfer asks for both hotels", () => {
+    const { container } = render(
+      <LanguageProvider initialLanguage="tr" messages={pageMessages("tr")}>
+        <LandOfLegendsBookingCopyProvider copy={landOfLegendsBookingCopy("tr")}>
+          <BookingForm scrollOnSelect={false} />
+        </LandOfLegendsBookingCopyProvider>
+      </LanguageProvider>,
+    );
+
+    // One hotel while the airport is an end of the journey...
+    expect(container.querySelector("#dropoff-hotel-name")).not.toBeInTheDocument();
+    fireEvent.change(container.querySelector("#pickup")!, { target: { value: "hotel" } });
+    fireEvent.change(container.querySelector("#destination")!, { target: { value: "airport" } });
+    expect(container.querySelector("#dropoff-hotel-name")).not.toBeInTheDocument();
+
+    // ...and a second one as soon as both ends are hotels.
+    fireEvent.change(container.querySelector("#destination")!, { target: { value: "belek" } });
+    expect(container.querySelector("#dropoff-hotel-name")).toBeInTheDocument();
+
+    fireEvent.change(container.querySelector("#hotel-name")!, { target: { value: "lara barut" } });
+    fireEvent.click(container.querySelectorAll('[role="option"]')[0]);
+    const pickupHotel = container.querySelector<HTMLInputElement>("#hotel-name")!.value;
+    expect(pickupHotel).not.toBe("");
+
+    // The destination hotel is its own field: naming it leaves the pick-up
+    // hotel alone, and sets the region the journey is priced on.
+    fireEvent.change(container.querySelector("#dropoff-hotel-name")!, { target: { value: "rixos belek" } });
+    fireEvent.click(container.querySelectorAll('#dropoff-hotel-row [role="option"]')[0]);
+    expect(container.querySelector<HTMLInputElement>("#dropoff-hotel-name")!.value).toBe("Rixos Premium Belek");
+    expect(container.querySelector<HTMLInputElement>("#hotel-name")!.value).toBe(pickupHotel);
+    expect(container.querySelector<HTMLSelectElement>("#destination")!.value).toBe("belek");
+  });
+
+  test("a hotel-to-hotel summary names the region of each end, not the destination twice", () => {
+    const { container } = render(
+      <LanguageProvider initialLanguage="tr" messages={pageMessages("tr")}>
+        <LandOfLegendsBookingCopyProvider copy={landOfLegendsBookingCopy("tr")}>
+          <BookingForm scrollOnSelect={false} />
+        </LandOfLegendsBookingCopyProvider>
+      </LanguageProvider>,
+    );
+
+    fireEvent.change(container.querySelector("#pickup")!, { target: { value: "hotel" } });
+    fireEvent.change(container.querySelector("#destination")!, { target: { value: "bodrum" } });
+
+    // No hotel named yet, so the pick-up end is only known to be a hotel.
+    expect(container.querySelector(".price-display-route")).toHaveTextContent("Otel → Bodrum");
+
+    fireEvent.change(container.querySelector("#hotel-name")!, { target: { value: "rixos belek" } });
+    fireEvent.click(container.querySelectorAll('[role="option"]')[0]);
+
+    // Naming it tells us the region we collect from — which is not Bodrum.
+    expect(container.querySelector(".price-display-route")).toHaveTextContent("Belek → Bodrum");
+  });
+
+  test("the destination hotel is required before the price step", async () => {
+    const { container } = render(
+      <LanguageProvider initialLanguage="tr" messages={pageMessages("tr")}>
+        <LandOfLegendsBookingCopyProvider copy={landOfLegendsBookingCopy("tr")}>
+          <BookingForm scrollOnSelect={false} />
+        </LandOfLegendsBookingCopyProvider>
+      </LanguageProvider>,
+    );
+
+    fireEvent.change(container.querySelector("#pickup")!, { target: { value: "hotel" } });
+    fireEvent.change(container.querySelector("#destination")!, { target: { value: "belek" } });
+    fireEvent.change(container.querySelector("#hotel-name")!, { target: { value: "Lara Barut Collection" } });
+    fireEvent.click(container.querySelector("#main-book-step1")!);
+
+    await waitFor(() => {
+      expect(container.querySelector("#dropoff-hotel-name")).toHaveAttribute("aria-invalid", "true");
+    });
+    expect(container.querySelector("#travel-date")).not.toBeInTheDocument();
+  });
 });
 
 describe("BookingForm flight verification", () => {

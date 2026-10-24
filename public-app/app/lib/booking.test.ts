@@ -169,3 +169,38 @@ describe("flight verification on the payload", () => {
     expect(payload.flight_scheduled_arrival).toBeNull();
   });
 });
+
+describe("hotel to hotel", () => {
+  const hotelToHotel: PublicBookingValues = {
+    ...base, pickup: "hotel", destination: "bodrum",
+    hotelName: "Lara Barut Collection", dropoffHotelName: "Mandarin Oriental Bodrum",
+  };
+
+  test("a hotel pick-up bound for a region needs the destination hotel named", () => {
+    const schema = createPublicBookingSchema(t);
+    expect(schema.safeParse(hotelToHotel).success).toBe(true);
+    const missing = schema.safeParse({ ...hotelToHotel, dropoffHotelName: "" });
+    expect(missing.success).toBe(false);
+    expect(missing.error?.issues.some((issue) => issue.path[0] === "dropoffHotelName")).toBe(true);
+  });
+
+  test("the two hotels must differ", () => {
+    const same = createPublicBookingSchema(t).safeParse({ ...hotelToHotel, dropoffHotelName: " lara barut collection " });
+    expect(same.success).toBe(false);
+    expect(same.error?.issues.some((issue) => issue.path[0] === "dropoffHotelName")).toBe(true);
+  });
+
+  test("no destination hotel is asked for when the destination is the airport or a private address", () => {
+    const schema = createPublicBookingSchema(t);
+    expect(schema.safeParse({ ...hotelToHotel, destination: "airport", dropoffHotelName: "" }).success).toBe(true);
+    expect(schema.safeParse({ ...hotelToHotel, destination: "private_address", dropoffHotelName: "", dropoffAddress: "Konyaaltı, 123. sokak 4" }).success).toBe(true);
+  });
+
+  test("the payload carries the destination hotel only where one was asked for", () => {
+    expect(buildPublicBookingPayload(hotelToHotel, "en")).toMatchObject({
+      hotel_name: "Lara Barut Collection",
+      dropoff_hotel_name: "Mandarin Oriental Bodrum",
+    });
+    expect(buildPublicBookingPayload(base, "en")).toMatchObject({ dropoff_hotel_name: null });
+  });
+});

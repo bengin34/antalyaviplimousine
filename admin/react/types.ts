@@ -38,6 +38,9 @@ export interface Booking {
   pickup_address: string | null
   dropoff_location: string | null
   dropoff_address: string | null
+  // Otelden otele transferde varış oteli. Diğer hâllerde null: `hotel_name`
+  // misafirin oteli olarak hangi uç oteldeyse onu adlandırır.
+  dropoff_hotel_name?: string | null
   pickup_date: string
   pickup_time: string | null
   flight_number: string | null

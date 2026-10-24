@@ -46,6 +46,20 @@ export function inclusiveDayCount(start: string, end: string) {
   return Math.floor((endAt - startAt) / 86_400_000) + 1;
 }
 
+/**
+ * Whether this journey runs between two hotels, and so needs the destination
+ * hotel named as well as the guest's own. Both ends are hotels exactly when we
+ * collect from one (`pickup === "hotel"`) and deliver into a pricing region -
+ * an airport or a private-address destination names itself.
+ */
+export function needsDropoffHotel(values: Pick<PublicBookingValues, "tripType" | "pickup" | "destination">) {
+  return values.tripType !== "daily_chauffeur"
+    && values.pickup === "hotel"
+    && values.destination !== ""
+    && values.destination !== "airport"
+    && values.destination !== "private_address";
+}
+
 export function createPublicBookingSchema(t: Translate) {
   return z.object({
     tripType: z.enum(["one_way", "round_trip", "daily_chauffeur"]),
@@ -64,6 +78,7 @@ export function createPublicBookingSchema(t: Translate) {
     departureFlightDate: z.string(), departureFlightTime: z.string(), departureFlightNumber: z.string(),
     pickupAddress: z.string(), dropoffAddress: z.string(), hotelName: z.string(),
     hotelRegion: z.string().default(""),
+    dropoffHotelName: z.string().default(""),
     customerName: z.string(), customerPhone: z.string(), customerEmail: z.string(),
   }).superRefine((values, context) => {
     const today = new Date();
@@ -122,6 +137,17 @@ export function createPublicBookingSchema(t: Translate) {
     const needsHotel = values.tripType === "daily_chauffeur" || values.pickup === "hotel" || values.destination !== "private_address";
     if (needsHotel && (normalize(values.hotelName).length < 2 || normalize(values.hotelName).length > 120)) {
       context.addIssue({ code: "custom", path: ["hotelName"], message: t("hotelNameRequired", "Please enter the hotel name.") });
+    }
+    // Leaving a hotel for a region, both ends are hotels: `hotelName` is the
+    // one we collect from, so the one we deliver to needs naming of its own.
+    // Without it the operator has to chase the guest for the address by hand.
+    if (needsDropoffHotel(values)) {
+      const dropoffHotelName = normalize(values.dropoffHotelName ?? "");
+      if (dropoffHotelName.length < 2 || dropoffHotelName.length > 120) {
+        context.addIssue({ code: "custom", path: ["dropoffHotelName"], message: t("dropoffHotelNameRequired", "Please enter the destination hotel name.") });
+      } else if (dropoffHotelName.toLowerCase() === normalize(values.hotelName).toLowerCase()) {
+        context.addIssue({ code: "custom", path: ["dropoffHotelName"], message: t("hotelsMustDiffer", "The pick-up and destination hotels must be different.") });
+      }
     }
     if (!validName(values.customerName)) context.addIssue({ code: "custom", path: ["customerName"], message: t("nameInvalid", "Please enter a valid full name.") });
 
@@ -266,6 +292,7 @@ export function buildPublicBookingPayload(
     pickup_time: isDailyChauffeur ? values.pickupTime : null,
     dropoff_location: isDailyChauffeur ? null : values.destination,
     dropoff_address: !isDailyChauffeur && values.destination === "private_address" ? normalize(values.dropoffAddress) : null,
+    dropoff_hotel_name: needsDropoffHotel(values) ? normalize(values.dropoffHotelName ?? "") || null : null,
     pickup_date: values.travelDate,
     trip_type: values.tripType,
     return_date: values.tripType === "round_trip" ? values.returnDate : null,

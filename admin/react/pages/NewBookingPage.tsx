@@ -7,7 +7,7 @@ import { Topbar } from '../components/AdminChrome'
 import { todayISO } from '../lib/format'
 import { consumeBookingPrefill } from '../lib/prefill'
 import { supabase } from '../lib/supabase'
-import { languageFromPhone } from '../../turkish-formatters.js'
+import { isHotelToHotelJourney, languageFromPhone } from '../../turkish-formatters.js'
 import type { Navigate } from '../types'
 
 export const LOCATION_OPTIONS = [
@@ -26,7 +26,7 @@ export const LANGUAGE_OPTIONS = [
 
 export interface BookingFormState {
   name: string; phone: string; email: string; hotel: string; tripType: string
-  pickup: string; dropoff: string; pickupAddress: string; dropoffAddress: string
+  pickup: string; dropoff: string; pickupAddress: string; dropoffAddress: string; dropoffHotel: string
   pickupDate: string; pickupTime: string; flightNumber: string; flightTime: string
   returnDate: string; returnTime: string; returnFlight: string; returnFlightTime: string; vehicle: string
   costMode: 'own_vehicle' | 'sold_transfer' | 'no_cost'; soldTransferCostTry: string
@@ -43,7 +43,7 @@ function createInitialState(): [BookingFormState, ReturnType<typeof consumeBooki
     name: prefill?.customerName ?? '', phone: prefill?.customerPhone ?? '', email: '',
     hotel: prefill?.hotelName ?? '', tripType: 'one_way', pickup: prefill?.pickupLocation ?? 'airport',
     dropoff: prefill?.dropoffLocation ?? 'belek', pickupAddress: prefill?.pickupAddress ?? '',
-    dropoffAddress: prefill?.dropoffAddress ?? '', pickupDate: todayISO(), pickupTime: '',
+    dropoffAddress: prefill?.dropoffAddress ?? '', dropoffHotel: prefill?.dropoffHotelName ?? '', pickupDate: todayISO(), pickupTime: '',
     flightNumber: '', flightTime: '', returnDate: '', returnTime: '', returnFlight: '', returnFlightTime: '',
     costMode: 'own_vehicle', soldTransferCostTry: '',
     returnCostMode: 'own_vehicle', returnSoldTransferCostTry: '',
@@ -69,6 +69,8 @@ export function validateBookingForm(form: BookingFormState) {
   const hotel = normalize(form.hotel) || 'Belirtilmedi'
   const pickupAddress = normalize(form.pickupAddress)
   const dropoffAddress = normalize(form.dropoffAddress)
+  // Otelden otele: `hotel_name` alış ucunu adlandırır, varış oteli ayrı alan.
+  const dropoffHotel = normalize(form.dropoffHotel)
   const flightNumber = normalize(form.flightNumber).toUpperCase()
   const returnFlight = normalize(form.returnFlight).toUpperCase()
   const departureFlight = normalize(form.departureFlight).toUpperCase()
@@ -85,6 +87,7 @@ export function validateBookingForm(form: BookingFormState) {
   // her zaman park; dönüş tarihi gidiş tarihiyle aynıdır.
   const isLandOfLegends = form.tripType === 'land_of_legends'
   const dropoff = isLandOfLegends ? 'land_of_legends' : form.dropoff
+  const isHotelToHotel = !isDailyChauffeur && isHotelToHotelJourney(form.pickup, dropoff)
   const isSoldTransfer = form.costMode === 'sold_transfer'
   // Dönüş ayağı yalnızca gidiş-dönüş seyahatlerde kendi maliyet modelini taşır.
   const isReturnSoldTransfer = isRoundTrip && !isDailyChauffeur && form.returnCostMode === 'sold_transfer'
@@ -98,6 +101,8 @@ export function validateBookingForm(form: BookingFormState) {
   if (!isDailyChauffeur && dropoff === 'private_address' && (dropoffAddress.length < 6 || dropoffAddress.length > 160)) return fail('Varış adresi 6-160 karakter olmalı.')
   if (!isDailyChauffeur && form.pickup === dropoff && form.pickup !== 'private_address') return fail('Alış ve varış aynı olamaz.')
   if (!isDailyChauffeur && form.pickup === 'private_address' && dropoff === 'private_address' && pickupAddress === dropoffAddress) return fail('Alış ve varış adresleri aynı olamaz.')
+  if (isHotelToHotel && dropoffHotel && dropoffHotel.toLocaleLowerCase('tr-TR') === hotel.toLocaleLowerCase('tr-TR')) return fail('Alış ve varış oteli aynı olamaz.')
+  if (isHotelToHotel && dropoffHotel && (dropoffHotel.length < 2 || dropoffHotel.length > 120)) return fail('Varış oteli 2-120 karakter olmalı.')
   if (!/^\d{4}-\d{2}-\d{2}$/.test(form.pickupDate)) return fail('Geçerli bir tarih seçin.')
   const capacity = VEHICLE_CAPACITY[form.vehicle] ?? 8
   if (!Number.isInteger(guests) || guests < 1 || guests > capacity) return fail(`Yolcu sayısı 1-${capacity} arasında olmalı.`)
@@ -142,6 +147,7 @@ export function validateBookingForm(form: BookingFormState) {
     child_seat_count: childSeats, luggage_count: luggage, pickup_location: form.pickup,
     pickup_address: form.pickup === 'private_address' ? pickupAddress : null,
     dropoff_location: isDailyChauffeur ? null : dropoff, dropoff_address: !isDailyChauffeur && dropoff === 'private_address' ? dropoffAddress : null,
+    dropoff_hotel_name: isHotelToHotel ? dropoffHotel || null : null,
     pickup_date: form.pickupDate, pickup_time: form.pickupTime || null,
     flight_number: flightNumber || null, flight_arrival_time: form.flightTime || null,
     trip_type: form.tripType, return_date: isRoundTrip ? form.returnDate : isLandOfLegends ? form.pickupDate : null,
@@ -231,6 +237,7 @@ export default function NewBookingPage({ navigate }: { navigate: Navigate }) {
             <Field label="Alış *"><select className="input" value={form.pickup} onChange={e => set('pickup', e.target.value)}>{optionList}</select></Field>
             {!isDailyChauffeur && !isLandOfLegends && <Field label="Varış *"><select className="input" value={form.dropoff} onChange={e => set('dropoff', e.target.value)}><option value="" disabled>Seçin</option>{optionList}</select></Field>}
           </div>
+          {!isDailyChauffeur && !isLandOfLegends && isHotelToHotelJourney(form.pickup, form.dropoff) && <Field label="Varış oteli"><input className="input" maxLength={120} placeholder="Varış otelinin adı" value={form.dropoffHotel} onChange={e => set('dropoffHotel', e.target.value)} /></Field>}
           {(form.pickup === 'private_address' || (!isDailyChauffeur && form.dropoff === 'private_address')) && <div className="form-row">
             {form.pickup === 'private_address' && <Field label="Alış özel adresi *"><input className="input" maxLength={160} autoComplete="street-address" placeholder="Açık adresi girin" value={form.pickupAddress} onChange={e => set('pickupAddress', e.target.value)} required /></Field>}
             {!isDailyChauffeur && form.dropoff === 'private_address' && <Field label="Varış özel adresi *"><input className="input" maxLength={160} autoComplete="street-address" placeholder="Açık adresi girin" value={form.dropoffAddress} onChange={e => set('dropoffAddress', e.target.value)} required /></Field>}

@@ -1,4 +1,4 @@
-import { isReturnJourney, locationLabel } from './turkish-formatters.js'
+import { bookingHotelEnds, isReturnJourney, locationLabel } from './turkish-formatters.js'
 import { recommendedAirportPickup } from '../src/airport-pickup.js'
 import { landOfLegendsMeetingPoint } from '../src/land-of-legends.js'
 
@@ -85,13 +85,15 @@ function legStartTime(card) {
 function pickupDisplay(booking, isReturn = false) {
   const loc = isReturn ? booking.dropoff_location : booking.pickup_location
   const addr = isReturn ? booking.dropoff_address : booking.pickup_address
-  return locationDisplay(loc, addr, booking.hotel_name)
+  const hotels = bookingHotelEnds(booking)
+  return locationDisplay(loc, addr, isReturn ? hotels.dropoffHotel : hotels.pickupHotel)
 }
 
 function dropoffDisplay(booking, isReturn = false) {
   const loc = isReturn ? booking.pickup_location : booking.dropoff_location
   const addr = isReturn ? booking.pickup_address : booking.dropoff_address
-  return locationDisplay(loc, addr, booking.hotel_name)
+  const hotels = bookingHotelEnds(booking)
+  return locationDisplay(loc, addr, isReturn ? hotels.pickupHotel : hotels.dropoffHotel)
 }
 
 function transferBlock(booking, leg = 'outbound') {

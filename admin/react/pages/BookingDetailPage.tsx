@@ -2,10 +2,10 @@ import { landOfLegendsMeetingPoint } from '../../../src/land-of-legends.js'
 import { useEffect, useMemo, useRef, useState, type FormEvent, type ReactNode } from 'react'
 import { Topbar } from '../components/AdminChrome'
 import { fmtDetailDate, fmtPrice, fmtTime, ISTANBUL_TIME_ZONE, statusLabel, todayISO, transferStartTime } from '../lib/format'
-import { queueBookingPrefill } from '../lib/prefill'
+import { prefillHotelNames, queueBookingPrefill } from '../lib/prefill'
 import { supabase } from '../lib/supabase'
 import type { Booking, BookingStatus, ChauffeurHireDay, Navigate } from '../types'
-import { isFutureIstanbulLeg, locationDisplay, navigationURLs, whatsappURL } from '../../turkish-formatters.js'
+import { bookingHotelEnds, isFutureIstanbulLeg, isHotelToHotelJourney, locationDisplay, navigationURLs, whatsappURL } from '../../turkish-formatters.js'
 import { buildConfirmMessage, buildReminderMessage, buildReceivedMessage, buildReviewMessage, buildMeetGreetMessage } from '../../whatsapp-templates.js'
 import { buildDriverTransferMessage, driverWhatsappURL } from '../../driver-message.js'
 import { COST_MODE_LABELS, legLabelFor, type CostMode } from '../components/LegCostEditors'
@@ -93,7 +93,7 @@ function createEditForm(booking: Booking): BookingFormState {
     name: booking.customer_name ?? '', phone: booking.customer_phone ?? '', email: booking.customer_email ?? '',
     hotel: booking.hotel_name ?? '', tripType: booking.trip_type ?? 'one_way', pickup: booking.pickup_location ?? 'airport',
     dropoff: booking.dropoff_location ?? 'belek', pickupAddress: booking.pickup_address ?? '',
-    dropoffAddress: booking.dropoff_address ?? '', pickupDate: booking.pickup_date ?? '', pickupTime: fmtTime(booking.pickup_time) === '—' ? '' : fmtTime(booking.pickup_time),
+    dropoffAddress: booking.dropoff_address ?? '', dropoffHotel: booking.dropoff_hotel_name ?? '', pickupDate: booking.pickup_date ?? '', pickupTime: fmtTime(booking.pickup_time) === '—' ? '' : fmtTime(booking.pickup_time),
     flightNumber: booking.flight_number ?? '', flightTime: fmtTime(booking.flight_arrival_time) === '—' ? '' : fmtTime(booking.flight_arrival_time),
     returnDate: booking.return_date ?? '', returnTime: fmtTime(booking.return_pickup_time) === '—' ? '' : fmtTime(booking.return_pickup_time),
     returnFlight: booking.return_flight_number ?? '',
@@ -163,6 +163,7 @@ function BookingEditor({ booking, onCancel, onSaved }: { booking: Booking; onCan
         }))
       }}><option value="one_way">Tek yön</option><option value="round_trip">Gidiş-dönüş</option><option value="daily_chauffeur">Günlük araç + şoför</option><option value="land_of_legends">The Land of Legends (bekleme dahil)</option></select></Field>
       <div className="form-row"><Field label="Alış *"><select className="input" value={form.pickup} onChange={e => set('pickup', e.target.value)}>{options}</select></Field>{!dailyChauffeur && !landOfLegends && <Field label="Varış *"><select className="input" value={form.dropoff} onChange={e => set('dropoff', e.target.value)}><option value="" disabled>Seçin</option>{options}</select></Field>}</div>
+      {!dailyChauffeur && !landOfLegends && isHotelToHotelJourney(form.pickup, form.dropoff) && <Field label="Varış oteli"><input className="input" type="text" maxLength={120} autoComplete="off" value={form.dropoffHotel} onChange={e => set('dropoffHotel', e.target.value)} /></Field>}
       {(form.pickup === 'private_address' || (!dailyChauffeur && form.dropoff === 'private_address')) && <div className="form-row">{form.pickup === 'private_address' && <Field label="Alış özel adresi *"><input className="input" maxLength={160} autoComplete="street-address" value={form.pickupAddress} onChange={e => set('pickupAddress', e.target.value)} required /></Field>}{!dailyChauffeur && form.dropoff === 'private_address' && <Field label="Varış özel adresi *"><input className="input" maxLength={160} autoComplete="street-address" value={form.dropoffAddress} onChange={e => set('dropoffAddress', e.target.value)} required /></Field>}</div>}
       <div className="form-row"><Field label={dailyChauffeur ? 'İlk hizmet günü *' : 'Tarih *'}><input className="input" type="date" value={form.pickupDate} onChange={e => set('pickupDate', e.target.value)} required /></Field><Field label={dailyChauffeur ? 'Hizmet başlangıç saati *' : 'Saat'}><input className="input" type="time" value={form.pickupTime} onChange={e => set('pickupTime', e.target.value)} required={dailyChauffeur} /></Field></div>
       <div className="form-row"><Field label="Uçuş no"><input className="input" type="text" maxLength={12} autoComplete="off" value={form.flightNumber} onChange={e => set('flightNumber', e.target.value)} /></Field><Field label="Uçuş varış"><input className="input" type="time" value={form.flightTime} onChange={e => set('flightTime', e.target.value)} /></Field></div>
@@ -376,9 +377,16 @@ export default function BookingDetailPage({ bookingRef, isReturn, sourceTab, pro
       ? (booking.status !== 'completed' || needsReturnContact ? 'return' : null)
       : (['pending', 'paid', 'confirmed'].includes(booking.status) ? 'outbound' : null)
   const transfer = transferFor(booking, isReturn)
+  // transferFor yalnızca bu kosulda uclari takas eder: bir one-way kaydi
+  // ?leg=return ile acildiginda gidis yonunde kalir. Otel adlari da ayni
+  // kosula bagli olmali, yoksa adlar takas olur konumlar olmaz.
+  const showingReturnLeg = isReturn && booking.trip_type === 'round_trip' && Boolean(booking.return_date)
   const pickupDisplay = locationDisplay(transfer.pickupLocation, transfer.pickupAddress)
   const dropoffDisplay = dailyChauffeur ? 'Esnek güzergâh' : locationDisplay(transfer.dropoffLocation, transfer.dropoffAddress)
-  const navigation = !dailyChauffeur ? navigationURLs({ originValue: transfer.pickupLocation, originAddress: transfer.pickupAddress, destinationValue: transfer.dropoffLocation, destinationAddress: transfer.dropoffAddress, hotelName: booking.hotel_name }) : null
+  // Otel adları kayıtta gidiş yönüne bağlıdır; dönüş ayağında transferFor
+  // uçları takas ettiği için adlar da takas edilir.
+  const hotelEnds = bookingHotelEnds(booking)
+  const navigation = !dailyChauffeur ? navigationURLs({ originValue: transfer.pickupLocation, originAddress: transfer.pickupAddress, destinationValue: transfer.dropoffLocation, destinationAddress: transfer.dropoffAddress, originHotelName: showingReturnLeg ? hotelEnds.dropoffHotel : hotelEnds.pickupHotel, destinationHotelName: showingReturnLeg ? hotelEnds.pickupHotel : hotelEnds.dropoffHotel }) : null
   const legPrice = dailyChauffeur ? Number(booking.daily_rate_eur) || 150 : roundTrip ? (Number(booking.price_eur) || 0) / 2 : Number(booking.price_eur) || 0
   const paymentMethod = booking.payment_method === 'cash' ? 'Nakit' : 'Kart'
   // Kâr/zarar motoruyla aynı kural: ayrıştırılmamış eski kayıtlarda toplam
@@ -394,11 +402,8 @@ export default function BookingDetailPage({ bookingRef, isReturn, sourceTab, pro
     : showSeparateFlightArrival ? ` varış ${fmtTime(transfer.flightArrivalTime)}` : ''
   // Doğrulama yalnızca geliş uçuşu için yapılır; dönüş ayağında ekrandaki
   // uçuş numarası başka bir uçuştur, ona geliş rozetini basmak yanlış olur.
-  // Koşul transferFor'unkinin aynısı: hangi ayağın gösterildiğini o belirler.
-  // Aynı gerekçeyle günlük kiralamada rozet yalnızca '✈ Geliş' satırında:
-  // '✈ Dönüş' satırı departure_flight_number'ı gösterir, durum onun
-  // hakkında hiçbir şey söylemez.
-  const showingReturnLeg = isReturn && booking.trip_type === 'round_trip' && Boolean(booking.return_date)
+  // Koşul transferFor'unkinin aynısı: hangi ayağın gösterildiğini o belirler
+  // (yukarıda `showingReturnLeg` olarak hesaplandı).
   const flightBadge = showingReturnLeg ? undefined : flightVerificationBadge(booking.flight_verification_status)
   const hireDays = dailyChauffeur && booking.service_end_date
     ? Math.floor((Date.parse(`${booking.service_end_date}T00:00:00Z`) - Date.parse(`${booking.pickup_date}T00:00:00Z`)) / 86_400_000) + 1
@@ -406,12 +411,13 @@ export default function BookingDetailPage({ bookingRef, isReturn, sourceTab, pro
   const sortedHireDays = [...(booking.chauffeur_hire_days ?? [])].sort((left, right) => left.day_number - right.day_number)
 
   const planTrip = (reverse: boolean) => {
-    const hotel = String(booking.hotel_name ?? '').trim()
+    // Otelden otele seyahatte iki ad vardır ve ters yönde yer değiştirirler.
+    const hotels = prefillHotelNames(booking, showingReturnLeg !== reverse)
     const from = reverse ? transfer.dropoffLocation : transfer.pickupLocation
     const to = reverse ? transfer.pickupLocation : transfer.dropoffLocation
     const fromAddress = reverse ? transfer.dropoffAddress : transfer.pickupAddress
     const toAddress = reverse ? transfer.pickupAddress : transfer.dropoffAddress
-    queueBookingPrefill({ sourceRef: booking.booking_ref, customerName: booking.customer_name, customerPhone: booking.customer_phone, hotelName: hotel.toLocaleLowerCase('tr-TR') === 'belirtilmedi' ? '' : hotel, vehicleType: booking.vehicle_type, guests: booking.guests, luggageCount: booking.luggage_count, childSeatCount: booking.child_seat_count, paymentMethod: booking.payment_method, pickupLocation: from ?? 'airport', pickupAddress: fromAddress, dropoffLocation: to ?? 'belek', dropoffAddress: toAddress, notes: reverse ? `Dönüş · Kaynak rezervasyon: ${booking.booking_ref}` : `Kaynak rezervasyon: ${booking.booking_ref}` })
+    queueBookingPrefill({ sourceRef: booking.booking_ref, customerName: booking.customer_name, customerPhone: booking.customer_phone, ...hotels, vehicleType: booking.vehicle_type, guests: booking.guests, luggageCount: booking.luggage_count, childSeatCount: booking.child_seat_count, paymentMethod: booking.payment_method, pickupLocation: from ?? 'airport', pickupAddress: fromAddress, dropoffLocation: to ?? 'belek', dropoffAddress: toAddress, notes: reverse ? `Dönüş · Kaynak rezervasyon: ${booking.booking_ref}` : `Kaynak rezervasyon: ${booking.booking_ref}` })
     navigate('#new')
   }
 
@@ -672,6 +678,7 @@ export default function BookingDetailPage({ bookingRef, isReturn, sourceTab, pro
       <div className="section"><div className="section-label">Detaylar</div><div className="detail-grid"><div><div className="detail-key">Araç</div><div className="detail-val">{booking.vehicle_type === 'vclass' ? 'V-Class' : 'Vito'}</div></div><div><div className="detail-key">Yolcu</div><div className="detail-val">{booking.guests} kişi</div></div><div><div className="detail-key">Bagaj</div><div className="detail-val">{booking.luggage_count > 0 ? `🧳 ${booking.luggage_count}` : '—'}</div></div>{Number(booking.golf_bag_count) > 0 && <div><div className="detail-key">Golf çantası</div><div className="detail-val">🏌️ {booking.golf_bag_count}</div></div>}{Number(booking.stroller_count) > 0 && <div><div className="detail-key">Bebek arabası</div><div className="detail-val">👶 {booking.stroller_count}</div></div>}<div><div className="detail-key">Çocuk koltuğu</div><div className="detail-val">{booking.child_seat_count > 0 ? `👶 ${booking.child_seat_count}${booking.child_ages?.length > 0 ? ` (${booking.child_ages.map((a, i) => `${i + 1}: ${a === 0 ? '<1' : a + 'y'}`).join(', ')})` : ''}` : '—'}</div></div><div><div className="detail-key">{roundTrip ? `Maliyet modeli · ${isReturn ? 'dönüş' : 'gidiş'}` : 'Maliyet modeli'}</div><div className="detail-val">{legCost.costMode === 'sold_transfer' && legCost.costIsValid ? `${costModeLabel} · ₺${fmtPrice(legCost.legSupplierCostTry)}` : costModeLabel}</div></div>
         <InlineEditor booking={booking} column="hotel_name" label="Otel" display={booking.hotel_name || '—'} maxLength={120} validate={raw => { const value = raw.trim().replace(/\s+/g, ' '); const letters = value.match(/\p{L}/gu)?.length ?? 0; return value.length < 2 || value.length > 120 || letters < 2 ? { ok: false, error: 'Geçerli bir otel adı girin.' } : { ok: true, value } }} onSaved={genericSaved} />
         <InlineEditor booking={booking} column="pickup_address" label="Alış adresi" display={booking.pickup_address ? `📍 ${booking.pickup_address}` : '—'} maxLength={160} validate={raw => { const value = raw.trim().replace(/\s+/g, ' '); return value && (value.length < 6 || value.length > 160) ? { ok: false, error: 'Adres 6-160 karakter olmalı.' } : { ok: true, value: value || null } }} onSaved={genericSaved} />
+        {!dailyChauffeur && isHotelToHotelJourney(booking.pickup_location, booking.dropoff_location) && <InlineEditor booking={booking} column="dropoff_hotel_name" label="Varış oteli" display={booking.dropoff_hotel_name || '—'} maxLength={120} validate={raw => { const value = raw.trim().replace(/\s+/g, ' '); if (!value) return { ok: true, value: null }; const letters = value.match(/\p{L}/gu)?.length ?? 0; return value.length < 2 || value.length > 120 || letters < 2 ? { ok: false, error: 'Geçerli bir otel adı girin.' } : { ok: true, value } }} onSaved={genericSaved} />}
         {!dailyChauffeur && <InlineEditor booking={booking} column="dropoff_address" label="Varış adresi" display={booking.dropoff_address ? `📍 ${booking.dropoff_address}` : '—'} maxLength={160} validate={raw => { const value = raw.trim().replace(/\s+/g, ' '); return value && (value.length < 6 || value.length > 160) ? { ok: false, error: 'Adres 6-160 karakter olmalı.' } : { ok: true, value: value || null } }} onSaved={genericSaved} />}
         <InlineEditor booking={booking} column="driver_name" label="Şoför" display={booking.driver_name || '—'} maxLength={60} validate={raw => normalizeOptional(raw, 60, 'Şoför adı')} onSaved={genericSaved} />
         <InlineEditor booking={booking} column="vehicle_plate" label="Plaka" display={booking.vehicle_plate || '—'} maxLength={15} validate={raw => normalizeOptional(raw, 15, 'Plaka')} onSaved={genericSaved} />

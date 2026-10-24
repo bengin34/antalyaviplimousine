@@ -1,4 +1,4 @@
-import { turkishLocationNames as LOCATION_LABELS } from '../src/routes.js'
+import { DEFAULT_PROVINCE, provinceByRegion, turkishLocationNames as LOCATION_LABELS } from '../src/routes.js'
 import { LAND_OF_LEGENDS_PARK_ADDRESS } from '../src/land-of-legends.js'
 
 const ISTANBUL_TIME_ZONE = 'Europe/Istanbul'
@@ -32,13 +32,59 @@ export function navigationPoint(value, address, hotelName = '') {
   const normalizedHotel = String(hotelName ?? '').trim().replace(/\s+/g, ' ')
   const hasHotel = normalizedHotel && normalizedHotel.toLocaleLowerCase('tr-TR') !== 'belirtilmedi'
   const location = String(value ?? '').trim().toLocaleLowerCase('tr-TR')
+  // Bolgelerin cogu Antalya'dadir ama hepsi degil: Bodrum'u "Antalya" diye
+  // aratmak soforu yanlis ile gonderir ya da hic sonuc dondurmez.
+  const province = provinceByRegion[location] ?? DEFAULT_PROVINCE
 
   if (location !== 'airport' && hasHotel) {
-    return `${normalizedHotel}, ${locationLabel(value)}, Antalya, Türkiye`
+    return `${normalizedHotel}, ${locationLabel(value)}, ${province}, Türkiye`
   }
 
-  if (location === 'airport') return 'Antalya Havalimanı, Antalya, Türkiye'
-  return `${locationLabel(value)}, Antalya, Türkiye`
+  if (location === 'airport') return `Antalya Havalimanı, ${DEFAULT_PROVINCE}, Türkiye`
+  return `${locationLabel(value)}, ${province}, Türkiye`
+}
+
+const normalizeLocation = (value) => String(value ?? '').trim().toLocaleLowerCase('tr-TR')
+
+/**
+ * Bu uçta misafirin konakladığı bir yer var mı? Havalimanı, özel adres ve park
+ * otel değildir; geri kalan her şey oteldir — hem sitenin gönderdiği `hotel`
+ * değeri hem de panelin konum listesinden seçilebilen bölge slug'ları
+ * (`belek`, `side`...). Bölge slug'ını otel saymamak, tek otel adının yanlış
+ * uca yazılması demekti.
+ */
+const isHotelEnd = (location) =>
+  Boolean(location) && !['airport', 'private_address', 'land_of_legends'].includes(location)
+
+/** İki ucu da otel olan, yani varış otelinin kendi adını gerektiren seyahat. */
+export function isHotelToHotelJourney(pickupLocation, dropoffLocation) {
+  return isHotelEnd(normalizeLocation(pickupLocation)) && isHotelEnd(normalizeLocation(dropoffLocation))
+}
+
+/**
+ * Kaydın otel adlarını uçlara bağlar.
+ *
+ * Kayıt tek bir `hotel_name` taşır: misafirin oteli. Hangi uca ait olduğu
+ * yöne göre değişir — otelden alışta ya da havalimanına gidişte alış ucuna,
+ * diğer hâllerde varış ucuna. Otelden otele transferde varış otelinin kendi
+ * adı (`dropoff_hotel_name`) vardır; tek ad asla iki uca da yazılmaz, yoksa
+ * şoför alış otelinin adını varış bölgesinde arar.
+ *
+ * Konumlar kayıtta gidiş yönünde saklanır: dönüş bacağında çağıran taraf
+ * konumlarla birlikte bu iki adı da takas eder.
+ */
+export function bookingHotelEnds(booking) {
+  const pickup = normalizeLocation(booking?.pickup_location)
+  const dropoff = normalizeLocation(booking?.dropoff_location)
+  const guestHotel = String(booking?.hotel_name ?? '')
+  const dropoffHotel = String(booking?.dropoff_hotel_name ?? '')
+  // Havalimanına gidiş alış ucunu otel yapar: konumu boş kalmış eski kayıtlar
+  // da misafirin otelini alış ucunda göstermeye devam etsin.
+  const guestHotelAtPickup = dropoff === 'airport' || isHotelEnd(pickup)
+  return {
+    pickupHotel: guestHotelAtPickup ? guestHotel : '',
+    dropoffHotel: dropoffHotel || (guestHotelAtPickup ? '' : guestHotel),
+  }
 }
 
 export function navigationURLs({
@@ -46,16 +92,11 @@ export function navigationURLs({
   originAddress,
   destinationValue,
   destinationAddress,
-  hotelName = '',
+  originHotelName = '',
+  destinationHotelName = '',
 }) {
-  const originLocation = String(originValue ?? '').trim().toLocaleLowerCase('tr-TR')
-  const destinationLocation = String(destinationValue ?? '').trim().toLocaleLowerCase('tr-TR')
-  const originHotel = originLocation === 'hotel' || destinationLocation === 'airport'
-    ? hotelName
-    : ''
-  const destinationHotel = destinationLocation !== 'airport' ? hotelName : ''
-  const origin = navigationPoint(originValue, originAddress, originHotel)
-  const destination = navigationPoint(destinationValue, destinationAddress, destinationHotel)
+  const origin = navigationPoint(originValue, originAddress, originHotelName)
+  const destination = navigationPoint(destinationValue, destinationAddress, destinationHotelName)
   const encodedOrigin = encodeURIComponent(origin)
   const encodedDestination = encodeURIComponent(destination)
 

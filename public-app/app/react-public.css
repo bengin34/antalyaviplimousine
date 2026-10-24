@@ -30,6 +30,10 @@
 /* Hotel name field with suggestions. The popover overlays the fields below it,
    so the row keeps its own stacking context above the rest of the form. */
 .hotel-combobox { position: relative; z-index: 5; }
+/* A hotel-to-hotel transfer stacks two of these. Equal z-index would let the
+   lower row paint over the pick-up hotel's open list, so the destination row
+   sits one layer down: each list still overlays everything after it. */
+#dropoff-hotel-row .hotel-combobox { z-index: 4; }
 .hotel-combobox-popover {
   position: absolute;
   z-index: 6;

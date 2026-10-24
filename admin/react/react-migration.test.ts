@@ -1,12 +1,13 @@
 import { describe, expect, test } from 'vitest'
 import { buildCustomerMatchCsv, buildHotelNamesList } from './pages/AdminPanelPage'
 import { validateBookingForm, type BookingFormState } from './pages/NewBookingPage'
+import { prefillHotelNames } from './lib/prefill'
 import { buildMonthCalendar, expandRoundTrips, shiftCalendarMonth } from './pages/timeline-logic'
 import type { Booking } from './types'
 
 const baseForm: BookingFormState = {
   name: 'Ayşe Yılmaz', phone: '+90 555 111 22 33', email: '', hotel: 'Rixos',
-  tripType: 'one_way', pickup: 'airport', dropoff: 'belek', pickupAddress: '', dropoffAddress: '',
+  tripType: 'one_way', pickup: 'airport', dropoff: 'belek', pickupAddress: '', dropoffAddress: '', dropoffHotel: '',
   pickupDate: '2026-08-10', pickupTime: '12:30', flightNumber: 'TK123', flightTime: '12:10',
   returnDate: '', returnTime: '', returnFlight: '', returnFlightTime: '', vehicle: 'vito', guests: '3', luggage: '2', costMode: 'own_vehicle', soldTransferCostTry: '',
   returnCostMode: 'own_vehicle', returnSoldTransferCostTry: '',
@@ -238,5 +239,64 @@ describe('React admin migration behavior', () => {
   test('hotel list defaults to the full index', () => {
     const result = buildHotelNamesList()
     expect(result.count).toBeGreaterThan(100)
+  })
+})
+
+describe('manual hotel-to-hotel booking', () => {
+  const hotelToHotel: BookingFormState = { ...baseForm, pickup: 'hotel', dropoff: 'bodrum', hotel: 'Lara Barut Collection' }
+
+  test('the destination hotel is stored in its own column', () => {
+    expect(validateBookingForm({ ...hotelToHotel, dropoffHotel: 'Mandarin Oriental Bodrum' }).payload)
+      .toMatchObject({ hotel_name: 'Lara Barut Collection', dropoff_hotel_name: 'Mandarin Oriental Bodrum' })
+  })
+
+  test('a journey with an airport end carries no destination hotel', () => {
+    expect(validateBookingForm({ ...hotelToHotel, dropoff: 'airport', dropoffHotel: 'Mandarin Oriental Bodrum' }).payload)
+      .toMatchObject({ dropoff_hotel_name: null })
+  })
+
+  test('the two hotels cannot be the same', () => {
+    expect(validateBookingForm({ ...hotelToHotel, dropoffHotel: ' lara barut collection ' }).error)
+      .toBe('Alış ve varış oteli aynı olamaz.')
+  })
+})
+
+describe('manual booking destination hotel edge cases', () => {
+  const base: BookingFormState = { ...baseForm, pickup: 'hotel', dropoff: 'bodrum', hotel: 'Lara Barut Collection' }
+
+  test('a region slug at the pick-up is still a hotel-to-hotel journey', () => {
+    expect(validateBookingForm({ ...base, pickup: 'belek', dropoffHotel: 'Mandarin Oriental Bodrum' }).payload)
+      .toMatchObject({ dropoff_hotel_name: 'Mandarin Oriental Bodrum' })
+  })
+
+  test('the Land of Legends excursion ends at the park, never at a hotel', () => {
+    expect(validateBookingForm({
+      ...base, tripType: 'land_of_legends', pickupTime: '09:00', returnTime: '18:00',
+      dropoffHotel: 'Mandarin Oriental Bodrum',
+    }).payload).toMatchObject({ dropoff_location: 'land_of_legends', dropoff_hotel_name: null })
+  })
+})
+
+describe('copying a trip carries both hotels', () => {
+  test('an airport arrival keeps the guest hotel when planned in reverse', () => {
+    const booking = { pickup_location: 'airport', dropoff_location: 'belek', hotel_name: 'Rixos Premium Belek' }
+    expect(prefillHotelNames(booking, false)).toEqual({ hotelName: 'Rixos Premium Belek', dropoffHotelName: '' })
+    expect(prefillHotelNames(booking, true)).toEqual({ hotelName: 'Rixos Premium Belek', dropoffHotelName: '' })
+  })
+
+  test('a hotel-to-hotel trip swaps the two hotels in reverse', () => {
+    const booking = {
+      pickup_location: 'hotel', dropoff_location: 'bodrum',
+      hotel_name: 'Lara Barut Collection', dropoff_hotel_name: 'Mandarin Oriental Bodrum',
+    }
+    expect(prefillHotelNames(booking, false))
+      .toEqual({ hotelName: 'Lara Barut Collection', dropoffHotelName: 'Mandarin Oriental Bodrum' })
+    expect(prefillHotelNames(booking, true))
+      .toEqual({ hotelName: 'Mandarin Oriental Bodrum', dropoffHotelName: 'Lara Barut Collection' })
+  })
+
+  test('an unnamed hotel is not copied as the placeholder word', () => {
+    expect(prefillHotelNames({ pickup_location: 'airport', dropoff_location: 'belek', hotel_name: 'Belirtilmedi' }, false))
+      .toEqual({ hotelName: '', dropoffHotelName: '' })
   })
 })

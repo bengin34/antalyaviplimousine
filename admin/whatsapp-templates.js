@@ -1,4 +1,4 @@
-import { locationLabel, navigationURLs } from "./turkish-formatters.js";
+import { bookingHotelEnds, locationLabel, navigationURLs } from "./turkish-formatters.js";
 import { landOfLegendsMeetingPoint } from "../src/land-of-legends.js";
 
 // Shared transfer start-time rule used by the React timeline and detail views.
@@ -558,12 +558,16 @@ function transferDetails(booking, requestedLeg = "outbound") {
         dropoffAddress: b.dropoff_address,
       };
 
+  // Otel adları kayıtta gidiş yönüne bağlıdır; dönüş bacağında uçlar takas
+  // edildiği için adlar da takas edilir.
+  const hotels = bookingHotelEnds(b);
   const navigation = navigationURLs({
     originValue: transfer.pickupLocation,
     originAddress: transfer.pickupAddress,
     destinationValue: transfer.dropoffLocation,
     destinationAddress: transfer.dropoffAddress,
-    hotelName: b.hotel_name,
+    originHotelName: isReturn ? hotels.dropoffHotel : hotels.pickupHotel,
+    destinationHotelName: isReturn ? hotels.pickupHotel : hotels.dropoffHotel,
   });
 
   return {

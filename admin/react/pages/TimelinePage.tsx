@@ -6,7 +6,7 @@ import { supabase } from '../lib/supabase'
 import type { Booking, Navigate, TimelineCard } from '../types'
 import { returnPickupAdvice } from '../components/ReturnPickupHint'
 import { comparePickupTime, formatDurationTr } from '../../../src/airport-pickup.js'
-import { isReturnJourney, locationDisplay, navigationURLs, whatsappURL } from '../../turkish-formatters.js'
+import { bookingHotelEnds, isReturnJourney, locationDisplay, navigationURLs, whatsappURL } from '../../turkish-formatters.js'
 import { buildDriverTransferMessage, driverWhatsappURL } from '../../driver-message.js'
 import { matchesBookingQuery } from '../../search-match.js'
 import { countFutureReservations, expandRoundTrips, TODAY_CACHE_KEY } from './timeline-logic'
@@ -135,10 +135,14 @@ function BookingCard({ card, now, isPast, isCancelled, isNew, navigate, confirmP
   const isDailyChauffeur = card.trip_type === 'daily_chauffeur'
   const pickup = locationDisplay(card.pickup_location, card.pickup_address)
   const dropoff = isDailyChauffeur ? 'Esnek güzergâh' : locationDisplay(card.dropoff_location, card.dropoff_address)
+  // Kart konumları kendi bacağı yönünde taşır (expandRoundTrips takas eder),
+  // otel adları ise ham kayıttaki gidiş yönünde: ikisini birlikte eşle.
+  const hotelEnds = bookingHotelEnds(card._sourceBooking ?? card)
   const navigation = !isDailyChauffeur ? navigationURLs({
     originValue: card.pickup_location, originAddress: card.pickup_address,
     destinationValue: card.dropoff_location, destinationAddress: card.dropoff_address,
-    hotelName: card.hotel_name,
+    originHotelName: card._isReturn ? hotelEnds.dropoffHotel : hotelEnds.pickupHotel,
+    destinationHotelName: card._isReturn ? hotelEnds.pickupHotel : hotelEnds.dropoffHotel,
   }) : null
   const warnings = warningsFor(card)
   const isReturn = isReturnJourney(card)

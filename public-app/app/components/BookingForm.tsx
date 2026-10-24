@@ -13,6 +13,7 @@ import {
   createPublicBookingSchema,
   fetchLivePriceOverrides,
   inclusiveDayCount,
+  needsDropoffHotel,
   pricedRouteSlug,
   quoteFor,
   vitoFits as vitoFitsCapacity,
@@ -94,6 +95,7 @@ function whatsappConfirmation(values: PublicBookingValues, bookingRef: string, p
   ];
   if (!isDailyChauffeur) lines.splice(7, 0, `🏁 Dropoff: ${values.destination === "private_address" ? values.dropoffAddress : routeName}`);
   if (values.hotelName) lines.push(`🏨 Hotel: ${values.hotelName}`);
+  if (values.dropoffHotelName && needsDropoffHotel(values)) lines.push(`🏨 Destination hotel: ${values.dropoffHotelName}`);
   const golfBagCount = Number(values.golfBags) || 0;
   const strollerCount = Number(values.strollers) || 0;
   if (golfBagCount > 0) lines.push(`🏌️ Golf bags: ${golfBagCount}`);
@@ -153,6 +155,8 @@ export function BookingForm({
   const [liveOverrides, setLiveOverrides] = useState<LivePriceOverrides>({});
   const [hotelMatch, setHotelMatch] = useState<IndexedHotel | null>(null);
   const [hotelNotListed, setHotelNotListed] = useState(false);
+  const [dropoffHotelMatch, setDropoffHotelMatch] = useState<IndexedHotel | null>(null);
+  const [dropoffHotelNotListed, setDropoffHotelNotListed] = useState(false);
   const [flightCheck, setFlightCheck] = useState<FlightResult | null>(null);
   const flightRequestRef = useRef(0);
   const lastFlightQueryRef = useRef("");
@@ -178,7 +182,7 @@ export function BookingForm({
       luggage: "", golfBags: "0", strollers: "0", childSeats: "0", childAges: [], travelDate: "", arrivalTime: "", flightNumber: "",
       returnDate: "", returnPickupTime: "", returnFlightNumber: "", pickupAddress: "",
       serviceEndDate: "", pickupTime: "", departureFlightDate: "", departureFlightTime: "", departureFlightNumber: "",
-      dropoffAddress: "", hotelName: "", hotelRegion: "", customerName: "", customerPhone: "", customerEmail: "",
+      dropoffAddress: "", hotelName: "", hotelRegion: "", dropoffHotelName: "", customerName: "", customerPhone: "", customerEmail: "",
       flightVerificationStatus: "", flightScheduledArrival: "",
     },
   });
@@ -205,7 +209,14 @@ export function BookingForm({
     : values.destination === "private_address"
       ? t("privateAddressOption", "Private address")
       : selectedRouteName ?? values.destination;
-  const pickupLabel = values.pickup === "hotel" && selectedRouteName ? selectedRouteName : pickupName;
+  // Leaving a hotel, the guest reads their own region back rather than the bare
+  // word "Hotel". It is the hotel's own region, not the priced route: those are
+  // the same only when the journey ends at the airport, and on a hotel-to-hotel
+  // run the priced route is the destination - which would read "Bodrum → Bodrum".
+  const pickupRegionName = values.pickup === "hotel" && values.hotelRegion && routeCatalog[values.hotelRegion as keyof typeof routeCatalog]
+    ? regionLabel(values.hotelRegion)
+    : undefined;
+  const pickupLabel = pickupRegionName ?? pickupName;
   const isPrivateAddressQuote = !isDailyChauffeur && values.pickup === "private_address" && values.destination === "private_address";
   const vitoFits = vitoFitsCapacity(Number(values.guests), Number(values.luggage) || 0, Number(values.golfBags) || 0, Number(values.strollers) || 0);
   const hasPrice = !isDailyChauffeur && selectedRoute && quote.price > 0;
@@ -216,6 +227,9 @@ export function BookingForm({
   const hotelSetsDestination = !isDailyChauffeur && values.pickup !== "hotel"
     && values.destination !== "airport" && values.destination !== "private_address";
   const hotelNeeded = isDailyChauffeur || values.pickup === "hotel" || values.destination !== "private_address";
+  // Hotel to hotel, the single "your hotel" field only answers for the end we
+  // collect from, so the end we deliver to gets a field of its own.
+  const dropoffHotelNeeded = needsDropoffHotel(values);
 
   // Naming the belde alongside the region reassures a guest whose hotel is
   // priced under a neighbouring region's name — an Okurcalar hotel quoted at
@@ -223,6 +237,10 @@ export function BookingForm({
   const hotelMatchLabel = !hotelMatch ? "" : hotelMatch.district === regionLabel(hotelMatch.region)
     ? `${hotelMatch.name} — ${hotelMatch.district}`
     : `${hotelMatch.name} · ${hotelMatch.district} — ${regionLabel(hotelMatch.region)}`;
+
+  const dropoffHotelMatchLabel = !dropoffHotelMatch ? "" : dropoffHotelMatch.district === regionLabel(dropoffHotelMatch.region)
+    ? `${dropoffHotelMatch.name} — ${dropoffHotelMatch.district}`
+    : `${dropoffHotelMatch.name} · ${dropoffHotelMatch.district} — ${regionLabel(dropoffHotelMatch.region)}`;
 
   const handleHotelInput = (name: string) => {
     setValue("hotelName", name, { shouldValidate: false });
@@ -244,6 +262,29 @@ export function BookingForm({
     if (!hotelSetsDestination) return;
     setValue("destination", hotel.region, { shouldValidate: true });
     window.gtag?.("event", "hotel_region_detected", { hotel: hotel.slug, region: hotel.region });
+  };
+
+  const handleDropoffHotelInput = (name: string) => {
+    setValue("dropoffHotelName", name, { shouldValidate: false });
+    setDropoffHotelNotListed(false);
+    if (!dropoffHotelMatch || name === dropoffHotelMatch.name) return;
+    setDropoffHotelMatch(null);
+  };
+
+  const handleDropoffHotelSelect = (hotel: IndexedHotel) => {
+    setValue("dropoffHotelName", hotel.name, { shouldValidate: true });
+    setDropoffHotelMatch(hotel);
+    setDropoffHotelNotListed(false);
+    // The hotel we deliver to is the one the journey is priced on, so picking
+    // it from the index answers the destination question too.
+    setValue("destination", hotel.region, { shouldValidate: true });
+    window.gtag?.("event", "hotel_region_detected", { hotel: hotel.slug, region: hotel.region });
+  };
+
+  const handleDropoffHotelNotListed = () => {
+    setDropoffHotelMatch(null);
+    setDropoffHotelNotListed(true);
+    document.querySelector<HTMLSelectElement>("#destination")?.focus();
   };
 
   const handleHotelNotListed = () => {
@@ -358,7 +399,7 @@ export function BookingForm({
         window.gtag?.("event", "purchase", { transaction_id: booking.booking_ref, currency: "EUR", value: confirmedPrice, payment_type: "cash" });
         window.gtag?.("event", "conversion", { send_to: "AW-18248114753/IW8CCL7H38AcEMHEsP1D", transaction_id: booking.booking_ref, value: confirmedPrice, currency: "EUR" });
       }
-      reset({ ...formValues, destination: "", tripType: "one_way", luggage: "", golfBags: "0", strollers: "0", travelDate: minimumDate || todayISO(), returnDate: "", returnPickupTime: "", returnFlightNumber: "", serviceEndDate: minimumDate || todayISO(), pickupTime: "", departureFlightDate: "", departureFlightTime: "", departureFlightNumber: "", arrivalTime: "", flightNumber: "", customerName: "", customerPhone: "", customerEmail: "", flightVerificationStatus: "", flightScheduledArrival: "" });
+      reset({ ...formValues, destination: "", dropoffHotelName: "", tripType: "one_way", luggage: "", golfBags: "0", strollers: "0", travelDate: minimumDate || todayISO(), returnDate: "", returnPickupTime: "", returnFlightNumber: "", serviceEndDate: minimumDate || todayISO(), pickupTime: "", departureFlightDate: "", departureFlightTime: "", departureFlightNumber: "", arrivalTime: "", flightNumber: "", customerName: "", customerPhone: "", customerEmail: "", flightVerificationStatus: "", flightScheduledArrival: "" });
       setFlightCheck(null);
       lastFlightQueryRef.current = "";
       autoFilledArrivalRef.current = "";
@@ -462,6 +503,7 @@ export function BookingForm({
       return;
     }
     if (hotelNeeded && !(await trigger("hotelName"))) return;
+    if (dropoffHotelNeeded && !(await trigger("dropoffHotelName"))) return;
     window.gtag?.("event", "price_shown", { route: values.destination, price: quote.price, vehicle: values.vehicle });
     track("price_shown", { route: values.destination, price: quote.price, vehicle: values.vehicle });
     // A selected destination that prices at zero is lost demand, not a bug:
@@ -508,28 +550,51 @@ export function BookingForm({
     </>
   );
 
-  const renderHotelField = () => (
-    <label className={fieldClass(errors.hotelName)} htmlFor="hotel-name">
-      <span>{t("hotelNameLabel", "Hotel name")}</span>
+  /** Both ends of a hotel-to-hotel journey are named by the same control, so
+   *  it is rendered from the field it writes to rather than written twice. */
+  const renderHotelField = (
+    field: "hotelName" | "dropoffHotelName",
+    { id, label, placeholder, hintId, onChange, onSelect, onNotListed }: {
+      id: string;
+      label: string;
+      placeholder: string;
+      hintId?: string;
+      onChange: (value: string) => void;
+      onSelect: (hotel: IndexedHotel) => void;
+      onNotListed: () => void;
+    },
+  ) => (
+    <label className={fieldClass(errors[field])} htmlFor={id}>
+      <span>{label}</span>
       <HotelCombobox
-        id="hotel-name"
-        value={values.hotelName}
-        onChange={handleHotelInput}
-        onSelect={handleHotelSelect}
-        onNotListed={handleHotelNotListed}
-        placeholder={t("hotelNamePlaceholder", "Hotel or accommodation name")}
+        id={id}
+        value={values[field] ?? ""}
+        onChange={onChange}
+        onSelect={onSelect}
+        onNotListed={onNotListed}
+        placeholder={placeholder}
         regionLabel={regionLabel}
         notListedLabel={t("hotelNotListed", "My hotel is not in the list")}
         noResultsLabel={t("hotelNoMatch", "No match yet. Type the name and pick the region yourself.")}
         describedBy={[
-          hotelSetsDestination ? "hotel-region-hint" : "",
-          errors.hotelName ? fieldErrorId("hotelName") : "",
+          hintId ?? "",
+          errors[field] ? fieldErrorId(field) : "",
         ].filter(Boolean).join(" ") || undefined}
-        invalid={Boolean(errors.hotelName)}
+        invalid={Boolean(errors[field])}
       />
-      <FieldErrorMessage name="hotelName" error={errors.hotelName} />
+      <FieldErrorMessage name={field} error={errors[field]} />
     </label>
   );
+
+  const renderGuestHotelField = () => renderHotelField("hotelName", {
+    id: "hotel-name",
+    label: dropoffHotelNeeded ? t("pickupHotelNameLabel", "Pick-up hotel name") : t("hotelNameLabel", "Hotel name"),
+    placeholder: t("hotelNamePlaceholder", "Hotel or accommodation name"),
+    hintId: hotelSetsDestination ? "hotel-region-hint" : undefined,
+    onChange: handleHotelInput,
+    onSelect: handleHotelSelect,
+    onNotListed: handleHotelNotListed,
+  });
   /** Ipucundaki dugme. Sessizce hicbir sey yazilmaz; yazan musteridir.
    *  Ref de guncellenir: bu deger bizimdir, sonraki bir ucus numarasi onu
    *  musterinin elle yazdigi bir saat sanip korumasin. */
@@ -649,13 +714,36 @@ export function BookingForm({
 
               {!isDailyChauffeur && (
                 <div className="booking-row booking-hotel-row">
-                  {renderHotelField()}
+                  {renderGuestHotelField()}
                   <p className={`hotel-region-hint${hotelMatch && hotelSetsDestination ? " is-matched" : ""}`} id="hotel-region-hint">
                     {hotelMatch && hotelSetsDestination
                       ? hotelMatchLabel
                       : hotelNotListed
                         ? t("hotelNotListedHint", "No problem — just tell us your hotel name and pick your region below.")
-                        : t("hotelSearchHint", "Type your hotel name and pick it from the list; we fill in the destination region and price for you.")}
+                        : dropoffHotelNeeded
+                          ? t("pickupHotelSearchHint", "Type the hotel we collect you from and pick it from the list.")
+                          : t("hotelSearchHint", "Type your hotel name and pick it from the list; we fill in the destination region and price for you.")}
+                  </p>
+                </div>
+              )}
+
+              {dropoffHotelNeeded && (
+                <div className="booking-row booking-hotel-row" id="dropoff-hotel-row">
+                  {renderHotelField("dropoffHotelName", {
+                    id: "dropoff-hotel-name",
+                    label: t("dropoffHotelNameLabel", "Destination hotel name"),
+                    placeholder: t("dropoffHotelNamePlaceholder", "Hotel or accommodation at the destination"),
+                    hintId: "dropoff-hotel-region-hint",
+                    onChange: handleDropoffHotelInput,
+                    onSelect: handleDropoffHotelSelect,
+                    onNotListed: handleDropoffHotelNotListed,
+                  })}
+                  <p className={`hotel-region-hint${dropoffHotelMatch ? " is-matched" : ""}`} id="dropoff-hotel-region-hint">
+                    {dropoffHotelMatch
+                      ? dropoffHotelMatchLabel
+                      : dropoffHotelNotListed
+                        ? t("dropoffHotelNotListedHint", "No problem — just tell us the hotel name and pick its region below.")
+                        : t("dropoffHotelSearchHint", "Type the hotel you are travelling to and pick it from the list; we fill in the region and price for you.")}
                   </p>
                 </div>
               )}
@@ -839,7 +927,7 @@ export function BookingForm({
               </div>
               <div className="booking-row booking-options-row">
                 <label className={fieldClass(errors.luggage)}><span>{t("luggageLabel", "Large luggage")}</span><div className="field-control"><Icon name="luggage" className="icon" /><select id="luggage" {...register("luggage")} {...fieldStatus("luggage", errors.luggage)}><option value="">{t("selectLuggage", "Select")}</option>{Array.from({ length: 13 }, (_, index) => <option value={index} key={index}>{index}</option>)}</select></div><FieldErrorMessage name="luggage" error={errors.luggage} /></label>
-                {renderHotelField()}
+                {renderGuestHotelField()}
                 <label className={fieldClass(errors.childSeats)}><span>{t("childSeatLabel", "Child seats")}</span><div className="field-control"><Icon name="baby" className="icon" /><select id="child-seats" {...register("childSeats")} {...fieldStatus("childSeats", errors.childSeats)}>{Array.from({ length: 5 }, (_, index) => <option value={index} key={index}>{index === 0 ? t("childSeatNone", "No child seat") : t(["", "oneChildSeat", "twoChildSeats", "threeChildSeats", "fourChildSeats"][index], `${index} child seat${index > 1 ? "s" : ""}`)}</option>)}</select></div><FieldErrorMessage name="childSeats" error={errors.childSeats} /></label>
               </div>
               {renderBulkyLuggageFields()}

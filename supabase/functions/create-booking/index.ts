@@ -156,6 +156,15 @@ Deno.serve(async (req) => {
     const excursionRegion = isLandOfLegends ? resolveHotelRegion(rawHotelName, hotelRegionBySlug) ?? '' : ''
     const requiresHotelName = isDailyChauffeur || pickupLocation === 'hotel' || dropoffLocation !== 'private_address'
     const hotelName = rawHotelName || 'Not specified'
+    // Otelden otele: `hotel_name` alış ucunu adlandırır, varış oteli kendi
+    // alanını taşır. Yalnızca iki uç da otel olduğunda kabul edilir, yoksa
+    // istemci şoförün varış satırına istediği metni koyabilir.
+    const requiresDropoffHotelName = !isDailyChauffeur
+      && !isLandOfLegends
+      && pickupLocation === 'hotel'
+      && dropoffLocation !== 'airport'
+      && dropoffLocation !== 'private_address'
+    const dropoffHotelName = requiresDropoffHotelName ? normalizeWhitespace(payload.dropoff_hotel_name) : ''
     const notes = normalizeWhitespace(payload.notes)
     const isAirportReturn =
       dropoffLocation === 'airport' &&
@@ -218,6 +227,12 @@ Deno.serve(async (req) => {
     }
     if ((requiresHotelName || rawHotelName) && !isValidHotelName(rawHotelName)) {
       return jsonResponse({ error: 'hotel_name is invalid' }, 400)
+    }
+    if (requiresDropoffHotelName && !isValidHotelName(dropoffHotelName)) {
+      return jsonResponse({ error: 'dropoff_hotel_name is invalid' }, 400)
+    }
+    if (requiresDropoffHotelName && dropoffHotelName.toLocaleLowerCase() === rawHotelName.toLocaleLowerCase()) {
+      return jsonResponse({ error: 'pickup and drop-off hotels must be different' }, 400)
     }
     if (!isValidFlightNumber(payload.flight_number)) {
       return jsonResponse({ error: 'flight_number is invalid' }, 400)
@@ -385,6 +400,7 @@ Deno.serve(async (req) => {
       pickup_address: pickupAddress || null,
       pickup_time: pickupTime || null,
       dropoff_address: isDailyChauffeur ? null : dropoffAddress || null,
+      dropoff_hotel_name: dropoffHotelName || null,
       dropoff_location: dropoffLocation,
       pickup_date: pickupDate,
       trip_type: tripType,
@@ -437,7 +453,7 @@ Deno.serve(async (req) => {
         ? `Hotel: ${booking.hotel_name}`
         : 'Antalya Airport (AYT)'
     )
-    const dropoffAddressDisplay = booking.dropoff_address || booking.dropoff_location
+    const dropoffAddressDisplay = booking.dropoff_address || booking.dropoff_hotel_name || booking.dropoff_location
     const bookingPriceDisplay = isLandOfLegends
       ? landOfLegendsNeedsQuote
         ? `To be quoted — ${excursionRegion ? `region "${excursionRegion}" has no fixed Land of Legends rate` : 'hotel is not in the index'}`
@@ -495,7 +511,7 @@ Deno.serve(async (req) => {
                     <tr><td style="padding:6px 12px;color:#777">Pick-up type</td><td style="padding:6px 12px">${escapeHtml(pickupLabel)}</td></tr>
                     <tr><td style="padding:6px 12px;color:#777">Pick-up address</td><td style="padding:6px 12px"><strong>${escapeHtml(pickupAddressDisplay)}</strong></td></tr>
                     ${!isDailyChauffeur ? `<tr><td style="padding:6px 12px;color:#777">Destination</td><td style="padding:6px 12px">${escapeHtml(isLandOfLegends ? 'The Land of Legends (Kadriye) — then back to the hotel' : booking.dropoff_location)}</td></tr>` : ''}
-                    ${!isDailyChauffeur && booking.dropoff_address ? `<tr><td style="padding:6px 12px;color:#777">Drop-off address</td><td style="padding:6px 12px"><strong>${escapeHtml(dropoffAddressDisplay)}</strong></td></tr>` : ''}
+                    ${!isDailyChauffeur && (booking.dropoff_address || booking.dropoff_hotel_name) ? `<tr><td style="padding:6px 12px;color:#777">${booking.dropoff_address ? 'Drop-off address' : 'Destination hotel'}</td><td style="padding:6px 12px"><strong>${escapeHtml(dropoffAddressDisplay)}</strong></td></tr>` : ''}
                     <tr><td style="padding:6px 12px;color:#777">Journey type</td><td style="padding:6px 12px"><strong>${escapeHtml(isLandOfLegends ? 'The Land of Legends — hotel → park → hotel, driver waits' : isDailyChauffeur ? 'Daily vehicle + chauffeur' : isRoundTrip ? 'Round trip' : 'One way')}</strong></td></tr>
                     ${isLandOfLegends ? `<tr><td style="padding:6px 12px;color:#777">Hotel departure / park pick-up</td><td style="padding:6px 12px"><strong>${escapeHtml(booking.pickup_date)} · ${escapeHtml(booking.pickup_time)} → ${escapeHtml(booking.return_pickup_time)}</strong></td></tr>
                     <tr><td style="padding:6px 12px;color:#777">Hotel region</td><td style="padding:6px 12px">${escapeHtml(booking.excursion_region || 'Not matched')}</td></tr>` : ''}

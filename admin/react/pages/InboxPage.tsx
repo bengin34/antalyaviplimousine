@@ -30,6 +30,9 @@ function InboxCard({ booking, now, busy, onSend, onDismiss, navigate }: {
   const isBusy = (kind: CustomerMessageKind | 'dismiss') => busy?.ref === booking.booking_ref && busy.kind === kind
   const anyBusy = busy?.ref === booking.booking_ref
   const hotel = String(booking.hotel_name ?? '').trim()
+  // Otelden otele transferde iki uç da oteldir; tek "Otel" satırı yalnızca
+  // alış ucunu anlatır, operatör varış otelini de burada görmeli.
+  const dropoffHotel = String(booking.dropoff_hotel_name ?? '').trim()
   const open = () => navigate(`#detail/${encodeURIComponent(booking.booking_ref)}?from=inbox`)
 
   return <div className={`card inbox-card inbox-stage-${stage}`} data-ref={booking.booking_ref}>
@@ -50,7 +53,8 @@ function InboxCard({ booking, now, busy, onSend, onDismiss, navigate }: {
       <div><span className="inbox-label">Transfer</span>{fmtShortDateWithWeekday(booking.pickup_date)} · {fmtTime(time) || 'saat yok'}{roundTrip && booking.return_date ? ` → dönüş ${fmtShortDateWithWeekday(booking.return_date)} ${fmtTime(booking.return_pickup_time)}` : ''}{isDaily && booking.service_end_date ? ` → ${fmtShortDateWithWeekday(booking.service_end_date)}` : ''}</div>
       <div><span className="inbox-label">Güzergâh</span>{pickup} → {dropoff}</div>
       <div><span className="inbox-label">Detay</span>{booking.guests} kişi · {booking.vehicle_type === 'vclass' ? 'V-Class' : 'Vito'} · €{fmtPrice(booking.price_eur)} · {booking.payment_method === 'cash' ? 'Nakit' : 'Kart'}{booking.flight_number ? ` · ✈ ${booking.flight_number}` : ''}</div>
-      {hotel && hotel.toLocaleLowerCase('tr-TR') !== 'belirtilmedi' && <div><span className="inbox-label">Otel</span>{hotel}</div>}
+      {hotel && hotel.toLocaleLowerCase('tr-TR') !== 'belirtilmedi' && <div><span className="inbox-label">{dropoffHotel ? 'Alış oteli' : 'Otel'}</span>{hotel}</div>}
+      {dropoffHotel && <div><span className="inbox-label">Varış oteli</span>{dropoffHotel}</div>}
       {booking.notes && <div className="inbox-note">📌 {booking.notes}</div>}
     </div>
     <div className="inbox-progress" aria-label="Karşılama adımları">

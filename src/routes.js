@@ -224,6 +224,22 @@ export const bookableRouteSlugs = Object.freeze(
   /** @type {Array<keyof typeof routeCatalog>} */ (Object.keys(routeCatalog)),
 );
 
+/**
+ * Navigasyon sorgusunda yazilacak il. Isin merkezi Antalya oldugu icin il
+ * varsayilan olarak Antalya'dir; yalnizca il disindaki bolgeler burada
+ * listelenir. Eksik olan bir bolge Antalya sayilir, o yuzden liste sadece
+ * istisnalari tasir.
+ */
+export const DEFAULT_PROVINCE = "Antalya";
+
+export const provinceByRegion = Object.freeze({
+  bodrum: "Muğla",
+  dalaman: "Muğla",
+  fethiye: "Muğla",
+  pamukkale: "Denizli",
+  kapadokya: "Nevşehir",
+});
+
 export const turkishLocationNames = Object.freeze({
   airport: "Antalya Havalimanı",
   hotel: "Otel",

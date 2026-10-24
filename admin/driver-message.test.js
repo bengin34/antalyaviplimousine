@@ -175,3 +175,34 @@ test('the driver day plan lists the evening park pick-up as its own job', () => 
   expect(program).toContain('22:30 · The Land of Legends → Otel')
   expect(program).toContain('LAND OF LEGENDS DÖNÜŞÜ')
 })
+
+const hotelToHotel = {
+  booking_ref: 'VIP-2026-0099',
+  customer_name: 'Lorraine Shaw',
+  customer_phone: '+447700900123',
+  trip_type: 'one_way',
+  pickup_date: '2026-10-25',
+  pickup_time: '09:00:00',
+  pickup_location: 'hotel',
+  dropoff_location: 'bodrum',
+  hotel_name: 'Lara Barut Collection',
+  dropoff_hotel_name: 'Mandarin Oriental Bodrum',
+  vehicle_type: 'vito',
+  guests: 2,
+  luggage_count: 4,
+  price_eur: 283,
+  payment_method: 'cash',
+}
+
+test('hotel-to-hotel transfer names each end by its own hotel', () => {
+  const message = buildDriverTransferMessage(hotelToHotel)
+  expect(message).toContain('📍 Alış: Lara Barut Collection (Otel)')
+  expect(message).toContain('📍 Varış: Mandarin Oriental Bodrum (Bodrum)')
+})
+
+test('hotel-to-hotel transfer without a destination hotel leaves the drop-off as the region', () => {
+  const message = buildDriverTransferMessage({ ...hotelToHotel, dropoff_hotel_name: null })
+  expect(message).toContain('📍 Alış: Lara Barut Collection (Otel)')
+  expect(message).toContain('📍 Varış: Bodrum')
+  expect(message).not.toContain('📍 Varış: Lara Barut Collection (Bodrum)')
+})
