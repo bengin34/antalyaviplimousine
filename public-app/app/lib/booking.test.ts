@@ -1,5 +1,5 @@
 import { describe, expect, test } from "vitest";
-import { buildPublicBookingPayload, createPublicBookingSchema, quoteFor, sprinterFits, vitoFits, type PublicBookingValues } from "./booking";
+import { buildPublicBookingPayload, confirmedPriceCopy, createPublicBookingSchema, quoteFor, sprinterFits, vitoFits, type PublicBookingValues } from "./booking";
 
 const t = (_key: string, fallback = "Invalid") => fallback;
 const futureDate = `${new Date().getFullYear() + 1}-08-10`;
@@ -134,6 +134,100 @@ describe("per-hotel band pricing", () => {
 
   test("an unmatched hotel keeps the flat region price", () => {
     expect(quoteFor({ ...base, destination: "side" }).price).toBe(53);
+  });
+});
+
+describe("what the confirmation screen promises about the price", () => {
+  test("a fixed fare is a fixed fare", () => {
+    expect(confirmedPriceCopy({ tripType: "one_way", destination: "side" }, 53)).toBe("fixedTotal");
+  });
+
+  test("a daily hire says its own thing whatever the total", () => {
+    expect(confirmedPriceCopy({ tripType: "daily_chauffeur", destination: "" }, 600)).toBe("dailyHire");
+  });
+
+  test("an airport-bound leg waits on the pick-up address", () => {
+    expect(confirmedPriceCopy({ tripType: "one_way", destination: "airport" }, 0)).toBe("pendingPickup");
+  });
+
+  test("a private destination waits on the drop-off address", () => {
+    expect(confirmedPriceCopy({ tripType: "one_way", destination: "private_address" }, 0)).toBe("pendingDropoff");
+  });
+
+  test("a journey we could not price does not promise a fixed total", () => {
+    // A hotel-to-hotel booking whose pick-up hotel is not in the index comes
+    // back with no price. Telling the guest to pay "the fixed total" when no
+    // total was ever shown is the one thing the screen must not do.
+    expect(confirmedPriceCopy({ tripType: "one_way", destination: "alanya_merkez" }, 0)).toBe("pendingQuote");
+  });
+});
+
+describe("hotel-to-hotel journeys", () => {
+  // Alanya centre (125 km out) to Side (65 km out), 65 km apart on the coast
+  // road: 255 vehicle km against the 250 an airport transfer to Alanya takes.
+  // The journey is Alanya's, so Alanya centre's €93 anchors it, not Side's €53.
+  const leavingAlanya = {
+    ...base,
+    pickup: "hotel" as const,
+    destination: "side",
+    hotelRegion: "alanya_merkez",
+    hotelName: "Test Hotel",
+    dropoffHotelName: "Another Hotel",
+  };
+
+  test("prices the journey on the farther end, not on where it happens to finish", () => {
+    expect(quoteFor(leavingAlanya).price).toBe(95);
+  });
+
+  test("costs the same in both directions", () => {
+    const towardsAlanya = { ...leavingAlanya, destination: "alanya_merkez", hotelRegion: "side" };
+    expect(quoteFor(towardsAlanya).price).toBe(quoteFor(leavingAlanya).price);
+  });
+
+  test("charges the detour when the journey crosses the city", () => {
+    // Alanya centre to Kemer is driven in past the airport and back out: 175
+    // equivalent km, 50 of them beyond Alanya's own journey.
+    expect(quoteFor({ ...leavingAlanya, destination: "kemer" }).price).toBe(123);
+  });
+
+  test("keeps the crossed-out price above the fare", () => {
+    const quote = quoteFor(leavingAlanya);
+    expect(quote.originalPrice).toBe(105);
+    expect(quote.originalPrice).toBeGreaterThan(quote.price);
+  });
+
+  test("doubles for a round trip", () => {
+    expect(quoteFor({ ...leavingAlanya, tripType: "round_trip" }).price).toBe(190);
+  });
+
+  test("follows the price the operator sets for the farther end", () => {
+    expect(quoteFor(leavingAlanya, { routePrices: { "alanya_merkez:vito": 120 } }).price).toBe(122);
+  });
+
+  test("is quoted by hand when the pick-up hotel's region is unknown", () => {
+    // Nothing places the pick-up hotel, so there is no journey to price —
+    // the same answer an airport-bound leg from an unplaced hotel gives
+    // rather than selling an Alanya journey at Side's price.
+    expect(quoteFor({ ...leavingAlanya, hotelRegion: "" })).toEqual({ price: 0, originalPrice: 0 });
+  });
+
+  test("leaves a daily hire from a hotel priced by the day", () => {
+    // Both ends of a daily hire are hotels too, but the vehicle is bought by
+    // the day and never priced on a journey.
+    const hire = {
+      ...leavingAlanya,
+      tripType: "daily_chauffeur" as const,
+      destination: "",
+      serviceEndDate: futureDate.replace(/10$/, "13"),
+    };
+    expect(quoteFor(hire)).toEqual({ price: 600, originalPrice: 600 });
+  });
+
+  test("leaves airport transfers exactly where they were", () => {
+    expect(quoteFor({ ...base, destination: "belek" })).toEqual({ price: 43, originalPrice: 53 });
+    expect(quoteFor({ ...base, pickup: "hotel", destination: "airport", hotelRegion: "belek" }))
+      .toEqual({ price: 43, originalPrice: 53 });
+    expect(quoteFor({ ...base, destination: "alanya_merkez" })).toEqual({ price: 93, originalPrice: 103 });
   });
 });
 

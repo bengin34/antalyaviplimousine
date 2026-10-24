@@ -2,6 +2,7 @@ import { parsePhoneNumberFromString } from "libphonenumber-js";
 import { z } from "zod";
 import { routeCatalog } from "../../../src/routes.js";
 import { hotelUnitPrice } from "../../../src/hotel-transfer-pricing.js";
+import { hotelToHotelUnitPrice } from "../../../supabase/functions/_shared/hotel-to-hotel-pricing.js";
 import { currentAttribution, type Attribution } from "./attribution";
 
 type Translate = (key: string, fallback?: string) => string;
@@ -208,8 +209,46 @@ export function pricedRouteSlug(values: Pick<PublicBookingValues, "destination" 
   return slug in routeCatalog ? slug : "";
 }
 
+/**
+ * The fare for a journey between two hotels, or null when it is not one.
+ *
+ * Both ends are hotels, so neither is the airport the whole tariff is measured
+ * from: the vehicle drives out to the pick-up hotel, carries the guest on, and
+ * comes home from the other end. `hotelToHotelUnitPrice` anchors that on the
+ * published tariff of whichever end sits farther out. Without the pick-up
+ * hotel's region there is no journey to measure, so the operator quotes it by
+ * hand — the same answer an airport-bound leg from an unplaced hotel gives.
+ */
+function hotelToHotelQuote(
+  values: Pick<PublicBookingValues, "destination" | "hotelRegion" | "vehicle" | "tripType" | "pickup">,
+  overrides?: LivePriceOverrides,
+) {
+  if (!needsDropoffHotel(values)) return null;
+  const journey = {
+    pickupRegion: values.hotelRegion ?? "",
+    dropoffRegion: values.destination,
+    vehicle: values.vehicle,
+  };
+  const price = hotelToHotelUnitPrice({
+    ...journey,
+    tariffFor: (region, vehicle) =>
+      overrides?.routePrices?.[`${region}:${vehicle}`]
+        ?? routeCatalog[region as keyof typeof routeCatalog]?.prices[vehicle as "vito" | "sprinter"],
+  });
+  if (price === null) return { price: 0, originalPrice: 0 };
+  const originalPrice = hotelToHotelUnitPrice({
+    ...journey,
+    tariffFor: (region, vehicle) =>
+      routeCatalog[region as keyof typeof routeCatalog]?.originalPrices[vehicle as "vito" | "sprinter"],
+  });
+  // The crossed-out price is only ever the higher of the two, so a region
+  // whose live price has been raised above its own original never shows a
+  // negative saving.
+  return { price, originalPrice: Math.max(originalPrice ?? 0, price) };
+}
+
 export function quoteFor(
-  values: Pick<PublicBookingValues, "destination" | "hotelRegion" | "hotelName" | "vehicle" | "tripType" | "travelDate" | "serviceEndDate">,
+  values: Pick<PublicBookingValues, "destination" | "hotelRegion" | "hotelName" | "vehicle" | "tripType" | "travelDate" | "serviceEndDate" | "pickup">,
   overrides?: LivePriceOverrides,
 ) {
   if (values.tripType === "daily_chauffeur") {
@@ -218,10 +257,14 @@ export function quoteFor(
     const price = days > 0 && days <= MAX_DAILY_CHAUFFEUR_DAYS ? days * dailyRate : 0;
     return { price, originalPrice: price };
   }
+  const journeys = values.tripType === "round_trip" ? 2 : 1;
+  const hotelToHotel = hotelToHotelQuote(values, overrides);
+  if (hotelToHotel) {
+    return { price: hotelToHotel.price * journeys, originalPrice: hotelToHotel.originalPrice * journeys };
+  }
   const slug = pricedRouteSlug(values);
   const route = routeCatalog[slug as keyof typeof routeCatalog];
   if (!route) return { price: 0, originalPrice: 0 };
-  const journeys = values.tripType === "round_trip" ? 2 : 1;
   const liveUnitPrice = overrides?.routePrices?.[`${slug}:${values.vehicle}`];
   const effectiveUnitPrice = liveUnitPrice ?? route.prices[values.vehicle];
   // Floor both the live price and the struck-through "was" price by the hotel's
@@ -235,6 +278,25 @@ export function quoteFor(
     price: unitPrice * journeys,
     originalPrice: originalUnitPrice * journeys,
   };
+}
+
+/**
+ * What the confirmation screen may say about the price of a saved booking.
+ *
+ * A booking can come back with no price: an airport-bound leg and a private
+ * destination are quoted once the address is known, and a hotel-to-hotel
+ * journey whose pick-up hotel is not in the index has no measurable length.
+ * Each of those has to say so — "pay the fixed total to your driver" is only
+ * honest when there is a total, and the guest was never shown one.
+ */
+export function confirmedPriceCopy(
+  values: Pick<PublicBookingValues, "tripType" | "destination">,
+  price: number,
+) {
+  if (values.tripType === "daily_chauffeur") return "dailyHire";
+  if (values.destination === "airport") return "pendingPickup";
+  if (values.destination === "private_address") return "pendingDropoff";
+  return price > 0 ? "fixedTotal" : "pendingQuote";
 }
 
 /**

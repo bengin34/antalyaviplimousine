@@ -1,6 +1,7 @@
 import { createClient } from 'https://esm.sh/@supabase/supabase-js@2'
 import { parsePhoneNumberFromString } from 'npm:libphonenumber-js@1.13.9/max'
 import { hotelRegionBySlug } from '../_shared/hotel-regions.generated.ts'
+import { hasTariffRow, hotelToHotelPriceEur } from './transfer-price.ts'
 import {
   isValidLandOfLegendsVisit,
   landOfLegendsNotice,
@@ -164,6 +165,9 @@ Deno.serve(async (req) => {
       && pickupLocation === 'hotel'
       && dropoffLocation !== 'airport'
       && dropoffLocation !== 'private_address'
+    // İki uç da otel olan transfer, radyal tarifenin dışında kalan tek
+    // transfer türü: fiyatı kendi modelinden çıkar.
+    const isHotelToHotel = requiresDropoffHotelName
     const dropoffHotelName = requiresDropoffHotelName ? normalizeWhitespace(payload.dropoff_hotel_name) : ''
     const notes = normalizeWhitespace(payload.notes)
     const isAirportReturn =
@@ -333,6 +337,9 @@ Deno.serve(async (req) => {
     let dailyRateEur: number | null = null
     // A hotel outside the fixed-price regions still books; the operator quotes it.
     let landOfLegendsNeedsQuote = false
+    // Otelden otele: alış otelinin bölgesi indeksten çözülemediyse yolculuğun
+    // uzunluğu bilinmiyor, fiyatı da operatör veriyor.
+    let hotelToHotelNeedsQuote = false
     if (isLandOfLegends) {
       const { data: rate } = excursionRegion
         ? await supabase
@@ -356,6 +363,28 @@ Deno.serve(async (req) => {
       }
       dailyRateEur = Number(rate.daily_rate_eur)
       priceEur = dailyRateEur * hireDayCount
+    } else if (isHotelToHotel) {
+      // Otelden otele transferin iki ucu da otel, yani tarifenin ölçüldüğü
+      // havalimanı hiçbir ucunda değil: ücret uzaktaki ucun tarifesine
+      // bağlanır, varış bölgesinin tarifesine değil. Aynı modül sitedeki
+      // teklifi de üretiyor; fiyat, misafirin kabul ettiği rakamla aynı.
+      const { data: tariffRows } = await supabase
+        .from('routes')
+        .select('to_location, price_eur')
+        .eq('from_location', 'airport')
+        .eq('vehicle_type', vehicleType)
+      if (!hasTariffRow(tariffRows ?? [], dropoffLocation ?? '')) {
+        return jsonResponse({ error: 'No active price was found for this route' }, 400)
+      }
+      const pickupRegion = resolveHotelRegion(rawHotelName, hotelRegionBySlug) ?? ''
+      const hotelToHotelPrice = hotelToHotelPriceEur(tariffRows ?? [], {
+        pickupRegion,
+        dropoffRegion: dropoffLocation ?? '',
+        vehicleType,
+        isRoundTrip,
+      })
+      if (hotelToHotelPrice === null) hotelToHotelNeedsQuote = true
+      else priceEur = hotelToHotelPrice
     } else if (!requiresManualPricing) {
       const { data: route, error: routeError } = await supabase
         .from('routes')
@@ -421,7 +450,7 @@ Deno.serve(async (req) => {
       vehicle_type: vehicleType,
       price_eur: priceEur,
       // Short-notice excursions are taken but confirmed by the operator.
-      status: requiresManualPricing || landOfLegendsNeedsQuote || landOfLegendsNoticeLevel === 'short' ? 'pending' : 'confirmed',
+      status: requiresManualPricing || landOfLegendsNeedsQuote || hotelToHotelNeedsQuote || landOfLegendsNoticeLevel === 'short' ? 'pending' : 'confirmed',
       payment_method: paymentMethod,
       language: String(payload.language || 'en'),
       utm_source: payload.utm_source ? String(payload.utm_source).slice(0, 100) : null,
@@ -464,6 +493,8 @@ Deno.serve(async (req) => {
       ? 'To be confirmed after checking the drop-off address'
       : isAirportReturn
         ? 'To be confirmed after checking the hotel or pick-up address'
+        : hotelToHotelNeedsQuote
+        ? 'To be quoted — the pick-up hotel is not in the index, so the journey cannot be measured'
         : `EUR ${booking.price_eur}`
 
     const resendApiKey = Deno.env.get('RESEND_API_KEY')
