@@ -1,0 +1,5 @@
+interface:
+  display_name: "Lesson Sweep"
+  short_description: "Turn a fixed bug into a lesson and check all apps for it."
+policy:
+  allow_implicit_invocation: true
