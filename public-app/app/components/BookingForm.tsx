@@ -1,9 +1,9 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { lazy, Suspense, useEffect, useMemo, useRef, useState } from "react";
 import { Controller, useForm, type FieldError } from "react-hook-form";
-import { LazyPhoneInput, preloadPhoneInput, type Country } from "./LazyPhoneInput";
+import { LazyPhoneInput, preloadPhoneInput } from "./LazyPhoneInput";
 import { bookableRouteSlugs, routeCatalog } from "../../../src/routes.js";
-import { useLanguage, type LanguageCode } from "../i18n";
+import { useLanguage } from "../i18n";
 import { HotelCombobox, type IndexedHotel } from "./HotelCombobox";
 import { landOfLegendsLanguageFor, landOfLegendsPath } from "../lib/land-of-legends-languages";
 import { useLandOfLegendsBookingCopy } from "../lib/land-of-legends-booking-copy";
@@ -77,10 +77,6 @@ const fieldStatus = (name: string, error?: FieldError) =>
     ? { "aria-invalid": true as const, "aria-describedby": fieldErrorId(name) }
     : {};
 
-const DEFAULT_PHONE_COUNTRY: Partial<Record<LanguageCode, Country>> = {
-  en: "GB", de: "DE", tr: "TR", ru: "RU", cs: "CZ", ar: "SA", pl: "PL",
-  nl: "NL", uk: "UA", ur: "PK", fr: "FR", sv: "SE", ja: "JP", ko: "KR",
-};
 
 function whatsappConfirmation(values: PublicBookingValues, bookingRef: string, price: number, language: string) {
   const isDailyChauffeur = values.tripType === "daily_chauffeur";
@@ -995,7 +991,14 @@ export function BookingForm({
             <>
               <div className="booking-row booking-row-personal">
                 <label className={fieldClass(errors.customerName)}><span>{t("fullName", "Full name")}</span><div className="field-control"><input id="customer-name" autoComplete="name" maxLength={80} placeholder="John Smith" {...register("customerName")} {...fieldStatus("customerName", errors.customerName)} /></div><FieldErrorMessage name="customerName" error={errors.customerName} /></label>
-                <label className={fieldClass(errors.customerPhone)}><span>{t("phoneLabel", "Phone / WhatsApp")}</span><div className="field-control phone-field-control"><Controller control={control} name="customerPhone" render={({ field }) => <LazyPhoneInput id="customer-phone" {...fieldStatus("customerPhone", errors.customerPhone)} international defaultCountry={DEFAULT_PHONE_COUNTRY[language as LanguageCode] ?? "TR"} autoComplete="tel" placeholder="+44 7400 123456" value={field.value || undefined} onChange={value => field.onChange(value ?? "")} onBlur={field.onBlur} />} /></div><FieldErrorMessage name="customerPhone" error={errors.customerPhone} /></label>
+                {/* The phone field carries no default country, so it opens
+                    empty rather than pre-filled with a dial code taken from
+                    the site language. A guest typing their own +90… then
+                    gets that number; with "+44 " already sitting in the box
+                    it became "+44 905…" and the form rejected a number they
+                    had typed correctly. The country select follows whatever
+                    code they type. */}
+                <label className={fieldClass(errors.customerPhone)}><span>{t("phoneLabel", "Phone / WhatsApp")}</span><div className="field-control phone-field-control"><Controller control={control} name="customerPhone" render={({ field }) => <LazyPhoneInput id="customer-phone" {...fieldStatus("customerPhone", errors.customerPhone)} international autoComplete="tel" placeholder="+44 7400 123456" value={field.value || undefined} onChange={value => field.onChange(value ?? "")} onBlur={field.onBlur} />} /></div><FieldErrorMessage name="customerPhone" error={errors.customerPhone} /></label>
                 <label className={fieldClass(errors.customerEmail)}><span>{t("emailLabel", "Email")}</span><div className="field-control"><input id="customer-email" type="email" autoComplete="email" maxLength={120} placeholder="john@example.com" {...register("customerEmail")} {...fieldStatus("customerEmail", errors.customerEmail)} /></div><FieldErrorMessage name="customerEmail" error={errors.customerEmail} /></label>
               </div>
 

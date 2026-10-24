@@ -1,7 +1,7 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { Controller, useForm, type FieldError, type FieldErrors } from "react-hook-form";
-import { LazyPhoneInput, preloadPhoneInput, type Country } from "./LazyPhoneInput";
+import { LazyPhoneInput, preloadPhoneInput } from "./LazyPhoneInput";
 import { hotelIndex, hotelSlug } from "../../../src/hotel-index.js";
 import {
   landOfLegendsDriveMinutes,
@@ -29,12 +29,6 @@ import { landOfLegendsCopy, landOfLegendsRegionName, type LandOfLegendsLanguage 
 import { track } from "../lib/track";
 
 const WHATSAPP_NUMBER = "905302655790";
-
-const DEFAULT_PHONE_COUNTRY: Record<LandOfLegendsLanguage, Country> = {
-  en: "GB", de: "DE", fr: "FR", tr: "TR", ru: "RU", cs: "CZ", uk: "UA", ur: "PK", pl: "PL", nl: "NL",
-  ar: "SA", sv: "SE", da: "DK", el: "GR", es: "ES", he: "IL", hu: "HU", it: "IT", ja: "JP", ko: "KR",
-  pt: "PT", ro: "RO", zh: "CN",
-};
 
 /** Exact (slugged) hotel names and aliases, so a guest who types the full name gets the price without tapping a suggestion. */
 const hotelBySlug = new Map<string, IndexedHotel>();
@@ -69,14 +63,11 @@ type Confirmation = {
  * guest who starts there never has to leave to book the day trip.
  *
  * `liveRates` lets a parent that already fetched the admin prices share them;
- * without it the form fetches its own. `phoneCountry` lets the main form pass
- * the visitor's own site language (Polish, Czech…) for the phone prefix even
- * though the excursion copy falls back to English.
+ * without it the form fetches its own.
  */
-export function LandOfLegendsForm({ language, liveRates: sharedRates, phoneCountry }: {
+export function LandOfLegendsForm({ language, liveRates: sharedRates }: {
   language: LandOfLegendsLanguage;
   liveRates?: LandOfLegendsLiveRates;
-  phoneCountry?: Country;
 }) {
   const copy = landOfLegendsCopy[language];
   const meetingPoint = landOfLegendsMeetingPoint[language];
@@ -373,7 +364,8 @@ export function LandOfLegendsForm({ language, liveRates: sharedRates, phoneCount
         </label>
         <label className={fieldClass(errors.customerPhone)}>
           <span>{copy.phoneLabel}</span>
-          <div className="field-control phone-field-control"><Controller control={control} name="customerPhone" render={({ field }) => <LazyPhoneInput id="lol-phone" ref={field.ref} {...fieldStatus("customerPhone", errors.customerPhone)} international defaultCountry={phoneCountry ?? DEFAULT_PHONE_COUNTRY[language]} autoComplete="tel" value={field.value || undefined} onChange={(value) => field.onChange(value ?? "")} onBlur={field.onBlur} />} /></div>
+          {/* Opens empty rather than pre-filled with a dial code: see BookingForm. */}
+          <div className="field-control phone-field-control"><Controller control={control} name="customerPhone" render={({ field }) => <LazyPhoneInput id="lol-phone" ref={field.ref} {...fieldStatus("customerPhone", errors.customerPhone)} international autoComplete="tel" value={field.value || undefined} onChange={(value) => field.onChange(value ?? "")} onBlur={field.onBlur} />} /></div>
           <ErrorText name="customerPhone" error={errors.customerPhone} />
         </label>
         <label className={fieldClass(errors.customerEmail)}>

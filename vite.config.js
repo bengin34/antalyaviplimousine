@@ -103,5 +103,7 @@ export default defineConfig({
     // also fails `npm run build`. Both locations are in use - .worktrees/ by
     // hand, .claude/worktrees/ by agents working in isolation.
     exclude: [...configDefaults.exclude, "**/.worktrees/**", "**/.claude/worktrees/**"],
+    // Gives Testing Library's waits room on a loaded CI runner; see the file.
+    setupFiles: ["./vitest.setup.ts"],
   },
 });
