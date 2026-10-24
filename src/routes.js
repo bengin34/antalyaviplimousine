@@ -5,6 +5,8 @@
  * must be changed here first. Compatibility exports in `prices.js` and the
  * admin profit/loss graph are derived from this module.
  */
+import { REGIONAL_CONNECTIONS } from "../supabase/functions/_shared/transfer-graph.js";
+
 export const routeCatalog = {
   antalya: {
     names: { en: "Antalya City", de: "Antalya Stadt", tr: "Antalya şehir merkezi", ru: "центр Антальи", cs: "centrum Antalye", uk: "Центр Анталії", ur: "انطالیہ شہر", zh: "安塔利亚市区", da: "Antalya by", es: "Ciudad de Antalya", el: "Πόλη της Αντάλια", he: "מרכז אנטליה", hu: "Antalya belváros", it: "Antalya Città", ja: "アンタルヤ市内", ko: "안탈리아 시내", pt: "Cidade de Antalya", ro: "Orașul Antalya" },
@@ -268,34 +270,15 @@ export const routeData = Object.freeze(
   ),
 );
 
-const regionalConnections = [
-  ["belek", "bogazkent", 10],
-  ["bogazkent", "side", 25],
-  ["side", "manavgat", 10],
-  ["manavgat", "kizilagac", 15],
-  ["kizilagac", "alanya", 45],
-  ["kizilagac", "alanya_bati", 20],
-  ["alanya_bati", "alanya_merkez", 20],
-  ["alanya_merkez", "alanya_dogu", 13],
-  ["alanya_dogu", "kargicak", 12],
-  ["kargicak", "demirtas", 20],
-  ["antalya", "kemer", 45],
-  ["kemer", "tekirova", 20],
-  ["tekirova", "kumluca", 30],
-  ["kumluca", "kas", 95],
-  ["kas", "fethiye", 110],
-  ["tekirova", "fethiye", 155],
-  ["fethiye", "dalaman", 50],
-  ["dalaman", "bodrum", 200],
-  ["antalya", "pamukkale", 235],
-  ["pamukkale", "bodrum", 250],
-  ["manavgat", "kapadokya", 500],
-];
-
 export const routeEdges = Object.freeze([
   ...Object.entries(routeCatalog).map(([slug, route]) => ["airport", slug, route.distanceKm]),
-  ...regionalConnections,
+  ...REGIONAL_CONNECTIONS,
 ]);
+
+/** Region → one-way km from the airport, the radial half of the graph. */
+export const regionDistanceKm = Object.freeze(
+  Object.fromEntries(Object.entries(routeCatalog).map(([slug, route]) => [slug, route.distanceKm])),
+);
 
 export const localizedRoute = (slug, language = "en") => {
   const route = routeCatalog[slug];

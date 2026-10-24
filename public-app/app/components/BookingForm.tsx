@@ -10,6 +10,7 @@ import { useLandOfLegendsBookingCopy } from "../lib/land-of-legends-booking-copy
 import { Icon } from "./Icon";
 import {
   buildPublicBookingPayload,
+  confirmedPriceCopy,
   createPublicBookingSchema,
   fetchLivePriceOverrides,
   inclusiveDayCount,
@@ -391,13 +392,17 @@ export function BookingForm({
       const { createBooking } = await import("../../../src/lib/api.js");
       const booking = await createBooking(buildPublicBookingPayload(formValues, language, acceptedFuelTerms));
       const confirmedPrice = Number(booking.price_eur) || currentQuote.price;
-      const message = formValues.tripType === "daily_chauffeur"
-        ? t("dailyCashConfirmation", "Your daily chauffeur hire is confirmed. The service price excludes fuel, which is paid separately based on use.")
-        : formValues.destination === "airport"
-        ? t("airportReturnPrice", "The price will be confirmed after we check the pick-up address.")
-        : formValues.destination === "private_address"
-          ? t("customDestinationPrice", "The price will be confirmed after we check the drop-off address.")
-          : t("cashConfirmation", "Your booking is confirmed. You pay the fixed total to your driver in cash at the start of the journey.");
+      const messages = {
+        dailyHire: t("dailyCashConfirmation", "Your daily chauffeur hire is confirmed. The service price excludes fuel, which is paid separately based on use."),
+        pendingPickup: t("airportReturnPrice", "The price will be confirmed after we check the pick-up address."),
+        pendingDropoff: t("customDestinationPrice", "The price will be confirmed after we check the drop-off address."),
+        // Nothing placed the pick-up hotel, so the journey could not be
+        // measured and no price was ever shown. The same promise as an
+        // airport-bound leg: we confirm it once we know where we are going.
+        pendingQuote: t("airportReturnPrice", "The price will be confirmed after we check the pick-up address."),
+        fixedTotal: t("cashConfirmation", "Your booking is confirmed. You pay the fixed total to your driver in cash at the start of the journey."),
+      };
+      const message = messages[confirmedPriceCopy(formValues, confirmedPrice)];
       setConfirmation({ ref: booking.booking_ref, whatsapp: whatsappConfirmation(formValues, booking.booking_ref, confirmedPrice, language), message });
       if (confirmedPrice > 0) {
         window.gtag?.("event", "purchase", { transaction_id: booking.booking_ref, currency: "EUR", value: confirmedPrice, payment_type: "cash" });
