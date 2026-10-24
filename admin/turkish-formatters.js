@@ -162,12 +162,24 @@ export function languageFromPhone(phone) {
   return match ? match[1] : 'en'
 }
 
-export function whatsappURL(phone, text) {
+/**
+ * Numarayı aranabilir hâle getirir: `+<ülke kodu><numara>`.
+ *
+ * Elle alınan rezervasyonlarda operatör numarayı yerel yazar ("0555 111 22 33")
+ * ve kayıt onu olduğu gibi tutar. Şoföre giden mesajda bu hâliyle görünürse
+ * numara dokununca aranamaz, üstelik hangi ülkeye ait olduğu belli olmaz.
+ * Başında 0 olan ya da ülke kodsuz bir 5'li numara Türkiye sayılır — wa.me
+ * bağlantısının yıllardır yaptığı varsayımın aynısı.
+ */
+export function internationalPhone(phone) {
   let digits = String(phone ?? '').replace(/\D/g, '')
   if (digits.startsWith('00')) digits = digits.slice(2)
   if (digits.startsWith('0')) digits = `90${digits.slice(1)}`
   if (/^5\d{9}$/.test(digits)) digits = `90${digits}`
+  return digits ? `+${digits}` : ''
+}
 
-  const base = `https://wa.me/${digits}`
+export function whatsappURL(phone, text) {
+  const base = `https://wa.me/${internationalPhone(phone).slice(1)}`
   return text ? `${base}?text=${encodeURIComponent(text)}` : base
 }

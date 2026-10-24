@@ -297,6 +297,43 @@ describe("BookingForm route summary", () => {
     expect(container.querySelector(".price-display-route")).toHaveTextContent("Belek → Bodrum");
   });
 
+  test("a journey with no airport end is not asked about a flight", async () => {
+    const { container } = render(
+      <LanguageProvider initialLanguage="tr" messages={pageMessages("tr")}>
+        <LandOfLegendsBookingCopyProvider copy={landOfLegendsBookingCopy("tr")}>
+          <BookingForm scrollOnSelect={false} />
+        </LandOfLegendsBookingCopyProvider>
+      </LanguageProvider>,
+    );
+
+    fireEvent.change(container.querySelector("#pickup")!, { target: { value: "hotel" } });
+    fireEvent.change(container.querySelector("#destination")!, { target: { value: "bodrum" } });
+    fireEvent.change(container.querySelector("#hotel-name")!, { target: { value: "Lara Barut Collection" } });
+    fireEvent.change(container.querySelector("#dropoff-hotel-name")!, { target: { value: "Mandarin Oriental Bodrum" } });
+    fireEvent.click(container.querySelector("#main-book-step1")!);
+
+    await waitFor(() => expect(container.querySelector("#travel-date")).toBeInTheDocument());
+    expect(container.querySelector("#flight-number")).not.toBeInTheDocument();
+    expect(container.querySelector("#arrival-time")).not.toBeInTheDocument();
+
+    cleanup();
+
+    // The same step still asks for it when the airport is an end.
+    const airport = render(
+      <LanguageProvider initialLanguage="tr" messages={pageMessages("tr")}>
+        <LandOfLegendsBookingCopyProvider copy={landOfLegendsBookingCopy("tr")}>
+          <BookingForm scrollOnSelect={false} />
+        </LandOfLegendsBookingCopyProvider>
+      </LanguageProvider>,
+    );
+    fireEvent.change(airport.container.querySelector("#destination")!, { target: { value: "belek" } });
+    fireEvent.change(airport.container.querySelector("#hotel-name")!, { target: { value: "Rixos Premium Belek" } });
+    fireEvent.click(airport.container.querySelector("#main-book-step1")!);
+
+    await waitFor(() => expect(airport.container.querySelector("#travel-date")).toBeInTheDocument());
+    expect(airport.container.querySelector("#flight-number")).toBeInTheDocument();
+  });
+
   test("the destination hotel is required before the price step", async () => {
     const { container } = render(
       <LanguageProvider initialLanguage="tr" messages={pageMessages("tr")}>

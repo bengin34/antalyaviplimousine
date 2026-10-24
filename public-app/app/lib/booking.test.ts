@@ -204,3 +204,38 @@ describe("hotel to hotel", () => {
     expect(buildPublicBookingPayload(base, "en")).toMatchObject({ dropoff_hotel_name: null });
   });
 });
+
+describe("the arrival flight belongs to airport journeys", () => {
+  const schema = () => createPublicBookingSchema(t);
+
+  test("an airport leg still has to name the flight", () => {
+    const missing = schema().safeParse({ ...base, flightNumber: "" });
+    expect(missing.success).toBe(false);
+    expect(missing.error?.issues.some((issue) => issue.path[0] === "flightNumber")).toBe(true);
+    const leaving = schema().safeParse({ ...base, pickup: "hotel", destination: "airport", flightNumber: "" });
+    expect(leaving.success).toBe(false);
+  });
+
+  test("a journey with no airport end is not asked for one", () => {
+    expect(schema().safeParse({
+      ...base, pickup: "hotel", destination: "bodrum",
+      hotelName: "Lara Barut Collection", dropoffHotelName: "Mandarin Oriental Bodrum", flightNumber: "",
+    }).success).toBe(true);
+    expect(schema().safeParse({
+      ...base, pickup: "private_address", pickupAddress: "Konyaaltı, 123. sokak 4", destination: "side", flightNumber: "",
+    }).success).toBe(true);
+  });
+
+  test("a flight left over from an earlier airport choice is not submitted", () => {
+    const payload = buildPublicBookingPayload({
+      ...base, pickup: "hotel", destination: "bodrum",
+      hotelName: "Lara Barut Collection", dropoffHotelName: "Mandarin Oriental Bodrum",
+      flightNumber: "TK123", arrivalTime: "12:30", flightVerificationStatus: "verified", flightScheduledArrival: "12:35",
+    }, "en");
+    expect(payload).toMatchObject({
+      flight_number: null, flight_arrival_time: null,
+      flight_verification_status: null, flight_scheduled_arrival: null,
+    });
+    expect(buildPublicBookingPayload(base, "en")).toMatchObject({ flight_number: "TK123" });
+  });
+})

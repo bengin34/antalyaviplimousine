@@ -97,10 +97,11 @@ export default defineConfig({
     },
   },
   test: {
-    // Keep vitest out of git worktrees under .worktrees/: their copy of the
-    // suite is not the working tree's, and scanning it reports failures that
-    // belong to another checkout. prebuild runs `npm test`, so without this a
-    // stale worktree also fails `npm run build`.
-    exclude: [...configDefaults.exclude, "**/.worktrees/**"],
+    // Keep vitest out of git worktrees: their copy of the suite is not the
+    // working tree's, and scanning it reports failures that belong to another
+    // checkout. prebuild runs `npm test`, so without this a stale worktree
+    // also fails `npm run build`. Both locations are in use - .worktrees/ by
+    // hand, .claude/worktrees/ by agents working in isolation.
+    exclude: [...configDefaults.exclude, "**/.worktrees/**", "**/.claude/worktrees/**"],
   },
 });

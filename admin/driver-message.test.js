@@ -206,3 +206,15 @@ test('hotel-to-hotel transfer without a destination hotel leaves the drop-off as
   expect(message).toContain('📍 Varış: Bodrum')
   expect(message).not.toContain('📍 Varış: Lara Barut Collection (Bodrum)')
 })
+
+test('the guest phone reaches the driver in dialable form', () => {
+  // A booking taken by hand carries whatever the operator typed.
+  expect(buildDriverTransferMessage({ ...hotelToHotel, customer_phone: '0555 111 22 33' }))
+    .toContain('📞 Telefon: +905551112233')
+  expect(buildDriverTransferMessage({ ...hotelToHotel, customer_phone: '+90 555 111 22 33' }))
+    .toContain('📞 Telefon: +905551112233')
+  expect(buildDriverTransferMessage({ ...hotelToHotel, customer_phone: '00447700900123' }))
+    .toContain('📞 Telefon: +447700900123')
+  expect(buildDriverTransferMessage({ ...hotelToHotel, customer_phone: '' }))
+    .toContain('📞 Telefon: —')
+})

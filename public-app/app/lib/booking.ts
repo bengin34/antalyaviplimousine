@@ -60,6 +60,17 @@ export function needsDropoffHotel(values: Pick<PublicBookingValues, "tripType" |
     && values.destination !== "private_address";
 }
 
+/**
+ * Whether a flight is part of this journey at all. Only an airport end has
+ * one: it sets the pick-up time and is what we verify against the schedule.
+ * A run between two hotels has none, and asking for it anyway made the guest
+ * invent a number - or give up.
+ */
+export function journeyTouchesAirport(values: Pick<PublicBookingValues, "tripType" | "pickup" | "destination">) {
+  return values.tripType !== "daily_chauffeur"
+    && (values.pickup === "airport" || values.destination === "airport");
+}
+
 export function createPublicBookingSchema(t: Translate) {
   return z.object({
     tripType: z.enum(["one_way", "round_trip", "daily_chauffeur"]),
@@ -158,7 +169,7 @@ export function createPublicBookingSchema(t: Translate) {
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(values.customerEmail.trim()) || values.customerEmail.trim().length > 120) {
       context.addIssue({ code: "custom", path: ["customerEmail"], message: t("emailInvalid", "Please enter a valid email address.") });
     }
-    if (values.tripType !== "daily_chauffeur" && !normalize(values.flightNumber)) {
+    if (journeyTouchesAirport(values) && !normalize(values.flightNumber)) {
       context.addIssue({ code: "custom", path: ["flightNumber"], message: t("arrivalFlightNumberRequired", "Please enter the arrival flight number.") });
     }
     for (const field of ["flightNumber", "returnFlightNumber", "departureFlightNumber"] as const) {
@@ -271,6 +282,7 @@ export function buildPublicBookingPayload(
   attribution: Attribution = currentAttribution(),
 ) {
   const isDailyChauffeur = values.tripType === "daily_chauffeur";
+  const hasFlight = journeyTouchesAirport(values);
   if (isDailyChauffeur && !fuelTermsAccepted) throw new Error("Fuel terms must be accepted before booking");
   return {
     ...attribution,
@@ -283,10 +295,13 @@ export function buildPublicBookingPayload(
     luggage_count: Number(values.luggage),
     golf_bag_count: Number(values.golfBags) || 0,
     stroller_count: Number(values.strollers) || 0,
-    flight_number: normalize(values.flightNumber).toUpperCase() || null,
-    flight_arrival_time: values.arrivalTime || null,
-    flight_verification_status: values.flightVerificationStatus || null,
-    flight_scheduled_arrival: values.flightScheduledArrival || null,
+    // A flight the guest typed before switching away from the airport is no
+    // longer about this journey; sending it would have the driver watch a
+    // landing that has nothing to do with the pick-up.
+    flight_number: hasFlight ? normalize(values.flightNumber).toUpperCase() || null : null,
+    flight_arrival_time: hasFlight ? values.arrivalTime || null : null,
+    flight_verification_status: hasFlight ? values.flightVerificationStatus || null : null,
+    flight_scheduled_arrival: hasFlight ? values.flightScheduledArrival || null : null,
     pickup_location: values.pickup,
     pickup_address: values.pickup === "private_address" ? normalize(values.pickupAddress) : null,
     pickup_time: isDailyChauffeur ? values.pickupTime : null,

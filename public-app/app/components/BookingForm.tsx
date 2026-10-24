@@ -13,6 +13,7 @@ import {
   createPublicBookingSchema,
   fetchLivePriceOverrides,
   inclusiveDayCount,
+  journeyTouchesAirport,
   needsDropoffHotel,
   pricedRouteSlug,
   quoteFor,
@@ -230,6 +231,9 @@ export function BookingForm({
   // Hotel to hotel, the single "your hotel" field only answers for the end we
   // collect from, so the end we deliver to gets a field of its own.
   const dropoffHotelNeeded = needsDropoffHotel(values);
+  // Only an airport end has a flight. Asking a guest moving between two hotels
+  // for an arrival flight number made them invent one to get past the step.
+  const hasFlight = journeyTouchesAirport(values);
 
   // Naming the belde alongside the region reassures a guest whose hotel is
   // priced under a neighbouring region's name — an Okurcalar hotel quoted at
@@ -520,7 +524,7 @@ export function BookingForm({
     if (values.tripType === "round_trip") step2Fields.push("returnDate", "returnPickupTime");
     if (values.pickup === "private_address") step2Fields.push("pickupAddress");
     if (values.destination === "private_address") step2Fields.push("dropoffAddress");
-    if (!isDailyChauffeur) step2Fields.push("flightNumber");
+    if (hasFlight) step2Fields.push("flightNumber");
     const valid = await trigger(step2Fields);
     if (!valid) return;
     window.gtag?.("event", "booking_started", { route: values.destination, price: quote.price });
@@ -814,6 +818,7 @@ export function BookingForm({
                     anki saat alana yazilir; alan artik dolu ve kirli olur,
                     dogrulanan saat de bir daha yazilamaz. Sira bu: numarayi
                     yaz, saat kendiliginden dolsun, saate hic dokunma. */}
+                {hasFlight && (<>
                 <label className={fieldClass(errors.flightNumber)}>
                   <span>{t("arrivalFlightNumber", "Arrival flight number")}</span>
                   <div className="field-control"><Icon name="plane" className="icon" /><input id="flight-number" maxLength={12} placeholder="TK1234" {...(() => { const f = register("flightNumber"); return { ...f, onBlur: (e: React.FocusEvent<HTMLInputElement>) => { void f.onBlur(e); void runFlightCheck(); } }; })()} {...fieldStatus("flightNumber", errors.flightNumber)} /></div>
@@ -825,6 +830,7 @@ export function BookingForm({
                   <div className="field-control time-field-control" onClick={() => openTimePicker("flight-arrival-time")}><Icon name="clock" className="icon" /><span className="time-picker-value">{values.arrivalTime || t("chooseTime", "Choose time")}</span><input id="flight-arrival-time" type="time" {...register("arrivalTime")} {...fieldStatus("arrivalTime", errors.arrivalTime)} /></div>
                   <FieldErrorMessage name="arrivalTime" error={errors.arrivalTime} />
                 </label>
+                </>)}
               </div>
 
               {values.tripType === "round_trip" && (

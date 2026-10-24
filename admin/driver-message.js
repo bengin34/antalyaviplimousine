@@ -1,4 +1,4 @@
-import { bookingHotelEnds, isReturnJourney, locationLabel } from './turkish-formatters.js'
+import { bookingHotelEnds, internationalPhone, isReturnJourney, locationLabel } from './turkish-formatters.js'
 import { recommendedAirportPickup } from '../src/airport-pickup.js'
 import { landOfLegendsMeetingPoint } from '../src/land-of-legends.js'
 
@@ -119,7 +119,7 @@ function transferBlock(booking, leg = 'outbound') {
   lines.push(`🕐 Saat: ${fmtTime(rawTime)}`)
   lines.push(`🛣️ Güzergah: ${pickup} → ${dropoff}`)
   lines.push(`👤 Misafir: ${booking.customer_name || '—'}`)
-  lines.push(`📞 Telefon: ${booking.customer_phone || '—'}`)
+  lines.push(`📞 Telefon: ${internationalPhone(booking.customer_phone) || '—'}`)
 
   if (flightNo) {
     // Gidişte uçağın inişi, dönüşte kalkışı şoför için belirleyicidir.
