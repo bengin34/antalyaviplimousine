@@ -4,8 +4,8 @@
 > Start: 2026-10-26. All tasks are manual agent-assisted reviews; this PR does **not** schedule automatic jobs or publish changes.
 
 ## Setup (once, before first audit)
-- [ ] Review upstream skills and license; install relevant skills in the repository using `npx skills add coreyhaines31/marketingskills` and select only applicable skills. Confirm actual installed skill identifiers using the upstream catalog; names below describe capabilities, not guaranteed package IDs.
-- [ ] Verify agent (Codex/Claude/Copilot) detects the installed SKILL.md files. Commit any vendored skill files only after reviewing upstream content.
+- [x] Review upstream skills and license; install relevant skills. Ten of the fifty-two are vendored into `.claude/skills/`, MIT, provenance and reasoning in `.claude/skills/MARKETING_SKILLS_UPSTREAM.md`: seo-audit, programmatic-seo, site-architecture, schema, ai-seo, cro, copywriting, analytics, ads, pricing.
+- [x] Verify the agent detects the installed SKILL.md files.
 - [ ] Establish 28-day baseline: organic clicks, qualified booking leads, booking conversion. Record sources, dates and measurement definitions; never invent figures.
 - [ ] Confirm analytics access, consent/privacy requirements and current business claims.
 
