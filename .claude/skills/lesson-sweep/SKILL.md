@@ -7,7 +7,7 @@ A bug fixed in one app usually exists in the sibling apps. Turn the fix into a l
 
 ## Steps
 
-1. **Find the fix.** Use what the user names (commit, PR, file). Otherwise read the source repo's recent `git log` and pick the commits that fix a crash, build failure, or regression. Read the diff, not just the message.
+1. **Find the fix.** If a `diagnosing-bugs` session just ended, its root cause is the lesson input. Otherwise use what the user names (commit, PR, file). Otherwise read the source repo's recent `git log` and pick the commits that fix a crash, build failure, or regression. Read the diff, not just the message.
 
 2. **Write the lesson.** Add an entry to [`lessons.md`](lessons.md) in this skill's folder, using the entry format there. Every entry needs:
    - **Symptom**: what the user saw.
