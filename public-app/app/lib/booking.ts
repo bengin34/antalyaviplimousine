@@ -312,18 +312,20 @@ export function quoteFor(
 /**
  * What the confirmation screen may say about the price of a saved booking.
  *
- * A booking can come back with no price: an airport-bound leg and a private
- * destination are quoted once the address is known, and a hotel-to-hotel
- * journey whose pick-up hotel is not in the index has no measurable length.
- * Each of those has to say so — "pay the fixed total to your driver" is only
- * honest when there is a total, and the guest was never shown one.
+ * A booking can come back with no price: a private destination is quoted once
+ * the address is known, a hotel-to-hotel journey whose pick-up hotel is not in
+ * the index has no measurable length, and a run to the airport from a hotel we
+ * cannot place is the same case in reverse. Each of those has to say so —
+ * "pay the fixed total to your driver" is only honest when there is a total,
+ * and the guest was never shown one. A journey the booking came back priced on
+ * is a fixed fare whichever way it runs.
  */
 export function confirmedPriceCopy(
   values: Pick<PublicBookingValues, "tripType" | "destination">,
   price: number,
 ) {
   if (values.tripType === "daily_chauffeur") return "dailyHire";
-  if (values.destination === "airport") return "pendingPickup";
+  if (values.destination === "airport") return price > 0 ? "fixedTotal" : "pendingPickup";
   if (values.destination === "private_address") return "pendingDropoff";
   return price > 0 ? "fixedTotal" : "pendingQuote";
 }

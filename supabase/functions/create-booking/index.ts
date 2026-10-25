@@ -1,7 +1,7 @@
 import { createClient } from 'https://esm.sh/@supabase/supabase-js@2'
 import { parsePhoneNumberFromString } from 'npm:libphonenumber-js@1.13.9/max'
 import { hotelRegionBySlug } from '../_shared/hotel-regions.generated.ts'
-import { hasTariffRow, hotelToHotelPriceEur } from './transfer-price.ts'
+import { airportTariffRegion, hasTariffRow, hotelToHotelPriceEur } from './transfer-price.ts'
 import {
   isValidLandOfLegendsVisit,
   landOfLegendsNotice,
@@ -174,7 +174,17 @@ Deno.serve(async (req) => {
       dropoffLocation === 'airport' &&
       ['hotel', 'private_address'].includes(pickupLocation)
     const isPrivateDestination = dropoffLocation === 'private_address'
-    const requiresManualPricing = !isDailyChauffeur && (isAirportReturn || isPrivateDestination)
+    // Yolculuğu hangi bölgenin tarifesi fiyatlar: gelişte varış bölgesi,
+    // havalimanına gidişte alış otelinin bölgesi. Boşsa ölçülecek bir şey
+    // yoktur (indekste olmayan otel ya da özel adres) ve fiyatı operatör verir.
+    const tariffRegion = airportTariffRegion({
+      pickupLocation,
+      dropoffLocation: dropoffLocation ?? '',
+      pickupHotelRegion: pickupLocation === 'hotel'
+        ? resolveHotelRegion(rawHotelName, hotelRegionBySlug) ?? ''
+        : '',
+    })
+    const requiresManualPricing = !isDailyChauffeur && !tariffRegion
     const pickupDate = String(payload.pickup_date)
     const pickupTime = String(payload.pickup_time || '')
     // The excursion comes back the same day, so its return date is the pick-up date.
@@ -340,6 +350,8 @@ Deno.serve(async (req) => {
     // Otelden otele: alış otelinin bölgesi indeksten çözülemediyse yolculuğun
     // uzunluğu bilinmiyor, fiyatı da operatör veriyor.
     let hotelToHotelNeedsQuote = false
+    // Havalimanına dönüşte otelin bölgesi çözüldü ama o bölgenin tarifesi yok.
+    let airportReturnNeedsQuote = false
     if (isLandOfLegends) {
       const { data: rate } = excursionRegion
         ? await supabase
@@ -386,18 +398,27 @@ Deno.serve(async (req) => {
       if (hotelToHotelPrice === null) hotelToHotelNeedsQuote = true
       else priceEur = hotelToHotelPrice
     } else if (!requiresManualPricing) {
+      // Her iki yön de aynı satırı okur: AYT → otel ne ise otel → AYT da odur.
       const { data: route, error: routeError } = await supabase
         .from('routes')
         .select('price_eur')
         .eq('from_location', 'airport')
-        .eq('to_location', dropoffLocation)
+        .eq('to_location', tariffRegion)
         .eq('vehicle_type', vehicleType)
         .single()
 
       if (routeError || !route) {
-        return jsonResponse({ error: 'No active price was found for this route' }, 400)
+        // Gelişte varış bölgesini istemci bir listeden seçer, yani tarifesiz
+        // bir bölge bozuk bir istektir. Gidişte bölgeyi otelden biz çözüyoruz:
+        // indekste olup tarifesi olmayan bir bölge olabilir, bu da misafirin
+        // isteğini çöpe atmak için sebep değil - kayıt beklemede açılır.
+        if (!isAirportReturn) {
+          return jsonResponse({ error: 'No active price was found for this route' }, 400)
+        }
+        airportReturnNeedsQuote = true
+      } else {
+        priceEur = Number(route.price_eur) * (isRoundTrip ? 2 : 1)
       }
-      priceEur = Number(route.price_eur) * (isRoundTrip ? 2 : 1)
     }
 
     const bookingPayload = {
@@ -450,7 +471,7 @@ Deno.serve(async (req) => {
       vehicle_type: vehicleType,
       price_eur: priceEur,
       // Short-notice excursions are taken but confirmed by the operator.
-      status: requiresManualPricing || landOfLegendsNeedsQuote || hotelToHotelNeedsQuote || landOfLegendsNoticeLevel === 'short' ? 'pending' : 'confirmed',
+      status: requiresManualPricing || landOfLegendsNeedsQuote || hotelToHotelNeedsQuote || airportReturnNeedsQuote || landOfLegendsNoticeLevel === 'short' ? 'pending' : 'confirmed',
       payment_method: paymentMethod,
       language: String(payload.language || 'en'),
       utm_source: payload.utm_source ? String(payload.utm_source).slice(0, 100) : null,
@@ -491,7 +512,7 @@ Deno.serve(async (req) => {
       ? `EUR ${booking.price_eur} (${hireDayCount} days x EUR ${booking.daily_rate_eur}; fuel excluded)`
       : isPrivateDestination
       ? 'To be confirmed after checking the drop-off address'
-      : isAirportReturn
+      : airportReturnNeedsQuote || (isAirportReturn && requiresManualPricing)
         ? 'To be confirmed after checking the hotel or pick-up address'
         : hotelToHotelNeedsQuote
         ? 'To be quoted — the pick-up hotel is not in the index, so the journey cannot be measured'

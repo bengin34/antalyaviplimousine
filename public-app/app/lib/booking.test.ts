@@ -146,8 +146,11 @@ describe("what the confirmation screen promises about the price", () => {
     expect(confirmedPriceCopy({ tripType: "daily_chauffeur", destination: "" }, 600)).toBe("dailyHire");
   });
 
-  test("an airport-bound leg waits on the pick-up address", () => {
+  test("an airport-bound leg waits on the pick-up address only when it came back unpriced", () => {
     expect(confirmedPriceCopy({ tripType: "one_way", destination: "airport" }, 0)).toBe("pendingPickup");
+    // A hotel we could place is priced on its own region, the same fare the
+    // arrival costs, so there is a fixed total to promise.
+    expect(confirmedPriceCopy({ tripType: "one_way", destination: "airport" }, 43)).toBe("fixedTotal");
   });
 
   test("a private destination waits on the drop-off address", () => {

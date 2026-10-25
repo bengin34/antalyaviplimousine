@@ -1,7 +1,7 @@
 import { describe, expect, test } from "vitest";
 import { routeCatalog } from "../../../src/routes.js";
 import { quoteFor } from "../../../public-app/app/lib/booking";
-import { hasTariffRow, hotelToHotelPriceEur, type RoutePriceRow } from "./transfer-price";
+import { airportTariffRegion, hasTariffRow, hotelToHotelPriceEur, type RoutePriceRow } from "./transfer-price";
 
 // The `routes` table as the edge function reads it: one published airport fare
 // per region for the chosen vehicle.
@@ -102,6 +102,46 @@ describe("what the server charges for a hotel-to-hotel transfer", () => {
         hotelToHotelPriceEur(rowsFor("vito"), { pickupRegion, dropoffRegion, vehicleType: "vito", isRoundTrip: false }),
         `${pickupRegion} → ${dropoffRegion}`,
       ).toBe(quotedInBrowser(pickupRegion, dropoffRegion));
+    }
+  });
+});
+
+describe("which region's airport tariff prices a radial journey", () => {
+  const journey = (pickupLocation: string, dropoffLocation: string, pickupHotelRegion = "") =>
+    airportTariffRegion({ pickupLocation, dropoffLocation, pickupHotelRegion });
+
+  test("an arrival is priced on the region the guest is going to", () => {
+    expect(journey("airport", "belek")).toBe("belek");
+  });
+
+  test("a run to the airport is priced on the region it leaves, not left unpriced", () => {
+    // The whole point: AYT → Belek and Belek → AYT read the same tariff row,
+    // which is the fare the site quotes in both directions.
+    expect(journey("hotel", "airport", "belek")).toBe("belek");
+    expect(journey("hotel", "airport", "belek")).toBe(journey("airport", "belek"));
+  });
+
+  test("a hotel we cannot place has nothing to price, so the operator quotes it", () => {
+    expect(journey("hotel", "airport", "")).toBe("");
+  });
+
+  test("a private pick-up address bound for the airport is still quoted by hand", () => {
+    // No hotel to place, so there is no region and no fare to promise.
+    expect(journey("private_address", "airport", "belek")).toBe("");
+  });
+
+  test("a private destination is quoted by hand whatever it leaves from", () => {
+    expect(journey("airport", "private_address")).toBe("");
+    expect(journey("hotel", "private_address", "belek")).toBe("");
+  });
+
+  test("the fare it picks is the one the browser quoted for that direction", () => {
+    for (const region of ["belek", "side", "kemer", "alanya"]) {
+      const row = rowsFor("vito").find((candidate) => candidate.to_location === journey("hotel", "airport", region));
+      expect(Number(row?.price_eur), `${region} → AYT`).toBe(quoteFor({
+        tripType: "one_way", pickup: "hotel", destination: "airport", hotelRegion: region,
+        vehicle: "vito", hotelName: "Not an indexed hotel", travelDate: "", serviceEndDate: "",
+      }).price);
     }
   });
 });

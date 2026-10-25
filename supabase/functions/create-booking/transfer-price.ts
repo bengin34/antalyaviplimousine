@@ -16,6 +16,33 @@ export function hasTariffRow(rows: readonly RoutePriceRow[], region: string) {
   return rows.some((row) => row.to_location === region && Number(row.price_eur) > 0)
 }
 
+type RadialJourney = {
+  pickupLocation: string
+  dropoffLocation: string
+  /** The pick-up hotel's region, when the index could place it; else "". */
+  pickupHotelRegion: string
+}
+
+/**
+ * Hangi bölgenin havalimanı tarifesi bu yolculuğu fiyatlar — fiyatlayacak bir
+ * bölge yoksa "".
+ *
+ * Tarife havalimanından ölçülür, yani ücreti veren uç her zaman yolculuğun
+ * otel ucudur; yön onu değiştirmez. Gelişte bu, misafirin listeden seçtiği
+ * varış bölgesidir; gidişte alış otelinin bölgesi: AYT → otel ne ise
+ * otel → AYT da odur. Otel indekste yoksa ya da yolculuk bir özel adrese
+ * gidiyorsa ölçülecek bir şey yoktur ve fiyatı operatör verir.
+ */
+export function airportTariffRegion({
+  pickupLocation,
+  dropoffLocation,
+  pickupHotelRegion,
+}: RadialJourney) {
+  if (dropoffLocation === 'private_address') return ''
+  if (dropoffLocation !== 'airport') return dropoffLocation
+  return pickupLocation === 'hotel' ? pickupHotelRegion : ''
+}
+
 type Journey = {
   pickupRegion: string
   dropoffRegion: string
