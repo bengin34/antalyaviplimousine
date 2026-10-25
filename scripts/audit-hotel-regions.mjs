@@ -23,9 +23,10 @@ import { existsSync } from "node:fs";
 import { join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { hotelIndex } from "../src/hotel-index.js";
-import { hotelDistances } from "../src/hotel-distances.js";
+import { hotelDistances as leanDistances } from "../src/hotel-distances.js";
+import { hotelPlaces } from "../src/hotel-places.js";
 import { routeCatalog } from "../src/routes.js";
-import { renderHotelDistancesFile } from "./lib/hotel-distances-merge.mjs";
+import { renderHotelDistancesFile, renderHotelPlacesFile, withPlaces } from "./lib/hotel-distances-merge.mjs";
 import {
   extractEvidence, classifyFromEvidence, kmRangesFromCompleted,
   buildAuditReport, renderAuditTable,
@@ -55,6 +56,14 @@ const outputRoot = fileURLToPath(new URL("./hotel-region-audit/", import.meta.ur
 await mkdir(outputRoot, { recursive: true });
 const checkpointPath = join(outputRoot, "checkpoint.json");
 const distancesPath = fileURLToPath(new URL("../src/hotel-distances.js", import.meta.url));
+const placesPath = fileURLToPath(new URL("../src/hotel-places.js", import.meta.url));
+// The two generated files are one record here: the audit reasons about a row's
+// Place ID and writes its checked flag, and they must stay in step.
+const hotelDistances = withPlaces(leanDistances, hotelPlaces);
+const writeDistanceFiles = async (data) => {
+  await writeFile(distancesPath, renderHotelDistancesFile(data));
+  await writeFile(placesPath, renderHotelPlacesFile(data));
+};
 
 async function atomicJson(path, valueToWrite) {
   const json = `${JSON.stringify(valueToWrite, null, 2)}\n`;
@@ -91,7 +100,7 @@ if (onlySlug && targets.length === 0) throw new Error(`No indexed hotel with slu
 
 // Revoke stale evidence before fetching, including when a run is interrupted.
 await atomicJson(checkpointPath, checkpoint);
-await writeFile(distancesPath, renderHotelDistancesFile(reconcileAuditFlags(hotelDistances, checkpoint.completed)));
+await writeDistanceFiles(reconcileAuditFlags(hotelDistances, checkpoint.completed));
 
 const wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 async function fetchDetails(placeId) {
@@ -154,7 +163,7 @@ await atomicJson(checkpointPath, checkpoint);
 // Both grant and revoke checked flags from the current evidence.
 const next = reconcileAuditFlags(hotelDistances, checkpoint.completed);
 const flipped = Object.keys(next).filter(slug => next[slug].checked !== hotelDistances[slug].checked).length;
-await writeFile(distancesPath, renderHotelDistancesFile(next));
+await writeDistanceFiles(next);
 
 // A --slug run reports to stdout only, so it never replaces the full report
 // with a one-row file. Full and --only-unchecked runs rebuild both reports

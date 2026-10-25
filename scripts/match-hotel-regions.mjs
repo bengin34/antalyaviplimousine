@@ -13,7 +13,9 @@
 import { readFile, rename, writeFile } from "node:fs/promises";
 import { join } from "node:path";
 import { fileURLToPath } from "node:url";
-import { hotelDistances } from "../src/hotel-distances.js";
+import { hotelDistances as leanDistances } from "../src/hotel-distances.js";
+import { hotelPlaces } from "../src/hotel-places.js";
+import { withPlaces } from "./lib/hotel-distances-merge.mjs";
 import { hotelIndex, hotelSlug } from "../src/hotel-index.js";
 import { routeCatalog } from "../src/routes.js";
 import {
@@ -37,7 +39,7 @@ if (!Number.isInteger(maxCalls) || maxCalls < 1 || maxCalls > 500) {
 const outputRoot = fileURLToPath(new URL("./hotel-discovery-pilot/", import.meta.url));
 const checkpointPath = join(outputRoot, "region-price-checkpoint.json");
 const candidates = JSON.parse(await readFile(join(outputRoot, "missing-hotels.json"), "utf8"));
-const grouped = groupCandidatesByPlace(candidates, hotelDistances);
+const grouped = groupCandidatesByPlace(candidates, withPlaces(leanDistances, hotelPlaces));
 const currentBySlug = new Map(hotelIndex.map((hotel) => [hotel.slug, hotel]));
 const currentSlugs = new Set(currentBySlug.keys());
 

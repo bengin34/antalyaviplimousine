@@ -2,6 +2,7 @@
 import { describe, test, expect } from "vitest";
 import { hotelIndex } from "./hotel-index.js";
 import { hotelDistances } from "./hotel-distances.js";
+import { hotelPlaces } from "./hotel-places.js";
 import { routeCatalog } from "./routes.js";
 import checkpoint from "../scripts/hotel-region-audit/checkpoint.json";
 import { auditInputHash } from "../scripts/lib/hotel-audit-state.mjs";
@@ -92,7 +93,7 @@ describe("hotel region audit guard", () => {
       if (hotelDistances[hotel.slug]?.checked !== true) continue;
       const evidence = checkpoint.completed[hotel.slug];
       expect(evidence?.bucket, hotel.slug).toBe("ok");
-      expect(evidence?.inputHash, hotel.slug).toBe(auditInputHash(hotel, hotelDistances[hotel.slug]?.place, routeCatalog));
+      expect(evidence?.inputHash, hotel.slug).toBe(auditInputHash(hotel, hotelPlaces[hotel.slug], routeCatalog));
     }
   });
 

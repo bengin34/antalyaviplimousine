@@ -2,6169 +2,4925 @@
 // `checked: true` is written by scripts/audit-hotel-regions.mjs once the Place ID
 // is identity-verified and its address agrees with the index region.
 // One-way driving km from Antalya Airport (AYT) to each indexed hotel.
+// Place IDs live in ./hotel-places.js: the browser prices on km, and only the
+// audit scripts need the ID that proves which hotel a row was measured to.
 export const hotelDistances = Object.freeze({
   "7inn": {
     "km": 23,
-    "place": "ChIJswcoiEmRwxQRlM8vzp6E024",
     "checked": true
   },
   "a-hotel-side": {
     "km": 63,
-    "place": "ChIJWy7MeRZZwxQR83ISvgQWJLo",
     "checked": true
   },
   "abc-apart-hotel": {
     "km": 15,
-    "place": "ChIJAQ5gMwybwxQRAurazcEYjYE",
     "checked": true
   },
   "acar-apart-otel": {
     "km": 18,
-    "place": "ChIJQ6FDiL6PwxQR247A6wgf0KM",
     "checked": true
   },
   "acar-apart-otel-3": {
     "km": 22,
-    "place": "ChIJ2T4Ya96RwxQRCY5kptJRovo",
     "checked": true
   },
   "acar-otel": {
     "km": 130,
-    "place": "ChIJ0-G-n1SY3BQR9tvOcLK968s",
     "checked": true
   },
   "acropol-beach-hotel": {
     "km": 24,
-    "place": "ChIJ4dr2RqeRwxQRWieKUb54emU",
     "checked": true
   },
   "ada-apart-hotel": {
     "km": 23,
-    "place": "ChIJ5bNSRqGRwxQRy3vtROiSxY4",
     "checked": true
   },
   "adalia-hotel": {
     "km": 16,
-    "place": "ChIJF_61kQaQwxQRrOooTLEJutQ",
     "checked": true
   },
   "adalin-resort-otel": {
     "km": 61,
-    "place": "ChIJOcikYMO3wxQRocYkr09dAnM",
     "checked": true
   },
   "adalya-elite-lara": {
     "km": 17,
-    "place": "ChIJBcAY45-CwxQRHD8zJVYCGbE",
     "checked": true
   },
   "adalya-grand-art-side": {
     "km": 58,
-    "place": "ChIJ2VKxlhxfwxQRdbKbQcSYyzs",
     "checked": true
   },
   "adalya-ocean-deluxe": {
     "km": 59,
-    "place": "ChIJ5fd92MZewxQRD91Z4ncvVd4",
     "checked": true
   },
   "adalya-ocean-hotel": {
     "km": 59,
-    "place": "ChIJ5fd92MZewxQRD91Z4ncvVd4",
     "checked": true
   },
   "adalya-port-hotel": {
     "km": 18,
-    "place": "ChIJBRsQYw-QwxQRSdZALOCaumg",
     "checked": true
   },
   "adalya-resort-spa": {
     "km": 59,
-    "place": "ChIJ85WnKsFewxQRgYvwZWWnhPk",
     "checked": true
   },
   "adam-apart-hotel": {
     "km": 18,
-    "place": "ChIJ8dEvIL2PwxQRHZ0eNw_wS4s",
     "checked": true
   },
   "adam-apart-hotel-2": {
     "km": 18,
-    "place": "ChIJtQvvKiWPwxQRHDDpu7BlSaY",
     "checked": true
   },
   "adam-eve-hotels": {
     "km": 37,
-    "place": "ChIJz2hjI0Z7wxQRYXEREjKu6ro",
     "checked": true
   },
   "address-residence-suite-hotel": {
     "km": 14,
-    "place": "ChIJzwmNsj-bwxQRpi_nkuVOr1E",
     "checked": true
   },
   "adenya-hotel-resort": {
     "km": 105,
-    "place": "ChIJVyYhCbqv3BQR1HTfx5J3pnk",
     "checked": true
   },
   "adin-beach-resort-spa-hotel": {
     "km": 105,
-    "place": "ChIJwfuDGaOv3BQRUU2-hx4urrU",
     "checked": true
   },
   "adonis-hotel": {
     "km": 16,
-    "place": "ChIJTZ2UvZOawxQRaIK1cToD8G8",
     "checked": true
   },
   "adrasan-beach-club": {
     "km": 110,
-    "place": "ChIJjUpFKKc5whQR3xkR_SmKq7U",
     "checked": true
   },
   "af-ra-hotel": {
     "km": 24,
-    "place": "ChIJh6fINoKRwxQRxbm6GXtYtw4",
     "checked": true
   },
   "afflon-hotels-loft-city": {
     "km": 18,
-    "place": "ChIJ5VIHTBqQwxQRB13rRAVFrgk",
     "checked": true
   },
   "afflon-hotels-sea-hill-concept-adult-only": {
     "km": 18,
-    "place": "ChIJ_w4c7raRwxQRauCOUxrvq5I",
     "checked": true
   },
   "afsin-hotel": {
     "km": 24,
-    "place": "ChIJCSWwUKGRwxQRBwEb9KMit2k",
     "checked": true
   },
   "ag-hotels": {
     "km": 13,
-    "place": "ChIJ21XrO0qFwxQR8t-LoW92e7g",
     "checked": true
   },
   "ahsen-hotel": {
     "km": 16,
-    "place": "ChIJxQfbU2mPwxQR3yX5adnaAas",
     "checked": true
   },
   "akca-apart-otel": {
     "km": 19,
-    "place": "ChIJXbMSf9aRwxQRyqGdqe7ksEc",
     "checked": true
   },
   "akcahan-apart-hotel": {
     "km": 25,
-    "place": "ChIJfWj1ZXSRwxQRj3pTBLBExlE",
     "checked": true
   },
   "akin-apart-hotel": {
     "km": 67,
-    "place": "ChIJhctABGi2wxQRRUnqNjaj-PU",
     "checked": true
   },
   "akra-hotel": {
     "km": 17,
-    "place": "ChIJDSt9rZeawxQRe7q9tbvcd3w",
     "checked": true
   },
   "akra-v-access-to-akra-antalya-otel": {
     "km": 15,
-    "place": "ChIJqYvIITSDwxQRyuoO-Xpe5Wk",
     "checked": true
   },
   "alaiye-kleopatra-otel": {
     "km": 125,
-    "place": "ChIJJfo_QYWi3BQR19WayxMqxFs",
     "checked": true
   },
   "alaiye-resort-spa": {
     "km": 104,
-    "place": "ChIJUexH46Sv3BQRdBF6T66nOhM",
     "checked": true
   },
   "alan-xafira-deluxe-resort": {
     "km": 109,
-    "place": "ChIJx3p45a7euxQRyk3CbQHnH_4",
     "checked": true
   },
   "alanya-beach": {
     "km": 128,
-    "place": "ChIJU_0_KgCl3BQRbzzmbciVoPc",
     "checked": true
   },
   "alanya-buyuk-otel": {
     "km": 127,
-    "place": "ChIJwSpey3CY3BQRaXqLcW0enP0",
     "checked": true
   },
   "alanya-divan-otel": {
-    "km": 124,
-    "place": "ChIJDyhAWg-j3BQRSuIdrZOoKLc"
+    "km": 124
   },
   "alanya-risus-park-otel": {
     "km": 129,
-    "place": "ChIJu9_R2cKZ3BQRVwLasaaTrwQ",
     "checked": true
   },
   "alanya-sunway-hotel": {
     "km": 125,
-    "place": "ChIJnwibj5yi3BQRgDjMHSxy-Yk",
     "checked": true
   },
   "alarcha-hotels-resort": {
-    "km": 90,
-    "place": "ChIJs2m3mWSr3BQRbqawMoJ2MpM"
+    "km": 90
   },
   "alba-queen-hotel": {
     "km": 57,
-    "place": "ChIJE6sG3ZRZwxQR6NcYNokV0M8",
     "checked": true
   },
   "alba-resort-hotel": {
     "km": 57,
-    "place": "ChIJ3cYcXhdfwxQRb9mf4wduFqQ",
     "checked": true
   },
   "alba-royal-hotel": {
     "km": 57,
-    "place": "ChIJR5FdJehfwxQRQ_EvdbYo_IM",
     "checked": true
   },
   "alder-garden-hotel": {
     "km": 53,
-    "place": "ChIJSzD7JLe5wxQRMpQVBSQNcCI",
     "checked": true
   },
   "alder-resort-otel": {
     "km": 53,
-    "place": "ChIJW5kygDe5wxQRMb6voQOsXjo",
     "checked": true
   },
   "ale-apartments-hotel": {
     "km": 24,
-    "place": "ChIJP0mkM6KRwxQRbImhg8wl5Wo",
     "checked": true
   },
   "ale-boutique-apartments": {
     "km": 24,
-    "place": "ChIJySfbl3aRwxQRub4RYenzYns",
     "checked": true
   },
   "ale-park-hotel-apartments": {
     "km": 25,
-    "place": "ChIJ_5aWmHGRwxQRwnn8SN_iFFw",
     "checked": true
   },
   "aleria-belport-beach-hotel": {
     "km": 50,
-    "place": "ChIJmUq3Jyu_wxQRwsdUK_o764k",
     "checked": true
   },
   "ales-park-hotel": {
     "km": 25,
-    "place": "ChIJ_5aWmHGRwxQRwnn8SN_iFFw",
     "checked": true
   },
   "alessia-hotel": {
     "km": 64,
-    "place": "ChIJB8VV7IVZwxQRXoCDlXkwcio",
     "checked": true
   },
   "algora-halal-hotel": {
     "km": 115,
-    "place": "ChIJXYxdgg-l3BQRMfO5enYFeXo",
     "checked": true
   },
   "ali-bey-resort-sorgun": {
     "km": 69,
-    "place": "ChIJAwAAAHRZwxQRdgUEai6JLVE",
     "checked": true
   },
   "alice-hotel": {
     "km": 17,
-    "place": "ChIJialBxwKDwxQRXdebjYoUt-o",
     "checked": true
   },
   "alin-otel": {
     "km": 126,
-    "place": "ChIJ4-n3soeY3BQR-p1oqIOVIsg",
     "checked": true
   },
   "alp-pasa-gazetta-special-class": {
     "km": 16,
-    "place": "ChIJ8_vGF9qCwxQReGt-PAfdd9g",
     "checked": true
   },
   "alp-pasa-hotel-special-class": {
     "km": 16,
-    "place": "ChIJ8_vGF9qCwxQReGt-PAfdd9g",
     "checked": true
   },
   "altes-hotel": {
-    "km": 17,
-    "place": "ChIJETabBByQwxQRfIBQYLkVckA"
+    "km": 17
   },
   "altinay-hotel": {
     "km": 24,
-    "place": "ChIJ0TncbimRwxQRfDPCPf1j-0E",
     "checked": true
   },
   "alva-donna-exclusive-hotel-spa": {
     "km": 42,
-    "place": "ChIJccqd4XJkwxQRd1Bgc9kaSWY",
     "checked": true
   },
   "alva-donna-world-palace": {
     "km": 68,
-    "place": "ChIJi4YgNPy2wxQR9YRhKbRueBs",
     "checked": true
   },
   "amara-dolce-vita-luxury": {
     "km": 78,
-    "place": "ChIJjaf6vqbKwxQRky_1mm60Gwk",
     "checked": true
   },
   "amara-luxury-resort-and-villas": {
     "km": 51,
-    "place": "ChIJxYJVjOa4wxQRQMxAuzEPgwA",
     "checked": true
   },
   "amara-prestige-hotel": {
     "km": 52,
-    "place": "ChIJMXusSfG4wxQROGj5bXmGBuY",
     "checked": true
   },
   "ambassador-plaza": {
     "km": 61,
-    "place": "ChIJe1e8dZm3wxQRQ19Skenj97g",
     "checked": true
   },
   "anadolu-pension": {
     "km": 17,
-    "place": "ChIJkS_MMAmQwxQRy5uvtdUAuUg",
     "checked": true
   },
   "anatolian-homes-apart": {
     "km": 25,
-    "place": "ChIJWzuphUKRwxQRHMrWqXUdygc",
     "checked": true
   },
   "anelli-hotel": {
     "km": 20,
-    "place": "ChIJif9d1f-RwxQRtyOEINRxLR0",
     "checked": true
   },
   "angelo-coffee-suites": {
-    "km": 12,
-    "place": "ChIJpf-UOU6FwxQRjJvWbjtC20I"
+    "km": 12
   },
   "anita-dream-hotel": {
     "km": 68,
-    "place": "ChIJoxbmoP-3wxQR-vU1QVOg1do",
     "checked": true
   },
   "anitas-otel": {
     "km": 116,
-    "place": "ChIJodm7yo-k3BQRjsRZSi0nKvo",
     "checked": true
   },
   "anna-queen-hotel": {
     "km": 126,
-    "place": "ChIJf41tm5yi3BQRKE1jXhl4xz0",
     "checked": true
   },
   "annabella-diamond-hotel-spa": {
     "km": 101,
-    "place": "ChIJe3nkXuWu3BQRU1Ec0X7H6U8",
     "checked": true
   },
   "annabella-park-otel": {
     "km": 102,
-    "place": "ChIJLwMpdr2v3BQRdv7D-femfyU",
     "checked": true
   },
   "antalya-business-hotel": {
     "km": 16,
-    "place": "ChIJfYkuse2PwxQRTIpwGoKDwpA",
     "checked": true
   },
   "antalya-city-hotel-spa-adults-only": {
     "km": 12,
-    "place": "ChIJoVAnW9ObwxQRyJ_er7rGiSY",
     "checked": true
   },
   "antalya-dream-hotel": {
     "km": 16,
-    "place": "ChIJeXFUfwiQwxQRa9wpscqncZk",
     "checked": true
   },
   "antalya-gul-apart": {
     "km": 16,
-    "place": "ChIJtw8kRb-CwxQRxrFFqQ4ciUE",
     "checked": true
   },
   "antalya-inn-hotel": {
     "km": 16,
-    "place": "ChIJHwBRew-QwxQReFiErIxuzk8",
     "checked": true
   },
   "antalya-nun-junior-hotel": {
     "km": 15,
-    "place": "ChIJ5UGCshCbwxQRViMY-5rJS8c",
     "checked": true
   },
   "antey-aqua-city": {
     "km": 31,
-    "place": "ChIJicdDcPCTwxQRRppTqbu0dtI",
     "checked": true
   },
   "antique-house-otel": {
-    "km": 16,
-    "place": "ChIJFxL8fQaQwxQRVkFsP7oasfM"
+    "km": 16
   },
   "antique-roman-palace": {
     "km": 131,
-    "place": "ChIJgQl_hyu7yhQRJ_VreFWnank",
     "checked": true
   },
   "antroyal-hotel": {
     "km": 17,
-    "place": "ChIJ901JnR6QwxQRrBHP_hnR1tA",
     "checked": true
   },
   "apa-mountain-lodge": {
     "km": 43,
-    "place": "ChIJ-zvdvPTrwxQRkJc8rvuGVs8",
     "checked": true
   },
   "aperion-beach-hotel": {
     "km": 81,
-    "place": "ChIJOa2yro1TwxQRFjW3Qa2IIaI",
     "checked": true
   },
   "aqi-pegasos-world": {
     "km": 71,
-    "place": "ChIJ5xDFTgJawxQRJO6p4Y2qK4g",
     "checked": true
   },
   "araucaria-pension": {
-    "km": 16,
-    "place": "ChIJseaj9QaQwxQRZRLSs4I5Syo"
+    "km": 16
   },
   "arcanus-trendline-resort-side": {
     "km": 57,
-    "place": "ChIJQ9j-NrRXwxQRoje2e4Y0hmA",
     "checked": true
   },
   "ares-blue-otel": {
     "km": 68,
-    "place": "ChIJF07P9f62wxQRmXqDGAXY9ZE",
     "checked": true
   },
   "argos-hotel": {
     "km": 17,
-    "place": "ChIJ8z_MOwSQwxQRvT_xVNLTYSs",
     "checked": true
   },
   "aria-resort-spa": {
     "km": 116,
-    "place": "ChIJSeI-PYWY3BQR7l_WwN7ilpE",
     "checked": true
   },
   "arinna-park-hotel": {
-    "km": 25,
-    "place": "ChIJLZ16eoqRwxQR2r49hjnb5Ng"
+    "km": 25
   },
   "arkk-homes": {
     "km": 15,
-    "place": "ChIJCRq-LweQwxQRFfAKnk0cGJA",
     "checked": true
   },
   "arma-pansiyon": {
     "km": 20,
-    "place": "ChIJlaSGXtaRwxQRTE2LyhbM2yM",
     "checked": true
   },
   "armas-beach-hotel": {
     "km": 59,
-    "place": "ChIJF0Y_g4C3wxQRILGsZ2_twQs",
     "checked": true
   },
   "armas-gul-beach-otel": {
     "km": 59,
-    "place": "ChIJz6gcviK3wxQRC9r6N27YSTk",
     "checked": true
   },
   "armas-kaplan-paradise": {
     "km": 76,
-    "place": "ChIJ-2O_Suy1wxQRKczGYbvX87A",
     "checked": true
   },
   "armas-labada-otel": {
     "km": 68,
-    "place": "ChIJY5zZLGe2wxQR1nW1fYUCmj0",
     "checked": true
   },
   "armas-life-belek-otel": {
     "km": 43,
-    "place": "ChIJo_g5Hg1kwxQRQdedypPUA1Q",
     "checked": true
   },
   "armas-sunrise-lara": {
     "km": 13,
-    "place": "ChIJZTiUeZWdwxQRhRDbW79UXVg",
     "checked": true
   },
   "arsi-blue-beach-hotel": {
     "km": 132,
-    "place": "ChIJ4Rbvw7qZ3BQRaC3pnfi1GZY",
     "checked": true
   },
   "arsi-enfi-city-beach-otel": {
     "km": 128,
-    "place": "ChIJL_aIvmCY3BQRoLqCYisIwL0",
     "checked": true
   },
   "arsi-sweet-suite-hotel": {
     "km": 128,
-    "place": "ChIJTSnAsF-Y3BQRqvUHlipboGM",
     "checked": true
   },
   "artemis-luxury-palace-hotel": {
-    "km": 25,
-    "place": "ChIJs1yAQ1x4wxQR2lAY2mxqxOA"
+    "km": 25
   },
   "arum-barut-collection": {
     "km": 63,
-    "place": "ChIJ9zj7AGpZwxQRwezqiTF4Jck",
     "checked": true
   },
   "arya-apart-kundu-hotel": {
     "km": 11,
-    "place": "ChIJlexHJy6DwxQRXC1JXswu4Ns",
     "checked": true
   },
   "asena-hotel": {
     "km": 19,
-    "place": "ChIJOStLeY6PwxQR6HlCxa9pf_w",
     "checked": true
   },
   "asia-beach-resort-spa": {
     "km": 131,
-    "place": "ChIJDaNPk62Z3BQRn753CbAQj8w",
     "checked": true
   },
   "asimado-hotel": {
     "km": 5,
-    "place": "ChIJw7biOvi3wxQREgjYPIPdNjU",
     "checked": true
   },
   "aska-just-in-beach-hotel": {
     "km": 104,
-    "place": "ChIJD9BMGKmv3BQR0cAEqNkS2Ak",
     "checked": true
   },
   "aska-lara-resort-spa": {
     "km": 17,
-    "place": "ChIJXWSyiHV4wxQRXAJHuqMXmW0",
     "checked": true
   },
   "aska-river-suites": {
     "km": 18,
-    "place": "ChIJb8QXbXZ4wxQR_MDn_d3UkK8",
     "checked": true
   },
   "aspen-hotel-kaleici": {
     "km": 16,
-    "place": "ChIJy1S4pAWQwxQRIUE-j4KYwtM",
     "checked": true
   },
   "aspendos-extra-apart-otel": {
     "km": 25,
-    "place": "ChIJc_ZSRfaRwxQRFdX4zaEZYmk",
     "checked": true
   },
   "aspendos-seaside-apart-otel": {
     "km": 25,
-    "place": "ChIJYXyI63GRwxQRR5hoq4qnPuA",
     "checked": true
   },
   "aspendos-suites-konyaalti-apart": {
     "km": 25,
-    "place": "ChIJNSpMlnGRwxQRgJr0YcL72gg",
     "checked": true
   },
   "asteria-bloom-side": {
     "km": 80,
-    "place": "ChIJM7GHYvlTwxQRii9nhJO__hc",
     "checked": true
   },
   "asteria-collection-side": {
     "km": 70,
-    "place": "ChIJNwROe-qPwxQRxGCVnE8Gh5I",
     "checked": true
   },
   "asteria-family-resort-belek": {
     "km": 38,
-    "place": "ChIJhVxisGl7wxQRNwzwlenUkjk",
     "checked": true
   },
   "ataer-hotel": {
     "km": 25,
-    "place": "ChIJTxRuSNiRwxQRKycGvsH1_8A",
     "checked": true
   },
   "atalla-hotel": {
     "km": 15,
-    "place": "ChIJo2n6iKmawxQRn5Fb_BKSon8",
     "checked": true
   },
   "atelya-art-hotel": {
     "km": 16,
-    "place": "ChIJ-22u51CRwxQRkIvL8Re3ppQ",
     "checked": true
   },
   "atici-hotel": {
     "km": 15,
-    "place": "ChIJ_aZ97xGRwxQR6kErrYn2Nn0",
     "checked": true
   },
   "atlas-pansiyon": {
     "km": 17,
-    "place": "ChIJU2y4TxmQwxQRTL83BBaw9EQ",
     "checked": true
   },
   "avena-mountain-otel": {
     "km": 132,
-    "place": "ChIJmTaNVzuh3BQRtDA_pRMuyOE",
     "checked": true
   },
   "avion-suite-hotel": {
     "km": 14,
-    "place": "ChIJJe7GsqibwxQRt-RruflfdZw",
     "checked": true
   },
   "avlion-otel": {
     "km": 126,
-    "place": "ChIJL-PmWvSj3BQRETxNs8T0CmQ",
     "checked": true
   },
   "avsar-boutique-hotel": {
     "km": 17,
-    "place": "ChIJsXUq4XqbwxQRBWXPEu8_2tI",
     "checked": true
   },
   "avullar-palace-hotel": {
-    "km": 15,
-    "place": "ChIJlXpZSRebwxQR1xT1rZ_zW8E"
+    "km": 15
   },
   "ay-otel-2": {
     "km": 17,
-    "place": "ChIJX8ZgVQKQwxQRYK2IOJ3IazY",
     "checked": true
   },
   "aybel-inn-hotel": {
     "km": 45,
-    "place": "ChIJ65zMKw6_wxQRq_KJ3vHDlNw",
     "checked": true
   },
   "aydin-otel-pansiyon": {
     "km": 17,
-    "place": "ChIJA9SUnByQwxQRhGS6MRzNJbo",
     "checked": true
   },
   "aydinbey-famous-resort": {
-    "km": 44,
-    "place": "ChIJQbURUlJ5wxQRsO9ic-VbZDg"
+    "km": 44
   },
   "aydinbey-gold-dreams": {
     "km": 108,
-    "place": "ChIJQX4s4nyl3BQR2ARR0w8ogGg",
     "checked": true
   },
   "aydinbey-king-s-palace": {
     "km": 58,
-    "place": "ChIJ6QVYFMhewxQRgehOfJZDbbo",
     "checked": true
   },
   "aydinbey-siu-collection": {
     "km": 47,
-    "place": "ChIJM5bj09-_wxQRUgjP91tY48U",
     "checked": true
   },
   "ayhan-hotel": {
     "km": 17,
-    "place": "ChIJHa-HpByQwxQRG4CyLYvyzic",
     "checked": true
   },
   "ayka-life-nature-peace-all-inclusive": {
     "km": 25,
-    "place": "ChIJ0w5qSiqJwxQRAcYIY2PieNg",
     "checked": true
   },
   "ayka-vital-park": {
     "km": 26,
-    "place": "ChIJ6SlpsSuJwxQRyFbuOVOEEBE",
     "checked": true
   },
   "ayka-vital-park-hotel-adults-only-duaci": {
     "km": 26,
-    "place": "ChIJ6SlpsSuJwxQRyFbuOVOEEBE",
     "checked": true
   },
   "aysev-otel": {
     "km": 125,
-    "place": "ChIJW9-0Z5ui3BQRyTVKUDLfofc",
     "checked": true
   },
   "aysu-tunc-hotel": {
     "km": 44,
-    "place": "ChIJ_0iFCwC_wxQRXSbZlB7g95E",
     "checked": true
   },
   "azak-beach-otel": {
     "km": 125,
-    "place": "ChIJT7SmK5ui3BQR2WzD-XREde8",
     "checked": true
   },
   "azak-otel": {
     "km": 125,
-    "place": "ChIJX2aDUIWi3BQRrvRtHs6saiY",
     "checked": true
   },
   "aziz-otel": {
     "km": 17,
-    "place": "ChIJeYrlAAOQwxQRyChHODkZd4A",
     "checked": true
   },
   "aziz-pansiyon-2": {
     "km": 17,
-    "place": "ChIJeYrlAAOQwxQRyChHODkZd4A",
     "checked": true
   },
   "azura-deluxe-resort-spa": {
     "km": 103,
-    "place": "ChIJ-WXPRrKv3BQRsOgHH9syXts",
     "checked": true
   },
   "azura-world-otel": {
     "km": 107,
-    "place": "ChIJscB1uhal3BQRRWsvf2nez1E",
     "checked": true
   },
   "azuu-bohem-hotel": {
     "km": 15,
-    "place": "ChIJ2x12hRmbwxQRLeyfZcrOKt0",
     "checked": true
   },
   "azuu-boutique-hotel": {
     "km": 15,
-    "place": "ChIJC2LalxmbwxQR-mwjRpf_YpQ",
     "checked": true
   },
   "b-business-hotel-spa": {
     "km": 21,
-    "place": "ChIJBTRLismPwxQRUY1r755qsEo",
     "checked": true
   },
   "babil-hotel": {
     "km": 23,
-    "place": "ChIJ3-ySPn-RwxQRPeapxMe4tmM",
     "checked": true
   },
   "bacchus-pension": {
     "km": 16,
-    "place": "ChIJdRzPKA-QwxQRQjCHSWO-UpI",
     "checked": true
   },
   "baia-lara-hotel": {
     "km": 17,
-    "place": "ChIJb7IMTKKCwxQRDMjOFSWhyJI",
     "checked": true
   },
   "baia-salima-kemer": {
     "km": 47,
-    "place": "ChIJDYNqkyW_wxQR8RVK7AiZOkQ",
     "checked": true
   },
   "balik-otel": {
     "km": 124,
-    "place": "ChIJU1-2jYyi3BQRrenT-RkXW-k",
     "checked": true
   },
   "balmy-beach-resort-kemer": {
     "km": 44,
-    "place": "ChIJ8fevahm3wxQR9b45G8zlIdc",
     "checked": true
   },
   "balmy-foresta": {
     "km": 47,
-    "place": "ChIJj_o1awC_wxQRJtG4gli3Ucg",
     "checked": true
   },
   "baran-hotel": {
     "km": 15,
-    "place": "ChIJywskEUebwxQRTfjS9CWJQa4",
     "checked": true
   },
   "bariscan-otel": {
-    "km": 140,
-    "place": "ChIJ5xhxNQOa3BQR1dIILgmUlKQ"
+    "km": 140
   },
   "barut-acanthus-cennet": {
     "km": 64,
-    "place": "ChIJTdvARGVZwxQRxwfO4fH-peU",
     "checked": true
   },
   "barut-b-suites": {
     "km": 58,
-    "place": "ChIJj4JtNs9ewxQRVVV9vrd5M0k",
     "checked": true
   },
   "barut-goia-otel": {
     "km": 67,
-    "place": "ChIJA5EV5IZZwxQRIXKH2PGKl1w",
     "checked": true
   },
   "barut-hemera": {
     "km": 63,
-    "place": "ChIJUa5lDrDmn0ARZZQRZgVUBTQ",
     "checked": true
   },
   "basel-hotel": {
     "km": 24,
-    "place": "ChIJObLYXqGRwxQRBBDqWrxbr4I",
     "checked": true
   },
   "bayindir-palme-hotel": {
     "km": 18,
-    "place": "ChIJ_zJ13CmQwxQRPKOn-tpGErs",
     "checked": true
   },
   "bayou-villas": {
     "km": 14,
-    "place": "ChIJj7TDLQCDwxQRImgd7bHZCk8",
     "checked": true
   },
   "be-bold-hostel": {
     "km": 15,
-    "place": "ChIJQfN6tOCRwxQRvUHHaWSPyeU",
     "checked": true
   },
   "beach-club-doganay-otel": {
     "km": 118,
-    "place": "ChIJO6L6K3Cj3BQRFTs2Bswtk0g",
     "checked": true
   },
   "begonya-hotel-kemer-all-inclisuve": {
     "km": 43,
-    "place": "ChIJYb1wIQm_wxQR5n3eNbopV2Y",
     "checked": true
   },
   "begumhan-pansiyon": {
     "km": 17,
-    "place": "ChIJCUKpqeiawxQR-DQ6KD7kEbA",
     "checked": true
   },
   "behram-hotel": {
     "km": 23,
-    "place": "ChIJzy4-VqSRwxQRoSkjBhYmSIw",
     "checked": true
   },
   "belcan-hotel": {
     "km": 44,
-    "place": "ChIJZ6omQJy_wxQRMFSSknVsVIg",
     "checked": true
   },
   "belconti-resort-hotel": {
     "km": 36,
-    "place": "ChIJFWKM-dt_wxQR6UZ_mR2S6H8",
     "checked": true
   },
   "belek-beach-resort-hotel": {
     "km": 44,
-    "place": "ChIJe3XYEQZkwxQRVlJYpKTyIr8",
     "checked": true
   },
   "belek-diamonds-hotel": {
     "km": 26,
-    "place": "ChIJs7pUT1d9wxQRSs9O_fkZqeM",
     "checked": true
   },
   "belenli-resort-hotel-belek": {
     "km": 34,
-    "place": "ChIJORx1u2B7wxQRfzV3Qy7L0Lw",
     "checked": true
   },
   "belkon-hotel": {
     "km": 28,
-    "place": "ChIJo15LL-N7wxQRjUhUlFhzdYw",
     "checked": true
   },
   "bella-resort-spa": {
     "km": 57,
-    "place": "ChIJIftI4V1ewxQR5xTPKloFVug",
     "checked": true
   },
   "bellis-deluxe-hotel": {
     "km": 31,
-    "place": "ChIJUx1UFJh7wxQRFfTpP_ToC54",
     "checked": true
   },
   "belmondo-suites-old-town": {
     "km": 16,
-    "place": "ChIJsajL0eaRwxQRREubE23C1K8",
     "checked": true
   },
   "belpoint-beach-hotel": {
     "km": 44,
-    "place": "ChIJpSo0J6O3wxQRrSQGKx9gGrY",
     "checked": true
   },
   "belsea-hotel": {
     "km": 44,
-    "place": "ChIJARV81e2_wxQRguCgLAN3LC8",
     "checked": true
   },
   "belsun-hotel": {
     "km": 44,
-    "place": "ChIJQUy7C9y_wxQR_OWxvJbqqas",
     "checked": true
   },
   "benna-hotel": {
     "km": 25,
-    "place": "ChIJg7h5wG-RwxQRxMP9hDmGbm4",
     "checked": true
   },
   "bera-alanya-hotel": {
     "km": 115,
-    "place": "ChIJWYtLlo6k3BQRvZftidudPno",
     "checked": true
   },
   "berlin-hostel-street": {
     "km": 16,
-    "place": "ChIJJz_f7gaQwxQRlygWnwNVo8o",
     "checked": true
   },
   "berrak-su-hotel": {
     "km": 19,
-    "place": "ChIJXYsOjNaRwxQR3UbHAtFVmM8",
     "checked": true
   },
   "berry-blue-hotel": {
     "km": 70,
-    "place": "ChIJo-Ty9MZZwxQR6m46ox551JU",
     "checked": true
   },
   "best-house-otel": {
     "km": 125,
-    "place": "ChIJh0L7YISi3BQRPVumZqmi0Qw",
     "checked": true
   },
   "best-western-plus-khan-hotel": {
     "km": 17,
-    "place": "ChIJ_____yJxwRQRlKly_9p8Mzo",
     "checked": true
   },
   "beta-guesthouse": {
     "km": 17,
-    "place": "ChIJWdQXHwOQwxQRmbujvxhzRCw",
     "checked": true
   },
   "betas-guesthouse": {
     "km": 18,
-    "place": "ChIJa0FgLi2RwxQReLAOWUp9lhI",
     "checked": true
   },
   "beyaz-melek-hotel": {
     "km": 25,
-    "place": "ChIJtWBeKXKRwxQRzkUjvnudRYg",
     "checked": true
   },
   "beyaz-saray-otel": {
     "km": 67,
-    "place": "ChIJO_jrCplZwxQRTGlzgiA2bbM",
     "checked": true
   },
   "beyond-otel": {
-    "km": 24,
-    "place": "ChIJ1cz3zWmRwxQRsJ42LoFmwOo"
+    "km": 24
   },
   "bieno-club-svs-hotel": {
     "km": 142,
-    "place": "ChIJVVo-ze2R3BQRBq7_8DmzR1A",
     "checked": true
   },
   "bieno-venus-hotel": {
     "km": 70,
-    "place": "ChIJzxcWzMlnwRQRV6BdjiiZDe4",
     "checked": true
   },
   "bilem-hotel": {
     "km": 14,
-    "place": "ChIJ9QFoLv-bwxQRx0gDCplxVs0",
     "checked": true
   },
   "bilem-hotel-beach-spa": {
     "km": 17,
-    "place": "ChIJi-wFoQ2N2RQR3S99YrYjpFs",
     "checked": true
   },
   "bilgehan-hotel": {
     "km": 16,
-    "place": "ChIJ25Nua_2PwxQRZ7R5r0Wri0A",
     "checked": true
   },
   "bir-hotel": {
     "km": 13,
-    "place": "ChIJscFHB3mdwxQRjGRscAqfs4w",
     "checked": true
   },
   "birpa-kundu-otel": {
     "km": 12,
-    "place": "ChIJhVXvFUaDwxQRO_sTxp_V-ZU",
     "checked": true
   },
   "bisuites": {
-    "km": 29,
-    "place": "ChIJI-3wX_KTwxQREqztriPoDYw"
+    "km": 29
   },
   "black-royal-belek": {
     "km": 43,
-    "place": "ChIJ7R4mgrdlwxQRgySTIFSRYok",
     "checked": true
   },
   "bloomtalya-hotel": {
     "km": 14,
-    "place": "ChIJWYSvEtiFwxQRGMkcsPFviQ4",
     "checked": true
   },
   "blue-diamond-alya-hotel": {
     "km": 130,
-    "place": "ChIJ2VD-UAuZ3BQRpfCRFiPHH2Y",
     "checked": true
   },
   "blue-dream-hotel": {
     "km": 125,
-    "place": "ChIJNRioU16Y3BQR8mT0PGX_oXg",
     "checked": true
   },
   "blue-fish-otel": {
     "km": 118,
-    "place": "ChIJq4EFzW-j3BQRIBl03jtESbo",
     "checked": true
   },
   "blue-garden-hotel": {
     "km": 23,
-    "place": "ChIJq1i5Xa-RwxQRvBtFZ6kvPCw",
     "checked": true
   },
   "blue-heaven-beach-apart": {
-    "km": 16,
-    "place": "ChIJYeTybQmQwxQRMjKUGI230ko"
+    "km": 16
   },
   "blue-marina-hotel-spa": {
     "km": 17,
-    "place": "ChIJW1Kt6JqRwxQR-IxFNv0Huj8",
     "checked": true
   },
   "blue-more-suite-hotel": {
     "km": 25,
-    "place": "ChIJySwoXiKRwxQRUIvmmesZW8M",
     "checked": true
   },
   "blue-sea-garden-otel": {
     "km": 17,
-    "place": "ChIJcVkxEQSQwxQRna3YO_5c2CU",
     "checked": true
   },
   "blue-star-otel": {
     "km": 124,
-    "place": "ChIJLxwW1oei3BQRaOOC-eJEN4k",
     "checked": true
   },
   "bmk-apart-otel": {
     "km": 17,
-    "place": "ChIJHRhrD-eawxQRnef33Y38h6o",
     "checked": true
   },
   "bodensee-hotel": {
-    "km": 22,
-    "place": "ChIJbR4fTDSQwxQReVuq1-4SvK0"
+    "km": 22
   },
   "bone-apart-otel": {
     "km": 17,
-    "place": "ChIJ418_Dr6PwxQRG6WNjLHBBfs",
     "checked": true
   },
   "bone-best-otel": {
     "km": 17,
-    "place": "ChIJk4X3ijmPwxQRzHzlMGgi4ws",
     "checked": true
   },
   "bonnie-city-hotel": {
     "km": 17,
-    "place": "ChIJZ_z0jMORwxQR8xZYvdGo6-E",
     "checked": true
   },
   "boulevard-otel": {
     "km": 129,
-    "place": "ChIJoUryEmSY3BQRdGmvKjfWfvs",
     "checked": true
   },
   "boutique-house-mim-a-otel": {
-    "km": 16,
-    "place": "ChIJgw1nlaaawxQRen2o3JOauk0"
+    "km": 16
   },
   "brandhill-apart-hotel": {
-    "km": 16,
-    "place": "ChIJbwj5AwaQwxQRSVd-fFLiEfE"
+    "km": 16
   },
   "bulvar-hotel": {
     "km": 19,
-    "place": "ChIJI8xw1jqQwxQRzUvOc0P694k",
     "checked": true
   },
   "butunoglu-pansiyon": {
     "km": 16,
-    "place": "ChIJYUaPGgSQwxQRx5WWswvYFI8",
     "checked": true
   },
   "cabbana-hotel-lara": {
     "km": 15,
-    "place": "ChIJU3nol3-bwxQRKC8Uapd417o",
     "checked": true
   },
   "cagan-hotel": {
     "km": 31,
-    "place": "ChIJ8ewcouKTwxQRU5NNrNBV9vU",
     "checked": true
   },
   "calido-maris": {
     "km": 88,
-    "place": "ChIJOcRmqDlTwxQRHOPzlqucAKE",
     "checked": true
   },
   "calido-sol-hotel": {
     "km": 91,
-    "place": "ChIJi1AT6Oes3BQRzsyCZ2mnCeY",
     "checked": true
   },
   "calista-luxury-resort": {
     "km": 32,
-    "place": "ChIJIdmNYXp5wxQR_mRpAR_s2eQ",
     "checked": true
   },
   "camel-apartment": {
     "km": 16,
-    "place": "ChIJ_5OGXQ-QwxQRXoxrhM3fyz0",
     "checked": true
   },
   "camel-hotel-apart": {
     "km": 16,
-    "place": "ChIJxxWnfgaQwxQRQpnshRsVfuo",
     "checked": true
   },
   "campus-hill-otel": {
     "km": 136,
-    "place": "ChIJoeJxs5WZ3BQRmDFaxaihit0",
     "checked": true
   },
   "camyuva-beach-hotel": {
     "km": 67,
-    "place": "ChIJf_saTGa2wxQRrH0iHKFrDJA",
     "checked": true
   },
   "can-adalya-palace-hotel": {
     "km": 13,
-    "place": "ChIJp9ggSpuFwxQR3-_cux83pWo",
     "checked": true
   },
   "can-garden-resort-otel": {
     "km": 57,
-    "place": "ChIJX4LJIO9ewxQRMvlAIN_j6Rc",
     "checked": true
   },
   "caner-mountain-hotel": {
-    "km": 74,
-    "place": "ChIJKfjPA9bIwxQRq5SqGaY5KuE"
+    "km": 74
   },
   "cap-dperge-otel": {
     "km": 16,
-    "place": "ChIJac6hNwmQwxQRD0Yuk3b4mdQ",
     "checked": true
   },
   "caretta-beach-otel": {
     "km": 114,
-    "place": "ChIJGzNDqXCk3BQRhEyngEAp5Ls",
     "checked": true
   },
   "caretta-relax-otel": {
     "km": 114,
-    "place": "ChIJJ6YYf_Ok3BQR8AvJ5tnFUuM",
     "checked": true
   },
   "casa-franco-old-town-otel": {
     "km": 16,
-    "place": "ChIJUwcl8wWQwxQRUQZFBztdS18",
     "checked": true
   },
   "casa-maria-hotel": {
     "km": 15,
-    "place": "ChIJvxahmi-RwxQRv5VRaF-piTE",
     "checked": true
   },
   "casa-sur-antalya-otel": {
     "km": 16,
-    "place": "ChIJj4B3pvWRwxQRvEpI8onyIj0",
     "checked": true
   },
   "casamax-suites": {
     "km": 23,
-    "place": "ChIJJ3KoFOyRwxQRY6T-8lOlRRM",
     "checked": true
   },
   "casativo-hotels-lara": {
     "km": 15,
-    "place": "ChIJ9wS5xQybwxQRAXDg4EceCKI",
     "checked": true
   },
   "castello-by-mediterra-hotel": {
     "km": 127,
-    "place": "ChIJr0O9QQCZ3BQR9xjLEReEn0w",
     "checked": true
   },
   "castival-hotel": {
     "km": 59,
-    "place": "ChIJP1Eg-GhZwxQRQuHFhVYenN8",
     "checked": true
   },
   "castle-old-town-hotel": {
     "km": 16,
-    "place": "ChIJx-HKM56RwxQRyLs5mH4zFKs",
     "checked": true
   },
   "castle-park-hotel": {
     "km": 44,
-    "place": "ChIJmyx0s26_wxQRhnG9YIXnsQ4",
     "checked": true
   },
   "catamaran": {
     "km": 60,
-    "place": "ChIJTVVVVZK3wxQRPJ_uQXBaJJ8",
     "checked": true
   },
   "cedrus-hotel": {
     "km": 16,
-    "place": "ChIJ6c0Kt6SRwxQRU0IqxTy5NGk",
     "checked": true
   },
   "cender-hotel": {
     "km": 16,
-    "place": "ChIJlaHHWaeawxQRXvCThnrwpb0",
     "checked": true
   },
   "cenger-beach-resort-otel": {
     "km": 88,
-    "place": "ChIJU_peCp5XwxQRh6ps93LHuR0",
     "checked": true
   },
   "cesars-resort": {
     "km": 61,
-    "place": "ChIJh9yS3zRZwxQRikXnj24nAek",
     "checked": true
   },
   "cevik-palace-otel": {
     "km": 17,
-    "place": "ChIJgewKSduPwxQRghvmKe_TmYk",
     "checked": true
   },
   "champion-holiday-village": {
     "km": 51,
-    "place": "ChIJgxRMXIm4wxQRg4z-Jit1ZPA",
     "checked": true
   },
   "char-me-hotel": {
     "km": 16,
-    "place": "ChIJ04IEZQaQwxQRFyMRiAat0Ls",
     "checked": true
   },
   "cicerone-apart": {
     "km": 16,
-    "place": "ChIJ28jWvAaQwxQRkZaGzUu5mPQ",
     "checked": true
   },
   "cicerone-lodge-hotel": {
     "km": 16,
-    "place": "ChIJZZB-K_mRwxQRH3SWqvhv7es",
     "checked": true
   },
   "citrus-luna-suite-hotel": {
     "km": 23,
-    "place": "ChIJEY2xeQuRwxQRtAcFNbiU3uo",
     "checked": true
   },
   "citrus-park-hotel": {
     "km": 23,
-    "place": "ChIJax6KiKWRwxQRg7oqgTsdJyw",
     "checked": true
   },
   "citrus-urban-hotel": {
     "km": 26,
-    "place": "ChIJCcuAY6CRwxQRialR5JgHk8c",
     "checked": true
   },
   "city-live-hotel": {
     "km": 16,
-    "place": "ChIJaS7EKeKawxQROGXr2feI_GM",
     "checked": true
   },
   "city-moonlight-apart-hotel": {
     "km": 16,
-    "place": "ChIJDbyKxXOPwxQRdP6PrgLqDvo",
     "checked": true
   },
   "city-otel-ambassador": {
     "km": 61,
-    "place": "ChIJea_Y3mO3wxQRW39fVYFutW0",
     "checked": true
   },
   "cityhub": {
     "km": 16,
-    "place": "ChIJaSJiceSRwxQRdU0aI2ra6OE",
     "checked": true
   },
   "cleopatra-golden-beach-otel": {
     "km": 124,
-    "place": "ChIJAzIapY-i3BQRviE9z2QJvj8",
     "checked": true
   },
   "clover-magic-seagate-belek": {
     "km": 44,
-    "place": "ChIJc8EDVPh7wxQRJICJuAk44S0",
     "checked": true
   },
   "club-big-blue-suite-hotel": {
     "km": 129,
-    "place": "ChIJ7Wr6M1aY3BQRUBqEr53ga_M",
     "checked": true
   },
   "club-boran-mare-beach": {
     "km": 52,
-    "place": "ChIJBZzOh_q4wxQRmdkYA2aDMgM",
     "checked": true
   },
   "club-dizalya": {
     "km": 117,
-    "place": "ChIJRYMpWnal3BQRULePBbcaupk",
     "checked": true
   },
   "club-grand-side": {
     "km": 56,
-    "place": "ChIJXf6cj_FewxQRqltZ7X7F4xM",
     "checked": true
   },
   "club-hotel-belpinar": {
     "km": 44,
-    "place": "ChIJYz2GEai_wxQRxsq_Y4ePBGI",
     "checked": true
   },
   "club-hotel-phaselis-rose": {
     "km": 76,
-    "place": "ChIJ-dA6EMe3wxQRa9OSc7t4_uo",
     "checked": true
   },
   "club-hotel-sera": {
     "km": 13,
-    "place": "ChIJGQJkJDSDwxQRZw93mwhpLMM",
     "checked": true
   },
   "club-hotel-sunbel": {
     "km": 49,
-    "place": "ChIJlxaOCiO_wxQR1PM5s3_diX4",
     "checked": true
   },
   "club-hotel-turan-prince-world": {
     "km": 81,
-    "place": "ChIJexkPXtBe2xQRUXvSC4so7TE",
     "checked": true
   },
   "club-jovia-kemer-otel": {
     "km": 59,
-    "place": "ChIJVSv0rY23wxQRfg7lGm_nzj4",
     "checked": true
   },
   "club-kastalia": {
     "km": 114,
-    "place": "ChIJ3cid1oyk3BQRsjP5JrR0WRA",
     "checked": true
   },
   "club-marakesh-beach-hotel": {
     "km": 50,
-    "place": "ChIJ8bmrKUe_wxQRDE2cBP4E39U",
     "checked": true
   },
   "club-marco-polo": {
     "km": 64,
-    "place": "ChIJNw2cNQDJwxQRS_ez5kWkdY4",
     "checked": true
   },
   "club-med-palmiye": {
     "km": 59,
-    "place": "ChIJp62D9Mi3wxQRdqn-FzLnlZ8",
     "checked": true
   },
   "club-nena": {
     "km": 80,
-    "place": "ChIJX74wAP9TwxQRGdeOITY1prk",
     "checked": true
   },
   "club-otel-mermaid-village": {
     "km": 108,
-    "place": "ChIJ44qVyoKk3BQRxOxhmT1z8dI",
     "checked": true
   },
   "club-otel-rama": {
     "km": 49,
-    "place": "ChIJQ3z6MtS4wxQRqmSv2jkfwKM",
     "checked": true
   },
   "club-paradiso-hotel": {
     "km": 134,
-    "place": "ChIJcx0tdIGZ3BQRCpHgtd3W_VM",
     "checked": true
   },
   "club-side-coast-hotel": {
     "km": 57,
-    "place": "ChIJi9zMyMNewxQRbKRBQULtx_I",
     "checked": true
   },
   "club-tess-otel": {
     "km": 113,
-    "place": "ChIJA_D2hvmk3BQR6SvRU6cVQw8",
     "checked": true
   },
   "club-tropical-beach-hotel": {
-    "km": 66,
-    "place": "ChIJt_m3JXxZwxQR09Y4IReijkE"
+    "km": 66
   },
   "coastline-orange-hotel": {
     "km": 24,
-    "place": "ChIJv-FR7KORwxQRcfLYXgQHBGw",
     "checked": true
   },
   "collesium-garden-apart-otel": {
     "km": 32,
-    "place": "ChIJCVDYmgePwxQR5d-Dme0sCak",
     "checked": true
   },
   "comfort-basaran-otel": {
     "km": 16,
-    "place": "ChIJ0Xodl_CPwxQR8r-OOey-8gA",
     "checked": true
   },
   "comfy-otel-antalya-lara": {
-    "km": 15,
-    "place": "ChIJU3nol3-bwxQRKC8Uapd417o"
+    "km": 15
   },
   "concorde-de-luxe-resort": {
     "km": 16,
-    "place": "ChIJZ1ktgLmCwxQRY1YL02I4JVk",
     "checked": true
   },
   "concorde-de-luxe-resort-lara": {
     "km": 16,
-    "place": "ChIJZ1ktgLmCwxQRY1YL02I4JVk",
     "checked": true
   },
   "concordia-celes": {
     "km": 91,
-    "place": "ChIJdyUU8-as3BQR937Rx3E85JI",
     "checked": true
   },
   "corendon-grand-park-lara": {
     "km": 17,
-    "place": "ChIJryYFiq2cwxQRAT3EWXehqkw",
     "checked": true
   },
   "corendon-hydros-club-kemer": {
     "km": 60,
-    "place": "ChIJUU-8hZq3wxQRZtllIcLJwmg",
     "checked": true
   },
   "corendon-playa-kemer": {
     "km": 49,
-    "place": "ChIJVVVVVYW4wxQRS-Hb_3LnNcw",
     "checked": true
   },
   "cornelia-de-luxe-resort": {
     "km": 37,
-    "place": "ChIJtyF6-G17wxQRJwlH64uq-1U",
     "checked": true
   },
   "cornelia-diamond-golf-resort-spa": {
     "km": 37,
-    "place": "ChIJtyF6-G17wxQRJwlH64uq-1U",
     "checked": true
   },
   "crowne-plaza-antalya": {
     "km": 26,
-    "place": "ChIJIVgyTqeRwxQRHZYRCCXVIDk",
     "checked": true
   },
   "crowne-plaza-antalya-by-ihg-otel": {
     "km": 26,
-    "place": "ChIJIVgyTqeRwxQRHZYRCCXVIDk",
     "checked": true
   },
   "crystal-admiral-resort-spa": {
     "km": 85,
-    "place": "ChIJmZu8MGxTwxQRMeBnmDbvvlw",
     "checked": true
   },
   "crystal-aura-beach-resort-spa": {
     "km": 60,
-    "place": "ChIJY3vdEo63wxQRszUhQlsNodc",
     "checked": true
   },
   "crystal-boutique-comfort-collection-adults-only": {
     "km": 16,
-    "place": "ChIJt0l4Of2PwxQRp9lu9P1iCJI",
     "checked": true
   },
   "crystal-centro-pearl-collection-otel": {
     "km": 17,
-    "place": "ChIJJRncWmCDwxQRQL-8xqIV-AM",
     "checked": true
   },
   "crystal-centro-resort": {
     "km": 17,
-    "place": "ChIJJRncWmCDwxQRQL-8xqIV-AM",
     "checked": true
   },
   "crystal-de-luxe-resort-spa": {
     "km": 60,
-    "place": "ChIJ4_gJxJC3wxQR9pKjWo_552k",
     "checked": true
   },
   "crystal-family-resort-spa": {
     "km": 43,
-    "place": "ChIJoQNdLA1kwxQRIaLubGvan-8",
     "checked": true
   },
   "crystal-flora-beach-resort": {
     "km": 46,
-    "place": "ChIJqwbahCK_wxQR-RhNHF3kAUM",
     "checked": true
   },
   "crystal-palace-luxury-resort": {
-    "km": 56,
-    "place": "ChIJIb9CrUJewxQRmImBZK_UWwU"
+    "km": 56
   },
   "crystal-sunset-luxury-resort-spa": {
     "km": 63,
-    "place": "ChIJ0e9V6GlZwxQRT4NpNZwSzEo",
     "checked": true
   },
   "crystal-tat-beach-golf-resort-spa": {
     "km": 30,
-    "place": "ChIJOxEs02J5wxQRtS3LPIcXciY",
     "checked": true
   },
   "crystal-waterworld-resort-spa": {
     "km": 44,
-    "place": "ChIJs50zrg1kwxQRzPr4JtZRhH4",
     "checked": true
   },
   "cullinan-belek": {
     "km": 31,
-    "place": "ChIJl31mOJBkwxQRPiZCk0lG9AI",
     "checked": true
   },
   "dagtekin-apartments": {
     "km": 17,
-    "place": "ChIJg3vhkeWawxQRLJca-aDPV70",
     "checked": true
   },
   "daima-biz-hotel": {
     "km": 66,
-    "place": "ChIJv80aCFi2wxQRK4DtXCX_cPo",
     "checked": true
   },
   "dam-hotel-lara": {
     "km": 15,
-    "place": "ChIJ9dkG_zmbwxQR5Iy1CmVPu00",
     "checked": true
   },
   "dantel-pansiyon": {
     "km": 202,
-    "place": "ChIJ7_CHJeLbwRQRYzJSBzCQwOM",
     "checked": true
   },
   "day-one-beach-resort-hotel": {
     "km": 129,
-    "place": "ChIJISRzG1qY3BQRq_tjH1_k5cw",
     "checked": true
   },
   "dea-del-hotel": {
     "km": 11,
-    "place": "ChIJIx_OGQuFwxQRw1GLvx4Yveo",
     "checked": true
   },
   "dedehan-pansiyon": {
     "km": 16,
-    "place": "ChIJF3kmSQGQwxQRhMD2btD3GZU",
     "checked": true
   },
   "dedeman-kemer-resort": {
     "km": 59,
-    "place": "ChIJ26Pj-VW3wxQRBMXkIygG888",
     "checked": true
   },
   "defne-defnem": {
     "km": 64,
-    "place": "ChIJAS8ymG5ZwxQRc0-Ylscv-To",
     "checked": true
   },
   "defne-dream": {
     "km": 57,
-    "place": "ChIJX-JRGEdHdkAR7gXlKAGAT60",
     "checked": true
   },
   "defne-garden": {
     "km": 61,
-    "place": "ChIJgymPDjVZwxQRd5T0oJwQqro",
     "checked": true
   },
   "deja-vu-hotel": {
     "km": 66,
-    "place": "ChIJqanJWUK2wxQRuczPvBO8yKc",
     "checked": true
   },
   "delight-deluxe-aparts": {
     "km": 16,
-    "place": "ChIJSaUbduSRwxQRpny-Xkb8CrA",
     "checked": true
   },
   "delight-deluxe-hotel": {
     "km": 16,
-    "place": "ChIJCb7PmAaQwxQR-yckkH-LM2k",
     "checked": true
   },
   "delphin-be-grand-resort": {
     "km": 16,
-    "place": "ChIJH2uGg8-CwxQRhpdEjVwkMJA",
     "checked": true
   },
   "delphin-botanik-platinum": {
     "km": 92,
-    "place": "ChIJDRhvC-et3BQR6-VSTDMpwts",
     "checked": true
   },
   "delphin-diva-premiere": {
     "km": 15,
-    "place": "ChIJfdUt_-SawxQRi-LsgisBwjI",
     "checked": true
   },
   "delphin-imperial-lara": {
     "km": 15,
-    "place": "ChIJfxIHj7iCwxQRgVDYpdAbyFw",
     "checked": true
   },
   "delphin-palace": {
     "km": 16,
-    "place": "ChIJEUim47iCwxQRMjzFkst6rbw",
     "checked": true
   },
   "delta-hotels-antalya-lara-adult-only-18-plus": {
     "km": 17,
-    "place": "ChIJK5r80CybwxQRZrc45UnFN_s",
     "checked": true
   },
   "deluxe-ersoy-hotel": {
     "km": 18,
-    "place": "ChIJBU3hiweRwxQROdu_aIFBjIo",
     "checked": true
   },
   "demak-suit-homes": {
     "km": 31,
-    "place": "ChIJy7nr7XCUwxQRJ_epuaxBIXs",
     "checked": true
   },
   "demirci-hotel": {
     "km": 27,
-    "place": "ChIJdUhBJAp8wxQRQyb8PcW09Dg",
     "checked": true
   },
   "deniz-boutique-hotel": {
     "km": 25,
-    "place": "ChIJ5dqj2XGRwxQRQ-F11J7VoI4",
     "checked": true
   },
   "denizhan-hotel": {
     "km": 16,
-    "place": "ChIJ3edQHfuPwxQR7GzyGFtDJSs",
     "checked": true
   },
   "der-inn-hotel-konyaalti": {
-    "km": 23,
-    "place": "ChIJswcoiEmRwxQRlM8vzp6E024"
+    "km": 23
   },
   "der-inn-lara": {
     "km": 16,
-    "place": "ChIJpdLmI6ibwxQRO8bkjWhEPnM",
     "checked": true
   },
   "dg-hotels-rose-resort": {
     "km": 59,
-    "place": "ChIJdcVn9b-3wxQRYlFXYi5qKHA",
     "checked": true
   },
   "diamond-de-luxe-hotel-spa": {
     "km": 55,
-    "place": "ChIJme5LLs5fwxQRdwcpmWFn9Vk",
     "checked": true
   },
   "diamond-hill-resort": {
-    "km": 129,
-    "place": "ChIJo8IlGQCZ3BQRJnU0-hC1RKc"
+    "km": 129
   },
   "diamond-luxury-hotel": {
     "km": 17,
-    "place": "ChIJscrDwByQwxQRExZKRyx-hYY",
     "checked": true
   },
   "diamond-premium-hotel": {
     "km": 72,
-    "place": "ChIJF2mtcUtXwxQRyo65MLo5LV8",
     "checked": true
   },
   "diamore-hotel": {
     "km": 126,
-    "place": "ChIJlw1uVQaQwxQRJXjiLlvpMfQ",
     "checked": true
   },
   "dilara-hotel": {
     "km": 17,
-    "place": "ChIJ41vDGwOQwxQR3gakHnOxbK8",
     "checked": true
   },
   "dimo-hotel": {
-    "km": 16,
-    "place": "ChIJ55hVpQWQwxQR5FABQHrfKTo"
+    "km": 16
   },
   "dionisus-hotel-spa-belek": {
     "km": 27,
-    "place": "ChIJD75ZwwB9wxQReIUXH8zFiZ4",
     "checked": true
   },
   "dizalya-palm-garden-otel": {
     "km": 115,
-    "place": "ChIJW4912o6k3BQRJNJw5tpcQik",
     "checked": true
   },
   "dogan-hotel": {
     "km": 16,
-    "place": "ChIJ55hVpQWQwxQR5FABQHrfKTo",
     "checked": true
   },
   "doganin-ruhu-otel-bungalow-restaurant": {
     "km": 206,
-    "place": "ChIJn8oGsGDdwRQRKkwnLiWBEFc",
     "checked": true
   },
   "dogus-hotel": {
-    "km": 25,
-    "place": "ChIJt1GHeEmRwxQRH5qzVWwEfSo"
+    "km": 25
   },
   "dosi-otel": {
     "km": 63,
-    "place": "ChIJUa5lDrDmn0ARsQQGxBA0q3o",
     "checked": true
   },
   "dosinia-luxury-resort": {
     "km": 49,
-    "place": "ChIJHYRgoKK4wxQRMMtLDts2qnE",
     "checked": true
   },
   "doubletree-by-hilton-antalya-city-centre": {
     "km": 15,
-    "place": "ChIJbQNfjfiPwxQR-QvdIQg1-uA",
     "checked": true
   },
   "dr-greens": {
     "km": 16,
-    "place": "ChIJecJkOEaPwxQRzwWiXG-YMMk",
     "checked": true
   },
   "dream-water-world": {
     "km": 60,
-    "place": "ChIJT0umQiZZwxQRlvAd2w3CGPE",
     "checked": true
   },
   "dream-world-palace-hotel": {
     "km": 55,
-    "place": "ChIJIfhjJQZfwxQRf58Dw8CPyUE",
     "checked": true
   },
   "dream-world-resort-hotel-spa": {
     "km": 59,
-    "place": "ChIJc32DQ8xewxQRqmb14jXD6ew",
     "checked": true
   },
   "drita-otel": {
     "km": 143,
-    "place": "ChIJW4A4iI6Q3BQRm13U9D8OudY",
     "checked": true
   },
   "ducale-lara-otel": {
     "km": 19,
-    "place": "ChIJqaHidDCPwxQRBqxVySqmf80",
     "checked": true
   },
   "dumlupinar-royal-rooms": {
-    "km": 20,
-    "place": "ChIJWUxWh2aPwxQRuEQegfMp0G8"
+    "km": 20
   },
   "durusu-suites": {
     "km": 17,
-    "place": "ChIJp7ZHW--awxQRuoidFA_3yMU",
     "checked": true
   },
   "echinus-lara-hotel": {
     "km": 13,
-    "place": "ChIJRQM2yUqDwxQRNZVBC1TjqQI",
     "checked": true
   },
   "edem-flower-otel": {
     "km": 67,
-    "place": "ChIJwxjurgq3wxQRE6R3b_hWnAE",
     "checked": true
   },
   "eden-nest-exclusive-hotel": {
     "km": 37,
-    "place": "ChIJpdtLMFV7wxQR7oZ3SyRfHJk",
     "checked": true
   },
   "efsali-hotel-kaleici": {
     "km": 16,
-    "place": "ChIJE-Wd_gWQwxQRvr7b7iITs8o",
     "checked": true
   },
   "eftalia-blue-hotel": {
     "km": 110,
-    "place": "ChIJd2_lQ-al3BQRN87fQpAsXlI",
     "checked": true
   },
   "eftalia-marin-resort-otel": {
     "km": 108,
-    "place": "ChIJb9ljZL6RwxQRmyntWM67mjk",
     "checked": true
   },
   "eftalia-ocean": {
     "km": 109,
-    "place": "ChIJ____tGSl3BQRDfqfCTmx3eQ",
     "checked": true
   },
   "ela-excellence-resort-belek": {
     "km": 37,
-    "place": "ChIJne-BsnN7wxQRHqi-kFBlONA",
     "checked": true
   },
   "elamir-resort-hotel": {
     "km": 59,
-    "place": "ChIJPUvH3iVZwxQR6hlp5Hz7V-A",
     "checked": true
   },
   "elanis-suites": {
     "km": 17,
-    "place": "ChIJBa-5_uWawxQRYdUZHjrp6FI",
     "checked": true
   },
   "elegance-east-hotel": {
     "km": 15,
-    "place": "ChIJJ0I9IAeQwxQRL00lz-4oTCk",
     "checked": true
   },
   "elijah-hotel": {
     "km": 62,
-    "place": "ChIJAQBA6KC3wxQR44rvPYW5LBw",
     "checked": true
   },
   "elips-royal-hotel-spa": {
     "km": 16,
-    "place": "ChIJA9AU8PmPwxQR9SFsIBJac_k",
     "checked": true
   },
   "elit-life-hotel": {
     "km": 67,
-    "place": "ChIJc-Aya2a2wxQRc9TWqQiCJmM",
     "checked": true
   },
   "elit-otel": {
     "km": 19,
-    "place": "ChIJI_F78NaRwxQRjq__8Gdnqbs",
     "checked": true
   },
   "eliz-hotel": {
     "km": 12,
-    "place": "ChIJx5ZA3DaDwxQReQUgqY3U7aU",
     "checked": true
   },
   "elysee-beach": {
     "km": 125,
-    "place": "ChIJE4NxSYWi3BQRdvNbIyeVJWw",
     "checked": true
   },
   "elysee-rive": {
     "km": 129,
-    "place": "ChIJEeo3YF6Y3BQRX-znFYNadgA",
     "checked": true
   },
   "elysium-deluxe-suites": {
     "km": 12,
-    "place": "ChIJ71yHWcGFwxQR4qThMBDdyKU",
     "checked": true
   },
   "elysium-green-suites": {
     "km": 11,
-    "place": "ChIJqXUZSAqFwxQRvI9tQDMwMck",
     "checked": true
   },
   "ema-houses": {
     "km": 8,
-    "place": "ChIJcfsYG12EwxQR1HCll8DmKQ4",
     "checked": true
   },
   "emelda-sun-club": {
     "km": 69,
-    "place": "ChIJA9MW0G-2wxQRqaWWykx-v_Y",
     "checked": true
   },
   "en-vie-beach-otel": {
     "km": 128,
-    "place": "ChIJxWfVn3-i3BQRVZHWa601OFU",
     "checked": true
   },
   "enda-lara-hotel": {
     "km": 13,
-    "place": "ChIJOdM7HqicwxQR6cQol5HMZxs",
     "checked": true
   },
   "ender-hotel": {
     "km": 16,
-    "place": "ChIJlaHHWaeawxQRXvCThnrwpb0",
     "checked": true
   },
   "eos-beach-hotel": {
     "km": 105,
-    "place": "ChIJs46WYKil3BQRx-iAPvWkctw",
     "checked": true
   },
   "erdem-hotel": {
     "km": 23,
-    "place": "ChIJX1BGBoiRwxQRlsR0vyLk400",
     "checked": true
   },
   "erdeniz-apart-otel": {
     "km": 15,
-    "place": "ChIJv-5pyFeFwxQRPvuZNBzuAcU",
     "checked": true
   },
   "ergun-otel": {
     "km": 127,
-    "place": "ChIJjc-bcH6Y3BQR_fxc1jnxst8",
     "checked": true
   },
   "erkal-pension": {
     "km": 16,
-    "place": "ChIJseaj9QaQwxQRZRLSs4I5Syo",
     "checked": true
   },
   "erkal-resort-hotel": {
     "km": 59,
-    "place": "ChIJx4rO0423wxQRqUWuaj8Ww04",
     "checked": true
   },
   "ersan-otel": {
     "km": 67,
-    "place": "ChIJnaIoTdZZwxQRglCeRAMuA6g",
     "checked": true
   },
   "ersoy-aga-otel": {
     "km": 16,
-    "place": "ChIJF1Ll-fyPwxQRQh_SechTfh0",
     "checked": true
   },
   "ersoy-ak-pansiyon": {
     "km": 16,
-    "place": "ChIJqySBxNePwxQRNfuHsohNwmI",
     "checked": true
   },
   "ersoy-efe-pansiyon": {
     "km": 16,
-    "place": "ChIJyQX63PyPwxQRqy5xbq6xOb4",
     "checked": true
   },
   "ersoy-ege-apart-otel": {
     "km": 17,
-    "place": "ChIJf7J5Jh-RwxQRiIEWlDRbarY",
     "checked": true
   },
   "ersoy-ikiz-otel": {
     "km": 16,
-    "place": "ChIJnY37wz2PwxQRTAgNcIrJLuo",
     "checked": true
   },
   "esen-otel": {
     "km": 15,
-    "place": "ChIJM21Pa8qRwxQRmEPCXM5LIGc",
     "checked": true
   },
   "eski-masal-hotel-special-class-adults-only": {
     "km": 16,
-    "place": "ChIJF3kmSQGQwxQRZ92lnl3UxLY",
     "checked": true
   },
   "esma-clove-resort": {
     "km": 49,
-    "place": "ChIJXW-0IvW3wxQRaMOlW-zi5hQ",
     "checked": true
   },
   "esmeralda-butik-otel": {
     "km": 82,
-    "place": "ChIJ14sILptTwxQROVqdJXteHno",
     "checked": true
   },
   "esperanza-hotel": {
     "km": 13,
-    "place": "ChIJ5x9bRFibwxQR00WDDhyPKA8",
     "checked": true
   },
   "espina-hotel": {
     "km": 15,
-    "place": "ChIJD9ePORqbwxQRs6J7VEbmBZM",
     "checked": true
   },
   "esse-joven-hotel": {
     "km": 16,
-    "place": "ChIJJXs_e1SPwxQRxHGB6btg87s",
     "checked": true
   },
   "estera-hotel-silent": {
-    "km": 25,
-    "place": "ChIJGbUuD26RwxQRa_peosNTTHs"
+    "km": 25
   },
   "ethno-belek-hotel": {
     "km": 38,
-    "place": "ChIJ8y6dSvZ7wxQREPFcQmKiGiA",
     "checked": true
   },
   "europa-selale-hotel": {
     "km": 23,
-    "place": "ChIJxexh46SRwxQRmo9DZcOdkpI",
     "checked": true
   },
   "eva-boutique-hotel": {
     "km": 25,
-    "place": "ChIJXVEO_8mRwxQRvBOxhhJf1nM",
     "checked": true
   },
   "expo-park-hotel": {
     "km": 12,
-    "place": "ChIJaaNL8RGFwxQRnA9gB8eax00",
     "checked": true
   },
   "exporoyal-hotel": {
     "km": 17,
-    "place": "ChIJydQvaeOPwxQR_K4D76YbHbo",
     "checked": true
   },
   "ezel-group-hotel": {
     "km": 19,
-    "place": "ChIJC7pewYGRwxQRyXZm7xSL-rc",
     "checked": true
   },
   "falcon-1511": {
     "km": 17,
-    "place": "ChIJBXaGPzGbwxQRPU2JEhJB3xU",
     "checked": true
   },
   "falcon-hotel": {
     "km": 17,
-    "place": "ChIJ0frQwO6awxQRaaW4AEPKyKs",
     "checked": true
   },
   "falez-uygulama-oteli": {
     "km": 23,
-    "place": "ChIJKSiHxiaQwxQRWv_30H9tLvI",
     "checked": true
   },
   "fame-beach-hotel": {
     "km": 61,
-    "place": "ChIJ6URHQpm3wxQRkK1I-AC2_Ok",
     "checked": true
   },
   "fame-otel": {
     "km": 61,
-    "place": "ChIJl_AhB5m3wxQRr6yggHb4Tnk",
     "checked": true
   },
   "fame-residence-goynuk-otel": {
     "km": 52,
-    "place": "ChIJ93La3_a4wxQRKeWDxVkSWhk",
     "checked": true
   },
   "fame-residence-lara": {
     "km": 16,
-    "place": "ChIJ____P1D2wxQRAM6ZFZJ4RPk",
     "checked": true
   },
   "family-apart-hotel-2022-6": {
     "km": 24,
-    "place": "ChIJTeVMwLWRwxQRC2k6FcaG-VU",
     "checked": true
   },
   "far-life-hotel": {
     "km": 31,
-    "place": "ChIJD9Y_EfqTwxQREIbo-vOzwMM",
     "checked": true
   },
   "fashiontv-luxe-resort": {
     "km": 51,
-    "place": "ChIJe523-1u5wxQRVhqzv2Cd8w4",
     "checked": true
   },
   "febeach-otel": {
     "km": 62,
-    "place": "ChIJyZpwOHxZwxQRQ7WXtbsojcA",
     "checked": true
   },
   "flamingo-residence": {
     "km": 29,
-    "place": "ChIJ2ZU7quyTwxQRFrjjdA1LJLM",
     "checked": true
   },
   "flaneur-hostel": {
     "km": 16,
-    "place": "ChIJk0hv3pyRwxQRH5jrxWbV22Q",
     "checked": true
   },
   "fora-inn-lara": {
     "km": 18,
-    "place": "ChIJp5uGq8KawxQRXwjMZEP6rsM",
     "checked": true
   },
   "fore-resort-otel": {
     "km": 60,
-    "place": "ChIJgQMEJ-u3wxQRv0NwB0_HAhQ",
     "checked": true
   },
   "forest-park": {
     "km": 62,
-    "place": "ChIJQYoJsKS3wxQRFZc6fR4FigQ",
     "checked": true
   },
   "four-hills-hotel": {
     "km": 25,
-    "place": "ChIJaQsELW6RwxQRnwOCUXc-ffc",
     "checked": true
   },
   "four-points-flex-by-sheraton-antalya-lara": {
     "km": 14,
-    "place": "ChIJw_nhdr-bwxQR6Qkm1okPRXU",
     "checked": true
   },
   "frankfurt-hotel": {
     "km": 16,
-    "place": "ChIJhX7rew-QwxQRGi13UHK9G-w",
     "checked": true
   },
   "fun-sun-smart-akman-beach": {
     "km": 71,
-    "place": "ChIJTYrmjXa2wxQRghj3_7V6mHA",
     "checked": true
   },
   "fun-sun-smart-lurea-beach": {
     "km": 67,
-    "place": "ChIJgQsBh_a3wxQR_gDkuNOwMQU",
     "checked": true
   },
   "fun-sun-smart-river-resort": {
     "km": 17,
-    "place": "ChIJByJiOB2QwxQRjqM8siYeeX4",
     "checked": true
   },
   "furkan-homes": {
     "km": 24,
-    "place": "ChIJhwVkEuSRwxQRbBfhYBaFdPI",
     "checked": true
   },
   "gagarin-pub-hotel": {
     "km": 16,
-    "place": "ChIJD1uYDQaQwxQRVwOVM5AUpyg",
     "checked": true
   },
   "galaxy-beach": {
     "km": 143,
-    "place": "ChIJi4cWtqCQ3BQRbKUGCCG4Lu4",
     "checked": true
   },
   "galeri-resort-hotel": {
     "km": 91,
-    "place": "ChIJq6qq6jCs3BQRVyzIAM2FEVU",
     "checked": true
   },
   "garden-bungalows-and-suites": {
     "km": 44,
-    "place": "ChIJJ8Rl5fW_wxQRBug-n5na2jE",
     "checked": true
   },
   "garden-park-beldibi-hotel": {
     "km": 44,
-    "place": "ChIJjTw9zw-_wxQR9juwSbulWt8",
     "checked": true
   },
   "gardenia": {
     "km": 125,
-    "place": "ChIJCSz315qi3BQR_9sDWLLO-Fk",
     "checked": true
   },
   "gardenia-beach-otel": {
     "km": 93,
-    "place": "ChIJgdpKYf6s3BQRhIs4jF8PluQ",
     "checked": true
   },
   "gardenya-house-antalya-apart-otel": {
     "km": 12,
-    "place": "ChIJQwaV002DwxQRT3pxBwLy0zM",
     "checked": true
   },
   "gardenya-lara-suit-hotel": {
     "km": 12,
-    "place": "ChIJQwaV002DwxQRT3pxBwLy0zM",
     "checked": true
   },
   "giges-king-boutique-hotel": {
     "km": 16,
-    "place": "ChIJkdIY2AWQwxQRh7D8lPw_Teo",
     "checked": true
   },
   "gizli-koy-hotel": {
     "km": 44,
-    "place": "ChIJ4UoVYZdXwxQR5bHfpucZNdE",
     "checked": true
   },
   "gloria-golf-resort": {
     "km": 41,
-    "place": "ChIJt5ahH0x7wxQRXDpgkWmSW1s",
     "checked": true
   },
   "gloria-serenity-resort": {
     "km": 41,
-    "place": "ChIJzaPxxZZkwxQR1Li1YtE_-ss",
     "checked": true
   },
   "gloria-verde-resort": {
     "km": 39,
-    "place": "ChIJE6rIDbdkwxQRie5aFP-jj_4",
     "checked": true
   },
   "gold-coast-hostel": {
     "km": 16,
-    "place": "ChIJ5VdrVw-QwxQR7pIF9GSAq2k",
     "checked": true
   },
   "golda-hotel": {
-    "km": 17,
-    "place": "ChIJp_n-3naRwxQRckY7m-LFtic"
+    "km": 17
   },
   "goldcity-hotel": {
     "km": 146,
-    "place": "ChIJSeI-PYWY3BQRVDvDz27wCRU",
     "checked": true
   },
   "golden-lotus": {
     "km": 61,
-    "place": "ChIJR2Id2Ju3wxQRq_UFI1ZVzVM",
     "checked": true
   },
   "golden-lux-hotel": {
     "km": 17,
-    "place": "ChIJp_n-3naRwxQRckY7m-LFtic",
     "checked": true
   },
   "golden-orange-hotel": {
     "km": 26,
-    "place": "ChIJ0QYcXG-RwxQRbKGFDrASvbM",
     "checked": true
   },
   "golden-spark-apart-otel": {
-    "km": 17,
-    "place": "ChIJp_n-3naRwxQRckY7m-LFtic"
+    "km": 17
   },
   "golden-world-suite-hotel": {
     "km": 29,
-    "place": "ChIJ-a-pUVOTwxQRFQ6C7h3YIY0",
     "checked": true
   },
   "graf-victor-otel": {
     "km": 141,
-    "place": "ChIJ13MZLYSZ3BQR8n5a5GmSlmM",
     "checked": true
   },
   "granada-luxury-beach": {
     "km": 103,
-    "place": "ChIJzdspSeqv3BQRZWAHV4elPMQ",
     "checked": true
   },
   "granada-luxury-belek": {
     "km": 37,
-    "place": "ChIJ0QsJ_VB7wxQRM2WyQwXYBMA",
     "checked": true
   },
   "granada-luxury-red": {
     "km": 103,
-    "place": "ChIJFehGPViv3BQR8rOmpCeIQTg",
     "checked": true
   },
   "grand-antalya-hotel": {
     "km": 17,
-    "place": "ChIJ_0qFDX-RwxQRGBBgJ2oaMdY",
     "checked": true
   },
   "grand-can-hotel": {
     "km": 17,
-    "place": "ChIJP3M7AwGQwxQRuMLCv4DLQtI",
     "checked": true
   },
   "grand-cortez-resort-hotel-spa": {
     "km": 115,
-    "place": "ChIJ8wqiCS-l3BQReaww-Ace6ls",
     "checked": true
   },
   "grand-erken-hotel": {
     "km": 16,
-    "place": "ChIJMe7FvwaQwxQR3Nt-t2S-V-Q",
     "checked": true
   },
   "grand-friends-bed-breakfast": {
     "km": 16,
-    "place": "ChIJ83sv4aORwxQRhclTSh8fPDI",
     "checked": true
   },
   "grand-hotel-derin": {
     "km": 45,
-    "place": "ChIJLU5PcBe_wxQRuHcBONbyvvE",
     "checked": true
   },
   "grand-kayalar-hotel": {
     "km": 16,
-    "place": "ChIJ1STeEASQwxQRsDACXXZOPDw",
     "checked": true
   },
   "grand-mir-amor-hotel-spa": {
     "km": 67,
-    "place": "ChIJMTPuVwC3wxQRCWkjeg4QJvg",
     "checked": true
   },
   "grand-nar-otel": {
     "km": 62,
-    "place": "ChIJ-2_iU6S3wxQRJvBpr80g-3c",
     "checked": true
   },
   "grand-nergiz-otel": {
     "km": 16,
-    "place": "ChIJGzim22qPwxQRIaf58y37kxY",
     "checked": true
   },
   "grand-niki-hotel-spa": {
     "km": 12,
-    "place": "ChIJu7DdXnubwxQRKAljfuT2o28",
     "checked": true
   },
   "grand-park-kemer": {
     "km": 49,
-    "place": "ChIJVVVVVYW4wxQRS-Hb_3LnNcw",
     "checked": true
   },
   "grand-park-lara": {
     "km": 17,
-    "place": "ChIJryYFiq2cwxQRAT3EWXehqkw",
     "checked": true
   },
   "grand-viking": {
     "km": 62,
-    "place": "ChIJP2NKq6W3wxQRxJFxdlxuwZg",
     "checked": true
   },
   "grand-zaman-garden-otel": {
     "km": 141,
-    "place": "ChIJrdxPlgua3BQR7f-0AYUVPLQ",
     "checked": true
   },
   "green-beyza-hotel": {
     "km": 15,
-    "place": "ChIJZxB_GlmbwxQRh8jrOWJcJH0",
     "checked": true
   },
   "green-valley-boutique-hotel-spa-restourant": {
     "km": 64,
-    "place": "ChIJWaSW_zTJwxQRtomhVldHpbo",
     "checked": true
   },
   "greenwood-suites-resort": {
     "km": 17,
-    "place": "ChIJn1Ptjx-FwxQRWzLs2V3dikA",
     "checked": true
   },
   "gul-mountain-hotel": {
     "km": 65,
-    "place": "ChIJyR1dmv3FwxQRVsuAjUJCTi4",
     "checked": true
   },
   "guler-butik-hotel": {
     "km": 44,
-    "place": "ChIJIbI4-PO4wxQRg32udnBGa14",
     "checked": true
   },
   "gulizar-hotel": {
     "km": 25,
-    "place": "ChIJMXk8nPqRwxQRwj7rgQoay8Q",
     "checked": true
   },
   "gunay-pansiyon": {
     "km": 18,
-    "place": "ChIJz8N5ZdCPwxQRPJs5jFLAvC8",
     "checked": true
   },
   "gural-premier-tekirova": {
     "km": 77,
-    "place": "ChIJM9x6Kn21wxQR5IQqVJne9NI",
     "checked": true
   },
   "gurtas-hotel": {
     "km": 17,
-    "place": "ChIJv2pDrOOPwxQRfolPT4AKdw8",
     "checked": true
   },
   "gvar-hotel": {
     "km": 17,
-    "place": "ChIJmRl-pQOQwxQRW2rGITpDjCI",
     "checked": true
   },
   "gypsophila-club-marine": {
     "km": 48,
-    "place": "ChIJW27GEvbIwxQRRCq4LT1_BjY",
     "checked": true
   },
   "gypsophila-holiday-village": {
     "km": 91,
-    "place": "ChIJAVSVKOSs3BQRB-SLzEDkHfU",
     "checked": true
   },
   "hadrian-gate-hotel": {
     "km": 16,
-    "place": "ChIJsdGVxQaQwxQRWueQfhzZdXY",
     "checked": true
   },
   "hadrians-tower-apart-otel": {
     "km": 15,
-    "place": "ChIJnYLBL_6RwxQR5WBugdkV0zs",
     "checked": true
   },
   "hadrianus-pansion-otel": {
     "km": 16,
-    "place": "ChIJL766iQWQwxQRCj3JZHVK1fg",
     "checked": true
   },
   "hampton-by-hilton-antalya-airport-otel": {
     "km": 9,
-    "place": "ChIJ0xi0ltKFwxQRkOu3GkmsTyI",
     "checked": true
   },
   "han-hotel": {
-    "km": 17,
-    "place": "ChIJHa-HpByQwxQRG4CyLYvyzic"
+    "km": 17
   },
   "hane-family-resort": {
     "km": 61,
-    "place": "ChIJvfIajjhZwxQR6kW50l91YB0",
     "checked": true
   },
   "hane-sun-elite-hotel": {
     "km": 57,
-    "place": "ChIJdwBqziNfwxQRNWdEqOonpK4",
     "checked": true
   },
   "hare-hotel": {
     "km": 158,
-    "place": "ChIJ1b7kqguO3BQRXLF0tdUUMp4",
     "checked": true
   },
   "hawaii-suite-beach-otel": {
     "km": 128,
-    "place": "ChIJuW-aHl6Y3BQRm8cg6E5OeEk",
     "checked": true
   },
   "hayal-residence-apart-otel": {
     "km": 17,
-    "place": "ChIJj4_bXbKbwxQR1euogZyYUwo",
     "checked": true
   },
   "hedef-beach-hotel": {
     "km": 114,
-    "place": "ChIJsQb9-_Kk3BQRIq5eSdORfi4",
     "checked": true
   },
   "hedef-resort-otel": {
     "km": 113,
-    "place": "ChIJl2fJLACl3BQRRn0emyDWXpA",
     "checked": true
   },
   "held-hotel": {
     "km": 16,
-    "place": "ChIJIYVpVg-QwxQRFN_Wqj9g5iA",
     "checked": true
   },
   "hilal-otel": {
     "km": 124,
-    "place": "ChIJf0UNGY-i3BQRnxPQ7U5R8OA",
     "checked": true
   },
   "holiday-box-club-otel": {
-    "km": 51,
-    "place": "ChIJgQXpGuW4wxQRz4lzJoaQYOI"
+    "km": 51
   },
   "holiday-inn-antalya-lara-by-ihg": {
     "km": 13,
-    "place": "ChIJh359luaPwxQRFRPSJCalBNg",
     "checked": true
   },
   "hostel-vague": {
-    "km": 16,
-    "place": "ChIJk0hv3pyRwxQRH5jrxWbV22Q"
+    "km": 16
   },
   "hotel-1207-special-class": {
     "km": 15,
-    "place": "ChIJb4KL8AaQwxQRlZN_sAS6QSw",
     "checked": true
   },
   "hotel-alyans": {
     "km": 17,
-    "place": "ChIJu_-zx06PwxQR5VQUqxdRZfs",
     "checked": true
   },
   "hotel-destill": {
     "km": 17,
-    "place": "ChIJzw1N_eaPwxQRVuBYTCSMDFM",
     "checked": true
   },
   "hotel-gold-stone": {
     "km": 44,
-    "place": "ChIJfXmUBJe3wxQRnk8kkDbGUc8",
     "checked": true
   },
   "hotel-golden-sun": {
     "km": 46,
-    "place": "ChIJM6oDiBe_wxQR1BHumrwC-qE",
     "checked": true
   },
   "hotel-guleryuz": {
     "km": 15,
-    "place": "ChIJkeRXvYViwxQRxoS1Ny6O6R0",
     "checked": true
   },
   "hotel-karyatit-kaleici": {
     "km": 16,
-    "place": "ChIJO8ISSw-QwxQRUbErDYxIJ6M",
     "checked": true
   },
   "hotel-lunay": {
     "km": 23,
-    "place": "ChIJlfJGEqSRwxQRDR0-2oDp1dg",
     "checked": true
   },
   "hotel-lykia-old-town": {
     "km": 16,
-    "place": "ChIJ5ToOUGuRwxQRMV961GZQqxY",
     "checked": true
   },
   "hotel-mandalin": {
     "km": 19,
-    "place": "ChIJJeJjgtWRwxQRsGtHiCRa10c",
     "checked": true
   },
   "hotel-ozkaymak": {
     "km": 126,
-    "place": "ChIJGRrpPIWY3BQRCxOzOHfMWpo",
     "checked": true
   },
   "hotel-reutlingen-hof": {
     "km": 16,
-    "place": "ChIJNSl1pAWQwxQRd3RR43hpFfY",
     "checked": true
   },
   "hotel-royal-hill": {
     "km": 23,
-    "place": "ChIJRdwR2aWRwxQRit3rUqHJPzg",
     "checked": true
   },
   "hotel-s-white": {
     "km": 23,
-    "place": "ChIJnVOA46-RwxQRknOWajHhOK0",
     "checked": true
   },
   "hotel-su-aqualand": {
     "km": 22,
-    "place": "ChIJK_wWWxqQwxQR1p-TPCI47MI",
     "checked": true
   },
   "hotel-terrace-beach-resort": {
     "km": 61,
-    "place": "ChIJlwXuqBqQwxQRABHwq3LEeQo",
     "checked": true
   },
   "hotel-twenty": {
     "km": 17,
-    "place": "ChIJb91aVwGQwxQR01dXToZWj1w",
     "checked": true
   },
   "hotel-villa-granada": {
     "km": 26,
-    "place": "ChIJhUa-FmeRwxQRBlvi0IUftVM",
     "checked": true
   },
   "house-of-good-things-otel": {
     "km": 16,
-    "place": "ChIJIVHXSDyRwxQR3xoTqj6Prw8",
     "checked": true
   },
   "huma-elite-hotel": {
     "km": 14,
-    "place": "ChIJ2eCc43CDwxQRplGWpOFOM2s",
     "checked": true
   },
   "iberotel-serra-palace-kizilot": {
     "km": 82,
-    "place": "ChIJB_GjMPNTwxQRk9ZF_kp0i2E",
     "checked": true
   },
   "ic-hotels-airport": {
     "km": 3,
-    "place": "ChIJs1zp2_CDwxQRRU-bBazfMP8",
     "checked": true
   },
   "ic-hotels-green-palace": {
     "km": 20,
-    "place": "ChIJMQT54biCwxQRwKMY6X42EZ4",
     "checked": true
   },
   "ic-hotels-green-palace-kids-concept": {
     "km": 20,
-    "place": "ChIJMQT54biCwxQRwKMY6X42EZ4",
     "checked": true
   },
   "ic-hotels-green-palace-villas": {
     "km": 20,
-    "place": "ChIJMQT54biCwxQRwKMY6X42EZ4",
     "checked": true
   },
   "ic-hotels-residence": {
-    "km": 20,
-    "place": "ChIJMQT54biCwxQRwKMY6X42EZ4"
+    "km": 20
   },
   "ic-hotels-santai-family-resort": {
     "km": 30,
-    "place": "ChIJeU845l17wxQRaJp8eN-yMfU",
     "checked": true
   },
   "illusion-beach-club-hotel": {
     "km": 121,
-    "place": "ChIJARtI_AKj3BQRGN70Yc2ggnI",
     "checked": true
   },
   "imperial-sunland-resort": {
     "km": 49,
-    "place": "ChIJjdQMUtS4wxQRBvmfe9cHIE8",
     "checked": true
   },
   "imperial-turkiz-resort-hotel": {
     "km": 61,
-    "place": "ChIJz7qVaFS3wxQRempM5t79x_I",
     "checked": true
   },
   "in-the-middle": {
     "km": 16,
-    "place": "ChIJ5f6lBamRwxQR0uxMvAHu3s8",
     "checked": true
   },
   "incekum-west-otel": {
     "km": 100,
-    "place": "ChIJ6zs6zcW9vxQR6Fz19wPhmK4",
     "checked": true
   },
   "inno-concept-hotel": {
     "km": 12,
-    "place": "ChIJpf-UOU6FwxQRjJvWbjtC20I",
     "checked": true
   },
   "innvista-hotel-belek": {
     "km": 28,
-    "place": "ChIJufiiVe57wxQRbzZQ9tWb8zk",
     "checked": true
   },
   "insula-resort-spa": {
     "km": 112,
-    "place": "ChIJuSnkgf6k3BQRL0yM6TQiZ2Q",
     "checked": true
   },
   "irenic-hotel": {
     "km": 31,
-    "place": "ChIJixa9LK2FwxQRUxKEMzeU9MQ",
     "checked": true
   },
   "is-hotel": {
     "km": 15,
-    "place": "ChIJMc_DYX6bwxQROEHdPBQfqAU",
     "checked": true
   },
   "isinda-hotel": {
     "km": 25,
-    "place": "ChIJJX-zr2-RwxQRWvFRIbsp5mc",
     "checked": true
   },
   "isnova-hotel-airport": {
     "km": 8,
-    "place": "ChIJzbYeHyyFwxQR5whtiW01pDI",
     "checked": true
   },
   "iz-flower-side-beach-hotel": {
     "km": 61,
-    "place": "ChIJrVDR5jVZwxQR6uAwz-7Zo6E",
     "checked": true
   },
   "juju-premier-palace": {
     "km": 44,
-    "place": "ChIJAc1X766_wxQRztooRbhmN88",
     "checked": true
   },
   "jura-hotels-lara": {
-    "km": 18,
-    "place": "ChIJGW5Dr2SDwxQR1QaBY_NWP1Q"
+    "km": 18
   },
   "just-inn-city": {
     "km": 15,
-    "place": "ChIJkY7nTSeRwxQR-5jUX6fdvII",
     "checked": true
   },
   "justiniano-deluxe-resort": {
     "km": 94,
-    "place": "ChIJY8D_s6qt3BQRAg5MeqbIMYk",
     "checked": true
   },
   "justiniano-park-conti-otel": {
     "km": 93,
-    "place": "ChIJ93obnf2s3BQRirZU6DCxJZ8",
     "checked": true
   },
   "justiniano-theodora-otel": {
     "km": 94,
-    "place": "ChIJ_zboDVWs3BQR3DzNt5a-hbE",
     "checked": true
   },
   "kadeer-hotel": {
     "km": 127,
-    "place": "ChIJtVCnTGOZ3BQRh7-PKhTajN4",
     "checked": true
   },
   "kafkas-hotel": {
     "km": 23,
-    "place": "ChIJa5dpOCORwxQR394GzMrMPsQ",
     "checked": true
   },
   "kahya-otel": {
     "km": 109,
-    "place": "ChIJu7f-jXOl3BQRk-v6WyP5rV8",
     "checked": true
   },
   "kahya-resort-aqua-spa": {
     "km": 109,
-    "place": "ChIJg1Qze3Sl3BQRqiDdHYu5Fww",
     "checked": true
   },
   "kaia-coracesium": {
     "km": 113,
-    "place": "ChIJw6oJyE-l3BQRM9FtT9mr-6U",
     "checked": true
   },
   "kaila-beach-hotel": {
     "km": 131,
-    "place": "ChIJq6ouu62Z3BQRmBuOsH4aqqY",
     "checked": true
   },
   "kaila-krizantem-otel": {
     "km": 130,
-    "place": "ChIJM0S4plOY3BQRKXv2fiBeUao",
     "checked": true
   },
   "kaleici-butik-otel": {
     "km": 16,
-    "place": "ChIJ5br7-wOQwxQRD-IlIwWeGLo",
     "checked": true
   },
   "kaleici-hotel": {
     "km": 16,
-    "place": "ChIJc_8x9QWQwxQRVCarSHRaiH4",
     "checked": true
   },
   "kaleici-ozkavak-hotel": {
     "km": 16,
-    "place": "ChIJt46LxQaQwxQRD66EiPXcqFg",
     "checked": true
   },
   "kaleici-pera-palace-hotel": {
     "km": 16,
-    "place": "ChIJO6Jd9AWQwxQRz8WwxxVp39Q",
     "checked": true
   },
   "kalispera-hotel": {
     "km": 16,
-    "place": "ChIJ5XYc9_yPwxQRvQHqFk7RdkE",
     "checked": true
   },
   "kaliye-aspendos-hotel": {
     "km": 25,
-    "place": "ChIJNSpMlnGRwxQRgJr0YcL72gg",
     "checked": true
   },
   "kandelor-otel": {
     "km": 125,
-    "place": "ChIJMZDcp4eY3BQRx0j6UC4YRE8",
     "checked": true
   },
   "karden-otel": {
     "km": 15,
-    "place": "ChIJm-jab5ubwxQR9JQ1QXqlNcs",
     "checked": true
   },
   "karmir-resort-spa-hotel": {
     "km": 52,
-    "place": "ChIJ8wAAAPC4wxQR4VbkdcjqxUg",
     "checked": true
   },
   "kartal-hotel": {
     "km": 23,
-    "place": "ChIJx2JjPKSRwxQRrKoETnb-Nzc",
     "checked": true
   },
   "kartalkaya-apart-otel": {
     "km": 20,
-    "place": "ChIJqz3hl9yPwxQR1EMWE1yMwXk",
     "checked": true
   },
   "karya-konaklama": {
     "km": 17,
-    "place": "ChIJJW_XfxuQwxQR0H0wwNVczhM",
     "checked": true
   },
   "kaucuk-hotel-adult-only": {
     "km": 17,
-    "place": "ChIJjXDLJgSQwxQRiePiqf7XbZQ",
     "checked": true
   },
   "kaya-belek-hotel": {
     "km": 29,
-    "place": "ChIJ-c0ticR7wxQR3TLeb8y6kgs",
     "checked": true
   },
   "kaya-hotel": {
     "km": 17,
-    "place": "ChIJ-3XgPwKQwxQRR6v2tLP9SF8",
     "checked": true
   },
   "kaya-palazzo-golf-resort": {
     "km": 29,
-    "place": "ChIJQajScMN7wxQR0g3jfOlCdoc",
     "checked": true
   },
   "kaya-side": {
     "km": 71,
-    "place": "ChIJmWF_KK1QwxQRS9eJKBfTQwg",
     "checked": true
   },
   "kayalar-hotel": {
     "km": 16,
-    "place": "ChIJ01ISP_2PwxQRsJ-D02Zroqw",
     "checked": true
   },
   "kelebek-otel": {
     "km": 64,
-    "place": "ChIJGee7Y7pZwxQRDWeyFy9QLt0",
     "checked": true
   },
   "kemer-barut-collection": {
-    "km": 60,
-    "place": "ChIJUdoW6ZG3wxQR6FP8u1k9aSM"
+    "km": 60
   },
   "kemer-dream-otel": {
     "km": 60,
-    "place": "ChIJQ08eWZC3wxQR1P7WcT6-aVg",
     "checked": true
   },
   "kemer-hotel": {
     "km": 62,
-    "place": "ChIJaxlmBJ-3wxQRw3dm4bBV_mI",
     "checked": true
   },
   "kervan-hotel": {
     "km": 16,
-    "place": "ChIJoSdg2AWQwxQRmdQm7w6UquM",
     "checked": true
   },
   "kervansaray-kundu": {
     "km": 16,
-    "place": "ChIJvS-Ff9qCwxQRyrLWIMOpbLU",
     "checked": true
   },
   "kervansaray-lara-convention-center-spa": {
     "km": 16,
-    "place": "ChIJvS-Ff9qCwxQRyrLWIMOpbLU",
     "checked": true
   },
   "kiana-kaleici-otel": {
     "km": 16,
-    "place": "ChIJhRcFjgWQwxQR2XC816KZ46o",
     "checked": true
   },
   "kirbiyik-resort-otel": {
     "km": 145,
-    "place": "ChIJr5kQIHuQ3BQRuwInSiPTpBg",
     "checked": true
   },
   "kirman-arycanda-de-luxe": {
     "km": 93,
-    "place": "ChIJEZhcbMqZ3BQRMQF7mJ17-Po",
     "checked": true
   },
   "kirman-belazur-resort-spa": {
     "km": 43,
-    "place": "ChIJ5Y7F-AxkwxQRR9PP9OvOW8c",
     "checked": true
   },
   "kirman-leodikya-resort": {
     "km": 93,
-    "place": "ChIJzent3Q2s3BQRAbymNnQ1D7A",
     "checked": true
   },
   "kirman-sidemarin-beach-spa": {
     "km": 62,
-    "place": "ChIJV61vJ0dZwxQR1-euSZdWaU4",
     "checked": true
   },
   "kisla-pansiyon": {
     "km": 17,
-    "place": "ChIJjzpYVAKQwxQRHeJa0aKIRrA",
     "checked": true
   },
   "kivrak-hotel": {
     "km": 16,
-    "place": "ChIJsbZ8Of2PwxQRHK3jRNfiIi4",
     "checked": true
   },
   "klas-more-beach-hotel": {
     "km": 141,
-    "place": "ChIJk5xnLQia3BQRnoD8OusrAjw",
     "checked": true
   },
   "kleopatra-ada-beach-otel": {
     "km": 124,
-    "place": "ChIJYx7HNoyi3BQRmw8phqLQfs4",
     "checked": true
   },
   "kleopatra-arsi-otel": {
     "km": 125,
-    "place": "ChIJ9zj9UI6i3BQRVsRT1KMjI0M",
     "checked": true
   },
   "kleopatra-beach-otel": {
     "km": 124,
-    "place": "ChIJZ4-SjI6i3BQRCbOWThGjvTU",
     "checked": true
   },
   "kleopatra-bebek-otel": {
     "km": 126,
-    "place": "ChIJHzvvPJui3BQRwbUZNFCHq0g",
     "checked": true
   },
   "kleopatra-carina-otel": {
     "km": 125,
-    "place": "ChIJHRSqXZui3BQR33c_E7F_2to",
     "checked": true
   },
   "kleopatra-life-otel": {
     "km": 124,
-    "place": "ChIJR2bb19uj3BQRig8nxSdrAnk",
     "checked": true
   },
   "kleopatra-micador": {
     "km": 125,
-    "place": "ChIJCTkQHYWY3BQR6m17Pxmigo0",
     "checked": true
   },
   "kleopatra-ramira-hotel": {
     "km": 125,
-    "place": "ChIJHxrDsoCi3BQRUkPdgpnrmuc",
     "checked": true
   },
   "kleopatra-royal-palm-otel": {
     "km": 124,
-    "place": "ChIJHSfADYyi3BQRzenOqFtT4Lk",
     "checked": true
   },
   "kleopatra-sahara-otel": {
     "km": 125,
-    "place": "ChIJ0_wj_I6i3BQReWaUND8lLUY",
     "checked": true
   },
   "kleopatra-smile-otel": {
     "km": 125,
-    "place": "ChIJX8WLP3Gj3BQRfCO9VFordoE",
     "checked": true
   },
   "koesk-boutique-hotel-old-town-city-center": {
-    "km": 16,
-    "place": "ChIJ5ToOUGuRwxQRMV961GZQqxY"
+    "km": 16
   },
   "kolibry-sv-hotel": {
     "km": 25,
-    "place": "ChIJ9646lW-RwxQRIjpDtn44_2I",
     "checked": true
   },
   "konak-hotel-kaleici": {
     "km": 16,
-    "place": "ChIJedt3yPCRwxQRX8EZrMLG-zs",
     "checked": true
   },
   "kont-pension": {
     "km": 16,
-    "place": "ChIJwwzP7QaQwxQRXD5g7BetVIU",
     "checked": true
   },
   "konya6-elit-hotel": {
     "km": 19,
-    "place": "ChIJI_F78NaRwxQRjq__8Gdnqbs",
     "checked": true
   },
   "konyaalti-butik-hotel": {
     "km": 24,
-    "place": "ChIJ9d4QOKGRwxQRx5TytDLmX4c",
     "checked": true
   },
   "konyaalti-hotel": {
     "km": 24,
-    "place": "ChIJ9d4QOKGRwxQRx5TytDLmX4c",
     "checked": true
   },
   "kosa-boutique-hotel": {
     "km": 16,
-    "place": "ChIJJ5y9KguRwxQRl6L8QcAvH3U",
     "checked": true
   },
   "kremlin-palace": {
     "km": 16,
-    "place": "ChIJiUWlMml4wxQR6KSQRyD2ykw",
     "checked": true
   },
   "kristal-beach-hotel": {
     "km": 23,
-    "place": "ChIJk__Sbq-RwxQRUAvYgsYjZG4",
     "checked": true
   },
   "kriti-hotel": {
     "km": 17,
-    "place": "ChIJYekpnf6PwxQRmPkCct1dvk0",
     "checked": true
   },
   "kuyu-beergarden-hostel": {
     "km": 16,
-    "place": "ChIJwZoCjoSRwxQRA8OeJyRmjB4",
     "checked": true
   },
   "kylo-garden-hotel": {
-    "km": 23,
-    "place": "ChIJq1i5Xa-RwxQRvBtFZ6kvPCw"
+    "km": 23
   },
   "l-ancora-beach-hotel": {
     "km": 61,
-    "place": "ChIJTdEpbpm3wxQR45zLUktqBKw",
     "checked": true
   },
   "l-oceanica-beach-resort": {
     "km": 67,
-    "place": "ChIJf0rL32a2wxQRdrY1mhTn60k",
     "checked": true
   },
   "la-benata-hotel": {
-    "km": 90,
-    "place": "ChIJWZK_Spet3BQRGfONqE3xEO4"
+    "km": 90
   },
   "la-brisa-hotel": {
     "km": 31,
-    "place": "ChIJy4tU_eKTwxQR8isc29roOno",
     "checked": true
   },
   "la-cactus-boutique-hotel": {
     "km": 25,
-    "place": "ChIJnZAWOl-RwxQRMMN1cSpH3TE",
     "checked": true
   },
   "la-casa-carina-otel": {
     "km": 16,
-    "place": "ChIJaTRhozCRwxQRSAIkYFLtDiM",
     "checked": true
   },
   "la-maja-hotel": {
     "km": 17,
-    "place": "ChIJa7QkiQGbwxQR8fEGskJiWN0",
     "checked": true
   },
   "la-paloma-hotel": {
     "km": 16,
-    "place": "ChIJJUG6_QWQwxQR8kxkXCIE2EU",
     "checked": true
   },
   "la-rezidans-hotel": {
     "km": 13,
-    "place": "ChIJ_5HmzG2bwxQRGjtohGQO5QU",
     "checked": true
   },
   "la-vita-es-bella": {
     "km": 24,
-    "place": "ChIJdfP4eiWRwxQRAISXJ4nlUAQ",
     "checked": true
   },
   "la-vita-hotels": {
-    "km": 24,
-    "place": "ChIJdfP4eiWRwxQRAISXJ4nlUAQ"
+    "km": 24
   },
   "lago-hotel": {
     "km": 71,
-    "place": "ChIJF8lhXa1QwxQRwrSCFstZIlM",
     "checked": true
   },
   "laguna-beach-alya-resort-spa-hotel": {
     "km": 94,
-    "place": "ChIJCTlMxKqt3BQRXLgf4V0cnSo",
     "checked": true
   },
   "lake-river-side-hotel-spa": {
     "km": 71,
-    "place": "ChIJYzq97FNXwxQRQkAYgZvYZg8",
     "checked": true
   },
   "lara-barut-collection": {
     "km": 14,
-    "place": "ChIJN37_D0JZwxQR8ti7kKij9js",
     "checked": true
   },
   "lara-beach-homes": {
     "km": 12,
-    "place": "ChIJp1XgWQ6FwxQRMv-5NHUCmq8",
     "checked": true
   },
   "lara-boutique-hotel": {
     "km": 11,
-    "place": "ChIJZ_4_-YaFwxQR1V6bIFvIJn4",
     "checked": true
   },
   "lara-diamond-hotel": {
     "km": 13,
-    "place": "ChIJDRpvXVibwxQR_5W97YuMp-k",
     "checked": true
   },
   "lara-dinc-hotel": {
     "km": 13,
-    "place": "ChIJRWYq8aecwxQRghR207-LYao",
     "checked": true
   },
   "lara-eyfel-hotel": {
     "km": 17,
-    "place": "ChIJ6co0_-SawxQRI4sAenMmaUA",
     "checked": true
   },
   "lara-garden-hotel": {
     "km": 12,
-    "place": "ChIJCddMBK2cwxQRmMZMoe0ScRA",
     "checked": true
   },
   "lara-hadrianus-hotel": {
     "km": 15,
-    "place": "ChIJP5azcj6bwxQRGQakX7eo5P8",
     "checked": true
   },
   "lara-hotel": {
     "km": 14,
-    "place": "ChIJyT_PFkGbwxQRKcsH4JBmQYU",
     "checked": true
   },
   "lara-kapris-hotel": {
     "km": 13,
-    "place": "ChIJfQiQVlibwxQRMVDm-j80JFY",
     "checked": true
   },
   "lara-olympos-pansiyon": {
     "km": 13,
-    "place": "ChIJJQ36blibwxQR10wwCCeK0hA",
     "checked": true
   },
   "lara-palace-hotel": {
     "km": 13,
-    "place": "ChIJLwQS8V6bwxQRxQsTFckGHd0",
     "checked": true
   },
   "lara-park-hotel": {
     "km": 13,
-    "place": "ChIJUaYN_1ebwxQRsks7GvCYIlE",
     "checked": true
   },
   "lara-suite-s-apart-hotel": {
     "km": 16,
-    "place": "ChIJxYyIkWiDwxQRuBwF3f2Zpac",
     "checked": true
   },
   "lara-vista-hotel-suits-spa": {
-    "km": 16,
-    "place": "ChIJGeelMMGCwxQR35NX0cT9aCI"
+    "km": 16
   },
   "lara-world-hotel": {
     "km": 13,
-    "place": "ChIJ1bOs-VibwxQR4kLAMNtrvqM",
     "checked": true
   },
   "laren-family-hotel-spa-boutique-class": {
     "km": 15,
-    "place": "ChIJ8SVvZRebwxQRGrryp2udayY",
     "checked": true
   },
   "laren-sea-side-hotel-spa": {
     "km": 14,
-    "place": "ChIJR5oJ_XCbwxQRWoWI-xWex5g",
     "checked": true
   },
   "larissa-sultan-s-beach": {
     "km": 67,
-    "place": "ChIJ1YN27mW2wxQRk6vACHQiJqQ",
     "checked": true
   },
   "laristone-suite-spa-hotel": {
     "km": 15,
-    "place": "ChIJvRiCkBmDwxQRs40xqrsup-Y",
     "checked": true
   },
   "latanya-palm-spa-airport": {
     "km": 13,
-    "place": "ChIJx_aRBzaFwxQRhzr5xoYa6zE",
     "checked": true
   },
   "lavia-hotels-lara": {
     "km": 17,
-    "place": "ChIJE8zcmbebwxQRDDRM5TS8z2s",
     "checked": true
   },
   "lavin-garden-hotel": {
     "km": 25,
-    "place": "ChIJw_SpDXSRwxQR5j6PCO5QZe4",
     "checked": true
   },
   "lavin-suites-hotel": {
     "km": 24,
-    "place": "ChIJXZILL_SRwxQR8S6NoBgFXww",
     "checked": true
   },
   "lazer-pansiyon": {
     "km": 16,
-    "place": "ChIJ2aSpSiyRwxQRJfe10RMxJZY",
     "checked": true
   },
   "le-marden-hotel-spa": {
     "km": 75,
-    "place": "ChIJpcebxDfLwxQR2cka-yWF0BI",
     "checked": true
   },
   "leaf-port-hotel": {
     "km": 31,
-    "place": "ChIJk0q8EvuTwxQRx3UibEsvwPI",
     "checked": true
   },
   "leaf-river-suites": {
     "km": 15,
-    "place": "ChIJXXh92SybwxQRlvimZRHtJQE",
     "checked": true
   },
   "legend-tulip-hotel": {
     "km": 17,
-    "place": "ChIJCw8Uw0iRwxQR11gH4-msMQw",
     "checked": true
   },
   "leliko-suites": {
     "km": 15,
-    "place": "ChIJOXOARaqRwxQRfZrjlOK6flk",
     "checked": true
   },
   "lemon-hotel": {
     "km": 23,
-    "place": "ChIJfViapqWRwxQR5EcmFhre8Dw",
     "checked": true
   },
   "lemonpark-house-otel": {
     "km": 13,
-    "place": "ChIJ_0eITQCDwxQR_I4ubEuAglU",
     "checked": true
   },
   "leslion-luxury-hotel": {
     "km": 15,
-    "place": "ChIJ__9eQwCQwxQRO252neUDExc",
     "checked": true
   },
   "letstay-hotel-adults-only": {
     "km": 15,
-    "place": "ChIJTSAfLhqbwxQRK0GjiQ6q8yQ",
     "checked": true
   },
   "letstay-marine-homes": {
     "km": 12,
-    "place": "ChIJo0PccYiFwxQRsqFNOB_2i3g",
     "checked": true
   },
   "lexia-hotel-adult-only": {
     "km": 15,
-    "place": "ChIJnzgvx7ObwxQRyY6FWHY2Aw4",
     "checked": true
   },
   "liberty-hotels-lara": {
     "km": 17,
-    "place": "ChIJfQRbJaKCwxQR9GamLR4V97U",
     "checked": true
   },
   "life-hotel": {
-    "km": 25,
-    "place": "ChIJGbUuD26RwxQRa_peosNTTHs"
+    "km": 25
   },
   "lilium-boutique-hotel": {
     "km": 13,
-    "place": "ChIJF-XEAJubwxQRHCGydKEYbQU",
     "checked": true
   },
   "lily-town-hotel": {
     "km": 16,
-    "place": "ChIJc4lpEweQwxQRlgbH75kt9_0",
     "checked": true
   },
   "limak-arcadia-sport-resort": {
     "km": 36,
-    "place": "ChIJ8Yyq-Wl7wxQRkWb8BAj4zNU",
     "checked": true
   },
   "limak-atlantis-de-luxe-hotel": {
     "km": 39,
-    "place": "ChIJJXhVZQZ5wxQRtEiPV1tqtIk",
     "checked": true
   },
   "limak-lara-de-luxe-hotel": {
     "km": 16,
-    "place": "ChIJV_aferyCwxQRvJwQpD6RPPU",
     "checked": true
   },
   "limak-lara-deluxe-hotel-resort": {
     "km": 16,
-    "place": "ChIJV_aferyCwxQRvJwQpD6RPPU",
     "checked": true
   },
   "limak-limra-hotel-resort": {
     "km": 67,
-    "place": "ChIJz97vufm2wxQRCn7RqoImPKE",
     "checked": true
   },
   "lims-bona-dea-beach-hotel": {
     "km": 59,
-    "place": "ChIJawopIbC3wxQRG6-iN4bir_I",
     "checked": true
   },
   "linda-expo-hotel": {
     "km": 12,
-    "place": "ChIJaaNL8RGFwxQRnA9gB8eax00",
     "checked": true
   },
   "linda-otel": {
     "km": 70,
-    "place": "ChIJK8dfD1RXwxQRa-efk99vqVA",
     "checked": true
   },
   "linda-star-palace-otel": {
     "km": 16,
-    "place": "ChIJ_6HWMeOPwxQR9Pk2HTcF3uk",
     "checked": true
   },
   "linda-sunny-beach-spa": {
     "km": 55,
-    "place": "ChIJM9Zt7fFewxQR6kb6HymfaTk",
     "checked": true
   },
   "litore-hotel": {
     "km": 94,
-    "place": "ChIJSeI-PYWY3BQRYqFsEmS9dH4",
     "checked": true
   },
   "liu-resorts": {
     "km": 55,
-    "place": "ChIJieNOmnWR3BQR8a1SfQY_VH0",
     "checked": true
   },
   "loft-1502-apart-otel": {
     "km": 17,
-    "place": "ChIJNcaOwuiawxQRESiedbijVaQ",
     "checked": true
   },
   "loft-1502-otel": {
     "km": 17,
-    "place": "ChIJNcaOwuiawxQRESiedbijVaQ",
     "checked": true
   },
   "loft85-apart-otel": {
     "km": 24,
-    "place": "ChIJxYTvCkiRwxQRlVr8KAR2xKg",
     "checked": true
   },
   "london-otel": {
     "km": 25,
-    "place": "ChIJx6Rv9bWRwxQRd_mr47IJSZs",
     "checked": true
   },
   "long-beach-resort-hotel": {
     "km": 107,
-    "place": "ChIJn-_WWY-v3BQRWh-lRMmbBLg",
     "checked": true
   },
   "lonicera-city-hotel": {
     "km": 124,
-    "place": "ChIJ2bASvoWi3BQRvvXi18BjbVE",
     "checked": true
   },
   "lonicera-premium": {
     "km": 105,
-    "place": "ChIJv0voUCiZ3BQRm81DC9Ry-40",
     "checked": true
   },
   "lonicera-world-resort-spa-hotel": {
     "km": 105,
-    "place": "ChIJ9Y8NdwCv3BQRy5Pr6IJvs40",
     "checked": true
   },
   "lorem-hotel": {
     "km": 15,
-    "place": "ChIJGSRvNDibwxQR_ETSJO1TRRY",
     "checked": true
   },
   "lrs-port-river-hotel-spa": {
     "km": 71,
-    "place": "ChIJc_4bXABXwxQRnLNtNDVsnio",
     "checked": true
   },
   "lucida-beach-hotel": {
     "km": 67,
-    "place": "ChIJtY5bima2wxQRudl40gjwpco",
     "checked": true
   },
   "lucky-monkey-hotel": {
     "km": 17,
-    "place": "ChIJ5b20Wr2awxQReyLSNcyqSS8",
     "checked": true
   },
   "lumos-deluxe-resort-hotel": {
     "km": 143,
-    "place": "ChIJ9bG3_4-Q3BQRlDqZ01FB1UQ",
     "checked": true
   },
   "luna-hotel-kaleici": {
     "km": 16,
-    "place": "ChIJqypfjQWQwxQRTVOVmPfvgpk",
     "checked": true
   },
   "luna-lara-hotel": {
     "km": 13,
-    "place": "ChIJeyky6VebwxQRYzXlHE0NNFE",
     "checked": true
   },
   "lupo-libero-hotel-spa": {
     "km": 17,
-    "place": "ChIJsa_NFB2RwxQRX2n3zgLcQng",
     "checked": true
   },
   "lusso-sorgun": {
     "km": 70,
-    "place": "ChIJCYgnecpQwxQRDzNqgP_4BOo",
     "checked": true
   },
   "lycus-beach-otel": {
     "km": 93,
-    "place": "ChIJtxCOQP6s3BQR4myydqz7h28",
     "checked": true
   },
   "ma-biche-kemer-by-werde-hotels": {
     "km": 56,
-    "place": "ChIJc1x31Oe5wxQRMMbk5hiJzQA",
     "checked": true
   },
   "mad-inn-lara": {
     "km": 15,
-    "place": "ChIJzWe4nuqbwxQRtsm6SOW6BU4",
     "checked": true
   },
   "magesa-terra-apart": {
     "km": 16,
-    "place": "ChIJhz9UyOGawxQRPEzAd-GcxAk",
     "checked": true
   },
   "magic-sun-otel": {
     "km": 45,
-    "place": "ChIJsbD2wqW_wxQRpbcfWCY8KgM",
     "checked": true
   },
   "mai-inci-hotel": {
     "km": 17,
-    "place": "ChIJlRXUVRuQwxQRXCfQDGCM_WU",
     "checked": true
   },
   "malibu-garden-resort": {
     "km": 68,
-    "place": "ChIJq0U2cv62wxQRmEcFXTSPt7g",
     "checked": true
   },
   "manavgat-kervan-otel": {
     "km": 68,
-    "place": "ChIJUe2ablNXwxQRyfatw_gbJo4",
     "checked": true
   },
   "mardan-palace": {
     "km": 25,
-    "place": "ChIJS0jEQBqbwxQRm1eiD-UR1Lk",
     "checked": true
   },
   "maritim-pine-beach-resort": {
     "km": 39,
-    "place": "ChIJic0AwLZkwxQRcB1-SEM0f_c",
     "checked": true
   },
   "marka-hotel": {
     "km": 17,
-    "place": "ChIJv7-ujgKQwxQR3P82UQVhRkY",
     "checked": true
   },
   "marti-myra": {
     "km": 76,
-    "place": "ChIJ_2Rfr361wxQRN4tBuI_VA3g",
     "checked": true
   },
   "marvida-family-eco-side": {
     "km": 70,
-    "place": "ChIJxSU3mnZZwxQRGYdz2yYy-_g",
     "checked": true
   },
   "mary-palace-resort-spa": {
     "km": 56,
-    "place": "ChIJ9eWvIVlewxQRRS0oE5kIr4A",
     "checked": true
   },
   "massimo-hotel-adults-only-ex-la-boutique-hotels": {
     "km": 17,
-    "place": "ChIJT9n4e-WawxQRLbUPznyG0FA",
     "checked": true
   },
   "maxx-royal-belek": {
     "km": 37,
-    "place": "ChIJvXB1vkV7wxQRteRz3zuPn0U",
     "checked": true
   },
   "maxx-royal-kemer-resort": {
     "km": 68,
-    "place": "ChIJ7eqmUgO3wxQRWdi1f02_Mk8",
     "checked": true
   },
   "maya-apart": {
     "km": 26,
-    "place": "ChIJsQ65YraRwxQRCpfQwzsTZ2g",
     "checked": true
   },
   "mc-arancia-resort-otel": {
     "km": 114,
-    "place": "ChIJ3xRqxPOk3BQRp3gzUDeEHlA",
     "checked": true
   },
   "mediterra-art-boutique-hotel": {
     "km": 16,
-    "place": "ChIJxxWnfgaQwxQRKN16tku0BeI",
     "checked": true
   },
   "mediterra-art-hotel": {
     "km": 16,
-    "place": "ChIJxxWnfgaQwxQRKN16tku0BeI",
     "checked": true
   },
   "medworld-cosmos-health-rehabilitation-center-otel": {
-    "km": 14,
-    "place": "ChIJeVc1mBqPwxQR7AjDrbMoJTs"
+    "km": 14
   },
   "megasaray-club-belek": {
     "km": 31,
-    "place": "ChIJg8m3lmZ7wxQReZbzBxoXzgI",
     "checked": true
   },
   "megasaray-resort-side": {
     "km": 71,
-    "place": "ChIJ0_CI8v9XwxQRb2bD-AVzMVQ",
     "checked": true
   },
   "megasaray-westbeach": {
     "km": 26,
-    "place": "ChIJrSovfhaRwxQRasAuzlWCMAo",
     "checked": true
   },
   "melas-lara-hotel": {
     "km": 17,
-    "place": "ChIJMQT54biCwxQR5DZfHtIMX78",
     "checked": true
   },
   "melas-resort-hotel": {
     "km": 63,
-    "place": "ChIJlxXVU2hZwxQRnhpWFZfyP8I",
     "checked": true
   },
   "melda-palace": {
     "km": 30,
-    "place": "ChIJZ17AmN2TwxQRKvGzAg84IRE",
     "checked": true
   },
   "melodi-hotel": {
     "km": 44,
-    "place": "ChIJAdK37Ru_wxQRU73ARebWJbE",
     "checked": true
   },
   "meltem-otel": {
     "km": 25,
-    "place": "ChIJl32ff3GRwxQR_-51xfN9i1Y",
     "checked": true
   },
   "mene-city-hotel": {
     "km": 16,
-    "place": "ChIJd5cKPQiQwxQRv-BFFx7__SU",
     "checked": true
   },
   "mene-suites": {
     "km": 30,
-    "place": "ChIJBXUC9uyTwxQRTbJQPwpSlrs",
     "checked": true
   },
   "mera-park-hotel": {
-    "km": 15,
-    "place": "ChIJyQAMRaiawxQRDC-7-mCyIUo"
+    "km": 15
   },
   "mercure-antalya-belek-otel": {
     "km": 28,
-    "place": "ChIJMR3-ie17wxQRlD1TjW1Gwi0",
     "checked": true
   },
   "mercure-antalya-konyaalti": {
     "km": 24,
-    "place": "ChIJawuhRUCRwxQRP367IdDcMPw",
     "checked": true
   },
   "merhaba-otel": {
     "km": 129,
-    "place": "ChIJjSYMTmSY3BQRbQPrhAt-rdA",
     "checked": true
   },
   "meryan-otel": {
     "km": 91,
-    "place": "ChIJTc5KlIeY3BQRimW-WBB4rkM",
     "checked": true
   },
   "mesut-otel": {
     "km": 130,
-    "place": "ChIJyb-hD1OY3BQRen29vJoAtkA",
     "checked": true
   },
   "mevre-hotel": {
     "km": 17,
-    "place": "ChIJ53G4RgGQwxQRZ88WfIYUlho",
     "checked": true
   },
   "meyde-boutique-suites": {
     "km": 25,
-    "place": "ChIJMY8DzW-RwxQRWvy3A16rrBE",
     "checked": true
   },
   "mia-hotel": {
-    "km": 16,
-    "place": "ChIJp_mfKASQwxQRwz7j7zu4RIA"
+    "km": 16
   },
   "miarosa-konakli-garden-otel": {
     "km": 115,
-    "place": "ChIJbxo7K4ul3BQRJ962Ng3jy5o",
     "checked": true
   },
   "michell-hotel": {
     "km": 134,
-    "place": "ChIJKXk_kpWZ3BQRWatrnHfzFWw",
     "checked": true
   },
   "microyal-hotel": {
     "km": 25,
-    "place": "ChIJa95DlEeRwxQRC4uCh5ZgQ_U",
     "checked": true
   },
   "midi-suites-otel": {
     "km": 128,
-    "place": "ChIJzTgWSniZ3BQRyWrocb9b2T8",
     "checked": true
   },
   "mielo-lara-hotel": {
     "km": 15,
-    "place": "ChIJH7xAaBebwxQRTZDZpNLtezc",
     "checked": true
   },
   "mimoza-konyaalti-bed-breakfast": {
     "km": 25,
-    "place": "ChIJhd-c2oSRwxQRur4Kec1YugI",
     "checked": true
   },
   "mimoza-pansiyon": {
     "km": 20,
-    "place": "ChIJlVBIPiqOwxQRzIdpWoqyLpU",
     "checked": true
   },
   "minyon-hotel": {
     "km": 16,
-    "place": "ChIJ8W_GZg-QwxQRlQKihjhNsx0",
     "checked": true
   },
   "mira-hotel": {
     "km": 23,
-    "place": "ChIJZ7g0WVaRwxQRJNWKpEoJdHg",
     "checked": true
   },
   "mira-meridia-beach-resort-hotel": {
     "km": 93,
-    "place": "ChIJW5dS2FOj3BQR_wBWbL_kzC4",
     "checked": true
   },
   "miracle-resort-hotel": {
     "km": 14,
-    "place": "ChIJFcpBBkuDwxQRGXLqWErX5Ko",
     "checked": true
   },
   "mirada-del-mar-hotel": {
     "km": 51,
-    "place": "ChIJ9zFH-ua4wxQRSkD0EIwgVlg",
     "checked": true
   },
   "mirage-park-resort": {
     "km": 53,
-    "place": "ChIJR0gkPfa4wxQRQCdWxxwPorw",
     "checked": true
   },
   "miramare-beach-hotel": {
     "km": 60,
-    "place": "ChIJZVu81MpewxQRT5VRKMVfGkU",
     "checked": true
   },
   "miramare-queen-resort": {
     "km": 60,
-    "place": "ChIJYS3OLMtewxQR-oOmteKhg6M",
     "checked": true
   },
   "miramor-hotel-spa": {
     "km": 67,
-    "place": "ChIJtS6kvQO3wxQRMeuXufx1-A8",
     "checked": true
   },
   "miray-otel": {
     "km": 125,
-    "place": "ChIJX9VhHgCj3BQRreNAz_A2WP0",
     "checked": true
   },
   "miss-cleopatra-hotel": {
-    "km": 124,
-    "place": "ChIJCYVFBo-i3BQRMx9MzV6CV6E"
+    "km": 124
   },
   "moda-otel": {
     "km": 17,
-    "place": "ChIJDZgLFByQwxQRdGp7cWjWyHE",
     "checked": true
   },
   "moda-suit-camyuva": {
     "km": 66,
-    "place": "ChIJMalb4i62wxQRrKXmJWENCD8",
     "checked": true
   },
   "mola-otel": {
     "km": 126,
-    "place": "ChIJy1Xjj5yi3BQRG30ybHKWA9U",
     "checked": true
   },
   "monachus-hotel-spa": {
     "km": 70,
-    "place": "ChIJM4jt4apQwxQRAycoO1kXYRU",
     "checked": true
   },
   "monart-city-otel": {
     "km": 129,
-    "place": "ChIJEbeQUlmY3BQRLoyHlb5VpXg",
     "checked": true
   },
   "monna-roza-family-suit": {
     "km": 60,
-    "place": "ChIJ3_EA_JK3wxQRyREgNH27V4g",
     "checked": true
   },
   "mono-hotel": {
     "km": 16,
-    "place": "ChIJ-Xj1Yw-QwxQRyVmSV6prxj8",
     "checked": true
   },
   "monte-carlo": {
-    "km": 130,
-    "place": "ChIJS9qannCY3BQRCWcOR-FQc8Y"
+    "km": 130
   },
   "moon-suites": {
     "km": 15,
-    "place": "ChIJx4anJN6bwxQRTU7SiKTnqD0",
     "checked": true
   },
   "moonbow-beach-hotel": {
     "km": 129,
-    "place": "ChIJM6tELquZ3BQRVVhIP9gbamg",
     "checked": true
   },
   "more-otel": {
     "km": 44,
-    "place": "ChIJe-02_gW_wxQRNE_7JY8yvso",
     "checked": true
   },
   "mostar-hotel": {
     "km": 16,
-    "place": "ChIJc5DvyG2RwxQRM4r3pCONmbo",
     "checked": true
   },
   "movenpick-resort-tekirova": {
     "km": 77,
-    "place": "ChIJ5Rf9ev7LwxQRnVb_LHxBunQ",
     "checked": true
   },
   "mrt-suites-lara": {
     "km": 13,
-    "place": "ChIJm_I_KwaDwxQRqm4JvRM2HGU",
     "checked": true
   },
   "mutado-hotel": {
     "km": 15,
-    "place": "ChIJTZZAV42PwxQR8HZb88888vo",
     "checked": true
   },
   "muz-otel": {
     "km": 123,
-    "place": "ChIJAQAAFRuj3BQRxdIz_2QIHt4",
     "checked": true
   },
   "my-antalya-otel": {
     "km": 16,
-    "place": "ChIJcQliFuCRwxQR78eZjJfPMDc",
     "checked": true
   },
   "my-home-hotel-antalya-city-center": {
     "km": 17,
-    "place": "ChIJ46aRsc-RwxQR-zbnIJO2gew",
     "checked": true
   },
   "my-home-resort-otel": {
     "km": 104,
-    "place": "ChIJV5h4faav3BQRzEDsq9HeljE",
     "checked": true
   },
   "my-home-sky-otel": {
-    "km": 104,
-    "place": "ChIJxTQY6aWv3BQRzEVCX2wk4RA"
+    "km": 104
   },
   "my-new-otel": {
     "km": 16,
-    "place": "ChIJcQliFuCRwxQR78eZjJfPMDc",
     "checked": true
   },
   "mylome-luxury-hotel-resort": {
     "km": 94,
-    "place": "ChIJ4QtzUayt3BQRrJD5CRTzxzQ",
     "checked": true
   },
   "narcia-resort-side": {
     "km": 61,
-    "place": "ChIJFahkGDlZwxQR39wQ4ipCyrw",
     "checked": true
   },
   "nas-otel": {
     "km": 16,
-    "place": "ChIJsTvaLq2PwxQRNRNHtUouSZY",
     "checked": true
   },
   "nasa-flora-hotel": {
     "km": 17,
-    "place": "ChIJTRNyV--awxQRWo3l3XTtq3Y",
     "checked": true
   },
   "nashira-city-resort-hotel": {
     "km": 19,
-    "place": "ChIJUZu0-aKRwxQR6wevnicIzcw",
     "checked": true
   },
   "nazar-beach-hotel": {
-    "km": 18,
-    "place": "ChIJnUNOZR-QwxQRqa-IhAFW-JI"
+    "km": 18
   },
   "nebiluex-hotel": {
     "km": 15,
-    "place": "ChIJ8dw-eeyawxQRPCZHApptuCE",
     "checked": true
   },
   "nergiz-boutique-hotel": {
     "km": 16,
-    "place": "ChIJ1Q1yT-aRwxQRTPnRoz3Gk7I",
     "checked": true
   },
   "nergiz-hotel": {
     "km": 16,
-    "place": "ChIJGzim22qPwxQRIaf58y37kxY",
     "checked": true
   },
   "neuron-otel": {
     "km": 49,
-    "place": "ChIJ9zn1HLK5wxQROeeET3X3rKM",
     "checked": true
   },
   "nex-royal-beach": {
     "km": 44,
-    "place": "ChIJtTsJ5we_wxQRz5C8UJikxFU",
     "checked": true
   },
   "nfk-the-house-hotel": {
     "km": 25,
-    "place": "ChIJIwAAAADrwxQRCIFN4Wq5VhE",
     "checked": true
   },
   "ng-phaselis-bay": {
     "km": 57,
-    "place": "ChIJobI6a4PLwxQRD6Sz71MlqF0",
     "checked": true
   },
   "ni-hotel-lara": {
     "km": 15,
-    "place": "ChIJB4mL2RubwxQRtDkUxWqR0yI",
     "checked": true
   },
   "nirvana-cosmopolitan-hotel": {
     "km": 14,
-    "place": "ChIJ24d1xgSDwxQRDzfnAxFgRl0",
     "checked": true
   },
   "nirvana-dolce-vita": {
     "km": 78,
-    "place": "ChIJjaf6vqbKwxQRky_1mm60Gwk",
     "checked": true
   },
   "nirvana-mediterranean-excellence": {
     "km": 47,
-    "place": "ChIJGRrhfSG_wxQRmil4xRdmFiI",
     "checked": true
   },
   "niss-lara-hotel": {
     "km": 15,
-    "place": "ChIJwWzIJYqbwxQR70Q4LxHry9c",
     "checked": true
   },
   "noa-s-boutique-hotel": {
     "km": 16,
-    "place": "ChIJefOFVwaQwxQRgkk5k3tTrbU",
     "checked": true
   },
   "novia-dionis-resort-spa": {
     "km": 27,
-    "place": "ChIJD75ZwwB9wxQReIUXH8zFiZ4",
     "checked": true
   },
   "novis-hotel-cleopatra": {
     "km": 125,
-    "place": "ChIJT9StywGj3BQR-JVeyrq_MEk",
     "checked": true
   },
   "novum-garden-side-hotel": {
     "km": 55,
-    "place": "ChIJX-JRGEdHdkARLIVkg-IYYRk",
     "checked": true
   },
   "nox-suite-rezidans": {
     "km": 15,
-    "place": "ChIJI45ZFQSbwxQRWQzcDnxSiOM",
     "checked": true
   },
   "noxinn-club-hotels": {
     "km": 115,
-    "place": "ChIJ636fC-Wl3BQROvJndwRu_OA",
     "checked": true
   },
   "noxinn-deluxe-hotel": {
     "km": 116,
-    "place": "ChIJby11WnKj3BQRFvJTIc5nuyc",
     "checked": true
   },
   "numa-bay-exclusive": {
     "km": 105,
-    "place": "ChIJq_bn-Lqv3BQRU3GZSPMEb4c",
     "checked": true
   },
   "numa-club-side": {
     "km": 57,
-    "place": "ChIJX-JRGEdHdkAR8U_eIQibbcg",
     "checked": true
   },
   "numa-konaktepe-otel": {
     "km": 115,
-    "place": "ChIJFS363vSk3BQRYv0rpT7I_L4",
     "checked": true
   },
   "nun-hotel": {
     "km": 17,
-    "place": "ChIJTRVlWO-awxQRB33r_fBhBpo",
     "checked": true
   },
   "nurella-pansiyon": {
     "km": 15,
-    "place": "ChIJR_21kxabwxQRXNNH2PiuXO0",
     "checked": true
   },
   "oba-star-otel-spa": {
     "km": 130,
-    "place": "ChIJsaaLblOY3BQRttAplmH1ySs",
     "checked": true
   },
   "oez-mert-hotel": {
     "km": 23,
-    "place": "ChIJW23m7neRwxQRFkxFKEmjioo",
     "checked": true
   },
   "oezhan-hotel": {
     "km": 17,
-    "place": "ChIJ7W_CGwOQwxQRNduBuqP5aUM",
     "checked": true
   },
   "olbia-hotel": {
     "km": 23,
-    "place": "ChIJUXZDUTeQwxQRNyCzlW7ge-Q",
     "checked": true
   },
   "olbia-residence-hotel": {
     "km": 23,
-    "place": "ChIJUXZDUTeQwxQRNyCzlW7ge-Q",
     "checked": true
   },
   "old-house-hotel-pub": {
     "km": 16,
-    "place": "ChIJFxL8fQaQwxQRVkFsP7oasfM",
     "checked": true
   },
   "old-town-deluxe-flats-apart-otel": {
     "km": 16,
-    "place": "ChIJ23EVVg-QwxQRy7ofjlUR2E8",
     "checked": true
   },
   "old-town-point-hotel-spa": {
     "km": 17,
-    "place": "ChIJETabBByQwxQRfIBQYLkVckA",
     "checked": true
   },
   "oleander-otel": {
     "km": 61,
-    "place": "ChIJvzj3P9dZwxQRWtiH-t_2UCA",
     "checked": true
   },
   "olsen-hotels": {
     "km": 18,
-    "place": "ChIJl0EnSwCRwxQRnk7r5SKxkR0",
     "checked": true
   },
   "olya-otel": {
     "km": 44,
-    "place": "ChIJneNml35XwxQR2Av0c6foDYc",
     "checked": true
   },
   "on-hotel": {
     "km": 15,
-    "place": "ChIJyd4oIq-bwxQRZJvXVj02iWM",
     "checked": true
   },
   "onkel-hotels-beldibi-resort": {
     "km": 50,
-    "place": "ChIJqXIm-PO4wxQRSO6QC2R7zXg",
     "checked": true
   },
   "onkel-rada-apart-hotel": {
     "km": 31,
-    "place": "ChIJmUjATzqTwxQRpQXfS3JGD6Q",
     "checked": true
   },
   "opera-hotel-antalya": {
     "km": 25,
-    "place": "ChIJOR4X0geRwxQRonzsrQKuSA4",
     "checked": true
   },
   "opera-suites-apart-hotel": {
     "km": 25,
-    "place": "ChIJ1YiQjnORwxQRL4RAcjQOav4",
     "checked": true
   },
   "optimum-luxury-hotel-spa": {
     "km": 14,
-    "place": "ChIJ0ROswUabwxQRVvgXcSzXdmg",
     "checked": true
   },
   "orange-bungalow-evleri": {
     "km": 17,
-    "place": "ChIJofGBMLJ4wxQRccPubU1AGoQ",
     "checked": true
   },
   "orange-county-alanya": {
     "km": 94,
-    "place": "ChIJtQE18VOs3BQRtE9MDZN3OR8",
     "checked": true
   },
   "orange-county-resort-hotel-belek": {
     "km": 43,
-    "place": "ChIJ0_YA5AxkwxQRt5vsjhhvIOw",
     "checked": true
   },
   "orange-county-resort-hotel-kemer": {
     "km": 60,
-    "place": "ChIJM7R5v5G3wxQRQnz1GD2bT3s",
     "checked": true
   },
   "oranj-ranch-hotel": {
     "km": 68,
-    "place": "ChIJvWc1gQu2wxQRtyFnQWddtCs",
     "checked": true
   },
   "orfeus-queen-spa": {
     "km": 56,
-    "place": "ChIJZcK-OllewxQR8Gp-w4mIqj4",
     "checked": true
   },
   "osay-magic-garden": {
     "km": 82,
-    "place": "ChIJqyNScY9TwxQRdus7z9KXUMI",
     "checked": true
   },
   "oscar-boutique-hotel": {
     "km": 16,
-    "place": "ChIJIX2JYTWOwxQRlb6T-0q_LLk",
     "checked": true
   },
   "oscar-garden-otel": {
     "km": 16,
-    "place": "ChIJK5j-8AG3wxQR4WNMSUJ6QxU",
     "checked": true
   },
   "otel-durkaya": {
     "km": 67,
-    "place": "ChIJA5quahNXwxQR5_7hucaoLS0",
     "checked": true
   },
   "otel-guenduez": {
     "km": 24,
-    "place": "ChIJ25Plb6SRwxQRXFBDHhVtGfU",
     "checked": true
   },
   "otel-incekum-su": {
     "km": 102,
-    "place": "ChIJ0b1muP-u3BQR8VlbxHXLIfQ",
     "checked": true
   },
   "otel-wood-house": {
-    "km": 16,
-    "place": "ChIJrU0nxQaQwxQROoSzXDXc87Y"
+    "km": 16
   },
   "otium-boutique-happy-suites": {
     "km": 15,
-    "place": "ChIJfc9Xhb6bwxQR4gERRRXmCm0",
     "checked": true
   },
   "otium-family-club-marine-beach-otel": {
     "km": 88,
-    "place": "ChIJvzj3P9dZwxQRqvgQvr7bagg",
     "checked": true
   },
   "otium-family-eco-club": {
     "km": 70,
-    "place": "ChIJxSU3mnZZwxQRGYdz2yYy-_g",
     "checked": true
   },
   "otium-hotel-seven-seas": {
-    "km": 70,
-    "place": "ChIJM4jt4apQwxQRAycoO1kXYRU"
+    "km": 70
   },
   "otium-park-club-akman-otel": {
-    "km": 70,
-    "place": "ChIJ8QFYA3a2wxQRG2wktrZGX88"
+    "km": 70
   },
   "otto-lara-hotel": {
-    "km": 14,
-    "place": "ChIJyT_PFkGbwxQRKcsH4JBmQYU"
+    "km": 14
   },
   "oz-hotels-sui": {
     "km": 94,
-    "place": "ChIJS6dSaFSs3BQR1F8RuQZLXVk",
     "checked": true
   },
   "ozgur-hotel-isiklar": {
     "km": 16,
-    "place": "ChIJO_U1-PyPwxQRNy88X7ApITY",
     "checked": true
   },
   "ozgur-otel": {
     "km": 16,
-    "place": "ChIJO_U1-PyPwxQRNy88X7ApITY",
     "checked": true
   },
   "ozkaymak-falez-hotel": {
     "km": 19,
-    "place": "ChIJ_ZXAKjGQwxQRu65ts4joehs",
     "checked": true
   },
   "ozkaymak-marina-otel": {
     "km": 62,
-    "place": "ChIJfRRzCZi3wxQRPXuJ8wsWeL4",
     "checked": true
   },
   "ozkaymak-select-resort-otel": {
     "km": 102,
-    "place": "ChIJ9XbBdJqv3BQRkfiW6OaNbhw",
     "checked": true
   },
   "ozmen-hotel-old-town-kaleici": {
     "km": 16,
-    "place": "ChIJ77aRhwWQwxQR8PxhSQ_kFUU",
     "checked": true
   },
   "ozmert-otel": {
     "km": 23,
-    "place": "ChIJW23m7neRwxQRFkxFKEmjioo",
     "checked": true
   },
   "ozturk-hotel": {
-    "km": 17,
-    "place": "ChIJx4HqJ_qPwxQRcq8q-1DfseQ"
+    "km": 17
   },
   "palm-city-alanya-hotel": {
     "km": 128,
-    "place": "ChIJB88n3ruZ3BQRHCm5mOFIhaU",
     "checked": true
   },
   "palm-house-17-adult-only-otel": {
     "km": 16,
-    "place": "ChIJBw2kUA-QwxQR0RXEjqYqb_A",
     "checked": true
   },
   "palm-house-17-oriental-guesthouse": {
     "km": 16,
-    "place": "ChIJBw2kUA-QwxQR0RXEjqYqb_A",
     "checked": true
   },
   "palmenhaus-antalya-otel": {
     "km": 16,
-    "place": "ChIJBw2kUA-QwxQR0RXEjqYqb_A",
     "checked": true
   },
   "palmeras-beach-hotel": {
     "km": 113,
-    "place": "ChIJ6Y0FyPuk3BQREtW596sXmX0",
     "checked": true
   },
   "paloma-pasha-resort": {
-    "km": 36,
-    "place": "ChIJEX5LA0J7wxQR1gw3W_FKIoo"
+    "km": 36
   },
   "paloma-sencia": {
     "km": 38,
-    "place": "ChIJ0wWOGgBlwxQRywiDd3684QA",
     "checked": true
   },
   "palvan-house": {
     "km": 16,
-    "place": "ChIJPUzfnpCPwxQRxi-Rrgv7T2o",
     "checked": true
   },
   "papillon-ayscha-resort": {
     "km": 38,
-    "place": "ChIJTWu5zLVkwxQRZa6Ay8gQngw",
     "checked": true
   },
   "papillon-belvil-resort": {
     "km": 31,
-    "place": "ChIJUYtjzZmRwxQRciC62EKLEro",
     "checked": true
   },
   "papillon-zeugma-relaxury": {
     "km": 39,
-    "place": "ChIJyfWgWbdkwxQR9sAEoKP-6Ts",
     "checked": true
   },
   "park-hotel-rooms-apart": {
     "km": 16,
-    "place": "ChIJFx1rMAmQwxQRkXyZiyKNzSg",
     "checked": true
   },
   "pascha-otel": {
     "km": 26,
-    "place": "ChIJLzBJAfV9wxQRSlBb8y3pVU0",
     "checked": true
   },
   "patio-hotel": {
     "km": 16,
-    "place": "ChIJR79wkgWQwxQRb4TqbhwSS4A",
     "checked": true
   },
   "patron-hotel": {
     "km": 16,
-    "place": "ChIJGfoYEASQwxQRytxeTfzYQ4A",
     "checked": true
   },
   "pearly-hotel": {
     "km": 23,
-    "place": "ChIJx-ri-GWRwxQRLeKk1tcS3sE",
     "checked": true
   },
   "peker-otel": {
     "km": 52,
-    "place": "ChIJVRe4m_O4wxQRy8qxCrKDmjQ",
     "checked": true
   },
   "pera-aura": {
     "km": 67,
-    "place": "ChIJqzYifpC3wxQRd7YQuAFlaIc",
     "checked": true
   },
   "pera-boutique-hotel": {
     "km": 17,
-    "place": "ChIJrfmNe-iRwxQRO1It_z3zv3s",
     "checked": true
   },
   "peramis-hotel-spa": {
     "km": 13,
-    "place": "ChIJz0CM4z2dwxQRy-fKQ2pPrrI",
     "checked": true
   },
   "perast-city-hotel": {
     "km": 25,
-    "place": "ChIJXVHwhG2RwxQRE3ckM2FA6Wo",
     "checked": true
   },
   "perge-hotels-adult-only-16-plus": {
     "km": 16,
-    "place": "ChIJac6hNwmQwxQRD0Yuk3b4mdQ",
     "checked": true
   },
   "perre-delta-resort-spa": {
     "km": 91,
-    "place": "ChIJl_QPEI2t3BQRzt-Z4gmVLto",
     "checked": true
   },
   "piem-apart-apart-otel": {
     "km": 22,
-    "place": "ChIJn_YxxZKTwxQR4iO8kZbtmts",
     "checked": true
   },
   "pina-hotel-oldtown": {
     "km": 16,
-    "place": "ChIJRbtwPQCRwxQRoIxmthY6rYU",
     "checked": true
   },
   "pinus-otel": {
     "km": 17,
-    "place": "ChIJI9KHVO-awxQRIJCBp3ejArM",
     "checked": true
   },
   "piyes-otel": {
     "km": 17,
-    "place": "ChIJMxQ79AKQwxQRIENy20Y0uWs",
     "checked": true
   },
   "plt-lego-holiday-village": {
     "km": 7,
-    "place": "ChIJ7XmjoD-EwxQRihUhROa3uZE",
     "checked": true
   },
   "port-nature-luxury-resort": {
     "km": 44,
-    "place": "ChIJ3fK_LQSQwxQRctvxQXWQXZo",
     "checked": true
   },
   "port-side-resort-hotel": {
     "km": 58,
-    "place": "ChIJx4bG68hewxQR9WuzJbdX4B8",
     "checked": true
   },
   "porto-bello-hotel-resort-spa": {
     "km": 31,
-    "place": "ChIJ0Q2JyFiRwxQR8Sta6uwl0XI",
     "checked": true
   },
   "premier-inn-city": {
     "km": 15,
-    "place": "ChIJUYYLWF2bwxQRwelgYzw25t0",
     "checked": true
   },
   "prenses-sealine-beach-otel": {
     "km": 41,
-    "place": "ChIJwRKbpeKPwxQRBqzaZz4Anb4",
     "checked": true
   },
   "prima-hotel": {
     "km": 17,
-    "place": "ChIJv0YKxe6awxQR2fqWQ_jfM_w",
     "checked": true
   },
   "prime-boutique-hotel": {
     "km": 16,
-    "place": "ChIJvX5j1KaawxQRtE5w3BIjk7o",
     "checked": true
   },
   "privado-hotels": {
     "km": 15,
-    "place": "ChIJGUbm7GKPwxQRXoTV02LYUBM",
     "checked": true
   },
   "puding-hotel": {
     "km": 16,
-    "place": "ChIJmbB_rQWQwxQRsEE08fggi5Y",
     "checked": true
   },
   "pukka-hotel": {
     "km": 25,
-    "place": "ChIJUWeb7XGRwxQRrw45VULNRVM",
     "checked": true
   },
   "pure-blanche-hotel": {
     "km": 17,
-    "place": "ChIJlbvFB-yawxQRoytKQI-7OD4",
     "checked": true
   },
   "pure-diamond-hotel": {
     "km": 15,
-    "place": "ChIJZV33uhmbwxQRuJUemjwH82Y",
     "checked": true
   },
   "pusula-apart-otel": {
     "km": 30,
-    "place": "ChIJrRnPkcyTwxQRvHVwJsfsKa0",
     "checked": true
   },
   "q-premium-resort-hotel-alanya": {
-    "km": 91,
-    "place": "ChIJI_AXWuas3BQRLSDEKqNKzK0"
+    "km": 91
   },
   "q-spa-resort": {
-    "km": 58,
-    "place": "ChIJXWm1D9tewxQR1A2A3jYMTOs"
+    "km": 58
   },
   "qinn-hotels": {
     "km": 17,
-    "place": "ChIJjfJcfxWbwxQRP8NMFcadfqY",
     "checked": true
   },
   "quality-gold-suite-hotel": {
     "km": 13,
-    "place": "ChIJJc6aR0-bwxQR37CGiD4UcJE",
     "checked": true
   },
   "quattro-beach-spa-resort": {
     "km": 115,
-    "place": "ChIJSeI-PYWY3BQRobs-UEU6Rxg",
     "checked": true
   },
   "queen-s-park-le-jardin": {
     "km": 67,
-    "place": "ChIJL0wMTU4WzBQRfXDhwpgEOVw",
     "checked": true
   },
   "queen-s-park-tekirova": {
     "km": 76,
-    "place": "ChIJRfQacp7KwxQR6558tNji_yk",
     "checked": true
   },
   "radisson-blu-hotel-kas": {
     "km": 208,
-    "place": "ChIJXTNseBPRwRQRKwD6q5klrfk",
     "checked": true
   },
   "rai-foresta-tekirova-spa": {
     "km": 77,
-    "place": "ChIJ33WX-Mq1wxQRGbqLv73lKCI",
     "checked": true
   },
   "rai-premium-tekirova": {
     "km": 76,
-    "place": "ChIJh-lnFp7KwxQRnxhZiFDEONA",
     "checked": true
   },
   "ramada-plaza-antalya": {
     "km": 16,
-    "place": "ChIJYeTybQmQwxQRMjKUGI230ko",
     "checked": true
   },
   "ramada-resort-by-wyndham-lara": {
     "km": 15,
-    "place": "ChIJeYndQMeCwxQR28i4CukufTs",
     "checked": true
   },
   "ramada-resort-side": {
     "km": 54,
-    "place": "ChIJa50ODCRfwxQR04QbiH5YjPk",
     "checked": true
   },
   "ramira-beach-hotel": {
     "km": 103,
-    "place": "ChIJBzh1oqqv3BQRvWHcVdwLrC8",
     "checked": true
   },
   "ramira-joy-hotel": {
     "km": 126,
-    "place": "ChIJB0ulN4Ki3BQR10ot_we9EbA",
     "checked": true
   },
   "ramona-kale-hotel": {
     "km": 15,
-    "place": "ChIJfV6Y2AeQwxQRRzQ8B6eGuds",
     "checked": true
   },
   "ramona-lara-otel": {
     "km": 13,
-    "place": "ChIJm8PW-AKbwxQReKwHcUK5fYw",
     "checked": true
   },
   "raw-beach-hotel": {
     "km": 14,
-    "place": "ChIJW1flZz6dwxQROZ5oyW9-lDU",
     "checked": true
   },
   "rega-otel": {
     "km": 25,
-    "place": "ChIJD3vLRiqRwxQRpLI99j3Rs-w",
     "checked": true
   },
   "regnum-carya": {
     "km": 29,
-    "place": "ChIJVVVVlV17wxQRvKwc7vqFPU8",
     "checked": true
   },
   "relax-beach-hotel": {
     "km": 132,
-    "place": "ChIJ7QV2YiGZ3BQR6TuzPka51vw",
     "checked": true
   },
   "renex-hotels": {
     "km": 12,
-    "place": "ChIJGzMZokiFwxQRx1UENVs3iM0",
     "checked": true
   },
   "reo-hotel": {
     "km": 23,
-    "place": "ChIJLRXGGY2RwxQR4Nm8KQswUkM",
     "checked": true
   },
   "residence-inn-by-marriott": {
     "km": 15,
-    "place": "ChIJfQi8YoWbwxQR1EC_Gb8iO8g",
     "checked": true
   },
   "resitalya-otel": {
     "km": 128,
-    "place": "ChIJ73L0XV6Y3BQRdxj49704DOM",
     "checked": true
   },
   "retro-star-suites": {
     "km": 25,
-    "place": "ChIJywEXGJqRwxQR1th1bBxXUYg",
     "checked": true
   },
   "ring-beach-otel": {
     "km": 45,
-    "place": "ChIJbb4GsRC_wxQRhTE_0iWHDLc",
     "checked": true
   },
   "ring-downtown-hotel": {
     "km": 17,
-    "place": "ChIJhe2CoB6QwxQRDvCy4X5onVw",
     "checked": true
   },
   "riolavitas-resort-spa": {
     "km": 71,
-    "place": "ChIJh9wijE1XwxQRiZmaLOomt1E",
     "checked": true
   },
   "rios-latte-beach-otel": {
     "km": 44,
-    "place": "ChIJ-XRL5Qe_wxQRisIPg4Yuv1s",
     "checked": true
   },
   "rivador-hotel-kemer": {
     "km": 61,
-    "place": "ChIJgVp4U3u3wxQRtlzQZ5Ff3Q0",
     "checked": true
   },
   "river-elite-hotel-spa": {
-    "km": 17,
-    "place": "ChIJUcbXjRuQwxQRjFYUPkXN1i4"
+    "km": 17
   },
   "river-park-residence-lara": {
     "km": 15,
-    "place": "ChIJx1Ms8gGDwxQR2wMRmk_zwyU",
     "checked": true
   },
   "river-suite-otel": {
     "km": 68,
-    "place": "ChIJezPGDNFXwxQRLOm6wClTf68",
     "checked": true
   },
   "riversea-suite-hotel": {
     "km": 14,
-    "place": "ChIJL8jOScSCwxQRuSQbWFZpB3E",
     "checked": true
   },
   "riviera-otel": {
     "km": 125,
-    "place": "ChIJT7SmK5ui3BQRR3rVCS6e3L0",
     "checked": true
   },
   "riviera-zen-otel": {
     "km": 125,
-    "place": "ChIJEb0ygVKj3BQRqWYpAeCTljY",
     "checked": true
   },
   "rixos-beldibi": {
     "km": 44,
-    "place": "ChIJK9j0eQ-_wxQRRE5fZVl4d9M",
     "checked": true
   },
   "rixos-downtown-antalya": {
     "km": 22,
-    "place": "ChIJbR4fTDSQwxQReVuq1-4SvK0",
     "checked": true
   },
   "rixos-downtown-antalya-the-land-of-legends-access-otel": {
     "km": 22,
-    "place": "ChIJbR4fTDSQwxQReVuq1-4SvK0",
     "checked": true
   },
   "rixos-park-belek": {
     "km": 38,
-    "place": "ChIJTwaeW-NlwxQRFAmpwzMIHIg",
     "checked": true
   },
   "rixos-premium-belek": {
     "km": 39,
-    "place": "ChIJ2yDtHI2FxBQRjxSAKH5bFjg",
     "checked": true
   },
   "rixos-premium-kemer": {
     "km": 77,
-    "place": "ChIJ18C0nIK1wxQRdZ03gE6SJzo",
     "checked": true
   },
   "rixos-premium-tekirova": {
     "km": 77,
-    "place": "ChIJ18C0nIK1wxQRdZ03gE6SJzo",
     "checked": true
   },
   "rixos-sungate": {
     "km": 48,
-    "place": "ChIJlwXuqBqQwxQRX0AIEZgK_Mo",
     "checked": true
   },
   "rk-magic-dream-hotel": {
     "km": 59,
-    "place": "ChIJxU6WK4y3wxQR-SRtkfNOqYs",
     "checked": true
   },
   "robinson-club-camyuva": {
     "km": 70,
-    "place": "ChIJvWj609i1wxQRrUVrZR72PLY",
     "checked": true
   },
   "robinson-club-nobilis": {
     "km": 42,
-    "place": "ChIJS43b3oVkwxQRUE3KQT2D7fc",
     "checked": true
   },
   "robinson-club-side": {
     "km": 69,
-    "place": "ChIJBdQi_3W2wxQRFyao9RznRqs",
     "checked": true
   },
   "rodinn-park-hotel": {
     "km": 25,
-    "place": "ChIJLZ16eoqRwxQR2r49hjnb5Ng",
     "checked": true
   },
   "role-street-hostel": {
     "km": 16,
-    "place": "ChIJN5Q0Tg-QwxQR1xSLLl8vx8w",
     "checked": true
   },
   "roma-beach-resort-spa": {
     "km": 55,
-    "place": "ChIJd896kidZwxQR0GiHr13JANk",
     "checked": true
   },
   "rose-garden-premium-hotel": {
     "km": 45,
-    "place": "ChIJq3Qpop23wxQRhUMrGGBEbXk",
     "checked": true
   },
   "rosella-hotel": {
     "km": 128,
-    "place": "ChIJAb3MVHyZ3BQRLrkEJcIcm_M",
     "checked": true
   },
   "route-hotel-kaleici-adult-only": {
     "km": 16,
-    "place": "ChIJJxBmp5-RwxQRR-jibJowmtM",
     "checked": true
   },
   "rox-resort-hotel": {
     "km": 60,
-    "place": "ChIJecMZxKi3wxQR4UlL7S5jdiA",
     "checked": true
   },
   "royal-alhambra-palace": {
     "km": 57,
-    "place": "ChIJHcpz3l9ewxQReKwNsmv130w",
     "checked": true
   },
   "royal-atlantis-spa-resort": {
     "km": 55,
-    "place": "ChIJu6ojebhfwxQRk_6-JaF6dCY",
     "checked": true
   },
   "royal-city-hotel": {
     "km": 17,
-    "place": "ChIJJwijPJCbwxQRBM0RU7kqJtc",
     "checked": true
   },
   "royal-dragon-hotel": {
     "km": 59,
-    "place": "ChIJk7wjmnZZwxQRGXPpuO8t9lM",
     "checked": true
   },
   "royal-ezel-hotel": {
     "km": 19,
-    "place": "ChIJBYgUAm6RwxQRaYDfz4pn5i0",
     "checked": true
   },
   "royal-garden-beach-otel": {
     "km": 113,
-    "place": "ChIJVdk_zfak3BQRteDolPOsjnk",
     "checked": true
   },
   "royal-holiday-palace": {
     "km": 17,
-    "place": "ChIJkQ-SP1iDwxQR0lDURweCs8Y",
     "checked": true
   },
   "royal-homes-704": {
     "km": 17,
-    "place": "ChIJQ3eaGKiRwxQRCTuFCmSwThQ",
     "checked": true
   },
   "royal-loft-suit": {
     "km": 26,
-    "place": "ChIJZ8_wd5GRwxQRJVT8bKrrI-c",
     "checked": true
   },
   "royal-otel": {
     "km": 124,
-    "place": "ChIJfb0XpPai3BQRl2IByIMl4kk",
     "checked": true
   },
   "royal-seginus": {
     "km": 17,
-    "place": "ChIJ7a_BZ5-CwxQRz3frVQFXMSU",
     "checked": true
   },
   "royal-taj-mahal-hotel": {
     "km": 59,
-    "place": "ChIJV0dEkMlewxQRMl9TPNDQlKo",
     "checked": true
   },
   "royal-wings-hotel": {
     "km": 16,
-    "place": "ChIJu7meXwiQwxQRf_D18DMeZIk",
     "checked": true
   },
   "rubi-hotel": {
     "km": 103,
-    "place": "ChIJpXrwFKmv3BQRB7kMjzxIfiY",
     "checked": true
   },
   "rubi-platinum-spa-resort": {
     "km": 102,
-    "place": "ChIJa2Ct5P-u3BQR1mdkvSj3ysI",
     "checked": true
   },
   "ruinadalia-hotel-adults-only": {
     "km": 16,
-    "place": "ChIJF_61kQaQwxQRrOooTLEJutQ",
     "checked": true
   },
   "sabah-pansiyon": {
     "km": 16,
-    "place": "ChIJKcwGZQ-QwxQRGTkvB7QC0Pc",
     "checked": true
   },
   "safari-otel": {
     "km": 15,
-    "place": "ChIJAZ--9_-PwxQRi9Dm2zfQohg",
     "checked": true
   },
   "sailor-s-beach-club": {
     "km": 68,
-    "place": "ChIJz26SQgK3wxQRfGjkrrlCK9Y",
     "checked": true
   },
   "sam-hotel": {
     "km": 25,
-    "place": "ChIJm4ihuTeRwxQRTetSFri2vtM",
     "checked": true
   },
   "sandy-beach-otel": {
     "km": 64,
-    "place": "ChIJyZpwOHxZwxQRPuQg9roPGBk",
     "checked": true
   },
   "santana-hotel": {
     "km": 44,
-    "place": "ChIJZZBaKQm_wxQR4L_VGBD9yt8",
     "checked": true
   },
   "saphir-resort-spa": {
     "km": 93,
-    "place": "ChIJ25yaM_6s3BQRc5cBOF4ZO00",
     "checked": true
   },
   "sarampol-hotel": {
     "km": 16,
-    "place": "ChIJGybN8_yPwxQRUDUHMv4znpk",
     "checked": true
   },
   "sare-beach-hotel": {
     "km": 18,
-    "place": "ChIJexNZEoGPwxQR9vo-V3CQgSE",
     "checked": true
   },
   "saritas-otel": {
     "km": 131,
-    "place": "ChIJSeI-PYWY3BQR8k_f_9ykVI8",
     "checked": true
   },
   "sarp-hotel-kadriye": {
     "km": 27,
-    "place": "ChIJH1-dLwp8wxQRqBFTWh4tnNw",
     "checked": true
   },
   "sato-hotel": {
     "km": 15,
-    "place": "ChIJSVMWhhmbwxQRAFPGDd4CwBQ",
     "checked": true
   },
   "saturn-palace-resort": {
     "km": 17,
-    "place": "ChIJG4eRIKCCwxQR1kLtdpxz0fw",
     "checked": true
   },
   "sava-hotel": {
     "km": 25,
-    "place": "ChIJ83Q5xHGRwxQREHoJ0tQDJoM",
     "checked": true
   },
   "saye-konak-hotel-kaleici-oldtown": {
     "km": 16,
-    "place": "ChIJq3EiQcmRwxQRGTB-8aZ0D0w",
     "checked": true
   },
   "scylax-hotels-family-club": {
     "km": 142,
-    "place": "ChIJS-S2iZqQ3BQR-AT3YERkNdI",
     "checked": true
   },
   "sea-city-devran-hotel-spa": {
     "km": 23,
-    "place": "ChIJm8Dx4qWRwxQRaby7o02U8Uo",
     "checked": true
   },
   "seaden-de-mar-resort-spa": {
     "km": 80,
-    "place": "ChIJc2qCtMdTwxQRZMG2bADZtoU",
     "checked": true
   },
   "seaden-quality-resort-spa": {
     "km": 62,
-    "place": "ChIJ42Omx-pZwxQRMETNR_dn-OE",
     "checked": true
   },
   "seaden-sea-planet-resort-spa": {
     "km": 82,
-    "place": "ChIJi7AyJI5TwxQR13QrxLqEVLY",
     "checked": true
   },
   "seaden-sea-world-resort-spa": {
     "km": 80,
-    "place": "ChIJyXqOB9BZwxQRnNAQPK7ix-c",
     "checked": true
   },
   "sealife-buket-resort-beach": {
     "km": 93,
-    "place": "ChIJbeT1Sa-v3BQRUZXJ4q5239E",
     "checked": true
   },
   "sealife-family-resort-hotel": {
     "km": 25,
-    "place": "ChIJGbUuD26RwxQRa_peosNTTHs",
     "checked": true
   },
   "sealife-kemer-resort-hotel": {
     "km": 59,
-    "place": "ChIJxeRjcgm3wxQRFRHMndsaBm8",
     "checked": true
   },
   "sealife-lounge-adult-only-otel": {
     "km": 23,
-    "place": "ChIJH6YLbaWRwxQRbV1EvhjAAzQ",
     "checked": true
   },
   "seamelia-beach-resort-hotel-spa": {
     "km": 59,
-    "place": "ChIJW6-c-zhZwxQRkCBU7PqVkOE",
     "checked": true
   },
   "seashell-vega": {
     "km": 54,
-    "place": "ChIJmSCa1q1ZwxQRlURQtG1J2Wc",
     "checked": true
   },
   "sedir-park-joy-otel": {
     "km": 151,
-    "place": "ChIJrRj-YTCbwxQRq0blRTGTOD4",
     "checked": true
   },
   "seher-resort-spa": {
     "km": 59,
-    "place": "ChIJt-cbrNBbwxQRNMqjsrN4iKE",
     "checked": true
   },
   "seher-sun-beach": {
     "km": 58,
-    "place": "ChIJYe2y50FfwxQRSQrVk63HSbI",
     "checked": true
   },
   "sehir-hotel": {
     "km": 32,
-    "place": "ChIJ15dfauKTwxQRlPIp5OQcqNM",
     "checked": true
   },
   "selcukhan-hotel": {
     "km": 44,
-    "place": "ChIJ82hLF6i_wxQRVS7zXvFxyB8",
     "checked": true
   },
   "selectum-family-comfort-side": {
     "km": 80,
-    "place": "ChIJz-C9WfpTwxQRSSdKLkqtNR0",
     "checked": true
   },
   "selectum-family-resort-belek": {
     "km": 40,
-    "place": "ChIJiylWOZZkwxQR-7XSCwhEKJ0",
     "checked": true
   },
   "selectum-family-resort-side": {
     "km": 81,
-    "place": "ChIJ-VceAeCsxBQRUgJ6YWpjC1k",
     "checked": true
   },
   "selectum-luxury-resort-belek": {
     "km": 32,
-    "place": "ChIJa8Dm4Z57wxQRVM9rBJ8_680",
     "checked": true
   },
   "selectum-noa-belek": {
     "km": 40,
-    "place": "ChIJuQv5mL1kwxQRdcA9MFF4ReQ",
     "checked": true
   },
   "selge-beach-resort-spa": {
     "km": 82,
-    "place": "ChIJh_MxLlO2yhQRCOLKETYouWs",
     "checked": true
   },
   "selin-otel-belek": {
     "km": 36,
-    "place": "ChIJU6WZKDF7wxQRbiRx-1EIQgU",
     "checked": true
   },
   "send-apart-otel": {
     "km": 23,
-    "place": "ChIJ2V97QqSRwxQR-gvd-XwbKqM",
     "checked": true
   },
   "sensitive-premium-resort": {
     "km": 41,
-    "place": "ChIJ0y6GYnlkwxQRWWUVbasntOA",
     "checked": true
   },
   "sentido-flora-garden": {
     "km": 84,
-    "place": "ChIJ3dqrTXJTwxQRLZcX-yI85yY",
     "checked": true
   },
   "sentido-gold-island-hotel": {
     "km": 106,
-    "place": "ChIJ4VfmhbCv3BQRVJWZMa8neog",
     "checked": true
   },
   "sentido-kamelya-fulya": {
     "km": 58,
-    "place": "ChIJYbJIsMFewxQRDP0lhEHGBWQ",
     "checked": true
   },
   "senza-garden-holiday-club-hotel": {
     "km": 117,
-    "place": "ChIJK_jpf8il3BQRQ_GAmoFTk9Q",
     "checked": true
   },
   "senza-grand-santana-otel": {
     "km": 141,
-    "place": "ChIJHzb1Owia3BQRuprj6kxeB44",
     "checked": true
   },
   "senza-sunset-beach-hotel": {
     "km": 133,
-    "place": "ChIJoT9uAZmv3BQRjIDHhIiS_0I",
     "checked": true
   },
   "senza-the-inn-resort-spa": {
     "km": 109,
-    "place": "ChIJswA_o2Kl3BQRJeSSGC4a5gg",
     "checked": true
   },
   "serenity-lara-hotel": {
     "km": 25,
-    "place": "ChIJs_W40tCRwxQRh8boF-1vVIA",
     "checked": true
   },
   "serenity-queen-hotel": {
     "km": 114,
-    "place": "ChIJbxxH-Xyj3BQRo7bw6Q_hvm4",
     "checked": true
   },
   "serenity-suit-hotel": {
     "km": 25,
-    "place": "ChIJs_W40tCRwxQRh8boF-1vVIA",
     "checked": true
   },
   "serenity-suites-hotel": {
     "km": 25,
-    "place": "ChIJs_W40tCRwxQRh8boF-1vVIA",
     "checked": true
   },
   "sette-serenity-otel": {
     "km": 130,
-    "place": "ChIJPW6Lg1OY3BQRLS49RLLFcfE",
     "checked": true
   },
   "seven-seas-hotel-life-kemer": {
     "km": 51,
-    "place": "ChIJC8-_S-W4wxQRxSHFfG-p7xw",
     "checked": true
   },
   "seven-seas-palmeras-bay-hotel": {
     "km": 117,
-    "place": "ChIJY8LGIV2l3BQReIdj34Pfg1o",
     "checked": true
   },
   "sever-hotel": {
     "km": 13,
-    "place": "ChIJWS7mnKKFwxQRR3EABe98o38",
     "checked": true
   },
   "sever-suites-hotel": {
     "km": 13,
-    "place": "ChIJWS7mnKKFwxQRR3EABe98o38",
     "checked": true
   },
   "sey-beach-hotel-spa": {
     "km": 135,
-    "place": "ChIJkXuJLXiY3BQR51IMnsbl38g",
     "checked": true
   },
   "sherwood-dreams-resort": {
-    "km": 43,
-    "place": "ChIJ-xOdkg5kwxQRYQZFM3L7x3Y"
+    "km": 43
   },
   "sherwood-exclusive-kemer": {
     "km": 53,
-    "place": "ChIJbSoWaFy4wxQRDZ1KjjzjMm4",
     "checked": true
   },
   "sherwood-exclusive-lara": {
     "km": 16,
-    "place": "ChIJuzjBGteCwxQR0Ccc4DPjm7c",
     "checked": true
   },
   "sherwood-premio-hotel": {
     "km": 17,
-    "place": "ChIJh1luuOiawxQRdH5IF14ht5M",
     "checked": true
   },
   "siam-elegance-hotel-spa": {
     "km": 42,
-    "place": "ChIJFWBF2QxkwxQRzOoGdQxqCBI",
     "checked": true
   },
   "sibel-hotel": {
     "km": 16,
-    "place": "ChIJfXlt7gWQwxQRvhVmgghxVZQ",
     "checked": true
   },
   "side-alegria-hotel-spa": {
     "km": 61,
-    "place": "ChIJk0qHjzhZwxQRSWBUjaw9KDY",
     "checked": true
   },
   "side-breeze-otel": {
     "km": 59,
-    "place": "ChIJbaC1DcZewxQRB1gdj1P-Gsw",
     "checked": true
   },
   "side-crown-palace": {
     "km": 59,
-    "place": "ChIJIebav01fwxQRhKXcQUJoXXU",
     "checked": true
   },
   "side-mare-resort-spa-otel": {
     "km": 61,
-    "place": "ChIJLdtXyTlZwxQRIefolhI8UDA",
     "checked": true
   },
   "side-moon-palace-hotel": {
     "km": 69,
-    "place": "ChIJAwLj9vJZwxQRodac43t2eIA",
     "checked": true
   },
   "side-orange-paradise-hotel": {
     "km": 59,
-    "place": "ChIJH2oejMtewxQRAJ0VhJWue-g",
     "checked": true
   },
   "side-premium-hotel": {
     "km": 58,
-    "place": "ChIJL4tFqMZewxQRt-j6lNcJq7o",
     "checked": true
   },
   "side-prenses-resort": {
     "km": 64,
-    "place": "ChIJL5l8XW5ZwxQRhTw06fJuCfc",
     "checked": true
   },
   "side-star-beach": {
     "km": 65,
-    "place": "ChIJlaf3HnpZwxQRbJPTvcc7W9o",
     "checked": true
   },
   "side-star-elegance": {
     "km": 64,
-    "place": "ChIJbRMW9W5ZwxQRf57xFsxDa04",
     "checked": true
   },
   "side-star-resort": {
     "km": 54,
-    "place": "ChIJNTbXEBVewxQRnwqFw9zdvYM",
     "checked": true
   },
   "side-story-resort-spa": {
     "km": 59,
-    "place": "ChIJIXHdm25ZwxQR-ZR8hDE3oz4",
     "checked": true
   },
   "side-sun-otel": {
     "km": 61,
-    "place": "ChIJyZpwOHxZwxQRFfUUBWXfZPs",
     "checked": true
   },
   "side-sunport-hotel-spa": {
     "km": 58,
-    "place": "ChIJj_LWqMZewxQRxUrpmN6GB08",
     "checked": true
   },
   "side-village-hotel": {
     "km": 61,
-    "place": "ChIJYWvIhDlZwxQR_N8sfcCngjQ",
     "checked": true
   },
   "side-west-park-otel": {
     "km": 59,
-    "place": "ChIJVZf5XMRewxQRWohZ4qQUyS4",
     "checked": true
   },
   "sidekum-otel": {
     "km": 61,
-    "place": "ChIJB5jG8DRZwxQRGiaXMi6eh5A",
     "checked": true
   },
   "sidelya-otel": {
     "km": 57,
-    "place": "ChIJ5RDFYQBfwxQRaUm7Ek7APYs",
     "checked": true
   },
   "sidera-kirman-premium": {
     "km": 91,
-    "place": "ChIJxUI-WgCt3BQRIGPK_Cj0tvU",
     "checked": true
   },
   "sies-otel": {
     "km": 17,
-    "place": "ChIJg2Yabg2RwxQRepEQ2K9ujZ0",
     "checked": true
   },
   "siete-hotel": {
     "km": 17,
-    "place": "ChIJcb8Q5ZmbwxQRs_32xr2pyDI",
     "checked": true
   },
   "simply-fine-hotel-alize": {
     "km": 131,
-    "place": "ChIJt5i7mCyZ3BQR-CvwkOb_gBs",
     "checked": true
   },
   "simus-beach-hotel": {
     "km": 65,
-    "place": "ChIJCxawGnxZwxQRI2XM3jiDt4Y",
     "checked": true
   },
   "sinemis-hotel": {
     "km": 108,
-    "place": "ChIJhfDLsLg5whQRUqZdiq85eB8",
     "checked": true
   },
   "sirena-apart-spa": {
     "km": 24,
-    "place": "ChIJm1WuyhWOwxQR59TEd11TkLM",
     "checked": true
   },
   "sirene-belek-hotel": {
     "km": 30,
-    "place": "ChIJibkijtt7wxQRqAexIBfl-Jk",
     "checked": true
   },
   "sirius-deluxe-hotel": {
-    "km": 105,
-    "place": "ChIJ7WxCwmG3yhQRyKPOOhD4jJA"
+    "km": 105
   },
   "sirius-otel": {
     "km": 76,
-    "place": "ChIJybi8Ep7KwxQRq6cfATMhjX0",
     "checked": true
   },
   "sirius-town-residence-and-spa": {
     "km": 16,
-    "place": "ChIJ8f9LrcCCwxQRzcgBVy-ug14",
     "checked": true
   },
   "sirma-otel": {
     "km": 64,
-    "place": "ChIJFQ0l6W9ZwxQR3pHnp0T28Dc",
     "checked": true
   },
   "sky-business-hotel": {
     "km": 13,
-    "place": "ChIJk2MgDU2FwxQR_0M3gkJKjV4",
     "checked": true
   },
   "sky-hotel-apartments": {
     "km": 25,
-    "place": "ChIJdQM_PI-RwxQRpPn8gL3N-Ck",
     "checked": true
   },
   "sky-kamer-hotel": {
     "km": 17,
-    "place": "ChIJCUvXqwSQwxQRExTtPBMLibk",
     "checked": true
   },
   "skys-hotel": {
     "km": 82,
-    "place": "ChIJP4xMyo9TwxQRUNKQKxsO8rk",
     "checked": true
   },
   "sofa-hotels-kaleici": {
     "km": 16,
-    "place": "ChIJ__xKgz6RwxQRYF8ZAmHz9Ww",
     "checked": true
   },
   "solivia-hotel": {
     "km": 113,
-    "place": "ChIJBWLJRzil3BQRKaMAcSUrfr4",
     "checked": true
   },
   "solo-boutique-hotel": {
     "km": 16,
-    "place": "ChIJQwJWGgSQwxQRBxmOVEjarjg",
     "checked": true
   },
   "spice-hotel-spa": {
     "km": 37,
-    "place": "ChIJncSot7Z7wxQRBwR4s439fno",
     "checked": true
   },
   "star-pension": {
     "km": 16,
-    "place": "ChIJidq4fgaQwxQRcBvqwmNpUkQ",
     "checked": true
   },
   "start-hotel": {
     "km": 15,
-    "place": "ChIJMdFvBQCQwxQRcyFSs0yMsRY",
     "checked": true
   },
   "stile-suite-family-hotel": {
     "km": 24,
-    "place": "ChIJcVFwUa2RwxQRY42rSETwjdo",
     "checked": true
   },
   "sueno-hotels": {
     "km": 32,
-    "place": "ChIJX5257XV7wxQReYQn8-DzhcA",
     "checked": true
   },
   "sueno-hotels-beach-side": {
     "km": 68,
-    "place": "ChIJk7wjmnZZwxQRQC_w7LKyaF8",
     "checked": true
   },
   "sueno-hotels-deluxe-belek": {
     "km": 32,
-    "place": "ChIJX5257XV7wxQReYQn8-DzhcA",
     "checked": true
   },
   "sueno-hotels-golf-belek": {
-    "km": 32,
-    "place": "ChIJ2Q2IlJ57wxQR6Bp7ulrYoss"
+    "km": 32
   },
   "suite-laguna-otel": {
     "km": 18,
-    "place": "ChIJyRHfYhiQwxQRxzLAk-OjtfM",
     "checked": true
   },
   "sultan-of-dreams-hotel-spa": {
     "km": 82,
-    "place": "ChIJN5YqB5JTwxQRcnYIjiSGqhU",
     "checked": true
   },
   "sultan-of-side": {
     "km": 59,
-    "place": "ChIJXZG5ocZewxQRVznNKm7A1DQ",
     "checked": true
   },
   "sultan-sipahi-resort-hotel": {
     "km": 125,
-    "place": "ChIJ6w4BbJui3BQR8CTSZnHYCBQ",
     "checked": true
   },
   "sun-heaven-otel": {
     "km": 111,
-    "place": "ChIJY5EwYQ-l3BQRzObZ41jQs7Y",
     "checked": true
   },
   "sun-heaven-queen": {
     "km": 111,
-    "place": "ChIJm28dZUplwBQR5Svdem-mZH8",
     "checked": true
   },
   "sun-shine-mir-hotel": {
     "km": 11,
-    "place": "ChIJ-ZePsySDwxQR-EFXKM1Dvvo",
     "checked": true
   },
   "sun-suites": {
     "km": 15,
-    "place": "ChIJTZ0nxC-bwxQRCLH-6ndWU3s",
     "checked": true
   },
   "sun-vera-otel": {
     "km": 124,
-    "place": "ChIJ_QRhcaCj3BQRT2SH1s_AMhk",
     "checked": true
   },
   "sunanatolia-otel": {
     "km": 17,
-    "place": "ChIJNVBsRQGQwxQRUK6uuPCo21w",
     "checked": true
   },
   "sunis-elita-beach-resort": {
     "km": 81,
-    "place": "ChIJT6A3aq1WwxQReFh7m7qquUU",
     "checked": true
   },
   "sunis-evren-beach-resort": {
     "km": 59,
-    "place": "ChIJJS6dKcZewxQRbsE5o2D8qx4",
     "checked": true
   },
   "sunis-kumkoy-beach-resort": {
     "km": 61,
-    "place": "ChIJ55SdrjdZwxQRsyLeww5-POU",
     "checked": true
   },
   "sunmelia-beach-resort-spa": {
     "km": 82,
-    "place": "ChIJKY6XmkxRwxQRW9_wCFPufJ8",
     "checked": true
   },
   "sunny-hill-alya": {
     "km": 126,
-    "place": "ChIJGyXBuZ2i3BQRH_6s_rljLoo",
     "checked": true
   },
   "sunprime-c-lounge": {
     "km": 131,
-    "place": "ChIJCyX__7GZ3BQRucfUPL-oL64",
     "checked": true
   },
   "sunrise-hotel": {
     "km": 16,
-    "place": "ChIJh0wepgaQwxQRNFIIqpkOd64",
     "checked": true
   },
   "sunthalia-hotels-and-resorts": {
     "km": 57,
-    "place": "ChIJuYUUMR-PwxQRz0DE1f7TlFc",
     "checked": true
   },
   "sural-garden-hotel": {
     "km": 57,
-    "place": "ChIJ--7rR7NQwxQRo2imlKfCRCI",
     "checked": true
   },
   "susesi-luxury-resort": {
     "km": 37,
-    "place": "ChIJWZLXbN7vdEARIRRacXUBDdo",
     "checked": true
   },
   "sveo-resort-kemer": {
     "km": 70,
-    "place": "ChIJ9T2C4Aa3wxQRGN1ox8-2Z5Q",
     "checked": true
   },
   "swandor-hotels-resorts-kemer": {
     "km": 67,
-    "place": "ChIJObboQ_m2wxQRsVzsrZwstcQ",
     "checked": true
   },
   "swandor-hotels-resorts-topkapi-palace": {
     "km": 25,
-    "place": "ChIJ0zvtrGl4wxQRQImlEPLg_rQ",
     "checked": true
   },
   "sweet-home-boutique-hotel": {
     "km": 16,
-    "place": "ChIJoariUYKbwxQRlpm3iD6lxSQ",
     "checked": true
   },
   "sy-hotels-belek": {
     "km": 28,
-    "place": "ChIJERi-_L17wxQRT0WLJXq0r-U",
     "checked": true
   },
   "tac-premier-hotel-spa": {
     "km": 125,
-    "place": "ChIJL4Mk4Aqa3BQRP7g9M5NMOWY",
     "checked": true
   },
   "taka-butik-otel": {
     "km": 16,
-    "place": "ChIJf9Wq4I2RwxQRqcJVDpng2EM",
     "checked": true
   },
   "tal-beach-hotel": {
     "km": 44,
-    "place": "ChIJ4VUrSX25wxQRr_k5eYOj6SA",
     "checked": true
   },
   "talya-otel": {
     "km": 16,
-    "place": "ChIJuRlfBAKRwxQRT1KI20HpY-U",
     "checked": true
   },
   "tamara-business-otel": {
     "km": 16,
-    "place": "ChIJgR8mIrOPwxQRgVJhX08--1U",
     "checked": true
   },
   "tekeli-konaklari": {
     "km": 16,
-    "place": "ChIJEeAmXwSQwxQR8P0NjpHdGlM",
     "checked": true
   },
   "telatiye-resort-otel": {
     "km": 113,
-    "place": "ChIJ-YdjAHqk3BQR2KHzECCGO98",
     "checked": true
   },
   "tema-242-hotel": {
     "km": 17,
-    "place": "ChIJP92-DJebwxQRBKltg4NGEOA",
     "checked": true
   },
   "temiz-otel": {
     "km": 127,
-    "place": "ChIJJavJKHeY3BQRRoZMz3xwtso",
     "checked": true
   },
   "teos-hotel": {
     "km": 15,
-    "place": "ChIJj-GsehebwxQRl7k97E5BQOM",
     "checked": true
   },
   "terra-rossa-apart-otel": {
     "km": 17,
-    "place": "ChIJrwOVWbqPwxQR3O0hrbn8qFw",
     "checked": true
   },
   "terrace-elite-resort": {
     "km": 56,
-    "place": "ChIJOceMmT9ewxQRkoAEhEwZQMw",
     "checked": true
   },
   "thalia-unique": {
     "km": 62,
-    "place": "ChIJyZpwOHxZwxQRVHZETHKuCOY",
     "checked": true
   },
   "the-antik-hotel": {
     "km": 106,
-    "place": "ChIJcZ-Bsaiv3BQRvI6s9e6D4rk",
     "checked": true
   },
   "the-corner-park-hotel": {
     "km": 23,
-    "place": "ChIJGblW6f2RwxQRryIw506vRvY",
     "checked": true
   },
   "the-divan-resort-hotel-ant": {
-    "km": 15,
-    "place": "ChIJfdUt_-SawxQRi-LsgisBwjI"
+    "km": 15
   },
   "the-easy-rooms-terrace": {
     "km": 16,
-    "place": "ChIJ1YkQqgiQwxQRn4sGjfcH5qo",
     "checked": true
   },
   "the-grand-ring-hotel": {
     "km": 49,
-    "place": "ChIJx0BsOQa_wxQRoQiUbY78WnI",
     "checked": true
   },
   "the-land-of-legends": {
     "km": 27,
-    "place": "ChIJNwDmzfN7wxQR0xcO5dFlsJM",
     "checked": true
   },
   "the-lifeco-antalya-well-being-detox-center-and-vegan-hotel": {
     "km": 17,
-    "place": "ChIJv4bBO6KawxQRTxA7uFE1lbs",
     "checked": true
   },
   "the-lifeco-antalya-well-being-detox-center-otel": {
     "km": 17,
-    "place": "ChIJv4bBO6KawxQRTxA7uFE1lbs",
     "checked": true
   },
   "the-little-prince-boutique-otel": {
     "km": 16,
-    "place": "ChIJEekhEYORwxQRarof-L7hTj0",
     "checked": true
   },
   "the-marilis-hill-resort-hotel-spa": {
     "km": 93,
-    "place": "ChIJ9eE9xdKt3BQRV1K5hWubTV0",
     "checked": true
   },
   "the-marmara-antalya-otel": {
     "km": 17,
-    "place": "ChIJXWrNeoW1yhQRcfwCJjE6Gks",
     "checked": true
   },
   "the-mori-club-hotel": {
     "km": 15,
-    "place": "ChIJo8yAAxebwxQR9038Zu0cZuo",
     "checked": true
   },
   "the-ninova-otel": {
     "km": 16,
-    "place": "ChIJzVpGwAaQwxQRuBYc_eYesVk",
     "checked": true
   },
   "the-norm-oriental-otel": {
     "km": 68,
-    "place": "ChIJ2wWFC9u3wxQRpYR6dkMoKKA",
     "checked": true
   },
   "the-room-hotel-apartments": {
     "km": 25,
-    "place": "ChIJ9bbdAXqRwxQRhLyEng5Oots",
     "checked": true
   },
   "the-sense-deluxe-hotel": {
     "km": 63,
-    "place": "ChIJCdGqW8pewxQRWz3dvQg1nPE",
     "checked": true
   },
   "the-suite-apart-hotel": {
     "km": 16,
-    "place": "ChIJbwj5AwaQwxQRSVd-fFLiEfE",
     "checked": true
   },
   "the-suites": {
     "km": 30,
-    "place": "ChIJ894KauSTwxQRBkSQ2aNRs2U",
     "checked": true
   },
   "the-x-belek-otel": {
     "km": 29,
-    "place": "ChIJU_8aZJZ9wxQRH9FU58Mnzw0",
     "checked": true
   },
   "throne-nilbahir-resort-spa": {
     "km": 93,
-    "place": "ChIJg7P7dPWr3BQRbVKeGRzyp7g",
     "checked": true
   },
   "time-beach-otel": {
     "km": 125,
-    "place": "ChIJ9dG4HACj3BQRl3qUVC7pG0o",
     "checked": true
   },
   "timo-deluxe-resort": {
     "km": 113,
-    "place": "ChIJ00mjBv6k3BQRQPl1pHcgzSk",
     "checked": true
   },
   "titanic-beach-lara": {
     "km": 14,
-    "place": "ChIJASy63c-CwxQRlHBoXAKcF5k",
     "checked": true
   },
   "titanic-deluxe-golf-belek": {
     "km": 29,
-    "place": "ChIJ59vIH2Z5wxQRRgKoqiVZHKc",
     "checked": true
   },
   "titanic-deluxe-lara-otel": {
     "km": 14,
-    "place": "ChIJASy63c-CwxQRlHBoXAKcF5k",
     "checked": true
   },
   "titanic-mardan-palace": {
     "km": 25,
-    "place": "ChIJS0jEQBqbwxQRm1eiD-UR1Lk",
     "checked": true
   },
   "tolenza-hotels": {
     "km": 124,
-    "place": "ChIJf3KEAkmj3BQRFua5dPQwPQg",
     "checked": true
   },
   "toprak-apart-otel": {
     "km": 14,
-    "place": "ChIJ2zjecxuFwxQRiRs6Ix0OX5Y",
     "checked": true
   },
   "tourist-hotel": {
     "km": 13,
-    "place": "ChIJTXbd1libwxQRphKP7dB0MHk",
     "checked": true
   },
   "transatlantik-hotel-spa": {
     "km": 52,
-    "place": "ChIJXauaaPW4wxQR0L0XIQxMKk4",
     "checked": true
   },
   "trend-park-hotel": {
     "km": 23,
-    "place": "ChIJjXyXgaWRwxQRM4YSYjOYzzk",
     "checked": true
   },
   "trend-suites": {
     "km": 25,
-    "place": "ChIJmdcFqXGRwxQRSrGwFLNxmLo",
     "checked": true
   },
   "trend-suites-cycle": {
     "km": 25,
-    "place": "ChIJ4zmYl8KRwxQRVeaHDej5fnE",
     "checked": true
   },
   "trendy-aspendos-beach": {
     "km": 55,
-    "place": "ChIJe3uyFWpewxQRJINiiCMGtnc",
     "checked": true
   },
   "trendy-lara-hotel": {
     "km": 25,
-    "place": "ChIJs1yAQ1x4wxQR2lAY2mxqxOA",
     "checked": true
   },
   "trendy-side-beach": {
     "km": 65,
-    "place": "ChIJCaxQBXtZwxQRdFb063OkEKE",
     "checked": true
   },
   "trendy-verbena-beach-hotel": {
     "km": 59,
-    "place": "ChIJ-wBSGMpewxQRUfpvLUi6JeU",
     "checked": true
   },
   "triana-hotel": {
     "km": 16,
-    "place": "ChIJK6Hh3KaawxQRevtufk6zLRc",
     "checked": true
   },
   "tu-casa-gelidonya-hotel": {
     "km": 59,
-    "place": "ChIJyTlBD463wxQRjJe1g9EZ9yA",
     "checked": true
   },
   "tu-casa-linda-otel": {
     "km": 60,
-    "place": "ChIJv8PY7IWRwxQRPJDVWQxVip0",
     "checked": true
   },
   "tui-blue-palm-garden": {
     "km": 80,
-    "place": "ChIJPQsgfFVRwxQRRu1m94sXmsQ",
     "checked": true
   },
   "tui-blue-sherwood-belek": {
     "km": 43,
-    "place": "ChIJywcAQGd7wxQRega1IgpU0NQ",
     "checked": true
   },
   "tui-blue-side-family-resort": {
     "km": 59,
-    "place": "ChIJISE2QcpewxQR2U9ymZPCbW0",
     "checked": true
   },
   "tui-magic-life-belek": {
     "km": 31,
-    "place": "ChIJOS_-cHp5wxQRYsu6vPWjMeM",
     "checked": true
   },
   "tui-magic-life-jacaranda": {
     "km": 54,
-    "place": "ChIJowB6whZewxQRoYo5SCuQAA8",
     "checked": true
   },
   "tumay-hotel": {
     "km": 24,
-    "place": "ChIJiQM9vXaRwxQRKHHjp61WMXg",
     "checked": true
   },
   "tunali-apart-hotel": {
     "km": 31,
-    "place": "ChIJI7j1Ql-RwxQRBDcbnnW8L5s",
     "checked": true
   },
   "tunc-apart-otel": {
     "km": 23,
-    "place": "ChIJ_QAt46-RwxQRvabcbT3HxlY",
     "checked": true
   },
   "turkay-hotel": {
     "km": 25,
-    "place": "ChIJTx4xcjmRwxQRc1mJVUUcPfM",
     "checked": true
   },
   "turquoise-resort-hotel-spa": {
     "km": 70,
-    "place": "ChIJ50UBCwBbwxQR6oWY6vbJxPY",
     "checked": true
   },
   "turunc-hotel-antalya-ex-omur-hotel": {
     "km": 15,
-    "place": "ChIJD6mU19SFwxQRuuYD-cK1Zug",
     "checked": true
   },
   "tut-hotel": {
     "km": 30,
-    "place": "ChIJNV8aBM6TwxQREzLywxucpBA",
     "checked": true
   },
   "tuvana-hotel": {
     "km": 17,
-    "place": "ChIJ331ONQGQwxQROTbc9Ak49J8",
     "checked": true
   },
   "uemit-hotel": {
-    "km": 18,
-    "place": "ChIJnUNOZR-QwxQRqa-IhAFW-JI"
+    "km": 18
   },
   "ulusoy-kemer-holiday-club": {
     "km": 51,
-    "place": "ChIJgQXpGuW4wxQRz4lzJoaQYOI",
     "checked": true
   },
   "urcu-hotel": {
     "km": 16,
-    "place": "ChIJQzhDvAaQwxQRN-v7fIUMIs8",
     "checked": true
   },
   "utopia-world-hotel": {
     "km": 146,
-    "place": "ChIJk8P8-ouQ3BQRGPyn8tDQ0gQ",
     "checked": true
   },
   "uyar-palace": {
     "km": 18,
-    "place": "ChIJnUNOZR-QwxQRqa-IhAFW-JI",
     "checked": true
   },
   "valeri-beach": {
     "km": 61,
-    "place": "ChIJ2TNc0pu3wxQRQ1fJHSuUATA",
     "checked": true
   },
   "vega-suites": {
     "km": 25,
-    "place": "ChIJ11YazzuRwxQRKYJFbs0eJxo",
     "checked": true
   },
   "venezia-palace-deluxe-resort": {
     "km": 15,
-    "place": "ChIJCYIMLQCFwxQR7ypaxUptNg8",
     "checked": true
   },
   "venus-hotel": {
     "km": 25,
-    "place": "ChIJTdsC2G-RwxQRwTng_X55r6g",
     "checked": true
   },
   "vera-park-premium-apart-hotel": {
     "km": 23,
-    "place": "ChIJd9CNbZ6RwxQR3p9z5c-ASl8",
     "checked": true
   },
   "veranda-suites": {
     "km": 12,
-    "place": "ChIJacbUTzCDwxQRCI31JvesltQ",
     "checked": true
   },
   "verde-mare-hotels": {
     "km": 17,
-    "place": "ChIJDW9vNv2bwxQRKGI9Y5_rgHI",
     "checked": true
   },
   "vesta-rooms": {
     "km": 25,
-    "place": "ChIJWTyICeiRwxQRbtITFBhrmGg",
     "checked": true
   },
   "victory-resort-hotel": {
     "km": 56,
-    "place": "ChIJ8e7ru1hewxQRIrUbZP827zg",
     "checked": true
   },
   "vienna-apart-otel": {
     "km": 25,
-    "place": "ChIJf8mabJSRwxQRh852QUReYUE",
     "checked": true
   },
   "viking-beach-otel": {
     "km": 61,
-    "place": "ChIJH5jRgmK3wxQR-Gtj8busHkA",
     "checked": true
   },
   "viking-park-otel": {
     "km": 67,
-    "place": "ChIJQTL95fi2wxQRUlnd6UVrQok",
     "checked": true
   },
   "viking-star-hotel": {
     "km": 60,
-    "place": "ChIJdWnLQ6O3wxQRbGuDGkIqhyQ",
     "checked": true
   },
   "vikingen-infinity-resort-spa": {
     "km": 107,
-    "place": "ChIJ65OOuBWv3BQRgL8fUpyO86w",
     "checked": true
   },
   "villa-citronella-boutique-hotel": {
     "km": 16,
-    "place": "ChIJAYMufcaRwxQR4qPKiPyVWJ4",
     "checked": true
   },
   "villa-emel": {
     "km": 16,
-    "place": "ChIJR5q0kwWQwxQRaejhwVfqtNk",
     "checked": true
   },
   "villa-italic": {
     "km": 16,
-    "place": "ChIJUS5UaQGRwxQRH6kVfIcz8AE",
     "checked": true
   },
   "villa-perla-hotel": {
     "km": 16,
-    "place": "ChIJKcwGZQ-QwxQRK0i5ST73ARo",
     "checked": true
   },
   "villa-sunflower-hotel": {
     "km": 126,
-    "place": "ChIJcZb12X6Y3BQR1ggAs-ZaYuY",
     "checked": true
   },
   "villa-tulipan": {
     "km": 16,
-    "place": "ChIJu9gfyQWQwxQRY6iQYH929P4",
     "checked": true
   },
   "vita-silva-otel": {
     "km": 87,
-    "place": "ChIJTY_iS5pTwxQRgYP1dICP62E",
     "checked": true
   },
   "viva-beach-hotel": {
     "km": 141,
-    "place": "ChIJp9HyP-KR3BQRh635RQRhgSI",
     "checked": true
   },
   "volkii-butik-hotel": {
     "km": 25,
-    "place": "ChIJbxCkq2-RwxQRvk6HULc_Qgk",
     "checked": true
   },
   "volkii-hotel": {
     "km": 24,
-    "place": "ChIJOWsNRqeRwxQRj0kmbLbPLuA",
     "checked": true
   },
   "von-resort-golden-coast": {
     "km": 57,
-    "place": "ChIJ25-_jV1ewxQR2M7aebrvigg",
     "checked": true
   },
   "voyage-belek-golf-spa": {
     "km": 37,
-    "place": "ChIJX8V5wU57wxQRkU__f7S9XFE",
     "checked": true
   },
   "voyage-kundu-otel": {
     "km": 19,
-    "place": "ChIJMYObaAB5wxQR7oMM9UeHnxA",
     "checked": true
   },
   "voyage-sorgun": {
     "km": 70,
-    "place": "ChIJyZpwOHxZwxQReXKsD0LPiP4",
     "checked": true
   },
   "washington-resort-hotel-spa": {
     "km": 80,
-    "place": "ChIJ1ZxMfvpTwxQR_04VRUHPw3g",
     "checked": true
   },
   "water-side-resort-spa": {
     "km": 72,
-    "place": "ChIJm3hNPzVXwxQRadHwxiDusy4",
     "checked": true
   },
   "white-city-pension": {
     "km": 16,
-    "place": "ChIJ7_IN8gSQwxQR9uFdDmCpQnI",
     "checked": true
   },
   "white-garden-hotel-adult-only": {
     "km": 16,
-    "place": "ChIJ5VgC8wWQwxQRJ-IivBxxJ-I",
     "checked": true
   },
   "white-gold": {
-    "km": 131,
-    "place": "ChIJaYZp0lKY3BQRH65Xcbe28K4"
+    "km": 131
   },
   "wien-star-otel": {
     "km": 128,
-    "place": "ChIJ8WT7G16Y3BQRkRE7q0_DlmE",
     "checked": true
   },
   "wind-of-lara-hotel-spa": {
     "km": 16,
-    "place": "ChIJGeelMMGCwxQR35NX0cT9aCI",
     "checked": true
   },
   "wise-hotel-spa-adults-only": {
     "km": 17,
-    "place": "ChIJ_dQ4xe6awxQR0nG_5A13qb0",
     "checked": true
   },
   "wome-deluxe-hotel": {
     "km": 101,
-    "place": "ChIJSeI-PYWY3BQRVZfQ-ryV_bs",
     "checked": true
   },
   "woo-town-otel": {
-    "km": 17,
-    "place": "ChIJETabBByQwxQRfIBQYLkVckA"
+    "km": 17
   },
   "wow-kremlin-palace": {
     "km": 25,
-    "place": "ChIJw_62LGl4wxQReHBt6XTNUB4",
     "checked": true
   },
   "wow-topkapi-palace": {
     "km": 25,
-    "place": "ChIJ0zvtrGl4wxQRQImlEPLg_rQ",
     "checked": true
   },
   "wyndham-garden-lara-otel": {
     "km": 15,
-    "place": "ChIJR28XNseCwxQR5ebzI18i0CY",
     "checked": true
   },
   "xanadu-resort-hotel": {
     "km": 42,
-    "place": "ChIJMZyYcY9kwxQRGZE0nY10Knc",
     "checked": true
   },
   "xeno-eftalia-resort-otel": {
     "km": 114,
-    "place": "ChIJxYxuzpOl3BQRV6EmZzoZZrk",
     "checked": true
   },
   "xoria-deluxe-hotel": {
     "km": 111,
-    "place": "ChIJ18E-DAml3BQRWbicBRkBOjo",
     "checked": true
   },
   "xperia-saray-beach-otel": {
     "km": 125,
-    "place": "ChIJ_-bFV4Wi3BQR6b_en732VhA",
     "checked": true
   },
   "yakamoz-pansiyon-2": {
     "km": 22,
-    "place": "ChIJb3s2Z2WRwxQReZxEB1uXsjA",
     "checked": true
   },
   "yalcin-otel": {
     "km": 15,
-    "place": "ChIJtc6wZiL9wxQRBZXOCptmFfw",
     "checked": true
   },
   "yalihan-aspendos-otel": {
     "km": 103,
-    "place": "ChIJpRbgcamv3BQR7LKLomvg-os",
     "checked": true
   },
   "yalihan-una": {
     "km": 103,
-    "place": "ChIJWaJ8mKqv3BQRZI7PUYnCc6A",
     "checked": true
   },
   "yaman-life-otel": {
     "km": 129,
-    "place": "ChIJBZYVR1eY3BQRLolt-VKZjwo",
     "checked": true
   },
   "yelken-apart-hotel": {
     "km": 23,
-    "place": "ChIJqWIOfqaRwxQRps9SqfMjBns",
     "checked": true
   },
   "yelken-butik-hotel": {
     "km": 13,
-    "place": "ChIJEdXf_1ibwxQRAl3kiKUZXuc",
     "checked": true
   },
   "yeniceri-ahmet-aga-konagi": {
-    "km": 16,
-    "place": "ChIJ55hVpQWQwxQR5FABQHrfKTo"
+    "km": 16
   },
   "yesilyurt-otel": {
     "km": 16,
-    "place": "ChIJpdn2r5iPwxQR1MBB436B47s",
     "checked": true
   },
   "yetkin-club-otel": {
     "km": 113,
-    "place": "ChIJC6RH2AGl3BQRDppg8H8Pa5g",
     "checked": true
   },
   "yildirimoglu": {
     "km": 127,
-    "place": "ChIJLXTfuHyY3BQR3t7lefowmDo",
     "checked": true
   },
   "yucemek-apart": {
     "km": 30,
-    "place": "ChIJD_DAa66VwxQRHH6wmHnwRQA",
     "checked": true
   },
   "z-suites": {
     "km": 16,
-    "place": "ChIJpz_JcGCbwxQRPuPun2n8OYk",
     "checked": true
   },
   "zel-hotel": {
     "km": 31,
-    "place": "ChIJe2i57aePwxQR-LDSGXA-Zps",
     "checked": true
   },
   "zemira-garden-hotel": {
-    "km": 15,
-    "place": "ChIJ-bExs1eRwxQRUNqIQfpOCRA"
+    "km": 15
   },
   "zena-resort-otel": {
     "km": 67,
-    "place": "ChIJp62D9Mi3wxQRBUVLITZX25Q",
     "checked": true
   },
   "zenia-hotel": {
     "km": 17,
-    "place": "ChIJLy1PNx2QwxQRi1XENzB05WA",
     "checked": true
   },
   "zeynel-boutique-hotel": {
     "km": 23,
-    "place": "ChIJ_VZd96WRwxQRQ9tov83YRiU",
     "checked": true
   }
 });

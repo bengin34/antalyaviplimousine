@@ -1,5 +1,5 @@
 import { describe, test, expect } from "vitest";
-import { slugsToProcess, applyResult, routeDestination, renderHotelDistancesFile } from "./hotel-distances-merge.mjs";
+import { slugsToProcess, applyResult, routeDestination, renderHotelDistancesFile, renderHotelPlacesFile, withPlaces } from "./hotel-distances-merge.mjs";
 
 const index = [
   { slug: "a", name: "A Hotel", district: "Side" },
@@ -53,6 +53,43 @@ describe("renderHotelDistancesFile", () => {
     expect(file.indexOf('"a"')).toBeLessThan(file.indexOf('"b"'));
     expect(file).toContain("export const hotelDistances = Object.freeze({");
     expect(file.endsWith("});\n")).toBe(true);
+  });
+
+  // Place IDs are audit evidence: the booking form prices on km and trusts a
+  // row by its checked flag, so shipping 1246 opaque Google IDs to every
+  // visitor only inflates the bundle.
+  test("leaves the Place ID out of the module the browser loads", () => {
+    const file = renderHotelDistancesFile({ a: { km: 2, place: "ChIJ-audit-only", checked: true } });
+    expect(file).not.toContain("ChIJ-audit-only");
+    expect(file).not.toContain('"place"');
+    expect(file).toContain('"km": 2');
+    expect(file).toContain('"checked": true');
+  });
+
+  test("keeps the no-match note, which the generator reads back", () => {
+    const file = renderHotelDistancesFile({ a: { km: null, place: null, checked: false, note: "no-match" } });
+    expect(file).toContain('"note": "no-match"');
+  });
+});
+
+describe("renderHotelPlacesFile", () => {
+  test("emits only the rows that have a Place ID, sorted", () => {
+    const file = renderHotelPlacesFile({ b: { km: 1, place: "p-b" }, a: { km: 2, place: "p-a" }, c: { km: null, place: null } });
+    expect(file).toContain("export const hotelPlaces = Object.freeze({");
+    expect(file.indexOf('"a"')).toBeLessThan(file.indexOf('"b"'));
+    expect(file).toContain('"a": "p-a"');
+    expect(file).not.toContain('"c"');
+  });
+});
+
+describe("withPlaces", () => {
+  test("puts the audit Place ID back on the lean distance rows", () => {
+    const merged = withPlaces({ a: { km: 2, checked: true } }, { a: "p-a" });
+    expect(merged.a).toEqual({ km: 2, checked: true, place: "p-a" });
+  });
+
+  test("leaves a row without a recorded place untouched", () => {
+    expect(withPlaces({ a: { km: 2, checked: false } }, {}).a).toEqual({ km: 2, checked: false });
   });
 });
 

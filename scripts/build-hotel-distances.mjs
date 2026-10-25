@@ -13,14 +13,20 @@
  *   node scripts/build-hotel-distances.mjs --refresh  # re-pull all but checked
  *   node scripts/build-hotel-distances.mjs --only voyage-sorgun
  *
- * Writes src/hotel-distances.js and scripts/hotel-distances.report.json.
+ * Writes src/hotel-distances.js, src/hotel-places.js and
+ * scripts/hotel-distances.report.json.
  */
 import { writeFile } from "node:fs/promises";
 import { hotelIndex } from "../src/hotel-index.js";
 import { routeCatalog } from "../src/routes.js";
-import { slugsToProcess, applyResult, routeDestination, renderHotelDistancesFile } from "./lib/hotel-distances-merge.mjs";
+import { slugsToProcess, applyResult, routeDestination, renderHotelDistancesFile, renderHotelPlacesFile, withPlaces } from "./lib/hotel-distances-merge.mjs";
 import { distanceToleranceKm, isPlausibleHotelDistance } from "../src/hotel-distance-lookup.js";
-import { hotelDistances as existing } from "../src/hotel-distances.js";
+import { hotelDistances as leanExisting } from "../src/hotel-distances.js";
+import { hotelPlaces } from "../src/hotel-places.js";
+
+// A gap-fill run must see the Place IDs it recorded last time, so the two
+// generated files are read back as the single record they describe.
+const existing = withPlaces(leanExisting, hotelPlaces);
 
 const AYT = { lat: 36.898701, lng: 30.800545 };
 const KEY = process.env.GOOGLE_MAPS_API_KEY || process.env.GOOGLE_PLACES_API_KEY;
@@ -125,7 +131,7 @@ for (const slug of todo) {
   await new Promise((r) => setTimeout(r, 120)); // gentle throttle
 }
 
-const file = renderHotelDistancesFile(data);
-await writeFile(new URL("../src/hotel-distances.js", import.meta.url), file);
+await writeFile(new URL("../src/hotel-distances.js", import.meta.url), renderHotelDistancesFile(data));
+await writeFile(new URL("../src/hotel-places.js", import.meta.url), renderHotelPlacesFile(data));
 await writeFile(new URL("./hotel-distances.report.json", import.meta.url), JSON.stringify(report, null, 2));
 console.error(`Wrote ${Object.keys(data).length} rows. Outliers/no-match: ${report.filter((r) => r.flag).length}`);
