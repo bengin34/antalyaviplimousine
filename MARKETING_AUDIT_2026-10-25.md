@@ -25,7 +25,7 @@ huni (`site_events`, 12 olay), Ads conversion (`BookingForm.tsx:416`), prerender
 ## P0 — Bu hafta
 
 ### 1. Transfer sayfaları 22 dilde ince; Almanca şablonu taşınmadı
-**Etki: Yüksek · Güven: Kesin**
+**Etki: Yüksek · Güven: Kesin · Durum: ru/en/tr/pl yapıldı (5251a0dd)**
 
 `TransferPage.tsx:105-122` tüm zengin bloğu `language === "de"` ile kapatıyor:
 bölge tanıtımı (`germanRegion.about`, `routeDetails`), havalimanı karşılama talimatı
@@ -57,7 +57,7 @@ Karar gerek (ikisinden biri, ortası yok):
 Aynı kontrol `land-of-legends` için yapıldı: 23 dil copy dosyası mevcut, sorun yok.
 
 ### 3. Ana sayfa JS yükü: 122 KB gzip tek chunk
-**Etki: Orta-Yüksek (LCP/INP, Ads kalite skoru) · Güven: Ölçüldü**
+**Etki: Orta-Yüksek (LCP/INP, Ads kalite skoru) · Güven: Ölçüldü · Durum: kısmen (ccda6d7c)**
 
 ```
 booking-DnpLgvdA.js   raw 412.171  gzip 121.961   ← modulepreload, / sayfasında
@@ -69,6 +69,14 @@ ana sayfa kritik yol  ────────────  gzip ~252.640
 rezervasyon formunun otel aramasına kadar gerekmiyor. Yapılacak: `HotelCombobox`
 veri importunu dinamik `import()` arkasına al (ilk tuş vuruşunda), veya fiyat sorgusunu
 Supabase function'a taşı. Hedef: ana sayfa kritik yol < 150 KB gzip.
+
+**Yapılan (ccda6d7c):** place-id'ler `src/hotel-places.js`'e çıktı — tarayıcı
+fiyatlamada yalnız `km` + `checked` okuyor. `hotel-distances.js` 135,7 → 81,1 KB;
+booking chunk 122,0 → 99,4 KB gzip; ana sayfa kritik yol 252,6 → 230,2 KB gzip.
+
+**Kalan:** otel index'i (106 KB raw) hâlâ aynı chunk'ta. `HotelCombobox`'u
+`LazyPhoneInput` kalıbıyla ertelemek gerekiyor; `BookingForm.test.tsx`'teki ~10
+senkron `#hotel-name` etkileşimi lazy modülü beklemek üzere yazılmalı. Ayrı iş.
 
 ---
 
