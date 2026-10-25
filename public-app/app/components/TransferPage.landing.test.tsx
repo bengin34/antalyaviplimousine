@@ -12,6 +12,7 @@ import "@testing-library/jest-dom/vitest";
 import { cleanup, render, screen } from "@testing-library/react";
 import { afterEach, describe, expect, test } from "vitest";
 import { localizedRoute } from "../../../src/routes.js";
+import { indexableLanguages } from "../lib/site";
 import { LanguageProvider } from "../i18n";
 import { LandOfLegendsBookingCopyProvider } from "../lib/land-of-legends-booking-copy";
 import { landOfLegendsBookingCopy, pageMessages, transferPageData } from "../lib/page-data.server";
@@ -23,6 +24,15 @@ afterEach(cleanup);
 
 /** The regions whose copy is written; a route outside this set stays on the template. */
 const landingRoutes = ["antalya", "belek", "side", "kemer", "alanya", "kizilagac", "tekirova"] as const;
+
+/**
+ * The length floor only exists to catch a stub left in place of real prose. A
+ * character carries far more of a sentence in Chinese, Japanese and Korean, so
+ * the same floor there would demand several times the content the Latin-script
+ * languages carry.
+ */
+const minimumProseLength = (language: IndexableLanguage) =>
+  (["zh", "ja", "ko"] as readonly string[]).includes(language) ? 60 : 120;
 
 const renderRoute = (language: IndexableLanguage, slug: string) => {
   const route = localizedRoute(slug, language);
@@ -38,8 +48,8 @@ const renderRoute = (language: IndexableLanguage, slug: string) => {
 };
 
 describe("transfer landing copy", () => {
-  test("publishes German plus the languages this change adds", () => {
-    expect(transferLandingLanguages).toEqual(expect.arrayContaining(["de", "en", "ru", "tr", "pl"]));
+  test("publishes every indexable language", () => {
+    expect([...transferLandingLanguages].sort()).toEqual([...indexableLanguages].sort());
   });
 
   test.each(transferLandingLanguages)("%s names every landing region", (language) => {
@@ -49,8 +59,8 @@ describe("transfer landing copy", () => {
     for (const slug of landingRoutes) {
       const region = copy.regions[slug];
       expect(region, `${language}/${slug}`).toBeDefined();
-      expect(region?.about.length ?? 0).toBeGreaterThan(120);
-      expect(region?.routeDetails.length ?? 0).toBeGreaterThan(120);
+      expect(region?.about.length ?? 0, `${language}/${slug} about`).toBeGreaterThan(minimumProseLength(language));
+      expect(region?.routeDetails.length ?? 0, `${language}/${slug} route`).toBeGreaterThan(minimumProseLength(language));
     }
   });
 
@@ -65,16 +75,26 @@ describe("transfer landing copy", () => {
   });
 });
 
-describe.each(["en", "ru", "tr", "pl"] as const)("%s transfer landing pages", (language) => {
+/**
+ * Rendering every language against every landing route is 161 page renders and
+ * the route axis only swaps the region block, so the language axis is checked
+ * on one route and the route axis on the two reference languages below.
+ *
+ * German is left out here because it is the one language that links its own
+ * hotel landing pages, which the hotel-list assertion forbids.
+ */
+const addedLanguages = transferLandingLanguages.filter((language) => language !== "de");
+
+describe.each(addedLanguages)("%s transfer landing pages", (language) => {
   const copy = transferLandingCopy(language);
   if (!copy) throw new Error(`Missing copy for ${language}`);
 
-  test.each(landingRoutes)("%s shows the whole-vehicle price and its trust bullets", (slug) => {
-    renderRoute(language, slug);
+  test("shows the whole-vehicle price and its trust bullets", () => {
+    renderRoute(language, "belek");
 
     expect(screen.getAllByText(copy.wholeVehicle)[0]).toBeInTheDocument();
     for (const bullet of copy.priceTrust) {
-      expect(screen.getAllByText(bullet)[0], `${slug}: ${bullet}`).toBeInTheDocument();
+      expect(screen.getAllByText(bullet)[0], `belek: ${bullet}`).toBeInTheDocument();
     }
   });
 
@@ -112,6 +132,20 @@ describe.each(["en", "ru", "tr", "pl"] as const)("%s transfer landing pages", (l
   });
 });
 
+describe.each(["de", "en"] as const)("%s covers every landing route", (language) => {
+  const copy = transferLandingCopy(language);
+  if (!copy) throw new Error(`Missing copy for ${language}`);
+
+  test.each(landingRoutes)("%s shows the whole-vehicle price and its region copy", (slug) => {
+    renderRoute(language, slug);
+
+    expect(screen.getAllByText(copy.wholeVehicle)[0]).toBeInTheDocument();
+    const region = copy.regions[slug];
+    if (!region) throw new Error(`Missing ${slug} region copy`);
+    expect(screen.getByText(region.about)).toBeInTheDocument();
+  });
+});
+
 describe("place names carry the case the sentence needs", () => {
   test("Russian puts hotels in Белеке, not in the accusative Белек of the booking form", () => {
     renderRoute("ru", "belek");
@@ -133,11 +167,15 @@ describe("place names carry the case the sentence needs", () => {
   });
 });
 
-describe("languages without landing copy", () => {
+describe("routes without region copy", () => {
   test("fall back to the route template without crashing", () => {
-    renderRoute("ja", "belek");
+    const copy = transferLandingCopy("en");
+    expect(copy.regions.bodrum).toBeUndefined();
+
+    renderRoute("en", "bodrum");
 
     expect(screen.getByRole("heading", { level: 1 })).toBeInTheDocument();
+    expect(screen.queryByText(copy.wholeVehicle)).not.toBeInTheDocument();
     expect(screen.queryByText("Preis für das gesamte Fahrzeug")).not.toBeInTheDocument();
   });
 });

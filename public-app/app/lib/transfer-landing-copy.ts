@@ -4,6 +4,24 @@ import { en } from "./transfer-landing-copy/en";
 import { ru } from "./transfer-landing-copy/ru";
 import { tr } from "./transfer-landing-copy/tr";
 import { pl } from "./transfer-landing-copy/pl";
+import { fr } from "./transfer-landing-copy/fr";
+import { nl } from "./transfer-landing-copy/nl";
+import { es } from "./transfer-landing-copy/es";
+import { it } from "./transfer-landing-copy/it";
+import { pt } from "./transfer-landing-copy/pt";
+import { ro } from "./transfer-landing-copy/ro";
+import { cs } from "./transfer-landing-copy/cs";
+import { uk } from "./transfer-landing-copy/uk";
+import { hu } from "./transfer-landing-copy/hu";
+import { el } from "./transfer-landing-copy/el";
+import { sv } from "./transfer-landing-copy/sv";
+import { da } from "./transfer-landing-copy/da";
+import { ar } from "./transfer-landing-copy/ar";
+import { he } from "./transfer-landing-copy/he";
+import { ja } from "./transfer-landing-copy/ja";
+import { ko } from "./transfer-landing-copy/ko";
+import { zh } from "./transfer-landing-copy/zh";
+import { ur } from "./transfer-landing-copy/ur";
 
 /**
  * The long-form copy of a transfer route landing page, one file per language
@@ -13,13 +31,14 @@ import { pl } from "./transfer-landing-copy/pl";
  * the other 22 languages on a variable-swap template: same headings, only the
  * route name and price changed. That is the thin-page pattern search engines
  * discount, and it also loses the German pages' booking arguments (fixed price
- * per vehicle, no prepayment, where the driver waits).
+ * per vehicle, no prepayment, where the driver waits). All 23 indexable
+ * languages now carry their own prose, so the map is a full `Record` and the
+ * compiler refuses a new site language without copy for it.
  *
- * Deliberately `Partial`: a language appears here only once its prose is
- * actually written. A missing language keeps the plain template rather than
- * showing machine-filled headings, and `regions` is partial for the same
- * reason — the seven resort regions are written, the long-distance routes
- * (Bodrum, Dalaman, Pamukkale…) are not yet.
+ * `regions` stays `Partial`: the seven resort regions are written, the
+ * long-distance routes (Bodrum, Dalaman, Pamukkale…) are not. A route
+ * missing from `regions` keeps the plain template rather than showing
+ * machine-filled headings.
  */
 /**
  * The place name in the grammatical forms the prose needs.
@@ -80,13 +99,15 @@ export type TransferLandingCopy = {
   regions: Partial<Record<string, TransferLandingRegion>>;
 };
 
-const landingCopy: Partial<Record<IndexableLanguage, TransferLandingCopy>> = { de, en, ru, tr, pl };
+const landingCopy: Record<IndexableLanguage, TransferLandingCopy> = {
+  de, en, ru, tr, pl, fr, nl, es, it, pt, ro, cs, uk, hu, el, sv, da, ar, he, ja, ko, zh, ur,
+};
 
 /** The languages whose landing copy is written, in publication order. */
 export const transferLandingLanguages = Object.freeze(
   Object.keys(landingCopy) as IndexableLanguage[],
 );
 
-export function transferLandingCopy(language: IndexableLanguage): TransferLandingCopy | undefined {
+export function transferLandingCopy(language: IndexableLanguage): TransferLandingCopy {
   return landingCopy[language];
 }

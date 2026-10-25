@@ -1,24 +1,11 @@
 import { localizedRoute, publicRouteSlugs, routeCatalog } from "../../../src/routes.js";
-import { hotelsForRegion } from "../../../src/hotels.js";
 import type { IndexableLanguage } from "../lib/site";
 import type { TransferPageData } from "../lib/page-data.server";
 import { BookingForm } from "./BookingForm";
 import { StaticPageHeader } from "./StaticPageHeader";
 import { blogText } from "../lib/blog-paths";
-import { transferLandingCopy } from "../lib/transfer-landing-copy";
 
 type LocalizedRoute = NonNullable<ReturnType<typeof localizedRoute>>;
-
-/** Hotel names are proper nouns, so one list serves every language. */
-const landingHotels: Partial<Record<string, readonly string[]>> = {
-  antalya: ["Delphin Diva Premiere", "Delphin Imperial Lara", "Delphin BE Grand Resort", "Royal Wings Hotel", "Akra Hotel"],
-  belek: ["Rixos Premium Belek", "The Land of Legends", "Maxx Royal Belek", "Regnum Carya", "Gloria Golf Resort", "Cornelia Diamond Golf Resort & Spa", "IC Hotels Santai Family Resort"],
-  side: ["Arum Barut Collection", "Side Star Resort", "Royal Dragon Hotel", "Barut Hemera", "Voyage Sorgun", "Crystal Sunset Luxury Resort & Spa"],
-  kemer: ["Maxx Royal Kemer Resort", "Orange County Resort Hotel Kemer", "Paloma Pasha Resort", "Amara Prestige Hotel"],
-  alanya: ["Utopia World Hotel", "Sentido Gold Island Hotel", "Q Premium Resort Hotel Alanya", "Kirman Arycanda De Luxe"],
-  kizilagac: ["Sentido Flora Garden", "Starlight Resort Hotel", "Sunrise Resort Hotel", "Crystal Admiral Resort", "Club Hotel Turan Prince", "Selectum Family Resort"],
-  tekirova: ["Rixos Premium Kemer", "Rixos Premium Tekirova", "Nirvana Dolce Vita", "Club Marco Polo", "Pirate’s Beach Club", "Club Hotel Phaselis Rose"],
-};
 
 const copy = {
   zh: { home: "首页", routes: "接送路线", priceHeading: "固定接送价格", included: "价格包含", duration: "预计时间", distance: "距离", from: "价格起于", book: "预订您的接送", faq: "常见问题", other: "其他安塔利亚机场接送", campaign: "所有接送路线均提供在线特惠价格。", contact: "预订及咨询请通过WhatsApp联系我们。", privacy: "隐私政策", imprint: "版本说明", privacyUrl: "/privacy/", imprintUrl: "/impressum.html", vito: "Mercedes Vito · 最多6位乘客", sprinter: "Mercedes Sprinter · 最多12位乘客", intro: (name: string, duration: string, distance: string) => `从安塔利亚机场到${name}的${distance}行程，在正常交通情况下约需${duration}。您的司机将在到达大厅迎接您，并直接送您前往住宿地。`, items: ["专人接机问候", "实时航班追踪", "机场停车与等候", "行李协助及瓶装水", "可应要求免费提供儿童座椅"], faqItems: (name: string, price: number, duration: string) => [[`从安塔利亚机场到${name}的接送需要多长时间？`, `在正常交通情况下，行程约需${duration}。`], [`到${name}的固定接送价格是多少？`, `Mercedes Vito价格每车€${price}起。确认的总价将在预订时显示。`], ["如果我的航班延误怎么办？", "我们会实时追踪您的航班，并免费调整接机时间。"], ["我的司机会在机场等候多久？", "落地后的前90分钟免费包含在内，如果您的航班延误，等候时间会自动顺延。"], ["我该如何支付接送费用？", "在行程开始时以现金支付给您的司机——即您预订时的固定价格，按每车计算。"]],
@@ -94,23 +81,10 @@ export function TransferPage({
   const homeHref = `${prefix}/`;
   const { heading, guides, landOfLegendsPromo } = data;
   const faq = text.faqItems(route.name, route.prices.vito, route.durationLabel);
-  // The long-form landing needs both halves written: a language with copy and
-  // a region named in it. Anything else keeps the plain route template rather
-  // than showing half-translated headings.
-  const languageCopy = transferLandingCopy(language);
-  const landingRegion = languageCopy?.regions[route.slug];
-  const landing = languageCopy && landingRegion ? { ...languageCopy, region: landingRegion } : undefined;
-  const hotels = landing ? landingHotels[route.slug] : undefined;
-  // Hotel landing pages exist in German only, so only German links to them.
-  const cataloguedHotels = language === "de" ? hotelsForRegion(route.slug) : [];
-  // Which form of the place name a sentence needs depends on where the name
-  // sits in it; a language that inflects says so in its own copy file.
-  const place = {
-    nominative: landing?.region.name?.nominative ?? route.name,
-    direction: landing?.region.name?.direction ?? route.name,
-    location: landing?.region.name?.location ?? route.name,
-    origin: landing?.region.name?.origin ?? route.name,
-  };
+  // The loader resolves the long-form landing, place-name forms and hotel links
+  // included, and leaves it null for a route with no region copy — those pages
+  // keep the plain route template rather than showing half-written headings.
+  const landing = data.landing;
   const guideText = blogText(language);
   const landingFaq = landing ? [...faq, ...landing.faq] : faq;
 
@@ -120,7 +94,7 @@ export function TransferPage({
       <main id="main-content" tabIndex={-1}>
         <section className="localized-route">
           <div className="eyebrow light"><span /><p>Antalya VIP Tourism</p></div>
-          <h1>{landing ? landing.heroHeading(place.nominative) : heading}</h1>
+          <h1>{landing ? landing.heroHeading : heading}</h1>
           <p>{data.description}</p>
           {landing ? (
             <>
@@ -133,20 +107,20 @@ export function TransferPage({
         <section className="localized-content" id="details">
           <div className="localized-grid">
             <div>
-              <h2>{landing ? landing.serviceHeading(place.direction) : heading}</h2>
+              <h2>{landing ? landing.serviceHeading : heading}</h2>
               <p>{text.intro(route.name, route.durationLabel, route.distance)}</p>
               {landing && (
                 <>
-                  <h3>{landing.aboutHeading(place.nominative)}</h3>
-                  <p>{landing.region.about}</p>
-                  <p>{landing.region.routeDetails}</p>
-                  <p>{landing.ownGroup(place.location)}</p>
+                  <h3>{landing.aboutHeading}</h3>
+                  <p>{landing.about}</p>
+                  <p>{landing.routeDetails}</p>
+                  <p>{landing.ownGroup}</p>
                   <h3>{landing.arrivalHeading}</h3>
                   <p>{landing.arrivalBody}</p>
                   <h3>{landing.returnHeading}</h3>
-                  <p>{landing.returnBody(place.origin)}</p>
+                  <p>{landing.returnBody}</p>
                   <h3>{landing.privateHeading}</h3>
-                  <p>{landing.privateBody(place.location)}</p>
+                  <p>{landing.privateBody}</p>
                   <p>{landing.priceBody}</p>
                   <h3>{landing.vehicleHeading}</h3>
                   <p>{landing.vehicleBody}</p>
@@ -164,17 +138,16 @@ export function TransferPage({
             </div>
           </div>
         </section>
-        {landing && hotels && (
+        {landing && landing.hotels.length > 0 && (
           <section className="localized-hotels">
             <div>
               <p className="eyebrow"><span />{landing.hotelsEyebrow}</p>
-              <h2>{landing.hotelsHeading(place.location)}</h2>
-              <p>{landing.hotelsBody(place.location)}</p>
+              <h2>{landing.hotelsHeading}</h2>
+              <p>{landing.hotelsBody}</p>
             </div>
-            <ul>{hotels.map((hotel) => {
-              const catalogued = cataloguedHotels.find((entry) => entry.name === hotel);
-              return <li key={hotel}>{catalogued ? <a href={`/de/hotels/${catalogued.slug}/`}>{hotel}</a> : hotel}</li>;
-            })}</ul>
+            <ul>{landing.hotels.map(({ name, href }) => (
+              <li key={name}>{href ? <a href={href}>{name}</a> : name}</li>
+            ))}</ul>
           </section>
         )}
         {/* Guests staying here can do the theme-park day trip; point them at it. */}
