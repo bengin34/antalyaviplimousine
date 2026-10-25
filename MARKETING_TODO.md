@@ -31,3 +31,4 @@
 | Date | Skill / workflow | Baseline and evidence | Decision | Owner | Next review |
 |---|---|---|---|---|---|
 | 2026-10-25 | seo-audit, programmatic-seo, cro, ai-seo | Repo + build evidence, no invented metrics — see [MARKETING_AUDIT_2026-10-25.md](MARKETING_AUDIT_2026-10-25.md) | 3 P0 / 6 P1 findings proposed; nothing shipped. Analytics baseline still missing and blocks every experiment | TBD | 2026-11-02 |
+| 2026-10-25 | P0 execution | Build-measured: transfer chunk 113→52 KB raw, booking chunk 367→234 KB raw, home critical path 285→251 KB gzip | P0.1 shipped in all 23 languages (c24f2dbb); P0.3 hotel index off the critical path (06bc39fc); P0.2 ruled out of scope — /health/ is a demo. Baseline still missing | TBD | 2026-11-02 |

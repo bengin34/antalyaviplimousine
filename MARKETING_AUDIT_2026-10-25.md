@@ -25,7 +25,7 @@ huni (`site_events`, 12 olay), Ads conversion (`BookingForm.tsx:416`), prerender
 ## P0 — Bu hafta
 
 ### 1. Transfer sayfaları 22 dilde ince; Almanca şablonu taşınmadı
-**Etki: Yüksek · Güven: Kesin · Durum: ru/en/tr/pl yapıldı (5251a0dd)**
+**Etki: Yüksek · Güven: Kesin · Durum: BİTTİ (5251a0dd + c24f2dbb)**
 
 `TransferPage.tsx:105-122` tüm zengin bloğu `language === "de"` ile kapatıyor:
 bölge tanıtımı (`germanRegion.about`, `routeDetails`), havalimanı karşılama talimatı
@@ -35,12 +35,26 @@ bölge tanıtımı (`germanRegion.about`, `routeDetails`), havalimanı karşıla
 Sonuç: 14 zengin Almanca sayfaya karşı **308 değişken-takası sayfa** (`routeText[language]`
 intro + madde listesi + fiyat + FAQ). `programmatic-seo` skill'inin birinci kuralının ihlali.
 
-Yapılacak: `germanRegionCopy` + hero/fiyat güven bloklarını dilden bağımsız veri yapısına
-çıkar, ru → en → pl → tr sırasıyla doldur. Bölge metni rota başına **tek sefer** yazılır,
-23 dile çevrilir (14 rota × ~250 kelime = ~3.500 kelime kaynak).
+**Yapılan:** copy `TransferPage.tsx`'ten `transfer-landing-copy/<dil>.ts`'e çıktı ve 23 dilin
+hepsi yazıldı (`landingCopy` artık tam `Record` — copy'si olmayan yeni dil derleme hatası).
+Yer adı dile göre çözülüyor: uk/cs çekim ekli, hu ek alıyor, el/he "bölge" kalıbıyla cinsiyet
+ve ön ek sorununu atlıyor, fr/nl/sv/ar `routeCatalog`'da adı olmadığı için kendi adını veriyor.
+
+23 dil copy'si tarayıcıya inmesin diye landing artık loader'da düz metne çözülüyor
+(yer adı formları ve Almanca otel linkleri dahil) → transfer chunk 113 → **52 KB raw**
+(20 KB gzip), yani değişiklik öncesinin yarısının altında.
+
+**Kalan:** uzun mesafe 7 rotanın (bogazkent, manavgat, bodrum, dalaman, fethiye, pamukkale,
+kapadokya) bölge metni hiçbir dilde yazılmadı — `regions` bilinçli olarak `Partial`, o rotalar
+düz şablonda. 7 rota × ~250 kelime kaynak, 23 dile çevrilir.
 
 ### 2. `/health/` 19 dilde İngilizce gövde + çevrilmiş meta
-**Etki: Yüksek (site geneli) · Güven: Kesin**
+**Etki: Yüksek (site geneli) · Güven: Kesin · Durum: KAPSAM DIŞI (karar 2026-10-25)**
+
+Kullanıcı kararı: "health sayfasi bir firma icin demo, önemsiz" → bu oturumda atlandı.
+Not: demo olması tam olarak (b) şıkkının gerekçesi — `/clinic/` gibi indexlenmemesi
+gerekir, aksi halde 19 ince URL site geneli helpful-content sinyalini aşağı çeker.
+Karar kullanıcının; iş 15 dakikalık (`public-paths.js:31` → 4 dil).
 
 `HealthPage.tsx:605` → `supportedHealthLanguages = {en, de, tr, ru}`, gerisi `en`'e düşüyor.
 Ama `healthSeo` 23 dilde title/description üretiyor ve 23 URL sitemap'te
@@ -74,9 +88,22 @@ Supabase function'a taşı. Hedef: ana sayfa kritik yol < 150 KB gzip.
 fiyatlamada yalnız `km` + `checked` okuyor. `hotel-distances.js` 135,7 → 81,1 KB;
 booking chunk 122,0 → 99,4 KB gzip; ana sayfa kritik yol 252,6 → 230,2 KB gzip.
 
-**Kalan:** otel index'i (106 KB raw) hâlâ aynı chunk'ta. `HotelCombobox`'u
-`LazyPhoneInput` kalıbıyla ertelemek gerekiyor; `BookingForm.test.tsx`'teki ~10
-senkron `#hotel-name` etkileşimi lazy modülü beklemek üzere yazılmalı. Ayrı iş.
+**Yapılan (06bc39fc):** otel index'i + mesafe tablosu tek dinamik import'un arkasına
+alındı, otel alanına dokunulduğunda yükleniyor. Yalnız combobox'ı ertelemek işe yaramazdı:
+index'e ikinci yol `quoteFor` → `hotel-distance-lookup` → `hotel-search` üzerinden statikti,
+o yüzden iki yarı birlikte iniyor. Form fetch'i sahipleniyor ve sonucu state'te tutuyor —
+index geldiğinde fiyat yeniden hesaplanıyor, yani fetch bitmeden tam yazılan otel adı da
+bantla taban alıyor. O ana kadar bölge fiyatı görünüyor (bant tabanı öncesi davranış) ve
+liste "otel bulunamadı" demiyor; alan açıkken `aria-busy`.
+
+- booking chunk: 367 → **234 KB raw** (99 → 65 KB gzip)
+- index iki ayrı chunk olarak çıktı: 21,5 + 11,5 KB gzip, **hiçbir sayfada preload yok**
+- ana sayfa kritik yol (tüm modulepreload'lar): 285 → **251 KB gzip**
+
+**Kalan (hedef <150 KB gzip tutturulmadı):** kalan ağırlık otel verisi değil —
+`libphonenumber-js` (zod şemasındaki telefon doğrulaması, `lib/booking.ts:1`),
+`CookieConsent` (28,5 KB gzip, ana sayfada preload), `entry.client` (59 KB gzip).
+Üçü de ayrı karar; telefon doğrulamasını ertelemek şemayı async'e çevirir.
 
 ---
 
@@ -180,13 +207,17 @@ gerçek 1145 URL / 23 dil. Düzelt, yoksa sonraki oturum yanlış temelden başl
 
 ## Sıra
 
-1. Baseline kaydı (ölçüm bölümü) — yarım gün, kod yok
-2. P0.2 health kararı — a/b seç
-3. P0.1 transfer içeriği ru/en/pl/tr
-4. P0.3 bundle
-5. P1.6 lastmod + P1.7 nav + P1.8 llms.txt/pricing.md — küçük, aynı PR olabilir
-6. P1.4 otel sayfaları (GSC verisi geldikten sonra)
-7. P1.5 rota adayları (aynı veri)
-8. P2 off-page — kod beklemez, paralel yürür
+~~1. Baseline kaydı~~ → hâlâ açık, kod işi değil, her şeyi blokluyor
+~~2. P0.2 health kararı~~ → kapsam dışı (demo)
+~~3. P0.1 transfer içeriği~~ → 23 dil bitti (c24f2dbb); 7 uzun mesafe rotası kaldı
+~~4. P0.3 bundle~~ → otel index'i kritik yoldan çıktı (06bc39fc); <150 KB tutturulmadı
+
+Sıradaki:
+1. **Baseline kaydı (ölçüm bölümü)** — yarım gün, kod yok, P1'in tamamını blokluyor
+2. P1.6 lastmod + P1.7 nav + P1.8 llms.txt/pricing.md — küçük, aynı PR olabilir
+3. P1.4 otel sayfaları (GSC verisi geldikten sonra)
+4. P1.5 rota adayları (aynı veri)
+5. P2 off-page — kod beklemez, paralel yürür
+6. Uzun mesafe 7 rotanın bölge metni (P0.1 kalanı)
 
 Sonraki denetim: 2026-11-02 (haftalık büyüme incelemesi, `MARKETING_TODO.md` cadence).
