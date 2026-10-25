@@ -17,6 +17,7 @@ import {
 } from "./articles";
 
 import { domain, indexableLanguages, languageFromPath, type IndexableLanguage } from "./site";
+import { transferLandingCopy } from "./transfer-landing-copy";
 
 export { domain, indexableLanguages, languageFromPath, type IndexableLanguage };
 
@@ -497,7 +498,11 @@ export function routeMeta(language: IndexableLanguage, slug: string) {
   const description = text.description(name, route.prices.vito);
   const pathname = localizedPath(language, `transfers/${slug}/`);
   const url = `${domain}${pathname}`;
-  const faq = text.faq(name, route.prices.vito, durations[language] ?? durations["en"]);
+  const routeFaq = text.faq(name, route.prices.vito, durations[language] ?? durations["en"]);
+  // The landing adds its own questions on the page, so the schema has to carry
+  // them too: FAQPage must describe what the visitor can actually read.
+  const landing = transferLandingCopy(language);
+  const faq = landing?.regions[slug] ? [...routeFaq, ...landing.faq] : routeFaq;
   return [
     { title }, { name: "description", content: description },
     { tagName: "link", rel: "canonical", href: url }, ...alternateDescriptors(`transfers/${slug}/`),

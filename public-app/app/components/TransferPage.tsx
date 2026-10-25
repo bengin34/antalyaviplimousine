@@ -5,10 +5,12 @@ import type { TransferPageData } from "../lib/page-data.server";
 import { BookingForm } from "./BookingForm";
 import { StaticPageHeader } from "./StaticPageHeader";
 import { blogText } from "../lib/blog-paths";
+import { transferLandingCopy } from "../lib/transfer-landing-copy";
 
 type LocalizedRoute = NonNullable<ReturnType<typeof localizedRoute>>;
 
-const germanLandingHotels: Partial<Record<string, readonly string[]>> = {
+/** Hotel names are proper nouns, so one list serves every language. */
+const landingHotels: Partial<Record<string, readonly string[]>> = {
   antalya: ["Delphin Diva Premiere", "Delphin Imperial Lara", "Delphin BE Grand Resort", "Royal Wings Hotel", "Akra Hotel"],
   belek: ["Rixos Premium Belek", "The Land of Legends", "Maxx Royal Belek", "Regnum Carya", "Gloria Golf Resort", "Cornelia Diamond Golf Resort & Spa", "IC Hotels Santai Family Resort"],
   side: ["Arum Barut Collection", "Side Star Resort", "Royal Dragon Hotel", "Barut Hemera", "Voyage Sorgun", "Crystal Sunset Luxury Resort & Spa"],
@@ -16,16 +18,6 @@ const germanLandingHotels: Partial<Record<string, readonly string[]>> = {
   alanya: ["Utopia World Hotel", "Sentido Gold Island Hotel", "Q Premium Resort Hotel Alanya", "Kirman Arycanda De Luxe"],
   kizilagac: ["Sentido Flora Garden", "Starlight Resort Hotel", "Sunrise Resort Hotel", "Crystal Admiral Resort", "Club Hotel Turan Prince", "Selectum Family Resort"],
   tekirova: ["Rixos Premium Kemer", "Rixos Premium Tekirova", "Nirvana Dolce Vita", "Club Marco Polo", "Pirate’s Beach Club", "Club Hotel Phaselis Rose"],
-};
-
-const germanRegionCopy: Partial<Record<string, { about: string; routeDetails: string }>> = {
-  antalya: { about: "Antalya-Stadt mit den Strandzonen Lara und Kundu liegt nur wenige Kilometer vom Flughafen entfernt. Entlang der Lara-Küste reihen sich große Themenresorts und Stadthotels, während Konyaaltı im Westen mit Kiesstrand und Promenade punktet.", routeDetails: "Die kurze Fahrt vom Flughafen Antalya führt über die Lara-Küstenstraße oder direkt ins Stadtzentrum. Auch auf dieser kurzen Strecke lohnt sich ein privater Transfer: kein Warten auf andere Gäste, kein Umstieg, direkte Ankunft an Ihrem Hotel." },
-  belek: { about: "Belek liegt östlich von Antalya und ist besonders für Golfplätze, große All-inclusive-Resorts und breite Sandstrände bekannt. Die Hotelanlagen verteilen sich zwischen Kadriye und der Küste bei Serik; deshalb ist die genaue Hoteladresse bei der Reservierung hilfreich.", routeDetails: "Die Fahrt führt vom Flughafen Antalya über die D400 in Richtung Serik und Belek. Für Familien, Golfer und Gäste mit spätem Flug ist der direkte Privattransfer praktisch, weil Sie ohne Sammelstopps oder Umstieg direkt an Ihrer Unterkunft ankommen." },
-  side: { about: "Side verbindet eine historische Altstadt mit langen Sandstränden und weitläufigen Ferienanlagen. Zum Urlaubsort gehören neben Side auch die beliebten Hotelzonen Kumköy, Evrenseki, Çolaklı, Sorgun und Titreyengöl.", routeDetails: "Vom Flughafen Antalya führt die Strecke über die Küstenstraße in Richtung Manavgat und Side. Besonders bei einer späten Ankunft ist ein privates Fahrzeug angenehm: Ihre Reisegruppe fährt direkt zum gebuchten Resort, ohne auf andere Hotelgäste zu warten." },
-  kemer: { about: "Kemer liegt westlich von Antalya zwischen dem Taurusgebirge und dem Mittelmeer. Die Region umfasst Kemer Zentrum sowie Beldibi, Göynük, Kiriş und Çamyuva – Orte mit Strandhotels, Jachthafen und Bergkulisse.", routeDetails: "Die direkte Fahrt folgt der Küste westlich von Antalya. Ihr Fahrer bringt Sie ohne Umstieg zu Ihrem Hotel; das ist besonders bequem, wenn Sie mit Kindern, Sportgepäck oder nach einer Abendlandung anreisen." },
-  alanya: { about: "Alanya ist eines der beliebtesten Ferienziele an der türkischen Riviera und liegt deutlich weiter östlich als die Resorts um Antalya. Neben dem Zentrum gehören Mahmutlar, Kestel, Avsallar, Türkler und Okurcalar zu den häufig angefragten Hotelgebieten.", routeDetails: "Die längere Küstenfahrt macht einen festen Fahrzeugpreis besonders transparent. Mit einem Privattransfer reisen Sie direkt mit Ihrer eigenen Gruppe und können nach der Landung entspannt bis vor die Rezeption Ihres Hotels weiterfahren." },
-  kizilagac: { about: "Kızılağaç liegt östlich von Manavgat und ist für weitläufige Strandresorts und ruhige Familienferien bekannt. Die Gegend grenzt an Sorgun und Manavgat; viele Hotels liegen etwas abseits der Hauptstraße direkt am Meer.", routeDetails: "Vom Flughafen Antalya fahren Sie über die D400 in Richtung Manavgat und anschließend weiter nach Kızılağaç. Ein privates Fahrzeug erspart die zusätzlichen Hotelstopps, die bei Sammeltransfers gerade auf dieser Strecke üblich sein können." },
-  tekirova: { about: "Tekirova liegt südlich von Kemer am Rand des Olympos-Beydağları-Nationalparks. Der Ort verbindet gepflegte Resortanlagen mit kleinen Buchten und liegt nahe der antiken Stätte Phaselis.", routeDetails: "Die Fahrt führt vom Flughafen Antalya über Kemer weiter nach Tekirova. Die Küstenlage und die Entfernung machen einen direkten Transfer sinnvoll: Sie fahren ohne Umstieg und ohne Wartezeit auf andere Gäste bis zu Ihrem Hotel." },
 };
 
 const copy = {
@@ -102,27 +94,92 @@ export function TransferPage({
   const homeHref = `${prefix}/`;
   const { heading, guides, landOfLegendsPromo } = data;
   const faq = text.faqItems(route.name, route.prices.vito, route.durationLabel);
-  const germanHotels = language === "de" ? germanLandingHotels[route.slug] : undefined;
+  // The long-form landing needs both halves written: a language with copy and
+  // a region named in it. Anything else keeps the plain route template rather
+  // than showing half-translated headings.
+  const languageCopy = transferLandingCopy(language);
+  const landingRegion = languageCopy?.regions[route.slug];
+  const landing = languageCopy && landingRegion ? { ...languageCopy, region: landingRegion } : undefined;
+  const hotels = landing ? landingHotels[route.slug] : undefined;
+  // Hotel landing pages exist in German only, so only German links to them.
   const cataloguedHotels = language === "de" ? hotelsForRegion(route.slug) : [];
-  const germanRegion = language === "de" ? germanRegionCopy[route.slug] : undefined;
+  // Which form of the place name a sentence needs depends on where the name
+  // sits in it; a language that inflects says so in its own copy file.
+  const place = {
+    nominative: landing?.region.name?.nominative ?? route.name,
+    direction: landing?.region.name?.direction ?? route.name,
+    location: landing?.region.name?.location ?? route.name,
+    origin: landing?.region.name?.origin ?? route.name,
+  };
   const guideText = blogText(language);
-  const germanFaq = germanHotels ? [
-    ...faq,
-    ["Wo treffe ich das Transfer-Team am Flughafen Antalya?", "Nachdem Sie Ihr Gepäck abgeholt haben, gehen Sie bitte zum Meet & Greet Bereich J / 777. Unser Flughafen-Team findet Ihre Buchung und bringt Sie mit Ihrem Fahrer zusammen."],
-    ["Muss ich den Transfer im Voraus bezahlen?", "Nein. Eine Vorauszahlung ist nicht erforderlich. Sie zahlen den festen Gesamtpreis direkt beim Fahrer."],
-    ["Ist ein Kindersitz verfügbar?", "Ja. Kindersitze stellen wir auf Wunsch kostenlos bereit. Bitte geben Sie Alter und Anzahl der Kinder bei der Buchung an."],
-  ] : faq;
+  const landingFaq = landing ? [...faq, ...landing.faq] : faq;
 
   return (
     <>
       <StaticPageHeader homeHref={homeHref} homeLabel={text.home} secondaryHref="#details" secondaryLabel={text.routes} tertiaryHref="#contact" tertiaryLabel="WhatsApp" ctaHref={`${homeHref}#booking`} ctaLabel={text.book} />
       <main id="main-content" tabIndex={-1}>
-        <section className="localized-route"><div className="eyebrow light"><span /><p>Antalya VIP Tourism</p></div><h1>{germanHotels ? `Flughafen Antalya → ${route.name} Privattransfer` : heading}</h1><p>{data.description}</p>{germanHotels ? <><a className="button button-gold" href={`${homeHref}#booking`}>Jetzt Transfer buchen</a><ul className="localized-trust"><li>Bis zu 7 Personen</li><li>Keine Vorauszahlung erforderlich</li><li>Zahlung direkt beim Fahrer</li><li>Fester Gesamtpreis ohne versteckte Gebühren</li><li>Kostenloser Kindersitz auf Anfrage</li><li>Flugüberwachung inklusive</li></ul></> : <p className="localized-campaign">{text.campaign}</p>}<div className="localized-stats"><div><strong>{route.durationLabel}</strong><span>{text.duration}</span></div><div><strong>{route.distance}</strong><span>{text.distance}</span></div><div><strong>€{route.prices.vito}</strong><span>{text.from}</span></div></div></section>
-        <section className="localized-content" id="details"><div className="localized-grid"><div><h2>{germanHotels ? `Ihr privater Transfer nach ${route.name}` : heading}</h2><p>{text.intro(route.name, route.durationLabel, route.distance)}</p>{germanRegion && <><h3>Über {route.name}</h3><p>{germanRegion.about}</p><p>{germanRegion.routeDetails}</p></>}{germanHotels && <><p>Sie reisen ausschließlich mit Ihrer eigenen Gruppe direkt zu Ihrem Hotel in {route.name}. Kein Shuttle, keine fremden Fahrgäste und keine unnötigen Zwischenstopps – der feste Preis gilt für das gesamte Fahrzeug.</p><h3>Ihre Ankunft am Flughafen Antalya</h3><p>Nachdem Sie Ihr Gepäck abgeholt haben, gehen Sie bitte zum Meet & Greet Bereich J / 777. Unser Flughafen-Team findet Ihre Buchung und bringt Sie mit Ihrem Fahrer zusammen. Dank Flugüberwachung passen wir die Abholung bei einer Verspätung ohne Aufpreis an.</p><h3>Hin- und Rücktransfer</h3><p>Gern organisieren wir auch Ihren Rücktransfer von {route.name} zum Flughafen Antalya. Teilen Sie uns bei der Buchung Ihre Flugnummer und gewünschte Abholzeit mit.</p><h3>Privat statt Sammeltransfer</h3><p>Bei diesem Transfer reisen nur Sie und Ihre Mitreisenden im Fahrzeug. Nach der Reservierung erhalten Sie eine klare Bestätigung mit Reisedaten und Kontaktmöglichkeit. Am Ankunftstag verfolgt unser Team Ihren Flug; bei einer früheren oder späteren Landung stimmen wir die Übergabe entsprechend ab. Der Fahrer bringt Sie mit Gepäck direkt zur Rezeption oder zur angegebenen Privatadresse in {route.name}.</p><p>Der ausgewiesene Betrag ist ein fester Gesamtpreis für das Fahrzeug, nicht pro Person. Es gibt keine versteckten Zuschläge für die Flugüberwachung, die übliche Wartezeit oder Kindersitze auf Anfrage. Bezahlt wird bar direkt beim Fahrer, zu Beginn der Fahrt. Damit kennen Sie die Kosten schon vor der Anreise und können entspannt starten.</p><h3>Fahrzeug, Gepäck und Kinder</h3><p>Der Mercedes Vito eignet sich für bis zu sechs Personen mit normalem Reisegepäck; für größere Gruppen steht ein Mercedes Sprinter mit bis zu 12 Plätzen zur Verfügung. Teilen Sie uns Sondergepäck, einen Kinderwagen oder die benötigten Kindersitze bitte bei der Buchung mit. So planen wir Ihr Fahrzeug passend zu Ihrer Reisegruppe.</p></>}<h3>{text.included}</h3><ul>{text.items.map((item) => <li key={item}>{item}</li>)}</ul></div><div className="localized-aside"><h2>{text.priceHeading}</h2><div className="localized-price"><p>{text.vito}</p><strong>€{route.prices.vito}</strong>{germanHotels && <span>Preis für das gesamte Fahrzeug</span>}</div><div className="localized-price"><p>{text.sprinter}</p><strong>€{route.prices.sprinter}</strong>{germanHotels && <span>Preis für das gesamte Fahrzeug</span>}</div>{germanHotels && <ul className="localized-price-trust"><li>Keine Vorauszahlung erforderlich</li><li>Zahlung direkt beim Fahrer</li><li>Keine versteckten Gebühren</li></ul>}<p><a className="button button-gold" href={`${homeHref}#booking`}>{text.book}</a></p></div></div></section>
-        {germanHotels && <section className="localized-hotels"><div><p className="eyebrow"><span />Für Ihre Unterkunft</p><h2>Beliebte Hotels in {route.name}</h2><p>Wir fahren direkt zu diesen und weiteren Hotels in der Region.</p></div><ul>{germanHotels.map((hotel) => { const catalogued = cataloguedHotels.find((entry) => entry.name === hotel); return <li key={hotel}>{catalogued ? <a href={`/de/hotels/${catalogued.slug}/`}>{hotel}</a> : hotel}</li>; })}</ul></section>}
+        <section className="localized-route">
+          <div className="eyebrow light"><span /><p>Antalya VIP Tourism</p></div>
+          <h1>{landing ? landing.heroHeading(place.nominative) : heading}</h1>
+          <p>{data.description}</p>
+          {landing ? (
+            <>
+              <a className="button button-gold" href={`${homeHref}#booking`}>{landing.heroCta}</a>
+              <ul className="localized-trust">{landing.heroTrust.map((item) => <li key={item}>{item}</li>)}</ul>
+            </>
+          ) : <p className="localized-campaign">{text.campaign}</p>}
+          <div className="localized-stats"><div><strong>{route.durationLabel}</strong><span>{text.duration}</span></div><div><strong>{route.distance}</strong><span>{text.distance}</span></div><div><strong>€{route.prices.vito}</strong><span>{text.from}</span></div></div>
+        </section>
+        <section className="localized-content" id="details">
+          <div className="localized-grid">
+            <div>
+              <h2>{landing ? landing.serviceHeading(place.direction) : heading}</h2>
+              <p>{text.intro(route.name, route.durationLabel, route.distance)}</p>
+              {landing && (
+                <>
+                  <h3>{landing.aboutHeading(place.nominative)}</h3>
+                  <p>{landing.region.about}</p>
+                  <p>{landing.region.routeDetails}</p>
+                  <p>{landing.ownGroup(place.location)}</p>
+                  <h3>{landing.arrivalHeading}</h3>
+                  <p>{landing.arrivalBody}</p>
+                  <h3>{landing.returnHeading}</h3>
+                  <p>{landing.returnBody(place.origin)}</p>
+                  <h3>{landing.privateHeading}</h3>
+                  <p>{landing.privateBody(place.location)}</p>
+                  <p>{landing.priceBody}</p>
+                  <h3>{landing.vehicleHeading}</h3>
+                  <p>{landing.vehicleBody}</p>
+                </>
+              )}
+              <h3>{text.included}</h3>
+              <ul>{text.items.map((item) => <li key={item}>{item}</li>)}</ul>
+            </div>
+            <div className="localized-aside">
+              <h2>{text.priceHeading}</h2>
+              <div className="localized-price"><p>{text.vito}</p><strong>€{route.prices.vito}</strong>{landing && <span>{landing.wholeVehicle}</span>}</div>
+              <div className="localized-price"><p>{text.sprinter}</p><strong>€{route.prices.sprinter}</strong>{landing && <span>{landing.wholeVehicle}</span>}</div>
+              {landing && <ul className="localized-price-trust">{landing.priceTrust.map((item) => <li key={item}>{item}</li>)}</ul>}
+              <p><a className="button button-gold" href={`${homeHref}#booking`}>{text.book}</a></p>
+            </div>
+          </div>
+        </section>
+        {landing && hotels && (
+          <section className="localized-hotels">
+            <div>
+              <p className="eyebrow"><span />{landing.hotelsEyebrow}</p>
+              <h2>{landing.hotelsHeading(place.location)}</h2>
+              <p>{landing.hotelsBody(place.location)}</p>
+            </div>
+            <ul>{hotels.map((hotel) => {
+              const catalogued = cataloguedHotels.find((entry) => entry.name === hotel);
+              return <li key={hotel}>{catalogued ? <a href={`/de/hotels/${catalogued.slug}/`}>{hotel}</a> : hotel}</li>;
+            })}</ul>
+          </section>
+        )}
         {/* Guests staying here can do the theme-park day trip; point them at it. */}
         {landOfLegendsPromo && <section className="localized-links lol-route-promo"><h2>{landOfLegendsPromo.heading}</h2><p>{landOfLegendsPromo.hint}</p><div><a href={landOfLegendsPromo.href}>{landOfLegendsPromo.label} →</a></div></section>}
-        <section className="localized-faq"><h2>{text.faq}</h2>{germanFaq.map(([question, answer]) => <article key={question}><h3>{question}</h3><p>{answer}</p></article>)}</section>
+        <section className="localized-faq"><h2>{text.faq}</h2>{landingFaq.map(([question, answer]) => <article key={question}><h3>{question}</h3><p>{answer}</p></article>)}</section>
         <section className="localized-links"><h2>{text.other}</h2><div>{publicRouteSlugs.filter((slug) => slug !== route.slug).map((slug) => <a href={`${prefix}/transfers/${slug}/`} key={slug}>{(routeCatalog[slug].names as Record<string, string>)[language] ?? routeCatalog[slug].names.en}</a>)}</div></section>
         {guides.length > 0 && (
           <section className="localized-links" aria-labelledby="route-guides-heading">

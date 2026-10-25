@@ -10,7 +10,7 @@
 - [ ] Confirm analytics access, consent/privacy requirements and current business claims.
 
 ## Cadence and prompts
-- [ ] **2026-10-26 (initial):** Run SEO/ASO and conversion baseline audit. Prompt: "Read .agents/skills/marketing-workflow/SKILL.md and this file. Inspect this repo, identify verified issues and opportunities for Transfer bookings, cite exact paths and metrics, rank by impact/confidence/effort; propose changes only."
+- [x] **2026-10-25 (initial):** Ran SEO and conversion audit → `MARKETING_AUDIT_2026-10-25.md`. Original prompt: Prompt: "Read .agents/skills/marketing-workflow/SKILL.md and this file. Inspect this repo, identify verified issues and opportunities for Transfer bookings, cite exact paths and metrics, rank by impact/confidence/effort; propose changes only."
 - [ ] **Every Monday (weekly):** Compare last 7 days vs prior 7 days for organic clicks, qualified booking leads, booking conversion. Prompt: "Run a weekly growth review; separate observed data from hypotheses; propose up to three measurable experiments."
 - [ ] **First business day of each month:** Keyword/competitor and content opportunity review. Prompt: "Research search intent, competitor positioning and content gaps for route and language landing pages; flight/airport FAQs; booking funnel; output a prioritized backlog with evidence and no invented search volumes."
 - [ ] **Before each release or landing-page launch:** Copy, store listing/metadata, onboarding, paywall or CTA QA as applicable. Prompt: "Audit the proposed release funnel and claims; identify accessibility, localization, privacy and conversion risks; propose A/B test variants."
@@ -30,4 +30,4 @@
 ## Run log
 | Date | Skill / workflow | Baseline and evidence | Decision | Owner | Next review |
 |---|---|---|---|---|---|
-| 2026-10-26 (planned) | Initial audit | Pending | Pending | TBD | 2026-11-02 |
+| 2026-10-25 | seo-audit, programmatic-seo, cro, ai-seo | Repo + build evidence, no invented metrics — see [MARKETING_AUDIT_2026-10-25.md](MARKETING_AUDIT_2026-10-25.md) | 3 P0 / 6 P1 findings proposed; nothing shipped. Analytics baseline still missing and blocks every experiment | TBD | 2026-11-02 |
