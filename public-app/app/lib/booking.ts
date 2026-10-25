@@ -1,9 +1,9 @@
 import { parsePhoneNumberFromString } from "libphonenumber-js";
 import { z } from "zod";
 import { routeCatalog } from "../../../src/routes.js";
-import { hotelUnitPrice } from "../../../src/hotel-transfer-pricing.js";
 import { hotelToHotelUnitPrice } from "../../../supabase/functions/_shared/hotel-to-hotel-pricing.js";
 import { currentAttribution, type Attribution } from "./attribution";
+import { loadedHotelData } from "./hotel-data";
 
 type Translate = (key: string, fallback?: string) => string;
 export const DAILY_CHAUFFEUR_RATE_EUR = 150;
@@ -301,8 +301,13 @@ export function quoteFor(
   // guest arrives at (destination = region) or leaves (destination = "airport",
   // hotelRegion set) the hotel. Flooring originalPrice too keeps it ≥ price, so
   // the discount never inverts when a distant hotel is banded above its region.
-  const unitPrice = hotelUnitPrice(values.hotelName, values.vehicle, effectiveUnitPrice);
-  const originalUnitPrice = hotelUnitPrice(values.hotelName, values.vehicle, route.originalPrices[values.vehicle]);
+  // The flooring needs the hotel index, which loads when the guest names a
+  // hotel (see ./hotel-data). Before that there is no hotel name to floor by,
+  // so the region price stands.
+  const hotelUnitPrice = loadedHotelData()?.hotelUnitPrice;
+  const unitPrice = hotelUnitPrice?.(values.hotelName, values.vehicle, effectiveUnitPrice) ?? effectiveUnitPrice;
+  const originalUnitPrice = hotelUnitPrice?.(values.hotelName, values.vehicle, route.originalPrices[values.vehicle])
+    ?? route.originalPrices[values.vehicle];
   return {
     price: unitPrice * journeys,
     originalPrice: originalUnitPrice * journeys,

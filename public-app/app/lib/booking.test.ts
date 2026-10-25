@@ -1,5 +1,11 @@
-import { describe, expect, test } from "vitest";
+import { beforeAll, describe, expect, test } from "vitest";
 import { buildPublicBookingPayload, confirmedPriceCopy, createPublicBookingSchema, quoteFor, sprinterFits, vitoFits, type PublicBookingValues } from "./booking";
+import { preloadHotelData } from "./hotel-data";
+
+// `quoteFor` floors a quote by the hotel's own distance only once the hotel
+// index has loaded, which in the browser happens when the guest reaches the
+// hotel field. These cases are about the floored price, so they wait for it.
+beforeAll(() => preloadHotelData());
 
 const t = (_key: string, fallback = "Invalid") => fallback;
 const futureDate = `${new Date().getFullYear() + 1}-08-10`;

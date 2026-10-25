@@ -1,9 +1,6 @@
 import { useId, useMemo, useState } from "react";
-import { hotelIndex } from "../../../src/hotel-index.js";
-import { searchHotels } from "../../../src/hotel-search.js";
+import type { HotelData, IndexedHotel } from "../lib/hotel-data";
 import { Icon } from "./Icon";
-
-export type IndexedHotel = (typeof hotelIndex)[number];
 
 /**
  * Hotel name field with suggestions from the static hotel index.
@@ -16,6 +13,12 @@ export type IndexedHotel = (typeof hotelIndex)[number];
  * The guest is never trapped by the list: whatever they type stays in the
  * field, and `notListedLabel` dismisses the suggestions so they can carry on
  * with a hotel we have not indexed yet.
+ *
+ * `search` arrives from the parent and is null until the hotel index has
+ * loaded (see ../lib/hotel-data), which `onEngage` asks for the moment the
+ * guest reaches this field. While it is null the field takes input and offers
+ * nothing — never "no hotel found", which would be a claim about an index that
+ * is not here yet.
  */
 export function HotelCombobox({
   id,
@@ -23,6 +26,8 @@ export function HotelCombobox({
   onChange,
   onSelect,
   onNotListed,
+  search,
+  onEngage,
   placeholder,
   regionLabel,
   notListedLabel,
@@ -35,6 +40,8 @@ export function HotelCombobox({
   onChange: (value: string) => void;
   onSelect: (hotel: IndexedHotel) => void;
   onNotListed?: () => void;
+  search: HotelData["searchHotels"] | null;
+  onEngage: () => void;
   placeholder: string;
   regionLabel: (region: string) => string;
   notListedLabel: string;
@@ -46,8 +53,8 @@ export function HotelCombobox({
   const statusId = useId();
   const [open, setOpen] = useState(false);
   const [activeIndex, setActiveIndex] = useState(-1);
-  const matches = useMemo(() => (open ? searchHotels(value) : []), [open, value]);
-  const showEmptyNote = open && matches.length === 0 && value.trim().length >= 2;
+  const matches = useMemo(() => (open && search ? search(value) : []), [open, search, value]);
+  const showEmptyNote = Boolean(search) && open && matches.length === 0 && value.trim().length >= 2;
 
   const close = () => {
     setOpen(false);
@@ -60,6 +67,7 @@ export function HotelCombobox({
   };
 
   const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
+    if (event.key === "ArrowDown" || event.key === "ArrowUp") onEngage();
     if (event.key === "ArrowDown" && !open) {
       setOpen(true);
       return;
@@ -96,9 +104,12 @@ export function HotelCombobox({
           aria-controls={listId}
           aria-autocomplete="list"
           aria-invalid={invalid || undefined}
+          aria-busy={open && !search ? true : undefined}
           aria-activedescendant={activeIndex >= 0 ? `${listId}-${activeIndex}` : undefined}
           aria-describedby={describedBy ? `${describedBy} ${statusId}` : statusId}
+          onFocus={onEngage}
           onChange={(event) => {
+            onEngage();
             onChange(event.target.value);
             setOpen(true);
             setActiveIndex(-1);

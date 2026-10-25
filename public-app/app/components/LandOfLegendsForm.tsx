@@ -9,7 +9,8 @@ import {
   landOfLegendsNotice,
   turkeyToday,
 } from "../../../src/land-of-legends.js";
-import { HotelCombobox, type IndexedHotel } from "./HotelCombobox";
+import { HotelCombobox } from "./HotelCombobox";
+import { loadedHotelData, preloadHotelData, type IndexedHotel } from "../lib/hotel-data";
 import { Icon } from "./Icon";
 import {
   addDays,
@@ -76,6 +77,11 @@ export function LandOfLegendsForm({ language, liveRates: sharedRates }: {
   const liveRates = sharedRates ?? ownRates;
   const [matchedHotel, setMatchedHotel] = useState<IndexedHotel | null>(null);
   const [hotelNotListed, setHotelNotListed] = useState(false);
+  // Fetched when the guest reaches the hotel field; see ../lib/hotel-data.
+  const [hotelData, setHotelData] = useState(loadedHotelData);
+  const loadHotelData = () => {
+    if (!hotelData) void preloadHotelData().then(setHotelData);
+  };
   const [submitting, setSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState("");
   const [confirmation, setConfirmation] = useState<Confirmation | null>(null);
@@ -285,6 +291,8 @@ export function LandOfLegendsForm({ language, liveRates: sharedRates }: {
             onChange={handleHotelInput}
             onSelect={handleHotelSelect}
             onNotListed={() => setHotelNotListed(true)}
+            search={hotelData?.searchHotels ?? null}
+            onEngage={loadHotelData}
             placeholder={copy.hotelPlaceholder}
             regionLabel={regionName}
             notListedLabel={copy.hotelNotListed}

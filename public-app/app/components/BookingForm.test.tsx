@@ -2,13 +2,14 @@
 
 import "@testing-library/jest-dom/vitest";
 import { cleanup, fireEvent, render, waitFor } from "@testing-library/react";
-import { afterEach, beforeEach, describe, expect, test, vi } from "vitest";
+import { afterEach, beforeAll, beforeEach, describe, expect, test, vi } from "vitest";
 import { routeCatalog } from "../../../src/routes.js";
 import { LanguageProvider } from "../i18n";
 import { LandOfLegendsBookingCopyProvider } from "../lib/land-of-legends-booking-copy";
 import { landOfLegendsBookingCopy, pageMessages } from "../lib/page-data.server";
 import { shouldApplyFlightArrival, verifyFlightNumber } from "../lib/flight-verification";
 import { BookingForm } from "./BookingForm";
+import { preloadHotelData } from "../lib/hotel-data";
 
 vi.mock("../lib/flight-verification", async (importOriginal) => {
   const actual = await importOriginal<typeof import("../lib/flight-verification")>();
@@ -20,6 +21,11 @@ vi.mock("../lib/flight-verification", async (importOriginal) => {
 });
 
 afterEach(cleanup);
+
+// In the browser the hotel index is fetched when the guest reaches the hotel
+// field; these cases type into it straight away, so it is loaded up front and
+// the suggestions are there on the first keystroke.
+beforeAll(() => preloadHotelData());
 
 describe("BookingForm route summary", () => {
   test("shows localized labels instead of internal private-address values", () => {

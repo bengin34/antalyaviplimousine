@@ -4,7 +4,8 @@ import { Controller, useForm, type FieldError } from "react-hook-form";
 import { LazyPhoneInput, preloadPhoneInput } from "./LazyPhoneInput";
 import { bookableRouteSlugs, routeCatalog } from "../../../src/routes.js";
 import { useLanguage } from "../i18n";
-import { HotelCombobox, type IndexedHotel } from "./HotelCombobox";
+import { HotelCombobox } from "./HotelCombobox";
+import { loadedHotelData, preloadHotelData, type IndexedHotel } from "../lib/hotel-data";
 import { landOfLegendsLanguageFor, landOfLegendsPath } from "../lib/land-of-legends-languages";
 import { useLandOfLegendsBookingCopy } from "../lib/land-of-legends-booking-copy";
 import { Icon } from "./Icon";
@@ -192,6 +193,13 @@ export function BookingForm({
   });
 
   const values = watch();
+  // The hotel index is fetched when the guest reaches a hotel field. Holding it
+  // in state is what re-renders the price once it lands, so a name typed in
+  // full before the fetch finished still gets floored by the hotel's distance.
+  const [hotelData, setHotelData] = useState(loadedHotelData);
+  const loadHotelData = () => {
+    if (!hotelData) void preloadHotelData().then(setHotelData);
+  };
   const isDailyChauffeur = values.tripType === "daily_chauffeur";
   const hireDays = isDailyChauffeur ? inclusiveDayCount(values.travelDate, values.serviceEndDate) : 0;
   const quote = quoteFor(values, liveOverrides);
@@ -593,6 +601,8 @@ export function BookingForm({
         onChange={onChange}
         onSelect={onSelect}
         onNotListed={onNotListed}
+        search={hotelData?.searchHotels ?? null}
+        onEngage={loadHotelData}
         placeholder={placeholder}
         regionLabel={regionLabel}
         notListedLabel={t("hotelNotListed", "My hotel is not in the list")}

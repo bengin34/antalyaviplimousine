@@ -2,11 +2,12 @@
 
 import "@testing-library/jest-dom/vitest";
 import { cleanup, fireEvent, render, waitFor, within } from "@testing-library/react";
-import { afterEach, beforeEach, describe, expect, test, vi } from "vitest";
+import { afterEach, beforeAll, beforeEach, describe, expect, test, vi } from "vitest";
 import { LanguageProvider } from "../i18n";
 import { pageMessages } from "../lib/page-data.server";
 import { LandOfLegendsPage } from "./LandOfLegendsPage";
 import type { LandOfLegendsLanguage } from "../lib/land-of-legends-copy";
+import { preloadHotelData } from "../lib/hotel-data";
 
 const createBooking = vi.fn();
 vi.mock("../../../src/lib/api.js", () => ({ createBooking: (data: unknown) => createBooking(data) }));
@@ -18,6 +19,9 @@ vi.mock("../../../src/lib/supabase-rest", async (importOriginal) => ({
 
 afterEach(cleanup);
 beforeEach(() => createBooking.mockReset());
+// The hotel index loads when a guest reaches the hotel field; `pickHotel`
+// types into it immediately, so it is waited for once here.
+beforeAll(() => preloadHotelData());
 
 const renderPage = (language: LandOfLegendsLanguage = "en") =>
   render(
