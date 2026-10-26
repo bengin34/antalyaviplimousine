@@ -21,6 +21,7 @@
 
 ## Guides
 
+- [Pricing as a table](https://antalyaviptourism.com/pricing.md)
 - [Blog and airport guides](https://antalyaviptourism.com/blog/)
 
 ## Contact

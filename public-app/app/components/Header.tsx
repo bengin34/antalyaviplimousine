@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { languageOptions, useLanguage, type LanguageCode } from "../i18n";
+import { blogPath, blogText, isArticleLanguage } from "../lib/blog-paths";
 import { Icon } from "./Icon";
 
 type HeaderProps = {
@@ -139,6 +140,10 @@ export function Header({
     { hash: "#routes", href: sectionHref("#routes"), label: t("navRoutes", "Routes") },
     { hash: "#reviews", href: sectionHref("#reviews"), label: t("navReviews", "Reviews") },
     { hash: "#contact", href: sectionHref("#contact"), label: t("navContact", "Contact") },
+    // The blog is 690 article pages whose only other way in was the home footer.
+    ...(isArticleLanguage(language)
+      ? [{ hash: "", href: blogPath(language), label: blogText(language).blog }]
+      : []),
     { hash: "", href: "/b2b/", label: "B2B Partners" },
   ];
 

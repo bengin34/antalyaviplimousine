@@ -1,3 +1,4 @@
+import { execFileSync } from "node:child_process";
 import { writeFile } from "node:fs/promises";
 import path from "node:path";
 import { publicRouteSlugs } from "../src/routes.js";
@@ -16,6 +17,7 @@ import {
   articleLanguages,
   articlePath,
   articles,
+  articleLastmod,
   articlesForLanguage,
   blogPath,
 } from "../src/articles/index.js";
@@ -23,6 +25,40 @@ import {
 const root = process.cwd();
 const domain = "https://antalyaviptourism.com";
 const today = new Date().toISOString().slice(0, 10);
+
+/**
+ * `lastmod` has to say when a page actually changed: a sitemap that stamps
+ * every URL with the build date teaches crawlers to ignore the field.
+ * Articles carry their own dates; every other page is rendered from the
+ * app source, so the last commit that touched it is the honest date. CI
+ * checks out full history for this (a shallow clone would date every page
+ * by the deploy commit).
+ */
+const sourceDate = (() => {
+  try {
+    const out = execFileSync(
+      "git",
+      ["log", "-1", "--format=%cs", "--", "public-app/app", "src"],
+      { cwd: root, encoding: "utf8", stdio: ["ignore", "pipe", "ignore"] },
+    ).trim();
+    return /^\d{4}-\d{2}-\d{2}$/.test(out) ? out : today;
+  } catch {
+    return today;
+  }
+})();
+
+const articleDates = new Map();
+for (const article of articles) {
+  for (const language of articleAlternateLanguages(article)) {
+    articleDates.set(articlePath(language, article), articleLastmod(article));
+  }
+}
+for (const language of articleLanguages) {
+  const dates = articlesForLanguage(language).map(articleLastmod).sort();
+  if (dates.length > 0) articleDates.set(blogPath(language), dates[dates.length - 1]);
+}
+const lastmodFor = (url) => articleDates.get(url) ?? sourceDate;
+
 const homeSet = new Set(homePaths);
 const legalSet = new Set(legalPaths);
 const blogSet = new Set([...blogPaths, ...articlePaths]);
@@ -79,7 +115,7 @@ const records = [...sitemapPaths]
   .sort((left, right) => left.localeCompare(right))
   .map((url) => ({
     url,
-    lastmod: today,
+    lastmod: lastmodFor(url),
     changefreq: changefreqFor(url),
     priority: priorityFor(url),
     alternates: alternateGroups.get(url),

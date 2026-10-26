@@ -17,9 +17,23 @@ if (!keyFile) {
 const key = keyFile.replace(/\.txt$/, "");
 
 const sitemap = await readFile(path.join(publicDirectory, "sitemap.xml"), "utf8");
-const urlList = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map(
-  (match) => match[1],
-);
+// Only pages the sitemap dates within the last two days are worth a ping;
+// INDEXNOW_ALL=1 sends every URL (first submission, or after a big migration).
+const cutoff = new Date(Date.now() - 2 * 24 * 60 * 60 * 1000)
+  .toISOString()
+  .slice(0, 10);
+const urlList = [
+  ...sitemap.matchAll(
+    /<loc>([^<]+)<\/loc>[\s\S]*?<lastmod>([^<]+)<\/lastmod>/g,
+  ),
+]
+  .filter(([, , lastmod]) => process.env.INDEXNOW_ALL === "1" || lastmod >= cutoff)
+  .map(([, loc]) => loc);
+
+if (urlList.length === 0) {
+  console.log("IndexNow: no URLs changed in the last two days, nothing to send");
+  process.exit(0);
+}
 
 const submit = () =>
   // IndexNow accepts up to 10,000 URLs per request.
