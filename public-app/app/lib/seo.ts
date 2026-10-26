@@ -22,20 +22,20 @@ import { transferLandingCopy } from "./transfer-landing-copy";
 export { domain, indexableLanguages, languageFromPath, type IndexableLanguage };
 
 const homeSeo = {
-  zh: { locale: "zh_CN", title: "安塔利亚机场接送 | 私人VIP旅游服务", description: "从安塔利亚机场到土耳其各度假区的私人固定价格接送服务。" },
-  da: { locale: "da_DK", title: "Antalya Lufthavnstransfer | Privat VIP-turistservice", description: "Private transfers til fast pris fra Antalya Lufthavn til feriesteder i hele Tyrkiet." },
-  es: { locale: "es_ES", title: "Traslado Aeropuerto de Antalya | Servicio Turístico VIP Privado", description: "Traslados privados a precio fijo desde el Aeropuerto de Antalya a resorts de toda Türkiye." },
-  el: { locale: "el_GR", title: "Μεταφορά από το Αεροδρόμιο Αντάλια | Ιδιωτική Υπηρεσία VIP Τουρισμού", description: "Ιδιωτικές μεταφορές με σταθερή τιμή από το Αεροδρόμιο της Αντάλια προς θέρετρα σε όλη την Τουρκία." },
-  he: { locale: "he_IL", title: "העברות משדה התעופה אנטליה | שירות תיירות VIP פרטי", description: "העברות פרטיות במחיר קבוע משדה התעופה אנטליה לאתרי הנופש ברחבי טורקיה." },
-  hu: { locale: "hu_HU", title: "Antalya reptéri transzfer | Privát VIP turisztikai szolgáltatás", description: "Privát, fix áras transzferek az antalyai repülőtérről a törökországi üdülőhelyekre." },
-  it: { locale: "it_IT", title: "Transfer Aeroporto di Antalya | Servizio Turistico VIP Privato", description: "Transfer privati a prezzo fisso dall'Aeroporto di Antalya verso i resort di tutta la Türkiye." },
-  ja: { locale: "ja_JP", title: "アンタルヤ空港送迎 | プライベートVIP観光サービス", description: "アンタルヤ空港からトルコ各地のリゾートへの固定料金プライベート送迎。" },
-  ko: { locale: "ko_KR", title: "안탈리아 공항 이동 서비스 | 프라이빗 VIP 관광 서비스", description: "안탈리아 공항에서 튀르키예 전역의 리조트까지 정찰제 프라이빗 이동 서비스." },
-  pt: { locale: "pt_PT", title: "Transfer do Aeroporto de Antalya | Serviço Privado de Turismo VIP", description: "Transfers privados a preço fixo do Aeroporto de Antalya para resorts em toda a Turquia." },
-  ro: { locale: "ro_RO", title: "Transfer Aeroport Antalya | Serviciu Privat de Turism VIP", description: "Transferuri private cu preț fix de la Aeroportul Antalya către stațiunile din Turcia." },
+  zh: { locale: "zh_CN", title: "安塔利亚机场接送 | 私人VIP旅游服务", description: "从安塔利亚机场到贝莱克、锡代、凯梅尔、阿拉尼亚等度假区的私人固定价格接送。提供接机问候、航班追踪、门到门服务，可在车内付款。" },
+  da: { locale: "da_DK", title: "Antalya Lufthavnstransfer | Privat VIP-turistservice", description: "Private transfers til fast pris fra Antalya Lufthavn til Belek, Side, Kemer og Alanya. Modtagelse, flysporing og betaling i bilen." },
+  es: { locale: "es_ES", title: "Traslado Aeropuerto de Antalya | Servicio Turístico VIP Privado", description: "Traslados privados a precio fijo desde el Aeropuerto de Antalya a Belek, Side, Kemer y Alanya. Recepción, seguimiento de vuelo y pago en el vehículo." },
+  el: { locale: "el_GR", title: "Μεταφορά από το Αεροδρόμιο Αντάλια | Ιδιωτική Υπηρεσία VIP Τουρισμού", description: "Ιδιωτικές μεταφορές με σταθερή τιμή από το Αεροδρόμιο της Αντάλια προς Μπέλεκ, Σίδη, Κεμέρ και Αλάνια. Υποδοχή και παρακολούθηση πτήσης." },
+  he: { locale: "he_IL", title: "העברות משדה התעופה אנטליה | שירות תיירות VIP פרטי", description: "העברות פרטיות במחיר קבוע משדה התעופה אנטליה לבלק, סידה, קמר ואלניה. קבלת פנים אישית, מעקב טיסות, שירות מדלת לדלת ותשלום ברכב." },
+  hu: { locale: "hu_HU", title: "Antalya reptéri transzfer | Privát VIP turisztikai szolgáltatás", description: "Privát, fix áras transzferek az antalyai repülőtérről Belekre, Sidére, Kemerbe és Alanyába. Fogadás, járatkövetés és fizetés a járműben." },
+  it: { locale: "it_IT", title: "Transfer Aeroporto di Antalya | Servizio Turistico VIP Privato", description: "Transfer privati a prezzo fisso dall'Aeroporto di Antalya a Belek, Side, Kemer e Alanya. Accoglienza, monitoraggio del volo e pagamento in auto." },
+  ja: { locale: "ja_JP", title: "アンタルヤ空港送迎 | プライベートVIP観光サービス", description: "アンタルヤ空港からベレク、シデ、ケメル、アランヤなど各リゾートへの固定料金プライベート送迎。ミート＆グリート、フライト追跡、車内でのお支払いに対応。" },
+  ko: { locale: "ko_KR", title: "안탈리아 공항 이동 서비스 | 프라이빗 VIP 관광 서비스", description: "안탈리아 공항에서 벨렉, 시데, 케메르, 알라니아 등 리조트까지 정찰제 프라이빗 이동 서비스. 미팅 서비스, 항공편 추적, 차량 내 결제를 지원합니다." },
+  pt: { locale: "pt_PT", title: "Transfer do Aeroporto de Antalya | Serviço Privado de Turismo VIP", description: "Transfers privados a preço fixo do Aeroporto de Antalya para Belek, Side, Kemer e Alanya. Receção, acompanhamento de voo e pagamento no veículo." },
+  ro: { locale: "ro_RO", title: "Transfer Aeroport Antalya | Serviciu Privat de Turism VIP", description: "Transferuri private cu preț fix de la Aeroportul Antalya la Belek, Side, Kemer și Alanya. Întâmpinare, urmărirea zborului și plată în vehicul." },
 
-  en: { locale: "en_GB", title: "Antalya Airport Transfer | Private VIP Tourism Service", description: "Private fixed-price transfers from Antalya Airport to resorts across Türkiye." },
-  de: { locale: "de_DE", title: "Flughafen Antalya Transfer | Privater VIP Chauffeurservice", description: "Private Festpreis-Transfers vom Flughafen Antalya zu Reisezielen in der gesamten Türkei." },
+  en: { locale: "en_GB", title: "Antalya Airport Transfer | Private VIP Tourism Service", description: "Private fixed-price transfers from Antalya Airport to Belek, Side, Kemer, Alanya and more. Meet and greet, flight tracking, pay in the vehicle." },
+  de: { locale: "de_DE", title: "Flughafen Antalya Transfer | Privater VIP Chauffeurservice", description: "Private Festpreis-Transfers vom Flughafen Antalya nach Belek, Side, Kemer, Alanya und weitere Ziele. Meet & Greet, Flugverfolgung, Bezahlung im Fahrzeug." },
   tr: { locale: "tr_TR", title: "Antalya Havalimanı Transferi | Özel VIP Transfer", description: "Antalya Havalimanı'ndan Belek, Side, Kemer, Alanya ve çevresine özel sabit fiyatlı transfer. Vito ve Sprinter, uçuş takibi ve karşılama." },
   ru: { locale: "ru_RU", title: "Трансфер из аэропорта Антальи | Частный VIP-трансфер", description: "Частные трансферы по фиксированной цене из аэропорта Антальи в Белек, Сиде, Кемер, Аланью и другие курорты. Встреча и отслеживание рейса." },
   fr: { locale: "fr_FR", title: "Transfert Aéroport Antalya | Service VIP Privé", description: "Transferts privés à prix fixe depuis l'aéroport d'Antalya vers Belek, Side, Kemer et Alanya. Accueil, suivi de vol et service porte-à-porte." },
@@ -193,7 +193,7 @@ const healthSeo = {
 const routeText = {
   zh: {
     title: (name: string) => `安塔利亚机场至${name}接送 | 私人固定价格服务`,
-    description: (name: string, price: number) => `从安塔利亚机场至${name}的私人固定价格接送，€${price}起。含接机问候、航班追踪及门到门服务。`,
+    description: (name: string, price: number) => `从安塔利亚机场至${name}的私人固定价格接送，€${price}起。含接机问候、航班追踪及门到门服务，提供Vito与Sprinter车型，可在车内付款。`,
     heading: (name: string) => `从安塔利亚机场到${name}的私人接送`,
     faq: (name: string, price: number, duration: string) => [[`从安塔利亚机场到${name}的接送需要多长时间？`, `在正常交通情况下，行程约需${duration}。`], [`到${name}的固定接送价格是多少？`, `Mercedes Vito价格每车€${price}起。确认的总价将在预订时显示。`], ["如果我的航班延误怎么办？", "我们会实时追踪您的航班，并免费调整接机时间。"], ["我的司机会在机场等候多久？", "落地后的前90分钟免费包含在内，如果您的航班延误，等候时间会自动顺延。"], ["我该如何支付接送费用？", "在行程开始时以现金支付给您的司机——即您预订时的固定价格，按每车计算。"]],
   },
@@ -217,7 +217,7 @@ const routeText = {
   },
   he: {
     title: (name: string) => `העברה משדה התעופה אנטליה אל ${name} | שירות פרטי במחיר קבוע`,
-    description: (name: string, price: number) => `העברה פרטית במחיר קבוע משדה התעופה אנטליה אל ${name} החל מ-€${price}. קבלת פנים אישית, מעקב טיסות ושירות מדלת לדלת.`,
+    description: (name: string, price: number) => `העברה פרטית במחיר קבוע משדה התעופה אנטליה אל ${name} החל מ-€${price}. קבלת פנים אישית, מעקב טיסות ושירות מדלת לדלת. אפשר לבחור בין ויטו לספרינטר ולשלם ברכב.`,
     heading: (name: string) => `העברה פרטית משדה התעופה אנטליה אל ${name}`,
     faq: (name: string, price: number, duration: string) => [[`כמה זמן אורכת ההעברה משדה התעופה אנטליה אל ${name}?`, `הנסיעה אורכת כ-${duration} בתנועה רגילה.`], [`מהו המחיר הקבוע של ההעברה אל ${name}?`, `מחירי Mercedes Vito מתחילים מ-€${price} לרכב. הסכום הכולל המאושר מוצג בעת ההזמנה.`], ["מה קורה אם הטיסה שלי מתעכבת?", "אנו עוקבים אחר הטיסה שלכם בזמן אמת ומתאימים את שעת המפגש ללא תוספת תשלום."], ["כמה זמן ממתין הנהג שלי בשדה התעופה?", "90 הדקות הראשונות לאחר הנחיתה כלולות ללא תשלום, וחלון ההמתנה זז אוטומטית אם הטיסה מתעכבת."], ["כיצד אני משלם עבור ההעברה?", "במזומן לנהג בתחילת הנסיעה - המחיר הקבוע מתוך ההזמנה שלכם, לכל רכב."]],
   },
@@ -235,13 +235,13 @@ const routeText = {
   },
   ja: {
     title: (name: string) => `アンタルヤ空港から${name}への送迎 | プライベート固定料金サービス`,
-    description: (name: string, price: number) => `アンタルヤ空港から${name}へのプライベート固定料金送迎、€${price}から。ミート＆グリート、フライト追跡、ドアツードアサービス。`,
+    description: (name: string, price: number) => `アンタルヤ空港から${name}へのプライベート固定料金送迎、€${price}から。ミート＆グリート、フライト追跡、ドアツードアサービス。VitoとSprinterから選べて、お支払いは車内でどうぞ。`,
     heading: (name: string) => `アンタルヤ空港から${name}へのプライベート送迎`,
     faq: (name: string, price: number, duration: string) => [[`アンタルヤ空港から${name}までの送迎はどのくらいかかりますか？`, `通常の交通状況で所要時間は約${duration}です。`], [`${name}への固定送迎料金はいくらですか？`, `Mercedes Vitoの料金は1台あたり€${price}からです。確定合計金額は予約時に表示されます。`], ["フライトが遅延した場合はどうなりますか？", "私たちはお客様のフライトをリアルタイムで追跡し、追加料金なしでお迎え時間を調整します。"], ["運転手は空港でどのくらい待ちますか？", "着陸後の最初の90分は無料に含まれており、フライトが遅延した場合は自動的に時間枠が移動します。"], ["送迎料金の支払い方法は？", "旅程開始時に運転手へ現金でお支払いください。予約時の固定料金、1台あたりの金額です。"]],
   },
   ko: {
     title: (name: string) => `안탈리아 공항에서 ${name}까지 이동 | 프라이빗 정찰제 서비스`,
-    description: (name: string, price: number) => `안탈리아 공항에서 ${name}까지 €${price}부터 시작하는 프라이빗 정찰제 이동 서비스. 미팅 서비스, 항공편 추적, 도어 투 도어 서비스를 제공합니다.`,
+    description: (name: string, price: number) => `안탈리아 공항에서 ${name}까지 €${price}부터 시작하는 프라이빗 정찰제 이동 서비스. 미팅 서비스, 항공편 추적, 도어 투 도어 서비스를 제공합니다. Vito와 Sprinter 중 선택하고 차량 내에서 결제하세요.`,
     heading: (name: string) => `안탈리아 공항에서 ${name}까지 프라이빗 이동`,
     faq: (name: string, price: number, duration: string) => [[`안탈리아 공항에서 ${name}까지 이동 시간은 얼마나 걸리나요?`, `일반적인 교통 상황에서 약 ${duration} 소요됩니다.`], [`${name}까지의 정찰제 이동 요금은 얼마인가요?`, `Mercedes Vito 요금은 차량당 €${price}부터 시작합니다. 확정 총액은 예약 시 표시됩니다.`], ["항공편이 지연되면 어떻게 되나요?", "실시간으로 항공편을 추적하며 추가 요금 없이 미팅 시간을 조정합니다."], ["기사님은 공항에서 얼마나 대기하나요?", "착륙 후 첫 90분은 무료로 포함되며, 항공편이 지연되면 대기 시간이 자동으로 조정됩니다."], ["이동 요금은 어떻게 결제하나요?", "이동 시작 시 기사님께 현금으로 결제합니다 - 예약 시 확정된 차량당 정찰제 요금입니다."]],
   },
