@@ -89,5 +89,33 @@ export const da: TransferLandingCopy = {
       about: "Tekirova ligger syd for Kemer på kanten af nationalparken Olympos-Beydağları. Byen forener velplejede hotelområder med små bugter og ligger meget tæt på det antikke Phaselis.",
       routeDetails: "Turen går fra Antalya Lufthavn gennem Kemer videre til Tekirova. Beliggenheden ved kysten og afstanden gør den direkte transfer til det fornuftige valg: intet bilskift og ingen venten på andre gæster på vejen til hotellet.",
     },
+    bogazkent: {
+      about: "Boğazkent ligger i Serik-distriktet på kysten mellem Belek og Side. Store all inclusive-resorts ligger direkte ved en bred sandstrand, og Beleks golfbaner er kun få minutter væk, så området er en rolig base for både familier og golfspillere.",
+      routeDetails: "Fra Antalya Lufthavn følger ruten D400 mod øst forbi Belek og drejer derefter mod kysten. Med omkring 48 km er det en af de korteste transferer på listen, og en privat bil kører dig fra ankomsthallen til indgangen til dit resort uden stop ved andre hoteller.",
+    },
+    manavgat: {
+      about: "Manavgat er en livlig by ved floden af samme navn, øst for Side. Byen er kendt for sit vandfald, sine bådture op ad floden og sit ugentlige marked, og den er indgangen til resorterne langs denne del af kysten. Oplys os om hotellets præcise adresse ved bestillingen, for området er stort.",
+      routeDetails: "Ruten går mod øst ad D400 fra Antalya Lufthavn i omkring 75 km. Turen tager omkring en time, og en direkte privat transfer sparer dig for de ekstra hotelstop, som en fælles shuttle laver på denne travle kystvej.",
+    },
+    bodrum: {
+      about: "Bodrum ligger ved Ægæerhavet i Muğla-provinsen og er berømt for korsriderborgen, lystbådehavnen og de hvide huse på bjergsiderne. Rundt om halvøen finder du livlige kvarterer som Gümbet og Bitez samt roligere bugter ved Yalıkavak, Türkbükü og Gümüşlük.",
+      routeDetails: "Med omkring 380 km er det en af de længste ture, vi tilbyder, og den tager fem til seks timer med behagelige pauser. En privat bil gør dagen langt lettere end offentlig transport: du kører, så snart du lander, holder ind, hvor du vil, og når frem til dit eget hotel på halvøen. Oplys hotel og landingstidspunkt ved bestillingen, så vi kan planlægge turen.",
+    },
+    dalaman: {
+      about: "Dalaman er porten til den lykiske og kariske kyst. Lufthavnen betjener feriesteder som Sarıgerme og Göcek, og nærliggende Dalyan er kendt for flodens delta, de klippehuggede grave i Kaunos og skildpaddestranden ved İztuzu.",
+      routeDetails: "De 235 km fra Antalya Lufthavn følger den snoede lykiske kystvej og tager omkring tre til tre en halv time. En fast pris pr. bil gør det let at budgettere med en lang tur, og med en privat bil kan selskabet holde ind for at hvile eller spise, når det passer.",
+    },
+    fethiye: {
+      about: "Fethiye ligger ved en bred bugt omgivet af fyrreklædte bjerge. Byen er base for Ölüdeniz og dens blå lagune, for strandene og natlivet i Çalış og for de roligere landsbyer Hisarönü og Kayaköy. Mange gæster kommer også for at flyve paragliding fra Babadağ og for bådture rundt til de tolv øer.",
+      routeDetails: "De 205 km fra Antalya Lufthavn følger den lykiske kyst gennem Kumluca, Kaş og Kalkan og tager omkring to en halv til tre timer. Vejen er snoet og naturskøn. Med en privat transfer skal du ikke skifte bil i Fethiye, og chaufføren kører dig til dit hotel i Ölüdeniz, Çalış eller Hisarönü.",
+    },
+    pamukkale: {
+      about: "Pamukkale i Denizli-provinsen er et UNESCO-verdensarvssted, kendt for sine hvide travertinterrasser og varme termiske bassiner. Den antikke by Hierapolis ligger på bakken ovenfor med teater, nekropolis og den antikke pool, hvor besøgende kan bade mellem sunkne søjler.",
+      routeDetails: "Ruten forlader kysten og går omkring 245 km ind i landet over Taurusbjergene og plateauet mod Denizli, hvilket tager cirka tre til tre en halv time. En privat bil passer godt til denne tur: du skal ikke skifte bil, du kan planlægge en hvilepause undervejs, og du kommer direkte til dit hotel i Pamukkale eller Karahayıt.",
+    },
+    kapadokya: {
+      about: "Kappadokien i det centrale Anatolien er kendt for sine feskorstene, klippehuggede kirker og underjordiske byer. Ved solopgang stiger luftballoner op over Göreme, Uçhisar og Ürgüp, og mange gæster bor på et hotel udhugget i klippen.",
+      routeDetails: "Med omkring 540 km fører turen fra Middelhavet over Taurusbjergene og hen over det anatoliske plateau og tager syv til otte timer med pauser. En privat transfer er den komfortable løsning: dit selskab rejser sammen, chaufføren planlægger hvilepauserne med dig og kører dig helt hen til indgangen til dit klippehotel. Oplys flynummer og hotel ved bestillingen, så vi kan planlægge dagen.",
+    },
   },
 };

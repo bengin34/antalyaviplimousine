@@ -95,5 +95,37 @@ export const pl: TransferLandingCopy = {
       about: "Tekirova leży na południe od Kemeru, na skraju parku narodowego Olympos-Beydağları. Łączy zadbane tereny hotelowe z małymi zatokami i znajduje się blisko antycznego Phaselis.",
       routeDetails: "Trasa prowadzi z lotniska w Antalyi przez Kemer dalej do Tekirovej. Położenie nad morzem i odległość sprawiają, że bezpośredni transfer ma sens: bez przesiadki i bez czekania na innych gości aż pod hotel.",
     },
+    bogazkent: {
+      name: { nominative: "Boğazkent", direction: "Boğazkentu" },
+      about: "Boğazkent leży w rejonie Serik, na wybrzeżu między Belekiem a Side. Duże hotele all inclusive stoją tuż przy szerokiej piaszczystej plaży, a pola golfowe Beleku są oddalone o zaledwie kilka minut, dlatego okolica to spokojna baza zarówno dla rodzin, jak i dla golfistów.",
+      routeDetails: "Z lotniska w Antalyi trasa prowadzi drogą D400 na wschód, przez Belek, a następnie skręca w stronę wybrzeża. To około 48 km, czyli jeden z krótszych transferów na tej liście, a prywatny samochód zawiezie Cię z hali przylotów pod wejście do hotelu bez przystanków pod innymi hotelami.",
+    },
+    manavgat: {
+      name: { nominative: "Manavgat", direction: "Manavgatu" },
+      about: "Manavgat to tętniące życiem miasto nad rzeką o tej samej nazwie, na wschód od Side. Znane jest z wodospadu, rejsów łodziami po rzece i cotygodniowego targu, a jednocześnie jest bramą do kurortów na tym odcinku wybrzeża. Przy rezerwacji podaj dokładny adres hotelu, ponieważ okolica jest rozległa.",
+      routeDetails: "Trasa prowadzi na wschód drogą D400 z lotniska w Antalyi i liczy około 75 km. Przejazd trwa mniej więcej godzinę, a bezpośredni transfer prywatny oszczędza dodatkowych przystanków pod hotelami, które robi autobus zbiorowy na tej ruchliwej drodze nadmorskiej.",
+    },
+    bodrum: {
+      about: "Bodrum leży nad Morzem Egejskim w prowincji Muğla i słynie z zamku krzyżowców, mariny oraz białych domów na zboczach wzgórz. Na półwyspie znajdziesz tętniące życiem dzielnice, takie jak Gümbet i Bitez, a także spokojniejsze zatoki w Yalıkavak, Türkbükü i Gümüşlük.",
+      routeDetails: "Około 380 km to jedna z najdłuższych tras w naszej ofercie, a przejazd z wygodnymi przerwami zajmuje od pięciu do sześciu godzin. Prywatny samochód znacznie ułatwia ten dzień w porównaniu z transportem publicznym: wyjeżdżasz zaraz po lądowaniu, zatrzymujesz się, gdzie chcesz, i dojeżdżasz do własnego hotelu na półwyspie. Przy rezerwacji podaj hotel i godzinę lądowania, abyśmy mogli zaplanować podróż.",
+    },
+    dalaman: {
+      name: { nominative: "Dalaman", direction: "Dalamanu" },
+      about: "Dalaman to brama na wybrzeże Licji i Karii. Lotnisko obsługuje kurorty takie jak Sarıgerme i Göcek, a pobliski Dalyan jest znany z delty rzeki, skalnych grobowców Kaunos i plaży żółwi İztuzu.",
+      routeDetails: "235 km z lotniska w Antalyi prowadzi krętą drogą wzdłuż wybrzeża Licji, a przejazd zajmuje około trzech do trzech i pół godziny. Stała cena za samochód ułatwia zaplanowanie budżetu na długą podróż, a prywatny samochód pozwala Twojej grupie zatrzymać się na odpoczynek lub posiłek, kiedy tylko zechce.",
+    },
+    fethiye: {
+      about: "Fethiye leży nad szeroką zatoką otoczoną porośniętymi sosnami górami. To baza wypadowa do Ölüdeniz z błękitną laguną, na plaże i do życia nocnego Çalış oraz do spokojniejszych wsi Hisarönü i Kayaköy. Wielu gości przyjeżdża też dla paralotniarstwa z góry Babadağ i rejsów wokół dwunastu wysp.",
+      routeDetails: "205 km z lotniska w Antalyi biegnie wzdłuż wybrzeża Licji przez Kumlucę, Kaş i Kalkan i zajmuje około dwóch i pół do trzech godzin. Droga jest kręta i widokowa. Przy transferze prywatnym nie musisz przesiadać się w Fethiye, a kierowca zawiezie Cię do hotelu w Ölüdeniz, Çalış lub Hisarönü.",
+    },
+    pamukkale: {
+      about: "Pamukkale w prowincji Denizli znajduje się na liście światowego dziedzictwa UNESCO i słynie z białych trawertynowych tarasów oraz ciepłych basenów termalnych. Na wzgórzu nad nimi stoi starożytne miasto Hierapolis z teatrem, nekropolią i antycznym basenem, w którym można pływać wśród zatopionych kolumn.",
+      routeDetails: "Trasa opuszcza wybrzeże i prowadzi około 245 km w głąb lądu przez góry Taurus i płaskowyż w stronę Denizli, co zajmuje mniej więcej od trzech do trzech i pół godziny. Prywatny samochód dobrze sprawdza się na tej trasie: bez przesiadek, z możliwością zaplanowania przerwy po drodze, prosto do hotelu w Pamukkale lub Karahayıt.",
+    },
+    kapadokya: {
+      name: { nominative: "Kapadocja", direction: "Kapadocji" },
+      about: "Kapadocja w środkowej Anatolii słynie z kominów wróżek, skalnych kościołów i podziemnych miast. O świcie balony na ogrzane powietrze unoszą się nad Göreme, Uçhisar i Ürgüp, a wielu gości zatrzymuje się w hotelu wykutym w skale.",
+      routeDetails: "Około 540 km: trasa prowadzi znad Morza Śródziemnego przez góry Taurus i anatolijski płaskowyż, a przejazd z przerwami zajmuje od siedmiu do ośmiu godzin. Transfer prywatny to najwygodniejszy sposób: Twoja grupa podróżuje razem, kierowca planuje z Tobą przystanki i podwozi pod wejście do hotelu w skale. Przy rezerwacji podaj numer lotu i hotel, abyśmy mogli zaplanować dzień.",
+    },
   },
 };

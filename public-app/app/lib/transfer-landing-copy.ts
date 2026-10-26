@@ -35,10 +35,10 @@ import { ur } from "./transfer-landing-copy/ur";
  * languages now carry their own prose, so the map is a full `Record` and the
  * compiler refuses a new site language without copy for it.
  *
- * `regions` stays `Partial`: the seven resort regions are written, the
- * long-distance routes (Bodrum, Dalaman, Pamukkale…) are not. A route
- * missing from `regions` keeps the plain template rather than showing
- * machine-filled headings.
+ * `regions` stays `Partial` because the key is a free route slug: a route
+ * missing from it keeps the plain template rather than showing
+ * machine-filled headings. Every published route is written in every
+ * language today; the landing test holds that.
  */
 /**
  * The place name in the grammatical forms the prose needs.

@@ -95,5 +95,40 @@ export const nl: TransferLandingCopy = {
       about: "Tekirova ligt zuidelijk van Kemer, aan de rand van het nationale park Olympos-Beydağları. Het dorp combineert goed onderhouden hotelterreinen met kleine baaien en ligt dicht bij de antieke site Phaselis.",
       routeDetails: "De rit loopt van de luchthaven van Antalya via Kemer verder naar Tekirova. De ligging aan de kust en de afstand maken een directe transfer logisch: geen overstap en geen wachten op andere gasten onderweg naar uw hotel.",
     },
+    bogazkent: {
+      name: { nominative: "Boğazkent", direction: "Boğazkent", location: "Boğazkent", origin: "Boğazkent" },
+      about: "Boğazkent ligt in het district Serik aan de kust tussen Belek en Side. Grote all-inclusive resorts staan direct aan een breed zandstrand en de golfbanen van Belek liggen op enkele minuten afstand, waardoor het gebied een rustige uitvalsbasis is voor gezinnen en golfers.",
+      routeDetails: "Vanaf de luchthaven van Antalya volgt de route de D400 oostwaarts langs Belek en buigt daarna af naar de kust. Met ongeveer 48 km is dit een van de kortere transfers van deze lijst, en een privéauto brengt u van de aankomsthal tot de ingang van uw resort, zonder stops bij andere hotels.",
+    },
+    manavgat: {
+      name: { nominative: "Manavgat", direction: "Manavgat", location: "Manavgat", origin: "Manavgat" },
+      about: "Manavgat is een levendige stad aan de gelijknamige rivier, oostelijk van Side. Het staat bekend om de waterval, boottochten over de rivier en een wekelijkse markt, en is de toegangspoort tot de resorts langs dit stuk kust. Geef ons bij het boeken het exacte adres van uw hotel door, want het gebied is groot.",
+      routeDetails: "De route loopt vanaf de luchthaven van Antalya zo’n 75 km oostwaarts over de D400. De rit duurt ongeveer een uur, en een rechtstreekse privétransfer bespaart u de extra hotelstops die een gedeelde shuttle maakt op deze drukke kustweg.",
+    },
+    bodrum: {
+      name: { nominative: "Bodrum", direction: "Bodrum", location: "Bodrum", origin: "Bodrum" },
+      about: "Bodrum ligt aan de Egeïsche kust in de provincie Muğla en staat bekend om het kruisvaderskasteel, de jachthaven en de witte huizen op de heuvels. Rond het schiereiland vindt u levendige wijken zoals Gümbet en Bitez, en rustigere baaien bij Yalıkavak, Türkbükü en Gümüşlük.",
+      routeDetails: "Met ongeveer 380 km is dit een van de langste ritten die we aanbieden, en met comfortabele pauzes duurt het vijf tot zes uur. Een privéauto maakt de dag een stuk makkelijker dan het openbaar vervoer: u vertrekt zodra u geland bent, stopt waar u wilt en komt aan bij uw eigen hotel op het schiereiland. Geef ons bij het boeken uw hotel en landingstijd door, zodat we de rit kunnen plannen.",
+    },
+    dalaman: {
+      name: { nominative: "Dalaman", direction: "Dalaman", location: "Dalaman", origin: "Dalaman" },
+      about: "Dalaman is de toegangspoort tot de Lycische en Karische kust. De luchthaven bedient resorts als Sarıgerme en Göcek, en het nabijgelegen Dalyan staat bekend om de riviermonding, de rotsgraven van Kaunos en het schildpaddenstrand van İztuzu.",
+      routeDetails: "De 235 km vanaf de luchthaven van Antalya volgen de bochtige Lycische kustweg en duren ongeveer drie tot drieënhalf uur. Een vaste prijs per voertuig maakt een lange rit goed te begroten, en met een privéauto kan uw gezelschap stoppen voor een pauze of een maaltijd wanneer u wilt.",
+    },
+    fethiye: {
+      name: { nominative: "Fethiye", direction: "Fethiye", location: "Fethiye", origin: "Fethiye" },
+      about: "Fethiye ligt aan een brede baai, omringd door met dennen begroeide bergen. Het is de uitvalsbasis voor Ölüdeniz met zijn blauwe lagune, voor de stranden en het uitgaansleven van Çalış en voor de rustigere dorpen Hisarönü en Kayaköy. Veel gasten komen ook voor het paragliden vanaf de Babadağ en voor boottochten langs de twaalf eilanden.",
+      routeDetails: "De 205 km vanaf de luchthaven van Antalya lopen langs de Lycische kust via Kumluca, Kaş en Kalkan en duren ongeveer tweeënhalf tot drie uur. De weg is bochtig en schilderachtig. Met een privétransfer hoeft u in Fethiye niet over te stappen, en de chauffeur brengt u naar uw hotel in Ölüdeniz, Çalış of Hisarönü.",
+    },
+    pamukkale: {
+      name: { nominative: "Pamukkale", direction: "Pamukkale", location: "Pamukkale", origin: "Pamukkale" },
+      about: "Pamukkale, in de provincie Denizli, is een UNESCO-werelderfgoed dat bekend is om de witte travertijnterrassen en warme thermale baden. Op de heuvel erboven staat de antieke stad Hierapolis, met een theater, een necropolis en het antieke bad waarin bezoekers tussen gezonken zuilen kunnen zwemmen.",
+      routeDetails: "De route verlaat de kust en loopt zo’n 245 km landinwaarts over het Taurusgebergte en het plateau richting Denizli, wat ongeveer drie tot drieënhalf uur duurt. Een privéauto past goed bij deze rit: u hoeft niet over te stappen, u kunt onderweg een pauze inplannen en u komt rechtstreeks aan bij uw hotel in Pamukkale of Karahayıt.",
+    },
+    kapadokya: {
+      name: { nominative: "Cappadocië", direction: "Cappadocië", location: "Cappadocië", origin: "Cappadocië" },
+      about: "Cappadocië, in Centraal-Anatolië, staat bekend om de schoorsteenrotsen, de uit rots uitgehouwen kerken en de ondergrondse steden. Bij zonsopgang stijgen heteluchtballonnen op boven Göreme, Uçhisar en Ürgüp, en veel gasten overnachten in een hotel dat in de rots is uitgehouwen.",
+      routeDetails: "Met ongeveer 540 km voert de reis van de Middellandse Zee over het Taurusgebergte en het Anatolische plateau en duurt zeven tot acht uur, inclusief pauzes. Een privétransfer is daarvoor de comfortabele manier: uw gezelschap reist samen, de chauffeur plant de pauzes samen met u en brengt u tot de ingang van uw grothotel. Geef ons bij het boeken uw vluchtnummer en hotel door, zodat we de dag kunnen plannen.",
+    },
   },
 };

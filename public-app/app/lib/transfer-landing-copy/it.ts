@@ -89,5 +89,33 @@ export const it: TransferLandingCopy = {
       about: "Tekirova si trova a sud di Kemer, ai margini del parco nazionale Olympos-Beydağları. Unisce aree alberghiere curate a piccole baie e si trova vicinissima al sito antico di Phaselis.",
       routeDetails: "Il percorso parte dall’aeroporto di Antalya, passa per Kemer e continua verso Tekirova. La posizione sulla costa e la distanza rendono sensato il transfer diretto: nessun cambio di veicolo e nessuna attesa di altri ospiti fino all’hotel.",
     },
+    bogazkent: {
+      about: "Boğazkent si trova nel distretto di Serik, sulla costa tra Belek e Side. Grandi resort all inclusive sorgono direttamente su un’ampia spiaggia di sabbia e i campi da golf di Belek sono a pochi minuti: una base tranquilla sia per le famiglie sia per i golfisti.",
+      routeDetails: "Dall’aeroporto di Antalya il percorso segue la D400 verso est, supera Belek e poi svolta verso la costa. Con circa 48 km è uno dei transfer più brevi di questo elenco, e l’auto privata ti porta dalla sala arrivi all’ingresso del resort, senza soste presso altri hotel.",
+    },
+    manavgat: {
+      about: "Manavgat è una vivace cittadina sull’omonimo fiume, a est di Side. È nota per la sua cascata, le gite in barca lungo il fiume e il mercato settimanale, e fa da porta d’accesso ai resort di questo tratto di costa. Al momento della prenotazione indicaci l’indirizzo esatto del tuo hotel, perché la zona è molto estesa.",
+      routeDetails: "Il percorso corre verso est lungo la D400 dall’aeroporto di Antalya per circa 75 km. Il viaggio dura circa un’ora, e il transfer privato diretto ti evita le fermate aggiuntive che una navetta condivisa fa lungo questa trafficata strada costiera.",
+    },
+    bodrum: {
+      about: "Bodrum si trova sulla costa egea, nella provincia di Muğla, ed è famosa per il castello dei crociati, il porto turistico e le case bianche sulle colline. Intorno alla penisola ci sono quartieri animati come Gümbet e Bitez, ma anche baie più tranquille a Yalıkavak, Türkbükü e Gümüşlük.",
+      routeDetails: "Con circa 380 km è uno dei tragitti più lunghi che offriamo e richiede da cinque a sei ore con pause comode. L’auto privata rende la giornata molto più semplice rispetto ai mezzi pubblici: parti appena atterri, ti fermi dove vuoi e arrivi al tuo hotel sulla penisola. Al momento della prenotazione indicaci hotel e orario di atterraggio, così potremo pianificare il viaggio.",
+    },
+    dalaman: {
+      about: "Dalaman è la porta d’ingresso alla costa licia e caria. Il suo aeroporto serve località come Sarıgerme e Göcek, e la vicina Dalyan è nota per il delta del fiume, le tombe rupestri di Kaunos e la spiaggia delle tartarughe di İztuzu.",
+      routeDetails: "I 235 km dall’aeroporto di Antalya seguono la tortuosa strada della costa licia per circa tre ore o tre ore e mezza. Un prezzo fisso per veicolo rende facile calcolare il budget di un lungo viaggio, e con l’auto privata il tuo gruppo può fermarsi per una pausa o un pasto quando vuole.",
+    },
+    fethiye: {
+      about: "Fethiye si affaccia su un’ampia baia circondata da montagne coperte di pini. È la base per Ölüdeniz e la sua laguna blu, per le spiagge e la vita notturna di Çalış e per i villaggi più tranquilli di Hisarönü e Kayaköy. Molti ospiti arrivano anche per il parapendio dal Babadağ e per le gite in barca intorno alle dodici isole.",
+      routeDetails: "I 205 km dall’aeroporto di Antalya corrono lungo la costa licia attraverso Kumluca, Kaş e Kalkan e richiedono dalle due ore e mezza alle tre ore. La strada è tortuosa e panoramica. Con un transfer privato non devi cambiare veicolo a Fethiye, e l’autista ti accompagna al tuo hotel a Ölüdeniz, Çalış o Hisarönü.",
+    },
+    pamukkale: {
+      about: "Pamukkale, nella provincia di Denizli, è Patrimonio dell’Umanità UNESCO ed è nota per le bianche terrazze di travertino e le calde piscine termali. Sulla collina che le sovrasta sorge l’antica città di Hierapolis, con il teatro, la necropoli e la piscina antica dove si nuota tra colonne sommerse.",
+      routeDetails: "Il percorso lascia la costa e attraversa l’entroterra per circa 245 km, tra le montagne del Tauro e l’altopiano verso Denizli, in circa tre ore o tre ore e mezza. L’auto privata è adatta a questo viaggio: nessun cambio di veicolo, puoi pianificare una sosta lungo la strada e arrivi direttamente al tuo hotel a Pamukkale o Karahayıt.",
+    },
+    kapadokya: {
+      about: "La Cappadocia, nel cuore dell’Anatolia, è nota per i camini delle fate, le chiese rupestri e le città sotterranee. All’alba le mongolfiere si alzano sopra Göreme, Uçhisar e Ürgüp, e molti ospiti scelgono di soggiornare in un hotel scavato nella roccia.",
+      routeDetails: "Con circa 540 km il viaggio porta dal Mediterraneo, attraverso le montagne del Tauro e l’altopiano anatolico, e richiede da sette a otto ore con le pause. Il transfer privato è il modo più comodo per farlo: il tuo gruppo viaggia unito, l’autista pianifica con te le soste e ti porta all’ingresso del tuo hotel in grotta. Al momento della prenotazione indicaci numero di volo e hotel, così potremo pianificare la giornata.",
+    },
   },
 };

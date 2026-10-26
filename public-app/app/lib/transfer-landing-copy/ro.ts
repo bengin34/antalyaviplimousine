@@ -89,5 +89,33 @@ export const ro: TransferLandingCopy = {
       about: "Tekirova se află la sud de Kemer, la marginea parcului național Olympos-Beydağları. Combină domenii hoteliere îngrijite cu golfuri mici și se găsește foarte aproape de situl antic Phaselis.",
       routeDetails: "Traseul pornește de la aeroportul din Antalya, trece prin Kemer și continuă spre Tekirova. Poziția pe litoral și distanța fac transferul direct rezonabil: fără schimbarea vehiculului și fără să aștepți alți oaspeți până la hotel.",
     },
+    bogazkent: {
+      about: "Boğazkent se află în districtul Serik, pe litoralul dintre Belek și Side. Resorturi mari all inclusive se înșiră direct pe o plajă largă de nisip, iar terenurile de golf din Belek sunt la doar câteva minute, ceea ce face din zonă o bază liniștită atât pentru familii, cât și pentru jucătorii de golf.",
+      routeDetails: "De la aeroportul din Antalya traseul urmează D400 spre est, pe lângă Belek, apoi coboară spre coastă. Cu aproximativ 48 km este unul dintre cele mai scurte transferuri din această listă, iar mașina privată te duce din holul de sosiri până la intrarea resortului tău, fără opriri la alte hoteluri.",
+    },
+    manavgat: {
+      about: "Manavgat este un oraș animat pe râul cu același nume, la est de Side. Este cunoscut pentru cascadă, pentru excursiile cu barca pe râu și pentru piața săptămânală și servește drept poartă de intrare spre resorturile de pe acest tronson al coastei. Te rugăm să ne dai adresa exactă a hotelului la rezervare, deoarece zona este întinsă.",
+      routeDetails: "Traseul merge spre est pe D400, de la aeroportul din Antalya, pe aproximativ 75 km. Drumul durează cam o oră, iar un transfer privat direct îți scutește opririle suplimentare la hoteluri pe care le face un microbuz în comun pe această șosea de coastă aglomerată.",
+    },
+    bodrum: {
+      about: "Bodrum se află pe litoralul Mării Egee, în provincia Muğla, și este celebru pentru castelul cruciaților, pentru marină și pentru casele albe de pe dealuri. În jurul peninsulei găsești cartiere animate precum Gümbet și Bitez, dar și golfuri mai liniștite la Yalıkavak, Türkbükü și Gümüşlük.",
+      routeDetails: "Cu aproximativ 380 km, este unul dintre cele mai lungi drumuri pe care le oferim și durează între cinci și șase ore, cu pauze confortabile. O mașină privată face ziua mult mai ușoară decât transportul public: pleci imediat ce aterizezi, te oprești unde dorești și ajungi la propriul hotel de pe peninsulă. Spune-ne la rezervare hotelul și ora aterizării, ca să putem planifica drumul.",
+    },
+    dalaman: {
+      about: "Dalaman este poarta de intrare spre litoralul lician și carian. Aeroportul său deservește stațiuni precum Sarıgerme și Göcek, iar Dalyan, aflat în apropiere, este cunoscut pentru delta râului, pentru mormintele săpate în stâncă de la Kaunos și pentru plaja țestoaselor de la İztuzu.",
+      routeDetails: "Cei 235 km de la aeroportul din Antalya urmează șoseaua șerpuită a coastei licine și durează cam trei – trei ore și jumătate. Un preț fix pe vehicul îți permite să-ți faci ușor bugetul pentru un drum lung, iar mașina privată îți dă libertatea să te oprești pentru odihnă sau masă oricând dorești.",
+    },
+    fethiye: {
+      about: "Fethiye se află într-un golf larg, înconjurat de munți acoperiți de păduri de pini. Este baza pentru Ölüdeniz și laguna sa albastră, pentru plajele și viața de noapte din Çalış și pentru satele mai liniștite Hisarönü și Kayaköy. Mulți oaspeți vin și pentru parapanta de la Babadağ și pentru excursiile cu barca în jurul celor douăsprezece insule.",
+      routeDetails: "Cei 205 km de la aeroportul din Antalya merg pe coasta licină, prin Kumluca, Kaş și Kalkan, și durează cam două ore și jumătate – trei ore. Drumul este șerpuit și pitoresc. Cu un transfer privat nu schimbi vehiculul la Fethiye, iar șoferul te duce la hotelul tău din Ölüdeniz, Çalış sau Hisarönü.",
+    },
+    pamukkale: {
+      about: "Pamukkale, în provincia Denizli, este un sit din Patrimoniul Mondial UNESCO, cunoscut pentru terasele sale albe de travertin și pentru bazinele termale calde. Orașul antic Hierapolis se înalță pe dealul de deasupra, cu teatru, necropolă și piscina antică în care vizitatorii pot înota printre coloane scufundate.",
+      routeDetails: "Traseul părăsește coasta și merge pe aproximativ 245 km spre interior, peste munții Taurus și podișul spre Denizli, ceea ce durează cam trei – trei ore și jumătate. O mașină privată se potrivește bine acestui drum: nu schimbi vehiculul, poți planifica o oprire de odihnă pe parcurs și ajungi direct la hotelul din Pamukkale sau Karahayıt.",
+    },
+    kapadokya: {
+      about: "Capadocia, în centrul Anatoliei, este cunoscută pentru coșurile zânelor, bisericile săpate în stâncă și orașele subterane. La răsărit, baloanele cu aer cald se ridică deasupra localităților Göreme, Uçhisar și Ürgüp, iar mulți oaspeți aleg să se cazeze într-un hotel săpat în piatră.",
+      routeDetails: "Cu aproximativ 540 km, drumul duce de la Mediterana peste munții Taurus și peste podișul anatolian și durează între șapte și opt ore, cu pauze. Un transfer privat este varianta confortabilă: grupul tău călătorește împreună, șoferul stabilește împreună cu tine opririle de odihnă și te duce până la intrarea hotelului tău în stâncă. Spune-ne la rezervare numărul zborului și hotelul, ca să putem planifica ziua.",
+    },
   },
 };
