@@ -21,17 +21,26 @@ const urlList = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map(
   (match) => match[1],
 );
 
-// IndexNow accepts up to 10,000 URLs per request.
-const response = await fetch(endpoint, {
-  method: "POST",
-  headers: { "Content-Type": "application/json; charset=utf-8" },
-  body: JSON.stringify({
-    host,
-    key,
-    keyLocation: `${domain}/${keyFile}`,
-    urlList,
-  }),
-});
+const submit = () =>
+  // IndexNow accepts up to 10,000 URLs per request.
+  fetch(endpoint, {
+    method: "POST",
+    headers: { "Content-Type": "application/json; charset=utf-8" },
+    body: JSON.stringify({
+      host,
+      key,
+      keyLocation: `${domain}/${keyFile}`,
+      urlList,
+    }),
+  });
+
+// Right after a deploy the key file may not be served yet, and IndexNow
+// answers 403 until it can fetch it; give the edge a moment and retry.
+let response = await submit();
+for (let attempt = 0; response.status === 403 && attempt < 4; attempt += 1) {
+  await new Promise((resolve) => setTimeout(resolve, 20_000));
+  response = await submit();
+}
 
 console.log(`IndexNow: ${urlList.length} URLs, HTTP ${response.status}`);
 if (!response.ok && response.status !== 202) process.exit(1);
