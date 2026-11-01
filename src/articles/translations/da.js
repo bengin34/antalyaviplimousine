@@ -3353,5 +3353,399 @@ export const articles = {
         "I de fleste tilfælde, ja. Fortæl os dit flynummer og hotel, når du booker, så bekræfter vi stoppet og prisen."
       ]
     ]
+  },
+  "olympos-chimera-phaselis-winter": {
+    "slug": "olympos-chimaira-phaselis-om-vinteren",
+    "title": "Olympos, Chimaira og Phaselis om vinteren: endagstur fra Antalya",
+    "heading": "Olympos, Chimaira-flammerne og Phaselis: en vinterdag langs den lykiske kyst",
+    "description": "Planlæg en vinterudflugt fra Antalya til Phaselis, Olympos og Chimaira-flammerne i Çıralı: rute, køretider, hvad du skal have på, det bedste tidspunkt på dagen og sikker hjemtur.",
+    "excerpt": "Fyrreskov, rolige havne, ruiner i skoven og en bjergskråning, der brænder om natten. Sådan får du Phaselis, Olympos og Chimaira-flammerne med på én vinterdag fra Antalya.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Den lykiske kyst sydvest for Antalya er smukkest, når sommerens menneskemængder er væk. Fra december til februar er fyrreskovene grønne, havet er klart, og de antikke steder er næsten tomme. Phaselis, Olympos og Chimaira-flammerne ligger tæt på hinanden og giver en af regionens mest varierede endagsture."
+      },
+      {
+        "type": "h2",
+        "text": "Ruten og køretiderne"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Stop",
+          "Kørsel fra Antalya",
+          "Tid at afsætte",
+          "Vinterbemærkning"
+        ],
+        "rows": [
+          [
+            "Phaselis",
+            "ca. 1 time",
+            "1,5-2 timer",
+            "Tre havne i en fyrreskov; stierne kan være fugtige"
+          ],
+          [
+            "Olympos",
+            "ca. 1 time 15 minutter",
+            "1,5-2 timer",
+            "Ruiner mellem træerne langs en å; brug sko med godt greb"
+          ],
+          [
+            "Çıralı og Chimaira-flammerne",
+            "ca. 1 time 20 minutter",
+            "1-1,5 timer",
+            "Bedst i skumringen; opstigningen går ad en stejl sti"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Phaselis ligger tættest på Kemer, så for dig, der bor i Kemer eller Tekirova, er det en kort tur. Olympos og Çıralı ligger længere nede ad kysten på samme vej, ca. 15-20 minutter efter afkørslen til Phaselis."
+      },
+      {
+        "type": "routelinks",
+        "text": "Bor du på denne kyststrækning? Fast pris pr. køretøj fra lufthavnen:",
+        "routes": [
+          "kemer",
+          "tekirova",
+          "antalya",
+          "kumluca"
+        ],
+        "button": "Se din faste pris"
+      },
+      {
+        "type": "h2",
+        "text": "Phaselis: tre havne mellem fyrretræerne"
+      },
+      {
+        "type": "p",
+        "text": "Phaselis var en handelshavn, grundlagt på en lille halvø med en havn på hver side. I dag ligger den brolagte hovedgade, akvædukten og havnemurene mellem fyrretræer ved vandkanten. Om vinteren er stranden tom, og lyset mellem træerne er blødt, hvilket gør det til et godt første stop om morgenen."
+      },
+      {
+        "type": "h2",
+        "text": "Olympos og Çıralı"
+      },
+      {
+        "type": "p",
+        "text": "Olympos' ruiner ligger langs en å, der løber ud til en stenstrand, skjult af laurbær, figentræer og fyrretræer. Grave, et teater og dele af murene er spredt rundt i vegetationen. Afsæt tid til at gå langsomt; om vinteren kan åen føre meget vand, og stierne er mudrede efter regn."
+      },
+      {
+        "type": "h2",
+        "text": "Chimaira-flammerne"
+      },
+      {
+        "type": "p",
+        "text": "Yanartaş, Chimaira, er en bjergskråning over Çıralı, hvor naturgas brænder ud af sprækker i klippen. Flammerne kan ses om dagen, men er langt mere imponerende i skumringen eller efter mørkets frembrud. Stien er stejl og ujævn, så tag en lommelygte og solide sko med, og bekræft de aktuelle åbningstider og entrépris samme dag."
+      },
+      {
+        "type": "h2",
+        "text": "Sådan planlægger du dagen sikkert"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Kør senest kl. 9.00, så du er ved Chimaira omkring skumringen; solnedgangen er tidlig om vinteren, omkring kl. 17.30 i december.",
+          "Tjek vejrudsigten: regn gør stierne glatte og opstigningen til Chimaira ubehagelig.",
+          "Tag flere lag tøj, en vandtæt jakke og en lommelygte til nedturen i mørke med.",
+          "Caféerne i Çıralı kan være lukkede om vinteren; medbring vand og en snack.",
+          "En privat chauffør kan vente og køre dig tilbage, så du undgår en sen hjemtur med offentlig transport ad den snoede kystvej."
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Fortæl os, hvilket hotel du bor på, hvor mange I er, og hvornår du gerne vil starte, så bekræfter vi prisen og stoppene for din dag."
+      }
+    ],
+    "faq": [
+      [
+        "Er Phaselis åbent om vinteren?",
+        "Ja, stedet er åbent hele året, men åbningstiderne kan ændre sig om vinteren. Bekræft samme dag, før du tager af sted."
+      ],
+      [
+        "Kan man se Chimaira-flammerne om vinteren?",
+        "Ja. Flammerne brænder hele året og ses bedst i skumringen og efter mørkets frembrud."
+      ],
+      [
+        "Hvor langt er der fra Antalya til Olympos og Çıralı?",
+        "Ca. 1 time 15 minutter til 1 time 20 minutter i bil, med en snoet kystvej på en stor del af strækningen."
+      ],
+      [
+        "Kan jeg nå alle tre på én dag?",
+        "Ja, hvis du starter tidligt. Regn med ca. 8-9 timer inklusive kørsel og en frokostpause."
+      ],
+      [
+        "Egner turen sig til børn?",
+        "Phaselis og Olympos er nemme for de fleste børn. Opstigningen til Chimaira er stejl og passer bedst til større børn, med lommelygte i mørke."
+      ]
+    ]
+  },
+  "antalya-rainy-day-things-to-do": {
+    "slug": "antalya-regnvejrsdag-oplevelser",
+    "title": "Antalya en regnvejrsdag: 8 oplevelser, når vejret skifter",
+    "heading": "Regnvejrsdag i Antalya: oplevelser indendørs og under tag om vinteren",
+    "description": "Hvad du kan lave i Antalya på en regnfuld vinterdag: det arkæologiske museum, caféer i Kaleiçi, tyrkisk bad, Karain-grotten, akvariet og shopping, med afstande og tips.",
+    "excerpt": "Vinterregnen i Antalya kommer i byger, ikke i flere dage ad gangen. Her er, hvor du kan tage hen, når den falder: museer, hamam, grotter, overdækkede markeder og varme caféer, og hvordan du kommer rundt mellem dem.",
+    "readingMinutes": 5,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Vejret i Antalya om vinteren er mest solrigt, men december og januar bringer regn, nogle gange kraftig, som regel i byger over en til to dage. En våd dag behøver ikke være en tabt dag. Byen har museer, overdækkede steder og varme caféer nok til at fylde den, og de fleste ligger tæt på hinanden."
+      },
+      {
+        "type": "h2",
+        "text": "Otte forslag til en våd dag"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Sted",
+          "Type",
+          "Afstand fra centrum",
+          "Hvorfor tage derhen"
+        ],
+        "rows": [
+          [
+            "Antalya Museum",
+            "Arkæologisk museum",
+            "ca. 10 minutter",
+            "Statuer fra Perge og en stor romersk samling"
+          ],
+          [
+            "Caféer og butikker i Kaleiçi",
+            "Gamle bydel",
+            "i centrum",
+            "Varme caféer i osmanniske huse; mange overdækkede stræder"
+          ],
+          [
+            "Tyrkisk bad (hamam)",
+            "Spa",
+            "varierer, 10-30 minutter",
+            "En traditionel afskrubning og massage"
+          ],
+          [
+            "Karain-grotten",
+            "Forhistorisk grotte",
+            "ca. 30 minutter",
+            "En af Anatoliens ældste bosættelser, delvist under tag"
+          ],
+          [
+            "Akvarium",
+            "Familieattraktion",
+            "ca. 15 minutter",
+            "Indendørs tunnel og udstillinger for børn"
+          ],
+          [
+            "Indkøbscentre",
+            "Shopping",
+            "10-20 minutter",
+            "Biografer, restauranter og legeområder"
+          ],
+          [
+            "Hotelspa og indendørs pool",
+            "Wellness",
+            "på dit hotel",
+            "Opvarmede pools, sauna og behandlinger på åbne hoteller"
+          ],
+          [
+            "Tyrkisk madlavningskursus",
+            "Workshop",
+            "bymidten",
+            "Praktiske lektioner i lokale retter"
+          ]
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Museet først, så frokost i Kaleiçi"
+      },
+      {
+        "type": "p",
+        "text": "Antalya Museum er det bedste valg i regnvejr. Afsæt to til tre timer: statuerne fra Perge, sarkofagerne og de byzantinske ikoner er alle indendørs. Søg bagefter ly på en café i Kaleiçi; den gamle bydels smalle stræder holder vinden væk, og restauranterne serverer varm suppe og lokale retter."
+      },
+      {
+        "type": "routelinks",
+        "text": "Fast pris pr. køretøj fra lufthavnen til dit hotel, dag og nat:",
+        "routes": [
+          "antalya",
+          "belek",
+          "kemer",
+          "side"
+        ],
+        "button": "Se din faste pris"
+      },
+      {
+        "type": "h2",
+        "text": "Når det klarer op, så skynd dig"
+      },
+      {
+        "type": "p",
+        "text": "Regn i Antalya efterlader ofte klar og lys luft, og vandfaldene ved Düden og Kurşunlu er stærkest i dagene efter. Gem et udendørs stop til den første tørre eftermiddag."
+      },
+      {
+        "type": "h2",
+        "text": "Praktiske tips"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Tag en taxa eller en privat chauffør mellem stoppene: brostenene i Kaleiçi er glatte, når de er våde, og en kort tur holder dig tør.",
+          "Museernes åbningstider er kortere om vinteren og kan ændre sig, så bekræft samme dag.",
+          "Book hamam i forvejen til aftenerne; nogle lukker tidligt.",
+          "Medbring en paraply og en let regnjakke; regnen er ofte lun, men vinden er kølig."
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Hvis du lander en våd aften, sparer du køen til en taxa i regnen med en forhåndsbestilt afhentning, der følger dit flynummer. Fortæl os dit fly og dit hotel, så bekræfter vi den faste pris."
+      }
+    ],
+    "faq": [
+      [
+        "Regner det meget i Antalya om vinteren?",
+        "December og januar er de regnfuldeste måneder, men regnen falder som regel i byger mellem solrige dage frem for i en hel uge."
+      ],
+      [
+        "Hvad er den bedste indendørsaktivitet i Antalya?",
+        "Antalya Museum er det bedste valg med statuer fra Perge og en stor romersk samling."
+      ],
+      [
+        "Er tyrkiske bade åbne om vinteren?",
+        "Ja, de fleste hamamer i byen holder åbent hele året. Spørg dit hotel om en anbefaling, og tjek åbningstiderne."
+      ],
+      [
+        "Er der noget for børn at lave indendørs?",
+        "Ja: akvariet, indkøbscentre med legeområder og indendørs pools på hoteller, der har åbent."
+      ],
+      [
+        "Kan jeg stadig få en lufthavnstransfer i kraftig regn?",
+        "Ja. Transfers kører hele året til samme faste pris pr. køretøj, og din chauffør følger dit fly."
+      ]
+    ]
+  },
+  "antalya-3-day-winter-itinerary": {
+    "slug": "antalya-3-dage-om-vinteren-rejseplan",
+    "title": "3 dage i Antalya om vinteren: en praktisk rejseplan med privat chauffør",
+    "heading": "Tre dage i Antalya om vinteren: en rejseplan, der passer til vejret",
+    "description": "En rejseplan for tre vinterdage i Antalya: Kaleiçi og museet, Perge og Aspendos, derefter Termessos eller vandfaldene. Køretider, backupplaner og brug af privat chauffør.",
+    "excerpt": "Tre vinterdage i Antalya, planlagt efter vejret: en bydag, en dag med antikke steder og en dag med bjerge eller vandfald, med en backupplan til hver regnfuld morgen.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Tre dage er nok til at se det bedste af Antalya om vinteren, hvis du planlægger efter vejret. Rejseplanen nedenfor holder byen, de antikke steder og bjergene på hver sin dag, så en regnfuld morgen kun flytter ét stop i stedet for at ødelægge turen. Køretiderne er omtrentlige og forudsætter trafik i dagtimerne."
+      },
+      {
+        "type": "h2",
+        "text": "Planen i overblik"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Dag",
+          "Formiddag",
+          "Eftermiddag",
+          "Backup ved regn"
+        ],
+        "rows": [
+          [
+            "Dag 1: byen",
+            "Kaleiçi, Hadrians Port, den gamle havn",
+            "Antalya Museum",
+            "Byt rækkefølge: museet først, caféer i Kaleiçi bagefter"
+          ],
+          [
+            "Dag 2: antikke steder",
+            "Perge (ca. 20 minutter)",
+            "Aspendos (ca. 45 minutter)",
+            "Begge er fine i let regn; tag en vandtæt jakke med"
+          ],
+          [
+            "Dag 3: bjerge eller vandfald",
+            "Termessos (ca. 45 minutter)",
+            "Düden- og Kurşunlu-vandfaldene",
+            "Erstat Termessos med Karain-grotten og vandfaldene"
+          ]
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Dag 1: den ommurede gamle bydel og museet"
+      },
+      {
+        "type": "p",
+        "text": "Start i Kaleiçi, mens gaderne er rolige: Hadrians Port, Yivli-minaretten, de osmanniske huse og den gamle havn. Efter frokost kan du bruge to til tre timer på Antalya Museum, som huser statuerne fra Perge. Lander du om aftenen, så hold dag 1 let og flyt museet til dag 3."
+      },
+      {
+        "type": "h2",
+        "text": "Dag 2: Perge og Aspendos"
+      },
+      {
+        "type": "p",
+        "text": "Perges stadion og søjlegade samt Aspendos' romerske teater er to af de bedst bevarede steder i Anatolien. Begge ligger øst for byen, tæt på lufthavnsvejen, og om vinteren deler du dem med meget få besøgende. Kør omkring kl. 9.00, så er du tilbage til middag i Kaleiçi."
+      },
+      {
+        "type": "routelinks",
+        "text": "Bor du uden for byen? Fast pris pr. køretøj fra lufthavnen til dit feriested:",
+        "routes": [
+          "antalya",
+          "belek",
+          "side",
+          "alanya"
+        ],
+        "button": "Se din faste pris"
+      },
+      {
+        "type": "h2",
+        "text": "Dag 3: Termessos eller vandfaldene"
+      },
+      {
+        "type": "p",
+        "text": "På en tør dag kan du køre op til Termessos for teatret og udsigten over bjergene; det er koldere end ved kysten, så klæd dig i lag. Hvis udsigten er dårlig, er Düden- og Kurşunlu-vandfaldene et godt alternativ, fordi de er stærkest efter regn. Karain-grotten fungerer i begge tilfælde."
+      },
+      {
+        "type": "h2",
+        "text": "Forlæng turen"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Tilføj en fjerde dag til Demre, Myra og Sankt Nikolaj-kirken, ca. 2 timer 15 minutter hver vej.",
+          "Tilføj Pamukkale som en overnatningstur, hvis du vil se travertinerne uden en meget lang dag.",
+          "Fra Belek eller Side kan du bytte Perge og Aspendos ud med en dag i Sides antikke by.",
+          "Hvis du står på ski, kan Saklıkent erstatte dag 3 fra januar til marts, når der er sne."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Hvorfor en privat chauffør passer til vinteren"
+      },
+      {
+        "type": "p",
+        "text": "Den offentlige transport til ruinerne er begrænset om vinteren, og dagslyset er kort. Med et privat køretøj kan du tage af sted, når vejret klarer op, ændre rækkefølgen på dagene og springe et stop over uden at miste en billet. Prisen er fast pr. køretøj, så en familie eller gruppe betaler ofte omtrent det samme som for pladser på gruppeture. Send os dine datoer, dit hotel og dine flynumre, så bekræfter vi planen og prisen."
+      }
+    ],
+    "faq": [
+      [
+        "Er tre dage nok til Antalya om vinteren?",
+        "Ja, til byen, Perge, Aspendos og enten Termessos eller vandfaldene. Tilføj en fjerde dag til Demre eller Pamukkale."
+      ],
+      [
+        "Hvad skal jeg gøre, hvis det regner?",
+        "Byt rækkefølgen på dagen: tag museet og caféerne i Kaleiçi først, og flyt udendørsstoppene til de tørre timer. Perge, Aspendos og vandfaldene er fine i let regn."
+      ],
+      [
+        "Kan lufthavnstransferen indgå i rejseplanen?",
+        "Ja. Fortæl os dit fly og det første sted, du vil se, så kan vi planlægge afhentningen efter det."
+      ],
+      [
+        "Skal jeg have bil for at følge denne rejseplan?",
+        "Et privat køretøj er den enkleste løsning, fordi den offentlige transport til de antikke steder er begrænset om vinteren."
+      ],
+      [
+        "Passer rejseplanen til familier?",
+        "Ja. Afstandene er korte, og hver dag har en indendørs backupmulighed ved vådt vejr."
+      ]
+    ]
   }
 };

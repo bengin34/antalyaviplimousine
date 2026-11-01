@@ -3353,5 +3353,399 @@ export const articles = {
         "În majoritatea cazurilor, da. Spune-ne numărul zborului și hotelul la rezervare și îți confirmăm oprirea și prețul."
       ]
     ]
+  },
+  "olympos-chimera-phaselis-winter": {
+    "slug": "olympos-chimera-phaselis-iarna",
+    "title": "Olympos, Chimera și Phaselis iarna: excursie de o zi din Antalya",
+    "heading": "Olympos, flăcările Chimerei și Phaselis: o excursie de iarnă pe coasta licienă",
+    "description": "Excursie de iarnă din Antalya la Phaselis, Olympos și flăcările Chimerei de la Çıralı: traseu, timpi de drum, ce să porți, cel mai bun moment al zilei și cum te întorci în siguranță.",
+    "excerpt": "Pădure de pini, porturi liniștite, ruine în pădure și un deal care arde noaptea. Iată cum încadrezi Phaselis, Olympos și flăcările Chimerei într-o singură zi de iarnă din Antalya.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Coasta licienă, la sud-vest de Antalya, e cea mai frumoasă după ce aglomerația verii dispare. Între decembrie și februarie pădurile de pini sunt verzi, marea e limpede, iar siturile antice sunt aproape goale. Phaselis, Olympos și flăcările Chimerei sunt aproape unele de altele și formează una dintre cele mai variate excursii de o zi din regiune."
+      },
+      {
+        "type": "h2",
+        "text": "Traseul și timpii de drum"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Oprire",
+          "Drum din Antalya",
+          "Timp de alocat",
+          "Notă de iarnă"
+        ],
+        "rows": [
+          [
+            "Phaselis",
+            "aproximativ 1 oră",
+            "1,5-2 ore",
+            "Trei porturi într-o pădure de pini; potecile pot fi umede"
+          ],
+          [
+            "Olympos",
+            "aproximativ 1 oră 15 minute",
+            "1,5-2 ore",
+            "Ruine printre copaci, de-a lungul unui pârâu; poartă încălțăminte cu aderență"
+          ],
+          [
+            "Çıralı și flăcările Chimerei",
+            "aproximativ 1 oră 20 de minute",
+            "1-1,5 ore",
+            "Cel mai frumos la apus; urcușul e o potecă abruptă"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Phaselis se află cel mai aproape de Kemer, așa că pentru cei cazați în Kemer sau Tekirova e un drum scurt. Olympos și Çıralı sunt mai departe pe același drum de coastă, la 15-20 de minute după intersecția spre Phaselis."
+      },
+      {
+        "type": "routelinks",
+        "text": "Ești cazat pe acest tronson de coastă? Preț fix per vehicul de la aeroport:",
+        "routes": [
+          "kemer",
+          "tekirova",
+          "antalya",
+          "kumluca"
+        ],
+        "button": "Vezi prețul fix"
+      },
+      {
+        "type": "h2",
+        "text": "Phaselis: trei porturi printre pini"
+      },
+      {
+        "type": "p",
+        "text": "Phaselis a fost un port comercial întemeiat pe o mică peninsulă, cu câte un port pe fiecare parte. Astăzi strada principală pavată, apeductul și zidurile portului se află printre pini, la marginea apei. Iarna plaja e goală, iar lumina printre copaci e blândă, ceea ce îl face o primă oprire bună dimineața."
+      },
+      {
+        "type": "h2",
+        "text": "Olympos și Çıralı"
+      },
+      {
+        "type": "p",
+        "text": "Ruinele de la Olympos se întind de-a lungul unui pârâu care curge spre o plajă cu pietriș, ascunse de laur, smochini și pini. Morminte, un teatru și porțiuni de zid sunt împrăștiate prin vegetație. Alocă timp pentru o plimbare lejeră; iarna pârâul poate fi umflat, iar potecile sunt noroioase după ploaie."
+      },
+      {
+        "type": "h2",
+        "text": "Flăcările Chimerei"
+      },
+      {
+        "type": "p",
+        "text": "Yanartaş, Chimera, este un deal deasupra Çıralı unde gazul natural arde prin crăpăturile stâncii. Flăcările se văd și ziua, dar sunt mult mai impresionante la apus sau după lăsarea întunericului. Poteca e abruptă și denivelată, așa că ia o lanternă și încălțăminte rezistentă și confirmă în ziua respectivă programul și taxa de intrare actuale."
+      },
+      {
+        "type": "h2",
+        "text": "Cum planifici ziua în siguranță"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Pornește până la 9:00 ca să ajungi la Chimera spre apus; soarele de iarnă apune devreme, în jur de 17:30 în decembrie.",
+          "Verifică prognoza: ploaia face potecile alunecoase și urcușul spre Chimera neplăcut.",
+          "Ia straturi de haine și o jachetă impermeabilă, plus o lanternă pentru coborârea după lăsarea întunericului.",
+          "Cafenelele din Çıralı pot fi închise iarna; ia cu tine apă și ceva de mâncare.",
+          "Un șofer privat poate aștepta și te poate duce înapoi, așa că nu te întorci târziu cu transportul public pe drumul șerpuit de coastă."
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Spune-ne hotelul, numărul de persoane și ora de plecare preferată, iar noi îți confirmăm prețul și opririle pentru ziua ta."
+      }
+    ],
+    "faq": [
+      [
+        "Este Phaselis deschis iarna?",
+        "Da, situl este deschis tot anul, dar programul se poate schimba iarna. Confirmă-l în ziua în care pleci."
+      ],
+      [
+        "Se văd flăcările Chimerei iarna?",
+        "Da. Flăcările ard tot anul și se văd cel mai bine la apus și după lăsarea întunericului."
+      ],
+      [
+        "Cât de departe sunt Olympos și Çıralı de Antalya?",
+        "Aproximativ 1 oră 15 minute până la 1 oră 20 de minute cu mașina, pe un drum de coastă șerpuit pe mare parte din traseu."
+      ],
+      [
+        "Pot vedea toate cele trei locuri într-o singură zi?",
+        "Da, cu o plecare timpurie. Socotește aproximativ 8-9 ore, inclusiv drumurile și o pauză de prânz."
+      ],
+      [
+        "Este potrivit pentru copii?",
+        "Phaselis și Olympos sunt ușor de vizitat pentru majoritatea copiilor. Urcușul spre Chimera e abrupt și mai potrivit pentru copii mai mari, cu lanternă după lăsarea întunericului."
+      ]
+    ]
+  },
+  "antalya-rainy-day-things-to-do": {
+    "slug": "antalya-cand-ploua-ce-sa-faci",
+    "title": "Antalya pe ploaie: 8 lucruri de făcut când se strică vremea",
+    "heading": "Zi ploioasă în Antalya: ce poți face la adăpost iarna",
+    "description": "Ce poți face în Antalya într-o zi ploioasă de iarnă: muzeul de arheologie, cafenelele din Kaleiçi, o baie turcească, Peștera Karain, acvariul și cumpărăturile, cu distanțe și sfaturi.",
+    "excerpt": "Ploaia de iarnă din Antalya vine în reprize, nu zile în șir. Iată unde mergi când plouă: muzee, hammamuri, peșteri, piețe acoperite și cafenele calde, și cum te muți între ele.",
+    "readingMinutes": 5,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Vremea de iarnă din Antalya este în mare parte însorită, dar decembrie și ianuarie aduc ploi, uneori puternice, de obicei în reprize de o zi sau două. O zi udă nu trebuie să fie o zi pierdută. Orașul are destule muzee, spații acoperite și cafenele calde ca s-o umple, iar cele mai multe sunt la mică distanță cu mașina una de alta."
+      },
+      {
+        "type": "h2",
+        "text": "Opt variante pentru o zi ploioasă"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Loc",
+          "Tip",
+          "Distanță de centru",
+          "De ce să mergi"
+        ],
+        "rows": [
+          [
+            "Muzeul din Antalya",
+            "Muzeu de arheologie",
+            "aproximativ 10 minute",
+            "Statui din Perge și o colecție romană mare"
+          ],
+          [
+            "Cafenelele și magazinele din Kaleiçi",
+            "Orașul vechi",
+            "în centru",
+            "Cafenele calde în case otomane; multe străduțe acoperite"
+          ],
+          [
+            "Baie turcească (hammam)",
+            "Spa",
+            "variază, 10-30 de minute",
+            "O spălare tradițională și un masaj"
+          ],
+          [
+            "Peștera Karain",
+            "Peșteră preistorică",
+            "aproximativ 30 de minute",
+            "Una dintre cele mai vechi așezări din Anatolia, parțial adăpostită"
+          ],
+          [
+            "Acvariu",
+            "Atracție pentru familii",
+            "aproximativ 15 minute",
+            "Tunel interior și expoziții pentru copii"
+          ],
+          [
+            "Mall-uri",
+            "Cumpărături",
+            "10-20 de minute",
+            "Cinematografe, restaurante și locuri de joacă"
+          ],
+          [
+            "Spa de hotel și piscină interioară",
+            "Wellness",
+            "la hotelul tău",
+            "Piscine încălzite, saună și tratamente în hotelurile deschise"
+          ],
+          [
+            "Curs de gătit turcesc",
+            "Atelier",
+            "centrul orașului",
+            "Lecții practice cu preparate locale"
+          ]
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Mai întâi muzeul, apoi prânzul în Kaleiçi"
+      },
+      {
+        "type": "p",
+        "text": "Muzeul din Antalya este cea mai bună alegere pe vreme ploioasă. Alocă două-trei ore: statuile din Perge, sarcofagele și icoanele bizantine sunt toate în interior. Apoi adăpostește-te într-o cafenea din Kaleiçi; străzile înguste ale orașului vechi opresc vântul, iar restaurantele servesc supe fierbinți și preparate locale."
+      },
+      {
+        "type": "routelinks",
+        "text": "Preț fix per vehicul de la aeroport la hotel, ziua sau noaptea:",
+        "routes": [
+          "antalya",
+          "belek",
+          "kemer",
+          "side"
+        ],
+        "button": "Vezi prețul fix"
+      },
+      {
+        "type": "h2",
+        "text": "Când se înseninează, mișcă-te repede"
+      },
+      {
+        "type": "p",
+        "text": "Ploaia din Antalya lasă de obicei în urmă un aer limpede și curat, iar cascadele Düden și Kurşunlu sunt cele mai puternice în zilele de după. Păstrează o oprire în aer liber pentru prima după-amiază uscată."
+      },
+      {
+        "type": "h2",
+        "text": "Sfaturi practice"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Ia un taxi sau un șofer privat între opriri: pavajul din Kaleiçi alunecă pe ud, iar un drum scurt te ține la uscat.",
+          "Programul muzeelor este mai scurt iarna și se poate schimba, așa că confirmă-l în ziua respectivă.",
+          "Rezervă un hammam din timp pentru seara; unele se închid devreme.",
+          "Ia o umbrelă și o geacă ușoară impermeabilă; ploaia e adesea caldă, dar vântul e rece."
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Dacă ajungi într-o seară ploioasă, o preluare rezervată din timp, care îți urmărește numărul zborului, te scutește de coada la taxi în ploaie. Spune-ne zborul și hotelul, iar noi îți confirmăm prețul fix."
+      }
+    ],
+    "faq": [
+      [
+        "Plouă mult în Antalya iarna?",
+        "Decembrie și ianuarie sunt cele mai ploioase luni, dar ploaia vine de obicei în reprize între zile însorite, nu o săptămână întreagă."
+      ],
+      [
+        "Care este cea mai bună activitate la interior în Antalya?",
+        "Muzeul din Antalya este alegerea cea mai bună, cu statui din Perge și o colecție romană mare."
+      ],
+      [
+        "Sunt băile turcești deschise iarna?",
+        "Da, majoritatea hammamurilor din oraș rămân deschise tot anul. Cere o recomandare la hotel și verifică programul."
+      ],
+      [
+        "Există activități la interior pentru copii?",
+        "Da: acvariul, mall-urile cu locuri de joacă și piscinele interioare ale hotelurilor din stațiunile deschise."
+      ],
+      [
+        "Pot avea transfer de la aeroport și pe ploaie puternică?",
+        "Da. Transferurile circulă tot anul la același preț fix per vehicul, iar șoferul tău îți urmărește zborul."
+      ]
+    ]
+  },
+  "antalya-3-day-winter-itinerary": {
+    "slug": "antalya-3-zile-iarna-itinerar",
+    "title": "3 zile în Antalya iarna: un itinerar practic cu șofer privat",
+    "heading": "Trei zile în Antalya iarna: un itinerar potrivit vremii",
+    "description": "Un itinerar de iarnă de trei zile pentru Antalya: Kaleiçi și muzeul, Perge și Aspendos, apoi Termessos sau cascadele. Timpi de drum, variante de rezervă și cum folosești un șofer privat.",
+    "excerpt": "Trei zile de iarnă în Antalya, planificate în funcție de vreme: o zi în oraș, o zi cu situri antice și o zi la munte sau la cascade, cu o variantă de rezervă pentru fiecare dimineață ploioasă.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Trei zile sunt suficiente ca să vezi ce e mai bun în Antalya iarna, dacă planifici în funcție de vreme. Itinerarul de mai jos ține orașul, siturile antice și muntele în zile separate, așa că o dimineață ploioasă mută doar o oprire, în loc să strice excursia. Timpii de drum sunt aproximativi și presupun trafic de zi."
+      },
+      {
+        "type": "h2",
+        "text": "Planul pe scurt"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Ziua",
+          "Dimineața",
+          "După-amiaza",
+          "Varianta de rezervă pe ploaie"
+        ],
+        "rows": [
+          [
+            "Ziua 1: orașul",
+            "Kaleiçi, Poarta lui Hadrian, portul vechi",
+            "Muzeul din Antalya",
+            "Schimbă ordinea: mai întâi muzeul, apoi cafenelele din Kaleiçi"
+          ],
+          [
+            "Ziua 2: situri antice",
+            "Perge (aproximativ 20 de minute)",
+            "Aspendos (aproximativ 45 de minute)",
+            "Ambele merită și pe ploaie ușoară; ia o jachetă impermeabilă"
+          ],
+          [
+            "Ziua 3: munte sau cascade",
+            "Termessos (aproximativ 45 de minute)",
+            "Cascadele Düden și Kurşunlu",
+            "Înlocuiește Termessos cu Peștera Karain și cascadele"
+          ]
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Ziua 1: orașul vechi fortificat și muzeul"
+      },
+      {
+        "type": "p",
+        "text": "Începe în Kaleiçi cât timp străzile sunt liniștite: Poarta lui Hadrian, Minaretul Canelat, casele otomane și portul vechi. După prânz, petrece două-trei ore în Muzeul din Antalya, unde se află statuile din Perge. Dacă ajungi seara, păstrează ziua 1 ușoară și mută muzeul în ziua 3."
+      },
+      {
+        "type": "h2",
+        "text": "Ziua 2: Perge și Aspendos"
+      },
+      {
+        "type": "p",
+        "text": "Stadionul și strada cu coloane de la Perge și teatrul roman de la Aspendos sunt printre cele mai bine păstrate situri din Anatolia. Ambele se află la est de oraș, aproape de drumul spre aeroport, iar iarna le împarți cu foarte puțini vizitatori. Pleacă în jur de 9:00 și poți fi înapoi la cină în Kaleiçi."
+      },
+      {
+        "type": "routelinks",
+        "text": "Ești cazat în afara orașului? Preț fix per vehicul de la aeroport la stațiunea ta:",
+        "routes": [
+          "antalya",
+          "belek",
+          "side",
+          "alanya"
+        ],
+        "button": "Vezi prețul fix"
+      },
+      {
+        "type": "h2",
+        "text": "Ziua 3: Termessos sau cascadele"
+      },
+      {
+        "type": "p",
+        "text": "Într-o zi uscată, urcă la Termessos pentru teatru și priveliștea munților; e mai frig decât pe coastă, așa că îmbracă-te în straturi. Dacă prognoza e proastă, cascadele Düden și Kurşunlu sunt o alternativă bună, pentru că curg cel mai puternic după ploaie. Peștera Karain merge în ambele variante."
+      },
+      {
+        "type": "h2",
+        "text": "Cum prelungești excursia"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Adaugă o a patra zi pentru Demre, Myra și Biserica Sfântul Nicolae, aproximativ 2 ore 15 minute într-o direcție.",
+          "Adaugă Pamukkale ca excursie cu înnoptare, dacă vrei să vezi travertinele fără o zi foarte lungă.",
+          "Din Belek sau Side, înlocuiește Perge și Aspendos cu o zi în orașul antic Side.",
+          "Dacă schiezi, Saklıkent poate înlocui ziua 3 între ianuarie și martie, când este zăpadă."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "De ce se potrivește un șofer privat iarna"
+      },
+      {
+        "type": "p",
+        "text": "Iarna transportul public spre ruine este limitat, iar lumina zilei este scurtă. Un vehicul privat îți permite să pleci când se limpezește vremea, să schimbi ordinea zilelor și să sari peste o oprire fără să pierzi un bilet. Prețul este fix per vehicul, așa că o familie sau un grup plătește adesea cam la fel ca pentru locurile în excursiile de grup. Trimite-ne datele, hotelul și numerele zborurilor, iar noi îți confirmăm planul și prețul."
+      }
+    ],
+    "faq": [
+      [
+        "Sunt trei zile suficiente pentru Antalya iarna?",
+        "Da, pentru oraș, Perge, Aspendos și fie Termessos, fie cascadele. Adaugă o a patra zi pentru Demre sau Pamukkale."
+      ],
+      [
+        "Ce fac dacă plouă?",
+        "Schimbă ordinea zilei: fă mai întâi muzeul și cafenelele din Kaleiçi și mută opririle în aer liber în orele uscate. Perge, Aspendos și cascadele merită vizitate și pe ploaie ușoară."
+      ],
+      [
+        "Poate transferul de la aeroport să facă parte din itinerar?",
+        "Da. Spune-ne zborul și primul sit pe care vrei să-l vezi, iar noi planificăm preluarea în funcție de el."
+      ],
+      [
+        "Am nevoie de mașină pentru acest itinerar?",
+        "Un vehicul privat este varianta cea mai simplă, pentru că iarna transportul public spre siturile antice este limitat."
+      ],
+      [
+        "Este itinerarul potrivit pentru familii?",
+        "Da. Distanțele sunt scurte, iar fiecare zi are o variantă la interior pentru vreme ploioasă."
+      ]
+    ]
   }
 };

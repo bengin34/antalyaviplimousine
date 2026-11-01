@@ -3353,5 +3353,399 @@ export const articles = {
         "A legtöbb esetben igen. Foglaláskor add meg a járatszámodat és a szállodádat, mi pedig megerősítjük a megállót és az árat."
       ]
     ]
+  },
+  "olympos-chimera-phaselis-winter": {
+    "slug": "olympos-khimaira-phaselis-telen",
+    "title": "Olympos, Khimaira és Phaselis télen: egynapos kirándulás Antalyából",
+    "heading": "Olympos, a Khimaira lángjai és Phaselis: téli egynapos kirándulás a likiai parton",
+    "description": "Tervezz téli egynapos kirándulást Antalyából Phaselisbe, Olymposba és a çıralıi Khimaira lángjaihoz: útvonal, menetidők, öltözet, a nap legjobb időpontja és a biztonságos visszaút.",
+    "excerpt": "Fenyvesek, csendes kikötők, erdei romok és egy domboldal, amely éjjel ég. Így fér bele Phaselis, Olympos és a Khimaira lángjai egyetlen téli napba Antalyából.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Az Antalyától délnyugatra húzódó likiai part akkor a legszebb, amikor elmúlt a nyári tömeg. Decembertől februárig zöldek a fenyvesek, tiszta a tenger, az ókori lelőhelyek pedig szinte üresek. Phaselis, Olympos és a Khimaira lángjai közel esnek egymáshoz, és együtt a térség egyik legváltozatosabb egynapos kirándulását adják."
+      },
+      {
+        "type": "h2",
+        "text": "Az útvonal és a menetidők"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Megálló",
+          "Út Antalyából",
+          "Szánd rá",
+          "Téli megjegyzés"
+        ],
+        "rows": [
+          [
+            "Phaselis",
+            "körülbelül 1 óra",
+            "1,5-2 óra",
+            "Három kikötő egy fenyvesben; az ösvények nedvesek lehetnek"
+          ],
+          [
+            "Olympos",
+            "körülbelül 1 óra 15 perc",
+            "1,5-2 óra",
+            "Romok a fák között egy patak mentén; viselj jó tapadású cipőt"
+          ],
+          [
+            "Çıralı és a Khimaira lángjai",
+            "körülbelül 1 óra 20 perc",
+            "1-1,5 óra",
+            "Alkonyatkor a legszebb; a felmenet meredek ösvény"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Phaselis van a legközelebb Kemerhez, ezért a Kemerben vagy Tekirovában szállóknak rövid út. Olympos és Çıralı ugyanazon az úton, a phaselisi lehajtótól körülbelül 15-20 perccel távolabb található."
+      },
+      {
+        "type": "routelinks",
+        "text": "A part ezen szakaszán laksz? Fix ár járművenként a repülőtértől:",
+        "routes": [
+          "kemer",
+          "tekirova",
+          "antalya",
+          "kumluca"
+        ],
+        "button": "Nézd meg a fix árat"
+      },
+      {
+        "type": "h2",
+        "text": "Phaselis: három kikötő a fenyők között"
+      },
+      {
+        "type": "p",
+        "text": "Phaselis egy kis félszigeten alapított kereskedőváros volt, mindkét oldalán kikötővel. Ma a kikövezett főutca, a vízvezeték és a kikötői falak állnak a fenyők között, a víz szélén. Télen üres a part, és puha a fény a fák között, így reggel jó első megálló."
+      },
+      {
+        "type": "h2",
+        "text": "Olympos és Çıralı"
+      },
+      {
+        "type": "p",
+        "text": "Olympos romjai egy patak mentén húzódnak a kavicsos partig, babér, füge és fenyő takarásában. Sírok, egy színház és falszakaszok szóródnak szét a növényzetben. Hagyj időt a lassú sétára; télen a patak megáradhat, esőben pedig sáros az ösvény."
+      },
+      {
+        "type": "h2",
+        "text": "A Khimaira lángjai"
+      },
+      {
+        "type": "p",
+        "text": "Yanartaş, azaz a Khimaira, egy domboldal Çıralı felett, ahol földgáz ég a sziklarepedésekből. A lángok nappal is látszanak, de alkonyatkor vagy sötétedés után sokkal látványosabbak. Az ösvény meredek és egyenetlen, ezért vigyél zseblámpát és strapabíró cipőt, a nyitvatartást és a belépő aktuális árát pedig aznap egyeztesd."
+      },
+      {
+        "type": "h2",
+        "text": "A nap biztonságos megtervezése"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Indulj 9:00-ig, hogy alkonyatkor érj a Khimairához; a téli naplemente korán jön, decemberben 17:30 körül.",
+          "Nézd meg az előrejelzést: az eső csúszóssá teszi az ösvényeket, és a Khimaira felmenetet kellemetlenné.",
+          "Hozz réteges ruhát, vízálló kabátot és zseblámpát a sötétben való lejövetelhez.",
+          "Çıralıban a kávézók télen zárva lehetnek; vigyél vizet és uzsonnát.",
+          "A magánsofőr megvár és visszavisz, így nem kell késő este, tömegközlekedéssel kanyarogni a parti úton."
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Add meg a szállodád nevét, a létszámot és a kívánt indulási időt, mi pedig megerősítjük az árat és a napod állomásait."
+      }
+    ],
+    "faq": [
+      [
+        "Nyitva van télen Phaselis?",
+        "Igen, a lelőhely egész évben nyitva van, de a nyitvatartás télen változhat. Utazás előtt aznap egyeztesd."
+      ],
+      [
+        "Látszanak télen a Khimaira lángjai?",
+        "Igen. A lángok egész évben égnek, alkonyatkor és sötétedés után látszanak a legjobban."
+      ],
+      [
+        "Milyen messze van Olympos és Çıralı Antalyától?",
+        "Autóval körülbelül 1 óra 15 perc - 1 óra 20 perc, az út nagy része kanyargós parti út."
+      ],
+      [
+        "Meg lehet nézni mind a hármat egy nap alatt?",
+        "Igen, korai indulással. Az utakkal és egy ebédszünettel együtt számolj nagyjából 8-9 órával."
+      ],
+      [
+        "Gyerekeknek is alkalmas?",
+        "Phaselis és Olympos a legtöbb gyereknek könnyű. A Khimaira felmenet meredek, inkább nagyobb gyerekeknek való, sötétedés után zseblámpával."
+      ]
+    ]
+  },
+  "antalya-rainy-day-things-to-do": {
+    "slug": "antalya-esos-napon-mit-csinalj",
+    "title": "Antalya esős napon: 8 program, ha megváltozik az idő",
+    "heading": "Esős nap Antalyában: fedett és védett programok télen",
+    "description": "Mit csinálj Antalyában egy esős téli napon: régészeti múzeum, Kaleiçi kávézói, törökfürdő, Karain-barlang, akvárium és vásárlás, távolságokkal és tippekkel.",
+    "excerpt": "Antalyában a téli eső záporokban érkezik, nem napokig tart. Íme, hová menj, ha esik: múzeumok, fürdők, barlangok, fedett piacok és meleg kávézók, és hogyan juss el közöttük.",
+    "readingMinutes": 5,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Antalya téli időjárása többnyire napos, de decemberben és januárban eső is jön, olykor erős, általában egy-két napos záporokban. Egy esős nap nem vész kárba. A városban elég múzeum, fedett hely és meleg kávézó van ahhoz, hogy kitöltse, és legtöbbjük rövid autóútra van egymástól."
+      },
+      {
+        "type": "h2",
+        "text": "Nyolc lehetőség esős napra"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Hely",
+          "Típus",
+          "Távolság a központtól",
+          "Miért érdemes"
+        ],
+        "rows": [
+          [
+            "Antalyai Múzeum",
+            "Régészeti múzeum",
+            "körülbelül 10 perc",
+            "Pergéből származó szobrok és nagy római gyűjtemény"
+          ],
+          [
+            "Kaleiçi kávézói és boltjai",
+            "Óváros",
+            "a központban",
+            "Meleg kávézók oszmán házakban; sok fedett sikátor"
+          ],
+          [
+            "Törökfürdő (hammam)",
+            "Szpa",
+            "változó, 10-30 perc",
+            "Hagyományos fürdés és masszázs"
+          ],
+          [
+            "Karain-barlang",
+            "Őskori barlang",
+            "körülbelül 30 perc",
+            "Anatólia egyik legrégebbi települése, részben védett"
+          ],
+          [
+            "Akvárium",
+            "Családi látnivaló",
+            "körülbelül 15 perc",
+            "Beltéri alagút és kiállítások gyerekeknek"
+          ],
+          [
+            "Bevásárlóközpontok",
+            "Vásárlás",
+            "10-20 perc",
+            "Mozik, éttermek és játszóházak"
+          ],
+          [
+            "Szállodai szpa és fedett medence",
+            "Wellness",
+            "a szállodádban",
+            "Fűtött medencék, szauna és kezelések a nyitva tartó szállodákban"
+          ],
+          [
+            "Török főzőtanfolyam",
+            "Műhely",
+            "belváros",
+            "Gyakorlati órák helyi ételekből"
+          ]
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Először a múzeum, utána ebéd Kaleiçiben"
+      },
+      {
+        "type": "p",
+        "text": "Az Antalyai Múzeum a legerősebb választás esős időre. Számolj két-három órával: a pergei szobrok, a szarkofágok és a bizánci ikonok mind bent vannak. Utána húzódj be egy kaleiçi kávézóba; az óváros szűk sikátorai tartják a szelet, az éttermekben pedig meleg levest és helyi ételeket szolgálnak fel."
+      },
+      {
+        "type": "routelinks",
+        "text": "Fix ár járművenként a repülőtértől a szállodádig, nappal vagy éjjel:",
+        "routes": [
+          "antalya",
+          "belek",
+          "kemer",
+          "side"
+        ],
+        "button": "Nézd meg a fix árat"
+      },
+      {
+        "type": "h2",
+        "text": "Ha kitisztul, siess"
+      },
+      {
+        "type": "p",
+        "text": "Az eső után Antalyában általában ragyogó, tiszta a levegő, a Düden- és a Kurşunlu-vízesés pedig a rákövetkező napokban a legerősebb. Tarts fenn egy szabadtéri programot az első száraz délutánra."
+      },
+      {
+        "type": "h2",
+        "text": "Gyakorlati tippek"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "A megállók között menj taxival vagy magánsofőrrel: a kaleiçi macskakövek esőben csúsznak, egy rövid út pedig szárazon tart.",
+          "A múzeumok nyitvatartása télen rövidebb és változhat, ezért aznap egyeztesd.",
+          "Estére előre foglalj törökfürdőt; némelyik korán zár.",
+          "Vigyél esernyőt és könnyű vízálló kabátot; az eső gyakran meleg, de a szél hűvös."
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Ha esős estén érkezel, az előre lefoglalt, a járatszámodat követő felvétel megkímél attól, hogy esőben sorba állj egy taxiért. Add meg a járatodat és a szállodádat, mi pedig megerősítjük a fix árat."
+      }
+    ],
+    "faq": [
+      [
+        "Sokat esik Antalyában télen?",
+        "December és január a legesősebb hónap, de az eső általában napos napok közötti záporokban jön, nem egy egész héten át."
+      ],
+      [
+        "Mi a legjobb beltéri program Antalyában?",
+        "Az Antalyai Múzeum a legerősebb választás, pergei szobrokkal és nagy római gyűjteménnyel."
+      ],
+      [
+        "Nyitva vannak télen a törökfürdők?",
+        "Igen, a város legtöbb hammamja egész évben nyitva van. Kérj ajánlást a szállodádtól, és ellenőrizd a nyitvatartást."
+      ],
+      [
+        "Van beltéri program gyerekeknek?",
+        "Igen: az akvárium, a játszóházas bevásárlóközpontok és a nyitva tartó üdülők fedett medencéi."
+      ],
+      [
+        "Heves esőben is kapok repülőtéri transzfert?",
+        "Igen. A transzferek egész évben ugyanazon a fix áron közlekednek járművenként, és a sofőröd követi a járatodat."
+      ]
+    ]
+  },
+  "antalya-3-day-winter-itinerary": {
+    "slug": "antalya-3-napos-teli-program",
+    "title": "3 nap Antalyában télen: gyakorlati program magánsofőrrel",
+    "heading": "Három nap Antalyában télen: az időjáráshoz igazított program",
+    "description": "Háromnapos téli program Antalyára: Kaleiçi és a múzeum, Perge és Aszpendosz, majd Termesszosz vagy a vízesések. Menetidők, tartalék tervek és a magánsofőr előnyei.",
+    "excerpt": "Három téli nap Antalyában az időjáráshoz tervezve: egy városi nap, egy ókori helyszínes nap és egy hegyi vagy vízesős nap, minden esős reggelre tartalék tervvel.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Három nap elég ahhoz, hogy télen is lásd Antalya legjobbjait, ha az időjáráshoz igazítod a tervet. Az alábbi program külön napra teszi a várost, az ókori helyszíneket és a hegyeket, így egy esős reggel csak egy megállót tol el, nem teszi tönkre az utat. A menetidők hozzávetőlegesek, és nappali forgalomra számolnak."
+      },
+      {
+        "type": "h2",
+        "text": "A terv dióhéjban"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Nap",
+          "Délelőtt",
+          "Délután",
+          "Tartalék, ha esik"
+        ],
+        "rows": [
+          [
+            "1. nap: a város",
+            "Kaleiçi, Hadrianus kapuja, a régi kikötő",
+            "Antalyai Múzeum",
+            "Cseréld meg a sorrendet: előbb a múzeum, utána a kaleiçi kávézók"
+          ],
+          [
+            "2. nap: ókori helyszínek",
+            "Perge (körülbelül 20 perc)",
+            "Aszpendosz (körülbelül 45 perc)",
+            "Enyhe esőben mindkettő élvezhető; vigyél vízálló kabátot"
+          ],
+          [
+            "3. nap: hegyek vagy vízesések",
+            "Termesszosz (körülbelül 45 perc)",
+            "Düden- és Kurşunlu-vízesés",
+            "Termesszosz helyett a Karain-barlang és a vízesések"
+          ]
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "1. nap: a falakkal körülvett óváros és a múzeum"
+      },
+      {
+        "type": "p",
+        "text": "Kezdd Kaleiçiben, amíg csendesek az utcák: Hadrianus kapuja, a Rovátkolt minaret, az oszmán házak és a régi kikötő. Ebéd után tölts két-három órát az Antalyai Múzeumban, ahol a pergei szobrok vannak. Ha este szállsz le, tartsd könnyűre az első napot, a múzeumot pedig told a harmadik napra."
+      },
+      {
+        "type": "h2",
+        "text": "2. nap: Perge és Aszpendosz"
+      },
+      {
+        "type": "p",
+        "text": "Perge stadionja és oszlopsoros utcája, valamint Aszpendosz római színháza Anatólia két legjobb állapotú lelőhelye. Mindkettő a várostól keletre, a repülőtéri út közelében fekszik, és télen nagyon kevés látogatóval osztozol rajtuk. Indulj 9:00 körül, és vacsorára már Kaleiçiben lehetsz."
+      },
+      {
+        "type": "routelinks",
+        "text": "A városon kívül laksz? Fix ár járművenként a repülőtértől az üdülődig:",
+        "routes": [
+          "antalya",
+          "belek",
+          "side",
+          "alanya"
+        ],
+        "button": "Nézd meg a fix árat"
+      },
+      {
+        "type": "h2",
+        "text": "3. nap: Termesszosz vagy a vízesések"
+      },
+      {
+        "type": "p",
+        "text": "Száraz napon menj fel Termesszoszba a színházért és a hegyi kilátásért; a tengerpartnál hidegebb, ezért öltözz rétegesen. Ha rossz az előrejelzés, a Düden- és a Kurşunlu-vízesés jó alternatíva, mert esőben a legerősebbek. A Karain-barlang mindkét esetben megfelel."
+      },
+      {
+        "type": "h2",
+        "text": "Az út meghosszabbítása"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Adj hozzá egy negyedik napot Demréhez, Mirához és a Szent Miklós-templomhoz, oda-vissza egyenként körülbelül 2 óra 15 perc.",
+          "Add hozzá Pamukkalét éjszakás kirándulásként, ha a travertínókat nagyon hosszú nap nélkül szeretnéd látni.",
+          "Belekből vagy Sidéből Perge és Aszpendosz helyett tölthetsz egy napot Side ókori városában.",
+          "Ha síelsz, Saklıkent januártól márciusig, havazás esetén helyettesítheti a harmadik napot."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Miért illik a télhez a magánsofőr"
+      },
+      {
+        "type": "p",
+        "text": "Télen korlátozott a tömegközlekedés a romokhoz, és rövid a nappal. A saját jármű lehetővé teszi, hogy akkor indulj, amikor kitisztul az idő, felcseréld a napok sorrendjét, és jegy elvesztése nélkül kihagyj egy megállót. Az ár járművenként fix, ezért egy család vagy csoport gyakran nagyjából annyit fizet, mint a csoportos túrák helyeiért. Küldd el a dátumaidat, a szállodádat és a járatszámaidat, mi pedig megerősítjük a tervet és az árat."
+      }
+    ],
+    "faq": [
+      [
+        "Elég három nap Antalyára télen?",
+        "Igen, a városra, Pergére, Aszpendoszra és Termesszoszra vagy a vízesésekre. Adj hozzá egy negyedik napot Demréhez vagy Pamukkaléhoz."
+      ],
+      [
+        "Mit tegyek, ha esik?",
+        "Cseréld meg a nap sorrendjét: előbb a múzeum és a kaleiçi kávézók, a szabadtéri megállókat told a száraz órákra. Perge, Aszpendosz és a vízesések enyhe esőben is élvezhetők."
+      ],
+      [
+        "Része lehet a repülőtéri transzfer a programnak?",
+        "Igen. Add meg a járatodat és az első helyszínt, amelyet látni szeretnél, és köré tervezzük a felvételt."
+      ],
+      [
+        "Kell autó ehhez a programhoz?",
+        "A saját jármű a legegyszerűbb megoldás, mert télen korlátozott a tömegközlekedés az ókori helyszínekhez."
+      ],
+      [
+        "Családoknak is alkalmas ez a program?",
+        "Igen. A távolságok rövidek, és minden naphoz van beltéri tartalék terv esős időre."
+      ]
+    ]
   }
 };

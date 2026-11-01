@@ -3362,5 +3362,399 @@ export const articles = {
         "Ve většině případů ano. Při rezervaci nám sdělte číslo letu a hotel a zastávku i cenu potvrdíme."
       ]
     ]
+  },
+  "olympos-chimera-phaselis-winter": {
+    "slug": "olympos-chimera-phaselis-v-zime",
+    "title": "Olympos, Chiméra a Phaselis v zimě: výlet z Antalye na jeden den",
+    "heading": "Olympos, plameny Chiméry a Phaselis: zimní výlet po lykijském pobřeží",
+    "description": "Zimní výlet z Antalye do Phaselis, Olympu a k plamenům Chiméry u Çıralı: trasa, doby jízdy, co si obléct, nejlepší denní doba a jak se bezpečně vrátit.",
+    "excerpt": "Borový les, tiché přístavy, zříceniny v lese a svah, který v noci hoří. Jak stihnout Phaselis, Olympos a plameny Chiméry za jeden zimní den z Antalye.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Lykijské pobřeží jihozápadně od Antalye je nejhezčí, když letní davy zmizí. Od prosince do února jsou borové lesy zelené, moře průzračné a antické lokality téměř prázdné. Phaselis, Olympos a plameny Chiméry leží blízko sebe a tvoří jeden z nejpestřejších jednodenních výletů v regionu."
+      },
+      {
+        "type": "h2",
+        "text": "Trasa a doby jízdy"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Zastávka",
+          "Jízda z Antalye",
+          "Kolik času počítat",
+          "Zimní poznámka"
+        ],
+        "rows": [
+          [
+            "Phaselis",
+            "asi 1 hodina",
+            "1,5–2 hodiny",
+            "Tři přístavy v borovém lese; cesty mohou být vlhké"
+          ],
+          [
+            "Olympos",
+            "asi 1 hodina 15 minut",
+            "1,5–2 hodiny",
+            "Zříceniny mezi stromy u potoka; obujte si boty s dobrou přilnavostí"
+          ],
+          [
+            "Çıralı a plameny Chiméry",
+            "asi 1 hodina 20 minut",
+            "1–1,5 hodiny",
+            "Nejlepší za soumraku; výstup vede strmou stezkou"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Phaselis leží nejblíže ke Kemeru, takže pro ubytované v Kemeru nebo Tekirově je to kousek. Olympos a Çıralı jsou dál po stejné pobřežní silnici, asi 15–20 minut za odbočkou k Phaselis."
+      },
+      {
+        "type": "routelinks",
+        "text": "Bydlíte na tomto úseku pobřeží? Fixní cena za vozidlo z letiště:",
+        "routes": [
+          "kemer",
+          "tekirova",
+          "antalya",
+          "kumluca"
+        ],
+        "button": "Zjistit fixní cenu"
+      },
+      {
+        "type": "h2",
+        "text": "Phaselis: tři přístavy v borovicích"
+      },
+      {
+        "type": "p",
+        "text": "Phaselis byl obchodní přístav založený na úzkém poloostrově s přístavem na každé straně. Dnes stojí dlážděná hlavní ulice, akvadukt a přístavní zdi mezi borovicemi u vody. V zimě je pláž prázdná a světlo mezi stromy jemné, takže je to dobrá první zastávka dopoledne."
+      },
+      {
+        "type": "h2",
+        "text": "Olympos a Çıralı"
+      },
+      {
+        "type": "p",
+        "text": "Zříceniny Olympu leží podél potoka, který stéká k oblázkové pláži, ukryté pod vavříny, fíkovníky a borovicemi. Hrobky, divadlo a úseky hradeb jsou roztroušené v zeleni. Počítejte s pomalou chůzí; v zimě může být potok rozvodněný a po dešti jsou cesty blátivé."
+      },
+      {
+        "type": "h2",
+        "text": "Plameny Chiméry"
+      },
+      {
+        "type": "p",
+        "text": "Yanartaş, Chiméra, je svah nad Çıralı, kde ze štěrbin ve skále hoří zemní plyn. Plameny jsou vidět i ve dne, ale mnohem působivější jsou za soumraku nebo po setmění. Stezka je strmá a nerovná, vezměte si proto svítilnu a pevnou obuv a aktuální otevírací dobu a vstupné si ověřte v den výletu."
+      },
+      {
+        "type": "h2",
+        "text": "Jak den bezpečně naplánovat"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Vyjeďte do 9:00, ať jste u Chiméry kolem soumraku; zimní slunce zapadá brzy, v prosinci kolem 17:30.",
+          "Zkontrolujte předpověď: za deště jsou cesty kluzké a výstup k Chiméře nepříjemný.",
+          "Vezměte si vrstvy a nepromokavou bundu a svítilnu na sestup po setmění.",
+          "Kavárny v Çıralı mohou být v zimě zavřené; mějte s sebou vodu a něco k jídlu.",
+          "Soukromý řidič na vás počká a odveze vás zpět, takže se nemusíte vracet pozdě veřejnou dopravou po klikaté pobřežní silnici."
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Napište nám hotel, počet osob a preferovaný čas odjezdu a potvrdíme vám cenu i zastávky vašeho dne."
+      }
+    ],
+    "faq": [
+      [
+        "Je Phaselis v zimě otevřený?",
+        "Ano, lokalita je otevřená celý rok, ale otevírací doba se v zimě může měnit. Před cestou ji ověřte v den výletu."
+      ],
+      [
+        "Jsou plameny Chiméry v zimě vidět?",
+        "Ano. Plameny hoří celý rok a nejlépe jsou vidět za soumraku a po setmění."
+      ],
+      [
+        "Jak daleko je Olympos a Çıralı od Antalye?",
+        "Autem asi 1 hodinu 15 minut až 1 hodinu 20 minut, velkou část cesty po klikaté pobřežní silnici."
+      ],
+      [
+        "Stihnu všechny tři místa za jeden den?",
+        "Ano, při brzkém startu. Počítejte zhruba s 8–9 hodinami včetně jízdy a pauzy na oběd."
+      ],
+      [
+        "Je výlet vhodný pro děti?",
+        "Phaselis a Olympos zvládne většina dětí snadno. Výstup k Chiméře je strmý a hodí se spíš pro starší děti, po setmění se svítilnou."
+      ]
+    ]
+  },
+  "antalya-rainy-day-things-to-do": {
+    "slug": "antalya-v-desti-co-delat",
+    "title": "Antalya za deště: 8 tipů, co dělat, když se počasí zhorší",
+    "heading": "Deštivý den v Antalyi: co dělat v interiéru a pod střechou v zimě",
+    "description": "Co dělat v Antalyi za deštivého zimního dne: archeologické muzeum, kavárny v Kaleiçi, turecké lázně, jeskyně Karain, akvárium a nákupy, s vzdálenostmi a tipy.",
+    "excerpt": "Zimní déšť v Antalyi přichází v dávkách, ne na celé dny. Kam vyrazit, když prší: muzea, hammamy, jeskyně, kryté trhy a teplé kavárny, a jak se mezi nimi přesouvat.",
+    "readingMinutes": 5,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Zimní počasí v Antalyi je většinou slunečné, ale prosinec a leden přinášejí déšť, někdy vydatný, obvykle v dávkách po dni nebo dvou. Deštivý den nemusí být ztracený. Město nabízí dost muzeí, krytých míst a teplých kaváren a většina z nich je od sebe jen kousek autem."
+      },
+      {
+        "type": "h2",
+        "text": "Osm možností pro deštivý den"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Místo",
+          "Typ",
+          "Vzdálenost od centra",
+          "Proč jít"
+        ],
+        "rows": [
+          [
+            "Muzeum v Antalyi",
+            "Archeologické muzeum",
+            "asi 10 minut",
+            "Sochy z Perge a velká římská sbírka"
+          ],
+          [
+            "Kavárny a obchody v Kaleiçi",
+            "Staré město",
+            "v centru",
+            "Teplé kavárny v osmanských domech; mnoho krytých uliček"
+          ],
+          [
+            "Turecké lázně (hammam)",
+            "Lázně",
+            "různě, 10–30 minut",
+            "Tradiční mytí a masáž"
+          ],
+          [
+            "Jeskyně Karain",
+            "Pravěká jeskyně",
+            "asi 30 minut",
+            "Jedno z nejstarších sídlišť v Anatolii, částečně krytá"
+          ],
+          [
+            "Akvárium",
+            "Atrakce pro rodiny",
+            "asi 15 minut",
+            "Vnitřní tunel a expozice pro děti"
+          ],
+          [
+            "Nákupní centra",
+            "Nákupy",
+            "10–20 minut",
+            "Kina, restaurace a dětské koutky"
+          ],
+          [
+            "Hotelové spa a vnitřní bazén",
+            "Wellness",
+            "ve vašem hotelu",
+            "Vyhřívané bazény, sauna a procedury v otevřených hotelech"
+          ],
+          [
+            "Kurz tureckého vaření",
+            "Workshop",
+            "centrum města",
+            "Praktické lekce místních jídel"
+          ]
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Nejdřív muzeum, pak oběd v Kaleiçi"
+      },
+      {
+        "type": "p",
+        "text": "Muzeum v Antalyi je nejlepší volba za mokrého počasí. Počítejte se dvěma až třemi hodinami: sochy z Perge, sarkofágy i byzantské ikony jsou uvnitř. Poté se ukryjte v některé kavárně v Kaleiçi; úzké uličky starého města drží vítr stranou a restaurace podávají horké polévky a místní jídla."
+      },
+      {
+        "type": "routelinks",
+        "text": "Fixní cena za vozidlo z letiště do hotelu, ve dne i v noci:",
+        "routes": [
+          "antalya",
+          "belek",
+          "kemer",
+          "side"
+        ],
+        "button": "Zjistit fixní cenu"
+      },
+      {
+        "type": "h2",
+        "text": "Když se vyjasní, jednejte rychle"
+      },
+      {
+        "type": "p",
+        "text": "Déšť v Antalyi po sobě obvykle nechává jasný, čistý vzduch a vodopády Düden a Kurşunlu mají největší sílu právě v následujících dnech. Nechte si jednu venkovní zastávku na první suché odpoledne."
+      },
+      {
+        "type": "h2",
+        "text": "Praktické tipy"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Mezi zastávkami jeďte taxíkem nebo se soukromým řidičem: dlažba v Kaleiçi je za mokra kluzká a krátká jízda vás udrží v suchu.",
+          "Otevírací doba muzeí je v zimě kratší a může se měnit, proto ji ověřte v den návštěvy.",
+          "Hammam na večer si rezervujte předem; některé zavírají brzy.",
+          "Vezměte si deštník a lehkou pláštěnku; déšť bývá teplý, ale vítr studený."
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Pokud přiletíte za deštivého večera, předem objednaný odvoz podle čísla vašeho letu vás ušetří fronty na taxi v dešti. Napište nám let a hotel a potvrdíme fixní cenu."
+      }
+    ],
+    "faq": [
+      [
+        "Prší v Antalyi v zimě hodně?",
+        "Prosinec a leden jsou nejdeštivější měsíce, ale déšť obvykle přichází v dávkách mezi slunečnými dny, ne po celý týden."
+      ],
+      [
+        "Jaká je nejlepší aktivita v interiéru v Antalyi?",
+        "Nejlepší volbou je Muzeum v Antalyi se sochami z Perge a velkou římskou sbírkou."
+      ],
+      [
+        "Jsou turecké lázně v zimě otevřené?",
+        "Ano, většina hammamů ve městě je otevřená celý rok. Zeptejte se v hotelu na doporučení a ověřte otevírací dobu."
+      ],
+      [
+        "Je co dělat s dětmi v interiéru?",
+        "Ano: akvárium, nákupní centra s dětskými koutky a vnitřní bazény hotelů v otevřených střediscích."
+      ],
+      [
+        "Dostanu se i za silného deště z letiště transferem?",
+        "Ano. Transfery jezdí celý rok za stejnou fixní cenu za vozidlo a řidič sleduje váš let."
+      ]
+    ]
+  },
+  "antalya-3-day-winter-itinerary": {
+    "slug": "antalya-3-dny-v-zime-itinerar",
+    "title": "3 dny v Antalyi v zimě: praktický itinerář se soukromým řidičem",
+    "heading": "Tři dny v Antalyi v zimě: itinerář, který respektuje počasí",
+    "description": "Třídenní zimní itinerář pro Antalyi: Kaleiçi a muzeum, Perge a Aspendos, pak Termessos nebo vodopády. Doby jízdy, náhradní plány a jak využít soukromého řidiče.",
+    "excerpt": "Tři zimní dny v Antalyi naplánované podle počasí: den ve městě, den u antických památek a den v horách nebo u vodopádů, s náhradním plánem pro každé mokré ráno.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Tři dny stačí, abyste viděli to nejlepší z Antalye v zimě, pokud plánujete podle počasí. Itinerář níže drží město, antické památky a hory v oddělených dnech, takže deštivé ráno posune jen jednu zastávku a nezničí celý pobyt. Doby jízdy jsou přibližné a počítají s denním provozem."
+      },
+      {
+        "type": "h2",
+        "text": "Plán v kostce"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Den",
+          "Dopoledne",
+          "Odpoledne",
+          "Náhrada při dešti"
+        ],
+        "rows": [
+          [
+            "Den 1: město",
+            "Kaleiçi, Hadriánova brána, starý přístav",
+            "Muzeum v Antalyi",
+            "Prohoďte pořadí: nejdřív muzeum, pak kavárny v Kaleiçi"
+          ],
+          [
+            "Den 2: antické památky",
+            "Perge (asi 20 minut)",
+            "Aspendos (asi 45 minut)",
+            "Obojí je příjemné i za lehkého deště; vezměte si nepromokavou bundu"
+          ],
+          [
+            "Den 3: hory nebo vodopády",
+            "Termessos (asi 45 minut)",
+            "Vodopády Düden a Kurşunlu",
+            "Termessos nahraďte jeskyní Karain a vodopády"
+          ]
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Den 1: hradbami obehnané staré město a muzeum"
+      },
+      {
+        "type": "p",
+        "text": "Začněte v Kaleiçi, dokud jsou ulice tiché: Hadriánova brána, minaret Yivli, osmanské domy a starý přístav. Po obědě strávte dvě až tři hodiny v Muzeu v Antalyi, kde jsou sochy z Perge. Pokud přiletíte večer, nechte den 1 volnější a muzeum přesuňte na den 3."
+      },
+      {
+        "type": "h2",
+        "text": "Den 2: Perge a Aspendos"
+      },
+      {
+        "type": "p",
+        "text": "Stadion a sloupová ulice v Perge a římské divadlo v Aspendu patří k nejlépe zachovaným památkám v Anatolii. Obě leží východně od města, blízko silnice k letišti, a v zimě je sdílíte s velmi málo návštěvníky. Vyjeďte kolem 9:00 a na večeři v Kaleiçi můžete být zpět."
+      },
+      {
+        "type": "routelinks",
+        "text": "Bydlíte mimo město? Fixní cena za vozidlo z letiště do vašeho střediska:",
+        "routes": [
+          "antalya",
+          "belek",
+          "side",
+          "alanya"
+        ],
+        "button": "Zjistit fixní cenu"
+      },
+      {
+        "type": "h2",
+        "text": "Den 3: Termessos nebo vodopády"
+      },
+      {
+        "type": "p",
+        "text": "Za suchého dne vyjeďte do Termessu za divadlem a výhledy na hory; je tam chladněji než na pobřeží, takže se oblékněte do vrstev. Je-li předpověď špatná, jsou dobrou alternativou vodopády Düden a Kurşunlu, protože po dešti proudí nejsilněji. Jeskyně Karain se hodí do obou variant."
+      },
+      {
+        "type": "h2",
+        "text": "Jak výlet prodloužit"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Přidejte čtvrtý den na Demre, Myru a kostel sv. Mikuláše, asi 2 hodiny 15 minut jedním směrem.",
+          "Přidejte Pamukkale jako výlet s přenocováním, pokud chcete vidět travertiny bez velmi dlouhého dne.",
+          "Z Beleku nebo Side nahraďte Perge a Aspendos dnem ve starověkém městě Side.",
+          "Pokud lyžujete, může Saklıkent nahradit den 3 od ledna do března, když je sníh."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Proč se soukromý řidič hodí do zimy"
+      },
+      {
+        "type": "p",
+        "text": "Veřejná doprava k antickým památkám je v zimě omezená a denní světlo krátké. Se soukromým vozidlem vyrazíte, až se vyjasní, změníte pořadí dní a vynecháte zastávku, aniž byste přišli o vstupenku. Cena je fixní za vozidlo, takže rodina nebo skupina často zaplatí zhruba stejně jako za místa ve skupinových výletech. Pošlete nám data, hotel a čísla letů a potvrdíme plán i cenu."
+      }
+    ],
+    "faq": [
+      [
+        "Stačí tři dny na Antalyi v zimě?",
+        "Ano, na město, Perge, Aspendos a buď Termessos, nebo vodopády. Čtvrtý den přidejte na Demre nebo Pamukkale."
+      ],
+      [
+        "Co dělat, když prší?",
+        "Prohoďte pořadí dne: nejdřív muzeum a kavárny v Kaleiçi a venkovní zastávky přesuňte na suché hodiny. Perge, Aspendos i vodopády jsou příjemné i za lehkého deště."
+      ],
+      [
+        "Může být transfer z letiště součástí itineráře?",
+        "Ano. Napište nám let a první místo, které chcete vidět, a vyzvednutí naplánujeme podle toho."
+      ],
+      [
+        "Potřebuji k tomuto itineráři auto?",
+        "Soukromé vozidlo je nejjednodušší možnost, protože veřejná doprava k antickým památkám je v zimě omezená."
+      ],
+      [
+        "Je tento itinerář vhodný pro rodiny?",
+        "Ano. Vzdálenosti jsou krátké a každý den má náhradní variantu v interiéru pro deštivé počasí."
+      ]
+    ]
   }
 };

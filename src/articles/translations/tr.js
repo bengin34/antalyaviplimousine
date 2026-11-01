@@ -3643,5 +3643,399 @@ export const articles = {
         "Çoğu durumda evet. Rezervasyon sırasında uçuş numaranızı ve otelinizi bize bildirin; molayı ve fiyatı teyit edelim."
       ]
     ]
+  },
+  "olympos-chimera-phaselis-winter": {
+    "slug": "kisin-olimpos-yanartas-phaselis-gezisi",
+    "title": "Kışın Olimpos, Yanartaş ve Phaselis: Antalya'dan Günübirlik Gezi",
+    "heading": "Olimpos, Yanartaş alevleri ve Phaselis: Likya kıyısında kış günübirlik gezisi",
+    "description": "Antalya'dan kışın Phaselis, Olimpos ve Çıralı'daki Yanartaş alevlerine günübirlik gezi: güzergâh, yol süreleri, ne giyilmeli, günün en iyi saati ve güvenle dönüş.",
+    "excerpt": "Çam ormanı, sakin limanlar, ormandaki kalıntılar ve geceleri yanan bir yamaç. Phaselis, Olimpos ve Yanartaş alevlerini Antalya'dan tek bir kış gününe nasıl sığdıracağınız burada.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Antalya'nın güneybatısındaki Likya kıyısı, yaz kalabalığı çekildiğinde en güzel hâlindedir. Aralık ile Şubat arasında çam ormanları yeşil, deniz berrak ve antik alanlar neredeyse boştur. Phaselis, Olimpos ve Yanartaş alevleri birbirine yakındır ve bölgenin en çeşitli günübirlik gezilerinden birini oluşturur."
+      },
+      {
+        "type": "h2",
+        "text": "Güzergâh ve yol süreleri"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Durak",
+          "Antalya'dan yol",
+          "Ayrılacak süre",
+          "Kış notu"
+        ],
+        "rows": [
+          [
+            "Phaselis",
+            "yaklaşık 1 saat",
+            "1,5-2 saat",
+            "Çam ormanında üç liman; patikalar nemli olabilir"
+          ],
+          [
+            "Olimpos",
+            "yaklaşık 1 saat 15 dakika",
+            "1,5-2 saat",
+            "Bir derenin boyunca ağaçlar arasında kalıntılar; tutuş sağlayan ayakkabı giyin"
+          ],
+          [
+            "Çıralı ve Yanartaş alevleri",
+            "yaklaşık 1 saat 20 dakika",
+            "1-1,5 saat",
+            "En iyisi alacakaranlıkta; çıkış dik bir patikadır"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Phaselis Kemer'e en yakın duraktır; Kemer veya Tekirova'da kalanlar için kısa bir yoldur. Olimpos ve Çıralı aynı sahil yolunun daha ilerisindedir, Phaselis sapağından yaklaşık 15-20 dakika sonra gelir."
+      },
+      {
+        "type": "routelinks",
+        "text": "Bu kıyı şeridinde mi kalıyorsunuz? Havalimanından araç başı sabit fiyat:",
+        "routes": [
+          "kemer",
+          "tekirova",
+          "antalya",
+          "kumluca"
+        ],
+        "button": "Sabit fiyatı görün"
+      },
+      {
+        "type": "h2",
+        "text": "Phaselis: çamlar arasında üç liman"
+      },
+      {
+        "type": "p",
+        "text": "Phaselis, küçük bir yarımadada kurulmuş, her yanında bir liman bulunan ticaret limanıydı. Bugün döşeli ana cadde, su kemeri ve liman surları, su kenarında çamların arasında durur. Kışın plaj boştur ve ağaçların arasından süzülen ışık yumuşaktır; bu yüzden sabahın ilk durağı olarak iyi bir seçimdir."
+      },
+      {
+        "type": "h2",
+        "text": "Olimpos ve Çıralı"
+      },
+      {
+        "type": "p",
+        "text": "Olimpos kalıntıları, çakıllı bir plaja akan bir derenin boyunca, defne, incir ve çamların arasında gizlidir. Mezarlar, bir tiyatro ve sur parçaları bitki örtüsünün içine dağılmıştır. Yavaş yürümek için zaman ayırın; kışın dere yükselebilir ve yağmurdan sonra patikalar çamurlu olur."
+      },
+      {
+        "type": "h2",
+        "text": "Yanartaş alevleri"
+      },
+      {
+        "type": "p",
+        "text": "Yanartaş, Çıralı üzerindeki bir yamaçtır; burada doğal gaz kayaların çatlaklarından yanar. Alevler gündüz de görülür, ancak alacakaranlıkta ya da hava karardıktan sonra çok daha etkileyicidir. Patika dik ve engebelidir; el feneri ile sağlam ayakkabı alın, güncel çalışma saatlerini ve giriş ücretini gün içinde teyit edin."
+      },
+      {
+        "type": "h2",
+        "text": "Günü güvenle planlamak"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Yanartaş'a alacakaranlık sırasında ulaşmak için 9:00'a kadar yola çıkın; kış güneşi erken batar, Aralık'ta 17:30 civarı.",
+          "Hava tahminine bakın: yağmur patikaları kaygan yapar ve Yanartaş çıkışını zorlaştırır.",
+          "Kat kat giyinin, yağmurluk alın ve karanlıkta inmek için el feneri getirin.",
+          "Çıralı'daki kafeler kışın kapalı olabilir; yanınızda su ve atıştırmalık bulundurun.",
+          "Özel şoför sizi bekleyip geri götürebilir; böylece virajlı sahil yolunda toplu taşımayla geç saatte dönmek zorunda kalmazsınız."
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Otelinizi, kişi sayısını ve tercih ettiğiniz başlangıç saatini bize yazın; gününüz için fiyatı ve durakları teyit edelim."
+      }
+    ],
+    "faq": [
+      [
+        "Phaselis kışın açık mı?",
+        "Evet, alan yıl boyu açıktır; ancak çalışma saatleri kışın değişebilir. Yola çıkmadan önce gün içinde teyit edin."
+      ],
+      [
+        "Yanartaş alevleri kışın görülebilir mi?",
+        "Evet. Alevler yıl boyu yanar ve en iyi alacakaranlıkta ve karanlıkta görülür."
+      ],
+      [
+        "Olimpos ve Çıralı Antalya'dan ne kadar uzakta?",
+        "Arabayla yaklaşık 1 saat 15 dakika ile 1 saat 20 dakika; yolun büyük bölümü virajlı bir sahil yoludur."
+      ],
+      [
+        "Üçünü bir günde yapabilir miyim?",
+        "Evet, erken başlarsanız. Yol süreleri ve öğle yemeği molası dâhil kabaca 8-9 saat ayırın."
+      ],
+      [
+        "Çocuklar için uygun mu?",
+        "Phaselis ve Olimpos çoğu çocuk için kolaydır. Yanartaş çıkışı diktir ve daha çok büyük çocuklara uygundur; karanlıkta el feneri gerekir."
+      ]
+    ]
+  },
+  "antalya-rainy-day-things-to-do": {
+    "slug": "yagmurlu-gunde-antalya-yapilacaklar",
+    "title": "Yağmurlu Günde Antalya: Hava Bozunca Yapılacak 8 Şey",
+    "heading": "Antalya'da yağmurlu gün: kışın kapalı ve korunaklı yapılacaklar",
+    "description": "Antalya'da yağmurlu bir kış gününde yapılacaklar: arkeoloji müzesi, Kaleiçi kafeleri, hamam, Karain Mağarası, akvaryum ve alışveriş; mesafeler ve ipuçlarıyla.",
+    "excerpt": "Antalya'da kış yağmuru günlerce sürmez, sağanak hâlinde gelir. Yağmur yağdığında nereye gidileceği: müzeler, hamamlar, mağaralar, kapalı çarşılar ve sıcak kafeler; aralarında nasıl gidileceği.",
+    "readingMinutes": 5,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Antalya'nın kış havası çoğunlukla güneşlidir; ancak Aralık ve Ocak aylarında bazen şiddetli, genellikle bir iki günlük sağanaklar hâlinde yağmur gelir. Islak bir gün kayıp bir gün olmak zorunda değil. Şehirde günü dolduracak yeterince müze, kapalı mekân ve sıcak kafe var; çoğu da birbirine kısa bir araç yolculuğu uzaklıktadır."
+      },
+      {
+        "type": "h2",
+        "text": "Yağmurlu gün için sekiz seçenek"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Yer",
+          "Tür",
+          "Merkeze uzaklık",
+          "Neden gidilmeli"
+        ],
+        "rows": [
+          [
+            "Antalya Müzesi",
+            "Arkeoloji müzesi",
+            "yaklaşık 10 dakika",
+            "Perge'den heykeller ve büyük bir Roma koleksiyonu"
+          ],
+          [
+            "Kaleiçi kafeleri ve dükkânları",
+            "Eski kent",
+            "merkezde",
+            "Osmanlı evlerinde sıcak kafeler; birçok kapalı sokak"
+          ],
+          [
+            "Türk hamamı",
+            "Spa",
+            "değişir, 10-30 dakika",
+            "Geleneksel kese-köpük ve masaj"
+          ],
+          [
+            "Karain Mağarası",
+            "Tarih öncesi mağara",
+            "yaklaşık 30 dakika",
+            "Anadolu'nun en eski yerleşimlerinden biri, kısmen korunaklı"
+          ],
+          [
+            "Akvaryum",
+            "Aile için gezi noktası",
+            "yaklaşık 15 dakika",
+            "Çocuklar için kapalı tünel ve sergiler"
+          ],
+          [
+            "Alışveriş merkezleri",
+            "Alışveriş",
+            "10-20 dakika",
+            "Sinemalar, restoranlar ve oyun alanları"
+          ],
+          [
+            "Otel spa ve kapalı havuz",
+            "Wellness",
+            "otelinizde",
+            "Açık otellerde ısıtmalı havuzlar, sauna ve bakımlar"
+          ],
+          [
+            "Türk yemek kursu",
+            "Atölye",
+            "şehir merkezi",
+            "Yerel yemeklerde uygulamalı dersler"
+          ]
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Önce müze, sonra Kaleiçi'nde öğle yemeği"
+      },
+      {
+        "type": "p",
+        "text": "Antalya Müzesi, yağışlı hava için en güçlü seçenektir. İki üç saat ayırın: Perge heykelleri, lahitler ve Bizans ikonalarının hepsi içeridedir. Sonrasında bir Kaleiçi kafesine sığının; eski kentin dar sokakları rüzgârı keser ve restoranlar sıcak çorbalar ile yerel yemekler sunar."
+      },
+      {
+        "type": "routelinks",
+        "text": "Havalimanından otelinize araç başı sabit fiyat, gece ya da gündüz:",
+        "routes": [
+          "antalya",
+          "belek",
+          "kemer",
+          "side"
+        ],
+        "button": "Sabit fiyatı görün"
+      },
+      {
+        "type": "h2",
+        "text": "Hava açınca hızlı davranın"
+      },
+      {
+        "type": "p",
+        "text": "Antalya'da yağmur genellikle ardında aydınlık, temiz bir hava bırakır; Düden ve Kurşunlu şelaleleri de sonraki günlerde en güçlü hâlindedir. İlk kuru öğleden sonra için bir açık hava durağını yedekte tutun."
+      },
+      {
+        "type": "h2",
+        "text": "Pratik ipuçları"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Duraklar arasında taksi ya da özel şoför kullanın: Kaleiçi'nin kaldırım taşları ıslakken kaygandır ve kısa bir yolculuk sizi kuru tutar.",
+          "Müze saatleri kışın daha kısadır ve değişebilir; gün içinde teyit edin.",
+          "Akşam saatleri için hamamı önceden ayırtın; bazıları erken kapanır.",
+          "Yanınızda şemsiye ve ince bir yağmurluk bulundurun; yağmur çoğu zaman ılıktır ama rüzgâr serindir."
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Islak bir akşam geliyorsanız, uçuş numaranızı takip eden önceden ayarlanmış karşılama, yağmurda taksi kuyruğunda beklemenizi önler. Uçuşunuzu ve otelinizi bize yazın; sabit fiyatı teyit edelim."
+      }
+    ],
+    "faq": [
+      [
+        "Antalya'da kışın çok yağmur yağar mı?",
+        "Aralık ve Ocak en yağışlı aylardır; ancak yağmur genellikle bütün hafta değil, güneşli günler arasında sağanaklar hâlinde yağar."
+      ],
+      [
+        "Antalya'da en iyi kapalı etkinlik nedir?",
+        "Antalya Müzesi en güçlü seçenektir; Perge'den heykeller ve büyük bir Roma koleksiyonu vardır."
+      ],
+      [
+        "Hamamlar kışın açık mı?",
+        "Evet, şehirdeki hamamların çoğu yıl boyu açıktır. Otelinizden öneri isteyin ve çalışma saatlerini kontrol edin."
+      ],
+      [
+        "Çocuklar için kapalı yapılacak şeyler var mı?",
+        "Evet: akvaryum, oyun alanlı alışveriş merkezleri ve açık tesislerdeki otellerin kapalı havuzları."
+      ],
+      [
+        "Şiddetli yağmurda da havalimanı transferi alabilir miyim?",
+        "Evet. Transferler yıl boyu araç başı aynı sabit fiyatla çalışır ve şoförünüz uçuşunuzu takip eder."
+      ]
+    ]
+  },
+  "antalya-3-day-winter-itinerary": {
+    "slug": "kisin-antalya-3-gunluk-gezi-plani",
+    "title": "Kışın Antalya'da 3 Gün: Özel Şoförle Pratik Gezi Planı",
+    "heading": "Kışın Antalya'da üç gün: havaya uygun bir gezi planı",
+    "description": "Antalya için üç günlük kış planı: Kaleiçi ve müze, Perge ile Aspendos, ardından Termessos veya şelaleler. Yol süreleri, yedek planlar ve özel şoförün nasıl kullanılacağı.",
+    "excerpt": "Antalya'da havaya göre planlanmış üç kış günü: bir şehir günü, bir antik kentler günü ve bir dağ ya da şelale günü; her yağmurlu sabah için bir yedek planla.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Havaya göre planlarsanız, üç gün Antalya'nın kıştaki en iyi yerlerini görmek için yeterlidir. Aşağıdaki plan şehri, antik kentleri ve dağları ayrı günlere koyar; böylece yağmurlu bir sabah gezinizi bozmak yerine yalnızca bir durağı kaydırır. Yol süreleri yaklaşıktır ve gündüz trafiğine göre verilmiştir."
+      },
+      {
+        "type": "h2",
+        "text": "Bir bakışta plan"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Gün",
+          "Sabah",
+          "Öğleden sonra",
+          "Yağmur yedeği"
+        ],
+        "rows": [
+          [
+            "1. gün: şehir",
+            "Kaleiçi, Hadrian Kapısı, eski liman",
+            "Antalya Müzesi",
+            "Sırayı değiştirin: önce müze, sonra Kaleiçi kafeleri"
+          ],
+          [
+            "2. gün: antik kentler",
+            "Perge (yaklaşık 20 dakika)",
+            "Aspendos (yaklaşık 45 dakika)",
+            "Hafif yağmurda ikisi de keyiflidir; yağmurluk alın"
+          ],
+          [
+            "3. gün: dağ ya da şelaleler",
+            "Termessos (yaklaşık 45 dakika)",
+            "Düden ve Kurşunlu şelaleleri",
+            "Termessos yerine Karain Mağarası ve şelaleler"
+          ]
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "1. gün: surlarla çevrili eski kent ve müze"
+      },
+      {
+        "type": "p",
+        "text": "Sokaklar sessizken Kaleiçi'nde başlayın: Hadrian Kapısı, Yivli Minare, Osmanlı evleri ve eski liman. Öğle yemeğinden sonra Perge heykellerinin bulunduğu Antalya Müzesi'nde iki üç saat geçirin. Akşam iniyorsanız 1. günü hafif tutun ve müzeyi 3. güne ekleyin."
+      },
+      {
+        "type": "h2",
+        "text": "2. gün: Perge ve Aspendos"
+      },
+      {
+        "type": "p",
+        "text": "Perge'nin stadyumu ile sütunlu caddesi ve Aspendos'un Roma tiyatrosu, Anadolu'nun en iyi korunmuş alanlarındandır. İkisi de şehrin doğusunda, havalimanı yoluna yakındır ve kışın çok az ziyaretçiyle paylaşırsınız. 9:00 civarı yola çıkarsanız akşam yemeğine Kaleiçi'nde yetişebilirsiniz."
+      },
+      {
+        "type": "routelinks",
+        "text": "Şehir dışında mı kalıyorsunuz? Havalimanından tesisinize araç başı sabit fiyat:",
+        "routes": [
+          "antalya",
+          "belek",
+          "side",
+          "alanya"
+        ],
+        "button": "Sabit fiyatı görün"
+      },
+      {
+        "type": "h2",
+        "text": "3. gün: Termessos veya şelaleler"
+      },
+      {
+        "type": "p",
+        "text": "Kuru bir günde tiyatro ve dağ manzarası için Termessos'a çıkın; kıyıdan daha soğuktur, bu yüzden kat kat giyinin. Tahmin kötüyse Düden ve Kurşunlu şelaleleri iyi bir alternatiftir, çünkü yağmurdan sonra en güçlü akarlar. Karain Mağarası her iki seçenekle de uyum sağlar."
+      },
+      {
+        "type": "h2",
+        "text": "Gezi nasıl uzatılır?"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Demre, Myra ve Noel Baba Kilisesi için dördüncü bir gün ekleyin; tek yön yaklaşık 2 saat 15 dakikadır.",
+          "Çok uzun bir gün geçirmeden travertenleri görmek isterseniz Pamukkale'yi konaklamalı gezi olarak ekleyin.",
+          "Belek veya Side'den Perge ile Aspendos yerine Side antik kentinde bir gün geçirebilirsiniz.",
+          "Kayak yapıyorsanız, kar olduğunda Ocak-Mart arasında Saklıkent 3. günün yerini alabilir."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Özel şoför neden kışa uygun?"
+      },
+      {
+        "type": "p",
+        "text": "Kışın kalıntılara toplu taşıma sınırlıdır ve gün ışığı kısadır. Özel araçla hava açınca yola çıkabilir, günlerin sırasını değiştirebilir ve bilet kaybetmeden bir durağı atlayabilirsiniz. Fiyat araç başına sabittir; bu yüzden bir aile ya da grup çoğu zaman grup turlarındaki koltuk ücretlerine yakın bir tutar öder. Tarihlerinizi, otelinizi ve uçuş numaralarınızı bize gönderin; planı ve fiyatı teyit edelim."
+      }
+    ],
+    "faq": [
+      [
+        "Kışın Antalya için üç gün yeterli mi?",
+        "Evet; şehir, Perge, Aspendos ve Termessos ya da şelaleler için yeterlidir. Demre veya Pamukkale için dördüncü bir gün ekleyin."
+      ],
+      [
+        "Yağmur yağarsa ne yapmalıyım?",
+        "Günün sırasını değiştirin: önce müze ve Kaleiçi kafelerini yapın, açık hava duraklarını kuru saatlere kaydırın. Perge, Aspendos ve şelaleler hafif yağmurda da keyiflidir."
+      ],
+      [
+        "Havalimanı transferi plana dâhil edilebilir mi?",
+        "Evet. Uçuşunuzu ve görmek istediğiniz ilk alanı bize yazın; karşılamayı buna göre planlayabiliriz."
+      ],
+      [
+        "Bu plan için araca ihtiyacım var mı?",
+        "Kışın antik alanlara toplu taşıma sınırlı olduğundan özel araç en kolay seçenektir."
+      ],
+      [
+        "Bu plan ailelere uygun mu?",
+        "Evet. Mesafeler kısadır ve her günün yağışlı hava için kapalı bir yedek seçeneği vardır."
+      ]
+    ]
   }
 };

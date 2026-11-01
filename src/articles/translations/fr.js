@@ -3353,5 +3353,399 @@ export const articles = {
         "Dans la plupart des cas, oui. Indiquez-nous votre numéro de vol et votre hôtel à la réservation, et nous confirmerons l'arrêt et le prix."
       ]
     ]
+  },
+  "olympos-chimera-phaselis-winter": {
+    "slug": "olympos-chimere-phaselis-en-hiver",
+    "title": "Olympos, la Chimère et Phaselis en hiver : excursion d'une journée depuis Antalya",
+    "heading": "Olympos, les flammes de la Chimère et Phasélis : une journée d'hiver sur la côte lycienne",
+    "description": "Organiser une excursion d'hiver depuis Antalya vers Phaselis, Olympos et les flammes de la Chimère à Çıralı : itinéraire, temps de trajet, tenue, meilleur moment et retour en sécurité.",
+    "excerpt": "Forêt de pins, ports tranquilles, ruines dans les bois et une colline qui brûle la nuit. Voici comment réunir Phaselis, Olympos et les flammes de la Chimère en une journée d'hiver depuis Antalya.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "La côte lycienne, au sud-ouest d'Antalya, est à son meilleur quand la foule de l'été est partie. De décembre à février, les forêts de pins sont vertes, la mer est limpide et les sites antiques presque déserts. Phaselis, Olympos et les flammes de la Chimère sont proches les uns des autres et composent l'une des excursions les plus variées de la région."
+      },
+      {
+        "type": "h2",
+        "text": "L'itinéraire et les temps de trajet"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Étape",
+          "Trajet depuis Antalya",
+          "Temps à prévoir",
+          "Remarque d'hiver"
+        ],
+        "rows": [
+          [
+            "Phaselis",
+            "environ 1 h",
+            "1 h 30 à 2 h",
+            "Trois ports dans une forêt de pins ; les sentiers peuvent être humides"
+          ],
+          [
+            "Olympos",
+            "environ 1 h 15",
+            "1 h 30 à 2 h",
+            "Ruines parmi les arbres le long d'un ruisseau ; chaussures à bonne adhérence conseillées"
+          ],
+          [
+            "Çıralı et les flammes de la Chimère",
+            "environ 1 h 20",
+            "1 h à 1 h 30",
+            "À voir de préférence au crépuscule ; la montée se fait par un sentier raide"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Phaselis est le site le plus proche de Kemer : pour les voyageurs logés à Kemer ou à Tekirova, c'est un court trajet. Olympos et Çıralı se trouvent plus loin sur la même route, à environ 15-20 minutes après l'embranchement de Phaselis."
+      },
+      {
+        "type": "routelinks",
+        "text": "Vous logez sur cette portion de côte ? Prix fixe par véhicule depuis l'aéroport :",
+        "routes": [
+          "kemer",
+          "tekirova",
+          "antalya",
+          "kumluca"
+        ],
+        "button": "Voir votre prix fixe"
+      },
+      {
+        "type": "h2",
+        "text": "Phaselis : trois ports au milieu des pins"
+      },
+      {
+        "type": "p",
+        "text": "Phaselis était un port de commerce fondé sur une petite péninsule, avec un port de chaque côté. Aujourd'hui, la grande rue dallée, l'aqueduc et les murs des ports se dressent parmi les pins, au bord de l'eau. En hiver, la plage est vide et la lumière à travers les arbres est douce : c'est une bonne première étape le matin."
+      },
+      {
+        "type": "h2",
+        "text": "Olympos et Çıralı"
+      },
+      {
+        "type": "p",
+        "text": "Les ruines d'Olympos s'étendent le long d'un ruisseau qui rejoint une plage de galets, cachées par les lauriers, les figuiers et les pins. Tombeaux, théâtre et pans de muraille sont dispersés dans la végétation. Prévoyez du temps pour marcher lentement : en hiver, le ruisseau peut être gonflé et les sentiers boueux après la pluie."
+      },
+      {
+        "type": "h2",
+        "text": "Les flammes de la Chimère"
+      },
+      {
+        "type": "p",
+        "text": "Yanartaş, la Chimère, est une colline au-dessus de Çıralı où du gaz naturel brûle à travers les fissures de la roche. Les flammes se voient de jour, mais elles sont bien plus saisissantes au crépuscule ou la nuit. Le sentier est raide et irrégulier : apportez une lampe torche et des chaussures solides, et vérifiez le jour même les horaires d'ouverture et le prix d'entrée en vigueur."
+      },
+      {
+        "type": "h2",
+        "text": "Organiser la journée en sécurité"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Partez avant 9 h pour arriver à la Chimère vers le crépuscule ; en hiver, le soleil se couche tôt, vers 17 h 30 en décembre.",
+          "Consultez la météo : la pluie rend les sentiers glissants et la montée vers la Chimère désagréable.",
+          "Prenez des couches de vêtements, une veste imperméable et une lampe torche pour la descente à la nuit tombée.",
+          "Les cafés de Çıralı peuvent être fermés en hiver ; emportez de l'eau et de quoi grignoter.",
+          "Un chauffeur privé peut vous attendre et vous ramener, ce qui évite un retour tardif en transports en commun sur la route côtière sinueuse."
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Indiquez-nous votre hôtel, le nombre de personnes et l'heure de départ souhaitée, et nous vous confirmerons le prix et les étapes de votre journée."
+      }
+    ],
+    "faq": [
+      [
+        "Phaselis est-il ouvert en hiver ?",
+        "Oui, le site est ouvert toute l'année, mais les horaires d'ouverture peuvent changer en hiver. Vérifiez le jour même avant de partir."
+      ],
+      [
+        "Les flammes de la Chimère sont-elles visibles en hiver ?",
+        "Oui. Les flammes brûlent toute l'année et se voient surtout au crépuscule et la nuit."
+      ],
+      [
+        "À quelle distance d'Antalya se trouvent Olympos et Çıralı ?",
+        "À environ 1 h 15 à 1 h 20 en voiture, avec une route côtière sinueuse sur une grande partie du trajet."
+      ],
+      [
+        "Peut-on faire les trois étapes en une journée ?",
+        "Oui, en partant tôt. Comptez environ 8 à 9 heures, trajets et pause déjeuner compris."
+      ],
+      [
+        "L'excursion convient-elle aux enfants ?",
+        "Phaselis et Olympos sont faciles pour la plupart des enfants. La montée vers la Chimère est raide et convient mieux aux plus grands, avec une lampe torche à la nuit tombée."
+      ]
+    ]
+  },
+  "antalya-rainy-day-things-to-do": {
+    "slug": "antalya-jour-de-pluie-que-faire",
+    "title": "Antalya sous la pluie : 8 idées de sorties quand le temps tourne",
+    "heading": "Jour de pluie à Antalya : que faire à l'intérieur ou à l'abri en hiver",
+    "description": "Que faire à Antalya un jour de pluie en hiver : musée archéologique, cafés de Kaleiçi, hammam, grotte de Karain, aquarium et shopping, avec distances et conseils pratiques.",
+    "excerpt": "La pluie hivernale d'Antalya vient par averses, pas pendant des jours. Voici où aller quand elle tombe : musées, hammams, grottes, marchés couverts et cafés chauds, et comment passer de l'un à l'autre.",
+    "readingMinutes": 5,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "À Antalya, l'hiver est surtout ensoleillé, mais décembre et janvier apportent de la pluie, parfois forte, généralement par épisodes d'un ou deux jours. Une journée de pluie n'est pas forcément perdue. La ville compte assez de musées, d'espaces couverts et de cafés chaleureux pour l'occuper, et la plupart sont proches les uns des autres."
+      },
+      {
+        "type": "h2",
+        "text": "Huit idées pour un jour de pluie"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Lieu",
+          "Type",
+          "Distance du centre",
+          "Pourquoi y aller"
+        ],
+        "rows": [
+          [
+            "Musée d'Antalya",
+            "Musée archéologique",
+            "environ 10 minutes",
+            "Statues de Pergé et grande collection romaine"
+          ],
+          [
+            "Cafés et boutiques de Kaleiçi",
+            "Vieille ville",
+            "dans le centre",
+            "Cafés chaleureux dans des maisons ottomanes ; nombreuses ruelles couvertes"
+          ],
+          [
+            "Bain turc (hammam)",
+            "Spa",
+            "variable, 10 à 30 minutes",
+            "Gommage traditionnel et massage"
+          ],
+          [
+            "Grotte de Karain",
+            "Grotte préhistorique",
+            "environ 30 minutes",
+            "L'un des plus anciens habitats d'Anatolie, en partie abrité"
+          ],
+          [
+            "Aquarium",
+            "Attraction familiale",
+            "environ 15 minutes",
+            "Tunnel intérieur et expositions pour les enfants"
+          ],
+          [
+            "Centres commerciaux",
+            "Shopping",
+            "10 à 20 minutes",
+            "Cinémas, restaurants et aires de jeux"
+          ],
+          [
+            "Spa et piscine intérieure d'hôtel",
+            "Bien-être",
+            "à votre hôtel",
+            "Piscines chauffées, sauna et soins dans les hôtels ouverts"
+          ],
+          [
+            "Cours de cuisine turque",
+            "Atelier",
+            "centre-ville",
+            "Cours pratiques de plats locaux"
+          ]
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "D'abord le musée, puis le déjeuner à Kaleiçi"
+      },
+      {
+        "type": "p",
+        "text": "Le musée d'Antalya est le meilleur choix par temps humide. Prévoyez deux à trois heures : les statues de Pergé, les sarcophages et les icônes byzantines sont tous à l'intérieur. Ensuite, mettez-vous à l'abri dans un café de Kaleiçi ; les ruelles étroites de la vieille ville coupent le vent et les restaurants servent des soupes chaudes et des plats locaux."
+      },
+      {
+        "type": "routelinks",
+        "text": "Prix fixe par véhicule de l'aéroport à votre hôtel, de jour comme de nuit :",
+        "routes": [
+          "antalya",
+          "belek",
+          "kemer",
+          "side"
+        ],
+        "button": "Voir votre prix fixe"
+      },
+      {
+        "type": "h2",
+        "text": "Dès que le ciel se dégage, profitez-en"
+      },
+      {
+        "type": "p",
+        "text": "À Antalya, la pluie laisse souvent derrière elle un air clair et lumineux, et les cascades de Düden et de Kurşunlu sont à leur plus fort dans les jours qui suivent. Gardez une étape en extérieur en réserve pour le premier après-midi sec."
+      },
+      {
+        "type": "h2",
+        "text": "Conseils pratiques"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Prenez un taxi ou un chauffeur privé entre les étapes : les pavés de Kaleiçi sont glissants sous la pluie et un court trajet vous garde au sec.",
+          "Les horaires des musées sont plus courts en hiver et peuvent changer ; vérifiez le jour même.",
+          "Réservez le hammam à l'avance pour les soirées ; certains ferment tôt.",
+          "Prévoyez un parapluie et un imperméable léger ; la pluie est souvent tiède, mais le vent est frais."
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Si vous arrivez un soir de pluie, un transfert réservé à l'avance, qui suit votre numéro de vol, vous évite de faire la queue pour un taxi sous la pluie. Indiquez-nous votre vol et votre hôtel, et nous vous confirmerons le prix fixe."
+      }
+    ],
+    "faq": [
+      [
+        "Pleut-il beaucoup à Antalya en hiver ?",
+        "Décembre et janvier sont les mois les plus pluvieux, mais la pluie tombe en général par averses entre des journées ensoleillées, rarement pendant une semaine entière."
+      ],
+      [
+        "Quelle est la meilleure activité en intérieur à Antalya ?",
+        "Le musée d'Antalya est le meilleur choix, avec ses statues de Pergé et sa grande collection romaine."
+      ],
+      [
+        "Les bains turcs sont-ils ouverts en hiver ?",
+        "Oui, la plupart des hammams de la ville restent ouverts toute l'année. Demandez conseil à votre hôtel et vérifiez les horaires."
+      ],
+      [
+        "Y a-t-il des activités en intérieur pour les enfants ?",
+        "Oui : l'aquarium, les centres commerciaux avec aires de jeux et les piscines intérieures des hôtels ouverts."
+      ],
+      [
+        "Peut-on encore avoir un transfert aéroport sous une forte pluie ?",
+        "Oui. Les transferts circulent toute l'année au même prix fixe par véhicule, et votre chauffeur suit votre vol."
+      ]
+    ]
+  },
+  "antalya-3-day-winter-itinerary": {
+    "slug": "antalya-3-jours-en-hiver-itineraire",
+    "title": "3 jours à Antalya en hiver : un itinéraire pratique avec chauffeur privé",
+    "heading": "Trois jours à Antalya en hiver : un itinéraire adapté à la météo",
+    "description": "Itinéraire de trois jours à Antalya en hiver : Kaleiçi et le musée, Pergé et Aspendos, puis Termessos ou les cascades. Temps de trajet, plans de secours et usage d'un chauffeur privé.",
+    "excerpt": "Trois jours d'hiver à Antalya, pensés selon la météo : une journée en ville, une journée de sites antiques et une journée montagne ou cascades, avec une solution de repli pour chaque matinée pluvieuse.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Trois jours suffisent pour voir le meilleur d'Antalya en hiver, à condition de planifier selon la météo. L'itinéraire ci-dessous sépare la ville, les sites antiques et la montagne en journées distinctes : une matinée pluvieuse ne déplace qu'une étape au lieu de gâcher le séjour. Les temps de trajet sont approximatifs et supposent une circulation de jour."
+      },
+      {
+        "type": "h2",
+        "text": "Le programme en un coup d'œil"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Jour",
+          "Matin",
+          "Après-midi",
+          "Plan B en cas de pluie"
+        ],
+        "rows": [
+          [
+            "Jour 1 : la ville",
+            "Kaleiçi, porte d'Hadrien, ancien port",
+            "Musée d'Antalya",
+            "Inversez l'ordre : musée d'abord, cafés de Kaleiçi ensuite"
+          ],
+          [
+            "Jour 2 : sites antiques",
+            "Pergé (environ 20 minutes)",
+            "Aspendos (environ 45 minutes)",
+            "Les deux se visitent volontiers sous une pluie légère ; prenez une veste imperméable"
+          ],
+          [
+            "Jour 3 : montagne ou cascades",
+            "Termessos (environ 45 minutes)",
+            "Cascades de Düden et de Kurşunlu",
+            "Remplacez Termessos par la grotte de Karain et les cascades"
+          ]
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Jour 1 : la vieille ville fortifiée et le musée"
+      },
+      {
+        "type": "p",
+        "text": "Commencez par Kaleiçi tant que les rues sont calmes : la porte d'Hadrien, le minaret Yivli, les maisons ottomanes et l'ancien port. Après le déjeuner, consacrez deux à trois heures au musée d'Antalya, qui abrite les statues de Pergé. Si vous atterrissez le soir, gardez un premier jour léger et reportez le musée au jour 3."
+      },
+      {
+        "type": "h2",
+        "text": "Jour 2 : Pergé et Aspendos"
+      },
+      {
+        "type": "p",
+        "text": "Le stade et la rue à colonnades de Pergé, ainsi que le théâtre romain d'Aspendos, comptent parmi les sites les mieux conservés d'Anatolie. Tous deux se trouvent à l'est de la ville, près de la route de l'aéroport, et vous les partagez avec très peu de visiteurs en hiver. Partez vers 9 h et vous serez de retour pour dîner à Kaleiçi."
+      },
+      {
+        "type": "routelinks",
+        "text": "Vous logez hors de la ville ? Prix fixe par véhicule de l'aéroport à votre station :",
+        "routes": [
+          "antalya",
+          "belek",
+          "side",
+          "alanya"
+        ],
+        "button": "Voir votre prix fixe"
+      },
+      {
+        "type": "h2",
+        "text": "Jour 3 : Termessos ou les cascades"
+      },
+      {
+        "type": "p",
+        "text": "Par temps sec, montez à Termessos pour le théâtre et la vue sur les montagnes ; il y fait plus froid que sur la côte, habillez-vous donc en couches. Si la météo est mauvaise, les cascades de Düden et de Kurşunlu font une bonne alternative, car elles sont à leur plus fort après la pluie. La grotte de Karain convient dans les deux cas."
+      },
+      {
+        "type": "h2",
+        "text": "Prolonger le séjour"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Ajoutez un quatrième jour pour Demre, Myra et l'église Saint-Nicolas, à environ 2 h 15 de trajet dans chaque sens.",
+          "Ajoutez Pamukkale en séjour d'une nuit si vous voulez voir les travertins sans une journée trop longue.",
+          "Depuis Belek ou Side, remplacez Pergé et Aspendos par une journée dans la cité antique de Side.",
+          "Si vous skiez, Saklıkent peut remplacer le jour 3 de janvier à mars quand il y a de la neige."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Pourquoi un chauffeur privé convient à l'hiver"
+      },
+      {
+        "type": "p",
+        "text": "En hiver, les transports publics vers les sites antiques sont limités et le jour est court. Un véhicule privé vous permet de partir quand le temps se dégage, de changer l'ordre des journées et de sauter une étape sans perdre un billet. Le prix est fixe par véhicule : une famille ou un groupe paie donc souvent à peu près autant que des places en excursion collective. Envoyez-nous vos dates, votre hôtel et vos numéros de vol, et nous vous confirmerons le programme et le prix."
+      }
+    ],
+    "faq": [
+      [
+        "Trois jours suffisent-ils pour Antalya en hiver ?",
+        "Oui, pour la ville, Pergé, Aspendos et soit Termessos, soit les cascades. Ajoutez un quatrième jour pour Demre ou Pamukkale."
+      ],
+      [
+        "Que faire s'il pleut ?",
+        "Inversez l'ordre de la journée : musée et cafés de Kaleiçi d'abord, puis les étapes en extérieur aux heures sèches. Pergé, Aspendos et les cascades se visitent volontiers sous une pluie légère."
+      ],
+      [
+        "Le transfert aéroport peut-il s'intégrer à l'itinéraire ?",
+        "Oui. Indiquez-nous votre vol et le premier site que vous souhaitez voir, et nous pouvons organiser la prise en charge en conséquence."
+      ],
+      [
+        "Faut-il une voiture pour suivre cet itinéraire ?",
+        "Un véhicule privé est la solution la plus simple, car les transports publics vers les sites antiques sont limités en hiver."
+      ],
+      [
+        "Cet itinéraire convient-il aux familles ?",
+        "Oui. Les distances sont courtes et chaque journée comporte une solution de repli en intérieur par temps humide."
+      ]
+    ]
   }
 };

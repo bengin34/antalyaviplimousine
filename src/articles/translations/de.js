@@ -3669,5 +3669,399 @@ export const articles = {
         "In den meisten Fällen ja. Nennen Sie uns bei der Buchung Flugnummer und Hotel, dann bestätigen wir Halt und Preis."
       ]
     ]
+  },
+  "olympos-chimera-phaselis-winter": {
+    "slug": "olympos-chimaira-phaselis-im-winter",
+    "title": "Olympos, Chimaira und Phaselis im Winter: Tagesausflug ab Antalya",
+    "heading": "Olympos, die Flammen der Chimaira und Phaselis: ein Wintertagesausflug entlang der lykischen Küste",
+    "description": "Wintertagesausflug von Antalya nach Phaselis, Olympos und zu den Chimaira-Flammen bei Çıralı: Route, Fahrzeiten, passende Kleidung, beste Tageszeit und sichere Rückfahrt.",
+    "excerpt": "Pinienwald, stille Häfen, Ruinen im Wald und ein Hang, der nachts brennt. So passen Phaselis, Olympos und die Chimaira-Flammen in einen Wintertag ab Antalya.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Die lykische Küste südwestlich von Antalya ist am schönsten, wenn die Sommermassen weg sind. Zwischen Dezember und Februar sind die Pinienwälder grün, das Meer ist klar und die antiken Stätten sind fast leer. Phaselis, Olympos und die Chimaira-Flammen liegen nah beieinander und ergeben einen der abwechslungsreichsten Tagesausflüge der Region."
+      },
+      {
+        "type": "h2",
+        "text": "Route und Fahrzeiten"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Station",
+          "Fahrt ab Antalya",
+          "Einzuplanende Zeit",
+          "Winterhinweis"
+        ],
+        "rows": [
+          [
+            "Phaselis",
+            "etwa 1 Stunde",
+            "1,5-2 Stunden",
+            "Drei Häfen im Pinienwald; Wege können feucht sein"
+          ],
+          [
+            "Olympos",
+            "etwa 1 Stunde 15 Minuten",
+            "1,5-2 Stunden",
+            "Ruinen zwischen Bäumen entlang eines Bachs; Schuhe mit gutem Profil tragen"
+          ],
+          [
+            "Çıralı und die Chimaira-Flammen",
+            "etwa 1 Stunde 20 Minuten",
+            "1-1,5 Stunden",
+            "Am schönsten in der Dämmerung; der Aufstieg führt über einen steilen Pfad"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Phaselis liegt am nächsten an Kemer, für Gäste in Kemer oder Tekirova ist es also nur ein kurzer Weg. Olympos und Çıralı liegen weiter südlich an derselben Küstenstraße, etwa 15-20 Minuten hinter der Abzweigung nach Phaselis."
+      },
+      {
+        "type": "routelinks",
+        "text": "Sie wohnen an diesem Küstenabschnitt? Festpreis pro Fahrzeug ab dem Flughafen:",
+        "routes": [
+          "kemer",
+          "tekirova",
+          "antalya",
+          "kumluca"
+        ],
+        "button": "Festpreis prüfen"
+      },
+      {
+        "type": "h2",
+        "text": "Phaselis: drei Häfen in den Pinien"
+      },
+      {
+        "type": "p",
+        "text": "Phaselis war ein Handelshafen auf einer kleinen Halbinsel mit je einem Hafen an beiden Seiten. Heute stehen die gepflasterte Hauptstraße, das Aquädukt und die Hafenmauern zwischen Pinien am Wasser. Im Winter ist der Strand leer und das Licht zwischen den Bäumen weich, ideal als erster Halt am Morgen."
+      },
+      {
+        "type": "h2",
+        "text": "Olympos und Çıralı"
+      },
+      {
+        "type": "p",
+        "text": "Die Ruinen von Olympos liegen entlang eines Bachs, der zu einem Kieselstrand fließt, versteckt hinter Lorbeer, Feigen und Pinien. Gräber, ein Theater und Mauerabschnitte verteilen sich im Grün. Planen Sie Zeit für einen gemütlichen Spaziergang ein; im Winter kann der Bach viel Wasser führen, und nach Regen sind die Wege matschig."
+      },
+      {
+        "type": "h2",
+        "text": "Die Chimaira-Flammen"
+      },
+      {
+        "type": "p",
+        "text": "Yanartaş, die Chimaira, ist ein Hang oberhalb von Çıralı, an dem Erdgas aus Felsspalten brennt. Die Flammen sind tagsüber zu sehen, wirken aber in der Dämmerung oder nach Einbruch der Dunkelheit viel eindrucksvoller. Der Pfad ist steil und uneben, nehmen Sie also eine Taschenlampe und feste Schuhe mit und bestätigen Sie die aktuellen Öffnungszeiten und den Eintrittspreis am Tag selbst."
+      },
+      {
+        "type": "h2",
+        "text": "Den Tag sicher planen"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Starten Sie bis 9:00 Uhr, damit Sie die Chimaira um die Dämmerung erreichen; der Sonnenuntergang ist im Winter früh, im Dezember gegen 17:30 Uhr.",
+          "Prüfen Sie die Wettervorhersage: Bei Regen sind die Wege rutschig und der Aufstieg zur Chimaira unangenehm.",
+          "Nehmen Sie Kleidung zum Schichten, eine wasserdichte Jacke und eine Taschenlampe für den Abstieg im Dunkeln mit.",
+          "Cafés in Çıralı können im Winter geschlossen sein; nehmen Sie Wasser und einen Snack mit.",
+          "Ein privater Fahrer kann warten und Sie zurückbringen, so vermeiden Sie mit öffentlichen Verkehrsmitteln eine späte Rückkehr auf der kurvigen Küstenstraße."
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Nennen Sie uns Ihr Hotel, die Personenzahl und die gewünschte Startzeit, dann bestätigen wir Ihnen Preis und Stationen für Ihren Tag."
+      }
+    ],
+    "faq": [
+      [
+        "Ist Phaselis im Winter geöffnet?",
+        "Ja, die Stätte ist das ganze Jahr geöffnet, doch die Öffnungszeiten können sich im Winter ändern. Bestätigen Sie sie am Reisetag vor der Abfahrt."
+      ],
+      [
+        "Sind die Chimaira-Flammen im Winter zu sehen?",
+        "Ja. Die Flammen brennen das ganze Jahr und sind in der Dämmerung und nach Einbruch der Dunkelheit am besten zu sehen."
+      ],
+      [
+        "Wie weit sind Olympos und Çıralı von Antalya entfernt?",
+        "Etwa 1 Stunde 15 Minuten bis 1 Stunde 20 Minuten mit dem Auto, ein großer Teil der Strecke führt über eine kurvige Küstenstraße."
+      ],
+      [
+        "Kann ich alle drei Orte an einem Tag besuchen?",
+        "Ja, bei frühem Start. Rechnen Sie mit etwa 8-9 Stunden inklusive Fahrten und Mittagspause."
+      ],
+      [
+        "Ist der Ausflug für Kinder geeignet?",
+        "Phaselis und Olympos sind für die meisten Kinder einfach. Der Aufstieg zur Chimaira ist steil und eher etwas für ältere Kinder, nach Einbruch der Dunkelheit mit Taschenlampe."
+      ]
+    ]
+  },
+  "antalya-rainy-day-things-to-do": {
+    "slug": "antalya-bei-regen-was-tun",
+    "title": "Antalya bei Regen: 8 Tipps, wenn das Wetter umschlägt",
+    "heading": "Regentag in Antalya: Unternehmungen drinnen und unter Dach im Winter",
+    "description": "Was tun in Antalya an einem regnerischen Wintertag: Archäologisches Museum, Cafés in Kaleiçi, türkisches Bad, Karain-Höhle, Aquarium und Shopping, mit Entfernungen und Tipps.",
+    "excerpt": "Winterregen in Antalya kommt in Schüben, nicht tagelang. Hier steht, wohin es geht, wenn er fällt: Museen, Hamams, Höhlen, überdachte Märkte und warme Cafés, und wie Sie dorthin kommen.",
+    "readingMinutes": 5,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Das Winterwetter in Antalya ist meist sonnig, doch Dezember und Januar bringen Regen, manchmal heftig, meist in Schüben von ein bis zwei Tagen. Ein nasser Tag muss kein verlorener Tag sein. Die Stadt hat genug Museen, überdachte Orte und warme Cafés, um ihn zu füllen, und die meisten liegen nur eine kurze Fahrt auseinander."
+      },
+      {
+        "type": "h2",
+        "text": "Acht Möglichkeiten für einen nassen Tag"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Ort",
+          "Art",
+          "Entfernung vom Zentrum",
+          "Warum hingehen"
+        ],
+        "rows": [
+          [
+            "Antalya-Museum",
+            "Archäologisches Museum",
+            "etwa 10 Minuten",
+            "Statuen aus Perge und eine große römische Sammlung"
+          ],
+          [
+            "Cafés und Läden in Kaleiçi",
+            "Altstadt",
+            "im Zentrum",
+            "Warme Cafés in osmanischen Häusern; viele überdachte Gassen"
+          ],
+          [
+            "Türkisches Bad (Hamam)",
+            "Spa",
+            "unterschiedlich, 10-30 Minuten",
+            "Traditionelle Waschung und Massage"
+          ],
+          [
+            "Karain-Höhle",
+            "Vorgeschichtliche Höhle",
+            "etwa 30 Minuten",
+            "Eine der ältesten Siedlungen Anatoliens, teilweise geschützt"
+          ],
+          [
+            "Aquarium",
+            "Familienattraktion",
+            "etwa 15 Minuten",
+            "Tunnel und Ausstellungen für Kinder, drinnen"
+          ],
+          [
+            "Einkaufszentren",
+            "Shopping",
+            "10-20 Minuten",
+            "Kinos, Restaurants und Spielbereiche"
+          ],
+          [
+            "Hotel-Spa und Hallenbad",
+            "Wellness",
+            "in Ihrem Hotel",
+            "Beheizte Pools, Sauna und Anwendungen in geöffneten Hotels"
+          ],
+          [
+            "Türkischer Kochkurs",
+            "Workshop",
+            "Stadtzentrum",
+            "Praktische Lektionen zu lokalen Gerichten"
+          ]
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Erst das Museum, dann Mittagessen in Kaleiçi"
+      },
+      {
+        "type": "p",
+        "text": "Das Antalya-Museum ist die beste Wahl bei schlechtem Wetter. Planen Sie zwei bis drei Stunden ein: Die Statuen aus Perge, die Sarkophage und die byzantinischen Ikonen befinden sich alle drinnen. Danach finden Sie Unterschlupf in einem Café in Kaleiçi; die engen Gassen der Altstadt halten den Wind ab, und die Restaurants servieren heiße Suppen und lokale Gerichte."
+      },
+      {
+        "type": "routelinks",
+        "text": "Festpreis pro Fahrzeug vom Flughafen zu Ihrem Hotel, tags und nachts:",
+        "routes": [
+          "antalya",
+          "belek",
+          "kemer",
+          "side"
+        ],
+        "button": "Festpreis prüfen"
+      },
+      {
+        "type": "h2",
+        "text": "Wenn es aufklart, schnell handeln"
+      },
+      {
+        "type": "p",
+        "text": "Nach Regen bleibt in Antalya oft klare, helle Luft zurück, und die Düden- und Kurşunlu-Wasserfälle sind in den Tagen danach am stärksten. Heben Sie sich einen Programmpunkt im Freien für den ersten trockenen Nachmittag auf."
+      },
+      {
+        "type": "h2",
+        "text": "Praktische Tipps"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Nehmen Sie zwischen den Stationen ein Taxi oder einen privaten Fahrer: Das Kopfsteinpflaster in Kaleiçi ist bei Nässe rutschig, und eine kurze Fahrt hält Sie trocken.",
+          "Die Museumszeiten sind im Winter kürzer und können sich ändern, bestätigen Sie sie also am Tag selbst.",
+          "Buchen Sie ein Hamam für den Abend im Voraus; einige schließen früh.",
+          "Nehmen Sie einen Schirm und eine leichte Regenjacke mit; der Regen ist oft warm, doch der Wind kühl."
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Wenn Sie an einem nassen Abend ankommen, erspart Ihnen ein vorab gebuchter Abholservice mit Flugverfolgung die Taxischlange im Regen. Nennen Sie uns Flug und Hotel, dann bestätigen wir den Festpreis."
+      }
+    ],
+    "faq": [
+      [
+        "Regnet es in Antalya im Winter viel?",
+        "Dezember und Januar sind die regenreichsten Monate, doch der Regen fällt meist in Schüben zwischen sonnigen Tagen und nicht eine ganze Woche lang."
+      ],
+      [
+        "Was ist die beste Aktivität drinnen in Antalya?",
+        "Das Antalya-Museum ist die beste Wahl, mit Statuen aus Perge und einer großen römischen Sammlung."
+      ],
+      [
+        "Sind türkische Bäder im Winter geöffnet?",
+        "Ja, die meisten Hamams der Stadt sind das ganze Jahr geöffnet. Fragen Sie Ihr Hotel nach einer Empfehlung und prüfen Sie die Öffnungszeiten."
+      ],
+      [
+        "Gibt es drinnen etwas für Kinder?",
+        "Ja: das Aquarium, Einkaufszentren mit Spielbereichen und Hallenbäder in geöffneten Hotels."
+      ],
+      [
+        "Bekomme ich bei starkem Regen trotzdem einen Flughafentransfer?",
+        "Ja. Transfers fahren das ganze Jahr zum selben Festpreis pro Fahrzeug, und Ihr Fahrer verfolgt Ihren Flug."
+      ]
+    ]
+  },
+  "antalya-3-day-winter-itinerary": {
+    "slug": "antalya-im-winter-3-tage-reiseplan",
+    "title": "3 Tage in Antalya im Winter: praktischer Reiseplan mit privatem Fahrer",
+    "heading": "Drei Tage in Antalya im Winter: ein Reiseplan, der zum Wetter passt",
+    "description": "Dreitägiger Winterreiseplan für Antalya: Kaleiçi und Museum, Perge und Aspendos, dann Termessos oder die Wasserfälle. Fahrzeiten, Ausweichpläne und wie Sie einen privaten Fahrer nutzen.",
+    "excerpt": "Drei Wintertage in Antalya rund ums Wetter geplant: ein Stadttag, ein Tag antiker Stätten und ein Tag Berge oder Wasserfälle, mit Ausweichplan für jeden verregneten Morgen.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Drei Tage reichen, um das Beste von Antalya im Winter zu sehen, wenn Sie nach dem Wetter planen. Der Plan unten trennt Stadt, antike Stätten und Berge auf verschiedene Tage, sodass ein verregneter Morgen nur eine Station verschiebt, statt die Reise zu verderben. Die Fahrzeiten sind ungefähre Werte bei Tagesverkehr."
+      },
+      {
+        "type": "h2",
+        "text": "Der Plan im Überblick"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Tag",
+          "Vormittag",
+          "Nachmittag",
+          "Ausweichplan bei Regen"
+        ],
+        "rows": [
+          [
+            "Tag 1: die Stadt",
+            "Kaleiçi, Hadrianstor, alter Hafen",
+            "Antalya-Museum",
+            "Reihenfolge tauschen: erst das Museum, danach die Cafés in Kaleiçi"
+          ],
+          [
+            "Tag 2: antike Stätten",
+            "Perge (etwa 20 Minuten)",
+            "Aspendos (etwa 45 Minuten)",
+            "Beide sind auch bei leichtem Regen schön; nehmen Sie eine wasserdichte Jacke mit"
+          ],
+          [
+            "Tag 3: Berge oder Wasserfälle",
+            "Termessos (etwa 45 Minuten)",
+            "Düden- und Kurşunlu-Wasserfälle",
+            "Termessos durch die Karain-Höhle und die Wasserfälle ersetzen"
+          ]
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Tag 1: die ummauerte Altstadt und das Museum"
+      },
+      {
+        "type": "p",
+        "text": "Beginnen Sie in Kaleiçi, solange die Gassen ruhig sind: Hadrianstor, Yivli-Minarett, osmanische Häuser und der alte Hafen. Verbringen Sie nach dem Mittagessen zwei bis drei Stunden im Antalya-Museum, das die Statuen aus Perge beherbergt. Wenn Sie abends landen, halten Sie Tag 1 leicht und legen das Museum auf Tag 3."
+      },
+      {
+        "type": "h2",
+        "text": "Tag 2: Perge und Aspendos"
+      },
+      {
+        "type": "p",
+        "text": "Das Stadion und die Säulenstraße von Perge sowie das römische Theater von Aspendos gehören zu den am besten erhaltenen Stätten Anatoliens. Beide liegen östlich der Stadt, nahe der Flughafenstraße, und im Winter teilen Sie sie mit nur wenigen Besuchern. Fahren Sie gegen 9:00 Uhr los, dann sind Sie zum Abendessen in Kaleiçi zurück."
+      },
+      {
+        "type": "routelinks",
+        "text": "Sie wohnen außerhalb der Stadt? Festpreis pro Fahrzeug vom Flughafen zu Ihrem Resort:",
+        "routes": [
+          "antalya",
+          "belek",
+          "side",
+          "alanya"
+        ],
+        "button": "Festpreis prüfen"
+      },
+      {
+        "type": "h2",
+        "text": "Tag 3: Termessos oder die Wasserfälle"
+      },
+      {
+        "type": "p",
+        "text": "An einem trockenen Tag fahren Sie nach Termessos hinauf, wegen des Theaters und der Bergblicke; dort ist es kälter als an der Küste, ziehen Sie sich also in Schichten an. Bei schlechter Vorhersage sind die Düden- und Kurşunlu-Wasserfälle eine gute Alternative, denn sie führen nach Regen am meisten Wasser. Die Karain-Höhle passt zu beiden Varianten."
+      },
+      {
+        "type": "h2",
+        "text": "Die Reise verlängern"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Fügen Sie einen vierten Tag für Demre, Myra und die Nikolauskirche hinzu, etwa 2 Stunden 15 Minuten pro Strecke.",
+          "Fügen Sie Pamukkale als Übernachtungsausflug hinzu, wenn Sie die Travertine ohne einen sehr langen Tag sehen möchten.",
+          "Ab Belek oder Side können Sie Perge und Aspendos gegen einen Tag in der antiken Stadt Side tauschen.",
+          "Wenn Sie Ski fahren, kann Saklıkent von Januar bis März, wenn Schnee liegt, Tag 3 ersetzen."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Warum ein privater Fahrer im Winter passt"
+      },
+      {
+        "type": "p",
+        "text": "Öffentliche Verkehrsmittel zu den Ruinen sind im Winter begrenzt, und das Tageslicht ist kurz. Mit einem privaten Fahrzeug fahren Sie los, wenn das Wetter aufklart, ändern die Reihenfolge der Tage und lassen eine Station aus, ohne ein Ticket zu verlieren. Der Preis gilt pro Fahrzeug, daher zahlt eine Familie oder Gruppe oft etwa so viel wie für Plätze bei Gruppentouren. Senden Sie uns Ihre Reisedaten, Ihr Hotel und die Flugnummern, dann bestätigen wir Plan und Preis."
+      }
+    ],
+    "faq": [
+      [
+        "Reichen drei Tage für Antalya im Winter?",
+        "Ja, für die Stadt, Perge, Aspendos und entweder Termessos oder die Wasserfälle. Fügen Sie einen vierten Tag für Demre oder Pamukkale hinzu."
+      ],
+      [
+        "Was tun, wenn es regnet?",
+        "Tauschen Sie die Reihenfolge des Tages: erst das Museum und die Cafés in Kaleiçi, die Stationen im Freien in die trockenen Stunden verlegen. Perge, Aspendos und die Wasserfälle sind auch bei leichtem Regen schön."
+      ],
+      [
+        "Kann der Flughafentransfer Teil des Reiseplans sein?",
+        "Ja. Nennen Sie uns Ihren Flug und die erste Sehenswürdigkeit, die Sie sehen möchten, dann planen wir die Abholung danach."
+      ],
+      [
+        "Brauche ich ein Auto für diesen Reiseplan?",
+        "Ein privates Fahrzeug ist die einfachste Lösung, da öffentliche Verkehrsmittel zu den antiken Stätten im Winter begrenzt sind."
+      ],
+      [
+        "Ist der Reiseplan für Familien geeignet?",
+        "Ja. Die Strecken sind kurz, und jeder Tag hat eine Ausweichoption drinnen für nasses Wetter."
+      ]
+    ]
   }
 };

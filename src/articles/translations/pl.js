@@ -3643,5 +3643,399 @@ export const articles = {
         "W większości przypadków tak. Podaj numer lotu i hotel przy rezerwacji, a potwierdzimy przystanek i cenę."
       ]
     ]
+  },
+  "olympos-chimera-phaselis-winter": {
+    "slug": "olimpos-chimera-phaselis-zima",
+    "title": "Olimpos, Chimera i Phaselis zimą: wycieczka na jeden dzień z Antalyi",
+    "heading": "Olimpos, płomienie Chimery i Phaselis: zimowa wycieczka na jeden dzień wzdłuż wybrzeża Licji",
+    "description": "Zimowa wycieczka z Antalyi do Phaselis, Olimposu i płomieni Chimery w Çıralı: trasa, czas przejazdu, co założyć, najlepsza pora dnia i bezpieczny powrót.",
+    "excerpt": "Sosnowy las, ciche porty, ruiny w lesie i zbocze, które płonie nocą. Jak zmieścić Phaselis, Olimpos i płomienie Chimery w jednym zimowym dniu z Antalyi.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Wybrzeże Licji na południowy zachód od Antalyi jest najpiękniejsze, gdy letnie tłumy znikają. Od grudnia do lutego lasy sosnowe są zielone, morze przejrzyste, a antyczne stanowiska niemal puste. Phaselis, Olimpos i płomienie Chimery leżą blisko siebie i tworzą jedną z najbardziej zróżnicowanych jednodniowych wycieczek w regionie."
+      },
+      {
+        "type": "h2",
+        "text": "Trasa i czas przejazdu"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Przystanek",
+          "Dojazd z Antalyi",
+          "Ile czasu zaplanować",
+          "Uwaga na zimę"
+        ],
+        "rows": [
+          [
+            "Phaselis",
+            "około 1 godziny",
+            "1,5-2 godziny",
+            "Trzy porty w sosnowym lesie; ścieżki mogą być wilgotne"
+          ],
+          [
+            "Olimpos",
+            "około 1 godziny 15 minut",
+            "1,5-2 godziny",
+            "Ruiny wśród drzew wzdłuż strumienia; załóż buty z dobrym bieżnikiem"
+          ],
+          [
+            "Çıralı i płomienie Chimery",
+            "około 1 godziny 20 minut",
+            "1-1,5 godziny",
+            "Najlepiej o zmierzchu; podejście stromą ścieżką"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Phaselis leży najbliżej Kemeru, więc dla osób mieszkających w Kemerze lub Tekirovej to krótki przejazd. Olimpos i Çıralı znajdują się dalej na tej samej nadmorskiej drodze, około 15-20 minut za zjazdem do Phaselis."
+      },
+      {
+        "type": "routelinks",
+        "text": "Nocujesz na tym odcinku wybrzeża? Stała cena za pojazd z lotniska:",
+        "routes": [
+          "kemer",
+          "tekirova",
+          "antalya",
+          "kumluca"
+        ],
+        "button": "Sprawdź stałą cenę"
+      },
+      {
+        "type": "h2",
+        "text": "Phaselis: trzy porty wśród sosen"
+      },
+      {
+        "type": "p",
+        "text": "Phaselis było portem handlowym założonym na niewielkim półwyspie, z portem po każdej stronie. Dziś brukowana główna ulica, akwedukt i mury portowe stoją wśród sosen tuż przy wodzie. Zimą plaża jest pusta, a światło przez drzewa łagodne, więc to dobry pierwszy przystanek rano."
+      },
+      {
+        "type": "h2",
+        "text": "Olimpos i Çıralı"
+      },
+      {
+        "type": "p",
+        "text": "Ruiny Olimposu leżą wzdłuż strumienia, który płynie do żwirowej plaży, ukryte wśród laurów, fig i sosen. Groby, teatr i fragmenty murów są rozsiane w zieleni. Zaplanuj czas na spokojny spacer; zimą strumień może być wezbrany, a po deszczu ścieżki są błotniste."
+      },
+      {
+        "type": "h2",
+        "text": "Płomienie Chimery"
+      },
+      {
+        "type": "p",
+        "text": "Yanartaş, czyli Chimera, to zbocze nad Çıralı, gdzie gaz ziemny płonie w szczelinach skały. Płomienie widać w dzień, ale o wiele bardziej efektownie wyglądają o zmierzchu lub po zmroku. Ścieżka jest stroma i nierówna, więc zabierz latarkę i solidne buty, a aktualne godziny otwarcia i cenę biletu potwierdź w dniu wycieczki."
+      },
+      {
+        "type": "h2",
+        "text": "Jak bezpiecznie zaplanować dzień"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Wyjedź do godziny 9:00, aby dotrzeć do Chimery około zmierzchu; zimą zachód słońca jest wcześnie, w grudniu około 17:30.",
+          "Sprawdź prognozę: deszcz sprawia, że ścieżki są śliskie, a podejście do Chimery nieprzyjemne.",
+          "Zabierz ubranie na cebulkę, kurtkę przeciwdeszczową i latarkę na zejście po zmroku.",
+          "Kawiarnie w Çıralı mogą być zimą zamknięte; weź wodę i przekąskę.",
+          "Prywatny kierowca może poczekać i odwieźć cię z powrotem, dzięki czemu unikniesz późnego powrotu komunikacją publiczną krętą drogą wzdłuż wybrzeża."
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Podaj nam hotel, liczbę osób i preferowaną godzinę startu, a potwierdzimy cenę i przystanki na twój dzień."
+      }
+    ],
+    "faq": [
+      [
+        "Czy Phaselis jest otwarte zimą?",
+        "Tak, stanowisko jest otwarte przez cały rok, ale godziny otwarcia zimą mogą się zmieniać. Potwierdź je w dniu wyjazdu."
+      ],
+      [
+        "Czy płomienie Chimery są widoczne zimą?",
+        "Tak. Płomienie palą się przez cały rok i najlepiej je widać o zmierzchu i po zmroku."
+      ],
+      [
+        "Jak daleko od Antalyi są Olimpos i Çıralı?",
+        "Około 1 godziny 15 minut do 1 godziny 20 minut samochodem, a duża część trasy prowadzi krętą drogą wzdłuż wybrzeża."
+      ],
+      [
+        "Czy da się zobaczyć wszystkie trzy miejsca w jeden dzień?",
+        "Tak, przy wczesnym starcie. Zaplanuj około 8-9 godzin wraz z przejazdami i przerwą na obiad."
+      ],
+      [
+        "Czy wycieczka jest odpowiednia dla dzieci?",
+        "Phaselis i Olimpos są łatwe dla większości dzieci. Podejście do Chimery jest strome i lepsze dla starszych dzieci, po zmroku z latarką."
+      ]
+    ]
+  },
+  "antalya-rainy-day-things-to-do": {
+    "slug": "antalya-w-deszczowy-dzien-co-robic",
+    "title": "Antalya w deszczowy dzień: 8 pomysłów, gdy pogoda się psuje",
+    "heading": "Deszczowy dzień w Antalyi: co robić w pomieszczeniach i pod dachem zimą",
+    "description": "Co robić w Antalyi w deszczowy zimowy dzień: muzeum archeologiczne, kawiarnie w Kaleiçi, łaźnia turecka, jaskinia Karain, akwarium i zakupy, z odległościami i wskazówkami.",
+    "excerpt": "Zimowy deszcz w Antalyi przychodzi falami, a nie przez wiele dni. Oto dokąd iść, gdy pada: muzea, hammamy, jaskinie, kryte targi i ciepłe kawiarnie oraz jak się między nimi przemieszczać.",
+    "readingMinutes": 5,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Zimowa pogoda w Antalyi jest w większości słoneczna, ale grudzień i styczeń przynoszą deszcz, czasem obfity, zwykle falami trwającymi dzień lub dwa. Mokry dzień nie musi być straconym dniem. Miasto ma dość muzeów, zadaszonych miejsc i ciepłych kawiarni, by go wypełnić, a większość z nich dzieli krótki przejazd."
+      },
+      {
+        "type": "h2",
+        "text": "Osiem pomysłów na mokry dzień"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Miejsce",
+          "Rodzaj",
+          "Odległość od centrum",
+          "Dlaczego warto"
+        ],
+        "rows": [
+          [
+            "Muzeum w Antalyi",
+            "Muzeum archeologiczne",
+            "około 10 minut",
+            "Posągi z Perge i duża kolekcja rzymska"
+          ],
+          [
+            "Kawiarnie i sklepy w Kaleiçi",
+            "Stare miasto",
+            "w centrum",
+            "Ciepłe kawiarnie w osmańskich domach; wiele krytych uliczek"
+          ],
+          [
+            "Łaźnia turecka (hammam)",
+            "Spa",
+            "różnie, 10-30 minut",
+            "Tradycyjne mycie i masaż"
+          ],
+          [
+            "Jaskinia Karain",
+            "Prehistoryczna jaskinia",
+            "około 30 minut",
+            "Jedna z najstarszych osad Anatolii, częściowo osłonięta"
+          ],
+          [
+            "Akwarium",
+            "Atrakcja rodzinna",
+            "około 15 minut",
+            "Tunel i ekspozycje dla dzieci w środku"
+          ],
+          [
+            "Centra handlowe",
+            "Zakupy",
+            "10-20 minut",
+            "Kina, restauracje i strefy zabaw"
+          ],
+          [
+            "Spa hotelowe i basen kryty",
+            "Wellness",
+            "w twoim hotelu",
+            "Podgrzewane baseny, sauna i zabiegi w otwartych hotelach"
+          ],
+          [
+            "Kurs gotowania tureckiego",
+            "Warsztaty",
+            "centrum miasta",
+            "Praktyczne lekcje lokalnych potraw"
+          ]
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Najpierw muzeum, potem obiad w Kaleiçi"
+      },
+      {
+        "type": "p",
+        "text": "Muzeum w Antalyi to najlepszy wybór na deszczową pogodę. Zaplanuj dwie do trzech godzin: posągi z Perge, sarkofagi i bizantyjskie ikony są w środku. Potem schowaj się w kawiarni w Kaleiçi; wąskie uliczki starego miasta chronią przed wiatrem, a restauracje podają gorące zupy i lokalne potrawy."
+      },
+      {
+        "type": "routelinks",
+        "text": "Stała cena za pojazd z lotniska do twojego hotelu, w dzień i w nocy:",
+        "routes": [
+          "antalya",
+          "belek",
+          "kemer",
+          "side"
+        ],
+        "button": "Sprawdź stałą cenę"
+      },
+      {
+        "type": "h2",
+        "text": "Gdy się przejaśni, działaj szybko"
+      },
+      {
+        "type": "p",
+        "text": "Po deszczu w Antalyi zostaje zwykle jasne, czyste powietrze, a wodospady Düden i Kurşunlu są najsilniejsze w następnych dniach. Zostaw sobie jeden punkt na świeżym powietrzu na pierwsze suche popołudnie."
+      },
+      {
+        "type": "h2",
+        "text": "Praktyczne wskazówki"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Między punktami jedź taksówką lub z prywatnym kierowcą: bruk w Kaleiçi jest śliski, gdy jest mokro, a krótki przejazd pozwala zostać suchym.",
+          "Godziny otwarcia muzeów są zimą krótsze i mogą się zmieniać, więc potwierdź je w dniu zwiedzania.",
+          "Hammam na wieczór zarezerwuj z wyprzedzeniem; niektóre zamykają się wcześnie.",
+          "Zabierz parasol i lekką kurtkę przeciwdeszczową; deszcz bywa ciepły, ale wiatr jest chłodny."
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Jeśli przylatujesz w mokry wieczór, wcześniej zarezerwowany odbiór śledzący numer lotu oszczędzi ci kolejki po taksówkę w deszczu. Podaj nam lot i hotel, a potwierdzimy stałą cenę."
+      }
+    ],
+    "faq": [
+      [
+        "Czy w Antalyi zimą dużo pada?",
+        "Grudzień i styczeń to najbardziej deszczowe miesiące, ale deszcz zwykle pada falami między słonecznymi dniami, a nie przez cały tydzień."
+      ],
+      [
+        "Jaka jest najlepsza atrakcja w pomieszczeniu w Antalyi?",
+        "Najlepszym wyborem jest Muzeum w Antalyi, z posągami z Perge i dużą kolekcją rzymską."
+      ],
+      [
+        "Czy łaźnie tureckie są zimą otwarte?",
+        "Tak, większość hammamów w mieście działa przez cały rok. Zapytaj hotel o rekomendację i sprawdź godziny otwarcia."
+      ],
+      [
+        "Czy są atrakcje dla dzieci w pomieszczeniach?",
+        "Tak: akwarium, centra handlowe ze strefami zabaw i kryte baseny w otwartych hotelach."
+      ],
+      [
+        "Czy w czasie ulewy dostanę transfer z lotniska?",
+        "Tak. Transfery kursują przez cały rok po tej samej stałej cenie za pojazd, a kierowca śledzi twój lot."
+      ]
+    ]
+  },
+  "antalya-3-day-winter-itinerary": {
+    "slug": "antalya-zima-3-dni-plan-podrozy",
+    "title": "3 dni w Antalyi zimą: praktyczny plan podróży z prywatnym kierowcą",
+    "heading": "Trzy dni w Antalyi zimą: plan dopasowany do pogody",
+    "description": "Trzydniowy zimowy plan na Antalyę: Kaleiçi i muzeum, Perge i Aspendos, potem Termessos lub wodospady. Czasy przejazdów, plany awaryjne i jak korzystać z prywatnego kierowcy.",
+    "excerpt": "Trzy zimowe dni w Antalyi zaplanowane pod pogodę: dzień w mieście, dzień antycznych stanowisk i dzień gór lub wodospadów, z planem awaryjnym na każdy deszczowy poranek.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Trzy dni wystarczą, by zobaczyć to, co najlepsze w Antalyi zimą, jeśli zaplanujesz je pod pogodę. Poniższy plan rozdziela miasto, antyczne stanowiska i góry na osobne dni, więc deszczowy poranek przesuwa tylko jeden punkt, zamiast psuć całą podróż. Czasy przejazdów są przybliżone i dotyczą ruchu w ciągu dnia."
+      },
+      {
+        "type": "h2",
+        "text": "Plan w skrócie"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Dzień",
+          "Rano",
+          "Po południu",
+          "Plan awaryjny na deszcz"
+        ],
+        "rows": [
+          [
+            "Dzień 1: miasto",
+            "Kaleiçi, Brama Hadriana, stary port",
+            "Muzeum w Antalyi",
+            "Zamień kolejność: najpierw muzeum, potem kawiarnie w Kaleiçi"
+          ],
+          [
+            "Dzień 2: antyczne stanowiska",
+            "Perge (około 20 minut)",
+            "Aspendos (około 45 minut)",
+            "Oba miejsca są przyjemne w lekkim deszczu; zabierz kurtkę przeciwdeszczową"
+          ],
+          [
+            "Dzień 3: góry lub wodospady",
+            "Termessos (około 45 minut)",
+            "Wodospady Düden i Kurşunlu",
+            "Zamień Termessos na jaskinię Karain i wodospady"
+          ]
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Dzień 1: stare miasto w murach i muzeum"
+      },
+      {
+        "type": "p",
+        "text": "Zacznij w Kaleiçi, gdy uliczki są jeszcze ciche: Brama Hadriana, minaret Yivli, osmańskie domy i stary port. Po obiedzie spędź dwie do trzech godzin w Muzeum w Antalyi, gdzie znajdują się posągi z Perge. Jeśli lądujesz wieczorem, zostaw dzień 1 lekki, a muzeum dodaj do dnia 3."
+      },
+      {
+        "type": "h2",
+        "text": "Dzień 2: Perge i Aspendos"
+      },
+      {
+        "type": "p",
+        "text": "Stadion i ulica kolumnowa w Perge oraz rzymski teatr w Aspendos to dwa z najlepiej zachowanych stanowisk w Anatolii. Oba leżą na wschód od miasta, blisko drogi z lotniska, a zimą dzielisz je z niewielką liczbą zwiedzających. Wyjedź około 9:00, a na kolację wrócisz do Kaleiçi."
+      },
+      {
+        "type": "routelinks",
+        "text": "Mieszkasz poza miastem? Stała cena za pojazd z lotniska do twojego kurortu:",
+        "routes": [
+          "antalya",
+          "belek",
+          "side",
+          "alanya"
+        ],
+        "button": "Sprawdź stałą cenę"
+      },
+      {
+        "type": "h2",
+        "text": "Dzień 3: Termessos lub wodospady"
+      },
+      {
+        "type": "p",
+        "text": "W suchy dzień wjedź do Termessos, by zobaczyć teatr i górskie widoki; jest tam chłodniej niż na wybrzeżu, więc ubierz się na cebulkę. Jeśli prognoza jest kiepska, dobrą alternatywą są wodospady Düden i Kurşunlu, bo po deszczu mają najwięcej wody. Jaskinia Karain sprawdza się w obu wariantach."
+      },
+      {
+        "type": "h2",
+        "text": "Jak wydłużyć wyjazd"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Dodaj czwarty dzień na Demre, Myrę i kościół św. Mikołaja, około 2 godzin 15 minut w jedną stronę.",
+          "Dodaj Pamukkale jako wyjazd z noclegiem, jeśli chcesz zobaczyć trawertyny bez bardzo długiego dnia.",
+          "Z Belek lub Side zamień Perge i Aspendos na dzień w starożytnym mieście Side.",
+          "Jeśli jeździsz na nartach, Saklıkent może zastąpić dzień 3 od stycznia do marca, gdy leży śnieg."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Dlaczego prywatny kierowca pasuje do zimy"
+      },
+      {
+        "type": "p",
+        "text": "Zimą komunikacja publiczna do ruin jest ograniczona, a dzień krótki. Prywatny pojazd pozwala wyjechać, gdy się przejaśni, zmienić kolejność dni i pominąć punkt bez utraty biletu. Cena jest stała za pojazd, więc rodzina lub grupa często płaci mniej więcej tyle co za miejsca na wycieczkach grupowych. Prześlij nam daty, hotel i numery lotów, a potwierdzimy plan i cenę."
+      }
+    ],
+    "faq": [
+      [
+        "Czy trzy dni wystarczą na Antalyę zimą?",
+        "Tak, na miasto, Perge, Aspendos oraz Termessos lub wodospady. Dodaj czwarty dzień na Demre lub Pamukkale."
+      ],
+      [
+        "Co robić, jeśli będzie padać?",
+        "Zamień kolejność dnia: najpierw muzeum i kawiarnie w Kaleiçi, a punkty na zewnątrz przenieś na suche godziny. Perge, Aspendos i wodospady są przyjemne w lekkim deszczu."
+      ],
+      [
+        "Czy transfer z lotniska może być częścią planu?",
+        "Tak. Podaj nam lot i pierwsze miejsce, które chcesz zobaczyć, a zaplanujemy odbiór wokół niego."
+      ],
+      [
+        "Czy potrzebuję samochodu, aby zrealizować ten plan?",
+        "Prywatny pojazd to najprostsza opcja, bo zimą komunikacja publiczna do antycznych stanowisk jest ograniczona."
+      ],
+      [
+        "Czy plan nadaje się dla rodzin?",
+        "Tak. Odległości są krótkie, a każdy dzień ma awaryjną opcję w pomieszczeniu na mokrą pogodę."
+      ]
+    ]
   }
 };

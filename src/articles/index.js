@@ -43,6 +43,9 @@ import arrivalEssentialsTurkey from "./arrival-essentials-turkey.js";
 import winterDayToursFromAntalya from "./winter-day-tours-from-antalya.js";
 import termessosWinterDayTrip from "./termessos-winter-day-trip.js";
 import antalyaWaterfallsWinter from "./antalya-waterfalls-winter.js";
+import olymposChimeraPhaselisWinter from "./olympos-chimera-phaselis-winter.js";
+import antalyaRainyDayThingsToDo from "./antalya-rainy-day-things-to-do.js";
+import antalya3DayWinterItinerary from "./antalya-3-day-winter-itinerary.js";
 import { languageOrder, translations } from "./translations/index.js";
 import { blogPath, languagePrefix } from "./paths.js";
 
@@ -51,6 +54,9 @@ export const articleLanguages = languageOrder;
 
 /** Newest first: the blog index and the feeds both read this order. */
 const catalogue = [
+  olymposChimeraPhaselisWinter,
+  antalyaRainyDayThingsToDo,
+  antalya3DayWinterItinerary,
   winterDayToursFromAntalya,
   termessosWinterDayTrip,
   antalyaWaterfallsWinter,
