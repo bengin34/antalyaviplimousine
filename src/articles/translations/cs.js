@@ -2940,5 +2940,427 @@ export const articles = {
         "Ne. Cena je fixní a konečná. Pár eur za těžká zavazadla nebo noční přílet potěší, ale nikdo je nečeká."
       ]
     ]
+  },
+  "winter-day-tours-from-antalya": {
+    "slug": "zimni-vylety-z-antalye",
+    "title": "Zimní výlety z Antalye: 8 tipů, které stojí za to (pros-úno)",
+    "heading": "Zimní jednodenní výlety z Antalye: které fungují od prosince do února",
+    "description": "Osm zimních jednodenních výletů z Antalye: Perge, Aspendos, Termessos, Demre, Olympos, Pamukkale a další. Doba jízdy, tipy k počasí a výhody soukromého řidiče.",
+    "excerpt": "Zima je na tureckém pobřeží nejlepší čas na památky: chladné jasné dny a téměř prázdné antické lokality. Které výlety fungují, jak dlouho se jede a co si ověřit předem.",
+    "readingMinutes": 7,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Od prosince do února se do Antalye nejezdí kvůli pláži, ale kvůli historii a krajině okolí. Zříceniny, které jsou v červenci přeplněné a rozpálené, jsou v zimě klidné a příjemné, vzduch je čistý a světlo skvělé na fotografie. Většina výletů jezdí dál, několik jich ale závisí na počasí a doba jízdy rozhoduje o tom, zda bude výlet radostí, nebo vyčerpávajícím dnem."
+      },
+      {
+        "type": "h2",
+        "text": "Osm zimních výletů přehledně"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Výlet",
+          "Jízda z Antalye (jedním směrem)",
+          "Vhodnost v zimě",
+          "Dobré vědět"
+        ],
+        "rows": [
+          [
+            "Perge a Aspendos",
+            "asi 20 a 45 minut",
+            "Výborná",
+            "Otevřeno celoročně, téměř žádné fronty; obě místa lze spojit do jednoho dne"
+          ],
+          [
+            "Termessos",
+            "asi 45 minut",
+            "Dobrá za suchých dnů",
+            "Horská lokalita zhruba v 1 000 m: chladno, mokrý kámen, občas sníh"
+          ],
+          [
+            "Vodopády Düden a Kurşunlu",
+            "asi 15 a 30 minut",
+            "Výborná",
+            "Po zimních deštích jsou vodopády nejmohutnější"
+          ],
+          [
+            "Phaselis a Olympos",
+            "asi 1 hodina a 1 hodina 15 minut",
+            "Velmi dobrá",
+            "Borový les a zříceniny u moře; vezměte nepromokavou bundu"
+          ],
+          [
+            "Demre, Myra a Kekova",
+            "asi 2 hodiny 15 minut",
+            "Velmi dobrá",
+            "Kostel svatého Mikuláše, skalní hrobky; k dlouhé cestě se hodí brzký start"
+          ],
+          [
+            "Lyžařské středisko Saklıkent",
+            "asi 1 hodina 30 minut",
+            "Leden až březen, podle sněhu",
+            "Mohou být potřeba sněhové řetězy; podmínky ověřte den předem"
+          ],
+          [
+            "Pamukkale a Hierapolis",
+            "asi 3 hodiny",
+            "Velmi dobrá",
+            "Méně lidí u travertinů; dlouhý den nebo noc na místě"
+          ],
+          [
+            "Kappadokie",
+            "asi 7–8 hodin",
+            "Výlet s přenocováním",
+            "Zasněžená krajina; počítejte alespoň se dvěma nocemi"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Doby jízdy platí pro běžný denní provoz a mění se podle stavebních prací, počasí a toho, odkud v Antalyi vyjíždíte. Pokud bydlíte v Beleku, Kemeru, Side nebo Alanyi, připočtěte cestu do města, nebo zvolte výlet na své straně zálivu."
+      },
+      {
+        "type": "h2",
+        "text": "Snadné půldenní výlety"
+      },
+      {
+        "type": "p",
+        "text": "Perge a Aspendos jsou nejjednodušší zimní výlet: obě lokality leží východně od Antalye, nedaleko silnice od letiště, a jejich stadion, kolonádová ulice a římské divadlo patří k nejlépe dochovaným v Anatolii. Divadlo v Aspendu se v sezoně stále využívá pro koncerty, ale kámen vypadá nejlépe za jasného lednového odpoledne. Vodopády Düden a Kurşunlu zaberou jen dvě až tři hodiny, takže se hodí na den příletu nebo odjezdu."
+      },
+      {
+        "type": "routelinks",
+        "text": "Bydlíte mimo město? Fixní cena za vozidlo z letiště do vašeho resortu:",
+        "routes": [
+          "antalya",
+          "belek",
+          "side",
+          "kemer"
+        ],
+        "button": "Zjistit fixní cenu"
+      },
+      {
+        "type": "h2",
+        "text": "Celodenní výlety, kvůli kterým stojí za to vstát brzy"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Demre, Myra a Kekova: kostel svatého Mikuláše, skalní hrobky v Myře a potopené zbytky u Kekovy vyplní celý den. Vyjeďte do 8:00, abyste byli v Demre před polední pauzou.",
+          "Phaselis a Olympos: tři přístavy v borovém lese a pak klidné zříceniny v Olymposu. Plameny Chimery v Çıralı jsou nejkrásnější za soumraku, počítejte tedy s pozdním návratem.",
+          "Pamukkale: bílé travertiny a antické lázeňské město Hierapolis jsou v zimě působivé a termální bazény jsou teplé, i když vzduch není. Je to dlouhý den; s přenocováním je to mnohem pohodlnější.",
+          "Saklıkent: lyžování a moře v rozmezí pár hodin, ale jen když leží sníh. Cenu výletu nabídneme, jakmile bude potvrzeno, že silnice a sjezdovky jsou otevřené."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Kontrola počasí před výletem"
+      },
+      {
+        "type": "p",
+        "text": "Zimní počasí na pobřeží se rychle mění. Déšť obvykle přichází v přeháňkách mezi slunečnými dny, proto buďte flexibilní: archeologické lokality a vodopády si užijete i v mrholení, horská místa jako Termessos a Saklıkent ne. Večer předem se podívejte na předpověď a mějte v záloze muzeum nebo staré město."
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Oblékněte se do vrstev a obujte si boty s dobrou přilnavostí: antický kámen a mokré lesní stezky kloužou.",
+          "Otevírací doba muzeí a archeologických lokalit je v zimě kratší a může se změnit; ověřte ji v den výletu.",
+          "V prosinci se stmívá kolem 17:30, dlouhé trasy proto plánujte na dopoledne.",
+          "Ne každý výlet lodí, restaurace nebo plážový klub je v zimě v provozu; zeptejte se předem."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Proč jet v zimě se soukromým řidičem"
+      },
+      {
+        "type": "p",
+        "text": "Veřejná doprava k zříceninám a vodopádům je v zimě řidší a u velkého skupinového zájezdu nejdřív objíždíte hotely, než cokoli uvidíte. Soukromé vozidlo vyjede, kdy chcete, zastaví, kde řeknete, a když se zatáhne, vyměníte Termessos za muzeum. Cena je pevná za vozidlo, ne za osobu, takže pro rodinu nebo partu přátel je často srovnatelná s místem v organizovaném zájezdu."
+      },
+      {
+        "type": "p",
+        "text": "Letištní transfery zajišťujeme celoročně a k téže rezervaci můžeme přidat jednodenní výlet. Napište nám hotel, počet osob a výlet, který vás zajímá, a potvrdíme cenu i nejlepší čas odjezdu."
+      }
+    ],
+    "faq": [
+      [
+        "Jezdí výlety z Antalye i v zimě?",
+        "Ano. Lokality jako Perge, Aspendos, Phaselis a Demre jsou otevřené celoročně. Horské výlety jako Termessos a Saklıkent závisejí na počasí a lodní výlety jezdí méně často."
+      ],
+      [
+        "Který zimní výlet je nejlepší na první návštěvu?",
+        "Perge a Aspendos dohromady jsou nejsnazší a nejvděčnější: jsou blízko Antalye, otevřené každý den a v zimě téměř prázdné."
+      ],
+      [
+        "Mohu spojit výlet s letištním transferem?",
+        "Ano. Sdělte nám čas příletu či odletu a výlet, který chcete, a vyzvednutí naplánujeme tak, abyste cestou z letiště nebo na letiště viděli některou lokalitu."
+      ],
+      [
+        "Je zima natolik, že potřebuji kabát?",
+        "Přes den je na pobřeží kolem 15–16 °C, ale večery jsou chladné a v horách je mnohem větší zima. Vezměte si vrstvy a nepromokavou bundu."
+      ],
+      [
+        "Je soukromé vozidlo dražší než skupinový zájezd?",
+        "Cena je pevná za vozidlo, ne za osobu, takže pro tři a více cestujících je často podobná místům ve skupinovém zájezdu, a přitom máte vlastní časový plán."
+      ]
+    ]
+  },
+  "termessos-winter-day-trip": {
+    "slug": "termessos-v-zime-z-antalye",
+    "title": "Termessos v zimě: jak navštívit horské město z Antalye",
+    "heading": "Termessos v zimě: praktický průvodce horským městem nad Antalyí",
+    "description": "Jak navštívit Termessos v zimě: doba jízdy z Antalye, počasí v 1 000 metrech, co si obléct, kolik času počítat a jak výlet spojit s jeskyní Karain.",
+    "excerpt": "Termessos leží vysoko v pohoří Taurus a působí jako ztracené město. V zimě je tu ticho, dramaticky a občas zasněženo. Jak výlet naplánovat a kdy ho raději odložit.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Termessos je jedna z nejatmosféričtějších antických lokalit v Turecku: město kamenných teras, divadlo s výhledem přes hory a hrobky roztroušené mezi borovicemi. Leží v národním parku v pohoří Taurus, proto se výlet v zimě vyplatí a vyžaduje větší opatrnost než návštěva Perge nebo Aspendu."
+      },
+      {
+        "type": "h2",
+        "text": "Cesta z Antalye"
+      },
+      {
+        "type": "p",
+        "text": "Park leží asi 35 km západně od Antalye a cesta trvá zhruba 45 minut. Poslední úsek stoupá po klikaté horské silnici na parkoviště, takže počasí ve městě neprozradí, jaké bude u památky. Z Beleku nebo Kemeru je cesta delší, asi 1 hodina 15 minut až 1 hodina 30 minut podle místa výjezdu."
+      },
+      {
+        "type": "routelinks",
+        "text": "Fixní cena za vozidlo z letiště do hotelu, jednodenní výlet lze přidat na požádání:",
+        "routes": [
+          "antalya",
+          "belek",
+          "kemer"
+        ],
+        "button": "Zjistit fixní cenu"
+      },
+      {
+        "type": "h2",
+        "text": "Zimní počasí zhruba v 1 000 metrech"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Měsíc",
+          "Typické podmínky",
+          "Co čekat"
+        ],
+        "rows": [
+          [
+            "Prosinec",
+            "Chladno, často vlhko",
+            "Mokré stezky a oblačnost v údolích; jasné dny jsou časté"
+          ],
+          [
+            "Leden",
+            "Nejchladnější měsíc",
+            "Ranní mráz, občas sníh na horních terasách"
+          ],
+          [
+            "Únor",
+            "Chladno a stále jasněji",
+            "Delší dny, nejlepší výhledy po rozptýlení oparu"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "V horách je o několik stupňů chladněji než na pobřeží a kámen může zůstat mokrý a kluzký dlouho po dešti. Po silném dešti nebo sněžení může park omezit vstup, proto si to ověřte den předem. Nejlepší je jasný suchý den po přechodu fronty."
+      },
+      {
+        "type": "h2",
+        "text": "Co uvidíte a kolik času počítat"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Divadlo: nejznámější vyhlídka, za jevištěm se tyčí vrcholky Taurusu.",
+          "Velký chrám a agora: terasy ukazující, jak bylo město vestavěno do svahu.",
+          "Nekropole: skalní hrobky a sarkofágy podél stezky, mnohé poražené zemětřeseními.",
+          "Na místě počítejte se dvěma až třemi hodinami, pokud půjdete po hlavních stezkách; horní trasy trvají déle a jsou strmé."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Termessos a jeskyně Karain"
+      },
+      {
+        "type": "p",
+        "text": "Jeskyně Karain, jedno z nejstarších známých prehistorických sídlišť v Anatolii, leží na stejné straně pláně a snadno se vejde do půldne spolu s Termessem. K ústí jeskyně je to krátké stoupání a muzeum ve městě poskytne souvislosti k oběma místům. Dohromady jsou dobrou alternativou k pláži za deště."
+      },
+      {
+        "type": "h2",
+        "text": "Co na sebe a s sebou"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Boty s protiskluzovou podrážkou: stezky jsou strmé a antický kámen za mokra klouže.",
+          "Teplé vrstvy a bunda do větru, i když je na pobřeží mírno.",
+          "Voda a svačina: uvnitř parku se téměř nic koupit nedá.",
+          "Nabitý telefon a vytištěná poznámka s číslem řidiče, protože v údolích může být signál slabý.",
+          "Hotovost na vstupné, které se může změnit; aktuální částku a otevírací dobu ověřte před cestou."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Proč pomáhá soukromý řidič"
+      },
+      {
+        "type": "p",
+        "text": "Taxíky v Termessu nemusejí čekat a po cestě do parku nejezdí pravidelné autobusy. Soukromý řidič počká, než se projdete, posune začátek podle předpovědi a odveze vás dřív, pokud se počasí zhorší. Pokud přiletíte letadlem, výlet naplánujeme na váš první celý den a vozidlo i cenu potvrdíme při rezervaci."
+      }
+    ],
+    "faq": [
+      [
+        "Je Termessos v zimě otevřený?",
+        "Park je otevřený celoročně, ale otevírací doba a přístup se mohou měnit podle počasí. Ověřte si to v den výletu, zvlášť po silném dešti nebo sněžení."
+      ],
+      [
+        "Jak daleko je Termessos od Antalye?",
+        "Asi 35 km, tedy zhruba 45 minut autem, poslední úsek vede klikatou horskou silnicí."
+      ],
+      [
+        "Sněží v Termessu?",
+        "Občas, zejména v lednu. Sníh nenapadne každou zimu, ale lokalita je mnohem chladnější a vlhčí než pobřeží."
+      ],
+      [
+        "Jak dlouho návštěva trvá?",
+        "Počítejte se dvěma až třemi hodinami na místě plus cesta. Stačí půl dne; spojte ho s jeskyní Karain a vyplníte dopoledne."
+      ],
+      [
+        "Mohu přijet s dětmi?",
+        "Starší děti, které zvládnou strmé a nerovné stezky, si výlet užijí. S kočárkem se po terasách a stezkách nedostanete."
+      ]
+    ]
+  },
+  "antalya-waterfalls-winter": {
+    "slug": "vodopady-antalya-v-zime",
+    "title": "Vodopády u Antalye v zimě: Düden, Kurşunlu a Manavgat",
+    "heading": "Vodopády u Antalye v zimě: Düden, Kurşunlu a Manavgat v plné síle",
+    "description": "Vodopády Düden, Kurşunlu a Manavgat v zimě: proč jsou po dešti nejmohutnější, vzdálenosti z Antalye a Side a jak je spojit do půldenního výletu.",
+    "excerpt": "Zimní deště promění vodopády kolem Antalye v mohutné proudy. Kam jet, jak je to daleko a jak kolem nich naplánovat půl dne.",
+    "readingMinutes": 5,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Letní návštěvníci často najdou antalyjské vodopády zmenšené na pramínek. Od prosince do února, po zimních deštích, tytéž vodopády hučí mohutně, okolní zeleň je svěží a téměř nikdo tu není. Patří k nejsnazším a nejvděčnějším zimním výletům a žádný nezabere víc než půl dne."
+      },
+      {
+        "type": "h2",
+        "text": "Tři vodopády, které byste měli znát"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Vodopád",
+          "Kde",
+          "Doba jízdy",
+          "Vhodné pro"
+        ],
+        "rows": [
+          [
+            "Horní Düden (Yukarı Düden)",
+            "Severně od Antalye, v městském parku",
+            "asi 15 minut od centra",
+            "Rychlou zastávku, procházky a jeskyni za vodopádem"
+          ],
+          [
+            "Dolní Düden (Aşağı Düden)",
+            "Pobřeží Lara, kde řeka ústí do moře",
+            "asi 20 minut od Antalye",
+            "Výhledy na moře z okraje útesu, zvlášť po dešti"
+          ],
+          [
+            "Kurşunlu",
+            "Východně od Antalye, v přírodním parku",
+            "asi 30 minut od města",
+            "Lesní procházky, vyšší spád a klidné prostředí"
+          ],
+          [
+            "Manavgat",
+            "U Side, na řece Manavgat",
+            "asi 10 minut od Side",
+            "Široké kaskády, kavárny u řeky a městský trh"
+          ]
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Proč je zima nejlepší sezona"
+      },
+      {
+        "type": "p",
+        "text": "Vodopády Düden a Kurşunlu se napájejí z dešťů a krasových pramenů, takže průtok je nejsilnější po deštivém počasí. Manavgat je říční vodopád, nikoli pramenný, a po deštích i díky tání sněhu v Taurusu také zesílí. Horko a davy, obvyklé problémy v červenci a srpnu, tu chybí."
+      },
+      {
+        "type": "h2",
+        "text": "Plán na půl dne z Antalye"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Začněte ráno u Horního Düdenu, kdy je park prázdný a světlo jemné.",
+          "Pokračujte po pobřeží k útesům Dolního Düdenu a užijte si výhled na moře.",
+          "Dál na východ jeďte do Kurşunlu na lesní procházku a poté na oběd v Laře nebo cestou zpět.",
+          "Ze Side nebo Beleku místo toho zahrňte Manavgat a restaurace u řeky."
+        ]
+      },
+      {
+        "type": "routelinks",
+        "text": "Fixní cena za vozidlo za transfer z letiště do vašeho hotelu:",
+        "routes": [
+          "antalya",
+          "side",
+          "manavgat",
+          "belek"
+        ],
+        "button": "Zjistit fixní cenu"
+      },
+      {
+        "type": "h2",
+        "text": "Praktické tipy pro návštěvu za mokra"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Stezky a vyhlídkové plošiny jsou za mokra kluzké; obujte si boty s dobrou přilnavostí.",
+          "Vezměte nepromokavou bundu: tříšť z větších vodopádů vás v chladném vzduchu rychle promočí.",
+          "Vstupné, otevírací doba a přístup do jeskyní se mohou změnit; ověřte je v den výletu.",
+          "Po velmi silném dešti se některé stezky z bezpečnostních důvodů uzavírají, mějte proto v záloze druhou zastávku."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Vodopády spojené s transferem"
+      },
+      {
+        "type": "p",
+        "text": "Protože vodopády leží mezi letištěm, městem a pobřežní silnicí, hodí se přímo na cestu do hotelu. Pokud přistanete odpoledne, vyzvednutí se zastávkou u Düdenu nebo Kurşunlu zabere méně času než samostatný výlet. Sdělte nám číslo letu a hotel a zastávku i cenu potvrdíme."
+      }
+    ],
+    "faq": [
+      [
+        "Jsou vodopády u Antalye v zimě krásnější?",
+        "Ano. Po zimních deštích jsou vodopády Düden, Kurşunlu a Manavgat nejmohutnější a návštěvníků je méně."
+      ],
+      [
+        "Jak daleko jsou vodopády od Antalye?",
+        "Horní Düden je asi 15 minut od centra, Dolní Düden asi 20 minut a Kurşunlu asi 30 minut. Manavgat leží u Side."
+      ],
+      [
+        "Mohu je navštívit s dětmi?",
+        "Ano. Parky Düden a Kurşunlu mají krátké stezky, ale držte děti stranou od mokrých zábradlí a okrajů."
+      ],
+      [
+        "Platí se vstupné?",
+        "Některé parky vybírají malé vstupné a částka se může změnit. Zeptejte se řidiče nebo si ji ověřte v den výletu."
+      ],
+      [
+        "Lze zastávku u vodopádu přidat k letištnímu transferu?",
+        "Ve většině případů ano. Při rezervaci nám sdělte číslo letu a hotel a zastávku i cenu potvrdíme."
+      ]
+    ]
   }
 };

@@ -2931,5 +2931,427 @@ export const articles = {
         "Nu. Prețul este fix și complet. Câțiva euro pentru bagaje grele sau o sosire de noapte sunt apreciați, dar nu se așteaptă nimeni la ei."
       ]
     ]
+  },
+  "winter-day-tours-from-antalya": {
+    "slug": "excursii-de-o-zi-din-antalya-iarna",
+    "title": "Excursii de o zi din Antalya iarna: 8 drumuri care merită (dec-feb)",
+    "heading": "Excursii de o zi din Antalya iarna: care merg între decembrie și februarie",
+    "description": "Opt excursii de iarnă de o zi din Antalya comparate: Perge, Aspendos, Termessos, Demre, Olympos, Pamukkale și altele. Timpi de drum, sfaturi despre vreme și avantajele unui șofer privat.",
+    "excerpt": "Iarna este cel mai bun anotimp pentru vizitarea obiectivelor de pe Riviera Turcă: zile răcoroase, senine și ruine aproape goale. Iată excursiile care merg, cât durează drumul și ce să verifici mai întâi.",
+    "readingMinutes": 7,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Între decembrie și februarie nu vii în Antalya pentru plajă, ci pentru istoria și peisajele regiunii. Ruinele aglomerate și fierbinți în iulie sunt liniștite și plăcute iarna, aerul este limpede, iar lumina e bună pentru fotografii. Majoritatea excursiilor de o zi funcționează în continuare, dar câteva depind de vreme, iar durata drumului decide dacă o ieșire e o plăcere sau o zi epuizantă."
+      },
+      {
+        "type": "h2",
+        "text": "Opt excursii de iarnă într-o privire"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Excursie",
+          "Drum din Antalya (într-un sens)",
+          "Potrivire iarna",
+          "Bine de știut"
+        ],
+        "rows": [
+          [
+            "Perge și Aspendos",
+            "aproximativ 20 și 45 de minute",
+            "Excelentă",
+            "Deschise tot anul, aproape fără cozi; poți combina ambele într-o zi"
+          ],
+          [
+            "Termessos",
+            "aproximativ 45 de minute",
+            "Bună în zilele fără ploaie",
+            "Sit de munte la circa 1.000 m: frig, piatră udă, ocazional zăpadă"
+          ],
+          [
+            "Cascadele Düden și Kurşunlu",
+            "aproximativ 15 și 30 de minute",
+            "Excelentă",
+            "Ploile de iarnă fac cascadele cele mai pline"
+          ],
+          [
+            "Phaselis și Olympos",
+            "aproximativ 1 oră și 1 oră 15 minute",
+            "Foarte bună",
+            "Pădure de pini și ruine pe malul mării; ia o jachetă impermeabilă"
+          ],
+          [
+            "Demre, Myra și Kekova",
+            "aproximativ 2 ore 15 minute",
+            "Foarte bună",
+            "Biserica Sfântului Nicolae, morminte din stâncă; drumul lung cere o plecare matinală"
+          ],
+          [
+            "Stațiunea de schi Saklıkent",
+            "aproximativ 1 oră 30 de minute",
+            "Ianuarie–martie, dacă există zăpadă",
+            "Pot fi necesare lanțuri; confirmă condițiile cu o zi înainte"
+          ],
+          [
+            "Pamukkale și Hierapolis",
+            "aproximativ 3 ore",
+            "Foarte bună",
+            "Mai puțini turiști la travertine; o zi lungă sau o noapte la fața locului"
+          ],
+          [
+            "Capadocia",
+            "aproximativ 7–8 ore",
+            "Excursie cu înnoptare",
+            "Peisaje acoperite de zăpadă; planifică cel puțin două nopți"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Timpii de drum sunt cei obișnuiți în traficul de zi și se schimbă în funcție de lucrări, vreme și locul din Antalya de unde pornești. Dacă stai în Belek, Kemer, Side sau Alanya, adaugă timpul de transfer până în oraș sau alege excursia aflată pe partea ta a golfului."
+      },
+      {
+        "type": "h2",
+        "text": "Excursiile ușoare de o jumătate de zi"
+      },
+      {
+        "type": "p",
+        "text": "Perge și Aspendos sunt cea mai simplă ieșire de iarnă: ambele se află la est de Antalya, aproape de drumul aeroportului, iar stadionul, strada cu coloane și teatrul roman se numără printre cele mai bine păstrate din Anatolia. Teatrul din Aspendos este încă folosit pentru concerte în sezon, dar piatra arată cel mai bine într-o după-amiază senină de ianuarie. Cascadele Düden și Kurşunlu cer doar două-trei ore, o alegere bună pentru ziua sosirii sau a plecării."
+      },
+      {
+        "type": "routelinks",
+        "text": "Stai în afara orașului? Preț fix per vehicul de la aeroport la resortul tău:",
+        "routes": [
+          "antalya",
+          "belek",
+          "side",
+          "kemer"
+        ],
+        "button": "Vezi prețul fix"
+      },
+      {
+        "type": "h2",
+        "text": "Excursiile de o zi întreagă care merită trezitul devreme"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Demre, Myra și Kekova: Biserica Sfântului Nicolae, mormintele din stâncă din Myra și ruinele scufundate de la Kekova umplu o zi întreagă. Pleacă până la 8:00 ca să ajungi în Demre înainte de pauza de la prânz.",
+          "Phaselis și Olympos: trei porturi într-o pădure de pini, apoi ruinele liniștite de la Olympos. Flăcările Chimerei de la Çıralı se văd cel mai bine la amurg, așa că ia în calcul o întoarcere târzie.",
+          "Pamukkale: travertinele albe și vechea stațiune Hierapolis sunt impresionante iarna, iar bazinele termale sunt calde chiar dacă aerul nu e. Este o zi lungă; cu o noapte la fața locului devine mult mai relaxantă.",
+          "Saklıkent: schi și mare la câteva ore distanță, dar numai când există zăpadă. Oferim prețul excursiei după ce se confirmă că drumul și pârtiile sunt deschise."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Verificarea vremii înainte de plecare"
+      },
+      {
+        "type": "p",
+        "text": "Vremea de iarnă pe coastă se schimbă repede. Ploaia vine de obicei în reprize între zilele însorite, așa că păstrează planul flexibil: siturile arheologice și cascadele sunt plăcute și pe burniță, siturile de munte precum Termessos și Saklıkent nu. Uită-te la prognoză în seara dinainte și păstrează muzeul sau orașul vechi ca variantă de rezervă."
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Îmbracă-te în straturi și poartă încălțăminte cu aderență: piatra veche și potecile umede din pădure alunecă.",
+          "Programul muzeelor și al siturilor arheologice este mai scurt iarna și se poate schimba; confirmă în ziua respectivă.",
+          "În decembrie se întunecă în jur de 17:30, așa că planifică drumurile lungi pentru dimineață.",
+          "Nu toate plimbările cu barca, restaurantele sau beach club-urile funcționează iarna; întreabă înainte să presupui."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "De ce să mergi iarna cu un șofer privat"
+      },
+      {
+        "type": "p",
+        "text": "Transportul public spre ruine și cascade este mai rar iarna, iar într-un tur de grup mare faci mai întâi un lung ocol pe la hoteluri înainte să vezi ceva. Un vehicul privat pleacă când vrei tu, oprește unde ceri și te lasă să schimbi Termessos cu muzeul dacă cerul se întunecă. Prețul este fix per vehicul, nu per persoană, deci pentru o familie sau un grup de prieteni este adesea comparabil cu un loc într-un tur de grup."
+      },
+      {
+        "type": "p",
+        "text": "Efectuăm transferuri de la aeroport tot anul și putem adăuga o excursie de o zi la aceeași rezervare. Spune-ne hotelul, numărul de persoane și excursia care te interesează și îți confirmăm prețul și cea mai bună oră de plecare."
+      }
+    ],
+    "faq": [
+      [
+        "Funcționează excursiile de o zi din Antalya iarna?",
+        "Da. Obiective precum Perge, Aspendos, Phaselis și Demre sunt deschise tot anul. Excursiile de munte, cum sunt Termessos și Saklıkent, depind de vreme, iar plimbările cu barca sunt mai rare."
+      ],
+      [
+        "Care excursie de iarnă e cea mai bună pentru o primă vizită?",
+        "Perge și Aspendos împreună sunt cele mai ușoare și mai răsplătitoare: sunt aproape de Antalya, deschise zilnic și aproape goale iarna."
+      ],
+      [
+        "Pot combina o excursie de o zi cu transferul de la aeroport?",
+        "Da. Spune-ne ora sosirii sau a plecării și excursia dorită și putem planifica preluarea astfel încât să vezi un obiectiv pe drumul spre sau dinspre aeroport."
+      ],
+      [
+        "E suficient de frig cât să am nevoie de palton?",
+        "Ziua sunt în jur de 15–16 °C pe coastă, dar serile sunt răcoroase, iar în munți e mult mai frig. Ia haine în straturi și o jachetă impermeabilă."
+      ],
+      [
+        "Un vehicul privat este mai scump decât un tur de grup?",
+        "Prețul este fix per vehicul, nu per persoană, deci pentru trei sau mai mulți călători este adesea similar cu locurile dintr-un tur de grup, iar tu îți faci propriul program."
+      ]
+    ]
+  },
+  "termessos-winter-day-trip": {
+    "slug": "termessos-iarna-din-antalya",
+    "title": "Termessos iarna: cum vizitezi orașul de munte din Antalya",
+    "heading": "Termessos iarna: ghid practic pentru orașul de munte de deasupra Antalyei",
+    "description": "Cum vizitezi Termessos iarna: durata drumului din Antalya, vremea la 1.000 de metri, ce să porți, cât timp să alocești și cum îl combini cu Peștera Karain.",
+    "excerpt": "Termessos se află sus, în munții Taurus, și pare un oraș pierdut. Iarna este liniștit, spectaculos și uneori înzăpezit. Iată cum planifici excursia și când e mai bine s-o amâni.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Termessos este unul dintre cele mai pline de atmosferă situri antice din Turcia: un oraș cu terase de piatră, un teatru cu vedere peste munți și morminte risipite printre pini. Se află într-un parc național din munții Taurus, de aceea excursia merită iarna și cere mai multă grijă decât o vizită la Perge sau Aspendos."
+      },
+      {
+        "type": "h2",
+        "text": "Drumul din Antalya"
+      },
+      {
+        "type": "p",
+        "text": "Parcul se află la aproximativ 35 km vest de Antalya, iar drumul durează circa 45 de minute. Ultima porțiune urcă pe un drum de munte șerpuit până la parcare, așa că vremea din oraș nu arată ce vreme va fi la sit. Din Belek sau Kemer drumul e mai lung, aproximativ 1 oră 15 minute până la 1 oră 30 de minute, în funcție de punctul de plecare."
+      },
+      {
+        "type": "routelinks",
+        "text": "Preț fix per vehicul de la aeroport la hotel, cu excursia de o zi adăugată la cerere:",
+        "routes": [
+          "antalya",
+          "belek",
+          "kemer"
+        ],
+        "button": "Vezi prețul fix"
+      },
+      {
+        "type": "h2",
+        "text": "Vremea de iarnă la circa 1.000 de metri"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Luna",
+          "Condiții tipice",
+          "La ce să te aștepți"
+        ],
+        "rows": [
+          [
+            "Decembrie",
+            "Răcoros, adesea umed",
+            "Poteci ude și nori în văi; zilele senine sunt frecvente"
+          ],
+          [
+            "Ianuarie",
+            "Cea mai rece lună",
+            "Îngheț dimineața, ocazional zăpadă pe terasele de sus"
+          ],
+          [
+            "Februarie",
+            "Răcoros și tot mai luminos",
+            "Zile mai lungi, cele mai bune priveliști după ce se risipește ceața"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Pe munte temperaturile sunt cu câteva grade mai scăzute decât pe coastă, iar piatra poate rămâne udă și alunecoasă mult după ploaie. După ploi puternice sau ninsoare, parcul poate restricționa accesul, așa că verifică în ziua dinainte. O zi senină și uscată, după trecerea unui front, este cel mai bun moment."
+      },
+      {
+        "type": "h2",
+        "text": "Ce vezi și cât timp să alocești"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Teatrul: cel mai cunoscut punct de belvedere, cu vârfurile Taurusului în spatele scenei.",
+          "Marele Templu și agora: terase care arată cum a fost construit orașul în pantă.",
+          "Necropola: morminte săpate în stâncă și sarcofage de-a lungul potecii, multe răsturnate de cutremure.",
+          "Alocă două-trei ore la fața locului dacă mergi pe potecile principale; traseele de sus durează mai mult și sunt abrupte."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Termessos combinat cu Peștera Karain"
+      },
+      {
+        "type": "p",
+        "text": "Peștera Karain, una dintre cele mai vechi așezări preistorice cunoscute din Anatolia, se află pe aceeași parte a câmpiei și încape ușor într-o jumătate de zi împreună cu Termessos. Urcușul până la gura peșterii este scurt, iar muzeul din oraș oferă context pentru ambele. Împreună sunt o alternativă bună la plajă pe vreme ploioasă."
+      },
+      {
+        "type": "h2",
+        "text": "Ce să porți și ce să iei"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Încălțăminte cu talpă aderentă: potecile sunt abrupte, iar piatra veche alunecă pe umezeală.",
+          "Straturi groase și o jachetă rezistentă la vânt, chiar dacă pe coastă e blând.",
+          "Apă și ceva de mâncare: în interiorul parcului aproape nu se găsește nimic de cumpărat.",
+          "Un telefon încărcat și o notiță tipărită cu numărul șoferului, pentru că semnalul poate fi slab în văi.",
+          "Bani lichizi pentru taxa de intrare, care se poate schimba; confirmă suma actuală și programul înainte de plecare."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "De ce ajută un șofer privat"
+      },
+      {
+        "type": "p",
+        "text": "Taxiurile nu așteaptă mereu la Termessos, iar drumul parcului nu este deservit de autobuze regulate. Un șofer privat poate aștepta cât te plimbi, poate muta ora de start dacă se schimbă prognoza și te poate coborî mai devreme dacă vremea se strică. Dacă ajungi cu avionul, putem planifica excursia în prima ta zi întreagă și confirmăm vehiculul și prețul la rezervare."
+      }
+    ],
+    "faq": [
+      [
+        "Este Termessos deschis iarna?",
+        "Parcul este deschis tot anul, dar programul și accesul se pot schimba în funcție de vreme. Verifică în ziua respectivă, mai ales după ploi puternice sau ninsoare."
+      ],
+      [
+        "Cât de departe este Termessos de Antalya?",
+        "Aproximativ 35 km, adică circa 45 de minute cu mașina, cu un drum de munte șerpuit pe ultima porțiune."
+      ],
+      [
+        "Ninge la Termessos?",
+        "Ocazional, mai ales în ianuarie. Zăpada nu apare în fiecare iarnă, dar situl este mult mai rece și mai umed decât coasta."
+      ],
+      [
+        "Cât durează o vizită?",
+        "Planifică două-trei ore la fața locului, plus drumul. O jumătate de zi este suficientă; combină-l cu Peștera Karain pentru a umple dimineața."
+      ],
+      [
+        "Pot merge cu copii?",
+        "Copiii mai mari, care pot merge pe poteci abrupte și neregulate, se vor bucura. Cărucioarele nu merg pe terase și poteci."
+      ]
+    ]
+  },
+  "antalya-waterfalls-winter": {
+    "slug": "cascade-antalya-iarna",
+    "title": "Cascadele din Antalya iarna: Düden, Kurşunlu și Manavgat",
+    "heading": "Cascadele din Antalya iarna: Düden, Kurşunlu și Manavgat la apogeu",
+    "description": "Cascadele Düden, Kurşunlu și Manavgat iarna: de ce sunt cele mai puternice după ploaie, distanțele din Antalya și Side și cum le încadrezi într-o excursie de o jumătate de zi.",
+    "excerpt": "Ploile de iarnă transformă cascadele din jurul Antalyei în torente puternice. Iată unde mergi, cât de departe este fiecare și cum planifici o jumătate de zi în jurul lor.",
+    "readingMinutes": 5,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Vara, vizitatorii găsesc adesea cascadele din Antalya reduse la un firicel. Între decembrie și februarie, după ploile de iarnă, aceleași cascade curg puternic și zgomotos, verdeața din jur e proaspătă și aproape nimeni nu e acolo. Sunt printre cele mai ușoare și mai răsplătitoare ieșiri de iarnă, iar niciuna nu cere mai mult de o jumătate de zi."
+      },
+      {
+        "type": "h2",
+        "text": "Cele trei cascade de știut"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Cascada",
+          "Unde",
+          "Durata drumului",
+          "Potrivită pentru"
+        ],
+        "rows": [
+          [
+            "Düden de Sus (Yukarı Düden)",
+            "La nord de Antalya, într-un parc din oraș",
+            "aproximativ 15 minute din centru",
+            "O oprire rapidă, poteci de plimbare și o peșteră în spatele cascadei"
+          ],
+          [
+            "Düden de Jos (Aşağı Düden)",
+            "Coasta Lara, unde râul se varsă în mare",
+            "aproximativ 20 de minute din Antalya",
+            "Priveliști de pe marginea falezei spre mare, mai ales după ploaie"
+          ],
+          [
+            "Kurşunlu",
+            "La est de Antalya, într-un parc natural",
+            "aproximativ 30 de minute din oraș",
+            "Plimbări prin pădure, o cădere mai mare și un cadru liniștit"
+          ],
+          [
+            "Manavgat",
+            "Lângă Side, pe râul Manavgat",
+            "aproximativ 10 minute din Side",
+            "Cascade late, cafenele pe malul râului și piața orașului"
+          ]
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "De ce iarna este cel mai bun anotimp"
+      },
+      {
+        "type": "p",
+        "text": "Cascadele Düden și Kurşunlu sunt alimentate de ploi și de izvoare carstice, așa că debitul este cel mai puternic după vreme umedă. Manavgat este o cascadă de râu, nu de izvor, și crește și ea după ploi și din topirea zăpezilor din Taurus. Căldura și aglomerația, problemele obișnuite din iulie și august, lipsesc."
+      },
+      {
+        "type": "h2",
+        "text": "Un plan de o jumătate de zi din Antalya"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Începe dimineața la Düden de Sus, când parcul e gol și lumina e blândă.",
+          "Condu de-a lungul coastei până la falezele Düden de Jos pentru priveliștea spre mare.",
+          "Continuă spre est până la Kurşunlu pentru plimbarea prin pădure, apoi prânzul în Lara sau pe drumul de întoarcere.",
+          "Din Side sau Belek, include în schimb Manavgat și restaurantele de pe malul râului."
+        ]
+      },
+      {
+        "type": "routelinks",
+        "text": "Preț fix per vehicul pentru transferul de la aeroport la hotelul tău:",
+        "routes": [
+          "antalya",
+          "side",
+          "manavgat",
+          "belek"
+        ],
+        "button": "Vezi prețul fix"
+      },
+      {
+        "type": "h2",
+        "text": "Sfaturi practice pentru o vizită pe vreme umedă"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Potecile și platformele de observație alunecă pe umezeală; poartă încălțăminte cu aderență.",
+          "Ia o jachetă impermeabilă: stropii de la cascadele mai mari te udă repede în aerul rece.",
+          "Taxele de intrare, programul și accesul la peșteri se pot schimba; confirmă în ziua respectivă.",
+          "După ploi foarte puternice, unele poteci se închid din motive de siguranță, așa că ține în rezervă o a doua oprire."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Cascadele combinate cu un transfer"
+      },
+      {
+        "type": "p",
+        "text": "Pentru că cascadele se află între aeroport, oraș și drumul de coastă, se încadrează bine în drumul spre hotel. Dacă ajungi după-amiaza, o preluare cu oprire la Düden sau Kurşunlu costă mai puțin timp decât o excursie separată. Spune-ne numărul zborului și hotelul și îți confirmăm oprirea și prețul."
+      }
+    ],
+    "faq": [
+      [
+        "Sunt cascadele de lângă Antalya mai frumoase iarna?",
+        "Da. După ploile de iarnă, cascadele Düden, Kurşunlu și Manavgat sunt la cea mai mare putere, iar vizitatorii sunt mai puțini."
+      ],
+      [
+        "Cât de departe sunt cascadele de Antalya?",
+        "Düden de Sus este la aproximativ 15 minute de centru, Düden de Jos la circa 20 de minute, iar Kurşunlu la circa 30 de minute. Manavgat se află lângă Side."
+      ],
+      [
+        "Le pot vizita cu copii?",
+        "Da. Parcurile Düden și Kurşunlu au poteci scurte, dar ține copiii departe de balustradele ude și de margini."
+      ],
+      [
+        "Există taxă de intrare?",
+        "Unele parcuri percep o taxă mică de intrare, iar suma se poate schimba. Întreabă șoferul sau verifică în ziua respectivă."
+      ],
+      [
+        "Se poate adăuga o oprire la o cascadă transferului de la aeroport?",
+        "În majoritatea cazurilor, da. Spune-ne numărul zborului și hotelul la rezervare și îți confirmăm oprirea și prețul."
+      ]
+    ]
   }
 };

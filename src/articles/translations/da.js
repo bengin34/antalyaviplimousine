@@ -2931,5 +2931,427 @@ export const articles = {
         "Nej. Prisen er fast og komplet. Et par euro for tung bagage eller en natankomst bliver værdsat, men forventes aldrig."
       ]
     ]
+  },
+  "winter-day-tours-from-antalya": {
+    "slug": "vinterudflugter-fra-antalya",
+    "title": "Endagsture fra Antalya om vinteren: 8 udflugter der er umagen værd (dec-feb)",
+    "heading": "Endagsture fra Antalya om vinteren: hvilke udflugter fungerer mellem december og februar",
+    "description": "Otte vinterudflugter fra Antalya sammenlignet: Perge, Aspendos, Termessos, Demre, Olympos, Pamukkale og mere. Køretider, vejrtips og fordelene ved en privat chauffør.",
+    "excerpt": "Vinteren er den bedste tid til sightseeing på den tyrkiske riviera: kølige, klare dage og næsten tomme ruiner. Her er de udflugter, der fungerer, hvor lang tid hver tur tager, og hvad du bør tjekke først.",
+    "readingMinutes": 7,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Mellem december og februar kommer man ikke til Antalya for stranden, men for egnens historie og landskab. Ruiner, der er overfyldte og hede i juli, er rolige og behagelige om vinteren, luften er klar, og lyset er godt til fotografering. De fleste endagsture kører stadig, men nogle afhænger af vejret, og køretiden afgør, om en tur bliver en fornøjelse eller en opslidende dag."
+      },
+      {
+        "type": "h2",
+        "text": "Otte vinterudflugter i overblik"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Udflugt",
+          "Køretid fra Antalya (enkelt vej)",
+          "Egnethed om vinteren",
+          "Godt at vide"
+        ],
+        "rows": [
+          [
+            "Perge og Aspendos",
+            "ca. 20 og 45 minutter",
+            "Fremragende",
+            "Åbent hele året, næsten ingen køer; begge kan klares på én dag"
+          ],
+          [
+            "Termessos",
+            "ca. 45 minutter",
+            "God på tørre dage",
+            "Bjergsted i ca. 1.000 m højde: koldt, våd sten, af og til sne"
+          ],
+          [
+            "Düden- og Kurşunlu-vandfaldene",
+            "ca. 15 og 30 minutter",
+            "Fremragende",
+            "Vinterregn giver vandfaldene mest vand"
+          ],
+          [
+            "Phaselis og Olympos",
+            "ca. 1 time og 1 time 15 minutter",
+            "Meget god",
+            "Fyrreskov og ruiner ved havet; tag en vandtæt jakke med"
+          ],
+          [
+            "Demre, Myra og Kekova",
+            "ca. 2 timer 15 minutter",
+            "Meget god",
+            "Sankt Nikolaj-kirken, klippegrave; den lange køretur kræver en tidlig start"
+          ],
+          [
+            "Skicentret Saklıkent",
+            "ca. 1 time 30 minutter",
+            "Januar til marts, hvis sneen tillader det",
+            "Vejen kan kræve snekæder; bekræft forholdene dagen før"
+          ],
+          [
+            "Pamukkale og Hierapolis",
+            "ca. 3 timer",
+            "Meget god",
+            "Færre folk ved travertinterrasserne; en lang dag eller en overnatning"
+          ],
+          [
+            "Kappadokien",
+            "ca. 7-8 timer",
+            "Tur med overnatning",
+            "Snedækkede landskaber; planlæg mindst to nætter"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Køretiderne gælder normal trafik i dagtimerne og skifter med vejarbejde, vejr og det sted i Antalya, du starter fra. Bor du i Belek, Kemer, Side eller Alanya, skal du lægge transporten til byen til eller vælge den udflugt, der ligger på din side af bugten."
+      },
+      {
+        "type": "h2",
+        "text": "De nemme halvdagsture"
+      },
+      {
+        "type": "p",
+        "text": "Perge og Aspendos er den enkleste vinterudflugt: begge ligger øst for Antalya, tæt på lufthavnsvejen, og deres stadion, søjlegade og romerske teater hører til de bedst bevarede i Anatolien. Teatret i Aspendos bruges stadig til koncerter i sæsonen, men stenen tager sig bedst ud en klar eftermiddag i januar. Düden- og Kurşunlu-vandfaldene kræver kun to eller tre timer, så de er et godt valg til ankomst- eller afrejsedagen."
+      },
+      {
+        "type": "routelinks",
+        "text": "Bor du uden for byen? Fast pris pr. køretøj fra lufthavnen til dit feriested:",
+        "routes": [
+          "antalya",
+          "belek",
+          "side",
+          "kemer"
+        ],
+        "button": "Se din faste pris"
+      },
+      {
+        "type": "h2",
+        "text": "De heldagsture, der er den tidlige start værd"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Demre, Myra og Kekova: Sankt Nikolaj-kirken, Myras klippegrave og de sunkne ruiner ved Kekova fylder en hel dag. Kør senest klokken 8:00 for at nå Demre før middagsstilheden.",
+          "Phaselis og Olympos: tre havne i en fyrreskov og derefter de stille ruiner i Olympos. Chimaeras flammer i Çıralı ses bedst ved skumringstid, så regn med en sen hjemkomst.",
+          "Pamukkale: de hvide travertinterrasser og den antikke kurby Hierapolis er slående om vinteren, og de termiske bassiner er varme, selv når luften ikke er det. Det er en lang dag; en overnatning gør den langt mere afslappet.",
+          "Saklıkent: skiløb og hav inden for få timer fra hinanden, men kun når der er sne. Vi kan give et tilbud, så snart vejen og pisterne er bekræftet åbne."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Tjek vejret, før du kører"
+      },
+      {
+        "type": "p",
+        "text": "Vintervejret ved kysten skifter hurtigt. Regnen kommer som regel i byger mellem solrige dage, så hold planen fleksibel: arkæologiske steder og vandfald er fine i støvregn, men bjergsteder som Termessos og Saklıkent er det ikke. Se vejrudsigten aftenen før, og hav museet eller den gamle bydel som plan B."
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Tag flere lag tøj på og vælg sko med godt greb: antik sten og våde skovstier er glatte.",
+          "Åbningstiderne på museer og arkæologiske steder er kortere om vinteren og kan ændre sig; bekræft dem samme dag.",
+          "Dagslyset forsvinder omkring kl. 17:30 i december, så læg de lange køreture om formiddagen.",
+          "Ikke alle bådture, restauranter eller beachklubber holder åbent om vinteren; spørg, før du regner med dem."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Hvorfor en privat chauffør om vinteren"
+      },
+      {
+        "type": "p",
+        "text": "Den offentlige transport til ruiner og vandfald bliver tyndere om vinteren, og en stor grupperejse betyder en lang runde med afhentning på hoteller, før du ser noget som helst. Et privat køretøj kører, når du vil, stopper, hvor du beder om det, og lader dig bytte Termessos ud med museet, hvis himlen bliver grå. Prisen er fast pr. køretøj, ikke pr. person, så for en familie eller en vennegruppe svarer den ofte til en plads på en grupperejse."
+      },
+      {
+        "type": "p",
+        "text": "Vi kører lufthavnstransfers hele året og kan lægge en endagstur oveni samme booking. Fortæl os, hvilket hotel du bor på, hvor mange I er, og hvilken udflugt der interesserer dig, så bekræfter vi prisen og det bedste starttidspunkt."
+      }
+    ],
+    "faq": [
+      [
+        "Kører endagsture fra Antalya om vinteren?",
+        "Ja. Steder som Perge, Aspendos, Phaselis og Demre har åbent hele året. Bjergture som Termessos og Saklıkent afhænger af vejret, og bådture sejler sjældnere."
+      ],
+      [
+        "Hvilken vinterudflugt er bedst ved et første besøg?",
+        "Perge og Aspendos sammen er det nemmeste og mest givende: de ligger tæt på Antalya, har åbent hver dag og er næsten tomme om vinteren."
+      ],
+      [
+        "Kan jeg kombinere en endagstur med min lufthavnstransfer?",
+        "Ja. Fortæl os, hvornår du lander eller rejser, og hvilken udflugt du vil på, så kan vi planlægge afhentningen, så du når at se et sted på vej til eller fra lufthavnen."
+      ],
+      [
+        "Er det koldt nok til, at jeg skal have en frakke med?",
+        "Dagtemperaturerne ligger omkring 15-16 °C ved kysten, men aftenerne er kølige, og bjergene er meget koldere. Tag flere lag tøj og en vandtæt jakke med."
+      ],
+      [
+        "Er et privat køretøj dyrere end en grupperejse?",
+        "Prisen er fast pr. køretøj og ikke pr. person, så for tre eller flere rejsende ligger den ofte tæt på prisen for pladser på en grupperejse, og du får dit eget tidsskema."
+      ]
+    ]
+  },
+  "termessos-winter-day-trip": {
+    "slug": "termessos-om-vinteren-fra-antalya",
+    "title": "Termessos om vinteren: sådan besøger du bjergbyen fra Antalya",
+    "heading": "Termessos om vinteren: en praktisk guide til bjergbyen over Antalya",
+    "description": "Besøg Termessos om vinteren: køretid fra Antalya, vejret i 1.000 meters højde, hvad du skal have på, hvor lang tid du skal afsætte, og hvordan du kombinerer det med Karain-grotten.",
+    "excerpt": "Termessos ligger højt oppe i Taurusbjergene og føles som en forsvundet by. Om vinteren er den stille, dramatisk og nogle gange snedækket. Sådan planlægger du turen, og sådan ved du, hvornår den skal udskydes.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Termessos er et af Tyrkiets mest stemningsfulde antikke steder: en by af stenterrasser, et teater med udsigt over bjergene og grave spredt mellem fyrretræerne. Den ligger i en nationalpark i Taurusbjergene, og det er derfor, at turen er givende om vinteren, og derfor, at den kræver mere omtanke end et besøg i Perge eller Aspendos."
+      },
+      {
+        "type": "h2",
+        "text": "Sådan kommer du dertil fra Antalya"
+      },
+      {
+        "type": "p",
+        "text": "Parken ligger ca. 35 km vest for Antalya, og køreturen tager omkring 45 minutter. Den sidste strækning snor sig op ad en bjergvej til parkeringspladsen, så vejret i byen fortæller ikke, hvordan vejret er ved stedet. Fra Belek eller Kemer er transfeturen længere, ca. 1 time 15 minutter til 1 time 30 minutter afhængigt af udgangspunktet."
+      },
+      {
+        "type": "routelinks",
+        "text": "Fast pris pr. køretøj fra lufthavnen til dit hotel, med endagsturen som tilkøb på forespørgsel:",
+        "routes": [
+          "antalya",
+          "belek",
+          "kemer"
+        ],
+        "button": "Se din faste pris"
+      },
+      {
+        "type": "h2",
+        "text": "Vintervejr i ca. 1.000 meters højde"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Måned",
+          "Typiske forhold",
+          "Hvad du kan forvente"
+        ],
+        "rows": [
+          [
+            "December",
+            "Køligt, ofte fugtigt",
+            "Våde stier og skyer i dalene; klare dage er almindelige"
+          ],
+          [
+            "Januar",
+            "Den koldeste måned",
+            "Frost om morgenen, af og til sne på de øvre terrasser"
+          ],
+          [
+            "Februar",
+            "Køligt og stadig lysere",
+            "Længere dage, bedst udsigt når disen har lettet"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Temperaturen i bjergene er flere grader lavere end ved kysten, og stenen kan forblive våd og glat længe efter regnen. Efter kraftig regn eller sne kan parken begrænse adgangen, så tjek dagen før. En klar, tør dag efter en front er det bedste tidspunkt at tage af sted."
+      },
+      {
+        "type": "h2",
+        "text": "Hvad du kan se, og hvor lang tid du skal afsætte"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Teatret: det mest kendte udsigtspunkt, med Taurusbjergenes toppe bag scenen.",
+          "Det store tempel og agoraen: terrasser, der viser, hvordan byen blev bygget ind i skråningen.",
+          "Nekropolis: klippegrave og sarkofager langs stien, mange af dem væltet af jordskælv.",
+          "Afsæt to til tre timer på stedet, hvis du går de store stier; stierne højere oppe tager længere tid og er stejle."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Kombiner Termessos med Karain-grotten"
+      },
+      {
+        "type": "p",
+        "text": "Karain-grotten, en af Anatoliens ældste kendte forhistoriske bosættelser, ligger på samme side af sletten og passer let ind i en halv dag sammen med Termessos. Det er en kort stigning op til grottens munding, og museet i byen giver baggrund for begge steder. Sammen er de et godt alternativ til stranden, når det regner."
+      },
+      {
+        "type": "h2",
+        "text": "Hvad du skal have på og tage med"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Sko med grebsål: stierne er stejle, og den antikke sten er glat, når den er våd.",
+          "Varme lag og en vindtæt jakke, selv om kysten er mild.",
+          "Vand og en snack: der er lidt at købe, når du først er inde i parken.",
+          "En opladet telefon og chaufførens nummer skrevet ned på papir, da dækningen kan være svag i dalene.",
+          "Kontanter til entréen, som kan ændre sig; bekræft det aktuelle beløb og åbningstiderne, før du tager af sted."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Hvorfor en privat chauffør hjælper"
+      },
+      {
+        "type": "p",
+        "text": "Taxaer venter ikke altid ved Termessos, og parkvejen betjenes ikke af almindelige busser. En privat chauffør kan vente, mens du går, flytte starttidspunktet, når vejrudsigten ændrer sig, og køre dig ned tidligt, hvis vejret vender. Hvis du ankommer med fly, kan vi planlægge turen til din første hele dag og bekræfte køretøj og pris, når du booker."
+      }
+    ],
+    "faq": [
+      [
+        "Er Termessos åben om vinteren?",
+        "Parken er åben hele året, men åbningstider og adgang kan ændre sig med vejret. Tjek samme dag, især efter kraftig regn eller sne."
+      ],
+      [
+        "Hvor langt er der fra Antalya til Termessos?",
+        "Ca. 35 km, eller omkring 45 minutter i bil, med en snoet bjergvej på den sidste del."
+      ],
+      [
+        "Sner det i Termessos?",
+        "Af og til, især i januar. Sne er ikke almindeligt hver vinter, men stedet er meget koldere og vådere end kysten."
+      ],
+      [
+        "Hvor lang tid tager et besøg?",
+        "Regn med to til tre timer på stedet plus køretiden. En halv dag er nok; kombiner med Karain-grotten for at fylde formiddagen."
+      ],
+      [
+        "Kan jeg besøge stedet med børn?",
+        "Større børn, der kan gå på stejle, ujævne stier, vil kunne lide det. Klapvogne fungerer ikke på terrasserne og stierne."
+      ]
+    ]
+  },
+  "antalya-waterfalls-winter": {
+    "slug": "vandfald-ved-antalya-om-vinteren",
+    "title": "Vandfald ved Antalya om vinteren: Düden, Kurşunlu og Manavgat",
+    "heading": "Vandfald ved Antalya om vinteren: Düden, Kurşunlu og Manavgat på deres kraftigste",
+    "description": "Düden-, Kurşunlu- og Manavgat-vandfaldene om vinteren: hvorfor de er stærkest efter regn, afstande fra Antalya og Side, og hvordan du passer dem ind i en halvdagstur.",
+    "excerpt": "Vinterregnen forvandler vandfaldene omkring Antalya til kraftige strømme. Her er, hvor du skal hen, hvor langt der er til hvert fald, og hvordan du planlægger en halv dag omkring dem.",
+    "readingMinutes": 5,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Sommerturister oplever ofte, at Antalyas vandfald er skrumpet ind til en tynd stribe. Mellem december og februar, efter vinterregnen, buldrer de samme fald kraftigt og højlydt, det omkringliggende grønne er friskt, og der er næsten ingen andre. De hører til de nemmeste og mest givende vinterudflugter, og ingen af dem kræver mere end en halv dag."
+      },
+      {
+        "type": "h2",
+        "text": "De tre vandfald, du bør kende"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Vandfald",
+          "Hvor",
+          "Køretid",
+          "Godt til"
+        ],
+        "rows": [
+          [
+            "Øvre Düden (Yukarı Düden)",
+            "Nord for Antalya, i en park i byen",
+            "ca. 15 minutter fra centrum",
+            "Et hurtigt stop, gåstier og en grotte bag faldet"
+          ],
+          [
+            "Nedre Düden (Aşağı Düden)",
+            "Lara-kysten, hvor floden møder havet",
+            "ca. 20 minutter fra Antalya",
+            "Udsigt over havet fra klippekanten, især efter regn"
+          ],
+          [
+            "Kurşunlu",
+            "Øst for Antalya, i en naturpark",
+            "ca. 30 minutter fra byen",
+            "Skovture, et højere fald og rolige omgivelser"
+          ],
+          [
+            "Manavgat",
+            "Nær Side, ved Manavgat-floden",
+            "ca. 10 minutter fra Side",
+            "Brede kaskader, caféer ved floden og byens marked"
+          ]
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Hvorfor vinteren er den bedste årstid"
+      },
+      {
+        "type": "p",
+        "text": "Düden- og Kurşunlu-faldene fødes af regn og karstkilder, så deres vandføring er stærkest efter vådt vejr. Manavgat er et flodfald og ikke et kildefødt, og det vokser også efter regnen og af snesmeltningen i Taurusbjergene. Varmen og menneskemasserne, de sædvanlige problemer i juli og august, udebliver."
+      },
+      {
+        "type": "h2",
+        "text": "En halvdagsplan fra Antalya"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Start ved Øvre Düden om morgenen, når parken er tom, og lyset er blødt.",
+          "Kør langs kysten til klipperne ved Nedre Düden for at se ud over havet.",
+          "Fortsæt østpå til Kurşunlu for skovturen, og spis så frokost i Lara eller på vejen tilbage.",
+          "Fra Side eller Belek kan du i stedet tage Manavgat og byens restauranter ved floden med."
+        ]
+      },
+      {
+        "type": "routelinks",
+        "text": "Fast pris pr. køretøj for transferen fra lufthavnen til dit hotel:",
+        "routes": [
+          "antalya",
+          "side",
+          "manavgat",
+          "belek"
+        ],
+        "button": "Se din faste pris"
+      },
+      {
+        "type": "h2",
+        "text": "Praktiske tips til et besøg i vådt vejr"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Stier og udsigtsplatforme er glatte, når de er våde; vælg sko med godt greb.",
+          "Tag en vandtæt jakke med: sprøjtet fra de store fald gør dig hurtigt våd i den kølige luft.",
+          "Entrépriser, åbningstider og adgang til grotterne kan ændre sig; bekræft samme dag.",
+          "Efter meget kraftig regn lukkes nogle stier af sikkerhedshensyn, så hav et ekstra stop i baghovedet."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Kombiner vandfaldene med en transfer"
+      },
+      {
+        "type": "p",
+        "text": "Fordi vandfaldene ligger mellem lufthavnen, byen og kystvejen, passer de pænt ind i turen til dit hotel. Lander du om eftermiddagen, tager en afhentning med stop ved Düden eller Kurşunlu på vejen kortere tid end en separat udflugt. Fortæl os dit flynummer og dit hotel, så bekræfter vi stoppet og prisen."
+      }
+    ],
+    "faq": [
+      [
+        "Er vandfaldene nær Antalya bedre om vinteren?",
+        "Ja. Efter vinterregnen er Düden-, Kurşunlu- og Manavgat-faldene på deres stærkeste, og der er færre besøgende."
+      ],
+      [
+        "Hvor langt er der fra Antalya til vandfaldene?",
+        "Øvre Düden ligger ca. 15 minutter fra centrum, Nedre Düden ca. 20 minutter og Kurşunlu ca. 30 minutter. Manavgat ligger nær Side."
+      ],
+      [
+        "Kan jeg besøge dem med børn?",
+        "Ja. Parkerne ved Düden og Kurşunlu har korte stier, men hold børnene væk fra våde gelændere og kanter."
+      ],
+      [
+        "Er der entré?",
+        "Nogle af parkerne tager en lille entré, og beløbet kan ændre sig. Spørg din chauffør, eller tjek samme dag."
+      ],
+      [
+        "Kan et stop ved et vandfald lægges til min lufthavnstransfer?",
+        "I de fleste tilfælde, ja. Fortæl os dit flynummer og hotel, når du booker, så bekræfter vi stoppet og prisen."
+      ]
+    ]
   }
 };

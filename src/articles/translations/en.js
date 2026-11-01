@@ -3221,5 +3221,427 @@ export const articles = {
         "No. The price is fixed and complete. A few euros for help with heavy luggage or a night arrival is appreciated but never expected."
       ]
     ]
+  },
+  "winter-day-tours-from-antalya": {
+    "slug": "winter-day-tours-from-antalya",
+    "title": "Winter Day Tours from Antalya: 8 Trips Worth Taking (Dec-Feb)",
+    "heading": "Winter day tours from Antalya: which trips work between December and February",
+    "description": "Eight winter day tours from Antalya compared: Perge, Aspendos, Termessos, Demre, Olympos, Pamukkale and more. Drive times, weather tips and how a private driver helps.",
+    "excerpt": "Winter is the best time for sightseeing on the Turkish Riviera: cool, clear days and almost empty ruins. Here are the day tours that work, how long each drive takes and what to check first.",
+    "readingMinutes": 7,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Between December and February the beach is not the reason to come to Antalya - the region's history and landscape are. Ruins that are crowded and hot in July are quiet and comfortable in winter, the air is clear and the light is good for photographs. Most day tours still run, but a few depend on the weather, and the drive time decides whether a trip is a pleasure or an exhausting day."
+      },
+      {
+        "type": "h2",
+        "text": "Eight winter day tours at a glance"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Tour",
+          "Drive from Antalya (one way)",
+          "Winter suitability",
+          "Good to know"
+        ],
+        "rows": [
+          [
+            "Perge and Aspendos",
+            "about 20 and 45 minutes",
+            "Excellent",
+            "Open all year, almost no queues; combine both in one day"
+          ],
+          [
+            "Termessos",
+            "about 45 minutes",
+            "Good on dry days",
+            "Mountain site at roughly 1,000 m: cold, wet rock, occasional snow"
+          ],
+          [
+            "Düden and Kurşunlu waterfalls",
+            "about 15 and 30 minutes",
+            "Excellent",
+            "Winter rain makes the falls fullest"
+          ],
+          [
+            "Phaselis and Olympos",
+            "about 1 hour and 1 hour 15 minutes",
+            "Very good",
+            "Pine forest and seaside ruins; bring a waterproof jacket"
+          ],
+          [
+            "Demre, Myra and Kekova",
+            "about 2 hours 15 minutes",
+            "Very good",
+            "Church of St Nicholas, rock tombs; the long drive suits an early start"
+          ],
+          [
+            "Saklıkent ski centre",
+            "about 1 hour 30 minutes",
+            "January to March, snow permitting",
+            "Road may need chains; confirm conditions the day before"
+          ],
+          [
+            "Pamukkale and Hierapolis",
+            "about 3 hours",
+            "Very good",
+            "Fewer crowds at the travertines; a long day or an overnight stop"
+          ],
+          [
+            "Cappadocia",
+            "about 7-8 hours",
+            "Overnight trip",
+            "Snow-covered landscapes; plan at least two nights"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Drive times are typical for daytime traffic and shift with road works, weather and where in Antalya you start. If you stay in Belek, Kemer, Side or Alanya, add the transfer time to the city or choose the tour that lies on your side of the bay."
+      },
+      {
+        "type": "h2",
+        "text": "The easy half-day trips"
+      },
+      {
+        "type": "p",
+        "text": "Perge and Aspendos are the simplest winter outing: both lie east of Antalya, close to the airport road, and their stadium, colonnaded street and Roman theatre are among the best preserved in Anatolia. Aspendos's theatre is still used for concerts in season, but the stone looks its best on a clear January afternoon. The Düden and Kurşunlu waterfalls need only two or three hours, which makes them a good choice for the day you arrive or leave."
+      },
+      {
+        "type": "routelinks",
+        "text": "Staying outside the city? Fixed price per vehicle from the airport to your resort:",
+        "routes": [
+          "antalya",
+          "belek",
+          "side",
+          "kemer"
+        ],
+        "button": "Check your fixed price"
+      },
+      {
+        "type": "h2",
+        "text": "The full-day trips worth the early start"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Demre, Myra and Kekova: the Church of St Nicholas, the rock tombs of Myra and the sunken ruins of Kekova make a full day. Leave by 8:00 to reach Demre before the midday lull.",
+          "Phaselis and Olympos: three harbours inside a pine forest, then the quiet ruins at Olympos. The Chimera flames at Çıralı are best seen at dusk, so allow for a late return.",
+          "Pamukkale: the white travertines and the ancient spa town of Hierapolis are striking in winter, and the thermal pools are warm when the air is not. It is a long day; an overnight stay makes it far more relaxed.",
+          "Saklıkent: skiing and the sea within a few hours of each other, but only when there is snow. We can quote the trip once the road and slopes are confirmed open."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Checking the weather before you go"
+      },
+      {
+        "type": "p",
+        "text": "Winter weather on the coast changes quickly. Rain usually arrives in bursts between sunny days, so keep your plan flexible: archaeological sites and waterfalls are enjoyable in a drizzle, mountain sites such as Termessos and Saklıkent are not. Look at the forecast the evening before, and keep the museum or old town as a backup."
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Wear layers and shoes with grip: ancient stone and wet forest paths are slippery.",
+          "Opening hours at museums and archaeological sites are shorter in winter and can change; confirm on the day.",
+          "Daylight ends around 17:30 in December, so plan the long drives for the morning.",
+          "Not every boat trip, restaurant or beach club runs in winter; ask before you assume."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Why go with a private driver in winter"
+      },
+      {
+        "type": "p",
+        "text": "Public transport to ruins and waterfalls thins out in winter, and joining a large group tour means a long loop of hotel pickups before you see anything. A private vehicle leaves when you want, stops where you ask and lets you swap Termessos for the museum if the sky turns grey. The price is fixed per vehicle, not per person, so for a family or a group of friends it is often comparable to a seat on a group tour."
+      },
+      {
+        "type": "p",
+        "text": "We run airport transfers all year and can add a day trip on the same booking. Tell us your hotel, the number of people and which tour interests you, and we will confirm the price and the best start time."
+      }
+    ],
+    "faq": [
+      [
+        "Do day tours from Antalya run in winter?",
+        "Yes. Sites such as Perge, Aspendos, Phaselis and Demre are open all year. Mountain trips such as Termessos and Saklıkent depend on the weather, and boat trips run less often."
+      ],
+      [
+        "Which winter day tour is best for a first visit?",
+        "Perge and Aspendos together are the easiest and most rewarding: they are close to Antalya, open every day and almost empty in winter."
+      ],
+      [
+        "Can I combine a day tour with my airport transfer?",
+        "Yes. Tell us your arrival or departure time and the tour you want, and we can plan the pickup so you see a site on the way to or from the airport."
+      ],
+      [
+        "Is it cold enough to need a coat?",
+        "Daytime temperatures are around 15-16 °C on the coast, but evenings are cool and the mountains are much colder. Bring layers and a waterproof jacket."
+      ],
+      [
+        "Is a private vehicle more expensive than a group tour?",
+        "The price is fixed per vehicle, not per person, so for three or more travellers it is often similar to group-tour seats while giving you your own schedule."
+      ]
+    ]
+  },
+  "termessos-winter-day-trip": {
+    "slug": "termessos-winter-day-trip",
+    "title": "Termessos in Winter: How to Visit the Mountain City from Antalya",
+    "heading": "Termessos in winter: a practical guide to the mountain city above Antalya",
+    "description": "How to visit Termessos in winter: drive time from Antalya, the weather at 1,000 metres, what to wear, how long to allow and how to combine it with Karain Cave.",
+    "excerpt": "Termessos sits high in the Taurus mountains and feels like a lost city. In winter it is quiet, dramatic and sometimes snowy. Here is how to plan the trip and when to postpone it.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Termessos is one of the most atmospheric ancient sites in Turkey: a city of stone terraces, a theatre with a view across the mountains and tombs scattered through the pines. It lies in a national park in the Taurus mountains, which is why the trip is rewarding in winter and why it needs more care than a visit to Perge or Aspendos."
+      },
+      {
+        "type": "h2",
+        "text": "Getting there from Antalya"
+      },
+      {
+        "type": "p",
+        "text": "The park is about 35 km west of Antalya and the drive takes roughly 45 minutes. The last stretch climbs a winding mountain road to the car park, so the weather in the city does not tell you what the weather at the site will be. From Belek or Kemer the transfer is longer, about one hour 15 minutes to one hour 30 minutes depending on the starting point."
+      },
+      {
+        "type": "routelinks",
+        "text": "Fixed price per vehicle from the airport to your hotel, with the day trip added on request:",
+        "routes": [
+          "antalya",
+          "belek",
+          "kemer"
+        ],
+        "button": "Check your fixed price"
+      },
+      {
+        "type": "h2",
+        "text": "Winter weather at roughly 1,000 metres"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Month",
+          "Typical conditions",
+          "What to expect"
+        ],
+        "rows": [
+          [
+            "December",
+            "Cool, often damp",
+            "Wet paths and cloud in the valleys; clear days are common"
+          ],
+          [
+            "January",
+            "Coldest month",
+            "Frost in the morning, occasional snow on the upper terraces"
+          ],
+          [
+            "February",
+            "Cool and brightening",
+            "Longer days, best views once the haze clears"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Temperatures on the mountain are several degrees lower than on the coast and the stone can stay wet and slippery long after rain. After heavy rain or snow the park may restrict access, so check the day before. A clear, dry day after a front has passed is the best time to go."
+      },
+      {
+        "type": "h2",
+        "text": "What to see and how long to allow"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "The theatre: the best-known viewpoint, with the peaks of the Taurus behind the stage.",
+          "The Great Temple and the agora: terraces that show how the city was built into the slope.",
+          "The necropolis: rock tombs and sarcophagi along the path, many of them toppled by earthquakes.",
+          "Allow two to three hours on site if you walk the main paths; the upper trails take longer and are steep."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Combining Termessos with Karain Cave"
+      },
+      {
+        "type": "p",
+        "text": "Karain Cave, one of the oldest known prehistoric settlements in Anatolia, lies on the same side of the plain and fits easily into a half day with Termessos. It is a short climb to the cave mouth, and the museum in the city gives context for both. Together they make a good rainy-weather alternative to the beach."
+      },
+      {
+        "type": "h2",
+        "text": "What to wear and bring"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Shoes with a grip sole: the paths are steep and the ancient stone is slippery when wet.",
+          "Warm layers and a windproof jacket, even if the coast is mild.",
+          "Water and a snack: there is little to buy once you are inside the park.",
+          "A charged phone and a printed note of your driver's number, as signal can be weak in the valleys.",
+          "Cash for the entrance fee, which can change; confirm the current amount and opening hours before you go."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Why a private driver helps"
+      },
+      {
+        "type": "p",
+        "text": "Taxis do not always wait at Termessos, and the park road is not served by regular buses. A private driver can wait while you walk, move the start time when the forecast changes and take you down early if the weather turns. If you are arriving by air, we can plan the trip for your first full day and confirm the vehicle and price when you book."
+      }
+    ],
+    "faq": [
+      [
+        "Is Termessos open in winter?",
+        "The park is open all year, but opening hours and access can change with the weather. Check on the day, especially after heavy rain or snow."
+      ],
+      [
+        "How far is Termessos from Antalya?",
+        "About 35 km, or roughly 45 minutes by car, with a winding mountain road for the last part."
+      ],
+      [
+        "Does it snow at Termessos?",
+        "Occasionally, especially in January. Snow is not usual every winter, but the site is much colder and wetter than the coast."
+      ],
+      [
+        "How long does a visit take?",
+        "Plan two to three hours on site, plus the drive. A half day is enough; combine it with Karain Cave to fill the morning."
+      ],
+      [
+        "Can I visit with children?",
+        "Older children who can walk steep, uneven paths will enjoy it. Strollers do not work on the terraces and paths."
+      ]
+    ]
+  },
+  "antalya-waterfalls-winter": {
+    "slug": "antalya-waterfalls-winter",
+    "title": "Antalya Waterfalls in Winter: Düden, Kurşunlu and Manavgat",
+    "heading": "Antalya waterfalls in winter: Düden, Kurşunlu and Manavgat at their fullest",
+    "description": "Düden, Kurşunlu and Manavgat waterfalls in winter: why they are strongest after rain, distances from Antalya and Side, and how to fit them into a half-day trip.",
+    "excerpt": "Winter rain turns the waterfalls around Antalya into powerful torrents. Here is where to go, how far each one is and how to plan a half day around them.",
+    "readingMinutes": 5,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Summer visitors often find Antalya's waterfalls reduced to a trickle. Between December and February, after the winter rains, the same falls run strong and loud, the surrounding greenery is fresh and there is hardly anyone else there. They are some of the easiest and most rewarding winter outings, and none of them needs more than half a day."
+      },
+      {
+        "type": "h2",
+        "text": "The three waterfalls to know"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Waterfall",
+          "Where",
+          "Drive time",
+          "Good for"
+        ],
+        "rows": [
+          [
+            "Upper Düden (Yukarı Düden)",
+            "North of Antalya, in a city park",
+            "about 15 minutes from the centre",
+            "A quick stop, walking paths and a cave behind the falls"
+          ],
+          [
+            "Lower Düden (Aşağı Düden)",
+            "Lara coast, where the river meets the sea",
+            "about 20 minutes from Antalya",
+            "Cliff-edge views over the sea, especially after rain"
+          ],
+          [
+            "Kurşunlu",
+            "East of Antalya, in a nature park",
+            "about 30 minutes from the city",
+            "Forest walks, a larger drop and a calm setting"
+          ],
+          [
+            "Manavgat",
+            "Near Side, on the Manavgat River",
+            "about 10 minutes from Side",
+            "Wide cascades, riverside cafés and the town's market"
+          ]
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Why winter is the best season"
+      },
+      {
+        "type": "p",
+        "text": "The Düden and Kurşunlu falls are fed by rain and karst springs, so their flow is strongest after wet weather. Manavgat is a river fall rather than a spring-fed one, and it also grows after the rains and from the snowmelt in the Taurus. Heat and crowds, the usual problems in July and August, are absent."
+      },
+      {
+        "type": "h2",
+        "text": "A half-day plan from Antalya"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Start at Upper Düden in the morning, when the park is empty and the light is soft.",
+          "Drive along the coast to the Lower Düden cliffs for sea views.",
+          "Continue east to Kurşunlu for the forest walk, then lunch in Lara or on the way back.",
+          "From Side or Belek, include Manavgat and the town's riverside restaurants instead."
+        ]
+      },
+      {
+        "type": "routelinks",
+        "text": "Fixed price per vehicle for the transfer from the airport to your hotel:",
+        "routes": [
+          "antalya",
+          "side",
+          "manavgat",
+          "belek"
+        ],
+        "button": "Check your fixed price"
+      },
+      {
+        "type": "h2",
+        "text": "Practical tips for a wet-weather visit"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Paths and viewing platforms are slippery when wet; wear shoes with grip.",
+          "Bring a waterproof jacket: spray from the larger falls soaks you quickly in cool air.",
+          "Entrance fees, hours and access to the caves can change; confirm on the day.",
+          "After very heavy rain some paths close for safety, so keep a second stop in mind."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Combine the falls with a transfer"
+      },
+      {
+        "type": "p",
+        "text": "Because the waterfalls lie between the airport, the city and the coast road, they fit neatly into the journey to your hotel. If you land in the afternoon, a pickup that stops at Düden or Kurşunlu on the way costs less time than a separate trip. Tell us your flight number and your hotel and we will confirm the stop and the price."
+      }
+    ],
+    "faq": [
+      [
+        "Are the waterfalls near Antalya better in winter?",
+        "Yes. After winter rain the Düden, Kurşunlu and Manavgat falls are at their strongest, and there are fewer visitors."
+      ],
+      [
+        "How far are the waterfalls from Antalya?",
+        "Upper Düden is about 15 minutes from the centre, Lower Düden about 20 minutes, and Kurşunlu about 30 minutes. Manavgat lies near Side."
+      ],
+      [
+        "Can I visit them with children?",
+        "Yes. The Düden and Kurşunlu parks have short paths, but keep children away from wet railings and edges."
+      ],
+      [
+        "Is there an entrance fee?",
+        "Some of the parks charge a small entrance fee and the amount can change. Ask your driver or check on the day."
+      ],
+      [
+        "Can a waterfall stop be added to my airport transfer?",
+        "In most cases, yes. Tell us your flight number and hotel when you book and we will confirm the stop and the price."
+      ]
+    ]
   }
 };

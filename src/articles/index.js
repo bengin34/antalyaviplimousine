@@ -40,6 +40,9 @@ import antalyaAirportTerminals from "./antalya-airport-terminals.js";
 import antalyaInSummer from "./antalya-in-summer.js";
 import belekSideKemerCompare from "./belek-side-kemer-compare.js";
 import arrivalEssentialsTurkey from "./arrival-essentials-turkey.js";
+import winterDayToursFromAntalya from "./winter-day-tours-from-antalya.js";
+import termessosWinterDayTrip from "./termessos-winter-day-trip.js";
+import antalyaWaterfallsWinter from "./antalya-waterfalls-winter.js";
 import { languageOrder, translations } from "./translations/index.js";
 import { blogPath, languagePrefix } from "./paths.js";
 
@@ -48,6 +51,9 @@ export const articleLanguages = languageOrder;
 
 /** Newest first: the blog index and the feeds both read this order. */
 const catalogue = [
+  winterDayToursFromAntalya,
+  termessosWinterDayTrip,
+  antalyaWaterfallsWinter,
   antalyaAirportTerminals,
   arrivalEssentialsTurkey,
   belekSideKemerCompare,

@@ -3221,5 +3221,427 @@ export const articles = {
         "Hayır. Fiyat sabit ve eksiksizdir. Ağır bagaj ya da gece varışı için birkaç euro memnuniyetle karşılanır ama asla beklenmez."
       ]
     ]
+  },
+  "winter-day-tours-from-antalya": {
+    "slug": "antalyadan-kis-gunubirlik-turlar",
+    "title": "Antalya'dan Kış Günübirlik Turları: Değer 8 Gezi (Aralık–Şubat)",
+    "heading": "Antalya'dan kış günübirlik turları: aralık ile şubat arasında hangi geziler uygun?",
+    "description": "Antalya'dan sekiz kış günübirlik turu karşılaştırıldı: Perge, Aspendos, Termessos, Demre, Olimpos, Pamukkale ve daha fazlası. Yol süreleri, hava durumu ipuçları ve özel şoförün avantajı.",
+    "excerpt": "Kış, Türk Rivierası'nda gezip görmek için en iyi mevsim: serin, berrak günler ve neredeyse bomboş antik kentler. İşte uygun turlar, yolun ne kadar sürdüğü ve önce nelere bakmanız gerektiği.",
+    "readingMinutes": 7,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Aralık ile şubat arasında Antalya'ya plaj için değil, bölgenin tarihi ve doğası için gelinir. Temmuzda kalabalık ve sıcak olan antik kentler kışın sakin ve rahattır, hava berraktır, ışık fotoğraf için çok iyidir. Günübirlik turların çoğu hâlâ yapılıyor, ancak birkaçı havaya bağlı; yolun süresi de gezinin keyifli mi yoksa yorucu bir gün mü olacağını belirliyor."
+      },
+      {
+        "type": "h2",
+        "text": "Sekiz kış günübirlik turuna bir bakış"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Tur",
+          "Antalya'dan yol (tek yön)",
+          "Kışın uygunluğu",
+          "Bilmekte fayda var"
+        ],
+        "rows": [
+          [
+            "Perge ve Aspendos",
+            "yaklaşık 20 ve 45 dakika",
+            "Mükemmel",
+            "Yıl boyu açık, neredeyse hiç kuyruk yok; ikisi bir günde birleştirilebilir"
+          ],
+          [
+            "Termessos",
+            "yaklaşık 45 dakika",
+            "Kuru günlerde iyi",
+            "Yaklaşık 1.000 m yükseklikte dağ alanı: soğuk, ıslak taş, ara sıra kar"
+          ],
+          [
+            "Düden ve Kurşunlu şelaleleri",
+            "yaklaşık 15 ve 30 dakika",
+            "Mükemmel",
+            "Kış yağmurları şelaleleri en gür hâline getirir"
+          ],
+          [
+            "Phaselis ve Olimpos",
+            "yaklaşık 1 saat ve 1 saat 15 dakika",
+            "Çok iyi",
+            "Çam ormanı ve deniz kıyısında kalıntılar; su geçirmez bir ceket alın"
+          ],
+          [
+            "Demre, Myra ve Kekova",
+            "yaklaşık 2 saat 15 dakika",
+            "Çok iyi",
+            "Noel Baba Kilisesi, kaya mezarları; uzun yol erken başlangıca uygun"
+          ],
+          [
+            "Saklıkent kayak merkezi",
+            "yaklaşık 1 saat 30 dakika",
+            "Ocak–mart, kar durumuna göre",
+            "Zincir gerekebilir; koşulları bir gün önceden teyit edin"
+          ],
+          [
+            "Pamukkale ve Hierapolis",
+            "yaklaşık 3 saat",
+            "Çok iyi",
+            "Travertenlerde daha az kalabalık; uzun bir gün ya da bir gecelik konaklama"
+          ],
+          [
+            "Kapadokya",
+            "yaklaşık 7–8 saat",
+            "Konaklamalı tur",
+            "Karla kaplı manzaralar; en az iki gece planlayın"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Yol süreleri gündüz trafiği için tipik değerlerdir; yol çalışmaları, hava durumu ve Antalya'da nereden çıktığınıza göre değişir. Belek, Kemer, Side veya Alanya'da kalıyorsanız şehre transfer süresini ekleyin ya da körfezin kendi tarafınızdaki turunu seçin."
+      },
+      {
+        "type": "h2",
+        "text": "Kolay yarım günlük geziler"
+      },
+      {
+        "type": "p",
+        "text": "Perge ve Aspendos en kolay kış gezisidir: ikisi de Antalya'nın doğusunda, havalimanı yoluna yakındır; stadyumları, sütunlu caddeleri ve Roma tiyatroları Anadolu'nun en iyi korunmuş örnekleri arasındadır. Aspendos tiyatrosu sezonda hâlâ konserler için kullanılır, ancak taş en güzel hâlini berrak bir ocak öğleden sonrasında alır. Düden ve Kurşunlu şelaleleri yalnızca iki üç saat sürer; geliş veya ayrılış günü için iyi bir seçenektir."
+      },
+      {
+        "type": "routelinks",
+        "text": "Şehir dışında mı kalıyorsunuz? Havalimanından tatil yerinize araç başı sabit fiyat:",
+        "routes": [
+          "antalya",
+          "belek",
+          "side",
+          "kemer"
+        ],
+        "button": "Sabit fiyatı görün"
+      },
+      {
+        "type": "h2",
+        "text": "Erken kalkmaya değen tam günlük geziler"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Demre, Myra ve Kekova: Noel Baba Kilisesi, Myra'nın kaya mezarları ve Kekova'nın sular altındaki kalıntıları bütün bir günü doldurur. Öğle sessizliğinden önce Demre'ye varmak için 8:00'de yola çıkın.",
+          "Phaselis ve Olimpos: çam ormanı içinde üç liman, ardından Olimpos'un sakin kalıntıları. Çıralı'daki Yanartaş alevleri en iyi alacakaranlıkta görülür; geç dönüşe hazırlıklı olun.",
+          "Pamukkale: beyaz travertenler ve antik kaplıca kenti Hierapolis kışın etkileyicidir, hava soğuk olsa da termal havuzlar ılıktır. Uzun bir gündür; bir gece konaklamak çok daha rahat olur.",
+          "Saklıkent: birkaç saat arayla hem kayak hem deniz, ama yalnızca kar varsa. Yolun ve pistlerin açık olduğu teyit edilince turun fiyatını veririz."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Yola çıkmadan hava durumunu kontrol edin"
+      },
+      {
+        "type": "p",
+        "text": "Kıyıda kış havası hızlı değişir. Yağmur genellikle güneşli günler arasında sağanaklar hâlinde gelir; bu yüzden planınızı esnek tutun: arkeolojik alanlar ve şelaleler çiselemede de keyiflidir, Termessos ve Saklıkent gibi dağ alanları değildir. Bir akşam önce tahmine bakın ve yedek olarak müzeyi veya eski şehri aklınızda tutun."
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Katmanlı giyinin ve tabanı tutuşlu ayakkabı seçin: antik taş ve ıslak orman patikaları kaygandır.",
+          "Müze ve arkeolojik alanların çalışma saatleri kışın daha kısadır ve değişebilir; o gün teyit edin.",
+          "Aralıkta gün batımı 17:30 civarındadır; uzun yolları sabaha planlayın.",
+          "Her tekne turu, restoran veya plaj kulübü kışın çalışmaz; varsaymadan önce sorun."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Kışın neden özel şoförle gitmeli?"
+      },
+      {
+        "type": "p",
+        "text": "Antik kentlere ve şelalelere toplu taşıma kışın seyrekleşir; büyük bir grup turuna katılırsanız bir şey görmeden önce uzun bir otel toplama turu yaparsınız. Özel araç istediğiniz saatte çıkar, istediğiniz yerde durur ve gökyüzü kapanırsa Termessos yerine müzeye gitmenizi sağlar. Fiyat kişi başı değil araç başı sabittir; bu yüzden bir aile ya da arkadaş grubu için çoğu zaman grup turundaki bir koltukla benzer düzeydedir."
+      },
+      {
+        "type": "p",
+        "text": "Havalimanı transferlerini yıl boyu yapıyoruz ve aynı rezervasyona günübirlik bir tur ekleyebiliriz. Otelinizi, kişi sayınızı ve ilgilendiğiniz turu bize bildirin; fiyatı ve en uygun başlangıç saatini teyit edelim."
+      }
+    ],
+    "faq": [
+      [
+        "Antalya'dan günübirlik turlar kışın yapılıyor mu?",
+        "Evet. Perge, Aspendos, Phaselis ve Demre gibi alanlar yıl boyu açıktır. Termessos ve Saklıkent gibi dağ gezileri havaya bağlıdır, tekne turları ise daha seyrek yapılır."
+      ],
+      [
+        "İlk ziyaret için en iyi kış turu hangisi?",
+        "Perge ve Aspendos birlikte en kolay ve en tatmin edici seçenektir: Antalya'ya yakındır, her gün açıktır ve kışın neredeyse bomboştur."
+      ],
+      [
+        "Günübirlik turu havalimanı transferimle birleştirebilir miyim?",
+        "Evet. Geliş veya gidiş saatinizi ve istediğiniz turu bize bildirin; havalimanına giderken ya da dönerken bir alanı görebilmeniz için karşılamayı planlayalım."
+      ],
+      [
+        "Mont gerektirecek kadar soğuk mu?",
+        "Kıyıda gündüz sıcaklıklar yaklaşık 15–16 °C'dir, ancak akşamlar serindir ve dağlarda çok daha soğuktur. Katmanlı giysiler ve su geçirmez bir ceket alın."
+      ],
+      [
+        "Özel araç grup turundan daha mı pahalı?",
+        "Fiyat kişi başı değil araç başı sabittir; üç veya daha fazla yolcu için çoğu zaman grup turu koltuklarıyla benzer olur, üstelik kendi programınıza sahip olursunuz."
+      ]
+    ]
+  },
+  "termessos-winter-day-trip": {
+    "slug": "kisin-termessos-gezisi-antalyadan",
+    "title": "Kışın Termessos: Antalya'dan Dağ Kentine Nasıl Gidilir?",
+    "heading": "Kışın Termessos: Antalya'nın üzerindeki dağ kenti için pratik rehber",
+    "description": "Termessos'u kışın ziyaret etmek: Antalya'dan yol süresi, 1.000 metrede hava durumu, ne giyilmeli, ne kadar süre ayrılmalı ve Karain Mağarası ile nasıl birleştirilir.",
+    "excerpt": "Termessos, Toros Dağları'nın yüksek bir yerinde, kayıp bir kent gibi durur. Kışın sakin, dramatik ve bazen karlıdır. Geziyi nasıl planlayacağınız ve ne zaman erteleyeceğiniz burada.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Termessos, Türkiye'nin en atmosferik antik alanlarından biridir: taş teraslardan oluşan bir kent, dağların üzerinde manzaralı bir tiyatro ve çamların arasına dağılmış mezarlar. Toros Dağları'ndaki bir milli parkın içinde yer alır; bu yüzden gezi kışın ödüllendiricidir ve Perge ya da Aspendos ziyaretinden daha fazla özen gerektirir."
+      },
+      {
+        "type": "h2",
+        "text": "Antalya'dan nasıl gidilir?"
+      },
+      {
+        "type": "p",
+        "text": "Park, Antalya'nın yaklaşık 35 km batısındadır ve yol kabaca 45 dakika sürer. Son bölüm, virajlı bir dağ yolundan otoparka çıkar; bu yüzden şehirdeki hava durumu alandaki havayı göstermez. Belek veya Kemer'den yol daha uzundur; çıkış noktasına göre yaklaşık 1 saat 15 dakika ile 1 saat 30 dakika arasındadır."
+      },
+      {
+        "type": "routelinks",
+        "text": "Havalimanından otelinize araç başı sabit fiyat, talep üzerine günübirlik tur eklenir:",
+        "routes": [
+          "antalya",
+          "belek",
+          "kemer"
+        ],
+        "button": "Sabit fiyatı görün"
+      },
+      {
+        "type": "h2",
+        "text": "Yaklaşık 1.000 metrede kış havası"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Ay",
+          "Tipik koşullar",
+          "Neler beklenmeli"
+        ],
+        "rows": [
+          [
+            "Aralık",
+            "Serin, çoğu zaman nemli",
+            "Vadilerde ıslak patikalar ve bulut; açık günler de sık görülür"
+          ],
+          [
+            "Ocak",
+            "En soğuk ay",
+            "Sabahları don, üst teraslarda ara sıra kar"
+          ],
+          [
+            "Şubat",
+            "Serin ve açılan hava",
+            "Daha uzun günler, sis dağıldığında en güzel manzaralar"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Dağda sıcaklıklar kıyıdan birkaç derece düşüktür ve taş yağmurdan uzun süre sonra bile ıslak ve kaygan kalabilir. Şiddetli yağmur veya kardan sonra park girişi kısıtlayabilir; bir gün önce kontrol edin. Bir cephenin geçmesinden sonraki açık ve kuru bir gün gitmek için en iyi zamandır."
+      },
+      {
+        "type": "h2",
+        "text": "Neler görülür, ne kadar süre ayrılmalı?"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Tiyatro: en bilinen manzara noktası; sahnenin ardında Toros zirveleri yükselir.",
+          "Büyük Tapınak ve agora: kentin yamaca nasıl kurulduğunu gösteren teraslar.",
+          "Nekropol: patika boyunca kaya mezarları ve lahitler; birçoğu depremlerle devrilmiş.",
+          "Ana patikaları yürürseniz alanda iki üç saat ayırın; üst parkurlar daha uzun sürer ve diktir."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Termessos'u Karain Mağarası ile birleştirmek"
+      },
+      {
+        "type": "p",
+        "text": "Anadolu'nun bilinen en eski tarih öncesi yerleşimlerinden biri olan Karain Mağarası ovanın aynı tarafında yer alır ve Termessos ile yarım güne kolayca sığar. Mağara ağzına kısa bir tırmanış vardır; kentteki müze ikisi için de bağlam sunar. Birlikte, yağmurlu havada plaja iyi bir alternatif oluştururlar."
+      },
+      {
+        "type": "h2",
+        "text": "Ne giymeli, yanınıza neler almalı?"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Tabanı tutuşlu ayakkabılar: patikalar diktir ve antik taş ıslakken kaygandır.",
+          "Kıyı ılık olsa bile sıcak katmanlar ve rüzgâr geçirmeyen bir ceket.",
+          "Su ve atıştırmalık: park içinde satın alınabilecek şey çok azdır.",
+          "Şarjlı bir telefon ve şoförünüzün numarasının basılı bir notu; vadilerde sinyal zayıf olabilir.",
+          "Değişebilen giriş ücreti için nakit; gitmeden önce güncel tutarı ve çalışma saatlerini teyit edin."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Özel şoför neden işe yarar?"
+      },
+      {
+        "type": "p",
+        "text": "Taksiler Termessos'ta her zaman beklemez ve park yoluna düzenli otobüs seferi yoktur. Özel şoför siz yürürken bekleyebilir, tahmin değişirse başlangıç saatini kaydırabilir ve hava bozarsa sizi erken aşağı indirebilir. Uçakla geliyorsanız geziyi ilk tam gününüze planlayabilir, aracı ve fiyatı rezervasyon sırasında teyit ederiz."
+      }
+    ],
+    "faq": [
+      [
+        "Termessos kışın açık mı?",
+        "Park yıl boyu açıktır, ancak çalışma saatleri ve giriş hava durumuna göre değişebilir. Özellikle şiddetli yağmur veya kardan sonra o gün kontrol edin."
+      ],
+      [
+        "Termessos Antalya'ya ne kadar uzak?",
+        "Yaklaşık 35 km; arabayla kabaca 45 dakika, son bölümde virajlı bir dağ yolu var."
+      ],
+      [
+        "Termessos'a kar yağar mı?",
+        "Ara sıra, özellikle ocakta. Kar her kış görülmez, ancak alan kıyıdan çok daha soğuk ve ıslaktır."
+      ],
+      [
+        "Ziyaret ne kadar sürer?",
+        "Alanda iki üç saat ve yol süresini hesaba katın. Yarım gün yeterli; sabahı doldurmak için Karain Mağarası ile birleştirin."
+      ],
+      [
+        "Çocuklarla gidebilir miyim?",
+        "Dik ve engebeli patikalarda yürüyebilen büyük çocuklar keyif alır. Bebek arabası teraslarda ve patikalarda işe yaramaz."
+      ]
+    ]
+  },
+  "antalya-waterfalls-winter": {
+    "slug": "antalya-selaleleri-kisin",
+    "title": "Kışın Antalya Şelaleleri: Düden, Kurşunlu ve Manavgat",
+    "heading": "Kışın Antalya şelaleleri: Düden, Kurşunlu ve Manavgat en gür hâlinde",
+    "description": "Kışın Düden, Kurşunlu ve Manavgat şelaleleri: yağmurdan sonra neden en güçlü oldukları, Antalya ve Side'den uzaklıklar ve yarım günlük gezide nasıl birleştirilecekleri.",
+    "excerpt": "Kış yağmurları Antalya çevresindeki şelaleleri gür sellere çevirir. Nereye gidileceği, her birinin ne kadar uzak olduğu ve etraflarında yarım günün nasıl planlanacağı burada.",
+    "readingMinutes": 5,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Yaz gelen ziyaretçiler Antalya şelalelerini çoğu zaman bir ince su şeridine inmiş bulur. Aralık ile şubat arasında, kış yağmurlarından sonra aynı şelaleler gür ve gürültülü akar, çevredeki yeşillik tazedir ve orada neredeyse kimse yoktur. Kışın en kolay ve en tatmin edici gezilerden biridir; hiçbiri yarım günden fazlasını gerektirmez."
+      },
+      {
+        "type": "h2",
+        "text": "Bilmeniz gereken üç şelale"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Şelale",
+          "Nerede",
+          "Yol süresi",
+          "Neye uygun"
+        ],
+        "rows": [
+          [
+            "Yukarı Düden",
+            "Antalya'nın kuzeyi, bir şehir parkında",
+            "merkezden yaklaşık 15 dakika",
+            "Kısa bir mola, yürüyüş yolları ve şelalenin arkasında bir mağara"
+          ],
+          [
+            "Aşağı Düden",
+            "Lara kıyısı, nehrin denize döküldüğü yer",
+            "Antalya'dan yaklaşık 20 dakika",
+            "Özellikle yağmurdan sonra denize bakan falez manzarası"
+          ],
+          [
+            "Kurşunlu",
+            "Antalya'nın doğusu, bir tabiat parkında",
+            "şehirden yaklaşık 30 dakika",
+            "Orman yürüyüşleri, daha yüksek bir düşüş ve sakin bir ortam"
+          ],
+          [
+            "Manavgat",
+            "Side yakınında, Manavgat Irmağı üzerinde",
+            "Side'den yaklaşık 10 dakika",
+            "Geniş kaskatlar, nehir kenarı kafeler ve kasabanın pazarı"
+          ]
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Kış neden en iyi mevsim?"
+      },
+      {
+        "type": "p",
+        "text": "Düden ve Kurşunlu şelaleleri yağmur ve karstik kaynaklarla beslenir; bu yüzden akış yağışlı havadan sonra en güçlüdür. Manavgat kaynak değil nehir şelalesidir; o da yağmurlardan ve Toroslar'daki kar erimesinden sonra gürleşir. Temmuz ve ağustosun olağan sorunları olan sıcak ve kalabalık yoktur."
+      },
+      {
+        "type": "h2",
+        "text": "Antalya'dan yarım günlük plan"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Sabah park boşken ve ışık yumuşakken Yukarı Düden'de başlayın.",
+          "Deniz manzarası için kıyı boyunca Aşağı Düden falezlerine sürün.",
+          "Orman yürüyüşü için doğuda Kurşunlu'ya devam edin, ardından öğle yemeğini Lara'da ya da dönüş yolunda yiyin.",
+          "Side veya Belek'ten gidiyorsanız bunun yerine Manavgat'ı ve kasabanın nehir kenarı restoranlarını planlayın."
+        ]
+      },
+      {
+        "type": "routelinks",
+        "text": "Havalimanından otelinize transfer için araç başı sabit fiyat:",
+        "routes": [
+          "antalya",
+          "side",
+          "manavgat",
+          "belek"
+        ],
+        "button": "Sabit fiyatı görün"
+      },
+      {
+        "type": "h2",
+        "text": "Yağışlı havada ziyaret için pratik ipuçları"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Patikalar ve seyir terasları ıslakken kaygandır; tabanı tutuşlu ayakkabı giyin.",
+          "Su geçirmez bir ceket alın: büyük şelalelerin serpintisi serin havada sizi çabucak ıslatır.",
+          "Giriş ücretleri, çalışma saatleri ve mağaralara erişim değişebilir; o gün teyit edin.",
+          "Çok şiddetli yağmurdan sonra bazı patikalar güvenlik için kapanır; ikinci bir durağı aklınızda tutun."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Şelaleleri transferle birleştirin"
+      },
+      {
+        "type": "p",
+        "text": "Şelaleler havalimanı, şehir ve sahil yolu arasında yer aldığı için otele giden yola rahatça sığar. Öğleden sonra inerseniz, Düden veya Kurşunlu'da mola veren bir karşılama ayrı bir geziden daha az zaman alır. Uçuş numaranızı ve otelinizi bize bildirin; molayı ve fiyatı teyit edelim."
+      }
+    ],
+    "faq": [
+      [
+        "Antalya yakınındaki şelaleler kışın daha mı güzel?",
+        "Evet. Kış yağmurlarından sonra Düden, Kurşunlu ve Manavgat şelaleleri en güçlü hâlindedir ve ziyaretçi sayısı daha azdır."
+      ],
+      [
+        "Şelaleler Antalya'ya ne kadar uzak?",
+        "Yukarı Düden merkezden yaklaşık 15 dakika, Aşağı Düden yaklaşık 20 dakika, Kurşunlu yaklaşık 30 dakika uzaklıktadır. Manavgat, Side yakınındadır."
+      ],
+      [
+        "Çocuklarla gidebilir miyim?",
+        "Evet. Düden ve Kurşunlu parklarında kısa patikalar var, ancak çocukları ıslak korkuluklardan ve kenarlardan uzak tutun."
+      ],
+      [
+        "Giriş ücreti var mı?",
+        "Bazı parklar küçük bir giriş ücreti alır ve tutar değişebilir. Şoförünüze sorun ya da o gün kontrol edin."
+      ],
+      [
+        "Havalimanı transferime şelale molası eklenebilir mi?",
+        "Çoğu durumda evet. Rezervasyon sırasında uçuş numaranızı ve otelinizi bize bildirin; molayı ve fiyatı teyit edelim."
+      ]
+    ]
   }
 };

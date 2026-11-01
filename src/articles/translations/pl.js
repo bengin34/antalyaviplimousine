@@ -3221,5 +3221,427 @@ export const articles = {
         "Nie. Cena jest stała i kompletna. Kilka euro za ciężki bagaż albo nocny przylot jest miłe, ale nigdy nie jest oczekiwane."
       ]
     ]
+  },
+  "winter-day-tours-from-antalya": {
+    "slug": "zimowe-wycieczki-z-antalyi",
+    "title": "Zimowe wycieczki jednodniowe z Antalyi: 8 tras wartych uwagi (gru-lut)",
+    "heading": "Zimowe wycieczki jednodniowe z Antalyi: które trasy sprawdzają się od grudnia do lutego",
+    "description": "Osiem zimowych wycieczek jednodniowych z Antalyi: Perge, Aspendos, Termessos, Demre, Olympos, Pamukkale i inne. Czas jazdy, pogoda i zalety prywatnego kierowcy.",
+    "excerpt": "Zima to najlepszy czas na zwiedzanie Riwiery Tureckiej: chłodne, pogodne dni i niemal puste ruiny. Które wycieczki warto wybrać, ile trwa dojazd i co sprawdzić wcześniej.",
+    "readingMinutes": 7,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Od grudnia do lutego do Antalyi nie jedzie się dla plaży, tylko dla historii i krajobrazów regionu. Ruiny, które w lipcu są zatłoczone i rozgrzane, zimą są ciche i przyjemne do zwiedzania, powietrze jest czyste, a światło sprzyja zdjęciom. Większość wycieczek nadal się odbywa, ale kilka zależy od pogody, a czas jazdy decyduje, czy wyjazd będzie przyjemnością, czy wyczerpującym dniem."
+      },
+      {
+        "type": "h2",
+        "text": "Osiem zimowych wycieczek w skrócie"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Wycieczka",
+          "Dojazd z Antalyi (w jedną stronę)",
+          "Przydatność zimą",
+          "Warto wiedzieć"
+        ],
+        "rows": [
+          [
+            "Perge i Aspendos",
+            "ok. 20 i 45 minut",
+            "Doskonała",
+            "Otwarte przez cały rok, prawie bez kolejek; oba miejsca można połączyć w jeden dzień"
+          ],
+          [
+            "Termessos",
+            "ok. 45 minut",
+            "Dobra w suche dni",
+            "Górskie stanowisko na wysokości ok. 1000 m: zimno, mokre skały, czasem śnieg"
+          ],
+          [
+            "Wodospady Düden i Kurşunlu",
+            "ok. 15 i 30 minut",
+            "Doskonała",
+            "Zimowe deszcze sprawiają, że wodospady mają najwięcej wody"
+          ],
+          [
+            "Phaselis i Olympos",
+            "ok. 1 godziny i 1 godziny 15 minut",
+            "Bardzo dobra",
+            "Sosnowy las i ruiny nad morzem; zabierz kurtkę przeciwdeszczową"
+          ],
+          [
+            "Demre, Myra i Kekova",
+            "ok. 2 godzin 15 minut",
+            "Bardzo dobra",
+            "Kościół św. Mikołaja, grobowce skalne; długa droga wymaga wczesnego startu"
+          ],
+          [
+            "Ośrodek narciarski Saklıkent",
+            "ok. 1 godziny 30 minut",
+            "Od stycznia do marca, jeśli jest śnieg",
+            "Na drodze mogą być potrzebne łańcuchy; sprawdź warunki dzień wcześniej"
+          ],
+          [
+            "Pamukkale i Hierapolis",
+            "ok. 3 godzin",
+            "Bardzo dobra",
+            "Mniej turystów przy trawertynach; długi dzień albo wyjazd z noclegiem"
+          ],
+          [
+            "Kapadocja",
+            "ok. 7-8 godzin",
+            "Wyjazd z noclegiem",
+            "Ośnieżone krajobrazy; zaplanuj co najmniej dwie noce"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Czasy przejazdu dotyczą ruchu w ciągu dnia i zmieniają się przez roboty drogowe, pogodę oraz miejsce startu w Antalyi. Jeśli mieszkasz w Beleku, Kemerze, Side lub Alanyi, dolicz czas dojazdu do miasta albo wybierz wycieczkę po swojej stronie zatoki."
+      },
+      {
+        "type": "h2",
+        "text": "Łatwe wycieczki na pół dnia"
+      },
+      {
+        "type": "p",
+        "text": "Perge i Aspendos to najprostsza zimowa wycieczka: oba miasta leżą na wschód od Antalyi, niedaleko drogi z lotniska, a ich stadion, ulica z kolumnadą i rzymski teatr należą do najlepiej zachowanych w Anatolii. W teatrze w Aspendos w sezonie nadal odbywają się koncerty, ale kamień wygląda najlepiej w pogodne styczniowe popołudnie. Na wodospady Düden i Kurşunlu wystarczą dwie lub trzy godziny, więc dobrze pasują na dzień przylotu lub wylotu."
+      },
+      {
+        "type": "routelinks",
+        "text": "Mieszkasz poza miastem? Stała cena za pojazd z lotniska do twojego kurortu:",
+        "routes": [
+          "antalya",
+          "belek",
+          "side",
+          "kemer"
+        ],
+        "button": "Sprawdź stałą cenę"
+      },
+      {
+        "type": "h2",
+        "text": "Całodniowe wycieczki, dla których warto wstać wcześnie"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Demre, Myra i Kekova: kościół św. Mikołaja, grobowce skalne w Myrze i zatopione ruiny Kekovy to cały dzień. Wyjedź o 8:00, by dotrzeć do Demre przed południową ciszą.",
+          "Phaselis i Olympos: trzy porty w sosnowym lesie, a potem spokojne ruiny Olympos. Płomienie Chimery w Çıralı najlepiej oglądać o zmierzchu, więc licz się z późnym powrotem.",
+          "Pamukkale: białe trawertyny i starożytne uzdrowisko Hierapolis robią zimą duże wrażenie, a termalne baseny są ciepłe, nawet gdy powietrze takie nie jest. To długi dzień; z noclegiem jest znacznie spokojniej.",
+          "Saklıkent: narty i morze w odległości kilku godzin, ale tylko wtedy, gdy leży śnieg. Cenę wycieczki podamy, gdy potwierdzi się, że droga i stoki są otwarte."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Sprawdzanie pogody przed wyjazdem"
+      },
+      {
+        "type": "p",
+        "text": "Zimowa pogoda na wybrzeżu zmienia się szybko. Deszcz zwykle przychodzi falami między słonecznymi dniami, więc zachowaj elastyczny plan: stanowiska archeologiczne i wodospady są przyjemne także podczas mżawki, ale miejsca górskie, takie jak Termessos i Saklıkent, już nie. Obejrzyj prognozę poprzedniego wieczoru i miej w odwodzie muzeum lub stare miasto."
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Ubierz się warstwowo i weź buty z dobrym bieżnikiem: starożytny kamień i mokre leśne ścieżki są śliskie.",
+          "Godziny otwarcia muzeów i stanowisk archeologicznych zimą są krótsze i mogą się zmieniać; potwierdź je w dniu wycieczki.",
+          "W grudniu dzień kończy się około 17:30, więc długie trasy zaplanuj na rano.",
+          "Nie każdy rejs, restauracja czy klub plażowy działa zimą; zapytaj, zanim uznasz to za pewnik."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Dlaczego zimą warto wybrać prywatnego kierowcę"
+      },
+      {
+        "type": "p",
+        "text": "Transport publiczny do ruin i wodospadów zimą jeździ rzadziej, a przy dużej wycieczce grupowej zanim cokolwiek zobaczysz, czeka cię długa runda po hotelach. Prywatny pojazd rusza, kiedy chcesz, zatrzymuje się, gdzie poprosisz, i pozwala zamienić Termessos na muzeum, jeśli niebo się zachmurzy. Cena jest stała za pojazd, a nie za osobę, więc dla rodziny lub grupy znajomych często jest porównywalna z miejscem w wycieczce grupowej."
+      },
+      {
+        "type": "p",
+        "text": "Obsługujemy transfery z lotniska przez cały rok i możemy dodać wycieczkę jednodniową do tej samej rezerwacji. Podaj hotel, liczbę osób i wycieczkę, która cię interesuje, a potwierdzimy cenę i najlepszą godzinę startu."
+      }
+    ],
+    "faq": [
+      [
+        "Czy wycieczki jednodniowe z Antalyi odbywają się zimą?",
+        "Tak. Stanowiska takie jak Perge, Aspendos, Phaselis i Demre są otwarte przez cały rok. Wycieczki górskie, np. do Termessos i Saklıkent, zależą od pogody, a rejsy odbywają się rzadziej."
+      ],
+      [
+        "Którą zimową wycieczkę wybrać na pierwszy pobyt?",
+        "Perge i Aspendos razem to najłatwiejsza i najbardziej satysfakcjonująca opcja: leżą blisko Antalyi, są otwarte codziennie, a zimą prawie puste."
+      ],
+      [
+        "Czy mogę połączyć wycieczkę z transferem z lotniska?",
+        "Tak. Podaj godzinę przylotu lub wylotu i wybraną wycieczkę, a zaplanujemy odbiór tak, byś po drodze na lotnisko lub z lotniska zobaczył(a) jedno ze stanowisk."
+      ],
+      [
+        "Czy jest na tyle zimno, że potrzebny jest płaszcz?",
+        "W dzień na wybrzeżu jest około 15-16 °C, ale wieczory są chłodne, a w górach znacznie zimniej. Zabierz ubrania na cebulkę i kurtkę przeciwdeszczową."
+      ],
+      [
+        "Czy prywatny pojazd jest droższy niż wycieczka grupowa?",
+        "Cena jest stała za pojazd, a nie za osobę, więc przy trzech lub więcej podróżnych często jest zbliżona do miejsc w wycieczce grupowej, a harmonogram ustalasz sam."
+      ]
+    ]
+  },
+  "termessos-winter-day-trip": {
+    "slug": "termessos-zima-wycieczka-z-antalyi",
+    "title": "Termessos zimą: jak zwiedzić górskie miasto z Antalyi",
+    "heading": "Termessos zimą: praktyczny przewodnik po górskim mieście nad Antalyą",
+    "description": "Jak zwiedzić Termessos zimą: czas jazdy z Antalyi, pogoda na wysokości 1000 metrów, co ubrać, ile czasu zarezerwować i jak połączyć wizytę z jaskinią Karain.",
+    "excerpt": "Termessos leży wysoko w górach Taurus i wygląda jak zaginione miasto. Zimą jest tu cicho, widowiskowo, a czasem śnieżnie. Jak zaplanować wyjazd i kiedy go przełożyć.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Termessos to jedno z najbardziej klimatycznych stanowisk antycznych w Turcji: miasto na kamiennych tarasach, teatr z widokiem na góry i grobowce rozsiane wśród sosen. Leży w parku narodowym w górach Taurus, dlatego wyjazd zimą jest satysfakcjonujący i wymaga większej uwagi niż wizyta w Perge czy Aspendos."
+      },
+      {
+        "type": "h2",
+        "text": "Dojazd z Antalyi"
+      },
+      {
+        "type": "p",
+        "text": "Park znajduje się około 35 km na zachód od Antalyi, a dojazd zajmuje około 45 minut. Ostatni odcinek to kręta górska droga na parking, więc pogoda w mieście nie mówi, jaka będzie na miejscu. Z Beleku lub Kemeru transfer jest dłuższy, od około 1 godziny 15 minut do 1 godziny 30 minut, zależnie od punktu startu."
+      },
+      {
+        "type": "routelinks",
+        "text": "Stała cena za pojazd z lotniska do hotelu, z wycieczką jednodniową dodawaną na życzenie:",
+        "routes": [
+          "antalya",
+          "belek",
+          "kemer"
+        ],
+        "button": "Sprawdź stałą cenę"
+      },
+      {
+        "type": "h2",
+        "text": "Zimowa pogoda na wysokości około 1000 metrów"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Miesiąc",
+          "Typowe warunki",
+          "Czego się spodziewać"
+        ],
+        "rows": [
+          [
+            "Grudzień",
+            "Chłodno, często wilgotno",
+            "Mokre ścieżki i chmury w dolinach; pogodne dni są częste"
+          ],
+          [
+            "Styczeń",
+            "Najzimniejszy miesiąc",
+            "Poranne przymrozki, czasem śnieg na wyższych tarasach"
+          ],
+          [
+            "Luty",
+            "Chłodno i coraz jaśniej",
+            "Dłuższe dni, najlepsze widoki po rozwianiu mgły"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Na górze jest o kilka stopni zimniej niż na wybrzeżu, a kamień może być mokry i śliski długo po deszczu. Po silnym deszczu lub śniegu park może ograniczyć wstęp, więc sprawdź to dzień wcześniej. Najlepszy jest pogodny, suchy dzień po przejściu frontu."
+      },
+      {
+        "type": "h2",
+        "text": "Co zobaczyć i ile czasu zarezerwować"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Teatr: najsłynniejszy punkt widokowy, a za sceną widać szczyty Taurusu.",
+          "Wielka Świątynia i agora: tarasy pokazujące, jak miasto wbudowano w zbocze.",
+          "Nekropolia: skalne grobowce i sarkofagi wzdłuż ścieżki, wiele przewróconych przez trzęsienia ziemi.",
+          "Zaplanuj dwie do trzech godzin na miejscu, jeśli idziesz głównymi ścieżkami; górne szlaki trwają dłużej i są strome."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Termessos razem z jaskinią Karain"
+      },
+      {
+        "type": "p",
+        "text": "Jaskinia Karain, jedno z najstarszych znanych prehistorycznych osiedli w Anatolii, leży po tej samej stronie równiny i łatwo zmieścić ją w pół dnia razem z Termessos. Do wejścia do jaskini jest krótka wspinaczka, a muzeum w mieście daje kontekst dla obu miejsc. Razem to dobra alternatywa dla plaży w deszczową pogodę."
+      },
+      {
+        "type": "h2",
+        "text": "Co ubrać i zabrać ze sobą"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Buty z przyczepną podeszwą: ścieżki są strome, a starożytny kamień jest śliski, gdy mokry.",
+          "Ciepłe warstwy i wiatroszczelna kurtka, nawet jeśli na wybrzeżu jest łagodnie.",
+          "Woda i przekąska: w parku prawie nic nie kupisz.",
+          "Naładowany telefon i numer kierowcy zapisany na kartce, bo w dolinach zasięg bywa słaby.",
+          "Gotówka na bilet wstępu, którego cena może się zmienić; sprawdź aktualną kwotę i godziny otwarcia przed wyjazdem."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Dlaczego prywatny kierowca pomaga"
+      },
+      {
+        "type": "p",
+        "text": "Taksówki nie zawsze czekają w Termessos, a drogą do parku nie jeżdżą regularne autobusy. Prywatny kierowca poczeka, aż skończysz spacer, przesunie godzinę startu, gdy zmieni się prognoza, i zabierze cię wcześniej na dół, jeśli pogoda się załamie. Jeśli przylatujesz samolotem, możemy zaplanować wyjazd na twój pierwszy pełny dzień i potwierdzić pojazd oraz cenę przy rezerwacji."
+      }
+    ],
+    "faq": [
+      [
+        "Czy Termessos jest otwarte zimą?",
+        "Park jest otwarty przez cały rok, ale godziny otwarcia i dostęp mogą się zmieniać w zależności od pogody. Sprawdź to w dniu wyjazdu, zwłaszcza po silnym deszczu lub śniegu."
+      ],
+      [
+        "Jak daleko jest Termessos od Antalyi?",
+        "Około 35 km, czyli mniej więcej 45 minut samochodem; ostatni odcinek to kręta górska droga."
+      ],
+      [
+        "Czy w Termessos pada śnieg?",
+        "Czasami, zwłaszcza w styczniu. Śnieg nie pada co zimę, ale na miejscu jest znacznie zimniej i wilgotniej niż na wybrzeżu."
+      ],
+      [
+        "Ile trwa zwiedzanie?",
+        "Zaplanuj dwie do trzech godzin na miejscu plus dojazd. Pół dnia wystarczy; połącz wizytę z jaskinią Karain, by wypełnić poranek."
+      ],
+      [
+        "Czy mogę jechać z dziećmi?",
+        "Starsze dzieci, które poradzą sobie na stromych, nierównych ścieżkach, będą zadowolone. Wózki nie sprawdzą się na tarasach i ścieżkach."
+      ]
+    ]
+  },
+  "antalya-waterfalls-winter": {
+    "slug": "wodospady-antalya-zima",
+    "title": "Wodospady Antalyi zimą: Düden, Kurşunlu i Manavgat",
+    "heading": "Wodospady Antalyi zimą: Düden, Kurşunlu i Manavgat w pełnej krasie",
+    "description": "Wodospady Düden, Kurşunlu i Manavgat zimą: dlaczego są najsilniejsze po deszczu, odległości od Antalyi i Side oraz jak zmieścić je w wycieczce na pół dnia.",
+    "excerpt": "Zimowe deszcze zamieniają wodospady wokół Antalyi w potężne strumienie. Dokąd jechać, jak daleko jest do każdego i jak zaplanować wokół nich pół dnia.",
+    "readingMinutes": 5,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Letni turyści często zastają wodospady Antalyi zmniejszone do cienkiej strużki. Od grudnia do lutego, po zimowych deszczach, te same wodospady huczą z pełną siłą, zieleń wokół jest świeża, a prawie nikogo tam nie ma. To jedne z najłatwiejszych i najbardziej satysfakcjonujących zimowych wycieczek, a żadna nie wymaga więcej niż pół dnia."
+      },
+      {
+        "type": "h2",
+        "text": "Trzy wodospady, które warto znać"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Wodospad",
+          "Gdzie",
+          "Czas dojazdu",
+          "Dobry na"
+        ],
+        "rows": [
+          [
+            "Górny Düden (Yukarı Düden)",
+            "Na północ od Antalyi, w parku miejskim",
+            "ok. 15 minut od centrum",
+            "Krótki przystanek, ścieżki spacerowe i jaskinia za wodospadem"
+          ],
+          [
+            "Dolny Düden (Aşağı Düden)",
+            "Wybrzeże Lara, gdzie rzeka wpada do morza",
+            "ok. 20 minut od Antalyi",
+            "Widoki na morze z krawędzi klifu, zwłaszcza po deszczu"
+          ],
+          [
+            "Kurşunlu",
+            "Na wschód od Antalyi, w parku przyrody",
+            "ok. 30 minut od miasta",
+            "Spacery po lesie, wyższy uskok i spokojne otoczenie"
+          ],
+          [
+            "Manavgat",
+            "Koło Side, nad rzeką Manavgat",
+            "ok. 10 minut od Side",
+            "Szerokie kaskady, kawiarnie nad rzeką i targ w miasteczku"
+          ]
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Dlaczego zima to najlepszy sezon"
+      },
+      {
+        "type": "p",
+        "text": "Wodospady Düden i Kurşunlu zasilają deszcze i źródła krasowe, więc ich przepływ jest największy po mokrej pogodzie. Manavgat to wodospad rzeczny, a nie źródlany; on także nabiera mocy po deszczach i w czasie topnienia śniegów w Taurusie. Nie ma upałów i tłumów, które zwykle dokuczają w lipcu i sierpniu."
+      },
+      {
+        "type": "h2",
+        "text": "Plan na pół dnia z Antalyi"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Zacznij od Górnego Düden rano, gdy park jest pusty, a światło miękkie.",
+          "Jedź wybrzeżem do klifów Dolnego Düden, by zobaczyć morze.",
+          "Jedź dalej na wschód do Kurşunlu na spacer po lesie, a potem obiad w Larze lub w drodze powrotnej.",
+          "Jeśli wyruszasz z Side lub Beleku, zamiast tego dodaj Manavgat i restauracje nad rzeką w miasteczku."
+        ]
+      },
+      {
+        "type": "routelinks",
+        "text": "Stała cena za pojazd na transfer z lotniska do hotelu:",
+        "routes": [
+          "antalya",
+          "side",
+          "manavgat",
+          "belek"
+        ],
+        "button": "Sprawdź stałą cenę"
+      },
+      {
+        "type": "h2",
+        "text": "Praktyczne wskazówki na mokrą pogodę"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Ścieżki i platformy widokowe są śliskie, gdy są mokre; załóż buty z dobrym bieżnikiem.",
+          "Zabierz kurtkę przeciwdeszczową: rozpryski z większych wodospadów szybko przemoczą cię w chłodnym powietrzu.",
+          "Ceny biletów, godziny otwarcia i dostęp do jaskiń mogą się zmieniać; sprawdź je w dniu wyjazdu.",
+          "Po bardzo silnym deszczu niektóre ścieżki są zamykane ze względów bezpieczeństwa, więc miej na uwadze drugi przystanek."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Połącz wodospady z transferem"
+      },
+      {
+        "type": "p",
+        "text": "Ponieważ wodospady leżą między lotniskiem, miastem a nadmorską drogą, łatwo wpisać je w trasę do hotelu. Jeśli lądujesz po południu, odbiór z przystankiem przy Düden lub Kurşunlu zajmuje mniej czasu niż osobna wycieczka. Podaj numer lotu i hotel, a potwierdzimy przystanek i cenę."
+      }
+    ],
+    "faq": [
+      [
+        "Czy wodospady koło Antalyi są zimą lepsze?",
+        "Tak. Po zimowych deszczach wodospady Düden, Kurşunlu i Manavgat są najsilniejsze, a odwiedzających jest mniej."
+      ],
+      [
+        "Jak daleko są wodospady od Antalyi?",
+        "Górny Düden jest około 15 minut od centrum, Dolny Düden około 20 minut, a Kurşunlu około 30 minut. Manavgat leży koło Side."
+      ],
+      [
+        "Czy mogę odwiedzić je z dziećmi?",
+        "Tak. W parkach Düden i Kurşunlu są krótkie ścieżki, ale trzymaj dzieci z dala od mokrych barierek i krawędzi."
+      ],
+      [
+        "Czy jest opłata za wstęp?",
+        "Niektóre parki pobierają niewielką opłatę, której wysokość może się zmienić. Zapytaj kierowcę lub sprawdź w dniu wyjazdu."
+      ],
+      [
+        "Czy można dodać przystanek przy wodospadzie do transferu z lotniska?",
+        "W większości przypadków tak. Podaj numer lotu i hotel przy rezerwacji, a potwierdzimy przystanek i cenę."
+      ]
+    ]
   }
 };

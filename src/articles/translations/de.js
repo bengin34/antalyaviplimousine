@@ -3247,5 +3247,427 @@ export const articles = {
         "Nein. Der Preis ist fest und vollständig. Ein paar Euro für schweres Gepäck oder eine Nachtankunft freuen den Fahrer, erwartet wird es nicht."
       ]
     ]
+  },
+  "winter-day-tours-from-antalya": {
+    "slug": "winter-tagesausfluege-ab-antalya",
+    "title": "Winter-Tagesausflüge ab Antalya: 8 Touren, die sich lohnen (Dez.-Feb.)",
+    "heading": "Winter-Tagesausflüge ab Antalya: Welche Touren zwischen Dezember und Februar gut funktionieren",
+    "description": "Acht Winter-Tagesausflüge ab Antalya im Vergleich: Perge, Aspendos, Termessos, Demre, Olympos, Pamukkale und mehr. Fahrzeiten, Wettertipps und Vorteile eines Privatfahrers.",
+    "excerpt": "Der Winter ist die beste Zeit für Besichtigungen an der Türkischen Riviera: kühle, klare Tage und fast leere Ruinen. Welche Tagesausflüge sich lohnen, wie lange die Fahrt dauert und was Sie vorher prüfen sollten.",
+    "readingMinutes": 7,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Zwischen Dezember und Februar kommt man nicht wegen des Strandes nach Antalya, sondern wegen der Geschichte und der Landschaft der Region. Ruinen, die im Juli voll und heiß sind, sind im Winter ruhig und angenehm, die Luft ist klar und das Licht eignet sich gut für Fotos. Die meisten Tagesausflüge finden weiterhin statt, einige hängen aber vom Wetter ab, und die Fahrzeit entscheidet, ob ein Ausflug ein Vergnügen oder ein anstrengender Tag wird."
+      },
+      {
+        "type": "h2",
+        "text": "Acht Winter-Tagesausflüge im Überblick"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Ausflug",
+          "Fahrt ab Antalya (einfache Strecke)",
+          "Wintertauglichkeit",
+          "Gut zu wissen"
+        ],
+        "rows": [
+          [
+            "Perge und Aspendos",
+            "ca. 20 und 45 Minuten",
+            "Ausgezeichnet",
+            "Ganzjährig geöffnet, kaum Warteschlangen; beide lassen sich an einem Tag verbinden"
+          ],
+          [
+            "Termessos",
+            "ca. 45 Minuten",
+            "Gut an trockenen Tagen",
+            "Bergstätte auf etwa 1.000 m: kalt, nasser Fels, gelegentlich Schnee"
+          ],
+          [
+            "Düden- und Kurşunlu-Wasserfälle",
+            "ca. 15 und 30 Minuten",
+            "Ausgezeichnet",
+            "Der Winterregen sorgt für die meiste Wassermenge"
+          ],
+          [
+            "Phaselis und Olympos",
+            "ca. 1 Stunde und 1 Stunde 15 Minuten",
+            "Sehr gut",
+            "Pinienwald und Ruinen am Meer; wasserdichte Jacke mitnehmen"
+          ],
+          [
+            "Demre, Myra und Kekova",
+            "ca. 2 Stunden 15 Minuten",
+            "Sehr gut",
+            "Nikolauskirche, Felsengräber; die lange Fahrt verlangt einen frühen Start"
+          ],
+          [
+            "Skigebiet Saklıkent",
+            "ca. 1 Stunde 30 Minuten",
+            "Januar bis März, wenn Schnee liegt",
+            "Schneeketten können nötig sein; Bedingungen am Vortag klären"
+          ],
+          [
+            "Pamukkale und Hierapolis",
+            "ca. 3 Stunden",
+            "Sehr gut",
+            "Weniger Andrang an den Sinterterrassen; ein langer Tag oder mit Übernachtung"
+          ],
+          [
+            "Kappadokien",
+            "ca. 7-8 Stunden",
+            "Tour mit Übernachtung",
+            "Verschneite Landschaften; mindestens zwei Nächte einplanen"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Die Fahrzeiten gelten für den Tagesverkehr und verändern sich durch Baustellen, Wetter und Ihren Startpunkt in Antalya. Wohnen Sie in Belek, Kemer, Side oder Alanya, rechnen Sie die Transferzeit bis zur Stadt dazu oder wählen Sie den Ausflug, der auf Ihrer Seite der Bucht liegt."
+      },
+      {
+        "type": "h2",
+        "text": "Die einfachen Halbtagesausflüge"
+      },
+      {
+        "type": "p",
+        "text": "Perge und Aspendos sind der einfachste Winterausflug: Beide liegen östlich von Antalya nahe der Flughafenstraße, und ihr Stadion, die Säulenstraße und das römische Theater gehören zu den am besten erhaltenen Anatoliens. Im Theater von Aspendos finden in der Saison noch Konzerte statt, doch der Stein wirkt an einem klaren Januarnachmittag am schönsten. Für die Düden- und Kurşunlu-Wasserfälle genügen zwei bis drei Stunden, daher passen sie gut zum Anreise- oder Abreisetag."
+      },
+      {
+        "type": "routelinks",
+        "text": "Sie wohnen außerhalb der Stadt? Festpreis pro Fahrzeug vom Flughafen zu Ihrem Hotel:",
+        "routes": [
+          "antalya",
+          "belek",
+          "side",
+          "kemer"
+        ],
+        "button": "Festpreis prüfen"
+      },
+      {
+        "type": "h2",
+        "text": "Die Ganztagesausflüge, für die sich der frühe Start lohnt"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Demre, Myra und Kekova: Die Nikolauskirche, die Felsengräber von Myra und die versunkenen Ruinen von Kekova füllen einen ganzen Tag. Fahren Sie um 8:00 Uhr los, um Demre vor der Mittagsruhe zu erreichen.",
+          "Phaselis und Olympos: drei Häfen in einem Pinienwald, danach die stillen Ruinen von Olympos. Die Flammen der Chimäre in Çıralı sieht man am besten in der Dämmerung, rechnen Sie also mit später Rückkehr.",
+          "Pamukkale: Die weißen Sinterterrassen und die antike Kurstadt Hierapolis sind im Winter eindrucksvoll, und die Thermalbecken sind warm, auch wenn die Luft es nicht ist. Es ist ein langer Tag; mit Übernachtung wird es deutlich entspannter.",
+          "Saklıkent: Skifahren und Meer nur wenige Stunden voneinander entfernt, aber nur bei Schnee. Wir nennen den Preis, sobald bestätigt ist, dass Straße und Pisten offen sind."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Das Wetter vorab prüfen"
+      },
+      {
+        "type": "p",
+        "text": "Das Winterwetter an der Küste wechselt schnell. Regen kommt meist in Schüben zwischen sonnigen Tagen, planen Sie also flexibel: Archäologische Stätten und Wasserfälle machen auch bei Nieselregen Freude, Bergstätten wie Termessos und Saklıkent dagegen nicht. Schauen Sie am Vorabend in die Vorhersage und halten Sie das Museum oder die Altstadt als Reserve bereit."
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Tragen Sie mehrere Schichten und Schuhe mit gutem Profil: Antiker Stein und nasse Waldwege sind rutschig.",
+          "Die Öffnungszeiten von Museen und archäologischen Stätten sind im Winter kürzer und können sich ändern; bitte am Tag selbst bestätigen.",
+          "Im Dezember endet das Tageslicht gegen 17:30 Uhr, planen Sie lange Fahrten also für den Vormittag.",
+          "Nicht jede Bootstour, jedes Restaurant und jeder Beachclub hat im Winter geöffnet; fragen Sie vorher nach."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Warum im Winter ein Privatfahrer sinnvoll ist"
+      },
+      {
+        "type": "p",
+        "text": "Öffentliche Verkehrsmittel zu Ruinen und Wasserfällen fahren im Winter seltener, und bei einer großen Gruppentour dauert erst eine lange Hotelrunde, bevor Sie etwas sehen. Ein Privatfahrzeug fährt los, wann Sie möchten, hält, wo Sie es wünschen, und lässt Sie Termessos gegen das Museum tauschen, wenn der Himmel grau wird. Der Preis gilt pro Fahrzeug, nicht pro Person; für eine Familie oder eine Freundesgruppe ist er daher oft mit einem Platz in einer Gruppentour vergleichbar."
+      },
+      {
+        "type": "p",
+        "text": "Wir fahren das ganze Jahr Flughafentransfers und können einen Tagesausflug in dieselbe Buchung aufnehmen. Nennen Sie uns Ihr Hotel, die Personenzahl und den gewünschten Ausflug, dann bestätigen wir Preis und beste Startzeit."
+      }
+    ],
+    "faq": [
+      [
+        "Finden Tagesausflüge ab Antalya im Winter statt?",
+        "Ja. Stätten wie Perge, Aspendos, Phaselis und Demre sind ganzjährig geöffnet. Bergausflüge wie Termessos und Saklıkent hängen vom Wetter ab, Bootstouren fahren seltener."
+      ],
+      [
+        "Welcher Winterausflug eignet sich für den ersten Besuch am besten?",
+        "Perge und Aspendos zusammen sind am einfachsten und lohnendsten: Sie liegen nahe bei Antalya, sind täglich geöffnet und im Winter fast leer."
+      ],
+      [
+        "Kann ich einen Tagesausflug mit meinem Flughafentransfer verbinden?",
+        "Ja. Nennen Sie uns Ihre Ankunfts- oder Abflugzeit und den gewünschten Ausflug, dann planen wir die Abholung so, dass Sie auf dem Weg zum oder vom Flughafen eine Stätte besichtigen."
+      ],
+      [
+        "Ist es kalt genug für einen Mantel?",
+        "Tagsüber hat es an der Küste etwa 15-16 °C, abends ist es kühl, und in den Bergen ist es deutlich kälter. Nehmen Sie mehrere Schichten und eine wasserdichte Jacke mit."
+      ],
+      [
+        "Ist ein Privatfahrzeug teurer als eine Gruppentour?",
+        "Der Preis gilt pro Fahrzeug, nicht pro Person; für drei oder mehr Reisende ist er daher oft ähnlich wie Plätze in einer Gruppentour, und Sie bestimmen Ihren eigenen Zeitplan."
+      ]
+    ]
+  },
+  "termessos-winter-day-trip": {
+    "slug": "termessos-im-winter-ausflug-ab-antalya",
+    "title": "Termessos im Winter: So besuchen Sie die Bergstadt ab Antalya",
+    "heading": "Termessos im Winter: Praktischer Ratgeber zur Bergstadt oberhalb von Antalya",
+    "description": "Termessos im Winter besuchen: Fahrzeit ab Antalya, Wetter auf 1.000 Metern Höhe, passende Kleidung, Zeitbedarf und die Kombination mit der Karain-Höhle.",
+    "excerpt": "Termessos liegt hoch im Taurus und wirkt wie eine verlorene Stadt. Im Winter ist es dort ruhig, dramatisch und manchmal verschneit. So planen Sie den Ausflug und wann Sie ihn verschieben sollten.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Termessos gehört zu den stimmungsvollsten antiken Stätten der Türkei: eine Stadt auf Steinterrassen, ein Theater mit Blick über die Berge und Gräber zwischen Pinien. Sie liegt in einem Nationalpark im Taurusgebirge, weshalb der Ausflug im Winter lohnend ist und mehr Sorgfalt verlangt als ein Besuch in Perge oder Aspendos."
+      },
+      {
+        "type": "h2",
+        "text": "Anreise ab Antalya"
+      },
+      {
+        "type": "p",
+        "text": "Der Park liegt etwa 35 km westlich von Antalya, die Fahrt dauert rund 45 Minuten. Das letzte Stück führt über eine kurvige Bergstraße zum Parkplatz, das Wetter in der Stadt sagt also nichts über das Wetter an der Stätte aus. Ab Belek oder Kemer ist der Transfer länger, je nach Startpunkt etwa 1 Stunde 15 Minuten bis 1 Stunde 30 Minuten."
+      },
+      {
+        "type": "routelinks",
+        "text": "Festpreis pro Fahrzeug vom Flughafen zu Ihrem Hotel, Tagesausflug auf Wunsch zubuchbar:",
+        "routes": [
+          "antalya",
+          "belek",
+          "kemer"
+        ],
+        "button": "Festpreis prüfen"
+      },
+      {
+        "type": "h2",
+        "text": "Winterwetter auf etwa 1.000 Metern"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Monat",
+          "Typische Bedingungen",
+          "Was Sie erwartet"
+        ],
+        "rows": [
+          [
+            "Dezember",
+            "Kühl, oft feucht",
+            "Nasse Wege und Wolken in den Tälern; klare Tage sind häufig"
+          ],
+          [
+            "Januar",
+            "Kältester Monat",
+            "Morgenfrost, gelegentlich Schnee auf den oberen Terrassen"
+          ],
+          [
+            "Februar",
+            "Kühl und heller werdend",
+            "Längere Tage, beste Aussicht, sobald sich der Dunst lichtet"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Auf dem Berg ist es einige Grad kälter als an der Küste, und der Stein kann lange nach dem Regen nass und rutschig bleiben. Nach starkem Regen oder Schnee kann der Park den Zugang einschränken, prüfen Sie es also am Vortag. Ein klarer, trockener Tag nach dem Durchzug einer Front ist der beste Zeitpunkt."
+      },
+      {
+        "type": "h2",
+        "text": "Was Sie sehen und wie viel Zeit Sie brauchen"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Das Theater: der bekannteste Aussichtspunkt, hinter der Bühne ragen die Gipfel des Taurus auf.",
+          "Der Große Tempel und die Agora: Terrassen, die zeigen, wie die Stadt in den Hang gebaut wurde.",
+          "Die Nekropole: Felsengräber und Sarkophage entlang des Weges, viele von Erdbeben umgestürzt.",
+          "Rechnen Sie mit zwei bis drei Stunden vor Ort, wenn Sie die Hauptwege gehen; die oberen Pfade dauern länger und sind steil."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Termessos mit der Karain-Höhle verbinden"
+      },
+      {
+        "type": "p",
+        "text": "Die Karain-Höhle, eine der ältesten bekannten vorgeschichtlichen Siedlungen Anatoliens, liegt auf derselben Seite der Ebene und passt gut in einen halben Tag mit Termessos. Bis zum Höhleneingang ist es nur ein kurzer Aufstieg, und das Museum in der Stadt liefert Hintergrund zu beiden Orten. Zusammen sind sie eine gute Regenwetter-Alternative zum Strand."
+      },
+      {
+        "type": "h2",
+        "text": "Was Sie anziehen und mitbringen sollten"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Schuhe mit griffiger Sohle: Die Wege sind steil, und der antike Stein ist nass rutschig.",
+          "Warme Schichten und eine winddichte Jacke, auch wenn es an der Küste mild ist.",
+          "Wasser und einen Snack: Im Park gibt es kaum etwas zu kaufen.",
+          "Ein aufgeladenes Handy und die Nummer Ihres Fahrers auf Papier, da der Empfang in den Tälern schwach sein kann.",
+          "Bargeld für den Eintritt, der sich ändern kann; bestätigen Sie den aktuellen Betrag und die Öffnungszeiten vor dem Besuch."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Warum ein Privatfahrer hilft"
+      },
+      {
+        "type": "p",
+        "text": "Taxis warten in Termessos nicht immer, und die Parkstraße wird nicht von regulären Bussen bedient. Ein Privatfahrer wartet, während Sie wandern, verschiebt die Startzeit, wenn sich die Vorhersage ändert, und bringt Sie früher hinunter, falls das Wetter umschlägt. Reisen Sie mit dem Flugzeug an, können wir den Ausflug für Ihren ersten vollen Tag planen und bestätigen Fahrzeug und Preis bei der Buchung."
+      }
+    ],
+    "faq": [
+      [
+        "Ist Termessos im Winter geöffnet?",
+        "Der Park ist ganzjährig geöffnet, doch Öffnungszeiten und Zugang können sich mit dem Wetter ändern. Prüfen Sie es am Tag selbst, besonders nach starkem Regen oder Schnee."
+      ],
+      [
+        "Wie weit ist Termessos von Antalya entfernt?",
+        "Etwa 35 km, also rund 45 Minuten mit dem Auto, der letzte Abschnitt führt über eine kurvige Bergstraße."
+      ],
+      [
+        "Schneit es in Termessos?",
+        "Gelegentlich, besonders im Januar. Schnee fällt nicht jeden Winter, aber die Stätte ist deutlich kälter und nasser als die Küste."
+      ],
+      [
+        "Wie lange dauert ein Besuch?",
+        "Rechnen Sie mit zwei bis drei Stunden vor Ort plus Fahrt. Ein halber Tag genügt; verbinden Sie es mit der Karain-Höhle, um den Vormittag zu füllen."
+      ],
+      [
+        "Kann ich mit Kindern hinfahren?",
+        "Ältere Kinder, die steile, unebene Wege gehen können, werden Freude daran haben. Kinderwagen sind auf den Terrassen und Pfaden nicht geeignet."
+      ]
+    ]
+  },
+  "antalya-waterfalls-winter": {
+    "slug": "wasserfaelle-antalya-im-winter",
+    "title": "Wasserfälle bei Antalya im Winter: Düden, Kurşunlu und Manavgat",
+    "heading": "Wasserfälle bei Antalya im Winter: Düden, Kurşunlu und Manavgat in voller Kraft",
+    "description": "Düden-, Kurşunlu- und Manavgat-Wasserfälle im Winter: warum sie nach Regen am stärksten sind, Entfernungen ab Antalya und Side und wie Sie sie in einen Halbtagesausflug packen.",
+    "excerpt": "Der Winterregen verwandelt die Wasserfälle rund um Antalya in kraftvolle Sturzbäche. Wohin Sie fahren, wie weit jeder entfernt ist und wie Sie einen halben Tag darum planen.",
+    "readingMinutes": 5,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Sommerbesucher finden die Wasserfälle von Antalya oft zu einem Rinnsal geschrumpft vor. Zwischen Dezember und Februar, nach den Winterregen, rauschen dieselben Fälle kräftig und laut, das Grün ringsum ist frisch, und kaum jemand sonst ist dort. Sie gehören zu den einfachsten und lohnendsten Winterausflügen, und keiner braucht mehr als einen halben Tag."
+      },
+      {
+        "type": "h2",
+        "text": "Die drei Wasserfälle, die Sie kennen sollten"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Wasserfall",
+          "Wo",
+          "Fahrzeit",
+          "Besonders geeignet für"
+        ],
+        "rows": [
+          [
+            "Oberer Düden (Yukarı Düden)",
+            "Nördlich von Antalya, in einem Stadtpark",
+            "ca. 15 Minuten vom Zentrum",
+            "Ein kurzer Halt, Spazierwege und eine Höhle hinter dem Fall"
+          ],
+          [
+            "Unterer Düden (Aşağı Düden)",
+            "Lara-Küste, wo der Fluss auf das Meer trifft",
+            "ca. 20 Minuten von Antalya",
+            "Aussicht von der Klippenkante aufs Meer, besonders nach Regen"
+          ],
+          [
+            "Kurşunlu",
+            "Östlich von Antalya, in einem Naturpark",
+            "ca. 30 Minuten von der Stadt",
+            "Waldspaziergänge, eine größere Fallhöhe und ruhige Umgebung"
+          ],
+          [
+            "Manavgat",
+            "Bei Side, am Fluss Manavgat",
+            "ca. 10 Minuten von Side",
+            "Breite Kaskaden, Cafés am Fluss und der Markt der Stadt"
+          ]
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Warum der Winter die beste Jahreszeit ist"
+      },
+      {
+        "type": "p",
+        "text": "Die Düden- und Kurşunlu-Fälle werden von Regen und Karstquellen gespeist, ihre Wassermenge ist daher nach nassem Wetter am größten. Der Manavgat ist ein Flusswasserfall und keiner, der aus einer Quelle kommt; auch er führt nach Regen und durch die Schneeschmelze im Taurus mehr Wasser. Hitze und Menschenmassen, die üblichen Probleme im Juli und August, fehlen."
+      },
+      {
+        "type": "h2",
+        "text": "Ein Halbtagesplan ab Antalya"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Beginnen Sie morgens am Oberen Düden, wenn der Park leer und das Licht weich ist.",
+          "Fahren Sie an der Küste entlang zu den Klippen des Unteren Düden für den Blick aufs Meer.",
+          "Weiter nach Osten zum Kurşunlu für den Waldspaziergang, danach Mittagessen in Lara oder auf dem Rückweg.",
+          "Ab Side oder Belek nehmen Sie stattdessen den Manavgat und die Restaurants am Flussufer der Stadt."
+        ]
+      },
+      {
+        "type": "routelinks",
+        "text": "Festpreis pro Fahrzeug für den Transfer vom Flughafen zu Ihrem Hotel:",
+        "routes": [
+          "antalya",
+          "side",
+          "manavgat",
+          "belek"
+        ],
+        "button": "Festpreis prüfen"
+      },
+      {
+        "type": "h2",
+        "text": "Praktische Tipps für den Besuch bei Nässe"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Wege und Aussichtsplattformen sind bei Nässe rutschig; tragen Sie Schuhe mit gutem Profil.",
+          "Nehmen Sie eine wasserdichte Jacke mit: Die Gischt der größeren Fälle durchnässt Sie in kühler Luft schnell.",
+          "Eintrittspreise, Öffnungszeiten und der Zugang zu den Höhlen können sich ändern; bitte am Tag selbst bestätigen.",
+          "Nach sehr starkem Regen werden einige Wege aus Sicherheitsgründen gesperrt, halten Sie also ein zweites Ziel bereit."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Wasserfälle mit dem Transfer verbinden"
+      },
+      {
+        "type": "p",
+        "text": "Weil die Wasserfälle zwischen Flughafen, Stadt und Küstenstraße liegen, passen sie gut in die Fahrt zu Ihrem Hotel. Landen Sie am Nachmittag, kostet eine Abholung mit Halt am Düden oder Kurşunlu weniger Zeit als ein separater Ausflug. Nennen Sie uns Ihre Flugnummer und Ihr Hotel, dann bestätigen wir Halt und Preis."
+      }
+    ],
+    "faq": [
+      [
+        "Sind die Wasserfälle bei Antalya im Winter schöner?",
+        "Ja. Nach dem Winterregen sind die Düden-, Kurşunlu- und Manavgat-Fälle am stärksten, und es sind weniger Besucher da."
+      ],
+      [
+        "Wie weit sind die Wasserfälle von Antalya entfernt?",
+        "Der Obere Düden ist etwa 15 Minuten vom Zentrum entfernt, der Untere Düden etwa 20 Minuten und der Kurşunlu etwa 30 Minuten. Der Manavgat liegt bei Side."
+      ],
+      [
+        "Kann ich sie mit Kindern besuchen?",
+        "Ja. Die Parks Düden und Kurşunlu haben kurze Wege, halten Sie Kinder aber von nassen Geländern und Kanten fern."
+      ],
+      [
+        "Gibt es Eintritt?",
+        "Einige Parks verlangen einen kleinen Eintritt, dessen Höhe sich ändern kann. Fragen Sie Ihren Fahrer oder prüfen Sie es am Tag selbst."
+      ],
+      [
+        "Kann ein Wasserfall-Halt zu meinem Flughafentransfer hinzugefügt werden?",
+        "In den meisten Fällen ja. Nennen Sie uns bei der Buchung Flugnummer und Hotel, dann bestätigen wir Halt und Preis."
+      ]
+    ]
   }
 };

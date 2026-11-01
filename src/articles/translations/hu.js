@@ -2931,5 +2931,427 @@ export const articles = {
         "Nem. Az ár fix és teljes. Néhány euró a nehéz csomagért vagy egy éjszakai érkezésért jólesik, de senki nem várja el."
       ]
     ]
+  },
+  "winter-day-tours-from-antalya": {
+    "slug": "teli-egynapos-kirandulasok-antalyabol",
+    "title": "Téli egynapos kirándulások Antalyából: 8 túra, amit érdemes megtenni",
+    "heading": "Téli egynapos kirándulások Antalyából: mely utak működnek decembertől februárig",
+    "description": "Nyolc téli egynapos kirándulás Antalyából: Perge, Aszpendosz, Termesszosz, Demre, Olümposz, Pamukkale és más helyek. Menetidők, időjárási tippek és a magánsofőr előnyei.",
+    "excerpt": "A tél a legjobb idő a török riviéra nevezetességeinek megtekintésére: hűvös, tiszta napok és szinte üres romok. Itt vannak a működő egynapos kirándulások, az utak hossza és az, amit érdemes előre ellenőrizni.",
+    "readingMinutes": 7,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Decembertől februárig nem a tengerpart a fő ok, amiért Antalyába érdemes jönni, hanem a vidék története és tája. A júliusban zsúfolt és forró romok télen csendesek és kellemesek, a levegő tiszta, a fény pedig jó a fényképezéshez. A legtöbb egynapos kirándulás télen is megy, néhány azonban az időjárástól függ, a menetidő pedig eldönti, hogy az út élmény vagy kimerítő nap lesz."
+      },
+      {
+        "type": "h2",
+        "text": "Nyolc téli egynapos kirándulás egy pillantásra"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Kirándulás",
+          "Menetidő Antalyából (egy irány)",
+          "Téli alkalmasság",
+          "Jó tudni"
+        ],
+        "rows": [
+          [
+            "Perge és Aszpendosz",
+            "kb. 20 és 45 perc",
+            "Kiváló",
+            "Egész évben nyitva, szinte nincs sorban állás; egy nap alatt kombinálható a kettő"
+          ],
+          [
+            "Termesszosz",
+            "kb. 45 perc",
+            "Száraz napokon jó",
+            "Hegyi lelőhely kb. 1000 m magasan: hideg, nedves kő, olykor hó"
+          ],
+          [
+            "Düden- és Kurşunlu-vízesések",
+            "kb. 15 és 30 perc",
+            "Kiváló",
+            "A téli esőtől a vízesések a legbővizűbbek"
+          ],
+          [
+            "Phaszélisz és Olümposz",
+            "kb. 1 óra és 1 óra 15 perc",
+            "Nagyon jó",
+            "Fenyőerdő és tengerparti romok; hozz vízálló kabátot"
+          ],
+          [
+            "Demre, Mira és Kekova",
+            "kb. 2 óra 15 perc",
+            "Nagyon jó",
+            "Szent Miklós-templom, sziklasírok; a hosszú út miatt érdemes korán indulni"
+          ],
+          [
+            "Saklıkent síközpont",
+            "kb. 1 óra 30 perc",
+            "Januártól márciusig, hóhelyzettől függően",
+            "Az úton hólánc kellhet; az előző napon egyeztesd az állapotot"
+          ],
+          [
+            "Pamukkale és Hierapolisz",
+            "kb. 3 óra",
+            "Nagyon jó",
+            "Kevesebb tömeg a mészkőteraszokon; hosszú nap vagy egy éjszakás megálló"
+          ],
+          [
+            "Kappadókia",
+            "kb. 7-8 óra",
+            "Éjszakás kirándulás",
+            "Hóborította tájak; számolj legalább két éjszakával"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "A menetidők nappali forgalomra jellemzőek, és az útépítésektől, az időjárástól és Antalya azon pontjától függően változnak, ahonnan indulsz. Ha Belekben, Kemerben, Sidében vagy Alanyában laksz, add hozzá a városba jutás idejét, vagy válaszd az öböl általad lakott oldalán fekvő kirándulást."
+      },
+      {
+        "type": "h2",
+        "text": "A könnyű félnapos kirándulások"
+      },
+      {
+        "type": "p",
+        "text": "Perge és Aszpendosz a legegyszerűbb téli program: mindkettő Antalyától keletre, a repülőtéri út közelében fekszik, stadionjuk, oszlopsoros utcájuk és római színházuk Anatólia legjobb állapotban fennmaradt emlékei közé tartozik. Az aszpendoszi színházban szezonban még ma is tartanak koncerteket, a kő azonban egy tiszta januári délutánon mutatja a legszebb arcát. A Düden- és Kurşunlu-vízesésekhez csak két-három óra kell, így jó választás az érkezés vagy az indulás napjára."
+      },
+      {
+        "type": "routelinks",
+        "text": "A városon kívül laksz? Fix ár járművenként a repülőtértől az üdülőhelyedig:",
+        "routes": [
+          "antalya",
+          "belek",
+          "side",
+          "kemer"
+        ],
+        "button": "Nézd meg a fix árat"
+      },
+      {
+        "type": "h2",
+        "text": "A teljes napos kirándulások, amelyekért érdemes korán kelni"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Demre, Mira és Kekova: a Szent Miklós-templom, a mirai sziklasírok és Kekova elsüllyedt romjai egy egész napot kitöltenek. Indulj 8:00-ig, hogy a déli lanyhulás előtt Demrébe érj.",
+          "Phaszélisz és Olümposz: három kikötő egy fenyőerdőben, majd Olümposz csendes romjai. A Çıralı-i Khimaira lángjai alkonyatkor a legszebbek, ezért számolj késői visszaérkezéssel.",
+          "Pamukkale: a fehér mészkőteraszok és Hierapolisz ősi gyógyfürdővárosa télen is lenyűgöző, a termálmedencék pedig akkor is melegek, ha a levegő nem. Hosszú nap; egy éjszakás szállással sokkal kényelmesebb.",
+          "Saklıkent: síelés és tenger néhány órányi távolságon belül, de csak akkor, ha van hó. Árajánlatot akkor tudunk adni, ha az út és a pályák nyitva állása megerősítést nyert."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Az időjárás ellenőrzése indulás előtt"
+      },
+      {
+        "type": "p",
+        "text": "A tengerparti téli időjárás gyorsan változik. Az eső általában záporokban érkezik a napos napok között, ezért tartsd rugalmasan a tervet: a régészeti helyszínek és a vízesések szitáló esőben is élvezhetők, a hegyi helyszínek, például Termesszosz és Saklıkent viszont nem. Nézd meg az előrejelzést az előző este, és tartalékként hagyd meg a múzeumot vagy az óvárost."
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Öltözz rétegesen, és hordj jó tapadású cipőt: az ókori kő és a nedves erdei ösvények csúszósak.",
+          "A múzeumok és régészeti helyszínek nyitvatartása télen rövidebb és változhat; aznap egyeztesd.",
+          "Decemberben kb. 17:30-kor sötétedik, ezért a hosszú utakat tervezd reggelre.",
+          "Nem minden hajókirándulás, étterem vagy strandklub üzemel télen; kérdezz rá, mielőtt feltételezed."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Miért érdemes télen magánsofőrrel menni"
+      },
+      {
+        "type": "p",
+        "text": "A romokhoz és a vízesésekhez vezető tömegközlekedés télen ritkul, egy nagy csoportos kirándulásnál pedig hosszú szállodai felvételi kör után láthatsz csak bármit. A magánjármű akkor indul, amikor te szeretnéd, ott áll meg, ahol kéred, és ha beborul az ég, Termesszoszt múzeumra cserélheted. Az ár járművenként fix, nem fejenként, így egy családnak vagy baráti társaságnak gyakran hasonló egy csoportos kirándulás egy helyének árához."
+      },
+      {
+        "type": "p",
+        "text": "Egész évben végzünk repülőtéri transzfert, és ugyanabban a foglalásban egynapos kirándulást is hozzáadhatunk. Add meg a szállodádat, a létszámot és azt a kirándulást, amely érdekel, mi pedig megerősítjük az árat és a legjobb indulási időt."
+      }
+    ],
+    "faq": [
+      [
+        "Működnek télen az egynapos kirándulások Antalyából?",
+        "Igen. Perge, Aszpendosz, Phaszélisz és Demre egész évben nyitva van. A hegyi utak, például Termesszosz és Saklıkent az időjárástól függnek, a hajókirándulások pedig ritkábbak."
+      ],
+      [
+        "Melyik téli egynapos kirándulás a legjobb első látogatásra?",
+        "Perge és Aszpendosz együtt a legkönnyebb és legkifizetődőbb: közel vannak Antalyához, mindennap nyitva tartanak, télen pedig szinte üresek."
+      ],
+      [
+        "Kombinálhatok egynapos kirándulást a repülőtéri transzferemmel?",
+        "Igen. Add meg az érkezés vagy az indulás idejét és a kívánt kirándulást, mi pedig úgy tervezzük a felvételt, hogy a repülőtérre menet vagy onnan jövet megnézhess egy helyszínt."
+      ],
+      [
+        "Elég hideg van ahhoz, hogy kabátra legyen szükség?",
+        "A nappali hőmérséklet a tengerparton 15-16 °C körül alakul, de az esték hűvösek, a hegyekben pedig sokkal hidegebb van. Hozz réteges ruhát és vízálló kabátot."
+      ],
+      [
+        "Drágább a magánjármű, mint egy csoportos kirándulás?",
+        "Az ár járművenként fix, nem fejenként, ezért három vagy több utazónál gyakran hasonló a csoportos kirándulás helyeinek árához, miközben a saját időbeosztásod szerint haladhatsz."
+      ]
+    ]
+  },
+  "termessos-winter-day-trip": {
+    "slug": "termesszosz-telen-kirandulas-antalyabol",
+    "title": "Termesszosz télen: így látogasd meg a hegyi várost Antalyából",
+    "heading": "Termesszosz télen: gyakorlati útmutató az Antalya feletti hegyi városhoz",
+    "description": "Hogyan látogasd meg Termesszoszt télen: menetidő Antalyából, az időjárás 1000 méteren, mit vegyél fel, mennyi időt szánj rá, és hogyan kombináld a Karain-barlanggal.",
+    "excerpt": "Termesszosz magasan a Taurus-hegységben áll, és elveszett városnak tűnik. Télen csendes, drámai és olykor havas. Így tervezd meg az utat, és így tudd, mikor halaszd el.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Termesszosz Törökország egyik leghangulatosabb ókori helyszíne: kőteraszok városa, a hegyekre néző színház és a fenyők között szétszórt sírok. A Taurus-hegység egyik nemzeti parkjában fekszik, ezért az utazás télen is megéri, és több odafigyelést igényel, mint egy látogatás Pergében vagy Aszpendoszban."
+      },
+      {
+        "type": "h2",
+        "text": "Hogyan jutsz el Antalyából"
+      },
+      {
+        "type": "p",
+        "text": "A park Antalyától nagyjából 35 km-re nyugatra van, az út körülbelül 45 percet vesz igénybe. Az utolsó szakasz kanyargós hegyi úton emelkedik a parkolóig, ezért a városi időjárásból nem következik, milyen idő lesz a lelőhelyen. Belekből vagy Kemerből a transzfer hosszabb, az indulási ponttól függően körülbelül 1 óra 15 perctől 1 óra 30 percig tart."
+      },
+      {
+        "type": "routelinks",
+        "text": "Fix ár járművenként a repülőtértől a szállodádig, kérésre egynapos kirándulással kiegészítve:",
+        "routes": [
+          "antalya",
+          "belek",
+          "kemer"
+        ],
+        "button": "Nézd meg a fix árat"
+      },
+      {
+        "type": "h2",
+        "text": "Téli időjárás nagyjából 1000 méteren"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Hónap",
+          "Jellemző időjárás",
+          "Mire számíts"
+        ],
+        "rows": [
+          [
+            "December",
+            "Hűvös, gyakran nedves",
+            "Nedves ösvények és felhők a völgyekben; gyakoriak a tiszta napok"
+          ],
+          [
+            "Január",
+            "A leghidegebb hónap",
+            "Reggeli fagy, olykor hó a felső teraszokon"
+          ],
+          [
+            "Február",
+            "Hűvös, egyre fényesebb",
+            "Hosszabb napok, a legjobb kilátás a pára feloszlása után"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "A hegyi hőmérséklet több fokkal alacsonyabb, mint a tengerparton, a kő pedig még sokáig nedves és csúszós maradhat az eső után. Heves eső vagy havazás után a park korlátozhatja a bejutást, ezért az előző napon ellenőrizd. A legjobb idő egy tiszta, száraz nap, miután átvonult a front."
+      },
+      {
+        "type": "h2",
+        "text": "Mit nézz meg, és mennyi időt szánj rá"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "A színház: a legismertebb kilátópont, a színpad mögött a Taurus csúcsaival.",
+          "A Nagy Templom és az agora: teraszok, amelyek megmutatják, hogyan építették a várost a lejtőre.",
+          "A nekropolisz: sziklasírok és szarkofágok az ösvény mentén, sokat közülük földrengések döntöttek le.",
+          "Számolj két-három órával a lelőhelyen, ha a fő ösvényeken sétálsz; a felső ösvények több időt igényelnek, és meredekek."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Termesszosz kombinálása a Karain-barlanggal"
+      },
+      {
+        "type": "p",
+        "text": "A Karain-barlang, Anatólia egyik legrégebbi ismert őskori települése, a síkság ugyanazon oldalán fekszik, és könnyen beilleszthető egy fél napba Termesszosszal. A barlangszájhoz rövid kaptató vezet, a városi múzeum pedig mindkét helyhez hátteret ad. Együtt jó esős napi alternatívát jelentenek a tengerparttal szemben."
+      },
+      {
+        "type": "h2",
+        "text": "Mit vegyél fel, és mit vigyél"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Jó tapadású talpú cipő: az ösvények meredekek, az ókori kő pedig nedvesen csúszós.",
+          "Meleg rétegek és szélálló kabát, még akkor is, ha a tengerparton enyhe az idő.",
+          "Víz és egy kis nasi: a parkon belül alig lehet valamit venni.",
+          "Feltöltött telefon és a sofőröd számának papírra írt másolata, mert a völgyekben gyenge lehet a térerő.",
+          "Készpénz a belépőre, amelynek ára változhat; indulás előtt egyeztesd az aktuális összeget és a nyitvatartást."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Miért segít a magánsofőr"
+      },
+      {
+        "type": "p",
+        "text": "A taxik nem mindig várnak Termesszosznál, a park útját pedig nem szolgálják rendszeres buszjáratok. A magánsofőr megvár, amíg sétálsz, áttolja az indulási időt, ha változik az előrejelzés, és korán levisz, ha elromlik az idő. Ha repülővel érkezel, az első teljes napodra tervezzük az utat, és a foglaláskor megerősítjük a járművet és az árat."
+      }
+    ],
+    "faq": [
+      [
+        "Nyitva van télen Termesszosz?",
+        "A park egész évben nyitva van, de a nyitvatartás és a bejutás az időjárással változhat. Aznap ellenőrizd, különösen heves eső vagy havazás után."
+      ],
+      [
+        "Milyen messze van Termesszosz Antalyától?",
+        "Körülbelül 35 km, autóval nagyjából 45 perc, az utolsó szakaszon kanyargós hegyi úton."
+      ],
+      [
+        "Havazik Termesszoszban?",
+        "Néha, főleg januárban. Nem minden télen jellemző, de a lelőhely sokkal hidegebb és nedvesebb, mint a tengerpart."
+      ],
+      [
+        "Mennyi ideig tart a látogatás?",
+        "Számolj két-három órával a lelőhelyen, plusz az úttal. Elég egy fél nap; a délelőtt kitöltésére kombináld a Karain-barlanggal."
+      ],
+      [
+        "Meglátogatható gyerekekkel?",
+        "A nagyobb gyerekeknek, akik meredek, egyenetlen ösvényeken is tudnak járni, tetszeni fog. A babakocsi a teraszokon és az ösvényeken nem használható."
+      ]
+    ]
+  },
+  "antalya-waterfalls-winter": {
+    "slug": "antalyai-vizesesek-telen",
+    "title": "Antalyai vízesések télen: Düden, Kurşunlu és Manavgat",
+    "heading": "Antalyai vízesések télen: Düden, Kurşunlu és Manavgat a legbővizűbb időszakukban",
+    "description": "A Düden-, Kurşunlu- és Manavgat-vízesés télen: miért a legerősebbek eső után, milyen messze vannak Antalyától és Sidétől, és hogyan férnek bele egy félnapos kirándulásba.",
+    "excerpt": "A téli eső erőteljes zuhatagokká változtatja az Antalya környéki vízeséseket. Itt a lista: hová menj, milyen messze van mindegyik, és hogyan tervezz köréjük egy fél napot.",
+    "readingMinutes": 5,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Nyáron a látogatók gyakran csak vékony csordogálást találnak az antalyai vízeséseknél. Decembertől februárig, a téli esők után ugyanezek a vízesések erősen és hangosan zúdulnak, a környező növényzet friss, és alig van ott valaki más. A legkönnyebb és legkifizetődőbb téli programok közé tartoznak, és egyikhez sem kell fél napnál több."
+      },
+      {
+        "type": "h2",
+        "text": "A három vízesés, amit érdemes ismerni"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Vízesés",
+          "Hol",
+          "Menetidő",
+          "Mire jó"
+        ],
+        "rows": [
+          [
+            "Felső-Düden (Yukarı Düden)",
+            "Antalyától északra, egy városi parkban",
+            "kb. 15 perc a központból",
+            "Gyors megálló, sétautak és egy barlang a vízesés mögött"
+          ],
+          [
+            "Alsó-Düden (Aşağı Düden)",
+            "A Lara-part, ahol a folyó a tengerbe ér",
+            "kb. 20 perc Antalyából",
+            "Sziklaperemi kilátás a tengerre, különösen eső után"
+          ],
+          [
+            "Kurşunlu",
+            "Antalyától keletre, egy természeti parkban",
+            "kb. 30 perc a várostól",
+            "Erdei séták, nagyobb esés és nyugodt környezet"
+          ],
+          [
+            "Manavgat",
+            "Side közelében, a Manavgat folyón",
+            "kb. 10 perc Sidétől",
+            "Széles zuhatagok, folyóparti kávézók és a város piaca"
+          ]
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Miért a tél a legjobb évszak"
+      },
+      {
+        "type": "p",
+        "text": "A Düden- és a Kurşunlu-vízesést eső és karsztforrások táplálják, ezért vízhozamuk csapadékos idő után a legnagyobb. A Manavgat folyami vízesés, nem forrásból táplálkozik, és az esők után, valamint a Taurus hóolvadásától ez is megerősödik. A július-augusztusi szokásos gondok, a hőség és a tömeg hiányoznak."
+      },
+      {
+        "type": "h2",
+        "text": "Félnapos terv Antalyából"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Kezdd reggel a Felső-Düdennel, amikor a park üres és lágy a fény.",
+          "Haladj a part mentén az Alsó-Düden szikláihoz a tengeri kilátásért.",
+          "Folytasd keletre Kurşunluba az erdei sétához, majd ebédelj Larában vagy visszafelé.",
+          "Sidéből vagy Belekből induló kirándulásnál inkább Manavgatot és a város folyóparti éttermeit vedd be a programba."
+        ]
+      },
+      {
+        "type": "routelinks",
+        "text": "Fix ár járművenként a repülőtértől a szállodádig tartó transzferre:",
+        "routes": [
+          "antalya",
+          "side",
+          "manavgat",
+          "belek"
+        ],
+        "button": "Nézd meg a fix árat"
+      },
+      {
+        "type": "h2",
+        "text": "Gyakorlati tippek esős időben"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Az ösvények és a kilátóteraszok nedvesen csúszósak; viselj jó tapadású cipőt.",
+          "Hozz vízálló kabátot: a nagyobb vízesések permete hűvös levegőben gyorsan átáztat.",
+          "A belépő, a nyitvatartás és a barlangokba jutás változhat; aznap egyeztesd.",
+          "Nagyon heves eső után néhány ösvényt biztonsági okból lezárnak, ezért tarts észben egy második megállót."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "A vízeséseket kombináld a transzferrel"
+      },
+      {
+        "type": "p",
+        "text": "Mivel a vízesések a repülőtér, a város és a parti út között fekszenek, jól beilleszthetők a szállodába vezető útba. Ha délután szállsz le, a Düdennél vagy Kurşunlunál megálló felvétel kevesebb időbe kerül, mint egy külön kirándulás. Add meg a járatszámodat és a szállodádat, mi pedig megerősítjük a megállót és az árat."
+      }
+    ],
+    "faq": [
+      [
+        "Télen szebbek az Antalya melletti vízesések?",
+        "Igen. A téli esők után a Düden-, Kurşunlu- és Manavgat-vízesés a legerősebb, és kevesebb a látogató."
+      ],
+      [
+        "Milyen messze vannak a vízesések Antalyától?",
+        "A Felső-Düden kb. 15 percre van a központtól, az Alsó-Düden kb. 20 percre, Kurşunlu kb. 30 percre. Manavgat Side közelében fekszik."
+      ],
+      [
+        "Meglátogathatók gyerekekkel?",
+        "Igen. A Düden- és a Kurşunlu-park sétaútjai rövidek, de tartsd a gyerekeket távol a nedves korlátoktól és a szélektől."
+      ],
+      [
+        "Van belépődíj?",
+        "Néhány park kis belépődíjat szed, amelynek összege változhat. Kérdezd meg a sofőrödet, vagy ellenőrizd aznap."
+      ],
+      [
+        "Hozzáadható vízesésnél tartott megálló a repülőtéri transzferemhez?",
+        "A legtöbb esetben igen. Foglaláskor add meg a járatszámodat és a szállodádat, mi pedig megerősítjük a megállót és az árat."
+      ]
+    ]
   }
 };
