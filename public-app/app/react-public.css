@@ -689,3 +689,4 @@ summary:focus-visible,
   .cop-dialog h2 { font-size: 1.8rem; }
 }
 @media (prefers-reduced-motion: reduce) { .cop-dialog { animation: none; } }
+.phone-whatsapp-icon { display: block; width: 100%; height: 100%; color: #25d366; }
