@@ -105,5 +105,11 @@ export default defineConfig({
     exclude: [...configDefaults.exclude, "**/.worktrees/**", "**/.claude/worktrees/**"],
     // Gives Testing Library's waits room on a loaded CI runner; see the file.
     setupFiles: ["./vitest.setup.ts"],
+    // admin/supabase-client.js throws without these; a bare checkout (fresh
+    // worktree, merge gate) would fail every suite importing it.
+    env: {
+      VITE_SUPABASE_URL: "https://test.supabase.co",
+      VITE_SUPABASE_ANON_KEY: "test-anon-key",
+    },
   },
 });
