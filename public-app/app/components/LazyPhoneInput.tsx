@@ -12,6 +12,7 @@ import type { DefaultInputComponentProps, Props } from "react-phone-number-input
 // Static on purpose: the stylesheet is tiny and must be there for the
 // placeholder below to have the same size as the real field.
 import "react-phone-number-input/style.css";
+import { Icon } from "./Icon";
 
 export type { Country } from "react-phone-number-input";
 
@@ -39,11 +40,15 @@ function PhoneInputPlaceholder({ className, placeholder }: { className?: string;
   );
 }
 
+// The library's own "no country yet" icon draws a phone over a globe, which
+// reads as two icons colliding; the field takes WhatsApp numbers, so show that mark.
+const WhatsAppIcon = () => <Icon name="whatsapp" className="phone-whatsapp-icon" />;
+
 export function LazyPhoneInput(props: PhoneInputProps) {
   const { className, placeholder } = props as { className?: string; placeholder?: string };
   return (
     <Suspense fallback={<PhoneInputPlaceholder className={className} placeholder={placeholder} />}>
-      <PhoneInput {...props} />
+      <PhoneInput internationalIcon={WhatsAppIcon} {...props} />
     </Suspense>
   );
 }
