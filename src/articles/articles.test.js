@@ -93,6 +93,10 @@ describe("article catalogue", () => {
             }
             expect(block.button).toBeTruthy();
           }
+          if (block.type === "cop31") {
+            expect(block.text).toBeTruthy();
+            expect(block.button).toBeTruthy();
+          }
           if (block.type === "whatsapp") {
             expect(block.fields.length).toBeGreaterThanOrEqual(3);
             expect(block.message).toBeTruthy();

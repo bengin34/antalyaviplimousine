@@ -2931,5 +2931,309 @@ export const articles = {
         "Nem. Az ár fix és teljes. Néhány euró a nehéz csomagért vagy egy éjszakai érkezésért jólesik, de senki nem várja el."
       ]
     ]
+  },
+  "cop31-antalya-transport": {
+    "slug": "cop31-antalya-kozlekedes-helyszin-utmutato",
+    "title": "COP31 Antalya közlekedés: repülőtér, shuttle busz, helyszín",
+    "heading": "Így jutsz el a COP31-re Antalyában: repülőtér, shuttle buszok és az Expo helyszín",
+    "description": "Így jutsz el a COP31 helyszínére, az Antalya Expo Centerbe: menetidő a repülőtérről, hivatalos shuttle buszok, parkolási engedély, taxi és egész napos magánsofőr.",
+    "excerpt": "A COP31-et 2026. november 9-20. között rendezik az aksui Antalya Expo Centerben. Így jutnak el a delegáltak a repülőtérről és a szállodából a helyszínre, és itt nem elég a hivatalos shuttle.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "A COP31-et 2026. november 9-20. között rendezik az Antalya Expo Centerben, Aksuban, az EXPO 2016-ra épült területen, a várostól keletre, közel az antalyai repülőtérhez. Delegáltak, megfigyelők és újságírók tízezrei ingáznak a repülőtér, a 60 km-es partszakaszon szétszórt szállodák és egyetlen helyszín között. Ez az útmutató azt mutatja meg, milyen ez a napi út a valóságban, egy antalyai sofőrszolgálat tollából, amely minden nap ezeken az utakon jár."
+      },
+      {
+        "type": "h2",
+        "text": "Hol van a helyszín"
+      },
+      {
+        "type": "table",
+        "head": [
+          "",
+          "COP31 Antalya"
+        ],
+        "rows": [
+          [
+            "Helyszín",
+            "Antalya Expo Center, Aksu (az EXPO 2016 területe)"
+          ],
+          [
+            "Időpont",
+            "2026. november 9-20."
+          ],
+          [
+            "Repülőtér",
+            "Antalyai repülőtér (AYT), autóval kb. 20-30 perc"
+          ],
+          [
+            "Hivatalos shuttle buszok",
+            "A hivatalos szállodákból, a repülőtérről és a belvárosból a helyszínre"
+          ],
+          [
+            "Parkolás a helyszínen",
+            "Csak a COP31 Elnökség járműbelépési engedélyével"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Az Expo terület az Antalya és Belek közötti fő parti úton fekszik. Ez jó hír mindenkinek, aki Larában, Kunduban vagy Belekben száll meg, és azt jelenti, hogy a repülőtér a helyszínhez legközelebbi pontok egyike, nem az út túlsó vége."
+      },
+      {
+        "type": "h2",
+        "text": "Az antalyai repülőtérről a helyszínre"
+      },
+      {
+        "type": "p",
+        "text": "A COP31 Elnökség szerint a repülőtér kb. 20-30 percre van a helyszíntől. A repülőtéren a résztvevőknek érkezési tájékoztatót állítanak fel, és onnan négyféleképpen mehetsz tovább:"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "A hivatalos COP31 shuttle busszal a repülőtér és a helyszín között.",
+          "Taxival a terminálok előtti kijelölt drosztokról.",
+          "Telekocsi- és taxirendelő appokkal, ahol működnek.",
+          "Magántranszferrel vagy sofőrrel, aki a nevedet tartva vár az érkezési csarnokban, a járatot figyelve, így a késés semmibe sem kerül."
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Leszállás előtt nézd meg, melyik terminált használja a géped: a nemzetközi járatok az 1-es vagy a 2-es terminálra érkeznek, az isztambuli átszállással érkezők pedig a belföldi terminálra. A terminálokról szóló útmutatónk elmagyarázza a különbséget."
+      },
+      {
+        "type": "h2",
+        "text": "Hivatalos shuttle buszok: mit fednek le és mit nem"
+      },
+      {
+        "type": "p",
+        "text": "Az Elnökség három útvonalon üzemeltet külön shuttle buszokat: a hivatalos szállodákból a helyszínre, a repülőtérről a helyszínre és a belvárosból a helyszínre. Az UNFCCC résztvevői tájékoztatója egy fontos feltételt is említ: megállót csak a hivatalos COP31 szállásfoglaló platformon keresztül foglalt szállodáknál terveznek. Ha máshol szállsz meg, magadnak kell eljutnod a legközelebbi megállóig vagy egyenesen a helyszínre."
+      },
+      {
+        "type": "p",
+        "text": "A menetrendeket és útvonaltérképeket a konferencia közeledtével teszik közzé a cop31.tr/transportation oldalon. Nézd meg őket, mielőtt egy korai plenáris ülésre vagy egy késő estig tartó tárgyalásra a shuttle-ra hagyatkoznál: a kötött menetrend és a biztonsági sor mindkét végén nem mindig illik egy COP-naphoz."
+      },
+      {
+        "type": "h2",
+        "text": "Autóval a helyszínre: parkolás és kiszállás"
+      },
+      {
+        "type": "p",
+        "text": "A helyszínen parkolni csak járműbelépési engedéllyel lehet, amelyet az Elnökség hivatalos rendszerében, a vapp.cop31.tr oldalon kell kérni. Az akadálymentes parkoláshoz érvényes fogyatékossági igazolás kell. Engedély nélkül az autó ott tesz ki, ahol a helyszín biztonsági terve megengedi, és továbbhajt, így számíts egy rövid sétára a bejáratig és a kitűzőellenőrzésig."
+      },
+      {
+        "type": "p",
+        "text": "Ezért érdemes egész napos sofőrt választani: kitesz, a közelben vár ahelyett, hogy a helyszín körül köröz, és visszajön, amikor üzensz, legyen szó egy ebédről a helyszínen kívül, egy kétoldalú találkozóról a város másik végén lévő szállodában vagy az utolsó fuvarról egy késő esti ülés után."
+      },
+      {
+        "type": "cop31",
+        "text": "Egy privát Mercedes sofőrrel egész nap a rendelkezésedre: napi 200 € egy Vitóért (legfeljebb 6 utas), 250 € egy Sprinterért (legfeljebb 16). Az üzemanyag benne van az árban, nincs óra- vagy kilométerkorlát.",
+        "button": "A COP31 sofőrcsomag megtekintése"
+      },
+      {
+        "type": "h2",
+        "text": "Taxi és csúcsidő"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Taxi bőven akad, és taxiórával mennek; kérj nyugtát, ha költségelszámolásra kell.",
+          "A reggeli érkezés a helyszínre és az esti távozás a szűk keresztmetszet. Hagyj tartalékidőt az első megbeszélésed előtt, főleg azokon a napokon, amikor államfők vannak a városban.",
+          "A konferencia elején, a Világvezetők Csúcstalálkozója napjain útlezárásokra és konvojok miatti megállásokra számíts.",
+          "Írd fel, melyik kapuhoz kell menned; a sofőrök ismerik az Expo területét, de a kapuk a biztonsági tervvel együtt változnak."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Melyik megoldás melyik delegáltnak való"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Ha te",
+          "A legjobb választás"
+        ],
+        "rows": [
+          [
+            "Hivatalos szállodában laksz, kötött programmal",
+            "Hivatalos shuttle busz"
+          ],
+          [
+            "A hivatalos szállodákon kívül laksz",
+            "Taxi vagy napi sofőr"
+          ],
+          [
+            "Miniszter vagy delegációvezető vagy",
+            "Napi sofőr, egy jármű mindig hívható"
+          ],
+          [
+            "Csapat vagy sajtóstáb vagytok felszereléssel",
+            "Sprinter sofőrrel, legfeljebb 16 ülés"
+          ],
+          [
+            "Késő éjjel érkezel",
+            "Járatkövetéses magánfuvar a repülőtérről"
+          ]
+        ]
+      }
+    ],
+    "faq": [
+      [
+        "Hol van a COP31 helyszíne Antalyában?",
+        "Az aksui Antalya Expo Centerben, az EXPO 2016 területén, a belvárostól keletre, a Belek felé vezető parti úton, közel az antalyai repülőtérhez."
+      ],
+      [
+        "Milyen messze van a COP31 helyszíne az antalyai repülőtértől?",
+        "A COP31 Elnökség szerint autóval kb. 20-30 percre. Csúcsidőben és a Világvezetők Csúcstalálkozója napjain számolj több idővel."
+      ],
+      [
+        "Van ingyenes shuttle busz a COP31 helyszínére?",
+        "Az Elnökség shuttle buszokat indít a hivatalos szállodákból, a repülőtérről és a belvárosból. Megállót csak a hivatalos szállásfoglaló platformon foglalt szállodáknál terveznek; a menetrend a dátumok közeledtével jelenik meg a cop31.tr oldalon."
+      ],
+      [
+        "Behajthat egy magánautó a helyszínre?",
+        "A parkoláshoz járműbelépési engedély kell a vapp.cop31.tr hivatalos rendszeréből. Enélkül az autó ott tesz ki, ahol a biztonsági szabályok engedik, és a közelben vár."
+      ],
+      [
+        "Mennyibe kerül egy magánsofőr a COP31 idejére?",
+        "A COP31 csomagunk fix napidíjas: 200 € egy Mercedes Vitóért, 250 € egy Sprinterért, üzemanyaggal, óra- és kilométerkorlát nélkül, fizetés a járműben."
+      ]
+    ]
+  },
+  "cop31-where-to-stay": {
+    "slug": "cop31-antalya-szallas-menetidok",
+    "title": "COP31 Antalya szállás: hol érdemes lakni, menetidők",
+    "heading": "Hol szállj meg a COP31 idején: antalyai városrészek menetidő szerint",
+    "description": "Lara, Kundu, a belváros, Belek vagy messzebb: menetidők Antalya egyes részeiből a COP31 helyszínére, az Antalya Expo Centerbe, és mit jelentenek ezek a napodra.",
+    "excerpt": "A COP31 helyszíne Antalya és Belek között van. Az, hogy hol szállsz meg, eldönti, mikor indulsz, megáll-e a shuttle az ajtód előtt, és hogyan jutsz haza egy késő esti ülés után.",
+    "readingMinutes": 5,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "A legtöbb COP31 szállástipp szállodákat sorol fel. A két hetedet eldöntő kérdés azonban más: mennyi az út autóval az ágyadtól az aksui Antalya Expo Centerig, reggel és este, tizenkét napon át? Íme a partvidék a helyszíntől kifelé haladva."
+      },
+      {
+        "type": "h2",
+        "text": "Menetidők a helyszínig"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Terület",
+          "A helyszínig",
+          "Jellege"
+        ],
+        "rows": [
+          [
+            "Kundu",
+            "kb. 15-25 perc",
+            "Nagy tengerparti resortok, a legközelebbi üdülősáv"
+          ],
+          [
+            "Lara",
+            "kb. 20-30 perc",
+            "Nagy szállodák, vásárlás, a város és a helyszín között"
+          ],
+          [
+            "Az antalyai repülőtér környéke",
+            "kb. 20-30 perc",
+            "Üzleti szállodák, egyszerű érkezés és indulás"
+          ],
+          [
+            "Belváros és Kaleiçi",
+            "kb. 30-45 perc",
+            "Éttermek, óváros, esti élet, nagyobb forgalom"
+          ],
+          [
+            "Belek",
+            "kb. 25-35 perc",
+            "Golfresortok, csendes, a helyszín túloldalán"
+          ],
+          [
+            "Side és Manavgat",
+            "kb. 50-65 perc",
+            "Távolabbi keleti resortok, hosszú napi ingázás"
+          ],
+          [
+            "Kemer",
+            "kb. 70-90 perc",
+            "A várostól nyugatra, egész Antalyán át kell jutni"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Ezek sofőrjeink becslései normál forgalomban, a naponta használt utak alapján, nem hivatalos adatok. A csúcstalálkozó biztonsági intézkedései, a konvojok és az esti kiáramlás a helyszínről időt adnak hozzá, főleg az első napokban."
+      },
+      {
+        "type": "h2",
+        "text": "Hivatalos szállás és a shuttle kérdése"
+      },
+      {
+        "type": "p",
+        "text": "A COP31 Elnökség a hivatalos szállodákat a saját szállásfoglaló platformján keresztül foglalja, és az UNFCCC résztvevői tájékoztatója szerint a konferencia shuttle buszai csak ezeknél a szállodáknál állnak meg. Ha a delegációd magánúton foglalt villát, apartmant vagy a platformon kívüli szállodát, az első naptól tervezd meg a napi utat, ne az első reggeli plenáris ülésen szembesülj vele."
+      },
+      {
+        "type": "h2",
+        "text": "Lara és Kundu: a legközelebb a helyszínhez"
+      },
+      {
+        "type": "p",
+        "text": "Lara és Kundu a város és az Expo terület között fekszik, így a reggeli út rövid, és a városi forgalommal szemben halad. A szállodák nagyok, ami segít, ha a delegáció mindenkit egy fedél alatt szeretne tudni, és a repülőtér is közel van a szokatlan időpontú érkezésekhez."
+      },
+      {
+        "type": "h2",
+        "text": "A belváros: vacsorákra, nem ingázásra"
+      },
+      {
+        "type": "p",
+        "text": "Ha a belvárosban szállsz meg, az éttermek, Kaleiçi és a kísérőrendezvények gyalog is elérhetők, cserébe a leghosszabb városi út vár a helyszínig. A belvárosi hivatalos shuttle segít, de a megállói és a menetrendje szabják meg a napodat. Egy hívható autó teszi működőképessé a városi szállodát egy delegációvezető számára."
+      },
+      {
+        "type": "h2",
+        "text": "Belek, Side és Kemer: messzebb"
+      },
+      {
+        "type": "p",
+        "text": "Belek a csendes választás a helyszín túloldalán, menetidőben a belvároshoz hasonló, de városi forgalom nélkül. Side és Kemer napi kétszer valódi ingázást jelent; olyan delegációnak valók, amelynek kötött a programja és saját járműve van, nem annak, akit egy késő esti szövegtervezet miatt visszahívhatnak."
+      },
+      {
+        "type": "cop31",
+        "text": "A shuttle-hálózaton kívül szállsz meg? Egy Mercedes sofőrrel egész nap a rendelkezésedre, a szállodádtól a helyszínig és vissza: napi 200 € (Vito, legfeljebb 6 utas), 250 € (Sprinter, legfeljebb 16). Az üzemanyag benne van.",
+        "button": "COP31 sofőr foglalása"
+      },
+      {
+        "type": "h2",
+        "text": "Egy működő napi terv"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "A menetidőn felül hagyj 30 perc tartalékot az első fix megbeszélésed előtt.",
+          "Előző este egyeztessétek a felvételi pontot és a helyszín kapuját.",
+          "Egy jármű maradjon a delegációvezetőé, a csapat pedig egy Sprinterrel közlekedjen.",
+          "Add meg a járatszámokat a foglalásban, így az érkezési és indulási napokra nem kell külön transzfer."
+        ]
+      }
+    ],
+    "faq": [
+      [
+        "Melyik terület van a legközelebb a COP31 helyszínéhez?",
+        "Kundu és Lara, mindkettő Antalya városa és az aksui Antalya Expo Center között, normál forgalomban kb. 15-30 percre."
+      ],
+      [
+        "Jó kiindulópont Belek a COP31-hez?",
+        "Igen, ha van autód: Belek kb. 25-35 percre van a helyszíntől, a várossal ellentétes oldalon, csendes resortszállodákkal."
+      ],
+      [
+        "Minden szállodánál megállnak a COP31 shuttle buszai?",
+        "Nem. Az UNFCCC résztvevői tájékoztatója szerint megállót csak a hivatalos COP31 szállásfoglaló platformon keresztül foglalt szállodáknál terveznek."
+      ],
+      [
+        "Mennyi az út autóval Antalya belvárosából a COP31 helyszínére?",
+        "Kb. 30-45 perc a forgalomtól és attól függően, honnan indulsz a belvárosban, a helyszínről való esti kiáramláskor több."
+      ]
+    ]
   }
 };
