@@ -5,6 +5,8 @@ import translationData from "../generated/legacy-translations.json";
 import { homeFaqOrder } from "./faq";
 import { landOfLegendsFromPrice, landOfLegendsRates } from "../../../src/land-of-legends.js";
 import { landOfLegendsCopy, landOfLegendsLanguages, landOfLegendsPath, type LandOfLegendsLanguage } from "./land-of-legends-copy";
+import { cop31Copy, cop31Languages, cop31Path, type Cop31Language } from "./cop31-copy";
+import { COP31_DAILY_RATE_EUR } from "../../../supabase/functions/_shared/cop31.js";
 import {
   articleAlternateLanguages,
   articleLanguages,
@@ -478,6 +480,34 @@ export function landOfLegendsMeta(language: LandOfLegendsLanguage) {
       provider: { "@type": "TravelAgency", name: "Antalya VIP Tourism", url: domain, telephone: "+90 530 265 57 90" },
       areaServed: { "@type": "Place", name: "Antalya" },
       offers: { "@type": "AggregateOffer", priceCurrency: "EUR", lowPrice: String(Math.min(...prices)), highPrice: String(Math.max(...prices)) },
+    } },
+    { "script:ld+json": {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: copy.faq.map(([question, answer]) => ({ "@type": "Question", name: question, acceptedAnswer: { "@type": "Answer", text: answer } })),
+    } },
+  ];
+}
+
+export function cop31Meta(language: Cop31Language) {
+  const copy = cop31Copy[language];
+  const url = `${domain}${cop31Path(language)}`;
+  return [
+    { title: copy.metaTitle },
+    { name: "description", content: copy.metaDescription },
+    { tagName: "link", rel: "canonical", href: url },
+    ...cop31Languages.map((alternate) => ({ tagName: "link", rel: "alternate", hrefLang: alternate, href: `${domain}${cop31Path(alternate)}` })),
+    { tagName: "link", rel: "alternate", hrefLang: "x-default", href: `${domain}${cop31Path("en")}` },
+    ...socialDescriptors(copy.metaTitle, copy.metaDescription, url, copy.locale, `${domain}/assets/optimized/og-cop31.jpg`),
+    { "script:ld+json": {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      name: `${copy.headingLead} COP31`,
+      url,
+      serviceType: "Chauffeur service by the day",
+      provider: { "@type": "TravelAgency", name: "Antalya VIP Tourism", url: domain, telephone: "+90 530 265 57 90" },
+      areaServed: { "@type": "Place", name: "Antalya" },
+      offers: { "@type": "AggregateOffer", priceCurrency: "EUR", lowPrice: String(COP31_DAILY_RATE_EUR.vito), highPrice: String(COP31_DAILY_RATE_EUR.vclass) },
     } },
     { "script:ld+json": {
       "@context": "https://schema.org",

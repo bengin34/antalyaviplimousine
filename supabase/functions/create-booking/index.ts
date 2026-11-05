@@ -8,6 +8,7 @@ import {
   resolveHotelRegion,
   turkeyToday,
 } from '../_shared/land-of-legends-rules.js'
+import { COP31_DAILY_RATE_EUR, isCop31Period } from '../_shared/cop31.js'
 
 const corsHeaders = {
   'Access-Control-Allow-Origin': '*',
@@ -110,7 +111,12 @@ Deno.serve(async (req) => {
     const isRoundTrip = tripType === 'round_trip'
     const isDailyChauffeur = tripType === 'daily_chauffeur'
     const isLandOfLegends = tripType === 'land_of_legends'
-    const requiredForTrip = isDailyChauffeur
+    // The COP31 summit package is a daily hire with fuel included, so there
+    // are no fuel terms for the guest to accept.
+    const isCop31 = isDailyChauffeur && payload.service_package === 'cop31'
+    const requiredForTrip = isCop31
+      ? [...requiredFields, 'pickup_time', 'service_end_date', 'hotel_name']
+      : isDailyChauffeur
       ? [...requiredFields, 'pickup_time', 'service_end_date', 'fuel_terms_accepted']
       : isLandOfLegends
         ? [...requiredFields, 'pickup_time', 'return_pickup_time', 'hotel_name']
@@ -326,6 +332,9 @@ Deno.serve(async (req) => {
       if (!isValidDate(serviceEndDate) || serviceEndDate < pickupDate || hireDayCount < 1 || hireDayCount > 30) {
         return jsonResponse({ error: 'service_end_date must define a 1 to 30 day hire' }, 400)
       }
+      if (isCop31 && !isCop31Period(pickupDate, serviceEndDate)) {
+        return jsonResponse({ error: 'cop31 hire must fall between 7 and 22 November 2026' }, 400)
+      }
       const hasDepartureFlightDetails = Boolean(departureFlightTime || departureFlightNumber)
       if (departureFlightDate && (!isValidDate(departureFlightDate) || departureFlightDate < pickupDate)) {
         return jsonResponse({ error: 'departure_flight_date is invalid' }, 400)
@@ -363,6 +372,9 @@ Deno.serve(async (req) => {
         : { data: null }
       if (rate) priceEur = Number(rate.price_eur)
       else landOfLegendsNeedsQuote = true
+    } else if (isCop31) {
+      dailyRateEur = COP31_DAILY_RATE_EUR[vehicleType as keyof typeof COP31_DAILY_RATE_EUR]
+      priceEur = dailyRateEur * hireDayCount
     } else if (isDailyChauffeur) {
       const { data: rate, error: rateError } = await supabase
         .from('chauffeur_service_rates')
@@ -445,7 +457,9 @@ Deno.serve(async (req) => {
         ? String(payload.flight_scheduled_arrival)
         : null,
       flight_arrival_time: payload.flight_arrival_time || null,
-      notes: notes || null,
+      // shortcut: the package is marked in notes rather than its own column;
+      // add a `service_package` column if more event packages follow.
+      notes: isCop31 ? `[COP31 package: fuel included]${notes ? ` ${notes}` : ''}` : notes || null,
       pickup_location: pickupLocation,
       pickup_address: pickupAddress || null,
       pickup_time: pickupTime || null,
@@ -466,6 +480,8 @@ Deno.serve(async (req) => {
       departure_flight_date: departureFlightDate || null,
       departure_flight_time: departureFlightTime || null,
       departure_flight_number: departureFlightNumber || null,
+      // bookings_trip_details_check wants this on every daily hire; for COP31
+      // it records when the guest booked the fuel-included package.
       fuel_terms_accepted_at: isDailyChauffeur ? new Date().toISOString() : null,
       guests: guestCount,
       vehicle_type: vehicleType,
@@ -508,6 +524,8 @@ Deno.serve(async (req) => {
       ? landOfLegendsNeedsQuote
         ? `To be quoted — ${excursionRegion ? `region "${excursionRegion}" has no fixed Land of Legends rate` : 'hotel is not in the index'}`
         : `EUR ${booking.price_eur} (round trip, waiting included)`
+      : isCop31
+      ? `EUR ${booking.price_eur} (${hireDayCount} days x EUR ${booking.daily_rate_eur}; COP31 package, fuel included)`
       : isDailyChauffeur
       ? `EUR ${booking.price_eur} (${hireDayCount} days x EUR ${booking.daily_rate_eur}; fuel excluded)`
       : isPrivateDestination
@@ -545,7 +563,7 @@ Deno.serve(async (req) => {
               to: [notificationEmail],
               subject: isLandOfLegends
                 ? `${booking.status === 'pending' ? '[CHECK] ' : ''}Land of Legends ${booking.booking_ref}: ${booking.pickup_date} hotel ${String(booking.pickup_time).slice(0, 5)} → park pick-up ${String(booking.return_pickup_time).slice(0, 5)}`
-                : `New ${isDailyChauffeur ? 'daily chauffeur hire ' : isRoundTrip ? 'round-trip ' : ''}booking ${booking.booking_ref}: ${pickupLabel}${isDailyChauffeur ? '' : ` to ${booking.dropoff_location}`}`,
+                : `New ${isCop31 ? 'COP31 summit chauffeur ' : isDailyChauffeur ? 'daily chauffeur hire ' : isRoundTrip ? 'round-trip ' : ''}booking ${booking.booking_ref}: ${pickupLabel}${isDailyChauffeur ? '' : ` to ${booking.dropoff_location}`}`,
               html: `
                 <div style="font-family:Arial,sans-serif;color:#161616">
                   <h2>New booking request</h2>
@@ -564,7 +582,7 @@ Deno.serve(async (req) => {
                     <tr><td style="padding:6px 12px;color:#777">Pick-up address</td><td style="padding:6px 12px"><strong>${escapeHtml(pickupAddressDisplay)}</strong></td></tr>
                     ${!isDailyChauffeur ? `<tr><td style="padding:6px 12px;color:#777">Destination</td><td style="padding:6px 12px">${escapeHtml(isLandOfLegends ? 'The Land of Legends (Kadriye) — then back to the hotel' : booking.dropoff_location)}</td></tr>` : ''}
                     ${!isDailyChauffeur && (booking.dropoff_address || booking.dropoff_hotel_name) ? `<tr><td style="padding:6px 12px;color:#777">${booking.dropoff_address ? 'Drop-off address' : 'Destination hotel'}</td><td style="padding:6px 12px"><strong>${escapeHtml(dropoffAddressDisplay)}</strong></td></tr>` : ''}
-                    <tr><td style="padding:6px 12px;color:#777">Journey type</td><td style="padding:6px 12px"><strong>${escapeHtml(isLandOfLegends ? 'The Land of Legends — hotel → park → hotel, driver waits' : isDailyChauffeur ? 'Daily vehicle + chauffeur' : isRoundTrip ? 'Round trip' : 'One way')}</strong></td></tr>
+                    <tr><td style="padding:6px 12px;color:#777">Journey type</td><td style="padding:6px 12px"><strong>${escapeHtml(isLandOfLegends ? 'The Land of Legends — hotel → park → hotel, driver waits' : isCop31 ? 'COP31 summit chauffeur — daily vehicle + chauffeur, fuel included, no hour or km limit' : isDailyChauffeur ? 'Daily vehicle + chauffeur' : isRoundTrip ? 'Round trip' : 'One way')}</strong></td></tr>
                     ${isLandOfLegends ? `<tr><td style="padding:6px 12px;color:#777">Hotel departure / park pick-up</td><td style="padding:6px 12px"><strong>${escapeHtml(booking.pickup_date)} · ${escapeHtml(booking.pickup_time)} → ${escapeHtml(booking.return_pickup_time)}</strong></td></tr>
                     <tr><td style="padding:6px 12px;color:#777">Hotel region</td><td style="padding:6px 12px">${escapeHtml(booking.excursion_region || 'Not matched')}</td></tr>` : ''}
                     ${!isLandOfLegends ? `<tr><td style="padding:6px 12px;color:#777">Date / arrival</td><td style="padding:6px 12px">${escapeHtml(booking.pickup_date)} ${escapeHtml(isDailyChauffeur ? booking.pickup_time : booking.flight_arrival_time || '')}</td></tr>` : ''}
@@ -573,7 +591,7 @@ Deno.serve(async (req) => {
                     <tr><td style="padding:6px 12px;color:#777">Return flight</td><td style="padding:6px 12px">${escapeHtml(booking.return_flight_number || 'Not provided')}</td></tr>` : ''}
                     ${isDailyChauffeur ? `<tr><td style="padding:6px 12px;color:#777">Hire period</td><td style="padding:6px 12px"><strong>${escapeHtml(booking.pickup_date)} – ${escapeHtml(booking.service_end_date)} (${escapeHtml(hireDayCount)} days)</strong></td></tr>
                     <tr><td style="padding:6px 12px;color:#777">Departure flight</td><td style="padding:6px 12px">${escapeHtml(booking.departure_flight_date || 'Not provided')} ${escapeHtml(booking.departure_flight_time || '')} ${escapeHtml(booking.departure_flight_number || '')}</td></tr>
-                    <tr><td style="padding:6px 12px;color:#777">Fuel terms</td><td style="padding:6px 12px"><strong>Accepted — fuel is excluded and paid separately by the customer</strong></td></tr>` : ''}
+                    <tr><td style="padding:6px 12px;color:#777">Fuel terms</td><td style="padding:6px 12px"><strong>${isCop31 ? 'COP31 package — fuel is included in the day rate' : 'Accepted — fuel is excluded and paid separately by the customer'}</strong></td></tr>` : ''}
                     <tr><td style="padding:6px 12px;color:#777">Guests / vehicle</td><td style="padding:6px 12px">${escapeHtml(booking.guests)} / ${escapeHtml(booking.vehicle_type)}</td></tr>
                     <tr><td style="padding:6px 12px;color:#777">Price</td><td style="padding:6px 12px"><strong>${escapeHtml(bookingPriceDisplay)}</strong></td></tr>
                     <tr><td style="padding:6px 12px;color:#777">Payment</td><td style="padding:6px 12px"><strong>Cash in vehicle</strong></td></tr>

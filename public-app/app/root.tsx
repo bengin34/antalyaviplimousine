@@ -7,6 +7,7 @@ import {
   useMatches,
 } from "react-router";
 import { useEffect, type ReactNode } from "react";
+import { Cop31Dialog } from "./components/Cop31Dialog";
 import { IconSprite } from "./components/Icon";
 import { captureAttribution } from "./lib/attribution";
 import { track } from "./lib/track";
@@ -91,6 +92,7 @@ export function Layout({ children }: { children: ReactNode }) {
           {skipLabels[language] ?? skipLabels.en}
         </a>
         {children}
+        <Cop31Dialog language={language} />
         <ScrollRestoration />
         <Scripts />
       </body>

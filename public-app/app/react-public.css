@@ -648,3 +648,44 @@ summary:focus-visible,
 .lol-inline-card .lol-summary-list dt { color: rgba(255, 255, 255, 0.55); }
 .lol-inline-card .lol-summary-list dd,
 .lol-inline-card .lol-tickets-note { color: var(--white); }
+
+/* COP31 opening dialog (components/Cop31Dialog), shown site-wide until 20 Nov 2026. */
+.cop-dialog {
+  width: min(860px, calc(100% - 32px));
+  max-height: calc(100% - 32px);
+  padding: 0;
+  overflow: auto;
+  border: 1px solid rgba(200, 169, 106, 0.4);
+  background: #0a0f17;
+  color: #fff;
+  box-shadow: 0 40px 120px rgba(0, 0, 0, 0.6);
+  animation: cop-dialog-rise 0.45s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.cop-dialog[open] { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+.cop-dialog::backdrop { background: rgba(3, 4, 7, 0.72); backdrop-filter: blur(6px); }
+.cop-dialog-art { position: relative; min-height: 420px; overflow: hidden; background: #05070b no-repeat 30% 18% / 170% auto; }
+.cop-dialog-art::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, transparent 45%, #0a0f17); }
+[dir="rtl"] .cop-dialog-art::after { background: linear-gradient(270deg, transparent 45%, #0a0f17); }
+.cop-dialog-orbit { position: absolute; z-index: 1; inset-inline-start: -8%; inset-block-start: 8%; width: 116%; height: 84%; border: 1px solid rgba(224, 198, 141, 0.55); border-radius: 50%; transform: rotate(-14deg); }
+.cop-dialog-body { position: relative; padding: 44px 40px; }
+.cop-dialog-logo { display: block; width: auto; height: 42px; margin-block-end: 26px; }
+.cop-dialog-dates { margin: 0; color: #42b87e; font-size: 0.72rem; font-weight: 500; letter-spacing: 0.24em; text-transform: uppercase; }
+.cop-dialog h2 { margin: 12px 0; font-family: var(--serif); font-size: 2.2rem; font-weight: 400; line-height: 1.1; }
+.cop-dialog-body > p { margin: 0 0 22px; color: rgba(255, 255, 255, 0.68); line-height: 1.7; }
+.cop-dialog-body > .cop-dialog-dates { margin: 0; color: #42b87e; }
+.cop-dialog .cop-dialog-from { color: var(--gold-light); font-family: var(--serif); font-size: 1.25rem; }
+.cop-dialog-cta { display: inline-block; padding: 15px 26px; background: linear-gradient(135deg, var(--gold-light), var(--gold)); color: #111; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.14em; text-decoration: none; text-transform: uppercase; }
+.cop-dialog-later { display: block; margin-block-start: 16px; padding: 0; border: 0; background: none; color: rgba(255, 255, 255, 0.55); font: inherit; font-size: 0.85rem; text-decoration: underline; text-underline-offset: 4px; cursor: pointer; }
+.cop-dialog-close { position: absolute; inset-block-start: 10px; inset-inline-end: 12px; width: 40px; height: 40px; border: 0; background: none; color: #fff; font-size: 1.7rem; line-height: 1; opacity: 0.7; cursor: pointer; }
+.cop-dialog-close:hover, .cop-dialog-later:hover { opacity: 1; color: #fff; }
+.cop-dialog :focus-visible { outline: 2px solid var(--gold-light); outline-offset: 3px; }
+@keyframes cop-dialog-rise { from { opacity: 0; transform: translateY(24px); } }
+@media (max-width: 720px) {
+  .cop-dialog[open] { grid-template-columns: minmax(0, 1fr); }
+  .cop-dialog-art { min-height: 170px; }
+  .cop-dialog-art::after { background: linear-gradient(0deg, #0a0f17, transparent 65%); }
+  [dir="rtl"] .cop-dialog-art::after { background: linear-gradient(0deg, #0a0f17, transparent 65%); }
+  .cop-dialog-body { padding: 26px 24px 30px; }
+  .cop-dialog h2 { font-size: 1.8rem; }
+}
+@media (prefers-reduced-motion: reduce) { .cop-dialog { animation: none; } }
