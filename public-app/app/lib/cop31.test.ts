@@ -48,7 +48,8 @@ describe("COP31 form schema", () => {
   it("caps passengers by vehicle", () => {
     expect(issuesFor({ guests: "7" })).toContain("guests");
     expect(issuesFor({ guests: "7", vehicle: "sprinter" })).toEqual([]);
-    expect(issuesFor({ guests: "13", vehicle: "sprinter" })).toContain("guests");
+    expect(issuesFor({ guests: "16", vehicle: "sprinter" })).toEqual([]);
+    expect(issuesFor({ guests: "17", vehicle: "sprinter" })).toContain("guests");
   });
 
   it("needs a hotel, a start time and reachable contact details", () => {

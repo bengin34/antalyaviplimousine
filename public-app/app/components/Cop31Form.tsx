@@ -7,7 +7,7 @@ import { HotelCombobox } from "./HotelCombobox";
 import { Icon } from "./Icon";
 import { LazyPhoneInput, preloadPhoneInput } from "./LazyPhoneInput";
 import { loadedHotelData, preloadHotelData, type IndexedHotel } from "../lib/hotel-data";
-import { SPRINTER_MAX_GUESTS, VITO_MAX_GUESTS } from "../lib/booking";
+import { VITO_MAX_GUESTS } from "../lib/booking";
 import {
   buildCop31Payload,
   cop31DailyRate,
@@ -15,6 +15,7 @@ import {
   createCop31Schema,
   COP31_FIRST_DAY,
   COP31_LAST_DAY,
+  COP31_SPRINTER_MAX_GUESTS,
   type Cop31Values,
   type Cop31Vehicle,
 } from "../lib/cop31";
@@ -198,7 +199,7 @@ export function Cop31Form({ language, vehicle: requestedVehicle }: { language: C
         </label>
         <label className={fieldClass(errors.guests)}>
           <span>{copy.guestsLabel}</span>
-          <div className="field-control"><Icon name="users" className="icon" /><select id="cop-guests" {...register("guests")} {...fieldStatus("guests", errors.guests)}>{Array.from({ length: SPRINTER_MAX_GUESTS }, (_, i) => <option key={i + 1} value={i + 1}>{i + 1}</option>)}</select></div>
+          <div className="field-control"><Icon name="users" className="icon" /><select id="cop-guests" {...register("guests")} {...fieldStatus("guests", errors.guests)}>{Array.from({ length: COP31_SPRINTER_MAX_GUESTS }, (_, i) => <option key={i + 1} value={i + 1}>{i + 1}</option>)}</select></div>
           <small className="cop-hint" role="status">{guests > VITO_MAX_GUESTS ? copy.sprinterNote(guests) : ""}</small>
           <ErrorText name="guests" error={errors.guests} />
         </label>

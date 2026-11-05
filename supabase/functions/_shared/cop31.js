@@ -6,6 +6,9 @@
 /** Day rate per vehicle, keyed by the bookings table's `vehicle_type`. */
 export const COP31_DAILY_RATE_EUR = Object.freeze({ vito: 200, vclass: 250 })
 
+/** The summit Sprinter seats 16, more than the 12 the regular transfer form allows. */
+export const COP31_SPRINTER_MAX_GUESTS = 16
+
 // The summit runs 9–20 November; delegates land and leave a couple of days
 // either side, so those days take the package too.
 export const COP31_FIRST_DAY = '2026-11-07'
