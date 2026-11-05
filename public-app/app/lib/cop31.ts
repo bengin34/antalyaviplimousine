@@ -4,13 +4,14 @@ import {
   COP31_DAILY_RATE_EUR,
   COP31_FIRST_DAY,
   COP31_LAST_DAY,
+  COP31_SPRINTER_MAX_GUESTS,
   isCop31Period,
 } from "../../../supabase/functions/_shared/cop31.js";
 import { currentAttribution, type Attribution } from "./attribution";
-import { inclusiveDayCount, SPRINTER_MAX_GUESTS, VITO_MAX_GUESTS } from "./booking";
+import { inclusiveDayCount, VITO_MAX_GUESTS } from "./booking";
 import type { Cop31Copy } from "./cop31-copy";
 
-export { COP31_FIRST_DAY, COP31_LAST_DAY };
+export { COP31_FIRST_DAY, COP31_LAST_DAY, COP31_SPRINTER_MAX_GUESTS };
 export type Cop31Vehicle = "vito" | "sprinter";
 
 /** The opening day, in Antalya's time; the countdown and the dialog's cut-off follow it. */
@@ -49,7 +50,7 @@ export function createCop31Schema(errors: Cop31Copy["errors"]) {
     if (hotel.length < 2 || hotel.length > 120) context.addIssue({ code: "custom", path: ["hotelName"], message: errors.hotel });
 
     const guests = Number(values.guests);
-    const max = values.vehicle === "sprinter" ? SPRINTER_MAX_GUESTS : VITO_MAX_GUESTS;
+    const max = values.vehicle === "sprinter" ? COP31_SPRINTER_MAX_GUESTS : VITO_MAX_GUESTS;
     if (!Number.isInteger(guests) || guests < 1 || guests > max) context.addIssue({ code: "custom", path: ["guests"], message: errors.guests });
 
     const name = normalize(values.customerName);
