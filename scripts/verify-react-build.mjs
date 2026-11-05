@@ -1,7 +1,7 @@
 import { readFile, stat } from "node:fs/promises";
 import path from "node:path";
 import { JSDOM } from "jsdom";
-import { articlePaths, b2bPaths, landOfLegendsLanguages, landOfLegendsPaths, blogPaths, clinicPaths, healthPaths, homePaths, hotelPaths, legalPaths, prerenderPaths, publicLanguages, sitemapPaths, transferPaths } from "../src/public-paths.js";
+import { articlePaths, b2bPaths, cop31Languages, cop31Paths, landOfLegendsLanguages, landOfLegendsPaths, blogPaths, clinicPaths, healthPaths, homePaths, hotelPaths, legalPaths, prerenderPaths, publicLanguages, sitemapPaths, transferPaths } from "../src/public-paths.js";
 import { articleLanguages, articlesForLanguage, blogPath } from "../src/articles/index.js";
 import { publicRouteSlugs, routeCatalog } from "../src/routes.js";
 import { AGENCY_DISCOUNT_EUR, agencyPrice } from "../src/b2b-pricing.js";
@@ -15,6 +15,7 @@ const healthSet = new Set(healthPaths);
 const clinicSet = new Set(clinicPaths);
 const b2bSet = new Set(b2bPaths);
 const landOfLegendsSet = new Set(landOfLegendsPaths);
+const cop31Set = new Set(cop31Paths);
 const transferSet = new Set(transferPaths);
 const hotelSet = new Set(hotelPaths);
 const legalSet = new Set(legalPaths);
@@ -72,6 +73,9 @@ for (const urlPath of prerenderPaths) {
   } else if (landOfLegendsSet.has(urlPath)) {
     // Published in four languages; its hreflang set names exactly those + x-default.
     if (alternateCount !== landOfLegendsLanguages.length + 1) fail(`${urlPath}: expected ${landOfLegendsLanguages.length + 1} Land of Legends language alternates, found ${alternateCount}`);
+  } else if (cop31Set.has(urlPath)) {
+    // The summit page is published in seven languages: exactly those + x-default.
+    if (alternateCount !== cop31Languages.length + 1) fail(`${urlPath}: expected ${cop31Languages.length + 1} COP31 language alternates, found ${alternateCount}`);
   } else if (legalSet.has(urlPath)) {
     if (alternateCount < 5) fail(`${urlPath}: incomplete language alternates`);
   } else if (blogSet.has(urlPath) || articleSet.has(urlPath)) {

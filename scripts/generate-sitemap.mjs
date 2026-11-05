@@ -5,6 +5,7 @@ import { publicRouteSlugs } from "../src/routes.js";
 import {
   articlePaths,
   blogPaths,
+  cop31Languages,
   homePaths,
   landOfLegendsLanguages,
   languagePrefix,
@@ -80,6 +81,9 @@ addGroup(Object.fromEntries(publicLanguages.map((language) => [language, `${lang
 addGroup(Object.fromEntries(publicLanguages.map((language) => [language, `${languagePrefix(language)}/health/`])));
 addGroup(Object.fromEntries(
   landOfLegendsLanguages.map((language) => [language, `${languagePrefix(language)}/land-of-legends/`]),
+));
+addGroup(Object.fromEntries(
+  cop31Languages.map((language) => [language, `${languagePrefix(language)}/cop31/`]),
 ));
 for (const slug of publicRouteSlugs) {
   addGroup(Object.fromEntries(

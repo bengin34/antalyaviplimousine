@@ -49,6 +49,14 @@ export default [
   route("zh/health", "./routes/health.tsx", { id: "health-zh" }),
   route("clinic", "./routes/clinic.tsx", { id: "clinic-tr" }),
   route("b2b", "./routes/b2b.tsx", { id: "b2b-en" }),
+  // The COP31 summit chauffeur page (Antalya, 9–20 November 2026).
+  route("cop31", "./routes/cop31.tsx", { id: "cop31-en" }),
+  route("tr/cop31", "./routes/cop31.tsx", { id: "cop31-tr" }),
+  route("de/cop31", "./routes/cop31.tsx", { id: "cop31-de" }),
+  route("fr/cop31", "./routes/cop31.tsx", { id: "cop31-fr" }),
+  route("ru/cop31", "./routes/cop31.tsx", { id: "cop31-ru" }),
+  route("ar/cop31", "./routes/cop31.tsx", { id: "cop31-ar" }),
+  route("es/cop31", "./routes/cop31.tsx", { id: "cop31-es" }),
   // The Land of Legends excursion page, one per site language.
   route("land-of-legends", "./routes/land-of-legends.tsx", { id: "land-of-legends-en" }),
   route("de/land-of-legends", "./routes/land-of-legends.tsx", { id: "land-of-legends-de" }),
