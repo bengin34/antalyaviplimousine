@@ -2940,5 +2940,309 @@ export const articles = {
         "Ne. Cena je fixní a konečná. Pár eur za těžká zavazadla nebo noční přílet potěší, ale nikdo je nečeká."
       ]
     ]
+  },
+  "cop31-antalya-transport": {
+    "slug": "cop31-antalya-doprava-transfer-shuttle",
+    "title": "COP31 Antalya: doprava, transfer z letiště a kyvadlové autobusy",
+    "heading": "Jak se dostat na COP31 v Antalyi: letiště, shuttle a areál Expo",
+    "description": "Jak se dostat do areálu COP31 v Antalya Expo Center: doba jízdy z letiště, oficiální kyvadlová doprava, parkovací povolení, taxi a soukromý řidič na celý den.",
+    "excerpt": "COP31 se koná 9.–20. listopadu 2026 v Antalya Expo Center v Aksu. Jak se delegáti dostanou z letiště a hotelu do areálu a kde oficiální kyvadlová doprava nestačí.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "COP31 se koná od 9. do 20. listopadu 2026 v Antalya Expo Center v Aksu, v areálu postaveném pro EXPO 2016, východně od města a blízko letiště Antalya. Desetitisíce delegátů, pozorovatelů a novinářů budou jezdit mezi letištěm, hotely rozesetými podél 60 km pobřeží a jediným místem konání. Tento průvodce popisuje každodenní cestu tak, jak skutečně vypadá. Napsala ho přepravní společnost z Antalye, jejíž řidiči jezdí po těchto silnicích každý den."
+      },
+      {
+        "type": "h2",
+        "text": "Kde se areál nachází"
+      },
+      {
+        "type": "table",
+        "head": [
+          "",
+          "COP31 Antalya"
+        ],
+        "rows": [
+          [
+            "Místo konání",
+            "Antalya Expo Center, Aksu (areál EXPO 2016)"
+          ],
+          [
+            "Termín",
+            "9.–20. listopadu 2026"
+          ],
+          [
+            "Letiště",
+            "Letiště Antalya (AYT), zhruba 20–30 minut autem"
+          ],
+          [
+            "Oficiální shuttle",
+            "Z oficiálních hotelů, letiště a centra města do areálu"
+          ],
+          [
+            "Parkování u areálu",
+            "Jen s povolením pro vozidlo od předsednictví COP31"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Areál Expo leží na hlavní pobřežní silnici mezi Antalyí a Belekem. To je dobrá zpráva pro všechny, kdo bydlí v Laře, Kundu nebo Beleku, a letiště je tak jedním z nejbližších bodů k areálu, ne vzdáleným koncem cesty."
+      },
+      {
+        "type": "h2",
+        "text": "Z letiště Antalya do areálu"
+      },
+      {
+        "type": "p",
+        "text": "Podle předsednictví COP31 je letiště zhruba 20–30 minut od areálu. Na letišti je pro účastníky zajištěno informační místo a dál máte čtyři možnosti:"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Oficiální shuttle COP31 mezi letištěm a areálem.",
+          "Taxi z vyhrazených stanovišť před terminály.",
+          "Aplikace pro objednání jízdy, kde fungují.",
+          "Soukromý transfer nebo řidič, který čeká v příletové hale s cedulkou s vaším jménem a sleduje váš let, takže zpoždění nic nestojí."
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Před přistáním si ověřte, který terminál váš let používá: mezinárodní lety odbavuje Terminál 1 nebo Terminál 2, přestupní lety přes Istanbul přilétají do vnitrostátního terminálu. Rozdíl vysvětluje náš průvodce terminály."
+      },
+      {
+        "type": "h2",
+        "text": "Oficiální kyvadlová doprava: co pokrývá a co ne"
+      },
+      {
+        "type": "p",
+        "text": "Předsednictví provozuje shuttle na třech trasách: z oficiálních hotelů do areálu, z letiště do areálu a z centra města do areálu. Informace UNFCCC pro účastníky obsahují důležitou podmínku: zastávky jsou plánovány jen u hotelů rezervovaných přes oficiální ubytovací platformu COP31. Pokud bydlíte jinde, na nejbližší zastávku nebo rovnou do areálu se dopravíte sami."
+      },
+      {
+        "type": "p",
+        "text": "Jízdní řády a mapy tras budou zveřejněny na cop31.tr/transportation blíže konferenci. Prohlédněte si je dřív, než se na shuttle spolehnete před ranním plenárním zasedáním nebo pozdním vyjednáváním: pevný jízdní řád a bezpečnostní kontrola na obou koncích ne vždy odpovídají dni na COP."
+      },
+      {
+        "type": "h2",
+        "text": "Autem do areálu: parkování a vysazení"
+      },
+      {
+        "type": "p",
+        "text": "Parkování u areálu vyžaduje povolení pro vozidlo, o které se žádá přes oficiální systém předsednictví na vapp.cop31.tr. Parkování pro osoby se zdravotním postižením vyžaduje platný průkaz zdravotního postižení. Bez povolení vás auto vysadí tam, kde to bezpečnostní plán dovolí, a odjede, takže počítejte s krátkou procházkou ke vstupu a kontrolou visačky."
+      },
+      {
+        "type": "p",
+        "text": "Právě proto se vyplatí řidič na celý den: vysadí vás, čeká poblíž místo kroužení kolem areálu a vrátí se, jakmile napíšete, ať jde o oběd mimo areál, bilaterální schůzku v hotelu na druhém konci města, nebo poslední odvoz po pozdním zasedání."
+      },
+      {
+        "type": "cop31",
+        "text": "Soukromý Mercedes s řidičem vyhrazený pro vás na celý den: 200 € za den za Vito (až 6 osob), 250 € za Sprinter (až 16). Palivo v ceně, bez omezení hodin a kilometrů.",
+        "button": "Zobrazit balíček s řidičem na COP31"
+      },
+      {
+        "type": "h2",
+        "text": "Taxi a dopravní špička"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Taxíků je dost a jezdí na taxametr; pokud vyúčtováváte cestovní náhrady, požádejte o účtenku.",
+          "Úzkým hrdlem je ranní příjezd do areálu a večerní odjezd. Nechte si rezervu před první schůzkou, ve dnech návštěv hlav států větší.",
+          "Ve dnech Summitu světových lídrů na začátku konference počítejte s uzavírkami silnic a zastavováním provozu kvůli kolonám.",
+          "Zapište si bránu, kterou potřebujete: řidiči areál Expo znají, ale brány se mění s bezpečnostním plánem."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Která možnost se hodí komu"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Jste",
+          "Nejlepší volba"
+        ],
+        "rows": [
+          [
+            "V oficiálním hotelu, pevný program",
+            "Oficiální shuttle"
+          ],
+          [
+            "Mimo oficiální hotely",
+            "Taxi nebo řidič na den"
+          ],
+          [
+            "Ministr nebo vedoucí delegace",
+            "Řidič na den, jedno vozidlo na zavolání"
+          ],
+          [
+            "Tým nebo novinářský štáb s technikou",
+            "Sprinter s řidičem, až 16 míst"
+          ],
+          [
+            "Přilétáte pozdě v noci",
+            "Soukromé vyzvednutí se sledováním letu"
+          ]
+        ]
+      }
+    ],
+    "faq": [
+      [
+        "Kde se v Antalyi koná COP31?",
+        "V Antalya Expo Center v Aksu, v areálu EXPO 2016 východně od centra města, na pobřežní silnici směrem na Belek a blízko letiště Antalya."
+      ],
+      [
+        "Jak daleko je areál COP31 od letiště Antalya?",
+        "Podle předsednictví COP31 zhruba 20–30 minut autem. Ve špičce a ve dnech Summitu světových lídrů počítejte s delší dobou."
+      ],
+      [
+        "Jezdí do areálu COP31 bezplatné shuttle?",
+        "Předsednictví provozuje shuttle z oficiálních hotelů, letiště a centra města. Zastávky jsou plánovány jen u hotelů rezervovaných přes oficiální ubytovací platformu; jízdní řády se objeví na cop31.tr blíže termínu."
+      ],
+      [
+        "Může soukromé auto vjet do areálu?",
+        "Parkování vyžaduje povolení pro vozidlo z oficiálního systému na vapp.cop31.tr. Bez něj vás auto vysadí tam, kde to ostraha dovolí, a počká poblíž."
+      ],
+      [
+        "Kolik stojí soukromý řidič na COP31?",
+        "Náš balíček COP31 je pevná denní sazba: 200 € za Mercedes Vito, 250 € za Sprinter, palivo v ceně, bez omezení hodin a kilometrů, platba ve voze."
+      ]
+    ]
+  },
+  "cop31-where-to-stay": {
+    "slug": "cop31-antalya-ubytovani-hotely-doba-jizdy",
+    "title": "Ubytování na COP31 v Antalyi: kde bydlet a doba jízdy",
+    "heading": "Kde bydlet na COP31: oblasti Antalye podle doby jízdy do areálu",
+    "description": "Lara, Kundu, centrum města, Belek nebo dál: doba jízdy z každé oblasti Antalye do areálu COP31 v Antalya Expo Center a co to znamená pro váš den.",
+    "excerpt": "Areál COP31 leží mezi Antalyí a Belekem. Oblast, kde bydlíte, rozhoduje, jak brzy vyrážíte, zda shuttle staví u vašeho hotelu a jak se dostanete zpět po pozdním zasedání.",
+    "readingMinutes": 5,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Většina rad k hotelům na COP31 jen vyjmenovává hotely. Otázka, která rozhoduje o vašich dvou týdnech, je jiná: jak dlouho jedete z postele do Antalya Expo Center v Aksu, ráno a večer, dvanáct dní po sobě? Tady je pobřeží čtené od areálu směrem ven."
+      },
+      {
+        "type": "h2",
+        "text": "Doba jízdy do areálu"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Oblast",
+          "Do areálu",
+          "Charakter"
+        ],
+        "rows": [
+          [
+            "Kundu",
+            "zhruba 15–25 min",
+            "Velké resortové hotely na pláži, nejbližší resortový pás"
+          ],
+          [
+            "Lara",
+            "zhruba 20–30 min",
+            "Velké hotely, nákupy, mezi městem a areálem"
+          ],
+          [
+            "Okolí letiště Antalya",
+            "zhruba 20–30 min",
+            "Business hotely, snadný přílet i odlet"
+          ],
+          [
+            "Centrum a Kaleiçi",
+            "zhruba 30–45 min",
+            "Restaurace, staré město, večerní život, víc provozu"
+          ],
+          [
+            "Belek",
+            "zhruba 25–35 min",
+            "Golfové resorty, klid, na druhé straně areálu"
+          ],
+          [
+            "Side a Manavgat",
+            "zhruba 50–65 min",
+            "Resorty dál na východ, dlouhé každodenní dojíždění"
+          ],
+          [
+            "Kemer",
+            "zhruba 70–90 min",
+            "Západně od města, je třeba projet celou Antalyi"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Jde o odhady našich řidičů při běžném provozu, vycházející ze silnic, po kterých jezdíme každý den, nikoli o oficiální údaje. Bezpečnostní opatření summitu, kolony a večerní odjezd z areálu přidávají čas, hlavně v prvních dnech."
+      },
+      {
+        "type": "h2",
+        "text": "Oficiální ubytování a otázka shuttle"
+      },
+      {
+        "type": "p",
+        "text": "Předsednictví COP31 zajišťuje oficiální hotely přes svou ubytovací platformu a podle informací UNFCCC pro účastníky staví konferenční shuttle jen u těchto hotelů. Pokud vaše delegace rezervovala soukromě, vilu, apartmán nebo hotel mimo platformu, naplánujte každodenní cestu sami od prvního dne, místo abyste na to přišli až před prvním ranním plenárním zasedáním."
+      },
+      {
+        "type": "h2",
+        "text": "Lara a Kundu: nejblíž k areálu"
+      },
+      {
+        "type": "p",
+        "text": "Lara a Kundu leží mezi městem a areálem Expo, takže ranní cesta je krátká a vede proti městskému provozu. Hotely jsou velké, což se hodí delegaci, která chce mít všechny pod jednou střechou, a letiště je blízko pro přílety v nezvyklou dobu."
+      },
+      {
+        "type": "h2",
+        "text": "Centrum města: večeře, ne dojíždění"
+      },
+      {
+        "type": "p",
+        "text": "Bydlení v centru vám dá restaurace, Kaleiçi a doprovodné akce na dosah pěšky, za cenu nejdelší městské cesty do areálu. Oficiální shuttle z centra pomáhá, ale jeho zastávky a jízdní řád určují váš den. Pro vedoucího delegace funguje hotel ve městě až s autem na zavolání."
+      },
+      {
+        "type": "h2",
+        "text": "Belek, Side a Kemer: dál od areálu"
+      },
+      {
+        "type": "p",
+        "text": "Belek je klidná volba na druhé straně areálu, dobou jízdy srovnatelná s centrem města, ale bez městského provozu. Side a Kemer znamenají skutečné dojíždění dvakrát denně; hodí se pro delegaci s pevným programem a vlastním vozidlem, ne pro někoho, koho mohou pozdě večer povolat zpět kvůli vyjednávanému textu."
+      },
+      {
+        "type": "cop31",
+        "text": "Bydlíte mimo síť shuttle? Mercedes s řidičem vyhrazený pro vás na celý den, z hotelu do areálu a zpět: 200 € za den (Vito, až 6 osob), 250 € (Sprinter, až 16). Palivo v ceně.",
+        "button": "Rezervovat řidiče na COP31"
+      },
+      {
+        "type": "h2",
+        "text": "Denní plán, který funguje"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Nechte si 30 minut rezervu před první pevnou schůzkou, navíc k době jízdy.",
+          "Domluvte místo vyzvednutí a bránu u areálu už předchozí večer.",
+          "Vyhraďte jedno vozidlo pro vedoucího delegace a tým vozte ve Sprinteru.",
+          "Uveďte v rezervaci čísla letů, pak dny příletu a odletu nevyžadují samostatný transfer."
+        ]
+      }
+    ],
+    "faq": [
+      [
+        "Která oblast je nejblíž k areálu COP31?",
+        "Kundu a Lara, obě mezi městem Antalya a Antalya Expo Center v Aksu, zhruba 15–30 minut jízdy při běžném provozu."
+      ],
+      [
+        "Je Belek dobrá základna pro COP31?",
+        "Ano, pokud máte auto: Belek je zhruba 25–35 minut od areálu, na opačné straně než město, s klidnými resortovými hotely."
+      ],
+      [
+        "Staví shuttle COP31 u každého hotelu?",
+        "Ne. Podle informací UNFCCC pro účastníky jsou zastávky plánovány jen u hotelů rezervovaných přes oficiální ubytovací platformu COP31."
+      ],
+      [
+        "Jak dlouho trvá cesta z centra Antalye do areálu COP31?",
+        "Zhruba 30–45 minut podle provozu a místa, odkud v centru vyrážíte, při večerním odjezdu z areálu déle."
+      ]
+    ]
   }
 };

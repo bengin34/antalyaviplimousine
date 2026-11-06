@@ -3221,5 +3221,309 @@ export const articles = {
         "Hayır. Fiyat sabit ve eksiksizdir. Ağır bagaj ya da gece varışı için birkaç euro memnuniyetle karşılanır ama asla beklenmez."
       ]
     ]
+  },
+  "cop31-antalya-transport": {
+    "slug": "cop31-antalya-ulasim-transfer-servis",
+    "title": "COP31 Antalya Ulaşım: Havalimanı Transferi, Servisler ve Alan",
+    "heading": "COP31 Antalya'ya ulaşım: havalimanı, servisler ve Expo alanı",
+    "description": "Antalya Expo Center'daki COP31 alanına nasıl gidilir: havalimanından süreler, resmi servisler, otopark izinleri, taksi ve tüm gün emrinizde özel şoförlü araç.",
+    "excerpt": "COP31, 9-20 Kasım 2026 tarihlerinde Aksu'daki Antalya Expo Center'da yapılıyor. Delegelerin havalimanından ve otelden alana nasıl ulaştığını, resmi servislerin nerede yetmediğini anlatıyoruz.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "COP31, 9-20 Kasım 2026 tarihlerinde Aksu'daki Antalya Expo Center'da, EXPO 2016 için inşa edilen alanda, şehrin doğusunda ve Antalya Havalimanı'na yakın bir noktada yapılıyor. On binlerce delege, gözlemci ve gazeteci havalimanı, 60 km'lik sahile yayılmış oteller ve tek bir alan arasında gidip gelecek. Bu rehber o günlük yolculuğun gerçek halini anlatıyor; bu yolları her gün kullanan Antalyalı bir şoförlü transfer firması tarafından yazıldı."
+      },
+      {
+        "type": "h2",
+        "text": "Alan nerede"
+      },
+      {
+        "type": "table",
+        "head": [
+          "",
+          "COP31 Antalya"
+        ],
+        "rows": [
+          [
+            "Alan",
+            "Antalya Expo Center, Aksu (EXPO 2016 alanı)"
+          ],
+          [
+            "Tarihler",
+            "9-20 Kasım 2026"
+          ],
+          [
+            "Havalimanı",
+            "Antalya Havalimanı (AYT), karayoluyla yaklaşık 20-30 dakika"
+          ],
+          [
+            "Resmi servisler",
+            "Resmi otellerden, havalimanından ve şehir merkezinden alana"
+          ],
+          [
+            "Alan otoparkı",
+            "Yalnızca COP31 Başkanlığı'ndan alınan araç giriş izniyle"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Expo alanı, Antalya ile Belek arasındaki ana sahil yolu üzerinde. Bu, Lara, Kundu ya da Belek'te kalanlar için iyi haber; havalimanı da yolculuğun uzak ucu değil, alana en yakın noktalardan biri."
+      },
+      {
+        "type": "h2",
+        "text": "Antalya Havalimanı'ndan alana"
+      },
+      {
+        "type": "p",
+        "text": "COP31 Başkanlığı'na göre havalimanı alana yaklaşık 20-30 dakika uzaklıkta. Katılımcılar için havalimanında karşılama noktası kuruluyor ve buradan dört seçeneğiniz var:"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Havalimanı ile alan arasında resmi COP31 servisi.",
+          "Terminallerin önündeki belirlenmiş duraklardan taksi.",
+          "Çalıştıkları yerlerde araç çağırma uygulamaları.",
+          "Geliş salonunda isim tabelasıyla bekleyen, uçuşunuzu takip eden özel transfer ya da şoför; rötar size hiçbir ek maliyet getirmez."
+        ]
+      },
+      {
+        "type": "p",
+        "text": "İnmeden önce uçuşunuzun hangi terminali kullandığını kontrol edin: dış hat uçuşları Terminal 1 ya da Terminal 2'yi kullanır, İstanbul aktarmalı uçuşlar ise iç hatlar terminaline iner. Farkı terminal rehberimiz anlatıyor."
+      },
+      {
+        "type": "h2",
+        "text": "Resmi servisler: neyi kapsıyor, neyi kapsamıyor"
+      },
+      {
+        "type": "p",
+        "text": "Başkanlık üç hatta servis işletiyor: resmi otellerden alana, havalimanından alana ve şehir merkezinden alana. UNFCCC katılımcı bilgilerinde önemli bir şart var: servis durakları yalnızca resmi COP31 konaklama platformu üzerinden rezerve edilen otellerde planlanıyor. Başka bir yerde kalıyorsanız en yakın durağa ya da doğrudan alana kendiniz gitmeniz gerekiyor."
+      },
+      {
+        "type": "p",
+        "text": "Tarifeler ve güzergah haritaları konferansa yakın cop31.tr/transportation adresinde yayımlanacak. Sabah erken bir genel oturum ya da geç saatte biten bir müzakere için servise güvenmeden önce bunlara bakın: sabit bir tarife ve iki uçta güvenlik kuyruğu, bir COP gününe her zaman uymuyor."
+      },
+      {
+        "type": "h2",
+        "text": "Alana araçla gitmek: otopark ve bırakma"
+      },
+      {
+        "type": "p",
+        "text": "Alanda park etmek için Başkanlığın vapp.cop31.tr adresindeki resmi sisteminden başvurulan bir araç giriş izni gerekiyor. Engelli otoparkı için geçerli bir engelli belgesi şart. İzniniz yoksa araç sizi güvenlik planının izin verdiği yerde bırakıp ayrılır; girişe ve yaka kartı kontrolüne kısa bir yürüyüş bekleyin."
+      },
+      {
+        "type": "p",
+        "text": "Tam gün şoförün avantajı da bu: şoför sizi bırakır, alanın etrafında tur atmak yerine yakında bekler ve mesaj attığınızda geri gelir; ister alan dışında bir öğle yemeği, ister şehrin öbür ucundaki bir otelde ikili görüşme, ister geç biten bir oturumdan sonraki son dönüş olsun."
+      },
+      {
+        "type": "cop31",
+        "text": "Tüm gün size ayrılmış şoförlü özel bir Mercedes: Vito için günlük 200 € (6 kişiye kadar), Sprinter için 250 € (16 kişiye kadar). Yakıt dahil, saat ve kilometre sınırı yok.",
+        "button": "COP31 şoför paketini inceleyin"
+      },
+      {
+        "type": "h2",
+        "text": "Taksiler ve yoğun saatler"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Taksi bol ve taksimetreyle çalışıyor; masraf beyan edecekseniz fiş isteyin.",
+          "Darboğazlar sabah alana giriş ve akşam çıkış. İlk toplantınızdan önce pay bırakın, devlet başkanlarının şehirde olduğu günlerde daha fazla.",
+          "Konferansın başındaki Dünya Liderleri Zirvesi günlerinde yol kapatmaları ve konvoy geçişleri için duraklamalar bekleyin.",
+          "İhtiyacınız olan alan kapısını not edin; şoförler Expo alanını bilir ama kapılar güvenlik planına göre değişir."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Hangi seçenek kime uygun"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Siz",
+          "En uygun seçenek"
+        ],
+        "rows": [
+          [
+            "Resmi otelde, programı sabit",
+            "Resmi servis"
+          ],
+          [
+            "Resmi otellerin dışında",
+            "Taksi ya da günlük şoför"
+          ],
+          [
+            "Bakan ya da heyet başkanı",
+            "Günlük şoför, emrinizde tek araç"
+          ],
+          [
+            "Ekipmanlı bir ekip ya da basın ekibi",
+            "Şoförlü Sprinter, 16 kişiye kadar"
+          ],
+          [
+            "Gece geç saatte varan",
+            "Uçuş takipli özel karşılama"
+          ]
+        ]
+      }
+    ],
+    "faq": [
+      [
+        "COP31 Antalya'da nerede yapılıyor?",
+        "Aksu'daki Antalya Expo Center'da; şehir merkezinin doğusundaki EXPO 2016 alanında, Belek yönündeki sahil yolu üzerinde ve Antalya Havalimanı'na yakın."
+      ],
+      [
+        "COP31 alanı Antalya Havalimanı'na ne kadar uzak?",
+        "COP31 Başkanlığı'na göre karayoluyla yaklaşık 20-30 dakika. Yoğun saatlerde ve Dünya Liderleri Zirvesi günlerinde daha fazla süre ayırın."
+      ],
+      [
+        "COP31 alanına ücretsiz servis var mı?",
+        "Başkanlık resmi otellerden, havalimanından ve şehir merkezinden servis işletiyor. Duraklar yalnızca resmi konaklama platformu üzerinden rezerve edilen otellerde planlanıyor; tarifeler tarihlere yakın cop31.tr'de yayımlanacak."
+      ],
+      [
+        "Özel araç alana girebilir mi?",
+        "Park etmek için vapp.cop31.tr adresindeki resmi sistemden alınan araç giriş izni gerekiyor. İzin yoksa araç sizi güvenliğin izin verdiği yerde bırakır ve yakında bekler."
+      ],
+      [
+        "COP31 için özel şoför ne kadar?",
+        "COP31 paketimiz sabit günlük ücretli: Mercedes Vito için 200 €, Sprinter için 250 €; yakıt dahil, saat ve kilometre sınırı yok, ödeme araçta."
+      ]
+    ]
+  },
+  "cop31-where-to-stay": {
+    "slug": "cop31-antalya-nerede-kalinir-otel-yol-sureleri",
+    "title": "COP31 Antalya'da Nerede Kalınır: Bölgeler ve Yol Süreleri",
+    "heading": "COP31 için nerede kalınır: alana yol süresine göre Antalya bölgeleri",
+    "description": "Lara, Kundu, şehir merkezi, Belek ya da daha uzak: Antalya'nın her bölgesinden Antalya Expo Center'daki COP31 alanına yol süreleri ve gününüze etkisi.",
+    "excerpt": "COP31 alanı Antalya ile Belek arasında. Kaldığınız bölge ne kadar erken çıkacağınızı, servisin kapınızda durup durmayacağını ve geç biten bir oturumdan sonra nasıl döneceğinizi belirler.",
+    "readingMinutes": 5,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "COP31 otel tavsiyelerinin çoğu otel listeler. Oysa iki haftanızı belirleyen soru başka: yatağınızdan Aksu'daki Antalya Expo Center'a sabah ve akşam, on iki gün boyunca kaç dakika sürüyor? Aşağıda sahili alandan dışarıya doğru okuyoruz."
+      },
+      {
+        "type": "h2",
+        "text": "Alana yol süreleri"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Bölge",
+          "Alana",
+          "Özellik"
+        ],
+        "rows": [
+          [
+            "Kundu",
+            "yaklaşık 15-25 dk",
+            "Sahilde büyük tatil otelleri, alana en yakın otel şeridi"
+          ],
+          [
+            "Lara",
+            "yaklaşık 20-30 dk",
+            "Büyük oteller, alışveriş, şehir ile alan arasında"
+          ],
+          [
+            "Antalya Havalimanı çevresi",
+            "yaklaşık 20-30 dk",
+            "İş otelleri, kolay geliş ve dönüş"
+          ],
+          [
+            "Şehir merkezi ve Kaleiçi",
+            "yaklaşık 30-45 dk",
+            "Restoranlar, tarihi merkez, akşam hayatı, daha yoğun trafik"
+          ],
+          [
+            "Belek",
+            "yaklaşık 25-35 dk",
+            "Golf otelleri, sakin, alanın öbür tarafında"
+          ],
+          [
+            "Side ve Manavgat",
+            "yaklaşık 50-65 dk",
+            "Daha doğudaki tatil bölgeleri, uzun günlük yol"
+          ],
+          [
+            "Kemer",
+            "yaklaşık 70-90 dk",
+            "Şehrin batısında, tüm Antalya'yı geçmek gerekiyor"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Bunlar resmi rakamlar değil, normal trafikte her gün kullandığımız yollardan ölçülmüş şoför tahminlerimiz. Zirve güvenliği, konvoylar ve akşam alandan çıkış, özellikle ilk günlerde süreyi uzatır."
+      },
+      {
+        "type": "h2",
+        "text": "Resmi konaklama ve servis meselesi"
+      },
+      {
+        "type": "p",
+        "text": "COP31 Başkanlığı resmi otelleri kendi konaklama platformu üzerinden ayırıyor ve UNFCCC katılımcı bilgilerine göre konferans servisleri yalnızca bu otellerde duruyor. Heyetiniz villa, apart ya da platform dışı bir otel gibi özel bir rezervasyon yaptıysa, bunu ilk sabahki genel oturumda fark etmek yerine günlük ulaşımı ilk günden kendiniz planlayın."
+      },
+      {
+        "type": "h2",
+        "text": "Lara ve Kundu: alana en yakın"
+      },
+      {
+        "type": "p",
+        "text": "Lara ve Kundu şehir ile Expo alanı arasında; sabah yolu kısa ve şehir trafiğinin tersine akıyor. Oteller büyük, bu da herkesi tek çatı altında toplamak isteyen bir heyetin işini kolaylaştırıyor; havalimanı da alışılmadık saatlerdeki varışlar için yakın."
+      },
+      {
+        "type": "h2",
+        "text": "Şehir merkezi: yol değil, akşam yemekleri için"
+      },
+      {
+        "type": "p",
+        "text": "Merkezde kalmak restoranları, Kaleiçi'ni ve yan etkinlikleri yürüme mesafesine getirir; bedeli alana en uzun şehir içi yoldur. Resmi şehir merkezi servisi işe yarar, ama durakları ve tarifesi gününüzü belirler. Bir heyet başkanı için şehir otelini işler kılan, çağrıya hazır bir araçtır."
+      },
+      {
+        "type": "h2",
+        "text": "Belek, Side ve Kemer: daha uzakta"
+      },
+      {
+        "type": "p",
+        "text": "Belek, alanın öbür tarafındaki sakin seçenek; yol süresi şehir merkezine yakın, ama şehir trafiği yok. Side ve Kemer ise günde iki kez gerçek bir yolculuk demek; sabit saatleri ve kendi aracı olan bir heyete uyar, geç saatte bir müzakere metni için geri çağrılabilecek birine uymaz."
+      },
+      {
+        "type": "cop31",
+        "text": "Servis ağının dışında mı kalıyorsunuz? Otelinizden alana ve geri, tüm gün size ayrılmış şoförlü bir Mercedes: günlük 200 € (Vito, 6 kişiye kadar), 250 € (Sprinter, 16 kişiye kadar). Yakıt dahil.",
+        "button": "COP31 şoförü ayırtın"
+      },
+      {
+        "type": "h2",
+        "text": "İşleyen bir günlük plan"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "İlk sabit toplantınızdan önce yol süresine ek olarak 30 dakika pay bırakın.",
+          "Alış noktasını ve alan kapısını bir önceki akşam netleştirin.",
+          "Heyet başkanına bir araç ayırın, ekibi Sprinter ile taşıyın.",
+          "Rezervasyona uçuş numaralarını ekleyin; varış ve dönüş günleri için ayrı transfer gerekmez."
+        ]
+      }
+    ],
+    "faq": [
+      [
+        "COP31 alanına en yakın bölge hangisi?",
+        "Kundu ve Lara; ikisi de Antalya şehri ile Aksu'daki Antalya Expo Center arasında, normal trafikte yaklaşık 15-30 dakika uzaklıkta."
+      ],
+      [
+        "Belek COP31 için iyi bir konaklama yeri mi?",
+        "Aracınız varsa evet: Belek alana yaklaşık 25-35 dakika uzaklıkta, şehrin karşı tarafında ve sakin tatil otelleriyle."
+      ],
+      [
+        "COP31 servisleri her otelde duruyor mu?",
+        "Hayır. UNFCCC katılımcı bilgilerine göre servis durakları yalnızca resmi COP31 konaklama platformu üzerinden rezerve edilen otellerde planlanıyor."
+      ],
+      [
+        "Antalya şehir merkezinden COP31 alanına yol ne kadar sürer?",
+        "Trafiğe ve merkezde nereden çıktığınıza göre yaklaşık 30-45 dakika; akşam alandan çıkışta daha uzun."
+      ]
+    ]
   }
 };

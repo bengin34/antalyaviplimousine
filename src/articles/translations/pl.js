@@ -3221,5 +3221,309 @@ export const articles = {
         "Nie. Cena jest stała i kompletna. Kilka euro za ciężki bagaż albo nocny przylot jest miłe, ale nigdy nie jest oczekiwane."
       ]
     ]
+  },
+  "cop31-antalya-transport": {
+    "slug": "cop31-antalya-transport-dojazd-transfer",
+    "title": "COP31 Antalya: dojazd, transfer z lotniska i shuttle",
+    "heading": "Jak dojechać na COP31 w Antalyi: lotnisko, shuttle i teren Expo",
+    "description": "Jak dojechać na COP31 do Antalya Expo Center: czas jazdy z lotniska, oficjalne autobusy shuttle, przepustki parkingowe, taksówki i prywatny kierowca na cały dzień.",
+    "excerpt": "COP31 odbywa się w dniach 9–20 listopada 2026 r. w Antalya Expo Center w Aksu. Podpowiadamy, jak delegaci dojadą z lotniska i hotelu na miejsce i gdzie oficjalne shuttle nie wystarczą.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "COP31 odbywa się w dniach 9–20 listopada 2026 r. w Antalya Expo Center w Aksu, na terenie zbudowanym na EXPO 2016, na wschód od miasta i blisko lotniska w Antalyi. Dziesiątki tysięcy delegatów, obserwatorów i dziennikarzy będą kursować między lotniskiem, hotelami rozrzuconymi na 60 km wybrzeża i jednym miejscem obrad. Ten poradnik opisuje codzienny dojazd tak, jak wygląda naprawdę. Napisała go firma przewozowa z Antalyi, której kierowcy jeżdżą tymi drogami każdego dnia."
+      },
+      {
+        "type": "h2",
+        "text": "Gdzie jest miejsce obrad"
+      },
+      {
+        "type": "table",
+        "head": [
+          "",
+          "COP31 Antalya"
+        ],
+        "rows": [
+          [
+            "Miejsce",
+            "Antalya Expo Center, Aksu (teren EXPO 2016)"
+          ],
+          [
+            "Termin",
+            "9–20 listopada 2026 r."
+          ],
+          [
+            "Lotnisko",
+            "Lotnisko Antalya (AYT), ok. 20–30 minut samochodem"
+          ],
+          [
+            "Oficjalne shuttle",
+            "Z oficjalnych hoteli, lotniska i centrum miasta na miejsce obrad"
+          ],
+          [
+            "Parking przy obiektach",
+            "Tylko z przepustką dla pojazdu od Prezydencji COP31"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Teren Expo leży przy głównej drodze nadmorskiej między Antalyą a Belekiem. To dobra wiadomość dla wszystkich, którzy mieszkają w Larze, Kundu lub Beleku, a lotnisko jest jednym z najbliższych punktów, a nie drugim końcem trasy."
+      },
+      {
+        "type": "h2",
+        "text": "Z lotniska w Antalyi na miejsce obrad"
+      },
+      {
+        "type": "p",
+        "text": "Według Prezydencji COP31 lotnisko leży ok. 20–30 minut od miejsca obrad. Na lotnisku działa punkt informacyjny dla uczestników, a dalej masz cztery możliwości:"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Oficjalny shuttle COP31 między lotniskiem a miejscem obrad.",
+          "Taksówka z wyznaczonych postojów przed terminalami.",
+          "Aplikacje przewozowe, tam gdzie działają.",
+          "Prywatny transfer lub kierowca, który czeka w hali przylotów z tabliczką z twoim nazwiskiem i śledzi lot, więc opóźnienie nic nie kosztuje."
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Przed lądowaniem sprawdź, z którego terminalu korzysta twój lot: loty międzynarodowe obsługuje Terminal 1 lub Terminal 2, a połączenia przez Stambuł przylatują na terminal krajowy. Różnicę wyjaśnia nasz poradnik o terminalach."
+      },
+      {
+        "type": "h2",
+        "text": "Oficjalne shuttle: co obejmują, a czego nie"
+      },
+      {
+        "type": "p",
+        "text": "Prezydencja uruchamia shuttle na trzech trasach: z oficjalnych hoteli na miejsce obrad, z lotniska na miejsce obrad i z centrum miasta na miejsce obrad. Informacje UNFCCC dla uczestników zawierają ważny warunek: przystanki planowane są wyłącznie przy hotelach zarezerwowanych przez oficjalną platformę zakwaterowania COP31. Jeśli mieszkasz gdzie indziej, do najbliższego przystanku albo prosto na miejsce obrad dojeżdżasz sam."
+      },
+      {
+        "type": "p",
+        "text": "Rozkłady i mapy tras zostaną opublikowane na cop31.tr/transportation bliżej konferencji. Sprawdź je, zanim zdasz się na shuttle przed porannym posiedzeniem plenarnym albo późną rundą negocjacji: sztywny rozkład i kontrola bezpieczeństwa na obu końcach nie zawsze pasują do dnia na COP."
+      },
+      {
+        "type": "h2",
+        "text": "Samochodem na miejsce obrad: parking i wysiadanie"
+      },
+      {
+        "type": "p",
+        "text": "Parkowanie przy obiektach wymaga przepustki dla pojazdu, o którą wnioskuje się przez oficjalny system Prezydencji na vapp.cop31.tr. Miejsce dla osób z niepełnosprawnością wymaga ważnego orzeczenia o niepełnosprawności. Bez przepustki samochód wysadza cię tam, gdzie pozwala plan bezpieczeństwa, i odjeżdża, więc licz się z krótkim spacerem do wejścia i kontrolą identyfikatora."
+      },
+      {
+        "type": "p",
+        "text": "Właśnie dlatego warto mieć kierowcę na cały dzień: wysadza cię, czeka w pobliżu zamiast krążyć wokół obiektu i wraca, gdy napiszesz, czy to na lunch poza terenem, spotkanie dwustronne w hotelu na drugim końcu miasta, czy ostatni kurs po późnej sesji."
+      },
+      {
+        "type": "cop31",
+        "text": "Prywatny Mercedes z kierowcą do twojej dyspozycji przez cały dzień: 200 € dziennie za Vito (do 6 osób), 250 € za Sprintera (do 16). Paliwo w cenie, bez limitu godzin i kilometrów.",
+        "button": "Zobacz pakiet z kierowcą na COP31"
+      },
+      {
+        "type": "h2",
+        "text": "Taksówki i godziny szczytu"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Taksówek jest dużo i jeżdżą na taksometr; poproś o paragon, jeśli rozliczasz delegację.",
+          "Wąskie gardła to poranny dojazd na miejsce obrad i wieczorny wyjazd. Zostaw zapas przed pierwszym spotkaniem, a w dni wizyt szefów państw jeszcze większy.",
+          "W dniach Szczytu Światowych Przywódców na początku konferencji spodziewaj się zamkniętych dróg i postojów z powodu kolumn rządowych.",
+          "Zapisz numer bramy, której potrzebujesz: kierowcy znają teren Expo, ale bramy zmieniają się wraz z planem bezpieczeństwa."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Która opcja dla kogo"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Jesteś",
+          "Najlepsza opcja"
+        ],
+        "rows": [
+          [
+            "W oficjalnym hotelu, stały program",
+            "Oficjalny shuttle"
+          ],
+          [
+            "Poza oficjalnymi hotelami",
+            "Taksówka lub kierowca na dzień"
+          ],
+          [
+            "Ministrem lub szefem delegacji",
+            "Kierowca na dzień, jeden samochód na wezwanie"
+          ],
+          [
+            "Zespołem lub ekipą prasową ze sprzętem",
+            "Sprinter z kierowcą, do 16 miejsc"
+          ],
+          [
+            "Przylatujesz późno w nocy",
+            "Prywatny odbiór ze śledzeniem lotu"
+          ]
+        ]
+      }
+    ],
+    "faq": [
+      [
+        "Gdzie odbywa się COP31 w Antalyi?",
+        "W Antalya Expo Center w Aksu, na terenie EXPO 2016 na wschód od centrum, przy drodze nadmorskiej w stronę Beleku i blisko lotniska w Antalyi."
+      ],
+      [
+        "Jak daleko jest z lotniska w Antalyi na miejsce COP31?",
+        "Ok. 20–30 minut samochodem według Prezydencji COP31. W godzinach szczytu i w dniach Szczytu Światowych Przywódców zaplanuj więcej czasu."
+      ],
+      [
+        "Czy są bezpłatne shuttle na miejsce COP31?",
+        "Prezydencja uruchamia shuttle z oficjalnych hoteli, lotniska i centrum miasta. Przystanki planowane są tylko przy hotelach zarezerwowanych przez oficjalną platformę zakwaterowania; rozkłady pojawią się na cop31.tr bliżej terminu."
+      ],
+      [
+        "Czy prywatny samochód może wjechać na teren obrad?",
+        "Parkowanie wymaga przepustki dla pojazdu z oficjalnego systemu na vapp.cop31.tr. Bez niej samochód wysadza cię tam, gdzie pozwala ochrona, i czeka w pobliżu."
+      ],
+      [
+        "Ile kosztuje prywatny kierowca na COP31?",
+        "Nasz pakiet COP31 to stała stawka dzienna: 200 € za Mercedesa Vito, 250 € za Sprintera, paliwo w cenie, bez limitu godzin i kilometrów, płatność w samochodzie."
+      ]
+    ]
+  },
+  "cop31-where-to-stay": {
+    "slug": "cop31-antalya-noclegi-hotele-czas-dojazdu",
+    "title": "Noclegi na COP31 w Antalyi: gdzie mieszkać i czas dojazdu",
+    "heading": "Gdzie mieszkać na COP31: dzielnice Antalyi według czasu dojazdu",
+    "description": "Lara, Kundu, centrum miasta, Belek czy dalej: czas dojazdu z każdej okolicy Antalyi na COP31 do Antalya Expo Center i co to oznacza dla twojego dnia.",
+    "excerpt": "Miejsce obrad COP31 leży między Antalyą a Belekiem. Okolica, w której mieszkasz, decyduje, jak wcześnie wyjeżdżasz, czy shuttle zatrzyma się pod hotelem i jak wrócisz po późnej sesji.",
+    "readingMinutes": 5,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Większość porad o hotelach na COP31 to listy hoteli. Pytanie, które rozstrzyga o twoich dwóch tygodniach, jest inne: ile jedziesz z łóżka do Antalya Expo Center w Aksu, rano i wieczorem, przez dwanaście dni? Oto wybrzeże czytane od miejsca obrad na zewnątrz."
+      },
+      {
+        "type": "h2",
+        "text": "Czas dojazdu na miejsce obrad"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Okolica",
+          "Do miejsca obrad",
+          "Charakter"
+        ],
+        "rows": [
+          [
+            "Kundu",
+            "ok. 15–25 min",
+            "Duże hotele resortowe przy plaży, najbliższy pas kurortów"
+          ],
+          [
+            "Lara",
+            "ok. 20–30 min",
+            "Duże hotele, zakupy, między miastem a miejscem obrad"
+          ],
+          [
+            "Okolice lotniska w Antalyi",
+            "ok. 20–30 min",
+            "Hotele biznesowe, wygodny przylot i wylot"
+          ],
+          [
+            "Centrum i Kaleiçi",
+            "ok. 30–45 min",
+            "Restauracje, stare miasto, życie wieczorne, większy ruch"
+          ],
+          [
+            "Belek",
+            "ok. 25–35 min",
+            "Resorty golfowe, spokojnie, po drugiej stronie miejsca obrad"
+          ],
+          [
+            "Side i Manavgat",
+            "ok. 50–65 min",
+            "Kurorty dalej na wschód, długi codzienny dojazd"
+          ],
+          [
+            "Kemer",
+            "ok. 70–90 min",
+            "Na zachód od miasta, trzeba przejechać całą Antalyę"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "To szacunki naszych kierowców przy normalnym ruchu, oparte na drogach, którymi jeździmy codziennie, a nie dane oficjalne. Środki bezpieczeństwa szczytu, kolumny rządowe i wieczorny wyjazd z terenu wydłużają czas, zwłaszcza w pierwszych dniach."
+      },
+      {
+        "type": "h2",
+        "text": "Oficjalne zakwaterowanie a shuttle"
+      },
+      {
+        "type": "p",
+        "text": "Prezydencja COP31 rezerwuje oficjalne hotele przez swoją platformę zakwaterowania, a według informacji UNFCCC dla uczestników shuttle konferencyjne zatrzymują się tylko przy tych hotelach. Jeśli twoja delegacja zarezerwowała nocleg prywatnie, willę, apartament lub hotel spoza platformy, zaplanuj codzienny dojazd od pierwszego dnia, zamiast odkrywać problem przed pierwszym porannym posiedzeniem plenarnym."
+      },
+      {
+        "type": "h2",
+        "text": "Lara i Kundu: najbliżej miejsca obrad"
+      },
+      {
+        "type": "p",
+        "text": "Lara i Kundu leżą między miastem a terenem Expo, więc poranny dojazd jest krótki i biegnie pod prąd miejskiego ruchu. Hotele są duże, co ułatwia sprawę delegacji, która chce mieszkać pod jednym dachem, a lotnisko jest blisko na przyloty o nietypowych porach."
+      },
+      {
+        "type": "h2",
+        "text": "Centrum miasta: kolacje, nie dojazdy"
+      },
+      {
+        "type": "p",
+        "text": "Mieszkając w centrum, masz restauracje, Kaleiçi i wydarzenia towarzyszące w zasięgu spaceru, ale płacisz za to najdłuższym miejskim dojazdem na miejsce obrad. Oficjalny shuttle z centrum pomaga, ale jego przystanki i rozkład dyktują twój dzień. Dla szefa delegacji hotel w mieście sprawdza się dopiero z samochodem na wezwanie."
+      },
+      {
+        "type": "h2",
+        "text": "Belek, Side i Kemer: dalej od centrum"
+      },
+      {
+        "type": "p",
+        "text": "Belek to spokojna opcja po drugiej stronie miejsca obrad, z czasem dojazdu porównywalnym z centrum, ale bez miejskich korków. Side i Kemer to prawdziwe dojazdy dwa razy dziennie; pasują delegacji ze stałymi godzinami i własnym pojazdem, a nie komuś, kogo mogą wezwać z powrotem późnym wieczorem do pracy nad tekstem."
+      },
+      {
+        "type": "cop31",
+        "text": "Mieszkasz poza siecią shuttle? Mercedes z kierowcą do twojej dyspozycji przez cały dzień, z hotelu na miejsce obrad i z powrotem: 200 € dziennie (Vito, do 6 osób), 250 € (Sprinter, do 16). Paliwo w cenie.",
+        "button": "Zarezerwuj kierowcę na COP31"
+      },
+      {
+        "type": "h2",
+        "text": "Plan dnia, który działa"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Zostaw 30 minut zapasu przed pierwszym stałym spotkaniem, ponad sam czas dojazdu.",
+          "Ustal miejsce odbioru i bramę przy terenie obrad poprzedniego wieczoru.",
+          "Zarezerwuj jeden samochód dla szefa delegacji, a zespół wożcie Sprinterem.",
+          "Podaj numery lotów w rezerwacji, wtedy w dniu przylotu i wylotu nie potrzebujesz osobnego transferu."
+        ]
+      }
+    ],
+    "faq": [
+      [
+        "Która okolica jest najbliżej miejsca COP31?",
+        "Kundu i Lara, obie między Antalyą a Antalya Expo Center w Aksu, ok. 15–30 minut jazdy przy normalnym ruchu."
+      ],
+      [
+        "Czy Belek to dobra baza na COP31?",
+        "Tak, jeśli masz samochód: Belek leży ok. 25–35 minut od miejsca obrad, po przeciwnej stronie niż miasto, ze spokojnymi hotelami resortowymi."
+      ],
+      [
+        "Czy shuttle COP31 zatrzymują się przy każdym hotelu?",
+        "Nie. Według informacji UNFCCC dla uczestników przystanki planowane są wyłącznie przy hotelach zarezerwowanych przez oficjalną platformę zakwaterowania COP31."
+      ],
+      [
+        "Ile jedzie się z centrum Antalyi na miejsce COP31?",
+        "Ok. 30–45 minut, zależnie od ruchu i miejsca startu w centrum, dłużej przy wieczornym wyjeździe z terenu obrad."
+      ]
+    ]
   }
 };
