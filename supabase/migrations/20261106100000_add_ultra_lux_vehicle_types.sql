@@ -1,19 +1,22 @@
 -- Ultra Lux Edition vehicles are booked as daily chauffeur hires. Only the
 -- bookings table learns the new types; routes and rate tables stay VIP-only.
--- The original check was declared inline, so drop it by what it constrains
--- rather than by an assumed name.
+-- The live table holds vehicle types the migrations never declared, so its
+-- rule is widened in place: whatever it accepts today, plus the three new
+-- types. With no such rule on the table there is nothing to widen.
 DO $$
-DECLARE existing text;
+DECLARE rule record;
 BEGIN
-  FOR existing IN
-    SELECT conname FROM pg_constraint
+  FOR rule IN
+    SELECT conname, pg_get_expr(conbin, conrelid) AS accepts FROM pg_constraint
     WHERE conrelid = 'public.bookings'::regclass AND contype = 'c'
-      AND pg_get_constraintdef(oid) ILIKE '%vehicle_type%'
-      AND pg_get_constraintdef(oid) NOT ILIKE '%trip_type%'
+      AND pg_get_expr(conbin, conrelid) ILIKE '%vehicle_type%'
+      AND pg_get_expr(conbin, conrelid) NOT ILIKE '%trip_type%'
+      AND pg_get_expr(conbin, conrelid) NOT ILIKE '%maybach%'
   LOOP
-    EXECUTE format('ALTER TABLE public.bookings DROP CONSTRAINT %I', existing);
+    EXECUTE format('ALTER TABLE public.bookings DROP CONSTRAINT %I', rule.conname);
+    -- NOT VALID: rows already stored were accepted under the old rule and are not re-checked.
+    EXECUTE format(
+      'ALTER TABLE public.bookings ADD CONSTRAINT %I CHECK ((%s) OR vehicle_type IN (''lux_lounge'', ''lux_sprinter'', ''maybach'')) NOT VALID',
+      rule.conname, rule.accepts);
   END LOOP;
 END $$;
-
-ALTER TABLE public.bookings ADD CONSTRAINT bookings_vehicle_type_check
-  CHECK (vehicle_type IN ('vclass', 'vito', 'lux_lounge', 'lux_sprinter', 'maybach'));
