@@ -24,12 +24,17 @@ import {
   vitoFits as vitoFitsCapacity,
   MAX_GOLF_BAGS,
   MAX_STROLLERS,
-  DAILY_CHAUFFEUR_RATE_EUR,
+  dailyRateFor,
+  ultraLuxOf,
+  ultraLuxVehicles,
+  vehicleMaxGuests,
   type LivePriceOverrides,
   type PublicBookingValues,
 } from "../lib/booking";
 import { shouldApplyFlightArrival, verifyFlightNumber, type FlightResult } from "../lib/flight-verification";
 import { domain } from "../lib/site";
+import { UltraLuxPicker } from "./UltraLuxPicker";
+import { ultraLuxCopy } from "../lib/ultra-lux-copy";
 import { track } from "../lib/track";
 
 /**
@@ -91,7 +96,7 @@ function whatsappConfirmation(values: PublicBookingValues, bookingRef: string, p
     `↔️ Journey: ${isDailyChauffeur ? "Daily vehicle + chauffeur" : values.tripType === "round_trip" ? "Round trip" : "One way"}`,
     `📅 Date: ${values.travelDate}`,
     `📍 Pickup: ${values.pickup === "private_address" ? values.pickupAddress : values.pickup}`,
-    `🚘 Vehicle: ${values.vehicle === "sprinter" ? "Mercedes Sprinter" : "Mercedes Vito"}`,
+    `🚘 Vehicle: ${ultraLuxOf(values.vehicle)?.name ?? (values.vehicle === "sprinter" ? "Mercedes Sprinter" : "Mercedes Vito")}`,
     `👥 Guests: ${values.guests}`,
   ];
   if (!isDailyChauffeur) lines.splice(7, 0, `🏁 Dropoff: ${values.destination === "private_address" ? values.dropoffAddress : routeName}`);
@@ -203,7 +208,7 @@ export function BookingForm({
   const isDailyChauffeur = values.tripType === "daily_chauffeur";
   const hireDays = isDailyChauffeur ? inclusiveDayCount(values.travelDate, values.serviceEndDate) : 0;
   const quote = quoteFor(values, liveOverrides);
-  const dailyRateEur = liveOverrides.dailyRates?.[values.vehicle] ?? DAILY_CHAUFFEUR_RATE_EUR;
+  const dailyRateEur = dailyRateFor(values.vehicle, liveOverrides);
   const regionLabel = (region: string) => {
     const route = routeCatalog[region as keyof typeof routeCatalog];
     return route ? route.names[language as keyof typeof route.names] ?? route.names.en : region;
@@ -357,6 +362,11 @@ export function BookingForm({
     if (values.vehicle === "vito" && !vitoFits) setValue("vehicle", "sprinter", { shouldValidate: true });
   }, [setValue, values.vehicle, vitoFits]);
 
+  // Ultra Lux vehicles are hired by the day only; a transfer falls back to the Sprinter.
+  useEffect(() => {
+    if (!isDailyChauffeur && ultraLuxOf(values.vehicle)) setValue("vehicle", "sprinter", { shouldValidate: true });
+  }, [setValue, values.vehicle, isDailyChauffeur]);
+
   useEffect(() => {
     if (!isDailyChauffeur || !values.travelDate) return;
     if (!values.serviceEndDate || values.serviceEndDate < values.travelDate) {
@@ -417,7 +427,8 @@ export function BookingForm({
         pendingQuote: t("airportReturnPrice", "The price will be confirmed after we check the pick-up address."),
         fixedTotal: t("cashConfirmation", "Your booking is confirmed. You pay the fixed total to your driver in cash at the start of the journey."),
       };
-      const message = messages[confirmedPriceCopy(formValues, confirmedPrice)];
+      // An Ultra Lux hire is a request until the operator confirms the vehicle is free.
+      const message = ultraLuxOf(formValues.vehicle) ? ultraLuxCopy(language).received : messages[confirmedPriceCopy(formValues, confirmedPrice)];
       setConfirmation({ ref: booking.booking_ref, whatsapp: whatsappConfirmation(formValues, booking.booking_ref, confirmedPrice, language), message });
       if (confirmedPrice > 0) {
         window.gtag?.("event", "purchase", { transaction_id: booking.booking_ref, currency: "EUR", value: confirmedPrice, payment_type: "cash" });
@@ -798,16 +809,17 @@ export function BookingForm({
                 )}
                 <label className={fieldClass(errors.vehicle)}>
                   <span>{t("vehicle", "Vehicle")}</span>
-                  <div className="field-control"><Icon name="car" className="icon" /><select id="vehicle-type" {...register("vehicle")} {...fieldStatus("vehicle", errors.vehicle)}><option value="vito" disabled={!vitoFits}>Mercedes Vito</option><option value="sprinter">Mercedes Sprinter</option></select></div>
+                  <div className="field-control"><Icon name="car" className="icon" /><select id="vehicle-type" {...register("vehicle")} {...fieldStatus("vehicle", errors.vehicle)}><option value="vito" disabled={!vitoFits}>Mercedes Vito</option><option value="sprinter">Mercedes Sprinter</option>{isDailyChauffeur && <optgroup label="Ultra Lux Edition">{ultraLuxVehicles.map((vehicle) => <option value={vehicle} key={vehicle}>{ultraLuxOf(vehicle)?.name}</option>)}</optgroup>}</select></div>
                   <FieldErrorMessage name="vehicle" error={errors.vehicle} />
                 </label>
                 <label className={fieldClass(errors.guests)}>
                   <span>{t("guests", "Guests")}</span>
-                  <div className="field-control"><Icon name="users" className="icon" /><select id="guests" {...register("guests")} {...fieldStatus("guests", errors.guests)}>{Array.from({ length: 12 }, (_, index) => <option value={index + 1} key={index + 1}>{index + 1}</option>)}</select></div>
+                  <div className="field-control"><Icon name="users" className="icon" /><select id="guests" {...register("guests")} {...fieldStatus("guests", errors.guests)}>{Array.from({ length: Math.max(12, vehicleMaxGuests(values.vehicle)) }, (_, index) => <option value={index + 1} key={index + 1}>{index + 1}</option>)}</select></div>
                   <FieldErrorMessage name="guests" error={errors.guests} />
                 </label>
               </div>
-              {!vitoFits && <p id="capacity-note" className="capacity-note">{t("capacitySwitchedSprinter", "We selected the Sprinter for this passenger and luggage count.")}</p>}
+              {isDailyChauffeur && <UltraLuxPicker language={language} selected={values.vehicle} onSelect={(vehicle) => setValue("vehicle", vehicle, { shouldValidate: true })} />}
+              {!vitoFits && !ultraLuxOf(values.vehicle) && <p id="capacity-note" className="capacity-note">{t("capacitySwitchedSprinter", "We selected the Sprinter for this passenger and luggage count.")}</p>}
             </>
           )}
 
@@ -942,7 +954,7 @@ export function BookingForm({
                   ))}
                 </div>
               )}
-              {!vitoFits && <p className="capacity-note">{t("capacitySwitchedSprinter", "We selected the Sprinter for this passenger and luggage count.")}</p>}
+              {!vitoFits && !ultraLuxOf(values.vehicle) && <p className="capacity-note">{t("capacitySwitchedSprinter", "We selected the Sprinter for this passenger and luggage count.")}</p>}
 
               <div className="booking-footer booking-footer-step">
                 <button className="booking-back-btn" type="button" onClick={() => setStep(1)}>
@@ -1055,7 +1067,7 @@ export function BookingForm({
         )}
       </div>
 
-      {pendingDailyBooking && <div className="quote-modal open fuel-terms-modal" id="fuel-terms-modal" role="dialog" aria-modal="true" aria-labelledby="fuel-terms-title"><button className="modal-backdrop" aria-label={t("close", "Close")} onClick={() => setPendingDailyBooking(null)} /><div className="modal-card"><button className="modal-close" type="button" aria-label={t("close", "Close")} onClick={() => setPendingDailyBooking(null)}><Icon name="close" /></button><div className="fuel-terms-content"><span className="fuel-terms-icon" aria-hidden="true">⛽</span><h2 id="fuel-terms-title">{t("fuelTermsTitle", "Important information about fuel")}</h2><p>{t("fuelTermsBody", "The daily €150 service fee includes the vehicle and chauffeur. Fuel is not included. You will pay the actual fuel cost separately according to use.")}</p><label className="fuel-terms-check"><input type="checkbox" autoFocus checked={fuelAcknowledged} onChange={event => setFuelAcknowledged(event.target.checked)} /><span>{t("fuelTermsCheckbox", "I understand that fuel is excluded and will be paid separately based on use.")}</span></label><div className="fuel-terms-actions"><button className="fuel-terms-cancel" type="button" onClick={() => setPendingDailyBooking(null)}>{t("cancel", "Cancel")}</button><button className="button button-gold" type="button" disabled={!fuelAcknowledged || submitting} onClick={confirmDailyBooking}>{submitting ? "…" : t("understandAndConfirm", "I understand and confirm")}</button></div></div></div></div>}
+      {pendingDailyBooking && <div className="quote-modal open fuel-terms-modal" id="fuel-terms-modal" role="dialog" aria-modal="true" aria-labelledby="fuel-terms-title"><button className="modal-backdrop" aria-label={t("close", "Close")} onClick={() => setPendingDailyBooking(null)} /><div className="modal-card"><button className="modal-close" type="button" aria-label={t("close", "Close")} onClick={() => setPendingDailyBooking(null)}><Icon name="close" /></button><div className="fuel-terms-content"><span className="fuel-terms-icon" aria-hidden="true">⛽</span><h2 id="fuel-terms-title">{t("fuelTermsTitle", "Important information about fuel")}</h2><p>{t("fuelTermsBody", "The daily €150 service fee includes the vehicle and chauffeur. Fuel is not included. You will pay the actual fuel cost separately according to use.").replace("150", String(dailyRateEur))}</p><label className="fuel-terms-check"><input type="checkbox" autoFocus checked={fuelAcknowledged} onChange={event => setFuelAcknowledged(event.target.checked)} /><span>{t("fuelTermsCheckbox", "I understand that fuel is excluded and will be paid separately based on use.")}</span></label><div className="fuel-terms-actions"><button className="fuel-terms-cancel" type="button" onClick={() => setPendingDailyBooking(null)}>{t("cancel", "Cancel")}</button><button className="button button-gold" type="button" disabled={!fuelAcknowledged || submitting} onClick={confirmDailyBooking}>{submitting ? "…" : t("understandAndConfirm", "I understand and confirm")}</button></div></div></div></div>}
       {confirmation && <div className="quote-modal open" id="quote-modal" role="dialog" aria-modal="true" aria-labelledby="quote-modal-title"><button className="modal-backdrop" aria-label="Close" onClick={() => setConfirmation(null)} /><div className="modal-card"><button className="modal-close" type="button" aria-label="Close" onClick={() => setConfirmation(null)}><Icon name="close" /></button><div className="booking-confirmed"><div className="confirmed-check confirmed-pending" aria-hidden="true"><Icon name="clock" /></div><h2 id="quote-modal-title">{t("requestReceived", "Request Received")}</h2><p className="confirmed-ref"><span>{t("referenceLabel", "Reference")}</span>&nbsp;<strong id="confirmed-ref">{confirmation.ref}</strong></p><p className="confirmed-msg">{t("approvalPending", "We received your request and will review your details. You'll receive an approval message via WhatsApp shortly.")}</p><a className="button button-gold" href={confirmation.whatsapp} target="_blank" rel="noreferrer" id="confirmed-whatsapp"><span>{t("whatsappUs", "WhatsApp us")}</span><Icon name="arrow-up-right" className="icon" /></a><p className="confirmed-faq">{t("faqReminder", "Before your trip, please review the FAQ section on our website.")}&nbsp;<a href={faqUrlForLanguage(language)} target="_blank" rel="noreferrer">{t("viewFaq", "View FAQ")}</a></p></div></div></div>}
     </section>
   );

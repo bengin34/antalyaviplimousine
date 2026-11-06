@@ -9,13 +9,16 @@ import { consumeBookingPrefill } from '../lib/prefill'
 import { supabase } from '../lib/supabase'
 import { isHotelToHotelJourney, languageFromPhone } from '../../turkish-formatters.js'
 import type { Navigate } from '../types'
+import { ULTRA_LUX, ULTRA_LUX_NAMES } from '../../../supabase/functions/_shared/ultra-lux.js'
 
 export const LOCATION_OPTIONS = [
   ['airport', 'Antalya Havalimanı'], ['hotel', 'Otel'], ['private_address', 'Özel adres'],
   ...publicRouteSlugs.map(slug => [slug, (turkishLocationNames as Record<string, string>)[slug]]),
 ] as const
 
-export const VEHICLE_CAPACITY: Record<string, number> = { vclass: 13, vito: 7 }
+export const VEHICLE_CAPACITY: Record<string, number> = { vclass: 13, vito: 7, ...Object.fromEntries(Object.entries(ULTRA_LUX).map(([type, vehicle]) => [type, vehicle.maxGuests])) }
+/** Short vehicle name for booking lists and cards. */
+export const vehicleShortLabel = (type: string) => ULTRA_LUX_NAMES[type] ?? (type === 'vclass' ? 'V-Class' : 'Vito')
 
 // Customer-facing message languages supported by whatsapp-templates.js.
 // Empty value = auto-detect from phone country code.

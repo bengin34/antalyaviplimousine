@@ -1,3 +1,4 @@
+import { vehicleShortLabel } from './NewBookingPage'
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { AdminTabs, Topbar } from '../components/AdminChrome'
 import { fmtPrice, fmtShortDateWithWeekday, fmtSyncTime, fmtTime, statusLabel, todayISO, transferStartTime } from '../lib/format'
@@ -52,7 +53,7 @@ function InboxCard({ booking, now, busy, onSend, onDismiss, navigate }: {
     <div className="inbox-trip">
       <div><span className="inbox-label">Transfer</span>{fmtShortDateWithWeekday(booking.pickup_date)} · {fmtTime(time) || 'saat yok'}{roundTrip && booking.return_date ? ` → dönüş ${fmtShortDateWithWeekday(booking.return_date)} ${fmtTime(booking.return_pickup_time)}` : ''}{isDaily && booking.service_end_date ? ` → ${fmtShortDateWithWeekday(booking.service_end_date)}` : ''}</div>
       <div><span className="inbox-label">Güzergâh</span>{pickup} → {dropoff}</div>
-      <div><span className="inbox-label">Detay</span>{booking.guests} kişi · {booking.vehicle_type === 'vclass' ? 'V-Class' : 'Vito'} · €{fmtPrice(booking.price_eur)} · {booking.payment_method === 'cash' ? 'Nakit' : 'Kart'}{booking.flight_number ? ` · ✈ ${booking.flight_number}` : ''}</div>
+      <div><span className="inbox-label">Detay</span>{booking.guests} kişi · {vehicleShortLabel(booking.vehicle_type)} · €{fmtPrice(booking.price_eur)} · {booking.payment_method === 'cash' ? 'Nakit' : 'Kart'}{booking.flight_number ? ` · ✈ ${booking.flight_number}` : ''}</div>
       {hotel && hotel.toLocaleLowerCase('tr-TR') !== 'belirtilmedi' && <div><span className="inbox-label">{dropoffHotel ? 'Alış oteli' : 'Otel'}</span>{hotel}</div>}
       {dropoffHotel && <div><span className="inbox-label">Varış oteli</span>{dropoffHotel}</div>}
       {booking.notes && <div className="inbox-note">📌 {booking.notes}</div>}
