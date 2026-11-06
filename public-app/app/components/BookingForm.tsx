@@ -96,7 +96,7 @@ function whatsappConfirmation(values: PublicBookingValues, bookingRef: string, p
     `↔️ Journey: ${isDailyChauffeur ? "Daily vehicle + chauffeur" : values.tripType === "round_trip" ? "Round trip" : "One way"}`,
     `📅 Date: ${values.travelDate}`,
     `📍 Pickup: ${values.pickup === "private_address" ? values.pickupAddress : values.pickup}`,
-    `🚘 Vehicle: ${ultraLuxOf(values.vehicle)?.name ?? (values.vehicle === "sprinter" ? "Mercedes Sprinter" : "Mercedes Vito")}`,
+    `🚘 Vehicle: ${ultraLuxOf(values.vehicle)?.name ?? (values.vehicle === "sprinter" ? "Mercedes VIP Sprinter" : "Mercedes VIP Vito")}`,
     `👥 Guests: ${values.guests}`,
   ];
   if (!isDailyChauffeur) lines.splice(7, 0, `🏁 Dropoff: ${values.destination === "private_address" ? values.dropoffAddress : routeName}`);
@@ -711,7 +711,7 @@ export function BookingForm({
             {isDailyChauffeur
               ? <><span className="price-display-route">{t("dailyChauffeur", "Daily vehicle + chauffeur")} · {hireDays || 0} {t("days", "days")}</span><span className="price-display-prices"><strong className="price-display-amount">€{quote.price}</strong></span><span className="price-display-note">€{dailyRateEur} × {hireDays || 0} · {t("fuelExcludedShort", "fuel excluded")}</span></>
               : selectedRoute && quote.price > 0
-                ? <><span className="price-display-route">{pickupLabel} {values.tripType === "round_trip" ? "⇄" : "→"} {destinationName}</span><span className="price-display-prices"><strong className="price-display-amount">€{quote.price}</strong></span><span className="price-display-note">{values.vehicle === "sprinter" ? "Mercedes Sprinter" : "Mercedes Vito"} · {values.tripType === "round_trip" ? `${t("roundTripPriceNote", "round trip · 2 journeys")} · ` : ""}{t("perVehicle", "fixed · per vehicle")}</span></>
+                ? <><span className="price-display-route">{pickupLabel} {values.tripType === "round_trip" ? "⇄" : "→"} {destinationName}</span><span className="price-display-prices"><strong className="price-display-amount">€{quote.price}</strong></span><span className="price-display-note">{values.vehicle === "sprinter" ? "Mercedes VIP Sprinter" : "Mercedes VIP Vito"} · {values.tripType === "round_trip" ? `${t("roundTripPriceNote", "round trip · 2 journeys")} · ` : ""}{t("perVehicle", "fixed · per vehicle")}</span></>
                 : values.destination
                   ? <><span className="price-display-route">{pickupName} {values.tripType === "round_trip" ? "⇄" : "→"} {destinationName}</span><span className="price-display-note">{values.destination === "airport" ? t("airportReturnPrice", "Price confirmed after address review.") : t("customDestinationPrice", "Price confirmed after address review.")}</span></>
                   : null}
@@ -809,7 +809,7 @@ export function BookingForm({
                 )}
                 <label className={fieldClass(errors.vehicle)}>
                   <span>{t("vehicle", "Vehicle")}</span>
-                  <div className="field-control"><Icon name="car" className="icon" /><select id="vehicle-type" {...register("vehicle")} {...fieldStatus("vehicle", errors.vehicle)}><option value="vito" disabled={!vitoFits}>Mercedes Vito</option><option value="sprinter">Mercedes Sprinter</option>{isDailyChauffeur && <optgroup label="Ultra Lux Edition">{ultraLuxVehicles.map((vehicle) => <option value={vehicle} key={vehicle}>{ultraLuxOf(vehicle)?.name}</option>)}</optgroup>}</select></div>
+                  <div className="field-control"><Icon name="car" className="icon" /><select id="vehicle-type" {...register("vehicle")} {...fieldStatus("vehicle", errors.vehicle)}><option value="vito" disabled={!vitoFits}>Mercedes VIP Vito</option><option value="sprinter">Mercedes VIP Sprinter</option>{isDailyChauffeur && <optgroup label="Ultra Lux Edition">{ultraLuxVehicles.map((vehicle) => <option value={vehicle} key={vehicle}>{ultraLuxOf(vehicle)?.name}</option>)}</optgroup>}</select></div>
                   <FieldErrorMessage name="vehicle" error={errors.vehicle} />
                 </label>
                 <label className={fieldClass(errors.guests)}>
@@ -818,7 +818,7 @@ export function BookingForm({
                   <FieldErrorMessage name="guests" error={errors.guests} />
                 </label>
               </div>
-              {isDailyChauffeur && <UltraLuxPicker language={language} selected={values.vehicle} onSelect={(vehicle) => setValue("vehicle", vehicle, { shouldValidate: true })} />}
+              {isDailyChauffeur && ultraLuxOf(values.vehicle) && <UltraLuxPicker language={language} selected={values.vehicle} onSelect={(vehicle) => setValue("vehicle", vehicle, { shouldValidate: true })} />}
               {!vitoFits && !ultraLuxOf(values.vehicle) && <p id="capacity-note" className="capacity-note">{t("capacitySwitchedSprinter", "We selected the Sprinter for this passenger and luggage count.")}</p>}
             </>
           )}
