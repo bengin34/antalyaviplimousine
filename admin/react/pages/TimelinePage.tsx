@@ -1,3 +1,4 @@
+import { vehicleShortLabel } from './NewBookingPage'
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { AdminTabs, Topbar } from '../components/AdminChrome'
 import { MonthCalendar } from '../components/MonthCalendar'
@@ -191,7 +192,7 @@ function BookingCard({ card, now, isPast, isCancelled, isNew, navigate, confirmP
       <div className="card-info-item full"><span className="card-info-label">Müşteri</span><div className="card-info-value customer-value"><strong>{card.customer_name}</strong><a href={`tel:${card.customer_phone}`} onClick={event => event.stopPropagation()}>{card.customer_phone}</a></div></div>
       {card.flight_number && <div className="card-info-item"><span className="card-info-label">Uçuş</span><div className="card-info-value">✈ {card.flight_number}{flightTimeText}</div></div>}
       {hasUsefulHotel(card.hotel_name) && <div className={`card-info-item${card.flight_number ? '' : ' full'}`}><span className="card-info-label">Otel / Konaklama</span><div className="card-info-value">{card.hotel_name}</div></div>}
-      <div className="card-info-item"><span className="card-info-label">Yolcu & Araç</span><div className="card-info-value">{card.guests} kişi · {card.vehicle_type === 'vclass' ? 'V-Class' : 'Vito'}</div></div>
+      <div className="card-info-item"><span className="card-info-label">Yolcu & Araç</span><div className="card-info-value">{card.guests} kişi · {vehicleShortLabel(card.vehicle_type)}</div></div>
       <div className="card-info-item"><span className="card-info-label">Bagaj & Koltuk</span><div className="card-info-value">{Number(card.luggage_count) || 0} bagaj{Number(card.golf_bag_count) ? ` · ${card.golf_bag_count} golf` : ''}{Number(card.stroller_count) ? ` · ${card.stroller_count} bebek arabası` : ''} · {Number(card.child_seat_count) ? `${card.child_seat_count} koltuk` : 'Koltuk yok'}</div></div>
       {isDailyChauffeur && <div className="card-info-item full"><span className="card-info-label">Şoför & Plaka</span><div className="card-info-value">{card.driver_name || 'Şoför atanmadı'} · {card.vehicle_plate || 'Plaka yok'}</div></div>}
       <PaymentInfo card={card} />
