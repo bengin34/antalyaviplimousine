@@ -487,8 +487,10 @@ html[dir="rtl"] a[href^="tel:"] {
 
 .hero {
   position: relative;
-  min-height: 850px;
-  height: 100svh;
+  /* Grows past the viewport when the copy is taller (long languages on a
+     phone); a fixed height pushed the copy up under the fixed header. */
+  display: flex;
+  min-height: max(850px, 100svh);
   overflow: hidden;
   background: var(--black);
   color: var(--white);
@@ -534,8 +536,9 @@ html[dir="rtl"] a[href^="tel:"] {
   position: relative;
   z-index: 2;
   display: flex;
+  flex: 1;
+  width: 100%;
   max-width: 1500px;
-  height: 100%;
   align-items: flex-end;
   justify-content: space-between;
   margin: 0 auto;
@@ -3715,7 +3718,7 @@ footer {
   }
 
   .hero {
-    min-height: 780px;
+    min-height: max(780px, 100svh);
   }
 
   .hero-media {
@@ -3923,8 +3926,7 @@ footer {
   }
 
   .hero {
-    min-height: 720px;
-    height: 92svh;
+    min-height: max(720px, 92svh);
   }
 
   .hero-media {
