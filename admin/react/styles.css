@@ -18,6 +18,13 @@ button,
   color: #6d5116;
 }
 
+.daily-range {
+  margin-top: 7px;
+  color: var(--text-muted);
+  font-size: 12px;
+  font-weight: 600;
+}
+
 .daily-fuel-info .card-info-value {
   color: #735718;
 }

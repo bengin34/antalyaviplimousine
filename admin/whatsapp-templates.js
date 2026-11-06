@@ -13,6 +13,18 @@ function fmtTime(t) {
   return t ? String(t).slice(0, 5) : "—";
 }
 
+function inclusiveDayCount(startDate, endDate) {
+  const start = Date.parse(`${startDate || ""}T00:00:00Z`);
+  const end = Date.parse(`${endDate || ""}T00:00:00Z`);
+  return Number.isFinite(start) && Number.isFinite(end) && end >= start
+    ? Math.floor((end - start) / 86_400_000) + 1
+    : null;
+}
+
+function hireDaysLabel(language) {
+  return ({ tr: "gün", de: "Tage", ru: "дн.", ar: "أيام" })[language] ?? "days";
+}
+
 function fmtPrice(value) {
   const price = Number(value);
   if (!Number.isFinite(price)) return "0";
@@ -584,7 +596,7 @@ function transferDetails(booking, requestedLeg = "outbound") {
   };
 }
 
-function detailLines(booking, transfer, t) {
+function detailLines(booking, transfer, t, language) {
   const b = booking ?? {};
   if (b.trip_type === "land_of_legends") {
     const english = LANG.en;
@@ -612,9 +624,10 @@ function detailLines(booking, transfer, t) {
   if (transfer.isDailyChauffeur) {
     const english = LANG.en;
     const text = (key) => t[key] ?? english[key];
+    const days = inclusiveDayCount(b.pickup_date, b.service_end_date);
     const lines = [
       `*${text("labelDailyHire")}*`,
-      `${text("labelPeriod")}: ${b.pickup_date || "—"} – ${b.service_end_date || "—"}`,
+      `${text("labelPeriod")}: ${b.pickup_date || "—"} – ${b.service_end_date || "—"}${days ? ` · ${days} ${hireDaysLabel(language)}` : ""}`,
       `${t.labelPickupTime}: ${fmtTime(b.pickup_time)}`,
       `${t.labelPickup}: ${transfer.pickup}`,
       `${t.labelVehicle}: ${vehicleLabel(b.vehicle_type)}`,
@@ -709,8 +722,8 @@ export function buildConfirmMessage(booking, { leg = "outbound", language } = {}
     `${t.labelRef}: ${b.booking_ref}`,
     ...transfers.flatMap((transfer, index) =>
       index === 0
-        ? detailLines(b, transfer, t)
-        : ["", ...detailLines(b, transfer, t)],
+        ? detailLines(b, transfer, t, lang)
+        : ["", ...detailLines(b, transfer, t, lang)],
     ),
     "",
     t.confirmClosing,
@@ -742,7 +755,7 @@ export function buildReminderMessage(booking, { leg = "outbound", language } = {
     t.reminderGreeting(b.customer_name),
     "",
     `${t.labelRef}: ${b.booking_ref}`,
-    ...detailLines(b, transfer, t),
+    ...detailLines(b, transfer, t, lang),
   ];
 
   if (b.driver_name) {
@@ -769,10 +782,17 @@ export function buildReceivedMessage(booking, { language } = {}) {
   const b = booking ?? {};
   const lang = language ?? b.language;
   const t = getLang(lang);
+  const hireDays = b.trip_type === "daily_chauffeur"
+    ? inclusiveDayCount(b.pickup_date, b.service_end_date)
+    : null;
+  const hirePeriod = hireDays
+    ? `${t.labelPeriod ?? LANG.en.labelPeriod}: ${b.pickup_date || "—"} – ${b.service_end_date || "—"} · ${hireDays} ${hireDaysLabel(lang)}`
+    : null;
 
   const lines = [
     t.receivedGreeting(b.customer_name),
     "",
+    ...(hirePeriod ? [hirePeriod, ""] : []),
     t.receivedClosing,
     // Nothing is confirmed yet, so point at the FAQ as a whole rather than at
     // one leg's answer.

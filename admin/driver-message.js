@@ -185,6 +185,10 @@ export function buildDriverTransferMessage(booking) {
 
   const header = `🚗 YENİ TRANSFER BİLDİRİMİ\n📋 Ref: ${b.booking_ref || '—'}`
 
+  if (b.trip_type === 'daily_chauffeur') {
+    return [header, '', ...dailyChauffeurLines(b, booking)].join('\n')
+  }
+
   // Land of Legends: tek araç; şoför otelden alır, parkta bekler, otele döner.
   if (b.trip_type === 'land_of_legends') {
     return [
@@ -223,6 +227,33 @@ export function buildDriverTransferMessage(booking) {
   return [header, '', transferBlock(b, 'outbound')].join('\n')
 }
 
+function dailyChauffeurLines(booking, card = booking) {
+  const start = Date.parse(`${booking.pickup_date}T00:00:00Z`)
+  const end = Date.parse(`${booking.service_end_date}T00:00:00Z`)
+  const dayCount = Number.isFinite(start) && Number.isFinite(end) && end >= start
+    ? Math.floor((end - start) / 86_400_000) + 1
+    : 1
+  const serviceDate = card?._displayDate || booking.pickup_date
+  const dayNumber = card?._hireDayNumber
+  const lines = [
+    '*GÜNLÜK ARAÇ + ŞOFÖR KİRALAMA*',
+    `📅 Kiralama dönemi: ${fmtDate(booking.pickup_date)} – ${fmtDate(booking.service_end_date)} · ${dayCount} gün`,
+    `🗓️ Hizmet günü: ${fmtDate(serviceDate)}${dayNumber ? ` · ${dayNumber}/${dayCount}` : ''}`,
+    `🕐 Başlangıç saati: ${fmtTime(card?._displayTime || booking.pickup_time)}`,
+    `📍 Alış: ${pickupDisplay(booking)}`,
+    `🚘 Araç: ${vehicleLabel(booking.vehicle_type)} · ${booking.guests ?? '—'} kişi`,
+    `👤 Misafir: ${booking.customer_name || '—'}`,
+    `📞 Telefon: ${internationalPhone(booking.customer_phone) || '—'}`,
+    '⛽ Yakıt: müşteri kullanımına göre ayrıca öder',
+  ]
+  if (card?.driver_name || card?.vehicle_plate) {
+    lines.push(`🧑‍✈️ Atanan: ${card.driver_name || 'Şoför atanmadı'} · ${card.vehicle_plate || 'Plaka yok'}`)
+  }
+  if (Number(booking.luggage_count) > 0) lines.push(`🧳 Bagaj: ${booking.luggage_count} adet`)
+  if (booking.notes && String(booking.notes).trim()) lines.push(`📝 Not: ${String(booking.notes).trim()}`)
+  return lines
+}
+
 /**
  * Full daily program for driver.
  * cards: timeline cards (see `expandRoundTrips`) active on the given date,
@@ -252,11 +283,15 @@ export function buildDriverDailyProgram(cards, date) {
 
     lines.push('')
     lines.push('━━━━━━━━━━━━━━')
-    lines.push(`${num}  ${fmtTime(legStartTime(card))} · ${locationLabel(route.pickup)} → ${locationLabel(route.dropoff)}`)
+    lines.push(card.trip_type === 'daily_chauffeur'
+      ? `${num}  ${fmtTime(legStartTime(card))} · Günlük kiralama · ${pickupDisplay(booking)}`
+      : `${num}  ${fmtTime(legStartTime(card))} · ${locationLabel(route.pickup)} → ${locationLabel(route.dropoff)}`)
     if (isReturn && booking.trip_type === 'land_of_legends') lines.push(LAND_OF_LEGENDS_RETURN_LABEL)
     else if (isReturnJourney(card)) lines.push(RETURN_JOURNEY_LABEL)
     lines.push('━━━━━━━━━━━━━━')
-    lines.push(transferBlock(legBooking, isReturn ? 'return' : 'outbound'))
+    lines.push(...(card.trip_type === 'daily_chauffeur'
+      ? dailyChauffeurLines(booking, card)
+      : [transferBlock(legBooking, isReturn ? 'return' : 'outbound')]))
   })
 
   return lines.join('\n')
