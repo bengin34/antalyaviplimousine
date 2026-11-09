@@ -6,6 +6,7 @@ import { useCarousel } from "../lib/carousel";
 import { faqAnchor, homeFaqGroups, resolveFaqAnchor } from "../lib/faq";
 import { track } from "../lib/track";
 import { blogPath, blogText, isArticleLanguage } from "../lib/blog-paths";
+import { cop31DialogCopy, cop31LanguageFor, cop31Path } from "../lib/cop31-dialog-copy";
 import { BookingForm } from "./BookingForm";
 import { Header } from "./Header";
 import { Icon } from "./Icon";
@@ -514,6 +515,12 @@ export function HomePage({ initialLanguage }: { initialLanguage: string }) {
                 <strong>{t("campaignDiscount", "25% off")}</strong>
                 <span>{t("campaignScope", "all transfer prices")}</span>
               </div>
+              {/* Stays reachable after the opening dialog is dismissed. */}
+              <a className="cop31-hero-link reveal" href={cop31Path(cop31LanguageFor(language))}>
+                <strong>COP31</strong>
+                <span>9–20.11 · {cop31DialogCopy[cop31LanguageFor(language)].dialogCta}</span>
+                <Icon name="arrow-right" className="icon" />
+              </a>
               <h1 className="reveal">
                 <LineBreakText
                   value={t(
