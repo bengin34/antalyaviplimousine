@@ -125,17 +125,17 @@ describe("airport-bound journeys", () => {
 describe("per-hotel band pricing", () => {
   test("airport→hotel arrival is priced on the hotel's band, not the flat region", () => {
     const arriving = { ...base, destination: "antalya", hotelName: "Caner Mountain Hotel", vehicle: "vito" as const };
-    expect(quoteFor(arriving).price).toBe(65);
+    expect(quoteFor(arriving).price).toBe(75);
   });
 
   test("hotel→airport is priced on the same band (both directions)", () => {
     const leaving = { ...base, destination: "airport", hotelRegion: "antalya", hotelName: "Caner Mountain Hotel", vehicle: "vito" as const };
-    expect(quoteFor(leaving).price).toBe(65);
+    expect(quoteFor(leaving).price).toBe(75);
   });
 
   test("round trip doubles the floored unit price, not the region price", () => {
     const roundTrip = { ...base, destination: "antalya", hotelName: "Caner Mountain Hotel", vehicle: "vito" as const, tripType: "round_trip" as const };
-    expect(quoteFor(roundTrip).price).toBe(130);
+    expect(quoteFor(roundTrip).price).toBe(150);
   });
 
   test("an unmatched hotel keeps the flat region price", () => {
