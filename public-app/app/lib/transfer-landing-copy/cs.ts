@@ -91,5 +91,33 @@ export const cs: TransferLandingCopy = {
       about: "Tekirova leží jižně od Kemeru na okraji národního parku Olympos-Beydağları. Spojuje udržované hotelové areály s malými zátokami a je velmi blízko antické lokalitě Phaselis.",
       routeDetails: "Trasa vede z letiště Antalya přes Kemer dál do Tekirovy. Poloha u pobřeží a vzdálenost dělají z přímého transferu rozumnou volbu: bez přestupu a bez čekání na další hosty až k hotelu.",
     },
+    bogazkent: {
+      about: "Boğazkent leží v okrese Serik na pobřeží mezi Belekem a Side. Velké all inclusive resorty stojí přímo u široké písečné pláže a golfová hřiště v Beleku jsou jen pár minut daleko, takže je oblast klidným zázemím pro rodiny i golfisty.",
+      routeDetails: "Z letiště Antalya vede trasa po silnici D400 na východ kolem Beleku a poté odbočuje k pobřeží. S 48 km je to jeden z kratších transferů v tomto seznamu a privátní vůz vás doveze z příletové haly až k vjezdu do resortu bez zastávek u jiných hotelů.",
+    },
+    manavgat: {
+      about: "Manavgat je rušné město na stejnojmenné řece východně od Side. Je známé vodopádem, projížďkami lodí po řece a týdenním trhem a slouží jako brána k resortům na tomto úseku pobřeží. Při rezervaci nám prosím sdělte přesnou adresu hotelu, protože oblast je rozlehlá.",
+      routeDetails: "Trasa vede z letiště Antalya po silnici D400 na východ a měří asi 75 km. Jízda trvá zhruba hodinu a přímý privátní transfer vám ušetří zastávky u dalších hotelů, které sdílený shuttle na této rušné pobřežní silnici dělá.",
+    },
+    bodrum: {
+      about: "Bodrum leží na egejském pobřeží v provincii Muğla a je proslulé hradem křižáků, marínou a bílými domy na svazích kopců. Na poloostrově najdete rušné čtvrti jako Gümbet a Bitez i klidnější zátoky Yalıkavak, Türkbükü a Gümüşlük.",
+      routeDetails: "Zhruba 380 km je jedna z nejdelších tras, které nabízíme; s pohodlnými přestávkami trvá pět až šest hodin. Privátní vůz je mnohem pohodlnější než veřejná doprava: vyrazíte hned po přistání, zastavíte, kde chcete, a dojedete k vlastnímu hotelu na poloostrově. Při rezervaci nám sdělte hotel a čas přistání, abychom cestu mohli naplánovat.",
+    },
+    dalaman: {
+      about: "Dalaman je brána na lykijské a karijské pobřeží. Letiště obsluhuje resorty jako Sarıgerme a Göcek a nedaleký Dalyan je známý říční deltou, skalními hrobkami v Kaunosu a želví pláží İztuzu.",
+      routeDetails: "Z letiště Antalya vede 235 km klikatou lykijskou pobřežní silnicí a jízda trvá zhruba tři až tři a půl hodiny. Pevná cena za vozidlo usnadňuje plánování rozpočtu na dlouhou cestu a privátní vůz vaší skupině dovolí zastavit na odpočinek nebo jídlo, kdykoli budete chtít.",
+    },
+    fethiye: {
+      about: "Fethiye leží na široké zátoce obklopené borovicemi porostlými horami. Je výchozím bodem pro Ölüdeniz s modrou lagunou, pro pláže a noční život v Çalış i pro klidnější vesnice Hisarönü a Kayaköy. Mnoho hostů sem jezdí také za paraglidingem z hory Babadağ a za lodními výlety kolem dvanácti ostrovů.",
+      routeDetails: "205 km z letiště Antalya vede podél lykijského pobřeží přes Kumluci, Kaş a Kalkan a trvá asi dvě a půl až tři hodiny. Silnice je klikatá a malebná. S privátním transferem ve Fethiye nepřestupujete a řidič vás doveze k hotelu v Ölüdenizu, v oblasti Çalış nebo v Hisarönü.",
+    },
+    pamukkale: {
+      about: "Pamukkale v provincii Denizli je zapsáno na seznamu světového dědictví UNESCO a proslulé bílými travertinovými terasami a teplými termálními jezírky. Na kopci nad nimi stojí antické město Hierapolis s divadlem, nekropolí a antickým bazénem, kde se dá plavat mezi potopenými sloupy.",
+      routeDetails: "Trasa opouští pobřeží a vede asi 245 km do vnitrozemí přes pohoří Taurus a náhorní plošinu směrem k Denizli, což zabere zhruba tři až tři a půl hodiny. Privátní vůz se na tuto cestu hodí: nepřestupujete, můžete si naplánovat přestávku a dojedete přímo k hotelu v Pamukkale nebo v Karahayıtu.",
+    },
+    kapadokya: {
+      about: "Kappadokie ve středním Anatolii je známá pohádkovými komíny, skalními kostely a podzemními městy. Za východu slunce stoupají horkovzdušné balony nad Göreme, Uçhisarem a Ürgüpem a mnoho hostů bydlí v hotelu vytesaném do skály.",
+      routeDetails: "Zhruba 540 km vede od Středozemního moře přes pohoří Taurus a anatolskou náhorní plošinu a s přestávkami trvá sedm až osm hodin. Privátní transfer je nejpohodlnější způsob: vaše skupina cestuje pohromadě, řidič s vámi plánuje zastávky a doveze vás před vchod do jeskynního hotelu. Při rezervaci nám sdělte číslo letu a hotel, abychom den mohli naplánovat.",
+    },
   },
 };

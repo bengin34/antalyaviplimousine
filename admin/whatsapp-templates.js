@@ -1,5 +1,6 @@
 import { bookingHotelEnds, locationLabel, navigationURLs } from "./turkish-formatters.js";
 import { landOfLegendsMeetingPoint } from "../src/land-of-legends.js";
+import { ULTRA_LUX_NAMES } from "../supabase/functions/_shared/ultra-lux.js";
 
 // Shared transfer start-time rule used by the React timeline and detail views.
 function transferStartTime(pickupLocation, pickupTime, flightArrivalTime) {
@@ -23,6 +24,7 @@ function fmtPrice(value) {
 const VEHICLE_LABELS = {
   vclass: "Mercedes V-Class",
   vito: "Mercedes Vito",
+  ...ULTRA_LUX_NAMES,
 };
 
 function vehicleLabel(type) {

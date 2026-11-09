@@ -96,5 +96,40 @@ export const hu: TransferLandingCopy = {
       about: "Tekirova Kemertől délre, az Olympos-Beydağları nemzeti park szélén fekszik. Gondozott hotelterületeket köt össze kis öblökkel, és egészen közel van az ókori Phaselis romjaihoz.",
       routeDetails: "Az út a repülőtérről Kemeren át vezet tovább Tekirova felé. A tengerparti elhelyezkedés és a távolság miatt a közvetlen transzfer az értelmes választás: átszállás nélkül és más vendégekre való várakozás nélkül a szállodáig.",
     },
+    bogazkent: {
+      name: { nominative: "Boğazkent", direction: "Boğazkentbe", location: "Boğazkentben", origin: "Boğazkentből" },
+      about: "Boğazkent Serik járásban, Belek és Side között fekszik a tengerparton. Nagy all inclusive üdülők állnak közvetlenül egy széles homokos stranton, a beleki golfpályák pedig mindössze néhány percre vannak, így a környék nyugodt bázis családoknak és golfozóknak egyaránt.",
+      routeDetails: "A repülőtérről az út a D400-as úton halad kelet felé Belek mellett, majd a part felé fordul. Mintegy 48 km-rel ez a lista egyik rövidebb transzfere, a privát autó pedig az érkezési csarnoktól az üdülő bejáratáig visz, más szállodáknál tett megállók nélkül.",
+    },
+    manavgat: {
+      name: { nominative: "Manavgat", direction: "Manavgatba", location: "Manavgatban", origin: "Manavgatból" },
+      about: "Manavgat élénk város az azonos nevű folyó mellett, Sidétől keletre. Híres a vízeséséről, a folyami hajókirándulásokról és a heti piacáról, és kapuként szolgál a part e szakaszának üdülői felé. Foglaláskor kérjük, adja meg a szálloda pontos címét, mert a terület kiterjedt.",
+      routeDetails: "Az út a repülőtértől a D400-as úton halad kelet felé, körülbelül 75 km-en át. A menet nagyjából egy órát vesz igénybe, a közvetlen privát transzfer pedig megspórolja azokat a további szállodai megállókat, amelyeket a gyűjtőjárat ezen a forgalmas tengerparti úton tesz.",
+    },
+    bodrum: {
+      name: { nominative: "Bodrum", direction: "Bodrumba", location: "Bodrumban", origin: "Bodrumból" },
+      about: "Bodrum az Égei-tenger partján, Muğla tartományban fekszik, és híres a keresztes vár, a jachtkikötő és a dombokra épült fehér házak miatt. A félsziget körül élénk negyedek, például Gümbet és Bitez, valamint csendesebb öblök találhatók Yalıkavaknál, Türkbükünél és Gümüşlüknél.",
+      routeDetails: "Körülbelül 380 km-rel ez az egyik leghosszabb út, amit kínálunk, és kényelmes szünetekkel öt-hat órát vesz igénybe. A privát autó sokkal könnyebbé teszi a napot, mint a tömegközlekedés: leszállás után azonnal indulhat, ott áll meg, ahol szeretne, és a félszigeten lévő saját szállodájához érkezik. Foglaláskor adja meg a szállodát és a leszállás idejét, hogy megtervezhessük az utat.",
+    },
+    dalaman: {
+      name: { nominative: "Dalaman", direction: "Dalamanba", location: "Dalamanban", origin: "Dalamanból" },
+      about: "Dalaman a líciai és káriai part kapuja. Repülőtere olyan üdülőhelyeket szolgál ki, mint Sarıgerme és Göcek, a közeli Dalyan pedig a folyódeltájáról, Kaunos sziklasírjairól és az İztuzu-i teknősstrandról ismert.",
+      routeDetails: "A repülőtértől számított 235 km a kanyargós líciai tengerparti úton vezet, és nagyjából három-három és fél órát vesz igénybe. A járművenkénti fix ár megkönnyíti a hosszú út költségvetését, a privát autóval pedig a társaság bármikor megállhat pihenni vagy enni.",
+    },
+    fethiye: {
+      name: { nominative: "Fethiye", direction: "Fethiyébe", location: "Fethiyében", origin: "Fethiyéből" },
+      about: "Fethiye egy széles öbölben fekszik, fenyvesekkel borított hegyek ölelésében. Innen érhető el Ölüdeniz a kék lagúnájával, Çalış strandjai és éjszakai élete, valamint a csendesebb Hisarönü és Kayaköy falvak. Sok vendég a Babadağról való siklóernyőzésért és a tizenkét sziget körüli hajókirándulásokért is érkezik.",
+      routeDetails: "A repülőtértől számított 205 km a líciai tengerparton halad Kumluca, Kaş és Kalkan érintésével, és körülbelül két és fél-három órát vesz igénybe. Az út kanyargós és festői. Privát transzferrel nem kell Fethiyében járművet váltani, a sofőr pedig egyenesen az ölüdenizi, çalışi vagy hisarönüi szállodájához viszi.",
+    },
+    pamukkale: {
+      name: { nominative: "Pamukkale", direction: "Pamukkaléba", location: "Pamukkaléban", origin: "Pamukkaléból" },
+      about: "Pamukkale Denizli tartományban az UNESCO világörökségének része, fehér travertin teraszairól és meleg termálmedencéiről ismert. A fölötte emelkedő dombon áll az ókori Hierapolis színházzal, nekropolisszal és az antik medencével, ahol elsüllyedt oszlopok között lehet úszni.",
+      routeDetails: "Az út elhagyja a partot, és mintegy 245 km-en át vezet a szárazföld belseje felé a Taurus-hegységen és a fennsíkon át Denizli irányába, ami nagyjából három-három és fél órát vesz igénybe. A privát autó jól illik ehhez az úthoz: nincs járműváltás, útközben pihenőt is tervezhet, és közvetlenül a pamukkalei vagy karahayıti szállodájához érkezik.",
+    },
+    kapadokya: {
+      name: { nominative: "Kappadókia", direction: "Kappadókiába", location: "Kappadókiában", origin: "Kappadókiából" },
+      about: "Kappadókia Anatólia középső részén fekszik, és a tündérkéményeiről, sziklába vájt templomairól és földalatti városairól híres. Napkeltekor hőlégballonok emelkednek Göreme, Uçhisar és Ürgüp fölé, és sok vendég sziklába vájt szállodában száll meg.",
+      routeDetails: "Mintegy 540 km-rel az út a Földközi-tengertől a Taurus-hegységen és az anatóliai fennsíkon át vezet, és szünetekkel hét-nyolc órát vesz igénybe. A privát transzfer a kényelmes megoldás: a társasága együtt utazik, a sofőr Önnel együtt tervezi a pihenőket, és a barlangszálloda bejáratáig viszi. Foglaláskor adja meg a járatszámot és a szállodát, hogy megtervezhessük a napot.",
+    },
   },
 };

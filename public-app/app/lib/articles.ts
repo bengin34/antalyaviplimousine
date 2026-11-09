@@ -33,6 +33,12 @@ export type ArticleBlock =
       buttonRoute?: string;
     }
   | {
+      /** Callout to the COP31 package page, in the reader's language where it exists. */
+      type: "cop31";
+      text: string;
+      button: string;
+    }
+  | {
       type: "whatsapp";
       heading: string;
       text: string;

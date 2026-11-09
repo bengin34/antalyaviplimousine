@@ -86,5 +86,33 @@ export const en: TransferLandingCopy = {
       about: "Tekirova lies south of Kemer on the edge of the Olympos-Beydağları national park. It combines well-kept resort grounds with small bays and sits close to the ancient site of Phaselis.",
       routeDetails: "The drive runs from Antalya Airport through Kemer and on to Tekirova. The coastal setting and the distance make a direct transfer the sensible choice: no change of vehicle and no waiting for other guests on the way to your hotel.",
     },
+    bogazkent: {
+      about: "Boğazkent lies in the Serik district on the coast between Belek and Side. Large all-inclusive resorts stand directly on a wide sandy beach, and the golf courses of Belek are only a few minutes away, which makes the area a quiet base for families and golfers alike.",
+      routeDetails: "From Antalya Airport the route follows the D400 east past Belek and then turns towards the coast. At around 48 km it is one of the shorter transfers on this list, and a private car takes you from the arrivals hall to your resort entrance without stops at other hotels.",
+    },
+    manavgat: {
+      about: "Manavgat is a lively town on the river of the same name, east of Side. It is known for its waterfall, boat trips up the river and a weekly market, and it serves as the gateway to the resorts along this stretch of coast. Please give us the exact address of your hotel when you book, because the area is wide.",
+      routeDetails: "The route runs east along the D400 from Antalya Airport for around 75 km. The drive takes about an hour, and a direct private transfer saves you the extra hotel stops a shared shuttle makes along this busy coastal road.",
+    },
+    bodrum: {
+      about: "Bodrum sits on the Aegean coast in Muğla province and is famous for its crusader castle, its marina and its white houses on the hillsides. Around the peninsula you find lively quarters such as Gümbet and Bitez, as well as quieter bays at Yalıkavak, Türkbükü and Gümüşlük.",
+      routeDetails: "At about 380 km this is one of the longest drives we offer, and it takes five to six hours with comfortable breaks. A private car makes the day far easier than public transport: you leave when you land, stop where you wish and arrive at your own hotel on the peninsula. Tell us your hotel and landing time when you book so we can plan the trip.",
+    },
+    dalaman: {
+      about: "Dalaman is the gateway to the Lycian and Carian coast. Its airport serves resorts such as Sarıgerme and Göcek, and nearby Dalyan is known for the river delta, the rock tombs of Kaunos and the turtle beach at İztuzu.",
+      routeDetails: "The 235 km from Antalya Airport follow the winding Lycian coast road for around three to three and a half hours. A fixed price per vehicle makes a long journey easy to budget, and a private car lets your party stop for a rest or a meal whenever you want.",
+    },
+    fethiye: {
+      about: "Fethiye lies on a wide bay surrounded by pine-covered mountains. It is the base for Ölüdeniz and its blue lagoon, for the beaches and nightlife of Çalış, and for the quieter villages of Hisarönü and Kayaköy. Many guests also come for paragliding from Babadağ and for boat trips around the twelve islands.",
+      routeDetails: "The 205 km from Antalya Airport run along the Lycian coast through Kumluca, Kaş and Kalkan and take about two and a half to three hours. The road is winding and scenic. With a private transfer you do not have to change vehicles in Fethiye, and the driver takes you to your hotel in Ölüdeniz, Çalış or Hisarönü.",
+    },
+    pamukkale: {
+      about: "Pamukkale, in Denizli province, is a UNESCO World Heritage site known for its white travertine terraces and warm thermal pools. The ancient city of Hierapolis stands on the hill above them, with a theatre, a necropolis and the antique pool where visitors can swim among sunken columns.",
+      routeDetails: "The route leaves the coast and runs about 245 km inland over the Taurus mountains and the plateau towards Denizli, which takes roughly three to three and a half hours. A private car suits this trip well: there is no change of vehicle, you can plan a rest stop on the way, and you reach your hotel in Pamukkale or Karahayıt directly.",
+    },
+    kapadokya: {
+      about: "Cappadocia, in central Anatolia, is known for its fairy chimneys, rock-cut churches and underground cities. Hot-air balloons rise over Göreme, Uçhisar and Ürgüp at sunrise, and many guests stay in a hotel carved into the rock.",
+      routeDetails: "At around 540 km the journey leads from the Mediterranean over the Taurus mountains and across the Anatolian plateau, and takes seven to eight hours with breaks. A private transfer is the comfortable way to do it: your party travels together, the driver plans the rest stops with you and brings you to the entrance of your cave hotel. Tell us your flight number and hotel when you book so we can plan the day.",
+    },
   },
 };

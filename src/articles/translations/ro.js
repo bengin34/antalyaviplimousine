@@ -2931,5 +2931,309 @@ export const articles = {
         "Nu. Prețul este fix și complet. Câțiva euro pentru bagaje grele sau o sosire de noapte sunt apreciați, dar nu se așteaptă nimeni la ei."
       ]
     ]
+  },
+  "cop31-antalya-transport": {
+    "slug": "cop31-antalya-transport-aeroport-shuttle",
+    "title": "Transport COP31 Antalya: aeroport, shuttle și locația",
+    "heading": "Cum ajungi la COP31 în Antalya: aeroport, shuttle și centrul Expo",
+    "description": "Cum ajungi la locația COP31 de la Antalya Expo Center: timpi de la aeroport, shuttle-uri oficiale, permise de parcare, taxiuri și șofer privat pentru toată ziua.",
+    "excerpt": "COP31 are loc între 9 și 20 noiembrie 2026 la Antalya Expo Center, în Aksu. Iată cum ajung delegații de la aeroport și de la hotel la locație și unde nu mai ajung shuttle-urile oficiale.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "COP31 are loc între 9 și 20 noiembrie 2026 la Antalya Expo Center, în Aksu, pe terenul construit pentru EXPO 2016, la est de oraș și aproape de aeroportul din Antalya. Zeci de mii de delegați, observatori și jurnaliști se deplasează între aeroport, hoteluri răspândite pe 60 km de coastă și o singură locație. Ghidul acesta descrie drumul zilnic așa cum arată în realitate, scris de o firmă de șoferi din Antalya care circulă pe aceste drumuri în fiecare zi."
+      },
+      {
+        "type": "h2",
+        "text": "Unde este locația"
+      },
+      {
+        "type": "table",
+        "head": [
+          "",
+          "COP31 Antalya"
+        ],
+        "rows": [
+          [
+            "Locație",
+            "Antalya Expo Center, Aksu (terenul EXPO 2016)"
+          ],
+          [
+            "Perioadă",
+            "9-20 noiembrie 2026"
+          ],
+          [
+            "Aeroport",
+            "Aeroportul Antalya (AYT), cam 20-30 de minute cu mașina"
+          ],
+          [
+            "Shuttle-uri oficiale",
+            "De la hotelurile oficiale, aeroport și centrul orașului la locație"
+          ],
+          [
+            "Parcare la locație",
+            "Doar cu permis de acces auto de la Președinția COP31"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Terenul Expo se află pe drumul principal de coastă dintre Antalya și Belek. E o veste bună pentru cine stă în Lara, Kundu sau Belek și înseamnă că aeroportul e unul dintre cele mai apropiate puncte de locație, nu capătul îndepărtat al drumului."
+      },
+      {
+        "type": "h2",
+        "text": "De la aeroportul Antalya la locație"
+      },
+      {
+        "type": "p",
+        "text": "Președinția COP31 estimează că aeroportul e la aproximativ 20-30 de minute de locație. La aeroport există un punct de întâmpinare pentru participanți, iar de acolo ai patru variante:"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Shuttle-ul oficial COP31 între aeroport și locație.",
+          "Taxi de la stațiile amenajate în fața terminalelor.",
+          "Aplicații de ride-sharing, acolo unde funcționează.",
+          "Un transfer privat sau un șofer care te așteaptă în sala de sosiri cu numele tău; zborul este urmărit, așa că o întârziere nu te costă nimic."
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Verifică înainte de aterizare ce terminal folosește zborul tău: zborurile internaționale sosesc la Terminal 1 sau Terminal 2, iar cele cu escală la Istanbul ajung la terminalul intern. Ghidul nostru despre terminale explică diferența."
+      },
+      {
+        "type": "h2",
+        "text": "Shuttle-urile oficiale: ce acoperă și ce nu"
+      },
+      {
+        "type": "p",
+        "text": "Președinția operează shuttle-uri dedicate pe trei rute: hotelurile oficiale - locație, aeroport - locație și centrul orașului - locație. Informațiile UNFCCC pentru participanți adaugă o condiție importantă: stațiile sunt planificate doar la hotelurile rezervate prin platforma oficială de cazare COP31. Dacă stai în altă parte, ajungi singur la cea mai apropiată stație sau direct la locație."
+      },
+      {
+        "type": "p",
+        "text": "Orarele și hărțile rutelor vor fi publicate pe cop31.tr/transportation mai aproape de conferință. Consultă-le înainte să te bazezi pe shuttle pentru o plenară dimineața devreme sau o sesiune de negocieri până târziu: un orar fix și un control de securitate la ambele capete nu se potrivesc mereu cu o zi de COP."
+      },
+      {
+        "type": "h2",
+        "text": "Cu mașina la locație: parcare și debarcare"
+      },
+      {
+        "type": "p",
+        "text": "Parcarea la locație cere un permis de acces auto, solicitat prin sistemul oficial al Președinției la vapp.cop31.tr. Pentru locurile destinate persoanelor cu dizabilități e nevoie de un certificat de handicap valabil. Fără permis, mașina te lasă unde permite planul de securitate al locației și pleacă, așa că te aștepți la un drum scurt pe jos până la intrare și la verificarea ecusonului."
+      },
+      {
+        "type": "p",
+        "text": "Tocmai de aceea merită un șofer pentru toată ziua: te lasă la intrare, așteaptă în apropiere în loc să dea ture în jurul locației și revine când îi scrii, fie pentru un prânz în altă parte, o întâlnire bilaterală într-un hotel din celălalt capăt al orașului sau ultima cursă după o sesiune târzie."
+      },
+      {
+        "type": "cop31",
+        "text": "Un Mercedes privat cu șofer, la dispoziția ta toată ziua: 200 € pe zi pentru un Vito (până la 6 persoane), 250 € pentru un Sprinter (până la 16). Combustibil inclus, fără limită de ore sau kilometri.",
+        "button": "Vezi pachetul cu șofer COP31"
+      },
+      {
+        "type": "h2",
+        "text": "Taxiuri și ore de vârf"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Taxiurile sunt ușor de găsit și merg cu aparatul de taxat; cere bonul dacă deconturi cheltuielile.",
+          "Sosirile de dimineață la locație și plecarea de seară sunt punctele de blocaj. Lasă-ți o marjă înainte de prima întâlnire, mai mare în zilele în care șefii de stat sunt în oraș.",
+          "Așteaptă-te la drumuri închise și opriri pentru coloane oficiale în zilele World Leaders' Summit, la începutul conferinței.",
+          "Notează-ți poarta de acces de care ai nevoie; șoferii cunosc terenul Expo, dar porțile se schimbă după planul de securitate."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Ce variantă se potrivește fiecărui delegat"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Ești",
+          "Cea mai bună variantă"
+        ],
+        "rows": [
+          [
+            "Cazat într-un hotel oficial, cu program fix",
+            "Shuttle oficial"
+          ],
+          [
+            "Cazat în afara hotelurilor oficiale",
+            "Taxi sau șofer pe zi"
+          ],
+          [
+            "Ministru sau șef de delegație",
+            "Șofer pe zi, o mașină mereu disponibilă"
+          ],
+          [
+            "O echipă sau o echipă de presă cu echipament",
+            "Sprinter cu șofer, până la 16 locuri"
+          ],
+          [
+            "Sosești noaptea târziu",
+            "Preluare privată cu urmărirea zborului"
+          ]
+        ]
+      }
+    ],
+    "faq": [
+      [
+        "Unde este locația COP31 în Antalya?",
+        "La Antalya Expo Center, în Aksu, terenul EXPO 2016 la est de centrul orașului, pe drumul de coastă spre Belek și aproape de aeroportul din Antalya."
+      ],
+      [
+        "Cât de departe e locația COP31 de aeroportul din Antalya?",
+        "Cam 20-30 de minute cu mașina, potrivit Președinției COP31. Calculează mai mult la orele de vârf și în zilele World Leaders' Summit."
+      ],
+      [
+        "Există shuttle-uri gratuite la locația COP31?",
+        "Președinția operează shuttle-uri de la hotelurile oficiale, aeroport și centrul orașului. Stațiile sunt planificate doar la hotelurile rezervate prin platforma oficială de cazare; orarele apar pe cop31.tr mai aproape de eveniment."
+      ],
+      [
+        "Poate o mașină privată să intre în incintă?",
+        "Parcarea cere un permis de acces auto din sistemul oficial de la vapp.cop31.tr. Fără permis, mașina te lasă unde permite securitatea și așteaptă în apropiere."
+      ],
+      [
+        "Cât costă un șofer privat pentru COP31?",
+        "Pachetul nostru COP31 are un tarif fix pe zi: 200 € pentru un Mercedes Vito, 250 € pentru un Sprinter, combustibil inclus, fără limită de ore sau kilometri, cu plata în mașină."
+      ]
+    ]
+  },
+  "cop31-where-to-stay": {
+    "slug": "cop31-antalya-cazare-hoteluri-timp-de-drum",
+    "title": "Cazare la COP31 Antalya: zone și timpi de drum până la locație",
+    "heading": "Unde să stai la COP31: zonele din Antalya după timpul de drum",
+    "description": "Lara, Kundu, centrul orașului, Belek sau mai departe: timpul de drum din fiecare zonă a Antalyei până la locația COP31 de la Antalya Expo Center și ce înseamnă pentru ziua ta.",
+    "excerpt": "Locația COP31 se află între Antalya și Belek. Zona în care stai decide la ce oră pleci, dacă oprește un shuttle la ușa hotelului și cum te întorci după o sesiune târzie.",
+    "readingMinutes": 5,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Cele mai multe sfaturi de cazare pentru COP31 sunt liste de hoteluri. Întrebarea care îți decide cele două săptămâni e alta: cât durează drumul de la pat până la Antalya Expo Center din Aksu, dimineața și seara, timp de douăsprezece zile? Iată coasta văzută dinspre locație spre exterior."
+      },
+      {
+        "type": "h2",
+        "text": "Timpi de drum până la locație"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Zonă",
+          "Până la locație",
+          "Caracter"
+        ],
+        "rows": [
+          [
+            "Kundu",
+            "cam 15-25 min",
+            "Resorturi mari pe plajă, cea mai apropiată zonă de resorturi"
+          ],
+          [
+            "Lara",
+            "cam 20-30 min",
+            "Hoteluri mari, cumpărături, între oraș și locație"
+          ],
+          [
+            "Zona aeroportului Antalya",
+            "cam 20-30 min",
+            "Hoteluri de business, sosire și plecare ușoare"
+          ],
+          [
+            "Centrul orașului și Kaleiçi",
+            "cam 30-45 min",
+            "Restaurante, orașul vechi, viață de seară, trafic mai mare"
+          ],
+          [
+            "Belek",
+            "cam 25-35 min",
+            "Resorturi de golf, liniște, de cealaltă parte a locației"
+          ],
+          [
+            "Side și Manavgat",
+            "cam 50-65 min",
+            "Resorturi mai la est, un drum zilnic lung"
+          ],
+          [
+            "Kemer",
+            "cam 70-90 min",
+            "La vest de oraș, cu toată Antalya de traversat"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Acestea sunt estimările șoferilor noștri în trafic normal, făcute pe drumurile pe care le folosim zilnic, nu cifre oficiale. Securitatea summitului, coloanele oficiale și ieșirea de seară din locație adaugă timp, mai ales în primele zile."
+      },
+      {
+        "type": "h2",
+        "text": "Cazarea oficială și problema shuttle-ului"
+      },
+      {
+        "type": "p",
+        "text": "Președinția COP31 rezervă hotelurile oficiale prin platforma sa de cazare, iar potrivit informațiilor UNFCCC pentru participanți, shuttle-urile conferinței opresc doar la aceste hoteluri. Dacă delegația ta a rezervat pe cont propriu, o vilă, un apartament sau un hotel din afara platformei, organizează drumul zilnic din prima zi, în loc să afli asta la prima plenară de dimineață."
+      },
+      {
+        "type": "h2",
+        "text": "Lara și Kundu: cele mai aproape de locație"
+      },
+      {
+        "type": "p",
+        "text": "Lara și Kundu se află între oraș și terenul Expo, așa că drumul de dimineață e scurt și merge în sens opus traficului din oraș. Hotelurile sunt mari, ceea ce ajută o delegație care vrea pe toată lumea sub același acoperiș, iar aeroportul e aproape pentru sosiri la ore imposibile."
+      },
+      {
+        "type": "h2",
+        "text": "Centrul orașului: pentru cine, nu pentru navetă"
+      },
+      {
+        "type": "p",
+        "text": "Dacă stai în centru, ai restaurantele, Kaleiçi și evenimentele paralele la câțiva pași, cu prețul celui mai lung drum prin oraș până la locație. Shuttle-ul oficial din centru ajută, dar stațiile și orarul lui îți decid ziua. O mașină la cerere e ceea ce face un hotel din oraș potrivit pentru un șef de delegație."
+      },
+      {
+        "type": "h2",
+        "text": "Belek, Side și Kemer: mai departe"
+      },
+      {
+        "type": "p",
+        "text": "Belek e varianta liniștită, de cealaltă parte a locației, comparabilă ca timp de drum cu centrul orașului, dar fără traficul urban. Side și Kemer înseamnă navetă adevărată de două ori pe zi; se potrivesc unei delegații cu program fix și mașină proprie, nu cuiva care poate fi chemat înapoi pentru un text de ultim moment."
+      },
+      {
+        "type": "cop31",
+        "text": "Stai în afara rețelei de shuttle? Un Mercedes cu șofer, la dispoziția ta toată ziua, de la hotel la locație și înapoi: 200 € pe zi (Vito, până la 6 persoane), 250 € (Sprinter, până la 16). Combustibil inclus.",
+        "button": "Rezervă un șofer COP31"
+      },
+      {
+        "type": "h2",
+        "text": "Un plan zilnic care funcționează"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Lasă o marjă de 30 de minute înainte de prima întâlnire fixă, pe lângă timpul de drum.",
+          "Stabilește cu o seară înainte punctul de preluare și poarta de la locație.",
+          "Păstrează o mașină pentru șeful delegației și mută echipa cu un Sprinter.",
+          "Trece numerele de zbor în rezervare, ca să nu ai nevoie de transfer separat în zilele de sosire și plecare."
+        ]
+      }
+    ],
+    "faq": [
+      [
+        "Ce zonă e cea mai apropiată de locația COP31?",
+        "Kundu și Lara, ambele între orașul Antalya și Antalya Expo Center din Aksu, la aproximativ 15-30 de minute în trafic normal."
+      ],
+      [
+        "Este Belek o bază bună pentru COP31?",
+        "Da, dacă ai mașină: Belek e la aproximativ 25-35 de minute de locație, pe partea opusă orașului, cu resorturi liniștite."
+      ],
+      [
+        "Opresc shuttle-urile COP31 la orice hotel?",
+        "Nu. Potrivit informațiilor UNFCCC pentru participanți, stațiile sunt planificate doar la hotelurile rezervate prin platforma oficială de cazare COP31."
+      ],
+      [
+        "Cât durează drumul din centrul Antalyei până la locația COP31?",
+        "Cam 30-45 de minute, în funcție de trafic și de locul din centru de unde pleci, mai mult la ieșirea de seară din locație."
+      ]
+    ]
   }
 };

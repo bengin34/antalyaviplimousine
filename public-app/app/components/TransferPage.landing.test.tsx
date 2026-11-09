@@ -11,7 +11,7 @@
 import "@testing-library/jest-dom/vitest";
 import { cleanup, render, screen } from "@testing-library/react";
 import { afterEach, describe, expect, test } from "vitest";
-import { localizedRoute } from "../../../src/routes.js";
+import { localizedRoute, publicRouteSlugs } from "../../../src/routes.js";
 import { indexableLanguages } from "../lib/site";
 import { LanguageProvider } from "../i18n";
 import { LandOfLegendsBookingCopyProvider } from "../lib/land-of-legends-booking-copy";
@@ -22,8 +22,11 @@ import { TransferPage } from "./TransferPage";
 
 afterEach(cleanup);
 
-/** The regions whose copy is written; a route outside this set stays on the template. */
-const landingRoutes = ["antalya", "belek", "side", "kemer", "alanya", "kizilagac", "tekirova"] as const;
+/** The regions whose copy is written; a route outside this set would fall back to the plain template. */
+const landingRoutes = [
+  "antalya", "belek", "side", "kemer", "alanya", "kizilagac", "tekirova",
+  "bogazkent", "manavgat", "bodrum", "dalaman", "fethiye", "pamukkale", "kapadokya",
+] as const;
 
 /**
  * The length floor only exists to catch a stub left in place of real prose. A
@@ -167,15 +170,8 @@ describe("place names carry the case the sentence needs", () => {
   });
 });
 
-describe("routes without region copy", () => {
-  test("fall back to the route template without crashing", () => {
-    const copy = transferLandingCopy("en");
-    expect(copy.regions.bodrum).toBeUndefined();
-
-    renderRoute("en", "bodrum");
-
-    expect(screen.getByRole("heading", { level: 1 })).toBeInTheDocument();
-    expect(screen.queryByText(copy.wholeVehicle)).not.toBeInTheDocument();
-    expect(screen.queryByText("Preis für das gesamte Fahrzeug")).not.toBeInTheDocument();
+describe("route coverage", () => {
+  test("every published route has region copy to render", () => {
+    expect([...landingRoutes].sort()).toEqual([...publicRouteSlugs].sort());
   });
 });

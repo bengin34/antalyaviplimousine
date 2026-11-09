@@ -95,5 +95,40 @@ export const sv: TransferLandingCopy = {
       about: "Tekirova ligger söder om Kemer, i kanten av nationalparken Olympos-Beydağları. Byn förenar välskötta hotellområden med små vikar och ligger mycket nära den antika platsen Phaselis.",
       routeDetails: "Resan går från Antalya flygplats via Kemer vidare till Tekirova. Läget vid kusten och avståndet gör den direkta transfern till det rimliga valet: inget fordonsbyte och ingen väntan på andra gäster på vägen till hotellet.",
     },
+    bogazkent: {
+      name: { nominative: "Boğazkent", direction: "Boğazkent", location: "Boğazkent", origin: "Boğazkent" },
+      about: "Boğazkent ligger i distriktet Serik vid kusten mellan Belek och Side. Stora all inclusive-resorter ligger direkt vid en bred sandstrand, och Beleks golfbanor finns bara några minuter bort, vilket gör området till en lugn bas för både familjer och golfare.",
+      routeDetails: "Från Antalya flygplats följer vägen D400 österut förbi Belek och viker sedan av mot kusten. Med cirka 48 km är det en av de kortare transferna på den här listan, och en privat bil tar dig från ankomsthallen till entrén på ditt resort utan stopp vid andra hotell.",
+    },
+    manavgat: {
+      name: { nominative: "Manavgat", direction: "Manavgat", location: "Manavgat", origin: "Manavgat" },
+      about: "Manavgat är en livlig stad vid floden med samma namn, öster om Side. Den är känd för sitt vattenfall, båtturer uppför floden och en veckomarknad, och fungerar som port till resorterna längs den här kuststräckan. Ange hotellets exakta adress vid bokningen, eftersom området är stort.",
+      routeDetails: "Vägen går österut längs D400 från Antalya flygplats, cirka 75 km. Resan tar ungefär en timme, och en direkt privat transfer sparar dig de extra hotellstopp som en delad shuttle gör längs den här trafikerade kustvägen.",
+    },
+    bodrum: {
+      name: { nominative: "Bodrum", direction: "Bodrum", location: "Bodrum", origin: "Bodrum" },
+      about: "Bodrum ligger vid Egeiska kusten i provinsen Muğla och är berömt för sin korsfararborg, sin marina och sina vita hus i sluttningarna. Runt halvön finns livliga områden som Gümbet och Bitez, samt lugnare vikar vid Yalıkavak, Türkbükü och Gümüşlük.",
+      routeDetails: "Med cirka 380 km är detta en av de längsta resorna vi erbjuder, och den tar fem till sex timmar med bekväma pauser. En privat bil gör dagen mycket enklare än kollektivtrafik: du åker när du har landat, stannar där du vill och kommer fram till ditt eget hotell på halvön. Ange hotell och landningstid vid bokningen så att vi kan planera resan.",
+    },
+    dalaman: {
+      name: { nominative: "Dalaman", direction: "Dalaman", location: "Dalaman", origin: "Dalaman" },
+      about: "Dalaman är porten till den lykiska och kariska kusten. Flygplatsen betjänar semesterorter som Sarıgerme och Göcek, och närliggande Dalyan är känt för flodens delta, klippgravarna i Kaunos och sköldpaddsstranden İztuzu.",
+      routeDetails: "De 235 km från Antalya flygplats följer den slingrande lykiska kustvägen och tar cirka tre till tre och en halv timme. Ett fast pris per fordon gör en lång resa lätt att budgetera, och med en privat bil kan ditt sällskap stanna för en paus eller en måltid när ni vill.",
+    },
+    fethiye: {
+      name: { nominative: "Fethiye", direction: "Fethiye", location: "Fethiye", origin: "Fethiye" },
+      about: "Fethiye ligger vid en bred vik omgiven av furuklädda berg. Det är utgångspunkten för Ölüdeniz med sin blå lagun, för Çalışs stränder och nattliv och för de lugnare byarna Hisarönü och Kayaköy. Många gäster kommer också för att paraglida från Babadağ och för båtturer runt de tolv öarna.",
+      routeDetails: "De 205 km från Antalya flygplats går längs den lykiska kusten via Kumluca, Kaş och Kalkan och tar ungefär två och en halv till tre timmar. Vägen är kurvig och naturskön. Med en privat transfer slipper du byta fordon i Fethiye, och föraren kör dig till ditt hotell i Ölüdeniz, Çalış eller Hisarönü.",
+    },
+    pamukkale: {
+      name: { nominative: "Pamukkale", direction: "Pamukkale", location: "Pamukkale", origin: "Pamukkale" },
+      about: "Pamukkale i provinsen Denizli är ett UNESCO-världsarv som är känt för sina vita travertinterrasser och varma termalbassänger. På kullen ovanför ligger den antika staden Hierapolis, med teater, nekropol och den antika poolen där besökare kan simma bland sjunkna kolonner.",
+      routeDetails: "Vägen lämnar kusten och går cirka 245 km inåt landet över Taurusbergen och platån mot Denizli, vilket tar ungefär tre till tre och en halv timme. En privat bil passar den här resan väl: du slipper byta fordon, kan planera en rastpaus på vägen och kommer direkt fram till ditt hotell i Pamukkale eller Karahayıt.",
+    },
+    kapadokya: {
+      name: { nominative: "Kappadokien", direction: "Kappadokien", location: "Kappadokien", origin: "Kappadokien" },
+      about: "Kappadokien i centrala Anatolien är känt för sina älvskorstenar, klippkyrkor och underjordiska städer. Vid soluppgången stiger luftballonger över Göreme, Uçhisar och Ürgüp, och många gäster bor på ett hotell uthugget i klippan.",
+      routeDetails: "Med cirka 540 km går resan från Medelhavet över Taurusbergen och den anatoliska högplatån och tar sju till åtta timmar med pauser. En privat transfer är det bekväma sättet: ditt sällskap reser tillsammans, föraren planerar rastpauserna med dig och kör dig fram till entrén till ditt grotthotell. Ange ditt flygnummer och hotell vid bokningen så att vi kan planera dagen.",
+    },
   },
 };

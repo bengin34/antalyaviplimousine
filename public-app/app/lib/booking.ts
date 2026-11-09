@@ -2,12 +2,22 @@ import { parsePhoneNumberFromString } from "libphonenumber-js";
 import { z } from "zod";
 import { routeCatalog } from "../../../src/routes.js";
 import { hotelToHotelUnitPrice } from "../../../supabase/functions/_shared/hotel-to-hotel-pricing.js";
+import { ULTRA_LUX } from "../../../supabase/functions/_shared/ultra-lux.js";
 import { currentAttribution, type Attribution } from "./attribution";
 import { loadedHotelData } from "./hotel-data";
 
 type Translate = (key: string, fallback?: string) => string;
 export const DAILY_CHAUFFEUR_RATE_EUR = 150;
 export const MAX_DAILY_CHAUFFEUR_DAYS = 30;
+
+export type VipVehicle = "vito" | "sprinter";
+export type UltraLuxVehicle = keyof typeof ULTRA_LUX;
+export const ultraLuxVehicles = Object.keys(ULTRA_LUX) as UltraLuxVehicle[];
+/** The Ultra Lux entry for a form vehicle, or undefined for the VIP fleet. */
+export const ultraLuxOf = (vehicle: string) => (ULTRA_LUX as Partial<Record<string, (typeof ULTRA_LUX)[UltraLuxVehicle]>>)[vehicle];
+export const MAYBACH_MAX_BAG_UNITS = 3;
+/** Most guests the vehicle seats, as the form limits them. */
+export const vehicleMaxGuests = (vehicle: string) => ultraLuxOf(vehicle)?.maxGuests ?? (vehicle === "sprinter" ? SPRINTER_MAX_GUESTS : VITO_MAX_GUESTS);
 
 const normalize = (value: string) => value.trim().replace(/\s+/g, " ");
 const validName = (value: string) => {
@@ -98,7 +108,7 @@ export function createPublicBookingSchema(t: Translate) {
     tripType: z.enum(["one_way", "round_trip", "daily_chauffeur"]),
     pickup: z.enum(["airport", "hotel", "private_address"]),
     destination: z.string(),
-    vehicle: z.enum(["vito", "sprinter"]),
+    vehicle: z.enum(["vito", "sprinter", ...ultraLuxVehicles]),
     guests: z.string(), luggage: z.string(), childSeats: z.string(),
     golfBags: z.string().default("0"), strollers: z.string().default("0"),
     childAges: z.array(z.string()).default([]),
@@ -122,7 +132,11 @@ export function createPublicBookingSchema(t: Translate) {
     const golfBags = Number(values.golfBags);
     const strollers = Number(values.strollers);
     const bagsForFit = Number.isFinite(luggage) ? luggage : 0;
-    const capacity = values.vehicle === "sprinter" ? 12 : 6;
+    const capacity = vehicleMaxGuests(values.vehicle);
+    const lux = ultraLuxOf(values.vehicle);
+
+    if (lux && values.tripType !== "daily_chauffeur") context.addIssue({ code: "custom", path: ["vehicle"], message: t("capacityNoVehicle", "Please select a suitable vehicle.") });
+    if (values.vehicle === "maybach" && luggageUnits(bagsForFit, golfBags || 0, strollers || 0) > MAYBACH_MAX_BAG_UNITS) context.addIssue({ code: "custom", path: ["luggage"], message: t("capacityNoVehicle", "Please select a suitable vehicle.") });
 
     if (values.travelDate < localToday) context.addIssue({ code: "custom", path: ["travelDate"], message: t("dateInvalid", "Please select a future date.") });
     if (!Number.isInteger(guests) || guests < 1 || guests > capacity) context.addIssue({ code: "custom", path: ["guests"], message: t("capacityNoVehicle", "Please select a suitable vehicle.") });
@@ -221,7 +235,7 @@ export type PublicBookingValues = z.input<ReturnType<typeof createPublicBookingS
  */
 export type LivePriceOverrides = {
   routePrices?: Partial<Record<string, number>>;
-  dailyRates?: Partial<Record<"vito" | "sprinter", number>>;
+  dailyRates?: Partial<Record<VipVehicle, number>>;
 };
 
 /**
@@ -276,13 +290,18 @@ function hotelToHotelQuote(
   return { price, originalPrice: Math.max(originalPrice ?? 0, price) };
 }
 
+/** The day rate the guest is quoted: Ultra Lux is fixed, the VIP fleet follows the admin's live rate. */
+export function dailyRateFor(vehicle: string, overrides?: LivePriceOverrides) {
+  return ultraLuxOf(vehicle)?.dailyRateEur ?? overrides?.dailyRates?.[vehicle as VipVehicle] ?? DAILY_CHAUFFEUR_RATE_EUR;
+}
+
 export function quoteFor(
   values: Pick<PublicBookingValues, "destination" | "hotelRegion" | "hotelName" | "vehicle" | "tripType" | "travelDate" | "serviceEndDate" | "pickup">,
   overrides?: LivePriceOverrides,
 ) {
   if (values.tripType === "daily_chauffeur") {
     const days = inclusiveDayCount(values.travelDate, values.serviceEndDate);
-    const dailyRate = overrides?.dailyRates?.[values.vehicle] ?? DAILY_CHAUFFEUR_RATE_EUR;
+    const dailyRate = dailyRateFor(values.vehicle, overrides);
     const price = days > 0 && days <= MAX_DAILY_CHAUFFEUR_DAYS ? days * dailyRate : 0;
     return { price, originalPrice: price };
   }
@@ -294,8 +313,10 @@ export function quoteFor(
   const slug = pricedRouteSlug(values);
   const route = routeCatalog[slug as keyof typeof routeCatalog];
   if (!route) return { price: 0, originalPrice: 0 };
-  const liveUnitPrice = overrides?.routePrices?.[`${slug}:${values.vehicle}`];
-  const effectiveUnitPrice = liveUnitPrice ?? route.prices[values.vehicle];
+  // Ultra Lux is daily-hire only; the schema rejects it on a transfer.
+  const vehicle = values.vehicle as VipVehicle;
+  const liveUnitPrice = overrides?.routePrices?.[`${slug}:${vehicle}`];
+  const effectiveUnitPrice = liveUnitPrice ?? route.prices[vehicle];
   // Floor both the live price and the struck-through "was" price by the hotel's
   // own distance band. Applies to both directions: `slug` resolves whether the
   // guest arrives at (destination = region) or leaves (destination = "airport",
@@ -305,9 +326,9 @@ export function quoteFor(
   // hotel (see ./hotel-data). Before that there is no hotel name to floor by,
   // so the region price stands.
   const hotelUnitPrice = loadedHotelData()?.hotelUnitPrice;
-  const unitPrice = hotelUnitPrice?.(values.hotelName, values.vehicle, effectiveUnitPrice) ?? effectiveUnitPrice;
-  const originalUnitPrice = hotelUnitPrice?.(values.hotelName, values.vehicle, route.originalPrices[values.vehicle])
-    ?? route.originalPrices[values.vehicle];
+  const unitPrice = hotelUnitPrice?.(values.hotelName, vehicle, effectiveUnitPrice) ?? effectiveUnitPrice;
+  const originalUnitPrice = hotelUnitPrice?.(values.hotelName, vehicle, route.originalPrices[vehicle])
+    ?? route.originalPrices[vehicle];
   return {
     price: unitPrice * journeys,
     originalPrice: originalUnitPrice * journeys,
@@ -360,7 +381,7 @@ export async function fetchLivePriceOverrides(): Promise<LivePriceOverrides> {
       const vehicle = row.vehicle_type === "vclass" ? "sprinter" : "vito";
       routePrices[`${row.to_location}:${vehicle}`] = Number(row.price_eur);
     }
-    const dailyRates: Partial<Record<"vito" | "sprinter", number>> = {};
+    const dailyRates: Partial<Record<VipVehicle, number>> = {};
     for (const row of rateRows ?? []) {
       const vehicle = row.vehicle_type === "vclass" ? "sprinter" : "vito";
       dailyRates[vehicle] = Number(row.daily_rate_eur);
@@ -420,7 +441,7 @@ export function buildPublicBookingPayload(
     departure_flight_number: isDailyChauffeur ? normalize(values.departureFlightNumber).toUpperCase() || null : null,
     fuel_terms_accepted: isDailyChauffeur ? fuelTermsAccepted : null,
     guests: Number(values.guests),
-    vehicle_type: values.vehicle === "sprinter" ? "vclass" : "vito",
+    vehicle_type: values.vehicle === "sprinter" ? "vclass" : values.vehicle,
     payment_method: "cash",
     language,
   };

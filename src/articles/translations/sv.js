@@ -2931,5 +2931,309 @@ export const articles = {
         "Nej. Priset är fast och komplett. Några euro för tungt bagage eller en nattankomst uppskattas men förväntas aldrig."
       ]
     ]
+  },
+  "cop31-antalya-transport": {
+    "slug": "cop31-antalya-transport-flygplats-shuttle",
+    "title": "COP31 Antalya transport: flygplats, shuttle och konferensen",
+    "heading": "Så tar du dig till COP31 i Antalya: flygplats, shuttle och Expo-området",
+    "description": "Så tar du dig till COP31 på Antalya Expo Center: restid från flygplatsen, officiella shuttlebussar, parkeringstillstånd, taxi och privat chaufför hela dagen.",
+    "excerpt": "COP31 pågår 9-20 november 2026 på Antalya Expo Center i Aksu. Så tar sig delegater från flygplatsen och hotellet till konferensområdet, och här tar de officiella shuttlebussarna slut.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "COP31 pågår 9-20 november 2026 på Antalya Expo Center i Aksu, på området som byggdes för EXPO 2016, öster om staden och nära Antalya flygplats. Tiotusentals delegater, observatörer och journalister rör sig mellan flygplatsen, hotell utspridda längs 60 km kust och ett enda konferensområde. Den här guiden visar hur den dagliga resan fungerar i verkligheten, skriven av ett chaufförsföretag i Antalya som kör de här vägarna varje dag."
+      },
+      {
+        "type": "h2",
+        "text": "Var konferensområdet ligger"
+      },
+      {
+        "type": "table",
+        "head": [
+          "",
+          "COP31 Antalya"
+        ],
+        "rows": [
+          [
+            "Plats",
+            "Antalya Expo Center, Aksu (EXPO 2016-området)"
+          ],
+          [
+            "Datum",
+            "9-20 november 2026"
+          ],
+          [
+            "Flygplats",
+            "Antalya flygplats (AYT), cirka 20-30 minuter med bil"
+          ],
+          [
+            "Officiella shuttlebussar",
+            "Från officiella hotell, flygplatsen och centrum till konferensområdet"
+          ],
+          [
+            "Parkering vid området",
+            "Endast med fordonstillstånd från COP31-ordförandeskapet"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Expo-området ligger vid den stora kustvägen mellan Antalya och Belek. Det är goda nyheter för dig som bor i Lara, Kundu eller Belek, och det betyder att flygplatsen är en av de närmaste punkterna till konferensområdet, inte den bortre änden av resan."
+      },
+      {
+        "type": "h2",
+        "text": "Från Antalya flygplats till konferensområdet"
+      },
+      {
+        "type": "p",
+        "text": "Enligt COP31-ordförandeskapet ligger flygplatsen cirka 20-30 minuter från konferensområdet. På flygplatsen finns ankomstvägledning för deltagare, och du har fyra sätt att ta dig vidare:"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Den officiella COP31-shuttlen mellan flygplatsen och konferensområdet.",
+          "Taxi från de anvisade taxiplatserna utanför terminalerna.",
+          "Samåkningsappar, där de finns.",
+          "En privat transfer eller chaufför som väntar i ankomsthallen med ditt namn; flyget bevakas, så en försening kostar dig ingenting."
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Kolla vilken terminal ditt flyg använder innan du landar: internationella flyg går till terminal 1 eller terminal 2, och anslutningar via Istanbul landar i inrikesterminalen. Vår terminalguide förklarar skillnaden."
+      },
+      {
+        "type": "h2",
+        "text": "Officiella shuttlebussar: vad de täcker och inte täcker"
+      },
+      {
+        "type": "p",
+        "text": "Ordförandeskapet kör särskilda shuttlebussar på tre linjer: officiella hotell till konferensområdet, flygplatsen till konferensområdet och centrum till konferensområdet. UNFCCC:s deltagarinformation lägger till ett viktigt villkor: hållplatser planeras bara vid hotell som bokats via den officiella COP31-plattformen för boende. Bor du någon annanstans får du själv ta dig till närmaste hållplats, eller direkt till konferensområdet."
+      },
+      {
+        "type": "p",
+        "text": "Tidtabeller och linjekartor publiceras på cop31.tr/transportation närmare konferensen. Titta på dem innan du litar på en shuttle till ett tidigt plenum eller en sen förhandlingsrunda: en fast tidtabell och en säkerhetskontroll i båda ändar passar inte alltid en COP-dag."
+      },
+      {
+        "type": "h2",
+        "text": "Med bil till konferensområdet: parkering och avlämning"
+      },
+      {
+        "type": "p",
+        "text": "Parkering vid konferensområdet kräver ett fordonstillstånd, som söks i ordförandeskapets officiella system på vapp.cop31.tr. Parkering för rörelsehindrade kräver ett giltigt intyg om funktionsnedsättning. Utan tillstånd släpper bilen av dig där områdets säkerhetsplan tillåter och kör vidare, så räkna med en kort promenad till entrén och passerkontrollen."
+      },
+      {
+        "type": "p",
+        "text": "Det är just därför en chaufför för hela dagen fungerar: föraren släpper av dig, väntar i närheten i stället för att cirkla runt området och är tillbaka när du skickar ett meddelande, vare sig det gäller en lunch utanför området, ett bilateralt möte på ett hotell på andra sidan stan eller sista bilen efter ett sent pass."
+      },
+      {
+        "type": "cop31",
+        "text": "En privat Mercedes med chaufför till ditt förfogande hela dagen: 200 € per dag för en Vito (upp till 6 personer), 250 € för en Sprinter (upp till 16). Bränsle ingår, ingen gräns för timmar eller kilometer.",
+        "button": "Se COP31-paketet med chaufför"
+      },
+      {
+        "type": "h2",
+        "text": "Taxi och rusningstid"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Det finns gott om taxi och de kör på taxameter; be om kvitto om du gör en reseräkning.",
+          "Morgonankomsten till konferensområdet och utpasseringen på kvällen är flaskhalsarna. Ha marginal före ditt första möte, mer de dagar då stats- och regeringschefer är i stan.",
+          "Räkna med avstängda vägar och stopp för kortegor kring dagarna för World Leaders' Summit i början av konferensen.",
+          "Skriv ner vilken grind du ska till; förarna känner Expo-området, men grindarna ändras med säkerhetsplanen."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Vilket alternativ passar vilken delegat"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Du är",
+          "Bäst"
+        ],
+        "rows": [
+          [
+            "På ett officiellt hotell, med fast schema",
+            "Officiell shuttle"
+          ],
+          [
+            "Utanför de officiella hotellen",
+            "Taxi eller chaufför per dag"
+          ],
+          [
+            "Minister eller delegationschef",
+            "Chaufför per dag, en bil alltid tillgänglig"
+          ],
+          [
+            "Ett team eller presslag med utrustning",
+            "Sprinter med förare, upp till 16 platser"
+          ],
+          [
+            "Landar sent på kvällen",
+            "Privat upphämtning med flygbevakning"
+          ]
+        ]
+      }
+    ],
+    "faq": [
+      [
+        "Var ligger COP31-området i Antalya?",
+        "På Antalya Expo Center i Aksu, EXPO 2016-området öster om centrum, vid kustvägen mot Belek och nära Antalya flygplats."
+      ],
+      [
+        "Hur långt är det från Antalya flygplats till COP31-området?",
+        "Cirka 20-30 minuter med bil, enligt COP31-ordförandeskapet. Räkna med mer i rusningstid och under dagarna för World Leaders' Summit."
+      ],
+      [
+        "Finns det gratis shuttlebussar till COP31?",
+        "Ordförandeskapet kör shuttlebussar från officiella hotell, flygplatsen och centrum. Hållplatser planeras bara vid hotell som bokats via den officiella boendeplattformen; tidtabellerna kommer på cop31.tr närmare datumen."
+      ],
+      [
+        "Får en privat bil köra in på området?",
+        "Parkering kräver ett fordonstillstånd från det officiella systemet på vapp.cop31.tr. Utan tillstånd släpper bilen av dig där säkerheten tillåter och väntar i närheten."
+      ],
+      [
+        "Vad kostar en privat chaufför under COP31?",
+        "Vårt COP31-paket har ett fast dagspris: 200 € för en Mercedes Vito, 250 € för en Sprinter, bränsle ingår, ingen gräns för timmar eller kilometer, betalning i bilen."
+      ]
+    ]
+  },
+  "cop31-where-to-stay": {
+    "slug": "cop31-antalya-boende-hotell-restider",
+    "title": "Boende under COP31 i Antalya: områden och restider",
+    "heading": "Var ska du bo under COP31? Antalyas områden efter restid till konferensen",
+    "description": "Lara, Kundu, centrum, Belek eller längre bort: restiden från varje område i Antalya till COP31 på Antalya Expo Center, och vad den betyder för din dag.",
+    "excerpt": "COP31-området ligger mellan Antalya och Belek. Var du bor avgör hur tidigt du åker, om en shuttle stannar utanför hotellet och hur du tar dig hem efter ett sent pass.",
+    "readingMinutes": 5,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "De flesta hotelltips inför COP31 är listor med hotell. Frågan som avgör dina två veckor är en annan: hur lång är resan från sängen till Antalya Expo Center i Aksu, morgon och kväll, i tolv dagar? Här är kusten läst från konferensområdet och utåt."
+      },
+      {
+        "type": "h2",
+        "text": "Restider till konferensområdet"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Område",
+          "Till området",
+          "Karaktär"
+        ],
+        "rows": [
+          [
+            "Kundu",
+            "cirka 15-25 min",
+            "Stora strandhotell, den närmaste hotellremsan"
+          ],
+          [
+            "Lara",
+            "cirka 20-30 min",
+            "Stora hotell, shopping, mellan staden och konferensområdet"
+          ],
+          [
+            "Kring Antalya flygplats",
+            "cirka 20-30 min",
+            "Affärshotell, smidig ankomst och avresa"
+          ],
+          [
+            "Centrum och Kaleiçi",
+            "cirka 30-45 min",
+            "Restauranger, gamla stan, kvällsliv, mer trafik"
+          ],
+          [
+            "Belek",
+            "cirka 25-35 min",
+            "Golfresorter, lugnt, på andra sidan konferensområdet"
+          ],
+          [
+            "Side och Manavgat",
+            "cirka 50-65 min",
+            "Resorter längre österut, lång daglig pendling"
+          ],
+          [
+            "Kemer",
+            "cirka 70-90 min",
+            "Väster om staden, hela Antalya att korsa"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Det här är våra förares uppskattningar i normal trafik, utifrån vägarna vi kör varje dag, inte officiella siffror. Säkerhet kring toppmötet, kortegor och utpasseringen från området på kvällen tar extra tid, särskilt de första dagarna."
+      },
+      {
+        "type": "h2",
+        "text": "Officiellt boende och shuttlefrågan"
+      },
+      {
+        "type": "p",
+        "text": "COP31-ordförandeskapet bokar officiella hotell via sin boendeplattform, och enligt UNFCCC:s deltagarinformation stannar konferensens shuttlebussar bara vid de hotellen. Om din delegation har bokat själv, en villa, en lägenhet eller ett hotell utanför plattformen, planera den dagliga resan från dag ett i stället för att upptäcka det vid första morgonplenumet."
+      },
+      {
+        "type": "h2",
+        "text": "Lara och Kundu: närmast konferensområdet"
+      },
+      {
+        "type": "p",
+        "text": "Lara och Kundu ligger mellan staden och Expo-området, så morgonresan är kort och går mot stadstrafiken. Hotellen är stora, vilket hjälper en delegation som vill ha alla under samma tak, och flygplatsen ligger nära för ankomster vid udda tider."
+      },
+      {
+        "type": "h2",
+        "text": "Centrum: för middagar, inte för pendling"
+      },
+      {
+        "type": "p",
+        "text": "Bor du i centrum har du restauranger, Kaleiçi och sidoevenemang på gångavstånd, till priset av den längsta stadskörningen till konferensområdet. Den officiella shuttlen från centrum hjälper, men dess hållplatser och tidtabell styr då din dag. Det är en bil på beställning som gör ett stadshotell hållbart för en delegationschef."
+      },
+      {
+        "type": "h2",
+        "text": "Belek, Side och Kemer: längre bort"
+      },
+      {
+        "type": "p",
+        "text": "Belek är det lugna alternativet på andra sidan konferensområdet, med ungefär samma restid som centrum men utan stadstrafiken. Side och Kemer innebär riktig pendling två gånger om dagen; de passar en delegation med fasta tider och egen bil, inte den som kan bli inkallad för en sen text."
+      },
+      {
+        "type": "cop31",
+        "text": "Bor du utanför shuttlenätet? En Mercedes med chaufför till ditt förfogande hela dagen, från hotellet till konferensområdet och tillbaka: 200 € per dag (Vito, upp till 6 personer), 250 € (Sprinter, upp till 16). Bränsle ingår.",
+        "button": "Boka en COP31-chaufför"
+      },
+      {
+        "type": "h2",
+        "text": "En dagsplan som fungerar"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Lägg till 30 minuters marginal före ditt första fasta möte, utöver restiden.",
+          "Kom överens om upphämtningsplats och grind vid området kvällen innan.",
+          "Behåll en bil för delegationschefen och flytta teamet i en Sprinter.",
+          "Ange flightnummer i bokningen, så behövs ingen separat transfer på ankomst- och avresedagarna."
+        ]
+      }
+    ],
+    "faq": [
+      [
+        "Vilket område ligger närmast COP31?",
+        "Kundu och Lara, båda mellan Antalya stad och Antalya Expo Center i Aksu, ungefär 15-30 minuter bort i normal trafik."
+      ],
+      [
+        "Är Belek en bra bas under COP31?",
+        "Ja, om du har bil: Belek ligger cirka 25-35 minuter från konferensområdet, på motsatt sida från staden, med lugna resorthotell."
+      ],
+      [
+        "Stannar COP31-shuttlebussarna vid alla hotell?",
+        "Nej. Enligt UNFCCC:s deltagarinformation planeras hållplatser bara vid hotell som bokats via den officiella COP31-plattformen för boende."
+      ],
+      [
+        "Hur lång tid tar det från Antalyas centrum till COP31-området?",
+        "Cirka 30-45 minuter beroende på trafiken och var i centrum du startar, mer vid utpasseringen från området på kvällen."
+      ]
+    ]
   }
 };

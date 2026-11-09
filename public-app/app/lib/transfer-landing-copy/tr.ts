@@ -86,5 +86,33 @@ export const tr: TransferLandingCopy = {
       about: "Tekirova, Kemer'in güneyinde Olympos-Beydağları Milli Parkı'nın sınırında yer alır. Bakımlı tesis alanlarını küçük koylarla birleştirir ve antik Phaselis'e yakındır.",
       routeDetails: "Yol Antalya Havalimanı'ndan Kemer üzerinden Tekirova'ya uzanır. Kıyı konumu ve mesafe doğrudan transferi mantıklı kılar: aktarma yapmadan ve başka misafirleri beklemeden otelinize varırsınız.",
     },
+    bogazkent: {
+      about: "Boğazkent, Belek ile Side arasındaki kıyıda, Serik ilçesinde yer alır. Büyük her şey dahil tesisler geniş bir kum plajının hemen kıyısında sıralanır, Belek'in golf sahaları da yalnızca birkaç dakika uzaktadır; bu yüzden hem aileler hem de golfçüler için sakin bir konaklama noktasıdır.",
+      routeDetails: "Antalya Havalimanı'ndan yol D400 üzerinden doğuya, Belek'i geçerek ilerler, ardından kıyıya döner. Yaklaşık 48 km ile bu listedeki kısa transferlerden biridir; özel araç sizi varış salonundan tesisinizin girişine, başka otellerde durmadan götürür.",
+    },
+    manavgat: {
+      about: "Manavgat, Side'nin doğusunda, aynı adı taşıyan nehrin kıyısında canlı bir ilçedir. Şelalesi, nehirde tekne turları ve haftalık pazarıyla bilinir; aynı zamanda bu kıyı şeridindeki tesislere açılan kapıdır. Bölge geniş olduğu için rezervasyon sırasında otelinizin tam adresini bildirmenizi rica ederiz.",
+      routeDetails: "Güzergâh Antalya Havalimanı'ndan D400 üzerinden doğuya doğru yaklaşık 75 km sürer. Yolculuk bir saat kadar tutar; doğrudan özel transfer, bu yoğun sahil yolunda grup servislerinin yaptığı ek otel duraklarından sizi kurtarır.",
+    },
+    bodrum: {
+      about: "Bodrum, Muğla ilinde Ege kıyısında yer alır; Haçlı kalesi, marinası ve yamaçlardaki beyaz evleriyle ünlüdür. Yarımada çevresinde Gümbet ve Bitez gibi hareketli semtlerin yanı sıra Yalıkavak, Türkbükü ve Gümüşlük'te daha sakin koylar bulunur.",
+      routeDetails: "Yaklaşık 380 km ile sunduğumuz en uzun yolculuklardan biridir ve rahat molalarla beş ila altı saat sürer. Özel araç, toplu taşımaya göre günü çok kolaylaştırır: indiğiniz anda yola çıkar, istediğiniz yerde mola verir ve yarımadadaki kendi otelinize varırsınız. Yolculuğu planlayabilmemiz için rezervasyonda otelinizi ve iniş saatinizi bildirin.",
+    },
+    dalaman: {
+      about: "Dalaman, Likya ve Karya kıyılarının kapısıdır. Havalimanı Sarıgerme ve Göcek gibi tatil yerlerine hizmet verir; yakındaki Dalyan ise nehir deltası, Kaunos kaya mezarları ve İztuzu kaplumbağa plajıyla tanınır.",
+      routeDetails: "Antalya Havalimanı'ndan 235 km'lik yol, kıvrımlı Likya sahil yolunu izler ve üç ile üç buçuk saat sürer. Araç başına sabit fiyat uzun yolculuğun bütçesini kolaylaştırır; özel araçla grubunuz dilediği zaman dinlenmek veya yemek yemek için durabilir.",
+    },
+    fethiye: {
+      about: "Fethiye, çam ormanlarıyla kaplı dağlarla çevrili geniş bir körfezde yer alır. Mavi lagünüyle Ölüdeniz'in, plajları ve gece hayatıyla Çalış'ın, daha sakin Hisarönü ve Kayaköy köylerinin çıkış noktasıdır. Birçok misafir ayrıca Babadağ'dan yamaç paraşütü ve On İki Ada tekne turları için gelir.",
+      routeDetails: "Antalya Havalimanı'ndan 205 km'lik yol Likya kıyısı boyunca Kumluca, Kaş ve Kalkan üzerinden geçer ve yaklaşık iki buçuk ile üç saat sürer. Yol virajlı ve manzaralıdır. Özel transferle Fethiye'de araç değiştirmeniz gerekmez; şoför sizi Ölüdeniz, Çalış veya Hisarönü'ndeki otelinize götürür.",
+    },
+    pamukkale: {
+      about: "Denizli ilindeki Pamukkale, beyaz travertenleri ve ılık termal havuzlarıyla tanınan bir UNESCO Dünya Mirası alanıdır. Üstteki tepede antik Hierapolis kenti; tiyatrosu, nekropolü ve ziyaretçilerin batık sütunlar arasında yüzebildiği antik havuzuyla yer alır.",
+      routeDetails: "Güzergâh kıyıdan ayrılır ve Toroslar ile yayla üzerinden Denizli yönüne, iç kesimlerde yaklaşık 245 km sürer; yolculuk üç ile üç buçuk saat kadar tutar. Özel araç bu yolculuğa çok uygundur: araç değiştirmezsiniz, yolda mola planlayabilirsiniz ve Pamukkale veya Karahayıt'taki otelinize doğrudan varırsınız.",
+    },
+    kapadokya: {
+      about: "İç Anadolu'daki Kapadokya, peri bacaları, kayaya oyulmuş kiliseleri ve yeraltı şehirleriyle bilinir. Gün doğarken Göreme, Uçhisar ve Ürgüp üzerinde sıcak hava balonları yükselir; birçok misafir kayaya oyulmuş bir otelde konaklar.",
+      routeDetails: "Yaklaşık 540 km ile yolculuk Akdeniz'den Toroslar'ı aşıp Anadolu platosunu geçer ve molalarla yedi ila sekiz saat sürer. Özel transfer bunun için rahat yoldur: grubunuz birlikte seyahat eder, şoför molaları sizinle birlikte planlar ve sizi mağara otelinizin girişine bırakır. Günü planlayabilmemiz için rezervasyonda uçuş numaranızı ve otelinizi bildirin.",
+    },
   },
 };

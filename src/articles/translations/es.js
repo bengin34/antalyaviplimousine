@@ -2931,5 +2931,309 @@ export const articles = {
         "No. El precio es fijo y completo. Unos euros por equipaje pesado o una llegada nocturna se agradecen, pero nunca se esperan."
       ]
     ]
+  },
+  "cop31-antalya-transport": {
+    "slug": "cop31-antalya-transporte-sede-guia",
+    "title": "Transporte COP31 Antalya: aeropuerto, lanzaderas y sede",
+    "heading": "Cómo llegar a la COP31 en Antalya: aeropuerto, lanzaderas y la sede del Expo",
+    "description": "Cómo llegar a la sede de la COP31 en el Antalya Expo Center: tiempos desde el aeropuerto, lanzaderas oficiales, pases de aparcamiento, taxis y conductor privado todo el día.",
+    "excerpt": "La COP31 se celebra del 9 al 20 de noviembre de 2026 en el Antalya Expo Center, en Aksu. Así llegan los delegados del aeropuerto y del hotel a la sede, y aquí es donde las lanzaderas oficiales se quedan cortas.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "La COP31 se celebra del 9 al 20 de noviembre de 2026 en el Antalya Expo Center, en Aksu, en el recinto construido para la EXPO 2016, al este de la ciudad y cerca del aeropuerto de Antalya. Decenas de miles de delegados, observadores y periodistas se mueven entre el aeropuerto, hoteles repartidos por 60 km de costa y una única sede. Esta guía cuenta cómo es ese trayecto diario sobre el terreno, escrita por una empresa de conductores de Antalya que recorre estas carreteras todos los días."
+      },
+      {
+        "type": "h2",
+        "text": "Dónde está la sede"
+      },
+      {
+        "type": "table",
+        "head": [
+          "",
+          "COP31 Antalya"
+        ],
+        "rows": [
+          [
+            "Sede",
+            "Antalya Expo Center, Aksu (recinto de la EXPO 2016)"
+          ],
+          [
+            "Fechas",
+            "9-20 de noviembre de 2026"
+          ],
+          [
+            "Aeropuerto",
+            "Aeropuerto de Antalya (AYT), unos 20-30 minutos por carretera"
+          ],
+          [
+            "Lanzaderas oficiales",
+            "Desde los hoteles oficiales, el aeropuerto y el centro hasta la sede"
+          ],
+          [
+            "Aparcamiento en la sede",
+            "Solo con pase de acceso de vehículos de la Presidencia de la COP31"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "El recinto del Expo está en la carretera principal de la costa entre Antalya y Belek. Es una buena noticia para quien se aloja en Lara, Kundu o Belek, y significa que el aeropuerto es uno de los puntos más cercanos a la sede, no el extremo más lejano del viaje."
+      },
+      {
+        "type": "h2",
+        "text": "Del aeropuerto de Antalya a la sede"
+      },
+      {
+        "type": "p",
+        "text": "La Presidencia de la COP31 sitúa el aeropuerto a unos 20-30 minutos de la sede. En el aeropuerto hay puntos de orientación para los participantes, y desde allí tienes cuatro formas de seguir:"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "La lanzadera oficial de la COP31 entre el aeropuerto y la sede.",
+          "Un taxi de las paradas señalizadas frente a las terminales.",
+          "Apps de VTC, allí donde operan.",
+          "Un traslado privado o un conductor esperándote en la sala de llegadas con tu nombre, con el vuelo controlado para que un retraso no cueste nada."
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Comprueba qué terminal usa tu vuelo antes de aterrizar: los vuelos internacionales llegan a la terminal 1 o a la terminal 2, y las conexiones vía Estambul llegan a la terminal doméstica. Nuestra guía de terminales explica la diferencia."
+      },
+      {
+        "type": "h2",
+        "text": "Lanzaderas oficiales: qué cubren y qué no"
+      },
+      {
+        "type": "p",
+        "text": "La Presidencia ofrece lanzaderas en tres rutas: de los hoteles oficiales a la sede, del aeropuerto a la sede y del centro de la ciudad a la sede. La información para participantes de la CMNUCC añade una condición importante: las paradas solo están previstas en hoteles reservados a través de la plataforma oficial de alojamiento de la COP31. Si te alojas en otro sitio, tendrás que llegar por tu cuenta a la parada más cercana o directamente a la sede."
+      },
+      {
+        "type": "p",
+        "text": "Los horarios y mapas de rutas se publicarán en cop31.tr/transportation cuando se acerque la conferencia. Revísalos antes de contar con una lanzadera para una plenaria temprana o una sesión de negociación que acaba tarde: un horario fijo y una cola de seguridad en cada extremo no siempre encajan con un día de COP."
+      },
+      {
+        "type": "h2",
+        "text": "Ir en coche a la sede: aparcamiento y bajada"
+      },
+      {
+        "type": "p",
+        "text": "Para aparcar en la sede hace falta un pase de acceso de vehículos, que se solicita en el sistema oficial de la Presidencia en vapp.cop31.tr. El aparcamiento accesible requiere un certificado de discapacidad válido. Sin pase, el coche te deja donde lo permite el plan de seguridad de la sede y se va, así que cuenta con un breve paseo hasta la entrada y el control de acreditación."
+      },
+      {
+        "type": "p",
+        "text": "Ahí está la ventaja de un conductor por día: te deja, espera cerca en lugar de dar vueltas alrededor de la sede y vuelve cuando le escribes, ya sea para comer fuera, para una bilateral en un hotel al otro lado de la ciudad o para el último coche tras una sesión que acaba tarde."
+      },
+      {
+        "type": "cop31",
+        "text": "Un Mercedes privado con conductor reservado para ti todo el día: 200 € por día con una Vito (hasta 6 pasajeros), 250 € con una Sprinter (hasta 16). Combustible incluido, sin límite de horas ni de kilómetros.",
+        "button": "Ver el paquete de conductor COP31"
+      },
+      {
+        "type": "h2",
+        "text": "Taxis y horas punta"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Hay taxis de sobra y funcionan con taxímetro; pide el recibo si vas a justificar gastos.",
+          "Las llegadas de la mañana a la sede y la salida de la tarde son los cuellos de botella. Deja margen antes de tu primera reunión, más aún los días en que hay jefes de Estado en la ciudad.",
+          "Cuenta con cortes de carretera y paradas por comitivas en torno a los días de la Cumbre de Líderes Mundiales, al principio de la conferencia.",
+          "Apunta la puerta de la sede que necesitas; los conductores conocen el recinto del Expo, pero las puertas cambian según el plan de seguridad."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Qué opción le conviene a cada delegado"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Si eres",
+          "Lo más adecuado"
+        ],
+        "rows": [
+          [
+            "Alojado en un hotel oficial, con agenda fija",
+            "Lanzadera oficial"
+          ],
+          [
+            "Alojado fuera de los hoteles oficiales",
+            "Taxi o conductor por día"
+          ],
+          [
+            "Ministro o jefe de delegación",
+            "Conductor por día, un vehículo siempre disponible"
+          ],
+          [
+            "Un equipo o un equipo de prensa con material",
+            "Sprinter con conductor, hasta 16 plazas"
+          ],
+          [
+            "Llegas de madrugada",
+            "Recogida privada con seguimiento del vuelo"
+          ]
+        ]
+      }
+    ],
+    "faq": [
+      [
+        "¿Dónde está la sede de la COP31 en Antalya?",
+        "En el Antalya Expo Center, en Aksu, el recinto de la EXPO 2016 al este del centro, en la carretera de la costa hacia Belek y cerca del aeropuerto de Antalya."
+      ],
+      [
+        "¿A qué distancia está la sede de la COP31 del aeropuerto de Antalya?",
+        "A unos 20-30 minutos por carretera, según la Presidencia de la COP31. Cuenta con más tiempo en hora punta y los días de la Cumbre de Líderes Mundiales."
+      ],
+      [
+        "¿Hay lanzaderas gratuitas a la sede de la COP31?",
+        "La Presidencia ofrece lanzaderas desde los hoteles oficiales, el aeropuerto y el centro. Las paradas solo están previstas en hoteles reservados a través de la plataforma oficial de alojamiento; los horarios se publicarán en cop31.tr cuando se acerquen las fechas."
+      ],
+      [
+        "¿Puede un coche privado entrar en la sede?",
+        "Para aparcar hace falta un pase de acceso de vehículos del sistema oficial en vapp.cop31.tr. Sin él, el coche te deja donde lo permite la seguridad y espera cerca."
+      ],
+      [
+        "¿Cuánto cuesta un conductor privado para la COP31?",
+        "Nuestro paquete COP31 es una tarifa diaria fija: 200 € con una Mercedes Vito, 250 € con una Sprinter, combustible incluido, sin límite de horas ni de kilómetros, pago en el vehículo."
+      ]
+    ]
+  },
+  "cop31-where-to-stay": {
+    "slug": "cop31-antalya-donde-alojarse-tiempos",
+    "title": "Dónde alojarse en la COP31 Antalya: zonas y trayectos",
+    "heading": "Dónde alojarse para la COP31: zonas de Antalya según el trayecto a la sede",
+    "description": "Lara, Kundu, el centro, Belek o más lejos: tiempos en coche desde cada zona de Antalya hasta la sede de la COP31 en el Antalya Expo Center y qué suponen para tu día.",
+    "excerpt": "La sede de la COP31 está entre Antalya y Belek. La zona en la que te alojes decide a qué hora sales, si la lanzadera para en tu puerta y cómo vuelves tras una sesión que acaba tarde.",
+    "readingMinutes": 5,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Casi todos los consejos de hoteles para la COP31 se limitan a listar hoteles. La pregunta que decide tus dos semanas es otra: ¿cuánto se tarda en coche desde tu cama hasta el Antalya Expo Center, en Aksu, por la mañana y por la noche, durante doce días? Aquí tienes la costa leída desde la sede hacia fuera."
+      },
+      {
+        "type": "h2",
+        "text": "Tiempos en coche hasta la sede"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Zona",
+          "Hasta la sede",
+          "Carácter"
+        ],
+        "rows": [
+          [
+            "Kundu",
+            "unos 15-25 min",
+            "Grandes resorts en la playa, la franja turística más cercana"
+          ],
+          [
+            "Lara",
+            "unos 20-30 min",
+            "Grandes hoteles, compras, entre la ciudad y la sede"
+          ],
+          [
+            "Zona del aeropuerto de Antalya",
+            "unos 20-30 min",
+            "Hoteles de negocios, llegada y salida sencillas"
+          ],
+          [
+            "Centro y Kaleiçi",
+            "unos 30-45 min",
+            "Restaurantes, casco antiguo, vida nocturna, más tráfico"
+          ],
+          [
+            "Belek",
+            "unos 25-35 min",
+            "Resorts de golf, tranquilo, al otro lado de la sede"
+          ],
+          [
+            "Side y Manavgat",
+            "unos 50-65 min",
+            "Resorts más al este, un trayecto diario largo"
+          ],
+          [
+            "Kemer",
+            "unos 70-90 min",
+            "Al oeste de la ciudad, hay que cruzar Antalya entera"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Son estimaciones de nuestros conductores con tráfico normal, basadas en las carreteras que usamos a diario, no cifras oficiales. La seguridad de la cumbre, las comitivas y la salida de la sede por la tarde añaden tiempo, sobre todo los primeros días."
+      },
+      {
+        "type": "h2",
+        "text": "Alojamiento oficial y la cuestión de las lanzaderas"
+      },
+      {
+        "type": "p",
+        "text": "La Presidencia de la COP31 reserva los hoteles oficiales a través de su plataforma de alojamiento y, según la información para participantes de la CMNUCC, las lanzaderas de la conferencia solo paran en esos hoteles. Si tu delegación ha reservado por su cuenta una villa, un apartamento o un hotel fuera de la plataforma, organiza el trayecto diario desde el primer día en lugar de descubrirlo en la primera plenaria de la mañana."
+      },
+      {
+        "type": "h2",
+        "text": "Lara y Kundu: lo más cerca de la sede"
+      },
+      {
+        "type": "p",
+        "text": "Lara y Kundu están entre la ciudad y el recinto del Expo, así que el trayecto de la mañana es corto y va en sentido contrario al tráfico de la ciudad. Los hoteles son grandes, lo que ayuda a una delegación que quiere a todo el mundo bajo el mismo techo, y el aeropuerto queda cerca para llegadas a horas intempestivas."
+      },
+      {
+        "type": "h2",
+        "text": "El centro: para cenar, no para ir y venir"
+      },
+      {
+        "type": "p",
+        "text": "Alojarse en el centro deja restaurantes, Kaleiçi y eventos paralelos a un paseo, a cambio del trayecto urbano más largo hasta la sede. La lanzadera oficial desde el centro ayuda, pero sus paradas y horarios deciden tu día. Un coche disponible es lo que hace que un hotel en la ciudad funcione para un jefe de delegación."
+      },
+      {
+        "type": "h2",
+        "text": "Belek, Side y Kemer: más lejos"
+      },
+      {
+        "type": "p",
+        "text": "Belek es la opción tranquila al otro lado de la sede, con un trayecto comparable al del centro pero sin el tráfico urbano. Side y Kemer suponen un desplazamiento real dos veces al día; encajan con una delegación de horario fijo y vehículo propio, no con quien puede ser llamado de vuelta por un texto de última hora."
+      },
+      {
+        "type": "cop31",
+        "text": "¿Te alojas fuera de la red de lanzaderas? Un Mercedes con conductor reservado para ti todo el día, de tu hotel a la sede y de vuelta: 200 € por día (Vito, hasta 6 pasajeros), 250 € (Sprinter, hasta 16). Combustible incluido.",
+        "button": "Reservar conductor para la COP31"
+      },
+      {
+        "type": "h2",
+        "text": "Un plan diario que funciona"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Deja 30 minutos de margen antes de tu primera reunión fija, además del tiempo de trayecto.",
+          "Acuerda la noche anterior el punto de recogida y la puerta de la sede.",
+          "Reserva un vehículo para el jefe de delegación y mueve al equipo en una Sprinter.",
+          "Indica los números de vuelo en la reserva para que los días de llegada y salida no necesiten un traslado aparte."
+        ]
+      }
+    ],
+    "faq": [
+      [
+        "¿Qué zona está más cerca de la sede de la COP31?",
+        "Kundu y Lara, ambas entre la ciudad de Antalya y el Antalya Expo Center en Aksu, a unos 15-30 minutos con tráfico normal."
+      ],
+      [
+        "¿Es Belek una buena base para la COP31?",
+        "Sí, si tienes coche: Belek está a unos 25-35 minutos de la sede, en el lado opuesto a la ciudad, con resorts tranquilos."
+      ],
+      [
+        "¿Paran las lanzaderas de la COP31 en todos los hoteles?",
+        "No. Según la información para participantes de la CMNUCC, las paradas solo están previstas en hoteles reservados a través de la plataforma oficial de alojamiento de la COP31."
+      ],
+      [
+        "¿Cuánto se tarda en coche del centro de Antalya a la sede de la COP31?",
+        "Unos 30-45 minutos según el tráfico y el punto del centro del que salgas, más a la hora de salida de la sede por la tarde."
+      ]
+    ]
   }
 };

@@ -65,7 +65,7 @@ export interface Booking {
   departure_flight_number: string | null
   fuel_terms_accepted_at: string | null
   guests: number
-  vehicle_type: 'vclass' | 'vito'
+  vehicle_type: 'vclass' | 'vito' | 'lux_lounge' | 'lux_sprinter' | 'maybach'
   service_cost_mode: 'own_vehicle' | 'sold_transfer' | 'no_cost'
   sold_transfer_cost_try: number | string | null
   return_service_cost_mode?: 'own_vehicle' | 'sold_transfer' | 'no_cost' | null
