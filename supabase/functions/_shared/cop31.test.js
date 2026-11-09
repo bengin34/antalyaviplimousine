@@ -3,7 +3,7 @@ import { COP31_DAILY_RATE_EUR, isCop31Period, transferFare } from './cop31.js'
 
 describe('COP31 package', () => {
   it('charges the published day rates', () => {
-    expect(COP31_DAILY_RATE_EUR).toEqual({ vito: 200, vclass: 250 })
+    expect(COP31_DAILY_RATE_EUR).toEqual({ vito: 300, vclass: 400 })
   })
 
   it('takes hires inside the window, including arrival and departure days', () => {

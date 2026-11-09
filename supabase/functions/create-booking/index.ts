@@ -473,7 +473,7 @@ Deno.serve(async (req) => {
       flight_arrival_time: payload.flight_arrival_time || null,
       // shortcut: the package is marked in notes rather than its own column;
       // add a `service_package` column if more event packages follow.
-      notes: isCop31 ? `[COP31 package: fuel included]${notes ? ` ${notes}` : ''}` : luxVehicle ? `[${luxVehicle.name}: confirm availability]${notes ? ` ${notes}` : ''}` : notes || null,
+      notes: isCop31 ? `[COP31 package: fuel included, confirm availability]${notes ? ` ${notes}` : ''}` : luxVehicle ? `[${luxVehicle.name}: confirm availability]${notes ? ` ${notes}` : ''}` : notes || null,
       pickup_location: pickupLocation,
       pickup_address: pickupAddress || null,
       pickup_time: pickupTime || null,
@@ -502,7 +502,7 @@ Deno.serve(async (req) => {
       price_eur: priceEur,
       // Short-notice excursions are taken but confirmed by the operator.
       // An Ultra Lux hire is a request until the operator confirms the vehicle is free.
-      status: luxVehicle || requiresManualPricing || landOfLegendsNeedsQuote || hotelToHotelNeedsQuote || airportReturnNeedsQuote || landOfLegendsNoticeLevel === 'short' ? 'pending' : 'confirmed',
+      status: isCop31 || luxVehicle || requiresManualPricing || landOfLegendsNeedsQuote || hotelToHotelNeedsQuote || airportReturnNeedsQuote || landOfLegendsNoticeLevel === 'short' ? 'pending' : 'confirmed',
       payment_method: paymentMethod,
       language: String(payload.language || 'en'),
       utm_source: payload.utm_source ? String(payload.utm_source).slice(0, 100) : null,

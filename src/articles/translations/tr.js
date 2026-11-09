@@ -3318,7 +3318,7 @@ export const articles = {
       },
       {
         "type": "cop31",
-        "text": "Tüm gün size ayrılmış şoförlü özel bir Mercedes: Vito için günlük 200 € (6 kişiye kadar), Sprinter için 250 € (16 kişiye kadar). Yakıt dahil, saat ve kilometre sınırı yok.",
+        "text": "Tüm gün size ayrılmış şoförlü özel bir Mercedes: Vito için günlük 300 €'den (6 kişiye kadar), Sprinter için 400 €'den (16 kişiye kadar). Yakıt dahil, saat ve kilometre sınırı yok.",
         "button": "COP31 şoför paketini inceleyin"
       },
       {
@@ -3387,7 +3387,7 @@ export const articles = {
       ],
       [
         "COP31 için özel şoför ne kadar?",
-        "COP31 paketimiz sabit günlük ücretli: Mercedes Vito için 200 €, Sprinter için 250 €; yakıt dahil, saat ve kilometre sınırı yok, ödeme araçta."
+        "COP31 paketimiz günlük ücretli: Mercedes Vito için 300 €'den, Sprinter için 400 €'den; yakıt dahil, saat ve kilometre sınırı yok, ödeme araçta."
       ]
     ]
   },
@@ -3490,7 +3490,7 @@ export const articles = {
       },
       {
         "type": "cop31",
-        "text": "Servis ağının dışında mı kalıyorsunuz? Otelinizden alana ve geri, tüm gün size ayrılmış şoförlü bir Mercedes: günlük 200 € (Vito, 6 kişiye kadar), 250 € (Sprinter, 16 kişiye kadar). Yakıt dahil.",
+        "text": "Servis ağının dışında mı kalıyorsunuz? Otelinizden alana ve geri, tüm gün size ayrılmış şoförlü bir Mercedes: günlük 300 €'den (Vito, 6 kişiye kadar), 400 €'den (Sprinter, 16 kişiye kadar). Yakıt dahil.",
         "button": "COP31 şoförü ayırtın"
       },
       {

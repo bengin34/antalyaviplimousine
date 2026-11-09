@@ -3028,7 +3028,7 @@ export const articles = {
       },
       {
         "type": "cop31",
-        "text": "Um Mercedes privado com motorista reservado para si o dia inteiro: 200 € por dia numa Vito (até 6 passageiros), 250 € numa Sprinter (até 16). Combustível incluído, sem limite de horas nem de quilómetros.",
+        "text": "Um Mercedes privado com motorista reservado para si o dia inteiro: desde 300 € por dia numa Vito (até 6 passageiros), desde 400 € numa Sprinter (até 16). Combustível incluído, sem limite de horas nem de quilómetros.",
         "button": "Ver o pacote de motorista COP31"
       },
       {
@@ -3097,7 +3097,7 @@ export const articles = {
       ],
       [
         "Quanto custa um motorista privado para a COP31?",
-        "O nosso pacote COP31 é uma tarifa diária fixa: 200 € numa Mercedes Vito, 250 € numa Sprinter, combustível incluído, sem limite de horas nem de quilómetros, pago no veículo."
+        "O nosso pacote COP31 é uma tarifa diária: desde 300 € numa Mercedes Vito, desde 400 € numa Sprinter, combustível incluído, sem limite de horas nem de quilómetros, pago no veículo."
       ]
     ]
   },
@@ -3200,7 +3200,7 @@ export const articles = {
       },
       {
         "type": "cop31",
-        "text": "Fica fora da rede de shuttles? Um Mercedes com motorista reservado para si o dia inteiro, do seu hotel ao recinto e de volta: 200 € por dia (Vito, até 6 passageiros), 250 € (Sprinter, até 16). Combustível incluído.",
+        "text": "Fica fora da rede de shuttles? Um Mercedes com motorista reservado para si o dia inteiro, do seu hotel ao recinto e de volta: desde 300 € por dia (Vito, até 6 passageiros), desde 400 € (Sprinter, até 16). Combustível incluído.",
         "button": "Reservar motorista para a COP31"
       },
       {

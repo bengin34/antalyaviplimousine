@@ -3037,7 +3037,7 @@ export const articles = {
       },
       {
         "type": "cop31",
-        "text": "Soukromý Mercedes s řidičem vyhrazený pro vás na celý den: 200 € za den za Vito (až 6 osob), 250 € za Sprinter (až 16). Palivo v ceně, bez omezení hodin a kilometrů.",
+        "text": "Soukromý Mercedes s řidičem vyhrazený pro vás na celý den: od 300 € za den za Vito (až 6 osob), od 400 € za Sprinter (až 16). Palivo v ceně, bez omezení hodin a kilometrů.",
         "button": "Zobrazit balíček s řidičem na COP31"
       },
       {
@@ -3106,7 +3106,7 @@ export const articles = {
       ],
       [
         "Kolik stojí soukromý řidič na COP31?",
-        "Náš balíček COP31 je pevná denní sazba: 200 € za Mercedes Vito, 250 € za Sprinter, palivo v ceně, bez omezení hodin a kilometrů, platba ve voze."
+        "Náš balíček COP31 má denní sazbu: od 300 € za Mercedes Vito, od 400 € za Sprinter, palivo v ceně, bez omezení hodin a kilometrů, platba ve voze."
       ]
     ]
   },
@@ -3209,7 +3209,7 @@ export const articles = {
       },
       {
         "type": "cop31",
-        "text": "Bydlíte mimo síť shuttle? Mercedes s řidičem vyhrazený pro vás na celý den, z hotelu do areálu a zpět: 200 € za den (Vito, až 6 osob), 250 € (Sprinter, až 16). Palivo v ceně.",
+        "text": "Bydlíte mimo síť shuttle? Mercedes s řidičem vyhrazený pro vás na celý den, z hotelu do areálu a zpět: od 300 € za den (Vito, až 6 osob), od 400 € (Sprinter, až 16). Palivo v ceně.",
         "button": "Rezervovat řidiče na COP31"
       },
       {

@@ -76,7 +76,7 @@ export function Cop31Page({ language }: { language: Cop31Language }) {
                 <div className="cop-car-in">
                   <p className="cop-car-tag">{car.tag}</p>
                   <h3>{car.name}</h3>
-                  <p className="cop-price"><strong>{copy.price(cop31DailyRate(car.id))}</strong><span>{copy.perDay}</span></p>
+                  <p className="cop-price"><strong>{copy.from(copy.price(cop31DailyRate(car.id)))}</strong><span>{copy.perDay}</span></p>
                   <ul>{car.features.map((feature) => <li key={feature}>{feature}</li>)}</ul>
                   <a className="cop-btn cop-btn-gold" href="#cop-booking" onClick={() => { setVehicle(car.id); track("vehicle_selected", { route: "cop31", vehicle: car.id }); }}>{copy.reserve(car.name)}</a>
                 </div>

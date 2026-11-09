@@ -224,6 +224,17 @@
 .cop-total strong { display: block; font-family: var(--serif); font-size: 2.6rem; font-weight: 400; line-height: 1.1; }
 .cop-total div span { color: #6b6a62; font-size: 0.9rem; }
 .cop-total ul { margin: 0; padding: 0; list-style: none; color: #4a4943; font-size: 0.9rem; line-height: 1.8; }
+/* UltraLuxPicker is styled for the dark booking form; repaint it for paper. */
+.cop-form .ultra-lux { margin: 0; border-top-color: #d9d4c7; }
+.cop-form .ultra-lux h3 { color: var(--ink); }
+.cop-form .ultra-lux-note, .cop-form .ultra-lux-select, .cop-form .ultra-lux-price small { color: #6b6a62; }
+.cop-form .ultra-lux-card { border-color: #d9d4c7; background: #fff; }
+.cop-form .ultra-lux-card.selected { border-color: var(--ink); box-shadow: 0 0 0 1px var(--ink); }
+.cop-form .ultra-lux-select strong { color: var(--ink); }
+.cop-form .ultra-lux-price { color: var(--gold-dark); }
+.cop-form .ultra-lux-photos:focus-visible, .cop-form .ultra-lux-select:focus-visible { outline-color: var(--gold-dark); }
+.cop-fuel-row { display: flex; align-items: flex-start; gap: 10px; color: var(--ink); font-size: 0.9rem; font-weight: 400; letter-spacing: 0; text-transform: none; }
+.cop-form .booking-field > .cop-fuel-row { color: var(--ink); font-size: 0.9rem; letter-spacing: 0; text-transform: none; }
 .cop-form-footer { display: flex; flex-wrap: wrap; align-items: center; gap: 18px 28px; margin-block-start: 6px; }
 .cop-book .cop-btn-gold { background: var(--ink); color: var(--gold-light); }
 .cop-book .cop-btn-line { border-color: #cfc9ba; color: var(--ink); }

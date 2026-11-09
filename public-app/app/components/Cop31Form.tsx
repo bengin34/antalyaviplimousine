@@ -5,9 +5,10 @@ import { routeCatalog } from "../../../src/routes.js";
 import { turkeyToday } from "../../../supabase/functions/_shared/land-of-legends-rules.js";
 import { HotelCombobox } from "./HotelCombobox";
 import { Icon } from "./Icon";
+import { UltraLuxPicker } from "./UltraLuxPicker";
 import { LazyPhoneInput, preloadPhoneInput } from "./LazyPhoneInput";
 import { loadedHotelData, preloadHotelData, type IndexedHotel } from "../lib/hotel-data";
-import { VITO_MAX_GUESTS } from "../lib/booking";
+import { ultraLuxOf, VITO_MAX_GUESTS } from "../lib/booking";
 import {
   buildCop31Payload,
   cop31DailyRate,
@@ -16,6 +17,7 @@ import {
   COP31_FIRST_DAY,
   COP31_LAST_DAY,
   COP31_SPRINTER_MAX_GUESTS,
+  type Cop31FormVehicle,
   type Cop31Values,
   type Cop31Vehicle,
 } from "../lib/cop31";
@@ -55,7 +57,7 @@ export function Cop31Form({ language, vehicle: requestedVehicle }: { language: C
     resolver: zodResolver(schema),
     defaultValues: {
       vehicle: "vito", startDate: "2026-11-09", endDate: "2026-11-13", startTime: "08:00",
-      hotelName: "", guests: "2", customerName: "", customerPhone: "", customerEmail: "", notes: "",
+      hotelName: "", guests: "2", customerName: "", customerPhone: "", customerEmail: "", notes: "", fuelAccepted: false,
     },
   });
   const values = watch();
@@ -83,6 +85,9 @@ export function Cop31Form({ language, vehicle: requestedVehicle }: { language: C
 
   const quote = cop31Quote(values.vehicle, values.startDate, values.endDate);
   const rate = copy.price(cop31DailyRate(values.vehicle));
+  const lux = ultraLuxOf(values.vehicle);
+  const vehicleName = (vehicle: Cop31FormVehicle) =>
+    ultraLuxOf(vehicle)?.name ?? (vehicle === "sprinter" ? copy.sprinter : copy.vito);
 
   useEffect(() => {
     if (!confirmation) return;
@@ -116,8 +121,8 @@ export function Cop31Form({ language, vehicle: requestedVehicle }: { language: C
         `🏨 Hotel: ${formValues.hotelName}`,
         `📅 ${formValues.startDate} → ${formValues.endDate} (${days})`,
         `🕐 Daily start: ${formValues.startTime}`,
-        `👥 ${formValues.guests} · ${formValues.vehicle === "sprinter" ? "Mercedes Sprinter" : "Mercedes Vito"}`,
-        `💶 €${confirmedPrice} (fuel included)`,
+        `👥 ${formValues.guests} · ${ultraLuxOf(formValues.vehicle)?.name ?? (formValues.vehicle === "sprinter" ? "Mercedes Sprinter" : "Mercedes Vito")}`,
+        `💶 €${confirmedPrice} (fuel ${ultraLuxOf(formValues.vehicle) ? "excluded" : "included"})`,
       ];
       setConfirmation({
         ref: booking.booking_ref,
@@ -154,14 +159,14 @@ export function Cop31Form({ language, vehicle: requestedVehicle }: { language: C
           <div><dt>{copy.hotelLabel}</dt><dd>{booked.hotelName}</dd></div>
           <div><dt>{copy.periodLabel}</dt><dd>{booked.startDate} → {booked.endDate} · {copy.totalDays(confirmation.days, copy.price(cop31DailyRate(booked.vehicle)))}</dd></div>
           <div><dt>{copy.timeLabel}</dt><dd>{booked.startTime}</dd></div>
-          <div><dt>{copy.vehicleLabel}</dt><dd>{booked.vehicle === "sprinter" ? copy.sprinter : copy.vito} · {booked.guests}</dd></div>
-          <div><dt>{copy.totalLabel}</dt><dd>{copy.price(confirmation.price)}</dd></div>
+          <div><dt>{copy.vehicleLabel}</dt><dd>{vehicleName(booked.vehicle)} · {booked.guests}</dd></div>
+          <div><dt>{copy.totalLabel}</dt><dd>{copy.from(copy.price(confirmation.price))}</dd></div>
         </dl>
         <div className="cop-confirmation-actions">
           <a className="cop-btn cop-btn-gold" href={confirmation.whatsapp} target="_blank" rel="noreferrer" onClick={() => track("whatsapp_clicked", { route: "cop31" })}>
             <Icon name="whatsapp" className="icon" /><span>{copy.whatsappCta}</span>
           </a>
-          <button type="button" className="cop-btn cop-btn-line" onClick={() => { setConfirmation(null); reset({ ...values, hotelName: "", customerName: "", customerPhone: "", customerEmail: "", notes: "" }); }}>{copy.newBooking}</button>
+          <button type="button" className="cop-btn cop-btn-line" onClick={() => { setConfirmation(null); reset({ ...values, fuelAccepted: false, hotelName: "", customerName: "", customerPhone: "", customerEmail: "", notes: "" }); }}>{copy.newBooking}</button>
         </div>
       </div>
     );
@@ -175,10 +180,16 @@ export function Cop31Form({ language, vehicle: requestedVehicle }: { language: C
           <label key={option} className={`cop-vehicle${values.vehicle === option ? " is-selected" : ""}`}>
             <input type="radio" value={option} disabled={option === "vito" && guests > VITO_MAX_GUESTS} {...register("vehicle")} />
             <strong>{option === "sprinter" ? copy.sprinter : copy.vito}</strong>
-            <span>{copy.price(cop31DailyRate(option))} <small>{copy.perDay}</small></span>
+            <span>{copy.from(copy.price(cop31DailyRate(option)))} <small>{copy.perDay}</small></span>
           </label>
         ))}
       </fieldset>
+      <UltraLuxPicker
+        language={language}
+        selected={values.vehicle}
+        formatPrice={(eur) => copy.from(copy.price(eur))}
+        onSelect={(vehicle) => setValue("vehicle", vehicle, { shouldValidate: true })}
+      />
 
       <div className="cop-grid">
         <label className={fieldClass(errors.startDate)}>
@@ -247,14 +258,25 @@ export function Cop31Form({ language, vehicle: requestedVehicle }: { language: C
         <div className="field-control"><input id="cop-notes" maxLength={300} placeholder={copy.notesPlaceholder} {...register("notes")} /></div>
       </label>
 
+      {lux && (
+        <label className="booking-field cop-wide cop-fuel">
+          <span className="cop-fuel-row">
+            <input type="checkbox" {...register("fuelAccepted")} {...fieldStatus("fuelAccepted", errors.fuelAccepted)} />
+            {copy.luxFuelTerms}
+          </span>
+          <ErrorText name="fuelAccepted" error={errors.fuelAccepted} />
+        </label>
+      )}
+
       <div className="cop-total" aria-live="polite">
         <div>
           <small>{copy.totalLabel}</small>
-          <strong>{copy.price(quote.price)}</strong>
+          <strong>{quote.price > 0 ? copy.from(copy.price(quote.price)) : copy.price(0)}</strong>
           <span>{quote.days > 0 ? copy.totalDays(quote.days, rate) : ""}</span>
         </div>
         <ul>
-          <li>{copy.totalIncludes}</li>
+          <li>{lux ? copy.luxIncludes : copy.totalIncludes}</li>
+          <li>{copy.availabilityNote}</li>
           <li>{copy.payInCar}</li>
         </ul>
       </div>
