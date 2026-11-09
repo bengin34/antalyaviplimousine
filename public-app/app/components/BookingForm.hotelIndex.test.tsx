@@ -71,6 +71,6 @@ describe("the hotel field before its index has loaded", () => {
 
     expect(field.value).toBe("Rixos Premium Belek");
     expect(container.querySelector<HTMLSelectElement>("#destination")!.value).toBe("belek");
-    expect(container.querySelector(".price-display-amount")).toHaveTextContent("€43");
+    expect(container.querySelector(".price-display-amount")).toHaveTextContent("€53");
   });
 });

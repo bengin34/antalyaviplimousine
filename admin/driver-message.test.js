@@ -238,3 +238,15 @@ test('the guest phone reaches the driver in dialable form', () => {
   expect(buildDriverTransferMessage({ ...hotelToHotel, customer_phone: '' }))
     .toContain('📞 Telefon: —')
 })
+
+test('multi-day daily hire expands per day and messages show the whole period', () => {
+  const booking = {
+    booking_ref: 'D1', trip_type: 'daily_chauffeur', status: 'confirmed', pickup_location: 'airport',
+    pickup_date: '2026-12-01', service_end_date: '2026-12-04', pickup_time: '09:00',
+    vehicle_type: 'vito', guests: 3, customer_name: 'A', customer_phone: '+905551112233',
+  }
+  const cards = expandRoundTrips([booking])
+  expect(cards.map(c => c._displayDate)).toEqual(['2026-12-01', '2026-12-02', '2026-12-03', '2026-12-04'])
+  expect(buildDriverTransferMessage(booking)).toContain('4 gün')
+  expect(buildDriverDailyProgram([cards[1]], '2026-12-02')).toContain('2/4')
+})
