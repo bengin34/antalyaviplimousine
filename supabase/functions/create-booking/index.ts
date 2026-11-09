@@ -9,6 +9,7 @@ import {
   turkeyToday,
 } from '../_shared/land-of-legends-rules.js'
 import { COP31_DAILY_RATE_EUR, COP31_SPRINTER_MAX_GUESTS, isCop31Period } from '../_shared/cop31.js'
+import { ultraLux } from '../_shared/ultra-lux.js'
 
 const corsHeaders = {
   'Access-Control-Allow-Origin': '*',
@@ -234,7 +235,8 @@ Deno.serve(async (req) => {
     // Same boot-space model as the public form: a golf bag takes two bag
     // spaces, a stroller one, and a Vito holds guests + bags up to 11.
     const vitoUnits = guestCount + luggageCount + golfBagCount * 2 + strollerCount
-    const vehicleCapacity = vehicleType === 'vclass' ? (isCop31 ? COP31_SPRINTER_MAX_GUESTS + 1 : 13) : 7
+    const luxVehicle = ultraLux(vehicleType)
+    const vehicleCapacity = luxVehicle?.maxGuests ?? (vehicleType === 'vclass' ? (isCop31 ? COP31_SPRINTER_MAX_GUESTS + 1 : 13) : 7)
 
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(customerEmail) || customerEmail.length > 120) {
       return jsonResponse({ error: 'A valid customer_email is required' }, 400)
@@ -269,7 +271,8 @@ Deno.serve(async (req) => {
     if (!['airport', 'hotel', 'private_address'].includes(pickupLocation)) {
       return jsonResponse({ error: 'pickup_location is invalid' }, 400)
     }
-    if (!['vito', 'vclass'].includes(vehicleType)) {
+    // Ultra Lux vehicles are hired by the day only, and never on the COP31 package.
+    if (luxVehicle ? !isDailyChauffeur || isCop31 : !['vito', 'vclass'].includes(vehicleType)) {
       return jsonResponse({ error: 'vehicle_type is invalid' }, 400)
     }
     if (paymentMethod !== 'cash') {
@@ -305,6 +308,10 @@ Deno.serve(async (req) => {
     }
     if (!Number.isInteger(strollerCount) || strollerCount < 0 || strollerCount > 3) {
       return jsonResponse({ error: 'stroller_count is invalid' }, 400)
+    }
+    // A saloon boot: three bag spaces, the same rule the public form applies.
+    if (vehicleType === 'maybach' && vitoUnits - guestCount > 3) {
+      return jsonResponse({ error: 'luggage exceeds the selected vehicle capacity' }, 400)
     }
     if (vehicleType === 'vito' && vitoUnits > 11) {
       return jsonResponse({ error: 'luggage exceeds the selected vehicle capacity' }, 400)
@@ -374,6 +381,9 @@ Deno.serve(async (req) => {
       else landOfLegendsNeedsQuote = true
     } else if (isCop31) {
       dailyRateEur = COP31_DAILY_RATE_EUR[vehicleType as keyof typeof COP31_DAILY_RATE_EUR]
+      priceEur = dailyRateEur * hireDayCount
+    } else if (luxVehicle) {
+      dailyRateEur = luxVehicle.dailyRateEur
       priceEur = dailyRateEur * hireDayCount
     } else if (isDailyChauffeur) {
       const { data: rate, error: rateError } = await supabase
@@ -459,7 +469,7 @@ Deno.serve(async (req) => {
       flight_arrival_time: payload.flight_arrival_time || null,
       // shortcut: the package is marked in notes rather than its own column;
       // add a `service_package` column if more event packages follow.
-      notes: isCop31 ? `[COP31 package: fuel included]${notes ? ` ${notes}` : ''}` : notes || null,
+      notes: isCop31 ? `[COP31 package: fuel included]${notes ? ` ${notes}` : ''}` : luxVehicle ? `[${luxVehicle.name}: confirm availability]${notes ? ` ${notes}` : ''}` : notes || null,
       pickup_location: pickupLocation,
       pickup_address: pickupAddress || null,
       pickup_time: pickupTime || null,
@@ -487,7 +497,8 @@ Deno.serve(async (req) => {
       vehicle_type: vehicleType,
       price_eur: priceEur,
       // Short-notice excursions are taken but confirmed by the operator.
-      status: requiresManualPricing || landOfLegendsNeedsQuote || hotelToHotelNeedsQuote || airportReturnNeedsQuote || landOfLegendsNoticeLevel === 'short' ? 'pending' : 'confirmed',
+      // An Ultra Lux hire is a request until the operator confirms the vehicle is free.
+      status: luxVehicle || requiresManualPricing || landOfLegendsNeedsQuote || hotelToHotelNeedsQuote || airportReturnNeedsQuote || landOfLegendsNoticeLevel === 'short' ? 'pending' : 'confirmed',
       payment_method: paymentMethod,
       language: String(payload.language || 'en'),
       utm_source: payload.utm_source ? String(payload.utm_source).slice(0, 100) : null,
@@ -592,7 +603,7 @@ Deno.serve(async (req) => {
                     ${isDailyChauffeur ? `<tr><td style="padding:6px 12px;color:#777">Hire period</td><td style="padding:6px 12px"><strong>${escapeHtml(booking.pickup_date)} – ${escapeHtml(booking.service_end_date)} (${escapeHtml(hireDayCount)} days)</strong></td></tr>
                     <tr><td style="padding:6px 12px;color:#777">Departure flight</td><td style="padding:6px 12px">${escapeHtml(booking.departure_flight_date || 'Not provided')} ${escapeHtml(booking.departure_flight_time || '')} ${escapeHtml(booking.departure_flight_number || '')}</td></tr>
                     <tr><td style="padding:6px 12px;color:#777">Fuel terms</td><td style="padding:6px 12px"><strong>${isCop31 ? 'COP31 package — fuel is included in the day rate' : 'Accepted — fuel is excluded and paid separately by the customer'}</strong></td></tr>` : ''}
-                    <tr><td style="padding:6px 12px;color:#777">Guests / vehicle</td><td style="padding:6px 12px">${escapeHtml(booking.guests)} / ${escapeHtml(booking.vehicle_type)}</td></tr>
+                    <tr><td style="padding:6px 12px;color:#777">Guests / vehicle</td><td style="padding:6px 12px">${escapeHtml(booking.guests)} / ${escapeHtml(luxVehicle ? `${luxVehicle.name} — availability to confirm` : booking.vehicle_type)}</td></tr>
                     <tr><td style="padding:6px 12px;color:#777">Price</td><td style="padding:6px 12px"><strong>${escapeHtml(bookingPriceDisplay)}</strong></td></tr>
                     <tr><td style="padding:6px 12px;color:#777">Payment</td><td style="padding:6px 12px"><strong>Cash in vehicle</strong></td></tr>
                   </table>

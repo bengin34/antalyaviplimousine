@@ -3221,5 +3221,309 @@ export const articles = {
         "No. The price is fixed and complete. A few euros for help with heavy luggage or a night arrival is appreciated but never expected."
       ]
     ]
+  },
+  "cop31-antalya-transport": {
+    "slug": "cop31-antalya-transport-venue-guide",
+    "title": "COP31 Antalya Transport: Airport, Shuttles and the Venue",
+    "heading": "Getting to COP31 in Antalya: airport, shuttles and the Expo venue",
+    "description": "How to reach the COP31 venue at Antalya Expo Center: airport times, official shuttles, venue parking passes, taxis and a private chauffeur for the whole day.",
+    "excerpt": "COP31 runs 9-20 November 2026 at the Antalya Expo Center in Aksu. Here is how delegates get from the airport and their hotel to the venue, and where the official shuttles stop short.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "COP31 runs from 9 to 20 November 2026 at the Antalya Expo Center in Aksu, on the site built for EXPO 2016, east of the city and close to Antalya Airport. Tens of thousands of delegates, observers and journalists move between the airport, hotels spread along 60 km of coast and one venue. This guide is the ground truth for that daily trip, written by an Antalya chauffeur company that drives these roads every day."
+      },
+      {
+        "type": "h2",
+        "text": "Where the venue is"
+      },
+      {
+        "type": "table",
+        "head": [
+          "",
+          "COP31 Antalya"
+        ],
+        "rows": [
+          [
+            "Venue",
+            "Antalya Expo Center, Aksu (EXPO 2016 site)"
+          ],
+          [
+            "Dates",
+            "9-20 November 2026"
+          ],
+          [
+            "Airport",
+            "Antalya Airport (AYT), about 20-30 minutes by road"
+          ],
+          [
+            "Official shuttles",
+            "Official hotels, the airport and the city centre to the venue"
+          ],
+          [
+            "Venue parking",
+            "Only with a vehicle access pass from the COP31 Presidency"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "The Expo site sits on the main coastal road between Antalya and Belek. That is good news for anyone staying in Lara, Kundu or Belek, and it means the airport is one of the closest points to the venue rather than the far end of the trip."
+      },
+      {
+        "type": "h2",
+        "text": "From Antalya Airport to the venue"
+      },
+      {
+        "type": "p",
+        "text": "The COP31 Presidency puts the airport about 20-30 minutes from the venue. Arrival guidance for participants is set up at the airport, and you have four ways on:"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Official COP31 shuttle between the airport and the venue.",
+          "Taxi from the designated ranks outside the terminals.",
+          "Ride-hailing apps, where they operate.",
+          "A private transfer or chauffeur waiting in the arrivals hall with your name, the flight tracked so a delay costs nothing."
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Check which terminal your flight uses before you land: international flights use Terminal 1 or Terminal 2, and connections through Istanbul arrive at the domestic terminal. Our terminal guide explains the difference."
+      },
+      {
+        "type": "h2",
+        "text": "Official shuttles: what they cover and what they do not"
+      },
+      {
+        "type": "p",
+        "text": "The Presidency runs dedicated shuttles on three routes: official hotels to the venue, the airport to the venue and the city centre to the venue. The UNFCCC participant information adds a condition that matters: shuttle stops are planned only at hotels booked through the official COP31 accommodation platform. Stay anywhere else and you get yourself to the nearest stop, or straight to the venue."
+      },
+      {
+        "type": "p",
+        "text": "Schedules and route maps are published on cop31.tr/transportation closer to the conference. Look at them before you rely on a shuttle for an early plenary or a late negotiating session: a fixed timetable and a security queue at each end do not always fit a COP day."
+      },
+      {
+        "type": "h2",
+        "text": "Driving to the venue: parking and drop-off"
+      },
+      {
+        "type": "p",
+        "text": "Parking at the venue needs a vehicle access pass, applied for through the Presidency's official system at vapp.cop31.tr. Accessible parking needs a valid disability certificate. Without a pass, a car drops you where the venue's security plan allows and leaves, so expect a short walk to the entrance and the badge check."
+      },
+      {
+        "type": "p",
+        "text": "That is the case for a full-day chauffeur: the driver drops you, waits nearby instead of circling the venue, and is back when you message, whether that is for a lunch off-site, a bilateral in a hotel across town or the last car after a late session."
+      },
+      {
+        "type": "cop31",
+        "text": "A private Mercedes and driver held for you all day: €200 per day for a Vito (up to 6 guests), €250 for a Sprinter (up to 16). Fuel included, no hour or kilometre limit.",
+        "button": "See the COP31 chauffeur package"
+      },
+      {
+        "type": "h2",
+        "text": "Taxis and peak hours"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Taxis are widely available and use the meter; ask for the receipt if you claim expenses.",
+          "Morning arrivals at the venue and the evening exit are the bottlenecks. Leave a margin before your first meeting, more on the days heads of state are in town.",
+          "Expect road closures and convoy stops around the World Leaders' Summit days early in the conference.",
+          "Write down the venue gate you need; drivers know the Expo site, but gates change with the security plan."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Which option fits which delegate"
+      },
+      {
+        "type": "table",
+        "head": [
+          "You are",
+          "Best fit"
+        ],
+        "rows": [
+          [
+            "In an official hotel, fixed agenda",
+            "Official shuttle"
+          ],
+          [
+            "Outside the official hotels",
+            "Taxi or a daily chauffeur"
+          ],
+          [
+            "A minister or head of delegation",
+            "Daily chauffeur, one vehicle on call"
+          ],
+          [
+            "A team or press crew with equipment",
+            "Sprinter with driver, up to 16 seats"
+          ],
+          [
+            "Arriving late at night",
+            "Flight-tracked private pickup"
+          ]
+        ]
+      }
+    ],
+    "faq": [
+      [
+        "Where is the COP31 venue in Antalya?",
+        "At the Antalya Expo Center in Aksu, the EXPO 2016 site east of the city centre, on the coastal road towards Belek and close to Antalya Airport."
+      ],
+      [
+        "How far is the COP31 venue from Antalya Airport?",
+        "About 20-30 minutes by road, according to the COP31 Presidency. Allow more at peak times and on the World Leaders' Summit days."
+      ],
+      [
+        "Are there free shuttles to the COP31 venue?",
+        "The Presidency runs shuttles from official hotels, the airport and the city centre. Stops are planned only at hotels booked through the official accommodation platform; schedules appear on cop31.tr closer to the dates."
+      ],
+      [
+        "Can a private car drive into the venue?",
+        "Parking needs a vehicle access pass from the official system at vapp.cop31.tr. Without one, a car drops you where security allows and waits nearby."
+      ],
+      [
+        "How much is a private chauffeur for COP31?",
+        "Our COP31 package is a fixed day rate: €200 for a Mercedes Vito, €250 for a Sprinter, fuel included, no hour or kilometre limit, paid in the vehicle."
+      ]
+    ]
+  },
+  "cop31-where-to-stay": {
+    "slug": "cop31-antalya-where-to-stay-drive-times",
+    "title": "Where to Stay for COP31 Antalya: Areas and Drive Times",
+    "heading": "Where to stay for COP31: Antalya areas by drive time to the venue",
+    "description": "Lara, Kundu, the city centre, Belek or further out: drive times from each Antalya area to the COP31 venue at Antalya Expo Center, and what each means for your day.",
+    "excerpt": "The COP31 venue sits between Antalya and Belek. Which area you stay in decides how early you leave, whether a shuttle stops at your door and how you get back after a late session.",
+    "readingMinutes": 5,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Most COP31 hotel advice lists hotels. The question that decides your two weeks is a different one: how long is the drive from your bed to the Antalya Expo Center in Aksu, morning and night, for twelve days? Here is the coast read from the venue outwards."
+      },
+      {
+        "type": "h2",
+        "text": "Drive times to the venue"
+      },
+      {
+        "type": "table",
+        "head": [
+          "Area",
+          "To the venue",
+          "Character"
+        ],
+        "rows": [
+          [
+            "Kundu",
+            "about 15-25 min",
+            "Large resort hotels on the beach, closest resort strip"
+          ],
+          [
+            "Lara",
+            "about 20-30 min",
+            "Big hotels, shopping, between the city and the venue"
+          ],
+          [
+            "Antalya Airport area",
+            "about 20-30 min",
+            "Business hotels, easy arrival and departure"
+          ],
+          [
+            "City centre and Kaleiçi",
+            "about 30-45 min",
+            "Restaurants, old town, evening life, more traffic"
+          ],
+          [
+            "Belek",
+            "about 25-35 min",
+            "Golf resorts, quiet, on the far side of the venue"
+          ],
+          [
+            "Side and Manavgat",
+            "about 50-65 min",
+            "Resorts further east, a long daily commute"
+          ],
+          [
+            "Kemer",
+            "about 70-90 min",
+            "West of the city, the full width of Antalya to cross"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "These are our drivers' estimates in normal traffic, measured from the roads we use every day, not official figures. Summit security, convoys and the evening exit from the venue add time, especially in the first days."
+      },
+      {
+        "type": "h2",
+        "text": "Official accommodation and the shuttle question"
+      },
+      {
+        "type": "p",
+        "text": "The COP31 Presidency books official hotels through its accommodation platform, and according to the UNFCCC participant information the conference shuttles stop only at those hotels. If your delegation booked privately, a villa, an apartment or a hotel outside the platform, plan the daily trip yourself from day one rather than discovering it at the first morning plenary."
+      },
+      {
+        "type": "h2",
+        "text": "Lara and Kundu: closest to the venue"
+      },
+      {
+        "type": "p",
+        "text": "Lara and Kundu sit between the city and the Expo site, so the morning drive is short and runs against the city traffic. The hotels are large, which helps a delegation that wants everyone under one roof, and the airport is close for arrivals at odd hours."
+      },
+      {
+        "type": "h2",
+        "text": "The city centre: dinners, not commuting"
+      },
+      {
+        "type": "p",
+        "text": "Staying in the centre puts restaurants, Kaleiçi and side events within walking distance, at the price of the longest urban drive to the venue. The official city-centre shuttle helps, but its stops and timetable decide your day. A car on call is what makes a city hotel work for a head of delegation."
+      },
+      {
+        "type": "h2",
+        "text": "Belek, Side and Kemer: further out"
+      },
+      {
+        "type": "p",
+        "text": "Belek is the quiet option on the other side of the venue, comparable in drive time to the city centre without the urban traffic. Side and Kemer are a real commute twice a day; they suit a delegation with fixed hours and its own vehicle, not anyone who will be called back for a late text."
+      },
+      {
+        "type": "cop31",
+        "text": "Staying outside the shuttle network? A Mercedes and driver held for you all day, from your hotel to the venue and back: €200 per day (Vito, up to 6 guests), €250 (Sprinter, up to 16). Fuel included.",
+        "button": "Book a COP31 chauffeur"
+      },
+      {
+        "type": "h2",
+        "text": "A daily plan that works"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Leave a 30-minute margin before your first fixed meeting, on top of the drive time.",
+          "Agree the pickup point and gate at the venue the evening before.",
+          "Keep one vehicle for the head of delegation and move the team in a Sprinter.",
+          "Put flight numbers in the booking so arrival and departure days need no separate transfer."
+        ]
+      }
+    ],
+    "faq": [
+      [
+        "Which area is closest to the COP31 venue?",
+        "Kundu and Lara, both between Antalya city and the Antalya Expo Center in Aksu, roughly 15-30 minutes away in normal traffic."
+      ],
+      [
+        "Is Belek a good base for COP31?",
+        "Yes, if you have a car: Belek is about 25-35 minutes from the venue on the far side from the city, with quiet resort hotels."
+      ],
+      [
+        "Do COP31 shuttles stop at every hotel?",
+        "No. According to the UNFCCC participant information, shuttle stops are planned only at hotels booked through the official COP31 accommodation platform."
+      ],
+      [
+        "How long is the drive from Antalya city centre to the COP31 venue?",
+        "About 30-45 minutes depending on traffic and where in the centre you start, more at the evening exit from the venue."
+      ]
+    ]
   }
 };

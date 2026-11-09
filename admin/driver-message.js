@@ -1,6 +1,7 @@
 import { bookingHotelEnds, internationalPhone, isReturnJourney, locationLabel } from './turkish-formatters.js'
 import { recommendedAirportPickup } from '../src/airport-pickup.js'
 import { landOfLegendsMeetingPoint } from '../src/land-of-legends.js'
+import { ULTRA_LUX_NAMES } from '../supabase/functions/_shared/ultra-lux.js'
 
 const DRIVER_PHONE = '905056565790'
 
@@ -33,7 +34,7 @@ function fmtDate(isoDate) {
 function vehicleLabel(type) {
   if (type === 'vclass') return 'Mercedes V-Class'
   if (type === 'vito') return 'Mercedes Vito'
-  return type ?? '—'
+  return ULTRA_LUX_NAMES[type] ?? type ?? '—'
 }
 
 function paymentLabel(method) {

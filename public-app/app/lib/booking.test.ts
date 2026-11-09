@@ -382,3 +382,32 @@ describe("the pick-up hour of a journey that starts away from the airport", () =
     expect(buildPublicBookingPayload(base, "en")).toMatchObject({ pickup_time: null });
   });
 })
+
+describe("Ultra Lux Edition", () => {
+  const schema = createPublicBookingSchema(t);
+  const daily = { ...base, tripType: "daily_chauffeur" as const, destination: "", serviceEndDate: futureDate.replace(/10$/, "12"), pickupTime: "09:00" };
+
+  test("is quoted at its own day rate, whatever the admin's VIP rate is", () => {
+    const overrides = { dailyRates: { vito: 170, sprinter: 180 } };
+    expect(quoteFor({ ...daily, vehicle: "lux_lounge" }, overrides).price).toBe(1800);
+    expect(quoteFor({ ...daily, vehicle: "lux_sprinter" }, overrides).price).toBe(1800);
+    expect(quoteFor({ ...daily, vehicle: "maybach" }, overrides).price).toBe(5250);
+    expect(quoteFor({ ...daily, vehicle: "sprinter" }, overrides).price).toBe(540);
+  });
+
+  test("is a daily hire only and sends its own vehicle type", () => {
+    expect(schema.safeParse({ ...daily, vehicle: "maybach" }).success).toBe(true);
+    expect(schema.safeParse({ ...base, vehicle: "maybach" }).success).toBe(false);
+    expect(buildPublicBookingPayload({ ...daily, vehicle: "maybach" }, "en", true)).toMatchObject({ vehicle_type: "maybach" });
+    expect(buildPublicBookingPayload({ ...daily, vehicle: "sprinter" }, "en", true)).toMatchObject({ vehicle_type: "vclass" });
+  });
+
+  test("seats 16 in a Sprinter and 3 with 3 bags in the Maybach", () => {
+    expect(schema.safeParse({ ...daily, vehicle: "lux_sprinter", guests: "16" }).success).toBe(true);
+    expect(schema.safeParse({ ...daily, vehicle: "lux_lounge", guests: "17" }).success).toBe(false);
+    expect(schema.safeParse({ ...daily, vehicle: "sprinter", guests: "13" }).success).toBe(false);
+    expect(schema.safeParse({ ...daily, vehicle: "maybach", guests: "3", luggage: "3" }).success).toBe(true);
+    expect(schema.safeParse({ ...daily, vehicle: "maybach", guests: "4" }).success).toBe(false);
+    expect(schema.safeParse({ ...daily, vehicle: "maybach", guests: "2", luggage: "4" }).success).toBe(false);
+  });
+});

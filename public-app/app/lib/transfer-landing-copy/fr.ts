@@ -98,5 +98,40 @@ export const fr: TransferLandingCopy = {
       about: "Tekirova se situe au sud de Kemer, en bordure du parc national d’Olympos-Beydağları. Le village associe des domaines hôteliers soignés à de petites criques et se trouve tout près du site antique de Phaselis.",
       routeDetails: "Le trajet part de l’aéroport d’Antalya, traverse Kemer et continue vers Tekirova. La situation côtière et la distance rendent le transfert direct raisonnable : aucun changement de véhicule et aucune attente d’autres clients jusqu’à votre hôtel.",
     },
+    bogazkent: {
+      name: { nominative: "Boğazkent", direction: "Boğazkent", location: "Boğazkent", origin: "Boğazkent" },
+      about: "Boğazkent se trouve dans le district de Serik, sur la côte entre Belek et Side. De grands complexes tout compris s’alignent directement sur une large plage de sable, et les golfs de Belek sont à quelques minutes seulement : un point de chute tranquille pour les familles comme pour les golfeurs.",
+      routeDetails: "Depuis l’aéroport d’Antalya, la route suit la D400 vers l’est, passe Belek puis rejoint la côte. Avec environ 48 km, c’est l’un des transferts les plus courts de cette liste, et la voiture privée vous conduit du hall des arrivées à l’entrée de votre complexe, sans arrêt devant d’autres hôtels.",
+    },
+    manavgat: {
+      name: { nominative: "Manavgat", direction: "Manavgat", location: "Manavgat", origin: "Manavgat" },
+      about: "Manavgat est une ville animée au bord du fleuve du même nom, à l’est de Side. Elle est connue pour sa cascade, ses excursions en bateau sur le fleuve et son marché hebdomadaire, et sert de porte d’entrée aux complexes de ce tronçon de côte. Indiquez-nous l’adresse exacte de votre hôtel lors de la réservation, car la zone est étendue.",
+      routeDetails: "L’itinéraire longe la D400 vers l’est depuis l’aéroport d’Antalya sur environ 75 km. Le trajet dure à peu près une heure, et le transfert privé direct vous évite les arrêts supplémentaires que fait une navette partagée sur cette route côtière très fréquentée.",
+    },
+    bodrum: {
+      name: { nominative: "Bodrum", direction: "Bodrum", location: "Bodrum", origin: "Bodrum" },
+      about: "Bodrum se trouve sur la côte égéenne, dans la province de Muğla, et doit sa réputation à son château des croisés, à sa marina et à ses maisons blanches étagées sur les collines. Autour de la presqu’île, on trouve des quartiers animés comme Gümbet et Bitez, mais aussi des baies plus calmes à Yalıkavak, Türkbükü et Gümüşlük.",
+      routeDetails: "Avec environ 380 km, c’est l’un des plus longs trajets que nous proposons : comptez cinq à six heures avec des pauses confortables. La voiture privée rend la journée bien plus simple que les transports en commun : vous partez dès l’atterrissage, vous vous arrêtez où vous le souhaitez et vous arrivez à votre propre hôtel sur la presqu’île. Indiquez-nous votre hôtel et l’heure d’atterrissage lors de la réservation afin que nous puissions organiser le trajet.",
+    },
+    dalaman: {
+      name: { nominative: "Dalaman", direction: "Dalaman", location: "Dalaman", origin: "Dalaman" },
+      about: "Dalaman est la porte d’entrée de la côte lycienne et carienne. Son aéroport dessert des stations comme Sarıgerme et Göcek, et la proche Dalyan est connue pour son delta, les tombeaux rupestres de Kaunos et la plage des tortues d’İztuzu.",
+      routeDetails: "Les 235 km depuis l’aéroport d’Antalya suivent la route sinueuse de la côte lycienne, pour environ trois à trois heures et demie de trajet. Un prix fixe par véhicule permet de budgétiser facilement un long voyage, et la voiture privée vous laisse vous arrêter pour une pause ou un repas quand vous le souhaitez.",
+    },
+    fethiye: {
+      name: { nominative: "Fethiye", direction: "Fethiye", location: "Fethiye", origin: "Fethiye" },
+      about: "Fethiye s’étend au fond d’une large baie entourée de montagnes couvertes de pins. C’est le point de départ pour Ölüdeniz et son lagon bleu, pour les plages et la vie nocturne de Çalış, ainsi que pour les villages plus tranquilles de Hisarönü et de Kayaköy. Beaucoup de visiteurs viennent aussi pour le parapente depuis le Babadağ et pour les sorties en bateau autour des douze îles.",
+      routeDetails: "Les 205 km depuis l’aéroport d’Antalya longent la côte lycienne en passant par Kumluca, Kaş et Kalkan, et prennent environ deux heures et demie à trois heures. La route est sinueuse et panoramique. Avec un transfert privé, pas de changement de véhicule à Fethiye : le chauffeur vous dépose directement à votre hôtel à Ölüdeniz, Çalış ou Hisarönü.",
+    },
+    pamukkale: {
+      name: { nominative: "Pamukkale", direction: "Pamukkale", location: "Pamukkale", origin: "Pamukkale" },
+      about: "Pamukkale, dans la province de Denizli, est classé au patrimoine mondial de l’UNESCO et célèbre pour ses terrasses de travertin blanc et ses bassins thermaux chauds. La cité antique d’Hiérapolis se dresse sur la colline qui les surplombe, avec son théâtre, sa nécropole et le bassin antique où l’on se baigne parmi des colonnes immergées.",
+      routeDetails: "L’itinéraire quitte la côte et traverse l’intérieur des terres sur environ 245 km, par les montagnes du Taurus puis le plateau en direction de Denizli, pour à peu près trois à trois heures et demie de route. La voiture privée convient bien à ce trajet : pas de changement de véhicule, une pause possible en chemin, et vous arrivez directement à votre hôtel à Pamukkale ou à Karahayıt.",
+    },
+    kapadokya: {
+      name: { nominative: "Cappadoce", direction: "la Cappadoce", location: "la Cappadoce", origin: "la Cappadoce" },
+      about: "La Cappadoce, au cœur de l’Anatolie, est connue pour ses cheminées de fées, ses églises rupestres et ses villes souterraines. Au lever du soleil, les montgolfières s’élèvent au-dessus de Göreme, d’Uçhisar et d’Ürgüp, et beaucoup de visiteurs séjournent dans un hôtel creusé dans la roche.",
+      routeDetails: "Avec environ 540 km, le trajet mène de la Méditerranée à travers les montagnes du Taurus puis le plateau anatolien, et dure sept à huit heures avec les pauses. Le transfert privé est la manière la plus confortable de le faire : votre groupe voyage ensemble, le chauffeur prévoit les pauses avec vous et vous dépose à l’entrée de votre hôtel troglodytique. Indiquez-nous votre numéro de vol et votre hôtel lors de la réservation afin que nous puissions organiser la journée.",
+    },
   },
 };
