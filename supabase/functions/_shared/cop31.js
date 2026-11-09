@@ -19,3 +19,17 @@ export function isCop31Period(start, end) {
   const date = /^\d{4}-\d{2}-\d{2}$/
   return date.test(start) && date.test(end) && start <= end && start >= COP31_FIRST_DAY && end <= COP31_LAST_DAY
 }
+
+export const COP31_TRANSFER_MIN_EUR = 100
+// Summit days only, narrower than the package's COP31_FIRST_DAY..LAST_DAY (7–22 Nov).
+export const COP31_TRANSFER_FIRST_DAY = '2026-11-09'
+export const COP31_TRANSFER_LAST_DAY = '2026-11-20'
+
+/** Fare for the legs of a transfer; only airport journeys on summit days are floored. */
+export function transferFare(unitPrice, legDates, touchesAirport) {
+  return legDates.reduce((total, date) => total + (
+    touchesAirport && date >= COP31_TRANSFER_FIRST_DAY && date <= COP31_TRANSFER_LAST_DAY
+      ? Math.max(unitPrice, COP31_TRANSFER_MIN_EUR)
+      : unitPrice
+  ), 0)
+}

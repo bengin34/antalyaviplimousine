@@ -411,3 +411,35 @@ describe("Ultra Lux Edition", () => {
     expect(schema.safeParse({ ...daily, vehicle: "maybach", guests: "2", luggage: "4" }).success).toBe(false);
   });
 });
+
+describe("summit transfer floor (9-20 Nov 2026)", () => {
+  const summit = { ...base, travelDate: "2026-11-10" };
+  test("airport arrival and departure are floored to 100 on both vehicles", () => {
+    expect(quoteFor(summit).price).toBe(100);
+    expect(quoteFor({ ...summit, destination: "alanya_merkez", vehicle: "sprinter" }).price).toBe(100);
+    expect(quoteFor({ ...summit, pickup: "hotel", destination: "airport", hotelRegion: "side" }).price).toBe(100);
+  });
+  test("dearer fares and live overrides keep their value above 100", () => {
+    expect(quoteFor({ ...summit, destination: "kas" }).price).toBe(173);
+    expect(quoteFor(summit, { routePrices: { "side:vito": 120 } }).price).toBe(120);
+    expect(quoteFor(summit, { routePrices: { "side:vito": 60 } }).price).toBe(100);
+  });
+  test("window edges and round trips floor per leg date", () => {
+    expect(quoteFor({ ...base, travelDate: "2026-11-09" }).price).toBe(100);
+    expect(quoteFor({ ...base, travelDate: "2026-11-20" }).price).toBe(100);
+    expect(quoteFor({ ...base, travelDate: "2026-11-08" }).price).toBe(53);
+    expect(quoteFor({ ...base, travelDate: "2026-11-21" }).price).toBe(53);
+    const rt = { ...summit, tripType: "round_trip" as const };
+    expect(quoteFor({ ...rt, returnDate: "2026-11-15" }).price).toBe(200);
+    expect(quoteFor({ ...rt, travelDate: "2026-11-08", returnDate: "2026-11-15" }).price).toBe(153);
+    expect(quoteFor({ ...rt, travelDate: "2026-11-20", returnDate: "2026-11-21" }).price).toBe(153);
+    expect(quoteFor({ ...rt, travelDate: "2026-11-01", returnDate: "2026-11-02" }).price).toBe(106);
+  });
+  test("originalPrice never drops below price", () => {
+    const q = quoteFor(summit);
+    expect(q.originalPrice).toBeGreaterThanOrEqual(q.price);
+  });
+  test("no-airport journeys and unpriced departures are untouched", () => {
+    expect(quoteFor({ ...summit, pickup: "hotel", destination: "airport", hotelRegion: "" }).price).toBe(0);
+  });
+});

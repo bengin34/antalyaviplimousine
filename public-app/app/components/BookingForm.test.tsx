@@ -2,7 +2,7 @@
 
 import "@testing-library/jest-dom/vitest";
 import { cleanup, fireEvent, render, waitFor } from "@testing-library/react";
-import { afterEach, beforeAll, beforeEach, describe, expect, test, vi } from "vitest";
+import { afterAll, afterEach, beforeAll, beforeEach, describe, expect, test, vi } from "vitest";
 import { routeCatalog } from "../../../src/routes.js";
 import { LanguageProvider } from "../i18n";
 import { LandOfLegendsBookingCopyProvider } from "../lib/land-of-legends-booking-copy";
@@ -21,6 +21,11 @@ vi.mock("../lib/flight-verification", async (importOriginal) => {
 });
 
 afterEach(cleanup);
+
+// The form defaults the date to today, and 9-20 Nov 2026 carries the summit
+// airport floor; these cases are about the regular tariff, so pin the clock outside it.
+beforeAll(() => { vi.useFakeTimers({ toFake: ["Date"], now: new Date("2026-12-01T10:00:00Z") }); });
+afterAll(() => { vi.useRealTimers(); });
 
 // In the browser the hotel index is fetched when the guest reaches the hotel
 // field; these cases type into it straight away, so it is loaded up front and
