@@ -33,3 +33,15 @@ export async function createBooking(data) {
   if (!response?.booking) throw new Error('Booking could not be created')
   return response.booking
 }
+
+/** Asks iyzico for the hosted payment page of a pending card booking. */
+export async function createCheckoutUrl(bookingId) {
+  const { data: response, error } = await invokeFunction('create-iyzico-checkout', {
+    body: { booking_id: bookingId },
+  })
+
+  if (error) throw new Error(await getFunctionErrorMessage(error))
+  if (response?.error) throw new Error(response.error)
+  if (!response?.checkout_url) throw new Error('Payment page could not be created')
+  return response.checkout_url
+}

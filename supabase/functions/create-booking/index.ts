@@ -10,6 +10,7 @@ import {
 } from '../_shared/land-of-legends-rules.js'
 import { COP31_DAILY_RATE_EUR, COP31_SPRINTER_MAX_GUESTS, isCop31Period, transferFare } from '../_shared/cop31.js'
 import { ultraLux } from '../_shared/ultra-lux.js'
+import { cardPaymentAllowed, isPaymentMethod } from './payment.ts'
 
 const corsHeaders = {
   'Access-Control-Allow-Origin': '*',
@@ -275,7 +276,7 @@ Deno.serve(async (req) => {
     if (luxVehicle ? !isDailyChauffeur || isCop31 : !['vito', 'vclass'].includes(vehicleType)) {
       return jsonResponse({ error: 'vehicle_type is invalid' }, 400)
     }
-    if (paymentMethod !== 'cash') {
+    if (!isPaymentMethod(paymentMethod)) {
       return jsonResponse({ error: 'payment_method is invalid' }, 400)
     }
     if (isLandOfLegends && pickupLocation !== 'hotel') {
@@ -447,6 +448,20 @@ Deno.serve(async (req) => {
       }
     }
 
+    const needsOperator = Boolean(luxVehicle) || requiresManualPricing || landOfLegendsNeedsQuote ||
+      hotelToHotelNeedsQuote || airportReturnNeedsQuote || landOfLegendsNoticeLevel === 'short'
+    // A card booking is charged the price stored here, so it must be a final one.
+    if (
+      paymentMethod === 'card' &&
+      !cardPaymentAllowed({
+        priceEur,
+        needsOperator,
+        specialProduct: isDailyChauffeur || isCop31 || isLandOfLegends,
+      })
+    ) {
+      return jsonResponse({ error: 'Card payment is not available for this booking' }, 400)
+    }
+
     const bookingPayload = {
       booking_ref: generateBookingRef(),
       customer_name: customerName,
@@ -502,7 +517,8 @@ Deno.serve(async (req) => {
       price_eur: priceEur,
       // Short-notice excursions are taken but confirmed by the operator.
       // An Ultra Lux hire is a request until the operator confirms the vehicle is free.
-      status: isCop31 || luxVehicle || requiresManualPricing || landOfLegendsNeedsQuote || hotelToHotelNeedsQuote || airportReturnNeedsQuote || landOfLegendsNoticeLevel === 'short' ? 'pending' : 'confirmed',
+      // A card booking stays pending until iyzico-callback verifies the payment.
+      status: isCop31 || needsOperator || paymentMethod === 'card' ? 'pending' : 'confirmed',
       payment_method: paymentMethod,
       language: String(payload.language || 'en'),
       utm_source: payload.utm_source ? String(payload.utm_source).slice(0, 100) : null,
@@ -576,7 +592,9 @@ Deno.serve(async (req) => {
             body: JSON.stringify({
               from: fromEmail,
               to: [notificationEmail],
-              subject: isLandOfLegends
+              subject: booking.payment_method === 'card'
+                ? `[UNPAID CARD] Booking ${booking.booking_ref}: ${pickupLabel} to ${booking.dropoff_location}`
+                : isLandOfLegends
                 ? `${booking.status === 'pending' ? '[CHECK] ' : ''}Land of Legends ${booking.booking_ref}: ${booking.pickup_date} hotel ${String(booking.pickup_time).slice(0, 5)} → park pick-up ${String(booking.return_pickup_time).slice(0, 5)}`
                 : `New ${isCop31 ? 'COP31 summit chauffeur ' : isDailyChauffeur ? 'daily chauffeur hire ' : isRoundTrip ? 'round-trip ' : ''}booking ${booking.booking_ref}: ${pickupLabel}${isDailyChauffeur ? '' : ` to ${booking.dropoff_location}`}`,
               html: `
@@ -609,7 +627,7 @@ Deno.serve(async (req) => {
                     <tr><td style="padding:6px 12px;color:#777">Fuel terms</td><td style="padding:6px 12px"><strong>${isCop31 ? 'COP31 package — fuel is included in the day rate' : 'Accepted — fuel is excluded and paid separately by the customer'}</strong></td></tr>` : ''}
                     <tr><td style="padding:6px 12px;color:#777">Guests / vehicle</td><td style="padding:6px 12px">${escapeHtml(booking.guests)} / ${escapeHtml(luxVehicle ? `${luxVehicle.name} — availability to confirm` : booking.vehicle_type)}</td></tr>
                     <tr><td style="padding:6px 12px;color:#777">Price</td><td style="padding:6px 12px"><strong>${escapeHtml(bookingPriceDisplay)}</strong></td></tr>
-                    <tr><td style="padding:6px 12px;color:#777">Payment</td><td style="padding:6px 12px"><strong>Cash in vehicle</strong></td></tr>
+                    <tr><td style="padding:6px 12px;color:#777">Payment</td><td style="padding:6px 12px"><strong>${booking.payment_method === 'card' ? 'Card online — NOT PAID YET (a "PAID" email follows)' : 'Cash in vehicle'}</strong></td></tr>
                   </table>
                 </div>
               `,

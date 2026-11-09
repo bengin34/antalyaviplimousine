@@ -5,15 +5,19 @@ import {
   iyzicoRequest,
   verifyIyzicoResponseSignature,
 } from '../_shared/iyzico.ts'
+import { notifyOperator } from '../_shared/operator-email.ts'
 
 const redirectToSite = (
   siteUrl: string,
   payment: 'success' | 'failed',
-  bookingRef?: string
+  bookingRef?: string,
+  // Analytics only: the amount is already charged, the site just reports it.
+  valueEur?: string
 ) => {
   const url = new URL(siteUrl)
   url.searchParams.set('payment', payment)
   if (bookingRef) url.searchParams.set('booking_ref', bookingRef)
+  if (valueEur) url.searchParams.set('value', valueEur)
   return Response.redirect(url, 303)
 }
 
@@ -65,6 +69,10 @@ Deno.serve(async (req) => {
 
   if (bookingError || !booking) {
     return redirectToSite(siteUrl, 'failed')
+  }
+  // A page refresh or replayed callback must not re-verify or email twice.
+  if (booking.status === 'paid') {
+    return redirectToSite(siteUrl, 'success', booking.booking_ref)
   }
 
   try {
@@ -128,7 +136,14 @@ Deno.serve(async (req) => {
       .eq('iyzico_token', token)
 
     if (updateError) throw updateError
-    return redirectToSite(siteUrl, 'success', booking.booking_ref)
+    await notifyOperator(`[PAID] Booking ${booking.booking_ref}: EUR ${expectedPrice}`, {
+      Reference: booking.booking_ref,
+      Customer: booking.customer_name,
+      Phone: booking.customer_phone,
+      Date: booking.pickup_date,
+      Paid: `EUR ${expectedPrice} by card (iyzico ${payment.paymentId})`,
+    })
+    return redirectToSite(siteUrl, 'success', booking.booking_ref, expectedPrice)
   } catch (error) {
     console.error('iyzico callback error:', error)
     await supabase
