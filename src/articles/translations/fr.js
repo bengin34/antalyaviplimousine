@@ -3028,7 +3028,7 @@ export const articles = {
       },
       {
         "type": "cop31",
-        "text": "Une Mercedes privée avec chauffeur, à votre disposition toute la journée : 200 € par jour pour un Vito (jusqu'à 6 passagers), 250 € pour un Sprinter (jusqu'à 16). Carburant inclus, sans limite d'heures ni de kilomètres.",
+        "text": "Une Mercedes privée avec chauffeur, à votre disposition toute la journée : dès 300 € par jour pour un Vito (jusqu'à 6 passagers), dès 400 € pour un Sprinter (jusqu'à 16). Carburant inclus, sans limite d'heures ni de kilomètres.",
         "button": "Voir l'offre chauffeur COP31"
       },
       {
@@ -3097,7 +3097,7 @@ export const articles = {
       ],
       [
         "Combien coûte un chauffeur privé pour la COP31 ?",
-        "Notre offre COP31 est un tarif journalier fixe : 200 € pour un Mercedes Vito, 250 € pour un Sprinter, carburant inclus, sans limite d'heures ni de kilomètres, payable dans le véhicule."
+        "Notre offre COP31 est un tarif journalier : dès 300 € pour un Mercedes Vito, dès 400 € pour un Sprinter, carburant inclus, sans limite d'heures ni de kilomètres, payable dans le véhicule."
       ]
     ]
   },
@@ -3200,7 +3200,7 @@ export const articles = {
       },
       {
         "type": "cop31",
-        "text": "Vous logez hors du réseau de navettes ? Une Mercedes avec chauffeur à votre disposition toute la journée, de votre hôtel au site et retour : 200 € par jour (Vito, jusqu'à 6 passagers), 250 € (Sprinter, jusqu'à 16). Carburant inclus.",
+        "text": "Vous logez hors du réseau de navettes ? Une Mercedes avec chauffeur à votre disposition toute la journée, de votre hôtel au site et retour : dès 300 € par jour (Vito, jusqu'à 6 passagers), dès 400 € (Sprinter, jusqu'à 16). Carburant inclus.",
         "button": "Réserver un chauffeur COP31"
       },
       {

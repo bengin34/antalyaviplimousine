@@ -1,10 +1,10 @@
 // COP31 (UN Climate Change Conference, Antalya, 9–20 November 2026) summit
-// chauffeur package: a daily vehicle + chauffeur hire at a fixed day rate with
+// chauffeur package: a daily vehicle + chauffeur hire at a day rate (shown "from") with
 // fuel included and no hour or kilometre limit. The site's quote and
 // create-booking both read these, so the guest is charged what they were shown.
 
 /** Day rate per vehicle, keyed by the bookings table's `vehicle_type`. */
-export const COP31_DAILY_RATE_EUR = Object.freeze({ vito: 200, vclass: 250 })
+export const COP31_DAILY_RATE_EUR = Object.freeze({ vito: 300, vclass: 400 })
 
 /** The summit Sprinter seats 16, more than the 12 the regular transfer form allows. */
 export const COP31_SPRINTER_MAX_GUESTS = 16

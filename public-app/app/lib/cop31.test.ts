@@ -16,6 +16,7 @@ const valid: Cop31Values = {
   customerPhone: "+49 151 23456789",
   customerEmail: "ana@example.org",
   notes: "",
+  fuelAccepted: false,
 };
 const noAttribution = { utm_source: null, utm_medium: null, utm_campaign: null, utm_term: null, utm_content: null, gclid: null, landing_page: null, referrer: null };
 const schema = createCop31Schema(cop31Copy.en.errors);
@@ -24,8 +25,9 @@ const issuesFor = (values: Partial<Cop31Values>) =>
 
 describe("COP31 quote", () => {
   it("multiplies the package day rate by the inclusive day count", () => {
-    expect(cop31Quote("vito", "2026-11-09", "2026-11-13")).toEqual({ days: 5, price: 1000 });
-    expect(cop31Quote("sprinter", "2026-11-09", "2026-11-09")).toEqual({ days: 1, price: 250 });
+    expect(cop31Quote("vito", "2026-11-09", "2026-11-13")).toEqual({ days: 5, price: 1500 });
+    expect(cop31Quote("sprinter", "2026-11-09", "2026-11-09")).toEqual({ days: 1, price: 400 });
+    expect(cop31Quote("maybach", "2026-11-09", "2026-11-09")).toEqual({ days: 1, price: 1750 });
   });
 
   it("quotes nothing outside the package window", () => {
@@ -57,6 +59,25 @@ describe("COP31 form schema", () => {
     expect(issuesFor({ startTime: "" })).toContain("startTime");
     expect(issuesFor({ customerPhone: "0151 23456789" })).toContain("customerPhone");
     expect(issuesFor({ customerEmail: "ana@" })).toContain("customerEmail");
+  });
+});
+
+describe("COP31 Ultra Lux", () => {
+  it("caps guests by the vehicle", () => {
+    expect(issuesFor({ vehicle: "maybach", guests: "4", fuelAccepted: true })).toContain("guests");
+    expect(issuesFor({ vehicle: "lux_lounge", guests: "16", fuelAccepted: true })).toEqual([]);
+  });
+
+  it("needs the fuel terms accepted, Vito and Sprinter do not", () => {
+    expect(issuesFor({ vehicle: "maybach", guests: "2" })).toContain("fuelAccepted");
+    expect(issuesFor({ vehicle: "maybach", guests: "2", fuelAccepted: true })).toEqual([]);
+    expect(issuesFor({ vehicle: "vito" })).toEqual([]);
+  });
+
+  it("is sent as a plain daily hire, not the package", () => {
+    const payload = buildCop31Payload({ ...valid, vehicle: "maybach", guests: "2", fuelAccepted: true, notes: "hi" }, "en", noAttribution);
+    expect(payload).toMatchObject({ trip_type: "daily_chauffeur", vehicle_type: "maybach", fuel_terms_accepted: true, notes: "[COP31] hi" });
+    expect(payload).not.toHaveProperty("service_package");
   });
 });
 

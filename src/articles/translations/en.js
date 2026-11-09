@@ -3318,7 +3318,7 @@ export const articles = {
       },
       {
         "type": "cop31",
-        "text": "A private Mercedes and driver held for you all day: €200 per day for a Vito (up to 6 guests), €250 for a Sprinter (up to 16). Fuel included, no hour or kilometre limit.",
+        "text": "A private Mercedes and driver held for you all day: from €300 per day for a Vito (up to 6 guests), from €400 for a Sprinter (up to 16). Fuel included, no hour or kilometre limit.",
         "button": "See the COP31 chauffeur package"
       },
       {
@@ -3387,7 +3387,7 @@ export const articles = {
       ],
       [
         "How much is a private chauffeur for COP31?",
-        "Our COP31 package is a fixed day rate: €200 for a Mercedes Vito, €250 for a Sprinter, fuel included, no hour or kilometre limit, paid in the vehicle."
+        "Our COP31 package is a day rate: from €300 for a Mercedes Vito, from €400 for a Sprinter, fuel included, no hour or kilometre limit, paid in the vehicle."
       ]
     ]
   },
@@ -3490,7 +3490,7 @@ export const articles = {
       },
       {
         "type": "cop31",
-        "text": "Staying outside the shuttle network? A Mercedes and driver held for you all day, from your hotel to the venue and back: €200 per day (Vito, up to 6 guests), €250 (Sprinter, up to 16). Fuel included.",
+        "text": "Staying outside the shuttle network? A Mercedes and driver held for you all day, from your hotel to the venue and back: from €300 per day (Vito, up to 6 guests), from €400 (Sprinter, up to 16). Fuel included.",
         "button": "Book a COP31 chauffeur"
       },
       {

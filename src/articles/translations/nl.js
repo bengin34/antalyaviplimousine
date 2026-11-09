@@ -3318,7 +3318,7 @@ export const articles = {
       },
       {
         "type": "cop31",
-        "text": "Een privé-Mercedes met chauffeur, de hele dag voor u beschikbaar: € 200 per dag voor een Vito (tot 6 personen), € 250 voor een Sprinter (tot 16). Brandstof inbegrepen, geen limiet op uren of kilometers.",
+        "text": "Een privé-Mercedes met chauffeur, de hele dag voor u beschikbaar: vanaf € 300 per dag voor een Vito (tot 6 personen), vanaf € 400 voor een Sprinter (tot 16). Brandstof inbegrepen, geen limiet op uren of kilometers.",
         "button": "Bekijk het COP31-chauffeurspakket"
       },
       {
@@ -3387,7 +3387,7 @@ export const articles = {
       ],
       [
         "Wat kost een privéchauffeur voor COP31?",
-        "Ons COP31-pakket is een vast dagtarief: € 200 voor een Mercedes Vito, € 250 voor een Sprinter, brandstof inbegrepen, geen limiet op uren of kilometers, te betalen in de auto."
+        "Ons COP31-pakket is een dagtarief: vanaf € 300 voor een Mercedes Vito, vanaf € 400 voor een Sprinter, brandstof inbegrepen, geen limiet op uren of kilometers, te betalen in de auto."
       ]
     ]
   },
@@ -3490,7 +3490,7 @@ export const articles = {
       },
       {
         "type": "cop31",
-        "text": "Verblijft u buiten het shuttlenetwerk? Een Mercedes met chauffeur, de hele dag voor u beschikbaar, van uw hotel naar de locatie en terug: € 200 per dag (Vito, tot 6 personen), € 250 (Sprinter, tot 16). Brandstof inbegrepen.",
+        "text": "Verblijft u buiten het shuttlenetwerk? Een Mercedes met chauffeur, de hele dag voor u beschikbaar, van uw hotel naar de locatie en terug: vanaf € 300 per dag (Vito, tot 6 personen), vanaf € 400 (Sprinter, tot 16). Brandstof inbegrepen.",
         "button": "Boek een COP31-chauffeur"
       },
       {

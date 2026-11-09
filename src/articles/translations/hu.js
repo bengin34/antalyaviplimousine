@@ -3028,7 +3028,7 @@ export const articles = {
       },
       {
         "type": "cop31",
-        "text": "Egy privát Mercedes sofőrrel egész nap a rendelkezésedre: napi 200 € egy Vitóért (legfeljebb 6 utas), 250 € egy Sprinterért (legfeljebb 16). Az üzemanyag benne van az árban, nincs óra- vagy kilométerkorlát.",
+        "text": "Egy privát Mercedes sofőrrel egész nap a rendelkezésedre: napi 300 €-tól egy Vitóért (legfeljebb 6 utas), 400 €-tól egy Sprinterért (legfeljebb 16). Az üzemanyag benne van az árban, nincs óra- vagy kilométerkorlát.",
         "button": "A COP31 sofőrcsomag megtekintése"
       },
       {
@@ -3097,7 +3097,7 @@ export const articles = {
       ],
       [
         "Mennyibe kerül egy magánsofőr a COP31 idejére?",
-        "A COP31 csomagunk fix napidíjas: 200 € egy Mercedes Vitóért, 250 € egy Sprinterért, üzemanyaggal, óra- és kilométerkorlát nélkül, fizetés a járműben."
+        "A COP31 csomagunk napidíjas: 300 €-tól egy Mercedes Vitóért, 400 €-tól egy Sprinterért, üzemanyaggal, óra- és kilométerkorlát nélkül, fizetés a járműben."
       ]
     ]
   },
@@ -3200,7 +3200,7 @@ export const articles = {
       },
       {
         "type": "cop31",
-        "text": "A shuttle-hálózaton kívül szállsz meg? Egy Mercedes sofőrrel egész nap a rendelkezésedre, a szállodádtól a helyszínig és vissza: napi 200 € (Vito, legfeljebb 6 utas), 250 € (Sprinter, legfeljebb 16). Az üzemanyag benne van.",
+        "text": "A shuttle-hálózaton kívül szállsz meg? Egy Mercedes sofőrrel egész nap a rendelkezésedre, a szállodádtól a helyszínig és vissza: napi 300 €-tól (Vito, legfeljebb 6 utas), 400 €-tól (Sprinter, legfeljebb 16). Az üzemanyag benne van.",
         "button": "COP31 sofőr foglalása"
       },
       {
