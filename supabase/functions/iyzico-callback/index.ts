@@ -123,7 +123,7 @@ Deno.serve(async (req) => {
       return redirectToSite(siteUrl, 'failed', booking.booking_ref)
     }
 
-    const { error: updateError } = await supabase
+    const { data: updated, error: updateError } = await supabase
       .from('bookings')
       .update({
         status: 'paid',
@@ -135,8 +135,11 @@ Deno.serve(async (req) => {
       .eq('id', booking.id)
       .eq('iyzico_token', token)
       .eq('status', 'pending')
+      .select('id')
 
     if (updateError) throw updateError
+    // Lost a concurrent-callback race: the winner already emailed.
+    if (!updated?.length) return redirectToSite(siteUrl, 'success', booking.booking_ref, expectedPrice)
     await notifyOperator(`[PAID] Booking ${booking.booking_ref}: EUR ${expectedPrice}`, {
       Reference: booking.booking_ref,
       Customer: booking.customer_name,
