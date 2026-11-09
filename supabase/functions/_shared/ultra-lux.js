@@ -4,7 +4,7 @@
 // shortcut: rates live in code, not in chauffeur_service_rates; move them there
 // when the admin needs to edit them without a deploy.
 export const ULTRA_LUX = Object.freeze({
-  lux_lounge: Object.freeze({ name: 'Ultra Lux Lounge Sprinter', dailyRateEur: 600, maxGuests: 16 }),
+  lux_lounge: Object.freeze({ name: 'Ultra Lux Lounge Sprinter', dailyRateEur: 750, maxGuests: 16 }),
   lux_sprinter: Object.freeze({ name: 'Ultra Lux Sprinter', dailyRateEur: 600, maxGuests: 16 }),
   maybach: Object.freeze({ name: 'Mercedes-Maybach S-Class', dailyRateEur: 1750, maxGuests: 3 }),
 })

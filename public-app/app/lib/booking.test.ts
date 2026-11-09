@@ -394,7 +394,7 @@ describe("Ultra Lux Edition", () => {
 
   test("is quoted at its own day rate, whatever the admin's VIP rate is", () => {
     const overrides = { dailyRates: { vito: 170, sprinter: 180 } };
-    expect(quoteFor({ ...daily, vehicle: "lux_lounge" }, overrides).price).toBe(1800);
+    expect(quoteFor({ ...daily, vehicle: "lux_lounge" }, overrides).price).toBe(2250);
     expect(quoteFor({ ...daily, vehicle: "lux_sprinter" }, overrides).price).toBe(1800);
     expect(quoteFor({ ...daily, vehicle: "maybach" }, overrides).price).toBe(5250);
     expect(quoteFor({ ...daily, vehicle: "sprinter" }, overrides).price).toBe(540);
