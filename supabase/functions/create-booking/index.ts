@@ -8,7 +8,7 @@ import {
   resolveHotelRegion,
   turkeyToday,
 } from '../_shared/land-of-legends-rules.js'
-import { COP31_DAILY_RATE_EUR, isCop31Period } from '../_shared/cop31.js'
+import { COP31_DAILY_RATE_EUR, COP31_SPRINTER_MAX_GUESTS, isCop31Period } from '../_shared/cop31.js'
 import { ultraLux } from '../_shared/ultra-lux.js'
 
 const corsHeaders = {
@@ -236,7 +236,7 @@ Deno.serve(async (req) => {
     // spaces, a stroller one, and a Vito holds guests + bags up to 11.
     const vitoUnits = guestCount + luggageCount + golfBagCount * 2 + strollerCount
     const luxVehicle = ultraLux(vehicleType)
-    const vehicleCapacity = luxVehicle?.maxGuests ?? (vehicleType === 'vclass' ? 13 : 7)
+    const vehicleCapacity = luxVehicle?.maxGuests ?? (vehicleType === 'vclass' ? (isCop31 ? COP31_SPRINTER_MAX_GUESTS + 1 : 13) : 7)
 
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(customerEmail) || customerEmail.length > 120) {
       return jsonResponse({ error: 'A valid customer_email is required' }, 400)
