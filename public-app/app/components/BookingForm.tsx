@@ -171,6 +171,8 @@ export function BookingForm({
   const [flightCheck, setFlightCheck] = useState<FlightResult | null>(null);
   const flightRequestRef = useRef(0);
   const lastFlightQueryRef = useRef("");
+  // Card booking already created whose checkout failed: retry only the checkout, same form values.
+  const pendingCardRef = useRef<{ key: string; id: string; ref: string } | null>(null);
   // Bu ozelligin alana en son kendi yazdigi saat. Korunmasi gereken sey
   // musterinin yazdigi saattir; kendi doldurdugumuz deger o degildir.
   const autoFilledArrivalRef = useRef("");
@@ -423,8 +425,12 @@ export function BookingForm({
     try {
       const { createBooking, createCheckoutUrl } = await import("../../../src/lib/api.js");
       const useCard = payByCard && formValues.tripType !== "daily_chauffeur";
-      const booking = await createBooking(buildPublicBookingPayload(formValues, language, acceptedFuelTerms, undefined, useCard ? "card" : "cash"));
+      const payload = buildPublicBookingPayload(formValues, language, acceptedFuelTerms, undefined, useCard ? "card" : "cash");
+      const payloadKey = JSON.stringify(payload);
+      const reused = useCard && pendingCardRef.current?.key === payloadKey ? pendingCardRef.current : null;
+      const booking = reused ? { id: reused.id, booking_ref: reused.ref, price_eur: 0 } : await createBooking(payload);
       if (useCard) {
+        pendingCardRef.current = { key: payloadKey, id: booking.id, ref: booking.booking_ref };
         // Not confirmed yet: iyzico-callback marks it paid and returns the guest with ?payment=success.
         try {
           window.location.assign(await createCheckoutUrl(booking.id));
