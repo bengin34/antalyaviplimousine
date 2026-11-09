@@ -8,7 +8,7 @@ import {
   resolveHotelRegion,
   turkeyToday,
 } from '../_shared/land-of-legends-rules.js'
-import { COP31_DAILY_RATE_EUR, COP31_SPRINTER_MAX_GUESTS, isCop31Period } from '../_shared/cop31.js'
+import { COP31_DAILY_RATE_EUR, COP31_SPRINTER_MAX_GUESTS, isCop31Period, transferFare } from '../_shared/cop31.js'
 import { ultraLux } from '../_shared/ultra-lux.js'
 
 const corsHeaders = {
@@ -439,7 +439,11 @@ Deno.serve(async (req) => {
         }
         airportReturnNeedsQuote = true
       } else {
-        priceEur = Number(route.price_eur) * (isRoundTrip ? 2 : 1)
+        priceEur = transferFare(
+          Number(route.price_eur),
+          isRoundTrip ? [pickupDate, returnDate] : [pickupDate],
+          pickupLocation === 'airport' || dropoffLocation === 'airport',
+        )
       }
     }
 

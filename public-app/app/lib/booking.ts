@@ -2,6 +2,7 @@ import { parsePhoneNumberFromString } from "libphonenumber-js";
 import { z } from "zod";
 import { routeCatalog } from "../../../src/routes.js";
 import { hotelToHotelUnitPrice } from "../../../supabase/functions/_shared/hotel-to-hotel-pricing.js";
+import { transferFare } from "../../../supabase/functions/_shared/cop31.js";
 import { ULTRA_LUX } from "../../../supabase/functions/_shared/ultra-lux.js";
 import { currentAttribution, type Attribution } from "./attribution";
 import { loadedHotelData } from "./hotel-data";
@@ -296,7 +297,7 @@ export function dailyRateFor(vehicle: string, overrides?: LivePriceOverrides) {
 }
 
 export function quoteFor(
-  values: Pick<PublicBookingValues, "destination" | "hotelRegion" | "hotelName" | "vehicle" | "tripType" | "travelDate" | "serviceEndDate" | "pickup">,
+  values: Pick<PublicBookingValues, "destination" | "hotelRegion" | "hotelName" | "vehicle" | "tripType" | "travelDate" | "returnDate" | "serviceEndDate" | "pickup">,
   overrides?: LivePriceOverrides,
 ) {
   if (values.tripType === "daily_chauffeur") {
@@ -329,9 +330,11 @@ export function quoteFor(
   const unitPrice = hotelUnitPrice?.(values.hotelName, vehicle, effectiveUnitPrice) ?? effectiveUnitPrice;
   const originalUnitPrice = hotelUnitPrice?.(values.hotelName, vehicle, route.originalPrices[vehicle])
     ?? route.originalPrices[vehicle];
+  const legDates = values.tripType === "round_trip" ? [values.travelDate, values.returnDate] : [values.travelDate];
+  const touchesAirport = journeyTouchesAirport(values);
   return {
-    price: unitPrice * journeys,
-    originalPrice: originalUnitPrice * journeys,
+    price: transferFare(unitPrice, legDates, touchesAirport),
+    originalPrice: transferFare(originalUnitPrice, legDates, touchesAirport),
   };
 }
 
