@@ -71,8 +71,8 @@ Deno.serve(async (req) => {
     return redirectToSite(siteUrl, 'failed')
   }
   // A page refresh or replayed callback must not re-verify or email twice.
-  if (booking.status === 'paid') {
-    return redirectToSite(siteUrl, 'success', booking.booking_ref)
+  if (booking.status !== 'pending') {
+    return redirectToSite(siteUrl, booking.status === 'cancelled' ? 'failed' : 'success', booking.booking_ref)
   }
 
   try {
@@ -134,6 +134,7 @@ Deno.serve(async (req) => {
       })
       .eq('id', booking.id)
       .eq('iyzico_token', token)
+      .eq('status', 'pending')
 
     if (updateError) throw updateError
     await notifyOperator(`[PAID] Booking ${booking.booking_ref}: EUR ${expectedPrice}`, {
