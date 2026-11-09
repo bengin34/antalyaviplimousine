@@ -399,6 +399,7 @@ export function buildPublicBookingPayload(
   // Read at call time so a submit always carries the campaign that is in
   // session storage, without every caller having to thread it through.
   attribution: Attribution = currentAttribution(),
+  paymentMethod: "cash" | "card" = "cash",
 ) {
   const isDailyChauffeur = values.tripType === "daily_chauffeur";
   const hasFlight = journeyTouchesAirport(values);
@@ -442,7 +443,7 @@ export function buildPublicBookingPayload(
     fuel_terms_accepted: isDailyChauffeur ? fuelTermsAccepted : null,
     guests: Number(values.guests),
     vehicle_type: values.vehicle === "sprinter" ? "vclass" : values.vehicle,
-    payment_method: "cash",
+    payment_method: paymentMethod,
     language,
   };
 }

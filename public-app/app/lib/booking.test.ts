@@ -51,6 +51,11 @@ describe("public booking contract", () => {
     expect(strollerOverflow.error?.issues.some((issue) => issue.path[0] === "strollers")).toBe(true);
   });
 
+  test("pays in the vehicle unless card is asked for", () => {
+    expect(buildPublicBookingPayload(base, "en").payment_method).toBe("cash");
+    expect(buildPublicBookingPayload(base, "en", false, undefined, "card").payment_method).toBe("card");
+  });
+
   test("sends golf bags and strollers with the booking, defaulting to none", () => {
     expect(buildPublicBookingPayload(base, "en")).toMatchObject({ golf_bag_count: 0, stroller_count: 0 });
     expect(buildPublicBookingPayload({ ...base, golfBags: "2", strollers: "1" }, "en")).toMatchObject({ golf_bag_count: 2, stroller_count: 1 });

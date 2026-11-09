@@ -81,3 +81,20 @@ describe('createBooking', () => {
     expect(fetchMock).not.toHaveBeenCalled()
   })
 })
+
+describe('createCheckoutUrl', () => {
+  test('returns the hosted payment page for a booking', async () => {
+    const { createCheckoutUrl } = await import('./api.js')
+    fetchMock.mockResolvedValue(json({ checkout_url: 'https://pay.example/checkout' }))
+
+    await expect(createCheckoutUrl('booking-1')).resolves.toBe('https://pay.example/checkout')
+    expect(JSON.parse(fetchMock.mock.calls[0][1].body)).toEqual({ booking_id: 'booking-1' })
+  })
+
+  test('surfaces the Edge Function error', async () => {
+    const { createCheckoutUrl } = await import('./api.js')
+    fetchMock.mockResolvedValue(json({ error: 'Booking is not awaiting payment' }, 409))
+
+    await expect(createCheckoutUrl('booking-1')).rejects.toThrow('Booking is not awaiting payment')
+  })
+})

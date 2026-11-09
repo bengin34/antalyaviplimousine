@@ -159,6 +159,7 @@ export function BookingForm({
   const [minimumDate, setMinimumDate] = useState("");
   const [submitting, setSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState("");
+  const [paymentMethod, setPaymentMethod] = useState<"cash" | "card">("cash");
   const [confirmation, setConfirmation] = useState<{ ref: string; whatsapp: string; message: string } | null>(null);
   const [pendingDailyBooking, setPendingDailyBooking] = useState<PublicBookingValues | null>(null);
   const [fuelAcknowledged, setFuelAcknowledged] = useState(false);
@@ -237,6 +238,9 @@ export function BookingForm({
   const isPrivateAddressQuote = !isDailyChauffeur && values.pickup === "private_address" && values.destination === "private_address";
   const vitoFits = vitoFitsCapacity(Number(values.guests), Number(values.luggage) || 0, Number(values.golfBags) || 0, Number(values.strollers) || 0);
   const hasPrice = !isDailyChauffeur && selectedRoute && quote.price > 0;
+  // Card needs a final price; the server refuses it for anything the operator quotes.
+  const cardAvailable = Boolean(hasPrice) && !isPrivateAddressQuote && !ultraLuxOf(values.vehicle);
+  const payByCard = paymentMethod === "card" && cardAvailable;
   const childSeatCount = Number(values.childSeats) || 0;
   // The hotel is the destination on an airport pickup, and that is the case
   // where knowing it also tells us the region. Leaving a hotel, or heading to
@@ -378,6 +382,8 @@ export function BookingForm({
     const params = new URLSearchParams(window.location.search);
     const bookingRef = params.get("booking_ref");
     if (params.get("payment") === "success" && bookingRef) {
+      const paidValue = Number(params.get("value"));
+      if (paidValue > 0) window.gtag?.("event", "purchase", { transaction_id: bookingRef, currency: "EUR", value: paidValue, payment_type: "card" });
       setConfirmation({ ref: bookingRef, whatsapp: `https://wa.me/905302655790?text=${encodeURIComponent([`Booking reference: ${bookingRef}`, `📖 Please read our FAQ before your trip: ${faqUrlForLanguage(language)}`].join("\n"))}`, message: t("weWillContact", "Your payment was successful. We will contact you shortly.") });
       window.history.replaceState({}, "", window.location.pathname);
     } else if (params.get("payment") === "failed") {
@@ -414,8 +420,20 @@ export function BookingForm({
     window.gtag?.("event", "begin_checkout", { currency: "EUR", value: currentQuote.price, trip_type: formValues.tripType });
     track("begin_checkout", { price: currentQuote.price, trip_type: formValues.tripType, route: formValues.destination });
     try {
-      const { createBooking } = await import("../../../src/lib/api.js");
-      const booking = await createBooking(buildPublicBookingPayload(formValues, language, acceptedFuelTerms));
+      const { createBooking, createCheckoutUrl } = await import("../../../src/lib/api.js");
+      const useCard = payByCard && formValues.tripType !== "daily_chauffeur";
+      const booking = await createBooking(buildPublicBookingPayload(formValues, language, acceptedFuelTerms, undefined, useCard ? "card" : "cash"));
+      if (useCard) {
+        // Not confirmed yet: iyzico-callback marks it paid and returns the guest with ?payment=success.
+        try {
+          window.location.assign(await createCheckoutUrl(booking.id));
+        } catch (checkoutError) {
+          console.error("Checkout error", checkoutError);
+          setSubmitError(`${t("paymentError", "Payment failed. Please try again.")} (${booking.booking_ref})`);
+          setSubmitting(false);
+        }
+        return;
+      }
       const confirmedPrice = Number(booking.price_eur) || currentQuote.price;
       const messages = {
         dailyHire: t("dailyCashConfirmation", "Your daily chauffeur hire is confirmed. The service price excludes fuel, which is paid separately based on use."),
@@ -1028,7 +1046,7 @@ export function BookingForm({
                 <legend>{t("paymentMethod", "Choose payment method")}</legend>
                 <div className="payment-method-options">
                   <label className="payment-method-option payment-method-option-recommended">
-                    <input type="radio" name="paymentMethod" value="cash" checked readOnly />
+                    <input type="radio" name="paymentMethod" value="cash" checked={!payByCard} onChange={() => setPaymentMethod("cash")} />
                     <span className="payment-method-radio" aria-hidden="true" />
                     <span className="payment-method-copy">
                       <span className="payment-method-heading"><strong>{t("cashPayment", "Pay in the vehicle")}</strong><small>{t("recommended", "Recommended")}</small></span>
@@ -1036,6 +1054,17 @@ export function BookingForm({
                     </span>
                     <Icon name="cash" className="icon" />
                   </label>
+                  {cardAvailable && (
+                    <label className="payment-method-option">
+                      <input type="radio" name="paymentMethod" value="card" checked={payByCard} onChange={() => setPaymentMethod("card")} />
+                      <span className="payment-method-radio" aria-hidden="true" />
+                      <span className="payment-method-copy">
+                        <span className="payment-method-heading"><strong>{t("cardPayment", "Pay online by card")}</strong></span>
+                        <span>{t("cardPaymentDescription", "Pay the fixed total now on a secure page. Your booking is confirmed once the payment succeeds.")}</span>
+                      </span>
+                      <Icon name="card" className="icon" />
+                    </label>
+                  )}
                 </div>
               </fieldset>
 
@@ -1049,7 +1078,7 @@ export function BookingForm({
                 )}
                 <p className="booking-includes">{isDailyChauffeur ? t("dailyQuoteIncludes", "Includes the selected vehicle and chauffeur with no kilometre or hour limit. Fuel is excluded.") : t("quoteIncludes", "Includes meet & greet, flight tracking, parking, 90 minutes of waiting and bottled water.")}</p>
                 <button className="quote-submit" type="submit" id="main-book-submit" disabled={submitting}>
-                  <span>{submitting ? "…" : isDailyChauffeur ? t("reviewAndConfirm", "Review and confirm") : isPrivateAddressQuote ? t("requestQuote", "Request a price quote") : t("confirmCashBooking", "Confirm booking — pay in vehicle")}</span>
+                  <span>{submitting ? "…" : isDailyChauffeur ? t("reviewAndConfirm", "Review and confirm") : isPrivateAddressQuote ? t("requestQuote", "Request a price quote") : payByCard ? t("confirmCardBooking", "Continue to secure payment") : t("confirmCashBooking", "Confirm booking — pay in vehicle")}</span>
                   <Icon name="arrow-right" className="icon" />
                 </button>
               </div>
