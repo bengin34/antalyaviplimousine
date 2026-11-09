@@ -10,10 +10,11 @@ const photos: Record<UltraLuxVehicle, { slug: string; count: number }> = {
 };
 
 /** The Ultra Lux Edition block of the daily-hire form: three vehicles to pick from, with photos. */
-export function UltraLuxPicker({ language, selected, onSelect }: {
+export function UltraLuxPicker({ language, selected, onSelect, formatPrice = (eur) => `€${eur}` }: {
   language: string;
   selected: string;
   onSelect: (vehicle: UltraLuxVehicle) => void;
+  formatPrice?: (eur: number) => string;
 }) {
   const copy = ultraLuxCopy(language);
   return (
@@ -35,7 +36,7 @@ export function UltraLuxPicker({ language, selected, onSelect }: {
               <button type="button" className="ultra-lux-select" aria-pressed={selected === vehicle} onClick={() => onSelect(vehicle)}>
                 <strong>{name}</strong>
                 <span>{copy.seats.replace("{n}", String(maxGuests))}</span>
-                <span className="ultra-lux-price">€{dailyRateEur} <small>{copy.perDay}</small></span>
+                <span className="ultra-lux-price">{formatPrice(dailyRateEur)} <small>{copy.perDay}</small></span>
               </button>
             </article>
           );

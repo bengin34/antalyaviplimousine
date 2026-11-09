@@ -3028,7 +3028,7 @@ export const articles = {
       },
       {
         "type": "cop31",
-        "text": "Un Mercedes privat cu șofer, la dispoziția ta toată ziua: 200 € pe zi pentru un Vito (până la 6 persoane), 250 € pentru un Sprinter (până la 16). Combustibil inclus, fără limită de ore sau kilometri.",
+        "text": "Un Mercedes privat cu șofer, la dispoziția ta toată ziua: de la 300 € pe zi pentru un Vito (până la 6 persoane), de la 400 € pentru un Sprinter (până la 16). Combustibil inclus, fără limită de ore sau kilometri.",
         "button": "Vezi pachetul cu șofer COP31"
       },
       {
@@ -3097,7 +3097,7 @@ export const articles = {
       ],
       [
         "Cât costă un șofer privat pentru COP31?",
-        "Pachetul nostru COP31 are un tarif fix pe zi: 200 € pentru un Mercedes Vito, 250 € pentru un Sprinter, combustibil inclus, fără limită de ore sau kilometri, cu plata în mașină."
+        "Pachetul nostru COP31 are un tarif pe zi: de la 300 € pentru un Mercedes Vito, de la 400 € pentru un Sprinter, combustibil inclus, fără limită de ore sau kilometri, cu plata în mașină."
       ]
     ]
   },
@@ -3200,7 +3200,7 @@ export const articles = {
       },
       {
         "type": "cop31",
-        "text": "Stai în afara rețelei de shuttle? Un Mercedes cu șofer, la dispoziția ta toată ziua, de la hotel la locație și înapoi: 200 € pe zi (Vito, până la 6 persoane), 250 € (Sprinter, până la 16). Combustibil inclus.",
+        "text": "Stai în afara rețelei de shuttle? Un Mercedes cu șofer, la dispoziția ta toată ziua, de la hotel la locație și înapoi: de la 300 € pe zi (Vito, până la 6 persoane), de la 400 € (Sprinter, până la 16). Combustibil inclus.",
         "button": "Rezervă un șofer COP31"
       },
       {

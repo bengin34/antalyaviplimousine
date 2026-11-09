@@ -14,7 +14,7 @@
 
 import "@testing-library/jest-dom/vitest";
 import { cleanup, fireEvent, render, waitFor } from "@testing-library/react";
-import { afterEach, describe, expect, test } from "vitest";
+import { afterAll, afterEach, beforeAll, describe, expect, test, vi } from "vitest";
 import { LanguageProvider } from "../i18n";
 import { LandOfLegendsBookingCopyProvider } from "../lib/land-of-legends-booking-copy";
 import { landOfLegendsBookingCopy, pageMessages } from "../lib/page-data.server";
@@ -22,6 +22,11 @@ import { loadedHotelData } from "../lib/hotel-data";
 import { BookingForm } from "./BookingForm";
 
 afterEach(cleanup);
+
+// The form defaults the date to today; 9-20 Nov 2026 carries the summit airport
+// floor, so pin the clock outside it to test the regular tariff.
+beforeAll(() => { vi.useFakeTimers({ toFake: ["Date"], now: new Date("2026-12-01T10:00:00Z") }); });
+afterAll(() => { vi.useRealTimers(); });
 
 const renderForm = () =>
   render(

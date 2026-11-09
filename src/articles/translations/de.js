@@ -3344,7 +3344,7 @@ export const articles = {
       },
       {
         "type": "cop31",
-        "text": "Ein privater Mercedes mit Fahrer, den ganzen Tag für Sie reserviert: 200 € pro Tag für einen Vito (bis 6 Personen), 250 € für einen Sprinter (bis 16). Kraftstoff inklusive, keine Stunden- oder Kilometerbegrenzung.",
+        "text": "Ein privater Mercedes mit Fahrer, den ganzen Tag für Sie reserviert: ab 300 € pro Tag für einen Vito (bis 6 Personen), ab 400 € für einen Sprinter (bis 16). Kraftstoff inklusive, keine Stunden- oder Kilometerbegrenzung.",
         "button": "Zum COP31-Chauffeurpaket"
       },
       {
@@ -3413,7 +3413,7 @@ export const articles = {
       ],
       [
         "Was kostet ein privater Chauffeur zur COP31?",
-        "Unser COP31-Paket ist ein fester Tagespreis: 200 € für einen Mercedes Vito, 250 € für einen Sprinter, Kraftstoff inklusive, keine Stunden- oder Kilometerbegrenzung, Zahlung im Fahrzeug."
+        "Unser COP31-Paket ist ein Tagespreis: ab 300 € für einen Mercedes Vito, ab 400 € für einen Sprinter, Kraftstoff inklusive, keine Stunden- oder Kilometerbegrenzung, Zahlung im Fahrzeug."
       ]
     ]
   },
@@ -3516,7 +3516,7 @@ export const articles = {
       },
       {
         "type": "cop31",
-        "text": "Sie wohnen außerhalb des Shuttle-Netzes? Ein Mercedes mit Fahrer, den ganzen Tag für Sie reserviert, vom Hotel zum Gelände und zurück: 200 € pro Tag (Vito, bis 6 Personen), 250 € (Sprinter, bis 16). Kraftstoff inklusive.",
+        "text": "Sie wohnen außerhalb des Shuttle-Netzes? Ein Mercedes mit Fahrer, den ganzen Tag für Sie reserviert, vom Hotel zum Gelände und zurück: ab 300 € pro Tag (Vito, bis 6 Personen), ab 400 € (Sprinter, bis 16). Kraftstoff inklusive.",
         "button": "COP31-Chauffeur buchen"
       },
       {

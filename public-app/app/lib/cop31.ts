@@ -8,19 +8,21 @@ import {
   isCop31Period,
 } from "../../../supabase/functions/_shared/cop31.js";
 import { currentAttribution, type Attribution } from "./attribution";
-import { inclusiveDayCount, VITO_MAX_GUESTS } from "./booking";
+import { inclusiveDayCount, ultraLuxOf, ultraLuxVehicles, VITO_MAX_GUESTS, type UltraLuxVehicle } from "./booking";
 import type { Cop31Copy } from "./cop31-copy";
 
 export { COP31_FIRST_DAY, COP31_LAST_DAY, COP31_SPRINTER_MAX_GUESTS };
 export type Cop31Vehicle = "vito" | "sprinter";
+/** The form also sells the Ultra Lux vehicles, as an ordinary daily hire. */
+export type Cop31FormVehicle = Cop31Vehicle | UltraLuxVehicle;
 
 /** The opening day, in Antalya's time; the countdown and the dialog's cut-off follow it. */
 export const COP31_OPENING = "2026-11-09T09:00:00+03:00";
-export const cop31DailyRate = (vehicle: Cop31Vehicle) =>
-  COP31_DAILY_RATE_EUR[vehicle === "sprinter" ? "vclass" : "vito"];
+export const cop31DailyRate = (vehicle: Cop31FormVehicle) =>
+  ultraLuxOf(vehicle)?.dailyRateEur ?? COP31_DAILY_RATE_EUR[vehicle === "sprinter" ? "vclass" : "vito"];
 
 /** Days × the day rate, or 0 while the period is incomplete or outside the package window. */
-export function cop31Quote(vehicle: Cop31Vehicle, start: string, end: string) {
+export function cop31Quote(vehicle: Cop31FormVehicle, start: string, end: string) {
   if (!isCop31Period(start, end)) return { days: 0, price: 0 };
   const days = inclusiveDayCount(start, end);
   return { days, price: days * cop31DailyRate(vehicle) };
@@ -30,7 +32,7 @@ const normalize = (value: string) => value.trim().replace(/\s+/g, " ");
 
 export function createCop31Schema(errors: Cop31Copy["errors"]) {
   return z.object({
-    vehicle: z.enum(["vito", "sprinter"]),
+    vehicle: z.enum(["vito", "sprinter", ...ultraLuxVehicles]),
     startDate: z.string(),
     endDate: z.string(),
     startTime: z.string(),
@@ -40,6 +42,7 @@ export function createCop31Schema(errors: Cop31Copy["errors"]) {
     customerPhone: z.string(),
     customerEmail: z.string(),
     notes: z.string().default(""),
+    fuelAccepted: z.boolean().default(false),
   }).superRefine((values, context) => {
     const startOk = values.startDate >= COP31_FIRST_DAY && values.startDate <= COP31_LAST_DAY;
     if (!startOk) context.addIssue({ code: "custom", path: ["startDate"], message: errors.start });
@@ -50,7 +53,9 @@ export function createCop31Schema(errors: Cop31Copy["errors"]) {
     if (hotel.length < 2 || hotel.length > 120) context.addIssue({ code: "custom", path: ["hotelName"], message: errors.hotel });
 
     const guests = Number(values.guests);
-    const max = values.vehicle === "sprinter" ? COP31_SPRINTER_MAX_GUESTS : VITO_MAX_GUESTS;
+    const lux = ultraLuxOf(values.vehicle);
+    const max = lux?.maxGuests ?? (values.vehicle === "sprinter" ? COP31_SPRINTER_MAX_GUESTS : VITO_MAX_GUESTS);
+    if (lux && !values.fuelAccepted) context.addIssue({ code: "custom", path: ["fuelAccepted"], message: errors.fuel });
     if (!Number.isInteger(guests) || guests < 1 || guests > max) context.addIssue({ code: "custom", path: ["guests"], message: errors.guests });
 
     const name = normalize(values.customerName);
@@ -75,10 +80,13 @@ export type Cop31Values = z.input<ReturnType<typeof createCop31Schema>>;
  * it at the package rate with fuel included, so no fuel terms are sent.
  */
 export function buildCop31Payload(values: Cop31Values, language: string, attribution: Attribution = currentAttribution()) {
+  const lux = ultraLuxOf(values.vehicle);
+  const notes = normalize(values.notes ?? "");
   return {
     ...attribution,
     trip_type: "daily_chauffeur",
-    service_package: "cop31",
+    // Ultra Lux is not part of the package: a plain daily hire, fuel excluded and accepted.
+    ...(lux ? { fuel_terms_accepted: true } : { service_package: "cop31" }),
     customer_name: normalize(values.customerName),
     customer_email: values.customerEmail.trim().toLowerCase(),
     customer_phone: normalize(values.customerPhone).replace(/^00/, "+"),
@@ -94,8 +102,8 @@ export function buildCop31Payload(values: Cop31Values, language: string, attribu
     golf_bag_count: 0,
     stroller_count: 0,
     guests: Number(values.guests),
-    vehicle_type: values.vehicle === "sprinter" ? "vclass" : "vito",
-    notes: normalize(values.notes ?? "") || null,
+    vehicle_type: lux ? values.vehicle : values.vehicle === "sprinter" ? "vclass" : "vito",
+    notes: lux ? `[COP31]${notes ? ` ${notes}` : ""}` : notes || null,
     payment_method: "cash",
     language,
   };

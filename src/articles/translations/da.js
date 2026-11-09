@@ -3028,7 +3028,7 @@ export const articles = {
       },
       {
         "type": "cop31",
-        "text": "En privat Mercedes med chauffør til din rådighed hele dagen: 200 € pr. dag for en Vito (op til 6 personer), 250 € for en Sprinter (op til 16). Brændstof inkluderet, ingen grænse for timer eller kilometer.",
+        "text": "En privat Mercedes med chauffør til din rådighed hele dagen: fra 300 € pr. dag for en Vito (op til 6 personer), fra 400 € for en Sprinter (op til 16). Brændstof inkluderet, ingen grænse for timer eller kilometer.",
         "button": "Se COP31-pakken med chauffør"
       },
       {
@@ -3097,7 +3097,7 @@ export const articles = {
       ],
       [
         "Hvad koster en privat chauffør til COP31?",
-        "Vores COP31-pakke har en fast dagspris: 200 € for en Mercedes Vito, 250 € for en Sprinter, brændstof inkluderet, ingen grænse for timer eller kilometer, betaling i bilen."
+        "Vores COP31-pakke har en dagspris: fra 300 € for en Mercedes Vito, fra 400 € for en Sprinter, brændstof inkluderet, ingen grænse for timer eller kilometer, betaling i bilen."
       ]
     ]
   },
@@ -3200,7 +3200,7 @@ export const articles = {
       },
       {
         "type": "cop31",
-        "text": "Bor du uden for shuttlenettet? En Mercedes med chauffør til din rådighed hele dagen, fra hotellet til konferencestedet og tilbage: 200 € pr. dag (Vito, op til 6 personer), 250 € (Sprinter, op til 16). Brændstof inkluderet.",
+        "text": "Bor du uden for shuttlenettet? En Mercedes med chauffør til din rådighed hele dagen, fra hotellet til konferencestedet og tilbage: fra 300 € pr. dag (Vito, op til 6 personer), fra 400 € (Sprinter, op til 16). Brændstof inkluderet.",
         "button": "Book en COP31-chauffør"
       },
       {

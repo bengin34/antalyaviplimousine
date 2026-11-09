@@ -8,7 +8,7 @@ import {
   resolveHotelRegion,
   turkeyToday,
 } from '../_shared/land-of-legends-rules.js'
-import { COP31_DAILY_RATE_EUR, COP31_SPRINTER_MAX_GUESTS, isCop31Period } from '../_shared/cop31.js'
+import { COP31_DAILY_RATE_EUR, COP31_SPRINTER_MAX_GUESTS, isCop31Period, transferFare } from '../_shared/cop31.js'
 import { ultraLux } from '../_shared/ultra-lux.js'
 import { cardPaymentAllowed, isPaymentMethod } from './payment.ts'
 
@@ -440,7 +440,11 @@ Deno.serve(async (req) => {
         }
         airportReturnNeedsQuote = true
       } else {
-        priceEur = Number(route.price_eur) * (isRoundTrip ? 2 : 1)
+        priceEur = transferFare(
+          Number(route.price_eur),
+          isRoundTrip ? [pickupDate, returnDate] : [pickupDate],
+          pickupLocation === 'airport' || dropoffLocation === 'airport',
+        )
       }
     }
 
@@ -484,7 +488,7 @@ Deno.serve(async (req) => {
       flight_arrival_time: payload.flight_arrival_time || null,
       // shortcut: the package is marked in notes rather than its own column;
       // add a `service_package` column if more event packages follow.
-      notes: isCop31 ? `[COP31 package: fuel included]${notes ? ` ${notes}` : ''}` : luxVehicle ? `[${luxVehicle.name}: confirm availability]${notes ? ` ${notes}` : ''}` : notes || null,
+      notes: isCop31 ? `[COP31 package: fuel included, confirm availability]${notes ? ` ${notes}` : ''}` : luxVehicle ? `[${luxVehicle.name}: confirm availability]${notes ? ` ${notes}` : ''}` : notes || null,
       pickup_location: pickupLocation,
       pickup_address: pickupAddress || null,
       pickup_time: pickupTime || null,
@@ -514,7 +518,7 @@ Deno.serve(async (req) => {
       // Short-notice excursions are taken but confirmed by the operator.
       // An Ultra Lux hire is a request until the operator confirms the vehicle is free.
       // A card booking stays pending until iyzico-callback verifies the payment.
-      status: needsOperator || paymentMethod === 'card' ? 'pending' : 'confirmed',
+      status: isCop31 || needsOperator || paymentMethod === 'card' ? 'pending' : 'confirmed',
       payment_method: paymentMethod,
       language: String(payload.language || 'en'),
       utm_source: payload.utm_source ? String(payload.utm_source).slice(0, 100) : null,
