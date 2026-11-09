@@ -239,7 +239,8 @@ export function BookingForm({
   const vitoFits = vitoFitsCapacity(Number(values.guests), Number(values.luggage) || 0, Number(values.golfBags) || 0, Number(values.strollers) || 0);
   const hasPrice = !isDailyChauffeur && selectedRoute && quote.price > 0;
   // Card needs a final price; the server refuses it for anything the operator quotes.
-  const cardAvailable = Boolean(hasPrice) && !isPrivateAddressQuote && !ultraLuxOf(values.vehicle);
+  // Off until the payment provider is live, so no guest is sent to a checkout that cannot open.
+  const cardAvailable = import.meta.env.VITE_CARD_PAYMENTS === "1" && Boolean(hasPrice) && !isPrivateAddressQuote && !ultraLuxOf(values.vehicle);
   const payByCard = paymentMethod === "card" && cardAvailable;
   const childSeatCount = Number(values.childSeats) || 0;
   // The hotel is the destination on an airport pickup, and that is the case
