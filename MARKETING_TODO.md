@@ -21,6 +21,28 @@
 - [ ] Pick ONE high-intent search/store-listing opportunity and write a change proposal with target audience, target query, baseline and success metric.
 - [ ] Pick ONE conversion bottleneck and draft an A/B test; do not deploy until reviewed.
 
+## Google Business Profile posts
+Drafts in `marketing/gbp-posts/` (not deployed). Engin publishes from his Google account; agents only draft. No Offer posts (pricing = Engin).
+- Cadence: 1 post/week, Monday. Language rotation EN → DE → RU → TR.
+- Measure: `landing_view` + `booking_submitted` with `utm_campaign=gbp-post` (site analytics); GBP Performance → website clicks. Check by 2026-12-07.
+
+| Publish on | Type | Lang | Page | Draft |
+|---|---|---|---|---|
+| 2026-11-10 (expires 20 Nov) | Event | EN | /cop31/ | `2026-11-10-cop31-event-en.md` |
+| 2026-11-10 (expires 20 Nov) | Event | TR | /tr/cop31/ | `2026-11-10-cop31-event-tr.md` |
+| 2026-11-16 | Update | EN | /transfers/belek/ | `2026-11-16-belek-transfer-en.md` |
+| 2026-11-23 | Update | DE | /de/transfers/side/ | `2026-11-23-side-transfer-de.md` |
+| 2026-11-30 | Update | RU | /ru/transfers/kemer/ | `2026-11-30-kemer-transfer-ru.md` |
+| 2026-12-07 | Update | TR | /tr/transfers/alanya/ | `2026-12-07-alanya-transfer-tr.md` |
+
+Publish checklist:
+- [ ] Business Profile → Add update / Add event; one language per post
+- [ ] Paste text from the draft body, set button "Book", paste `url` with UTM unchanged
+- [ ] Upload `image` (JPG); Event: title + start/end dates from frontmatter
+- [ ] After publishing: open the post's button link once, confirm the page loads with UTM
+- [ ] Mark the draft `published: <date>` in its frontmatter
+- [ ] COP31 Event expires 20 Nov by itself; delete with /cop31/ cleanup (MEN-141, 2026-11-23)
+
 ## Done criteria
 - [ ] Every finding links to repository paths or measured analytics.
 - [ ] Every proposed change has owner, priority, due date, metric and rollback plan.
@@ -35,3 +57,4 @@
 | 2026-11-05 | ecc:seo, copywriting (MEN-141) | COP31 (9–20 Nov 2026) had no page. Shipped /cop31/ in en, tr, de, fr, ru, ar, es: Service + FAQPage schema, hreflang ×7 + x-default, own OG image, sitemap. Site-wide opening dialog until 20 Nov links to it. Booking reuses create-booking as a daily hire priced €200/€250 with fuel included | Measure: `landing_view` / `booking_submitted` with route `cop31`. Remove page, routes and dialog after 22 Nov (temporary event) | Engin | 2026-11-23 |
 | 2026-11-05 | ecc:seo, ecc:article-writing, ecc:brand-voice (MEN-141) | No informational COP31 pages; competitors (cop31hub, tantalya) own "COP31 Antalya transport/venue" queries. Facts from cop31.tr/transportation + UNFCCC participant info | Two blog guides × 23 languages: `cop31-antalya-transport` (airport, official shuttles, venue parking pass) and `cop31-where-to-stay` (areas by drive time, our estimates labelled as such). Both link to /cop31/ via a `cop31` article block. Translations unreviewed by native speakers | Engin | 2026-11-23: remove both with /cop31/ (or 301 to /blog/) |
 | 2026-11-09 | ecc:seo, ecc:article-writing, ecc:brand-voice (MEN-193) | /cop31/ sold a "fixed" €200/€250 day rate; no Ultra Lux in its form; guest told the vehicle was reserved | Vito from €300, Sprinter from €400 (all prices "from", meta + 7 languages + 23 guide languages); Ultra Lux picker in the form as a plain daily hire (fuel excluded, checkbox); "availability confirmed after booking"; COP31 bookings saved `pending`. Deploy `create-booking` right after Pages | Engin | 2026-11-23 |
+| 2026-11-10 | ecc:seo, ecc:article-writing, ecc:brand-voice (MEN-151) | Business Profile exists, Posts unused (MEN-145 research) | 6 drafts (COP31 Event EN+TR, 4 weekly Updates EN/DE/RU/TR), no prices/offers, UTM on every link. Nothing published | Engin | 2026-12-07 |
