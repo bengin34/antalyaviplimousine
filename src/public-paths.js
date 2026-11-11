@@ -43,6 +43,12 @@ export const landOfLegendsPaths = Object.freeze(
   landOfLegendsLanguages.map((language) => `${languagePrefix(language)}/land-of-legends/`),
 );
 
+/** The interactive airport arrival map — published in every site language. */
+export const airportMapLanguages = publicLanguages;
+export const airportMapPaths = Object.freeze(
+  airportMapLanguages.map((language) => `${languagePrefix(language)}/airport-map/`),
+);
+
 /** The COP31 summit chauffeur page, in the conference's main visitor languages. */
 export const cop31Languages = Object.freeze(["en", "tr", "de", "fr", "ru", "ar", "es"]);
 export const cop31Paths = Object.freeze(
@@ -61,6 +67,7 @@ export const prerenderPaths = Object.freeze([
   ...clinicPaths,
   ...b2bPaths,
   ...landOfLegendsPaths,
+  ...airportMapPaths,
   ...cop31Paths,
   ...transferPaths,
   ...hotelPaths,
@@ -74,6 +81,7 @@ export const sitemapPaths = Object.freeze([
   ...healthPaths,
   ...b2bPaths,
   ...landOfLegendsPaths,
+  ...airportMapPaths,
   ...cop31Paths,
   ...transferPaths,
   ...hotelPaths,

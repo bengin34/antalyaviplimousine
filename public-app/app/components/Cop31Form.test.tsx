@@ -2,10 +2,12 @@
 
 import "@testing-library/jest-dom/vitest";
 import { cleanup, fireEvent, render, screen } from "@testing-library/react";
-import { afterEach, describe, expect, test } from "vitest";
+import { afterEach, beforeEach, describe, expect, test, vi } from "vitest";
 import { Cop31Form } from "./Cop31Form";
 
-afterEach(cleanup);
+// The default period follows today's date; pin it before the summit so the totals below hold.
+beforeEach(() => { vi.useFakeTimers({ toFake: ["Date"] }); vi.setSystemTime(new Date("2026-11-05T09:00:00Z")); });
+afterEach(() => { cleanup(); vi.useRealTimers(); });
 
 describe("Cop31Form", () => {
   test("sells Vito and Sprinter 'from' prices plus the three Ultra Lux vehicles", () => {

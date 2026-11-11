@@ -5,6 +5,7 @@
  * dictionary, excursion copy, SEO copy and articles) never reach the browser. The
  * `.server` suffix makes the build fail if client code ever imports this.
  */
+import { airportMapCopy, airportMapPath, type AirportMapLanguage } from "./airport-map-copy";
 import translationData from "../generated/legacy-translations.json";
 import type { Messages } from "../i18n";
 import type { LandOfLegendsBookingCopyByLanguage } from "./land-of-legends-booking-copy";
@@ -116,11 +117,14 @@ export function transferPageData(language: IndexableLanguage, route: LocalizedRo
       label: excursion.fromLabel(price),
     };
   }
+  const mapLanguage: AirportMapLanguage = language in airportMapCopy ? language as AirportMapLanguage : "en";
+  const mapCopy = airportMapCopy[mapLanguage];
   return {
     heading: seo.heading(route.name),
     description: seo.description(route.name, route.prices.vito),
     guides: routeArticleSummaries(language, route.slug),
     landOfLegendsPromo,
+    airportMap: { heading: mapCopy.heading, label: mapCopy.walk, href: airportMapPath(mapLanguage) },
     landing: transferLanding(language, route),
   };
 }

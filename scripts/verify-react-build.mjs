@@ -1,7 +1,7 @@
 import { readFile, stat } from "node:fs/promises";
 import path from "node:path";
 import { JSDOM } from "jsdom";
-import { articlePaths, b2bPaths, cop31Languages, cop31Paths, landOfLegendsLanguages, landOfLegendsPaths, blogPaths, clinicPaths, healthPaths, homePaths, hotelPaths, legalPaths, prerenderPaths, publicLanguages, sitemapPaths, transferPaths } from "../src/public-paths.js";
+import { airportMapLanguages, airportMapPaths, articlePaths, b2bPaths, cop31Languages, cop31Paths, landOfLegendsLanguages, landOfLegendsPaths, blogPaths, clinicPaths, healthPaths, homePaths, hotelPaths, legalPaths, prerenderPaths, publicLanguages, sitemapPaths, transferPaths } from "../src/public-paths.js";
 import { articleLanguages, articlesForLanguage, blogPath } from "../src/articles/index.js";
 import { publicRouteSlugs, routeCatalog } from "../src/routes.js";
 import { AGENCY_DISCOUNT_EUR, agencyPrice } from "../src/b2b-pricing.js";
@@ -16,6 +16,7 @@ const clinicSet = new Set(clinicPaths);
 const b2bSet = new Set(b2bPaths);
 const landOfLegendsSet = new Set(landOfLegendsPaths);
 const cop31Set = new Set(cop31Paths);
+const airportMapSet = new Set(airportMapPaths);
 const transferSet = new Set(transferPaths);
 const hotelSet = new Set(hotelPaths);
 const legalSet = new Set(legalPaths);
@@ -73,6 +74,10 @@ for (const urlPath of prerenderPaths) {
   } else if (landOfLegendsSet.has(urlPath)) {
     // Published in four languages; its hreflang set names exactly those + x-default.
     if (alternateCount !== landOfLegendsLanguages.length + 1) fail(`${urlPath}: expected ${landOfLegendsLanguages.length + 1} Land of Legends language alternates, found ${alternateCount}`);
+  } else if (airportMapSet.has(urlPath)) {
+    if (alternateCount !== airportMapLanguages.length + 1) fail(`${urlPath}: expected ${airportMapLanguages.length + 1} airport map language alternates, found ${alternateCount}`);
+    // The route must be readable without the 3D scene: five steps at Terminal 2.
+    if (document.querySelectorAll(".am-route ol li").length !== 5) fail(`${urlPath}: airport map route steps are missing from the prerendered HTML`);
   } else if (cop31Set.has(urlPath)) {
     // The summit page is published in seven languages: exactly those + x-default.
     if (alternateCount !== cop31Languages.length + 1) fail(`${urlPath}: expected ${cop31Languages.length + 1} COP31 language alternates, found ${alternateCount}`);

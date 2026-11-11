@@ -3,6 +3,7 @@ import { writeFile } from "node:fs/promises";
 import path from "node:path";
 import { publicRouteSlugs } from "../src/routes.js";
 import {
+  airportMapLanguages,
   articlePaths,
   blogPaths,
   cop31Languages,
@@ -81,6 +82,9 @@ addGroup(Object.fromEntries(publicLanguages.map((language) => [language, `${lang
 addGroup(Object.fromEntries(publicLanguages.map((language) => [language, `${languagePrefix(language)}/health/`])));
 addGroup(Object.fromEntries(
   landOfLegendsLanguages.map((language) => [language, `${languagePrefix(language)}/land-of-legends/`]),
+));
+addGroup(Object.fromEntries(
+  airportMapLanguages.map((language) => [language, `${languagePrefix(language)}/airport-map/`]),
 ));
 addGroup(Object.fromEntries(
   cop31Languages.map((language) => [language, `${languagePrefix(language)}/cop31/`]),
