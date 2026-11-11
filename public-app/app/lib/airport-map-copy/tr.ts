@@ -3,7 +3,7 @@ import type { AirportMapCopy } from "../airport-map-copy";
 export const tr: AirportMapCopy = {
   locale: "tr_TR",
   metaTitle: "Antalya Havalimanı Haritası: Geliş, Çıkış ve Meet & Greet (T1, T2)",
-  metaDescription: "Antalya Havalimanı gelen yolcu katının interaktif 3D haritası. Pasaport kontrolünden bagaj alımına, gümrüğe ve çıkışa giden yolu izleyin; Terminal 2 Meet & Greet A–G noktalarını görün.",
+  metaDescription: "Antalya Havalimanı gelen yolcu katının interaktif 3D haritası. Pasaport kontrolünden bagaj alımına, gümrüğe ve çıkışa giden yolu izleyin; Terminal 2 Meet & Greet A–L noktalarını görün.",
   home: "Ana sayfa",
   transfers: "Havalimanı transferleri",
   bookNow: "Transfer rezervasyonu",
@@ -12,7 +12,9 @@ export const tr: AirportMapCopy = {
   canvasLabel: "Antalya Havalimanı gelen yolcu alanının 3D haritası. Aynı rota haritanın yanında adım adım yazılıdır.",
   loading: "Harita yükleniyor…",
   noWebgl: "Tarayıcınız 3D haritayı gösteremiyor. Rota aşağıda adım adım yazılıdır.",
-  dragHint: "Çevirmek için sürükleyin · yakınlaştırmak için kaydırın veya iki parmakla açın · taşımak için sağ tuşla ya da iki parmakla sürükleyin",
+  dragHint: "Tek parmakla haritayı taşıyın · iki parmakla yakınlaştırın ve çevirin · fare: çevirmek için sürükleyin, yakınlaştırmak için kaydırın",
+  fullscreen: "Tam ekran",
+  exitFullscreen: "Tam ekrandan çık",
   walk: "Rotayı yürü",
   pause: "Duraklat",
   routeTitle: { t2: "Terminal 2'ye varış", t1: "Terminal 1'e varış" },
@@ -25,7 +27,7 @@ export const tr: AirportMapCopy = {
       baggage: ["Bagaj alımı", "Zemin kattaki salonun bir yanında 201–206, diğer yanında 211–215 numaralı bantlar var. Uçuşunuzun bandı ekranlarda yazar."],
       customs: ["Gümrük", "Bagajınızı alınca salonun ortasına yürüyün ve gümrük ofisinin yanından karşılama salonuna geçin. Araç kiralama ve döviz ofisleri buradadır."],
       exit: ["Çıkış", "Çıkış kapısı karşınızda, karşılama salonunun ortasındadır."],
-      meetGreet: ["Meet & Greet, solunuzda", "Dışarı çıkınca sola dönün. Önce polis noktası, ardından sırayla A, B, C, D, E, F ve G noktaları gelir. Karşılama görevlimiz rezervasyonunuzda yazan noktada bekler."],
+      meetGreet: ["Meet & Greet, solunuzda", "Dışarı çıkınca sola dönün. Önce polis noktası, sonra TÜRSAB denetim noktası, ardından sırayla A'dan L'ye kadar noktalar gelir. Karşılarında 1'den 70'e kadar numaralı daha küçük kontuarlar vardır. Karşılama görevlimiz rezervasyonunuzda yazan noktada bekler."],
     },
     t1: {
       passport: ["Pasaport kontrolü", "Terminale 1. kattan girersiniz. Pasaport kabinlerinden sonra yürüyen merdivenle bagaj alımına inin."],
@@ -46,11 +48,11 @@ export const tr: AirportMapCopy = {
   greeterTitle: "Terminal 2'de sizi kim karşılar",
   greeterText: [
     "Terminal 2'de sizi şoför değil, karşılama görevlimiz karşılar. Görevli, Meet & Greet noktalarından birinde adınızla bekler ve sizi aracınıza götürür.",
-    "Hangi nokta olacağı (A–G) güne göre değişir. Harfi rezervasyondan sonra gönderiyoruz.",
+    "Hangi nokta olacağı (A–L) güne göre değişir. Harfi rezervasyondan sonra gönderiyoruz.",
   ],
   faqTitle: "Antalya Havalimanı'na varışla ilgili sorular",
   faq: [
-    ["Terminal 2'de Meet & Greet alanı nerede?", "Gelen yolcu çıkışının dışında, solda. Önce polis noktasını, ardından A'dan G'ye harfli noktaları geçersiniz."],
+    ["Terminal 2'de Meet & Greet alanı nerede?", "Gelen yolcu çıkışının dışında, solda. Önce polis noktasını, ardından A'dan L'ye harfli noktaları geçersiniz."],
     ["Hangi noktaya gideceğim?", "Değiştiği için rezervasyondan sonra bildiriyoruz. Harf onay mesajınızda yazar."],
     ["Şoför terminalin içinde mi bekliyor?", "Hayır. Terminal 2'de ekibimizden bir karşılama görevlisi Meet & Greet noktasında bekler ve sizi şoföre ve araca götürür."],
     ["Terminal 1'den Terminal 2'ye nasıl geçerim?", "Havalimanı, Terminal 1, Terminal 2 ve iç hatlar terminali arasında ücretsiz ring servisi işletiyor. Duraklar tüm havalimanı haritasında işaretlidir."],

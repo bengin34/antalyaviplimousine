@@ -3,7 +3,7 @@ import type { AirportMapCopy } from "../airport-map-copy";
 export const sv: AirportMapCopy = {
   locale: "sv_SE",
   metaTitle: "Karta Antalya flygplats: ankomst, utgång, Meet & Greet (T1, T2)",
-  metaDescription: "Interaktiv 3D-karta över ankomsten på Antalya flygplats: vägen från passkontroll via bagage och tull till utgången, och Meet & Greet-skärmtaken A–G vid Terminal 2.",
+  metaDescription: "Interaktiv 3D-karta över ankomsten på Antalya flygplats: vägen från passkontroll via bagage och tull till utgången, och Meet & Greet-skärmtaken A–L vid Terminal 2.",
   home: "Hem",
   transfers: "Flygplatstransfer",
   bookNow: "Boka transfer",
@@ -12,7 +12,9 @@ export const sv: AirportMapCopy = {
   canvasLabel: "3D-karta över ankomsten på Antalya flygplats. Samma väg beskrivs steg för steg bredvid kartan.",
   loading: "Kartan laddas…",
   noWebgl: "Din webbläsare kan inte visa 3D-kartan. Vägen beskrivs steg för steg nedan.",
-  dragHint: "Dra för att vrida · scrolla eller nyp för att zooma · högerdra eller använd två fingrar för att flytta",
+  dragHint: "Ett finger flyttar kartan · två fingrar zoomar och vrider · mus: dra för att vrida, scrolla för att zooma",
+  fullscreen: "Helskärm",
+  exitFullscreen: "Stäng helskärm",
   walk: "Gå vägen",
   pause: "Pausa",
   routeTitle: { t2: "Ankomst till Terminal 2", t1: "Ankomst till Terminal 1" },
@@ -25,7 +27,7 @@ export const sv: AirportMapCopy = {
       baggage: ["Bagageutlämning", "I hallen på bottenplan ligger banden 201–206 på ena sidan och 211–215 på den andra. Skärmarna visar vilket band ditt flyg har."],
       customs: ["Tull", "Gå med ditt bagage mot mitten av hallen och förbi tullkontoret in i ankomsthallen. Här finns biluthyrningsdiskar och växlingskontor."],
       exit: ["Utgång", "Utgångsdörren ligger rakt fram, mitt i ankomsthallen."],
-      meetGreet: ["Meet & Greet, till vänster om dig", "Sväng vänster när du kommer ut. Först kommer polisposten, sedan skärmtaken A, B, C, D, E, F och G på rad. Vår mötesvärd väntar vid det skärmtak som står i din bokning."],
+      meetGreet: ["Meet & Greet, till vänster om dig", "Sväng vänster när du kommer ut. Först kommer polisposten, sedan TÜRSAB-kontrollen och därefter skärmtaken A till L på rad. Mittemot dem står en rad mindre diskar numrerade 1 till 70. Vår mötesvärd väntar vid det skärmtak som står i din bokning."],
     },
     t1: {
       passport: ["Passkontroll", "Du kommer in i terminalen på plan 1. Ta rulltrapporna ner till bagageutlämningen efter passluckorna."],
@@ -46,11 +48,11 @@ export const sv: AirportMapCopy = {
   greeterTitle: "Vem som möter dig vid Terminal 2",
   greeterText: [
     "Vid Terminal 2 möts du av vår mötesvärd, inte av chauffören. Värden står vid ett av Meet & Greet-skärmtaken med ditt namn och följer dig till ditt fordon.",
-    "Vilket skärmtak det blir, A till G, beror på dagen. Vi skickar bokstaven till dig när du har bokat.",
+    "Vilket skärmtak det blir, A till L, beror på dagen. Vi skickar bokstaven till dig när du har bokat.",
   ],
   faqTitle: "Frågor om ankomsten till Antalya flygplats",
   faq: [
-    ["Var ligger Meet & Greet-området vid Terminal 2?", "Utanför ankomstutgången, till vänster. Du går först förbi polisposten och sedan förbi skärmtaken märkta A till G."],
+    ["Var ligger Meet & Greet-området vid Terminal 2?", "Utanför ankomstutgången, till vänster. Du går först förbi polisposten och sedan förbi skärmtaken märkta A till L."],
     ["Vilket skärmtak ska jag gå till?", "Det varierar, så vi meddelar dig när du har bokat. Bokstaven står i ditt bekräftelsemeddelande."],
     ["Väntar chauffören inne i terminalen?", "Nej. Vid Terminal 2 väntar en mötesvärd från vårt team vid Meet & Greet-skärmtaket och tar dig till chauffören och fordonet."],
     ["Hur tar jag mig från Terminal 1 till Terminal 2?", "Flygplatsen kör en gratis ringbuss mellan Terminal 1, Terminal 2 och inrikesterminalen. Hållplatserna är utmärkta på kartan över hela flygplatsen."],

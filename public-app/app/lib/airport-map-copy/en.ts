@@ -3,7 +3,7 @@ import type { AirportMapCopy } from "../airport-map-copy";
 export const en: AirportMapCopy = {
   locale: "en_GB",
   metaTitle: "Antalya Airport Map: Arrivals, Exit & Meet and Greet (T1, T2)",
-  metaDescription: "Interactive 3D map of Antalya Airport arrivals. Follow the way from passport control to baggage claim, customs and the exit, and see the Terminal 2 Meet & Greet shelters A–G.",
+  metaDescription: "Interactive 3D map of Antalya Airport arrivals. Follow the way from passport control to baggage claim, customs and the exit, and see the Terminal 2 Meet & Greet shelters A–L.",
   home: "Home",
   transfers: "Airport transfers",
   bookNow: "Book a transfer",
@@ -12,7 +12,9 @@ export const en: AirportMapCopy = {
   canvasLabel: "3D map of Antalya Airport arrivals. The same route is listed step by step next to the map.",
   loading: "Loading the map…",
   noWebgl: "Your browser cannot show the 3D map. The route is listed step by step below.",
-  dragHint: "Drag to turn · scroll or pinch to zoom · right-drag or two fingers to move",
+  dragHint: "One finger moves the map · two fingers zoom and turn it · mouse: drag to turn, scroll to zoom",
+  fullscreen: "Full screen",
+  exitFullscreen: "Exit full screen",
   walk: "Walk the route",
   pause: "Pause",
   routeTitle: { t2: "Arriving at Terminal 2", t1: "Arriving at Terminal 1" },
@@ -25,7 +27,7 @@ export const en: AirportMapCopy = {
       baggage: ["Baggage claim", "The ground floor hall has belts 201–206 on one side and 211–215 on the other. Screens show which belt your flight uses."],
       customs: ["Customs", "With your bags, walk towards the middle of the hall and pass the customs office into the arrivals hall. Car rental desks and exchange offices are here."],
       exit: ["Exit", "The exit door is ahead of you, in the middle of the arrivals hall."],
-      meetGreet: ["Meet & Greet, on your left", "Outside, turn left. First comes the police post, then shelters A, B, C, D, E, F and G in a row. Our greeter waits at the shelter named in your booking."],
+      meetGreet: ["Meet & Greet, on your left", "Outside, turn left. First comes the police post, then the TÜRSAB checkpoint, then shelters A to L in a row. Facing them is a row of smaller desks numbered 1 to 70. Our greeter waits at the shelter named in your booking."],
     },
     t1: {
       passport: ["Passport control", "You enter the terminal on the 1st floor. After the passport booths, take the escalators down to baggage claim."],
@@ -46,11 +48,11 @@ export const en: AirportMapCopy = {
   greeterTitle: "Who meets you at Terminal 2",
   greeterText: [
     "At Terminal 2 you are met by our greeter, not by the driver. The greeter stands at one of the Meet & Greet shelters with your name and walks you to your vehicle.",
-    "Which shelter, A to G, depends on the day. We send you the letter after you book.",
+    "Which shelter, A to L, depends on the day. We send you the letter after you book.",
   ],
   faqTitle: "Questions about arriving at Antalya Airport",
   faq: [
-    ["Where is the Meet & Greet area at Terminal 2?", "Outside the arrivals exit, on the left. You pass the police post first, then the shelters marked A to G."],
+    ["Where is the Meet & Greet area at Terminal 2?", "Outside the arrivals exit, on the left. You pass the police post first, then the shelters marked A to L."],
     ["Which shelter do I go to?", "It changes, so we tell you after you book. The letter is in your confirmation message."],
     ["Does the driver wait inside the terminal?", "No. At Terminal 2 a greeter from our team waits at the Meet & Greet shelter and takes you to the driver and the vehicle."],
     ["How do I get from Terminal 1 to Terminal 2?", "The airport runs a free ring shuttle between Terminal 1, Terminal 2 and the domestic terminal. The stops are marked on the whole-airport map."],

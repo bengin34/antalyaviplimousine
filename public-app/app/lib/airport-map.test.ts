@@ -11,9 +11,15 @@ describe("airport map", () => {
     const t2 = airportMap.t2.levels.ground;
     expect(labels(t2.objects, "belt").sort()).toEqual(["201", "202", "203", "204", "205", "206", "211", "212", "213", "214", "215"]);
     expect(labels(airportMap.t1.levels.ground.objects, "belt").sort()).toEqual(["101", "102", "103", "104", "105", "106"]);
-    // Out of the door, to the left: police first, then A to G.
-    const row = t2.objects.filter((o) => o.kind === "police" || o.kind === "shelter").sort((a, b) => a.x - b.x);
-    expect(row.map((o) => o.label ?? o.kind)).toEqual(["police", "A", "B", "C", "D", "E", "F", "G"]);
+    // Out of the door, to the left: police, the TÜRSAB checkpoint, then A to L.
+    const row = t2.objects.filter((o) => ["police", "checkpoint", "shelter"].includes(o.kind)).sort((a, b) => a.x - b.x);
+    expect(row.map((o) => o.label ?? o.kind)).toEqual(["police", "TÜRSAB", ..."ABCDEFGHIJKL"]);
+    // Facing them, the numbered desks; the route passes between the two rows, in front of the counters.
+    const desks = t2.objects.find((o) => o.kind === "desks")!;
+    expect(desks.count).toBe(70);
+    const walked = arrivalRoutes.t2.at(-1)!.points.at(-1)!;
+    expect(walked[1]).toBeGreaterThan(row[0].z);
+    expect(walked[1]).toBeLessThan(desks.z);
     expect(row[0].x).toBeGreaterThan(t2.exit!.x);
     expect(airportMap.t1.levels.ground.exit).toBeDefined();
   });

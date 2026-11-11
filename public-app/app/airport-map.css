@@ -72,6 +72,40 @@
   padding: 22px;
   color: rgba(255, 248, 232, 0.72);
 }
+.am-full {
+  position: absolute;
+  top: 10px;
+  inset-inline-start: 10px;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border: 1px solid rgba(255, 248, 232, 0.22);
+  border-radius: 10px;
+  background: rgba(20, 18, 14, 0.78);
+  color: #f4eee0;
+  cursor: pointer;
+}
+.am-full:hover { border-color: var(--gold-light); }
+.am-full .icon { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+/* Full screen: the map takes the viewport, whichever way the phone is held. */
+.am-map.is-full {
+  position: fixed;
+  inset: 0;
+  z-index: 1100;
+  display: flex;
+  flex-direction: column;
+  padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+  background: #0f0e0b;
+}
+.am-map.is-full .am-canvas { flex: 1; height: auto; min-height: 0; border-radius: 0; }
+.am-map.is-full .am-full { top: calc(10px + env(safe-area-inset-top)); inset-inline-start: calc(10px + max(env(safe-area-inset-left), env(safe-area-inset-right))); }
+.am-map.is-full .am-levels { margin: 0; padding: 10px 12px; }
+.am-map.is-full .am-hint { margin: 0; padding: 0 12px 10px; }
+@media (max-height: 480px) {
+  .am-map.is-full .am-hint { display: none; }
+  .am-map.is-full .am-levels { padding: 6px 12px; }
+}
 .am-levels { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
 .am-levels button { padding: 8px 14px; font-size: 0.86rem; }
 .am-hint { margin: 12px 0 0; color: rgba(255, 248, 232, 0.55); font-size: 0.84rem; line-height: 1.5; }
@@ -94,9 +128,10 @@
 .airport-label.kind-gate { background: #5b4fa0; color: #fff; }
 .airport-label.kind-sign { display: none; }
 .zoomed .airport-label.kind-sign { display: block; }
-.airport-label.shelter { min-width: 22px; padding: 3px 7px; border-radius: 6px; background: var(--gold); color: #14120e; font-size: 14px; font-weight: 700; text-align: center; }
+.airport-label.shelter { min-width: 20px; padding: 2px 6px; border-radius: 6px; background: var(--gold); color: #14120e; font-size: 13px; font-weight: 700; text-align: center; }
 .airport-label.exit { background: var(--gold); color: #14120e; font-size: 12px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; }
 .airport-label.zone { background: none; color: var(--gold-light); font-size: 13px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; }
+.tall .airport-label.wide, :not(.tall) > .am-labels .airport-label.narrow { display: none; }
 .airport-label.terminal { padding: 5px 11px; background: #f4eee0; color: #14120e; font-size: 13px; font-weight: 700; }
 .airport-label.terminal.pick { background: var(--gold); }
 

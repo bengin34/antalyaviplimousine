@@ -3,7 +3,7 @@ import type { AirportMapCopy } from "../airport-map-copy";
 export const fr: AirportMapCopy = {
   locale: "fr_FR",
   metaTitle: "Plan aéroport d'Antalya : arrivées, sortie, Meet & Greet (T1, T2)",
-  metaDescription: "Plan 3D interactif des arrivées à l'aéroport d'Antalya : contrôle des passeports, bagages, douane, sortie et abris Meet & Greet A–G du Terminal 2.",
+  metaDescription: "Plan 3D interactif des arrivées à l'aéroport d'Antalya : contrôle des passeports, bagages, douane, sortie et abris Meet & Greet A–L du Terminal 2.",
   home: "Accueil",
   transfers: "Transferts aéroport",
   bookNow: "Réserver un transfert",
@@ -12,7 +12,9 @@ export const fr: AirportMapCopy = {
   canvasLabel: "Plan 3D des arrivées de l'aéroport d'Antalya. Le même trajet est décrit étape par étape à côté du plan.",
   loading: "Chargement du plan…",
   noWebgl: "Votre navigateur ne peut pas afficher le plan 3D. Le trajet est décrit étape par étape ci-dessous.",
-  dragHint: "Glisser pour pivoter · molette ou pincement pour zoomer · clic droit glissé ou deux doigts pour déplacer",
+  dragHint: "Un doigt pour déplacer la carte · deux doigts pour zoomer et pivoter · souris : glisser pour pivoter, molette pour zoomer",
+  fullscreen: "Plein écran",
+  exitFullscreen: "Quitter le plein écran",
   walk: "Parcourir le trajet",
   pause: "Pause",
   routeTitle: { t2: "Arrivée au Terminal 2", t1: "Arrivée au Terminal 1" },
@@ -25,7 +27,7 @@ export const fr: AirportMapCopy = {
       baggage: ["Livraison des bagages", "Dans le hall du rez-de-chaussée, les tapis 201–206 sont d'un côté et les tapis 211–215 de l'autre. Les écrans indiquent le tapis de votre vol."],
       customs: ["Douane", "Avec vos bagages, avancez vers le milieu du hall et passez devant le bureau de douane pour entrer dans le hall des arrivées. Les comptoirs de location de voitures et les bureaux de change se trouvent ici."],
       exit: ["Sortie", "La porte de sortie est devant vous, au milieu du hall des arrivées."],
-      meetGreet: ["Meet & Greet, sur votre gauche", "Dehors, tournez à gauche. Vous passez d'abord devant le poste de police, puis viennent les abris A, B, C, D, E, F et G, alignés. Notre agent d'accueil vous attend à l'abri indiqué dans votre réservation."],
+      meetGreet: ["Meet & Greet, sur votre gauche", "Dehors, tournez à gauche. Vous passez d'abord devant le poste de police, puis devant le point de contrôle TÜRSAB ; viennent ensuite les abris A à L, alignés. En face se trouve une rangée de comptoirs plus petits, numérotés de 1 à 70. Notre agent d'accueil vous attend à l'abri indiqué dans votre réservation."],
     },
     t1: {
       passport: ["Contrôle des passeports", "Vous entrez dans le terminal au 1er étage. Après les guichets de contrôle, prenez les escaliers mécaniques pour descendre à la livraison des bagages."],
@@ -46,11 +48,11 @@ export const fr: AirportMapCopy = {
   greeterTitle: "Qui vous accueille au Terminal 2",
   greeterText: [
     "Au Terminal 2, ce n'est pas le chauffeur qui vous accueille, mais notre agent d'accueil. Il se tient à l'un des abris Meet & Greet avec votre nom et vous accompagne jusqu'à votre véhicule.",
-    "L'abri, de A à G, dépend du jour. Nous vous envoyons la lettre après votre réservation.",
+    "L'abri, de A à L, dépend du jour. Nous vous envoyons la lettre après votre réservation.",
   ],
   faqTitle: "Questions sur l'arrivée à l'aéroport d'Antalya",
   faq: [
-    ["Où se trouve la zone Meet & Greet au Terminal 2 ?", "Dehors, après la sortie des arrivées, sur la gauche. Vous passez d'abord devant le poste de police, puis devant les abris marqués de A à G."],
+    ["Où se trouve la zone Meet & Greet au Terminal 2 ?", "Dehors, après la sortie des arrivées, sur la gauche. Vous passez d'abord devant le poste de police, puis devant les abris marqués de A à L."],
     ["À quel abri dois-je me rendre ?", "Cela change, nous vous l'indiquons donc après votre réservation. La lettre figure dans votre message de confirmation."],
     ["Le chauffeur attend-il à l'intérieur du terminal ?", "Non. Au Terminal 2, un agent d'accueil de notre équipe vous attend à l'abri Meet & Greet et vous conduit au chauffeur et au véhicule."],
     ["Comment aller du Terminal 1 au Terminal 2 ?", "L'aéroport assure une navette circulaire gratuite entre le Terminal 1, le Terminal 2 et le terminal des vols intérieurs. Les arrêts sont indiqués sur le plan de tout l'aéroport."],

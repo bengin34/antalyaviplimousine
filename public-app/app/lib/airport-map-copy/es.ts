@@ -3,7 +3,7 @@ import type { AirportMapCopy } from "../airport-map-copy";
 export const es: AirportMapCopy = {
   locale: "es_ES",
   metaTitle: "Mapa del aeropuerto de Antalya: llegadas y Meet & Greet (T1, T2)",
-  metaDescription: "Mapa 3D interactivo de llegadas del aeropuerto de Antalya: del control de pasaportes a equipajes, aduana y salida, con las marquesinas Meet & Greet A–G.",
+  metaDescription: "Mapa 3D interactivo de llegadas del aeropuerto de Antalya: del control de pasaportes a equipajes, aduana y salida, con las marquesinas Meet & Greet A–L.",
   home: "Inicio",
   transfers: "Traslados al aeropuerto",
   bookNow: "Reservar traslado",
@@ -12,7 +12,9 @@ export const es: AirportMapCopy = {
   canvasLabel: "Mapa 3D de las llegadas del aeropuerto de Antalya. El mismo recorrido aparece paso a paso junto al mapa.",
   loading: "Cargando el mapa…",
   noWebgl: "Su navegador no puede mostrar el mapa 3D. El recorrido aparece paso a paso más abajo.",
-  dragHint: "Arrastre para girar · desplace la rueda o pellizque para ampliar · arrastre con el botón derecho o con dos dedos para mover",
+  dragHint: "Un dedo para mover el mapa · dos dedos para ampliar y girar · ratón: arrastre para girar, rueda para ampliar",
+  fullscreen: "Pantalla completa",
+  exitFullscreen: "Salir de pantalla completa",
   walk: "Recorrer la ruta",
   pause: "Pausa",
   routeTitle: { t2: "Llegada a la Terminal 2", t1: "Llegada a la Terminal 1" },
@@ -25,7 +27,7 @@ export const es: AirportMapCopy = {
       baggage: ["Recogida de equipajes", "La sala de la planta baja tiene las cintas 201–206 a un lado y las 211–215 al otro. Las pantallas indican la cinta de su vuelo."],
       customs: ["Aduana", "Con su equipaje, camine hacia el centro de la sala y pase junto a la oficina de aduanas hasta el vestíbulo de llegadas. Aquí están los mostradores de alquiler de coches y las oficinas de cambio."],
       exit: ["Salida", "La puerta de salida está frente a usted, en el centro del vestíbulo de llegadas."],
-      meetGreet: ["Meet & Greet, a su izquierda", "Al salir, gire a la izquierda. Primero está el puesto de policía y después las marquesinas A, B, C, D, E, F y G, una tras otra. Nuestro asistente le espera en la marquesina indicada en su reserva."],
+      meetGreet: ["Meet & Greet, a su izquierda", "Al salir, gire a la izquierda. Primero está el puesto de policía, luego el punto de control de TÜRSAB y después las marquesinas de la A a la L, una tras otra. Enfrente hay una fila de mostradores más pequeños numerados del 1 al 70. Nuestro asistente le espera en la marquesina indicada en su reserva."],
     },
     t1: {
       passport: ["Control de pasaportes", "Entra en la terminal por la 1.ª planta. Después de las cabinas de pasaportes, baje por las escaleras mecánicas a la recogida de equipajes."],
@@ -46,11 +48,11 @@ export const es: AirportMapCopy = {
   greeterTitle: "Quién le recibe en la Terminal 2",
   greeterText: [
     "En la Terminal 2 le recibe nuestro asistente, no el conductor. Le espera en una de las marquesinas Meet & Greet con su nombre y le acompaña hasta su vehículo.",
-    "La marquesina, de la A a la G, depende del día. Le enviamos la letra después de reservar.",
+    "La marquesina, de la A a la L, depende del día. Le enviamos la letra después de reservar.",
   ],
   faqTitle: "Preguntas sobre la llegada al aeropuerto de Antalya",
   faq: [
-    ["¿Dónde está la zona Meet & Greet de la Terminal 2?", "Fuera de la salida de llegadas, a la izquierda. Primero pasa por el puesto de policía y después por las marquesinas marcadas de la A a la G."],
+    ["¿Dónde está la zona Meet & Greet de la Terminal 2?", "Fuera de la salida de llegadas, a la izquierda. Primero pasa por el puesto de policía y después por las marquesinas marcadas de la A a la L."],
     ["¿A qué marquesina tengo que ir?", "Cambia, por eso se lo indicamos después de reservar. La letra figura en su mensaje de confirmación."],
     ["¿El conductor espera dentro de la terminal?", "No. En la Terminal 2 un asistente de nuestro equipo le espera en la marquesina Meet & Greet y le lleva hasta el conductor y el vehículo."],
     ["¿Cómo voy de la Terminal 1 a la Terminal 2?", "El aeropuerto tiene una lanzadera circular gratuita entre la Terminal 1, la Terminal 2 y la terminal nacional. Las paradas están marcadas en el mapa de todo el aeropuerto."],

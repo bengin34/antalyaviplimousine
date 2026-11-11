@@ -31,7 +31,7 @@ const KIND_COLORS: Record<string, number> = {
   fastTrack: 0xd9c56a, food: 0xe0a45c, ticket: 0x8a86b8, elevator: 0x77787c, police: 0x2f4a7a,
 };
 /** Kinds whose label is always visible; the rest appear once the visitor zooms in. */
-const MAJOR = new Set(["belt", "gate", "passport", "security", "customs", "shelter", "police", "sign"]);
+const MAJOR = new Set(["belt", "gate", "passport", "security", "customs", "shelter", "police", "checkpoint", "sign"]);
 
 const flat = (points: number[][]) => new THREE.Shape(points.map(([x, z]) => new THREE.Vector2(x, -z)));
 
@@ -118,9 +118,20 @@ function objectMesh(o: MapObject, labels: SceneLabels): THREE.Object3D {
       tag(o.label!, 4.2, "shelter");
       break;
     case "police":
-      group.add(box(3, 2.4, 2.6, KIND_COLORS.police, o.x, o.z), box(3.3, 0.2, 2.9, 0xe9edf5, o.x, o.z, 2.4));
-      tag(name, 4);
+    case "checkpoint":
+      group.add(box(3, 2.4, 2.6, o.kind === "police" ? KIND_COLORS.police : 0xb5533c, o.x, o.z), box(3.3, 0.2, 2.9, 0xe9edf5, o.x, o.z, 2.4));
+      tag(o.label ?? name, 4);
       break;
+    case "desks": {
+      // A row of small numbered desks; every tenth number is labelled.
+      const pitch = o.w! / o.count!;
+      for (let i = 0; i < o.count!; i++) {
+        const x = o.x - o.w! / 2 + (i + 0.5) * pitch;
+        group.add(box(pitch * 0.72, 0.9, 0.8, 0xf1ebdd, x, o.z));
+        if (i === 0 || (i + 1) % 10 === 0) group.add(label(String(i + 1), "minor pill", x, 1.8, o.z));
+      }
+      break;
+    }
     default:
       group.add(box(2.3, o.kind === "elevator" ? 2.2 : 1, 2.3, KIND_COLORS[o.kind] ?? 0xaaa59a, o.x, o.z));
       if (name) tag(name, 2.2);
@@ -143,15 +154,16 @@ function levelGroup(level: Level, labels: SceneLabels, forecourt: boolean) {
   }
   if (forecourt && level.exit) {
     // Pavement in front of the exit, wide enough for the Meet & Greet row.
-    const outside = level.objects.filter((o) => o.kind === "shelter" || o.kind === "police");
-    const maxX = Math.max(...outside.map((o) => o.x)) + 5;
-    const maxZ = Math.max(...outside.map((o) => o.z)) + 5;
+    const outside = level.objects.filter((o) => ["police", "checkpoint", "shelter", "desks"].includes(o.kind));
+    const maxX = Math.max(...outside.map((o) => o.x + (o.w ?? 0) / 2)) + 5;
+    // Deep enough past the desks for the zone label to sit on the pavement.
+    const maxZ = Math.max(...outside.map((o) => o.z)) + 11;
     const pavement = box(maxX - level.exit.x + 10, 0.3, maxZ - level.exit.z, 0x55534d, (maxX + level.exit.x - 10) / 2, (maxZ + level.exit.z) / 2, -0.8);
     pavement.castShadow = false;
     group.add(pavement);
-    const first = outside[0];
-    const last = outside[outside.length - 1];
-    group.add(label(labels.meetGreet, "major zone", (first.x + last.x) / 2, 0, maxZ + 3));
+    // Beside the rows on a wide canvas, past their far end on a tall one (see .tall in airport-map.css).
+    group.add(label(labels.meetGreet, "major zone wide", (outside[0].x + maxX - 5) / 2, 0, maxZ - 5));
+    group.add(label(labels.meetGreet, "major zone narrow", maxX + 4, 0, (level.exit.z + maxZ) / 2));
   }
   return group;
 }
@@ -231,6 +243,9 @@ export function createAirportScene(host: HTMLElement, labels: SceneLabels, onPic
   controls.minZoom = 0.6;
   controls.maxZoom = 9;
   controls.zoomToCursor = true;
+  // Touch works like a street map: one finger moves, two fingers zoom and (below) twist to turn.
+  controls.screenSpacePanning = false;
+  controls.touches = { ONE: THREE.TOUCH.PAN, TWO: THREE.TOUCH.DOLLY_PAN };
 
   const groups = new Map<string, THREE.Group>();
   const pickable: THREE.Object3D[] = [];
@@ -238,6 +253,7 @@ export function createAirportScene(host: HTMLElement, labels: SceneLabels, onPic
   let currentKey = "";
   /** Half extents of the current view on screen, in world units. */
   const fit = { x: 50, y: 50 };
+  let tall = false;
 
   const walker = new THREE.Group();
   const gold = new THREE.MeshStandardMaterial({ color: GOLD, emissive: 0x5a4416, roughness: 0.4 });
@@ -254,6 +270,8 @@ export function createAirportScene(host: HTMLElement, labels: SceneLabels, onPic
   function resize() {
     const { clientWidth: width, clientHeight: height } = host;
     if (!width || !height) return;
+    // Turning the phone or opening full screen changes which way the plan fits best.
+    if (current && width < height !== tall) return reframe();
     renderer.setSize(width, height);
     labelRenderer.setSize(width, height);
     const aspect = width / height;
@@ -299,22 +317,38 @@ export function createAirportScene(host: HTMLElement, labels: SceneLabels, onPic
     current.visible = true;
     drawRoute(view, level);
     walker.visible = false;
+    reframe();
+  }
 
-    const bounds = view === "overview"
+  /** Points the camera at the whole of the current view. */
+  function reframe() {
+    if (!current) return;
+    const bounds = currentKey.startsWith("overview")
       ? new THREE.Box3(new THREE.Vector3(-50, 0, -62), new THREE.Vector3(50, 2, 86))
-      : new THREE.Box3().setFromObject(current);
+      : new THREE.Box3().setFromObject(current).expandByScalar(6); // room for the labels at the edges
     const centre = bounds.getCenter(new THREE.Vector3());
     controls.target.set(centre.x, 0, centre.z);
-    camera.position.copy(controls.target).add(new THREE.Vector3(-0.7, 0.85, 1).multiplyScalar(300));
     camera.zoom = 1;
-    camera.lookAt(controls.target);
-    camera.updateMatrixWorld();
-    fit.x = fit.y = 0;
-    for (const x of [bounds.min.x, bounds.max.x]) for (const z of [bounds.min.z, bounds.max.z]) {
-      const corner = camera.worldToLocal(new THREE.Vector3(x, 0, z));
-      fit.x = Math.max(fit.x, Math.abs(corner.x));
-      fit.y = Math.max(fit.y, Math.abs(corner.y));
-    }
+    // On a tall screen, also try looking along the terminal, and keep whichever view shows the plan larger.
+    const aspect = host.clientWidth / host.clientHeight || 1;
+    tall = aspect < 1;
+    host.classList.toggle("tall", tall);
+    const look = (angle: THREE.Vector3) => {
+      camera.position.copy(controls.target).add(angle.clone().multiplyScalar(300));
+      camera.lookAt(controls.target);
+      camera.updateMatrixWorld();
+      fit.x = fit.y = 0;
+      for (const x of [bounds.min.x, bounds.max.x]) for (const z of [bounds.min.z, bounds.max.z]) {
+        const corner = camera.worldToLocal(new THREE.Vector3(x, 0, z));
+        fit.x = Math.max(fit.x, Math.abs(corner.x));
+        fit.y = Math.max(fit.y, Math.abs(corner.y));
+      }
+      return Math.max(fit.y, fit.x / aspect);
+    };
+    const across = new THREE.Vector3(-0.7, 0.85, 1);
+    const along = new THREE.Vector3(-1, 0.85, 0.12);
+    if (!tall || look(along) > look(across)) look(across);
+    else look(along);
     resize();
     controls.update();
   }
@@ -352,6 +386,28 @@ export function createAirportScene(host: HTMLElement, labels: SceneLabels, onPic
   renderer.domElement.addEventListener("pointerdown", onDown);
   renderer.domElement.addEventListener("pointerup", onUp);
 
+  // Two-finger twist turns the map around its centre; OrbitControls has no such gesture.
+  const fingers = new Map<number, [number, number]>();
+  let twist: number | undefined;
+  const fingerAngle = () => {
+    const [a, b] = [...fingers.values()];
+    return Math.atan2(b[1] - a[1], b[0] - a[0]);
+  };
+  const onFinger = (event: PointerEvent) => {
+    if (event.pointerType !== "touch") return;
+    if (event.type === "pointerup" || event.type === "pointercancel") fingers.delete(event.pointerId);
+    else if (event.type === "pointerdown" || fingers.has(event.pointerId)) fingers.set(event.pointerId, [event.clientX, event.clientY]);
+    if (fingers.size !== 2) { twist = undefined; return; }
+    const angle = fingerAngle();
+    if (twist !== undefined && event.type === "pointermove") {
+      const turn = Math.atan2(Math.sin(angle - twist), Math.cos(angle - twist));
+      camera.position.sub(controls.target).applyAxisAngle(camera.up, turn).add(controls.target);
+    }
+    twist = angle;
+  };
+  const fingerEvents = ["pointerdown", "pointermove", "pointerup", "pointercancel"] as const;
+  for (const type of fingerEvents) renderer.domElement.addEventListener(type, onFinger);
+
   const observer = new ResizeObserver(resize);
   observer.observe(host);
   let frame = 0;
@@ -375,6 +431,7 @@ export function createAirportScene(host: HTMLElement, labels: SceneLabels, onPic
       controls.dispose();
       renderer.domElement.removeEventListener("pointerdown", onDown);
       renderer.domElement.removeEventListener("pointerup", onUp);
+      for (const type of fingerEvents) renderer.domElement.removeEventListener(type, onFinger);
       scene.traverse((object) => {
         if (object instanceof THREE.Mesh) {
           object.geometry.dispose();

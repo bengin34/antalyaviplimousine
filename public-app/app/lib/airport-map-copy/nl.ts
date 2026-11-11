@@ -3,7 +3,7 @@ import type { AirportMapCopy } from "../airport-map-copy";
 export const nl: AirportMapCopy = {
   locale: "nl_NL",
   metaTitle: "Kaart vliegveld Antalya: aankomst, uitgang, Meet & Greet (T1, T2)",
-  metaDescription: "Interactieve 3D-kaart van de aankomst op luchthaven Antalya: van paspoortcontrole via bagage en douane naar de uitgang, met de Meet & Greet-overkappingen A–G.",
+  metaDescription: "Interactieve 3D-kaart van de aankomst op luchthaven Antalya: van paspoortcontrole via bagage en douane naar de uitgang, met de Meet & Greet-overkappingen A–L.",
   home: "Home",
   transfers: "Luchthaventransfers",
   bookNow: "Transfer boeken",
@@ -12,7 +12,9 @@ export const nl: AirportMapCopy = {
   canvasLabel: "3D-kaart van de aankomst op luchthaven Antalya. Dezelfde route staat stap voor stap naast de kaart.",
   loading: "Kaart wordt geladen…",
   noWebgl: "Uw browser kan de 3D-kaart niet weergeven. De route staat hieronder stap voor stap.",
-  dragHint: "Slepen om te draaien · scrollen of knijpen om te zoomen · rechts slepen of twee vingers om te verschuiven",
+  dragHint: "Eén vinger om de kaart te verschuiven · twee vingers om te zoomen en te draaien · muis: slepen om te draaien, scrollen om te zoomen",
+  fullscreen: "Volledig scherm",
+  exitFullscreen: "Volledig scherm sluiten",
   walk: "Route lopen",
   pause: "Pauze",
   routeTitle: { t2: "Aankomst op Terminal 2", t1: "Aankomst op Terminal 1" },
@@ -25,7 +27,7 @@ export const nl: AirportMapCopy = {
       baggage: ["Bagagehal", "In de hal op de begane grond liggen de banden 201–206 aan de ene kant en 211–215 aan de andere kant. Op de schermen staat op welke band de bagage van uw vlucht komt."],
       customs: ["Douane", "Loop met uw bagage naar het midden van de hal en ga langs het douanekantoor de aankomsthal in. Hier vindt u de balies voor autoverhuur en de wisselkantoren."],
       exit: ["Uitgang", "De uitgangsdeur ligt recht voor u, in het midden van de aankomsthal."],
-      meetGreet: ["Meet & Greet, aan uw linkerhand", "Ga buiten naar links. Eerst komt de politiepost, daarna volgen de overkappingen A, B, C, D, E, F en G op een rij. Onze medewerker wacht bij de overkapping die in uw boeking staat."],
+      meetGreet: ["Meet & Greet, aan uw linkerhand", "Ga buiten naar links. Eerst komt de politiepost, dan het TÜRSAB-controlepunt, daarna volgen de overkappingen A tot en met L op een rij. Daartegenover staat een rij kleinere balies, genummerd 1 tot en met 70. Onze medewerker wacht bij de overkapping die in uw boeking staat."],
     },
     t1: {
       passport: ["Paspoortcontrole", "U komt de terminal binnen op de 1e verdieping. Neem na de paspoortbalies de roltrap omlaag naar de bagagehal."],
@@ -46,11 +48,11 @@ export const nl: AirportMapCopy = {
   greeterTitle: "Wie u op Terminal 2 ontvangt",
   greeterText: [
     "Op Terminal 2 wordt u niet door de chauffeur ontvangen, maar door onze medewerker. Die staat met uw naam bij een van de Meet & Greet-overkappingen en loopt met u mee naar uw voertuig.",
-    "Welke overkapping het is, A tot en met G, verschilt per dag. De letter sturen wij u na uw boeking.",
+    "Welke overkapping het is, A tot en met L, verschilt per dag. De letter sturen wij u na uw boeking.",
   ],
   faqTitle: "Vragen over aankomen op luchthaven Antalya",
   faq: [
-    ["Waar is de Meet & Greet-zone op Terminal 2?", "Buiten bij de aankomstuitgang, aan de linkerkant. U loopt eerst langs de politiepost en daarna langs de overkappingen met de letters A tot en met G."],
+    ["Waar is de Meet & Greet-zone op Terminal 2?", "Buiten bij de aankomstuitgang, aan de linkerkant. U loopt eerst langs de politiepost en daarna langs de overkappingen met de letters A tot en met L."],
     ["Naar welke overkapping moet ik gaan?", "Dat wisselt, daarom laten wij het u na uw boeking weten. De letter staat in uw bevestigingsbericht."],
     ["Wacht de chauffeur in de terminal?", "Nee. Op Terminal 2 wacht een medewerker van ons team bij de Meet & Greet-overkapping en brengt u naar de chauffeur en het voertuig."],
     ["Hoe kom ik van Terminal 1 naar Terminal 2?", "De luchthaven laat een gratis ringshuttle rijden tussen Terminal 1, Terminal 2 en de binnenlandse terminal. De haltes staan op de kaart van de hele luchthaven."],

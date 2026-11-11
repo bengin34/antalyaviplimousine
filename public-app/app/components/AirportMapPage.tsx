@@ -23,6 +23,7 @@ export function AirportMapPage({ language }: { language: AirportMapLanguage }) {
   const [level, setLevel] = useState("ground");
   const [step, setStep] = useState<number | null>(null);
   const [playing, setPlaying] = useState(false);
+  const [full, setFull] = useState(false);
   const terminal: TerminalId = view === "overview" ? "t2" : view;
   const route = arrivalRoutes[terminal];
 
@@ -80,6 +81,18 @@ export function AirportMapPage({ language }: { language: AirportMapLanguage }) {
     return () => cancelAnimationFrame(frame);
   }, [playing, step, status, terminal, route]);
 
+  // Full screen is a fixed overlay, not the Fullscreen API: iPhone Safari has none for page elements.
+  useEffect(() => {
+    if (!full) return;
+    const onKey = (event: KeyboardEvent) => { if (event.key === "Escape") setFull(false); };
+    document.addEventListener("keydown", onKey);
+    document.documentElement.style.overflow = "hidden";
+    return () => {
+      document.removeEventListener("keydown", onKey);
+      document.documentElement.style.overflow = "";
+    };
+  }, [full]);
+
   const goToStep = (index: number) => {
     if (view === "overview") setView("t2");
     setLevel(route[index].level);
@@ -120,8 +133,13 @@ export function AirportMapPage({ language }: { language: AirportMapLanguage }) {
             ))}
           </div>
           <div className="am-body">
-            <div className="am-map">
+            <div className={full ? "am-map is-full" : "am-map"}>
               <div className={`am-canvas is-${status}`} ref={host} role="img" aria-label={copy.canvasLabel} />
+              {status === "ready" && (
+                <button type="button" className="am-full" aria-pressed={full} aria-label={full ? copy.exitFullscreen : copy.fullscreen} title={full ? copy.exitFullscreen : copy.fullscreen} onClick={() => setFull(!full)}>
+                  <Icon name={full ? "close" : "expand"} className="icon" />
+                </button>
+              )}
               {status === "loading" && <p className="am-status">{copy.loading}</p>}
               {status === "unsupported" && <p className="am-status">{copy.noWebgl}</p>}
               {view !== "overview" && (
