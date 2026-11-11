@@ -1,0 +1,175 @@
+/* Interactive airport map. Dark stage so the cream floors and the gold route carry the page. */
+.am-page { background: var(--paper); }
+.am-page ::selection { background: var(--gold); color: #111; }
+
+.am-hero {
+  padding: 104px var(--section-x) 22px;
+  background: #0f0e0b;
+}
+.am-hero h1 {
+  max-width: 28ch;
+  margin: 0 0 12px;
+  color: #fff;
+  font-family: var(--serif);
+  font-size: clamp(1.8rem, 3.4vw, 2.6rem);
+  font-weight: 400;
+  line-height: 1.12;
+  text-wrap: balance;
+}
+.am-hero p {
+  max-width: 70ch;
+  margin: 0;
+  color: rgba(255, 248, 232, 0.72);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.am-stage {
+  padding: 0 var(--section-x) 56px;
+  background: #0f0e0b;
+  color: #f4eee0;
+}
+.am-stage { scroll-margin-top: 84px; }
+.am-tabs { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; }
+.am-tabs button,
+.am-levels button {
+  padding: 10px 16px;
+  border: 1px solid rgba(224, 198, 141, 0.32);
+  border-radius: 999px;
+  background: transparent;
+  color: #f4eee0;
+  font: inherit;
+  font-size: 0.92rem;
+  cursor: pointer;
+  transition: background-color 0.2s, border-color 0.2s, color 0.2s;
+}
+.am-tabs button:hover,
+.am-levels button:hover { border-color: var(--gold-light); }
+.am-tabs button[aria-pressed="true"],
+.am-levels button[aria-pressed="true"] { border-color: var(--gold); background: var(--gold); color: #14120e; font-weight: 600; }
+.am-stage button:focus-visible,
+.am-content a:focus-visible { outline: 2px solid var(--gold-light); outline-offset: 3px; }
+
+.am-body { display: grid; grid-template-columns: minmax(0, 1fr) minmax(280px, 360px); gap: 28px; align-items: start; }
+.am-map { position: relative; min-width: 0; }
+.am-canvas {
+  position: relative;
+  height: min(64vh, 640px);
+  min-height: 380px;
+  overflow: hidden;
+  border-radius: 14px;
+  background: radial-gradient(120% 90% at 50% 30%, #2a2721 0%, #171511 70%);
+  touch-action: none;
+  cursor: grab;
+}
+.am-canvas:active { cursor: grabbing; }
+.am-canvas canvas { display: block; }
+.am-labels { position: absolute; inset: 0; overflow: hidden; pointer-events: none; }
+.am-status {
+  position: absolute;
+  inset: 0 0 auto;
+  margin: 0;
+  padding: 22px;
+  color: rgba(255, 248, 232, 0.72);
+}
+.am-levels { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+.am-levels button { padding: 8px 14px; font-size: 0.86rem; }
+.am-hint { margin: 12px 0 0; color: rgba(255, 248, 232, 0.55); font-size: 0.84rem; line-height: 1.5; }
+
+/* Labels drawn over the 3D scene by CSS2DRenderer. */
+.airport-label {
+  padding: 2px 7px;
+  border-radius: 4px;
+  background: rgba(20, 18, 14, 0.82);
+  color: #f4eee0;
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 1.35;
+  white-space: nowrap;
+}
+.airport-label.minor { display: none; background: rgba(20, 18, 14, 0.62); font-size: 10px; }
+.zoomed .airport-label.minor { display: block; }
+.airport-label.pill { border-radius: 999px; background: #f4eee0; color: #14120e; font-weight: 700; font-variant-numeric: tabular-nums; }
+.airport-label.kind-gate { background: #5b4fa0; color: #fff; }
+.airport-label.kind-sign { display: none; }
+.zoomed .airport-label.kind-sign { display: block; }
+.airport-label.shelter { min-width: 22px; padding: 3px 7px; border-radius: 6px; background: var(--gold); color: #14120e; font-size: 14px; font-weight: 700; text-align: center; }
+.airport-label.exit { background: var(--gold); color: #14120e; font-size: 12px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; }
+.airport-label.zone { background: none; color: var(--gold-light); font-size: 13px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; }
+.airport-label.terminal { padding: 5px 11px; background: #f4eee0; color: #14120e; font-size: 13px; font-weight: 700; }
+.airport-label.terminal.pick { background: var(--gold); }
+
+.am-route h2 { margin: 4px 0 14px; color: #fff; font-family: var(--serif); font-size: 1.5rem; font-weight: 400; line-height: 1.2; }
+.am-walk {
+  width: 100%;
+  padding: 14px 18px;
+  border: 0;
+  border-radius: 10px;
+  background: var(--gold);
+  color: #14120e;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+.am-walk:hover { background: var(--gold-light); }
+.am-walk:disabled { opacity: 0.5; cursor: progress; }
+.am-route ol { margin: 18px 0 0; padding: 0; list-style: none; counter-reset: am-step; }
+.am-route li { counter-increment: am-step; border-top: 1px solid rgba(224, 198, 141, 0.18); }
+.am-route li button {
+  display: grid;
+  grid-template-columns: 26px 1fr;
+  gap: 2px 10px;
+  width: 100%;
+  padding: 13px 4px;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  text-align: start;
+  cursor: pointer;
+}
+/* The numbers carry the order passengers meet these places in. */
+.am-route li button::before {
+  content: counter(am-step);
+  grid-row: span 2;
+  width: 24px;
+  height: 24px;
+  border: 1px solid rgba(224, 198, 141, 0.5);
+  border-radius: 50%;
+  color: var(--gold-light);
+  font-size: 0.78rem;
+  font-variant-numeric: tabular-nums;
+  line-height: 22px;
+  text-align: center;
+}
+.am-route li strong { font-weight: 600; }
+.am-route li span { color: rgba(255, 248, 232, 0.66); font-size: 0.92rem; line-height: 1.55; }
+.am-route li button:hover strong { color: var(--gold-light); }
+.am-route li.is-current button::before { border-color: var(--gold); background: var(--gold); color: #14120e; font-weight: 700; }
+.am-route li.is-current span { color: rgba(255, 248, 232, 0.9); }
+
+.am-content { max-width: 760px; margin: 0 auto; padding: 56px 20px 88px; }
+.am-content section + section { margin-top: 56px; }
+.am-content h2 { margin: 0 0 14px; color: var(--ink); font-family: var(--serif); font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 400; line-height: 1.2; text-wrap: balance; }
+.am-content p { margin: 0 0 14px; color: var(--muted); line-height: 1.75; }
+.am-greeter p { color: var(--ink); font-size: 1.05rem; }
+.am-cta { display: inline-flex; width: auto; margin-top: 10px; }
+.am-faq { border-bottom: 1px solid var(--line); padding: 14px 0; }
+.am-faq summary { cursor: pointer; color: var(--ink); font-weight: 600; }
+.am-faq p { margin: 10px 0 0; }
+.am-sources p { font-size: 0.9rem; }
+
+@media (max-width: 900px) {
+  .am-body { grid-template-columns: 1fr; }
+  .am-canvas { height: 62vh; min-height: 340px; }
+}
+@media (max-width: 640px) {
+  .am-hero { padding: 96px 16px 26px; }
+  .am-stage { padding: 0 16px 44px; }
+  .am-canvas { height: 46vh; min-height: 300px; border-radius: 10px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .am-tabs button, .am-levels button, .am-walk { transition: none; }
+}

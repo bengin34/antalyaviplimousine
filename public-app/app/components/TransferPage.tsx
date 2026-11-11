@@ -79,7 +79,7 @@ export function TransferPage({
   const text = copy[language];
   const prefix = language === "en" ? "" : `/${language}`;
   const homeHref = `${prefix}/`;
-  const { heading, guides, landOfLegendsPromo } = data;
+  const { heading, guides, landOfLegendsPromo, airportMap } = data;
   const faq = text.faqItems(route.name, route.prices.vito, route.durationLabel);
   // The loader resolves the long-form landing, place-name forms and hotel links
   // included, and leaves it null for a route with no region copy — those pages
@@ -152,6 +152,7 @@ export function TransferPage({
         )}
         {/* Guests staying here can do the theme-park day trip; point them at it. */}
         {landOfLegendsPromo && <section className="localized-links lol-route-promo"><h2>{landOfLegendsPromo.heading}</h2><p>{landOfLegendsPromo.hint}</p><div><a href={landOfLegendsPromo.href}>{landOfLegendsPromo.label} →</a></div></section>}
+        <section className="localized-links"><h2>{airportMap.heading}</h2><div><a href={airportMap.href}>{airportMap.label} →</a></div></section>
         <section className="localized-faq"><h2>{text.faq}</h2>{landingFaq.map(([question, answer]) => <article key={question}><h3>{question}</h3><p>{answer}</p></article>)}</section>
         <section className="localized-links"><h2>{text.other}</h2><div>{publicRouteSlugs.filter((slug) => slug !== route.slug).map((slug) => <a href={`${prefix}/transfers/${slug}/`} key={slug}>{(routeCatalog[slug].names as Record<string, string>)[language] ?? routeCatalog[slug].names.en}</a>)}</div></section>
         {guides.length > 0 && (

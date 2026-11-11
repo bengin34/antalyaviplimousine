@@ -47,6 +47,7 @@
     "@types/node": "^22.20.1",
     "@types/react": "^19.2.18",
     "@types/react-dom": "^19.2.4",
+    "@types/three": "^0.187.0",
     "@vitejs/plugin-react": "^5.2.0",
     "jsdom": "^30.0.1",
     "sharp": "^0.35.1",
@@ -71,6 +72,7 @@
     "react-phone-number-input": "^3.4.18",
     "react-player": "^3.4.0",
     "react-router": "^8.3.0",
+    "three": "^0.180.0",
     "zod": "^4.4.3"
   }
 }

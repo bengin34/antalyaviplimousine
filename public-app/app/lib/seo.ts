@@ -5,6 +5,7 @@ import translationData from "../generated/legacy-translations.json";
 import { homeFaqOrder } from "./faq";
 import { landOfLegendsFromPrice, landOfLegendsRates } from "../../../src/land-of-legends.js";
 import { landOfLegendsCopy, landOfLegendsLanguages, landOfLegendsPath, type LandOfLegendsLanguage } from "./land-of-legends-copy";
+import { airportMapCopy, airportMapLanguages, airportMapPath, type AirportMapLanguage } from "./airport-map-copy";
 import { cop31Copy, cop31Languages, cop31Path, type Cop31Language } from "./cop31-copy";
 import { COP31_DAILY_RATE_EUR } from "../../../supabase/functions/_shared/cop31.js";
 import {
@@ -480,6 +481,36 @@ export function landOfLegendsMeta(language: LandOfLegendsLanguage) {
       provider: { "@type": "TravelAgency", name: "Antalya VIP Tourism", url: domain, telephone: "+90 530 265 57 90" },
       areaServed: { "@type": "Place", name: "Antalya" },
       offers: { "@type": "AggregateOffer", priceCurrency: "EUR", lowPrice: String(Math.min(...prices)), highPrice: String(Math.max(...prices)) },
+    } },
+    { "script:ld+json": {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: copy.faq.map(([question, answer]) => ({ "@type": "Question", name: question, acceptedAnswer: { "@type": "Answer", text: answer } })),
+    } },
+  ];
+}
+
+/**
+ * Meta for the interactive airport map. The FAQ markup mirrors the FAQ the
+ * page shows; alternates name exactly the languages the page exists in.
+ */
+export function airportMapMeta(language: AirportMapLanguage) {
+  const copy = airportMapCopy[language];
+  const url = `${domain}${airportMapPath(language)}`;
+  return [
+    { title: copy.metaTitle },
+    { name: "description", content: copy.metaDescription },
+    { tagName: "link", rel: "canonical", href: url },
+    ...airportMapLanguages.map((alternate) => ({ tagName: "link", rel: "alternate", hrefLang: alternate, href: `${domain}${airportMapPath(alternate)}` })),
+    { tagName: "link", rel: "alternate", hrefLang: "x-default", href: `${domain}${airportMapPath("en")}` },
+    ...socialDescriptors(copy.metaTitle, copy.metaDescription, url, copy.locale),
+    { "script:ld+json": {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: copy.home, item: `${domain}${language === "en" ? "" : `/${language}`}/` },
+        { "@type": "ListItem", position: 2, name: copy.heading, item: url },
+      ],
     } },
     { "script:ld+json": {
       "@context": "https://schema.org",
