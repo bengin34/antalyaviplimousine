@@ -1,0 +1,93 @@
+[
+  {
+    "verdict": "confirmed",
+    "fingerprint": "vip/server-price-region-hotel-mismatch",
+    "title": "Card-paid arrival and hotel-to-hotel price taken from a client-chosen region, not from the hotel booked",
+    "description": "create-booking prices an airport arrival from the routes row of the client-supplied dropoff region. The hotel name is only shape-checked, so an anonymous booker can pick the cheapest region, type a hotel in a pricier region, and pay the cheaper tariff by card.",
+    "root_cause": "No server-side relation between the free-text hotel name and the dropoff region; resolveHotelRegion is applied only to the pickup hotel on airport-return and hotel-to-hotel pickup.",
+    "intended_behavior": "The recorded price_eur is the tariff of the region the hotel is actually in; mismatches are rejected or sent to a manual quote.",
+    "trace": [
+      {
+        "kind": "entrypoint",
+        "file": "supabase/functions/create-booking/index.ts",
+        "line": 148,
+        "scope": "handler",
+        "description": "dropoff_location read from the payload and only checked for presence"
+      },
+      {
+        "kind": "propagation",
+        "file": "supabase/functions/create-booking/transfer-price.ts",
+        "line": 42,
+        "scope": "airportTariffRegion",
+        "description": "returns the client dropoff region as the tariff region for arrivals"
+      },
+      {
+        "kind": "propagation",
+        "file": "supabase/functions/create-booking/index.ts",
+        "line": 425,
+        "scope": "handler",
+        "description": "routes row looked up by the client region; hotel name never resolved"
+      },
+      {
+        "kind": "sink",
+        "file": "supabase/functions/create-booking/payment.ts",
+        "line": 15,
+        "scope": "cardPaymentAllowed",
+        "description": "card allowed whenever price > 0 and no operator quote flag; price stored and charged"
+      }
+    ],
+    "evidence": [
+      {
+        "file": "supabase/functions/create-booking/index.ts",
+        "line": 251,
+        "description": "dropoff hotel name validated only by isValidHotelName (length and letters)"
+      },
+      {
+        "file": "supabase/functions/create-booking/index.ts",
+        "line": 417,
+        "description": "hotel-to-hotel dropoffRegion is the client dropoff_location"
+      }
+    ],
+    "conditions": [
+      {
+        "kind": "authentication_level",
+        "description": "None: the anon key is public in the bundle"
+      },
+      {
+        "kind": "data_state",
+        "description": "Hotel must be in a pricier region than the chosen one"
+      }
+    ],
+    "execution": {
+      "attacker_perspective": "Anonymous visitor calling create-booking directly",
+      "payloads": [
+        "dropoff_location = cheapest region; hotel_name = name of a hotel in a pricier region; payment_method = card"
+      ],
+      "instructions": [
+        "Static trace only: no target code was executed.",
+        "POST the payload to create-booking with the public anon key.",
+        "Complete the iyzico checkout for the returned booking."
+      ],
+      "observed_result": "Source shows price_eur is read from the cheaper region row and the callback marks the booking paid at that amount; the operator email lists the real hotel and the region without a mismatch flag."
+    },
+    "remediation": {
+      "strategy": "In create-booking, resolve the arrival and hotel-to-hotel destination hotel with resolveHotelRegion; reject when it differs from the client region and force the operator-quote path (no card) when the hotel is not in the index. Add a region/mismatch line to the operator email. Add vitest cases for transfer-price.",
+      "code_changes": []
+    },
+    "severity": {
+      "likelihood": {
+        "score": "medium",
+        "reason": "Needs a direct API call and knowledge of tariffs; no auth required."
+      },
+      "impact": {
+        "score": "medium",
+        "reason": "Bounded revenue loss per booking (tariff difference); no data exposure; operator can notice by eye."
+      },
+      "overall_severity": "medium"
+    },
+    "confidence": {
+      "score": "medium",
+      "reason": "Hunter and a fresh verifier traced the same path; resolveHotelRegion looseness and live behaviour were not exercised."
+    }
+  }
+]

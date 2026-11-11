@@ -1,0 +1,28 @@
+{
+  "run_id": "vip-2026-11-10-men218",
+  "repo": "antalya-vip-limousine",
+  "target": "/Users/engin/Desktop/my/web/vip",
+  "source_ref": {
+    "commit": "1d4d7287",
+    "dirty": false
+  },
+  "profile": "quick",
+  "scope_paths": [
+    "."
+  ],
+  "budget": 12,
+  "execution_policy": "sandboxed-source-and-local-only",
+  "selected_companions": [
+    "WEB-PROTOCOL-AND-AUTH.md",
+    "CLIENT-SIDE.md",
+    "SUPPLY-CHAIN-AND-RELEASE.md",
+    "DATA-ISOLATION-AND-LIFECYCLE.md"
+  ],
+  "prior_runs": [],
+  "shared_file_owners": {
+    "*": "parent"
+  },
+  "run_status": "incomplete",
+  "incomplete_reason": "session_time_limit_candidates_unvalidated",
+  "note": "Reconnaissance was done by the parent (no recon agents); 3 hunters, 1 verifier; no final coverage critic; 6 candidates lack independent validation."
+}
