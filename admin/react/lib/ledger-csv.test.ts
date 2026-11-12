@@ -41,6 +41,25 @@ describe('ledgerToCsv', () => {
   })
 })
 
+describe('formula injection', () => {
+  const col: CsvColumn<{ v: string | number }>[] = [{ header: 'H', value: r => r.v }]
+  const body = (v: string | number) => ledgerToCsv([{ v }], col).split('\r\n')[1]
+
+  test('prefixes risky strings with a single quote', () => {
+    expect(body('=HYPERLINK("http://x","y")')).toBe('"\'=HYPERLINK(""http://x"",""y"")"')
+    expect(body('+90')).toBe('"\'+90"')
+    expect(body('-x')).toBe('"\'-x"')
+    expect(body('@SUM(1)')).toBe('"\'@SUM(1)"')
+    expect(body('\tA')).toBe('"\'\tA"')
+    expect(body('\rA')).toBe('"\'\rA"')
+  })
+
+  test('leaves safe strings and numbers alone', () => {
+    expect(body('Ayşe')).toBe('"Ayşe"')
+    expect(body(-5)).toBe('-5')
+  })
+})
+
 describe('downloadCsv', () => {
   test('creates a blob link with the given filename and clicks it', () => {
     const createObjectURL = vi.fn(() => 'blob:x')
