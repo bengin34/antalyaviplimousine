@@ -105,7 +105,7 @@ export default defineConfig({
     exclude: [...configDefaults.exclude, "**/.worktrees/**", "**/.claude/worktrees/**"],
     // Gives Testing Library's waits room on a loaded CI runner; see the file.
     setupFiles: ["./vitest.setup.ts"],
-    // Page-parsing/render tests exceed the 5s default when prebuild runs under load (MEN-242 gate).
+    // Page-parsing/render + component suites exceed the 5s default under merge-gate load (MEN-242, MEN-245).
     testTimeout: 30000,
     // admin/supabase-client.js throws without these; a bare checkout (fresh
     // worktree, merge gate) would fail every suite importing it.

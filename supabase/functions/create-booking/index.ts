@@ -1,5 +1,6 @@
 import { createClient } from 'https://esm.sh/@supabase/supabase-js@2'
 import { parsePhoneNumberFromString } from 'npm:libphonenumber-js@1.13.9/max'
+import { clientIp, consumeRateLimit } from '../_shared/client-ip.ts'
 import { hotelRegionBySlug } from '../_shared/hotel-regions.generated.ts'
 import { airportTariffRegion, destinationHotelCheck, hasTariffRow, hotelToHotelPriceEur } from './transfer-price.ts'
 import {
@@ -543,6 +544,16 @@ Deno.serve(async (req) => {
       gclid: payload.gclid ? String(payload.gclid).slice(0, 200) : null,
       landing_page: payload.landing_page ? String(payload.landing_page).slice(0, 500) : null,
       referrer: payload.referrer ? String(payload.referrer).slice(0, 500) : null,
+    }
+
+    // Per-IP cap, after validation so bad payloads don't consume. Fails open:
+    // a limiter outage must not cost a real booking.
+    const ip = clientIp(req)
+    if (ip && (await consumeRateLimit(supabase, 'create-booking', ip, 10, 3600)) === false) {
+      return jsonResponse({
+        error: 'Too many bookings from this connection. Please try again later or message us on WhatsApp.',
+        code: 'rate_limited',
+      }, 429)
     }
 
     const { data: booking, error: insertError } = await supabase
