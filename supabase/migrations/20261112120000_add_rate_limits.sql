@@ -53,7 +53,7 @@ grant execute on function public.consume_rate_limit(text, text, integer, integer
 -- site_events: anon can insert with `with check (true)`. Cap one IP at
 -- 600 rows / 10 min (hotel Wi-Fi NAT shares an IP across many tourists).
 -- Over the cap the row is silently dropped so the client keeps its 2xx.
--- No x-forwarded-for (service role, SQL editor) -> insert untouched.
+-- No IP header (service role, SQL editor) -> insert untouched.
 create function public.site_events_rate_limit()
 returns trigger
 language plpgsql
@@ -61,8 +61,13 @@ security definer
 set search_path = ''
 as $$
 declare
-  v_ip text := nullif(trim(split_part(
-    coalesce(current_setting('request.headers', true)::json ->> 'x-forwarded-for', ''), ',', 1)), '');
+  v_h json := nullif(current_setting('request.headers', true), '')::json;
+  -- cf-connecting-ip / x-real-ip are set by the proxy; the first
+  -- x-forwarded-for entry is client-supplied, so it is the last resort.
+  v_ip text := nullif(trim(coalesce(
+    v_h ->> 'cf-connecting-ip',
+    v_h ->> 'x-real-ip',
+    split_part(coalesce(v_h ->> 'x-forwarded-for', ''), ',', 1))), '');
 begin
   if v_ip is not null
      and not public.consume_rate_limit('site_events', v_ip, 600, 600) then
