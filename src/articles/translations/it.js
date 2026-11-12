@@ -3028,7 +3028,7 @@ export const articles = {
       },
       {
         "type": "cop31",
-        "text": "Una Mercedes privata con autista a tua disposizione tutto il giorno: da 300 € al giorno per un Vito (fino a 6 passeggeri), da 400 € per uno Sprinter (fino a 16). Carburante incluso, nessun limite di ore o chilometri.",
+        "text": "Una Mercedes privata con autista a tua disposizione tutto il giorno: da 300 € al giorno per un Vito (fino a 6 passeggeri), da 400 € per uno Sprinter (fino a 16). Carburante incluso, fino a 10 ore al giorno (ogni ora extra: tariffa giornaliera ÷ 10).",
         "button": "Scopri il pacchetto autista COP31"
       },
       {
@@ -3097,7 +3097,7 @@ export const articles = {
       ],
       [
         "Quanto costa un autista privato per la COP31?",
-        "Il nostro pacchetto COP31 è una tariffa giornaliera: da 300 € per un Mercedes Vito, da 400 € per uno Sprinter, carburante incluso, nessun limite di ore o chilometri, pagamento a bordo."
+        "Il nostro pacchetto COP31 è una tariffa giornaliera: da 300 € per un Mercedes Vito, da 400 € per uno Sprinter, carburante incluso, fino a 10 ore al giorno (ogni ora extra: tariffa giornaliera ÷ 10), pagamento a bordo."
       ]
     ]
   },

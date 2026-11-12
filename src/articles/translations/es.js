@@ -3028,7 +3028,7 @@ export const articles = {
       },
       {
         "type": "cop31",
-        "text": "Un Mercedes privado con conductor reservado para ti todo el día: desde 300 € por día con una Vito (hasta 6 pasajeros), desde 400 € con una Sprinter (hasta 16). Combustible incluido, sin límite de horas ni de kilómetros.",
+        "text": "Un Mercedes privado con conductor reservado para ti todo el día: desde 300 € por día con una Vito (hasta 6 pasajeros), desde 400 € con una Sprinter (hasta 16). Combustible incluido, hasta 10 horas al día (cada hora extra: tarifa diaria ÷ 10).",
         "button": "Ver el paquete de conductor COP31"
       },
       {
@@ -3097,7 +3097,7 @@ export const articles = {
       ],
       [
         "¿Cuánto cuesta un conductor privado para la COP31?",
-        "Nuestro paquete COP31 es una tarifa diaria: desde 300 € con una Mercedes Vito, desde 400 € con una Sprinter, combustible incluido, sin límite de horas ni de kilómetros, pago en el vehículo."
+        "Nuestro paquete COP31 es una tarifa diaria: desde 300 € con una Mercedes Vito, desde 400 € con una Sprinter, combustible incluido, hasta 10 horas al día (cada hora extra: tarifa diaria ÷ 10), pago en el vehículo."
       ]
     ]
   },
