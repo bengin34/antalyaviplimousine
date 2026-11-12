@@ -18,7 +18,7 @@ Candidate validation is incomplete: 6 hunter candidates were NOT independently v
 |---|---|---|
 | vip/admin-users-seeded-from-open-signup | `20260916090000_restrict_authenticated_to_admins.sql:51-54` | MEN-243 (Engin: dashboard/SQL check) |
 | vip/admin-csv-formula-injection | `admin/react/lib/ledger-csv.ts:17-21` | MEN-244 |
-| vip/no-rate-limit-public-endpoints | `create-booking`, `verify-flight`, `site_events` | MEN-245 |
+| vip/no-rate-limit-public-endpoints | `create-booking`, `verify-flight`, `site_events` | MEN-245 (fixed; Engin: check Resend cap + Supabase Auth/API limits in dashboards) |
 | vip/checkout-token-overwrite-unauth | `create-iyzico-checkout/index.ts:161-168` | MEN-246 |
 | vip/forged-payment-success-ga4-purchase | `BookingForm.tsx:384-393` | MEN-246 |
 

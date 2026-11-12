@@ -308,7 +308,8 @@
       "vip/no-rate-limit-public-endpoints"
     ],
     "unresolved": [
-      "candidate not independently validated (session time limit)"
+      "candidate not independently validated (session time limit)",
+      "fixed in MEN-245; manual: Resend plan cap, Supabase Auth/API limits (dashboards)"
     ]
   },
   {
