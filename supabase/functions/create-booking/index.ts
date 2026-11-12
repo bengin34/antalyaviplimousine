@@ -1,7 +1,7 @@
 import { createClient } from 'https://esm.sh/@supabase/supabase-js@2'
 import { parsePhoneNumberFromString } from 'npm:libphonenumber-js@1.13.9/max'
 import { hotelRegionBySlug } from '../_shared/hotel-regions.generated.ts'
-import { airportTariffRegion, hasTariffRow, hotelToHotelPriceEur } from './transfer-price.ts'
+import { airportTariffRegion, destinationHotelCheck, hasTariffRow, hotelToHotelPriceEur } from './transfer-price.ts'
 import {
   isValidLandOfLegendsVisit,
   landOfLegendsNotice,
@@ -185,13 +185,24 @@ Deno.serve(async (req) => {
     // Yolculuğu hangi bölgenin tarifesi fiyatlar: gelişte varış bölgesi,
     // havalimanına gidişte alış otelinin bölgesi. Boşsa ölçülecek bir şey
     // yoktur (indekste olmayan otel ya da özel adres) ve fiyatı operatör verir.
+    const pickupHotelRegion = pickupLocation === 'hotel'
+      ? resolveHotelRegion(rawHotelName, hotelRegionBySlug) ?? ''
+      : ''
     const tariffRegion = airportTariffRegion({
       pickupLocation,
       dropoffLocation: dropoffLocation ?? '',
-      pickupHotelRegion: pickupLocation === 'hotel'
-        ? resolveHotelRegion(rawHotelName, hotelRegionBySlug) ?? ''
-        : '',
+      pickupHotelRegion,
     })
+    // The destination hotel must sit in the region the fare is read from.
+    const destinationCheck = isDailyChauffeur || isLandOfLegends
+      ? 'ok'
+      : destinationHotelCheck({
+        pickupLocation,
+        dropoffLocation: dropoffLocation ?? '',
+        hotelRegion: resolveHotelRegion(rawHotelName, hotelRegionBySlug),
+        dropoffHotelRegion: isHotelToHotel ? resolveHotelRegion(dropoffHotelName, hotelRegionBySlug) : null,
+      })
+    const destinationHotelUnindexed = destinationCheck === 'unindexed'
     const requiresManualPricing = !isDailyChauffeur && !tariffRegion
     const pickupDate = String(payload.pickup_date)
     const pickupTime = String(payload.pickup_time || '')
@@ -256,6 +267,9 @@ Deno.serve(async (req) => {
     }
     if (requiresDropoffHotelName && dropoffHotelName.toLocaleLowerCase() === rawHotelName.toLocaleLowerCase()) {
       return jsonResponse({ error: 'pickup and drop-off hotels must be different' }, 400)
+    }
+    if (destinationCheck === 'mismatch') {
+      return jsonResponse({ error: 'hotel is not in the selected destination region', code: 'hotel_region_mismatch' }, 400)
     }
     if (!isValidFlightNumber(payload.flight_number)) {
       return jsonResponse({ error: 'flight_number is invalid' }, 400)
@@ -411,7 +425,7 @@ Deno.serve(async (req) => {
       if (!hasTariffRow(tariffRows ?? [], dropoffLocation ?? '')) {
         return jsonResponse({ error: 'No active price was found for this route' }, 400)
       }
-      const pickupRegion = resolveHotelRegion(rawHotelName, hotelRegionBySlug) ?? ''
+      const pickupRegion = pickupHotelRegion
       const hotelToHotelPrice = hotelToHotelPriceEur(tariffRows ?? [], {
         pickupRegion,
         dropoffRegion: dropoffLocation ?? '',
@@ -449,7 +463,7 @@ Deno.serve(async (req) => {
     }
 
     const needsOperator = Boolean(luxVehicle) || requiresManualPricing || landOfLegendsNeedsQuote ||
-      hotelToHotelNeedsQuote || airportReturnNeedsQuote || landOfLegendsNoticeLevel === 'short'
+      hotelToHotelNeedsQuote || airportReturnNeedsQuote || destinationHotelUnindexed || landOfLegendsNoticeLevel === 'short'
     // A card booking is charged the price stored here, so it must be a final one.
     if (
       paymentMethod === 'card' &&
@@ -565,7 +579,13 @@ Deno.serve(async (req) => {
         ? 'To be confirmed after checking the hotel or pick-up address'
         : hotelToHotelNeedsQuote
         ? 'To be quoted — the pick-up hotel is not in the index, so the journey cannot be measured'
+        : destinationHotelUnindexed
+        ? `EUR ${booking.price_eur} — destination hotel not in the index; check it is in "${booking.dropoff_location}" before confirming`
         : `EUR ${booking.price_eur}`
+    const pricingRegionDisplay = (isHotelToHotel
+      ? `${pickupHotelRegion || 'unmatched'} → ${booking.dropoff_location}`
+      : tariffRegion || 'None — operator quote') +
+      (destinationHotelUnindexed ? ' (destination hotel not in index — check region)' : '')
 
     const resendApiKey = Deno.env.get('RESEND_API_KEY')
     const notificationEmail = Deno.env.get('BOOKING_NOTIFICATION_EMAIL')
@@ -614,6 +634,7 @@ Deno.serve(async (req) => {
                     <tr><td style="padding:6px 12px;color:#777">Pick-up type</td><td style="padding:6px 12px">${escapeHtml(pickupLabel)}</td></tr>
                     <tr><td style="padding:6px 12px;color:#777">Pick-up address</td><td style="padding:6px 12px"><strong>${escapeHtml(pickupAddressDisplay)}</strong></td></tr>
                     ${!isDailyChauffeur ? `<tr><td style="padding:6px 12px;color:#777">Destination</td><td style="padding:6px 12px">${escapeHtml(isLandOfLegends ? 'The Land of Legends (Kadriye) — then back to the hotel' : booking.dropoff_location)}</td></tr>` : ''}
+                    ${!isDailyChauffeur && !isLandOfLegends ? `<tr><td style="padding:6px 12px;color:#777">Pricing region</td><td style="padding:6px 12px">${escapeHtml(pricingRegionDisplay)}</td></tr>` : ''}
                     ${!isDailyChauffeur && (booking.dropoff_address || booking.dropoff_hotel_name) ? `<tr><td style="padding:6px 12px;color:#777">${booking.dropoff_address ? 'Drop-off address' : 'Destination hotel'}</td><td style="padding:6px 12px"><strong>${escapeHtml(dropoffAddressDisplay)}</strong></td></tr>` : ''}
                     <tr><td style="padding:6px 12px;color:#777">Journey type</td><td style="padding:6px 12px"><strong>${escapeHtml(isLandOfLegends ? 'The Land of Legends — hotel → park → hotel, driver waits' : isCop31 ? 'COP31 summit chauffeur — daily vehicle + chauffeur, fuel included, no hour or km limit' : isDailyChauffeur ? 'Daily vehicle + chauffeur' : isRoundTrip ? 'Round trip' : 'One way')}</strong></td></tr>
                     ${isLandOfLegends ? `<tr><td style="padding:6px 12px;color:#777">Hotel departure / park pick-up</td><td style="padding:6px 12px"><strong>${escapeHtml(booking.pickup_date)} · ${escapeHtml(booking.pickup_time)} → ${escapeHtml(booking.return_pickup_time)}</strong></td></tr>

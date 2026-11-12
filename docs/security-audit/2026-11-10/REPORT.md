@@ -11,7 +11,7 @@ Candidate validation is incomplete: 6 hunter candidates were NOT independently v
 | 0 | 0 | 1 | 0 | 0 | 0 | 0 (see below) | 6 |
 
 ## Confirmed
-- **vip/server-price-region-hotel-mismatch** (medium): arrival / hotel-to-hotel card price comes from the client region, not the hotel. `create-booking/index.ts:148,251,417,425`, `transfer-price.ts:42`. Not fixed here (changes who may pay by card; `resolveHotelRegion` looseness unchecked). Follow-up **MEN-242**.
+- **vip/server-price-region-hotel-mismatch** (medium): arrival / hotel-to-hotel card price comes from the client region, not the hotel. `create-booking/index.ts:148,251,417,425`, `transfer-price.ts:42`. **Fixed in MEN-242**: destination hotel region checked (mismatch → 400, unindexed → operator check, no card); `resolveHotelRegion` is exact-slug.
 
 ## Unvalidated candidates (follow-up issues, Backlog)
 | fingerprint | where | issue |

@@ -242,8 +242,6 @@ export function BookingForm({
   const hasPrice = !isDailyChauffeur && selectedRoute && quote.price > 0;
   // Card needs a final price; the server refuses it for anything the operator quotes.
   // Off until the payment provider is live, so no guest is sent to a checkout that cannot open.
-  const cardAvailable = import.meta.env.VITE_CARD_PAYMENTS === "1" && Boolean(hasPrice) && !isPrivateAddressQuote && !ultraLuxOf(values.vehicle);
-  const payByCard = paymentMethod === "card" && cardAvailable;
   const childSeatCount = Number(values.childSeats) || 0;
   // The hotel is the destination on an airport pickup, and that is the case
   // where knowing it also tells us the region. Leaving a hotel, or heading to
@@ -254,6 +252,11 @@ export function BookingForm({
   // Hotel to hotel, the single "your hotel" field only answers for the end we
   // collect from, so the end we deliver to gets a field of its own.
   const dropoffHotelNeeded = needsDropoffHotel(values);
+  // A destination hotel outside the index cannot be checked against the priced
+  // region, and the server refuses card for it.
+  const cardAvailable = import.meta.env.VITE_CARD_PAYMENTS === "1" && Boolean(hasPrice) && !isPrivateAddressQuote && !ultraLuxOf(values.vehicle)
+    && !(hotelSetsDestination && !hotelMatch) && !(dropoffHotelNeeded && !dropoffHotelMatch);
+  const payByCard = paymentMethod === "card" && cardAvailable;
   // Only an airport end has a flight. Asking a guest moving between two hotels
   // for an arrival flight number made them invent one to get past the step.
   const hasFlight = journeyTouchesAirport(values);
@@ -568,6 +571,11 @@ export function BookingForm({
     }
     if (hotelNeeded && !(await trigger("hotelName"))) return;
     if (dropoffHotelNeeded && !(await trigger("dropoffHotelName"))) return;
+    const destinationHotel = hotelSetsDestination ? hotelMatch : dropoffHotelNeeded ? dropoffHotelMatch : null;
+    if (destinationHotel && destinationHotel.region !== values.destination) {
+      setError("destination", { message: t("hotelRegionMismatch", "This hotel is in a different region. Pick the region your hotel is in.") });
+      return;
+    }
     window.gtag?.("event", "price_shown", { route: values.destination, price: quote.price, vehicle: values.vehicle });
     track("price_shown", { route: values.destination, price: quote.price, vehicle: values.vehicle });
     // A selected destination that prices at zero is lost demand, not a bug:
