@@ -43,6 +43,33 @@ export function airportTariffRegion({
   return pickupLocation === 'hotel' ? pickupHotelRegion : ''
 }
 
+type DestinationHotel = {
+  pickupLocation: string
+  dropoffLocation: string
+  /** resolveHotelRegion of the `hotel_name` field. */
+  hotelRegion: string | null
+  /** resolveHotelRegion of `dropoff_hotel_name` (hotel-to-hotel only). */
+  dropoffHotelRegion: string | null
+}
+
+/**
+ * Whether the region a transfer is priced on agrees with the hotel at that end.
+ * The region is client-chosen; a hotel in a pricier region could be booked at a
+ * cheaper region's fare. Unindexed hotels cannot be checked: the caller keeps
+ * the booking but refuses card.
+ */
+export function destinationHotelCheck({
+  pickupLocation,
+  dropoffLocation,
+  hotelRegion,
+  dropoffHotelRegion,
+}: DestinationHotel): 'ok' | 'mismatch' | 'unindexed' {
+  if (!dropoffLocation || ['airport', 'private_address', 'land_of_legends'].includes(dropoffLocation)) return 'ok'
+  const region = pickupLocation === 'hotel' ? dropoffHotelRegion : hotelRegion
+  if (!region) return 'unindexed'
+  return region === dropoffLocation ? 'ok' : 'mismatch'
+}
+
 type Journey = {
   pickupRegion: string
   dropoffRegion: string

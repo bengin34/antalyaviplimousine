@@ -1,7 +1,7 @@
 import { describe, expect, test } from "vitest";
 import { routeCatalog } from "../../../src/routes.js";
 import { quoteFor } from "../../../public-app/app/lib/booking";
-import { airportTariffRegion, hasTariffRow, hotelToHotelPriceEur, type RoutePriceRow } from "./transfer-price";
+import { airportTariffRegion, destinationHotelCheck, hasTariffRow, hotelToHotelPriceEur, type RoutePriceRow } from "./transfer-price";
 
 // The `routes` table as the edge function reads it: one published airport fare
 // per region for the chosen vehicle.
@@ -153,3 +153,26 @@ function quotedInBrowser(pickupRegion: string, dropoffRegion: string) {
     vehicle: "vito", hotelName: "Not an indexed hotel", travelDate: "", serviceEndDate: "",
   }).price;
 }
+
+describe("destination hotel vs priced region", () => {
+  const base = { pickupLocation: "airport", dropoffLocation: "belek", hotelRegion: null, dropoffHotelRegion: null };
+  test("arrival: match, mismatch, unindexed", () => {
+    expect(destinationHotelCheck({ ...base, hotelRegion: "belek" })).toBe("ok");
+    expect(destinationHotelCheck({ ...base, hotelRegion: "side" })).toBe("mismatch");
+    expect(destinationHotelCheck(base)).toBe("unindexed");
+  });
+  test("private address pickup behaves like arrival", () => {
+    expect(destinationHotelCheck({ ...base, pickupLocation: "private_address", hotelRegion: "side" })).toBe("mismatch");
+  });
+  test("hotel-to-hotel uses the drop-off hotel only", () => {
+    const h2h = { ...base, pickupLocation: "hotel", hotelRegion: "side" };
+    expect(destinationHotelCheck({ ...h2h, dropoffHotelRegion: "belek" })).toBe("ok");
+    expect(destinationHotelCheck({ ...h2h, dropoffHotelRegion: "kemer" })).toBe("mismatch");
+    expect(destinationHotelCheck(h2h)).toBe("unindexed");
+  });
+  test("non-region drop-offs are never checked", () => {
+    for (const dropoffLocation of ["airport", "private_address", "land_of_legends"]) {
+      expect(destinationHotelCheck({ ...base, dropoffLocation, hotelRegion: "side" })).toBe("ok");
+    }
+  });
+});

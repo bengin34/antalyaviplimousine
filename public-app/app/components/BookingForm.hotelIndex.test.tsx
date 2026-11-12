@@ -13,7 +13,7 @@
  */
 
 import "@testing-library/jest-dom/vitest";
-import { cleanup, fireEvent, render, waitFor } from "@testing-library/react";
+import { cleanup, fireEvent, render, screen, waitFor } from "@testing-library/react";
 import { afterAll, afterEach, beforeAll, describe, expect, test, vi } from "vitest";
 import { LanguageProvider } from "../i18n";
 import { LandOfLegendsBookingCopyProvider } from "../lib/land-of-legends-booking-copy";
@@ -77,5 +77,23 @@ describe("the hotel field before its index has loaded", () => {
     expect(field.value).toBe("Rixos Premium Belek");
     expect(container.querySelector<HTMLSelectElement>("#destination")!.value).toBe("belek");
     expect(container.querySelector(".price-display-amount")).toHaveTextContent("€43");
+  });
+
+  test("refuses to advance when the picked hotel is outside the chosen region", async () => {
+    const { container } = renderForm();
+    const field = container.querySelector<HTMLInputElement>("#hotel-name")!;
+    fireEvent.change(field, { target: { value: "rixos belek" } });
+    const option = await waitFor(() => {
+      const first = container.querySelector('[role="option"]');
+      if (!first) throw new Error("no suggestion yet");
+      return first;
+    });
+    fireEvent.click(option);
+    fireEvent.change(container.querySelector<HTMLSelectElement>("#destination")!, { target: { value: "side" } });
+
+    fireEvent.click(container.querySelector("#main-book-step1")!);
+
+    expect(await screen.findByText(/different region/i)).toBeInTheDocument();
+    expect(container.querySelector("#travel-date")).not.toBeInTheDocument();
   });
 });
