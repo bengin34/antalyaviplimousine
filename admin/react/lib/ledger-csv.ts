@@ -16,7 +16,10 @@ const EOL = '\r\n'
 function cell(value: string | number | null | undefined): string {
   if (value == null || value === '') return ''
   if (typeof value === 'number') return String(value)
-  return `"${String(value).replace(/"/g, '""')}"`
+  const text = String(value)
+  // Formula injection: Excel runs cells starting with = + - @ TAB CR.
+  const safe = /^[=+\-@\t\r]/.test(text) ? `'${text}` : text
+  return `"${safe.replace(/"/g, '""')}"`
 }
 
 function round2(value: number) {

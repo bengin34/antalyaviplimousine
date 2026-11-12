@@ -6,6 +6,7 @@ import {
   verifyIyzicoResponseSignature,
 } from '../_shared/iyzico.ts'
 import { notifyOperator } from '../_shared/operator-email.ts'
+import { paymentMatchesBooking } from './verify.ts'
 
 const redirectToSite = (
   siteUrl: string,
@@ -64,14 +65,16 @@ Deno.serve(async (req) => {
     .from('bookings')
     .select('*')
     .eq('id', bookingId)
-    .eq('iyzico_token', token)
     .single()
 
   if (bookingError || !booking) {
     return redirectToSite(siteUrl, 'failed')
   }
+  // The stored token is only the latest checkout; an earlier one may still have paid.
+  const isStoredToken = booking.iyzico_token === token
   // A page refresh or replayed callback must not re-verify or email twice.
   if (booking.status !== 'pending') {
+    if (!isStoredToken) return redirectToSite(siteUrl, 'failed')
     return redirectToSite(siteUrl, booking.status === 'cancelled' ? 'failed' : 'success', booking.booking_ref)
   }
 
@@ -103,23 +106,17 @@ Deno.serve(async (req) => {
     )
 
     const expectedPrice = formatPrice(Number(booking.price_eur))
-    const paymentIsValid =
-      payment.status === 'success' &&
-      payment.paymentStatus === 'SUCCESS' &&
-      signatureIsValid &&
-      String(payment.conversationId) === booking.id &&
-      String(payment.basketId) === booking.booking_ref &&
-      String(payment.token) === token &&
-      String(payment.currency) === 'EUR' &&
-      formatPrice(Number(payment.price)) === expectedPrice &&
-      formatPrice(Number(payment.paidPrice)) === expectedPrice
+    const paymentIsValid = paymentMatchesBooking(payment, booking, token, signatureIsValid)
 
     if (!paymentIsValid) {
-      const errorMessage = String(payment.errorMessage || 'Payment verification failed')
-      await supabase
-        .from('bookings')
-        .update({ payment_error: errorMessage })
-        .eq('id', booking.id)
+      // A stranger's junk token must not overwrite the guest's error field.
+      if (isStoredToken) {
+        const errorMessage = String(payment.errorMessage || 'Payment verification failed')
+        await supabase
+          .from('bookings')
+          .update({ payment_error: errorMessage })
+          .eq('id', booking.id)
+      }
       return redirectToSite(siteUrl, 'failed', booking.booking_ref)
     }
 
@@ -127,13 +124,13 @@ Deno.serve(async (req) => {
       .from('bookings')
       .update({
         status: 'paid',
+        iyzico_token: token,
         iyzico_payment_id: String(payment.paymentId),
         payment_currency: 'EUR',
         paid_at: new Date().toISOString(),
         payment_error: null,
       })
       .eq('id', booking.id)
-      .eq('iyzico_token', token)
       .eq('status', 'pending')
       .select('id')
 
@@ -150,12 +147,14 @@ Deno.serve(async (req) => {
     return redirectToSite(siteUrl, 'success', booking.booking_ref, expectedPrice)
   } catch (error) {
     console.error('iyzico callback error:', error)
-    await supabase
-      .from('bookings')
-      .update({
-        payment_error: error instanceof Error ? error.message : 'Payment verification failed',
-      })
-      .eq('id', booking.id)
+    if (isStoredToken) {
+      await supabase
+        .from('bookings')
+        .update({
+          payment_error: error instanceof Error ? error.message : 'Payment verification failed',
+        })
+        .eq('id', booking.id)
+    }
     return redirectToSite(siteUrl, 'failed', booking.booking_ref)
   }
 })
