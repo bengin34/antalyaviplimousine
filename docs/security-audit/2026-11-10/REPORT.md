@@ -17,10 +17,9 @@ Candidate validation is incomplete: 6 hunter candidates were NOT independently v
 | fingerprint | where | issue |
 |---|---|---|
 | vip/admin-users-seeded-from-open-signup | `20260916090000_restrict_authenticated_to_admins.sql:51-54` | MEN-243 (Engin: dashboard/SQL check) |
-| vip/admin-csv-formula-injection | `admin/react/lib/ledger-csv.ts:17-21` | MEN-244 |
+| vip/admin-csv-formula-injection | `admin/react/lib/ledger-csv.ts:17-21` | MEN-244: fixed in MEN-253 (PR #PRN) |
 | vip/no-rate-limit-public-endpoints | `create-booking`, `verify-flight`, `site_events` | MEN-245 |
-| vip/checkout-token-overwrite-unauth | `create-iyzico-checkout/index.ts:161-168` | MEN-246 |
-| vip/forged-payment-success-ga4-purchase | `BookingForm.tsx:384-393` | MEN-246 |
+| vip/checkout-token-overwrite-unauth | `create-iyzico-checkout/index.ts:161-168` | MEN-246: fixed in MEN-253 (PR #PRN) |
 
 ## Reviewed and clean (source evidence, not proof)
 - Paid-status forgery: `iyzico-callback/index.ts:63-115` needs stored token, HMAC signature, basket/conversation binding, EUR amount equal to DB price, and `status='pending'` guard (replay, MEN-194).
@@ -37,3 +36,4 @@ Candidate validation is incomplete: 6 hunter candidates were NOT independently v
 - CORS `*` on edge functions: no cookies or ambient credentials.
 - Admin session in localStorage on the same origin as the public site: hardening only, no XSS found.
 - Stale anon default grants on price tables: blocked by RLS.
+- vip/forged-payment-success-ga4-purchase (`BookingForm.tsx:384-393`, MEN-246 B): gtag runs in the visitor's own browser; anyone can fire `purchase` from devtools, so the URL param grants no capability. Real fix = server-side Measurement Protocol (needs a GA4 API secret, Engin's call); not worth it for analytics hygiene (MEN-253 D4).
