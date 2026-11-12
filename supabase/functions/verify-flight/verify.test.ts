@@ -68,7 +68,7 @@ describe("resolveFlightStatus", () => {
 
 describe("verifyFlight", () => {
   let store: ReturnType<typeof fakeStore>;
-  const base = () => ({ flightNumber: "TK2412", date: "2026-09-20", apiKey: "k", store });
+  const base = () => ({ flightNumber: "TK2412", date: "2026-09-20", apiKey: "k", store, now: new Date("2026-09-19T12:00:00Z") });
 
   beforeEach(() => { store = fakeStore(); });
 
@@ -237,5 +237,43 @@ describe("verifyFlight", () => {
     const fetchImpl = vi.fn().mockResolvedValue(ok(aytArrival));
     const result = await verifyFlight({ ...base(), store: brokenPut, fetchImpl });
     expect(result.status).toBe("verified");
+  });
+
+  describe("abuse guards", () => {
+    test.each(["TK2412", "PGT1234", "XQ123A", "4U8820"])("accepts %s", async (flightNumber) => {
+      const fetchImpl = vi.fn().mockResolvedValue(ok(aytArrival));
+      await verifyFlight({ ...base(), flightNumber, fetchImpl });
+      expect(fetchImpl).toHaveBeenCalledTimes(1);
+    });
+
+    test.each(["TK", "12345", "TKTKTK1", "AB12345", "A"])("rejects %s without any call", async (flightNumber) => {
+      const fetchImpl = vi.fn();
+      expect((await verifyFlight({ ...base(), flightNumber, fetchImpl })).status).toBe("unavailable");
+      expect(fetchImpl).not.toHaveBeenCalled();
+      expect(store.get).not.toHaveBeenCalled();
+      expect(store.consumeQuota).not.toHaveBeenCalled();
+    });
+
+    test.each(["2026-09-17", "2027-10-25"])("rejects date %s outside the window", async (date) => {
+      const fetchImpl = vi.fn();
+      expect((await verifyFlight({ ...base(), date, fetchImpl })).status).toBe("unavailable");
+      expect(store.get).not.toHaveBeenCalled();
+      expect(fetchImpl).not.toHaveBeenCalled();
+    });
+
+    test("throttle false: unavailable, quota untouched", async () => {
+      const fetchImpl = vi.fn();
+      const throttle = vi.fn().mockResolvedValue(false);
+      expect((await verifyFlight({ ...base(), throttle, fetchImpl })).status).toBe("unavailable");
+      expect(store.consumeQuota).not.toHaveBeenCalled();
+      expect(fetchImpl).not.toHaveBeenCalled();
+    });
+
+    test("cache hit never touches the throttle", async () => {
+      await store.put("TK2412:2026-09-20", { status: "verified" });
+      const throttle = vi.fn();
+      expect((await verifyFlight({ ...base(), throttle })).status).toBe("verified");
+      expect(throttle).not.toHaveBeenCalled();
+    });
   });
 });

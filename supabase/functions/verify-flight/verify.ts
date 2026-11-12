@@ -21,6 +21,10 @@ const UNAVAILABLE: FlightResult = { status: "unavailable" };
 export const normalizeFlightNumber = (value: string) =>
   String(value ?? "").replace(/[\s-]/g, "").toUpperCase();
 
+// IATA (2 karakter, biri harf olabilir) veya ICAO (3 harf) + 1-4 rakam + istege bagli harf.
+const FLIGHT_NUMBER = /^(?=[A-Z0-9]{0,3}[A-Z])[A-Z0-9]{2}[A-Z]?\d{1,4}[A-Z]?$/;
+const DAY_MS = 86_400_000;
+
 const isIsoDate = (value: string) => /^\d{4}-\d{2}-\d{2}$/.test(String(value ?? ""));
 
 /** AeroDataBox yerel saati "YYYY-MM-DD HH:MM+03:00" biciminde verir.
@@ -69,20 +73,31 @@ export async function verifyFlight({
   apiKey,
   store,
   fetchImpl = fetch,
+  throttle,
+  now = new Date(),
 }: {
   flightNumber: string;
   date: string;
   apiKey: string;
   store: LookupStore;
   fetchImpl?: typeof fetch;
+  /** Yalnizca onbellek kacirilinca cagrilir; false = kota harcama. */
+  throttle?: () => Promise<boolean>;
+  now?: Date;
 }): Promise<FlightResult> {
   const normalized = normalizeFlightNumber(flightNumber);
-  if (!apiKey || !normalized || !isIsoDate(date)) return UNAVAILABLE;
+  if (!apiKey || !FLIGHT_NUMBER.test(normalized) || !isIsoDate(date)) return UNAVAILABLE;
+  // Uydurma numara/tarihle kota yakmayi onler: dun ile +365 gun arasi.
+  const offset = Date.parse(`${date}T00:00:00Z`) - Date.parse(now.toISOString().slice(0, 10));
+  if (!(offset >= -DAY_MS && offset <= 365 * DAY_MS)) return UNAVAILABLE;
 
   const key = `${normalized}:${date}`;
   try {
     const cached = await store.get(key);
     if (cached) return cached;
+
+    // IP basina sinir kotadan once: sahte sorgular gercek musterinin hakkini yakmasin.
+    if (throttle && !(await throttle())) return UNAVAILABLE;
 
     // Sayac cagridan ONCE artar. Istek sonra basarisiz olursa bir hak bosa gider;
     // tersi (sonra artirmak) es zamanli isteklerin kotayi asmasina izin verirdi.
