@@ -1,0 +1,368 @@
+[
+  {
+    "coverage_id": ".github%2Fworkflows%2Fdeploy.yml%23Deploy%20to%20GitHub%20Pages::package.json%23scripts%20and%20lockfile::profile%2Fquick%2Fall-in-scope-subsystems::ATTACK-CLASSES.md%23Cryptography%20and%20secrets",
+    "canonical_refs": {
+      "surface": ".github/workflows/deploy.yml#Deploy to GitHub Pages",
+      "boundary": "package.json#scripts and lockfile",
+      "subsystem": "profile/quick/all-in-scope-subsystems",
+      "attack_class": "ATTACK-CLASSES.md#Cryptography and secrets"
+    },
+    "surface": ".github/workflows/deploy.yml#Deploy to GitHub Pages",
+    "boundary": "package.json#scripts and lockfile",
+    "subsystem": "profile/quick/all-in-scope-subsystems",
+    "attack_class": "ATTACK-CLASSES.md#Cryptography and secrets",
+    "starting_paths": [
+      ".github/workflows/deploy.yml",
+      "package.json",
+      "package-lock.json",
+      ".env.example",
+      "supabase/.env.example"
+    ],
+    "ordinary_attack_class_block": "ATTACK-CLASSES.md#Cryptography and secrets",
+    "selected_companion_blocks": [],
+    "excluded_blocks": [],
+    "prior_status": "none",
+    "attempts": [],
+    "wave": 1,
+    "status": "covered",
+    "agent_id": "parent",
+    "reviewed_paths": [
+      ".github/workflows/deploy.yml",
+      "package.json",
+      "package-lock.json",
+      ".env.example",
+      "supabase/.env.example"
+    ],
+    "local_checks": [
+      {
+        "agent_id": "parent",
+        "reviewed_paths": [
+          ".github/workflows/deploy.yml",
+          "package.json",
+          "package-lock.json",
+          ".env.example",
+          "supabase/.env.example"
+        ],
+        "invariant": "No secret values committed or in history; workflow has minimal permissions and no untrusted triggers",
+        "method": "source",
+        "result": "git history scan for private keys / sk_ keys / env files: only .env.example added; deploy.yml push+dispatch only; npm audit: 1 high (zod DoS, client-side self-impact, rejected)",
+        "artifact": null
+      }
+    ],
+    "result_fingerprints": [],
+    "unresolved": []
+  },
+  {
+    "coverage_id": "admin%2Freact%2Flib%2Fledger-csv.ts%23ledgerToCsv::supabase%2Ffunctions%2Fcreate-booking%2Findex.ts%23isValidName::profile%2Fquick%2Fall-in-scope-subsystems::ATTACK-CLASSES.md%23Injection",
+    "canonical_refs": {
+      "surface": "admin/react/lib/ledger-csv.ts#ledgerToCsv",
+      "boundary": "supabase/functions/create-booking/index.ts#isValidName",
+      "subsystem": "profile/quick/all-in-scope-subsystems",
+      "attack_class": "ATTACK-CLASSES.md#Injection"
+    },
+    "surface": "admin/react/lib/ledger-csv.ts#ledgerToCsv",
+    "boundary": "supabase/functions/create-booking/index.ts#isValidName",
+    "subsystem": "profile/quick/all-in-scope-subsystems",
+    "attack_class": "ATTACK-CLASSES.md#Injection",
+    "starting_paths": [
+      "admin/react/lib/ledger-csv.ts",
+      "admin/react/components/ledger-columns.tsx",
+      "admin/react/pages/BudgetPage.tsx"
+    ],
+    "ordinary_attack_class_block": "ATTACK-CLASSES.md#Injection",
+    "selected_companion_blocks": [],
+    "excluded_blocks": [],
+    "prior_status": "none",
+    "attempts": [],
+    "wave": 1,
+    "status": "candidate",
+    "agent_id": "hunt-client",
+    "reviewed_paths": [
+      "admin/react/lib/ledger-csv.ts",
+      "admin/react/components/ledger-columns.tsx",
+      "admin/react/pages/BudgetPage.tsx"
+    ],
+    "local_checks": [
+      {
+        "agent_id": "hunt-client",
+        "reviewed_paths": [
+          "admin/react/lib/ledger-csv.ts",
+          "admin/react/components/ledger-columns.tsx",
+          "admin/react/pages/BudgetPage.tsx"
+        ],
+        "invariant": "Customer text never executes as a spreadsheet formula",
+        "method": "source",
+        "result": "cell() quotes but does not neutralise leading = + - @; admin popup HTML is escaped",
+        "artifact": null
+      }
+    ],
+    "result_fingerprints": [
+      "vip/admin-csv-formula-injection"
+    ],
+    "unresolved": [
+      "candidate not independently validated (session time limit)"
+    ]
+  },
+  {
+    "coverage_id": "public-app%2Fapp%2Fcomponents%2FBookingForm.tsx%23payment%3Dsuccess%20query::public-app%2Fapp%2Fcomponents%2FBookingForm.tsx%23confirmation%20modal::profile%2Fquick%2Fall-in-scope-subsystems::ATTACK-CLASSES.md%23Feature%20abuse%20and%20data%20leakage",
+    "canonical_refs": {
+      "surface": "public-app/app/components/BookingForm.tsx#payment=success query",
+      "boundary": "public-app/app/components/BookingForm.tsx#confirmation modal",
+      "subsystem": "profile/quick/all-in-scope-subsystems",
+      "attack_class": "ATTACK-CLASSES.md#Feature abuse and data leakage"
+    },
+    "surface": "public-app/app/components/BookingForm.tsx#payment=success query",
+    "boundary": "public-app/app/components/BookingForm.tsx#confirmation modal",
+    "subsystem": "profile/quick/all-in-scope-subsystems",
+    "attack_class": "ATTACK-CLASSES.md#Feature abuse and data leakage",
+    "starting_paths": [
+      "public-app/app/components/BookingForm.tsx",
+      "src/main.js",
+      "src/consent.js",
+      "src/analytics-consent.js"
+    ],
+    "ordinary_attack_class_block": "ATTACK-CLASSES.md#Feature abuse and data leakage",
+    "selected_companion_blocks": [],
+    "excluded_blocks": [],
+    "prior_status": "none",
+    "attempts": [],
+    "wave": 1,
+    "status": "candidate",
+    "agent_id": "hunt-client",
+    "reviewed_paths": [
+      "public-app/app/components/BookingForm.tsx",
+      "src/main.js",
+      "src/consent.js",
+      "src/analytics-consent.js"
+    ],
+    "local_checks": [
+      {
+        "agent_id": "hunt-client",
+        "reviewed_paths": [
+          "public-app/app/components/BookingForm.tsx",
+          "src/main.js",
+          "src/consent.js",
+          "src/analytics-consent.js"
+        ],
+        "invariant": "Purchase conversion fires only for a real payment",
+        "method": "source",
+        "result": "No XSS sink reachable; payment=success URL param fires a GA4 purchase event with attacker value",
+        "artifact": null
+      }
+    ],
+    "result_fingerprints": [
+      "vip/forged-payment-success-ga4-purchase"
+    ],
+    "unresolved": [
+      "candidate not independently validated (session time limit)"
+    ]
+  },
+  {
+    "coverage_id": "supabase%2Ffunctions%2Fcreate-booking%2Findex.ts%23POST%20create-booking::supabase%2Ffunctions%2Fcreate-booking%2Findex.ts%23server-side%20price%20from%20routes%20table::profile%2Fquick%2Fall-in-scope-subsystems::ATTACK-CLASSES.md%23Business%20logic",
+    "canonical_refs": {
+      "surface": "supabase/functions/create-booking/index.ts#POST create-booking",
+      "boundary": "supabase/functions/create-booking/index.ts#server-side price from routes table",
+      "subsystem": "profile/quick/all-in-scope-subsystems",
+      "attack_class": "ATTACK-CLASSES.md#Business logic"
+    },
+    "surface": "supabase/functions/create-booking/index.ts#POST create-booking",
+    "boundary": "supabase/functions/create-booking/index.ts#server-side price from routes table",
+    "subsystem": "profile/quick/all-in-scope-subsystems",
+    "attack_class": "ATTACK-CLASSES.md#Business logic",
+    "starting_paths": [
+      "supabase/functions/create-booking/index.ts",
+      "supabase/functions/create-booking/payment.ts",
+      "supabase/functions/create-booking/transfer-price.ts"
+    ],
+    "ordinary_attack_class_block": "ATTACK-CLASSES.md#Business logic",
+    "selected_companion_blocks": [],
+    "excluded_blocks": [],
+    "prior_status": "none",
+    "attempts": [],
+    "wave": 1,
+    "status": "candidate",
+    "agent_id": "hunt-edge",
+    "reviewed_paths": [
+      "supabase/functions/create-booking/index.ts",
+      "supabase/functions/create-booking/payment.ts",
+      "supabase/functions/create-booking/transfer-price.ts"
+    ],
+    "local_checks": [
+      {
+        "agent_id": "hunt-edge",
+        "reviewed_paths": [
+          "supabase/functions/create-booking/index.ts",
+          "supabase/functions/create-booking/payment.ts",
+          "supabase/functions/create-booking/transfer-price.ts"
+        ],
+        "invariant": "Card-payable price equals the tariff of the hotel actually booked",
+        "method": "source",
+        "result": "Region is client-supplied; hotel name only shape-checked; verified by independent verifier verify-region",
+        "artifact": null
+      }
+    ],
+    "result_fingerprints": [
+      "vip/server-price-region-hotel-mismatch"
+    ],
+    "unresolved": []
+  },
+  {
+    "coverage_id": "supabase%2Ffunctions%2Fiyzico-callback%2Findex.ts%23POST%20iyzico-callback::supabase%2Ffunctions%2F_shared%2Fiyzico.ts%23HMAC%20signature%20and%20amount%20check::profile%2Fquick%2Fall-in-scope-subsystems::ATTACK-CLASSES.md%23Cryptography%20and%20secrets",
+    "canonical_refs": {
+      "surface": "supabase/functions/iyzico-callback/index.ts#POST iyzico-callback",
+      "boundary": "supabase/functions/_shared/iyzico.ts#HMAC signature and amount check",
+      "subsystem": "profile/quick/all-in-scope-subsystems",
+      "attack_class": "ATTACK-CLASSES.md#Cryptography and secrets"
+    },
+    "surface": "supabase/functions/iyzico-callback/index.ts#POST iyzico-callback",
+    "boundary": "supabase/functions/_shared/iyzico.ts#HMAC signature and amount check",
+    "subsystem": "profile/quick/all-in-scope-subsystems",
+    "attack_class": "ATTACK-CLASSES.md#Cryptography and secrets",
+    "starting_paths": [
+      "supabase/functions/iyzico-callback/index.ts",
+      "supabase/functions/create-iyzico-checkout/index.ts",
+      "supabase/functions/_shared/iyzico.ts"
+    ],
+    "ordinary_attack_class_block": "ATTACK-CLASSES.md#Cryptography and secrets",
+    "selected_companion_blocks": [],
+    "excluded_blocks": [],
+    "prior_status": "none",
+    "attempts": [],
+    "wave": 1,
+    "status": "candidate",
+    "agent_id": "hunt-edge",
+    "reviewed_paths": [
+      "supabase/functions/iyzico-callback/index.ts",
+      "supabase/functions/create-iyzico-checkout/index.ts",
+      "supabase/functions/_shared/iyzico.ts"
+    ],
+    "local_checks": [
+      {
+        "agent_id": "hunt-edge",
+        "reviewed_paths": [
+          "supabase/functions/iyzico-callback/index.ts",
+          "supabase/functions/create-iyzico-checkout/index.ts",
+          "supabase/functions/_shared/iyzico.ts"
+        ],
+        "invariant": "Only a real iyzico payment marks a booking paid; callback replay rejected",
+        "method": "source",
+        "result": "Signature, token, basket, amount and pending-status guard hold; candidate: unauth re-init overwrites iyzico_token",
+        "artifact": null
+      }
+    ],
+    "result_fingerprints": [
+      "vip/checkout-token-overwrite-unauth"
+    ],
+    "unresolved": [
+      "candidate not independently validated (session time limit)"
+    ]
+  },
+  {
+    "coverage_id": "supabase%2Ffunctions%2Fverify-flight%2Findex.ts%23POST%20verify-flight::supabase%2Ffunctions%2Fverify-flight%2Fstore.ts%23consume_flight_quota%20cap::profile%2Fquick%2Fall-in-scope-subsystems::ATTACK-CLASSES.md%23Feature%20abuse%20and%20data%20leakage",
+    "canonical_refs": {
+      "surface": "supabase/functions/verify-flight/index.ts#POST verify-flight",
+      "boundary": "supabase/functions/verify-flight/store.ts#consume_flight_quota cap",
+      "subsystem": "profile/quick/all-in-scope-subsystems",
+      "attack_class": "ATTACK-CLASSES.md#Feature abuse and data leakage"
+    },
+    "surface": "supabase/functions/verify-flight/index.ts#POST verify-flight",
+    "boundary": "supabase/functions/verify-flight/store.ts#consume_flight_quota cap",
+    "subsystem": "profile/quick/all-in-scope-subsystems",
+    "attack_class": "ATTACK-CLASSES.md#Feature abuse and data leakage",
+    "starting_paths": [
+      "supabase/functions/verify-flight/index.ts",
+      "supabase/functions/verify-flight/verify.ts",
+      "supabase/functions/verify-flight/store.ts",
+      "supabase/migrations/20260915120000_add_site_events.sql"
+    ],
+    "ordinary_attack_class_block": "ATTACK-CLASSES.md#Feature abuse and data leakage",
+    "selected_companion_blocks": [],
+    "excluded_blocks": [],
+    "prior_status": "none",
+    "attempts": [],
+    "wave": 1,
+    "status": "candidate",
+    "agent_id": "hunt-edge",
+    "reviewed_paths": [
+      "supabase/functions/verify-flight/index.ts",
+      "supabase/functions/verify-flight/verify.ts",
+      "supabase/functions/verify-flight/store.ts",
+      "supabase/migrations/20260915120000_add_site_events.sql"
+    ],
+    "local_checks": [
+      {
+        "agent_id": "hunt-edge",
+        "reviewed_paths": [
+          "supabase/functions/verify-flight/index.ts",
+          "supabase/functions/verify-flight/verify.ts",
+          "supabase/functions/verify-flight/store.ts",
+          "supabase/migrations/20260915120000_add_site_events.sql"
+        ],
+        "invariant": "Anonymous callers cannot exhaust shared quota",
+        "method": "source",
+        "result": "No SSRF (fixed host, strict date); no per-caller limit on create-booking, verify-flight, site_events",
+        "artifact": null
+      }
+    ],
+    "result_fingerprints": [
+      "vip/no-rate-limit-public-endpoints"
+    ],
+    "unresolved": [
+      "candidate not independently validated (session time limit)"
+    ]
+  },
+  {
+    "coverage_id": "supabase%2Fmigrations%2F20260916090000_restrict_authenticated_to_admins.sql%23admin_users%20seed::supabase%2Fmigrations%2F20260916090000_restrict_authenticated_to_admins.sql%23is_admin%28%29::profile%2Fquick%2Fall-in-scope-subsystems::ATTACK-CLASSES.md%23Access%20control",
+    "canonical_refs": {
+      "surface": "supabase/migrations/20260916090000_restrict_authenticated_to_admins.sql#admin_users seed",
+      "boundary": "supabase/migrations/20260916090000_restrict_authenticated_to_admins.sql#is_admin()",
+      "subsystem": "profile/quick/all-in-scope-subsystems",
+      "attack_class": "ATTACK-CLASSES.md#Access control"
+    },
+    "surface": "supabase/migrations/20260916090000_restrict_authenticated_to_admins.sql#admin_users seed",
+    "boundary": "supabase/migrations/20260916090000_restrict_authenticated_to_admins.sql#is_admin()",
+    "subsystem": "profile/quick/all-in-scope-subsystems",
+    "attack_class": "ATTACK-CLASSES.md#Access control",
+    "starting_paths": [
+      "supabase/migrations/001_initial_schema.sql",
+      "supabase/migrations/003_configure_iyzico.sql",
+      "supabase/migrations/20260916090000_restrict_authenticated_to_admins.sql",
+      "supabase/migrations/20261020100000_rls_is_admin_once_per_statement.sql"
+    ],
+    "ordinary_attack_class_block": "ATTACK-CLASSES.md#Access control",
+    "selected_companion_blocks": [],
+    "excluded_blocks": [],
+    "prior_status": "none",
+    "attempts": [],
+    "wave": 1,
+    "status": "candidate",
+    "agent_id": "hunt-rls",
+    "reviewed_paths": [
+      "supabase/migrations/001_initial_schema.sql",
+      "supabase/migrations/003_configure_iyzico.sql",
+      "supabase/migrations/20260916090000_restrict_authenticated_to_admins.sql",
+      "supabase/migrations/20261020100000_rls_is_admin_once_per_statement.sql"
+    ],
+    "local_checks": [
+      {
+        "agent_id": "hunt-rls",
+        "reviewed_paths": [
+          "supabase/migrations/001_initial_schema.sql",
+          "supabase/migrations/003_configure_iyzico.sql",
+          "supabase/migrations/20260916090000_restrict_authenticated_to_admins.sql",
+          "supabase/migrations/20261020100000_rls_is_admin_once_per_statement.sql"
+        ],
+        "invariant": "Only intended operators are in admin_users",
+        "method": "source",
+        "result": "All tables RLS-enabled, anon has no PII access, SECURITY DEFINER functions guarded; migration seeded every auth.users row while signup was open",
+        "artifact": null
+      }
+    ],
+    "result_fingerprints": [
+      "vip/admin-users-seeded-from-open-signup"
+    ],
+    "unresolved": [
+      "candidate not independently validated (session time limit)"
+    ]
+  }
+]
