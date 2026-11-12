@@ -3,7 +3,7 @@ import type { AirportMapCopy } from "../airport-map-copy";
 export const hu: AirportMapCopy = {
   locale: "hu_HU",
   metaTitle: "Antalyai repülőtér térkép: érkezés, kijárat, Meet & Greet (T1, T2)",
-  metaDescription: "Interaktív 3D térkép az antalyai repülőtér érkezési oldaláról: útlevél-ellenőrzés, poggyászkiadó, vám, kijárat és a 2-es terminál A–G Meet & Greet beállói.",
+  metaDescription: "Interaktív 3D térkép az antalyai repülőtér érkezési oldaláról: útlevél-ellenőrzés, poggyászkiadó, vám, kijárat és a 2-es terminál A–L Meet & Greet beállói.",
   home: "Főoldal",
   transfers: "Reptéri transzferek",
   bookNow: "Transzfer foglalása",
@@ -12,7 +12,9 @@ export const hu: AirportMapCopy = {
   canvasLabel: "3D térkép az antalyai repülőtér érkezési oldaláról. Ugyanez az útvonal lépésről lépésre a térkép mellett is olvasható.",
   loading: "A térkép betöltése…",
   noWebgl: "A böngészője nem tudja megjeleníteni a 3D térképet. Az útvonal lépésről lépésre lent olvasható.",
-  dragHint: "Húzza a forgatáshoz · görgessen vagy húzza szét két ujját a nagyításhoz · jobb gombbal vagy két ujjal húzva mozgathatja",
+  dragHint: "Egy ujjal mozgathatja a térképet · két ujjal nagyíthat és forgathat · egér: húzás a forgatáshoz, görgetés a nagyításhoz",
+  fullscreen: "Teljes képernyő",
+  exitFullscreen: "Kilépés a teljes képernyőből",
   walk: "Útvonal bejárása",
   pause: "Szünet",
   routeTitle: { t2: "Érkezés a 2-es terminálra", t1: "Érkezés az 1-es terminálra" },
@@ -25,7 +27,7 @@ export const hu: AirportMapCopy = {
       baggage: ["Poggyászkiadó", "A földszinti csarnok egyik oldalán a 201–206-os, a másikon a 211–215-ös szalagok vannak. A kijelzők mutatják, melyik szalagra érkezik a járata poggyásza."],
       customs: ["Vám", "A csomagjaival induljon a csarnok közepe felé, és a vámiroda mellett menjen át az érkezési csarnokba. Itt találja az autókölcsönzők pultjait és a pénzváltókat."],
       exit: ["Kijárat", "A kijárati ajtó Ön előtt van, az érkezési csarnok közepén."],
-      meetGreet: ["Meet & Greet, balra", "Kint forduljon balra. Először a rendőrőrs következik, utána sorban az A, B, C, D, E, F és G beálló. Fogadó munkatársunk annál a beállónál várja, amelyik a foglalásában szerepel."],
+      meetGreet: ["Meet & Greet, balra", "Kint forduljon balra. Először a rendőrőrs következik, utána a TÜRSAB ellenőrzőpont, majd sorban az A-tól L-ig jelölt beállók. Velük szemben kisebb pultok sora áll, 1-től 70-ig számozva. Fogadó munkatársunk annál a beállónál várja, amelyik a foglalásában szerepel."],
     },
     t1: {
       passport: ["Útlevél-ellenőrzés", "Az 1. emeleten lép be a terminálba. Az útlevélkezelő fülkék után a mozgólépcsőn menjen le a poggyászkiadóhoz."],
@@ -46,11 +48,11 @@ export const hu: AirportMapCopy = {
   greeterTitle: "Ki fogadja Önt a 2-es terminálon",
   greeterText: [
     "A 2-es terminálon nem a sofőr, hanem fogadó munkatársunk várja. A munkatárs az egyik Meet & Greet beállónál áll az Ön nevével, és elkíséri a járművéhez.",
-    "Hogy melyik beállónál (A-tól G-ig), az a naptól függ. A betűjelet a foglalás után küldjük el.",
+    "Hogy melyik beállónál (A-tól L-ig), az a naptól függ. A betűjelet a foglalás után küldjük el.",
   ],
   faqTitle: "Kérdések az antalyai repülőtérre érkezésről",
   faq: [
-    ["Hol van a Meet & Greet terület a 2-es terminálon?", "Kint, az érkezési kijárat előtt, bal oldalon. Először a rendőrőrs mellett halad el, utána az A-tól G-ig jelölt beállók következnek."],
+    ["Hol van a Meet & Greet terület a 2-es terminálon?", "Kint, az érkezési kijárat előtt, bal oldalon. Először a rendőrőrs mellett halad el, utána az A-tól L-ig jelölt beállók következnek."],
     ["Melyik beállóhoz menjek?", "Ez változik, ezért a foglalás után írjuk meg. A betűjel a visszaigazoló üzenetben szerepel."],
     ["A sofőr a terminálon belül vár?", "Nem. A 2-es terminálon csapatunk fogadó munkatársa vár a Meet & Greet beállónál, és ő kíséri el a sofőrhöz és a járműhöz."],
     ["Hogyan jutok el az 1-es terminálról a 2-esre?", "A repülőtér ingyenes körjáratot közlekedtet az 1-es terminál, a 2-es terminál és a belföldi terminál között. A megállók az egész repülőtér térképén vannak jelölve."],

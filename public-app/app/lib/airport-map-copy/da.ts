@@ -3,7 +3,7 @@ import type { AirportMapCopy } from "../airport-map-copy";
 export const da: AirportMapCopy = {
   locale: "da_DK",
   metaTitle: "Kort over Antalya Lufthavn: ankomst, udgang, Meet & Greet (T1, T2)",
-  metaDescription: "Interaktivt 3D-kort over ankomsten i Antalya Lufthavn: vejen fra paskontrol via bagage og told til udgangen, og Meet & Greet-læskurene A–G ved Terminal 2.",
+  metaDescription: "Interaktivt 3D-kort over ankomsten i Antalya Lufthavn: vejen fra paskontrol via bagage og told til udgangen, og Meet & Greet-læskurene A–L ved Terminal 2.",
   home: "Forside",
   transfers: "Lufthavnstransfer",
   bookNow: "Book transfer",
@@ -12,7 +12,9 @@ export const da: AirportMapCopy = {
   canvasLabel: "3D-kort over ankomsten i Antalya Lufthavn. Den samme rute står trin for trin ved siden af kortet.",
   loading: "Kortet indlæses…",
   noWebgl: "Din browser kan ikke vise 3D-kortet. Ruten står trin for trin nedenfor.",
-  dragHint: "Træk for at dreje · scroll eller knib for at zoome · højretræk eller brug to fingre for at flytte",
+  dragHint: "Én finger flytter kortet · to fingre zoomer og drejer · mus: træk for at dreje, scroll for at zoome",
+  fullscreen: "Fuld skærm",
+  exitFullscreen: "Luk fuld skærm",
   walk: "Gå ruten",
   pause: "Pause",
   routeTitle: { t2: "Ankomst til Terminal 2", t1: "Ankomst til Terminal 1" },
@@ -25,7 +27,7 @@ export const da: AirportMapCopy = {
       baggage: ["Bagageudlevering", "I hallen i stueetagen ligger bånd 201–206 i den ene side og 211–215 i den anden. Skærmene viser, hvilket bånd dit fly har."],
       customs: ["Told", "Gå med din bagage mod midten af hallen og forbi toldkontoret ind i ankomsthallen. Her ligger biludlejningsskrankerne og vekselkontorerne."],
       exit: ["Udgang", "Udgangsdøren ligger lige foran dig, midt i ankomsthallen."],
-      meetGreet: ["Meet & Greet, på din venstre hånd", "Drej til venstre, når du kommer ud. Først kommer politiposten, derefter læskurene A, B, C, D, E, F og G på række. Vores vært venter ved det læskur, der står i din booking."],
+      meetGreet: ["Meet & Greet, på din venstre hånd", "Drej til venstre, når du kommer ud. Først kommer politiposten, så TÜRSAB-kontrolposten og derefter læskurene A til L på række. Over for dem står en række mindre skranker med numrene 1 til 70. Vores vært venter ved det læskur, der står i din booking."],
     },
     t1: {
       passport: ["Paskontrol", "Du kommer ind i terminalen på 1. sal. Efter pasboksene tager du rulletrapperne ned til bagageudleveringen."],
@@ -46,11 +48,11 @@ export const da: AirportMapCopy = {
   greeterTitle: "Hvem der tager imod dig ved Terminal 2",
   greeterText: [
     "Ved Terminal 2 bliver du mødt af vores vært, ikke af chaufføren. Værten står ved et af Meet & Greet-læskurene med dit navn og følger dig hen til dit køretøj.",
-    "Hvilket læskur det er, A til G, afhænger af dagen. Vi sender dig bogstavet, når du har booket.",
+    "Hvilket læskur det er, A til L, afhænger af dagen. Vi sender dig bogstavet, når du har booket.",
   ],
   faqTitle: "Spørgsmål om ankomsten til Antalya Lufthavn",
   faq: [
-    ["Hvor ligger Meet & Greet-området ved Terminal 2?", "Uden for ankomstudgangen, til venstre. Du går først forbi politiposten og derefter forbi læskurene mærket A til G."],
+    ["Hvor ligger Meet & Greet-området ved Terminal 2?", "Uden for ankomstudgangen, til venstre. Du går først forbi politiposten og derefter forbi læskurene mærket A til L."],
     ["Hvilket læskur skal jeg gå til?", "Det skifter, så vi giver dig besked, når du har booket. Bogstavet står i din bekræftelse."],
     ["Venter chaufføren inde i terminalen?", "Nej. Ved Terminal 2 venter en vært fra vores team ved Meet & Greet-læskuret og følger dig hen til chaufføren og køretøjet."],
     ["Hvordan kommer jeg fra Terminal 1 til Terminal 2?", "Lufthavnen kører en gratis ringbus mellem Terminal 1, Terminal 2 og indenrigsterminalen. Stoppestederne er markeret på kortet over hele lufthavnen."],

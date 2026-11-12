@@ -3,7 +3,7 @@ import type { AirportMapCopy } from "../airport-map-copy";
 export const it: AirportMapCopy = {
   locale: "it_IT",
   metaTitle: "Mappa aeroporto di Antalya: arrivi, uscita, Meet & Greet (T1, T2)",
-  metaDescription: "Mappa 3D interattiva degli arrivi all'aeroporto di Antalya: dal controllo passaporti a bagagli, dogana e uscita, con le pensiline Meet & Greet A–G del Terminal 2.",
+  metaDescription: "Mappa 3D interattiva degli arrivi all'aeroporto di Antalya: dal controllo passaporti a bagagli, dogana e uscita, con le pensiline Meet & Greet A–L del Terminal 2.",
   home: "Home",
   transfers: "Transfer aeroportuali",
   bookNow: "Prenota un transfer",
@@ -12,7 +12,9 @@ export const it: AirportMapCopy = {
   canvasLabel: "Mappa 3D degli arrivi dell'aeroporto di Antalya. Lo stesso percorso è descritto passo dopo passo accanto alla mappa.",
   loading: "Caricamento della mappa…",
   noWebgl: "Il tuo browser non può mostrare la mappa 3D. Il percorso è descritto passo dopo passo qui sotto.",
-  dragHint: "Trascina per ruotare · scorri o pizzica per lo zoom · trascina con il tasto destro o con due dita per spostare",
+  dragHint: "Un dito per spostare la mappa · due dita per lo zoom e la rotazione · mouse: trascina per ruotare, scorri per lo zoom",
+  fullscreen: "Schermo intero",
+  exitFullscreen: "Esci da schermo intero",
   walk: "Segui il percorso",
   pause: "Pausa",
   routeTitle: { t2: "Arrivo al Terminal 2", t1: "Arrivo al Terminal 1" },
@@ -25,7 +27,7 @@ export const it: AirportMapCopy = {
       baggage: ["Ritiro bagagli", "Nella sala al piano terra i nastri 201–206 sono da un lato e i nastri 211–215 dall'altro. Gli schermi indicano il nastro del tuo volo."],
       customs: ["Dogana", "Con i bagagli, cammina verso il centro della sala e passa accanto all'ufficio doganale per entrare nella sala arrivi. Qui trovi i banchi dell'autonoleggio e gli uffici di cambio."],
       exit: ["Uscita", "La porta di uscita è davanti a te, al centro della sala arrivi."],
-      meetGreet: ["Meet & Greet, alla tua sinistra", "Una volta fuori, gira a sinistra. Prima c'è il posto di polizia, poi le pensiline A, B, C, D, E, F e G in fila. Il nostro addetto all'accoglienza ti aspetta alla pensilina indicata nella tua prenotazione."],
+      meetGreet: ["Meet & Greet, alla tua sinistra", "Una volta fuori, gira a sinistra. Prima c'è il posto di polizia, poi il punto di controllo TÜRSAB, quindi le pensiline dalla A alla L in fila. Di fronte c'è una fila di banchi più piccoli numerati da 1 a 70. Il nostro addetto all'accoglienza ti aspetta alla pensilina indicata nella tua prenotazione."],
     },
     t1: {
       passport: ["Controllo passaporti", "Entri nel terminal al 1° piano. Dopo le postazioni del controllo passaporti, prendi le scale mobili per scendere al ritiro bagagli."],
@@ -46,11 +48,11 @@ export const it: AirportMapCopy = {
   greeterTitle: "Chi ti accoglie al Terminal 2",
   greeterText: [
     "Al Terminal 2 ti accoglie il nostro addetto all'accoglienza, non l'autista. Ti aspetta a una delle pensiline Meet & Greet con il tuo nome e ti accompagna al tuo veicolo.",
-    "La pensilina, dalla A alla G, dipende dal giorno. Ti inviamo la lettera dopo la prenotazione.",
+    "La pensilina, dalla A alla L, dipende dal giorno. Ti inviamo la lettera dopo la prenotazione.",
   ],
   faqTitle: "Domande sull'arrivo all'aeroporto di Antalya",
   faq: [
-    ["Dov'è l'area Meet & Greet al Terminal 2?", "Fuori dall'uscita degli arrivi, a sinistra. Passi prima davanti al posto di polizia, poi alle pensiline contrassegnate dalla A alla G."],
+    ["Dov'è l'area Meet & Greet al Terminal 2?", "Fuori dall'uscita degli arrivi, a sinistra. Passi prima davanti al posto di polizia, poi alle pensiline contrassegnate dalla A alla L."],
     ["A quale pensilina devo andare?", "Cambia, per questo te lo comunichiamo dopo la prenotazione. La lettera è nel tuo messaggio di conferma."],
     ["L'autista aspetta dentro il terminal?", "No. Al Terminal 2 un addetto del nostro team ti aspetta alla pensilina Meet & Greet e ti accompagna dall'autista e al veicolo."],
     ["Come vado dal Terminal 1 al Terminal 2?", "L'aeroporto gestisce una navetta circolare gratuita tra il Terminal 1, il Terminal 2 e il terminal nazionale. Le fermate sono segnate sulla mappa di tutto l'aeroporto."],

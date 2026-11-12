@@ -3,7 +3,7 @@ import type { AirportMapCopy } from "../airport-map-copy";
 export const ro: AirportMapCopy = {
   locale: "ro_RO",
   metaTitle: "Harta Aeroportului Antalya: sosiri, ieșire, Meet & Greet (T1, T2)",
-  metaDescription: "Hartă 3D interactivă a sosirilor din Aeroportul Antalya: de la controlul pașapoartelor la bagaje, vamă și ieșire, plus copertinele Meet & Greet A–G de la Terminalul 2.",
+  metaDescription: "Hartă 3D interactivă a sosirilor din Aeroportul Antalya: de la controlul pașapoartelor la bagaje, vamă și ieșire, plus copertinele Meet & Greet A–L de la Terminalul 2.",
   home: "Acasă",
   transfers: "Transferuri de la aeroport",
   bookNow: "Rezervă un transfer",
@@ -12,7 +12,9 @@ export const ro: AirportMapCopy = {
   canvasLabel: "Hartă 3D a zonei de sosiri din Aeroportul Antalya. Același traseu este descris pas cu pas lângă hartă.",
   loading: "Se încarcă harta…",
   noWebgl: "Browserul dumneavoastră nu poate afișa harta 3D. Traseul este descris pas cu pas mai jos.",
-  dragHint: "Trageți pentru a roti · derulați sau depărtați două degete pentru a mări · trageți cu click dreapta sau cu două degete pentru a muta",
+  dragHint: "Un deget pentru a muta harta · două degete pentru a mări și a roti · mouse: trageți pentru a roti, derulați pentru a mări",
+  fullscreen: "Ecran complet",
+  exitFullscreen: "Ieșiți din ecranul complet",
   walk: "Parcurge traseul",
   pause: "Pauză",
   routeTitle: { t2: "Sosirea la Terminalul 2", t1: "Sosirea la Terminalul 1" },
@@ -25,7 +27,7 @@ export const ro: AirportMapCopy = {
       baggage: ["Ridicarea bagajelor", "În sala de la parter, benzile 201–206 sunt pe o parte, iar 211–215 pe cealaltă. Ecranele arată pe ce bandă vin bagajele de la zborul dumneavoastră."],
       customs: ["Vamă", "Cu bagajele, mergeți spre mijlocul sălii și treceți pe lângă biroul vamal în sala de sosiri. Aici sunt ghișeele de închirieri auto și casele de schimb valutar."],
       exit: ["Ieșire", "Ușa de ieșire este în fața dumneavoastră, la mijlocul sălii de sosiri."],
-      meetGreet: ["Meet & Greet, în stânga", "Afară, faceți la stânga. Mai întâi vine postul de poliție, apoi copertinele A, B, C, D, E, F și G, una după alta. Reprezentantul nostru vă așteaptă la copertina indicată în rezervare."],
+      meetGreet: ["Meet & Greet, în stânga", "Afară, faceți la stânga. Mai întâi vine postul de poliție, apoi punctul de control TÜRSAB, apoi copertinele de la A la L, una după alta. Vizavi se află un șir de ghișee mai mici, numerotate de la 1 la 70. Reprezentantul nostru vă așteaptă la copertina indicată în rezervare."],
     },
     t1: {
       passport: ["Controlul pașapoartelor", "Intrați în terminal la etajul 1. După ghișeele de pașapoarte, coborâți cu scările rulante spre zona de bagaje."],
@@ -46,11 +48,11 @@ export const ro: AirportMapCopy = {
   greeterTitle: "Cine vă întâmpină la Terminalul 2",
   greeterText: [
     "La Terminalul 2 vă întâmpină reprezentantul nostru, nu șoferul. Reprezentantul stă la una dintre copertinele Meet & Greet, cu numele dumneavoastră, și vă conduce la vehicul.",
-    "Copertina, de la A la G, depinde de zi. Vă trimitem litera după ce rezervați.",
+    "Copertina, de la A la L, depinde de zi. Vă trimitem litera după ce rezervați.",
   ],
   faqTitle: "Întrebări despre sosirea pe Aeroportul Antalya",
   faq: [
-    ["Unde este zona Meet & Greet la Terminalul 2?", "Afară, la ieșirea de la sosiri, pe partea stângă. Treceți mai întâi de postul de poliție, apoi de copertinele marcate de la A la G."],
+    ["Unde este zona Meet & Greet la Terminalul 2?", "Afară, la ieșirea de la sosiri, pe partea stângă. Treceți mai întâi de postul de poliție, apoi de copertinele marcate de la A la L."],
     ["La ce copertină trebuie să merg?", "Se schimbă, așa că vă spunem după ce rezervați. Litera este în mesajul de confirmare."],
     ["Șoferul așteaptă în terminal?", "Nu. La Terminalul 2, un reprezentant din echipa noastră așteaptă la copertina Meet & Greet și vă duce la șofer și la vehicul."],
     ["Cum ajung de la Terminalul 1 la Terminalul 2?", "Aeroportul are o navetă circulară gratuită între Terminalul 1, Terminalul 2 și terminalul de zboruri interne. Stațiile sunt marcate pe harta întregului aeroport."],

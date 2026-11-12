@@ -3,7 +3,7 @@ import type { AirportMapCopy } from "../airport-map-copy";
 export const cs: AirportMapCopy = {
   locale: "cs_CZ",
   metaTitle: "Mapa letiště Antalya: přílety, východ, Meet & Greet (T1, T2)",
-  metaDescription: "Interaktivní 3D mapa příletů na letišti Antalya: pasová kontrola, výdej zavazadel, celnice, východ a přístřešky Meet & Greet A–G u Terminálu 2.",
+  metaDescription: "Interaktivní 3D mapa příletů na letišti Antalya: pasová kontrola, výdej zavazadel, celnice, východ a přístřešky Meet & Greet A–L u Terminálu 2.",
   home: "Úvod",
   transfers: "Letištní transfery",
   bookNow: "Rezervovat transfer",
@@ -12,7 +12,9 @@ export const cs: AirportMapCopy = {
   canvasLabel: "3D mapa příletů na letišti Antalya. Stejná trasa je krok za krokem popsána vedle mapy.",
   loading: "Mapa se načítá…",
   noWebgl: "Váš prohlížeč 3D mapu nezobrazí. Trasa je krok za krokem popsána níže.",
-  dragHint: "Tažením otáčíte · kolečkem nebo dvěma prsty přibližujete · tažením pravým tlačítkem nebo dvěma prsty posouváte",
+  dragHint: "Jedním prstem mapu posouváte · dvěma prsty přibližujete a otáčíte · myš: tažením otáčíte, kolečkem přibližujete",
+  fullscreen: "Celá obrazovka",
+  exitFullscreen: "Ukončit celou obrazovku",
   walk: "Projít trasu",
   pause: "Pozastavit",
   routeTitle: { t2: "Přílet na Terminál 2", t1: "Přílet na Terminál 1" },
@@ -25,7 +27,7 @@ export const cs: AirportMapCopy = {
       baggage: ["Výdej zavazadel", "V hale v přízemí jsou pásy 201–206 na jedné straně a pásy 211–215 na druhé. Na obrazovkách najdete, na kterém pásu budou zavazadla z vašeho letu."],
       customs: ["Celnice", "Se zavazadly jděte ke středu haly a kolem celního úřadu projděte do příletové haly. Tady jsou přepážky autopůjčoven a směnárny."],
       exit: ["Východ", "Dveře ven máte před sebou, uprostřed příletové haly."],
-      meetGreet: ["Meet & Greet, po vaší levici", "Venku se dejte doleva. Nejdřív minete policejní stanoviště, potom následují v řadě přístřešky A, B, C, D, E, F a G. Náš pracovník na vás čeká u přístřešku uvedeného ve vaší rezervaci."],
+      meetGreet: ["Meet & Greet, po vaší levici", "Venku se dejte doleva. Nejdřív minete policejní stanoviště, potom kontrolní stanoviště TÜRSAB a dál následují v řadě přístřešky A až L. Naproti nim stojí řada menších přepážek s čísly 1 až 70. Náš pracovník na vás čeká u přístřešku uvedeného ve vaší rezervaci."],
     },
     t1: {
       passport: ["Pasová kontrola", "Do terminálu vstoupíte v 1. patře. Za pasovými přepážkami sjeďte po eskalátorech k výdeji zavazadel."],
@@ -46,11 +48,11 @@ export const cs: AirportMapCopy = {
   greeterTitle: "Kdo vás na Terminálu 2 přivítá",
   greeterText: [
     "Na Terminálu 2 vás nevítá řidič, ale náš pracovník. Stojí u jednoho z přístřešků Meet & Greet s vaším jménem a doprovodí vás k vozu.",
-    "U kterého přístřešku, A až G, záleží na dni. Písmeno vám pošleme po rezervaci.",
+    "U kterého přístřešku, A až L, záleží na dni. Písmeno vám pošleme po rezervaci.",
   ],
   faqTitle: "Otázky k příletu na letiště Antalya",
   faq: [
-    ["Kde je na Terminálu 2 prostor Meet & Greet?", "Venku před východem z příletů, vlevo. Nejdřív minete policejní stanoviště, potom přístřešky označené A až G."],
+    ["Kde je na Terminálu 2 prostor Meet & Greet?", "Venku před východem z příletů, vlevo. Nejdřív minete policejní stanoviště, potom přístřešky označené A až L."],
     ["Ke kterému přístřešku mám jít?", "Mění se to, proto vám ho sdělíme po rezervaci. Písmeno najdete v potvrzovací zprávě."],
     ["Čeká řidič uvnitř terminálu?", "Ne. Na Terminálu 2 čeká u přístřešku Meet & Greet pracovník našeho týmu a dovede vás k řidiči a vozu."],
     ["Jak se dostanu z Terminálu 1 na Terminál 2?", "Letiště provozuje bezplatný okružní shuttle mezi Terminálem 1, Terminálem 2 a vnitrostátním terminálem. Zastávky jsou vyznačené na mapě celého letiště."],

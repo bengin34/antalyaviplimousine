@@ -7,7 +7,7 @@ import data from "./airport-map-data.json";
  * that is not in that file. Routes only connect objects the file contains.
  */
 export type Point = [x: number, z: number];
-export type MapObject = { kind: string; x: number; z: number; w?: number; d?: number; label?: string; key?: string; dir?: number[] };
+export type MapObject = { kind: string; x: number; z: number; w?: number; d?: number; count?: number; label?: string; key?: string; dir?: number[] };
 export type Plate = { kind: string; points: number[][]; holes?: number[][][] };
 export type Level = { source: string; plates: Plate[]; objects: MapObject[]; exit?: { x: number; z: number } };
 
@@ -64,7 +64,8 @@ function t2Route(): RouteStep[] {
   const toLandside = arrows(ground, 0, 1)[0];
   const row = [...find(ground, "police"), ...find(ground, "shelter")];
   const last = row[row.length - 1];
-  const walkway = row[0].z - 3;
+  // Counters A–L back onto the terminal; passengers pass in front, between them and the numbered desks.
+  const walkway = (row[0].z + find(ground, "desks")[0].z) / 2;
   return [
     pierStep(airportMap.t2.levels.pier),
     { id: "baggage", level: "ground", points: [at(find(ground, "escalator")[0]), [belt.x - 4, belt.z - belt.d! / 2 - 2], [belt.x - 4, aisle.z], at(aisle)] },

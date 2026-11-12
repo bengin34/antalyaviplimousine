@@ -3,7 +3,7 @@ import type { AirportMapCopy } from "../airport-map-copy";
 export const pt: AirportMapCopy = {
   locale: "pt_PT",
   metaTitle: "Aeroporto de Antalya, mapa: chegadas, saída, Meet & Greet (T1, T2)",
-  metaDescription: "Mapa 3D interativo das chegadas do Aeroporto de Antalya: do controlo de passaportes à bagagem, alfândega e saída, e os abrigos Meet & Greet A–G do Terminal 2.",
+  metaDescription: "Mapa 3D interativo das chegadas do Aeroporto de Antalya: do controlo de passaportes à bagagem, alfândega e saída, e os abrigos Meet & Greet A–L do Terminal 2.",
   home: "Início",
   transfers: "Transfers do aeroporto",
   bookNow: "Reservar transfer",
@@ -12,7 +12,9 @@ export const pt: AirportMapCopy = {
   canvasLabel: "Mapa 3D das chegadas do Aeroporto de Antalya. O mesmo percurso está descrito passo a passo ao lado do mapa.",
   loading: "A carregar o mapa…",
   noWebgl: "O seu browser não consegue mostrar o mapa 3D. O percurso está descrito passo a passo mais abaixo.",
-  dragHint: "Arraste para rodar · use o scroll ou afaste dois dedos para ampliar · arraste com o botão direito ou com dois dedos para mover",
+  dragHint: "Um dedo para mover o mapa · dois dedos para ampliar e rodar · rato: arraste para rodar, scroll para ampliar",
+  fullscreen: "Ecrã inteiro",
+  exitFullscreen: "Sair do ecrã inteiro",
   walk: "Percorrer o caminho",
   pause: "Pausa",
   routeTitle: { t2: "Chegada ao Terminal 2", t1: "Chegada ao Terminal 1" },
@@ -25,7 +27,7 @@ export const pt: AirportMapCopy = {
       baggage: ["Recolha de bagagem", "A sala do rés-do-chão tem os tapetes 201–206 de um lado e 211–215 do outro. Os ecrãs indicam o tapete do seu voo."],
       customs: ["Alfândega", "Com as malas, caminhe em direção ao meio da sala e passe pelo posto da alfândega para a sala de chegadas. Aqui ficam os balcões de aluguer de automóveis e as casas de câmbio."],
       exit: ["Saída", "A porta de saída fica à sua frente, a meio da sala de chegadas."],
-      meetGreet: ["Meet & Greet, à sua esquerda", "Lá fora, vire à esquerda. Primeiro passa pelo posto da polícia, depois pelos abrigos A, B, C, D, E, F e G, em fila. O nosso assistente espera no abrigo indicado na sua reserva."],
+      meetGreet: ["Meet & Greet, à sua esquerda", "Lá fora, vire à esquerda. Primeiro passa pelo posto da polícia, depois pelo ponto de controlo da TÜRSAB e, a seguir, pelos abrigos A a L, em fila. Em frente há uma fila de balcões mais pequenos, numerados de 1 a 70. O nosso assistente espera no abrigo indicado na sua reserva."],
     },
     t1: {
       passport: ["Controlo de passaportes", "Entra no terminal pelo 1.º piso. Depois das cabines de passaportes, desça pelas escadas rolantes até à recolha de bagagem."],
@@ -46,11 +48,11 @@ export const pt: AirportMapCopy = {
   greeterTitle: "Quem o recebe no Terminal 2",
   greeterText: [
     "No Terminal 2 quem o recebe é o nosso assistente, não o motorista. O assistente está num dos abrigos Meet & Greet com o seu nome e acompanha-o até ao veículo.",
-    "O abrigo, de A a G, depende do dia. Enviamos-lhe a letra depois da reserva.",
+    "O abrigo, de A a L, depende do dia. Enviamos-lhe a letra depois da reserva.",
   ],
   faqTitle: "Perguntas sobre a chegada ao Aeroporto de Antalya",
   faq: [
-    ["Onde fica a zona Meet & Greet no Terminal 2?", "No exterior, à saída das chegadas, do lado esquerdo. Passa primeiro pelo posto da polícia e depois pelos abrigos marcados de A a G."],
+    ["Onde fica a zona Meet & Greet no Terminal 2?", "No exterior, à saída das chegadas, do lado esquerdo. Passa primeiro pelo posto da polícia e depois pelos abrigos marcados de A a L."],
     ["A que abrigo devo ir?", "Muda, por isso dizemos-lhe depois da reserva. A letra vem na mensagem de confirmação."],
     ["O motorista espera dentro do terminal?", "Não. No Terminal 2, um assistente da nossa equipa espera no abrigo Meet & Greet e leva-o até ao motorista e ao veículo."],
     ["Como vou do Terminal 1 para o Terminal 2?", "O aeroporto tem um shuttle circular gratuito entre o Terminal 1, o Terminal 2 e o terminal doméstico. As paragens estão marcadas no mapa de todo o aeroporto."],

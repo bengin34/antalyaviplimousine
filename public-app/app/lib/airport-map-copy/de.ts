@@ -3,7 +3,7 @@ import type { AirportMapCopy } from "../airport-map-copy";
 export const de: AirportMapCopy = {
   locale: "de_DE",
   metaTitle: "Flughafen Antalya Karte: Ankunft, Ausgang, Meet & Greet (T1, T2)",
-  metaDescription: "Interaktive 3D-Karte der Ankunft am Flughafen Antalya: der Weg von der Passkontrolle über Gepäckausgabe und Zoll zum Ausgang und die Meet & Greet-Unterstände A–G am Terminal 2.",
+  metaDescription: "Interaktive 3D-Karte der Ankunft am Flughafen Antalya: der Weg von der Passkontrolle über Gepäckausgabe und Zoll zum Ausgang und die Meet & Greet-Unterstände A–L am Terminal 2.",
   home: "Startseite",
   transfers: "Flughafentransfers",
   bookNow: "Transfer buchen",
@@ -12,7 +12,9 @@ export const de: AirportMapCopy = {
   canvasLabel: "3D-Karte des Ankunftsbereichs am Flughafen Antalya. Derselbe Weg steht Schritt für Schritt neben der Karte.",
   loading: "Karte wird geladen…",
   noWebgl: "Ihr Browser kann die 3D-Karte nicht anzeigen. Der Weg steht unten Schritt für Schritt.",
-  dragHint: "Ziehen zum Drehen · Scrollen oder zwei Finger spreizen zum Zoomen · Rechtsklick-Ziehen oder zwei Finger zum Verschieben",
+  dragHint: "Mit einem Finger verschieben · mit zwei Fingern zoomen und drehen · Maus: Ziehen zum Drehen, Scrollen zum Zoomen",
+  fullscreen: "Vollbild",
+  exitFullscreen: "Vollbild beenden",
   walk: "Weg ablaufen",
   pause: "Pause",
   routeTitle: { t2: "Ankunft am Terminal 2", t1: "Ankunft am Terminal 1" },
@@ -25,7 +27,7 @@ export const de: AirportMapCopy = {
       baggage: ["Gepäckausgabe", "In der Halle im Erdgeschoss liegen die Bänder 201–206 auf der einen und 211–215 auf der anderen Seite. Auf den Bildschirmen steht, an welchem Band Ihr Flug ausgegeben wird."],
       customs: ["Zoll", "Gehen Sie mit Ihrem Gepäck zur Mitte der Halle und am Zollbüro vorbei in die Ankunftshalle. Hier finden Sie Mietwagenschalter und Wechselstuben."],
       exit: ["Ausgang", "Die Ausgangstür liegt vor Ihnen, in der Mitte der Ankunftshalle."],
-      meetGreet: ["Meet & Greet, links von Ihnen", "Gehen Sie draußen nach links. Zuerst kommt der Polizeiposten, dann folgen nacheinander die Unterstände A, B, C, D, E, F und G. Unser Empfangsmitarbeiter wartet an dem Unterstand, der in Ihrer Buchung genannt ist."],
+      meetGreet: ["Meet & Greet, links von Ihnen", "Gehen Sie draußen nach links. Zuerst kommt der Polizeiposten, dann der TÜRSAB-Kontrollpunkt, danach folgen nacheinander die Unterstände A bis L. Gegenüber steht eine Reihe kleinerer Schalter mit den Nummern 1 bis 70. Unser Empfangsmitarbeiter wartet an dem Unterstand, der in Ihrer Buchung genannt ist."],
     },
     t1: {
       passport: ["Passkontrolle", "Sie betreten das Terminal im 1. Stock. Fahren Sie nach den Passschaltern mit der Rolltreppe hinunter zur Gepäckausgabe."],
@@ -46,11 +48,11 @@ export const de: AirportMapCopy = {
   greeterTitle: "Wer Sie am Terminal 2 empfängt",
   greeterText: [
     "Am Terminal 2 empfängt Sie nicht der Fahrer, sondern unser Empfangsmitarbeiter. Er steht mit Ihrem Namen an einem der Meet & Greet-Unterstände und begleitet Sie zu Ihrem Fahrzeug.",
-    "Welcher Unterstand es ist, A bis G, hängt vom Tag ab. Den Buchstaben schicken wir Ihnen nach der Buchung.",
+    "Welcher Unterstand es ist, A bis L, hängt vom Tag ab. Den Buchstaben schicken wir Ihnen nach der Buchung.",
   ],
   faqTitle: "Fragen zur Ankunft am Flughafen Antalya",
   faq: [
-    ["Wo ist der Meet & Greet-Bereich am Terminal 2?", "Draußen vor dem Ankunftsausgang, auf der linken Seite. Sie gehen zuerst am Polizeiposten vorbei, dann an den Unterständen mit den Buchstaben A bis G."],
+    ["Wo ist der Meet & Greet-Bereich am Terminal 2?", "Draußen vor dem Ankunftsausgang, auf der linken Seite. Sie gehen zuerst am Polizeiposten vorbei, dann an den Unterständen mit den Buchstaben A bis L."],
     ["Zu welchem Unterstand muss ich gehen?", "Das wechselt, deshalb teilen wir es Ihnen nach der Buchung mit. Der Buchstabe steht in Ihrer Bestätigungsnachricht."],
     ["Wartet der Fahrer im Terminal?", "Nein. Am Terminal 2 wartet ein Empfangsmitarbeiter aus unserem Team am Meet & Greet-Unterstand und bringt Sie zum Fahrer und zum Fahrzeug."],
     ["Wie komme ich vom Terminal 1 zum Terminal 2?", "Der Flughafen betreibt einen kostenlosen Ringshuttle zwischen Terminal 1, Terminal 2 und dem Inlandsterminal. Die Haltestellen sind auf der Karte des gesamten Flughafens eingezeichnet."],

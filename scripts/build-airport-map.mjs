@@ -7,7 +7,8 @@
  *   Those are isometric drawings; `unproject` turns them back into a plan.
  * - The airport overview comes from OpenStreetMap (© OpenStreetMap
  *   contributors, ODbL).
- * - The Terminal 2 Meet & Greet row (police, then shelters A–G, left of the
+ * - The Terminal 2 Meet & Greet row (police, the TÜRSAB checkpoint, counters A–L
+ *   and the numbered desks 1–70 facing them, left of the
  *   exit) is not on either source. Its order is from our own airport staff and
  *   its position is schematic; see MEET_AND_GREET below.
  *
@@ -167,20 +168,28 @@ function exitOf(level) {
 
 /**
  * Terminal 2 Meet & Greet, as our airport staff describe it: leaving the exit
- * it is on the left; first the police post, then shelters A to G. Walking out
- * of the door (+z), left is +x. Spacing and distance from the door are
- * schematic. shortcut: order and side are real, coordinates are not; replace
- * with surveyed positions if the airport publishes the forecourt.
+ * it is on the left; first the police post, then the TÜRSAB checkpoint, then
+ * counters A to L with their backs to the terminal. Facing them across the
+ * walkway is a row of smaller desks numbered 1 to 70. Walking out of the door
+ * (+z), left is +x. shortcut: order and side are real, coordinates and the
+ * direction the desk numbers run are not; replace with surveyed positions if
+ * the airport publishes the forecourt.
  */
-const MEET_AND_GREET = { firstOffset: 9, spacing: 5.5, distanceFromDoor: 7, stops: ["police", "A", "B", "C", "D", "E", "F", "G"] };
+const MEET_AND_GREET = { firstOffset: 9, spacing: 5.5, distanceFromDoor: 5, aisle: 8, desks: 70, stops: ["police", "TÜRSAB", ..."ABCDEFGHIJKL"] };
 
 function meetAndGreet(exit) {
-  return MEET_AND_GREET.stops.map((label, i) => ({
-    kind: label === "police" ? "police" : "shelter",
+  const { firstOffset, spacing, distanceFromDoor, aisle, desks, stops } = MEET_AND_GREET;
+  const x = (i) => exit.x + firstOffset + i * spacing;
+  const kinds = { police: "police", TÜRSAB: "checkpoint" };
+  const row = stops.map((label, i) => ({
+    kind: kinds[label] ?? "shelter",
     ...(label === "police" ? {} : { label }),
-    x: round(exit.x + MEET_AND_GREET.firstOffset + i * MEET_AND_GREET.spacing),
-    z: round(exit.z + MEET_AND_GREET.distanceFromDoor),
+    x: round(x(i)),
+    z: round(exit.z + distanceFromDoor),
   }));
+  // The numbered desks run the length of A–L, on the far side of the walkway.
+  const [from, to] = [x(2) - spacing / 2, x(stops.length - 1) + spacing / 2];
+  return [...row, { kind: "desks", count: desks, x: round((from + to) / 2), z: round(exit.z + distanceFromDoor + aisle), w: round(to - from) }];
 }
 
 function overviewFromOsm() {

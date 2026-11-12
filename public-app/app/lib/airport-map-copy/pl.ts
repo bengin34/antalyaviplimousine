@@ -3,7 +3,7 @@ import type { AirportMapCopy } from "../airport-map-copy";
 export const pl: AirportMapCopy = {
   locale: "pl_PL",
   metaTitle: "Mapa lotniska w Antalyi: przyloty, wyjście, Meet & Greet (T1, T2)",
-  metaDescription: "Interaktywna mapa 3D przylotów na lotnisku w Antalyi: kontrola paszportowa, odbiór bagażu, kontrola celna, wyjście i wiaty Meet & Greet A–G przy Terminalu 2.",
+  metaDescription: "Interaktywna mapa 3D przylotów na lotnisku w Antalyi: kontrola paszportowa, odbiór bagażu, kontrola celna, wyjście i wiaty Meet & Greet A–L przy Terminalu 2.",
   home: "Strona główna",
   transfers: "Transfery lotniskowe",
   bookNow: "Zarezerwuj transfer",
@@ -12,7 +12,9 @@ export const pl: AirportMapCopy = {
   canvasLabel: "Mapa 3D strefy przylotów lotniska w Antalyi. Ta sama trasa jest opisana krok po kroku obok mapy.",
   loading: "Wczytywanie mapy…",
   noWebgl: "Państwa przeglądarka nie wyświetla mapy 3D. Trasa jest opisana krok po kroku poniżej.",
-  dragHint: "Przeciąganie: obrót · kółko myszy lub rozsunięcie palców: powiększenie · prawy przycisk lub dwa palce: przesuwanie",
+  dragHint: "Jeden palec: przesuwanie mapy · dwa palce: powiększenie i obrót · mysz: przeciąganie obraca, kółko powiększa",
+  fullscreen: "Pełny ekran",
+  exitFullscreen: "Zamknij pełny ekran",
   walk: "Przejdź trasę",
   pause: "Pauza",
   routeTitle: { t2: "Przylot na Terminal 2", t1: "Przylot na Terminal 1" },
@@ -25,7 +27,7 @@ export const pl: AirportMapCopy = {
       baggage: ["Odbiór bagażu", "W hali na parterze taśmy 201–206 znajdują się po jednej stronie, a 211–215 po drugiej. Ekrany pokazują, na której taśmie pojawi się bagaż z Państwa lotu."],
       customs: ["Kontrola celna", "Z bagażem proszę iść w stronę środka hali i przejść obok urzędu celnego do hali przylotów. Tu znajdują się stanowiska wypożyczalni samochodów i kantory."],
       exit: ["Wyjście", "Drzwi wyjściowe są na wprost, pośrodku hali przylotów."],
-      meetGreet: ["Meet & Greet, po lewej stronie", "Na zewnątrz proszę skręcić w lewo. Najpierw jest posterunek policji, a dalej w jednym rzędzie wiaty A, B, C, D, E, F i G. Nasz pracownik czeka przy wiacie podanej w Państwa rezerwacji."],
+      meetGreet: ["Meet & Greet, po lewej stronie", "Na zewnątrz proszę skręcić w lewo. Najpierw jest posterunek policji, potem punkt kontrolny TÜRSAB, a dalej w jednym rzędzie wiaty od A do L. Naprzeciwko stoi rząd mniejszych stanowisk o numerach od 1 do 70. Nasz pracownik czeka przy wiacie podanej w Państwa rezerwacji."],
     },
     t1: {
       passport: ["Kontrola paszportowa", "Do terminalu wchodzą Państwo na 1. piętrze. Za stanowiskami kontroli paszportowej proszę zjechać schodami ruchomymi do odbioru bagażu."],
@@ -46,11 +48,11 @@ export const pl: AirportMapCopy = {
   greeterTitle: "Kto wita Państwa na Terminalu 2",
   greeterText: [
     "Na Terminalu 2 wita Państwa nie kierowca, lecz nasz pracownik. Stoi przy jednej z wiat Meet & Greet z Państwa nazwiskiem i odprowadza Państwa do pojazdu.",
-    "To, która to wiata, od A do G, zależy od dnia. Literę wysyłamy po dokonaniu rezerwacji.",
+    "To, która to wiata, od A do L, zależy od dnia. Literę wysyłamy po dokonaniu rezerwacji.",
   ],
   faqTitle: "Pytania o przylot na lotnisko w Antalyi",
   faq: [
-    ["Gdzie jest strefa Meet & Greet na Terminalu 2?", "Na zewnątrz, za wyjściem z hali przylotów, po lewej stronie. Najpierw mija się posterunek policji, a potem wiaty oznaczone literami od A do G."],
+    ["Gdzie jest strefa Meet & Greet na Terminalu 2?", "Na zewnątrz, za wyjściem z hali przylotów, po lewej stronie. Najpierw mija się posterunek policji, a potem wiaty oznaczone literami od A do L."],
     ["Do której wiaty mam iść?", "To się zmienia, dlatego podajemy ją po rezerwacji. Litera znajduje się w wiadomości z potwierdzeniem."],
     ["Czy kierowca czeka w terminalu?", "Nie. Na Terminalu 2 pracownik naszego zespołu czeka przy wiacie Meet & Greet i prowadzi Państwa do kierowcy i pojazdu."],
     ["Jak dostać się z Terminalu 1 na Terminal 2?", "Lotnisko prowadzi bezpłatny autobus okrężny między Terminalem 1, Terminalem 2 i terminalem krajowym. Przystanki są zaznaczone na mapie całego lotniska."],

@@ -50,6 +50,8 @@ export type AirportMapCopy = {
   loading: string;
   noWebgl: string;
   dragHint: string;
+  fullscreen: string;
+  exitFullscreen: string;
   walk: string;
   pause: string;
   routeTitle: Record<"t2" | "t1", string>;
