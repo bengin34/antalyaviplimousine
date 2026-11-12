@@ -17,9 +17,9 @@ Candidate validation is incomplete: 6 hunter candidates were NOT independently v
 | fingerprint | where | issue |
 |---|---|---|
 | vip/admin-users-seeded-from-open-signup | `20260916090000_restrict_authenticated_to_admins.sql:51-54` | MEN-243 (Engin: dashboard/SQL check) |
-| vip/admin-csv-formula-injection | `admin/react/lib/ledger-csv.ts:17-21` | MEN-244: fixed in MEN-253 (PR #PRN) |
+| vip/admin-csv-formula-injection | `admin/react/lib/ledger-csv.ts:17-21` | MEN-244: fixed in MEN-253 (PR #59) |
 | vip/no-rate-limit-public-endpoints | `create-booking`, `verify-flight`, `site_events` | MEN-245 |
-| vip/checkout-token-overwrite-unauth | `create-iyzico-checkout/index.ts:161-168` | MEN-246: fixed in MEN-253 (PR #PRN) |
+| vip/checkout-token-overwrite-unauth | `create-iyzico-checkout/index.ts:161-168` | MEN-246: fixed in MEN-253 (PR #59) |
 
 ## Reviewed and clean (source evidence, not proof)
 - Paid-status forgery: `iyzico-callback/index.ts:63-115` needs stored token, HMAC signature, basket/conversation binding, EUR amount equal to DB price, and `status='pending'` guard (replay, MEN-194).
