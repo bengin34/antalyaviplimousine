@@ -3037,7 +3037,7 @@ export const articles = {
       },
       {
         "type": "cop31",
-        "text": "Soukromý Mercedes s řidičem vyhrazený pro vás na celý den: od 300 € za den za Vito (až 6 osob), od 400 € za Sprinter (až 16). Palivo v ceně, až 10 hodin denně (každá hodina navíc: denní sazba ÷ 10).",
+        "text": "Soukromý Mercedes s řidičem vyhrazený pro vás na celý den: od 300 € za den za Vito (až 6 osob), od 400 € za Sprinter (až 16). Palivo v ceně, až 8 hodin denně (každá hodina navíc: denní sazba ÷ 8).",
         "button": "Zobrazit balíček s řidičem na COP31"
       },
       {
@@ -3106,7 +3106,7 @@ export const articles = {
       ],
       [
         "Kolik stojí soukromý řidič na COP31?",
-        "Náš balíček COP31 má denní sazbu: od 300 € za Mercedes Vito, od 400 € za Sprinter, palivo v ceně, až 10 hodin denně (každá hodina navíc: denní sazba ÷ 10), platba ve voze."
+        "Náš balíček COP31 má denní sazbu: od 300 € za Mercedes Vito, od 400 € za Sprinter, palivo v ceně, až 8 hodin denně (každá hodina navíc: denní sazba ÷ 8), platba ve voze."
       ]
     ]
   },
