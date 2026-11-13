@@ -3318,7 +3318,7 @@ export const articles = {
       },
       {
         "type": "cop31",
-        "text": "Een privé-Mercedes met chauffeur, de hele dag voor u beschikbaar: vanaf € 300 per dag voor een Vito (tot 6 personen), vanaf € 400 voor een Sprinter (tot 16). Brandstof inbegrepen, tot 10 uur per dag (elk extra uur: dagtarief ÷ 10).",
+        "text": "Een privé-Mercedes met chauffeur, de hele dag voor u beschikbaar: vanaf € 300 per dag voor een Vito (tot 6 personen), vanaf € 400 voor een Sprinter (tot 16). Brandstof inbegrepen, tot 8 uur per dag (elk extra uur: dagtarief ÷ 8).",
         "button": "Bekijk het COP31-chauffeurspakket"
       },
       {
@@ -3387,7 +3387,7 @@ export const articles = {
       ],
       [
         "Wat kost een privéchauffeur voor COP31?",
-        "Ons COP31-pakket is een dagtarief: vanaf € 300 voor een Mercedes Vito, vanaf € 400 voor een Sprinter, brandstof inbegrepen, tot 10 uur per dag (elk extra uur: dagtarief ÷ 10), te betalen in de auto."
+        "Ons COP31-pakket is een dagtarief: vanaf € 300 voor een Mercedes Vito, vanaf € 400 voor een Sprinter, brandstof inbegrepen, tot 8 uur per dag (elk extra uur: dagtarief ÷ 8), te betalen in de auto."
       ]
     ]
   },

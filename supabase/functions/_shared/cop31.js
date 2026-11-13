@@ -1,6 +1,6 @@
 // COP31 (UN Climate Change Conference, Antalya, 9–20 November 2026) summit
 // chauffeur package: a daily vehicle + chauffeur hire at a day rate (shown "from") with
-// fuel included, 10 hours a day (extra hour = day rate / 10). The site's quote and
+// fuel included, 8 hours a day (extra hour = day rate / 8). The site's quote and
 // create-booking both read these, so the guest is charged what they were shown.
 
 /** Day rate per vehicle, keyed by the bookings table's `vehicle_type`. */
