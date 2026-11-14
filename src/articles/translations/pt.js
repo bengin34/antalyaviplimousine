@@ -3200,7 +3200,7 @@ export const articles = {
       },
       {
         "type": "cop31",
-        "text": "Fica fora da rede de shuttles? Um Mercedes com motorista reservado para si o dia inteiro, do seu hotel ao recinto e de volta: desde 300 € por dia (Vito, até 6 passageiros), desde 400 € (Sprinter, até 16). Combustível incluído.",
+        "text": "Fica fora da rede de shuttles? Um Mercedes com motorista reservado para si o dia inteiro, do seu hotel ao recinto e de volta: desde 300 € por dia (Vito, até 6 passageiros), desde 400 € (Sprinter, até 16). Combustível incluído, até 10 horas e 100 km por dia; cada km extra 5 €.",
         "button": "Reservar motorista para a COP31"
       },
       {

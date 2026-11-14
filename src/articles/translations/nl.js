@@ -3490,7 +3490,7 @@ export const articles = {
       },
       {
         "type": "cop31",
-        "text": "Verblijft u buiten het shuttlenetwerk? Een Mercedes met chauffeur, de hele dag voor u beschikbaar, van uw hotel naar de locatie en terug: vanaf € 300 per dag (Vito, tot 6 personen), vanaf € 400 (Sprinter, tot 16). Brandstof inbegrepen.",
+        "text": "Verblijft u buiten het shuttlenetwerk? Een Mercedes met chauffeur, de hele dag voor u beschikbaar, van uw hotel naar de locatie en terug: vanaf € 300 per dag (Vito, tot 6 personen), vanaf € 400 (Sprinter, tot 16). Brandstof inbegrepen, tot 10 uur en 100 km per dag; elke extra km € 5.",
         "button": "Boek een COP31-chauffeur"
       },
       {

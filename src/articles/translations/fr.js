@@ -3200,7 +3200,7 @@ export const articles = {
       },
       {
         "type": "cop31",
-        "text": "Vous logez hors du réseau de navettes ? Une Mercedes avec chauffeur à votre disposition toute la journée, de votre hôtel au site et retour : dès 300 € par jour (Vito, jusqu'à 6 passagers), dès 400 € (Sprinter, jusqu'à 16). Carburant inclus.",
+        "text": "Vous logez hors du réseau de navettes ? Une Mercedes avec chauffeur à votre disposition toute la journée, de votre hôtel au site et retour : dès 300 € par jour (Vito, jusqu'à 6 passagers), dès 400 € (Sprinter, jusqu'à 16). Carburant inclus, jusqu'à 10 heures et 100 km par jour ; km supplémentaire 5 €.",
         "button": "Réserver un chauffeur COP31"
       },
       {
