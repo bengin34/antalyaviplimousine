@@ -46,10 +46,10 @@ describe("what a hotel-to-hotel journey costs the vehicle", () => {
 
 describe("the fare for a hotel-to-hotel journey", () => {
   test("is anchored on the published tariff of the farther end", () => {
-    // Alanya centre → Side today sells at Side's €53 while tying up the
-    // vehicle for an Alanya journey. Anchored on Alanya centre's €93 instead,
+    // Alanya centre → Side today sells at Side's €63 while tying up the
+    // vehicle for an Alanya journey. Anchored on Alanya centre's €103 instead,
     // plus €0.60 for each of the 2.5 km the detour adds.
-    expect(priceFor("alanya_merkez", "side")).toBe(95);
+    expect(priceFor("alanya_merkez", "side")).toBe(105);
   });
 
   test("costs the same in both directions", () => {
@@ -58,8 +58,8 @@ describe("the fare for a hotel-to-hotel journey", () => {
 
   test("charges the detour when the journey crosses the city", () => {
     // 175 km equivalent against Alanya centre's own 125: 50 km of detour on
-    // top of the €93 anchor.
-    expect(priceFor("alanya_merkez", "kemer")).toBe(123);
+    // top of the €103 anchor.
+    expect(priceFor("alanya_merkez", "kemer")).toBe(133);
   });
 
   test("leaves a journey inside one region on that region's tariff", () => {
@@ -68,9 +68,9 @@ describe("the fare for a hotel-to-hotel journey", () => {
   });
 
   test("never falls below the distance band that clears cost", () => {
-    // Antalya → East Alanya: the €98 anchor plus 15 km of detour is €107,
+    // Antalya → East Alanya: the €108 anchor plus 15 km of detour is €117,
     // and 153 equivalent km need €105 to clear cost — here the anchor wins.
-    expect(priceFor("antalya", "alanya_dogu")).toBe(107);
+    expect(priceFor("antalya", "alanya_dogu")).toBe(117);
     for (const from of Object.keys(regionDistanceKm)) {
       for (const to of Object.keys(regionDistanceKm)) {
         for (const vehicle of ["vito", "sprinter"]) {

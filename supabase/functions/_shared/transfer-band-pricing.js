@@ -6,7 +6,9 @@
  * cost. This maps km to a banded unit price that clears cost; callers floor
  * their own fare by it and never lower a quote.
  *
- * Target unit price = 2× one-way cost = 0.60 × km + 10, rounded up to €5.
+ * Target unit price = 2× one-way cost + margin = 0.60 × km + 20, rounded up to €5.
+ * The margin was €10 until the 2026-11 across-the-board +€10 tariff raise, which
+ * lifts the floor by the same €10 so a hotel quote rises with its region tariff.
  * See docs/superpowers/specs/2026-09-02-hotel-distance-band-pricing-design.md.
  *
  * Plain JS with no imports so Deno (the create-booking edge function) and
@@ -15,8 +17,12 @@
  */
 
 export const roundUp5 = (value) => Math.ceil(value / 5) * 5;
-const targetUnitPrice = (km) => roundUp5(0.6 * km + 10);
-const sprinterPrice = (vitoPrice) => roundUp5(vitoPrice * SPRINTER_MULTIPLIER);
+const TARIFF_RAISE_EUR = 10;
+const targetUnitPrice = (km) => roundUp5(0.6 * km + 10 + TARIFF_RAISE_EUR);
+// The multiplier shapes the pre-raise band; the raise is then added flat, so a
+// Sprinter band moves by exactly €10 like every other fare.
+const sprinterPrice = (vitoPrice) =>
+  roundUp5((vitoPrice - TARIFF_RAISE_EUR) * SPRINTER_MULTIPLIER) + TARIFF_RAISE_EUR;
 
 /**
  * The least a journey of `km` may be sold for, to the kilometre rather than to
@@ -34,7 +40,7 @@ export function costFloorUnitPrice(km) {
   return targetUnitPrice(km);
 }
 
-// [maxKm, vitoPrice]. Prices are roundUp5(0.60 × maxKm + 10). A hotel beyond the
+// [maxKm, vitoPrice]. Prices are roundUp5(0.60 × maxKm + 20). A hotel beyond the
 // last edge is priced from the same formula directly (no upper cap needed).
 export const VITO_BANDS = Object.freeze(
   [20, 30, 40, 50, 60, 70, 85, 100, 115, 130, 150, 175, 210, 260]

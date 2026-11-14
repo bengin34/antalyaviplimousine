@@ -36,7 +36,7 @@ describe("what the server charges for a hotel-to-hotel transfer", () => {
       dropoffRegion: "side",
       vehicleType: "vito",
       isRoundTrip: false,
-    })).toBe(95);
+    })).toBe(105);
   });
 
   test("doubles for a round trip", () => {
@@ -45,7 +45,7 @@ describe("what the server charges for a hotel-to-hotel transfer", () => {
       dropoffRegion: "side",
       vehicleType: "vito",
       isRoundTrip: true,
-    })).toBe(190);
+    })).toBe(210);
   });
 
   test("prices a Sprinter on the Sprinter's own tariff rows", () => {
@@ -54,7 +54,7 @@ describe("what the server charges for a hotel-to-hotel transfer", () => {
       dropoffRegion: "side",
       vehicleType: "vclass",
       isRoundTrip: false,
-    })).toBe(100);
+    })).toBe(110);
   });
 
   test("has no price when the pick-up hotel could not be placed", () => {
