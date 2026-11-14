@@ -3318,7 +3318,7 @@ export const articles = {
       },
       {
         "type": "cop31",
-        "text": "Prywatny Mercedes z kierowcą do twojej dyspozycji przez cały dzień: od 300 € dziennie za Vito (do 6 osób), od 400 € za Sprintera (do 16). Paliwo w cenie, do 10 godzin dziennie (każda dodatkowa godzina: stawka dzienna ÷ 10).",
+        "text": "Prywatny Mercedes z kierowcą do twojej dyspozycji przez cały dzień: od 300 € dziennie za Vito (do 6 osób), od 400 € za Sprintera (do 16). Paliwo w cenie, do 10 godzin dziennie (każda dodatkowa godzina: stawka dzienna ÷ 10), do 100 km dziennie (każdy dodatkowy km: 5 €).",
         "button": "Zobacz pakiet z kierowcą na COP31"
       },
       {
@@ -3387,7 +3387,7 @@ export const articles = {
       ],
       [
         "Ile kosztuje prywatny kierowca na COP31?",
-        "Nasz pakiet COP31 to stawka dzienna: od 300 € za Mercedesa Vito, od 400 € za Sprintera, paliwo w cenie, do 10 godzin dziennie (każda dodatkowa godzina: stawka dzienna ÷ 10), płatność w samochodzie."
+        "Nasz pakiet COP31 to stawka dzienna: od 300 € za Mercedesa Vito, od 400 € za Sprintera, paliwo w cenie, do 10 godzin dziennie (każda dodatkowa godzina: stawka dzienna ÷ 10), do 100 km dziennie (każdy dodatkowy km: 5 €), płatność w samochodzie."
       ]
     ]
   },
