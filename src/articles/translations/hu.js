@@ -3200,7 +3200,7 @@ export const articles = {
       },
       {
         "type": "cop31",
-        "text": "A shuttle-hálózaton kívül szállsz meg? Egy Mercedes sofőrrel egész nap a rendelkezésedre, a szállodádtól a helyszínig és vissza: napi 300 €-tól (Vito, legfeljebb 6 utas), 400 €-tól (Sprinter, legfeljebb 16). Az üzemanyag benne van.",
+        "text": "A shuttle-hálózaton kívül szállsz meg? Egy Mercedes sofőrrel egész nap a rendelkezésedre, a szállodádtól a helyszínig és vissza: napi 300 €-tól (Vito, legfeljebb 6 utas), 400 €-tól (Sprinter, legfeljebb 16). Az üzemanyag benne van, napi 10 óráig és 100 km-ig; minden további km 5 €.",
         "button": "COP31 sofőr foglalása"
       },
       {

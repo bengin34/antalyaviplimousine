@@ -3200,7 +3200,7 @@ export const articles = {
       },
       {
         "type": "cop31",
-        "text": "Alloggi fuori dalla rete delle navette? Una Mercedes con autista a tua disposizione tutto il giorno, dal tuo hotel alla sede e ritorno: da 300 € al giorno (Vito, fino a 6 passeggeri), da 400 € (Sprinter, fino a 16). Carburante incluso.",
+        "text": "Alloggi fuori dalla rete delle navette? Una Mercedes con autista a tua disposizione tutto il giorno, dal tuo hotel alla sede e ritorno: da 300 € al giorno (Vito, fino a 6 passeggeri), da 400 € (Sprinter, fino a 16). Carburante incluso, fino a 10 ore e 100 km al giorno; ogni km extra 5 €.",
         "button": "Prenota un autista per la COP31"
       },
       {

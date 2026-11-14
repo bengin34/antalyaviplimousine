@@ -3490,7 +3490,7 @@ export const articles = {
       },
       {
         "type": "cop31",
-        "text": "Servis ağının dışında mı kalıyorsunuz? Otelinizden alana ve geri, tüm gün size ayrılmış şoförlü bir Mercedes: günlük 300 €'den (Vito, 6 kişiye kadar), 400 €'den (Sprinter, 16 kişiye kadar). Yakıt dahil.",
+        "text": "Servis ağının dışında mı kalıyorsunuz? Otelinizden alana ve geri, tüm gün size ayrılmış şoförlü bir Mercedes: günlük 300 €'den (Vito, 6 kişiye kadar), 400 €'den (Sprinter, 16 kişiye kadar). Yakıt dahil, günde 10 saat ve 100 km'ye kadar; aşan her km 5 €.",
         "button": "COP31 şoförü ayırtın"
       },
       {

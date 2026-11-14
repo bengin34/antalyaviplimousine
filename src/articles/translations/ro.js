@@ -3200,7 +3200,7 @@ export const articles = {
       },
       {
         "type": "cop31",
-        "text": "Stai în afara rețelei de shuttle? Un Mercedes cu șofer, la dispoziția ta toată ziua, de la hotel la locație și înapoi: de la 300 € pe zi (Vito, până la 6 persoane), de la 400 € (Sprinter, până la 16). Combustibil inclus.",
+        "text": "Stai în afara rețelei de shuttle? Un Mercedes cu șofer, la dispoziția ta toată ziua, de la hotel la locație și înapoi: de la 300 € pe zi (Vito, până la 6 persoane), de la 400 € (Sprinter, până la 16). Combustibil inclus, până la 10 ore și 100 km pe zi; fiecare km în plus 5 €.",
         "button": "Rezervă un șofer COP31"
       },
       {

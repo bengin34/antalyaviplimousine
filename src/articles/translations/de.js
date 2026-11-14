@@ -3516,7 +3516,7 @@ export const articles = {
       },
       {
         "type": "cop31",
-        "text": "Sie wohnen außerhalb des Shuttle-Netzes? Ein Mercedes mit Fahrer, den ganzen Tag für Sie reserviert, vom Hotel zum Gelände und zurück: ab 300 € pro Tag (Vito, bis 6 Personen), ab 400 € (Sprinter, bis 16). Kraftstoff inklusive.",
+        "text": "Sie wohnen außerhalb des Shuttle-Netzes? Ein Mercedes mit Fahrer, den ganzen Tag für Sie reserviert, vom Hotel zum Gelände und zurück: ab 300 € pro Tag (Vito, bis 6 Personen), ab 400 € (Sprinter, bis 16). Kraftstoff inklusive, bis zu 10 Stunden und 100 km pro Tag; jeder weitere Kilometer 5 €.",
         "button": "COP31-Chauffeur buchen"
       },
       {

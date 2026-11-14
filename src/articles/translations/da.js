@@ -3200,7 +3200,7 @@ export const articles = {
       },
       {
         "type": "cop31",
-        "text": "Bor du uden for shuttlenettet? En Mercedes med chauffør til din rådighed hele dagen, fra hotellet til konferencestedet og tilbage: fra 300 € pr. dag (Vito, op til 6 personer), fra 400 € (Sprinter, op til 16). Brændstof inkluderet.",
+        "text": "Bor du uden for shuttlenettet? En Mercedes med chauffør til din rådighed hele dagen, fra hotellet til konferencestedet og tilbage: fra 300 € pr. dag (Vito, op til 6 personer), fra 400 € (Sprinter, op til 16). Brændstof inkluderet, op til 10 timer og 100 km pr. dag; hver ekstra km 5 €.",
         "button": "Book en COP31-chauffør"
       },
       {

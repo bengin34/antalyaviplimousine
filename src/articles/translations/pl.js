@@ -3490,7 +3490,7 @@ export const articles = {
       },
       {
         "type": "cop31",
-        "text": "Mieszkasz poza siecią shuttle? Mercedes z kierowcą do twojej dyspozycji przez cały dzień, z hotelu na miejsce obrad i z powrotem: od 300 € dziennie (Vito, do 6 osób), od 400 € (Sprinter, do 16). Paliwo w cenie.",
+        "text": "Mieszkasz poza siecią shuttle? Mercedes z kierowcą do twojej dyspozycji przez cały dzień, z hotelu na miejsce obrad i z powrotem: od 300 € dziennie (Vito, do 6 osób), od 400 € (Sprinter, do 16). Paliwo w cenie, do 10 godzin i 100 km dziennie; każdy dodatkowy km 5 €.",
         "button": "Zarezerwuj kierowcę na COP31"
       },
       {

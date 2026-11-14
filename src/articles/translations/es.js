@@ -3200,7 +3200,7 @@ export const articles = {
       },
       {
         "type": "cop31",
-        "text": "¿Te alojas fuera de la red de lanzaderas? Un Mercedes con conductor reservado para ti todo el día, de tu hotel a la sede y de vuelta: desde 300 € por día (Vito, hasta 6 pasajeros), desde 400 € (Sprinter, hasta 16). Combustible incluido.",
+        "text": "¿Te alojas fuera de la red de lanzaderas? Un Mercedes con conductor reservado para ti todo el día, de tu hotel a la sede y de vuelta: desde 300 € por día (Vito, hasta 6 pasajeros), desde 400 € (Sprinter, hasta 16). Combustible incluido, hasta 10 horas y 100 km al día; cada km extra 5 €.",
         "button": "Reservar conductor para la COP31"
       },
       {

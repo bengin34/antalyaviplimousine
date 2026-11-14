@@ -3490,7 +3490,7 @@ export const articles = {
       },
       {
         "type": "cop31",
-        "text": "Staying outside the shuttle network? A Mercedes and driver held for you all day, from your hotel to the venue and back: from €300 per day (Vito, up to 6 guests), from €400 (Sprinter, up to 16). Fuel included.",
+        "text": "Staying outside the shuttle network? A Mercedes and driver held for you all day, from your hotel to the venue and back: from €300 per day (Vito, up to 6 guests), from €400 (Sprinter, up to 16). Fuel included, up to 10 hours and 100 km a day; each extra km €5.",
         "button": "Book a COP31 chauffeur"
       },
       {

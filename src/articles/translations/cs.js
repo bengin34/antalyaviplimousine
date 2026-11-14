@@ -3209,7 +3209,7 @@ export const articles = {
       },
       {
         "type": "cop31",
-        "text": "Bydlíte mimo síť shuttle? Mercedes s řidičem vyhrazený pro vás na celý den, z hotelu do areálu a zpět: od 300 € za den (Vito, až 6 osob), od 400 € (Sprinter, až 16). Palivo v ceně.",
+        "text": "Bydlíte mimo síť shuttle? Mercedes s řidičem vyhrazený pro vás na celý den, z hotelu do areálu a zpět: od 300 € za den (Vito, až 6 osob), od 400 € (Sprinter, až 16). Palivo v ceně, až 10 hodin a 100 km denně; každý km navíc 5 €.",
         "button": "Rezervovat řidiče na COP31"
       },
       {
