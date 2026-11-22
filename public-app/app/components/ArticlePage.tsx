@@ -11,6 +11,15 @@ const routeName = (slug: string, language: string) => {
   return names[language] ?? names.en;
 };
 
+// Booking-only routes (`landingRoute`) have no page of their own: link their landing page instead (MEN-1111).
+const pageSlug = (slug: string) =>
+  (routeCatalog[slug as keyof typeof routeCatalog] as { landingRoute?: string } | undefined)?.landingRoute ?? slug;
+
+const routeLinks = (slugs: readonly string[], language: string) =>
+  [...new Set(slugs.map(pageSlug))]
+    .map((slug) => ({ slug, name: routeName(slug, language) }))
+    .filter((route): route is { slug: string; name: string } => Boolean(route.name));
+
 const WHATSAPP_URL = "https://wa.me/905302655790";
 
 function Block({
@@ -23,11 +32,9 @@ function Block({
   prefix: string;
 }) {
   if (block.type === "routelinks") {
-    const links = block.routes
-      .map((slug) => ({ slug, name: routeName(slug, language) }))
-      .filter((route): route is { slug: string; name: string } => Boolean(route.name));
+    const links = routeLinks(block.routes, language);
     const buttonHref = block.buttonRoute
-      ? `${prefix}/transfers/${block.buttonRoute}/`
+      ? `${prefix}/transfers/${pageSlug(block.buttonRoute)}/`
       : `${prefix}/#booking`;
     return (
       <aside className="article-callout">
@@ -130,9 +137,7 @@ export function ArticlePage({
   const blogHref = blogPath(language);
   if (!copy) return null;
 
-  const related = article.relatedRoutes
-    .map((slug) => ({ slug, name: routeName(slug, language) }))
-    .filter((route): route is { slug: string; name: string } => Boolean(route.name));
+  const related = routeLinks(article.relatedRoutes, language);
 
   return (
     <>
