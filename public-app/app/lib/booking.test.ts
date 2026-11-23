@@ -62,8 +62,8 @@ describe("public booking contract", () => {
   });
 
   test("calculates one-way and round-trip prices from the canonical route", () => {
-    expect(quoteFor(base)).toEqual({ price: 53, originalPrice: 63 });
-    expect(quoteFor({ ...base, tripType: "round_trip" })).toEqual({ price: 106, originalPrice: 126 });
+    expect(quoteFor(base)).toEqual({ price: 63, originalPrice: 73 });
+    expect(quoteFor({ ...base, tripType: "round_trip" })).toEqual({ price: 126, originalPrice: 146 });
   });
 
   test("builds the existing Edge Function payload", () => {
@@ -113,7 +113,7 @@ describe("airport-bound journeys", () => {
   test("prices the return on the hotel's region, at the same fixed price", () => {
     const returning = { ...base, pickup: "hotel" as const, destination: "airport", hotelRegion: "side" };
     expect(quoteFor(returning)).toEqual(quoteFor(base));
-    expect(quoteFor({ ...returning, hotelRegion: "belek" })).toEqual({ price: 43, originalPrice: 53 });
+    expect(quoteFor({ ...returning, hotelRegion: "belek" })).toEqual({ price: 53, originalPrice: 63 });
   });
 
   test("falls back to a manual quote when the hotel's region is unknown", () => {
@@ -123,28 +123,28 @@ describe("airport-bound journeys", () => {
   });
 
   test("ignores the hotel's region when the guest is heading to a region", () => {
-    expect(quoteFor({ ...base, destination: "belek", hotelRegion: "alanya" })).toEqual({ price: 43, originalPrice: 53 });
+    expect(quoteFor({ ...base, destination: "belek", hotelRegion: "alanya" })).toEqual({ price: 53, originalPrice: 63 });
   });
 });
 
 describe("per-hotel band pricing", () => {
   test("airport→hotel arrival is priced on the hotel's band, not the flat region", () => {
     const arriving = { ...base, destination: "antalya", hotelName: "Caner Mountain Hotel", vehicle: "vito" as const };
-    expect(quoteFor(arriving).price).toBe(65);
+    expect(quoteFor(arriving).price).toBe(75);
   });
 
   test("hotel→airport is priced on the same band (both directions)", () => {
     const leaving = { ...base, destination: "airport", hotelRegion: "antalya", hotelName: "Caner Mountain Hotel", vehicle: "vito" as const };
-    expect(quoteFor(leaving).price).toBe(65);
+    expect(quoteFor(leaving).price).toBe(75);
   });
 
   test("round trip doubles the floored unit price, not the region price", () => {
     const roundTrip = { ...base, destination: "antalya", hotelName: "Caner Mountain Hotel", vehicle: "vito" as const, tripType: "round_trip" as const };
-    expect(quoteFor(roundTrip).price).toBe(130);
+    expect(quoteFor(roundTrip).price).toBe(150);
   });
 
   test("an unmatched hotel keeps the flat region price", () => {
-    expect(quoteFor({ ...base, destination: "side" }).price).toBe(53);
+    expect(quoteFor({ ...base, destination: "side" }).price).toBe(63);
   });
 });
 
@@ -190,7 +190,7 @@ describe("hotel-to-hotel journeys", () => {
   };
 
   test("prices the journey on the farther end, not on where it happens to finish", () => {
-    expect(quoteFor(leavingAlanya).price).toBe(95);
+    expect(quoteFor(leavingAlanya).price).toBe(105);
   });
 
   test("costs the same in both directions", () => {
@@ -201,17 +201,17 @@ describe("hotel-to-hotel journeys", () => {
   test("charges the detour when the journey crosses the city", () => {
     // Alanya centre to Kemer is driven in past the airport and back out: 175
     // equivalent km, 50 of them beyond Alanya's own journey.
-    expect(quoteFor({ ...leavingAlanya, destination: "kemer" }).price).toBe(123);
+    expect(quoteFor({ ...leavingAlanya, destination: "kemer" }).price).toBe(133);
   });
 
   test("keeps the crossed-out price above the fare", () => {
     const quote = quoteFor(leavingAlanya);
-    expect(quote.originalPrice).toBe(105);
+    expect(quote.originalPrice).toBe(115);
     expect(quote.originalPrice).toBeGreaterThan(quote.price);
   });
 
   test("doubles for a round trip", () => {
-    expect(quoteFor({ ...leavingAlanya, tripType: "round_trip" }).price).toBe(190);
+    expect(quoteFor({ ...leavingAlanya, tripType: "round_trip" }).price).toBe(210);
   });
 
   test("follows the price the operator sets for the farther end", () => {
@@ -238,10 +238,10 @@ describe("hotel-to-hotel journeys", () => {
   });
 
   test("leaves airport transfers exactly where they were", () => {
-    expect(quoteFor({ ...base, destination: "belek" })).toEqual({ price: 43, originalPrice: 53 });
+    expect(quoteFor({ ...base, destination: "belek" })).toEqual({ price: 53, originalPrice: 63 });
     expect(quoteFor({ ...base, pickup: "hotel", destination: "airport", hotelRegion: "belek" }))
-      .toEqual({ price: 43, originalPrice: 53 });
-    expect(quoteFor({ ...base, destination: "alanya_merkez" })).toEqual({ price: 93, originalPrice: 103 });
+      .toEqual({ price: 53, originalPrice: 63 });
+    expect(quoteFor({ ...base, destination: "alanya_merkez" })).toEqual({ price: 103, originalPrice: 113 });
   });
 });
 
@@ -254,10 +254,10 @@ describe("original price never inverts below the floored live price", () => {
   });
 
   test("an unchanged hotel keeps its original discount framing", () => {
-    // base: side region, unmatched hotel -> price 53, originalPrice 63 (unchanged)
+    // base: side region, unmatched hotel -> price 63, originalPrice 73 (unchanged)
     const q = quoteFor({ ...base, destination: "side" });
-    expect(q.price).toBe(53);
-    expect(q.originalPrice).toBe(63);
+    expect(q.price).toBe(63);
+    expect(q.originalPrice).toBe(73);
   });
 });
 

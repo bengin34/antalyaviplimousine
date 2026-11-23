@@ -23,18 +23,10 @@ const VEHICLES = /** @type {const} */ (["vito", "sprinter"]);
 // it is a decision to earn nothing on that route, not a way to silence a test.
 const THIN_MARGIN_PCT = 10;
 const THIN_MARGIN_ROUTES = new Map([
-  // Break-even to the cent at 75 km. Held at EUR 50 to sit level with Side
-  // rather than because the number works; raise it when Side moves.
-  ["manavgat:vito", "priced level with Side, not from its own cost"],
   // A 540 km each-way day. EUR 330 clears the km cost by about EUR 1 and
   // ignores the driver's day entirely — quote Cappadocia by hand.
   ["kapadokya:vito", "quoted by hand; the listed price is an anchor, not a tariff"],
   ["kapadokya:sprinter", "quoted by hand; the listed price is an anchor, not a tariff"],
-  // The western strip is the one Alanya region held deliberately below the
-  // ladder: EUR 73 clears its own 105 km but earns under 10%. Kept level to
-  // stay competitive on the stretch guests shop hardest, not because the
-  // number covers a driver's day.
-  ["alanya_bati:vito", "held at EUR 73 for the western strip; clears cost but earns under 10%"],
 ]);
 
 describe("route tariffs against the profit model's own cost", () => {

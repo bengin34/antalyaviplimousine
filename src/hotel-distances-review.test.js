@@ -47,41 +47,9 @@ const KNOWN_PIN_SUSPECTS = new Set([
 // question: either the pin is wrong (see above) or the hotel belongs to a
 // dearer region. Until one is settled the transfer runs at a small loss.
 //
-// The 2026-09 audit cleared the original four. What is left is a single
-// systematic group, not four separate anomalies: every row below is sold under
-// `alanya_bati` but geocodes to 114–118 km, past that region's own 105 km, so
-// the €73 tariff misses cost by €0.40–€2.80. `alanya_bati` is deliberately
-// held at €73 to stay competitive on the western strip
-// (`route-margin.test.js` documents that), which leaves the fix on the
-// district side: all but one are filed under the bare "Alanya" district rather
-// than one of alanya_bati's beldes, and at 114–118 km they sit between
-// alanya_bati and the 125 km alanya_merkez. Re-districting them is a Places
-// question for the region audit, not a tariff question.
-const KNOWN_UNDER_QUOTED = new Set([
-  "bera-alanya-hotel",             // Avsallar, 115 km
-  "algora-halal-hotel",            // Alanya, 115 km
-  "anitas-otel",                   // Alanya, 116 km
-  "aria-resort-spa",               // Alanya, 116 km
-  "beach-club-doganay-otel",       // Alanya, 118 km
-  "blue-fish-otel",                // Alanya, 118 km
-  "caretta-beach-otel",            // Alanya, 114 km
-  "caretta-relax-otel",            // Alanya, 114 km
-  "club-dizalya",                  // Alanya, 117 km
-  "club-kastalia",                 // Alanya, 114 km
-  "dizalya-palm-garden-otel",      // Alanya, 115 km
-  "grand-cortez-resort-hotel-spa", // Alanya, 115 km
-  "hedef-beach-hotel",             // Alanya, 114 km
-  "mc-arancia-resort-otel",        // Alanya, 114 km
-  "miarosa-konakli-garden-otel",   // Alanya, 115 km
-  "noxinn-club-hotels",            // Alanya, 115 km
-  "noxinn-deluxe-hotel",           // Alanya, 116 km
-  "numa-konaktepe-otel",           // Alanya, 115 km
-  "quattro-beach-spa-resort",      // Alanya, 115 km
-  "senza-garden-holiday-club-hotel", // Alanya, 117 km
-  "serenity-queen-hotel",          // Alanya, 114 km
-  "seven-seas-palmeras-bay-hotel", // Alanya, 117 km
-  "xeno-eftalia-resort-otel",      // Alanya, 114 km
-]);
+// Empty since the +€10 tariff rise: the last group (23 hotels sold under
+// `alanya_bati` that geocode past its 105 km) now clears cost.
+const KNOWN_UNDER_QUOTED = new Set([]);
 
 const withDistance = hotelIndex
   .map((hotel) => ({ ...hotel, km: Number(hotelDistances[hotel.slug]?.km) }))

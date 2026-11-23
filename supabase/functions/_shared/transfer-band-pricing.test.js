@@ -4,8 +4,8 @@ import { bandUnitPrice as bandUnitPriceFromSrc } from "../../../src/hotel-transf
 
 describe("the distance band floor, shared with the server", () => {
   test("prices a distance from the band table", () => {
-    expect(bandUnitPrice(65, "vito")).toBe(55);
-    expect(bandUnitPrice(65, "sprinter")).toBe(95);
+    expect(bandUnitPrice(65, "vito")).toBe(65);
+    expect(bandUnitPrice(65, "sprinter")).toBe(105);
   });
 
   test("has no price for a distance that is not a distance", () => {
@@ -14,21 +14,21 @@ describe("the distance band floor, shared with the server", () => {
   });
 
   test("floors an exact distance without rounding it up to a band first", () => {
-    // 0.60 × km + 10, up to the next €5. A journey whose distance is derived
+    // 0.60 × km + 20, up to the next €5. A journey whose distance is derived
     // from the route catalogue is already exact, so it does not need the
-    // band table's coarseness: at 153 km the floor is €105, not the €115 the
+    // band table's coarseness: at 153 km the floor is €115, not the €125 the
     // 175 km band would charge.
-    expect(costFloorUnitPrice(153)).toBe(105);
-    expect(bandUnitPrice(153, "vito")).toBe(115);
+    expect(costFloorUnitPrice(153)).toBe(115);
+    expect(bandUnitPrice(153, "vito")).toBe(125);
   });
 
   test("floors both vans alike — the kilometre costs the same either way", () => {
     // The band table holds the Vito:Sprinter ratio, which lifts a matched
     // hotel's Sprinter quote well past the published tariff. A journey's floor
     // only has to clear what the journey costs, and that is one number.
-    expect(costFloorUnitPrice(130)).toBe(90);
-    expect(bandUnitPrice(130, "vito")).toBe(90);
-    expect(bandUnitPrice(130, "sprinter")).toBe(155);
+    expect(costFloorUnitPrice(130)).toBe(100);
+    expect(bandUnitPrice(130, "vito")).toBe(100);
+    expect(bandUnitPrice(130, "sprinter")).toBe(165);
   });
 
   test("floors every band edge at the band table's own price", () => {

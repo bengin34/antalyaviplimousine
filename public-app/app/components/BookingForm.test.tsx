@@ -167,7 +167,7 @@ describe("BookingForm route summary", () => {
 
     expect(destination.value).toBe("belek");
     expect(container.querySelector<HTMLInputElement>("#hotel-name")!.value).toBe("Rixos Premium Belek");
-    expect(container.querySelector(".price-display-amount")).toHaveTextContent("€43");
+    expect(container.querySelector(".price-display-amount")).toHaveTextContent("€53");
     expect(container.querySelector(".hotel-region-hint")).toHaveTextContent("Rixos Premium Belek — Belek");
   });
 
@@ -215,7 +215,7 @@ describe("BookingForm route summary", () => {
       target: { value: "side" },
     });
 
-    expect(container.querySelector(".price-display-amount")).toHaveTextContent("€53");
+    expect(container.querySelector(".price-display-amount")).toHaveTextContent("€63");
   });
 
   test("does not change the destination when the guest is leaving their hotel", () => {
@@ -244,7 +244,7 @@ describe("BookingForm route summary", () => {
 
     // The return costs the same as the outbound, so knowing the hotel is
     // enough to quote it: Belek → airport is the Belek price.
-    expect(container.querySelector(".price-display-amount")).toHaveTextContent("€43");
+    expect(container.querySelector(".price-display-amount")).toHaveTextContent("€53");
     expect(container.querySelector(".price-display-route")).toHaveTextContent("Belek → Antalya Havalimanı (AYT)");
   });
 

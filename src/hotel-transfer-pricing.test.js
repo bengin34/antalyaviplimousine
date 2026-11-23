@@ -3,26 +3,26 @@ import { bandUnitPrice, VITO_BANDS } from "./hotel-transfer-pricing.js";
 
 describe("bandUnitPrice", () => {
   test("maps each band edge to its documented Vito price", () => {
-    const expected = [[20, 25], [30, 30], [40, 35], [50, 40], [60, 50], [70, 55],
-      [85, 65], [100, 70], [115, 80], [130, 90], [150, 100], [175, 115], [210, 140], [260, 170]];
+    const expected = [[20, 35], [30, 40], [40, 45], [50, 50], [60, 60], [70, 65],
+      [85, 75], [100, 80], [115, 90], [130, 100], [150, 110], [175, 125], [210, 150], [260, 180]];
     for (const [km, price] of expected) {
       expect(bandUnitPrice(km, "vito")).toBe(price);
     }
   });
 
   test("steps up to the next band just past an edge", () => {
-    expect(bandUnitPrice(21, "vito")).toBe(30);
-    expect(bandUnitPrice(61, "vito")).toBe(55);
+    expect(bandUnitPrice(21, "vito")).toBe(40);
+    expect(bandUnitPrice(61, "vito")).toBe(65);
   });
 
   test("prices beyond the last edge from the direct formula", () => {
-    expect(bandUnitPrice(300, "vito")).toBe(190);
+    expect(bandUnitPrice(300, "vito")).toBe(200);
   });
 
-  test("derives Sprinter as roundUp5(vito * 1.7)", () => {
-    expect(bandUnitPrice(74, "sprinter")).toBe(115);
-    expect(bandUnitPrice(20, "sprinter")).toBe(45);
-    expect(bandUnitPrice(146, "sprinter")).toBe(170);
+  test("derives Sprinter as roundUp5((vito - 10) * 1.7) + 10", () => {
+    expect(bandUnitPrice(74, "sprinter")).toBe(125);
+    expect(bandUnitPrice(20, "sprinter")).toBe(55);
+    expect(bandUnitPrice(146, "sprinter")).toBe(180);
   });
 
   test("every band price keeps at least the €5 worst-case margin over true cost", () => {
@@ -50,13 +50,13 @@ const fixtureDistances = {
 
 describe("hotelUnitPrice", () => {
   test("raises to the band price when the band beats today's price", () => {
-    // Caner Mountain 74 km -> Vito band 65, region price 35 -> 65
-    expect(hotelUnitPrice("Caner Mountain Hotel", "vito", 35, fixtureDistances)).toBe(65);
+    // Caner Mountain 74 km -> Vito band 75, region price 45 -> 75
+    expect(hotelUnitPrice("Caner Mountain Hotel", "vito", 45, fixtureDistances)).toBe(75);
   });
 
   test("keeps today's price when it already beats the band", () => {
-    // Voyage Sorgun 70 km -> Vito band 55; a €60 admin override beats it -> 60
-    expect(hotelUnitPrice("Voyage Sorgun", "vito", 60, fixtureDistances)).toBe(60);
+    // Voyage Sorgun 70 km -> Vito band 65; a €70 admin override beats it -> 70
+    expect(hotelUnitPrice("Voyage Sorgun", "vito", 70, fixtureDistances)).toBe(70);
   });
 
   test("returns today's price for a hotel that matches nothing", () => {
