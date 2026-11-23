@@ -3027,11 +3027,6 @@ export const articles = {
         "text": "Ahí está la ventaja de un conductor por día: te deja, espera cerca en lugar de dar vueltas alrededor de la sede y vuelve cuando le escribes, ya sea para comer fuera, para una bilateral en un hotel al otro lado de la ciudad o para el último coche tras una sesión que acaba tarde."
       },
       {
-        "type": "cop31",
-        "text": "Un Mercedes privado con conductor reservado para ti todo el día: desde 300 € por día con una Vito (hasta 6 pasajeros), desde 400 € con una Sprinter (hasta 16). Combustible incluido, hasta 10 horas al día (cada hora extra: tarifa diaria ÷ 10), hasta 100 km al día (cada km extra: 5 €).",
-        "button": "Ver el paquete de conductor COP31"
-      },
-      {
         "type": "h2",
         "text": "Taxis y horas punta"
       },
@@ -3197,11 +3192,6 @@ export const articles = {
       {
         "type": "p",
         "text": "Belek es la opción tranquila al otro lado de la sede, con un trayecto comparable al del centro pero sin el tráfico urbano. Side y Kemer suponen un desplazamiento real dos veces al día; encajan con una delegación de horario fijo y vehículo propio, no con quien puede ser llamado de vuelta por un texto de última hora."
-      },
-      {
-        "type": "cop31",
-        "text": "¿Te alojas fuera de la red de lanzaderas? Un Mercedes con conductor reservado para ti todo el día, de tu hotel a la sede y de vuelta: desde 300 € por día (Vito, hasta 6 pasajeros), desde 400 € (Sprinter, hasta 16). Combustible incluido, hasta 10 horas y 100 km al día; cada km extra 5 €.",
-        "button": "Reservar conductor para la COP31"
       },
       {
         "type": "h2",

@@ -3317,11 +3317,6 @@ export const articles = {
         "text": "That is the case for a full-day chauffeur: the driver drops you, waits nearby instead of circling the venue, and is back when you message, whether that is for a lunch off-site, a bilateral in a hotel across town or the last car after a late session."
       },
       {
-        "type": "cop31",
-        "text": "A private Mercedes and driver held for you all day: from €300 per day for a Vito (up to 6 guests), from €400 for a Sprinter (up to 16). Fuel included, up to 10 hours a day; each extra hour is the day rate ÷ 10. Up to 100 km a day; each extra km is €5.",
-        "button": "See the COP31 chauffeur package"
-      },
-      {
         "type": "h2",
         "text": "Taxis and peak hours"
       },
@@ -3487,11 +3482,6 @@ export const articles = {
       {
         "type": "p",
         "text": "Belek is the quiet option on the other side of the venue, comparable in drive time to the city centre without the urban traffic. Side and Kemer are a real commute twice a day; they suit a delegation with fixed hours and its own vehicle, not anyone who will be called back for a late text."
-      },
-      {
-        "type": "cop31",
-        "text": "Staying outside the shuttle network? A Mercedes and driver held for you all day, from your hotel to the venue and back: from €300 per day (Vito, up to 6 guests), from €400 (Sprinter, up to 16). Fuel included, up to 10 hours and 100 km a day; each extra km €5.",
-        "button": "Book a COP31 chauffeur"
       },
       {
         "type": "h2",

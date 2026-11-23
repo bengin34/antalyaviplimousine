@@ -3317,11 +3317,6 @@ export const articles = {
         "text": "Precies daarom werkt een chauffeur voor de hele dag: de chauffeur zet u af, wacht in de buurt in plaats van rondjes om de locatie te rijden en staat klaar zodra u een bericht stuurt, of dat nu is voor een lunch elders, een bilateraal overleg in een hotel aan de andere kant van de stad of de laatste rit na een late zitting."
       },
       {
-        "type": "cop31",
-        "text": "Een privé-Mercedes met chauffeur, de hele dag voor u beschikbaar: vanaf € 300 per dag voor een Vito (tot 6 personen), vanaf € 400 voor een Sprinter (tot 16). Brandstof inbegrepen, tot 10 uur per dag (elk extra uur: dagtarief ÷ 10), tot 100 km per dag (elke extra km: € 5).",
-        "button": "Bekijk het COP31-chauffeurspakket"
-      },
-      {
         "type": "h2",
         "text": "Taxi's en spitsuren"
       },
@@ -3487,11 +3482,6 @@ export const articles = {
       {
         "type": "p",
         "text": "Belek is de rustige optie aan de andere kant van de locatie, qua reistijd vergelijkbaar met het centrum maar zonder stadsverkeer. Side en Kemer betekenen twee keer per dag echt forenzen; ze passen bij een delegatie met vaste uren en een eigen voertuig, niet bij iemand die voor een late tekst teruggeroepen kan worden."
-      },
-      {
-        "type": "cop31",
-        "text": "Verblijft u buiten het shuttlenetwerk? Een Mercedes met chauffeur, de hele dag voor u beschikbaar, van uw hotel naar de locatie en terug: vanaf € 300 per dag (Vito, tot 6 personen), vanaf € 400 (Sprinter, tot 16). Brandstof inbegrepen, tot 10 uur en 100 km per dag; elke extra km € 5.",
-        "button": "Boek een COP31-chauffeur"
       },
       {
         "type": "h2",

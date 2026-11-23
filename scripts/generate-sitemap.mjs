@@ -6,7 +6,6 @@ import {
   airportMapLanguages,
   articlePaths,
   blogPaths,
-  cop31Languages,
   homePaths,
   landOfLegendsLanguages,
   languagePrefix,
@@ -85,9 +84,6 @@ addGroup(Object.fromEntries(
 ));
 addGroup(Object.fromEntries(
   airportMapLanguages.map((language) => [language, `${languagePrefix(language)}/airport-map/`]),
-));
-addGroup(Object.fromEntries(
-  cop31Languages.map((language) => [language, `${languagePrefix(language)}/cop31/`]),
 ));
 for (const slug of publicRouteSlugs) {
   addGroup(Object.fromEntries(

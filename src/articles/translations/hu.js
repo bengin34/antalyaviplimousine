@@ -3027,11 +3027,6 @@ export const articles = {
         "text": "Ezért érdemes egész napos sofőrt választani: kitesz, a közelben vár ahelyett, hogy a helyszín körül köröz, és visszajön, amikor üzensz, legyen szó egy ebédről a helyszínen kívül, egy kétoldalú találkozóról a város másik végén lévő szállodában vagy az utolsó fuvarról egy késő esti ülés után."
       },
       {
-        "type": "cop31",
-        "text": "Egy privát Mercedes sofőrrel egész nap a rendelkezésedre: napi 300 €-tól egy Vitóért (legfeljebb 6 utas), 400 €-tól egy Sprinterért (legfeljebb 16). Az üzemanyag benne van az árban, napi 10 óráig (minden további óra: napidíj ÷ 10), napi 100 km-ig (minden további km: 5 €).",
-        "button": "A COP31 sofőrcsomag megtekintése"
-      },
-      {
         "type": "h2",
         "text": "Taxi és csúcsidő"
       },
@@ -3197,11 +3192,6 @@ export const articles = {
       {
         "type": "p",
         "text": "Belek a csendes választás a helyszín túloldalán, menetidőben a belvároshoz hasonló, de városi forgalom nélkül. Side és Kemer napi kétszer valódi ingázást jelent; olyan delegációnak valók, amelynek kötött a programja és saját járműve van, nem annak, akit egy késő esti szövegtervezet miatt visszahívhatnak."
-      },
-      {
-        "type": "cop31",
-        "text": "A shuttle-hálózaton kívül szállsz meg? Egy Mercedes sofőrrel egész nap a rendelkezésedre, a szállodádtól a helyszínig és vissza: napi 300 €-tól (Vito, legfeljebb 6 utas), 400 €-tól (Sprinter, legfeljebb 16). Az üzemanyag benne van, napi 10 óráig és 100 km-ig; minden további km 5 €.",
-        "button": "COP31 sofőr foglalása"
       },
       {
         "type": "h2",

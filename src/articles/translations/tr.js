@@ -3317,11 +3317,6 @@ export const articles = {
         "text": "Tam gün şoförün avantajı da bu: şoför sizi bırakır, alanın etrafında tur atmak yerine yakında bekler ve mesaj attığınızda geri gelir; ister alan dışında bir öğle yemeği, ister şehrin öbür ucundaki bir otelde ikili görüşme, ister geç biten bir oturumdan sonraki son dönüş olsun."
       },
       {
-        "type": "cop31",
-        "text": "Tüm gün size ayrılmış şoförlü özel bir Mercedes: Vito için günlük 300 €'den (6 kişiye kadar), Sprinter için 400 €'den (16 kişiye kadar). Yakıt dahil, günde 10 saate kadar; aşan her saat günlük ücret ÷ 10. Günde 100 km'ye kadar; aşan her km 5 €.",
-        "button": "COP31 şoför paketini inceleyin"
-      },
-      {
         "type": "h2",
         "text": "Taksiler ve yoğun saatler"
       },
@@ -3487,11 +3482,6 @@ export const articles = {
       {
         "type": "p",
         "text": "Belek, alanın öbür tarafındaki sakin seçenek; yol süresi şehir merkezine yakın, ama şehir trafiği yok. Side ve Kemer ise günde iki kez gerçek bir yolculuk demek; sabit saatleri ve kendi aracı olan bir heyete uyar, geç saatte bir müzakere metni için geri çağrılabilecek birine uymaz."
-      },
-      {
-        "type": "cop31",
-        "text": "Servis ağının dışında mı kalıyorsunuz? Otelinizden alana ve geri, tüm gün size ayrılmış şoförlü bir Mercedes: günlük 300 €'den (Vito, 6 kişiye kadar), 400 €'den (Sprinter, 16 kişiye kadar). Yakıt dahil, günde 10 saat ve 100 km'ye kadar; aşan her km 5 €.",
-        "button": "COP31 şoförü ayırtın"
       },
       {
         "type": "h2",

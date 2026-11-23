@@ -3027,11 +3027,6 @@ export const articles = {
         "text": "É aqui que um motorista para o dia inteiro faz sentido: deixa-o, espera por perto em vez de andar às voltas ao recinto e volta quando lhe envia mensagem, seja para um almoço fora, uma reunião bilateral num hotel do outro lado da cidade ou o último carro depois de uma sessão que acaba tarde."
       },
       {
-        "type": "cop31",
-        "text": "Um Mercedes privado com motorista reservado para si o dia inteiro: desde 300 € por dia numa Vito (até 6 passageiros), desde 400 € numa Sprinter (até 16). Combustível incluído, até 10 horas por dia (cada hora extra: tarifa diária ÷ 10), até 100 km por dia (cada km extra: 5 €).",
-        "button": "Ver o pacote de motorista COP31"
-      },
-      {
         "type": "h2",
         "text": "Táxis e horas de ponta"
       },
@@ -3197,11 +3192,6 @@ export const articles = {
       {
         "type": "p",
         "text": "Belek é a opção sossegada do outro lado do recinto, com um tempo de viagem comparável ao do centro mas sem o trânsito urbano. Side e Kemer são um verdadeiro trajeto pendular duas vezes por dia; servem uma delegação com horário fixo e veículo próprio, não quem pode ser chamado de volta por um texto de última hora."
-      },
-      {
-        "type": "cop31",
-        "text": "Fica fora da rede de shuttles? Um Mercedes com motorista reservado para si o dia inteiro, do seu hotel ao recinto e de volta: desde 300 € por dia (Vito, até 6 passageiros), desde 400 € (Sprinter, até 16). Combustível incluído, até 10 horas e 100 km por dia; cada km extra 5 €.",
-        "button": "Reservar motorista para a COP31"
       },
       {
         "type": "h2",

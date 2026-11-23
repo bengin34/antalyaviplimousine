@@ -3027,11 +3027,6 @@ export const articles = {
         "text": "C'est tout l'intérêt d'un chauffeur à la journée : il vous dépose, attend à proximité au lieu de tourner autour du site et revient dès que vous lui écrivez, que ce soit pour un déjeuner à l'extérieur, une bilatérale dans un hôtel à l'autre bout de la ville ou le dernier trajet après une séance tardive."
       },
       {
-        "type": "cop31",
-        "text": "Une Mercedes privée avec chauffeur, à votre disposition toute la journée : dès 300 € par jour pour un Vito (jusqu'à 6 passagers), dès 400 € pour un Sprinter (jusqu'à 16). Carburant inclus, jusqu'à 10 heures par jour (heure supplémentaire : tarif journalier ÷ 10), jusqu'à 100 km par jour (km supplémentaire : 5 €).",
-        "button": "Voir l'offre chauffeur COP31"
-      },
-      {
         "type": "h2",
         "text": "Taxis et heures de pointe"
       },
@@ -3197,11 +3192,6 @@ export const articles = {
       {
         "type": "p",
         "text": "Belek est l'option calme de l'autre côté du site, comparable au centre-ville en temps de trajet sans la circulation urbaine. Side et Kemer imposent un vrai trajet deux fois par jour ; ils conviennent à une délégation aux horaires fixes disposant de son propre véhicule, pas à quelqu'un qu'on rappellera pour un texte de dernière minute."
-      },
-      {
-        "type": "cop31",
-        "text": "Vous logez hors du réseau de navettes ? Une Mercedes avec chauffeur à votre disposition toute la journée, de votre hôtel au site et retour : dès 300 € par jour (Vito, jusqu'à 6 passagers), dès 400 € (Sprinter, jusqu'à 16). Carburant inclus, jusqu'à 10 heures et 100 km par jour ; km supplémentaire 5 €.",
-        "button": "Réserver un chauffeur COP31"
       },
       {
         "type": "h2",

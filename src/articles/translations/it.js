@@ -3027,11 +3027,6 @@ export const articles = {
         "text": "Ecco perché conviene un autista per l'intera giornata: ti lascia, aspetta nei dintorni invece di girare intorno alla sede e torna appena gli scrivi, che sia per un pranzo fuori, per un bilaterale in un hotel dall'altra parte della città o per l'ultima corsa dopo una sessione serale."
       },
       {
-        "type": "cop31",
-        "text": "Una Mercedes privata con autista a tua disposizione tutto il giorno: da 300 € al giorno per un Vito (fino a 6 passeggeri), da 400 € per uno Sprinter (fino a 16). Carburante incluso, fino a 10 ore al giorno (ogni ora extra: tariffa giornaliera ÷ 10), fino a 100 km al giorno (ogni km extra: 5 €).",
-        "button": "Scopri il pacchetto autista COP31"
-      },
-      {
         "type": "h2",
         "text": "Taxi e ore di punta"
       },
@@ -3197,11 +3192,6 @@ export const articles = {
       {
         "type": "p",
         "text": "Belek è l'opzione tranquilla dall'altro lato della sede, con tempi paragonabili al centro ma senza il traffico urbano. Side e Kemer comportano un vero pendolarismo due volte al giorno; vanno bene per una delegazione con orari fissi e un proprio veicolo, non per chi può essere richiamato per un testo dell'ultimo minuto."
-      },
-      {
-        "type": "cop31",
-        "text": "Alloggi fuori dalla rete delle navette? Una Mercedes con autista a tua disposizione tutto il giorno, dal tuo hotel alla sede e ritorno: da 300 € al giorno (Vito, fino a 6 passeggeri), da 400 € (Sprinter, fino a 16). Carburante incluso, fino a 10 ore e 100 km al giorno; ogni km extra 5 €.",
-        "button": "Prenota un autista per la COP31"
       },
       {
         "type": "h2",

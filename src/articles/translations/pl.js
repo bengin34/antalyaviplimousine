@@ -3317,11 +3317,6 @@ export const articles = {
         "text": "Właśnie dlatego warto mieć kierowcę na cały dzień: wysadza cię, czeka w pobliżu zamiast krążyć wokół obiektu i wraca, gdy napiszesz, czy to na lunch poza terenem, spotkanie dwustronne w hotelu na drugim końcu miasta, czy ostatni kurs po późnej sesji."
       },
       {
-        "type": "cop31",
-        "text": "Prywatny Mercedes z kierowcą do twojej dyspozycji przez cały dzień: od 300 € dziennie za Vito (do 6 osób), od 400 € za Sprintera (do 16). Paliwo w cenie, do 10 godzin dziennie (każda dodatkowa godzina: stawka dzienna ÷ 10), do 100 km dziennie (każdy dodatkowy km: 5 €).",
-        "button": "Zobacz pakiet z kierowcą na COP31"
-      },
-      {
         "type": "h2",
         "text": "Taksówki i godziny szczytu"
       },
@@ -3487,11 +3482,6 @@ export const articles = {
       {
         "type": "p",
         "text": "Belek to spokojna opcja po drugiej stronie miejsca obrad, z czasem dojazdu porównywalnym z centrum, ale bez miejskich korków. Side i Kemer to prawdziwe dojazdy dwa razy dziennie; pasują delegacji ze stałymi godzinami i własnym pojazdem, a nie komuś, kogo mogą wezwać z powrotem późnym wieczorem do pracy nad tekstem."
-      },
-      {
-        "type": "cop31",
-        "text": "Mieszkasz poza siecią shuttle? Mercedes z kierowcą do twojej dyspozycji przez cały dzień, z hotelu na miejsce obrad i z powrotem: od 300 € dziennie (Vito, do 6 osób), od 400 € (Sprinter, do 16). Paliwo w cenie, do 10 godzin i 100 km dziennie; każdy dodatkowy km 5 €.",
-        "button": "Zarezerwuj kierowcę na COP31"
       },
       {
         "type": "h2",

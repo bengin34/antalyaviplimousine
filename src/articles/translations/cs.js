@@ -3036,11 +3036,6 @@ export const articles = {
         "text": "Právě proto se vyplatí řidič na celý den: vysadí vás, čeká poblíž místo kroužení kolem areálu a vrátí se, jakmile napíšete, ať jde o oběd mimo areál, bilaterální schůzku v hotelu na druhém konci města, nebo poslední odvoz po pozdním zasedání."
       },
       {
-        "type": "cop31",
-        "text": "Soukromý Mercedes s řidičem vyhrazený pro vás na celý den: od 300 € za den za Vito (až 6 osob), od 400 € za Sprinter (až 16). Palivo v ceně, až 10 hodin denně (každá hodina navíc: denní sazba ÷ 10), až 100 km denně (každý km navíc 5 €).",
-        "button": "Zobrazit balíček s řidičem na COP31"
-      },
-      {
         "type": "h2",
         "text": "Taxi a dopravní špička"
       },
@@ -3206,11 +3201,6 @@ export const articles = {
       {
         "type": "p",
         "text": "Belek je klidná volba na druhé straně areálu, dobou jízdy srovnatelná s centrem města, ale bez městského provozu. Side a Kemer znamenají skutečné dojíždění dvakrát denně; hodí se pro delegaci s pevným programem a vlastním vozidlem, ne pro někoho, koho mohou pozdě večer povolat zpět kvůli vyjednávanému textu."
-      },
-      {
-        "type": "cop31",
-        "text": "Bydlíte mimo síť shuttle? Mercedes s řidičem vyhrazený pro vás na celý den, z hotelu do areálu a zpět: od 300 € za den (Vito, až 6 osob), od 400 € (Sprinter, až 16). Palivo v ceně, až 10 hodin a 100 km denně; každý km navíc 5 €.",
-        "button": "Rezervovat řidiče na COP31"
       },
       {
         "type": "h2",

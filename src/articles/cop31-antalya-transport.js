@@ -1,9 +1,8 @@
 /**
  * Getting to the COP31 venue (Antalya Expo Center, Aksu, 9-20 Nov 2026):
  * airport, official shuttles, venue parking pass, taxis. Facts are from
- * cop31.tr/transportation and the UNFCCC participant information; the CTA
- * points at the /cop31/ package page. Temporary: goes with that page after
- * 22 November (MARKETING_TODO).
+ * cop31.tr/transportation and the UNFCCC participant information. Kept as
+ * an evergreen guide (MEN-1125).
  *
  * Text lives in src/articles/translations/<language>.js, keyed by this id.
  */
