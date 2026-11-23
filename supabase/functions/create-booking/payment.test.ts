@@ -21,7 +21,7 @@ describe('cardPaymentAllowed', () => {
     expect(cardPaymentAllowed({ ...fixed, needsOperator: true })).toBe(false)
   })
 
-  it('refuses daily hire, COP31 and Land of Legends', () => {
+  it('refuses daily hire and Land of Legends', () => {
     expect(cardPaymentAllowed({ ...fixed, specialProduct: true })).toBe(false)
   })
 

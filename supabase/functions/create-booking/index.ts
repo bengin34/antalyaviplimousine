@@ -9,7 +9,6 @@ import {
   resolveHotelRegion,
   turkeyToday,
 } from '../_shared/land-of-legends-rules.js'
-import { COP31_DAILY_RATE_EUR, COP31_SPRINTER_MAX_GUESTS, isCop31Period, transferFare } from '../_shared/cop31.js'
 import { ultraLux } from '../_shared/ultra-lux.js'
 import { cardPaymentAllowed, isPaymentMethod } from './payment.ts'
 
@@ -114,12 +113,7 @@ Deno.serve(async (req) => {
     const isRoundTrip = tripType === 'round_trip'
     const isDailyChauffeur = tripType === 'daily_chauffeur'
     const isLandOfLegends = tripType === 'land_of_legends'
-    // The COP31 summit package is a daily hire with fuel included, so there
-    // are no fuel terms for the guest to accept.
-    const isCop31 = isDailyChauffeur && payload.service_package === 'cop31'
-    const requiredForTrip = isCop31
-      ? [...requiredFields, 'pickup_time', 'service_end_date', 'hotel_name']
-      : isDailyChauffeur
+    const requiredForTrip = isDailyChauffeur
       ? [...requiredFields, 'pickup_time', 'service_end_date', 'fuel_terms_accepted']
       : isLandOfLegends
         ? [...requiredFields, 'pickup_time', 'return_pickup_time', 'hotel_name']
@@ -249,7 +243,7 @@ Deno.serve(async (req) => {
     // spaces, a stroller one, and a Vito holds guests + bags up to 11.
     const vitoUnits = guestCount + luggageCount + golfBagCount * 2 + strollerCount
     const luxVehicle = ultraLux(vehicleType)
-    const vehicleCapacity = luxVehicle?.maxGuests ?? (vehicleType === 'vclass' ? (isCop31 ? COP31_SPRINTER_MAX_GUESTS + 1 : 13) : 7)
+    const vehicleCapacity = luxVehicle?.maxGuests ?? (vehicleType === 'vclass' ? 13 : 7)
 
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(customerEmail) || customerEmail.length > 120) {
       return jsonResponse({ error: 'A valid customer_email is required' }, 400)
@@ -287,8 +281,8 @@ Deno.serve(async (req) => {
     if (!['airport', 'hotel', 'private_address'].includes(pickupLocation)) {
       return jsonResponse({ error: 'pickup_location is invalid' }, 400)
     }
-    // Ultra Lux vehicles are hired by the day only, and never on the COP31 package.
-    if (luxVehicle ? !isDailyChauffeur || isCop31 : !['vito', 'vclass'].includes(vehicleType)) {
+    // Ultra Lux vehicles are hired by the day only.
+    if (luxVehicle ? !isDailyChauffeur : !['vito', 'vclass'].includes(vehicleType)) {
       return jsonResponse({ error: 'vehicle_type is invalid' }, 400)
     }
     if (!isPaymentMethod(paymentMethod)) {
@@ -355,9 +349,6 @@ Deno.serve(async (req) => {
       if (!isValidDate(serviceEndDate) || serviceEndDate < pickupDate || hireDayCount < 1 || hireDayCount > 30) {
         return jsonResponse({ error: 'service_end_date must define a 1 to 30 day hire' }, 400)
       }
-      if (isCop31 && !isCop31Period(pickupDate, serviceEndDate)) {
-        return jsonResponse({ error: 'cop31 hire must fall between 7 and 22 November 2026' }, 400)
-      }
       const hasDepartureFlightDetails = Boolean(departureFlightTime || departureFlightNumber)
       if (departureFlightDate && (!isValidDate(departureFlightDate) || departureFlightDate < pickupDate)) {
         return jsonResponse({ error: 'departure_flight_date is invalid' }, 400)
@@ -395,9 +386,6 @@ Deno.serve(async (req) => {
         : { data: null }
       if (rate) priceEur = Number(rate.price_eur)
       else landOfLegendsNeedsQuote = true
-    } else if (isCop31) {
-      dailyRateEur = COP31_DAILY_RATE_EUR[vehicleType as keyof typeof COP31_DAILY_RATE_EUR]
-      priceEur = dailyRateEur * hireDayCount
     } else if (luxVehicle) {
       dailyRateEur = luxVehicle.dailyRateEur
       priceEur = dailyRateEur * hireDayCount
@@ -455,11 +443,7 @@ Deno.serve(async (req) => {
         }
         airportReturnNeedsQuote = true
       } else {
-        priceEur = transferFare(
-          Number(route.price_eur),
-          isRoundTrip ? [pickupDate, returnDate] : [pickupDate],
-          pickupLocation === 'airport' || dropoffLocation === 'airport',
-        )
+        priceEur = Number(route.price_eur) * (isRoundTrip ? 2 : 1)
       }
     }
 
@@ -471,7 +455,7 @@ Deno.serve(async (req) => {
       !cardPaymentAllowed({
         priceEur,
         needsOperator,
-        specialProduct: isDailyChauffeur || isCop31 || isLandOfLegends,
+        specialProduct: isDailyChauffeur || isLandOfLegends,
       })
     ) {
       return jsonResponse({ error: 'Card payment is not available for this booking' }, 400)
@@ -501,9 +485,7 @@ Deno.serve(async (req) => {
         ? String(payload.flight_scheduled_arrival)
         : null,
       flight_arrival_time: payload.flight_arrival_time || null,
-      // shortcut: the package is marked in notes rather than its own column;
-      // add a `service_package` column if more event packages follow.
-      notes: isCop31 ? `[COP31 package: fuel included, confirm availability]${notes ? ` ${notes}` : ''}` : luxVehicle ? `[${luxVehicle.name}: confirm availability]${notes ? ` ${notes}` : ''}` : notes || null,
+      notes: luxVehicle ? `[${luxVehicle.name}: confirm availability]${notes ? ` ${notes}` : ''}` : notes || null,
       pickup_location: pickupLocation,
       pickup_address: pickupAddress || null,
       pickup_time: pickupTime || null,
@@ -524,8 +506,7 @@ Deno.serve(async (req) => {
       departure_flight_date: departureFlightDate || null,
       departure_flight_time: departureFlightTime || null,
       departure_flight_number: departureFlightNumber || null,
-      // bookings_trip_details_check wants this on every daily hire; for COP31
-      // it records when the guest booked the fuel-included package.
+      // bookings_trip_details_check wants this on every daily hire.
       fuel_terms_accepted_at: isDailyChauffeur ? new Date().toISOString() : null,
       guests: guestCount,
       vehicle_type: vehicleType,
@@ -533,7 +514,7 @@ Deno.serve(async (req) => {
       // Short-notice excursions are taken but confirmed by the operator.
       // An Ultra Lux hire is a request until the operator confirms the vehicle is free.
       // A card booking stays pending until iyzico-callback verifies the payment.
-      status: isCop31 || needsOperator || paymentMethod === 'card' ? 'pending' : 'confirmed',
+      status: needsOperator || paymentMethod === 'card' ? 'pending' : 'confirmed',
       payment_method: paymentMethod,
       language: String(payload.language || 'en'),
       utm_source: payload.utm_source ? String(payload.utm_source).slice(0, 100) : null,
@@ -580,8 +561,6 @@ Deno.serve(async (req) => {
       ? landOfLegendsNeedsQuote
         ? `To be quoted — ${excursionRegion ? `region "${excursionRegion}" has no fixed Land of Legends rate` : 'hotel is not in the index'}`
         : `EUR ${booking.price_eur} (round trip, waiting included)`
-      : isCop31
-      ? `EUR ${booking.price_eur} (${hireDayCount} days x EUR ${booking.daily_rate_eur}; COP31 package, fuel included)`
       : isDailyChauffeur
       ? `EUR ${booking.price_eur} (${hireDayCount} days x EUR ${booking.daily_rate_eur}; fuel excluded)`
       : isPrivateDestination
@@ -627,7 +606,7 @@ Deno.serve(async (req) => {
                 ? `[UNPAID CARD] Booking ${booking.booking_ref}: ${pickupLabel} to ${booking.dropoff_location}`
                 : isLandOfLegends
                 ? `${booking.status === 'pending' ? '[CHECK] ' : ''}Land of Legends ${booking.booking_ref}: ${booking.pickup_date} hotel ${String(booking.pickup_time).slice(0, 5)} → park pick-up ${String(booking.return_pickup_time).slice(0, 5)}`
-                : `New ${isCop31 ? 'COP31 summit chauffeur ' : isDailyChauffeur ? 'daily chauffeur hire ' : isRoundTrip ? 'round-trip ' : ''}booking ${booking.booking_ref}: ${pickupLabel}${isDailyChauffeur ? '' : ` to ${booking.dropoff_location}`}`,
+                : `New ${isDailyChauffeur ? 'daily chauffeur hire ' : isRoundTrip ? 'round-trip ' : ''}booking ${booking.booking_ref}: ${pickupLabel}${isDailyChauffeur ? '' : ` to ${booking.dropoff_location}`}`,
               html: `
                 <div style="font-family:Arial,sans-serif;color:#161616">
                   <h2>New booking request</h2>
@@ -647,7 +626,7 @@ Deno.serve(async (req) => {
                     ${!isDailyChauffeur ? `<tr><td style="padding:6px 12px;color:#777">Destination</td><td style="padding:6px 12px">${escapeHtml(isLandOfLegends ? 'The Land of Legends (Kadriye) — then back to the hotel' : booking.dropoff_location)}</td></tr>` : ''}
                     ${!isDailyChauffeur && !isLandOfLegends ? `<tr><td style="padding:6px 12px;color:#777">Pricing region</td><td style="padding:6px 12px">${escapeHtml(pricingRegionDisplay)}</td></tr>` : ''}
                     ${!isDailyChauffeur && (booking.dropoff_address || booking.dropoff_hotel_name) ? `<tr><td style="padding:6px 12px;color:#777">${booking.dropoff_address ? 'Drop-off address' : 'Destination hotel'}</td><td style="padding:6px 12px"><strong>${escapeHtml(dropoffAddressDisplay)}</strong></td></tr>` : ''}
-                    <tr><td style="padding:6px 12px;color:#777">Journey type</td><td style="padding:6px 12px"><strong>${escapeHtml(isLandOfLegends ? 'The Land of Legends — hotel → park → hotel, driver waits' : isCop31 ? 'COP31 summit chauffeur — daily vehicle + chauffeur, fuel included, 10 h + 100 km/day (extra hour = day rate ÷ 10, extra km = €5)' : isDailyChauffeur ? 'Daily vehicle + chauffeur' : isRoundTrip ? 'Round trip' : 'One way')}</strong></td></tr>
+                    <tr><td style="padding:6px 12px;color:#777">Journey type</td><td style="padding:6px 12px"><strong>${escapeHtml(isLandOfLegends ? 'The Land of Legends — hotel → park → hotel, driver waits' : isDailyChauffeur ? 'Daily vehicle + chauffeur' : isRoundTrip ? 'Round trip' : 'One way')}</strong></td></tr>
                     ${isLandOfLegends ? `<tr><td style="padding:6px 12px;color:#777">Hotel departure / park pick-up</td><td style="padding:6px 12px"><strong>${escapeHtml(booking.pickup_date)} · ${escapeHtml(booking.pickup_time)} → ${escapeHtml(booking.return_pickup_time)}</strong></td></tr>
                     <tr><td style="padding:6px 12px;color:#777">Hotel region</td><td style="padding:6px 12px">${escapeHtml(booking.excursion_region || 'Not matched')}</td></tr>` : ''}
                     ${!isLandOfLegends ? `<tr><td style="padding:6px 12px;color:#777">Date / arrival</td><td style="padding:6px 12px">${escapeHtml(booking.pickup_date)} ${escapeHtml(isDailyChauffeur ? booking.pickup_time : booking.flight_arrival_time || '')}</td></tr>` : ''}
@@ -656,7 +635,7 @@ Deno.serve(async (req) => {
                     <tr><td style="padding:6px 12px;color:#777">Return flight</td><td style="padding:6px 12px">${escapeHtml(booking.return_flight_number || 'Not provided')}</td></tr>` : ''}
                     ${isDailyChauffeur ? `<tr><td style="padding:6px 12px;color:#777">Hire period</td><td style="padding:6px 12px"><strong>${escapeHtml(booking.pickup_date)} – ${escapeHtml(booking.service_end_date)} (${escapeHtml(hireDayCount)} days)</strong></td></tr>
                     <tr><td style="padding:6px 12px;color:#777">Departure flight</td><td style="padding:6px 12px">${escapeHtml(booking.departure_flight_date || 'Not provided')} ${escapeHtml(booking.departure_flight_time || '')} ${escapeHtml(booking.departure_flight_number || '')}</td></tr>
-                    <tr><td style="padding:6px 12px;color:#777">Fuel terms</td><td style="padding:6px 12px"><strong>${isCop31 ? 'COP31 package — fuel is included in the day rate' : 'Accepted — fuel is excluded and paid separately by the customer'}</strong></td></tr>` : ''}
+                    <tr><td style="padding:6px 12px;color:#777">Fuel terms</td><td style="padding:6px 12px"><strong>Accepted — fuel is excluded and paid separately by the customer</strong></td></tr>` : ''}
                     <tr><td style="padding:6px 12px;color:#777">Guests / vehicle</td><td style="padding:6px 12px">${escapeHtml(booking.guests)} / ${escapeHtml(luxVehicle ? `${luxVehicle.name} — availability to confirm` : booking.vehicle_type)}</td></tr>
                     <tr><td style="padding:6px 12px;color:#777">Price</td><td style="padding:6px 12px"><strong>${escapeHtml(bookingPriceDisplay)}</strong></td></tr>
                     <tr><td style="padding:6px 12px;color:#777">Payment</td><td style="padding:6px 12px"><strong>${booking.payment_method === 'card' ? 'Card online — NOT PAID YET (a "PAID" email follows)' : 'Cash in vehicle'}</strong></td></tr>

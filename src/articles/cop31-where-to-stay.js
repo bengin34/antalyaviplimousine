@@ -1,7 +1,7 @@
 /**
  * COP31 accommodation areas read by drive time to the venue. The drive
  * times are our drivers' normal-traffic estimates and say so in the text.
- * Temporary like cop31-antalya-transport: removed with /cop31/ after 22 November.
+ * Kept as an evergreen guide (MEN-1125).
  *
  * Text lives in src/articles/translations/<language>.js, keyed by this id.
  */

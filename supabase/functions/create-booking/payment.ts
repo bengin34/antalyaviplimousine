@@ -7,7 +7,7 @@ type CardEligibility = {
   priceEur: number
   /** The operator still has to quote or confirm this booking. */
   needsOperator: boolean
-  /** Daily hire, COP31 and Land of Legends keep their own cash-only rules. */
+  /** Daily hire and Land of Legends keep their own cash-only rules. */
   specialProduct: boolean
 }
 

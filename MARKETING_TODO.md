@@ -41,7 +41,7 @@ Publish checklist:
 - [ ] Upload `image` (JPG); Event: title + start/end dates from frontmatter
 - [ ] After publishing: open the post's button link once, confirm the page loads with UTM
 - [ ] Mark the draft `published: <date>` in its frontmatter
-- [ ] COP31 Event expires 20 Nov by itself; delete with /cop31/ cleanup (MEN-141, 2026-11-23)
+- [x] COP31 Event expired 20 Nov; /cop31/ removed (MEN-1125, 2026-11-23). GBP drafts kept in marketing/gbp-posts/
 
 ## Done criteria
 - [ ] Every finding links to repository paths or measured analytics.
@@ -60,3 +60,4 @@ Publish checklist:
 | 2026-11-10 | ecc:seo, ecc:article-writing, ecc:brand-voice (MEN-151) | Business Profile exists, Posts unused (MEN-145 research) | 6 drafts (COP31 Event EN+TR, 4 weekly Updates EN/DE/RU/TR), no prices/offers, UTM on every link. Nothing published | Engin | 2026-12-07 |
 | 2026-11-11 | ecc:seo, ecc:article-writing, ecc:brand-voice, impeccable (MEN-248) | No page answered "where is the exit / Meet & Greet at Antalya Airport". Geometry from the airport's official floor plans (antalya-airport.aero/katplanlari) + OpenStreetMap; shelter order (police, A–G, left of the T2 exit) from our airport team | `/airport-map/` × 23 languages: three.js map of T2, T1 and the whole airport with a walked arrival route; step list in HTML, FAQPage + BreadcrumbList schema, hreflang ×23 + x-default, sitemap; linked from every transfer page. three.js loads only on this page. Translations unreviewed by native speakers; shelter spacing schematic | Engin | 2026-12-11: Search Console impressions for airport map / meet and greet queries |
 | 2026-11-11 | ecc:seo, ecc:brand-voice, impeccable (MEN-249) | Airport staff: T2 Meet & Greet row is police, TÜRSAB checkpoint, counters A–L (not A–G), with numbered desks 1–70 facing them; passengers walk in front of A–L. Phone use of the map was hard (one finger rotated) | `/airport-map/` × 23 languages: forecourt redrawn, route moved in front of the counters, meta description / step / FAQ copy say A–L. Touch: one finger moves, two fingers zoom and twist. Full-screen mode (CSS overlay, works on iPhone). Desk positions and the direction 1–70 runs are schematic; translations unreviewed by native speakers | Engin | 2026-12-11: same Search Console check as MEN-248 |
+| 2026-11-23 | ecc:seo (MEN-1125) | COP31 over | Removed the /cop31/ page, dialog, hero link, package and airport floor; transfer price is tariff × legs again; the two COP31 blog guides stay without the package callout | Done |

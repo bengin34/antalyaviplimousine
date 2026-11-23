@@ -1,7 +1,6 @@
 import { routeCatalog } from "../../../src/routes.js";
 import type { Article, ArticleBlock, ArticleSummary } from "../lib/articles";
 import { blogPath, blogText } from "../lib/blog-paths";
-import { cop31LanguageFor, cop31Path } from "../lib/cop31-paths";
 import { StaticPageHeader } from "./StaticPageHeader";
 
 const routeName = (slug: string, language: string) => {
@@ -45,14 +44,6 @@ function Block({
           ))}
         </p>
         <p><a className="button button-gold" href={buttonHref}>{block.button}</a></p>
-      </aside>
-    );
-  }
-  if (block.type === "cop31") {
-    return (
-      <aside className="article-callout">
-        <p>{block.text}</p>
-        <p><a className="button button-gold" href={cop31Path(cop31LanguageFor(language))}>{block.button}</a></p>
       </aside>
     );
   }

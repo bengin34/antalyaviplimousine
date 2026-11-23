@@ -3027,11 +3027,6 @@ export const articles = {
         "text": "Det er netop derfor, en chauffør hele dagen giver mening: chaufføren sætter dig af, venter i nærheden i stedet for at køre rundt om området og er tilbage, når du skriver, uanset om det er til en frokost ude, et bilateralt møde på et hotel i den anden ende af byen eller den sidste bil efter en sen session."
       },
       {
-        "type": "cop31",
-        "text": "En privat Mercedes med chauffør til din rådighed hele dagen: fra 300 € pr. dag for en Vito (op til 6 personer), fra 400 € for en Sprinter (op til 16). Brændstof inkluderet, op til 10 timer pr. dag (hver ekstra time: dagspris ÷ 10), op til 100 km pr. dag (hver ekstra km: 5 €).",
-        "button": "Se COP31-pakken med chauffør"
-      },
-      {
         "type": "h2",
         "text": "Taxa og myldretid"
       },
@@ -3197,11 +3192,6 @@ export const articles = {
       {
         "type": "p",
         "text": "Belek er det rolige valg på den anden side af konferencestedet, med omtrent samme køretid som centrum, men uden bytrafikken. Side og Kemer betyder rigtig pendling to gange om dagen; de passer til en delegation med faste tider og egen bil, ikke til den, der kan blive kaldt tilbage til en sen tekst."
-      },
-      {
-        "type": "cop31",
-        "text": "Bor du uden for shuttlenettet? En Mercedes med chauffør til din rådighed hele dagen, fra hotellet til konferencestedet og tilbage: fra 300 € pr. dag (Vito, op til 6 personer), fra 400 € (Sprinter, op til 16). Brændstof inkluderet, op til 10 timer og 100 km pr. dag; hver ekstra km 5 €.",
-        "button": "Book en COP31-chauffør"
       },
       {
         "type": "h2",

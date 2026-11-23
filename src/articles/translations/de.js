@@ -3343,11 +3343,6 @@ export const articles = {
         "text": "Genau dafür lohnt sich ein Chauffeur für den ganzen Tag: Der Fahrer setzt Sie ab, wartet in der Nähe statt um das Gelände zu kreisen und ist zurück, sobald Sie schreiben, ob für ein Mittagessen außerhalb, ein bilaterales Treffen in einem Hotel am anderen Ende der Stadt oder die letzte Fahrt nach einer späten Sitzung."
       },
       {
-        "type": "cop31",
-        "text": "Ein privater Mercedes mit Fahrer, den ganzen Tag für Sie reserviert: ab 300 € pro Tag für einen Vito (bis 6 Personen), ab 400 € für einen Sprinter (bis 16). Kraftstoff inklusive, bis zu 10 Stunden pro Tag; jede weitere Stunde kostet den Tagespreis ÷ 10. Bis zu 100 km pro Tag; jeder weitere Kilometer 5 €.",
-        "button": "Zum COP31-Chauffeurpaket"
-      },
-      {
         "type": "h2",
         "text": "Taxis und Stoßzeiten"
       },
@@ -3513,11 +3508,6 @@ export const articles = {
       {
         "type": "p",
         "text": "Belek ist die ruhige Option auf der anderen Seite des Geländes, bei der Fahrzeit vergleichbar mit dem Stadtzentrum, aber ohne Stadtverkehr. Side und Kemer bedeuten zweimal täglich echtes Pendeln; sie passen zu einer Delegation mit festen Zeiten und eigenem Fahrzeug, nicht zu jemandem, der spätabends für einen Verhandlungstext zurückgerufen wird."
-      },
-      {
-        "type": "cop31",
-        "text": "Sie wohnen außerhalb des Shuttle-Netzes? Ein Mercedes mit Fahrer, den ganzen Tag für Sie reserviert, vom Hotel zum Gelände und zurück: ab 300 € pro Tag (Vito, bis 6 Personen), ab 400 € (Sprinter, bis 16). Kraftstoff inklusive, bis zu 10 Stunden und 100 km pro Tag; jeder weitere Kilometer 5 €.",
-        "button": "COP31-Chauffeur buchen"
       },
       {
         "type": "h2",

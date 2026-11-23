@@ -3027,11 +3027,6 @@ export const articles = {
         "text": "Tocmai de aceea merită un șofer pentru toată ziua: te lasă la intrare, așteaptă în apropiere în loc să dea ture în jurul locației și revine când îi scrii, fie pentru un prânz în altă parte, o întâlnire bilaterală într-un hotel din celălalt capăt al orașului sau ultima cursă după o sesiune târzie."
       },
       {
-        "type": "cop31",
-        "text": "Un Mercedes privat cu șofer, la dispoziția ta toată ziua: de la 300 € pe zi pentru un Vito (până la 6 persoane), de la 400 € pentru un Sprinter (până la 16). Combustibil inclus, până la 10 ore pe zi (fiecare oră în plus: tariful zilnic ÷ 10), până la 100 km pe zi (fiecare km în plus: 5 €).",
-        "button": "Vezi pachetul cu șofer COP31"
-      },
-      {
         "type": "h2",
         "text": "Taxiuri și ore de vârf"
       },
@@ -3197,11 +3192,6 @@ export const articles = {
       {
         "type": "p",
         "text": "Belek e varianta liniștită, de cealaltă parte a locației, comparabilă ca timp de drum cu centrul orașului, dar fără traficul urban. Side și Kemer înseamnă navetă adevărată de două ori pe zi; se potrivesc unei delegații cu program fix și mașină proprie, nu cuiva care poate fi chemat înapoi pentru un text de ultim moment."
-      },
-      {
-        "type": "cop31",
-        "text": "Stai în afara rețelei de shuttle? Un Mercedes cu șofer, la dispoziția ta toată ziua, de la hotel la locație și înapoi: de la 300 € pe zi (Vito, până la 6 persoane), de la 400 € (Sprinter, până la 16). Combustibil inclus, până la 10 ore și 100 km pe zi; fiecare km în plus 5 €.",
-        "button": "Rezervă un șofer COP31"
       },
       {
         "type": "h2",
