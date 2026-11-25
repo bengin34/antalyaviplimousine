@@ -939,7 +939,7 @@
     "homeLabel": "Domů"
   },
   "cs-imprint": {
-    "title": "Impressum | Antalya VIP Tourism",
+    "title": "Údaje o provozovateli | Antalya VIP Tourism",
     "description": "Právní informace a údaje o poskytovateli Antalya VIP Tourism.",
     "canonical": "https://antalyaviptourism.com/cs/impressum/",
     "alternates": [
@@ -1058,32 +1058,7 @@
     "title": "Privacy Policy | Antalya VIP Tourism",
     "description": "Privacy policy of Antalya VIP Tourism covering booking data, optional analytics and your rights.",
     "canonical": "https://antalyaviptourism.com/uk/privacy/",
-    "alternates": [
-      {
-        "language": "en",
-        "href": "https://antalyaviptourism.com/privacy/"
-      },
-      {
-        "language": "de",
-        "href": "https://antalyaviptourism.com/de/datenschutz/"
-      },
-      {
-        "language": "tr",
-        "href": "https://antalyaviptourism.com/tr/gizlilik/"
-      },
-      {
-        "language": "ru",
-        "href": "https://antalyaviptourism.com/ru/privacy/"
-      },
-      {
-        "language": "cs",
-        "href": "https://antalyaviptourism.com/cs/privacy/"
-      },
-      {
-        "language": "x-default",
-        "href": "https://antalyaviptourism.com/privacy/"
-      }
-    ],
+    "alternates": [],
     "hero": {
       "eyebrow": "Privacy",
       "title": "Privacy Policy",
@@ -1153,32 +1128,7 @@
     "title": "Imprint | Antalya VIP Tourism",
     "description": "Legal notice and provider information for Antalya VIP Tourism.",
     "canonical": "https://antalyaviptourism.com/uk/impressum/",
-    "alternates": [
-      {
-        "language": "en",
-        "href": "https://antalyaviptourism.com/impressum.html"
-      },
-      {
-        "language": "de",
-        "href": "https://antalyaviptourism.com/de/impressum/"
-      },
-      {
-        "language": "tr",
-        "href": "https://antalyaviptourism.com/tr/kunye/"
-      },
-      {
-        "language": "ru",
-        "href": "https://antalyaviptourism.com/ru/impressum/"
-      },
-      {
-        "language": "cs",
-        "href": "https://antalyaviptourism.com/cs/impressum/"
-      },
-      {
-        "language": "x-default",
-        "href": "https://antalyaviptourism.com/impressum.html"
-      }
-    ],
+    "alternates": [],
     "hero": {
       "eyebrow": "Legal notice",
       "title": "Imprint",
@@ -1269,32 +1219,7 @@
     "title": "Privacy Policy | Antalya VIP Tourism",
     "description": "Privacy policy of Antalya VIP Tourism covering booking data, optional analytics and your rights.",
     "canonical": "https://antalyaviptourism.com/ur/privacy/",
-    "alternates": [
-      {
-        "language": "en",
-        "href": "https://antalyaviptourism.com/privacy/"
-      },
-      {
-        "language": "de",
-        "href": "https://antalyaviptourism.com/de/datenschutz/"
-      },
-      {
-        "language": "tr",
-        "href": "https://antalyaviptourism.com/tr/gizlilik/"
-      },
-      {
-        "language": "ru",
-        "href": "https://antalyaviptourism.com/ru/privacy/"
-      },
-      {
-        "language": "cs",
-        "href": "https://antalyaviptourism.com/cs/privacy/"
-      },
-      {
-        "language": "x-default",
-        "href": "https://antalyaviptourism.com/privacy/"
-      }
-    ],
+    "alternates": [],
     "hero": {
       "eyebrow": "Privacy",
       "title": "Privacy Policy",
@@ -1364,32 +1289,7 @@
     "title": "Imprint | Antalya VIP Tourism",
     "description": "Legal notice and provider information for Antalya VIP Tourism.",
     "canonical": "https://antalyaviptourism.com/ur/impressum/",
-    "alternates": [
-      {
-        "language": "en",
-        "href": "https://antalyaviptourism.com/impressum.html"
-      },
-      {
-        "language": "de",
-        "href": "https://antalyaviptourism.com/de/impressum/"
-      },
-      {
-        "language": "tr",
-        "href": "https://antalyaviptourism.com/tr/kunye/"
-      },
-      {
-        "language": "ru",
-        "href": "https://antalyaviptourism.com/ru/impressum/"
-      },
-      {
-        "language": "cs",
-        "href": "https://antalyaviptourism.com/cs/impressum/"
-      },
-      {
-        "language": "x-default",
-        "href": "https://antalyaviptourism.com/impressum.html"
-      }
-    ],
+    "alternates": [],
     "hero": {
       "eyebrow": "Legal notice",
       "title": "Imprint",

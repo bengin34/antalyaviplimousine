@@ -2,7 +2,7 @@ import type { LandOfLegendsCopy } from "../land-of-legends-copy";
 
 export const cs: LandOfLegendsCopy = {
   locale: "cs_CZ",
-  metaTitle: "Transfer do The Land of Legends z hotelu | Antalya VIP Tourism",
+  metaTitle: "Transfer z hotelu do The Land of Legends | Antalya VIP Tourism",
   metaDescription: (from) => `Soukromý transfer tam i zpět z hotelu v Antalyi, Beleku, Side, Kemeru či Alanyi do The Land of Legends. Řidič čeká, pevná cena za vůz od ${from} €, platba v autě.`,
   home: "Úvod",
   transfers: "Letištní transfery",
