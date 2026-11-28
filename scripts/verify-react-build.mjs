@@ -78,11 +78,7 @@ for (const urlPath of prerenderPaths) {
     // The route must be readable without the 3D scene: five steps at Terminal 2.
     if (document.querySelectorAll(".am-route ol li").length !== 5) fail(`${urlPath}: airport map route steps are missing from the prerendered HTML`);
   } else if (legalSet.has(urlPath)) {
-    // uk/ur legal pages still carry the English text and are not in the other
-    // pages' hreflang set, so publishing one would be non-reciprocal.
-    if (/^\/(uk|ur)\//.test(urlPath)) {
-      if (alternateCount !== 0) fail(`${urlPath}: untranslated legal page must not publish language alternates`);
-    } else if (alternateCount < 5) fail(`${urlPath}: incomplete language alternates`);
+    if (alternateCount !== 8) fail(`${urlPath}: expected 8 legal language alternates, found ${alternateCount}`);
   } else if (blogSet.has(urlPath) || articleSet.has(urlPath)) {
     if (alternateCount !== expectedBlogAlternates) fail(`${urlPath}: expected ${expectedBlogAlternates} blog language alternates, found ${alternateCount}`);
   } else if (alternateCount !== expectedAlternates) fail(`${urlPath}: expected ${expectedAlternates} language alternates, found ${alternateCount}`);
