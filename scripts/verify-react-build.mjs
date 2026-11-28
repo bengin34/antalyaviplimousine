@@ -64,8 +64,8 @@ for (const urlPath of prerenderPaths) {
   if (document.documentElement.lang !== expectedLanguage) fail(`${urlPath}: wrong html lang`);
   if (document.querySelector('link[rel="canonical"]')?.href !== `${domain}${urlPath}`) fail(`${urlPath}: wrong canonical URL`);
   const alternateCount = document.querySelectorAll('link[rel="alternate"][hreflang]').length;
-  if (clinicSet.has(urlPath) || hotelSet.has(urlPath)) {
-    if (alternateCount !== 0) fail(`${urlPath}: noindex clinic route must not publish unavailable language alternates`);
+  if (clinicSet.has(urlPath) || healthSet.has(urlPath) || hotelSet.has(urlPath)) {
+    if (alternateCount !== 0) fail(`${urlPath}: this route must not publish language alternates`);
   } else if (b2bSet.has(urlPath)) {
     // Indexed, but published in English alone — an hreflang set here would
     // point at translations that do not exist.
@@ -114,6 +114,9 @@ for (const urlPath of prerenderPaths) {
     if (!document.querySelector("#health-process")) fail(`${urlPath}: health journey process is missing`);
     if (!document.querySelector(".health-role-notice")) fail(`${urlPath}: provider-role disclaimer is missing`);
     if (document.querySelector("#quote-form")) fail(`${urlPath}: transfer booking form leaked into health route`);
+
+    const robots = document.querySelector('meta[name="robots"]')?.content.toLowerCase().replace(/\s+/g, "");
+    if (robots !== "noindex,nofollow") fail(`${urlPath}: health demo must remain noindex,nofollow`);
 
     const schemas = [...document.querySelectorAll('script[type="application/ld+json"]')]
       .map((script) => JSON.parse(script.textContent || "{}"));
@@ -201,8 +204,8 @@ const sitemap = await readFile(path.join(dist, "sitemap.xml"), "utf8");
 const sitemapUrls = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => match[1]).sort();
 const expectedUrls = [...sitemapPaths].map((urlPath) => `${domain}${urlPath}`).sort();
 if (JSON.stringify(sitemapUrls) !== JSON.stringify(expectedUrls)) fail(`sitemap does not match the ${sitemapPaths.length} indexable React routes`);
-for (const clinicPath of clinicPaths) {
-  if (sitemapUrls.includes(`${domain}${clinicPath}`)) fail(`${clinicPath}: noindex clinic route leaked into sitemap`);
+for (const noindexPath of [...clinicPaths, ...healthPaths]) {
+  if (sitemapUrls.includes(`${domain}${noindexPath}`)) fail(`${noindexPath}: noindex route leaked into sitemap`);
 }
 
 for (const required of ["admin/index.html", "admin/service-worker.js", "CNAME", "robots.txt"]) {

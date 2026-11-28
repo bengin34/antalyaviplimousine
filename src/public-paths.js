@@ -71,7 +71,6 @@ export const prerenderPaths = Object.freeze([
 
 export const sitemapPaths = Object.freeze([
   ...homePaths,
-  ...healthPaths,
   ...b2bPaths,
   ...landOfLegendsPaths,
   ...airportMapPaths,

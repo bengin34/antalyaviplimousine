@@ -393,8 +393,9 @@ export function healthMeta(language: IndexableLanguage) {
   return [
     { title: seo.title },
     { name: "description", content: seo.description },
+    // Unlinked demo (MEN-1150): out of the index until medical-tourism claims are approved.
+    { name: "robots", content: "noindex,nofollow" },
     { tagName: "link", rel: "canonical", href: url },
-    ...alternateDescriptors("health/"),
     ...socialDescriptors(seo.title, seo.description, url, seo.locale, image),
     {
       "script:ld+json": {
