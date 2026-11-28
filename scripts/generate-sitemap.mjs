@@ -78,7 +78,6 @@ const addGroup = (paths) => {
 };
 
 addGroup(Object.fromEntries(publicLanguages.map((language) => [language, `${languagePrefix(language)}/`])));
-addGroup(Object.fromEntries(publicLanguages.map((language) => [language, `${languagePrefix(language)}/health/`])));
 addGroup(Object.fromEntries(
   landOfLegendsLanguages.map((language) => [language, `${languagePrefix(language)}/land-of-legends/`]),
 ));

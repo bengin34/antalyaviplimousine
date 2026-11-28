@@ -24,8 +24,8 @@ export const meta = ({ loaderData, matches }: { loaderData?: ReturnType<typeof l
   const lang = id.replace("health-", "") || "en";
   const canonical = lang === "en" ? `${domain}/health/` : `${domain}/${lang}/health/`;
   return metas.map((m) =>
-    (m as Record<string, string>).tagName === "link" && (m as Record<string, string>).rel === "canonical"
-      ? { ...(m as object), href: canonical }
+    "rel" in m && m.rel === "canonical"
+      ? { ...m, href: canonical }
       : m,
   );
 };
